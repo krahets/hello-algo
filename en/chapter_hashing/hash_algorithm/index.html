@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1595,7 +1595,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1617,7 +1617,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1775,6 +1775,17 @@
     <span class="md-ellipsis">
       
         6.3.3 &nbsp; Common Hash Algorithms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#634-hash-values-in-data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.4 &nbsp; Hash Values in Data Structures
       
     </span>
   </a>
@@ -1971,7 +1982,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2190,7 +2201,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2218,7 +2229,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2576,7 +2587,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2604,7 +2615,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2660,7 +2671,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2809,7 +2820,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3282,7 +3293,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4194,7 +4205,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4341,6 +4352,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#634-hash-values-in-data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.4 &nbsp; Hash Values in Data Structures
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4384,13 +4406,13 @@
 <p><img alt="Ideal and worst cases of hash collisions" class="animation-figure" src="../hash_algorithm.assets/hash_collision_best_worst_condition.png" /></p>
 <p align="center"> Figure 6-8 &nbsp; Ideal and worst cases of hash collisions </p>
 
-<p><strong>The distribution of key-value pairs is determined by the hash function</strong>. Recalling the calculation steps of the hash function, first compute the hash value, then take the modulo by the array length:</p>
+<p><strong>The distribution of key-value pairs is determined by the hash function</strong>. Recall the steps of the hash function: first compute the hash value, then take it modulo the array length:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hash<span class="o">(</span>key<span class="o">)</span><span class="w"> </span>%<span class="w"> </span>capacity
 </code></pre></div>
 <p>Observing the above formula, when the hash table capacity <code>capacity</code> is fixed, <strong>the hash algorithm <code>hash()</code> determines the output value</strong>, thereby determining the distribution of key-value pairs in the hash table.</p>
 <p>This means that, to reduce the probability of hash collisions, we should focus on the design of the hash algorithm <code>hash()</code>.</p>
 <h2 id="631-goals-of-hash-algorithms">6.3.1 &nbsp; Goals of Hash Algorithms<a class="headerlink" href="#631-goals-of-hash-algorithms" title="Permanent link">&para;</a></h2>
-<p>To achieve a "fast and stable" hash table data structure, hash algorithms should have the following characteristics:</p>
+<p>To build a hash table that is both fast and robust, a hash algorithm should have the following properties:</p>
 <ul>
 <li><strong>Determinism</strong>: For the same input, the hash algorithm should always produce the same output. Only then can the hash table be reliable.</li>
 <li><strong>High efficiency</strong>: The process of computing the hash value should be fast enough. The smaller the computational overhead, the more practical the hash table.</li>
@@ -4401,7 +4423,7 @@
 <li><strong>Password storage</strong>: To protect the security of user passwords, systems usually do not store the plaintext passwords but rather the hash values of the passwords. When a user enters a password, the system calculates the hash value of the input and compares it with the stored hash value. If they match, the password is considered correct.</li>
 <li><strong>Data integrity check</strong>: The data sender can calculate the hash value of the data and send it along; the receiver can recalculate the hash value of the received data and compare it with the received hash value. If they match, the data is considered intact.</li>
 </ul>
-<p>For cryptographic applications, to prevent reverse engineering such as deducing the original password from the hash value, hash algorithms need higher-level security features.</p>
+<p>For cryptographic applications, hash algorithms need stronger security properties to prevent reverse engineering, such as inferring the original password from a hash value.</p>
 <ul>
 <li><strong>Unidirectionality</strong>: It should be impossible to deduce any information about the input data from the hash value.</li>
 <li><strong>Collision resistance</strong>: It should be extremely difficult to find two different inputs that produce the same hash value.</li>
@@ -4412,7 +4434,7 @@
 <p>The design of hash algorithms is a complex issue that requires consideration of many factors. However, for some less demanding scenarios, we can also design some simple hash algorithms.</p>
 <ul>
 <li><strong>Additive hash</strong>: Add up the ASCII codes of each character in the input and use the total sum as the hash value.</li>
-<li><strong>Multiplicative hash</strong>: Utilize the non-correlation of multiplication, multiplying each round by a constant, accumulating the ASCII codes of each character into the hash value.</li>
+<li><strong>Multiplicative hash</strong>: Leverage the low correlation introduced by multiplication: multiply by a constant at each step and accumulate the ASCII codes of the characters into the hash value.</li>
 <li><strong>XOR hash</strong>: Accumulate the hash value by XORing each element of the input data.</li>
 <li><strong>Rotating hash</strong>: Accumulate the ASCII code of each character into a hash value, performing a rotation operation on the hash value before each accumulation.</li>
 </ul>
@@ -4984,8 +5006,8 @@
 </div>
 </div>
 </div>
-<p>It is observed that the last step of each hash algorithm is to take the modulus of the large prime number <span class="arithmatex">\(1000000007\)</span> to ensure that the hash value is within an appropriate range. It is worth pondering why emphasis is placed on modulo a prime number, or what are the disadvantages of modulo a composite number? This is an interesting question.</p>
-<p>To conclude: <strong>Using a large prime number as the modulus can maximize the uniform distribution of hash values</strong>. Since a prime number does not share common factors with other numbers, it can reduce the periodic patterns caused by the modulo operation, thus avoiding hash collisions.</p>
+<p>We can observe that the final step of each hash algorithm is to take the result modulo the large prime <span class="arithmatex">\(1000000007\)</span>, ensuring that the hash value stays within a suitable range. This naturally raises a question: why emphasize using a prime modulus, and what are the drawbacks of using a composite modulus?</p>
+<p>In short: <strong>using a large prime as the modulus helps maximize the uniformity of hash values</strong>. Because a prime shares no common factors with other numbers, it can reduce periodic patterns introduced by the modulo operation and thus mitigate hash collisions.</p>
 <p>For example, suppose we choose the composite number <span class="arithmatex">\(9\)</span> as the modulus, which can be divided by <span class="arithmatex">\(3\)</span>, then all <code>key</code> divisible by <span class="arithmatex">\(3\)</span> will be mapped to hash values <span class="arithmatex">\(0\)</span>, <span class="arithmatex">\(3\)</span>, <span class="arithmatex">\(6\)</span>.</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -4994,7 +5016,7 @@
 \text{hash} &amp; = \{ 0, 3, 6, 0, 3, 6, 0, 3, 6, 0, 3, 6,\dots \}
 \end{aligned}
 \]</div>
-<p>If the input <code>key</code> happens to have this kind of arithmetic sequence distribution, then the hash values will cluster, thereby exacerbating hash collisions. Now, suppose we replace <code>modulus</code> with the prime number <span class="arithmatex">\(13\)</span>, since there are no common factors between <code>key</code> and <code>modulus</code>, the uniformity of the output hash values will be significantly improved.</p>
+<p>If the input <code>key</code> values happen to follow this kind of arithmetic progression, the hash values will cluster, worsening hash collisions. Now suppose we replace <code>modulus</code> with the prime number <span class="arithmatex">\(13\)</span>. Because <code>key</code> and <code>modulus</code> share no common factors, the output hash values become much more evenly distributed.</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \text{modulus} &amp; = 13 \newline
@@ -5005,7 +5027,7 @@
 <p>It is worth noting that if the <code>key</code> is guaranteed to be randomly and uniformly distributed, then choosing a prime number or a composite number as the modulus can both produce uniformly distributed hash values. However, when the distribution of <code>key</code> has some periodicity, modulo a composite number is more likely to result in clustering.</p>
 <p>In summary, we usually choose a prime number as the modulus, and this prime number should be large enough to eliminate periodic patterns as much as possible, enhancing the robustness of the hash algorithm.</p>
 <h2 id="633-common-hash-algorithms">6.3.3 &nbsp; Common Hash Algorithms<a class="headerlink" href="#633-common-hash-algorithms" title="Permanent link">&para;</a></h2>
-<p>It is not hard to see that the simple hash algorithms mentioned above are quite "fragile" and far from reaching the design goals of hash algorithms. For example, since addition and XOR obey the commutative law, additive hash and XOR hash cannot distinguish strings with the same content but in different order, which may exacerbate hash collisions and cause security issues.</p>
+<p>It is easy to see that the simple hash algorithms introduced above are fairly "fragile" and fall far short of the design goals of hash algorithms. For example, because addition and XOR are commutative, additive hash and XOR hash cannot distinguish strings with the same characters in a different order, which may worsen hash collisions and introduce security risks.</p>
 <p>In practice, we usually use some standard hash algorithms, such as MD5, SHA-1, SHA-2, and SHA-3. They can map input data of any length to a fixed-length hash value.</p>
 <p>Over the past century, hash algorithms have been in a continuous process of upgrading and optimization. Some researchers strive to improve the performance of hash algorithms, while others, including hackers, are dedicated to finding security issues in hash algorithms. Table 6-2 shows hash algorithms commonly used in practical applications.</p>
 <ul>
@@ -5065,13 +5087,13 @@
 </tbody>
 </table>
 </div>
-<h1 id="hash-values-in-data-structures">Hash Values in Data Structures<a class="headerlink" href="#hash-values-in-data-structures" title="Permanent link">&para;</a></h1>
-<p>We know that the keys in a hash table can be of various data types such as integers, decimals, or strings. Programming languages usually provide built-in hash algorithms for these data types to calculate the bucket indices in the hash table. Taking Python as an example, we can use the <code>hash()</code> function to compute the hash values for various data types.</p>
+<h2 id="634-hash-values-in-data-structures">6.3.4 &nbsp; Hash Values in Data Structures<a class="headerlink" href="#634-hash-values-in-data-structures" title="Permanent link">&para;</a></h2>
+<p>We know that hash table keys can be integers, floating-point numbers, strings, and other data types. Programming languages usually provide built-in hash algorithms for these types to compute bucket indices in a hash table. Taking Python as an example, we can call the <code>hash()</code> function to compute hash values for various data types.</p>
 <ul>
 <li>The hash values of integers and booleans are their own values.</li>
 <li>The calculation of hash values for floating-point numbers and strings is more complex, and interested readers are encouraged to study this on their own.</li>
-<li>The hash value of a tuple is a combination of the hash values of each of its elements, resulting in a single hash value.</li>
-<li>The hash value of an object is generated based on its memory address. By overriding the hash method of an object, hash values can be generated based on content.</li>
+<li>The hash value of a tuple is obtained by hashing each of its elements and combining those results into a single hash value.</li>
+<li>An object's hash value is typically generated from its memory address. By overriding the object's hash method, it can instead be generated from the object's contents.</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

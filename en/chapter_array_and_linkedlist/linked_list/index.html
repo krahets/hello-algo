@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1185,7 +1185,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1207,7 +1207,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1466,7 +1466,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1557,7 +1557,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1579,7 +1579,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1657,7 +1657,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1748,7 +1748,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1770,7 +1770,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -2043,7 +2043,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2262,7 +2262,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2290,7 +2290,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2648,7 +2648,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2676,7 +2676,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2732,7 +2732,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2881,7 +2881,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3354,7 +3354,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4266,7 +4266,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4523,9 +4523,9 @@
 
 <!-- Page content -->
 <h1 id="42-linked-list">4.2 &nbsp; Linked List<a class="headerlink" href="#42-linked-list" title="Permanent link">&para;</a></h1>
-<p>Memory space is a shared resource for all programs. In a complex system runtime environment, available memory space may be scattered throughout the memory. We know that the memory space for storing an array must be contiguous, and when the array is very large, the memory may not be able to provide such a large contiguous space. This is where the flexibility advantage of linked lists becomes apparent.</p>
+<p>Memory is a shared resource for all programs. In a complex runtime environment, free memory may be scattered throughout the address space. We know that arrays require contiguous memory, and when an array is very large, the system may not be able to provide such a large contiguous block. This is where the flexibility of linked lists becomes apparent.</p>
 <p>A <u>linked list</u> is a linear data structure in which each element is a node object, and the nodes are connected through "references". A reference records the memory address of the next node, through which the next node can be accessed from the current node.</p>
-<p>The design of linked lists allows nodes to be stored scattered throughout the memory, and their memory addresses do not need to be contiguous.</p>
+<p>This design allows linked-list nodes to be stored in different locations in memory, and their addresses do not need to be contiguous.</p>
 <p><img alt="Linked list definition and storage method" class="animation-figure" src="../linked_list.assets/linkedlist_definition.png" /></p>
 <p align="center"> Figure 4-5 &nbsp; Linked list definition and storage method </p>
 
@@ -4891,7 +4891,7 @@
 <p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%93%BE%E8%A1%A8%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%84%E4%B8%AA%E8%8A%82%E7%82%B9%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
 <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%93%BE%E8%A1%A8%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%84%E4%B8%AA%E8%8A%82%E7%82%B9%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen &gt;</a></div></p>
 </details>
-<p>An array is a single variable; for example, an array <code>nums</code> contains elements <code>nums[0]</code>, <code>nums[1]</code>, etc. A linked list, however, is composed of multiple independent node objects. <strong>We typically use the head node as the reference to the linked list</strong>; for example, the linked list in the above code can be referred to as linked list <code>n0</code>.</p>
+<p>An array is a single variable; for example, an array <code>nums</code> contains elements <code>nums[0]</code>, <code>nums[1]</code>, and so on. A linked list, by contrast, is composed of multiple independent node objects. <strong>We usually use the head node as a stand-in for the entire linked list</strong>; for example, the linked list in the above code can be referred to as linked list <code>n0</code>.</p>
 <h3 id="2-inserting-a-node">2. &nbsp; Inserting a Node<a class="headerlink" href="#2-inserting-a-node" title="Permanent link">&para;</a></h3>
 <p>Inserting a node in a linked list is very easy. As shown in Figure 4-6, suppose we want to insert a new node <code>P</code> between two adjacent nodes <code>n0</code> and <code>n1</code>. <strong>We only need to change two node references (pointers)</strong>, with a time complexity of <span class="arithmatex">\(O(1)\)</span>.</p>
 <p>In contrast, the time complexity of inserting an element in an array is <span class="arithmatex">\(O(n)\)</span>, which is inefficient when dealing with large amounts of data.</p>
@@ -5614,7 +5614,7 @@
 <h2 id="423-common-types-of-linked-lists">4.2.3 &nbsp; Common Types of Linked Lists<a class="headerlink" href="#423-common-types-of-linked-lists" title="Permanent link">&para;</a></h2>
 <p>As shown in Figure 4-8, there are three common types of linked lists:</p>
 <ul>
-<li><strong>Singly linked list</strong>: This is the ordinary linked list introduced earlier. The nodes of a singly linked list contain a value and a reference to the next node. We call the first node the head node and the last node the tail node, which points to null <code>None</code>.</li>
+<li><strong>Singly linked list</strong>: This is the ordinary linked list introduced earlier. The nodes of a singly linked list contain a value and a reference to the next node. We call the first node the head node and the last node the tail node; the tail node points to <code>None</code>.</li>
 <li><strong>Circular linked list</strong>: If we make the tail node of a singly linked list point to the head node (connecting the tail to the head), we get a circular linked list. In a circular linked list, any node can be viewed as the head node.</li>
 <li><strong>Doubly linked list</strong>: Compared to a singly linked list, a doubly linked list records references in both directions. The node definition of a doubly linked list includes references to both the successor node (next node) and the predecessor node (previous node). Compared to a singly linked list, a doubly linked list is more flexible and can traverse the linked list in both directions, but it also requires more memory space.</li>
 </ul>

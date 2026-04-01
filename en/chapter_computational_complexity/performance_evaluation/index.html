@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1255,7 +1255,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1277,7 +1277,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1383,7 +1383,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1474,7 +1474,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1496,7 +1496,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1574,7 +1574,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1665,7 +1665,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1687,7 +1687,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1960,7 +1960,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2179,7 +2179,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2207,7 +2207,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2565,7 +2565,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2593,7 +2593,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2649,7 +2649,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2798,7 +2798,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3271,7 +3271,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4183,7 +4183,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4370,12 +4370,12 @@
 <p>In short, <strong>our goal is to design data structures and algorithms that are "both fast and memory-efficient"</strong>. Effectively evaluating algorithm efficiency is crucial, because only in this way can we compare various algorithms and guide the algorithm design and optimization process.</p>
 <p>Efficiency evaluation methods are mainly divided into two types: actual testing and theoretical estimation.</p>
 <h2 id="211-actual-testing">2.1.1 &nbsp; Actual Testing<a class="headerlink" href="#211-actual-testing" title="Permanent link">&para;</a></h2>
-<p>Suppose we now have algorithm <code>A</code> and algorithm <code>B</code>, both of which can solve the same problem, and we need to compare the efficiency of these two algorithms. The most direct method is to find a computer, run these two algorithms, and monitor and record their running time and memory usage. This evaluation approach can reflect the real situation, but it also has considerable limitations.</p>
-<p>On one hand, <strong>it is difficult to eliminate interference factors from the testing environment</strong>. Hardware configuration affects the performance of algorithms. For example, if an algorithm has a high degree of parallelism, it is more suitable for running on multi-core CPUs; if an algorithm has intensive memory operations, it will perform better on high-performance memory. In other words, the test results of an algorithm on different machines may be inconsistent. This means we need to test on various machines and calculate average efficiency, which is impractical.</p>
+<p>Suppose we now have algorithm <code>A</code> and algorithm <code>B</code>, both of which can solve the same problem, and we need to compare their efficiency. The most direct method is to run them on a computer and measure their running time and memory usage. This evaluation approach can reflect real-world behavior, but it also has considerable limitations.</p>
+<p>On one hand, <strong>it is difficult to eliminate interference factors from the testing environment</strong>. Hardware configuration affects algorithmic performance. For example, if an algorithm has a high degree of parallelism, it is more suitable for running on multi-core CPUs; if an algorithm performs memory-intensive operations, it will benefit more from high-performance memory. In other words, the test results of an algorithm on different machines may be inconsistent. This means we need to test on various machines and calculate average efficiency, which is impractical.</p>
 <p>On the other hand, <strong>conducting complete testing is very resource-intensive</strong>. As the input data volume changes, the algorithm will exhibit different efficiencies. For example, when the input data volume is small, the running time of algorithm <code>A</code> is shorter than algorithm <code>B</code>; but when the input data volume is large, the test results may be exactly the opposite. Therefore, to obtain convincing conclusions, we need to test input data of various scales, which requires a large amount of computational resources.</p>
 <h2 id="212-theoretical-estimation">2.1.2 &nbsp; Theoretical Estimation<a class="headerlink" href="#212-theoretical-estimation" title="Permanent link">&para;</a></h2>
-<p>Since actual testing has considerable limitations, we can consider evaluating algorithm efficiency through calculations alone. This estimation method is called <u>asymptotic complexity analysis</u>, or <u>complexity analysis</u> for short.</p>
-<p>Complexity analysis can reflect the relationship between the time and space resources required for algorithm execution and the input data scale. <strong>It describes the growth trend of the time and space required for algorithm execution as the input data scale increases</strong>. This definition is somewhat convoluted, so we can break it down into three key points to understand.</p>
+<p>Since actual testing has considerable limitations, we can consider evaluating algorithm efficiency through theoretical calculation. This estimation method is called <u>asymptotic complexity analysis</u>, or <u>complexity analysis</u> for short.</p>
+<p>Complexity analysis can reflect the relationship between the time and space resources required for algorithm execution and the input data scale. <strong>It describes the growth trend of the time and space required for algorithm execution as the input data scale increases</strong>. This definition is a bit cumbersome, so we can break it down into three key points to understand.</p>
 <ul>
 <li>"Time and space resources" correspond to <u>time complexity</u> and <u>space complexity</u>, respectively.</li>
 <li>"As the input data scale increases" means that complexity reflects the relationship between algorithm running efficiency and input data scale.</li>
@@ -4392,8 +4392,8 @@
 <p>If you are still confused about the concept of complexity, don't worry—we will introduce it in detail in subsequent chapters.</p>
 </div>
 <p>Complexity analysis provides us with a "ruler" for evaluating algorithm efficiency, allowing us to measure the time and space resources required to execute a certain algorithm and compare the efficiency between different algorithms.</p>
-<p>Complexity is a mathematical concept that may be relatively abstract for beginners, with a relatively high learning difficulty. From this perspective, complexity analysis may not be very suitable as the first content to be introduced. However, when we discuss the characteristics of a certain data structure or algorithm, it is difficult to avoid analyzing its running speed and space usage.</p>
-<p>In summary, it is recommended that before diving deep into data structures and algorithms, <strong>you first establish a preliminary understanding of complexity analysis so that you can complete complexity analysis of simple algorithms</strong>.</p>
+<p>Complexity is a mathematical concept that may feel abstract and challenging for beginners. From this perspective, complexity analysis may not be the most suitable topic to introduce first. However, when we discuss the characteristics of a certain data structure or algorithm, it is difficult to avoid analyzing its running speed and space usage.</p>
+<p>In summary, it is recommended that before diving deep into data structures and algorithms, <strong>you first establish a preliminary understanding of complexity analysis so that you can analyze the complexity of simple algorithms</strong>.</p>
 
 <!-- Source file information -->
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1185,7 +1185,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1207,7 +1207,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1313,7 +1313,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1474,7 +1474,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1496,7 +1496,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1574,7 +1574,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1665,7 +1665,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1687,7 +1687,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1960,7 +1960,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2179,7 +2179,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2207,7 +2207,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2565,7 +2565,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2593,7 +2593,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2649,7 +2649,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2798,7 +2798,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3271,7 +3271,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4183,7 +4183,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4359,11 +4359,11 @@
 <h1 id="45-summary">4.5 &nbsp; Summary<a class="headerlink" href="#45-summary" title="Permanent link">&para;</a></h1>
 <h3 id="1-key-review">1. &nbsp; Key Review<a class="headerlink" href="#1-key-review" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Arrays and linked lists are two fundamental data structures, representing two different ways data can be stored in computer memory: contiguous memory storage and scattered memory storage. The characteristics of the two complement each other.</li>
+<li>Arrays and linked lists are two fundamental data structures, representing two different ways data can be stored in computer memory: contiguous storage and scattered storage. Their strengths and weaknesses complement each other.</li>
 <li>Arrays support random access and use less memory; however, inserting and deleting elements is inefficient, and the length is immutable after initialization.</li>
 <li>Linked lists achieve efficient insertion and deletion of nodes by modifying references (pointers), and can flexibly adjust length; however, node access is inefficient and memory consumption is higher. Common linked list types include singly linked lists, circular linked lists, and doubly linked lists.</li>
 <li>A list is an ordered collection of elements that supports insertion, deletion, search, and modification, typically implemented based on dynamic arrays. It retains the advantages of arrays while allowing flexible adjustment of length.</li>
-<li>The emergence of lists has greatly improved the practicality of arrays, but may result in some wasted memory space.</li>
+<li>The emergence of lists has greatly improved the practicality of arrays, but it may also waste some memory space.</li>
 <li>During program execution, data is primarily stored in memory. Arrays provide higher memory space efficiency, while linked lists offer greater flexibility in memory usage.</li>
 <li>Caches provide fast data access to the CPU through mechanisms such as cache lines, prefetching, and spatial and temporal locality, significantly improving program execution efficiency.</li>
 <li>Because arrays have higher cache hit rates, they are generally more efficient than linked lists. When choosing a data structure, appropriate selection should be made based on specific requirements and scenarios.</li>
@@ -4378,12 +4378,12 @@
 </ol>
 <p><strong>Q</strong>: Why do arrays require elements of the same type, while linked lists do not emphasize this requirement?</p>
 <p>Linked lists are composed of nodes, with nodes connected through references (pointers), and each node can store different types of data, such as <code>int</code>, <code>double</code>, <code>string</code>, <code>object</code>, etc.</p>
-<p>In contrast, array elements must be of the same type, so that the corresponding element position can be obtained by calculating the offset. For example, if an array contains both <code>int</code> and <code>long</code> types, with individual elements occupying 4 bytes and 8 bytes respectively, then the following formula cannot be used to calculate the offset, because the array contains two different "element lengths".</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Element Memory Address = Array Memory Address (first Element Memory address) + Element Length * Element Index</span>
+<p>In contrast, array elements must be of the same type so that their positions can be determined by calculating offsets. For example, if an array contains both <code>int</code> and <code>long</code> types, with individual elements occupying 4 bytes and 8 bytes respectively, then the following formula cannot be used to calculate the offset, because the array contains two different "element sizes".</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># element address = array base address (address of the first element) + element size * element index</span>
 </code></pre></div>
 <p><strong>Q</strong>: After deleting node <code>P</code>, do we need to set <code>P.next</code> to <code>None</code>?</p>
 <p>It is not necessary to modify <code>P.next</code>. From the perspective of the linked list, traversing from the head node to the tail node will no longer encounter <code>P</code>. This means that node <code>P</code> has been removed from the linked list, and it doesn't matter where node <code>P</code> points to at this time—it won't affect the linked list.</p>
-<p>From a data structures and algorithms perspective (problem-solving), not disconnecting the pointer doesn't matter as long as the program logic is correct. From the perspective of standard libraries, disconnecting is safer and the logic is clearer. If not disconnected, assuming the deleted node is not properly reclaimed, it may affect the memory reclamation of its successor nodes.</p>
+<p>From an algorithms-and-problem-solving perspective, leaving the pointer connected is fine as long as the program logic is correct. From a standard-library implementation perspective, explicitly disconnecting it is safer and clearer. If it is not disconnected and the deleted node is not reclaimed properly, it may affect the reclamation of successor nodes.</p>
 <p><strong>Q</strong>: In a linked list, the time complexity of insertion and deletion operations is <span class="arithmatex">\(O(1)\)</span>. However, both insertion and deletion require <span class="arithmatex">\(O(n)\)</span> time to find the element; why isn't the time complexity <span class="arithmatex">\(O(n)\)</span>?</p>
 <p>If the element is first found and then deleted, the time complexity is indeed <span class="arithmatex">\(O(n)\)</span>. However, the advantage of <span class="arithmatex">\(O(1)\)</span> insertion and deletion in linked lists can be demonstrated in other applications. For example, a deque is well-suited for linked list implementation, where we maintain pointer variables always pointing to the head and tail nodes, with each insertion and deletion operation being <span class="arithmatex">\(O(1)\)</span>.</p>
 <p><strong>Q</strong>: In the diagram "Linked List Definition and Storage Methods", does the light blue pointer node occupy a single memory address, or does it share equally with the node value?</p>
@@ -4410,8 +4410,8 @@
 <p>No, they are not independent. In this 2D list, all the <code>[0]</code> are actually references to the same object. If we modify one element, we will find that all corresponding elements change accordingly.</p>
 <p>If we want each <code>[0]</code> in the 2D list to be independent, we can use <code>res = [[0] for _ in range(n)]</code> to achieve this. The principle of this approach is to initialize <span class="arithmatex">\(n\)</span> independent <code>[0]</code> list objects.</p>
 <p><strong>Q</strong>: Does the operation <code>res = [0] * n</code> create a list where each integer 0 is independent?</p>
-<p>In this list, all integer 0s are references to the same object. This is because Python uses a caching mechanism for small integers (typically -5 to 256) to maximize object reuse and improve performance.</p>
-<p>Although they point to the same object, we can still independently modify each element in the list. This is because Python integers are "immutable objects". When we modify an element, we are actually switching to a reference of another object, rather than changing the original object itself.</p>
+<p>In this list, all the integer zeros reference the same object. This is because Python uses a caching mechanism for small integers (typically -5 to 256) to maximize object reuse and improve performance.</p>
+<p>Although they all reference the same object, we can still modify each element in the list independently. This is because Python integers are "immutable objects". When we modify an element, we actually switch that element to reference a different object, rather than changing the original object itself.</p>
 <p>However, when list elements are "mutable objects" (such as lists, dictionaries, or class instances), modifying an element directly changes the object itself, and all elements referencing that object will have the same change.</p>
 
 <!-- Source file information -->
@@ -4435,7 +4435,7 @@ aria-label="Footer"
   <a
     href="../ram_and_cache/"
     class="md-footer__link md-footer__link--prev"
-    aria-label="Previous: 4.4 Memory and Cache *"
+    aria-label="Previous: 4.4 Random-Access Memory and Cache *"
     rel="prev"
   >
     <div class="md-footer__button md-icon">
@@ -4447,7 +4447,7 @@ aria-label="Footer"
         Previous
       </span>
       <div class="md-ellipsis">
-        4.4 Memory and Cache *
+        4.4 Random-Access Memory and Cache *
       </div>
     </div>
   </a>
@@ -4459,7 +4459,7 @@ aria-label="Footer"
   <a
     href="../../chapter_stack_and_queue/"
     class="md-footer__link md-footer__link--next"
-    aria-label="Next: Chapter 5. &amp;nbsp; Stack and Queue"
+    aria-label="Next: Chapter 5. &amp;nbsp; Stacks and Queues"
     rel="next"
   >
     <div class="md-footer__title">
@@ -4467,7 +4467,7 @@ aria-label="Footer"
         Next
       </span>
       <div class="md-ellipsis">
-        Chapter 5. &nbsp; Stack and Queue
+        Chapter 5. &nbsp; Stacks and Queues
       </div>
     </div>
     <div class="md-footer__button md-icon">

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2726,7 +2726,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3199,7 +3199,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4205,7 +4205,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4401,18 +4401,18 @@
 
 <!-- Page content -->
 <h1 id="151-greedy-algorithm">15.1 &nbsp; Greedy Algorithm<a class="headerlink" href="#151-greedy-algorithm" title="Permanent link">&para;</a></h1>
-<p><u>Greedy algorithm</u> is a common algorithm for solving optimization problems. Its basic idea is to make the seemingly best choice at each decision stage of the problem, that is, to greedily make locally optimal decisions in hopes of obtaining a globally optimal solution. Greedy algorithms are simple and efficient, and are widely applied in many practical problems.</p>
+<p><u>Greedy algorithm</u> is a common approach to solving optimization problems. Its basic idea is to choose the option that appears best at each decision stage, that is, to greedily make locally optimal decisions in the hope of obtaining a globally optimal solution. Greedy algorithms are simple and efficient, and are widely used in many practical problems.</p>
 <p>Greedy algorithms and dynamic programming are both commonly used to solve optimization problems. They share some similarities, such as both relying on the optimal substructure property, but they work differently.</p>
 <ul>
 <li>Dynamic programming considers all previous decisions when making the current decision, and uses solutions to past subproblems to construct the solution to the current subproblem.</li>
 <li>Greedy algorithms do not consider past decisions, but instead make greedy choices moving forward, continually reducing the problem size until the problem is solved.</li>
 </ul>
-<p>We will first understand how greedy algorithms work through the example problem "coin change". This problem has already been introduced in the "Complete Knapsack Problem" chapter, so I believe you are not unfamiliar with it.</p>
+<p>We will first understand how greedy algorithms work through the example problem "coin change." This problem was already introduced in the "Complete Knapsack Problem" chapter, so it should already be familiar to you.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given <span class="arithmatex">\(n\)</span> types of coins, where the denomination of the <span class="arithmatex">\(i\)</span>-th type of coin is <span class="arithmatex">\(coins[i - 1]\)</span>, and the target amount is <span class="arithmatex">\(amt\)</span>, with each type of coin available for repeated selection, what is the minimum number of coins needed to make up the target amount? If it is impossible to make up the target amount, return <span class="arithmatex">\(-1\)</span>.</p>
+<p>Given <span class="arithmatex">\(n\)</span> types of coins, where the denomination of the <span class="arithmatex">\(i\)</span>-th type is <span class="arithmatex">\(coins[i - 1]\)</span>, a target amount <span class="arithmatex">\(amt\)</span>, and an unlimited number of coins of each type, what is the minimum number of coins needed to make up the target amount? If the target amount cannot be made up, return <span class="arithmatex">\(-1\)</span>.</p>
 </div>
-<p>The greedy strategy adopted for this problem is shown in Figure 15-1. Given a target amount, <strong>we greedily select the coin that is not greater than and closest to it</strong>, and continuously repeat this step until the target amount is reached.</p>
+<p>The greedy strategy for this problem is shown in Figure 15-1. Given a target amount, <strong>we greedily choose the coin that does not exceed it and is closest to it</strong>, repeating this step until the target amount is made up.</p>
 <p><img alt="Greedy strategy for coin change" class="animation-figure" src="../greedy_algorithm.assets/coin_change_greedy_strategy.png" /></p>
 <p align="center"> Figure 15-1 &nbsp; Greedy strategy for coin change </p>
 
@@ -4700,23 +4700,23 @@
 </div>
 </div>
 </div>
-<p>You might exclaim: So clean! The greedy algorithm solves the coin change problem in about ten lines of code.</p>
+<p>You may find yourself exclaiming, "So clean!" The greedy algorithm solves the coin change problem in only about ten lines of code.</p>
 <h2 id="1511-advantages-and-limitations-of-greedy-algorithms">15.1.1 &nbsp; Advantages and Limitations of Greedy Algorithms<a class="headerlink" href="#1511-advantages-and-limitations-of-greedy-algorithms" title="Permanent link">&para;</a></h2>
-<p><strong>Greedy algorithms are not only straightforward and simple to implement, but are also usually very efficient</strong>. In the code above, if the smallest coin denomination is <span class="arithmatex">\(\min(coins)\)</span>, the greedy choice loops at most <span class="arithmatex">\(amt / \min(coins)\)</span> times, giving a time complexity of <span class="arithmatex">\(O(amt / \min(coins))\)</span>. This is an order of magnitude smaller than the time complexity of the dynamic programming solution <span class="arithmatex">\(O(n \times amt)\)</span>.</p>
-<p>However, <strong>for certain coin denomination combinations, greedy algorithms cannot find the optimal solution</strong>. Figure 15-2 provides two examples.</p>
+<p><strong>Greedy algorithms are not only straightforward to apply and easy to implement, but are also usually very efficient</strong>. In the code above, if the smallest coin denomination is <span class="arithmatex">\(\min(coins)\)</span>, the greedy selection loop runs at most <span class="arithmatex">\(amt / \min(coins)\)</span> times, giving a time complexity of <span class="arithmatex">\(O(amt / \min(coins))\)</span>. This is an order of magnitude lower than the time complexity of the dynamic programming solution, <span class="arithmatex">\(O(n \times amt)\)</span>.</p>
+<p>However, <strong>for some coin denomination sets, greedy algorithms cannot find the optimal solution</strong>. Figure 15-2 shows two examples.</p>
 <ul>
-<li><strong>Positive example <span class="arithmatex">\(coins = [1, 5, 10, 20, 50, 100]\)</span></strong>: With this coin combination, given any <span class="arithmatex">\(amt\)</span>, the greedy algorithm can find the optimal solution.</li>
-<li><strong>Negative example <span class="arithmatex">\(coins = [1, 20, 50]\)</span></strong>: Suppose <span class="arithmatex">\(amt = 60\)</span>, the greedy algorithm can only find the combination <span class="arithmatex">\(50 + 1 \times 10\)</span>, totaling <span class="arithmatex">\(11\)</span> coins, but dynamic programming can find the optimal solution <span class="arithmatex">\(20 + 20 + 20\)</span>, requiring only <span class="arithmatex">\(3\)</span> coins.</li>
-<li><strong>Negative example <span class="arithmatex">\(coins = [1, 49, 50]\)</span></strong>: Suppose <span class="arithmatex">\(amt = 98\)</span>, the greedy algorithm can only find the combination <span class="arithmatex">\(50 + 1 \times 48\)</span>, totaling <span class="arithmatex">\(49\)</span> coins, but dynamic programming can find the optimal solution <span class="arithmatex">\(49 + 49\)</span>, requiring only <span class="arithmatex">\(2\)</span> coins.</li>
+<li><strong>Positive example <span class="arithmatex">\(coins = [1, 5, 10, 20, 50, 100]\)</span></strong>: With this coin set, the greedy algorithm can find the optimal solution for any <span class="arithmatex">\(amt\)</span>.</li>
+<li><strong>Counterexample <span class="arithmatex">\(coins = [1, 20, 50]\)</span></strong>: Suppose <span class="arithmatex">\(amt = 60\)</span>. The greedy algorithm can only find the combination <span class="arithmatex">\(50 + 1 \times 10\)</span>, using <span class="arithmatex">\(11\)</span> coins in total, whereas dynamic programming can find the optimal solution <span class="arithmatex">\(20 + 20 + 20\)</span> using only <span class="arithmatex">\(3\)</span> coins.</li>
+<li><strong>Counterexample <span class="arithmatex">\(coins = [1, 49, 50]\)</span></strong>: Suppose <span class="arithmatex">\(amt = 98\)</span>. The greedy algorithm can only find the combination <span class="arithmatex">\(50 + 1 \times 48\)</span>, using <span class="arithmatex">\(49\)</span> coins in total, whereas dynamic programming can find the optimal solution <span class="arithmatex">\(49 + 49\)</span> using only <span class="arithmatex">\(2\)</span> coins.</li>
 </ul>
 <p><img alt="Examples where greedy algorithms cannot find the optimal solution" class="animation-figure" src="../greedy_algorithm.assets/coin_change_greedy_vs_dp.png" /></p>
 <p align="center"> Figure 15-2 &nbsp; Examples where greedy algorithms cannot find the optimal solution </p>
 
-<p>In other words, for the coin change problem, greedy algorithms cannot guarantee finding the global optimal solution, and may even find very poor solutions. It is better suited for solving with dynamic programming.</p>
-<p>Generally, the applicability of greedy algorithms falls into the following two situations.</p>
+<p>In other words, for the coin change problem, greedy algorithms cannot guarantee a globally optimal solution and may even produce very poor results. This problem is better solved with dynamic programming.</p>
+<p>In general, greedy algorithms are applicable in the following two situations.</p>
 <ol>
-<li><strong>Can guarantee finding the optimal solution</strong>: In this situation, greedy algorithms are often the best choice, because they tend to be more efficient than backtracking and dynamic programming.</li>
-<li><strong>Can find an approximate optimal solution</strong>: Greedy algorithms are also applicable in this situation. For many complex problems, finding the global optimal solution is very difficult, and being able to find a suboptimal solution with high efficiency is also very good.</li>
+<li><strong>The optimal solution can be guaranteed</strong>: In this case, greedy algorithms are often the best choice because they tend to be more efficient than backtracking and dynamic programming.</li>
+<li><strong>An approximately optimal solution can be found</strong>: Greedy algorithms are also useful in this case. For many complex problems, finding the global optimal solution is very difficult, so efficiently finding a suboptimal solution is already a very good outcome.</li>
 </ol>
 <h2 id="1512-characteristics-of-greedy-algorithms">15.1.2 &nbsp; Characteristics of Greedy Algorithms<a class="headerlink" href="#1512-characteristics-of-greedy-algorithms" title="Permanent link">&para;</a></h2>
 <p>So the question arises: what kind of problems are suitable for solving with greedy algorithms? Or in other words, under what conditions can greedy algorithms guarantee finding the optimal solution?</p>
@@ -4727,26 +4727,26 @@
 </ul>
 <p>Optimal substructure has already been introduced in the "Dynamic Programming" chapter, so we won't elaborate on it here. It's worth noting that the optimal substructure of some problems is not obvious, but they can still be solved using greedy algorithms.</p>
 <p>We mainly explore methods for determining the greedy choice property. Although its description seems relatively simple, <strong>in practice, for many problems, proving the greedy choice property is not easy</strong>.</p>
-<p>For example, in the coin change problem, although we can easily provide counterexamples to disprove the greedy choice property, proving it is quite difficult. If asked: <strong>what conditions must a coin combination satisfy to be solvable using a greedy algorithm</strong>? We often can only rely on intuition or examples to give an ambiguous answer, and find it difficult to provide a rigorous mathematical proof.</p>
+<p>For example, in the coin change problem, although we can easily provide counterexamples to disprove the greedy choice property, proving that it holds is much harder. If asked, <strong>under what conditions can a coin set be solved using a greedy algorithm</strong>? We often can only rely on intuition or examples to give a vague answer, and it is difficult to provide a rigorous mathematical proof.</p>
 <div class="admonition quote">
 <p class="admonition-title">Quote</p>
-<p>There is a paper that presents an algorithm with <span class="arithmatex">\(O(n^3)\)</span> time complexity for determining whether a coin combination can use a greedy algorithm to find the optimal solution for any amount.</p>
+<p>There is a paper that presents an <span class="arithmatex">\(O(n^3)\)</span> algorithm for determining whether a coin set can be solved optimally by a greedy algorithm for any amount.</p>
 <p>Pearson, D. A polynomial-time algorithm for the change-making problem[J]. Operations Research Letters, 2005, 33(3): 231-234.</p>
 </div>
 <h2 id="1513-steps-for-solving-problems-with-greedy-algorithms">15.1.3 &nbsp; Steps for Solving Problems with Greedy Algorithms<a class="headerlink" href="#1513-steps-for-solving-problems-with-greedy-algorithms" title="Permanent link">&para;</a></h2>
-<p>The problem-solving process for greedy problems can generally be divided into the following three steps.</p>
+<p>The general process for solving greedy problems can be divided into the following three steps.</p>
 <ol>
-<li><strong>Problem analysis</strong>: Sort out and understand the problem characteristics, including state definition, optimization objectives, and constraints, etc. This step is also involved in backtracking and dynamic programming.</li>
-<li><strong>Determine the greedy strategy</strong>: Determine how to make greedy choices at each step. This strategy should be able to reduce the problem size at each step, ultimately solving the entire problem.</li>
-<li><strong>Correctness proof</strong>: It is usually necessary to prove that the problem has both greedy choice property and optimal substructure. This step may require mathematical proofs, such as mathematical induction or proof by contradiction.</li>
+<li><strong>Problem analysis</strong>: Sort out and understand the characteristics of the problem, including state definitions, optimization objectives, and constraints. This step also appears in backtracking and dynamic programming.</li>
+<li><strong>Determine the greedy strategy</strong>: Decide how to make a greedy choice at each step. This strategy should reduce the problem size step by step and ultimately solve the entire problem.</li>
+<li><strong>Correctness proof</strong>: It is usually necessary to prove that the problem has both greedy choice property and optimal substructure. This step may require mathematical tools such as induction or proof by contradiction.</li>
 </ol>
-<p>Determining the greedy strategy is the core step in solving the problem, but it may not be easy to implement, mainly for the following reasons.</p>
+<p>Determining the greedy strategy is the core step in solving such problems, but it may not be easy in practice, mainly for the following reasons.</p>
 <ul>
-<li><strong>Greedy strategies differ greatly between different problems</strong>. For many problems, the greedy strategy is relatively straightforward, and we can derive it through some general thinking and attempts. However, for some complex problems, the greedy strategy may be very elusive, which really tests one's problem-solving experience and algorithmic ability.</li>
-<li><strong>Some greedy strategies are highly misleading</strong>. When we confidently design a greedy strategy, write the solution code and submit it for testing, we may find that some test cases cannot pass. This is because the designed greedy strategy is only "partially correct", as exemplified by the coin change problem discussed above.</li>
+<li><strong>Greedy strategies vary greatly from problem to problem</strong>. For many problems, the greedy strategy is fairly intuitive and can be derived through rough reasoning and experimentation. For some complex problems, however, the greedy strategy may be deeply hidden, which strongly tests one's problem-solving experience and algorithmic ability.</li>
+<li><strong>Some greedy strategies are highly deceptive</strong>. We may confidently design a greedy strategy, write the solution code, and submit it, only to find that some test cases fail. This is because the designed greedy strategy is only "partially correct," as exemplified by the coin change problem discussed above.</li>
 </ul>
-<p>To ensure correctness, we should rigorously mathematically prove the greedy strategy, <strong>usually using proof by contradiction or mathematical induction</strong>.</p>
-<p>However, correctness proofs may also not be easy. If we have no clue, we usually choose to debug the code based on test cases, step by step modifying and verifying the greedy strategy.</p>
+<p>To ensure correctness, we should give a rigorous mathematical proof of the greedy strategy, <strong>usually using proof by contradiction or mathematical induction</strong>.</p>
+<p>However, correctness proofs can also be difficult. If we have no clear direction, we usually resort to debugging against test cases, revising and validating the greedy strategy step by step.</p>
 <h2 id="1514-typical-problems-solved-by-greedy-algorithms">15.1.4 &nbsp; Typical Problems Solved by Greedy Algorithms<a class="headerlink" href="#1514-typical-problems-solved-by-greedy-algorithms" title="Permanent link">&para;</a></h2>
 <p>Greedy algorithms are often applied to optimization problems that satisfy greedy choice property and optimal substructure. Below are some typical greedy algorithm problems.</p>
 <ul>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2240,7 +2240,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2268,7 +2268,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2626,7 +2626,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2654,7 +2654,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2710,7 +2710,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2859,7 +2859,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3332,7 +3332,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4244,7 +4244,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4494,7 +4494,7 @@
 <li>For max heaps (min heaps), the value of the heap top element (root node) is the largest (smallest).</li>
 </ul>
 <h2 id="811-common-heap-operations">8.1.1 &nbsp; Common Heap Operations<a class="headerlink" href="#811-common-heap-operations" title="Permanent link">&para;</a></h2>
-<p>It should be noted that many programming languages provide a <u>priority queue</u>, which is an abstract data structure defined as a queue with priority sorting.</p>
+<p>It should be noted that many programming languages provide a <u>priority queue</u>, an abstract data structure defined as a queue whose elements are ordered by priority.</p>
 <p>In fact, <strong>heaps are typically used to implement priority queues, with max heaps corresponding to priority queues where elements are dequeued in descending order</strong>. From a usage perspective, we can regard "priority queue" and "heap" as equivalent data structures. Therefore, this book does not make a special distinction between the two and uniformly refers to them as "heap."</p>
 <p>Common heap operations are shown in Table 8-1, and method names need to be determined based on the programming language.</p>
 <p align="center"> Table 8-1 &nbsp; Efficiency of Heap Operations </p>
@@ -4896,10 +4896,10 @@
 <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20heapq%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%B0%8F%E9%A1%B6%E5%A0%86%0A%20%20%20%20min_heap,%20flag%20%3D%20%5B%5D,%201%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%A4%A7%E9%A1%B6%E5%A0%86%0A%20%20%20%20max_heap,%20flag%20%3D%20%5B%5D,%20-1%0A%20%20%20%20%0A%20%20%20%20%23%20Python%20%E7%9A%84%20heapq%20%E6%A8%A1%E5%9D%97%E9%BB%98%E8%AE%A4%E5%AE%9E%E7%8E%B0%E5%B0%8F%E9%A1%B6%E5%A0%86%0A%20%20%20%20%23%20%E8%80%83%E8%99%91%E5%B0%86%E2%80%9C%E5%85%83%E7%B4%A0%E5%8F%96%E8%B4%9F%E2%80%9D%E5%90%8E%E5%86%8D%E5%85%A5%E5%A0%86%EF%BC%8C%E8%BF%99%E6%A0%B7%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%B0%86%E5%A4%A7%E5%B0%8F%E5%85%B3%E7%B3%BB%E9%A2%A0%E5%80%92%EF%BC%8C%E4%BB%8E%E8%80%8C%E5%AE%9E%E7%8E%B0%E5%A4%A7%E9%A1%B6%E5%A0%86%0A%20%20%20%20%23%20%E5%9C%A8%E6%9C%AC%E7%A4%BA%E4%BE%8B%E4%B8%AD%EF%BC%8Cflag%20%3D%201%20%E6%97%B6%E5%AF%B9%E5%BA%94%E5%B0%8F%E9%A1%B6%E5%A0%86%EF%BC%8Cflag%20%3D%20-1%20%E6%97%B6%E5%AF%B9%E5%BA%94%E5%A4%A7%E9%A1%B6%E5%A0%86%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E5%A0%86%0A%20%20%20%20heapq.heappush%28max_heap,%20flag%20*%201%29%0A%20%20%20%20heapq.heappush%28max_heap,%20flag%20*%203%29%0A%20%20%20%20heapq.heappush%28max_heap,%20flag%20*%202%29%0A%20%20%20%20heapq.heappush%28max_heap,%20flag%20*%205%29%0A%20%20%20%20heapq.heappush%28max_heap,%20flag%20*%204%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E5%A0%86%E9%A1%B6%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20flag%20*%20max_heap%5B0%5D%20%23%205%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%A0%86%E9%A1%B6%E5%85%83%E7%B4%A0%E5%87%BA%E5%A0%86%0A%20%20%20%20%23%20%E5%87%BA%E5%A0%86%E5%85%83%E7%B4%A0%E4%BC%9A%E5%BD%A2%E6%88%90%E4%B8%80%E4%B8%AA%E4%BB%8E%E5%A4%A7%E5%88%B0%E5%B0%8F%E7%9A%84%E5%BA%8F%E5%88%97%0A%20%20%20%20val%20%3D%20flag%20*%20heapq.heappop%28max_heap%29%20%23%205%0A%20%20%20%20val%20%3D%20flag%20*%20heapq.heappop%28max_heap%29%20%23%204%0A%20%20%20%20val%20%3D%20flag%20*%20heapq.heappop%28max_heap%29%20%23%203%0A%20%20%20%20val%20%3D%20flag%20*%20heapq.heappop%28max_heap%29%20%23%202%0A%20%20%20%20val%20%3D%20flag%20*%20heapq.heappop%28max_heap%29%20%23%201%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E5%A0%86%E5%A4%A7%E5%B0%8F%0A%20%20%20%20size%20%3D%20len%28max_heap%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E5%A0%86%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20not%20max_heap%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%BE%93%E5%85%A5%E5%88%97%E8%A1%A8%E5%B9%B6%E5%BB%BA%E5%A0%86%0A%20%20%20%20min_heap%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20heapq.heapify%28min_heap%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen &gt;</a></div></p>
 </details>
 <h2 id="812-implementation-of-the-heap">8.1.2 &nbsp; Implementation of the Heap<a class="headerlink" href="#812-implementation-of-the-heap" title="Permanent link">&para;</a></h2>
-<p>The following implementation is of a max heap. To convert it to a min heap, simply invert all size logic comparisons (for example, replace <span class="arithmatex">\(\geq\)</span> with <span class="arithmatex">\(\leq\)</span>). Interested readers are encouraged to implement this on their own.</p>
+<p>The following implementation is for a max heap. To convert it to a min heap, simply reverse all comparison logic related to ordering (for example, replace <span class="arithmatex">\(\geq\)</span> with <span class="arithmatex">\(\leq\)</span>). Interested readers are encouraged to implement this on their own.</p>
 <h3 id="1-heap-storage-and-representation">1. &nbsp; Heap Storage and Representation<a class="headerlink" href="#1-heap-storage-and-representation" title="Permanent link">&para;</a></h3>
 <p>As mentioned in the "Binary Tree" chapter, complete binary trees are well-suited for array representation. Since heaps are a type of complete binary tree, <strong>we will use arrays to store heaps</strong>.</p>
-<p>When representing a binary tree with an array, elements represent node values, and indexes represent node positions in the binary tree. <strong>Node pointers are implemented through index mapping formulas</strong>.</p>
+<p>When representing a binary tree with an array, elements represent node values, and indexes represent node positions in the binary tree. <strong>Parent-child relationships are represented through index-mapping formulas</strong>.</p>
 <p>As shown in Figure 8-2, given an index <span class="arithmatex">\(i\)</span>, the index of its left child is <span class="arithmatex">\(2i + 1\)</span>, the index of its right child is <span class="arithmatex">\(2i + 2\)</span>, and the index of its parent is <span class="arithmatex">\((i - 1) / 2\)</span> (floor division). When an index is out of bounds, it indicates a null node or that the node does not exist.</p>
 <p><img alt="Representation and storage of heaps" class="animation-figure" src="../heap.assets/representation_of_heap.png" /></p>
 <p align="center"> Figure 8-2 &nbsp; Representation and storage of heaps </p>
@@ -5225,8 +5225,8 @@
 </div>
 </div>
 <h3 id="3-inserting-an-element-into-the-heap">3. &nbsp; Inserting an Element Into the Heap<a class="headerlink" href="#3-inserting-an-element-into-the-heap" title="Permanent link">&para;</a></h3>
-<p>Given an element <code>val</code>, we first add it to the bottom of the heap. After addition, since <code>val</code> may be larger than other elements in the heap, the heap's property may be violated. <strong>Therefore, it's necessary to repair the path from the inserted node to the root node</strong>. This operation is called <u>heapify</u>.</p>
-<p>Starting from the inserted node, <strong>perform heapify from bottom to top</strong>. As shown in Figure 8-3, we compare the inserted node with its parent node, and if the inserted node is larger, swap them. Then continue this operation, repairing nodes in the heap from bottom to top until we pass the root node or encounter a node that does not need swapping.</p>
+<p>Given an element <code>val</code>, we first add it to the bottom of the heap. After insertion, because <code>val</code> may be larger than other elements in the heap, the heap property may be violated. <strong>Therefore, we need to restore the heap property along the path from the inserted node to the root</strong>. This operation is called <u>heapify</u>.</p>
+<p>Starting from the inserted node, <strong>perform heapify from bottom to top</strong>. As shown in Figure 8-3, we compare the inserted node with its parent, and if the inserted node is larger, we swap them. We continue this process from bottom to top until we move past the root or reach a node that no longer needs to be swapped.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:9"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label><label for="__tabbed_4_5">&lt;5&gt;</label><label for="__tabbed_4_6">&lt;6&gt;</label><label for="__tabbed_4_7">&lt;7&gt;</label><label for="__tabbed_4_8">&lt;8&gt;</label><label for="__tabbed_4_9">&lt;9&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6135,9 +6135,9 @@
 </div>
 <h2 id="813-common-applications-of-heaps">8.1.3 &nbsp; Common Applications of Heaps<a class="headerlink" href="#813-common-applications-of-heaps" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Priority queue</strong>: Heaps are typically the preferred data structure for implementing priority queues, with both enqueue and dequeue operations having a time complexity of <span class="arithmatex">\(O(\log n)\)</span>, and the heap construction operation having <span class="arithmatex">\(O(n)\)</span>, all of which are highly efficient.</li>
+<li><strong>Priority queue</strong>: Heaps are typically the preferred data structure for implementing priority queues. The time complexity of both enqueue and dequeue operations is <span class="arithmatex">\(O(\log n)\)</span>, and heap construction has a time complexity of <span class="arithmatex">\(O(n)\)</span>, making these operations highly efficient.</li>
 <li><strong>Heap sort</strong>: Given a set of data, we can build a heap with them and then continuously perform element removal operations to obtain sorted data. However, we usually use a more elegant approach to implement heap sort, as detailed in the "Heap Sort" chapter.</li>
-<li><strong>Getting the largest <span class="arithmatex">\(k\)</span> elements</strong>: This is a classic algorithm problem and also a typical application, such as selecting the top 10 trending news for Weibo hot search, selecting the top 10 best-selling products, etc.</li>
+<li><strong>Getting the largest <span class="arithmatex">\(k\)</span> elements</strong>: This is a classic algorithm problem and also a typical application, such as selecting the top 10 trending news items for Weibo Hot Search or the top 10 best-selling products.</li>
 </ul>
 
 <!-- Source file information -->
@@ -6185,7 +6185,7 @@ aria-label="Footer"
   <a
     href="../build_heap/"
     class="md-footer__link md-footer__link--next"
-    aria-label="Next: 8.2 Building a Heap"
+    aria-label="Next: 8.2 Heap Construction Operation"
     rel="next"
   >
     <div class="md-footer__title">
@@ -6193,7 +6193,7 @@ aria-label="Footer"
         Next
       </span>
       <div class="md-ellipsis">
-        8.2 Building a Heap
+        8.2 Heap Construction Operation
       </div>
     </div>
     <div class="md-footer__button md-icon">

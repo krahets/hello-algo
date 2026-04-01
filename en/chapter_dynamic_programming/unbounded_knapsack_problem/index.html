@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2726,7 +2726,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3199,7 +3199,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -3832,12 +3832,12 @@
   <a href="#1453-coin-change-problem-ii" class="md-nav__link">
     <span class="md-ellipsis">
       
-        14.5.3 &nbsp; Coin Change Problem Ii
+        14.5.3 &nbsp; Coin Change Problem II
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="14.5.3 Coin Change Problem Ii">
+    <nav class="md-nav" aria-label="14.5.3 Coin Change Problem II">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4311,7 +4311,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4529,12 +4529,12 @@
   <a href="#1453-coin-change-problem-ii" class="md-nav__link">
     <span class="md-ellipsis">
       
-        14.5.3 &nbsp; Coin Change Problem Ii
+        14.5.3 &nbsp; Coin Change Problem II
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="14.5.3 Coin Change Problem Ii">
+    <nav class="md-nav" aria-label="14.5.3 Coin Change Problem II">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5300,7 +5300,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i, c - wgt[i-1]] + val[i-1])
 <p>This problem differs from the unbounded knapsack problem in the following two aspects regarding the state transition equation.</p>
 <ul>
 <li>This problem seeks the minimum value, so the operator <span class="arithmatex">\(\max()\)</span> needs to be changed to <span class="arithmatex">\(\min()\)</span>.</li>
-<li>The optimization target is the number of coins rather than item value, so when a coin is selected, simply execute <span class="arithmatex">\(+1\)</span>.</li>
+<li>The optimization target is the number of coins rather than item value, so when a coin is selected, simply add <span class="arithmatex">\(1\)</span>.</li>
 </ul>
 <div class="arithmatex">\[
 dp[i, a] = \min(dp[i-1, a], dp[i, a - coins[i-1]] + 1)
@@ -5309,7 +5309,7 @@ dp[i, a] = \min(dp[i-1, a], dp[i, a - coins[i-1]] + 1)
 <p>When the target amount is <span class="arithmatex">\(0\)</span>, the minimum number of coins needed to make it up is <span class="arithmatex">\(0\)</span>, so all <span class="arithmatex">\(dp[i, 0]\)</span> in the first column equal <span class="arithmatex">\(0\)</span>.</p>
 <p>When there are no coins, <strong>it is impossible to make up any amount <span class="arithmatex">\(&gt; 0\)</span></strong>, which is an invalid solution. To enable the <span class="arithmatex">\(\min()\)</span> function in the state transition equation to identify and filter out invalid solutions, we consider using <span class="arithmatex">\(+ \infty\)</span> to represent them, i.e., set all <span class="arithmatex">\(dp[0, a]\)</span> in the first row to <span class="arithmatex">\(+ \infty\)</span>.</p>
 <h3 id="2-code-implementation_1">2. &nbsp; Code Implementation<a class="headerlink" href="#2-code-implementation_1" title="Permanent link">&para;</a></h3>
-<p>Most programming languages do not provide a <span class="arithmatex">\(+ \infty\)</span> variable, and can only use the maximum value of integer type <code>int</code> as a substitute. However, this can lead to large number overflow: the <span class="arithmatex">\(+ 1\)</span> operation in the state transition equation may cause overflow.</p>
+<p>Most programming languages do not provide a <span class="arithmatex">\(+ \infty\)</span> variable, and can only use the maximum value of integer type <code>int</code> as a substitute. However, this can lead to integer overflow: the <span class="arithmatex">\(+ 1\)</span> operation in the state transition equation may cause overflow.</p>
 <p>For this reason, we use the number <span class="arithmatex">\(amt + 1\)</span> to represent invalid solutions, because the maximum number of coins needed to make up <span class="arithmatex">\(amt\)</span> is at most <span class="arithmatex">\(amt\)</span>. Before returning, check whether <span class="arithmatex">\(dp[n, amt]\)</span> equals <span class="arithmatex">\(amt + 1\)</span>; if so, return <span class="arithmatex">\(-1\)</span>, indicating that the target amount cannot be made up. The code is as follows:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:13"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><input id="__tabbed_4_13" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Java</label><label for="__tabbed_4_4">C#</label><label for="__tabbed_4_5">Go</label><label for="__tabbed_4_6">Swift</label><label for="__tabbed_4_7">JS</label><label for="__tabbed_4_8">TS</label><label for="__tabbed_4_9">Dart</label><label for="__tabbed_4_10">Rust</label><label for="__tabbed_4_11">C</label><label for="__tabbed_4_12">Kotlin</label><label for="__tabbed_4_13">Ruby</label></div>
 <div class="tabbed-content">
@@ -6071,7 +6071,7 @@ dp[i, a] = \min(dp[i-1, a], dp[i, a - coins[i-1]] + 1)
 </div>
 </div>
 </div>
-<h2 id="1453-coin-change-problem-ii">14.5.3 &nbsp; Coin Change Problem Ii<a class="headerlink" href="#1453-coin-change-problem-ii" title="Permanent link">&para;</a></h2>
+<h2 id="1453-coin-change-problem-ii">14.5.3 &nbsp; Coin Change Problem II<a class="headerlink" href="#1453-coin-change-problem-ii" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>Given <span class="arithmatex">\(n\)</span> types of coins, where the denomination of the <span class="arithmatex">\(i\)</span>-th type of coin is <span class="arithmatex">\(coins[i - 1]\)</span>, and the target amount is <span class="arithmatex">\(amt\)</span>. Each type of coin can be selected multiple times. <strong>What is the number of coin combinations that can make up the target amount?</strong> An example is shown in Figure 14-26.</p>

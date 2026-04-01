@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1899,7 +1899,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -1917,7 +1917,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2190,7 +2190,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2218,7 +2218,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2576,7 +2576,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2604,7 +2604,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2660,7 +2660,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2809,7 +2809,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3282,7 +3282,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4194,7 +4194,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4379,7 +4379,7 @@
 
 <!-- Page content -->
 <h1 id="73-array-representation-of-binary-trees">7.3 &nbsp; Array Representation of Binary Trees<a class="headerlink" href="#73-array-representation-of-binary-trees" title="Permanent link">&para;</a></h1>
-<p>Under the linked list representation, the storage unit of a binary tree is a node <code>TreeNode</code>, and nodes are connected by pointers. The previous section introduced the basic operations of binary trees under the linked list representation.</p>
+<p>In the linked-list representation, the storage unit of a binary tree is a node <code>TreeNode</code>, and nodes are connected by pointers. The previous section introduced the basic operations of binary trees in this representation.</p>
 <p>So, can we use an array to represent a binary tree? The answer is yes.</p>
 <h2 id="731-representing-perfect-binary-trees">7.3.1 &nbsp; Representing Perfect Binary Trees<a class="headerlink" href="#731-representing-perfect-binary-trees" title="Permanent link">&para;</a></h2>
 <p>Let's analyze a simple case first. Given a perfect binary tree, we store all nodes in an array according to the order of level-order traversal, where each node corresponds to a unique array index.</p>
@@ -4394,7 +4394,7 @@
 <p><img alt="Level-order traversal sequence corresponds to multiple binary tree possibilities" class="animation-figure" src="../array_representation_of_tree.assets/array_representation_without_empty.png" /></p>
 <p align="center"> Figure 7-13 &nbsp; Level-order traversal sequence corresponds to multiple binary tree possibilities </p>
 
-<p>To solve this problem, <strong>we can consider explicitly writing out all <code>None</code> values in the level-order traversal sequence</strong>. As shown in Figure 7-14, after this treatment, the level-order traversal sequence can uniquely represent a binary tree. Example code is as follows:</p>
+<p>To solve this problem, <strong>we can explicitly write out all <code>None</code> values in the level-order traversal sequence</strong>. As shown in Figure 7-14, once we do this, the level-order traversal sequence can uniquely represent a binary tree. Example code is as follows:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4477,17 +4477,17 @@
 </div>
 </div>
 </div>
-<p><img alt="Array representation of any type of binary tree" class="animation-figure" src="../array_representation_of_tree.assets/array_representation_with_empty.png" /></p>
-<p align="center"> Figure 7-14 &nbsp; Array representation of any type of binary tree </p>
+<p><img alt="Array representation of an arbitrary binary tree" class="animation-figure" src="../array_representation_of_tree.assets/array_representation_with_empty.png" /></p>
+<p align="center"> Figure 7-14 &nbsp; Array representation of an arbitrary binary tree </p>
 
 <p>It's worth noting that <strong>complete binary trees are very well-suited for array representation</strong>. Recalling the definition of a complete binary tree, <code>None</code> only appears at the bottom level and towards the right, <strong>meaning all <code>None</code> values must appear at the end of the level-order traversal sequence</strong>.</p>
 <p>This means that when using an array to represent a complete binary tree, it's possible to omit storing all <code>None</code> values, which is very convenient. Figure 7-15 gives an example.</p>
 <p><img alt="Array representation of a complete binary tree" class="animation-figure" src="../array_representation_of_tree.assets/array_representation_complete_binary_tree.png" /></p>
 <p align="center"> Figure 7-15 &nbsp; Array representation of a complete binary tree </p>
 
-<p>The following code implements a binary tree based on array representation, including the following operations:</p>
+<p>The following code implements a binary tree using an array representation, including the following operations:</p>
 <ul>
-<li>Given a certain node, obtain its value, left (right) child node, and parent node.</li>
+<li>Given a node, obtain its value, left (right) child node, and parent node.</li>
 <li>Obtain the preorder, inorder, postorder, and level-order traversal sequences.</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><input id="__tabbed_2_13" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>

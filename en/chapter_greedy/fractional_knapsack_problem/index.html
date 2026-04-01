@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2726,7 +2726,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3199,7 +3199,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4194,7 +4194,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4381,13 +4381,13 @@
 <h1 id="152-fractional-knapsack-problem">15.2 &nbsp; Fractional Knapsack Problem<a class="headerlink" href="#152-fractional-knapsack-problem" title="Permanent link">&para;</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given <span class="arithmatex">\(n\)</span> items, where the weight of the <span class="arithmatex">\(i\)</span>-th item is <span class="arithmatex">\(wgt[i-1]\)</span> and its value is <span class="arithmatex">\(val[i-1]\)</span>, and a knapsack with capacity <span class="arithmatex">\(cap\)</span>. Each item can be selected only once, <strong>but a portion of an item can be selected, with the value calculated based on the proportion of weight selected</strong>, what is the maximum value of items in the knapsack under the limited capacity? An example is shown in Figure 15-3.</p>
+<p>Given <span class="arithmatex">\(n\)</span> items, where the weight of the <span class="arithmatex">\(i\)</span>-th item is <span class="arithmatex">\(wgt[i-1]\)</span> and its value is <span class="arithmatex">\(val[i-1]\)</span>, and a knapsack with capacity <span class="arithmatex">\(cap\)</span>. Each item can be selected only once, <strong>but a fraction of an item may be selected, with its value proportional to the selected weight</strong>. What is the maximum total value that can be placed in the knapsack under the capacity constraint? An example is shown in Figure 15-3.</p>
 </div>
 <p><img alt="Example data for the fractional knapsack problem" class="animation-figure" src="../fractional_knapsack_problem.assets/fractional_knapsack_example.png" /></p>
 <p align="center"> Figure 15-3 &nbsp; Example data for the fractional knapsack problem </p>
 
 <p>The fractional knapsack problem is very similar overall to the 0-1 knapsack problem, with states including the current item <span class="arithmatex">\(i\)</span> and capacity <span class="arithmatex">\(c\)</span>, and the goal being to maximize value under the limited knapsack capacity.</p>
-<p>The difference is that this problem allows selecting only a portion of an item. As shown in Figure 15-4, <strong>we can arbitrarily split items and calculate the corresponding value based on the weight proportion</strong>.</p>
+<p>The difference is that this problem allows selecting only a fraction of an item. As shown in Figure 15-4, <strong>we can split an item arbitrarily and compute its value in proportion to the selected weight</strong>.</p>
 <ol>
 <li>For item <span class="arithmatex">\(i\)</span>, its value per unit weight is <span class="arithmatex">\(val[i-1] / wgt[i-1]\)</span>, referred to as unit value.</li>
 <li>Suppose we put a portion of item <span class="arithmatex">\(i\)</span> with weight <span class="arithmatex">\(w\)</span> into the knapsack, then the value added to the knapsack is <span class="arithmatex">\(w \times val[i-1] / wgt[i-1]\)</span>.</li>
@@ -4396,7 +4396,7 @@
 <p align="center"> Figure 15-4 &nbsp; Value of items per unit weight </p>
 
 <h3 id="1-greedy-strategy-determination">1. &nbsp; Greedy Strategy Determination<a class="headerlink" href="#1-greedy-strategy-determination" title="Permanent link">&para;</a></h3>
-<p>Maximizing the total value of items in the knapsack <strong>is essentially maximizing the value per unit weight of items</strong>. From this, we can derive the greedy strategy shown in Figure 15-5.</p>
+<p>Maximizing the total value in the knapsack <strong>essentially means prioritizing items with higher value per unit weight</strong>. From this observation, we can derive the greedy strategy shown in Figure 15-5.</p>
 <ol>
 <li>Sort items by unit value from high to low.</li>
 <li>Iterate through all items, <strong>greedily selecting the item with the highest unit value in each round</strong>.</li>
@@ -4406,7 +4406,7 @@
 <p align="center"> Figure 15-5 &nbsp; Greedy strategy for the fractional knapsack problem </p>
 
 <h3 id="2-code-implementation">2. &nbsp; Code Implementation<a class="headerlink" href="#2-code-implementation" title="Permanent link">&para;</a></h3>
-<p>We created an <code>Item</code> class to facilitate sorting items by unit value. We loop to make greedy selections, breaking when the knapsack is full and returning the solution:</p>
+<p>We define an <code>Item</code> class so that items can be sorted by unit value. We then iterate through the sorted items greedily, stopping once the knapsack is full and returning the result:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4877,14 +4877,14 @@
 </div>
 </div>
 </div>
-<p>The time complexity of built-in sorting algorithms is usually <span class="arithmatex">\(O(\log n)\)</span>, and the space complexity is usually <span class="arithmatex">\(O(\log n)\)</span> or <span class="arithmatex">\(O(n)\)</span>, depending on the specific implementation of the programming language.</p>
+<p>Built-in sorting algorithms usually take <span class="arithmatex">\(O(n \log n)\)</span> time, and their space complexity is usually <span class="arithmatex">\(O(\log n)\)</span> or <span class="arithmatex">\(O(n)\)</span>, depending on the specific implementation of the programming language.</p>
 <p>Apart from sorting, in the worst case the entire item list needs to be traversed, <strong>therefore the time complexity is <span class="arithmatex">\(O(n)\)</span></strong>, where <span class="arithmatex">\(n\)</span> is the number of items.</p>
 <p>Since an <code>Item</code> object list is initialized, <strong>the space complexity is <span class="arithmatex">\(O(n)\)</span></strong>.</p>
 <h3 id="3-correctness-proof">3. &nbsp; Correctness Proof<a class="headerlink" href="#3-correctness-proof" title="Permanent link">&para;</a></h3>
-<p>Using proof by contradiction. Suppose item <span class="arithmatex">\(x\)</span> has the highest unit value, and some algorithm yields a maximum value of <code>res</code>, but this solution does not include item <span class="arithmatex">\(x\)</span>.</p>
-<p>Now remove a unit weight of any item from the knapsack and replace it with a unit weight of item <span class="arithmatex">\(x\)</span>. Since item <span class="arithmatex">\(x\)</span> has the highest unit value, the total value after replacement will definitely be greater than <code>res</code>. <strong>This contradicts the assumption that <code>res</code> is the optimal solution, proving that the optimal solution must include item <span class="arithmatex">\(x\)</span></strong>.</p>
-<p>For other items in this solution, we can also construct the above contradiction. In summary, <strong>items with greater unit value are always better choices</strong>, which proves that the greedy strategy is effective.</p>
-<p>As shown in Figure 15-6, if we view item weight and item unit value as the horizontal and vertical axes of a two-dimensional chart respectively, then the fractional knapsack problem can be transformed into "finding the maximum area enclosed within a limited horizontal axis range". This analogy can help us understand the effectiveness of the greedy strategy from a geometric perspective.</p>
+<p>We use proof by contradiction. Suppose item <span class="arithmatex">\(x\)</span> has the highest unit value, and some algorithm produces an optimal value <code>res</code>, but the resulting solution does not include item <span class="arithmatex">\(x\)</span>.</p>
+<p>Now remove one unit of weight from any item in the knapsack and replace it with one unit of weight from item <span class="arithmatex">\(x\)</span>. Since item <span class="arithmatex">\(x\)</span> has the highest unit value, the total value after the replacement must be greater than <code>res</code>. <strong>This contradicts the assumption that <code>res</code> is optimal, proving that any optimal solution must include item <span class="arithmatex">\(x\)</span></strong>.</p>
+<p>We can construct the same contradiction for the other items in the solution as well. In summary, <strong>items with higher unit value are always the better choice</strong>, which proves that the greedy strategy is effective.</p>
+<p>As shown in Figure 15-6, if we treat item weight and unit value as the horizontal and vertical axes of a two-dimensional chart, then the fractional knapsack problem can be viewed as "finding the maximum area enclosed within a bounded interval on the horizontal axis." This analogy helps explain the effectiveness of the greedy strategy from a geometric perspective.</p>
 <p><img alt="Geometric representation of the fractional knapsack problem" class="animation-figure" src="../fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" /></p>
 <p align="center"> Figure 15-6 &nbsp; Geometric representation of the fractional knapsack problem </p>
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -2016,7 +2016,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2235,7 +2235,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2263,7 +2263,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2621,7 +2621,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2649,7 +2649,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2705,7 +2705,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2854,7 +2854,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3327,7 +3327,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4239,7 +4239,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4473,7 +4473,7 @@
 <p>The common traversal methods for binary trees include level-order traversal, pre-order traversal, in-order traversal, and post-order traversal.</p>
 <h2 id="721-level-order-traversal">7.2.1 &nbsp; Level-Order Traversal<a class="headerlink" href="#721-level-order-traversal" title="Permanent link">&para;</a></h2>
 <p>As shown in Figure 7-9, <u>level-order traversal</u> traverses the binary tree from top to bottom, layer by layer. Within each level, it visits nodes from left to right.</p>
-<p>Level-order traversal is essentially <u>breadth-first traversal</u>, also known as <u>breadth-first search (BFS)</u>, which embodies a "expanding outward circle by circle" layer-by-layer traversal method.</p>
+<p>Level-order traversal is essentially <u>breadth-first traversal</u>, also known as <u>breadth-first search (BFS)</u>, which proceeds outward level by level.</p>
 <p><img alt="Level-order traversal of a binary tree" class="animation-figure" src="../binary_tree_traversal.assets/binary_tree_bfs.png" /></p>
 <p align="center"> Figure 7-9 &nbsp; Level-order traversal of a binary tree </p>
 
@@ -4775,7 +4775,7 @@
 <li><strong>Space complexity is <span class="arithmatex">\(O(n)\)</span></strong>: In the worst case, i.e., a full binary tree, before traversing to the bottom level, the queue contains at most <span class="arithmatex">\((n + 1) / 2\)</span> nodes simultaneously, occupying <span class="arithmatex">\(O(n)\)</span> space.</li>
 </ul>
 <h2 id="722-preorder-inorder-and-postorder-traversal">7.2.2 &nbsp; Preorder, Inorder, and Postorder Traversal<a class="headerlink" href="#722-preorder-inorder-and-postorder-traversal" title="Permanent link">&para;</a></h2>
-<p>Correspondingly, preorder, inorder, and postorder traversals all belong to <u>depth-first traversal</u>, also known as <u>depth-first search (DFS)</u>, which embodies a "first go to the end, then backtrack and continue" traversal method.</p>
+<p>Correspondingly, preorder, inorder, and postorder traversals all belong to <u>depth-first traversal</u>, also known as <u>depth-first search (DFS)</u>, which goes as deep as possible before backtracking.</p>
 <p>Figure 7-10 shows how depth-first traversal works on a binary tree. <strong>Depth-first traversal is like "walking" around the perimeter of the entire binary tree</strong>, encountering three positions at each node, corresponding to preorder, inorder, and postorder traversal.</p>
 <p><img alt="Preorder, inorder, and postorder traversal of a binary tree" class="animation-figure" src="../binary_tree_traversal.assets/binary_tree_dfs.png" /></p>
 <p align="center"> Figure 7-10 &nbsp; Preorder, inorder, and postorder traversal of a binary tree </p>
@@ -5223,12 +5223,12 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Depth-first search can also be implemented based on iteration, interested readers can study this on their own.</p>
+<p>Depth-first search can also be implemented iteratively, and interested readers can explore this on their own.</p>
 </div>
-<p>Figure 7-11 shows the recursive process of preorder traversal of a binary tree, which can be divided into two opposite parts: "recursion" and "return".</p>
+<p>Figure 7-11 shows the recursive process of preorder traversal of a binary tree, which can be divided into two opposite phases: "descending" and "returning".</p>
 <ol>
-<li>"Recursion" means opening a new method, where the program accesses the next node in this process.</li>
-<li>"Return" means the function returns, indicating that the current node has been fully visited.</li>
+<li>"Descending" means making a new recursive call, during which the program visits the next node.</li>
+<li>"Returning" means the function call returns, indicating that the current node has been fully processed.</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:11"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">&lt;1&gt;</label><label for="__tabbed_3_2">&lt;2&gt;</label><label for="__tabbed_3_3">&lt;3&gt;</label><label for="__tabbed_3_4">&lt;4&gt;</label><label for="__tabbed_3_5">&lt;5&gt;</label><label for="__tabbed_3_6">&lt;6&gt;</label><label for="__tabbed_3_7">&lt;7&gt;</label><label for="__tabbed_3_8">&lt;8&gt;</label><label for="__tabbed_3_9">&lt;9&gt;</label><label for="__tabbed_3_10">&lt;10&gt;</label><label for="__tabbed_3_11">&lt;11&gt;</label></div>
 <div class="tabbed-content">
@@ -5320,7 +5320,7 @@ aria-label="Footer"
   <a
     href="../array_representation_of_tree/"
     class="md-footer__link md-footer__link--next"
-    aria-label="Next: 7.3 Array Representation of Tree"
+    aria-label="Next: 7.3 Array Representation of Binary Trees"
     rel="next"
   >
     <div class="md-footer__title">
@@ -5328,7 +5328,7 @@ aria-label="Footer"
         Next
       </span>
       <div class="md-ellipsis">
-        7.3 Array Representation of Tree
+        7.3 Array Representation of Binary Trees
       </div>
     </div>
     <div class="md-footer__button md-icon">

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2726,7 +2726,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3199,7 +3199,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -3460,10 +3460,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-reference-to-full-permutation-solution" class="md-nav__link">
+  <a href="#1-using-the-permutation-solution-as-a-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. &nbsp; Reference to Full Permutation Solution
+        1. &nbsp; Using the Permutation Solution as a Reference
       
     </span>
   </a>
@@ -4250,7 +4250,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4377,10 +4377,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-reference-to-full-permutation-solution" class="md-nav__link">
+  <a href="#1-using-the-permutation-solution-as-a-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. &nbsp; Reference to Full Permutation Solution
+        1. &nbsp; Using the Permutation Solution as a Reference
       
     </span>
   </a>
@@ -4501,9 +4501,9 @@
 <li>Elements in the input set can be selected repeatedly without limit.</li>
 <li>Subsets do not distinguish element order; for example, <span class="arithmatex">\(\{4, 5\}\)</span> and <span class="arithmatex">\(\{5, 4\}\)</span> are the same subset.</li>
 </ul>
-<h3 id="1-reference-to-full-permutation-solution">1. &nbsp; Reference to Full Permutation Solution<a class="headerlink" href="#1-reference-to-full-permutation-solution" title="Permanent link">&para;</a></h3>
-<p>Similar to the full permutation problem, we can imagine the process of generating subsets as a series of choices, and update the "sum of elements" in real-time during the selection process. When the sum equals <code>target</code>, we record the subset to the result list.</p>
-<p>Unlike the full permutation problem, <strong>elements in this problem's set can be selected unlimited times</strong>, so we do not need to use a <code>selected</code> boolean list to track whether an element has been selected. We can make minor modifications to the full permutation code and initially obtain the solution:</p>
+<h3 id="1-using-the-permutation-solution-as-a-reference">1. &nbsp; Using the Permutation Solution as a Reference<a class="headerlink" href="#1-using-the-permutation-solution-as-a-reference" title="Permanent link">&para;</a></h3>
+<p>Similar to the permutation problem, we can view the process of generating subsets as the result of a series of choices and update the running sum during the selection process. When the sum equals <code>target</code>, we record the subset in the result list.</p>
+<p>Unlike the permutation problem, <strong>elements in this problem can be selected any number of times</strong>, so we do not need to use a <code>selected</code> boolean list to track whether an element has already been selected. With a few small changes to the permutation code, we obtain an initial solution:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4962,7 +4962,7 @@
 </div>
 </div>
 </div>
-<p>When we input array <span class="arithmatex">\([3, 4, 5]\)</span> and target element <span class="arithmatex">\(9\)</span> to the above code, the output is <span class="arithmatex">\([3, 3, 3], [4, 5], [5, 4]\)</span>. <strong>Although we successfully find all subsets that sum to <span class="arithmatex">\(9\)</span>, there are duplicate subsets <span class="arithmatex">\([4, 5]\)</span> and <span class="arithmatex">\([5, 4]\)</span></strong>.</p>
+<p>Running the above code on array <span class="arithmatex">\([3, 4, 5]\)</span> with target value <span class="arithmatex">\(9\)</span> produces <span class="arithmatex">\([3, 3, 3], [4, 5], [5, 4]\)</span>. <strong>Although we successfully found all subsets that sum to <span class="arithmatex">\(9\)</span>, there are duplicate subsets <span class="arithmatex">\([4, 5]\)</span> and <span class="arithmatex">\([5, 4]\)</span></strong>.</p>
 <p>This is because the search process distinguishes the order of selections, but subsets do not distinguish selection order. As shown in Figure 13-10, selecting 4 first and then 5 versus selecting 5 first and then 4 are different branches, but they correspond to the same subset.</p>
 <p><img alt="Subset search and boundary pruning" class="animation-figure" src="../subset_sum_problem.assets/subset_sum_i_naive.png" /></p>
 <p align="center"> Figure 13-10 &nbsp; Subset search and boundary pruning </p>
@@ -4976,13 +4976,13 @@
 <p><strong>We consider deduplication through pruning during the search process</strong>. Observing Figure 13-11, duplicate subsets occur when array elements are selected in different orders, as in the following cases:</p>
 <ol>
 <li>When the first and second rounds select <span class="arithmatex">\(3\)</span> and <span class="arithmatex">\(4\)</span> respectively, all subsets containing these two elements are generated, denoted as <span class="arithmatex">\([3, 4, \dots]\)</span>.</li>
-<li>Afterward, when the first round selects <span class="arithmatex">\(4\)</span>, <strong>the second round should skip <span class="arithmatex">\(3\)</span></strong>, because the subset <span class="arithmatex">\([4, 3, \dots]\)</span> generated by this choice is completely duplicate with the subset generated in step <code>1.</code></li>
+<li>Afterward, when the first round selects <span class="arithmatex">\(4\)</span>, <strong>the second round should skip <span class="arithmatex">\(3\)</span></strong>, because the subset <span class="arithmatex">\([4, 3, \dots]\)</span> generated by this choice is an exact duplicate of the subset generated in step <code>1.</code></li>
 </ol>
 <p>In the search process, each level's choices are tried from left to right, so the rightmost branches are pruned more.</p>
 <ol>
 <li>The first two rounds select <span class="arithmatex">\(3\)</span> and <span class="arithmatex">\(5\)</span>, generating subset <span class="arithmatex">\([3, 5, \dots]\)</span>.</li>
 <li>The first two rounds select <span class="arithmatex">\(4\)</span> and <span class="arithmatex">\(5\)</span>, generating subset <span class="arithmatex">\([4, 5, \dots]\)</span>.</li>
-<li>If the first round selects <span class="arithmatex">\(5\)</span>, <strong>the second round should skip <span class="arithmatex">\(3\)</span> and <span class="arithmatex">\(4\)</span></strong>, because subsets <span class="arithmatex">\([5, 3, \dots]\)</span> and <span class="arithmatex">\([5, 4, \dots]\)</span> are completely duplicate with the subsets described in steps <code>1.</code> and <code>2.</code></li>
+<li>If the first round selects <span class="arithmatex">\(5\)</span>, <strong>the second round should skip <span class="arithmatex">\(3\)</span> and <span class="arithmatex">\(4\)</span></strong>, because subsets <span class="arithmatex">\([5, 3, \dots]\)</span> and <span class="arithmatex">\([5, 4, \dots]\)</span> are exact duplicates of the subsets described in steps <code>1.</code> and <code>2.</code></li>
 </ol>
 <p><img alt="Different selection orders leading to duplicate subsets" class="animation-figure" src="../subset_sum_problem.assets/subset_sum_i_pruning.png" /></p>
 <p align="center"> Figure 13-11 &nbsp; Different selection orders leading to duplicate subsets </p>
@@ -5488,7 +5488,7 @@
 </div>
 </div>
 </div>
-<p>Figure 13-12 shows the complete backtracking process when array <span class="arithmatex">\([3, 4, 5]\)</span> and target element <span class="arithmatex">\(9\)</span> are input to the above code.</p>
+<p>Figure 13-12 shows the complete backtracking process produced by running the above code on array <span class="arithmatex">\([3, 4, 5]\)</span> with target value <span class="arithmatex">\(9\)</span>.</p>
 <p><img alt="Subset-sum I backtracking process" class="animation-figure" src="../subset_sum_problem.assets/subset_sum_i.png" /></p>
 <p align="center"> Figure 13-12 &nbsp; Subset-sum I backtracking process </p>
 
@@ -5497,13 +5497,13 @@
 <p class="admonition-title">Question</p>
 <p>Given a positive integer array <code>nums</code> and a target positive integer <code>target</code>, find all possible combinations where the sum of elements in the combination equals <code>target</code>. <strong>The given array may contain duplicate elements, and each element can be selected at most once</strong>. Return these combinations in list form, where the list should not contain duplicate combinations.</p>
 </div>
-<p>Compared to the previous problem, <strong>the input array in this problem may contain duplicate elements</strong>, which introduces new challenges. For example, given array <span class="arithmatex">\([4, \hat{4}, 5]\)</span> and target element <span class="arithmatex">\(9\)</span>, the output of the existing code is <span class="arithmatex">\([4, 5], [\hat{4}, 5]\)</span>, which contains duplicate subsets.</p>
+<p>Compared to the previous problem, <strong>the input array in this problem may contain duplicate elements</strong>, which introduces a new issue. For example, given array <span class="arithmatex">\([4, \hat{4}, 5]\)</span> and target value <span class="arithmatex">\(9\)</span>, the output of the existing code is <span class="arithmatex">\([4, 5], [\hat{4}, 5]\)</span>, which contains duplicate subsets.</p>
 <p><strong>The reason for this duplication is that equal elements are selected multiple times in a certain round</strong>. In Figure 13-13, the first round has three choices, two of which are <span class="arithmatex">\(4\)</span>, creating two duplicate search branches that output duplicate subsets. Similarly, the two <span class="arithmatex">\(4\)</span>'s in the second round also produce duplicate subsets.</p>
 <p><img alt="Duplicate subsets caused by equal elements" class="animation-figure" src="../subset_sum_problem.assets/subset_sum_ii_repeat.png" /></p>
 <p align="center"> Figure 13-13 &nbsp; Duplicate subsets caused by equal elements </p>
 
 <h3 id="1-pruning-equal-elements">1. &nbsp; Pruning Equal Elements<a class="headerlink" href="#1-pruning-equal-elements" title="Permanent link">&para;</a></h3>
-<p>To solve this problem, <strong>we need to limit equal elements to be selected only once in each round</strong>. The implementation is quite clever: since the array is already sorted, equal elements are adjacent. This means that in a certain round of selection, if the current element equals the element to its left, it means this element has already been selected, so we skip the current element directly.</p>
+<p>To solve this problem, <strong>we need to limit equal elements to be selected only once in each round</strong>. The implementation is quite clever: since the array is already sorted, equal elements are adjacent. This means that in a given round of selection, if the current element equals the element to its left, then the same value has already been chosen in this round, so we skip the current element directly.</p>
 <p>At the same time, <strong>this problem specifies that each array element can only be selected once</strong>. Fortunately, we can also use the variable <code>start</code> to satisfy this constraint: after making choice <span class="arithmatex">\(x_{i}\)</span>, set the next round to start traversal from index <span class="arithmatex">\(i + 1\)</span> onwards. This both eliminates duplicate subsets and avoids selecting elements multiple times.</p>
 <h3 id="2-code-implementation">2. &nbsp; Code Implementation<a class="headerlink" href="#2-code-implementation" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:13"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><input id="__tabbed_3_13" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Kotlin</label><label for="__tabbed_3_13">Ruby</label></div>
@@ -6062,7 +6062,7 @@
 </div>
 </div>
 </div>
-<p>Figure 13-14 shows the backtracking process for array <span class="arithmatex">\([4, 4, 5]\)</span> and target element <span class="arithmatex">\(9\)</span>, which includes four types of pruning operations. Combine the illustration with the code comments to understand the entire search process and how each pruning operation works.</p>
+<p>Figure 13-14 shows the backtracking process for array <span class="arithmatex">\([4, 4, 5]\)</span> with target value <span class="arithmatex">\(9\)</span>, which includes four types of pruning operations. Combine the illustration with the code comments to understand the entire search process and how each pruning operation works.</p>
 <p><img alt="Subset-sum II backtracking process" class="animation-figure" src="../subset_sum_problem.assets/subset_sum_ii.png" /></p>
 <p align="center"> Figure 13-14 &nbsp; Subset-sum II backtracking process </p>
 

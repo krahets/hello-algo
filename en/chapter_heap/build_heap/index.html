@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2118,7 +2118,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2136,7 +2136,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2218,7 +2218,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2576,7 +2576,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2604,7 +2604,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2660,7 +2660,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2809,7 +2809,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3282,7 +3282,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4194,7 +4194,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4381,7 +4381,7 @@
 <h1 id="82-heap-construction-operation">8.2 &nbsp; Heap Construction Operation<a class="headerlink" href="#82-heap-construction-operation" title="Permanent link">&para;</a></h1>
 <p>In some cases, we want to build a heap using all elements of a list, and this process is called "heap construction operation."</p>
 <h2 id="821-implementing-with-element-insertion">8.2.1 &nbsp; Implementing with Element Insertion<a class="headerlink" href="#821-implementing-with-element-insertion" title="Permanent link">&para;</a></h2>
-<p>We first create an empty heap, then iterate through the list, performing the "element insertion operation" on each element in sequence. This means adding the element to the bottom of the heap and then performing "bottom-to-top" heapify on that element.</p>
+<p>We first create an empty heap, then iterate through the list, performing the "element insertion operation" on each element in sequence. This means appending the element to the end of the heap and then performing "bottom-to-top" heapify on that element.</p>
 <p>Each time an element is inserted into the heap, the heap's length increases by one. Since nodes are added to the binary tree sequentially from top to bottom, the heap is constructed "from top to bottom."</p>
 <p>Given <span class="arithmatex">\(n\)</span> elements, each element's insertion operation takes <span class="arithmatex">\(O(\log{n})\)</span> time, so the time complexity of this heap construction method is <span class="arithmatex">\(O(n \log n)\)</span>.</p>
 <h2 id="822-implementing-through-heapify-traversal">8.2.2 &nbsp; Implementing Through Heapify Traversal<a class="headerlink" href="#822-implementing-through-heapify-traversal" title="Permanent link">&para;</a></h2>
@@ -4391,8 +4391,8 @@
 <li>Traverse the heap in reverse order (reverse of level-order traversal), performing "top-to-bottom heapify" on each non-leaf node in sequence.</li>
 </ol>
 <p><strong>After heapifying a node, the subtree rooted at that node becomes a valid sub-heap</strong>. Since we traverse in reverse order, the heap is constructed "from bottom to top."</p>
-<p>The reason for choosing reverse order traversal is that it ensures the subtree below the current node is already a valid sub-heap, making the heapification of the current node effective.</p>
-<p>It's worth noting that <strong>since leaf nodes have no children, they are naturally valid sub-heaps and do not require heapification</strong>. As shown in the code below, the last non-leaf node is the parent of the last node; we start from it and traverse in reverse order to perform heapification:</p>
+<p>The reason for choosing reverse-order traversal is that it ensures the subtrees beneath the current node are already valid sub-heaps, so heapifying the current node is effective.</p>
+<p>It's worth noting that <strong>since leaf nodes have no children, they are naturally valid sub-heaps and do not require heapification</strong>. As shown in the code below, the last non-leaf node is the parent of the last node; we start from that node and heapify while traversing in reverse order:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4670,25 +4670,25 @@
 <p>Next, let's attempt to derive the time complexity of this second heap construction method.</p>
 <ul>
 <li>Assuming the complete binary tree has <span class="arithmatex">\(n\)</span> nodes, then the number of leaf nodes is <span class="arithmatex">\((n + 1) / 2\)</span>, where <span class="arithmatex">\(/\)</span> is floor division. Therefore, the number of nodes that need heapification is <span class="arithmatex">\((n - 1) / 2\)</span>.</li>
-<li>In the top-to-bottom heapify process, each node is heapified at most to the leaf nodes, so the maximum number of iterations is the binary tree height <span class="arithmatex">\(\log n\)</span>.</li>
+<li>In the top-to-bottom heapify process, each node can sink at most to a leaf node, so the maximum number of iterations is the height of the binary tree, <span class="arithmatex">\(\log n\)</span>.</li>
 </ul>
 <p>Multiplying these two together, we get a time complexity of <span class="arithmatex">\(O(n \log n)\)</span> for the heap construction process. <strong>However, this estimate is not accurate because it doesn't account for the property that binary trees have far more nodes at lower levels than at upper levels</strong>.</p>
-<p>Let's perform a more accurate calculation. To reduce calculation difficulty, assume a "perfect binary tree" with <span class="arithmatex">\(n\)</span> nodes and height <span class="arithmatex">\(h\)</span>; this assumption does not affect the correctness of the result.</p>
+<p>Let's perform a more accurate calculation. To simplify the analysis, assume a "perfect binary tree" with <span class="arithmatex">\(n\)</span> nodes and height <span class="arithmatex">\(h\)</span>; this assumption does not affect the correctness of the result.</p>
 <p><img alt="Node count at each level of a perfect binary tree" class="animation-figure" src="../build_heap.assets/heapify_operations_count.png" /></p>
 <p align="center"> Figure 8-5 &nbsp; Node count at each level of a perfect binary tree </p>
 
-<p>As shown in Figure 8-5, the maximum number of iterations for a node's "top-to-bottom heapify" equals the distance from that node to the leaf nodes, which is precisely the "node height." Therefore, we can sum the "number of nodes <span class="arithmatex">\(\times\)</span> node height" at each level to <strong>obtain the total number of heapify iterations for all nodes</strong>.</p>
+<p>As shown in Figure 8-5, the maximum number of iterations for a node's "top-to-bottom heapify" equals the distance from that node to a leaf node, which is precisely the node's height. Therefore, we can sum the "number of nodes <span class="arithmatex">\(\times\)</span> node height" at each level to <strong>obtain the total number of heapify iterations for all nodes</strong>.</p>
 <div class="arithmatex">\[
 T(h) = 2^0h + 2^1(h-1) + 2^2(h-2) + \dots + 2^{(h-1)}\times1
 \]</div>
-<p>To simplify the above expression, we need to use sequence knowledge from high school. First, multiply <span class="arithmatex">\(T(h)\)</span> by <span class="arithmatex">\(2\)</span> to get:</p>
+<p>Simplifying the expression above requires some high-school sequence algebra. First, multiply <span class="arithmatex">\(T(h)\)</span> by <span class="arithmatex">\(2\)</span> to get:</p>
 <div class="arithmatex">\[
 \begin{aligned}
 T(h) &amp; = 2^0h + 2^1(h-1) + 2^2(h-2) + \dots + 2^{h-1}\times1 \newline
 2 T(h) &amp; = 2^1h + 2^2(h-1) + 2^3(h-2) + \dots + 2^{h}\times1 \newline
 \end{aligned}
 \]</div>
-<p>Using the method of differences, subtract the first equation <span class="arithmatex">\(T(h)\)</span> from the second equation <span class="arithmatex">\(2 T(h)\)</span> to get:</p>
+<p>Using subtraction of shifted sums, subtract the first equation <span class="arithmatex">\(T(h)\)</span> from the second equation <span class="arithmatex">\(2 T(h)\)</span> to get:</p>
 <div class="arithmatex">\[
 2T(h) - T(h) = T(h) = -2^0h + 2^1 + 2^2 + \dots + 2^{h-1} + 2^h
 \]</div>
@@ -4747,7 +4747,7 @@ aria-label="Footer"
   <a
     href="../top_k/"
     class="md-footer__link md-footer__link--next"
-    aria-label="Next: 8.3 Top-K Problem"
+    aria-label="Next: 8.3 Top-k Problem"
     rel="next"
   >
     <div class="md-footer__title">
@@ -4755,7 +4755,7 @@ aria-label="Footer"
         Next
       </span>
       <div class="md-ellipsis">
-        8.3 Top-K Problem
+        8.3 Top-k Problem
       </div>
     </div>
     <div class="md-footer__button md-icon">

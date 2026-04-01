@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2728,7 +2728,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3271,7 +3271,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4183,7 +4183,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4360,13 +4360,13 @@
 <h3 id="1-key-review">1. &nbsp; Key Review<a class="headerlink" href="#1-key-review" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Bubble sort achieves sorting by swapping adjacent elements. By adding a flag to enable early return, we can optimize the best-case time complexity of bubble sort to <span class="arithmatex">\(O(n)\)</span>.</li>
-<li>Insertion sort completes sorting by inserting elements from the unsorted interval into the correct position in the sorted interval each round. Although the time complexity of insertion sort is <span class="arithmatex">\(O(n^2)\)</span>, it is very popular in small data volume sorting tasks because it involves relatively few unit operations.</li>
-<li>Quick sort is implemented based on sentinel partitioning operations. In sentinel partitioning, it is possible to select the worst pivot every time, causing the time complexity to degrade to <span class="arithmatex">\(O(n^2)\)</span>. Introducing median pivot or random pivot can reduce the probability of such degradation. By preferentially recursing on the shorter sub-interval, the recursion depth can be effectively reduced, optimizing the space complexity to <span class="arithmatex">\(O(\log n)\)</span>.</li>
+<li>In each round, insertion sort inserts an element from the unsorted portion into its correct position in the sorted portion. Although insertion sort has a time complexity of <span class="arithmatex">\(O(n^2)\)</span>, it remains very popular for small sorting tasks because each operation is relatively lightweight.</li>
+<li>Quick sort relies on sentinel partitioning. In sentinel partitioning, repeatedly choosing the worst possible pivot can degrade the time complexity to <span class="arithmatex">\(O(n^2)\)</span>. Choosing a median-based pivot or a random pivot can reduce the probability of this degradation. By recursing on the shorter subarray first, we can effectively reduce the recursion depth and optimize the space complexity to <span class="arithmatex">\(O(\log n)\)</span>.</li>
 <li>Merge sort includes two phases: divide and merge, which typically embody the divide-and-conquer strategy. In merge sort, sorting an array requires creating auxiliary arrays, with a space complexity of <span class="arithmatex">\(O(n)\)</span>; however, the space complexity of sorting a linked list can be optimized to <span class="arithmatex">\(O(1)\)</span>.</li>
 <li>Bucket sort consists of three steps: distributing data into buckets, sorting within buckets, and merging results. It also embodies the divide-and-conquer strategy and is suitable for very large data volumes. The key to bucket sort is distributing data evenly.</li>
 <li>Counting sort is a special case of bucket sort, which achieves sorting by counting the number of occurrences of data. Counting sort is suitable for situations where the data volume is large but the data range is limited, and requires that data can be converted to positive integers.</li>
 <li>Radix sort achieves data sorting by sorting digit by digit, requiring that data can be represented as fixed-digit numbers.</li>
-<li>Overall, we hope to find a sorting algorithm that is efficient, stable, in-place, and adaptive, with good versatility. However, just like other data structures and algorithms, no sorting algorithm has been found so far that simultaneously possesses all these characteristics. In practical applications, we need to select the appropriate sorting algorithm based on the specific characteristics of the data.</li>
+<li>Overall, we hope to find a sorting algorithm that is efficient, stable, in-place, and adaptive. However, as with other data structures and algorithms, no sorting algorithm can satisfy all of these criteria at the same time. In practice, we need to choose the appropriate sorting algorithm based on the characteristics of the data.</li>
 <li>Figure 11-19 compares mainstream sorting algorithms in terms of efficiency, stability, in-place property, and adaptability.</li>
 </ul>
 <p><img alt="Sorting algorithm comparison" class="animation-figure" src="../summary.assets/sorting_algorithms_comparison.png" /></p>
@@ -4375,17 +4375,17 @@
 <h3 id="2-q-a">2. &nbsp; Q &amp; A<a class="headerlink" href="#2-q-a" title="Permanent link">&para;</a></h3>
 <p><strong>Q</strong>: In what situations is the stability of sorting algorithms necessary?</p>
 <p>In reality, we may sort based on a certain attribute of objects. For example, students have two attributes: name and height. We want to implement multi-level sorting: first sort by name to get <code>(A, 180) (B, 185) (C, 170) (D, 170)</code>; then sort by height. Because the sorting algorithm is unstable, we may get <code>(D, 170) (C, 170) (A, 180) (B, 185)</code>.</p>
-<p>It can be seen that the positions of students D and C have been swapped, and the orderliness of names has been disrupted, which is something we don't want to see.</p>
+<p>We can see that students D and C have swapped positions, destroying the ordering by name, which is not what we want.</p>
 <p><strong>Q</strong>: Can the order of "searching from right to left" and "searching from left to right" in sentinel partitioning be swapped?</p>
 <p>No. When we use the leftmost element as the pivot, we must first "search from right to left" and then "search from left to right". This conclusion is somewhat counterintuitive; let's analyze the reason.</p>
 <p>The last step of sentinel partitioning <code>partition()</code> is to swap <code>nums[left]</code> and <code>nums[i]</code>. After the swap is complete, the elements to the left of the pivot are all <code>&lt;=</code> the pivot, <strong>which requires that <code>nums[left] &gt;= nums[i]</code> must hold before the last swap</strong>. Suppose we first "search from left to right", then if we cannot find an element larger than the pivot, <strong>we will exit the loop when <code>i == j</code>, at which point it may be that <code>nums[j] == nums[i] &gt; nums[left]</code></strong>. In other words, the last swap operation will swap an element larger than the pivot to the leftmost end of the array, causing sentinel partitioning to fail.</p>
 <p>For example, given the array <code>[0, 0, 0, 0, 1]</code>, if we first "search from left to right", the array after sentinel partitioning is <code>[1, 0, 0, 0, 0]</code>, which is incorrect.</p>
-<p>Thinking deeper, if we select <code>nums[right]</code> as the pivot, then it's exactly the opposite - we must first "search from left to right".</p>
+<p>By the same reasoning, if we select <code>nums[right]</code> as the pivot, the order is reversed: we must first "search from left to right".</p>
 <p><strong>Q</strong>: Regarding the optimization of recursion depth in quick sort, why can selecting the shorter array ensure that the recursion depth does not exceed <span class="arithmatex">\(\log n\)</span>?</p>
-<p>The recursion depth is the number of currently unreturned recursive methods. Each round of sentinel partitioning divides the original array into two sub-arrays. After recursion depth optimization, the length of the sub-array to be recursively processed is at most half of the original array length. Assuming the worst case is always half the length, the final recursion depth will be <span class="arithmatex">\(\log n\)</span>.</p>
+<p>Recursion depth is the number of recursive calls that have not yet returned. Each round of sentinel partitioning divides the original array into two sub-arrays. After this optimization, the sub-array selected for further recursion is at most half the length of the original array. In the worst case, if it is always half as long, the final recursion depth is <span class="arithmatex">\(\log n\)</span>.</p>
 <p>Reviewing the original quick sort, we may continuously recurse on the longer array. In the worst case, it would be <span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(n - 1\)</span>, <span class="arithmatex">\(\dots\)</span>, <span class="arithmatex">\(2\)</span>, <span class="arithmatex">\(1\)</span>, with a recursion depth of <span class="arithmatex">\(n\)</span>. Recursion depth optimization can avoid this situation.</p>
 <p><strong>Q</strong>: When all elements in the array are equal, is the time complexity of quick sort <span class="arithmatex">\(O(n^2)\)</span>? How should this degenerate case be handled?</p>
-<p>Yes. For this situation, consider partitioning the array into three parts through sentinel partitioning: less than, equal to, and greater than the pivot. Only recursively process the less than and greater than parts. Under this method, an array where all input elements are equal can complete sorting in just one round of sentinel partitioning.</p>
+<p>Yes. In this case, the array can be partitioned into three parts through sentinel partitioning: less than, equal to, and greater than the pivot. We then recurse only on the less-than and greater-than parts. With this approach, an array whose elements are all equal can be sorted in just one round of sentinel partitioning.</p>
 <p><strong>Q</strong>: Why is the worst-case time complexity of bucket sort <span class="arithmatex">\(O(n^2)\)</span>?</p>
 <p>In the worst case, all elements are distributed into the same bucket. If we use an <span class="arithmatex">\(O(n^2)\)</span> algorithm to sort these elements, the time complexity will be <span class="arithmatex">\(O(n^2)\)</span>.</p>
 

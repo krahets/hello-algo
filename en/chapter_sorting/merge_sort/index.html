@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2728,7 +2728,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3282,7 +3282,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4194,7 +4194,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4379,10 +4379,10 @@
 
 <!-- Page content -->
 <h1 id="116-merge-sort">11.6 &nbsp; Merge Sort<a class="headerlink" href="#116-merge-sort" title="Permanent link">&para;</a></h1>
-<p><u>Merge sort (merge sort)</u> is a sorting algorithm based on the divide-and-conquer strategy, which includes the "divide" and "merge" phases shown in Figure 11-10.</p>
+<p><u>Merge sort</u> is a sorting algorithm based on a divide-and-conquer strategy, consisting of the "divide" and "merge" phases shown in Figure 11-10.</p>
 <ol>
-<li><strong>Divide phase</strong>: Recursively split the array from the midpoint, transforming the sorting problem of a long array into the sorting problems of shorter arrays.</li>
-<li><strong>Merge phase</strong>: When the sub-array length is 1, terminate the division and start merging, continuously merging two shorter sorted arrays into one longer sorted array until the process is complete.</li>
+<li><strong>Divide phase</strong>: Recursively split the array at the midpoint, reducing the problem of sorting a long array to the problem of sorting shorter arrays.</li>
+<li><strong>Merge phase</strong>: When a sub-array has length 1, stop dividing and start merging, continuously combining the shorter sorted sub-arrays on the left and right into a longer sorted array until the process is complete.</li>
 </ol>
 <p><img alt="Divide and merge phases of merge sort" class="animation-figure" src="../merge_sort.assets/merge_sort_overview.png" /></p>
 <p align="center"> Figure 11-10 &nbsp; Divide and merge phases of merge sort </p>
@@ -4391,9 +4391,9 @@
 <p>As shown in Figure 11-11, the "divide phase" recursively splits the array from the midpoint into two sub-arrays from top to bottom.</p>
 <ol>
 <li>Calculate the array midpoint <code>mid</code>, recursively divide the left sub-array (interval <code>[left, mid]</code>) and right sub-array (interval <code>[mid + 1, right]</code>).</li>
-<li>Recursively execute step <code>1.</code> until the sub-array interval length is 1, then terminate.</li>
+<li>Repeat step <code>1.</code> recursively until a sub-array has length 1.</li>
 </ol>
-<p>The "merge phase" merges the left sub-array and right sub-array into a sorted array from bottom to top. Note that merging starts from sub-arrays of length 1, and each sub-array in the merge phase is sorted.</p>
+<p>The "merge phase" merges the left and right sub-arrays into a sorted array from bottom to top. Note that merging starts from sub-arrays of length 1, so every sub-array involved in this phase is already sorted.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:10"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label><label for="__tabbed_1_10">&lt;10&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4430,7 +4430,7 @@
 </div>
 <p align="center"> Figure 11-11 &nbsp; Merge sort steps </p>
 
-<p>It can be observed that the recursive order of merge sort is consistent with the post-order traversal of a binary tree.</p>
+<p>The recursive order of merge sort is consistent with the post-order traversal of a binary tree.</p>
 <ul>
 <li><strong>Post-order traversal</strong>: First recursively traverse the left subtree, then recursively traverse the right subtree, and finally process the root node.</li>
 <li><strong>Merge sort</strong>: First recursively process the left sub-array, then recursively process the right sub-array, and finally perform the merge.</li>
@@ -5034,15 +5034,15 @@
 </div>
 <h2 id="1162-algorithm-characteristics">11.6.2 &nbsp; Algorithm Characteristics<a class="headerlink" href="#1162-algorithm-characteristics" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Time complexity of <span class="arithmatex">\(O(n \log n)\)</span>, non-adaptive sorting</strong>: The division produces a recursion tree of height <span class="arithmatex">\(\log n\)</span>, and the total number of merge operations at each level is <span class="arithmatex">\(n\)</span>, so the overall time complexity is <span class="arithmatex">\(O(n \log n)\)</span>.</li>
-<li><strong>Space complexity of <span class="arithmatex">\(O(n)\)</span>, non-in-place sorting</strong>: The recursion depth is <span class="arithmatex">\(\log n\)</span>, using <span class="arithmatex">\(O(\log n)\)</span> size of stack frame space. The merge operation requires the aid of an auxiliary array, using <span class="arithmatex">\(O(n)\)</span> size of additional space.</li>
-<li><strong>Stable sorting</strong>: In the merge process, the order of equal elements remains unchanged.</li>
+<li><strong>Time complexity is <span class="arithmatex">\(O(n \log n)\)</span>; merge sort is non-adaptive</strong>: The divide phase produces a recursion tree of height <span class="arithmatex">\(\log n\)</span>, and the total number of operations performed during merging at each level is <span class="arithmatex">\(n\)</span>, so the overall time complexity is <span class="arithmatex">\(O(n \log n)\)</span>.</li>
+<li><strong>Space complexity is <span class="arithmatex">\(O(n)\)</span>; merge sort is not in-place</strong>: The recursion depth is <span class="arithmatex">\(\log n\)</span>, which uses <span class="arithmatex">\(O(\log n)\)</span> stack-frame space. The merge operation requires an auxiliary array, which uses <span class="arithmatex">\(O(n)\)</span> additional space.</li>
+<li><strong>Stable sort</strong>: During merging, the relative order of equal elements remains unchanged.</li>
 </ul>
 <h2 id="1163-linked-list-sorting">11.6.3 &nbsp; Linked List Sorting<a class="headerlink" href="#1163-linked-list-sorting" title="Permanent link">&para;</a></h2>
-<p>For linked lists, merge sort has significant advantages over other sorting algorithms, <strong>and can optimize the space complexity of linked list sorting tasks to <span class="arithmatex">\(O(1)\)</span></strong>.</p>
+<p>For linked lists, merge sort has significant advantages over other sorting algorithms, <strong>and it can reduce the space complexity of the sorting task to <span class="arithmatex">\(O(1)\)</span></strong>.</p>
 <ul>
-<li><strong>Divide phase</strong>: "Iteration" can be used instead of "recursion" to implement linked list division work, thus saving the stack frame space used by recursion.</li>
-<li><strong>Merge phase</strong>: In linked lists, node insertion and deletion operations can be achieved by just changing references (pointers), so there is no need to create additional linked lists during the merge phase (merging two short ordered linked lists into one long ordered linked list).</li>
+<li><strong>Divide phase</strong>: Iteration can be used instead of recursion to split the linked list, thereby eliminating the stack-frame space used by recursion.</li>
+<li><strong>Merge phase</strong>: In linked lists, node insertion and deletion require only pointer updates, so the merge phase (merging two short sorted linked lists into one longer sorted linked list) does not require creating an additional linked list.</li>
 </ul>
 <p>The specific implementation details are quite complex, and interested readers can consult related materials for learning.</p>
 

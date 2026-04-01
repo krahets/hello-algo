@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2621,7 +2621,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2649,7 +2649,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2705,7 +2705,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2854,7 +2854,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3327,7 +3327,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4239,7 +4239,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4472,7 +4472,7 @@
 <p>Trees represent "one-to-many" relationships, while graphs have a higher degree of freedom and can represent any "many-to-many" relationships. Therefore, we can view trees as a special case of graphs. Clearly, <strong>tree traversal operations are also a special case of graph traversal operations</strong>.</p>
 <p>Both graphs and trees require the application of search algorithms to implement traversal operations. Graph traversal methods can also be divided into two types: <u>breadth-first traversal</u> and <u>depth-first traversal</u>.</p>
 <h2 id="931-breadth-first-search">9.3.1 &nbsp; Breadth-First Search<a class="headerlink" href="#931-breadth-first-search" title="Permanent link">&para;</a></h2>
-<p><strong>Breadth-first search is a near-to-far traversal method that, starting from a certain node, always prioritizes visiting the nearest vertices and expands outward layer by layer</strong>. As shown in Figure 9-9, starting from the top-left vertex, first traverse all adjacent vertices of that vertex, then traverse all adjacent vertices of the next vertex, and so on, until all vertices have been visited.</p>
+<p><strong>Breadth-first search proceeds from near to far: starting from a given node, it always visits the nearest vertices first and expands outward layer by layer</strong>. As shown in Figure 9-9, starting from the top-left vertex, first traverse all adjacent vertices of that vertex, then traverse all adjacent vertices of the next vertex, and so on, until all vertices have been visited.</p>
 <p><img alt="Breadth-first search of a graph" class="animation-figure" src="../graph_traversal.assets/graph_bfs.png" /></p>
 <p align="center"> Figure 9-9 &nbsp; Breadth-first search of a graph </p>
 
@@ -4486,7 +4486,7 @@
 <p>To prevent revisiting vertices, we use a hash set <code>visited</code> to record which nodes have been visited.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>A hash set can be viewed as a hash table that stores only <code>key</code> without storing <code>value</code>. It can perform addition, deletion, lookup, and modification operations on <code>key</code> in <span class="arithmatex">\(O(1)\)</span> time complexity. Based on the uniqueness of <code>key</code>, hash sets are typically used for data deduplication and similar scenarios.</p>
+<p>A hash set can be viewed as a hash table that stores only <code>key</code> without storing <code>value</code>. It supports insertion, deletion, lookup, and update operations on <code>key</code> in <span class="arithmatex">\(O(1)\)</span> time. Based on the uniqueness of <code>key</code>, hash sets are typically used for data deduplication and similar scenarios.</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
@@ -5342,9 +5342,9 @@
 <p>The algorithm flow of depth-first search is shown in Figure 9-12.</p>
 <ul>
 <li><strong>Straight dashed lines represent downward recursion</strong>, indicating that a new recursive method has been initiated to visit a new vertex.</li>
-<li><strong>Curved dashed lines represent upward backtracking</strong>, indicating that this recursive method has returned to the position where it was initiated.</li>
+<li><strong>Curved dashed lines represent upward backtracking</strong>, indicating that this recursive call has returned to the point where it was made.</li>
 </ul>
-<p>To deepen understanding, it is recommended to combine Figure 9-12 with the code to mentally simulate (or draw out) the entire DFS process, including when each recursive method is initiated and when it returns.</p>
+<p>To deepen understanding, it is recommended to combine Figure 9-12 with the code to mentally simulate (or draw out) the entire DFS process, including when each recursive call begins and when it returns.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:11"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label><label for="__tabbed_4_5">&lt;5&gt;</label><label for="__tabbed_4_6">&lt;6&gt;</label><label for="__tabbed_4_7">&lt;7&gt;</label><label for="__tabbed_4_8">&lt;8&gt;</label><label for="__tabbed_4_9">&lt;9&gt;</label><label for="__tabbed_4_10">&lt;10&gt;</label><label for="__tabbed_4_11">&lt;11&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5386,7 +5386,7 @@
 
 <div class="admonition question">
 <p class="admonition-title">Is the depth-first traversal sequence unique?</p>
-<p>Similar to breadth-first search, the order of depth-first traversal sequences is also not unique. Given a certain vertex, exploring in any direction first is valid, meaning the order of adjacent vertices can be arbitrarily shuffled, all being depth-first search.</p>
+<p>Similar to breadth-first search, depth-first traversal sequences are also not unique. Given a vertex, any exploration direction may be chosen first; that is, the order of adjacent vertices can be arbitrarily rearranged and still constitute depth-first search.</p>
 <p>Taking tree traversal as an example, "root <span class="arithmatex">\(\rightarrow\)</span> left <span class="arithmatex">\(\rightarrow\)</span> right", "left <span class="arithmatex">\(\rightarrow\)</span> root <span class="arithmatex">\(\rightarrow\)</span> right", and "left <span class="arithmatex">\(\rightarrow\)</span> right <span class="arithmatex">\(\rightarrow\)</span> root" correspond to pre-order, in-order, and post-order traversals, respectively. They represent three different traversal priorities, yet all three belong to depth-first search.</p>
 </div>
 <h3 id="2-complexity-analysis_1">2. &nbsp; Complexity Analysis<a class="headerlink" href="#2-complexity-analysis_1" title="Permanent link">&para;</a></h3>

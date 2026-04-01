@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2728,7 +2728,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3282,7 +3282,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4194,7 +4194,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4379,8 +4379,8 @@
 
 <!-- Page content -->
 <h1 id="118-bucket-sort">11.8 &nbsp; Bucket Sort<a class="headerlink" href="#118-bucket-sort" title="Permanent link">&para;</a></h1>
-<p>The several sorting algorithms mentioned earlier all belong to "comparison-based sorting algorithms", which achieve sorting by comparing the size of elements. The time complexity of such sorting algorithms cannot exceed <span class="arithmatex">\(O(n \log n)\)</span>. Next, we will explore several "non-comparison sorting algorithms", whose time complexity can reach linear order.</p>
-<p><u>Bucket sort (bucket sort)</u> is a typical application of the divide-and-conquer strategy. It works by setting up buckets with size order, each bucket corresponding to a data range, evenly distributing data to each bucket; then, sorting within each bucket separately; finally, merging all data in the order of the buckets.</p>
+<p>The sorting algorithms discussed earlier are all comparison-based sorting algorithms, which sort by comparing the relative order of elements. The time complexity of such algorithms cannot beat <span class="arithmatex">\(O(n \log n)\)</span>. Next, we will explore several non-comparison sorting algorithms, whose time complexity can be linear.</p>
+<p><u>Bucket sort</u> is a typical application of the divide-and-conquer strategy. It works by creating a sequence of ordered buckets, each corresponding to a data range, and distributing the data evenly among them. The elements within each bucket are then sorted separately. Finally, all buckets are merged in order.</p>
 <h2 id="1181-algorithm-flow">11.8.1 &nbsp; Algorithm Flow<a class="headerlink" href="#1181-algorithm-flow" title="Permanent link">&para;</a></h2>
 <p>Consider an array of length <span class="arithmatex">\(n\)</span>, whose elements are floating-point numbers in the range <span class="arithmatex">\([0, 1)\)</span>. The flow of bucket sort is shown in Figure 11-13.</p>
 <ol>
@@ -4786,20 +4786,20 @@
 </div>
 </div>
 <h2 id="1182-algorithm-characteristics">11.8.2 &nbsp; Algorithm Characteristics<a class="headerlink" href="#1182-algorithm-characteristics" title="Permanent link">&para;</a></h2>
-<p>Bucket sort is suitable for processing very large data volumes. For example, if the input data contains 1 million elements and system memory cannot load all the data at once, the data can be divided into 1000 buckets, each bucket sorted separately, and then the results merged.</p>
+<p>Bucket sort is suitable for processing very large datasets. For example, suppose the input contains 1 million elements, and limited memory prevents the system from loading all of them at once. In that case, the data can be divided into 1000 buckets, each bucket can be sorted separately, and the results can then be merged.</p>
 <ul>
-<li><strong>Time complexity of <span class="arithmatex">\(O(n + k)\)</span></strong>: Assuming the elements are evenly distributed among the buckets, then the number of elements in each bucket is <span class="arithmatex">\(\frac{n}{k}\)</span>. Assuming sorting a single bucket uses <span class="arithmatex">\(O(\frac{n}{k} \log\frac{n}{k})\)</span> time, then sorting all buckets uses <span class="arithmatex">\(O(n \log\frac{n}{k})\)</span> time. <strong>When the number of buckets <span class="arithmatex">\(k\)</span> is relatively large, the time complexity approaches <span class="arithmatex">\(O(n)\)</span></strong>. Merging results requires traversing all buckets and elements, taking <span class="arithmatex">\(O(n + k)\)</span> time. In the worst case, all data is distributed into one bucket, and sorting that bucket uses <span class="arithmatex">\(O(n^2)\)</span> time.</li>
-<li><strong>Space complexity of <span class="arithmatex">\(O(n + k)\)</span>, non-in-place sorting</strong>: Additional space is required for <span class="arithmatex">\(k\)</span> buckets and a total of <span class="arithmatex">\(n\)</span> elements.</li>
+<li><strong>Time complexity is <span class="arithmatex">\(O(n + k)\)</span></strong>: Assuming the elements are evenly distributed across the buckets, each bucket contains <span class="arithmatex">\(\frac{n}{k}\)</span> elements. If sorting a single bucket takes <span class="arithmatex">\(O(\frac{n}{k} \log\frac{n}{k})\)</span> time, then sorting all buckets takes <span class="arithmatex">\(O(n \log\frac{n}{k})\)</span> time. <strong>When the number of buckets <span class="arithmatex">\(k\)</span> is relatively large, the time complexity approaches <span class="arithmatex">\(O(n)\)</span></strong>. Merging the results requires traversing all buckets and elements, which takes <span class="arithmatex">\(O(n + k)\)</span> time. In the worst case, all data is placed into a single bucket, and sorting that bucket takes <span class="arithmatex">\(O(n^2)\)</span> time.</li>
+<li><strong>Space complexity is <span class="arithmatex">\(O(n + k)\)</span>, and bucket sort is not in-place</strong>: It requires extra space for <span class="arithmatex">\(k\)</span> buckets and a total of <span class="arithmatex">\(n\)</span> elements.</li>
 <li>Whether bucket sort is stable depends on whether the algorithm for sorting elements within buckets is stable.</li>
 </ul>
 <h2 id="1183-how-to-achieve-even-distribution">11.8.3 &nbsp; How to Achieve Even Distribution<a class="headerlink" href="#1183-how-to-achieve-even-distribution" title="Permanent link">&para;</a></h2>
-<p>Theoretically, bucket sort can achieve <span class="arithmatex">\(O(n)\)</span> time complexity. <strong>The key is to evenly distribute elements to each bucket</strong>, because real data is often not evenly distributed. For example, if we want to evenly distribute all products on Taobao into 10 buckets by price range, there may be very many products below 100 yuan and very few above 1000 yuan. If the price intervals are evenly divided into 10, the difference in the number of products in each bucket will be very large.</p>
-<p>To achieve even distribution, we can first set an approximate dividing line to roughly divide the data into 3 buckets. <strong>After distribution is complete, continue dividing buckets with more products into 3 buckets until the number of elements in all buckets is roughly equal</strong>.</p>
-<p>As shown in Figure 11-14, this method essentially creates a recursion tree, with the goal of making the values of leaf nodes as even as possible. Of course, it is not necessary to divide the data into 3 buckets every round; the specific division method can be flexibly chosen according to data characteristics.</p>
+<p>In theory, bucket sort can achieve <span class="arithmatex">\(O(n)\)</span> time complexity. <strong>The key is to distribute the elements evenly across the buckets</strong>, because real-world data is often not uniformly distributed. For example, suppose we want to divide all products on Taobao evenly into 10 buckets by price range, but the price distribution is uneven: there are many products priced below 100 yuan and very few priced above 1000 yuan. If the price range is divided evenly into 10 intervals, the numbers of products in the buckets will differ greatly.</p>
+<p>To achieve a more even distribution, we can first choose a rough boundary and partition the data into 3 buckets. <strong>After that, buckets containing more products can be further divided into 3 buckets until the numbers of elements in all buckets are roughly equal</strong>.</p>
+<p>As shown in Figure 11-14, this method essentially builds a recursion tree whose goal is to make the leaf nodes as balanced as possible. Of course, the data does not have to be split into 3 buckets in every round; the specific partitioning strategy can be chosen flexibly based on the characteristics of the data.</p>
 <p><img alt="Recursively dividing buckets" class="animation-figure" src="../bucket_sort.assets/scatter_in_buckets_recursively.png" /></p>
 <p align="center"> Figure 11-14 &nbsp; Recursively dividing buckets </p>
 
-<p>If we know the probability distribution of product prices in advance, <strong>we can set the price dividing line for each bucket based on the data probability distribution</strong>. It is worth noting that the data distribution does not necessarily need to be specifically calculated, but can also be approximated using a certain probability model based on data characteristics.</p>
+<p>If we know the probability distribution of product prices in advance, <strong>we can set the price boundaries for each bucket according to that distribution</strong>. Notably, the data distribution does not need to be measured exactly; it can also be approximated with a probability model chosen to fit the characteristics of the data.</p>
 <p>As shown in Figure 11-15, we assume that product prices follow a normal distribution, which allows us to reasonably set price intervals to evenly distribute products to each bucket.</p>
 <p><img alt="Dividing buckets based on probability distribution" class="animation-figure" src="../bucket_sort.assets/scatter_in_buckets_distribution.png" /></p>
 <p align="center"> Figure 11-15 &nbsp; Dividing buckets based on probability distribution </p>

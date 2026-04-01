@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2728,7 +2728,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3271,7 +3271,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4183,7 +4183,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4357,8 +4357,8 @@
 
 <!-- Page content -->
 <h1 id="1110-radix-sort">11.10 &nbsp; Radix Sort<a class="headerlink" href="#1110-radix-sort" title="Permanent link">&para;</a></h1>
-<p>The previous section introduced counting sort, which is suitable for situations where the data volume <span class="arithmatex">\(n\)</span> is large but the data range <span class="arithmatex">\(m\)</span> is small. Suppose we need to sort <span class="arithmatex">\(n = 10^6\)</span> student IDs, and the student ID is an 8-digit number, which means the data range <span class="arithmatex">\(m = 10^8\)</span> is very large. Using counting sort would require allocating a large amount of memory space, whereas radix sort can avoid this situation.</p>
-<p><u>Radix sort (radix sort)</u> has a core idea consistent with counting sort, which also achieves sorting by counting quantities. Building on this, radix sort utilizes the progressive relationship between the digits of numbers, sorting each digit in turn to obtain the final sorting result.</p>
+<p>The previous section introduced counting sort, which is suitable when the number of items <span class="arithmatex">\(n\)</span> is large but the value range <span class="arithmatex">\(m\)</span> is small. Suppose we need to sort <span class="arithmatex">\(n = 10^6\)</span> student IDs, each of which is an 8-digit number. Then the value range <span class="arithmatex">\(m = 10^8\)</span> is very large. Using counting sort would require a large amount of memory, whereas radix sort avoids this problem.</p>
+<p><u>Radix sort</u> is based on the same core idea as counting sort: it also sorts by counting occurrences. Building on this, radix sort exploits the positional relationship among digits and sorts them one digit at a time to obtain the final result.</p>
 <h2 id="11101-algorithm-flow">11.10.1 &nbsp; Algorithm Flow<a class="headerlink" href="#11101-algorithm-flow" title="Permanent link">&para;</a></h2>
 <p>Taking student ID data as an example, assume the lowest digit is the <span class="arithmatex">\(1\)</span>st digit and the highest digit is the <span class="arithmatex">\(8\)</span>th digit. The flow of radix sort is shown in Figure 11-18.</p>
 <ol>
@@ -4369,11 +4369,11 @@
 <p><img alt="Radix sort algorithm flow" class="animation-figure" src="../radix_sort.assets/radix_sort_overview.png" /></p>
 <p align="center"> Figure 11-18 &nbsp; Radix sort algorithm flow </p>
 
-<p>Below we analyze the code implementation. For a <span class="arithmatex">\(d\)</span>-base number <span class="arithmatex">\(x\)</span>, to get its <span class="arithmatex">\(k\)</span>th digit <span class="arithmatex">\(x_k\)</span>, the following calculation formula can be used:</p>
+<p>Next, let us look at the code. For a number <span class="arithmatex">\(x\)</span> in base <span class="arithmatex">\(d\)</span>, its <span class="arithmatex">\(k\)</span>th digit <span class="arithmatex">\(x_k\)</span> can be obtained with the following formula:</p>
 <div class="arithmatex">\[
 x_k = \lfloor\frac{x}{d^{k-1}}\rfloor \bmod d
 \]</div>
-<p>Where <span class="arithmatex">\(\lfloor a \rfloor\)</span> denotes rounding down the floating-point number <span class="arithmatex">\(a\)</span>, and <span class="arithmatex">\(\bmod \: d\)</span> denotes taking the modulo (remainder) with respect to <span class="arithmatex">\(d\)</span>. For student ID data, <span class="arithmatex">\(d = 10\)</span> and <span class="arithmatex">\(k \in [1, 8]\)</span>.</p>
+<p>Here, <span class="arithmatex">\(\lfloor a \rfloor\)</span> denotes rounding the floating-point number <span class="arithmatex">\(a\)</span> down, and <span class="arithmatex">\(\bmod \: d\)</span> denotes taking the remainder modulo <span class="arithmatex">\(d\)</span>. For student ID data, <span class="arithmatex">\(d = 10\)</span> and <span class="arithmatex">\(k \in [1, 8]\)</span>.</p>
 <p>Additionally, we need to slightly modify the counting sort code to make it sort based on the <span class="arithmatex">\(k\)</span>th digit of the number:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
@@ -5041,14 +5041,14 @@ x_k = \lfloor\frac{x}{d^{k-1}}\rfloor \bmod d
 </div>
 <div class="admonition question">
 <p class="admonition-title">Why start sorting from the lowest digit?</p>
-<p>In successive sorting rounds, the result of a later round will override the result of an earlier round. For example, if the first round result is <span class="arithmatex">\(a &lt; b\)</span>, while the second round result is <span class="arithmatex">\(a &gt; b\)</span>, then the second round's result will replace the first round's result. Since higher-order digits have higher priority than lower-order digits, we should sort the lower digits first and then sort the higher digits.</p>
+<p>In successive sorting passes, a later pass overrides the result of an earlier one. For example, if the first pass yields <span class="arithmatex">\(a &lt; b\)</span> but the second yields <span class="arithmatex">\(a &gt; b\)</span>, then the result of the second pass prevails. Because higher-order digits have higher priority than lower-order digits, we should sort the lower digits first and then the higher digits.</p>
 </div>
 <h2 id="11102-algorithm-characteristics">11.10.2 &nbsp; Algorithm Characteristics<a class="headerlink" href="#11102-algorithm-characteristics" title="Permanent link">&para;</a></h2>
-<p>Compared to counting sort, radix sort is suitable for larger numerical ranges, <strong>but the prerequisite is that the data must be representable in a fixed number of digits, and the number of digits should not be too large</strong>. For example, floating-point numbers are not suitable for radix sort because their number of digits <span class="arithmatex">\(k\)</span> may be too large, potentially leading to time complexity <span class="arithmatex">\(O(nk) \gg O(n^2)\)</span>.</p>
+<p>Compared with counting sort, radix sort is suitable for larger value ranges, <strong>but only when the data can be represented with a fixed number of digits and that digit count is not too large</strong>. For example, floating-point numbers are not well suited to radix sort because the digit count <span class="arithmatex">\(k\)</span> can be too large, potentially leading to time complexity <span class="arithmatex">\(O(nk) \gg O(n^2)\)</span>.</p>
 <ul>
-<li><strong>Time complexity of <span class="arithmatex">\(O(nk)\)</span>, non-adaptive sorting</strong>: Let the data volume be <span class="arithmatex">\(n\)</span>, the data be in base <span class="arithmatex">\(d\)</span>, and the maximum number of digits be <span class="arithmatex">\(k\)</span>. Then performing counting sort on a certain digit uses <span class="arithmatex">\(O(n + d)\)</span> time, and sorting all <span class="arithmatex">\(k\)</span> digits uses <span class="arithmatex">\(O((n + d)k)\)</span> time. Typically, both <span class="arithmatex">\(d\)</span> and <span class="arithmatex">\(k\)</span> are relatively small, and the time complexity approaches <span class="arithmatex">\(O(n)\)</span>.</li>
+<li><strong>Time complexity of <span class="arithmatex">\(O(nk)\)</span>, non-adaptive sorting</strong>: Let the number of items be <span class="arithmatex">\(n\)</span>, let the values be represented in base <span class="arithmatex">\(d\)</span>, and let the maximum number of digits be <span class="arithmatex">\(k\)</span>. Counting sort on one digit takes <span class="arithmatex">\(O(n + d)\)</span> time, so sorting all <span class="arithmatex">\(k\)</span> digits takes <span class="arithmatex">\(O((n + d)k)\)</span> time. In practice, <span class="arithmatex">\(d\)</span> and <span class="arithmatex">\(k\)</span> are usually relatively small, so the overall time complexity approaches <span class="arithmatex">\(O(n)\)</span>.</li>
 <li><strong>Space complexity of <span class="arithmatex">\(O(n + d)\)</span>, non-in-place sorting</strong>: Same as counting sort, radix sort requires auxiliary arrays <code>res</code> and <code>counter</code> of lengths <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(d\)</span>.</li>
-<li><strong>Stable sorting</strong>: When counting sort is stable, radix sort is also stable; when counting sort is unstable, radix sort cannot guarantee obtaining correct sorting results.</li>
+<li><strong>Stable sort</strong>: When counting sort is stable, radix sort is also stable; when counting sort is unstable, radix sort cannot guarantee correct sorting results.</li>
 </ul>
 
 <!-- Source file information -->

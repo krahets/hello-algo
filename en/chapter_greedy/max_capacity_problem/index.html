@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2726,7 +2726,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3199,7 +3199,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4194,7 +4194,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4381,40 +4381,40 @@
 <h1 id="153-max-capacity-problem">15.3 &nbsp; Max Capacity Problem<a class="headerlink" href="#153-max-capacity-problem" title="Permanent link">&para;</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Input an array <span class="arithmatex">\(ht\)</span>, where each element represents the height of a vertical partition. Any two partitions in the array, along with the space between them, can form a container.</p>
-<p>The capacity of the container equals the product of height and width (area), where the height is determined by the shorter partition, and the width is the difference in array indices between the two partitions.</p>
-<p>Please select two partitions in the array such that the capacity of the formed container is maximized, and return the maximum capacity. An example is shown in Figure 15-7.</p>
+<p>Given an array <span class="arithmatex">\(ht\)</span>, where each element represents the height of a vertical partition. Any two partitions in the array, together with the space between them, can form a container.</p>
+<p>The capacity of the container equals the product of its height and width (that is, its area), where the height is determined by the shorter partition and the width is the difference between the array indices of the two partitions.</p>
+<p>Select two partitions in the array such that the capacity of the resulting container is maximized, and return that maximum capacity. An example is shown in Figure 15-7.</p>
 </div>
 <p><img alt="Example data for the max capacity problem" class="animation-figure" src="../max_capacity_problem.assets/max_capacity_example.png" /></p>
 <p align="center"> Figure 15-7 &nbsp; Example data for the max capacity problem </p>
 
-<p>The container is formed by any two partitions, <strong>therefore the state of this problem is the indices of two partitions, denoted as <span class="arithmatex">\([i, j]\)</span></strong>.</p>
-<p>According to the problem description, capacity equals height multiplied by width, where height is determined by the shorter partition, and width is the difference in array indices between the two partitions. Let the capacity be <span class="arithmatex">\(cap[i, j]\)</span>, then the calculation formula is:</p>
+<p>The container is formed by any two partitions, <strong>so the state of this problem is the indices of the two partitions, denoted by <span class="arithmatex">\([i, j]\)</span></strong>.</p>
+<p>According to the problem statement, capacity equals height multiplied by width, where the height is determined by the shorter partition and the width is the difference between the array indices of the two partitions. Let the capacity be <span class="arithmatex">\(cap[i, j]\)</span>; then we obtain the following formula:</p>
 <div class="arithmatex">\[
 cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 \]</div>
-<p>Let the array length be <span class="arithmatex">\(n\)</span>, then the number of combinations of two partitions (total number of states) is <span class="arithmatex">\(C_n^2 = \frac{n(n - 1)}{2}\)</span>. Most directly, <strong>we can exhaustively enumerate all states</strong> to find the maximum capacity, with time complexity <span class="arithmatex">\(O(n^2)\)</span>.</p>
+<p>Let the array length be <span class="arithmatex">\(n\)</span>. Then the number of ways to choose two partitions (that is, the total number of states) is <span class="arithmatex">\(C_n^2 = \frac{n(n - 1)}{2}\)</span>. The most straightforward approach is to <strong>exhaustively enumerate all states</strong> to find the maximum capacity, which has a time complexity of <span class="arithmatex">\(O(n^2)\)</span>.</p>
 <h3 id="1-greedy-strategy-determination">1. &nbsp; Greedy Strategy Determination<a class="headerlink" href="#1-greedy-strategy-determination" title="Permanent link">&para;</a></h3>
-<p>This problem has a more efficient solution. As shown in Figure 15-8, select a state <span class="arithmatex">\([i, j]\)</span> where index <span class="arithmatex">\(i &lt; j\)</span> and height <span class="arithmatex">\(ht[i] &lt; ht[j]\)</span>, meaning <span class="arithmatex">\(i\)</span> is the short partition and <span class="arithmatex">\(j\)</span> is the long partition.</p>
+<p>This problem has a more efficient solution. As shown in Figure 15-8, consider a state <span class="arithmatex">\([i, j]\)</span> where <span class="arithmatex">\(i &lt; j\)</span> and <span class="arithmatex">\(ht[i] &lt; ht[j]\)</span>. In this case, <span class="arithmatex">\(i\)</span> is the shorter partition and <span class="arithmatex">\(j\)</span> is the taller partition.</p>
 <p><img alt="Initial state" class="animation-figure" src="../max_capacity_problem.assets/max_capacity_initial_state.png" /></p>
 <p align="center"> Figure 15-8 &nbsp; Initial state </p>
 
-<p>As shown in Figure 15-9, <strong>if we now move the long partition <span class="arithmatex">\(j\)</span> closer to the short partition <span class="arithmatex">\(i\)</span>, the capacity will definitely decrease</strong>.</p>
-<p>This is because after moving the long partition <span class="arithmatex">\(j\)</span>, the width <span class="arithmatex">\(j-i\)</span> definitely decreases; and since height is determined by the short partition, the height can only remain unchanged (<span class="arithmatex">\(i\)</span> is still the short partition) or decrease (the moved <span class="arithmatex">\(j\)</span> becomes the short partition).</p>
+<p>As shown in Figure 15-9, <strong>if we now move the taller partition <span class="arithmatex">\(j\)</span> inward toward the shorter partition <span class="arithmatex">\(i\)</span>, the capacity will definitely decrease</strong>.</p>
+<p>This is because after moving the taller partition <span class="arithmatex">\(j\)</span>, the width <span class="arithmatex">\(j-i\)</span> definitely decreases. Since the height is determined by the shorter partition, the height can only stay the same (<span class="arithmatex">\(i\)</span> remains the shorter partition) or decrease (<span class="arithmatex">\(j\)</span> becomes the shorter partition after being moved).</p>
 <p><img alt="State after moving the long partition inward" class="animation-figure" src="../max_capacity_problem.assets/max_capacity_moving_long_board.png" /></p>
 <p align="center"> Figure 15-9 &nbsp; State after moving the long partition inward </p>
 
-<p>Conversely, <strong>we can only possibly increase capacity by contracting the short partition <span class="arithmatex">\(i\)</span> inward</strong>. Because although width will definitely decrease, <strong>height may increase</strong> (the moved short partition <span class="arithmatex">\(i\)</span> may become taller). For example, in Figure 15-10, the area increases after moving the short partition.</p>
+<p>Conversely, <strong>only by moving the shorter partition <span class="arithmatex">\(i\)</span> inward can the capacity possibly increase</strong>. Although the width will definitely decrease, <strong>the height may increase</strong> (the moved partition at <span class="arithmatex">\(i\)</span> may be taller). For example, in Figure 15-10, the area increases after moving the shorter partition.</p>
 <p><img alt="State after moving the short partition inward" class="animation-figure" src="../max_capacity_problem.assets/max_capacity_moving_short_board.png" /></p>
 <p align="center"> Figure 15-10 &nbsp; State after moving the short partition inward </p>
 
-<p>From this we can derive the greedy strategy for this problem: initialize two pointers at both ends of the container, and in each round contract the pointer corresponding to the short partition inward, until the two pointers meet.</p>
+<p>From this, we can derive the greedy strategy for this problem: initialize two pointers at the two ends, and in each round move the pointer corresponding to the shorter partition inward until the two pointers meet.</p>
 <p>Figure 15-11 shows the execution process of the greedy strategy.</p>
 <ol>
 <li>In the initial state, pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> are at both ends of the array.</li>
 <li>Calculate the capacity of the current state <span class="arithmatex">\(cap[i, j]\)</span>, and update the maximum capacity.</li>
-<li>Compare the heights of partition <span class="arithmatex">\(i\)</span> and partition <span class="arithmatex">\(j\)</span>, and move the short partition inward by one position.</li>
-<li>Loop through steps <code>2.</code> and <code>3.</code> until <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> meet.</li>
+<li>Compare the heights of partitions <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span>, and move the pointer corresponding to the shorter partition inward by one position.</li>
+<li>Repeat steps <code>2.</code> and <code>3.</code> until <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> meet.</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:9"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label></div>
 <div class="tabbed-content">
@@ -4450,8 +4450,8 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 <p align="center"> Figure 15-11 &nbsp; Greedy process for the max capacity problem </p>
 
 <h3 id="2-code-implementation">2. &nbsp; Code Implementation<a class="headerlink" href="#2-code-implementation" title="Permanent link">&para;</a></h3>
-<p>The code loops at most <span class="arithmatex">\(n\)</span> rounds, <strong>therefore the time complexity is <span class="arithmatex">\(O(n)\)</span></strong>.</p>
-<p>Variables <span class="arithmatex">\(i\)</span>, <span class="arithmatex">\(j\)</span>, and <span class="arithmatex">\(res\)</span> use a constant amount of extra space, <strong>therefore the space complexity is <span class="arithmatex">\(O(1)\)</span></strong>.</p>
+<p>The code runs for at most <span class="arithmatex">\(n\)</span> rounds, <strong>so the time complexity is <span class="arithmatex">\(O(n)\)</span></strong>.</p>
+<p>Variables <span class="arithmatex">\(i\)</span>, <span class="arithmatex">\(j\)</span>, and <span class="arithmatex">\(res\)</span> use only a constant amount of extra space, <strong>so the space complexity is <span class="arithmatex">\(O(1)\)</span></strong>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><input id="__tabbed_2_13" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4761,15 +4761,15 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 </div>
 <h3 id="3-correctness-proof">3. &nbsp; Correctness Proof<a class="headerlink" href="#3-correctness-proof" title="Permanent link">&para;</a></h3>
 <p>The reason greedy is faster than exhaustive enumeration is that each round of greedy selection "skips" some states.</p>
-<p>For example, in state <span class="arithmatex">\(cap[i, j]\)</span> where <span class="arithmatex">\(i\)</span> is the short partition and <span class="arithmatex">\(j\)</span> is the long partition, if we greedily move the short partition <span class="arithmatex">\(i\)</span> inward by one position, the states shown in Figure 15-12 will be "skipped". <strong>This means that the capacities of these states cannot be verified later</strong>.</p>
+<p>For example, in state <span class="arithmatex">\(cap[i, j]\)</span>, suppose <span class="arithmatex">\(i\)</span> is the shorter partition and <span class="arithmatex">\(j\)</span> is the taller partition. If we greedily move the shorter partition <span class="arithmatex">\(i\)</span> inward by one position, the states shown in Figure 15-12 will be "skipped." <strong>This means that their capacities can no longer be checked later</strong>.</p>
 <div class="arithmatex">\[
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 \]</div>
 <p><img alt="States skipped by moving the short partition" class="animation-figure" src="../max_capacity_problem.assets/max_capacity_skipped_states.png" /></p>
 <p align="center"> Figure 15-12 &nbsp; States skipped by moving the short partition </p>
 
-<p>Observing carefully, <strong>these skipped states are actually all the states obtained by moving the long partition <span class="arithmatex">\(j\)</span> inward</strong>. We have already proven that moving the long partition inward will definitely decrease capacity. That is, the skipped states cannot possibly be the optimal solution, <strong>skipping them will not cause us to miss the optimal solution</strong>.</p>
-<p>The above analysis shows that the operation of moving the short partition is "safe", and the greedy strategy is effective.</p>
+<p>A closer look shows that <strong>these skipped states are exactly the states obtained by moving the taller partition <span class="arithmatex">\(j\)</span> inward</strong>. We have already proven that moving the taller partition inward will definitely decrease the capacity. Therefore, none of the skipped states can be the optimal solution, <strong>so skipping them does not cause us to miss the optimum</strong>.</p>
+<p>The above analysis shows that moving the shorter partition is a "safe" operation, and that the greedy strategy is effective.</p>
 
 <!-- Source file information -->
 

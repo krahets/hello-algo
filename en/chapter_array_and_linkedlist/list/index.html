@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1185,7 +1185,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1207,7 +1207,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1455,7 +1455,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1546,7 +1546,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1568,7 +1568,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1646,7 +1646,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1737,7 +1737,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1759,7 +1759,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -2032,7 +2032,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2251,7 +2251,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2279,7 +2279,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2637,7 +2637,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2665,7 +2665,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2721,7 +2721,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2870,7 +2870,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3343,7 +3343,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4255,7 +4255,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4501,17 +4501,17 @@
 
 <!-- Page content -->
 <h1 id="43-list">4.3 &nbsp; List<a class="headerlink" href="#43-list" title="Permanent link">&para;</a></h1>
-<p><u>A list</u> is an abstract data structure concept that represents an ordered collection of elements, supporting operations such as element access, modification, insertion, deletion, and traversal, without requiring users to consider capacity limitations. Lists can be implemented based on linked lists or arrays.</p>
+<p><u>A list</u> is an abstract data structure that represents an ordered collection of elements. It supports operations such as element access, modification, insertion, deletion, and traversal, without requiring users to worry about capacity limits. Lists can be implemented using linked lists or arrays.</p>
 <ul>
-<li>A linked list can naturally be viewed as a list, supporting element insertion, deletion, search, and modification operations, and can flexibly expand dynamically.</li>
-<li>An array also supports element insertion, deletion, search, and modification, but since its length is immutable, it can only be viewed as a list with length limitations.</li>
+<li>A linked list can naturally be viewed as a list: it supports insertion, deletion, search, and update, and can grow flexibly as needed.</li>
+<li>An array also supports insertion, deletion, search, and update, but because its length is fixed, it can only be regarded as a list with a capacity limit.</li>
 </ul>
-<p>When implementing lists using arrays, <strong>the immutable length property reduces the practicality of the list</strong>. This is because we usually cannot determine in advance how much data we need to store, making it difficult to choose an appropriate list length. If the length is too small, it may fail to meet usage requirements; if the length is too large, it will waste memory space.</p>
-<p>To solve this problem, we can use a <u>dynamic array</u> to implement a list. It inherits all the advantages of arrays and can dynamically expand during program execution.</p>
-<p>In fact, <strong>the lists provided in the standard libraries of many programming languages are implemented based on dynamic arrays</strong>, such as <code>list</code> in Python, <code>ArrayList</code> in Java, <code>vector</code> in C++, and <code>List</code> in C#. In the following discussion, we will treat "list" and "dynamic array" as equivalent concepts.</p>
+<p>When a list is implemented with an array, <strong>its fixed length makes it less practical</strong>. This is because we usually cannot determine in advance how much data we need to store, making it difficult to choose an appropriate capacity. If the capacity is too small, it may fail to meet our needs; if it is too large, memory space will be wasted.</p>
+<p>To solve this problem, we can use a <u>dynamic array</u> to implement a list. It inherits all the advantages of arrays while supporting dynamic resizing during program execution.</p>
+<p>In fact, <strong>the list types provided by the standard libraries of many programming languages are implemented with dynamic arrays</strong>, such as <code>list</code> in Python, <code>ArrayList</code> in Java, <code>vector</code> in C++, and <code>List</code> in C#. In the following discussion, we will treat "list" and "dynamic array" as equivalent concepts.</p>
 <h2 id="431-common-list-operations">4.3.1 &nbsp; Common List Operations<a class="headerlink" href="#431-common-list-operations" title="Permanent link">&para;</a></h2>
 <h3 id="1-initialize-a-list">1. &nbsp; Initialize a List<a class="headerlink" href="#1-initialize-a-list" title="Permanent link">&para;</a></h3>
-<p>We typically use two initialization methods: "without initial values" and "with initial values":</p>
+<p>We typically initialize a list in one of two ways: empty or with predefined values:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6666,7 +6666,7 @@ aria-label="Footer"
   <a
     href="../ram_and_cache/"
     class="md-footer__link md-footer__link--next"
-    aria-label="Next: 4.4 Memory and Cache *"
+    aria-label="Next: 4.4 Random-Access Memory and Cache *"
     rel="next"
   >
     <div class="md-footer__title">
@@ -6674,7 +6674,7 @@ aria-label="Footer"
         Next
       </span>
       <div class="md-ellipsis">
-        4.4 Memory and Cache *
+        4.4 Random-Access Memory and Cache *
       </div>
     </div>
     <div class="md-footer__button md-icon">

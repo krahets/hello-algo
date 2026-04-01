@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2726,7 +2726,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3199,7 +3199,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4205,7 +4205,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4405,7 +4405,7 @@
 <p>In this section, we will first solve the most common 0-1 knapsack problem.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given <span class="arithmatex">\(n\)</span> items, where the weight of the <span class="arithmatex">\(i\)</span>-th item is <span class="arithmatex">\(wgt[i-1]\)</span> and its value is <span class="arithmatex">\(val[i-1]\)</span>, and a knapsack with capacity <span class="arithmatex">\(cap\)</span>. Each item can only be selected once. What is the maximum value that can be placed in the knapsack within the capacity limit?</p>
+<p>Given <span class="arithmatex">\(n\)</span> items and a knapsack with capacity <span class="arithmatex">\(cap\)</span>, where the weight and value of the <span class="arithmatex">\(i\)</span>-th item are <span class="arithmatex">\(wgt[i-1]\)</span> and <span class="arithmatex">\(val[i-1]\)</span>, respectively. Each item can be selected at most once. What is the maximum value that can fit in the knapsack under the capacity limit?</p>
 </div>
 <p>Observe Figure 14-17. Since item number <span class="arithmatex">\(i\)</span> starts counting from <span class="arithmatex">\(1\)</span> and array indices start from <span class="arithmatex">\(0\)</span>, item <span class="arithmatex">\(i\)</span> corresponds to weight <span class="arithmatex">\(wgt[i-1]\)</span> and value <span class="arithmatex">\(val[i-1]\)</span>.</p>
 <p><img alt="Example data for 0-1 knapsack" class="animation-figure" src="../knapsack_problem.assets/knapsack_example.png" /></p>
@@ -4423,21 +4423,21 @@
 <li><strong>Not putting item <span class="arithmatex">\(i\)</span></strong>: The knapsack capacity remains unchanged, and the state changes to <span class="arithmatex">\([i-1, c]\)</span>.</li>
 <li><strong>Putting item <span class="arithmatex">\(i\)</span></strong>: The knapsack capacity decreases by <span class="arithmatex">\(wgt[i-1]\)</span>, the value increases by <span class="arithmatex">\(val[i-1]\)</span>, and the state changes to <span class="arithmatex">\([i-1, c-wgt[i-1]]\)</span>.</li>
 </ul>
-<p>The above analysis reveals the optimal substructure of this problem: <strong>the maximum value <span class="arithmatex">\(dp[i, c]\)</span> equals the larger value between not putting item <span class="arithmatex">\(i\)</span> and putting item <span class="arithmatex">\(i\)</span></strong>. From this, the state transition equation can be derived:</p>
+<p>The above analysis reveals the optimal substructure of this problem: <strong>the maximum value <span class="arithmatex">\(dp[i, c]\)</span> equals the greater of the values obtained by not putting item <span class="arithmatex">\(i\)</span> into the knapsack and by putting it into the knapsack</strong>. From this, the state transition equation can be derived:</p>
 <div class="arithmatex">\[
 dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 \]</div>
 <p>Note that if the weight of the current item <span class="arithmatex">\(wgt[i - 1]\)</span> exceeds the remaining knapsack capacity <span class="arithmatex">\(c\)</span>, then the only option is not to put it in the knapsack.</p>
 <p><strong>Step 3: Determine boundary conditions and state transition order</strong></p>
 <p>When there are no items or the knapsack capacity is <span class="arithmatex">\(0\)</span>, the maximum value is <span class="arithmatex">\(0\)</span>, i.e., the first column <span class="arithmatex">\(dp[i, 0]\)</span> and the first row <span class="arithmatex">\(dp[0, c]\)</span> are both equal to <span class="arithmatex">\(0\)</span>.</p>
-<p>The current state <span class="arithmatex">\([i, c]\)</span> is transferred from the state above <span class="arithmatex">\([i-1, c]\)</span> and the state in the upper-left <span class="arithmatex">\([i-1, c-wgt[i-1]]\)</span>, so the entire <span class="arithmatex">\(dp\)</span> table is traversed in order through two nested loops.</p>
+<p>The current state <span class="arithmatex">\([i, c]\)</span> transitions from the state above <span class="arithmatex">\([i-1, c]\)</span> and the upper-left state <span class="arithmatex">\([i-1, c-wgt[i-1]]\)</span>, so we can traverse the entire <span class="arithmatex">\(dp\)</span> table in forward order using two nested loops.</p>
 <p>Based on the above analysis, we will next implement the brute force search, memoization, and dynamic programming solutions in order.</p>
 <h3 id="1-method-1-brute-force-search">1. &nbsp; Method 1: Brute Force Search<a class="headerlink" href="#1-method-1-brute-force-search" title="Permanent link">&para;</a></h3>
 <p>The search code includes the following elements.</p>
 <ul>
 <li><strong>Recursive parameters</strong>: state <span class="arithmatex">\([i, c]\)</span>.</li>
 <li><strong>Return value</strong>: solution to the subproblem <span class="arithmatex">\(dp[i, c]\)</span>.</li>
-<li><strong>Termination condition</strong>: when the item number is out of bounds <span class="arithmatex">\(i = 0\)</span> or the remaining knapsack capacity is <span class="arithmatex">\(0\)</span>, terminate recursion and return value <span class="arithmatex">\(0\)</span>.</li>
+<li><strong>Termination condition</strong>: when there are no items left (<span class="arithmatex">\(i = 0\)</span>) or the remaining knapsack capacity is <span class="arithmatex">\(0\)</span>, terminate the recursion and return value <span class="arithmatex">\(0\)</span>.</li>
 <li><strong>Pruning</strong>: if the weight of the current item exceeds the remaining knapsack capacity, only the option of not putting it in is available.</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
@@ -4694,7 +4694,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 </div>
 </div>
-<p>As shown in Figure 14-18, since each item generates two search branches of not selecting and selecting, the time complexity is <span class="arithmatex">\(O(2^n)\)</span>.</p>
+<p>As shown in Figure 14-18, since each item generates two search branches, excluding it and including it, the time complexity is <span class="arithmatex">\(O(2^n)\)</span>.</p>
 <p>Observing the recursion tree, it is easy to see overlapping subproblems, such as <span class="arithmatex">\(dp[1, 10]\)</span>. When there are many items, large knapsack capacity, and especially many items with the same weight, the number of overlapping subproblems will increase significantly.</p>
 <p><img alt="Brute force search recursion tree for 0-1 knapsack problem" class="animation-figure" src="../knapsack_problem.assets/knapsack_dfs.png" /></p>
 <p align="center"> Figure 14-18 &nbsp; Brute force search recursion tree for 0-1 knapsack problem </p>

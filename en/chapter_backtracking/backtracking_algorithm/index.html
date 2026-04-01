@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2726,7 +2726,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3199,7 +3199,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4227,7 +4227,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4653,13 +4653,13 @@
 
 <h2 id="1311-attempt-and-backtrack">13.1.1 &nbsp; Attempt and Backtrack<a class="headerlink" href="#1311-attempt-and-backtrack" title="Permanent link">&para;</a></h2>
 <p><strong>The reason it is called a backtracking algorithm is that it employs "attempt" and "backtrack" strategies when searching the solution space</strong>. When the algorithm encounters a state where it cannot continue forward or cannot find a solution that satisfies the constraints, it will undo the previous choice, return to a previous state, and try other possible choices.</p>
-<p>For Example 1, visiting each node represents an "attempt", while skipping over a leaf node or a function <code>return</code> from the parent node represents a "backtrack".</p>
+<p>For Example 1, visiting each node represents an "attempt", while skipping over a leaf node or the <code>return</code> that brings the traversal back to the parent node represents a "backtrack".</p>
 <p>It is worth noting that <strong>backtracking is not limited to function returns alone</strong>. To illustrate this, let's extend Example 1 slightly.</p>
 <div class="admonition question">
 <p class="admonition-title">Example 2</p>
 <p>In a binary tree, search all nodes with value <span class="arithmatex">\(7\)</span>, <strong>and return the paths from the root node to these nodes</strong>.</p>
 </div>
-<p>Based on the code from Example 1, we need to use a list <code>path</code> to record the visited node path. When we reach a node with value <span class="arithmatex">\(7\)</span>, we copy <code>path</code> and add it to the result list <code>res</code>. After traversal is complete, <code>res</code> contains all the solutions. The code is as follows:</p>
+<p>Based on the code from Example 1, we need to use a list <code>path</code> to record the path of visited nodes. When we reach a node with value <span class="arithmatex">\(7\)</span>, we copy <code>path</code> and add it to the result list <code>res</code>. After traversal is complete, <code>res</code> contains all the solutions. The code is as follows:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><input id="__tabbed_2_13" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5257,7 +5257,7 @@
 <p align="center"> Figure 13-3 &nbsp; Pruning according to constraints </p>
 
 <h2 id="1313-framework-code">13.1.3 &nbsp; Framework Code<a class="headerlink" href="#1313-framework-code" title="Permanent link">&para;</a></h2>
-<p>Next, we attempt to extract the main framework of backtracking's "attempt, backtrack, and pruning", to improve code generality.</p>
+<p>Next, we attempt to extract a general framework centered on backtracking's "attempt, backtrack, and pruning" to improve code generality.</p>
 <p>In the following framework code, <code>state</code> represents the current state of the problem, and <code>choices</code> represents the choices available in the current state:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:13"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><input id="__tabbed_5_12" name="__tabbed_5" type="radio" /><input id="__tabbed_5_13" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Java</label><label for="__tabbed_5_4">C#</label><label for="__tabbed_5_5">Go</label><label for="__tabbed_5_6">Swift</label><label for="__tabbed_5_7">JS</label><label for="__tabbed_5_8">TS</label><label for="__tabbed_5_9">Dart</label><label for="__tabbed_5_10">Rust</label><label for="__tabbed_5_11">C</label><label for="__tabbed_5_12">Kotlin</label><label for="__tabbed_5_13">Ruby</label></div>
 <div class="tabbed-content">
@@ -6228,7 +6228,7 @@
 <p><img alt="Comparison of search process with and without return statement" class="animation-figure" src="../backtracking_algorithm.assets/backtrack_remove_return_or_not.png" /></p>
 <p align="center"> Figure 13-4 &nbsp; Comparison of search process with and without return statement </p>
 
-<p>Compared to code based on preorder traversal, code based on the backtracking algorithm framework appears more verbose, but has better generality. In fact, <strong>many backtracking problems can be solved within this framework</strong>. We only need to define <code>state</code> and <code>choices</code> for the specific problem and implement each method in the framework.</p>
+<p>Compared to code based on preorder traversal, code based on the backtracking algorithm framework appears more verbose, but is more general. In fact, <strong>many backtracking problems can be solved within this framework</strong>. We only need to define <code>state</code> and <code>choices</code> for the specific problem and implement each method in the framework.</p>
 <h2 id="1314-common-terminology">13.1.4 &nbsp; Common Terminology<a class="headerlink" href="#1314-common-terminology" title="Permanent link">&para;</a></h2>
 <p>To analyze algorithmic problems more clearly, we summarize the meanings of common terminology used in backtracking algorithms and provide corresponding examples from Example 3, as shown in the following table.</p>
 <p align="center"> Table 13-1 &nbsp; Common Backtracking Algorithm Terminology </p>
@@ -6278,13 +6278,13 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The concepts of problem, solution, state, etc. are universal and are involved in divide-and-conquer, backtracking, dynamic programming, greedy and other algorithms.</p>
+<p>The concepts of problem, solution, state, etc. are universal and appear in divide-and-conquer, backtracking, dynamic programming, greedy algorithms, and others.</p>
 </div>
 <h2 id="1315-advantages-and-limitations">13.1.5 &nbsp; Advantages and Limitations<a class="headerlink" href="#1315-advantages-and-limitations" title="Permanent link">&para;</a></h2>
 <p>The backtracking algorithm is essentially a depth-first search algorithm that tries all possible solutions until it finds one that satisfies the conditions. The advantage of this approach is that it can find all possible solutions, and with reasonable pruning operations, it achieves high efficiency.</p>
 <p>However, when dealing with large-scale or complex problems, <strong>the running efficiency of the backtracking algorithm may be unacceptable</strong>.</p>
 <ul>
-<li><strong>Time</strong>: The backtracking algorithm usually needs to traverse all possibilities in the solution space, and the time complexity can reach exponential or factorial order.</li>
+<li><strong>Time</strong>: The backtracking algorithm usually needs to traverse all possibilities in the state space, and the time complexity can reach exponential or factorial order.</li>
 <li><strong>Space</strong>: During recursive calls, the current state needs to be saved (such as paths, auxiliary variables used for pruning, etc.), and when the depth is large, the space requirement can become very large.</li>
 </ul>
 <p>Nevertheless, <strong>the backtracking algorithm is still the best solution for certain search problems and constraint satisfaction problems</strong>. For these problems, since we cannot predict which choices will generate valid solutions, we must traverse all possible choices. In this case, <strong>the key is how to optimize efficiency</strong>. There are two common efficiency optimization methods.</p>

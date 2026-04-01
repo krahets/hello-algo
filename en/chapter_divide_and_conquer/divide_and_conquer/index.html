@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2726,7 +2726,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3310,7 +3310,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4222,7 +4222,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4435,7 +4435,7 @@
 
 <!-- Page content -->
 <h1 id="121-divide-and-conquer-algorithms">12.1 &nbsp; Divide and Conquer Algorithms<a class="headerlink" href="#121-divide-and-conquer-algorithms" title="Permanent link">&para;</a></h1>
-<p><u>Divide and conquer</u> is a very important and common algorithm strategy. Divide and conquer is typically implemented based on recursion, consisting of two steps: "divide" and "conquer".</p>
+<p><u>Divide and conquer</u> is a very important and common algorithmic strategy. Divide and conquer is typically implemented based on recursion, consisting of two steps: "divide" and "conquer".</p>
 <ol>
 <li><strong>Divide (partition phase)</strong>: Recursively divide the original problem into two or more subproblems until the smallest subproblem is reached.</li>
 <li><strong>Conquer (merge phase)</strong>: Starting from the smallest subproblems with known solutions, merge the solutions of subproblems from bottom to top to construct the solution to the original problem.</li>
@@ -4462,10 +4462,10 @@
 <li><strong>Solutions of subproblems can be merged</strong>: Two sorted subarrays (solutions of subproblems) can be merged into one sorted array (solution of the original problem).</li>
 </ol>
 <h2 id="1212-improving-efficiency-through-divide-and-conquer">12.1.2 &nbsp; Improving Efficiency Through Divide and Conquer<a class="headerlink" href="#1212-improving-efficiency-through-divide-and-conquer" title="Permanent link">&para;</a></h2>
-<p><strong>Divide and conquer can not only effectively solve algorithmic problems but often also improve algorithm efficiency</strong>. In sorting algorithms, quick sort, merge sort, and heap sort are faster than selection, bubble, and insertion sort because they apply the divide and conquer strategy.</p>
+<p><strong>Divide and conquer can not only effectively solve algorithmic problems, but can often also improve algorithmic efficiency</strong>. In sorting algorithms, quick sort, merge sort, and heap sort are faster than selection, bubble, and insertion sort because they apply the divide and conquer strategy.</p>
 <p>This raises the question: <strong>Why can divide and conquer improve algorithm efficiency, and what is the underlying logic</strong>? In other words, why is dividing a large problem into multiple subproblems, solving the subproblems, and merging their solutions more efficient than directly solving the original problem? This question can be discussed from two aspects: operation count and parallel computation.</p>
 <h3 id="1-operation-count-optimization">1. &nbsp; Operation Count Optimization<a class="headerlink" href="#1-operation-count-optimization" title="Permanent link">&para;</a></h3>
-<p>Taking "bubble sort" as an example, processing an array of length <span class="arithmatex">\(n\)</span> requires <span class="arithmatex">\(O(n^2)\)</span> time. Suppose we divide the array into two subarrays from the midpoint as shown in Figure 12-2, the division requires <span class="arithmatex">\(O(n)\)</span> time, sorting each subarray requires <span class="arithmatex">\(O((n / 2)^2)\)</span> time, and merging the two subarrays requires <span class="arithmatex">\(O(n)\)</span> time, resulting in an overall time complexity of:</p>
+<p>Taking "bubble sort" as an example, processing an array of length <span class="arithmatex">\(n\)</span> requires <span class="arithmatex">\(O(n^2)\)</span> time. Suppose we divide the array at the midpoint into two subarrays, as shown in Figure 12-2. The division requires <span class="arithmatex">\(O(n)\)</span> time, sorting each subarray requires <span class="arithmatex">\(O((n / 2)^2)\)</span> time, and merging the two subarrays requires <span class="arithmatex">\(O(n)\)</span> time, resulting in an overall time complexity of:</p>
 <div class="arithmatex">\[
 O(n + (\frac{n}{2})^2 \times 2 + n) = O(\frac{n^2}{2} + 2n)
 \]</div>
@@ -4484,14 +4484,14 @@ n(n - 4) &amp; &gt; 0
 <p>Going further, <strong>what if we continuously divide the subarrays from their midpoints into two subarrays</strong> until the subarrays have only one element? This approach is actually "merge sort", with a time complexity of <span class="arithmatex">\(O(n \log n)\)</span>.</p>
 <p>Thinking further, <strong>what if we set multiple division points</strong> and evenly divide the original array into <span class="arithmatex">\(k\)</span> subarrays? This situation is very similar to "bucket sort", which is well-suited for sorting massive amounts of data, with a theoretical time complexity of <span class="arithmatex">\(O(n + k)\)</span>.</p>
 <h3 id="2-parallel-computation-optimization">2. &nbsp; Parallel Computation Optimization<a class="headerlink" href="#2-parallel-computation-optimization" title="Permanent link">&para;</a></h3>
-<p>We know that the subproblems generated by divide and conquer are independent of each other, <strong>so they can typically be solved in parallel</strong>. This means divide and conquer can not only reduce the time complexity of algorithms, <strong>but also benefits from parallel optimization by operating systems</strong>.</p>
+<p>We know that the subproblems generated by divide and conquer are independent of each other, <strong>so they can typically be solved in parallel</strong>. This means divide and conquer can not only reduce the time complexity of algorithms, <strong>but is also amenable to parallel optimization by the operating system</strong>.</p>
 <p>Parallel optimization is particularly effective in multi-core or multi-processor environments, as the system can simultaneously handle multiple subproblems, making fuller use of computing resources and significantly reducing overall runtime.</p>
 <p>For example, in the "bucket sort" shown in Figure 12-3, we evenly distribute massive data into various buckets, and the sorting tasks for all buckets can be distributed to various computing units. After completion, the results are merged.</p>
 <p><img alt="Parallel computation in bucket sort" class="animation-figure" src="../divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" /></p>
 <p align="center"> Figure 12-3 &nbsp; Parallel computation in bucket sort </p>
 
 <h2 id="1213-common-applications-of-divide-and-conquer">12.1.3 &nbsp; Common Applications of Divide and Conquer<a class="headerlink" href="#1213-common-applications-of-divide-and-conquer" title="Permanent link">&para;</a></h2>
-<p>On one hand, divide and conquer can be used to solve many classic algorithmic problems.</p>
+<p>On the one hand, divide and conquer can be used to solve many classic algorithmic problems.</p>
 <ul>
 <li><strong>Finding the closest pair of points</strong>: This algorithm first divides the point set into two parts, then finds the closest pair of points in each part separately, and finally finds the closest pair of points that spans both parts.</li>
 <li><strong>Large integer multiplication</strong>: For example, the Karatsuba algorithm, which decomposes large integer multiplication into several smaller integer multiplications and additions.</li>
@@ -4501,15 +4501,15 @@ n(n - 4) &amp; &gt; 0
 </ul>
 <p>On the other hand, divide and conquer is widely applied in the design of algorithms and data structures.</p>
 <ul>
-<li><strong>Binary search</strong>: Binary search divides a sorted array into two parts from the midpoint index, then decides which half to eliminate based on the comparison result between the target value and the middle element value, and performs the same binary operation on the remaining interval.</li>
+<li><strong>Binary search</strong>: Binary search divides a sorted array into two parts from the midpoint index, then decides which half to eliminate based on the comparison result between the target value and the middle element value, and performs the same binary-search step on the remaining interval.</li>
 <li><strong>Merge sort</strong>: Already introduced at the beginning of this section, no further elaboration needed.</li>
 <li><strong>Quick sort</strong>: Quick sort selects a pivot value, then divides the array into two subarrays, one with elements smaller than the pivot and the other with elements larger than the pivot, then performs the same division operation on these two parts until the subarrays have only one element.</li>
 <li><strong>Bucket sort</strong>: The basic idea of bucket sort is to scatter data into multiple buckets, then sort the elements within each bucket, and finally extract the elements from each bucket in sequence to obtain a sorted array.</li>
 <li><strong>Trees</strong>: For example, binary search trees, AVL trees, red-black trees, B-trees, B+ trees, etc. Their search, insertion, and deletion operations can all be viewed as applications of the divide and conquer strategy.</li>
 <li><strong>Heaps</strong>: A heap is a special complete binary tree, and its various operations, such as insertion, deletion, and heapify, actually imply the divide and conquer idea.</li>
-<li><strong>Hash tables</strong>: Although hash tables do not directly apply divide and conquer, some hash collision resolution solutions indirectly apply the divide and conquer strategy. For example, long linked lists in chaining may be converted to red-black trees to improve query efficiency.</li>
+<li><strong>Hash tables</strong>: Although hash tables do not directly apply divide and conquer, some methods for resolving hash collisions indirectly apply the divide and conquer strategy. For example, long linked lists in chaining may be converted to red-black trees to improve lookup efficiency.</li>
 </ul>
-<p>It can be seen that <strong>divide and conquer is a "subtly pervasive" algorithmic idea</strong>, embedded in various algorithms and data structures.</p>
+<p>It can be seen that <strong>divide and conquer is a "quietly pervasive" algorithmic idea</strong>, embedded in various algorithms and data structures.</p>
 
 <!-- Source file information -->
 

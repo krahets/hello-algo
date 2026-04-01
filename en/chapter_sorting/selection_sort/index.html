@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2728,7 +2728,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3260,7 +3260,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4172,7 +4172,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4335,14 +4335,14 @@
 
 <!-- Page content -->
 <h1 id="112-selection-sort">11.2 &nbsp; Selection Sort<a class="headerlink" href="#112-selection-sort" title="Permanent link">&para;</a></h1>
-<p><u>Selection sort (selection sort)</u> works very simply: it opens a loop, and in each round, selects the smallest element from the unsorted interval and places it at the end of the sorted interval.</p>
-<p>Assume the array has length <span class="arithmatex">\(n\)</span>. The algorithm flow of selection sort is shown in Figure 11-2.</p>
+<p><u>Selection sort</u> works very simply: in each round, it selects the smallest element from the unsorted interval and places it at the end of the sorted interval.</p>
+<p>Assume the array has length <span class="arithmatex">\(n\)</span>. The procedure of selection sort is shown in Figure 11-2.</p>
 <ol>
 <li>Initially, all elements are unsorted, i.e., the unsorted (index) interval is <span class="arithmatex">\([0, n-1]\)</span>.</li>
 <li>Select the smallest element in the interval <span class="arithmatex">\([0, n-1]\)</span> and swap it with the element at index <span class="arithmatex">\(0\)</span>. After completion, the first element of the array is sorted.</li>
 <li>Select the smallest element in the interval <span class="arithmatex">\([1, n-1]\)</span> and swap it with the element at index <span class="arithmatex">\(1\)</span>. After completion, the first 2 elements of the array are sorted.</li>
 <li>And so on. After <span class="arithmatex">\(n - 1\)</span> rounds of selection and swapping, the first <span class="arithmatex">\(n - 1\)</span> elements of the array are sorted.</li>
-<li>The only remaining element must be the largest element, requiring no sorting, so the array sorting is complete.</li>
+<li>The only remaining element must be the largest, so no further sorting is needed and the array is sorted.</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label><label for="__tabbed_1_10">&lt;10&gt;</label><label for="__tabbed_1_11">&lt;11&gt;</label></div>
 <div class="tabbed-content">
@@ -4383,7 +4383,7 @@
 </div>
 <p align="center"> Figure 11-2 &nbsp; Selection sort steps </p>
 
-<p>In the code, we use <span class="arithmatex">\(k\)</span> to record the smallest element within the unsorted interval:</p>
+<p>In the code, we use <span class="arithmatex">\(k\)</span> to track the smallest element within the unsorted interval:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><input id="__tabbed_2_13" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4637,9 +4637,9 @@
 </div>
 <h2 id="1121-algorithm-characteristics">11.2.1 &nbsp; Algorithm Characteristics<a class="headerlink" href="#1121-algorithm-characteristics" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Time complexity of <span class="arithmatex">\(O(n^2)\)</span>, non-adaptive sorting</strong>: The outer loop has <span class="arithmatex">\(n - 1\)</span> rounds in total. The length of the unsorted interval in the first round is <span class="arithmatex">\(n\)</span>, and the length of the unsorted interval in the last round is <span class="arithmatex">\(2\)</span>. That is, each round of the outer loop contains <span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(n - 1\)</span>, <span class="arithmatex">\(\dots\)</span>, <span class="arithmatex">\(3\)</span>, <span class="arithmatex">\(2\)</span> inner loop iterations, summing to <span class="arithmatex">\(\frac{(n - 1)(n + 2)}{2}\)</span>.</li>
-<li><strong>Space complexity of <span class="arithmatex">\(O(1)\)</span>, in-place sorting</strong>: Pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> use a constant amount of extra space.</li>
-<li><strong>Non-stable sorting</strong>: As shown in Figure 11-3, element <code>nums[i]</code> may be swapped to the right of an element equal to it, causing a change in their relative order.</li>
+<li><strong>Time complexity <span class="arithmatex">\(O(n^2)\)</span>, non-adaptive sorting</strong>: The outer loop has <span class="arithmatex">\(n - 1\)</span> rounds in total. The length of the unsorted interval in the first round is <span class="arithmatex">\(n\)</span>, and the length of the unsorted interval in the last round is <span class="arithmatex">\(2\)</span>. That is, the rounds of the outer loop contain inner loops with <span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(n - 1\)</span>, <span class="arithmatex">\(\dots\)</span>, <span class="arithmatex">\(3\)</span>, and <span class="arithmatex">\(2\)</span> iterations, summing to <span class="arithmatex">\(\frac{(n - 1)(n + 2)}{2}\)</span>.</li>
+<li><strong>Space complexity <span class="arithmatex">\(O(1)\)</span>, in-place sorting</strong>: Pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> use a constant amount of extra space.</li>
+<li><strong>Unstable sorting</strong>: As shown in Figure 11-3, element <code>nums[i]</code> may be swapped to the right of an element equal to it, causing a change in their relative order.</li>
 </ul>
 <p><img alt="Selection sort non-stability example" class="animation-figure" src="../selection_sort.assets/selection_sort_instability.png" /></p>
 <p align="center"> Figure 11-3 &nbsp; Selection sort non-stability example </p>
@@ -4665,7 +4665,7 @@ aria-label="Footer"
   <a
     href="../sorting_algorithm/"
     class="md-footer__link md-footer__link--prev"
-    aria-label="Previous: 11.1 Sorting Algorithms"
+    aria-label="Previous: 11.1 Sorting Algorithm"
     rel="prev"
   >
     <div class="md-footer__button md-icon">
@@ -4677,7 +4677,7 @@ aria-label="Footer"
         Previous
       </span>
       <div class="md-ellipsis">
-        11.1 Sorting Algorithms
+        11.1 Sorting Algorithm
       </div>
     </div>
   </a>

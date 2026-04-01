@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2726,7 +2726,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3199,7 +3199,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -3673,10 +3673,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1431-problem-determination" class="md-nav__link">
+  <a href="#1431-problem-identification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        14.3.1 &nbsp; Problem Determination
+        14.3.1 &nbsp; Problem Identification
       
     </span>
   </a>
@@ -4233,7 +4233,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4348,10 +4348,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1431-problem-determination" class="md-nav__link">
+  <a href="#1431-problem-identification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        14.3.1 &nbsp; Problem Determination
+        14.3.1 &nbsp; Problem Identification
       
     </span>
   </a>
@@ -4462,27 +4462,27 @@
 <li>How to determine whether a problem is a dynamic programming problem?</li>
 <li>What is the complete process for solving a dynamic programming problem, and where should we start?</li>
 </ol>
-<h2 id="1431-problem-determination">14.3.1 &nbsp; Problem Determination<a class="headerlink" href="#1431-problem-determination" title="Permanent link">&para;</a></h2>
+<h2 id="1431-problem-identification">14.3.1 &nbsp; Problem Identification<a class="headerlink" href="#1431-problem-identification" title="Permanent link">&para;</a></h2>
 <p>Generally speaking, if a problem contains overlapping subproblems, optimal substructure, and satisfies no aftereffects, then it is usually suitable for solving with dynamic programming. However, it is difficult to directly extract these characteristics from the problem description. Therefore, we usually relax the conditions and <strong>first observe whether the problem is suitable for solving with backtracking (exhaustive search)</strong>.</p>
 <p><strong>Problems suitable for solving with backtracking usually satisfy the "decision tree model"</strong>, which means the problem can be described using a tree structure, where each node represents a decision and each path represents a sequence of decisions.</p>
 <p>In other words, if a problem contains an explicit concept of decisions, and the solution is generated through a series of decisions, then it satisfies the decision tree model and can usually be solved using backtracking.</p>
-<p>On this basis, dynamic programming problems also have some "bonus points" for determination.</p>
+<p>On this basis, dynamic programming problems also have some positive indicators.</p>
 <ul>
 <li>The problem contains descriptions such as maximum (minimum) or most (least), indicating optimization.</li>
 <li>The problem's state can be represented using a list, multi-dimensional matrix, or tree, and a state has a recurrence relation with its surrounding states.</li>
 </ul>
-<p>Correspondingly, there are also some "penalty points".</p>
+<p>Correspondingly, there are also some negative indicators.</p>
 <ul>
 <li>The goal of the problem is to find all possible solutions, rather than finding the optimal solution.</li>
 <li>The problem description has obvious permutation and combination characteristics, requiring the return of specific multiple solutions.</li>
 </ul>
-<p>If a problem satisfies the decision tree model and has relatively obvious "bonus points", we can assume it is a dynamic programming problem and verify it during the solving process.</p>
+<p>If a problem satisfies the decision tree model and has relatively obvious positive indicators, we can assume it is a dynamic programming problem and verify that assumption during the solving process.</p>
 <h2 id="1432-problem-solving-steps">14.3.2 &nbsp; Problem-Solving Steps<a class="headerlink" href="#1432-problem-solving-steps" title="Permanent link">&para;</a></h2>
 <p>The problem-solving process for dynamic programming varies depending on the nature and difficulty of the problem, but generally follows these steps: describe decisions, define states, establish the <span class="arithmatex">\(dp\)</span> table, derive state transition equations, determine boundary conditions, etc.</p>
 <p>To illustrate the problem-solving steps more vividly, we use a classic problem "minimum path sum" as an example.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given an <span class="arithmatex">\(n \times m\)</span> two-dimensional grid <code>grid</code>, where each cell in the grid contains a non-negative integer representing the cost of that cell. A robot starts from the top-left cell and can only move down or right at each step until reaching the bottom-right cell. Return the minimum path sum from the top-left to the bottom-right.</p>
+<p>Given an <span class="arithmatex">\(n \times m\)</span> two-dimensional grid <code>grid</code> in which each cell contains a non-negative integer representing its cost, a robot starts from the top-left cell and can only move down or right at each step until reaching the bottom-right cell. Return the minimum path sum from the top-left to the bottom-right.</p>
 </div>
 <p>Figure 14-10 shows an example where the minimum path sum for the given grid is <span class="arithmatex">\(13\)</span>.</p>
 <p><img alt="Minimum path sum example data" class="animation-figure" src="../dp_solution_pipeline.assets/min_path_sum_example.png" /></p>
@@ -4501,7 +4501,7 @@
 <p>Each state corresponds to a subproblem, and we define a <span class="arithmatex">\(dp\)</span> table to store the solutions to all subproblems. Each independent variable of the state is a dimension of the <span class="arithmatex">\(dp\)</span> table. Essentially, the <span class="arithmatex">\(dp\)</span> table is a mapping between states and solutions to subproblems.</p>
 </div>
 <p><strong>Step 2: Identify the optimal substructure, and then derive the state transition equation</strong></p>
-<p>For state <span class="arithmatex">\([i, j]\)</span>, it can only be transferred from the cell above <span class="arithmatex">\([i-1, j]\)</span> or the cell to the left <span class="arithmatex">\([i, j-1]\)</span>. Therefore, the optimal substructure is: the minimum path sum to reach <span class="arithmatex">\([i, j]\)</span> is determined by the smaller of the minimum path sums of <span class="arithmatex">\([i, j-1]\)</span> and <span class="arithmatex">\([i-1, j]\)</span>.</p>
+<p>For state <span class="arithmatex">\([i, j]\)</span>, it can only transition from the cell above <span class="arithmatex">\([i-1, j]\)</span> or the cell to the left <span class="arithmatex">\([i, j-1]\)</span>. Therefore, the optimal substructure is: the minimum path sum to reach <span class="arithmatex">\([i, j]\)</span> is determined by the smaller of the minimum path sums of <span class="arithmatex">\([i, j-1]\)</span> and <span class="arithmatex">\([i-1, j]\)</span>.</p>
 <p>Based on the above analysis, the state transition equation shown in Figure 14-12 can be derived:</p>
 <div class="arithmatex">\[
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
@@ -4516,18 +4516,18 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 </div>
 <p><strong>Step 3: Determine boundary conditions and state transition order</strong></p>
 <p>In this problem, states in the first row can only come from the state to their left, and states in the first column can only come from the state above them. Therefore, the first row <span class="arithmatex">\(i = 0\)</span> and first column <span class="arithmatex">\(j = 0\)</span> are boundary conditions.</p>
-<p>As shown in Figure 14-13, since each cell is transferred from the cell to its left and the cell above it, we use loops to traverse the matrix, with the outer loop traversing rows and the inner loop traversing columns.</p>
+<p>As shown in Figure 14-13, since each cell transitions from the cell to its left and the cell above it, we use loops to traverse the matrix, with the outer loop traversing rows and the inner loop traversing columns.</p>
 <p><img alt="Boundary conditions and state transition order" class="animation-figure" src="../dp_solution_pipeline.assets/min_path_sum_solution_initial_state.png" /></p>
 <p align="center"> Figure 14-13 &nbsp; Boundary conditions and state transition order </p>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Boundary conditions in dynamic programming are used to initialize the <span class="arithmatex">\(dp\)</span> table, and in search are used for pruning.</p>
+<p>Boundary conditions in dynamic programming are used to initialize the <span class="arithmatex">\(dp\)</span> table, while in search they are used for pruning.</p>
 <p>The core of state transition order is to ensure that when computing the solution to the current problem, all the smaller subproblems it depends on have already been computed correctly.</p>
 </div>
 <p>Based on the above analysis, we can directly write the dynamic programming code. However, subproblem decomposition is a top-down approach, so implementing in the order "brute force search <span class="arithmatex">\(\rightarrow\)</span> memoization <span class="arithmatex">\(\rightarrow\)</span> dynamic programming" is more aligned with thinking habits.</p>
 <h3 id="1-method-1-brute-force-search">1. &nbsp; Method 1: Brute Force Search<a class="headerlink" href="#1-method-1-brute-force-search" title="Permanent link">&para;</a></h3>
-<p>Starting from state <span class="arithmatex">\([i, j]\)</span>, continuously decompose into smaller states <span class="arithmatex">\([i-1, j]\)</span> and <span class="arithmatex">\([i, j-1]\)</span>. The recursive function includes the following elements.</p>
+<p>Starting from state <span class="arithmatex">\([i, j]\)</span>, we continuously decompose it into smaller states <span class="arithmatex">\([i-1, j]\)</span> and <span class="arithmatex">\([i, j-1]\)</span>. The recursive function includes the following elements.</p>
 <ul>
 <li><strong>Recursive parameters</strong>: state <span class="arithmatex">\([i, j]\)</span>.</li>
 <li><strong>Return value</strong>: minimum path sum from <span class="arithmatex">\([0, 0]\)</span> to <span class="arithmatex">\([i, j]\)</span>, which is <span class="arithmatex">\(dp[i, j]\)</span>.</li>

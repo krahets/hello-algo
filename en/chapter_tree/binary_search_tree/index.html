@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1890,7 +1890,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2240,7 +2240,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2268,7 +2268,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2626,7 +2626,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2654,7 +2654,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2710,7 +2710,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2859,7 +2859,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3332,7 +3332,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4244,7 +4244,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4490,7 +4490,7 @@
 <h2 id="741-operations-on-a-binary-search-tree">7.4.1 &nbsp; Operations on a Binary Search Tree<a class="headerlink" href="#741-operations-on-a-binary-search-tree" title="Permanent link">&para;</a></h2>
 <p>We encapsulate the binary search tree as a class <code>BinarySearchTree</code> and declare a member variable <code>root</code> pointing to the tree's root node.</p>
 <h3 id="1-searching-for-a-node">1. &nbsp; Searching for a Node<a class="headerlink" href="#1-searching-for-a-node" title="Permanent link">&para;</a></h3>
-<p>Given a target node value <code>num</code>, we can search according to the properties of the binary search tree. As shown in Figure 7-17, we declare a node <code>cur</code> and start from the binary tree's root node <code>root</code>, looping to compare the node value <code>cur.val</code> with <code>num</code>.</p>
+<p>Given a target node value <code>num</code>, we can search according to the properties of the binary search tree. As shown in Figure 7-17, we declare a node <code>cur</code> and start from the binary search tree's root node <code>root</code>, looping to compare <code>cur.val</code> with <code>num</code>.</p>
 <ul>
 <li>If <code>cur.val &lt; num</code>, it means the target node is in <code>cur</code>'s right subtree, thus execute <code>cur = cur.right</code>.</li>
 <li>If <code>cur.val &gt; num</code>, it means the target node is in <code>cur</code>'s left subtree, thus execute <code>cur = cur.left</code>.</li>
@@ -4514,7 +4514,7 @@
 </div>
 <p align="center"> Figure 7-17 &nbsp; Example of searching for a node in a binary search tree </p>
 
-<p>The search operation in a binary search tree works on the same principle as the binary search algorithm, both eliminating half of the cases in each round. The number of loop iterations is at most the height of the binary tree. When the binary tree is balanced, it uses <span class="arithmatex">\(O(\log n)\)</span> time. The example code is as follows:</p>
+<p>The search operation in a binary search tree follows the same principle as binary search: each round rules out half of the remaining cases. The number of loop iterations is at most the height of the tree. When the tree is balanced, the search takes <span class="arithmatex">\(O(\log n)\)</span> time. The example code is as follows:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><input id="__tabbed_2_13" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4794,14 +4794,14 @@
 <p>Given an element <code>num</code> to be inserted, in order to maintain the property of the binary search tree "left subtree &lt; root node &lt; right subtree," the insertion process is as shown in Figure 7-18.</p>
 <ol>
 <li><strong>Finding the insertion position</strong>: Similar to the search operation, start from the root node and loop downward searching according to the size relationship between the current node value and <code>num</code>, until passing the leaf node (traversing to <code>None</code>) and then exit the loop.</li>
-<li><strong>Insert the node at that position</strong>: Initialize node <code>num</code> and place it at the <code>None</code> position.</li>
+<li><strong>Insert the node at that position</strong>: Create a node for <code>num</code> and place it at the <code>None</code> position.</li>
 </ol>
 <p><img alt="Inserting a node into a binary search tree" class="animation-figure" src="../binary_search_tree.assets/bst_insert.png" /></p>
 <p align="center"> Figure 7-18 &nbsp; Inserting a node into a binary search tree </p>
 
 <p>In the code implementation, note the following two points:</p>
 <ul>
-<li>Binary search trees do not allow duplicate nodes; otherwise, it would violate its definition. Therefore, if the node to be inserted already exists in the tree, the insertion is not performed and it returns directly.</li>
+<li>Binary search trees do not allow duplicate nodes; otherwise, the tree would no longer satisfy its definition. Therefore, if the node to be inserted already exists in the tree, the insertion is skipped and the function returns directly.</li>
 <li>To implement the node insertion, we need to use node <code>pre</code> to save the node from the previous loop iteration. This way, when traversing to <code>None</code>, we can obtain its parent node, thereby completing the node insertion operation.</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:13"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><input id="__tabbed_3_13" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Kotlin</label><label for="__tabbed_3_13">Ruby</label></div>
@@ -5227,7 +5227,7 @@
 </div>
 <p>Similar to searching for a node, inserting a node uses <span class="arithmatex">\(O(\log n)\)</span> time.</p>
 <h3 id="3-removing-a-node">3. &nbsp; Removing a Node<a class="headerlink" href="#3-removing-a-node" title="Permanent link">&para;</a></h3>
-<p>First, find the target node in the binary tree, then remove it. Similar to node insertion, we need to ensure that after the removal operation is completed, the binary search tree's property of "left subtree <span class="arithmatex">\(&lt;\)</span> root node <span class="arithmatex">\(&lt;\)</span> right subtree" is still maintained. Therefore, depending on the number of child nodes the target node has, we divide it into 0, 1, and 2 three cases, and execute the corresponding node removal operations.</p>
+<p>First, find the target node in the binary search tree, then remove it. Similar to node insertion, we need to ensure that after the removal operation is completed, the binary search tree's property of "left subtree <span class="arithmatex">\(&lt;\)</span> root node <span class="arithmatex">\(&lt;\)</span> right subtree" is still maintained. Therefore, depending on the number of child nodes the target node has, we consider three cases: degree <span class="arithmatex">\(0\)</span>, degree <span class="arithmatex">\(1\)</span>, and degree <span class="arithmatex">\(2\)</span>, and perform the corresponding removal operation.</p>
 <p>As shown in Figure 7-19, when the degree of the node to be removed is <span class="arithmatex">\(0\)</span>, it means the node is a leaf node and can be directly removed.</p>
 <p><img alt="Removing a node in a binary search tree (degree 0)" class="animation-figure" src="../binary_search_tree.assets/bst_remove_case1.png" /></p>
 <p align="center"> Figure 7-19 &nbsp; Removing a node in a binary search tree (degree 0) </p>
@@ -5237,7 +5237,7 @@
 <p align="center"> Figure 7-20 &nbsp; Removing a node in a binary search tree (degree 1) </p>
 
 <p>When the degree of the node to be removed is <span class="arithmatex">\(2\)</span>, we cannot directly remove it; instead, we need to use a node to replace it. To maintain the binary search tree's property of "left subtree <span class="arithmatex">\(&lt;\)</span> root node <span class="arithmatex">\(&lt;\)</span> right subtree," <strong>this node can be either the smallest node in the right subtree or the largest node in the left subtree</strong>.</p>
-<p>Assuming we choose the smallest node in the right subtree (the next node in the inorder traversal), the removal process is as shown in Figure 7-21.</p>
+<p>Assuming we choose the smallest node in the right subtree, that is, the inorder successor, the removal process is as shown in Figure 7-21.</p>
 <ol>
 <li>Find the next node of the node to be removed in the "inorder traversal sequence," denoted as <code>tmp</code>.</li>
 <li>Replace the value of the node to be removed with the value of <code>tmp</code>, and recursively remove node <code>tmp</code> in the tree.</li>
@@ -6018,7 +6018,7 @@
 </tbody>
 </table>
 </div>
-<p>In the ideal case, a binary search tree is "balanced," such that any node can be found within <span class="arithmatex">\(\log n\)</span> loop iterations.</p>
+<p>In the ideal case, a binary search tree is balanced, so any node can be found within <span class="arithmatex">\(O(\log n)\)</span> loop iterations.</p>
 <p>However, if we continuously insert and remove nodes in a binary search tree, it may degenerate into a linked list as shown in Figure 7-23, where the time complexity of various operations also degrades to <span class="arithmatex">\(O(n)\)</span>.</p>
 <p><img alt="Degradation of a binary search tree" class="animation-figure" src="../binary_search_tree.assets/bst_degradation.png" /></p>
 <p align="center"> Figure 7-23 &nbsp; Degradation of a binary search tree </p>
@@ -6051,7 +6051,7 @@ aria-label="Footer"
   <a
     href="../array_representation_of_tree/"
     class="md-footer__link md-footer__link--prev"
-    aria-label="Previous: 7.3 Array Representation of Tree"
+    aria-label="Previous: 7.3 Array Representation of Binary Trees"
     rel="prev"
   >
     <div class="md-footer__button md-icon">
@@ -6063,7 +6063,7 @@ aria-label="Footer"
         Previous
       </span>
       <div class="md-ellipsis">
-        7.3 Array Representation of Tree
+        7.3 Array Representation of Binary Trees
       </div>
     </div>
   </a>

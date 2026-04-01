@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2728,7 +2728,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3271,7 +3271,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4183,7 +4183,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4361,10 +4361,10 @@
 <p class="admonition-title">Tip</p>
 <p>Before reading this section, please ensure you have completed the "Heap" chapter.</p>
 </div>
-<p><u>Heap sort (heap sort)</u> is an efficient sorting algorithm based on the heap data structure. We can use the "build heap operation" and "element out-heap operation" that we have already learned to implement heap sort.</p>
+<p><u>Heap sort</u> is an efficient sorting algorithm based on the heap data structure. We can implement heap sort using the heap construction and element removal operations introduced earlier.</p>
 <ol>
 <li>Input the array and build a min-heap, at which point the smallest element is at the heap top.</li>
-<li>Continuously perform the out-heap operation, record the out-heap elements in sequence, and an ascending sorted sequence can be obtained.</li>
+<li>Continuously perform element removal operations and record the removed elements in order to obtain a sequence sorted in ascending order.</li>
 </ol>
 <p>Although the above method is feasible, it requires an additional array to save the popped elements, which is quite wasteful of space. In practice, we usually use a more elegant implementation method.</p>
 <h2 id="1171-algorithm-flow">11.7.1 &nbsp; Algorithm Flow<a class="headerlink" href="#1171-algorithm-flow" title="Permanent link">&para;</a></h2>
@@ -4372,12 +4372,12 @@
 <ol>
 <li>Input the array and build a max-heap. After completion, the largest element is at the heap top.</li>
 <li>Swap the heap top element (first element) with the heap bottom element (last element). After the swap is complete, reduce the heap length by <span class="arithmatex">\(1\)</span> and increase the count of sorted elements by <span class="arithmatex">\(1\)</span>.</li>
-<li>Starting from the heap top element, perform top-to-bottom heapify operation (sift down). After heapify is complete, the heap property is restored.</li>
-<li>Loop through steps <code>2.</code> and <code>3.</code> After looping <span class="arithmatex">\(n - 1\)</span> rounds, the array sorting can be completed.</li>
+<li>Starting from the heap top element, perform a top-to-bottom heapify operation (sift down). After heapify is complete, the heap property is restored.</li>
+<li>Repeat steps <code>2.</code> and <code>3.</code> After <span class="arithmatex">\(n - 1\)</span> rounds, the array is sorted.</li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>In fact, the element out-heap operation also includes steps <code>2.</code> and <code>3.</code>, with just an additional step to pop the element.</p>
+<p>In fact, the element removal operation also includes steps <code>2.</code> and <code>3.</code>, with the additional step of removing the element.</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label><label for="__tabbed_1_10">&lt;10&gt;</label><label for="__tabbed_1_11">&lt;11&gt;</label><label for="__tabbed_1_12">&lt;12&gt;</label></div>
 <div class="tabbed-content">
@@ -4421,7 +4421,7 @@
 </div>
 <p align="center"> Figure 11-12 &nbsp; Heap sort steps </p>
 
-<p>In the code implementation, we use the same top-to-bottom heapify function <code>sift_down()</code> from the "Heap" chapter. It is worth noting that since the heap length will decrease as the largest element is extracted, we need to add a length parameter <span class="arithmatex">\(n\)</span> to the <code>sift_down()</code> function to specify the current effective length of the heap. The code is as follows:</p>
+<p>In the code below, we use the same <code>sift_down()</code> function for top-to-bottom heapify as in the "Heap" chapter. It is worth noting that since the heap length decreases as the largest element is extracted, we need to add a length parameter <span class="arithmatex">\(n\)</span> to <code>sift_down()</code> to specify the current effective length of the heap. The code is as follows:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><input id="__tabbed_2_13" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4946,9 +4946,9 @@
 </div>
 <h2 id="1172-algorithm-characteristics">11.7.2 &nbsp; Algorithm Characteristics<a class="headerlink" href="#1172-algorithm-characteristics" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Time complexity of <span class="arithmatex">\(O(n \log n)\)</span>, non-adaptive sorting</strong>: The build heap operation uses <span class="arithmatex">\(O(n)\)</span> time. Extracting the largest element from the heap has a time complexity of <span class="arithmatex">\(O(\log n)\)</span>, looping a total of <span class="arithmatex">\(n - 1\)</span> rounds.</li>
-<li><strong>Space complexity of <span class="arithmatex">\(O(1)\)</span>, in-place sorting</strong>: A few pointer variables use <span class="arithmatex">\(O(1)\)</span> space. Element swapping and heapify operations are both performed on the original array.</li>
-<li><strong>Non-stable sorting</strong>: When swapping the heap top element and heap bottom element, the relative positions of equal elements may change.</li>
+<li><strong>Time complexity is <span class="arithmatex">\(O(n \log n)\)</span>; heap sort is non-adaptive</strong>: Heap construction takes <span class="arithmatex">\(O(n)\)</span> time. Extracting the largest element from the heap takes <span class="arithmatex">\(O(\log n)\)</span> time, and this is repeated for a total of <span class="arithmatex">\(n - 1\)</span> rounds.</li>
+<li><strong>Space complexity is <span class="arithmatex">\(O(1)\)</span>; heap sort is in-place</strong>: A few pointer variables use <span class="arithmatex">\(O(1)\)</span> space. Element swapping and heapify are both performed on the original array.</li>
+<li><strong>Unstable sorting</strong>: When swapping the heap top element and heap bottom element, the relative positions of equal elements may change.</li>
 </ul>
 
 <!-- Source file information -->

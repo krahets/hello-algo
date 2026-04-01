@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1399,7 +1399,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1421,7 +1421,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1527,7 +1527,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1618,7 +1618,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1640,7 +1640,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1718,7 +1718,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1809,7 +1809,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1831,7 +1831,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -2104,7 +2104,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2323,7 +2323,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2351,7 +2351,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2709,7 +2709,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2737,7 +2737,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2793,7 +2793,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2942,7 +2942,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3415,7 +3415,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4327,7 +4327,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4827,7 +4827,7 @@
 <div class="arithmatex">\[
 1 + 1 + 10 + (1 + 5) \times n = 6n + 12
 \]</div>
-<p>In reality, however, <strong>counting an algorithm's runtime is neither reasonable nor realistic</strong>. First, we do not want to tie the estimated time to the running platform, because algorithms need to run on various different platforms. Second, it is difficult to know the runtime of each type of operation, which brings great difficulty to the estimation process.</p>
+<p>In reality, however, <strong>trying to count an algorithm's exact runtime is neither practical nor realistic</strong>. First, we do not want to tie the estimated time to the running platform, because algorithms need to run on many different platforms. Second, it is difficult to know the runtime of each type of operation, which makes the estimation process extremely difficult.</p>
 <h2 id="231-counting-time-growth-trends">2.3.1 &nbsp; Counting Time Growth Trends<a class="headerlink" href="#231-counting-time-growth-trends" title="Permanent link">&para;</a></h2>
 <p>Time complexity analysis does not count the algorithm's runtime, <strong>but rather counts the growth trend of the algorithm's runtime as the data volume increases</strong>.</p>
 <p>The concept of "time growth trend" is rather abstract; let us understand it through an example. Suppose the input data size is <span class="arithmatex">\(n\)</span>, and given three algorithms <code>A</code>, <code>B</code>, and <code>C</code>:</p>
@@ -5089,7 +5089,7 @@
 <p>Compared to directly counting the algorithm's runtime, what are the characteristics of time complexity analysis?</p>
 <ul>
 <li><strong>Time complexity can effectively evaluate algorithm efficiency</strong>. For example, the runtime of algorithm <code>B</code> grows linearly; when <span class="arithmatex">\(n &gt; 1\)</span> it is slower than algorithm <code>A</code>, and when <span class="arithmatex">\(n &gt; 1000000\)</span> it is slower than algorithm <code>C</code>. In fact, as long as the input data size <span class="arithmatex">\(n\)</span> is sufficiently large, an algorithm with "constant order" complexity will always be superior to one with "linear order" complexity, which is precisely the meaning of time growth trend.</li>
-<li><strong>The derivation method for time complexity is simpler</strong>. Obviously, the running platform and the types of computational operations are both unrelated to the growth trend of the algorithm's runtime. Therefore, in time complexity analysis, we can simply treat the execution time of all computational operations as the same "unit time", thus simplifying "counting computational operation runtime" to "counting the number of computational operations", which greatly reduces the difficulty of estimation.</li>
+<li><strong>The derivation method for time complexity is simpler</strong>. Obviously, the running platform and the types of computational operations are both unrelated to the growth trend of the algorithm's runtime. Therefore, in time complexity analysis, we can simply treat the execution time of all computational operations as the same "unit time", reducing "tracking the runtime of each operation" to "counting the number of operations", which greatly reduces the difficulty of estimation.</li>
 <li><strong>Time complexity also has certain limitations</strong>. For example, although algorithms <code>A</code> and <code>C</code> have the same time complexity, their actual runtimes differ significantly. Similarly, although algorithm <code>B</code> has a higher time complexity than <code>C</code>, when the input data size <span class="arithmatex">\(n\)</span> is small, algorithm <code>B</code> is clearly superior to algorithm <code>C</code>. In such cases, it is often difficult to judge the efficiency of algorithms based solely on time complexity. Of course, despite the above issues, complexity analysis remains the most effective and commonly used method for evaluating algorithm efficiency.</li>
 </ul>
 <h2 id="232-asymptotic-upper-bound-of-functions">2.3.2 &nbsp; Asymptotic Upper Bound of Functions<a class="headerlink" href="#232-asymptotic-upper-bound-of-functions" title="Permanent link">&para;</a></h2>
@@ -5269,7 +5269,7 @@ T(n) = 3 + 2n
 <p align="center"> Figure 2-8 &nbsp; Asymptotic upper bound of a function </p>
 
 <h2 id="233-derivation-method">2.3.3 &nbsp; Derivation Method<a class="headerlink" href="#233-derivation-method" title="Permanent link">&para;</a></h2>
-<p>The asymptotic upper bound has a bit of mathematical flavor. If you feel you haven't fully understood it, don't worry. We can first master the derivation method, and gradually grasp its mathematical meaning through continuous practice.</p>
+<p>The idea of an asymptotic upper bound is somewhat mathematical. If you feel you haven't fully understood it, don't worry. We can first master the derivation method, and gradually grasp its mathematical meaning through continuous practice.</p>
 <p>According to the definition, after determining <span class="arithmatex">\(f(n)\)</span>, we can obtain the time complexity <span class="arithmatex">\(O(f(n))\)</span>. So how do we determine the asymptotic upper bound <span class="arithmatex">\(f(n)\)</span>? Overall, it is divided into two steps: first count the number of operations, then determine the asymptotic upper bound.</p>
 <h3 id="1-step-1-count-the-number-of-operations">1. &nbsp; Step 1: Count the Number of Operations<a class="headerlink" href="#1-step-1-count-the-number-of-operations" title="Permanent link">&para;</a></h3>
 <p>For code, count from top to bottom line by line. However, since the constant coefficient <span class="arithmatex">\(c\)</span> in <span class="arithmatex">\(c \cdot f(n)\)</span> above can be of any size, <strong>coefficients and constant terms in the number of operations <span class="arithmatex">\(T(n)\)</span> can all be ignored</strong>. According to this principle, the following counting simplification techniques can be summarized.</p>
@@ -5556,7 +5556,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 
 <h3 id="1-constant-order-o1">1. &nbsp; Constant Order <span class="arithmatex">\(O(1)\)</span><a class="headerlink" href="#1-constant-order-o1" title="Permanent link">&para;</a></h3>
 <p>The number of operations in constant order is independent of the input data size <span class="arithmatex">\(n\)</span>, meaning it does not change as <span class="arithmatex">\(n\)</span> changes.</p>
-<p>In the following function, although the number of operations <code>size</code> may be large, since it is independent of the input data size <span class="arithmatex">\(n\)</span>, the time complexity remains <span class="arithmatex">\(O(1)\)</span>:</p>
+<p>In the following function, although the value of <code>size</code> may be large, it is independent of the input data size <span class="arithmatex">\(n\)</span>, so the time complexity remains <span class="arithmatex">\(O(1)\)</span>:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:13"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><input id="__tabbed_5_12" name="__tabbed_5" type="radio" /><input id="__tabbed_5_13" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Java</label><label for="__tabbed_5_4">C#</label><label for="__tabbed_5_5">Go</label><label for="__tabbed_5_6">Swift</label><label for="__tabbed_5_7">JS</label><label for="__tabbed_5_8">TS</label><label for="__tabbed_5_9">Dart</label><label for="__tabbed_5_10">Rust</label><label for="__tabbed_5_11">C</label><label for="__tabbed_5_12">Kotlin</label><label for="__tabbed_5_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -7104,7 +7104,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </div>
 </div>
 </div>
-<p>Logarithmic order commonly appears in algorithms based on the divide-and-conquer strategy, embodying the algorithmic thinking of "dividing into many" and "simplifying complexity". It grows slowly and is the ideal time complexity second only to constant order.</p>
+<p>Logarithmic order commonly appears in algorithms based on the divide-and-conquer strategy, reflecting the idea of repeatedly splitting a problem and simplifying it. It grows slowly and is the ideal time complexity second only to constant order.</p>
 <div class="admonition tip">
 <p class="admonition-title">What is the base of <span class="arithmatex">\(O(\log n)\)</span>?</p>
 <p>To be precise, "dividing into <span class="arithmatex">\(m\)</span>" corresponds to a time complexity of <span class="arithmatex">\(O(\log_m n)\)</span>. And through the logarithmic base change formula, we can obtain time complexities with different bases that are equal:</p>
@@ -7842,7 +7842,7 @@ n! = n \times (n - 1) \times (n - 2) \times \dots \times 2 \times 1
 </div>
 </div>
 <p>It is worth noting that we rarely use best-case time complexity in practice, because it can usually only be achieved with a very small probability and may be somewhat misleading. <strong>The worst-case time complexity is more practical because it gives a safety value for efficiency</strong>, allowing us to use the algorithm with confidence.</p>
-<p>From the above example, we can see that both worst-case and best-case time complexities only occur under "special data distributions", which may have a very small probability of occurrence and may not truly reflect the algorithm's running efficiency. In contrast, <strong>average time complexity can reflect the algorithm's running efficiency under random input data</strong>, denoted using the <span class="arithmatex">\(\Theta\)</span> notation.</p>
+<p>From the above example, we can see that both worst-case and best-case time complexities arise only under particular input distributions, which may occur with very low probability and may not truly reflect the algorithm's running efficiency. In contrast, <strong>average time complexity can reflect the algorithm's running efficiency under random input data</strong>, denoted using the <span class="arithmatex">\(\Theta\)</span> notation.</p>
 <p>For some algorithms, we can simply derive the average case under random data distribution. For example, in the above example, since the input array is shuffled, the probability of element <span class="arithmatex">\(1\)</span> appearing at any index is equal, so the algorithm's average number of loops is half the array length <span class="arithmatex">\(n / 2\)</span>, giving an average time complexity of <span class="arithmatex">\(\Theta(n / 2) = \Theta(n)\)</span>.</p>
 <p>But for more complex algorithms, calculating average time complexity is often quite difficult, because it is hard to analyze the overall mathematical expectation under data distribution. In this case, we usually use worst-case time complexity as the criterion for judging algorithm efficiency.</p>
 <div class="admonition question">

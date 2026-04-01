@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2495,7 +2495,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2523,7 +2523,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2649,7 +2649,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2798,7 +2798,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3271,7 +3271,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4183,7 +4183,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4360,10 +4360,10 @@
 <p>In algorithm problems, <strong>we often reduce the time complexity of algorithms by replacing linear search with hash-based search</strong>. Let's use an algorithm problem to deepen our understanding.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given an integer array <code>nums</code> and a target element <code>target</code>, search for two elements in the array whose "sum" equals <code>target</code>, and return their array indices. Any solution will do.</p>
+<p>Given an integer array <code>nums</code> and a target value <code>target</code>, find two elements in the array whose sum is <code>target</code>, and return their indices. Any solution will do.</p>
 </div>
 <h2 id="1041-linear-search-trading-time-for-space">10.4.1 &nbsp; Linear Search: Trading Time for Space<a class="headerlink" href="#1041-linear-search-trading-time-for-space" title="Permanent link">&para;</a></h2>
-<p>Consider directly traversing all possible combinations. As shown in Figure 10-9, we open a two-layer loop and judge in each round whether the sum of two integers equals <code>target</code>. If so, return their indices.</p>
+<p>Consider directly traversing all possible combinations. As shown in Figure 10-9, we use nested loops and check in each iteration whether the sum of two integers is <code>target</code>. If so, return their indices.</p>
 <p><img alt="Linear search solution for two sum" class="animation-figure" src="../replace_linear_by_hashing.assets/two_sum_brute_force.png" /></p>
 <p align="center"> Figure 10-9 &nbsp; Linear search solution for two sum </p>
 
@@ -4567,9 +4567,9 @@
 </div>
 </div>
 </div>
-<p>This method has a time complexity of <span class="arithmatex">\(O(n^2)\)</span> and a space complexity of <span class="arithmatex">\(O(1)\)</span>, which is very time-consuming with large data volumes.</p>
+<p>This method has a time complexity of <span class="arithmatex">\(O(n^2)\)</span> and a space complexity of <span class="arithmatex">\(O(1)\)</span>, making it very time-consuming on large inputs.</p>
 <h2 id="1042-hash-based-search-trading-space-for-time">10.4.2 &nbsp; Hash-Based Search: Trading Space for Time<a class="headerlink" href="#1042-hash-based-search-trading-space-for-time" title="Permanent link">&para;</a></h2>
-<p>Consider using a hash table where key-value pairs are array elements and element indices respectively. Loop through the array, performing the steps shown in Figure 10-10 in each round:</p>
+<p>Consider using a hash table whose keys are array elements and whose values are their indices. Traverse the array and perform the steps shown in Figure 10-10 in each iteration:</p>
 <ol>
 <li>Check if the number <code>target - nums[i]</code> is in the hash table. If so, directly return the indices of these two elements.</li>
 <li>Add the key-value pair <code>nums[i]</code> and index <code>i</code> to the hash table.</li>
@@ -4589,7 +4589,7 @@
 </div>
 <p align="center"> Figure 10-10 &nbsp; Hash table solution for two sum </p>
 
-<p>The implementation code is shown below, requiring only a single loop:</p>
+<p>The implementation is shown below and requires only a single loop:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:13"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><input id="__tabbed_3_13" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Kotlin</label><label for="__tabbed_3_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4837,7 +4837,7 @@
 </div>
 </div>
 <p>This method reduces the time complexity from <span class="arithmatex">\(O(n^2)\)</span> to <span class="arithmatex">\(O(n)\)</span> through hash-based search, greatly improving runtime efficiency.</p>
-<p>Since an additional hash table needs to be maintained, the space complexity is <span class="arithmatex">\(O(n)\)</span>. <strong>Nevertheless, this method achieves a more balanced overall time-space efficiency, making it the optimal solution for this problem</strong>.</p>
+<p>Since an additional hash table needs to be maintained, the space complexity is <span class="arithmatex">\(O(n)\)</span>. <strong>Nevertheless, this method offers a more balanced overall time-space trade-off, making it the optimal solution to this problem</strong>.</p>
 
 <!-- Source file information -->
 
@@ -4860,7 +4860,7 @@ aria-label="Footer"
   <a
     href="../binary_search_edge/"
     class="md-footer__link md-footer__link--prev"
-    aria-label="Previous: 10.3 Binary Search Edge Cases"
+    aria-label="Previous: 10.3 Binary Search Boundaries"
     rel="prev"
   >
     <div class="md-footer__button md-icon">
@@ -4872,7 +4872,7 @@ aria-label="Footer"
         Previous
       </span>
       <div class="md-ellipsis">
-        10.3 Binary Search Edge Cases
+        10.3 Binary Search Boundaries
       </div>
     </div>
   </a>
@@ -4884,7 +4884,7 @@ aria-label="Footer"
   <a
     href="../searching_algorithm_revisited/"
     class="md-footer__link md-footer__link--next"
-    aria-label="Next: 10.5 Search Algorithms Revisited"
+    aria-label="Next: 10.5 Searching Algorithms Revisited"
     rel="next"
   >
     <div class="md-footer__title">
@@ -4892,7 +4892,7 @@ aria-label="Footer"
         Next
       </span>
       <div class="md-ellipsis">
-        10.5 Search Algorithms Revisited
+        10.5 Searching Algorithms Revisited
       </div>
     </div>
     <div class="md-footer__button md-icon">

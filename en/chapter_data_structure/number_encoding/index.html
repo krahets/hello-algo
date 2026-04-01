@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1255,7 +1255,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1277,7 +1277,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1383,7 +1383,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1474,7 +1474,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1496,7 +1496,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1574,7 +1574,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1665,7 +1665,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1687,7 +1687,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1960,7 +1960,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2179,7 +2179,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2207,7 +2207,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2565,7 +2565,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2593,7 +2593,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2649,7 +2649,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2798,7 +2798,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3271,7 +3271,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4183,7 +4183,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4362,7 +4362,7 @@
 <p>In this book, chapters marked with an asterisk * are optional readings. If you are short on time or find them challenging, you may skip these initially and return to them after completing the essential chapters.</p>
 </div>
 <h2 id="331-sign-magnitude-1s-complement-and-2s-complement">3.3.1 &nbsp; Sign-Magnitude, 1's Complement, and 2's Complement<a class="headerlink" href="#331-sign-magnitude-1s-complement-and-2s-complement" title="Permanent link">&para;</a></h2>
-<p>In the table from the previous section, we found that all integer types can represent one more negative number than positive numbers. For example, the <code>byte</code> range is <span class="arithmatex">\([-128, 127]\)</span>. This phenomenon is counterintuitive, and its underlying reason involves knowledge of sign-magnitude, 1's complement, and 2's complement.</p>
+<p>In the table from the previous section, we found that all integer types can represent one more negative number than positive numbers. For example, the <code>byte</code> range is <span class="arithmatex">\([-128, 127]\)</span>. This phenomenon is counterintuitive, and its underlying cause lies in sign-magnitude, 1's complement, and 2's complement representations.</p>
 <p>First, it should be noted that <strong>numbers are stored in computers in the form of "2's complement"</strong>. Before analyzing the reasons for this, let's first define these three concepts.</p>
 <ul>
 <li><strong>Sign-magnitude</strong>: We treat the highest bit of the binary representation of a number as the sign bit, where <span class="arithmatex">\(0\)</span> represents a positive number and <span class="arithmatex">\(1\)</span> represents a negative number, and the remaining bits represent the value of the number.</li>
@@ -4409,7 +4409,7 @@
 \end{aligned}
 \]</div>
 <p>Adding <span class="arithmatex">\(1\)</span> to the 1's complement of negative zero produces a carry, but since the <code>byte</code> type has a length of only 8 bits, the <span class="arithmatex">\(1\)</span> that overflows to the 9<sup>th</sup> bit is discarded. That is to say, <strong>the 2's complement of negative zero is <span class="arithmatex">\(0000 \; 0000\)</span>, which is the same as the 2's complement of positive zero</strong>. This means that in 2's complement representation, there is only one zero, and the positive and negative zero ambiguity is thus resolved.</p>
-<p>One last question remains: the range of the <code>byte</code> type is <span class="arithmatex">\([-128, 127]\)</span>, and how is the extra negative number <span class="arithmatex">\(-128\)</span> obtained? We notice that all integers in the interval <span class="arithmatex">\([-127, +127]\)</span> have corresponding sign-magnitude, 1's complement, and 2's complement, and sign-magnitude and 2's complement can be converted to each other.</p>
+<p>One last question remains: the range of the <code>byte</code> type is <span class="arithmatex">\([-128, 127]\)</span>, so where does the extra negative number <span class="arithmatex">\(-128\)</span> come from? We notice that all integers in the interval <span class="arithmatex">\([-127, +127]\)</span> have corresponding sign-magnitude, 1's complement, and 2's complement, and sign-magnitude and 2's complement can be converted to each other.</p>
 <p>However, <strong>the 2's complement <span class="arithmatex">\(1000 \; 0000\)</span> is an exception, and it does not have a corresponding sign-magnitude</strong>. According to the conversion method, we get that the sign-magnitude of this 2's complement is <span class="arithmatex">\(0000 \; 0000\)</span>. This is clearly contradictory because this sign-magnitude represents the number <span class="arithmatex">\(0\)</span>, and its 2's complement should be itself. The computer specifies that this special 2's complement <span class="arithmatex">\(1000 \; 0000\)</span> represents <span class="arithmatex">\(-128\)</span>. In fact, the result of calculating <span class="arithmatex">\((-1) + (-127)\)</span> in 2's complement is <span class="arithmatex">\(-128\)</span>.</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -4423,7 +4423,7 @@
 \]</div>
 <p>You may have noticed that all the above calculations are addition operations. This hints at an important fact: <strong>the hardware circuits inside computers are mainly designed based on addition operations</strong>. This is because addition operations are simpler to implement in hardware compared to other operations (such as multiplication, division, and subtraction), easier to parallelize, and have faster operation speeds.</p>
 <p>Please note that this does not mean that computers can only perform addition. <strong>By combining addition with some basic logical operations, computers can implement various other mathematical operations</strong>. For example, calculating the subtraction <span class="arithmatex">\(a - b\)</span> can be converted to calculating the addition <span class="arithmatex">\(a + (-b)\)</span>; calculating multiplication and division can be converted to calculating multiple additions or subtractions.</p>
-<p>Now we can summarize the reasons why computers use 2's complement: based on 2's complement representation, computers can use the same circuits and operations to handle the addition of positive and negative numbers, without the need to design special hardware circuits to handle subtraction, and without the need to specially handle the ambiguity problem of positive and negative zero. This greatly simplifies hardware design and improves operational efficiency.</p>
+<p>We can now summarize why computers use 2's complement: with 2's complement representation, computers can use the same circuits and operations to handle the addition of positive and negative numbers, without designing special hardware circuits for subtraction or separately handling the ambiguity of positive and negative zero. This greatly simplifies hardware design and improves efficiency.</p>
 <p>The design of 2's complement is very ingenious. Due to space limitations, we will stop here. Interested readers are encouraged to explore further.</p>
 <h2 id="332-floating-point-number-encoding">3.3.2 &nbsp; Floating-Point Number Encoding<a class="headerlink" href="#332-floating-point-number-encoding" title="Permanent link">&para;</a></h2>
 <p>Careful readers may have noticed: <code>int</code> and <code>float</code> have the same length, both are 4 bytes, but why does <code>float</code> have a much larger range than <code>int</code>? This is very counterintuitive because it stands to reason that <code>float</code> needs to represent decimals, so the range should be smaller.</p>

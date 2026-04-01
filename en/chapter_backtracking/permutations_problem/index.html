@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2726,7 +2726,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3199,7 +3199,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -3471,10 +3471,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-pruning-duplicate-elements" class="md-nav__link">
+  <a href="#1-pruning-equal-elements" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. &nbsp; Pruning Duplicate Elements
+        1. &nbsp; Pruning Equal Elements
       
     </span>
   </a>
@@ -4250,7 +4250,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4416,10 +4416,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-pruning-duplicate-elements" class="md-nav__link">
+  <a href="#1-pruning-equal-elements" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. &nbsp; Pruning Duplicate Elements
+        1. &nbsp; Pruning Equal Elements
       
     </span>
   </a>
@@ -4533,7 +4533,7 @@
 <h3 id="1-pruning-duplicate-choices">1. &nbsp; Pruning Duplicate Choices<a class="headerlink" href="#1-pruning-duplicate-choices" title="Permanent link">&para;</a></h3>
 <p>To ensure that each element is chosen only once, we consider introducing a boolean array <code>selected</code>, where <code>selected[i]</code> indicates whether <code>choices[i]</code> has been chosen. We implement the following pruning operation based on it.</p>
 <ul>
-<li>After making a choice <code>choice[i]</code>, we set <code>selected[i]</code> to <span class="arithmatex">\(\text{True}\)</span>, indicating that it has been chosen.</li>
+<li>After making a choice <code>choices[i]</code>, we set <code>selected[i]</code> to <span class="arithmatex">\(\text{True}\)</span>, indicating that it has been chosen.</li>
 <li>When traversing the candidate list <code>choices</code>, we skip all nodes that have been chosen, which is pruning.</li>
 </ul>
 <p>As shown in Figure 13-6, suppose we choose <span class="arithmatex">\(1\)</span> in the first round, <span class="arithmatex">\(3\)</span> in the second round, and <span class="arithmatex">\(2\)</span> in the third round. Then we need to prune the branch of element <span class="arithmatex">\(1\)</span> in the second round and prune the branches of elements <span class="arithmatex">\(1\)</span> and <span class="arithmatex">\(3\)</span> in the third round.</p>
@@ -5010,12 +5010,12 @@
 <p>Given an integer array that <strong>may contain duplicate elements</strong>, return all unique permutations.</p>
 </div>
 <p>Suppose the input array is <span class="arithmatex">\([1, 1, 2]\)</span>. To distinguish the two duplicate elements <span class="arithmatex">\(1\)</span>, we denote the second <span class="arithmatex">\(1\)</span> as <span class="arithmatex">\(\hat{1}\)</span>.</p>
-<p>As shown in Figure 13-7, the method described above generates permutations where half are duplicates.</p>
+<p>As shown in Figure 13-7, half of the permutations generated by the above method are duplicates.</p>
 <p><img alt="Duplicate permutations" class="animation-figure" src="../permutations_problem.assets/permutations_ii.png" /></p>
 <p align="center"> Figure 13-7 &nbsp; Duplicate permutations </p>
 
 <p>So how do we remove duplicate permutations? The most direct approach is to use a hash set to directly deduplicate the permutation results. However, this is not elegant because <strong>the search branches that generate duplicate permutations are unnecessary and should be identified and pruned early</strong>, which can further improve algorithm efficiency.</p>
-<h3 id="1-pruning-duplicate-elements">1. &nbsp; Pruning Duplicate Elements<a class="headerlink" href="#1-pruning-duplicate-elements" title="Permanent link">&para;</a></h3>
+<h3 id="1-pruning-equal-elements">1. &nbsp; Pruning Equal Elements<a class="headerlink" href="#1-pruning-equal-elements" title="Permanent link">&para;</a></h3>
 <p>Observe Figure 13-8. In the first round, choosing <span class="arithmatex">\(1\)</span> or choosing <span class="arithmatex">\(\hat{1}\)</span> is equivalent. All permutations generated under these two choices are duplicates. Therefore, we should prune <span class="arithmatex">\(\hat{1}\)</span>.</p>
 <p>Similarly, after choosing <span class="arithmatex">\(2\)</span> in the first round, the <span class="arithmatex">\(1\)</span> and <span class="arithmatex">\(\hat{1}\)</span> in the second round also produce duplicate branches, so the second round's <span class="arithmatex">\(\hat{1}\)</span> should also be pruned.</p>
 <p>Essentially, <strong>our goal is to ensure that multiple equal elements are chosen only once in a certain round of choices</strong>.</p>
@@ -5023,7 +5023,7 @@
 <p align="center"> Figure 13-8 &nbsp; Pruning duplicate permutations </p>
 
 <h3 id="2-code-implementation_1">2. &nbsp; Code Implementation<a class="headerlink" href="#2-code-implementation_1" title="Permanent link">&para;</a></h3>
-<p>Building on the code from the previous problem, we consider opening a hash set <code>duplicated</code> in each round of choices to record which elements have been tried in this round, and prune duplicate elements:</p>
+<p>Building on the code from the previous problem, we initialize a hash set <code>duplicated</code> in each round of choices to record which elements have already been tried in that round, and prune equal elements:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><input id="__tabbed_2_13" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5518,7 +5518,7 @@
 <p>Note that although both <code>selected</code> and <code>duplicated</code> are used for pruning, they have different objectives.</p>
 <ul>
 <li><strong>Pruning duplicate choices</strong>: There is only one <code>selected</code> throughout the entire search process. It records which elements are included in the current state, and its purpose is to prevent an element from appearing repeatedly in <code>state</code>.</li>
-<li><strong>Pruning duplicate elements</strong>: Each round of choices (each <code>backtrack</code> function call) contains a <code>duplicated</code> set. It records which elements have been chosen in this round's iteration (the <code>for</code> loop), and its purpose is to ensure that equal elements are chosen only once.</li>
+<li><strong>Pruning equal elements</strong>: Each round of choices (each <code>backtrack</code> function call) contains a <code>duplicated</code> set. It records which elements have been chosen in this round's iteration (the <code>for</code> loop), and its purpose is to ensure that equal elements are chosen only once.</li>
 </ul>
 <p>Figure 13-9 shows the effective scope of the two pruning conditions. Note that each node in the tree represents a choice, and the nodes on the path from the root to a leaf node form a permutation.</p>
 <p><img alt="Effective scope of two pruning conditions" class="animation-figure" src="../permutations_problem.assets/permutations_ii_pruning_summary.png" /></p>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2604,7 +2604,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2632,7 +2632,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2688,7 +2688,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2837,7 +2837,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3310,7 +3310,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4222,7 +4222,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4443,15 +4443,15 @@ E &amp; = \{ (1,2), (1,3), (1,5), (2,3), (2,4), (2,5), (4,5) \} \newline
 G &amp; = \{ V, E \} \newline
 \end{aligned}
 \]</div>
-<p>If we view vertices as nodes and edges as references (pointers) connecting the nodes, we can see graphs as a data structure extended from linked lists. As shown in Figure 9-1, <strong>compared to linear relationships (linked lists) and divide-and-conquer relationships (trees), network relationships (graphs) have a higher degree of freedom and are therefore more complex</strong>.</p>
+<p>If we view vertices as nodes and edges as references (pointers) connecting them, we can regard a graph as an extension of the linked list data structure. As shown in Figure 9-1, <strong>compared to linear relationships (linked lists) and divide-and-conquer relationships (trees), network relationships (graphs) have a higher degree of freedom and are therefore more complex</strong>.</p>
 <p><img alt="Relationships among linked lists, trees, and graphs" class="animation-figure" src="../graph.assets/linkedlist_tree_graph.png" /></p>
 <p align="center"> Figure 9-1 &nbsp; Relationships among linked lists, trees, and graphs </p>
 
 <h2 id="911-common-types-and-terminology-of-graphs">9.1.1 &nbsp; Common Types and Terminology of Graphs<a class="headerlink" href="#911-common-types-and-terminology-of-graphs" title="Permanent link">&para;</a></h2>
 <p>Graphs can be divided into <u>undirected graphs</u> and <u>directed graphs</u> based on whether edges have direction, as shown in Figure 9-2.</p>
 <ul>
-<li>In undirected graphs, edges represent a "bidirectional" connection between two vertices, such as the "friend relationship" on WeChat or QQ.</li>
-<li>In directed graphs, edges have directionality, meaning edges <span class="arithmatex">\(A \rightarrow B\)</span> and <span class="arithmatex">\(A \leftarrow B\)</span> are independent of each other, such as the "follow" and "be followed" relationships on Weibo or TikTok.</li>
+<li>In undirected graphs, edges represent a "bidirectional" connection between two vertices, such as friendships on WeChat or QQ.</li>
+<li>In directed graphs, edges have directionality, meaning edges <span class="arithmatex">\(A \rightarrow B\)</span> and <span class="arithmatex">\(A \leftarrow B\)</span> are independent of each other, such as following and follower relationships on Weibo or TikTok.</li>
 </ul>
 <p><img alt="Directed and undirected graphs" class="animation-figure" src="../graph.assets/directed_graph.png" /></p>
 <p align="center"> Figure 9-2 &nbsp; Directed and undirected graphs </p>
@@ -4464,7 +4464,7 @@ G &amp; = \{ V, E \} \newline
 <p><img alt="Connected and disconnected graphs" class="animation-figure" src="../graph.assets/connected_graph.png" /></p>
 <p align="center"> Figure 9-3 &nbsp; Connected and disconnected graphs </p>
 
-<p>We can also add a "weight" variable to edges, resulting in <u>weighted graphs</u> as shown in Figure 9-4. For example, in mobile games like "Honor of Kings", the system calculates the "intimacy" between players based on their shared game time, and such intimacy networks can be represented using weighted graphs.</p>
+<p>We can also add a "weight" variable to edges, resulting in <u>weighted graphs</u> as shown in Figure 9-4. For example, in mobile games like "Honor of Kings", the system calculates the "intimacy" between players based on how long they have played together, and such intimacy networks can be represented using weighted graphs.</p>
 <p><img alt="Weighted and unweighted graphs" class="animation-figure" src="../graph.assets/weighted_graph.png" /></p>
 <p align="center"> Figure 9-4 &nbsp; Weighted and unweighted graphs </p>
 
@@ -4472,7 +4472,7 @@ G &amp; = \{ V, E \} \newline
 <ul>
 <li><u>Adjacency</u>: When two vertices are connected by an edge, these two vertices are said to be "adjacent". In Figure 9-4, the adjacent vertices of vertex 1 are vertices 2, 3, and 5.</li>
 <li><u>Path</u>: The sequence of edges from vertex A to vertex B is called a "path" from A to B. In Figure 9-4, the edge sequence 1-5-2-4 is a path from vertex 1 to vertex 4.</li>
-<li><u>Degree</u>: The number of edges a vertex has. For directed graphs, <u>in-degree</u> indicates how many edges point to the vertex, and <u>out-degree</u> indicates how many edges point out from the vertex.</li>
+<li><u>Degree</u>: The number of edges a vertex has. For directed graphs, <u>in-degree</u> indicates how many edges point to the vertex, and <u>out-degree</u> indicates how many edges leave the vertex.</li>
 </ul>
 <h2 id="912-representation-of-graphs">9.1.2 &nbsp; Representation of Graphs<a class="headerlink" href="#912-representation-of-graphs" title="Permanent link">&para;</a></h2>
 <p>Common representations of graphs include "adjacency matrices" and "adjacency lists". The following uses undirected graphs as examples.</p>
@@ -4486,7 +4486,7 @@ G &amp; = \{ V, E \} \newline
 <ul>
 <li>In simple graphs, vertices cannot connect to themselves, so the elements on the main diagonal of the adjacency matrix are meaningless.</li>
 <li>For undirected graphs, edges in both directions are equivalent, so the adjacency matrix is symmetric about the main diagonal.</li>
-<li>Replacing the elements of the adjacency matrix from <span class="arithmatex">\(1\)</span> and <span class="arithmatex">\(0\)</span> to weights allows representation of weighted graphs.</li>
+<li>Replacing the <span class="arithmatex">\(1\)</span> and <span class="arithmatex">\(0\)</span> entries in the adjacency matrix with weights allows it to represent weighted graphs.</li>
 </ul>
 <p>When using adjacency matrices to represent graphs, we can directly access matrix elements to obtain edges, resulting in highly efficient addition, deletion, lookup, and modification operations, all with a time complexity of <span class="arithmatex">\(O(1)\)</span>. However, the space complexity of the matrix is <span class="arithmatex">\(O(n^2)\)</span>, which consumes significant memory.</p>
 <h3 id="2-adjacency-list">2. &nbsp; Adjacency List<a class="headerlink" href="#2-adjacency-list" title="Permanent link">&para;</a></h3>
@@ -4494,8 +4494,8 @@ G &amp; = \{ V, E \} \newline
 <p><img alt="Adjacency list representation of a graph" class="animation-figure" src="../graph.assets/adjacency_list.png" /></p>
 <p align="center"> Figure 9-6 &nbsp; Adjacency list representation of a graph </p>
 
-<p>Adjacency lists only store edges that actually exist, and the total number of edges is typically much less than <span class="arithmatex">\(n^2\)</span>, making them more space-efficient. However, finding edges in an adjacency list requires traversing the linked list, so its time efficiency is inferior to that of adjacency matrices.</p>
-<p>Observing Figure 9-6, <strong>the structure of adjacency lists is very similar to "chaining" in hash tables, so we can adopt similar methods to optimize efficiency</strong>. For example, when linked lists are long, they can be converted to AVL trees or red-black trees, thereby optimizing time efficiency from <span class="arithmatex">\(O(n)\)</span> to <span class="arithmatex">\(O(\log n)\)</span>; linked lists can also be converted to hash tables, thereby reducing time complexity to <span class="arithmatex">\(O(1)\)</span>.</p>
+<p>Adjacency lists only store edges that actually exist, and the total number of edges is typically much less than <span class="arithmatex">\(n^2\)</span>, making them more space-efficient. However, finding edges in an adjacency list requires traversing the linked list, so it is less time-efficient than an adjacency matrix.</p>
+<p>As shown in Figure 9-6, <strong>the structure of adjacency lists is very similar to separate chaining in hash tables, so we can use similar methods to improve efficiency</strong>. For example, when a linked list becomes long, it can be converted into an AVL tree or red-black tree, improving the time complexity from <span class="arithmatex">\(O(n)\)</span> to <span class="arithmatex">\(O(\log n)\)</span>; it can also be converted into a hash table, reducing the time complexity to <span class="arithmatex">\(O(1)\)</span>.</p>
 <h2 id="913-common-applications-of-graphs">9.1.3 &nbsp; Common Applications of Graphs<a class="headerlink" href="#913-common-applications-of-graphs" title="Permanent link">&para;</a></h2>
 <p>As shown in Table 9-1, many real-world systems can be modeled using graphs, and corresponding problems can be reduced to graph computation problems.</p>
 <p align="center"> Table 9-1 &nbsp; Common graphs in real life </p>

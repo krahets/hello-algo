@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2495,7 +2495,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2523,7 +2523,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2588,7 +2588,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2606,7 +2606,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2809,7 +2809,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3282,7 +3282,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4194,7 +4194,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4383,9 +4383,9 @@
 <p>Searching algorithms can be divided into the following two categories based on their implementation approach:</p>
 <ul>
 <li><strong>Locating target elements by traversing the data structure</strong>, such as traversing arrays, linked lists, trees, and graphs.</li>
-<li><strong>Achieving efficient element search by utilizing data organization structure or prior information contained in the data</strong>, such as binary search, hash-based search, and binary search tree search.</li>
+<li><strong>Achieving efficient element lookup by leveraging the way data is organized or prior information about the data</strong>, such as binary search, hash-based search, and binary search tree search.</li>
 </ul>
-<p>It's not hard to see that these topics have all been covered in previous chapters, so searching algorithms are not unfamiliar to us. In this section, we will approach from a more systematic perspective and re-examine searching algorithms.</p>
+<p>As these topics have already been introduced in earlier chapters, searching algorithms should already be familiar to us. In this section, we revisit them from a more systematic perspective.</p>
 <h2 id="1051-brute-force-search">10.5.1 &nbsp; Brute-Force Search<a class="headerlink" href="#1051-brute-force-search" title="Permanent link">&para;</a></h2>
 <p>Brute-force search locates target elements by traversing each element of the data structure.</p>
 <ul>
@@ -4395,11 +4395,11 @@
 <p>The advantage of brute-force search is that it is simple and has good generality, <strong>requiring no data preprocessing or additional data structures</strong>.</p>
 <p>However, <strong>the time complexity of such algorithms is <span class="arithmatex">\(O(n)\)</span></strong>, where <span class="arithmatex">\(n\)</span> is the number of elements, so performance is poor when dealing with large amounts of data.</p>
 <h2 id="1052-adaptive-search">10.5.2 &nbsp; Adaptive Search<a class="headerlink" href="#1052-adaptive-search" title="Permanent link">&para;</a></h2>
-<p>Adaptive search utilizes the unique properties of data (such as orderliness) to optimize the search process, thereby locating target elements more efficiently.</p>
+<p>Adaptive search leverages properties of the data itself (such as sorted order) to optimize the search process and locate target elements more efficiently.</p>
 <ul>
 <li>"Binary search" uses the orderliness of data to achieve efficient searching, applicable only to arrays.</li>
-<li>"Hash-based search" uses hash tables to establish key-value pair mappings between search data and target data, thereby achieving query operations.</li>
-<li>"Tree search" in specific tree structures (such as binary search trees), quickly eliminates nodes based on comparing node values to locate target elements.</li>
+<li>"Hash-based search" uses hash tables to store searchable data as key-value pairs, thereby enabling efficient queries.</li>
+<li>"Tree search" operates on specific tree structures (such as binary search trees), quickly ruling out nodes by comparing node values to locate the target element.</li>
 </ul>
 <p>The advantage of such algorithms is high efficiency, <strong>with time complexity reaching <span class="arithmatex">\(O(\log n)\)</span> or even <span class="arithmatex">\(O(1)\)</span></strong>.</p>
 <p>However, <strong>using these algorithms often requires data preprocessing</strong>. For example, binary search requires pre-sorting the array, while hash-based search and tree search both require additional data structures, and maintaining these data structures also requires extra time and space overhead.</p>
@@ -4412,7 +4412,7 @@
 <p><img alt="Multiple search strategies" class="animation-figure" src="../searching_algorithm_revisited.assets/searching_algorithms.png" /></p>
 <p align="center"> Figure 10-11 &nbsp; Multiple search strategies </p>
 
-<p>The operational efficiency and characteristics of the above methods are as follows:</p>
+<p>The efficiency and characteristics of these methods are summarized in Table 10-1.</p>
 <p align="center"> Table 10-1 &nbsp; Comparison of search algorithm efficiency </p>
 
 <div class="center-table">
@@ -4475,29 +4475,29 @@
 <p>The choice of search algorithm also depends on data volume, search performance requirements, data query and update frequency, etc.</p>
 <p><strong>Linear search</strong></p>
 <ul>
-<li>Good generality, requiring no data preprocessing operations. If we only need to query the data once, the data preprocessing time for the other three methods would be longer than linear search.</li>
+<li>Good generality, requiring no data preprocessing operations. If we need to query the data only once, the preprocessing required by the other three methods can take longer than the linear search itself.</li>
 <li>Suitable for small data volumes, where time complexity has less impact on efficiency.</li>
 <li>Suitable for scenarios with high data update frequency, as this method does not require any additional data maintenance.</li>
 </ul>
 <p><strong>Binary search</strong></p>
 <ul>
-<li>Suitable for large data volumes with stable efficiency performance, worst-case time complexity of <span class="arithmatex">\(O(\log n)\)</span>.</li>
+<li>Suitable for large datasets, with stable performance and a worst-case time complexity of <span class="arithmatex">\(O(\log n)\)</span>.</li>
 <li>Data volume cannot be too large, as storing arrays requires contiguous memory space.</li>
 <li>Not suitable for scenarios with frequent data insertion and deletion, as maintaining a sorted array has high overhead.</li>
 </ul>
 <p><strong>Hash-based search</strong></p>
 <ul>
 <li>Suitable for scenarios with high query performance requirements, with an average time complexity of <span class="arithmatex">\(O(1)\)</span>.</li>
-<li>Not suitable for scenarios requiring ordered data or range searches, as hash tables cannot maintain data orderliness.</li>
+<li>Not suitable for scenarios requiring ordered data or range searches, as hash tables cannot maintain the data in sorted order.</li>
 <li>High dependence on hash functions and hash collision handling strategies, with significant risk of performance degradation.</li>
 <li>Not suitable for excessively large data volumes, as hash tables require extra space to minimize collisions and thus provide good query performance.</li>
 </ul>
 <p><strong>Tree search</strong></p>
 <ul>
-<li>Suitable for massive data, as tree nodes are stored dispersedly in memory.</li>
-<li>Suitable for scenarios requiring maintained ordered data or range searches.</li>
+<li>Suitable for massive datasets, as tree nodes are stored non-contiguously in memory.</li>
+<li>Suitable for scenarios that require maintaining ordered data or performing range searches.</li>
 <li>During continuous node insertion and deletion, binary search trees may become skewed, degrading time complexity to <span class="arithmatex">\(O(n)\)</span>.</li>
-<li>If using AVL trees or red-black trees, all operations can run stably at <span class="arithmatex">\(O(\log n)\)</span> efficiency, but operations to maintain tree balance add extra overhead.</li>
+<li>If AVL trees or red-black trees are used, all operations can consistently run in <span class="arithmatex">\(O(\log n)\)</span> time, though maintaining tree balance adds extra overhead.</li>
 </ul>
 
 <!-- Source file information -->

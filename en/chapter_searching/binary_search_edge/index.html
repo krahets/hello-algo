@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -39,7 +39,7 @@
     
     
       
-        <title>10.3 Binary Search Edge Cases - Hello Algo</title>
+        <title>10.3 Binary Search Boundaries - Hello Algo</title>
       
     
     
@@ -99,7 +99,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#103-binary-search-edge-cases" class="md-skip">
+        <a href="#103-binary-search-boundaries" class="md-skip">
           Skip to content
         </a>
       
@@ -154,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              10.3 &nbsp; Binary Search Edge Cases
+              10.3 &nbsp; Binary Search Boundaries
             
           </span>
         </div>
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2495,7 +2495,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2532,7 +2532,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2550,7 +2550,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2677,7 +2677,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2826,7 +2826,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3299,7 +3299,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4211,7 +4211,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4412,11 +4412,11 @@
 
 
 <!-- Page content -->
-<h1 id="103-binary-search-edge-cases">10.3 &nbsp; Binary Search Edge Cases<a class="headerlink" href="#103-binary-search-edge-cases" title="Permanent link">&para;</a></h1>
+<h1 id="103-binary-search-boundaries">10.3 &nbsp; Binary Search Boundaries<a class="headerlink" href="#103-binary-search-boundaries" title="Permanent link">&para;</a></h1>
 <h2 id="1031-finding-the-left-boundary">10.3.1 &nbsp; Finding the Left Boundary<a class="headerlink" href="#1031-finding-the-left-boundary" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given a sorted array <code>nums</code> of length <span class="arithmatex">\(n\)</span> that may contain duplicate elements, return the index of the leftmost element <code>target</code> in the array. If the array does not contain the element, return <span class="arithmatex">\(-1\)</span>.</p>
+<p>Given a sorted array <code>nums</code> of length <span class="arithmatex">\(n\)</span> that may contain duplicate elements, return the index of the leftmost occurrence of <code>target</code>. If the array does not contain <code>target</code>, return <span class="arithmatex">\(-1\)</span>.</p>
 </div>
 <p>Recall the method for finding the insertion point with binary search. After the search completes, <span class="arithmatex">\(i\)</span> points to the leftmost <code>target</code>, <strong>so finding the insertion point is essentially finding the index of the leftmost <code>target</code></strong>.</p>
 <p>Consider implementing the left boundary search using the insertion point finding function. Note that the array may not contain <code>target</code>, which could result in the following two cases:</p>
@@ -4612,8 +4612,8 @@
 <p>So how do we find the rightmost <code>target</code>? The most direct approach is to modify the code and replace the pointer shrinking operation in the <code>nums[m] == target</code> case. The code is omitted here; interested readers can implement it themselves.</p>
 <p>Below we introduce two more clever methods.</p>
 <h3 id="1-reusing-left-boundary-search">1. &nbsp; Reusing Left Boundary Search<a class="headerlink" href="#1-reusing-left-boundary-search" title="Permanent link">&para;</a></h3>
-<p>In fact, we can use the function for finding the leftmost element to find the rightmost element. The specific method is: <strong>Convert finding the rightmost <code>target</code> into finding the leftmost <code>target + 1</code></strong>.</p>
-<p>As shown in Figure 10-7, after the search completes, pointer <span class="arithmatex">\(i\)</span> points to the leftmost <code>target + 1</code> (if it exists), while <span class="arithmatex">\(j\)</span> points to the rightmost <code>target</code>, <strong>so we can simply return <span class="arithmatex">\(j\)</span></strong>.</p>
+<p>In fact, we can use the function for finding the leftmost <code>target</code> to find the rightmost <code>target</code>. The specific method is: <strong>convert finding the rightmost <code>target</code> into finding the leftmost <code>target + 1</code></strong>.</p>
+<p>As shown in Figure 10-7, after the search completes, the pointer <span class="arithmatex">\(i\)</span> points to the leftmost <code>target + 1</code> (if it exists), while <span class="arithmatex">\(j\)</span> points to the rightmost <code>target</code>, <strong>so we can return <span class="arithmatex">\(j\)</span></strong>.</p>
 <p><img alt="Converting right boundary search to left boundary search" class="animation-figure" src="../binary_search_edge.assets/binary_search_right_edge_by_left_edge.png" /></p>
 <p align="center"> Figure 10-7 &nbsp; Converting right boundary search to left boundary search </p>
 
@@ -4832,15 +4832,15 @@
 <p>We know that when the array does not contain <code>target</code>, <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> will eventually point to the first elements greater than and less than <code>target</code>, respectively.</p>
 <p>Therefore, as shown in Figure 10-8, we can construct an element that does not exist in the array to find the left and right boundaries.</p>
 <ul>
-<li>Finding the leftmost <code>target</code>: Can be converted to finding <code>target - 0.5</code> and returning pointer <span class="arithmatex">\(i\)</span>.</li>
-<li>Finding the rightmost <code>target</code>: Can be converted to finding <code>target + 0.5</code> and returning pointer <span class="arithmatex">\(j\)</span>.</li>
+<li>Finding the leftmost <code>target</code>: This can be converted to finding <code>target - 0.5</code> and returning the pointer <span class="arithmatex">\(i\)</span>.</li>
+<li>Finding the rightmost <code>target</code>: This can be converted to finding <code>target + 0.5</code> and returning the pointer <span class="arithmatex">\(j\)</span>.</li>
 </ul>
 <p><img alt="Converting boundary search to element search" class="animation-figure" src="../binary_search_edge.assets/binary_search_edge_by_element.png" /></p>
 <p align="center"> Figure 10-8 &nbsp; Converting boundary search to element search </p>
 
 <p>The code is omitted here, but the following two points are worth noting:</p>
 <ul>
-<li>Since the given array does not contain decimals, we don't need to worry about how to handle equal cases.</li>
+<li>Since the given array does not contain decimal values, we do not need to worry about how to handle equality.</li>
 <li>Because this method introduces decimals, the variable <code>target</code> in the function needs to be changed to a floating-point type (Python does not require this change).</li>
 </ul>
 
@@ -4865,7 +4865,7 @@ aria-label="Footer"
   <a
     href="../binary_search_insertion/"
     class="md-footer__link md-footer__link--prev"
-    aria-label="Previous: 10.2 Binary Search Insertion"
+    aria-label="Previous: 10.2 Binary Search Insertion Point"
     rel="prev"
   >
     <div class="md-footer__button md-icon">
@@ -4877,7 +4877,7 @@ aria-label="Footer"
         Previous
       </span>
       <div class="md-ellipsis">
-        10.2 Binary Search Insertion
+        10.2 Binary Search Insertion Point
       </div>
     </div>
   </a>

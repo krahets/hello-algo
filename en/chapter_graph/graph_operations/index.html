@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2576,7 +2576,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2604,7 +2604,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2660,7 +2660,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2809,7 +2809,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3282,7 +3282,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4194,7 +4194,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4379,14 +4379,14 @@
 
 <!-- Page content -->
 <h1 id="92-basic-operations-on-graphs">9.2 &nbsp; Basic Operations on Graphs<a class="headerlink" href="#92-basic-operations-on-graphs" title="Permanent link">&para;</a></h1>
-<p>Basic operations on graphs can be divided into operations on "edges" and operations on "vertices". Under the two representation methods of "adjacency matrix" and "adjacency list", the implementation methods differ.</p>
+<p>Basic operations on graphs can be divided into operations on "edges" and operations on "vertices". Their implementations differ depending on whether the graph is represented as an "adjacency matrix" or an "adjacency list".</p>
 <h2 id="921-implementation-based-on-adjacency-matrix">9.2.1 &nbsp; Implementation Based on Adjacency Matrix<a class="headerlink" href="#921-implementation-based-on-adjacency-matrix" title="Permanent link">&para;</a></h2>
 <p>Given an undirected graph with <span class="arithmatex">\(n\)</span> vertices, the various operations are implemented as shown in Figure 9-7.</p>
 <ul>
 <li><strong>Adding or removing an edge</strong>: Directly modify the specified edge in the adjacency matrix, using <span class="arithmatex">\(O(1)\)</span> time. Since it is an undirected graph, both directions of the edge need to be updated simultaneously.</li>
 <li><strong>Adding a vertex</strong>: Add a row and a column at the end of the adjacency matrix and fill them all with <span class="arithmatex">\(0\)</span>s, using <span class="arithmatex">\(O(n)\)</span> time.</li>
 <li><strong>Removing a vertex</strong>: Delete a row and a column in the adjacency matrix. The worst case occurs when removing the first row and column, requiring <span class="arithmatex">\((n-1)^2\)</span> elements to be "moved up and to the left", thus using <span class="arithmatex">\(O(n^2)\)</span> time.</li>
-<li><strong>Initialization</strong>: Pass in <span class="arithmatex">\(n\)</span> vertices, initialize a vertex list <code>vertices</code> of length <span class="arithmatex">\(n\)</span>, using <span class="arithmatex">\(O(n)\)</span> time; initialize an adjacency matrix <code>adjMat</code> of size <span class="arithmatex">\(n \times n\)</span>, using <span class="arithmatex">\(O(n^2)\)</span> time.</li>
+<li><strong>Initialization</strong>: Given <span class="arithmatex">\(n\)</span> vertices, initialize a vertex list <code>vertices</code> of length <span class="arithmatex">\(n\)</span>, using <span class="arithmatex">\(O(n)\)</span> time; initialize an adjacency matrix <code>adjMat</code> of size <span class="arithmatex">\(n \times n\)</span>, using <span class="arithmatex">\(O(n^2)\)</span> time.</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label></div>
 <div class="tabbed-content">
@@ -5565,7 +5565,7 @@
 <ul>
 <li><strong>Adding an edge</strong>: Add the edge at the end of the corresponding vertex's linked list, using <span class="arithmatex">\(O(1)\)</span> time. Since it is an undirected graph, edges in both directions need to be added simultaneously.</li>
 <li><strong>Removing an edge</strong>: Find and remove the specified edge in the corresponding vertex's linked list, using <span class="arithmatex">\(O(m)\)</span> time. In an undirected graph, edges in both directions need to be removed simultaneously.</li>
-<li><strong>Adding a vertex</strong>: Add a linked list in the adjacency list and set the new vertex as the head node of the list, using <span class="arithmatex">\(O(1)\)</span> time.</li>
+<li><strong>Adding a vertex</strong>: Add a linked list to the adjacency list, with the new vertex as the head node, using <span class="arithmatex">\(O(1)\)</span> time.</li>
 <li><strong>Removing a vertex</strong>: Traverse the entire adjacency list and remove all edges containing the specified vertex, using <span class="arithmatex">\(O(n + m)\)</span> time.</li>
 <li><strong>Initialization</strong>: Create <span class="arithmatex">\(n\)</span> vertices and <span class="arithmatex">\(2m\)</span> edges in the adjacency list, using <span class="arithmatex">\(O(n + m)\)</span> time.</li>
 </ul>
@@ -5590,12 +5590,12 @@
 </div>
 <p align="center"> Figure 9-8 &nbsp; Initialization, adding and removing edges, adding and removing vertices in adjacency list </p>
 
-<p>The following is the adjacency list code implementation. Compared to Figure 9-8, the actual code has the following differences.</p>
+<p>The following code shows the adjacency list implementation. Compared with Figure 9-8, the actual code differs in the following ways.</p>
 <ul>
 <li>For convenience in adding and removing vertices, and to simplify the code, we use lists (dynamic arrays) instead of linked lists.</li>
 <li>A hash table is used to store the adjacency list, where <code>key</code> is the vertex instance and <code>value</code> is the list (linked list) of adjacent vertices for that vertex.</li>
 </ul>
-<p>Additionally, we use the <code>Vertex</code> class to represent vertices in the adjacency list. The reason for this is: if we used list indices to distinguish different vertices as with adjacency matrices, then to delete the vertex at index <span class="arithmatex">\(i\)</span>, we would need to traverse the entire adjacency list and decrement all indices greater than <span class="arithmatex">\(i\)</span> by <span class="arithmatex">\(1\)</span>, which is very inefficient. However, if each vertex is a unique <code>Vertex</code> instance, deleting a vertex does not require modifying other vertices.</p>
+<p>Additionally, we use the <code>Vertex</code> class to represent vertices in the adjacency list for the following reason: if we used list indices to distinguish different vertices, as with adjacency matrices, then to delete the vertex at index <span class="arithmatex">\(i\)</span>, we would need to traverse the entire adjacency list and decrement all indices greater than <span class="arithmatex">\(i\)</span> by <span class="arithmatex">\(1\)</span>, which is very inefficient. However, if each vertex is a unique <code>Vertex</code> instance, deleting one vertex does not require modifying the others.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:13"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><input id="__tabbed_4_13" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Java</label><label for="__tabbed_4_4">C#</label><label for="__tabbed_4_5">Go</label><label for="__tabbed_4_6">Swift</label><label for="__tabbed_4_7">JS</label><label for="__tabbed_4_8">TS</label><label for="__tabbed_4_9">Dart</label><label for="__tabbed_4_10">Rust</label><label for="__tabbed_4_11">C</label><label for="__tabbed_4_12">Kotlin</label><label for="__tabbed_4_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6694,7 +6694,7 @@
 </div>
 </div>
 <h2 id="923-efficiency-comparison">9.2.3 &nbsp; Efficiency Comparison<a class="headerlink" href="#923-efficiency-comparison" title="Permanent link">&para;</a></h2>
-<p>Assuming the graph has <span class="arithmatex">\(n\)</span> vertices and <span class="arithmatex">\(m\)</span> edges, Table 9-2 compares the time efficiency and space efficiency of adjacency matrices and adjacency lists. Note that the adjacency list (linked list) corresponds to the implementation in this text, while the adjacency list (hash table) refers specifically to the implementation where all linked lists are replaced with hash tables.</p>
+<p>Assuming the graph has <span class="arithmatex">\(n\)</span> vertices and <span class="arithmatex">\(m\)</span> edges, Table 9-2 compares the time efficiency and space efficiency of adjacency matrices and adjacency lists. Note that the adjacency list (linked list) corresponds to the implementation used in this section, while the adjacency list (hash table) refers specifically to the implementation where all linked lists are replaced with hash tables.</p>
 <p align="center"> Table 9-2 &nbsp; Comparison of adjacency matrix and adjacency list </p>
 
 <div class="center-table">

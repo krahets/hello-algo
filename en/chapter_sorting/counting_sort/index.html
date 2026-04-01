@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2728,7 +2728,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3293,7 +3293,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4205,7 +4205,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4401,13 +4401,13 @@
 
 <!-- Page content -->
 <h1 id="119-counting-sort">11.9 &nbsp; Counting Sort<a class="headerlink" href="#119-counting-sort" title="Permanent link">&para;</a></h1>
-<p><u>Counting sort (counting sort)</u> achieves sorting by counting the number of elements, typically applied to integer arrays.</p>
+<p><u>Counting sort</u> sorts by counting the occurrences of elements and is typically applied to integer arrays.</p>
 <h2 id="1191-simple-implementation">11.9.1 &nbsp; Simple Implementation<a class="headerlink" href="#1191-simple-implementation" title="Permanent link">&para;</a></h2>
 <p>Let's start with a simple example. Given an array <code>nums</code> of length <span class="arithmatex">\(n\)</span>, where the elements are all "non-negative integers", the overall flow of counting sort is shown in Figure 11-16.</p>
 <ol>
 <li>Traverse the array to find the largest number, denoted as <span class="arithmatex">\(m\)</span>, and then create an auxiliary array <code>counter</code> of length <span class="arithmatex">\(m + 1\)</span>.</li>
-<li><strong>Use <code>counter</code> to count the number of occurrences of each number in <code>nums</code></strong>, where <code>counter[num]</code> corresponds to the number of occurrences of the number <code>num</code>. The counting method is simple: just traverse <code>nums</code> (let the current number be <code>num</code>), and increase <code>counter[num]</code> by <span class="arithmatex">\(1\)</span> in each round.</li>
-<li><strong>Since each index of <code>counter</code> is naturally ordered, this is equivalent to all numbers being sorted</strong>. Next, we traverse <code>counter</code> and fill in <code>nums</code> in ascending order based on the number of occurrences of each number.</li>
+<li><strong>Use <code>counter</code> to count how many times each number appears in <code>nums</code></strong>, where <code>counter[num]</code> stores the number of occurrences of <code>num</code>. This is simple: traverse <code>nums</code> (denote the current number by <code>num</code>) and increment <code>counter[num]</code> by <span class="arithmatex">\(1\)</span> each time.</li>
+<li><strong>Because the indices of <code>counter</code> are naturally ordered, the numbers are effectively already sorted</strong>. Next, traverse <code>counter</code> and write the numbers back into <code>nums</code> in ascending order according to their occurrence counts.</li>
 </ol>
 <p><img alt="Counting sort flow" class="animation-figure" src="../counting_sort.assets/counting_sort_overview.png" /></p>
 <p align="center"> Figure 11-16 &nbsp; Counting sort flow </p>
@@ -4736,17 +4736,17 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Connection between counting sort and bucket sort</p>
-<p>From the perspective of bucket sort, we can regard each index of the counting array <code>counter</code> in counting sort as a bucket, and the process of counting quantities as distributing each element to the corresponding bucket. Essentially, counting sort is a special case of bucket sort for integer data.</p>
+<p>From the perspective of bucket sort, each index of the counting array <code>counter</code> can be viewed as a bucket, and the counting process can be seen as distributing elements into their corresponding buckets. Essentially, counting sort is a special case of bucket sort for integer data.</p>
 </div>
 <h2 id="1192-complete-implementation">11.9.2 &nbsp; Complete Implementation<a class="headerlink" href="#1192-complete-implementation" title="Permanent link">&para;</a></h2>
-<p>Observant readers may have noticed that <strong>if the input data is objects, step <code>3.</code> above becomes invalid</strong>. Suppose the input data is product objects, and we want to sort the products by price (a member variable of the class), but the above algorithm can only give the sorting result of prices.</p>
-<p>So how can we obtain the sorting result of the original data? We first calculate the "prefix sum" of <code>counter</code>. As the name suggests, the prefix sum at index <code>i</code>, <code>prefix[i]</code>, equals the sum of the first <code>i</code> elements of the array:</p>
+<p>Observant readers may have noticed that <strong>if the input consists of objects, step <code>3.</code> above no longer works</strong>. Suppose the input consists of product objects and we want to sort them by price (a member variable of the class); the above algorithm can only produce the sorted order of the prices themselves.</p>
+<p>So how can we obtain the sorted order of the original data? We first compute the prefix sums of <code>counter</code>. As the name suggests, the prefix sum at index <code>i</code>, <code>prefix[i]</code>, equals the sum of the elements from index <code>0</code> through <code>i</code>:</p>
 <div class="arithmatex">\[
 \text{prefix}[i] = \sum_{j=0}^i \text{counter[j]}
 \]</div>
-<p><strong>The prefix sum has a clear meaning: <code>prefix[num] - 1</code> represents the index of the last occurrence of element <code>num</code> in the result array <code>res</code></strong>. This information is very critical because it tells us where each element should appear in the result array. Next, we traverse each element <code>num</code> of the original array <code>nums</code> in reverse order, performing the following two steps in each iteration.</p>
+<p><strong>The prefix sum has a clear interpretation: <code>prefix[num] - 1</code> gives the index of the last occurrence of element <code>num</code> in the result array <code>res</code></strong>. This information is crucial because it tells us where each element should be placed in the result array. Next, we traverse the original array <code>nums</code> in reverse, and for each element <code>num</code>, perform the following two steps.</p>
 <ol>
-<li>Fill <code>num</code> into the array <code>res</code> at index <code>prefix[num] - 1</code>.</li>
+<li>Place <code>num</code> at index <code>prefix[num] - 1</code> of the array <code>res</code>.</li>
 <li>Decrease the prefix sum <code>prefix[num]</code> by <span class="arithmatex">\(1\)</span> to get the index for the next placement of <code>num</code>.</li>
 </ol>
 <p>After the traversal is complete, the array <code>res</code> contains the sorted result, and finally <code>res</code> is used to overwrite the original array <code>nums</code>. The complete counting sort flow is shown in Figure 11-17.</p>
@@ -4780,7 +4780,7 @@
 </div>
 <p align="center"> Figure 11-17 &nbsp; Counting sort steps </p>
 
-<p>The implementation code of counting sort is as follows:</p>
+<p>The counting sort implementation is shown below:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:13"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><input id="__tabbed_3_13" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Kotlin</label><label for="__tabbed_3_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5223,14 +5223,14 @@
 </div>
 <h2 id="1193-algorithm-characteristics">11.9.3 &nbsp; Algorithm Characteristics<a class="headerlink" href="#1193-algorithm-characteristics" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Time complexity of <span class="arithmatex">\(O(n + m)\)</span>, non-adaptive sorting</strong>: Involves traversing <code>nums</code> and traversing <code>counter</code>, both using linear time. Generally, <span class="arithmatex">\(n \gg m\)</span>, and time complexity tends toward <span class="arithmatex">\(O(n)\)</span>.</li>
+<li><strong>Time complexity is <span class="arithmatex">\(O(n + m)\)</span>, and counting sort is non-adaptive</strong>: Traversing <code>nums</code> and <code>counter</code> both takes linear time. In general, when <span class="arithmatex">\(n \gg m\)</span>, the time complexity approaches <span class="arithmatex">\(O(n)\)</span>.</li>
 <li><strong>Space complexity of <span class="arithmatex">\(O(n + m)\)</span>, non-in-place sorting</strong>: Uses arrays <code>res</code> and <code>counter</code> of lengths <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(m\)</span> respectively.</li>
 <li><strong>Stable sorting</strong>: Since elements are filled into <code>res</code> in a "right-to-left" order, traversing <code>nums</code> in reverse can avoid changing the relative positions of equal elements, thereby achieving stable sorting. In fact, traversing <code>nums</code> in forward order can also yield correct sorting results, but the result would be unstable.</li>
 </ul>
 <h2 id="1194-limitations">11.9.4 &nbsp; Limitations<a class="headerlink" href="#1194-limitations" title="Permanent link">&para;</a></h2>
-<p>By this point, you might think counting sort is very clever, as it can achieve efficient sorting just by counting quantities. However, the prerequisites for using counting sort are relatively strict.</p>
-<p><strong>Counting sort is only suitable for non-negative integers</strong>. If you want to apply it to other types of data, you need to ensure that the data can be converted to non-negative integers without changing the relative size relationships between elements. For example, for an integer array containing negative numbers, you can first add a constant to all numbers to convert them all to positive numbers, and then convert them back after sorting is complete.</p>
-<p><strong>Counting sort is suitable for situations where the data volume is large but the data range is small</strong>. For example, in the above example, <span class="arithmatex">\(m\)</span> cannot be too large, otherwise it will occupy too much space. And when <span class="arithmatex">\(n \ll m\)</span>, counting sort uses <span class="arithmatex">\(O(m)\)</span> time, which may be slower than <span class="arithmatex">\(O(n \log n)\)</span> sorting algorithms.</p>
+<p>At this point, you might think counting sort is quite ingenious because it achieves efficient sorting simply by counting occurrences. However, the prerequisites for using counting sort are fairly restrictive.</p>
+<p><strong>Counting sort is only applicable to non-negative integers</strong>. To apply it to other types of data, you must ensure that they can be converted to non-negative integers without changing the relative ordering of the elements. For example, for an integer array containing negative numbers, you can first add a constant to every number to shift them into the non-negative range, and then shift them back after sorting.</p>
+<p><strong>Counting sort is well suited to cases with many elements but a small value range</strong>. For example, in the above scenario, <span class="arithmatex">\(m\)</span> cannot be too large; otherwise, it consumes too much space. And when <span class="arithmatex">\(n \ll m\)</span>, counting sort takes <span class="arithmatex">\(O(m)\)</span> time, which may be slower than sorting algorithms with <span class="arithmatex">\(O(n \log n)\)</span> time complexity.</p>
 
 <!-- Source file information -->
 

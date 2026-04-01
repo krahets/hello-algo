@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1183,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1205,7 +1205,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1402,7 +1402,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1424,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1502,7 +1502,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1593,7 +1593,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1615,7 +1615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -1888,7 +1888,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2107,7 +2107,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2135,7 +2135,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2493,7 +2493,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2521,7 +2521,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2577,7 +2577,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2737,7 +2737,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -2755,7 +2755,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3271,7 +3271,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4183,7 +4183,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4357,8 +4357,8 @@
 
 <!-- Page content -->
 <h1 id="111-sorting-algorithm">11.1 &nbsp; Sorting Algorithm<a class="headerlink" href="#111-sorting-algorithm" title="Permanent link">&para;</a></h1>
-<p><u>Sorting algorithm (sorting algorithm)</u> is used to arrange a group of data in a specific order. Sorting algorithms have extensive applications because ordered data can usually be searched, analyzed, and processed more efficiently.</p>
-<p>As shown in Figure 11-1, data types in sorting algorithms can be integers, floating-point numbers, characters, or strings, etc. The sorting criterion can be set according to requirements, such as numerical size, character ASCII code order, or custom rules.</p>
+<p>A <u>sorting algorithm</u> arranges a set of data in a specific order. Sorting algorithms have extensive applications because ordered data can usually be searched, analyzed, and processed more efficiently.</p>
+<p>As shown in Figure 11-1, the data being sorted can be integers, floating-point numbers, characters, strings, and so on. The sorting rule can be defined as needed, such as numerical order, ASCII order, or a custom rule.</p>
 <p><img alt="Data type and criterion examples" class="animation-figure" src="../sorting_algorithm.assets/sorting_examples.png" /></p>
 <p align="center"> Figure 11-1 &nbsp; Data type and criterion examples </p>
 
@@ -4367,7 +4367,7 @@
 <p><strong>In-place property</strong>: As the name implies, <u>in-place sorting</u> achieves sorting by operating directly on the original array without requiring additional auxiliary arrays, thus saving memory. Typically, in-place sorting involves fewer data movement operations and runs faster.</p>
 <p><strong>Stability</strong>: <u>Stable sorting</u> ensures that the relative order of equal elements in the array does not change after sorting is completed.</p>
 <p>Stable sorting is a necessary condition for multi-level sorting scenarios. Suppose we have a table storing student information, where column 1 and column 2 are name and age, respectively. In this case, <u>unstable sorting</u> may cause the ordered nature of the input data to be lost:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Input Data Is Sorted by Name</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># The input data is sorted by name</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># (name, age)</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;A&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"> </span><span class="m">18</span><span class="o">)</span>
@@ -4375,9 +4375,9 @@
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;D&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;E&#39;</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Assuming We Use an Unstable Sorting Algorithm to Sort the List by Age,</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># In the Result, the Relative Positions of (&#39;D&#39;, 19) and (&#39;A&#39;, 19) Are Changed,</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># And the Property That the Input Data Is Sorted by Name Is Lost</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Suppose we use an unstable sorting algorithm to sort the list by age.</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># In the result, the relative positions of (&#39;D&#39;, 19) and (&#39;A&#39;, 19) change,</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># so the property that the input data is sorted by name is lost.</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"> </span><span class="m">18</span><span class="o">)</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;D&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;A&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
@@ -4385,10 +4385,10 @@
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;E&#39;</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
 </code></pre></div>
 <p><strong>Adaptability</strong>: <u>Adaptive sorting</u> can utilize the existing order information in the input data to reduce the amount of computation, achieving better time efficiency. The best-case time complexity of adaptive sorting algorithms is typically better than the average time complexity.</p>
-<p><strong>Comparison-based or not</strong>: <u>Comparison-based sorting</u> relies on comparison operators (<span class="arithmatex">\(&lt;\)</span>, <span class="arithmatex">\(=\)</span>, <span class="arithmatex">\(&gt;\)</span>) to determine the relative order of elements, thereby sorting the entire array, with a theoretical optimal time complexity of <span class="arithmatex">\(O(n \log n)\)</span>. <u>Non-comparison sorting</u> does not use comparison operators and can achieve a time complexity of <span class="arithmatex">\(O(n)\)</span>, but its versatility is relatively limited.</p>
+<p><strong>Comparison-based or non-comparison</strong>: <u>Comparison-based sorting</u> relies on comparison operators (<span class="arithmatex">\(&lt;\)</span>, <span class="arithmatex">\(=\)</span>, <span class="arithmatex">\(&gt;\)</span>) to determine the relative order of elements, thereby sorting the entire array, with a theoretical optimal time complexity of <span class="arithmatex">\(O(n \log n)\)</span>. <u>Non-comparison sorting</u> does not use comparison operators and can achieve a time complexity of <span class="arithmatex">\(O(n)\)</span>, but its versatility is relatively limited.</p>
 <h2 id="1112-ideal-sorting-algorithm">11.1.2 &nbsp; Ideal Sorting Algorithm<a class="headerlink" href="#1112-ideal-sorting-algorithm" title="Permanent link">&para;</a></h2>
-<p><strong>Fast execution, in-place, stable, adaptive, good versatility</strong>. Clearly, no sorting algorithm has been discovered to date that combines all of these characteristics. Therefore, when selecting a sorting algorithm, it is necessary to decide based on the specific characteristics of the data and the requirements of the problem.</p>
-<p>Next, we will learn about various sorting algorithms together and analyze the advantages and disadvantages of each sorting algorithm based on the above evaluation dimensions.</p>
+<p><strong>Fast, in-place, stable, adaptive, and broadly applicable</strong>. Clearly, no sorting algorithm has been discovered to date that combines all of these characteristics. Therefore, when selecting a sorting algorithm, it is necessary to decide based on the specific characteristics of the data and the requirements of the problem.</p>
+<p>Next, we will examine various sorting algorithms and analyze their advantages and disadvantages based on the evaluation dimensions above.</p>
 
 <!-- Source file information -->
 

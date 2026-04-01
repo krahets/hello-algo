@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
     
@@ -598,7 +598,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 1. Encounter With Algorithms
+    Chapter 1. Encounter with Algorithms
   
 
           </label>
@@ -1338,7 +1338,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
     
@@ -1360,7 +1360,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 4. Array and Linked List
+    Chapter 4. Arrays and Linked Lists
   
 
           </label>
@@ -1466,7 +1466,7 @@
   <span class="md-ellipsis">
     
   
-    4.4 Memory and Cache *
+    4.4 Random-Access Memory and Cache *
   
 
     
@@ -1557,7 +1557,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
     
@@ -1579,7 +1579,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 5. Stack and Queue
+    Chapter 5. Stacks and Queues
   
 
           </label>
@@ -1657,7 +1657,7 @@
   <span class="md-ellipsis">
     
   
-    5.3 Double-Ended Queue
+    5.3 Deque
   
 
     
@@ -1748,7 +1748,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
     
@@ -1770,7 +1770,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Chapter 6. Hashing
+    Chapter 6. Hash Table
   
 
           </label>
@@ -2043,7 +2043,7 @@
   <span class="md-ellipsis">
     
   
-    7.3 Array Representation of Tree
+    7.3 Array Representation of Binary Trees
   
 
     
@@ -2262,7 +2262,7 @@
   <span class="md-ellipsis">
     
   
-    8.2 Building a Heap
+    8.2 Heap Construction Operation
   
 
     
@@ -2290,7 +2290,7 @@
   <span class="md-ellipsis">
     
   
-    8.3 Top-K Problem
+    8.3 Top-k Problem
   
 
     
@@ -2648,7 +2648,7 @@
   <span class="md-ellipsis">
     
   
-    10.2 Binary Search Insertion
+    10.2 Binary Search Insertion Point
   
 
     
@@ -2676,7 +2676,7 @@
   <span class="md-ellipsis">
     
   
-    10.3 Binary Search Edge Cases
+    10.3 Binary Search Boundaries
   
 
     
@@ -2732,7 +2732,7 @@
   <span class="md-ellipsis">
     
   
-    10.5 Search Algorithms Revisited
+    10.5 Searching Algorithms Revisited
   
 
     
@@ -2881,7 +2881,7 @@
   <span class="md-ellipsis">
     
   
-    11.1 Sorting Algorithms
+    11.1 Sorting Algorithm
   
 
     
@@ -3354,7 +3354,7 @@
   <span class="md-ellipsis">
     
   
-    12.4 Hanoi Tower Problem
+    12.4 Hanota Problem
   
 
     
@@ -4266,7 +4266,7 @@
   <span class="md-ellipsis">
     
   
-    16.3 Terminology Table
+    16.3 Glossary
   
 
     
@@ -4538,7 +4538,7 @@
 <li><strong>Stack frame space</strong>: Used to save the context data of called functions. The system creates a stack frame at the top of the stack each time a function is called, and the stack frame space is released after the function returns.</li>
 <li><strong>Instruction space</strong>: Used to save compiled program instructions, which are usually ignored in actual statistics.</li>
 </ul>
-<p>When analyzing the space complexity of a program, <strong>we usually count three parts: temporary data, stack frame space, and output data</strong>, as shown in the following figure.</p>
+<p>When analyzing the space complexity of a program, <strong>we usually consider three parts: temporary data, stack frame space, and output data</strong>, as shown in the following figure.</p>
 <p><img alt="Algorithm-related space" class="animation-figure" src="../space_complexity.assets/space_types.png" /></p>
 <p align="center"> Figure 2-15 &nbsp; Algorithm-related space </p>
 
@@ -4859,9 +4859,9 @@
 </div>
 </div>
 <h2 id="242-calculation-method">2.4.2 &nbsp; Calculation Method<a class="headerlink" href="#242-calculation-method" title="Permanent link">&para;</a></h2>
-<p>The calculation method for space complexity is roughly the same as for time complexity, except that the statistical object is changed from "number of operations" to "size of space used".</p>
+<p>The calculation method for space complexity is roughly the same as for time complexity, except that what we measure changes from the "number of operations" to the "amount of space used".</p>
 <p>Unlike time complexity, <strong>we usually only focus on the worst-case space complexity</strong>. This is because memory space is a hard requirement, and we must ensure that sufficient memory space is reserved for all input data.</p>
-<p>Observe the following code. The "worst case" in worst-case space complexity has two meanings.</p>
+<p>Observe the following code. Here, "worst case" in worst-case space complexity has two meanings.</p>
 <ol>
 <li><strong>Based on the worst input data</strong>: When <span class="arithmatex">\(n &lt; 10\)</span>, the space complexity is <span class="arithmatex">\(O(1)\)</span>; but when <span class="arithmatex">\(n &gt; 10\)</span>, the initialized array <code>nums</code> occupies <span class="arithmatex">\(O(n)\)</span> space, so the worst-case space complexity is <span class="arithmatex">\(O(n)\)</span>.</li>
 <li><strong>Based on the peak memory during algorithm execution</strong>: For example, before executing the last line, the program occupies <span class="arithmatex">\(O(1)\)</span> space; when initializing the array <code>nums</code>, the program occupies <span class="arithmatex">\(O(n)\)</span> space, so the worst-case space complexity is <span class="arithmatex">\(O(n)\)</span>.</li>
@@ -5261,7 +5261,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
 <p align="center"> Figure 2-16 &nbsp; Common types of space complexity </p>
 
 <h3 id="1-constant-order-o1">1. &nbsp; Constant Order <span class="arithmatex">\(O(1)\)</span><a class="headerlink" href="#1-constant-order-o1" title="Permanent link">&para;</a></h3>
-<p>Constant order is common in constants, variables, and objects whose quantity is independent of the input data size <span class="arithmatex">\(n\)</span>.</p>
+<p>Constant order is common for constants, variables, and objects whose number is independent of the input data size <span class="arithmatex">\(n\)</span>.</p>
 <p>It should be noted that memory occupied by initializing variables or calling functions in a loop is released when entering the next iteration, so it does not accumulate space, and the space complexity remains <span class="arithmatex">\(O(1)\)</span>:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:13"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><input id="__tabbed_4_13" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Java</label><label for="__tabbed_4_4">C#</label><label for="__tabbed_4_5">Go</label><label for="__tabbed_4_6">Swift</label><label for="__tabbed_4_7">JS</label><label for="__tabbed_4_8">TS</label><label for="__tabbed_4_9">Dart</label><label for="__tabbed_4_10">Rust</label><label for="__tabbed_4_11">C</label><label for="__tabbed_4_12">Kotlin</label><label for="__tabbed_4_13">Ruby</label></div>
 <div class="tabbed-content">
@@ -6500,7 +6500,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
 <p>Another example is converting a number to a string. Given a positive integer <span class="arithmatex">\(n\)</span>, it has <span class="arithmatex">\(\lfloor \log_{10} n \rfloor + 1\)</span> digits, i.e., the corresponding string length is <span class="arithmatex">\(\lfloor \log_{10} n \rfloor + 1\)</span>, so the space complexity is <span class="arithmatex">\(O(\log_{10} n + 1) = O(\log n)\)</span>.</p>
 <h2 id="244-trading-time-for-space">2.4.4 &nbsp; Trading Time for Space<a class="headerlink" href="#244-trading-time-for-space" title="Permanent link">&para;</a></h2>
 <p>Ideally, we hope that both the time complexity and space complexity of an algorithm can reach optimal. However, in practice, optimizing both time complexity and space complexity simultaneously is usually very difficult.</p>
-<p><strong>Reducing time complexity usually comes at the cost of increasing space complexity, and vice versa</strong>. The approach of sacrificing memory space to improve algorithm execution speed is called "trading space for time"; conversely, it is called "trading time for space".</p>
+<p><strong>Reducing time complexity usually comes at the cost of increasing space complexity, and vice versa</strong>. Sacrificing memory space to improve execution speed is called "trading space for time"; the reverse is called "trading time for space".</p>
 <p>The choice of which approach depends on which aspect we value more. In most cases, time is more precious than space, so "trading space for time" is usually the more common strategy. Of course, when the data volume is very large, controlling space complexity is also very important.</p>
 
 <!-- Source file information -->
