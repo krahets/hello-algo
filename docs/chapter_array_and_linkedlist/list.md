@@ -684,15 +684,15 @@
 
     ```rust title="list.rs"
     // 通过索引遍历列表
-    let mut _count = 0;
+    let mut count = 0;
     for i in 0..nums.len() {
-        _count += nums[i];
+        count += nums[i];
     }
 
     // 直接遍历列表元素
-    _count = 0;
+    count = 0;
     for num in &nums {
-        _count += num;
+        count += num;
     }
     ```
 

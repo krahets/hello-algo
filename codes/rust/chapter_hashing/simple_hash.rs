@@ -5,48 +5,48 @@
  */
 
 /* 加法哈希 */
-fn add_hash(key: &str) -> i32 {
-    let mut hash = 0_i64;
+pub fn add_hash(key: &str) -> i32 {
     const MODULUS: i64 = 1000000007;
 
-    for c in key.chars() {
-        hash = (hash + c as i64) % MODULUS;
+    let mut hash: i64 = 0;
+    for char in key.chars() {
+        hash = (hash + char as i64) % MODULUS;
     }
 
     hash as i32
 }
 
 /* 乘法哈希 */
-fn mul_hash(key: &str) -> i32 {
-    let mut hash = 0_i64;
+pub fn mul_hash(key: &str) -> i32 {
     const MODULUS: i64 = 1000000007;
 
-    for c in key.chars() {
-        hash = (31 * hash + c as i64) % MODULUS;
+    let mut hash: i64 = 0;
+    for char in key.chars() {
+        hash = (31 * hash + char as i64) % MODULUS;
     }
 
     hash as i32
 }
 
 /* 异或哈希 */
-fn xor_hash(key: &str) -> i32 {
-    let mut hash = 0_i64;
+pub fn xor_hash(key: &str) -> i32 {
     const MODULUS: i64 = 1000000007;
 
-    for c in key.chars() {
-        hash ^= c as i64;
+    let mut hash: i64 = 0;
+    for char in key.chars() {
+        hash ^= char as i64;
     }
 
     (hash & MODULUS) as i32
 }
 
 /* 旋转哈希 */
-fn rot_hash(key: &str) -> i32 {
-    let mut hash = 0_i64;
+pub fn rot_hash(key: &str) -> i32 {
     const MODULUS: i64 = 1000000007;
 
-    for c in key.chars() {
-        hash = ((hash << 4) ^ (hash >> 28) ^ c as i64) % MODULUS;
+    let mut hash: i64 = 0;
+    for char in key.chars() {
+        hash = ((hash << 4) ^ (hash >> 28) ^ char as i64) % MODULUS;
     }
 
     hash as i32
