@@ -12,7 +12,7 @@ As shown in the figure below, for a $3$-step staircase, there are $3$ different 
 
 ![Number of ways to reach the 3rd step](intro_to_dynamic_programming.assets/climbing_stairs_example.png)
 
-The goal of this problem is to find the number of ways, **we can consider using backtracking to enumerate all possibilities**. Specifically, imagine climbing stairs as a multi-round selection process: starting from the ground, choosing to go up $1$ or $2$ steps in each round, incrementing the count by $1$ whenever the top of the stairs is reached, and pruning when exceeding the top. The code is as follows:
+The goal of this problem is to determine the number of ways, so **we can consider using backtracking to enumerate all possibilities**. Specifically, imagine climbing stairs as a multi-round selection process: starting from the ground, choosing to go up $1$ or $2$ steps in each round, incrementing the count by $1$ whenever the top of the stairs is reached, and pruning when exceeding the top. The code is as follows:
 
 ```src
 [file]{climbing_stairs_backtrack}-[class]{}-[func]{climbing_stairs_backtrack}
@@ -36,19 +36,19 @@ $$
 dp[i] = dp[i-1] + dp[i-2]
 $$
 
-This means that in the stair climbing problem, there exists a recurrence relation among the subproblems, **the solution to the original problem can be constructed from the solutions to the subproblems**. The figure below illustrates this recurrence relation.
+This means that in the stair climbing problem, there exists a recurrence relation among the subproblems, and **the solution to the original problem can be constructed from the solutions to the subproblems**. The figure below illustrates this recurrence relation.
 
 ![Recurrence relation for the number of ways](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png)
 
 We can obtain a brute force search solution based on the recurrence formula. Starting from $dp[n]$, **recursively decompose a larger problem into the sum of two smaller problems**, until reaching the smallest subproblems $dp[1]$ and $dp[2]$ and returning. Among them, the solutions to the smallest subproblems are known, namely $dp[1] = 1$ and $dp[2] = 2$, representing $1$ and $2$ ways to climb to the $1$st and $2$nd steps, respectively.
 
-Observe the following code, which, like standard backtracking code, belongs to depth-first search but is more concise:
+Observe the following code: like standard backtracking code, it also uses depth-first search but is more concise:
 
 ```src
 [file]{climbing_stairs_dfs}-[class]{}-[func]{climbing_stairs_dfs}
 ```
 
-The figure below shows the recursion tree formed by brute force search. For the problem $dp[n]$, the depth of its recursion tree is $n$, with a time complexity of $O(2^n)$. Exponential order represents explosive growth; if we input a relatively large $n$, we will fall into a long wait.
+The figure below shows the recursion tree formed by brute force search. For the problem $dp[n]$, the depth of its recursion tree is $n$, with a time complexity of $O(2^n)$. Exponential growth is explosive; if we input a relatively large $n$, the wait can be very long.
 
 ![Recursion tree for climbing stairs](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png)
 
@@ -69,7 +69,7 @@ The code is as follows:
 [file]{climbing_stairs_dfs_mem}-[class]{}-[func]{climbing_stairs_dfs_mem}
 ```
 
-Observe the figure below, **after memoization, all overlapping subproblems only need to be computed once, optimizing the time complexity to $O(n)$**, which is a tremendous leap.
+Observe the figure below: **after memoization, all overlapping subproblems need to be computed only once, reducing the time complexity to $O(n)$**, which is a tremendous leap.
 
 ![Recursion tree with memoization](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png)
 
@@ -99,12 +99,12 @@ Based on the above content, we can summarize the commonly used terminology in dy
 
 ## Space Optimization
 
-Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i-1]$ and $dp[i-2]$, we do not need to use an array `dp` to store the solutions to all subproblems**, but can simply use two variables to roll forward. The code is as follows:
+Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i-1]$ and $dp[i-2]$, we do not need to use an array `dp` to store the solutions to all subproblems**, and can instead use two variables that roll forward. The code is as follows:
 
 ```src
 [file]{climbing_stairs_dp}-[class]{}-[func]{climbing_stairs_dp_comp}
 ```
 
-Observing the above code, since the space occupied by the array `dp` is saved, the space complexity is reduced from $O(n)$ to $O(1)$.
+As the above code shows, by eliminating the space occupied by the array `dp`, the space complexity is reduced from $O(n)$ to $O(1)$.
 
 In dynamic programming problems, the current state often depends only on a limited number of preceding states, allowing us to retain only the necessary states and save memory space through "dimension reduction". **This space optimization technique is called "rolling variable" or "rolling array"**.

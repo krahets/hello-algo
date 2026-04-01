@@ -20,7 +20,7 @@ For this problem, we perform a preorder traversal of the tree and check whether 
 
 **The reason it is called a backtracking algorithm is that it employs "attempt" and "backtrack" strategies when searching the solution space**. When the algorithm encounters a state where it cannot continue forward or cannot find a solution that satisfies the constraints, it will undo the previous choice, return to a previous state, and try other possible choices.
 
-For Example 1, visiting each node represents an "attempt", while skipping over a leaf node or a function `return` from the parent node represents a "backtrack".
+For Example 1, visiting each node represents an "attempt", while skipping over a leaf node or the `return` that brings the traversal back to the parent node represents a "backtrack".
 
 It is worth noting that **backtracking is not limited to function returns alone**. To illustrate this, let's extend Example 1 slightly.
 
@@ -28,7 +28,7 @@ It is worth noting that **backtracking is not limited to function returns alone*
 
     In a binary tree, search all nodes with value $7$, **and return the paths from the root node to these nodes**.
 
-Based on the code from Example 1, we need to use a list `path` to record the visited node path. When we reach a node with value $7$, we copy `path` and add it to the result list `res`. After traversal is complete, `res` contains all the solutions. The code is as follows:
+Based on the code from Example 1, we need to use a list `path` to record the path of visited nodes. When we reach a node with value $7$, we copy `path` and add it to the result list `res`. After traversal is complete, `res` contains all the solutions. The code is as follows:
 
 ```src
 [file]{preorder_traversal_ii_compact}-[class]{}-[func]{pre_order}
@@ -91,7 +91,7 @@ To satisfy the above constraints, **we need to add pruning operations**: during 
 
 ## Framework Code
 
-Next, we attempt to extract the main framework of backtracking's "attempt, backtrack, and pruning", to improve code generality.
+Next, we attempt to extract a general framework centered on backtracking's "attempt, backtrack, and pruning" to improve code generality.
 
 In the following framework code, `state` represents the current state of the problem, and `choices` represents the choices available in the current state:
 
@@ -439,7 +439,7 @@ As per the problem statement, we should continue searching after finding a node 
 
 ![Comparison of search process with and without return statement](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
 
-Compared to code based on preorder traversal, code based on the backtracking algorithm framework appears more verbose, but has better generality. In fact, **many backtracking problems can be solved within this framework**. We only need to define `state` and `choices` for the specific problem and implement each method in the framework.
+Compared to code based on preorder traversal, code based on the backtracking algorithm framework appears more verbose, but is more general. In fact, **many backtracking problems can be solved within this framework**. We only need to define `state` and `choices` for the specific problem and implement each method in the framework.
 
 ## Common Terminology
 
@@ -458,7 +458,7 @@ To analyze algorithmic problems more clearly, we summarize the meanings of commo
 
 !!! tip
 
-    The concepts of problem, solution, state, etc. are universal and are involved in divide-and-conquer, backtracking, dynamic programming, greedy and other algorithms.
+    The concepts of problem, solution, state, etc. are universal and appear in divide-and-conquer, backtracking, dynamic programming, greedy algorithms, and others.
 
 ## Advantages and Limitations
 
@@ -466,7 +466,7 @@ The backtracking algorithm is essentially a depth-first search algorithm that tr
 
 However, when dealing with large-scale or complex problems, **the running efficiency of the backtracking algorithm may be unacceptable**.
 
-- **Time**: The backtracking algorithm usually needs to traverse all possibilities in the solution space, and the time complexity can reach exponential or factorial order.
+- **Time**: The backtracking algorithm usually needs to traverse all possibilities in the state space, and the time complexity can reach exponential or factorial order.
 - **Space**: During recursive calls, the current state needs to be saved (such as paths, auxiliary variables used for pruning, etc.), and when the depth is large, the space requirement can become very large.
 
 Nevertheless, **the backtracking algorithm is still the best solution for certain search problems and constraint satisfaction problems**. For these problems, since we cannot predict which choices will generate valid solutions, we must traverse all possible choices. In this case, **the key is how to optimize efficiency**. There are two common efficiency optimization methods.

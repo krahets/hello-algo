@@ -8,7 +8,7 @@ An <u>array</u> is a linear data structure that stores elements of the same type
 
 ### Initializing Arrays
 
-We can choose between two array initialization methods based on our needs: without initial values or with given initial values. When no initial values are specified, most programming languages will initialize array elements to $0$:
+We can choose between two array initialization methods based on our needs: with or without initial values. When no initial values are specified, most programming languages initialize array elements to $0$:
 
 === "Python"
 
@@ -146,11 +146,11 @@ Accessing elements in an array is highly efficient; we can randomly access any e
 
 ### Inserting Elements
 
-Array elements are stored "tightly adjacent" in memory, with no space between them to store any additional data. As shown in the figure below, if we want to insert an element in the middle of an array, we need to shift all elements after that position backward by one position, and then assign the value to that index.
+Array elements are packed tightly together in memory, with no extra space between them for additional data. As shown in the figure below, if we want to insert an element in the middle of an array, we need to shift all subsequent elements one position to the right and then assign the value at that index.
 
 ![Example of inserting an element into an array](array.assets/array_insert_element.png)
 
-It is worth noting that since the length of an array is fixed, inserting an element will inevitably cause the element at the end of the array to be "lost". We will leave the solution to this problem for discussion in the "List" chapter.
+It is worth noting that since the length of an array is fixed, inserting an element will inevitably push the last element out of the array. We will leave the solution to this problem for discussion in the "List" chapter.
 
 ```src
 [file]{array}-[class]{}-[func]{insert}
@@ -162,7 +162,7 @@ Similarly, as shown in the figure below, to delete the element at index $i$, we 
 
 ![Example of removing an element from an array](array.assets/array_remove_element.png)
 
-Note that after the deletion is complete, the original last element becomes "meaningless", so we do not need to specifically modify it.
+Note that after the deletion is complete, the original last element is no longer meaningful, so we do not need to modify it explicitly.
 
 ```src
 [file]{array}-[class]{}-[func]{remove}
@@ -172,7 +172,7 @@ Overall, array insertion and deletion operations have the following drawbacks:
 
 - **High time complexity**: The average time complexity for both insertion and deletion in arrays is $O(n)$, where $n$ is the length of the array.
 - **Loss of elements**: Since the length of an array is immutable, after inserting an element, elements that exceed the array's length will be lost.
-- **Memory waste**: We can initialize a relatively long array and only use the front portion, so that when inserting data, the lost elements at the end are "meaningless", but this causes some memory space to be wasted.
+- **Memory waste**: We can initialize a relatively long array and use only the front portion, so that any overwritten tail elements are merely unused placeholders, but this wastes some memory space.
 
 ### Traversing Arrays
 

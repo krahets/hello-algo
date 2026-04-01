@@ -1,6 +1,6 @@
 # Queue
 
-A <u>queue</u> is a linear data structure that follows the First In First Out (FIFO) rule. As the name suggests, a queue simulates the phenomenon of lining up, where newcomers continuously join the end of the queue, while people at the front of the queue leave one by one.
+A <u>queue</u> is a linear data structure that follows the First In, First Out (FIFO) rule. As the name suggests, it models people lining up: newcomers continuously join the rear of the queue, while the people at the front leave one by one.
 
 As shown in the figure below, we call the front of the queue the "front" and the end the "rear." The operation of adding an element to the rear is called "enqueue," and the operation of removing the front element is called "dequeue."
 
@@ -8,7 +8,7 @@ As shown in the figure below, we call the front of the queue the "front" and the
 
 ## Common Queue Operations
 
-The common operations on a queue are shown in the table below. Note that method names may vary across different programming languages. We adopt the same naming convention as for stacks here.
+The common operations on a queue are shown in the table below. Note that method names may vary across programming languages. Here, we use the same naming convention as for stacks.
 
 <p align="center"> Table <id> &nbsp; Efficiency of Queue Operations </p>
 
@@ -18,7 +18,7 @@ The common operations on a queue are shown in the table below. Note that method 
 | `pop()`  | Dequeue front element                      | $O(1)$          |
 | `peek()` | Access front element                       | $O(1)$          |
 
-We can directly use the ready-made queue classes in programming languages:
+We can directly use the queue classes provided by the programming language:
 
 === "Python"
 

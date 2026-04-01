@@ -1,10 +1,10 @@
-# Binary Search Edge Cases
+# Binary Search Boundaries
 
 ## Finding the Left Boundary
 
 !!! question
 
-    Given a sorted array `nums` of length $n$ that may contain duplicate elements, return the index of the leftmost element `target` in the array. If the array does not contain the element, return $-1$.
+    Given a sorted array `nums` of length $n$ that may contain duplicate elements, return the index of the leftmost occurrence of `target`. If the array does not contain `target`, return $-1$.
 
 Recall the method for finding the insertion point with binary search. After the search completes, $i$ points to the leftmost `target`, **so finding the insertion point is essentially finding the index of the leftmost `target`**.
 
@@ -27,9 +27,9 @@ Below we introduce two more clever methods.
 
 ### Reusing Left Boundary Search
 
-In fact, we can use the function for finding the leftmost element to find the rightmost element. The specific method is: **Convert finding the rightmost `target` into finding the leftmost `target + 1`**.
+In fact, we can use the function for finding the leftmost `target` to find the rightmost `target`. The specific method is: **convert finding the rightmost `target` into finding the leftmost `target + 1`**.
 
-As shown in the figure below, after the search completes, pointer $i$ points to the leftmost `target + 1` (if it exists), while $j$ points to the rightmost `target`, **so we can simply return $j$**.
+As shown in the figure below, after the search completes, the pointer $i$ points to the leftmost `target + 1` (if it exists), while $j$ points to the rightmost `target`, **so we can return $j$**.
 
 ![Converting right boundary search to left boundary search](binary_search_edge.assets/binary_search_right_edge_by_left_edge.png)
 
@@ -45,12 +45,12 @@ We know that when the array does not contain `target`, $i$ and $j$ will eventual
 
 Therefore, as shown in the figure below, we can construct an element that does not exist in the array to find the left and right boundaries.
 
-- Finding the leftmost `target`: Can be converted to finding `target - 0.5` and returning pointer $i$.
-- Finding the rightmost `target`: Can be converted to finding `target + 0.5` and returning pointer $j$.
+- Finding the leftmost `target`: This can be converted to finding `target - 0.5` and returning the pointer $i$.
+- Finding the rightmost `target`: This can be converted to finding `target + 0.5` and returning the pointer $j$.
 
 ![Converting boundary search to element search](binary_search_edge.assets/binary_search_edge_by_element.png)
 
 The code is omitted here, but the following two points are worth noting:
 
-- Since the given array does not contain decimals, we don't need to worry about how to handle equal cases.
+- Since the given array does not contain decimal values, we do not need to worry about how to handle equality.
 - Because this method introduces decimals, the variable `target` in the function needs to be changed to a floating-point type (Python does not require this change).

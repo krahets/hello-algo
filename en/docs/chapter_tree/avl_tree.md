@@ -1,4 +1,4 @@
-# Avl Tree *
+# AVL Tree *
 
 In the "Binary Search Tree" section, we mentioned that after multiple insertion and removal operations, a binary search tree may degenerate into a linked list. In this case, the time complexity of all operations degrades from $O(\log n)$ to $O(n)$.
 
@@ -10,9 +10,9 @@ For example, in the perfect binary tree shown in the figure below, after inserti
 
 ![Degradation of an AVL tree after inserting nodes](avl_tree.assets/avltree_degradation_from_inserting_node.png)
 
-In 1962, G. M. Adelson-Velsky and E. M. Landis proposed the <u>AVL tree</u> in their paper "An algorithm for the organization of information". The paper described in detail a series of operations ensuring that after continuously adding and removing nodes, the AVL tree does not degenerate, thus keeping the time complexity of various operations at the $O(\log n)$ level. In other words, in scenarios requiring frequent insertions, deletions, searches, and modifications, the AVL tree can always maintain efficient data operation performance, making it very valuable in applications.
+In 1962, G. M. Adelson-Velsky and E. M. Landis proposed the <u>AVL tree</u> in their paper "An algorithm for the organization of information". The paper describes a series of operations that prevent an AVL tree from degenerating as nodes are inserted and removed, thereby keeping the time complexity of various operations at $O(\log n)$. In other words, in scenarios that require frequent insertion, deletion, lookup, and update operations, AVL trees can maintain consistently efficient performance and therefore have strong practical value.
 
-## Common Terminology in Avl Trees
+## Common Terminology in AVL Trees
 
 An AVL tree is both a binary search tree and a balanced binary tree, simultaneously satisfying all the properties of these two types of binary trees, hence it is a <u>balanced binary search tree</u>.
 
@@ -228,7 +228,7 @@ Since the operations related to AVL trees require obtaining node heights, we nee
     end
     ```
 
-The "node height" refers to the distance from that node to its farthest leaf node, i.e., the number of "edges" passed. It is important to note that the height of a leaf node is $0$, and the height of a null node is $-1$. We will create two utility functions for getting and updating the height of a node:
+The "node height" refers to the distance from that node to its farthest leaf node, i.e., the number of edges on the path. It is important to note that the height of a leaf node is $0$, and the height of a null node is $-1$. We will create two utility functions for getting and updating the height of a node:
 
 ```src
 [file]{avl_tree}-[class]{avl_tree}-[func]{update_height}
@@ -246,11 +246,11 @@ The <u>balance factor</u> of a node is defined as the height of the node's left 
 
     Let the balance factor be $f$, then the balance factor of any node in an AVL tree satisfies $-1 \le f \le 1$.
 
-## Rotations in Avl Trees
+## Rotations in AVL Trees
 
 The characteristic of AVL trees lies in the "rotation" operation, which can restore balance to unbalanced nodes without affecting the inorder traversal sequence of the binary tree. In other words, **rotation operations can both maintain the property of a "binary search tree" and make the tree return to a "balanced binary tree"**.
 
-We call nodes with a balance factor absolute value $> 1$ "unbalanced nodes". Depending on the imbalance situation, rotation operations are divided into four types: right rotation, left rotation, left rotation then right rotation, and right rotation then left rotation. Below we describe these rotation operations in detail.
+We call nodes with a balance factor absolute value $> 1$ "unbalanced nodes". Depending on the imbalance situation, rotation operations are divided into four types: right rotation, left rotation, right rotation then left rotation, and left rotation then right rotation. Below we describe these rotation operations in detail.
 
 ### Right Rotation
 
@@ -329,7 +329,7 @@ For ease of use, we encapsulate the rotation operations into a function. **With 
 [file]{avl_tree}-[class]{avl_tree}-[func]{rotate}
 ```
 
-## Common Operations in Avl Trees
+## Common Operations in AVL Trees
 
 ### Node Insertion
 
@@ -351,7 +351,7 @@ Similarly, on the basis of the binary search tree's node removal method, rotatio
 
 The node search operation in AVL trees is consistent with that in binary search trees, and will not be elaborated here.
 
-## Typical Applications of Avl Trees
+## Typical Applications of AVL Trees
 
 - Organizing and storing large-scale data, suitable for scenarios with high-frequency searches and low-frequency insertions and deletions.
 - Used to build index systems in databases.

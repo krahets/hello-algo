@@ -1,8 +1,8 @@
-# Terminology Table
+# Glossary
 
 The following table lists important terms that appear in this book. It is worth noting the following points:
 
-- We recommend remembering the English names of terms to help with reading English literature.
+- We recommend remembering the English terms to help with reading English-language literature.
 - Some terms have different names in Simplified Chinese and Traditional Chinese.
 
 <p align="center"> Table <id> &nbsp; Important Terms in Data Structures and Algorithms </p>

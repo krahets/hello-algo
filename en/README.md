@@ -6,7 +6,7 @@
 <p align="center">
   <img style="height: 60px;" src="https://readme-typing-svg.demolab.com?font=Roboto&weight=400&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+Algo!" alt="hello-algo-typing-svg" />
   </br>
-  Data structures and algorithms crash course with animated illustrations and off-the-shelf code
+  Data structures and algorithms tutorial with animated illustrations and ready-to-run code
 </p>
 
 <p align="center">

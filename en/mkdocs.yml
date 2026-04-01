@@ -4,7 +4,7 @@ INHERIT: ../mkdocs.yml
 # Project information
 site_name: Hello Algo
 site_url: https://www.hello-algo.com/en/
-site_description: "Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code"
+site_description: "Data structures and algorithms tutorial with animated illustrations and ready-to-run code"
 docs_dir: ../build/en/docs
 site_dir: ../site/en
 # Repository

@@ -1,6 +1,6 @@
 # Basic Data Types
 
-When we talk about data in computers, we think of various forms such as text, images, videos, audio, 3D models, and more. Although these data are organized in different ways, they are all composed of various basic data types.
+When we talk about data stored in computers, we think of various forms such as text, images, videos, audio, 3D models, and more. Although these kinds of data are organized in different ways, they are all composed of various basic data types.
 
 **Basic data types are types that the CPU can directly operate on**, and they are directly used in algorithms, mainly including the following.
 
@@ -9,7 +9,7 @@ When we talk about data in computers, we think of various forms such as text, im
 - Character type `char`, used to represent letters, punctuation marks, and even emojis in various languages.
 - Boolean type `bool`, used to represent "yes" and "no" judgments.
 
-**Basic data types are stored in binary form in computers**. One binary bit is $1$ bit. In most modern operating systems, $1$ byte consists of $8$ bits.
+**Basic data types are stored in binary form in computers**. A binary digit is one bit. In most modern operating systems, $1$ byte consists of $8$ bits.
 
 The range of values for basic data types depends on the size of the space they occupy. Below is an example using Java.
 
@@ -31,16 +31,16 @@ The following table lists the space occupied, value ranges, and default values o
 | Character  | `char`   | 2 bytes        | $0$                      | $2^{16} - 1$            | $0$            |
 | Boolean    | `bool`   | 1 byte         | $\text{false}$           | $\text{true}$           | $\text{false}$ |
 
-Please note that the above table is specific to Java's basic data types. Each programming language has its own data type definitions, and their space occupied, value ranges, and default values may vary.
+Please note that the table above applies specifically to Java's basic data types. Each programming language has its own type definitions, and their space usage, value ranges, and default values may vary.
 
 - In Python, the integer type `int` can be of any size, limited only by available memory; the floating-point type `float` is double-precision 64-bit; there is no `char` type, a single character is actually a string `str` of length 1.
 - C and C++ do not explicitly specify the size of basic data types, which varies by implementation and platform. The above table follows the LP64 [data model](https://en.cppreference.com/w/cpp/language/types#Properties), which is used in Unix 64-bit operating systems including Linux and macOS.
 - The size of character `char` is 1 byte in C and C++, and in most programming languages it depends on the specific character encoding method, as detailed in the "Character Encoding" section.
 - Even though representing a boolean value requires only 1 bit ($0$ or $1$), it is usually stored as 1 byte in memory. This is because modern computer CPUs typically use 1 byte as the minimum addressable memory unit.
 
-So, what is the relationship between basic data types and data structures? We know that data structures are ways of organizing and storing data in computers. The subject of this statement is "structure", not "data".
+So, what is the relationship between basic data types and data structures? We know that data structures are ways of organizing and storing data in computers. Here, the emphasis is on the "structure", not the "data".
 
-If we want to represent "a row of numbers", we naturally think of using an array. This is because the linear structure of an array can represent the adjacency and order relationships of numbers, but the content stored—whether integer `int`, floating-point `float`, or character `char`—is unrelated to the "data structure".
+If we want to represent "a row of numbers", we naturally think of using an array. This is because the linear structure of an array can represent the adjacency and order relationships of numbers, but whether the stored content is integer `int`, floating-point `float`, or character `char` is unrelated to the "data structure".
 
 In other words, **basic data types provide the "content type" of data, while data structures provide the "organization method" of data**. For example, in the following code, we use the same data structure (array) to store and represent different basic data types, including `int`, `float`, `char`, `bool`, etc.
 

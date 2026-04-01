@@ -5,7 +5,7 @@ The previous two sections introduced the main characteristics of dynamic program
 1. How to determine whether a problem is a dynamic programming problem?
 2. What is the complete process for solving a dynamic programming problem, and where should we start?
 
-## Problem Determination
+## Problem Identification
 
 Generally speaking, if a problem contains overlapping subproblems, optimal substructure, and satisfies no aftereffects, then it is usually suitable for solving with dynamic programming. However, it is difficult to directly extract these characteristics from the problem description. Therefore, we usually relax the conditions and **first observe whether the problem is suitable for solving with backtracking (exhaustive search)**.
 
@@ -13,17 +13,17 @@ Generally speaking, if a problem contains overlapping subproblems, optimal subst
 
 In other words, if a problem contains an explicit concept of decisions, and the solution is generated through a series of decisions, then it satisfies the decision tree model and can usually be solved using backtracking.
 
-On this basis, dynamic programming problems also have some "bonus points" for determination.
+On this basis, dynamic programming problems also have some positive indicators.
 
 - The problem contains descriptions such as maximum (minimum) or most (least), indicating optimization.
 - The problem's state can be represented using a list, multi-dimensional matrix, or tree, and a state has a recurrence relation with its surrounding states.
 
-Correspondingly, there are also some "penalty points".
+Correspondingly, there are also some negative indicators.
 
 - The goal of the problem is to find all possible solutions, rather than finding the optimal solution.
 - The problem description has obvious permutation and combination characteristics, requiring the return of specific multiple solutions.
 
-If a problem satisfies the decision tree model and has relatively obvious "bonus points", we can assume it is a dynamic programming problem and verify it during the solving process.
+If a problem satisfies the decision tree model and has relatively obvious positive indicators, we can assume it is a dynamic programming problem and verify that assumption during the solving process.
 
 ## Problem-Solving Steps
 
@@ -33,7 +33,7 @@ To illustrate the problem-solving steps more vividly, we use a classic problem "
 
 !!! question
 
-    Given an $n \times m$ two-dimensional grid `grid`, where each cell in the grid contains a non-negative integer representing the cost of that cell. A robot starts from the top-left cell and can only move down or right at each step until reaching the bottom-right cell. Return the minimum path sum from the top-left to the bottom-right.
+    Given an $n \times m$ two-dimensional grid `grid` in which each cell contains a non-negative integer representing its cost, a robot starts from the top-left cell and can only move down or right at each step until reaching the bottom-right cell. Return the minimum path sum from the top-left to the bottom-right.
 
 The figure below shows an example where the minimum path sum for the given grid is $13$.
 
@@ -57,7 +57,7 @@ From this, we obtain the two-dimensional $dp$ matrix shown in the figure below, 
 
 **Step 2: Identify the optimal substructure, and then derive the state transition equation**
 
-For state $[i, j]$, it can only be transferred from the cell above $[i-1, j]$ or the cell to the left $[i, j-1]$. Therefore, the optimal substructure is: the minimum path sum to reach $[i, j]$ is determined by the smaller of the minimum path sums of $[i, j-1]$ and $[i-1, j]$.
+For state $[i, j]$, it can only transition from the cell above $[i-1, j]$ or the cell to the left $[i, j-1]$. Therefore, the optimal substructure is: the minimum path sum to reach $[i, j]$ is determined by the smaller of the minimum path sums of $[i, j-1]$ and $[i-1, j]$.
 
 Based on the above analysis, the state transition equation shown in the figure below can be derived:
 
@@ -77,13 +77,13 @@ $$
 
 In this problem, states in the first row can only come from the state to their left, and states in the first column can only come from the state above them. Therefore, the first row $i = 0$ and first column $j = 0$ are boundary conditions.
 
-As shown in the figure below, since each cell is transferred from the cell to its left and the cell above it, we use loops to traverse the matrix, with the outer loop traversing rows and the inner loop traversing columns.
+As shown in the figure below, since each cell transitions from the cell to its left and the cell above it, we use loops to traverse the matrix, with the outer loop traversing rows and the inner loop traversing columns.
 
 ![Boundary conditions and state transition order](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.png)
 
 !!! note
 
-    Boundary conditions in dynamic programming are used to initialize the $dp$ table, and in search are used for pruning.
+    Boundary conditions in dynamic programming are used to initialize the $dp$ table, while in search they are used for pruning.
 
     The core of state transition order is to ensure that when computing the solution to the current problem, all the smaller subproblems it depends on have already been computed correctly.
 
@@ -91,7 +91,7 @@ Based on the above analysis, we can directly write the dynamic programming code.
 
 ### Method 1: Brute Force Search
 
-Starting from state $[i, j]$, continuously decompose into smaller states $[i-1, j]$ and $[i, j-1]$. The recursive function includes the following elements.
+Starting from state $[i, j]$, we continuously decompose it into smaller states $[i-1, j]$ and $[i, j-1]$. The recursive function includes the following elements.
 
 - **Recursive parameters**: state $[i, j]$.
 - **Return value**: minimum path sum from $[0, 0]$ to $[i, j]$, which is $dp[i, j]$.

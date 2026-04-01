@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    Data structure is like a sturdy and diverse framework.
+    Data structures are like a sturdy and diverse framework.
 
     It provides a blueprint for the orderly organization of data, upon which algorithms come to life.

@@ -1,10 +1,10 @@
 # Stack
 
-A <u>stack</u> is a linear data structure that follows the Last In First Out (LIFO) logic.
+A <u>stack</u> is a linear data structure that follows the Last In, First Out (LIFO) principle.
 
 We can compare a stack to a pile of plates on a table. If we specify that only one plate can be moved at a time, then to get the bottom plate, we must first remove the plates above it one by one. If we replace the plates with various types of elements (such as integers, characters, objects, etc.), we get the stack data structure.
 
-As shown in the figure below, we call the top of the stacked elements the "top" and the bottom the "base." The operation of adding an element to the top is called "push," and the operation of removing the top element is called "pop."
+As shown in the figure below, we call the top of the stacked elements the "top" and the bottom the "bottom." The operation of adding an element to the top is called "push," and the operation of removing the top element is called "pop."
 
 ![LIFO rule of stack](stack.assets/stack_operations.png)
 
@@ -20,7 +20,7 @@ The common operations on a stack are shown in the table below. The specific meth
 | `pop()`  | Pop top element from stack                     | $O(1)$          |
 | `peek()` | Access top element                             | $O(1)$          |
 
-Typically, we can directly use the built-in stack class provided by the programming language. However, some languages may not provide a dedicated stack class. In these cases, we can use the language's "array" or "linked list" as a stack and ignore operations unrelated to the stack in the program logic.
+Typically, we can directly use the built-in stack class provided by the programming language. However, some languages may not provide a dedicated stack class. In such cases, we can use the language's "array" or "linked list" as a stack and simply avoid using operations unrelated to stack behavior.
 
 === "Python"
 
