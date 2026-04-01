@@ -9,7 +9,6 @@
 .gsc-reply-content {
   max-height: 32rem;
   overflow-y: auto;
-  overscroll-behavior: contain;
   padding-inline-end: 0.5rem;
 }
 
@@ -28,4 +27,4 @@
 .gsc-reply-content::-webkit-scrollbar-track {
   background: transparent;
 }
-/*! update cache: 20260401011610 */
+/*! update cache: 20260401195733 */
