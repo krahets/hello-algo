@@ -66,3 +66,8 @@ VS Code 拥有强大的扩展包生态系统，支持大多数编程语言的运
 
 1. 下载并安装 [Rust](https://www.rust-lang.org/tools/install) 。
 2. 在 VS Code 的插件市场中搜索 `rust` ，安装 [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) 。
+
+### Lua 环境
+
+1. 下载并安装 [Lua](https://www.lua.org/download.html) 。
+2. 在 VS Code 的插件市场中搜索 `lua` ，安装 [Lua](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) 。
