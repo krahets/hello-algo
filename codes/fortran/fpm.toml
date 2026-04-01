@@ -1,0 +1,10 @@
+name = "hello-algo-fortran"
+version = "0.1.0"
+executable = [
+  { name = "iteration", source-dir = "chapter_computational_complexity", main = "iteration.f90" }, 
+  { name = "recursion", source-dir = "chapter_computational_complexity", main = "recursion.f90" }, 
+  { name = "time_complexity", source-dir = "chapter_computational_complexity", main = "time_complexity.f90" }, 
+  { name = "worst_best_time_complexity", source-dir = "chapter_computational_complexity", main = "worst_best_time_complexity.f90" }, 
+]
+[dependencies]
+stdlib = "*"
