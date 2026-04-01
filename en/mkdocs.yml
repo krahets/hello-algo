@@ -45,7 +45,7 @@ nav:
     - 0.1 About This Book: chapter_preface/about_the_book.md
     - 0.2 How to Use This Book: chapter_preface/suggestions.md
     - 0.3 Summary: chapter_preface/summary.md
-  - Chapter 1. Encounter With Algorithms:
+  - Chapter 1. Encounter with Algorithms:
     # [icon: material/calculator-variant-outline]
     - chapter_introduction/index.md
     - 1.1 Algorithms Are Everywhere: chapter_introduction/algorithms_are_everywhere.md
@@ -67,22 +67,22 @@ nav:
     - 3.3 Number Encoding *: chapter_data_structure/number_encoding.md
     - 3.4 Character Encoding *: chapter_data_structure/character_encoding.md
     - 3.5 Summary: chapter_data_structure/summary.md
-  - Chapter 4. Array and Linked List:
+  - Chapter 4. Arrays and Linked Lists:
     # [icon: material/view-list-outline]
     - chapter_array_and_linkedlist/index.md
     - 4.1 Array: chapter_array_and_linkedlist/array.md
     - 4.2 Linked List: chapter_array_and_linkedlist/linked_list.md
     - 4.3 List: chapter_array_and_linkedlist/list.md
-    - 4.4 Memory and Cache *: chapter_array_and_linkedlist/ram_and_cache.md
+    - 4.4 Random-Access Memory and Cache *: chapter_array_and_linkedlist/ram_and_cache.md
     - 4.5 Summary: chapter_array_and_linkedlist/summary.md
-  - Chapter 5. Stack and Queue:
+  - Chapter 5. Stacks and Queues:
     # [icon: material/stack-overflow]
     - chapter_stack_and_queue/index.md
     - 5.1 Stack: chapter_stack_and_queue/stack.md
     - 5.2 Queue: chapter_stack_and_queue/queue.md
-    - 5.3 Double-Ended Queue: chapter_stack_and_queue/deque.md
+    - 5.3 Deque: chapter_stack_and_queue/deque.md
     - 5.4 Summary: chapter_stack_and_queue/summary.md
-  - Chapter 6. Hashing:
+  - Chapter 6. Hash Table:
     # [icon: material/table-search]
     - chapter_hashing/index.md
     - 6.1 Hash Table: chapter_hashing/hash_map.md
@@ -94,7 +94,7 @@ nav:
     - chapter_tree/index.md
     - 7.1 Binary Tree: chapter_tree/binary_tree.md
     - 7.2 Binary Tree Traversal: chapter_tree/binary_tree_traversal.md
-    - 7.3 Array Representation of Tree: chapter_tree/array_representation_of_tree.md
+    - 7.3 Array Representation of Binary Trees: chapter_tree/array_representation_of_tree.md
     - 7.4 Binary Search Tree: chapter_tree/binary_search_tree.md
     - 7.5 AVL Tree *: chapter_tree/avl_tree.md
     - 7.6 Summary: chapter_tree/summary.md
@@ -102,8 +102,8 @@ nav:
     # [icon: material/family-tree]
     - chapter_heap/index.md
     - 8.1 Heap: chapter_heap/heap.md
-    - 8.2 Building a Heap: chapter_heap/build_heap.md
-    - 8.3 Top-K Problem: chapter_heap/top_k.md
+    - 8.2 Heap Construction Operation: chapter_heap/build_heap.md
+    - 8.3 Top-k Problem: chapter_heap/top_k.md
     - 8.4 Summary: chapter_heap/summary.md
   - Chapter 9. Graph:
     # [icon: material/graphql]
@@ -116,15 +116,15 @@ nav:
     # [icon: material/text-search]
     - chapter_searching/index.md
     - 10.1 Binary Search: chapter_searching/binary_search.md
-    - 10.2 Binary Search Insertion: chapter_searching/binary_search_insertion.md
-    - 10.3 Binary Search Edge Cases: chapter_searching/binary_search_edge.md
+    - 10.2 Binary Search Insertion Point: chapter_searching/binary_search_insertion.md
+    - 10.3 Binary Search Boundaries: chapter_searching/binary_search_edge.md
     - 10.4 Hash Optimization Strategy: chapter_searching/replace_linear_by_hashing.md
-    - 10.5 Search Algorithms Revisited: chapter_searching/searching_algorithm_revisited.md
+    - 10.5 Searching Algorithms Revisited: chapter_searching/searching_algorithm_revisited.md
     - 10.6 Summary: chapter_searching/summary.md
   - Chapter 11. Sorting:
     # [icon: material/sort-ascending]
     - chapter_sorting/index.md
-    - 11.1 Sorting Algorithms: chapter_sorting/sorting_algorithm.md
+    - 11.1 Sorting Algorithm: chapter_sorting/sorting_algorithm.md
     - 11.2 Selection Sort: chapter_sorting/selection_sort.md
     - 11.3 Bubble Sort: chapter_sorting/bubble_sort.md
     - 11.4 Insertion Sort: chapter_sorting/insertion_sort.md
@@ -141,7 +141,7 @@ nav:
     - 12.1 Divide and Conquer Algorithms: chapter_divide_and_conquer/divide_and_conquer.md
     - 12.2 Divide and Conquer Search Strategy: chapter_divide_and_conquer/binary_search_recur.md
     - 12.3 Building a Binary Tree Problem: chapter_divide_and_conquer/build_binary_tree_problem.md
-    - 12.4 Hanoi Tower Problem: chapter_divide_and_conquer/hanota_problem.md
+    - 12.4 Hanota Problem: chapter_divide_and_conquer/hanota_problem.md
     - 12.5 Summary: chapter_divide_and_conquer/summary.md
   - Chapter 13. Backtracking:
     # [icon: material/map-marker-path]
@@ -174,6 +174,6 @@ nav:
     - chapter_appendix/index.md
     - 16.1 Programming Environment Installation: chapter_appendix/installation.md
     - 16.2 Contributing Together: chapter_appendix/contribution.md
-    - 16.3 Terminology Table: chapter_appendix/terminology.md
+    - 16.3 Glossary: chapter_appendix/terminology.md
   - References:
     - chapter_reference/index.md

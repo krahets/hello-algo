@@ -1,4 +1,4 @@
-# First Encounter with Algorithms
+# Encounter with Algorithms
 
 ![Encounter with Algorithms](../assets/covers/chapter_introduction.jpg)
 
