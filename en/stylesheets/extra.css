@@ -618,6 +618,14 @@ a:hover .device-on-hover {
   gap: 0.5em;
 }
 
+.en-translator-profile-div {
+  max-width: 40em;
+}
+
+.en-translator-profile-div .profile-cell {
+  flex: 0 0 20%;
+}
+
 .translator-profile-cell {
   flex: 0 0 auto;
   margin: 0.5em 0;
@@ -712,5 +720,9 @@ a:hover .device-on-hover {
   .profile-cell {
     flex: 1 1 30%;
   }
+
+  .en-translator-profile-div .profile-cell {
+    flex: 1 1 30%;
+  }
 }
-/*! update cache: 20260402191706 */
+/*! update cache: 20260403021317 */
