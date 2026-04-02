@@ -34,9 +34,9 @@
 
 本書のコードレビューは coderonion、curtishd、Gonglja、gvenusleo、hpstory、justin-tse、khoaxuantu、krahets、night-cruise、nuomi1、Reanon と rongyi によって行われました（アルファベット順）。彼らが費やしてくれた時間と労力に感謝します。各言語のコードの規範性と統一性が保たれているのは、まさに彼らのおかげです。
 
-本書の繁体字中国語版は Shyam-Chen と Dr-XYZ がレビューし、英語版は yuelinxin、K3v123、QiLOL、Phoenix0415、SamJin98、yanedie、RafaelCaso、pengchzn、thomasq0 と magentaqin がレビューし、日本語版は eltociear がレビューしました。彼らの継続的な貢献があってこそ、本書はより幅広い読者に届けられています。感謝いたします。
+本書の英語版は yuelinxin、K3v123、magentaqin、QiLOL、Phoenix0415、SamJin98、yanedie、RafaelCaso、pengchzn と thomasq0 がレビューし、日本語版は eltociear がレビューし、ロシア語版は И. А. Шевкун と Yuyan Huang がレビューし、繁体字中国語版は Shyam-Chen と Dr-XYZ がレビューしました。彼らの貢献があってこそ、本書はより幅広い読者に届けられています。感謝いたします。
 
-本書の ePub 電子書籍生成ツールは zhongfq によって開発されました。彼の貢献に感謝します。読者により自由な読書方法を提供してくれました。
+本書の ePub 電子書籍生成ツールは zhongfq によって開発されました。彼の貢献に感謝します。読者により柔軟な読書方法を提供してくれました。
 
 本書の執筆過程で、私は多くの方々の助けを得ました。
 

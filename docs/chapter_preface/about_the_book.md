@@ -34,9 +34,9 @@
 
 本书的代码审阅工作由 coderonion、curtishd、Gonglja、gvenusleo、hpstory、justin-tse、khoaxuantu、krahets、night-cruise、nuomi1、Reanon 和 rongyi 完成（按照首字母顺序排列）。感谢他们付出的时间与精力，正是他们确保了各语言代码的规范与统一。
 
-本书的繁体中文版由 Shyam-Chen 和 Dr-XYZ 审阅，英文版由 yuelinxin、K3v123、QiLOL、Phoenix0415、SamJin98、yanedie、RafaelCaso、pengchzn、thomasq0 和 magentaqin 审阅，日文版由 eltociear 审阅。正是因为他们的持续贡献，这本书才能够服务于更广泛的读者群体，感谢他们。
+本书的英文版由 yuelinxin、K3v123、magentaqin、QiLOL、Phoenix0415、SamJin98、yanedie、RafaelCaso、pengchzn 和 thomasq0 审阅；日文版由 eltociear 审阅；俄文版由 И. А. Шевкун 和 Yuyan Huang 审阅；繁体中文版由 Shyam-Chen 和 Dr-XYZ 审阅。正是因为他们的贡献，这本书才能够服务于更广泛的读者群体，感谢他们。
 
-本书的 ePub 电子书生成工具由 zhongfq 开发。感谢他的贡献，为读者提供了更加自由的阅读方式。
+本书的 ePub 电子书生成工具由 zhongfq 开发。感谢他的贡献，为读者提供了更灵活的阅读方式。
 
 在本书的创作过程中，我得到了许多人的帮助。
 
