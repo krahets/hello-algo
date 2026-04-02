@@ -530,6 +530,14 @@ a:hover .text-button span {
   gap: 0.5em;
 }
 
+.en-translator-profile-div {
+  max-width: 40em;
+}
+
+.en-translator-profile-div .profile-cell {
+  flex: 0 0 20%;
+}
+
 .translator-profile-cell {
   flex: 0 0 auto;
   margin: 0.5em 0;
@@ -593,6 +601,10 @@ a:hover .text-button span {
   }
 
   .profile-cell {
+    flex: 1 1 30%;
+  }
+
+  .en-translator-profile-div .profile-cell {
     flex: 1 1 30%;
   }
 }
