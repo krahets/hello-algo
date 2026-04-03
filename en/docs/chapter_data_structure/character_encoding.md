@@ -24,7 +24,7 @@ With the vigorous development of computer technology, character sets and encodin
 
 Researchers of that era thought: **If a sufficiently complete character set were released to include all languages and symbols in the world, wouldn't that solve problems in cross-language environments and eliminate garbled text**? Driven by this idea, a large and comprehensive character set, Unicode, was born.
 
-<u>Unicode</u> is called "统一码" (Unified Code) in Chinese and can theoretically accommodate over one million characters. It is committed to including characters from around the world into a unified character set, providing a universal character set to handle and display various language texts, reducing garbled character problems caused by different encoding standards.
+<u>Unicode</u>, or Unified Code, can theoretically accommodate over one million characters. It is committed to including characters from around the world into a unified character set, providing a universal character set to handle and display various language texts, reducing garbled character problems caused by different encoding standards.
 
 Since its release in 1991, Unicode has continuously expanded to include new languages and characters. As of September 2022, Unicode has included 149,186 characters, including characters, symbols, and even emojis from various languages. In practical storage and encoding schemes for this vast character set, commonly used characters often occupy 2 bytes, while some rare characters occupy 3 bytes or even 4 bytes.
 
@@ -45,7 +45,7 @@ The encoding rules of UTF-8 are not complicated and can be divided into the foll
 - For 1-byte characters, set the highest bit to $0$, and set the remaining 7 bits to the Unicode code point. It is worth noting that ASCII characters occupy the first 128 code points in the Unicode character set. That is to say, **UTF-8 encoding is backward compatible with ASCII code**. This means we can use UTF-8 to parse very old ASCII code text.
 - For characters with a length of $n$ bytes (where $n > 1$), set the highest $n$ bits of the first byte to $1$, and set the $(n + 1)$-th bit to $0$; starting from the second byte, set the highest 2 bits of each byte to $10$; use all remaining bits to fill in the Unicode code point of the character.
 
-The figure below shows the UTF-8 encoding corresponding to "Hello算法". It can be observed that since the highest $n$ bits are all set to $1$, the system can determine that the character length is $n$ by counting the leading $1$ bits.
+The figure below shows the UTF-8 encoding corresponding to "Hello 算法". It can be observed that since the highest $n$ bits are all set to $1$, the system can determine that the character length is $n$ by counting the leading $1$ bits.
 
 But why set the highest 2 bits of all other bytes to $10$? In fact, this $10$ can serve as a check symbol. Assuming the system starts parsing text from an incorrect byte, the $10$ at the beginning of the byte can help the system quickly determine an anomaly.
 

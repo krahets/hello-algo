@@ -61,6 +61,6 @@ $$
 
 In summary, both "first negate then add 1" and "first subtract 1 then negate" are computing the complement to $10000$, and they are equivalent.
 
-Essentially, the "negate" operation is actually finding the complement to $1111$ (because `sign-magnitude + 1's complement = 1111` always holds); and adding 1 to the 1's complement yields the 2's complement, which is the complement to $10000$.
+Essentially, the "negate" operation is actually finding the complement to $1111$ (because "sign-magnitude + 1's complement = 1111" always holds); and adding 1 to the 1's complement yields the 2's complement, which is the complement to $10000$.
 
 The above uses $n = 4$ as an example, and it can be generalized to binary numbers of any number of bits.
