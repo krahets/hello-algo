@@ -379,13 +379,13 @@ comments: true
 
 如圖 5-5 所示，我們可以將鏈結串列的“頭節點”和“尾節點”分別視為“佇列首”和“佇列尾”，規定佇列尾僅可新增節點，佇列首僅可刪除節點。
 
-=== "LinkedListQueue"
+=== "<1>"
     ![基於鏈結串列實現佇列的入列出列操作](queue.assets/linkedlist_queue_step1.png){ class="animation-figure" }
 
-=== "push()"
+=== "<2>"
     ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.png){ class="animation-figure" }
 
-=== "pop()"
+=== "<3>"
     ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.png){ class="animation-figure" }
 
 <p align="center"> 圖 5-5 &nbsp; 基於鏈結串列實現佇列的入列出列操作 </p>
@@ -1329,13 +1329,13 @@ comments: true
 
 可以看到，入列和出列操作都只需進行一次操作，時間複雜度均為 $O(1)$ 。
 
-=== "ArrayQueue"
+=== "<1>"
     ![基於陣列實現佇列的入列出列操作](queue.assets/array_queue_step1.png){ class="animation-figure" }
 
-=== "push()"
+=== "<2>"
     ![array_queue_push](queue.assets/array_queue_step2_push.png){ class="animation-figure" }
 
-=== "pop()"
+=== "<3>"
     ![array_queue_pop](queue.assets/array_queue_step3_pop.png){ class="animation-figure" }
 
 <p align="center"> 圖 5-6 &nbsp; 基於陣列實現佇列的入列出列操作 </p>
@@ -2072,7 +2072,7 @@ comments: true
     typedef struct {
         int *nums;       // 用於儲存佇列元素的陣列
         int front;       // 佇列首指標，指向佇列首元素
-        int queSize;     // 尾指標，指向佇列尾 + 1
+        int queSize;     // 當前佇列的元素數量
         int queCapacity; // 佇列容量
     } ArrayQueue;
 

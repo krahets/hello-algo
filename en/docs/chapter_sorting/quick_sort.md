@@ -4,13 +4,13 @@ comments: true
 
 # 11.5 &nbsp; Quick Sort
 
-<u>Quick sort (quick sort)</u> is a sorting algorithm based on the divide-and-conquer strategy, which operates efficiently and is widely applied.
+<u>Quick sort</u> is an efficient and widely used sorting algorithm based on the divide-and-conquer strategy.
 
-The core operation of quick sort is "sentinel partitioning", which aims to: select a certain element in the array as the "pivot", move all elements smaller than the pivot to its left, and move elements larger than the pivot to its right. Specifically, the flow of sentinel partitioning is shown in Figure 11-8.
+The core operation of quick sort is "sentinel partitioning", whose goal is to select an element as the "pivot", move all elements smaller than the pivot to its left, and move all elements larger than the pivot to its right. Specifically, the process is shown in Figure 11-8.
 
-1. Select the leftmost element of the array as the pivot, and initialize two pointers `i` and `j` pointing to the two ends of the array.
-2. Set up a loop in which `i` (`j`) is used in each round to find the first element larger (smaller) than the pivot, and then swap these two elements.
-3. Loop through step `2.` until `i` and `j` meet, and finally swap the pivot to the boundary line of the two sub-arrays.
+1. Select the leftmost element as the pivot, and initialize two pointers `i` and `j` at the two ends of the array.
+2. Enter a loop. In each round, use `i` (`j`) to find the first element larger (smaller) than the pivot, and then swap the two elements.
+3. Repeat step `2.` until `i` and `j` meet, then swap the pivot into the boundary position between the two sub-arrays.
 
 === "<1>"
     ![Sentinel partitioning steps](quick_sort.assets/pivot_division_step1.png){ class="animation-figure" }
@@ -41,7 +41,7 @@ The core operation of quick sort is "sentinel partitioning", which aims to: sele
 
 <p align="center"> Figure 11-8 &nbsp; Sentinel partitioning steps </p>
 
-After sentinel partitioning is complete, the original array is divided into three parts: left sub-array, pivot, right sub-array, satisfying "any element in left sub-array $\leq$ pivot $\leq$ any element in right sub-array". Therefore, we next only need to sort these two sub-arrays.
+After sentinel partitioning, the original array is divided into three parts: the left sub-array, the pivot, and the right sub-array, such that "any element in the left sub-array $\leq$ the pivot $\leq$ any element in the right sub-array". Therefore, we only need to sort the two sub-arrays next.
 
 !!! note "Divide-and-conquer strategy of quick sort"
 
@@ -590,27 +590,27 @@ The overall flow of quick sort is shown in Figure 11-9.
 
 ## 11.5.2 &nbsp; Algorithm Characteristics
 
-- **Time complexity of $O(n \log n)$, non-adaptive sorting**: In the average case, the number of recursive levels of sentinel partitioning is $\log n$, and the total number of loops at each level is $n$, using $O(n \log n)$ time overall. In the worst case, each round of sentinel partitioning divides an array of length $n$ into two sub-arrays of length $0$ and $n - 1$, at which point the number of recursive levels reaches $n$, the number of loops at each level is $n$, and the total time used is $O(n^2)$.
+- **Time complexity of $O(n \log n)$, non-adaptive sorting**: On average, sentinel partitioning produces $\log n$ recursive levels, and the total number of loop iterations across each level is $n$, so the overall time complexity is $O(n \log n)$. In the worst case, each round of sentinel partitioning splits an array of length $n$ into sub-arrays of lengths $0$ and $n - 1$. The recursion depth then reaches $n$, with $n$ loop iterations at each level, yielding an overall time complexity of $O(n^2)$.
 - **Space complexity of $O(n)$, in-place sorting**: In the case where the input array is completely reversed, the worst recursive depth reaches $n$, using $O(n)$ stack frame space. The sorting operation is performed on the original array without the aid of an additional array.
-- **Non-stable sorting**: In the last step of sentinel partitioning, the pivot may be swapped to the right of equal elements.
+- **Unstable sorting**: In the last step of sentinel partitioning, the pivot may be swapped to the right of an equal element.
 
 ## 11.5.3 &nbsp; Why Is Quick Sort Fast
 
-From the name, we can see that quick sort should have certain advantages in terms of efficiency. Although the average time complexity of quick sort is the same as "merge sort" and "heap sort", quick sort is usually more efficient, mainly for the following reasons.
+As the name suggests, quick sort has clear efficiency advantages. Although its average time complexity is the same as that of "merge sort" and "heap sort", quick sort is usually faster in practice for the following reasons.
 
-- **The probability of the worst case occurring is very low**: Although the worst-case time complexity of quick sort is $O(n^2)$, which is not as stable as merge sort, in the vast majority of cases, quick sort can run with a time complexity of $O(n \log n)$.
-- **High cache utilization**: When performing sentinel partitioning operations, the system can load the entire sub-array into the cache, so element access efficiency is relatively high. Algorithms like "heap sort" require jump-style access to elements, thus lacking this characteristic.
-- **Small constant coefficient of complexity**: Among the three algorithms mentioned above, quick sort has the smallest total number of operations such as comparisons, assignments, and swaps. This is similar to the reason why "insertion sort" is faster than "bubble sort".
+- **The worst case is unlikely to occur**: Although the worst-case time complexity of quick sort is $O(n^2)$ and its performance is less predictable than that of merge sort, quick sort runs in $O(n \log n)$ time in the vast majority of cases.
+- **High cache efficiency**: During sentinel partitioning, the system can load the entire sub-array into cache, so accessing elements is relatively efficient. By contrast, algorithms such as "heap sort" require non-contiguous access to elements and therefore do not enjoy this advantage.
+- **Small constant factors**: Among the three algorithms above, quick sort performs the fewest comparisons, assignments, and swaps in total. This is similar to why "insertion sort" is faster than "bubble sort".
 
 ## 11.5.4 &nbsp; Pivot Optimization
 
-**Quick sort may have reduced time efficiency for certain inputs**. Take an extreme example: suppose the input array is completely reversed. Since we select the leftmost element as the pivot, after sentinel partitioning is complete, the pivot is swapped to the rightmost end of the array, causing the left sub-array length to be $n - 1$ and the right sub-array length to be $0$. If we recurse down like this, each round of sentinel partitioning will have a sub-array length of $0$, the divide-and-conquer strategy fails, and quick sort degrades to a form approximate to "bubble sort".
+**Quick sort can become less time-efficient for certain inputs**. Consider an extreme example in which the input array is in completely descending order. Because we choose the leftmost element as the pivot, once sentinel partitioning is complete, the pivot is swapped to the far right of the array, leaving a left sub-array of length $n - 1$ and a right sub-array of length $0$. If this continues recursively, each round of sentinel partitioning produces one sub-array of length $0$, the divide-and-conquer strategy breaks down, and quick sort degenerates into an approximation of "bubble sort".
 
-To avoid this situation as much as possible, **we can optimize the pivot selection strategy in sentinel partitioning**. For example, we can randomly select an element as the pivot. However, if luck is not good and we select a non-ideal pivot every time, efficiency is still not satisfactory.
+To reduce the chance of this happening, **we can optimize the pivot selection strategy used in sentinel partitioning**. For example, we can choose a pivot at random. However, if we are unlucky and repeatedly pick poor pivots, performance can still be unsatisfactory.
 
-It should be noted that programming languages usually generate "pseudo-random numbers". If we construct a specific test case for a pseudo-random number sequence, the efficiency of quick sort may still degrade.
+It should be noted that programming languages usually generate "pseudo-random numbers". If we construct a specific test case against a pseudo-random sequence, quick sort can still suffer degraded performance.
 
-For further improvement, we can select three candidate elements in the array (usually the first, last, and middle elements of the array), **and use the median of these three candidate elements as the pivot**. In this way, the probability that the pivot is "neither too small nor too large" will be greatly increased. Of course, we can also select more candidate elements to further improve the robustness of the algorithm. After adopting this method, the probability of time complexity degrading to $O(n^2)$ is greatly reduced.
+To improve further, we can choose three candidate elements from the array, usually the first, last, and middle elements, **and use the median of the three as the pivot**. This greatly increases the chance that the pivot is "neither too small nor too large". We can also choose more candidate elements to further improve the robustness of the algorithm. With this method, the probability that the time complexity degrades to $O(n^2)$ is significantly reduced.
 
 Example code is as follows:
 
@@ -1074,9 +1074,9 @@ Example code is as follows:
 
 ## 11.5.5 &nbsp; Recursive Depth Optimization
 
-**For certain inputs, quick sort may occupy more space**. Taking a completely ordered input array as an example, let the length of the sub-array in recursion be $m$. Each round of sentinel partitioning will produce a left sub-array of length $0$ and a right sub-array of length $m - 1$, which means that the problem scale reduced per recursive call is very small (only one element is reduced), and the height of the recursion tree will reach $n - 1$, at which point $O(n)$ size of stack frame space is required.
+**Quick sort may also use more space for certain inputs**. Consider a fully sorted input array. Let the length of the current sub-array in the recursion be $m$. Each round of sentinel partitioning produces a left sub-array of length $0$ and a right sub-array of length $m - 1$, which means each recursive call reduces the problem size by only one element. The recursion tree can therefore reach a height of $n - 1$, requiring $O(n)$ stack-frame space.
 
-To prevent the accumulation of stack frame space, we can compare the lengths of the two sub-arrays after each round of sentinel sorting is complete, **and only recurse on the shorter sub-array**. Since the length of the shorter sub-array will not exceed $n / 2$, this method can ensure that the recursion depth does not exceed $\log n$, thus optimizing the worst-case space complexity to $O(\log n)$. The code is as follows:
+To prevent stack frames from accumulating, we can compare the lengths of the two sub-arrays after each round of sentinel partitioning, **and recurse only on the shorter one**. Because the shorter sub-array has length at most $n / 2$, this method ensures that the recursion depth does not exceed $\log n$, reducing the worst-case space complexity to $O(\log n)$. The code is shown below:
 
 === "Python"
 

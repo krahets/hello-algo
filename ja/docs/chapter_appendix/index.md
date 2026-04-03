@@ -10,5 +10,5 @@ icon: material/help-circle-outline
 ## 章の内容
 
 - [16.1 &nbsp; プログラミング環境のインストール](installation.md)
-- [16.2 &nbsp; 一緒に創作に参加する](contribution.md)
+- [16.2 &nbsp; 一緒に制作に参加しましょう](contribution.md)
 - [16.3 &nbsp; 用語集](terminology.md)

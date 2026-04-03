@@ -5,13 +5,13 @@ icon: material/sort-ascending
 
 # 第 11 章 &nbsp; ソート
 
-![Sorting](../assets/covers/chapter_sorting.jpg){ class="cover-image" }
+![ソート](../assets/covers/chapter_sorting.jpg){ class="cover-image" }
 
 !!! abstract
 
-    ソートは混沌を秩序に変える魔法の鍵のようなもので、データをより効率的に理解し処理することを可能にします。
+    ソートは、混沌を秩序へと変える魔法の鍵のようなものであり、データをより効率的に理解し処理することを可能にします。
 
-    単純な昇順であろうと複雑なカテゴリ配列であろうと、ソートはデータの調和美を明らかにします。
+    単純な昇順であれ、複雑な分類配列であれ、ソートはデータの調和のとれた美しさを私たちに示してくれます。
 
 ## 章の内容
 

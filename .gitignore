@@ -1,5 +1,6 @@
 # MacOS Desktop Services Store
 .DS_Store
+.cache/
 
 # Images
 *.png

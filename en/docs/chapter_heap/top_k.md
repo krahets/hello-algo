@@ -2,19 +2,19 @@
 comments: true
 ---
 
-# 8.3 &nbsp; Top-K Problem
+# 8.3 &nbsp; Top-k Problem
 
 !!! question
 
     Given an unordered array `nums` of length $n$, return the largest $k$ elements in the array.
 
-For this problem, we'll first introduce two solutions with relatively straightforward approaches, then introduce a more efficient heap-based solution.
+For this problem, we will first introduce two relatively straightforward solutions, followed by a more efficient heap-based solution.
 
 ## 8.3.1 &nbsp; Method 1: Iterative Selection
 
 We can perform $k$ rounds of traversal as shown in Figure 8-6, extracting the $1^{st}$, $2^{nd}$, $\dots$, $k^{th}$ largest elements in each round, with a time complexity of $O(nk)$.
 
-This method is only suitable when $k \ll n$, because when $k$ is close to $n$, the time complexity approaches $O(n^2)$, which is very time-consuming.
+This method is only suitable when $k \ll n$, because when $k$ is close to $n$, the time complexity approaches $O(n^2)$, making it very inefficient.
 
 ![Traversing to find the largest k elements](top_k.assets/top_k_traversal.png){ class="animation-figure" }
 
@@ -28,7 +28,7 @@ This method is only suitable when $k \ll n$, because when $k$ is close to $n$, t
 
 As shown in Figure 8-7, we can first sort the array `nums`, then return the rightmost $k$ elements, with a time complexity of $O(n \log n)$.
 
-Clearly, this method "overachieves" the task, as we only need to find the largest $k$ elements, without needing to sort the other elements.
+Clearly, this method does more work than necessary, because we only need to find the largest $k$ elements rather than sort the other elements.
 
 ![Sorting to find the largest k elements](top_k.assets/top_k_sorting.png){ class="animation-figure" }
 
@@ -36,7 +36,7 @@ Clearly, this method "overachieves" the task, as we only need to find the larges
 
 ## 8.3.3 &nbsp; Method 3: Heap
 
-We can solve the Top-k problem more efficiently using heaps, with the process shown in Figure 8-8.
+We can solve the Top-k problem more efficiently with a heap, as shown in Figure 8-8.
 
 1. Initialize a min heap, where the heap top element is the smallest.
 2. First, insert the first $k$ elements of the array into the heap in sequence.
@@ -463,4 +463,4 @@ Example code is as follows:
 
 A total of $n$ rounds of heap insertions and removals are performed, with the heap's maximum length being $k$, so the time complexity is $O(n \log k)$. This method is very efficient; when $k$ is small, the time complexity approaches $O(n)$; when $k$ is large, the time complexity does not exceed $O(n \log n)$.
 
-Additionally, this method is suitable for dynamic data stream scenarios. By continuously adding data, we can maintain the elements in the heap, thus achieving dynamic updates of the largest $k$ elements.
+Additionally, this method is well suited to dynamic data streams. As new data arrives, we can continuously maintain the elements in the heap, enabling dynamic updates to the largest $k$ elements.

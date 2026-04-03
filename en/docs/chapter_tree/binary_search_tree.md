@@ -19,7 +19,7 @@ We encapsulate the binary search tree as a class `BinarySearchTree` and declare 
 
 ### 1. &nbsp; Searching for a Node
 
-Given a target node value `num`, we can search according to the properties of the binary search tree. As shown in Figure 7-17, we declare a node `cur` and start from the binary tree's root node `root`, looping to compare the node value `cur.val` with `num`.
+Given a target node value `num`, we can search according to the properties of the binary search tree. As shown in Figure 7-17, we declare a node `cur` and start from the binary search tree's root node `root`, looping to compare `cur.val` with `num`.
 
 - If `cur.val < num`, it means the target node is in `cur`'s right subtree, thus execute `cur = cur.right`.
 - If `cur.val > num`, it means the target node is in `cur`'s left subtree, thus execute `cur = cur.left`.
@@ -39,7 +39,7 @@ Given a target node value `num`, we can search according to the properties of th
 
 <p align="center"> Figure 7-17 &nbsp; Example of searching for a node in a binary search tree </p>
 
-The search operation in a binary search tree works on the same principle as the binary search algorithm, both eliminating half of the cases in each round. The number of loop iterations is at most the height of the binary tree. When the binary tree is balanced, it uses $O(\log n)$ time. The example code is as follows:
+The search operation in a binary search tree follows the same principle as binary search: each round rules out half of the remaining cases. The number of loop iterations is at most the height of the tree. When the tree is balanced, the search takes $O(\log n)$ time. The example code is as follows:
 
 === "Python"
 
@@ -343,7 +343,7 @@ The search operation in a binary search tree works on the same principle as the 
 Given an element `num` to be inserted, in order to maintain the property of the binary search tree "left subtree < root node < right subtree," the insertion process is as shown in Figure 7-18.
 
 1. **Finding the insertion position**: Similar to the search operation, start from the root node and loop downward searching according to the size relationship between the current node value and `num`, until passing the leaf node (traversing to `None`) and then exit the loop.
-2. **Insert the node at that position**: Initialize node `num` and place it at the `None` position.
+2. **Insert the node at that position**: Create a node for `num` and place it at the `None` position.
 
 ![Inserting a node into a binary search tree](binary_search_tree.assets/bst_insert.png){ class="animation-figure" }
 
@@ -351,7 +351,7 @@ Given an element `num` to be inserted, in order to maintain the property of the 
 
 In the code implementation, note the following two points:
 
-- Binary search trees do not allow duplicate nodes; otherwise, it would violate its definition. Therefore, if the node to be inserted already exists in the tree, the insertion is not performed and it returns directly.
+- Binary search trees do not allow duplicate nodes; otherwise, the tree would no longer satisfy its definition. Therefore, if the node to be inserted already exists in the tree, the insertion is skipped and the function returns directly.
 - To implement the node insertion, we need to use node `pre` to save the node from the previous loop iteration. This way, when traversing to `None`, we can obtain its parent node, thereby completing the node insertion operation.
 
 === "Python"
@@ -801,7 +801,7 @@ Similar to searching for a node, inserting a node uses $O(\log n)$ time.
 
 ### 3. &nbsp; Removing a Node
 
-First, find the target node in the binary tree, then remove it. Similar to node insertion, we need to ensure that after the removal operation is completed, the binary search tree's property of "left subtree $<$ root node $<$ right subtree" is still maintained. Therefore, depending on the number of child nodes the target node has, we divide it into 0, 1, and 2 three cases, and execute the corresponding node removal operations.
+First, find the target node in the binary search tree, then remove it. Similar to node insertion, we need to ensure that after the removal operation is completed, the binary search tree's property of "left subtree $<$ root node $<$ right subtree" is still maintained. Therefore, depending on the number of child nodes the target node has, we consider three cases: degree $0$, degree $1$, and degree $2$, and perform the corresponding removal operation.
 
 As shown in Figure 7-19, when the degree of the node to be removed is $0$, it means the node is a leaf node and can be directly removed.
 
@@ -817,7 +817,7 @@ As shown in Figure 7-20, when the degree of the node to be removed is $1$, repla
 
 When the degree of the node to be removed is $2$, we cannot directly remove it; instead, we need to use a node to replace it. To maintain the binary search tree's property of "left subtree $<$ root node $<$ right subtree," **this node can be either the smallest node in the right subtree or the largest node in the left subtree**.
 
-Assuming we choose the smallest node in the right subtree (the next node in the inorder traversal), the removal process is as shown in Figure 7-21.
+Assuming we choose the smallest node in the right subtree, that is, the inorder successor, the removal process is as shown in Figure 7-21.
 
 1. Find the next node of the node to be removed in the "inorder traversal sequence," denoted as `tmp`.
 2. Replace the value of the node to be removed with the value of `tmp`, and recursively remove node `tmp` in the tree.
@@ -1606,7 +1606,7 @@ Given a set of data, we consider using an array or a binary search tree for stor
 
 </div>
 
-In the ideal case, a binary search tree is "balanced," such that any node can be found within $\log n$ loop iterations.
+In the ideal case, a binary search tree is balanced, so any node can be found within $O(\log n)$ loop iterations.
 
 However, if we continuously insert and remove nodes in a binary search tree, it may degenerate into a linked list as shown in Figure 7-23, where the time complexity of various operations also degrades to $O(n)$.
 

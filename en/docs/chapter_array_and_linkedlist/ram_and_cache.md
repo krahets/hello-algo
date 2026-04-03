@@ -4,7 +4,7 @@ comments: true
 
 # 4.4 &nbsp; Random-Access Memory and Cache *
 
-In the first two sections of this chapter, we explored arrays and linked lists, two fundamental and important data structures that represent "contiguous storage" and "distributed storage" as two physical structures, respectively.
+In the first two sections of this chapter, we explored arrays and linked lists, two fundamental and important data structures that represent two physical layouts: "contiguous storage" and "distributed storage", respectively.
 
 In fact, **physical structure largely determines the efficiency with which programs utilize memory and cache**, which in turn affects the overall performance of algorithmic programs.
 
@@ -22,11 +22,11 @@ Computers include three types of storage devices: <u>hard disk</u>, <u>random-ac
 | Volatility     | Data is not lost after power-off                             | Data is lost after power-off                    | Data is lost after power-off                                  |
 | Capacity       | Large, on the order of terabytes (TB)                        | Small, on the order of gigabytes (GB)           | Very small, on the order of megabytes (MB)                    |
 | Speed          | Slow, hundreds to thousands of MB/s                          | Fast, tens of GB/s                              | Very fast, tens to hundreds of GB/s                           |
-| Cost (USD/GB)  | Inexpensive, fractions of a dollar to a few dollars per GB   | Expensive, tens to hundreds of dollars per GB   | Very expensive, priced as part of the CPU package             |
+| Cost (CNY/GB)  | Inexpensive, from a few tenths of a yuan to a few yuan per GB | Expensive, from tens to hundreds of yuan per GB | Very expensive, effectively bundled with the CPU package      |
 
 </div>
 
-We can imagine the computer storage system as a pyramid structure as shown in the diagram below. Storage devices closer to the top of the pyramid are faster, have smaller capacity, and are more expensive. This multi-layered design is not by accident, but rather the result of careful consideration by computer scientists and engineers.
+We can imagine the computer storage system as a pyramid, as shown in the diagram below. Storage devices closer to the top are faster, have smaller capacity, and are more expensive. This multi-layered design is deliberate, the result of careful consideration by computer scientists and engineers.
 
 - **Hard disk cannot be easily replaced by RAM**. First, data in memory is lost after power-off, making it unsuitable for long-term data storage. Second, memory is tens of times more expensive than hard disk, which makes it difficult to popularize in the consumer market.
 - **Cache cannot simultaneously achieve large capacity and high speed**. As the capacity of L1, L2, and L3 caches increases, their physical size becomes larger, and the physical distance between them and the CPU core increases, resulting in longer data transmission time and higher element access latency. With current technology, the multi-layered cache structure represents the best balance point between capacity, speed, and cost.
@@ -39,9 +39,9 @@ We can imagine the computer storage system as a pyramid structure as shown in th
 
     The storage hierarchy of computers embodies a delicate balance among speed, capacity, and cost. In fact, such trade-offs are common across all industrial fields, requiring us to find the optimal balance point between different advantages and constraints.
 
-In summary, **hard disk is used for long-term storage of large amounts of data, RAM is used for temporary storage of data being processed during program execution, and cache is used for storage of frequently accessed data and instructions**, to improve program execution efficiency. The three work together to ensure efficient operation of the computer system.
+In summary, **hard disks are used for long-term storage of large amounts of data, RAM is used to temporarily store the data being processed during program execution, and cache is used to store frequently accessed data and instructions**, thereby improving program execution efficiency. The three work together to keep the computer system running efficiently.
 
-As shown in the diagram below, during program execution, data is read from the hard disk into RAM for CPU computation. Cache can be viewed as part of the CPU, **it intelligently loads data from RAM**, providing the CPU with high-speed data reading, thereby significantly improving program execution efficiency and reducing reliance on slower RAM.
+As shown in the diagram below, during program execution, data is read from the hard disk into RAM for CPU computation. Cache can be viewed as part of the CPU. **By intelligently loading data from RAM**, it provides the CPU with high-speed access to data, significantly improving program execution efficiency and reducing reliance on slower RAM.
 
 ![Data Flow Among Hard Disk, RAM, and Cache](ram_and_cache.assets/computer_storage_devices.png){ class="animation-figure" }
 
@@ -68,9 +68,9 @@ To achieve the highest efficiency possible, cache employs the following data loa
 - **Spatial locality**: If a piece of data is accessed, nearby data may also be accessed in the near future. Therefore, when the cache loads a particular piece of data, it also loads nearby data to improve hit rate.
 - **Temporal locality**: If a piece of data is accessed, it is likely to be accessed again in the near future. Cache leverages this principle by retaining recently accessed data to improve hit rate.
 
-In fact, **arrays and linked lists have different efficiencies in utilizing cache**, manifested in the following aspects.
+In fact, **arrays and linked lists differ in how efficiently they utilize cache**, mainly in the following respects.
 
-- **Space occupied**: Linked list elements occupy more space than array elements, resulting in fewer effective data in the cache.
+- **Space occupied**: Linked-list elements occupy more space than array elements, so less useful data can fit in the cache.
 - **Cache lines**: Linked list data are scattered throughout memory, while cache loads "by lines," so the proportion of invalid data loaded is higher.
 - **Prefetching mechanism**: Arrays have more "predictable" data access patterns than linked lists, making it easier for the system to guess which data will be loaded next.
 - **Spatial locality**: Arrays are stored in centralized memory space, so data near loaded data is more likely to be accessed soon.

@@ -11,4 +11,4 @@ icon: material/help-circle-outline
 
 - [16.1 &nbsp; Programming Environment Installation](installation.md)
 - [16.2 &nbsp; Contributing Together](contribution.md)
-- [16.3 &nbsp; Terminology Table](terminology.md)
+- [16.3 &nbsp; Glossary](terminology.md)

@@ -4,9 +4,9 @@ comments: true
 
 # 6.1 &nbsp; Hash Table
 
-A <u>hash table</u>, also known as a <u>hash map</u>, establishes a mapping between keys `key` and values `value`, enabling efficient element retrieval. Specifically, when we input a key `key` into a hash table, we can retrieve the corresponding value `value` in $O(1)$ time.
+A <u>hash table</u>, also known as a <u>hash map</u>, stores mappings from keys `key` to values `value`, enabling efficient lookups. Specifically, given a key `key`, we can retrieve the corresponding value `value` from a hash table in $O(1)$ time.
 
-As shown in Figure 6-1, given $n$ students, each with two pieces of data: "name" and "student ID". If we want to implement a query function that "inputs a student ID and returns the corresponding name", we can use the hash table shown below.
+As shown below, suppose we have $n$ students, each with two pieces of information: a name and a student ID. If we want to support the query "given a student ID, return the corresponding name," we can use the hash table shown below.
 
 ![Abstract representation of a hash table](hash_map.assets/hash_table_lookup.png){ class="animation-figure" }
 
@@ -30,7 +30,7 @@ In addition to hash tables, arrays and linked lists can also implement query fun
 
 </div>
 
-As observed, **the time complexity for insertion, deletion, search, and modification operations in a hash table is $O(1)$**, which is very efficient.
+As we can see, **insertion, deletion, lookup, and update operations in a hash table all have time complexity $O(1)$**, making hash tables highly efficient.
 
 ## 6.1.1 &nbsp; Common Hash Table Operations
 
@@ -259,7 +259,7 @@ Common operations on hash tables include: initialization, query operations, addi
     map.insert(12836, "XiaoHa".to_string());
     map.insert(15937, "XiaoLuo".to_string());
     map.insert(16750, "XiaoSuan".to_string());
-    map.insert(13279, "XiaoFa".to_string());
+    map.insert(13276, "XiaoFa".to_string());
     map.insert(10583, "XiaoYa".to_string());
 
     /* Query operation */
@@ -550,22 +550,22 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 
 ## 6.1.2 &nbsp; Simple Hash Table Implementation
 
-Let's first consider the simplest case: **implementing a hash table using only an array**. In a hash table, each empty position in the array is called a <u>bucket</u>, and each bucket can store a key-value pair. Therefore, the query operation is to find the bucket corresponding to `key` and retrieve the `value` from the bucket.
+Let's start with the simplest case: **implementing a hash table with just an array**. In a hash table, each empty slot in the array is called a <u>bucket</u>, and each bucket can store one key-value pair. A lookup therefore consists of finding the bucket for `key` and reading the `value` stored there.
 
-So how do we locate the corresponding bucket based on `key`? This is achieved through a <u>hash function</u>. The role of the hash function is to map a larger input space to a smaller output space. In a hash table, the input space is all `key`s, and the output space is all buckets (array indices). In other words, given a `key`, **we can use the hash function to obtain the storage location of the key-value pair corresponding to that `key` in the array**.
+So how do we find the right bucket for a given `key`? We do this with a <u>hash function</u>. A hash function maps a larger input space to a smaller output space. In a hash table, the input space is the set of all `key`s, and the output space is the set of all buckets (array indices). In other words, given a `key`, **the hash function tells us where the corresponding key-value pair should be stored in the array**.
 
-When inputting a `key`, the hash function's calculation process consists of the following two steps:
+Given a `key`, computing the bucket index involves the following two steps:
 
-1. Calculate the hash value through a hash algorithm `hash()`.
-2. Take the modulo of the hash value by the number of buckets (array length) `capacity` to obtain the bucket (array index) `index` corresponding to that `key`.
+1. Use a hash algorithm `hash()` to compute a hash value.
+2. Take that hash value modulo the number of buckets (array length), `capacity`, to obtain the bucket (array index) `index` corresponding to the `key`.
 
 ```shell
 index = hash(key) % capacity
 ```
 
-Subsequently, we can use `index` to access the corresponding bucket in the hash table and retrieve the `value`.
+We can then use `index` to access the corresponding bucket in the hash table and retrieve the `value`.
 
-Assuming the array length is `capacity = 100` and the hash algorithm is `hash(key) = key`, the hash function becomes `key % 100`. Figure 6-2 shows the working principle of the hash function using `key` as student ID and `value` as name.
+Suppose the array length is `capacity = 100` and the hash algorithm is `hash(key) = key`. Then the hash function is `key % 100`. Figure 6-2 illustrates how this hash function works, using student ID as `key` and name as `value`.
 
 ![Working principle of hash function](hash_map.assets/hash_function.png){ class="animation-figure" }
 
@@ -1753,7 +1753,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
 
 ## 6.1.3 &nbsp; Hash Collision and Resizing
 
-Fundamentally, the role of a hash function is to map the input space consisting of all `key`s to the output space consisting of all array indices, and the input space is often much larger than the output space. Therefore, **theoretically there must be cases where "multiple inputs correspond to the same output"**.
+Fundamentally, a hash function maps the input space consisting of all `key`s to the output space consisting of all array indices, and the input space is often much larger than the output space. Therefore, **in theory, different inputs must sometimes map to the same output**.
 
 For the hash function in the above example, when the input `key`s have the same last two digits, the hash function produces the same output. For example, when querying two students with IDs 12836 and 20336, we get:
 
@@ -1762,7 +1762,7 @@ For the hash function in the above example, when the input `key`s have the same 
 20336 % 100 = 36
 ```
 
-As shown in Figure 6-3, two student IDs point to the same name, which is obviously incorrect. We call this situation where multiple inputs correspond to the same output a <u>hash collision</u>.
+As shown below, two student IDs now point to the same name, which is clearly incorrect. We call this situation, where multiple inputs map to the same output, a <u>hash collision</u>.
 
 ![Hash collision example](hash_map.assets/hash_collision.png){ class="animation-figure" }
 
@@ -1776,6 +1776,6 @@ As shown in Figure 6-4, before expansion, the key-value pairs `(136, A)` and `(2
 
 <p align="center"> Figure 6-4 &nbsp; Hash table resizing </p>
 
-Similar to array expansion, hash table expansion requires migrating all key-value pairs from the original hash table to the new hash table, which is very time-consuming. Moreover, since the hash table capacity `capacity` changes, we need to recalculate the storage locations of all key-value pairs through the hash function, further increasing the computational overhead of the expansion process. For this reason, programming languages typically reserve a sufficiently large hash table capacity to prevent frequent expansion.
+Like resizing an array, resizing a hash table requires migrating all key-value pairs from the original table to the new table, which is expensive. In addition, because the hash table capacity `capacity` changes, we must recompute the storage location of every key-value pair using the hash function, which further increases the cost of resizing. For this reason, programming languages typically reserve a sufficiently large hash table capacity to avoid frequent resizing.
 
-The <u>load factor</u> is an important concept for hash tables. It is defined as the number of elements in the hash table divided by the number of buckets, and is used to measure the severity of hash collisions. **It is also commonly used as a trigger condition for hash table expansion**. For example, in Java, when the load factor exceeds $0.75$, the system will expand the hash table to $2$ times its original size.
+The <u>load factor</u> is an important concept in hash tables. It is defined as the number of elements in the hash table divided by the number of buckets and is used to measure the severity of hash collisions. **It is also commonly used as a threshold for triggering hash table resizing**. For example, in Java, when the load factor exceeds $0.75$, the system expands the hash table to twice its original size.

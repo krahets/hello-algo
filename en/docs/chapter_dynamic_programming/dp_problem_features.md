@@ -18,7 +18,7 @@ We make a slight modification to the stair climbing problem to make it more suit
 
 !!! question "Climbing stairs with minimum cost"
 
-    Given a staircase, where you can climb $1$ or $2$ steps at a time, and each step has a non-negative integer representing the cost you need to pay at that step. Given a non-negative integer array $cost$, where $cost[i]$ represents the cost at the $i$-th step, and $cost[0]$ is the ground (starting point). What is the minimum cost required to reach the top?
+    Given a staircase, you can climb $1$ or $2$ steps at a time, and each step is labeled with a non-negative integer representing the cost of stepping on it. Given a non-negative integer array $cost$, where $cost[i]$ represents the cost of the $i$-th step and $cost[0]$ is the ground (starting point), what is the minimum cost required to reach the top?
 
 As shown in Figure 14-6, if the costs of the $1$st, $2$nd, and $3$rd steps are $1$, $10$, and $1$ respectively, then climbing from the ground to the $3$rd step requires a minimum cost of $2$.
 
@@ -588,7 +588,7 @@ However, if we add a constraint to the stair climbing problem, the situation cha
 
     Given a staircase with $n$ steps, where you can climb $1$ or $2$ steps at a time, **but you cannot jump $1$ step in two consecutive rounds**. How many ways are there to climb to the top?
 
-As shown in Figure 14-8, there are only $2$ feasible ways to climb to the $3$rd step. The way of jumping $1$ step three consecutive times does not satisfy the constraint and is therefore discarded.
+As shown in Figure 14-8, there are only $2$ feasible ways to climb to the $3$rd step. The path with three consecutive $1$-step jumps does not satisfy the constraint and is therefore discarded.
 
 ![Number of ways to climb to the 3rd step with constraint](dp_problem_features.assets/climbing_stairs_constraint_example.png){ class="animation-figure" }
 
@@ -600,8 +600,8 @@ It is not difficult to see that this problem no longer satisfies no aftereffects
 
 For this reason, we need to expand the state definition: **state $[i, j]$ represents being on the $i$-th step with the previous round having jumped $j$ steps**, where $j \in \{1, 2\}$. This state definition effectively distinguishes whether the previous round was a jump of $1$ step or $2$ steps, allowing us to determine where the current state came from.
 
-- When the previous round jumped $1$ step, the round before that could only choose to jump $2$ steps, i.e., $dp[i, 1]$ can only be transferred from $dp[i-1, 2]$.
-- When the previous round jumped $2$ steps, the round before that could choose to jump $1$ step or $2$ steps, i.e., $dp[i, 2]$ can be transferred from $dp[i-2, 1]$ or $dp[i-2, 2]$.
+- When the previous round jumped $1$ step, the round before that could only choose to jump $2$ steps, i.e., $dp[i, 1]$ can only transition from $dp[i-1, 2]$.
+- When the previous round jumped $2$ steps, the round before that could choose to jump $1$ step or $2$ steps, i.e., $dp[i, 2]$ can transition from $dp[i-2, 1]$ or $dp[i-2, 2]$.
 
 As shown in Figure 14-9, under this definition, $dp[i, j]$ represents the number of ways for state $[i, j]$. The state transition equation is then:
 
@@ -936,8 +936,8 @@ In the above case, since we only need to consider one more preceding state, we c
 
 !!! question "Climbing stairs with obstacle generation"
 
-    Given a staircase with $n$ steps, where you can climb $1$ or $2$ steps at a time. **It is stipulated that when climbing to the $i$-th step, the system will automatically place an obstacle on the $2i$-th step, and thereafter no round is allowed to jump to the $2i$-th step**. For example, if the first two rounds jump to the $2$nd and $3$rd steps, then afterwards you cannot jump to the $4$th and $6$th steps. How many ways are there to climb to the top?
+    Given a staircase with $n$ steps, where you can climb $1$ or $2$ steps at a time. **Whenever you reach the $i$-th step, the system automatically places an obstacle on the $2i$-th step, and no subsequent round is allowed to jump to the $2i$-th step**. For example, if the first two rounds jump to the $2$nd and $3$rd steps, then afterwards you cannot jump to the $4$th and $6$th steps. How many ways are there to climb to the top?
 
 In this problem, the next jump depends on all past states, because each jump places obstacles on higher steps, affecting future jumps. For such problems, dynamic programming is often difficult to solve.
 
-In fact, many complex combinatorial optimization problems (such as the traveling salesman problem) do not satisfy no aftereffects. For such problems, we usually choose to use other methods, such as heuristic search, genetic algorithms, reinforcement learning, etc., to obtain usable local optimal solutions within a limited time.
+In fact, many complex combinatorial optimization problems (such as the traveling salesman problem) do not satisfy no aftereffects. For such problems, we usually use other methods, such as heuristic search, genetic algorithms, and reinforcement learning, to obtain usable locally optimal solutions within a limited time.

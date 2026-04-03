@@ -379,13 +379,13 @@ comments: true
 
 如图 5-5 所示，我们可以将链表的“头节点”和“尾节点”分别视为“队首”和“队尾”，规定队尾仅可添加节点，队首仅可删除节点。
 
-=== "LinkedListQueue"
+=== "<1>"
     ![基于链表实现队列的入队出队操作](queue.assets/linkedlist_queue_step1.png){ class="animation-figure" }
 
-=== "push()"
+=== "<2>"
     ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.png){ class="animation-figure" }
 
-=== "pop()"
+=== "<3>"
     ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.png){ class="animation-figure" }
 
 <p align="center"> 图 5-5 &nbsp; 基于链表实现队列的入队出队操作 </p>
@@ -1329,13 +1329,13 @@ comments: true
 
 可以看到，入队和出队操作都只需进行一次操作，时间复杂度均为 $O(1)$ 。
 
-=== "ArrayQueue"
+=== "<1>"
     ![基于数组实现队列的入队出队操作](queue.assets/array_queue_step1.png){ class="animation-figure" }
 
-=== "push()"
+=== "<2>"
     ![array_queue_push](queue.assets/array_queue_step2_push.png){ class="animation-figure" }
 
-=== "pop()"
+=== "<3>"
     ![array_queue_pop](queue.assets/array_queue_step3_pop.png){ class="animation-figure" }
 
 <p align="center"> 图 5-6 &nbsp; 基于数组实现队列的入队出队操作 </p>
@@ -2072,7 +2072,7 @@ comments: true
     typedef struct {
         int *nums;       // 用于存储队列元素的数组
         int front;       // 队首指针，指向队首元素
-        int queSize;     // 尾指针，指向队尾 + 1
+        int queSize;     // 当前队列的元素数量
         int queCapacity; // 队列容量
     } ArrayQueue;
 

@@ -9,9 +9,9 @@ icon: material/table-pivot
 
 !!! abstract
 
-    Streams converge into rivers, rivers converge into the sea.
+    Streams flow into rivers, rivers flow into the sea.
 
-    Dynamic programming gathers solutions to small problems into answers to large problems, step by step guiding us to the shore of problem-solving.
+    Dynamic programming combines solutions to small problems into the answer to a large problem, leading us step by step to the other shore of problem-solving.
 
 ## Chapter contents
 

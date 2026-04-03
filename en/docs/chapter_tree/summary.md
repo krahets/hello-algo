@@ -6,23 +6,23 @@ comments: true
 
 ### 1. &nbsp; Key Review
 
-- A binary tree is a non-linear data structure that embodies the divide-and-conquer logic of "one divides into two". Each binary tree node contains a value and two pointers, which respectively point to its left and right child nodes.
+- A binary tree is a non-linear data structure that embodies the divide-and-conquer logic of splitting into two. Each binary tree node contains a value and two pointers, which point to its left and right child nodes.
 - For a certain node in a binary tree, the tree formed by its left (right) child node and all nodes below is called the left (right) subtree of that node.
 - Related terminology of binary trees includes root node, leaf node, level, degree, edge, height, and depth.
 - The initialization, node insertion, and node removal operations of binary trees are similar to those of linked lists.
-- Common types of binary trees include perfect binary trees, complete binary trees, full binary trees, and balanced binary trees. The perfect binary tree is the ideal state, while the linked list is the worst state after degradation.
+- Common types of binary trees include perfect binary trees, complete binary trees, full binary trees, and balanced binary trees. A perfect binary tree is the ideal form, while a linked list represents the worst degenerate case.
 - A binary tree can be represented using an array by arranging node values and empty slots in level-order traversal sequence, and implementing pointers based on the index mapping relationship between parent and child nodes.
-- Level-order traversal of a binary tree is a breadth-first search method, embodying a layer-by-layer traversal approach of "expanding outward circle by circle", typically implemented using a queue.
-- Preorder, inorder, and postorder traversals all belong to depth-first search, embodying a traversal approach of "first go to the end, then backtrack and continue", typically implemented using recursion.
+- Level-order traversal of a binary tree is a breadth-first search method that proceeds level by level, typically implemented using a queue.
+- Preorder, inorder, and postorder traversals all belong to depth-first search, which proceeds by going as deep as possible before backtracking, typically using recursion.
 - A binary search tree is an efficient data structure for element searching, with search, insertion, and removal operations all having time complexity of $O(\log n)$. When a binary search tree degenerates into a linked list, all time complexities degrade to $O(n)$.
 - An AVL tree, also known as a balanced binary search tree, ensures the tree remains balanced after continuous node insertions and removals through rotation operations.
-- Rotation operations in AVL trees include right rotation, left rotation, left rotation then right rotation, and right rotation then left rotation. After inserting or removing nodes, AVL trees perform rotation operations from bottom to top to restore the tree to balance.
+- Rotation operations in AVL trees include right rotation, left rotation, right rotation followed by left rotation, and left rotation followed by right rotation. After inserting or removing nodes, AVL trees perform rotations from bottom to top to restore balance.
 
 ### 2. &nbsp; Q & A
 
 **Q**: For a binary tree with only one node, are both the height of the tree and the depth of the root node $0$?
 
-Yes, because height and depth are typically defined as "the number of edges passed."
+Yes, because height and depth are typically defined as the number of edges on the path.
 
 **Q**: The insertion and removal in a binary tree are generally accomplished by a set of operations. What does "a set of operations" refer to here? Does it imply releasing the resources of the child nodes?
 

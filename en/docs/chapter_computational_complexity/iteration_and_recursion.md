@@ -14,7 +14,7 @@ In algorithms, repeatedly executing a task is very common and closely related to
 
 The `for` loop is one of the most common forms of iteration, **suitable for use when the number of iterations is known in advance**.
 
-The following function implements the summation $1 + 2 + \dots + n$ based on a `for` loop, with the sum result recorded using the variable `res`. Note that in Python, `range(a, b)` corresponds to a "left-closed, right-open" interval, with the traversal range being $a, a + 1, \dots, b-1$:
+The following function implements the summation $1 + 2 + \dots + n$ using a `for` loop, with the result stored in the variable `res`. Note that in Python, `range(a, b)` corresponds to a "left-closed, right-open" interval, with the traversal range being $a, a + 1, \dots, b-1$:
 
 === "Python"
 
@@ -901,7 +901,7 @@ Figure 2-2 shows the flowchart of this nested loop.
 
 In this case, the number of operations of the function is proportional to $n^2$, or the algorithm's running time has a "quadratic relationship" with the input data size $n$.
 
-We can continue adding nested loops, where each nesting is a "dimension increase", raising the time complexity to "cubic relationship", "quartic relationship", and so on.
+We can continue adding nested loops, where each additional level of nesting can be viewed as an increase in dimensionality, raising the time complexity to a "cubic relationship", a "quartic relationship", and so on.
 
 ## 2.2.2 &nbsp; Recursion
 
@@ -1129,7 +1129,7 @@ Taking the above summation function as an example, let the problem be $f(n) = 1 
 
 ### 1. &nbsp; Call Stack
 
-Each time a recursive function calls itself, the system allocates memory for the newly opened function to store local variables, call addresses, and other information. This leads to two consequences.
+Each time a recursive function calls itself, the system allocates memory for the newly invoked function to store local variables, call addresses, and other information. This leads to two consequences.
 
 - The function's context data is stored in a memory area called "stack frame space", which is not released until the function returns. Therefore, **recursion usually consumes more memory space than iteration**.
 - Recursive function calls incur additional overhead. **Therefore, recursion is usually less time-efficient than loops**.
@@ -1144,7 +1144,7 @@ In practice, the recursion depth allowed by programming languages is usually lim
 
 ### 2. &nbsp; Tail Recursion
 
-Interestingly, **if a function makes the recursive call as the very last step before returning**, the function can be optimized by the compiler or interpreter to have space efficiency comparable to iteration. This case is called <u>tail recursion</u>.
+Interestingly, **if a function makes the recursive call as the very last step before returning**, the compiler or interpreter may optimize it so that its space efficiency is comparable to iteration. This case is called <u>tail recursion</u>.
 
 - **Regular recursion**: When a function returns to the previous level, it needs to continue executing code, so the system needs to save the context of the previous layer's call.
 - **Tail recursion**: The recursive call is the last operation before the function returns, meaning that after returning to the previous level, there is no need to continue executing other operations, so the system does not need to save the context of the previous layer's function.
@@ -1319,7 +1319,7 @@ Taking the calculation of $1 + 2 + \dots + n$ as an example, we can set the resu
     end
     ```
 
-The execution process of tail recursion is shown in Figure 2-5. Comparing regular recursion and tail recursion, the execution point of the summation operation is different.
+The execution process of tail recursion is shown in Figure 2-5. Comparing regular recursion and tail recursion, the summation operation is performed at different points.
 
 - **Regular recursion**: The summation operation is performed during the "ascending" process, requiring an additional summation operation after each layer returns.
 - **Tail recursion**: The summation operation is performed during the "descending" process; the "ascending" process only needs to return layer by layer.
@@ -1540,7 +1540,7 @@ Following the recurrence relation to make recursive calls, with the first two nu
     end
     ```
 
-Observing the above code, we recursively call two functions within the function, **meaning that one call produces two call branches**. As shown in Figure 2-6, such continuous recursive calling will eventually produce a <u>recursion tree</u> with $n$ levels.
+Observing the above code, we make two recursive calls within the function, **meaning that one call produces two call branches**. As shown in Figure 2-6, this repeated recursive calling eventually produces a <u>recursion tree</u> with $n$ levels.
 
 ![Recursion tree of the Fibonacci sequence](iteration_and_recursion.assets/recursion_tree.png){ class="animation-figure" }
 

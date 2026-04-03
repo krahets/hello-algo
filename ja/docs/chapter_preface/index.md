@@ -3,15 +3,15 @@ comments: true
 icon: material/book-open-outline
 ---
 
-# 第 0 章 &nbsp; 序文
+# 第 0 章 &nbsp; はじめに
 
-![序文](../assets/covers/chapter_preface.jpg){ class="cover-image" }
+![はじめに](../assets/covers/chapter_preface.jpg){ class="cover-image" }
 
 !!! abstract
 
-    アルゴリズムは美しい交響曲のようで、コードの一行一行がリズムのように流れています。
-
-    この本があなたの心の中で静かに響き、独特で深い旋律を残すことを願っています。
+    アルゴリズムは美しい交響曲のようであり、コードの一行一行が旋律のように流れていきます。
+    
+    この本があなたの心の中でそっと響き、独自で深い旋律を残してくれることを願っています。
 
 ## 章の内容
 

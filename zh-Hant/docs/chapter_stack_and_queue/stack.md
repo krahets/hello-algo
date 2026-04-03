@@ -376,13 +376,13 @@ comments: true
 
 如圖 5-2 所示，對於入堆疊操作，我們只需將元素插入鏈結串列頭部，這種節點插入方法被稱為“頭插法”。而對於出堆疊操作，只需將頭節點從鏈結串列中刪除即可。
 
-=== "LinkedListStack"
+=== "<1>"
     ![基於鏈結串列實現堆疊的入堆疊出堆疊操作](stack.assets/linkedlist_stack_step1.png){ class="animation-figure" }
 
-=== "push()"
+=== "<2>"
     ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.png){ class="animation-figure" }
 
-=== "pop()"
+=== "<3>"
     ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.png){ class="animation-figure" }
 
 <p align="center"> 圖 5-2 &nbsp; 基於鏈結串列實現堆疊的入堆疊出堆疊操作 </p>
@@ -1169,13 +1169,13 @@ comments: true
 
 使用陣列實現堆疊時，我們可以將陣列的尾部作為堆疊頂。如圖 5-3 所示，入堆疊與出堆疊操作分別對應在陣列尾部新增元素與刪除元素，時間複雜度都為 $O(1)$ 。
 
-=== "ArrayStack"
+=== "<1>"
     ![基於陣列實現堆疊的入堆疊出堆疊操作](stack.assets/array_stack_step1.png){ class="animation-figure" }
 
-=== "push()"
+=== "<2>"
     ![array_stack_push](stack.assets/array_stack_step2_push.png){ class="animation-figure" }
 
-=== "pop()"
+=== "<3>"
     ![array_stack_pop](stack.assets/array_stack_step3_pop.png){ class="animation-figure" }
 
 <p align="center"> 圖 5-3 &nbsp; 基於陣列實現堆疊的入堆疊出堆疊操作 </p>

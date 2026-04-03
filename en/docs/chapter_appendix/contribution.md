@@ -20,7 +20,7 @@ As shown in Figure 16-3, there is an "edit icon" in the top-right corner of each
 
 1. Click the "edit icon". If you encounter a prompt asking you to "Fork this repository", please approve the operation.
 2. Modify the content of the Markdown source file, verify the correctness of the content, and maintain consistent formatting as much as possible.
-3. Fill in a description of your changes at the bottom of the page, then click the "Propose file change" button. After the page transitions, click the "Create pull request" button to submit your pull request.
+3. Fill in a description of your changes at the bottom of the page, then click the "Propose file change" button. After the new page loads, click the "Create pull request" button to submit your pull request.
 
 ![Page edit button](contribution.assets/edit_markdown.png){ class="animation-figure" }
 
@@ -33,14 +33,14 @@ Images cannot be directly modified. Please describe the issue by creating a new 
 If you are interested in contributing to this open source project, including translating code into other programming languages or expanding article content, you will need to follow the Pull Request workflow below.
 
 1. Log in to GitHub and Fork the book's [code repository](https://github.com/krahets/hello-algo) to your personal account.
-2. Enter your forked repository webpage and use the `git clone` command to clone the repository to your local machine.
+2. Go to your forked repository page and use the `git clone` command to clone the repository to your local machine.
 3. Create content locally and conduct comprehensive tests to verify code correctness.
 4. Commit your local changes and push them to the remote repository.
 5. Refresh the repository webpage and click the "Create pull request" button to submit your pull request.
 
 ### 3. &nbsp; Docker Deployment
 
-From the root directory of `hello-algo`, run the following Docker script to access the project at `http://localhost:8000`:
+From the root directory of `hello-algo`, run the following Docker command to access the project at `http://localhost:8000`:
 
 ```shell
 docker-compose up -d

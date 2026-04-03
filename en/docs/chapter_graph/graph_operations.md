@@ -4,7 +4,7 @@ comments: true
 
 # 9.2 &nbsp; Basic Operations on Graphs
 
-Basic operations on graphs can be divided into operations on "edges" and operations on "vertices". Under the two representation methods of "adjacency matrix" and "adjacency list", the implementation methods differ.
+Basic operations on graphs can be divided into operations on "edges" and operations on "vertices". Their implementations differ depending on whether the graph is represented as an "adjacency matrix" or an "adjacency list".
 
 ## 9.2.1 &nbsp; Implementation Based on Adjacency Matrix
 
@@ -13,21 +13,21 @@ Given an undirected graph with $n$ vertices, the various operations are implemen
 - **Adding or removing an edge**: Directly modify the specified edge in the adjacency matrix, using $O(1)$ time. Since it is an undirected graph, both directions of the edge need to be updated simultaneously.
 - **Adding a vertex**: Add a row and a column at the end of the adjacency matrix and fill them all with $0$s, using $O(n)$ time.
 - **Removing a vertex**: Delete a row and a column in the adjacency matrix. The worst case occurs when removing the first row and column, requiring $(n-1)^2$ elements to be "moved up and to the left", thus using $O(n^2)$ time.
-- **Initialization**: Pass in $n$ vertices, initialize a vertex list `vertices` of length $n$, using $O(n)$ time; initialize an adjacency matrix `adjMat` of size $n \times n$, using $O(n^2)$ time.
+- **Initialization**: Given $n$ vertices, initialize a vertex list `vertices` of length $n$, using $O(n)$ time; initialize an adjacency matrix `adjMat` of size $n \times n$, using $O(n^2)$ time.
 
-=== "Initialize adjacency matrix"
+=== "<1>"
     ![Initialization, adding and removing edges, adding and removing vertices in adjacency matrix](graph_operations.assets/adjacency_matrix_step1_initialization.png){ class="animation-figure" }
 
-=== "Add an edge"
+=== "<2>"
     ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_step2_add_edge.png){ class="animation-figure" }
 
-=== "Remove an edge"
+=== "<3>"
     ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_step3_remove_edge.png){ class="animation-figure" }
 
-=== "Add a vertex"
+=== "<4>"
     ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_step4_add_vertex.png){ class="animation-figure" }
 
-=== "Remove a vertex"
+=== "<5>"
     ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_step5_remove_vertex.png){ class="animation-figure" }
 
 <p align="center"> Figure 9-7 &nbsp; Initialization, adding and removing edges, adding and removing vertices in adjacency matrix </p>
@@ -1212,33 +1212,33 @@ Given an undirected graph with a total of $n$ vertices and $m$ edges, the variou
 
 - **Adding an edge**: Add the edge at the end of the corresponding vertex's linked list, using $O(1)$ time. Since it is an undirected graph, edges in both directions need to be added simultaneously.
 - **Removing an edge**: Find and remove the specified edge in the corresponding vertex's linked list, using $O(m)$ time. In an undirected graph, edges in both directions need to be removed simultaneously.
-- **Adding a vertex**: Add a linked list in the adjacency list and set the new vertex as the head node of the list, using $O(1)$ time.
+- **Adding a vertex**: Add a linked list to the adjacency list, with the new vertex as the head node, using $O(1)$ time.
 - **Removing a vertex**: Traverse the entire adjacency list and remove all edges containing the specified vertex, using $O(n + m)$ time.
 - **Initialization**: Create $n$ vertices and $2m$ edges in the adjacency list, using $O(n + m)$ time.
 
-=== "Initialize adjacency list"
+=== "<1>"
     ![Initialization, adding and removing edges, adding and removing vertices in adjacency list](graph_operations.assets/adjacency_list_step1_initialization.png){ class="animation-figure" }
 
-=== "Add an edge"
+=== "<2>"
     ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_step2_add_edge.png){ class="animation-figure" }
 
-=== "Remove an edge"
+=== "<3>"
     ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_step3_remove_edge.png){ class="animation-figure" }
 
-=== "Add a vertex"
+=== "<4>"
     ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_step4_add_vertex.png){ class="animation-figure" }
 
-=== "Remove a vertex"
+=== "<5>"
     ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.png){ class="animation-figure" }
 
 <p align="center"> Figure 9-8 &nbsp; Initialization, adding and removing edges, adding and removing vertices in adjacency list </p>
 
-The following is the adjacency list code implementation. Compared to Figure 9-8, the actual code has the following differences.
+The following code shows the adjacency list implementation. Compared with Figure 9-8, the actual code differs in the following ways.
 
 - For convenience in adding and removing vertices, and to simplify the code, we use lists (dynamic arrays) instead of linked lists.
 - A hash table is used to store the adjacency list, where `key` is the vertex instance and `value` is the list (linked list) of adjacent vertices for that vertex.
 
-Additionally, we use the `Vertex` class to represent vertices in the adjacency list. The reason for this is: if we used list indices to distinguish different vertices as with adjacency matrices, then to delete the vertex at index $i$, we would need to traverse the entire adjacency list and decrement all indices greater than $i$ by $1$, which is very inefficient. However, if each vertex is a unique `Vertex` instance, deleting a vertex does not require modifying other vertices.
+Additionally, we use the `Vertex` class to represent vertices in the adjacency list for the following reason: if we used list indices to distinguish different vertices, as with adjacency matrices, then to delete the vertex at index $i$, we would need to traverse the entire adjacency list and decrement all indices greater than $i$ by $1$, which is very inefficient. However, if each vertex is a unique `Vertex` instance, deleting one vertex does not require modifying the others.
 
 === "Python"
 
@@ -2361,7 +2361,7 @@ Additionally, we use the `Vertex` class to represent vertices in the adjacency l
 
 ## 9.2.3 &nbsp; Efficiency Comparison
 
-Assuming the graph has $n$ vertices and $m$ edges, Table 9-2 compares the time efficiency and space efficiency of adjacency matrices and adjacency lists. Note that the adjacency list (linked list) corresponds to the implementation in this text, while the adjacency list (hash table) refers specifically to the implementation where all linked lists are replaced with hash tables.
+Assuming the graph has $n$ vertices and $m$ edges, Table 9-2 compares the time efficiency and space efficiency of adjacency matrices and adjacency lists. Note that the adjacency list (linked list) corresponds to the implementation used in this section, while the adjacency list (hash table) refers specifically to the implementation where all linked lists are replaced with hash tables.
 
 <p align="center"> Table 9-2 &nbsp; Comparison of adjacency matrix and adjacency list </p>
 

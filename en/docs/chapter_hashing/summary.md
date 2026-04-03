@@ -12,7 +12,7 @@ comments: true
 - Two different keys may end up with the same array index after hashing, leading to erroneous query results. This phenomenon is known as hash collision.
 - The larger the capacity of the hash table, the lower the probability of hash collisions. Therefore, hash table expansion can mitigate hash collisions. Similar to array expansion, hash table expansion is costly.
 - The load factor, defined as the number of elements divided by the number of buckets, reflects the severity of hash collisions and is often used as a condition to trigger hash table expansion.
-- Separate chaining addresses hash collisions by converting each element into a linked list, storing all colliding elements in the same linked list. However, excessively long linked lists can reduce query efficiency, which can be improved by converting the linked lists into red-black trees.
+- Separate chaining addresses hash collisions by storing all colliding elements in the same linked list. However, excessively long linked lists can reduce query efficiency, which can be improved by further converting the linked lists into red-black trees.
 - Open addressing handles hash collisions through multiple probing. Linear probing uses a fixed step size but cannot delete elements and is prone to clustering. Double hashing uses multiple hash functions for probing, which reduces clustering compared to linear probing but increases computational overhead.
 - Different programming languages adopt various hash table implementations. For example, Java's `HashMap` uses separate chaining, while Python's `dict` employs open addressing.
 - In hash tables, we desire hash algorithms with determinism, high efficiency, and uniform distribution. In cryptography, hash algorithms should also possess collision resistance and the avalanche effect.
@@ -49,3 +49,7 @@ During the search process, the hash function points to the corresponding bucket 
 **Q**: Why can expanding a hash table alleviate hash collisions?
 
 The last step of a hash function often involves taking the modulo of the array length $n$, to keep the output within the array index range. When expanding, the array length $n$ changes, and the indices corresponding to the keys may also change. Keys that were previously mapped to the same bucket might be distributed across multiple buckets after expansion, thereby mitigating hash collisions.
+
+**Q**: If the goal is efficient access, why not just use an array directly?
+
+When the `key` values are continuous integers within a small range, an array is indeed a simple and efficient choice. But when the `key` is of another type, such as a string, we need a hash function to map the `key` to an array index and then store the element in a bucket array. That structure is precisely what a hash table is.

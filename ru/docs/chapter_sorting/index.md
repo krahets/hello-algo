@@ -17,8 +17,8 @@ icon: material/sort-ascending
 
 - [11.1 &nbsp; Алгоритмы сортировки](sorting_algorithm.md)
 - [11.2 &nbsp; Сортировка выбором](selection_sort.md)
-- [11.3 &nbsp; Пузырьковая сортировка](bubble_sort.md)
-- [11.4 &nbsp; Сортировка вставкой](insertion_sort.md)
+- [11.3 &nbsp; Сортировка пузырьком](bubble_sort.md)
+- [11.4 &nbsp; Сортировка вставками](insertion_sort.md)
 - [11.5 &nbsp; Быстрая сортировка](quick_sort.md)
 - [11.6 &nbsp; Сортировка слиянием](merge_sort.md)
 - [11.7 &nbsp; Пирамидальная сортировка](heap_sort.md)

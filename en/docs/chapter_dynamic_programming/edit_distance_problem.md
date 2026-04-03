@@ -18,7 +18,7 @@ As shown in Figure 14-27, transforming `kitten` into `sitting` requires 3 edits,
 
 <p align="center"> Figure 14-27 &nbsp; Example data for edit distance </p>
 
-**The edit distance problem can be naturally explained using the decision tree model**. Strings correspond to tree nodes, and a round of decision (one edit operation) corresponds to an edge of the tree.
+**The edit distance problem can be naturally explained using the decision tree model**. Strings correspond to tree nodes, and each edit operation corresponds to an edge in the tree.
 
 As shown in Figure 14-28, without restricting operations, each node can branch into many edges, with each edge corresponding to one operation, meaning there are many possible paths to transform `hello` into `algo`.
 
@@ -34,7 +34,7 @@ From the perspective of the decision tree, the goal of this problem is to find t
 
 Each round of decision involves performing one edit operation on string $s$.
 
-We want the problem scale to gradually decrease during the editing process, which allows us to construct subproblems. Let the lengths of strings $s$ and $t$ be $n$ and $m$ respectively. We first consider the tail characters of the two strings, $s[n-1]$ and $t[m-1]$.
+We want the problem size to gradually decrease during the editing process so that we can construct subproblems. Let the lengths of strings $s$ and $t$ be $n$ and $m$ respectively. We first consider the tail characters of the two strings, $s[n-1]$ and $t[m-1]$.
 
 - If $s[n-1]$ and $t[m-1]$ are the same, we can skip them and directly consider $s[n-2]$ and $t[m-2]$.
 - If $s[n-1]$ and $t[m-1]$ are different, we need to perform one edit on $s$ (insert, delete, or replace) to make the tail characters of the two strings the same, allowing us to skip them and consider a smaller-scale problem.
@@ -57,7 +57,7 @@ Consider subproblem $dp[i, j]$, where the tail characters of the corresponding t
 
 <p align="center"> Figure 14-29 &nbsp; State transition for edit distance </p>
 
-Based on the above analysis, the optimal substructure can be obtained: the minimum number of edits for $dp[i, j]$ equals the minimum among the minimum edit steps of $dp[i, j-1]$, $dp[i-1, j]$, and $dp[i-1, j-1]$, plus the edit step $1$ for this time. The corresponding state transition equation is:
+Based on the above analysis, we obtain the optimal substructure: the minimum number of edits for $dp[i, j]$ equals the minimum of $dp[i, j-1]$, $dp[i-1, j]$, and $dp[i-1, j-1]$, plus the current edit cost of $1$. The corresponding state transition equation is:
 
 $$
 dp[i, j] = \min(dp[i, j-1], dp[i-1, j], dp[i-1, j-1]) + 1
@@ -477,7 +477,7 @@ Observing the state transition equation, the solution $dp[i, j]$ depends on solu
     end
     ```
 
-As shown in Figure 14-30, the state transition process for the edit distance problem is very similar to the knapsack problem and can both be viewed as the process of filling a two-dimensional grid.
+As shown in Figure 14-30, the state transition process for the edit distance problem is very similar to that of the knapsack problem; both can be viewed as the process of filling a two-dimensional grid.
 
 === "<1>"
     ![Dynamic programming process for edit distance](edit_distance_problem.assets/edit_distance_dp_step1.png){ class="animation-figure" }
@@ -528,9 +528,9 @@ As shown in Figure 14-30, the state transition process for the edit distance pro
 
 ### 3. &nbsp; Space Optimization
 
-Since $dp[i, j]$ is transferred from the solutions above $dp[i-1, j]$, to the left $dp[i, j-1]$, and to the upper-left $dp[i-1, j-1]$, forward traversal will lose the upper-left solution $dp[i-1, j-1]$, and reverse traversal cannot build $dp[i, j-1]$ in advance, so neither traversal order is feasible.
+Since $dp[i, j]$ depends on the states above $dp[i-1, j]$, to the left $dp[i, j-1]$, and at the upper-left $dp[i-1, j-1]$, forward traversal will lose the upper-left state $dp[i-1, j-1]$, while reverse traversal cannot construct $dp[i, j-1]$ in advance, so neither traversal order is suitable.
 
-For this reason, we can use a variable `leftup` to temporarily store the upper-left solution $dp[i-1, j-1]$, so we only need to consider the solutions to the left and above. This situation is the same as the unbounded knapsack problem, allowing for forward traversal. The code is as follows:
+For this reason, we can use a variable `leftup` to temporarily store the upper-left solution $dp[i-1, j-1]$, so we only need to consider the solutions to the left and above. This situation is the same as in the unbounded knapsack problem, so we can use forward traversal. The code is as follows:
 
 === "Python"
 

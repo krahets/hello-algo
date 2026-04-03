@@ -10,7 +10,7 @@ Both graphs and trees require the application of search algorithms to implement 
 
 ## 9.3.1 &nbsp; Breadth-First Search
 
-**Breadth-first search is a near-to-far traversal method that, starting from a certain node, always prioritizes visiting the nearest vertices and expands outward layer by layer**. As shown in Figure 9-9, starting from the top-left vertex, first traverse all adjacent vertices of that vertex, then traverse all adjacent vertices of the next vertex, and so on, until all vertices have been visited.
+**Breadth-first search proceeds from near to far: starting from a given node, it always visits the nearest vertices first and expands outward layer by layer**. As shown in Figure 9-9, starting from the top-left vertex, first traverse all adjacent vertices of that vertex, then traverse all adjacent vertices of the next vertex, and so on, until all vertices have been visited.
 
 ![Breadth-first search of a graph](graph_traversal.assets/graph_bfs.png){ class="animation-figure" }
 
@@ -28,7 +28,7 @@ To prevent revisiting vertices, we use a hash set `visited` to record which node
 
 !!! tip
 
-    A hash set can be viewed as a hash table that stores only `key` without storing `value`. It can perform addition, deletion, lookup, and modification operations on `key` in $O(1)$ time complexity. Based on the uniqueness of `key`, hash sets are typically used for data deduplication and similar scenarios.
+    A hash set can be viewed as a hash table that stores only `key` without storing `value`. It supports insertion, deletion, lookup, and update operations on `key` in $O(1)$ time. Based on the uniqueness of `key`, hash sets are typically used for data deduplication and similar scenarios.
 
 === "Python"
 
@@ -933,9 +933,9 @@ This "go as far as possible then return" algorithm paradigm is typically impleme
 The algorithm flow of depth-first search is shown in Figure 9-12.
 
 - **Straight dashed lines represent downward recursion**, indicating that a new recursive method has been initiated to visit a new vertex.
-- **Curved dashed lines represent upward backtracking**, indicating that this recursive method has returned to the position where it was initiated.
+- **Curved dashed lines represent upward backtracking**, indicating that this recursive call has returned to the point where it was made.
 
-To deepen understanding, it is recommended to combine Figure 9-12 with the code to mentally simulate (or draw out) the entire DFS process, including when each recursive method is initiated and when it returns.
+To deepen understanding, it is recommended to combine Figure 9-12 with the code to mentally simulate (or draw out) the entire DFS process, including when each recursive call begins and when it returns.
 
 === "<1>"
     ![Steps of depth-first search of a graph](graph_traversal.assets/graph_dfs_step1.png){ class="animation-figure" }
@@ -974,7 +974,7 @@ To deepen understanding, it is recommended to combine Figure 9-12 with the code 
 
 !!! question "Is the depth-first traversal sequence unique?"
 
-    Similar to breadth-first search, the order of depth-first traversal sequences is also not unique. Given a certain vertex, exploring in any direction first is valid, meaning the order of adjacent vertices can be arbitrarily shuffled, all being depth-first search.
+    Similar to breadth-first search, depth-first traversal sequences are also not unique. Given a vertex, any exploration direction may be chosen first; that is, the order of adjacent vertices can be arbitrarily rearranged and still constitute depth-first search.
 
     Taking tree traversal as an example, "root $\rightarrow$ left $\rightarrow$ right", "left $\rightarrow$ root $\rightarrow$ right", and "left $\rightarrow$ right $\rightarrow$ root" correspond to pre-order, in-order, and post-order traversals, respectively. They represent three different traversal priorities, yet all three belong to depth-first search.
 

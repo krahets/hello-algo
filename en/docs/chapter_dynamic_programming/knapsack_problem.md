@@ -10,7 +10,7 @@ In this section, we will first solve the most common 0-1 knapsack problem.
 
 !!! question
 
-    Given $n$ items, where the weight of the $i$-th item is $wgt[i-1]$ and its value is $val[i-1]$, and a knapsack with capacity $cap$. Each item can only be selected once. What is the maximum value that can be placed in the knapsack within the capacity limit?
+    Given $n$ items and a knapsack with capacity $cap$, where the weight and value of the $i$-th item are $wgt[i-1]$ and $val[i-1]$, respectively. Each item can be selected at most once. What is the maximum value that can fit in the knapsack under the capacity limit?
 
 Observe Figure 14-17. Since item number $i$ starts counting from $1$ and array indices start from $0$, item $i$ corresponds to weight $wgt[i-1]$ and value $val[i-1]$.
 
@@ -37,7 +37,7 @@ After making the decision for item $i$, what remains is the subproblem of the fi
 - **Not putting item $i$**: The knapsack capacity remains unchanged, and the state changes to $[i-1, c]$.
 - **Putting item $i$**: The knapsack capacity decreases by $wgt[i-1]$, the value increases by $val[i-1]$, and the state changes to $[i-1, c-wgt[i-1]]$.
 
-The above analysis reveals the optimal substructure of this problem: **the maximum value $dp[i, c]$ equals the larger value between not putting item $i$ and putting item $i$**. From this, the state transition equation can be derived:
+The above analysis reveals the optimal substructure of this problem: **the maximum value $dp[i, c]$ equals the greater of the values obtained by not putting item $i$ into the knapsack and by putting it into the knapsack**. From this, the state transition equation can be derived:
 
 $$
 dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
@@ -49,7 +49,7 @@ Note that if the weight of the current item $wgt[i - 1]$ exceeds the remaining k
 
 When there are no items or the knapsack capacity is $0$, the maximum value is $0$, i.e., the first column $dp[i, 0]$ and the first row $dp[0, c]$ are both equal to $0$.
 
-The current state $[i, c]$ is transferred from the state above $[i-1, c]$ and the state in the upper-left $[i-1, c-wgt[i-1]]$, so the entire $dp$ table is traversed in order through two nested loops.
+The current state $[i, c]$ transitions from the state above $[i-1, c]$ and the upper-left state $[i-1, c-wgt[i-1]]$, so we can traverse the entire $dp$ table in forward order using two nested loops.
 
 Based on the above analysis, we will next implement the brute force search, memoization, and dynamic programming solutions in order.
 
@@ -59,7 +59,7 @@ The search code includes the following elements.
 
 - **Recursive parameters**: state $[i, c]$.
 - **Return value**: solution to the subproblem $dp[i, c]$.
-- **Termination condition**: when the item number is out of bounds $i = 0$ or the remaining knapsack capacity is $0$, terminate recursion and return value $0$.
+- **Termination condition**: when there are no items left ($i = 0$) or the remaining knapsack capacity is $0$, terminate the recursion and return value $0$.
 - **Pruning**: if the weight of the current item exceeds the remaining knapsack capacity, only the option of not putting it in is available.
 
 === "Python"
@@ -338,7 +338,7 @@ The search code includes the following elements.
     end
     ```
 
-As shown in Figure 14-18, since each item generates two search branches of not selecting and selecting, the time complexity is $O(2^n)$.
+As shown in Figure 14-18, since each item generates two search branches, excluding it and including it, the time complexity is $O(2^n)$.
 
 Observing the recursion tree, it is easy to see overlapping subproblems, such as $dp[1, 10]$. When there are many items, large knapsack capacity, and especially many items with the same weight, the number of overlapping subproblems will increase significantly.
 

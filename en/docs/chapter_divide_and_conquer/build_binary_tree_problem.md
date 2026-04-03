@@ -41,7 +41,7 @@ Using the data from the figure above as an example, we can obtain the division r
 
 ### 3. &nbsp; Describing Subtree Intervals Based on Variables
 
-Based on the above division method, **we have obtained the index intervals of the root node, left subtree, and right subtree in `preorder` and `inorder`**. To describe these index intervals, we need to use several pointer variables.
+Based on the above division method, **we have obtained the index intervals of the root node, left subtree, and right subtree in `preorder` and `inorder`**. To describe these index intervals, we need to use several index variables.
 
 - Denote the index of the current tree's root node in `preorder` as $i$.
 - Denote the index of the current tree's root node in `inorder` as $m$.

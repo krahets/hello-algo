@@ -4,7 +4,7 @@ comments: true
 
 # 5.3 &nbsp; Deque
 
-In a queue, we can only remove elements from the front or add elements at the rear. As shown in Figure 5-7, a <u>double-ended queue (deque)</u> provides greater flexibility, allowing the addition or removal of elements at both the front and rear.
+In a queue, we can only remove elements from the front or add elements at the rear. As shown in Figure 5-7, a <u>double-ended queue (deque)</u> provides greater flexibility, allowing elements to be added or removed at both the front and the rear.
 
 ![Operations of deque](deque.assets/deque_operations.png){ class="animation-figure" }
 
@@ -29,7 +29,7 @@ The common operations on a deque are shown in Table 5-3. The specific method nam
 
 </div>
 
-Similarly, we can directly use the deque classes already implemented in programming languages:
+Similarly, we can directly use the deque classes provided by the programming language:
 
 === "Python"
 
@@ -410,19 +410,19 @@ For a deque, both the front and rear can perform enqueue and dequeue operations.
 
 As shown in Figure 5-8, we treat the head and tail nodes of the doubly linked list as the front and rear of the deque, implementing functionality to add and remove nodes at both ends.
 
-=== "LinkedListDeque"
+=== "<1>"
     ![Enqueue and dequeue operations in linked list implementation of deque](deque.assets/linkedlist_deque_step1.png){ class="animation-figure" }
 
-=== "push_last()"
+=== "<2>"
     ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.png){ class="animation-figure" }
 
-=== "push_first()"
+=== "<3>"
     ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.png){ class="animation-figure" }
 
-=== "pop_last()"
+=== "<4>"
     ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.png){ class="animation-figure" }
 
-=== "pop_first()"
+=== "<5>"
     ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.png){ class="animation-figure" }
 
 <p align="center"> Figure 5-8 &nbsp; Enqueue and dequeue operations in linked list implementation of deque </p>
@@ -2158,19 +2158,19 @@ The implementation code is shown below:
 
 As shown in Figure 5-9, similar to implementing a queue based on an array, we can also use a circular array to implement a deque.
 
-=== "ArrayDeque"
+=== "<1>"
     ![Enqueue and dequeue operations in array implementation of deque](deque.assets/array_deque_step1.png){ class="animation-figure" }
 
-=== "push_last()"
+=== "<2>"
     ![array_deque_push_last](deque.assets/array_deque_step2_push_last.png){ class="animation-figure" }
 
-=== "push_first()"
+=== "<3>"
     ![array_deque_push_first](deque.assets/array_deque_step3_push_first.png){ class="animation-figure" }
 
-=== "pop_last()"
+=== "<4>"
     ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.png){ class="animation-figure" }
 
-=== "pop_first()"
+=== "<5>"
     ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.png){ class="animation-figure" }
 
 <p align="center"> Figure 5-9 &nbsp; Enqueue and dequeue operations in array implementation of deque </p>

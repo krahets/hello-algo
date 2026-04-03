@@ -410,19 +410,19 @@ comments: true
 
 如图 5-8 所示，我们将双向链表的头节点和尾节点视为双向队列的队首和队尾，同时实现在两端添加和删除节点的功能。
 
-=== "LinkedListDeque"
+=== "<1>"
     ![基于链表实现双向队列的入队出队操作](deque.assets/linkedlist_deque_step1.png){ class="animation-figure" }
 
-=== "push_last()"
+=== "<2>"
     ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.png){ class="animation-figure" }
 
-=== "push_first()"
+=== "<3>"
     ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.png){ class="animation-figure" }
 
-=== "pop_last()"
+=== "<4>"
     ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.png){ class="animation-figure" }
 
-=== "pop_first()"
+=== "<5>"
     ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.png){ class="animation-figure" }
 
 <p align="center"> 图 5-8 &nbsp; 基于链表实现双向队列的入队出队操作 </p>
@@ -2158,19 +2158,19 @@ comments: true
 
 如图 5-9 所示，与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。
 
-=== "ArrayDeque"
+=== "<1>"
     ![基于数组实现双向队列的入队出队操作](deque.assets/array_deque_step1.png){ class="animation-figure" }
 
-=== "push_last()"
+=== "<2>"
     ![array_deque_push_last](deque.assets/array_deque_step2_push_last.png){ class="animation-figure" }
 
-=== "push_first()"
+=== "<3>"
     ![array_deque_push_first](deque.assets/array_deque_step3_push_first.png){ class="animation-figure" }
 
-=== "pop_last()"
+=== "<4>"
     ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.png){ class="animation-figure" }
 
-=== "pop_first()"
+=== "<5>"
     ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.png){ class="animation-figure" }
 
 <p align="center"> 图 5-9 &nbsp; 基于数组实现双向队列的入队出队操作 </p>

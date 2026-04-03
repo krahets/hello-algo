@@ -211,7 +211,7 @@ $$
 1 + 1 + 10 + (1 + 5) \times n = 6n + 12
 $$
 
-In reality, however, **counting an algorithm's runtime is neither reasonable nor realistic**. First, we do not want to tie the estimated time to the running platform, because algorithms need to run on various different platforms. Second, it is difficult to know the runtime of each type of operation, which brings great difficulty to the estimation process.
+In reality, however, **trying to count an algorithm's exact runtime is neither practical nor realistic**. First, we do not want to tie the estimated time to the running platform, because algorithms need to run on many different platforms. Second, it is difficult to know the runtime of each type of operation, which makes the estimation process extremely difficult.
 
 ## 2.3.1 &nbsp; Counting Time Growth Trends
 
@@ -501,7 +501,7 @@ Figure 2-7 shows the time complexity of the above three algorithm functions.
 Compared to directly counting the algorithm's runtime, what are the characteristics of time complexity analysis?
 
 - **Time complexity can effectively evaluate algorithm efficiency**. For example, the runtime of algorithm `B` grows linearly; when $n > 1$ it is slower than algorithm `A`, and when $n > 1000000$ it is slower than algorithm `C`. In fact, as long as the input data size $n$ is sufficiently large, an algorithm with "constant order" complexity will always be superior to one with "linear order" complexity, which is precisely the meaning of time growth trend.
-- **The derivation method for time complexity is simpler**. Obviously, the running platform and the types of computational operations are both unrelated to the growth trend of the algorithm's runtime. Therefore, in time complexity analysis, we can simply treat the execution time of all computational operations as the same "unit time", thus simplifying "counting computational operation runtime" to "counting the number of computational operations", which greatly reduces the difficulty of estimation.
+- **The derivation method for time complexity is simpler**. Obviously, the running platform and the types of computational operations are both unrelated to the growth trend of the algorithm's runtime. Therefore, in time complexity analysis, we can simply treat the execution time of all computational operations as the same "unit time", reducing "tracking the runtime of each operation" to "counting the number of operations", which greatly reduces the difficulty of estimation.
 - **Time complexity also has certain limitations**. For example, although algorithms `A` and `C` have the same time complexity, their actual runtimes differ significantly. Similarly, although algorithm `B` has a higher time complexity than `C`, when the input data size $n$ is small, algorithm `B` is clearly superior to algorithm `C`. In such cases, it is often difficult to judge the efficiency of algorithms based solely on time complexity. Of course, despite the above issues, complexity analysis remains the most effective and commonly used method for evaluating algorithm efficiency.
 
 ## 2.3.2 &nbsp; Asymptotic Upper Bound of Functions
@@ -713,7 +713,7 @@ As shown in Figure 2-8, calculating the asymptotic upper bound is to find a func
 
 ## 2.3.3 &nbsp; Derivation Method
 
-The asymptotic upper bound has a bit of mathematical flavor. If you feel you haven't fully understood it, don't worry. We can first master the derivation method, and gradually grasp its mathematical meaning through continuous practice.
+The idea of an asymptotic upper bound is somewhat mathematical. If you feel you haven't fully understood it, don't worry. We can first master the derivation method, and gradually grasp its mathematical meaning through continuous practice.
 
 According to the definition, after determining $f(n)$, we can obtain the time complexity $O(f(n))$. So how do we determine the asymptotic upper bound $f(n)$? Overall, it is divided into two steps: first count the number of operations, then determine the asymptotic upper bound.
 
@@ -1005,7 +1005,7 @@ Let the input data size be $n$. Common time complexity types are shown in Figure
 $$
 \begin{aligned}
 O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!) \newline
-\text{Constant order} < \text{Logarithmic order} < \text{Linear order} < \text{Linearithmic order} < \text{Quadratic order} < \text{Exponential order} < \text{Factorial order}
+\text{Constant} < \text{Logarithmic} < \text{Linear} < \text{Linearithmic} < \text{Quadratic} < \text{Exponential} < \text{Factorial}
 \end{aligned}
 $$
 
@@ -1017,7 +1017,7 @@ $$
 
 The number of operations in constant order is independent of the input data size $n$, meaning it does not change as $n$ changes.
 
-In the following function, although the number of operations `size` may be large, since it is independent of the input data size $n$, the time complexity remains $O(1)$:
+In the following function, although the value of `size` may be large, it is independent of the input data size $n$, so the time complexity remains $O(1)$:
 
 === "Python"
 
@@ -2784,7 +2784,7 @@ Like exponential order, logarithmic order also commonly appears in recursive fun
     end
     ```
 
-Logarithmic order commonly appears in algorithms based on the divide-and-conquer strategy, embodying the algorithmic thinking of "dividing into many" and "simplifying complexity". It grows slowly and is the ideal time complexity second only to constant order.
+Logarithmic order commonly appears in algorithms based on the divide-and-conquer strategy, reflecting the idea of repeatedly splitting a problem and simplifying it. It grows slowly and is the ideal time complexity second only to constant order.
 
 !!! tip "What is the base of $O(\log n)$?"
 
@@ -3605,7 +3605,7 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
 
 It is worth noting that we rarely use best-case time complexity in practice, because it can usually only be achieved with a very small probability and may be somewhat misleading. **The worst-case time complexity is more practical because it gives a safety value for efficiency**, allowing us to use the algorithm with confidence.
 
-From the above example, we can see that both worst-case and best-case time complexities only occur under "special data distributions", which may have a very small probability of occurrence and may not truly reflect the algorithm's running efficiency. In contrast, **average time complexity can reflect the algorithm's running efficiency under random input data**, denoted using the $\Theta$ notation.
+From the above example, we can see that both worst-case and best-case time complexities arise only under particular input distributions, which may occur with very low probability and may not truly reflect the algorithm's running efficiency. In contrast, **average time complexity can reflect the algorithm's running efficiency under random input data**, denoted using the $\Theta$ notation.
 
 For some algorithms, we can simply derive the average case under random data distribution. For example, in the above example, since the input array is shuffled, the probability of element $1$ appearing at any index is equal, so the algorithm's average number of loops is half the array length $n / 2$, giving an average time complexity of $\Theta(n / 2) = \Theta(n)$.
 

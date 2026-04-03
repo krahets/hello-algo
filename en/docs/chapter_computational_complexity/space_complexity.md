@@ -22,7 +22,7 @@ Temporary space can be further divided into three parts.
 - **Stack frame space**: Used to save the context data of called functions. The system creates a stack frame at the top of the stack each time a function is called, and the stack frame space is released after the function returns.
 - **Instruction space**: Used to save compiled program instructions, which are usually ignored in actual statistics.
 
-When analyzing the space complexity of a program, **we usually count three parts: temporary data, stack frame space, and output data**, as shown in the following figure.
+When analyzing the space complexity of a program, **we usually consider three parts: temporary data, stack frame space, and output data**, as shown in the following figure.
 
 ![Algorithm-related space](space_complexity.assets/space_types.png){ class="animation-figure" }
 
@@ -369,11 +369,11 @@ The related code is as follows:
 
 ## 2.4.2 &nbsp; Calculation Method
 
-The calculation method for space complexity is roughly the same as for time complexity, except that the statistical object is changed from "number of operations" to "size of space used".
+The calculation method for space complexity is roughly the same as for time complexity, except that what we measure changes from the "number of operations" to the "amount of space used".
 
 Unlike time complexity, **we usually only focus on the worst-case space complexity**. This is because memory space is a hard requirement, and we must ensure that sufficient memory space is reserved for all input data.
 
-Observe the following code. The "worst case" in worst-case space complexity has two meanings.
+Observe the following code. Here, "worst case" in worst-case space complexity has two meanings.
 
 1. **Based on the worst input data**: When $n < 10$, the space complexity is $O(1)$; but when $n > 10$, the initialized array `nums` occupies $O(n)$ space, so the worst-case space complexity is $O(n)$.
 2. **Based on the peak memory during algorithm execution**: For example, before executing the last line, the program occupies $O(1)$ space; when initializing the array `nums`, the program occupies $O(n)$ space, so the worst-case space complexity is $O(n)$.
@@ -823,7 +823,7 @@ $$
 
 ### 1. &nbsp; Constant Order $O(1)$ {data-toc-label="1. &nbsp; Constant Order"}
 
-Constant order is common in constants, variables, and objects whose quantity is independent of the input data size $n$.
+Constant order is common for constants, variables, and objects whose number is independent of the input data size $n$.
 
 It should be noted that memory occupied by initializing variables or calling functions in a loop is released when entering the next iteration, so it does not accumulate space, and the space complexity remains $O(1)$:
 
@@ -2212,6 +2212,6 @@ Another example is converting a number to a string. Given a positive integer $n$
 
 Ideally, we hope that both the time complexity and space complexity of an algorithm can reach optimal. However, in practice, optimizing both time complexity and space complexity simultaneously is usually very difficult.
 
-**Reducing time complexity usually comes at the cost of increasing space complexity, and vice versa**. The approach of sacrificing memory space to improve algorithm execution speed is called "trading space for time"; conversely, it is called "trading time for space".
+**Reducing time complexity usually comes at the cost of increasing space complexity, and vice versa**. Sacrificing memory space to improve execution speed is called "trading space for time"; the reverse is called "trading time for space".
 
 The choice of which approach depends on which aspect we value more. In most cases, time is more precious than space, so "trading space for time" is usually the more common strategy. Of course, when the data volume is very large, controlling space complexity is also very important.

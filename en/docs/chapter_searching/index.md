@@ -16,8 +16,8 @@ icon: material/text-search
 ## Chapter contents
 
 - [10.1 &nbsp; Binary Search](binary_search.md)
-- [10.2 &nbsp; Binary Search Insertion](binary_search_insertion.md)
-- [10.3 &nbsp; Binary Search Edge Cases](binary_search_edge.md)
+- [10.2 &nbsp; Binary Search Insertion Point](binary_search_insertion.md)
+- [10.3 &nbsp; Binary Search Boundaries](binary_search_edge.md)
 - [10.4 &nbsp; Hash Optimization Strategy](replace_linear_by_hashing.md)
-- [10.5 &nbsp; Search Algorithms Revisited](searching_algorithm_revisited.md)
+- [10.5 &nbsp; Searching Algorithms Revisited](searching_algorithm_revisited.md)
 - [10.6 &nbsp; Summary](summary.md)

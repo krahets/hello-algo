@@ -4,7 +4,7 @@ comments: true
 
 # 5.2 &nbsp; Queue
 
-A <u>queue</u> is a linear data structure that follows the First In First Out (FIFO) rule. As the name suggests, a queue simulates the phenomenon of lining up, where newcomers continuously join the end of the queue, while people at the front of the queue leave one by one.
+A <u>queue</u> is a linear data structure that follows the First In, First Out (FIFO) rule. As the name suggests, it models people lining up: newcomers continuously join the rear of the queue, while the people at the front leave one by one.
 
 As shown in Figure 5-4, we call the front of the queue the "front" and the end the "rear." The operation of adding an element to the rear is called "enqueue," and the operation of removing the front element is called "dequeue."
 
@@ -14,7 +14,7 @@ As shown in Figure 5-4, we call the front of the queue the "front" and the end t
 
 ## 5.2.1 &nbsp; Common Queue Operations
 
-The common operations on a queue are shown in Table 5-2. Note that method names may vary across different programming languages. We adopt the same naming convention as for stacks here.
+The common operations on a queue are shown in Table 5-2. Note that method names may vary across programming languages. Here, we use the same naming convention as for stacks.
 
 <p align="center"> Table 5-2 &nbsp; Efficiency of Queue Operations </p>
 
@@ -28,7 +28,7 @@ The common operations on a queue are shown in Table 5-2. Note that method names 
 
 </div>
 
-We can directly use the ready-made queue classes in programming languages:
+We can directly use the queue classes provided by the programming language:
 
 === "Python"
 
@@ -379,13 +379,13 @@ To implement a queue, we need a data structure that allows adding elements at on
 
 As shown in Figure 5-5, we can treat the "head node" and "tail node" of a linked list as the "front" and "rear" of the queue, respectively, with the rule that nodes can only be added at the rear and removed from the front.
 
-=== "LinkedListQueue"
+=== "<1>"
     ![Enqueue and dequeue operations in linked list implementation of queue](queue.assets/linkedlist_queue_step1.png){ class="animation-figure" }
 
-=== "push()"
+=== "<2>"
     ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.png){ class="animation-figure" }
 
-=== "pop()"
+=== "<3>"
     ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.png){ class="animation-figure" }
 
 <p align="center"> Figure 5-5 &nbsp; Enqueue and dequeue operations in linked list implementation of queue </p>
@@ -1324,13 +1324,13 @@ Based on this design, **the valid interval containing elements in the array is `
 
 As you can see, both enqueue and dequeue operations require only one operation, with a time complexity of $O(1)$.
 
-=== "ArrayQueue"
+=== "<1>"
     ![Enqueue and dequeue operations in array implementation of queue](queue.assets/array_queue_step1.png){ class="animation-figure" }
 
-=== "push()"
+=== "<2>"
     ![array_queue_push](queue.assets/array_queue_step2_push.png){ class="animation-figure" }
 
-=== "pop()"
+=== "<3>"
     ![array_queue_pop](queue.assets/array_queue_step3_pop.png){ class="animation-figure" }
 
 <p align="center"> Figure 5-6 &nbsp; Enqueue and dequeue operations in array implementation of queue </p>
@@ -2067,7 +2067,7 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
     typedef struct {
         int *nums;       // Array for storing queue elements
         int front;       // Front pointer, points to the front of the queue element
-        int queSize;     // Rear pointer, points to rear + 1
+        int queSize;     // Current number of elements in the queue
         int queCapacity; // Queue capacity
     } ArrayQueue;
 

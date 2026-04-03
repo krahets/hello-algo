@@ -21,7 +21,7 @@ As a special case of a complete binary tree, heaps have the following characteri
 
 ## 8.1.1 &nbsp; Common Heap Operations
 
-It should be noted that many programming languages provide a <u>priority queue</u>, which is an abstract data structure defined as a queue with priority sorting.
+It should be noted that many programming languages provide a <u>priority queue</u>, an abstract data structure defined as a queue whose elements are ordered by priority.
 
 In fact, **heaps are typically used to implement priority queues, with max heaps corresponding to priority queues where elements are dequeued in descending order**. From a usage perspective, we can regard "priority queue" and "heap" as equivalent data structures. Therefore, this book does not make a special distinction between the two and uniformly refers to them as "heap."
 
@@ -425,13 +425,13 @@ Similar to "ascending order" and "descending order" in sorting algorithms, we ca
 
 ## 8.1.2 &nbsp; Implementation of the Heap
 
-The following implementation is of a max heap. To convert it to a min heap, simply invert all size logic comparisons (for example, replace $\geq$ with $\leq$). Interested readers are encouraged to implement this on their own.
+The following implementation is for a max heap. To convert it to a min heap, simply reverse all comparison logic related to ordering (for example, replace $\geq$ with $\leq$). Interested readers are encouraged to implement this on their own.
 
 ### 1. &nbsp; Heap Storage and Representation
 
 As mentioned in the "Binary Tree" chapter, complete binary trees are well-suited for array representation. Since heaps are a type of complete binary tree, **we will use arrays to store heaps**.
 
-When representing a binary tree with an array, elements represent node values, and indexes represent node positions in the binary tree. **Node pointers are implemented through index mapping formulas**.
+When representing a binary tree with an array, elements represent node values, and indexes represent node positions in the binary tree. **Parent-child relationships are represented through index-mapping formulas**.
 
 As shown in Figure 8-2, given an index $i$, the index of its left child is $2i + 1$, the index of its right child is $2i + 2$, and the index of its parent is $(i - 1) / 2$ (floor division). When an index is out of bounds, it indicates a null node or that the node does not exist.
 
@@ -808,9 +808,9 @@ The heap top element is the root node of the binary tree, which is also the firs
 
 ### 3. &nbsp; Inserting an Element Into the Heap
 
-Given an element `val`, we first add it to the bottom of the heap. After addition, since `val` may be larger than other elements in the heap, the heap's property may be violated. **Therefore, it's necessary to repair the path from the inserted node to the root node**. This operation is called <u>heapify</u>.
+Given an element `val`, we first add it to the bottom of the heap. After insertion, because `val` may be larger than other elements in the heap, the heap property may be violated. **Therefore, we need to restore the heap property along the path from the inserted node to the root**. This operation is called <u>heapify</u>.
 
-Starting from the inserted node, **perform heapify from bottom to top**. As shown in Figure 8-3, we compare the inserted node with its parent node, and if the inserted node is larger, swap them. Then continue this operation, repairing nodes in the heap from bottom to top until we pass the root node or encounter a node that does not need swapping.
+Starting from the inserted node, **perform heapify from bottom to top**. As shown in Figure 8-3, we compare the inserted node with its parent, and if the inserted node is larger, we swap them. We continue this process from bottom to top until we move past the root or reach a node that no longer needs to be swapped.
 
 === "<1>"
     ![Steps of inserting an element into the heap](heap.assets/heap_push_step1.png){ class="animation-figure" }
@@ -1760,6 +1760,6 @@ Similar to the element insertion operation, the time complexity of the heap top 
 
 ## 8.1.3 &nbsp; Common Applications of Heaps
 
-- **Priority queue**: Heaps are typically the preferred data structure for implementing priority queues, with both enqueue and dequeue operations having a time complexity of $O(\log n)$, and the heap construction operation having $O(n)$, all of which are highly efficient.
+- **Priority queue**: Heaps are typically the preferred data structure for implementing priority queues. The time complexity of both enqueue and dequeue operations is $O(\log n)$, and heap construction has a time complexity of $O(n)$, making these operations highly efficient.
 - **Heap sort**: Given a set of data, we can build a heap with them and then continuously perform element removal operations to obtain sorted data. However, we usually use a more elegant approach to implement heap sort, as detailed in the "Heap Sort" chapter.
-- **Getting the largest $k$ elements**: This is a classic algorithm problem and also a typical application, such as selecting the top 10 trending news for Weibo hot search, selecting the top 10 best-selling products, etc.
+- **Getting the largest $k$ elements**: This is a classic algorithm problem and also a typical application, such as selecting the top 10 trending news items for Weibo Hot Search or the top 10 best-selling products.

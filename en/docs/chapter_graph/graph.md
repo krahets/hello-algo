@@ -14,7 +14,7 @@ G & = \{ V, E \} \newline
 \end{aligned}
 $$
 
-If we view vertices as nodes and edges as references (pointers) connecting the nodes, we can see graphs as a data structure extended from linked lists. As shown in Figure 9-1, **compared to linear relationships (linked lists) and divide-and-conquer relationships (trees), network relationships (graphs) have a higher degree of freedom and are therefore more complex**.
+If we view vertices as nodes and edges as references (pointers) connecting them, we can regard a graph as an extension of the linked list data structure. As shown in Figure 9-1, **compared to linear relationships (linked lists) and divide-and-conquer relationships (trees), network relationships (graphs) have a higher degree of freedom and are therefore more complex**.
 
 ![Relationships among linked lists, trees, and graphs](graph.assets/linkedlist_tree_graph.png){ class="animation-figure" }
 
@@ -24,8 +24,8 @@ If we view vertices as nodes and edges as references (pointers) connecting the n
 
 Graphs can be divided into <u>undirected graphs</u> and <u>directed graphs</u> based on whether edges have direction, as shown in Figure 9-2.
 
-- In undirected graphs, edges represent a "bidirectional" connection between two vertices, such as the "friend relationship" on WeChat or QQ.
-- In directed graphs, edges have directionality, meaning edges $A \rightarrow B$ and $A \leftarrow B$ are independent of each other, such as the "follow" and "be followed" relationships on Weibo or TikTok.
+- In undirected graphs, edges represent a "bidirectional" connection between two vertices, such as friendships on WeChat or QQ.
+- In directed graphs, edges have directionality, meaning edges $A \rightarrow B$ and $A \leftarrow B$ are independent of each other, such as following and follower relationships on Weibo or TikTok.
 
 ![Directed and undirected graphs](graph.assets/directed_graph.png){ class="animation-figure" }
 
@@ -40,7 +40,7 @@ Graphs can be divided into <u>connected graphs</u> and <u>disconnected graphs</u
 
 <p align="center"> Figure 9-3 &nbsp; Connected and disconnected graphs </p>
 
-We can also add a "weight" variable to edges, resulting in <u>weighted graphs</u> as shown in Figure 9-4. For example, in mobile games like "Honor of Kings", the system calculates the "intimacy" between players based on their shared game time, and such intimacy networks can be represented using weighted graphs.
+We can also add a "weight" variable to edges, resulting in <u>weighted graphs</u> as shown in Figure 9-4. For example, in mobile games like "Honor of Kings", the system calculates the "intimacy" between players based on how long they have played together, and such intimacy networks can be represented using weighted graphs.
 
 ![Weighted and unweighted graphs](graph.assets/weighted_graph.png){ class="animation-figure" }
 
@@ -50,7 +50,7 @@ Graph data structures include the following commonly used terms.
 
 - <u>Adjacency</u>: When two vertices are connected by an edge, these two vertices are said to be "adjacent". In Figure 9-4, the adjacent vertices of vertex 1 are vertices 2, 3, and 5.
 - <u>Path</u>: The sequence of edges from vertex A to vertex B is called a "path" from A to B. In Figure 9-4, the edge sequence 1-5-2-4 is a path from vertex 1 to vertex 4.
-- <u>Degree</u>: The number of edges a vertex has. For directed graphs, <u>in-degree</u> indicates how many edges point to the vertex, and <u>out-degree</u> indicates how many edges point out from the vertex.
+- <u>Degree</u>: The number of edges a vertex has. For directed graphs, <u>in-degree</u> indicates how many edges point to the vertex, and <u>out-degree</u> indicates how many edges leave the vertex.
 
 ## 9.1.2 &nbsp; Representation of Graphs
 
@@ -70,7 +70,7 @@ Adjacency matrices have the following properties.
 
 - In simple graphs, vertices cannot connect to themselves, so the elements on the main diagonal of the adjacency matrix are meaningless.
 - For undirected graphs, edges in both directions are equivalent, so the adjacency matrix is symmetric about the main diagonal.
-- Replacing the elements of the adjacency matrix from $1$ and $0$ to weights allows representation of weighted graphs.
+- Replacing the $1$ and $0$ entries in the adjacency matrix with weights allows it to represent weighted graphs.
 
 When using adjacency matrices to represent graphs, we can directly access matrix elements to obtain edges, resulting in highly efficient addition, deletion, lookup, and modification operations, all with a time complexity of $O(1)$. However, the space complexity of the matrix is $O(n^2)$, which consumes significant memory.
 
@@ -82,9 +82,9 @@ An <u>adjacency list</u> uses $n$ linked lists to represent a graph, with linked
 
 <p align="center"> Figure 9-6 &nbsp; Adjacency list representation of a graph </p>
 
-Adjacency lists only store edges that actually exist, and the total number of edges is typically much less than $n^2$, making them more space-efficient. However, finding edges in an adjacency list requires traversing the linked list, so its time efficiency is inferior to that of adjacency matrices.
+Adjacency lists only store edges that actually exist, and the total number of edges is typically much less than $n^2$, making them more space-efficient. However, finding edges in an adjacency list requires traversing the linked list, so it is less time-efficient than an adjacency matrix.
 
-Observing Figure 9-6, **the structure of adjacency lists is very similar to "chaining" in hash tables, so we can adopt similar methods to optimize efficiency**. For example, when linked lists are long, they can be converted to AVL trees or red-black trees, thereby optimizing time efficiency from $O(n)$ to $O(\log n)$; linked lists can also be converted to hash tables, thereby reducing time complexity to $O(1)$.
+As shown in Figure 9-6, **the structure of adjacency lists is very similar to separate chaining in hash tables, so we can use similar methods to improve efficiency**. For example, when a linked list becomes long, it can be converted into an AVL tree or red-black tree, improving the time complexity from $O(n)$ to $O(\log n)$; it can also be converted into a hash table, reducing the time complexity to $O(1)$.
 
 ## 9.1.3 &nbsp; Common Applications of Graphs
 

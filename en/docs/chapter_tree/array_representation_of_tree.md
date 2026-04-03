@@ -4,7 +4,7 @@ comments: true
 
 # 7.3 &nbsp; Array Representation of Binary Trees
 
-Under the linked list representation, the storage unit of a binary tree is a node `TreeNode`, and nodes are connected by pointers. The previous section introduced the basic operations of binary trees under the linked list representation.
+In the linked-list representation, the storage unit of a binary tree is a node `TreeNode`, and nodes are connected by pointers. The previous section introduced the basic operations of binary trees in this representation.
 
 So, can we use an array to represent a binary tree? The answer is yes.
 
@@ -30,7 +30,7 @@ As shown in Figure 7-13, given a non-perfect binary tree, the above method of ar
 
 <p align="center"> Figure 7-13 &nbsp; Level-order traversal sequence corresponds to multiple binary tree possibilities </p>
 
-To solve this problem, **we can consider explicitly writing out all `None` values in the level-order traversal sequence**. As shown in Figure 7-14, after this treatment, the level-order traversal sequence can uniquely represent a binary tree. Example code is as follows:
+To solve this problem, **we can explicitly write out all `None` values in the level-order traversal sequence**. As shown in Figure 7-14, once we do this, the level-order traversal sequence can uniquely represent a binary tree. Example code is as follows:
 
 === "Python"
 
@@ -136,9 +136,9 @@ To solve this problem, **we can consider explicitly writing out all `None` value
     tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
-![Array representation of any type of binary tree](array_representation_of_tree.assets/array_representation_with_empty.png){ class="animation-figure" }
+![Array representation of an arbitrary binary tree](array_representation_of_tree.assets/array_representation_with_empty.png){ class="animation-figure" }
 
-<p align="center"> Figure 7-14 &nbsp; Array representation of any type of binary tree </p>
+<p align="center"> Figure 7-14 &nbsp; Array representation of an arbitrary binary tree </p>
 
 It's worth noting that **complete binary trees are very well-suited for array representation**. Recalling the definition of a complete binary tree, `None` only appears at the bottom level and towards the right, **meaning all `None` values must appear at the end of the level-order traversal sequence**.
 
@@ -148,9 +148,9 @@ This means that when using an array to represent a complete binary tree, it's po
 
 <p align="center"> Figure 7-15 &nbsp; Array representation of a complete binary tree </p>
 
-The following code implements a binary tree based on array representation, including the following operations:
+The following code implements a binary tree using an array representation, including the following operations:
 
-- Given a certain node, obtain its value, left (right) child node, and parent node.
+- Given a node, obtain its value, left (right) child node, and parent node.
 - Obtain the preorder, inorder, postorder, and level-order traversal sequences.
 
 === "Python"

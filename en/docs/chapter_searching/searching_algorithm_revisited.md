@@ -9,9 +9,9 @@ comments: true
 Searching algorithms can be divided into the following two categories based on their implementation approach:
 
 - **Locating target elements by traversing the data structure**, such as traversing arrays, linked lists, trees, and graphs.
-- **Achieving efficient element search by utilizing data organization structure or prior information contained in the data**, such as binary search, hash-based search, and binary search tree search.
+- **Achieving efficient element lookup by leveraging the way data is organized or prior information about the data**, such as binary search, hash-based search, and binary search tree search.
 
-It's not hard to see that these topics have all been covered in previous chapters, so searching algorithms are not unfamiliar to us. In this section, we will approach from a more systematic perspective and re-examine searching algorithms.
+As these topics have already been introduced in earlier chapters, searching algorithms should already be familiar to us. In this section, we revisit them from a more systematic perspective.
 
 ## 10.5.1 &nbsp; Brute-Force Search
 
@@ -26,11 +26,11 @@ However, **the time complexity of such algorithms is $O(n)$**, where $n$ is the 
 
 ## 10.5.2 &nbsp; Adaptive Search
 
-Adaptive search utilizes the unique properties of data (such as orderliness) to optimize the search process, thereby locating target elements more efficiently.
+Adaptive search leverages properties of the data itself (such as sorted order) to optimize the search process and locate target elements more efficiently.
 
 - "Binary search" uses the orderliness of data to achieve efficient searching, applicable only to arrays.
-- "Hash-based search" uses hash tables to establish key-value pair mappings between search data and target data, thereby achieving query operations.
-- "Tree search" in specific tree structures (such as binary search trees), quickly eliminates nodes based on comparing node values to locate target elements.
+- "Hash-based search" uses hash tables to store searchable data as key-value pairs, thereby enabling efficient queries.
+- "Tree search" operates on specific tree structures (such as binary search trees), quickly ruling out nodes by comparing node values to locate the target element.
 
 The advantage of such algorithms is high efficiency, **with time complexity reaching $O(\log n)$ or even $O(1)$**.
 
@@ -48,7 +48,7 @@ Given a dataset of size $n$, we can use linear search, binary search, tree searc
 
 <p align="center"> Figure 10-11 &nbsp; Multiple search strategies </p>
 
-The operational efficiency and characteristics of the above methods are as follows:
+The efficiency and characteristics of these methods are summarized in Table 10-1.
 
 <p align="center"> Table 10-1 &nbsp; Comparison of search algorithm efficiency </p>
 
@@ -69,26 +69,26 @@ The choice of search algorithm also depends on data volume, search performance r
 
 **Linear search**
 
-- Good generality, requiring no data preprocessing operations. If we only need to query the data once, the data preprocessing time for the other three methods would be longer than linear search.
+- Good generality, requiring no data preprocessing operations. If we need to query the data only once, the preprocessing required by the other three methods can take longer than the linear search itself.
 - Suitable for small data volumes, where time complexity has less impact on efficiency.
 - Suitable for scenarios with high data update frequency, as this method does not require any additional data maintenance.
 
 **Binary search**
 
-- Suitable for large data volumes with stable efficiency performance, worst-case time complexity of $O(\log n)$.
+- Suitable for large datasets, with stable performance and a worst-case time complexity of $O(\log n)$.
 - Data volume cannot be too large, as storing arrays requires contiguous memory space.
 - Not suitable for scenarios with frequent data insertion and deletion, as maintaining a sorted array has high overhead.
 
 **Hash-based search**
 
 - Suitable for scenarios with high query performance requirements, with an average time complexity of $O(1)$.
-- Not suitable for scenarios requiring ordered data or range searches, as hash tables cannot maintain data orderliness.
+- Not suitable for scenarios requiring ordered data or range searches, as hash tables cannot maintain the data in sorted order.
 - High dependence on hash functions and hash collision handling strategies, with significant risk of performance degradation.
 - Not suitable for excessively large data volumes, as hash tables require extra space to minimize collisions and thus provide good query performance.
 
 **Tree search**
 
-- Suitable for massive data, as tree nodes are stored dispersedly in memory.
-- Suitable for scenarios requiring maintained ordered data or range searches.
+- Suitable for massive datasets, as tree nodes are stored non-contiguously in memory.
+- Suitable for scenarios that require maintaining ordered data or performing range searches.
 - During continuous node insertion and deletion, binary search trees may become skewed, degrading time complexity to $O(n)$.
-- If using AVL trees or red-black trees, all operations can run stably at $O(\log n)$ efficiency, but operations to maintain tree balance add extra overhead.
+- If AVL trees or red-black trees are used, all operations can consistently run in $O(\log n)$ time, though maintaining tree balance adds extra overhead.

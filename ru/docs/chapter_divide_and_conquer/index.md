@@ -15,8 +15,8 @@ icon: material/set-split
 
 ## Содержание главы
 
-- [12.1 &nbsp; Алгоритмы разделяй и властвуй](divide_and_conquer.md)
-- [12.2 &nbsp; Стратегия поиска разделяй и властвуй](binary_search_recur.md)
+- [12.1 &nbsp; Стратегия разделяй и властвуй](divide_and_conquer.md)
+- [12.2 &nbsp; Поисковая стратегия разделяй и властвуй](binary_search_recur.md)
 - [12.3 &nbsp; Задача построения двоичного дерева](build_binary_tree_problem.md)
 - [12.4 &nbsp; Задача о Ханойской башне](hanota_problem.md)
 - [12.5 &nbsp; Резюме](summary.md)

@@ -4,22 +4,22 @@ comments: true
 
 # 4.3 &nbsp; List
 
-<u>A list</u> is an abstract data structure concept that represents an ordered collection of elements, supporting operations such as element access, modification, insertion, deletion, and traversal, without requiring users to consider capacity limitations. Lists can be implemented based on linked lists or arrays.
+<u>A list</u> is an abstract data structure that represents an ordered collection of elements. It supports operations such as element access, modification, insertion, deletion, and traversal, without requiring users to worry about capacity limits. Lists can be implemented using linked lists or arrays.
 
-- A linked list can naturally be viewed as a list, supporting element insertion, deletion, search, and modification operations, and can flexibly expand dynamically.
-- An array also supports element insertion, deletion, search, and modification, but since its length is immutable, it can only be viewed as a list with length limitations.
+- A linked list can naturally be viewed as a list: it supports insertion, deletion, search, and update, and can grow flexibly as needed.
+- An array also supports insertion, deletion, search, and update, but because its length is fixed, it can only be regarded as a list with a capacity limit.
 
-When implementing lists using arrays, **the immutable length property reduces the practicality of the list**. This is because we usually cannot determine in advance how much data we need to store, making it difficult to choose an appropriate list length. If the length is too small, it may fail to meet usage requirements; if the length is too large, it will waste memory space.
+When a list is implemented with an array, **its fixed length makes it less practical**. This is because we usually cannot determine in advance how much data we need to store, making it difficult to choose an appropriate capacity. If the capacity is too small, it may fail to meet our needs; if it is too large, memory space will be wasted.
 
-To solve this problem, we can use a <u>dynamic array</u> to implement a list. It inherits all the advantages of arrays and can dynamically expand during program execution.
+To solve this problem, we can use a <u>dynamic array</u> to implement a list. It inherits all the advantages of arrays while supporting dynamic resizing during program execution.
 
-In fact, **the lists provided in the standard libraries of many programming languages are implemented based on dynamic arrays**, such as `list` in Python, `ArrayList` in Java, `vector` in C++, and `List` in C#. In the following discussion, we will treat "list" and "dynamic array" as equivalent concepts.
+In fact, **the list types provided by the standard libraries of many programming languages are implemented with dynamic arrays**, such as `list` in Python, `ArrayList` in Java, `vector` in C++, and `List` in C#. In the following discussion, we will treat "list" and "dynamic array" as equivalent concepts.
 
 ## 4.3.1 &nbsp; Common List Operations
 
 ### 1. &nbsp; Initialize a List
 
-We typically use two initialization methods: "without initial values" and "with initial values":
+We typically initialize a list in one of two ways: empty or with predefined values:
 
 === "Python"
 

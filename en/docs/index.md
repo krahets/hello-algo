@@ -1,6 +1,5 @@
 ---
 comments: false
-glightbox: false
 search:
   exclude: true
 hide:

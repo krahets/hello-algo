@@ -4,13 +4,13 @@ comments: true
 
 # 10.2 &nbsp; Binary Search Insertion Point
 
-Binary search can not only be used to search for target elements but also to solve many variant problems, such as searching for the insertion position of a target element.
+Binary search can be used not only to search for target elements, but also to solve many variant problems, such as finding the insertion position of a target element.
 
 ## 10.2.1 &nbsp; Case Without Duplicate Elements
 
 !!! question
 
-    Given a sorted array `nums` of length $n$ and an element `target`, where the array contains no duplicate elements. Insert `target` into the array `nums` while maintaining its sorted order. If the array already contains the element `target`, insert it to its left. Return the index of `target` in the array after insertion. An example is shown in Figure 10-4.
+    Given a sorted array `nums` of length $n$ and an element `target`, where the array contains no duplicate elements, insert `target` into `nums` while maintaining its sorted order. If `target` already exists in the array, insert it to its left. Return the index of `target` after insertion. An example is shown below.
 
 ![Binary search insertion point example data](binary_search_insertion.assets/binary_search_insertion_example.png){ class="animation-figure" }
 
@@ -24,9 +24,9 @@ The problem requires inserting `target` to the left of equal elements, which mea
 
 **Question 2**: When the array does not contain `target`, what is the insertion point index?
 
-Further consider the binary search process: When `nums[m] < target`, $i$ moves, which means pointer $i$ is approaching elements greater than or equal to `target`. Similarly, pointer $j$ is always approaching elements less than or equal to `target`.
+To analyze this further, consider the binary search process: when `nums[m] < target`, $i$ moves, meaning that pointer $i$ is approaching elements greater than or equal to `target`. Similarly, pointer $j$ is always approaching elements less than or equal to `target`.
 
-Therefore, when the binary search ends, we must have: $i$ points to the first element greater than `target`, and $j$ points to the first element less than `target`. **It's easy to see that when the array does not contain `target`, the insertion index is $i$**. The code is shown below:
+Therefore, when the binary search ends, $i$ must point to the first element greater than `target`, and $j$ must point to the first element less than `target`. **It follows that when the array does not contain `target`, the insertion index is $i$**. The code is shown below:
 
 === "Python"
 
@@ -323,7 +323,7 @@ Therefore, when the binary search ends, we must have: $i$ points to the first el
 
 Suppose there are multiple `target` elements in the array. Ordinary binary search can only return the index of one `target`, **and cannot determine how many `target` elements are to the left and right of that element**.
 
-The problem requires inserting the target element at the leftmost position, **so we need to find the index of the leftmost `target` in the array**. Initially, consider implementing this through the steps shown in Figure 10-5:
+The problem requires inserting the target element at the leftmost position, **so we need to find the index of the leftmost `target` in the array**. A straightforward initial approach is to follow the steps shown in Figure 10-5:
 
 1. Perform binary search to obtain the index of any `target`, denoted as $k$.
 2. Starting from index $k$, perform linear traversal to the left, and return when the leftmost `target` is found.
@@ -334,10 +334,10 @@ The problem requires inserting the target element at the leftmost position, **so
 
 Although this method works, it includes linear search, resulting in a time complexity of $O(n)$. When the array contains many duplicate `target` elements, this method is very inefficient.
 
-Now consider extending the binary search code. As shown in Figure 10-6, the overall process remains unchanged: calculate the midpoint index $m$ in each round, then compare `target` with `nums[m]`, divided into the following cases:
+Now consider extending the binary search code. As shown in Figure 10-6, the overall process remains unchanged: in each iteration, we first compute the midpoint index $m$, then compare `target` with `nums[m]`, leading to the following cases:
 
-- When `nums[m] < target` or `nums[m] > target`, it means `target` has not been found yet, so use the ordinary binary search interval narrowing operation to **make pointers $i$ and $j$ approach `target`**.
-- When `nums[m] == target`, it means elements less than `target` are in the interval $[i, m - 1]$, so use $j = m - 1$ to narrow the interval, thereby **making pointer $j$ approach elements less than `target`**.
+- When `nums[m] < target` or `nums[m] > target`, it means `target` has not been found yet, so use the standard interval-shrinking operation of binary search to **move pointers $i$ and $j$ closer to `target`**.
+- When `nums[m] == target`, it means elements less than `target` are in the interval $[i, m - 1]$, so use $j = m - 1$ to shrink the interval, thereby **moving pointer $j$ closer to elements less than `target`**.
 
 After the loop completes, $i$ points to the leftmost `target`, and $j$ points to the first element less than `target`, **so index $i$ is the insertion point**.
 
@@ -367,7 +367,7 @@ After the loop completes, $i$ points to the leftmost `target`, and $j$ points to
 
 <p align="center"> Figure 10-6 &nbsp; Steps for binary search insertion point of duplicate elements </p>
 
-Observe the following code: the operations for branches `nums[m] > target` and `nums[m] == target` are the same, so the two can be merged.
+Observe the following code: the branches `nums[m] > target` and `nums[m] == target` perform the same operation, so they can be merged.
 
 Even so, we can still keep the conditional branches expanded, as the logic is clearer and more readable.
 
@@ -657,8 +657,8 @@ Even so, we can still keep the conditional branches expanded, as the logic is cl
 
 !!! tip
 
-    The code in this section all uses the "closed interval" approach. Interested readers can implement the "left-closed right-open" approach themselves.
+    The code in this section uses the "closed interval" approach throughout. Interested readers can implement the "left-closed, right-open" approach themselves.
 
-Overall, binary search is simply about setting search targets for pointers $i$ and $j$ separately. The target could be a specific element (such as `target`) or a range of elements (such as elements less than `target`).
+Overall, binary search is simply a matter of setting separate search targets for pointers $i$ and $j$. The target may be a specific element (such as `target`) or a range of elements (such as elements less than `target`).
 
-Through continuous binary iterations, both pointers $i$ and $j$ gradually approach their preset targets. Ultimately, they either successfully find the answer or stop after crossing the boundaries.
+With each iteration of binary search, pointers $i$ and $j$ gradually approach their preset targets. Ultimately, they either find the answer or stop after crossing the boundary.
