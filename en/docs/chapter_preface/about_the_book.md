@@ -45,7 +45,7 @@ During the creation of this book, I received help from many people.
 - Thanks to Tengbao, Qibao, and Feibao for coming up with a creative name for this book, evoking everyone's fond memories of writing their first line of code "Hello World!";
 - Thanks to Xiaoquan for providing professional help in intellectual property rights, which played an important role in the improvement of this open-source book;
 - Thanks to Sutong for designing the beautiful cover and logo for this book, and for patiently revising them many times at my perfectionist insistence;
-- Thanks to @squidfunk for the typesetting suggestions, as well as for developing the open-source documentation theme [Material-for-MkDocs](https://github.com/squidfunk/mkdocs-material/tree/master).
+- Thanks to @squidfunk for the typesetting suggestions, as well as for developing the open-source documentation theme [Material-for-MkDocs](https://github.com/squidfunk/mkdocs-material).
 
 During the writing process, I read many textbooks and articles on data structures and algorithms. These works served as excellent models for this book and helped ensure the accuracy and quality of its content. I would like to thank all the teachers and predecessors for their outstanding contributions!
 

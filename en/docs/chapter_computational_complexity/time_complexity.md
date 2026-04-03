@@ -993,7 +993,7 @@ Let the input data size be $n$. Common time complexity types are shown in the fi
 $$
 \begin{aligned}
 O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!) \newline
-\text{Constant order} < \text{Logarithmic order} < \text{Linear order} < \text{Linearithmic order} < \text{Quadratic order} < \text{Exponential order} < \text{Factorial order}
+\text{Constant} < \text{Logarithmic} < \text{Linear} < \text{Linearithmic} < \text{Quadratic} < \text{Exponential} < \text{Factorial}
 \end{aligned}
 $$
 

@@ -45,7 +45,7 @@
 - 感謝騰寶、琦寶、飛寶為本書起了一個富有創意的名字，喚起大家寫下第一行程式碼“Hello World!”的美好回憶；
 - 感謝校銓在智慧財產權方面提供的專業幫助，這對本開源書的完善起到了重要作用；
 - 感謝蘇潼為本書設計了精美的封面和 logo ，並在我的強迫症的驅使下多次耐心修改；
-- 感謝 @squidfunk 提供的排版建議，以及他開發的開源文件主題 [Material-for-MkDocs](https://github.com/squidfunk/mkdocs-material/tree/master) 。
+- 感謝 @squidfunk 提供的排版建議，以及他開發的開源文件主題 [Material-for-MkDocs](https://github.com/squidfunk/mkdocs-material) 。
 
 在寫作過程中，我閱讀了許多關於資料結構與演算法的教材和文章。這些作品為本書提供了優秀的範本，確保了本書內容的準確性與品質。在此感謝所有老師和前輩的傑出貢獻！
 
