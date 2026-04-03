@@ -806,8 +806,8 @@ Let the input data size be $n$. The following figure shows common types of space
 
 $$
 \begin{aligned}
-O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
-\text{Constant} < \text{Logarithmic} < \text{Linear} < \text{Quadratic} < \text{Exponential}
+& O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
+& \text{Constant} < \text{Logarithmic} < \text{Linear} < \text{Quadratic} < \text{Exponential}
 \end{aligned}
 $$
 

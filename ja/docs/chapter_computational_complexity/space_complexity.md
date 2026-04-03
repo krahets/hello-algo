@@ -806,8 +806,8 @@
 
 $$
 \begin{aligned}
-O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
-\text{定数階} < \text{対数階} < \text{線形階} < \text{平方階} < \text{指数階}
+& O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
+& \text{定数階} < \text{対数階} < \text{線形階} < \text{平方階} < \text{指数階}
 \end{aligned}
 $$
 
