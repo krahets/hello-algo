@@ -1,6 +1,6 @@
-# Hash Table
+# Hashing
 
-![Hash Table](../assets/covers/chapter_hashing.jpg)
+![Hashing](../assets/covers/chapter_hashing.jpg)
 
 !!! abstract
 
