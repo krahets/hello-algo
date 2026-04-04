@@ -3,9 +3,9 @@ comments: true
 icon: material/table-search
 ---
 
-# Chapter 6. &nbsp; Hash Table
+# Chapter 6. &nbsp; Hashing
 
-![Hash Table](../assets/covers/chapter_hashing.jpg){ class="cover-image" }
+![Hashing](../assets/covers/chapter_hashing.jpg){ class="cover-image" }
 
 !!! abstract
 

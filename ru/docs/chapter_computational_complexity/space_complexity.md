@@ -812,8 +812,8 @@ comments: true
 
 $$
 \begin{aligned}
-O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
-\text{Постоянная} < \text{Логарифмическая} < \text{Линейная} < \text{Квадратичная} < \text{Экспоненциальная}
+& O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
+& \text{Постоянная} < \text{Логарифмическая} < \text{Линейная} < \text{Квадратичная} < \text{Экспоненциальная}
 \end{aligned}
 $$
 

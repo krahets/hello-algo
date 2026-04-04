@@ -812,8 +812,8 @@ comments: true
 
 $$
 \begin{aligned}
-O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
-\text{常数阶} < \text{对数阶} < \text{线性阶} < \text{平方阶} < \text{指数阶}
+& O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
+& \text{常数阶} < \text{对数阶} < \text{线性阶} < \text{平方阶} < \text{指数阶}
 \end{aligned}
 $$
 
