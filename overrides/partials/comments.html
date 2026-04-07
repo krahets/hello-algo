@@ -43,27 +43,21 @@
   <script>
     var giscus = document.querySelector("script[src*=giscus]")
 
-    function getGiscusThemeHref() {
+    function getGiscusTheme() {
       var palette = __md_get("__palette")
       var isDark = palette && typeof palette.color === "object" && palette.color.scheme === "slate"
-      var extraStylesheet = document.querySelector("link[href*='stylesheets/extra.css']")
-      if (!extraStylesheet) {
-        return isDark ? "noborder_dark" : "light"
-      }
-
-      var filename = isDark ? "giscus-dark.css" : "giscus-light.css"
-      return new URL(filename, extraStylesheet.href).href
+      return isDark ? "noborder_dark" : "light"
     }
 
     /* Set palette on initial load */
-    giscus.setAttribute("data-theme", getGiscusThemeHref())
+    giscus.setAttribute("data-theme", getGiscusTheme())
 
     /* Register event handlers after documented loaded */
     document.addEventListener("DOMContentLoaded", function() {
       var ref = document.querySelector("[data-md-component=palette]")
       if (!ref) return
       ref.addEventListener("change", function() {
-        var theme = getGiscusThemeHref()
+        var theme = getGiscusTheme()
 
         /* Instruct Giscus to change theme */
         var frame = document.querySelector(".giscus-frame")
