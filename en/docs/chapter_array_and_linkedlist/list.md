@@ -1,6 +1,6 @@
 # List
 
-<u>A list</u> is an abstract data structure that represents an ordered collection of elements. It supports operations such as element access, modification, insertion, deletion, and traversal, without requiring users to worry about capacity limits. Lists can be implemented using linked lists or arrays.
+A <u>list</u> is an abstract data structure concept that represents an ordered collection of elements, supporting operations such as element access, modification, insertion, deletion, and traversal, without requiring users to consider capacity limitations. Lists can be implemented based on linked lists or arrays.
 
 - A linked list can naturally be viewed as a list: it supports insertion, deletion, search, and update, and can grow flexibly as needed.
 - An array also supports insertion, deletion, search, and update, but because its length is fixed, it can only be regarded as a list with a capacity limit.
