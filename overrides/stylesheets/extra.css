@@ -609,6 +609,23 @@ a:hover .text-button span {
   }
 }
 
+/* phones */
+@media screen and (max-width: 44em) {
+  .reading-media {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .media-block {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: min(78vw, 32rem);
+    margin: 0 0 1em;
+  }
+}
+
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
