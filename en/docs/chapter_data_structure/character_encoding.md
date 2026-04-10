@@ -26,7 +26,7 @@ Researchers of that era thought: **If a sufficiently complete character set is r
 
 <u>Unicode</u> is called "统一码" (Unified Code) in Chinese and can theoretically accommodate over one million characters. It is committed to including characters from around the world into a unified character set, providing a universal character set to handle and display various language texts, reducing garbled character problems caused by different encoding standards.
 
-Since its release in 1991, Unicode has continuously expanded to include new languages and characters. As of September 2022, Unicode has included 149,186 characters, including characters, symbols, and even emojis from various languages. In the vast Unicode character set, commonly used characters occupy 2 bytes, and some rare characters occupy 3 bytes or even 4 bytes.
+Since its release in 1991, Unicode has continuously expanded to include new languages and characters. As of September 2022, Unicode has included 149,186 characters, including characters, symbols, and even emojis from various languages. Unicode maps each character to a code point (a character identifier), whose values range from 0 to 1114111 (that is, U+0000 to U+10FFFF), forming a unified character numbering space.
 
 Unicode is a universal character set that essentially assigns a number (called a "code point") to each character, **but it does not specify how to store these character code points in computers**. We can't help but ask: when Unicode code points of multiple lengths appear simultaneously in a text, how does the system parse the characters? For example, given an encoding with a length of 2 bytes, how does the system determine whether it is one 2-byte character or two 1-byte characters?
 
