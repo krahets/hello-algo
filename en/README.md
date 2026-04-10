@@ -88,6 +88,7 @@ This open-source book is continuously being updated, and we welcome your partici
 
 - [Content Correction](https://www.hello-algo.com/en/chapter_appendix/contribution/): Please help us correct or point out mistakes in the comments section such as grammatical errors, missing content, ambiguities, invalid links, or code bugs.
 - [Code Transpilation](https://github.com/krahets/hello-algo/issues/15): We look forward to your contributions in various programming languages. We currently support 12 languages including Python, Java, C++, Go, and JavaScript.
+- Translation Review: Welcome to contribute to multilingual translation and review work, helping more readers learn data structures and algorithms in their native languages.
 
 We welcome your valuable suggestions and feedback. If you have any questions, please submit Issues or reach out via WeChat: `krahets-jyd`.
 
