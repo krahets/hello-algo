@@ -20,7 +20,7 @@ VS Code обладает мощной экосистемой расширени�
 
 ### Среда C/C++
 
-1. В Windows требуется установить [MinGW](https://sourceforge.net/projects/mingw-w64/files/) ([руководство по настройке](https://blog.csdn.net/qq_33698226/article/details/129031241)); в macOS компилятор Clang уже установлен по умолчанию.
+1. В Windows требуется установить [MinGW](https://sourceforge.net/projects/mingw-w64/files/) ([руководство по настройке](https://blog.csdn.net/qq_33698226/article/details/129031241)). В macOS компилятор Clang уже установлен по умолчанию.
 2. В магазине расширений VS Code найдите `c++` и установите C/C++ Extension Pack.
 3. (Необязательно) Откройте страницу Settings, найдите параметр форматирования `Clang_format_fallback Style` и задайте значение `{ BasedOnStyle: Microsoft, BreakBeforeBraces: Attach }`.
 

@@ -14,7 +14,7 @@ icon: material/bookshelf
 
 [5] Deng Junhui. Data Structures (C++ Language Edition, 3rd Edition).
 
-[6] Mark Allen Weiss; пер. Chen Yue. Data Structures and Algorithm Analysis: Java Description (3rd Edition).
+[6] Mark Allen Weiss. Пер. Chen Yue. Data Structures and Algorithm Analysis: Java Description (3rd Edition).
 
 [7] Cheng Jie. A Plainspoken Guide to Data Structures.
 
