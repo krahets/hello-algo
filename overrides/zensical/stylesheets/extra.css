@@ -262,9 +262,74 @@ html:has(body[data-md-color-scheme="default"]) {
   transform: translateY(-50%) rotate(90deg);
 }
 
+.md-typeset .admonition,
+.md-typeset details {
+  border: 0.08rem solid transparent;
+}
+
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-color: #448aff3d;
+}
+
+.md-typeset .admonition.abstract,
+.md-typeset details.abstract {
+  border-color: #00b0ff3d;
+}
+
+.md-typeset .admonition.info,
+.md-typeset details.info {
+  border-color: #00b8d43d;
+}
+
+.md-typeset .admonition.tip,
+.md-typeset details.tip {
+  border-color: #00bfa53d;
+}
+
+.md-typeset .admonition.success,
+.md-typeset details.success {
+  border-color: #00c8533d;
+}
+
+.md-typeset .admonition.question,
+.md-typeset details.question {
+  border-color: #64dd173d;
+}
+
+.md-typeset .admonition.warning,
+.md-typeset details.warning {
+  border-color: #ff91003d;
+}
+
+.md-typeset .admonition.failure,
+.md-typeset details.failure {
+  border-color: #ff52523d;
+}
+
+.md-typeset .admonition.danger,
+.md-typeset details.danger {
+  border-color: #ff17443d;
+}
+
+.md-typeset .admonition.bug,
+.md-typeset details.bug {
+  border-color: #f500573d;
+}
+
+.md-typeset .admonition.example,
+.md-typeset details.example {
+  border-color: #7c4dff3d;
+}
+
+.md-typeset .admonition.quote,
+.md-typeset details.quote {
+  border-color: #9e9e9e3d;
+}
+
 .md-typeset .admonition.pythontutor,
 .md-typeset details.pythontutor {
-  border-color: var(--md-default-fg-color--lightest);
+  border-color: color-mix(in srgb, var(--md-code-bg-color) 88%, var(--md-default-fg-color) 12%);
   margin-top: 0;
   margin-bottom: 1.5625em;
   background-color: var(--md-code-bg-color);
@@ -618,6 +683,14 @@ a:hover .device-on-hover {
   gap: 0.5em;
 }
 
+.en-translator-profile-div {
+  max-width: 40em;
+}
+
+.en-translator-profile-div .profile-cell {
+  flex: 0 0 20%;
+}
+
 .translator-profile-cell {
   flex: 0 0 auto;
   margin: 0.5em 0;
@@ -711,5 +784,25 @@ a:hover .device-on-hover {
 
   .profile-cell {
     flex: 1 1 30%;
+  }
+
+  .en-translator-profile-div .profile-cell {
+    flex: 1 1 30%;
+  }
+}
+
+@media screen and (max-width: 44em) {
+  .reading-media {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .media-block {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: min(78vw, 32rem);
+    margin: 0 0 1em;
   }
 }

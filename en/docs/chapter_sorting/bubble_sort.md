@@ -1,11 +1,11 @@
 # Bubble Sort
 
-<u>Bubble sort (bubble sort)</u> achieves sorting by continuously comparing and swapping adjacent elements. This process is like bubbles rising from the bottom to the top, hence the name bubble sort.
+<u>Bubble sort</u> sorts an array by continuously comparing and swapping adjacent elements. This process resembles bubbles rising from the bottom to the top, hence the name bubble sort.
 
-As shown in the figure below, the bubbling process can be simulated using element swap operations: starting from the leftmost end of the array and traversing to the right, compare the size of adjacent elements, and if "left element > right element", swap them. After completing the traversal, the largest element will be moved to the rightmost end of the array.
+As shown in the figure below, the bubbling process can be simulated using element swaps: starting from the leftmost end of the array and traversing to the right, compare each pair of adjacent elements, and if "left element > right element", swap them. After the traversal is complete, the largest element is moved to the rightmost end of the array.
 
 === "<1>"
-    ![Simulating bubble using element swap operation](bubble_sort.assets/bubble_operation_step1.png)
+    ![Simulating bubble sort using element swaps](bubble_sort.assets/bubble_operation_step1.png)
 
 === "<2>"
     ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.png)
@@ -44,9 +44,9 @@ Example code is as follows:
 
 ## Efficiency Optimization
 
-We notice that if no swap operations are performed during a certain round of "bubbling", it means the array has already completed sorting and can directly return the result. Therefore, we can add a flag `flag` to monitor this situation and return immediately once it occurs.
+We can observe that if no swaps occur during a round of "bubbling", the array is already sorted and the algorithm can return immediately. Therefore, we can add a flag `flag` to detect this situation and terminate as soon as it occurs.
 
-After optimization, the worst-case time complexity and average time complexity of bubble sort remain $O(n^2)$; but when the input array is completely ordered, the best-case time complexity can reach $O(n)$.
+After this optimization, the worst-case and average-case time complexities of bubble sort remain $O(n^2)$; however, when the input array is already sorted, the best-case time complexity becomes $O(n)$.
 
 ```src
 [file]{bubble_sort}-[class]{}-[func]{bubble_sort_with_flag}
@@ -54,6 +54,6 @@ After optimization, the worst-case time complexity and average time complexity o
 
 ## Algorithm Characteristics
 
-- **Time complexity of $O(n^2)$, adaptive sorting**: The array lengths traversed in each round of "bubbling" are $n - 1$, $n - 2$, $\dots$, $2$, $1$, totaling $(n - 1) n / 2$. After introducing the `flag` optimization, the best-case time complexity can reach $O(n)$.
+- **Time complexity is $O(n^2)$; adaptive**: In successive rounds of "bubbling", the traversed portion of the array has lengths $n - 1$, $n - 2$, $\dots$, $2$, $1$, for a total of $(n - 1) n / 2$. After introducing the `flag` optimization, the best-case time complexity can reach $O(n)$.
 - **Space complexity of $O(1)$, in-place sorting**: Pointers $i$ and $j$ use a constant amount of extra space.
-- **Stable sorting**: Since equal elements are not swapped during "bubbling".
+- **Stable sorting**: Equal elements are not swapped during "bubbling".

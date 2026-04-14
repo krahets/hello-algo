@@ -6,7 +6,7 @@
 
 ## Sign-Magnitude, 1's Complement, and 2's Complement
 
-In the table from the previous section, we found that all integer types can represent one more negative number than positive numbers. For example, the `byte` range is $[-128, 127]$. This phenomenon is counterintuitive, and its underlying reason involves knowledge of sign-magnitude, 1's complement, and 2's complement.
+In the table from the previous section, we found that all integer types can represent one more negative number than positive numbers. For example, the `byte` range is $[-128, 127]$. This phenomenon is counterintuitive, and its underlying cause lies in sign-magnitude, 1's complement, and 2's complement representations.
 
 First, it should be noted that **numbers are stored in computers in the form of "2's complement"**. Before analyzing the reasons for this, let's first define these three concepts.
 
@@ -63,7 +63,7 @@ $$
 
 Adding $1$ to the 1's complement of negative zero produces a carry, but since the `byte` type has a length of only 8 bits, the $1$ that overflows to the 9th bit is discarded. That is to say, **the 2's complement of negative zero is $0000 \; 0000$, which is the same as the 2's complement of positive zero**. This means that in 2's complement representation, there is only one zero, and the positive and negative zero ambiguity is thus resolved.
 
-One last question remains: the range of the `byte` type is $[-128, 127]$, and how is the extra negative number $-128$ obtained? We notice that all integers in the interval $[-127, +127]$ have corresponding sign-magnitude, 1's complement, and 2's complement, and sign-magnitude and 2's complement can be converted to each other.
+One last question remains: the range of the `byte` type is $[-128, 127]$, so where does the extra negative number $-128$ come from? We notice that all integers in the interval $[-127, +127]$ have corresponding sign-magnitude, 1's complement, and 2's complement, and sign-magnitude and 2's complement can be converted to each other.
 
 However, **the 2's complement $1000 \; 0000$ is an exception, and it does not have a corresponding sign-magnitude**. According to the conversion method, we get that the sign-magnitude of this 2's complement is $0000 \; 0000$. This is clearly contradictory because this sign-magnitude represents the number $0$, and its 2's complement should be itself. The computer specifies that this special 2's complement $1000 \; 0000$ represents $-128$. In fact, the result of calculating $(-1) + (-127)$ in 2's complement is $-128$.
 
@@ -82,7 +82,7 @@ You may have noticed that all the above calculations are addition operations. Th
 
 Please note that this does not mean that computers can only perform addition. **By combining addition with some basic logical operations, computers can implement various other mathematical operations**. For example, calculating the subtraction $a - b$ can be converted to calculating the addition $a + (-b)$; calculating multiplication and division can be converted to calculating multiple additions or subtractions.
 
-Now we can summarize the reasons why computers use 2's complement: based on 2's complement representation, computers can use the same circuits and operations to handle the addition of positive and negative numbers, without the need to design special hardware circuits to handle subtraction, and without the need to specially handle the ambiguity problem of positive and negative zero. This greatly simplifies hardware design and improves operational efficiency.
+We can now summarize why computers use 2's complement: with 2's complement representation, computers can use the same circuits and operations to handle the addition of positive and negative numbers, without designing special hardware circuits for subtraction or separately handling the ambiguity of positive and negative zero. This greatly simplifies hardware design and improves efficiency.
 
 The design of 2's complement is very ingenious. Due to space limitations, we will stop here. Interested readers are encouraged to explore further.
 

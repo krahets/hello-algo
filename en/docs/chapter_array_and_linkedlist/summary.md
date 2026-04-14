@@ -2,11 +2,11 @@
 
 ### Key Review
 
-- Arrays and linked lists are two fundamental data structures, representing two different ways data can be stored in computer memory: contiguous memory storage and scattered memory storage. The characteristics of the two complement each other.
+- Arrays and linked lists are two fundamental data structures, representing two different ways data can be stored in computer memory: contiguous storage and scattered storage. Their strengths and weaknesses complement each other.
 - Arrays support random access and use less memory; however, inserting and deleting elements is inefficient, and the length is immutable after initialization.
 - Linked lists achieve efficient insertion and deletion of nodes by modifying references (pointers), and can flexibly adjust length; however, node access is inefficient and memory consumption is higher. Common linked list types include singly linked lists, circular linked lists, and doubly linked lists.
 - A list is an ordered collection of elements that supports insertion, deletion, search, and modification, typically implemented based on dynamic arrays. It retains the advantages of arrays while allowing flexible adjustment of length.
-- The emergence of lists has greatly improved the practicality of arrays, but may result in some wasted memory space.
+- The emergence of lists has greatly improved the practicality of arrays, but it may also waste some memory space.
 - During program execution, data is primarily stored in memory. Arrays provide higher memory space efficiency, while linked lists offer greater flexibility in memory usage.
 - Caches provide fast data access to the CPU through mechanisms such as cache lines, prefetching, and spatial and temporal locality, significantly improving program execution efficiency.
 - Because arrays have higher cache hit rates, they are generally more efficient than linked lists. When choosing a data structure, appropriate selection should be made based on specific requirements and scenarios.
@@ -25,17 +25,17 @@ Arrays stored on the stack and on the heap are both stored in contiguous memory 
 
 Linked lists are composed of nodes, with nodes connected through references (pointers), and each node can store different types of data, such as `int`, `double`, `string`, `object`, etc.
 
-In contrast, array elements must be of the same type, so that the corresponding element position can be obtained by calculating the offset. For example, if an array contains both `int` and `long` types, with individual elements occupying 4 bytes and 8 bytes respectively, then the following formula cannot be used to calculate the offset, because the array contains two different "element lengths".
+In contrast, array elements must be of the same type so that their positions can be determined by calculating offsets. For example, if an array contains both `int` and `long` types, with individual elements occupying 4 bytes and 8 bytes respectively, then the following formula cannot be used to calculate the offset, because the array contains two different "element sizes".
 
 ```shell
-# Element Memory Address = Array Memory Address (first Element Memory address) + Element Length * Element Index
+# element address = array base address (address of the first element) + element size * element index
 ```
 
 **Q**: After deleting node `P`, do we need to set `P.next` to `None`?
 
 It is not necessary to modify `P.next`. From the perspective of the linked list, traversing from the head node to the tail node will no longer encounter `P`. This means that node `P` has been removed from the linked list, and it doesn't matter where node `P` points to at this time—it won't affect the linked list.
 
-From a data structures and algorithms perspective (problem-solving), not disconnecting the pointer doesn't matter as long as the program logic is correct. From the perspective of standard libraries, disconnecting is safer and the logic is clearer. If not disconnected, assuming the deleted node is not properly reclaimed, it may affect the memory reclamation of its successor nodes.
+From an algorithms-and-problem-solving perspective, leaving the pointer connected is fine as long as the program logic is correct. From a standard-library implementation perspective, explicitly disconnecting it is safer and clearer. If it is not disconnected and the deleted node is not reclaimed properly, it may affect the reclamation of successor nodes.
 
 **Q**: In a linked list, the time complexity of insertion and deletion operations is $O(1)$. However, both insertion and deletion require $O(n)$ time to find the element; why isn't the time complexity $O(n)$?
 
@@ -79,8 +79,8 @@ If we want each `[0]` in the 2D list to be independent, we can use `res = [[0] f
 
 **Q**: Does the operation `res = [0] * n` create a list where each integer 0 is independent?
 
-In this list, all integer 0s are references to the same object. This is because Python uses a caching mechanism for small integers (typically -5 to 256) to maximize object reuse and improve performance.
+In this list, all the integer zeros reference the same object. This is because Python uses a caching mechanism for small integers (typically -5 to 256) to maximize object reuse and improve performance.
 
-Although they point to the same object, we can still independently modify each element in the list. This is because Python integers are "immutable objects". When we modify an element, we are actually switching to a reference of another object, rather than changing the original object itself.
+Although they all reference the same object, we can still modify each element in the list independently. This is because Python integers are "immutable objects". When we modify an element, we actually switch that element to reference a different object, rather than changing the original object itself.
 
 However, when list elements are "mutable objects" (such as lists, dictionaries, or class instances), modifying an element directly changes the object itself, and all elements referencing that object will have the same change.

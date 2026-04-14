@@ -1,6 +1,6 @@
 # Binary Tree
 
-A <u>binary tree</u> is a non-linear data structure that represents the derivation relationship between "ancestors" and "descendants" and embodies the divide-and-conquer logic of "one divides into two". Similar to a linked list, the basic unit of a binary tree is a node, and each node contains a value, a reference to its left child node, and a reference to its right child node.
+A <u>binary tree</u> is a non-linear data structure that models the hierarchical relationship between "ancestors" and "descendants" and embodies a divide-and-conquer pattern in which each split branches into two. Similar to a linked list, the basic unit of a binary tree is a node, and each node contains a value, a reference to its left child node, and a reference to its right child node.
 
 === "Python"
 
@@ -203,7 +203,7 @@ A <u>binary tree</u> is a non-linear data structure that represents the derivati
 
 Each node has two references (pointers), pointing respectively to the <u>left-child node</u> and <u>right-child node</u>. This node is called the <u>parent node</u> of these two child nodes. When given a node of a binary tree, we call the tree formed by this node's left child and all nodes below it the <u>left subtree</u> of this node. Similarly, the <u>right subtree</u> can be defined.
 
-**In a binary tree, except leaf nodes, all other nodes contain child nodes and non-empty subtrees.** As shown in the figure below, if "Node 2" is regarded as a parent node, its left and right child nodes are "Node 4" and "Node 5" respectively. The left subtree is formed by "Node 4" and all nodes beneath it, while the right subtree is formed by "Node 5" and all nodes beneath it.
+**In a binary tree, every non-leaf node has child nodes and therefore non-empty subtrees.** As shown in the figure below, if "Node 2" is regarded as a parent node, its left and right child nodes are "Node 4" and "Node 5" respectively. The left subtree is formed by "Node 4" and all nodes beneath it, while the right subtree is formed by "Node 5" and all nodes beneath it.
 
 ![Parent Node, child Node, subtree](binary_tree.assets/binary_tree_definition.png)
 
@@ -224,7 +224,7 @@ The commonly used terminology of binary trees is shown in the figure below.
 
 !!! tip
 
-    Please note that we usually define "height" and "depth" as "the number of edges traversed", but some questions or textbooks may define them as "the number of nodes traversed". In this case, both height and depth need to be incremented by 1.
+    We usually define "height" and "depth" as the number of edges traversed, but some textbooks and problem statements define them as the number of nodes on the path. In that case, both values are larger by 1.
 
 ## Basic Operations of Binary Trees
 
@@ -617,13 +617,13 @@ Similar to a linked list, inserting and removing nodes in a binary tree can be a
 
 !!! tip
 
-    It should be noted that inserting nodes may change the original logical structure of the binary tree, while removing nodes typically involves removing the node and all its subtrees. Therefore, in a binary tree, insertion and removal are usually performed through a set of operations to achieve meaningful outcomes.
+    Keep in mind that inserting a node can alter the original logical structure of a binary tree, while deleting a node usually entails removing that node together with its entire subtree. In practice, insertion and deletion in binary trees are therefore typically implemented as coordinated sequences of operations to achieve a meaningful result.
 
 ## Common Types of Binary Trees
 
 ### Perfect Binary Tree
 
-As shown in the figure below, a <u>perfect binary tree</u> has all levels completely filled with nodes. In a perfect binary tree, leaf nodes have a degree of $0$, while all other nodes have a degree of $2$. If the tree height is $h$, the total number of nodes is $2^{h+1} - 1$, exhibiting a standard exponential relationship that reflects the common phenomenon of cell division in nature.
+As shown in the figure below, a <u>perfect binary tree</u> has every level completely filled. In a perfect binary tree, leaf nodes have a degree of $0$, while all other nodes have a degree of $2$. If the tree height is $h$, the total number of nodes is $2^{h+1} - 1$, following a standard exponential pattern that mirrors the common phenomenon of cell division in nature.
 
 !!! tip
 
@@ -651,9 +651,9 @@ As shown in the figure below, in a <u>balanced binary tree</u>, the absolute dif
 
 ## Degeneration of Binary Trees
 
-The figure below shows the ideal and degenerate structures of binary trees. When every level of a binary tree is filled, it reaches the "perfect binary tree" state; when all nodes are biased toward one side, the binary tree degenerates into a "linked list".
+The figure below contrasts the ideal and degenerate structures of binary trees. When every level is filled, the tree becomes a "perfect binary tree"; when all nodes skew to one side, the binary tree degenerates into a "linked list".
 
-- A perfect binary tree is the ideal case, fully leveraging the "divide and conquer" advantage of binary trees.
+- A perfect binary tree is the ideal case, fully leveraging the divide-and-conquer advantages of binary trees.
 - A linked list represents the other extreme, where all operations become linear operations with time complexity degrading to $O(n)$.
 
 ![The Best and Worst Structures of Binary Trees](binary_tree.assets/binary_tree_best_worst_cases.png)
