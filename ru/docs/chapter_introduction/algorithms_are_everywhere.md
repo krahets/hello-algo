@@ -11,19 +11,19 @@
 3. Продолжайте повторять шаги `1.` и `2.` , пока не найдете страницу, где первой буквой слов будет $r$.
 
 === "<1>"
-    ![Этапы поиска в словаре. Шаг 1](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png)
+    ![Этапы поиска в словаре](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png)
 
 === "<2>"
-    ![Этапы поиска в словаре. Шаг 2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png)
+    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png)
 
 === "<3>"
-    ![Этапы поиска в словаре. Шаг 3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png)
+    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png)
 
 === "<4>"
-    ![Этапы поиска в словаре. Шаг 4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png)
+    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png)
 
 === "<5>"
-    ![Этапы поиска в словаре. Шаг 5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png)
+    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png)
 
 Навык поиска в словаре, которым владеет каждый школьник, на самом деле является известным алгоритмом двоичного поиска. С точки зрения структуры данных словарь можно рассматривать как отсортированный массив. С точки зрения алгоритма последовательность операций по поиску в словаре можно считать двоичным поиском.
 
