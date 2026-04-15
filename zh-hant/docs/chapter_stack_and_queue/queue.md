@@ -368,13 +368,13 @@
 
 如下圖所示，我們可以將鏈結串列的“頭節點”和“尾節點”分別視為“佇列首”和“佇列尾”，規定佇列尾僅可新增節點，佇列首僅可刪除節點。
 
-=== "LinkedListQueue"
+=== "<1>"
     ![基於鏈結串列實現佇列的入列出列操作](queue.assets/linkedlist_queue_step1.png)
 
-=== "push()"
+=== "<2>"
     ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.png)
 
-=== "pop()"
+=== "<3>"
     ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.png)
 
 以下是用鏈結串列實現佇列的程式碼：
@@ -396,13 +396,13 @@
 
 可以看到，入列和出列操作都只需進行一次操作，時間複雜度均為 $O(1)$ 。
 
-=== "ArrayQueue"
+=== "<1>"
     ![基於陣列實現佇列的入列出列操作](queue.assets/array_queue_step1.png)
 
-=== "push()"
+=== "<2>"
     ![array_queue_push](queue.assets/array_queue_step2_push.png)
 
-=== "pop()"
+=== "<3>"
     ![array_queue_pop](queue.assets/array_queue_step3_pop.png)
 
 你可能會發現一個問題：在不斷進行入列和出列的過程中，`front` 和 `rear` 都在向右移動，**當它們到達陣列尾部時就無法繼續移動了**。為了解決此問題，我們可以將陣列視為首尾相接的“環形陣列”。

@@ -530,6 +530,14 @@ a:hover .text-button span {
   gap: 0.5em;
 }
 
+.en-translator-profile-div {
+  max-width: 40em;
+}
+
+.en-translator-profile-div .profile-cell {
+  flex: 0 0 20%;
+}
+
 .translator-profile-cell {
   flex: 0 0 auto;
   margin: 0.5em 0;
@@ -594,6 +602,27 @@ a:hover .text-button span {
 
   .profile-cell {
     flex: 1 1 30%;
+  }
+
+  .en-translator-profile-div .profile-cell {
+    flex: 1 1 30%;
+  }
+}
+
+/* phones */
+@media screen and (max-width: 44em) {
+  .reading-media {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .media-block {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: min(78vw, 32rem);
+    margin: 0 0 1em;
   }
 }
 

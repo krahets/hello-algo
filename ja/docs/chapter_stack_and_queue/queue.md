@@ -368,13 +368,13 @@
 
 下図のように、連結リストの「先頭ノード」と「末尾ノード」をそれぞれ「キュー先頭」と「キュー末尾」とみなし、キュー末尾ではノードの追加のみ、キュー先頭ではノードの削除のみを行うようにします。
 
-=== "LinkedListQueue"
+=== "<1>"
     ![連結リストでキューを実装したエンキューとデキュー操作](queue.assets/linkedlist_queue_step1.png)
 
-=== "push()"
+=== "<2>"
     ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.png)
 
-=== "pop()"
+=== "<3>"
     ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.png)
 
 以下は連結リストでキューを実装するコードです：
@@ -396,13 +396,13 @@
 
 このように、エンキューとデキューはいずれも 1 回の操作だけで済み、時間計算量はともに $O(1)$ です。
 
-=== "ArrayQueue"
+=== "<1>"
     ![配列でキューを実装したエンキューとデキュー操作](queue.assets/array_queue_step1.png)
 
-=== "push()"
+=== "<2>"
     ![array_queue_push](queue.assets/array_queue_step2_push.png)
 
-=== "pop()"
+=== "<3>"
     ![array_queue_pop](queue.assets/array_queue_step3_pop.png)
 
 ここで 1 つ問題があります。エンキューとデキューを繰り返すと、`front` と `rear` はどちらも右へ移動し続け、**配列の末尾に達するとそれ以上進めなくなります**。この問題を解決するために、配列を先頭と末尾がつながった「環状配列」とみなします。

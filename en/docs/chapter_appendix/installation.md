@@ -1,6 +1,6 @@
 # Programming Environment Installation
 
-## Installing Ide
+## Installing IDE
 
 We recommend using the open-source and lightweight VS Code as the local integrated development environment (IDE). Visit the [VS Code official website](https://code.visualstudio.com/), and download and install the appropriate version of VS Code according to your operating system.
 
@@ -14,11 +14,11 @@ VS Code has a powerful ecosystem of extensions that supports running and debuggi
 
 ### Python Environment
 
-1. Download and install [Miniconda3](https://docs.conda.io/en/latest/miniconda.html), which requires Python 3.10 or newer.
+1. Download and install [Miniconda3](https://docs.conda.io/en/latest/miniconda.html) with Python 3.10 or later.
 2. Search for `python` in the VS Code extension marketplace and install the Python Extension Pack.
 3. (Optional) Enter `pip install black` on the command line to install the code formatter.
 
-### C/c++ Environment
+### C/C++ Environment
 
 1. Windows systems need to install [MinGW](https://sourceforge.net/projects/mingw-w64/files/) ([configuration tutorial](https://blog.csdn.net/qq_33698226/article/details/129031241)); macOS comes with Clang built-in and does not require installation.
 2. Search for `c++` in the VS Code extension marketplace and install the C/C++ Extension Pack.
@@ -26,12 +26,12 @@ VS Code has a powerful ecosystem of extensions that supports running and debuggi
 
 ### Java Environment
 
-1. Download and install [OpenJDK](https://jdk.java.net/18/) (version must be > JDK 9).
+1. Download and install [OpenJDK](https://jdk.java.net/18/) (version 10 or later).
 2. Search for `java` in the VS Code extension marketplace and install the Extension Pack for Java.
 
 ### C# Environment
 
-1. Download and install [.Net 8.0](https://dotnet.microsoft.com/en-us/download).
+1. Download and install [.NET 8.0](https://dotnet.microsoft.com/en-us/download).
 2. Search for `C# Dev Kit` in the VS Code extension marketplace and install C# Dev Kit ([configuration tutorial](https://code.visualstudio.com/docs/csharp/get-started)).
 3. You can also use Visual Studio ([installation tutorial](https://learn.microsoft.com/zh-cn/visualstudio/install/install-visual-studio?view=vs-2022)).
 
@@ -46,12 +46,12 @@ VS Code has a powerful ecosystem of extensions that supports running and debuggi
 1. Download and install [Swift](https://www.swift.org/download/).
 2. Search for `swift` in the VS Code extension marketplace and install [Swift for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=sswg.swift-lang).
 
-### Javascript Environment
+### JavaScript Environment
 
 1. Download and install [Node.js](https://nodejs.org/en/).
 2. (Optional) Search for `Prettier` in the VS Code extension marketplace and install the code formatter.
 
-### Typescript Environment
+### TypeScript Environment
 
 1. Follow the same installation steps as the JavaScript environment.
 2. Install [TypeScript Execute (tsx)](https://github.com/privatenumber/tsx?tab=readme-ov-file#global-installation).

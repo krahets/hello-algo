@@ -11,19 +11,19 @@
 - **頂点の削除**：隣接行列から 1 行 1 列を削除します。先頭行と先頭列を削除する場合が最悪で、$(n-1)^2$ 個の要素を「左上へ移動」させる必要があるため、$O(n^2)$ 時間です。
 - **初期化**：$n$ 個の頂点を受け取り、長さ $n$ の頂点リスト `vertices` を初期化するのに $O(n)$ 時間、サイズ $n \times n$ の隣接行列 `adjMat` を初期化するのに $O(n^2)$ 時間かかります。
 
-=== "隣接行列の初期化"
+=== "<1>"
     ![隣接行列の初期化、辺の追加と削除、頂点の追加と削除](graph_operations.assets/adjacency_matrix_step1_initialization.png)
 
-=== "辺の追加"
+=== "<2>"
     ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_step2_add_edge.png)
 
-=== "辺の削除"
+=== "<3>"
     ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_step3_remove_edge.png)
 
-=== "頂点の追加"
+=== "<4>"
     ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_step4_add_vertex.png)
 
-=== "頂点の削除"
+=== "<5>"
     ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_step5_remove_vertex.png)
 
 以下は、隣接行列でグラフを表した実装コードです：
@@ -42,19 +42,19 @@
 - **頂点の削除**：隣接リスト全体を走査し、指定した頂点を含むすべての辺を削除する必要があるため、$O(n + m)$ 時間です。
 - **初期化**：隣接リストに $n$ 個の頂点と $2m$ 本の辺を作成するため、$O(n + m)$ 時間です。
 
-=== "隣接リストの初期化"
+=== "<1>"
     ![隣接リストの初期化、辺の追加と削除、頂点の追加と削除](graph_operations.assets/adjacency_list_step1_initialization.png)
 
-=== "辺の追加"
+=== "<2>"
     ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_step2_add_edge.png)
 
-=== "辺の削除"
+=== "<3>"
     ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_step3_remove_edge.png)
 
-=== "頂点の追加"
+=== "<4>"
     ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_step4_add_vertex.png)
 
-=== "頂点の削除"
+=== "<5>"
     ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.png)
 
 以下は隣接リストのコード実装です。上図と比べると、実際のコードには次の違いがあります。

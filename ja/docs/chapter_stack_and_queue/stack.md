@@ -365,13 +365,13 @@
 
 下図のように、プッシュ操作では要素を連結リストの先頭に挿入するだけでよく、このノード挿入方法は「頭部挿入法」と呼ばれます。ポップ操作では、先頭ノードを連結リストから削除するだけです。
 
-=== "LinkedListStack"
+=== "<1>"
     ![連結リストによるスタック実装のプッシュ・ポップ操作](stack.assets/linkedlist_stack_step1.png)
 
-=== "push()"
+=== "<2>"
     ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.png)
 
-=== "pop()"
+=== "<3>"
     ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.png)
 
 以下は、連結リストによってスタックを実装したコード例です：
@@ -384,13 +384,13 @@
 
 配列でスタックを実装する場合、配列の末尾をスタックトップとして扱えます。下図のように、プッシュとポップはそれぞれ配列末尾への要素追加と削除に対応し、どちらの時間計算量も $O(1)$ です。
 
-=== "ArrayStack"
+=== "<1>"
     ![配列によるスタック実装のプッシュ・ポップ操作](stack.assets/array_stack_step1.png)
 
-=== "push()"
+=== "<2>"
     ![array_stack_push](stack.assets/array_stack_step2_push.png)
 
-=== "pop()"
+=== "<3>"
     ![array_stack_pop](stack.assets/array_stack_step3_pop.png)
 
 プッシュされる要素は際限なく増える可能性があるため、動的配列を使えば、配列の拡張を自前で処理する必要がありません。以下にコード例を示します：

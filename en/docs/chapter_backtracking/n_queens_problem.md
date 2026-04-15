@@ -2,7 +2,7 @@
 
 !!! question
 
-    According to the rules of chess, a queen can attack pieces that share the same row, column, or diagonal line. Given $n$ queens and an $n \times n$ chessboard, find a placement scheme such that no two queens can attack each other.
+    According to the rules of chess, a queen can attack any piece in the same row, column, or diagonal. Given $n$ queens and an $n \times n$ chessboard, find an arrangement such that no two queens can attack each other.
 
 As shown in the figure below, when $n = 4$, there are two solutions that can be found. From the perspective of the backtracking algorithm, an $n \times n$ chessboard has $n^2$ squares, which provide all the choices `choices`. During the process of placing queens one by one, the chessboard state changes continuously, and the chessboard at each moment represents the state `state`.
 
@@ -14,11 +14,11 @@ The figure below illustrates the three constraints of this problem: **multiple q
 
 ### Row-By-Row Placement Strategy
 
-Since both the number of queens and the number of rows on the chessboard are $n$, we can easily derive a conclusion: **each row of the chessboard allows and only allows exactly one queen to be placed**.
+Since both the number of queens and the number of rows on the chessboard are $n$, we can easily derive a conclusion: **each row of the chessboard allows one and only one queen to be placed**.
 
 This means we can adopt a row-by-row placement strategy: starting from the first row, place one queen in each row until the last row is completed.
 
-The figure below shows the row-by-row placement process for the 4-queens problem. Due to space limitations, the figure only expands one search branch of the first row, and all schemes that do not satisfy the column constraint and diagonal constraints are pruned.
+The figure below shows the row-by-row placement process for the 4-queens problem. Due to space limitations, the figure only expands one search branch of the first row, and all schemes that violate the column or diagonal constraints are pruned.
 
 ![Row-by-row placement strategy](n_queens_problem.assets/n_queens_placing.png)
 
@@ -42,7 +42,7 @@ Similarly, **for all squares on an anti-diagonal, the sum $row + col$ is a const
 
 ### Code Implementation
 
-Please note that in an $n$-dimensional square matrix, the range of $row - col$ is $[-n + 1, n - 1]$, and the range of $row + col$ is $[0, 2n - 2]$. Therefore, the number of both main diagonals and anti-diagonals is $2n - 1$, meaning the length of both arrays `diags1` and `diags2` is $2n - 1$.
+Please note that in an $n \times n$ square matrix, the range of $row - col$ is $[-n + 1, n - 1]$, and the range of $row + col$ is $[0, 2n - 2]$. Therefore, the number of both main diagonals and anti-diagonals is $2n - 1$, meaning the length of both arrays `diags1` and `diags2` is $2n - 1$.
 
 ```src
 [file]{n_queens}-[class]{}-[func]{n_queens}

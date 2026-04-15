@@ -1,9 +1,9 @@
-# Array and Linked List
+# Arrays and Linked Lists
 
-![Array and Linked List](../assets/covers/chapter_array_and_linkedlist.jpg)
+![Arrays and Linked Lists](../assets/covers/chapter_array_and_linkedlist.jpg)
 
 !!! abstract
 
     The world of data structures is like a solid brick wall.
 
-    Array bricks are neatly arranged, tightly packed one by one. Linked list bricks are scattered everywhere, with connecting vines freely weaving through the gaps between bricks.
+    The bricks of an array are neatly aligned, each pressed tightly against the next. The bricks of a linked list are scattered about, with connecting vines weaving freely through the gaps between them.

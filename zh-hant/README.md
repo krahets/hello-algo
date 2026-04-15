@@ -90,7 +90,7 @@
 
 - [內容修正](https://www.hello-algo.com/chapter_appendix/contribution/)：請您協助修正或在評論區指出語法錯誤、內容缺失、文字歧義、無效連結或程式碼 bug 等問題。
 - [程式碼轉譯](https://github.com/krahets/hello-algo/issues/15)：期待您貢獻各種語言程式碼，已支持 Python、Java、C++、Go、JavaScript 等 12 門程式語言。
-- [中譯英](https://github.com/krahets/hello-algo/issues/914)：誠邀您加入我們的翻譯小組，成員主要來自計算機相關專業、英語專業和英文母語者。
+- 翻譯審閱：歡迎您參與本專案的多語言翻譯與校對工作，幫助更多讀者用母語學習資料結構與演算法。
 
 歡迎您提出寶貴意見和建議，如有任何問題請提交 Issues 或微信聯繫 `krahets-jyd` 。
 

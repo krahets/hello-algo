@@ -1,10 +1,10 @@
 # Stack
 
-A <u>stack</u> is a linear data structure that follows the Last In First Out (LIFO) logic.
+A <u>stack</u> is a linear data structure that follows the Last In, First Out (LIFO) principle.
 
 We can compare a stack to a pile of plates on a table. If we specify that only one plate can be moved at a time, then to get the bottom plate, we must first remove the plates above it one by one. If we replace the plates with various types of elements (such as integers, characters, objects, etc.), we get the stack data structure.
 
-As shown in the figure below, we call the top of the stacked elements the "top" and the bottom the "base." The operation of adding an element to the top is called "push," and the operation of removing the top element is called "pop."
+As shown in the figure below, we call the top of the stacked elements the "top" and the bottom the "bottom." The operation of adding an element to the top is called "push," and the operation of removing the top element is called "pop."
 
 ![LIFO rule of stack](stack.assets/stack_operations.png)
 
@@ -20,7 +20,7 @@ The common operations on a stack are shown in the table below. The specific meth
 | `pop()`  | Pop top element from stack                     | $O(1)$          |
 | `peek()` | Access top element                             | $O(1)$          |
 
-Typically, we can directly use the built-in stack class provided by the programming language. However, some languages may not provide a dedicated stack class. In these cases, we can use the language's "array" or "linked list" as a stack and ignore operations unrelated to the stack in the program logic.
+Typically, we can directly use the built-in stack class provided by the programming language. However, some languages may not provide a dedicated stack class. In such cases, we can use the language's "array" or "linked list" as a stack and simply avoid using operations unrelated to stack behavior.
 
 === "Python"
 
@@ -365,13 +365,13 @@ When implementing a stack using a linked list, we can treat the head node of the
 
 As shown in the figure below, for the push operation, we simply insert an element at the head of the linked list. This node insertion method is called the "head insertion method." For the pop operation, we just need to remove the head node from the linked list.
 
-=== "LinkedListStack"
+=== "<1>"
     ![Push and pop operations in linked list implementation of stack](stack.assets/linkedlist_stack_step1.png)
 
-=== "push()"
+=== "<2>"
     ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.png)
 
-=== "pop()"
+=== "<3>"
     ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.png)
 
 Below is sample code for implementing a stack based on a linked list:
@@ -384,13 +384,13 @@ Below is sample code for implementing a stack based on a linked list:
 
 When implementing a stack using an array, we can treat the end of the array as the top of the stack. As shown in the figure below, push and pop operations correspond to adding and removing elements at the end of the array, both with a time complexity of $O(1)$.
 
-=== "ArrayStack"
+=== "<1>"
     ![Push and pop operations in array implementation of stack](stack.assets/array_stack_step1.png)
 
-=== "push()"
+=== "<2>"
     ![array_stack_push](stack.assets/array_stack_step2_push.png)
 
-=== "pop()"
+=== "<3>"
     ![array_stack_pop](stack.assets/array_stack_step3_pop.png)
 
 Since elements pushed onto the stack may increase continuously, we can use a dynamic array, which eliminates the need to handle array expansion ourselves. Here is the sample code:

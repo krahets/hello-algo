@@ -6,4 +6,4 @@
 
     In the world of computing, a hash table is like a clever librarian.
 
-    They know how to calculate call numbers, enabling them to quickly locate the target book.
+    It knows how to compute call numbers, allowing it to quickly locate the desired book.

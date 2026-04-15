@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    Sunflowers turn toward the sun, constantly pursuing the maximum potential for their own growth.
+    Sunflowers turn toward the sun, always seeking the fullest growth possible.
 
-    Through rounds of simple choices, greedy strategies gradually lead to the best answer.
+    Through successive simple choices, greedy strategies gradually lead to the optimal solution.

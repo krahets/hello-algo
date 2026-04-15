@@ -95,7 +95,7 @@ The two-dimensional $dp$ table has size $(n+1) \times (amt+1)$.
 This problem differs from the unbounded knapsack problem in the following two aspects regarding the state transition equation.
 
 - This problem seeks the minimum value, so the operator $\max()$ needs to be changed to $\min()$.
-- The optimization target is the number of coins rather than item value, so when a coin is selected, simply execute $+1$.
+- The optimization target is the number of coins rather than item value, so when a coin is selected, simply add $1$.
 
 $$
 dp[i, a] = \min(dp[i-1, a], dp[i, a - coins[i-1]] + 1)
@@ -109,7 +109,7 @@ When there are no coins, **it is impossible to make up any amount $> 0$**, which
 
 ### Code Implementation
 
-Most programming languages do not provide a $+ \infty$ variable, and can only use the maximum value of integer type `int` as a substitute. However, this can lead to large number overflow: the $+ 1$ operation in the state transition equation may cause overflow.
+Most programming languages do not provide a $+ \infty$ variable, and can only use the maximum value of integer type `int` as a substitute. However, this can lead to integer overflow: the $+ 1$ operation in the state transition equation may cause overflow.
 
 For this reason, we use the number $amt + 1$ to represent invalid solutions, because the maximum number of coins needed to make up $amt$ is at most $amt$. Before returning, check whether $dp[n, amt]$ equals $amt + 1$; if so, return $-1$, indicating that the target amount cannot be made up. The code is as follows:
 
@@ -172,7 +172,7 @@ The space optimization for the coin change problem is handled in the same way as
 [file]{coin_change}-[class]{}-[func]{coin_change_dp_comp}
 ```
 
-## Coin Change Problem Ii
+## Coin Change Problem II
 
 !!! question
 
