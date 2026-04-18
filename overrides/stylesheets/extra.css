@@ -284,6 +284,7 @@ body {
 .home-div {
   width: 100%;
   height: auto;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -623,6 +624,18 @@ a:hover .text-button span {
     width: 100%;
     height: min(78vw, 32rem);
     margin: 0 0 1em;
+  }
+
+  .media-block>a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .media-block .device-on-hover {
+    max-width: 100%;
   }
 }
 
