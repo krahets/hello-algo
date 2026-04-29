@@ -64,8 +64,9 @@ typedef struct Trunk {
 Trunk *newTrunk(Trunk *prev, char *str) {
     Trunk *trunk = (Trunk *)malloc(sizeof(Trunk));
     trunk->prev = prev;
-    trunk->str = (char *)malloc(sizeof(char) * 10);
-    strcpy(trunk->str, str);
+    size_t len = strlen(str) + 1;
+    trunk->str = (char *)malloc(len);
+    memcpy(trunk->str, str, len);
     return trunk;
 }
 
