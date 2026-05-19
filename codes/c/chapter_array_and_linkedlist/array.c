@@ -9,7 +9,7 @@
 /* 随机访问元素 */
 int randomAccess(int *nums, int size) {
     // 在区间 [0, size) 中随机抽取一个数字
-    int randomIndex = rand() % size;
+    int randomIndex = arc4random_uniform(size);
     // 获取并返回随机元素
     int randomNum = nums[randomIndex];
     return randomNum;
