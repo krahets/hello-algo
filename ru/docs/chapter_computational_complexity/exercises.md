@@ -2,8 +2,6 @@
 comments: true
 ---
 
-<!-- Автоматически создано utils/exercises/publish_exercises.py; не редактируйте напрямую. -->
-
 # 2.6 &nbsp; Упражнения
 
 ## 2.6.1 &nbsp; Вопросы для самопроверки

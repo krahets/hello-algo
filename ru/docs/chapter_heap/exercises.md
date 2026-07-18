@@ -2,8 +2,6 @@
 comments: true
 ---
 
-<!-- Автоматически создано utils/exercises/publish_exercises.py; не редактируйте напрямую. -->
-
 # 8.5 &nbsp; Упражнения
 
 ## 8.5.1 &nbsp; Вопросы для самопроверки

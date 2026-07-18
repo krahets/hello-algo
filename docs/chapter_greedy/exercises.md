@@ -2,8 +2,6 @@
 comments: true
 ---
 
-<!-- 此文件由 utils/exercises/publish_exercises.py 根据 exercises.yaml 自动生成，请勿直接修改。 -->
-
 # 15.6 &nbsp; 练习
 
 ## 15.6.1 &nbsp; 知识巩固

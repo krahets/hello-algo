@@ -2,8 +2,6 @@
 comments: true
 ---
 
-<!-- utils/exercises/publish_exercises.py により自動生成されています。直接編集しないでください。 -->
-
 # 11.12 &nbsp; 演習
 
 ## 11.12.1 &nbsp; 確認問題

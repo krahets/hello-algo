@@ -2,8 +2,6 @@
 comments: true
 ---
 
-<!-- 此檔案由 utils/exercises/publish_exercises.py 根據 exercises.yaml 自動生成，請勿直接修改。 -->
-
 # 11.12 &nbsp; 練習
 
 ## 11.12.1 &nbsp; 知識鞏固

@@ -1,6 +1,5 @@
 ---
 comments: true
-status: new
 ---
 
 # 4.4 &nbsp; 記憶體與快取 *
