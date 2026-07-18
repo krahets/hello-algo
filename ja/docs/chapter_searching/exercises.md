@@ -1,5 +1,3 @@
-<!-- utils/exercises/publish_exercises.py により自動生成されています。直接編集しないでください。 -->
-
 # 演習
 
 ## 確認問題

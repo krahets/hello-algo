@@ -75,7 +75,6 @@ nav:
     - 4.1 &nbsp; 陣列: chapter_array_and_linkedlist/array.md
     - 4.2 &nbsp; 鏈結串列: chapter_array_and_linkedlist/linked_list.md
     - 4.3 &nbsp; 串列: chapter_array_and_linkedlist/list.md
-    # [status: new]
     - 4.4 &nbsp; 記憶體與快取 *: chapter_array_and_linkedlist/ram_and_cache.md
     - 4.5 &nbsp; 小結: chapter_array_and_linkedlist/summary.md
     - 4.6 &nbsp; 練習: chapter_array_and_linkedlist/exercises.md

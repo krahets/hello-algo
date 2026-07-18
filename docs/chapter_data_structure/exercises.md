@@ -1,5 +1,3 @@
-<!-- 此文件由 utils/exercises/publish_exercises.py 根据 exercises.yaml 自动生成，请勿直接修改。 -->
-
 # 练习
 
 ## 知识巩固
