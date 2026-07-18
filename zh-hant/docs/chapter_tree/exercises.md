@@ -1,6 +1,5 @@
 ---
 comments: true
-hide: [edit]
 ---
 
 <!-- 此檔案由 utils/exercises/publish_exercises.py 根據 exercises.yaml 自動生成，請勿直接修改。 -->
