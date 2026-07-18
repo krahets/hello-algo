@@ -46,6 +46,9 @@
         <loc>https://www.hello-algo.com/chapter_computational_complexity/summary/</loc>
       </url>
       <url>
+        <loc>https://www.hello-algo.com/chapter_computational_complexity/exercises/</loc>
+      </url>
+      <url>
         <loc>https://www.hello-algo.com/chapter_data_structure/</loc>
       </url>
       <url>
@@ -62,6 +65,9 @@
       </url>
       <url>
         <loc>https://www.hello-algo.com/chapter_data_structure/summary/</loc>
+      </url>
+      <url>
+        <loc>https://www.hello-algo.com/chapter_data_structure/exercises/</loc>
       </url>
       <url>
         <loc>https://www.hello-algo.com/chapter_array_and_linkedlist/</loc>
@@ -82,6 +88,9 @@
         <loc>https://www.hello-algo.com/chapter_array_and_linkedlist/summary/</loc>
       </url>
       <url>
+        <loc>https://www.hello-algo.com/chapter_array_and_linkedlist/exercises/</loc>
+      </url>
+      <url>
         <loc>https://www.hello-algo.com/chapter_stack_and_queue/</loc>
       </url>
       <url>
@@ -97,6 +106,9 @@
         <loc>https://www.hello-algo.com/chapter_stack_and_queue/summary/</loc>
       </url>
       <url>
+        <loc>https://www.hello-algo.com/chapter_stack_and_queue/exercises/</loc>
+      </url>
+      <url>
         <loc>https://www.hello-algo.com/chapter_hashing/</loc>
       </url>
       <url>
@@ -110,6 +122,9 @@
       </url>
       <url>
         <loc>https://www.hello-algo.com/chapter_hashing/summary/</loc>
+      </url>
+      <url>
+        <loc>https://www.hello-algo.com/chapter_hashing/exercises/</loc>
       </url>
       <url>
         <loc>https://www.hello-algo.com/chapter_tree/</loc>
@@ -133,6 +148,9 @@
         <loc>https://www.hello-algo.com/chapter_tree/summary/</loc>
       </url>
       <url>
+        <loc>https://www.hello-algo.com/chapter_tree/exercises/</loc>
+      </url>
+      <url>
         <loc>https://www.hello-algo.com/chapter_heap/</loc>
       </url>
       <url>
@@ -148,6 +166,9 @@
         <loc>https://www.hello-algo.com/chapter_heap/summary/</loc>
       </url>
       <url>
+        <loc>https://www.hello-algo.com/chapter_heap/exercises/</loc>
+      </url>
+      <url>
         <loc>https://www.hello-algo.com/chapter_graph/</loc>
       </url>
       <url>
@@ -161,6 +182,9 @@
       </url>
       <url>
         <loc>https://www.hello-algo.com/chapter_graph/summary/</loc>
+      </url>
+      <url>
+        <loc>https://www.hello-algo.com/chapter_graph/exercises/</loc>
       </url>
       <url>
         <loc>https://www.hello-algo.com/chapter_searching/</loc>
@@ -182,6 +206,9 @@
       </url>
       <url>
         <loc>https://www.hello-algo.com/chapter_searching/summary/</loc>
+      </url>
+      <url>
+        <loc>https://www.hello-algo.com/chapter_searching/exercises/</loc>
       </url>
       <url>
         <loc>https://www.hello-algo.com/chapter_sorting/</loc>
@@ -220,6 +247,9 @@
         <loc>https://www.hello-algo.com/chapter_sorting/summary/</loc>
       </url>
       <url>
+        <loc>https://www.hello-algo.com/chapter_sorting/exercises/</loc>
+      </url>
+      <url>
         <loc>https://www.hello-algo.com/chapter_divide_and_conquer/</loc>
       </url>
       <url>
@@ -238,6 +268,9 @@
         <loc>https://www.hello-algo.com/chapter_divide_and_conquer/summary/</loc>
       </url>
       <url>
+        <loc>https://www.hello-algo.com/chapter_divide_and_conquer/exercises/</loc>
+      </url>
+      <url>
         <loc>https://www.hello-algo.com/chapter_backtracking/</loc>
       </url>
       <url>
@@ -254,6 +287,9 @@
       </url>
       <url>
         <loc>https://www.hello-algo.com/chapter_backtracking/summary/</loc>
+      </url>
+      <url>
+        <loc>https://www.hello-algo.com/chapter_backtracking/exercises/</loc>
       </url>
       <url>
         <loc>https://www.hello-algo.com/chapter_dynamic_programming/</loc>
@@ -280,6 +316,9 @@
         <loc>https://www.hello-algo.com/chapter_dynamic_programming/summary/</loc>
       </url>
       <url>
+        <loc>https://www.hello-algo.com/chapter_dynamic_programming/exercises/</loc>
+      </url>
+      <url>
         <loc>https://www.hello-algo.com/chapter_greedy/</loc>
       </url>
       <url>
@@ -296,6 +335,9 @@
       </url>
       <url>
         <loc>https://www.hello-algo.com/chapter_greedy/summary/</loc>
+      </url>
+      <url>
+        <loc>https://www.hello-algo.com/chapter_greedy/exercises/</loc>
       </url>
       <url>
         <loc>https://www.hello-algo.com/chapter_appendix/</loc>
