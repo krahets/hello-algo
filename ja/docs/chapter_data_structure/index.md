@@ -20,3 +20,4 @@ icon: material/shape-outline
 - [3.3 &nbsp; 数値エンコーディング *](number_encoding.md)
 - [3.4 &nbsp; 文字エンコーディング *](character_encoding.md)
 - [3.5 &nbsp; まとめ](summary.md)
+- [3.6 &nbsp; 演習](exercises.md)

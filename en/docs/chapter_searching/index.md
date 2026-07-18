@@ -21,3 +21,4 @@ icon: material/text-search
 - [10.4 &nbsp; Hash Optimization Strategy](replace_linear_by_hashing.md)
 - [10.5 &nbsp; Searching Algorithms Revisited](searching_algorithm_revisited.md)
 - [10.6 &nbsp; Summary](summary.md)
+- [10.7 &nbsp; Exercises](exercises.md)

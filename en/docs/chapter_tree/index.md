@@ -21,3 +21,4 @@ icon: material/graph-outline
 - [7.4 &nbsp; Binary Search Tree](binary_search_tree.md)
 - [7.5 &nbsp; AVL Tree *](avl_tree.md)
 - [7.6 &nbsp; Summary](summary.md)
+- [7.7 &nbsp; Exercises](exercises.md)

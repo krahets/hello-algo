@@ -19,3 +19,4 @@ icon: material/stack-overflow
 - [5.2 &nbsp; Очередь](queue.md)
 - [5.3 &nbsp; Двусторонняя очередь](deque.md)
 - [5.4 &nbsp; Резюме](summary.md)
+- [5.5 &nbsp; Упражнения](exercises.md)

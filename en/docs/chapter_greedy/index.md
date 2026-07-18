@@ -20,3 +20,4 @@ icon: material/head-heart-outline
 - [15.3 &nbsp; Maximum Capacity Problem](max_capacity_problem.md)
 - [15.4 &nbsp; Maximum Product Cutting Problem](max_product_cutting_problem.md)
 - [15.5 &nbsp; Summary](summary.md)
+- [15.6 &nbsp; Exercises](exercises.md)

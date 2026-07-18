@@ -26,3 +26,4 @@ icon: material/sort-ascending
 - [11.9 &nbsp; 计数排序](counting_sort.md)
 - [11.10 &nbsp; 基数排序](radix_sort.md)
 - [11.11 &nbsp; 小结](summary.md)
+- [11.12 &nbsp; 练习](exercises.md)

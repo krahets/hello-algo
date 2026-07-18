@@ -26,3 +26,4 @@ icon: material/sort-ascending
 - [11.9 &nbsp; Counting Sort](counting_sort.md)
 - [11.10 &nbsp; Radix Sort](radix_sort.md)
 - [11.11 &nbsp; Summary](summary.md)
+- [11.12 &nbsp; Exercises](exercises.md)

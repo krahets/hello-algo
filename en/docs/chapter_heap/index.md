@@ -19,3 +19,4 @@ icon: material/family-tree
 - [8.2 &nbsp; Heap Construction Operation](build_heap.md)
 - [8.3 &nbsp; Top-k Problem](top_k.md)
 - [8.4 &nbsp; Summary](summary.md)
+- [8.5 &nbsp; Exercises](exercises.md)

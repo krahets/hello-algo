@@ -22,3 +22,4 @@ icon: material/table-pivot
 - [14.5 &nbsp; Задача о полном рюкзаке](unbounded_knapsack_problem.md)
 - [14.6 &nbsp; Задача о расстоянии редактирования](edit_distance_problem.md)
 - [14.7 &nbsp; Резюме](summary.md)
+- [14.8 &nbsp; Упражнения](exercises.md)

@@ -20,3 +20,4 @@ icon: material/set-split
 - [12.3 &nbsp; Задача построения двоичного дерева](build_binary_tree_problem.md)
 - [12.4 &nbsp; Задача о Ханойской башне](hanota_problem.md)
 - [12.5 &nbsp; Резюме](summary.md)
+- [12.6 &nbsp; Упражнения](exercises.md)

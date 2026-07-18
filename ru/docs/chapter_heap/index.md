@@ -19,3 +19,4 @@ icon: material/family-tree
 - [8.2 &nbsp; Построение кучи](build_heap.md)
 - [8.3 &nbsp; Задача Top-k](top_k.md)
 - [8.4 &nbsp; Резюме](summary.md)
+- [8.5 &nbsp; Упражнения](exercises.md)

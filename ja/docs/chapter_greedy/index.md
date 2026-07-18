@@ -20,3 +20,4 @@ icon: material/head-heart-outline
 - [15.3 &nbsp; 最大容量問題](max_capacity_problem.md)
 - [15.4 &nbsp; 最大積分割問題](max_product_cutting_problem.md)
 - [15.5 &nbsp; まとめ](summary.md)
+- [15.6 &nbsp; 演習](exercises.md)

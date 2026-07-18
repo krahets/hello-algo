@@ -22,3 +22,4 @@ icon: material/table-pivot
 - [14.5 &nbsp; Unbounded Knapsack Problem](unbounded_knapsack_problem.md)
 - [14.6 &nbsp; Edit Distance Problem](edit_distance_problem.md)
 - [14.7 &nbsp; Summary](summary.md)
+- [14.8 &nbsp; Exercises](exercises.md)

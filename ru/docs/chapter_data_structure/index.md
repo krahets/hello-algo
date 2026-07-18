@@ -20,3 +20,4 @@ icon: material/shape-outline
 - [3.3 &nbsp; Кодирование чисел *](number_encoding.md)
 - [3.4 &nbsp; Кодирование символов *](character_encoding.md)
 - [3.5 &nbsp; Резюме](summary.md)
+- [3.6 &nbsp; Упражнения](exercises.md)

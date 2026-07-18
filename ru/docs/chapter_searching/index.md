@@ -21,3 +21,4 @@ icon: material/text-search
 - [10.4 &nbsp; Стратегии оптимизации хеширования](replace_linear_by_hashing.md)
 - [10.5 &nbsp; Переосмысление алгоритмов поиска](searching_algorithm_revisited.md)
 - [10.6 &nbsp; Резюме](summary.md)
+- [10.7 &nbsp; Упражнения](exercises.md)

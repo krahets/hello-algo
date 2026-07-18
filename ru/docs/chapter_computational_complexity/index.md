@@ -20,3 +20,4 @@ icon: material/timer-sand
 - [2.3 &nbsp; Временная сложность](time_complexity.md)
 - [2.4 &nbsp; Пространственная сложность](space_complexity.md)
 - [2.5 &nbsp; Резюме](summary.md)
+- [2.6 &nbsp; Упражнения](exercises.md)

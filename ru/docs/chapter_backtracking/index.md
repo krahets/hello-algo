@@ -20,3 +20,4 @@ icon: material/map-marker-path
 - [13.3 &nbsp; Задача о сумме подмножеств](subset_sum_problem.md)
 - [13.4 &nbsp; Задача о n ферзях](n_queens_problem.md)
 - [13.5 &nbsp; Резюме](summary.md)
+- [13.6 &nbsp; Упражнения](exercises.md)

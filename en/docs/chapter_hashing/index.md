@@ -19,3 +19,4 @@ icon: material/table-search
 - [6.2 &nbsp; Hash Collision](hash_collision.md)
 - [6.3 &nbsp; Hash Algorithm](hash_algorithm.md)
 - [6.4 &nbsp; Summary](summary.md)
+- [6.5 &nbsp; Exercises](exercises.md)

@@ -26,3 +26,4 @@ icon: material/sort-ascending
 - [11.9 &nbsp; 計数ソート](counting_sort.md)
 - [11.10 &nbsp; 基数ソート](radix_sort.md)
 - [11.11 &nbsp; まとめ](summary.md)
+- [11.12 &nbsp; 演習](exercises.md)

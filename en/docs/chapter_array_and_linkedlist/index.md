@@ -20,3 +20,4 @@ icon: material/view-list-outline
 - [4.3 &nbsp; List](list.md)
 - [4.4 &nbsp; Random-Access Memory and Cache *](ram_and_cache.md)
 - [4.5 &nbsp; Summary](summary.md)
+- [4.6 &nbsp; Exercises](exercises.md)

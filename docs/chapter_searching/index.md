@@ -21,3 +21,4 @@ icon: material/text-search
 - [10.4 &nbsp; 哈希优化策略](replace_linear_by_hashing.md)
 - [10.5 &nbsp; 重识搜索算法](searching_algorithm_revisited.md)
 - [10.6 &nbsp; 小结](summary.md)
+- [10.7 &nbsp; 练习](exercises.md)

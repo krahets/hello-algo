@@ -20,3 +20,4 @@ icon: material/head-heart-outline
 - [15.3 &nbsp; Задача о максимальной вместимости](max_capacity_problem.md)
 - [15.4 &nbsp; Задача о максимальном произведении разбиения](max_product_cutting_problem.md)
 - [15.5 &nbsp; Резюме](summary.md)
+- [15.6 &nbsp; Упражнения](exercises.md)

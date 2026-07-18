@@ -20,3 +20,4 @@ icon: material/timer-sand
 - [2.3 &nbsp; 时间复杂度](time_complexity.md)
 - [2.4 &nbsp; 空间复杂度](space_complexity.md)
 - [2.5 &nbsp; 小结](summary.md)
+- [2.6 &nbsp; 练习](exercises.md)

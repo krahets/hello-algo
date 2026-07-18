@@ -21,3 +21,4 @@ icon: material/text-search
 - [10.4 &nbsp; ハッシュによる最適化戦略](replace_linear_by_hashing.md)
 - [10.5 &nbsp; 探索アルゴリズム再考](searching_algorithm_revisited.md)
 - [10.6 &nbsp; まとめ](summary.md)
+- [10.7 &nbsp; 演習](exercises.md)

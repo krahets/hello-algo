@@ -19,3 +19,4 @@ icon: material/stack-overflow
 - [5.2 &nbsp; キュー](queue.md)
 - [5.3 &nbsp; 両端キュー](deque.md)
 - [5.4 &nbsp; まとめ](summary.md)
+- [5.5 &nbsp; 演習](exercises.md)

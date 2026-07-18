@@ -19,3 +19,4 @@ icon: material/stack-overflow
 - [5.2 &nbsp; 队列](queue.md)
 - [5.3 &nbsp; 双向队列](deque.md)
 - [5.4 &nbsp; 小结](summary.md)
+- [5.5 &nbsp; 练习](exercises.md)

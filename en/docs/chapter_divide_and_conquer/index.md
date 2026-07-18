@@ -20,3 +20,4 @@ icon: material/set-split
 - [12.3 &nbsp; Building a Binary Tree Problem](build_binary_tree_problem.md)
 - [12.4 &nbsp; Hanota Problem](hanota_problem.md)
 - [12.5 &nbsp; Summary](summary.md)
+- [12.6 &nbsp; Exercises](exercises.md)

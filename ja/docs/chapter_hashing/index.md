@@ -19,3 +19,4 @@ icon: material/table-search
 - [6.2 &nbsp; ハッシュ衝突](hash_collision.md)
 - [6.3 &nbsp; ハッシュアルゴリズム](hash_algorithm.md)
 - [6.4 &nbsp; まとめ](summary.md)
+- [6.5 &nbsp; 演習](exercises.md)

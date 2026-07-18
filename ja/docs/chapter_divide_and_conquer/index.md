@@ -20,3 +20,4 @@ icon: material/set-split
 - [12.3 &nbsp; 二分木の構築問題](build_binary_tree_problem.md)
 - [12.4 &nbsp; ハノイの塔の問題](hanota_problem.md)
 - [12.5 &nbsp; まとめ](summary.md)
+- [12.6 &nbsp; 演習](exercises.md)

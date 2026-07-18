@@ -20,3 +20,4 @@ icon: material/view-list-outline
 - [4.3 &nbsp; Список](list.md)
 - [4.4 &nbsp; Оперативная память и кэш *](ram_and_cache.md)
 - [4.5 &nbsp; Резюме](summary.md)
+- [4.6 &nbsp; Упражнения](exercises.md)

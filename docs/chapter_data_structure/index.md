@@ -20,3 +20,4 @@ icon: material/shape-outline
 - [3.3 &nbsp; 数字编码 *](number_encoding.md)
 - [3.4 &nbsp; 字符编码 *](character_encoding.md)
 - [3.5 &nbsp; 小结](summary.md)
+- [3.6 &nbsp; 练习](exercises.md)

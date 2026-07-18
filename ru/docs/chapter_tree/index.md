@@ -21,3 +21,4 @@ icon: material/graph-outline
 - [7.4 &nbsp; Двоичное дерево поиска](binary_search_tree.md)
 - [7.5 &nbsp; AVL-дерево *](avl_tree.md)
 - [7.6 &nbsp; Краткие итоги](summary.md)
+- [7.7 &nbsp; Упражнения](exercises.md)

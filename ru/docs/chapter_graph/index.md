@@ -19,3 +19,4 @@ icon: material/graphql
 - [9.2 &nbsp; Базовые операции графа](graph_operations.md)
 - [9.3 &nbsp; Обход графа](graph_traversal.md)
 - [9.4 &nbsp; Краткие итоги](summary.md)
+- [9.5 &nbsp; Упражнения](exercises.md)

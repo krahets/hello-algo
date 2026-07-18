@@ -20,3 +20,4 @@ icon: material/shape-outline
 - [3.3 &nbsp; Number Encoding *](number_encoding.md)
 - [3.4 &nbsp; Character Encoding *](character_encoding.md)
 - [3.5 &nbsp; Summary](summary.md)
+- [3.6 &nbsp; Exercises](exercises.md)

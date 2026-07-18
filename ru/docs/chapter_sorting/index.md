@@ -26,3 +26,4 @@ icon: material/sort-ascending
 - [11.9 &nbsp; Сортировка подсчетом](counting_sort.md)
 - [11.10 &nbsp; Поразрядная сортировка](radix_sort.md)
 - [11.11 &nbsp; Резюме](summary.md)
+- [11.12 &nbsp; Упражнения](exercises.md)

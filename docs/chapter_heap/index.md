@@ -19,3 +19,4 @@ icon: material/family-tree
 - [8.2 &nbsp; 建堆操作](build_heap.md)
 - [8.3 &nbsp; Top-k 问题](top_k.md)
 - [8.4 &nbsp; 小结](summary.md)
+- [8.5 &nbsp; 练习](exercises.md)

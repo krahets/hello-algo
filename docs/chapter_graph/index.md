@@ -19,3 +19,4 @@ icon: material/graphql
 - [9.2 &nbsp; 图基础操作](graph_operations.md)
 - [9.3 &nbsp; 图的遍历](graph_traversal.md)
 - [9.4 &nbsp; 小结](summary.md)
+- [9.5 &nbsp; 练习](exercises.md)

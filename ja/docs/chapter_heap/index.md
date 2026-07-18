@@ -19,3 +19,4 @@ icon: material/family-tree
 - [8.2 &nbsp; ヒープ構築](build_heap.md)
 - [8.3 &nbsp; Top-k 問題](top_k.md)
 - [8.4 &nbsp; まとめ](summary.md)
+- [8.5 &nbsp; 演習](exercises.md)

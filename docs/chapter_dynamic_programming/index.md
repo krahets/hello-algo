@@ -22,3 +22,4 @@ icon: material/table-pivot
 - [14.5 &nbsp; 完全背包问题](unbounded_knapsack_problem.md)
 - [14.6 &nbsp; 编辑距离问题](edit_distance_problem.md)
 - [14.7 &nbsp; 小结](summary.md)
+- [14.8 &nbsp; 练习](exercises.md)

@@ -19,3 +19,4 @@ icon: material/table-search
 - [6.2 &nbsp; Хеш-коллизии](hash_collision.md)
 - [6.3 &nbsp; Алгоритмы хеширования](hash_algorithm.md)
 - [6.4 &nbsp; Резюме](summary.md)
+- [6.5 &nbsp; Упражнения](exercises.md)

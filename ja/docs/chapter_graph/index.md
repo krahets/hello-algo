@@ -19,3 +19,4 @@ icon: material/graphql
 - [9.2 &nbsp; グラフの基本操作](graph_operations.md)
 - [9.3 &nbsp; グラフの走査](graph_traversal.md)
 - [9.4 &nbsp; まとめ](summary.md)
+- [9.5 &nbsp; 演習](exercises.md)

@@ -20,3 +20,4 @@ icon: material/map-marker-path
 - [13.3 &nbsp; 部分和問題](subset_sum_problem.md)
 - [13.4 &nbsp; n クイーン問題](n_queens_problem.md)
 - [13.5 &nbsp; まとめ](summary.md)
+- [13.6 &nbsp; 演習](exercises.md)

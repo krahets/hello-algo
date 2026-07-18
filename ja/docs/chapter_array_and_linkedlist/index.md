@@ -20,3 +20,4 @@ icon: material/view-list-outline
 - [4.3 &nbsp; リスト](list.md)
 - [4.4 &nbsp; メモリとキャッシュ *](ram_and_cache.md)
 - [4.5 &nbsp; まとめ](summary.md)
+- [4.6 &nbsp; 演習](exercises.md)

@@ -19,3 +19,4 @@ icon: material/stack-overflow
 - [5.2 &nbsp; Queue](queue.md)
 - [5.3 &nbsp; Deque](deque.md)
 - [5.4 &nbsp; Summary](summary.md)
+- [5.5 &nbsp; Exercises](exercises.md)

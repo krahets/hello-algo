@@ -22,3 +22,4 @@ icon: material/table-pivot
 - [14.5 &nbsp; 完全ナップサック問題](unbounded_knapsack_problem.md)
 - [14.6 &nbsp; 編集距離問題](edit_distance_problem.md)
 - [14.7 &nbsp; まとめ](summary.md)
+- [14.8 &nbsp; 演習](exercises.md)

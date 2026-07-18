@@ -21,3 +21,4 @@ icon: material/graph-outline
 - [7.4 &nbsp; 二分探索木](binary_search_tree.md)
 - [7.5 &nbsp; AVL 木 *](avl_tree.md)
 - [7.6 &nbsp; まとめ](summary.md)
+- [7.7 &nbsp; 演習](exercises.md)
