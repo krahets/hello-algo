@@ -59,6 +59,7 @@ nav:
     - 2.3 Time Complexity: chapter_computational_complexity/time_complexity.md
     - 2.4 Space Complexity: chapter_computational_complexity/space_complexity.md
     - 2.5 Summary: chapter_computational_complexity/summary.md
+    - 2.6 Exercises: chapter_computational_complexity/exercises.md
   - Chapter 3. Data Structures:
     # [icon: material/shape-outline]
     - chapter_data_structure/index.md
@@ -67,6 +68,7 @@ nav:
     - 3.3 Number Encoding *: chapter_data_structure/number_encoding.md
     - 3.4 Character Encoding *: chapter_data_structure/character_encoding.md
     - 3.5 Summary: chapter_data_structure/summary.md
+    - 3.6 Exercises: chapter_data_structure/exercises.md
   - Chapter 4. Arrays and Linked Lists:
     # [icon: material/view-list-outline]
     - chapter_array_and_linkedlist/index.md
@@ -75,6 +77,7 @@ nav:
     - 4.3 List: chapter_array_and_linkedlist/list.md
     - 4.4 Random-Access Memory and Cache *: chapter_array_and_linkedlist/ram_and_cache.md
     - 4.5 Summary: chapter_array_and_linkedlist/summary.md
+    - 4.6 Exercises: chapter_array_and_linkedlist/exercises.md
   - Chapter 5. Stacks and Queues:
     # [icon: material/stack-overflow]
     - chapter_stack_and_queue/index.md
@@ -82,6 +85,7 @@ nav:
     - 5.2 Queue: chapter_stack_and_queue/queue.md
     - 5.3 Deque: chapter_stack_and_queue/deque.md
     - 5.4 Summary: chapter_stack_and_queue/summary.md
+    - 5.5 Exercises: chapter_stack_and_queue/exercises.md
   - Chapter 6. Hashing:
     # [icon: material/table-search]
     - chapter_hashing/index.md
@@ -89,6 +93,7 @@ nav:
     - 6.2 Hash Collision: chapter_hashing/hash_collision.md
     - 6.3 Hash Algorithm: chapter_hashing/hash_algorithm.md
     - 6.4 Summary: chapter_hashing/summary.md
+    - 6.5 Exercises: chapter_hashing/exercises.md
   - Chapter 7. Tree:
     # [icon: material/graph-outline]
     - chapter_tree/index.md
@@ -98,6 +103,7 @@ nav:
     - 7.4 Binary Search Tree: chapter_tree/binary_search_tree.md
     - 7.5 AVL Tree *: chapter_tree/avl_tree.md
     - 7.6 Summary: chapter_tree/summary.md
+    - 7.7 Exercises: chapter_tree/exercises.md
   - Chapter 8. Heap:
     # [icon: material/family-tree]
     - chapter_heap/index.md
@@ -105,6 +111,7 @@ nav:
     - 8.2 Heap Construction Operation: chapter_heap/build_heap.md
     - 8.3 Top-k Problem: chapter_heap/top_k.md
     - 8.4 Summary: chapter_heap/summary.md
+    - 8.5 Exercises: chapter_heap/exercises.md
   - Chapter 9. Graph:
     # [icon: material/graphql]
     - chapter_graph/index.md
@@ -112,6 +119,7 @@ nav:
     - 9.2 Basic Operations on Graphs: chapter_graph/graph_operations.md
     - 9.3 Graph Traversal: chapter_graph/graph_traversal.md
     - 9.4 Summary: chapter_graph/summary.md
+    - 9.5 Exercises: chapter_graph/exercises.md
   - Chapter 10. Searching:
     # [icon: material/text-search]
     - chapter_searching/index.md
@@ -121,6 +129,7 @@ nav:
     - 10.4 Hash Optimization Strategy: chapter_searching/replace_linear_by_hashing.md
     - 10.5 Searching Algorithms Revisited: chapter_searching/searching_algorithm_revisited.md
     - 10.6 Summary: chapter_searching/summary.md
+    - 10.7 Exercises: chapter_searching/exercises.md
   - Chapter 11. Sorting:
     # [icon: material/sort-ascending]
     - chapter_sorting/index.md
@@ -135,6 +144,7 @@ nav:
     - 11.9 Counting Sort: chapter_sorting/counting_sort.md
     - 11.10 Radix Sort: chapter_sorting/radix_sort.md
     - 11.11 Summary: chapter_sorting/summary.md
+    - 11.12 Exercises: chapter_sorting/exercises.md
   - Chapter 12. Divide and Conquer:
     # [icon: material/set-split]
     - chapter_divide_and_conquer/index.md
@@ -143,6 +153,7 @@ nav:
     - 12.3 Building a Binary Tree Problem: chapter_divide_and_conquer/build_binary_tree_problem.md
     - 12.4 Hanota Problem: chapter_divide_and_conquer/hanota_problem.md
     - 12.5 Summary: chapter_divide_and_conquer/summary.md
+    - 12.6 Exercises: chapter_divide_and_conquer/exercises.md
   - Chapter 13. Backtracking:
     # [icon: material/map-marker-path]
     - chapter_backtracking/index.md
@@ -151,6 +162,7 @@ nav:
     - 13.3 Subset-Sum Problem: chapter_backtracking/subset_sum_problem.md
     - 13.4 N-Queens Problem: chapter_backtracking/n_queens_problem.md
     - 13.5 Summary: chapter_backtracking/summary.md
+    - 13.6 Exercises: chapter_backtracking/exercises.md
   - Chapter 14. Dynamic Programming:
     # [icon: material/table-pivot]
     - chapter_dynamic_programming/index.md
@@ -161,6 +173,7 @@ nav:
     - 14.5 Unbounded Knapsack Problem: chapter_dynamic_programming/unbounded_knapsack_problem.md
     - 14.6 Edit Distance Problem: chapter_dynamic_programming/edit_distance_problem.md
     - 14.7 Summary: chapter_dynamic_programming/summary.md
+    - 14.8 Exercises: chapter_dynamic_programming/exercises.md
   - Chapter 15. Greedy:
     # [icon: material/head-heart-outline]
     - chapter_greedy/index.md
@@ -169,6 +182,7 @@ nav:
     - 15.3 Maximum Capacity Problem: chapter_greedy/max_capacity_problem.md
     - 15.4 Maximum Product Cutting Problem: chapter_greedy/max_product_cutting_problem.md
     - 15.5 Summary: chapter_greedy/summary.md
+    - 15.6 Exercises: chapter_greedy/exercises.md
   - Chapter 16. Appendix:
     # [icon: material/help-circle-outline]
     - chapter_appendix/index.md
