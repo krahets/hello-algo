@@ -232,12 +232,12 @@ html:has(body[data-md-color-scheme="default"]) {
   filter: brightness(0.85) invert(0.05);
 }
 
-.md-typeset a:not(.md-button) {
+.md-typeset a:not(.md-button):not(.rounded-button) {
   text-decoration: none;
 }
 
-.md-typeset a:not(.md-button):hover,
-.md-typeset a:not(.md-button):focus-visible {
+.md-typeset a:not(.md-button):not(.rounded-button):hover,
+.md-typeset a:not(.md-button):not(.rounded-button):focus-visible {
   color: var(--md-typeset-a-color);
   text-decoration: underline;
 }
@@ -517,6 +517,44 @@ html:has(body[data-md-color-scheme="default"]) {
   box-shadow:
     0 0.4rem 1.2rem rgb(0 0 0 / 0.18);
   text-decoration: none;
+}
+
+/* Exercise actions reuse the landing-page CTA with a light-content treatment. */
+.rounded-button.exercise-button {
+  border-color: rgb(52 152 144 / 0.3);
+  background-color: rgb(52 152 144 / 0.08);
+  color: #277d76 !important;
+  font-size: 0.85em;
+  box-shadow: none;
+  text-decoration: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.rounded-button.exercise-button:hover,
+.rounded-button.exercise-button:focus-visible {
+  border-color: rgb(52 152 144 / 0.45);
+  background-color: rgb(52 152 144 / 0.14);
+  color: #216c66 !important;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+[data-md-color-scheme="slate"] .rounded-button.exercise-button {
+  border-color: rgb(86 116 122);
+  background-color: rgb(36 52 57);
+  color: rgb(233 245 243) !important;
+  box-shadow: none;
+  backdrop-filter: saturate(115%) blur(0.18rem);
+  -webkit-backdrop-filter: saturate(115%) blur(0.18rem);
+}
+
+[data-md-color-scheme="slate"] .rounded-button.exercise-button:hover,
+[data-md-color-scheme="slate"] .rounded-button.exercise-button:focus-visible {
+  border-color: rgb(92 111 117);
+  background-color: rgb(47 80 83);
+  color: rgb(242 249 248) !important;
+  box-shadow: none;
 }
 
 .heading-div .rounded-button:first-of-type {

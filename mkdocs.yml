@@ -181,6 +181,7 @@ nav:
     - 2.3 &nbsp; 时间复杂度: chapter_computational_complexity/time_complexity.md
     - 2.4 &nbsp; 空间复杂度: chapter_computational_complexity/space_complexity.md
     - 2.5 &nbsp; 小结: chapter_computational_complexity/summary.md
+    - 2.6 &nbsp; 练习: chapter_computational_complexity/exercises.md
   - 第 3 章 &nbsp; 数据结构:
     # [icon: material/shape-outline]
     - chapter_data_structure/index.md
@@ -189,6 +190,7 @@ nav:
     - 3.3 &nbsp; 数字编码 *: chapter_data_structure/number_encoding.md
     - 3.4 &nbsp; 字符编码 *: chapter_data_structure/character_encoding.md
     - 3.5 &nbsp; 小结: chapter_data_structure/summary.md
+    - 3.6 &nbsp; 练习: chapter_data_structure/exercises.md
   - 第 4 章 &nbsp; 数组与链表:
     # [icon: material/view-list-outline]
     - chapter_array_and_linkedlist/index.md
@@ -197,6 +199,7 @@ nav:
     - 4.3 &nbsp; 列表: chapter_array_and_linkedlist/list.md
     - 4.4 &nbsp; 内存与缓存 *: chapter_array_and_linkedlist/ram_and_cache.md
     - 4.5 &nbsp; 小结: chapter_array_and_linkedlist/summary.md
+    - 4.6 &nbsp; 练习: chapter_array_and_linkedlist/exercises.md
   - 第 5 章 &nbsp; 栈与队列:
     # [icon: material/stack-overflow]
     - chapter_stack_and_queue/index.md
@@ -204,6 +207,7 @@ nav:
     - 5.2 &nbsp; 队列: chapter_stack_and_queue/queue.md
     - 5.3 &nbsp; 双向队列: chapter_stack_and_queue/deque.md
     - 5.4 &nbsp; 小结: chapter_stack_and_queue/summary.md
+    - 5.5 &nbsp; 练习: chapter_stack_and_queue/exercises.md
   - 第 6 章 &nbsp; 哈希表:
     # [icon: material/table-search]
     - chapter_hashing/index.md
@@ -211,6 +215,7 @@ nav:
     - 6.2 &nbsp; 哈希冲突: chapter_hashing/hash_collision.md
     - 6.3 &nbsp; 哈希算法: chapter_hashing/hash_algorithm.md
     - 6.4 &nbsp; 小结: chapter_hashing/summary.md
+    - 6.5 &nbsp; 练习: chapter_hashing/exercises.md
   - 第 7 章 &nbsp; 树:
     # [icon: material/graph-outline]
     - chapter_tree/index.md
@@ -220,6 +225,7 @@ nav:
     - 7.4 &nbsp; 二叉搜索树: chapter_tree/binary_search_tree.md
     - 7.5 &nbsp; AVL 树 *: chapter_tree/avl_tree.md
     - 7.6 &nbsp; 小结: chapter_tree/summary.md
+    - 7.7 &nbsp; 练习: chapter_tree/exercises.md
   - 第 8 章 &nbsp; 堆:
     # [icon: material/family-tree]
     - chapter_heap/index.md
@@ -227,6 +233,7 @@ nav:
     - 8.2 &nbsp; 建堆操作: chapter_heap/build_heap.md
     - 8.3 &nbsp; Top-k 问题: chapter_heap/top_k.md
     - 8.4 &nbsp; 小结: chapter_heap/summary.md
+    - 8.5 &nbsp; 练习: chapter_heap/exercises.md
   - 第 9 章 &nbsp; 图:
     # [icon: material/graphql]
     - chapter_graph/index.md
@@ -234,6 +241,7 @@ nav:
     - 9.2 &nbsp; 图基础操作: chapter_graph/graph_operations.md
     - 9.3 &nbsp; 图的遍历: chapter_graph/graph_traversal.md
     - 9.4 &nbsp; 小结: chapter_graph/summary.md
+    - 9.5 &nbsp; 练习: chapter_graph/exercises.md
   - 第 10 章 &nbsp; 搜索:
     # [icon: material/text-search]
     - chapter_searching/index.md
@@ -243,6 +251,7 @@ nav:
     - 10.4 &nbsp; 哈希优化策略: chapter_searching/replace_linear_by_hashing.md
     - 10.5 &nbsp; 重识搜索算法: chapter_searching/searching_algorithm_revisited.md
     - 10.6 &nbsp; 小结: chapter_searching/summary.md
+    - 10.7 &nbsp; 练习: chapter_searching/exercises.md
   - 第 11 章 &nbsp; 排序:
     # [icon: material/sort-ascending]
     - chapter_sorting/index.md
@@ -257,6 +266,7 @@ nav:
     - 11.9 &nbsp; 计数排序: chapter_sorting/counting_sort.md
     - 11.10 &nbsp; 基数排序: chapter_sorting/radix_sort.md
     - 11.11 &nbsp; 小结: chapter_sorting/summary.md
+    - 11.12 &nbsp; 练习: chapter_sorting/exercises.md
   - 第 12 章 &nbsp; 分治:
     # [icon: material/set-split]
     - chapter_divide_and_conquer/index.md
@@ -265,6 +275,7 @@ nav:
     - 12.3 &nbsp; 构建树问题: chapter_divide_and_conquer/build_binary_tree_problem.md
     - 12.4 &nbsp; 汉诺塔问题: chapter_divide_and_conquer/hanota_problem.md
     - 12.5 &nbsp; 小结: chapter_divide_and_conquer/summary.md
+    - 12.6 &nbsp; 练习: chapter_divide_and_conquer/exercises.md
   - 第 13 章 &nbsp; 回溯:
     # [icon: material/map-marker-path]
     - chapter_backtracking/index.md
@@ -273,6 +284,7 @@ nav:
     - 13.3 &nbsp; 子集和问题: chapter_backtracking/subset_sum_problem.md
     - 13.4 &nbsp; N 皇后问题: chapter_backtracking/n_queens_problem.md
     - 13.5 &nbsp; 小结: chapter_backtracking/summary.md
+    - 13.6 &nbsp; 练习: chapter_backtracking/exercises.md
   - 第 14 章 &nbsp; 动态规划:
     # [icon: material/table-pivot]
     - chapter_dynamic_programming/index.md
@@ -283,6 +295,7 @@ nav:
     - 14.5 &nbsp; 完全背包问题: chapter_dynamic_programming/unbounded_knapsack_problem.md
     - 14.6 &nbsp; 编辑距离问题: chapter_dynamic_programming/edit_distance_problem.md
     - 14.7 &nbsp; 小结: chapter_dynamic_programming/summary.md
+    - 14.8 &nbsp; 练习: chapter_dynamic_programming/exercises.md
   - 第 15 章 &nbsp; 贪心:
     # [icon: material/head-heart-outline]
     - chapter_greedy/index.md
@@ -291,6 +304,7 @@ nav:
     - 15.3 &nbsp; 最大容量问题: chapter_greedy/max_capacity_problem.md
     - 15.4 &nbsp; 最大切分乘积问题: chapter_greedy/max_product_cutting_problem.md
     - 15.5 &nbsp; 小结: chapter_greedy/summary.md
+    - 15.6 &nbsp; 练习: chapter_greedy/exercises.md
   - 第 16 章 &nbsp; 附录:
     # [icon: material/help-circle-outline]
     - chapter_appendix/index.md
