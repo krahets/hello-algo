@@ -264,67 +264,113 @@ html:has(body[data-md-color-scheme="default"]) {
 
 .md-typeset .admonition,
 .md-typeset details {
+  --hello-algo-callout-color: #448aff;
   border: 0.08rem solid transparent;
 }
 
 .md-typeset .admonition.note,
 .md-typeset details.note {
+  --hello-algo-callout-color: #448aff;
   border-color: #448aff3d;
 }
 
 .md-typeset .admonition.abstract,
 .md-typeset details.abstract {
+  --hello-algo-callout-color: #00b0ff;
   border-color: #00b0ff3d;
 }
 
 .md-typeset .admonition.info,
 .md-typeset details.info {
+  --hello-algo-callout-color: #00b8d4;
   border-color: #00b8d43d;
 }
 
 .md-typeset .admonition.tip,
 .md-typeset details.tip {
+  --hello-algo-callout-color: #00bfa5;
   border-color: #00bfa53d;
 }
 
 .md-typeset .admonition.success,
 .md-typeset details.success {
+  --hello-algo-callout-color: #00c853;
   border-color: #00c8533d;
 }
 
 .md-typeset .admonition.question,
 .md-typeset details.question {
+  --hello-algo-callout-color: #64dd17;
   border-color: #64dd173d;
 }
 
 .md-typeset .admonition.warning,
 .md-typeset details.warning {
+  --hello-algo-callout-color: #ff9100;
   border-color: #ff91003d;
 }
 
 .md-typeset .admonition.failure,
 .md-typeset details.failure {
+  --hello-algo-callout-color: #ff5252;
   border-color: #ff52523d;
 }
 
 .md-typeset .admonition.danger,
 .md-typeset details.danger {
+  --hello-algo-callout-color: #ff1744;
   border-color: #ff17443d;
 }
 
 .md-typeset .admonition.bug,
 .md-typeset details.bug {
+  --hello-algo-callout-color: #f50057;
   border-color: #f500573d;
 }
 
 .md-typeset .admonition.example,
 .md-typeset details.example {
+  --hello-algo-callout-color: #7c4dff;
   border-color: #7c4dff3d;
 }
 
 .md-typeset .admonition.quote,
 .md-typeset details.quote {
+  --hello-algo-callout-color: #9e9e9e;
   border-color: #9e9e9e3d;
+}
+
+.md-typeset :is(.admonition, details):not(.pythontutor) {
+  background-color: color-mix(in srgb, var(--hello-algo-callout-color) 3%, var(--md-default-bg-color));
+}
+
+.md-typeset :is(.admonition, details):not(.pythontutor) > :is(.admonition-title, summary) {
+  background-color: color-mix(in srgb, var(--hello-algo-callout-color) 10%, var(--md-default-bg-color));
+  border-radius: 0.32rem 0.32rem 0 0;
+  margin: 0 -0.8rem;
+  padding-bottom: 0.4rem;
+  padding-top: 0.4rem;
+}
+
+[dir="ltr"] .md-typeset :is(.admonition, details):not(.pythontutor) > :is(.admonition-title, summary) {
+  padding-left: 2.4rem;
+}
+
+[dir="rtl"] .md-typeset :is(.admonition, details):not(.pythontutor) > :is(.admonition-title, summary) {
+  padding-right: 2.4rem;
+}
+
+[dir="ltr"] .md-typeset :is(.admonition, details):not(.pythontutor) > :is(.admonition-title, summary)::before {
+  left: 0.8rem;
+}
+
+[dir="rtl"] .md-typeset :is(.admonition, details):not(.pythontutor) > :is(.admonition-title, summary)::before {
+  right: 0.8rem;
+}
+
+.md-typeset details:not([open], .pythontutor) > summary {
+  border-radius: 0.32rem;
+  margin-bottom: 0;
 }
 
 .md-typeset .admonition.pythontutor,
