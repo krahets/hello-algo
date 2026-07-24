@@ -69,17 +69,6 @@
 >
 > **—— 李沐，Amazon シニア・プリンシパル・サイエンティスト**
 
-## 謝辞
-
-<p align="left">
-  <a href="https://go.warp.dev/hello-algo">
-    <img src="https://github.com/warpdotdev/brand-assets/blob/main/Github/Sponsor/Warp-Github-LG-02.png" alt="Warp-Github-LG-02" width="500"></a>
-</p>
-
-[Warp は複数の AI エージェントとともにコーディングするために作られています。](https://go.warp.dev/hello-algo)
-
-Warp ターミナルは、洗練された UI と使いやすい AI を兼ね備えており、非常に優れた体験を提供してくれます。
-
 ## 貢献
 
 本書は現在も継続的に更新されており、読者により良い学習コンテンツを届けるため、プロジェクトへの参加を歓迎しています。

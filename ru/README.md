@@ -68,17 +68,6 @@
 >
 > **—— Mu Li, Senior Principal Scientist, Amazon**
 
-## Благодарности
-
-<p align="left">
-  <a href="https://go.warp.dev/hello-algo">
-    <img src="https://github.com/warpdotdev/brand-assets/blob/main/Github/Sponsor/Warp-Github-LG-02.png" alt="Warp-Github-LG-02" width="500"></a>
-</p>
-
-[Warp создан для программирования с несколькими AI-агентами.](https://go.warp.dev/hello-algo)
-
-Очень рекомендуем терминал Warp: красивый интерфейс, полезные AI-возможности и отличное общее впечатление от работы.
-
 ## Участие
 
 Эта открытая книга продолжает активно развиваться, и мы будем рады вашему участию, чтобы сделать обучение для читателей еще качественнее.
