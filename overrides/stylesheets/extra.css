@@ -726,8 +726,20 @@ a:hover .device-on-hover {
   fill: var(--md-primary-bg-color);
 }
 
+.endor-container {
+  align-items: stretch;
+  gap: 20px;
+  margin: 0 auto;
+}
+
 .endor-text {
   width: 50%;
+  margin: 0;
+  padding: 1.25em 2.5em;
+  border-radius: 28px;
+  background-color: #101010;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .intro-quote {
@@ -853,8 +865,14 @@ a:hover .device-on-hover {
   }
 
   .endor-text {
-    width: auto;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
+    padding: 1em 2em;
+    border-radius: 20px;
+  }
+
+  .endor-container {
+    gap: 20px;
   }
 
   .intro-image {
