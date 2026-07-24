@@ -1,32 +1,35 @@
 /**
  * File: climbing_stairs_dfs.cpp
- * Created Time: 2023-06-30
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-20
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
  */
 
-#include "../utils/common.hpp"
+#include <iostream>
+using namespace std;
 
-/* 搜索 */
+/* 深度优先搜索：计算爬到第 i 阶楼梯的方案数 */
 int dfs(int i) {
-    // 已知 dp[1] 和 dp[2] ，返回之
-    if (i == 1 || i == 2)
+    // 递归终止条件：1阶、2阶是已知解
+    if (i == 1 || i == 2) {
         return i;
-    // dp[i] = dp[i-1] + dp[i-2]
-    int count = dfs(i - 1) + dfs(i - 2);
-    return count;
+    }
+    // 递推公式：第 i 阶 = 从 i-1 爬1阶 + 从 i-2 爬2阶
+    return dfs(i - 1) + dfs(i - 2);
 }
 
-/* 爬楼梯：搜索 */
+/* 爬楼梯：纯递归 DFS 解法 */
 int climbingStairsDFS(int n) {
+    // 边界处理：非法输入直接返回 0
+    if (n <= 0) {
+        return 0;
+    }
     return dfs(n);
 }
 
-/* Driver Code */
+/* 主函数测试 */
 int main() {
     int n = 9;
-
     int res = climbingStairsDFS(n);
     cout << "爬 " << n << " 阶楼梯共有 " << res << " 种方案" << endl;
-
     return 0;
 }

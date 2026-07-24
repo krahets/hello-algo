@@ -1,53 +1,71 @@
 /**
  * File: heap_sort.cpp
- * Created Time: 2023-05-26
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-19
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
+ * Improved: 现代C++规范、类型安全、代码健壮优化
  */
 
 #include "../utils/common.hpp"
+#include <vector>
+#include <algorithm>
+#include <iostream>
 
-/* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
-void siftDown(vector<int> &nums, int n, int i) {
-    while (true) {
-        // 判断节点 i, l, r 中值最大的节点，记为 ma
-        int l = 2 * i + 1;
-        int r = 2 * i + 2;
-        int ma = i;
-        if (l < n && nums[l] > nums[ma])
-            ma = l;
-        if (r < n && nums[r] > nums[ma])
-            ma = r;
-        // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
-        if (ma == i) {
+/**
+ * @brief 自上而下堆化（构建大顶堆）
+ * @param nums 数组
+ * @param n 堆有效长度
+ * @param i 当前堆化节点下标
+ */
+void siftDown(std::vector<int>& nums, int n, int i)
+{
+    while (true)
+    {
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+        int maxIdx = i;
+
+        // 找出最大值下标
+        if (left < n && nums[left] > nums[maxIdx])
+            maxIdx = left;
+        if (right < n && nums[right] > nums[maxIdx])
+            maxIdx = right;
+
+        // 当前节点已是最大，无需调整
+        if (maxIdx == i)
             break;
-        }
-        // 交换两节点
-        swap(nums[i], nums[ma]);
-        // 循环向下堆化
-        i = ma;
+
+        std::swap(nums[i], nums[maxIdx]);
+        i = maxIdx;
     }
 }
 
 /* 堆排序 */
-void heapSort(vector<int> &nums) {
-    // 建堆操作：堆化除叶节点以外的其他所有节点
-    for (int i = nums.size() / 2 - 1; i >= 0; --i) {
-        siftDown(nums, nums.size(), i);
+void heapSort(std::vector<int>& nums)
+{
+    if (nums.empty())
+        return;
+
+    int size = static_cast<int>(nums.size());
+    // 1. 初始化建大顶堆
+    for (int i = size / 2 - 1; i >= 0; --i)
+    {
+        siftDown(nums, size, i);
     }
-    // 从堆中提取最大元素，循环 n-1 轮
-    for (int i = nums.size() - 1; i > 0; --i) {
-        // 交换根节点与最右叶节点（交换首元素与尾元素）
-        swap(nums[0], nums[i]);
-        // 以根节点为起点，从顶至底进行堆化
+
+    // 2. 依次取出堆顶最大值放到数组尾部
+    for (int i = size - 1; i > 0; --i)
+    {
+        std::swap(nums[0], nums[i]);
         siftDown(nums, i, 0);
     }
 }
 
-/* Driver Code */
-int main() {
-    vector<int> nums = {4, 1, 3, 1, 5, 2};
+/* 主函数测试 */
+int main()
+{
+    std::vector<int> nums = {4, 1, 3, 1, 5, 2};
     heapSort(nums);
-    cout << "堆排序完成后 nums = ";
+    std::cout << "堆排序完成后 nums = ";
     printVector(nums);
 
     return 0;

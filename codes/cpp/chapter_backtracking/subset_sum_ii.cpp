@@ -1,10 +1,32 @@
 /**
  * File: subset_sum_ii.cpp
- * Created Time: 2023-06-21
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-20
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
  */
 
-#include "../utils/common.hpp"
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+/* 打印一维数组 */
+void printVector(const vector<int>& vec) {
+    cout << "[ ";
+    for (int num : vec) {
+        cout << num << " ";
+    }
+    cout << "]" << endl;
+}
+
+/* 打印二维数组（子集结果） */
+void printVectorMatrix(const vector<vector<int>>& mat) {
+    cout << "[" << endl;
+    for (const auto& row : mat) {
+        cout << "  ";
+        printVector(row);
+    }
+    cout << "]" << endl;
+}
 
 /* 回溯算法：子集和 II */
 void backtrack(vector<int> &state, int target, vector<int> &choices, int start, vector<vector<int>> &res) {
@@ -14,11 +36,8 @@ void backtrack(vector<int> &state, int target, vector<int> &choices, int start, 
         return;
     }
     // 遍历所有选择
-    // 剪枝二：从 start 开始遍历，避免生成重复子集
-    // 剪枝三：从 start 开始遍历，避免重复选择同一元素
     for (int i = start; i < choices.size(); i++) {
-        // 剪枝一：若子集和超过 target ，则直接结束循环
-        // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+        // 剪枝一：若子集和超过 target，则直接结束循环
         if (target - choices[i] < 0) {
             break;
         }
@@ -26,21 +45,21 @@ void backtrack(vector<int> &state, int target, vector<int> &choices, int start, 
         if (i > start && choices[i] == choices[i - 1]) {
             continue;
         }
-        // 尝试：做出选择，更新 target, start
+        // 尝试：做出选择
         state.push_back(choices[i]);
-        // 进行下一轮选择
+        // 进行下一轮选择（i+1 不可重复选同一元素）
         backtrack(state, target - choices[i], choices, i + 1, res);
-        // 回退：撤销选择，恢复到之前的状态
+        // 回退：撤销选择
         state.pop_back();
     }
 }
 
 /* 求解子集和 II */
 vector<vector<int>> subsetSumII(vector<int> &nums, int target) {
-    vector<int> state;              // 状态（子集）
-    sort(nums.begin(), nums.end()); // 对 nums 进行排序
-    int start = 0;                  // 遍历起始点
-    vector<vector<int>> res;        // 结果列表（子集列表）
+    vector<int> state;
+    sort(nums.begin(), nums.end()); // 排序，用于剪枝和去重
+    int start = 0;
+    vector<vector<int>> res;
     backtrack(state, target, nums, start, res);
     return res;
 }

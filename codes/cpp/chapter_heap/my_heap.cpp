@@ -1,119 +1,118 @@
 /**
  * File: my_heap.cpp
- * Created Time: 2023-02-04
- * Author: LoneRanger (836253168@qq.com), what-is-me (whatisme@outlook.jp)
+ * Created Time: 2026-05-19
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
+ * Improved: 现代C++、const正确性、类型安全、异常安全、规范命名
  */
 
 #include "../utils/common.hpp"
+#include <vector>
+#include <stdexcept>
+#include <iostream>
+#include <algorithm>
 
 /* 大顶堆 */
 class MaxHeap {
-  private:
-    // 使用动态数组，这样无须考虑扩容问题
-    vector<int> maxHeap;
+private:
+    std::vector<int> maxHeap;
 
-    /* 获取左子节点的索引 */
-    int left(int i) {
+    /* 获取左子节点索引 */
+    int left(int i) const {
         return 2 * i + 1;
     }
 
-    /* 获取右子节点的索引 */
-    int right(int i) {
+    /* 获取右子节点索引 */
+    int right(int i) const {
         return 2 * i + 2;
     }
 
-    /* 获取父节点的索引 */
-    int parent(int i) {
-        return (i - 1) / 2; // 向下整除
+    /* 获取父节点索引 */
+    int parent(int i) const {
+        return (i - 1) / 2;
     }
 
-    /* 从节点 i 开始，从底至顶堆化 */
+    /* 从底至顶堆化 */
     void siftUp(int i) {
         while (true) {
-            // 获取节点 i 的父节点
             int p = parent(i);
-            // 当“越过根节点”或“节点无须修复”时，结束堆化
             if (p < 0 || maxHeap[i] <= maxHeap[p])
                 break;
-            // 交换两节点
-            swap(maxHeap[i], maxHeap[p]);
-            // 循环向上堆化
+            std::swap(maxHeap[i], maxHeap[p]);
             i = p;
         }
     }
 
-    /* 从节点 i 开始，从顶至底堆化 */
+    /* 从顶至底堆化 */
     void siftDown(int i) {
         while (true) {
-            // 判断节点 i, l, r 中值最大的节点，记为 ma
-            int l = left(i), r = right(i), ma = i;
-            if (l < size() && maxHeap[l] > maxHeap[ma])
+            int l = left(i);
+            int r = right(i);
+            int ma = i;
+
+            int n = static_cast<int>(maxHeap.size());
+            if (l < n && maxHeap[l] > maxHeap[ma])
                 ma = l;
-            if (r < size() && maxHeap[r] > maxHeap[ma])
+            if (r < n && maxHeap[r] > maxHeap[ma])
                 ma = r;
-            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+
             if (ma == i)
                 break;
-            swap(maxHeap[i], maxHeap[ma]);
-            // 循环向下堆化
+
+            std::swap(maxHeap[i], maxHeap[ma]);
             i = ma;
         }
     }
 
-  public:
-    /* 构造方法，根据输入列表建堆 */
-    MaxHeap(vector<int> nums) {
-        // 将列表元素原封不动添加进堆
+public:
+    /* 构造方法：使用列表建堆 */
+    explicit MaxHeap(const std::vector<int>& nums) {
         maxHeap = nums;
-        // 堆化除叶节点以外的其他所有节点
-        for (int i = parent(size() - 1); i >= 0; i--) {
+        int n = static_cast<int>(nums.size());
+        int start = parent(n - 1);
+        for (int i = start; i >= 0; --i) {
             siftDown(i);
         }
     }
 
     /* 获取堆大小 */
-    int size() {
-        return maxHeap.size();
+    int size() const {
+        return static_cast<int>(maxHeap.size());
     }
 
     /* 判断堆是否为空 */
-    bool isEmpty() {
-        return size() == 0;
+    bool isEmpty() const {
+        return maxHeap.empty();
     }
 
     /* 访问堆顶元素 */
-    int peek() {
+    int peek() const {
+        if (isEmpty())
+            throw std::out_of_range("堆为空");
         return maxHeap[0];
     }
 
     /* 元素入堆 */
     void push(int val) {
-        // 添加节点
         maxHeap.push_back(val);
-        // 从底至顶堆化
         siftUp(size() - 1);
     }
 
-    /* 元素出堆 */
+    /* 堆顶出堆 */
     void pop() {
-        // 判空处理
-        if (isEmpty()) {
-            throw out_of_range("堆为空");
-        }
-        // 交换根节点与最右叶节点（交换首元素与尾元素）
-        swap(maxHeap[0], maxHeap[size() - 1]);
-        // 删除节点
+        if (isEmpty())
+            throw std::out_of_range("堆为空");
+
+        std::swap(maxHeap[0], maxHeap.back());
         maxHeap.pop_back();
-        // 从顶至底堆化
         siftDown(0);
     }
 
-    /* 打印堆（二叉树）*/
-    void print() {
-        cout << "堆的数组表示：";
+    /* 打印堆 */
+    void print() const {
+        std::cout << "堆的数组表示：";
         printVector(maxHeap);
-        cout << "堆的树状表示：" << endl;
-        TreeNode *root = vectorToTree(maxHeap);
+        std::cout << "堆的树状表示：\n";
+        TreeNode* root = vectorToTree(maxHeap);
         printTree(root);
         freeMemoryTree(root);
     }
@@ -121,35 +120,29 @@ class MaxHeap {
 
 /* Driver Code */
 int main() {
-    /* 初始化大顶堆 */
-    vector<int> vec{9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2};
+    std::vector<int> vec{9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2};
     MaxHeap maxHeap(vec);
-    cout << "\n输入列表并建堆后" << endl;
+    std::cout << "\n输入列表并建堆后\n";
     maxHeap.print();
 
-    /* 获取堆顶元素 */
     int peek = maxHeap.peek();
-    cout << "\n堆顶元素为 " << peek << endl;
+    std::cout << "\n堆顶元素为 " << peek << '\n';
 
-    /* 元素入堆 */
     int val = 7;
     maxHeap.push(val);
-    cout << "\n元素 " << val << " 入堆后" << endl;
+    std::cout << "\n元素 " << val << " 入堆后\n";
     maxHeap.print();
 
-    /* 堆顶元素出堆 */
     peek = maxHeap.peek();
     maxHeap.pop();
-    cout << "\n堆顶元素 " << peek << " 出堆后" << endl;
+    std::cout << "\n堆顶元素 " << peek << " 出堆后\n";
     maxHeap.print();
 
-    /* 获取堆大小 */
     int size = maxHeap.size();
-    cout << "\n堆元素数量为 " << size << endl;
+    std::cout << "\n堆元素数量为 " << size << '\n';
 
-    /* 判断堆是否为空 */
     bool isEmpty = maxHeap.isEmpty();
-    cout << "\n堆是否为空 " << isEmpty << endl;
+    std::cout << "\n堆是否为空：" << std::boolalpha << isEmpty << '\n';
 
     return 0;
 }

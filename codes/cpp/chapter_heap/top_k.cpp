@@ -1,37 +1,45 @@
 /**
  * File: top_k.cpp
- * Created Time: 2023-06-12
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-19
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
+ * Improved: 现代C++、const正确性、类型安全、代码规范
  */
 
 #include "../utils/common.hpp"
+#include <vector>
+#include <queue>
+#include <iostream>
 
 /* 基于堆查找数组中最大的 k 个元素 */
-priority_queue<int, vector<int>, greater<int>> topKHeap(vector<int> &nums, int k) {
-    // 初始化小顶堆
-    priority_queue<int, vector<int>, greater<int>> heap;
-    // 将数组的前 k 个元素入堆
-    for (int i = 0; i < k; i++) {
+std::priority_queue<int, std::vector<int>, std::greater<int>>
+topKHeap(const std::vector<int>& nums, int k) {
+    // 小顶堆
+    std::priority_queue<int, std::vector<int>, std::greater<int>> heap;
+
+    // 前 k 个元素入堆
+    for (int i = 0; i < k; ++i) {
         heap.push(nums[i]);
     }
-    // 从第 k+1 个元素开始，保持堆的长度为 k
-    for (int i = k; i < nums.size(); i++) {
-        // 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
+
+    // 从第 k+1 个元素开始维护堆
+    int n = static_cast<int>(nums.size());
+    for (int i = k; i < n; ++i) {
         if (nums[i] > heap.top()) {
             heap.pop();
             heap.push(nums[i]);
         }
     }
+
     return heap;
 }
 
-// Driver Code
+/* Driver Code */
 int main() {
-    vector<int> nums = {1, 7, 6, 3, 2};
+    std::vector<int> nums = {1, 7, 6, 3, 2};
     int k = 3;
 
-    priority_queue<int, vector<int>, greater<int>> res = topKHeap(nums, k);
-    cout << "最大的 " << k << " 个元素为: ";
+    auto res = topKHeap(nums, k);
+    std::cout << "最大的 " << k << " 个元素为: ";
     printHeap(res);
 
     return 0;

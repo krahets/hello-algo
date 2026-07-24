@@ -1,146 +1,151 @@
 /**
  * File: linkedlist_deque.cpp
- * Created Time: 2023-03-02
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-19
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
+ * Improved: 现代 C++、const 正确性、类型安全、内存安全、禁止拷贝
  */
 
 #include "../utils/common.hpp"
+#include <vector>
+#include <stdexcept>
+#include <iostream>
+#include <iomanip>
 
 /* 双向链表节点 */
 struct DoublyListNode {
-    int val;              // 节点值
-    DoublyListNode *next; // 后继节点指针
-    DoublyListNode *prev; // 前驱节点指针
-    DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
-    }
+    int val;
+    DoublyListNode* next;
+    DoublyListNode* prev;
+
+    explicit DoublyListNode(int val) 
+        : val(val), prev(nullptr), next(nullptr) {}
 };
 
 /* 基于双向链表实现的双向队列 */
 class LinkedListDeque {
-  private:
-    DoublyListNode *front, *rear; // 头节点 front ，尾节点 rear
-    int queSize = 0;              // 双向队列的长度
+private:
+    DoublyListNode* front = nullptr;
+    DoublyListNode* rear = nullptr;
+    size_t queSize = 0;  // 无符号类型，更安全
 
-  public:
+public:
     /* 构造方法 */
-    LinkedListDeque() : front(nullptr), rear(nullptr) {
-    }
+    LinkedListDeque() = default;
 
     /* 析构方法 */
     ~LinkedListDeque() {
-        // 遍历链表删除节点，释放内存
-        DoublyListNode *pre, *cur = front;
+        DoublyListNode* cur = front;
         while (cur != nullptr) {
-            pre = cur;
+            DoublyListNode* tmp = cur;
             cur = cur->next;
-            delete pre;
+            delete tmp;
         }
     }
 
-    /* 获取双向队列的长度 */
-    int size() {
+    /* 禁用拷贝构造 & 赋值（防止浅拷贝、double free） */
+    LinkedListDeque(const LinkedListDeque&) = delete;
+    LinkedListDeque& operator=(const LinkedListDeque&) = delete;
+
+    /* 获取队列长度 */
+    size_t size() const {
         return queSize;
     }
 
-    /* 判断双向队列是否为空 */
-    bool isEmpty() {
-        return size() == 0;
-    }
-
-    /* 入队操作 */
-    void push(int num, bool isFront) {
-        DoublyListNode *node = new DoublyListNode(num);
-        // 若链表为空，则令 front 和 rear 都指向 node
-        if (isEmpty())
-            front = rear = node;
-        // 队首入队操作
-        else if (isFront) {
-            // 将 node 添加至链表头部
-            front->prev = node;
-            node->next = front;
-            front = node; // 更新头节点
-        // 队尾入队操作
-        } else {
-            // 将 node 添加至链表尾部
-            rear->next = node;
-            node->prev = rear;
-            rear = node; // 更新尾节点
-        }
-        queSize++; // 更新队列长度
+    /* 判断是否为空 */
+    bool isEmpty() const {
+        return queSize == 0;
     }
 
     /* 队首入队 */
     void pushFirst(int num) {
-        push(num, true);
+        DoublyListNode* node = new DoublyListNode(num);
+        if (isEmpty()) {
+            front = rear = node;
+        } else {
+            node->next = front;
+            front->prev = node;
+            front = node;
+        }
+        queSize++;
     }
 
     /* 队尾入队 */
     void pushLast(int num) {
-        push(num, false);
-    }
-
-    /* 出队操作 */
-    int pop(bool isFront) {
-        if (isEmpty())
-            throw out_of_range("队列为空");
-        int val;
-        // 队首出队操作
-        if (isFront) {
-            val = front->val; // 暂存头节点值
-            // 删除头节点
-            DoublyListNode *fNext = front->next;
-            if (fNext != nullptr) {
-                fNext->prev = nullptr;
-                front->next = nullptr;
-            }
-            delete front;
-            front = fNext; // 更新头节点
-        // 队尾出队操作
+        DoublyListNode* node = new DoublyListNode(num);
+        if (isEmpty()) {
+            front = rear = node;
         } else {
-            val = rear->val; // 暂存尾节点值
-            // 删除尾节点
-            DoublyListNode *rPrev = rear->prev;
-            if (rPrev != nullptr) {
-                rPrev->next = nullptr;
-                rear->prev = nullptr;
-            }
-            delete rear;
-            rear = rPrev; // 更新尾节点
+            rear->next = node;
+            node->prev = rear;
+            rear = node;
         }
-        queSize--; // 更新队列长度
-        return val;
+        queSize++;
     }
 
     /* 队首出队 */
     int popFirst() {
-        return pop(true);
+        if (isEmpty())
+            throw std::out_of_range("双向队列为空");
+        
+        int val = front->val;
+        DoublyListNode* newFront = front->next;
+        
+        delete front;
+        
+        if (newFront != nullptr) {
+            newFront->prev = nullptr;
+        } else {
+            rear = nullptr;
+        }
+        
+        front = newFront;
+        queSize--;
+        return val;
     }
 
     /* 队尾出队 */
     int popLast() {
-        return pop(false);
+        if (isEmpty())
+            throw std::out_of_range("双向队列为空");
+        
+        int val = rear->val;
+        DoublyListNode* newRear = rear->prev;
+        
+        delete rear;
+        
+        if (newRear != nullptr) {
+            newRear->next = nullptr;
+        } else {
+            front = nullptr;
+        }
+        
+        rear = newRear;
+        queSize--;
+        return val;
     }
 
     /* 访问队首元素 */
-    int peekFirst() {
+    int peekFirst() const {
         if (isEmpty())
-            throw out_of_range("双向队列为空");
+            throw std::out_of_range("双向队列为空");
         return front->val;
     }
 
     /* 访问队尾元素 */
-    int peekLast() {
+    int peekLast() const {
         if (isEmpty())
-            throw out_of_range("双向队列为空");
+            throw std::out_of_range("双向队列为空");
         return rear->val;
     }
 
-    /* 返回数组用于打印 */
-    vector<int> toVector() {
-        DoublyListNode *node = front;
-        vector<int> res(size());
-        for (int i = 0; i < res.size(); i++) {
-            res[i] = node->val;
+    /* 转为 vector 用于打印 */
+    std::vector<int> toVector() const {
+        std::vector<int> res;
+        res.reserve(queSize);
+        
+        DoublyListNode* node = front;
+        while (node != nullptr) {
+            res.push_back(node->val);
             node = node->next;
         }
         return res;
@@ -149,46 +154,45 @@ class LinkedListDeque {
 
 /* Driver Code */
 int main() {
-    /* 初始化双向队列 */
-    LinkedListDeque *deque = new LinkedListDeque();
-    deque->pushLast(3);
-    deque->pushLast(2);
-    deque->pushLast(5);
-    cout << "双向队列 deque = ";
-    printVector(deque->toVector());
+    // 栈上创建对象，自动释放内存
+    LinkedListDeque deque;
 
-    /* 访问元素 */
-    int peekFirst = deque->peekFirst();
-    cout << "队首元素 peekFirst = " << peekFirst << endl;
-    int peekLast = deque->peekLast();
-    cout << "队尾元素 peekLast = " << peekLast << endl;
+    deque.pushLast(3);
+    deque.pushLast(2);
+    deque.pushLast(5);
+    std::cout << "双向队列 deque = ";
+    printVector(deque.toVector());
 
-    /* 元素入队 */
-    deque->pushLast(4);
-    cout << "元素 4 队尾入队后 deque =";
-    printVector(deque->toVector());
-    deque->pushFirst(1);
-    cout << "元素 1 队首入队后 deque = ";
-    printVector(deque->toVector());
+    // 访问元素
+    int peekFirst = deque.peekFirst();
+    std::cout << "队首元素 peekFirst = " << peekFirst << '\n';
+    int peekLast = deque.peekLast();
+    std::cout << "队尾元素 peekLast = " << peekLast << '\n';
 
-    /* 元素出队 */
-    int popLast = deque->popLast();
-    cout << "队尾出队元素 = " << popLast << "，队尾出队后 deque = ";
-    printVector(deque->toVector());
-    int popFirst = deque->popFirst();
-    cout << "队首出队元素 = " << popFirst << "，队首出队后 deque = ";
-    printVector(deque->toVector());
+    // 入队
+    deque.pushLast(4);
+    std::cout << "元素 4 队尾入队后 deque = ";
+    printVector(deque.toVector());
+    
+    deque.pushFirst(1);
+    std::cout << "元素 1 队首入队后 deque = ";
+    printVector(deque.toVector());
 
-    /* 获取双向队列的长度 */
-    int size = deque->size();
-    cout << "双向队列长度 size = " << size << endl;
+    // 出队
+    int popLast = deque.popLast();
+    std::cout << "队尾出队元素 = " << popLast << "，出队后 deque = ";
+    printVector(deque.toVector());
+    
+    int popFirst = deque.popFirst();
+    std::cout << "队首出队元素 = " << popFirst << "，出队后 deque = ";
+    printVector(deque.toVector());
 
-    /* 判断双向队列是否为空 */
-    bool isEmpty = deque->isEmpty();
-    cout << "双向队列是否为空 = " << boolalpha << isEmpty << endl;
-
-    // 释放内存
-    delete deque;
+    // 获取长度 & 是否为空
+    size_t size = deque.size();
+    std::cout << "双向队列长度 size = " << size << '\n';
+    
+    bool isEmpty = deque.isEmpty();
+    std::cout << "双向队列是否为空 = " << std::boolalpha << isEmpty << '\n';
 
     return 0;
 }

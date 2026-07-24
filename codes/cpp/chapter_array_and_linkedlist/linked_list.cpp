@@ -1,10 +1,40 @@
 /**
  * File: linked_list.cpp
- * Created Time: 2022-11-25
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-20
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
  */
 
-#include "../utils/common.hpp"
+#include <iostream>
+using namespace std;
+
+// 链表节点结构体
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int val) : val(val), next(nullptr) {}
+};
+
+/* 打印链表 */
+void printLinkedList(ListNode *head) {
+    ListNode *cur = head;
+    while (cur != nullptr) {
+        cout << cur->val;
+        if (cur->next != nullptr)
+            cout << " -> ";
+        cur = cur->next;
+    }
+    cout << endl;
+}
+
+/* 释放链表内存 */
+void freeMemoryLinkedList(ListNode *head) {
+    ListNode *cur = head;
+    while (cur != nullptr) {
+        ListNode *tmp = cur;
+        cur = cur->next;
+        delete tmp;
+    }
+}
 
 /* 在链表的节点 n0 之后插入节点 P */
 void insert(ListNode *n0, ListNode *P) {
@@ -17,11 +47,9 @@ void insert(ListNode *n0, ListNode *P) {
 void remove(ListNode *n0) {
     if (n0->next == nullptr)
         return;
-    // n0 -> P -> n1
     ListNode *P = n0->next;
     ListNode *n1 = P->next;
     n0->next = n1;
-    // 释放内存
     delete P;
 }
 
@@ -49,14 +77,12 @@ int find(ListNode *head, int target) {
 
 /* Driver Code */
 int main() {
-    /* 初始化链表 */
-    // 初始化各个节点
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
     ListNode *n0 = new ListNode(1);
     ListNode *n1 = new ListNode(3);
     ListNode *n2 = new ListNode(2);
     ListNode *n3 = new ListNode(5);
     ListNode *n4 = new ListNode(4);
-    // 构建节点之间的引用
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;

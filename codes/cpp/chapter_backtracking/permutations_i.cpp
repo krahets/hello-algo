@@ -1,13 +1,37 @@
 /**
  * File: permutations_i.cpp
- * Created Time: 2023-04-24
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-20
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
  */
 
-#include "../utils/common.hpp"
+#include <iostream>
+#include <vector>
+using namespace std;
+
+/* 打印一维数组 */
+void printVector(const vector<int>& vec) {
+    cout << "[ ";
+    for (size_t i = 0; i < vec.size(); i++) {
+        cout << vec[i] << " ";
+    }
+    cout << "]" << endl;
+}
+
+/* 打印二维数组（所有排列） */
+void printVectorMatrix(const vector<vector<int>>& mat) {
+    cout << "[ " << endl;
+    for (const auto& row : mat) {
+        cout << "  ";
+        for (int num : row) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+    cout << "]" << endl;
+}
 
 /* 回溯算法：全排列 I */
-void backtrack(vector<int> &state, const vector<int> &choices, vector<bool> &selected, vector<vector<int>> &res) {
+void backtrack(vector<int>& state, const vector<int>& choices, vector<bool>& selected, vector<vector<int>>& res) {
     // 当状态长度等于元素数量时，记录解
     if (state.size() == choices.size()) {
         res.push_back(state);
@@ -43,11 +67,12 @@ vector<vector<int>> permutationsI(vector<int> nums) {
 int main() {
     vector<int> nums = {1, 2, 3};
 
-    vector<vector<int>> res = permutationsI(nums);
-
     cout << "输入数组 nums = ";
     printVector(nums);
-    cout << "所有排列 res = ";
+
+    vector<vector<int>> res = permutationsI(nums);
+
+    cout << "所有排列结果 = " << endl;
     printVectorMatrix(res);
 
     return 0;

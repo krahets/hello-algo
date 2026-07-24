@@ -1,41 +1,44 @@
 /**
  * File: stack.cpp
- * Created Time: 2022-11-28
- * Author: qualifier1024 (2539244001@qq.com)
+ * Created Time: 2026-05-19
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
+ * Improved: 规范写法、修复逻辑、现代C++风格
  */
 
 #include "../utils/common.hpp"
+#include <stack>
+#include <iostream>
 
-/* Driver Code */
 int main() {
-    /* 初始化栈 */
-    stack<int> stack;
+    // 初始化栈
+    std::stack<int> stk;
 
-    /* 元素入栈 */
-    stack.push(1);
-    stack.push(3);
-    stack.push(2);
-    stack.push(5);
-    stack.push(4);
-    cout << "栈 stack = ";
-    printStack(stack);
+    // 元素入栈
+    stk.push(1);
+    stk.push(3);
+    stk.push(2);
+    stk.push(5);
+    stk.push(4);
+    std::cout << "栈 stack = ";
+    printStack(stk);
 
-    /* 访问栈顶元素 */
-    int top = stack.top();
-    cout << "栈顶元素 top = " << top << endl;
+    // 访问栈顶元素
+    int topVal = stk.top();
+    std::cout << "栈顶元素 top = " << topVal << '\n';
 
-    /* 元素出栈 */
-    stack.pop(); // 无返回值
-    cout << "出栈元素 pop = " << top << "，出栈后 stack = ";
-    printStack(stack);
+    // 先取值再出栈，修正输出逻辑
+    int popVal = stk.top();
+    stk.pop();
+    std::cout << "出栈元素 pop = " << popVal << "，出栈后 stack = ";
+    printStack(stk);
 
-    /* 获取栈的长度 */
-    int size = stack.size();
-    cout << "栈的长度 size = " << size << endl;
+    // 获取栈长度，使用标准无符号类型
+    size_t size = stk.size();
+    std::cout << "栈的长度 size = " << size << '\n';
 
-    /* 判断是否为空 */
-    bool empty = stack.empty();
-    cout << "栈是否为空 = " << empty << endl;
+    // 判断栈是否为空
+    bool isEmpty = stk.empty();
+    std::cout << "栈是否为空 = " << std::boolalpha << isEmpty << '\n';
 
     return 0;
 }

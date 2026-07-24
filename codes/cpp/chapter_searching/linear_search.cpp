@@ -1,49 +1,57 @@
 /**
  * File: linear_search.cpp
- * Created Time: 2022-11-25
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-19
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
+ * Improved: 现代C++规范、const修饰、类型安全、代码健壮优化
  */
 
 #include "../utils/common.hpp"
+#include <vector>
+#include <iostream>
 
 /* 线性查找（数组） */
-int linearSearchArray(vector<int> &nums, int target) {
-    // 遍历数组
-    for (int i = 0; i < nums.size(); i++) {
-        // 找到目标元素，返回其索引
+int linearSearchArray(const std::vector<int>& nums, int target)
+{
+    int n = static_cast<int>(nums.size());
+    for (int i = 0; i < n; ++i)
+    {
         if (nums[i] == target)
             return i;
     }
-    // 未找到目标元素，返回 -1
     return -1;
 }
 
 /* 线性查找（链表） */
-ListNode *linearSearchLinkedList(ListNode *head, int target) {
-    // 遍历链表
-    while (head != nullptr) {
-        // 找到目标节点，返回之
-        if (head->val == target)
-            return head;
-        head = head->next;
+ListNode* linearSearchLinkedList(const ListNode* head, int target)
+{
+    const ListNode* cur = head;
+    while (cur != nullptr)
+    {
+        if (cur->val == target)
+            // 常量指针转为普通指针适配返回
+            return const_cast<ListNode*>(cur);
+        cur = cur->next;
     }
-    // 未找到目标节点，返回 nullptr
     return nullptr;
 }
 
 /* Driver Code */
-int main() {
-    int target = 3;
+int main()
+{
+    const int target = 3;
 
-    /* 在数组中执行线性查找 */
-    vector<int> nums = {1, 5, 3, 2, 4, 7, 5, 9, 10, 8};
+    // 数组线性查找
+    std::vector<int> nums = {1, 5, 3, 2, 4, 7, 5, 9, 10, 8};
     int index = linearSearchArray(nums, target);
-    cout << "目标元素 3 的索引 = " << index << endl;
+    std::cout << "目标元素 3 的索引 = " << index << '\n';
 
-    /* 在链表中执行线性查找 */
-    ListNode *head = vecToLinkedList(nums);
-    ListNode *node = linearSearchLinkedList(head, target);
-    cout << "目标节点值 3 的对应节点对象为 " << node << endl;
+    // 链表线性查找
+    ListNode* head = vecToLinkedList(nums);
+    ListNode* node = linearSearchLinkedList(head, target);
+    std::cout << "目标节点值 3 的对应节点对象为 " << node << '\n';
+
+    // 释放链表内存，避免内存泄漏
+    freeMemoryLinkedList(head);
 
     return 0;
 }

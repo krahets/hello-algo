@@ -1,10 +1,22 @@
 /**
  * File: list.cpp
- * Created Time: 2022-11-25
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-20
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
  */
 
-#include "../utils/common.hpp"
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+/* 打印向量 */
+void printVector(const vector<int>& vec) {
+    cout << "[ ";
+    for (int num : vec) {
+        cout << num << " ";
+    }
+    cout << "]" << endl;
+}
 
 /* Driver Code */
 int main() {

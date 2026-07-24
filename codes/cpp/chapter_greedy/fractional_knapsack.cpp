@@ -1,56 +1,69 @@
 /**
  * File: fractional_knapsack.cpp
- * Created Time: 2023-07-20
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-19
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
+ * Improved: 现代C++、const正确性、类型安全、代码规范
  */
 
 #include "../utils/common.hpp"
+#include <vector>
+#include <algorithm>
+#include <iostream>
 
 /* 物品 */
-class Item {
-  public:
+struct Item {
     int w; // 物品重量
     int v; // 物品价值
 
-    Item(int w, int v) : w(w), v(v) {
-    }
+    Item(int w, int v) : w(w), v(v) {}
 };
 
 /* 分数背包：贪心 */
-double fractionalKnapsack(vector<int> &wgt, vector<int> &val, int cap) {
-    // 创建物品列表，包含两个属性：重量、价值
-    vector<Item> items;
-    for (int i = 0; i < wgt.size(); i++) {
-        items.push_back(Item(wgt[i], val[i]));
+double fractionalKnapsack(const std::vector<int>& wgt,
+                          const std::vector<int>& val,
+                          int cap) {
+    // 创建物品列表
+    std::vector<Item> items;
+    items.reserve(wgt.size());
+
+    for (size_t i = 0; i < wgt.size(); ++i) {
+        items.emplace_back(wgt[i], val[i]);
     }
-    // 按照单位价值 item.v / item.w 从高到低进行排序
-    sort(items.begin(), items.end(), [](Item &a, Item &b) { return (double)a.v / a.w > (double)b.v / b.w; });
-    // 循环贪心选择
-    double res = 0;
-    for (auto &item : items) {
-        if (item.w <= cap) {
-            // 若剩余容量充足，则将当前物品整个装进背包
+
+    // 按单位价值降序排序（使用 const 引用，不修改）
+    std::sort(items.begin(), items.end(), [](const Item& a, const Item& b) {
+        return static_cast<double>(a.v) / a.w > static_cast<double>(b.v) / b.w;
+    });
+
+    // 贪心选择
+    double res = 0.0;
+    int remaining = cap;
+
+    for (const auto& item : items) {
+        if (remaining <= 0) break;
+
+        if (item.w <= remaining) {
+            // 整个放入
             res += item.v;
-            cap -= item.w;
+            remaining -= item.w;
         } else {
-            // 若剩余容量不足，则将当前物品的一部分装进背包
-            res += (double)item.v / item.w * cap;
-            // 已无剩余容量，因此跳出循环
-            break;
+            // 放入部分
+            res += static_cast<double>(item.v) / item.w * remaining;
+            remaining = 0;
         }
     }
+
     return res;
 }
 
 /* Driver Code */
 int main() {
-    vector<int> wgt = {10, 20, 30, 40, 50};
-    vector<int> val = {50, 120, 150, 210, 240};
-    int cap = 50;
+    const std::vector<int> wgt = {10, 20, 30, 40, 50};
+    const std::vector<int> val = {50, 120, 150, 210, 240};
+    const int cap = 50;
 
-    // 贪心算法
     double res = fractionalKnapsack(wgt, val, cap);
-    cout << "不超过背包容量的最大物品价值为 " << res << endl;
+    std::cout << "不超过背包容量的最大物品价值为 " << res << '\n';
 
     return 0;
 }

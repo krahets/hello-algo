@@ -1,12 +1,14 @@
 /**
  * File: recursion.cpp
- * Created Time: 2023-08-24
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-20
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
  */
 
-#include "../utils/common.hpp"
+#include <iostream>
+#include <stack>
+using namespace std;
 
-/* 递归 */
+/* 普通递归：求和 1+2+...+n */
 int recur(int n) {
     // 终止条件
     if (n == 1)
@@ -17,29 +19,25 @@ int recur(int n) {
     return n + res;
 }
 
-/* 使用迭代模拟递归 */
+/* 迭代模拟递归：用栈模拟递归过程 */
 int forLoopRecur(int n) {
-    // 使用一个显式的栈来模拟系统调用栈
     stack<int> stack;
     int res = 0;
-    // 递：递归调用
-    for (int i = n; i > 0; i--) {
-        // 通过“入栈操作”模拟“递”
+
+    // 递：入栈
+    for (int i = n; i > 0; --i) {
         stack.push(i);
     }
-    // 归：返回结果
+    // 归：出栈累加
     while (!stack.empty()) {
-        // 通过“出栈操作”模拟“归”
         res += stack.top();
         stack.pop();
     }
-    // res = 1+2+3+...+n
     return res;
 }
 
-/* 尾递归 */
+/* 尾递归：累加结果通过参数传递 */
 int tailRecur(int n, int res) {
-    // 终止条件
     if (n == 0)
         return res;
     // 尾递归调用
@@ -48,31 +46,29 @@ int tailRecur(int n, int res) {
 
 /* 斐波那契数列：递归 */
 int fib(int n) {
-    // 终止条件 f(1) = 0, f(2) = 1
+    // 终止条件
     if (n == 1 || n == 2)
         return n - 1;
-    // 递归调用 f(n) = f(n-1) + f(n-2)
-    int res = fib(n - 1) + fib(n - 2);
-    // 返回结果 f(n)
-    return res;
+    // 递归公式
+    return fib(n - 1) + fib(n - 2);
 }
 
-/* Driver Code */
+/* 主函数测试 */
 int main() {
     int n = 5;
     int res;
 
     res = recur(n);
-    cout << "\n递归函数的求和结果 res = " << res << endl;
+    cout << "\n普通递归 求和结果 = " << res << endl;
 
     res = forLoopRecur(n);
-    cout << "\n使用迭代模拟递归求和结果 res = " << res << endl;
+    cout << "\n迭代模拟递归 结果 = " << res << endl;
 
     res = tailRecur(n, 0);
-    cout << "\n尾递归函数的求和结果 res = " << res << endl;
+    cout << "\n尾递归 求和结果 = " << res << endl;
 
     res = fib(n);
-    cout << "\n斐波那契数列的第 " << n << " 项为 " << res << endl;
+    cout << "\n斐波那契第 " << n << " 项 = " << res << endl;
 
     return 0;
 }

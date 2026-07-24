@@ -1,47 +1,49 @@
 /**
  * File: array.cpp
- * Created Time: 2022-11-25
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-20
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
  */
 
-#include "../utils/common.hpp"
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+/* 打印数组 */
+void printArray(int *nums, int size) {
+    cout << "[ ";
+    for (int i = 0; i < size; i++) {
+        cout << nums[i] << " ";
+    }
+    cout << "]" << endl;
+}
 
 /* 随机访问元素 */
 int randomAccess(int *nums, int size) {
-    // 在区间 [0, size) 中随机抽取一个数字
     int randomIndex = rand() % size;
-    // 获取并返回随机元素
-    int randomNum = nums[randomIndex];
-    return randomNum;
+    return nums[randomIndex];
 }
 
 /* 扩展数组长度 */
 int *extend(int *nums, int size, int enlarge) {
-    // 初始化一个扩展长度后的数组
     int *res = new int[size + enlarge];
-    // 将原数组中的所有元素复制到新数组
     for (int i = 0; i < size; i++) {
         res[i] = nums[i];
     }
-    // 释放内存
     delete[] nums;
-    // 返回扩展后的新数组
     return res;
 }
 
-/* 在数组的索引 index 处插入元素 num */
+/* 在索引 index 处插入元素 num */
 void insert(int *nums, int size, int num, int index) {
-    // 把索引 index 以及之后的所有元素向后移动一位
     for (int i = size - 1; i > index; i--) {
         nums[i] = nums[i - 1];
     }
-    // 将 num 赋给 index 处的元素
     nums[index] = num;
 }
 
 /* 删除索引 index 处的元素 */
 void remove(int *nums, int size, int index) {
-    // 把索引 index 之后的所有元素向前移动一位
     for (int i = index; i < size - 1; i++) {
         nums[i] = nums[i + 1];
     }
@@ -50,7 +52,6 @@ void remove(int *nums, int size, int index) {
 /* 遍历数组 */
 void traverse(int *nums, int size) {
     int count = 0;
-    // 通过索引遍历数组
     for (int i = 0; i < size; i++) {
         count += nums[i];
     }
@@ -67,6 +68,9 @@ int find(int *nums, int size, int target) {
 
 /* Driver Code */
 int main() {
+    // 初始化随机种子
+    srand((int)time(NULL));
+
     /* 初始化数组 */
     int size = 5;
     int *arr = new int[size];
@@ -79,23 +83,23 @@ int main() {
 
     /* 随机访问 */
     int randomNum = randomAccess(nums, size);
-    cout << "在 nums 中获取随机元素 " << randomNum << endl;
+    cout << "在 nums 中获取随机元素: " << randomNum << endl;
 
     /* 长度扩展 */
     int enlarge = 3;
     nums = extend(nums, size, enlarge);
     size += enlarge;
-    cout << "将数组长度扩展至 8 ，得到 nums = ";
+    cout << "扩展长度至 8，nums = ";
     printArray(nums, size);
 
     /* 插入元素 */
     insert(nums, size, 6, 3);
-    cout << "在索引 3 处插入数字 6 ，得到 nums = ";
+    cout << "在索引 3 插入 6，nums = ";
     printArray(nums, size);
 
     /* 删除元素 */
     remove(nums, size, 2);
-    cout << "删除索引 2 处的元素，得到 nums = ";
+    cout << "删除索引 2 的元素，nums = ";
     printArray(nums, size);
 
     /* 遍历数组 */
@@ -103,7 +107,7 @@ int main() {
 
     /* 查找元素 */
     int index = find(nums, size, 3);
-    cout << "在 nums 中查找元素 3 ，得到索引 = " << index << endl;
+    cout << "元素 3 的索引 = " << index << endl;
 
     // 释放内存
     delete[] arr;

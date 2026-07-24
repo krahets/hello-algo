@@ -1,41 +1,45 @@
 /**
  * File: linkedlist_stack.cpp
- * Created Time: 2022-11-28
- * Author: qualifier1024 (2539244001@qq.com)
+ * Created Time: 2026-05-19
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
+ * Improved: 现代 C++、const 正确性、类型安全、内存安全
  */
 
 #include "../utils/common.hpp"
+#include <vector>
+#include <stdexcept>
+#include <iostream>
 
 /* 基于链表实现的栈 */
 class LinkedListStack {
-  private:
-    ListNode *stackTop; // 将头节点作为栈顶
-    int stkSize;        // 栈的长度
+private:
+    ListNode* stackTop = nullptr;  // 栈顶（头节点）
+    size_t stkSize = 0;            // 栈大小（无符号类型）
 
-  public:
-    LinkedListStack() {
-        stackTop = nullptr;
-        stkSize = 0;
-    }
+public:
+    LinkedListStack() = default;
 
     ~LinkedListStack() {
-        // 遍历链表删除节点，释放内存
         freeMemoryLinkedList(stackTop);
     }
 
-    /* 获取栈的长度 */
-    int size() {
+    // 禁用拷贝与赋值，防止 double free
+    LinkedListStack(const LinkedListStack&) = delete;
+    LinkedListStack& operator=(const LinkedListStack&) = delete;
+
+    /* 获取栈长度 */
+    size_t size() const {
         return stkSize;
     }
 
-    /* 判断栈是否为空 */
-    bool isEmpty() {
-        return size() == 0;
+    /* 判断是否为空 */
+    bool isEmpty() const {
+        return stkSize == 0;
     }
 
     /* 入栈 */
     void push(int num) {
-        ListNode *node = new ListNode(num);
+        ListNode* node = new ListNode(num);
         node->next = stackTop;
         stackTop = node;
         stkSize++;
@@ -43,28 +47,29 @@ class LinkedListStack {
 
     /* 出栈 */
     int pop() {
-        int num = top();
-        ListNode *tmp = stackTop;
+        int val = top();
+
+        ListNode* tmp = stackTop;
         stackTop = stackTop->next;
-        // 释放内存
         delete tmp;
         stkSize--;
-        return num;
+
+        return val;
     }
 
-    /* 访问栈顶元素 */
-    int top() {
+    /* 访问栈顶 */
+    int top() const {
         if (isEmpty())
-            throw out_of_range("栈为空");
+            throw std::out_of_range("栈为空");
         return stackTop->val;
     }
 
-    /* 将 List 转化为 Array 并返回 */
-    vector<int> toVector() {
-        ListNode *node = stackTop;
-        vector<int> res(size());
-        for (int i = res.size() - 1; i >= 0; i--) {
-            res[i] = node->val;
+    /* 转为 vector 输出（保持栈顺序） */
+    std::vector<int> toVector() const {
+        std::vector<int> res;
+        ListNode* node = stackTop;
+        while (node != nullptr) {
+            res.push_back(node->val);
             node = node->next;
         }
         return res;
@@ -73,37 +78,33 @@ class LinkedListStack {
 
 /* Driver Code */
 int main() {
-    /* 初始化栈 */
-    LinkedListStack *stack = new LinkedListStack();
+    // 栈上创建对象，自动释放内存
+    LinkedListStack stack;
 
-    /* 元素入栈 */
-    stack->push(1);
-    stack->push(3);
-    stack->push(2);
-    stack->push(5);
-    stack->push(4);
-    cout << "栈 stack = ";
-    printVector(stack->toVector());
+    // 入栈
+    stack.push(1);
+    stack.push(3);
+    stack.push(2);
+    stack.push(5);
+    stack.push(4);
+    std::cout << "栈 stack = ";
+    printVector(stack.toVector());
 
-    /* 访问栈顶元素 */
-    int top = stack->top();
-    cout << "栈顶元素 top = " << top << endl;
+    // 栈顶
+    int topVal = stack.top();
+    std::cout << "栈顶元素 top = " << topVal << '\n';
 
-    /* 元素出栈 */
-    top = stack->pop();
-    cout << "出栈元素 pop = " << top << "，出栈后 stack = ";
-    printVector(stack->toVector());
+    // 出栈
+    int popVal = stack.pop();
+    std::cout << "出栈元素 pop = " << popVal << "，出栈后 stack = ";
+    printVector(stack.toVector());
 
-    /* 获取栈的长度 */
-    int size = stack->size();
-    cout << "栈的长度 size = " << size << endl;
+    // 长度 & 是否为空
+    size_t size = stack.size();
+    std::cout << "栈的长度 size = " << size << '\n';
 
-    /* 判断是否为空 */
-    bool empty = stack->isEmpty();
-    cout << "栈是否为空 = " << empty << endl;
-
-    // 释放内存
-    delete stack;
+    bool empty = stack.isEmpty();
+    std::cout << "栈是否为空 = " << empty << '\n';
 
     return 0;
 }

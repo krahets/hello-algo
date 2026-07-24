@@ -1,53 +1,69 @@
 /**
  * File: min_cost_climbing_stairs_dp.cpp
- * Created Time: 2023-06-30
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-20
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
  */
 
-#include "../utils/common.hpp"
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+/* 打印数组 */
+void printVector(const vector<int>& v) {
+    cout << "[ ";
+    for (int x : v)
+        cout << x << " ";
+    cout << "]" << endl;
+}
 
 /* 爬楼梯最小代价：动态规划 */
-int minCostClimbingStairsDP(vector<int> &cost) {
-    int n = cost.size() - 1;
-    if (n == 1 || n == 2)
-        return cost[n];
-    // 初始化 dp 表，用于存储子问题的解
-    vector<int> dp(n + 1);
-    // 初始状态：预设最小子问题的解
+int minCostClimbingStairsDP(vector<int>& cost) {
+    int n = cost.size();
+    if (n == 2)
+        return min(cost[0], cost[1]);
+
+    vector<int> dp(n);
+    dp[0] = cost[0];
     dp[1] = cost[1];
-    dp[2] = cost[2];
-    // 状态转移：从较小子问题逐步求解较大子问题
-    for (int i = 3; i <= n; i++) {
-        dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i];
+
+    for (int i = 2; i < n; ++i) {
+        dp[i] = min(dp[i-1], dp[i-2]) + cost[i];
     }
-    return dp[n];
+
+    return min(dp[n-1], dp[n-2]);
 }
 
-/* 爬楼梯最小代价：空间优化后的动态规划 */
-int minCostClimbingStairsDPComp(vector<int> &cost) {
-    int n = cost.size() - 1;
-    if (n == 1 || n == 2)
-        return cost[n];
-    int a = cost[1], b = cost[2];
-    for (int i = 3; i <= n; i++) {
-        int tmp = b;
-        b = min(a, tmp) + cost[i];
-        a = tmp;
+/* 爬楼梯最小代价：空间优化 DP（O(1) 空间） */
+int minCostClimbingStairsDPComp(vector<int>& cost) {
+    int n = cost.size();
+    if (n == 2)
+        return min(cost[0], cost[1]);
+
+    int a = cost[0];
+    int b = cost[1];
+
+    for (int i = 2; i < n; ++i) {
+        int cur = min(a, b) + cost[i];
+        a = b;
+        b = cur;
     }
-    return b;
+
+    return min(a, b);
 }
 
-/* Driver Code */
+/* 主函数测试 */
 int main() {
     vector<int> cost = {0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1};
-    cout << "输入楼梯的代价列表为 ";
+
+    cout << "楼梯代价列表：";
     printVector(cost);
 
     int res = minCostClimbingStairsDP(cost);
-    cout << "爬完楼梯的最低代价为 " << res << endl;
+    cout << "动态规划       最低代价：" << res << endl;
 
     res = minCostClimbingStairsDPComp(cost);
-    cout << "爬完楼梯的最低代价为 " << res << endl;
+    cout << "空间优化 DP    最低代价：" << res << endl;
 
     return 0;
 }

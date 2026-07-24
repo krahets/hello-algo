@@ -1,110 +1,110 @@
 /**
  * File: array_hash_map.cpp
- * Created Time: 2022-12-14
- * Author: msk397 (machangxinq@gmail.com)
+ * Created Time: 2026-05-19
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
+ * Improved: 现代C++、内存安全、const正确性、重复键处理
  */
 
 #include "../utils/common.hpp"
+#include <vector>
+#include <string>
+#include <iostream>
 
 /* 键值对 */
 struct Pair {
-  public:
+public:
     int key;
-    string val;
-    Pair(int key, string val) {
-        this->key = key;
-        this->val = val;
-    }
+    std::string val;
+
+    // 构造函数
+    Pair(int key, std::string val) : key(key), val(std::move(val)) {}
 };
 
 /* 基于数组实现的哈希表 */
 class ArrayHashMap {
-  private:
-    vector<Pair *> buckets;
+private:
+    std::vector<Pair*> buckets;
+    static const int BUCKET_SIZE = 100;
 
-  public:
-    ArrayHashMap() {
-        // 初始化数组，包含 100 个桶
-        buckets = vector<Pair *>(100);
+    /* 哈希函数 */
+    int hashFunc(int key) const {
+        return key % BUCKET_SIZE;
     }
 
+public:
+    /* 初始化 100 个桶 */
+    ArrayHashMap() {
+        buckets.resize(BUCKET_SIZE, nullptr);
+    }
+
+    /* 析构函数，释放所有内存 */
     ~ArrayHashMap() {
-        // 释放内存
-        for (const auto &bucket : buckets) {
+        for (Pair*& bucket : buckets) {
             delete bucket;
+            bucket = nullptr;
         }
         buckets.clear();
     }
 
-    /* 哈希函数 */
-    int hashFunc(int key) {
-        int index = key % 100;
-        return index;
-    }
+    /* 禁止拷贝（避免浅拷贝 double free） */
+    ArrayHashMap(const ArrayHashMap&) = delete;
+    ArrayHashMap& operator=(const ArrayHashMap&) = delete;
 
     /* 查询操作 */
-    string get(int key) {
-        int index = hashFunc(key);
-        Pair *pair = buckets[index];
-        if (pair == nullptr)
-            return "";
-        return pair->val;
+    std::string get(int key) const {
+        int idx = hashFunc(key);
+        Pair* pair = buckets[idx];
+        return pair ? pair->val : "";
     }
 
-    /* 添加操作 */
-    void put(int key, string val) {
-        Pair *pair = new Pair(key, val);
-        int index = hashFunc(key);
-        buckets[index] = pair;
+    /* 添加操作（自动覆盖重复键）*/
+    void put(int key, std::string val) {
+        int idx = hashFunc(key);
+        // 若已存在，先释放旧内存
+        if (buckets[idx] != nullptr) {
+            delete buckets[idx];
+        }
+        buckets[idx] = new Pair(key, std::move(val));
     }
 
     /* 删除操作 */
     void remove(int key) {
-        int index = hashFunc(key);
-        // 释放内存并置为 nullptr
-        delete buckets[index];
-        buckets[index] = nullptr;
+        int idx = hashFunc(key);
+        delete buckets[idx];
+        buckets[idx] = nullptr;
     }
 
     /* 获取所有键值对 */
-    vector<Pair *> pairSet() {
-        vector<Pair *> pairSet;
-        for (Pair *pair : buckets) {
-            if (pair != nullptr) {
-                pairSet.push_back(pair);
-            }
+    std::vector<Pair*> pairSet() const {
+        std::vector<Pair*> res;
+        for (Pair* p : buckets) {
+            if (p) res.push_back(p);
         }
-        return pairSet;
+        return res;
     }
 
     /* 获取所有键 */
-    vector<int> keySet() {
-        vector<int> keySet;
-        for (Pair *pair : buckets) {
-            if (pair != nullptr) {
-                keySet.push_back(pair->key);
-            }
+    std::vector<int> keySet() const {
+        std::vector<int> res;
+        for (Pair* p : buckets) {
+            if (p) res.push_back(p->key);
         }
-        return keySet;
+        return res;
     }
 
     /* 获取所有值 */
-    vector<string> valueSet() {
-        vector<string> valueSet;
-        for (Pair *pair : buckets) {
-            if (pair != nullptr) {
-                valueSet.push_back(pair->val);
-            }
+    std::vector<std::string> valueSet() const {
+        std::vector<std::string> res;
+        for (Pair* p : buckets) {
+            if (p) res.push_back(p->val);
         }
-        return valueSet;
+        return res;
     }
 
     /* 打印哈希表 */
-    void print() {
-        for (Pair *kv : pairSet()) {
-            cout << kv->key << " -> " << kv->val << endl;
+    void print() const {
+        for (const Pair* kv : pairSet()) {
+            std::cout << kv->key << " -> " << kv->val << '\n';
         }
     }
 };
-
-// 测试样例请见 array_hash_map_test.cpp

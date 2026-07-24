@@ -1,38 +1,39 @@
 /**
  * File: quick_sort.cpp
- * Created Time: 2022-11-25
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-19
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
+ * Improved: 现代C++、类型安全、空数组安全、规范命名
  */
 
 #include "../utils/common.hpp"
+#include <vector>
+#include <algorithm>
+#include <iostream>
 
 /* 快速排序类 */
 class QuickSort {
-  private:
+private:
     /* 哨兵划分 */
-    static int partition(vector<int> &nums, int left, int right) {
-        // 以 nums[left] 为基准数
+    static int partition(std::vector<int>& nums, int left, int right) {
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
-                j--;                // 从右向左找首个小于基准数的元素
+                j--;
             while (i < j && nums[i] <= nums[left])
-                i++;                // 从左向右找首个大于基准数的元素
-            swap(nums[i], nums[j]); // 交换这两个元素
+                i++;
+            std::swap(nums[i], nums[j]);
         }
-        swap(nums[i], nums[left]);  // 将基准数交换至两子数组的分界线
-        return i;                   // 返回基准数的索引
+        std::swap(nums[i], nums[left]);
+        return i;
     }
 
-  public:
+public:
     /* 快速排序 */
-    static void quickSort(vector<int> &nums, int left, int right) {
-        // 子数组长度为 1 时终止递归
+    static void quickSort(std::vector<int>& nums, int left, int right) {
         if (left >= right)
             return;
-        // 哨兵划分
+
         int pivot = partition(nums, left, right);
-        // 递归左子数组、右子数组
         quickSort(nums, left, pivot - 1);
         quickSort(nums, pivot + 1, right);
     }
@@ -40,45 +41,40 @@ class QuickSort {
 
 /* 快速排序类（中位基准数优化） */
 class QuickSortMedian {
-  private:
+private:
     /* 选取三个候选元素的中位数 */
-    static int medianThree(vector<int> &nums, int left, int mid, int right) {
+    static int medianThree(std::vector<int>& nums, int left, int mid, int right) {
         int l = nums[left], m = nums[mid], r = nums[right];
         if ((l <= m && m <= r) || (r <= m && m <= l))
-            return mid; // m 在 l 和 r 之间
+            return mid;
         if ((m <= l && l <= r) || (r <= l && l <= m))
-            return left; // l 在 m 和 r 之间
+            return left;
         return right;
     }
 
     /* 哨兵划分（三数取中值） */
-    static int partition(vector<int> &nums, int left, int right) {
-        // 选取三个候选元素的中位数
+    static int partition(std::vector<int>& nums, int left, int right) {
         int med = medianThree(nums, left, (left + right) / 2, right);
-        // 将中位数交换至数组最左端
-        swap(nums[left], nums[med]);
-        // 以 nums[left] 为基准数
+        std::swap(nums[left], nums[med]);
+
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
-                j--;                // 从右向左找首个小于基准数的元素
+                j--;
             while (i < j && nums[i] <= nums[left])
-                i++;                // 从左向右找首个大于基准数的元素
-            swap(nums[i], nums[j]); // 交换这两个元素
+                i++;
+            std::swap(nums[i], nums[j]);
         }
-        swap(nums[i], nums[left]);  // 将基准数交换至两子数组的分界线
-        return i;                   // 返回基准数的索引
+        std::swap(nums[i], nums[left]);
+        return i;
     }
 
-  public:
-    /* 快速排序 */
-    static void quickSort(vector<int> &nums, int left, int right) {
-        // 子数组长度为 1 时终止递归
+public:
+    static void quickSort(std::vector<int>& nums, int left, int right) {
         if (left >= right)
             return;
-        // 哨兵划分
+
         int pivot = partition(nums, left, right);
-        // 递归左子数组、右子数组
         quickSort(nums, left, pivot - 1);
         quickSort(nums, pivot + 1, right);
     }
@@ -86,36 +82,30 @@ class QuickSortMedian {
 
 /* 快速排序类（递归深度优化） */
 class QuickSortTailCall {
-  private:
-    /* 哨兵划分 */
-    static int partition(vector<int> &nums, int left, int right) {
-        // 以 nums[left] 为基准数
+private:
+    static int partition(std::vector<int>& nums, int left, int right) {
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
-                j--;                // 从右向左找首个小于基准数的元素
+                j--;
             while (i < j && nums[i] <= nums[left])
-                i++;                // 从左向右找首个大于基准数的元素
-            swap(nums[i], nums[j]); // 交换这两个元素
+                i++;
+            std::swap(nums[i], nums[j]);
         }
-        swap(nums[i], nums[left]);  // 将基准数交换至两子数组的分界线
-        return i;                   // 返回基准数的索引
+        std::swap(nums[i], nums[left]);
+        return i;
     }
 
-  public:
-    /* 快速排序（递归深度优化） */
-    static void quickSort(vector<int> &nums, int left, int right) {
-        // 子数组长度为 1 时终止
+public:
+    static void quickSort(std::vector<int>& nums, int left, int right) {
         while (left < right) {
-            // 哨兵划分操作
             int pivot = partition(nums, left, right);
-            // 对两个子数组中较短的那个执行快速排序
             if (pivot - left < right - pivot) {
-                quickSort(nums, left, pivot - 1); // 递归排序左子数组
-                left = pivot + 1;                 // 剩余未排序区间为 [pivot + 1, right]
+                quickSort(nums, left, pivot - 1);
+                left = pivot + 1;
             } else {
-                quickSort(nums, pivot + 1, right); // 递归排序右子数组
-                right = pivot - 1;                 // 剩余未排序区间为 [left, pivot - 1]
+                quickSort(nums, pivot + 1, right);
+                right = pivot - 1;
             }
         }
     }
@@ -123,22 +113,25 @@ class QuickSortTailCall {
 
 /* Driver Code */
 int main() {
-    /* 快速排序 */
-    vector<int> nums{2, 4, 1, 0, 3, 5};
-    QuickSort::quickSort(nums, 0, nums.size() - 1);
-    cout << "快速排序完成后 nums = ";
+    std::vector<int> nums = {2, 4, 1, 0, 3, 5};
+    if (!nums.empty()) {
+        QuickSort::quickSort(nums, 0, static_cast<int>(nums.size()) - 1);
+    }
+    std::cout << "快速排序完成后 nums = ";
     printVector(nums);
 
-    /* 快速排序（中位基准数优化） */
-    vector<int> nums1 = {2, 4, 1, 0, 3, 5};
-    QuickSortMedian::quickSort(nums1, 0, nums1.size() - 1);
-    cout << "快速排序（中位基准数优化）完成后 nums = ";
+    std::vector<int> nums1 = {2, 4, 1, 0, 3, 5};
+    if (!nums1.empty()) {
+        QuickSortMedian::quickSort(nums1, 0, static_cast<int>(nums1.size()) - 1);
+    }
+    std::cout << "快速排序（中位基准数优化）完成后 nums = ";
     printVector(nums1);
 
-    /* 快速排序（递归深度优化） */
-    vector<int> nums2 = {2, 4, 1, 0, 3, 5};
-    QuickSortTailCall::quickSort(nums2, 0, nums2.size() - 1);
-    cout << "快速排序（递归深度优化）完成后 nums = ";
+    std::vector<int> nums2 = {2, 4, 1, 0, 3, 5};
+    if (!nums2.empty()) {
+        QuickSortTailCall::quickSort(nums2, 0, static_cast<int>(nums2.size()) - 1);
+    }
+    std::cout << "快速排序（递归深度优化）完成后 nums = ";
     printVector(nums2);
 
     return 0;

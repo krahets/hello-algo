@@ -1,49 +1,57 @@
 /**
  * File: climbing_stairs_dp.cpp
- * Created Time: 2023-06-30
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-20
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
  */
 
-#include "../utils/common.hpp"
+#include <iostream>
+#include <vector>
+using namespace std;
 
 /* 爬楼梯：动态规划 */
 int climbingStairsDP(int n) {
-    if (n == 1 || n == 2)
-        return n;
-    // 初始化 dp 表，用于存储子问题的解
+    // 边界处理
+    if (n <= 0) return 0;
+    if (n == 1 || n == 2) return n;
+
+    // 初始化 dp 表，存储子问题解
     vector<int> dp(n + 1);
-    // 初始状态：预设最小子问题的解
     dp[1] = 1;
     dp[2] = 2;
-    // 状态转移：从较小子问题逐步求解较大子问题
-    for (int i = 3; i <= n; i++) {
+
+    // 状态转移
+    for (int i = 3; i <= n; ++i) {
         dp[i] = dp[i - 1] + dp[i - 2];
     }
+
     return dp[n];
 }
 
-/* 爬楼梯：空间优化后的动态规划 */
+/* 爬楼梯：空间优化后的动态规划（O(1) 空间） */
 int climbingStairsDPComp(int n) {
-    if (n == 1 || n == 2)
-        return n;
+    // 边界处理
+    if (n <= 0) return 0;
+    if (n == 1 || n == 2) return n;
+
     int a = 1, b = 2;
-    for (int i = 3; i <= n; i++) {
-        int tmp = b;
+    for (int i = 3; i <= n; ++i) {
+        int temp = b;
         b = a + b;
-        a = tmp;
+        a = temp;
     }
+
     return b;
 }
 
-/* Driver Code */
+/* 主函数测试 */
 int main() {
     int n = 9;
 
     int res = climbingStairsDP(n);
-    cout << "爬 " << n << " 阶楼梯共有 " << res << " 种方案" << endl;
+    cout << "[动态规划] 爬 " << n << " 阶楼梯共有 " << res << " 种方案" << endl;
 
     res = climbingStairsDPComp(n);
-    cout << "爬 " << n << " 阶楼梯共有 " << res << " 种方案" << endl;
+    cout << "[空间优化DP] 爬 " << n << " 阶楼梯共有 " << res << " 种方案" << endl;
 
     return 0;
 }

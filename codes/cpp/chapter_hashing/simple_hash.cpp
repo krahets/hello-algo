@@ -1,66 +1,69 @@
 /**
  * File: simple_hash.cpp
- * Created Time: 2023-06-21
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-19
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
+ * Improved: 现代C++、const正确性、类型安全、代码规范
  */
 
 #include "../utils/common.hpp"
+#include <string>
+#include <iostream>
 
 /* 加法哈希 */
-int addHash(string key) {
+int addHash(const std::string& key) {
     long long hash = 0;
-    const int MODULUS = 1000000007;
+    const int MOD = 1000000007;
     for (unsigned char c : key) {
-        hash = (hash + (int)c) % MODULUS;
+        hash = (hash + c) % MOD;
     }
-    return (int)hash;
+    return static_cast<int>(hash);
 }
 
 /* 乘法哈希 */
-int mulHash(string key) {
+int mulHash(const std::string& key) {
     long long hash = 0;
-    const int MODULUS = 1000000007;
+    const int MOD = 1000000007;
     for (unsigned char c : key) {
-        hash = (31 * hash + (int)c) % MODULUS;
+        hash = (31 * hash + c) % MOD;
     }
-    return (int)hash;
+    return static_cast<int>(hash);
 }
 
 /* 异或哈希 */
-int xorHash(string key) {
+int xorHash(const std::string& key) {
     int hash = 0;
-    const int MODULUS = 1000000007;
+    const int MOD = 1000000007;
     for (unsigned char c : key) {
-        hash ^= (int)c;
+        hash ^= c;
     }
-    return hash & MODULUS;
+    return hash & MOD;
 }
 
 /* 旋转哈希 */
-int rotHash(string key) {
+int rotHash(const std::string& key) {
     long long hash = 0;
-    const int MODULUS = 1000000007;
+    const int MOD = 1000000007;
     for (unsigned char c : key) {
-        hash = ((hash << 4) ^ (hash >> 28) ^ (int)c) % MODULUS;
+        hash = ((hash << 4) ^ (hash >> 28) ^ c) % MOD;
     }
-    return (int)hash;
+    return static_cast<int>(hash);
 }
 
 /* Driver Code */
 int main() {
-    string key = "Hello 算法";
+    std::string key = "Hello 算法";
 
     int hash = addHash(key);
-    cout << "加法哈希值为 " << hash << endl;
+    std::cout << "加法哈希值为 " << hash << '\n';
 
     hash = mulHash(key);
-    cout << "乘法哈希值为 " << hash << endl;
+    std::cout << "乘法哈希值为 " << hash << '\n';
 
     hash = xorHash(key);
-    cout << "异或哈希值为 " << hash << endl;
+    std::cout << "异或哈希值为 " << hash << '\n';
 
     hash = rotHash(key);
-    cout << "旋转哈希值为 " << hash << endl;
+    std::cout << "旋转哈希值为 " << hash << '\n';
 
     return 0;
 }

@@ -1,42 +1,63 @@
 /**
  * File: binary_tree_bfs.cpp
- * Created Time: 2022-11-25
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-19
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
+ * Improved: 现代 C++ 规范、鲁棒性、const 正确性、可读性
  */
 
 #include "../utils/common.hpp"
+#include <queue>
+#include <vector>
+#include <iostream>
 
-/* 层序遍历 */
-vector<int> levelOrder(TreeNode *root) {
-    // 初始化队列，加入根节点
-    queue<TreeNode *> queue;
-    queue.push(root);
-    // 初始化一个列表，用于保存遍历序列
-    vector<int> vec;
-    while (!queue.empty()) {
-        TreeNode *node = queue.front();
-        queue.pop();              // 队列出队
-        vec.push_back(node->val); // 保存节点值
-        if (node->left != nullptr)
-            queue.push(node->left); // 左子节点入队
-        if (node->right != nullptr)
-            queue.push(node->right); // 右子节点入队
+/* 层序遍历（BFS）*/
+std::vector<int> levelOrder(const TreeNode* root) {
+    std::vector<int> result;
+    // 处理空树，防止空指针访问
+    if (root == nullptr) {
+        return result;
     }
-    return vec;
+
+    std::queue<const TreeNode*> nodeQueue;
+    nodeQueue.push(root);
+
+    while (!nodeQueue.empty()) {
+        // 取出队首节点
+        const TreeNode* currentNode = nodeQueue.front();
+        nodeQueue.pop();
+
+        // 访问节点
+        result.push_back(currentNode->val);
+
+        // 左子节点入队
+        if (currentNode->left != nullptr) {
+            nodeQueue.push(currentNode->left);
+        }
+        // 右子节点入队
+        if (currentNode->right != nullptr) {
+            nodeQueue.push(currentNode->right);
+        }
+    }
+
+    return result;
 }
 
 /* Driver Code */
 int main() {
-    /* 初始化二叉树 */
-    // 这里借助了一个从数组直接生成二叉树的函数
-    TreeNode *root = vectorToTree(vector<int>{1, 2, 3, 4, 5, 6, 7});
-    cout << endl << "初始化二叉树\n" << endl;
+    // 初始化二叉树
+    const std::vector<int> treeArray = {1, 2, 3, 4, 5, 6, 7};
+    TreeNode* root = vectorToTree(treeArray);
+
+    std::cout << "\n初始化二叉树\n";
     printTree(root);
 
-    /* 层序遍历 */
-    vector<int> vec = levelOrder(root);
-    cout << endl << "层序遍历的节点打印序列 = ";
-    printVector(vec);
+    // 层序遍历
+    std::vector<int> result = levelOrder(root);
+    std::cout << "\n层序遍历的节点序列 = ";
+    printVector(result);
+
+    // 释放内存（重要！防止内存泄漏）
+    freeMemoryTree(root);
 
     return 0;
 }

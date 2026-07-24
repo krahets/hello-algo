@@ -1,10 +1,28 @@
 /**
  * File: space_complexity.cpp
- * Created Time: 2022-11-25
- * Author: krahets (krahets@163.com)
+ * Created Time: 2026-05-20
+ * Author: miaochengyou1119(https://github.com/miaochengyou1119)
  */
 
-#include "../utils/common.hpp"
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+// 定义链表节点
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(nullptr) {}
+};
+
+// 定义二叉树节点
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+};
 
 /* 函数 */
 int func() {
@@ -12,7 +30,7 @@ int func() {
     return 0;
 }
 
-/* 常数阶 */
+/* 常数阶 O(1) */
 void constant(int n) {
     // 常量、变量、对象占用 O(1) 空间
     const int a = 0;
@@ -29,7 +47,7 @@ void constant(int n) {
     }
 }
 
-/* 线性阶 */
+/* 线性阶 O(n) */
 void linear(int n) {
     // 长度为 n 的数组占用 O(n) 空间
     vector<int> nums(n);
@@ -45,7 +63,7 @@ void linear(int n) {
     }
 }
 
-/* 线性阶（递归实现） */
+/* 线性阶（递归）O(n) */
 void linearRecur(int n) {
     cout << "递归 n = " << n << endl;
     if (n == 1)
@@ -53,9 +71,9 @@ void linearRecur(int n) {
     linearRecur(n - 1);
 }
 
-/* 平方阶 */
+/* 平方阶 O(n²) */
 void quadratic(int n) {
-    // 二维列表占用 O(n^2) 空间
+    // 二维列表占用 O(n²) 空间
     vector<vector<int>> numMatrix;
     for (int i = 0; i < n; i++) {
         vector<int> tmp;
@@ -66,7 +84,7 @@ void quadratic(int n) {
     }
 }
 
-/* 平方阶（递归实现） */
+/* 平方阶（递归）O(n²) */
 int quadraticRecur(int n) {
     if (n <= 0)
         return 0;
@@ -75,7 +93,7 @@ int quadraticRecur(int n) {
     return quadraticRecur(n - 1);
 }
 
-/* 指数阶（建立满二叉树） */
+/* 指数阶（满二叉树）O(2ⁿ) */
 TreeNode *buildTree(int n) {
     if (n == 0)
         return nullptr;
@@ -85,23 +103,44 @@ TreeNode *buildTree(int n) {
     return root;
 }
 
+// 释放二叉树内存
+void freeMemoryTree(TreeNode *root) {
+    if (root == nullptr) return;
+    freeMemoryTree(root->left);
+    freeMemoryTree(root->right);
+    delete root;
+}
+
+// 简单打印二叉树（仅演示结构）
+void printTree(TreeNode *root) {
+    if (!root) return;
+    cout << root->val << " ";
+    printTree(root->left);
+    printTree(root->right);
+}
+
 /* Driver Code */
 int main() {
     int n = 5;
-    // 常数阶
+
+    cout << "=== 常数阶 O(1) ===" << endl;
     constant(n);
-    // 线性阶
+
+    cout << "\n=== 线性阶 O(n) ===" << endl;
     linear(n);
     linearRecur(n);
-    // 平方阶
+
+    cout << "\n=== 平方阶 O(n²) ===" << endl;
     quadratic(n);
     quadraticRecur(n);
-    // 指数阶
+
+    cout << "\n=== 指数阶 O(2ⁿ) ===" << endl;
     TreeNode *root = buildTree(n);
     printTree(root);
 
     // 释放内存
     freeMemoryTree(root);
 
+    cout << "\n\n所有空间复杂度示例运行完成！" << endl;
     return 0;
 }
