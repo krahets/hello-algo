@@ -254,11 +254,11 @@
 
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
-    let _name: Option<&String> = map.get(&15937);
+    let name: Option<&String> = map.get(&15937);
 
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
-    let _removed_value: Option<String> = map.remove(&10583);
+    let removed_value: Option<String> = map.remove(&10583);
     ```
 
 === "C"

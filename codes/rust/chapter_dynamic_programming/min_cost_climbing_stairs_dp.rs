@@ -7,13 +7,13 @@
 use std::cmp;
 
 /* 爬楼梯最小代价：动态规划 */
-fn min_cost_climbing_stairs_dp(cost: &[i32]) -> i32 {
+pub fn min_cost_climbing_stairs_dp(cost: &[u32]) -> u32 {
     let n = cost.len() - 1;
     if n == 1 || n == 2 {
         return cost[n];
     }
     // 初始化 dp 表，用于存储子问题的解
-    let mut dp = vec![-1; n + 1];
+    let mut dp = vec![0; n + 1];
     // 初始状态：预设最小子问题的解
     dp[1] = cost[1];
     dp[2] = cost[2];
@@ -25,24 +25,22 @@ fn min_cost_climbing_stairs_dp(cost: &[i32]) -> i32 {
 }
 
 /* 爬楼梯最小代价：空间优化后的动态规划 */
-fn min_cost_climbing_stairs_dp_comp(cost: &[i32]) -> i32 {
+pub fn min_cost_climbing_stairs_dp_comp(cost: &[u32]) -> u32 {
     let n = cost.len() - 1;
     if n == 1 || n == 2 {
         return cost[n];
-    };
+    }
     let (mut a, mut b) = (cost[1], cost[2]);
-    for i in 3..=n {
-        let tmp = b;
-        b = cmp::min(a, tmp) + cost[i];
-        a = tmp;
+    for c in &cost[3..] {
+        (a, b) = (b, cmp::min(a, b) + c);
     }
     b
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let cost = [0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1];
-    println!("输入楼梯的代价列表为 {:?}", &cost);
+    println!("输入楼梯的代价列表为 {cost:?}");
 
     let res = min_cost_climbing_stairs_dp(&cost);
     println!("爬完楼梯的最低代价为 {res}");

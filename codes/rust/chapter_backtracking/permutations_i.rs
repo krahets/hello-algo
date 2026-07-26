@@ -13,12 +13,12 @@ fn backtrack(mut state: Vec<i32>, choices: &[i32], selected: &mut [bool], res: &
     }
     // 遍历所有选择
     for i in 0..choices.len() {
-        let choice = choices[i];
         // 剪枝：不允许重复选择元素
         if !selected[i] {
             // 尝试：做出选择，更新状态
-            selected[i] = true;
+            let choice = choices[i];
             state.push(choice);
+            selected[i] = true;
             // 进行下一轮选择
             backtrack(state.clone(), choices, selected, res);
             // 回退：撤销选择，恢复到之前的状态
@@ -29,18 +29,20 @@ fn backtrack(mut state: Vec<i32>, choices: &[i32], selected: &mut [bool], res: &
 }
 
 /* 全排列 I */
-fn permutations_i(nums: &mut [i32]) -> Vec<Vec<i32>> {
-    let mut res = Vec::new(); // 状态（子集）
-    backtrack(Vec::new(), nums, &mut vec![false; nums.len()], &mut res);
+pub fn permutations_i(nums: &mut [i32]) -> Vec<Vec<i32>> {
+    let state = Vec::new();
+    let mut selected = vec![false; nums.len()];
+    let mut res = Vec::new();
+    backtrack(state, nums, &mut selected, &mut res);
     res
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let mut nums = [1, 2, 3];
 
     let res = permutations_i(&mut nums);
 
-    println!("输入数组 nums = {:?}", &nums);
-    println!("所有排列 res = {:?}", &res);
+    println!("输入数组 nums = {nums:?}");
+    println!("所有排列 res = {res:?}");
 }

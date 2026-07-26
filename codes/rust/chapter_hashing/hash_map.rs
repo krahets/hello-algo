@@ -4,12 +4,10 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-use hello_algo_rust::include::print_util;
-
 use std::collections::HashMap;
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     // 初始化哈希表
     let mut map = HashMap::new();
 
@@ -20,28 +18,46 @@ pub fn main() {
     map.insert(16750, "小算");
     map.insert(13276, "小法");
     map.insert(10583, "小鸭");
-    println!("\n添加完成后，哈希表为\nKey -> Value");
-    print_util::print_hash_map(&map);
+    println!("添加完成后，哈希表为\nKey -> Value");
+    for (key, value) in &map {
+        println!("{key} -> {value}");
+    }
+
+    println!();
 
     // 查询操作
-    // 向哈希表中输入键 key ，得到值 value
+    // 向哈希表中输入键 key，得到值 value
     let name = map.get(&15937).copied().unwrap();
-    println!("\n输入学号 15937 ，查询到姓名 {name}");
+    println!("输入学号 15937 ，查询到姓名 {name}");
+
+    println!();
 
     // 删除操作
     // 在哈希表中删除键值对 (key, value)
-    _ = map.remove(&10583);
-    println!("\n删除 10583 后，哈希表为\nKey -> Value");
-    print_util::print_hash_map(&map);
+    map.remove(&10583);
+    println!("删除 10583 后，哈希表为\nKey -> Value");
+    for (key, value) in &map {
+        println!("{key} -> {value}");
+    }
+
+    println!();
 
     // 遍历哈希表
-    println!("\n遍历键值对 Key->Value");
-    print_util::print_hash_map(&map);
-    println!("\n单独遍历键 Key");
+    println!("遍历键值对 Key -> Value");
+    for (key, value) in &map {
+        println!("{key} -> {value}");
+    }
+
+    println!();
+
+    println!("单独遍历键 Key");
     for key in map.keys() {
         println!("{key}");
     }
-    println!("\n单独遍历值 value");
+
+    println!();
+
+    println!("单独遍历值 Value");
     for value in map.values() {
         println!("{value}");
     }

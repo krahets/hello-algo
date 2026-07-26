@@ -4,7 +4,7 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-use hello_algo_rust::include::{print_util, ListNode};
+use hello_algo_rust::linked_list::{LinkedList, ListNode};
 use std::cell::RefCell;
 use std::rc::Rc;
 
@@ -28,39 +28,36 @@ pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
 }
 
 /* 访问链表中索引为 index 的节点 */
-pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Option<Rc<RefCell<ListNode<T>>>> {
-    fn dfs<T>(
-        head: Option<&Rc<RefCell<ListNode<T>>>>,
-        index: i32,
-    ) -> Option<Rc<RefCell<ListNode<T>>>> {
-        if index <= 0 {
-            return head.cloned();
-        }
-
-        if let Some(node) = head {
-            dfs(node.borrow().next.as_ref(), index - 1)
-        } else {
-            None
-        }
+pub fn access<T>(
+    head: &Rc<RefCell<ListNode<T>>>,
+    index: usize,
+) -> Option<Rc<RefCell<ListNode<T>>>> {
+    if index == 0 {
+        return Some(head.clone());
     }
-
-    dfs(Some(head).as_ref(), index)
+    let mut next = head.borrow().next.clone();
+    for _ in 1..index {
+        let node = next?;
+        next = node.borrow().next.clone();
+    }
+    next
 }
 
 /* 在链表中查找值为 target 的首个节点 */
-pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
-    fn find<T: PartialEq>(head: Option<&Rc<RefCell<ListNode<T>>>>, target: T, idx: i32) -> i32 {
-        if let Some(node) = head {
-            if node.borrow().val == target {
-                return idx;
-            }
-            return find(node.borrow().next.as_ref(), target, idx + 1);
-        } else {
-            -1
-        }
+pub fn find<T: PartialEq>(head: &Rc<RefCell<ListNode<T>>>, target: T) -> Option<usize> {
+    if head.borrow().val == target {
+        return Some(0);
     }
-
-    find(Some(head).as_ref(), target, 0)
+    let mut next = head.borrow().next.clone();
+    let mut index = 1;
+    while let Some(node) = next {
+        if node.borrow().val == target {
+            return Some(index);
+        }
+        next = node.borrow().next.clone();
+        index += 1;
+    }
+    None
 }
 
 /* Driver Code */
@@ -77,24 +74,20 @@ fn main() {
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
     n3.borrow_mut().next = Some(n4.clone());
-    print!("初始化的链表为 ");
-    print_util::print_linked_list(&n0);
+    println!("初始化的链表为 {}", n0.display_as_list());
 
     /* 插入节点 */
     insert(&n0, ListNode::new(0));
-    print!("插入节点后的链表为 ");
-    print_util::print_linked_list(&n0);
-
+    println!("插入节点后的链表为 {}", n0.display_as_list());
     /* 删除节点 */
     remove(&n0);
-    print!("删除节点后的链表为 ");
-    print_util::print_linked_list(&n0);
+    println!("删除节点后的链表为 {}", n0.display_as_list());
 
     /* 访问节点 */
-    let node = access(n0.clone(), 3);
-    println!("链表中索引 3 处的节点的值 = {}", node.unwrap().borrow().val);
+    let node = access(&n0, 3).unwrap();
+    println!("链表中索引 3 处的节点的值 = {}", node.borrow().val);
 
     /* 查找节点 */
-    let index = find(n0.clone(), 2);
-    println!("链表中值为 2 的节点的索引 = {}", index);
+    let index = find(&n0, 2).unwrap();
+    println!("链表中值为 2 的节点的索引 = {index}");
 }

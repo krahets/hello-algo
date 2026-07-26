@@ -35,22 +35,26 @@ fn backtrack(
 }
 
 /* 求解子集和 I */
-fn subset_sum_i(nums: &mut [i32], target: i32) -> Vec<Vec<i32>> {
-    let mut state = Vec::new(); // 状态（子集）
-    nums.sort(); // 对 nums 进行排序
-    let start = 0; // 遍历起始点
-    let mut res = Vec::new(); // 结果列表（子集列表）
+pub fn subset_sum_i(nums: &mut [i32], target: i32) -> Vec<Vec<i32>> {
+    // 状态（子集）
+    let mut state = Vec::new();
+    // 对 nums 进行排序
+    nums.sort();
+    // 遍历起始点
+    let start = 0;
+    // 结果列表（子集列表）
+    let mut res = Vec::new();
     backtrack(&mut state, target, nums, start, &mut res);
     res
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let mut nums = [3, 4, 5];
     let target = 9;
 
     let res = subset_sum_i(&mut nums, target);
 
-    println!("输入数组 nums = {:?}, target = {}", &nums, target);
-    println!("所有和等于 {} 的子集 res = {:?}", target, &res);
+    println!("输入数组 nums = {nums:?}, target = {target}");
+    println!("所有和等于 {target} 的子集 res = {res:?}");
 }

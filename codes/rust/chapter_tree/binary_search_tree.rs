@@ -4,43 +4,41 @@
  * Author: xBLACKICEx (xBLACKICE@outlook.com)、night-cruise (2586447362@qq.com)
  */
 
-use hello_algo_rust::include::print_util;
-
+use hello_algo_rust::binary_tree::BinaryTree;
 use std::cell::RefCell;
 use std::cmp::Ordering;
 use std::rc::Rc;
 
-use hello_algo_rust::include::TreeNode;
-
-type OptionTreeNodeRc = Option<Rc<RefCell<TreeNode>>>;
+pub type TreeNode = hello_algo_rust::binary_tree::TreeNode<i32>;
 
 /* 二叉搜索树 */
 pub struct BinarySearchTree {
-    root: OptionTreeNodeRc,
+    root: Option<Rc<RefCell<TreeNode>>>,
 }
 
 impl BinarySearchTree {
     /* 构造方法 */
+    #[allow(clippy::new_without_default)]
     pub fn new() -> Self {
         // 初始化空树
         Self { root: None }
     }
 
     /* 获取二叉树根节点 */
-    pub fn get_root(&self) -> OptionTreeNodeRc {
-        self.root.clone()
+    pub fn get_root(&self) -> &Option<Rc<RefCell<TreeNode>>> {
+        &self.root
     }
 
     /* 查找节点 */
-    pub fn search(&self, num: i32) -> OptionTreeNodeRc {
+    pub fn search(&self, num: i32) -> Option<Rc<RefCell<TreeNode>>> {
         let mut cur = self.root.clone();
         // 循环查找，越过叶节点后跳出
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
-                // 目标节点在 cur 的右子树中
-                Ordering::Greater => cur = node.borrow().right.clone(),
                 // 目标节点在 cur 的左子树中
                 Ordering::Less => cur = node.borrow().left.clone(),
+                // 目标节点在 cur 的右子树中
+                Ordering::Greater => cur = node.borrow().right.clone(),
                 // 找到目标节点，跳出循环
                 Ordering::Equal => break,
             }
@@ -62,22 +60,22 @@ impl BinarySearchTree {
         // 循环查找，越过叶节点后跳出
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
-                // 找到重复节点，直接返回
-                Ordering::Equal => return,
-                // 插入位置在 cur 的右子树中
-                Ordering::Greater => {
-                    pre = cur.clone();
-                    cur = node.borrow().right.clone();
-                }
                 // 插入位置在 cur 的左子树中
                 Ordering::Less => {
-                    pre = cur.clone();
+                    pre = cur.take();
                     cur = node.borrow().left.clone();
                 }
+                // 插入位置在 cur 的右子树中
+                Ordering::Greater => {
+                    pre = cur.take();
+                    cur = node.borrow().right.clone();
+                }
+                // 找到重复节点，直接返回
+                Ordering::Equal => return,
             }
         }
         // 插入节点
-        let pre = pre.unwrap();
+        let pre = pre.unwrap_or_else(|| unreachable!());
         let node = Some(TreeNode::new(num));
         if num > pre.borrow().val {
             pre.borrow_mut().right = node;
@@ -97,62 +95,66 @@ impl BinarySearchTree {
         // 循环查找，越过叶节点后跳出
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
-                // 找到待删除节点，跳出循环
-                Ordering::Equal => break,
-                // 待删除节点在 cur 的右子树中
-                Ordering::Greater => {
-                    pre = cur.clone();
-                    cur = node.borrow().right.clone();
-                }
                 // 待删除节点在 cur 的左子树中
                 Ordering::Less => {
-                    pre = cur.clone();
+                    pre = cur.take();
                     cur = node.borrow().left.clone();
                 }
+                // 待删除节点在 cur 的右子树中
+                Ordering::Greater => {
+                    pre = cur.take();
+                    cur = node.borrow().right.clone();
+                }
+                // 找到待删除节点，跳出循环
+                Ordering::Equal => break,
             }
         }
         // 若无待删除节点，则直接返回
-        if cur.is_none() {
-            return;
+        let Some(cur) = cur else { return };
+        let borrow = cur.borrow();
+        let left_child = borrow.left.as_ref();
+        let right_child = borrow.right.as_ref();
+        // 当子节点的数量为 0 或 1 时
+        if left_child.is_none() || right_child.is_none() {
+            // 此时 child 为空或 cur 的唯一子节点
+            let child = left_child.or(right_child).cloned();
+            let Some(pre) = pre else {
+                // 若 pre 为空，则查找节点的第一轮循环里发生了 break，
+                // 此时待删除的节点为根节点，应重新指定根节点
+                self.root = child;
+                return;
+            };
+            if borrow.val < pre.borrow().val {
+                pre.borrow_mut().left = child;
+            } else {
+                pre.borrow_mut().right = child;
+            }
         }
-        let cur = cur.unwrap();
-        let (left_child, right_child) = (cur.borrow().left.clone(), cur.borrow().right.clone());
-        match (left_child.clone(), right_child.clone()) {
-            // 子节点数量 = 0 or 1
-            (None, None) | (Some(_), None) | (None, Some(_)) => {
-                // 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点
-                let child = left_child.or(right_child);
-                let pre = pre.unwrap();
-                // 删除节点 cur
-                if !Rc::ptr_eq(&cur, self.root.as_ref().unwrap()) {
-                    let left = pre.borrow().left.clone();
-                    if left.is_some() && Rc::ptr_eq(left.as_ref().unwrap(), &cur) {
-                        pre.borrow_mut().left = child;
-                    } else {
-                        pre.borrow_mut().right = child;
-                    }
+        // 子节点的数量为 2 时
+        else {
+            // 获取中序遍历中 cur 的下一个节点
+            let Some(mut tmp) = right_child.cloned() else {
+                // cur 的子节点数量为 2，一定存在右子节点，该分支不可达
+                unreachable!()
+            };
+            // 相比于 while let，此代码能绕开 tmp 借用的生命周期并减少一次共享指针的克隆；
+            // 考虑到可读性，也许应该恢复 while let 写法
+            loop {
+                tmp = if let Some(left) = &tmp.borrow().left {
+                    Rc::clone(left)
                 } else {
-                    // 若删除节点为根节点，则重新指定根节点
-                    self.root = child;
-                }
+                    break;
+                };
             }
-            // 子节点数量 = 2
-            (Some(_), Some(_)) => {
-                // 获取中序遍历中 cur 的下一个节点
-                let mut tmp = cur.borrow().right.clone();
-                while let Some(node) = tmp.clone() {
-                    if node.borrow().left.is_some() {
-                        tmp = node.borrow().left.clone();
-                    } else {
-                        break;
-                    }
-                }
-                let tmp_val = tmp.unwrap().borrow().val;
-                // 递归删除节点 tmp
-                self.remove(tmp_val);
-                // 用 tmp 覆盖 cur
-                cur.borrow_mut().val = tmp_val;
-            }
+            // 这是当前作用域内仍然存活的借用，需要在递归前丢弃，如果保留在调用栈中，
+            // 可能会因同一节点的可变借用而触发 panic；即使没有发生这种情况，下面对
+            // cur 节点的可变借用也会导致 panic
+            drop(borrow);
+            let tmp_val = tmp.borrow().val;
+            // 递归删除节点 tmp
+            self.remove(tmp_val);
+            // 用 tmp 覆盖 cur
+            cur.borrow_mut().val = tmp_val;
         }
     }
 }
@@ -166,30 +168,22 @@ fn main() {
     for &num in &nums {
         bst.insert(num);
     }
-    println!("\n初始化的二叉树为\n");
-    print_util::print_tree(bst.get_root().as_ref().unwrap());
+    println!("初始化的二叉树为\n{}", bst.get_root().display());
 
     /* 查找结点 */
-    let node = bst.search(7);
-    println!(
-        "\n查找到的节点对象为 {:?}，节点值 = {}",
-        node.clone().unwrap(),
-        node.clone().unwrap().borrow().val
-    );
+    let node = bst.search(7).unwrap();
+    let val = node.borrow().val;
+    println!("查找到的节点对象为 {node:?}，节点值 = {val}");
 
     /* 插入节点 */
     bst.insert(16);
-    println!("\n插入节点 16 后，二叉树为\n");
-    print_util::print_tree(bst.get_root().as_ref().unwrap());
+    println!("插入节点 16 后，二叉树为\n{}", bst.get_root().display());
 
     /* 删除节点 */
     bst.remove(1);
-    println!("\n删除节点 1 后，二叉树为\n");
-    print_util::print_tree(bst.get_root().as_ref().unwrap());
+    println!("删除节点 1 后，二叉树为\n{}", bst.get_root().display());
     bst.remove(2);
-    println!("\n删除节点 2 后，二叉树为\n");
-    print_util::print_tree(bst.get_root().as_ref().unwrap());
+    println!("删除节点 2 后，二叉树为\n{}", bst.get_root().display());
     bst.remove(4);
-    println!("\n删除节点 4 后，二叉树为\n");
-    print_util::print_tree(bst.get_root().as_ref().unwrap());
+    println!("删除节点 4 后，二叉树为\n{}", bst.get_root().display());
 }

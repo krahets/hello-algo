@@ -4,38 +4,33 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-use hello_algo_rust::include::{print_util, vec_to_tree, TreeNode};
-use std::{cell::RefCell, rc::Rc};
+use hello_algo_rust::binary_tree::{BinaryTree, TreeLink};
+use std::cell::RefCell;
+use std::rc::Rc;
+
+pub type TreeNode = hello_algo_rust::binary_tree::TreeNode<i32>;
 
 /* 前序遍历：例题一 */
-fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<&Rc<RefCell<TreeNode>>>) {
-    if root.is_none() {
-        return;
+pub fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: &Option<Rc<RefCell<TreeNode>>>) {
+    let Some(node) = root else { return };
+    if node.borrow().val == 7 {
+        // 记录解
+        res.push(node.clone());
     }
-    if let Some(node) = root {
-        if node.borrow().val == 7 {
-            // 记录解
-            res.push(node.clone());
-        }
-        pre_order(res, node.borrow().left.as_ref());
-        pre_order(res, node.borrow().right.as_ref());
-    }
+    pre_order(res, &node.borrow().left);
+    pre_order(res, &node.borrow().right);
 }
 
 /* Driver Code */
-pub fn main() {
-    let root = vec_to_tree([1, 7, 3, 4, 5, 6, 7].map(|x| Some(x)).to_vec());
-    println!("初始化二叉树");
-    print_util::print_tree(root.as_ref().unwrap());
+fn main() {
+    let root = TreeLink::try_from_array([1, 7, 3, 4, 5, 6, 7].map(Some)).ok();
+    println!("初始化二叉树\n{}", root.display());
 
     // 前序遍历
     let mut res = Vec::new();
-    pre_order(&mut res, root.as_ref());
+    pre_order(&mut res, &root);
 
-    println!("\n输出所有值为 7 的节点");
-    let mut vals = Vec::new();
-    for node in res {
-        vals.push(node.borrow().val)
-    }
-    println!("{:?}", vals);
+    println!("输出所有值为 7 的节点");
+    let vals = res.iter().map(|node| node.borrow().val).collect::<Vec<_>>();
+    println!("{vals:?}");
 }

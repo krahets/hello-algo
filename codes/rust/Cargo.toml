@@ -1,7 +1,7 @@
 [package]
 name = "hello-algo-rust"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 publish = false
 
 # Run Command: cargo run --bin time_complexity
@@ -410,4 +410,4 @@ name = "max_product_cutting"
 path = "chapter_greedy/max_product_cutting.rs"
 
 [dependencies]
-rand = "0.8.5"
+rand = "0.9.2"
