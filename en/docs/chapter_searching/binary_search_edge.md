@@ -476,7 +476,7 @@ Note that the returned insertion point is $i$, so we need to subtract $1$ from i
 
 ### 2. &nbsp; Converting to Element Search
 
-We know that when the array does not contain `target`, $i$ and $j$ will eventually point to the first elements greater than and less than `target`, respectively.
+We know that when the array does not contain `target`, $i$ and $j$ will eventually point to the first element greater than `target` and the rightmost element less than `target`, respectively.
 
 Therefore, as shown in Figure 10-8, we can construct an element that does not exist in the array to find the left and right boundaries.
 

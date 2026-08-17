@@ -26,7 +26,7 @@ comments: true
 
 二分探索の過程をさらに考えると、`nums[m] < target` のときは $i$ が移動します。これは、ポインタ $i$ が `target` 以上の要素へ近づいていることを意味します。同様に、ポインタ $j$ は常に `target` 以下の要素へ近づいています。
 
-したがって二分探索の終了時には、$i$ は最初の `target` より大きい要素を指し、$j$ は最初の `target` より小さい要素を指します。**よって、配列に `target` が含まれない場合、挿入インデックスは $i$ です**。コードは次のとおりです：
+したがって二分探索の終了時には、$i$ は `target` より大きい最初の要素を指し、$j$ は `target` より小さい最も右の要素を指します。**よって、配列に `target` が含まれない場合、挿入インデックスは $i$ です**。コードは次のとおりです：
 
 === "Python"
 
@@ -344,7 +344,7 @@ comments: true
 - `nums[m] < target` または `nums[m] > target` のときは、まだ `target` を見つけていないことを意味するため、通常の二分探索と同じ区間縮小を行い、**ポインタ $i$ と $j$ を `target` に近づけます**。
 - `nums[m] == target` のときは、`target` より小さい要素が区間 $[i, m - 1]$ にあることを意味するため、$j = m - 1$ として区間を縮小し、**ポインタ $j$ を `target` より小さい要素に近づけます**。
 
-ループ終了後、$i$ は最も左の `target` を指し、$j$ は最初の `target` より小さい要素を指すため、**インデックス $i$ が挿入位置です**。
+ループ終了後、$i$ は最も左の `target` を指し、$j$ は `target` より小さい最も右の要素を指すため、**インデックス $i$ が挿入位置です**。
 
 === "<1>"
     ![重複要素に対する二分探索の挿入位置の手順](binary_search_insertion.assets/binary_search_insertion_step1.png){ class="animation-figure" }
@@ -389,7 +389,7 @@ comments: true
             elif nums[m] > target:
                 j = m - 1  # target は区間 [i, m-1] にある
             else:
-                j = m - 1  # target より小さい最初の要素は区間 [i, m-1] にある
+                j = m - 1  # target より小さい最も右の要素は区間 [i, m-1] にある
         # 挿入位置 i を返す
         return i
     ```
@@ -407,7 +407,7 @@ comments: true
             } else if (nums[m] > target) {
                 j = m - 1; // target は区間 [i, m-1] にある
             } else {
-                j = m - 1; // target より小さい最初の要素は区間 [i, m-1] にある
+                j = m - 1; // target より小さい最も右の要素は区間 [i, m-1] にある
             }
         }
         // 挿入位置 i を返す
@@ -428,7 +428,7 @@ comments: true
             } else if (nums[m] > target) {
                 j = m - 1; // target は区間 [i, m-1] にある
             } else {
-                j = m - 1; // target より小さい最初の要素は区間 [i, m-1] にある
+                j = m - 1; // target より小さい最も右の要素は区間 [i, m-1] にある
             }
         }
         // 挿入位置 i を返す
@@ -449,7 +449,7 @@ comments: true
             } else if (nums[m] > target) {
                 j = m - 1; // target は区間 [i, m-1] にある
             } else {
-                j = m - 1; // target より小さい最初の要素は区間 [i, m-1] にある
+                j = m - 1; // target より小さい最も右の要素は区間 [i, m-1] にある
             }
         }
         // 挿入位置 i を返す
@@ -474,7 +474,7 @@ comments: true
                 // target は区間 [i, m-1] にある
                 j = m - 1
             } else {
-                // target より小さい最初の要素は区間 [i, m-1] にある
+                // target より小さい最も右の要素は区間 [i, m-1] にある
                 j = m - 1
             }
         }
@@ -498,7 +498,7 @@ comments: true
             } else if nums[m] > target {
                 j = m - 1 // target は区間 [i, m-1] にある
             } else {
-                j = m - 1 // target より小さい最初の要素は区間 [i, m-1] にある
+                j = m - 1 // target より小さい最も右の要素は区間 [i, m-1] にある
             }
         }
         // 挿入位置 i を返す
@@ -520,7 +520,7 @@ comments: true
             } else if (nums[m] > target) {
                 j = m - 1; // target は区間 [i, m-1] にある
             } else {
-                j = m - 1; // target より小さい最初の要素は区間 [i, m-1] にある
+                j = m - 1; // target より小さい最も右の要素は区間 [i, m-1] にある
             }
         }
         // 挿入位置 i を返す
@@ -542,7 +542,7 @@ comments: true
             } else if (nums[m] > target) {
                 j = m - 1; // target は区間 [i, m-1] にある
             } else {
-                j = m - 1; // target より小さい最初の要素は区間 [i, m-1] にある
+                j = m - 1; // target より小さい最も右の要素は区間 [i, m-1] にある
             }
         }
         // 挿入位置 i を返す
@@ -563,7 +563,7 @@ comments: true
         } else if (nums[m] > target) {
           j = m - 1; // target は区間 [i, m-1] にある
         } else {
-          j = m - 1; // target より小さい最初の要素は区間 [i, m-1] にある
+          j = m - 1; // target より小さい最も右の要素は区間 [i, m-1] にある
         }
       }
       // 挿入位置 i を返す
@@ -584,7 +584,7 @@ comments: true
             } else if nums[m as usize] > target {
                 j = m - 1; // target は区間 [i, m-1] にある
             } else {
-                j = m - 1; // target より小さい最初の要素は区間 [i, m-1] にある
+                j = m - 1; // target より小さい最も右の要素は区間 [i, m-1] にある
             }
         }
         // 挿入位置 i を返す
@@ -605,7 +605,7 @@ comments: true
             } else if (nums[m] > target) {
                 j = m - 1; // target は区間 [i, m-1] にある
             } else {
-                j = m - 1; // target より小さい最初の要素は区間 [i, m-1] にある
+                j = m - 1; // target より小さい最も右の要素は区間 [i, m-1] にある
             }
         }
         // 挿入位置 i を返す
@@ -627,7 +627,7 @@ comments: true
             } else if (nums[m] > target) {
                 j = m - 1 // target は区間 [i, m-1] にある
             } else {
-                j = m - 1 // target より小さい最初の要素は区間 [i, m-1] にある
+                j = m - 1 // target より小さい最も右の要素は区間 [i, m-1] にある
             }
         }
         // 挿入位置 i を返す
@@ -652,7 +652,7 @@ comments: true
         elsif nums[m] > target
           j = m - 1 # target は区間 [i, m-1] にある
         else
-          j = m - 1 # target より小さい最初の要素は区間 [i, m-1] にある
+          j = m - 1 # target より小さい最も右の要素は区間 [i, m-1] にある
         end
       end
 

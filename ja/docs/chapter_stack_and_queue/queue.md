@@ -185,7 +185,7 @@ comments: true
 
     /* 要素をデキュー */
     // 配列であるため、removeFirst の計算量は O(n)
-    let pool = queue.removeFirst()
+    let pop = queue.removeFirst()
 
     /* キューの長さを取得 */
     let size = queue.count
@@ -254,7 +254,7 @@ comments: true
 
     ```dart title="queue.dart"
     /* キューを初期化 */
-    // Dart では、キュークラス Qeque は双方向キューであり、キューとしても使用できる
+    // Dart では、キュークラス Queue は双方向キューであり、キューとしても使用できる
     Queue<int> queue = Queue();
 
     /* 要素をエンキュー */

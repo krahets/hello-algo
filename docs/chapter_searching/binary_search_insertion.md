@@ -26,7 +26,7 @@ comments: true
 
 进一步思考二分查找过程：当 `nums[m] < target` 时 $i$ 移动，这意味着指针 $i$ 在向大于等于 `target` 的元素靠近。同理，指针 $j$ 始终在向小于等于 `target` 的元素靠近。
 
-因此二分结束时一定有：$i$ 指向首个大于 `target` 的元素，$j$ 指向首个小于 `target` 的元素。**易得当数组不包含 `target` 时，插入索引为 $i$** 。代码如下所示：
+因此二分结束时一定有：$i$ 指向首个大于 `target` 的元素，$j$ 指向最右一个小于 `target` 的元素。**易得当数组不包含 `target` 时，插入索引为 $i$** 。代码如下所示：
 
 === "Python"
 
@@ -344,7 +344,7 @@ comments: true
 - 当 `nums[m] < target` 或 `nums[m] > target` 时，说明还没有找到 `target` ，因此采用普通二分查找的缩小区间操作，**从而使指针 $i$ 和 $j$ 向 `target` 靠近**。
 - 当 `nums[m] == target` 时，说明小于 `target` 的元素在区间 $[i, m - 1]$ 中，因此采用 $j = m - 1$ 来缩小区间，**从而使指针 $j$ 向小于 `target` 的元素靠近**。
 
-循环完成后，$i$ 指向最左边的 `target` ，$j$ 指向首个小于 `target` 的元素，**因此索引 $i$ 就是插入点**。
+循环完成后，$i$ 指向最左边的 `target` ，$j$ 指向最右一个小于 `target` 的元素，**因此索引 $i$ 就是插入点**。
 
 === "<1>"
     ![二分查找重复元素的插入点的步骤](binary_search_insertion.assets/binary_search_insertion_step1.png){ class="animation-figure" }
@@ -389,7 +389,7 @@ comments: true
             elif nums[m] > target:
                 j = m - 1  # target 在区间 [i, m-1] 中
             else:
-                j = m - 1  # 首个小于 target 的元素在区间 [i, m-1] 中
+                j = m - 1  # 最右一个小于 target 的元素在区间 [i, m-1] 中
         # 返回插入点 i
         return i
     ```
@@ -407,7 +407,7 @@ comments: true
             } else if (nums[m] > target) {
                 j = m - 1; // target 在区间 [i, m-1] 中
             } else {
-                j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+                j = m - 1; // 最右一个小于 target 的元素在区间 [i, m-1] 中
             }
         }
         // 返回插入点 i
@@ -428,7 +428,7 @@ comments: true
             } else if (nums[m] > target) {
                 j = m - 1; // target 在区间 [i, m-1] 中
             } else {
-                j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+                j = m - 1; // 最右一个小于 target 的元素在区间 [i, m-1] 中
             }
         }
         // 返回插入点 i
@@ -449,7 +449,7 @@ comments: true
             } else if (nums[m] > target) {
                 j = m - 1; // target 在区间 [i, m-1] 中
             } else {
-                j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+                j = m - 1; // 最右一个小于 target 的元素在区间 [i, m-1] 中
             }
         }
         // 返回插入点 i
@@ -474,7 +474,7 @@ comments: true
                 // target 在区间 [i, m-1] 中
                 j = m - 1
             } else {
-                // 首个小于 target 的元素在区间 [i, m-1] 中
+                // 最右一个小于 target 的元素在区间 [i, m-1] 中
                 j = m - 1
             }
         }
@@ -498,7 +498,7 @@ comments: true
             } else if nums[m] > target {
                 j = m - 1 // target 在区间 [i, m-1] 中
             } else {
-                j = m - 1 // 首个小于 target 的元素在区间 [i, m-1] 中
+                j = m - 1 // 最右一个小于 target 的元素在区间 [i, m-1] 中
             }
         }
         // 返回插入点 i
@@ -520,7 +520,7 @@ comments: true
             } else if (nums[m] > target) {
                 j = m - 1; // target 在区间 [i, m-1] 中
             } else {
-                j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+                j = m - 1; // 最右一个小于 target 的元素在区间 [i, m-1] 中
             }
         }
         // 返回插入点 i
@@ -542,7 +542,7 @@ comments: true
             } else if (nums[m] > target) {
                 j = m - 1; // target 在区间 [i, m-1] 中
             } else {
-                j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+                j = m - 1; // 最右一个小于 target 的元素在区间 [i, m-1] 中
             }
         }
         // 返回插入点 i
@@ -563,7 +563,7 @@ comments: true
         } else if (nums[m] > target) {
           j = m - 1; // target 在区间 [i, m-1] 中
         } else {
-          j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+          j = m - 1; // 最右一个小于 target 的元素在区间 [i, m-1] 中
         }
       }
       // 返回插入点 i
@@ -584,7 +584,7 @@ comments: true
             } else if nums[m as usize] > target {
                 j = m - 1; // target 在区间 [i, m-1] 中
             } else {
-                j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+                j = m - 1; // 最右一个小于 target 的元素在区间 [i, m-1] 中
             }
         }
         // 返回插入点 i
@@ -605,7 +605,7 @@ comments: true
             } else if (nums[m] > target) {
                 j = m - 1; // target 在区间 [i, m-1] 中
             } else {
-                j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+                j = m - 1; // 最右一个小于 target 的元素在区间 [i, m-1] 中
             }
         }
         // 返回插入点 i
@@ -627,7 +627,7 @@ comments: true
             } else if (nums[m] > target) {
                 j = m - 1 // target 在区间 [i, m-1] 中
             } else {
-                j = m - 1 // 首个小于 target 的元素在区间 [i, m-1] 中
+                j = m - 1 // 最右一个小于 target 的元素在区间 [i, m-1] 中
             }
         }
         // 返回插入点 i
@@ -652,7 +652,7 @@ comments: true
         elsif nums[m] > target
           j = m - 1 # target 在区间 [i, m-1] 中
         else
-          j = m - 1 # 首个小于 target 的元素在区间 [i, m-1] 中
+          j = m - 1 # 最右一个小于 target 的元素在区间 [i, m-1] 中
         end
       end
 

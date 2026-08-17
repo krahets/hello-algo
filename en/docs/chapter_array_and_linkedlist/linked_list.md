@@ -172,7 +172,7 @@ As shown in the following code, a linked list node `ListNode` contains not only 
     // Constructor
     class ListNode(x: Int) {
         val _val: Int = x          // Node value
-        val next: ListNode? = null // Reference to the next node
+        var next: ListNode? = null // Reference to the next node
     }
     ```
 
@@ -1401,8 +1401,8 @@ As shown in Figure 4-8, there are three common types of linked lists:
     // Constructor
     class ListNode(x: Int) {
         val _val: Int = x           // Node value
-        val next: ListNode? = null  // Reference to the successor node
-        val prev: ListNode? = null  // Reference to the predecessor node
+        var next: ListNode? = null  // Reference to the successor node
+        var prev: ListNode? = null  // Reference to the predecessor node
     }
     ```
 
