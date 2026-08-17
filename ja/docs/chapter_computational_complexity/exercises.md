@@ -11,33 +11,287 @@ comments: true
 次の 2 つのコードは、どちらも $1 + 2 + \dots + n$ を計算します（$n \ge 1$ とします）。`n` を 4 として、
 プログラムが実際に実行される順序に沿って次の問いに答え、2 つの書き方の効率を比較してください。
 
-```python
-def sum_iter(n):
-    s = 0
-    for i in range(1, n + 1):
-        s += i
-    return s
+=== "Python"
 
-def sum_recur(n):
-    if n == 1:
-        return 1
-    return n + sum_recur(n - 1)
-```
+    ```python title="complexity_exercises.py"
+    def sum_iter(n: int) -> int:
+        """反復による総和"""
+        res = 0
+        for i in range(1, n + 1):
+            res += i
+        return res
+
+    def sum_recur(n: int) -> int:
+        """再帰による総和"""
+        if n == 1:
+            return 1
+        return n + sum_recur(n - 1)
+    ```
+
+=== "C++"
+
+    ```cpp title="complexity_exercises.cpp"
+    /* 反復による総和 */
+    int sumIter(int n) {
+        int res = 0;
+        for (int i = 1; i <= n; ++i) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* 再帰による総和 */
+    int sumRecur(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return n + sumRecur(n - 1);
+    }
+    ```
+
+=== "Java"
+
+    ```java title="complexity_exercises.java"
+    /* 反復による総和 */
+    int sumIter(int n) {
+        int res = 0;
+        for (int i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* 再帰による総和 */
+    int sumRecur(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return n + sumRecur(n - 1);
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="complexity_exercises.cs"
+    /* 反復による総和 */
+    int SumIter(int n) {
+        int res = 0;
+        for (int i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* 再帰による総和 */
+    int SumRecur(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return n + SumRecur(n - 1);
+    }
+    ```
+
+=== "Go"
+
+    ```go title="complexity_exercises.go"
+    /* 反復による総和 */
+    func sumIter(n int) int {
+        res := 0
+        for i := 1; i <= n; i++ {
+            res += i
+        }
+        return res
+    }
+
+    /* 再帰による総和 */
+    func sumRecur(n int) int {
+        if n == 1 {
+            return 1
+        }
+        return n + sumRecur(n-1)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="complexity_exercises.swift"
+    /* 反復による総和 */
+    func sumIter(n: Int) -> Int {
+        var res = 0
+        for i in 1 ... n {
+            res += i
+        }
+        return res
+    }
+
+    /* 再帰による総和 */
+    func sumRecur(n: Int) -> Int {
+        if n == 1 {
+            return 1
+        }
+        return n + sumRecur(n: n - 1)
+    }
+    ```
+
+=== "JS"
+
+    ```javascript title="complexity_exercises.js"
+    /* 反復による総和 */
+    function sumIter(n) {
+        let res = 0;
+        for (let i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* 再帰による総和 */
+    function sumRecur(n) {
+        if (n === 1) {
+            return 1;
+        }
+        return n + sumRecur(n - 1);
+    }
+    ```
+
+=== "TS"
+
+    ```typescript title="complexity_exercises.ts"
+    /* 反復による総和 */
+    function sumIter(n: number): number {
+        let res = 0;
+        for (let i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* 再帰による総和 */
+    function sumRecur(n: number): number {
+        if (n === 1) {
+            return 1;
+        }
+        return n + sumRecur(n - 1);
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="complexity_exercises.dart"
+    /* 反復による総和 */
+    int sumIter(int n) {
+      int res = 0;
+      for (int i = 1; i <= n; i++) {
+        res += i;
+      }
+      return res;
+    }
+
+    /* 再帰による総和 */
+    int sumRecur(int n) {
+      if (n == 1) {
+        return 1;
+      }
+      return n + sumRecur(n - 1);
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="complexity_exercises.rs"
+    /* 反復による総和 */
+    fn sum_iter(n: i32) -> i32 {
+        let mut res = 0;
+        for i in 1..=n {
+            res += i;
+        }
+        res
+    }
+
+    /* 再帰による総和 */
+    fn sum_recur(n: i32) -> i32 {
+        if n == 1 {
+            return 1;
+        }
+        n + sum_recur(n - 1)
+    }
+    ```
+
+=== "C"
+
+    ```c title="complexity_exercises.c"
+    /* 反復による総和 */
+    int sumIter(int n) {
+        int res = 0;
+        for (int i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* 再帰による総和 */
+    int sumRecur(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return n + sumRecur(n - 1);
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="complexity_exercises.kt"
+    /* 反復による総和 */
+    fun sumIter(n: Int): Int {
+        var res = 0
+        for (i in 1..n) {
+            res += i
+        }
+        return res
+    }
+
+    /* 再帰による総和 */
+    fun sumRecur(n: Int): Int {
+        if (n == 1) {
+            return 1
+        }
+        return n + sumRecur(n - 1)
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="complexity_exercises.rb"
+    ### 反復による総和 ###
+    def sum_iter(n)
+      res = 0
+      for i in 1..n
+        res += i
+      end
+      res
+    end
+
+    ### 再帰による総和 ###
+    def sum_recur(n)
+      return 1 if n == 1
+
+      n + sum_recur(n - 1)
+    end
+    ```
 
 <!-- numbered-subquestions -->
 
-1. `sum_iter(4)` を実行すると、各ループの終了時に変数 `s` はそれぞれいくつになりますか？
-2. `sum_recur(4)` を実行すると、どの関数が順に呼び出されますか？最も深い呼び出しから戻るとき、結果はどのように求められますか？
+1. `n = 4` を入力して反復関数を実行すると、各ループの終了時に累積変数 `res` はそれぞれいくつになりますか？
+2. `n = 4` を入力して再帰関数を実行すると、引数 `n` はどの値を順に取りますか？最も深い呼び出しから戻るとき、結果はどのように求められますか？
 3. 2 つの書き方の時間計算量と空間計算量は、それぞれいくつですか？問い 1、2 の実行過程と結び付けて理由を説明してください。
 
 ??? success "解答"
 
-    1. ループ変数 `i` は `1、2、3、4` の順に変化し、各ループの終了時に `s` は
-        `1、3、6、10` となります。したがって、`sum_iter(4)` は 10 を返します。
+    1. ループ変数 `i` は `1、2、3、4` の順に変化し、各ループの終了時に `res` は
+        `1、3、6、10` となります。したがって、反復関数は 10 を返します。
 
-    2. 関数は
-        `sum_recur(4) → sum_recur(3) → sum_recur(2) → sum_recur(1)` の順に呼び出されます。
-        `sum_recur(1)` が 1 を返した後、各呼び出しは順に `2 + 1 = 3`、`3 + 3 = 6`、`4 + 6 = 10` を得ます。
+    2. 引数 `n` は `4 → 3 → 2 → 1` の順に変化します。
+        最も深い呼び出しが 1 を返した後、各呼び出しは順に `2 + 1 = 3`、`3 + 3 = 6`、`4 + 6 = 10` を得ます。
         最も深い呼び出しに到達した時点では、4 回の関数呼び出しはどれもまだ終了していません。
 
     3. どちらのコードも、$n$ に比例する回数のループまたは呼び出しを行うため、時間計算量はともに $O(n)$ です。
@@ -51,22 +305,414 @@ def sum_recur(n):
 
 次の 3 つのコード片はいずれも、正の整数 $n$ を入力とします。時間計算量が小さい順に並べ、それぞれの計算量を書いてください。
 
-```python
-# コード片 1
-s = 0
-for i in range(n):
-    s += i
+=== "Python"
 
-# コード片 2
-s = 0
-for i in range(n):
-    for j in range(i, n):
-        s += j
+    ```python title="complexity_exercises.py"
+    def linear_loop(n: int) -> int:
+        """線形時間のループ"""
+        res = 0
+        for i in range(n):
+            res += i
+        return res
 
-# コード片 3
-while n > 1:
-    n = n // 2
-```
+    def quadratic_loop(n: int) -> int:
+        """二次時間のループ"""
+        res = 0
+        for i in range(n):
+            for j in range(i, n):
+                res += j
+        return res
+
+    def logarithmic_loop(n: int) -> int:
+        """対数時間のループ"""
+        while n > 1:
+            n //= 2
+        return n
+    ```
+
+=== "C++"
+
+    ```cpp title="complexity_exercises.cpp"
+    /* 線形時間のループ */
+    int linearLoop(int n) {
+        int res = 0;
+        for (int i = 0; i < n; ++i) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* 二次時間のループ */
+    int quadraticLoop(int n) {
+        int res = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = i; j < n; ++j) {
+                res += j;
+            }
+        }
+        return res;
+    }
+
+    /* 対数時間のループ */
+    int logarithmicLoop(int n) {
+        while (n > 1) {
+            n /= 2;
+        }
+        return n;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="complexity_exercises.java"
+    /* 線形時間のループ */
+    int linearLoop(int n) {
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* 二次時間のループ */
+    int quadraticLoop(int n) {
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                res += j;
+            }
+        }
+        return res;
+    }
+
+    /* 対数時間のループ */
+    int logarithmicLoop(int n) {
+        while (n > 1) {
+            n /= 2;
+        }
+        return n;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="complexity_exercises.cs"
+    /* 線形時間のループ */
+    int LinearLoop(int n) {
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* 二次時間のループ */
+    int QuadraticLoop(int n) {
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                res += j;
+            }
+        }
+        return res;
+    }
+
+    /* 対数時間のループ */
+    int LogarithmicLoop(int n) {
+        while (n > 1) {
+            n /= 2;
+        }
+        return n;
+    }
+    ```
+
+=== "Go"
+
+    ```go title="complexity_exercises.go"
+    /* 線形時間のループ */
+    func linearLoop(n int) int {
+        res := 0
+        for i := 0; i < n; i++ {
+            res += i
+        }
+        return res
+    }
+
+    /* 二次時間のループ */
+    func quadraticLoop(n int) int {
+        res := 0
+        for i := 0; i < n; i++ {
+            for j := i; j < n; j++ {
+                res += j
+            }
+        }
+        return res
+    }
+
+    /* 対数時間のループ */
+    func logarithmicLoop(n int) int {
+        for n > 1 {
+            n /= 2
+        }
+        return n
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="complexity_exercises.swift"
+    /* 線形時間のループ */
+    func linearLoop(n: Int) -> Int {
+        var res = 0
+        for i in 0 ..< n {
+            res += i
+        }
+        return res
+    }
+
+    /* 二次時間のループ */
+    func quadraticLoop(n: Int) -> Int {
+        var res = 0
+        for i in 0 ..< n {
+            for j in i ..< n {
+                res += j
+            }
+        }
+        return res
+    }
+
+    /* 対数時間のループ */
+    func logarithmicLoop(n: Int) -> Int {
+        var n = n
+        while n > 1 {
+            n /= 2
+        }
+        return n
+    }
+    ```
+
+=== "JS"
+
+    ```javascript title="complexity_exercises.js"
+    /* 線形時間のループ */
+    function linearLoop(n) {
+        let res = 0;
+        for (let i = 0; i < n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* 二次時間のループ */
+    function quadraticLoop(n) {
+        let res = 0;
+        for (let i = 0; i < n; i++) {
+            for (let j = i; j < n; j++) {
+                res += j;
+            }
+        }
+        return res;
+    }
+
+    /* 対数時間のループ */
+    function logarithmicLoop(n) {
+        while (n > 1) {
+            n = Math.floor(n / 2);
+        }
+        return n;
+    }
+    ```
+
+=== "TS"
+
+    ```typescript title="complexity_exercises.ts"
+    /* 線形時間のループ */
+    function linearLoop(n: number): number {
+        let res = 0;
+        for (let i = 0; i < n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* 二次時間のループ */
+    function quadraticLoop(n: number): number {
+        let res = 0;
+        for (let i = 0; i < n; i++) {
+            for (let j = i; j < n; j++) {
+                res += j;
+            }
+        }
+        return res;
+    }
+
+    /* 対数時間のループ */
+    function logarithmicLoop(n: number): number {
+        while (n > 1) {
+            n = Math.floor(n / 2);
+        }
+        return n;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="complexity_exercises.dart"
+    /* 線形時間のループ */
+    int linearLoop(int n) {
+      int res = 0;
+      for (int i = 0; i < n; i++) {
+        res += i;
+      }
+      return res;
+    }
+
+    /* 二次時間のループ */
+    int quadraticLoop(int n) {
+      int res = 0;
+      for (int i = 0; i < n; i++) {
+        for (int j = i; j < n; j++) {
+          res += j;
+        }
+      }
+      return res;
+    }
+
+    /* 対数時間のループ */
+    int logarithmicLoop(int n) {
+      while (n > 1) {
+        n ~/= 2;
+      }
+      return n;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="complexity_exercises.rs"
+    /* 線形時間のループ */
+    fn linear_loop(n: i32) -> i32 {
+        let mut res = 0;
+        for i in 0..n {
+            res += i;
+        }
+        res
+    }
+
+    /* 二次時間のループ */
+    fn quadratic_loop(n: i32) -> i32 {
+        let mut res = 0;
+        for i in 0..n {
+            for j in i..n {
+                res += j;
+            }
+        }
+        res
+    }
+
+    /* 対数時間のループ */
+    fn logarithmic_loop(mut n: i32) -> i32 {
+        while n > 1 {
+            n /= 2;
+        }
+        n
+    }
+    ```
+
+=== "C"
+
+    ```c title="complexity_exercises.c"
+    /* 線形時間のループ */
+    int linearLoop(int n) {
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* 二次時間のループ */
+    int quadraticLoop(int n) {
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                res += j;
+            }
+        }
+        return res;
+    }
+
+    /* 対数時間のループ */
+    int logarithmicLoop(int n) {
+        while (n > 1) {
+            n /= 2;
+        }
+        return n;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="complexity_exercises.kt"
+    /* 線形時間のループ */
+    fun linearLoop(n: Int): Int {
+        var res = 0
+        for (i in 0 until n) {
+            res += i
+        }
+        return res
+    }
+
+    /* 二次時間のループ */
+    fun quadraticLoop(n: Int): Int {
+        var res = 0
+        for (i in 0 until n) {
+            for (j in i until n) {
+                res += j
+            }
+        }
+        return res
+    }
+
+    /* 対数時間のループ */
+    fun logarithmicLoop(n: Int): Int {
+        var value = n
+        while (value > 1) {
+            value /= 2
+        }
+        return value
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="complexity_exercises.rb"
+    ### 線形時間のループ ###
+    def linear_loop(n)
+      res = 0
+      for i in 0...n
+        res += i
+      end
+      res
+    end
+
+    ### 二次時間のループ ###
+    def quadratic_loop(n)
+      res = 0
+      for i in 0...n
+        for j in i...n
+          res += j
+        end
+      end
+      res
+    end
+
+    ### 対数時間のループ ###
+    def logarithmic_loop(n)
+      n /= 2 while n > 1
+      n
+    end
+    ```
 
 ??? success "解答"
 

@@ -29,23 +29,216 @@ comments: true
 
 Рекурсивная функция ниже вычисляет $x^n$ методом «разделяй и властвуй»:
 
-```python
-def fast_pow(x, n):
-    if n == 0:
-        return 1
-    half = fast_pow(x, n // 2)
-    if n % 2 == 0:
-        return half * half
-    return half * half * x
-```
+=== "Python"
 
-Функция вызывается как `fast_pow(3, 5)`.
+    ```python title="fast_power.py"
+    def fast_pow(x: int, n: int) -> int:
+        """Быстрое возведение в степень"""
+        if n == 0:
+            return 1
+        half = fast_pow(x, n // 2)
+        if n % 2 == 0:
+            return half * half
+        return half * half * x
+    ```
+
+=== "C++"
+
+    ```cpp title="fast_power.cpp"
+    /* Быстрое возведение в степень */
+    int fastPow(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int half = fastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="fast_power.java"
+    /* Быстрое возведение в степень */
+    int fastPow(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int half = fastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="fast_power.cs"
+    /* Быстрое возведение в степень */
+    int FastPow(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int half = FastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "Go"
+
+    ```go title="fast_power.go"
+    /* Быстрое возведение в степень */
+    func fastPow(x, n int) int {
+        if n == 0 {
+            return 1
+        }
+        half := fastPow(x, n/2)
+        if n%2 == 0 {
+            return half * half
+        }
+        return half * half * x
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="fast_power.swift"
+    /* Быстрое возведение в степень */
+    func fastPow(x: Int, n: Int) -> Int {
+        if n == 0 {
+            return 1
+        }
+        let half = fastPow(x: x, n: n / 2)
+        if n % 2 == 0 {
+            return half * half
+        }
+        return half * half * x
+    }
+    ```
+
+=== "JS"
+
+    ```javascript title="fast_power.js"
+    /* Быстрое возведение в степень */
+    function fastPow(x, n) {
+        if (n === 0) {
+            return 1;
+        }
+        const half = fastPow(x, Math.floor(n / 2));
+        if (n % 2 === 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "TS"
+
+    ```typescript title="fast_power.ts"
+    /* Быстрое возведение в степень */
+    function fastPow(x: number, n: number): number {
+        if (n === 0) {
+            return 1;
+        }
+        const half = fastPow(x, Math.floor(n / 2));
+        if (n % 2 === 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="fast_power.dart"
+    /* Быстрое возведение в степень */
+    int fastPow(int x, int n) {
+      if (n == 0) {
+        return 1;
+      }
+      int half = fastPow(x, n ~/ 2);
+      if (n % 2 == 0) {
+        return half * half;
+      }
+      return half * half * x;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="fast_power.rs"
+    /* Быстрое возведение в степень */
+    fn fast_pow(x: i32, n: i32) -> i32 {
+        if n == 0 {
+            return 1;
+        }
+        let half = fast_pow(x, n / 2);
+        if n % 2 == 0 {
+            return half * half;
+        }
+        half * half * x
+    }
+    ```
+
+=== "C"
+
+    ```c title="fast_power.c"
+    /* Быстрое возведение в степень */
+    int fastPow(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int half = fastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="fast_power.kt"
+    /* Быстрое возведение в степень */
+    fun fastPow(x: Int, n: Int): Int {
+        if (n == 0) {
+            return 1
+        }
+        val half = fastPow(x, n / 2)
+        if (n % 2 == 0) {
+            return half * half
+        }
+        return half * half * x
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="fast_power.rb"
+    ### Быстрое возведение в степень ###
+    def fast_pow(x, n)
+      return 1 if n == 0
+
+      half = fast_pow(x, n / 2)
+      return half * half if n.even?
+
+      half * half * x
+    end
+    ```
+
+Задайте `x = 3` и `n = 5`, затем вычислите результат с помощью этой функции.
 
 <!-- numbered-subquestions -->
 
 1. Какие значения последовательно принимает параметр `n` при рекурсивных вызовах?
 2. Какие значения поочередно возвращаются на каждом уровне, начиная с самого глубокого?
-3. Почему результат нужно сначала сохранить в `half`, а не дважды записывать `fast_pow(x, n // 2)`?
+3. Почему результат рекурсии нужно сначала сохранить в `half`, а не вызывать одну и ту же подзадачу по одному разу с каждой стороны умножения?
 
 ??? success "Ответ"
 
@@ -54,7 +247,7 @@ def fast_pow(x, n):
     2. При `n = 0` возвращается 1; при `n = 1` возвращается $1×1×3=3$;
         при `n = 2` — $3×3=9$; при `n = 5` — $9×9×3=243$.
 
-    3. Если записать `fast_pow(x, n // 2)` по обе стороны умножения, два рекурсивных вызова будут решать одну и ту же подзадачу.
+    3. Если вызвать одну и ту же подзадачу по одному разу с каждой стороны умножения, два рекурсивных вызова выполнят одинаковые вычисления.
         Когда результат сохраняется в `half`, на каждом уровне выполняется только один рекурсивный вызов, а глубина рекурсии составляет примерно $\log n$;
         два вызова привели бы к множеству повторных вычислений.
 

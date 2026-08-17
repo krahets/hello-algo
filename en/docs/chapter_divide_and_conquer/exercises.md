@@ -29,23 +29,216 @@ Classify each task as "suitable for divide and conquer," "can use divide and con
 
 The recursive function below uses divide and conquer to calculate $x^n$:
 
-```python
-def fast_pow(x, n):
-    if n == 0:
-        return 1
-    half = fast_pow(x, n // 2)
-    if n % 2 == 0:
-        return half * half
-    return half * half * x
-```
+=== "Python"
 
-Use it to calculate `fast_pow(3, 5)`:
+    ```python title="fast_power.py"
+    def fast_pow(x: int, n: int) -> int:
+        """Exponentiation by squaring"""
+        if n == 0:
+            return 1
+        half = fast_pow(x, n // 2)
+        if n % 2 == 0:
+            return half * half
+        return half * half * x
+    ```
+
+=== "C++"
+
+    ```cpp title="fast_power.cpp"
+    /* Exponentiation by squaring */
+    int fastPow(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int half = fastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="fast_power.java"
+    /* Exponentiation by squaring */
+    int fastPow(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int half = fastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="fast_power.cs"
+    /* Exponentiation by squaring */
+    int FastPow(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int half = FastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "Go"
+
+    ```go title="fast_power.go"
+    /* Exponentiation by squaring */
+    func fastPow(x, n int) int {
+        if n == 0 {
+            return 1
+        }
+        half := fastPow(x, n/2)
+        if n%2 == 0 {
+            return half * half
+        }
+        return half * half * x
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="fast_power.swift"
+    /* Exponentiation by squaring */
+    func fastPow(x: Int, n: Int) -> Int {
+        if n == 0 {
+            return 1
+        }
+        let half = fastPow(x: x, n: n / 2)
+        if n % 2 == 0 {
+            return half * half
+        }
+        return half * half * x
+    }
+    ```
+
+=== "JS"
+
+    ```javascript title="fast_power.js"
+    /* Exponentiation by squaring */
+    function fastPow(x, n) {
+        if (n === 0) {
+            return 1;
+        }
+        const half = fastPow(x, Math.floor(n / 2));
+        if (n % 2 === 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "TS"
+
+    ```typescript title="fast_power.ts"
+    /* Exponentiation by squaring */
+    function fastPow(x: number, n: number): number {
+        if (n === 0) {
+            return 1;
+        }
+        const half = fastPow(x, Math.floor(n / 2));
+        if (n % 2 === 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="fast_power.dart"
+    /* Exponentiation by squaring */
+    int fastPow(int x, int n) {
+      if (n == 0) {
+        return 1;
+      }
+      int half = fastPow(x, n ~/ 2);
+      if (n % 2 == 0) {
+        return half * half;
+      }
+      return half * half * x;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="fast_power.rs"
+    /* Exponentiation by squaring */
+    fn fast_pow(x: i32, n: i32) -> i32 {
+        if n == 0 {
+            return 1;
+        }
+        let half = fast_pow(x, n / 2);
+        if n % 2 == 0 {
+            return half * half;
+        }
+        half * half * x
+    }
+    ```
+
+=== "C"
+
+    ```c title="fast_power.c"
+    /* Exponentiation by squaring */
+    int fastPow(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int half = fastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="fast_power.kt"
+    /* Exponentiation by squaring */
+    fun fastPow(x: Int, n: Int): Int {
+        if (n == 0) {
+            return 1
+        }
+        val half = fastPow(x, n / 2)
+        if (n % 2 == 0) {
+            return half * half
+        }
+        return half * half * x
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="fast_power.rb"
+    ### Exponentiation by squaring ###
+    def fast_pow(x, n)
+      return 1 if n == 0
+
+      half = fast_pow(x, n / 2)
+      return half * half if n.even?
+
+      half * half * x
+    end
+    ```
+
+Set `x = 3` and `n = 5`, and use this function to calculate the result:
 
 <!-- numbered-subquestions -->
 
 1. As the recursive calls proceed, which values does the argument `n` take in order?
 2. Starting from the deepest call, what value does each level return?
-3. Why should the result be stored in `half` instead of writing `fast_pow(x, n // 2)` twice?
+3. Why should the recursive result be stored in `half` instead of calling the same subproblem once on each side of the multiplication?
 
 ??? success "Answer"
 
@@ -54,7 +247,7 @@ Use it to calculate `fast_pow(3, 5)`:
     2. When `n = 0`, the function returns 1. When `n = 1`, it returns $1×1×3=3$.
         When `n = 2`, it returns $3×3=9$. When `n = 5`, it returns $9×9×3=243$.
 
-    3. If `fast_pow(x, n // 2)` were written once on each side of the multiplication, the two recursive calls would calculate exactly the same subproblem.
+    3. If the same subproblem were called once on each side of the multiplication, the two recursive calls would perform exactly the same calculation.
         Storing the result in `half` means that each level makes only one recursive call, so the recursion depth is about $\log n$.
         Making two calls would cause a great deal of repeated computation.
 

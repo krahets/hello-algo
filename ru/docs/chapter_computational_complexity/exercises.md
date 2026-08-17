@@ -11,33 +11,287 @@ comments: true
 Обе функции ниже вычисляют $1 + 2 + \dots + n$ (считайте, что $n \ge 1$). Присвойте `n` значение 4,
 ответьте на вопросы в порядке фактического выполнения программы, а затем сравните эффективность двух вариантов.
 
-```python
-def sum_iter(n):
-    s = 0
-    for i in range(1, n + 1):
-        s += i
-    return s
+=== "Python"
 
-def sum_recur(n):
-    if n == 1:
-        return 1
-    return n + sum_recur(n - 1)
-```
+    ```python title="complexity_exercises.py"
+    def sum_iter(n: int) -> int:
+        """Итеративное суммирование"""
+        res = 0
+        for i in range(1, n + 1):
+            res += i
+        return res
+
+    def sum_recur(n: int) -> int:
+        """Рекурсивное суммирование"""
+        if n == 1:
+            return 1
+        return n + sum_recur(n - 1)
+    ```
+
+=== "C++"
+
+    ```cpp title="complexity_exercises.cpp"
+    /* Итеративное суммирование */
+    int sumIter(int n) {
+        int res = 0;
+        for (int i = 1; i <= n; ++i) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* Рекурсивное суммирование */
+    int sumRecur(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return n + sumRecur(n - 1);
+    }
+    ```
+
+=== "Java"
+
+    ```java title="complexity_exercises.java"
+    /* Итеративное суммирование */
+    int sumIter(int n) {
+        int res = 0;
+        for (int i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* Рекурсивное суммирование */
+    int sumRecur(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return n + sumRecur(n - 1);
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="complexity_exercises.cs"
+    /* Итеративное суммирование */
+    int SumIter(int n) {
+        int res = 0;
+        for (int i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* Рекурсивное суммирование */
+    int SumRecur(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return n + SumRecur(n - 1);
+    }
+    ```
+
+=== "Go"
+
+    ```go title="complexity_exercises.go"
+    /* Итеративное суммирование */
+    func sumIter(n int) int {
+        res := 0
+        for i := 1; i <= n; i++ {
+            res += i
+        }
+        return res
+    }
+
+    /* Рекурсивное суммирование */
+    func sumRecur(n int) int {
+        if n == 1 {
+            return 1
+        }
+        return n + sumRecur(n-1)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="complexity_exercises.swift"
+    /* Итеративное суммирование */
+    func sumIter(n: Int) -> Int {
+        var res = 0
+        for i in 1 ... n {
+            res += i
+        }
+        return res
+    }
+
+    /* Рекурсивное суммирование */
+    func sumRecur(n: Int) -> Int {
+        if n == 1 {
+            return 1
+        }
+        return n + sumRecur(n: n - 1)
+    }
+    ```
+
+=== "JS"
+
+    ```javascript title="complexity_exercises.js"
+    /* Итеративное суммирование */
+    function sumIter(n) {
+        let res = 0;
+        for (let i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* Рекурсивное суммирование */
+    function sumRecur(n) {
+        if (n === 1) {
+            return 1;
+        }
+        return n + sumRecur(n - 1);
+    }
+    ```
+
+=== "TS"
+
+    ```typescript title="complexity_exercises.ts"
+    /* Итеративное суммирование */
+    function sumIter(n: number): number {
+        let res = 0;
+        for (let i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* Рекурсивное суммирование */
+    function sumRecur(n: number): number {
+        if (n === 1) {
+            return 1;
+        }
+        return n + sumRecur(n - 1);
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="complexity_exercises.dart"
+    /* Итеративное суммирование */
+    int sumIter(int n) {
+      int res = 0;
+      for (int i = 1; i <= n; i++) {
+        res += i;
+      }
+      return res;
+    }
+
+    /* Рекурсивное суммирование */
+    int sumRecur(int n) {
+      if (n == 1) {
+        return 1;
+      }
+      return n + sumRecur(n - 1);
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="complexity_exercises.rs"
+    /* Итеративное суммирование */
+    fn sum_iter(n: i32) -> i32 {
+        let mut res = 0;
+        for i in 1..=n {
+            res += i;
+        }
+        res
+    }
+
+    /* Рекурсивное суммирование */
+    fn sum_recur(n: i32) -> i32 {
+        if n == 1 {
+            return 1;
+        }
+        n + sum_recur(n - 1)
+    }
+    ```
+
+=== "C"
+
+    ```c title="complexity_exercises.c"
+    /* Итеративное суммирование */
+    int sumIter(int n) {
+        int res = 0;
+        for (int i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* Рекурсивное суммирование */
+    int sumRecur(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return n + sumRecur(n - 1);
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="complexity_exercises.kt"
+    /* Итеративное суммирование */
+    fun sumIter(n: Int): Int {
+        var res = 0
+        for (i in 1..n) {
+            res += i
+        }
+        return res
+    }
+
+    /* Рекурсивное суммирование */
+    fun sumRecur(n: Int): Int {
+        if (n == 1) {
+            return 1
+        }
+        return n + sumRecur(n - 1)
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="complexity_exercises.rb"
+    ### Итеративное суммирование ###
+    def sum_iter(n)
+      res = 0
+      for i in 1..n
+        res += i
+      end
+      res
+    end
+
+    ### Рекурсивное суммирование ###
+    def sum_recur(n)
+      return 1 if n == 1
+
+      n + sum_recur(n - 1)
+    end
+    ```
 
 <!-- numbered-subquestions -->
 
-1. Какие значения принимает переменная `s` после каждой итерации при выполнении `sum_iter(4)`?
-2. Какие функции поочередно вызываются при выполнении `sum_recur(4)`? Как формируется результат при возврате, начиная с самого глубокого вызова?
+1. Какие значения принимает переменная-аккумулятор `res` после каждой итерации при выполнении итеративной функции с `n = 4`?
+2. Какие значения поочередно принимает параметр `n` при выполнении рекурсивной функции с `n = 4`? Как формируется результат при возврате, начиная с самого глубокого вызова?
 3. Каковы временная и пространственная сложности каждого варианта? Обоснуйте ответ, опираясь на процессы выполнения из вопросов 1 и 2.
 
 ??? success "Ответ"
 
-    1. Переменная цикла `i` поочередно принимает значения `1, 2, 3, 4`, а `s` после каждой итерации становится равной
-        `1, 3, 6, 10`. Поэтому `sum_iter(4)` возвращает 10.
+    1. Переменная цикла `i` поочередно принимает значения `1, 2, 3, 4`, а `res` после каждой итерации становится равной
+        `1, 3, 6, 10`. Поэтому итеративная функция возвращает 10.
 
-    2. Функции вызываются в следующем порядке:
-        `sum_recur(4) → sum_recur(3) → sum_recur(2) → sum_recur(1)`.
-        `sum_recur(1)` возвращает 1, после чего следующие уровни поочередно получают `2 + 1 = 3`, `3 + 3 = 6` и `4 + 6 = 10`.
+    2. Параметр `n` принимает значения `4 → 3 → 2 → 1`.
+        Самый глубокий вызов возвращает 1, после чего следующие уровни поочередно получают `2 + 1 = 3`, `3 + 3 = 6` и `4 + 6 = 10`.
         В самой глубокой точке все 4 вызова функции еще не завершены.
 
     3. В обеих функциях число итераций или вызовов пропорционально $n$, поэтому их временная сложность равна $O(n)$.
@@ -51,22 +305,414 @@ def sum_recur(n):
 
 Во всех трех фрагментах кода входные данные — положительное целое число $n$. Расположите фрагменты в порядке возрастания временной сложности и укажите сложность каждого из них.
 
-```python
-# Фрагмент 1
-s = 0
-for i in range(n):
-    s += i
+=== "Python"
 
-# Фрагмент 2
-s = 0
-for i in range(n):
-    for j in range(i, n):
-        s += j
+    ```python title="complexity_exercises.py"
+    def linear_loop(n: int) -> int:
+        """Цикл линейной сложности"""
+        res = 0
+        for i in range(n):
+            res += i
+        return res
 
-# Фрагмент 3
-while n > 1:
-    n = n // 2
-```
+    def quadratic_loop(n: int) -> int:
+        """Цикл квадратичной сложности"""
+        res = 0
+        for i in range(n):
+            for j in range(i, n):
+                res += j
+        return res
+
+    def logarithmic_loop(n: int) -> int:
+        """Цикл логарифмической сложности"""
+        while n > 1:
+            n //= 2
+        return n
+    ```
+
+=== "C++"
+
+    ```cpp title="complexity_exercises.cpp"
+    /* Цикл линейной сложности */
+    int linearLoop(int n) {
+        int res = 0;
+        for (int i = 0; i < n; ++i) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* Цикл квадратичной сложности */
+    int quadraticLoop(int n) {
+        int res = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = i; j < n; ++j) {
+                res += j;
+            }
+        }
+        return res;
+    }
+
+    /* Цикл логарифмической сложности */
+    int logarithmicLoop(int n) {
+        while (n > 1) {
+            n /= 2;
+        }
+        return n;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="complexity_exercises.java"
+    /* Цикл линейной сложности */
+    int linearLoop(int n) {
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* Цикл квадратичной сложности */
+    int quadraticLoop(int n) {
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                res += j;
+            }
+        }
+        return res;
+    }
+
+    /* Цикл логарифмической сложности */
+    int logarithmicLoop(int n) {
+        while (n > 1) {
+            n /= 2;
+        }
+        return n;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="complexity_exercises.cs"
+    /* Цикл линейной сложности */
+    int LinearLoop(int n) {
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* Цикл квадратичной сложности */
+    int QuadraticLoop(int n) {
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                res += j;
+            }
+        }
+        return res;
+    }
+
+    /* Цикл логарифмической сложности */
+    int LogarithmicLoop(int n) {
+        while (n > 1) {
+            n /= 2;
+        }
+        return n;
+    }
+    ```
+
+=== "Go"
+
+    ```go title="complexity_exercises.go"
+    /* Цикл линейной сложности */
+    func linearLoop(n int) int {
+        res := 0
+        for i := 0; i < n; i++ {
+            res += i
+        }
+        return res
+    }
+
+    /* Цикл квадратичной сложности */
+    func quadraticLoop(n int) int {
+        res := 0
+        for i := 0; i < n; i++ {
+            for j := i; j < n; j++ {
+                res += j
+            }
+        }
+        return res
+    }
+
+    /* Цикл логарифмической сложности */
+    func logarithmicLoop(n int) int {
+        for n > 1 {
+            n /= 2
+        }
+        return n
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="complexity_exercises.swift"
+    /* Цикл линейной сложности */
+    func linearLoop(n: Int) -> Int {
+        var res = 0
+        for i in 0 ..< n {
+            res += i
+        }
+        return res
+    }
+
+    /* Цикл квадратичной сложности */
+    func quadraticLoop(n: Int) -> Int {
+        var res = 0
+        for i in 0 ..< n {
+            for j in i ..< n {
+                res += j
+            }
+        }
+        return res
+    }
+
+    /* Цикл логарифмической сложности */
+    func logarithmicLoop(n: Int) -> Int {
+        var n = n
+        while n > 1 {
+            n /= 2
+        }
+        return n
+    }
+    ```
+
+=== "JS"
+
+    ```javascript title="complexity_exercises.js"
+    /* Цикл линейной сложности */
+    function linearLoop(n) {
+        let res = 0;
+        for (let i = 0; i < n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* Цикл квадратичной сложности */
+    function quadraticLoop(n) {
+        let res = 0;
+        for (let i = 0; i < n; i++) {
+            for (let j = i; j < n; j++) {
+                res += j;
+            }
+        }
+        return res;
+    }
+
+    /* Цикл логарифмической сложности */
+    function logarithmicLoop(n) {
+        while (n > 1) {
+            n = Math.floor(n / 2);
+        }
+        return n;
+    }
+    ```
+
+=== "TS"
+
+    ```typescript title="complexity_exercises.ts"
+    /* Цикл линейной сложности */
+    function linearLoop(n: number): number {
+        let res = 0;
+        for (let i = 0; i < n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* Цикл квадратичной сложности */
+    function quadraticLoop(n: number): number {
+        let res = 0;
+        for (let i = 0; i < n; i++) {
+            for (let j = i; j < n; j++) {
+                res += j;
+            }
+        }
+        return res;
+    }
+
+    /* Цикл логарифмической сложности */
+    function logarithmicLoop(n: number): number {
+        while (n > 1) {
+            n = Math.floor(n / 2);
+        }
+        return n;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="complexity_exercises.dart"
+    /* Цикл линейной сложности */
+    int linearLoop(int n) {
+      int res = 0;
+      for (int i = 0; i < n; i++) {
+        res += i;
+      }
+      return res;
+    }
+
+    /* Цикл квадратичной сложности */
+    int quadraticLoop(int n) {
+      int res = 0;
+      for (int i = 0; i < n; i++) {
+        for (int j = i; j < n; j++) {
+          res += j;
+        }
+      }
+      return res;
+    }
+
+    /* Цикл логарифмической сложности */
+    int logarithmicLoop(int n) {
+      while (n > 1) {
+        n ~/= 2;
+      }
+      return n;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="complexity_exercises.rs"
+    /* Цикл линейной сложности */
+    fn linear_loop(n: i32) -> i32 {
+        let mut res = 0;
+        for i in 0..n {
+            res += i;
+        }
+        res
+    }
+
+    /* Цикл квадратичной сложности */
+    fn quadratic_loop(n: i32) -> i32 {
+        let mut res = 0;
+        for i in 0..n {
+            for j in i..n {
+                res += j;
+            }
+        }
+        res
+    }
+
+    /* Цикл логарифмической сложности */
+    fn logarithmic_loop(mut n: i32) -> i32 {
+        while n > 1 {
+            n /= 2;
+        }
+        n
+    }
+    ```
+
+=== "C"
+
+    ```c title="complexity_exercises.c"
+    /* Цикл линейной сложности */
+    int linearLoop(int n) {
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    /* Цикл квадратичной сложности */
+    int quadraticLoop(int n) {
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                res += j;
+            }
+        }
+        return res;
+    }
+
+    /* Цикл логарифмической сложности */
+    int logarithmicLoop(int n) {
+        while (n > 1) {
+            n /= 2;
+        }
+        return n;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="complexity_exercises.kt"
+    /* Цикл линейной сложности */
+    fun linearLoop(n: Int): Int {
+        var res = 0
+        for (i in 0 until n) {
+            res += i
+        }
+        return res
+    }
+
+    /* Цикл квадратичной сложности */
+    fun quadraticLoop(n: Int): Int {
+        var res = 0
+        for (i in 0 until n) {
+            for (j in i until n) {
+                res += j
+            }
+        }
+        return res
+    }
+
+    /* Цикл логарифмической сложности */
+    fun logarithmicLoop(n: Int): Int {
+        var value = n
+        while (value > 1) {
+            value /= 2
+        }
+        return value
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="complexity_exercises.rb"
+    ### Цикл линейной сложности ###
+    def linear_loop(n)
+      res = 0
+      for i in 0...n
+        res += i
+      end
+      res
+    end
+
+    ### Цикл квадратичной сложности ###
+    def quadratic_loop(n)
+      res = 0
+      for i in 0...n
+        for j in i...n
+          res += j
+        end
+      end
+      res
+    end
+
+    ### Цикл логарифмической сложности ###
+    def logarithmic_loop(n)
+      n /= 2 while n > 1
+      n
+    end
+    ```
 
 ??? success "Ответ"
 

@@ -29,23 +29,216 @@ comments: true
 
 下面的遞迴函式用分治計算 $x^n$：
 
-```python
-def fast_pow(x, n):
-    if n == 0:
-        return 1
-    half = fast_pow(x, n // 2)
-    if n % 2 == 0:
-        return half * half
-    return half * half * x
-```
+=== "Python"
 
-用它計算 `fast_pow(3, 5)`：
+    ```python title="fast_power.py"
+    def fast_pow(x: int, n: int) -> int:
+        """快速冪"""
+        if n == 0:
+            return 1
+        half = fast_pow(x, n // 2)
+        if n % 2 == 0:
+            return half * half
+        return half * half * x
+    ```
+
+=== "C++"
+
+    ```cpp title="fast_power.cpp"
+    /* 快速冪 */
+    int fastPow(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int half = fastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="fast_power.java"
+    /* 快速冪 */
+    int fastPow(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int half = fastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="fast_power.cs"
+    /* 快速冪 */
+    int FastPow(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int half = FastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "Go"
+
+    ```go title="fast_power.go"
+    /* 快速冪 */
+    func fastPow(x, n int) int {
+        if n == 0 {
+            return 1
+        }
+        half := fastPow(x, n/2)
+        if n%2 == 0 {
+            return half * half
+        }
+        return half * half * x
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="fast_power.swift"
+    /* 快速冪 */
+    func fastPow(x: Int, n: Int) -> Int {
+        if n == 0 {
+            return 1
+        }
+        let half = fastPow(x: x, n: n / 2)
+        if n % 2 == 0 {
+            return half * half
+        }
+        return half * half * x
+    }
+    ```
+
+=== "JS"
+
+    ```javascript title="fast_power.js"
+    /* 快速冪 */
+    function fastPow(x, n) {
+        if (n === 0) {
+            return 1;
+        }
+        const half = fastPow(x, Math.floor(n / 2));
+        if (n % 2 === 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "TS"
+
+    ```typescript title="fast_power.ts"
+    /* 快速冪 */
+    function fastPow(x: number, n: number): number {
+        if (n === 0) {
+            return 1;
+        }
+        const half = fastPow(x, Math.floor(n / 2));
+        if (n % 2 === 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="fast_power.dart"
+    /* 快速冪 */
+    int fastPow(int x, int n) {
+      if (n == 0) {
+        return 1;
+      }
+      int half = fastPow(x, n ~/ 2);
+      if (n % 2 == 0) {
+        return half * half;
+      }
+      return half * half * x;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="fast_power.rs"
+    /* 快速冪 */
+    fn fast_pow(x: i32, n: i32) -> i32 {
+        if n == 0 {
+            return 1;
+        }
+        let half = fast_pow(x, n / 2);
+        if n % 2 == 0 {
+            return half * half;
+        }
+        half * half * x
+    }
+    ```
+
+=== "C"
+
+    ```c title="fast_power.c"
+    /* 快速冪 */
+    int fastPow(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int half = fastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="fast_power.kt"
+    /* 快速冪 */
+    fun fastPow(x: Int, n: Int): Int {
+        if (n == 0) {
+            return 1
+        }
+        val half = fastPow(x, n / 2)
+        if (n % 2 == 0) {
+            return half * half
+        }
+        return half * half * x
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="fast_power.rb"
+    ### 快速冪 ###
+    def fast_pow(x, n)
+      return 1 if n == 0
+
+      half = fast_pow(x, n / 2)
+      return half * half if n.even?
+
+      half * half * x
+    end
+    ```
+
+令 `x = 3`、`n = 5`，用這個函式計算：
 
 <!-- numbered-subquestions -->
 
 1. 遞迴呼叫時，參數 `n` 依次變成哪些值？
 2. 從最深層開始返回時，各層依次返回什麼值？
-3. 為什麼要先儲存 `half`，而不是把 `fast_pow(x, n // 2)` 寫兩遍？
+3. 為什麼要先把遞迴結果儲存為 `half`，而不是在乘法兩邊各呼叫一次相同的子問題？
 
 ??? success "參考答案"
 
@@ -54,7 +247,7 @@ def fast_pow(x, n):
     2. `n = 0` 時返回 1；`n = 1` 時返回 $1×1×3=3$；
         `n = 2` 時返回 $3×3=9$；`n = 5` 時返回 $9×9×3=243$。
 
-    3. 如果把 `fast_pow(x, n // 2)` 在乘法兩邊各寫一次，兩次遞迴會計算完全相同的子問題。
+    3. 如果在乘法兩邊各呼叫一次相同的子問題，兩次遞迴會進行完全相同的計算。
         先把結果儲存為 `half`，每層就只遞迴一次，遞迴深度約為 $\log n$；
         呼叫兩次會造成大量重複計算。
 

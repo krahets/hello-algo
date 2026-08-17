@@ -29,23 +29,216 @@ comments: true
 
 次の再帰関数は、分割統治を使って $x^n$ を計算します。
 
-```python
-def fast_pow(x, n):
-    if n == 0:
-        return 1
-    half = fast_pow(x, n // 2)
-    if n % 2 == 0:
-        return half * half
-    return half * half * x
-```
+=== "Python"
 
-この関数で `fast_pow(3, 5)` を計算します。
+    ```python title="fast_power.py"
+    def fast_pow(x: int, n: int) -> int:
+        """高速べき乗"""
+        if n == 0:
+            return 1
+        half = fast_pow(x, n // 2)
+        if n % 2 == 0:
+            return half * half
+        return half * half * x
+    ```
+
+=== "C++"
+
+    ```cpp title="fast_power.cpp"
+    /* 高速べき乗 */
+    int fastPow(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int half = fastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="fast_power.java"
+    /* 高速べき乗 */
+    int fastPow(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int half = fastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="fast_power.cs"
+    /* 高速べき乗 */
+    int FastPow(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int half = FastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "Go"
+
+    ```go title="fast_power.go"
+    /* 高速べき乗 */
+    func fastPow(x, n int) int {
+        if n == 0 {
+            return 1
+        }
+        half := fastPow(x, n/2)
+        if n%2 == 0 {
+            return half * half
+        }
+        return half * half * x
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="fast_power.swift"
+    /* 高速べき乗 */
+    func fastPow(x: Int, n: Int) -> Int {
+        if n == 0 {
+            return 1
+        }
+        let half = fastPow(x: x, n: n / 2)
+        if n % 2 == 0 {
+            return half * half
+        }
+        return half * half * x
+    }
+    ```
+
+=== "JS"
+
+    ```javascript title="fast_power.js"
+    /* 高速べき乗 */
+    function fastPow(x, n) {
+        if (n === 0) {
+            return 1;
+        }
+        const half = fastPow(x, Math.floor(n / 2));
+        if (n % 2 === 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "TS"
+
+    ```typescript title="fast_power.ts"
+    /* 高速べき乗 */
+    function fastPow(x: number, n: number): number {
+        if (n === 0) {
+            return 1;
+        }
+        const half = fastPow(x, Math.floor(n / 2));
+        if (n % 2 === 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="fast_power.dart"
+    /* 高速べき乗 */
+    int fastPow(int x, int n) {
+      if (n == 0) {
+        return 1;
+      }
+      int half = fastPow(x, n ~/ 2);
+      if (n % 2 == 0) {
+        return half * half;
+      }
+      return half * half * x;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="fast_power.rs"
+    /* 高速べき乗 */
+    fn fast_pow(x: i32, n: i32) -> i32 {
+        if n == 0 {
+            return 1;
+        }
+        let half = fast_pow(x, n / 2);
+        if n % 2 == 0 {
+            return half * half;
+        }
+        half * half * x
+    }
+    ```
+
+=== "C"
+
+    ```c title="fast_power.c"
+    /* 高速べき乗 */
+    int fastPow(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int half = fastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        }
+        return half * half * x;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="fast_power.kt"
+    /* 高速べき乗 */
+    fun fastPow(x: Int, n: Int): Int {
+        if (n == 0) {
+            return 1
+        }
+        val half = fastPow(x, n / 2)
+        if (n % 2 == 0) {
+            return half * half
+        }
+        return half * half * x
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="fast_power.rb"
+    ### 高速べき乗 ###
+    def fast_pow(x, n)
+      return 1 if n == 0
+
+      half = fast_pow(x, n / 2)
+      return half * half if n.even?
+
+      half * half * x
+    end
+    ```
+
+`x = 3`、`n = 5` として、この関数で結果を計算します。
 
 <!-- numbered-subquestions -->
 
 1. 再帰呼び出しでは、引数 `n` はどのような値に順に変わりますか？
 2. 最も深い呼び出しから戻るとき、各呼び出しはどの値を順に返しますか？
-3. `fast_pow(x, n // 2)` を 2 回書くのではなく、先に `half` へ保存するのはなぜですか？
+3. 同じ部分問題を乗算の両側で 1 回ずつ呼び出すのではなく、再帰結果を先に `half` へ保存するのはなぜですか？
 
 ??? success "解答"
 
@@ -54,7 +247,7 @@ def fast_pow(x, n):
     2. `n = 0` のとき 1 を返します。`n = 1` のとき $1×1×3=3$、
         `n = 2` のとき $3×3=9$、`n = 5` のとき $9×9×3=243$ を返します。
 
-    3. 乗算の両側に `fast_pow(x, n // 2)` を 1 回ずつ書くと、2 つの再帰呼び出しがまったく同じ部分問題を計算します。
+    3. 同じ部分問題を乗算の両側で 1 回ずつ呼び出すと、2 つの再帰呼び出しがまったく同じ計算を行います。
         結果を先に `half` へ保存すれば、各層で再帰するのは 1 回だけとなり、再帰の深さは約 $\log n$ です。
         2 回呼び出すと、大量の重複計算が発生します。
 
