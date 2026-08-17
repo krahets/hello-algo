@@ -32,7 +32,7 @@ pub fn binary_search_insertion(nums: &[i32], target: i32) -> i32 {
         } else if nums[m as usize] > target {
             j = m - 1; // target находится в интервале [i, m-1]
         } else {
-            j = m - 1; // Первый элемент меньше target находится в интервале [i, m-1]
+            j = m - 1; // Самый правый элемент, меньший target, находится в интервале [i, m-1]
         }
     }
     // Вернуть точку вставки i

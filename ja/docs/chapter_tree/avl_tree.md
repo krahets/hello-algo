@@ -205,9 +205,9 @@ AVL 木の操作ではノードの高さを取得する必要があるため、�
     ```kotlin title=""
     /* AVL 木ノードクラス */
     class TreeNode(val _val: Int) {  // ノード値
-        val height: Int = 0          // ノードの高さ
-        val left: TreeNode? = null   // 左の子ノード
-        val right: TreeNode? = null  // 右の子ノード
+        var height: Int = 0          // ノードの高さ
+        var left: TreeNode? = null   // 左の子ノード
+        var right: TreeNode? = null  // 右の子ノード
     }
     ```
 

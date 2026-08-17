@@ -30,7 +30,7 @@ def binary_search_insertion(nums: list[int], target: int) -> int:
         elif nums[m] > target:
             j = m - 1  # target 在區間 [i, m-1] 中
         else:
-            j = m - 1  # 首個小於 target 的元素在區間 [i, m-1] 中
+            j = m - 1  # 最右一個小於 target 的元素在區間 [i, m-1] 中
     # 返回插入點 i
     return i
 

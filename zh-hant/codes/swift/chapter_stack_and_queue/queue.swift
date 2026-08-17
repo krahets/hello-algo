@@ -26,8 +26,8 @@ enum Queue {
 
         /* 元素出列 */
         // 使用 Array 模擬時 pop 的複雜度為 O(n)
-        let pool = queue.removeFirst()
-        print("出列元素 pop = \(pool)，出列後 queue = \(queue)")
+        let pop = queue.removeFirst()
+        print("出列元素 pop = \(pop)，出列後 queue = \(queue)")
 
         /* 獲取佇列的長度 */
         let size = queue.count

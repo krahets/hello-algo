@@ -37,7 +37,7 @@ Stable sorting is a necessary condition for multi-level sorting scenarios. Suppo
 
 **Adaptability**: <u>Adaptive sorting</u> can utilize the existing order information in the input data to reduce the amount of computation, achieving better time efficiency. The best-case time complexity of adaptive sorting algorithms is typically better than the average time complexity.
 
-**Comparison-based or non-comparison**: <u>Comparison-based sorting</u> relies on comparison operators ($<$, $=$, $>$) to determine the relative order of elements, thereby sorting the entire array, with a theoretical optimal time complexity of $O(n \log n)$. <u>Non-comparison sorting</u> does not use comparison operators and can achieve a time complexity of $O(n)$, but its versatility is relatively limited.
+**Comparison-based or non-comparison**: <u>Comparison-based sorting</u> relies on comparison operators ($<$, $=$, $>$) to determine the relative order of elements, thereby sorting the entire array. Its worst-case time complexity has a lower bound of $\Omega(n \log n)$. <u>Non-comparison sorting</u> does not use comparison operators and can achieve a time complexity of $O(n)$, but its versatility is relatively limited.
 
 ## Ideal Sorting Algorithm
 

@@ -32,7 +32,7 @@ pub fn binary_search_insertion(nums: &[i32], target: i32) -> i32 {
         } else if nums[m as usize] > target {
             j = m - 1; // target is in the interval [i, m-1]
         } else {
-            j = m - 1; // The first element less than target is in the interval [i, m-1]
+            j = m - 1; // The rightmost element less than target is in the interval [i, m-1]
         }
     }
     // Return insertion point i

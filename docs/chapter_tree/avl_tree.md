@@ -205,9 +205,9 @@ AVL 树既是二叉搜索树，也是平衡二叉树，同时满足这两类二�
     ```kotlin title=""
     /* AVL 树节点类 */
     class TreeNode(val _val: Int) {  // 节点值
-        val height: Int = 0          // 节点高度
-        val left: TreeNode? = null   // 左子节点
-        val right: TreeNode? = null  // 右子节点
+        var height: Int = 0          // 节点高度
+        var left: TreeNode? = null   // 左子节点
+        var right: TreeNode? = null  // 右子节点
     }
     ```
 

@@ -134,7 +134,7 @@ As shown in the figure below, both time complexity and space complexity are dete
 
 ### Space Optimization
 
-Since each state is only related to the state in the row above it, we can use two arrays rolling forward to reduce the space complexity from $O(n^2)$ to $O(n)$.
+Since each state is only related to the state in the row above it, we can use two arrays rolling forward to reduce the space complexity from $O(n \times cap)$ to $O(cap)$.
 
 Further thinking, can we achieve space optimization using just one array? Observing, we can see that each state is transferred from the cell directly above or the cell in the upper-left. If there is only one array, when we start traversing row $i$, that array still stores the state of row $i-1$.
 

@@ -26,8 +26,8 @@ enum Queue {
 
         /* Element dequeue */
         // When simulating with Array, pop complexity is O(n)
-        let pool = queue.removeFirst()
-        print("Dequeue element pop = \(pool), after dequeue queue = \(queue)")
+        let pop = queue.removeFirst()
+        print("Dequeue element pop = \(pop), after dequeue queue = \(queue)")
 
         /* Get the length of the queue */
         let size = queue.count

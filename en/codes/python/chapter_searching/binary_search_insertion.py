@@ -30,7 +30,7 @@ def binary_search_insertion(nums: list[int], target: int) -> int:
         elif nums[m] > target:
             j = m - 1  # target is in the interval [i, m-1]
         else:
-            j = m - 1  # The first element less than target is in the interval [i, m-1]
+            j = m - 1  # The rightmost element less than target is in the interval [i, m-1]
     # Return insertion point i
     return i
 

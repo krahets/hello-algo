@@ -175,7 +175,7 @@ We can directly use the queue classes provided by the programming language:
 
     /* Dequeue element */
     // Since it's an array, removeFirst has O(n) complexity
-    let pool = queue.removeFirst()
+    let pop = queue.removeFirst()
 
     /* Get queue length */
     let size = queue.count

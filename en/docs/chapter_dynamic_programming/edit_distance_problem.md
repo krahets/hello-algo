@@ -35,7 +35,7 @@ In other words, each round of decision (edit operation) we make on string $s$ wi
 
 State $[i, j]$ corresponds to the subproblem: **the minimum number of edits required to change the first $i$ characters of $s$ into the first $j$ characters of $t$**.
 
-From this, we obtain a two-dimensional $dp$ table of size $(i+1) \times (j+1)$.
+From this, we obtain a two-dimensional $dp$ table of size $(n+1) \times (m+1)$.
 
 **Step 2: Identify the optimal substructure, and then derive the state transition equation**
 

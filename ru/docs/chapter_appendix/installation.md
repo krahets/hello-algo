@@ -31,7 +31,7 @@ VS Code обладает мощной экосистемой расширени�
 
 ### Среда C#
 
-1. Загрузите и установите [.Net 8.0](https://dotnet.microsoft.com/en-us/download).
+1. Загрузите и установите [.NET 8.0](https://dotnet.microsoft.com/en-us/download).
 2. В магазине расширений VS Code найдите `C# Dev Kit` и установите C# Dev Kit ([руководство по настройке](https://code.visualstudio.com/docs/csharp/get-started)).
 3. Также можно использовать Visual Studio ([руководство по установке](https://learn.microsoft.com/zh-cn/visualstudio/install/install-visual-studio?view=vs-2022)).
 

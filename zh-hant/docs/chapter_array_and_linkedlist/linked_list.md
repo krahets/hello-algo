@@ -166,7 +166,7 @@
     // 建構子
     class ListNode(x: Int) {
         val _val: Int = x          // 節點值
-        val next: ListNode? = null // 指向下一個節點的引用
+        var next: ListNode? = null // 指向下一個節點的引用
     }
     ```
 
@@ -658,8 +658,8 @@
     // 建構子
     class ListNode(x: Int) {
         val _val: Int = x           // 節點值
-        val next: ListNode? = null  // 指向後繼節點的引用
-        val prev: ListNode? = null  // 指向前驅節點的引用
+        var next: ListNode? = null  // 指向後繼節點的引用
+        var prev: ListNode? = null  // 指向前驅節點的引用
     }
     ```
 

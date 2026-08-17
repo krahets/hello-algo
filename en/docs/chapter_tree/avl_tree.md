@@ -205,9 +205,9 @@ Since the operations related to AVL trees require obtaining node heights, we nee
     ```kotlin title=""
     /* AVL tree node */
     class TreeNode(val _val: Int) {  // Node value
-        val height: Int = 0          // Node height
-        val left: TreeNode? = null   // Left child
-        val right: TreeNode? = null  // Right child
+        var height: Int = 0          // Node height
+        var left: TreeNode? = null   // Left child
+        var right: TreeNode? = null  // Right child
     }
     ```
 

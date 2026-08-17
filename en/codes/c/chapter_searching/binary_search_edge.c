@@ -14,7 +14,7 @@ int binarySearchInsertion(int *nums, int numSize, int target) {
         if (nums[m] < target) {
             i = m + 1; // target is in the interval [m+1, j]
         } else {
-            j = m - 1; // The first element less than target is in the interval [i, m-1]
+            j = m - 1; // The rightmost element less than target is in the interval [i, m-1]
         }
     }
     // Return insertion point i

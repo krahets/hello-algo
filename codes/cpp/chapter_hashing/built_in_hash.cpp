@@ -24,6 +24,6 @@ int main() {
     size_t hashStr = hash<string>()(str);
     cout << "字符串 " << str << " 的哈希值为 " << hashStr << "\n";
 
-    // 在 C++ 中，内置 std:hash() 仅提供基本数据类型的哈希值计算
+    // 在 C++ 中，内置 std::hash() 仅提供基本数据类型的哈希值计算
     // 数组、对象的哈希值计算需要自行实现
 }
