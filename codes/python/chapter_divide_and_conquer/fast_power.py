@@ -6,6 +6,7 @@ Author: Hello Algo Team
 
 
 def fast_pow(x: int, n: int) -> int:
+    """快速幂"""
     if n == 0:
         return 1
     half = fast_pow(x, n // 2)

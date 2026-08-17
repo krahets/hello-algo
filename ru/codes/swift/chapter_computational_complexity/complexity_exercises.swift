@@ -4,7 +4,7 @@
  Author: Hello Algo Team
  */
 
-/* Iterative summation */
+/* Итеративное суммирование */
 func sumIter(n: Int) -> Int {
     var res = 0
     for i in 1 ... n {
@@ -13,7 +13,7 @@ func sumIter(n: Int) -> Int {
     return res
 }
 
-/* Recursive summation */
+/* Рекурсивное суммирование */
 func sumRecur(n: Int) -> Int {
     if n == 1 {
         return 1
@@ -21,7 +21,7 @@ func sumRecur(n: Int) -> Int {
     return n + sumRecur(n: n - 1)
 }
 
-/* Linear loop */
+/* Цикл линейной сложности */
 func linearLoop(n: Int) -> Int {
     var res = 0
     for i in 0 ..< n {
@@ -30,7 +30,7 @@ func linearLoop(n: Int) -> Int {
     return res
 }
 
-/* Quadratic loop */
+/* Цикл квадратичной сложности */
 func quadraticLoop(n: Int) -> Int {
     var res = 0
     for i in 0 ..< n {
@@ -41,7 +41,7 @@ func quadraticLoop(n: Int) -> Int {
     return res
 }
 
-/* Logarithmic loop */
+/* Цикл логарифмической сложности */
 func logarithmicLoop(n: Int) -> Int {
     var n = n
     while n > 1 {

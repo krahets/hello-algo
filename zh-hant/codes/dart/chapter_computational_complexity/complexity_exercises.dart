@@ -4,7 +4,7 @@
  * Author: Hello Algo Team
  */
 
-/* Iterative summation */
+/* 迭代求和 */
 int sumIter(int n) {
   int res = 0;
   for (int i = 1; i <= n; i++) {
@@ -13,7 +13,7 @@ int sumIter(int n) {
   return res;
 }
 
-/* Recursive summation */
+/* 遞迴求和 */
 int sumRecur(int n) {
   if (n == 1) {
     return 1;
@@ -21,7 +21,7 @@ int sumRecur(int n) {
   return n + sumRecur(n - 1);
 }
 
-/* Linear loop */
+/* 線性階迴圈 */
 int linearLoop(int n) {
   int res = 0;
   for (int i = 0; i < n; i++) {
@@ -30,7 +30,7 @@ int linearLoop(int n) {
   return res;
 }
 
-/* Quadratic loop */
+/* 平方階迴圈 */
 int quadraticLoop(int n) {
   int res = 0;
   for (int i = 0; i < n; i++) {
@@ -41,7 +41,7 @@ int quadraticLoop(int n) {
   return res;
 }
 
-/* Logarithmic loop */
+/* 對數階迴圈 */
 int logarithmicLoop(int n) {
   while (n > 1) {
     n ~/= 2;

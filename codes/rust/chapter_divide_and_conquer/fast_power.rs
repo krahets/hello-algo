@@ -4,7 +4,7 @@
  * Author: Hello Algo Team
  */
 
-/* Fast power */
+/* 快速幂 */
 fn fast_pow(x: i32, n: i32) -> i32 {
     if n == 0 {
         return 1;

@@ -4,7 +4,7 @@ Created Time: 2026-08-18
 Author: Hello Algo Team
 =end
 
-### Fast power ###
+### Быстрое возведение в степень ###
 def fast_pow(x, n)
   return 1 if n == 0
 

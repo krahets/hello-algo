@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_divide_and_conquer;
 
 public class fast_power {
-    /* Fast power */
+    /* Быстрое возведение в степень */
     int FastPow(int x, int n) {
         if (n == 0) {
             return 1;

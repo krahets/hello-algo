@@ -6,6 +6,7 @@ Author: Hello Algo Team
 
 
 def sum_iter(n: int) -> int:
+    """反復による総和"""
     res = 0
     for i in range(1, n + 1):
         res += i
@@ -13,12 +14,14 @@ def sum_iter(n: int) -> int:
 
 
 def sum_recur(n: int) -> int:
+    """再帰による総和"""
     if n == 1:
         return 1
     return n + sum_recur(n - 1)
 
 
 def linear_loop(n: int) -> int:
+    """線形時間のループ"""
     res = 0
     for i in range(n):
         res += i
@@ -26,6 +29,7 @@ def linear_loop(n: int) -> int:
 
 
 def quadratic_loop(n: int) -> int:
+    """二次時間のループ"""
     res = 0
     for i in range(n):
         for j in range(i, n):
@@ -34,6 +38,7 @@ def quadratic_loop(n: int) -> int:
 
 
 def logarithmic_loop(n: int) -> int:
+    """対数時間のループ"""
     while n > 1:
         n //= 2
     return n

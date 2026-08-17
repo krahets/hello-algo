@@ -6,7 +6,7 @@
 
 #include <cassert>
 
-/* Iterative summation */
+/* Итеративное суммирование */
 int sumIter(int n) {
     int res = 0;
     for (int i = 1; i <= n; ++i) {
@@ -15,7 +15,7 @@ int sumIter(int n) {
     return res;
 }
 
-/* Recursive summation */
+/* Рекурсивное суммирование */
 int sumRecur(int n) {
     if (n == 1) {
         return 1;
@@ -23,7 +23,7 @@ int sumRecur(int n) {
     return n + sumRecur(n - 1);
 }
 
-/* Linear loop */
+/* Цикл линейной сложности */
 int linearLoop(int n) {
     int res = 0;
     for (int i = 0; i < n; ++i) {
@@ -32,7 +32,7 @@ int linearLoop(int n) {
     return res;
 }
 
-/* Quadratic loop */
+/* Цикл квадратичной сложности */
 int quadraticLoop(int n) {
     int res = 0;
     for (int i = 0; i < n; ++i) {
@@ -43,7 +43,7 @@ int quadraticLoop(int n) {
     return res;
 }
 
-/* Logarithmic loop */
+/* Цикл логарифмической сложности */
 int logarithmicLoop(int n) {
     while (n > 1) {
         n /= 2;

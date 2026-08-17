@@ -4,7 +4,7 @@ Created Time: 2026-08-18
 Author: Hello Algo Team
 =end
 
-### Iterative summation ###
+### Итеративное суммирование ###
 def sum_iter(n)
   res = 0
   for i in 1..n
@@ -13,14 +13,14 @@ def sum_iter(n)
   res
 end
 
-### Recursive summation ###
+### Рекурсивное суммирование ###
 def sum_recur(n)
   return 1 if n == 1
 
   n + sum_recur(n - 1)
 end
 
-### Linear loop ###
+### Цикл линейной сложности ###
 def linear_loop(n)
   res = 0
   for i in 0...n
@@ -29,7 +29,7 @@ def linear_loop(n)
   res
 end
 
-### Quadratic loop ###
+### Цикл квадратичной сложности ###
 def quadratic_loop(n)
   res = 0
   for i in 0...n
@@ -40,7 +40,7 @@ def quadratic_loop(n)
   res
 end
 
-### Logarithmic loop ###
+### Цикл логарифмической сложности ###
 def logarithmic_loop(n)
   n /= 2 while n > 1
   n

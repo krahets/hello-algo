@@ -4,7 +4,7 @@
  * Author: Hello Algo Team
  */
 
-/* Iterative summation */
+/* 反復による総和 */
 int sumIter(int n) {
   int res = 0;
   for (int i = 1; i <= n; i++) {
@@ -13,7 +13,7 @@ int sumIter(int n) {
   return res;
 }
 
-/* Recursive summation */
+/* 再帰による総和 */
 int sumRecur(int n) {
   if (n == 1) {
     return 1;
@@ -21,7 +21,7 @@ int sumRecur(int n) {
   return n + sumRecur(n - 1);
 }
 
-/* Linear loop */
+/* 線形時間のループ */
 int linearLoop(int n) {
   int res = 0;
   for (int i = 0; i < n; i++) {
@@ -30,7 +30,7 @@ int linearLoop(int n) {
   return res;
 }
 
-/* Quadratic loop */
+/* 二次時間のループ */
 int quadraticLoop(int n) {
   int res = 0;
   for (int i = 0; i < n; i++) {
@@ -41,7 +41,7 @@ int quadraticLoop(int n) {
   return res;
 }
 
-/* Logarithmic loop */
+/* 対数時間のループ */
 int logarithmicLoop(int n) {
   while (n > 1) {
     n ~/= 2;

@@ -4,7 +4,7 @@
  * Author: Hello Algo Team
  */
 
-/* Fast power */
+/* Exponentiation by squaring */
 fn fast_pow(x: i32, n: i32) -> i32 {
     if n == 0 {
         return 1;

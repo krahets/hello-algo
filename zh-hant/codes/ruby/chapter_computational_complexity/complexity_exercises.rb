@@ -4,7 +4,7 @@ Created Time: 2026-08-18
 Author: Hello Algo Team
 =end
 
-### Iterative summation ###
+### 迭代求和 ###
 def sum_iter(n)
   res = 0
   for i in 1..n
@@ -13,14 +13,14 @@ def sum_iter(n)
   res
 end
 
-### Recursive summation ###
+### 遞迴求和 ###
 def sum_recur(n)
   return 1 if n == 1
 
   n + sum_recur(n - 1)
 end
 
-### Linear loop ###
+### 線性階迴圈 ###
 def linear_loop(n)
   res = 0
   for i in 0...n
@@ -29,7 +29,7 @@ def linear_loop(n)
   res
 end
 
-### Quadratic loop ###
+### 平方階迴圈 ###
 def quadratic_loop(n)
   res = 0
   for i in 0...n
@@ -40,7 +40,7 @@ def quadratic_loop(n)
   res
 end
 
-### Logarithmic loop ###
+### 對數階迴圈 ###
 def logarithmic_loop(n)
   n /= 2 while n > 1
   n

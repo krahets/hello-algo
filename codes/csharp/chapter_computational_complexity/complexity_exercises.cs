@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_computational_complexity;
 
 public class complexity_exercises {
-    /* Iterative summation */
+    /* 迭代求和 */
     int SumIter(int n) {
         int res = 0;
         for (int i = 1; i <= n; i++) {
@@ -16,7 +16,7 @@ public class complexity_exercises {
         return res;
     }
 
-    /* Recursive summation */
+    /* 递归求和 */
     int SumRecur(int n) {
         if (n == 1) {
             return 1;
@@ -24,7 +24,7 @@ public class complexity_exercises {
         return n + SumRecur(n - 1);
     }
 
-    /* Linear loop */
+    /* 线性阶循环 */
     int LinearLoop(int n) {
         int res = 0;
         for (int i = 0; i < n; i++) {
@@ -33,7 +33,7 @@ public class complexity_exercises {
         return res;
     }
 
-    /* Quadratic loop */
+    /* 平方阶循环 */
     int QuadraticLoop(int n) {
         int res = 0;
         for (int i = 0; i < n; i++) {
@@ -44,7 +44,7 @@ public class complexity_exercises {
         return res;
     }
 
-    /* Logarithmic loop */
+    /* 对数阶循环 */
     int LogarithmicLoop(int n) {
         while (n > 1) {
             n /= 2;

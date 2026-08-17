@@ -6,7 +6,7 @@
 
 package chapter_computational_complexity.complexity_exercises
 
-/* Iterative summation */
+/* 迭代求和 */
 fun sumIter(n: Int): Int {
     var res = 0
     for (i in 1..n) {
@@ -15,7 +15,7 @@ fun sumIter(n: Int): Int {
     return res
 }
 
-/* Recursive summation */
+/* 遞迴求和 */
 fun sumRecur(n: Int): Int {
     if (n == 1) {
         return 1
@@ -23,7 +23,7 @@ fun sumRecur(n: Int): Int {
     return n + sumRecur(n - 1)
 }
 
-/* Linear loop */
+/* 線性階迴圈 */
 fun linearLoop(n: Int): Int {
     var res = 0
     for (i in 0 until n) {
@@ -32,7 +32,7 @@ fun linearLoop(n: Int): Int {
     return res
 }
 
-/* Quadratic loop */
+/* 平方階迴圈 */
 fun quadraticLoop(n: Int): Int {
     var res = 0
     for (i in 0 until n) {
@@ -43,7 +43,7 @@ fun quadraticLoop(n: Int): Int {
     return res
 }
 
-/* Logarithmic loop */
+/* 對數階迴圈 */
 fun logarithmicLoop(n: Int): Int {
     var value = n
     while (value > 1) {

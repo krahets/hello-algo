@@ -4,7 +4,7 @@
  * Author: Hello Algo Team
  */
 
-/* Fast power */
+/* Быстрое возведение в степень */
 function fastPow(x, n) {
     if (n === 0) {
         return 1;

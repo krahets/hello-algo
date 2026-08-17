@@ -6,7 +6,7 @@
 
 package chapter_divide_and_conquer.fast_power
 
-/* Fast power */
+/* Быстрое возведение в степень */
 fun fastPow(x: Int, n: Int): Int {
     if (n == 0) {
         return 1

@@ -7,7 +7,7 @@
 package chapter_computational_complexity;
 
 public class complexity_exercises {
-    /* Iterative summation */
+    /* Итеративное суммирование */
     static int sumIter(int n) {
         int res = 0;
         for (int i = 1; i <= n; i++) {
@@ -16,7 +16,7 @@ public class complexity_exercises {
         return res;
     }
 
-    /* Recursive summation */
+    /* Рекурсивное суммирование */
     static int sumRecur(int n) {
         if (n == 1) {
             return 1;
@@ -24,7 +24,7 @@ public class complexity_exercises {
         return n + sumRecur(n - 1);
     }
 
-    /* Linear loop */
+    /* Цикл линейной сложности */
     static int linearLoop(int n) {
         int res = 0;
         for (int i = 0; i < n; i++) {
@@ -33,7 +33,7 @@ public class complexity_exercises {
         return res;
     }
 
-    /* Quadratic loop */
+    /* Цикл квадратичной сложности */
     static int quadraticLoop(int n) {
         int res = 0;
         for (int i = 0; i < n; i++) {
@@ -44,7 +44,7 @@ public class complexity_exercises {
         return res;
     }
 
-    /* Logarithmic loop */
+    /* Цикл логарифмической сложности */
     static int logarithmicLoop(int n) {
         while (n > 1) {
             n /= 2;

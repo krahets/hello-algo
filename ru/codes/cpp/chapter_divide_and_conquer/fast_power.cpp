@@ -6,7 +6,7 @@
 
 #include <cassert>
 
-/* Fast power */
+/* Быстрое возведение в степень */
 int fastPow(int x, int n) {
     if (n == 0) {
         return 1;

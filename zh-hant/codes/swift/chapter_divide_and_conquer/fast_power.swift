@@ -4,7 +4,7 @@
  Author: Hello Algo Team
  */
 
-/* Fast power */
+/* 快速冪 */
 func fastPow(x: Int, n: Int) -> Int {
     if n == 0 {
         return 1

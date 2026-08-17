@@ -4,7 +4,7 @@
  * Author: Hello Algo Team
  */
 
-/* Iterative summation */
+/* Итеративное суммирование */
 function sumIter(n: number): number {
     let res = 0;
     for (let i = 1; i <= n; i++) {
@@ -13,7 +13,7 @@ function sumIter(n: number): number {
     return res;
 }
 
-/* Recursive summation */
+/* Рекурсивное суммирование */
 function sumRecur(n: number): number {
     if (n === 1) {
         return 1;
@@ -21,7 +21,7 @@ function sumRecur(n: number): number {
     return n + sumRecur(n - 1);
 }
 
-/* Linear loop */
+/* Цикл линейной сложности */
 function linearLoop(n: number): number {
     let res = 0;
     for (let i = 0; i < n; i++) {
@@ -30,7 +30,7 @@ function linearLoop(n: number): number {
     return res;
 }
 
-/* Quadratic loop */
+/* Цикл квадратичной сложности */
 function quadraticLoop(n: number): number {
     let res = 0;
     for (let i = 0; i < n; i++) {
@@ -41,7 +41,7 @@ function quadraticLoop(n: number): number {
     return res;
 }
 
-/* Logarithmic loop */
+/* Цикл логарифмической сложности */
 function logarithmicLoop(n: number): number {
     while (n > 1) {
         n = Math.floor(n / 2);
