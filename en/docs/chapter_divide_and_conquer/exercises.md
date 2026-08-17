@@ -25,23 +25,17 @@ Classify each task as "suitable for divide and conquer," "can use divide and con
 
 The recursive function below uses divide and conquer to calculate $x^n$:
 
-```python
-def fast_pow(x, n):
-    if n == 0:
-        return 1
-    half = fast_pow(x, n // 2)
-    if n % 2 == 0:
-        return half * half
-    return half * half * x
+```src
+[file]{fast_power}-[class]{}-[func]{fast_pow}
 ```
 
-Use it to calculate `fast_pow(3, 5)`:
+Set `x = 3` and `n = 5`, and use this function to calculate the result:
 
 <!-- numbered-subquestions -->
 
 1. As the recursive calls proceed, which values does the argument `n` take in order?
 2. Starting from the deepest call, what value does each level return?
-3. Why should the result be stored in `half` instead of writing `fast_pow(x, n // 2)` twice?
+3. Why should the recursive result be stored in `half` instead of calling the same subproblem once on each side of the multiplication?
 
 ??? success "Answer"
 
@@ -50,7 +44,7 @@ Use it to calculate `fast_pow(3, 5)`:
     2. When `n = 0`, the function returns 1. When `n = 1`, it returns $1×1×3=3$.
         When `n = 2`, it returns $3×3=9$. When `n = 5`, it returns $9×9×3=243$.
 
-    3. If `fast_pow(x, n // 2)` were written once on each side of the multiplication, the two recursive calls would calculate exactly the same subproblem.
+    3. If the same subproblem were called once on each side of the multiplication, the two recursive calls would perform exactly the same calculation.
         Storing the result in `half` means that each level makes only one recursive call, so the recursion depth is about $\log n$.
         Making two calls would cause a great deal of repeated computation.
 

@@ -1,0 +1,26 @@
+/**
+ * File: fast_power.c
+ * Created Time: 2026-08-18
+ * Author: Hello Algo Team
+ */
+
+#include <assert.h>
+
+/* 高速べき乗 */
+int fastPow(int x, int n) {
+    if (n == 0) {
+        return 1;
+    }
+    int half = fastPow(x, n / 2);
+    if (n % 2 == 0) {
+        return half * half;
+    }
+    return half * half * x;
+}
+
+int main(void) {
+    assert(fastPow(7, 0) == 1);
+    assert(fastPow(3, 5) == 243);
+    assert(fastPow(2, 6) == 64);
+    return 0;
+}

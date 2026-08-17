@@ -7,33 +7,23 @@
 下面兩段程式碼都計算 $1 + 2 + \dots + n$（設 $n \ge 1$）。請把 `n` 設為 4，
 按照程式實際執行的順序回答問題，然後比較兩種寫法的效率。
 
-```python
-def sum_iter(n):
-    s = 0
-    for i in range(1, n + 1):
-        s += i
-    return s
-
-def sum_recur(n):
-    if n == 1:
-        return 1
-    return n + sum_recur(n - 1)
+```src
+[file]{complexity_exercises}-[class]{}-[func]{sum_iter}
 ```
 
 <!-- numbered-subquestions -->
 
-1. 執行 `sum_iter(4)` 時，每輪迴圈結束後，變數 `s` 的值分別是多少？
-2. 執行 `sum_recur(4)` 時，會依次呼叫哪些函式？從最深的一層開始返回時，結果怎樣得到？
+1. 輸入 `n = 4` 執行迭代函式時，每輪迴圈結束後，累加變數 `res` 的值分別是多少？
+2. 輸入 `n = 4` 執行遞迴函式時，參數 `n` 會依次取哪些值？從最深的一層開始返回時，結果怎樣得到？
 3. 兩種寫法的時間複雜度和空間複雜度分別是多少？結合第 1、2 問的執行過程說明理由。
 
 ??? success "參考答案"
 
-    1. 迴圈變數 `i` 依次為 `1、2、3、4`，每輪結束後，`s` 依次變為
-        `1、3、6、10`，所以 `sum_iter(4)` 返回 10。
+    1. 迴圈變數 `i` 依次為 `1、2、3、4`，每輪結束後，`res` 依次變為
+        `1、3、6、10`，所以迭代函式返回 10。
 
-    2. 函式依次呼叫
-        `sum_recur(4) → sum_recur(3) → sum_recur(2) → sum_recur(1)`。
-        `sum_recur(1)` 返回 1，隨後各層依次得到 `2 + 1 = 3`、`3 + 3 = 6`、`4 + 6 = 10`。
+    2. 參數 `n` 依次為 `4 → 3 → 2 → 1`。
+        最深一層返回 1，隨後各層依次得到 `2 + 1 = 3`、`3 + 3 = 6`、`4 + 6 = 10`。
         在最深處，4 次函式呼叫都尚未結束。
 
     3. 兩段程式碼都進行與 $n$ 成正比的迴圈或呼叫，因此時間複雜度均為 $O(n)$ 。
@@ -47,21 +37,8 @@ def sum_recur(n):
 
 以下三個程式碼片段的輸入均為正整數 $n$ 。請按時間複雜度從低到高排序，並寫出各自的複雜度。
 
-```python
-# 片段一
-s = 0
-for i in range(n):
-    s += i
-
-# 片段二
-s = 0
-for i in range(n):
-    for j in range(i, n):
-        s += j
-
-# 片段三
-while n > 1:
-    n = n // 2
+```src
+[file]{complexity_exercises}-[class]{}-[func]{linear_loop}
 ```
 
 ??? success "參考答案"
