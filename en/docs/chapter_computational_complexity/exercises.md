@@ -7,33 +7,23 @@
 The two functions below both calculate $1 + 2 + \dots + n$ (assume $n \ge 1$). Set `n` to 4,
 answer the questions by following the program's actual execution order, and then compare the efficiency of the two approaches.
 
-```python
-def sum_iter(n):
-    s = 0
-    for i in range(1, n + 1):
-        s += i
-    return s
-
-def sum_recur(n):
-    if n == 1:
-        return 1
-    return n + sum_recur(n - 1)
+```src
+[file]{complexity_exercises}-[class]{}-[func]{sum_iter}
 ```
 
 <!-- numbered-subquestions -->
 
-1. When `sum_iter(4)` runs, what is the value of `s` after each loop iteration?
-2. When `sum_recur(4)` runs, which function calls occur in order? As the calls return from the deepest level, how is the result obtained?
+1. When the iterative function runs with `n = 4`, what is the value of the accumulator `res` after each loop iteration?
+2. When the recursive function runs with `n = 4`, which values does the argument `n` take in order? As the calls return from the deepest level, how is the result obtained?
 3. What are the time and space complexities of the two approaches? Explain your reasoning using the execution processes from Questions 1 and 2.
 
 ??? success "Answer"
 
-    1. The loop variable `i` takes the values `1, 2, 3, 4`. After each iteration, `s` becomes
-        `1, 3, 6, 10`, respectively, so `sum_iter(4)` returns 10.
+    1. The loop variable `i` takes the values `1, 2, 3, 4`. After each iteration, `res` becomes
+        `1, 3, 6, 10`, respectively, so the iterative function returns 10.
 
-    2. The function calls occur in this order:
-        `sum_recur(4) → sum_recur(3) → sum_recur(2) → sum_recur(1)`.
-        `sum_recur(1)` returns 1. The remaining calls then obtain `2 + 1 = 3`, `3 + 3 = 6`, and `4 + 6 = 10`, in that order.
+    2. The argument `n` takes the values `4 → 3 → 2 → 1`.
+        The deepest call returns 1. The remaining calls then obtain `2 + 1 = 3`, `3 + 3 = 6`, and `4 + 6 = 10`, in that order.
         At the deepest point, all four function calls are still unfinished.
 
     3. Both functions perform a number of loop iterations or calls proportional to $n$, so both have a time complexity of $O(n)$.
@@ -47,21 +37,8 @@ def sum_recur(n):
 
 Each of the following code fragments takes a positive integer $n$ as input. Order them from lowest to highest time complexity, and give the complexity of each one.
 
-```python
-# Fragment 1
-s = 0
-for i in range(n):
-    s += i
-
-# Fragment 2
-s = 0
-for i in range(n):
-    for j in range(i, n):
-        s += j
-
-# Fragment 3
-while n > 1:
-    n = n // 2
+```src
+[file]{complexity_exercises}-[class]{}-[func]{linear_loop}
 ```
 
 ??? success "Answer"
