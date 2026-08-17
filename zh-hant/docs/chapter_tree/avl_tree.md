@@ -205,9 +205,9 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
     ```kotlin title=""
     /* AVL 樹節點類別 */
     class TreeNode(val _val: Int) {  // 節點值
-        val height: Int = 0          // 節點高度
-        val left: TreeNode? = null   // 左子節點
-        val right: TreeNode? = null  // 右子節點
+        var height: Int = 0          // 節點高度
+        var left: TreeNode? = null   // 左子節點
+        var right: TreeNode? = null  // 右子節點
     }
     ```
 

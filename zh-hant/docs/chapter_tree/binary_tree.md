@@ -181,8 +181,8 @@
     ```kotlin title=""
     /* 二元樹節點類別 */
     class TreeNode(val _val: Int) {  // 節點值
-        val left: TreeNode? = null   // 左子節點引用
-        val right: TreeNode? = null  // 右子節點引用
+        var left: TreeNode? = null   // 左子節點引用
+        var right: TreeNode? = null  // 右子節點引用
     }
     ```
 

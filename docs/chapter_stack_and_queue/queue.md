@@ -175,7 +175,7 @@
 
     /* 元素出队 */
     // 由于是数组，因此 removeFirst 的复杂度为 O(n)
-    let pool = queue.removeFirst()
+    let pop = queue.removeFirst()
 
     /* 获取队列的长度 */
     let size = queue.count
@@ -244,7 +244,7 @@
 
     ```dart title="queue.dart"
     /* 初始化队列 */
-    // 在 Dart 中，队列类 Qeque 是双向队列，也可作为队列使用
+    // 在 Dart 中，队列类 Queue 是双向队列，也可作为队列使用
     Queue<int> queue = Queue();
 
     /* 元素入队 */

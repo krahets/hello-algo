@@ -20,7 +20,7 @@ The problem requires inserting `target` to the left of equal elements, which mea
 
 To analyze this further, consider the binary search process: when `nums[m] < target`, $i$ moves, meaning that pointer $i$ is approaching elements greater than or equal to `target`. Similarly, pointer $j$ is always approaching elements less than or equal to `target`.
 
-Therefore, when the binary search ends, $i$ must point to the first element greater than `target`, and $j$ must point to the first element less than `target`. **It follows that when the array does not contain `target`, the insertion index is $i$**. The code is shown below:
+Therefore, when the binary search ends, $i$ must point to the first element greater than `target`, and $j$ must point to the rightmost element less than `target`. **It follows that when the array does not contain `target`, the insertion index is $i$**. The code is shown below:
 
 ```src
 [file]{binary_search_insertion}-[class]{}-[func]{binary_search_insertion_simple}
@@ -48,7 +48,7 @@ Now consider extending the binary search code. As shown in the figure below, the
 - When `nums[m] < target` or `nums[m] > target`, it means `target` has not been found yet, so use the standard interval-shrinking operation of binary search to **move pointers $i$ and $j$ closer to `target`**.
 - When `nums[m] == target`, it means elements less than `target` are in the interval $[i, m - 1]$, so use $j = m - 1$ to shrink the interval, thereby **moving pointer $j$ closer to elements less than `target`**.
 
-After the loop completes, $i$ points to the leftmost `target`, and $j$ points to the first element less than `target`, **so index $i$ is the insertion point**.
+After the loop completes, $i$ points to the leftmost `target`, and $j$ points to the rightmost element less than `target`, **so index $i$ is the insertion point**.
 
 === "<1>"
     ![Steps for binary search insertion point of duplicate elements](binary_search_insertion.assets/binary_search_insertion_step1.png)

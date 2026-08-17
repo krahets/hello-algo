@@ -14,7 +14,7 @@ int binarySearchInsertion(const vector<int> &nums, int target) {
         if (nums[m] < target) {
             i = m + 1; // target находится в интервале [m+1, j]
         } else {
-            j = m - 1; // Первый элемент меньше target находится в интервале [i, m-1]
+            j = m - 1; // Самый правый элемент, меньший target, находится в интервале [i, m-1]
         }
     }
     // Вернуть точку вставки i

@@ -175,7 +175,7 @@
 
     /* Извлечь элемент из очереди */
     // Поскольку в основе лежит массив, removeFirst имеет сложность O(n)
-    let pool = queue.removeFirst()
+    let pop = queue.removeFirst()
 
     /* Получить длину очереди */
     let size = queue.count

@@ -80,7 +80,9 @@
 | level-order traversal          | 層序走訪       |
 | breadth-first traversal        | 廣度優先走訪   |
 | depth-first traversal          | 深度優先走訪   |
-| binary search tree             | 二元搜尋樹     |
+| pre-order traversal            | 前序走訪       |
+| in-order traversal             | 中序走訪       |
+| post-order traversal           | 後序走訪       |
 | balanced binary search tree    | 平衡二元搜尋樹 |
 | balance factor                 | 平衡因子       |
 | heap                           | 堆積           |

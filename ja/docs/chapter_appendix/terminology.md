@@ -80,7 +80,9 @@
 | level-order traversal          | レベル順走査                   |
 | breadth-first traversal        | 幅優先走査                     |
 | depth-first traversal          | 深さ優先走査                   |
-| binary search tree             | 二分探索木                     |
+| pre-order traversal            | 前順走査                       |
+| in-order traversal             | 中順走査                       |
+| post-order traversal           | 後順走査                       |
 | balanced binary search tree    | 平衡二分探索木                 |
 | balance factor                 | 平衡係数                       |
 | heap                           | ヒープ                         |

@@ -33,7 +33,7 @@ function binarySearchInsertion(nums, target) {
         } else if (nums[m] > target) {
             j = m - 1; // target is in the interval [i, m-1]
         } else {
-            j = m - 1; // The first element less than target is in the interval [i, m-1]
+            j = m - 1; // The rightmost element less than target is in the interval [i, m-1]
         }
     }
     // Return insertion point i
@@ -47,7 +47,7 @@ console.log('\nArray nums = ' + nums);
 // Binary search for insertion point
 for (const target of [6, 9]) {
     const index = binarySearchInsertionSimple(nums, target);
-    console.log('Element ' + target + ''s insertion point index is ' + index);
+    console.log('Element ' + target + "'s insertion point index is " + index);
 }
 
 // Array with duplicate elements
@@ -56,7 +56,7 @@ console.log('\nArray nums = ' + nums);
 // Binary search for insertion point
 for (const target of [2, 6, 20]) {
     const index = binarySearchInsertion(nums, target);
-    console.log('Element ' + target + ''s insertion point index is ' + index);
+    console.log('Element ' + target + "'s insertion point index is " + index);
 }
 
 module.exports = {
