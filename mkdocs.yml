@@ -83,6 +83,9 @@ extra:
     - name: Русский
       link: /ru/
       lang: ru
+    - name: Tiếng Việt
+      link: /vi/
+      lang: vi
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/krahets
