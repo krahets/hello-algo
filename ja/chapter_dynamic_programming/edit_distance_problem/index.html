@@ -4700,7 +4700,7 @@
 </ul>
 <p>つまり、文字列 <span class="arithmatex">\(s\)</span> に対する各ラウンドの決定（編集操作）は、<span class="arithmatex">\(s\)</span> と <span class="arithmatex">\(t\)</span> における残りの未一致文字を変化させます。したがって、状態は現在 <span class="arithmatex">\(s\)</span> と <span class="arithmatex">\(t\)</span> で考えている第 <span class="arithmatex">\(i\)</span> と第 <span class="arithmatex">\(j\)</span> 文字とし、<span class="arithmatex">\([i, j]\)</span> と記します。</p>
 <p>状態 <span class="arithmatex">\([i, j]\)</span> に対応する部分問題は、**<span class="arithmatex">\(s\)</span> の先頭 <span class="arithmatex">\(i\)</span> 文字を <span class="arithmatex">\(t\)</span> の先頭 <span class="arithmatex">\(j\)</span> 文字に変換するのに必要な最小編集回数**です。</p>
-<p>これにより、サイズが <span class="arithmatex">\((i+1) \times (j+1)\)</span> の2次元 <span class="arithmatex">\(dp\)</span> テーブルが得られます。</p>
+<p>これにより、サイズが <span class="arithmatex">\((n+1) \times (m+1)\)</span> の2次元 <span class="arithmatex">\(dp\)</span> テーブルが得られます。</p>
 <p><strong>第2ステップ：最適部分構造を見つけ、状態遷移方程式を導く</strong></p>
 <p>部分問題 <span class="arithmatex">\(dp[i, j]\)</span> を考えます。これに対応する2つの文字列の末尾文字は <span class="arithmatex">\(s[i-1]\)</span> と <span class="arithmatex">\(t[j-1]\)</span> であり、編集操作の違いに応じて下図の3つの場合に分けられます。</p>
 <ol>

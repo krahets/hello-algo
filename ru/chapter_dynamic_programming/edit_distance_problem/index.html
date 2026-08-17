@@ -4700,7 +4700,7 @@
 </ul>
 <p>Иначе говоря, каждый шаг решения, то есть операция редактирования над строкой <span class="arithmatex">\(s\)</span> , меняет те символы, которые еще необходимо сопоставить в строках <span class="arithmatex">\(s\)</span> и <span class="arithmatex">\(t\)</span> . Поэтому состояние определяется текущими позициями рассматриваемых символов в <span class="arithmatex">\(s\)</span> и <span class="arithmatex">\(t\)</span> , то есть состоянием <span class="arithmatex">\([i, j]\)</span> .</p>
 <p>Подзадача, соответствующая состоянию <span class="arithmatex">\([i, j]\)</span> , такова: <strong>минимальное число операций редактирования, необходимое для преобразования первых <span class="arithmatex">\(i\)</span> символов строки <span class="arithmatex">\(s\)</span> в первые <span class="arithmatex">\(j\)</span> символов строки <span class="arithmatex">\(t\)</span></strong>.</p>
-<p>Отсюда получается двумерная таблица <span class="arithmatex">\(dp\)</span> размера <span class="arithmatex">\((i+1) \times (j+1)\)</span> .</p>
+<p>Отсюда получается двумерная таблица <span class="arithmatex">\(dp\)</span> размера <span class="arithmatex">\((n+1) \times (m+1)\)</span> .</p>
 <p><strong>Шаг 2: найти оптимальную подструктуру и на ее основе вывести уравнение перехода состояния</strong></p>
 <p>Рассмотрим подзадачу <span class="arithmatex">\(dp[i, j]\)</span> . Ее последние символы - это <span class="arithmatex">\(s[i-1]\)</span> и <span class="arithmatex">\(t[j-1]\)</span> . В зависимости от операции редактирования возможны три случая, показанные на рисунке 14-29.</p>
 <ol>

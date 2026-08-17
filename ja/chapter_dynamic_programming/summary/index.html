@@ -4651,7 +4651,7 @@
 <p><strong>編集距離問題</strong></p>
 <ul>
 <li>編集距離（Levenshtein 距離）は 2 つの文字列間の類似度を測るために用いられ、ある文字列を別の文字列へ変換するための最小編集回数として定義されます。編集操作には追加、削除、置換が含まれます。</li>
-<li>編集距離問題の状態は、<span class="arithmatex">\(s\)</span> の前 <span class="arithmatex">\(i\)</span> 文字を <span class="arithmatex">\(t\)</span> の前 <span class="arithmatex">\(j\)</span> 文字へ変更するのに必要な最小編集回数として定義されます。<span class="arithmatex">\(s[i] \ne t[j]\)</span> のときは、追加、削除、置換の 3 つの判断があり、それぞれに対応する残りの部分問題があります。これにより最適部分構造を見いだし、状態遷移方程式を構築できます。一方、<span class="arithmatex">\(s[i] = t[j]\)</span> のときは現在の文字を編集する必要はありません。</li>
+<li>編集距離問題の状態は、<span class="arithmatex">\(s\)</span> の前 <span class="arithmatex">\(i\)</span> 文字を <span class="arithmatex">\(t\)</span> の前 <span class="arithmatex">\(j\)</span> 文字へ変更するのに必要な最小編集回数として定義されます。<span class="arithmatex">\(s[i-1] \ne t[j-1]\)</span> のときは、追加、削除、置換の 3 つの判断があり、それぞれに対応する残りの部分問題があります。これにより最適部分構造を見いだし、状態遷移方程式を構築できます。一方、<span class="arithmatex">\(s[i-1] = t[j-1]\)</span> のときは現在の文字を編集する必要はありません。</li>
 <li>編集距離では、状態は真上、真左、左上の状態に依存します。そのため、空間最適化後は順方向でも逆方向でも正しく状態遷移できません。そこで、変数を 1 つ用いて左上の状態を一時保存し、完全ナップサック問題と等価な形へ変換することで、空間最適化後に順方向走査を行えるようにします。</li>
 </ul>
 

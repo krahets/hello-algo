@@ -4715,7 +4715,7 @@ n &amp; \geq 4
 <li>整数 <span class="arithmatex">\(n\)</span> を入力し、余りが <span class="arithmatex">\(0\)</span>、<span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span> になるまで、そこから因子 <span class="arithmatex">\(3\)</span> を繰り返し切り出す。</li>
 <li>余りが <span class="arithmatex">\(0\)</span> のとき、<span class="arithmatex">\(n\)</span> は <span class="arithmatex">\(3\)</span> の倍数であることを表すため、何も処理しない。</li>
 <li>余りが <span class="arithmatex">\(2\)</span> のときは、それ以上分割せず、そのまま残す。</li>
-<li>余りが <span class="arithmatex">\(1\)</span> のとき、<span class="arithmatex">\(2 \times 2 &gt; 1 \times 3\)</span> であるため、最後の <span class="arithmatex">\(3\)</span> を <span class="arithmatex">\(2\)</span> に置き換えるべきである。</li>
+<li>余りが <span class="arithmatex">\(1\)</span> のとき、<span class="arithmatex">\(2 \times 2 &gt; 1 \times 3\)</span> であるため、最後の <span class="arithmatex">\(3\)</span> と余りの <span class="arithmatex">\(1\)</span> を 2 つの <span class="arithmatex">\(2\)</span> に置き換えるべきである。</li>
 </ol>
 <h3 id="2">2. &nbsp; コード実装<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>下図のように、ループで整数を分割する必要はなく、切り捨て除算によって <span class="arithmatex">\(3\)</span> の個数 <span class="arithmatex">\(a\)</span> を、剰余演算によって余り <span class="arithmatex">\(b\)</span> を得られる。このとき、</p>

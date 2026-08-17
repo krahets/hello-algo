@@ -5709,7 +5709,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <p align="center"> 圖 14-20 &nbsp; 0-1 背包問題的動態規劃過程 </p>
 
 <h3 id="4">4. &nbsp; 空間最佳化<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p>由於每個狀態都只與其上一行的狀態有關，因此我們可以使用兩個陣列滾動前進，將空間複雜度從 <span class="arithmatex">\(O(n^2)\)</span> 降至 <span class="arithmatex">\(O(n)\)</span> 。</p>
+<p>由於每個狀態都只與其上一行的狀態有關，因此我們可以使用兩個陣列滾動前進，將空間複雜度從 <span class="arithmatex">\(O(n \times cap)\)</span> 降至 <span class="arithmatex">\(O(cap)\)</span> 。</p>
 <p>進一步思考，我們能否僅用一個陣列實現空間最佳化呢？觀察可知，每個狀態都是由正上方或左上方的格子轉移過來的。假設只有一個陣列，當開始走訪第 <span class="arithmatex">\(i\)</span> 行時，該陣列儲存的仍然是第 <span class="arithmatex">\(i-1\)</span> 行的狀態。</p>
 <ul>
 <li>如果採取正序走訪，那麼走訪到 <span class="arithmatex">\(dp[i, j]\)</span> 時，左上方 <span class="arithmatex">\(dp[i-1, 1]\)</span> ~ <span class="arithmatex">\(dp[i-1, j-1]\)</span> 值可能已經被覆蓋，此時就無法得到正確的狀態轉移結果。</li>

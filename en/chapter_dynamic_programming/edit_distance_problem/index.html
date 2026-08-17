@@ -4700,7 +4700,7 @@
 </ul>
 <p>In other words, each round of decision (edit operation) we make on string <span class="arithmatex">\(s\)</span> will change the remaining characters to be matched in <span class="arithmatex">\(s\)</span> and <span class="arithmatex">\(t\)</span>. Therefore, the state is the <span class="arithmatex">\(i\)</span>-th and <span class="arithmatex">\(j\)</span>-th characters currently being considered in <span class="arithmatex">\(s\)</span> and <span class="arithmatex">\(t\)</span>, denoted as <span class="arithmatex">\([i, j]\)</span>.</p>
 <p>State <span class="arithmatex">\([i, j]\)</span> corresponds to the subproblem: <strong>the minimum number of edits required to change the first <span class="arithmatex">\(i\)</span> characters of <span class="arithmatex">\(s\)</span> into the first <span class="arithmatex">\(j\)</span> characters of <span class="arithmatex">\(t\)</span></strong>.</p>
-<p>From this, we obtain a two-dimensional <span class="arithmatex">\(dp\)</span> table of size <span class="arithmatex">\((i+1) \times (j+1)\)</span>.</p>
+<p>From this, we obtain a two-dimensional <span class="arithmatex">\(dp\)</span> table of size <span class="arithmatex">\((n+1) \times (m+1)\)</span>.</p>
 <p><strong>Step 2: Identify the optimal substructure, and then derive the state transition equation</strong></p>
 <p>Consider subproblem <span class="arithmatex">\(dp[i, j]\)</span>, where the tail characters of the corresponding two strings are <span class="arithmatex">\(s[i-1]\)</span> and <span class="arithmatex">\(t[j-1]\)</span>, which can be divided into the three cases shown in Figure 14-29 based on different edit operations.</p>
 <ol>

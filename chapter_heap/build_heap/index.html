@@ -5041,7 +5041,7 @@
 <h2 id="823">8.2.3 &nbsp; 复杂度分析<a class="headerlink" href="#823" title="Permanent link">&para;</a></h2>
 <p>下面，我们来尝试推算第二种建堆方法的时间复杂度。</p>
 <ul>
-<li>假设完全二叉树的节点数量为 <span class="arithmatex">\(n\)</span> ，则叶节点数量为 <span class="arithmatex">\((n + 1) / 2\)</span> ，其中 <span class="arithmatex">\(/\)</span> 为向下整除。因此需要堆化的节点数量为 <span class="arithmatex">\((n - 1) / 2\)</span> 。</li>
+<li>假设完全二叉树的节点数量为 <span class="arithmatex">\(n\)</span> ，则叶节点数量为 <span class="arithmatex">\((n + 1) / 2\)</span> ，其中 <span class="arithmatex">\(/\)</span> 为向下整除。因此需要堆化的节点数量为 <span class="arithmatex">\(n / 2\)</span> 。</li>
 <li>在从顶至底堆化的过程中，每个节点最多堆化到叶节点，因此最大迭代次数为二叉树高度 <span class="arithmatex">\(\log n\)</span> 。</li>
 </ul>
 <p>将上述两者相乘，可得到建堆过程的时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。<strong>但这个估算结果并不准确，因为我们没有考虑到二叉树底层节点数量远多于顶层节点的性质</strong>。</p>

@@ -5694,7 +5694,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <p align="center"> Figure 14-20 &nbsp; Dynamic programming process for 0-1 knapsack problem </p>
 
 <h3 id="4-space-optimization">4. &nbsp; Space Optimization<a class="headerlink" href="#4-space-optimization" title="Permanent link">&para;</a></h3>
-<p>Since each state is only related to the state in the row above it, we can use two arrays rolling forward to reduce the space complexity from <span class="arithmatex">\(O(n^2)\)</span> to <span class="arithmatex">\(O(n)\)</span>.</p>
+<p>Since each state is only related to the state in the row above it, we can use two arrays rolling forward to reduce the space complexity from <span class="arithmatex">\(O(n \times cap)\)</span> to <span class="arithmatex">\(O(cap)\)</span>.</p>
 <p>Further thinking, can we achieve space optimization using just one array? Observing, we can see that each state is transferred from the cell directly above or the cell in the upper-left. If there is only one array, when we start traversing row <span class="arithmatex">\(i\)</span>, that array still stores the state of row <span class="arithmatex">\(i-1\)</span>.</p>
 <ul>
 <li>If using forward traversal, then when traversing to <span class="arithmatex">\(dp[i, j]\)</span>, the values in the upper-left <span class="arithmatex">\(dp[i-1, 1]\)</span> ~ <span class="arithmatex">\(dp[i-1, j-1]\)</span> may have already been overwritten, thus preventing correct state transition.</li>

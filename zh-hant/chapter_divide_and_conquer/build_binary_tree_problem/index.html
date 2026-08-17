@@ -4715,12 +4715,12 @@
 <p>根據定義，<code>preorder</code> 和 <code>inorder</code> 都可以劃分為三個部分。</p>
 <ul>
 <li>前序走訪：<code>[ 根節點 | 左子樹 | 右子樹 ]</code> ，例如圖 12-5 的樹對應 <code>[ 3 | 9 | 2 1 7 ]</code> 。</li>
-<li>中序走訪：<code>[ 左子樹 | 根節點 ｜ 右子樹 ]</code> ，例如圖 12-5 的樹對應 <code>[ 9 | 3 | 1 2 7 ]</code> 。</li>
+<li>中序走訪：<code>[ 左子樹 | 根節點 | 右子樹 ]</code> ，例如圖 12-5 的樹對應 <code>[ 9 | 3 | 1 2 7 ]</code> 。</li>
 </ul>
 <p>以上圖資料為例，我們可以透過圖 12-6 所示的步驟得到劃分結果。</p>
 <ol>
 <li>前序走訪的首元素 3 是根節點的值。</li>
-<li>查詢根節點 3 在 <code>inorder</code> 中的索引，利用該索引可將 <code>inorder</code> 劃分為 <code>[ 9 | 3 ｜ 1 2 7 ]</code> 。</li>
+<li>查詢根節點 3 在 <code>inorder</code> 中的索引，利用該索引可將 <code>inorder</code> 劃分為 <code>[ 9 | 3 | 1 2 7 ]</code> 。</li>
 <li>根據 <code>inorder</code> 的劃分結果，易得左子樹和右子樹的節點數量分別為 1 和 3 ，從而可將 <code>preorder</code> 劃分為 <code>[ 3 | 9 | 2 1 7 ]</code> 。</li>
 </ol>
 <p><img alt="在前序走訪和中序走訪中劃分子樹" class="animation-figure" src="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" /></p>

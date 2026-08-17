@@ -4715,7 +4715,7 @@ n &amp; \geq 4
 <li>輸入整數 <span class="arithmatex">\(n\)</span> ，從其不斷地切分出因子 <span class="arithmatex">\(3\)</span> ，直至餘數為 <span class="arithmatex">\(0\)</span>、<span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span> 。</li>
 <li>當餘數為 <span class="arithmatex">\(0\)</span> 時，代表 <span class="arithmatex">\(n\)</span> 是 <span class="arithmatex">\(3\)</span> 的倍數，因此不做任何處理。</li>
 <li>當餘數為 <span class="arithmatex">\(2\)</span> 時，不繼續劃分，保留。</li>
-<li>當餘數為 <span class="arithmatex">\(1\)</span> 時，由於 <span class="arithmatex">\(2 \times 2 &gt; 1 \times 3\)</span> ，因此應將最後一個 <span class="arithmatex">\(3\)</span> 替換為 <span class="arithmatex">\(2\)</span> 。</li>
+<li>當餘數為 <span class="arithmatex">\(1\)</span> 時，由於 <span class="arithmatex">\(2 \times 2 &gt; 1 \times 3\)</span> ，因此應將最後一個 <span class="arithmatex">\(3\)</span> 和餘數 <span class="arithmatex">\(1\)</span> 替換為兩個 <span class="arithmatex">\(2\)</span> 。</li>
 </ol>
 <h3 id="2">2. &nbsp; 程式碼實現<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>如圖 15-16 所示，我們無須透過迴圈來切分整數，而可以利用向下整除運算得到 <span class="arithmatex">\(3\)</span> 的個數 <span class="arithmatex">\(a\)</span> ，用取模運算得到餘數 <span class="arithmatex">\(b\)</span> ，此時有：</p>

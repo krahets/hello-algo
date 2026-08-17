@@ -4828,7 +4828,7 @@
 <h3 id="1">1. &nbsp; 重複選擇剪枝<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>為了實現每個元素只被選擇一次，我們考慮引入一個布林型陣列 <code>selected</code> ，其中 <code>selected[i]</code> 表示 <code>choices[i]</code> 是否已被選擇，並基於它實現以下剪枝操作。</p>
 <ul>
-<li>在做出選擇 <code>choice[i]</code> 後，我們就將 <code>selected[i]</code> 賦值為 <span class="arithmatex">\(\text{True}\)</span> ，代表它已被選擇。</li>
+<li>在做出選擇 <code>choices[i]</code> 後，我們就將 <code>selected[i]</code> 賦值為 <span class="arithmatex">\(\text{True}\)</span> ，代表它已被選擇。</li>
 <li>走訪選擇串列 <code>choices</code> 時，跳過所有已被選擇的節點，即剪枝。</li>
 </ul>
 <p>如圖 13-6 所示，假設我們第一輪選擇 1 ，第二輪選擇 3 ，第三輪選擇 2 ，則需要在第二輪剪掉元素 1 的分支，在第三輪剪掉元素 1 和元素 3 的分支。</p>

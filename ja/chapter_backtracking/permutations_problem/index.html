@@ -4828,7 +4828,7 @@
 <h3 id="1">1. &nbsp; 重複選択の枝刈り<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>各要素が 1 回しか選ばれないようにするため、ブール配列 <code>selected</code> の導入を考えます。ここで <code>selected[i]</code> は <code>choices[i]</code> がすでに選ばれているかどうかを表し、これに基づいて次の枝刈りを行います。</p>
 <ul>
-<li>選択 <code>choice[i]</code> を行った後、<code>selected[i]</code> を <span class="arithmatex">\(\text{True}\)</span> に設定し、その要素が選択済みであることを表します。</li>
+<li>選択 <code>choices[i]</code> を行った後、<code>selected[i]</code> を <span class="arithmatex">\(\text{True}\)</span> に設定し、その要素が選択済みであることを表します。</li>
 <li>選択肢リスト <code>choices</code> を走査するとき、すでに選ばれたノードはすべてスキップします。これが枝刈りです。</li>
 </ul>
 <p>下図のように、1 回目に 1、2 回目に 3、3 回目に 2 を選ぶとします。このとき 2 回目では要素 1 の分岐を、3 回目では要素 1 と要素 3 の分岐を刈り取る必要があります。</p>

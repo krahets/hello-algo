@@ -5781,7 +5781,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <p align="center"> 图 14-20 &nbsp; 0-1 背包问题的动态规划过程 </p>
 
 <h3 id="4">4. &nbsp; 空间优化<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p>由于每个状态都只与其上一行的状态有关，因此我们可以使用两个数组滚动前进，将空间复杂度从 <span class="arithmatex">\(O(n^2)\)</span> 降至 <span class="arithmatex">\(O(n)\)</span> 。</p>
+<p>由于每个状态都只与其上一行的状态有关，因此我们可以使用两个数组滚动前进，将空间复杂度从 <span class="arithmatex">\(O(n \times cap)\)</span> 降至 <span class="arithmatex">\(O(cap)\)</span> 。</p>
 <p>进一步思考，我们能否仅用一个数组实现空间优化呢？观察可知，每个状态都是由正上方或左上方的格子转移过来的。假设只有一个数组，当开始遍历第 <span class="arithmatex">\(i\)</span> 行时，该数组存储的仍然是第 <span class="arithmatex">\(i-1\)</span> 行的状态。</p>
 <ul>
 <li>如果采取正序遍历，那么遍历到 <span class="arithmatex">\(dp[i, j]\)</span> 时，左上方 <span class="arithmatex">\(dp[i-1, 1]\)</span> ~ <span class="arithmatex">\(dp[i-1, j-1]\)</span> 值可能已经被覆盖，此时就无法得到正确的状态转移结果。</li>

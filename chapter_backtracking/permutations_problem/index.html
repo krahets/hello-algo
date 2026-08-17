@@ -4900,7 +4900,7 @@
 <h3 id="1">1. &nbsp; 重复选择剪枝<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>为了实现每个元素只被选择一次，我们考虑引入一个布尔型数组 <code>selected</code> ，其中 <code>selected[i]</code> 表示 <code>choices[i]</code> 是否已被选择，并基于它实现以下剪枝操作。</p>
 <ul>
-<li>在做出选择 <code>choice[i]</code> 后，我们就将 <code>selected[i]</code> 赋值为 <span class="arithmatex">\(\text{True}\)</span> ，代表它已被选择。</li>
+<li>在做出选择 <code>choices[i]</code> 后，我们就将 <code>selected[i]</code> 赋值为 <span class="arithmatex">\(\text{True}\)</span> ，代表它已被选择。</li>
 <li>遍历选择列表 <code>choices</code> 时，跳过所有已被选择的节点，即剪枝。</li>
 </ul>
 <p>如图 13-6 所示，假设我们第一轮选择 1 ，第二轮选择 3 ，第三轮选择 2 ，则需要在第二轮剪掉元素 1 的分支，在第三轮剪掉元素 1 和元素 3 的分支。</p>

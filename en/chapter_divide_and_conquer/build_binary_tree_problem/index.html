@@ -4715,12 +4715,12 @@
 <p>According to the definition, both <code>preorder</code> and <code>inorder</code> can be divided into three parts.</p>
 <ul>
 <li>Preorder traversal: <code>[ Root Node | Left Subtree | Right Subtree ]</code>, for example, the tree in Figure 12-5 corresponds to <code>[ 3 | 9 | 2 1 7 ]</code>.</li>
-<li>Inorder traversal: <code>[ Left Subtree | Root Node ｜ Right Subtree ]</code>, for example, the tree in Figure 12-5 corresponds to <code>[ 9 | 3 | 1 2 7 ]</code>.</li>
+<li>Inorder traversal: <code>[ Left Subtree | Root Node | Right Subtree ]</code>, for example, the tree in Figure 12-5 corresponds to <code>[ 9 | 3 | 1 2 7 ]</code>.</li>
 </ul>
 <p>Using the data from the figure above as an example, we can obtain the division results through the steps shown in Figure 12-6.</p>
 <ol>
 <li>The first element 3 in the preorder traversal is the value of the root node.</li>
-<li>Find the index of root node 3 in <code>inorder</code>, and use this index to divide <code>inorder</code> into <code>[ 9 | 3 ｜ 1 2 7 ]</code>.</li>
+<li>Find the index of root node 3 in <code>inorder</code>, and use this index to divide <code>inorder</code> into <code>[ 9 | 3 | 1 2 7 ]</code>.</li>
 <li>Based on the division result of <code>inorder</code>, it is easy to determine that the left and right subtrees have 1 and 3 nodes respectively, allowing us to divide <code>preorder</code> into <code>[ 3 | 9 | 2 1 7 ]</code>.</li>
 </ol>
 <p><img alt="Dividing subtrees in preorder and inorder traversals" class="animation-figure" src="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" /></p>

@@ -4772,7 +4772,7 @@
 </ul>
 <p>也就是说，我们在字符串 <span class="arithmatex">\(s\)</span> 中进行的每一轮决策（编辑操作），都会使得 <span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(t\)</span> 中剩余的待匹配字符发生变化。因此，状态为当前在 <span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(t\)</span> 中考虑的第 <span class="arithmatex">\(i\)</span> 和第 <span class="arithmatex">\(j\)</span> 个字符，记为 <span class="arithmatex">\([i, j]\)</span> 。</p>
 <p>状态 <span class="arithmatex">\([i, j]\)</span> 对应的子问题：<strong>将 <span class="arithmatex">\(s\)</span> 的前 <span class="arithmatex">\(i\)</span> 个字符更改为 <span class="arithmatex">\(t\)</span> 的前 <span class="arithmatex">\(j\)</span> 个字符所需的最少编辑步数</strong>。</p>
-<p>至此，得到一个尺寸为 <span class="arithmatex">\((i+1) \times (j+1)\)</span> 的二维 <span class="arithmatex">\(dp\)</span> 表。</p>
+<p>至此，得到一个尺寸为 <span class="arithmatex">\((n+1) \times (m+1)\)</span> 的二维 <span class="arithmatex">\(dp\)</span> 表。</p>
 <p><strong>第二步：找出最优子结构，进而推导出状态转移方程</strong></p>
 <p>考虑子问题 <span class="arithmatex">\(dp[i, j]\)</span> ，其对应的两个字符串的尾部字符为 <span class="arithmatex">\(s[i-1]\)</span> 和 <span class="arithmatex">\(t[j-1]\)</span> ，可根据不同编辑操作分为图 14-29 所示的三种情况。</p>
 <ol>

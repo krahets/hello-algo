@@ -4680,7 +4680,7 @@
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;E&#39;</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
 </code></pre></div>
 <p><strong>適応性</strong>：<u>適応的ソート</u>は、入力データに既に存在する順序情報を利用して計算量を減らし、より優れた時間効率を実現できます。適応的ソートアルゴリズムの最良時間計算量は、通常、平均時間計算量より優れています。</p>
-<p><strong>比較ベースかどうか</strong>：<u>比較ベースのソート</u>は、比較演算子（<span class="arithmatex">\(&lt;\)</span>、<span class="arithmatex">\(=\)</span>、<span class="arithmatex">\(&gt;\)</span>）に依存して要素の相対順序を判定し、それによって配列全体をソートします。理論上の最良時間計算量は <span class="arithmatex">\(O(n \log n)\)</span> です。一方、<u>非比較ソート</u>は比較演算子を使用せず、時間計算量は <span class="arithmatex">\(O(n)\)</span> に達しますが、汎用性は相対的に低くなります。</p>
+<p><strong>比較ベースかどうか</strong>：<u>比較ベースのソート</u>は、比較演算子（<span class="arithmatex">\(&lt;\)</span>、<span class="arithmatex">\(=\)</span>、<span class="arithmatex">\(&gt;\)</span>）に依存して要素の相対順序を判定し、それによって配列全体をソートします。その最悪時間計算量の下界は <span class="arithmatex">\(\Omega(n \log n)\)</span> です。一方、<u>非比較ソート</u>は比較演算子を使用せず、時間計算量は <span class="arithmatex">\(O(n)\)</span> に達しますが、汎用性は相対的に低くなります。</p>
 <h2 id="1112">11.1.2 &nbsp; 理想的なソートアルゴリズム<a class="headerlink" href="#1112" title="Permanent link">&para;</a></h2>
 <p><strong>高速、インプレース、安定、適応的、高い汎用性</strong>。明らかに、これまでのところ、以上のすべての特性を兼ね備えたソートアルゴリズムはまだ見つかっていません。そのため、ソートアルゴリズムを選択する際には、具体的なデータの特徴と問題の要件に応じて判断する必要があります。</p>
 <p>次に、さまざまなソートアルゴリズムを一緒に学び、上記の評価軸に基づいて各ソートアルゴリズムの長所と短所を分析していきます。</p>

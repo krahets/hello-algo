@@ -4969,7 +4969,7 @@
 <h2 id="823">8.2.3 &nbsp; 計算量の分析<a class="headerlink" href="#823" title="Permanent link">&para;</a></h2>
 <p>以下では、2つ目のヒープ構築法の時間計算量を求めてみましょう。</p>
 <ul>
-<li>完全二分木のノード数を <span class="arithmatex">\(n\)</span> とすると、葉ノード数は <span class="arithmatex">\((n + 1) / 2\)</span> です。ここで <span class="arithmatex">\(/\)</span> は切り捨て除算を表します。したがって、ヒープ化が必要なノード数は <span class="arithmatex">\((n - 1) / 2\)</span> です。</li>
+<li>完全二分木のノード数を <span class="arithmatex">\(n\)</span> とすると、葉ノード数は <span class="arithmatex">\((n + 1) / 2\)</span> です。ここで <span class="arithmatex">\(/\)</span> は切り捨て除算を表します。したがって、ヒープ化が必要なノード数は <span class="arithmatex">\(n / 2\)</span> です。</li>
 <li>上から下へのヒープ化の過程では、各ノードは最大で葉ノードまでヒープ化されるため、最大反復回数は二分木の高さ <span class="arithmatex">\(\log n\)</span> です。</li>
 </ul>
 <p>上の2つを掛け合わせると、ヒープ構築過程の時間計算量は <span class="arithmatex">\(O(n \log n)\)</span> となります。<strong>しかし、この見積もりは正確ではありません。二分木では下層のノード数が上層よりはるかに多いという性質を考慮していないためです</strong>。</p>

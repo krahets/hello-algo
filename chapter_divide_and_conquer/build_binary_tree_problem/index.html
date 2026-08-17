@@ -4787,12 +4787,12 @@
 <p>根据定义，<code>preorder</code> 和 <code>inorder</code> 都可以划分为三个部分。</p>
 <ul>
 <li>前序遍历：<code>[ 根节点 | 左子树 | 右子树 ]</code> ，例如图 12-5 的树对应 <code>[ 3 | 9 | 2 1 7 ]</code> 。</li>
-<li>中序遍历：<code>[ 左子树 | 根节点 ｜ 右子树 ]</code> ，例如图 12-5 的树对应 <code>[ 9 | 3 | 1 2 7 ]</code> 。</li>
+<li>中序遍历：<code>[ 左子树 | 根节点 | 右子树 ]</code> ，例如图 12-5 的树对应 <code>[ 9 | 3 | 1 2 7 ]</code> 。</li>
 </ul>
 <p>以上图数据为例，我们可以通过图 12-6 所示的步骤得到划分结果。</p>
 <ol>
 <li>前序遍历的首元素 3 是根节点的值。</li>
-<li>查找根节点 3 在 <code>inorder</code> 中的索引，利用该索引可将 <code>inorder</code> 划分为 <code>[ 9 | 3 ｜ 1 2 7 ]</code> 。</li>
+<li>查找根节点 3 在 <code>inorder</code> 中的索引，利用该索引可将 <code>inorder</code> 划分为 <code>[ 9 | 3 | 1 2 7 ]</code> 。</li>
 <li>根据 <code>inorder</code> 的划分结果，易得左子树和右子树的节点数量分别为 1 和 3 ，从而可将 <code>preorder</code> 划分为 <code>[ 3 | 9 | 2 1 7 ]</code> 。</li>
 </ol>
 <p><img alt="在前序遍历和中序遍历中划分子树" class="animation-figure" src="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" /></p>

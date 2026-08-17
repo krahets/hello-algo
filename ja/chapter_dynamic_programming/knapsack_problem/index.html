@@ -5709,7 +5709,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <p align="center"> 図 14-20 &nbsp; 0-1 ナップサック問題の動的計画法の過程 </p>
 
 <h3 id="4">4. &nbsp; 空間最適化<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p>各状態は直前の行の状態にしか依存しないため、2つの配列をローテーションして用いることで、空間計算量を <span class="arithmatex">\(O(n^2)\)</span> から <span class="arithmatex">\(O(n)\)</span> に削減できます。</p>
+<p>各状態は直前の行の状態にしか依存しないため、2つの配列をローテーションして用いることで、空間計算量を <span class="arithmatex">\(O(n \times cap)\)</span> から <span class="arithmatex">\(O(cap)\)</span> に削減できます。</p>
 <p>さらに考えると、1つの配列だけで空間最適化を実現できるでしょうか。観察すると、各状態は真上または左上のマスから遷移してきます。配列が1つしかないと仮定すると、<span class="arithmatex">\(i\)</span> 行目の走査を開始した時点では、その配列にはまだ <span class="arithmatex">\(i-1\)</span> 行目の状態が格納されています。</p>
 <ul>
 <li>順方向に走査すると、<span class="arithmatex">\(dp[i, j]\)</span> に到達した時点で、左上にある <span class="arithmatex">\(dp[i-1, 1]\)</span> ~ <span class="arithmatex">\(dp[i-1, j-1]\)</span> の値がすでに上書きされている可能性があり、正しい状態遷移結果を得られません。</li>

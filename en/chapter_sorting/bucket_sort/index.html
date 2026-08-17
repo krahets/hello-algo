@@ -4674,7 +4674,7 @@
 
 <!-- Page content -->
 <h1 id="118-bucket-sort">11.8 &nbsp; Bucket Sort<a class="headerlink" href="#118-bucket-sort" title="Permanent link">&para;</a></h1>
-<p>The sorting algorithms discussed earlier are all comparison-based sorting algorithms, which sort by comparing the relative order of elements. The time complexity of such algorithms cannot beat <span class="arithmatex">\(O(n \log n)\)</span>. Next, we will explore several non-comparison sorting algorithms, whose time complexity can be linear.</p>
+<p>The sorting algorithms discussed earlier are all comparison-based sorting algorithms, which sort by comparing the relative order of elements. The worst-case time complexity of such algorithms has a lower bound of <span class="arithmatex">\(\Omega(n \log n)\)</span>. Next, we will explore several non-comparison sorting algorithms, whose time complexity can be linear.</p>
 <p><u>Bucket sort</u> is a typical application of the divide-and-conquer strategy. It works by creating a sequence of ordered buckets, each corresponding to a data range, and distributing the data evenly among them. The elements within each bucket are then sorted separately. Finally, all buckets are merged in order.</p>
 <h2 id="1181-algorithm-flow">11.8.1 &nbsp; Algorithm Flow<a class="headerlink" href="#1181-algorithm-flow" title="Permanent link">&para;</a></h2>
 <p>Consider an array of length <span class="arithmatex">\(n\)</span>, whose elements are floating-point numbers in the range <span class="arithmatex">\([0, 1)\)</span>. The flow of bucket sort is shown in Figure 11-13.</p>

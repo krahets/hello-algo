@@ -4715,7 +4715,7 @@ n &amp; \geq 4
 <li>Для заданного целого <span class="arithmatex">\(n\)</span> непрерывно выделять из него множитель <span class="arithmatex">\(3\)</span>, пока остаток не станет равным <span class="arithmatex">\(0\)</span>, <span class="arithmatex">\(1\)</span> или <span class="arithmatex">\(2\)</span>.</li>
 <li>Если остаток равен <span class="arithmatex">\(0\)</span>, это означает, что <span class="arithmatex">\(n\)</span> кратно <span class="arithmatex">\(3\)</span>, и больше ничего делать не нужно.</li>
 <li>Если остаток равен <span class="arithmatex">\(2\)</span>, дальнейшее разбиение не требуется, его нужно сохранить.</li>
-<li>Если остаток равен <span class="arithmatex">\(1\)</span>, то поскольку <span class="arithmatex">\(2 \times 2 &gt; 1 \times 3\)</span>, последний множитель <span class="arithmatex">\(3\)</span> следует заменить на <span class="arithmatex">\(2\)</span>.</li>
+<li>Если остаток равен <span class="arithmatex">\(1\)</span>, то поскольку <span class="arithmatex">\(2 \times 2 &gt; 1 \times 3\)</span>, последний множитель <span class="arithmatex">\(3\)</span> и оставшуюся единицу следует заменить двумя множителями <span class="arithmatex">\(2\)</span>.</li>
 </ol>
 <h3 id="2">2. &nbsp; Код реализации<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>Как показано на рисунке 15-16, нам не нужен цикл, чтобы выполнять разбиение числа. Можно использовать целочисленное деление, чтобы получить число троек <span class="arithmatex">\(a\)</span>, и операцию взятия остатка, чтобы получить остаток <span class="arithmatex">\(b\)</span>. Тогда имеем:</p>

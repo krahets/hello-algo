@@ -4964,7 +4964,7 @@
 <h2 id="823-complexity-analysis">8.2.3 &nbsp; Complexity Analysis<a class="headerlink" href="#823-complexity-analysis" title="Permanent link">&para;</a></h2>
 <p>Next, let's attempt to derive the time complexity of this second heap construction method.</p>
 <ul>
-<li>Assuming the complete binary tree has <span class="arithmatex">\(n\)</span> nodes, then the number of leaf nodes is <span class="arithmatex">\((n + 1) / 2\)</span>, where <span class="arithmatex">\(/\)</span> is floor division. Therefore, the number of nodes that need heapification is <span class="arithmatex">\((n - 1) / 2\)</span>.</li>
+<li>Assuming the complete binary tree has <span class="arithmatex">\(n\)</span> nodes, then the number of leaf nodes is <span class="arithmatex">\((n + 1) / 2\)</span>, where <span class="arithmatex">\(/\)</span> is floor division. Therefore, the number of nodes that need heapification is <span class="arithmatex">\(n / 2\)</span>.</li>
 <li>In the top-to-bottom heapify process, each node can sink at most to a leaf node, so the maximum number of iterations is the height of the binary tree, <span class="arithmatex">\(\log n\)</span>.</li>
 </ul>
 <p>Multiplying these two together, we get a time complexity of <span class="arithmatex">\(O(n \log n)\)</span> for the heap construction process. <strong>However, this estimate is not accurate because it doesn't account for the property that binary trees have far more nodes at lower levels than at upper levels</strong>.</p>

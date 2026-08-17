@@ -4969,7 +4969,7 @@
 <h2 id="823">8.2.3 &nbsp; 複雜度分析<a class="headerlink" href="#823" title="Permanent link">&para;</a></h2>
 <p>下面，我們來嘗試推算第二種建堆積方法的時間複雜度。</p>
 <ul>
-<li>假設完全二元樹的節點數量為 <span class="arithmatex">\(n\)</span> ，則葉節點數量為 <span class="arithmatex">\((n + 1) / 2\)</span> ，其中 <span class="arithmatex">\(/\)</span> 為向下整除。因此需要堆積化的節點數量為 <span class="arithmatex">\((n - 1) / 2\)</span> 。</li>
+<li>假設完全二元樹的節點數量為 <span class="arithmatex">\(n\)</span> ，則葉節點數量為 <span class="arithmatex">\((n + 1) / 2\)</span> ，其中 <span class="arithmatex">\(/\)</span> 為向下整除。因此需要堆積化的節點數量為 <span class="arithmatex">\(n / 2\)</span> 。</li>
 <li>在從頂至底堆積化的過程中，每個節點最多堆積化到葉節點，因此最大迭代次數為二元樹高度 <span class="arithmatex">\(\log n\)</span> 。</li>
 </ul>
 <p>將上述兩者相乘，可得到建堆積過程的時間複雜度為 <span class="arithmatex">\(O(n \log n)\)</span> 。<strong>但這個估算結果並不準確，因為我們沒有考慮到二元樹底層節點數量遠多於頂層節點的性質</strong>。</p>
