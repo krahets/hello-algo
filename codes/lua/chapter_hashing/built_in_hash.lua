@@ -1,0 +1,1 @@
+-- Lua 未提供内置 hash code 函数
