@@ -73,25 +73,27 @@ class LinkedListDeque {
       return null;
     }
     final int val;
-    if (isFront) {
-      // 队首出队操作
+    // 队列长度为 1 时, 头尾指向同一节点
+    if (_queSize == 1) {
+        val = _front!.val;
+        _front = null;
+        _rear = null;
+    }
+    // 队首出队操作
+    else if (isFront) {
       val = _front!.val; // 暂存头节点值
       // 删除头节点
       ListNode? fNext = _front!.next;
-      if (fNext != null) {
-        fNext.prev = null;
-        _front!.next = null;
-      }
+      fNext!.prev = null;
+      _front!.next = null;
       _front = fNext; // 更新头节点
+    // 队尾出队操作
     } else {
-      // 队尾出队操作
       val = _rear!.val; // 暂存尾节点值
       // 删除尾节点
       ListNode? rPrev = _rear!.prev;
-      if (rPrev != null) {
-        rPrev.next = null;
-        _rear!.prev = null;
-      }
+      rPrev!.next = null;
+      _rear!.prev = null;
       _rear = rPrev; // 更新尾节点
     }
     _queSize--; // 更新队列长度

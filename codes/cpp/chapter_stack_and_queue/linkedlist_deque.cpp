@@ -84,15 +84,20 @@ class LinkedListDeque {
         if (isEmpty())
             throw out_of_range("队列为空");
         int val;
+        // 队列长度为 1 时, 头尾指向同一节点
+        if (queSize == 1) {
+            val = front->val;
+            delete front; // 指向同一节点，释放其一即可
+            front = nullptr;
+            rear = nullptr;
+        }
         // 队首出队操作
-        if (isFront) {
+        else if (isFront) {
             val = front->val; // 暂存头节点值
             // 删除头节点
             DoublyListNode *fNext = front->next;
-            if (fNext != nullptr) {
-                fNext->prev = nullptr;
-                front->next = nullptr;
-            }
+            fNext->prev = nullptr;
+            front->next = nullptr;
             delete front;
             front = fNext; // 更新头节点
         // 队尾出队操作
@@ -100,10 +105,8 @@ class LinkedListDeque {
             val = rear->val; // 暂存尾节点值
             // 删除尾节点
             DoublyListNode *rPrev = rear->prev;
-            if (rPrev != nullptr) {
-                rPrev->next = nullptr;
-                rear->prev = nullptr;
-            }
+            rPrev->next = nullptr;
+            rear->prev = nullptr;
             delete rear;
             rear = rPrev; // 更新尾节点
         }
