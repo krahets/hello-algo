@@ -26,7 +26,7 @@ jobs:
         code-dir: ["codes/rust", "en/codes/rust"]
 
     steps:
-      - uses: brndnmtthws/rust-action-rustup@v1
+      - uses: brndnmtthws/rust-action-rustup@913349b802fe843511093e8c2014c94d8168c6b6 # v1
         with:
           toolchain: nightly
 
