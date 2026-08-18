@@ -25,6 +25,6 @@ jobs:
         os: ["ubuntu-22.04", "macos-14"]
         code-dir: ["codes/swift", "en/codes/swift"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Build
         run: swift build --package-path ${{ matrix.code-dir }}

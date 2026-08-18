@@ -30,7 +30,7 @@ jobs:
         with:
           toolchain: nightly
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Build
         run: cargo build --manifest-path=${{ matrix.code-dir }}/Cargo.toml && cargo build --manifest-path=${{ matrix.code-dir }}/Cargo.toml --release
