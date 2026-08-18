@@ -293,7 +293,42 @@
 === "C"
 
     ```c title="stack.c"
-    // C 未提供内置栈
+    #include <stdio.h>
+    #include <stdbool.h>
+    
+    #define MAX_SIZE 100
+    
+    int main() {
+        // 初始化栈
+        int stack[MAX_SIZE];
+        int top = -1;  // 栈顶指针
+    
+        // 元素入栈
+        stack[++top] = 1;
+        stack[++top] = 3;
+        stack[++top] = 2;
+        stack[++top] = 5;
+        stack[++top] = 4;
+    
+        // 访问栈顶元素
+        int peek = stack[top];
+    
+        // 元素出栈
+        int pop = stack[top--];
+    
+        // 获取栈的长度
+        int size = top + 1;
+    
+        // 判断是否为空
+        bool is_empty = (top == -1);
+    
+        printf("peek: %d\n", peek);
+        printf("pop: %d\n", pop);
+        printf("size: %d\n", size);
+        printf("is_empty: %s\n", is_empty ? "true" : "false");
+    
+        return 0;
+    }
     ```
 
 === "Kotlin"
