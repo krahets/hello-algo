@@ -38,11 +38,13 @@ GraphAdjList *newGraphAdjList() {
 void delGraphAdjList(GraphAdjList *graph) {
     for (int i = 0; i < graph->size; i++) {
         AdjListNode *cur = graph->heads[i];
+        if (cur == NULL) {
+            continue;
+        }
+        cur = cur->next;
         while (cur != NULL) {
             AdjListNode *next = cur->next;
-            if (cur != graph->heads[i]) {
-                free(cur);
-            }
+            free(cur);
             cur = next;
         }
         free(graph->heads[i]->vertex);
@@ -59,6 +61,14 @@ AdjListNode *findNode(GraphAdjList *graph, Vertex *vet) {
         }
     }
     return NULL;
+}
+
+AdjListNode** findNodeV2(GraphAdjList *graph, Vertex *vet) {
+    for (int i = 0; i < graph->size; i++) {
+        if (graph->heads[i]->vertex == vet) {
+            return &(graph->heads[i]);
+        }
+    }
 }
 
 /* 添加边辅助函数 */
@@ -119,15 +129,17 @@ void addVertex(GraphAdjList *graph, Vertex *vet) {
 
 /* 删除顶点 */
 void removeVertex(GraphAdjList *graph, Vertex *vet) {
-    AdjListNode *node = findNode(graph, vet);
+    AdjListNode **node = findNodeV2(graph, vet);
     assert(node != NULL);
     // 在邻接表中删除顶点 vet 对应的链表
-    AdjListNode *cur = node, *pre = NULL;
-    while (cur) {
-        pre = cur;
-        cur = cur->next;
-        free(pre);
+    AdjListNode **cur_ref = node, **pre_ref = NULL;
+    while (*cur_ref) {
+        pre_ref = cur_ref;
+        *cur_ref = ((*cur_ref)->next);
+        free(*pre_ref);
+        *pre_ref = NULL;
     }
+    AdjListNode *cur = NULL, *pre = NULL;
     // 遍历其他顶点的链表，删除所有包含 vet 的边
     for (int i = 0; i < graph->size; i++) {
         cur = graph->heads[i];
@@ -145,7 +157,7 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
     // 将该顶点之后的顶点向前移动，以填补空缺
     int i;
     for (i = 0; i < graph->size; i++) {
-        if (graph->heads[i] == node)
+        if (graph->heads[i] == *node)
             break;
     }
     for (int j = i; j < graph->size - 1; j++) {
@@ -160,6 +172,9 @@ void printGraph(const GraphAdjList *graph) {
     printf("邻接表 =\n");
     for (int i = 0; i < graph->size; ++i) {
         AdjListNode *node = graph->heads[i];
+        if (node == NULL) {
+            continue;
+        }
         printf("%d: [", node->vertex->val);
         node = node->next;
         while (node) {
