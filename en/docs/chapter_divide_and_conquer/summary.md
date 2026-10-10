@@ -10,4 +10,4 @@
 - Compared to brute-force search, adaptive search is more efficient. Search algorithms with time complexity of $O(\log n)$ are typically implemented based on the divide and conquer strategy.
 - Binary search is another typical application of divide and conquer. It does not include the step of merging solutions of subproblems. We can implement binary search through recursive divide and conquer.
 - In the problem of building a binary tree, building the tree (original problem) can be divided into building the left subtree and right subtree (subproblems), which can be achieved by dividing the index intervals of the preorder and inorder traversals.
-- In the hanota problem, a problem of size $n$ can be divided into two subproblems of size $n-1$ and one subproblem of size $1$. After solving these three subproblems in order, the original problem is solved.
+- In the Tower of Hanoi problem, a problem of size $n$ can be divided into two subproblems of size $n-1$ and one subproblem of size $1$. After solving these three subproblems in order, the original problem is solved.
