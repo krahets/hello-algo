@@ -181,8 +181,8 @@ A <u>binary tree</u> is a non-linear data structure that models the hierarchical
     ```kotlin title=""
     /* Binary tree node */
     class TreeNode(val _val: Int) {  // Node value
-        val left: TreeNode? = null   // Reference to left child node
-        val right: TreeNode? = null  // Reference to right child node
+        var left: TreeNode? = null   // Reference to left child node
+        var right: TreeNode? = null  // Reference to right child node
     }
     ```
 

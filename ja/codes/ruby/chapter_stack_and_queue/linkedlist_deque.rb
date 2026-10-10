@@ -69,25 +69,26 @@ class LinkedListDeque
   def pop(is_front)
     raise IndexError, '両端キューは空です' if is_empty?
 
+    # 要素が1つの場合、先頭と末尾は同じノードを指す
+    if @size == 1
+      val = @front.val
+      @front = nil
+      @rear = nil
     # キュー先頭からの取り出し
-    if is_front
+    elsif is_front
       val = @front.val # 先頭ノードの値を一時保存
       # 先頭ノードを削除
       fnext = @front.next
-      unless fnext.nil?
-        fnext.prev = nil
-        @front.next = nil
-      end
+      fnext.prev = nil
+      @front.next = nil
       @front = fnext # 先頭ノードを更新する
     # キュー末尾からの取り出し
     else
       val = @rear.val # 末尾ノードの値を一時保存
       # 末尾ノードを削除
       rprev = @rear.prev
-      unless rprev.nil?
-        rprev.next = nil
-        @rear.prev = nil
-      end
+      rprev.next = nil
+      @rear.prev = nil
       @rear = rprev # 末尾ノードを更新する
     end
     @size -= 1 # キューの長さを更新

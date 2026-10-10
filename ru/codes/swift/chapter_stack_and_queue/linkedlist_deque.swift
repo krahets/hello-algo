@@ -76,15 +76,19 @@ class LinkedListDeque {
             fatalError("двусторонняя очередь пуста")
         }
         let val: Int
+        // Если в очереди один элемент, начало и конец указывают на один узел
+        if _size == 1 {
+            val = front!.val
+            front = nil
+            rear = nil
+        }
         // Операция извлечения из головы очереди
-        if isFront {
+        else if isFront {
             val = front!.val // Временно сохранить значение головного узла
             // Удалить головной узел
             let fNext = front?.next
-            if fNext != nil {
-                fNext?.prev = nil
-                front?.next = nil
-            }
+            fNext?.prev = nil
+            front?.next = nil
             front = fNext // Обновить головной узел
         }
         // Операция извлечения из хвоста очереди
@@ -92,10 +96,8 @@ class LinkedListDeque {
             val = rear!.val // Временно сохранить значение хвостового узла
             // Удалить хвостовой узел
             let rPrev = rear?.prev
-            if rPrev != nil {
-                rPrev?.next = nil
-                rear?.prev = nil
-            }
+            rPrev?.next = nil
+            rear?.prev = nil
             rear = rPrev // Обновить хвостовой узел
         }
         _size -= 1 // Обновить длину очереди

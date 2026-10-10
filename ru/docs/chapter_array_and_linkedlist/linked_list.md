@@ -166,7 +166,7 @@
     // Конструктор
     class ListNode(x: Int) {
         val _val: Int = x          // Значение узла
-        val next: ListNode? = null // Ссылка на следующий узел
+        var next: ListNode? = null // Ссылка на следующий узел
     }
     ```
 
@@ -658,8 +658,8 @@
     // Конструктор
     class ListNode(x: Int) {
         val _val: Int = x           // Значение узла
-        val next: ListNode? = null  // Ссылка на следующий узел
-        val prev: ListNode? = null  // Ссылка на предыдущий узел
+        var next: ListNode? = null  // Ссылка на следующий узел
+        var prev: ListNode? = null  // Ссылка на предыдущий узел
     }
     ```
 

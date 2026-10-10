@@ -232,12 +232,12 @@ html:has(body[data-md-color-scheme="default"]) {
   filter: brightness(0.85) invert(0.05);
 }
 
-.md-typeset a:not(.md-button) {
+.md-typeset a:not(.md-button):not(.rounded-button) {
   text-decoration: none;
 }
 
-.md-typeset a:not(.md-button):hover,
-.md-typeset a:not(.md-button):focus-visible {
+.md-typeset a:not(.md-button):not(.rounded-button):hover,
+.md-typeset a:not(.md-button):not(.rounded-button):focus-visible {
   color: var(--md-typeset-a-color);
   text-decoration: underline;
 }
@@ -264,67 +264,113 @@ html:has(body[data-md-color-scheme="default"]) {
 
 .md-typeset .admonition,
 .md-typeset details {
+  --hello-algo-callout-color: #448aff;
   border: 0.08rem solid transparent;
 }
 
 .md-typeset .admonition.note,
 .md-typeset details.note {
+  --hello-algo-callout-color: #448aff;
   border-color: #448aff3d;
 }
 
 .md-typeset .admonition.abstract,
 .md-typeset details.abstract {
+  --hello-algo-callout-color: #00b0ff;
   border-color: #00b0ff3d;
 }
 
 .md-typeset .admonition.info,
 .md-typeset details.info {
+  --hello-algo-callout-color: #00b8d4;
   border-color: #00b8d43d;
 }
 
 .md-typeset .admonition.tip,
 .md-typeset details.tip {
+  --hello-algo-callout-color: #00bfa5;
   border-color: #00bfa53d;
 }
 
 .md-typeset .admonition.success,
 .md-typeset details.success {
+  --hello-algo-callout-color: #00c853;
   border-color: #00c8533d;
 }
 
 .md-typeset .admonition.question,
 .md-typeset details.question {
+  --hello-algo-callout-color: #64dd17;
   border-color: #64dd173d;
 }
 
 .md-typeset .admonition.warning,
 .md-typeset details.warning {
+  --hello-algo-callout-color: #ff9100;
   border-color: #ff91003d;
 }
 
 .md-typeset .admonition.failure,
 .md-typeset details.failure {
+  --hello-algo-callout-color: #ff5252;
   border-color: #ff52523d;
 }
 
 .md-typeset .admonition.danger,
 .md-typeset details.danger {
+  --hello-algo-callout-color: #ff1744;
   border-color: #ff17443d;
 }
 
 .md-typeset .admonition.bug,
 .md-typeset details.bug {
+  --hello-algo-callout-color: #f50057;
   border-color: #f500573d;
 }
 
 .md-typeset .admonition.example,
 .md-typeset details.example {
+  --hello-algo-callout-color: #7c4dff;
   border-color: #7c4dff3d;
 }
 
 .md-typeset .admonition.quote,
 .md-typeset details.quote {
+  --hello-algo-callout-color: #9e9e9e;
   border-color: #9e9e9e3d;
+}
+
+.md-typeset :is(.admonition, details):not(.pythontutor) {
+  background-color: color-mix(in srgb, var(--hello-algo-callout-color) 3%, var(--md-default-bg-color));
+}
+
+.md-typeset :is(.admonition, details):not(.pythontutor) > :is(.admonition-title, summary) {
+  background-color: color-mix(in srgb, var(--hello-algo-callout-color) 10%, var(--md-default-bg-color));
+  border-radius: 0.32rem 0.32rem 0 0;
+  margin: 0 -0.8rem;
+  padding-bottom: 0.4rem;
+  padding-top: 0.4rem;
+}
+
+[dir="ltr"] .md-typeset :is(.admonition, details):not(.pythontutor) > :is(.admonition-title, summary) {
+  padding-left: 2.4rem;
+}
+
+[dir="rtl"] .md-typeset :is(.admonition, details):not(.pythontutor) > :is(.admonition-title, summary) {
+  padding-right: 2.4rem;
+}
+
+[dir="ltr"] .md-typeset :is(.admonition, details):not(.pythontutor) > :is(.admonition-title, summary)::before {
+  left: 0.8rem;
+}
+
+[dir="rtl"] .md-typeset :is(.admonition, details):not(.pythontutor) > :is(.admonition-title, summary)::before {
+  right: 0.8rem;
+}
+
+.md-typeset details:not([open], .pythontutor) > summary {
+  border-radius: 0.32rem;
+  margin-bottom: 0;
 }
 
 .md-typeset .admonition.pythontutor,
@@ -519,6 +565,44 @@ html:has(body[data-md-color-scheme="default"]) {
   text-decoration: none;
 }
 
+/* Exercise actions reuse the landing-page CTA with a light-content treatment. */
+.rounded-button.exercise-button {
+  border-color: rgb(52 152 144 / 0.3);
+  background-color: rgb(52 152 144 / 0.08);
+  color: #277d76 !important;
+  font-size: 0.85em;
+  box-shadow: none;
+  text-decoration: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.rounded-button.exercise-button:hover,
+.rounded-button.exercise-button:focus-visible {
+  border-color: rgb(52 152 144 / 0.45);
+  background-color: rgb(52 152 144 / 0.14);
+  color: #216c66 !important;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+[data-md-color-scheme="slate"] .rounded-button.exercise-button {
+  border-color: rgb(86 116 122);
+  background-color: rgb(36 52 57);
+  color: rgb(233 245 243) !important;
+  box-shadow: none;
+  backdrop-filter: saturate(115%) blur(0.18rem);
+  -webkit-backdrop-filter: saturate(115%) blur(0.18rem);
+}
+
+[data-md-color-scheme="slate"] .rounded-button.exercise-button:hover,
+[data-md-color-scheme="slate"] .rounded-button.exercise-button:focus-visible {
+  border-color: rgb(92 111 117);
+  background-color: rgb(47 80 83);
+  color: rgb(242 249 248) !important;
+  box-shadow: none;
+}
+
 .heading-div .rounded-button:first-of-type {
   border-color: rgb(160 223 217 / 0.42);
   background-color: rgb(42 104 99 / 0.2);
@@ -642,8 +726,20 @@ a:hover .device-on-hover {
   fill: var(--md-primary-bg-color);
 }
 
+.endor-container {
+  align-items: stretch;
+  gap: 20px;
+  margin: 0 auto;
+}
+
 .endor-text {
   width: 50%;
+  margin: 0;
+  padding: 1.25em 2.5em;
+  border-radius: 28px;
+  background-color: #101010;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .intro-quote {
@@ -769,8 +865,14 @@ a:hover .device-on-hover {
   }
 
   .endor-text {
-    width: auto;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
+    padding: 1em 2em;
+    border-radius: 20px;
+  }
+
+  .endor-container {
+    gap: 20px;
   }
 
   .intro-image {

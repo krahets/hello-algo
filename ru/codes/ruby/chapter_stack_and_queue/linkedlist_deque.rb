@@ -69,25 +69,26 @@ class LinkedListDeque
   def pop(is_front)
     raise IndexError, 'двусторонняя очередь пуста' if is_empty?
 
+    # Если в очереди один элемент, начало и конец указывают на один узел
+    if @size == 1
+      val = @front.val
+      @front = nil
+      @rear = nil
     # Операция извлечения из головы очереди
-    if is_front
+    elsif is_front
       val = @front.val # Временно сохранить значение головного узла
       # Удалить головной узел
       fnext = @front.next
-      unless fnext.nil?
-        fnext.prev = nil
-        @front.next = nil
-      end
+      fnext.prev = nil
+      @front.next = nil
       @front = fnext # Обновить головной узел
     # Операция извлечения из хвоста очереди
     else
       val = @rear.val # Временно сохранить значение хвостового узла
       # Удалить хвостовой узел
       rprev = @rear.prev
-      unless rprev.nil?
-        rprev.next = nil
-        @rear.prev = nil
-      end
+      rprev.next = nil
+      @rear.prev = nil
       @rear = rprev # Обновить хвостовой узел
     end
     @size -= 1 # Обновить длину очереди

@@ -175,7 +175,7 @@
 
     /* 元素出列 */
     // 由於是陣列，因此 removeFirst 的複雜度為 O(n)
-    let pool = queue.removeFirst()
+    let pop = queue.removeFirst()
 
     /* 獲取佇列的長度 */
     let size = queue.count
@@ -244,7 +244,7 @@
 
     ```dart title="queue.dart"
     /* 初始化佇列 */
-    // 在 Dart 中，佇列類別 Qeque 是雙向佇列，也可作為佇列使用
+    // 在 Dart 中，佇列類別 Queue 是雙向佇列，也可作為佇列使用
     Queue<int> queue = Queue();
 
     /* 元素入列 */

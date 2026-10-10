@@ -76,15 +76,19 @@ class LinkedListDeque {
             fatalError("両端キューが空です")
         }
         let val: Int
+        // 要素が1つの場合、先頭と末尾は同じノードを指す
+        if _size == 1 {
+            val = front!.val
+            front = nil
+            rear = nil
+        }
         // キュー先頭からの取り出し
-        if isFront {
+        else if isFront {
             val = front!.val // 先頭ノードの値を一時保存
             // 先頭ノードを削除
             let fNext = front?.next
-            if fNext != nil {
-                fNext?.prev = nil
-                front?.next = nil
-            }
+            fNext?.prev = nil
+            front?.next = nil
             front = fNext // 先頭ノードを更新する
         }
         // キュー末尾からの取り出し
@@ -92,10 +96,8 @@ class LinkedListDeque {
             val = rear!.val // 末尾ノードの値を一時保存
             // 末尾ノードを削除
             let rPrev = rear?.prev
-            if rPrev != nil {
-                rPrev?.next = nil
-                rear?.prev = nil
-            }
+            rPrev?.next = nil
+            rear?.prev = nil
             rear = rPrev // 末尾ノードを更新する
         }
         _size -= 1 // キューの長さを更新

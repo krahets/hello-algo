@@ -7,6 +7,7 @@ on:
   push:
     branches: ["main"]
     paths:
+      - ".github/workflows/cpp.yml"
       - "codes/cpp/**/*.cpp"
       - "codes/cpp/**/*.hpp"
       - "en/codes/cpp/**/*.cpp"
@@ -14,6 +15,7 @@ on:
   pull_request:
     branches: ["main"]
     paths:
+      - ".github/workflows/cpp.yml"
       - "codes/cpp/**/*.cpp"
       - "codes/cpp/**/*.hpp"
       - "en/codes/cpp/**/*.cpp"
@@ -58,7 +60,7 @@ jobs:
             c_compiler: cl
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Configure CMake
         # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.

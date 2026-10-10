@@ -115,14 +115,19 @@ int pop(LinkedListDeque *deque, bool isFront) {
     if (empty(deque))
         return -1;
     int val;
+    // Если в очереди один элемент, начало и конец указывают на один узел
+    if (deque->queSize == 1) {
+        val = deque->front->val;
+        delDoublyListNode(deque->front); // Освобождаем общий узел один раз
+        deque->front = NULL;
+        deque->rear = NULL;
+    }
     // Операция извлечения из головы очереди
-    if (isFront) {
+    else if (isFront) {
         val = peekFirst(deque); // Временно сохранить значение головного узла
         DoublyListNode *fNext = deque->front->next;
-        if (fNext) {
-            fNext->prev = NULL;
-            deque->front->next = NULL;
-        }
+        fNext->prev = NULL;
+        deque->front->next = NULL;
         delDoublyListNode(deque->front);
         deque->front = fNext; // Обновить головной узел
     }
@@ -130,10 +135,8 @@ int pop(LinkedListDeque *deque, bool isFront) {
     else {
         val = peekLast(deque); // Временно сохранить значение хвостового узла
         DoublyListNode *rPrev = deque->rear->prev;
-        if (rPrev) {
-            rPrev->next = NULL;
-            deque->rear->prev = NULL;
-        }
+        rPrev->next = NULL;
+        deque->rear->prev = NULL;
         delDoublyListNode(deque->rear);
         deque->rear = rPrev; // Обновить хвостовой узел
     }

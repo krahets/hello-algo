@@ -64,23 +64,26 @@ class LinkedListDeque:
         """Dequeue operation"""
         if self.is_empty():
             raise IndexError("Double-ended queue is empty")
+        # When the deque has one element, front and rear point to the same node
+        if self._size == 1:
+            val: int = self._front.val
+            self._front = None
+            self._rear = None
         # Front of the queue dequeue operation
-        if is_front:
+        elif is_front:
             val: int = self._front.val  # Temporarily store head node value
             # Delete head node
             fnext: ListNode | None = self._front.next
-            if fnext is not None:
-                fnext.prev = None
-                self._front.next = None
+            fnext.prev = None
+            self._front.next = None
             self._front = fnext  # Update head node
         # Rear of the queue dequeue operation
         else:
             val: int = self._rear.val  # Temporarily store tail node value
             # Delete tail node
             rprev: ListNode | None = self._rear.prev
-            if rprev is not None:
-                rprev.next = None
-                self._rear.prev = None
+            rprev.next = None
+            self._rear.prev = None
             self._rear = rprev  # Update tail node
         self._size -= 1  # Update queue length
         return val

@@ -181,8 +181,8 @@
     ```kotlin title=""
     /* Класс узла двоичного дерева */
     class TreeNode(val _val: Int) {  // Значение узла
-        val left: TreeNode? = null   // Ссылка на левого дочернего узла
-        val right: TreeNode? = null  // Ссылка на правого дочернего узла
+        var left: TreeNode? = null   // Ссылка на левого дочернего узла
+        var right: TreeNode? = null  // Ссылка на правого дочернего узла
     }
     ```
 

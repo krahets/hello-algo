@@ -1,6 +1,6 @@
 # Bucket Sort
 
-The sorting algorithms discussed earlier are all comparison-based sorting algorithms, which sort by comparing the relative order of elements. The time complexity of such algorithms cannot beat $O(n \log n)$. Next, we will explore several non-comparison sorting algorithms, whose time complexity can be linear.
+The sorting algorithms discussed earlier are all comparison-based sorting algorithms, which sort by comparing the relative order of elements. The worst-case time complexity of such algorithms has a lower bound of $\Omega(n \log n)$. Next, we will explore several non-comparison sorting algorithms, whose time complexity can be linear.
 
 <u>Bucket sort</u> is a typical application of the divide-and-conquer strategy. It works by creating a sequence of ordered buckets, each corresponding to a data range, and distributing the data evenly among them. The elements within each bucket are then sorted separately. Finally, all buckets are merged in order.
 

@@ -70,6 +70,9 @@ int find(int *nums, int size, int target) {
 
 /* Driver Code */
 int main() {
+    /* Initialize the random seed once */
+    srand((unsigned)time(NULL));
+
     /* Initialize array */
     int size = 5;
     int arr[5];

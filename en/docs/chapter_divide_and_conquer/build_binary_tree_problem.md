@@ -21,12 +21,12 @@ Based on the above analysis, this problem can be solved using divide and conquer
 According to the definition, both `preorder` and `inorder` can be divided into three parts.
 
 - Preorder traversal: `[ Root Node | Left Subtree | Right Subtree ]`, for example, the tree in the figure above corresponds to `[ 3 | 9 | 2 1 7 ]`.
-- Inorder traversal: `[ Left Subtree | Root Node ｜ Right Subtree ]`, for example, the tree in the figure above corresponds to `[ 9 | 3 | 1 2 7 ]`.
+- Inorder traversal: `[ Left Subtree | Root Node | Right Subtree ]`, for example, the tree in the figure above corresponds to `[ 9 | 3 | 1 2 7 ]`.
 
 Using the data from the figure above as an example, we can obtain the division results through the steps shown in the figure below.
 
 1. The first element 3 in the preorder traversal is the value of the root node.
-2. Find the index of root node 3 in `inorder`, and use this index to divide `inorder` into `[ 9 | 3 ｜ 1 2 7 ]`.
+2. Find the index of root node 3 in `inorder`, and use this index to divide `inorder` into `[ 9 | 3 | 1 2 7 ]`.
 3. Based on the division result of `inorder`, it is easy to determine that the left and right subtrees have 1 and 3 nodes respectively, allowing us to divide `preorder` into `[ 3 | 9 | 2 1 7 ]`.
 
 ![Dividing subtrees in preorder and inorder traversals](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png)

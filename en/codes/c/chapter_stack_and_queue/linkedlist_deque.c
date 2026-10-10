@@ -115,14 +115,19 @@ int pop(LinkedListDeque *deque, bool isFront) {
     if (empty(deque))
         return -1;
     int val;
+    // When the deque has one element, front and rear point to the same node
+    if (deque->queSize == 1) {
+        val = deque->front->val;
+        delDoublyListNode(deque->front); // Free the shared node once
+        deque->front = NULL;
+        deque->rear = NULL;
+    }
     // Temporarily store head node value
-    if (isFront) {
+    else if (isFront) {
         val = peekFirst(deque); // Delete head node
         DoublyListNode *fNext = deque->front->next;
-        if (fNext) {
-            fNext->prev = NULL;
-            deque->front->next = NULL;
-        }
+        fNext->prev = NULL;
+        deque->front->next = NULL;
         delDoublyListNode(deque->front);
         deque->front = fNext; // Update head node
     }
@@ -130,10 +135,8 @@ int pop(LinkedListDeque *deque, bool isFront) {
     else {
         val = peekLast(deque); // Delete tail node
         DoublyListNode *rPrev = deque->rear->prev;
-        if (rPrev) {
-            rPrev->next = NULL;
-            deque->rear->prev = NULL;
-        }
+        rPrev->next = NULL;
+        deque->rear->prev = NULL;
         delDoublyListNode(deque->rear);
         deque->rear = rPrev; // Update tail node
     }
