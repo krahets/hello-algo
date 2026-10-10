@@ -9,7 +9,7 @@
 /* 随机访问元素 */
 int randomAccess(int *nums, int size) {
     // 在区间 [0, size) 中随机抽取一个数字
-    int randomIndex = arc4random_uniform(size);
+    int randomIndex = rand() % size;
     // 获取并返回随机元素
     int randomNum = nums[randomIndex];
     return randomNum;
@@ -70,6 +70,9 @@ int find(int *nums, int size, int target) {
 
 /* Driver Code */
 int main() {
+    /* 初始化随机种子（只需执行一次） */
+    srand((unsigned)time(NULL));
+
     /* 初始化数组 */
     int size = 5;
     int arr[5];

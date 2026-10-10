@@ -70,6 +70,9 @@ int find(int *nums, int size, int target) {
 
 /* Driver Code */
 int main() {
+    /* Инициализировать генератор случайных чисел один раз */
+    srand((unsigned)time(NULL));
+
     /* Инициализация массива */
     int size = 5;
     int arr[5];

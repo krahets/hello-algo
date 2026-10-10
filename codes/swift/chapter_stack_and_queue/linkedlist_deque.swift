@@ -76,15 +76,19 @@ class LinkedListDeque {
             fatalError("双向队列为空")
         }
         let val: Int
+        // 队列长度为 1 时, 头尾指向同一节点
+        if _size == 1 {
+            val = front!.val
+            front = nil
+            rear = nil
+        }
         // 队首出队操作
-        if isFront {
+        else if isFront {
             val = front!.val // 暂存头节点值
             // 删除头节点
             let fNext = front?.next
-            if fNext != nil {
-                fNext?.prev = nil
-                front?.next = nil
-            }
+            fNext?.prev = nil
+            front?.next = nil
             front = fNext // 更新头节点
         }
         // 队尾出队操作
@@ -92,10 +96,8 @@ class LinkedListDeque {
             val = rear!.val // 暂存尾节点值
             // 删除尾节点
             let rPrev = rear?.prev
-            if rPrev != nil {
-                rPrev?.next = nil
-                rear?.prev = nil
-            }
+            rPrev?.next = nil
+            rear?.prev = nil
             rear = rPrev // 更新尾节点
         }
         _size -= 1 // 更新队列长度

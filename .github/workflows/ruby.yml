@@ -9,11 +9,13 @@ on:
   push:
     branches: ["main"]
     paths:
+      - ".github/workflows/ruby.yml"
       - "codes/ruby/**/*.rb"
       - "en/codes/ruby/**/*.rb"
   pull_request:
     branches: ["main"]
     paths:
+      - ".github/workflows/ruby.yml"
       - "codes/ruby/**/*.rb"
       - "en/codes/ruby/**/*.rb"
   workflow_dispatch:
@@ -32,9 +34,9 @@ jobs:
         code-dir: ["codes/ruby", "en/codes/ruby"]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@eab2afb99481ca09a4e91171a8e0aee0e89bfedd # v1
         with:
           ruby-version: ${{ matrix.ruby-version }}
       - name: Run tests

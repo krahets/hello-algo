@@ -4,6 +4,7 @@ on:
   push:
     branches: ["main"]
     paths:
+      - ".github/workflows/rust.yml"
       - "codes/rust/**/*.rs"
       - "codes/rust/Cargo.toml"
       - "en/codes/rust/**/*.rs"
@@ -11,6 +12,7 @@ on:
   pull_request:
     branches: ["main"]
     paths:
+      - ".github/workflows/rust.yml"
       - "codes/rust/**/*.rs"
       - "codes/rust/Cargo.toml"
       - "en/codes/rust/**/*.rs"
@@ -26,11 +28,11 @@ jobs:
         code-dir: ["codes/rust", "en/codes/rust"]
 
     steps:
-      - uses: brndnmtthws/rust-action-rustup@v1
+      - uses: brndnmtthws/rust-action-rustup@913349b802fe843511093e8c2014c94d8168c6b6 # v1
         with:
           toolchain: nightly
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Build
         run: cargo build --manifest-path=${{ matrix.code-dir }}/Cargo.toml && cargo build --manifest-path=${{ matrix.code-dir }}/Cargo.toml --release

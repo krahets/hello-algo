@@ -39,7 +39,7 @@ def binary_search_insertion(nums, target)
     elsif nums[m] > target
       j = m - 1 # target 在区间 [i, m-1] 中
     else
-      j = m - 1 # 首个小于 target 的元素在区间 [i, m-1] 中
+      j = m - 1 # 最右一个小于 target 的元素在区间 [i, m-1] 中
     end
   end
 

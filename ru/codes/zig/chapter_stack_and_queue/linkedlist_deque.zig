@@ -99,25 +99,27 @@ pub fn LinkedListDeque(comptime T: type) type {
         pub fn pop(self: *Self, is_front: bool) T {
             if (self.isEmpty()) @panic("двусторонняя очередь пуста");
             var val: T = undefined;
+            // Если в очереди один элемент, начало и конец указывают на один узел
+            if (self.que_size == 1) {
+                val = self.front.?.val;
+                self.front = null;
+                self.rear = null;
+            }
             // Операция извлечения из головы очереди
-            if (is_front) {
+            else if (is_front) {
                 val = self.front.?.val;     // Временно сохранить значение головного узла
                 // Удалить головной узел
                 var fNext = self.front.?.next;
-                if (fNext != null) {
-                    fNext.?.prev = null;
-                    self.front.?.next = null;
-                }
+                fNext.?.prev = null;
+                self.front.?.next = null;
                 self.front = fNext;         // Обновить головной узел
             // Операция извлечения из хвоста очереди
             } else {
                 val = self.rear.?.val;      // Временно сохранить значение хвостового узла
                 // Удалить хвостовой узел
                 var rPrev = self.rear.?.prev;
-                if (rPrev != null) {
-                    rPrev.?.next = null;
-                    self.rear.?.prev = null;
-                }
+                rPrev.?.next = null;
+                self.rear.?.prev = null;
                 self.rear = rPrev;          // Обновить хвостовой узел
             }
             self.que_size -= 1;              // Обновить длину очереди

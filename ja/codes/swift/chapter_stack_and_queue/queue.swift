@@ -26,8 +26,8 @@ enum Queue {
 
         /* 要素をデキュー */
         // Array を用いる場合、pop の計算量は O(n)
-        let pool = queue.removeFirst()
-        print("デキューした要素 pop = \(pool)、デキュー後の queue = \(queue)")
+        let pop = queue.removeFirst()
+        print("デキューした要素 pop = \(pop)、デキュー後の queue = \(queue)")
 
         /* キューの長さを取得 */
         let size = queue.count

@@ -20,7 +20,7 @@
 
 進一步思考二分搜尋過程：當 `nums[m] < target` 時 $i$ 移動，這意味著指標 $i$ 在向大於等於 `target` 的元素靠近。同理，指標 $j$ 始終在向小於等於 `target` 的元素靠近。
 
-因此二分結束時一定有：$i$ 指向首個大於 `target` 的元素，$j$ 指向首個小於 `target` 的元素。**易得當陣列不包含 `target` 時，插入索引為 $i$** 。程式碼如下所示：
+因此二分結束時一定有：$i$ 指向首個大於 `target` 的元素，$j$ 指向最右一個小於 `target` 的元素。**易得當陣列不包含 `target` 時，插入索引為 $i$** 。程式碼如下所示：
 
 ```src
 [file]{binary_search_insertion}-[class]{}-[func]{binary_search_insertion_simple}
@@ -48,7 +48,7 @@
 - 當 `nums[m] < target` 或 `nums[m] > target` 時，說明還沒有找到 `target` ，因此採用普通二分搜尋的縮小區間操作，**從而使指標 $i$ 和 $j$ 向 `target` 靠近**。
 - 當 `nums[m] == target` 時，說明小於 `target` 的元素在區間 $[i, m - 1]$ 中，因此採用 $j = m - 1$ 來縮小區間，**從而使指標 $j$ 向小於 `target` 的元素靠近**。
 
-迴圈完成後，$i$ 指向最左邊的 `target` ，$j$ 指向首個小於 `target` 的元素，**因此索引 $i$ 就是插入點**。
+迴圈完成後，$i$ 指向最左邊的 `target` ，$j$ 指向最右一個小於 `target` 的元素，**因此索引 $i$ 就是插入點**。
 
 === "<1>"
     ![二分搜尋重複元素的插入點的步驟](binary_search_insertion.assets/binary_search_insertion_step1.png)
