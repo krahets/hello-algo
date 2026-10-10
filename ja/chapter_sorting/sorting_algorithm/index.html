@@ -4664,20 +4664,20 @@
 <p>安定ソートは多段ソートの場面で必要条件となります。学生情報を保存した表があり、第 1 列と第 2 列がそれぞれ氏名と年齢であると仮定します。この場合、<u>不安定ソート</u>によって入力データの順序性が失われる可能性があります。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 入力データは氏名順にソートされている</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># (name, age)</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;A&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"> </span><span class="m">18</span><span class="o">)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;C&#39;</span>,<span class="w"> </span><span class="m">21</span><span class="o">)</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;D&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;E&#39;</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="o">(</span><span class="s1">'A'</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="o">(</span><span class="s1">'B'</span>,<span class="w"> </span><span class="m">18</span><span class="o">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="o">(</span><span class="s1">'C'</span>,<span class="w"> </span><span class="m">21</span><span class="o">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="o">(</span><span class="s1">'D'</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="o">(</span><span class="s1">'E'</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># 不安定ソートアルゴリズムで年齢順にリストを並べ替えると仮定すると、</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># 結果では (&#39;D&#39;, 19) と (&#39;A&#39;, 19) の相対位置が変わり、</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># 結果では ('D', 19) と ('A', 19) の相対位置が変わり、</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># 入力データが氏名順である性質が失われる</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"> </span><span class="m">18</span><span class="o">)</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;D&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;A&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;C&#39;</span>,<span class="w"> </span><span class="m">21</span><span class="o">)</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;E&#39;</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="o">(</span><span class="s1">'B'</span>,<span class="w"> </span><span class="m">18</span><span class="o">)</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="o">(</span><span class="s1">'D'</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="o">(</span><span class="s1">'A'</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="o">(</span><span class="s1">'C'</span>,<span class="w"> </span><span class="m">21</span><span class="o">)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="o">(</span><span class="s1">'E'</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
 </code></pre></div>
 <p><strong>適応性</strong>：<u>適応的ソート</u>は、入力データに既に存在する順序情報を利用して計算量を減らし、より優れた時間効率を実現できます。適応的ソートアルゴリズムの最良時間計算量は、通常、平均時間計算量より優れています。</p>
 <p><strong>比較ベースかどうか</strong>：<u>比較ベースのソート</u>は、比較演算子（<span class="arithmatex">\(&lt;\)</span>、<span class="arithmatex">\(=\)</span>、<span class="arithmatex">\(&gt;\)</span>）に依存して要素の相対順序を判定し、それによって配列全体をソートします。その最悪時間計算量の下界は <span class="arithmatex">\(\Omega(n \log n)\)</span> です。一方、<u>非比較ソート</u>は比較演算子を使用せず、時間計算量は <span class="arithmatex">\(O(n)\)</span> に達しますが、汎用性は相対的に低くなります。</p>

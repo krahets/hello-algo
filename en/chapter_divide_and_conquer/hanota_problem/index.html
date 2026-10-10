@@ -39,7 +39,7 @@
 
 
 
-        <title>12.4 Hanota Problem - Hello Algo</title>
+        <title>12.4 Tower of Hanoi Problem - Hello Algo</title>
 
 
 
@@ -99,7 +99,7 @@
     <div data-md-component="skip">
 
 
-        <a href="#124-hanota-problem" class="md-skip">
+        <a href="#124-tower-of-hanoi-problem" class="md-skip">
           Skip to content
         </a>
 
@@ -154,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
 
-              12.4 &nbsp; Hanota Problem
+              12.4 &nbsp; Tower of Hanoi Problem
 
           </span>
         </div>
@@ -3411,7 +3411,7 @@
   <span class="md-ellipsis">
 
 
-  12.4 Hanota Problem
+  12.4 Tower of Hanoi Problem
 
 
   </span>
@@ -3428,7 +3428,7 @@
   <span class="md-ellipsis">
 
 
-  12.4 Hanota Problem
+  12.4 Tower of Hanoi Problem
 
 
   </span>
@@ -4673,8 +4673,8 @@
 
 
 <!-- Page content -->
-<h1 id="124-hanota-problem">12.4 &nbsp; Hanota Problem<a class="headerlink" href="#124-hanota-problem" title="Permanent link">&para;</a></h1>
-<p>In merge sort and building binary trees, we decompose the original problem into two subproblems, each half the size of the original problem. However, for the hanota problem, we adopt a different decomposition strategy.</p>
+<h1 id="124-tower-of-hanoi-problem">12.4 &nbsp; Tower of Hanoi Problem<a class="headerlink" href="#124-tower-of-hanoi-problem" title="Permanent link">&para;</a></h1>
+<p>In merge sort and building binary trees, we decompose the original problem into two subproblems, each half the size of the original problem. However, for the Tower of Hanoi problem, we adopt a different decomposition strategy.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>Given three pillars, denoted as <code>A</code>, <code>B</code>, and <code>C</code>. Initially, pillar <code>A</code> has <span class="arithmatex">\(n\)</span> discs stacked on it, arranged from top to bottom in ascending order of size. Our task is to move these <span class="arithmatex">\(n\)</span> discs to pillar <code>C</code> while maintaining their original order (as shown in Figure 12-10). The following rules must be followed when moving the discs.</p>
@@ -4684,10 +4684,10 @@
 <li>A smaller disc must always be on top of a larger disc.</li>
 </ol>
 </div>
-<p><img alt="Example of the hanota problem" class="animation-figure" src="../hanota_problem.assets/hanota_example.png" /></p>
-<p align="center"> Figure 12-10 &nbsp; Example of the hanota problem </p>
+<p><img alt="Example of the Tower of Hanoi problem" class="animation-figure" src="../hanota_problem.assets/hanota_example.png" /></p>
+<p align="center"> Figure 12-10 &nbsp; Example of the Tower of Hanoi problem </p>
 
-<p><strong>We denote the hanota problem of size <span class="arithmatex">\(i\)</span> as <span class="arithmatex">\(f(i)\)</span></strong>. For example, <span class="arithmatex">\(f(3)\)</span> represents moving <span class="arithmatex">\(3\)</span> discs from <code>A</code> to <code>C</code>.</p>
+<p><strong>We denote the Tower of Hanoi problem of size <span class="arithmatex">\(i\)</span> as <span class="arithmatex">\(f(i)\)</span></strong>. For example, <span class="arithmatex">\(f(3)\)</span> represents moving <span class="arithmatex">\(3\)</span> discs from <code>A</code> to <code>C</code>.</p>
 <h3 id="1-considering-the-base-cases">1. &nbsp; Considering the Base Cases<a class="headerlink" href="#1-considering-the-base-cases" title="Permanent link">&para;</a></h3>
 <p>As shown in Figure 12-11, for problem <span class="arithmatex">\(f(1)\)</span>, when there is only one disc, we can move it directly from <code>A</code> to <code>C</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label></div>
@@ -4754,15 +4754,15 @@
 <p align="center"> Figure 12-13 &nbsp; Solution for a problem of size 3 </p>
 
 <p>Essentially, <strong>we divide problem <span class="arithmatex">\(f(3)\)</span> into two subproblems <span class="arithmatex">\(f(2)\)</span> and one subproblem <span class="arithmatex">\(f(1)\)</span></strong>. By solving these three subproblems in order, the original problem is solved. This shows that the subproblems are independent and their solutions can be merged.</p>
-<p>From this, we can summarize the divide and conquer strategy for solving the hanota problem shown in Figure 12-14: divide the original problem <span class="arithmatex">\(f(n)\)</span> into two subproblems <span class="arithmatex">\(f(n-1)\)</span> and one subproblem <span class="arithmatex">\(f(1)\)</span>, and solve these three subproblems in the following order.</p>
+<p>From this, we can summarize the divide and conquer strategy for solving the Tower of Hanoi problem shown in Figure 12-14: divide the original problem <span class="arithmatex">\(f(n)\)</span> into two subproblems <span class="arithmatex">\(f(n-1)\)</span> and one subproblem <span class="arithmatex">\(f(1)\)</span>, and solve these three subproblems in the following order.</p>
 <ol>
 <li>Move <span class="arithmatex">\(n-1\)</span> discs from <code>A</code> to <code>B</code> with the help of <code>C</code>.</li>
 <li>Move the remaining <span class="arithmatex">\(1\)</span> disc directly from <code>A</code> to <code>C</code>.</li>
 <li>Move <span class="arithmatex">\(n-1\)</span> discs from <code>B</code> to <code>C</code> with the help of <code>A</code>.</li>
 </ol>
 <p>For these two subproblems <span class="arithmatex">\(f(n-1)\)</span>, <strong>we can recursively divide them in the same way</strong> until reaching the smallest subproblem <span class="arithmatex">\(f(1)\)</span>. The solution to <span class="arithmatex">\(f(1)\)</span> is known and requires only one move operation.</p>
-<p><img alt="Divide and conquer strategy for solving the hanota problem" class="animation-figure" src="../hanota_problem.assets/hanota_divide_and_conquer.png" /></p>
-<p align="center"> Figure 12-14 &nbsp; Divide and conquer strategy for solving the hanota problem </p>
+<p><img alt="Divide and conquer strategy for solving the Tower of Hanoi problem" class="animation-figure" src="../hanota_problem.assets/hanota_divide_and_conquer.png" /></p>
+<p align="center"> Figure 12-14 &nbsp; Divide and conquer strategy for solving the Tower of Hanoi problem </p>
 
 <h3 id="3-code-implementation">3. &nbsp; Code Implementation<a class="headerlink" href="#3-code-implementation" title="Permanent link">&para;</a></h3>
 <p>In the code, we declare a recursive function <code>dfs(i, src, buf, tar)</code>, whose purpose is to move the top <span class="arithmatex">\(i\)</span> discs from pillar <code>src</code> to target pillar <code>tar</code> with the help of buffer pillar <code>buf</code>:</p>
@@ -4770,14 +4770,14 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">hanota.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="n">src</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">tar</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Move a disk&quot;&quot;&quot;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Move a disk"""</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># Take out a disk from the top of src</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">pan</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="c1"># Place the disk on top of tar</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">tar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pan</span><span class="p">)</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">src</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">buf</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">tar</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Solve the Tower of Hanoi problem f(i)&quot;&quot;&quot;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="sd">"""Solve the Tower of Hanoi problem f(i)"""</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="c1"># If there is only one disk left in src, move it directly to tar</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">tar</span><span class="p">)</span>
@@ -4790,7 +4790,7 @@
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="n">dfs</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">tar</span><span class="p">)</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
 <a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="k">def</span><span class="w"> </span><span class="nf">solve_hanota</span><span class="p">(</span><span class="n">A</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">B</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">C</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Solve the Tower of Hanoi problem&quot;&quot;&quot;</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="sd">"""Solve the Tower of Hanoi problem"""</span>
 <a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    <span class="c1"># Move the top n disks from A to C using B</span>
 <a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    <span class="n">dfs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
@@ -5190,13 +5190,13 @@
 </div>
 </div>
 </div>
-<p>As shown in Figure 12-15, the hanota problem forms a recursion tree of height <span class="arithmatex">\(n\)</span>, where each node represents a subproblem corresponding to an invocation of the <code>dfs()</code> function, <strong>therefore the time complexity is <span class="arithmatex">\(O(2^n)\)</span> and the space complexity is <span class="arithmatex">\(O(n)\)</span></strong>.</p>
-<p><img alt="Recursion tree of the hanota problem" class="animation-figure" src="../hanota_problem.assets/hanota_recursive_tree.png" /></p>
-<p align="center"> Figure 12-15 &nbsp; Recursion tree of the hanota problem </p>
+<p>As shown in Figure 12-15, the Tower of Hanoi problem forms a recursion tree of height <span class="arithmatex">\(n\)</span>, where each node represents a subproblem corresponding to an invocation of the <code>dfs()</code> function, <strong>therefore the time complexity is <span class="arithmatex">\(O(2^n)\)</span> and the space complexity is <span class="arithmatex">\(O(n)\)</span></strong>.</p>
+<p><img alt="Recursion tree of the Tower of Hanoi problem" class="animation-figure" src="../hanota_problem.assets/hanota_recursive_tree.png" /></p>
+<p align="center"> Figure 12-15 &nbsp; Recursion tree of the Tower of Hanoi problem </p>
 
 <div class="admonition quote">
 <p class="admonition-title">Quote</p>
-<p>The hanota problem originates from an ancient legend. In a temple in ancient India, monks had three tall diamond pillars and <span class="arithmatex">\(64\)</span> golden discs of different sizes. The monks continuously moved the discs, believing that when the last disc was correctly placed, the world would come to an end.</p>
+<p>The Tower of Hanoi problem originates from an ancient legend. In a temple in ancient India, monks had three tall diamond pillars and <span class="arithmatex">\(64\)</span> golden discs of different sizes. The monks continuously moved the discs, believing that when the last disc was correctly placed, the world would come to an end.</p>
 <p>However, even if the monks moved one disc per second, it would take approximately <span class="arithmatex">\(2^{64} \approx 1.84×10^{19}\)</span> seconds, which is about <span class="arithmatex">\(585\)</span> billion years, far exceeding current estimates of the age of the universe. Therefore, if this legend is true, we should not need to worry about the end of the world.</p>
 </div>
 
