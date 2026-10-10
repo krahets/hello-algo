@@ -23,7 +23,7 @@ I believe the significance of learning algorithms (and other fundamental subject
 
 In engineering, many problems are difficult to solve optimally, and many others are only solved "well enough." The difficulty of a problem depends, on the one hand, on the nature of the problem itself and, on the other hand, on the knowledge of the person examining it. The more complete a person's knowledge and the more experience they have, the deeper their analysis will be, and the more elegantly the problem can be solved.
 
-**Q**: AI agents are already very capable: we can describe what we need and have them generate much of the code, and ask them to help debug when problems arise. If we mostly rely on agents for development and rarely write code ourselves, is it still worth spending time learning data structures and algorithms and practicing algorithm problems? What role can this knowledge still play in the age of AI?
+**Q**: AI agents can now help me with much of my programming work, and I write code myself less and less often. Is it still worth learning data structures and algorithms and practicing algorithm problems?
 
 To quote Mu Li: “An agent is an amplifier of ability—it multiplies your ability by 10, rather than adding 10 to it.”
 
