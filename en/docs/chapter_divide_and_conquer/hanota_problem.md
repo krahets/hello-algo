@@ -22,7 +22,7 @@ As shown in the figure below, for problem $f(1)$, when there is only one disc, w
     ![Solution for a problem of size 1](hanota_problem.assets/hanota_f1_step1.png)
 
 === "<2>"
-    ![Solution for a problem of size 1: step 2](hanota_problem.assets/hanota_f1_step2.png)
+    ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.png)
 
 As shown in the figure below, for problem $f(2)$, when there are two discs, **since we must always keep the smaller disc on top of the larger disc, we need to use `B` to assist in the move**.
 
@@ -34,13 +34,13 @@ As shown in the figure below, for problem $f(2)$, when there are two discs, **si
     ![Solution for a problem of size 2](hanota_problem.assets/hanota_f2_step1.png)
 
 === "<2>"
-    ![Solution for a problem of size 2: step 2](hanota_problem.assets/hanota_f2_step2.png)
+    ![hanota_f2_step2](hanota_problem.assets/hanota_f2_step2.png)
 
 === "<3>"
-    ![Solution for a problem of size 2: step 3](hanota_problem.assets/hanota_f2_step3.png)
+    ![hanota_f2_step3](hanota_problem.assets/hanota_f2_step3.png)
 
 === "<4>"
-    ![Solution for a problem of size 2: step 4](hanota_problem.assets/hanota_f2_step4.png)
+    ![hanota_f2_step4](hanota_problem.assets/hanota_f2_step4.png)
 
 The process of solving problem $f(2)$ can be summarized as: **moving two discs from `A` to `C` with the help of `B`**. Here, `C` is called the target pillar, and `B` is called the buffer pillar.
 
@@ -58,13 +58,13 @@ Since we already know the solutions to $f(1)$ and $f(2)$, we can think from a di
     ![Solution for a problem of size 3](hanota_problem.assets/hanota_f3_step1.png)
 
 === "<2>"
-    ![Solution for a problem of size 3: step 2](hanota_problem.assets/hanota_f3_step2.png)
+    ![hanota_f3_step2](hanota_problem.assets/hanota_f3_step2.png)
 
 === "<3>"
-    ![Solution for a problem of size 3: step 3](hanota_problem.assets/hanota_f3_step3.png)
+    ![hanota_f3_step3](hanota_problem.assets/hanota_f3_step3.png)
 
 === "<4>"
-    ![Solution for a problem of size 3: step 4](hanota_problem.assets/hanota_f3_step4.png)
+    ![hanota_f3_step4](hanota_problem.assets/hanota_f3_step4.png)
 
 Essentially, **we divide problem $f(3)$ into two subproblems $f(2)$ and one subproblem $f(1)$**. By solving these three subproblems in order, the original problem is solved. This shows that the subproblems are independent and their solutions can be merged.
 
