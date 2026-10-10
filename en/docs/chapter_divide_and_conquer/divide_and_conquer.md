@@ -75,7 +75,7 @@ On the one hand, divide and conquer can be used to solve many classic algorithmi
 - **Finding the closest pair of points**: This algorithm first divides the point set into two parts, then finds the closest pair of points in each part separately, and finally finds the closest pair of points that spans both parts.
 - **Large integer multiplication**: For example, the Karatsuba algorithm, which decomposes large integer multiplication into several smaller integer multiplications and additions.
 - **Matrix multiplication**: For example, the Strassen algorithm, which decomposes large matrix multiplication into multiple small matrix multiplications and additions.
-- **Hanota problem**: The hanota problem can be solved through recursion, which is a typical application of the divide and conquer strategy.
+- **Tower of Hanoi problem**: The Tower of Hanoi problem can be solved through recursion, which is a typical application of the divide and conquer strategy.
 - **Solving inversion pairs**: In a sequence, if a preceding number is greater than a following number, these two numbers form an inversion pair. Solving the inversion pair problem can utilize the divide and conquer approach with the help of merge sort.
 
 On the other hand, divide and conquer is widely applied in the design of algorithms and data structures.
