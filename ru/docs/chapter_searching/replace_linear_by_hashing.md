@@ -10,7 +10,7 @@
 
 Рассмотрим прямой перебор всех возможных комбинаций. Как показано на рисунке ниже, мы запускаем два вложенных цикла и на каждом шаге проверяем, равна ли сумма двух целых чисел `target`. Если да, то возвращаем их индексы.
 
-![Линейный поиск для задачи о двух суммах](replace_linear_by_hashing.assets/two_sum_brute_force.png)
+![Линейный поиск для нахождения двух чисел, сумма которых равна заданному значению](replace_linear_by_hashing.assets/two_sum_brute_force.png)
 
 Код приведен ниже:
 
@@ -28,7 +28,7 @@
 2. Добавить в хеш-таблицу пару из ключа `nums[i]` и индекса `i` .
 
 === "<1>"
-    ![Вспомогательная хеш-таблица для задачи о двух суммах](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png)
+    ![Использование вспомогательной хеш-таблицы для нахождения двух чисел, сумма которых равна заданному значению](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png)
 
 === "<2>"
     ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.png)
