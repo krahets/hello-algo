@@ -6,17 +6,18 @@ Common data structures include arrays, linked lists, stacks, queues, hash tables
 
 **Logical structure reveals the logical relationships between data elements**. In arrays and linked lists, data is arranged in a certain order, embodying linear relationships between elements; while in trees, data is arranged hierarchically from top to bottom, showing parent-descendant relationships; graphs are composed of nodes and edges, reflecting complex network relationships.
 
-As shown in the figure below, logical structures can be divided into two major categories: "linear" and "non-linear". Linear structures are more intuitive, indicating that data is linearly arranged in logical relationships; non-linear structures are the opposite, arranged non-linearly.
+In this section, we classify logical structures as linear or non-linear according to whether their elements form a one-to-one sequence.
 
-- **Linear data structures**: Arrays, linked lists, stacks, queues, where elements have a one-to-one sequential relationship.
-- **Non-linear data structures**: Trees, heaps, graphs.
+- **Linear data structures**: Arrays, linked lists, stacks, and queues, whose elements have a one-to-one sequential relationship.
+- **Non-linear data structures**: Trees, heaps, graphs, and hash tables, whose elements need not form a linear sequence.
 
-Non-linear data structures can be further divided into tree structures and network structures.
+Common logical relationships in non-linear structures include the following.
 
-- **Tree structures**: Trees, heaps, where elements have a one-to-many relationship.
-- **Network structures**: Graphs, where elements have a many-to-many relationship.
+- **Tree structures**: Trees and heaps, whose elements have a one-to-many relationship.
+- **Network structures**: Graphs, whose elements have a many-to-many relationship.
+- **Set structures**: Elements belong to the same collection without a prescribed sequence or hierarchy, as with the collection of key-value pairs in a hash table.
 
-The hash table is shown separately in the figure: it organizes mappings from keys to values without requiring sequential or hierarchical relationships between elements. Its use of arrays, linked lists, or trees is an implementation detail and should not be confused with these logical relationships.
+Here, we treat each key-value pair in a hash table as an element. Values are accessed by key, without requiring predecessor or successor relationships between pairs, so we classify the hash table as non-linear. Its use of arrays, linked lists, or trees is an implementation detail, separate from this logical classification. The figure below illustrates these structures.
 
 ![Linear and non-linear data structures](classification_of_data_structure.assets/classification_logic_structure.png)
 
