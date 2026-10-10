@@ -26,8 +26,8 @@ enum Queue {
 
         /* Извлечение элемента из очереди */
         // При использовании Array для имитации pop имеет сложность O(n)
-        let pool = queue.removeFirst()
-        print("Извлеченный элемент pop = \(pool), queue после извлечения = \(queue)")
+        let pop = queue.removeFirst()
+        print("Извлеченный элемент pop = \(pop), queue после извлечения = \(queue)")
 
         /* Получение длины очереди */
         let size = queue.count

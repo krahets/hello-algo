@@ -73,25 +73,27 @@ class LinkedListDeque {
       return null;
     }
     final int val;
-    if (isFront) {
-      // Temporarily store head node value
+    // When the deque has one element, front and rear point to the same node
+    if (_queSize == 1) {
+      val = _front!.val;
+      _front = null;
+      _rear = null;
+    }
+    // Temporarily store head node value
+    else if (isFront) {
       val = _front!.val; // Delete head node
       // Delete head node
       ListNode? fNext = _front!.next;
-      if (fNext != null) {
-        fNext.prev = null;
-        _front!.next = null;
-      }
+      fNext!.prev = null;
+      _front!.next = null;
       _front = fNext; // Update head node
+    // Temporarily store tail node value
     } else {
-      // Temporarily store tail node value
       val = _rear!.val; // Delete tail node
       // Update tail node
       ListNode? rPrev = _rear!.prev;
-      if (rPrev != null) {
-        rPrev.next = null;
-        _rear!.prev = null;
-      }
+      rPrev!.next = null;
+      _rear!.prev = null;
       _rear = rPrev; // Update tail node
     }
     _queSize--; // Update queue length

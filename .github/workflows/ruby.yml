@@ -9,11 +9,13 @@ on:
   push:
     branches: ["main"]
     paths:
+      - ".github/workflows/ruby.yml"
       - "codes/ruby/**/*.rb"
       - "en/codes/ruby/**/*.rb"
   pull_request:
     branches: ["main"]
     paths:
+      - ".github/workflows/ruby.yml"
       - "codes/ruby/**/*.rb"
       - "en/codes/ruby/**/*.rb"
   workflow_dispatch:

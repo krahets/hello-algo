@@ -64,23 +64,26 @@ class LinkedListDeque:
         """デキュー操作"""
         if self.is_empty():
             raise IndexError("両端キューが空です")
+        # 要素が1つの場合、先頭と末尾は同じノードを指す
+        if self._size == 1:
+            val: int = self._front.val
+            self._front = None
+            self._rear = None
         # キュー先頭からの取り出し
-        if is_front:
+        elif is_front:
             val: int = self._front.val  # 先頭ノードの値を一時保存
             # 先頭ノードを削除
             fnext: ListNode | None = self._front.next
-            if fnext is not None:
-                fnext.prev = None
-                self._front.next = None
+            fnext.prev = None
+            self._front.next = None
             self._front = fnext  # 先頭ノードを更新する
         # キュー末尾からの取り出し
         else:
             val: int = self._rear.val  # 末尾ノードの値を一時保存
             # 末尾ノードを削除
             rprev: ListNode | None = self._rear.prev
-            if rprev is not None:
-                rprev.next = None
-                self._rear.prev = None
+            rprev.next = None
+            self._rear.prev = None
             self._rear = rprev  # 末尾ノードを更新する
         self._size -= 1  # キューの長さを更新
         return val

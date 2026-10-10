@@ -10,7 +10,7 @@
 typedef struct {
     int *nums;       // Array for storing queue elements
     int front;       // Front pointer, points to the front of the queue element
-    int queSize;     // Rear pointer, points to rear + 1
+    int queSize;     // Current number of elements in the queue
     int queCapacity; // Queue capacity
 } ArrayQueue;
 

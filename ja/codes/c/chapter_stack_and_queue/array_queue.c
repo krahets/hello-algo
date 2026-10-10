@@ -10,7 +10,7 @@
 typedef struct {
     int *nums;       // キュー要素を格納する配列
     int front;       // 先頭ポインタ。先頭要素を指す
-    int queSize;     // 末尾ポインタ。キューの末尾 + 1 を指す
+    int queSize;     // 現在のキュー内の要素数
     int queCapacity; // キューの容量
 } ArrayQueue;
 

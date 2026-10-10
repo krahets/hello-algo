@@ -181,8 +181,8 @@
     ```kotlin title=""
     /* 二分木ノードクラス */
     class TreeNode(val _val: Int) {  // ノード値
-        val left: TreeNode? = null   // 左子ノード参照
-        val right: TreeNode? = null  // 右子ノード参照
+        var left: TreeNode? = null   // 左子ノード参照
+        var right: TreeNode? = null  // 右子ノード参照
     }
     ```
 

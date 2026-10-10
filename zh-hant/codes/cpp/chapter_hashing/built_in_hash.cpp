@@ -24,6 +24,6 @@ int main() {
     size_t hashStr = hash<string>()(str);
     cout << "字串 " << str << " 的雜湊值為 " << hashStr << "\n";
 
-    // 在 C++ 中，內建 std:hash() 僅提供基本資料型別的雜湊值計算
+    // 在 C++ 中，內建 std::hash() 僅提供基本資料型別的雜湊值計算
     // 陣列、物件的雜湊值計算需要自行實現
 }

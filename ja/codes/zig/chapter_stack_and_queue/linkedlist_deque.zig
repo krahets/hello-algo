@@ -99,25 +99,27 @@ pub fn LinkedListDeque(comptime T: type) type {
         pub fn pop(self: *Self, is_front: bool) T {
             if (self.isEmpty()) @panic("両端キューが空です");
             var val: T = undefined;
+            // 要素が1つの場合、先頭と末尾は同じノードを指す
+            if (self.que_size == 1) {
+                val = self.front.?.val;
+                self.front = null;
+                self.rear = null;
+            }
             // キュー先頭からの取り出し
-            if (is_front) {
+            else if (is_front) {
                 val = self.front.?.val;     // 先頭ノードの値を一時保存
                 // 先頭ノードを削除
                 var fNext = self.front.?.next;
-                if (fNext != null) {
-                    fNext.?.prev = null;
-                    self.front.?.next = null;
-                }
+                fNext.?.prev = null;
+                self.front.?.next = null;
                 self.front = fNext;         // 先頭ノードを更新する
             // キュー末尾からの取り出し
             } else {
                 val = self.rear.?.val;      // 末尾ノードの値を一時保存
                 // 末尾ノードを削除
                 var rPrev = self.rear.?.prev;
-                if (rPrev != null) {
-                    rPrev.?.next = null;
-                    self.rear.?.prev = null;
-                }
+                rPrev.?.next = null;
+                self.rear.?.prev = null;
                 self.rear = rPrev;          // 末尾ノードを更新する
             }
             self.que_size -= 1;              // キューの長さを更新

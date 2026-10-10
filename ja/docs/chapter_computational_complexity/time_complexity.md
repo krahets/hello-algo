@@ -992,8 +992,8 @@ $$
 
 $$
 \begin{aligned}
-O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!) \newline
-\text{定数階} < \text{対数階} < \text{線形階} < \text{線形対数階} < \text{平方階} < \text{指数階} < \text{階乗階}
+& O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!) \newline
+& \text{定数階} < \text{対数階} < \text{線形階} < \text{線形対数階} < \text{平方階} < \text{指数階} < \text{階乗階}
 \end{aligned}
 $$
 

@@ -6,7 +6,7 @@
 
 ![Загрузка VS Code с официального сайта](installation.assets/vscode_installation.png)
 
-VS Code обладает мощной экосистемой расширений и поддерживает выполнение и отладку большинства языков программирования. Например, после установки расширения "Python Extension Pack" можно отлаживать код на Python. Процесс установки показан на рисунке ниже.
+VS Code обладает мощной экосистемой расширений и поддерживает выполнение и отладку большинства языков программирования. Например, после установки расширения «Python Extension Pack» можно отлаживать код на Python. Процесс установки показан на рисунке ниже.
 
 ![Установка расширений VS Code](installation.assets/vscode_extension_installation.png)
 
@@ -20,7 +20,7 @@ VS Code обладает мощной экосистемой расширени�
 
 ### Среда C/C++
 
-1. В Windows требуется установить [MinGW](https://sourceforge.net/projects/mingw-w64/files/) ([руководство по настройке](https://blog.csdn.net/qq_33698226/article/details/129031241)); в macOS компилятор Clang уже установлен по умолчанию.
+1. В Windows требуется установить [MinGW](https://sourceforge.net/projects/mingw-w64/files/) ([руководство по настройке](https://blog.csdn.net/qq_33698226/article/details/129031241)). В macOS компилятор Clang уже установлен по умолчанию.
 2. В магазине расширений VS Code найдите `c++` и установите C/C++ Extension Pack.
 3. (Необязательно) Откройте страницу Settings, найдите параметр форматирования `Clang_format_fallback Style` и задайте значение `{ BasedOnStyle: Microsoft, BreakBeforeBraces: Attach }`.
 
@@ -31,7 +31,7 @@ VS Code обладает мощной экосистемой расширени�
 
 ### Среда C#
 
-1. Загрузите и установите [.Net 8.0](https://dotnet.microsoft.com/en-us/download).
+1. Загрузите и установите [.NET 8.0](https://dotnet.microsoft.com/en-us/download).
 2. В магазине расширений VS Code найдите `C# Dev Kit` и установите C# Dev Kit ([руководство по настройке](https://code.visualstudio.com/docs/csharp/get-started)).
 3. Также можно использовать Visual Studio ([руководство по установке](https://learn.microsoft.com/zh-cn/visualstudio/install/install-visual-studio?view=vs-2022)).
 

@@ -166,7 +166,7 @@
     // コンストラクタ
     class ListNode(x: Int) {
         val _val: Int = x          // ノードの値
-        val next: ListNode? = null // 次のノードへの参照
+        var next: ListNode? = null // 次のノードへの参照
     }
     ```
 
@@ -658,8 +658,8 @@
     // コンストラクタ
     class ListNode(x: Int) {
         val _val: Int = x           // ノードの値
-        val next: ListNode? = null  // 後続ノードへの参照
-        val prev: ListNode? = null  // 前駆ノードへの参照
+        var next: ListNode? = null  // 後続ノードへの参照
+        var prev: ListNode? = null  // 前駆ノードへの参照
     }
     ```
 

@@ -806,8 +806,8 @@
 
 $$
 \begin{aligned}
-O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
-\text{常數階} < \text{對數階} < \text{線性階} < \text{平方階} < \text{指數階}
+& O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
+& \text{常數階} < \text{對數階} < \text{線性階} < \text{平方階} < \text{指數階}
 \end{aligned}
 $$
 

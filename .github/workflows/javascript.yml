@@ -4,11 +4,13 @@ on:
   push:
     branches: ["main"]
     paths:
+      - ".github/workflows/javascript.yml"
       - "codes/javascript/**/*.js"
       - "en/codes/javascript/**/*.js"
   pull_request:
     branches: ["main"]
     paths:
+      - ".github/workflows/javascript.yml"
       - "codes/javascript/**/*.js"
       - "en/codes/javascript/**/*.js"
   workflow_dispatch:

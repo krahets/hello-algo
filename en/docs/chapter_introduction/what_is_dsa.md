@@ -5,12 +5,12 @@
 An <u>algorithm</u> is a set of instructions or operational steps that solves a specific problem within a finite amount of time. It has the following characteristics.
 
 - The problem is well-defined, with clear input and output definitions.
-- It is feasible and can be completed within a finite number of steps, time, and memory space.
+- It is feasible and can be completed with finite steps, time, and memory.
 - Each step has a definite meaning, and under the same input and operating conditions, the output is always the same.
 
 ## Data Structure Definition
 
-A <u>data structure</u> is a way of organizing and storing data, covering the data content, relationships between data, and methods for data operations. It has the following design objectives.
+A <u>data structure</u> is a way of organizing and storing data, including the data itself, the relationships between data elements, and the methods used to operate on them. It has the following design objectives.
 
 - Occupy as little space as possible to save computer memory.
 - Data operations should be as fast as possible, covering data access, addition, deletion, update, etc.
@@ -46,7 +46,7 @@ The detailed correspondence between the two is shown in the table below.
 | Algorithm                      | A series of operational steps to assemble the blocks into the target form |
 | Output data                    | Building block model                                               |
 
-It is worth noting that data structures and algorithms are independent of programming languages. For this reason, this book is able to provide implementations based on multiple programming languages.
+It is worth noting that data structures and algorithms are independent of programming languages. That is why this book can provide implementations in multiple programming languages.
 
 !!! tip "Conventional abbreviation"
 
