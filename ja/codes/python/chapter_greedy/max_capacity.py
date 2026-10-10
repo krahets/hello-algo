@@ -7,16 +7,16 @@ Author: krahets (krahets@163.com)
 
 def max_capacity(ht: list[int]) -> int:
     """最大容量：貪欲法"""
-    # i、j を初期化、配列の両端で分割させる
+    # i, j を初期化し、それぞれ配列の両端に置く
     i, j = 0, len(ht) - 1
-    # 初期最大容量は 0
+    # 初期の最大容量は 0
     res = 0
-    # 2 つの板が出会うまで貪欲選択をループ
+    # 2 枚の板が出会うまで貪欲選択を繰り返す
     while i < j:
-        # 最大容量を更新
+        # 最大容量を更新する
         cap = min(ht[i], ht[j]) * (j - i)
         res = max(res, cap)
-        # 短い板を内側に移動
+        # 短い方を内側へ動かす
         if ht[i] < ht[j]:
             i += 1
         else:
@@ -24,10 +24,10 @@ def max_capacity(ht: list[int]) -> int:
     return res
 
 
-"""ドライバーコード"""
+"""Driver Code"""
 if __name__ == "__main__":
     ht = [3, 8, 5, 2, 7, 7, 3, 4]
 
-    # 貪欲アルゴリズム
+    # 貪欲法
     res = max_capacity(ht)
     print(f"最大容量は {res}")

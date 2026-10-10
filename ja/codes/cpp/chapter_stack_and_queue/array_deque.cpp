@@ -6,11 +6,11 @@
 
 #include "../utils/common.hpp"
 
-/* 循環配列に基づく両端キュークラス */
+/* 循環配列ベースの両端キュー */
 class ArrayDeque {
   private:
     vector<int> nums; // 両端キューの要素を格納する配列
-    int front;        // 先頭ポインタ、先頭要素を指す
+    int front;        // 先頭ポインタ。先頭要素を指す
     int queSize;      // 両端キューの長さ
 
   public:
@@ -37,74 +37,74 @@ class ArrayDeque {
 
     /* 循環配列のインデックスを計算 */
     int index(int i) {
-        // 剰余演算で循環配列を実現
-        // iが配列の末尾を超えた場合、先頭に戻る
-        // iが配列の先頭を超えた場合、末尾に戻る
+        // 剰余演算により配列の先頭と末尾をつなげる
+        // i が配列の末尾を越えたら先頭に戻る
+        // i が配列の先頭を越えて前に出たら末尾に戻る
         return (i + capacity()) % capacity();
     }
 
-    /* 先頭エンキュー */
+    /* キュー先頭にエンキュー */
     void pushFirst(int num) {
         if (queSize == capacity()) {
-            cout << "Double-ended queue is full" << endl;
+            cout << "両端キューがいっぱいです" << endl;
             return;
         }
-        // 先頭ポインタを1つ左に移動
-        // 剰余演算でfrontが配列の先頭を越えて末尾に戻ることを実現
+        // 先頭ポインタを左に 1 つ移動する
+        // 剰余演算により、front が配列先頭を越えた後に末尾へ戻るようにする
         front = index(front - 1);
-        // numを先頭に追加
+        // num をキュー先頭に追加
         nums[front] = num;
         queSize++;
     }
 
-    /* 末尾エンキュー */
+    /* キュー末尾にエンキュー */
     void pushLast(int num) {
         if (queSize == capacity()) {
-            cout << "Double-ended queue is full" << endl;
+            cout << "両端キューがいっぱいです" << endl;
             return;
         }
-        // 末尾ポインタを計算、末尾インデックス + 1を指す
+        // キュー末尾ポインタを計算し、末尾インデックス + 1 を指す
         int rear = index(front + queSize);
-        // numを末尾に追加
+        // num をキュー末尾に追加
         nums[rear] = num;
         queSize++;
     }
 
-    /* 先頭デキュー */
+    /* キュー先頭からデキュー */
     int popFirst() {
         int num = peekFirst();
-        // 先頭ポインタを1つ後ろに移動
+        // 先頭ポインタを 1 つ後ろへ進める
         front = index(front + 1);
         queSize--;
         return num;
     }
 
-    /* 末尾デキュー */
+    /* キュー末尾からデキュー */
     int popLast() {
         int num = peekLast();
         queSize--;
         return num;
     }
 
-    /* 先頭要素にアクセス */
+    /* キュー先頭の要素にアクセス */
     int peekFirst() {
         if (isEmpty())
-            throw out_of_range("Double-ended queue is empty");
+            throw out_of_range("両端キューが空です");
         return nums[front];
     }
 
-    /* 末尾要素にアクセス */
+    /* キュー末尾の要素にアクセス */
     int peekLast() {
         if (isEmpty())
-            throw out_of_range("Double-ended queue is empty");
+            throw out_of_range("両端キューが空です");
         // 末尾要素のインデックスを計算
         int last = index(front + queSize - 1);
         return nums[last];
     }
 
-    /* 印刷用に配列を返却 */
+    /* 出力用の配列を返す */
     vector<int> toVector() {
-        // 有効な長さ範囲内の要素のみを変換
+        // 有効長の範囲内のリスト要素のみを変換
         vector<int> res(queSize);
         for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[index(j)];
@@ -113,44 +113,44 @@ class ArrayDeque {
     }
 };
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
     /* 両端キューを初期化 */
     ArrayDeque *deque = new ArrayDeque(10);
     deque->pushLast(3);
     deque->pushLast(2);
     deque->pushLast(5);
-    cout << "Double-ended queue deque = ";
+    cout << "両端キュー deque = ";
     printVector(deque->toVector());
 
     /* 要素にアクセス */
     int peekFirst = deque->peekFirst();
-    cout << "Front element peekFirst = " << peekFirst << endl;
+    cout << "先頭要素 peekFirst = " << peekFirst << endl;
     int peekLast = deque->peekLast();
-    cout << "Back element peekLast = " << peekLast << endl;
+    cout << "末尾要素 peekLast = " << peekLast << endl;
 
-    /* 要素エンキュー */
+    /* 要素をエンキュー */
     deque->pushLast(4);
-    cout << "Element 4 enqueued at the tail, deque = ";
+    cout << "要素 4 を末尾に追加した後 deque = ";
     printVector(deque->toVector());
     deque->pushFirst(1);
-    cout << "Element 1 enqueued at the head, deque = ";
+    cout << "要素 1 を先頭に追加した後 deque = ";
     printVector(deque->toVector());
 
-    /* 要素デキュー */
+    /* 要素をデキュー */
     int popLast = deque->popLast();
-    cout << "Deque tail element = " << popLast << ", after dequeuing from the tail";
+    cout << "末尾から取り出した要素 = " << popLast << "、末尾から取り出した後 deque = ";
     printVector(deque->toVector());
     int popFirst = deque->popFirst();
-    cout << "Deque front element = " << popFirst << ", after dequeuing from the front";
+    cout << "先頭から取り出した要素 = " << popFirst << "、先頭から取り出した後 deque = ";
     printVector(deque->toVector());
 
     /* 両端キューの長さを取得 */
     int size = deque->size();
-    cout << "Length of the double-ended queue size = " << size << endl;
+    cout << "両端キューの長さ size = " << size << endl;
 
     /* 両端キューが空かどうかを判定 */
     bool isEmpty = deque->isEmpty();
-    cout << "Is the double-ended queue empty = " << boolalpha << isEmpty << endl;
+    cout << "両端キューが空かどうか = " << boolalpha << isEmpty << endl;
     return 0;
 }

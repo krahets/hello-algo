@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* 配列に基づくスタッククラス */
+/* 配列ベースのスタック */
 class ArrayStack {
   private:
     vector<int> stack;
@@ -34,51 +34,51 @@ class ArrayStack {
         return num;
     }
 
-    /* スタックトップ要素にアクセス */
+    /* スタックトップの要素にアクセス */
     int top() {
         if (isEmpty())
-            throw out_of_range("Stack is empty");
+            throw out_of_range("スタックが空です");
         return stack.back();
     }
 
-    /* Vectorを返却 */
+    /* Vector を返す */
     vector<int> toVector() {
         return stack;
     }
 };
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
     /* スタックを初期化 */
     ArrayStack *stack = new ArrayStack();
 
-    /* 要素プッシュ */
+    /* 要素をプッシュ */
     stack->push(1);
     stack->push(3);
     stack->push(2);
     stack->push(5);
     stack->push(4);
-    cout << "Stack stack = ";
+    cout << "スタック stack = ";
     printVector(stack->toVector());
 
-    /* スタックトップ要素にアクセス */
+    /* スタックトップの要素にアクセス */
     int top = stack->top();
-    cout << "Top element of the stack top = " << top << endl;
+    cout << "トップ要素 top = " << top << endl;
 
-    /* 要素ポップ */
+    /* 要素をポップ */
     top = stack->pop();
-    cout << "Element popped from the stack = " << top << ", after popping";
+    cout << "取り出した要素 pop = " << top << "、取り出し後の stack = ";
     printVector(stack->toVector());
 
     /* スタックの長さを取得 */
     int size = stack->size();
-    cout << "Length of the stack size = " << size << endl;
+    cout << "スタックの長さ size = " << size << endl;
 
     /* 空かどうかを判定 */
     bool empty = stack->isEmpty();
-    cout << "Is the stack empty = " << empty << endl;
+    cout << "スタックが空かどうか = " << empty << endl;
 
-    // メモリを解放
+    // メモリを解放する
     delete stack;
 
     return 0;

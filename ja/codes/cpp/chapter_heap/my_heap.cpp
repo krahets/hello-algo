@@ -9,63 +9,63 @@
 /* 最大ヒープ */
 class MaxHeap {
   private:
-    // 動的配列を使用してサイズ変更の必要性を回避
+    // 動的配列を使うことで、拡張を考慮せずに済む
     vector<int> maxHeap;
 
-    /* 左の子ノードのインデックスを取得 */
+    /* 左子ノードのインデックスを取得 */
     int left(int i) {
         return 2 * i + 1;
     }
 
-    /* 右の子ノードのインデックスを取得 */
+    /* 右子ノードのインデックスを取得 */
     int right(int i) {
         return 2 * i + 2;
     }
 
     /* 親ノードのインデックスを取得 */
     int parent(int i) {
-        return (i - 1) / 2; // 整数除算で切り下げ
+        return (i - 1) / 2; // 切り捨て除算
     }
 
-    /* ノードiから上向きにヒープ化を開始 */
+    /* ノード i から始めて、下から上へヒープ化 */
     void siftUp(int i) {
         while (true) {
-            // ノードiの親ノードを取得
+            // ノード i の親ノードを取得
             int p = parent(i);
-            // 「ルートノードを超える」または「ノードが修復不要」の場合、ヒープ化を終了
+            // 「根ノードを越えた」または「ノードの修復が不要」になったらヒープ化を終了
             if (p < 0 || maxHeap[i] <= maxHeap[p])
                 break;
-            // 2つのノードを交換
+            // 2 つのノードを交換
             swap(maxHeap[i], maxHeap[p]);
-            // 上向きにループしてヒープ化
+            // ループで下から上へヒープ化
             i = p;
         }
     }
 
-    /* ノードiから下向きにヒープ化を開始 */
+    /* ノード i から始めて、上から下へヒープ化 */
     void siftDown(int i) {
         while (true) {
-            // i、l、rの中で最大のノードを決定し、maとして記録
+            // ノード i, l, r のうち値が最大のノードを ma とする
             int l = left(i), r = right(i), ma = i;
             if (l < size() && maxHeap[l] > maxHeap[ma])
                 ma = l;
             if (r < size() && maxHeap[r] > maxHeap[ma])
                 ma = r;
-            // ノードiが最大、またはインデックスl、rが範囲外の場合、これ以上のヒープ化は不要、ブレーク
+            // ノード i が最大、またはインデックス l, r が範囲外なら、ヒープ化は不要なので抜ける
             if (ma == i)
                 break;
             swap(maxHeap[i], maxHeap[ma]);
-            // 下向きにループしてヒープ化
+            // ループで上から下へヒープ化
             i = ma;
         }
     }
 
   public:
-    /* コンストラクタ、入力リストに基づいてヒープを構築 */
+    /* コンストラクタ。入力リストに基づいてヒープを構築する */
     MaxHeap(vector<int> nums) {
-        // すべてのリスト要素をヒープに追加
+        // リスト要素をそのままヒープに追加
         maxHeap = nums;
-        // 葉以外のすべてのノードをヒープ化
+        // 葉ノード以外のすべてのノードをヒープ化
         for (int i = parent(size() - 1); i >= 0; i--) {
             siftDown(i);
         }
@@ -76,17 +76,17 @@ class MaxHeap {
         return maxHeap.size();
     }
 
-    /* ヒープが空かどうか判定 */
+    /* ヒープが空かどうかを判定 */
     bool isEmpty() {
         return size() == 0;
     }
 
-    /* ヒープの先頭要素にアクセス */
+    /* ヒープ先頭要素にアクセス */
     int peek() {
         return maxHeap[0];
     }
 
-    /* ヒープに要素をプッシュ */
+    /* 要素をヒープに追加 */
     void push(int val) {
         // ノードを追加
         maxHeap.push_back(val);
@@ -94,13 +94,13 @@ class MaxHeap {
         siftUp(size() - 1);
     }
 
-    /* 要素がヒープから退出 */
+    /* 要素をヒープから取り出す */
     void pop() {
-        // 空の処理
+        // 空判定の処理
         if (isEmpty()) {
-            throw out_of_range("Heap is empty");
+            throw out_of_range("ヒープが空です");
         }
-        // ルートノードを最も右の葉ノードと交換（最初の要素と最後の要素を交換）
+        // 根ノードと最も右の葉ノードを交換（先頭要素と末尾要素を交換）
         swap(maxHeap[0], maxHeap[size() - 1]);
         // ノードを削除
         maxHeap.pop_back();
@@ -108,48 +108,48 @@ class MaxHeap {
         siftDown(0);
     }
 
-    /* ヒープを印刷（二分木）*/
+    /* ヒープ（二分木）を出力 */
     void print() {
-        cout << "ヒープの配列表現:";
+        cout << "ヒープの配列表現：";
         printVector(maxHeap);
-        cout << "ヒープの木表現:" << endl;
+        cout << "ヒープの木構造表現：" << endl;
         TreeNode *root = vectorToTree(maxHeap);
         printTree(root);
         freeMemoryTree(root);
     }
 };
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
     /* 最大ヒープを初期化 */
     vector<int> vec{9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2};
     MaxHeap maxHeap(vec);
-    cout << "\nリストを入力してヒープを構築" << endl;
+    cout << "\nリストを入力してヒープを構築した後" << endl;
     maxHeap.print();
 
-    /* ヒープの先頭要素にアクセス */
+    /* ヒープ頂点の要素を取得 */
     int peek = maxHeap.peek();
-    cout << "\nヒープの先頭要素は " << peek << endl;
+    cout << "\nヒープ先頭要素は " << peek << endl;
 
-    /* ヒープに要素をプッシュ */
+    /* 要素をヒープに追加 */
     int val = 7;
     maxHeap.push(val);
-    cout << "\n要素 " << val << " をヒープに追加後" << endl;
+    cout << "\n要素 " << val << " をヒープに追加した後" << endl;
     maxHeap.print();
 
-    /* ヒープ先頭の要素をポップ */
+    /* ヒープ頂点の要素を取り出す */
     peek = maxHeap.peek();
     maxHeap.pop();
-    cout << "\nヒープから先頭要素 " << peek << " を削除後" << endl;
+    cout << "\nヒープの先頭要素 " << peek << " を取り出した後" << endl;
     maxHeap.print();
 
     /* ヒープのサイズを取得 */
     int size = maxHeap.size();
-    cout << "\nヒープ内の要素数は " << size << endl;
+    cout << "\nヒープ要素数は " << size << endl;
 
-    /* ヒープが空かどうか判定 */
+    /* ヒープが空かどうかを判定 */
     bool isEmpty = maxHeap.isEmpty();
-    cout << "\nヒープが空かどうか " << isEmpty << endl;
+    cout << "\nヒープが空かどうかは " << isEmpty << endl;
 
     return 0;
 }

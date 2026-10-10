@@ -8,8 +8,8 @@ import random
 
 
 def random_numbers(n: int) -> list[int]:
-    """要素 1, 2, ..., n を含む配列を生成、順序はシャッフル"""
-    # 配列 nums = 1, 2, 3, ..., n を生成
+    """要素が 1, 2, ..., n で順序がシャッフルされた配列を生成する"""
+    # 配列 nums =: 1, 2, 3, ..., n を生成する
     nums = [i for i in range(1, n + 1)]
     # 配列要素をランダムにシャッフル
     random.shuffle(nums)
@@ -17,10 +17,10 @@ def random_numbers(n: int) -> list[int]:
 
 
 def find_one(nums: list[int]) -> int:
-    """配列 nums で数値 1 のインデックスを検索"""
+    """配列 nums 内で数値 1 のインデックスを探す"""
     for i in range(len(nums)):
-        # 要素 1 が配列の最初にある場合、最良時間計算量 O(1) を達成
-        # 要素 1 が配列の最後にある場合、最悪時間計算量 O(n) を達成
+        # 要素 1 が配列の先頭にあるとき、最良時間計算量 O(1) となる
+        # 要素 1 が配列の末尾にあるとき、最悪時間計算量 O(n) となる
         if nums[i] == 1:
             return i
     return -1
@@ -32,5 +32,5 @@ if __name__ == "__main__":
         n = 100
         nums: list[int] = random_numbers(n)
         index: int = find_one(nums)
-        print("\nシャッフル後の配列 [ 1, 2, ..., n ] =", nums)
-        print("数値 1 のインデックス =", index)
+        print("\n配列 [ 1, 2, ..., n ] をシャッフルすると =", nums)
+        print("数値 1 のインデックスは", index)

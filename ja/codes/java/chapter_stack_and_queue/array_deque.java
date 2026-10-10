@@ -8,10 +8,10 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-/* 循環配列に基づく両端キュークラス */
+/* 循環配列ベースの両端キュー */
 class ArrayDeque {
     private int[] nums; // 両端キューの要素を格納する配列
-    private int front; // 先頭ポインタ、先頭要素を指す
+    private int front; // 先頭ポインタ。先頭要素を指す
     private int queSize; // 両端キューの長さ
 
     /* コンストラクタ */
@@ -35,63 +35,65 @@ class ArrayDeque {
         return queSize == 0;
     }
 
-    /* 循環配列インデックスを計算 */
+    /* 循環配列のインデックスを計算 */
     private int index(int i) {
-        // モジュロ演算により循環配列を実装
-        // i が配列の末尾を超える場合、先頭に戻る
-        // i が配列の先頭を超える場合、末尾に戻る
+        // 剰余演算により配列の先頭と末尾をつなげる
+        // i が配列の末尾を越えたら先頭に戻る
+        // i が配列の先頭を越えて前に出たら末尾に戻る
         return (i + capacity()) % capacity();
     }
 
-    /* 先頭エンキュー */
+    /* キュー先頭にエンキュー */
     public void pushFirst(int num) {
         if (queSize == capacity()) {
-            System.out.println("両端キューが満杯です");
+            System.out.println("双方向キューは満杯です");
             return;
         }
-        // 先頭ポインタを左に移動し、境界を越える場合は配列の末尾に回る
+        // 先頭ポインタを左に 1 つ移動する
+        // 剰余演算により、front が配列先頭を越えた後に末尾へ戻るようにする
         front = index(front - 1);
-        // 先頭に num を追加
+        // num をキュー先頭に追加
         nums[front] = num;
         queSize++;
     }
 
-    /* 末尾エンキュー */
+    /* キュー末尾にエンキュー */
     public void pushLast(int num) {
         if (queSize == capacity()) {
-            System.out.println("両端キューが満杯です");
+            System.out.println("双方向キューは満杯です");
             return;
         }
-        // 末尾ポインタを計算し、末尾に要素を追加
+        // キュー末尾ポインタを計算し、末尾インデックス + 1 を指す
         int rear = index(front + queSize);
+        // num をキュー末尾に追加
         nums[rear] = num;
         queSize++;
     }
 
-    /* 先頭デキュー */
+    /* キュー先頭からデキュー */
     public int popFirst() {
         int num = peekFirst();
-        // 先頭ポインタを右に移動
+        // 先頭ポインタを 1 つ後ろへ進める
         front = index(front + 1);
         queSize--;
         return num;
     }
 
-    /* 末尾デキュー */
+    /* キュー末尾からデキュー */
     public int popLast() {
         int num = peekLast();
         queSize--;
         return num;
     }
 
-    /* 先頭要素にアクセス */
+    /* キュー先頭の要素にアクセス */
     public int peekFirst() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return nums[front];
     }
 
-    /* 末尾要素にアクセス */
+    /* キュー末尾の要素にアクセス */
     public int peekLast() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
@@ -100,9 +102,9 @@ class ArrayDeque {
         return nums[last];
     }
 
-    /* 配列を返す */
+    /* 出力用の配列を返す */
     public int[] toArray() {
-        // front から開始して queSize 個の要素のみをコピー
+        // 有効長の範囲内のリスト要素のみを変換
         int[] res = new int[queSize];
         for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[index(j)];
@@ -114,38 +116,36 @@ class ArrayDeque {
 public class array_deque {
     public static void main(String[] args) {
         /* 両端キューを初期化 */
-        int capacity = 10;
-        ArrayDeque deque = new ArrayDeque(capacity);
-
-        /* 末尾エンキュー */
+        ArrayDeque deque = new ArrayDeque(10);
         deque.pushLast(3);
         deque.pushLast(2);
         deque.pushLast(5);
-        System.out.println("末尾エンキュー後 deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("双方向キュー deque = " + Arrays.toString(deque.toArray()));
 
-        /* 先頭エンキュー */
-        deque.pushFirst(4);
-        deque.pushFirst(1);
-        System.out.println("先頭エンキュー後 deque = " + Arrays.toString(deque.toArray()));
-
-        /* 要素へのアクセス */
+        /* 要素にアクセス */
         int peekFirst = deque.peekFirst();
         System.out.println("先頭要素 peekFirst = " + peekFirst);
         int peekLast = deque.peekLast();
         System.out.println("末尾要素 peekLast = " + peekLast);
 
-        /* 要素デキュー */
-        int popFirst = deque.popFirst();
-        System.out.println("先頭デキュー要素 = " + popFirst + "、先頭デキュー後 deque = " + Arrays.toString(deque.toArray()));
+        /* 要素をエンキュー */
+        deque.pushLast(4);
+        System.out.println("要素 4 を末尾にエンキューした後の deque = " + Arrays.toString(deque.toArray()));
+        deque.pushFirst(1);
+        System.out.println("要素 1 を先頭にエンキューした後の deque = " + Arrays.toString(deque.toArray()));
+
+        /* 要素をデキュー */
         int popLast = deque.popLast();
-        System.out.println("末尾デキュー要素 = " + popLast + "、末尾デキュー後 deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("末尾からデキューした要素 = " + popLast + "、末尾からデキューした後の deque = " + Arrays.toString(deque.toArray()));
+        int popFirst = deque.popFirst();
+        System.out.println("先頭からデキューした要素 = " + popFirst + "、先頭からデキューした後の deque = " + Arrays.toString(deque.toArray()));
 
         /* 両端キューの長さを取得 */
         int size = deque.size();
-        System.out.println("両端キューの長さ size = " + size);
+        System.out.println("双方向キューの長さ size = " + size);
 
         /* 両端キューが空かどうかを判定 */
         boolean isEmpty = deque.isEmpty();
-        System.out.println("両端キューが空か = " + isEmpty);
+        System.out.println("双方向キューが空かどうか = " + isEmpty);
     }
 }

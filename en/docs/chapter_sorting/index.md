@@ -6,4 +6,4 @@
 
     Sorting is like a magic key that transforms chaos into order, enabling us to understand and process data more efficiently.
 
-    Whether it's simple ascending order or complex categorized arrangements, sorting demonstrates the harmonious beauty of data.
+    From simple ascending order to more complex classification schemes, sorting reveals the harmonious beauty of data.

@@ -24,11 +24,11 @@ if __name__ == "__main__":
     hash_dec = hash(dec)
     print(f"小数 {dec} のハッシュ値は {hash_dec}")
 
-    str = "Hello algorithm"
+    str = "Hello アルゴリズム"
     hash_str = hash(str)
     print(f"文字列 {str} のハッシュ値は {hash_str}")
 
-    tup = (12836, "Ha")
+    tup = (12836, "シャオハー")
     hash_tup = hash(tup)
     print(f"タプル {tup} のハッシュ値は {hash(hash_tup)}")
 

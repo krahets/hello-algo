@@ -8,21 +8,21 @@ import random
 
 
 def random_access(nums: list[int]) -> int:
-    """要素へのランダムアクセス"""
-    # 区間 [0, len(nums)-1] から数値をランダムに選択
+    """要素へランダムアクセス"""
+    # 区間 [0, len(nums)-1] からランダムに数字を 1 つ選ぶ
     random_index = random.randint(0, len(nums) - 1)
     # ランダムな要素を取得して返す
     random_num = nums[random_index]
     return random_num
 
 
-# PythonのlistはextendできるDynamic Arrayであることに注意
-# 学習を容易にするため、この関数ではlistをStatic Arrayとして扱う
+# Python の list は動的配列であり、直接拡張できます
+# 学習しやすいよう、本関数では list を長さ不変の配列として扱います
 def extend(nums: list[int], enlarge: int) -> list[int]:
-    """配列の長さを拡張"""
-    # 拡張された長さの配列を初期化
+    """配列長を拡張する"""
+    # 拡張後の長さを持つ配列を初期化する
     res = [0] * (len(nums) + enlarge)
-    # 元の配列のすべての要素を新しい配列にコピー
+    # 元の配列の全要素を新しい配列にコピー
     for i in range(len(nums)):
         res[i] = nums[i]
     # 拡張後の新しい配列を返す
@@ -30,38 +30,38 @@ def extend(nums: list[int], enlarge: int) -> list[int]:
 
 
 def insert(nums: list[int], num: int, index: int):
-    """インデックス index に要素 num を挿入"""
-    # インデックス index より後のすべての要素を1つ後ろに移動
+    """配列の index 番目に要素 num を挿入"""
+    # インデックス index 以降の全要素を 1 つ後ろへ移動する
     for i in range(len(nums) - 1, index, -1):
         nums[i] = nums[i - 1]
-    # num を index の位置の要素に代入
+    # index の要素に num を代入する
     nums[index] = num
 
 
 def remove(nums: list[int], index: int):
-    """インデックス index の要素を削除"""
-    # インデックス index より後のすべての要素を1つ前に移動
+    """index の要素を削除する"""
+    # インデックス index より後ろの全要素を 1 つ前へ移動する
     for i in range(index, len(nums) - 1):
         nums[i] = nums[i + 1]
 
 
 def traverse(nums: list[int]):
-    """配列の走査"""
+    """配列を走査"""
     count = 0
-    # インデックスによる配列の走査
+    # インデックスで配列を走査
     for i in range(len(nums)):
         count += nums[i]
-    # 配列要素の走査
+    # 配列要素を直接走査
     for num in nums:
         count += num
-    # データのインデックスと要素の両方を走査
+    # データのインデックスと要素を同時に走査する
     for i, num in enumerate(nums):
         count += nums[i]
         count += num
 
 
 def find(nums: list[int], target: int) -> int:
-    """配列内の指定された要素を検索"""
+    """配列内で指定要素を探す"""
     for i in range(len(nums)):
         if nums[i] == target:
             return i
@@ -78,23 +78,23 @@ if __name__ == "__main__":
 
     # ランダムアクセス
     random_num: int = random_access(nums)
-    print("nums のランダムな要素を取得", random_num)
+    print("nums からランダムな要素を取得", random_num)
 
-    # 長さの拡張
+    # 長さを拡張
     nums: list[int] = extend(nums, 3)
-    print("配列の長さを 8 に拡張、結果は nums =", nums)
+    print("配列の長さを 8 に拡張し、nums =", nums)
 
-    # 要素の挿入
+    # 要素を挿入する
     insert(nums, 6, 3)
-    print("インデックス 3 に数値 6 を挿入、結果は nums =", nums)
+    print("インデックス 3 に数値 6 を挿入し、nums =", nums)
 
-    # 要素の削除
+    # 要素を削除
     remove(nums, 2)
-    print("インデックス 2 の要素を削除、結果は nums =", nums)
+    print("インデックス 2 の要素を削除し、nums =", nums)
 
-    # 配列の走査
+    # 配列を走査
     traverse(nums)
 
-    # 要素の検索
+    # 要素を探索する
     index: int = find(nums, 3)
-    print("nums で要素 3 を検索、結果は index =", index)
+    print("nums で要素 3 を検索し、インデックス =", index)

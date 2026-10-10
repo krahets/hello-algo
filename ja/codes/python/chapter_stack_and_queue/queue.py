@@ -8,9 +8,9 @@ from collections import deque
 
 """Driver Code"""
 if __name__ == "__main__":
-    # キューを初期化
-    # Pythonでは、一般的にdequeクラスをキューとして考えます
-    # queue.Queue()は純粋なキュークラスですが、あまりユーザーフレンドリーではありません
+    # キューを初期化する
+    # Python では通常、両端キュー deque をキューとして使う
+    # queue.Queue() は正統なキュークラスだが、あまり使いやすくない
     que: deque[int] = deque()
 
     # 要素をエンキュー
@@ -21,14 +21,14 @@ if __name__ == "__main__":
     que.append(4)
     print("キュー que =", que)
 
-    # フロント要素にアクセス
+    # キュー先頭の要素にアクセス
     front: int = que[0]
-    print("フロント要素 front =", front)
+    print("先頭要素 front =", front)
 
     # 要素をデキュー
     pop: int = que.popleft()
-    print("デキューされた要素 pop =", pop)
-    print("デキュー後のキュー =", que)
+    print("取り出した要素 pop =", pop)
+    print("取り出し後 que =", que)
 
     # キューの長さを取得
     size: int = len(que)

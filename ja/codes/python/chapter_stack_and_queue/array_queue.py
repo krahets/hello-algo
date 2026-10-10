@@ -6,12 +6,12 @@ Author: Peng Chen (pengchzn@gmail.com)
 
 
 class ArrayQueue:
-    """循環配列ベースのキュークラス"""
+    """循環配列ベースのキュー"""
 
     def __init__(self, size: int):
         """コンストラクタ"""
         self._nums: list[int] = [0] * size  # キュー要素を格納する配列
-        self._front: int = 0  # フロントポインタ、フロント要素を指す
+        self._front: int = 0  # 先頭ポインタ。先頭要素を指す
         self._size: int = 0  # キューの長さ
 
     def capacity(self) -> int:
@@ -29,30 +29,30 @@ class ArrayQueue:
     def push(self, num: int):
         """エンキュー"""
         if self._size == self.capacity():
-            raise IndexError("Queue is full")
-        # リアポインタを計算、リアインデックス + 1 を指す
-        # モジュロ演算を使用してリアポインタを配列の末尾から先頭に戻す
+            raise IndexError("キューがいっぱいです")
+        # 末尾ポインタを計算し、末尾インデックス + 1 を指す
+        # 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
         rear: int = (self._front + self._size) % self.capacity()
-        # num をリアに追加
+        # num をキュー末尾に追加
         self._nums[rear] = num
         self._size += 1
 
     def pop(self) -> int:
         """デキュー"""
         num: int = self.peek()
-        # フロントポインタを1つ後ろに移動、末尾を超えた場合は配列の先頭に戻る
+        # 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
         self._front = (self._front + 1) % self.capacity()
         self._size -= 1
         return num
 
     def peek(self) -> int:
-        """フロント要素にアクセス"""
+        """キュー先頭の要素にアクセス"""
         if self.is_empty():
-            raise IndexError("Queue is empty")
+            raise IndexError("キューが空です")
         return self._nums[self._front]
 
     def to_list(self) -> list[int]:
-        """出力用の配列を返す"""
+        """表示用のリストを返す"""
         res = [0] * self.size()
         j: int = self._front
         for i in range(self.size()):
@@ -74,14 +74,14 @@ if __name__ == "__main__":
     queue.push(4)
     print("キュー queue =", queue.to_list())
 
-    # フロント要素にアクセス
+    # キュー先頭の要素にアクセス
     peek: int = queue.peek()
-    print("フロント要素 peek =", peek)
+    print("先頭要素 peek =", peek)
 
     # 要素をデキュー
     pop: int = queue.pop()
-    print("デキューされた要素 pop =", pop)
-    print("デキュー後のキュー =", queue.to_list())
+    print("取り出した要素 pop =", pop)
+    print("取り出した後 queue =", queue.to_list())
 
     # キューの長さを取得
     size: int = queue.size()
@@ -91,8 +91,8 @@ if __name__ == "__main__":
     is_empty: bool = queue.is_empty()
     print("キューが空かどうか =", is_empty)
 
-    # 循環配列のテスト
+    # 循環配列をテストする
     for i in range(10):
         queue.push(i)
         queue.pop()
-        print("第", i, "回目のエンキュー + デキューで、queue =", queue.to_list())
+        print("第", i, "回目の追加 + 取り出し後 queue = ", queue.to_list())

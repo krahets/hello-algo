@@ -8,8 +8,8 @@
 
 /* ハッシュ探索（配列） */
 int hashingSearchArray(unordered_map<int, int> map, int target) {
-    // ハッシュテーブルのキー：ターゲット要素、値：インデックス
-    // ハッシュテーブルにこのキーが含まれていない場合、-1を返す
+    // ハッシュテーブルの key: 目標要素、value: インデックス
+    // ハッシュテーブルにこの key がなければ -1 を返す
     if (map.find(target) == map.end())
         return -1;
     return map[target];
@@ -17,14 +17,14 @@ int hashingSearchArray(unordered_map<int, int> map, int target) {
 
 /* ハッシュ探索（連結リスト） */
 ListNode *hashingSearchLinkedList(unordered_map<int, ListNode *> map, int target) {
-    // ハッシュテーブルのキー：ターゲットノード値、値：ノードオブジェクト
-    // キーがハッシュテーブルにない場合、nullptrを返す
+    // ハッシュテーブルの key: 対象ノードの値、value: ノードオブジェクト
+    // ハッシュテーブルにその key がなければ nullptr を返す
     if (map.find(target) == map.end())
         return nullptr;
     return map[target];
 }
 
-/* ドライバコード */
+/* Driver Code */
 int main() {
     int target = 3;
 
@@ -33,21 +33,21 @@ int main() {
     // ハッシュテーブルを初期化
     unordered_map<int, int> map;
     for (int i = 0; i < nums.size(); i++) {
-        map[nums[i]] = i; // キー：要素、値：インデックス
+        map[nums[i]] = i; // key: 要素、value: インデックス
     }
     int index = hashingSearchArray(map, target);
-    cout << "ターゲット要素3のインデックスは " << index << " です" << endl;
+    cout << "対象要素 3 のインデックス = " << index << endl;
 
     /* ハッシュ探索（連結リスト） */
     ListNode *head = vecToLinkedList(nums);
     // ハッシュテーブルを初期化
     unordered_map<int, ListNode *> map1;
     while (head != nullptr) {
-        map1[head->val] = head; // キー：ノード値、値：ノード
+        map1[head->val] = head; // key: ノード値、value: ノード
         head = head->next;
     }
     ListNode *node = hashingSearchLinkedList(map1, target);
-    cout << "ターゲットノード値3に対応するノードオブジェクトは " << node << " です" << endl;
+    cout << "対象ノード値 3 に対応するノードオブジェクトは " << node << endl;
 
     return 0;
 }

@@ -6,36 +6,36 @@
 
 #include "../utils/common.hpp"
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
     /* スタックを初期化 */
     stack<int> stack;
 
-    /* 要素プッシュ */
+    /* 要素をプッシュ */
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    cout << "Stack stack = ";
+    cout << "スタック stack = ";
     printStack(stack);
 
-    /* スタックトップ要素にアクセス */
+    /* スタックトップの要素にアクセス */
     int top = stack.top();
-    cout << "Top element of the stack top = " << top << endl;
+    cout << "トップ要素 top = " << top << endl;
 
-    /* 要素ポップ */
+    /* 要素をポップ */
     stack.pop(); // 戻り値なし
-    cout << "Element popped from the stack = " << top << ", after popping";
+    cout << "取り出した要素 pop = " << top << "、取り出し後の stack = ";
     printStack(stack);
 
     /* スタックの長さを取得 */
     int size = stack.size();
-    cout << "Length of the stack size = " << size << endl;
+    cout << "スタックの長さ size = " << size << endl;
 
     /* 空かどうかを判定 */
     bool empty = stack.empty();
-    cout << "Is the stack empty = " << empty << endl;
+    cout << "スタックが空かどうか = " << empty << endl;
 
     return 0;
 }

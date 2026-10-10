@@ -4,7 +4,7 @@ Common data structures include arrays, linked lists, stacks, queues, hash tables
 
 ## Logical Structure: Linear and Non-Linear
 
-**Logical structure reveals the logical relationships between data elements**. In arrays and linked lists, data is arranged in a certain order, embodying the linear relationship between data; while in trees, data is arranged hierarchically from top to bottom, showing the derived relationship between "ancestors" and "descendants"; graphs are composed of nodes and edges, reflecting complex network relationships.
+**Logical structure reveals the logical relationships between data elements**. In arrays and linked lists, data is arranged in a certain order, embodying linear relationships between elements; while in trees, data is arranged hierarchically from top to bottom, showing parent-descendant relationships; graphs are composed of nodes and edges, reflecting complex network relationships.
 
 As shown in the figure below, logical structures can be divided into two major categories: "linear" and "non-linear". Linear structures are more intuitive, indicating that data is linearly arranged in logical relationships; non-linear structures are the opposite, arranged non-linearly.
 
@@ -28,11 +28,11 @@ Non-linear data structures can be further divided into tree structures and netwo
 
 !!! tip
 
-    It is worth noting that comparing memory to an Excel spreadsheet is a simplified analogy. The actual working mechanism of memory is quite complex, involving concepts such as address space, memory management, cache mechanisms, virtual memory, and physical memory.
+    It should be noted that comparing memory to an Excel spreadsheet is only a simplified analogy. The actual workings of memory are much more complex, involving concepts such as address space, memory management, cache mechanisms, virtual memory, and physical memory.
 
 Memory is a shared resource for all programs. When a block of memory is occupied by a program, it usually cannot be used by other programs at the same time. **Therefore, in the design of data structures and algorithms, memory resources are an important consideration**. For example, the peak memory occupied by an algorithm should not exceed the remaining free memory of the system; if there is a lack of contiguous large memory blocks, then the data structure chosen must be able to be stored in dispersed memory spaces.
 
-As shown in the figure below, **physical structure reflects the way data is stored in computer memory**, and can be divided into contiguous space storage (arrays) and dispersed space storage (linked lists). The two physical structures exhibit complementary characteristics in terms of time efficiency and space efficiency.
+As shown in the figure below, **physical structure reflects the way data is stored in computer memory**. It can be divided into contiguous-space storage (arrays) and dispersed-space storage (linked lists). At a low level, physical structure determines how data is accessed, updated, inserted, and deleted. These two physical structures exhibit complementary characteristics in terms of time efficiency and space efficiency.
 
 ![Contiguous space storage and dispersed space storage](classification_of_data_structure.assets/classification_phisical_structure.png)
 
@@ -41,7 +41,7 @@ It is worth noting that **all data structures are implemented based on arrays, l
 - **Can be implemented based on arrays**: Stacks, queues, hash tables, trees, heaps, graphs, matrices, tensors (arrays with dimensions $\geq 3$), etc.
 - **Can be implemented based on linked lists**: Stacks, queues, hash tables, trees, heaps, graphs, etc.
 
-After initialization, linked lists can still adjust their length during program execution, so they are also called "dynamic data structures". After initialization, the length of arrays cannot be changed, so they are also called "static data structures". It is worth noting that arrays can achieve length changes by reallocating memory, thus possessing a certain degree of "dynamism".
+After initialization, linked lists can still adjust their length during program execution, so they are also called "dynamic data structures". After initialization, the length of arrays cannot be changed, so they are also called "static data structures". It is worth noting that arrays can change length by reallocating memory, thus retaining a limited degree of flexibility.
 
 !!! tip
 

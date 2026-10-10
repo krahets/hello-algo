@@ -16,7 +16,7 @@ class GraphAdjList:
 
     def __init__(self, edges: list[list[Vertex]]):
         """コンストラクタ"""
-        # 隣接リスト、キー: 頂点、値: その頂点の隣接する全頂点
+        # 隣接リスト。key は頂点、value はその頂点に隣接する全頂点
         self.adj_list = dict[Vertex, list[Vertex]]()
         # すべての頂点と辺を追加
         for edge in edges:
@@ -48,16 +48,16 @@ class GraphAdjList:
         """頂点を追加"""
         if vet in self.adj_list:
             return
-        # 隣接リストに新しい連結リストを追加
+        # 隣接リストに新しいリストを追加
         self.adj_list[vet] = []
 
     def remove_vertex(self, vet: Vertex):
         """頂点を削除"""
         if vet not in self.adj_list:
             raise ValueError()
-        # 隣接リストから頂点vetに対応する連結リストを削除
+        # 隣接リストから頂点 vet に対応するリストを削除
         self.adj_list.pop(vet)
-        # 他の頂点の連結リストを走査し、vetを含むすべての辺を削除
+        # 他の頂点のリストを走査し、vet を含むすべての辺を削除
         for vertex in self.adj_list:
             if vet in self.adj_list[vertex]:
                 self.adj_list[vertex].remove(vet)
@@ -70,7 +70,7 @@ class GraphAdjList:
             print(f"{vertex.val}: {tmp},")
 
 
-"""ドライバコード"""
+"""Driver Code"""
 if __name__ == "__main__":
     # 無向グラフを初期化
     v = vals_to_vets([1, 3, 2, 5, 4])
@@ -86,26 +86,26 @@ if __name__ == "__main__":
     print("\n初期化後、グラフは")
     graph.print()
 
-    # 辺を追加
-    # 頂点1、2 つまり v[0], v[2]
+    # 辺を追加する
+    # 頂点 1, 2 は `v[0]`, `v[2]`
     graph.add_edge(v[0], v[2])
-    print("\n辺1-2を追加後、グラフは")
+    print("\n辺 1-2 を追加した後、グラフは")
     graph.print()
 
-    # 辺を削除
-    # 頂点1、3 つまり v[0], v[1]
+    # 辺を削除する
+    # 頂点 1, 3 はそれぞれ v[0], v[1]
     graph.remove_edge(v[0], v[1])
-    print("\n辺1-3を削除後、グラフは")
+    print("\n辺 1-3 を削除した後、グラフは")
     graph.print()
 
     # 頂点を追加
     v5 = Vertex(6)
     graph.add_vertex(v5)
-    print("\n頂点6を追加後、グラフは")
+    print("\n頂点 6 を追加した後、グラフは")
     graph.print()
 
-    # 頂点を削除
-    # 頂点3 つまり v[1]
+    # 頂点を削除する
+    # 頂点 3 は v[1]
     graph.remove_vertex(v[1])
-    print("\n頂点3を削除後、グラフは")
+    print("\n頂点 3 を削除した後、グラフは")
     graph.print()

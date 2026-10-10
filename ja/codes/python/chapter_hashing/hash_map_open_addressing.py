@@ -16,12 +16,12 @@ class HashMapOpenAddressing:
 
     def __init__(self):
         """コンストラクタ"""
-        self.size = 0  # キー値ペアの数
-        self.capacity = 4  # ハッシュテーブルの容量
-        self.load_thres = 2.0 / 3.0  # 拡張をトリガーする負荷率の閾値
-        self.extend_ratio = 2  # 拡張の倍数
+        self.size = 0  # キーと値のペア数
+        self.capacity = 4  # ハッシュテーブル容量
+        self.load_thres = 2.0 / 3.0  # リサイズを発動する負荷率のしきい値
+        self.extend_ratio = 2  # 拡張倍率
         self.buckets: list[Pair | None] = [None] * self.capacity  # バケット配列
-        self.TOMBSTONE = Pair(-1, "-1")  # 削除マーク
+        self.TOMBSTONE = Pair(-1, "-1")  # 削除済みマーク
 
     def hash_func(self, key: int) -> int:
         """ハッシュ関数"""
@@ -32,70 +32,70 @@ class HashMapOpenAddressing:
         return self.size / self.capacity
 
     def find_bucket(self, key: int) -> int:
-        """key に対応するバケットインデックスを検索"""
+        """key に対応するバケットインデックスを探す"""
         index = self.hash_func(key)
         first_tombstone = -1
-        # 線形探査、空のバケットに遭遇したらブレーク
+        # 線形プロービングを行い、空バケットに達したら終了
         while self.buckets[index] is not None:
-            # キーに遭遇した場合、対応するバケットインデックスを返す
+            # key が見つかったら、対応するバケットのインデックスを返す
             if self.buckets[index].key == key:
-                # 削除マークが以前に遭遇していた場合、キー値ペアをそのインデックスに移動
+                # 以前に削除マークが見つかっていれば、そのインデックスへキーと値のペアを移動
                 if first_tombstone != -1:
                     self.buckets[first_tombstone] = self.buckets[index]
                     self.buckets[index] = self.TOMBSTONE
-                    return first_tombstone  # 移動されたバケットインデックスを返す
-                return index  # バケットインデックスを返す
-            # 最初に遭遇した削除マークを記録
+                    return first_tombstone  # 移動後のバケットインデックスを返す
+                return index  # バケットのインデックスを返す
+            # 最初に見つかった削除マークを記録
             if first_tombstone == -1 and self.buckets[index] is self.TOMBSTONE:
                 first_tombstone = index
-            # バケットインデックスを計算、末尾を超えた場合は先頭に戻る
+            # バケットのインデックスを計算し、末尾を越えたら先頭に戻る
             index = (index + 1) % self.capacity
-        # キーが存在しない場合、挿入ポイントのインデックスを返す
+        # key が存在しない場合は追加位置のインデックスを返す
         return index if first_tombstone == -1 else first_tombstone
 
     def get(self, key: int) -> str:
-        """照会操作"""
-        # key に対応するバケットインデックスを検索
+        """検索操作"""
+        # key に対応するバケットインデックスを探す
         index = self.find_bucket(key)
-        # キー値ペアが見つかれば、対応する val を返す
+        # キーと値の組が見つかったら、対応する val を返す
         if self.buckets[index] not in [None, self.TOMBSTONE]:
             return self.buckets[index].val
-        # キー値ペアが存在しない場合、None を返す
+        # キーと値のペアが存在しない場合は `None` を返す
         return None
 
     def put(self, key: int, val: str):
         """追加操作"""
-        # 負荷率が閾値を超えた場合、拡張を実行
+        # 負荷率がしきい値を超えたら、リサイズを実行
         if self.load_factor() > self.load_thres:
             self.extend()
-        # key に対応するバケットインデックスを検索
+        # key に対応するバケットインデックスを探す
         index = self.find_bucket(key)
-        # キー値ペアが見つかれば、val を上書きして返す
+        # キーと値の組が見つかったら、val を上書きして返す
         if self.buckets[index] not in [None, self.TOMBSTONE]:
             self.buckets[index].val = val
             return
-        # キー値ペアが存在しない場合、キー値ペアを追加
+        # キーと値の組が存在しない場合は、その組を追加する
         self.buckets[index] = Pair(key, val)
         self.size += 1
 
     def remove(self, key: int):
         """削除操作"""
-        # key に対応するバケットインデックスを検索
+        # key に対応するバケットインデックスを探す
         index = self.find_bucket(key)
-        # キー値ペアが見つかれば、削除マークで覆う
+        # キーと値の組が見つかったら、削除マーカーで上書きする
         if self.buckets[index] not in [None, self.TOMBSTONE]:
             self.buckets[index] = self.TOMBSTONE
             self.size -= 1
 
     def extend(self):
         """ハッシュテーブルを拡張"""
-        # 元のハッシュテーブルを一時的に保存
+        # 元のハッシュテーブルを一時保存
         buckets_tmp = self.buckets
-        # 拡張された新しいハッシュテーブルを初期化
+        # リサイズ後の新しいハッシュテーブルを初期化
         self.capacity *= self.extend_ratio
         self.buckets = [None] * self.capacity
         self.size = 0
-        # 元のハッシュテーブルから新しいハッシュテーブルにキー値ペアを移動
+        # キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルへ移す
         for pair in buckets_tmp:
             if pair not in [None, self.TOMBSTONE]:
                 self.put(pair.key, pair.val)
@@ -117,22 +117,22 @@ if __name__ == "__main__":
     hashmap = HashMapOpenAddressing()
 
     # 追加操作
-    # キー値ペア (key, val) をハッシュテーブルに追加
-    hashmap.put(12836, "Ha")
-    hashmap.put(15937, "Luo")
-    hashmap.put(16750, "Suan")
-    hashmap.put(13276, "Fa")
-    hashmap.put(10583, "Ya")
-    print("\n追加後、ハッシュテーブルは\nKey -> Value")
+    # ハッシュテーブルにキーと値の組 (key, val) を追加する
+    hashmap.put(12836, "シャオハー")
+    hashmap.put(15937, "シャオルオ")
+    hashmap.put(16750, "シャオスワン")
+    hashmap.put(13276, "シャオファー")
+    hashmap.put(10583, "シャオヤー")
+    print("\n追加完了後、ハッシュテーブルは\nKey -> Value")
     hashmap.print()
 
-    # 照会操作
-    # ハッシュテーブルにキーを入力し、値 val を取得
+    # 検索操作
+    # ハッシュテーブルにキー key を入力し、値 val を得る
     name = hashmap.get(13276)
-    print("\n学生ID 13276 を入力、名前 " + name + " が見つかりました")
+    print("\n学籍番号 13276 を入力すると、氏名は " + name)
 
     # 削除操作
-    # ハッシュテーブルからキー値ペア (key, val) を削除
+    # ハッシュテーブルからキーと値の組 (key, val) を削除する
     hashmap.remove(16750)
-    print("\n16750 を削除後、ハッシュテーブルは\nKey -> Value")
+    print("\n16750 を削除した後、ハッシュテーブルは\nKey -> Value")
     hashmap.print()

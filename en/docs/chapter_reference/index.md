@@ -16,7 +16,7 @@ icon: material/bookshelf
 
 [6] Mark Allen Weiss, translated by Chen Yue. Data Structures and Algorithm Analysis in Java (Third Edition).
 
-[7] Cheng Jie. Conversational Data Structures.
+[7] Cheng Jie. Data Structures in Plain Language.
 
 [8] Wang Zheng. The Beauty of Data Structures and Algorithms.
 

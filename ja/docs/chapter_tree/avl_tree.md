@@ -1,46 +1,46 @@
-# AVL木 *
+# AVL 木 *
 
-「二分探索木」の節では、複数の挿入と削除の後、二分探索木が連結リストに退化する可能性があることを述べました。このような場合、すべての操作の時間計算量が$O(\log n)$から$O(n)$に悪化します。
+「二分探索木」章で述べたように、挿入と削除を何度も繰り返すと、二分探索木は連結リストへ退化する可能性があります。この場合、すべての操作の時間計算量は $O(\log n)$ から $O(n)$ へ劣化します。
 
-下図に示すように、2つのノード削除操作の後、この二分探索木は連結リストに退化します。
+以下の図に示すように、ノード削除を 2 回行うと、この二分探索木は連結リストへ退化します。
 
-![ノード削除後のAVL木の退化](avl_tree.assets/avltree_degradation_from_removing_node.png)
+![AVL 木がノード削除後に退化する](avl_tree.assets/avltree_degradation_from_removing_node.png)
 
-例えば、下図に示す完全二分木では、2つのノードを挿入した後、木が左に大きく傾き、検索操作の時間計算量も悪化します。
+別の例として、以下の図に示す完全二分木に 2 つのノードを挿入すると、木は大きく左に傾き、探索操作の時間計算量もそれに伴って劣化します。
 
-![ノード挿入後のAVL木の退化](avl_tree.assets/avltree_degradation_from_inserting_node.png)
+![AVL 木がノード挿入後に退化する](avl_tree.assets/avltree_degradation_from_inserting_node.png)
 
-1962年、G. M. Adelson-VelskyとE. M. Landisが論文「An algorithm for the organization of information」で<u>AVL木</u>を提案しました。この論文では、ノードの継続的な追加と削除の後もAVL木が退化しないことを保証する一連の操作について詳述し、さまざまな操作の時間計算量を$O(\log n)$レベルに維持しました。つまり、頻繁な追加、削除、検索、変更が必要なシナリオで、AVL木は常に効率的なデータ操作性能を維持でき、大きな応用価値があります。
+1962 年、G. M. Adelson-Velsky と E. M. Landis は論文“An algorithm for the organization of information”の中で <u>AVL 木</u> を提案しました。論文では一連の操作が詳しく説明されており、ノードの追加と削除を続けても AVL 木が退化しないようにして、各種操作の時間計算量を $O(\log n)$ の水準に保ちます。言い換えると、追加・削除・探索・更新を頻繁に行う場面でも、AVL 木は常に高いデータ操作性能を維持でき、実用価値の高い構造です。
 
-## AVL木の一般的な用語
+## AVL 木の基本用語
 
-AVL木は二分探索木でありかつ平衡二分木でもあり、これら2つの種類の二分木のすべての性質を満たしているため、<u>平衡二分探索木</u>です。
+AVL 木は二分探索木であると同時に平衡二分木でもあり、これら 2 種類の二分木の性質をすべて満たします。したがって、<u>平衡二分探索木（balanced binary search tree）</u>の一種です。
 
 ### ノードの高さ
 
-AVL木に関連する操作ではノードの高さを取得する必要があるため、ノードクラスに`height`変数を追加する必要があります：
+AVL 木の操作ではノードの高さを取得する必要があるため、ノードクラスに `height` 変数を追加します：
 
 === "Python"
 
     ```python title=""
     class TreeNode:
-        """AVL木ノード"""
+        """AVL 木ノードクラス"""
         def __init__(self, val: int):
             self.val: int = val                 # ノード値
             self.height: int = 0                # ノードの高さ
-            self.left: TreeNode | None = None   # 左の子への参照
-            self.right: TreeNode | None = None  # 右の子への参照
+            self.left: TreeNode | None = None   # 左の子ノード参照
+            self.right: TreeNode | None = None  # 右の子ノード参照
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* AVL木ノード */
+    /* AVL 木ノードクラス */
     struct TreeNode {
         int val{};          // ノード値
         int height = 0;     // ノードの高さ
-        TreeNode *left{};   // 左の子
-        TreeNode *right{};  // 右の子
+        TreeNode *left{};   // 左の子ノード
+        TreeNode *right{};  // 右の子ノード
         TreeNode() = default;
         explicit TreeNode(int x) : val(x){}
     };
@@ -49,12 +49,12 @@ AVL木に関連する操作ではノードの高さを取得する必要があ�
 === "Java"
 
     ```java title=""
-    /* AVL木ノード */
+    /* AVL 木ノードクラス */
     class TreeNode {
         public int val;        // ノード値
         public int height;     // ノードの高さ
-        public TreeNode left;  // 左の子
-        public TreeNode right; // 右の子
+        public TreeNode left;  // 左の子ノード
+        public TreeNode right; // 右の子ノード
         public TreeNode(int x) { val = x; }
     }
     ```
@@ -62,36 +62,36 @@ AVL木に関連する操作ではノードの高さを取得する必要があ�
 === "C#"
 
     ```csharp title=""
-    /* AVL木ノード */
+    /* AVL 木ノードクラス */
     class TreeNode(int? x) {
         public int? val = x;    // ノード値
         public int height;      // ノードの高さ
-        public TreeNode? left;  // 左の子への参照
-        public TreeNode? right; // 右の子への参照
+        public TreeNode? left;  // 左の子ノード参照
+        public TreeNode? right; // 右の子ノード参照
     }
     ```
 
 === "Go"
 
     ```go title=""
-    /* AVL木ノード */
+    /* AVL 木ノード構造体 */
     type TreeNode struct {
         Val    int       // ノード値
         Height int       // ノードの高さ
-        Left   *TreeNode // 左の子への参照
-        Right  *TreeNode // 右の子への参照
+        Left   *TreeNode // 左の子ノード参照
+        Right  *TreeNode // 右の子ノード参照
     }
     ```
 
 === "Swift"
 
     ```swift title=""
-    /* AVL木ノード */
+    /* AVL 木ノードクラス */
     class TreeNode {
         var val: Int // ノード値
         var height: Int // ノードの高さ
-        var left: TreeNode? // 左の子
-        var right: TreeNode? // 右の子
+        var left: TreeNode? // 左の子ノード
+        var right: TreeNode? // 右の子ノード
 
         init(x: Int) {
             val = x
@@ -103,12 +103,12 @@ AVL木に関連する操作ではノードの高さを取得する必要があ�
 === "JS"
 
     ```javascript title=""
-    /* AVL木ノード */
+    /* AVL 木ノードクラス */
     class TreeNode {
         val; // ノード値
-        height; // ノードの高さ
-        left; // 左の子ポインタ
-        right; // 右の子ポインタ
+        height; //ノードの高さ
+        left; // 左の子ノードポインタ
+        right; // 右の子ノードポインタ
         constructor(val, left, right, height) {
             this.val = val === undefined ? 0 : val;
             this.height = height === undefined ? 0 : height;
@@ -121,12 +121,12 @@ AVL木に関連する操作ではノードの高さを取得する必要があ�
 === "TS"
 
     ```typescript title=""
-    /* AVL木ノード */
+    /* AVL 木ノードクラス */
     class TreeNode {
         val: number;            // ノード値
         height: number;         // ノードの高さ
-        left: TreeNode | null;  // 左の子ポインタ
-        right: TreeNode | null; // 右の子ポインタ
+        left: TreeNode | null;  // 左の子ノードポインタ
+        right: TreeNode | null; // 右の子ノードポインタ
         constructor(val?: number, height?: number, left?: TreeNode | null, right?: TreeNode | null) {
             this.val = val === undefined ? 0 : val;
             this.height = height === undefined ? 0 : height;
@@ -139,12 +139,12 @@ AVL木に関連する操作ではノードの高さを取得する必要があ�
 === "Dart"
 
     ```dart title=""
-    /* AVL木ノード */
+    /* AVL 木ノードクラス */
     class TreeNode {
       int val;         // ノード値
       int height;      // ノードの高さ
-      TreeNode? left;  // 左の子
-      TreeNode? right; // 右の子
+      TreeNode? left;  // 左の子ノード
+      TreeNode? right; // 右の子ノード
       TreeNode(this.val, [this.height = 0, this.left, this.right]);
     }
     ```
@@ -155,12 +155,12 @@ AVL木に関連する操作ではノードの高さを取得する必要があ�
     use std::rc::Rc;
     use std::cell::RefCell;
 
-    /* AVL木ノード */
+    /* AVL 木ノード構造体 */
     struct TreeNode {
         val: i32,                               // ノード値
         height: i32,                            // ノードの高さ
-        left: Option<Rc<RefCell<TreeNode>>>,    // 左の子
-        right: Option<Rc<RefCell<TreeNode>>>,   // 右の子
+        left: Option<Rc<RefCell<TreeNode>>>,    // 左の子ノード
+        right: Option<Rc<RefCell<TreeNode>>>,   // 右の子ノード
     }
 
     impl TreeNode {
@@ -179,8 +179,8 @@ AVL木に関連する操作ではノードの高さを取得する必要があ�
 === "C"
 
     ```c title=""
-    /* AVL木ノード */
-    TreeNode struct TreeNode {
+    /* AVL 木ノード構造体 */
+    typedef struct TreeNode {
         int val;
         int height;
         struct TreeNode *left;
@@ -203,29 +203,40 @@ AVL木に関連する操作ではノードの高さを取得する必要があ�
 === "Kotlin"
 
     ```kotlin title=""
-    /* AVL木ノード */
+    /* AVL 木ノードクラス */
     class TreeNode(val _val: Int) {  // ノード値
-        val height: Int = 0          // ノードの高さ
-        val left: TreeNode? = null   // 左の子
-        val right: TreeNode? = null  // 右の子
+        var height: Int = 0          // ノードの高さ
+        var left: TreeNode? = null   // 左の子ノード
+        var right: TreeNode? = null  // 右の子ノード
     }
     ```
 
 === "Ruby"
 
     ```ruby title=""
+    ### AVL 木ノードクラス ###
+    class TreeNode
+      attr_accessor :val    # ノード値
+      attr_accessor :height # ノードの高さ
+      attr_accessor :left   # 左の子ノード参照
+      attr_accessor :right  # 右の子ノード参照
 
+      def initialize(val)
+        @val = val
+        @height = 0
+      end
+    end
     ```
 
-「ノードの高さ」とは、そのノードから最も遠い葉ノードまでの距離、つまり通過する「辺」の数を指します。重要なのは、葉ノードの高さは$0$で、nullノードの高さは$-1$であることです。ノードの高さを取得し、更新するための2つのユーティリティ関数を作成します：
+「ノードの高さ」とは、そのノードから最も遠い葉ノードまでの距離、すなわち通過する「辺」の本数を指します。特に、葉ノードの高さは $0$、空ノードの高さは $-1$ です。ここでは、ノードの高さを取得・更新するための 2 つの補助関数を用意します：
 
 ```src
 [file]{avl_tree}-[class]{avl_tree}-[func]{update_height}
 ```
 
-### ノードの平衡因子
+### ノードの平衡係数
 
-ノードの<u>平衡因子</u>は、そのノードの左部分木の高さから右部分木の高さを引いた値として定義され、nullノードの平衡因子は$0$として定義されます。後で使いやすくするため、ノードの平衡因子を取得する機能も関数にカプセル化します：
+ノードの<u>平衡係数（balance factor）</u>は、左部分木の高さから右部分木の高さを引いた値と定義し、空ノードの平衡係数は $0$ とします。同様に、ノードの平衡係数を取得する機能も関数にカプセル化して、後続で使いやすくします：
 
 ```src
 [file]{avl_tree}-[class]{avl_tree}-[func]{balance_factor}
@@ -233,17 +244,17 @@ AVL木に関連する操作ではノードの高さを取得する必要があ�
 
 !!! tip
 
-    平衡因子を$f$とすると、AVL木の任意のノードの平衡因子は$-1 \le f \le 1$を満たします。
+    平衡係数を $f$ とすると、AVL 木の任意のノードの平衡係数は常に $-1 \le f \le 1$ を満たします。
 
-## AVL木の回転
+## AVL 木の回転
 
-AVL木の特徴的な機能は「回転」操作で、これは二分木の中順探索シーケンスに影響を与えることなく、不平衡なノードのバランスを回復できます。つまり、**回転操作は「二分探索木」の性質を維持しながら、木を「平衡二分木」に戻すことができます**。
+AVL 木の特徴は「回転」操作にあり、二分木の中順走査列を変えずに、不平衡ノードを再び平衡に戻せます。言い換えると、**回転操作は「二分探索木」の性質を保ちながら、木を再び「平衡二分木」に戻すことができます**。
 
-絶対平衡因子が$> 1$のノードを「不平衡ノード」と呼びます。不平衡のタイプに応じて、4種類の回転があります：右回転、左回転、右左回転、左右回転です。以下、これらの回転操作について詳しく説明します。
+平衡係数の絶対値が $> 1$ のノードを「不平衡ノード」と呼びます。ノードの不平衡の形に応じて、回転操作は 4 種類に分かれます。右回転、左回転、右回転してから左回転、左回転してから右回転です。以下でこれらを順に説明します。
 
 ### 右回転
 
-下図に示すように、二分木で下から上への最初の不平衡ノードは「ノード3」です。この不平衡ノードを根とする部分木に焦点を当て、これを`node`とし、その左の子を`child`として、「右回転」を実行します。右回転後、部分木は再びバランスが取れ、同時に二分探索木の性質も維持されます。
+以下の図では、ノードの下に平衡係数を示しています。下から上へ見ると、二分木で最初に不平衡になるのは「ノード 3」です。この不平衡ノードを根とする部分木に注目し、そのノードを `node`、左の子ノードを `child` として、「右回転」を行います。右回転後、部分木は平衡を回復し、なおかつ二分探索木の性質も保たれます。
 
 === "<1>"
     ![右回転の手順](avl_tree.assets/avltree_right_rotate_step1.png)
@@ -257,11 +268,11 @@ AVL木の特徴的な機能は「回転」操作で、これは二分木の中�
 === "<4>"
     ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.png)
 
-下図に示すように、`child`ノードに右の子（`grand_child`と表記）がある場合、右回転で手順を追加する必要があります：`grand_child`を`node`の左の子に設定します。
+以下の図に示すように、ノード `child` に右の子ノード（`grand_child` と記す）がある場合、右回転には 1 ステップ追加する必要があります。すなわち、`grand_child` を `node` の左の子ノードにします。
 
-![grand_childがある右回転](avl_tree.assets/avltree_right_rotate_with_grandchild.png)
+![grand_child を持つ右回転](avl_tree.assets/avltree_right_rotate_with_grandchild.png)
 
-「右回転」は比喩的な用語で、実際にはノードポインタを変更することで実現されます。以下のコードで示されます：
+「右に回転する」というのはあくまでイメージしやすい表現であり、実際にはノードポインタを変更して実現します。コードは次のとおりです：
 
 ```src
 [file]{avl_tree}-[class]{avl_tree}-[func]{right_rotate}
@@ -269,60 +280,60 @@ AVL木の特徴的な機能は「回転」操作で、これは二分木の中�
 
 ### 左回転
 
-対応して、上記の不平衡二分木の「鏡像」を考慮すると、下図に示す「左回転」操作を実行する必要があります。
+対応する鏡像として、上記の不平衡二分木を左右反転して考えると、以下の図に示す「左回転」が必要になります。
 
-![左回転操作](avl_tree.assets/avltree_left_rotate.png)
+![左回転](avl_tree.assets/avltree_left_rotate.png)
 
-同様に、下図に示すように、`child`ノードに左の子（`grand_child`と表記）がある場合、左回転で手順を追加する必要があります：`grand_child`を`node`の右の子に設定します。
+同様に、以下の図に示すように、ノード `child` に左の子ノード（`grand_child` と記す）がある場合、左回転にも 1 ステップ追加する必要があります。すなわち、`grand_child` を `node` の右の子ノードにします。
 
-![grand_childがある左回転](avl_tree.assets/avltree_left_rotate_with_grandchild.png)
+![grand_child を持つ左回転](avl_tree.assets/avltree_left_rotate_with_grandchild.png)
 
-**右回転と左回転の操作は論理的に対称であり、2つの対称的な不平衡タイプを解決します**ことが観察できます。対称性に基づいて、右回転の実装コードですべての`left`を`right`に、すべての`right`を`left`に置き換えることで、左回転の実装コードを得ることができます：
+分かるように、**右回転と左回転は論理的に鏡像対称であり、それぞれが解決する 2 種類の不平衡も対称です**。この対称性に基づけば、右回転の実装コードにあるすべての `left` を `right` に、すべての `right` を `left` に置き換えるだけで、左回転の実装コードが得られます：
 
 ```src
 [file]{avl_tree}-[class]{avl_tree}-[func]{left_rotate}
 ```
 
-### 左右回転
+### 左回転してから右回転
 
-下図に示す不平衡ノード3の場合、左回転または右回転のいずれかだけでは部分木のバランスを回復できません。この場合、まず`child`に対して「左回転」を実行し、次に`node`に対して「右回転」を実行する必要があります。
+以下の図の不平衡ノード 3 では、左回転だけでも右回転だけでも部分木を平衡に戻せません。この場合は、まず `child` に「左回転」を行い、次に `node` に「右回転」を行います。
 
-![左右回転](avl_tree.assets/avltree_left_right_rotate.png)
+![左回転してから右回転](avl_tree.assets/avltree_left_right_rotate.png)
 
-### 右左回転
+### 右回転してから左回転
 
-下図に示すように、上記の不平衡二分木の鏡像ケースでは、まず`child`に対して「右回転」を実行し、次に`node`に対して「左回転」を実行する必要があります。
+以下の図に示すように、上記の不平衡二分木の鏡像のケースでは、まず `child` に「右回転」を行い、次に `node` に「左回転」を行います。
 
-![右左回転](avl_tree.assets/avltree_right_left_rotate.png)
+![右回転してから左回転](avl_tree.assets/avltree_right_left_rotate.png)
 
 ### 回転の選択
 
-下図に示す4種類の不平衡は、それぞれ上記で説明したケースに対応し、右回転、左右回転、右左回転、左回転が必要です。
+以下の図に示す 4 種類の不平衡は、上の各ケースにそれぞれ対応しており、必要な操作は順に右回転、左回転してから右回転、右回転してから左回転、左回転です。
 
-![AVL木の4つの回転ケース](avl_tree.assets/avltree_rotation_cases.png)
+![AVL 木の 4 つの回転ケース](avl_tree.assets/avltree_rotation_cases.png)
 
-下表に示すように、不平衡ノードの平衡因子とその高い側の子の平衡因子の符号を判断することで、不平衡ノードが上記のどのケースに属するかを決定します。
+以下の表に示すように、不平衡ノードの平衡係数と、高い側の子ノードの平衡係数の符号を判定することで、その不平衡ノードが上図のどのケースに属するかを判断できます。
 
-<p align="center"> 表 <id> &nbsp; 4つの回転ケースの選択条件 </p>
+<p align="center"> 表 <id> &nbsp; 4 種類の回転ケースの選択条件 </p>
 
-| 不平衡ノードの平衡因子 | 子ノードの平衡因子 | 使用する回転方法             |
-| --------------------- | ----------------- | --------------------------- |
-| $> 1$（左に傾いた木）  | $\geq 0$          | 右回転                      |
-| $> 1$（左に傾いた木）  | $<0$              | 左回転してから右回転        |
-| $< -1$（右に傾いた木） | $\leq 0$          | 左回転                      |
-| $< -1$（右に傾いた木） | $>0$              | 右回転してから左回転        |
+| 不平衡ノードの平衡係数 | 子ノードの平衡係数 | 採用すべき回転方法 |
+| ------------------ | ---------------- | ---------------- |
+| $> 1$ （左に偏った木）   | $\geq 0$         | 右回転             |
+| $> 1$ （左に偏った木）   | $<0$             | 左回転してから右回転     |
+| $< -1$ （右に偏った木）  | $\leq 0$         | 左回転             |
+| $< -1$ （右に偏った木）  | $>0$             | 右回転してから左回転     |
 
-便宜上、回転操作を関数にカプセル化します。**この関数により、さまざまな種類の不平衡に対して回転を実行し、不平衡ノードのバランスを回復できます**。コードは以下の通りです：
+使いやすくするために、回転操作を 1 つの関数にカプセル化します。**この関数があれば、さまざまな不平衡ケースに対して回転を行い、不平衡ノードを再び平衡に戻せます**。コードは次のとおりです：
 
 ```src
 [file]{avl_tree}-[class]{avl_tree}-[func]{rotate}
 ```
 
-## AVL木の一般的な操作
+## AVL 木の基本操作
 
 ### ノードの挿入
 
-AVL木のノード挿入操作は二分探索木のそれと似ています。唯一の違いは、AVL木でノードを挿入した後、そのノードから根ノードまでのパス上に一連の不平衡ノードが現れる可能性があることです。したがって、**このノードから始めて上向きに回転操作を実行し、すべての不平衡ノードのバランスを回復する必要があります**。コードは以下の通りです：
+AVL 木のノード挿入は、基本的には二分探索木と同じです。唯一の違いは、AVL 木ではノード挿入後に、そのノードから根ノードまでの経路上に複数の不平衡ノードが現れる可能性があることです。したがって、**このノードから開始して、下から上へ回転操作を行い、すべての不平衡ノードを平衡に戻す必要があります**。コードは次のとおりです：
 
 ```src
 [file]{avl_tree}-[class]{avl_tree}-[func]{insert_helper}
@@ -330,18 +341,18 @@ AVL木のノード挿入操作は二分探索木のそれと似ています。�
 
 ### ノードの削除
 
-同様に、二分探索木でのノード削除方法に基づいて、下から上へ回転操作を実行してすべての不平衡ノードのバランスを回復する必要があります。コードは以下の通りです：
+同様に、二分探索木のノード削除メソッドを土台として、下から上へ回転操作を行い、すべての不平衡ノードを平衡に戻す必要があります。コードは次のとおりです：
 
 ```src
 [file]{avl_tree}-[class]{avl_tree}-[func]{remove_helper}
 ```
 
-### ノードの検索
+### ノードの探索
 
-AVL木でのノード検索操作は二分探索木のそれと一致しており、ここでは詳述しません。
+AVL 木のノード探索操作は二分探索木と同じなので、ここでは繰り返しません。
 
-## AVL木の典型的な応用
+## AVL 木の代表的な応用
 
-- 大量のデータの整理と格納に使用され、検索頻度が高く、挿入と削除の頻度が低いシナリオに適しています。
-- データベースのインデックスシステムの構築に使用されます。
-- 赤黒木も一般的な平衡二分探索木の一種です。AVL木と比較して、赤黒木はより緩い平衡条件を持ち、ノードの挿入と削除にかかる回転数が少なく、ノードの追加と削除操作の平均効率が高くなります。
+- 大規模データの整理・格納に用いられ、高頻度の探索と低頻度の追加・削除に適しています。
+- データベースのインデックスシステムの構築に使われます。
+- 赤黒木も代表的な平衡二分探索木の一つです。AVL 木と比べると、赤黒木は平衡条件がより緩く、ノードの挿入・削除に必要な回転操作が少ないため、平均的な更新効率はより高くなります。

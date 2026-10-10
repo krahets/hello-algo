@@ -15,36 +15,36 @@ public class hash_map {
         Map<Integer, String> map = new HashMap<>();
 
         /* 追加操作 */
-        // ハッシュテーブルにキー値ペア (key, value) を追加
-        map.put(12836, "Ha");
-        map.put(15937, "Luo");
-        map.put(16750, "Suan");
-        map.put(13276, "Fa");
-        map.put(10583, "Ya");
-        System.out.println("\n追加後、ハッシュテーブルは\nKey -> Value");
+        // ハッシュテーブルにキーと値のペア (key, value) を追加
+        map.put(12836, "シャオハー");
+        map.put(15937, "シャオルオ");
+        map.put(16750, "シャオスワン");
+        map.put(13276, "シャオファー");
+        map.put(10583, "シャオヤー");
+        System.out.println("\n追加後のハッシュ表は\nKey -> Value");
         PrintUtil.printHashMap(map);
 
         /* 検索操作 */
-        // ハッシュテーブルにキーを入力し、値を取得
+        // キー key をハッシュテーブルに渡し、値 value を取得
         String name = map.get(15937);
-        System.out.println("\n学生番号 15937 を入力し、名前 " + name + " を見つけました");
+        System.out.println("\n学籍番号 15937 を入力すると、氏名 " + name);
 
         /* 削除操作 */
-        // ハッシュテーブルからキー値ペア (key, value) を削除
+        // ハッシュテーブルからキーと値のペア (key, value) を削除
         map.remove(10583);
-        System.out.println("\n10583 を削除後、ハッシュテーブルは\nKey -> Value");
+        System.out.println("\n10583 を削除すると、ハッシュ表は\nKey -> Value");
         PrintUtil.printHashMap(map);
 
-        /* ハッシュテーブルの走査 */
-        System.out.println("\nキー値ペアを走査 Key->Value");
+        /* ハッシュテーブルを走査 */
+        System.out.println("\nキーと値の組 Key->Value を走査");
         for (Map.Entry<Integer, String> kv : map.entrySet()) {
             System.out.println(kv.getKey() + " -> " + kv.getValue());
         }
-        System.out.println("\nキーを個別に走査 Key");
+        System.out.println("\nキー Key のみを走査");
         for (int key : map.keySet()) {
             System.out.println(key);
         }
-        System.out.println("\n値を個別に走査 Value");
+        System.out.println("\n値 Value のみを走査");
         for (String val : map.values()) {
             System.out.println(val);
         }

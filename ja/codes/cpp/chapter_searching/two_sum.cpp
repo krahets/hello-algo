@@ -6,10 +6,10 @@
 
 #include "../utils/common.hpp"
 
-/* 方法一：ブルートフォース列挙 */
+/* 方法 1：総当たり列挙 */
 vector<int> twoSumBruteForce(vector<int> &nums, int target) {
     int size = nums.size();
-    // 二重ループ、時間計算量はO(n^2)
+    // 2重ループのため、時間計算量は O(n^2)
     for (int i = 0; i < size - 1; i++) {
         for (int j = i + 1; j < size; j++) {
             if (nums[i] + nums[j] == target)
@@ -19,12 +19,12 @@ vector<int> twoSumBruteForce(vector<int> &nums, int target) {
     return {};
 }
 
-/* 方法二：補助ハッシュテーブル */
+/* 方法 2：補助ハッシュテーブル */
 vector<int> twoSumHashTable(vector<int> &nums, int target) {
     int size = nums.size();
-    // 補助ハッシュテーブル、空間計算量はO(n)
+    // 補助ハッシュテーブルを使用し、空間計算量は O(n)
     unordered_map<int, int> dic;
-    // 単層ループ、時間計算量はO(n)
+    // 単一ループで、時間計算量は O(n)
     for (int i = 0; i < size; i++) {
         if (dic.find(target - nums[i]) != dic.end()) {
             return {dic[target - nums[i]], i};
@@ -34,20 +34,20 @@ vector<int> twoSumHashTable(vector<int> &nums, int target) {
     return {};
 }
 
-/* ドライバコード */
+/* Driver Code */
 int main() {
-    // ======= テストケース =======
+    // ======= Test Case =======
     vector<int> nums = {2, 7, 11, 15};
     int target = 13;
 
-    // ====== ドライバコード ======
-    // 方法一
+    // ====== Driver Code ======
+    // 方法 1
     vector<int> res = twoSumBruteForce(nums, target);
-    cout << "方法一 res = ";
+    cout << "方法1 res = ";
     printVector(res);
-    // 方法二
+    // 方法 2
     res = twoSumHashTable(nums, target);
-    cout << "方法二 res = ";
+    cout << "方法2 res = ";
     printVector(res);
 
     return 0;

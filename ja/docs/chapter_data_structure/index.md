@@ -1,9 +1,9 @@
 # データ構造
 
-![Data structures](../assets/covers/chapter_data_structure.jpg)
+![データ構造](../assets/covers/chapter_data_structure.jpg)
 
 !!! abstract
 
-    データ構造は堅牢で多様なフレームワークとして機能します。
-
-    データの整然とした組織化のための設計図を提供し、その上でアルゴリズムが生き生きと動き出します。
+    データ構造は、堅固で多様な枠組みのようなものである。
+    
+    それはデータを秩序立てて組織するための青写真を示し、アルゴリズムはその上で生き生きと動き出す。

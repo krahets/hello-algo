@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.hello-algo.com/">
-    <img src="https://www.hello-algo.com/index.assets/hello_algo_header.png" width="450"></a>
+    <img src="/docs/index.assets/hello_algo_header.png" width="450"></a>
 </p>
 
 <p align="center">
@@ -11,30 +11,30 @@
 
 <p align="center">
   <a href="https://www.hello-algo.com/">
-    <img src="https://www.hello-algo.com/index.assets/btn_read_online_dark.svg" height="45"></a>
+    <img src="/docs/index.assets/btn_read_online_dark.svg" height="45"></a>
   <a href="https://github.com/krahets/hello-algo/releases">
-    <img src="https://www.hello-algo.com/index.assets/btn_download_pdf_epub_dark.svg" height="45"></a>
+    <img src="/docs/index.assets/btn_download_pdf_epub_dark.svg" height="45"></a>
 </p>
 
 <p align="center">
-  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="395">
-  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="395">
+  <img src="/docs/index.assets/animation.gif" width="395">
+  <img src="/docs/index.assets/running_code.gif" width="395">
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB" alt="" />
-  <img src="https://img.shields.io/badge/Java-snow?logo=coffeescript&logoColor=FC4C02" alt="" />
-  <img src="https://img.shields.io/badge/C%2B%2B-snow?logo=c%2B%2B&logoColor=00599C" alt="" />
-  <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC" alt="" />
-  <img src="https://img.shields.io/badge/C%23-snow?logo=csharp&logoColor=512BD4" alt="" />
-  <img src="https://img.shields.io/badge/JavaScript-snow?logo=javascript&logoColor=E9CE30" alt="" />
-  <img src="https://img.shields.io/badge/Go-snow?logo=go&logoColor=00ADD8" alt="" />
-  <img src="https://img.shields.io/badge/Swift-snow?logo=swift&logoColor=F05138" alt="" />
-  <img src="https://img.shields.io/badge/Rust-snow?logo=rust&logoColor=000000" alt="" />
-  <img src="https://img.shields.io/badge/Ruby-snow?logo=ruby&logoColor=CC342D" alt="" />
-  <img src="https://img.shields.io/badge/Kotlin-snow?logo=kotlin&logoColor=7F52FF" alt="" />
-  <img src="https://img.shields.io/badge/TypeScript-snow?logo=typescript&logoColor=3178C6" alt="" />
-  <img src="https://img.shields.io/badge/Dart-snow?logo=dart&logoColor=0175C2" alt="" />
+  <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB" alt="Python" />
+  <img src="https://img.shields.io/badge/Java-snow?logo=coffeescript&logoColor=FC4C02" alt="Java" />
+  <img src="https://img.shields.io/badge/C%2B%2B-snow?logo=c%2B%2B&logoColor=00599C" alt="C++" />
+  <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC" alt="C" />
+  <img src="https://img.shields.io/badge/C%23-snow?logo=csharp&logoColor=512BD4" alt="C#" />
+  <img src="https://img.shields.io/badge/JavaScript-snow?logo=javascript&logoColor=E9CE30" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/Go-snow?logo=go&logoColor=00ADD8" alt="Go" />
+  <img src="https://img.shields.io/badge/Swift-snow?logo=swift&logoColor=F05138" alt="Swift" />
+  <img src="https://img.shields.io/badge/Rust-snow?logo=rust&logoColor=000000" alt="Rust" />
+  <img src="https://img.shields.io/badge/Ruby-snow?logo=ruby&logoColor=CC342D" alt="Ruby" />
+  <img src="https://img.shields.io/badge/Kotlin-snow?logo=kotlin&logoColor=7F52FF" alt="Kotlin" />
+  <img src="https://img.shields.io/badge/TypeScript-snow?logo=typescript&logoColor=3178C6" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Dart-snow?logo=dart&logoColor=0175C2" alt="Dart" />
 </p>
 
 <p align="center">
@@ -45,6 +45,8 @@
   <a href="https://github.com/krahets/hello-algo/blob/main/en/README.md">English</a>
   ｜
   <a href="https://github.com/krahets/hello-algo/blob/main/ja/README.md">日本語</a>
+  ｜
+  <a href="https://github.com/krahets/hello-algo/blob/main/ru/README.md">Русский</a>
 </p>
 
 ## 关于本书
@@ -67,24 +69,13 @@
 >
 > **—— 李沐，亚马逊资深首席科学家**
 
-## 鸣谢
-
-<p align="left">
-  <a href="https://go.warp.dev/hello-algo">
-    <img src="https://github.com/warpdotdev/brand-assets/blob/main/Github/Sponsor/Warp-Github-LG-02.png" alt="Warp-Github-LG-02" width="500"></a>
-</p>
-
-[Warp is built for coding with multiple AI agents.](https://go.warp.dev/hello-algo)
-
-强烈推荐 Warp 终端，高颜值 + 好用的 AI，体验非常棒！
-
 ## 贡献
 
 本开源书仍在持续更新之中，欢迎您参与本项目，一同为读者提供更优质的学习内容。
 
 - [内容修正](https://www.hello-algo.com/chapter_appendix/contribution/)：请您协助修正或在评论区指出语法错误、内容缺失、文字歧义、无效链接或代码 bug 等问题。
 - [代码转译](https://github.com/krahets/hello-algo/issues/15)：期待您贡献各种语言代码，已支持 Python、Java、C++、Go、JavaScript 等 12 门编程语言。
-- [中译英](https://github.com/krahets/hello-algo/issues/914)：诚邀您加入我们的翻译小组，成员主要来自计算机相关专业、英语专业和英文母语者。
+- 翻译审阅：欢迎您参与本项目的多语言翻译与校对工作，帮助更多读者用母语学习数据结构与算法。
 
 欢迎您提出宝贵意见和建议，如有任何问题请提交 Issues 或微信联系 `krahets-jyd` 。
 

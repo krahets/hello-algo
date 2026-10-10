@@ -6,24 +6,24 @@
 
 #include "../utils/common.hpp"
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
     int num = 3;
     size_t hashNum = hash<int>()(num);
-    cout << "The hash value of integer " << num << " is " << hashNum << "\n";
+    cout << "整数 " << num << " のハッシュ値は " << hashNum << "\n";
 
     bool bol = true;
     size_t hashBol = hash<bool>()(bol);
-    cout << "The hash value of boolean " << bol << " is " << hashBol << "\n";
+    cout << "真偽値 " << bol << " のハッシュ値は " << hashBol << "\n";
 
     double dec = 3.14159;
     size_t hashDec = hash<double>()(dec);
-    cout << "The hash value of decimal " << dec << " is " << hashDec << "\n";
+    cout << "小数 " << dec << " のハッシュ値は " << hashDec << "\n";
 
-    string str = "Hello algorithm";
+    string str = "Hello アルゴリズム";
     size_t hashStr = hash<string>()(str);
-    cout << "The hash value of string " << str << " is " << hashStr << "\n";
+    cout << "文字列 " << str << " のハッシュ値は " << hashStr << "\n";
 
-    // C++では、組み込みのstd:hash()は基本データ型のハッシュ値のみを提供
-    // 配列やオブジェクトのハッシュ値計算は手動で実装する必要がある
+    // C++ では、組み込みの std::hash() は基本データ型のハッシュ値計算しか提供しない
+    // 配列やオブジェクトのハッシュ値計算は自分で実装する必要がある
 }

@@ -69,25 +69,26 @@ class LinkedListDeque
   def pop(is_front)
     raise IndexError, 'Deque is empty' if is_empty?
 
+    # When the deque has one element, front and rear point to the same node
+    if @size == 1
+      val = @front.val
+      @front = nil
+      @rear = nil
     # Temporarily store head node value
-    if is_front
+    elsif is_front
       val = @front.val # Delete head node
       # Delete head node
       fnext = @front.next
-      unless fnext.nil?
-        fnext.prev = nil
-        @front.next = nil
-      end
+      fnext.prev = nil
+      @front.next = nil
       @front = fnext # Update head node
     # Temporarily store tail node value
     else
       val = @rear.val # Delete tail node
       # Update tail node
       rprev = @rear.prev
-      unless rprev.nil?
-        rprev.next = nil
-        @rear.prev = nil
-      end
+      rprev.next = nil
+      @rear.prev = nil
       @rear = rprev # Update tail node
     end
     @size -= 1 # Update queue length

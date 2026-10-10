@@ -12,7 +12,7 @@ import java.util.*;
 public class preorder_traversal_i_compact {
     static List<TreeNode> res;
 
-    /* 前順走査：例１ */
+    /* 前順走査：例題 1 */
     static void preOrder(TreeNode root) {
         if (root == null) {
             return;
@@ -30,11 +30,11 @@ public class preorder_traversal_i_compact {
         System.out.println("\n二分木を初期化");
         PrintUtil.printTree(root);
 
-        // 前順走査
+        // 先行順走査
         res = new ArrayList<>();
         preOrder(root);
 
-        System.out.println("\n値7のノードをすべて出力");
+        System.out.println("\n値が 7 のノードをすべて出力");
         List<Integer> vals = new ArrayList<>();
         for (TreeNode node : res) {
             vals.add(node.val);

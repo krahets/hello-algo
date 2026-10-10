@@ -4,7 +4,7 @@ INHERIT: ../mkdocs.yml
 # Project information
 site_name: Hello Algo
 site_url: https://www.hello-algo.com/en/
-site_description: "Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code"
+site_description: "Data structures and algorithms tutorial with animated illustrations and ready-to-run code"
 docs_dir: ../build/en/docs
 site_dir: ../site/en
 # Repository
@@ -16,7 +16,7 @@ theme:
   custom_dir: ../build/overrides
   language: en
   font:
-    text: Lato
+    text: Inter
   palette:
     - scheme: default
       primary: white
@@ -45,7 +45,7 @@ nav:
     - 0.1 About This Book: chapter_preface/about_the_book.md
     - 0.2 How to Use This Book: chapter_preface/suggestions.md
     - 0.3 Summary: chapter_preface/summary.md
-  - Chapter 1. Encounter With Algorithms:
+  - Chapter 1. Encounter with Algorithms:
     # [icon: material/calculator-variant-outline]
     - chapter_introduction/index.md
     - 1.1 Algorithms Are Everywhere: chapter_introduction/algorithms_are_everywhere.md
@@ -59,6 +59,7 @@ nav:
     - 2.3 Time Complexity: chapter_computational_complexity/time_complexity.md
     - 2.4 Space Complexity: chapter_computational_complexity/space_complexity.md
     - 2.5 Summary: chapter_computational_complexity/summary.md
+    - 2.6 Exercises: chapter_computational_complexity/exercises.md
   - Chapter 3. Data Structures:
     # [icon: material/shape-outline]
     - chapter_data_structure/index.md
@@ -67,21 +68,24 @@ nav:
     - 3.3 Number Encoding *: chapter_data_structure/number_encoding.md
     - 3.4 Character Encoding *: chapter_data_structure/character_encoding.md
     - 3.5 Summary: chapter_data_structure/summary.md
-  - Chapter 4. Array and Linked List:
+    - 3.6 Exercises: chapter_data_structure/exercises.md
+  - Chapter 4. Arrays and Linked Lists:
     # [icon: material/view-list-outline]
     - chapter_array_and_linkedlist/index.md
     - 4.1 Array: chapter_array_and_linkedlist/array.md
     - 4.2 Linked List: chapter_array_and_linkedlist/linked_list.md
     - 4.3 List: chapter_array_and_linkedlist/list.md
-    - 4.4 Memory and Cache *: chapter_array_and_linkedlist/ram_and_cache.md
+    - 4.4 Random-Access Memory and Cache *: chapter_array_and_linkedlist/ram_and_cache.md
     - 4.5 Summary: chapter_array_and_linkedlist/summary.md
-  - Chapter 5. Stack and Queue:
+    - 4.6 Exercises: chapter_array_and_linkedlist/exercises.md
+  - Chapter 5. Stacks and Queues:
     # [icon: material/stack-overflow]
     - chapter_stack_and_queue/index.md
     - 5.1 Stack: chapter_stack_and_queue/stack.md
     - 5.2 Queue: chapter_stack_and_queue/queue.md
-    - 5.3 Double-Ended Queue: chapter_stack_and_queue/deque.md
+    - 5.3 Deque: chapter_stack_and_queue/deque.md
     - 5.4 Summary: chapter_stack_and_queue/summary.md
+    - 5.5 Exercises: chapter_stack_and_queue/exercises.md
   - Chapter 6. Hashing:
     # [icon: material/table-search]
     - chapter_hashing/index.md
@@ -89,22 +93,25 @@ nav:
     - 6.2 Hash Collision: chapter_hashing/hash_collision.md
     - 6.3 Hash Algorithm: chapter_hashing/hash_algorithm.md
     - 6.4 Summary: chapter_hashing/summary.md
+    - 6.5 Exercises: chapter_hashing/exercises.md
   - Chapter 7. Tree:
     # [icon: material/graph-outline]
     - chapter_tree/index.md
     - 7.1 Binary Tree: chapter_tree/binary_tree.md
     - 7.2 Binary Tree Traversal: chapter_tree/binary_tree_traversal.md
-    - 7.3 Array Representation of Tree: chapter_tree/array_representation_of_tree.md
+    - 7.3 Array Representation of Binary Trees: chapter_tree/array_representation_of_tree.md
     - 7.4 Binary Search Tree: chapter_tree/binary_search_tree.md
     - 7.5 AVL Tree *: chapter_tree/avl_tree.md
     - 7.6 Summary: chapter_tree/summary.md
+    - 7.7 Exercises: chapter_tree/exercises.md
   - Chapter 8. Heap:
     # [icon: material/family-tree]
     - chapter_heap/index.md
     - 8.1 Heap: chapter_heap/heap.md
-    - 8.2 Building a Heap: chapter_heap/build_heap.md
-    - 8.3 Top-K Problem: chapter_heap/top_k.md
+    - 8.2 Heap Construction Operation: chapter_heap/build_heap.md
+    - 8.3 Top-k Problem: chapter_heap/top_k.md
     - 8.4 Summary: chapter_heap/summary.md
+    - 8.5 Exercises: chapter_heap/exercises.md
   - Chapter 9. Graph:
     # [icon: material/graphql]
     - chapter_graph/index.md
@@ -112,19 +119,21 @@ nav:
     - 9.2 Basic Operations on Graphs: chapter_graph/graph_operations.md
     - 9.3 Graph Traversal: chapter_graph/graph_traversal.md
     - 9.4 Summary: chapter_graph/summary.md
+    - 9.5 Exercises: chapter_graph/exercises.md
   - Chapter 10. Searching:
     # [icon: material/text-search]
     - chapter_searching/index.md
     - 10.1 Binary Search: chapter_searching/binary_search.md
-    - 10.2 Binary Search Insertion: chapter_searching/binary_search_insertion.md
-    - 10.3 Binary Search Edge Cases: chapter_searching/binary_search_edge.md
+    - 10.2 Binary Search Insertion Point: chapter_searching/binary_search_insertion.md
+    - 10.3 Binary Search Boundaries: chapter_searching/binary_search_edge.md
     - 10.4 Hash Optimization Strategy: chapter_searching/replace_linear_by_hashing.md
-    - 10.5 Search Algorithms Revisited: chapter_searching/searching_algorithm_revisited.md
+    - 10.5 Searching Algorithms Revisited: chapter_searching/searching_algorithm_revisited.md
     - 10.6 Summary: chapter_searching/summary.md
+    - 10.7 Exercises: chapter_searching/exercises.md
   - Chapter 11. Sorting:
     # [icon: material/sort-ascending]
     - chapter_sorting/index.md
-    - 11.1 Sorting Algorithms: chapter_sorting/sorting_algorithm.md
+    - 11.1 Sorting Algorithm: chapter_sorting/sorting_algorithm.md
     - 11.2 Selection Sort: chapter_sorting/selection_sort.md
     - 11.3 Bubble Sort: chapter_sorting/bubble_sort.md
     - 11.4 Insertion Sort: chapter_sorting/insertion_sort.md
@@ -135,14 +144,16 @@ nav:
     - 11.9 Counting Sort: chapter_sorting/counting_sort.md
     - 11.10 Radix Sort: chapter_sorting/radix_sort.md
     - 11.11 Summary: chapter_sorting/summary.md
+    - 11.12 Exercises: chapter_sorting/exercises.md
   - Chapter 12. Divide and Conquer:
     # [icon: material/set-split]
     - chapter_divide_and_conquer/index.md
     - 12.1 Divide and Conquer Algorithms: chapter_divide_and_conquer/divide_and_conquer.md
     - 12.2 Divide and Conquer Search Strategy: chapter_divide_and_conquer/binary_search_recur.md
     - 12.3 Building a Binary Tree Problem: chapter_divide_and_conquer/build_binary_tree_problem.md
-    - 12.4 Hanoi Tower Problem: chapter_divide_and_conquer/hanota_problem.md
+    - 12.4 Hanota Problem: chapter_divide_and_conquer/hanota_problem.md
     - 12.5 Summary: chapter_divide_and_conquer/summary.md
+    - 12.6 Exercises: chapter_divide_and_conquer/exercises.md
   - Chapter 13. Backtracking:
     # [icon: material/map-marker-path]
     - chapter_backtracking/index.md
@@ -151,6 +162,7 @@ nav:
     - 13.3 Subset-Sum Problem: chapter_backtracking/subset_sum_problem.md
     - 13.4 N-Queens Problem: chapter_backtracking/n_queens_problem.md
     - 13.5 Summary: chapter_backtracking/summary.md
+    - 13.6 Exercises: chapter_backtracking/exercises.md
   - Chapter 14. Dynamic Programming:
     # [icon: material/table-pivot]
     - chapter_dynamic_programming/index.md
@@ -161,6 +173,7 @@ nav:
     - 14.5 Unbounded Knapsack Problem: chapter_dynamic_programming/unbounded_knapsack_problem.md
     - 14.6 Edit Distance Problem: chapter_dynamic_programming/edit_distance_problem.md
     - 14.7 Summary: chapter_dynamic_programming/summary.md
+    - 14.8 Exercises: chapter_dynamic_programming/exercises.md
   - Chapter 15. Greedy:
     # [icon: material/head-heart-outline]
     - chapter_greedy/index.md
@@ -169,11 +182,12 @@ nav:
     - 15.3 Maximum Capacity Problem: chapter_greedy/max_capacity_problem.md
     - 15.4 Maximum Product Cutting Problem: chapter_greedy/max_product_cutting_problem.md
     - 15.5 Summary: chapter_greedy/summary.md
+    - 15.6 Exercises: chapter_greedy/exercises.md
   - Chapter 16. Appendix:
     # [icon: material/help-circle-outline]
     - chapter_appendix/index.md
     - 16.1 Programming Environment Installation: chapter_appendix/installation.md
     - 16.2 Contributing Together: chapter_appendix/contribution.md
-    - 16.3 Terminology Table: chapter_appendix/terminology.md
+    - 16.3 Glossary: chapter_appendix/terminology.md
   - References:
     - chapter_reference/index.md

@@ -6,12 +6,12 @@
 
 #include "../utils/common.hpp"
 
-/* 硬貨両替 II：動的プログラミング */
+/* コイン両替 II：動的計画法 */
 int coinChangeIIDP(vector<int> &coins, int amt) {
     int n = coins.size();
-    // DPテーブルを初期化
+    // dp テーブルを初期化
     vector<vector<int>> dp(n + 1, vector<int>(amt + 1, 0));
-    // 最初の列を初期化
+    // 先頭列を初期化する
     for (int i = 0; i <= n; i++) {
         dp[i][0] = 1;
     }
@@ -19,10 +19,10 @@ int coinChangeIIDP(vector<int> &coins, int amt) {
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // 目標金額を超える場合、硬貨 i を選択しない
+                // 目標金額を超えるなら硬貨 i は選ばない
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // 選択しない場合と硬貨 i を選択する場合の2つの選択肢の合計
+                // コイン i を選ばない場合と選ぶ場合の和
                 dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
             }
         }
@@ -30,20 +30,20 @@ int coinChangeIIDP(vector<int> &coins, int amt) {
     return dp[n][amt];
 }
 
-/* 硬貨両替 II：空間最適化動的プログラミング */
+/* コイン両替 II：空間最適化した動的計画法 */
 int coinChangeIIDPComp(vector<int> &coins, int amt) {
     int n = coins.size();
-    // DPテーブルを初期化
+    // dp テーブルを初期化
     vector<int> dp(amt + 1, 0);
     dp[0] = 1;
     // 状態遷移
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // 目標金額を超える場合、硬貨 i を選択しない
+                // 目標金額を超えるなら硬貨 i は選ばない
                 dp[a] = dp[a];
             } else {
-                // 選択しない場合と硬貨 i を選択する場合の2つの選択肢の合計
+                // コイン i を選ばない場合と選ぶ場合の和
                 dp[a] = dp[a] + dp[a - coins[i - 1]];
             }
         }
@@ -51,18 +51,18 @@ int coinChangeIIDPComp(vector<int> &coins, int amt) {
     return dp[amt];
 }
 
-/* ドライバーコード */
+/* Driver code */
 int main() {
     vector<int> coins = {1, 2, 5};
     int amt = 5;
 
-    // 動的プログラミング
+    // 動的計画法
     int res = coinChangeIIDP(coins, amt);
-    cout << "目標金額を作る硬貨の組み合わせ数は " << res << " です" << endl;
+    cout << "目標金額を作る硬貨の組み合わせ数は " << res << endl;
 
-    // 空間最適化動的プログラミング
+    // 空間最適化後の動的計画法
     res = coinChangeIIDPComp(coins, amt);
-    cout << "目標金額を作る硬貨の組み合わせ数は " << res << " です" << endl;
+    cout << "目標金額を作る硬貨の組み合わせ数は " << res << endl;
 
     return 0;
 }

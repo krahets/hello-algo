@@ -18,31 +18,31 @@ def dfs(
     l: int,
     r: int,
 ) -> TreeNode | None:
-    """二分木の構築：分割統治"""
-    # 部分木の区間が空のとき終了
+    """二分木を構築：分割統治"""
+    # 部分木区間が空なら終了する
     if r - l < 0:
         return None
-    # ルートノードを初期化
+    # ルートノードを初期化する
     root = TreeNode(preorder[i])
-    # m をクエリして左部分木と右部分木を分割
+    # m を求めて左右部分木を分割する
     m = inorder_map[preorder[i]]
-    # 部分問題：左部分木を構築
+    # 部分問題：左部分木を構築する
     root.left = dfs(preorder, inorder_map, i + 1, l, m - 1)
-    # 部分問題：右部分木を構築
+    # 部分問題：右部分木を構築する
     root.right = dfs(preorder, inorder_map, i + 1 + m - l, m + 1, r)
-    # ルートノードを返す
+    # 根ノードを返す
     return root
 
 
 def build_tree(preorder: list[int], inorder: list[int]) -> TreeNode | None:
     """二分木を構築"""
-    # ハッシュテーブルを初期化、中順走査の要素からインデックスへのマッピングを保存
+    # inorder の要素からインデックスへの対応を格納するハッシュテーブルを初期化する
     inorder_map = {val: i for i, val in enumerate(inorder)}
     root = dfs(preorder, inorder_map, 0, 0, len(inorder) - 1)
     return root
 
 
-"""ドライバーコード"""
+"""Driver Code"""
 if __name__ == "__main__":
     preorder = [3, 9, 2, 1, 7]
     inorder = [9, 3, 1, 2, 7]
@@ -50,5 +50,5 @@ if __name__ == "__main__":
     print(f"中順走査 = {inorder}")
 
     root = build_tree(preorder, inorder)
-    print("構築された二分木は：")
+    print("構築した二分木:")
     print_tree(root)

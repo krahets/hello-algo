@@ -6,24 +6,24 @@
 
 #include "../utils/common.hpp"
 
-/* 最小コスト階段登り：動的プログラミング */
+/* 階段登りの最小コスト：動的計画法 */
 int minCostClimbingStairsDP(vector<int> &cost) {
     int n = cost.size() - 1;
     if (n == 1 || n == 2)
         return cost[n];
-    // DPテーブルを初期化し、部分問題の解を格納するために使用
+    // 部分問題の解を保存するために dp テーブルを初期化
     vector<int> dp(n + 1);
-    // 初期状態：最小の部分問題の解を事前設定
+    // 初期状態：最小部分問題の解をあらかじめ設定
     dp[1] = cost[1];
     dp[2] = cost[2];
-    // 状態遷移：小さな問題から大きな部分問題を段階的に解く
+    // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
     for (int i = 3; i <= n; i++) {
         dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i];
     }
     return dp[n];
 }
 
-/* 最小コスト階段登り：空間最適化動的プログラミング */
+/* 階段昇りの最小コスト：空間最適化後の動的計画法 */
 int minCostClimbingStairsDPComp(vector<int> &cost) {
     int n = cost.size() - 1;
     if (n == 1 || n == 2)
@@ -37,21 +37,17 @@ int minCostClimbingStairsDPComp(vector<int> &cost) {
     return b;
 }
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
     vector<int> cost = {0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1};
-    cout << "階段のコストリストを [";
-    for (int i = 0; i < cost.size(); i++) {
-        cout << cost[i];
-        if (i < cost.size() - 1) cout << ", ";
-    }
-    cout << "] として入力" << endl;
+    cout << "入力された階段コストのリストは ";
+    printVector(cost);
 
     int res = minCostClimbingStairsDP(cost);
-    cout << "階段を登るための最小コスト " << res << endl;
+    cout << "階段を上り切る最小コストは " << res << endl;
 
     res = minCostClimbingStairsDPComp(cost);
-    cout << "階段を登るための最小コスト " << res << endl;
+    cout << "階段を上り切る最小コストは " << res << endl;
 
     return 0;
 }

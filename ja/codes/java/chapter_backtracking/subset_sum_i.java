@@ -9,36 +9,36 @@ package chapter_backtracking;
 import java.util.*;
 
 public class subset_sum_i {
-    /* バックトラッキングアルゴリズム：部分集合和 I */
+    /* バックトラッキング：部分和 I */
     static void backtrack(List<Integer> state, int target, int[] choices, int start, List<List<Integer>> res) {
-        // 部分集合の和がtargetと等しいとき、解を記録
+        // 部分集合の和が target に等しければ、解を記録
         if (target == 0) {
             res.add(new ArrayList<>(state));
             return;
         }
         // すべての選択肢を走査
-        // 剪定二：startから走査を開始し、重複する部分集合の生成を回避
+        // 枝刈り 2: start から走査し、重複する部分集合の生成を避ける
         for (int i = start; i < choices.length; i++) {
-            // 剪定一：部分集合の和がtargetを超えた場合、即座にループを終了
-            // 配列がソートされているため、後の要素はさらに大きく、部分集合の和は必ずtargetを超える
+            // 枝刈り1：部分集合の和が target を超えたら、直ちにループを終了する
+            // 配列はソート済みで後続要素のほうが大きく、部分集合の和は必ず target を超えるため
             if (target - choices[i] < 0) {
                 break;
             }
-            // 試行：選択を行い、target、startを更新
+            // 試す：選択を行い、target と start を更新
             state.add(choices[i]);
-            // 次のラウンドの選択に進む
+            // 次の選択へ進む
             backtrack(state, target - choices[i], choices, i, res);
-            // 回退：選択を取り消し、前の状態に復元
+            // バックトラック：選択を取り消し、前の状態に戻す
             state.remove(state.size() - 1);
         }
     }
 
-    /* 部分集合和 I を解く */
+    /* 部分和 I を解く */
     static List<List<Integer>> subsetSumI(int[] nums, int target) {
         List<Integer> state = new ArrayList<>(); // 状態（部分集合）
         Arrays.sort(nums); // nums をソート
-        int start = 0; // 走査の開始点
-        List<List<Integer>> res = new ArrayList<>(); // 結果リスト（部分集合リスト）
+        int start = 0; // 開始点を走査
+        List<List<Integer>> res = new ArrayList<>(); // 結果リスト（部分集合のリスト）
         backtrack(state, target, nums, start, res);
         return res;
     }
@@ -50,6 +50,6 @@ public class subset_sum_i {
         List<List<Integer>> res = subsetSumI(nums, target);
 
         System.out.println("入力配列 nums = " + Arrays.toString(nums) + ", target = " + target);
-        System.out.println("和が " + target + " のすべての部分集合 res = " + res);
+        System.out.println("和が " + target + " に等しいすべての部分集合 res = " + res);
     }
 }

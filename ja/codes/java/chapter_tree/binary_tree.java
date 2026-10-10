@@ -17,7 +17,7 @@ public class binary_tree {
         TreeNode n3 = new TreeNode(3);
         TreeNode n4 = new TreeNode(4);
         TreeNode n5 = new TreeNode(5);
-        // ノードの参照（ポインタ）を構築
+        // ノード間の参照（ポインタ）を構築する
         n1.left = n2;
         n1.right = n3;
         n2.left = n4;
@@ -27,7 +27,7 @@ public class binary_tree {
 
         /* ノードの挿入と削除 */
         TreeNode P = new TreeNode(0);
-        // ノード P を n1 -> n2 の間に挿入
+        // n1 -> n2 の間にノード P を挿入
         n1.left = P;
         P.left = n2;
         System.out.println("\nノード P を挿入後\n");

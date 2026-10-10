@@ -64,23 +64,26 @@ class LinkedListDeque:
         """出列操作"""
         if self.is_empty():
             raise IndexError("雙向佇列為空")
+        # 佇列長度為 1 時, 頭尾指向同一節點
+        if self._size == 1:
+            val: int = self._front.val
+            self._front = None
+            self._rear = None
         # 佇列首出列操作
-        if is_front:
+        elif is_front:
             val: int = self._front.val  # 暫存頭節點值
             # 刪除頭節點
             fnext: ListNode | None = self._front.next
-            if fnext is not None:
-                fnext.prev = None
-                self._front.next = None
+            fnext.prev = None
+            self._front.next = None
             self._front = fnext  # 更新頭節點
         # 佇列尾出列操作
         else:
             val: int = self._rear.val  # 暫存尾節點值
             # 刪除尾節點
             rprev: ListNode | None = self._rear.prev
-            if rprev is not None:
-                rprev.next = None
-                self._rear.prev = None
+            rprev.next = None
+            self._rear.prev = None
             self._rear = rprev  # 更新尾節點
         self._size -= 1  # 更新佇列長度
         return val

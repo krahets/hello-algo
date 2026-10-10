@@ -76,15 +76,19 @@ class LinkedListDeque {
             fatalError("Deque is empty")
         }
         let val: Int
+        // When the deque has one element, front and rear point to the same node
+        if _size == 1 {
+            val = front!.val
+            front = nil
+            rear = nil
+        }
         // Temporarily store head node value
-        if isFront {
+        else if isFront {
             val = front!.val // Delete head node
             // Delete head node
             let fNext = front?.next
-            if fNext != nil {
-                fNext?.prev = nil
-                front?.next = nil
-            }
+            fNext?.prev = nil
+            front?.next = nil
             front = fNext // Update head node
         }
         // Temporarily store tail node value
@@ -92,10 +96,8 @@ class LinkedListDeque {
             val = rear!.val // Delete tail node
             // Update tail node
             let rPrev = rear?.prev
-            if rPrev != nil {
-                rPrev?.next = nil
-                rear?.prev = nil
-            }
+            rPrev?.next = nil
+            rear?.prev = nil
             rear = rPrev // Update tail node
         }
         _size -= 1 // Update queue length

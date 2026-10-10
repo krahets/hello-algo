@@ -8,12 +8,12 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-/* 配列に基づくスタッククラス */
+/* 配列ベースのスタック */
 class ArrayStack {
     private ArrayList<Integer> stack;
 
     public ArrayStack() {
-        // リスト（動的配列）を初期化
+        // リスト（動的配列）を初期化する
         stack = new ArrayList<>();
     }
 
@@ -39,7 +39,7 @@ class ArrayStack {
         return stack.remove(size() - 1);
     }
 
-    /* スタックトップ要素にアクセス */
+    /* スタックトップの要素にアクセス */
     public int peek() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
@@ -65,13 +65,13 @@ public class array_stack {
         stack.push(4);
         System.out.println("スタック stack = " + Arrays.toString(stack.toArray()));
 
-        /* スタックトップ要素にアクセス */
+        /* スタックトップの要素にアクセス */
         int peek = stack.peek();
         System.out.println("スタックトップ要素 peek = " + peek);
 
         /* 要素をポップ */
         int pop = stack.pop();
-        System.out.println("ポップした要素 = " + pop + "、ポップ後 " + Arrays.toString(stack.toArray()));
+        System.out.println("ポップした要素 pop = " + pop + "、ポップ後の stack = " + Arrays.toString(stack.toArray()));
 
         /* スタックの長さを取得 */
         int size = stack.size();
@@ -79,6 +79,6 @@ public class array_stack {
 
         /* 空かどうかを判定 */
         boolean isEmpty = stack.isEmpty();
-        System.out.println("スタックが空か = " + isEmpty);
+        System.out.println("スタックが空かどうか = " + isEmpty);
     }
 }

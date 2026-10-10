@@ -6,7 +6,7 @@ Author: Peng Chen (pengchzn@gmail.com)
 
 
 class ArrayStack:
-    """配列ベースのスタッククラス"""
+    """配列ベースのスタック"""
 
     def __init__(self):
         """コンストラクタ"""
@@ -27,17 +27,17 @@ class ArrayStack:
     def pop(self) -> int:
         """ポップ"""
         if self.is_empty():
-            raise IndexError("Stack is empty")
+            raise IndexError("スタックが空です")
         return self._stack.pop()
 
     def peek(self) -> int:
-        """スタックトップ要素にアクセス"""
+        """スタックトップの要素にアクセス"""
         if self.is_empty():
-            raise IndexError("Stack is empty")
+            raise IndexError("スタックが空です")
         return self._stack[-1]
 
     def to_list(self) -> list[int]:
-        """出力用の配列を返す"""
+        """表示用のリストを返す"""
         return self._stack
 
 
@@ -54,14 +54,14 @@ if __name__ == "__main__":
     stack.push(4)
     print("スタック stack =", stack.to_list())
 
-    # スタックトップ要素にアクセス
+    # スタックトップの要素にアクセス
     peek: int = stack.peek()
     print("スタックトップ要素 peek =", peek)
 
     # 要素をポップ
     pop: int = stack.pop()
-    print("ポップされた要素 pop =", pop)
-    print("ポップ後のスタック =", stack.to_list())
+    print("ポップした要素 pop =", pop)
+    print("ポップ後 stack =", stack.to_list())
 
     # スタックの長さを取得
     size: int = stack.size()

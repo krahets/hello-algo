@@ -6,7 +6,7 @@ Author: krahets (krahets@163.com)
 
 
 def add_hash(key: str) -> int:
-    """加法ハッシュ"""
+    """加算ハッシュ"""
     hash = 0
     modulus = 1000000007
     for c in key:
@@ -15,7 +15,7 @@ def add_hash(key: str) -> int:
 
 
 def mul_hash(key: str) -> int:
-    """乗法ハッシュ"""
+    """乗算ハッシュ"""
     hash = 0
     modulus = 1000000007
     for c in key:
@@ -24,7 +24,7 @@ def mul_hash(key: str) -> int:
 
 
 def xor_hash(key: str) -> int:
-    """XORハッシュ"""
+    """XOR ハッシュ"""
     hash = 0
     modulus = 1000000007
     for c in key:
@@ -43,16 +43,16 @@ def rot_hash(key: str) -> int:
 
 """Driver Code"""
 if __name__ == "__main__":
-    key = "Hello algorithm"
+    key = "Hello アルゴリズム"
 
     hash = add_hash(key)
-    print(f"加法ハッシュ値は {hash}")
+    print(f"加算ハッシュ値は {hash}")
 
     hash = mul_hash(key)
-    print(f"乗法ハッシュ値は {hash}")
+    print(f"乗算ハッシュ値は {hash}")
 
     hash = xor_hash(key)
-    print(f"XORハッシュ値は {hash}")
+    print(f"XOR ハッシュ値は {hash}")
 
     hash = rot_hash(key)
     print(f"回転ハッシュ値は {hash}")

@@ -9,7 +9,7 @@ package chapter_tree;
 import utils.*;
 import java.util.*;
 
-/* 配列ベースの二分木クラス */
+/* 配列表現による二分木クラス */
 class ArrayBinaryTree {
     private List<Integer> tree;
 
@@ -18,30 +18,30 @@ class ArrayBinaryTree {
         tree = new ArrayList<>(arr);
     }
 
-    /* リストの容量 */
+    /* リスト容量 */
     public int size() {
         return tree.size();
     }
 
     /* インデックス i のノードの値を取得 */
     public Integer val(int i) {
-        // インデックスが範囲外の場合、null を返す（空の位置を表す）
+        // インデックスが範囲外なら、空きを表す null を返す
         if (i < 0 || i >= size())
             return null;
         return tree.get(i);
     }
 
-    /* インデックス i のノードの左の子のインデックスを取得 */
+    /* インデックス i のノードの左子ノードのインデックスを取得 */
     public Integer left(int i) {
         return 2 * i + 1;
     }
 
-    /* インデックス i のノードの右の子のインデックスを取得 */
+    /* インデックス i のノードの右子ノードのインデックスを取得 */
     public Integer right(int i) {
         return 2 * i + 2;
     }
 
-    /* インデックス i のノードの親のインデックスを取得 */
+    /* インデックス i のノードの親ノードのインデックスを取得 */
     public Integer parent(int i) {
         return (i - 1) / 2;
     }
@@ -49,7 +49,7 @@ class ArrayBinaryTree {
     /* レベル順走査 */
     public List<Integer> levelOrder() {
         List<Integer> res = new ArrayList<>();
-        // 配列を走査
+        // 配列を直接走査する
         for (int i = 0; i < size(); i++) {
             if (val(i) != null)
                 res.add(val(i));
@@ -57,12 +57,12 @@ class ArrayBinaryTree {
         return res;
     }
 
-    /* 深さ優先走査 */
+    /* 深さ優先探索 */
     private void dfs(Integer i, String order, List<Integer> res) {
-        // 空の位置の場合、戻る
+        // 空きスロットなら返す
         if (val(i) == null)
             return;
-        // 前順走査
+        // 先行順走査
         if ("pre".equals(order))
             res.add(val(i));
         dfs(left(i), order, res);
@@ -75,7 +75,7 @@ class ArrayBinaryTree {
             res.add(val(i));
     }
 
-    /* 前順走査 */
+    /* 先行順走査 */
     public List<Integer> preOrder() {
         List<Integer> res = new ArrayList<>();
         dfs(0, "pre", res);
@@ -100,7 +100,7 @@ class ArrayBinaryTree {
 public class array_binary_tree {
     public static void main(String[] args) {
         // 二分木を初期化
-        // 特定の関数を使用して配列を二分木に変換
+        // ここでは、配列から直接二分木を生成する関数を利用する
         List<Integer> arr = Arrays.asList(1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15);
 
         TreeNode root = TreeNode.listToTree(arr);
@@ -110,7 +110,7 @@ public class array_binary_tree {
         System.out.println("二分木の連結リスト表現:");
         PrintUtil.printTree(root);
 
-        // 配列ベースの二分木クラス
+        // 配列表現による二分木クラス
         ArrayBinaryTree abt = new ArrayBinaryTree(arr);
 
         // ノードにアクセス
@@ -118,19 +118,19 @@ public class array_binary_tree {
         Integer l = abt.left(i);
         Integer r = abt.right(i);
         Integer p = abt.parent(i);
-        System.out.println("\n現在のノードのインデックスは " + i + "、値 = " + abt.val(i));
-        System.out.println("その左の子のインデックスは " + l + "、値 = " + (l == null ? "null" : abt.val(l)));
-        System.out.println("その右の子のインデックスは " + r + "、値 = " + (r == null ? "null" : abt.val(r)));
-        System.out.println("その親のインデックスは " + p + "、値 = " + (p == null ? "null" : abt.val(p)));
+        System.out.println("\n現在のノードのインデックスは " + i + "、値は " + abt.val(i));
+        System.out.println("その左子ノードのインデックスは " + l + "、値は " + (l == null ? "null" : abt.val(l)));
+        System.out.println("その右子ノードのインデックスは " + r + "、値は " + (r == null ? "null" : abt.val(r)));
+        System.out.println("その親ノードのインデックスは " + p + "、値は " + (p == null ? "null" : abt.val(p)));
 
         // 木を走査
         List<Integer> res = abt.levelOrder();
-        System.out.println("\nレベル順走査は:" + res);
+        System.out.println("\nレベル順走査: " + res);
         res = abt.preOrder();
-        System.out.println("前順走査は:" + res);
+        System.out.println("前順走査: " + res);
         res = abt.inOrder();
-        System.out.println("中順走査は:" + res);
+        System.out.println("中順走査: " + res);
         res = abt.postOrder();
-        System.out.println("後順走査は:" + res);
+        System.out.println("後順走査: " + res);
     }
 }

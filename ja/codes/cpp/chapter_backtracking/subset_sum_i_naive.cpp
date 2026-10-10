@@ -6,38 +6,38 @@
 
 #include "../utils/common.hpp"
 
-/* バックトラッキングアルゴリズム：部分集合和 I */
+/* バックトラッキング：部分和 I */
 void backtrack(vector<int> &state, int target, int total, vector<int> &choices, vector<vector<int>> &res) {
-    // 部分集合の和がtargetと等しいとき、解を記録
+    // 部分集合の和が target に等しければ、解を記録
     if (total == target) {
         res.push_back(state);
         return;
     }
     // すべての選択肢を走査
-    for (int i = 0; i < choices.size(); i++) {
-        // 剪定：部分集合の和がtargetを超えた場合、その選択をスキップ
+    for (size_t i = 0; i < choices.size(); i++) {
+        // 枝刈り：部分和が target を超える場合はその選択をスキップする
         if (total + choices[i] > target) {
             continue;
         }
-        // 試行：選択を行い、要素とtotalを更新
+        // 試行：選択を行い、要素と total を更新する
         state.push_back(choices[i]);
-        // 次のラウンドの選択に進む
+        // 次の選択へ進む
         backtrack(state, target, total + choices[i], choices, res);
-        // 回退：選択を取り消し、前の状態に復元
+        // バックトラック：選択を取り消し、前の状態に戻す
         state.pop_back();
     }
 }
 
-/* 部分集合和 I を解く（重複する部分集合を含む） */
-vector<vector<int>> subsetSumINaive(vector<int> nums, int target) {
+/* 部分和 I を解く（重複部分集合を含む） */
+vector<vector<int>> subsetSumINaive(vector<int> &nums, int target) {
     vector<int> state;       // 状態（部分集合）
-    int total = 0;           // 部分集合の和
-    vector<vector<int>> res; // 結果リスト（部分集合リスト）
+    int total = 0;           // 部分和
+    vector<vector<int>> res; // 結果リスト（部分集合のリスト）
     backtrack(state, target, total, nums, res);
     return res;
 }
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
     vector<int> nums = {3, 4, 5};
     int target = 9;
@@ -47,9 +47,8 @@ int main() {
     cout << "入力配列 nums = ";
     printVector(nums);
     cout << "target = " << target << endl;
-    cout << "和が " << target << " のすべての部分集合 res = " << endl;
+    cout << "合計が " << target << " に等しいすべての部分集合 res = " << endl;
     printVectorMatrix(res);
-    cout << "この方法の結果には重複する集合が含まれています" << endl;
 
     return 0;
 }

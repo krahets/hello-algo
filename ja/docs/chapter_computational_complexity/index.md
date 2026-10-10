@@ -1,9 +1,9 @@
-# 複雑度解析
+# 計算量解析
 
-![Complexity analysis](../assets/covers/chapter_complexity_analysis.jpg)
+![計算量解析](../assets/covers/chapter_complexity_analysis.jpg)
 
 !!! abstract
 
-    複雑度解析は、アルゴリズムの広大な宇宙における時空のナビゲーターのようなものです。
-
-    時間と空間の次元をより深く探求し、より優雅な解決策を求めるためのガイドとなります。
+    計算量解析は、広大なアルゴリズム宇宙における時空の案内人のようなものです。
+    
+    それは、時間と空間という二つの次元で私たちをより深く探求へ導き、より洗練された解決策を見つけ出します。

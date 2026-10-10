@@ -9,47 +9,47 @@ package chapter_greedy;
 import java.util.Arrays;
 
 public class coin_change_greedy {
-    /* 硬貨両替：貪欲法 */
+    /* コイン交換：貪欲法 */
     static int coinChangeGreedy(int[] coins, int amt) {
-        // 硬貨リストが順序付けされていると仮定
+        // coins リストはソート済みと仮定する
         int i = coins.length - 1;
         int count = 0;
-        // 残り金額がなくなるまで貪欲選択をループ
+        // 残額がなくなるまで貪欲選択を繰り返す
         while (amt > 0) {
-            // 残り金額に近く、それ以下の最小硬貨を見つける
+            // 残額以下で最も近い硬貨を見つける
             while (i > 0 && coins[i] > amt) {
                 i--;
             }
-            // coins[i] を選択
+            // coins[i] を選択する
             amt -= coins[i];
             count++;
         }
-        // 実行可能な解が見つからない場合、-1 を返す
+        // 実行可能な解が見つからなければ -1 を返す
         return amt == 0 ? count : -1;
     }
 
     public static void main(String[] args) {
-        // 貪欲法：大域最適解の発見を保証できる
+        // 貪欲法：大域最適解を保証できる
         int[] coins = { 1, 5, 10, 20, 50, 100 };
         int amt = 186;
         int res = coinChangeGreedy(coins, amt);
         System.out.println("\ncoins = " + Arrays.toString(coins) + ", amt = " + amt);
-        System.out.println(amt + " を作るのに必要な最小硬貨数は " + res + " です");
+        System.out.println("合計 " + amt + " に必要な最小硬貨枚数は " + res);
 
-        // 貪欲法：大域最適解の発見を保証できない
+        // 貪欲法：大域最適解を保証できない
         coins = new int[] { 1, 20, 50 };
         amt = 60;
         res = coinChangeGreedy(coins, amt);
         System.out.println("\ncoins = " + Arrays.toString(coins) + ", amt = " + amt);
-        System.out.println(amt + " を作るのに必要な最小硬貨数は " + res + " です");
-        System.out.println("実際には、最小必要数は 3 です。つまり、20 + 20 + 20");
+        System.out.println("合計 " + amt + " に必要な最小硬貨枚数は " + res);
+        System.out.println("実際に必要な最小枚数は 3、つまり 20 + 20 + 20");
 
-        // 貪欲法：大域最適解の発見を保証できない
+        // 貪欲法：大域最適解を保証できない
         coins = new int[] { 1, 49, 50 };
         amt = 98;
         res = coinChangeGreedy(coins, amt);
         System.out.println("\ncoins = " + Arrays.toString(coins) + ", amt = " + amt);
-        System.out.println(amt + " を作るのに必要な最小硬貨数は " + res + " です");
-        System.out.println("実際には、最小必要数は 2 です。つまり、49 + 49");
+        System.out.println("合計 " + amt + " に必要な最小硬貨枚数は " + res);
+        System.out.println("実際に必要な最小枚数は 2、つまり 49 + 49");
     }
 }

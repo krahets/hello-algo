@@ -13,26 +13,26 @@ public class built_in_hash {
     public static void main(String[] args) {
         int num = 3;
         int hashNum = Integer.hashCode(num);
-        System.out.println("整数 " + num + " のハッシュ値は " + hashNum + " です");
+        System.out.println("整数 " + num + " のハッシュ値は " + hashNum);
 
         boolean bol = true;
         int hashBol = Boolean.hashCode(bol);
-        System.out.println("ブール値 " + bol + " のハッシュ値は " + hashBol + " です");
+        System.out.println("真偽値 " + bol + " のハッシュ値は " + hashBol);
 
         double dec = 3.14159;
         int hashDec = Double.hashCode(dec);
-        System.out.println("小数 " + dec + " のハッシュ値は " + hashDec + " です");
+        System.out.println("小数 " + dec + " のハッシュ値は " + hashDec);
 
-        String str = "Hello algorithm";
+        String str = "Hello アルゴリズム";
         int hashStr = str.hashCode();
-        System.out.println("文字列 " + str + " のハッシュ値は " + hashStr + " です");
+        System.out.println("文字列 " + str + " のハッシュ値は " + hashStr);
 
-        Object[] arr = { 12836, "Ha" };
+        Object[] arr = { 12836, "シャオハー" };
         int hashTup = Arrays.hashCode(arr);
-        System.out.println("配列 " + Arrays.toString(arr) + " のハッシュ値は " + hashTup + " です");
+        System.out.println("配列 " + Arrays.toString(arr) + " のハッシュ値は " + hashTup);
 
         ListNode obj = new ListNode(0);
         int hashObj = obj.hashCode();
-        System.out.println("ノードオブジェクト " + obj + " のハッシュ値は " + hashObj + " です");
+        System.out.println("ノードオブジェクト " + obj + " のハッシュ値は " + hashObj);
     }
 }

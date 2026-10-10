@@ -12,22 +12,22 @@ def recur(n: int) -> int:
         return 1
     # 再帰：再帰呼び出し
     res = recur(n - 1)
-    # 復帰：結果を返す
+    # 帰りがけ：結果を返す
     return n + res
 
 
 def for_loop_recur(n: int) -> int:
-    """反復で再帰をシミュレート"""
-    # 明示的なスタックを使用してシステムコールスタックをシミュレート
+    """反復で再帰を模擬する"""
+    # 明示的なスタックを使ってシステムコールスタックを模擬する
     stack = []
     res = 0
     # 再帰：再帰呼び出し
     for i in range(n, 0, -1):
-        # 「スタックへのプッシュ」で「再帰」をシミュレート
+        # 「スタックへのプッシュ」で「再帰」を模擬する
         stack.append(i)
-    # 復帰：結果を返す
+    # 帰りがけ：結果を返す
     while stack:
-        # 「スタックからのポップ」で「復帰」をシミュレート
+        # 「スタックから取り出す操作」で「帰り」をシミュレート
         res += stack.pop()
     # res = 1+2+3+...+n
     return res
@@ -47,7 +47,7 @@ def fib(n: int) -> int:
     # 終了条件 f(1) = 0, f(2) = 1
     if n == 1 or n == 2:
         return n - 1
-    # 再帰呼び出し f(n) = f(n-1) + f(n-2)
+    # f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
     res = fib(n - 1) + fib(n - 2)
     # 結果 f(n) を返す
     return res
@@ -60,10 +60,10 @@ if __name__ == "__main__":
     print(f"\n再帰関数の合計結果 res = {res}")
 
     res = for_loop_recur(n)
-    print(f"\n反復で再帰をシミュレートする合計結果 res = {res}")
+    print(f"\n反復で再帰をシミュレートした合計結果 res = {res}")
 
     res = tail_recur(n, 0)
     print(f"\n末尾再帰関数の合計結果 res = {res}")
 
     res = fib(n)
-    print(f"\nフィボナッチ数列の第 {n} 項は {res} です")
+    print(f"\nフィボナッチ数列の第 {n} 項は {res}")

@@ -6,15 +6,15 @@ Author: krahets (krahets@163.com)
 
 
 class ListNode:
-    """連結リストのノードクラス"""
+    """連結リストノードクラス"""
 
     def __init__(self, val: int):
-        self.val: int = val  # ノードの値
+        self.val: int = val  # ノード値
         self.next: ListNode | None = None  # 後続ノードへの参照
 
 
 def list_to_linked_list(arr: list[int]) -> ListNode | None:
-    """リストを連結リストにデシリアライズ"""
+    """リストを連結リストにデシリアライズする"""
     dum = head = ListNode(0)
     for a in arr:
         node = ListNode(a)

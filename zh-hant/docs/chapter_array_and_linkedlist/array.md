@@ -23,10 +23,10 @@
     ```cpp title="array.cpp"
     /* 初始化陣列 */
     // 儲存在堆疊上
-    int arr[5];
+    int arr[5] = {};
     int nums[5] = { 1, 3, 2, 5, 4 };
     // 儲存在堆積上（需要手動釋放空間）
-    int* arr1 = new int[5];
+    int* arr1 = new int[5] {};
     int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
     ```
 

@@ -1,8 +1,8 @@
-# PEP 585に従う - 標準コレクションでの型ヒント
+# Follow the PEP 585 - Type Hinting Generics In Standard Collections
 # https://peps.python.org/pep-0585/
 from __future__ import annotations
 
-# 共通ライブラリをここでインポートして、`from module import *`でコードを簡潔にする
+# Import common libs here to simplify the code by `from module import *`
 from .list_node import (
     ListNode,
     list_to_linked_list,

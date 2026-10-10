@@ -20,7 +20,7 @@ public class preorder_traversal_iii_template {
         res.add(new ArrayList<>(state));
     }
 
-    /* 現在の状態下で選択が合法かどうかを判定 */
+    /* 現在の状態で、この選択が有効かどうかを判定 */
     static boolean isValid(List<TreeNode> state, TreeNode choice) {
         return choice != null && choice.val != 3;
     }
@@ -30,27 +30,27 @@ public class preorder_traversal_iii_template {
         state.add(choice);
     }
 
-    /* 状態を復元 */
+    /* 状態を元に戻す */
     static void undoChoice(List<TreeNode> state, TreeNode choice) {
         state.remove(state.size() - 1);
     }
 
-    /* バックトラッキングアルゴリズム：例３ */
+    /* バックトラッキング：例題 3 */
     static void backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
-        // 解かどうかをチェック
+        // 解かどうかを確認
         if (isSolution(state)) {
             // 解を記録
             recordSolution(state, res);
         }
         // すべての選択肢を走査
         for (TreeNode choice : choices) {
-            // 剪定：選択が合法かどうかをチェック
+            // 枝刈り：選択が妥当かを確認する
             if (isValid(state, choice)) {
-                // 試行：選択を行い、状態を更新
+                // 試行: 選択を行い、状態を更新
                 makeChoice(state, choice);
-                // 次のラウンドの選択に進む
+                // 次の選択へ進む
                 backtrack(state, Arrays.asList(choice.left, choice.right), res);
-                // 回退：選択を取り消し、前の状態に復元
+                // バックトラック：選択を取り消し、前の状態に戻す
                 undoChoice(state, choice);
             }
         }
@@ -61,11 +61,11 @@ public class preorder_traversal_iii_template {
         System.out.println("\n二分木を初期化");
         PrintUtil.printTree(root);
 
-        // バックトラッキングアルゴリズム
+        // バックトラッキング法
         List<List<TreeNode>> res = new ArrayList<>();
         backtrack(new ArrayList<>(), Arrays.asList(root), res);
 
-        System.out.println("\nルートからノード7までのすべてのパスを出力、パスには値3のノードを含まないことが要求される");
+        System.out.println("\n根ノードからノード 7 までのすべての経路を出力し、経路に値が 3 のノードを含まないことを条件とする");
         for (List<TreeNode> path : res) {
             List<Integer> vals = new ArrayList<>();
             for (TreeNode node : path) {

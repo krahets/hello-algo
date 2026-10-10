@@ -6,10 +6,10 @@
 
 #include "../utils/common.hpp"
 
-/* ヒープの長さはn、ノードiから上から下へヒープ化を開始 */
+/* ヒープの長さは n。ノード i から下方向にヒープ化 */
 void siftDown(vector<int> &nums, int n, int i) {
     while (true) {
-        // i、l、r の中で最大のノードを決定し、maとして記録
+        // ノード i, l, r のうち値が最大のノードを ma とする
         int l = 2 * i + 1;
         int r = 2 * i + 2;
         int ma = i;
@@ -17,37 +17,37 @@ void siftDown(vector<int> &nums, int n, int i) {
             ma = l;
         if (r < n && nums[r] > nums[ma])
             ma = r;
-        // ノードiが最大か、インデックスl、rが境界外の場合、それ以上のヒープ化は不要で終了
+        // ノード i が最大、またはインデックス l, r が範囲外なら、ヒープ化は不要なので抜ける
         if (ma == i) {
             break;
         }
-        // 二つのノードを交換
+        // 2 つのノードを交換
         swap(nums[i], nums[ma]);
-        // 下向きにヒープ化をループ
+        // ループで上から下へヒープ化
         i = ma;
     }
 }
 
 /* ヒープソート */
 void heapSort(vector<int> &nums) {
-    // ヒープ構築操作：葉以外のすべてのノードをヒープ化
+    // ヒープ構築：葉ノード以外のすべてのノードをヒープ化する
     for (int i = nums.size() / 2 - 1; i >= 0; --i) {
         siftDown(nums, nums.size(), i);
     }
-    // ヒープから最大要素を抽出し、n-1回繰り返す
+    // ヒープから最大要素を取り出し、n-1 回繰り返す
     for (int i = nums.size() - 1; i > 0; --i) {
-        // ルートノードを最右葉ノードと交換（最初の要素を最後の要素と交換）
+        // 根ノードと最も右の葉ノードを交換（先頭要素と末尾要素を交換）
         swap(nums[0], nums[i]);
-        // ルートノードから上から下へヒープ化を開始
+        // 根ノードを起点に、上から下へヒープ化
         siftDown(nums, i, 0);
     }
 }
 
-/* ドライバコード */
+/* Driver Code */
 int main() {
     vector<int> nums = {4, 1, 3, 1, 5, 2};
     heapSort(nums);
-    cout << "ヒープソート後、nums = ";
+    cout << "ヒープソート完了後 nums = ";
     printVector(nums);
 
     return 0;

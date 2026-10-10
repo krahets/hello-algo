@@ -9,19 +9,19 @@
 /* オープンアドレス法ハッシュテーブル */
 class HashMapOpenAddressing {
   private:
-    int size;                             // キー値ペアの数
-    int capacity = 4;                     // ハッシュテーブルの容量
-    const double loadThres = 2.0 / 3.0;     // 拡張をトリガーする負荷率の閾値
+    int size;                             // キーと値のペア数
+    int capacity = 4;                     // ハッシュテーブル容量
+    const double loadThres = 2.0 / 3.0;     // リサイズを発動する負荷率のしきい値
     const int extendRatio = 2;            // 拡張倍率
     vector<Pair *> buckets;               // バケット配列
-    Pair *TOMBSTONE = new Pair(-1, "-1"); // 削除マーク
+    Pair *TOMBSTONE = new Pair(-1, "-1"); // 削除済みマーク
 
   public:
     /* コンストラクタ */
     HashMapOpenAddressing() : size(0), buckets(capacity, nullptr) {
     }
 
-    /* デストラクタ */
+    /* デストラクタメソッド */
     ~HashMapOpenAddressing() {
         for (Pair *pair : buckets) {
             if (pair != nullptr && pair != TOMBSTONE) {
@@ -41,68 +41,68 @@ class HashMapOpenAddressing {
         return (double)size / capacity;
     }
 
-    /* keyに対応するバケットインデックスを検索 */
+    /* key に対応するバケットインデックスを探す */
     int findBucket(int key) {
         int index = hashFunc(key);
         int firstTombstone = -1;
-        // 線形探査、空のバケットに遭遇したら中断
+        // 線形プロービングを行い、空バケットに達したら終了
         while (buckets[index] != nullptr) {
-            // keyに遭遇した場合、対応するバケットインデックスを返却
+            // key が見つかったら、対応するバケットのインデックスを返す
             if (buckets[index]->key == key) {
-                // 以前に削除マークに遭遇していた場合、キー値ペアをそのインデックスに移動
+                // 以前に削除マークが見つかっていれば、そのインデックスへキーと値のペアを移動
                 if (firstTombstone != -1) {
                     buckets[firstTombstone] = buckets[index];
                     buckets[index] = TOMBSTONE;
-                    return firstTombstone; // 移動されたバケットインデックスを返却
+                    return firstTombstone; // 移動後のバケットインデックスを返す
                 }
-                return index; // バケットインデックスを返却
+                return index; // バケットのインデックスを返す
             }
-            // 最初に遭遇した削除マークを記録
+            // 最初に見つかった削除マークを記録
             if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                 firstTombstone = index;
             }
-            // バケットインデックスを計算、末尾を超えた場合は先頭に戻る
+            // バケットのインデックスを計算し、末尾を越えたら先頭に戻る
             index = (index + 1) % capacity;
         }
-        // keyが存在しない場合、挿入ポイントのインデックスを返却
+        // key が存在しない場合は追加位置のインデックスを返す
         return firstTombstone == -1 ? index : firstTombstone;
     }
 
-    /* クエリ操作 */
+    /* 検索操作 */
     string get(int key) {
-        // keyに対応するバケットインデックスを検索
+        // key に対応するバケットインデックスを探す
         int index = findBucket(key);
-        // キー値ペアが見つかった場合、対応するvalを返却
+        // キーと値の組が見つかったら、対応する val を返す
         if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
             return buckets[index]->val;
         }
-        // キー値ペアが存在しない場合、空文字列を返却
+        // キーと値の組が存在しない場合は空文字列を返す
         return "";
     }
 
     /* 追加操作 */
     void put(int key, string val) {
-        // 負荷率が閾値を超えた場合、拡張を実行
+        // 負荷率がしきい値を超えたら、リサイズを実行
         if (loadFactor() > loadThres) {
             extend();
         }
-        // keyに対応するバケットインデックスを検索
+        // key に対応するバケットインデックスを探す
         int index = findBucket(key);
-        // キー値ペアが見つかった場合、valを上書きして返却
+        // キーと値の組が見つかったら、val を上書きして返す
         if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
             buckets[index]->val = val;
             return;
         }
-        // キー値ペアが存在しない場合、キー値ペアを追加
+        // キーと値の組が存在しない場合は、その組を追加する
         buckets[index] = new Pair(key, val);
         size++;
     }
 
     /* 削除操作 */
     void remove(int key) {
-        // keyに対応するバケットインデックスを検索
+        // key に対応するバケットインデックスを探す
         int index = findBucket(key);
-        // キー値ペアが見つかった場合、削除マークで覆う
+        // キーと値の組が見つかったら、削除マーカーで上書きする
         if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
             delete buckets[index];
             buckets[index] = TOMBSTONE;
@@ -114,11 +114,11 @@ class HashMapOpenAddressing {
     void extend() {
         // 元のハッシュテーブルを一時保存
         vector<Pair *> bucketsTmp = buckets;
-        // 拡張された新しいハッシュテーブルを初期化
+        // リサイズ後の新しいハッシュテーブルを初期化
         capacity *= extendRatio;
         buckets = vector<Pair *>(capacity, nullptr);
         size = 0;
-        // 元のハッシュテーブルから新しいハッシュテーブルにキー値ペアを移動
+        // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルへ移す
         for (Pair *pair : bucketsTmp) {
             if (pair != nullptr && pair != TOMBSTONE) {
                 put(pair->key, pair->val);
@@ -127,7 +127,7 @@ class HashMapOpenAddressing {
         }
     }
 
-    /* ハッシュテーブルを印刷 */
+    /* ハッシュテーブルを出力 */
     void print() {
         for (Pair *pair : buckets) {
             if (pair == nullptr) {
@@ -141,30 +141,30 @@ class HashMapOpenAddressing {
     }
 };
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
     // ハッシュテーブルを初期化
     HashMapOpenAddressing hashmap;
 
     // 追加操作
-    // キー値ペア(key, val)をハッシュテーブルに追加
-    hashmap.put(12836, "Ha");
-    hashmap.put(15937, "Luo");
-    hashmap.put(16750, "Suan");
-    hashmap.put(13276, "Fa");
-    hashmap.put(10583, "Ya");
-    cout << "\nAfter adding, the hash table is\nKey -> Value" << endl;
+    // ハッシュテーブルにキーと値の組 (key, val) を追加する
+    hashmap.put(12836, "シャオハー");
+    hashmap.put(15937, "シャオルオ");
+    hashmap.put(16750, "シャオスワン");
+    hashmap.put(13276, "シャオファー");
+    hashmap.put(10583, "シャオヤー");
+    cout << "\n追加完了後、ハッシュテーブルは\nKey -> Value" << endl;
     hashmap.print();
 
-    // クエリ操作
-    // ハッシュテーブルにキーを入力、値valを取得
+    // 検索操作
+    // ハッシュテーブルにキー key を入力し、値 val を得る
     string name = hashmap.get(13276);
-    cout << "\nEnter student ID 13276, found name " << name << endl;
+    cout << "\n学籍番号 13276 を入力すると、氏名 " << name << endl;
 
     // 削除操作
-    // ハッシュテーブルからキー値ペア(key, val)を削除
+    // ハッシュテーブルからキーと値の組 (key, val) を削除する
     hashmap.remove(16750);
-    cout << "\nAfter removing 16750, the hash table is\nKey -> Value" << endl;
+    cout << "\n16750 を削除した後、ハッシュテーブルは\nKey -> Value" << endl;
     hashmap.print();
 
     return 0;

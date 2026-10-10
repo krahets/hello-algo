@@ -9,14 +9,14 @@ package chapter_array_and_linkedlist;
 import utils.*;
 
 public class linked_list {
-    /* 連結リストでノード n0 の後にノード P を挿入 */
+    /* 連結リストでノード n0 の後ろにノード P を挿入する */
     static void insert(ListNode n0, ListNode P) {
         ListNode n1 = n0.next;
         P.next = n1;
         n0.next = P;
     }
 
-    /* 連結リストでノード n0 の後の最初のノードを削除 */
+    /* 連結リストでノード n0 の直後のノードを削除する */
     static void remove(ListNode n0) {
         if (n0.next == null)
             return;
@@ -26,7 +26,7 @@ public class linked_list {
         n0.next = n1;
     }
 
-    /* 連結リストの `index` のノードにアクセス */
+    /* 連結リスト内で index 番目のノードにアクセス */
     static ListNode access(ListNode head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == null)
@@ -36,7 +36,7 @@ public class linked_list {
         return head;
     }
 
-    /* 連結リストで値 target を持つ最初のノードを検索 */
+    /* 連結リストで値が target の最初のノードを探す */
     static int find(ListNode head, int target) {
         int index = 0;
         while (head != null) {
@@ -48,39 +48,39 @@ public class linked_list {
         return -1;
     }
 
-    /* ドライバーコード */
+    /* Driver Code */
     public static void main(String[] args) {
-        /* 連結リストの初期化 */
+        /* 連結リストを初期化 */
         // 各ノードを初期化
         ListNode n0 = new ListNode(1);
         ListNode n1 = new ListNode(3);
         ListNode n2 = new ListNode(2);
         ListNode n3 = new ListNode(5);
         ListNode n4 = new ListNode(4);
-        // ノード間の参照を構築
+        // ノード間の参照を構築する
         n0.next = n1;
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
-        System.out.println("初期化された連結リストは");
+        System.out.println("初期化した連結リストは");
         PrintUtil.printLinkedList(n0);
 
-        /* ノードの挿入 */
+        /* ノードを挿入 */
         insert(n0, new ListNode(0));
         System.out.println("ノード挿入後の連結リストは");
         PrintUtil.printLinkedList(n0);
 
-        /* ノードの削除 */
+        /* ノードを削除 */
         remove(n0);
         System.out.println("ノード削除後の連結リストは");
         PrintUtil.printLinkedList(n0);
 
-        /* ノードへのアクセス */
+        /* ノードにアクセス */
         ListNode node = access(n0, 3);
-        System.out.println("連結リストのインデックス3のノードの値 = " + node.val);
+        System.out.println("連結リストのインデックス 3 にあるノードの値 = " + node.val);
 
-        /* ノードの検索 */
+        /* ノードを探索 */
         int index = find(n0, 2);
-        System.out.println("連結リストで値2を持つノードのインデックス = " + index);
+        System.out.println("連結リスト内で値 2 のノードのインデックス = " + index);
     }
 }

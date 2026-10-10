@@ -11,9 +11,9 @@ import java.util.List;
 
 /* チェイン法ハッシュテーブル */
 class HashMapChaining {
-    int size; // キー値ペアの数
-    int capacity; // ハッシュテーブルの容量
-    double loadThres; // 拡張をトリガーする負荷率の閾値
+    int size; // キーと値のペア数
+    int capacity; // ハッシュテーブル容量
+    double loadThres; // リサイズを発動する負荷率のしきい値
     int extendRatio; // 拡張倍率
     List<List<Pair>> buckets; // バケット配列
 
@@ -39,36 +39,36 @@ class HashMapChaining {
         return (double) size / capacity;
     }
 
-    /* クエリ操作 */
+    /* 検索操作 */
     String get(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // バケットを走査、キーが見つかった場合対応するvalを返す
+        // バケットを走査し、key が見つかれば対応する val を返す
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 return pair.val;
             }
         }
-        // キーが見つからない場合、nullを返す
+        // key が見つからない場合は null を返す
         return null;
     }
 
     /* 追加操作 */
     void put(int key, String val) {
-        // 負荷率が閾値を超えた場合、拡張を実行
+        // 負荷率がしきい値を超えたら、リサイズを実行
         if (loadFactor() > loadThres) {
             extend();
         }
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // バケットを走査、指定したキーに遭遇した場合、対応するvalを更新して戻る
+        // バケットを走査し、指定した key が見つかれば対応する val を更新して返す
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 pair.val = val;
                 return;
             }
         }
-        // キーが見つからない場合、キー値ペアを末尾に追加
+        // その key が存在しなければ、キーと値のペアを末尾に追加
         Pair pair = new Pair(key, val);
         bucket.add(pair);
         size++;
@@ -78,7 +78,7 @@ class HashMapChaining {
     void remove(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // バケットを走査、その中からキー値ペアを削除
+        // バケットを走査してキーと値のペアを削除
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 bucket.remove(pair);
@@ -90,16 +90,16 @@ class HashMapChaining {
 
     /* ハッシュテーブルを拡張 */
     void extend() {
-        // 元のハッシュテーブルを一時的に保存
+        // 元のハッシュテーブルを一時保存
         List<List<Pair>> bucketsTmp = buckets;
-        // 拡張された新しいハッシュテーブルを初期化
+        // リサイズ後の新しいハッシュテーブルを初期化
         capacity *= extendRatio;
         buckets = new ArrayList<>(capacity);
         for (int i = 0; i < capacity; i++) {
             buckets.add(new ArrayList<>());
         }
         size = 0;
-        // 元のハッシュテーブルから新しいハッシュテーブルにキー値ペアを移動
+        // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルへ移す
         for (List<Pair> bucket : bucketsTmp) {
             for (Pair pair : bucket) {
                 put(pair.key, pair.val);
@@ -107,7 +107,7 @@ class HashMapChaining {
         }
     }
 
-    /* ハッシュテーブルを印刷 */
+    /* ハッシュテーブルを出力 */
     void print() {
         for (List<Pair> bucket : buckets) {
             List<String> res = new ArrayList<>();
@@ -125,24 +125,24 @@ public class hash_map_chaining {
         HashMapChaining map = new HashMapChaining();
 
         /* 追加操作 */
-        // ハッシュテーブルにキー値ペア (key, value) を追加
-        map.put(12836, "Ha");
-        map.put(15937, "Luo");
-        map.put(16750, "Suan");
-        map.put(13276, "Fa");
-        map.put(10583, "Ya");
-        System.out.println("\n追加後のハッシュテーブル\nKey -> Value");
+        // ハッシュテーブルにキーと値のペア (key, value) を追加
+        map.put(12836, "シャオハー");
+        map.put(15937, "シャオルオ");
+        map.put(16750, "シャオスワン");
+        map.put(13276, "シャオファー");
+        map.put(10583, "シャオヤー");
+        System.out.println("\n追加後のハッシュ表は\nKey -> Value");
         map.print();
 
-        /* クエリ操作 */
-        // ハッシュテーブルにキーを入力して値を取得
+        /* 検索操作 */
+        // キー key をハッシュテーブルに渡し、値 value を取得
         String name = map.get(13276);
-        System.out.println("\n学生ID 13276を入力、名前 " + name + " を見つけました");
+        System.out.println("\n学籍番号 13276 を入力すると、氏名 " + name);
 
         /* 削除操作 */
-        // ハッシュテーブルからキー値ペア (key, value) を削除
+        // ハッシュテーブルからキーと値のペア (key, value) を削除
         map.remove(12836);
-        System.out.println("\n12836を削除後のハッシュテーブル\nKey -> Value");
+        System.out.println("\n12836 を削除すると、ハッシュ表は\nKey -> Value");
         map.print();
     }
 }
