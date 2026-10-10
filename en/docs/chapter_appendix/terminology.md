@@ -119,7 +119,7 @@ The following table lists important terms that appear in this book.
 | counting sort                  |
 | radix sort                     |
 | divide and conquer             |
-| Tower of Hanoi                 |
+| Tower of Hanoi problem         |
 | backtracking algorithm         |
 | constraint                     |
 | solution                       |
