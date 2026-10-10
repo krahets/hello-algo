@@ -25,7 +25,7 @@ In engineering, many problems are difficult to solve optimally, and many others 
 
 **Q**: AI agents are already very capable: we can describe what we need and have them generate much of the code, and ask them to help debug when problems arise. If we mostly rely on agents for development and rarely write code ourselves, is it still worth spending time learning data structures and algorithms and practicing algorithm problems? What role can this knowledge still play in the age of AI?
 
-To quote Mu Li: an agent is an amplifier of ability—it multiplies your ability by 10, rather than adding 10 to it.
+To quote Mu Li: “An agent is an amplifier of ability—it multiplies your ability by 10, rather than adding 10 to it.”
 
 Since AI amplifies our abilities, the abilities being multiplied matter too. I think two abilities are especially worth developing. The first is communication, particularly the ability to work with AI: making goals clear, providing the necessary context, and correcting course in time. Explaining a problem to AI also helps us think it through ourselves. The second is foundational knowledge. AI can fill in the details, but we need to understand the basic concepts ourselves to ask the right questions, judge whether answers are correct, and turn its output into useful results.
 
