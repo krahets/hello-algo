@@ -1,0 +1,11 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "check": "tsc"
+    },
+    "devDependencies": {
+        "@types/node": "^24.9.2",
+        "typescript": "^5.9.3"
+    }
+}

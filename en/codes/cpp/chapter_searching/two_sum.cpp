@@ -6,10 +6,10 @@
 
 #include "../utils/common.hpp"
 
-/* Method one: Brute force enumeration */
+/* Method 1: Brute force enumeration */
 vector<int> twoSumBruteForce(vector<int> &nums, int target) {
     int size = nums.size();
-    // Two-layer loop, time complexity is O(n^2)
+    // Two nested loops, time complexity is O(n^2)
     for (int i = 0; i < size - 1; i++) {
         for (int j = i + 1; j < size; j++) {
             if (nums[i] + nums[j] == target)
@@ -19,12 +19,12 @@ vector<int> twoSumBruteForce(vector<int> &nums, int target) {
     return {};
 }
 
-/* Method two: Auxiliary hash table */
+/* Method 2: Auxiliary hash table */
 vector<int> twoSumHashTable(vector<int> &nums, int target) {
     int size = nums.size();
     // Auxiliary hash table, space complexity is O(n)
     unordered_map<int, int> dic;
-    // Single-layer loop, time complexity is O(n)
+    // Single loop, time complexity is O(n)
     for (int i = 0; i < size; i++) {
         if (dic.find(target - nums[i]) != dic.end()) {
             return {dic[target - nums[i]], i};
@@ -41,13 +41,13 @@ int main() {
     int target = 13;
 
     // ====== Driver Code ======
-    // Method one
+    // Method 1
     vector<int> res = twoSumBruteForce(nums, target);
-    cout << "Method one res = ";
+    cout << "Method 1 res = ";
     printVector(res);
-    // Method two
+    // Method 2
     res = twoSumHashTable(nums, target);
-    cout << "Method two res = ";
+    cout << "Method 2 res = ";
     printVector(res);
 
     return 0;

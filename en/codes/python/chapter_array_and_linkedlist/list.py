@@ -12,45 +12,45 @@ if __name__ == "__main__":
 
     # Access element
     x: int = nums[1]
-    print("\nAccess the element at index 1, resulting in x =", x)
+    print("\nAccess the element at index 1, get x =", x)
 
     # Update element
     nums[1] = 0
-    print("\nUpdate the element at index 1 to 0, resulting in nums =", nums)
+    print("\nUpdate the element at index 1 to 0, get nums =", nums)
 
     # Clear list
     nums.clear()
-    print("\nAfter clearing the list, nums =", nums)
+    print("\nAfter clearing the list nums =", nums)
 
-    # Add element at the end
+    # Add elements at the end
     nums.append(1)
     nums.append(3)
     nums.append(2)
     nums.append(5)
     nums.append(4)
-    print("\nAfter adding the element, nums =", nums)
+    print("\nAfter adding elements nums =", nums)
 
     # Insert element in the middle
     nums.insert(3, 6)
-    print("\nInsert number 6 at index 3, resulting in nums =", nums)
+    print("\nInsert number 6 at index 3, get nums =", nums)
 
     # Remove element
     nums.pop(3)
-    print("\nRemove the element at index 3, resulting in nums =", nums)
+    print("\nRemove the element at index 3, get nums =", nums)
 
-    # Traverse the list by index
+    # Traverse list by index
     count = 0
     for i in range(len(nums)):
         count += nums[i]
-    # Traverse the list elements
+    # Direct traversal of list elements
     for num in nums:
         count += num
 
     # Concatenate two lists
     nums1 = [6, 8, 7, 10, 9]
     nums += nums1
-    print("\nConcatenate list nums1 to nums, resulting in nums =", nums)
+    print("\nConcatenate list nums1 to nums, get nums =", nums)
 
     # Sort list
     nums.sort()
-    print("\nAfter sorting the list, nums =", nums)
+    print("\nAfter sorting the list nums =", nums)

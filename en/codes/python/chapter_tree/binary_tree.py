@@ -14,13 +14,13 @@ from modules import TreeNode, print_tree
 """Driver Code"""
 if __name__ == "__main__":
     # Initialize binary tree
-    # Initialize node
+    # Initialize nodes
     n1 = TreeNode(val=1)
     n2 = TreeNode(val=2)
     n3 = TreeNode(val=3)
     n4 = TreeNode(val=4)
     n5 = TreeNode(val=5)
-    # Construct node references (pointers)
+    # Build references (pointers) between nodes
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -28,14 +28,14 @@ if __name__ == "__main__":
     print("\nInitialize binary tree\n")
     print_tree(n1)
 
-    # Insert and remove nodes
+    # Insert and delete nodes
     P = TreeNode(0)
     # Insert node P between n1 -> n2
     n1.left = P
     P.left = n2
     print("\nAfter inserting node P\n")
     print_tree(n1)
-    # Remove node
+    # Delete node
     n1.left = n2
-    print("\nAfter removing node P\n")
+    print("\nAfter deleting node P\n")
     print_tree(n1)

@@ -10,20 +10,20 @@
 int main() {
     int num = 3;
     size_t hashNum = hash<int>()(num);
-    cout << "The hash value of integer " << num << " is " << hashNum << "\n";
+    cout << "Hash value of integer " << num << " is " << hashNum << "\n";
 
     bool bol = true;
     size_t hashBol = hash<bool>()(bol);
-    cout << "The hash value of boolean " << bol << " is " << hashBol << "\n";
+    cout << "Hash value of boolean " << bol << " is " << hashBol << "\n";
 
     double dec = 3.14159;
     size_t hashDec = hash<double>()(dec);
-    cout << "The hash value of decimal " << dec << " is " << hashDec << "\n";
+    cout << "Hash value of decimal " << dec << " is " << hashDec << "\n";
 
-    string str = "Hello algorithm";
+    string str = "Hello Algo";
     size_t hashStr = hash<string>()(str);
-    cout << "The hash value of string " << str << " is " << hashStr << "\n";
+    cout << "Hash value of string " << str << " is " << hashStr << "\n";
 
-    // In C++, the built-in std:hash() only provides hash values for basic data types
-    // Hash value calculation for arrays and objects must be implemented manually
+    // In C++, built-in std::hash() only provides hash calculation for basic data types
+    // Hash calculation for arrays and objects needs to be implemented manually
 }

@@ -201,21 +201,6 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // 在某运行平台下
-    fn algorithm(n: usize) void {
-        var a: i32 = 2; // 1 ns
-        a += 1; // 1 ns
-        a *= 2; // 10 ns
-        // 循环 n 次
-        for (0..n) |_| { // 1 ns
-            std.debug.print("{}\n", .{0}); // 5 ns
-        }
-    }
-    ```
-
 根据以上方法，可以得到算法的运行时间为 $(6n + 12)$ ns ：
 
 $$
@@ -499,29 +484,6 @@ $$
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // 算法 A 的时间复杂度：常数阶
-    fn algorithm_A(n: usize) void {
-        _ = n;
-        std.debug.print("{}\n", .{0});
-    }
-    // 算法 B 的时间复杂度：线性阶
-    fn algorithm_B(n: i32) void {
-        for (0..n) |_| {
-            std.debug.print("{}\n", .{0});
-        }
-    }
-    // 算法 C 的时间复杂度：常数阶
-    fn algorithm_C(n: i32) void {
-        _ = n;
-        for (0..1000000) |_| {
-            std.debug.print("{}\n", .{0});
-        }
-    }
-    ```
-
 下图展示了以上三个算法函数的时间复杂度。
 
 - 算法 `A` 只有 $1$ 个打印操作，算法运行时间不随着 $n$ 增大而增长。我们称此算法的时间复杂度为“常数阶”。
@@ -719,20 +681,6 @@ $$
             puts 0      # +1
         end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    fn algorithm(n: usize) void {
-        var a: i32 = 1; // +1
-        a += 1; // +1
-        a *= 2; // +1
-        // 循环 n 次
-        for (0..n) |_| { // +1（每轮都执行 i ++）
-            std.debug.print("{}\n", .{0}); // +1
-        }
-    }
     ```
 
 设算法的操作数量是一个关于输入数据大小 $n$ 的函数，记为 $T(n)$ ，则以上函数的操作数量为：
@@ -1012,27 +960,6 @@ $T(n)$ 是一次函数，说明其运行时间的增长趋势是线性的，因�
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    fn algorithm(n: usize) void {
-        var a: i32 = 1;     // +0（技巧 1）
-        a = a + @as(i32, @intCast(n));        // +0（技巧 1）
-
-        // +n（技巧 2）
-        for(0..(5 * n + 1)) |_| {
-            std.debug.print("{}\n", .{0});
-        }
-
-        // +n*n（技巧 3）
-        for(0..(2 * n)) |_| {
-            for(0..(n + 1)) |_| {
-                std.debug.print("{}\n", .{0});
-            }
-        }
-    }
-    ```
-
 以下公式展示了使用上述技巧前后的统计结果，两者推算出的时间复杂度都为 $O(n^2)$ 。
 
 $$
@@ -1065,8 +992,8 @@ $$
 
 $$
 \begin{aligned}
-O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!) \newline
-\text{常数阶} < \text{对数阶} < \text{线性阶} < \text{线性对数阶} < \text{平方阶} < \text{指数阶} < \text{阶乘阶}
+& O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!) \newline
+& \text{常数阶} < \text{对数阶} < \text{线性阶} < \text{线性对数阶} < \text{平方阶} < \text{指数阶} < \text{阶乘阶}
 \end{aligned}
 $$
 

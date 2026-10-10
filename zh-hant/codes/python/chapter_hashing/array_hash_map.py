@@ -26,7 +26,7 @@ class ArrayHashMap:
         index = key % 100
         return index
 
-    def get(self, key: int) -> str:
+    def get(self, key: int) -> str | None:
         """查詢操作"""
         index: int = self.hash_func(key)
         pair: Pair = self.buckets[index]
@@ -35,7 +35,7 @@ class ArrayHashMap:
         return pair.val
 
     def put(self, key: int, val: str):
-        """新增操作"""
+        """新增和更新操作"""
         pair = Pair(key, val)
         index: int = self.hash_func(key)
         self.buckets[index] = pair

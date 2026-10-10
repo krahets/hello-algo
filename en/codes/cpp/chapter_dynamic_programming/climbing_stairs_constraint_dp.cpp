@@ -6,14 +6,14 @@
 
 #include "../utils/common.hpp"
 
-/* Constrained climbing stairs: Dynamic programming */
+/* Climbing stairs with constraint: Dynamic programming */
 int climbingStairsConstraintDP(int n) {
     if (n == 1 || n == 2) {
         return 1;
     }
-    // Initialize dp table, used to store subproblem solutions
+    // Initialize dp table, used to store solutions to subproblems
     vector<vector<int>> dp(n + 1, vector<int>(3, 0));
-    // Initial state: preset the smallest subproblem solution
+    // Initial state: preset the solution to the smallest subproblem
     dp[1][1] = 1;
     dp[1][2] = 0;
     dp[2][1] = 0;
@@ -31,7 +31,7 @@ int main() {
     int n = 9;
 
     int res = climbingStairsConstraintDP(n);
-    cout << "There are " << res << " solutions to climb " << n << " stairs" << endl;
+    cout << "Climbing " << n << " stairs has " << res << " solutions" << endl;
 
     return 0;
 }

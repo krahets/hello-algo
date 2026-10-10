@@ -40,7 +40,7 @@ func binarySearchInsertion(nums []int, target int) int {
 			// target 在區間 [i, m-1] 中
 			j = m - 1
 		} else {
-			// 首個小於 target 的元素在區間 [i, m-1] 中
+			// 最右一個小於 target 的元素在區間 [i, m-1] 中
 			j = m - 1
 		}
 	}

@@ -361,12 +361,6 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 ## 推算方法
 
 空間複雜度的推算方法與時間複雜度大致相同，只需將統計物件從“操作數量”轉為“使用空間大小”。
@@ -527,12 +521,6 @@
         b = Array.new(10000)            # O(1)
         nums = Array.new(n) if n > 10   # O(n)
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
     ```
 
 **在遞迴函式中，需要注意統計堆疊幀空間**。觀察以下程式碼：
@@ -807,12 +795,6 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 函式 `loop()` 和 `recur()` 的時間複雜度都為 $O(n)$ ，但空間複雜度不同。
 
 - 函式 `loop()` 在迴圈中呼叫了 $n$ 次 `function()` ，每輪中的 `function()` 都返回並釋放了堆疊幀空間，因此空間複雜度仍為 $O(1)$ 。
@@ -824,8 +806,8 @@
 
 $$
 \begin{aligned}
-O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
-\text{常數階} < \text{對數階} < \text{線性階} < \text{平方階} < \text{指數階}
+& O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
+& \text{常數階} < \text{對數階} < \text{線性階} < \text{平方階} < \text{指數階}
 \end{aligned}
 $$
 

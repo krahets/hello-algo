@@ -128,12 +128,6 @@
     tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 ![任意型別二元樹的陣列表示](array_representation_of_tree.assets/array_representation_with_empty.png)
 
 值得說明的是，**完全二元樹非常適合使用陣列來表示**。回顧完全二元樹的定義，`None` 只出現在最底層且靠右的位置，**因此所有 `None` 一定出現在層序走訪序列的末尾**。

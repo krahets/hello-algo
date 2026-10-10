@@ -58,7 +58,7 @@ int main() {
     vector<int> nums = {10546151, 35663510, 42865989, 34862445, 81883077,
                         88906420, 72429244, 30524779, 82060337, 63832996};
     radixSort(nums);
-    cout << "After radix sort, nums = ";
+    cout << "After radix sort completes, nums = ";
     printVector(nums);
 
     return 0;

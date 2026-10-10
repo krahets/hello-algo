@@ -9,7 +9,7 @@ package chapter_hashing;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Chained address hash table */
+/* Hash table with separate chaining */
 class HashMapChaining {
     int size; // Number of key-value pairs
     int capacity; // Hash table capacity
@@ -43,7 +43,7 @@ class HashMapChaining {
     String get(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // Traverse the bucket, if the key is found, return the corresponding val
+        // Traverse bucket, if key is found, return corresponding val
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 return pair.val;
@@ -55,20 +55,20 @@ class HashMapChaining {
 
     /* Add operation */
     void put(int key, String val) {
-        // When the load factor exceeds the threshold, perform expansion
+        // When load factor exceeds threshold, perform expansion
         if (loadFactor() > loadThres) {
             extend();
         }
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // Traverse the bucket, if the specified key is encountered, update the corresponding val and return
+        // Traverse bucket, if specified key is encountered, update corresponding val and return
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 pair.val = val;
                 return;
             }
         }
-        // If the key is not found, add the key-value pair to the end
+        // If key does not exist, append key-value pair to the end
         Pair pair = new Pair(key, val);
         bucket.add(pair);
         size++;
@@ -78,7 +78,7 @@ class HashMapChaining {
     void remove(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // Traverse the bucket, remove the key-value pair from it
+        // Traverse bucket and remove key-value pair from it
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 bucket.remove(pair);
@@ -88,18 +88,18 @@ class HashMapChaining {
         }
     }
 
-    /* Extend hash table */
+    /* Expand hash table */
     void extend() {
         // Temporarily store the original hash table
         List<List<Pair>> bucketsTmp = buckets;
-        // Initialize the extended new hash table
+        // Initialize expanded new hash table
         capacity *= extendRatio;
         buckets = new ArrayList<>(capacity);
         for (int i = 0; i < capacity; i++) {
             buckets.add(new ArrayList<>());
         }
         size = 0;
-        // Move key-value pairs from the original hash table to the new hash table
+        // Move key-value pairs from original hash table to new hash table
         for (List<Pair> bucket : bucketsTmp) {
             for (Pair pair : bucket) {
                 put(pair.key, pair.val);
@@ -126,23 +126,23 @@ public class hash_map_chaining {
 
         /* Add operation */
         // Add key-value pair (key, value) to the hash table
-        map.put(12836, "Ha");
-        map.put(15937, "Luo");
-        map.put(16750, "Suan");
-        map.put(13276, "Fa");
-        map.put(10583, "Ya");
-        System.out.println("\nAfter adding, the hash table is\nKey -> Value");
+        map.put(12836, "Xiao Ha");
+        map.put(15937, "Xiao Luo");
+        map.put(16750, "Xiao Suan");
+        map.put(13276, "Xiao Fa");
+        map.put(10583, "Xiao Ya");
+        System.out.println("\nAfter adding is complete, hash table is\nKey -> Value");
         map.print();
 
         /* Query operation */
-        // Enter key to the hash table, get value
+        // Input key into hash table to get value
         String name = map.get(13276);
-        System.out.println("\nEnter student ID 13276, found name " + name);
+        System.out.println("\nInput student ID 13276, query name " + name);
 
         /* Remove operation */
-        // Remove key-value pair (key, value) from the hash table
+        // Remove key-value pair (key, value) from hash table
         map.remove(12836);
-        System.out.println("\nAfter removing 12836, the hash table is\nKey -> Value");
+        System.out.println("\nAfter removing 12836, hash table is\nKey -> Value");
         map.print();
     }
 }

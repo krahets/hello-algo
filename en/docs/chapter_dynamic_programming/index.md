@@ -1,9 +1,9 @@
-# Dynamic programming
+# Dynamic Programming
 
 ![Dynamic programming](../assets/covers/chapter_dynamic_programming.jpg)
 
 !!! abstract
 
-    Streams merge into rivers, and rivers merge into the sea.
-    
-    Dynamic programming weaves smaller problems’ solutions into larger ones, guiding us step by step toward the far shore—where the ultimate answer awaits.
+    Streams flow into rivers, rivers flow into the sea.
+
+    Dynamic programming combines solutions to small problems into the answer to a large problem, leading us step by step to the other shore of problem-solving.

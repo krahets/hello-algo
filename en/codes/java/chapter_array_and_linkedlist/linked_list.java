@@ -26,7 +26,7 @@ public class linked_list {
         n0.next = n1;
     }
 
-    /* Access the node at `index` in the linked list */
+    /* Access the node at index index in the linked list */
     static ListNode access(ListNode head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == null)
@@ -36,7 +36,7 @@ public class linked_list {
         return head;
     }
 
-    /* Search for the first node with value target in the linked list */
+    /* Find the first node with value target in the linked list */
     static int find(ListNode head, int target) {
         int index = 0;
         while (head != null) {
@@ -62,25 +62,25 @@ public class linked_list {
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
-        System.out.println("The initialized linked list is");
+        System.out.println("Initialized linked list is");
         PrintUtil.printLinkedList(n0);
 
         /* Insert node */
         insert(n0, new ListNode(0));
-        System.out.println("Linked list after inserting the node is");
+        System.out.println("Linked list after inserting node is");
         PrintUtil.printLinkedList(n0);
 
         /* Remove node */
         remove(n0);
-        System.out.println("Linked list after removing the node is");
+        System.out.println("Linked list after removing node is");
         PrintUtil.printLinkedList(n0);
 
         /* Access node */
         ListNode node = access(n0, 3);
-        System.out.println("The value of the node at index 3 in the linked list = " + node.val);
+        System.out.println("Value of node at index 3 in linked list = " + node.val);
 
         /* Search node */
         int index = find(n0, 2);
-        System.out.println("The index of the node with value 2 in the linked list = " + index);
+        System.out.println("Index of node with value 2 in linked list = " + index);
     }
 }

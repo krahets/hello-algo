@@ -14,14 +14,14 @@ def coin_change_dp(coins: list[int], amt: int) -> int:
     # State transition: first row and first column
     for a in range(1, amt + 1):
         dp[0][a] = MAX
-    # State transition: the rest of the rows and columns
+    # State transition: rest of the rows and columns
     for i in range(1, n + 1):
         for a in range(1, amt + 1):
             if coins[i - 1] > a:
-                # If exceeding the target amount, do not choose coin i
+                # If exceeds target amount, don't select coin i
                 dp[i][a] = dp[i - 1][a]
             else:
-                # The smaller value between not choosing and choosing coin i
+                # The smaller value between not selecting and selecting coin i
                 dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1)
     return dp[n][amt] if dp[n][amt] != MAX else -1
 
@@ -35,13 +35,13 @@ def coin_change_dp_comp(coins: list[int], amt: int) -> int:
     dp[0] = 0
     # State transition
     for i in range(1, n + 1):
-        # Traverse in order
+        # Traverse in forward order
         for a in range(1, amt + 1):
             if coins[i - 1] > a:
-                # If exceeding the target amount, do not choose coin i
+                # If exceeds target amount, don't select coin i
                 dp[a] = dp[a]
             else:
-                # The smaller value between not choosing and choosing coin i
+                # The smaller value between not selecting and selecting coin i
                 dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1)
     return dp[amt] if dp[amt] != MAX else -1
 
@@ -53,8 +53,8 @@ if __name__ == "__main__":
 
     # Dynamic programming
     res = coin_change_dp(coins, amt)
-    print(f"Minimum number of coins required to reach the target amount = {res}")
+    print(f"The minimum number of coins needed to make up the target amount is {res}")
 
     # Space-optimized dynamic programming
     res = coin_change_dp_comp(coins, amt)
-    print(f"Minimum number of coins required to reach the target amount = {res}")
+    print(f"The minimum number of coins needed to make up the target amount is {res}")

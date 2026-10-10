@@ -15,21 +15,21 @@ from graph_adjacency_list import GraphAdjList
 def dfs(graph: GraphAdjList, visited: set[Vertex], res: list[Vertex], vet: Vertex):
     """Depth-first traversal helper function"""
     res.append(vet)  # Record visited vertex
-    visited.add(vet)  # Mark the vertex as visited
-    # Traverse all adjacent vertices of that vertex
+    visited.add(vet)  # Mark this vertex as visited
+    # Traverse all adjacent vertices of this vertex
     for adjVet in graph.adj_list[vet]:
         if adjVet in visited:
-            continue  # Skip already visited vertices
+            continue  # Skip vertices that have been visited
         # Recursively visit adjacent vertices
         dfs(graph, visited, res, adjVet)
 
 
 def graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
     """Depth-first traversal"""
-    # Use adjacency list to represent the graph, to obtain all adjacent vertices of a specified vertex
+    # Use adjacency list to represent the graph, in order to obtain all adjacent vertices of a specified vertex
     # Vertex traversal sequence
     res = []
-    # Hash set, used to record visited vertices
+    # Hash set for recording vertices that have been visited
     visited = set[Vertex]()
     dfs(graph, visited, res, start_vet)
     return res

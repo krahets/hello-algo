@@ -11,7 +11,7 @@ public class binary_search_edge {
     static int binarySearchLeftEdge(int[] nums, int target) {
         // Equivalent to finding the insertion point of target
         int i = binary_search_insertion.binarySearchInsertion(nums, target);
-        // Did not find target, thus return -1
+        // Target not found, return -1
         if (i == nums.length || nums[i] != target) {
             return -1;
         }
@@ -25,7 +25,7 @@ public class binary_search_edge {
         int i = binary_search_insertion.binarySearchInsertion(nums, target + 1);
         // j points to the rightmost target, i points to the first element greater than target
         int j = i - 1;
-        // Did not find target, thus return -1
+        // Target not found, return -1
         if (j == -1 || nums[j] != target) {
             return -1;
         }
@@ -38,12 +38,12 @@ public class binary_search_edge {
         int[] nums = { 1, 3, 6, 6, 6, 6, 6, 10, 12, 15 };
         System.out.println("\nArray nums = " + java.util.Arrays.toString(nums));
 
-        // Binary search for left and right boundaries
+        // Binary search left and right boundaries
         for (int target : new int[] { 6, 7 }) {
             int index = binarySearchLeftEdge(nums, target);
-            System.out.println("The leftmost index of element " + target + " is " + index);
+            System.out.println("Index of leftmost element " + target + " is " + index);
             index = binarySearchRightEdge(nums, target);
-            System.out.println("The rightmost index of element " + target + " is " + index);
+            System.out.println("Index of rightmost element " + target + " is " + index);
         }
     }
 }

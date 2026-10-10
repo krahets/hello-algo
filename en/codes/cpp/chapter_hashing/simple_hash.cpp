@@ -48,7 +48,7 @@ int rotHash(string key) {
 
 /* Driver Code */
 int main() {
-    string key = "Hello algorithm";
+    string key = "Hello Algo";
 
     int hash = addHash(key);
     cout << "Additive hash value is " << hash << endl;

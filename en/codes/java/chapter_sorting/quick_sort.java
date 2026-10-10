@@ -17,7 +17,7 @@ class QuickSort {
         nums[j] = tmp;
     }
 
-    /* Partition */
+    /* Sentinel partition */
     static int partition(int[] nums, int left, int right) {
         // Use nums[left] as the pivot
         int i = left, j = right;
@@ -37,7 +37,7 @@ class QuickSort {
         // Terminate recursion when subarray length is 1
         if (left >= right)
             return;
-        // Partition
+        // Sentinel partition
         int pivot = partition(nums, left, right);
         // Recursively process the left subarray and right subarray
         quickSort(nums, left, pivot - 1);
@@ -64,7 +64,7 @@ class QuickSortMedian {
         return right;
     }
 
-    /* Partition (median of three) */
+    /* Sentinel partition (median of three) */
     static int partition(int[] nums, int left, int right) {
         // Select the median of three candidate elements
         int med = medianThree(nums, left, (left + right) / 2, right);
@@ -88,7 +88,7 @@ class QuickSortMedian {
         // Terminate recursion when subarray length is 1
         if (left >= right)
             return;
-        // Partition
+        // Sentinel partition
         int pivot = partition(nums, left, right);
         // Recursively process the left subarray and right subarray
         quickSort(nums, left, pivot - 1);
@@ -96,7 +96,7 @@ class QuickSortMedian {
     }
 }
 
-/* Quick sort class (tail recursion optimization) */
+/* Quick sort class (recursion depth optimization) */
 class QuickSortTailCall {
     /* Swap elements */
     static void swap(int[] nums, int i, int j) {
@@ -105,7 +105,7 @@ class QuickSortTailCall {
         nums[j] = tmp;
     }
 
-    /* Partition */
+    /* Sentinel partition */
     static int partition(int[] nums, int left, int right) {
         // Use nums[left] as the pivot
         int i = left, j = right;
@@ -120,11 +120,11 @@ class QuickSortTailCall {
         return i;             // Return the index of the pivot
     }
 
-    /* Quick sort (tail recursion optimization) */
+    /* Quick sort (recursion depth optimization) */
     public static void quickSort(int[] nums, int left, int right) {
         // Terminate when subarray length is 1
         while (left < right) {
-            // Partition operation
+            // Sentinel partition operation
             int pivot = partition(nums, left, right);
             // Perform quick sort on the shorter of the two subarrays
             if (pivot - left < right - pivot) {
@@ -143,16 +143,16 @@ public class quick_sort {
         /* Quick sort */
         int[] nums = { 2, 4, 1, 0, 3, 5 };
         QuickSort.quickSort(nums, 0, nums.length - 1);
-        System.out.println("After quick sort, nums = " + Arrays.toString(nums));
+        System.out.println("After quick sort completes, nums = " + Arrays.toString(nums));
 
-        /* Quick sort (median pivot optimization) */
+        /* Quick sort (recursion depth optimization) */
         int[] nums1 = { 2, 4, 1, 0, 3, 5 };
         QuickSortMedian.quickSort(nums1, 0, nums1.length - 1);
-        System.out.println("After quick sort with median pivot optimization, nums1 = " + Arrays.toString(nums1));
+        System.out.println("After quick sort (median pivot optimization) completes, nums1 = " + Arrays.toString(nums1));
 
-        /* Quick sort (tail recursion optimization) */
+        /* Quick sort (recursion depth optimization) */
         int[] nums2 = { 2, 4, 1, 0, 3, 5 };
         QuickSortTailCall.quickSort(nums2, 0, nums2.length - 1);
-        System.out.println("After quick sort with tail recursion optimization, nums2 = " + Arrays.toString(nums2));
+        System.out.println("After quick sort (recursion depth optimization) completes, nums2 = " + Arrays.toString(nums2));
     }
 }

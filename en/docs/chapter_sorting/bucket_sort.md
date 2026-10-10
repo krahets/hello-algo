@@ -1,45 +1,45 @@
-# Bucket sort
+# Bucket Sort
 
-The previously mentioned sorting algorithms are all "comparison-based sorting algorithms," which sort elements by comparing their values. Such sorting algorithms cannot have better time complexity of $O(n \log n)$. Next, we will discuss several "non-comparison sorting algorithms" that could achieve linear time complexity.
+The sorting algorithms discussed earlier are all comparison-based sorting algorithms, which sort by comparing the relative order of elements. The worst-case time complexity of such algorithms has a lower bound of $\Omega(n \log n)$. Next, we will explore several non-comparison sorting algorithms, whose time complexity can be linear.
 
-<u>Bucket sort</u> is a typical application of the divide-and-conquer strategy. It works by setting up a series of ordered buckets, each containing a range of data, and distributing the input data evenly across these buckets. And then, the data in each bucket is sorted individually. Finally, the sorted data from all the buckets is merged in sequence to produce the final result.
+<u>Bucket sort</u> is a typical application of the divide-and-conquer strategy. It works by creating a sequence of ordered buckets, each corresponding to a data range, and distributing the data evenly among them. The elements within each bucket are then sorted separately. Finally, all buckets are merged in order.
 
-## Algorithm process
+## Algorithm Flow
 
-Consider an array of length $n$, with float numbers in the range $[0, 1)$. The bucket sort process is illustrated in the figure below.
+Consider an array of length $n$, whose elements are floating-point numbers in the range $[0, 1)$. The flow of bucket sort is shown in the figure below.
 
-1. Initialize $k$ buckets and distribute $n$ elements into these $k$ buckets.
-2. Sort each bucket individually (using the built-in sorting function of the programming language).
-3. Merge the results in the order from the smallest to the largest bucket.
+1. Initialize $k$ buckets and distribute the $n$ elements into the $k$ buckets.
+2. Sort each bucket separately (here we use the built-in sorting function of the programming language).
+3. Merge the results in order from smallest to largest bucket.
 
-![Bucket sort algorithm process](bucket_sort.assets/bucket_sort_overview.png)
+![Bucket sort algorithm flow](bucket_sort.assets/bucket_sort_overview.png)
 
-The code is shown as follows:
+The code is as follows:
 
 ```src
 [file]{bucket_sort}-[class]{}-[func]{bucket_sort}
 ```
 
-## Algorithm characteristics
+## Algorithm Characteristics
 
-Bucket sort is suitable for handling very large data sets. For example, if the input data includes 1 million elements, and system memory limitations prevent loading all the data at the same time, you can divide the data into 1,000 buckets and sort each bucket separately before merging the results.
+Bucket sort is suitable for processing very large datasets. For example, suppose the input contains 1 million elements, and limited memory prevents the system from loading all of them at once. In that case, the data can be divided into 1000 buckets, each bucket can be sorted separately, and the results can then be merged.
 
-- **Time complexity is $O(n + k)$**: Assuming the elements are evenly distributed across the buckets, the number of elements in each bucket is $n/k$. Assuming sorting a single bucket takes $O(n/k \log(n/k))$ time, sorting all buckets takes $O(n \log(n/k))$ time. **When the number of buckets $k$ is relatively large, the time complexity approaches $O(n)$**. Merging the results requires traversing all buckets and elements, taking $O(n + k)$ time. In the worst case, all data is distributed into a single bucket, and sorting that bucket takes $O(n^2)$ time.
-- **Space complexity is $O(n + k)$, non-in-place sorting**: It requires additional space for $k$ buckets and a total of $n$ elements.
-- Whether bucket sort is stable depends on whether the sorting algorithm used within each bucket is stable.
+- **Time complexity is $O(n + k)$**: Assuming the elements are evenly distributed across the buckets, each bucket contains $\frac{n}{k}$ elements. If sorting a single bucket takes $O(\frac{n}{k} \log\frac{n}{k})$ time, then sorting all buckets takes $O(n \log\frac{n}{k})$ time. **When the number of buckets $k$ is relatively large, the time complexity approaches $O(n)$**. Merging the results requires traversing all buckets and elements, which takes $O(n + k)$ time. In the worst case, all data is placed into a single bucket, and sorting that bucket takes $O(n^2)$ time.
+- **Space complexity is $O(n + k)$, and bucket sort is not in-place**: It requires extra space for $k$ buckets and a total of $n$ elements.
+- Whether bucket sort is stable depends on whether the algorithm for sorting elements within buckets is stable.
 
-## How to achieve even distribution
+## How to Achieve Even Distribution
 
-The theoretical time complexity of bucket sort can reach $O(n)$. **The key is to evenly distribute the elements across all buckets** as real-world data is often not uniformly distributed. For example, we may want to evenly distribute all products on eBay by price range into 10 buckets. However, the distribution of product prices may not be even, with many under $100 and few over $500. If the price range is evenly divided into 10, the difference in the number of products in each bucket will be significant.
+In theory, bucket sort can achieve $O(n)$ time complexity. **The key is to distribute the elements evenly across the buckets**, because real-world data is often not uniformly distributed. For example, suppose we want to divide all products on Taobao evenly into 10 buckets by price range, but the price distribution is uneven: there are many products priced below 100 yuan and very few priced above 1000 yuan. If the price range is divided evenly into 10 intervals, the numbers of products in the buckets will differ greatly.
 
-To achieve even distribution, we can initially set an approximate boundary to roughly divide the data into 3 buckets. **After the distribution is complete, the buckets with more items can be further divided into 3 buckets, until the number of elements in all buckets is roughly equal**.
+To achieve a more even distribution, we can first choose a rough boundary and partition the data into 3 buckets. **After that, buckets containing more products can be further divided into 3 buckets until the numbers of elements in all buckets are roughly equal**.
 
-As shown in the figure below, this method essentially constructs a recursive tree, aiming to ensure the element counts in leaf nodes are as even as possible. Of course, you don't have to divide the data into 3 buckets each round - the partitioning strategy can be adaptively tailored to the data's unique characteristics.
+As shown in the figure below, this method essentially builds a recursion tree whose goal is to make the leaf nodes as balanced as possible. Of course, the data does not have to be split into 3 buckets in every round; the specific partitioning strategy can be chosen flexibly based on the characteristics of the data.
 
-![Recursive division of buckets](bucket_sort.assets/scatter_in_buckets_recursively.png)
+![Recursively dividing buckets](bucket_sort.assets/scatter_in_buckets_recursively.png)
 
-If we know the probability distribution of product prices in advance, **we can set the price boundaries for each bucket based on the data probability distribution**. It is worth noting that it is not necessarily required to specifically calculate the data distribution; instead, it can be approximated based on data characteristics using a probability model.
+If we know the probability distribution of product prices in advance, **we can set the price boundaries for each bucket according to that distribution**. Notably, the data distribution does not need to be measured exactly; it can also be approximated with a probability model chosen to fit the characteristics of the data.
 
-As shown in the figure below, assuming that product prices follow a normal distribution, we can define reasonable price intervals to balance the distribution of items across the buckets.
+As shown in the figure below, we assume that product prices follow a normal distribution, which allows us to reasonably set price intervals to evenly distribute products to each bucket.
 
 ![Dividing buckets based on probability distribution](bucket_sort.assets/scatter_in_buckets_distribution.png)

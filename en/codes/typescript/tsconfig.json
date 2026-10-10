@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "types": ["@types/node"],
+        "noEmit": true,
+        "target": "esnext",
+    },
+    "include": ["chapter_*/*.ts"],
+    "exclude": ["node_modules"]
+}

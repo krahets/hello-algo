@@ -8,28 +8,28 @@ Author: krahets (krahets@163.com)
 def backtrack(
     state: list[int], target: int, choices: list[int], start: int, res: list[list[int]]
 ):
-    """Backtracking algorithm: Subset Sum I"""
+    """Backtracking algorithm: Subset sum I"""
     # When the subset sum equals target, record the solution
     if target == 0:
         res.append(list(state))
         return
     # Traverse all choices
-    # Pruning two: start traversing from start to avoid generating duplicate subsets
+    # Pruning 2: start traversing from start to avoid generating duplicate subsets
     for i in range(start, len(choices)):
-        # Pruning one: if the subset sum exceeds target, end the loop immediately
+        # Pruning 1: if the subset sum exceeds target, end the loop directly
         # This is because the array is sorted, and later elements are larger, so the subset sum will definitely exceed target
         if target - choices[i] < 0:
             break
-        # Attempt: make a choice, update target, start
+        # Attempt: make choice, update target, start
         state.append(choices[i])
         # Proceed to the next round of selection
         backtrack(state, target - choices[i], choices, i, res)
-        # Retract: undo the choice, restore to the previous state
+        # Backtrack: undo choice, restore to previous state
         state.pop()
 
 
 def subset_sum_i(nums: list[int], target: int) -> list[list[int]]:
-    """Solve Subset Sum I"""
+    """Solve subset sum I"""
     state = []  # State (subset)
     nums.sort()  # Sort nums
     start = 0  # Start point for traversal
@@ -45,4 +45,4 @@ if __name__ == "__main__":
     res = subset_sum_i(nums, target)
 
     print(f"Input array nums = {nums}, target = {target}")
-    print(f"All subsets equal to {target} res = {res}")
+    print(f"All subsets with sum equal to {target} res = {res}")

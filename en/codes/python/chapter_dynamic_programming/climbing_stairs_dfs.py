@@ -25,4 +25,4 @@ if __name__ == "__main__":
     n = 9
 
     res = climbing_stairs_dfs(n)
-    print(f"Climb {n} steps, there are {res} solutions in total")
+    print(f"Climbing {n} stairs has {res} solutions")

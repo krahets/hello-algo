@@ -24,7 +24,7 @@ class ArrayHashMap {
     private List<Pair> buckets;
 
     public ArrayHashMap() {
-        // Initialize an array, containing 100 buckets
+        // Initialize array with 100 buckets
         buckets = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             buckets.add(null);
@@ -56,7 +56,7 @@ class ArrayHashMap {
     /* Remove operation */
     public void remove(int key) {
         int index = hashFunc(key);
-        // Set to null, indicating removal
+        // Set to null to represent deletion
         buckets.set(index, null);
     }
 
@@ -105,23 +105,23 @@ public class array_hash_map {
 
         /* Add operation */
         // Add key-value pair (key, value) to the hash table
-        map.put(12836, "Ha");
-        map.put(15937, "Luo");
-        map.put(16750, "Suan");
-        map.put(13276, "Fa");
-        map.put(10583, "Ya");
-        System.out.println("\nAfter adding, the hash table is\nKey -> Value");
+        map.put(12836, "Xiao Ha");
+        map.put(15937, "Xiao Luo");
+        map.put(16750, "Xiao Suan");
+        map.put(13276, "Xiao Fa");
+        map.put(10583, "Xiao Ya");
+        System.out.println("\nAfter adding is complete, hash table is\nKey -> Value");
         map.print();
 
         /* Query operation */
-        // Enter key to the hash table, get value
+        // Input key into hash table to get value
         String name = map.get(15937);
-        System.out.println("\nEnter student ID 15937, found name " + name);
+        System.out.println("\nInput student ID 15937, query name " + name);
 
         /* Remove operation */
-        // Remove key-value pair (key, value) from the hash table
+        // Remove key-value pair (key, value) from hash table
         map.remove(10583);
-        System.out.println("\nAfter removing 10583, the hash table is\nKey -> Value");
+        System.out.println("\nAfter removing 10583, hash table is\nKey -> Value");
         map.print();
 
         /* Traverse hash table */
@@ -129,11 +129,11 @@ public class array_hash_map {
         for (Pair kv : map.pairSet()) {
             System.out.println(kv.key + " -> " + kv.val);
         }
-        System.out.println("\nIndividually traverse keys Key");
+        System.out.println("\nTraverse keys only Key");
         for (int key : map.keySet()) {
             System.out.println(key);
         }
-        System.out.println("\nIndividually traverse values Value");
+        System.out.println("\nTraverse values only Value");
         for (String val : map.valueSet()) {
             System.out.println(val);
         }

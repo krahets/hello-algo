@@ -17,18 +17,18 @@ if __name__ == "__main__":
 
     # Add operation
     # Add key-value pair (key, value) to the hash table
-    hmap[12836] = "Ha"
-    hmap[15937] = "Luo"
-    hmap[16750] = "Suan"
-    hmap[13276] = "Fa"
-    hmap[10583] = "Ya"
+    hmap[12836] = "Xiao Ha"
+    hmap[15937] = "Xiao Luo"
+    hmap[16750] = "Xiao Suan"
+    hmap[13276] = "Xiao Fa"
+    hmap[10583] = "Xiao Ya"
     print("\nAfter adding, the hash table is\nKey -> Value")
     print_dict(hmap)
 
     # Query operation
-    # Enter key to the hash table, get value
+    # Input key into the hash table to get value
     name: str = hmap[15937]
-    print("\nEnter student ID 15937, found name " + name)
+    print("\nInput student ID 15937, found name " + name)
 
     # Remove operation
     # Remove key-value pair (key, value) from the hash table
@@ -41,10 +41,10 @@ if __name__ == "__main__":
     for key, value in hmap.items():
         print(key, "->", value)
 
-    print("\nIndividually traverse keys Key")
+    print("\nTraverse keys only Key")
     for key in hmap.keys():
         print(key)
 
-    print("\nIndividually traverse values Value")
+    print("\nTraverse values only Value")
     for val in hmap.values():
         print(val)

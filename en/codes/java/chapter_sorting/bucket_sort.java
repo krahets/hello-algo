@@ -39,9 +39,9 @@ public class bucket_sort {
     }
 
     public static void main(String[] args) {
-        // Assume input data is floating point, range [0, 1)
+        // Assume input data is floating point, interval [0, 1)
         float[] nums = { 0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f };
         bucketSort(nums);
-        System.out.println("After bucket sort, nums = " + Arrays.toString(nums));
+        System.out.println("After bucket sort completes, nums = " + Arrays.toString(nums));
     }
 }

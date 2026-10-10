@@ -12,7 +12,7 @@ import java.util.*;
 public class preorder_traversal_i_compact {
     static List<TreeNode> res;
 
-    /* Pre-order traversal: Example one */
+    /* Preorder traversal: Example 1 */
     static void preOrder(TreeNode root) {
         if (root == null) {
             return;
@@ -30,7 +30,7 @@ public class preorder_traversal_i_compact {
         System.out.println("\nInitialize binary tree");
         PrintUtil.printTree(root);
 
-        // Pre-order traversal
+        // Preorder traversal
         res = new ArrayList<>();
         preOrder(root);
 

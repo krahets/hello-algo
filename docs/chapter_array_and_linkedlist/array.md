@@ -23,10 +23,10 @@
     ```cpp title="array.cpp"
     /* 初始化数组 */
     // 存储在栈上
-    int arr[5];
+    int arr[5] = {};
     int nums[5] = { 1, 3, 2, 5, 4 };
     // 存储在堆上（需要手动释放空间）
-    int* arr1 = new int[5];
+    int* arr1 = new int[5] {};
     int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
     ```
 
@@ -124,14 +124,6 @@
     # 初始化数组
     arr = Array.new(5, 0)
     nums = [1, 3, 2, 5, 4]
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 初始化数组
-    const arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
-    const nums = [_]i32{ 1, 3, 2, 5, 4 };
     ```
 
 ??? pythontutor "可视化运行"

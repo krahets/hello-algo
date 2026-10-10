@@ -7,7 +7,7 @@ env["PYTHONIOENCODING"] = "utf-8"
 
 if __name__ == "__main__":
     # find source code files
-    src_paths = sorted(glob.glob("en/codes/python/chapter_*/*.py"))
+    src_paths = sorted(glob.glob("chapter_*/*.py"))
     errors = []
 
     # run python code

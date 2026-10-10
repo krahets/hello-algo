@@ -205,9 +205,9 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
     ```kotlin title=""
     /* AVL 樹節點類別 */
     class TreeNode(val _val: Int) {  // 節點值
-        val height: Int = 0          // 節點高度
-        val left: TreeNode? = null   // 左子節點
-        val right: TreeNode? = null  // 右子節點
+        var height: Int = 0          // 節點高度
+        var left: TreeNode? = null   // 左子節點
+        var right: TreeNode? = null  // 右子節點
     }
     ```
 
@@ -226,12 +226,6 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
         @height = 0
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
     ```
 
 “節點高度”是指從該節點到它的最遠葉節點的距離，即所經過的“邊”的數量。需要特別注意的是，葉節點的高度為 $0$ ，而空節點的高度為 $-1$ 。我們將建立兩個工具函式，分別用於獲取和更新節點的高度：

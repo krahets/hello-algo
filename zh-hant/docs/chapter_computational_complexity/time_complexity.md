@@ -201,21 +201,6 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // 在某執行平臺下
-    fn algorithm(n: usize) void {
-        var a: i32 = 2; // 1 ns
-        a += 1; // 1 ns
-        a *= 2; // 10 ns
-        // 迴圈 n 次
-        for (0..n) |_| { // 1 ns
-            std.debug.print("{}\n", .{0}); // 5 ns
-        }
-    }
-    ```
-
 根據以上方法，可以得到演算法的執行時間為 $(6n + 12)$ ns ：
 
 $$
@@ -499,29 +484,6 @@ $$
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // 演算法 A 的時間複雜度：常數階
-    fn algorithm_A(n: usize) void {
-        _ = n;
-        std.debug.print("{}\n", .{0});
-    }
-    // 演算法 B 的時間複雜度：線性階
-    fn algorithm_B(n: i32) void {
-        for (0..n) |_| {
-            std.debug.print("{}\n", .{0});
-        }
-    }
-    // 演算法 C 的時間複雜度：常數階
-    fn algorithm_C(n: i32) void {
-        _ = n;
-        for (0..1000000) |_| {
-            std.debug.print("{}\n", .{0});
-        }
-    }
-    ```
-
 下圖展示了以上三個演算法函式的時間複雜度。
 
 - 演算法 `A` 只有 $1$ 個列印操作，演算法執行時間不隨著 $n$ 增大而增長。我們稱此演算法的時間複雜度為“常數階”。
@@ -719,20 +681,6 @@ $$
             puts 0      # +1
         end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    fn algorithm(n: usize) void {
-        var a: i32 = 1; // +1
-        a += 1; // +1
-        a *= 2; // +1
-        // 迴圈 n 次
-        for (0..n) |_| { // +1（每輪都執行 i ++）
-            std.debug.print("{}\n", .{0}); // +1
-        }
-    }
     ```
 
 設演算法的操作數量是一個關於輸入資料大小 $n$ 的函式，記為 $T(n)$ ，則以上函式的操作數量為：
@@ -1012,27 +960,6 @@ $T(n)$ 是一次函式，說明其執行時間的增長趨勢是線性的，因�
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    fn algorithm(n: usize) void {
-        var a: i32 = 1;     // +0（技巧 1）
-        a = a + @as(i32, @intCast(n));        // +0（技巧 1）
-
-        // +n（技巧 2）
-        for(0..(5 * n + 1)) |_| {
-            std.debug.print("{}\n", .{0});
-        }
-
-        // +n*n（技巧 3）
-        for(0..(2 * n)) |_| {
-            for(0..(n + 1)) |_| {
-                std.debug.print("{}\n", .{0});
-            }
-        }
-    }
-    ```
-
 以下公式展示了使用上述技巧前後的統計結果，兩者推算出的時間複雜度都為 $O(n^2)$ 。
 
 $$
@@ -1065,8 +992,8 @@ $$
 
 $$
 \begin{aligned}
-O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!) \newline
-\text{常數階} < \text{對數階} < \text{線性階} < \text{線性對數階} < \text{平方階} < \text{指數階} < \text{階乘階}
+& O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!) \newline
+& \text{常數階} < \text{對數階} < \text{線性階} < \text{線性對數階} < \text{平方階} < \text{指數階} < \text{階乘階}
 \end{aligned}
 $$
 

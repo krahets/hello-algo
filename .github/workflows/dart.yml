@@ -5,10 +5,16 @@ name: Dart
 on:
   push:
     branches: ["main"]
-    paths: ["codes/dart/**/*.dart"]
+    paths:
+      - ".github/workflows/dart.yml"
+      - "codes/dart/**/*.dart"
+      - "en/codes/dart/**/*.dart"
   pull_request:
     branches: ["main"]
-    paths: ["codes/dart/**/*.dart"]
+    paths:
+      - ".github/workflows/dart.yml"
+      - "codes/dart/**/*.dart"
+      - "en/codes/dart/**/*.dart"
   workflow_dispatch:
 
 permissions:
@@ -22,15 +28,16 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         dart-sdk: [stable]
+        code-dir: ["codes/dart", "en/codes/dart"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set up Dart ${{ matrix.dart-sdk }}
-        uses: dart-lang/setup-dart@v1
+        uses: dart-lang/setup-dart@e51d8e571e22473a2ddebf0ef8a2123f0ab2c02c # v1
         with:
           sdk: ${{ matrix.dart-sdk}}
       - name: Run format
-        run: dart format codes/dart
+        run: dart format ${{ matrix.code-dir }}
       - name: Run analyze
-        run: dart analyze codes/dart
+        run: dart analyze ${{ matrix.code-dir }}
       - name: Run build
-        run: dart codes/dart/build.dart
+        run: dart ${{ matrix.code-dir }}/build.dart

@@ -1,0 +1,25 @@
+[project]
+extra_css = [
+  "stylesheets/extra.css",
+  "stylesheets/animation_player.css",
+]
+extra_javascript = [
+  "javascripts/mathjax.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js",
+  "javascripts/animation_player.js",
+]
+
+[project.theme]
+features = [
+  "content.action.edit",
+  "content.code.annotate",
+  "content.code.copy",
+  "content.tabs.link",
+  "content.tooltips",
+  "navigation.indexes",
+  "navigation.tracking",
+  "search.highlight",
+  "search.share",
+  "search.suggest",
+  "toc.follow",
+]

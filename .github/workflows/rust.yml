@@ -3,10 +3,20 @@ name: Rust
 on:
   push:
     branches: ["main"]
-    paths: ["codes/rust/**/*.rs", "codes/rust/Cargo.toml"]
+    paths:
+      - ".github/workflows/rust.yml"
+      - "codes/rust/**/*.rs"
+      - "codes/rust/Cargo.toml"
+      - "en/codes/rust/**/*.rs"
+      - "en/codes/rust/Cargo.toml"
   pull_request:
     branches: ["main"]
-    paths: ["codes/rust/**/*.rs", "codes/rust/Cargo.toml"]
+    paths:
+      - ".github/workflows/rust.yml"
+      - "codes/rust/**/*.rs"
+      - "codes/rust/Cargo.toml"
+      - "en/codes/rust/**/*.rs"
+      - "en/codes/rust/Cargo.toml"
 
 jobs:
   build:
@@ -15,13 +25,14 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
+        code-dir: ["codes/rust", "en/codes/rust"]
 
     steps:
-      - uses: brndnmtthws/rust-action-rustup@v1
+      - uses: brndnmtthws/rust-action-rustup@913349b802fe843511093e8c2014c94d8168c6b6 # v1
         with:
-            toolchain: nightly
-      
-      - uses: actions/checkout@v4
-      
+          toolchain: nightly
+
+      - uses: actions/checkout@v6
+
       - name: Build
-        run: cargo build --manifest-path=codes/rust/Cargo.toml && cargo build --manifest-path=codes/rust/Cargo.toml --release
+        run: cargo build --manifest-path=${{ matrix.code-dir }}/Cargo.toml && cargo build --manifest-path=${{ matrix.code-dir }}/Cargo.toml --release

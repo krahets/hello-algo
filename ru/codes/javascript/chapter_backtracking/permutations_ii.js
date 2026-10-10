@@ -1,0 +1,44 @@
+/**
+ * File: permutations_ii.js
+ * Created Time: 2023-05-13
+ * Author: Justin (xiefahit@gmail.com)
+ */
+
+/* Алгоритм бэктрекинга: все перестановки II */
+function backtrack(state, choices, selected, res) {
+    // Когда длина состояния равна числу элементов, записать решение
+    if (state.length === choices.length) {
+        res.push([...state]);
+        return;
+    }
+    // Перебор всех вариантов выбора
+    const duplicated = new Set();
+    choices.forEach((choice, i) => {
+        // Отсечение: нельзя выбирать один и тот же элемент повторно и нельзя повторно выбирать равные элементы
+        if (!selected[i] && !duplicated.has(choice)) {
+            // Попытка: сделать выбор и обновить состояние
+            duplicated.add(choice); // Записать значения уже выбранных элементов
+            selected[i] = true;
+            state.push(choice);
+            // Перейти к следующему выбору
+            backtrack(state, choices, selected, res);
+            // Откат: отменить выбор и восстановить предыдущее состояние
+            selected[i] = false;
+            state.pop();
+        }
+    });
+}
+
+/* Все перестановки II */
+function permutationsII(nums) {
+    const res = [];
+    backtrack([], nums, Array(nums.length).fill(false), res);
+    return res;
+}
+
+// Driver Code
+const nums = [1, 2, 2];
+const res = permutationsII(nums);
+
+console.log(`Входной массив nums = ${JSON.stringify(nums)}`);
+console.log(`Все перестановки res = ${JSON.stringify(res)}`);

@@ -38,7 +38,7 @@ void mergeSort(vector<int> &nums, int left, int right) {
     // Termination condition
     if (left >= right)
         return; // Terminate recursion when subarray length is 1
-    // Partition stage
+    // Divide and conquer stage
     int mid = left + (right - left) / 2;    // Calculate midpoint
     mergeSort(nums, left, mid);      // Recursively process the left subarray
     mergeSort(nums, mid + 1, right); // Recursively process the right subarray
@@ -51,7 +51,7 @@ int main() {
     /* Merge sort */
     vector<int> nums = {7, 3, 2, 6, 0, 1, 5, 4};
     mergeSort(nums, 0, nums.size() - 1);
-    cout << "After merge sort, nums = ";
+    cout << "After merge sort completes, nums = ";
     printVector(nums);
 
     return 0;

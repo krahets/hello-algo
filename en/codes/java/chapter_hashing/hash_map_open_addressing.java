@@ -6,14 +6,14 @@
 
 package chapter_hashing;
 
-/* Open addressing hash table */
+/* Hash table with open addressing */
 class HashMapOpenAddressing {
     private int size; // Number of key-value pairs
     private int capacity = 4; // Hash table capacity
     private final double loadThres = 2.0 / 3.0; // Load factor threshold for triggering expansion
     private final int extendRatio = 2; // Expansion multiplier
     private Pair[] buckets; // Bucket array
-    private final Pair TOMBSTONE = new Pair(-1, "-1"); // Removal mark
+    private final Pair TOMBSTONE = new Pair(-1, "-1"); // Removal marker
 
     /* Constructor */
     public HashMapOpenAddressing() {
@@ -31,15 +31,15 @@ class HashMapOpenAddressing {
         return (double) size / capacity;
     }
 
-    /* Search for the bucket index corresponding to key */
+    /* Search for bucket index corresponding to key */
     private int findBucket(int key) {
         int index = hashFunc(key);
         int firstTombstone = -1;
         // Linear probing, break when encountering an empty bucket
         while (buckets[index] != null) {
-            // If the key is encountered, return the corresponding bucket index
+            // If key is encountered, return the corresponding bucket index
             if (buckets[index].key == key) {
-                // If a removal mark was encountered earlier, move the key-value pair to that index
+                // If a removal marker was encountered before, move the key-value pair to that index
                 if (firstTombstone != -1) {
                     buckets[firstTombstone] = buckets[index];
                     buckets[index] = TOMBSTONE;
@@ -47,67 +47,67 @@ class HashMapOpenAddressing {
                 }
                 return index; // Return bucket index
             }
-            // Record the first encountered removal mark
+            // Record the first removal marker encountered
             if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                 firstTombstone = index;
             }
-            // Calculate the bucket index, return to the head if exceeding the tail
+            // Calculate bucket index, wrap around to the head if past the tail
             index = (index + 1) % capacity;
         }
-        // If the key does not exist, return the index of the insertion point
+        // If key does not exist, return the index for insertion
         return firstTombstone == -1 ? index : firstTombstone;
     }
 
     /* Query operation */
     public String get(int key) {
-        // Search for the bucket index corresponding to key
+        // Search for bucket index corresponding to key
         int index = findBucket(key);
-        // If the key-value pair is found, return the corresponding val
+        // If key-value pair is found, return corresponding val
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             return buckets[index].val;
         }
-        // If the key-value pair does not exist, return null
+        // If key-value pair does not exist, return null
         return null;
     }
 
     /* Add operation */
     public void put(int key, String val) {
-        // When the load factor exceeds the threshold, perform expansion
+        // When load factor exceeds threshold, perform expansion
         if (loadFactor() > loadThres) {
             extend();
         }
-        // Search for the bucket index corresponding to key
+        // Search for bucket index corresponding to key
         int index = findBucket(key);
-        // If the key-value pair is found, overwrite val and return
+        // If key-value pair is found, overwrite val and return
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             buckets[index].val = val;
             return;
         }
-        // If the key-value pair does not exist, add the key-value pair
+        // If key-value pair does not exist, add the key-value pair
         buckets[index] = new Pair(key, val);
         size++;
     }
 
     /* Remove operation */
     public void remove(int key) {
-        // Search for the bucket index corresponding to key
+        // Search for bucket index corresponding to key
         int index = findBucket(key);
-        // If the key-value pair is found, cover it with a removal mark
+        // If key-value pair is found, overwrite it with removal marker
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             buckets[index] = TOMBSTONE;
             size--;
         }
     }
 
-    /* Extend hash table */
+    /* Expand hash table */
     private void extend() {
         // Temporarily store the original hash table
         Pair[] bucketsTmp = buckets;
-        // Initialize the extended new hash table
+        // Initialize expanded new hash table
         capacity *= extendRatio;
         buckets = new Pair[capacity];
         size = 0;
-        // Move key-value pairs from the original hash table to the new hash table
+        // Move key-value pairs from original hash table to new hash table
         for (Pair pair : bucketsTmp) {
             if (pair != null && pair != TOMBSTONE) {
                 put(pair.key, pair.val);
@@ -136,23 +136,23 @@ public class hash_map_open_addressing {
 
         // Add operation
         // Add key-value pair (key, val) to the hash table
-        hashmap.put(12836, "Ha");
-        hashmap.put(15937, "Luo");
-        hashmap.put(16750, "Suan");
-        hashmap.put(13276, "Fa");
-        hashmap.put(10583, "Ya");
-        System.out.println("\nAfter adding, the hash table is\nKey -> Value");
+        hashmap.put(12836, "Xiao Ha");
+        hashmap.put(15937, "Xiao Luo");
+        hashmap.put(16750, "Xiao Suan");
+        hashmap.put(13276, "Xiao Fa");
+        hashmap.put(10583, "Xiao Ya");
+        System.out.println("\nAfter adding is complete, hash table is\nKey -> Value");
         hashmap.print();
 
         // Query operation
-        // Enter key to the hash table, get value val
+        // Input key into hash table to get value val
         String name = hashmap.get(13276);
-        System.out.println("\nEnter student ID 13276, found name " + name);
+        System.out.println("\nInput student ID 13276, query name " + name);
 
         // Remove operation
-        // Remove key-value pair (key, val) from the hash table
+        // Remove key-value pair (key, val) from hash table
         hashmap.remove(16750);
-        System.out.println("\nAfter removing 16750, the hash table is\nKey -> Value");
+        System.out.println("\nAfter removing 16750, hash table is\nKey -> Value");
         hashmap.print();
     }
 }

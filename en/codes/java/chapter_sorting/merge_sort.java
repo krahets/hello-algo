@@ -41,7 +41,7 @@ public class merge_sort {
         // Termination condition
         if (left >= right)
             return; // Terminate recursion when subarray length is 1
-        // Partition stage
+        // Divide and conquer stage
         int mid = left + (right - left) / 2; // Calculate midpoint
         mergeSort(nums, left, mid); // Recursively process the left subarray
         mergeSort(nums, mid + 1, right); // Recursively process the right subarray
@@ -53,6 +53,6 @@ public class merge_sort {
         /* Merge sort */
         int[] nums = { 7, 3, 2, 6, 0, 1, 5, 4 };
         mergeSort(nums, 0, nums.length - 1);
-        System.out.println("After merge sort, nums = " + Arrays.toString(nums));
+        System.out.println("After merge sort completes, nums = " + Arrays.toString(nums));
     }
 }

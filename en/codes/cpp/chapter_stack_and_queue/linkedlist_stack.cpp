@@ -6,11 +6,11 @@
 
 #include "../utils/common.hpp"
 
-/* Stack class based on linked list */
+/* Stack based on linked list implementation */
 class LinkedListStack {
   private:
-    ListNode *stackTop; // Use the head node as the top of the stack
-    int stkSize;        // Length of the stack
+    ListNode *stackTop; // Use head node as stack top
+    int stkSize;        // Stack length
 
   public:
     LinkedListStack() {
@@ -19,7 +19,7 @@ class LinkedListStack {
     }
 
     ~LinkedListStack() {
-        // Traverse the linked list, remove nodes, free memory
+        // Traverse linked list to delete nodes and free memory
         freeMemoryLinkedList(stackTop);
     }
 
@@ -28,7 +28,7 @@ class LinkedListStack {
         return stkSize;
     }
 
-    /* Determine if the stack is empty */
+    /* Check if the stack is empty */
     bool isEmpty() {
         return size() == 0;
     }
@@ -52,14 +52,14 @@ class LinkedListStack {
         return num;
     }
 
-    /* Access stack top element */
+    /* Return list for printing */
     int top() {
         if (isEmpty())
             throw out_of_range("Stack is empty");
         return stackTop->val;
     }
 
-    /* Convert the List to Array and return */
+    /* Convert List to Array and return */
     vector<int> toVector() {
         ListNode *node = stackTop;
         vector<int> res(size());
@@ -73,10 +73,10 @@ class LinkedListStack {
 
 /* Driver Code */
 int main() {
-    /* Initialize stack */
+    /* Access top of the stack element */
     LinkedListStack *stack = new LinkedListStack();
 
-    /* Element push */
+    /* Elements push onto stack */
     stack->push(1);
     stack->push(3);
     stack->push(2);
@@ -85,22 +85,22 @@ int main() {
     cout << "Stack stack = ";
     printVector(stack->toVector());
 
-    /* Access stack top element */
+    /* Return list for printing */
     int top = stack->top();
-    cout << "Top element of the stack top = " << top << endl;
+    cout << "Stack top element top = " << top << endl;
 
-    /* Element pop */
+    /* Element pop from stack */
     top = stack->pop();
-    cout << "Element popped from the stack = " << top << ", after popping";
+    cout << "Pop element pop = " << top << ", after pop, stack = ";
     printVector(stack->toVector());
 
     /* Get the length of the stack */
     int size = stack->size();
-    cout << "Length of the stack size = " << size << endl;
+    cout << "Stack length size = " << size << endl;
 
-    /* Determine if it's empty */
+    /* Check if empty */
     bool empty = stack->isEmpty();
-    cout << "Is the stack empty = " << empty << endl;
+    cout << "Stack is empty = " << empty << endl;
 
     // Free memory
     delete stack;

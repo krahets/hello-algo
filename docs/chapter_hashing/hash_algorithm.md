@@ -160,7 +160,7 @@ $$
     size_t hashStr = hash<string>()(str);
     // 字符串“Hello 算法”的哈希值为 15466937326284535026
 
-    // 在 C++ 中，内置 std:hash() 仅提供基本数据类型的哈希值计算
+    // 在 C++ 中，内置 std::hash() 仅提供基本数据类型的哈希值计算
     // 数组、对象的哈希值计算需要自行实现
     ```
 
@@ -397,12 +397,6 @@ $$
     obj = ListNode.new(0)
     hash_obj = obj.hash
     # 节点对象 #<ListNode:0x000078133140ab70> 的哈希值为 4302940560806366381
-    ```
-
-=== "Zig"
-
-    ```zig title="built_in_hash.zig"
-
     ```
 
 ??? pythontutor "可视化运行"

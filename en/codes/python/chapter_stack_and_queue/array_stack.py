@@ -6,7 +6,7 @@ Author: Peng Chen (pengchzn@gmail.com)
 
 
 class ArrayStack:
-    """Stack class based on array"""
+    """Stack based on array implementation"""
 
     def __init__(self):
         """Constructor"""
@@ -17,7 +17,7 @@ class ArrayStack:
         return len(self._stack)
 
     def is_empty(self) -> bool:
-        """Determine if the stack is empty"""
+        """Check if the stack is empty"""
         return self.size() == 0
 
     def push(self, item: int):
@@ -31,13 +31,13 @@ class ArrayStack:
         return self._stack.pop()
 
     def peek(self) -> int:
-        """Access stack top element"""
+        """Access top of the stack element"""
         if self.is_empty():
             raise IndexError("Stack is empty")
         return self._stack[-1]
 
     def to_list(self) -> list[int]:
-        """Return array for printing"""
+        """Return list for printing"""
         return self._stack
 
 
@@ -46,27 +46,27 @@ if __name__ == "__main__":
     # Initialize stack
     stack = ArrayStack()
 
-    # Element push
+    # Elements push onto stack
     stack.push(1)
     stack.push(3)
     stack.push(2)
     stack.push(5)
     stack.push(4)
-    print("Stack stack =", stack.to_list())
+    print("stack =", stack.to_list())
 
-    # Access stack top element
+    # Access top of the stack element
     peek: int = stack.peek()
-    print("Stack top element peek =", peek)
+    print("Top of the stack element peek =", peek)
 
-    # Element pop
+    # Element pop from stack
     pop: int = stack.pop()
     print("Popped element pop =", pop)
-    print("Stack after pop =", stack.to_list())
+    print("After pop stack =", stack.to_list())
 
     # Get the length of the stack
     size: int = stack.size()
-    print("Stack length size =", size)
+    print("Length of the stack size =", size)
 
-    # Determine if it's empty
+    # Check if it is empty
     is_empty: bool = stack.is_empty()
     print("Is the stack empty =", is_empty)

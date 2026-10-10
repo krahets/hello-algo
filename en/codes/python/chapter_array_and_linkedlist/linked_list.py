@@ -29,7 +29,7 @@ def remove(n0: ListNode):
 
 
 def access(head: ListNode, index: int) -> ListNode | None:
-    """Access the node at `index` in the linked list"""
+    """Access the node at index index in the linked list"""
     for _ in range(index):
         if not head:
             return None
@@ -38,7 +38,7 @@ def access(head: ListNode, index: int) -> ListNode | None:
 
 
 def find(head: ListNode, target: int) -> int:
-    """Search for the first node with value target in the linked list"""
+    """Find the first node with value target in the linked list"""
     index = 0
     while head:
         if head.val == target:
@@ -68,18 +68,18 @@ if __name__ == "__main__":
     # Insert node
     p = ListNode(0)
     insert(n0, p)
-    print("Linked list after inserting the node is")
+    print("The linked list after inserting a node is")
     print_linked_list(n0)
 
     # Remove node
     remove(n0)
-    print("Linked list after removing the node is")
+    print("The linked list after removing a node is")
     print_linked_list(n0)
 
     # Access node
     node: ListNode = access(n0, 3)
     print("The value of the node at index 3 in the linked list = {}".format(node.val))
 
-    # Search node
+    # Find node
     index: int = find(n0, 2)
     print("The index of the node with value 2 in the linked list = {}".format(index))

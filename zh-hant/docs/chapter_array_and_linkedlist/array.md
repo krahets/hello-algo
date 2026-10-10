@@ -15,7 +15,7 @@
     ```python title="array.py"
     # 初始化陣列
     arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
-    nums: list[int] = [1, 3, 2, 5, 4]  
+    nums: list[int] = [1, 3, 2, 5, 4]
     ```
 
 === "C++"
@@ -23,10 +23,10 @@
     ```cpp title="array.cpp"
     /* 初始化陣列 */
     // 儲存在堆疊上
-    int arr[5];
+    int arr[5] = {};
     int nums[5] = { 1, 3, 2, 5, 4 };
     // 儲存在堆積上（需要手動釋放空間）
-    int* arr1 = new int[5];
+    int* arr1 = new int[5] {};
     int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
     ```
 
@@ -124,14 +124,6 @@
     # 初始化陣列
     arr = Array.new(5, 0)
     nums = [1, 3, 2, 5, 4]
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 初始化陣列
-    var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
-    var nums = [_]i32{ 1, 3, 2, 5, 4 };
     ```
 
 ??? pythontutor "視覺化執行"

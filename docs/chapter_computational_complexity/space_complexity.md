@@ -361,12 +361,6 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 ## 推算方法
 
 空间复杂度的推算方法与时间复杂度大致相同，只需将统计对象从“操作数量”转为“使用空间大小”。
@@ -527,12 +521,6 @@
         b = Array.new(10000)            # O(1)
         nums = Array.new(n) if n > 10   # O(n)
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
     ```
 
 **在递归函数中，需要注意统计栈帧空间**。观察以下代码：
@@ -807,12 +795,6 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 函数 `loop()` 和 `recur()` 的时间复杂度都为 $O(n)$ ，但空间复杂度不同。
 
 - 函数 `loop()` 在循环中调用了 $n$ 次 `function()` ，每轮中的 `function()` 都返回并释放了栈帧空间，因此空间复杂度仍为 $O(1)$ 。
@@ -824,8 +806,8 @@
 
 $$
 \begin{aligned}
-O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
-\text{常数阶} < \text{对数阶} < \text{线性阶} < \text{平方阶} < \text{指数阶}
+& O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
+& \text{常数阶} < \text{对数阶} < \text{线性阶} < \text{平方阶} < \text{指数阶}
 \end{aligned}
 $$
 

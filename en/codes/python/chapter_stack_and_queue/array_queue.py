@@ -6,12 +6,12 @@ Author: Peng Chen (pengchzn@gmail.com)
 
 
 class ArrayQueue:
-    """Queue class based on circular array"""
+    """Queue based on circular array implementation"""
 
     def __init__(self, size: int):
         """Constructor"""
         self._nums: list[int] = [0] * size  # Array for storing queue elements
-        self._front: int = 0  # Front pointer, pointing to the front element
+        self._front: int = 0  # Front pointer, points to the front of the queue element
         self._size: int = 0  # Queue length
 
     def capacity(self) -> int:
@@ -23,36 +23,36 @@ class ArrayQueue:
         return self._size
 
     def is_empty(self) -> bool:
-        """Determine if the queue is empty"""
+        """Check if the queue is empty"""
         return self._size == 0
 
     def push(self, num: int):
         """Enqueue"""
         if self._size == self.capacity():
             raise IndexError("Queue is full")
-        # Calculate rear pointer, pointing to rear index + 1
-        # Use modulo operation to wrap the rear pointer from the end of the array back to the start
+        # Calculate rear pointer, points to rear index + 1
+        # Use modulo operation to wrap rear around to the head after passing the tail of the array
         rear: int = (self._front + self._size) % self.capacity()
-        # Add num to the rear
+        # Add num to the rear of the queue
         self._nums[rear] = num
         self._size += 1
 
     def pop(self) -> int:
         """Dequeue"""
         num: int = self.peek()
-        # Move front pointer one position backward, returning to the head of the array if it exceeds the tail
+        # Front pointer moves one position backward, if it passes the tail, return to the head of the array
         self._front = (self._front + 1) % self.capacity()
         self._size -= 1
         return num
 
     def peek(self) -> int:
-        """Access front element"""
+        """Access front of the queue element"""
         if self.is_empty():
             raise IndexError("Queue is empty")
         return self._nums[self._front]
 
     def to_list(self) -> list[int]:
-        """Return array for printing"""
+        """Return list for printing"""
         res = [0] * self.size()
         j: int = self._front
         for i in range(self.size()):
@@ -66,28 +66,28 @@ if __name__ == "__main__":
     # Initialize queue
     queue = ArrayQueue(10)
 
-    # Element enqueue
+    # Elements enqueue
     queue.push(1)
     queue.push(3)
     queue.push(2)
     queue.push(5)
     queue.push(4)
-    print("Queue queue =", queue.to_list())
+    print("queue =", queue.to_list())
 
-    # Access front element
+    # Access front of the queue element
     peek: int = queue.peek()
-    print("Front element peek =", peek)
+    print("Front of the queue element peek =", peek)
 
     # Element dequeue
     pop: int = queue.pop()
     print("Dequeued element pop =", pop)
-    print("Queue after dequeue =", queue.to_list())
+    print("After dequeue queue =", queue.to_list())
 
     # Get the length of the queue
     size: int = queue.size()
-    print("Queue length size =", size)
+    print("Length of the queue size =", size)
 
-    # Determine if the queue is empty
+    # Check if the queue is empty
     is_empty: bool = queue.is_empty()
     print("Is the queue empty =", is_empty)
 
@@ -95,4 +95,4 @@ if __name__ == "__main__":
     for i in range(10):
         queue.push(i)
         queue.pop()
-        print("In the ", i, "th round of enqueue + dequeue, queue = ", queue.to_list())
+        print("Round", i, "enqueue + dequeue after queue = ", queue.to_list())

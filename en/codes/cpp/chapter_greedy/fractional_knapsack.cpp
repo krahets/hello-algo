@@ -16,9 +16,9 @@ class Item {
     }
 };
 
-/* Fractional knapsack: Greedy */
+/* Fractional knapsack: Greedy algorithm */
 double fractionalKnapsack(vector<int> &wgt, vector<int> &val, int cap) {
-    // Create an item list, containing two properties: weight, value
+    // Create item list with two attributes: weight, value
     vector<Item> items;
     for (int i = 0; i < wgt.size(); i++) {
         items.push_back(Item(wgt[i], val[i]));
@@ -29,13 +29,13 @@ double fractionalKnapsack(vector<int> &wgt, vector<int> &val, int cap) {
     double res = 0;
     for (auto &item : items) {
         if (item.w <= cap) {
-            // If the remaining capacity is sufficient, put the entire item into the knapsack
+            // If remaining capacity is sufficient, put the entire current item into the knapsack
             res += item.v;
             cap -= item.w;
         } else {
-            // If the remaining capacity is insufficient, put part of the item into the knapsack
+            // If remaining capacity is insufficient, put part of the current item into the knapsack
             res += (double)item.v / item.w * cap;
-            // No remaining capacity left, thus break the loop
+            // No remaining capacity, so break out of the loop
             break;
         }
     }
@@ -50,7 +50,7 @@ int main() {
 
     // Greedy algorithm
     double res = fractionalKnapsack(wgt, val, cap);
-    cout << "The maximum value within the bag capacity is " << res << endl;
+    cout << "Maximum item value not exceeding knapsack capacity is " << res << endl;
 
     return 0;
 }

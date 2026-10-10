@@ -9,7 +9,7 @@
 vector<TreeNode *> path;
 vector<vector<TreeNode *>> res;
 
-/* Pre-order traversal: Example two */
+/* Preorder traversal: Example 2 */
 void preOrder(TreeNode *root) {
     if (root == nullptr) {
         return;
@@ -22,7 +22,7 @@ void preOrder(TreeNode *root) {
     }
     preOrder(root->left);
     preOrder(root->right);
-    // Retract
+    // Backtrack
     path.pop_back();
 }
 
@@ -32,10 +32,10 @@ int main() {
     cout << "\nInitialize binary tree" << endl;
     printTree(root);
 
-    // Pre-order traversal
+    // Preorder traversal
     preOrder(root);
 
-    cout << "\nOutput all root-to-node 7 paths" << endl;
+    cout << "\nOutput all paths from root node to node 7" << endl;
     for (vector<TreeNode *> &path : res) {
         vector<int> vals;
         for (TreeNode *node : path) {

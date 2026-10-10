@@ -9,7 +9,7 @@ class QuickSort:
     """Quick sort class"""
 
     def partition(self, nums: list[int], left: int, right: int) -> int:
-        """Partition"""
+        """Sentinel partition"""
         # Use nums[left] as the pivot
         i, j = left, right
         while i < j:
@@ -28,7 +28,7 @@ class QuickSort:
         # Terminate recursion when subarray length is 1
         if left >= right:
             return
-        # Partition
+        # Sentinel partition
         pivot = self.partition(nums, left, right)
         # Recursively process the left subarray and right subarray
         self.quick_sort(nums, left, pivot - 1)
@@ -48,7 +48,7 @@ class QuickSortMedian:
         return right
 
     def partition(self, nums: list[int], left: int, right: int) -> int:
-        """Partition (median of three)"""
+        """Sentinel partition (median of three)"""
         # Use nums[left] as the pivot
         med = self.median_three(nums, left, (left + right) // 2, right)
         # Swap the median to the array's leftmost position
@@ -71,7 +71,7 @@ class QuickSortMedian:
         # Terminate recursion when subarray length is 1
         if left >= right:
             return
-        # Partition
+        # Sentinel partition
         pivot = self.partition(nums, left, right)
         # Recursively process the left subarray and right subarray
         self.quick_sort(nums, left, pivot - 1)
@@ -79,10 +79,10 @@ class QuickSortMedian:
 
 
 class QuickSortTailCall:
-    """Quick sort class (tail recursion optimization)"""
+    """Quick sort class (recursion depth optimization)"""
 
     def partition(self, nums: list[int], left: int, right: int) -> int:
-        """Partition"""
+        """Sentinel partition"""
         # Use nums[left] as the pivot
         i, j = left, right
         while i < j:
@@ -97,10 +97,10 @@ class QuickSortTailCall:
         return i  # Return the index of the pivot
 
     def quick_sort(self, nums: list[int], left: int, right: int):
-        """Quick sort (tail recursion optimization)"""
+        """Quick sort (recursion depth optimization)"""
         # Terminate when subarray length is 1
         while left < right:
-            # Partition operation
+            # Sentinel partition operation
             pivot = self.partition(nums, left, right)
             # Perform quick sort on the shorter of the two subarrays
             if pivot - left < right - pivot:
@@ -116,14 +116,14 @@ if __name__ == "__main__":
     # Quick sort
     nums = [2, 4, 1, 0, 3, 5]
     QuickSort().quick_sort(nums, 0, len(nums) - 1)
-    print("Quick sort completed nums =", nums)
+    print("After quick sort, nums =", nums)
 
     # Quick sort (median pivot optimization)
     nums1 = [2, 4, 1, 0, 3, 5]
     QuickSortMedian().quick_sort(nums1, 0, len(nums1) - 1)
-    print("Quick sort (median pivot optimization) completed nums =", nums1)
+    print("After quick sort (median pivot optimization), nums =", nums1)
 
-    # Quick sort (tail recursion optimization)
+    # Quick sort (recursion depth optimization)
     nums2 = [2, 4, 1, 0, 3, 5]
     QuickSortTailCall().quick_sort(nums2, 0, len(nums2) - 1)
-    print("Quick sort (tail recursion optimization) completed nums =", nums2)
+    print("After quick sort (recursion depth optimization), nums =", nums2)

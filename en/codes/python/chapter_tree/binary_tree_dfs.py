@@ -12,7 +12,7 @@ from modules import TreeNode, list_to_tree, print_tree
 
 
 def pre_order(root: TreeNode | None):
-    """Pre-order traversal"""
+    """Preorder traversal"""
     if root is None:
         return
     # Visit priority: root node -> left subtree -> right subtree
@@ -22,7 +22,7 @@ def pre_order(root: TreeNode | None):
 
 
 def in_order(root: TreeNode | None):
-    """In-order traversal"""
+    """Inorder traversal"""
     if root is None:
         return
     # Visit priority: left subtree -> root node -> right subtree
@@ -32,7 +32,7 @@ def in_order(root: TreeNode | None):
 
 
 def post_order(root: TreeNode | None):
-    """Post-order traversal"""
+    """Postorder traversal"""
     if root is None:
         return
     # Visit priority: left subtree -> right subtree -> root node
@@ -44,22 +44,22 @@ def post_order(root: TreeNode | None):
 """Driver Code"""
 if __name__ == "__main__":
     # Initialize binary tree
-    # Use a specific function to convert an array into a binary tree
+    # Here we use a function to generate a binary tree directly from an array
     root = list_to_tree(arr=[1, 2, 3, 4, 5, 6, 7])
     print("\nInitialize binary tree\n")
     print_tree(root)
 
-    # Pre-order traversal
+    # Preorder traversal
     res = []
     pre_order(root)
-    print("\nPrint sequence of nodes from pre-order traversal = ", res)
+    print("\nPreorder traversal node print sequence = ", res)
 
-    # In-order traversal
+    # Inorder traversal
     res.clear()
     in_order(root)
-    print("\nPrint sequence of nodes from in-order traversal = ", res)
+    print("\nInorder traversal node print sequence = ", res)
 
-    # Post-order traversal
+    # Postorder traversal
     res.clear()
     post_order(root)
-    print("\nPrint sequence of nodes from post-order traversal = ", res)
+    print("\nPostorder traversal node print sequence = ", res)

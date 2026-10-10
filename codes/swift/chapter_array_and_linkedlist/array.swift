@@ -28,7 +28,7 @@ func extend(nums: [Int], enlarge: Int) -> [Int] {
 /* 在数组的索引 index 处插入元素 num */
 func insert(nums: inout [Int], num: Int, index: Int) {
     // 把索引 index 以及之后的所有元素向后移动一位
-    for i in nums.indices.dropFirst(index).reversed() {
+    for i in stride(from: nums.count - 1, to: index, by: -1) {
         nums[i] = nums[i - 1]
     }
     // 将 num 赋给 index 处的元素

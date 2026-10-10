@@ -11,25 +11,25 @@ int recur(int n) {
     // Termination condition
     if (n == 1)
         return 1;
-    // Recursive: recursive call
+    // Recurse: recursive call
     int res = recur(n - 1);
     // Return: return result
     return n + res;
 }
 
-/* Simulate recursion with iteration */
+/* Simulate recursion using iteration */
 int forLoopRecur(int n) {
     // Use an explicit stack to simulate the system call stack
     stack<int> stack;
     int res = 0;
-    // Recursive: recursive call
+    // Recurse: recursive call
     for (int i = n; i > 0; i--) {
-        // Simulate "recursive" by "pushing onto the stack"
+        // Simulate "recurse" with "push"
         stack.push(i);
     }
     // Return: return result
     while (!stack.empty()) {
-        // Simulate "return" by "popping from the stack"
+        // Simulate "return" with "pop"
         res += stack.top();
         stack.pop();
     }
@@ -46,7 +46,7 @@ int tailRecur(int n, int res) {
     return tailRecur(n - 1, res + n);
 }
 
-/* Fibonacci sequence: Recursion */
+/* Fibonacci sequence: recursion */
 int fib(int n) {
     // Termination condition f(1) = 0, f(2) = 1
     if (n == 1 || n == 2)
@@ -63,16 +63,16 @@ int main() {
     int res;
 
     res = recur(n);
-    cout << "\nSum result of the recursive function res = " << res << endl;
+    cout << "\nRecursive function sum result res = " << res << endl;
 
     res = forLoopRecur(n);
-    cout << "\nSum result using iteration to simulate recursion res = " << res << endl;
+    cout << "\nUsing iteration to simulate recursive sum result res = " << res << endl;
 
     res = tailRecur(n, 0);
-    cout << "\nSum result of the tail-recursive function res = " << res << endl;
+    cout << "\nTail recursive function sum result res = " << res << endl;
 
     res = fib(n);
-    cout << "The " << n << "th number in the Fibonacci sequence is " << res << endl;
+    cout << "\nThe " << n << "th term of the Fibonacci sequence is " << res << endl;
 
     return 0;
 }

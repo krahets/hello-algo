@@ -160,7 +160,7 @@ $$
     size_t hashStr = hash<string>()(str);
     // 字串“Hello 演算法”的雜湊值為 15466937326284535026
 
-    // 在 C++ 中，內建 std:hash() 僅提供基本資料型別的雜湊值計算
+    // 在 C++ 中，內建 std::hash() 僅提供基本資料型別的雜湊值計算
     // 陣列、物件的雜湊值計算需要自行實現
     ```
 
@@ -397,12 +397,6 @@ $$
     obj = ListNode.new(0)
     hash_obj = obj.hash
     # 節點物件 #<ListNode:0x000078133140ab70> 的雜湊值為 4302940560806366381
-    ```
-
-=== "Zig"
-
-    ```zig title="built_in_hash.zig"
-
     ```
 
 ??? pythontutor "視覺化執行"

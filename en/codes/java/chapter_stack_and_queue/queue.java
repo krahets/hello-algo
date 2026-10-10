@@ -10,10 +10,10 @@ import java.util.*;
 
 public class queue {
     public static void main(String[] args) {
-        /* Initialize queue */
+        /* Access front of the queue element */
         Queue<Integer> queue = new LinkedList<>();
 
-        /* Element enqueue */
+        /* Elements enqueue */
         queue.offer(1);
         queue.offer(3);
         queue.offer(2);
@@ -21,20 +21,20 @@ public class queue {
         queue.offer(4);
         System.out.println("Queue queue = " + queue);
 
-        /* Access front element */
+        /* Return list for printing */
         int peek = queue.peek();
         System.out.println("Front element peek = " + peek);
 
         /* Element dequeue */
         int pop = queue.poll();
-        System.out.println("Dequeued element = " + pop + ", after dequeuing" + queue);
+        System.out.println("Dequeue element pop = " + pop + ", after dequeue, queue = " + queue);
 
         /* Get the length of the queue */
         int size = queue.size();
-        System.out.println("Length of the queue size = " + size);
+        System.out.println("Queue length size = " + size);
 
-        /* Determine if the queue is empty */
+        /* Check if the queue is empty */
         boolean isEmpty = queue.isEmpty();
-        System.out.println("Is the queue empty = " + isEmpty);
+        System.out.println("Queue is empty = " + isEmpty);
     }
 }

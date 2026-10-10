@@ -6,7 +6,7 @@ Author: krahets (krahets@163.com)
 
 
 def constant(n: int) -> int:
-    """Constant complexity"""
+    """Constant order"""
     count = 0
     size = 100000
     for _ in range(size):
@@ -15,7 +15,7 @@ def constant(n: int) -> int:
 
 
 def linear(n: int) -> int:
-    """Linear complexity"""
+    """Linear order"""
     count = 0
     for _ in range(n):
         count += 1
@@ -23,18 +23,18 @@ def linear(n: int) -> int:
 
 
 def array_traversal(nums: list[int]) -> int:
-    """Linear complexity (traversing an array)"""
+    """Linear order (traversing array)"""
     count = 0
-    # Loop count is proportional to the length of the array
+    # Number of iterations is proportional to the array length
     for num in nums:
         count += 1
     return count
 
 
 def quadratic(n: int) -> int:
-    """Quadratic complexity"""
+    """Quadratic order"""
     count = 0
-    # Loop count is squared in relation to the data size n
+    # Number of iterations is quadratically related to the data size n
     for i in range(n):
         for j in range(n):
             count += 1
@@ -42,26 +42,26 @@ def quadratic(n: int) -> int:
 
 
 def bubble_sort(nums: list[int]) -> int:
-    """Quadratic complexity (bubble sort)"""
+    """Quadratic order (bubble sort)"""
     count = 0  # Counter
     # Outer loop: unsorted range is [0, i]
     for i in range(len(nums) - 1, 0, -1):
-        # Inner loop: swap the largest element in the unsorted range [0, i] to the right end of the range
+        # Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
         for j in range(i):
             if nums[j] > nums[j + 1]:
                 # Swap nums[j] and nums[j + 1]
                 tmp: int = nums[j]
                 nums[j] = nums[j + 1]
                 nums[j + 1] = tmp
-                count += 3  # Element swap includes 3 individual operations
+                count += 3  # Element swap includes 3 unit operations
     return count
 
 
 def exponential(n: int) -> int:
-    """Exponential complexity (loop implementation)"""
+    """Exponential order (loop implementation)"""
     count = 0
     base = 1
-    # Cells split into two every round, forming the sequence 1, 2, 4, 8, ..., 2^(n-1)
+    # Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
     for _ in range(n):
         for _ in range(base):
             count += 1
@@ -71,14 +71,14 @@ def exponential(n: int) -> int:
 
 
 def exp_recur(n: int) -> int:
-    """Exponential complexity (recursive implementation)"""
+    """Exponential order (recursive implementation)"""
     if n == 1:
         return 1
     return exp_recur(n - 1) + exp_recur(n - 1) + 1
 
 
 def logarithmic(n: int) -> int:
-    """Logarithmic complexity (loop implementation)"""
+    """Logarithmic order (loop implementation)"""
     count = 0
     while n > 1:
         n = n / 2
@@ -87,28 +87,30 @@ def logarithmic(n: int) -> int:
 
 
 def log_recur(n: int) -> int:
-    """Logarithmic complexity (recursive implementation)"""
+    """Logarithmic order (recursive implementation)"""
     if n <= 1:
         return 0
     return log_recur(n / 2) + 1
 
 
 def linear_log_recur(n: int) -> int:
-    """Linear logarithmic complexity"""
+    """Linearithmic order"""
     if n <= 1:
         return 1
-    count: int = linear_log_recur(n // 2) + linear_log_recur(n // 2)
+    # Divide into two, the scale of subproblems is reduced by half
+    count = linear_log_recur(n // 2) + linear_log_recur(n // 2)
+    # Current subproblem contains n operations
     for _ in range(n):
         count += 1
     return count
 
 
 def factorial_recur(n: int) -> int:
-    """Factorial complexity (recursive implementation)"""
+    """Factorial order (recursive implementation)"""
     if n == 0:
         return 1
     count = 0
-    # From 1 split into n
+    # Split from 1 into n
     for _ in range(n):
         count += factorial_recur(n - 1)
     return count
@@ -116,36 +118,36 @@ def factorial_recur(n: int) -> int:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Can modify n to experience the trend of operation count changes under various complexities
+    # You can modify n to run and observe the trend of the number of operations for various complexities
     n = 8
     print("Input data size n =", n)
 
-    count: int = constant(n)
-    print("Constant complexity operation count =", count)
+    count = constant(n)
+    print("Number of operations of constant order =", count)
 
-    count: int = linear(n)
-    print("Linear complexity operation count =", count)
-    count: int = array_traversal([0] * n)
-    print("Linear complexity (traversing an array) operation count =", count)
+    count = linear(n)
+    print("Number of operations of linear order =", count)
+    count = array_traversal([0] * n)
+    print("Number of operations of linear order (traversing array) =", count)
 
-    count: int = quadratic(n)
-    print("Quadratic complexity operation count =", count)
+    count = quadratic(n)
+    print("Number of operations of quadratic order =", count)
     nums = [i for i in range(n, 0, -1)]  # [n, n-1, ..., 2, 1]
-    count: int = bubble_sort(nums)
-    print("Quadratic complexity (bubble sort) operation count =", count)
+    count = bubble_sort(nums)
+    print("Number of operations of quadratic order (bubble sort) =", count)
 
-    count: int = exponential(n)
-    print("Exponential complexity (loop implementation) operation count =", count)
-    count: int = exp_recur(n)
-    print("Exponential complexity (recursive implementation) operation count =", count)
+    count = exponential(n)
+    print("Number of operations of exponential order (loop implementation) =", count)
+    count = exp_recur(n)
+    print("Number of operations of exponential order (recursive implementation) =", count)
 
-    count: int = logarithmic(n)
-    print("Logarithmic complexity (loop implementation) operation count =", count)
-    count: int = log_recur(n)
-    print("Logarithmic complexity (recursive implementation) operation count =", count)
+    count = logarithmic(n)
+    print("Number of operations of logarithmic order (loop implementation) =", count)
+    count = log_recur(n)
+    print("Number of operations of logarithmic order (recursive implementation) =", count)
 
-    count: int = linear_log_recur(n)
-    print("Linear logarithmic complexity (recursive implementation) operation count =", count)
+    count = linear_log_recur(n)
+    print("Number of operations of linearithmic order (recursive implementation) =", count)
 
-    count: int = factorial_recur(n)
-    print("Factorial complexity (recursive implementation) operation count =", count)
+    count = factorial_recur(n)
+    print("Number of operations of factorial order (recursive implementation) =", count)
