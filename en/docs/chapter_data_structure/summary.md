@@ -3,7 +3,7 @@
 ### Key Review
 
 - Data structures can be classified from two perspectives: logical structure and physical structure. Logical structure describes the logical relationships between data elements, while physical structure describes how data is stored in computer memory.
-- Common logical structures include linear, tree, network, and set structures. This section classifies arrays, linked lists, stacks, and queues as linear; trees, heaps, graphs, and hash tables viewed as collections of key-value pairs are classified as non-linear. Logical classification depends on relationships between elements, not on whether the implementation uses arrays, linked lists, or trees.
+- Common logical structures include linear, tree-like, and network structures. We typically classify data structures as linear (arrays, linked lists, stacks, queues) and non-linear (trees, graphs, heaps, hash tables) based on their logical structure. The implementation of hash tables may involve both linear and non-linear data structures.
 - When a program runs, data is stored in computer memory. Each memory space has a corresponding memory address, and the program accesses data through these memory addresses.
 - Physical structures are primarily divided into contiguous space storage (arrays) and dispersed space storage (linked lists). All data structures are implemented using arrays, linked lists, or a combination of both.
 - Basic data types in computers include integers `byte`, `short`, `int`, `long`, floating-point numbers `float`, `double`, characters `char`, and booleans `bool`. Their value ranges depend on the size of space they occupy and their representation method.
@@ -15,11 +15,11 @@
 
 ### Q & A
 
-**Q**: If a hash table uses an array, why is it classified as non-linear in this section?
+**Q**: Why might a hash table implementation use both linear and non-linear data structures?
 
-Here, each key-value pair is treated as an element. A hash table accesses values by key without requiring predecessor or successor relationships between pairs. This section therefore treats it as a set structure and classifies it as non-linear.
+The underlying structure of a hash table is an array. To resolve hash collisions, we may use "chaining" (discussed in the subsequent "Hash Collision" section): each bucket in the array points to a linked list, which may be converted to a tree (usually a red-black tree) when the list length exceeds a certain threshold.
 
-Arrays store buckets, while linked lists or trees can be used to handle hash collisions. These are structures used to implement the hash table; they do not make the logical relationships between key-value pairs both linear and tree-like.
+From a storage perspective, the underlying structure of a hash table is an array, where each bucket slot may contain a value, a linked list, or a tree. Therefore, hash tables may contain both linear data structures (arrays, linked lists) and non-linear data structures (trees).
 
 **Q**: Is the length of the `char` type 1 byte?
 
