@@ -28,7 +28,7 @@ func extend(nums: [Int], enlarge: Int) -> [Int] {
 /* Вставить элемент num по индексу index в массив */
 func insert(nums: inout [Int], num: Int, index: Int) {
     // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
-    for i in nums.indices.dropFirst(index).reversed() {
+    for i in stride(from: nums.count - 1, to: index, by: -1) {
         nums[i] = nums[i - 1]
     }
     // Присвоить num элементу по индексу index
