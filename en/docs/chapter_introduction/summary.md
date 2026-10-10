@@ -23,11 +23,10 @@ I believe the significance of learning algorithms (and other fundamental subject
 
 In engineering, many problems are difficult to solve optimally, and many others are only solved "well enough." The difficulty of a problem depends, on the one hand, on the nature of the problem itself and, on the other hand, on the knowledge of the person examining it. The more complete a person's knowledge and the more experience they have, the deeper their analysis will be, and the more elegantly the problem can be solved.
 
-**Q**: AI agents can already help us write code. Is it still necessary to learn algorithms?
+**Q**: AI agents are already very capable: we can describe what we need and have them generate much of the code, and ask them to help debug when problems arise. If we mostly rely on agents for development and rarely write code ourselves, is it still worth spending time learning data structures and algorithms and practicing algorithm problems? What role can this knowledge still play in the age of AI?
 
-Yes. We can think of AI as an amplifier of our abilities, with our own skills and knowledge forming the foundation it amplifies. Two abilities are especially worth developing.
+To quote Mu Li: an agent is an amplifier of ability—it multiplies your ability by 10, rather than adding 10 to it.
 
-- **Communication**: Learn to work with AI by stating your goals clearly, providing the necessary context, and correcting it when it goes off track. Explaining a problem to AI also helps you think it through yourself.
-- **Foundational knowledge**: AI can fill in the details, but you need to understand the basic concepts to ask the right questions and judge whether its answers are correct. Learning data structures and algorithms helps you understand how data is organized, how programs run, and how to assess whether a method is correct and efficient.
+Since AI amplifies our abilities, the abilities being multiplied matter too. I think two abilities are especially worth developing. The first is communication, particularly the ability to work with AI: making goals clear, providing the necessary context, and correcting course in time. Explaining a problem to AI also helps us think it through ourselves. The second is foundational knowledge. AI can fill in the details, but we need to understand the basic concepts ourselves to ask the right questions, judge whether answers are correct, and turn its output into useful results.
 
-AI has a wide range of uses. It is a little like water, taking different shapes in different people's hands. The stronger our foundations and the better our judgment, the more effectively we can turn AI's output into useful results.
+One distinctive thing about AI is that, unlike earlier tools, it does not have clearly defined functional boundaries. It is a little like water, taking different shapes in different people's hands. The greater a person's abilities and the better their taste, the more pronounced AI's amplifying effect becomes.
