@@ -17,7 +17,7 @@
 
 ```src
 [file]{binary_search_edge}-[class]{}-[func]{binary_search_left_edge}
-```   
+```
 
 ## Поиск правой границы
 
