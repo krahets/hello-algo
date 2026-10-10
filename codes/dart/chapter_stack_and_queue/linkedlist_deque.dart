@@ -75,9 +75,9 @@ class LinkedListDeque {
     final int val;
     // 队列长度为 1 时, 头尾指向同一节点
     if (_queSize == 1) {
-        val = _front!.val;
-        _front = null;
-        _rear = null;
+      val = _front!.val;
+      _front = null;
+      _rear = null;
     }
     // 队首出队操作
     else if (isFront) {

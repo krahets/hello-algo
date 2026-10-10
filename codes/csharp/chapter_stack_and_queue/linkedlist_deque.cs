@@ -75,8 +75,7 @@ public class LinkedListDeque {
             throw new Exception();
         int? val;
         // 队列长度为 1 时, 头尾指向同一节点
-        if (queSize == 1)
-        {
+        if (queSize == 1) {
             val = front!.val;
             front = null;
             rear = null;

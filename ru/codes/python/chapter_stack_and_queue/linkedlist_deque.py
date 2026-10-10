@@ -64,23 +64,26 @@ class LinkedListDeque:
         """Операция извлечения из очереди"""
         if self.is_empty():
             raise IndexError("двусторонняя очередь пуста")
+        # Если в очереди один элемент, начало и конец указывают на один узел
+        if self._size == 1:
+            val: int = self._front.val
+            self._front = None
+            self._rear = None
         # Операция извлечения из головы очереди
-        if is_front:
+        elif is_front:
             val: int = self._front.val  # Временно сохранить значение головного узла
             # Удалить головной узел
             fnext: ListNode | None = self._front.next
-            if fnext is not None:
-                fnext.prev = None
-                self._front.next = None
+            fnext.prev = None
+            self._front.next = None
             self._front = fnext  # Обновить головной узел
         # Операция извлечения из хвоста очереди
         else:
             val: int = self._rear.val  # Временно сохранить значение хвостового узла
             # Удалить хвостовой узел
             rprev: ListNode | None = self._rear.prev
-            if rprev is not None:
-                rprev.next = None
-                self._rear.prev = None
+            rprev.next = None
+            self._rear.prev = None
             self._rear = rprev  # Обновить хвостовой узел
         self._size -= 1  # Обновить длину очереди
         return val

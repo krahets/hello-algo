@@ -67,13 +67,18 @@ class LinkedListDeque {
             return null;
         }
         const value = this.#rear.val; // 末尾ノードの値を保存する
+        // 要素が1つの場合、先頭と末尾は同じノードを指す
+        if (this.#queSize === 1) {
+            this.#front = null;
+            this.#rear = null;
+        }
         // 末尾ノードを削除
-        let temp = this.#rear.prev;
-        if (temp !== null) {
+        else {
+            let temp = this.#rear.prev;
             temp.next = null;
             this.#rear.prev = null;
+            this.#rear = temp; // 末尾ノードを更新する
         }
-        this.#rear = temp; // 末尾ノードを更新する
         this.#queSize--;
         return value;
     }
@@ -83,14 +88,19 @@ class LinkedListDeque {
         if (this.#queSize === 0) {
             return null;
         }
-        const value = this.#front.val; // 末尾ノードの値を保存する
+        const value = this.#front.val; // 先頭ノードの値を保存
+        // 要素が1つの場合、先頭と末尾は同じノードを指す
+        if (this.#queSize === 1) {
+            this.#front = null;
+            this.#rear = null;
+        }
         // 先頭ノードを削除
-        let temp = this.#front.next;
-        if (temp !== null) {
+        else {
+            let temp = this.#front.next;
             temp.prev = null;
             this.#front.next = null;
+            this.#front = temp; // 先頭ノードを更新する
         }
-        this.#front = temp; // 先頭ノードを更新する
         this.#queSize--;
         return value;
     }

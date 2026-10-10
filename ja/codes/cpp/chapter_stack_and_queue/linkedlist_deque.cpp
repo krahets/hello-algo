@@ -84,15 +84,20 @@ class LinkedListDeque {
         if (isEmpty())
             throw out_of_range("キューが空です");
         int val;
+        // 要素が1つの場合、先頭と末尾は同じノードを指す
+        if (queSize == 1) {
+            val = front->val;
+            delete front; // 同じノードを一度だけ解放する
+            front = nullptr;
+            rear = nullptr;
+        }
         // キュー先頭からの取り出し
-        if (isFront) {
+        else if (isFront) {
             val = front->val; // 先頭ノードの値を一時保存
             // 先頭ノードを削除
             DoublyListNode *fNext = front->next;
-            if (fNext != nullptr) {
-                fNext->prev = nullptr;
-                front->next = nullptr;
-            }
+            fNext->prev = nullptr;
+            front->next = nullptr;
             delete front;
             front = fNext; // 先頭ノードを更新する
         // キュー末尾からの取り出し
@@ -100,10 +105,8 @@ class LinkedListDeque {
             val = rear->val; // 末尾ノードの値を一時保存
             // 末尾ノードを削除
             DoublyListNode *rPrev = rear->prev;
-            if (rPrev != nullptr) {
-                rPrev->next = nullptr;
-                rear->prev = nullptr;
-            }
+            rPrev->next = nullptr;
+            rear->prev = nullptr;
             delete rear;
             rear = rPrev; // 末尾ノードを更新する
         }
