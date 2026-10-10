@@ -1,4 +1,4 @@
-# Tower of Hanoi
+# Tower of Hanoi Problem
 
 In merge sort and building binary trees, we decompose the original problem into two subproblems, each half the size of the original problem. However, for the Tower of Hanoi problem, we adopt a different decomposition strategy.
 

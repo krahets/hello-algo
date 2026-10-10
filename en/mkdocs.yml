@@ -151,7 +151,7 @@ nav:
     - 12.1 Divide and Conquer Algorithms: chapter_divide_and_conquer/divide_and_conquer.md
     - 12.2 Divide and Conquer Search Strategy: chapter_divide_and_conquer/binary_search_recur.md
     - 12.3 Building a Binary Tree Problem: chapter_divide_and_conquer/build_binary_tree_problem.md
-    - 12.4 Tower of Hanoi: chapter_divide_and_conquer/hanota_problem.md
+    - 12.4 Tower of Hanoi Problem: chapter_divide_and_conquer/hanota_problem.md
     - 12.5 Summary: chapter_divide_and_conquer/summary.md
     - 12.6 Exercises: chapter_divide_and_conquer/exercises.md
   - Chapter 13. Backtracking:
