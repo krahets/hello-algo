@@ -76,25 +76,27 @@ class LinkedListDeque {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         int val;
+        // 佇列長度為 1 時, 頭尾指向同一節點
+        if (queSize == 1) {
+            val = front.val;
+            front = null;
+            rear = null;
+        }
         // 佇列首出列操作
-        if (isFront) {
+        else if (isFront) {
             val = front.val; // 暫存頭節點值
             // 刪除頭節點
             ListNode fNext = front.next;
-            if (fNext != null) {
-                fNext.prev = null;
-                front.next = null;
-            }
+            fNext.prev = null;
+            front.next = null;
             front = fNext; // 更新頭節點
         // 佇列尾出列操作
         } else {
             val = rear.val; // 暫存尾節點值
             // 刪除尾節點
             ListNode rPrev = rear.prev;
-            if (rPrev != null) {
-                rPrev.next = null;
-                rear.prev = null;
-            }
+            rPrev.next = null;
+            rear.prev = null;
             rear = rPrev; // 更新尾節點
         }
         queSize--; // 更新佇列長度

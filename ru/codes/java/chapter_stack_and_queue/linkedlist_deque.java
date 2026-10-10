@@ -76,25 +76,27 @@ class LinkedListDeque {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         int val;
+        // Если в очереди один элемент, начало и конец указывают на один узел
+        if (queSize == 1) {
+            val = front.val;
+            front = null;
+            rear = null;
+        }
         // Операция извлечения из головы очереди
-        if (isFront) {
+        else if (isFront) {
             val = front.val; // Временно сохранить значение головного узла
             // Удалить головной узел
             ListNode fNext = front.next;
-            if (fNext != null) {
-                fNext.prev = null;
-                front.next = null;
-            }
+            fNext.prev = null;
+            front.next = null;
             front = fNext; // Обновить головной узел
         // Операция извлечения из хвоста очереди
         } else {
             val = rear.val; // Временно сохранить значение хвостового узла
             // Удалить хвостовой узел
             ListNode rPrev = rear.prev;
-            if (rPrev != null) {
-                rPrev.next = null;
-                rear.prev = null;
-            }
+            rPrev.next = null;
+            rear.prev = null;
             rear = rPrev; // Обновить хвостовой узел
         }
         queSize--; // Обновить длину очереди

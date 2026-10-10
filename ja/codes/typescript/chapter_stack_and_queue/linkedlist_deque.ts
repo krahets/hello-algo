@@ -66,14 +66,19 @@ class LinkedListDeque {
         if (this.queSize === 0) {
             return null;
         }
-        const value: number = this.rear.val; // 末尾ノードの値を保存する
-        // 末尾ノードを削除
-        let temp: ListNode = this.rear.prev;
-        if (temp !== null) {
-            temp.next = null;
-            this.rear.prev = null;
+        const value: number = this.rear!.val; // 末尾ノードの値を保存する
+        // 要素が1つの場合、先頭と末尾は同じノードを指す
+        if (this.queSize === 1) {
+            this.front = null;
+            this.rear = null;
         }
-        this.rear = temp; // 末尾ノードを更新する
+        // 末尾ノードを削除
+        else {
+            let temp: ListNode = this.rear!.prev;
+            temp!.next = null;
+            this.rear!.prev = null;
+            this.rear = temp; // 末尾ノードを更新する
+        }
         this.queSize--;
         return value;
     }
@@ -83,14 +88,19 @@ class LinkedListDeque {
         if (this.queSize === 0) {
             return null;
         }
-        const value: number = this.front.val; // 末尾ノードの値を保存する
-        // 先頭ノードを削除
-        let temp: ListNode = this.front.next;
-        if (temp !== null) {
-            temp.prev = null;
-            this.front.next = null;
+        const value: number = this.front.val; // 先頭ノードの値を保存
+        // 要素が1つの場合、先頭と末尾は同じノードを指す
+        if (this.queSize === 1) {
+            this.front = null;
+            this.rear = null;
         }
-        this.front = temp; // 先頭ノードを更新する
+        // 先頭ノードを削除
+        else {
+            let temp: ListNode = this.front!.next;
+            temp!.prev = null;
+            this.front!.next = null;
+            this.front = temp; // 先頭ノードを更新する
+        }
         this.queSize--;
         return value;
     }

@@ -84,15 +84,20 @@ class LinkedListDeque {
         if (isEmpty())
             throw out_of_range("очередь пуста");
         int val;
+        // Если в очереди один элемент, начало и конец указывают на один узел
+        if (queSize == 1) {
+            val = front->val;
+            delete front; // Освобождаем общий узел один раз
+            front = nullptr;
+            rear = nullptr;
+        }
         // Операция извлечения из головы очереди
-        if (isFront) {
+        else if (isFront) {
             val = front->val; // Временно сохранить значение головного узла
             // Удалить головной узел
             DoublyListNode *fNext = front->next;
-            if (fNext != nullptr) {
-                fNext->prev = nullptr;
-                front->next = nullptr;
-            }
+            fNext->prev = nullptr;
+            front->next = nullptr;
             delete front;
             front = fNext; // Обновить головной узел
         // Операция извлечения из хвоста очереди
@@ -100,10 +105,8 @@ class LinkedListDeque {
             val = rear->val; // Временно сохранить значение хвостового узла
             // Удалить хвостовой узел
             DoublyListNode *rPrev = rear->prev;
-            if (rPrev != nullptr) {
-                rPrev->next = nullptr;
-                rear->prev = nullptr;
-            }
+            rPrev->next = nullptr;
+            rear->prev = nullptr;
             delete rear;
             rear = rPrev; // Обновить хвостовой узел
         }

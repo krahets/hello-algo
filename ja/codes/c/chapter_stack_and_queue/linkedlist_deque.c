@@ -115,14 +115,19 @@ int pop(LinkedListDeque *deque, bool isFront) {
     if (empty(deque))
         return -1;
     int val;
+    // 要素が1つの場合、先頭と末尾は同じノードを指す
+    if (deque->queSize == 1) {
+        val = deque->front->val;
+        delDoublyListNode(deque->front); // 同じノードを一度だけ解放する
+        deque->front = NULL;
+        deque->rear = NULL;
+    }
     // キュー先頭からの取り出し
-    if (isFront) {
+    else if (isFront) {
         val = peekFirst(deque); // 先頭ノードの値を一時保存
         DoublyListNode *fNext = deque->front->next;
-        if (fNext) {
-            fNext->prev = NULL;
-            deque->front->next = NULL;
-        }
+        fNext->prev = NULL;
+        deque->front->next = NULL;
         delDoublyListNode(deque->front);
         deque->front = fNext; // 先頭ノードを更新する
     }
@@ -130,10 +135,8 @@ int pop(LinkedListDeque *deque, bool isFront) {
     else {
         val = peekLast(deque); // 末尾ノードの値を一時保存
         DoublyListNode *rPrev = deque->rear->prev;
-        if (rPrev) {
-            rPrev->next = NULL;
-            deque->rear->prev = NULL;
-        }
+        rPrev->next = NULL;
+        deque->rear->prev = NULL;
         delDoublyListNode(deque->rear);
         deque->rear = rPrev; // 末尾ノードを更新する
     }

@@ -67,13 +67,18 @@ class LinkedListDeque {
             return null;
         }
         const value = this.#rear.val; // Store tail node value
+        // When the deque has one element, front and rear point to the same node
+        if (this.#queSize === 1) {
+            this.#front = null;
+            this.#rear = null;
+        }
         // Update tail node
-        let temp = this.#rear.prev;
-        if (temp !== null) {
+        else {
+            let temp = this.#rear.prev;
             temp.next = null;
             this.#rear.prev = null;
+            this.#rear = temp; // Update tail node
         }
-        this.#rear = temp; // Update tail node
         this.#queSize--;
         return value;
     }
@@ -83,14 +88,19 @@ class LinkedListDeque {
         if (this.#queSize === 0) {
             return null;
         }
-        const value = this.#front.val; // Store tail node value
+        const value = this.#front.val; // Store the head node value
+        // When the deque has one element, front and rear point to the same node
+        if (this.#queSize === 1) {
+            this.#front = null;
+            this.#rear = null;
+        }
         // Delete head node
-        let temp = this.#front.next;
-        if (temp !== null) {
+        else {
+            let temp = this.#front.next;
             temp.prev = null;
             this.#front.next = null;
+            this.#front = temp; // Update head node
         }
-        this.#front = temp; // Update head node
         this.#queSize--;
         return value;
     }

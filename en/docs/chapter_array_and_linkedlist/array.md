@@ -23,10 +23,10 @@ We can choose between two array initialization methods based on our needs: with 
     ```cpp title="array.cpp"
     /* Initialize array */
     // Stored on stack
-    int arr[5];
+    int arr[5] = {};
     int nums[5] = { 1, 3, 2, 5, 4 };
     // Stored on heap (requires manual memory release)
-    int* arr1 = new int[5];
+    int* arr1 = new int[5] {};
     int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
     ```
 

@@ -66,14 +66,19 @@ class LinkedListDeque {
         if (this.queSize === 0) {
             return null;
         }
-        const value: number = this.rear.val; // 存储尾节点值
-        // 删除尾节点
-        let temp: ListNode = this.rear.prev;
-        if (temp !== null) {
-            temp.next = null;
-            this.rear.prev = null;
+        const value: number = this.rear!.val; // 存储尾节点值
+        // 队列长度为 1 时, 头尾指向同一节点
+        if (this.queSize === 1) {
+            this.front = null;
+            this.rear = null;
         }
-        this.rear = temp; // 更新尾节点
+        // 删除尾节点
+        else {
+            let temp: ListNode = this.rear!.prev;
+            temp!.next = null;
+            this.rear!.prev = null;
+            this.rear = temp; // 更新尾节点
+        }
         this.queSize--;
         return value;
     }
@@ -83,14 +88,19 @@ class LinkedListDeque {
         if (this.queSize === 0) {
             return null;
         }
-        const value: number = this.front.val; // 存储尾节点值
-        // 删除头节点
-        let temp: ListNode = this.front.next;
-        if (temp !== null) {
-            temp.prev = null;
-            this.front.next = null;
+        const value: number = this.front.val; // 存储头节点值
+        // 队列长度为 1 时, 头尾指向同一节点
+        if (this.queSize === 1) {
+            this.front = null;
+            this.rear = null;
         }
-        this.front = temp; // 更新头节点
+        // 删除头节点
+        else {
+            let temp: ListNode = this.front!.next;
+            temp!.prev = null;
+            this.front!.next = null;
+            this.front = temp; // 更新头节点
+        }
         this.queSize--;
         return value;
     }
