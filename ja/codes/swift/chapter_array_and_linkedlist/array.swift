@@ -28,7 +28,7 @@ func extend(nums: [Int], enlarge: Int) -> [Int] {
 /* 配列の index 番目に要素 num を挿入 */
 func insert(nums: inout [Int], num: Int, index: Int) {
     // インデックス index 以降の全要素を 1 つ後ろへ移動する
-    for i in nums.indices.dropFirst(index).reversed() {
+    for i in stride(from: nums.count - 1, to: index, by: -1) {
         nums[i] = nums[i - 1]
     }
     // index の要素に num を代入する
