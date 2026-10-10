@@ -717,7 +717,7 @@ For code, count from top to bottom line by line. However, since the constant coe
 2. **Omit all coefficients**. For example, looping $2n$ times, $5n + 1$ times, etc., can all be simplified as $n$ times, because the coefficient before $n$ does not affect time complexity.
 3. **Use multiplication for nested loops**. The total number of operations equals the product of the number of operations in the outer and inner loops, with each layer of loop still able to apply techniques `1.` and `2.` separately.
 
-Given a function, we can use the above techniques to count the number of operations:
+In the following example, each execution of an assignment or print statement counts as one operation. We omit loop-variable initialization, condition checks, and increments, which do not affect the asymptotic time complexity of this example. We can use the above techniques to further simplify the count:
 
 === "Python"
 
@@ -964,9 +964,9 @@ The following formula shows the counting results before and after using the abov
 
 $$
 \begin{aligned}
-T(n) & = 2n(n + 1) + (5n + 1) + 2 & \text{Complete count (-.-|||)} \newline
+T(n) & = 2n(n + 1) + (5n + 1) + 2 & \text{Before simplification (-.-|||)} \newline
 & = 2n^2 + 7n + 3 \newline
-T(n) & = n^2 + n & \text{Simplified count (o.O)}
+T(n) & = n^2 + n & \text{After simplification (o.O)}
 \end{aligned}
 $$
 
