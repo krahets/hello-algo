@@ -205,9 +205,9 @@ AVL-дерево одновременно является и двоичным �
     ```kotlin title=""
     /* Класс узла AVL-дерева */
     class TreeNode(val _val: Int) {  // Значение узла
-        val height: Int = 0          // Высота узла
-        val left: TreeNode? = null   // Левый дочерний узел
-        val right: TreeNode? = null  // Правый дочерний узел
+        var height: Int = 0          // Высота узла
+        var left: TreeNode? = null   // Левый дочерний узел
+        var right: TreeNode? = null  // Правый дочерний узел
     }
     ```
 

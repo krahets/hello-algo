@@ -67,13 +67,18 @@ class LinkedListDeque {
             return null;
         }
         const value = this.#rear.val; // 儲存尾節點值
+        // 佇列長度為 1 時, 頭尾指向同一節點
+        if (this.#queSize === 1) {
+            this.#front = null;
+            this.#rear = null;
+        }
         // 刪除尾節點
-        let temp = this.#rear.prev;
-        if (temp !== null) {
+        else {
+            let temp = this.#rear.prev;
             temp.next = null;
             this.#rear.prev = null;
+            this.#rear = temp; // 更新尾節點
         }
-        this.#rear = temp; // 更新尾節點
         this.#queSize--;
         return value;
     }
@@ -83,14 +88,19 @@ class LinkedListDeque {
         if (this.#queSize === 0) {
             return null;
         }
-        const value = this.#front.val; // 儲存尾節點值
+        const value = this.#front.val; // 儲存頭節點值
+        // 佇列長度為 1 時, 頭尾指向同一節點
+        if (this.#queSize === 1) {
+            this.#front = null;
+            this.#rear = null;
+        }
         // 刪除頭節點
-        let temp = this.#front.next;
-        if (temp !== null) {
+        else {
+            let temp = this.#front.next;
             temp.prev = null;
             this.#front.next = null;
+            this.#front = temp; // 更新頭節點
         }
-        this.#front = temp; // 更新頭節點
         this.#queSize--;
         return value;
     }

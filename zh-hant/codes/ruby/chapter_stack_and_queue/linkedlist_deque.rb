@@ -69,25 +69,26 @@ class LinkedListDeque
   def pop(is_front)
     raise IndexError, '雙向佇列為空' if is_empty?
 
+    # 佇列長度為 1 時, 頭尾指向同一節點
+    if @size == 1
+      val = @front.val
+      @front = nil
+      @rear = nil
     # 佇列首出列操作
-    if is_front
+    elsif is_front
       val = @front.val # 暫存頭節點值
       # 刪除頭節點
       fnext = @front.next
-      unless fnext.nil?
-        fnext.prev = nil
-        @front.next = nil
-      end
+      fnext.prev = nil
+      @front.next = nil
       @front = fnext # 更新頭節點
     # 佇列尾出列操作
     else
       val = @rear.val # 暫存尾節點值
       # 刪除尾節點
       rprev = @rear.prev
-      unless rprev.nil?
-        rprev.next = nil
-        @rear.prev = nil
-      end
+      rprev.next = nil
+      @rear.prev = nil
       @rear = rprev # 更新尾節點
     end
     @size -= 1 # 更新佇列長度

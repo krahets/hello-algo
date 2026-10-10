@@ -84,15 +84,20 @@ class LinkedListDeque {
         if (isEmpty())
             throw out_of_range("Queue is empty");
         int val;
+        // When the deque has one element, front and rear point to the same node
+        if (queSize == 1) {
+            val = front->val;
+            delete front; // Free the shared node once
+            front = nullptr;
+            rear = nullptr;
+        }
         // Temporarily store head node value
-        if (isFront) {
+        else if (isFront) {
             val = front->val; // Delete head node
             // Delete head node
             DoublyListNode *fNext = front->next;
-            if (fNext != nullptr) {
-                fNext->prev = nullptr;
-                front->next = nullptr;
-            }
+            fNext->prev = nullptr;
+            front->next = nullptr;
             delete front;
             front = fNext; // Update head node
         // Temporarily store tail node value
@@ -100,10 +105,8 @@ class LinkedListDeque {
             val = rear->val; // Delete tail node
             // Update tail node
             DoublyListNode *rPrev = rear->prev;
-            if (rPrev != nullptr) {
-                rPrev->next = nullptr;
-                rear->prev = nullptr;
-            }
+            rPrev->next = nullptr;
+            rear->prev = nullptr;
             delete rear;
             rear = rPrev; // Update tail node
         }

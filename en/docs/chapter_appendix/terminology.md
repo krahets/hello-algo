@@ -80,7 +80,9 @@ The following table lists important terms that appear in this book.
 | level-order traversal          |
 | breadth-first traversal        |
 | depth-first traversal          |
-| binary search tree             |
+| pre-order traversal            |
+| in-order traversal             |
+| post-order traversal           |
 | balanced binary search tree    |
 | balance factor                 |
 | heap                           |

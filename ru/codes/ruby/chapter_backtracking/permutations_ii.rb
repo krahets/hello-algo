@@ -4,6 +4,8 @@ Created Time: 2024-05-22
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
+require 'set'
+
 ### Алгоритм бэктрекинга: все перестановки II ###
 def backtrack(state, choices, selected, res)
   # Когда длина состояния равна числу элементов, записать решение

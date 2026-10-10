@@ -28,7 +28,7 @@ func extend(nums: [Int], enlarge: Int) -> [Int] {
 /* Insert element num at index index in the array */
 func insert(nums: inout [Int], num: Int, index: Int) {
     // Move all elements at and after index index backward by one position
-    for i in nums.indices.dropFirst(index).reversed() {
+    for i in stride(from: nums.count - 1, to: index, by: -1) {
         nums[i] = nums[i - 1]
     }
     // Assign num to the element at index index
