@@ -6,11 +6,13 @@ on:
   push:
     branches: ["main"]
     paths:
+      - ".github/workflows/dart.yml"
       - "codes/dart/**/*.dart"
       - "en/codes/dart/**/*.dart"
   pull_request:
     branches: ["main"]
     paths:
+      - ".github/workflows/dart.yml"
       - "codes/dart/**/*.dart"
       - "en/codes/dart/**/*.dart"
   workflow_dispatch:
@@ -28,7 +30,7 @@ jobs:
         dart-sdk: [stable]
         code-dir: ["codes/dart", "en/codes/dart"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set up Dart ${{ matrix.dart-sdk }}
         uses: dart-lang/setup-dart@v1
         with:

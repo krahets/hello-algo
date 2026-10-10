@@ -7,11 +7,13 @@ on:
   push:
     branches: ["main"]
     paths:
+      - ".github/workflows/dotnet.yml"
       - "codes/csharp/**/*.cs"
       - "en/codes/csharp/**/*.cs"
   pull_request:
     branches: ["main"]
     paths:
+      - ".github/workflows/dotnet.yml"
       - "codes/csharp/**/*.cs"
       - "en/codes/csharp/**/*.cs"
   workflow_dispatch:
@@ -30,7 +32,7 @@ jobs:
         code-dir: ["codes/csharp", "en/codes/csharp"]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup .NET ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v3
