@@ -70,6 +70,9 @@ int find(int *nums, int size, int target) {
 
 /* Driver Code */
 int main() {
+    /* 初始化随机种子（只需执行一次） */
+    srand((unsigned)time(NULL));
+
     /* 初始化数组 */
     int size = 5;
     int arr[5];

@@ -70,6 +70,9 @@ int find(int *nums, int size, int target) {
 
 /* Driver Code */
 int main() {
+    /* 乱数のシードを一度だけ初期化する */
+    srand((unsigned)time(NULL));
+
     /* 配列を初期化 */
     int size = 5;
     int arr[5];
