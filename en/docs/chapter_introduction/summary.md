@@ -22,3 +22,11 @@ I believe the significance of learning algorithms (and other fundamental subject
 - But if we have studied algorithms, we would know that the time complexity of the built-in sorting function is $O(n \log n)$. However, if the given data consists of integers with a fixed number of digits (such as student IDs), we can use the more efficient "radix sort", reducing the time complexity to $O(nk)$, where $k$ is the number of digits. When the data volume is very large, the saved running time can create significant value (reduced costs, improved experience, etc.).
 
 In engineering, many problems are difficult to solve optimally, and many others are only solved "well enough." The difficulty of a problem depends, on the one hand, on the nature of the problem itself and, on the other hand, on the knowledge of the person examining it. The more complete a person's knowledge and the more experience they have, the deeper their analysis will be, and the more elegantly the problem can be solved.
+
+**Q**: Now that we let AI agents write almost all our code, do we still need to learn algorithms?
+
+To quote Mu Li: “An agent is an amplifier of ability—it multiplies your ability by 10, rather than adding 10 to it.”
+
+Since AI amplifies our abilities, the abilities being multiplied matter too. I think two abilities are especially worth developing. The first is communication, particularly the ability to work with AI: making goals clear, providing the necessary context, and correcting course in time. Explaining a problem to AI also helps us think it through ourselves. The second is foundational knowledge. AI can fill in the details, but we need to understand the basic concepts ourselves to ask the right questions, judge whether answers are correct, and turn its output into useful results.
+
+One distinctive thing about AI is that, unlike earlier tools, it does not have clearly defined functional boundaries. It is a little like water, taking different shapes in different people's hands. The greater a person's abilities and the better their taste, the more pronounced AI's amplifying effect becomes.
