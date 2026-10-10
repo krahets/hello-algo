@@ -29,10 +29,10 @@ comments: true
     ```cpp title="array.cpp"
     /* 配列を初期化する */
     // スタック上に格納
-    int arr[5];
+    int arr[5] = {};
     int nums[5] = { 1, 3, 2, 5, 4 };
     // ヒープ上に格納（手動で領域を解放する必要がある）
-    int* arr1 = new int[5];
+    int* arr1 = new int[5] {};
     int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
     ```
 
@@ -134,7 +134,8 @@ comments: true
 
 ??? pythontutor "実行の可視化"
 
-    https://pythontutor.com/render.html#code=%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E7%BB%84%0Aarr%20%3D%20%5B0%5D%20*%205%20%20%23%20%5B%200,%200,%200,%200,%200%20%5D%0Anums%20%3D%20%5B1,%203,%202,%205,%204%5D&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    <div style="height: 243px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E7%BB%84%0Aarr%20%3D%20%5B0%5D%20*%205%20%20%23%20%5B%200,%200,%200,%200,%200%20%5D%0Anums%20%3D%20%5B1,%203,%202,%205,%204%5D&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E7%BB%84%0Aarr%20%3D%20%5B0%5D%20*%205%20%20%23%20%5B%200,%200,%200,%200,%200%20%5D%0Anums%20%3D%20%5B1,%203,%202,%205,%204%5D&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
 
 ### 2. &nbsp; 要素へのアクセス
 
@@ -406,7 +407,7 @@ comments: true
     /* 配列の index 番目に要素 num を挿入 */
     func insert(nums: inout [Int], num: Int, index: Int) {
         // インデックス index 以降の全要素を 1 つ後ろへ移動する
-        for i in nums.indices.dropFirst(index).reversed() {
+        for i in stride(from: nums.count - 1, to: index, by: -1) {
             nums[i] = nums[i - 1]
         }
         // index の要素に num を代入する

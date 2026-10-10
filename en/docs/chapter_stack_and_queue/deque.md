@@ -490,23 +490,26 @@ The implementation code is shown below:
             """Dequeue operation"""
             if self.is_empty():
                 raise IndexError("Double-ended queue is empty")
+            # When the deque has one element, front and rear point to the same node
+            if self._size == 1:
+                val: int = self._front.val
+                self._front = None
+                self._rear = None
             # Front of the queue dequeue operation
-            if is_front:
+            elif is_front:
                 val: int = self._front.val  # Temporarily store head node value
                 # Delete head node
                 fnext: ListNode | None = self._front.next
-                if fnext is not None:
-                    fnext.prev = None
-                    self._front.next = None
+                fnext.prev = None
+                self._front.next = None
                 self._front = fnext  # Update head node
             # Rear of the queue dequeue operation
             else:
                 val: int = self._rear.val  # Temporarily store tail node value
                 # Delete tail node
                 rprev: ListNode | None = self._rear.prev
-                if rprev is not None:
-                    rprev.next = None
-                    self._rear.prev = None
+                rprev.next = None
+                self._rear.prev = None
                 self._rear = rprev  # Update tail node
             self._size -= 1  # Update queue length
             return val
@@ -622,15 +625,20 @@ The implementation code is shown below:
             if (isEmpty())
                 throw out_of_range("Queue is empty");
             int val;
+            // When the deque has one element, front and rear point to the same node
+            if (queSize == 1) {
+                val = front->val;
+                delete front; // Free the shared node once
+                front = nullptr;
+                rear = nullptr;
+            }
             // Temporarily store head node value
-            if (isFront) {
+            else if (isFront) {
                 val = front->val; // Delete head node
                 // Delete head node
                 DoublyListNode *fNext = front->next;
-                if (fNext != nullptr) {
-                    fNext->prev = nullptr;
-                    front->next = nullptr;
-                }
+                fNext->prev = nullptr;
+                front->next = nullptr;
                 delete front;
                 front = fNext; // Update head node
             // Temporarily store tail node value
@@ -638,10 +646,8 @@ The implementation code is shown below:
                 val = rear->val; // Delete tail node
                 // Update tail node
                 DoublyListNode *rPrev = rear->prev;
-                if (rPrev != nullptr) {
-                    rPrev->next = nullptr;
-                    rear->prev = nullptr;
-                }
+                rPrev->next = nullptr;
+                rear->prev = nullptr;
                 delete rear;
                 rear = rPrev; // Update tail node
             }
@@ -757,25 +763,27 @@ The implementation code is shown below:
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
             int val;
+            // When the deque has one element, front and rear point to the same node
+            if (queSize == 1) {
+                val = front.val;
+                front = null;
+                rear = null;
+            }
             // Temporarily store head node value
-            if (isFront) {
+            else if (isFront) {
                 val = front.val; // Delete head node
                 // Delete head node
                 ListNode fNext = front.next;
-                if (fNext != null) {
-                    fNext.prev = null;
-                    front.next = null;
-                }
+                fNext.prev = null;
+                front.next = null;
                 front = fNext; // Update head node
             // Temporarily store tail node value
             } else {
                 val = rear.val; // Delete tail node
                 // Update tail node
                 ListNode rPrev = rear.prev;
-                if (rPrev != null) {
-                    rPrev.next = null;
-                    rear.prev = null;
-                }
+                rPrev.next = null;
+                rear.prev = null;
                 rear = rPrev; // Update tail node
             }
             queSize--; // Update queue length
@@ -890,26 +898,28 @@ The implementation code is shown below:
             if (IsEmpty())
                 throw new Exception();
             int? val;
+            // When the deque has one element, front and rear point to the same node
+            if (queSize == 1) {
+                val = front!.val;
+                front = null;
+                rear = null;
+            }
             // Temporarily store head node value
-            if (isFront) {
-                val = front?.val; // Delete head node
+            else if (isFront) {
+                val = front!.val; // Delete head node
                 // Delete head node
                 ListNode? fNext = front?.next;
-                if (fNext != null) {
-                    fNext.prev = null;
-                    front!.next = null;
-                }
+                fNext!.prev = null;
+                front.next = null;
                 front = fNext;   // Update head node
             }
             // Temporarily store tail node value
             else {
-                val = rear?.val;  // Delete tail node
+                val = rear!.val;  // Delete tail node
                 // Update tail node
                 ListNode? rPrev = rear?.prev;
-                if (rPrev != null) {
-                    rPrev.next = null;
-                    rear!.prev = null;
-                }
+                rPrev!.next = null;
+                rear.prev = null;
                 rear = rPrev;    // Update tail node
             }
 
@@ -1110,15 +1120,19 @@ The implementation code is shown below:
                 fatalError("Deque is empty")
             }
             let val: Int
+            // When the deque has one element, front and rear point to the same node
+            if _size == 1 {
+                val = front!.val
+                front = nil
+                rear = nil
+            }
             // Temporarily store head node value
-            if isFront {
+            else if isFront {
                 val = front!.val // Delete head node
                 // Delete head node
                 let fNext = front?.next
-                if fNext != nil {
-                    fNext?.prev = nil
-                    front?.next = nil
-                }
+                fNext?.prev = nil
+                front?.next = nil
                 front = fNext // Update head node
             }
             // Temporarily store tail node value
@@ -1126,10 +1140,8 @@ The implementation code is shown below:
                 val = rear!.val // Delete tail node
                 // Update tail node
                 let rPrev = rear?.prev
-                if rPrev != nil {
-                    rPrev?.next = nil
-                    rear?.prev = nil
-                }
+                rPrev?.next = nil
+                rear?.prev = nil
                 rear = rPrev // Update tail node
             }
             _size -= 1 // Update queue length
@@ -1241,13 +1253,18 @@ The implementation code is shown below:
                 return null;
             }
             const value = this.#rear.val; // Store tail node value
+            // When the deque has one element, front and rear point to the same node
+            if (this.#queSize === 1) {
+                this.#front = null;
+                this.#rear = null;
+            }
             // Update tail node
-            let temp = this.#rear.prev;
-            if (temp !== null) {
+            else {
+                let temp = this.#rear.prev;
                 temp.next = null;
                 this.#rear.prev = null;
+                this.#rear = temp; // Update tail node
             }
-            this.#rear = temp; // Update tail node
             this.#queSize--;
             return value;
         }
@@ -1257,14 +1274,19 @@ The implementation code is shown below:
             if (this.#queSize === 0) {
                 return null;
             }
-            const value = this.#front.val; // Store tail node value
+            const value = this.#front.val; // Store the head node value
+            // When the deque has one element, front and rear point to the same node
+            if (this.#queSize === 1) {
+                this.#front = null;
+                this.#rear = null;
+            }
             // Delete head node
-            let temp = this.#front.next;
-            if (temp !== null) {
+            else {
+                let temp = this.#front.next;
                 temp.prev = null;
                 this.#front.next = null;
+                this.#front = temp; // Update head node
             }
-            this.#front = temp; // Update head node
             this.#queSize--;
             return value;
         }
@@ -1367,14 +1389,19 @@ The implementation code is shown below:
             if (this.queSize === 0) {
                 return null;
             }
-            const value: number = this.rear.val; // Store tail node value
-            // Update tail node
-            let temp: ListNode = this.rear.prev;
-            if (temp !== null) {
-                temp.next = null;
-                this.rear.prev = null;
+            const value: number = this.rear!.val; // Store tail node value
+            // When the deque has one element, front and rear point to the same node
+            if (this.queSize === 1) {
+                this.front = null;
+                this.rear = null;
             }
-            this.rear = temp; // Update tail node
+            // Update tail node
+            else {
+                let temp: ListNode = this.rear!.prev;
+                temp!.next = null;
+                this.rear!.prev = null;
+                this.rear = temp; // Update tail node
+            }
             this.queSize--;
             return value;
         }
@@ -1384,14 +1411,19 @@ The implementation code is shown below:
             if (this.queSize === 0) {
                 return null;
             }
-            const value: number = this.front.val; // Store tail node value
-            // Delete head node
-            let temp: ListNode = this.front.next;
-            if (temp !== null) {
-                temp.prev = null;
-                this.front.next = null;
+            const value: number = this.front.val; // Store the head node value
+            // When the deque has one element, front and rear point to the same node
+            if (this.queSize === 1) {
+                this.front = null;
+                this.rear = null;
             }
-            this.front = temp; // Update head node
+            // Delete head node
+            else {
+                let temp: ListNode = this.front!.next;
+                temp!.prev = null;
+                this.front!.next = null;
+                this.front = temp; // Update head node
+            }
             this.queSize--;
             return value;
         }
@@ -1501,25 +1533,27 @@ The implementation code is shown below:
           return null;
         }
         final int val;
-        if (isFront) {
-          // Temporarily store head node value
+        // When the deque has one element, front and rear point to the same node
+        if (_queSize == 1) {
+          val = _front!.val;
+          _front = null;
+          _rear = null;
+        }
+        // Temporarily store head node value
+        else if (isFront) {
           val = _front!.val; // Delete head node
           // Delete head node
           ListNode? fNext = _front!.next;
-          if (fNext != null) {
-            fNext.prev = null;
-            _front!.next = null;
-          }
+          fNext!.prev = null;
+          _front!.next = null;
           _front = fNext; // Update head node
+        // Temporarily store tail node value
         } else {
-          // Temporarily store tail node value
           val = _rear!.val; // Delete tail node
           // Update tail node
           ListNode? rPrev = _rear!.prev;
-          if (rPrev != null) {
-            rPrev.next = null;
-            _rear!.prev = null;
-          }
+          rPrev!.next = null;
+          _rear!.prev = null;
           _rear = rPrev; // Update tail node
         }
         _queSize--; // Update queue length
@@ -1842,14 +1876,19 @@ The implementation code is shown below:
         if (empty(deque))
             return -1;
         int val;
+        // When the deque has one element, front and rear point to the same node
+        if (deque->queSize == 1) {
+            val = deque->front->val;
+            delDoublyListNode(deque->front); // Free the shared node once
+            deque->front = NULL;
+            deque->rear = NULL;
+        }
         // Temporarily store head node value
-        if (isFront) {
+        else if (isFront) {
             val = peekFirst(deque); // Delete head node
             DoublyListNode *fNext = deque->front->next;
-            if (fNext) {
-                fNext->prev = NULL;
-                deque->front->next = NULL;
-            }
+            fNext->prev = NULL;
+            deque->front->next = NULL;
             delDoublyListNode(deque->front);
             deque->front = fNext; // Update head node
         }
@@ -1857,10 +1896,8 @@ The implementation code is shown below:
         else {
             val = peekLast(deque); // Delete tail node
             DoublyListNode *rPrev = deque->rear->prev;
-            if (rPrev) {
-                rPrev->next = NULL;
-                deque->rear->prev = NULL;
-            }
+            rPrev->next = NULL;
+            deque->rear->prev = NULL;
             delDoublyListNode(deque->rear);
             deque->rear = rPrev; // Update tail node
         }
@@ -1957,25 +1994,27 @@ The implementation code is shown below:
             if (isEmpty()) 
                 throw IndexOutOfBoundsException()
             val _val: Int
+            // When the deque has one element, front and rear point to the same node
+            if (queSize == 1) {
+                _val = front!!._val
+                front = null
+                rear = null
+            }
             // Temporarily store head node value
-            if (isFront) {
+            else if (isFront) {
                 _val = front!!._val // Delete head node
                 // Delete head node
                 val fNext = front!!.next
-                if (fNext != null) {
-                    fNext.prev = null
-                    front!!.next = null
-                }
+                fNext!!.prev = null
+                front!!.next = null
                 front = fNext // Update head node
                 // Temporarily store tail node value
             } else {
                 _val = rear!!._val // Delete tail node
                 // Update tail node
                 val rPrev = rear!!.prev
-                if (rPrev != null) {
-                    rPrev.next = null
-                    rear!!.prev = null
-                }
+                rPrev!!.next = null
+                rear!!.prev = null
                 rear = rPrev // Update tail node
             }
             queSize-- // Update queue length
@@ -2091,25 +2130,26 @@ The implementation code is shown below:
       def pop(is_front)
         raise IndexError, 'Deque is empty' if is_empty?
 
+        # When the deque has one element, front and rear point to the same node
+        if @size == 1
+          val = @front.val
+          @front = nil
+          @rear = nil
         # Temporarily store head node value
-        if is_front
+        elsif is_front
           val = @front.val # Delete head node
           # Delete head node
           fnext = @front.next
-          unless fnext.nil?
-            fnext.prev = nil
-            @front.next = nil
-          end
+          fnext.prev = nil
+          @front.next = nil
           @front = fnext # Update head node
         # Temporarily store tail node value
         else
           val = @rear.val # Delete tail node
           # Update tail node
           rprev = @rear.prev
-          unless rprev.nil?
-            rprev.next = nil
-            @rear.prev = nil
-          end
+          rprev.next = nil
+          @rear.prev = nil
           @rear = rprev # Update tail node
         end
         @size -= 1 # Update queue length

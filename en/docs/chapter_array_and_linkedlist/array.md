@@ -29,10 +29,10 @@ We can choose between two array initialization methods based on our needs: with 
     ```cpp title="array.cpp"
     /* Initialize array */
     // Stored on stack
-    int arr[5];
+    int arr[5] = {};
     int nums[5] = { 1, 3, 2, 5, 4 };
     // Stored on heap (requires manual memory release)
-    int* arr1 = new int[5];
+    int* arr1 = new int[5] {};
     int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
     ```
 
@@ -402,7 +402,7 @@ It is worth noting that since the length of an array is fixed, inserting an elem
     /* Insert element num at index index in the array */
     func insert(nums: inout [Int], num: Int, index: Int) {
         // Move all elements at and after index index backward by one position
-        for i in nums.indices.dropFirst(index).reversed() {
+        for i in stride(from: nums.count - 1, to: index, by: -1) {
             nums[i] = nums[i - 1]
         }
         // Assign num to the element at index index

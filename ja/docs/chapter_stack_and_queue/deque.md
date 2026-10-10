@@ -395,7 +395,8 @@ comments: true
 
 ??? pythontutor "実行の可視化"
 
-    https://pythontutor.com/render.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E9%98%9F%0A%20%20%20%20deq.append%282%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E5%B0%BE%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E9%A6%96%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22,%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%20rear%20%3D%22,%20rear%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_front%20%3D%22,%20pop_front%29%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_rear%20%3D%22,%20pop_rear%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E9%98%9F%0A%20%20%20%20deq.append%282%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E5%B0%BE%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E9%A6%96%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22,%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%20rear%20%3D%22,%20rear%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_front%20%3D%22,%20pop_front%29%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_rear%20%3D%22,%20pop_rear%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E9%98%9F%0A%20%20%20%20deq.append%282%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E5%B0%BE%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E9%A6%96%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22,%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%20rear%20%3D%22,%20rear%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_front%20%3D%22,%20pop_front%29%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_rear%20%3D%22,%20pop_rear%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
 
 ## 5.3.2 &nbsp; 両端キューの実装 *
 
@@ -489,23 +490,26 @@ comments: true
             """デキュー操作"""
             if self.is_empty():
                 raise IndexError("両端キューが空です")
+            # 要素が1つの場合、先頭と末尾は同じノードを指す
+            if self._size == 1:
+                val: int = self._front.val
+                self._front = None
+                self._rear = None
             # キュー先頭からの取り出し
-            if is_front:
+            elif is_front:
                 val: int = self._front.val  # 先頭ノードの値を一時保存
                 # 先頭ノードを削除
                 fnext: ListNode | None = self._front.next
-                if fnext is not None:
-                    fnext.prev = None
-                    self._front.next = None
+                fnext.prev = None
+                self._front.next = None
                 self._front = fnext  # 先頭ノードを更新する
             # キュー末尾からの取り出し
             else:
                 val: int = self._rear.val  # 末尾ノードの値を一時保存
                 # 末尾ノードを削除
                 rprev: ListNode | None = self._rear.prev
-                if rprev is not None:
-                    rprev.next = None
-                    self._rear.prev = None
+                rprev.next = None
+                self._rear.prev = None
                 self._rear = rprev  # 末尾ノードを更新する
             self._size -= 1  # キューの長さを更新
             return val
@@ -621,15 +625,20 @@ comments: true
             if (isEmpty())
                 throw out_of_range("キューが空です");
             int val;
+            // 要素が1つの場合、先頭と末尾は同じノードを指す
+            if (queSize == 1) {
+                val = front->val;
+                delete front; // 同じノードを一度だけ解放する
+                front = nullptr;
+                rear = nullptr;
+            }
             // キュー先頭からの取り出し
-            if (isFront) {
+            else if (isFront) {
                 val = front->val; // 先頭ノードの値を一時保存
                 // 先頭ノードを削除
                 DoublyListNode *fNext = front->next;
-                if (fNext != nullptr) {
-                    fNext->prev = nullptr;
-                    front->next = nullptr;
-                }
+                fNext->prev = nullptr;
+                front->next = nullptr;
                 delete front;
                 front = fNext; // 先頭ノードを更新する
             // キュー末尾からの取り出し
@@ -637,10 +646,8 @@ comments: true
                 val = rear->val; // 末尾ノードの値を一時保存
                 // 末尾ノードを削除
                 DoublyListNode *rPrev = rear->prev;
-                if (rPrev != nullptr) {
-                    rPrev->next = nullptr;
-                    rear->prev = nullptr;
-                }
+                rPrev->next = nullptr;
+                rear->prev = nullptr;
                 delete rear;
                 rear = rPrev; // 末尾ノードを更新する
             }
@@ -756,25 +763,27 @@ comments: true
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
             int val;
+            // 要素が1つの場合、先頭と末尾は同じノードを指す
+            if (queSize == 1) {
+                val = front.val;
+                front = null;
+                rear = null;
+            }
             // キュー先頭からの取り出し
-            if (isFront) {
+            else if (isFront) {
                 val = front.val; // 先頭ノードの値を一時保存
                 // 先頭ノードを削除
                 ListNode fNext = front.next;
-                if (fNext != null) {
-                    fNext.prev = null;
-                    front.next = null;
-                }
+                fNext.prev = null;
+                front.next = null;
                 front = fNext; // 先頭ノードを更新する
             // キュー末尾からの取り出し
             } else {
                 val = rear.val; // 末尾ノードの値を一時保存
                 // 末尾ノードを削除
                 ListNode rPrev = rear.prev;
-                if (rPrev != null) {
-                    rPrev.next = null;
-                    rear.prev = null;
-                }
+                rPrev.next = null;
+                rear.prev = null;
                 rear = rPrev; // 末尾ノードを更新する
             }
             queSize--; // キューの長さを更新
@@ -889,26 +898,28 @@ comments: true
             if (IsEmpty())
                 throw new Exception();
             int? val;
+            // 要素が1つの場合、先頭と末尾は同じノードを指す
+            if (queSize == 1) {
+                val = front!.val;
+                front = null;
+                rear = null;
+            }
             // キュー先頭からの取り出し
-            if (isFront) {
-                val = front?.val; // 先頭ノードの値を一時保存
+            else if (isFront) {
+                val = front!.val; // 先頭ノードの値を一時保存
                 // 先頭ノードを削除
                 ListNode? fNext = front?.next;
-                if (fNext != null) {
-                    fNext.prev = null;
-                    front!.next = null;
-                }
+                fNext!.prev = null;
+                front.next = null;
                 front = fNext;   // 先頭ノードを更新する
             }
             // キュー末尾からの取り出し
             else {
-                val = rear?.val;  // 末尾ノードの値を一時保存
+                val = rear!.val;  // 末尾ノードの値を一時保存
                 // 末尾ノードを削除
                 ListNode? rPrev = rear?.prev;
-                if (rPrev != null) {
-                    rPrev.next = null;
-                    rear!.prev = null;
-                }
+                rPrev!.next = null;
+                rear.prev = null;
                 rear = rPrev;    // 末尾ノードを更新する
             }
 
@@ -1109,15 +1120,19 @@ comments: true
                 fatalError("両端キューが空です")
             }
             let val: Int
+            // 要素が1つの場合、先頭と末尾は同じノードを指す
+            if _size == 1 {
+                val = front!.val
+                front = nil
+                rear = nil
+            }
             // キュー先頭からの取り出し
-            if isFront {
+            else if isFront {
                 val = front!.val // 先頭ノードの値を一時保存
                 // 先頭ノードを削除
                 let fNext = front?.next
-                if fNext != nil {
-                    fNext?.prev = nil
-                    front?.next = nil
-                }
+                fNext?.prev = nil
+                front?.next = nil
                 front = fNext // 先頭ノードを更新する
             }
             // キュー末尾からの取り出し
@@ -1125,10 +1140,8 @@ comments: true
                 val = rear!.val // 末尾ノードの値を一時保存
                 // 末尾ノードを削除
                 let rPrev = rear?.prev
-                if rPrev != nil {
-                    rPrev?.next = nil
-                    rear?.prev = nil
-                }
+                rPrev?.next = nil
+                rear?.prev = nil
                 rear = rPrev // 末尾ノードを更新する
             }
             _size -= 1 // キューの長さを更新
@@ -1240,13 +1253,18 @@ comments: true
                 return null;
             }
             const value = this.#rear.val; // 末尾ノードの値を保存する
+            // 要素が1つの場合、先頭と末尾は同じノードを指す
+            if (this.#queSize === 1) {
+                this.#front = null;
+                this.#rear = null;
+            }
             // 末尾ノードを削除
-            let temp = this.#rear.prev;
-            if (temp !== null) {
+            else {
+                let temp = this.#rear.prev;
                 temp.next = null;
                 this.#rear.prev = null;
+                this.#rear = temp; // 末尾ノードを更新する
             }
-            this.#rear = temp; // 末尾ノードを更新する
             this.#queSize--;
             return value;
         }
@@ -1256,14 +1274,19 @@ comments: true
             if (this.#queSize === 0) {
                 return null;
             }
-            const value = this.#front.val; // 末尾ノードの値を保存する
+            const value = this.#front.val; // 先頭ノードの値を保存
+            // 要素が1つの場合、先頭と末尾は同じノードを指す
+            if (this.#queSize === 1) {
+                this.#front = null;
+                this.#rear = null;
+            }
             // 先頭ノードを削除
-            let temp = this.#front.next;
-            if (temp !== null) {
+            else {
+                let temp = this.#front.next;
                 temp.prev = null;
                 this.#front.next = null;
+                this.#front = temp; // 先頭ノードを更新する
             }
-            this.#front = temp; // 先頭ノードを更新する
             this.#queSize--;
             return value;
         }
@@ -1366,14 +1389,19 @@ comments: true
             if (this.queSize === 0) {
                 return null;
             }
-            const value: number = this.rear.val; // 末尾ノードの値を保存する
-            // 末尾ノードを削除
-            let temp: ListNode = this.rear.prev;
-            if (temp !== null) {
-                temp.next = null;
-                this.rear.prev = null;
+            const value: number = this.rear!.val; // 末尾ノードの値を保存する
+            // 要素が1つの場合、先頭と末尾は同じノードを指す
+            if (this.queSize === 1) {
+                this.front = null;
+                this.rear = null;
             }
-            this.rear = temp; // 末尾ノードを更新する
+            // 末尾ノードを削除
+            else {
+                let temp: ListNode = this.rear!.prev;
+                temp!.next = null;
+                this.rear!.prev = null;
+                this.rear = temp; // 末尾ノードを更新する
+            }
             this.queSize--;
             return value;
         }
@@ -1383,14 +1411,19 @@ comments: true
             if (this.queSize === 0) {
                 return null;
             }
-            const value: number = this.front.val; // 末尾ノードの値を保存する
-            // 先頭ノードを削除
-            let temp: ListNode = this.front.next;
-            if (temp !== null) {
-                temp.prev = null;
-                this.front.next = null;
+            const value: number = this.front.val; // 先頭ノードの値を保存
+            // 要素が1つの場合、先頭と末尾は同じノードを指す
+            if (this.queSize === 1) {
+                this.front = null;
+                this.rear = null;
             }
-            this.front = temp; // 先頭ノードを更新する
+            // 先頭ノードを削除
+            else {
+                let temp: ListNode = this.front!.next;
+                temp!.prev = null;
+                this.front!.next = null;
+                this.front = temp; // 先頭ノードを更新する
+            }
             this.queSize--;
             return value;
         }
@@ -1500,25 +1533,27 @@ comments: true
           return null;
         }
         final int val;
-        if (isFront) {
-          // キュー先頭からの取り出し
+        // 要素が1つの場合、先頭と末尾は同じノードを指す
+        if (_queSize == 1) {
+          val = _front!.val;
+          _front = null;
+          _rear = null;
+        }
+        // キュー先頭からの取り出し
+        else if (isFront) {
           val = _front!.val; // 先頭ノードの値を一時保存
           // 先頭ノードを削除
           ListNode? fNext = _front!.next;
-          if (fNext != null) {
-            fNext.prev = null;
-            _front!.next = null;
-          }
+          fNext!.prev = null;
+          _front!.next = null;
           _front = fNext; // 先頭ノードを更新する
+        // キュー末尾からの取り出し
         } else {
-          // キュー末尾からの取り出し
           val = _rear!.val; // 末尾ノードの値を一時保存
           // 末尾ノードを削除
           ListNode? rPrev = _rear!.prev;
-          if (rPrev != null) {
-            rPrev.next = null;
-            _rear!.prev = null;
-          }
+          rPrev!.next = null;
+          _rear!.prev = null;
           _rear = rPrev; // 末尾ノードを更新する
         }
         _queSize--; // キューの長さを更新
@@ -1841,14 +1876,19 @@ comments: true
         if (empty(deque))
             return -1;
         int val;
+        // 要素が1つの場合、先頭と末尾は同じノードを指す
+        if (deque->queSize == 1) {
+            val = deque->front->val;
+            delDoublyListNode(deque->front); // 同じノードを一度だけ解放する
+            deque->front = NULL;
+            deque->rear = NULL;
+        }
         // キュー先頭からの取り出し
-        if (isFront) {
+        else if (isFront) {
             val = peekFirst(deque); // 先頭ノードの値を一時保存
             DoublyListNode *fNext = deque->front->next;
-            if (fNext) {
-                fNext->prev = NULL;
-                deque->front->next = NULL;
-            }
+            fNext->prev = NULL;
+            deque->front->next = NULL;
             delDoublyListNode(deque->front);
             deque->front = fNext; // 先頭ノードを更新する
         }
@@ -1856,10 +1896,8 @@ comments: true
         else {
             val = peekLast(deque); // 末尾ノードの値を一時保存
             DoublyListNode *rPrev = deque->rear->prev;
-            if (rPrev) {
-                rPrev->next = NULL;
-                deque->rear->prev = NULL;
-            }
+            rPrev->next = NULL;
+            deque->rear->prev = NULL;
             delDoublyListNode(deque->rear);
             deque->rear = rPrev; // 末尾ノードを更新する
         }
@@ -1956,25 +1994,27 @@ comments: true
             if (isEmpty()) 
                 throw IndexOutOfBoundsException()
             val _val: Int
+            // 要素が1つの場合、先頭と末尾は同じノードを指す
+            if (queSize == 1) {
+                _val = front!!._val
+                front = null
+                rear = null
+            }
             // キュー先頭からの取り出し
-            if (isFront) {
+            else if (isFront) {
                 _val = front!!._val // 先頭ノードの値を一時保存
                 // 先頭ノードを削除
                 val fNext = front!!.next
-                if (fNext != null) {
-                    fNext.prev = null
-                    front!!.next = null
-                }
+                fNext!!.prev = null
+                front!!.next = null
                 front = fNext // 先頭ノードを更新する
                 // キュー末尾からの取り出し
             } else {
                 _val = rear!!._val // 末尾ノードの値を一時保存
                 // 末尾ノードを削除
                 val rPrev = rear!!.prev
-                if (rPrev != null) {
-                    rPrev.next = null
-                    rear!!.prev = null
-                }
+                rPrev!!.next = null
+                rear!!.prev = null
                 rear = rPrev // 末尾ノードを更新する
             }
             queSize-- // キューの長さを更新
@@ -2090,25 +2130,26 @@ comments: true
       def pop(is_front)
         raise IndexError, '両端キューは空です' if is_empty?
 
+        # 要素が1つの場合、先頭と末尾は同じノードを指す
+        if @size == 1
+          val = @front.val
+          @front = nil
+          @rear = nil
         # キュー先頭からの取り出し
-        if is_front
+        elsif is_front
           val = @front.val # 先頭ノードの値を一時保存
           # 先頭ノードを削除
           fnext = @front.next
-          unless fnext.nil?
-            fnext.prev = nil
-            @front.next = nil
-          end
+          fnext.prev = nil
+          @front.next = nil
           @front = fnext # 先頭ノードを更新する
         # キュー末尾からの取り出し
         else
           val = @rear.val # 末尾ノードの値を一時保存
           # 末尾ノードを削除
           rprev = @rear.prev
-          unless rprev.nil?
-            rprev.next = nil
-            @rear.prev = nil
-          end
+          rprev.next = nil
+          @rear.prev = nil
           @rear = rprev # 末尾ノードを更新する
         end
         @size -= 1 # キューの長さを更新

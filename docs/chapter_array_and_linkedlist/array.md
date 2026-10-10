@@ -29,10 +29,10 @@ comments: true
     ```cpp title="array.cpp"
     /* 初始化数组 */
     // 存储在栈上
-    int arr[5];
+    int arr[5] = {};
     int nums[5] = { 1, 3, 2, 5, 4 };
     // 存储在堆上（需要手动释放空间）
-    int* arr1 = new int[5];
+    int* arr1 = new int[5] {};
     int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
     ```
 
@@ -407,7 +407,7 @@ comments: true
     /* 在数组的索引 index 处插入元素 num */
     func insert(nums: inout [Int], num: Int, index: Int) {
         // 把索引 index 以及之后的所有元素向后移动一位
-        for i in nums.indices.dropFirst(index).reversed() {
+        for i in stride(from: nums.count - 1, to: index, by: -1) {
             nums[i] = nums[i - 1]
         }
         // 将 num 赋给 index 处的元素

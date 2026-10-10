@@ -2,9 +2,9 @@
 comments: true
 ---
 
-# 12.4 &nbsp; Hanota Problem
+# 12.4 &nbsp; Tower of Hanoi Problem
 
-In merge sort and building binary trees, we decompose the original problem into two subproblems, each half the size of the original problem. However, for the hanota problem, we adopt a different decomposition strategy.
+In merge sort and building binary trees, we decompose the original problem into two subproblems, each half the size of the original problem. However, for the Tower of Hanoi problem, we adopt a different decomposition strategy.
 
 !!! question
 
@@ -14,11 +14,11 @@ In merge sort and building binary trees, we decompose the original problem into 
     2. Only one disc can be moved at a time.
     3. A smaller disc must always be on top of a larger disc.
 
-![Example of the hanota problem](hanota_problem.assets/hanota_example.png){ class="animation-figure" }
+![Example of the Tower of Hanoi problem](hanota_problem.assets/hanota_example.png){ class="animation-figure" }
 
-<p align="center"> Figure 12-10 &nbsp; Example of the hanota problem </p>
+<p align="center"> Figure 12-10 &nbsp; Example of the Tower of Hanoi problem </p>
 
-**We denote the hanota problem of size $i$ as $f(i)$**. For example, $f(3)$ represents moving $3$ discs from `A` to `C`.
+**We denote the Tower of Hanoi problem of size $i$ as $f(i)$**. For example, $f(3)$ represents moving $3$ discs from `A` to `C`.
 
 ### 1. &nbsp; Considering the Base Cases
 
@@ -80,7 +80,7 @@ Since we already know the solutions to $f(1)$ and $f(2)$, we can think from a di
 
 Essentially, **we divide problem $f(3)$ into two subproblems $f(2)$ and one subproblem $f(1)$**. By solving these three subproblems in order, the original problem is solved. This shows that the subproblems are independent and their solutions can be merged.
 
-From this, we can summarize the divide and conquer strategy for solving the hanota problem shown in Figure 12-14: divide the original problem $f(n)$ into two subproblems $f(n-1)$ and one subproblem $f(1)$, and solve these three subproblems in the following order.
+From this, we can summarize the divide and conquer strategy for solving the Tower of Hanoi problem shown in Figure 12-14: divide the original problem $f(n)$ into two subproblems $f(n-1)$ and one subproblem $f(1)$, and solve these three subproblems in the following order.
 
 1. Move $n-1$ discs from `A` to `B` with the help of `C`.
 2. Move the remaining $1$ disc directly from `A` to `C`.
@@ -88,9 +88,9 @@ From this, we can summarize the divide and conquer strategy for solving the hano
 
 For these two subproblems $f(n-1)$, **we can recursively divide them in the same way** until reaching the smallest subproblem $f(1)$. The solution to $f(1)$ is known and requires only one move operation.
 
-![Divide and conquer strategy for solving the hanota problem](hanota_problem.assets/hanota_divide_and_conquer.png){ class="animation-figure" }
+![Divide and conquer strategy for solving the Tower of Hanoi problem](hanota_problem.assets/hanota_divide_and_conquer.png){ class="animation-figure" }
 
-<p align="center"> Figure 12-14 &nbsp; Divide and conquer strategy for solving the hanota problem </p>
+<p align="center"> Figure 12-14 &nbsp; Divide and conquer strategy for solving the Tower of Hanoi problem </p>
 
 ### 3. &nbsp; Code Implementation
 
@@ -542,14 +542,14 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
     end
     ```
 
-As shown in Figure 12-15, the hanota problem forms a recursion tree of height $n$, where each node represents a subproblem corresponding to an invocation of the `dfs()` function, **therefore the time complexity is $O(2^n)$ and the space complexity is $O(n)$**.
+As shown in Figure 12-15, the Tower of Hanoi problem forms a recursion tree of height $n$, where each node represents a subproblem corresponding to an invocation of the `dfs()` function, **therefore the time complexity is $O(2^n)$ and the space complexity is $O(n)$**.
 
-![Recursion tree of the hanota problem](hanota_problem.assets/hanota_recursive_tree.png){ class="animation-figure" }
+![Recursion tree of the Tower of Hanoi problem](hanota_problem.assets/hanota_recursive_tree.png){ class="animation-figure" }
 
-<p align="center"> Figure 12-15 &nbsp; Recursion tree of the hanota problem </p>
+<p align="center"> Figure 12-15 &nbsp; Recursion tree of the Tower of Hanoi problem </p>
 
 !!! quote
 
-    The hanota problem originates from an ancient legend. In a temple in ancient India, monks had three tall diamond pillars and $64$ golden discs of different sizes. The monks continuously moved the discs, believing that when the last disc was correctly placed, the world would come to an end.
+    The Tower of Hanoi problem originates from an ancient legend. In a temple in ancient India, monks had three tall diamond pillars and $64$ golden discs of different sizes. The monks continuously moved the discs, believing that when the last disc was correctly placed, the world would come to an end.
 
     However, even if the monks moved one disc per second, it would take approximately $2^{64} \approx 1.84×10^{19}$ seconds, which is about $585$ billion years, far exceeding current estimates of the age of the universe. Therefore, if this legend is true, we should not need to worry about the end of the world.

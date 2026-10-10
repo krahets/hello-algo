@@ -12,9 +12,9 @@ comments: true
 
     Дан упорядоченный массив `nums` длины $n$ и элемент `target` , причем в массиве нет повторяющихся элементов. Нужно вставить `target` в массив `nums` , сохранив порядок. Если элемент `target` уже присутствует в массиве, вставьте его слева от него. Верните индекс, который будет иметь `target` после вставки. Пример показан на рисунке 10-4.
 
-![Пример данных для точки вставки](binary_search_insertion.assets/binary_search_insertion_example.png){ class="animation-figure" }
+![Пример данных для двоичного поиска точки вставки](binary_search_insertion.assets/binary_search_insertion_example.png){ class="animation-figure" }
 
-<p align="center"> Рисунок 10-4 &nbsp; Пример данных для точки вставки </p>
+<p align="center"> Рисунок 10-4 &nbsp; Пример данных для двоичного поиска точки вставки </p>
 
 Если мы хотим переиспользовать код двоичного поиска из предыдущего раздела, нужно ответить на два вопроса.
 
@@ -333,9 +333,9 @@ comments: true
 1. Выполнить двоичный поиск и получить индекс любого элемента `target` , обозначив его как $k$ .
 2. Начиная с индекса $k$ , линейно двигаться влево и вернуть результат, когда будет найден самый левый `target` .
 
-![Линейный поиск точки вставки среди повторяющихся элементов](binary_search_insertion.assets/binary_search_insertion_naive.png){ class="animation-figure" }
+![Линейный поиск точки вставки для повторяющихся элементов](binary_search_insertion.assets/binary_search_insertion_naive.png){ class="animation-figure" }
 
-<p align="center"> Рисунок 10-5 &nbsp; Линейный поиск точки вставки среди повторяющихся элементов </p>
+<p align="center"> Рисунок 10-5 &nbsp; Линейный поиск точки вставки для повторяющихся элементов </p>
 
 Этот метод применим на практике, однако в нем есть линейный поиск, поэтому его временная сложность равна $O(n)$ . Когда в массиве имеется много повторяющихся `target` , такой подход работает неэффективно.
 
@@ -347,7 +347,7 @@ comments: true
 После завершения цикла указатель $i$ будет указывать на самый левый `target` , а указатель $j$ - на самый правый элемент, меньший `target` , **поэтому индекс $i$ и является точкой вставки**.
 
 === "<1>"
-    ![Шаги поиска точки вставки для повторяющихся элементов](binary_search_insertion.assets/binary_search_insertion_step1.png){ class="animation-figure" }
+    ![Этапы двоичного поиска точки вставки для повторяющихся элементов](binary_search_insertion.assets/binary_search_insertion_step1.png){ class="animation-figure" }
 
 === "<2>"
     ![binary_search_insertion_step2](binary_search_insertion.assets/binary_search_insertion_step2.png){ class="animation-figure" }
@@ -370,7 +370,7 @@ comments: true
 === "<8>"
     ![binary_search_insertion_step8](binary_search_insertion.assets/binary_search_insertion_step8.png){ class="animation-figure" }
 
-<p align="center"> Рисунок 10-6 &nbsp; Шаги поиска точки вставки для повторяющихся элементов </p>
+<p align="center"> Рисунок 10-6 &nbsp; Этапы двоичного поиска точки вставки для повторяющихся элементов </p>
 
 Если посмотреть на следующий код, то видно, что действия в ветвях `nums[m] > target` и `nums[m] == target` совпадают, поэтому эти две ветви можно объединить.
 

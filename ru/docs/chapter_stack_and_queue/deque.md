@@ -395,7 +395,8 @@ comments: true
 
 ??? pythontutor "Визуализация выполнения"
 
-    https://pythontutor.com/render.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D1%8E%D1%8E%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D1%82%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B2%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%0A%20%20%20%20deq.append%282%29%20%20%23%20%D0%94%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%B2%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20%D0%94%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%B2%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D1%83%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D1%8F%D1%8F%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%20deque%20%3D%22%2C%20deq%29%0A%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BA%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%83%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B2%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%B5%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20print%28%22%D0%AD%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B2%20%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D0%B5%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%20front%20%3D%22%2C%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B2%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%D0%B5%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20print%28%22%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B2%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%D0%B5%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%20rear%20%3D%22%2C%20rear%29%0A%0A%20%20%20%20%23%20%D0%98%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B8%D0%B7%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%D0%98%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B8%D0%B7%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20print%28%22%D0%AD%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%2C%20%D0%B8%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%B8%D0%B7%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D1%8B%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%2C%20pop_front%20%3D%22%2C%20pop_front%29%0A%20%20%20%20print%28%22deque%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%B8%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B8%D0%B7%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D1%8B%20%3D%22%2C%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%D0%98%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B8%D0%B7%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20print%28%22%D0%AD%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%2C%20%D0%B8%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%B8%D0%B7%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%D0%B0%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%2C%20pop_rear%20%3D%22%2C%20pop_rear%29%0A%20%20%20%20print%28%22deque%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%B8%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B8%D0%B7%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%D0%B0%20%3D%22%2C%20deq%29%0A%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B4%D0%BB%D0%B8%D0%BD%D1%83%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B5%D0%B9%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22%D0%94%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B5%D0%B9%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%B8%D1%82%D1%8C%2C%20%D0%BF%D1%83%D1%81%D1%82%D0%B0%20%D0%BB%D0%B8%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D1%8F%D1%8F%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22%D0%9F%D1%83%D1%81%D1%82%D0%B0%20%D0%BB%D0%B8%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D1%8F%D1%8F%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%20%3D%22%2C%20is_empty%29&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D1%8E%D1%8E%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D1%82%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B2%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%0A%20%20%20%20deq.append%282%29%20%20%23%20%D0%94%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%B2%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20%D0%94%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%B2%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D1%83%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D1%8F%D1%8F%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%20deque%20%3D%22%2C%20deq%29%0A%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BA%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%83%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B2%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%B5%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20print%28%22%D0%AD%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B2%20%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D0%B5%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%20front%20%3D%22%2C%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B2%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%D0%B5%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20print%28%22%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B2%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%D0%B5%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%20rear%20%3D%22%2C%20rear%29%0A%0A%20%20%20%20%23%20%D0%98%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B8%D0%B7%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%D0%98%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B8%D0%B7%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20print%28%22%D0%AD%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%2C%20%D0%B8%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%B8%D0%B7%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D1%8B%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%2C%20pop_front%20%3D%22%2C%20pop_front%29%0A%20%20%20%20print%28%22deque%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%B8%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B8%D0%B7%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D1%8B%20%3D%22%2C%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%D0%98%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B8%D0%B7%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20print%28%22%D0%AD%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%2C%20%D0%B8%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%B8%D0%B7%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%D0%B0%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%2C%20pop_rear%20%3D%22%2C%20pop_rear%29%0A%20%20%20%20print%28%22deque%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%B8%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B8%D0%B7%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%D0%B0%20%3D%22%2C%20deq%29%0A%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B4%D0%BB%D0%B8%D0%BD%D1%83%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B5%D0%B9%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22%D0%94%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B5%D0%B9%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%B8%D1%82%D1%8C%2C%20%D0%BF%D1%83%D1%81%D1%82%D0%B0%20%D0%BB%D0%B8%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D1%8F%D1%8F%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22%D0%9F%D1%83%D1%81%D1%82%D0%B0%20%D0%BB%D0%B8%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D1%8F%D1%8F%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%20%3D%22%2C%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D1%8E%D1%8E%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D1%82%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B2%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%0A%20%20%20%20deq.append%282%29%20%20%23%20%D0%94%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%B2%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20%D0%94%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%B2%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D1%83%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D1%8F%D1%8F%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%20deque%20%3D%22%2C%20deq%29%0A%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BA%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%83%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B2%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%B5%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20print%28%22%D0%AD%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B2%20%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D0%B5%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%20front%20%3D%22%2C%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B2%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%D0%B5%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20print%28%22%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B2%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%D0%B5%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%20rear%20%3D%22%2C%20rear%29%0A%0A%20%20%20%20%23%20%D0%98%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B8%D0%B7%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%D0%98%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B8%D0%B7%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20print%28%22%D0%AD%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%2C%20%D0%B8%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%B8%D0%B7%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D1%8B%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%2C%20pop_front%20%3D%22%2C%20pop_front%29%0A%20%20%20%20print%28%22deque%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%B8%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B8%D0%B7%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D1%8B%20%3D%22%2C%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%D0%98%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B8%D0%B7%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20print%28%22%D0%AD%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%2C%20%D0%B8%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%B8%D0%B7%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%D0%B0%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%2C%20pop_rear%20%3D%22%2C%20pop_rear%29%0A%20%20%20%20print%28%22deque%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%B8%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B8%D0%B7%20%D1%85%D0%B2%D0%BE%D1%81%D1%82%D0%B0%20%3D%22%2C%20deq%29%0A%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B4%D0%BB%D0%B8%D0%BD%D1%83%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B5%D0%B9%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22%D0%94%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B5%D0%B9%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%B8%D1%82%D1%8C%2C%20%D0%BF%D1%83%D1%81%D1%82%D0%B0%20%D0%BB%D0%B8%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D1%8F%D1%8F%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22%D0%9F%D1%83%D1%81%D1%82%D0%B0%20%D0%BB%D0%B8%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D1%8F%D1%8F%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%20%3D%22%2C%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
 
 ## 5.3.2 &nbsp; Реализация двусторонней очереди *
 
@@ -489,23 +490,26 @@ comments: true
             """Операция извлечения из очереди"""
             if self.is_empty():
                 raise IndexError("двусторонняя очередь пуста")
+            # Если в очереди один элемент, начало и конец указывают на один узел
+            if self._size == 1:
+                val: int = self._front.val
+                self._front = None
+                self._rear = None
             # Операция извлечения из головы очереди
-            if is_front:
+            elif is_front:
                 val: int = self._front.val  # Временно сохранить значение головного узла
                 # Удалить головной узел
                 fnext: ListNode | None = self._front.next
-                if fnext is not None:
-                    fnext.prev = None
-                    self._front.next = None
+                fnext.prev = None
+                self._front.next = None
                 self._front = fnext  # Обновить головной узел
             # Операция извлечения из хвоста очереди
             else:
                 val: int = self._rear.val  # Временно сохранить значение хвостового узла
                 # Удалить хвостовой узел
                 rprev: ListNode | None = self._rear.prev
-                if rprev is not None:
-                    rprev.next = None
-                    self._rear.prev = None
+                rprev.next = None
+                self._rear.prev = None
                 self._rear = rprev  # Обновить хвостовой узел
             self._size -= 1  # Обновить длину очереди
             return val
@@ -621,15 +625,20 @@ comments: true
             if (isEmpty())
                 throw out_of_range("очередь пуста");
             int val;
+            // Если в очереди один элемент, начало и конец указывают на один узел
+            if (queSize == 1) {
+                val = front->val;
+                delete front; // Освобождаем общий узел один раз
+                front = nullptr;
+                rear = nullptr;
+            }
             // Операция извлечения из головы очереди
-            if (isFront) {
+            else if (isFront) {
                 val = front->val; // Временно сохранить значение головного узла
                 // Удалить головной узел
                 DoublyListNode *fNext = front->next;
-                if (fNext != nullptr) {
-                    fNext->prev = nullptr;
-                    front->next = nullptr;
-                }
+                fNext->prev = nullptr;
+                front->next = nullptr;
                 delete front;
                 front = fNext; // Обновить головной узел
             // Операция извлечения из хвоста очереди
@@ -637,10 +646,8 @@ comments: true
                 val = rear->val; // Временно сохранить значение хвостового узла
                 // Удалить хвостовой узел
                 DoublyListNode *rPrev = rear->prev;
-                if (rPrev != nullptr) {
-                    rPrev->next = nullptr;
-                    rear->prev = nullptr;
-                }
+                rPrev->next = nullptr;
+                rear->prev = nullptr;
                 delete rear;
                 rear = rPrev; // Обновить хвостовой узел
             }
@@ -756,25 +763,27 @@ comments: true
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
             int val;
+            // Если в очереди один элемент, начало и конец указывают на один узел
+            if (queSize == 1) {
+                val = front.val;
+                front = null;
+                rear = null;
+            }
             // Операция извлечения из головы очереди
-            if (isFront) {
+            else if (isFront) {
                 val = front.val; // Временно сохранить значение головного узла
                 // Удалить головной узел
                 ListNode fNext = front.next;
-                if (fNext != null) {
-                    fNext.prev = null;
-                    front.next = null;
-                }
+                fNext.prev = null;
+                front.next = null;
                 front = fNext; // Обновить головной узел
             // Операция извлечения из хвоста очереди
             } else {
                 val = rear.val; // Временно сохранить значение хвостового узла
                 // Удалить хвостовой узел
                 ListNode rPrev = rear.prev;
-                if (rPrev != null) {
-                    rPrev.next = null;
-                    rear.prev = null;
-                }
+                rPrev.next = null;
+                rear.prev = null;
                 rear = rPrev; // Обновить хвостовой узел
             }
             queSize--; // Обновить длину очереди
@@ -889,26 +898,28 @@ comments: true
             if (IsEmpty())
                 throw new Exception();
             int? val;
+            // Если в очереди один элемент, начало и конец указывают на один узел
+            if (queSize == 1) {
+                val = front!.val;
+                front = null;
+                rear = null;
+            }
             // Операция извлечения из головы очереди
-            if (isFront) {
-                val = front?.val; // Временно сохранить значение головного узла
+            else if (isFront) {
+                val = front!.val; // Временно сохранить значение головного узла
                 // Удалить головной узел
                 ListNode? fNext = front?.next;
-                if (fNext != null) {
-                    fNext.prev = null;
-                    front!.next = null;
-                }
+                fNext!.prev = null;
+                front.next = null;
                 front = fNext;   // Обновить головной узел
             }
             // Операция извлечения из хвоста очереди
             else {
-                val = rear?.val;  // Временно сохранить значение хвостового узла
+                val = rear!.val;  // Временно сохранить значение хвостового узла
                 // Удалить хвостовой узел
                 ListNode? rPrev = rear?.prev;
-                if (rPrev != null) {
-                    rPrev.next = null;
-                    rear!.prev = null;
-                }
+                rPrev!.next = null;
+                rear.prev = null;
                 rear = rPrev;    // Обновить хвостовой узел
             }
 
@@ -1109,15 +1120,19 @@ comments: true
                 fatalError("двусторонняя очередь пуста")
             }
             let val: Int
+            // Если в очереди один элемент, начало и конец указывают на один узел
+            if _size == 1 {
+                val = front!.val
+                front = nil
+                rear = nil
+            }
             // Операция извлечения из головы очереди
-            if isFront {
+            else if isFront {
                 val = front!.val // Временно сохранить значение головного узла
                 // Удалить головной узел
                 let fNext = front?.next
-                if fNext != nil {
-                    fNext?.prev = nil
-                    front?.next = nil
-                }
+                fNext?.prev = nil
+                front?.next = nil
                 front = fNext // Обновить головной узел
             }
             // Операция извлечения из хвоста очереди
@@ -1125,10 +1140,8 @@ comments: true
                 val = rear!.val // Временно сохранить значение хвостового узла
                 // Удалить хвостовой узел
                 let rPrev = rear?.prev
-                if rPrev != nil {
-                    rPrev?.next = nil
-                    rear?.prev = nil
-                }
+                rPrev?.next = nil
+                rear?.prev = nil
                 rear = rPrev // Обновить хвостовой узел
             }
             _size -= 1 // Обновить длину очереди
@@ -1240,13 +1253,18 @@ comments: true
                 return null;
             }
             const value = this.#rear.val; // Сохранить значение хвостового узла
+            // Если в очереди один элемент, начало и конец указывают на один узел
+            if (this.#queSize === 1) {
+                this.#front = null;
+                this.#rear = null;
+            }
             // Удалить хвостовой узел
-            let temp = this.#rear.prev;
-            if (temp !== null) {
+            else {
+                let temp = this.#rear.prev;
                 temp.next = null;
                 this.#rear.prev = null;
+                this.#rear = temp; // Обновить хвостовой узел
             }
-            this.#rear = temp; // Обновить хвостовой узел
             this.#queSize--;
             return value;
         }
@@ -1256,14 +1274,19 @@ comments: true
             if (this.#queSize === 0) {
                 return null;
             }
-            const value = this.#front.val; // Сохранить значение хвостового узла
+            const value = this.#front.val; // Сохраняем значение головного узла
+            // Если в очереди один элемент, начало и конец указывают на один узел
+            if (this.#queSize === 1) {
+                this.#front = null;
+                this.#rear = null;
+            }
             // Удалить головной узел
-            let temp = this.#front.next;
-            if (temp !== null) {
+            else {
+                let temp = this.#front.next;
                 temp.prev = null;
                 this.#front.next = null;
+                this.#front = temp; // Обновить головной узел
             }
-            this.#front = temp; // Обновить головной узел
             this.#queSize--;
             return value;
         }
@@ -1366,14 +1389,19 @@ comments: true
             if (this.queSize === 0) {
                 return null;
             }
-            const value: number = this.rear.val; // Сохранить значение хвостового узла
-            // Удалить хвостовой узел
-            let temp: ListNode = this.rear.prev;
-            if (temp !== null) {
-                temp.next = null;
-                this.rear.prev = null;
+            const value: number = this.rear!.val; // Сохранить значение хвостового узла
+            // Если в очереди один элемент, начало и конец указывают на один узел
+            if (this.queSize === 1) {
+                this.front = null;
+                this.rear = null;
             }
-            this.rear = temp; // Обновить хвостовой узел
+            // Удалить хвостовой узел
+            else {
+                let temp: ListNode = this.rear!.prev;
+                temp!.next = null;
+                this.rear!.prev = null;
+                this.rear = temp; // Обновить хвостовой узел
+            }
             this.queSize--;
             return value;
         }
@@ -1383,14 +1411,19 @@ comments: true
             if (this.queSize === 0) {
                 return null;
             }
-            const value: number = this.front.val; // Сохранить значение хвостового узла
-            // Удалить головной узел
-            let temp: ListNode = this.front.next;
-            if (temp !== null) {
-                temp.prev = null;
-                this.front.next = null;
+            const value: number = this.front.val; // Сохраняем значение головного узла
+            // Если в очереди один элемент, начало и конец указывают на один узел
+            if (this.queSize === 1) {
+                this.front = null;
+                this.rear = null;
             }
-            this.front = temp; // Обновить головной узел
+            // Удалить головной узел
+            else {
+                let temp: ListNode = this.front!.next;
+                temp!.prev = null;
+                this.front!.next = null;
+                this.front = temp; // Обновить головной узел
+            }
             this.queSize--;
             return value;
         }
@@ -1500,25 +1533,27 @@ comments: true
           return null;
         }
         final int val;
-        if (isFront) {
-          // Операция извлечения из головы очереди
+        // Если в очереди один элемент, начало и конец указывают на один узел
+        if (_queSize == 1) {
+          val = _front!.val;
+          _front = null;
+          _rear = null;
+        }
+        // Операция извлечения из головы очереди
+        else if (isFront) {
           val = _front!.val; // Временно сохранить значение головного узла
           // Удалить головной узел
           ListNode? fNext = _front!.next;
-          if (fNext != null) {
-            fNext.prev = null;
-            _front!.next = null;
-          }
+          fNext!.prev = null;
+          _front!.next = null;
           _front = fNext; // Обновить головной узел
+        // Операция извлечения из хвоста очереди
         } else {
-          // Операция извлечения из хвоста очереди
           val = _rear!.val; // Временно сохранить значение хвостового узла
           // Удалить хвостовой узел
           ListNode? rPrev = _rear!.prev;
-          if (rPrev != null) {
-            rPrev.next = null;
-            _rear!.prev = null;
-          }
+          rPrev!.next = null;
+          _rear!.prev = null;
           _rear = rPrev; // Обновить хвостовой узел
         }
         _queSize--; // Обновить длину очереди
@@ -1841,14 +1876,19 @@ comments: true
         if (empty(deque))
             return -1;
         int val;
+        // Если в очереди один элемент, начало и конец указывают на один узел
+        if (deque->queSize == 1) {
+            val = deque->front->val;
+            delDoublyListNode(deque->front); // Освобождаем общий узел один раз
+            deque->front = NULL;
+            deque->rear = NULL;
+        }
         // Операция извлечения из головы очереди
-        if (isFront) {
+        else if (isFront) {
             val = peekFirst(deque); // Временно сохранить значение головного узла
             DoublyListNode *fNext = deque->front->next;
-            if (fNext) {
-                fNext->prev = NULL;
-                deque->front->next = NULL;
-            }
+            fNext->prev = NULL;
+            deque->front->next = NULL;
             delDoublyListNode(deque->front);
             deque->front = fNext; // Обновить головной узел
         }
@@ -1856,10 +1896,8 @@ comments: true
         else {
             val = peekLast(deque); // Временно сохранить значение хвостового узла
             DoublyListNode *rPrev = deque->rear->prev;
-            if (rPrev) {
-                rPrev->next = NULL;
-                deque->rear->prev = NULL;
-            }
+            rPrev->next = NULL;
+            deque->rear->prev = NULL;
             delDoublyListNode(deque->rear);
             deque->rear = rPrev; // Обновить хвостовой узел
         }
@@ -1956,25 +1994,27 @@ comments: true
             if (isEmpty()) 
                 throw IndexOutOfBoundsException()
             val _val: Int
+            // Если в очереди один элемент, начало и конец указывают на один узел
+            if (queSize == 1) {
+                _val = front!!._val
+                front = null
+                rear = null
+            }
             // Операция извлечения из головы очереди
-            if (isFront) {
+            else if (isFront) {
                 _val = front!!._val // Временно сохранить значение головного узла
                 // Удалить головной узел
                 val fNext = front!!.next
-                if (fNext != null) {
-                    fNext.prev = null
-                    front!!.next = null
-                }
+                fNext!!.prev = null
+                front!!.next = null
                 front = fNext // Обновить головной узел
                 // Операция извлечения из хвоста очереди
             } else {
                 _val = rear!!._val // Временно сохранить значение хвостового узла
                 // Удалить хвостовой узел
                 val rPrev = rear!!.prev
-                if (rPrev != null) {
-                    rPrev.next = null
-                    rear!!.prev = null
-                }
+                rPrev!!.next = null
+                rear!!.prev = null
                 rear = rPrev // Обновить хвостовой узел
             }
             queSize-- // Обновить длину очереди
@@ -2090,25 +2130,26 @@ comments: true
       def pop(is_front)
         raise IndexError, 'двусторонняя очередь пуста' if is_empty?
 
+        # Если в очереди один элемент, начало и конец указывают на один узел
+        if @size == 1
+          val = @front.val
+          @front = nil
+          @rear = nil
         # Операция извлечения из головы очереди
-        if is_front
+        elsif is_front
           val = @front.val # Временно сохранить значение головного узла
           # Удалить головной узел
           fnext = @front.next
-          unless fnext.nil?
-            fnext.prev = nil
-            @front.next = nil
-          end
+          fnext.prev = nil
+          @front.next = nil
           @front = fnext # Обновить головной узел
         # Операция извлечения из хвоста очереди
         else
           val = @rear.val # Временно сохранить значение хвостового узла
           # Удалить хвостовой узел
           rprev = @rear.prev
-          unless rprev.nil?
-            rprev.next = nil
-            @rear.prev = nil
-          end
+          rprev.next = nil
+          @rear.prev = nil
           @rear = rprev # Обновить хвостовой узел
         end
         @size -= 1 # Обновить длину очереди

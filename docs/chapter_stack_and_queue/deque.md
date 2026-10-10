@@ -490,23 +490,26 @@ comments: true
             """出队操作"""
             if self.is_empty():
                 raise IndexError("双向队列为空")
+            # 队列长度为 1 时, 头尾指向同一节点
+            if self._size == 1:
+                val: int = self._front.val
+                self._front = None
+                self._rear = None
             # 队首出队操作
-            if is_front:
+            elif is_front:
                 val: int = self._front.val  # 暂存头节点值
                 # 删除头节点
                 fnext: ListNode | None = self._front.next
-                if fnext is not None:
-                    fnext.prev = None
-                    self._front.next = None
+                fnext.prev = None
+                self._front.next = None
                 self._front = fnext  # 更新头节点
             # 队尾出队操作
             else:
                 val: int = self._rear.val  # 暂存尾节点值
                 # 删除尾节点
                 rprev: ListNode | None = self._rear.prev
-                if rprev is not None:
-                    rprev.next = None
-                    self._rear.prev = None
+                rprev.next = None
+                self._rear.prev = None
                 self._rear = rprev  # 更新尾节点
             self._size -= 1  # 更新队列长度
             return val
@@ -622,15 +625,20 @@ comments: true
             if (isEmpty())
                 throw out_of_range("队列为空");
             int val;
+            // 队列长度为 1 时, 头尾指向同一节点
+            if (queSize == 1) {
+                val = front->val;
+                delete front; // 指向同一节点，释放其一即可
+                front = nullptr;
+                rear = nullptr;
+            }
             // 队首出队操作
-            if (isFront) {
+            else if (isFront) {
                 val = front->val; // 暂存头节点值
                 // 删除头节点
                 DoublyListNode *fNext = front->next;
-                if (fNext != nullptr) {
-                    fNext->prev = nullptr;
-                    front->next = nullptr;
-                }
+                fNext->prev = nullptr;
+                front->next = nullptr;
                 delete front;
                 front = fNext; // 更新头节点
             // 队尾出队操作
@@ -638,10 +646,8 @@ comments: true
                 val = rear->val; // 暂存尾节点值
                 // 删除尾节点
                 DoublyListNode *rPrev = rear->prev;
-                if (rPrev != nullptr) {
-                    rPrev->next = nullptr;
-                    rear->prev = nullptr;
-                }
+                rPrev->next = nullptr;
+                rear->prev = nullptr;
                 delete rear;
                 rear = rPrev; // 更新尾节点
             }
@@ -757,25 +763,27 @@ comments: true
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
             int val;
+            // 队列长度为 1 时, 头尾指向同一节点
+            if (queSize == 1) {
+                val = front.val;
+                front = null;
+                rear = null;
+            }
             // 队首出队操作
-            if (isFront) {
+            else if (isFront) {
                 val = front.val; // 暂存头节点值
                 // 删除头节点
                 ListNode fNext = front.next;
-                if (fNext != null) {
-                    fNext.prev = null;
-                    front.next = null;
-                }
+                fNext.prev = null;
+                front.next = null;
                 front = fNext; // 更新头节点
             // 队尾出队操作
             } else {
                 val = rear.val; // 暂存尾节点值
                 // 删除尾节点
                 ListNode rPrev = rear.prev;
-                if (rPrev != null) {
-                    rPrev.next = null;
-                    rear.prev = null;
-                }
+                rPrev.next = null;
+                rear.prev = null;
                 rear = rPrev; // 更新尾节点
             }
             queSize--; // 更新队列长度
@@ -890,26 +898,28 @@ comments: true
             if (IsEmpty())
                 throw new Exception();
             int? val;
+            // 队列长度为 1 时, 头尾指向同一节点
+            if (queSize == 1) {
+                val = front!.val;
+                front = null;
+                rear = null;
+            }
             // 队首出队操作
-            if (isFront) {
-                val = front?.val; // 暂存头节点值
+            else if (isFront) {
+                val = front!.val; // 暂存头节点值
                 // 删除头节点
                 ListNode? fNext = front?.next;
-                if (fNext != null) {
-                    fNext.prev = null;
-                    front!.next = null;
-                }
+                fNext!.prev = null;
+                front.next = null;
                 front = fNext;   // 更新头节点
             }
             // 队尾出队操作
             else {
-                val = rear?.val;  // 暂存尾节点值
+                val = rear!.val;  // 暂存尾节点值
                 // 删除尾节点
                 ListNode? rPrev = rear?.prev;
-                if (rPrev != null) {
-                    rPrev.next = null;
-                    rear!.prev = null;
-                }
+                rPrev!.next = null;
+                rear.prev = null;
                 rear = rPrev;    // 更新尾节点
             }
 
@@ -1110,15 +1120,19 @@ comments: true
                 fatalError("双向队列为空")
             }
             let val: Int
+            // 队列长度为 1 时, 头尾指向同一节点
+            if _size == 1 {
+                val = front!.val
+                front = nil
+                rear = nil
+            }
             // 队首出队操作
-            if isFront {
+            else if isFront {
                 val = front!.val // 暂存头节点值
                 // 删除头节点
                 let fNext = front?.next
-                if fNext != nil {
-                    fNext?.prev = nil
-                    front?.next = nil
-                }
+                fNext?.prev = nil
+                front?.next = nil
                 front = fNext // 更新头节点
             }
             // 队尾出队操作
@@ -1126,10 +1140,8 @@ comments: true
                 val = rear!.val // 暂存尾节点值
                 // 删除尾节点
                 let rPrev = rear?.prev
-                if rPrev != nil {
-                    rPrev?.next = nil
-                    rear?.prev = nil
-                }
+                rPrev?.next = nil
+                rear?.prev = nil
                 rear = rPrev // 更新尾节点
             }
             _size -= 1 // 更新队列长度
@@ -1241,13 +1253,18 @@ comments: true
                 return null;
             }
             const value = this.#rear.val; // 存储尾节点值
+            // 队列长度为 1 时, 头尾指向同一节点
+            if (this.#queSize === 1) {
+                this.#front = null;
+                this.#rear = null;
+            }
             // 删除尾节点
-            let temp = this.#rear.prev;
-            if (temp !== null) {
+            else {
+                let temp = this.#rear.prev;
                 temp.next = null;
                 this.#rear.prev = null;
+                this.#rear = temp; // 更新尾节点
             }
-            this.#rear = temp; // 更新尾节点
             this.#queSize--;
             return value;
         }
@@ -1257,14 +1274,19 @@ comments: true
             if (this.#queSize === 0) {
                 return null;
             }
-            const value = this.#front.val; // 存储尾节点值
+            const value = this.#front.val; // 存储头节点值
+            // 队列长度为 1 时, 头尾指向同一节点
+            if (this.#queSize === 1) {
+                this.#front = null;
+                this.#rear = null;
+            }
             // 删除头节点
-            let temp = this.#front.next;
-            if (temp !== null) {
+            else {
+                let temp = this.#front.next;
                 temp.prev = null;
                 this.#front.next = null;
+                this.#front = temp; // 更新头节点
             }
-            this.#front = temp; // 更新头节点
             this.#queSize--;
             return value;
         }
@@ -1367,14 +1389,19 @@ comments: true
             if (this.queSize === 0) {
                 return null;
             }
-            const value: number = this.rear.val; // 存储尾节点值
-            // 删除尾节点
-            let temp: ListNode = this.rear.prev;
-            if (temp !== null) {
-                temp.next = null;
-                this.rear.prev = null;
+            const value: number = this.rear!.val; // 存储尾节点值
+            // 队列长度为 1 时, 头尾指向同一节点
+            if (this.queSize === 1) {
+                this.front = null;
+                this.rear = null;
             }
-            this.rear = temp; // 更新尾节点
+            // 删除尾节点
+            else {
+                let temp: ListNode = this.rear!.prev;
+                temp!.next = null;
+                this.rear!.prev = null;
+                this.rear = temp; // 更新尾节点
+            }
             this.queSize--;
             return value;
         }
@@ -1384,14 +1411,19 @@ comments: true
             if (this.queSize === 0) {
                 return null;
             }
-            const value: number = this.front.val; // 存储尾节点值
-            // 删除头节点
-            let temp: ListNode = this.front.next;
-            if (temp !== null) {
-                temp.prev = null;
-                this.front.next = null;
+            const value: number = this.front.val; // 存储头节点值
+            // 队列长度为 1 时, 头尾指向同一节点
+            if (this.queSize === 1) {
+                this.front = null;
+                this.rear = null;
             }
-            this.front = temp; // 更新头节点
+            // 删除头节点
+            else {
+                let temp: ListNode = this.front!.next;
+                temp!.prev = null;
+                this.front!.next = null;
+                this.front = temp; // 更新头节点
+            }
             this.queSize--;
             return value;
         }
@@ -1501,25 +1533,27 @@ comments: true
           return null;
         }
         final int val;
-        if (isFront) {
-          // 队首出队操作
+        // 队列长度为 1 时, 头尾指向同一节点
+        if (_queSize == 1) {
+          val = _front!.val;
+          _front = null;
+          _rear = null;
+        }
+        // 队首出队操作
+        else if (isFront) {
           val = _front!.val; // 暂存头节点值
           // 删除头节点
           ListNode? fNext = _front!.next;
-          if (fNext != null) {
-            fNext.prev = null;
-            _front!.next = null;
-          }
+          fNext!.prev = null;
+          _front!.next = null;
           _front = fNext; // 更新头节点
+        // 队尾出队操作
         } else {
-          // 队尾出队操作
           val = _rear!.val; // 暂存尾节点值
           // 删除尾节点
           ListNode? rPrev = _rear!.prev;
-          if (rPrev != null) {
-            rPrev.next = null;
-            _rear!.prev = null;
-          }
+          rPrev!.next = null;
+          _rear!.prev = null;
           _rear = rPrev; // 更新尾节点
         }
         _queSize--; // 更新队列长度
@@ -1842,14 +1876,19 @@ comments: true
         if (empty(deque))
             return -1;
         int val;
+        // 队列长度为 1 时, 头尾指向同一节点
+        if (deque->queSize == 1) {
+            val = deque->front->val;
+            delDoublyListNode(deque->front); // 指向同一节点，释放其一即可
+            deque->front = NULL;
+            deque->rear = NULL;
+        }
         // 队首出队操作
-        if (isFront) {
+        else if (isFront) {
             val = peekFirst(deque); // 暂存头节点值
             DoublyListNode *fNext = deque->front->next;
-            if (fNext) {
-                fNext->prev = NULL;
-                deque->front->next = NULL;
-            }
+            fNext->prev = NULL;
+            deque->front->next = NULL;
             delDoublyListNode(deque->front);
             deque->front = fNext; // 更新头节点
         }
@@ -1857,10 +1896,8 @@ comments: true
         else {
             val = peekLast(deque); // 暂存尾节点值
             DoublyListNode *rPrev = deque->rear->prev;
-            if (rPrev) {
-                rPrev->next = NULL;
-                deque->rear->prev = NULL;
-            }
+            rPrev->next = NULL;
+            deque->rear->prev = NULL;
             delDoublyListNode(deque->rear);
             deque->rear = rPrev; // 更新尾节点
         }
@@ -1957,25 +1994,27 @@ comments: true
             if (isEmpty()) 
                 throw IndexOutOfBoundsException()
             val _val: Int
+            // 队列长度为 1 时, 头尾指向同一节点
+            if (queSize == 1) {
+                _val = front!!._val
+                front = null
+                rear = null
+            }
             // 队首出队操作
-            if (isFront) {
+            else if (isFront) {
                 _val = front!!._val // 暂存头节点值
                 // 删除头节点
                 val fNext = front!!.next
-                if (fNext != null) {
-                    fNext.prev = null
-                    front!!.next = null
-                }
+                fNext!!.prev = null
+                front!!.next = null
                 front = fNext // 更新头节点
                 // 队尾出队操作
             } else {
                 _val = rear!!._val // 暂存尾节点值
                 // 删除尾节点
                 val rPrev = rear!!.prev
-                if (rPrev != null) {
-                    rPrev.next = null
-                    rear!!.prev = null
-                }
+                rPrev!!.next = null
+                rear!!.prev = null
                 rear = rPrev // 更新尾节点
             }
             queSize-- // 更新队列长度
@@ -2091,25 +2130,26 @@ comments: true
       def pop(is_front)
         raise IndexError, '双向队列为空' if is_empty?
 
+        # 队列长度为 1 时, 头尾指向同一节点
+        if @size == 1
+          val = @front.val
+          @front = nil
+          @rear = nil
         # 队首出队操作
-        if is_front
+        elsif is_front
           val = @front.val # 暂存头节点值
           # 删除头节点
           fnext = @front.next
-          unless fnext.nil?
-            fnext.prev = nil
-            @front.next = nil
-          end
+          fnext.prev = nil
+          @front.next = nil
           @front = fnext # 更新头节点
         # 队尾出队操作
         else
           val = @rear.val # 暂存尾节点值
           # 删除尾节点
           rprev = @rear.prev
-          unless rprev.nil?
-            rprev.next = nil
-            @rear.prev = nil
-          end
+          rprev.next = nil
+          @rear.prev = nil
           @rear = rprev # 更新尾节点
         end
         @size -= 1 # 更新队列长度

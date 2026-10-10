@@ -29,10 +29,10 @@ comments: true
     ```cpp title="array.cpp"
     /* 初始化陣列 */
     // 儲存在堆疊上
-    int arr[5];
+    int arr[5] = {};
     int nums[5] = { 1, 3, 2, 5, 4 };
     // 儲存在堆積上（需要手動釋放空間）
-    int* arr1 = new int[5];
+    int* arr1 = new int[5] {};
     int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
     ```
 
@@ -407,7 +407,7 @@ comments: true
     /* 在陣列的索引 index 處插入元素 num */
     func insert(nums: inout [Int], num: Int, index: Int) {
         // 把索引 index 以及之後的所有元素向後移動一位
-        for i in nums.indices.dropFirst(index).reversed() {
+        for i in stride(from: nums.count - 1, to: index, by: -1) {
             nums[i] = nums[i - 1]
         }
         // 將 num 賦給 index 處的元素
