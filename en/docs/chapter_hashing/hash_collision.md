@@ -105,4 +105,4 @@ Different programming languages adopt different hash table implementation strate
 
 - Python uses open addressing. The `dict` dictionary uses pseudo-random numbers for probing.
 - Java uses separate chaining. Since JDK 1.8, when the array length in `HashMap` reaches 64 and the length of a linked list reaches 8, the linked list is converted to a red-black tree to improve search performance.
-- Go uses separate chaining. Go stipulates that each bucket can store up to 8 key-value pairs, and if the capacity is exceeded, an overflow bucket is linked; when there are too many overflow buckets, a special equal-capacity expansion operation is performed to ensure performance.
+- Starting with Go 1.24, the built-in `map` uses an open-addressed implementation based on [Swiss Tables](https://go.dev/blog/swisstable) by default. Go 1.23 and earlier use separate chaining, with up to 8 key-value pairs per bucket and overflow buckets linked when that capacity is exceeded.
