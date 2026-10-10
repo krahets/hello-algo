@@ -20,10 +20,11 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     strategy:
-      fail-fast: true
+      fail-fast: false
 
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        # Keep the macOS SDK compatible with Zig 0.14.1.
+        os: [ubuntu-latest, macos-14, windows-latest]
 
     steps:
       - uses: actions/checkout@v4
