@@ -30,7 +30,7 @@ def binary_search_insertion(nums: list[int], target: int) -> int:
         elif nums[m] > target:
             j = m - 1  # target находится в интервале [i, m-1]
         else:
-            j = m - 1  # Первый элемент меньше target находится в интервале [i, m-1]
+            j = m - 1  # Самый правый элемент, меньший target, находится в интервале [i, m-1]
     # Вернуть точку вставки i
     return i
 

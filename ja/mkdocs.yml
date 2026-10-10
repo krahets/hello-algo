@@ -59,6 +59,7 @@ nav:
     - 2.3 &nbsp; 時間計算量: chapter_computational_complexity/time_complexity.md
     - 2.4 &nbsp; 空間計算量: chapter_computational_complexity/space_complexity.md
     - 2.5 &nbsp; まとめ: chapter_computational_complexity/summary.md
+    - 2.6 &nbsp; 演習: chapter_computational_complexity/exercises.md
   - 第 3 章 &nbsp; データ構造:
     # [icon: material/shape-outline]
     - chapter_data_structure/index.md
@@ -67,6 +68,7 @@ nav:
     - 3.3 &nbsp; 数値エンコーディング *: chapter_data_structure/number_encoding.md
     - 3.4 &nbsp; 文字エンコーディング *: chapter_data_structure/character_encoding.md
     - 3.5 &nbsp; まとめ: chapter_data_structure/summary.md
+    - 3.6 &nbsp; 演習: chapter_data_structure/exercises.md
   - 第 4 章 &nbsp; 配列と連結リスト:
     # [icon: material/view-list-outline]
     - chapter_array_and_linkedlist/index.md
@@ -75,6 +77,7 @@ nav:
     - 4.3 &nbsp; リスト: chapter_array_and_linkedlist/list.md
     - 4.4 &nbsp; メモリとキャッシュ *: chapter_array_and_linkedlist/ram_and_cache.md
     - 4.5 &nbsp; まとめ: chapter_array_and_linkedlist/summary.md
+    - 4.6 &nbsp; 演習: chapter_array_and_linkedlist/exercises.md
   - 第 5 章 &nbsp; スタックとキュー:
     # [icon: material/stack-overflow]
     - chapter_stack_and_queue/index.md
@@ -82,6 +85,7 @@ nav:
     - 5.2 &nbsp; キュー: chapter_stack_and_queue/queue.md
     - 5.3 &nbsp; 両端キュー: chapter_stack_and_queue/deque.md
     - 5.4 &nbsp; まとめ: chapter_stack_and_queue/summary.md
+    - 5.5 &nbsp; 演習: chapter_stack_and_queue/exercises.md
   - 第 6 章 &nbsp; ハッシュテーブル:
     # [icon: material/table-search]
     - chapter_hashing/index.md
@@ -89,6 +93,7 @@ nav:
     - 6.2 &nbsp; ハッシュ衝突: chapter_hashing/hash_collision.md
     - 6.3 &nbsp; ハッシュアルゴリズム: chapter_hashing/hash_algorithm.md
     - 6.4 &nbsp; まとめ: chapter_hashing/summary.md
+    - 6.5 &nbsp; 演習: chapter_hashing/exercises.md
   - 第 7 章 &nbsp; 木:
     # [icon: material/graph-outline]
     - chapter_tree/index.md
@@ -98,6 +103,7 @@ nav:
     - 7.4 &nbsp; 二分探索木: chapter_tree/binary_search_tree.md
     - 7.5 &nbsp; AVL 木 *: chapter_tree/avl_tree.md
     - 7.6 &nbsp; まとめ: chapter_tree/summary.md
+    - 7.7 &nbsp; 演習: chapter_tree/exercises.md
   - 第 8 章 &nbsp; ヒープ:
     # [icon: material/family-tree]
     - chapter_heap/index.md
@@ -105,6 +111,7 @@ nav:
     - 8.2 &nbsp; ヒープ構築: chapter_heap/build_heap.md
     - 8.3 &nbsp; Top-k 問題: chapter_heap/top_k.md
     - 8.4 &nbsp; まとめ: chapter_heap/summary.md
+    - 8.5 &nbsp; 演習: chapter_heap/exercises.md
   - 第 9 章 &nbsp; グラフ:
     # [icon: material/graphql]
     - chapter_graph/index.md
@@ -112,6 +119,7 @@ nav:
     - 9.2 &nbsp; グラフの基本操作: chapter_graph/graph_operations.md
     - 9.3 &nbsp; グラフの走査: chapter_graph/graph_traversal.md
     - 9.4 &nbsp; まとめ: chapter_graph/summary.md
+    - 9.5 &nbsp; 演習: chapter_graph/exercises.md
   - 第 10 章 &nbsp; 探索:
     # [icon: material/text-search]
     - chapter_searching/index.md
@@ -121,6 +129,7 @@ nav:
     - 10.4 &nbsp; ハッシュによる最適化戦略: chapter_searching/replace_linear_by_hashing.md
     - 10.5 &nbsp; 探索アルゴリズム再考: chapter_searching/searching_algorithm_revisited.md
     - 10.6 &nbsp; まとめ: chapter_searching/summary.md
+    - 10.7 &nbsp; 演習: chapter_searching/exercises.md
   - 第 11 章 &nbsp; ソート:
     # [icon: material/sort-ascending]
     - chapter_sorting/index.md
@@ -135,6 +144,7 @@ nav:
     - 11.9 &nbsp; 計数ソート: chapter_sorting/counting_sort.md
     - 11.10 &nbsp; 基数ソート: chapter_sorting/radix_sort.md
     - 11.11 &nbsp; まとめ: chapter_sorting/summary.md
+    - 11.12 &nbsp; 演習: chapter_sorting/exercises.md
   - 第 12 章 &nbsp; 分割統治:
     # [icon: material/set-split]
     - chapter_divide_and_conquer/index.md
@@ -143,6 +153,7 @@ nav:
     - 12.3 &nbsp; 二分木の構築問題: chapter_divide_and_conquer/build_binary_tree_problem.md
     - 12.4 &nbsp; ハノイの塔の問題: chapter_divide_and_conquer/hanota_problem.md
     - 12.5 &nbsp; まとめ: chapter_divide_and_conquer/summary.md
+    - 12.6 &nbsp; 演習: chapter_divide_and_conquer/exercises.md
   - 第 13 章 &nbsp; バックトラッキング:
     # [icon: material/map-marker-path]
     - chapter_backtracking/index.md
@@ -151,6 +162,7 @@ nav:
     - 13.3 &nbsp; 部分和問題: chapter_backtracking/subset_sum_problem.md
     - 13.4 &nbsp; n クイーン問題: chapter_backtracking/n_queens_problem.md
     - 13.5 &nbsp; まとめ: chapter_backtracking/summary.md
+    - 13.6 &nbsp; 演習: chapter_backtracking/exercises.md
   - 第 14 章 &nbsp; 動的計画法:
     # [icon: material/table-pivot]
     - chapter_dynamic_programming/index.md
@@ -161,6 +173,7 @@ nav:
     - 14.5 &nbsp; 完全ナップサック問題: chapter_dynamic_programming/unbounded_knapsack_problem.md
     - 14.6 &nbsp; 編集距離問題: chapter_dynamic_programming/edit_distance_problem.md
     - 14.7 &nbsp; まとめ: chapter_dynamic_programming/summary.md
+    - 14.8 &nbsp; 演習: chapter_dynamic_programming/exercises.md
   - 第 15 章 &nbsp; 貪欲法:
     # [icon: material/head-heart-outline]
     - chapter_greedy/index.md
@@ -169,6 +182,7 @@ nav:
     - 15.3 &nbsp; 最大容量問題: chapter_greedy/max_capacity_problem.md
     - 15.4 &nbsp; 最大積分割問題: chapter_greedy/max_product_cutting_problem.md
     - 15.5 &nbsp; まとめ: chapter_greedy/summary.md
+    - 15.6 &nbsp; 演習: chapter_greedy/exercises.md
   - 第 16 章 &nbsp; 付録:
     # [icon: material/help-circle-outline]
     - chapter_appendix/index.md

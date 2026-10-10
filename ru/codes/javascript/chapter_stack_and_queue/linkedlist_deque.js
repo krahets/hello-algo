@@ -67,13 +67,18 @@ class LinkedListDeque {
             return null;
         }
         const value = this.#rear.val; // Сохранить значение хвостового узла
+        // Если в очереди один элемент, начало и конец указывают на один узел
+        if (this.#queSize === 1) {
+            this.#front = null;
+            this.#rear = null;
+        }
         // Удалить хвостовой узел
-        let temp = this.#rear.prev;
-        if (temp !== null) {
+        else {
+            let temp = this.#rear.prev;
             temp.next = null;
             this.#rear.prev = null;
+            this.#rear = temp; // Обновить хвостовой узел
         }
-        this.#rear = temp; // Обновить хвостовой узел
         this.#queSize--;
         return value;
     }
@@ -83,14 +88,19 @@ class LinkedListDeque {
         if (this.#queSize === 0) {
             return null;
         }
-        const value = this.#front.val; // Сохранить значение хвостового узла
+        const value = this.#front.val; // Сохраняем значение головного узла
+        // Если в очереди один элемент, начало и конец указывают на один узел
+        if (this.#queSize === 1) {
+            this.#front = null;
+            this.#rear = null;
+        }
         // Удалить головной узел
-        let temp = this.#front.next;
-        if (temp !== null) {
+        else {
+            let temp = this.#front.next;
             temp.prev = null;
             this.#front.next = null;
+            this.#front = temp; // Обновить головной узел
         }
-        this.#front = temp; // Обновить головной узел
         this.#queSize--;
         return value;
     }

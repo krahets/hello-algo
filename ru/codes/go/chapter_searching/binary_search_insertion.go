@@ -40,7 +40,7 @@ func binarySearchInsertion(nums []int, target int) int {
 			// target находится в интервале [i, m-1]
 			j = m - 1
 		} else {
-			// Первый элемент меньше target находится в интервале [i, m-1]
+			// Самый правый элемент, меньший target, находится в интервале [i, m-1]
 			j = m - 1
 		}
 	}

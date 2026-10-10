@@ -67,25 +67,27 @@ class LinkedListDeque {
         if (isEmpty()) 
             throw IndexOutOfBoundsException()
         val _val: Int
+        // When the deque has one element, front and rear point to the same node
+        if (queSize == 1) {
+            _val = front!!._val
+            front = null
+            rear = null
+        }
         // Temporarily store head node value
-        if (isFront) {
+        else if (isFront) {
             _val = front!!._val // Delete head node
             // Delete head node
             val fNext = front!!.next
-            if (fNext != null) {
-                fNext.prev = null
-                front!!.next = null
-            }
+            fNext!!.prev = null
+            front!!.next = null
             front = fNext // Update head node
             // Temporarily store tail node value
         } else {
             _val = rear!!._val // Delete tail node
             // Update tail node
             val rPrev = rear!!.prev
-            if (rPrev != null) {
-                rPrev.next = null
-                rear!!.prev = null
-            }
+            rPrev!!.next = null
+            rear!!.prev = null
             rear = rPrev // Update tail node
         }
         queSize-- // Update queue length

@@ -73,25 +73,27 @@ class LinkedListDeque {
       return null;
     }
     final int val;
-    if (isFront) {
-      // Операция извлечения из головы очереди
+    // Если в очереди один элемент, начало и конец указывают на один узел
+    if (_queSize == 1) {
+      val = _front!.val;
+      _front = null;
+      _rear = null;
+    }
+    // Операция извлечения из головы очереди
+    else if (isFront) {
       val = _front!.val; // Временно сохранить значение головного узла
       // Удалить головной узел
       ListNode? fNext = _front!.next;
-      if (fNext != null) {
-        fNext.prev = null;
-        _front!.next = null;
-      }
+      fNext!.prev = null;
+      _front!.next = null;
       _front = fNext; // Обновить головной узел
+    // Операция извлечения из хвоста очереди
     } else {
-      // Операция извлечения из хвоста очереди
       val = _rear!.val; // Временно сохранить значение хвостового узла
       // Удалить хвостовой узел
       ListNode? rPrev = _rear!.prev;
-      if (rPrev != null) {
-        rPrev.next = null;
-        _rear!.prev = null;
-      }
+      rPrev!.next = null;
+      _rear!.prev = null;
       _rear = rPrev; // Обновить хвостовой узел
     }
     _queSize--; // Обновить длину очереди

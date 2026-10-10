@@ -20,7 +20,7 @@ VS Code には強力な拡張機能のエコシステムがあり、ほとんど
 
 ### C/C++ 環境
 
-1. Windows システムでは [MinGW](https://sourceforge.net/projects/mingw-w64/files/) をインストールする必要があります（[設定チュートリアル](https://blog.csdn.net/qq_33698226/article/details/129031241)）。MacOS には Clang が標準搭載されているため、追加インストールは不要です。
+1. Windows システムでは [MinGW](https://sourceforge.net/projects/mingw-w64/files/) をインストールする必要があります（[設定チュートリアル](https://blog.csdn.net/qq_33698226/article/details/129031241)）。macOS には Clang が標準搭載されているため、追加インストールは不要です。
 2. VS Code の拡張機能マーケットプレイスで `c++` を検索し、C/C++ Extension Pack をインストールします。
 3. （任意）Settings ページを開き、コード整形オプション `Clang_format_fallback Style` を検索して、`{ BasedOnStyle: Microsoft, BreakBeforeBraces: Attach }` に設定します。
 
@@ -31,7 +31,7 @@ VS Code には強力な拡張機能のエコシステムがあり、ほとんど
 
 ### C# 環境
 
-1. [.Net 8.0](https://dotnet.microsoft.com/en-us/download) をダウンロードしてインストールします。
+1. [.NET 8.0](https://dotnet.microsoft.com/en-us/download) をダウンロードしてインストールします。
 2. VS Code の拡張機能マーケットプレイスで `C# Dev Kit` を検索し、C# Dev Kit をインストールします（[設定チュートリアル](https://code.visualstudio.com/docs/csharp/get-started)）。
 3. Visual Studio を使用することもできます（[インストール手順](https://learn.microsoft.com/zh-cn/visualstudio/install/install-visual-studio?view=vs-2022)）。
 

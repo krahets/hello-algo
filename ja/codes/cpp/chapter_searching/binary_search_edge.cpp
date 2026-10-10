@@ -14,7 +14,7 @@ int binarySearchInsertion(const vector<int> &nums, int target) {
         if (nums[m] < target) {
             i = m + 1; // target は区間 [m+1, j] にある
         } else {
-            j = m - 1; // target より小さい最初の要素は区間 [i, m-1] にある
+            j = m - 1; // target より小さい最も右の要素は区間 [i, m-1] にある
         }
     }
     // 挿入位置 i を返す

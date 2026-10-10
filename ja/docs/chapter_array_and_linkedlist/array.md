@@ -23,10 +23,10 @@
     ```cpp title="array.cpp"
     /* 配列を初期化する */
     // スタック上に格納
-    int arr[5];
+    int arr[5] = {};
     int nums[5] = { 1, 3, 2, 5, 4 };
     // ヒープ上に格納（手動で領域を解放する必要がある）
-    int* arr1 = new int[5];
+    int* arr1 = new int[5] {};
     int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
     ```
 

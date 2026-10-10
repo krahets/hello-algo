@@ -76,25 +76,27 @@ class LinkedListDeque {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         int val;
+        // 要素が1つの場合、先頭と末尾は同じノードを指す
+        if (queSize == 1) {
+            val = front.val;
+            front = null;
+            rear = null;
+        }
         // キュー先頭からの取り出し
-        if (isFront) {
+        else if (isFront) {
             val = front.val; // 先頭ノードの値を一時保存
             // 先頭ノードを削除
             ListNode fNext = front.next;
-            if (fNext != null) {
-                fNext.prev = null;
-                front.next = null;
-            }
+            fNext.prev = null;
+            front.next = null;
             front = fNext; // 先頭ノードを更新する
         // キュー末尾からの取り出し
         } else {
             val = rear.val; // 末尾ノードの値を一時保存
             // 末尾ノードを削除
             ListNode rPrev = rear.prev;
-            if (rPrev != null) {
-                rPrev.next = null;
-                rear.prev = null;
-            }
+            rPrev.next = null;
+            rear.prev = null;
             rear = rPrev; // 末尾ノードを更新する
         }
         queSize--; // キューの長さを更新
