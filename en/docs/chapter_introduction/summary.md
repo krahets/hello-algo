@@ -22,3 +22,12 @@ I believe the significance of learning algorithms (and other fundamental subject
 - But if we have studied algorithms, we would know that the time complexity of the built-in sorting function is $O(n \log n)$. However, if the given data consists of integers with a fixed number of digits (such as student IDs), we can use the more efficient "radix sort", reducing the time complexity to $O(nk)$, where $k$ is the number of digits. When the data volume is very large, the saved running time can create significant value (reduced costs, improved experience, etc.).
 
 In engineering, many problems are difficult to solve optimally, and many others are only solved "well enough." The difficulty of a problem depends, on the one hand, on the nature of the problem itself and, on the other hand, on the knowledge of the person examining it. The more complete a person's knowledge and the more experience they have, the deeper their analysis will be, and the more elegantly the problem can be solved.
+
+**Q**: AI agents can already help us write code. Is it still necessary to learn algorithms?
+
+Yes. We can think of AI as an amplifier of our abilities, with our own skills and knowledge forming the foundation it amplifies. Two abilities are especially worth developing.
+
+- **Communication**: Learn to work with AI by stating your goals clearly, providing the necessary context, and correcting it when it goes off track. Explaining a problem to AI also helps you think it through yourself.
+- **Foundational knowledge**: AI can fill in the details, but you need to understand the basic concepts to ask the right questions and judge whether its answers are correct. Learning data structures and algorithms helps you understand how data is organized, how programs run, and how to assess whether a method is correct and efficient.
+
+AI has a wide range of uses. It is a little like water, taking different shapes in different people's hands. The stronger our foundations and the better our judgment, the more effectively we can turn AI's output into useful results.
