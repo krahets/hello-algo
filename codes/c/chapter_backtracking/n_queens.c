@@ -13,10 +13,10 @@ void backtrack(int row, int n, char state[MAX_SIZE][MAX_SIZE], char ***res, int 
                bool diags1[2 * MAX_SIZE - 1], bool diags2[2 * MAX_SIZE - 1]) {
     // 当放置完所有行时，记录解
     if (row == n) {
-        res[*resSize] = (char **)malloc(sizeof(char *) * n);
+        res[*resSize] = (char **)calloc(n, sizeof(char *));
         for (int i = 0; i < n; ++i) {
-            res[*resSize][i] = (char *)malloc(sizeof(char) * (n + 1));
-            strcpy(res[*resSize][i], state[i]);
+            res[*resSize][i] = (char *)calloc(n + 1, sizeof(char));
+            snprintf(res[*resSize][i], n + 1, "%s", state[i]);
         }
         (*resSize)++;
         return;
@@ -54,7 +54,7 @@ char ***nQueens(int n, int *returnSize) {
     bool diags1[2 * MAX_SIZE - 1] = {false}; // 记录主对角线上是否有皇后
     bool diags2[2 * MAX_SIZE - 1] = {false}; // 记录次对角线上是否有皇后
 
-    char ***res = (char ***)malloc(sizeof(char **) * MAX_SIZE);
+    char ***res = (char ***)calloc(MAX_SIZE, sizeof(char **));
     *returnSize = 0;
     backtrack(0, n, state, res, returnSize, cols, diags1, diags2);
     return res;
