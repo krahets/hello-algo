@@ -299,7 +299,43 @@
 === "C"
 
     ```c title="queue.c"
-    // C 未提供内置队列
+    #include <stdio.h>
+    #include <stdbool.h>
+    
+    #define MAX_SIZE 100
+    
+    int main() {
+        // 初始化队列
+        int queue[MAX_SIZE];
+        int front = 0;
+        int rear = -1;
+    
+        // 元素入队
+        queue[++rear] = 1;
+        queue[++rear] = 3;
+        queue[++rear] = 2;
+        queue[++rear] = 5;
+        queue[++rear] = 4;
+    
+        // 访问队首元素
+        int front_elem = queue[front];
+    
+        // 元素出队
+        int pop = queue[front++];
+    
+        // 获取队列长度
+        int size = rear - front + 1;
+    
+        // 判断队列是否为空
+        bool is_empty = (front > rear);
+    
+        printf("front: %d\n", front_elem);
+        printf("pop: %d\n", pop);
+        printf("size: %d\n", size);
+        printf("is_empty: %s\n", is_empty ? "true" : "false");
+    
+        return 0;
+    }
     ```
 
 === "Kotlin"

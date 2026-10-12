@@ -321,7 +321,47 @@
 === "C"
 
     ```c title="deque.c"
-    // C 未提供内置双向队列
+    #include <stdio.h>
+    #include <stdbool.h>
+    
+    #define MAX_SIZE 100
+    
+    int main() {
+        // 初始化双端队列
+        int deq[MAX_SIZE];
+        int front = MAX_SIZE / 2;
+        int rear = MAX_SIZE / 2 - 1;
+    
+        // 元素入队
+        deq[++rear] = 2;   // append (队尾)
+        deq[++rear] = 5;
+        deq[++rear] = 4;
+        deq[--front] = 3;  // appendleft (队首)
+        deq[--front] = 1;
+    
+        // 访问元素
+        int front_elem = deq[front]; // 队首
+        int rear_elem = deq[rear];   // 队尾
+    
+        // 元素出队
+        int pop_front = deq[front++]; // popleft
+        int pop_rear = deq[rear--];   // pop
+    
+        // 获取长度
+        int size = rear - front + 1;
+    
+        // 判断是否为空
+        bool is_empty = (front > rear);
+    
+        printf("front: %d\n", front_elem);
+        printf("rear: %d\n", rear_elem);
+        printf("pop_front: %d\n", pop_front);
+        printf("pop_rear: %d\n", pop_rear);
+        printf("size: %d\n", size);
+        printf("is_empty: %s\n", is_empty ? "true" : "false");
+    
+        return 0;
+    }
     ```
 
 === "Kotlin"
