@@ -356,10 +356,10 @@
 
     ```ruby title="deque.rb"
     # 初始化雙向佇列
-    # Ruby 沒有內直的雙端佇列，只能把 Array 當作雙端佇列來使用
+    # Ruby 沒有內建的雙端佇列，只能把 Array 當作雙端佇列來使用
     deque = []
 
-    # 元素如隊
+    # 元素入列
     deque << 2
     deque << 5
     deque << 4
