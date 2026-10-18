@@ -7,10 +7,10 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 ### Driver Code ###
 if __FILE__ == $0
   # 初始化双向队列
-  # Ruby 没有内直的双端队列，只能把 Array 当作双端队列来使用
+  # Ruby 没有内置的双端队列，只能把 Array 当作双端队列来使用
   deque = []
 
-  # 元素如队
+  # 元素入队
   deque << 2
   deque << 5
   deque << 4
