@@ -110,6 +110,8 @@ void removeEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
 /* 新增頂點 */
 void addVertex(GraphAdjList *graph, Vertex *vet) {
     assert(graph != NULL && graph->size < MAX_SIZE);
+    if (findNode(graph, vet) != NULL)
+        return;
     AdjListNode *head = (AdjListNode *)malloc(sizeof(AdjListNode));
     head->vertex = vet;
     head->next = NULL;
@@ -130,6 +132,8 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
     }
     // 走訪其他頂點的鏈結串列，刪除所有包含 vet 的邊
     for (int i = 0; i < graph->size; i++) {
+        if (graph->heads[i] == node)
+            continue;
         cur = graph->heads[i];
         pre = NULL;
         while (cur) {
