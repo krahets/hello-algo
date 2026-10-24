@@ -26,7 +26,7 @@ class HashMapOpenAddressing
 
   ### 負載因子 ###
   def load_factor
-    @size / @capacity
+    @size / @capacity.to_f
   end
 
   ### 搜尋 key 對應的桶索引 ###

@@ -26,7 +26,7 @@ class HashMapOpenAddressing
 
   ### Load factor ###
   def load_factor
-    @size / @capacity
+    @size / @capacity.to_f
   end
 
   ### Search bucket index for key ###

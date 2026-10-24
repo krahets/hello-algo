@@ -26,7 +26,7 @@ class HashMapOpenAddressing
 
   ### 負荷率 ###
   def load_factor
-    @size / @capacity
+    @size / @capacity.to_f
   end
 
   ### key に対応するバケットインデックスを検索 ###
