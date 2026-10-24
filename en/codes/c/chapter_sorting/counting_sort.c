@@ -45,7 +45,7 @@ void countingSort(int nums[], int size) {
     }
     // 2. Count the occurrence of each number
     // counter[num] represents the occurrence of num
-    int *counter = calloc(m, sizeof(int));
+    int *counter = calloc(m + 1, sizeof(int));
     for (int i = 0; i < size; i++) {
         counter[nums[i]]++;
     }

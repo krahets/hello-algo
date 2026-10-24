@@ -130,6 +130,8 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
     }
     // 他の頂点のリストを走査し、vet を含むすべての辺を削除
     for (int i = 0; i < graph->size; i++) {
+        if (graph->heads[i] == node)
+            continue;
         cur = graph->heads[i];
         pre = NULL;
         while (cur) {

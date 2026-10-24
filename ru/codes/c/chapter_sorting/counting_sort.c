@@ -45,7 +45,7 @@ void countingSort(int nums[], int size) {
     }
     // 2. Подсчитать число появлений каждой цифры
     // counter[num] обозначает число появлений num
-    int *counter = calloc(m, sizeof(int));
+    int *counter = calloc(m + 1, sizeof(int));
     for (int i = 0; i < size; i++) {
         counter[nums[i]]++;
     }
