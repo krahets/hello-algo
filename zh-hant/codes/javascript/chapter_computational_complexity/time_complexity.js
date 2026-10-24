@@ -100,7 +100,7 @@ function logRecur(n) {
 /* 線性對數階 */
 function linearLogRecur(n) {
     if (n <= 1) return 1;
-    let count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
+    let count = linearLogRecur(Math.floor(n / 2)) + linearLogRecur(Math.floor(n / 2));
     for (let i = 0; i < n; i++) {
         count++;
     }
