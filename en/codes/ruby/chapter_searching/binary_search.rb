@@ -39,7 +39,7 @@ def binary_search_lcro(nums, target)
     if nums[m] < target
       i = m + 1 # This means target is in the interval [m+1, j)
     elsif nums[m] > target
-      j = m - 1 # This means target is in the interval [i, m)
+      j = m # This means target is in the interval [i, m)
     else
       return m  # Found the target element, return its index
     end
