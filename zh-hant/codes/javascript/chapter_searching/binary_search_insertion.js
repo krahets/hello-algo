@@ -40,23 +40,25 @@ function binarySearchInsertion(nums, target) {
     return i;
 }
 
-/* Driver Code */
-// 無重複元素的陣列
-let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
-console.log('\n陣列 nums = ' + nums);
-// 二分搜尋插入點
-for (const target of [6, 9]) {
-    const index = binarySearchInsertionSimple(nums, target);
-    console.log('元素 ' + target + ' 的插入點的索引為 ' + index);
-}
+if (require.main === module) {
+    /* Driver Code */
+    // 無重複元素的陣列
+    let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
+    console.log('\n陣列 nums = ' + nums);
+    // 二分搜尋插入點
+    for (const target of [6, 9]) {
+        const index = binarySearchInsertionSimple(nums, target);
+        console.log('元素 ' + target + ' 的插入點的索引為 ' + index);
+    }
 
-// 包含重複元素的陣列
-nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
-console.log('\n陣列 nums = ' + nums);
-// 二分搜尋插入點
-for (const target of [2, 6, 20]) {
-    const index = binarySearchInsertion(nums, target);
-    console.log('元素 ' + target + ' 的插入點的索引為 ' + index);
+    // 包含重複元素的陣列
+    nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
+    console.log('\n陣列 nums = ' + nums);
+    // 二分搜尋插入點
+    for (const target of [2, 6, 20]) {
+        const index = binarySearchInsertion(nums, target);
+        console.log('元素 ' + target + ' 的插入點的索引為 ' + index);
+    }
 }
 
 module.exports = {
