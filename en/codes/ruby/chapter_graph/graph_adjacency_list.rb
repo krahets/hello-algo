@@ -29,7 +29,7 @@ class GraphAdjList
 
   ### Add edge ###
   def add_edge(vet1, vet2)
-    raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2)
+    raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2) || vet1 == vet2
 
     @adj_list[vet1] << vet2
     @adj_list[vet2] << vet1
@@ -37,7 +37,7 @@ class GraphAdjList
 
   ### Delete edge ###
   def remove_edge(vet1, vet2)
-    raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2)
+    raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2) || vet1 == vet2
 
     # Remove edge vet1 - vet2
     @adj_list[vet1].delete(vet2)
