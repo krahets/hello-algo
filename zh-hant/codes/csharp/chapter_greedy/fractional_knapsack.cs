@@ -21,7 +21,7 @@ public class fractional_knapsack {
             items[i] = new Item(wgt[i], val[i]);
         }
         // 按照單位價值 item.v / item.w 從高到低進行排序
-        Array.Sort(items, (x, y) => (y.v / y.w).CompareTo(x.v / x.w));
+        Array.Sort(items, (x, y) => ((double)y.v / y.w).CompareTo((double)x.v / x.w));
         // 迴圈貪婪選擇
         double res = 0;
         foreach (Item item in items) {
