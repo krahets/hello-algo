@@ -124,8 +124,8 @@ public static class PrintUtil {
         while (newQueue.TryDequeue(out int element, out _)) {
             list.Add(element);
         }
-        Console.WriteLine("Heap tree representation:");
         Console.WriteLine(string.Join(',', list.ToList()));
+        Console.WriteLine("Heap tree representation:");
         TreeNode? tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);
     }
