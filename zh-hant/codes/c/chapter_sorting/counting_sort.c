@@ -45,7 +45,7 @@ void countingSort(int nums[], int size) {
     }
     // 2. 統計各數字的出現次數
     // counter[num] 代表 num 的出現次數
-    int *counter = calloc(m, sizeof(int));
+    int *counter = calloc(m + 1, sizeof(int));
     for (int i = 0; i < size; i++) {
         counter[nums[i]]++;
     }

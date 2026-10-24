@@ -130,6 +130,8 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
     }
     // 遍历其他顶点的链表，删除所有包含 vet 的边
     for (int i = 0; i < graph->size; i++) {
+        if (graph->heads[i] == node)
+            continue;
         cur = graph->heads[i];
         pre = NULL;
         while (cur) {
