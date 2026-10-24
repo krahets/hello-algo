@@ -110,6 +110,8 @@ void removeEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
 /* Add vertex */
 void addVertex(GraphAdjList *graph, Vertex *vet) {
     assert(graph != NULL && graph->size < MAX_SIZE);
+    if (findNode(graph, vet) != NULL)
+        return;
     AdjListNode *head = (AdjListNode *)malloc(sizeof(AdjListNode));
     head->vertex = vet;
     head->next = NULL;
