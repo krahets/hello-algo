@@ -36,12 +36,12 @@ function xorHash(key) {
 
 /* Rotational hash */
 function rotHash(key) {
-    let hash = 0;
-    const MODULUS = 1000000007;
+    let hash = 0n;
+    const MODULUS = 1000000007n;
     for (const c of key) {
-        hash = ((hash << 4) ^ (hash >> 28) ^ c.charCodeAt(0)) % MODULUS;
+        hash = ((hash << 4n) ^ (hash >> 28n) ^ BigInt(c.charCodeAt(0))) % MODULUS;
     }
-    return hash;
+    return Number(hash);
 }
 
 /* Driver Code */
