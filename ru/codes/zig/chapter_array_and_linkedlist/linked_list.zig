@@ -61,28 +61,38 @@ pub fn run() void {
     n2.next = &n3;
     n3.next = &n4;
     std.debug.print(
-        "Инициализированный связный список = {}\n",\n    .{utils.fmt.linkedList(i32, &n0)},\n);
+        "Инициализированный связный список = {}\n",
+        .{utils.fmt.linkedList(i32, &n0)},
+    );
 
     // Вставка узла
     var tmp = ListNode(i32){ .val = 0 };
     insert(i32, &n0, &tmp);
     std.debug.print(
-        "Связный список после вставки узла = {}\n",\n    .{utils.fmt.linkedList(i32, &n0)},\n);
+        "Связный список после вставки узла = {}\n",
+        .{utils.fmt.linkedList(i32, &n0)},
+    );
 
     // Удаление узла
     remove(i32, &n0);
     std.debug.print(
-        "Связный список после удаления узла = {}\n",\n    .{utils.fmt.linkedList(i32, &n0)},\n);
+        "Связный список после удаления узла = {}\n",
+        .{utils.fmt.linkedList(i32, &n0)},
+    );
 
     // Доступ к узлу
     const node = access(i32, &n0, 3);
     std.debug.print(
-        "Значение узла по индексу 3 в связном списке = {}\n",\n    .{node.?.val},\n);
+        "Значение узла по индексу 3 в связном списке = {}\n",
+        .{node.?.val},
+    );
 
     // Поиск узла
     const index = find(i32, &n0, 2);
     std.debug.print(
-        "Индекс узла со значением 2 в связном списке = {}\n",\n    .{index},\n);
+        "Индекс узла со значением 2 в связном списке = {}\n",
+        .{index},
+    );
 
     std.debug.print("\n", .{});
 }

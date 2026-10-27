@@ -175,17 +175,25 @@ pub fn run() !void {
     try nums.add(2);
     try nums.add(5);
     try nums.add(4);
-    std.debug.print("Список nums = {}, вместимость = {}, длина = {}\n", .{\n    utils.fmt.slice(nums.items),\n    nums.getCapacity(),\n    nums.getSize(),\n});
+    std.debug.print("Список nums = {}, вместимость = {}, длина = {}\n", .{
+        utils.fmt.slice(nums.items),
+        nums.getCapacity(),
+        nums.getSize(),
+    });
 
     // Вставка элемента в середину
     try nums.insert(3, 6);
     std.debug.print(
-        "После вставки числа 6 по индексу 3 получаем nums = {}\n",\n    .{utils.fmt.slice(nums.items)},\n);
+        "После вставки числа 6 по индексу 3 получаем nums = {}\n",
+        .{utils.fmt.slice(nums.items)},
+    );
 
     // Удаление элемента
     _ = nums.remove(3);
     std.debug.print(
-        "После удаления элемента по индексу 3 получаем nums = {}\n",\n    .{utils.fmt.slice(nums.items)},\n);
+        "После удаления элемента по индексу 3 получаем nums = {}\n",
+        .{utils.fmt.slice(nums.items)},
+    );
 
     // Доступ к элементу
     const num = nums.get(1);
@@ -194,7 +202,9 @@ pub fn run() !void {
     // Изменение элемента
     nums.set(1, 0);
     std.debug.print(
-        "После изменения элемента по индексу 1 значением 0 получаем nums = {}\n",\n    .{utils.fmt.slice(nums.items)},\n);
+        "После изменения элемента по индексу 1 значением 0 получаем nums = {}\n",
+        .{utils.fmt.slice(nums.items)},
+    );
 
     // Проверка механизма расширения
     var i: i32 = 0;
@@ -203,7 +213,13 @@ pub fn run() !void {
         try nums.add(i);
     }
     std.debug.print(
-        "Список nums после увеличения вместимости = {}, вместимость = {}, длина = {}\n",\n    .{\n        utils.fmt.slice(nums.items),\n        nums.getCapacity(),\n        nums.getSize(),\n    },\n);
+        "Список nums после увеличения вместимости = {}, вместимость = {}, длина = {}\n",
+        .{
+            utils.fmt.slice(nums.items),
+            nums.getCapacity(),
+            nums.getSize(),
+        },
+    );
 
     std.debug.print("\n", .{});
 }

@@ -88,7 +88,7 @@ class LinkedListDeque {
         if (this.queSize === 0) {
             return null;
         }
-        const value: number = this.front.val; // Сохраняем значение головного узла
+        const value: number = this.front.val; // Сохранение значения головного узла
         // Если в очереди один элемент, начало и конец указывают на один узел
         if (this.queSize === 1) {
             this.front = null;
