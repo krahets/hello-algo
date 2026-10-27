@@ -26,11 +26,11 @@ fn linear_search_linked_list(
     head: Rc<RefCell<ListNode<i32>>>,
     target: i32,
 ) -> Option<Rc<RefCell<ListNode<i32>>>> {
-    // Найти целевой узел и вернуть его
+    // Целевой узел найден, возвращается этот узел
     if head.borrow().val == target {
         return Some(head);
     };
-    // Найти целевой узел и вернуть его
+    // Целевой узел найден, возвращается этот узел
     if let Some(node) = &head.borrow_mut().next {
         return linear_search_linked_list(node.clone(), target);
     }

@@ -12,14 +12,14 @@ from modules import ListNode, print_linked_list
 
 
 def insert(n0: ListNode, P: ListNode):
-    """Вставить узел P после узла n0 в связном списке"""
+    """Вставка узла P в связный список после узла n0"""
     n1 = n0.next
     P.next = n1
     n0.next = P
 
 
 def remove(n0: ListNode):
-    """Удалить первый узел после узла n0 в связном списке"""
+    """Удаление первого узла после узла n0 из связного списка"""
     if not n0.next:
         return
     # n0 -> P -> n1
@@ -29,7 +29,7 @@ def remove(n0: ListNode):
 
 
 def access(head: ListNode, index: int) -> ListNode | None:
-    """Доступ к узлу связного списка по индексу index"""
+    """Доступ к узлу с индексом index в связном списке"""
     for _ in range(index):
         if not head:
             return None
@@ -38,7 +38,7 @@ def access(head: ListNode, index: int) -> ListNode | None:
 
 
 def find(head: ListNode, target: int) -> int:
-    """Найти в связном списке первый узел со значением target"""
+    """Поиск первого узла со значением target в связном списке"""
     index = 0
     while head:
         if head.val == target:

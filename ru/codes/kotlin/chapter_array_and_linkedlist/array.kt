@@ -10,14 +10,14 @@ import java.util.concurrent.ThreadLocalRandom
 
 /* Случайный доступ к элементу */
 fun randomAccess(nums: IntArray): Int {
-    // Случайным образом выбрать число из интервала [0, nums.size)
+    // Случайный выбор числа из диапазона [0, nums.size)
     val randomIndex = ThreadLocalRandom.current().nextInt(0, nums.size)
     // Получить и вернуть случайный элемент
     val randomNum = nums[randomIndex]
     return randomNum
 }
 
-/* Увеличить длину массива */
+/* Увеличение длины массива */
 fun extend(nums: IntArray, enlarge: Int): IntArray {
     // Инициализировать массив увеличенной длины
     val res = IntArray(nums.size + enlarge)
@@ -29,9 +29,9 @@ fun extend(nums: IntArray, enlarge: Int): IntArray {
     return res
 }
 
-/* Вставить элемент num по индексу index в массив */
+/* Вставка элемента num в массив по индексу index */
 fun insert(nums: IntArray, num: Int, index: Int) {
-    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
+    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию вправо
     for (i in nums.size - 1 downTo index + 1) {
         nums[i] = nums[i - 1]
     }
@@ -39,9 +39,9 @@ fun insert(nums: IntArray, num: Int, index: Int) {
     nums[index] = num
 }
 
-/* Удалить элемент по индексу index */
+/* Удаление элемента по индексу index */
 fun remove(nums: IntArray, index: Int) {
-    // Сдвинуть все элементы после индекса index на одну позицию вперед
+    // Сдвинуть все элементы после индекса index на одну позицию влево
     for (i in index..<nums.size - 1) {
         nums[i] = nums[i + 1]
     }
@@ -60,7 +60,7 @@ fun traverse(nums: IntArray) {
     }
 }
 
-/* Найти заданный элемент в массиве */
+/* Поиск заданного элемента в массиве */
 fun find(nums: IntArray, target: Int): Int {
     for (i in nums.indices) {
         if (nums[i] == target)

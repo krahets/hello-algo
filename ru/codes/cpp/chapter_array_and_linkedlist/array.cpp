@@ -8,14 +8,14 @@
 
 /* Случайный доступ к элементу */
 int randomAccess(int *nums, int size) {
-    // Случайным образом выбрать число из интервала [0, size)
+    // Случайный выбор числа из диапазона [0, size)
     int randomIndex = rand() % size;
     // Получить и вернуть случайный элемент
     int randomNum = nums[randomIndex];
     return randomNum;
 }
 
-/* Увеличить длину массива */
+/* Увеличение длины массива */
 int *extend(int *nums, int size, int enlarge) {
     // Инициализировать массив увеличенной длины
     int *res = new int[size + enlarge];
@@ -29,9 +29,9 @@ int *extend(int *nums, int size, int enlarge) {
     return res;
 }
 
-/* Вставить элемент num по индексу index в массив */
+/* Вставка элемента num в массив по индексу index */
 void insert(int *nums, int size, int num, int index) {
-    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
+    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию вправо
     for (int i = size - 1; i > index; i--) {
         nums[i] = nums[i - 1];
     }
@@ -39,9 +39,9 @@ void insert(int *nums, int size, int num, int index) {
     nums[index] = num;
 }
 
-/* Удалить элемент по индексу index */
+/* Удаление элемента по индексу index */
 void remove(int *nums, int size, int index) {
-    // Сдвинуть все элементы после индекса index на одну позицию вперед
+    // Сдвинуть все элементы после индекса index на одну позицию влево
     for (int i = index; i < size - 1; i++) {
         nums[i] = nums[i + 1];
     }
@@ -56,7 +56,7 @@ void traverse(int *nums, int size) {
     }
 }
 
-/* Найти заданный элемент в массиве */
+/* Поиск заданного элемента в массиве */
 int find(int *nums, int size, int target) {
     for (int i = 0; i < size; i++) {
         if (nums[i] == target)

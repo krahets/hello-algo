@@ -4,9 +4,9 @@
 
 package chapter_searching
 
-/* Бинарный поиск точки вставки (без повторяющихся элементов) */
+/* Двоичный поиск точки вставки (без повторяющихся элементов) */
 func binarySearchInsertionSimple(nums []int, target int) int {
-	// Инициализировать двусторонне замкнутый интервал [0, n-1]
+	// Инициализировать замкнутый интервал [0, n-1]
 	i, j := 0, len(nums)-1
 	for i <= j {
 		// Вычислить индекс середины m
@@ -18,7 +18,7 @@ func binarySearchInsertionSimple(nums []int, target int) int {
 			// target находится в интервале [i, m-1]
 			j = m - 1
 		} else {
-			// Найти target и вернуть точку вставки m
+			// target найден, возвращается точка вставки m
 			return m
 		}
 	}
@@ -26,9 +26,9 @@ func binarySearchInsertionSimple(nums []int, target int) int {
 	return i
 }
 
-/* Бинарный поиск точки вставки (с повторяющимися элементами) */
+/* Двоичный поиск точки вставки (с повторяющимися элементами) */
 func binarySearchInsertion(nums []int, target int) int {
-	// Инициализировать двусторонне замкнутый интервал [0, n-1]
+	// Инициализировать замкнутый интервал [0, n-1]
 	i, j := 0, len(nums)-1
 	for i <= j {
 		// Вычислить индекс середины m

@@ -9,7 +9,7 @@ const inc = @import("include");
 fn linearSearchArray(comptime T: type, nums: std.ArrayList(T), target: T) T {
     // Обход массива
     for (nums.items, 0..) |num, i| {
-        // Найти целевой элемент и вернуть его индекс
+        // Целевой элемент найден, возвращается его индекс
         if (num == target) {
             return @intCast(i);
         }
@@ -23,7 +23,7 @@ pub fn linearSearchLinkedList(comptime T: type, node: ?*inc.ListNode(T), target:
     var head = node;
     // Обойти связный список
     while (head != null) {
-        // Найти целевой узел и вернуть его
+        // Целевой узел найден, возвращается этот узел
         if (head.?.val == target) return head;
         head = head.?.next;
     }

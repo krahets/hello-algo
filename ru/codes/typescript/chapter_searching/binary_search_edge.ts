@@ -5,7 +5,7 @@
  */
 import { binarySearchInsertion } from './binary_search_insertion';
 
-/* Бинарный поиск самого левого target */
+/* Двоичный поиск самого левого элемента target */
 function binarySearchLeftEdge(nums: Array<number>, target: number): number {
     // Эквивалентно поиску точки вставки target
     const i = binarySearchInsertion(nums, target);
@@ -13,11 +13,11 @@ function binarySearchLeftEdge(nums: Array<number>, target: number): number {
     if (i === nums.length || nums[i] !== target) {
         return -1;
     }
-    // Найти target и вернуть индекс i
+    // target найден, возвращается индекс i
     return i;
 }
 
-/* Бинарный поиск самого правого target */
+/* Двоичный поиск самого правого элемента target */
 function binarySearchRightEdge(nums: Array<number>, target: number): number {
     // Преобразовать задачу в поиск самого левого target + 1
     const i = binarySearchInsertion(nums, target + 1);
@@ -27,7 +27,7 @@ function binarySearchRightEdge(nums: Array<number>, target: number): number {
     if (j === -1 || nums[j] !== target) {
         return -1;
     }
-    // Найти target и вернуть индекс j
+    // target найден, возвращается индекс j
     return j;
 }
 
@@ -35,7 +35,7 @@ function binarySearchRightEdge(nums: Array<number>, target: number): number {
 // Массив с повторяющимися элементами
 let nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
 console.log('\nМассив nums = ' + nums);
-// Бинарный поиск левой и правой границы
+// Двоичный поиск левой и правой границы
 for (const target of [6, 7]) {
     let index = binarySearchLeftEdge(nums, target);
     console.log('Индекс самого левого элемента ' + target + ' = ' + index);

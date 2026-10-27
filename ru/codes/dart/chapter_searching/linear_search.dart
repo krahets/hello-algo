@@ -23,7 +23,7 @@ int linearSearchArray(List<int> nums, int target) {
 ListNode? linearSearchList(ListNode? head, int target) {
   // Обойти связный список
   while (head != null) {
-    // Найти целевой узел и вернуть его
+    // Целевой узел найден, возвращается этот узел
     if (head.val == target) return head;
     head = head.next;
   }

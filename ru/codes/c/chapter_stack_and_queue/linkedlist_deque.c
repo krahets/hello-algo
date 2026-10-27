@@ -118,7 +118,7 @@ int pop(LinkedListDeque *deque, bool isFront) {
     // Если в очереди один элемент, начало и конец указывают на один узел
     if (deque->queSize == 1) {
         val = deque->front->val;
-        delDoublyListNode(deque->front); // Освобождаем общий узел один раз
+        delDoublyListNode(deque->front); // Оба указателя указывают на один узел, поэтому достаточно освободить его один раз
         deque->front = NULL;
         deque->rear = NULL;
     }

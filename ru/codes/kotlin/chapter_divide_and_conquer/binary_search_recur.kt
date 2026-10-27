@@ -6,7 +6,7 @@
 
 package chapter_divide_and_conquer.binary_search_recur
 
-/* Бинарный поиск: задача f(i, j) */
+/* Двоичный поиск: задача f(i, j) */
 fun dfs(
     nums: IntArray,
     target: Int,
@@ -31,7 +31,7 @@ fun dfs(
     }
 }
 
-/* Бинарный поиск */
+/* Двоичный поиск */
 fun binarySearch(nums: IntArray, target: Int): Int {
     val n = nums.size
     // Решить задачу f(0, n-1)
@@ -43,7 +43,7 @@ fun main() {
     val target = 6
     val nums = intArrayOf(1, 3, 6, 8, 12, 15, 23, 26, 31, 35)
 
-    // Бинарный поиск (двусторонне замкнутый интервал)
+    // Двоичный поиск (замкнутый интервал)
     val index = binarySearch(nums, target)
     println("Индекс целевого элемента 6 = $index")
 }

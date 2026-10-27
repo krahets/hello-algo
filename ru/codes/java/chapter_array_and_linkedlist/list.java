@@ -20,9 +20,9 @@ public class list {
         int num = nums.get(1);
         System.out.println("Элемент по индексу 1: num = " + num);
 
-        /* Обновление элемента */
+        /* Изменение элемента */
         nums.set(1, 0);
-        System.out.println("После обновления элемента по индексу 1 до 0 nums = " + nums);
+        System.out.println("После изменения значения элемента с индексом 1 на 0 nums = " + nums);
 
         /* Очистить список */
         nums.clear();

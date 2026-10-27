@@ -25,7 +25,7 @@ fun linearSearchLinkedList(h: ListNode?, target: Int): ListNode? {
     // Обойти связный список
     var head = h
     while (head != null) {
-        // Найти целевой узел и вернуть его
+        // Целевой узел найден, возвращается этот узел
         if (head._val == target)
             return head
         head = head.next

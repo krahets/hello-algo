@@ -7,14 +7,14 @@
 const { printLinkedList } = require('../modules/PrintUtil');
 const { ListNode } = require('../modules/ListNode');
 
-/* Вставить узел P после узла n0 в связном списке */
+/* Вставка узла P в связный список после узла n0 */
 function insert(n0, P) {
     const n1 = n0.next;
     P.next = n1;
     n0.next = P;
 }
 
-/* Удалить первый узел после узла n0 в связном списке */
+/* Удаление первого узла после узла n0 из связного списка */
 function remove(n0) {
     if (!n0.next) return;
     // n0 -> P -> n1
@@ -23,7 +23,7 @@ function remove(n0) {
     n0.next = n1;
 }
 
-/* Доступ к узлу связного списка по индексу index */
+/* Доступ к узлу с индексом index в связном списке */
 function access(head, index) {
     for (let i = 0; i < index; i++) {
         if (!head) {
@@ -34,7 +34,7 @@ function access(head, index) {
     return head;
 }
 
-/* Найти в связном списке первый узел со значением target */
+/* Поиск первого узла со значением target в связном списке */
 function find(head, target) {
     let index = 0;
     while (head !== null) {

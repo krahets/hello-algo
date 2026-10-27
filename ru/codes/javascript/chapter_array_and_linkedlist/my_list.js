@@ -33,7 +33,7 @@ class MyList {
         return this.#arr[index];
     }
 
-    /* Обновление элемента */
+    /* Изменение элемента */
     set(index, num) {
         if (index < 0 || index >= this.#size) throw new Error('индекс выходит за границы');
         this.#arr[index] = num;
@@ -57,7 +57,7 @@ class MyList {
         if (this.#size === this.#capacity) {
             this.extendCapacity();
         }
-        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
         for (let j = this.#size - 1; j >= index; j--) {
             this.#arr[j + 1] = this.#arr[j];
         }
@@ -70,7 +70,7 @@ class MyList {
     remove(index) {
         if (index < 0 || index >= this.#size) throw new Error('индекс выходит за границы');
         let num = this.#arr[index];
-        // Сдвинуть все элементы после индекса index на одну позицию вперед
+        // Сдвинуть все элементы после индекса index на одну позицию влево
         for (let j = index; j < this.#size - 1; j++) {
             this.#arr[j] = this.#arr[j + 1];
         }
@@ -127,9 +127,9 @@ console.log(`После удаления элемента по индексу 3 
 const num = nums.get(1);
 console.log(`Элемент по индексу 1: num = ${num}`);
 
-/* Обновление элемента */
+/* Изменение элемента */
 nums.set(1, 0);
-console.log(`После обновления элемента по индексу 1 до 0 nums = ${nums.toArray()}`);
+console.log(`После изменения значения элемента с индексом 1 на 0 nums = ${nums.toArray()}`);
 
 /* Проверка механизма расширения */
 for (let i = 0; i < 10; i++) {

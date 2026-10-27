@@ -38,7 +38,7 @@ class MyList {
         return arr[index]
     }
 
-    /* Обновление элемента */
+    /* Изменение элемента */
     func set(index: Int, num: Int) {
         if index < 0 || index >= size() {
             fatalError("индекс выходит за границы")
@@ -66,7 +66,7 @@ class MyList {
         if size() == capacity() {
             extendCapacity()
         }
-        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
         for j in (index ..< size()).reversed() {
             arr[j + 1] = arr[j]
         }
@@ -82,7 +82,7 @@ class MyList {
             fatalError("индекс выходит за границы")
         }
         let num = arr[index]
-        // Сдвинуть все элементы после индекса index на одну позицию вперед
+        // Сдвинуть все элементы после индекса index на одну позицию влево
         for j in index ..< (size() - 1) {
             arr[j] = arr[j + 1]
         }
@@ -132,9 +132,9 @@ enum _MyList {
         let num = nums.get(index: 1)
         print("Элемент по индексу 1: num = \(num)")
 
-        /* Обновление элемента */
+        /* Изменение элемента */
         nums.set(index: 1, num: 0)
-        print("После обновления элемента по индексу 1 до 0 nums = \(nums.toArray())")
+        print("После изменения значения элемента с индексом 1 на 0 nums = \(nums.toArray())")
 
         /* Проверка механизма расширения */
         for i in 0 ..< 10 {

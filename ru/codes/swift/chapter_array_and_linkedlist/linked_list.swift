@@ -6,14 +6,14 @@
 
 import utils
 
-/* Вставить узел P после узла n0 в связном списке */
+/* Вставка узла P в связный список после узла n0 */
 func insert(n0: ListNode, P: ListNode) {
     let n1 = n0.next
     P.next = n1
     n0.next = P
 }
 
-/* Удалить первый узел после узла n0 в связном списке */
+/* Удаление первого узла после узла n0 из связного списка */
 func remove(n0: ListNode) {
     if n0.next == nil {
         return
@@ -24,7 +24,7 @@ func remove(n0: ListNode) {
     n0.next = n1
 }
 
-/* Доступ к узлу связного списка по индексу index */
+/* Доступ к узлу с индексом index в связном списке */
 func access(head: ListNode, index: Int) -> ListNode? {
     var head: ListNode? = head
     for _ in 0 ..< index {
@@ -36,7 +36,7 @@ func access(head: ListNode, index: Int) -> ListNode? {
     return head
 }
 
-/* Найти в связном списке первый узел со значением target */
+/* Поиск первого узла со значением target в связном списке */
 func find(head: ListNode, target: Int) -> Int {
     var head: ListNode? = head
     var index = 0

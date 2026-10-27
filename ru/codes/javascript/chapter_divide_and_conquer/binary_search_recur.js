@@ -4,7 +4,7 @@
  * Author: yuan0221 (yl1452491917@gmail.com)
  */
 
-/* Бинарный поиск: задача f(i, j) */
+/* Двоичный поиск: задача f(i, j) */
 function dfs(nums, target, i, j) {
     // Если интервал пуст, целевой элемент отсутствует, вернуть -1
     if (i > j) {
@@ -24,7 +24,7 @@ function dfs(nums, target, i, j) {
     }
 }
 
-/* Бинарный поиск */
+/* Двоичный поиск */
 function binarySearch(nums, target) {
     const n = nums.length;
     // Решить задачу f(0, n-1)
@@ -34,6 +34,6 @@ function binarySearch(nums, target) {
 /* Driver Code */
 const target = 6;
 const nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
-// Бинарный поиск (двусторонне замкнутый интервал)
+// Двоичный поиск (замкнутый интервал)
 const index = binarySearch(nums, target);
 console.log(`Индекс целевого элемента 6 = ${index}`);

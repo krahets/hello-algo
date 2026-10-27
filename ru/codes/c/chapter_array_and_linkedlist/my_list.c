@@ -48,7 +48,7 @@ int get(MyList *nums, int index) {
     return nums->arr[index];
 }
 
-/* Обновление элемента */
+/* Изменение элемента */
 void set(MyList *nums, int index, int num) {
     assert(index >= 0 && index < nums->size);
     nums->arr[index] = num;
@@ -141,9 +141,9 @@ int main() {
     int num = get(nums, 1);
     printf("Элемент по индексу 1: num = %d\n", num);
 
-    /* Обновление элемента */
+    /* Изменение элемента */
     set(nums, 1, 0);
-    printf("После обновления элемента по индексу 1 на 0 nums = ");
+    printf("После изменения элемента по индексу 1 на 0 nums = ");
     printArray(toArray(nums), size(nums));
 
     /* Проверка механизма расширения */

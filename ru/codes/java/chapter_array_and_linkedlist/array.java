@@ -12,14 +12,14 @@ import java.util.concurrent.ThreadLocalRandom;
 public class array {
     /* Случайный доступ к элементу */
     static int randomAccess(int[] nums) {
-        // Случайным образом выбрать число из интервала [0, nums.length)
+        // Случайный выбор числа из диапазона [0, nums.length)
         int randomIndex = ThreadLocalRandom.current().nextInt(0, nums.length);
         // Получить и вернуть случайный элемент
         int randomNum = nums[randomIndex];
         return randomNum;
     }
 
-    /* Увеличить длину массива */
+    /* Увеличение длины массива */
     static int[] extend(int[] nums, int enlarge) {
         // Инициализировать массив увеличенной длины
         int[] res = new int[nums.length + enlarge];
@@ -31,9 +31,9 @@ public class array {
         return res;
     }
 
-    /* Вставить элемент num по индексу index в массив */
+    /* Вставка элемента num в массив по индексу index */
     static void insert(int[] nums, int num, int index) {
-        // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
+        // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию вправо
         for (int i = nums.length - 1; i > index; i--) {
             nums[i] = nums[i - 1];
         }
@@ -41,9 +41,9 @@ public class array {
         nums[index] = num;
     }
 
-    /* Удалить элемент по индексу index */
+    /* Удаление элемента по индексу index */
     static void remove(int[] nums, int index) {
-        // Сдвинуть все элементы после индекса index на одну позицию вперед
+        // Сдвинуть все элементы после индекса index на одну позицию влево
         for (int i = index; i < nums.length - 1; i++) {
             nums[i] = nums[i + 1];
         }
@@ -62,7 +62,7 @@ public class array {
         }
     }
 
-    /* Найти заданный элемент в массиве */
+    /* Поиск заданного элемента в массиве */
     static int find(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == target)

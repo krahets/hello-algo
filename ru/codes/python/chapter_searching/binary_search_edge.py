@@ -12,18 +12,18 @@ from binary_search_insertion import binary_search_insertion
 
 
 def binary_search_left_edge(nums: list[int], target: int) -> int:
-    """Бинарный поиск самого левого target"""
+    """Двоичный поиск самого левого элемента target"""
     # Эквивалентно поиску точки вставки target
     i = binary_search_insertion(nums, target)
     # target не найден, вернуть -1
     if i == len(nums) or nums[i] != target:
         return -1
-    # Найти target и вернуть индекс i
+    # target найден, возвращается индекс i
     return i
 
 
 def binary_search_right_edge(nums: list[int], target: int) -> int:
-    """Бинарный поиск самого правого target"""
+    """Двоичный поиск самого правого элемента target"""
     # Преобразовать задачу в поиск самого левого target + 1
     i = binary_search_insertion(nums, target + 1)
     # j указывает на самый правый target, а i — на первый элемент больше target
@@ -31,7 +31,7 @@ def binary_search_right_edge(nums: list[int], target: int) -> int:
     # target не найден, вернуть -1
     if j == -1 or nums[j] != target:
         return -1
-    # Найти target и вернуть индекс j
+    # target найден, возвращается индекс j
     return j
 
 
@@ -41,7 +41,7 @@ if __name__ == "__main__":
     nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
     print(f"\nМассив nums = {nums}")
 
-    # Бинарный поиск левой и правой границы
+    # Двоичный поиск левой и правой границы
     for target in [6, 7]:
         index = binary_search_left_edge(nums, target)
         print(f"Индекс самого левого элемента {target} равен {index}")
