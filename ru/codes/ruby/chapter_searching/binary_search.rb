@@ -39,7 +39,7 @@ def binary_search_lcro(nums, target)
     if nums[m] < target
       i = m + 1 # Это означает, что target находится в интервале [m+1, j)
     elsif nums[m] > target
-      j = m - 1 # Это означает, что target находится в интервале [i, m)
+      j = m # Это означает, что target находится в интервале [i, m)
     else
       return m  # Целевой элемент найден, вернуть его индекс
     end

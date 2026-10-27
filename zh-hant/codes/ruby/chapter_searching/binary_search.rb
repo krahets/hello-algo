@@ -39,7 +39,7 @@ def binary_search_lcro(nums, target)
     if nums[m] < target
       i = m + 1 # 此情況說明 target 在區間 [m+1, j) 中
     elsif nums[m] > target
-      j = m - 1 # 此情況說明 target 在區間 [i, m) 中
+      j = m # 此情況說明 target 在區間 [i, m) 中
     else
       return m  # 找到目標元素，返回其索引
     end

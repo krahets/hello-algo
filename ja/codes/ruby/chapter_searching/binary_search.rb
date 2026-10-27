@@ -39,7 +39,7 @@ def binary_search_lcro(nums, target)
     if nums[m] < target
       i = m + 1 # この場合、target は区間 [m+1, j) にある
     elsif nums[m] > target
-      j = m - 1 # この場合、target は区間 [i, m) にある
+      j = m # この場合、target は区間 [i, m) にある
     else
       return m  # 目標要素が見つかったらそのインデックスを返す
     end

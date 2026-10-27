@@ -26,7 +26,7 @@ class HashMapOpenAddressing
 
   ### Коэффициент загрузки ###
   def load_factor
-    @size / @capacity
+    @size / @capacity.to_f
   end
 
   ### Найти индекс корзины, соответствующий key ###

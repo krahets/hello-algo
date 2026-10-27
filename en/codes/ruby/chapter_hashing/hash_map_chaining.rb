@@ -24,7 +24,7 @@ class HashMapChaining
 
   ### Load factor ###
   def load_factor
-    @size / @capacity
+    @size / @capacity.to_f
   end
 
   ### Query operation ###
