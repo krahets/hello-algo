@@ -6,14 +6,14 @@ const std = @import("std");
 const utils = @import("utils");
 const ListNode = utils.ListNode;
 
-// Вставить узел P после узла n0 в связном списке
+// Вставка узла P в связный список после узла n0
 pub fn insert(comptime T: type, n0: *ListNode(T), P: *ListNode(T)) void {
     const n1 = n0.next;
     P.next = n1;
     n0.next = P;
 }
 
-// Удалить первый узел после узла n0 в связном списке
+// Удаление первого узла после узла n0 из связного списка
 pub fn remove(comptime T: type, n0: *ListNode(T)) void {
     // n0 -> P -> n1 => n0 -> n1
     const P = n0.next;
@@ -21,7 +21,7 @@ pub fn remove(comptime T: type, n0: *ListNode(T)) void {
     n0.next = n1;
 }
 
-// Доступ к узлу связного списка по индексу index
+// Доступ к узлу с индексом index в связном списке
 pub fn access(comptime T: type, node: *ListNode(T), index: i32) ?*ListNode(T) {
     var head: ?*ListNode(T) = node;
     var i: i32 = 0;
@@ -35,7 +35,7 @@ pub fn access(comptime T: type, node: *ListNode(T), index: i32) ?*ListNode(T) {
     return head;
 }
 
-// Найти в связном списке первый узел со значением target
+// Поиск первого узла со значением target в связном списке
 pub fn find(comptime T: type, node: *ListNode(T), target: T) i32 {
     var head: ?*ListNode(T) = node;
     var index: i32 = 0;

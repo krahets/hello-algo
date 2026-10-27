@@ -67,7 +67,7 @@
         Next *ListNode // Указатель на следующий узел
     }
 
-    // NewListNode Конструктор, создает новый узел
+    // NewListNode создает и инициализирует узел связного списка.
     func NewListNode(val int) *ListNode {
         return &ListNode{
             Val:  val,
@@ -195,7 +195,7 @@
 
     ```python title="linked_list.py"
     # Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4
-    # Инициализация отдельных узлов
+    # Инициализация каждого узла
     n0 = ListNode(1)
     n1 = ListNode(3)
     n2 = ListNode(2)
@@ -212,7 +212,7 @@
 
     ```cpp title="linked_list.cpp"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация отдельных узлов
+    // Инициализация каждого узла
     ListNode* n0 = new ListNode(1);
     ListNode* n1 = new ListNode(3);
     ListNode* n2 = new ListNode(2);
@@ -229,7 +229,7 @@
 
     ```java title="linked_list.java"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация отдельных узлов
+    // Инициализация каждого узла
     ListNode n0 = new ListNode(1);
     ListNode n1 = new ListNode(3);
     ListNode n2 = new ListNode(2);
@@ -246,7 +246,7 @@
 
     ```csharp title="linked_list.cs"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация отдельных узлов
+    // Инициализация каждого узла
     ListNode n0 = new(1);
     ListNode n1 = new(3);
     ListNode n2 = new(2);
@@ -263,7 +263,7 @@
 
     ```go title="linked_list.go"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация отдельных узлов
+    // Инициализация каждого узла
     n0 := NewListNode(1)
     n1 := NewListNode(3)
     n2 := NewListNode(2)
@@ -280,7 +280,7 @@
 
     ```swift title="linked_list.swift"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация отдельных узлов
+    // Инициализация каждого узла
     let n0 = ListNode(x: 1)
     let n1 = ListNode(x: 3)
     let n2 = ListNode(x: 2)
@@ -297,7 +297,7 @@
 
     ```javascript title="linked_list.js"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация отдельных узлов
+    // Инициализация каждого узла
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
     const n2 = new ListNode(2);
@@ -314,7 +314,7 @@
 
     ```typescript title="linked_list.ts"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация отдельных узлов
+    // Инициализация каждого узла
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
     const n2 = new ListNode(2);
@@ -331,7 +331,7 @@
 
     ```dart title="linked_list.dart"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */\
-    // Инициализация отдельных узлов
+    // Инициализация каждого узла
     ListNode n0 = ListNode(1);
     ListNode n1 = ListNode(3);
     ListNode n2 = ListNode(2);
@@ -348,7 +348,7 @@
 
     ```rust title="linked_list.rs"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация отдельных узлов
+    // Инициализация каждого узла
     let n0 = Rc::new(RefCell::new(ListNode { val: 1, next: None }));
     let n1 = Rc::new(RefCell::new(ListNode { val: 3, next: None }));
     let n2 = Rc::new(RefCell::new(ListNode { val: 2, next: None }));
@@ -366,7 +366,7 @@
 
     ```c title="linked_list.c"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация отдельных узлов
+    // Инициализация каждого узла
     ListNode* n0 = newListNode(1);
     ListNode* n1 = newListNode(3);
     ListNode* n2 = newListNode(2);
@@ -383,7 +383,7 @@
 
     ```kotlin title="linked_list.kt"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация отдельных узлов
+    // Инициализация каждого узла
     val n0 = ListNode(1)
     val n1 = ListNode(3)
     val n2 = ListNode(2)
@@ -400,7 +400,7 @@
 
     ```ruby title="linked_list.rb"
     # Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4
-    # Инициализация отдельных узлов
+    # Инициализация каждого узла
     n0 = ListNode.new(1)
     n1 = ListNode.new(3)
     n2 = ListNode.new(2)
@@ -538,7 +538,7 @@
         Prev *DoublyListNode // Указатель на предыдущий узел
     }
 
-    // NewDoublyListNode Инициализация
+    // NewDoublyListNode создает и инициализирует узел двусвязного списка.
     func NewDoublyListNode(val int) *DoublyListNode {
         return &DoublyListNode{
             Val:  val,

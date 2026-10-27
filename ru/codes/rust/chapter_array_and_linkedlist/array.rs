@@ -9,14 +9,14 @@ use rand::Rng;
 
 /* Случайный доступ к элементу */
 fn random_access(nums: &[i32]) -> i32 {
-    // Случайным образом выбрать число из интервала [0, nums.len())
+    // Случайный выбор индекса из диапазона [0, nums.len())
     let random_index = rand::thread_rng().gen_range(0..nums.len());
     // Получить и вернуть случайный элемент
     let random_num = nums[random_index];
     random_num
 }
 
-/* Увеличить длину массива */
+/* Увеличение длины массива */
 fn extend(nums: &[i32], enlarge: usize) -> Vec<i32> {
     // Инициализировать массив увеличенной длины
     let mut res: Vec<i32> = vec![0; nums.len() + enlarge];
@@ -27,9 +27,9 @@ fn extend(nums: &[i32], enlarge: usize) -> Vec<i32> {
     res
 }
 
-/* Вставить элемент num по индексу index в массив */
+/* Вставка элемента num в массив по индексу index */
 fn insert(nums: &mut [i32], num: i32, index: usize) {
-    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
+    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию вправо
     for i in (index + 1..nums.len()).rev() {
         nums[i] = nums[i - 1];
     }
@@ -37,9 +37,9 @@ fn insert(nums: &mut [i32], num: i32, index: usize) {
     nums[index] = num;
 }
 
-/* Удалить элемент по индексу index */
+/* Удаление элемента по индексу index */
 fn remove(nums: &mut [i32], index: usize) {
-    // Сдвинуть все элементы после индекса index на одну позицию вперед
+    // Сдвинуть все элементы после индекса index на одну позицию влево
     for i in index..nums.len() - 1 {
         nums[i] = nums[i + 1];
     }
@@ -59,7 +59,7 @@ fn traverse(nums: &[i32]) {
     }
 }
 
-/* Найти заданный элемент в массиве */
+/* Поиск заданного элемента в массиве */
 fn find(nums: &[i32], target: i32) -> Option<usize> {
     for i in 0..nums.len() {
         if nums[i] == target {

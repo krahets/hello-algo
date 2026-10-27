@@ -18,9 +18,9 @@ pub fn run() !void {
     const num = nums.items[1];
     std.debug.print("Элемент по индексу 1: num = {}\n", .{num});
 
-    // Обновление элемента
+    // Изменение элемента
     nums.items[1] = 0;
-    std.debug.print("После обновления элемента по индексу 1 до 0 nums = {}\n", .{utils.fmt.slice(nums.items)});
+    std.debug.print("После изменения значения элемента с индексом 1 на 0 nums = {}\n", .{utils.fmt.slice(nums.items)});
 
     // Очистить список
     nums.clearRetainingCapacity();

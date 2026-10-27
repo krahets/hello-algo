@@ -6,14 +6,14 @@
 
 /* Случайный доступ к элементу */
 function randomAccess(nums: number[]): number {
-    // Случайным образом выбрать число из интервала [0, nums.length)
+    // Случайный выбор индекса из диапазона [0, nums.length)
     const random_index = Math.floor(Math.random() * nums.length);
     // Получить и вернуть случайный элемент
     const random_num = nums[random_index];
     return random_num;
 }
 
-/* Увеличить длину массива */
+/* Увеличение длины массива */
 // Обратите внимание: Array в TypeScript — это динамический массив, его можно расширять напрямую
 // Для удобства обучения в этой функции Array рассматривается как массив неизменяемой длины
 function extend(nums: number[], enlarge: number): number[] {
@@ -27,9 +27,9 @@ function extend(nums: number[], enlarge: number): number[] {
     return res;
 }
 
-/* Вставить элемент num по индексу index в массив */
+/* Вставка элемента num в массив по индексу index */
 function insert(nums: number[], num: number, index: number): void {
-    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
+    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию вправо
     for (let i = nums.length - 1; i > index; i--) {
         nums[i] = nums[i - 1];
     }
@@ -37,9 +37,9 @@ function insert(nums: number[], num: number, index: number): void {
     nums[index] = num;
 }
 
-/* Удалить элемент по индексу index */
+/* Удаление элемента по индексу index */
 function remove(nums: number[], index: number): void {
-    // Сдвинуть все элементы после индекса index на одну позицию вперед
+    // Сдвинуть все элементы после индекса index на одну позицию влево
     for (let i = index; i < nums.length - 1; i++) {
         nums[i] = nums[i + 1];
     }
@@ -58,7 +58,7 @@ function traverse(nums: number[]): void {
     }
 }
 
-/* Найти заданный элемент в массиве */
+/* Поиск заданного элемента в массиве */
 function find(nums: number[], target: number): number {
     for (let i = 0; i < nums.length; i++) {
         if (nums[i] === target) {

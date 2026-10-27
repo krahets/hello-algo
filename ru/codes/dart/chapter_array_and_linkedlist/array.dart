@@ -10,14 +10,14 @@ import 'dart:math';
 
 /* Случайный доступ к элементу */
 int randomAccess(List<int> nums) {
-  // Случайным образом выбрать число из интервала [0, nums.length)
+  // Случайный выбор индекса из диапазона [0, nums.length)
   int randomIndex = Random().nextInt(nums.length);
   // Получить и вернуть случайный элемент
   int randomNum = nums[randomIndex];
   return randomNum;
 }
 
-/* Увеличить длину массива */
+/* Увеличение длины массива */
 List<int> extend(List<int> nums, int enlarge) {
   // Инициализировать массив увеличенной длины
   List<int> res = List.filled(nums.length + enlarge, 0);
@@ -29,9 +29,9 @@ List<int> extend(List<int> nums, int enlarge) {
   return res;
 }
 
-/* Вставить элемент _num по индексу index в массив */
+/* Вставка элемента _num в массив по индексу index */
 void insert(List<int> nums, int _num, int index) {
-  // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
+  // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию вправо
   for (var i = nums.length - 1; i > index; i--) {
     nums[i] = nums[i - 1];
   }
@@ -39,9 +39,9 @@ void insert(List<int> nums, int _num, int index) {
   nums[index] = _num;
 }
 
-/* Удалить элемент по индексу index */
+/* Удаление элемента по индексу index */
 void remove(List<int> nums, int index) {
-  // Сдвинуть все элементы после индекса index на одну позицию вперед
+  // Сдвинуть все элементы после индекса index на одну позицию влево
   for (var i = index; i < nums.length - 1; i++) {
     nums[i] = nums[i + 1];
   }
@@ -64,7 +64,7 @@ void traverse(List<int> nums) {
   });
 }
 
-/* Найти заданный элемент в массиве */
+/* Поиск заданного элемента в массиве */
 int find(List<int> nums, int target) {
   for (var i = 0; i < nums.length; i++) {
     if (nums[i] == target) return i;

@@ -9,7 +9,7 @@ import random
 
 def random_access(nums: list[int]) -> int:
     """Случайный доступ к элементу"""
-    # Случайным образом выбрать число из интервала [0, len(nums)-1]
+    # Случайный выбор индекса из диапазона [0, len(nums)-1]
     random_index = random.randint(0, len(nums) - 1)
     # Получить и вернуть случайный элемент
     random_num = nums[random_index]
@@ -19,7 +19,7 @@ def random_access(nums: list[int]) -> int:
 # Обратите внимание: list в Python — это динамический массив, его можно расширять напрямую
 # Для удобства обучения в этой функции list рассматривается как массив неизменяемой длины
 def extend(nums: list[int], enlarge: int) -> list[int]:
-    """Увеличить длину массива"""
+    """Увеличение длины массива"""
     # Инициализировать массив увеличенной длины
     res = [0] * (len(nums) + enlarge)
     # Скопировать все элементы исходного массива в новый массив
@@ -30,8 +30,8 @@ def extend(nums: list[int], enlarge: int) -> list[int]:
 
 
 def insert(nums: list[int], num: int, index: int):
-    """Вставить элемент num по индексу index в массив"""
-    # Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
+    """Вставка элемента num в массив по индексу index"""
+    # Сдвинуть элемент с индексом index и все последующие элементы на одну позицию вправо
     for i in range(len(nums) - 1, index, -1):
         nums[i] = nums[i - 1]
     # Присвоить num элементу по индексу index
@@ -39,8 +39,8 @@ def insert(nums: list[int], num: int, index: int):
 
 
 def remove(nums: list[int], index: int):
-    """Удалить элемент по индексу index"""
-    # Сдвинуть все элементы после индекса index на одну позицию вперед
+    """Удаление элемента по индексу index"""
+    # Сдвинуть все элементы после индекса index на одну позицию влево
     for i in range(index, len(nums) - 1):
         nums[i] = nums[i + 1]
 
@@ -61,7 +61,7 @@ def traverse(nums: list[int]):
 
 
 def find(nums: list[int], target: int) -> int:
-    """Найти заданный элемент в массиве"""
+    """Поиск заданного элемента в массиве"""
     for i in range(len(nums)):
         if nums[i] == target:
             return i

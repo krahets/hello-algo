@@ -31,7 +31,7 @@ class MyList:
         return self._arr[index]
 
     def set(self, num: int, index: int):
-        """Обновление элемента"""
+        """Изменение элемента"""
         if index < 0 or index >= self._size:
             raise IndexError("индекс выходит за границы")
         self._arr[index] = num
@@ -51,7 +51,7 @@ class MyList:
         # При превышении вместимости по числу элементов запускается расширение
         if self._size == self.capacity():
             self.extend_capacity()
-        # Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+        # Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
         for j in range(self._size - 1, index - 1, -1):
             self._arr[j + 1] = self._arr[j]
         self._arr[index] = num
@@ -63,7 +63,7 @@ class MyList:
         if index < 0 or index >= self._size:
             raise IndexError("индекс выходит за границы")
         num = self._arr[index]
-        # Сдвинуть все элементы после индекса index на одну позицию вперед
+        # Сдвинуть все элементы после индекса index на одну позицию влево
         for j in range(index, self._size - 1):
             self._arr[j] = self._arr[j + 1]
         # Обновить число элементов
@@ -107,9 +107,9 @@ if __name__ == "__main__":
     num = nums.get(1)
     print("Элемент по индексу 1: num =", num)
 
-    # Обновление элемента
+    # Изменение элемента
     nums.set(0, 1)
-    print("После обновления элемента по индексу 1 до 0 nums =", nums.to_array())
+    print("После изменения значения элемента с индексом 1 на 0 nums =", nums.to_array())
 
     # Проверка механизма расширения
     for i in range(10):

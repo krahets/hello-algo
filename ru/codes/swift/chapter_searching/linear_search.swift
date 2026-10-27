@@ -24,7 +24,7 @@ func linearSearchLinkedList(head: ListNode?, target: Int) -> ListNode? {
     var head = head
     // Обойти связный список
     while head != nil {
-        // Найти целевой узел и вернуть его
+        // Целевой узел найден, возвращается этот узел
         if head?.val == target {
             return head
         }

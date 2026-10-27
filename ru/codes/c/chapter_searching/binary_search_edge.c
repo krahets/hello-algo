@@ -6,9 +6,9 @@
 
 #include "../utils/common.h"
 
-/* Бинарный поиск точки вставки (с повторяющимися элементами) */
+/* Двоичный поиск точки вставки (с повторяющимися элементами) */
 int binarySearchInsertion(int *nums, int numSize, int target) {
-    int i = 0, j = numSize - 1; // Инициализировать двусторонне замкнутый интервал [0, n-1]
+    int i = 0, j = numSize - 1; // Инициализировать замкнутый интервал [0, n-1]
     while (i <= j) {
         int m = i + (j - i) / 2; // Вычислить индекс середины m
         if (nums[m] < target) {
@@ -21,7 +21,7 @@ int binarySearchInsertion(int *nums, int numSize, int target) {
     return i;
 }
 
-/* Бинарный поиск самого левого target */
+/* Двоичный поиск самого левого элемента target */
 int binarySearchLeftEdge(int *nums, int numSize, int target) {
     // Эквивалентно поиску точки вставки target
     int i = binarySearchInsertion(nums, numSize, target);
@@ -29,11 +29,11 @@ int binarySearchLeftEdge(int *nums, int numSize, int target) {
     if (i == numSize || nums[i] != target) {
         return -1;
     }
-    // Найти target и вернуть индекс i
+    // target найден, возвращается индекс i
     return i;
 }
 
-/* Бинарный поиск самого правого target */
+/* Двоичный поиск самого правого элемента target */
 int binarySearchRightEdge(int *nums, int numSize, int target) {
     // Преобразовать задачу в поиск самого левого target + 1
     int i = binarySearchInsertion(nums, numSize, target + 1);
@@ -43,7 +43,7 @@ int binarySearchRightEdge(int *nums, int numSize, int target) {
     if (j == -1 || nums[j] != target) {
         return -1;
     }
-    // Найти target и вернуть индекс j
+    // target найден, возвращается индекс j
     return j;
 }
 
@@ -54,7 +54,7 @@ int main() {
     printf("\nМассив nums = ");
     printArray(nums, sizeof(nums) / sizeof(nums[0]));
 
-    // Бинарный поиск левой и правой границы
+    // Двоичный поиск левой и правой границы
     int targets[] = {6, 7};
     for (int i = 0; i < sizeof(targets) / sizeof(targets[0]); i++) {
         int index = binarySearchLeftEdge(nums, sizeof(nums) / sizeof(nums[0]), targets[i]);

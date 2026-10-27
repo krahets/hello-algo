@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Бинарный поиск: задача f(i, j) */
+/* Двоичный поиск: задача f(i, j) */
 func dfs(nums: [Int], target: Int, i: Int, j: Int) -> Int {
     // Если интервал пуст, целевой элемент отсутствует, вернуть -1
     if i > j {
@@ -24,7 +24,7 @@ func dfs(nums: [Int], target: Int, i: Int, j: Int) -> Int {
     }
 }
 
-/* Бинарный поиск */
+/* Двоичный поиск */
 func binarySearch(nums: [Int], target: Int) -> Int {
     // Решить задачу f(0, n-1)
     dfs(nums: nums, target: target, i: nums.startIndex, j: nums.endIndex - 1)
@@ -37,7 +37,7 @@ enum BinarySearchRecur {
         let target = 6
         let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]
 
-        // Бинарный поиск (двусторонне замкнутый интервал)
+        // Двоичный поиск (замкнутый интервал)
         let index = binarySearch(nums: nums, target: target)
         print("Индекс целевого элемента 6 = \(index)")
     }

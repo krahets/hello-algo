@@ -6,14 +6,14 @@
 
 /* Случайный доступ к элементу */
 func randomAccess(nums: [Int]) -> Int {
-    // Случайным образом выбрать число из интервала [0, nums.count)
+    // Случайный выбор индекса из диапазона [0, nums.count)
     let randomIndex = nums.indices.randomElement()!
     // Получить и вернуть случайный элемент
     let randomNum = nums[randomIndex]
     return randomNum
 }
 
-/* Увеличить длину массива */
+/* Увеличение длины массива */
 func extend(nums: [Int], enlarge: Int) -> [Int] {
     // Инициализировать массив увеличенной длины
     var res = Array(repeating: 0, count: nums.count + enlarge)
@@ -25,9 +25,9 @@ func extend(nums: [Int], enlarge: Int) -> [Int] {
     return res
 }
 
-/* Вставить элемент num по индексу index в массив */
+/* Вставка элемента num в массив по индексу index */
 func insert(nums: inout [Int], num: Int, index: Int) {
-    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
+    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию вправо
     for i in stride(from: nums.count - 1, to: index, by: -1) {
         nums[i] = nums[i - 1]
     }
@@ -35,9 +35,9 @@ func insert(nums: inout [Int], num: Int, index: Int) {
     nums[index] = num
 }
 
-/* Удалить элемент по индексу index */
+/* Удаление элемента по индексу index */
 func remove(nums: inout [Int], index: Int) {
-    // Сдвинуть все элементы после индекса index на одну позицию вперед
+    // Сдвинуть все элементы после индекса index на одну позицию влево
     for i in nums.indices.dropFirst(index).dropLast() {
         nums[i] = nums[i + 1]
     }
@@ -61,7 +61,7 @@ func traverse(nums: [Int]) {
     }
 }
 
-/* Найти заданный элемент в массиве */
+/* Поиск заданного элемента в массиве */
 func find(nums: [Int], target: Int) -> Int {
     for i in nums.indices {
         if nums[i] == target {

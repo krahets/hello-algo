@@ -126,7 +126,7 @@ nav:
     - 10.1 Двоичный поиск: chapter_searching/binary_search.md
     - 10.2 Двоичный поиск точки вставки: chapter_searching/binary_search_insertion.md
     - 10.3 Двоичный поиск границ: chapter_searching/binary_search_edge.md
-    - 10.4 Стратегии оптимизации хеширования: chapter_searching/replace_linear_by_hashing.md
+    - 10.4 Оптимизация с помощью хеширования: chapter_searching/replace_linear_by_hashing.md
     - 10.5 Переосмысление алгоритмов поиска: chapter_searching/searching_algorithm_revisited.md
     - 10.6 Резюме: chapter_searching/summary.md
     - 10.7 Упражнения: chapter_searching/exercises.md
