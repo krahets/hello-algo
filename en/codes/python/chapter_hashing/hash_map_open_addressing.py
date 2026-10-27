@@ -36,7 +36,9 @@ class HashMapOpenAddressing:
         index = self.hash_func(key)
         first_tombstone = -1
         # Linear probing, break when encountering an empty bucket
-        while self.buckets[index] is not None:
+        for _ in range(self.capacity):
+            if self.buckets[index] is None:
+                break
             # If key is encountered, return the corresponding bucket index
             if self.buckets[index].key == key:
                 # If a removal marker was encountered before, move the key-value pair to that index
