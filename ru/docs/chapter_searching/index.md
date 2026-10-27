@@ -18,7 +18,7 @@ icon: material/text-search
 - [10.1 &nbsp; Двоичный поиск](binary_search.md)
 - [10.2 &nbsp; Двоичный поиск точки вставки](binary_search_insertion.md)
 - [10.3 &nbsp; Двоичный поиск границ](binary_search_edge.md)
-- [10.4 &nbsp; Стратегии оптимизации хеширования](replace_linear_by_hashing.md)
+- [10.4 &nbsp; Стратегии оптимизации с помощью хеширования](replace_linear_by_hashing.md)
 - [10.5 &nbsp; Переосмысление алгоритмов поиска](searching_algorithm_revisited.md)
 - [10.6 &nbsp; Резюме](summary.md)
 - [10.7 &nbsp; Упражнения](exercises.md)

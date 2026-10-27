@@ -35,7 +35,7 @@ comments: true
 
     ```cpp title="list.cpp"
     /* Инициализация списка */
-    // Обрати внимание: в C++ vector соответствует описываемому здесь nums
+    // Обратите внимание: в C++ vector соответствует описываемому здесь nums
     // Без начальных значений
     vector<int> nums1;
     // С начальными значениями
@@ -48,7 +48,7 @@ comments: true
     /* Инициализация списка */
     // Без начальных значений
     List<Integer> nums1 = new ArrayList<>();
-    // С начальными значениями (обрати внимание: элементы массива должны использовать обертку Integer[] вместо int[])
+    // С начальными значениями (обратите внимание: элементы массива должны использовать обертку Integer[] вместо int[])
     Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
     List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
     ```
@@ -158,7 +158,7 @@ comments: true
 
 ### 2. &nbsp; Доступ к элементам
 
-Поскольку в этом разделе список рассматривается как структура на основе динамического массива, доступ к элементам и их обновление можно выполнять за $O(1)$ времени, что очень эффективно.
+Поскольку в этом разделе список рассматривается как структура на основе динамического массива, доступ к элементам и изменение их значений можно выполнять за $O(1)$ времени, что очень эффективно.
 
 === "Python"
 
@@ -166,8 +166,8 @@ comments: true
     # Доступ к элементу
     num: int = nums[1]  # Доступ к элементу по индексу 1
 
-    # Обновление элемента
-    nums[1] = 0    # Обновить элемент по индексу 1 значением 0
+    # Изменение элемента
+    nums[1] = 0    # Изменить значение элемента с индексом 1 на 0
     ```
 
 === "C++"
@@ -176,8 +176,8 @@ comments: true
     /* Доступ к элементу */
     int num = nums[1];  // Доступ к элементу по индексу 1
 
-    /* Обновление элемента */
-    nums[1] = 0;  // Обновить элемент по индексу 1 значением 0
+    /* Изменение элемента */
+    nums[1] = 0;  // Изменить значение элемента с индексом 1 на 0
     ```
 
 === "Java"
@@ -186,8 +186,8 @@ comments: true
     /* Доступ к элементу */
     int num = nums.get(1);  // Доступ к элементу по индексу 1
 
-    /* Обновление элемента */
-    nums.set(1, 0);  // Обновить элемент по индексу 1 значением 0
+    /* Изменение элемента */
+    nums.set(1, 0);  // Изменить значение элемента с индексом 1 на 0
     ```
 
 === "C#"
@@ -196,8 +196,8 @@ comments: true
     /* Доступ к элементу */
     int num = nums[1];  // Доступ к элементу по индексу 1
 
-    /* Обновление элемента */
-    nums[1] = 0;  // Обновить элемент по индексу 1 значением 0
+    /* Изменение элемента */
+    nums[1] = 0;  // Изменить значение элемента с индексом 1 на 0
     ```
 
 === "Go"
@@ -206,8 +206,8 @@ comments: true
     /* Доступ к элементу */
     num := nums[1]  // Доступ к элементу по индексу 1
 
-    /* Обновление элемента */
-    nums[1] = 0     // Обновить элемент по индексу 1 значением 0
+    /* Изменение элемента */
+    nums[1] = 0     // Изменить значение элемента с индексом 1 на 0
     ```
 
 === "Swift"
@@ -216,8 +216,8 @@ comments: true
     /* Доступ к элементу */
     let num = nums[1] // Доступ к элементу по индексу 1
 
-    /* Обновление элемента */
-    nums[1] = 0 // Обновить элемент по индексу 1 значением 0
+    /* Изменение элемента */
+    nums[1] = 0 // Изменить значение элемента с индексом 1 на 0
     ```
 
 === "JS"
@@ -226,8 +226,8 @@ comments: true
     /* Доступ к элементу */
     const num = nums[1];  // Доступ к элементу по индексу 1
 
-    /* Обновление элемента */
-    nums[1] = 0;  // Обновить элемент по индексу 1 значением 0
+    /* Изменение элемента */
+    nums[1] = 0;  // Изменить значение элемента с индексом 1 на 0
     ```
 
 === "TS"
@@ -236,8 +236,8 @@ comments: true
     /* Доступ к элементу */
     const num: number = nums[1];  // Доступ к элементу по индексу 1
 
-    /* Обновление элемента */
-    nums[1] = 0;  // Обновить элемент по индексу 1 значением 0
+    /* Изменение элемента */
+    nums[1] = 0;  // Изменить значение элемента с индексом 1 на 0
     ```
 
 === "Dart"
@@ -246,8 +246,8 @@ comments: true
     /* Доступ к элементу */
     int num = nums[1];  // Доступ к элементу по индексу 1
 
-    /* Обновление элемента */
-    nums[1] = 0;  // Обновить элемент по индексу 1 значением 0
+    /* Изменение элемента */
+    nums[1] = 0;  // Изменить значение элемента с индексом 1 на 0
     ```
 
 === "Rust"
@@ -255,8 +255,8 @@ comments: true
     ```rust title="list.rs"
     /* Доступ к элементу */
     let num: i32 = nums[1];  // Доступ к элементу по индексу 1
-    /* Обновление элемента */
-    nums[1] = 0;             // Обновить элемент по индексу 1 значением 0
+    /* Изменение элемента */
+    nums[1] = 0;             // Изменить значение элемента с индексом 1 на 0
     ```
 
 === "C"
@@ -270,8 +270,8 @@ comments: true
     ```kotlin title="list.kt"
     /* Доступ к элементу */
     val num = nums[1]       // Доступ к элементу по индексу 1
-    /* Обновление элемента */
-    nums[1] = 0             // Обновить элемент по индексу 1 значением 0
+    /* Изменение элемента */
+    nums[1] = 0             // Изменить значение элемента с индексом 1 на 0
     ```
 
 === "Ruby"
@@ -279,14 +279,14 @@ comments: true
     ```ruby title="list.rb"
     # Доступ к элементу
     num = nums[1] # Доступ к элементу по индексу 1
-    # Обновление элемента
-    nums[1] = 0 # Обновить элемент по индексу 1 значением 0
+    # Изменение элемента
+    nums[1] = 0 # Изменить значение элемента с индексом 1 на 0
     ```
 
 ??? pythontutor "Визуализация выполнения"
 
-    <div style="height: 369px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BA%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%83%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D0%BA%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%201%20%D0%BF%D0%BE%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%0A%0A%20%20%20%20%23%20%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BF%D0%BE%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D1%83%201%20%D0%B4%D0%BE%200&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BA%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%83%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D0%BA%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%201%20%D0%BF%D0%BE%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%0A%0A%20%20%20%20%23%20%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BF%D0%BE%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D1%83%201%20%D0%B4%D0%BE%200&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
+    <div style="height: 369px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BA%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%83%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%D0%94%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BA%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%83%20%D0%BF%D0%BE%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D1%83%201%0A%0A%20%20%20%20%23%20%D0%98%D0%B7%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%D0%98%D0%B7%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%20%D1%81%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D0%BE%D0%BC%201%20%D0%BD%D0%B0%200&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BA%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%83%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%D0%94%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BA%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%83%20%D0%BF%D0%BE%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D1%83%201%0A%0A%20%20%20%20%23%20%D0%98%D0%B7%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%D0%98%D0%B7%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%20%D1%81%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D0%BE%D0%BC%201%20%D0%BD%D0%B0%200&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
 
 ### 3. &nbsp; Вставка и удаление элементов
 
@@ -953,8 +953,8 @@ comments: true
 
 ??? pythontutor "Визуализация выполнения"
 
-    <div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%D0%9E%D1%82%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%0A%20%20%20%20nums.sort%28%29%20%20%23%20%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%2C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D1%81%D0%BF%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D1%8B%20%D0%BF%D0%BE%20%D0%B2%D0%BE%D0%B7%D1%80%D0%B0%D1%81%D1%82%D0%B0%D0%BD%D0%B8%D1%8E&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%D0%9E%D1%82%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%0A%20%20%20%20nums.sort%28%29%20%20%23%20%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%2C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D1%81%D0%BF%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D1%8B%20%D0%BF%D0%BE%20%D0%B2%D0%BE%D0%B7%D1%80%D0%B0%D1%81%D1%82%D0%B0%D0%BD%D0%B8%D1%8E&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
+    <div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%D0%9E%D1%82%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%0A%20%20%20%20nums.sort%28%29%20%20%23%20%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%8B%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%20%D1%80%D0%B0%D1%81%D0%BF%D0%BE%D0%BB%D0%B0%D0%B3%D0%B0%D1%8E%D1%82%D1%81%D1%8F%20%D0%BF%D0%BE%20%D0%B2%D0%BE%D0%B7%D1%80%D0%B0%D1%81%D1%82%D0%B0%D0%BD%D0%B8%D1%8E&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%D0%9E%D1%82%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%0A%20%20%20%20nums.sort%28%29%20%20%23%20%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%8B%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%20%D1%80%D0%B0%D1%81%D0%BF%D0%BE%D0%BB%D0%B0%D0%B3%D0%B0%D1%8E%D1%82%D1%81%D1%8F%20%D0%BF%D0%BE%20%D0%B2%D0%BE%D0%B7%D1%80%D0%B0%D1%81%D1%82%D0%B0%D0%BD%D0%B8%D1%8E&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
 
 ## 4.3.2 &nbsp; Реализация списка
 
@@ -995,7 +995,7 @@ comments: true
             return self._arr[index]
 
         def set(self, num: int, index: int):
-            """Обновление элемента"""
+            """Изменение элемента"""
             if index < 0 or index >= self._size:
                 raise IndexError("индекс выходит за границы")
             self._arr[index] = num
@@ -1015,7 +1015,7 @@ comments: true
             # При превышении вместимости по числу элементов запускается расширение
             if self._size == self.capacity():
                 self.extend_capacity()
-            # Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+            # Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
             for j in range(self._size - 1, index - 1, -1):
                 self._arr[j + 1] = self._arr[j]
             self._arr[index] = num
@@ -1027,7 +1027,7 @@ comments: true
             if index < 0 or index >= self._size:
                 raise IndexError("индекс выходит за границы")
             num = self._arr[index]
-            # Сдвинуть все элементы после индекса index на одну позицию вперед
+            # Сдвинуть все элементы после индекса index на одну позицию влево
             for j in range(index, self._size - 1):
                 self._arr[j] = self._arr[j + 1]
             # Обновить число элементов
@@ -1087,7 +1087,7 @@ comments: true
             return arr[index];
         }
 
-        /* Обновление элемента */
+        /* Изменение элемента */
         void set(int index, int num) {
             if (index < 0 || index >= size())
                 throw out_of_range("индекс выходит за границы");
@@ -1111,7 +1111,7 @@ comments: true
             // При превышении вместимости по числу элементов запускается расширение
             if (size() == capacity())
                 extendCapacity();
-            // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+            // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
             for (int j = size() - 1; j >= index; j--) {
                 arr[j + 1] = arr[j];
             }
@@ -1125,7 +1125,7 @@ comments: true
             if (index < 0 || index >= size())
                 throw out_of_range("индекс выходит за границы");
             int num = arr[index];
-            // Сдвинуть все элементы после индекса index на одну позицию вперед
+            // Сдвинуть все элементы после индекса index на одну позицию влево
             for (int j = index; j < size() - 1; j++) {
                 arr[j] = arr[j + 1];
             }
@@ -1195,7 +1195,7 @@ comments: true
             return arr[index];
         }
 
-        /* Обновление элемента */
+        /* Изменение элемента */
         public void set(int index, int num) {
             if (index < 0 || index >= size)
                 throw new IndexOutOfBoundsException("индекс выходит за границы");
@@ -1219,7 +1219,7 @@ comments: true
             // При превышении вместимости по числу элементов запускается расширение
             if (size == capacity())
                 extendCapacity();
-            // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+            // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
             for (int j = size - 1; j >= index; j--) {
                 arr[j + 1] = arr[j];
             }
@@ -1233,7 +1233,7 @@ comments: true
             if (index < 0 || index >= size)
                 throw new IndexOutOfBoundsException("индекс выходит за границы");
             int num = arr[index];
-            // Сдвинуть все элементы после индекса index на одну позицию вперед
+            // Сдвинуть все элементы после индекса index на одну позицию влево
             for (int j = index; j < size - 1; j++) {
                 arr[j] = arr[j + 1];
             }
@@ -1297,7 +1297,7 @@ comments: true
             return arr[index];
         }
 
-        /* Обновление элемента */
+        /* Изменение элемента */
         public void Set(int index, int num) {
             if (index < 0 || index >= arrSize)
                 throw new IndexOutOfRangeException("индекс выходит за границы");
@@ -1321,7 +1321,7 @@ comments: true
             // При превышении вместимости по числу элементов запускается расширение
             if (arrSize == arrCapacity)
                 ExtendCapacity();
-            // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+            // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
             for (int j = arrSize - 1; j >= index; j--) {
                 arr[j + 1] = arr[j];
             }
@@ -1335,7 +1335,7 @@ comments: true
             if (index < 0 || index >= arrSize)
                 throw new IndexOutOfRangeException("индекс выходит за границы");
             int num = arr[index];
-            // Сдвинуть все элементы после индекса index на одну позицию вперед
+            // Сдвинуть все элементы после индекса index на одну позицию влево
             for (int j = index; j < arrSize - 1; j++) {
                 arr[j] = arr[j + 1];
             }
@@ -1405,7 +1405,7 @@ comments: true
         return l.arr[index]
     }
 
-    /* Обновление элемента */
+    /* Изменение элемента */
     func (l *myList) set(num, index int) {
         if index < 0 || index >= l.arrSize {
             panic("индекс выходит за границы")
@@ -1433,7 +1433,7 @@ comments: true
         if l.arrSize == l.arrCapacity {
             l.extendCapacity()
         }
-        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
         for j := l.arrSize - 1; j >= index; j-- {
             l.arr[j+1] = l.arr[j]
         }
@@ -1448,7 +1448,7 @@ comments: true
             panic("индекс выходит за границы")
         }
         num := l.arr[index]
-        // Сдвинуть все элементы после индекса index на одну позицию вперед
+        // Сдвинуть все элементы после индекса index на одну позицию влево
         for j := index; j < l.arrSize-1; j++ {
             l.arr[j] = l.arr[j+1]
         }
@@ -1510,7 +1510,7 @@ comments: true
             return arr[index]
         }
 
-        /* Обновление элемента */
+        /* Изменение элемента */
         func set(index: Int, num: Int) {
             if index < 0 || index >= size() {
                 fatalError("индекс выходит за границы")
@@ -1538,7 +1538,7 @@ comments: true
             if size() == capacity() {
                 extendCapacity()
             }
-            // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+            // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
             for j in (index ..< size()).reversed() {
                 arr[j + 1] = arr[j]
             }
@@ -1554,7 +1554,7 @@ comments: true
                 fatalError("индекс выходит за границы")
             }
             let num = arr[index]
-            // Сдвинуть все элементы после индекса index на одну позицию вперед
+            // Сдвинуть все элементы после индекса index на одну позицию влево
             for j in index ..< (size() - 1) {
                 arr[j] = arr[j + 1]
             }
@@ -1611,7 +1611,7 @@ comments: true
             return this.#arr[index];
         }
 
-        /* Обновление элемента */
+        /* Изменение элемента */
         set(index, num) {
             if (index < 0 || index >= this.#size) throw new Error('индекс выходит за границы');
             this.#arr[index] = num;
@@ -1635,7 +1635,7 @@ comments: true
             if (this.#size === this.#capacity) {
                 this.extendCapacity();
             }
-            // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+            // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
             for (let j = this.#size - 1; j >= index; j--) {
                 this.#arr[j + 1] = this.#arr[j];
             }
@@ -1648,7 +1648,7 @@ comments: true
         remove(index) {
             if (index < 0 || index >= this.#size) throw new Error('индекс выходит за границы');
             let num = this.#arr[index];
-            // Сдвинуть все элементы после индекса index на одну позицию вперед
+            // Сдвинуть все элементы после индекса index на одну позицию влево
             for (let j = index; j < this.#size - 1; j++) {
                 this.#arr[j] = this.#arr[j + 1];
             }
@@ -1713,7 +1713,7 @@ comments: true
             return this.arr[index];
         }
 
-        /* Обновление элемента */
+        /* Изменение элемента */
         public set(index: number, num: number): void {
             if (index < 0 || index >= this._size) throw new Error('индекс выходит за границы');
             this.arr[index] = num;
@@ -1735,7 +1735,7 @@ comments: true
             if (this._size === this._capacity) {
                 this.extendCapacity();
             }
-            // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+            // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
             for (let j = this._size - 1; j >= index; j--) {
                 this.arr[j + 1] = this.arr[j];
             }
@@ -1748,7 +1748,7 @@ comments: true
         public remove(index: number): number {
             if (index < 0 || index >= this._size) throw new Error('индекс выходит за границы');
             let num = this.arr[index];
-            // Сдвинуть все элементы после индекса index на одну позицию вперед
+            // Сдвинуть все элементы после индекса index на одну позицию влево
             for (let j = index; j < this._size - 1; j++) {
                 this.arr[j] = this.arr[j + 1];
             }
@@ -1808,7 +1808,7 @@ comments: true
         return _arr[index];
       }
 
-      /* Обновление элемента */
+      /* Изменение элемента */
       void set(int index, int _num) {
         if (index >= _size) throw RangeError('индекс выходит за границы');
         _arr[index] = _num;
@@ -1828,7 +1828,7 @@ comments: true
         if (index >= _size) throw RangeError('индекс выходит за границы');
         // При превышении вместимости по числу элементов запускается расширение
         if (_size == _capacity) extendCapacity();
-        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
         for (var j = _size - 1; j >= index; j--) {
           _arr[j + 1] = _arr[j];
         }
@@ -1841,7 +1841,7 @@ comments: true
       int remove(int index) {
         if (index >= _size) throw RangeError('индекс выходит за границы');
         int _num = _arr[index];
-        // Сдвинуть все элементы после индекса index на одну позицию вперед
+        // Сдвинуть все элементы после индекса index на одну позицию влево
         for (var j = index; j < _size - 1; j++) {
           _arr[j] = _arr[j + 1];
         }
@@ -1918,7 +1918,7 @@ comments: true
             return self.arr[index];
         }
 
-        /* Обновление элемента */
+        /* Изменение элемента */
         pub fn set(&mut self, index: usize, num: i32) {
             if index >= self.size {
                 panic!("индекс выходит за границы")
@@ -1946,7 +1946,7 @@ comments: true
             if self.size == self.capacity() {
                 self.extend_capacity();
             }
-            // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+            // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
             for j in (index..self.size).rev() {
                 self.arr[j + 1] = self.arr[j];
             }
@@ -1961,7 +1961,7 @@ comments: true
                 panic!("индекс выходит за границы")
             };
             let num = self.arr[index];
-            // Сдвинуть все элементы после индекса index на одну позицию вперед
+            // Сдвинуть все элементы после индекса index на одну позицию влево
             for j in index..self.size - 1 {
                 self.arr[j] = self.arr[j + 1];
             }
@@ -2035,7 +2035,7 @@ comments: true
         return nums->arr[index];
     }
 
-    /* Обновление элемента */
+    /* Изменение элемента */
     void set(MyList *nums, int index, int num) {
         assert(index >= 0 && index < nums->size);
         nums->arr[index] = num;
@@ -2134,7 +2134,7 @@ comments: true
             return arr[index]
         }
 
-        /* Обновление элемента */
+        /* Изменение элемента */
         fun set(index: Int, num: Int) {
             if (index < 0 || index >= size)
                 throw IndexOutOfBoundsException("индекс выходит за границы")
@@ -2158,7 +2158,7 @@ comments: true
             // При превышении вместимости по числу элементов запускается расширение
             if (size == capacity())
                 extendCapacity()
-            // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+            // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
             for (j in size - 1 downTo index)
                 arr[j + 1] = arr[j]
             arr[index] = num
@@ -2171,7 +2171,7 @@ comments: true
             if (index < 0 || index >= size)
                 throw IndexOutOfBoundsException("индекс выходит за границы")
             val num = arr[index]
-            // Сдвинуть все элементы после индекса index на одну позицию вперед
+            // Сдвинуть все элементы после индекса index на одну позицию влево
             for (j in index..<size - 1)
                 arr[j] = arr[j + 1]
             // Обновить число элементов
@@ -2247,7 +2247,7 @@ comments: true
         # При превышении вместимости по числу элементов запускается расширение
         extend_capacity if size == capacity
 
-        # Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+        # Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
         for j in (size - 1).downto(index)
           @arr[j + 1] = @arr[j]
         end
@@ -2262,7 +2262,7 @@ comments: true
         raise IndexError, "индекс выходит за границы" if index < 0 || index >= size
         num = @arr[index]
 
-        # Сдвинуть все элементы после индекса index на одну позицию вперед
+        # Сдвинуть все элементы после индекса index на одну позицию влево
         for j in index...size
           @arr[j] = @arr[j + 1]
         end
