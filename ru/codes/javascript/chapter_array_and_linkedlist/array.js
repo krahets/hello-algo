@@ -6,7 +6,7 @@
 
 /* Случайный доступ к элементу */
 function randomAccess(nums) {
-    // Случайный выбор индекса из диапазона [0, nums.length)
+    // Случайный выбор числа из диапазона [0, nums.length)
     const random_index = Math.floor(Math.random() * nums.length);
     // Получить и вернуть случайный элемент
     const random_num = nums[random_index];

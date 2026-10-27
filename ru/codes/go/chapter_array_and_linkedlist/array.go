@@ -10,7 +10,7 @@ import (
 
 /* Случайный доступ к элементу */
 func randomAccess(nums []int) (randomNum int) {
-	// Случайный выбор индекса из диапазона [0, nums.length)
+	// Случайный выбор числа из диапазона [0, nums.length)
 	randomIndex := rand.Intn(len(nums))
 	// Получить и вернуть случайный элемент
 	randomNum = nums[randomIndex]

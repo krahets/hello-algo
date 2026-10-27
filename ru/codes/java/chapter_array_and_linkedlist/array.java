@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class array {
     /* Случайный доступ к элементу */
     static int randomAccess(int[] nums) {
-        // Случайный выбор индекса из диапазона [0, nums.length)
+        // Случайный выбор числа из диапазона [0, nums.length)
         int randomIndex = ThreadLocalRandom.current().nextInt(0, nums.length);
         // Получить и вернуть случайный элемент
         int randomNum = nums[randomIndex];

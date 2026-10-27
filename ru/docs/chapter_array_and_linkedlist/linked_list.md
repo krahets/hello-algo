@@ -67,7 +67,7 @@
         Next *ListNode // Указатель на следующий узел
     }
 
-    // NewListNode создает и инициализирует узел связного списка.
+    // NewListNode — функция-конструктор, создающая новый связный список.
     func NewListNode(val int) *ListNode {
         return &ListNode{
             Val:  val,
@@ -474,7 +474,7 @@
 | Добавление элемента | $O(n)$                                    | $O(1)$                  |
 | Удаление элемента | $O(n)$                                     | $O(1)$                  |
 
-## Основные типы связных списков
+## Распространенные типы связных списков
 
 Как показано на рисунке ниже, существует три распространенных типа связных списков.
 
@@ -538,7 +538,7 @@
         Prev *DoublyListNode // Указатель на предыдущий узел
     }
 
-    // NewDoublyListNode создает и инициализирует узел двусвязного списка.
+    // NewDoublyListNode инициализирует узел двусвязного списка.
     func NewDoublyListNode(val int) *DoublyListNode {
         return &DoublyListNode{
             Val:  val,
@@ -680,7 +680,7 @@
     end
     ```
 
-![Виды связных списков](linked_list.assets/linkedlist_common_types.png)
+![Распространенные типы связных списков](linked_list.assets/linkedlist_common_types.png)
 
 ## Типичные применения связных списков
 

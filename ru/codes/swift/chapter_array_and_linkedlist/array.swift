@@ -6,7 +6,7 @@
 
 /* Случайный доступ к элементу */
 func randomAccess(nums: [Int]) -> Int {
-    // Случайный выбор индекса из диапазона [0, nums.count)
+    // Случайный выбор числа из диапазона [0, nums.count)
     let randomIndex = nums.indices.randomElement()!
     // Получить и вернуть случайный элемент
     let randomNum = nums[randomIndex]

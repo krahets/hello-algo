@@ -9,7 +9,7 @@ use rand::Rng;
 
 /* Случайный доступ к элементу */
 fn random_access(nums: &[i32]) -> i32 {
-    // Случайный выбор индекса из диапазона [0, nums.len())
+    // Случайный выбор числа из диапазона [0, nums.len())
     let random_index = rand::thread_rng().gen_range(0..nums.len());
     // Получить и вернуть случайный элемент
     let random_num = nums[random_index];

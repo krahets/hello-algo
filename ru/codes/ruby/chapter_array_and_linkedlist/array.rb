@@ -6,7 +6,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### Случайный доступ к элементу ###
 def random_access(nums)
-  # Случайный выбор индекса из диапазона [0, nums.length)
+  # Случайный выбор числа из диапазона [0, nums.length)
   random_index = Random.rand(0...nums.length)
 
   # Получить и вернуть случайный элемент

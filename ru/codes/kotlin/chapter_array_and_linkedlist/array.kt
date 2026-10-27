@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom
 
 /* Случайный доступ к элементу */
 fun randomAccess(nums: IntArray): Int {
-    // Случайный выбор индекса из диапазона [0, nums.size)
+    // Случайный выбор числа из диапазона [0, nums.size)
     val randomIndex = ThreadLocalRandom.current().nextInt(0, nums.size)
     // Получить и вернуть случайный элемент
     val randomNum = nums[randomIndex]

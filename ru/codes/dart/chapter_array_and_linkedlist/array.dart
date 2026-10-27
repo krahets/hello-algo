@@ -10,7 +10,7 @@ import 'dart:math';
 
 /* Случайный доступ к элементу */
 int randomAccess(List<int> nums) {
-  // Случайный выбор индекса из диапазона [0, nums.length)
+  // Случайный выбор числа из диапазона [0, nums.length)
   int randomIndex = Random().nextInt(nums.length);
   // Получить и вернуть случайный элемент
   int randomNum = nums[randomIndex];

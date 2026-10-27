@@ -9,7 +9,7 @@ import random
 
 def random_access(nums: list[int]) -> int:
     """Случайный доступ к элементу"""
-    # Случайный выбор индекса из диапазона [0, len(nums)-1]
+    # Случайный выбор числа из диапазона [0, len(nums)-1]
     random_index = random.randint(0, len(nums) - 1)
     # Получить и вернуть случайный элемент
     random_num = nums[random_index]

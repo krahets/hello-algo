@@ -8,7 +8,7 @@ public class array {
     /* Случайный доступ к элементу */
     int RandomAccess(int[] nums) {
         Random random = new();
-        // Случайный выбор индекса из диапазона [0, nums.Length)
+        // Случайный выбор числа из диапазона [0, nums.Length)
         int randomIndex = random.Next(nums.Length);
         // Получить и вернуть случайный элемент
         int randomNum = nums[randomIndex];

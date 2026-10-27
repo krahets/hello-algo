@@ -8,7 +8,7 @@
 
 /* Случайный доступ к элементу */
 int randomAccess(int *nums, int size) {
-    // Случайный выбор индекса из диапазона [0, size)
+    // Случайный выбор числа из диапазона [0, size)
     int randomIndex = rand() % size;
     // Получить и вернуть случайный элемент
     int randomNum = nums[randomIndex];

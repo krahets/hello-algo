@@ -7,7 +7,7 @@ const utils = @import("utils");
 
 // Случайный доступ к элементу
 pub fn randomAccess(nums: []const i32) i32 {
-    // Случайный выбор целого индекса из диапазона [0, nums.len)
+    // Случайный выбор целого числа из диапазона [0, nums.len)
     const random_index = std.crypto.random.intRangeLessThan(usize, 0, nums.len);
     // Получить и вернуть случайный элемент
     const randomNum = nums[random_index];
