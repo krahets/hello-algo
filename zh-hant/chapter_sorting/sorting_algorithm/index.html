@@ -32,6 +32,8 @@
 
           <link rel="alternate" href="/ru/chapter_sorting/sorting_algorithm/" hreflang="ru">
 
+          <link rel="alternate" href="/ko/chapter_sorting/sorting_algorithm/" hreflang="ko">
+
 
 
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -227,6 +229,12 @@
           <li class="md-select__item">
             <a href="/ru/chapter_sorting/sorting_algorithm/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+
+          <li class="md-select__item">
+            <a href="/ko/chapter_sorting/sorting_algorithm/" hreflang="ko" class="md-select__link">
+              한국어
             </a>
           </li>
 
@@ -4664,20 +4672,20 @@
 <p>穩定排序是多級排序場景的必要條件。假設我們有一個儲存學生資訊的表格，第 1 列和第 2 列分別是姓名和年齡。在這種情況下，<u>非穩定排序</u>可能導致輸入資料的有序性喪失：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 輸入資料是按照姓名排序好的</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># (name, age)</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;A&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"> </span><span class="m">18</span><span class="o">)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;C&#39;</span>,<span class="w"> </span><span class="m">21</span><span class="o">)</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;D&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;E&#39;</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="o">(</span><span class="s1">'A'</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="o">(</span><span class="s1">'B'</span>,<span class="w"> </span><span class="m">18</span><span class="o">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="o">(</span><span class="s1">'C'</span>,<span class="w"> </span><span class="m">21</span><span class="o">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="o">(</span><span class="s1">'D'</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="o">(</span><span class="s1">'E'</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># 假設使用非穩定排序演算法按年齡排序串列，</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># 結果中 (&#39;D&#39;, 19) 和 (&#39;A&#39;, 19) 的相對位置改變，</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># 結果中 ('D', 19) 和 ('A', 19) 的相對位置改變，</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># 輸入資料按姓名排序的性質丟失</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"> </span><span class="m">18</span><span class="o">)</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;D&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;A&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;C&#39;</span>,<span class="w"> </span><span class="m">21</span><span class="o">)</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;E&#39;</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="o">(</span><span class="s1">'B'</span>,<span class="w"> </span><span class="m">18</span><span class="o">)</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="o">(</span><span class="s1">'D'</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="o">(</span><span class="s1">'A'</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="o">(</span><span class="s1">'C'</span>,<span class="w"> </span><span class="m">21</span><span class="o">)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="o">(</span><span class="s1">'E'</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
 </code></pre></div>
 <p><strong>自適應性</strong>：<u>自適應排序</u>能夠利用輸入資料已有的順序資訊來減少計算量，達到更優的時間效率。自適應排序演算法的最佳時間複雜度通常優於平均時間複雜度。</p>
 <p><strong>是否基於比較</strong>：<u>基於比較的排序</u>依賴比較運算子（<span class="arithmatex">\(&lt;\)</span>、<span class="arithmatex">\(=\)</span>、<span class="arithmatex">\(&gt;\)</span>）來判斷元素的相對順序，從而排序整個陣列，其最壞時間複雜度的下界為 <span class="arithmatex">\(\Omega(n \log n)\)</span> 。而<u>非比較排序</u>不使用比較運算子，時間複雜度可達 <span class="arithmatex">\(O(n)\)</span> ，但其通用性相對較差。</p>
@@ -4792,6 +4800,8 @@ aria-label="頁脚"
     /* Set palette on initial load */
     giscus.setAttribute("data-theme", getGiscusTheme())
 
+
+
     /* Register event handlers after documented loaded */
     document.addEventListener("DOMContentLoaded", function() {
       var ref = document.querySelector("[data-md-component=palette]")
@@ -4889,7 +4899,7 @@ aria-label="頁脚"
       <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"已拷貝","clipboard.copy":"拷貝","search.result.more.one":"此頁尚有 1 個符合的項目","search.result.more.other":"此頁尚有 # 個符合的項目","search.result.none":"沒有找到符合條件的結果","search.result.one":"找到 1 个符合條件的結果","search.result.other":"找到 # 個符合條件的結果","search.result.placeholder":"鍵入以開始檢索","search.result.term.missing":"缺失","select.version":"選擇版本"},"version":null}</script>
 
 
-      <script src="../../assets/javascripts/bundle.d7f30b55.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e559d5b757c25f1f23bd887b700c56e3018b129d471c011292faeb47b8b74ce4.min.js"></script>
 
         <script src="../../javascripts/mathjax.js"></script>
 

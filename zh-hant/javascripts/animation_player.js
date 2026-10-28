@@ -2,8 +2,11 @@
   const ANIMATION_LABEL_PATTERN = /^<\d+>$/;
   const AUTO_SLIDE_INITIAL_DELAY_MS = 1000;
   const AUTO_SLIDE_INTERVAL_MS = 1500;
-  const PLAY_LABEL = "播放幻灯片";
-  const PAUSE_LABEL = "暂停幻灯片";
+  const IS_KOREAN = document.documentElement.lang.toLowerCase().startsWith("ko");
+  const PLAY_LABEL = IS_KOREAN ? "슬라이드 재생" : "播放幻灯片";
+  const PAUSE_LABEL = IS_KOREAN ? "슬라이드 일시 정지" : "暂停幻灯片";
+  const PREVIOUS_LABEL = IS_KOREAN ? "이전 슬라이드" : "上一页";
+  const NEXT_LABEL = IS_KOREAN ? "다음 슬라이드" : "下一页";
   const SVG_NS = "http://www.w3.org/2000/svg";
   const FA_PLAY_PATH =
     "M91.2 36.9c-12.4-6.8-27.4-6.5-39.6.7S32 57.9 32 72v368c0 14.1 7.5 27.2 19.6 34.4s27.2 7.5 39.6.7l336-184c12.8-7 20.8-20.5 20.8-35.1s-8-28.1-20.8-35.1z";
@@ -121,7 +124,7 @@
 
     const prevButton = createIconButton({
       className: "animation-controls__prev",
-      ariaLabel: "上一页",
+      ariaLabel: PREVIOUS_LABEL,
       path: FA_ARROW_LEFT_PATH,
     });
     const pageIndicator = document.createElement("span");
@@ -130,7 +133,7 @@
 
     const nextButton = createIconButton({
       className: "animation-controls__next",
-      ariaLabel: "下一页",
+      ariaLabel: NEXT_LABEL,
       path: FA_ARROW_RIGHT_PATH,
     });
 
@@ -251,4 +254,4 @@
     initAutoSlide();
   }
 })();
-/*! update cache: 20261027111131 */
+/*! update cache: 20261028193507 */

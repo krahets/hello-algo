@@ -485,6 +485,11 @@ html:has(body[data-md-color-scheme="default"]) {
   font-size: min(1.45vh, 2vw);
 }
 
+.hero-div--ko {
+  width: min(112vh, 92vw);
+  height: min(84vh, 69vw);
+}
+
 .hero-bg {
   width: 100%;
   height: 100%;
@@ -921,4 +926,4 @@ a:hover .device-on-hover {
     max-width: 100%;
   }
 }
-/*! update cache: 20261027111155 */
+/*! update cache: 20261028193614 */
