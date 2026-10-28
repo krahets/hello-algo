@@ -6,13 +6,17 @@ on:
     paths:
       - ".github/workflows/zig.yml"
       - "codes/zig/**/*.zig"
+      - "ko/codes/zig/**/*.zig"
       - "codes/zig/build.zig"
+      - "ko/codes/zig/build.zig"
   pull_request:
     branches: ["main"]
     paths:
       - ".github/workflows/zig.yml"
       - "codes/zig/**/*.zig"
+      - "ko/codes/zig/**/*.zig"
       - "codes/zig/build.zig"
+      - "ko/codes/zig/build.zig"
   workflow_dispatch:
 
 jobs:
@@ -25,6 +29,7 @@ jobs:
       matrix:
         # Keep the macOS SDK compatible with Zig 0.14.1.
         os: [ubuntu-latest, macos-14, windows-latest]
+        code-dir: ["codes/zig", "ko/codes/zig"]
 
     steps:
       - uses: actions/checkout@v4
@@ -34,9 +39,9 @@ jobs:
           version: "0.14.1"
 
       - name: Build
-        working-directory: codes/zig
+        working-directory: ${{ matrix.code-dir }}
         run: zig build
 
       - name: Test
-        working-directory: codes/zig
+        working-directory: ${{ matrix.code-dir }}
         run: zig build test

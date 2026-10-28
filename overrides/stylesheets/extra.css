@@ -404,6 +404,11 @@ a:hover .text-button span {
   font-size: min(1.45vh, 2vw);
 }
 
+.hero-div--ko {
+  width: min(112vh, 92vw);
+  height: min(84vh, 69vw);
+}
+
 .hero-bg {
   height: 100%;
   width: 100%;

@@ -11,7 +11,9 @@ on:
       - "codes/cpp/**/*.cpp"
       - "codes/cpp/**/*.hpp"
       - "en/codes/cpp/**/*.cpp"
+      - "ko/codes/cpp/**/*.cpp"
       - "en/codes/cpp/**/*.hpp"
+      - "ko/codes/cpp/**/*.hpp"
   pull_request:
     branches: ["main"]
     paths:
@@ -19,7 +21,9 @@ on:
       - "codes/cpp/**/*.cpp"
       - "codes/cpp/**/*.hpp"
       - "en/codes/cpp/**/*.cpp"
+      - "ko/codes/cpp/**/*.cpp"
       - "en/codes/cpp/**/*.hpp"
+      - "ko/codes/cpp/**/*.hpp"
   workflow_dispatch:
 
 jobs:
@@ -40,7 +44,7 @@ jobs:
         os: [ubuntu-latest, windows-latest]
         build_type: [Release]
         c_compiler: [gcc, clang, cl]
-        code-dir: ["codes/cpp", "en/codes/cpp"]
+        code-dir: ["codes/cpp", "en/codes/cpp", "ko/codes/cpp"]
         include:
           - os: windows-latest
             c_compiler: cl

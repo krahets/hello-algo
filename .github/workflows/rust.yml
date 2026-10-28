@@ -8,7 +8,9 @@ on:
       - "codes/rust/**/*.rs"
       - "codes/rust/Cargo.toml"
       - "en/codes/rust/**/*.rs"
+      - "ko/codes/rust/**/*.rs"
       - "en/codes/rust/Cargo.toml"
+      - "ko/codes/rust/Cargo.toml"
   pull_request:
     branches: ["main"]
     paths:
@@ -16,7 +18,9 @@ on:
       - "codes/rust/**/*.rs"
       - "codes/rust/Cargo.toml"
       - "en/codes/rust/**/*.rs"
+      - "ko/codes/rust/**/*.rs"
       - "en/codes/rust/Cargo.toml"
+      - "ko/codes/rust/Cargo.toml"
 
 jobs:
   build:
@@ -25,7 +29,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        code-dir: ["codes/rust", "en/codes/rust"]
+        code-dir: ["codes/rust", "en/codes/rust", "ko/codes/rust"]
 
     steps:
       - uses: brndnmtthws/rust-action-rustup@913349b802fe843511093e8c2014c94d8168c6b6 # v1

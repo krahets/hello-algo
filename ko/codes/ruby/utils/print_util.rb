@@ -1,0 +1,80 @@
+=begin
+File: print_util.rb
+Created Time: 2024-03-18
+Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
+=end
+
+require_relative "./tree_node"
+
+### 행렬 출력 ###
+def print_matrix(mat)
+  s = []
+  mat.each { |arr| s << " #{arr.to_s}" }
+  puts "[\n#{s.join(",\n")}\n]"
+end
+
+### 연결 리스트 출력 ###
+def print_linked_list(head)
+  list = []
+  while head
+    list << head.val
+    head = head.next
+  end
+  puts "#{list.join(" -> ")}"
+end
+
+class Trunk
+  attr_accessor :prev, :str
+
+  def initialize(prev, str)
+    @prev = prev
+    @str = str
+  end
+end
+
+def show_trunk(p)
+  return if p.nil?
+
+  show_trunk(p.prev)
+  print p.str
+end
+
+### 이진 트리 출력 ###
+# 이 트리 출력 코드는 TECHIE DELIGHT에서 가져왔다
+# https://www.techiedelight.com/c-program-print-binary-tree/
+def print_tree(root, prev=nil, is_right=false)
+  return if root.nil?
+
+  prev_str = "    "
+  trunk = Trunk.new(prev, prev_str)
+  print_tree(root.right, trunk, true)
+
+  if prev.nil?
+    trunk.str = "———"
+  elsif is_right
+    trunk.str = "/———"
+    prev_str = "   |"
+  else
+    trunk.str = "\\———"
+    prev.str = prev_str
+  end
+
+  show_trunk(trunk)
+  puts " #{root.val}"
+  prev.str = prev_str if prev
+  trunk.str = "   |"
+  print_tree(root.left, trunk, false)
+end
+
+### 해시 테이블 출력 ###
+def print_hash_map(hmap)
+  hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
+end
+
+### 힙 출력 ###
+def print_heap(heap)
+  puts "힙의 배열 표현: #{heap}"
+  puts "힙의 트리 표현:"
+  root = arr_to_tree(heap)
+  print_tree(root)
+end
