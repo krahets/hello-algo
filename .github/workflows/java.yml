@@ -10,12 +10,14 @@ on:
       - ".github/workflows/java.yml"
       - "codes/java/**/*.java"
       - "en/codes/java/**/*.java"
+      - "ko/codes/java/**/*.java"
   pull_request:
     branches: ["main"]
     paths:
       - ".github/workflows/java.yml"
       - "codes/java/**/*.java"
       - "en/codes/java/**/*.java"
+      - "ko/codes/java/**/*.java"
   workflow_dispatch:
 
 jobs:
@@ -24,7 +26,7 @@ jobs:
     strategy:
       matrix:
         java: ["11", "17"]
-        code-dir: ["codes/java", "en/codes/java"]
+        code-dir: ["codes/java", "en/codes/java", "ko/codes/java"]
     name: Java ${{ matrix.Java }} sample
     steps:
       - uses: actions/checkout@v6

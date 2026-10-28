@@ -83,6 +83,9 @@ extra:
     - name: Русский
       link: /ru/
       lang: ru
+    - name: 한국어
+      link: /ko/
+      lang: ko
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/krahets
@@ -111,40 +114,40 @@ plugins:
 
 # Extensions
 markdown_extensions:
-  - abbr
-  - admonition
-  - attr_list
-  - def_list
-  - footnotes
-  - md_in_html
-  - toc:
-      permalink: true
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.caret
-  - pymdownx.details
-  # - pymdownx.emoji:
-  #     emoji_index: !!python/name:materialx.emoji.twemoji
-  #     emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.keys
-  # - pymdownx.magiclink:
-  #     repo_url_shorthand: true
-  #     user: squidfunk
-  #     repo: mkdocs-material
-  - pymdownx.mark
-  - pymdownx.smartsymbols
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tilde
+  abbr: {}
+  admonition: {}
+  attr_list: {}
+  def_list: {}
+  footnotes: {}
+  md_in_html: {}
+  toc:
+    permalink: true
+  pymdownx.arithmatex:
+    generic: true
+  pymdownx.betterem:
+    smart_enable: all
+  pymdownx.caret: {}
+  pymdownx.details: {}
+  # pymdownx.emoji:
+  #   emoji_index: !!python/name:materialx.emoji.twemoji
+  #   emoji_generator: !!python/name:materialx.emoji.to_svg
+  pymdownx.highlight:
+    anchor_linenums: true
+  pymdownx.inlinehilite: {}
+  pymdownx.snippets: {}
+  pymdownx.superfences: {}
+  pymdownx.keys: {}
+  # pymdownx.magiclink:
+  #   repo_url_shorthand: true
+  #   user: squidfunk
+  #   repo: mkdocs-material
+  pymdownx.mark: {}
+  pymdownx.smartsymbols: {}
+  pymdownx.tabbed:
+    alternate_style: true
+  pymdownx.tasklist:
+    custom_checkbox: true
+  pymdownx.tilde: {}
 
 extra_javascript:
   - javascripts/mathjax.js

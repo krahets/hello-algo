@@ -33,6 +33,10 @@ COPY ru/docs ./build/ru/docs
 COPY ru/mkdocs.yml ./ru/mkdocs.yml
 RUN mkdocs build -f ./ru/mkdocs.yml
 
+COPY ko/docs ./build/ko/docs
+COPY ko/mkdocs.yml ./ko/mkdocs.yml
+RUN mkdocs build -f ./ko/mkdocs.yml
+
 WORKDIR /hello-algo/site
 EXPOSE 8000
 CMD ["python", "-m", "http.server", "8000"]

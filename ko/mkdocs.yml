@@ -1,0 +1,198 @@
+# 설정 상속
+INHERIT: ../mkdocs.yml
+
+site_name: Hello 알고리즘
+site_url: https://www.hello-algo.com/ko/
+site_description: 애니메이션으로 설명하고 클릭 한 번으로 실행하는 자료 구조와 알고리즘 입문서
+docs_dir: ../build/ko/docs
+site_dir: ../site/ko
+edit_uri: tree/main/ko/docs
+version: 1.3.0
+copyright: 저작권 &copy; 2026 krahets<br>웹사이트 콘텐츠에는 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 라이선스가 적용된다
+
+theme:
+  custom_dir: ../build/overrides
+  language: ko
+  font:
+    text: Noto Sans KR
+    code: JetBrains Mono
+  palette:
+    - scheme: default
+      primary: white
+      accent: teal
+      toggle:
+        icon: material/theme-light-dark
+        name: 어두운 테마
+    - scheme: slate
+      primary: black
+      accent: teal
+      toggle:
+        icon: material/theme-light-dark
+        name: 밝은 테마
+
+extra:
+  status:
+    new: 새로 추가됨
+
+markdown_extensions:
+  toc:
+    permalink_title: 고유 링크
+  pymdownx.betterem:
+    smart_enable: underscore
+
+# 페이지 구성
+nav:
+  - 머리말:
+    - chapter_hello_algo/index.md
+  - 제 0 장 &nbsp; 들어가며:
+    # [icon: material/book-open-outline]
+    - chapter_preface/index.md
+    - 0.1 &nbsp; 이 책에 대하여: chapter_preface/about_the_book.md
+    - 0.2 &nbsp; 이 책을 활용하는 방법: chapter_preface/suggestions.md
+    - 0.3 &nbsp; 요약: chapter_preface/summary.md
+  - 제 1 장 &nbsp; 알고리즘과의 첫 만남:
+    # [icon: material/calculator-variant-outline]
+    - chapter_introduction/index.md
+    - 1.1 &nbsp; 어디에나 있는 알고리즘: chapter_introduction/algorithms_are_everywhere.md
+    - 1.2 &nbsp; 알고리즘이란 무엇인가: chapter_introduction/what_is_dsa.md
+    - 1.3 &nbsp; 요약: chapter_introduction/summary.md
+  - 제 2 장 &nbsp; 복잡도 분석:
+    # [icon: material/timer-sand]
+    - chapter_computational_complexity/index.md
+    - 2.1 &nbsp; 알고리즘 효율 평가: chapter_computational_complexity/performance_evaluation.md
+    - 2.2 &nbsp; 반복과 재귀: chapter_computational_complexity/iteration_and_recursion.md
+    - 2.3 &nbsp; 시간 복잡도: chapter_computational_complexity/time_complexity.md
+    - 2.4 &nbsp; 공간 복잡도: chapter_computational_complexity/space_complexity.md
+    - 2.5 &nbsp; 요약: chapter_computational_complexity/summary.md
+    - 2.6 &nbsp; 연습 문제: chapter_computational_complexity/exercises.md
+  - 제 3 장 &nbsp; 자료 구조:
+    # [icon: material/shape-outline]
+    - chapter_data_structure/index.md
+    - 3.1 &nbsp; 자료 구조의 분류: chapter_data_structure/classification_of_data_structure.md
+    - 3.2 &nbsp; 기본 자료형: chapter_data_structure/basic_data_types.md
+    - 3.3 &nbsp; 수의 인코딩 *: chapter_data_structure/number_encoding.md
+    - 3.4 &nbsp; 문자 인코딩 *: chapter_data_structure/character_encoding.md
+    - 3.5 &nbsp; 요약: chapter_data_structure/summary.md
+    - 3.6 &nbsp; 연습 문제: chapter_data_structure/exercises.md
+  - 제 4 장 &nbsp; 배열과 연결 리스트:
+    # [icon: material/view-list-outline]
+    - chapter_array_and_linkedlist/index.md
+    - 4.1 &nbsp; 배열: chapter_array_and_linkedlist/array.md
+    - 4.2 &nbsp; 연결 리스트: chapter_array_and_linkedlist/linked_list.md
+    - 4.3 &nbsp; 리스트: chapter_array_and_linkedlist/list.md
+    - 4.4 &nbsp; 메모리와 캐시 *: chapter_array_and_linkedlist/ram_and_cache.md
+    - 4.5 &nbsp; 요약: chapter_array_and_linkedlist/summary.md
+    - 4.6 &nbsp; 연습 문제: chapter_array_and_linkedlist/exercises.md
+  - 제 5 장 &nbsp; 스택과 큐:
+    # [icon: material/stack-overflow]
+    - chapter_stack_and_queue/index.md
+    - 5.1 &nbsp; 스택: chapter_stack_and_queue/stack.md
+    - 5.2 &nbsp; 큐: chapter_stack_and_queue/queue.md
+    - 5.3 &nbsp; 덱: chapter_stack_and_queue/deque.md
+    - 5.4 &nbsp; 요약: chapter_stack_and_queue/summary.md
+    - 5.5 &nbsp; 연습 문제: chapter_stack_and_queue/exercises.md
+  - 제 6 장 &nbsp; 해시 테이블:
+    # [icon: material/table-search]
+    - chapter_hashing/index.md
+    - 6.1 &nbsp; 해시 테이블: chapter_hashing/hash_map.md
+    - 6.2 &nbsp; 해시 충돌: chapter_hashing/hash_collision.md
+    - 6.3 &nbsp; 해시 알고리즘: chapter_hashing/hash_algorithm.md
+    - 6.4 &nbsp; 요약: chapter_hashing/summary.md
+    - 6.5 &nbsp; 연습 문제: chapter_hashing/exercises.md
+  - 제 7 장 &nbsp; 트리:
+    # [icon: material/graph-outline]
+    - chapter_tree/index.md
+    - 7.1 &nbsp; 이진 트리: chapter_tree/binary_tree.md
+    - 7.2 &nbsp; 이진 트리 순회: chapter_tree/binary_tree_traversal.md
+    - 7.3 &nbsp; 이진 트리의 배열 표현: chapter_tree/array_representation_of_tree.md
+    - 7.4 &nbsp; 이진 탐색 트리: chapter_tree/binary_search_tree.md
+    - 7.5 &nbsp; AVL 트리 *: chapter_tree/avl_tree.md
+    - 7.6 &nbsp; 요약: chapter_tree/summary.md
+    - 7.7 &nbsp; 연습 문제: chapter_tree/exercises.md
+  - 제 8 장 &nbsp; 힙:
+    # [icon: material/family-tree]
+    - chapter_heap/index.md
+    - 8.1 &nbsp; 힙: chapter_heap/heap.md
+    - 8.2 &nbsp; 힙 구성 연산: chapter_heap/build_heap.md
+    - 8.3 &nbsp; Top-k 문제: chapter_heap/top_k.md
+    - 8.4 &nbsp; 요약: chapter_heap/summary.md
+    - 8.5 &nbsp; 연습 문제: chapter_heap/exercises.md
+  - 제 9 장 &nbsp; 그래프:
+    # [icon: material/graphql]
+    - chapter_graph/index.md
+    - 9.1 &nbsp; 그래프: chapter_graph/graph.md
+    - 9.2 &nbsp; 그래프의 기본 연산: chapter_graph/graph_operations.md
+    - 9.3 &nbsp; 그래프 순회: chapter_graph/graph_traversal.md
+    - 9.4 &nbsp; 요약: chapter_graph/summary.md
+    - 9.5 &nbsp; 연습 문제: chapter_graph/exercises.md
+  - 제 10 장 &nbsp; 탐색:
+    # [icon: material/text-search]
+    - chapter_searching/index.md
+    - 10.1 &nbsp; 이진 탐색: chapter_searching/binary_search.md
+    - 10.2 &nbsp; 이진 탐색으로 삽입 위치 찾기: chapter_searching/binary_search_insertion.md
+    - 10.3 &nbsp; 이진 탐색으로 경계 찾기: chapter_searching/binary_search_edge.md
+    - 10.4 &nbsp; 해시를 이용한 최적화 전략: chapter_searching/replace_linear_by_hashing.md
+    - 10.5 &nbsp; 탐색 알고리즘 다시 보기: chapter_searching/searching_algorithm_revisited.md
+    - 10.6 &nbsp; 요약: chapter_searching/summary.md
+    - 10.7 &nbsp; 연습 문제: chapter_searching/exercises.md
+  - 제 11 장 &nbsp; 정렬:
+    # [icon: material/sort-ascending]
+    - chapter_sorting/index.md
+    - 11.1 &nbsp; 정렬 알고리즘: chapter_sorting/sorting_algorithm.md
+    - 11.2 &nbsp; 선택 정렬: chapter_sorting/selection_sort.md
+    - 11.3 &nbsp; 버블 정렬: chapter_sorting/bubble_sort.md
+    - 11.4 &nbsp; 삽입 정렬: chapter_sorting/insertion_sort.md
+    - 11.5 &nbsp; 퀵 정렬: chapter_sorting/quick_sort.md
+    - 11.6 &nbsp; 병합 정렬: chapter_sorting/merge_sort.md
+    - 11.7 &nbsp; 힙 정렬: chapter_sorting/heap_sort.md
+    - 11.8 &nbsp; 버킷 정렬: chapter_sorting/bucket_sort.md
+    - 11.9 &nbsp; 계수 정렬: chapter_sorting/counting_sort.md
+    - 11.10 &nbsp; 기수 정렬: chapter_sorting/radix_sort.md
+    - 11.11 &nbsp; 요약: chapter_sorting/summary.md
+    - 11.12 &nbsp; 연습 문제: chapter_sorting/exercises.md
+  - 제 12 장 &nbsp; 분할 정복:
+    # [icon: material/set-split]
+    - chapter_divide_and_conquer/index.md
+    - 12.1 &nbsp; 분할 정복 알고리즘: chapter_divide_and_conquer/divide_and_conquer.md
+    - 12.2 &nbsp; 분할 정복 탐색 전략: chapter_divide_and_conquer/binary_search_recur.md
+    - 12.3 &nbsp; 이진 트리 구성 문제: chapter_divide_and_conquer/build_binary_tree_problem.md
+    - 12.4 &nbsp; 하노이의 탑 문제: chapter_divide_and_conquer/hanota_problem.md
+    - 12.5 &nbsp; 요약: chapter_divide_and_conquer/summary.md
+    - 12.6 &nbsp; 연습 문제: chapter_divide_and_conquer/exercises.md
+  - 제 13 장 &nbsp; 백트래킹:
+    # [icon: material/map-marker-path]
+    - chapter_backtracking/index.md
+    - 13.1 &nbsp; 백트래킹 알고리즘: chapter_backtracking/backtracking_algorithm.md
+    - 13.2 &nbsp; 모든 순열 문제: chapter_backtracking/permutations_problem.md
+    - 13.3 &nbsp; 부분 집합 합 문제: chapter_backtracking/subset_sum_problem.md
+    - 13.4 &nbsp; n-퀸 문제: chapter_backtracking/n_queens_problem.md
+    - 13.5 &nbsp; 요약: chapter_backtracking/summary.md
+    - 13.6 &nbsp; 연습 문제: chapter_backtracking/exercises.md
+  - 제 14 장 &nbsp; 동적 계획법:
+    # [icon: material/table-pivot]
+    - chapter_dynamic_programming/index.md
+    - 14.1 &nbsp; 동적 계획법 첫걸음: chapter_dynamic_programming/intro_to_dynamic_programming.md
+    - 14.2 &nbsp; 동적 계획법 문제의 특성: chapter_dynamic_programming/dp_problem_features.md
+    - 14.3 &nbsp; 동적 계획법 문제 풀이 방법: chapter_dynamic_programming/dp_solution_pipeline.md
+    - 14.4 &nbsp; 0-1 배낭 문제: chapter_dynamic_programming/knapsack_problem.md
+    - 14.5 &nbsp; 무한 배낭 문제: chapter_dynamic_programming/unbounded_knapsack_problem.md
+    - 14.6 &nbsp; 편집 거리 문제: chapter_dynamic_programming/edit_distance_problem.md
+    - 14.7 &nbsp; 요약: chapter_dynamic_programming/summary.md
+    - 14.8 &nbsp; 연습 문제: chapter_dynamic_programming/exercises.md
+  - 제 15 장 &nbsp; 탐욕:
+    # [icon: material/head-heart-outline]
+    - chapter_greedy/index.md
+    - 15.1 &nbsp; 탐욕 알고리즘: chapter_greedy/greedy_algorithm.md
+    - 15.2 &nbsp; 분할 가능한 배낭 문제: chapter_greedy/fractional_knapsack_problem.md
+    - 15.3 &nbsp; 최대 용량 문제: chapter_greedy/max_capacity_problem.md
+    - 15.4 &nbsp; 정수 분할의 최대 곱 문제: chapter_greedy/max_product_cutting_problem.md
+    - 15.5 &nbsp; 요약: chapter_greedy/summary.md
+    - 15.6 &nbsp; 연습 문제: chapter_greedy/exercises.md
+  - 제 16 장 &nbsp; 부록:
+    # [icon: material/help-circle-outline]
+    - chapter_appendix/index.md
+    - 16.1 &nbsp; 프로그래밍 환경 설치: chapter_appendix/installation.md
+    - 16.2 &nbsp; 함께 만드는 책: chapter_appendix/contribution.md
+    - 16.3 &nbsp; 용어집: chapter_appendix/terminology.md
+  - 참고 문헌:
+    - chapter_reference/index.md

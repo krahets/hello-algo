@@ -9,12 +9,14 @@ on:
       - ".github/workflows/dart.yml"
       - "codes/dart/**/*.dart"
       - "en/codes/dart/**/*.dart"
+      - "ko/codes/dart/**/*.dart"
   pull_request:
     branches: ["main"]
     paths:
       - ".github/workflows/dart.yml"
       - "codes/dart/**/*.dart"
       - "en/codes/dart/**/*.dart"
+      - "ko/codes/dart/**/*.dart"
   workflow_dispatch:
 
 permissions:
@@ -28,7 +30,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         dart-sdk: [stable]
-        code-dir: ["codes/dart", "en/codes/dart"]
+        code-dir: ["codes/dart", "en/codes/dart", "ko/codes/dart"]
     steps:
       - uses: actions/checkout@v6
       - name: Set up Dart ${{ matrix.dart-sdk }}
@@ -39,5 +41,11 @@ jobs:
         run: dart format ${{ matrix.code-dir }}
       - name: Run analyze
         run: dart analyze ${{ matrix.code-dir }}
-      - name: Run build
-        run: dart ${{ matrix.code-dir }}/build.dart
+      - name: Run chapter examples
+        shell: bash
+        run: |
+          status=0
+          for file in "${{ matrix.code-dir }}"/chapter_*/*.dart; do
+            dart "$file" || status=1
+          done
+          exit "$status"
