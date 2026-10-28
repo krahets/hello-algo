@@ -34,6 +34,12 @@ extra:
   status:
     new: 새로 추가됨
 
+markdown_extensions:
+  toc:
+    permalink_title: 고유 링크
+  pymdownx.betterem:
+    smart_enable: underscore
+
 # 페이지 구성
 nav:
   - 머리말:
