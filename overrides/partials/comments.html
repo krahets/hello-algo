@@ -14,6 +14,9 @@
   {% elif config.theme.language == 'ru' %}
     {% set comm = "Оставляйте свои идеи, вопросы и предложения в комментариях" %}
     {% set lang = "ru" %}
+  {% elif config.theme.language == 'ko' %}
+    {% set comm = "댓글로 의견이나 질문, 제안을 남겨 주세요" %}
+    {% set lang = "ko" %}
   {% endif %}
 
   <!-- Check-in button above comments -->
@@ -51,6 +54,23 @@
 
     /* Set palette on initial load */
     giscus.setAttribute("data-theme", getGiscusTheme())
+
+    {% if config.theme.language == 'ko' %}
+    /* The Giscus client creates the iframe asynchronously with an English title. */
+    ;(function() {
+      function labelCommentsFrame() {
+        var frame = document.querySelector("iframe.giscus-frame")
+        if (!frame) return false
+        frame.setAttribute("title", "댓글")
+        return true
+      }
+      if (labelCommentsFrame()) return
+      var observer = new MutationObserver(function() {
+        if (labelCommentsFrame()) observer.disconnect()
+      })
+      observer.observe(giscus.parentElement, { childList: true, subtree: true })
+    })()
+    {% endif %}
 
     /* Register event handlers after documented loaded */
     document.addEventListener("DOMContentLoaded", function() {

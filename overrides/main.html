@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
-{% block announce %}
+{% block announce -%}
+{% if config.theme.language != 'ko' %}
 {% if config.theme.language == 'zh' %}
     {% set announcements = '纸质书已发行，详情请见<a href="/chapter_paperbook/">这里</a>' %}
 {% elif config.theme.language == 'zh-Hant' %}
@@ -20,4 +21,5 @@
     </svg>
     <span>{{ announcements }}</span>
 </div>
-{% endblock %}
+{% endif %}
+{%- endblock %}
