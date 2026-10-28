@@ -27,6 +27,8 @@ jobs:
   build:
     name: Python ${{ matrix.python-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
+    env:
+      PYTHONIOENCODING: utf-8
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
