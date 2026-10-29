@@ -2,57 +2,57 @@
 comments: true
 ---
 
-# 14.2 &nbsp; 動的計画法の問題特性
+# 14.2 &nbsp; 動的計画法の問題の特徴
 
-前節では、動的計画法が部分問題への分解によってどのように元の問題を解くのかを学びました。実際、部分問題への分解は汎用的なアルゴリズムの考え方であり、分割統治法、動的計画法、バックトラッキングでは重視点が異なります。
+前の節では、動的計画法が部分問題への分解によって元の問題を解く仕組みを学びました。部分問題への分解は汎用的な考え方ですが、分割統治、動的計画法、バックトラッキングでは重点が異なります。
 
-- 分割統治法は、元の問題を再帰的に複数の互いに独立した部分問題へ分割し、最小の部分問題に至るまで分解したうえで、バックトラック時に部分問題の解を統合し、最終的に元の問題の解を得ます。
-- 動的計画法も問題を再帰的に分解しますが、分割統治法との主な違いは、動的計画法における部分問題が相互依存しており、分解の過程で多数の重複部分問題が現れることです。
-- バックトラッキング法は、試行と巻き戻しの中ですべての可能な解を列挙し、枝刈りによって不要な探索分岐を避けます。元の問題の解は一連の意思決定ステップから構成されるため、各決定ステップ以前の部分系列を一つの部分問題と見なせます。
+- 分割統治は、元の問題を互いに独立した複数の部分問題へ再帰的に分割し、最小の部分問題まで進みます。その後、戻りながら解を統合し、元の問題の解を得ます。
+- 動的計画法も問題を再帰的に分解します。分割統治との主な違いは、部分問題が互いに依存し、分解の過程で多くの重複した部分問題が現れることです。
+- バックトラッキングは試行と後戻りを繰り返してすべての可能な解を列挙し、枝刈りで不要な探索分岐を避けます。元の問題の解は一連の判断で構成され、各判断の直前までの部分列を一つの部分問題と捉えられます。
 
-実際、動的計画法は最適化問題を解くためによく用いられます。これらは重複部分問題を含むだけでなく、さらに二つの大きな特性、すなわち最適部分構造と無後効性を備えています。
+実際、動的計画法は最適化問題を解くためによく使われます。そうした問題は部分問題の重複に加え、最適部分構造と、後続の判断が過去の経路に依存しない性質という二つの重要な特徴を持ちます。
 
 ## 14.2.1 &nbsp; 最適部分構造
 
-階段昇り問題を少し変更し、最適部分構造の概念をより示しやすくします。
+階段を上る問題を少し変えて、最適部分構造を説明しやすくしてみましょう。
 
-!!! question "階段昇りの最小コスト"
+!!! question "最小コストで階段を上る"
 
-    階段が与えられ、各ステップで $1$ 段または $2$ 段上ることができます。各段には非負整数が貼られており、その段に到達するために支払う必要があるコストを表します。非負整数配列 $cost$ が与えられ、$cost[i]$ は第 $i$ 段で支払うコストを表し、$cost[0]$ は地面（開始地点）です。頂上に到達するために必要な最小コストを求めてください。
+    階段があり、1 回で $1$ 段または $2$ 段上れます。各段には非負の整数が書かれており、その段で支払うコストを表します。非負整数の配列 $cost$ が与えられ、$cost[i]$ は $i$ 段目でのコスト、$cost[0]$ は地面（開始点）に対応します。一番上まで到達するための最小コストを求めてください。
 
-下図に示すように、第 $1$、$2$、$3$ 段のコストがそれぞれ $1$、$10$、$1$ である場合、地面から第 $3$ 段まで上る最小コストは $2$ です。
+図 14-6 のように、$1$、$2$、$3$ 段目のコストがそれぞれ $1$、$10$、$1$ なら、地面から $3$ 段目まで上る最小コストは $2$ です。
 
-![第 3 段まで上る最小コスト](dp_problem_features.assets/min_cost_cs_example.png){ class="animation-figure" }
+![3 段目まで上る最小コスト](dp_problem_features.assets/min_cost_cs_example.png){ class="animation-figure" }
 
-<p align="center"> 図 14-6 &nbsp; 第 3 段まで上る最小コスト </p>
+<p align="center"> 図 14-6 &nbsp; 3 段目まで上る最小コスト </p>
 
-$dp[i]$ を第 $i$ 段まで上るのに累積して支払ったコストとします。第 $i$ 段には $i - 1$ 段または $i - 2$ 段からしか到達できないため、$dp[i]$ は $dp[i - 1] + cost[i]$ または $dp[i - 2] + cost[i]$ のいずれかになります。コストをできるだけ小さくするには、この二つのうち小さいほうを選べばよいです。
+$i$ 段目までの累積コストを $dp[i]$ とします。$i$ 段目には $i - 1$ 段目か $i - 2$ 段目からしか来られないため、$dp[i]$ は $dp[i - 1] + cost[i]$ または $dp[i - 2] + cost[i]$ です。コストをできるだけ小さくするには、二つのうち小さい方を選びます。
 
 $$
 dp[i] = \min(dp[i-1], dp[i-2]) + cost[i]
 $$
 
-ここから最適部分構造の意味を導けます。**元の問題の最適解は、部分問題の最適解から構築される**ということです。
+ここから、最適部分構造の意味がわかります。**元の問題の最適解は、部分問題の最適解から組み立てられる**ということです。
 
-この問題が最適部分構造を持つことは明らかです。二つの部分問題の最適解 $dp[i-1]$ と $dp[i-2]$ からより良いほうを選び、それを用いて元の問題 $dp[i]$ の最適解を構築しています。
+この問題には明らかに最適部分構造があります。二つの部分問題の最適解 $dp[i-1]$ と $dp[i-2]$ からよい方を選び、それを使って元の問題 $dp[i]$ の最適解を組み立てるからです。
 
-では、前節の階段昇り問題には最適部分構造があるのでしょうか。その目的は方法数を求めることで、一見すると計数問題です。しかし問い方を変えて「最大の方法数を求める」とすると、意外にも、**問題の変更前後は等価であるにもかかわらず、最適部分構造が現れます**。すなわち、第 $n$ 段の最大方法数は第 $n-1$ 段と第 $n-2$ 段の最大方法数の和に等しいのです。このように、最適部分構造の解釈は比較的柔軟であり、問題によって意味合いが異なります。
+では、前の節の階段の問題にも最適部分構造はあるのでしょうか。目的は方法の数を求めることで、一見すると数え上げの問題です。しかし「方法の数の最大値を求める」と言い換えると、**問題自体は同じなのに、最適部分構造が見えてきます**。$n$ 段目までの方法の最大数は、$n-1$ 段目と $n-2$ 段目までの方法の最大数の和です。このように、最適部分構造は柔軟に解釈でき、問題によって意味合いが異なります。
 
-状態遷移方程式と初期状態 $dp[1] = cost[1]$ および $dp[2] = cost[2]$ に基づいて、次の動的計画法コードが得られます。
+状態遷移式と、初期状態 $dp[1] = cost[1]$、$dp[2] = cost[2]$ から、動的計画法のコードが得られます。
 
 === "Python"
 
     ```python title="min_cost_climbing_stairs_dp.py"
     def min_cost_climbing_stairs_dp(cost: list[int]) -> int:
-        """階段登りの最小コスト：動的計画法"""
+        """階段を上る最小コスト：動的計画法"""
         n = len(cost) - 1
         if n == 1 or n == 2:
             return cost[n]
-        # 部分問題の解を保存するために dp テーブルを初期化
+        # 部分問題の解を格納する dp テーブルを初期化する
         dp = [0] * (n + 1)
-        # 初期状態：最小部分問題の解をあらかじめ設定
+        # 初期状態：最小の部分問題の解を設定する
         dp[1], dp[2] = cost[1], cost[2]
-        # 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        # 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for i in range(3, n + 1):
             dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
         return dp[n]
@@ -61,17 +61,17 @@ $$
 === "C++"
 
     ```cpp title="min_cost_climbing_stairs_dp.cpp"
-    /* 階段登りの最小コスト：動的計画法 */
+    /* 階段を上る最小コスト：動的計画法 */
     int minCostClimbingStairsDP(vector<int> &cost) {
         int n = cost.size() - 1;
         if (n == 1 || n == 2)
             return cost[n];
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         vector<int> dp(n + 1);
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1] = cost[1];
         dp[2] = cost[2];
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for (int i = 3; i <= n; i++) {
             dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i];
         }
@@ -82,17 +82,17 @@ $$
 === "Java"
 
     ```java title="min_cost_climbing_stairs_dp.java"
-    /* 階段登りの最小コスト：動的計画法 */
+    /* 階段を上る最小コスト：動的計画法 */
     int minCostClimbingStairsDP(int[] cost) {
         int n = cost.length - 1;
         if (n == 1 || n == 2)
             return cost[n];
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         int[] dp = new int[n + 1];
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1] = cost[1];
         dp[2] = cost[2];
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for (int i = 3; i <= n; i++) {
             dp[i] = Math.min(dp[i - 1], dp[i - 2]) + cost[i];
         }
@@ -103,17 +103,17 @@ $$
 === "C#"
 
     ```csharp title="min_cost_climbing_stairs_dp.cs"
-    /* 階段登りの最小コスト：動的計画法 */
+    /* 階段を上る最小コスト：動的計画法 */
     int MinCostClimbingStairsDP(int[] cost) {
         int n = cost.Length - 1;
         if (n == 1 || n == 2)
             return cost[n];
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         int[] dp = new int[n + 1];
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1] = cost[1];
         dp[2] = cost[2];
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for (int i = 3; i <= n; i++) {
             dp[i] = Math.Min(dp[i - 1], dp[i - 2]) + cost[i];
         }
@@ -124,7 +124,7 @@ $$
 === "Go"
 
     ```go title="min_cost_climbing_stairs_dp.go"
-    /* 階段登りの最小コスト：動的計画法 */
+    /* 階段を上る最小コスト：動的計画法 */
     func minCostClimbingStairsDP(cost []int) int {
         n := len(cost) - 1
         if n == 1 || n == 2 {
@@ -136,12 +136,12 @@ $$
             }
             return b
         }
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         dp := make([]int, n+1)
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1] = cost[1]
         dp[2] = cost[2]
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for i := 3; i <= n; i++ {
             dp[i] = min(dp[i-1], dp[i-2]) + cost[i]
         }
@@ -152,18 +152,18 @@ $$
 === "Swift"
 
     ```swift title="min_cost_climbing_stairs_dp.swift"
-    /* 階段登りの最小コスト：動的計画法 */
+    /* 階段を上る最小コスト：動的計画法 */
     func minCostClimbingStairsDP(cost: [Int]) -> Int {
         let n = cost.count - 1
         if n == 1 || n == 2 {
             return cost[n]
         }
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         var dp = Array(repeating: 0, count: n + 1)
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1] = cost[1]
         dp[2] = cost[2]
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for i in 3 ... n {
             dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
         }
@@ -174,18 +174,18 @@ $$
 === "JS"
 
     ```javascript title="min_cost_climbing_stairs_dp.js"
-    /* 階段登りの最小コスト：動的計画法 */
+    /* 階段を上る最小コスト：動的計画法 */
     function minCostClimbingStairsDP(cost) {
         const n = cost.length - 1;
         if (n === 1 || n === 2) {
             return cost[n];
         }
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         const dp = new Array(n + 1);
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1] = cost[1];
         dp[2] = cost[2];
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for (let i = 3; i <= n; i++) {
             dp[i] = Math.min(dp[i - 1], dp[i - 2]) + cost[i];
         }
@@ -196,18 +196,18 @@ $$
 === "TS"
 
     ```typescript title="min_cost_climbing_stairs_dp.ts"
-    /* 階段登りの最小コスト：動的計画法 */
+    /* 階段を上る最小コスト：動的計画法 */
     function minCostClimbingStairsDP(cost: Array<number>): number {
         const n = cost.length - 1;
         if (n === 1 || n === 2) {
             return cost[n];
         }
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         const dp = new Array(n + 1);
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1] = cost[1];
         dp[2] = cost[2];
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for (let i = 3; i <= n; i++) {
             dp[i] = Math.min(dp[i - 1], dp[i - 2]) + cost[i];
         }
@@ -218,16 +218,16 @@ $$
 === "Dart"
 
     ```dart title="min_cost_climbing_stairs_dp.dart"
-    /* 階段登りの最小コスト：動的計画法 */
+    /* 階段を上る最小コスト：動的計画法 */
     int minCostClimbingStairsDP(List<int> cost) {
       int n = cost.length - 1;
       if (n == 1 || n == 2) return cost[n];
-      // 部分問題の解を保存するために dp テーブルを初期化
+      // 部分問題の解を格納する dp テーブルを初期化する
       List<int> dp = List.filled(n + 1, 0);
-      // 初期状態：最小部分問題の解をあらかじめ設定
+      // 初期状態：最小の部分問題の解を設定する
       dp[1] = cost[1];
       dp[2] = cost[2];
-      // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+      // 状態遷移：小さな部分問題から順に大きな部分問題を解く
       for (int i = 3; i <= n; i++) {
         dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i];
       }
@@ -238,18 +238,18 @@ $$
 === "Rust"
 
     ```rust title="min_cost_climbing_stairs_dp.rs"
-    /* 階段登りの最小コスト：動的計画法 */
+    /* 階段を上る最小コスト：動的計画法 */
     fn min_cost_climbing_stairs_dp(cost: &[i32]) -> i32 {
         let n = cost.len() - 1;
         if n == 1 || n == 2 {
             return cost[n];
         }
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         let mut dp = vec![-1; n + 1];
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1] = cost[1];
         dp[2] = cost[2];
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for i in 3..=n {
             dp[i] = cmp::min(dp[i - 1], dp[i - 2]) + cost[i];
         }
@@ -260,17 +260,17 @@ $$
 === "C"
 
     ```c title="min_cost_climbing_stairs_dp.c"
-    /* 階段登りの最小コスト：動的計画法 */
+    /* 階段を上る最小コスト：動的計画法 */
     int minCostClimbingStairsDP(int cost[], int costSize) {
         int n = costSize - 1;
         if (n == 1 || n == 2)
             return cost[n];
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         int *dp = calloc(n + 1, sizeof(int));
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1] = cost[1];
         dp[2] = cost[2];
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for (int i = 3; i <= n; i++) {
             dp[i] = myMin(dp[i - 1], dp[i - 2]) + cost[i];
         }
@@ -284,16 +284,16 @@ $$
 === "Kotlin"
 
     ```kotlin title="min_cost_climbing_stairs_dp.kt"
-    /* 階段登りの最小コスト：動的計画法 */
+    /* 階段を上る最小コスト：動的計画法 */
     fun minCostClimbingStairsDP(cost: IntArray): Int {
         val n = cost.size - 1
         if (n == 1 || n == 2) return cost[n]
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         val dp = IntArray(n + 1)
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1] = cost[1]
         dp[2] = cost[2]
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for (i in 3..n) {
             dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
         }
@@ -304,38 +304,38 @@ $$
 === "Ruby"
 
     ```ruby title="min_cost_climbing_stairs_dp.rb"
-    ### 階段登りの最小コスト：動的計画法 ###
+    ### 階段を上る最小コスト：動的計画法 ###
     def min_cost_climbing_stairs_dp(cost)
       n = cost.length - 1
       return cost[n] if n == 1 || n == 2
-      # 部分問題の解を保存するために dp テーブルを初期化
+      # 部分問題の解を格納する dp テーブルを初期化する
       dp = Array.new(n + 1, 0)
-      # 初期状態：最小部分問題の解をあらかじめ設定
+      # 初期状態：最小の部分問題の解を設定する
       dp[1], dp[2] = cost[1], cost[2]
-      # 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+      # 状態遷移：小さな部分問題から順に大きな部分問題を解く
       (3...(n + 1)).each { |i| dp[i] = [dp[i - 1], dp[i - 2]].min + cost[i] }
       dp[n]
     end
     ```
 
-??? pythontutor "コードの可視化"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20min_cost_climbing_stairs_dp%28cost%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%9A%8E%E6%AE%B5%E7%99%BB%E3%82%8A%E3%81%AE%E6%9C%80%E5%B0%8F%E3%82%B3%E3%82%B9%E3%83%88%EF%BC%9A%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20n%20%3D%20len%28cost%29%20-%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20cost%5Bn%5D%0A%20%20%20%20%23%20%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A7%A3%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB%20dp%20%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20dp%20%3D%20%5B0%5D%20%2A%20%28n%20%2B%201%29%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E7%8A%B6%E6%85%8B%EF%BC%9A%E6%9C%80%E5%B0%8F%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A7%A3%E3%82%92%E3%81%82%E3%82%89%E3%81%8B%E3%81%98%E3%82%81%E8%A8%AD%E5%AE%9A%0A%20%20%20%20dp%5B1%5D%2C%20dp%5B2%5D%20%3D%20cost%5B1%5D%2C%20cost%5B2%5D%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%B0%8F%E3%81%95%E3%81%84%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%8B%E3%82%89%E5%A4%A7%E3%81%8D%E3%81%84%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%B8%E9%A0%86%E3%81%AB%E8%A7%A3%E3%81%8F%0A%20%20%20%20for%20i%20in%20range%283%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%20%3D%20min%28dp%5Bi%20-%201%5D%2C%20dp%5Bi%20-%202%5D%29%20%2B%20cost%5Bi%5D%0A%20%20%20%20return%20dp%5Bn%5D%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20cost%20%3D%20%5B0%2C%201%2C%2010%2C%201%2C%201%2C%201%2C%2010%2C%201%2C%201%2C%2010%2C%201%5D%0A%20%20%20%20print%28f%22%E5%85%A5%E5%8A%9B%E3%81%95%E3%82%8C%E3%81%9F%E9%9A%8E%E6%AE%B5%E3%82%B3%E3%82%B9%E3%83%88%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AF%20%7Bcost%7D%22%29%0A%0A%20%20%20%20res%20%3D%20min_cost_climbing_stairs_dp%28cost%29%0A%20%20%20%20print%28f%22%E9%9A%8E%E6%AE%B5%E3%82%92%E4%B8%8A%E3%82%8A%E5%88%87%E3%82%8B%E6%9C%80%E5%B0%8F%E3%82%B3%E3%82%B9%E3%83%88%E3%81%AF%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20min_cost_climbing_stairs_dp%28cost%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%9A%8E%E6%AE%B5%E7%99%BB%E3%82%8A%E3%81%AE%E6%9C%80%E5%B0%8F%E3%82%B3%E3%82%B9%E3%83%88%EF%BC%9A%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20n%20%3D%20len%28cost%29%20-%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20cost%5Bn%5D%0A%20%20%20%20%23%20%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A7%A3%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB%20dp%20%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20dp%20%3D%20%5B0%5D%20%2A%20%28n%20%2B%201%29%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E7%8A%B6%E6%85%8B%EF%BC%9A%E6%9C%80%E5%B0%8F%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A7%A3%E3%82%92%E3%81%82%E3%82%89%E3%81%8B%E3%81%98%E3%82%81%E8%A8%AD%E5%AE%9A%0A%20%20%20%20dp%5B1%5D%2C%20dp%5B2%5D%20%3D%20cost%5B1%5D%2C%20cost%5B2%5D%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%B0%8F%E3%81%95%E3%81%84%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%8B%E3%82%89%E5%A4%A7%E3%81%8D%E3%81%84%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%B8%E9%A0%86%E3%81%AB%E8%A7%A3%E3%81%8F%0A%20%20%20%20for%20i%20in%20range%283%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%20%3D%20min%28dp%5Bi%20-%201%5D%2C%20dp%5Bi%20-%202%5D%29%20%2B%20cost%5Bi%5D%0A%20%20%20%20return%20dp%5Bn%5D%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20cost%20%3D%20%5B0%2C%201%2C%2010%2C%201%2C%201%2C%201%2C%2010%2C%201%2C%201%2C%2010%2C%201%5D%0A%20%20%20%20print%28f%22%E5%85%A5%E5%8A%9B%E3%81%95%E3%82%8C%E3%81%9F%E9%9A%8E%E6%AE%B5%E3%82%B3%E3%82%B9%E3%83%88%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AF%20%7Bcost%7D%22%29%0A%0A%20%20%20%20res%20%3D%20min_cost_climbing_stairs_dp%28cost%29%0A%20%20%20%20print%28f%22%E9%9A%8E%E6%AE%B5%E3%82%92%E4%B8%8A%E3%82%8A%E5%88%87%E3%82%8B%E6%9C%80%E5%B0%8F%E3%82%B3%E3%82%B9%E3%83%88%E3%81%AF%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20min_cost_climbing_stairs_dp%28cost%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%9A%8E%E6%AE%B5%E3%82%92%E4%B8%8A%E3%82%8B%E6%9C%80%E5%B0%8F%E3%82%B3%E3%82%B9%E3%83%88%EF%BC%9A%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20n%20%3D%20len%28cost%29%20-%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20cost%5Bn%5D%0A%20%20%20%20%23%20%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A7%A3%E3%82%92%E6%A0%BC%E7%B4%8D%E3%81%99%E3%82%8B%20dp%20%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20dp%20%3D%20%5B0%5D%20%2A%20%28n%20%2B%201%29%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E7%8A%B6%E6%85%8B%EF%BC%9A%E6%9C%80%E5%B0%8F%E3%81%AE%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A7%A3%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20dp%5B1%5D,%20dp%5B2%5D%20%3D%20cost%5B1%5D,%20cost%5B2%5D%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%B0%8F%E3%81%95%E3%81%AA%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%8B%E3%82%89%E9%A0%86%E3%81%AB%E5%A4%A7%E3%81%8D%E3%81%AA%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%82%92%E8%A7%A3%E3%81%8F%0A%20%20%20%20for%20i%20in%20range%283,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%20%3D%20min%28dp%5Bi%20-%201%5D,%20dp%5Bi%20-%202%5D%29%20%2B%20cost%5Bi%5D%0A%20%20%20%20return%20dp%5Bn%5D%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20cost%20%3D%20%5B0,%201,%2010,%201,%201,%201,%2010,%201,%201,%2010,%201%5D%0A%20%20%20%20print%28f%22%E5%85%A5%E5%8A%9B%E3%81%97%E3%81%9F%E9%9A%8E%E6%AE%B5%E3%81%AE%E3%82%B3%E3%82%B9%E3%83%88%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AF%20%7Bcost%7D%22%29%0A%0A%20%20%20%20res%20%3D%20min_cost_climbing_stairs_dp%28cost%29%0A%20%20%20%20print%28f%22%E9%9A%8E%E6%AE%B5%E3%82%92%E4%B8%8A%E3%82%8A%E7%B5%82%E3%81%88%E3%82%8B%E6%9C%80%E5%B0%8F%E3%82%B3%E3%82%B9%E3%83%88%E3%81%AF%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20min_cost_climbing_stairs_dp%28cost%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%9A%8E%E6%AE%B5%E3%82%92%E4%B8%8A%E3%82%8B%E6%9C%80%E5%B0%8F%E3%82%B3%E3%82%B9%E3%83%88%EF%BC%9A%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20n%20%3D%20len%28cost%29%20-%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20cost%5Bn%5D%0A%20%20%20%20%23%20%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A7%A3%E3%82%92%E6%A0%BC%E7%B4%8D%E3%81%99%E3%82%8B%20dp%20%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20dp%20%3D%20%5B0%5D%20%2A%20%28n%20%2B%201%29%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E7%8A%B6%E6%85%8B%EF%BC%9A%E6%9C%80%E5%B0%8F%E3%81%AE%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A7%A3%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20dp%5B1%5D,%20dp%5B2%5D%20%3D%20cost%5B1%5D,%20cost%5B2%5D%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%B0%8F%E3%81%95%E3%81%AA%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%8B%E3%82%89%E9%A0%86%E3%81%AB%E5%A4%A7%E3%81%8D%E3%81%AA%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%82%92%E8%A7%A3%E3%81%8F%0A%20%20%20%20for%20i%20in%20range%283,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%20%3D%20min%28dp%5Bi%20-%201%5D,%20dp%5Bi%20-%202%5D%29%20%2B%20cost%5Bi%5D%0A%20%20%20%20return%20dp%5Bn%5D%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20cost%20%3D%20%5B0,%201,%2010,%201,%201,%201,%2010,%201,%201,%2010,%201%5D%0A%20%20%20%20print%28f%22%E5%85%A5%E5%8A%9B%E3%81%97%E3%81%9F%E9%9A%8E%E6%AE%B5%E3%81%AE%E3%82%B3%E3%82%B9%E3%83%88%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AF%20%7Bcost%7D%22%29%0A%0A%20%20%20%20res%20%3D%20min_cost_climbing_stairs_dp%28cost%29%0A%20%20%20%20print%28f%22%E9%9A%8E%E6%AE%B5%E3%82%92%E4%B8%8A%E3%82%8A%E7%B5%82%E3%81%88%E3%82%8B%E6%9C%80%E5%B0%8F%E3%82%B3%E3%82%B9%E3%83%88%E3%81%AF%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-下図は上記コードの動的計画法の過程を示しています。
+図 14-7 に、上のコードによる動的計画法の流れを示します。
 
-![階段昇り最小コストの動的計画法の過程](dp_problem_features.assets/min_cost_cs_dp.png){ class="animation-figure" }
+![最小コストで階段を上る動的計画法の流れ](dp_problem_features.assets/min_cost_cs_dp.png){ class="animation-figure" }
 
-<p align="center"> 図 14-7 &nbsp; 階段昇り最小コストの動的計画法の過程 </p>
+<p align="center"> 図 14-7 &nbsp; 最小コストで階段を上る動的計画法の流れ </p>
 
-この問題では空間最適化も可能であり、一次元をゼロ次元まで圧縮することで、空間計算量を $O(n)$ から $O(1)$ に削減できます。
+この問題も、一次元を零次元に圧縮する空間最適化により、空間計算量を $O(n)$ から $O(1)$ に下げられます。
 
 === "Python"
 
     ```python title="min_cost_climbing_stairs_dp.py"
     def min_cost_climbing_stairs_dp_comp(cost: list[int]) -> int:
-        """階段昇りの最小コスト：空間最適化後の動的計画法"""
+        """階段を上る最小コスト：空間を最適化した動的計画法"""
         n = len(cost) - 1
         if n == 1 or n == 2:
             return cost[n]
@@ -348,7 +348,7 @@ $$
 === "C++"
 
     ```cpp title="min_cost_climbing_stairs_dp.cpp"
-    /* 階段昇りの最小コスト：空間最適化後の動的計画法 */
+    /* 階段を上る最小コスト：空間を最適化した動的計画法 */
     int minCostClimbingStairsDPComp(vector<int> &cost) {
         int n = cost.size() - 1;
         if (n == 1 || n == 2)
@@ -366,7 +366,7 @@ $$
 === "Java"
 
     ```java title="min_cost_climbing_stairs_dp.java"
-    /* 階段昇りの最小コスト：空間最適化後の動的計画法 */
+    /* 階段を上る最小コスト：空間を最適化した動的計画法 */
     int minCostClimbingStairsDPComp(int[] cost) {
         int n = cost.length - 1;
         if (n == 1 || n == 2)
@@ -384,7 +384,7 @@ $$
 === "C#"
 
     ```csharp title="min_cost_climbing_stairs_dp.cs"
-    /* 階段昇りの最小コスト：空間最適化後の動的計画法 */
+    /* 階段を上る最小コスト：空間を最適化した動的計画法 */
     int MinCostClimbingStairsDPComp(int[] cost) {
         int n = cost.Length - 1;
         if (n == 1 || n == 2)
@@ -402,7 +402,7 @@ $$
 === "Go"
 
     ```go title="min_cost_climbing_stairs_dp.go"
-    /* 階段昇りの最小コスト：空間最適化後の動的計画法 */
+    /* 階段を上る最小コスト：空間を最適化した動的計画法 */
     func minCostClimbingStairsDPComp(cost []int) int {
         n := len(cost) - 1
         if n == 1 || n == 2 {
@@ -414,9 +414,9 @@ $$
             }
             return b
         }
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         a, b := cost[1], cost[2]
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for i := 3; i <= n; i++ {
             tmp := b
             b = min(a, tmp) + cost[i]
@@ -429,7 +429,7 @@ $$
 === "Swift"
 
     ```swift title="min_cost_climbing_stairs_dp.swift"
-    /* 階段昇りの最小コスト：空間最適化後の動的計画法 */
+    /* 階段を上る最小コスト：空間を最適化した動的計画法 */
     func minCostClimbingStairsDPComp(cost: [Int]) -> Int {
         let n = cost.count - 1
         if n == 1 || n == 2 {
@@ -446,7 +446,7 @@ $$
 === "JS"
 
     ```javascript title="min_cost_climbing_stairs_dp.js"
-    /* 階段昇りの最小コスト：空間最適化後の動的計画法 */
+    /* 階段を上る最小コスト：空間を最適化した動的計画法 */
     function minCostClimbingStairsDPComp(cost) {
         const n = cost.length - 1;
         if (n === 1 || n === 2) {
@@ -466,7 +466,7 @@ $$
 === "TS"
 
     ```typescript title="min_cost_climbing_stairs_dp.ts"
-    /* 階段昇りの最小コスト：空間最適化後の動的計画法 */
+    /* 階段を上る最小コスト：空間を最適化した動的計画法 */
     function minCostClimbingStairsDPComp(cost: Array<number>): number {
         const n = cost.length - 1;
         if (n === 1 || n === 2) {
@@ -486,7 +486,7 @@ $$
 === "Dart"
 
     ```dart title="min_cost_climbing_stairs_dp.dart"
-    /* 階段昇りの最小コスト：空間最適化後の動的計画法 */
+    /* 階段を上る最小コスト：空間を最適化した動的計画法 */
     int minCostClimbingStairsDPComp(List<int> cost) {
       int n = cost.length - 1;
       if (n == 1 || n == 2) return cost[n];
@@ -503,7 +503,7 @@ $$
 === "Rust"
 
     ```rust title="min_cost_climbing_stairs_dp.rs"
-    /* 階段昇りの最小コスト：空間最適化後の動的計画法 */
+    /* 階段を上る最小コスト：空間を最適化した動的計画法 */
     fn min_cost_climbing_stairs_dp_comp(cost: &[i32]) -> i32 {
         let n = cost.len() - 1;
         if n == 1 || n == 2 {
@@ -522,7 +522,7 @@ $$
 === "C"
 
     ```c title="min_cost_climbing_stairs_dp.c"
-    /* 階段昇りの最小コスト：空間最適化後の動的計画法 */
+    /* 階段を上る最小コスト：空間を最適化した動的計画法 */
     int minCostClimbingStairsDPComp(int cost[], int costSize) {
         int n = costSize - 1;
         if (n == 1 || n == 2)
@@ -540,7 +540,7 @@ $$
 === "Kotlin"
 
     ```kotlin title="min_cost_climbing_stairs_dp.kt"
-    /* 階段昇りの最小コスト：空間最適化後の動的計画法 */
+    /* 階段を上る最小コスト：空間を最適化した動的計画法 */
     fun minCostClimbingStairsDPComp(cost: IntArray): Int {
         val n = cost.size - 1
         if (n == 1 || n == 2) return cost[n]
@@ -558,20 +558,20 @@ $$
 === "Ruby"
 
     ```ruby title="min_cost_climbing_stairs_dp.rb"
-    ### 階段登りの最小コスト：動的計画法 ###
+    ### 階段を上る最小コスト：動的計画法 ###
     def min_cost_climbing_stairs_dp(cost)
       n = cost.length - 1
       return cost[n] if n == 1 || n == 2
-      # 部分問題の解を保存するために dp テーブルを初期化
+      # 部分問題の解を格納する dp テーブルを初期化する
       dp = Array.new(n + 1, 0)
-      # 初期状態：最小部分問題の解をあらかじめ設定
+      # 初期状態：最小の部分問題の解を設定する
       dp[1], dp[2] = cost[1], cost[2]
-      # 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+      # 状態遷移：小さな部分問題から順に大きな部分問題を解く
       (3...(n + 1)).each { |i| dp[i] = [dp[i - 1], dp[i - 2]].min + cost[i] }
       dp[n]
     end
 
-    # 階段昇りの最小コスト：空間最適化後の動的計画法
+    # 階段を上る最小コスト：空間を最適化した動的計画法
     def min_cost_climbing_stairs_dp_comp(cost)
       n = cost.length - 1
       return cost[n] if n == 1 || n == 2
@@ -581,39 +581,39 @@ $$
     end
     ```
 
-??? pythontutor "コードの可視化"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 495px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20min_cost_climbing_stairs_dp_comp%28cost%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%9A%8E%E6%AE%B5%E6%98%87%E3%82%8A%E3%81%AE%E6%9C%80%E5%B0%8F%E3%82%B3%E3%82%B9%E3%83%88%EF%BC%9A%E7%A9%BA%E9%96%93%E6%9C%80%E9%81%A9%E5%8C%96%E5%BE%8C%E3%81%AE%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20n%20%3D%20len%28cost%29%20-%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20cost%5Bn%5D%0A%20%20%20%20a%2C%20b%20%3D%20cost%5B1%5D%2C%20cost%5B2%5D%0A%20%20%20%20for%20i%20in%20range%283%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20a%2C%20b%20%3D%20b%2C%20min%28a%2C%20b%29%20%2B%20cost%5Bi%5D%0A%20%20%20%20return%20b%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20cost%20%3D%20%5B0%2C%201%2C%2010%2C%201%2C%201%2C%201%2C%2010%2C%201%2C%201%2C%2010%2C%201%5D%0A%20%20%20%20print%28f%22%E5%85%A5%E5%8A%9B%E3%81%95%E3%82%8C%E3%81%9F%E9%9A%8E%E6%AE%B5%E3%82%B3%E3%82%B9%E3%83%88%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AF%20%7Bcost%7D%22%29%0A%0A%20%20%20%20res%20%3D%20min_cost_climbing_stairs_dp_comp%28cost%29%0A%20%20%20%20print%28f%22%E9%9A%8E%E6%AE%B5%E3%82%92%E4%B8%8A%E3%82%8A%E5%88%87%E3%82%8B%E6%9C%80%E5%B0%8F%E3%82%B3%E3%82%B9%E3%83%88%E3%81%AF%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20min_cost_climbing_stairs_dp_comp%28cost%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%9A%8E%E6%AE%B5%E6%98%87%E3%82%8A%E3%81%AE%E6%9C%80%E5%B0%8F%E3%82%B3%E3%82%B9%E3%83%88%EF%BC%9A%E7%A9%BA%E9%96%93%E6%9C%80%E9%81%A9%E5%8C%96%E5%BE%8C%E3%81%AE%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20n%20%3D%20len%28cost%29%20-%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20cost%5Bn%5D%0A%20%20%20%20a%2C%20b%20%3D%20cost%5B1%5D%2C%20cost%5B2%5D%0A%20%20%20%20for%20i%20in%20range%283%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20a%2C%20b%20%3D%20b%2C%20min%28a%2C%20b%29%20%2B%20cost%5Bi%5D%0A%20%20%20%20return%20b%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20cost%20%3D%20%5B0%2C%201%2C%2010%2C%201%2C%201%2C%201%2C%2010%2C%201%2C%201%2C%2010%2C%201%5D%0A%20%20%20%20print%28f%22%E5%85%A5%E5%8A%9B%E3%81%95%E3%82%8C%E3%81%9F%E9%9A%8E%E6%AE%B5%E3%82%B3%E3%82%B9%E3%83%88%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AF%20%7Bcost%7D%22%29%0A%0A%20%20%20%20res%20%3D%20min_cost_climbing_stairs_dp_comp%28cost%29%0A%20%20%20%20print%28f%22%E9%9A%8E%E6%AE%B5%E3%82%92%E4%B8%8A%E3%82%8A%E5%88%87%E3%82%8B%E6%9C%80%E5%B0%8F%E3%82%B3%E3%82%B9%E3%83%88%E3%81%AF%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 513px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20min_cost_climbing_stairs_dp_comp%28cost%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%9A%8E%E6%AE%B5%E3%82%92%E4%B8%8A%E3%82%8B%E6%9C%80%E5%B0%8F%E3%82%B3%E3%82%B9%E3%83%88%EF%BC%9A%E7%A9%BA%E9%96%93%E3%82%92%E6%9C%80%E9%81%A9%E5%8C%96%E3%81%97%E3%81%9F%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20n%20%3D%20len%28cost%29%20-%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20cost%5Bn%5D%0A%20%20%20%20a,%20b%20%3D%20cost%5B1%5D,%20cost%5B2%5D%0A%20%20%20%20for%20i%20in%20range%283,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20a,%20b%20%3D%20b,%20min%28a,%20b%29%20%2B%20cost%5Bi%5D%0A%20%20%20%20return%20b%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20cost%20%3D%20%5B0,%201,%2010,%201,%201,%201,%2010,%201,%201,%2010,%201%5D%0A%20%20%20%20print%28f%22%E5%85%A5%E5%8A%9B%E3%81%97%E3%81%9F%E9%9A%8E%E6%AE%B5%E3%81%AE%E3%82%B3%E3%82%B9%E3%83%88%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AF%20%7Bcost%7D%22%29%0A%0A%20%20%20%20res%20%3D%20min_cost_climbing_stairs_dp_comp%28cost%29%0A%20%20%20%20print%28f%22%E9%9A%8E%E6%AE%B5%E3%82%92%E4%B8%8A%E3%82%8A%E7%B5%82%E3%81%88%E3%82%8B%E6%9C%80%E5%B0%8F%E3%82%B3%E3%82%B9%E3%83%88%E3%81%AF%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20min_cost_climbing_stairs_dp_comp%28cost%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%9A%8E%E6%AE%B5%E3%82%92%E4%B8%8A%E3%82%8B%E6%9C%80%E5%B0%8F%E3%82%B3%E3%82%B9%E3%83%88%EF%BC%9A%E7%A9%BA%E9%96%93%E3%82%92%E6%9C%80%E9%81%A9%E5%8C%96%E3%81%97%E3%81%9F%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20n%20%3D%20len%28cost%29%20-%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20cost%5Bn%5D%0A%20%20%20%20a,%20b%20%3D%20cost%5B1%5D,%20cost%5B2%5D%0A%20%20%20%20for%20i%20in%20range%283,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20a,%20b%20%3D%20b,%20min%28a,%20b%29%20%2B%20cost%5Bi%5D%0A%20%20%20%20return%20b%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20cost%20%3D%20%5B0,%201,%2010,%201,%201,%201,%2010,%201,%201,%2010,%201%5D%0A%20%20%20%20print%28f%22%E5%85%A5%E5%8A%9B%E3%81%97%E3%81%9F%E9%9A%8E%E6%AE%B5%E3%81%AE%E3%82%B3%E3%82%B9%E3%83%88%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AF%20%7Bcost%7D%22%29%0A%0A%20%20%20%20res%20%3D%20min_cost_climbing_stairs_dp_comp%28cost%29%0A%20%20%20%20print%28f%22%E9%9A%8E%E6%AE%B5%E3%82%92%E4%B8%8A%E3%82%8A%E7%B5%82%E3%81%88%E3%82%8B%E6%9C%80%E5%B0%8F%E3%82%B3%E3%82%B9%E3%83%88%E3%81%AF%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-## 14.2.2 &nbsp; 無後効性
+## 14.2.2 &nbsp; 後続の判断が過去の経路に依存しない性質
 
-無後効性は、動的計画法が問題を効率よく解ける重要な特性の一つであり、その定義は次のとおりです。**ある確定した状態が与えられたとき、その後の発展は現在の状態のみに依存し、過去に経たすべての状態には依存しない**。
+動的計画法が問題を効率よく解くうえで重要なのが、後続の判断が過去の経路に依存しない性質です。これは、**ある状態が決まれば、その後の展開は現在の状態だけで決まり、そこまでに通ったすべての状態には依存しない**ことを意味します。
 
-階段昇り問題を例にすると、状態 $i$ が与えられたとき、そこから状態 $i+1$ と状態 $i+2$ へ発展し、それぞれ $1$ 段進む場合と $2$ 段進む場合に対応します。この二つの選択を行う際、状態 $i$ より前の状態を考慮する必要はなく、それらは状態 $i$ の将来に影響を与えません。
+階段の問題では、状態 $i$ から状態 $i+1$ または $i+2$ に進めます。これは、それぞれ $1$ 段または $2$ 段上る選択です。どちらを選ぶときも、$i$ より前の状態を考慮する必要はなく、過去の状態は $i$ から先の展開に影響しません。
 
-しかし、階段昇り問題に制約を一つ追加すると、状況は変わります。
+しかし、階段の問題に制約を一つ加えると、事情が変わります。
 
-!!! question "制約付き階段昇り"
+!!! question "制約付きの階段上り"
 
-    全部で $n$ 段ある階段が与えられ、各ステップで $1$ 段または $2$ 段上ることができます。**ただし、連続する 2 回で $1$ 段ずつ上ることはできません**。頂上まで上る方法は何通りあるでしょうか。
+    $n$ 段の階段があります。1 回で $1$ 段または $2$ 段上れますが、**$1$ 段ずつ上ることを 2 回連続では行えません**。一番上まで上る方法は何通りありますか。
 
-下図に示すように、第 $3$ 段まで上る実行可能な方法は $2$ 通りしか残りません。そのうち、$1$ 段ずつ 3 回連続で上る方法は制約を満たさないため除外されます。
+図 14-8 のように、$3$ 段目まで上る有効な方法は $2$ 通りだけになります。$1$ 段ずつ 3 回続けて上る方法は制約を満たさないため、除外されます。
 
-![制約付きで第 3 段まで上る方法数](dp_problem_features.assets/climbing_stairs_constraint_example.png){ class="animation-figure" }
+![制約付きで 3 段目まで上る方法の数](dp_problem_features.assets/climbing_stairs_constraint_example.png){ class="animation-figure" }
 
-<p align="center"> 図 14-8 &nbsp; 制約付きで第 3 段まで上る方法数 </p>
+<p align="center"> 図 14-8 &nbsp; 制約付きで 3 段目まで上る方法の数 </p>
 
-この問題では、前回が $1$ 段上りだった場合、次回は必ず $2$ 段上らなければなりません。これは、**次の一手が現在の状態（現在いる階段の段数）だけでは独立に決まらず、一つ前の状態（前回いた段数）にも関係する**ことを意味します。
+この問題では、前回 $1$ 段上ったなら、次は必ず $2$ 段上る必要があります。つまり、**次の選択は現在の状態（現在の段数）だけでは決まらず、一つ前の状態（前回いた段数）にも依存します**。
 
-容易に分かるように、この問題はもはや無後効性を満たしておらず、状態遷移方程式 $dp[i] = dp[i-1] + dp[i-2]$ も成立しません。というのも、$dp[i-1]$ は今回 $1$ 段上る場合を表しますが、その中には「前回も $1$ 段上ってきた」方法が多数含まれており、制約を満たすためには $dp[i-1]$ をそのまま $dp[i]$ に加えることができないからです。
+この状態の定義では、過去の経路に依存しない性質が成り立たず、状態遷移式 $dp[i] = dp[i-1] + dp[i-2]$ も使えません。$dp[i-1]$ は今回 $1$ 段上る場合に対応しますが、その中には「前回も $1$ 段上った」方法が多数含まれます。制約を満たすためには、$dp[i-1]$ をそのまま $dp[i]$ に加えられません。
 
-このため、状態定義を拡張する必要があります。**状態 $[i, j]$ は、第 $i$ 段にいて前回に $j$ 段上ったことを表す**とし、ここで $j \in \{1, 2\}$ です。この状態定義により、前回が $1$ 段上りか $2$ 段上りかを有効に区別でき、現在の状態がどこから来たのかを判断できます。
+そこで状態の定義を拡張し、**状態 $[i, j]$ を、現在 $i$ 段目にいて、前回 $j$ 段上った状態**とします。ここで $j \in \{1, 2\}$ です。この定義なら、前回上ったのが $1$ 段か $2$ 段かを区別でき、現在の状態がどこから来たかを判断できます。
 
-- 前回に $1$ 段上った場合、その前の回は $2$ 段上りしか選べないため、$dp[i, 1]$ は $dp[i-1, 2]$ からのみ遷移できます。
-- 前回に $2$ 段上った場合、その前の回は $1$ 段上りまたは $2$ 段上りを選べるため、$dp[i, 2]$ は $dp[i-2, 1]$ または $dp[i-2, 2]$ から遷移できます。
+- 前回 $1$ 段上ったなら、その前は $2$ 段しか選べません。したがって、$dp[i, 1]$ には $dp[i-1, 2]$ からだけ遷移できます。
+- 前回 $2$ 段上ったなら、その前は $1$ 段でも $2$ 段でもかまいません。したがって、$dp[i, 2]$ には $dp[i-2, 1]$ または $dp[i-2, 2]$ から遷移できます。
 
-下図に示すように、この定義のもとでは $dp[i, j]$ は状態 $[i, j]$ に対応する方法数を表します。このとき状態遷移方程式は次のようになります。
+図 14-9 のように、$dp[i, j]$ を状態 $[i, j]$ に対応する方法の数とすると、状態遷移式は次のようになります。
 
 $$
 \begin{cases}
@@ -622,25 +622,25 @@ dp[i, 2] = dp[i-2, 1] + dp[i-2, 2]
 \end{cases}
 $$
 
-![制約を考慮した漸化関係](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.png){ class="animation-figure" }
+![制約を考慮した漸化式](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.png){ class="animation-figure" }
 
-<p align="center"> 図 14-9 &nbsp; 制約を考慮した漸化関係 </p>
+<p align="center"> 図 14-9 &nbsp; 制約を考慮した漸化式 </p>
 
-最終的に、$dp[n, 1] + dp[n, 2]$ を返せば十分であり、その和が第 $n$ 段まで上る方法の総数を表します。
+最後に $dp[n, 1] + dp[n, 2]$ を返します。この和が、$n$ 段目まで上る方法の総数です。
 
 === "Python"
 
     ```python title="climbing_stairs_constraint_dp.py"
     def climbing_stairs_constraint_dp(n: int) -> int:
-        """制約付き階段登り：動的計画法"""
+        """制約付きの階段の上り方：動的計画法"""
         if n == 1 or n == 2:
             return 1
-        # 部分問題の解を保存するために dp テーブルを初期化
+        # 部分問題の解を格納する dp テーブルを初期化する
         dp = [[0] * 3 for _ in range(n + 1)]
-        # 初期状態：最小部分問題の解をあらかじめ設定
+        # 初期状態：最小の部分問題の解を設定する
         dp[1][1], dp[1][2] = 1, 0
         dp[2][1], dp[2][2] = 0, 1
-        # 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        # 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for i in range(3, n + 1):
             dp[i][1] = dp[i - 1][2]
             dp[i][2] = dp[i - 2][1] + dp[i - 2][2]
@@ -650,19 +650,19 @@ $$
 === "C++"
 
     ```cpp title="climbing_stairs_constraint_dp.cpp"
-    /* 制約付き階段登り：動的計画法 */
+    /* 制約付きの階段の上り方：動的計画法 */
     int climbingStairsConstraintDP(int n) {
         if (n == 1 || n == 2) {
             return 1;
         }
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         vector<vector<int>> dp(n + 1, vector<int>(3, 0));
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1][1] = 1;
         dp[1][2] = 0;
         dp[2][1] = 0;
         dp[2][2] = 1;
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for (int i = 3; i <= n; i++) {
             dp[i][1] = dp[i - 1][2];
             dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
@@ -674,19 +674,19 @@ $$
 === "Java"
 
     ```java title="climbing_stairs_constraint_dp.java"
-    /* 制約付き階段登り：動的計画法 */
+    /* 制約付きの階段の上り方：動的計画法 */
     int climbingStairsConstraintDP(int n) {
         if (n == 1 || n == 2) {
             return 1;
         }
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         int[][] dp = new int[n + 1][3];
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1][1] = 1;
         dp[1][2] = 0;
         dp[2][1] = 0;
         dp[2][2] = 1;
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for (int i = 3; i <= n; i++) {
             dp[i][1] = dp[i - 1][2];
             dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
@@ -698,19 +698,19 @@ $$
 === "C#"
 
     ```csharp title="climbing_stairs_constraint_dp.cs"
-    /* 制約付き階段登り：動的計画法 */
+    /* 制約付きの階段の上り方：動的計画法 */
     int ClimbingStairsConstraintDP(int n) {
         if (n == 1 || n == 2) {
             return 1;
         }
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         int[,] dp = new int[n + 1, 3];
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1, 1] = 1;
         dp[1, 2] = 0;
         dp[2, 1] = 0;
         dp[2, 2] = 1;
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for (int i = 3; i <= n; i++) {
             dp[i, 1] = dp[i - 1, 2];
             dp[i, 2] = dp[i - 2, 1] + dp[i - 2, 2];
@@ -722,19 +722,19 @@ $$
 === "Go"
 
     ```go title="climbing_stairs_constraint_dp.go"
-    /* 制約付き階段登り：動的計画法 */
+    /* 制約付きの階段の上り方：動的計画法 */
     func climbingStairsConstraintDP(n int) int {
         if n == 1 || n == 2 {
             return 1
         }
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         dp := make([][3]int, n+1)
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1][1] = 1
         dp[1][2] = 0
         dp[2][1] = 0
         dp[2][2] = 1
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for i := 3; i <= n; i++ {
             dp[i][1] = dp[i-1][2]
             dp[i][2] = dp[i-2][1] + dp[i-2][2]
@@ -746,19 +746,19 @@ $$
 === "Swift"
 
     ```swift title="climbing_stairs_constraint_dp.swift"
-    /* 制約付き階段登り：動的計画法 */
+    /* 制約付きの階段の上り方：動的計画法 */
     func climbingStairsConstraintDP(n: Int) -> Int {
         if n == 1 || n == 2 {
             return 1
         }
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         var dp = Array(repeating: Array(repeating: 0, count: 3), count: n + 1)
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1][1] = 1
         dp[1][2] = 0
         dp[2][1] = 0
         dp[2][2] = 1
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for i in 3 ... n {
             dp[i][1] = dp[i - 1][2]
             dp[i][2] = dp[i - 2][1] + dp[i - 2][2]
@@ -770,19 +770,19 @@ $$
 === "JS"
 
     ```javascript title="climbing_stairs_constraint_dp.js"
-    /* 制約付き階段登り：動的計画法 */
+    /* 制約付きの階段の上り方：動的計画法 */
     function climbingStairsConstraintDP(n) {
         if (n === 1 || n === 2) {
             return 1;
         }
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         const dp = Array.from(new Array(n + 1), () => new Array(3));
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1][1] = 1;
         dp[1][2] = 0;
         dp[2][1] = 0;
         dp[2][2] = 1;
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for (let i = 3; i <= n; i++) {
             dp[i][1] = dp[i - 1][2];
             dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
@@ -794,19 +794,19 @@ $$
 === "TS"
 
     ```typescript title="climbing_stairs_constraint_dp.ts"
-    /* 制約付き階段登り：動的計画法 */
+    /* 制約付きの階段の上り方：動的計画法 */
     function climbingStairsConstraintDP(n: number): number {
         if (n === 1 || n === 2) {
             return 1;
         }
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         const dp = Array.from({ length: n + 1 }, () => new Array(3));
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1][1] = 1;
         dp[1][2] = 0;
         dp[2][1] = 0;
         dp[2][2] = 1;
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for (let i = 3; i <= n; i++) {
             dp[i][1] = dp[i - 1][2];
             dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
@@ -818,19 +818,19 @@ $$
 === "Dart"
 
     ```dart title="climbing_stairs_constraint_dp.dart"
-    /* 制約付き階段登り：動的計画法 */
+    /* 制約付きの階段の上り方：動的計画法 */
     int climbingStairsConstraintDP(int n) {
       if (n == 1 || n == 2) {
         return 1;
       }
-      // 部分問題の解を保存するために dp テーブルを初期化
+      // 部分問題の解を格納する dp テーブルを初期化する
       List<List<int>> dp = List.generate(n + 1, (index) => List.filled(3, 0));
-      // 初期状態：最小部分問題の解をあらかじめ設定
+      // 初期状態：最小の部分問題の解を設定する
       dp[1][1] = 1;
       dp[1][2] = 0;
       dp[2][1] = 0;
       dp[2][2] = 1;
-      // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+      // 状態遷移：小さな部分問題から順に大きな部分問題を解く
       for (int i = 3; i <= n; i++) {
         dp[i][1] = dp[i - 1][2];
         dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
@@ -842,19 +842,19 @@ $$
 === "Rust"
 
     ```rust title="climbing_stairs_constraint_dp.rs"
-    /* 制約付き階段登り：動的計画法 */
+    /* 制約付きの階段の上り方：動的計画法 */
     fn climbing_stairs_constraint_dp(n: usize) -> i32 {
         if n == 1 || n == 2 {
             return 1;
         };
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         let mut dp = vec![vec![-1; 3]; n + 1];
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1][1] = 1;
         dp[1][2] = 0;
         dp[2][1] = 0;
         dp[2][2] = 1;
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for i in 3..=n {
             dp[i][1] = dp[i - 1][2];
             dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
@@ -866,22 +866,22 @@ $$
 === "C"
 
     ```c title="climbing_stairs_constraint_dp.c"
-    /* 制約付き階段登り：動的計画法 */
+    /* 制約付きの階段の上り方：動的計画法 */
     int climbingStairsConstraintDP(int n) {
         if (n == 1 || n == 2) {
             return 1;
         }
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         int **dp = malloc((n + 1) * sizeof(int *));
         for (int i = 0; i <= n; i++) {
             dp[i] = calloc(3, sizeof(int));
         }
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1][1] = 1;
         dp[1][2] = 0;
         dp[2][1] = 0;
         dp[2][2] = 1;
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for (int i = 3; i <= n; i++) {
             dp[i][1] = dp[i - 1][2];
             dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
@@ -899,19 +899,19 @@ $$
 === "Kotlin"
 
     ```kotlin title="climbing_stairs_constraint_dp.kt"
-    /* 制約付き階段登り：動的計画法 */
+    /* 制約付きの階段の上り方：動的計画法 */
     fun climbingStairsConstraintDP(n: Int): Int {
         if (n == 1 || n == 2) {
             return 1
         }
-        // 部分問題の解を保存するために dp テーブルを初期化
+        // 部分問題の解を格納する dp テーブルを初期化する
         val dp = Array(n + 1) { IntArray(3) }
-        // 初期状態：最小部分問題の解をあらかじめ設定
+        // 初期状態：最小の部分問題の解を設定する
         dp[1][1] = 1
         dp[1][2] = 0
         dp[2][1] = 0
         dp[2][2] = 1
-        // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+        // 状態遷移：小さな部分問題から順に大きな部分問題を解く
         for (i in 3..n) {
             dp[i][1] = dp[i - 1][2]
             dp[i][2] = dp[i - 2][1] + dp[i - 2][2]
@@ -923,16 +923,16 @@ $$
 === "Ruby"
 
     ```ruby title="climbing_stairs_constraint_dp.rb"
-    ### 制約付き階段登り：動的計画法 ###
+    ### 制約付きの階段の上り方：動的計画法 ###
     def climbing_stairs_constraint_dp(n)
       return 1 if n == 1 || n == 2
 
-      # 部分問題の解を保存するために dp テーブルを初期化
+      # 部分問題の解を格納する dp テーブルを初期化する
       dp = Array.new(n + 1) { Array.new(3, 0) }
-      # 初期状態：最小部分問題の解をあらかじめ設定
+      # 初期状態：最小の部分問題の解を設定する
       dp[1][1], dp[1][2] = 1, 0
       dp[2][1], dp[2][2] = 0, 1
-      # 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+      # 状態遷移：小さな部分問題から順に大きな部分問題を解く
       for i in 3...(n + 1)
         dp[i][1] = dp[i - 1][2]
         dp[i][2] = dp[i - 2][1] + dp[i - 2][2]
@@ -942,17 +942,17 @@ $$
     end
     ```
 
-??? pythontutor "コードの可視化"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20climbing_stairs_constraint_dp%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%88%B6%E7%B4%84%E4%BB%98%E3%81%8D%E9%9A%8E%E6%AE%B5%E7%99%BB%E3%82%8A%EF%BC%9A%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20%23%20%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A7%A3%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB%20dp%20%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20dp%20%3D%20%5B%5B0%5D%20%2A%203%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E7%8A%B6%E6%85%8B%EF%BC%9A%E6%9C%80%E5%B0%8F%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A7%A3%E3%82%92%E3%81%82%E3%82%89%E3%81%8B%E3%81%98%E3%82%81%E8%A8%AD%E5%AE%9A%0A%20%20%20%20dp%5B1%5D%5B1%5D%2C%20dp%5B1%5D%5B2%5D%20%3D%201%2C%200%0A%20%20%20%20dp%5B2%5D%5B1%5D%2C%20dp%5B2%5D%5B2%5D%20%3D%200%2C%201%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%B0%8F%E3%81%95%E3%81%84%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%8B%E3%82%89%E5%A4%A7%E3%81%8D%E3%81%84%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%B8%E9%A0%86%E3%81%AB%E8%A7%A3%E3%81%8F%0A%20%20%20%20for%20i%20in%20range%283%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%5B1%5D%20%3D%20dp%5Bi%20-%201%5D%5B2%5D%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%5B2%5D%20%3D%20dp%5Bi%20-%202%5D%5B1%5D%20%2B%20dp%5Bi%20-%202%5D%5B2%5D%0A%20%20%20%20return%20dp%5Bn%5D%5B1%5D%20%2B%20dp%5Bn%5D%5B2%5D%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%209%0A%0A%20%20%20%20res%20%3D%20climbing_stairs_constraint_dp%28n%29%0A%20%20%20%20print%28f%22%7Bn%7D%20%E6%AE%B5%E3%81%AE%E9%9A%8E%E6%AE%B5%E3%82%92%E4%B8%8A%E3%82%8B%E6%96%B9%E6%B3%95%E3%81%AF%E5%85%A8%E9%83%A8%E3%81%A7%20%7Bres%7D%20%E9%80%9A%E3%82%8A%E3%81%A7%E3%81%99%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20climbing_stairs_constraint_dp%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%88%B6%E7%B4%84%E4%BB%98%E3%81%8D%E9%9A%8E%E6%AE%B5%E7%99%BB%E3%82%8A%EF%BC%9A%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20%23%20%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A7%A3%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB%20dp%20%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20dp%20%3D%20%5B%5B0%5D%20%2A%203%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E7%8A%B6%E6%85%8B%EF%BC%9A%E6%9C%80%E5%B0%8F%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A7%A3%E3%82%92%E3%81%82%E3%82%89%E3%81%8B%E3%81%98%E3%82%81%E8%A8%AD%E5%AE%9A%0A%20%20%20%20dp%5B1%5D%5B1%5D%2C%20dp%5B1%5D%5B2%5D%20%3D%201%2C%200%0A%20%20%20%20dp%5B2%5D%5B1%5D%2C%20dp%5B2%5D%5B2%5D%20%3D%200%2C%201%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%B0%8F%E3%81%95%E3%81%84%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%8B%E3%82%89%E5%A4%A7%E3%81%8D%E3%81%84%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%B8%E9%A0%86%E3%81%AB%E8%A7%A3%E3%81%8F%0A%20%20%20%20for%20i%20in%20range%283%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%5B1%5D%20%3D%20dp%5Bi%20-%201%5D%5B2%5D%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%5B2%5D%20%3D%20dp%5Bi%20-%202%5D%5B1%5D%20%2B%20dp%5Bi%20-%202%5D%5B2%5D%0A%20%20%20%20return%20dp%5Bn%5D%5B1%5D%20%2B%20dp%5Bn%5D%5B2%5D%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%209%0A%0A%20%20%20%20res%20%3D%20climbing_stairs_constraint_dp%28n%29%0A%20%20%20%20print%28f%22%7Bn%7D%20%E6%AE%B5%E3%81%AE%E9%9A%8E%E6%AE%B5%E3%82%92%E4%B8%8A%E3%82%8B%E6%96%B9%E6%B3%95%E3%81%AF%E5%85%A8%E9%83%A8%E3%81%A7%20%7Bres%7D%20%E9%80%9A%E3%82%8A%E3%81%A7%E3%81%99%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20climbing_stairs_constraint_dp%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%88%B6%E7%B4%84%E4%BB%98%E3%81%8D%E3%81%AE%E9%9A%8E%E6%AE%B5%E3%81%AE%E4%B8%8A%E3%82%8A%E6%96%B9%EF%BC%9A%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20%23%20%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A7%A3%E3%82%92%E6%A0%BC%E7%B4%8D%E3%81%99%E3%82%8B%20dp%20%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20dp%20%3D%20%5B%5B0%5D%20%2A%203%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E7%8A%B6%E6%85%8B%EF%BC%9A%E6%9C%80%E5%B0%8F%E3%81%AE%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A7%A3%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20dp%5B1%5D%5B1%5D,%20dp%5B1%5D%5B2%5D%20%3D%201,%200%0A%20%20%20%20dp%5B2%5D%5B1%5D,%20dp%5B2%5D%5B2%5D%20%3D%200,%201%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%B0%8F%E3%81%95%E3%81%AA%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%8B%E3%82%89%E9%A0%86%E3%81%AB%E5%A4%A7%E3%81%8D%E3%81%AA%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%82%92%E8%A7%A3%E3%81%8F%0A%20%20%20%20for%20i%20in%20range%283,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%5B1%5D%20%3D%20dp%5Bi%20-%201%5D%5B2%5D%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%5B2%5D%20%3D%20dp%5Bi%20-%202%5D%5B1%5D%20%2B%20dp%5Bi%20-%202%5D%5B2%5D%0A%20%20%20%20return%20dp%5Bn%5D%5B1%5D%20%2B%20dp%5Bn%5D%5B2%5D%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%209%0A%0A%20%20%20%20res%20%3D%20climbing_stairs_constraint_dp%28n%29%0A%20%20%20%20print%28f%22%7Bn%7D%20%E6%AE%B5%E3%81%AE%E9%9A%8E%E6%AE%B5%E3%82%92%E4%B8%8A%E3%82%8B%E6%96%B9%E6%B3%95%E3%81%AF%E5%85%A8%E9%83%A8%E3%81%A7%20%7Bres%7D%20%E9%80%9A%E3%82%8A%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20climbing_stairs_constraint_dp%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%88%B6%E7%B4%84%E4%BB%98%E3%81%8D%E3%81%AE%E9%9A%8E%E6%AE%B5%E3%81%AE%E4%B8%8A%E3%82%8A%E6%96%B9%EF%BC%9A%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20%23%20%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A7%A3%E3%82%92%E6%A0%BC%E7%B4%8D%E3%81%99%E3%82%8B%20dp%20%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20dp%20%3D%20%5B%5B0%5D%20%2A%203%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E7%8A%B6%E6%85%8B%EF%BC%9A%E6%9C%80%E5%B0%8F%E3%81%AE%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A7%A3%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20dp%5B1%5D%5B1%5D,%20dp%5B1%5D%5B2%5D%20%3D%201,%200%0A%20%20%20%20dp%5B2%5D%5B1%5D,%20dp%5B2%5D%5B2%5D%20%3D%200,%201%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%B0%8F%E3%81%95%E3%81%AA%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%81%8B%E3%82%89%E9%A0%86%E3%81%AB%E5%A4%A7%E3%81%8D%E3%81%AA%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%E3%82%92%E8%A7%A3%E3%81%8F%0A%20%20%20%20for%20i%20in%20range%283,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%5B1%5D%20%3D%20dp%5Bi%20-%201%5D%5B2%5D%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%5B2%5D%20%3D%20dp%5Bi%20-%202%5D%5B1%5D%20%2B%20dp%5Bi%20-%202%5D%5B2%5D%0A%20%20%20%20return%20dp%5Bn%5D%5B1%5D%20%2B%20dp%5Bn%5D%5B2%5D%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%209%0A%0A%20%20%20%20res%20%3D%20climbing_stairs_constraint_dp%28n%29%0A%20%20%20%20print%28f%22%7Bn%7D%20%E6%AE%B5%E3%81%AE%E9%9A%8E%E6%AE%B5%E3%82%92%E4%B8%8A%E3%82%8B%E6%96%B9%E6%B3%95%E3%81%AF%E5%85%A8%E9%83%A8%E3%81%A7%20%7Bres%7D%20%E9%80%9A%E3%82%8A%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-上の例では、追加で考慮すべきなのは一つ前の状態だけであるため、状態定義を拡張することで問題を再び無後効性に適合させることができます。しかし、問題によっては非常に強い「後効性」があります。
+この例では、一つ前の状態を追加で考慮するだけなので、状態を拡張すれば、再び過去の経路に依存しない形にできます。しかし、「過去の経路への依存」が非常に強い問題もあります。
 
-!!! question "階段昇りと障害物生成"
+!!! question "階段を上ると障害物ができる問題"
 
-    全部で $n$ 段ある階段が与えられ、各ステップで $1$ 段または $2$ 段上ることができます。**第 $i$ 段に到達すると、システムは自動的に第 $2i$ 段に障害物を置き、それ以降はどの回でも第 $2i$ 段へ跳ぶことができない**とします。例えば、最初の 2 回でそれぞれ第 $2$ 段、第 $3$ 段に到達した場合、その後は第 $4$ 段と第 $6$ 段に跳ぶことはできません。頂上まで上る方法は何通りあるでしょうか。
+    $n$ 段の階段があり、1 回で $1$ 段または $2$ 段上れます。**$i$ 段目に到達すると、システムが自動的に $2i$ 段目に障害物を置き、それ以降は $2i$ 段目に上れなくなる**ものとします。たとえば、最初の 2 回で $2$ 段目、$3$ 段目に上ったら、その後は $4$ 段目、$6$ 段目には上れません。一番上まで上る方法は何通りありますか。
 
-この問題では、次の跳躍が過去のすべての状態に依存します。なぜなら、各跳躍がより高い段に障害物を設置し、将来の跳躍に影響するからです。この種の問題は、動的計画法では解きにくいことが多いです。
+この問題では、毎回の移動が上の段に障害物を置き、その後の移動に影響するため、次の移動は過去のすべての状態に依存します。この種の問題は、動的計画法では解くのが難しいことが多いです。
 
-実際、多くの複雑な組合せ最適化問題（例えば巡回セールスマン問題）は無後効性を満たしません。このような問題に対しては、通常、ヒューリスティック探索、遺伝的アルゴリズム、強化学習などの他の方法を用いて、限られた時間内に実用的な局所最適解を得ます。
+実際、多くの複雑な組合せ最適化問題（巡回セールスマン問題など）は、過去の経路に依存しない性質を満たしません。そのような問題には、ヒューリスティック探索、遺伝的アルゴリズム、強化学習などの別の方法を選び、限られた時間で利用可能な局所最適解を得ることが一般的です。

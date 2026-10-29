@@ -7,16 +7,16 @@ icon: material/family-tree
 
 ![ヒープ](../assets/covers/chapter_heap.jpg){ class="cover-image" }
 
-!!! abstract
+!!! abstract "概要"
 
-    ヒープは連なる山々の峰のように、幾重にも重なり、さまざまな形をしている。
+    ヒープは山並みのように、幾重にも起伏し、さまざまな姿を見せます。
     
-    いくつもの山の高さはまちまちだが、最も高い峰がいつも最初に目に入る。
+    山々の高さはそれぞれ異なりますが、最も高い峰がいつも最初に目に入ります。
 
-## 章の内容
+## この章の内容
 
 - [8.1 &nbsp; ヒープ](heap.md)
-- [8.2 &nbsp; ヒープ構築](build_heap.md)
+- [8.2 &nbsp; ヒープの構築](build_heap.md)
 - [8.3 &nbsp; Top-k 問題](top_k.md)
 - [8.4 &nbsp; まとめ](summary.md)
-- [8.5 &nbsp; 演習](exercises.md)
+- [8.5 &nbsp; 練習問題](exercises.md)

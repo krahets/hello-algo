@@ -7,16 +7,16 @@ icon: material/graphql
 
 ![グラフ](../assets/covers/chapter_graph.jpg){ class="cover-image" }
 
-!!! abstract
+!!! abstract "概要"
 
-    人生の旅路において、私たちはそれぞれ一つひとつのノードのようなものであり、無数の見えない辺によって結ばれています。
+    人生の旅路で、私たちは一つひとつのノードのように、無数の見えない辺で結ばれています。
     
-    出会いと別れのたびに、この巨大なネットワークグラフの中に固有の足跡が刻まれます。
+    一つひとつの出会いと別れが、この巨大なネットワークにそれぞれの足跡を残します。
 
-## 章の内容
+## この章の内容
 
 - [9.1 &nbsp; グラフ](graph.md)
 - [9.2 &nbsp; グラフの基本操作](graph_operations.md)
 - [9.3 &nbsp; グラフの走査](graph_traversal.md)
 - [9.4 &nbsp; まとめ](summary.md)
-- [9.5 &nbsp; 演習](exercises.md)
+- [9.5 &nbsp; 練習問題](exercises.md)

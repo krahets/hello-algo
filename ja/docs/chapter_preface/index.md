@@ -7,13 +7,13 @@ icon: material/book-open-outline
 
 ![はじめに](../assets/covers/chapter_preface.jpg){ class="cover-image" }
 
-!!! abstract
+!!! abstract "概要"
 
-    アルゴリズムは美しい交響曲のようであり、コードの一行一行が旋律のように流れていきます。
+    アルゴリズムは美しい交響曲のようであり、一行一行のコードが旋律となって流れます。
     
-    この本があなたの心の中でそっと響き、独自で深い旋律を残してくれることを願っています。
+    この本があなたの心の中で静かに響き、独特で深い旋律を残すことを願っています。
 
-## 章の内容
+## この章の内容
 
 - [0.1 &nbsp; 本書について](about_the_book.md)
 - [0.2 &nbsp; 本書の使い方](suggestions.md)

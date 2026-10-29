@@ -4,37 +4,37 @@ comments: true
 
 # 6.1 &nbsp; ハッシュテーブル
 
-<u>ハッシュテーブル（hash table）</u>は、<u>散列表</u>とも呼ばれ、キー `key` と値 `value` の対応関係を構築することで、高効率な要素検索を実現します。具体的には、ハッシュテーブルにキー `key` を入力すると、対応する値 `value` を $O(1)$ 時間で取得できます。
+<u>ハッシュテーブル（hash table）</u>は、<u>ハッシュ表</u>とも呼ばれます。キー `key` と値 `value` の対応を作り、要素を効率よく照会します。具体的には、キー `key` を入力すると、対応する値 `value` を $O(1)$ 時間で取得できます。
 
-以下の図に示すように、$n$ 人の学生がいるとし、各学生は「名前」と「学籍番号」の 2 つの情報を持っています。もし「学籍番号を入力すると対応する名前を返す」という検索機能を実現したいなら、下図のようなハッシュテーブルを用いることができます。
+図 6-1 のように、$n$ 人の学生がおり、それぞれに名前と学籍番号があるとします。「学籍番号を入力すると対応する名前を返す」機能は、図のハッシュテーブルで実現できます。
 
-![ハッシュテーブルの抽象表現](hash_map.assets/hash_table_lookup.png){ class="animation-figure" }
+![ハッシュテーブルの抽象的な表現](hash_map.assets/hash_table_lookup.png){ class="animation-figure" }
 
-<p align="center"> 図 6-1 &nbsp; ハッシュテーブルの抽象表現 </p>
+<p align="center"> 図 6-1 &nbsp; ハッシュテーブルの抽象的な表現 </p>
 
-ハッシュテーブルのほかに、配列や連結リストでも検索機能を実現できます。それらの効率比較を次の表に示します。
+配列や連結リストでも照会機能を実現できます。効率の比較を表 6-1 に示します。
 
-- **要素の追加**：要素を配列（連結リスト）の末尾に追加するだけでよく、$O(1)$ 時間です。
-- **要素の検索**：配列（連結リスト）は無秩序なので、すべての要素を走査する必要があり、$O(n)$ 時間かかります。
-- **要素の削除**：先に要素を検索してから配列（連結リスト）から削除する必要があり、$O(n)$ 時間かかります。
+- **要素の追加**：配列（連結リスト）の末尾に追加するだけなので、$O(1)$ 時間です。
+- **要素の照会**：配列（連結リスト）が未整列なので、すべての要素を走査する必要があり、$O(n)$ 時間です。
+- **要素の削除**：まず要素を探してから配列（連結リスト）から削除するため、$O(n)$ 時間です。
 
-<p align="center"> 表 6-1 &nbsp; 要素検索効率の比較 </p>
+<p align="center"> 表 6-1 &nbsp; 要素の照会効率の比較 </p>
 
 <div class="center-table" markdown>
 
-|          | 配列   | 連結リスト | ハッシュテーブル |
+|          | 配列   | 連結リスト   | ハッシュテーブル |
 | -------- | ------ | ------ | ------ |
-| 要素の検索 | $O(n)$ | $O(n)$ | $O(1)$ |
+| 要素の探索 | $O(n)$ | $O(n)$ | $O(1)$ |
 | 要素の追加 | $O(1)$ | $O(1)$ | $O(1)$ |
 | 要素の削除 | $O(n)$ | $O(n)$ | $O(1)$ |
 
 </div>
 
-以上から分かるように、**ハッシュテーブルにおける追加・削除・検索・更新の時間計算量はいずれも $O(1)$** であり、非常に高効率です。
+**ハッシュテーブルの追加、削除、照会、更新は、すべて時間計算量が $O(1)$** で、非常に効率的です。
 
-## 6.1.1 &nbsp; ハッシュテーブルの基本操作
+## 6.1.1 &nbsp; ハッシュテーブルの主な操作
 
-ハッシュテーブルの一般的な操作には、初期化、検索、キーと値のペアの追加、キーと値のペアの削除などがあります。コード例は以下のとおりです：
+主な操作には、初期化、照会、キーと値のペアの追加や削除などがあります。コード例を示します。
 
 === "Python"
 
@@ -43,19 +43,19 @@ comments: true
     hmap: dict = {}
 
     # 追加操作
-    # ハッシュテーブルにキーと値のペア (key, value) を追加
-    hmap[12836] = "シャオハ"
-    hmap[15937] = "シャオルオ"
-    hmap[16750] = "シャオスワン"
-    hmap[13276] = "シャオファ"
-    hmap[10583] = "シャオヤー"
+    # ハッシュテーブルにペア (key, value) を追加
+    hmap[12836] = "小哈"
+    hmap[15937] = "小啰"
+    hmap[16750] = "小算"
+    hmap[13276] = "小法"
+    hmap[10583] = "小鸭"
 
-    # 検索操作
-    # ハッシュテーブルにキー key を入力し、値 value を取得
+    # 照会操作
+    # キー key を入力して値 value を取得
     name: str = hmap[15937]
 
     # 削除操作
-    # ハッシュテーブルからキーと値のペア (key, value) を削除
+    # ハッシュテーブルからペア (key, value) を削除
     hmap.pop(10583)
     ```
 
@@ -66,19 +66,19 @@ comments: true
     unordered_map<int, string> map;
 
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加
-    map[12836] = "シャオハ";
-    map[15937] = "シャオルオ";
-    map[16750] = "シャオスワン";
-    map[13276] = "シャオファ";
-    map[10583] = "シャオヤー";
+    // ハッシュテーブルにペア (key, value) を追加
+    map[12836] = "小哈";
+    map[15937] = "小啰";
+    map[16750] = "小算";
+    map[13276] = "小法";
+    map[10583] = "小鸭";
 
-    /* 検索操作 */
-    // ハッシュテーブルにキー key を入力し、値 value を取得
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     string name = map[15937];
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除
+    // ハッシュテーブルからペア (key, value) を削除
     map.erase(10583);
     ```
 
@@ -89,19 +89,19 @@ comments: true
     Map<Integer, String> map = new HashMap<>();
 
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加
-    map.put(12836, "シャオハ");
-    map.put(15937, "シャオルオ");
-    map.put(16750, "シャオスワン");
-    map.put(13276, "シャオファ");
-    map.put(10583, "シャオヤー");
+    // ハッシュテーブルにペア (key, value) を追加
+    map.put(12836, "小哈");
+    map.put(15937, "小啰");
+    map.put(16750, "小算");
+    map.put(13276, "小法");
+    map.put(10583, "小鸭");
 
-    /* 検索操作 */
-    // ハッシュテーブルにキー key を入力し、値 value を取得
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     String name = map.get(15937);
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除
+    // ハッシュテーブルからペア (key, value) を削除
     map.remove(10583);
     ```
 
@@ -111,20 +111,20 @@ comments: true
     /* ハッシュテーブルを初期化 */
     Dictionary<int, string> map = new() {
         /* 追加操作 */
-        // ハッシュテーブルにキーと値のペア (key, value) を追加
-        { 12836, "シャオハ" },
-        { 15937, "シャオルオ" },
-        { 16750, "シャオスワン" },
-        { 13276, "シャオファ" },
-        { 10583, "シャオヤー" }
+        // ハッシュテーブルにペア (key, value) を追加
+        { 12836, "小哈" },
+        { 15937, "小啰" },
+        { 16750, "小算" },
+        { 13276, "小法" },
+        { 10583, "小鸭" }
     };
 
-    /* 検索操作 */
-    // ハッシュテーブルにキー key を入力し、値 value を取得
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     string name = map[15937];
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除
+    // ハッシュテーブルからペア (key, value) を削除
     map.Remove(10583);
     ```
 
@@ -135,19 +135,19 @@ comments: true
     hmap := make(map[int]string)
 
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加
-    hmap[12836] = "シャオハ"
-    hmap[15937] = "シャオルオ"
-    hmap[16750] = "シャオスワン"
-    hmap[13276] = "シャオファ"
-    hmap[10583] = "シャオヤー"
+    // ハッシュテーブルにペア (key, value) を追加
+    hmap[12836] = "小哈"
+    hmap[15937] = "小啰"
+    hmap[16750] = "小算"
+    hmap[13276] = "小法"
+    hmap[10583] = "小鸭"
 
-    /* 検索操作 */
-    // ハッシュテーブルにキー key を入力し、値 value を取得
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     name := hmap[15937]
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除
+    // ハッシュテーブルからペア (key, value) を削除
     delete(hmap, 10583)
     ```
 
@@ -158,19 +158,19 @@ comments: true
     var map: [Int: String] = [:]
 
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加
-    map[12836] = "シャオハ"
-    map[15937] = "シャオルオ"
-    map[16750] = "シャオスワン"
-    map[13276] = "シャオファ"
-    map[10583] = "シャオヤー"
+    // ハッシュテーブルにペア (key, value) を追加
+    map[12836] = "小哈"
+    map[15937] = "小啰"
+    map[16750] = "小算"
+    map[13276] = "小法"
+    map[10583] = "小鸭"
 
-    /* 検索操作 */
-    // ハッシュテーブルにキー key を入力し、値 value を取得
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     let name = map[15937]!
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除
+    // ハッシュテーブルからペア (key, value) を削除
     map.removeValue(forKey: 10583)
     ```
 
@@ -180,19 +180,19 @@ comments: true
     /* ハッシュテーブルを初期化 */
     const map = new Map();
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加
-    map.set(12836, 'シャオハ');
-    map.set(15937, 'シャオルオ');
-    map.set(16750, 'シャオスワン');
-    map.set(13276, 'シャオファ');
-    map.set(10583, 'シャオヤー');
+    // ハッシュテーブルにペア (key, value) を追加
+    map.set(12836, '小哈');
+    map.set(15937, '小啰');
+    map.set(16750, '小算');
+    map.set(13276, '小法');
+    map.set(10583, '小鸭');
 
-    /* 検索操作 */
-    // ハッシュテーブルにキー key を入力し、値 value を取得
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     let name = map.get(15937);
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除
+    // ハッシュテーブルからペア (key, value) を削除
     map.delete(10583);
     ```
 
@@ -202,24 +202,24 @@ comments: true
     /* ハッシュテーブルを初期化 */
     const map = new Map<number, string>();
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加
-    map.set(12836, 'シャオハ');
-    map.set(15937, 'シャオルオ');
-    map.set(16750, 'シャオスワン');
-    map.set(13276, 'シャオファ');
-    map.set(10583, 'シャオヤー');
-    console.info('\n追加後のハッシュテーブルは次のとおりです\nKey -> Value');
+    // ハッシュテーブルにペア (key, value) を追加
+    map.set(12836, '小哈');
+    map.set(15937, '小啰');
+    map.set(16750, '小算');
+    map.set(13276, '小法');
+    map.set(10583, '小鸭');
+    console.info('\n追加後のハッシュテーブルは\nKey -> Value');
     console.info(map);
 
-    /* 検索操作 */
-    // ハッシュテーブルにキー key を入力し、値 value を取得
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     let name = map.get(15937);
-    console.info('\n学籍番号 15937 を入力し、名前を検索: ' + name);
+    console.info('\n学籍番号 15937 を入力して得た名前は ' + name);
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除
+    // ハッシュテーブルからペア (key, value) を削除
     map.delete(10583);
-    console.info('\n10583 を削除した後のハッシュテーブル\nKey -> Value');
+    console.info('\n10583 を削除した後のハッシュテーブルは\nKey -> Value');
     console.info(map);
     ```
 
@@ -230,19 +230,19 @@ comments: true
     Map<int, String> map = {};
 
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加
-    map[12836] = "シャオハ";
-    map[15937] = "シャオルオ";
-    map[16750] = "シャオスワン";
-    map[13276] = "シャオファ";
-    map[10583] = "シャオヤー";
+    // ハッシュテーブルにペア (key, value) を追加
+    map[12836] = "小哈";
+    map[15937] = "小啰";
+    map[16750] = "小算";
+    map[13276] = "小法";
+    map[10583] = "小鸭";
 
-    /* 検索操作 */
-    // ハッシュテーブルにキー key を入力し、値 value を取得
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     String name = map[15937];
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除
+    // ハッシュテーブルからペア (key, value) を削除
     map.remove(10583);
     ```
 
@@ -255,26 +255,26 @@ comments: true
     let mut map: HashMap<i32, String> = HashMap::new();
 
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加
-    map.insert(12836, "シャオハ".to_string());
-    map.insert(15937, "シャオルオ".to_string());
-    map.insert(16750, "シャオスワン".to_string());
-    map.insert(13279, "シャオファ".to_string());
-    map.insert(10583, "シャオヤー".to_string());
+    // ハッシュテーブルにペア (key, value) を追加
+    map.insert(12836, "小哈".to_string());
+    map.insert(15937, "小啰".to_string());
+    map.insert(16750, "小算".to_string());
+    map.insert(13279, "小法".to_string());
+    map.insert(10583, "小鸭".to_string());
 
-    /* 検索操作 */
-    // ハッシュテーブルにキー key を入力し、値 value を取得
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     let _name: Option<&String> = map.get(&15937);
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除
+    // ハッシュテーブルからペア (key, value) を削除
     let _removed_value: Option<String> = map.remove(&10583);
     ```
 
 === "C"
 
     ```c title="hash_map.c"
-    // C には組み込みのハッシュテーブルはありません
+    // C には組み込みのハッシュテーブルがない
     ```
 
 === "Kotlin"
@@ -284,19 +284,19 @@ comments: true
     val map = HashMap<Int,String>()
 
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加
-    map[12836] = "シャオハ"
-    map[15937] = "シャオルオ"
-    map[16750] = "シャオスワン"
-    map[13276] = "シャオファ"
-    map[10583] = "シャオヤー"
+    // ハッシュテーブルにペア (key, value) を追加
+    map[12836] = "小哈"
+    map[15937] = "小啰"
+    map[16750] = "小算"
+    map[13276] = "小法"
+    map[10583] = "小鸭"
 
-    /* 検索操作 */
-    // ハッシュテーブルにキー key を入力し、値 value を取得
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     val name = map[15937]
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除
+    // ハッシュテーブルからペア (key, value) を削除
     map.remove(10583)
     ```
 
@@ -307,40 +307,40 @@ comments: true
     hmap = {}
 
     # 追加操作
-    # ハッシュテーブルにキーと値のペア (key, value) を追加
-    hmap[12836] = "シャオハ"
-    hmap[15937] = "シャオルオ"
-    hmap[16750] = "シャオスワン"
-    hmap[13276] = "シャオファ"
-    hmap[10583] = "シャオヤー"
+    # ハッシュテーブルにペア (key, value) を追加
+    hmap[12836] = "小哈"
+    hmap[15937] = "小啰"
+    hmap[16750] = "小算"
+    hmap[13276] = "小法"
+    hmap[10583] = "小鸭"
 
-    # 検索操作
-    # ハッシュテーブルにキー key を入力し、値 value を取得
+    # 照会操作
+    # キー key を入力して値 value を取得
     name = hmap[15937]
 
     # 削除操作
-    # ハッシュテーブルからキーと値のペア (key, value) を削除
+    # ハッシュテーブルからペア (key, value) を削除
     hmap.delete(10583)
     ```
 
-??? pythontutor "可視化実行"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%90%91%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E8%BE%93%E5%85%A5%E9%94%AE%20key%20%EF%BC%8C%E5%BE%97%E5%88%B0%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap.pop%2810583%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%90%91%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E8%BE%93%E5%85%A5%E9%94%AE%20key%20%EF%BC%8C%E5%BE%97%E5%88%B0%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap.pop%2810583%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%BF%BD%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AB%E3%83%9A%E3%82%A2%20(key%2C%20value)%20%E3%82%92%E8%BF%BD%E5%8A%A0%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E7%85%A7%E4%BC%9A%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E3%82%AD%E3%83%BC%20key%20%E3%82%92%E5%85%A5%E5%8A%9B%E3%81%97%E3%81%A6%E5%80%A4%20value%20%E3%82%92%E5%8F%96%E5%BE%97%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%89%8A%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%8B%E3%82%89%E3%83%9A%E3%82%A2%20(key%2C%20value)%20%E3%82%92%E5%89%8A%E9%99%A4%0A%20%20%20%20hmap.pop(10583)&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%BF%BD%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AB%E3%83%9A%E3%82%A2%20(key%2C%20value)%20%E3%82%92%E8%BF%BD%E5%8A%A0%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E7%85%A7%E4%BC%9A%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E3%82%AD%E3%83%BC%20key%20%E3%82%92%E5%85%A5%E5%8A%9B%E3%81%97%E3%81%A6%E5%80%A4%20value%20%E3%82%92%E5%8F%96%E5%BE%97%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%89%8A%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%8B%E3%82%89%E3%83%9A%E3%82%A2%20(key%2C%20value)%20%E3%82%92%E5%89%8A%E9%99%A4%0A%20%20%20%20hmap.pop(10583)&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-ハッシュテーブルには、キーと値のペア、キー、値を走査する 3 つの一般的な方法があります。コード例は以下のとおりです：
+ハッシュテーブルの主な走査方法は、キーと値のペアの走査、キーだけの走査、値だけの走査の三つです。コード例を示します。
 
 === "Python"
 
     ```python title="hash_map.py"
     # ハッシュテーブルを走査
-    # キーと値のペア key->value を走査
+    # キーと値のペアを走査 key->value
     for key, value in hmap.items():
         print(key, "->", value)
-    # キー key のみを走査
+    # キーだけを走査 key
     for key in hmap.keys():
         print(key)
-    # 値 value のみを走査
+    # 値だけを走査 value
     for value in hmap.values():
         print(value)
     ```
@@ -349,11 +349,11 @@ comments: true
 
     ```cpp title="hash_map.cpp"
     /* ハッシュテーブルを走査 */
-    // キーと値のペア key->value を走査
+    // キーと値のペアを走査 key->value
     for (auto kv: map) {
         cout << kv.first << " -> " << kv.second << endl;
     }
-    // イテレータを使って key->value を走査
+    // イテレータで走査 key->value
     for (auto iter = map.begin(); iter != map.end(); iter++) {
         cout << iter->first << "->" << iter->second << endl;
     }
@@ -363,15 +363,15 @@ comments: true
 
     ```java title="hash_map.java"
     /* ハッシュテーブルを走査 */
-    // キーと値のペア key->value を走査
+    // キーと値のペアを走査 key->value
     for (Map.Entry <Integer, String> kv: map.entrySet()) {
         System.out.println(kv.getKey() + " -> " + kv.getValue());
     }
-    // キー key のみを走査
+    // キーだけを走査 key
     for (int key: map.keySet()) {
         System.out.println(key);
     }
-    // 値 value のみを走査
+    // 値だけを走査 value
     for (String val: map.values()) {
         System.out.println(val);
     }
@@ -381,15 +381,15 @@ comments: true
 
     ```csharp title="hash_map.cs"
     /* ハッシュテーブルを走査 */
-    // キーと値のペア Key->Value を走査
+    // キーと値のペアを走査 Key->Value
     foreach (var kv in map) {
         Console.WriteLine(kv.Key + " -> " + kv.Value);
     }
-    // キー key のみを走査
+    // キーだけを走査 key
     foreach (int key in map.Keys) {
         Console.WriteLine(key);
     }
-    // 値 value のみを走査
+    // 値だけを走査 value
     foreach (string val in map.Values) {
         Console.WriteLine(val);
     }
@@ -399,15 +399,15 @@ comments: true
 
     ```go title="hash_map_test.go"
     /* ハッシュテーブルを走査 */
-    // キーと値のペア key->value を走査
+    // キーと値のペアを走査 key->value
     for key, value := range hmap {
         fmt.Println(key, "->", value)
     }
-    // キー key のみを走査
+    // キーだけを走査 key
     for key := range hmap {
         fmt.Println(key)
     }
-    // 値 value のみを走査
+    // 値だけを走査 value
     for _, value := range hmap {
         fmt.Println(value)
     }
@@ -417,15 +417,15 @@ comments: true
 
     ```swift title="hash_map.swift"
     /* ハッシュテーブルを走査 */
-    // キーと値のペア Key->Value を走査
+    // キーと値のペアを走査 Key->Value
     for (key, value) in map {
         print("\(key) -> \(value)")
     }
-    // キー Key のみを走査
+    // キーだけを走査 Key
     for key in map.keys {
         print(key)
     }
-    // 値 Value のみを走査
+    // 値だけを走査 Value
     for value in map.values {
         print(value)
     }
@@ -435,15 +435,15 @@ comments: true
 
     ```javascript title="hash_map.js"
     /* ハッシュテーブルを走査 */
-    console.info('\nキーと値のペア Key->Value を走査');
+    console.info('\nキーと値のペアを走査 Key->Value');
     for (const [k, v] of map.entries()) {
         console.info(k + ' -> ' + v);
     }
-    console.info('\nキー Key のみを走査');
+    console.info('\nキーだけを走査 Key');
     for (const k of map.keys()) {
         console.info(k);
     }
-    console.info('\n値 Value のみを走査');
+    console.info('\n値だけを走査 Value');
     for (const v of map.values()) {
         console.info(v);
     }
@@ -453,15 +453,15 @@ comments: true
 
     ```typescript title="hash_map.ts"
     /* ハッシュテーブルを走査 */
-    console.info('\nキーと値のペア Key->Value を走査');
+    console.info('\nキーと値のペアを走査 Key->Value');
     for (const [k, v] of map.entries()) {
         console.info(k + ' -> ' + v);
     }
-    console.info('\nキー Key のみを走査');
+    console.info('\nキーだけを走査 Key');
     for (const k of map.keys()) {
         console.info(k);
     }
-    console.info('\n値 Value のみを走査');
+    console.info('\n値だけを走査 Value');
     for (const v of map.values()) {
         console.info(v);
     }
@@ -471,17 +471,17 @@ comments: true
 
     ```dart title="hash_map.dart"
     /* ハッシュテーブルを走査 */
-    // キーと値のペア Key->Value を走査
+    // キーと値のペアを走査 Key->Value
     map.forEach((key, value) {
       print('$key -> $value');
     });
 
-    // キー Key のみを走査
+    // キーだけを走査 Key
     map.keys.forEach((key) {
       print(key);
     });
 
-    // 値 Value のみを走査
+    // 値だけを走査 Value
     map.values.forEach((value) {
       print(value);
     });
@@ -491,17 +491,17 @@ comments: true
 
     ```rust title="hash_map.rs"
     /* ハッシュテーブルを走査 */
-    // キーと値のペア Key->Value を走査
+    // キーと値のペアを走査 Key->Value
     for (key, value) in &map {
         println!("{key} -> {value}");
     }
 
-    // キー Key のみを走査
+    // キーだけを走査 Key
     for key in map.keys() {
         println!("{key}");
     }
 
-    // 値 Value のみを走査
+    // 値だけを走査 Value
     for value in map.values() {
         println!("{value}");
     }
@@ -510,22 +510,22 @@ comments: true
 === "C"
 
     ```c title="hash_map.c"
-    // C には組み込みのハッシュテーブルはありません
+    // C には組み込みのハッシュテーブルがない
     ```
 
 === "Kotlin"
 
     ```kotlin title="hash_map.kt"
     /* ハッシュテーブルを走査 */
-    // キーと値のペア key->value を走査
+    // キーと値のペアを走査 key->value
     for ((key, value) in map) {
         println("$key -> $value")
     }
-    // キー key のみを走査
+    // キーだけを走査 key
     for (key in map.keys) {
         println(key)
     }
-    // 値 value のみを走査
+    // 値だけを走査 value
     for (_val in map.values) {
         println(_val)
     }
@@ -535,62 +535,62 @@ comments: true
 
     ```ruby title="hash_map.rb"
     # ハッシュテーブルを走査
-    # キーと値のペア key->value を走査
+    # キーと値のペアを走査 key->value
     hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 
-    # キー key のみを走査
+    # キーだけを走査 key
     hmap.keys.each { |key| puts key }
 
-    # 値 value のみを走査
+    # 値だけを走査 value
     hmap.values.each { |val| puts val }
     ```
 
-??? pythontutor "可視化実行"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E9%94%AE%E5%80%BC%E5%AF%B9%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E9%94%AE%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E5%80%BC%20value%0A%20%20%20%20for%20value%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28value%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E9%94%AE%E5%80%BC%E5%AF%B9%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E9%94%AE%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E5%80%BC%20value%0A%20%20%20%20for%20value%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28value%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%BF%BD%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AB%E3%83%9A%E3%82%A2%20(key%2C%20value)%20%E3%82%92%E8%BF%BD%E5%8A%A0%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E8%B5%B0%E6%9F%BB%0A%20%20%20%20%23%20%E3%82%AD%E3%83%BC%E3%81%A8%E5%80%A4%E3%81%AE%E3%83%9A%E3%82%A2%E3%82%92%E8%B5%B0%E6%9F%BB%20key-%3Evalue%0A%20%20%20%20for%20key%2C%20value%20in%20hmap.items()%3A%0A%20%20%20%20%20%20%20%20print(key%2C%20%22-%3E%22%2C%20value)%0A%20%20%20%20%23%20%E3%82%AD%E3%83%BC%E3%81%A0%E3%81%91%E3%82%92%E8%B5%B0%E6%9F%BB%20key%0A%20%20%20%20for%20key%20in%20hmap.keys()%3A%0A%20%20%20%20%20%20%20%20print(key)%0A%20%20%20%20%23%20%E5%80%A4%E3%81%A0%E3%81%91%E3%82%92%E8%B5%B0%E6%9F%BB%20value%0A%20%20%20%20for%20value%20in%20hmap.values()%3A%0A%20%20%20%20%20%20%20%20print(value)&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%BF%BD%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AB%E3%83%9A%E3%82%A2%20(key%2C%20value)%20%E3%82%92%E8%BF%BD%E5%8A%A0%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E8%B5%B0%E6%9F%BB%0A%20%20%20%20%23%20%E3%82%AD%E3%83%BC%E3%81%A8%E5%80%A4%E3%81%AE%E3%83%9A%E3%82%A2%E3%82%92%E8%B5%B0%E6%9F%BB%20key-%3Evalue%0A%20%20%20%20for%20key%2C%20value%20in%20hmap.items()%3A%0A%20%20%20%20%20%20%20%20print(key%2C%20%22-%3E%22%2C%20value)%0A%20%20%20%20%23%20%E3%82%AD%E3%83%BC%E3%81%A0%E3%81%91%E3%82%92%E8%B5%B0%E6%9F%BB%20key%0A%20%20%20%20for%20key%20in%20hmap.keys()%3A%0A%20%20%20%20%20%20%20%20print(key)%0A%20%20%20%20%23%20%E5%80%A4%E3%81%A0%E3%81%91%E3%82%92%E8%B5%B0%E6%9F%BB%20value%0A%20%20%20%20for%20value%20in%20hmap.values()%3A%0A%20%20%20%20%20%20%20%20print(value)&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-## 6.1.2 &nbsp; ハッシュテーブルの簡単な実装
+## 6.1.2 &nbsp; ハッシュテーブルの単純な実装
 
-まずは最も単純なケースとして、**1 つの配列だけでハッシュテーブルを実装する**ことを考えます。ハッシュテーブルでは、配列中の各空き位置を<u>バケット（bucket）</u>と呼び、各バケットには 1 つのキーと値のペアを格納できます。したがって、検索操作とは `key` に対応するバケットを見つけ、そのバケットから `value` を取得することです。
+まず最も単純な場合として、**一つの配列だけでハッシュテーブルを実装します**。配列内の各格納場所を<u>バケット（bucket）</u>と呼び、それぞれにキーと値のペアを一つ格納できます。照会とは、`key` に対応するバケットを探し、そこから `value` を取得する操作です。
 
-では、`key` に基づいて対応するバケットをどのように特定するのでしょうか。これは<u>ハッシュ関数（hash function）</u>によって実現されます。ハッシュ関数の役割は、大きな入力空間をより小さな出力空間に写像することです。ハッシュテーブルでは、入力空間はすべての `key` 、出力空間はすべてのバケット（配列インデックス）です。言い換えると、`key` を入力すると、**ハッシュ関数によってその `key` に対応するキーと値のペアの配列内での格納位置を求められます**。
+では、`key` から対応するバケットをどう見つけるのでしょうか。<u>ハッシュ関数（hash function）</u>を使います。その役割は、大きな入力空間を小さな出力空間へ写すことです。ハッシュテーブルでは、入力空間はすべての `key`、出力空間はすべてのバケット、つまり配列のインデックスです。言い換えると、`key` を入力すれば、**そのペアが配列のどこに格納されるかをハッシュ関数で求められます**。
 
-`key` を入力したとき、ハッシュ関数の計算過程は次の 2 段階に分かれます。
+`key` を入力したとき、ハッシュ関数の計算は次の二段階に分かれます。
 
-1. あるハッシュアルゴリズム `hash()` を用いてハッシュ値を計算します。
-2. ハッシュ値をバケット数（配列長）`capacity` で剰余し、その `key` に対応するバケット（配列インデックス）`index` を求めます。
+1. 何らかのハッシュアルゴリズム `hash()` でハッシュ値を求めます。
+2. ハッシュ値をバケット数（配列の長さ）`capacity` で割った余りを取り、対応するバケット（配列のインデックス）`index` を得ます。
 
 ```shell
 index = hash(key) % capacity
 ```
 
-その後、`index` を使ってハッシュテーブル内の対応するバケットにアクセスし、`value` を取得できます。
+その後、`index` でハッシュテーブル内の対応するバケットにアクセスし、`value` を取得できます。
 
-配列長を `capacity = 100` 、ハッシュアルゴリズムを `hash(key) = key` とすると、ハッシュ関数は `key % 100` となります。次の図では、`key` を学籍番号、`value` を名前の例として、ハッシュ関数の動作原理を示します。
+配列の長さを `capacity = 100`、ハッシュアルゴリズムを `hash(key) = key` とすると、ハッシュ関数は `key % 100` です。図 6-2 では、学籍番号を `key`、名前を `value` として、その仕組みを示しています。
 
-![ハッシュ関数の動作原理](hash_map.assets/hash_function.png){ class="animation-figure" }
+![ハッシュ関数の仕組み](hash_map.assets/hash_function.png){ class="animation-figure" }
 
-<p align="center"> 図 6-2 &nbsp; ハッシュ関数の動作原理 </p>
+<p align="center"> 図 6-2 &nbsp; ハッシュ関数の仕組み </p>
 
-以下のコードは、単純なハッシュテーブルを実装したものです。ここでは、キーと値のペアを表すために `key` と `value` をクラス `Pair` にまとめています。
+以下は単純なハッシュテーブルの実装です。`key` と `value` をクラス `Pair` にまとめ、キーと値のペアを表しています。
 
 === "Python"
 
     ```python title="array_hash_map.py"
     class Pair:
-        """キーと値の組"""
+        """キーと値のペア"""
 
         def __init__(self, key: int, val: str):
             self.key = key
             self.val = val
 
     class ArrayHashMap:
-        """配列ベースのハッシュテーブル"""
+        """配列で実装したハッシュテーブル"""
 
         def __init__(self):
             """コンストラクタ"""
-            # 100 個のバケットを含む配列を初期化
+            # 100 個のバケットを含む配列を初期化する
             self.buckets: list[Pair | None] = [None] * 100
 
         def hash_func(self, key: int) -> int:
@@ -599,7 +599,7 @@ index = hash(key) % capacity
             return index
 
         def get(self, key: int) -> str | None:
-            """検索操作"""
+            """取得操作"""
             index: int = self.hash_func(key)
             pair: Pair = self.buckets[index]
             if pair is None:
@@ -615,11 +615,11 @@ index = hash(key) % capacity
         def remove(self, key: int):
             """削除操作"""
             index: int = self.hash_func(key)
-            # None に設定し、削除を表す
+            # None に設定して、削除を表す
             self.buckets[index] = None
 
         def entry_set(self) -> list[Pair]:
-            """すべてのキーと値のペアを取得"""
+            """キーと値のペアをすべて取得する"""
             result: list[Pair] = []
             for pair in self.buckets:
                 if pair is not None:
@@ -627,7 +627,7 @@ index = hash(key) % capacity
             return result
 
         def key_set(self) -> list[int]:
-            """すべてのキーを取得"""
+            """すべてのキーを取得する"""
             result = []
             for pair in self.buckets:
                 if pair is not None:
@@ -635,7 +635,7 @@ index = hash(key) % capacity
             return result
 
         def value_set(self) -> list[str]:
-            """すべての値を取得"""
+            """すべての値を取得する"""
             result = []
             for pair in self.buckets:
                 if pair is not None:
@@ -643,7 +643,7 @@ index = hash(key) % capacity
             return result
 
         def print(self):
-            """ハッシュテーブルを出力"""
+            """ハッシュテーブルを表示する"""
             for pair in self.buckets:
                 if pair is not None:
                     print(pair.key, "->", pair.val)
@@ -652,7 +652,7 @@ index = hash(key) % capacity
 === "C++"
 
     ```cpp title="array_hash_map.cpp"
-    /* キーと値の組 */
+    /* キーと値のペア */
     struct Pair {
       public:
         int key;
@@ -663,14 +663,14 @@ index = hash(key) % capacity
         }
     };
 
-    /* 配列ベースのハッシュテーブル */
+    /* 配列で実装したハッシュテーブル */
     class ArrayHashMap {
       private:
         vector<Pair *> buckets;
 
       public:
         ArrayHashMap() {
-            // 100 個のバケットを含む配列を初期化
+            // 100 個のバケットを含む配列を初期化する
             buckets = vector<Pair *>(100);
         }
 
@@ -688,7 +688,7 @@ index = hash(key) % capacity
             return index;
         }
 
-        /* 検索操作 */
+        /* 取得操作 */
         string get(int key) {
             int index = hashFunc(key);
             Pair *pair = buckets[index];
@@ -707,12 +707,12 @@ index = hash(key) % capacity
         /* 削除操作 */
         void remove(int key) {
             int index = hashFunc(key);
-            // メモリを解放して nullptr に設定する
+            // メモリを解放し、nullptr に設定する
             delete buckets[index];
             buckets[index] = nullptr;
         }
 
-        /* すべてのキーと値のペアを取得 */
+        /* キーと値のペアをすべて取得する */
         vector<Pair *> pairSet() {
             vector<Pair *> pairSet;
             for (Pair *pair : buckets) {
@@ -723,7 +723,7 @@ index = hash(key) % capacity
             return pairSet;
         }
 
-        /* すべてのキーを取得 */
+        /* すべてのキーを取得する */
         vector<int> keySet() {
             vector<int> keySet;
             for (Pair *pair : buckets) {
@@ -734,7 +734,7 @@ index = hash(key) % capacity
             return keySet;
         }
 
-        /* すべての値を取得 */
+        /* すべての値を取得する */
         vector<string> valueSet() {
             vector<string> valueSet;
             for (Pair *pair : buckets) {
@@ -745,7 +745,7 @@ index = hash(key) % capacity
             return valueSet;
         }
 
-        /* ハッシュテーブルを出力 */
+        /* ハッシュテーブルを表示する */
         void print() {
             for (Pair *kv : pairSet()) {
                 cout << kv->key << " -> " << kv->val << endl;
@@ -757,7 +757,7 @@ index = hash(key) % capacity
 === "Java"
 
     ```java title="array_hash_map.java"
-    /* キーと値の組 */
+    /* キーと値のペア */
     class Pair {
         public int key;
         public String val;
@@ -768,12 +768,12 @@ index = hash(key) % capacity
         }
     }
 
-    /* 配列ベースのハッシュテーブル */
+    /* 配列で実装したハッシュテーブル */
     class ArrayHashMap {
         private List<Pair> buckets;
 
         public ArrayHashMap() {
-            // 100 個のバケットを含む配列を初期化
+            // 100 個のバケットを含む配列を初期化する
             buckets = new ArrayList<>();
             for (int i = 0; i < 100; i++) {
                 buckets.add(null);
@@ -786,7 +786,7 @@ index = hash(key) % capacity
             return index;
         }
 
-        /* 検索操作 */
+        /* 取得操作 */
         public String get(int key) {
             int index = hashFunc(key);
             Pair pair = buckets.get(index);
@@ -805,11 +805,11 @@ index = hash(key) % capacity
         /* 削除操作 */
         public void remove(int key) {
             int index = hashFunc(key);
-            // null に設定し、削除を表す
+            // null に設定して、削除を表す
             buckets.set(index, null);
         }
 
-        /* すべてのキーと値のペアを取得 */
+        /* キーと値のペアをすべて取得する */
         public List<Pair> pairSet() {
             List<Pair> pairSet = new ArrayList<>();
             for (Pair pair : buckets) {
@@ -819,7 +819,7 @@ index = hash(key) % capacity
             return pairSet;
         }
 
-        /* すべてのキーを取得 */
+        /* すべてのキーを取得する */
         public List<Integer> keySet() {
             List<Integer> keySet = new ArrayList<>();
             for (Pair pair : buckets) {
@@ -829,7 +829,7 @@ index = hash(key) % capacity
             return keySet;
         }
 
-        /* すべての値を取得 */
+        /* すべての値を取得する */
         public List<String> valueSet() {
             List<String> valueSet = new ArrayList<>();
             for (Pair pair : buckets) {
@@ -839,7 +839,7 @@ index = hash(key) % capacity
             return valueSet;
         }
 
-        /* ハッシュテーブルを出力 */
+        /* ハッシュテーブルを表示する */
         public void print() {
             for (Pair kv : pairSet()) {
                 System.out.println(kv.key + " -> " + kv.val);
@@ -851,17 +851,17 @@ index = hash(key) % capacity
 === "C#"
 
     ```csharp title="array_hash_map.cs"
-    /* キーと値の組 int->string */
+    /* キーと値のペア int->string */
     class Pair(int key, string val) {
         public int key = key;
         public string val = val;
     }
 
-    /* 配列ベースのハッシュテーブル */
+    /* 配列で実装したハッシュテーブル */
     class ArrayHashMap {
         List<Pair?> buckets;
         public ArrayHashMap() {
-            // 100 個のバケットを含む配列を初期化
+            // 100 個のバケットを含む配列を初期化する
             buckets = [];
             for (int i = 0; i < 100; i++) {
                 buckets.Add(null);
@@ -874,7 +874,7 @@ index = hash(key) % capacity
             return index;
         }
 
-        /* 検索操作 */
+        /* 取得操作 */
         public string? Get(int key) {
             int index = HashFunc(key);
             Pair? pair = buckets[index];
@@ -892,11 +892,11 @@ index = hash(key) % capacity
         /* 削除操作 */
         public void Remove(int key) {
             int index = HashFunc(key);
-            // null に設定し、削除を表す
+            // null に設定して、削除を表す
             buckets[index] = null;
         }
 
-        /* すべてのキーと値のペアを取得 */
+        /* キーと値のペアをすべて取得する */
         public List<Pair> PairSet() {
             List<Pair> pairSet = [];
             foreach (Pair? pair in buckets) {
@@ -906,7 +906,7 @@ index = hash(key) % capacity
             return pairSet;
         }
 
-        /* すべてのキーを取得 */
+        /* すべてのキーを取得する */
         public List<int> KeySet() {
             List<int> keySet = [];
             foreach (Pair? pair in buckets) {
@@ -916,7 +916,7 @@ index = hash(key) % capacity
             return keySet;
         }
 
-        /* すべての値を取得 */
+        /* すべての値を取得する */
         public List<string> ValueSet() {
             List<string> valueSet = [];
             foreach (Pair? pair in buckets) {
@@ -926,7 +926,7 @@ index = hash(key) % capacity
             return valueSet;
         }
 
-        /* ハッシュテーブルを出力 */
+        /* ハッシュテーブルを表示する */
         public void Print() {
             foreach (Pair kv in PairSet()) {
                 Console.WriteLine(kv.key + " -> " + kv.val);
@@ -938,20 +938,20 @@ index = hash(key) % capacity
 === "Go"
 
     ```go title="array_hash_map.go"
-    /* キーと値の組 */
+    /* キーと値のペア */
     type pair struct {
         key int
         val string
     }
 
-    /* 配列ベースのハッシュテーブル */
+    /* 配列で実装したハッシュテーブル */
     type arrayHashMap struct {
         buckets []*pair
     }
 
-    /* ハッシュテーブルを初期化 */
+    /* ハッシュテーブルを初期化する */
     func newArrayHashMap() *arrayHashMap {
-        // 100 個のバケットを含む配列を初期化
+        // 100 個のバケットを含む配列を初期化する
         buckets := make([]*pair, 100)
         return &arrayHashMap{buckets: buckets}
     }
@@ -962,7 +962,7 @@ index = hash(key) % capacity
         return index
     }
 
-    /* 検索操作 */
+    /* 取得操作 */
     func (a *arrayHashMap) get(key int) string {
         index := a.hashFunc(key)
         pair := a.buckets[index]
@@ -982,11 +982,11 @@ index = hash(key) % capacity
     /* 削除操作 */
     func (a *arrayHashMap) remove(key int) {
         index := a.hashFunc(key)
-        // nil に設定し、削除を表す
+        // nil に設定して、削除を表す
         a.buckets[index] = nil
     }
 
-    /* すべてのキーのペアを取得する */
+    /* すべてのキーと値のペアを取得する */
     func (a *arrayHashMap) pairSet() []*pair {
         var pairs []*pair
         for _, pair := range a.buckets {
@@ -997,7 +997,7 @@ index = hash(key) % capacity
         return pairs
     }
 
-    /* すべてのキーを取得 */
+    /* すべてのキーを取得する */
     func (a *arrayHashMap) keySet() []int {
         var keys []int
         for _, pair := range a.buckets {
@@ -1008,7 +1008,7 @@ index = hash(key) % capacity
         return keys
     }
 
-    /* すべての値を取得 */
+    /* すべての値を取得する */
     func (a *arrayHashMap) valueSet() []string {
         var values []string
         for _, pair := range a.buckets {
@@ -1019,7 +1019,7 @@ index = hash(key) % capacity
         return values
     }
 
-    /* ハッシュテーブルを出力 */
+    /* ハッシュテーブルを表示する */
     func (a *arrayHashMap) print() {
         for _, pair := range a.buckets {
             if pair != nil {
@@ -1032,7 +1032,7 @@ index = hash(key) % capacity
 === "Swift"
 
     ```swift title="array_hash_map.swift"
-    /* キーと値の組 */
+    /* キーと値のペア */
     class Pair: Equatable {
         public var key: Int
         public var val: String
@@ -1047,12 +1047,12 @@ index = hash(key) % capacity
         }
     }
 
-    /* 配列ベースのハッシュテーブル */
+    /* 配列で実装したハッシュテーブル */
     class ArrayHashMap {
         private var buckets: [Pair?]
 
         init() {
-            // 100 個のバケットを含む配列を初期化
+            // 100 個のバケットを含む配列を初期化する
             buckets = Array(repeating: nil, count: 100)
         }
 
@@ -1062,7 +1062,7 @@ index = hash(key) % capacity
             return index
         }
 
-        /* 検索操作 */
+        /* 取得操作 */
         func get(key: Int) -> String? {
             let index = hashFunc(key: key)
             let pair = buckets[index]
@@ -1079,26 +1079,26 @@ index = hash(key) % capacity
         /* 削除操作 */
         func remove(key: Int) {
             let index = hashFunc(key: key)
-            // nil に設定し、削除を表す
+            // nil に設定して、削除を表す
             buckets[index] = nil
         }
 
-        /* すべてのキーと値のペアを取得 */
+        /* キーと値のペアをすべて取得する */
         func pairSet() -> [Pair] {
             buckets.compactMap { $0 }
         }
 
-        /* すべてのキーを取得 */
+        /* すべてのキーを取得する */
         func keySet() -> [Int] {
             buckets.compactMap { $0?.key }
         }
 
-        /* すべての値を取得 */
+        /* すべての値を取得する */
         func valueSet() -> [String] {
             buckets.compactMap { $0?.val }
         }
 
-        /* ハッシュテーブルを出力 */
+        /* ハッシュテーブルを表示する */
         func print() {
             for pair in pairSet() {
                 Swift.print("\(pair.key) -> \(pair.val)")
@@ -1110,7 +1110,7 @@ index = hash(key) % capacity
 === "JS"
 
     ```javascript title="array_hash_map.js"
-    /* キーと値の組 Number -> String */
+    /* キーと値のペア Number -> String */
     class Pair {
         constructor(key, val) {
             this.key = key;
@@ -1118,11 +1118,11 @@ index = hash(key) % capacity
         }
     }
 
-    /* 配列ベースのハッシュテーブル */
+    /* 配列で実装したハッシュテーブル */
     class ArrayHashMap {
         #buckets;
         constructor() {
-            // 100 個のバケットを含む配列を初期化
+            // 100 個のバケットを含む配列を初期化する
             this.#buckets = new Array(100).fill(null);
         }
 
@@ -1131,7 +1131,7 @@ index = hash(key) % capacity
             return key % 100;
         }
 
-        /* 検索操作 */
+        /* 取得操作 */
         get(key) {
             let index = this.#hashFunc(key);
             let pair = this.#buckets[index];
@@ -1148,11 +1148,11 @@ index = hash(key) % capacity
         /* 削除操作 */
         delete(key) {
             let index = this.#hashFunc(key);
-            // null に設定し、削除を表す
+            // null に設定して、削除を表す
             this.#buckets[index] = null;
         }
 
-        /* すべてのキーと値のペアを取得 */
+        /* キーと値のペアをすべて取得する */
         entries() {
             let arr = [];
             for (let i = 0; i < this.#buckets.length; i++) {
@@ -1163,7 +1163,7 @@ index = hash(key) % capacity
             return arr;
         }
 
-        /* すべてのキーを取得 */
+        /* すべてのキーを取得する */
         keys() {
             let arr = [];
             for (let i = 0; i < this.#buckets.length; i++) {
@@ -1174,7 +1174,7 @@ index = hash(key) % capacity
             return arr;
         }
 
-        /* すべての値を取得 */
+        /* すべての値を取得する */
         values() {
             let arr = [];
             for (let i = 0; i < this.#buckets.length; i++) {
@@ -1185,7 +1185,7 @@ index = hash(key) % capacity
             return arr;
         }
 
-        /* ハッシュテーブルを出力 */
+        /* ハッシュテーブルを表示する */
         print() {
             let pairSet = this.entries();
             for (const pair of pairSet) {
@@ -1198,7 +1198,7 @@ index = hash(key) % capacity
 === "TS"
 
     ```typescript title="array_hash_map.ts"
-    /* キーと値の組 Number -> String */
+    /* キーと値のペア Number -> String */
     class Pair {
         public key: number;
         public val: string;
@@ -1209,12 +1209,12 @@ index = hash(key) % capacity
         }
     }
 
-    /* 配列ベースのハッシュテーブル */
+    /* 配列で実装したハッシュテーブル */
     class ArrayHashMap {
         private readonly buckets: (Pair | null)[];
 
         constructor() {
-            // 100 個のバケットを含む配列を初期化
+            // 100 個のバケットを含む配列を初期化する
             this.buckets = new Array(100).fill(null);
         }
 
@@ -1223,7 +1223,7 @@ index = hash(key) % capacity
             return key % 100;
         }
 
-        /* 検索操作 */
+        /* 取得操作 */
         public get(key: number): string | null {
             let index = this.hashFunc(key);
             let pair = this.buckets[index];
@@ -1240,11 +1240,11 @@ index = hash(key) % capacity
         /* 削除操作 */
         public delete(key: number) {
             let index = this.hashFunc(key);
-            // null に設定し、削除を表す
+            // null に設定して、削除を表す
             this.buckets[index] = null;
         }
 
-        /* すべてのキーと値のペアを取得 */
+        /* キーと値のペアをすべて取得する */
         public entries(): (Pair | null)[] {
             let arr: (Pair | null)[] = [];
             for (let i = 0; i < this.buckets.length; i++) {
@@ -1255,7 +1255,7 @@ index = hash(key) % capacity
             return arr;
         }
 
-        /* すべてのキーを取得 */
+        /* すべてのキーを取得する */
         public keys(): (number | undefined)[] {
             let arr: (number | undefined)[] = [];
             for (let i = 0; i < this.buckets.length; i++) {
@@ -1266,7 +1266,7 @@ index = hash(key) % capacity
             return arr;
         }
 
-        /* すべての値を取得 */
+        /* すべての値を取得する */
         public values(): (string | undefined)[] {
             let arr: (string | undefined)[] = [];
             for (let i = 0; i < this.buckets.length; i++) {
@@ -1277,7 +1277,7 @@ index = hash(key) % capacity
             return arr;
         }
 
-        /* ハッシュテーブルを出力 */
+        /* ハッシュテーブルを表示する */
         public print() {
             let pairSet = this.entries();
             for (const pair of pairSet) {
@@ -1290,19 +1290,19 @@ index = hash(key) % capacity
 === "Dart"
 
     ```dart title="array_hash_map.dart"
-    /* キーと値の組 */
+    /* キーと値のペア */
     class Pair {
       int key;
       String val;
       Pair(this.key, this.val);
     }
 
-    /* 配列ベースのハッシュテーブル */
+    /* 配列で実装したハッシュテーブル */
     class ArrayHashMap {
       late List<Pair?> _buckets;
 
       ArrayHashMap() {
-        // 100 個のバケットを含む配列を初期化
+        // 100 個のバケットを含む配列を初期化する
         _buckets = List.filled(100, null);
       }
 
@@ -1312,7 +1312,7 @@ index = hash(key) % capacity
         return index;
       }
 
-      /* 検索操作 */
+      /* 取得操作 */
       String? get(int key) {
         final int index = _hashFunc(key);
         final Pair? pair = _buckets[index];
@@ -1335,7 +1335,7 @@ index = hash(key) % capacity
         _buckets[index] = null;
       }
 
-      /* すべてのキーと値のペアを取得 */
+      /* キーと値のペアをすべて取得する */
       List<Pair> pairSet() {
         List<Pair> pairSet = [];
         for (final Pair? pair in _buckets) {
@@ -1346,7 +1346,7 @@ index = hash(key) % capacity
         return pairSet;
       }
 
-      /* すべてのキーを取得 */
+      /* すべてのキーを取得する */
       List<int> keySet() {
         List<int> keySet = [];
         for (final Pair? pair in _buckets) {
@@ -1357,7 +1357,7 @@ index = hash(key) % capacity
         return keySet;
       }
 
-      /* すべての値を取得 */
+      /* すべての値を取得する */
       List<String> values() {
         List<String> valueSet = [];
         for (final Pair? pair in _buckets) {
@@ -1368,7 +1368,7 @@ index = hash(key) % capacity
         return valueSet;
       }
 
-      /* ハッシュテーブルを出力 */
+      /* ハッシュテーブルを表示する */
       void printHashMap() {
         for (final Pair kv in pairSet()) {
           print("${kv.key} -> ${kv.val}");
@@ -1380,21 +1380,21 @@ index = hash(key) % capacity
 === "Rust"
 
     ```rust title="array_hash_map.rs"
-    /* キーと値の組 */
+    /* キーと値のペア */
     #[derive(Debug, Clone, PartialEq)]
     pub struct Pair {
         pub key: i32,
         pub val: String,
     }
 
-    /* 配列ベースのハッシュテーブル */
+    /* 配列で実装したハッシュテーブル */
     pub struct ArrayHashMap {
         buckets: Vec<Option<Pair>>,
     }
 
     impl ArrayHashMap {
         pub fn new() -> ArrayHashMap {
-            // 100 個のバケットを含む配列を初期化
+            // 100 個のバケットを含む配列を初期化する
             Self {
                 buckets: vec![None; 100],
             }
@@ -1405,7 +1405,7 @@ index = hash(key) % capacity
             key as usize % 100
         }
 
-        /* 検索操作 */
+        /* 取得操作 */
         pub fn get(&self, key: i32) -> Option<&String> {
             let index = self.hash_func(key);
             self.buckets[index].as_ref().map(|pair| &pair.val)
@@ -1423,11 +1423,11 @@ index = hash(key) % capacity
         /* 削除操作 */
         pub fn remove(&mut self, key: i32) {
             let index = self.hash_func(key);
-            // None に設定し、削除を表す
+            // None に設定して、削除を表す
             self.buckets[index] = None;
         }
 
-        /* すべてのキーと値のペアを取得 */
+        /* キーと値のペアをすべて取得する */
         pub fn entry_set(&self) -> Vec<&Pair> {
             self.buckets
                 .iter()
@@ -1435,7 +1435,7 @@ index = hash(key) % capacity
                 .collect()
         }
 
-        /* すべてのキーを取得 */
+        /* すべてのキーを取得する */
         pub fn key_set(&self) -> Vec<&i32> {
             self.buckets
                 .iter()
@@ -1443,7 +1443,7 @@ index = hash(key) % capacity
                 .collect()
         }
 
-        /* すべての値を取得 */
+        /* すべての値を取得する */
         pub fn value_set(&self) -> Vec<&String> {
             self.buckets
                 .iter()
@@ -1451,7 +1451,7 @@ index = hash(key) % capacity
                 .collect()
         }
 
-        /* ハッシュテーブルを出力 */
+        /* ハッシュテーブルを表示する */
         pub fn print(&self) {
             for pair in self.entry_set() {
                 println!("{} -> {}", pair.key, pair.val);
@@ -1463,13 +1463,13 @@ index = hash(key) % capacity
 === "C"
 
     ```c title="array_hash_map.c"
-    /* キーと値の組 int->string */
+    /* キーと値のペア int->string */
     typedef struct {
         int key;
         char *val;
     } Pair;
 
-    /* 配列ベースのハッシュテーブル */
+    /* 配列で実装したハッシュテーブル */
     typedef struct {
         Pair *buckets[MAX_SIZE];
     } ArrayHashMap;
@@ -1513,12 +1513,12 @@ index = hash(key) % capacity
         hmap->buckets[index] = NULL;
     }
 
-    /* すべてのキーと値のペアを取得 */
+    /* キーと値のペアをすべて取得する */
     void pairSet(ArrayHashMap *hmap, MapSet *set) {
         Pair *entries;
         int i = 0, index = 0;
         int total = 0;
-        /* 有効なキーと値のペア数を集計 */
+        /* 有効なキーと値のペアの数を数える */
         for (i = 0; i < MAX_SIZE; i++) {
             if (hmap->buckets[i] != NULL) {
                 total++;
@@ -1537,12 +1537,12 @@ index = hash(key) % capacity
         set->len = total;
     }
 
-    /* すべてのキーを取得 */
+    /* すべてのキーを取得する */
     void keySet(ArrayHashMap *hmap, MapSet *set) {
         int *keys;
         int i = 0, index = 0;
         int total = 0;
-        /* 有効なキーと値のペア数を集計 */
+        /* 有効なキーと値のペアの数を数える */
         for (i = 0; i < MAX_SIZE; i++) {
             if (hmap->buckets[i] != NULL) {
                 total++;
@@ -1559,12 +1559,12 @@ index = hash(key) % capacity
         set->len = total;
     }
 
-    /* すべての値を取得 */
+    /* すべての値を取得する */
     void valueSet(ArrayHashMap *hmap, MapSet *set) {
         char **vals;
         int i = 0, index = 0;
         int total = 0;
-        /* 有効なキーと値のペア数を集計 */
+        /* 有効なキーと値のペアの数を数える */
         for (i = 0; i < MAX_SIZE; i++) {
             if (hmap->buckets[i] != NULL) {
                 total++;
@@ -1581,7 +1581,7 @@ index = hash(key) % capacity
         set->len = total;
     }
 
-    /* ハッシュテーブルを出力 */
+    /* ハッシュテーブルを表示する */
     void print(ArrayHashMap *hmap) {
         int i;
         MapSet set;
@@ -1597,15 +1597,15 @@ index = hash(key) % capacity
 === "Kotlin"
 
     ```kotlin title="array_hash_map.kt"
-    /* キーと値の組 */
+    /* キーと値のペア */
     class Pair(
         var key: Int,
         var _val: String
     )
 
-    /* 配列ベースのハッシュテーブル */
+    /* 配列で実装したハッシュテーブル */
     class ArrayHashMap {
-        // 100 個のバケットを含む配列を初期化
+        // 100 個のバケットを含む配列を初期化する
         private val buckets = arrayOfNulls<Pair>(100)
 
         /* ハッシュ関数 */
@@ -1614,7 +1614,7 @@ index = hash(key) % capacity
             return index
         }
 
-        /* 検索操作 */
+        /* 取得操作 */
         fun get(key: Int): String? {
             val index = hashFunc(key)
             val pair = buckets[index] ?: return null
@@ -1631,11 +1631,11 @@ index = hash(key) % capacity
         /* 削除操作 */
         fun remove(key: Int) {
             val index = hashFunc(key)
-            // null に設定し、削除を表す
+            // null に設定して、削除を表す
             buckets[index] = null
         }
 
-        /* すべてのキーと値のペアを取得 */
+        /* キーと値のペアをすべて取得する */
         fun pairSet(): MutableList<Pair> {
             val pairSet = mutableListOf<Pair>()
             for (pair in buckets) {
@@ -1645,7 +1645,7 @@ index = hash(key) % capacity
             return pairSet
         }
 
-        /* すべてのキーを取得 */
+        /* すべてのキーを取得する */
         fun keySet(): MutableList<Int> {
             val keySet = mutableListOf<Int>()
             for (pair in buckets) {
@@ -1655,7 +1655,7 @@ index = hash(key) % capacity
             return keySet
         }
 
-        /* すべての値を取得 */
+        /* すべての値を取得する */
         fun valueSet(): MutableList<String> {
             val valueSet = mutableListOf<String>()
             for (pair in buckets) {
@@ -1665,7 +1665,7 @@ index = hash(key) % capacity
             return valueSet
         }
 
-        /* ハッシュテーブルを出力 */
+        /* ハッシュテーブルを表示する */
         fun print() {
             for (kv in pairSet()) {
                 val key = kv.key
@@ -1693,7 +1693,7 @@ index = hash(key) % capacity
     class ArrayHashMap
       ### コンストラクタ ###
       def initialize
-        # 100 個のバケットを含む配列を初期化
+        # 100 個のバケットを含む配列を初期化する
         @buckets = Array.new(100)
       end
 
@@ -1702,7 +1702,7 @@ index = hash(key) % capacity
         index = key % 100
       end
 
-      ### 検索操作 ###
+      ### 取得操作 ###
       def get(key)
         index = hash_func(key)
         pair = @buckets[index]
@@ -1721,68 +1721,68 @@ index = hash(key) % capacity
       ### 削除操作 ###
       def remove(key)
         index = hash_func(key)
-        # nil に設定し、削除を表す
+        # nil に設定して、削除を表す
         @buckets[index] = nil
       end
 
-      ### すべてのキーと値のペアを取得 ###
+      ### キーと値のペアをすべて取得する ###
       def entry_set
         result = []
         @buckets.each { |pair| result << pair unless pair.nil? }
         result
       end
 
-      ### すべてのキーを取得 ###
+      ### すべてのキーを取得する ###
       def key_set
         result = []
         @buckets.each { |pair| result << pair.key unless pair.nil? }
         result
       end
 
-      ### すべての値を取得 ###
+      ### すべての値を取得する ###
       def value_set
         result = []
         @buckets.each { |pair| result << pair.val unless pair.nil? }
         result
       end
 
-      ### ハッシュテーブルを出力 ###
+      ### ハッシュテーブルを表示する ###
       def print
         @buckets.each { |pair| puts "#{pair.key} -> #{pair.val}" unless pair.nil? }
       end
     end
     ```
 
-??? pythontutor "コードの可視化"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20Pair%3A%0A%0A%20%20%20%20def%20__init__%28self%2C%20key%3A%20int%2C%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20self.key%20%3D%20key%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0Aclass%20ArrayHashMap%3A%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20self.buckets%3A%20list%5BPair%20%7C%20None%5D%20%3D%20%5BNone%5D%20%2A%2020%0A%0A%20%20%20%20def%20hash_func%28self%2C%20key%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20index%20%3D%20key%20%25%2020%0A%20%20%20%20%20%20%20%20return%20index%0A%0A%20%20%20%20def%20get%28self%2C%20key%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20pair%3A%20Pair%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20if%20pair%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20return%20pair.val%0A%0A%20%20%20%20def%20put%28self%2C%20key%3A%20int%2C%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20pair%20%3D%20Pair%28key%2C%20val%29%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20self.buckets%5Bindex%5D%20%3D%20pair%0A%0A%20%20%20%20def%20remove%28self%2C%20key%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20self.buckets%5Bindex%5D%20%3D%20None%0A%0A%20%20%20%20def%20entry_set%28self%29%20-%3E%20list%5BPair%5D%3A%0A%20%20%20%20%20%20%20%20result%3A%20list%5BPair%5D%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20key_set%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair.key%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20value_set%28self%29%20-%3E%20list%5Bstr%5D%3A%0A%20%20%20%20%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair.val%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20print%28self%29%3A%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%28pair.key%2C%20%27-%3E%27%2C%20pair.val%29%0Aif%20__name__%20%3D%3D%20%27__main__%27%3A%0A%20%20%20%20hmap%20%3D%20ArrayHashMap%28%29%0A%20%20%20%20hmap.put%2812836%2C%20%27%E3%82%B7%E3%83%A3%E3%82%AA%E3%83%8F%E3%83%BC%27%29%0A%20%20%20%20hmap.put%2815937%2C%20%27%E3%82%B7%E3%83%A3%E3%82%AA%E3%83%AB%E3%82%AA%27%29%0A%20%20%20%20hmap.put%2816750%2C%20%27%E3%82%B7%E3%83%A3%E3%82%AA%E3%82%B9%E3%83%AF%E3%83%B3%27%29%0A%20%20%20%20hmap.put%2813276%2C%20%27%E3%82%B7%E3%83%A3%E3%82%AA%E3%83%95%E3%82%A1%E3%83%BC%27%29%0A%20%20%20%20hmap.put%2810583%2C%20%27%E3%82%B7%E3%83%A3%E3%82%AA%E3%83%A4%E3%83%BC%27%29%0A%20%20%20%20name%20%3D%20hmap.get%2815937%29%0A%20%20%20%20hmap.remove%2810583%29%0A%20%20%20%20print%28%27%5Cn%E3%82%AD%E3%83%BC%E3%81%A8%E5%80%A4%E3%81%AE%E3%83%9A%E3%82%A2%20Key-%3EValue%20%E3%82%92%E8%B5%B0%E6%9F%BB%27%29%0A%20%20%20%20for%20pair%20in%20hmap.entry_set%28%29%3A%0A%20%20%20%20%20%20%20%20print%28pair.key%2C%20%27-%3E%27%2C%20pair.val%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20Pair%3A%0A%0A%20%20%20%20def%20__init__%28self%2C%20key%3A%20int%2C%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20self.key%20%3D%20key%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0Aclass%20ArrayHashMap%3A%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20self.buckets%3A%20list%5BPair%20%7C%20None%5D%20%3D%20%5BNone%5D%20%2A%2020%0A%0A%20%20%20%20def%20hash_func%28self%2C%20key%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20index%20%3D%20key%20%25%2020%0A%20%20%20%20%20%20%20%20return%20index%0A%0A%20%20%20%20def%20get%28self%2C%20key%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20pair%3A%20Pair%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20if%20pair%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20return%20pair.val%0A%0A%20%20%20%20def%20put%28self%2C%20key%3A%20int%2C%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20pair%20%3D%20Pair%28key%2C%20val%29%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20self.buckets%5Bindex%5D%20%3D%20pair%0A%0A%20%20%20%20def%20remove%28self%2C%20key%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20self.buckets%5Bindex%5D%20%3D%20None%0A%0A%20%20%20%20def%20entry_set%28self%29%20-%3E%20list%5BPair%5D%3A%0A%20%20%20%20%20%20%20%20result%3A%20list%5BPair%5D%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20key_set%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair.key%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20value_set%28self%29%20-%3E%20list%5Bstr%5D%3A%0A%20%20%20%20%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair.val%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20print%28self%29%3A%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%28pair.key%2C%20%27-%3E%27%2C%20pair.val%29%0Aif%20__name__%20%3D%3D%20%27__main__%27%3A%0A%20%20%20%20hmap%20%3D%20ArrayHashMap%28%29%0A%20%20%20%20hmap.put%2812836%2C%20%27%E3%82%B7%E3%83%A3%E3%82%AA%E3%83%8F%E3%83%BC%27%29%0A%20%20%20%20hmap.put%2815937%2C%20%27%E3%82%B7%E3%83%A3%E3%82%AA%E3%83%AB%E3%82%AA%27%29%0A%20%20%20%20hmap.put%2816750%2C%20%27%E3%82%B7%E3%83%A3%E3%82%AA%E3%82%B9%E3%83%AF%E3%83%B3%27%29%0A%20%20%20%20hmap.put%2813276%2C%20%27%E3%82%B7%E3%83%A3%E3%82%AA%E3%83%95%E3%82%A1%E3%83%BC%27%29%0A%20%20%20%20hmap.put%2810583%2C%20%27%E3%82%B7%E3%83%A3%E3%82%AA%E3%83%A4%E3%83%BC%27%29%0A%20%20%20%20name%20%3D%20hmap.get%2815937%29%0A%20%20%20%20hmap.remove%2810583%29%0A%20%20%20%20print%28%27%5Cn%E3%82%AD%E3%83%BC%E3%81%A8%E5%80%A4%E3%81%AE%E3%83%9A%E3%82%A2%20Key-%3EValue%20%E3%82%92%E8%B5%B0%E6%9F%BB%27%29%0A%20%20%20%20for%20pair%20in%20hmap.entry_set%28%29%3A%0A%20%20%20%20%20%20%20%20print%28pair.key%2C%20%27-%3E%27%2C%20pair.val%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20Pair%3A%0A%20%20%22%22%22%E3%82%AD%E3%83%BC%E3%81%A8%E5%80%A4%E3%81%AE%E3%83%9A%E3%82%A2%22%22%22%0A%20%20def%20__init__%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20self.key%20%3D%20key%0A%20%20%20%20self.val%20%3D%20val%0A%0A%0Aclass%20ArrayHashMap%3A%0A%20%20%22%22%22%E9%85%8D%E5%88%97%E3%81%A7%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%9F%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%22%22%22%0A%0A%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%23%2020%20%E5%80%8B%E3%81%AE%E3%83%90%E3%82%B1%E3%83%83%E3%83%88%E3%82%92%E5%90%AB%E3%82%80%E9%85%8D%E5%88%97%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20self.buckets%3A%20list%5BPair%20%7C%20None%5D%20%3D%20%5BNone%5D%20%2A%2020%0A%0A%20%20def%20hash_func%28self,%20key%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E9%96%A2%E6%95%B0%22%22%22%0A%20%20%20%20index%20%3D%20key%20%25%2020%0A%20%20%20%20return%20index%0A%0A%20%20def%20get%28self,%20key%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%22%22%22%E5%8F%96%E5%BE%97%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20pair%3A%20Pair%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20if%20pair%20is%20None%3A%0A%20%20%20%20%20%20return%20None%0A%20%20%20%20return%20pair.val%0A%0A%20%20def%20put%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%22%22%22%E8%BF%BD%E5%8A%A0%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20pair%20%3D%20Pair%28key,%20val%29%0A%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20self.buckets%5Bindex%5D%20%3D%20pair%0A%0A%20%20def%20remove%28self,%20key%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E5%89%8A%E9%99%A4%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%23%20None%20%E3%81%AB%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6%E3%80%81%E5%89%8A%E9%99%A4%E3%82%92%E8%A1%A8%E3%81%99%0A%20%20%20%20self.buckets%5Bindex%5D%20%3D%20None%0A%0A%20%20def%20entry_set%28self%29%20-%3E%20list%5BPair%5D%3A%0A%20%20%20%20%22%22%22%E3%82%AD%E3%83%BC%E3%81%A8%E5%80%A4%E3%81%AE%E3%83%9A%E3%82%A2%E3%82%92%E3%81%99%E3%81%B9%E3%81%A6%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20result%3A%20list%5BPair%5D%20%3D%20%5B%5D%0A%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20result.append%28pair%29%0A%20%20%20%20return%20result%0A%0A%20%20def%20key_set%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%82%AD%E3%83%BC%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20result.append%28pair.key%29%0A%20%20%20%20return%20result%0A%0A%20%20def%20value_set%28self%29%20-%3E%20list%5Bstr%5D%3A%0A%20%20%20%20%22%22%22%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E5%80%A4%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20result.append%28pair.val%29%0A%20%20%20%20return%20result%0A%0A%20%20def%20print%28self%29%3A%0A%20%20%20%20%22%22%22%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20print%28pair.key,%20%22-%3E%22,%20pair.val%29%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%23%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20hmap%20%3D%20ArrayHashMap%28%29%0A%0A%20%20%23%20%E8%BF%BD%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20hmap.put%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20hmap.put%2815937,%20%22%E5%B0%8F%E5%95%B0%22%29%0A%20%20hmap.put%2816750,%20%22%E5%B0%8F%E7%AE%97%22%29%0A%20%20hmap.put%2813276,%20%22%E5%B0%8F%E6%B3%95%22%29%0A%20%20hmap.put%2810583,%20%22%E5%B0%8F%E9%B8%AD%22%29%0A%0A%20%20%23%20%E5%8F%96%E5%BE%97%E6%93%8D%E4%BD%9C%0A%20%20name%20%3D%20hmap.get%2815937%29%0A%0A%20%20%23%20%E5%89%8A%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20hmap.remove%2810583%29%0A%0A%20%20%23%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E8%B5%B0%E6%9F%BB%E3%81%99%E3%82%8B%0A%20%20print%28%22%5Cn%E3%82%AD%E3%83%BC%E3%81%A8%E5%80%A4%E3%81%AE%E3%83%9A%E3%82%A2%20Key-%3EValue%20%E3%82%92%E8%B5%B0%E6%9F%BB%E3%81%99%E3%82%8B%22%29%0A%20%20for%20pair%20in%20hmap.entry_set%28%29%3A%0A%20%20%20%20print%28pair.key,%20%22-%3E%22,%20pair.val%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20Pair%3A%0A%20%20%22%22%22%E3%82%AD%E3%83%BC%E3%81%A8%E5%80%A4%E3%81%AE%E3%83%9A%E3%82%A2%22%22%22%0A%20%20def%20__init__%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20self.key%20%3D%20key%0A%20%20%20%20self.val%20%3D%20val%0A%0A%0Aclass%20ArrayHashMap%3A%0A%20%20%22%22%22%E9%85%8D%E5%88%97%E3%81%A7%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%9F%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%22%22%22%0A%0A%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%23%2020%20%E5%80%8B%E3%81%AE%E3%83%90%E3%82%B1%E3%83%83%E3%83%88%E3%82%92%E5%90%AB%E3%82%80%E9%85%8D%E5%88%97%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20self.buckets%3A%20list%5BPair%20%7C%20None%5D%20%3D%20%5BNone%5D%20%2A%2020%0A%0A%20%20def%20hash_func%28self,%20key%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E9%96%A2%E6%95%B0%22%22%22%0A%20%20%20%20index%20%3D%20key%20%25%2020%0A%20%20%20%20return%20index%0A%0A%20%20def%20get%28self,%20key%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%22%22%22%E5%8F%96%E5%BE%97%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20pair%3A%20Pair%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20if%20pair%20is%20None%3A%0A%20%20%20%20%20%20return%20None%0A%20%20%20%20return%20pair.val%0A%0A%20%20def%20put%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%22%22%22%E8%BF%BD%E5%8A%A0%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20pair%20%3D%20Pair%28key,%20val%29%0A%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20self.buckets%5Bindex%5D%20%3D%20pair%0A%0A%20%20def%20remove%28self,%20key%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E5%89%8A%E9%99%A4%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%23%20None%20%E3%81%AB%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6%E3%80%81%E5%89%8A%E9%99%A4%E3%82%92%E8%A1%A8%E3%81%99%0A%20%20%20%20self.buckets%5Bindex%5D%20%3D%20None%0A%0A%20%20def%20entry_set%28self%29%20-%3E%20list%5BPair%5D%3A%0A%20%20%20%20%22%22%22%E3%82%AD%E3%83%BC%E3%81%A8%E5%80%A4%E3%81%AE%E3%83%9A%E3%82%A2%E3%82%92%E3%81%99%E3%81%B9%E3%81%A6%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20result%3A%20list%5BPair%5D%20%3D%20%5B%5D%0A%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20result.append%28pair%29%0A%20%20%20%20return%20result%0A%0A%20%20def%20key_set%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%82%AD%E3%83%BC%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20result.append%28pair.key%29%0A%20%20%20%20return%20result%0A%0A%20%20def%20value_set%28self%29%20-%3E%20list%5Bstr%5D%3A%0A%20%20%20%20%22%22%22%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E5%80%A4%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20result.append%28pair.val%29%0A%20%20%20%20return%20result%0A%0A%20%20def%20print%28self%29%3A%0A%20%20%20%20%22%22%22%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20print%28pair.key,%20%22-%3E%22,%20pair.val%29%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%23%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20hmap%20%3D%20ArrayHashMap%28%29%0A%0A%20%20%23%20%E8%BF%BD%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20hmap.put%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20hmap.put%2815937,%20%22%E5%B0%8F%E5%95%B0%22%29%0A%20%20hmap.put%2816750,%20%22%E5%B0%8F%E7%AE%97%22%29%0A%20%20hmap.put%2813276,%20%22%E5%B0%8F%E6%B3%95%22%29%0A%20%20hmap.put%2810583,%20%22%E5%B0%8F%E9%B8%AD%22%29%0A%0A%20%20%23%20%E5%8F%96%E5%BE%97%E6%93%8D%E4%BD%9C%0A%20%20name%20%3D%20hmap.get%2815937%29%0A%0A%20%20%23%20%E5%89%8A%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20hmap.remove%2810583%29%0A%0A%20%20%23%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E8%B5%B0%E6%9F%BB%E3%81%99%E3%82%8B%0A%20%20print%28%22%5Cn%E3%82%AD%E3%83%BC%E3%81%A8%E5%80%A4%E3%81%AE%E3%83%9A%E3%82%A2%20Key-%3EValue%20%E3%82%92%E8%B5%B0%E6%9F%BB%E3%81%99%E3%82%8B%22%29%0A%20%20for%20pair%20in%20hmap.entry_set%28%29%3A%0A%20%20%20%20print%28pair.key,%20%22-%3E%22,%20pair.val%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-## 6.1.3 &nbsp; ハッシュ衝突と拡張
+## 6.1.3 &nbsp; ハッシュ衝突と容量拡張
 
-本質的には、ハッシュ関数の役割は、すべての `key` からなる入力空間を、配列のすべてのインデックスからなる出力空間に写像することです。しかし、入力空間は多くの場合、出力空間よりはるかに大きいため、**理論上は必ず「複数の入力が同じ出力に対応する」状況が存在します**。
+本質的に、ハッシュ関数はすべての `key` からなる入力空間を、配列のすべてのインデックスからなる出力空間へ写します。入力空間は通常、出力空間よりはるかに大きいため、**理論上、複数の入力が同じ出力に対応する場合が必ずあります**。
 
-上の例のハッシュ関数では、入力 `key` の下 2 桁が同じであれば、出力結果も同じになります。たとえば、学籍番号 12836 と 20336 の 2 人の学生を検索すると、次の結果を得ます：
+上の例では、入力した `key` の下二桁が同じなら出力も同じです。例えば、学籍番号 12836 と 20336 の学生を照会すると、次のようになります。
 
 ```shell
 12836 % 100 = 36
 20336 % 100 = 36
 ```
 
-次の図に示すように、2 つの学籍番号が同じ名前を指してしまっており、これは明らかに誤りです。このような、複数の入力が同じ出力に対応する状況を<u>ハッシュ衝突（hash collision）</u>と呼びます。
+図 6-3 では、二つの学籍番号が同じ名前を指しており、明らかに正しくありません。このように、複数の入力が同じ出力に対応することを<u>ハッシュ衝突（hash collision）</u>と呼びます。
 
 ![ハッシュ衝突の例](hash_map.assets/hash_collision.png){ class="animation-figure" }
 
 <p align="center"> 図 6-3 &nbsp; ハッシュ衝突の例 </p>
 
-容易に分かるように、ハッシュテーブルの容量 $n$ が大きいほど、複数の `key` が同じバケットに割り当てられる確率は低くなり、衝突も少なくなります。したがって、**ハッシュテーブルを拡張することでハッシュ衝突を減らせます**。
+容量 $n$ が大きいほど、複数の `key` が同じバケットに割り当てられる確率は低くなり、衝突が減ります。したがって、**ハッシュテーブルの容量を拡張して衝突を減らせます**。
 
-次の図に示すように、拡張前はキーと値のペア `(136, A)` と `(236, D)` が衝突していますが、拡張後は衝突が解消されます。
+図 6-4 では、拡張前にペア `(136, A)` と `(236, D)` が衝突していますが、拡張後には解消しています。
 
-![ハッシュテーブルの拡張](hash_map.assets/hash_table_reshash.png){ class="animation-figure" }
+![ハッシュテーブルの容量拡張](hash_map.assets/hash_table_reshash.png){ class="animation-figure" }
 
-<p align="center"> 図 6-4 &nbsp; ハッシュテーブルの拡張 </p>
+<p align="center"> 図 6-4 &nbsp; ハッシュテーブルの容量拡張 </p>
 
-配列の拡張と同様に、ハッシュテーブルの拡張ではすべてのキーと値のペアを元のハッシュテーブルから新しいハッシュテーブルへ移し替える必要があり、非常に時間がかかります。また、ハッシュテーブルの容量 `capacity` が変わるため、ハッシュ関数を使ってすべてのキーと値のペアの格納位置を再計算しなければならず、これによって拡張過程の計算コストがさらに増加します。そのため、プログラミング言語では通常、頻繁な拡張を防ぐために十分大きなハッシュテーブル容量をあらかじめ確保します。
+配列の容量拡張と同様に、すべてのペアを古いハッシュテーブルから新しいものへ移す必要があり、非常に時間がかかります。さらに、`capacity` が変わるため、すべてのペアの格納位置をハッシュ関数で再計算する必要があり、計算負荷が増えます。そのため、言語の実装では通常、十分な容量をあらかじめ確保して、頻繁な拡張を防ぎます。
 
-<u>負荷率（load factor）</u>はハッシュテーブルにおける重要な概念であり、ハッシュテーブル内の要素数をバケット数で割ったものとして定義され、ハッシュ衝突の深刻さを測るために用いられます。**また、ハッシュテーブル拡張の発動条件としてもよく使われます**。例えば Java では、負荷率が $0.75$ を超えると、システムはハッシュテーブルを元の $2$ 倍に拡張します。
+<u>負荷率（load factor）</u>は重要な概念で、要素数をバケット数で割った値です。衝突の程度を測るために使い、**容量拡張を開始する条件にもよく用います**。例えば Java では、負荷率が $0.75$ を超えると、容量を元の $2$ 倍に拡張します。

@@ -7,18 +7,18 @@ icon: material/text-search
 
 ![探索](../assets/covers/chapter_searching.jpg){ class="cover-image" }
 
-!!! abstract
+!!! abstract "概要"
 
-    探索は未知の冒険であり、私たちは神秘的な空間の隅々まで歩き回る必要があるかもしれず、あるいは素早く目標を特定できるかもしれません。
+    探索は未知への冒険です。神秘的な空間の隅々まで歩く必要があるかもしれず、目的を素早く見つけられるかもしれません。
     
-    この探索の旅において、すべての探求が思いもよらなかった答えをもたらすかもしれません。
+    この探し求める旅では、一度の探索が思いもよらない答えをもたらすこともあります。
 
-## 章の内容
+## この章の内容
 
 - [10.1 &nbsp; 二分探索](binary_search.md)
-- [10.2 &nbsp; 二分探索の挿入位置](binary_search_insertion.md)
-- [10.3 &nbsp; 二分探索の境界](binary_search_edge.md)
-- [10.4 &nbsp; ハッシュによる最適化戦略](replace_linear_by_hashing.md)
-- [10.5 &nbsp; 探索アルゴリズム再考](searching_algorithm_revisited.md)
+- [10.2 &nbsp; 二分探索で挿入位置を探す](binary_search_insertion.md)
+- [10.3 &nbsp; 二分探索で境界を探す](binary_search_edge.md)
+- [10.4 &nbsp; ハッシュを使った最適化](replace_linear_by_hashing.md)
+- [10.5 &nbsp; 探索アルゴリズムを改めて考える](searching_algorithm_revisited.md)
 - [10.6 &nbsp; まとめ](summary.md)
-- [10.7 &nbsp; 演習](exercises.md)
+- [10.7 &nbsp; 練習問題](exercises.md)

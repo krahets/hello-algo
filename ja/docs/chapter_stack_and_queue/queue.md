@@ -4,31 +4,31 @@ comments: true
 
 # 5.2 &nbsp; キュー
 
-<u>キュー（queue）</u>は、先入れ先出しの規則に従う線形データ構造です。名前のとおり、キューは順番待ちの現象を模したもので、新しく来た人は絶えずキュー末尾に加わり、キュー先頭にいる人から順に離れていきます。
+<u>キュー（queue）</u>は先入れ先出しの規則に従う線形データ構造です。行列に並ぶ様子を模しており、新しく来た人が末尾に加わり、先頭の人から順に離れていきます。
 
-下図のように、キューの先頭を「キュー先頭」、末尾を「キュー末尾」と呼びます。要素をキュー末尾に加える操作を「エンキュー」、キュー先頭の要素を削除する操作を「デキュー」と呼びます。
+図 5-4 のように、前側を「先頭」、後ろ側を「末尾」と呼びます。末尾に要素を加える操作を「エンキュー」、先頭要素を削除する操作を「デキュー」と呼びます。
 
-![キューの先入れ先出し規則](queue.assets/queue_operations.png){ class="animation-figure" }
+![キューの先入れ先出しの規則](queue.assets/queue_operations.png){ class="animation-figure" }
 
-<p align="center"> 図 5-4 &nbsp; キューの先入れ先出し規則 </p>
+<p align="center"> 図 5-4 &nbsp; キューの先入れ先出しの規則 </p>
 
-## 5.2.1 &nbsp; キューの基本操作
+## 5.2.1 &nbsp; キューの主な操作
 
-キューの基本操作を以下の表に示します。なお、メソッド名はプログラミング言語によって異なる場合があります。ここではスタックと同じ命名を採用します。
+主な操作を表 5-2 に示します。メソッド名は言語ごとに異なる場合がありますが、ここではスタックと同じ名前を使います。
 
-<p align="center"> 表 5-2 &nbsp; キュー操作の効率 </p>
+<p align="center"> 表 5-2 &nbsp; キューの操作効率 </p>
 
 <div class="center-table" markdown>
 
-| メソッド名 | 説明                           | 時間計算量 |
+| メソッド名   | 説明                         | 時間計算量 |
 | -------- | ---------------------------- | ---------- |
-| `push()` | 要素をエンキューし、キュー末尾に追加する | $O(1)$     |
-| `pop()`  | キュー先頭の要素をデキューする         | $O(1)$     |
-| `peek()` | キュー先頭の要素にアクセスする         | $O(1)$     |
+| `push()` | エンキュー、つまり末尾への要素の追加 | $O(1)$     |
+| `pop()`  | 先頭要素のデキュー                 | $O(1)$     |
+| `peek()` | 先頭要素へのアクセス                 | $O(1)$     |
 
 </div>
 
-プログラミング言語に用意された既存のキュークラスをそのまま利用できます：
+言語が用意するキュークラスを、そのまま利用できます。
 
 === "Python"
 
@@ -36,8 +36,8 @@ comments: true
     from collections import deque
 
     # キューを初期化
-    # Python では、通常は双方向キュークラス deque をキューとして使用する
-    # queue.Queue() は純粋なキュークラスだが、やや使いにくいため非推奨
+    # Python では通常、両端キュークラス deque をキューとして使う
+    # queue.Queue() は本来のキュークラスだが、使いにくいため推奨しない
     que: deque[int] = deque()
 
     # 要素をエンキュー
@@ -47,7 +47,7 @@ comments: true
     que.append(5)
     que.append(4)
 
-    # キュー先頭の要素にアクセス
+    # 先頭要素にアクセス
     front: int = que[0]
 
     # 要素をデキュー
@@ -73,7 +73,7 @@ comments: true
     queue.push(5);
     queue.push(4);
 
-    /* キュー先頭の要素にアクセス */
+    /* 先頭要素にアクセス */
     int front = queue.front();
 
     /* 要素をデキュー */
@@ -99,7 +99,7 @@ comments: true
     queue.offer(5);
     queue.offer(4);
 
-    /* キュー先頭の要素にアクセス */
+    /* 先頭要素にアクセス */
     int peek = queue.peek();
 
     /* 要素をデキュー */
@@ -125,7 +125,7 @@ comments: true
     queue.Enqueue(5);
     queue.Enqueue(4);
 
-    /* キュー先頭の要素にアクセス */
+    /* 先頭要素にアクセス */
     int peek = queue.Peek();
 
     /* 要素をデキュー */
@@ -142,7 +142,7 @@ comments: true
 
     ```go title="queue_test.go"
     /* キューを初期化 */
-    // Go では、list をキューとして使用する
+    // Go では list をキューとして使う
     queue := list.New()
 
     /* 要素をエンキュー */
@@ -152,7 +152,7 @@ comments: true
     queue.PushBack(5)
     queue.PushBack(4)
 
-    /* キュー先頭の要素にアクセス */
+    /* 先頭要素にアクセス */
     peek := queue.Front()
 
     /* 要素をデキュー */
@@ -180,11 +180,11 @@ comments: true
     queue.append(5)
     queue.append(4)
 
-    /* キュー先頭の要素にアクセス */
+    /* 先頭要素にアクセス */
     let peek = queue.first!
 
     /* 要素をデキュー */
-    // 配列であるため、removeFirst の計算量は O(n)
+    // 配列なので removeFirst の計算量は O(n)
     let pop = queue.removeFirst()
 
     /* キューの長さを取得 */
@@ -208,11 +208,11 @@ comments: true
     queue.push(5);
     queue.push(4);
 
-    /* キュー先頭の要素にアクセス */
+    /* 先頭要素にアクセス */
     const peek = queue[0];
 
     /* 要素をデキュー */
-    // 基盤は配列であるため、shift() メソッドの時間計算量は O(n)
+    // 内部が配列なので shift() の時間計算量は O(n)
     const pop = queue.shift();
 
     /* キューの長さを取得 */
@@ -236,11 +236,11 @@ comments: true
     queue.push(5);
     queue.push(4);
 
-    /* キュー先頭の要素にアクセス */
+    /* 先頭要素にアクセス */
     const peek = queue[0];
 
     /* 要素をデキュー */
-    // 基盤は配列であるため、shift() メソッドの時間計算量は O(n)
+    // 内部が配列なので shift() の時間計算量は O(n)
     const pop = queue.shift();
 
     /* キューの長さを取得 */
@@ -254,7 +254,7 @@ comments: true
 
     ```dart title="queue.dart"
     /* キューを初期化 */
-    // Dart では、キュークラス Queue は双方向キューであり、キューとしても使用できる
+    // Dart の Queue は両端キューであり、通常のキューとしても使える
     Queue<int> queue = Queue();
 
     /* 要素をエンキュー */
@@ -264,7 +264,7 @@ comments: true
     queue.add(5);
     queue.add(4);
 
-    /* キュー先頭の要素にアクセス */
+    /* 先頭要素にアクセス */
     int peek = queue.first;
 
     /* 要素をデキュー */
@@ -280,8 +280,8 @@ comments: true
 === "Rust"
 
     ```rust title="queue.rs"
-    /* 双方向キューを初期化 */
-    // Rust では双方向キューを通常のキューとして使う
+    /* 両端キューを初期化 */
+    // Rust では両端キューを通常のキューとして使う
     let mut deque: VecDeque<u32> = VecDeque::new();
 
     /* 要素をエンキュー */
@@ -291,7 +291,7 @@ comments: true
     deque.push_back(5);
     deque.push_back(4);
 
-    /* キュー先頭の要素にアクセス */
+    /* 先頭要素にアクセス */
     if let Some(front) = deque.front() {
     }
 
@@ -325,7 +325,7 @@ comments: true
     queue.offer(5)
     queue.offer(4)
 
-    /* キュー先頭の要素にアクセス */
+    /* 先頭要素にアクセス */
     val peek = queue.peek()
 
     /* 要素をデキュー */
@@ -342,7 +342,7 @@ comments: true
 
     ```ruby title="queue.rb"
     # キューを初期化
-    # Ruby 組み込みのキュー（Thread::Queue) には peek と走査メソッドがないため、Array をキューとして使える
+    # Ruby の組み込みキュー（Thread::Queue）には peek や走査のメソッドがないため、Array をキューとして使える
     queue = []
 
     # 要素をエンキュー
@@ -352,11 +352,11 @@ comments: true
     queue.push(5)
     queue.push(4)
 
-    # キュー先頭の要素にアクセス
+    # キューの要素にアクセス
     peek = queue.first
 
     # 要素をデキュー
-    # 注意：配列であるため、Array#shift メソッドの時間計算量は O(n)
+    # 配列なので Array#shift の時間計算量は O(n) であることに注意
     pop = queue.shift
 
     # キューの長さを取得
@@ -366,37 +366,37 @@ comments: true
     is_empty = queue.empty?
     ```
 
-??? pythontutor "可視化実行"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%98%9F%E5%88%97%0A%20%20%20%20%23%20%E5%9C%A8%20Python%20%E4%B8%AD%EF%BC%8C%E6%88%91%E4%BB%AC%E4%B8%80%E8%88%AC%E5%B0%86%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E7%B1%BB%20deque%20%E7%9C%8B%E4%BD%9C%E9%98%9F%E5%88%97%E4%BD%BF%E7%94%A8%0A%20%20%20%20%23%20%E8%99%BD%E7%84%B6%20queue.Queue%28%29%20%E6%98%AF%E7%BA%AF%E6%AD%A3%E7%9A%84%E9%98%9F%E5%88%97%E7%B1%BB%EF%BC%8C%E4%BD%86%E4%B8%8D%E5%A4%AA%E5%A5%BD%E7%94%A8%0A%20%20%20%20que%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E9%98%9F%0A%20%20%20%20que.append%281%29%0A%20%20%20%20que.append%283%29%0A%20%20%20%20que.append%282%29%0A%20%20%20%20que.append%285%29%0A%20%20%20%20que.append%284%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%88%97%20que%20%3D%22,%20que%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20que%5B0%5D%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22,%20front%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20pop%20%3D%20que.popleft%28%29%0A%20%20%20%20print%28%22%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E5%87%BA%E9%98%9F%E5%90%8E%20que%20%3D%22,%20que%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E9%98%9F%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28que%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%88%97%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28que%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%98%9F%E5%88%97%0A%20%20%20%20%23%20%E5%9C%A8%20Python%20%E4%B8%AD%EF%BC%8C%E6%88%91%E4%BB%AC%E4%B8%80%E8%88%AC%E5%B0%86%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E7%B1%BB%20deque%20%E7%9C%8B%E4%BD%9C%E9%98%9F%E5%88%97%E4%BD%BF%E7%94%A8%0A%20%20%20%20%23%20%E8%99%BD%E7%84%B6%20queue.Queue%28%29%20%E6%98%AF%E7%BA%AF%E6%AD%A3%E7%9A%84%E9%98%9F%E5%88%97%E7%B1%BB%EF%BC%8C%E4%BD%86%E4%B8%8D%E5%A4%AA%E5%A5%BD%E7%94%A8%0A%20%20%20%20que%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E9%98%9F%0A%20%20%20%20que.append%281%29%0A%20%20%20%20que.append%283%29%0A%20%20%20%20que.append%282%29%0A%20%20%20%20que.append%285%29%0A%20%20%20%20que.append%284%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%88%97%20que%20%3D%22,%20que%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20que%5B0%5D%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22,%20front%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20pop%20%3D%20que.popleft%28%29%0A%20%20%20%20print%28%22%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E5%87%BA%E9%98%9F%E5%90%8E%20que%20%3D%22,%20que%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E9%98%9F%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28que%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%88%97%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28que%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20Python%20%E3%81%A7%E3%81%AF%E9%80%9A%E5%B8%B8%E3%80%81%E4%B8%A1%E7%AB%AF%E3%82%AD%E3%83%A5%E3%83%BC%E3%82%AF%E3%83%A9%E3%82%B9%20deque%20%E3%82%92%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%A8%E3%81%97%E3%81%A6%E4%BD%BF%E3%81%86%0A%20%20%20%20%23%20queue.Queue()%20%E3%81%AF%E6%9C%AC%E6%9D%A5%E3%81%AE%E3%82%AD%E3%83%A5%E3%83%BC%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%A0%E3%81%8C%E3%80%81%E4%BD%BF%E3%81%84%E3%81%AB%E3%81%8F%E3%81%84%0A%20%20%20%20que%20%3D%20deque()%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%A8%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%BC%0A%20%20%20%20que.append(1)%0A%20%20%20%20que.append(3)%0A%20%20%20%20que.append(2)%0A%20%20%20%20que.append(5)%0A%20%20%20%20que.append(4)%0A%20%20%20%20print(%22%E3%82%AD%E3%83%A5%E3%83%BC%20que%20%3D%22%2C%20que)%0A%0A%20%20%20%20%23%20%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20front%20%3D%20que%5B0%5D%0A%20%20%20%20print(%22%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20front%20%3D%22%2C%20front)%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%0A%20%20%20%20pop%20%3D%20que.popleft()%0A%20%20%20%20print(%22%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22%2C%20pop)%0A%20%20%20%20print(%22%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E5%BE%8C%E3%81%AE%20que%20%3D%22%2C%20que)%0A%0A%20%20%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%0A%20%20%20%20size%20%3D%20len(que)%0A%20%20%20%20print(%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22%2C%20size)%0A%0A%20%20%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%0A%20%20%20%20is_empty%20%3D%20len(que)%20%3D%3D%200%0A%20%20%20%20print(%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AF%E7%A9%BA%E3%81%8B%20%3D%22%2C%20is_empty)&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20Python%20%E3%81%A7%E3%81%AF%E9%80%9A%E5%B8%B8%E3%80%81%E4%B8%A1%E7%AB%AF%E3%82%AD%E3%83%A5%E3%83%BC%E3%82%AF%E3%83%A9%E3%82%B9%20deque%20%E3%82%92%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%A8%E3%81%97%E3%81%A6%E4%BD%BF%E3%81%86%0A%20%20%20%20%23%20queue.Queue()%20%E3%81%AF%E6%9C%AC%E6%9D%A5%E3%81%AE%E3%82%AD%E3%83%A5%E3%83%BC%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%A0%E3%81%8C%E3%80%81%E4%BD%BF%E3%81%84%E3%81%AB%E3%81%8F%E3%81%84%0A%20%20%20%20que%20%3D%20deque()%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%A8%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%BC%0A%20%20%20%20que.append(1)%0A%20%20%20%20que.append(3)%0A%20%20%20%20que.append(2)%0A%20%20%20%20que.append(5)%0A%20%20%20%20que.append(4)%0A%20%20%20%20print(%22%E3%82%AD%E3%83%A5%E3%83%BC%20que%20%3D%22%2C%20que)%0A%0A%20%20%20%20%23%20%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20front%20%3D%20que%5B0%5D%0A%20%20%20%20print(%22%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20front%20%3D%22%2C%20front)%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%0A%20%20%20%20pop%20%3D%20que.popleft()%0A%20%20%20%20print(%22%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22%2C%20pop)%0A%20%20%20%20print(%22%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E5%BE%8C%E3%81%AE%20que%20%3D%22%2C%20que)%0A%0A%20%20%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%0A%20%20%20%20size%20%3D%20len(que)%0A%20%20%20%20print(%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22%2C%20size)%0A%0A%20%20%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%0A%20%20%20%20is_empty%20%3D%20len(que)%20%3D%3D%200%0A%20%20%20%20print(%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AF%E7%A9%BA%E3%81%8B%20%3D%22%2C%20is_empty)&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
 ## 5.2.2 &nbsp; キューの実装
 
-キューを実装するには、一方の端で要素を追加し、もう一方の端で要素を削除できるデータ構造が必要です。連結リストと配列はいずれもこの条件を満たします。
+キューを実装するには、一方の端で追加し、もう一方の端で削除できるデータ構造が必要です。連結リストも配列も、この条件を満たします。
 
-### 1. &nbsp; 連結リストに基づく実装
+### 1. &nbsp; 連結リストによる実装
 
-下図のように、連結リストの「先頭ノード」と「末尾ノード」をそれぞれ「キュー先頭」と「キュー末尾」とみなし、キュー末尾ではノードの追加のみ、キュー先頭ではノードの削除のみを行うようにします。
+図 5-5 のように、連結リストの先頭ノードと末尾ノードを、キューの先頭と末尾に対応させます。末尾では追加だけ、先頭では削除だけを行います。
 
 === "<1>"
-    ![連結リストでキューを実装したエンキューとデキュー操作](queue.assets/linkedlist_queue_step1.png){ class="animation-figure" }
+    ![連結リストによるキューのエンキューとデキュー](queue.assets/linkedlist_queue_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.png){ class="animation-figure" }
+    ![連結リストによるキュー：要素の挿入](queue.assets/linkedlist_queue_step2_push.png){ class="animation-figure" }
 
 === "<3>"
-    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.png){ class="animation-figure" }
+    ![連結リストによるキュー：要素の取り出し](queue.assets/linkedlist_queue_step3_pop.png){ class="animation-figure" }
 
-<p align="center"> 図 5-5 &nbsp; 連結リストでキューを実装したエンキューとデキュー操作 </p>
+<p align="center"> 図 5-5 &nbsp; 連結リストによるキューのエンキューとデキュー </p>
 
-以下は連結リストでキューを実装するコードです：
+連結リストを使うコードは次のとおりです。
 
 === "Python"
 
     ```python title="linkedlist_queue.py"
     class LinkedListQueue:
-        """連結リストベースのキュー"""
+        """連結リストで実装したキュー"""
 
         def __init__(self):
             """コンストラクタ"""
@@ -409,18 +409,18 @@ comments: true
             return self._size
 
         def is_empty(self) -> bool:
-            """キューが空かどうかを判定"""
+            """キューが空か判定"""
             return self._size == 0
 
         def push(self, num: int):
             """エンキュー"""
-            # 末尾ノードの後ろに num を追加
+            # 末尾ノードの後ろに num を追加する
             node = ListNode(num)
-            # キューが空なら、先頭・末尾ノードをともにそのノードに設定
+            # キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
             if self._front is None:
                 self._front = node
                 self._rear = node
-            # キューが空でなければ、そのノードを末尾ノードの後ろに追加
+            # キューが空でない場合、このノードを末尾ノードの後ろに追加する
             else:
                 self._rear.next = node
                 self._rear = node
@@ -429,19 +429,19 @@ comments: true
         def pop(self) -> int:
             """デキュー"""
             num = self.peek()
-            # 先頭ノードを削除
+            # 先頭ノードを削除する
             self._front = self._front.next
             self._size -= 1
             return num
 
         def peek(self) -> int:
-            """キュー先頭の要素にアクセス"""
+            """キューの先頭要素にアクセス"""
             if self.is_empty():
                 raise IndexError("キューが空です")
             return self._front.val
 
         def to_list(self) -> list[int]:
-            """表示用にリストへ変換"""
+            """表示用のリストに変換する"""
             queue = []
             temp = self._front
             while temp:
@@ -453,10 +453,10 @@ comments: true
 === "C++"
 
     ```cpp title="linkedlist_queue.cpp"
-    /* 連結リストベースのキュー */
+    /* 連結リストで実装したキュー */
     class LinkedListQueue {
       private:
-        ListNode *front, *rear; // 先頭ノード front、末尾ノード rear
+        ListNode *front, *rear; // 先頭ノード front 、末尾ノード rear
         int queSize;
 
       public:
@@ -476,21 +476,21 @@ comments: true
             return queSize;
         }
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         bool isEmpty() {
             return queSize == 0;
         }
 
         /* エンキュー */
         void push(int num) {
-            // 末尾ノードの後ろに num を追加
+            // 末尾ノードの後ろに num を追加する
             ListNode *node = new ListNode(num);
-            // キューが空なら、先頭・末尾ノードをともにそのノードに設定
+            // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
             if (front == nullptr) {
                 front = node;
                 rear = node;
             }
-            // キューが空でなければ、そのノードを末尾ノードの後ろに追加
+            // キューが空でない場合、このノードを末尾ノードの後ろに追加する
             else {
                 rear->next = node;
                 rear = node;
@@ -501,7 +501,7 @@ comments: true
         /* デキュー */
         int pop() {
             int num = peek();
-            // 先頭ノードを削除
+            // 先頭ノードを削除する
             ListNode *tmp = front;
             front = front->next;
             // メモリを解放する
@@ -510,7 +510,7 @@ comments: true
             return num;
         }
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         int peek() {
             if (size() == 0)
                 throw out_of_range("キューが空です");
@@ -533,9 +533,9 @@ comments: true
 === "Java"
 
     ```java title="linkedlist_queue.java"
-    /* 連結リストベースのキュー */
+    /* 連結リストで実装したキュー */
     class LinkedListQueue {
-        private ListNode front, rear; // 先頭ノード front、末尾ノード rear
+        private ListNode front, rear; // 先頭ノード front 、末尾ノード rear
         private int queSize = 0;
 
         public LinkedListQueue() {
@@ -548,20 +548,20 @@ comments: true
             return queSize;
         }
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         public boolean isEmpty() {
             return size() == 0;
         }
 
         /* エンキュー */
         public void push(int num) {
-            // 末尾ノードの後ろに num を追加
+            // 末尾ノードの後ろに num を追加する
             ListNode node = new ListNode(num);
-            // キューが空なら、先頭・末尾ノードをともにそのノードに設定
+            // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
             if (front == null) {
                 front = node;
                 rear = node;
-            // キューが空でなければ、そのノードを末尾ノードの後ろに追加
+            // キューが空でない場合、このノードを末尾ノードの後ろに追加する
             } else {
                 rear.next = node;
                 rear = node;
@@ -572,13 +572,13 @@ comments: true
         /* デキュー */
         public int pop() {
             int num = peek();
-            // 先頭ノードを削除
+            // 先頭ノードを削除する
             front = front.next;
             queSize--;
             return num;
         }
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         public int peek() {
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
@@ -601,9 +601,9 @@ comments: true
 === "C#"
 
     ```csharp title="linkedlist_queue.cs"
-    /* 連結リストベースのキュー */
+    /* 連結リストで実装したキュー */
     class LinkedListQueue {
-        ListNode? front, rear;  // 先頭ノード front、末尾ノード rear
+        ListNode? front, rear;  // 先頭ノード front 、末尾ノード rear 
         int queSize = 0;
 
         public LinkedListQueue() {
@@ -616,20 +616,20 @@ comments: true
             return queSize;
         }
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         public bool IsEmpty() {
             return Size() == 0;
         }
 
         /* エンキュー */
         public void Push(int num) {
-            // 末尾ノードの後ろに num を追加
+            // 末尾ノードの後ろに num を追加する
             ListNode node = new(num);
-            // キューが空なら、先頭・末尾ノードをともにそのノードに設定
+            // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
             if (front == null) {
                 front = node;
                 rear = node;
-                // キューが空でなければ、そのノードを末尾ノードの後ろに追加
+                // キューが空でない場合、このノードを末尾ノードの後ろに追加する
             } else if (rear != null) {
                 rear.next = node;
                 rear = node;
@@ -640,13 +640,13 @@ comments: true
         /* デキュー */
         public int Pop() {
             int num = Peek();
-            // 先頭ノードを削除
+            // 先頭ノードを削除する
             front = front?.next;
             queSize--;
             return num;
         }
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         public int Peek() {
             if (IsEmpty())
                 throw new Exception();
@@ -672,13 +672,13 @@ comments: true
 === "Go"
 
     ```go title="linkedlist_queue.go"
-    /* 連結リストベースのキュー */
+    /* 連結リストで実装したキュー */
     type linkedListQueue struct {
         // 組み込みパッケージ list でキューを実装する
         data *list.List
     }
 
-    /* キューを初期化 */
+    /* キューを初期化する */
     func newLinkedListQueue() *linkedListQueue {
         return &linkedListQueue{
             data: list.New(),
@@ -700,7 +700,7 @@ comments: true
         return e.Value
     }
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     func (s *linkedListQueue) peek() any {
         if s.isEmpty() {
             return nil
@@ -714,12 +714,12 @@ comments: true
         return s.data.Len()
     }
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     func (s *linkedListQueue) isEmpty() bool {
         return s.data.Len() == 0
     }
 
-    /* 表示用に List を取得 */
+    /* 表示用の List を取得する */
     func (s *linkedListQueue) toList() *list.List {
         return s.data
     }
@@ -728,7 +728,7 @@ comments: true
 === "Swift"
 
     ```swift title="linkedlist_queue.swift"
-    /* 連結リストベースのキュー */
+    /* 連結リストで実装したキュー */
     class LinkedListQueue {
         private var front: ListNode? // 先頭ノード
         private var rear: ListNode? // 末尾ノード
@@ -743,21 +743,21 @@ comments: true
             _size
         }
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         func isEmpty() -> Bool {
             size() == 0
         }
 
         /* エンキュー */
         func push(num: Int) {
-            // 末尾ノードの後ろに num を追加
+            // 末尾ノードの後ろに num を追加する
             let node = ListNode(x: num)
-            // キューが空なら、先頭・末尾ノードをともにそのノードに設定
+            // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
             if front == nil {
                 front = node
                 rear = node
             }
-            // キューが空でなければ、そのノードを末尾ノードの後ろに追加
+            // キューが空でない場合、このノードを末尾ノードの後ろに追加する
             else {
                 rear?.next = node
                 rear = node
@@ -769,13 +769,13 @@ comments: true
         @discardableResult
         func pop() -> Int {
             let num = peek()
-            // 先頭ノードを削除
+            // 先頭ノードを削除する
             front = front?.next
             _size -= 1
             return num
         }
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         func peek() -> Int {
             if isEmpty() {
                 fatalError("キューが空です")
@@ -799,7 +799,7 @@ comments: true
 === "JS"
 
     ```javascript title="linkedlist_queue.js"
-    /* 連結リストベースのキュー */
+    /* 連結リストで実装したキュー */
     class LinkedListQueue {
         #front; // 先頭ノード #front
         #rear; // 末尾ノード #rear
@@ -815,20 +815,20 @@ comments: true
             return this.#queSize;
         }
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         isEmpty() {
             return this.size === 0;
         }
 
         /* エンキュー */
         push(num) {
-            // 末尾ノードの後ろに num を追加
+            // 末尾ノードの後ろに num を追加する
             const node = new ListNode(num);
-            // キューが空なら、先頭・末尾ノードをともにそのノードに設定
+            // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
             if (!this.#front) {
                 this.#front = node;
                 this.#rear = node;
-                // キューが空でなければ、そのノードを末尾ノードの後ろに追加
+                // キューが空でない場合、このノードを末尾ノードの後ろに追加する
             } else {
                 this.#rear.next = node;
                 this.#rear = node;
@@ -839,15 +839,15 @@ comments: true
         /* デキュー */
         pop() {
             const num = this.peek();
-            // 先頭ノードを削除
+            // 先頭ノードを削除する
             this.#front = this.#front.next;
             this.#queSize--;
             return num;
         }
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         peek() {
-            if (this.size === 0) throw new Error('キューが空');
+            if (this.size === 0) throw new Error('キューが空です');
             return this.#front.val;
         }
 
@@ -867,7 +867,7 @@ comments: true
 === "TS"
 
     ```typescript title="linkedlist_queue.ts"
-    /* 連結リストベースのキュー */
+    /* 連結リストで実装したキュー */
     class LinkedListQueue {
         private front: ListNode | null; // 先頭ノード front
         private rear: ListNode | null; // 末尾ノード rear
@@ -883,20 +883,20 @@ comments: true
             return this.queSize;
         }
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         isEmpty(): boolean {
             return this.size === 0;
         }
 
         /* エンキュー */
         push(num: number): void {
-            // 末尾ノードの後ろに num を追加
+            // 末尾ノードの後ろに num を追加する
             const node = new ListNode(num);
-            // キューが空なら、先頭・末尾ノードをともにそのノードに設定
+            // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
             if (!this.front) {
                 this.front = node;
                 this.rear = node;
-                // キューが空でなければ、そのノードを末尾ノードの後ろに追加
+                // キューが空でない場合、このノードを末尾ノードの後ろに追加する
             } else {
                 this.rear!.next = node;
                 this.rear = node;
@@ -908,13 +908,13 @@ comments: true
         pop(): number {
             const num = this.peek();
             if (!this.front) throw new Error('キューが空です');
-            // 先頭ノードを削除
+            // 先頭ノードを削除する
             this.front = this.front.next;
             this.queSize--;
             return num;
         }
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         peek(): number {
             if (this.size === 0) throw new Error('キューが空です');
             return this.front!.val;
@@ -936,7 +936,7 @@ comments: true
 === "Dart"
 
     ```dart title="linkedlist_queue.dart"
-    /* 連結リストベースのキュー */
+    /* 連結リストで実装したキュー */
     class LinkedListQueue {
       ListNode? _front; // 先頭ノード _front
       ListNode? _rear; // 末尾ノード _rear
@@ -952,21 +952,21 @@ comments: true
         return _queSize;
       }
 
-      /* キューが空かどうかを判定 */
+      /* キューが空か判定 */
       bool isEmpty() {
         return _queSize == 0;
       }
 
       /* エンキュー */
       void push(int _num) {
-        // 末尾ノードの後ろに _num を追加
+        // 末尾ノードの後ろに _num を追加する
         final node = ListNode(_num);
-        // キューが空なら、先頭・末尾ノードをともにそのノードに設定
+        // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
         if (_front == null) {
           _front = node;
           _rear = node;
         } else {
-          // キューが空でなければ、そのノードを末尾ノードの後ろに追加
+          // キューが空でない場合、このノードを末尾ノードの後ろに追加する
           _rear!.next = node;
           _rear = node;
         }
@@ -976,13 +976,13 @@ comments: true
       /* デキュー */
       int pop() {
         final int _num = peek();
-        // 先頭ノードを削除
+        // 先頭ノードを削除する
         _front = _front!.next;
         _queSize--;
         return _num;
       }
 
-      /* キュー先頭の要素にアクセス */
+      /* キューの先頭要素にアクセス */
       int peek() {
         if (_queSize == 0) {
           throw Exception('キューが空です');
@@ -1006,7 +1006,7 @@ comments: true
 === "Rust"
 
     ```rust title="linkedlist_queue.rs"
-    /* 連結リストベースのキュー */
+    /* 連結リストで実装したキュー */
     #[allow(dead_code)]
     pub struct LinkedListQueue<T> {
         front: Option<Rc<RefCell<ListNode<T>>>>, // 先頭ノード front
@@ -1028,22 +1028,22 @@ comments: true
             return self.que_size;
         }
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         pub fn is_empty(&self) -> bool {
             return self.que_size == 0;
         }
 
         /* エンキュー */
         pub fn push(&mut self, num: T) {
-            // 末尾ノードの後ろに num を追加
+            // 末尾ノードの後ろに num を追加する
             let new_rear = ListNode::new(num);
             match self.rear.take() {
-                // キューが空でなければ、そのノードを末尾ノードの後ろに追加
+                // キューが空でない場合、このノードを末尾ノードの後ろに追加する
                 Some(old_rear) => {
                     old_rear.borrow_mut().next = Some(new_rear.clone());
                     self.rear = Some(new_rear);
                 }
-                // キューが空なら、先頭・末尾ノードをともにそのノードに設定
+                // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
                 None => {
                     self.front = Some(new_rear.clone());
                     self.rear = Some(new_rear);
@@ -1068,7 +1068,7 @@ comments: true
             })
         }
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
             self.front.as_ref()
         }
@@ -1094,7 +1094,7 @@ comments: true
 === "C"
 
     ```c title="linkedlist_queue.c"
-    /* 連結リストベースのキュー */
+    /* 連結リストで実装したキュー */
     typedef struct {
         ListNode *front, *rear;
         int queSize;
@@ -1111,7 +1111,7 @@ comments: true
 
     /* デストラクタ */
     void delLinkedListQueue(LinkedListQueue *queue) {
-        // すべてのノードを解放
+        // すべてのノードを解放する
         while (queue->front != NULL) {
             ListNode *tmp = queue->front;
             queue->front = queue->front->next;
@@ -1126,21 +1126,21 @@ comments: true
         return queue->queSize;
     }
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     bool empty(LinkedListQueue *queue) {
         return (size(queue) == 0);
     }
 
     /* エンキュー */
     void push(LinkedListQueue *queue, int num) {
-        // 末尾ノードに node を追加
+        // 末尾ノードに node を追加する
         ListNode *node = newListNode(num);
-        // キューが空なら、先頭・末尾ノードをともにそのノードに設定
+        // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
         if (queue->front == NULL) {
             queue->front = node;
             queue->rear = node;
         }
-        // キューが空でなければ、そのノードを末尾ノードの後ろに追加
+        // キューが空でない場合、このノードを末尾ノードの後ろに追加する
         else {
             queue->rear->next = node;
             queue->rear = node;
@@ -1148,7 +1148,7 @@ comments: true
         queue->queSize++;
     }
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     int peek(LinkedListQueue *queue) {
         assert(size(queue) && queue->front);
         return queue->front->val;
@@ -1164,10 +1164,10 @@ comments: true
         return num;
     }
 
-    /* キューを出力する */
+    /* キューを表示する */
     void printLinkedListQueue(LinkedListQueue *queue) {
         int *arr = malloc(sizeof(int) * queue->queSize);
-        // 連結リスト内のデータを配列にコピー
+        // 連結リストのデータを配列にコピーする
         int i;
         ListNode *node;
         for (i = 0, node = queue->front; i < queue->queSize; i++) {
@@ -1182,9 +1182,9 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="linkedlist_queue.kt"
-    /* 連結リストベースのキュー */
+    /* 連結リストで実装したキュー */
     class LinkedListQueue(
-        // 先頭ノード front、末尾ノード rear
+        // 先頭ノード front 、末尾ノード rear
         private var front: ListNode? = null,
         private var rear: ListNode? = null,
         private var queSize: Int = 0
@@ -1195,20 +1195,20 @@ comments: true
             return queSize
         }
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         fun isEmpty(): Boolean {
             return size() == 0
         }
 
         /* エンキュー */
         fun push(num: Int) {
-            // 末尾ノードの後ろに num を追加
+            // 末尾ノードの後ろに num を追加する
             val node = ListNode(num)
-            // キューが空なら、先頭・末尾ノードをともにそのノードに設定
+            // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
             if (front == null) {
                 front = node
                 rear = node
-                // キューが空でなければ、そのノードを末尾ノードの後ろに追加
+                // キューが空でない場合、このノードを末尾ノードの後ろに追加する
             } else {
                 rear?.next = node
                 rear = node
@@ -1219,13 +1219,13 @@ comments: true
         /* デキュー */
         fun pop(): Int {
             val num = peek()
-            // 先頭ノードを削除
+            // 先頭ノードを削除する
             front = front?.next
             queSize--
             return num
         }
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         fun peek(): Int {
             if (isEmpty()) throw IndexOutOfBoundsException()
             return front!!._val
@@ -1266,14 +1266,14 @@ comments: true
 
       ### エンキュー ###
       def push(num)
-        # 末尾ノードの後ろに num を追加
+        # 末尾ノードの後ろに num を追加する
         node = ListNode.new(num)
 
-        # キューが空なら、先頭ノードと末尾ノードの両方をそのノードに向ける
+        # キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
         if @front.nil?
           @front = node
           @rear = node
-        # キューが空でなければ、そのノードを末尾ノードの後ろに追加する
+        # キューが空でない場合、このノードを末尾ノードの後ろに追加する
         else
           @rear.next = node
           @rear = node
@@ -1285,15 +1285,15 @@ comments: true
       ### デキュー ###
       def pop
         num = peek
-        # 先頭ノードを削除
+        # 先頭ノードを削除する
         @front = @front.next
         @size -= 1
         num
       end
 
-      ### 先頭要素にアクセス ###
+      ### キューの先頭要素にアクセス ###
       def peek
-        raise IndexError, 'キューは空です' if is_empty?
+        raise IndexError, 'キューが空です' if is_empty?
 
         @front.val
       end
@@ -1311,53 +1311,53 @@ comments: true
     end
     ```
 
-??? pythontutor "コードの可視化"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%0A%0Aclass%20LinkedListQueue%3A%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20self._front%3A%20ListNode%20%7C%20None%20%3D%20None%0A%20%20%20%20%20%20%20%20self._rear%3A%20ListNode%20%7C%20None%20%3D%20None%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20return%20not%20self._front%0A%0A%20%20%20%20def%20push%28self%2C%20num%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20node%20%3D%20ListNode%28num%29%0A%20%20%20%20%20%20%20%20if%20self._front%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self._front%20%3D%20node%0A%20%20%20%20%20%20%20%20%20%20%20%20self._rear%20%3D%20node%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self._rear.next%20%3D%20node%0A%20%20%20%20%20%20%20%20%20%20%20%20self._rear%20%3D%20node%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20self._front%20%3D%20self._front.next%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%27%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%27%29%0A%20%20%20%20%20%20%20%20return%20self._front.val%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20queue%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20temp%20%3D%20self._front%0A%20%20%20%20%20%20%20%20while%20temp%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20queue.append%28temp.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20temp%20%3D%20temp.next%0A%20%20%20%20%20%20%20%20return%20queue%0Aif%20__name__%20%3D%3D%20%27__main__%27%3A%0A%20%20%20%20queue%20%3D%20LinkedListQueue%28%29%0A%20%20%20%20queue.push%281%29%0A%20%20%20%20queue.push%283%29%0A%20%20%20%20queue.push%282%29%0A%20%20%20%20queue.push%285%29%0A%20%20%20%20queue.push%284%29%0A%20%20%20%20print%28%27%E3%82%AD%E3%83%A5%E3%83%BC%20queue%20%3D%27%2C%20queue.to_list%28%29%29%0A%20%20%20%20peek%20%3D%20queue.peek%28%29%0A%20%20%20%20print%28%27%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20front%20%3D%27%2C%20peek%29%0A%20%20%20%20pop_front%20%3D%20queue.pop%28%29%0A%20%20%20%20print%28%27%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%27%2C%20pop_front%29%0A%20%20%20%20print%28%27%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E5%BE%8C%20queue%20%3D%27%2C%20queue.to_list%28%29%29%0A%20%20%20%20size%20%3D%20queue.size%28%29%0A%20%20%20%20print%28%27%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%27%2C%20size%29%0A%20%20%20%20is_empty%20%3D%20queue.is_empty%28%29%0A%20%20%20%20print%28%27%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%20%3D%27%2C%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%0A%0Aclass%20LinkedListQueue%3A%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20self._front%3A%20ListNode%20%7C%20None%20%3D%20None%0A%20%20%20%20%20%20%20%20self._rear%3A%20ListNode%20%7C%20None%20%3D%20None%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20return%20not%20self._front%0A%0A%20%20%20%20def%20push%28self%2C%20num%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20node%20%3D%20ListNode%28num%29%0A%20%20%20%20%20%20%20%20if%20self._front%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self._front%20%3D%20node%0A%20%20%20%20%20%20%20%20%20%20%20%20self._rear%20%3D%20node%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self._rear.next%20%3D%20node%0A%20%20%20%20%20%20%20%20%20%20%20%20self._rear%20%3D%20node%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20self._front%20%3D%20self._front.next%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%27%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%27%29%0A%20%20%20%20%20%20%20%20return%20self._front.val%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20queue%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20temp%20%3D%20self._front%0A%20%20%20%20%20%20%20%20while%20temp%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20queue.append%28temp.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20temp%20%3D%20temp.next%0A%20%20%20%20%20%20%20%20return%20queue%0Aif%20__name__%20%3D%3D%20%27__main__%27%3A%0A%20%20%20%20queue%20%3D%20LinkedListQueue%28%29%0A%20%20%20%20queue.push%281%29%0A%20%20%20%20queue.push%283%29%0A%20%20%20%20queue.push%282%29%0A%20%20%20%20queue.push%285%29%0A%20%20%20%20queue.push%284%29%0A%20%20%20%20print%28%27%E3%82%AD%E3%83%A5%E3%83%BC%20queue%20%3D%27%2C%20queue.to_list%28%29%29%0A%20%20%20%20peek%20%3D%20queue.peek%28%29%0A%20%20%20%20print%28%27%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20front%20%3D%27%2C%20peek%29%0A%20%20%20%20pop_front%20%3D%20queue.pop%28%29%0A%20%20%20%20print%28%27%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%27%2C%20pop_front%29%0A%20%20%20%20print%28%27%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E5%BE%8C%20queue%20%3D%27%2C%20queue.to_list%28%29%29%0A%20%20%20%20size%20%3D%20queue.size%28%29%0A%20%20%20%20print%28%27%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%27%2C%20size%29%0A%20%20%20%20is_empty%20%3D%20queue.is_empty%28%29%0A%20%20%20%20print%28%27%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%20%3D%27%2C%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B6%9A%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%0Aclass%20LinkedListQueue%3A%0A%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%A7%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%9F%E3%82%AD%E3%83%A5%E3%83%BC%22%22%22%0A%0A%20def%20__init__%28self%29%3A%0A%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20self._front%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%85%88%E9%A0%AD%E3%83%8E%E3%83%BC%E3%83%89%20front%0A%20%20self._rear%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%9C%AB%E5%B0%BE%E3%83%8E%E3%83%BC%E3%83%89%20rear%0A%20%20self._size%3A%20int%20%3D%200%0A%0A%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%22%22%22%0A%20%20return%20self._size%0A%0A%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%22%22%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E5%88%A4%E5%AE%9A%22%22%22%0A%20%20return%20not%20self._front%0A%0A%20def%20push%28self,%20num%3A%20int%29%3A%0A%20%20%22%22%22%E3%82%A8%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%BC%22%22%22%0A%20%20%23%20%E6%9C%AB%E5%B0%BE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%BE%8C%E3%82%8D%E3%81%AB%20num%20%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%0A%20%20node%20%3D%20ListNode%28num%29%0A%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E5%85%88%E9%A0%AD%E3%81%A8%E6%9C%AB%E5%B0%BE%E3%81%AE%E4%B8%A1%E6%96%B9%E3%81%8C%E3%81%93%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%87%E3%81%99%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B%0A%20%20if%20self._front%20is%20None%3A%0A%20%20%20self._front%20%3D%20node%0A%20%20%20self._rear%20%3D%20node%0A%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88%E3%80%81%E3%81%93%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%9C%AB%E5%B0%BE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%BE%8C%E3%82%8D%E3%81%AB%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%0A%20%20else%3A%0A%20%20%20self._rear.next%20%3D%20node%0A%20%20%20self._rear%20%3D%20node%0A%20%20self._size%20%2B%3D%201%0A%0A%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%22%22%22%0A%20%20num%20%3D%20self.peek%28%29%0A%20%20%23%20%E5%85%88%E9%A0%AD%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20self._front%20%3D%20self._front.next%0A%20%20self._size%20-%3D%201%0A%20%20return%20num%0A%0A%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%22%22%22%0A%20%20if%20self.is_empty%28%29%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%22%29%0A%20%20return%20self._front.val%0A%0A%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%22%22%22%E8%A1%A8%E7%A4%BA%E7%94%A8%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%22%22%22%0A%20%20queue%20%3D%20%5B%5D%0A%20%20temp%20%3D%20self._front%0A%20%20while%20temp%3A%0A%20%20%20queue.append%28temp.val%29%0A%20%20%20temp%20%3D%20temp.next%0A%20%20return%20queue%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20queue%20%3D%20LinkedListQueue%28%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%A8%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%99%E3%82%8B%0A%20queue.push%281%29%0A%20queue.push%283%29%0A%20queue.push%282%29%0A%20queue.push%285%29%0A%20queue.push%284%29%0A%20print%28%22%E3%82%AD%E3%83%A5%E3%83%BC%20queue%20%3D%22,%20queue.to_list%28%29%29%0A%0A%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20peek%20%3D%20queue.peek%28%29%0A%20print%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20front%20%3D%22,%20peek%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%99%E3%82%8B%0A%20pop_front%20%3D%20queue.pop%28%29%0A%20print%28%22%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22,%20pop_front%29%0A%20print%28%22%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%E5%BE%8C%20queue%20%3D%22,%20queue.to_list%28%29%29%0A%0A%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%0A%20size%20%3D%20queue.size%28%29%0A%20print%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22,%20size%29%0A%0A%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E5%88%A4%E5%AE%9A%0A%20is_empty%20%3D%20queue.is_empty%28%29%0A%20print%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AF%E7%A9%BA%E3%81%8B%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B6%9A%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%0Aclass%20LinkedListQueue%3A%0A%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%A7%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%9F%E3%82%AD%E3%83%A5%E3%83%BC%22%22%22%0A%0A%20def%20__init__%28self%29%3A%0A%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20self._front%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%85%88%E9%A0%AD%E3%83%8E%E3%83%BC%E3%83%89%20front%0A%20%20self._rear%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%9C%AB%E5%B0%BE%E3%83%8E%E3%83%BC%E3%83%89%20rear%0A%20%20self._size%3A%20int%20%3D%200%0A%0A%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%22%22%22%0A%20%20return%20self._size%0A%0A%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%22%22%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E5%88%A4%E5%AE%9A%22%22%22%0A%20%20return%20not%20self._front%0A%0A%20def%20push%28self,%20num%3A%20int%29%3A%0A%20%20%22%22%22%E3%82%A8%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%BC%22%22%22%0A%20%20%23%20%E6%9C%AB%E5%B0%BE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%BE%8C%E3%82%8D%E3%81%AB%20num%20%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%0A%20%20node%20%3D%20ListNode%28num%29%0A%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E5%85%88%E9%A0%AD%E3%81%A8%E6%9C%AB%E5%B0%BE%E3%81%AE%E4%B8%A1%E6%96%B9%E3%81%8C%E3%81%93%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%87%E3%81%99%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B%0A%20%20if%20self._front%20is%20None%3A%0A%20%20%20self._front%20%3D%20node%0A%20%20%20self._rear%20%3D%20node%0A%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88%E3%80%81%E3%81%93%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%9C%AB%E5%B0%BE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%BE%8C%E3%82%8D%E3%81%AB%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%0A%20%20else%3A%0A%20%20%20self._rear.next%20%3D%20node%0A%20%20%20self._rear%20%3D%20node%0A%20%20self._size%20%2B%3D%201%0A%0A%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%22%22%22%0A%20%20num%20%3D%20self.peek%28%29%0A%20%20%23%20%E5%85%88%E9%A0%AD%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20self._front%20%3D%20self._front.next%0A%20%20self._size%20-%3D%201%0A%20%20return%20num%0A%0A%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%22%22%22%0A%20%20if%20self.is_empty%28%29%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%22%29%0A%20%20return%20self._front.val%0A%0A%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%22%22%22%E8%A1%A8%E7%A4%BA%E7%94%A8%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%22%22%22%0A%20%20queue%20%3D%20%5B%5D%0A%20%20temp%20%3D%20self._front%0A%20%20while%20temp%3A%0A%20%20%20queue.append%28temp.val%29%0A%20%20%20temp%20%3D%20temp.next%0A%20%20return%20queue%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20queue%20%3D%20LinkedListQueue%28%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%A8%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%99%E3%82%8B%0A%20queue.push%281%29%0A%20queue.push%283%29%0A%20queue.push%282%29%0A%20queue.push%285%29%0A%20queue.push%284%29%0A%20print%28%22%E3%82%AD%E3%83%A5%E3%83%BC%20queue%20%3D%22,%20queue.to_list%28%29%29%0A%0A%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20peek%20%3D%20queue.peek%28%29%0A%20print%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20front%20%3D%22,%20peek%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%99%E3%82%8B%0A%20pop_front%20%3D%20queue.pop%28%29%0A%20print%28%22%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22,%20pop_front%29%0A%20print%28%22%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%E5%BE%8C%20queue%20%3D%22,%20queue.to_list%28%29%29%0A%0A%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%0A%20size%20%3D%20queue.size%28%29%0A%20print%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22,%20size%29%0A%0A%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E5%88%A4%E5%AE%9A%0A%20is_empty%20%3D%20queue.is_empty%28%29%0A%20print%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AF%E7%A9%BA%E3%81%8B%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-### 2. &nbsp; 配列に基づく実装
+### 2. &nbsp; 配列による実装
 
-配列で先頭要素を削除する時間計算量は $O(n)$ であり、そのままではデキュー操作の効率が低くなります。しかし、次の巧妙な方法によってこの問題を回避できます。
+配列の先頭要素の削除は時間計算量が $O(n)$ なので、デキューの効率が低くなります。ただし、次の工夫で避けられます。
 
-変数 `front` を用いてキュー先頭要素のインデックスを指し、さらに変数 `size` でキューの長さを記録できます。`rear = front + size` と定義すると、この式で得られる `rear` はキュー末尾要素の次の位置を指します。
+変数 `front` で先頭要素のインデックスを示し、変数 `size` でキューの長さを記録します。`rear = front + size` と定義すると、`rear` は末尾要素の次の位置を指します。
 
-この設計に基づくと、**配列内で要素を含む有効区間は `[front, rear - 1]`** となります。各種操作の実装方法を下図に示します。
+この設計では、**要素を含む有効区間は `[front, rear - 1]`** です。各操作の実装を図 5-6 に示します。
 
-- エンキュー操作：入力要素を `rear` の位置に代入し、`size` を 1 増やします。
-- デキュー操作：`front` を 1 増やし、`size` を 1 減らすだけです。
+- エンキュー：インデックス `rear` に入力要素を代入し、`size` を 1 増やします。
+- デキュー：`front` を 1 増やし、`size` を 1 減らすだけです。
 
-このように、エンキューとデキューはいずれも 1 回の操作だけで済み、時間計算量はともに $O(1)$ です。
+どちらも一度の操作で済み、時間計算量はともに $O(1)$ です。
 
 === "<1>"
-    ![配列でキューを実装したエンキューとデキュー操作](queue.assets/array_queue_step1.png){ class="animation-figure" }
+    ![配列によるキューのエンキューとデキュー](queue.assets/array_queue_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![array_queue_push](queue.assets/array_queue_step2_push.png){ class="animation-figure" }
+    ![配列によるキュー：要素の挿入](queue.assets/array_queue_step2_push.png){ class="animation-figure" }
 
 === "<3>"
-    ![array_queue_pop](queue.assets/array_queue_step3_pop.png){ class="animation-figure" }
+    ![配列によるキュー：要素の取り出し](queue.assets/array_queue_step3_pop.png){ class="animation-figure" }
 
-<p align="center"> 図 5-6 &nbsp; 配列でキューを実装したエンキューとデキュー操作 </p>
+<p align="center"> 図 5-6 &nbsp; 配列によるキューのエンキューとデキュー </p>
 
-ここで 1 つ問題があります。エンキューとデキューを繰り返すと、`front` と `rear` はどちらも右へ移動し続け、**配列の末尾に達するとそれ以上進めなくなります**。この問題を解決するために、配列を先頭と末尾がつながった「環状配列」とみなします。
+一つ問題があります。追加と削除を続けると `front` と `rear` が右へ移動し、**配列の末尾に達すると、それ以上進めなくなります**。これを解決するため、配列の両端がつながった「循環配列」と見なします。
 
-環状配列では、`front` または `rear` が配列末尾を越えたときに、直ちに配列先頭へ戻って走査を続けられるようにする必要があります。この周期的な規則は「剰余演算」によって実現できます。コードは次のとおりです：
+循環配列では、`front` や `rear` が末尾を越えたら先頭に戻って走査を続けます。この周期性は剰余演算で実現できます。コードは次のとおりです。
 
 === "Python"
 
     ```python title="array_queue.py"
     class ArrayQueue:
-        """循環配列ベースのキュー"""
+        """循環配列で実装したキュー"""
 
         def __init__(self, size: int):
             """コンストラクタ"""
-            self._nums: list[int] = [0] * size  # キュー要素を格納する配列
-            self._front: int = 0  # 先頭ポインタ。先頭要素を指す
+            self._nums: list[int] = [0] * size  # キューの要素を格納する配列
+            self._front: int = 0  # キューの先頭要素を指す先頭ポインタ
             self._size: int = 0  # キューの長さ
 
         def capacity(self) -> int:
-            """キューの容量を取得"""
+            """キューの容量を取得する"""
             return len(self._nums)
 
         def size(self) -> int:
@@ -1365,30 +1365,30 @@ comments: true
             return self._size
 
         def is_empty(self) -> bool:
-            """キューが空かどうかを判定"""
+            """キューが空か判定"""
             return self._size == 0
 
         def push(self, num: int):
             """エンキュー"""
             if self._size == self.capacity():
-                raise IndexError("キューがいっぱいです")
-            # 末尾ポインタを計算し、末尾インデックス + 1 を指す
-            # 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
+                raise IndexError("キューが満杯です")
+            # 末尾のインデックス + 1 を指す末尾ポインタを計算する
+            # 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
             rear: int = (self._front + self._size) % self.capacity()
-            # num をキュー末尾に追加
+            # num をキューの末尾に追加する
             self._nums[rear] = num
             self._size += 1
 
         def pop(self) -> int:
             """デキュー"""
             num: int = self.peek()
-            # 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
+            # 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
             self._front = (self._front + 1) % self.capacity()
             self._size -= 1
             return num
 
         def peek(self) -> int:
-            """キュー先頭の要素にアクセス"""
+            """キューの先頭要素にアクセス"""
             if self.is_empty():
                 raise IndexError("キューが空です")
             return self._nums[self._front]
@@ -1406,17 +1406,17 @@ comments: true
 === "C++"
 
     ```cpp title="array_queue.cpp"
-    /* 循環配列ベースのキュー */
+    /* 循環配列で実装したキュー */
     class ArrayQueue {
       private:
-        int *nums;       // キュー要素を格納する配列
-        int front;       // 先頭ポインタ。先頭要素を指す
+        int *nums;       // キューの要素を格納する配列
+        int front;       // キューの先頭要素を指す先頭ポインタ
         int queSize;     // キューの長さ
         int queCapacity; // キューの容量
 
       public:
         ArrayQueue(int capacity) {
-            // 配列を初期化
+            // 配列を初期化する
             nums = new int[capacity];
             queCapacity = capacity;
             front = queSize = 0;
@@ -1426,7 +1426,7 @@ comments: true
             delete[] nums;
         }
 
-        /* キューの容量を取得 */
+        /* キューの容量を取得する */
         int capacity() {
             return queCapacity;
         }
@@ -1436,7 +1436,7 @@ comments: true
             return queSize;
         }
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         bool isEmpty() {
             return size() == 0;
         }
@@ -1444,13 +1444,13 @@ comments: true
         /* エンキュー */
         void push(int num) {
             if (queSize == queCapacity) {
-                cout << "キューがいっぱいです" << endl;
+                cout << "キューが満杯です" << endl;
                 return;
             }
-            // 末尾ポインタを計算し、末尾インデックス + 1 を指す
-            // 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
+            // 末尾のインデックス + 1 を指す末尾ポインタを計算する
+            // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
             int rear = (front + queSize) % queCapacity;
-            // num をキュー末尾に追加
+            // num をキューの末尾に追加する
             nums[rear] = num;
             queSize++;
         }
@@ -1458,13 +1458,13 @@ comments: true
         /* デキュー */
         int pop() {
             int num = peek();
-            // 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
+            // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
             front = (front + 1) % queCapacity;
             queSize--;
             return num;
         }
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         int peek() {
             if (isEmpty())
                 throw out_of_range("キューが空です");
@@ -1473,7 +1473,7 @@ comments: true
 
         /* 配列を Vector に変換して返す */
         vector<int> toVector() {
-            // 有効長の範囲内のリスト要素のみを変換
+            // 有効な長さの範囲内にあるリストの要素だけを変換する
             vector<int> arr(queSize);
             for (int i = 0, j = front; i < queSize; i++, j++) {
                 arr[i] = nums[j % queCapacity];
@@ -1486,10 +1486,10 @@ comments: true
 === "Java"
 
     ```java title="array_queue.java"
-    /* 循環配列ベースのキュー */
+    /* 循環配列で実装したキュー */
     class ArrayQueue {
-        private int[] nums; // キュー要素を格納する配列
-        private int front; // 先頭ポインタ。先頭要素を指す
+        private int[] nums; // キューの要素を格納する配列
+        private int front; // キューの先頭要素を指す先頭ポインタ
         private int queSize; // キューの長さ
 
         public ArrayQueue(int capacity) {
@@ -1497,7 +1497,7 @@ comments: true
             front = queSize = 0;
         }
 
-        /* キューの容量を取得 */
+        /* キューの容量を取得する */
         public int capacity() {
             return nums.length;
         }
@@ -1507,7 +1507,7 @@ comments: true
             return queSize;
         }
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         public boolean isEmpty() {
             return queSize == 0;
         }
@@ -1515,13 +1515,13 @@ comments: true
         /* エンキュー */
         public void push(int num) {
             if (queSize == capacity()) {
-                System.out.println("キューは満杯です");
+                System.out.println("キューが満杯です");
                 return;
             }
-            // 末尾ポインタを計算し、末尾インデックス + 1 を指す
-            // 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
+            // 末尾のインデックス + 1 を指す末尾ポインタを計算する
+            // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
             int rear = (front + queSize) % capacity();
-            // num をキュー末尾に追加
+            // num をキューの末尾に追加する
             nums[rear] = num;
             queSize++;
         }
@@ -1529,13 +1529,13 @@ comments: true
         /* デキュー */
         public int pop() {
             int num = peek();
-            // 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
+            // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
             front = (front + 1) % capacity();
             queSize--;
             return num;
         }
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         public int peek() {
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
@@ -1544,7 +1544,7 @@ comments: true
 
         /* 配列を返す */
         public int[] toArray() {
-            // 有効長の範囲内のリスト要素のみを変換
+            // 有効な長さの範囲内にあるリストの要素だけを変換する
             int[] res = new int[queSize];
             for (int i = 0, j = front; i < queSize; i++, j++) {
                 res[i] = nums[j % capacity()];
@@ -1557,10 +1557,10 @@ comments: true
 === "C#"
 
     ```csharp title="array_queue.cs"
-    /* 循環配列ベースのキュー */
+    /* 循環配列で実装したキュー */
     class ArrayQueue {
-        int[] nums;  // キュー要素を格納する配列
-        int front;   // 先頭ポインタ。先頭要素を指す
+        int[] nums;  // キューの要素を格納する配列
+        int front;   // キューの先頭要素を指す先頭ポインタ
         int queSize; // キューの長さ
 
         public ArrayQueue(int capacity) {
@@ -1568,7 +1568,7 @@ comments: true
             front = queSize = 0;
         }
 
-        /* キューの容量を取得 */
+        /* キューの容量を取得する */
         int Capacity() {
             return nums.Length;
         }
@@ -1578,7 +1578,7 @@ comments: true
             return queSize;
         }
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         public bool IsEmpty() {
             return queSize == 0;
         }
@@ -1586,13 +1586,13 @@ comments: true
         /* エンキュー */
         public void Push(int num) {
             if (queSize == Capacity()) {
-                Console.WriteLine("キューは満杯です");
+                Console.WriteLine("キューが満杯です");
                 return;
             }
-            // 末尾ポインタを計算し、末尾インデックス + 1 を指す
-            // 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
+            // 末尾のインデックス + 1 を指す末尾ポインタを計算する
+            // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
             int rear = (front + queSize) % Capacity();
-            // num をキュー末尾に追加
+            // num をキューの末尾に追加する
             nums[rear] = num;
             queSize++;
         }
@@ -1600,13 +1600,13 @@ comments: true
         /* デキュー */
         public int Pop() {
             int num = Peek();
-            // 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
+            // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
             front = (front + 1) % Capacity();
             queSize--;
             return num;
         }
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         public int Peek() {
             if (IsEmpty())
                 throw new Exception();
@@ -1615,7 +1615,7 @@ comments: true
 
         /* 配列を返す */
         public int[] ToArray() {
-            // 有効長の範囲内のリスト要素のみを変換
+            // 有効な長さの範囲内にあるリストの要素だけを変換する
             int[] res = new int[queSize];
             for (int i = 0, j = front; i < queSize; i++, j++) {
                 res[i] = nums[j % this.Capacity()];
@@ -1628,15 +1628,15 @@ comments: true
 === "Go"
 
     ```go title="array_queue.go"
-    /* 循環配列ベースのキュー */
+    /* 循環配列で実装したキュー */
     type arrayQueue struct {
-        nums        []int // キュー要素を格納する配列
-        front       int   // 先頭ポインタ。先頭要素を指す
+        nums        []int // キューの要素を格納する配列
+        front       int   // キューの先頭要素を指す先頭ポインタ
         queSize     int   // キューの長さ
-        queCapacity int   // キュー容量（格納できる要素数の上限）
+        queCapacity int   // キューの容量（格納できる要素数の上限）
     }
 
-    /* キューを初期化 */
+    /* キューを初期化する */
     func newArrayQueue(queCapacity int) *arrayQueue {
         return &arrayQueue{
             nums:        make([]int, queCapacity),
@@ -1651,21 +1651,21 @@ comments: true
         return q.queSize
     }
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     func (q *arrayQueue) isEmpty() bool {
         return q.queSize == 0
     }
 
     /* エンキュー */
     func (q *arrayQueue) push(num int) {
-        // rear == queCapacity のときキューは満杯
+        // rear == queCapacity のとき、キューは満杯である
         if q.queSize == q.queCapacity {
             return
         }
-        // 末尾ポインタを計算し、末尾インデックス + 1 を指す
-        // 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
+        // 末尾のインデックス + 1 を指す末尾ポインタを計算する
+        // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
         rear := (q.front + q.queSize) % q.queCapacity
-        // num をキュー末尾に追加
+        // num をキューの末尾に追加する
         q.nums[rear] = num
         q.queSize++
     }
@@ -1677,13 +1677,13 @@ comments: true
             return nil
         }
 
-        // 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
+        // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
         q.front = (q.front + 1) % q.queCapacity
         q.queSize--
         return num
     }
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     func (q *arrayQueue) peek() any {
         if q.isEmpty() {
             return nil
@@ -1691,7 +1691,7 @@ comments: true
         return q.nums[q.front]
     }
 
-    /* 表示用に Slice を取得 */
+    /* 表示用の Slice を取得する */
     func (q *arrayQueue) toSlice() []int {
         rear := (q.front + q.queSize)
         if rear >= q.queCapacity {
@@ -1705,20 +1705,20 @@ comments: true
 === "Swift"
 
     ```swift title="array_queue.swift"
-    /* 循環配列ベースのキュー */
+    /* 循環配列で実装したキュー */
     class ArrayQueue {
-        private var nums: [Int] // キュー要素を格納する配列
-        private var front: Int // 先頭ポインタ。先頭要素を指す
+        private var nums: [Int] // キューの要素を格納する配列
+        private var front: Int // キューの先頭要素を指す先頭ポインタ
         private var _size: Int // キューの長さ
 
         init(capacity: Int) {
-            // 配列を初期化
+            // 配列を初期化する
             nums = Array(repeating: 0, count: capacity)
             front = 0
             _size = 0
         }
 
-        /* キューの容量を取得 */
+        /* キューの容量を取得する */
         func capacity() -> Int {
             nums.count
         }
@@ -1728,7 +1728,7 @@ comments: true
             _size
         }
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         func isEmpty() -> Bool {
             size() == 0
         }
@@ -1736,13 +1736,13 @@ comments: true
         /* エンキュー */
         func push(num: Int) {
             if size() == capacity() {
-                print("キューがいっぱいです")
+                print("キューが満杯です")
                 return
             }
-            // 末尾ポインタを計算し、末尾インデックス + 1 を指す
-            // 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
+            // 末尾のインデックス + 1 を指す末尾ポインタを計算する
+            // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
             let rear = (front + size()) % capacity()
-            // num をキュー末尾に追加
+            // num をキューの末尾に追加する
             nums[rear] = num
             _size += 1
         }
@@ -1751,13 +1751,13 @@ comments: true
         @discardableResult
         func pop() -> Int {
             let num = peek()
-            // 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
+            // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
             front = (front + 1) % capacity()
             _size -= 1
             return num
         }
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         func peek() -> Int {
             if isEmpty() {
                 fatalError("キューが空です")
@@ -1767,7 +1767,7 @@ comments: true
 
         /* 配列を返す */
         func toArray() -> [Int] {
-            // 有効長の範囲内のリスト要素のみを変換
+            // 有効な長さの範囲内にあるリストの要素だけを変換する
             (front ..< front + size()).map { nums[$0 % capacity()] }
         }
     }
@@ -1776,17 +1776,17 @@ comments: true
 === "JS"
 
     ```javascript title="array_queue.js"
-    /* 循環配列ベースのキュー */
+    /* 循環配列で実装したキュー */
     class ArrayQueue {
-        #nums; // キュー要素を格納する配列
-        #front = 0; // 先頭ポインタ。先頭要素を指す
+        #nums; // キューの要素を格納する配列
+        #front = 0; // キューの先頭要素を指す先頭ポインタ
         #queSize = 0; // キューの長さ
 
         constructor(capacity) {
             this.#nums = new Array(capacity);
         }
 
-        /* キューの容量を取得 */
+        /* キューの容量を取得する */
         get capacity() {
             return this.#nums.length;
         }
@@ -1796,7 +1796,7 @@ comments: true
             return this.#queSize;
         }
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         isEmpty() {
             return this.#queSize === 0;
         }
@@ -1804,13 +1804,13 @@ comments: true
         /* エンキュー */
         push(num) {
             if (this.size === this.capacity) {
-                console.log('キューがいっぱいです');
+                console.log('キューが満杯です');
                 return;
             }
-            // 末尾ポインタを計算し、末尾インデックス + 1 を指す
-            // 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
+            // 末尾のインデックス + 1 を指す末尾ポインタを計算する
+            // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
             const rear = (this.#front + this.size) % this.capacity;
-            // num をキュー末尾に追加
+            // num をキューの末尾に追加する
             this.#nums[rear] = num;
             this.#queSize++;
         }
@@ -1818,13 +1818,13 @@ comments: true
         /* デキュー */
         pop() {
             const num = this.peek();
-            // 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
+            // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
             this.#front = (this.#front + 1) % this.capacity;
             this.#queSize--;
             return num;
         }
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         peek() {
             if (this.isEmpty()) throw new Error('キューが空です');
             return this.#nums[this.#front];
@@ -1832,7 +1832,7 @@ comments: true
 
         /* Array を返す */
         toArray() {
-            // 有効長の範囲内のリスト要素のみを変換
+            // 有効な長さの範囲内にあるリストの要素だけを変換する
             const arr = new Array(this.size);
             for (let i = 0, j = this.#front; i < this.size; i++, j++) {
                 arr[i] = this.#nums[j % this.capacity];
@@ -1845,10 +1845,10 @@ comments: true
 === "TS"
 
     ```typescript title="array_queue.ts"
-    /* 循環配列ベースのキュー */
+    /* 循環配列で実装したキュー */
     class ArrayQueue {
-        private nums: number[]; // キュー要素を格納する配列
-        private front: number; // 先頭ポインタ。先頭要素を指す
+        private nums: number[]; // キューの要素を格納する配列
+        private front: number; // キューの先頭要素を指す先頭ポインタ
         private queSize: number; // キューの長さ
 
         constructor(capacity: number) {
@@ -1856,7 +1856,7 @@ comments: true
             this.front = this.queSize = 0;
         }
 
-        /* キューの容量を取得 */
+        /* キューの容量を取得する */
         get capacity(): number {
             return this.nums.length;
         }
@@ -1866,7 +1866,7 @@ comments: true
             return this.queSize;
         }
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         isEmpty(): boolean {
             return this.queSize === 0;
         }
@@ -1874,13 +1874,13 @@ comments: true
         /* エンキュー */
         push(num: number): void {
             if (this.size === this.capacity) {
-                console.log('キューは満杯です');
+                console.log('キューが満杯です');
                 return;
             }
-            // 末尾ポインタを計算し、末尾インデックス + 1 を指す
-            // 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
+            // 末尾のインデックス + 1 を指す末尾ポインタを計算する
+            // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
             const rear = (this.front + this.queSize) % this.capacity;
-            // num をキュー末尾に追加
+            // num をキューの末尾に追加する
             this.nums[rear] = num;
             this.queSize++;
         }
@@ -1888,13 +1888,13 @@ comments: true
         /* デキュー */
         pop(): number {
             const num = this.peek();
-            // 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
+            // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
             this.front = (this.front + 1) % this.capacity;
             this.queSize--;
             return num;
         }
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         peek(): number {
             if (this.isEmpty()) throw new Error('キューが空です');
             return this.nums[this.front];
@@ -1902,7 +1902,7 @@ comments: true
 
         /* Array を返す */
         toArray(): number[] {
-            // 有効長の範囲内のリスト要素のみを変換
+            // 有効な長さの範囲内にあるリストの要素だけを変換する
             const arr = new Array(this.size);
             for (let i = 0, j = this.front; i < this.size; i++, j++) {
                 arr[i] = this.nums[j % this.capacity];
@@ -1915,10 +1915,10 @@ comments: true
 === "Dart"
 
     ```dart title="array_queue.dart"
-    /* 循環配列ベースのキュー */
+    /* 循環配列で実装したキュー */
     class ArrayQueue {
-      late List<int> _nums; // キュー要素を格納する配列
-      late int _front; // 先頭ポインタ。先頭要素を指す
+      late List<int> _nums; // キューの要素を格納する配列
+      late int _front; // キューの先頭要素を指す先頭ポインタ
       late int _queSize; // キューの長さ
 
       ArrayQueue(int capacity) {
@@ -1926,7 +1926,7 @@ comments: true
         _front = _queSize = 0;
       }
 
-      /* キューの容量を取得 */
+      /* キューの容量を取得する */
       int capaCity() {
         return _nums.length;
       }
@@ -1936,7 +1936,7 @@ comments: true
         return _queSize;
       }
 
-      /* キューが空かどうかを判定 */
+      /* キューが空か判定 */
       bool isEmpty() {
         return _queSize == 0;
       }
@@ -1944,12 +1944,12 @@ comments: true
       /* エンキュー */
       void push(int _num) {
         if (_queSize == capaCity()) {
-          throw Exception("キューは満杯です");
+          throw Exception("キューが満杯です");
         }
-        // 末尾ポインタを計算し、末尾インデックス + 1 を指す
-        // 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
+        // 末尾のインデックス + 1 を指す末尾ポインタを計算する
+        // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
         int rear = (_front + _queSize) % capaCity();
-        // _num をキュー末尾に追加
+        // _num をキューの末尾に追加する
         _nums[rear] = _num;
         _queSize++;
       }
@@ -1957,13 +1957,13 @@ comments: true
       /* デキュー */
       int pop() {
         int _num = peek();
-        // 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
+        // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
         _front = (_front + 1) % capaCity();
         _queSize--;
         return _num;
       }
 
-      /* キュー先頭の要素にアクセス */
+      /* キューの先頭要素にアクセス */
       int peek() {
         if (isEmpty()) {
           throw Exception("キューが空です");
@@ -1973,7 +1973,7 @@ comments: true
 
       /* Array を返す */
       List<int> toArray() {
-        // 有効長の範囲内のリスト要素のみを変換
+        // 有効な長さの範囲内にあるリストの要素だけを変換する
         final List<int> res = List.filled(_queSize, 0);
         for (int i = 0, j = _front; i < _queSize; i++, j++) {
           res[i] = _nums[j % capaCity()];
@@ -1986,10 +1986,10 @@ comments: true
 === "Rust"
 
     ```rust title="array_queue.rs"
-    /* 循環配列ベースのキュー */
+    /* 循環配列で実装したキュー */
     struct ArrayQueue<T> {
-        nums: Vec<T>,      // キュー要素を格納する配列
-        front: i32,        // 先頭ポインタ。先頭要素を指す
+        nums: Vec<T>,      // キューの要素を格納する配列
+        front: i32,        // キューの先頭要素を指す先頭ポインタ
         que_size: i32,     // キューの長さ
         que_capacity: i32, // キューの容量
     }
@@ -2005,7 +2005,7 @@ comments: true
             }
         }
 
-        /* キューの容量を取得 */
+        /* キューの容量を取得する */
         fn capacity(&self) -> i32 {
             self.que_capacity
         }
@@ -2015,7 +2015,7 @@ comments: true
             self.que_size
         }
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         fn is_empty(&self) -> bool {
             self.que_size == 0
         }
@@ -2023,13 +2023,13 @@ comments: true
         /* エンキュー */
         fn push(&mut self, num: T) {
             if self.que_size == self.capacity() {
-                println!("キューがいっぱいです");
+                println!("キューが満杯です");
                 return;
             }
-            // 末尾ポインタを計算し、末尾インデックス + 1 を指す
-            // 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
+            // 末尾のインデックス + 1 を指す末尾ポインタを計算する
+            // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
             let rear = (self.front + self.que_size) % self.que_capacity;
-            // num をキュー末尾に追加
+            // num をキューの末尾に追加する
             self.nums[rear as usize] = num;
             self.que_size += 1;
         }
@@ -2037,16 +2037,16 @@ comments: true
         /* デキュー */
         fn pop(&mut self) -> T {
             let num = self.peek();
-            // 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
+            // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
             self.front = (self.front + 1) % self.que_capacity;
             self.que_size -= 1;
             num
         }
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         fn peek(&self) -> T {
             if self.is_empty() {
-                panic!("index out of bounds");
+                panic!("インデックスが範囲外です");
             }
             self.nums[self.front as usize]
         }
@@ -2068,18 +2068,18 @@ comments: true
 === "C"
 
     ```c title="array_queue.c"
-    /* 循環配列ベースのキュー */
+    /* 循環配列で実装したキュー */
     typedef struct {
-        int *nums;       // キュー要素を格納する配列
-        int front;       // 先頭ポインタ。先頭要素を指す
-        int queSize;     // 現在のキュー内の要素数
+        int *nums;       // キューの要素を格納する配列
+        int front;       // キューの先頭要素を指す先頭ポインタ
+        int queSize;     // 現在のキューの要素数
         int queCapacity; // キューの容量
     } ArrayQueue;
 
     /* コンストラクタ */
     ArrayQueue *newArrayQueue(int capacity) {
         ArrayQueue *queue = (ArrayQueue *)malloc(sizeof(ArrayQueue));
-        // 配列を初期化
+        // 配列を初期化する
         queue->queCapacity = capacity;
         queue->nums = (int *)malloc(sizeof(int) * queue->queCapacity);
         queue->front = queue->queSize = 0;
@@ -2092,7 +2092,7 @@ comments: true
         free(queue);
     }
 
-    /* キューの容量を取得 */
+    /* キューの容量を取得する */
     int capacity(ArrayQueue *queue) {
         return queue->queCapacity;
     }
@@ -2102,12 +2102,12 @@ comments: true
         return queue->queSize;
     }
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     bool empty(ArrayQueue *queue) {
         return queue->queSize == 0;
     }
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     int peek(ArrayQueue *queue) {
         assert(size(queue) != 0);
         return queue->nums[queue->front];
@@ -2116,13 +2116,13 @@ comments: true
     /* エンキュー */
     void push(ArrayQueue *queue, int num) {
         if (size(queue) == capacity(queue)) {
-            printf("キューは満杯です\r\n");
+            printf("キューが満杯です\r\n");
             return;
         }
-        // 末尾ポインタを計算し、末尾インデックス + 1 を指す
-        // 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
+        // 末尾のインデックス + 1 を指す末尾ポインタを計算する
+        // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
         int rear = (queue->front + queue->queSize) % queue->queCapacity;
-        // num をキュー末尾に追加
+        // num をキューの末尾に追加する
         queue->nums[rear] = num;
         queue->queSize++;
     }
@@ -2130,13 +2130,13 @@ comments: true
     /* デキュー */
     int pop(ArrayQueue *queue) {
         int num = peek(queue);
-        // 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
+        // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
         queue->front = (queue->front + 1) % queue->queCapacity;
         queue->queSize--;
         return num;
     }
 
-    /* 出力用の配列を返す */
+    /* 表示用の配列を返す */
     int *toArray(ArrayQueue *queue, int *queSize) {
         *queSize = queue->queSize;
         int *res = (int *)calloc(queue->queSize, sizeof(int));
@@ -2152,13 +2152,13 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="array_queue.kt"
-    /* 循環配列ベースのキュー */
+    /* 循環配列で実装したキュー */
     class ArrayQueue(capacity: Int) {
-        private val nums: IntArray = IntArray(capacity) // キュー要素を格納する配列
-        private var front: Int = 0 // 先頭ポインタ。先頭要素を指す
+        private val nums: IntArray = IntArray(capacity) // キューの要素を格納する配列
+        private var front: Int = 0 // キューの先頭要素を指す先頭ポインタ
         private var queSize: Int = 0 // キューの長さ
 
-        /* キューの容量を取得 */
+        /* キューの容量を取得する */
         fun capacity(): Int {
             return nums.size
         }
@@ -2168,7 +2168,7 @@ comments: true
             return queSize
         }
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         fun isEmpty(): Boolean {
             return queSize == 0
         }
@@ -2176,13 +2176,13 @@ comments: true
         /* エンキュー */
         fun push(num: Int) {
             if (queSize == capacity()) {
-                println("キューは満杯です")
+                println("キューが満杯です")
                 return
             }
-            // 末尾ポインタを計算し、末尾インデックス + 1 を指す
-            // 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
+            // 末尾のインデックス + 1 を指す末尾ポインタを計算する
+            // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
             val rear = (front + queSize) % capacity()
-            // num をキュー末尾に追加
+            // num をキューの末尾に追加する
             nums[rear] = num
             queSize++
         }
@@ -2190,13 +2190,13 @@ comments: true
         /* デキュー */
         fun pop(): Int {
             val num = peek()
-            // 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
+            // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
             front = (front + 1) % capacity()
             queSize--
             return num
         }
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         fun peek(): Int {
             if (isEmpty()) throw IndexOutOfBoundsException()
             return nums[front]
@@ -2204,7 +2204,7 @@ comments: true
 
         /* 配列を返す */
         fun toArray(): IntArray {
-            // 有効長の範囲内のリスト要素のみを変換
+            // 有効な長さの範囲内にあるリストの要素だけを変換する
             val res = IntArray(queSize)
             var i = 0
             var j = front
@@ -2228,12 +2228,12 @@ comments: true
 
       ### コンストラクタ ###
       def initialize(size)
-        @nums = Array.new(size, 0) # キュー要素を格納する配列
-        @front = 0 # 先頭ポインタ。先頭要素を指す
+        @nums = Array.new(size, 0) # キューの要素を格納する配列
+        @front = 0 # キューの先頭要素を指す先頭ポインタ
         @size = 0 # キューの長さ
       end
 
-      ### キューの容量を取得 ###
+      ### キューの容量を取得する ###
       def capacity
         @nums.length
       end
@@ -2245,12 +2245,12 @@ comments: true
 
       ### エンキュー ###
       def push(num)
-        raise IndexError, 'キューがいっぱいです' if size == capacity
+        raise IndexError, 'キューが満杯です' if size == capacity
 
-        # 末尾ポインタを計算し、末尾インデックス + 1 を指す
-        # 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
+        # 末尾のインデックス + 1 を指す末尾ポインタを計算する
+        # 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
         rear = (@front + size) % capacity
-        # num をキュー末尾に追加
+        # num をキューの末尾に追加する
         @nums[rear] = num
         @size += 1
       end
@@ -2258,15 +2258,15 @@ comments: true
       ### デキュー ###
       def pop
         num = peek
-        # 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
+        # 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
         @front = (@front + 1) % capacity
         @size -= 1
         num
       end
 
-      ### 先頭要素にアクセス ###
+      ### キューの先頭要素にアクセス ###
       def peek
-        raise IndexError, 'キューは空です' if is_empty?
+        raise IndexError, 'キューが空です' if is_empty?
 
         @nums[@front]
       end
@@ -2286,16 +2286,16 @@ comments: true
     end
     ```
 
-??? pythontutor "コードの可視化"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20ArrayQueue%3A%0A%0A%20%20%20%20def%20__init__%28self%2C%20size%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self._nums%3A%20list%5Bint%5D%20%3D%20%5B0%5D%20%2A%20size%0A%20%20%20%20%20%20%20%20self._front%3A%20int%20%3D%200%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20%20%20def%20capacity%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20return%20len%28self._nums%29%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20return%20self._size%20%3D%3D%200%0A%0A%20%20%20%20def%20push%28self%2C%20num%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20if%20self._size%20%3D%3D%20self.capacity%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%27%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E3%81%84%E3%81%A3%E3%81%B1%E3%81%84%E3%81%A7%E3%81%99%27%29%0A%20%20%20%20%20%20%20%20rear%3A%20int%20%3D%20%28self._front%20%2B%20self._size%29%20%25%20self.capacity%28%29%0A%20%20%20%20%20%20%20%20self._nums%5Brear%5D%20%3D%20num%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20num%3A%20int%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20self._front%20%3D%20%28self._front%20%2B%201%29%20%25%20self.capacity%28%29%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%27%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%27%29%0A%20%20%20%20%20%20%20%20return%20self._nums%5Bself._front%5D%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20res%20%3D%20%5B0%5D%20%2A%20self.size%28%29%0A%20%20%20%20%20%20%20%20j%3A%20int%20%3D%20self._front%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%28self.size%28%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%5Bi%5D%20%3D%20self._nums%5Bj%20%25%20self.capacity%28%29%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20return%20res%0Aif%20__name__%20%3D%3D%20%27__main__%27%3A%0A%20%20%20%20queue%20%3D%20ArrayQueue%2810%29%0A%20%20%20%20queue.push%281%29%0A%20%20%20%20queue.push%283%29%0A%20%20%20%20queue.push%282%29%0A%20%20%20%20queue.push%285%29%0A%20%20%20%20queue.push%284%29%0A%20%20%20%20peek%20%3D%20queue.peek%28%29%0A%20%20%20%20print%28%27%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20peek%20%3D%27%2C%20peek%29%0A%20%20%20%20pop%20%3D%20queue.pop%28%29%0A%20%20%20%20print%28%27%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%27%2C%20pop%29%0A%20%20%20%20size%20%3D%20queue.size%28%29%0A%20%20%20%20print%28%27%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%27%2C%20size%29%0A%20%20%20%20is_empty%20%3D%20queue.is_empty%28%29%0A%20%20%20%20print%28%27%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%20%3D%27%2C%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ArrayQueue%3A%0A%0A%20%20%20%20def%20__init__%28self%2C%20size%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self._nums%3A%20list%5Bint%5D%20%3D%20%5B0%5D%20%2A%20size%0A%20%20%20%20%20%20%20%20self._front%3A%20int%20%3D%200%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20%20%20def%20capacity%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20return%20len%28self._nums%29%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20return%20self._size%20%3D%3D%200%0A%0A%20%20%20%20def%20push%28self%2C%20num%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20if%20self._size%20%3D%3D%20self.capacity%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%27%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E3%81%84%E3%81%A3%E3%81%B1%E3%81%84%E3%81%A7%E3%81%99%27%29%0A%20%20%20%20%20%20%20%20rear%3A%20int%20%3D%20%28self._front%20%2B%20self._size%29%20%25%20self.capacity%28%29%0A%20%20%20%20%20%20%20%20self._nums%5Brear%5D%20%3D%20num%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20num%3A%20int%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20self._front%20%3D%20%28self._front%20%2B%201%29%20%25%20self.capacity%28%29%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%27%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%27%29%0A%20%20%20%20%20%20%20%20return%20self._nums%5Bself._front%5D%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20res%20%3D%20%5B0%5D%20%2A%20self.size%28%29%0A%20%20%20%20%20%20%20%20j%3A%20int%20%3D%20self._front%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%28self.size%28%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%5Bi%5D%20%3D%20self._nums%5Bj%20%25%20self.capacity%28%29%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20return%20res%0Aif%20__name__%20%3D%3D%20%27__main__%27%3A%0A%20%20%20%20queue%20%3D%20ArrayQueue%2810%29%0A%20%20%20%20queue.push%281%29%0A%20%20%20%20queue.push%283%29%0A%20%20%20%20queue.push%282%29%0A%20%20%20%20queue.push%285%29%0A%20%20%20%20queue.push%284%29%0A%20%20%20%20peek%20%3D%20queue.peek%28%29%0A%20%20%20%20print%28%27%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20peek%20%3D%27%2C%20peek%29%0A%20%20%20%20pop%20%3D%20queue.pop%28%29%0A%20%20%20%20print%28%27%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%27%2C%20pop%29%0A%20%20%20%20size%20%3D%20queue.size%28%29%0A%20%20%20%20print%28%27%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%27%2C%20size%29%0A%20%20%20%20is_empty%20%3D%20queue.is_empty%28%29%0A%20%20%20%20print%28%27%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%20%3D%27%2C%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20ArrayQueue%3A%0A%20%22%22%22%E5%BE%AA%E7%92%B0%E9%85%8D%E5%88%97%E3%81%A7%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%9F%E3%82%AD%E3%83%A5%E3%83%BC%22%22%22%0A%0A%20def%20__init__%28self,%20size%3A%20int%29%3A%0A%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20self._nums%3A%20list%5Bint%5D%20%3D%20%5B0%5D%20%2A%20size%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E6%A0%BC%E7%B4%8D%E3%81%99%E3%82%8B%E9%85%8D%E5%88%97%0A%20%20self._front%3A%20int%20%3D%200%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%87%E3%81%99%E5%85%88%E9%A0%AD%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%0A%20%20self._size%3A%20int%20%3D%200%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%0A%0A%20def%20capacity%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E5%AE%B9%E9%87%8F%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20return%20len%28self._nums%29%0A%0A%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%22%22%22%0A%20%20return%20self._size%0A%0A%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%22%22%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E5%88%A4%E5%AE%9A%22%22%22%0A%20%20return%20self._size%20%3D%3D%200%0A%0A%20def%20push%28self,%20num%3A%20int%29%3A%0A%20%20%22%22%22%E3%82%A8%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%BC%22%22%22%0A%20%20if%20self._size%20%3D%3D%20self.capacity%28%29%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E6%BA%80%E6%9D%AF%E3%81%A7%E3%81%99%22%29%0A%20%20%23%20%E6%9C%AB%E5%B0%BE%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20%2B%201%20%E3%82%92%E6%8C%87%E3%81%99%E6%9C%AB%E5%B0%BE%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%E3%82%92%E8%A8%88%E7%AE%97%E3%81%99%E3%82%8B%0A%20%20%23%20%E5%89%B0%E4%BD%99%E6%BC%94%E7%AE%97%E3%81%A7%E3%80%81rear%20%E3%81%8C%E9%85%8D%E5%88%97%E6%9C%AB%E5%B0%BE%E3%82%92%E8%B6%8A%E3%81%88%E3%81%9F%E3%82%89%E5%85%88%E9%A0%AD%E3%81%B8%E6%88%BB%E3%82%8B%0A%20%20rear%3A%20int%20%3D%20%28self._front%20%2B%20self._size%29%20%25%20self.capacity%28%29%0A%20%20%23%20num%20%E3%82%92%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%0A%20%20self._nums%5Brear%5D%20%3D%20num%0A%20%20self._size%20%2B%3D%201%0A%0A%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%22%22%22%0A%20%20num%3A%20int%20%3D%20self.peek%28%29%0A%20%20%23%20%E5%85%88%E9%A0%AD%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%E3%82%92%E5%BE%8C%E3%82%8D%E3%81%AB%201%20%E3%81%A4%E7%A7%BB%E5%8B%95%E3%81%97%E3%80%81%E6%9C%AB%E5%B0%BE%E3%82%92%E8%B6%8A%E3%81%88%E3%81%9F%E3%82%89%E9%85%8D%E5%88%97%E3%81%AE%E5%85%88%E9%A0%AD%E3%81%AB%E6%88%BB%E3%81%99%0A%20%20self._front%20%3D%20%28self._front%20%2B%201%29%20%25%20self.capacity%28%29%0A%20%20self._size%20-%3D%201%0A%20%20return%20num%0A%0A%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%22%22%22%0A%20%20if%20self.is_empty%28%29%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%22%29%0A%20%20return%20self._nums%5Bself._front%5D%0A%0A%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%22%22%22%E8%A1%A8%E7%A4%BA%E7%94%A8%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E8%BF%94%E3%81%99%22%22%22%0A%20%20res%20%3D%20%5B0%5D%20%2A%20self.size%28%29%0A%20%20j%3A%20int%20%3D%20self._front%0A%20%20for%20i%20in%20range%28self.size%28%29%29%3A%0A%20%20%20res%5Bi%5D%20%3D%20self._nums%5B%28j%20%25%20self.capacity%28%29%29%5D%0A%20%20%20j%20%2B%3D%201%0A%20%20return%20res%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20queue%20%3D%20ArrayQueue%2810%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%A8%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%99%E3%82%8B%0A%20queue.push%281%29%0A%20queue.push%283%29%0A%20queue.push%282%29%0A%20queue.push%285%29%0A%20queue.push%284%29%0A%0A%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20peek%20%3D%20queue.peek%28%29%0A%20print%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%99%E3%82%8B%0A%20pop%20%3D%20queue.pop%28%29%0A%20print%28%22%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%0A%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%0A%20size%20%3D%20queue.size%28%29%0A%20print%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22,%20size%29%0A%0A%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E5%88%A4%E5%AE%9A%0A%20is_empty%20%3D%20queue.is_empty%28%29%0A%20print%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AF%E7%A9%BA%E3%81%8B%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ArrayQueue%3A%0A%20%22%22%22%E5%BE%AA%E7%92%B0%E9%85%8D%E5%88%97%E3%81%A7%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%9F%E3%82%AD%E3%83%A5%E3%83%BC%22%22%22%0A%0A%20def%20__init__%28self,%20size%3A%20int%29%3A%0A%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20self._nums%3A%20list%5Bint%5D%20%3D%20%5B0%5D%20%2A%20size%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E6%A0%BC%E7%B4%8D%E3%81%99%E3%82%8B%E9%85%8D%E5%88%97%0A%20%20self._front%3A%20int%20%3D%200%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%87%E3%81%99%E5%85%88%E9%A0%AD%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%0A%20%20self._size%3A%20int%20%3D%200%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%0A%0A%20def%20capacity%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E5%AE%B9%E9%87%8F%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20return%20len%28self._nums%29%0A%0A%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%22%22%22%0A%20%20return%20self._size%0A%0A%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%22%22%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E5%88%A4%E5%AE%9A%22%22%22%0A%20%20return%20self._size%20%3D%3D%200%0A%0A%20def%20push%28self,%20num%3A%20int%29%3A%0A%20%20%22%22%22%E3%82%A8%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%BC%22%22%22%0A%20%20if%20self._size%20%3D%3D%20self.capacity%28%29%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E6%BA%80%E6%9D%AF%E3%81%A7%E3%81%99%22%29%0A%20%20%23%20%E6%9C%AB%E5%B0%BE%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20%2B%201%20%E3%82%92%E6%8C%87%E3%81%99%E6%9C%AB%E5%B0%BE%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%E3%82%92%E8%A8%88%E7%AE%97%E3%81%99%E3%82%8B%0A%20%20%23%20%E5%89%B0%E4%BD%99%E6%BC%94%E7%AE%97%E3%81%A7%E3%80%81rear%20%E3%81%8C%E9%85%8D%E5%88%97%E6%9C%AB%E5%B0%BE%E3%82%92%E8%B6%8A%E3%81%88%E3%81%9F%E3%82%89%E5%85%88%E9%A0%AD%E3%81%B8%E6%88%BB%E3%82%8B%0A%20%20rear%3A%20int%20%3D%20%28self._front%20%2B%20self._size%29%20%25%20self.capacity%28%29%0A%20%20%23%20num%20%E3%82%92%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%0A%20%20self._nums%5Brear%5D%20%3D%20num%0A%20%20self._size%20%2B%3D%201%0A%0A%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%22%22%22%0A%20%20num%3A%20int%20%3D%20self.peek%28%29%0A%20%20%23%20%E5%85%88%E9%A0%AD%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%E3%82%92%E5%BE%8C%E3%82%8D%E3%81%AB%201%20%E3%81%A4%E7%A7%BB%E5%8B%95%E3%81%97%E3%80%81%E6%9C%AB%E5%B0%BE%E3%82%92%E8%B6%8A%E3%81%88%E3%81%9F%E3%82%89%E9%85%8D%E5%88%97%E3%81%AE%E5%85%88%E9%A0%AD%E3%81%AB%E6%88%BB%E3%81%99%0A%20%20self._front%20%3D%20%28self._front%20%2B%201%29%20%25%20self.capacity%28%29%0A%20%20self._size%20-%3D%201%0A%20%20return%20num%0A%0A%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%22%22%22%0A%20%20if%20self.is_empty%28%29%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%22%29%0A%20%20return%20self._nums%5Bself._front%5D%0A%0A%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%22%22%22%E8%A1%A8%E7%A4%BA%E7%94%A8%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E8%BF%94%E3%81%99%22%22%22%0A%20%20res%20%3D%20%5B0%5D%20%2A%20self.size%28%29%0A%20%20j%3A%20int%20%3D%20self._front%0A%20%20for%20i%20in%20range%28self.size%28%29%29%3A%0A%20%20%20res%5Bi%5D%20%3D%20self._nums%5B%28j%20%25%20self.capacity%28%29%29%5D%0A%20%20%20j%20%2B%3D%201%0A%20%20return%20res%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20queue%20%3D%20ArrayQueue%2810%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%A8%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%99%E3%82%8B%0A%20queue.push%281%29%0A%20queue.push%283%29%0A%20queue.push%282%29%0A%20queue.push%285%29%0A%20queue.push%284%29%0A%0A%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20peek%20%3D%20queue.peek%28%29%0A%20print%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%99%E3%82%8B%0A%20pop%20%3D%20queue.pop%28%29%0A%20print%28%22%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%0A%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%0A%20size%20%3D%20queue.size%28%29%0A%20print%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22,%20size%29%0A%0A%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E5%88%A4%E5%AE%9A%0A%20is_empty%20%3D%20queue.is_empty%28%29%0A%20print%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AF%E7%A9%BA%E3%81%8B%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-上記の実装によるキューにも制約があり、長さを可変にできません。しかし、この問題の解決は難しくなく、配列を動的配列に置き換えれば容量拡張の仕組みを導入できます。興味があれば自分で実装してみてください。
+この実装には、長さを変更できないという制約がまだあります。ただし、配列を動的配列に置き換え、容量拡張を導入すれば解決できます。興味があれば実装してみてください。
 
-2 つの実装の比較に関する結論はスタックの場合と同じなので、ここでは繰り返しません。
+二つの実装の比較結果はスタックと同じなので、ここでは繰り返しません。
 
-## 5.2.3 &nbsp; キューの典型的な応用
+## 5.2.3 &nbsp; キューの代表的な用途
 
-- **淘宝の注文**。購入者が注文すると、その注文はキューに追加され、システムは順番に従って注文を処理します。ダブルイレブンの期間には短時間で膨大な注文が発生するため、高並行性がエンジニアにとって重点的に解決すべき課題になります。
-- **各種の待機事項**。先着順の機能を実現する必要があるあらゆる場面、たとえばプリンターのジョブキューや飲食店の配膳キューなどでは、キューによって処理順序を効果的に維持できます。
+- **淘宝の注文**。購入者が注文するとキューに追加され、システムが順に処理します。11 月 11 日のセールでは短時間に膨大な注文が発生するため、多数の同時処理がエンジニアにとって重要な課題となります。
+- **さまざまな待機タスク**。プリンターの印刷待ちや飲食店の料理の提供待ちなど、到着順の処理が必要な場面で、キューは処理順を効果的に維持できます。

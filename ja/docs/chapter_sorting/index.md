@@ -7,13 +7,13 @@ icon: material/sort-ascending
 
 ![ソート](../assets/covers/chapter_sorting.jpg){ class="cover-image" }
 
-!!! abstract
+!!! abstract "概要"
 
-    ソートは、混沌を秩序へと変える魔法の鍵のようなものであり、データをより効率的に理解し処理することを可能にします。
+    ソートは混沌を秩序へと変える魔法の鍵のようなものであり、データをより効率的に理解し、処理できるようにします。
 
-    単純な昇順であれ、複雑な分類配列であれ、ソートはデータの調和のとれた美しさを私たちに示してくれます。
+    単純な昇順であれ、複雑な分類と並べ替えであれ、ソートはデータの調和の美しさを見せてくれます。
 
-## 章の内容
+## この章の内容
 
 - [11.1 &nbsp; ソートアルゴリズム](sorting_algorithm.md)
 - [11.2 &nbsp; 選択ソート](selection_sort.md)
@@ -23,7 +23,7 @@ icon: material/sort-ascending
 - [11.6 &nbsp; マージソート](merge_sort.md)
 - [11.7 &nbsp; ヒープソート](heap_sort.md)
 - [11.8 &nbsp; バケットソート](bucket_sort.md)
-- [11.9 &nbsp; 計数ソート](counting_sort.md)
+- [11.9 &nbsp; カウントソート](counting_sort.md)
 - [11.10 &nbsp; 基数ソート](radix_sort.md)
 - [11.11 &nbsp; まとめ](summary.md)
-- [11.12 &nbsp; 演習](exercises.md)
+- [11.12 &nbsp; 練習問題](exercises.md)

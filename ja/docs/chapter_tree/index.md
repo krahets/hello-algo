@@ -7,13 +7,13 @@ icon: material/graph-outline
 
 ![木](../assets/covers/chapter_tree.jpg){ class="cover-image" }
 
-!!! abstract
+!!! abstract "概要"
 
-    大樹は生命力に満ち、根は深く葉は生い茂り、枝は豊かに広がる。
+    天高くそびえる大樹は生命力にあふれ、深く根を張り、葉を茂らせ、枝を広げています。
     
-    それはデータ分割統治の生き生きとした姿を私たちに示してくれる。
+    その姿は、データを分割統治する仕組みを生き生きと示しています。
 
-## 章の内容
+## この章の内容
 
 - [7.1 &nbsp; 二分木](binary_tree.md)
 - [7.2 &nbsp; 二分木の走査](binary_tree_traversal.md)
@@ -21,4 +21,4 @@ icon: material/graph-outline
 - [7.4 &nbsp; 二分探索木](binary_search_tree.md)
 - [7.5 &nbsp; AVL 木 *](avl_tree.md)
 - [7.6 &nbsp; まとめ](summary.md)
-- [7.7 &nbsp; 演習](exercises.md)
+- [7.7 &nbsp; 練習問題](exercises.md)

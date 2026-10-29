@@ -7,16 +7,16 @@ icon: material/table-search
 
 ![ハッシュテーブル](../assets/covers/chapter_hashing.jpg){ class="cover-image" }
 
-!!! abstract
+!!! abstract "概要"
 
-    コンピュータの世界では、ハッシュテーブルは聡明な図書館員のような存在です。
+    コンピュータの世界では、ハッシュテーブルは賢い司書のような存在です。
     
-    彼は請求記号の計算方法を知っており、そのため目的の本を素早く見つけられます。
+    請求記号の計算方法を知っているため、目的の本を素早く見つけられます。
 
-## 章の内容
+## この章の内容
 
 - [6.1 &nbsp; ハッシュテーブル](hash_map.md)
 - [6.2 &nbsp; ハッシュ衝突](hash_collision.md)
 - [6.3 &nbsp; ハッシュアルゴリズム](hash_algorithm.md)
 - [6.4 &nbsp; まとめ](summary.md)
-- [6.5 &nbsp; 演習](exercises.md)
+- [6.5 &nbsp; 練習問題](exercises.md)

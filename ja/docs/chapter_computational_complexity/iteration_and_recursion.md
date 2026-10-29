@@ -4,17 +4,17 @@ comments: true
 
 # 2.2 &nbsp; 反復と再帰
 
-アルゴリズムでは、ある処理を繰り返し実行することがよくあり、これは複雑度解析と密接に関係しています。そのため、時間計算量と空間計算量を紹介する前に、まずプログラム内で反復実行を実現する方法、つまり 2 つの基本的な制御構造である反復と再帰について見ていきます。
+アルゴリズムでは、同じ処理を繰り返すことがよくあり、計算量の解析とも密接に関わります。そこで時間計算量と空間計算量を説明する前に、繰り返しを実現する二つの基本的な制御構造、反復と再帰を学びます。
 
 ## 2.2.1 &nbsp; 反復
 
-<u>反復（iteration）</u>は、ある処理を繰り返し実行するための制御構造です。反復では、プログラムは一定の条件を満たす間、あるコード片を繰り返し実行し、その条件を満たさなくなるまで続けます。
+<u>反復（iteration）</u>は、ある処理を繰り返し実行する制御構造です。一定の条件を満たす間、同じコードを実行し続け、条件を満たさなくなったら終了します。
 
 ### 1. &nbsp; for ループ
 
-`for` ループは最も一般的な反復形式の 1 つで、**反復回数があらかじめ分かっている場合に適しています**。
+`for` ループは最も一般的な反復の形の一つで、**繰り返し回数があらかじめわかっている場合に適しています**。
 
-次の関数は `for` ループを用いて $1 + 2 + \dots + n$ の総和を計算しており、その結果は変数 `res` に記録されます。なお、Python の `range(a, b)` に対応する区間は「左閉右開」であり、走査範囲は $a, a + 1, \dots, b-1$ です。
+次の関数は、`for` ループで $1 + 2 + \dots + n$ を計算し、結果を変数 `res` に記録します。Python の `range(a, b)` は左端を含み右端を含まない区間なので、走査する範囲は $a, a + 1, \dots, b-1$ です。
 
 === "Python"
 
@@ -22,7 +22,7 @@ comments: true
     def for_loop(n: int) -> int:
         """for ループ"""
         res = 0
-        # 1, 2, ..., n-1, n を順に加算する
+        # ループで 1, 2, ..., n-1, n の和を求める
         for i in range(1, n + 1):
             res += i
         return res
@@ -34,7 +34,7 @@ comments: true
     /* for ループ */
     int forLoop(int n) {
         int res = 0;
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         for (int i = 1; i <= n; ++i) {
             res += i;
         }
@@ -48,7 +48,7 @@ comments: true
     /* for ループ */
     int forLoop(int n) {
         int res = 0;
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         for (int i = 1; i <= n; i++) {
             res += i;
         }
@@ -62,7 +62,7 @@ comments: true
     /* for ループ */
     int ForLoop(int n) {
         int res = 0;
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         for (int i = 1; i <= n; i++) {
             res += i;
         }
@@ -76,7 +76,7 @@ comments: true
     /* for ループ */
     func forLoop(n int) int {
         res := 0
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         for i := 1; i <= n; i++ {
             res += i
         }
@@ -90,7 +90,7 @@ comments: true
     /* for ループ */
     func forLoop(n: Int) -> Int {
         var res = 0
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         for i in 1 ... n {
             res += i
         }
@@ -104,7 +104,7 @@ comments: true
     /* for ループ */
     function forLoop(n) {
         let res = 0;
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         for (let i = 1; i <= n; i++) {
             res += i;
         }
@@ -118,7 +118,7 @@ comments: true
     /* for ループ */
     function forLoop(n: number): number {
         let res = 0;
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         for (let i = 1; i <= n; i++) {
             res += i;
         }
@@ -132,7 +132,7 @@ comments: true
     /* for ループ */
     int forLoop(int n) {
       int res = 0;
-      // 1, 2, ..., n-1, n を順に加算する
+      // ループで 1, 2, ..., n-1, n の和を求める
       for (int i = 1; i <= n; i++) {
         res += i;
       }
@@ -146,7 +146,7 @@ comments: true
     /* for ループ */
     fn for_loop(n: i32) -> i32 {
         let mut res = 0;
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         for i in 1..=n {
             res += i;
         }
@@ -160,7 +160,7 @@ comments: true
     /* for ループ */
     int forLoop(int n) {
         int res = 0;
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         for (int i = 1; i <= n; i++) {
             res += i;
         }
@@ -174,7 +174,7 @@ comments: true
     /* for ループ */
     fun forLoop(n: Int): Int {
         var res = 0
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         for (i in 1..n) {
             res += i
         }
@@ -189,7 +189,7 @@ comments: true
     def for_loop(n)
       res = 0
 
-      # 1, 2, ..., n-1, n を順に加算する
+      # ループで 1, 2, ..., n-1, n の和を求める
       for i in 1..n
         res += i
       end
@@ -198,24 +198,24 @@ comments: true
     end
     ```
 
-??? pythontutor "コードの可視化"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 405px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20for_loop%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22for%20%E3%83%AB%E3%83%BC%E3%83%97%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%201%2C%202%2C%20...%2C%20n-1%2C%20n%20%E3%82%92%E9%A0%86%E3%81%AB%E5%8A%A0%E7%AE%97%E3%81%99%E3%82%8B%0A%20%20%20%20for%20i%20in%20range%281%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20return%20res%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20for_loop%28n%29%0A%20%20%20%20print%28f%22%5Cnfor%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E5%90%88%E8%A8%88%E7%B5%90%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20for_loop%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22for%20%E3%83%AB%E3%83%BC%E3%83%97%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%201%2C%202%2C%20...%2C%20n-1%2C%20n%20%E3%82%92%E9%A0%86%E3%81%AB%E5%8A%A0%E7%AE%97%E3%81%99%E3%82%8B%0A%20%20%20%20for%20i%20in%20range%281%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20return%20res%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20for_loop%28n%29%0A%20%20%20%20print%28f%22%5Cnfor%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E5%90%88%E8%A8%88%E7%B5%90%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20for_loop%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22for%20%E3%83%AB%E3%83%BC%E3%83%97%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%201,%202,%20...,%20n-1,%20n%20%E3%81%AE%E5%92%8C%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20return%20res%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20for_loop%28n%29%0A%20%20%20%20print%28f%22%5Cnfor%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%E6%B1%82%E3%82%81%E3%81%9F%E5%92%8C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20for_loop%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22for%20%E3%83%AB%E3%83%BC%E3%83%97%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%201,%202,%20...,%20n-1,%20n%20%E3%81%AE%E5%92%8C%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20return%20res%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20for_loop%28n%29%0A%20%20%20%20print%28f%22%5Cnfor%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%E6%B1%82%E3%82%81%E3%81%9F%E5%92%8C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-次の図は、この総和関数のフローチャートです。
+図 2-1 に、この合計を求める関数のフローチャートを示します。
 
-![総和関数のフローチャート](iteration_and_recursion.assets/iteration.png){ class="animation-figure" }
+![合計を求める関数のフローチャート](iteration_and_recursion.assets/iteration.png){ class="animation-figure" }
 
-<p align="center"> 図 2-1 &nbsp; 総和関数のフローチャート </p>
+<p align="center"> 図 2-1 &nbsp; 合計を求める関数のフローチャート </p>
 
-この総和関数の操作回数は入力データサイズ $n$ に比例し、言い換えれば「線形関係」にあります。実際、**時間計算量が記述するのはこの「線形関係」そのものです**。関連内容は次節で詳しく説明します。
+この関数の操作回数は入力の大きさ $n$ に比例し、「線形の関係」にあります。実際、**時間計算量が記述するのは、この「線形の関係」です**。詳しくは次の節で説明します。
 
 ### 2. &nbsp; while ループ
 
-`for` ループと同様に、`while` ループも反復を実現する方法の 1 つです。`while` ループでは、各反復のたびにまず条件を確認し、条件が真であれば実行を続け、そうでなければループを終了します。
+`for` と同様に、`while` ループも反復を実現する方法です。毎回、最初に条件を調べ、真なら処理を続け、偽ならループを終了します。
 
-次に、`while` ループを使って $1 + 2 + \dots + n$ の総和を求めてみましょう。
+`while` ループで $1 + 2 + \dots + n$ を計算してみましょう。
 
 === "Python"
 
@@ -224,7 +224,7 @@ comments: true
         """while ループ"""
         res = 0
         i = 1  # 条件変数を初期化する
-        # 1, 2, ..., n-1, n を順に加算する
+        # ループで 1, 2, ..., n-1, n の和を求める
         while i <= n:
             res += i
             i += 1  # 条件変数を更新する
@@ -238,7 +238,7 @@ comments: true
     int whileLoop(int n) {
         int res = 0;
         int i = 1; // 条件変数を初期化する
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         while (i <= n) {
             res += i;
             i++; // 条件変数を更新する
@@ -254,7 +254,7 @@ comments: true
     int whileLoop(int n) {
         int res = 0;
         int i = 1; // 条件変数を初期化する
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         while (i <= n) {
             res += i;
             i++; // 条件変数を更新する
@@ -270,7 +270,7 @@ comments: true
     int WhileLoop(int n) {
         int res = 0;
         int i = 1; // 条件変数を初期化する
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         while (i <= n) {
             res += i;
             i += 1; // 条件変数を更新する
@@ -287,7 +287,7 @@ comments: true
         res := 0
         // 条件変数を初期化する
         i := 1
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         for i <= n {
             res += i
             // 条件変数を更新する
@@ -304,7 +304,7 @@ comments: true
     func whileLoop(n: Int) -> Int {
         var res = 0
         var i = 1 // 条件変数を初期化する
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         while i <= n {
             res += i
             i += 1 // 条件変数を更新する
@@ -320,7 +320,7 @@ comments: true
     function whileLoop(n) {
         let res = 0;
         let i = 1; // 条件変数を初期化する
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         while (i <= n) {
             res += i;
             i++; // 条件変数を更新する
@@ -336,7 +336,7 @@ comments: true
     function whileLoop(n: number): number {
         let res = 0;
         let i = 1; // 条件変数を初期化する
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         while (i <= n) {
             res += i;
             i++; // 条件変数を更新する
@@ -352,7 +352,7 @@ comments: true
     int whileLoop(int n) {
       int res = 0;
       int i = 1; // 条件変数を初期化する
-      // 1, 2, ..., n-1, n を順に加算する
+      // ループで 1, 2, ..., n-1, n の和を求める
       while (i <= n) {
         res += i;
         i++; // 条件変数を更新する
@@ -369,7 +369,7 @@ comments: true
         let mut res = 0;
         let mut i = 1; // 条件変数を初期化する
 
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         while i <= n {
             res += i;
             i += 1; // 条件変数を更新する
@@ -385,7 +385,7 @@ comments: true
     int whileLoop(int n) {
         int res = 0;
         int i = 1; // 条件変数を初期化する
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         while (i <= n) {
             res += i;
             i++; // 条件変数を更新する
@@ -401,7 +401,7 @@ comments: true
     fun whileLoop(n: Int): Int {
         var res = 0
         var i = 1 // 条件変数を初期化する
-        // 1, 2, ..., n-1, n を順に加算する
+        // ループで 1, 2, ..., n-1, n の和を求める
         while (i <= n) {
             res += i
             i++ // 条件変数を更新する
@@ -418,7 +418,7 @@ comments: true
       res = 0
       i = 1 # 条件変数を初期化する
 
-      # 1, 2, ..., n-1, n を順に加算する
+      # ループで 1, 2, ..., n-1, n の和を求める
       while i <= n
         res += i
         i += 1 # 条件変数を更新する
@@ -428,23 +428,23 @@ comments: true
     end
     ```
 
-??? pythontutor "コードの可視化"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20while_loop%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22while%20%E3%83%AB%E3%83%BC%E3%83%97%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20i%20%3D%201%20%20%23%20%E6%9D%A1%E4%BB%B6%E5%A4%89%E6%95%B0%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%201%2C%202%2C%20...%2C%20n-1%2C%20n%20%E3%82%92%E9%A0%86%E3%81%AB%E5%8A%A0%E7%AE%97%E3%81%99%E3%82%8B%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%20%20%23%20%E6%9D%A1%E4%BB%B6%E5%A4%89%E6%95%B0%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%0A%20%20%20%20return%20res%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20while_loop%28n%29%0A%20%20%20%20print%28f%22%5Cnwhile%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E5%90%88%E8%A8%88%E7%B5%90%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20while_loop%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22while%20%E3%83%AB%E3%83%BC%E3%83%97%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20i%20%3D%201%20%20%23%20%E6%9D%A1%E4%BB%B6%E5%A4%89%E6%95%B0%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%201%2C%202%2C%20...%2C%20n-1%2C%20n%20%E3%82%92%E9%A0%86%E3%81%AB%E5%8A%A0%E7%AE%97%E3%81%99%E3%82%8B%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%20%20%23%20%E6%9D%A1%E4%BB%B6%E5%A4%89%E6%95%B0%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%0A%20%20%20%20return%20res%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20while_loop%28n%29%0A%20%20%20%20print%28f%22%5Cnwhile%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E5%90%88%E8%A8%88%E7%B5%90%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20while_loop%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22while%20%E3%83%AB%E3%83%BC%E3%83%97%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20i%20%3D%201%20%20%23%20%E6%9D%A1%E4%BB%B6%E5%A4%89%E6%95%B0%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%201,%202,%20...,%20n-1,%20n%20%E3%81%AE%E5%92%8C%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%20%20%23%20%E6%9D%A1%E4%BB%B6%E5%A4%89%E6%95%B0%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%0A%20%20%20%20return%20res%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20while_loop%28n%29%0A%20%20%20%20print%28f%22%5Cnwhile%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%E6%B1%82%E3%82%81%E3%81%9F%E5%92%8C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20while_loop%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22while%20%E3%83%AB%E3%83%BC%E3%83%97%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20i%20%3D%201%20%20%23%20%E6%9D%A1%E4%BB%B6%E5%A4%89%E6%95%B0%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%201,%202,%20...,%20n-1,%20n%20%E3%81%AE%E5%92%8C%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%20%20%23%20%E6%9D%A1%E4%BB%B6%E5%A4%89%E6%95%B0%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%0A%20%20%20%20return%20res%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20while_loop%28n%29%0A%20%20%20%20print%28f%22%5Cnwhile%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%E6%B1%82%E3%82%81%E3%81%9F%E5%92%8C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-**`while` ループは `for` ループより自由度が高い**です。`while` ループでは、条件変数の初期化や更新手順を柔軟に設計できます。
+**`while` ループは `for` ループより自由度が高く**、条件変数の初期化と更新の手順を自由に設計できます。
 
-たとえば次のコードでは、条件変数 $i$ が各反復で 2 回更新されており、このようなケースは `for` ループではあまり扱いやすくありません。
+たとえば次のコードでは、条件変数 $i$ を各回で 2 回更新します。このような処理は、`for` ループではやや書きにくくなります。
 
 === "Python"
 
     ```python title="iteration.py"
     def while_loop_ii(n: int) -> int:
-        """while ループ（2回更新）"""
+        """while ループ（2 回の更新）"""
         res = 0
         i = 1  # 条件変数を初期化する
-        # 1, 4, 10, ... を順に加算する
+        # ループで 1, 4, 10, ... の和を求める
         while i <= n:
             res += i
             # 条件変数を更新する
@@ -456,11 +456,11 @@ comments: true
 === "C++"
 
     ```cpp title="iteration.cpp"
-    /* while ループ（2回更新） */
+    /* while ループ（2 回の更新） */
     int whileLoopII(int n) {
         int res = 0;
         int i = 1; // 条件変数を初期化する
-        // 1, 4, 10, ... を順に加算する
+        // ループで 1, 4, 10, ... の和を求める
         while (i <= n) {
             res += i;
             // 条件変数を更新する
@@ -474,11 +474,11 @@ comments: true
 === "Java"
 
     ```java title="iteration.java"
-    /* while ループ（2回更新） */
+    /* while ループ（2 回の更新） */
     int whileLoopII(int n) {
         int res = 0;
         int i = 1; // 条件変数を初期化する
-        // 1, 4, 10, ... を順に加算する
+        // ループで 1, 4, 10, ... の和を求める
         while (i <= n) {
             res += i;
             // 条件変数を更新する
@@ -492,11 +492,11 @@ comments: true
 === "C#"
 
     ```csharp title="iteration.cs"
-    /* while ループ（2回更新） */
+    /* while ループ（2 回の更新） */
     int WhileLoopII(int n) {
         int res = 0;
         int i = 1; // 条件変数を初期化する
-        // 1, 4, 10, ... を順に加算する
+        // ループで 1, 4, 10, ... の和を求める
         while (i <= n) {
             res += i;
             // 条件変数を更新する
@@ -510,12 +510,12 @@ comments: true
 === "Go"
 
     ```go title="iteration.go"
-    /* while ループ（2回更新） */
+    /* while ループ（2 回の更新） */
     func whileLoopII(n int) int {
         res := 0
         // 条件変数を初期化する
         i := 1
-        // 1, 4, 10, ... を順に加算する
+        // ループで 1, 4, 10, ... の和を求める
         for i <= n {
             res += i
             // 条件変数を更新する
@@ -529,11 +529,11 @@ comments: true
 === "Swift"
 
     ```swift title="iteration.swift"
-    /* while ループ（2回更新） */
+    /* while ループ（2 回の更新） */
     func whileLoopII(n: Int) -> Int {
         var res = 0
         var i = 1 // 条件変数を初期化する
-        // 1, 4, 10, ... を順に加算する
+        // ループで 1, 4, 10, ... の和を求める
         while i <= n {
             res += i
             // 条件変数を更新する
@@ -547,11 +547,11 @@ comments: true
 === "JS"
 
     ```javascript title="iteration.js"
-    /* while ループ（2回更新） */
+    /* while ループ（2 回の更新） */
     function whileLoopII(n) {
         let res = 0;
         let i = 1; // 条件変数を初期化する
-        // 1, 4, 10, ... を順に加算する
+        // ループで 1, 4, 10, ... の和を求める
         while (i <= n) {
             res += i;
             // 条件変数を更新する
@@ -565,11 +565,11 @@ comments: true
 === "TS"
 
     ```typescript title="iteration.ts"
-    /* while ループ（2回更新） */
+    /* while ループ（2 回の更新） */
     function whileLoopII(n: number): number {
         let res = 0;
         let i = 1; // 条件変数を初期化する
-        // 1, 4, 10, ... を順に加算する
+        // ループで 1, 4, 10, ... の和を求める
         while (i <= n) {
             res += i;
             // 条件変数を更新する
@@ -583,11 +583,11 @@ comments: true
 === "Dart"
 
     ```dart title="iteration.dart"
-    /* while ループ（2回更新） */
+    /* while ループ（2 回の更新） */
     int whileLoopII(int n) {
       int res = 0;
       int i = 1; // 条件変数を初期化する
-      // 1, 4, 10, ... を順に加算する
+      // ループで 1, 4, 10, ... の和を求める
       while (i <= n) {
         res += i;
         // 条件変数を更新する
@@ -601,12 +601,12 @@ comments: true
 === "Rust"
 
     ```rust title="iteration.rs"
-    /* while ループ（2回更新） */
+    /* while ループ（2 回の更新） */
     fn while_loop_ii(n: i32) -> i32 {
         let mut res = 0;
         let mut i = 1; // 条件変数を初期化する
 
-        // 1, 4, 10, ... を順に加算する
+        // ループで 1, 4, 10, ... の和を求める
         while i <= n {
             res += i;
             // 条件変数を更新する
@@ -620,11 +620,11 @@ comments: true
 === "C"
 
     ```c title="iteration.c"
-    /* while ループ（2回更新） */
+    /* while ループ（2 回の更新） */
     int whileLoopII(int n) {
         int res = 0;
         int i = 1; // 条件変数を初期化する
-        // 1, 4, 10, ... を順に加算する
+        // ループで 1, 4, 10, ... の和を求める
         while (i <= n) {
             res += i;
             // 条件変数を更新する
@@ -638,11 +638,11 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="iteration.kt"
-    /* while ループ（2回更新） */
+    /* while ループ（2 回の更新） */
     fun whileLoopII(n: Int): Int {
         var res = 0
         var i = 1 // 条件変数を初期化する
-        // 1, 4, 10, ... を順に加算する
+        // ループで 1, 4, 10, ... の和を求める
         while (i <= n) {
             res += i
             // 条件変数を更新する
@@ -656,26 +656,12 @@ comments: true
 === "Ruby"
 
     ```ruby title="iteration.rb"
-    ### while ループ ###
-    def while_loop(n)
-      res = 0
-      i = 1 # 条件変数を初期化する
-
-      # 1, 2, ..., n-1, n を順に加算する
-      while i <= n
-        res += i
-        i += 1 # 条件変数を更新する
-      end
-
-      res
-    end
-
-    # ## while ループ（2 回更新）###
+    ### while ループ（2 回の更新）###
     def while_loop_ii(n)
       res = 0
       i = 1 # 条件変数を初期化する
 
-      # 1, 4, 10, ... を順に加算する
+      # ループで 1, 4, 10, ... の和を求める
       while i <= n
         res += i
         # 条件変数を更新する
@@ -687,16 +673,16 @@ comments: true
     end
     ```
 
-??? pythontutor "コードの可視化"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20while_loop_ii%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22while%20%E3%83%AB%E3%83%BC%E3%83%97%EF%BC%882%E5%9B%9E%E6%9B%B4%E6%96%B0%EF%BC%89%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20i%20%3D%201%20%20%23%20%E6%9D%A1%E4%BB%B6%E5%A4%89%E6%95%B0%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%201%2C%204%2C%2010%2C%20...%20%E3%82%92%E9%A0%86%E3%81%AB%E5%8A%A0%E7%AE%97%E3%81%99%E3%82%8B%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20%20%20%20%20%23%20%E6%9D%A1%E4%BB%B6%E5%A4%89%E6%95%B0%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20i%20%2A%3D%202%0A%20%20%20%20return%20res%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20while_loop_ii%28n%29%0A%20%20%20%20print%28f%22%5Cnwhile%20%E3%83%AB%E3%83%BC%E3%83%97%EF%BC%882%20%E5%9B%9E%E6%9B%B4%E6%96%B0%EF%BC%89%E3%81%AE%E5%90%88%E8%A8%88%E7%B5%90%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20while_loop_ii%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22while%20%E3%83%AB%E3%83%BC%E3%83%97%EF%BC%882%E5%9B%9E%E6%9B%B4%E6%96%B0%EF%BC%89%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20i%20%3D%201%20%20%23%20%E6%9D%A1%E4%BB%B6%E5%A4%89%E6%95%B0%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%201%2C%204%2C%2010%2C%20...%20%E3%82%92%E9%A0%86%E3%81%AB%E5%8A%A0%E7%AE%97%E3%81%99%E3%82%8B%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20%20%20%20%20%23%20%E6%9D%A1%E4%BB%B6%E5%A4%89%E6%95%B0%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20i%20%2A%3D%202%0A%20%20%20%20return%20res%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20while_loop_ii%28n%29%0A%20%20%20%20print%28f%22%5Cnwhile%20%E3%83%AB%E3%83%BC%E3%83%97%EF%BC%882%20%E5%9B%9E%E6%9B%B4%E6%96%B0%EF%BC%89%E3%81%AE%E5%90%88%E8%A8%88%E7%B5%90%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 495px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20while_loop_ii%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22while%20%E3%83%AB%E3%83%BC%E3%83%97%EF%BC%882%20%E5%9B%9E%E3%81%AE%E6%9B%B4%E6%96%B0%EF%BC%89%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20i%20%3D%201%20%20%23%20%E6%9D%A1%E4%BB%B6%E5%A4%89%E6%95%B0%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%201,%204,%2010,%20...%20%E3%81%AE%E5%92%8C%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20%20%20%20%20%23%20%E6%9D%A1%E4%BB%B6%E5%A4%89%E6%95%B0%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20i%20%2A%3D%202%0A%20%20%20%20return%20res%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20while_loop_ii%28n%29%0A%20%20%20%20print%28f%22%5Cnwhile%20%E3%83%AB%E3%83%BC%E3%83%97%EF%BC%882%20%E5%9B%9E%E3%81%AE%E6%9B%B4%E6%96%B0%EF%BC%89%E3%81%A7%E6%B1%82%E3%82%81%E3%81%9F%E5%92%8C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20while_loop_ii%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22while%20%E3%83%AB%E3%83%BC%E3%83%97%EF%BC%882%20%E5%9B%9E%E3%81%AE%E6%9B%B4%E6%96%B0%EF%BC%89%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20i%20%3D%201%20%20%23%20%E6%9D%A1%E4%BB%B6%E5%A4%89%E6%95%B0%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%201,%204,%2010,%20...%20%E3%81%AE%E5%92%8C%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20%20%20%20%20%23%20%E6%9D%A1%E4%BB%B6%E5%A4%89%E6%95%B0%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20i%20%2A%3D%202%0A%20%20%20%20return%20res%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20while_loop_ii%28n%29%0A%20%20%20%20print%28f%22%5Cnwhile%20%E3%83%AB%E3%83%BC%E3%83%97%EF%BC%882%20%E5%9B%9E%E3%81%AE%E6%9B%B4%E6%96%B0%EF%BC%89%E3%81%A7%E6%B1%82%E3%82%81%E3%81%9F%E5%92%8C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-総じて、**`for` ループのコードはより簡潔で、`while` ループはより柔軟**です。どちらも反復構造を実現できますが、どちらを使うかは問題ごとの要件に応じて決めるべきです。
+全体として、**`for` はコードが簡潔で、`while` は柔軟です**。どちらも反復を実現でき、問題の要件に応じて選びます。
 
-### 3. &nbsp; ネストしたループ
+### 3. &nbsp; 入れ子のループ
 
-1 つのループ構造の中に別のループ構造を入れ子にできます。以下では `for` ループを例にします。
+ループの中に別のループを入れられます。`for` の例を示します。
 
 === "Python"
 
@@ -704,9 +690,9 @@ comments: true
     def nested_for_loop(n: int) -> str:
         """二重 for ループ"""
         res = ""
-        # i = 1, 2, ..., n-1, n とループする
+        # i = 1, 2, ..., n-1, n のループ
         for i in range(1, n + 1):
-            # j = 1, 2, ..., n-1, n とループする
+            # j = 1, 2, ..., n-1, n のループ
             for j in range(1, n + 1):
                 res += f"({i}, {j}), "
         return res
@@ -718,9 +704,9 @@ comments: true
     /* 二重 for ループ */
     string nestedForLoop(int n) {
         ostringstream res;
-        // i = 1, 2, ..., n-1, n とループする
+        // i = 1, 2, ..., n-1, n のループ
         for (int i = 1; i <= n; ++i) {
-            // j = 1, 2, ..., n-1, n とループする
+            // j = 1, 2, ..., n-1, n のループ
             for (int j = 1; j <= n; ++j) {
                 res << "(" << i << ", " << j << "), ";
             }
@@ -735,9 +721,9 @@ comments: true
     /* 二重 for ループ */
     String nestedForLoop(int n) {
         StringBuilder res = new StringBuilder();
-        // i = 1, 2, ..., n-1, n とループする
+        // i = 1, 2, ..., n-1, n のループ
         for (int i = 1; i <= n; i++) {
-            // j = 1, 2, ..., n-1, n とループする
+            // j = 1, 2, ..., n-1, n のループ
             for (int j = 1; j <= n; j++) {
                 res.append("(" + i + ", " + j + "), ");
             }
@@ -752,9 +738,9 @@ comments: true
     /* 二重 for ループ */
     string NestedForLoop(int n) {
         StringBuilder res = new();
-        // i = 1, 2, ..., n-1, n とループする
+        // i = 1, 2, ..., n-1, n のループ
         for (int i = 1; i <= n; i++) {
-            // j = 1, 2, ..., n-1, n とループする
+            // j = 1, 2, ..., n-1, n のループ
             for (int j = 1; j <= n; j++) {
                 res.Append($"({i}, {j}), ");
             }
@@ -769,10 +755,10 @@ comments: true
     /* 二重 for ループ */
     func nestedForLoop(n int) string {
         res := ""
-        // i = 1, 2, ..., n-1, n とループする
+        // i = 1, 2, ..., n-1, n のループ
         for i := 1; i <= n; i++ {
             for j := 1; j <= n; j++ {
-                // j = 1, 2, ..., n-1, n とループする
+                // j = 1, 2, ..., n-1, n のループ
                 res += fmt.Sprintf("(%d, %d), ", i, j)
             }
         }
@@ -786,9 +772,9 @@ comments: true
     /* 二重 for ループ */
     func nestedForLoop(n: Int) -> String {
         var res = ""
-        // i = 1, 2, ..., n-1, n とループする
+        // i = 1, 2, ..., n-1, n のループ
         for i in 1 ... n {
-            // j = 1, 2, ..., n-1, n とループする
+            // j = 1, 2, ..., n-1, n のループ
             for j in 1 ... n {
                 res.append("(\(i), \(j)), ")
             }
@@ -803,9 +789,9 @@ comments: true
     /* 二重 for ループ */
     function nestedForLoop(n) {
         let res = '';
-        // i = 1, 2, ..., n-1, n とループする
+        // i = 1, 2, ..., n-1, n のループ
         for (let i = 1; i <= n; i++) {
-            // j = 1, 2, ..., n-1, n とループする
+            // j = 1, 2, ..., n-1, n のループ
             for (let j = 1; j <= n; j++) {
                 res += `(${i}, ${j}), `;
             }
@@ -820,9 +806,9 @@ comments: true
     /* 二重 for ループ */
     function nestedForLoop(n: number): string {
         let res = '';
-        // i = 1, 2, ..., n-1, n とループする
+        // i = 1, 2, ..., n-1, n のループ
         for (let i = 1; i <= n; i++) {
-            // j = 1, 2, ..., n-1, n とループする
+            // j = 1, 2, ..., n-1, n のループ
             for (let j = 1; j <= n; j++) {
                 res += `(${i}, ${j}), `;
             }
@@ -837,9 +823,9 @@ comments: true
     /* 二重 for ループ */
     String nestedForLoop(int n) {
       String res = "";
-      // i = 1, 2, ..., n-1, n とループする
+      // i = 1, 2, ..., n-1, n のループ
       for (int i = 1; i <= n; i++) {
-        // j = 1, 2, ..., n-1, n とループする
+        // j = 1, 2, ..., n-1, n のループ
         for (int j = 1; j <= n; j++) {
           res += "($i, $j), ";
         }
@@ -854,9 +840,9 @@ comments: true
     /* 二重 for ループ */
     fn nested_for_loop(n: i32) -> String {
         let mut res = vec![];
-        // i = 1, 2, ..., n-1, n とループする
+        // i = 1, 2, ..., n-1, n のループ
         for i in 1..=n {
-            // j = 1, 2, ..., n-1, n とループする
+            // j = 1, 2, ..., n-1, n のループ
             for j in 1..=n {
                 res.push(format!("({}, {}), ", i, j));
             }
@@ -870,12 +856,12 @@ comments: true
     ```c title="iteration.c"
     /* 二重 for ループ */
     char *nestedForLoop(int n) {
-        // n * n は対応する点の個数であり、"(i, j), " に対応する文字列長の最大は 6+10*2 で、さらに末尾の空文字 \0 のための追加領域が必要
+        // n * n は点の個数であり、文字列 "(i, j), " の長さは最大 6+10*2 である。さらに末尾のヌル文字 \0 のための領域を加える
         int size = n * n * 26 + 1;
         char *res = malloc(size * sizeof(char));
-        // i = 1, 2, ..., n-1, n とループする
+        // i = 1, 2, ..., n-1, n のループ
         for (int i = 1; i <= n; i++) {
-            // j = 1, 2, ..., n-1, n とループする
+            // j = 1, 2, ..., n-1, n のループ
             for (int j = 1; j <= n; j++) {
                 char tmp[26];
                 snprintf(tmp, sizeof(tmp), "(%d, %d), ", i, j);
@@ -892,9 +878,9 @@ comments: true
     /* 二重 for ループ */
     fun nestedForLoop(n: Int): String {
         val res = StringBuilder()
-        // i = 1, 2, ..., n-1, n とループする
+        // i = 1, 2, ..., n-1, n のループ
         for (i in 1..n) {
-            // j = 1, 2, ..., n-1, n とループする
+            // j = 1, 2, ..., n-1, n のループ
             for (j in 1..n) {
                 res.append(" ($i, $j), ")
             }
@@ -910,9 +896,9 @@ comments: true
     def nested_for_loop(n)
       res = ""
 
-      # i = 1, 2, ..., n-1, n とループする
+      # i = 1, 2, ..., n-1, n のループ
       for i in 1..n
-        # j = 1, 2, ..., n-1, n とループする
+        # j = 1, 2, ..., n-1, n のループ
         for j in 1..n
           res += "(#{i}, #{j}), "
         end
@@ -922,35 +908,35 @@ comments: true
     end
     ```
 
-??? pythontutor "コードの可視化"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20nested_for_loop%28n%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E9%87%8D%20for%20%E3%83%AB%E3%83%BC%E3%83%97%22%22%22%0A%20%20%20%20res%20%3D%20%22%22%0A%20%20%20%20%23%20i%20%3D%201%2C%202%2C%20...%2C%20n-1%2C%20n%20%E3%81%A8%E3%83%AB%E3%83%BC%E3%83%97%E3%81%99%E3%82%8B%0A%20%20%20%20for%20i%20in%20range%281%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20j%20%3D%201%2C%202%2C%20...%2C%20n-1%2C%20n%20%E3%81%A8%E3%83%AB%E3%83%BC%E3%83%97%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%20%2B%3D%20f%22%28%7Bi%7D%2C%20%7Bj%7D%29%2C%20%22%0A%20%20%20%20return%20res%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20nested_for_loop%28n%29%0A%20%20%20%20print%28f%22%5Cn%E4%BA%8C%E9%87%8D%20for%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E8%B5%B0%E6%9F%BB%E7%B5%90%E6%9E%9C%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20nested_for_loop%28n%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E9%87%8D%20for%20%E3%83%AB%E3%83%BC%E3%83%97%22%22%22%0A%20%20%20%20res%20%3D%20%22%22%0A%20%20%20%20%23%20i%20%3D%201%2C%202%2C%20...%2C%20n-1%2C%20n%20%E3%81%A8%E3%83%AB%E3%83%BC%E3%83%97%E3%81%99%E3%82%8B%0A%20%20%20%20for%20i%20in%20range%281%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20j%20%3D%201%2C%202%2C%20...%2C%20n-1%2C%20n%20%E3%81%A8%E3%83%AB%E3%83%BC%E3%83%97%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%20%2B%3D%20f%22%28%7Bi%7D%2C%20%7Bj%7D%29%2C%20%22%0A%20%20%20%20return%20res%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20nested_for_loop%28n%29%0A%20%20%20%20print%28f%22%5Cn%E4%BA%8C%E9%87%8D%20for%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E8%B5%B0%E6%9F%BB%E7%B5%90%E6%9E%9C%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20nested_for_loop%28n%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E9%87%8D%20for%20%E3%83%AB%E3%83%BC%E3%83%97%22%22%22%0A%20%20%20%20res%20%3D%20%22%22%0A%20%20%20%20%23%20i%20%3D%201,%202,%20...,%20n-1,%20n%20%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%97%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20j%20%3D%201,%202,%20...,%20n-1,%20n%20%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%97%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%20%2B%3D%20f%22%28%7Bi%7D,%20%7Bj%7D%29,%20%22%0A%20%20%20%20return%20res%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20nested_for_loop%28n%29%0A%20%20%20%20print%28f%22%5Cn%E4%BA%8C%E9%87%8D%20for%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E8%B5%B0%E6%9F%BB%E7%B5%90%E6%9E%9C%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20nested_for_loop%28n%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E9%87%8D%20for%20%E3%83%AB%E3%83%BC%E3%83%97%22%22%22%0A%20%20%20%20res%20%3D%20%22%22%0A%20%20%20%20%23%20i%20%3D%201,%202,%20...,%20n-1,%20n%20%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%97%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20j%20%3D%201,%202,%20...,%20n-1,%20n%20%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%97%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%20%2B%3D%20f%22%28%7Bi%7D,%20%7Bj%7D%29,%20%22%0A%20%20%20%20return%20res%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20nested_for_loop%28n%29%0A%20%20%20%20print%28f%22%5Cn%E4%BA%8C%E9%87%8D%20for%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E8%B5%B0%E6%9F%BB%E7%B5%90%E6%9E%9C%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-次の図は、このネストしたループのフローチャートです。
+図 2-2 に、この入れ子のループのフローチャートを示します。
 
-![ネストしたループのフローチャート](iteration_and_recursion.assets/nested_iteration.png){ class="animation-figure" }
+![入れ子のループのフローチャート](iteration_and_recursion.assets/nested_iteration.png){ class="animation-figure" }
 
-<p align="center"> 図 2-2 &nbsp; ネストしたループのフローチャート </p>
+<p align="center"> 図 2-2 &nbsp; 入れ子のループのフローチャート </p>
 
-この場合、関数の操作回数は $n^2$ に比例し、言い換えればアルゴリズムの実行時間は入力データサイズ $n$ と「二次関係」にあります。
+この場合、操作回数は $n^2$ に比例します。言い換えると、実行時間は入力の大きさ $n$ と「二乗の関係」にあります。
 
-さらにネストしたループを追加することもできます。ネストが 1 段増えるたびに「次元が 1 つ上がる」ことになり、時間計算量は「三次関係」「四次関係」へと高くなっていきます。
+さらにループを入れ子にすると、そのたびに「次元が上がり」、時間計算量は「三乗」「四乗」というように増えていきます。
 
 ## 2.2.2 &nbsp; 再帰
 
- <u>再帰（recursion）</u>は、関数が自分自身を呼び出すことで問題を解決するアルゴリズム戦略です。主に 2 つの段階から成ります。
+ <u>再帰（recursion）</u>は、関数が自分自身を呼び出して問題を解くアルゴリズム戦略です。主に二つの段階があります。
 
-1. **再帰呼び出し**：プログラムは自分自身をより深く呼び出し続け、通常はより小さい、またはより単純化された引数を渡し、「終了条件」に達するまで進みます。
-2. **復帰**： 「終了条件」が満たされると、プログラムは最も深い再帰関数から 1 層ずつ戻り、各層の結果をまとめていきます。
+1. **呼び出しを進める**：通常は小さく、または単純になった引数を渡して自分自身を呼び出し続け、「終了条件」に到達するまで深く進みます。
+2. **戻る**：「終了条件」に達したら、最も深い再帰関数から順に戻り、各段階の結果を集めます。
 
-実装の観点から見ると、再帰コードは主に 3 つの要素から成ります。
+実装の観点では、再帰のコードは主に三つの要素からなります。
 
-1. **終了条件**：いつ再帰呼び出しから復帰へ切り替わるかを決めます。
-2. **再帰呼び出し**：再帰呼び出しに対応し、関数が自分自身を呼び出します。通常はより小さい、またはより単純化された引数を入力します。
-3. **結果の返却**：復帰に対応し、現在の再帰レベルの結果を 1 つ上の層へ返します。
+1. **終了条件**：呼び出しを進める段階から、戻る段階へ切り替える時点を決めます。
+2. **再帰呼び出し**：関数が自分自身を呼び出し、通常は小さく、または単純になった引数を渡します。
+3. **結果の返却**：現在の再帰段階の結果を、一つ上の段階へ返します。
 
-次のコードを見ると、関数 `recur(n)` を呼び出すだけで $1 + 2 + \dots + n$ を計算できます。
+次のコードでは、`recur(n)` を呼び出すだけで $1 + 2 + \dots + n$ を計算できます。
 
 === "Python"
 
@@ -960,9 +946,9 @@ comments: true
         # 終了条件
         if n == 1:
             return 1
-        # 再帰：再帰呼び出し
+        # 往路：再帰呼び出し
         res = recur(n - 1)
-        # 帰りがけ：結果を返す
+        # 復路：結果を返す
         return n + res
     ```
 
@@ -974,9 +960,9 @@ comments: true
         // 終了条件
         if (n == 1)
             return 1;
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         int res = recur(n - 1);
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         return n + res;
     }
     ```
@@ -989,9 +975,9 @@ comments: true
         // 終了条件
         if (n == 1)
             return 1;
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         int res = recur(n - 1);
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         return n + res;
     }
     ```
@@ -1004,9 +990,9 @@ comments: true
         // 終了条件
         if (n == 1)
             return 1;
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         int res = Recur(n - 1);
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         return n + res;
     }
     ```
@@ -1020,9 +1006,9 @@ comments: true
         if n == 1 {
             return 1
         }
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         res := recur(n - 1)
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         return n + res
     }
     ```
@@ -1036,9 +1022,9 @@ comments: true
         if n == 1 {
             return 1
         }
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         let res = recur(n: n - 1)
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         return n + res
     }
     ```
@@ -1050,9 +1036,9 @@ comments: true
     function recur(n) {
         // 終了条件
         if (n === 1) return 1;
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         const res = recur(n - 1);
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         return n + res;
     }
     ```
@@ -1064,9 +1050,9 @@ comments: true
     function recur(n: number): number {
         // 終了条件
         if (n === 1) return 1;
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         const res = recur(n - 1);
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         return n + res;
     }
     ```
@@ -1078,9 +1064,9 @@ comments: true
     int recur(int n) {
       // 終了条件
       if (n == 1) return 1;
-      // 再帰：再帰呼び出し
+      // 往路：再帰呼び出し
       int res = recur(n - 1);
-      // 帰りがけ：結果を返す
+      // 復路：結果を返す
       return n + res;
     }
     ```
@@ -1094,9 +1080,9 @@ comments: true
         if n == 1 {
             return 1;
         }
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         let res = recur(n - 1);
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         n + res
     }
     ```
@@ -1109,9 +1095,9 @@ comments: true
         // 終了条件
         if (n == 1)
             return 1;
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         int res = recur(n - 1);
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         return n + res;
     }
     ```
@@ -1124,9 +1110,9 @@ comments: true
         // 終了条件
         if (n == 1)
             return 1
-        // 再帰: 再帰呼び出し
+        // 往路：再帰呼び出し
         val res = recur(n - 1)
-        // 戻る: 結果を返す
+        // 復路：結果を返す
         return n + res
     }
     ```
@@ -1138,57 +1124,57 @@ comments: true
     def recur(n)
       # 終了条件
       return 1 if n == 1
-      # 再帰：再帰呼び出し
+      # 往路：再帰呼び出し
       res = recur(n - 1)
-      # 帰りがけ：結果を返す
+      # 復路：結果を返す
       n + res
     end
     ```
 
-??? pythontutor "コードの可視化"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%86%8D%E5%B8%B0%22%22%22%0A%20%20%20%20%23%20%E7%B5%82%E4%BA%86%E6%9D%A1%E4%BB%B6%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20%23%20%E5%86%8D%E5%B8%B0%EF%BC%9A%E5%86%8D%E5%B8%B0%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%0A%20%20%20%20res%20%3D%20recur%28n%20-%201%29%0A%20%20%20%20%23%20%E5%B8%B0%E3%82%8A%E3%81%8C%E3%81%91%EF%BC%9A%E7%B5%90%E6%9E%9C%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20n%20%2B%20res%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20recur%28n%29%0A%20%20%20%20print%28f%22%5Cn%E5%86%8D%E5%B8%B0%E9%96%A2%E6%95%B0%E3%81%AE%E5%90%88%E8%A8%88%E7%B5%90%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%86%8D%E5%B8%B0%22%22%22%0A%20%20%20%20%23%20%E7%B5%82%E4%BA%86%E6%9D%A1%E4%BB%B6%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20%23%20%E5%86%8D%E5%B8%B0%EF%BC%9A%E5%86%8D%E5%B8%B0%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%0A%20%20%20%20res%20%3D%20recur%28n%20-%201%29%0A%20%20%20%20%23%20%E5%B8%B0%E3%82%8A%E3%81%8C%E3%81%91%EF%BC%9A%E7%B5%90%E6%9E%9C%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20n%20%2B%20res%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20recur%28n%29%0A%20%20%20%20print%28f%22%5Cn%E5%86%8D%E5%B8%B0%E9%96%A2%E6%95%B0%E3%81%AE%E5%90%88%E8%A8%88%E7%B5%90%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%86%8D%E5%B8%B0%22%22%22%0A%20%20%20%20%23%20%E7%B5%82%E4%BA%86%E6%9D%A1%E4%BB%B6%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20%23%20%E5%BE%80%E8%B7%AF%EF%BC%9A%E5%86%8D%E5%B8%B0%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%0A%20%20%20%20res%20%3D%20recur%28n%20-%201%29%0A%20%20%20%20%23%20%E5%BE%A9%E8%B7%AF%EF%BC%9A%E7%B5%90%E6%9E%9C%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20n%20%2B%20res%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20recur%28n%29%0A%20%20%20%20print%28f%22%5Cn%E5%86%8D%E5%B8%B0%E9%96%A2%E6%95%B0%E3%81%A7%E6%B1%82%E3%82%81%E3%81%9F%E5%92%8C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%86%8D%E5%B8%B0%22%22%22%0A%20%20%20%20%23%20%E7%B5%82%E4%BA%86%E6%9D%A1%E4%BB%B6%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20%23%20%E5%BE%80%E8%B7%AF%EF%BC%9A%E5%86%8D%E5%B8%B0%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%0A%20%20%20%20res%20%3D%20recur%28n%20-%201%29%0A%20%20%20%20%23%20%E5%BE%A9%E8%B7%AF%EF%BC%9A%E7%B5%90%E6%9E%9C%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20n%20%2B%20res%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20recur%28n%29%0A%20%20%20%20print%28f%22%5Cn%E5%86%8D%E5%B8%B0%E9%96%A2%E6%95%B0%E3%81%A7%E6%B1%82%E3%82%81%E3%81%9F%E5%92%8C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-次の図は、この関数の再帰過程を示しています。
+図 2-3 に、この関数の再帰の流れを示します。
 
-![総和関数の再帰過程](iteration_and_recursion.assets/recursion_sum.png){ class="animation-figure" }
+![合計を求める関数の再帰の流れ](iteration_and_recursion.assets/recursion_sum.png){ class="animation-figure" }
 
-<p align="center"> 図 2-3 &nbsp; 総和関数の再帰過程 </p>
+<p align="center"> 図 2-3 &nbsp; 合計を求める関数の再帰の流れ </p>
 
-計算の観点では、反復と再帰は同じ結果を得られますが、**それらは問題を考え解決するためのまったく異なる 2 つのパラダイムを表しています**。
+計算結果は反復でも再帰でも同じですが、**考え方と問題の解き方はまったく異なります**。
 
-- **反復**：「ボトムアップ」で問題を解決します。最も基本的な手順から始め、それらを繰り返したり積み上げたりして、処理が完了するまで進めます。
-- **再帰**：「トップダウン」で問題を解決します。元の問題をより小さな部分問題に分解し、それらの部分問題は元の問題と同じ形を持ちます。さらに部分問題をより小さな部分問題へと分解し、基本ケースに達したところで停止します（基本ケースの解は既知です）。
+- **反復**：「下から上へ」解きます。最も基本的な手順から始め、それを繰り返したり積み重ねたりして、処理を完了します。
+- **再帰**：「上から下へ」解きます。元の問題を同じ形の小さな部分問題に分解し、さらに小さくしていき、解が既知の基本ケースに達したら止めます。
 
-前述の総和関数を例に、問題を $f(n) = 1 + 2 + \dots + n$ とします。
+先ほどの合計を例に、問題を $f(n) = 1 + 2 + \dots + n$ とします。
 
-- **反復**：ループ内で総和の過程を模擬し、$1$ から $n$ まで走査して、各反復で加算を行えば $f(n)$ を求められます。
-- **再帰**：問題を部分問題 $f(n) = n + f(n-1)$ に分解し、これを再帰的に分解し続け、基本ケース $f(1) = 1$ に達したところで終了します。
+- **反復**：$1$ から $n$ までループし、毎回加算することで、$f(n)$ を求めます。
+- **再帰**：問題を $f(n) = n + f(n-1)$ に分解し、基本ケース $f(1) = 1$ まで再帰的に分解し続けます。
 
 ### 1. &nbsp; 呼び出しスタック
 
-再帰関数が自分自身を呼び出すたびに、システムは新たに開始された関数のためにメモリを割り当て、局所変数、呼び出し先アドレス、その他の情報を保存します。これにより 2 つの結果が生じます。
+再帰関数が自分自身を呼ぶたびに、システムは新しい呼び出し用のメモリを確保し、ローカル変数、呼び出しアドレスなどを保存します。これにより、二つの影響が生じます。
 
-- 関数のコンテキストデータは「スタックフレーム領域」と呼ばれるメモリ領域に保存され、関数が戻るまで解放されません。したがって、**再帰は通常、反復より多くのメモリ空間を消費します**。
-- 再帰による関数呼び出しには追加のオーバーヘッドが発生します。**そのため再帰は通常、ループより時間効率が低くなります**。
+- 関数の実行に必要な情報は「スタックフレーム」と呼ぶメモリ領域に保存され、関数から戻るまで解放されません。そのため、**再帰は通常、反復より多くのメモリを使います**。
+- 再帰呼び出しには追加のコストがかかります。**そのため、再帰は通常、ループより時間効率が低くなります**。
 
-次の図のように、終了条件が発動する前には、まだ戻っていない再帰関数が同時に $n$ 個存在し、**再帰の深さは $n$** になります。
+図 2-4 のように、終了条件に到達する直前には、まだ戻っていない再帰関数が $n$ 個あり、**再帰の深さは $n$ です**。
 
 ![再帰呼び出しの深さ](iteration_and_recursion.assets/recursion_sum_depth.png){ class="animation-figure" }
 
 <p align="center"> 図 2-4 &nbsp; 再帰呼び出しの深さ </p>
 
-実際には、プログラミング言語が許容する再帰の深さには通常上限があり、深すぎる再帰はスタックオーバーフローを引き起こす可能性があります。
+実際には、言語が許す再帰の深さには通常、制限があります。深すぎる再帰はスタックオーバーフローを引き起こす可能性があります。
 
 ### 2. &nbsp; 末尾再帰
 
-興味深いことに、**関数が返る直前の最後の処理で再帰呼び出しを行う場合**、その関数はコンパイラやインタプリタによって最適化され、空間効率が反復と同程度になることがあります。これを<u>末尾再帰（tail recursion）</u>と呼びます。
+興味深いことに、**関数が戻る直前の最後の処理として再帰呼び出しを行う場合**、コンパイラやインタプリタは、空間効率が反復と同程度になるよう最適化できます。これを<u>末尾再帰（tail recursion）</u>と呼びます。
 
-- **通常の再帰**：関数が 1 つ上の階層の関数へ戻った後も、引き続きコードを実行する必要があるため、システムは 1 つ上の呼び出しのコンテキストを保存しておく必要があります。
-- **末尾再帰**：再帰呼び出しが関数の返却前の最後の操作であるため、1 つ上の階層へ戻った後に他の処理を続ける必要がなく、システムは 1 つ上の関数のコンテキストを保存する必要がありません。
+- **通常の再帰**：一つ上の関数に戻った後も処理を続けるため、前の呼び出しの実行状態を保存する必要があります。
+- **末尾再帰**：再帰呼び出しが戻る直前の最後の操作なので、一つ上に戻った後に実行する処理はありません。そのため、前の関数の実行状態を保存する必要がありません。
 
-$1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数の引数にすることで、末尾再帰を実現できます。
+$1 + 2 + \dots + n$ の計算では、結果の変数 `res` を関数の引数にすれば、末尾再帰にできます。
 
 === "Python"
 
@@ -1337,7 +1323,7 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
     ```kotlin title="recursion.kt"
     /* 末尾再帰 */
     tailrec fun tailRecur(n: Int, res: Int): Int {
-        // `tailrec` キーワードを追加して末尾再帰最適化を有効にする
+        // tailrec キーワードを追加し、末尾再帰の最適化を有効にする
         // 終了条件
         if (n == 0)
             return res
@@ -1358,38 +1344,38 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
     end
     ```
 
-??? pythontutor "コードの可視化"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 405px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20tail_recur%28n%2C%20res%29%3A%0A%20%20%20%20%22%22%22%E6%9C%AB%E5%B0%BE%E5%86%8D%E5%B8%B0%22%22%22%0A%20%20%20%20%23%20%E7%B5%82%E4%BA%86%E6%9D%A1%E4%BB%B6%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20res%0A%20%20%20%20%23%20%E6%9C%AB%E5%B0%BE%E5%86%8D%E5%B8%B0%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%0A%20%20%20%20return%20tail_recur%28n%20-%201%2C%20res%20%2B%20n%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20tail_recur%28n%2C%200%29%0A%20%20%20%20print%28f%22%5Cn%E6%9C%AB%E5%B0%BE%E5%86%8D%E5%B8%B0%E9%96%A2%E6%95%B0%E3%81%AE%E5%90%88%E8%A8%88%E7%B5%90%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20tail_recur%28n%2C%20res%29%3A%0A%20%20%20%20%22%22%22%E6%9C%AB%E5%B0%BE%E5%86%8D%E5%B8%B0%22%22%22%0A%20%20%20%20%23%20%E7%B5%82%E4%BA%86%E6%9D%A1%E4%BB%B6%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20res%0A%20%20%20%20%23%20%E6%9C%AB%E5%B0%BE%E5%86%8D%E5%B8%B0%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%0A%20%20%20%20return%20tail_recur%28n%20-%201%2C%20res%20%2B%20n%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20tail_recur%28n%2C%200%29%0A%20%20%20%20print%28f%22%5Cn%E6%9C%AB%E5%B0%BE%E5%86%8D%E5%B8%B0%E9%96%A2%E6%95%B0%E3%81%AE%E5%90%88%E8%A8%88%E7%B5%90%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20tail_recur%28n,%20res%29%3A%0A%20%20%20%20%22%22%22%E6%9C%AB%E5%B0%BE%E5%86%8D%E5%B8%B0%22%22%22%0A%20%20%20%20%23%20%E7%B5%82%E4%BA%86%E6%9D%A1%E4%BB%B6%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20res%0A%20%20%20%20%23%20%E6%9C%AB%E5%B0%BE%E5%86%8D%E5%B8%B0%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%0A%20%20%20%20return%20tail_recur%28n%20-%201,%20res%20%2B%20n%29%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20tail_recur%28n,%200%29%0A%20%20%20%20print%28f%22%5Cn%E6%9C%AB%E5%B0%BE%E5%86%8D%E5%B8%B0%E9%96%A2%E6%95%B0%E3%81%A7%E6%B1%82%E3%82%81%E3%81%9F%E5%92%8C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20tail_recur%28n,%20res%29%3A%0A%20%20%20%20%22%22%22%E6%9C%AB%E5%B0%BE%E5%86%8D%E5%B8%B0%22%22%22%0A%20%20%20%20%23%20%E7%B5%82%E4%BA%86%E6%9D%A1%E4%BB%B6%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20res%0A%20%20%20%20%23%20%E6%9C%AB%E5%B0%BE%E5%86%8D%E5%B8%B0%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%0A%20%20%20%20return%20tail_recur%28n%20-%201,%20res%20%2B%20n%29%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20tail_recur%28n,%200%29%0A%20%20%20%20print%28f%22%5Cn%E6%9C%AB%E5%B0%BE%E5%86%8D%E5%B8%B0%E9%96%A2%E6%95%B0%E3%81%A7%E6%B1%82%E3%82%81%E3%81%9F%E5%92%8C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-末尾再帰の実行過程を次の図に示します。通常の再帰と末尾再帰を比べると、加算処理が実行されるタイミングが異なります。
+図 2-5 に末尾再帰の流れを示します。通常の再帰とは、加算を行うタイミングが異なります。
 
-- **通常の再帰**：加算処理は復帰の過程で実行され、各層が戻るたびにもう一度加算を行います。
-- **末尾再帰**：加算処理は再帰呼び出しの過程で実行され、復帰の過程では各層が戻るだけで済みます。
+- **通常の再帰**：戻る段階で加算し、各呼び出しから戻った後に 1 回ずつ加算します。
+- **末尾再帰**：呼び出しを進める段階で加算し、戻る段階では順に戻るだけです。
 
-![末尾再帰の過程](iteration_and_recursion.assets/tail_recursion_sum.png){ class="animation-figure" }
+![末尾再帰の流れ](iteration_and_recursion.assets/tail_recursion_sum.png){ class="animation-figure" }
 
-<p align="center"> 図 2-5 &nbsp; 末尾再帰の過程 </p>
+<p align="center"> 図 2-5 &nbsp; 末尾再帰の流れ </p>
 
-!!! tip
+!!! tip "ヒント"
 
-    多くのコンパイラやインタプリタは末尾再帰最適化をサポートしていない点に注意してください。たとえば、Python はデフォルトで末尾再帰最適化をサポートしていないため、関数が末尾再帰の形であっても、スタックオーバーフローが発生する可能性があります。
+    多くのコンパイラやインタプリタは末尾再帰最適化に対応していないことに注意してください。たとえば Python は標準では対応していないため、末尾再帰の形でもスタックオーバーフローが起こる可能性があります。
 
 ### 3. &nbsp; 再帰木
 
-「分割統治」に関連するアルゴリズム問題を扱う際、再帰は反復よりも発想が直感的で、コードも読みやすいことがよくあります。「フィボナッチ数列」を例に見てみましょう。
+分割統治に関わる問題では、反復より再帰の方が直感的で、読みやすいコードになることがよくあります。「フィボナッチ数列」を例に考えます。
 
-!!! question
+!!! question "問題"
 
-    フィボナッチ数列 $0, 1, 1, 2, 3, 5, 8, 13, \dots$ が与えられたとき、この数列の第 $n$ 項を求めてください。
+    フィボナッチ数列 $0, 1, 1, 2, 3, 5, 8, 13, \dots$ の、第 $n$ 番目の数を求めてください。
 
-フィボナッチ数列の第 $n$ 項を $f(n)$ とすると、次の 2 つが容易に分かります。
+第 $n$ 番目の数を $f(n)$ とすると、二つのことがわかります。
 
-- 数列の最初の 2 項は $f(1) = 0$ と $f(2) = 1$ です。
-- 数列中の各項は直前の 2 項の和であり、すなわち $f(n) = f(n - 1) + f(n - 2)$ です。
+- 最初の二つの数は、$f(1) = 0$ と $f(2) = 1$ です。
+- 各数は直前の二つの数の和であり、$f(n) = f(n - 1) + f(n - 2)$ です。
 
-漸化式に従って再帰呼び出しを行い、最初の 2 項を終了条件とすれば、再帰コードを書けます。`fib(n)` を呼び出すことでフィボナッチ数列の第 $n$ 項を得られます。
+この漸化式に従って再帰呼び出しを行い、最初の二つの数を終了条件にすれば、再帰のコードを書けます。`fib(n)` を呼ぶと、第 $n$ 番目の数が得られます。
 
 === "Python"
 
@@ -1399,7 +1385,7 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
         # 終了条件 f(1) = 0, f(2) = 1
         if n == 1 or n == 2:
             return n - 1
-        # f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+        # 再帰呼び出し f(n) = f(n-1) + f(n-2)
         res = fib(n - 1) + fib(n - 2)
         # 結果 f(n) を返す
         return res
@@ -1413,7 +1399,7 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
         // 終了条件 f(1) = 0, f(2) = 1
         if (n == 1 || n == 2)
             return n - 1;
-        // f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+        // 再帰呼び出し f(n) = f(n-1) + f(n-2)
         int res = fib(n - 1) + fib(n - 2);
         // 結果 f(n) を返す
         return res;
@@ -1428,7 +1414,7 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
         // 終了条件 f(1) = 0, f(2) = 1
         if (n == 1 || n == 2)
             return n - 1;
-        // f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+        // 再帰呼び出し f(n) = f(n-1) + f(n-2)
         int res = fib(n - 1) + fib(n - 2);
         // 結果 f(n) を返す
         return res;
@@ -1443,7 +1429,7 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
         // 終了条件 f(1) = 0, f(2) = 1
         if (n == 1 || n == 2)
             return n - 1;
-        // f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+        // 再帰呼び出し f(n) = f(n-1) + f(n-2)
         int res = Fib(n - 1) + Fib(n - 2);
         // 結果 f(n) を返す
         return res;
@@ -1459,7 +1445,7 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
         if n == 1 || n == 2 {
             return n - 1
         }
-        // f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+        // 再帰呼び出し f(n) = f(n-1) + f(n-2)
         res := fib(n-1) + fib(n-2)
         // 結果 f(n) を返す
         return res
@@ -1475,7 +1461,7 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
         if n == 1 || n == 2 {
             return n - 1
         }
-        // f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+        // 再帰呼び出し f(n) = f(n-1) + f(n-2)
         let res = fib(n: n - 1) + fib(n: n - 2)
         // 結果 f(n) を返す
         return res
@@ -1489,7 +1475,7 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
     function fib(n) {
         // 終了条件 f(1) = 0, f(2) = 1
         if (n === 1 || n === 2) return n - 1;
-        // f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+        // 再帰呼び出し f(n) = f(n-1) + f(n-2)
         const res = fib(n - 1) + fib(n - 2);
         // 結果 f(n) を返す
         return res;
@@ -1503,7 +1489,7 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
     function fib(n: number): number {
         // 終了条件 f(1) = 0, f(2) = 1
         if (n === 1 || n === 2) return n - 1;
-        // f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+        // 再帰呼び出し f(n) = f(n-1) + f(n-2)
         const res = fib(n - 1) + fib(n - 2);
         // 結果 f(n) を返す
         return res;
@@ -1517,7 +1503,7 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
     int fib(int n) {
       // 終了条件 f(1) = 0, f(2) = 1
       if (n == 1 || n == 2) return n - 1;
-      // f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+      // 再帰呼び出し f(n) = f(n-1) + f(n-2)
       int res = fib(n - 1) + fib(n - 2);
       // 結果 f(n) を返す
       return res;
@@ -1533,7 +1519,7 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
         if n == 1 || n == 2 {
             return n - 1;
         }
-        // f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+        // 再帰呼び出し f(n) = f(n-1) + f(n-2)
         let res = fib(n - 1) + fib(n - 2);
         // 結果を返す
         res
@@ -1548,7 +1534,7 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
         // 終了条件 f(1) = 0, f(2) = 1
         if (n == 1 || n == 2)
             return n - 1;
-        // f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+        // 再帰呼び出し f(n) = f(n-1) + f(n-2)
         int res = fib(n - 1) + fib(n - 2);
         // 結果 f(n) を返す
         return res;
@@ -1563,7 +1549,7 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
         // 終了条件 f(1) = 0, f(2) = 1
         if (n == 1 || n == 2)
             return n - 1
-        // f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+        // 再帰呼び出し f(n) = f(n-1) + f(n-2)
         val res = fib(n - 1) + fib(n - 2)
         // 結果 f(n) を返す
         return res
@@ -1577,32 +1563,32 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
     def fib(n)
       # 終了条件 f(1) = 0, f(2) = 1
       return n - 1 if n == 1 || n == 2
-      # f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+      # 再帰呼び出し f(n) = f(n-1) + f(n-2)
       res = fib(n - 1) + fib(n - 2)
       # 結果 f(n) を返す
       res
     end
     ```
 
-??? pythontutor "コードの可視化"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20fib%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E3%83%95%E3%82%A3%E3%83%9C%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0%E5%88%97%EF%BC%9A%E5%86%8D%E5%B8%B0%22%22%22%0A%20%20%20%20%23%20%E7%B5%82%E4%BA%86%E6%9D%A1%E4%BB%B6%20f%281%29%20%3D%200%2C%20f%282%29%20%3D%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20n%20-%201%0A%20%20%20%20%23%20f%28n%29%20%3D%20f%28n-1%29%20%2B%20f%28n-2%29%20%E3%82%92%E5%86%8D%E5%B8%B0%E7%9A%84%E3%81%AB%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%99%0A%20%20%20%20res%20%3D%20fib%28n%20-%201%29%20%2B%20fib%28n%20-%202%29%0A%20%20%20%20%23%20%E7%B5%90%E6%9E%9C%20f%28n%29%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20res%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20fib%28n%29%0A%20%20%20%20print%28f%22%5Cn%E3%83%95%E3%82%A3%E3%83%9C%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0%E5%88%97%E3%81%AE%E7%AC%AC%20%7Bn%7D%20%E9%A0%85%E3%81%AF%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20fib%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E3%83%95%E3%82%A3%E3%83%9C%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0%E5%88%97%EF%BC%9A%E5%86%8D%E5%B8%B0%22%22%22%0A%20%20%20%20%23%20%E7%B5%82%E4%BA%86%E6%9D%A1%E4%BB%B6%20f%281%29%20%3D%200%2C%20f%282%29%20%3D%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20n%20-%201%0A%20%20%20%20%23%20f%28n%29%20%3D%20f%28n-1%29%20%2B%20f%28n-2%29%20%E3%82%92%E5%86%8D%E5%B8%B0%E7%9A%84%E3%81%AB%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%99%0A%20%20%20%20res%20%3D%20fib%28n%20-%201%29%20%2B%20fib%28n%20-%202%29%0A%20%20%20%20%23%20%E7%B5%90%E6%9E%9C%20f%28n%29%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20res%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20fib%28n%29%0A%20%20%20%20print%28f%22%5Cn%E3%83%95%E3%82%A3%E3%83%9C%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0%E5%88%97%E3%81%AE%E7%AC%AC%20%7Bn%7D%20%E9%A0%85%E3%81%AF%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20fib%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E3%83%95%E3%82%A3%E3%83%9C%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0%E5%88%97%EF%BC%9A%E5%86%8D%E5%B8%B0%22%22%22%0A%20%20%20%20%23%20%E7%B5%82%E4%BA%86%E6%9D%A1%E4%BB%B6%20f%281%29%20%3D%200,%20f%282%29%20%3D%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20n%20-%201%0A%20%20%20%20%23%20%E5%86%8D%E5%B8%B0%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%20f%28n%29%20%3D%20f%28n-1%29%20%2B%20f%28n-2%29%0A%20%20%20%20res%20%3D%20fib%28n%20-%201%29%20%2B%20fib%28n%20-%202%29%0A%20%20%20%20%23%20%E7%B5%90%E6%9E%9C%20f%28n%29%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20res%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20fib%28n%29%0A%20%20%20%20print%28f%22%5Cn%E3%83%95%E3%82%A3%E3%83%9C%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0%E5%88%97%E3%81%AE%E7%AC%AC%20%7Bn%7D%20%E9%A0%85%E3%81%AF%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20fib%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E3%83%95%E3%82%A3%E3%83%9C%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0%E5%88%97%EF%BC%9A%E5%86%8D%E5%B8%B0%22%22%22%0A%20%20%20%20%23%20%E7%B5%82%E4%BA%86%E6%9D%A1%E4%BB%B6%20f%281%29%20%3D%200,%20f%282%29%20%3D%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20n%20-%201%0A%20%20%20%20%23%20%E5%86%8D%E5%B8%B0%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%20f%28n%29%20%3D%20f%28n-1%29%20%2B%20f%28n-2%29%0A%20%20%20%20res%20%3D%20fib%28n%20-%201%29%20%2B%20fib%28n%20-%202%29%0A%20%20%20%20%23%20%E7%B5%90%E6%9E%9C%20f%28n%29%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20res%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20fib%28n%29%0A%20%20%20%20print%28f%22%5Cn%E3%83%95%E3%82%A3%E3%83%9C%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0%E5%88%97%E3%81%AE%E7%AC%AC%20%7Bn%7D%20%E9%A0%85%E3%81%AF%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-上のコードを見ると、関数内で 2 回の再帰呼び出しを行っています。**これは 1 回の呼び出しから 2 つの呼び出し分岐が生じることを意味します**。次の図のように、この再帰呼び出しを繰り返していくと、最終的に深さ $n$ の<u>再帰木（recursion tree）</u>が生成されます。
+このコードでは、関数内で再帰呼び出しを 2 回行い、**一つの呼び出しから二つの分岐が生じます**。図 2-6 のように呼び出しを繰り返すと、最終的に $n$ 層の<u>再帰木（recursion tree）</u>ができます。
 
 ![フィボナッチ数列の再帰木](iteration_and_recursion.assets/recursion_tree.png){ class="animation-figure" }
 
 <p align="center"> 図 2-6 &nbsp; フィボナッチ数列の再帰木 </p>
 
-本質的に見ると、再帰は「問題をより小さな部分問題へ分解する」という思考パラダイムを体現しており、この分割統治の戦略は非常に重要です。
+本質的に、再帰は「問題を小さな部分問題に分解する」という考え方を表しており、この分割統治戦略は非常に重要です。
 
-- アルゴリズムの観点では、探索、ソート、バックトラッキング、分割統治、動的計画法など、多くの重要な戦略が直接または間接にこの考え方を用いています。
-- データ構造の観点では、再帰は連結リスト、木、グラフに関する問題の処理に本質的に適しており、これらは分割統治の考え方で分析しやすいからです。
+- アルゴリズムの面では、探索、ソート、バックトラッキング、分割統治、動的計画法など、多くの重要な戦略が直接または間接的にこの考え方を使っています。
+- データ構造の面では、連結リスト、木、グラフの問題は分割統治で分析しやすいため、再帰が自然に適しています。
 
-## 2.2.3 &nbsp; 両者の比較
+## 2.2.3 &nbsp; 反復と再帰の比較
 
-以上をまとめると、次の表のように、反復と再帰は実装、性能、適用性の面で違いがあります。
+ここまでの内容をまとめると、表 2-1 のように実装、性能、用途に違いがあります。
 
 <p align="center"> 表 2-1 &nbsp; 反復と再帰の特徴の比較 </p>
 
@@ -1610,41 +1596,41 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
 
 |          | 反復                                   | 再帰                                                         |
 | -------- | -------------------------------------- | ------------------------------------------------------------ |
-| 実装方法 | ループ構造                             | 関数が自分自身を呼び出す                                     |
-| 時間効率 | 通常は効率が高く、関数呼び出しの負荷がない | 関数呼び出しのたびにオーバーヘッドが発生する                 |
-| メモリ使用 | 通常は固定サイズのメモリ空間を使う       | 関数呼び出しの蓄積により大量のスタックフレーム領域を使う可能性がある |
-| 適用対象 | 単純な反復処理に適し、コードが直感的で読みやすい | 木、グラフ、分割統治、バックトラッキングなどの部分問題分解に適し、コード構造が簡潔で明快 |
+| 実装方法 | ループ構造                               | 関数が自分自身を呼び出す                                                 |
+| 時間効率 | 通常は高く、関数呼び出しのコストがない           | 各関数呼び出しにコストがかかる                                     |
+| メモリ使用量 | 通常は一定量のメモリを使う             | 呼び出しの積み重ねで大量のスタックフレームを使う場合がある                           |
+| 適した問題 | 単純な繰り返し処理に適し、コードが直感的で読みやすい | 木、グラフ、分割統治、バックトラッキングなど、部分問題への分解に適し、コード構造が簡潔で明快 |
 
 </div>
 
-!!! tip
+!!! tip "ヒント"
 
-    以下の内容が難しいと感じる場合は、「スタック」の章を読み終えた後に改めて復習してください。
+    以下の内容が難しく感じられたら、「スタック」の章を読んでから復習してください。
 
-では、反復と再帰にはどのような内在的な関係があるのでしょうか。前述の再帰関数を例にすると、加算処理は再帰の復帰段階で行われます。これは、最初に呼び出された関数が実際には最後に加算を完了することを意味しており、**この動作の仕組みはスタックの「後入れ先出し」の原則とよく似ています**。
+では、反復と再帰にはどのような関係があるのでしょうか。先ほどの再帰関数では、戻る段階で加算します。つまり、最初に呼ばれた関数が、最後に加算を終えます。**この仕組みは、スタックの「先入れ後出し」の原則と共通しています**。
 
-実際、「呼び出しスタック」や「スタックフレーム領域」といった再帰の用語自体が、再帰とスタックの密接な関係を示唆しています。
+実際、「呼び出しスタック」や「スタックフレーム」という用語自体が、再帰とスタックの密接な関係を示しています。
 
-1. **再帰呼び出し**：関数が呼び出されると、システムは「呼び出しスタック」上にその関数のための新しいスタックフレームを割り当て、局所変数、引数、返却先アドレスなどのデータを保存します。
-2. **復帰**：関数の実行が完了して戻ると、対応するスタックフレームは「呼び出しスタック」から取り除かれ、前の関数の実行環境が復元されます。
+1. **呼び出しを進める**：関数を呼ぶと、システムは「呼び出しスタック」に新しいフレームを確保し、ローカル変数、引数、戻り先アドレスなどを保存します。
+2. **戻る**：関数の実行が終わって戻ると、対応するフレームを「呼び出しスタック」から取り除き、前の関数の実行環境を復元します。
 
-したがって、**明示的なスタックを使って呼び出しスタックの振る舞いを模擬することができ**、その結果として再帰を反復形式へ変換できます。
+したがって、**明示的なスタックで呼び出しスタックの動作を模倣すれば**、再帰を反復に変換できます。
 
 === "Python"
 
     ```python title="recursion.py"
     def for_loop_recur(n: int) -> int:
-        """反復で再帰を模擬する"""
-        # 明示的なスタックを使ってシステムコールスタックを模擬する
+        """反復を使って再帰を再現する"""
+        # 明示的なスタックを使って、システムの呼び出しスタックを再現する
         stack = []
         res = 0
-        # 再帰：再帰呼び出し
+        # 往路：再帰呼び出し
         for i in range(n, 0, -1):
-            # 「スタックへのプッシュ」で「再帰」を模擬する
+            # 「プッシュ操作」で再帰の「往路」を再現する
             stack.append(i)
-        # 帰りがけ：結果を返す
+        # 復路：結果を返す
         while stack:
-            # 「スタックから取り出す操作」で「帰り」をシミュレート
+            # 「ポップ操作」で再帰の「復路」を再現する
             res += stack.pop()
         # res = 1+2+3+...+n
         return res
@@ -1653,19 +1639,19 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
 === "C++"
 
     ```cpp title="recursion.cpp"
-    /* 反復で再帰を模擬する */
+    /* 反復を使って再帰を再現する */
     int forLoopRecur(int n) {
-        // 明示的なスタックを使ってシステムコールスタックを模擬する
+        // 明示的なスタックを使って、システムの呼び出しスタックを再現する
         stack<int> stack;
         int res = 0;
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         for (int i = n; i > 0; i--) {
-            // 「スタックへのプッシュ」で「再帰」を模擬する
+            // 「プッシュ操作」で再帰の「往路」を再現する
             stack.push(i);
         }
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         while (!stack.empty()) {
-            // 「スタックから取り出す操作」で「帰り」をシミュレート
+            // 「ポップ操作」で再帰の「復路」を再現する
             res += stack.top();
             stack.pop();
         }
@@ -1677,19 +1663,19 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
 === "Java"
 
     ```java title="recursion.java"
-    /* 反復で再帰を模擬する */
+    /* 反復を使って再帰を再現する */
     int forLoopRecur(int n) {
-        // 明示的なスタックを使ってシステムコールスタックを模擬する
+        // 明示的なスタックを使って、システムの呼び出しスタックを再現する
         Stack<Integer> stack = new Stack<>();
         int res = 0;
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         for (int i = n; i > 0; i--) {
-            // 「スタックへのプッシュ」で「再帰」を模擬する
+            // 「プッシュ操作」で再帰の「往路」を再現する
             stack.push(i);
         }
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         while (!stack.isEmpty()) {
-            // 「スタックから取り出す操作」で「帰り」をシミュレート
+            // 「ポップ操作」で再帰の「復路」を再現する
             res += stack.pop();
         }
         // res = 1+2+3+...+n
@@ -1700,19 +1686,19 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
 === "C#"
 
     ```csharp title="recursion.cs"
-    /* 反復で再帰を模擬する */
+    /* 反復を使って再帰を再現する */
     int ForLoopRecur(int n) {
-        // 明示的なスタックを使ってシステムコールスタックを模擬する
+        // 明示的なスタックを使って、システムの呼び出しスタックを再現する
         Stack<int> stack = new();
         int res = 0;
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         for (int i = n; i > 0; i--) {
-            // 「スタックへのプッシュ」で「再帰」を模擬する
+            // 「プッシュ操作」で再帰の「往路」を再現する
             stack.Push(i);
         }
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         while (stack.Count > 0) {
-            // 「スタックから取り出す操作」で「帰り」をシミュレート
+            // 「ポップ操作」で再帰の「復路」を再現する
             res += stack.Pop();
         }
         // res = 1+2+3+...+n
@@ -1723,19 +1709,19 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
 === "Go"
 
     ```go title="recursion.go"
-    /* 反復で再帰を模擬する */
+    /* 反復を使って再帰を再現する */
     func forLoopRecur(n int) int {
-        // 明示的なスタックを使ってシステムコールスタックを模擬する
+        // 明示的なスタックを使って、システムの呼び出しスタックを再現する
         stack := list.New()
         res := 0
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         for i := n; i > 0; i-- {
-            // 「スタックへのプッシュ」で「再帰」を模擬する
+            // 「プッシュ操作」で再帰の「往路」を再現する
             stack.PushBack(i)
         }
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         for stack.Len() != 0 {
-            // 「スタックから取り出す操作」で「帰り」をシミュレート
+            // 「ポップ操作」で再帰の「復路」を再現する
             res += stack.Back().Value.(int)
             stack.Remove(stack.Back())
         }
@@ -1747,19 +1733,19 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
 === "Swift"
 
     ```swift title="recursion.swift"
-    /* 反復で再帰を模擬する */
+    /* 反復を使って再帰を再現する */
     func forLoopRecur(n: Int) -> Int {
-        // 明示的なスタックを使ってシステムコールスタックを模擬する
+        // 明示的なスタックを使って、システムの呼び出しスタックを再現する
         var stack: [Int] = []
         var res = 0
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         for i in (1 ... n).reversed() {
-            // 「スタックへのプッシュ」で「再帰」を模擬する
+            // 「プッシュ操作」で再帰の「往路」を再現する
             stack.append(i)
         }
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         while !stack.isEmpty {
-            // 「スタックから取り出す操作」で「帰り」をシミュレート
+            // 「ポップ操作」で再帰の「復路」を再現する
             res += stack.removeLast()
         }
         // res = 1+2+3+...+n
@@ -1770,19 +1756,19 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
 === "JS"
 
     ```javascript title="recursion.js"
-    /* 反復で再帰を模擬する */
+    /* 反復を使って再帰を再現する */
     function forLoopRecur(n) {
-        // 明示的なスタックを使ってシステムコールスタックを模擬する
+        // 明示的なスタックを使って、システムの呼び出しスタックを再現する
         const stack = [];
         let res = 0;
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         for (let i = n; i > 0; i--) {
-            // 「スタックへのプッシュ」で「再帰」を模擬する
+            // 「プッシュ操作」で再帰の「往路」を再現する
             stack.push(i);
         }
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         while (stack.length) {
-            // 「スタックから取り出す操作」で「帰り」をシミュレート
+            // 「ポップ操作」で再帰の「復路」を再現する
             res += stack.pop();
         }
         // res = 1+2+3+...+n
@@ -1793,19 +1779,19 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
 === "TS"
 
     ```typescript title="recursion.ts"
-    /* 反復で再帰を模擬する */
+    /* 反復を使って再帰を再現する */
     function forLoopRecur(n: number): number {
-        // 明示的なスタックを使ってシステムコールスタックを模擬する
+        // 明示的なスタックを使って、システムの呼び出しスタックを再現する 
         const stack: number[] = [];
         let res: number = 0;
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         for (let i = n; i > 0; i--) {
-            // 「スタックへのプッシュ」で「再帰」を模擬する
+            // 「プッシュ操作」で再帰の「往路」を再現する
             stack.push(i);
         }
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         while (stack.length) {
-            // 「スタックから取り出す操作」で「帰り」をシミュレート
+            // 「ポップ操作」で再帰の「復路」を再現する
             res += stack.pop();
         }
         // res = 1+2+3+...+n
@@ -1816,19 +1802,19 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
 === "Dart"
 
     ```dart title="recursion.dart"
-    /* 反復で再帰を模擬する */
+    /* 反復を使って再帰を再現する */
     int forLoopRecur(int n) {
-      // 明示的なスタックを使ってシステムコールスタックを模擬する
+      // 明示的なスタックを使って、システムの呼び出しスタックを再現する
       List<int> stack = [];
       int res = 0;
-      // 再帰：再帰呼び出し
+      // 往路：再帰呼び出し
       for (int i = n; i > 0; i--) {
-        // 「スタックへのプッシュ」で「再帰」を模擬する
+        // 「プッシュ操作」で再帰の「往路」を再現する
         stack.add(i);
       }
-      // 帰りがけ：結果を返す
+      // 復路：結果を返す
       while (!stack.isEmpty) {
-        // 「スタックから取り出す操作」で「帰り」をシミュレート
+        // 「ポップ操作」で再帰の「復路」を再現する
         res += stack.removeLast();
       }
       // res = 1+2+3+...+n
@@ -1839,19 +1825,19 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
 === "Rust"
 
     ```rust title="recursion.rs"
-    /* 反復で再帰を模擬する */
+    /* 反復を使って再帰を再現する */
     fn for_loop_recur(n: i32) -> i32 {
-        // 明示的なスタックを使ってシステムコールスタックを模擬する
+        // 明示的なスタックを使って、システムの呼び出しスタックを再現する
         let mut stack = Vec::new();
         let mut res = 0;
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         for i in (1..=n).rev() {
-            // 「スタックへのプッシュ」で「再帰」を模擬する
+            // 「プッシュ操作」で再帰の「往路」を再現する
             stack.push(i);
         }
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         while !stack.is_empty() {
-            // 「スタックから取り出す操作」で「帰り」をシミュレート
+            // 「ポップ操作」で再帰の「復路」を再現する
             res += stack.pop().unwrap();
         }
         // res = 1+2+3+...+n
@@ -1862,19 +1848,19 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
 === "C"
 
     ```c title="recursion.c"
-    /* 反復で再帰を模擬する */
+    /* 反復を使って再帰を再現する */
     int forLoopRecur(int n) {
-        int stack[1000]; // 大きな配列を使ってスタックを実装する
-        int top = -1;    // スタックトップのインデックス
+        int stack[1000]; // 大きな配列を使ってスタックを再現する
+        int top = -1;    // スタックの先頭のインデックス
         int res = 0;
-        // 再帰：再帰呼び出し
+        // 往路：再帰呼び出し
         for (int i = n; i > 0; i--) {
-            // 「スタックへのプッシュ」で「再帰」を模擬する
+            // 「プッシュ操作」で再帰の「往路」を再現する
             stack[1 + top++] = i;
         }
-        // 帰りがけ：結果を返す
+        // 復路：結果を返す
         while (top >= 0) {
-            // 「スタックから取り出す操作」で「帰り」をシミュレート
+            // 「ポップ操作」で再帰の「復路」を再現する
             res += stack[top--];
         }
         // res = 1+2+3+...+n
@@ -1885,19 +1871,19 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
 === "Kotlin"
 
     ```kotlin title="recursion.kt"
-    /* 反復で再帰を模擬する */
+    /* 反復を使って再帰を再現する */
     fun forLoopRecur(n: Int): Int {
-        // 明示的なスタックを使ってシステムコールスタックを模擬する
+        // 明示的なスタックを使って、システムの呼び出しスタックを再現する
         val stack = Stack<Int>()
         var res = 0
-        // 再帰: 再帰呼び出し
+        // 往路：再帰呼び出し
         for (i in n downTo 0) {
-            // 「スタックへのプッシュ」で「再帰」を模擬する
+            // 「プッシュ操作」で再帰の「往路」を再現する
             stack.push(i)
         }
-        // 戻る: 結果を返す
+        // 復路：結果を返す
         while (stack.isNotEmpty()) {
-            // 「スタックから取り出す操作」で「帰り」をシミュレート
+            // 「ポップ操作」で再帰の「復路」を再現する
             res += stack.pop()
         }
         // res = 1+2+3+...+n
@@ -1908,18 +1894,18 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
 === "Ruby"
 
     ```ruby title="recursion.rb"
-    ### 反復で再帰をシミュレート ###
+    ### 反復を使って再帰を再現する ###
     def for_loop_recur(n)
-      # 明示的なスタックを使ってシステムコールスタックを模擬する
+      # 明示的なスタックを使って、システムの呼び出しスタックを再現する
       stack = []
       res = 0
 
-      # 再帰：再帰呼び出し
+      # 往路：再帰呼び出し
       for i in n.downto(0)
-        # 「スタックへのプッシュ」で「再帰」を模擬する
+        # 「プッシュ操作」で再帰の「往路」を再現する
         stack << i
       end
-      # 帰りがけ：結果を返す
+      # 復路：結果を返す
       while !stack.empty?
         res += stack.pop
       end
@@ -1929,14 +1915,14 @@ $1 + 2 + \dots + n$ の計算を例にすると、結果変数 `res` を関数�
     end
     ```
 
-??? pythontutor "コードの可視化"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20for_loop_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8F%8D%E5%BE%A9%E3%81%A7%E5%86%8D%E5%B8%B0%E3%82%92%E6%A8%A1%E6%93%AC%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%23%20%E6%98%8E%E7%A4%BA%E7%9A%84%E3%81%AA%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%82%B3%E3%83%BC%E3%83%AB%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E6%A8%A1%E6%93%AC%E3%81%99%E3%82%8B%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20%E5%86%8D%E5%B8%B0%EF%BC%9A%E5%86%8D%E5%B8%B0%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%0A%20%20%20%20for%20i%20in%20range%28n%2C%200%2C%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E3%80%8C%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%B8%E3%81%AE%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%E3%80%8D%E3%81%A7%E3%80%8C%E5%86%8D%E5%B8%B0%E3%80%8D%E3%82%92%E6%A8%A1%E6%93%AC%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20stack.append%28i%29%0A%20%20%20%20%23%20%E5%B8%B0%E3%82%8A%E3%81%8C%E3%81%91%EF%BC%9A%E7%B5%90%E6%9E%9C%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20while%20stack%3A%0A%20%20%20%20%20%20%20%20%23%20%E3%80%8C%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8B%E3%82%89%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%99%E6%93%8D%E4%BD%9C%E3%80%8D%E3%81%A7%E3%80%8C%E5%B8%B0%E3%82%8A%E3%80%8D%E3%82%92%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%83%88%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20stack.pop%28%29%0A%20%20%20%20%23%20res%20%3D%201%2B2%2B3%2B...%2Bn%0A%20%20%20%20return%20res%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20for_loop_recur%28n%29%0A%20%20%20%20print%28f%22%5Cn%E5%8F%8D%E5%BE%A9%E3%81%A7%E5%86%8D%E5%B8%B0%E3%82%92%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%83%88%E3%81%97%E3%81%9F%E5%90%88%E8%A8%88%E7%B5%90%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20for_loop_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8F%8D%E5%BE%A9%E3%81%A7%E5%86%8D%E5%B8%B0%E3%82%92%E6%A8%A1%E6%93%AC%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%23%20%E6%98%8E%E7%A4%BA%E7%9A%84%E3%81%AA%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%82%B3%E3%83%BC%E3%83%AB%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E6%A8%A1%E6%93%AC%E3%81%99%E3%82%8B%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20%E5%86%8D%E5%B8%B0%EF%BC%9A%E5%86%8D%E5%B8%B0%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%0A%20%20%20%20for%20i%20in%20range%28n%2C%200%2C%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E3%80%8C%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%B8%E3%81%AE%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%E3%80%8D%E3%81%A7%E3%80%8C%E5%86%8D%E5%B8%B0%E3%80%8D%E3%82%92%E6%A8%A1%E6%93%AC%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20stack.append%28i%29%0A%20%20%20%20%23%20%E5%B8%B0%E3%82%8A%E3%81%8C%E3%81%91%EF%BC%9A%E7%B5%90%E6%9E%9C%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20while%20stack%3A%0A%20%20%20%20%20%20%20%20%23%20%E3%80%8C%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8B%E3%82%89%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%99%E6%93%8D%E4%BD%9C%E3%80%8D%E3%81%A7%E3%80%8C%E5%B8%B0%E3%82%8A%E3%80%8D%E3%82%92%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%83%88%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20stack.pop%28%29%0A%20%20%20%20%23%20res%20%3D%201%2B2%2B3%2B...%2Bn%0A%20%20%20%20return%20res%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20for_loop_recur%28n%29%0A%20%20%20%20print%28f%22%5Cn%E5%8F%8D%E5%BE%A9%E3%81%A7%E5%86%8D%E5%B8%B0%E3%82%92%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%83%88%E3%81%97%E3%81%9F%E5%90%88%E8%A8%88%E7%B5%90%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20for_loop_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8F%8D%E5%BE%A9%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E5%86%8D%E5%B8%B0%E3%82%92%E5%86%8D%E7%8F%BE%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%23%20%E6%98%8E%E7%A4%BA%E7%9A%84%E3%81%AA%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%80%81%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E5%86%8D%E7%8F%BE%E3%81%99%E3%82%8B%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20%E5%BE%80%E8%B7%AF%EF%BC%9A%E5%86%8D%E5%B8%B0%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%0A%20%20%20%20for%20i%20in%20range%28n,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E3%80%8C%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%E6%93%8D%E4%BD%9C%E3%80%8D%E3%81%A7%E5%86%8D%E5%B8%B0%E3%81%AE%E3%80%8C%E5%BE%80%E8%B7%AF%E3%80%8D%E3%82%92%E5%86%8D%E7%8F%BE%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20stack.append%28i%29%0A%20%20%20%20%23%20%E5%BE%A9%E8%B7%AF%EF%BC%9A%E7%B5%90%E6%9E%9C%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20while%20stack%3A%0A%20%20%20%20%20%20%20%20%23%20%E3%80%8C%E3%83%9D%E3%83%83%E3%83%97%E6%93%8D%E4%BD%9C%E3%80%8D%E3%81%A7%E5%86%8D%E5%B8%B0%E3%81%AE%E3%80%8C%E5%BE%A9%E8%B7%AF%E3%80%8D%E3%82%92%E5%86%8D%E7%8F%BE%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20stack.pop%28%29%0A%20%20%20%20%23%20res%20%3D%201%2B2%2B3%2B...%2Bn%0A%20%20%20%20return%20res%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20for_loop_recur%28n%29%0A%20%20%20%20print%28f%22%5Cn%E5%8F%8D%E5%BE%A9%E3%81%A7%E5%86%8D%E5%B8%B0%E3%82%92%E5%86%8D%E7%8F%BE%E3%81%97%E3%81%A6%E6%B1%82%E3%82%81%E3%81%9F%E5%92%8C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20for_loop_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8F%8D%E5%BE%A9%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E5%86%8D%E5%B8%B0%E3%82%92%E5%86%8D%E7%8F%BE%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%23%20%E6%98%8E%E7%A4%BA%E7%9A%84%E3%81%AA%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%80%81%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E5%86%8D%E7%8F%BE%E3%81%99%E3%82%8B%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20%E5%BE%80%E8%B7%AF%EF%BC%9A%E5%86%8D%E5%B8%B0%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%0A%20%20%20%20for%20i%20in%20range%28n,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E3%80%8C%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%E6%93%8D%E4%BD%9C%E3%80%8D%E3%81%A7%E5%86%8D%E5%B8%B0%E3%81%AE%E3%80%8C%E5%BE%80%E8%B7%AF%E3%80%8D%E3%82%92%E5%86%8D%E7%8F%BE%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20stack.append%28i%29%0A%20%20%20%20%23%20%E5%BE%A9%E8%B7%AF%EF%BC%9A%E7%B5%90%E6%9E%9C%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20while%20stack%3A%0A%20%20%20%20%20%20%20%20%23%20%E3%80%8C%E3%83%9D%E3%83%83%E3%83%97%E6%93%8D%E4%BD%9C%E3%80%8D%E3%81%A7%E5%86%8D%E5%B8%B0%E3%81%AE%E3%80%8C%E5%BE%A9%E8%B7%AF%E3%80%8D%E3%82%92%E5%86%8D%E7%8F%BE%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20stack.pop%28%29%0A%20%20%20%20%23%20res%20%3D%201%2B2%2B3%2B...%2Bn%0A%20%20%20%20return%20res%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20for_loop_recur%28n%29%0A%20%20%20%20print%28f%22%5Cn%E5%8F%8D%E5%BE%A9%E3%81%A7%E5%86%8D%E5%B8%B0%E3%82%92%E5%86%8D%E7%8F%BE%E3%81%97%E3%81%A6%E6%B1%82%E3%82%81%E3%81%9F%E5%92%8C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-上のコードを見ると、再帰を反復へ変換すると、コードはより複雑になります。反復と再帰は多くの場合に相互変換できますが、常にそうする価値があるとは限りません。理由は次の 2 点です。
+このコードでは、反復に変換したことで複雑になっています。反復と再帰は多くの場合、相互に変換できますが、必ずしもそうする価値があるとは限りません。理由は二つあります。
 
-- 変換後のコードは理解しにくくなり、可読性が下がる可能性があります。
-- 複雑な問題によっては、システムの呼び出しスタックの振る舞いを模擬すること自体が非常に難しい場合があります。
+- 変換後のコードの方が理解しにくく、可読性が下がる可能性があります。
+- 複雑な問題では、システムの呼び出しスタックの動作を模倣すること自体が非常に難しい場合があります。
 
-要するに、**反復を選ぶか再帰を選ぶかは、対象となる問題の性質によって決まります**。実際のプログラミングでは、両者の長所と短所を見極め、状況に応じて適切な方法を選ぶことが重要です。
+**反復と再帰のどちらを選ぶかは、問題の性質によって決まります**。実際のプログラミングでは、両者の利点と欠点を比較し、状況に合った方法を選ぶことが大切です。

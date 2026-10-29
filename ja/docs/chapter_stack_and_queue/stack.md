@@ -4,39 +4,39 @@ comments: true
 
 # 5.1 &nbsp; スタック
 
-<u>スタック（stack）</u>は、後入れ先出しの論理に従う線形データ構造です。
+<u>スタック（stack）</u>は、先入れ後出しの規則に従う線形データ構造です。
 
-スタックは机の上に積まれた皿の山にたとえられます。1回に1枚の皿しか動かせないとすると、いちばん下の皿を取り出すには、上にある皿を順番にどかす必要があります。この皿をさまざまな型の要素（整数、文字、オブジェクトなど）に置き換えたものが、スタックというデータ構造です。
+机の上に重ねた皿に例えられます。一度に一枚しか動かせないなら、一番下の皿を取るには、上の皿から順に取り除く必要があります。皿を整数、文字、オブジェクトなどの要素に置き換えると、スタックというデータ構造になります。
 
-下図のように、積み重なった要素の上端を「スタックトップ」、下端を「スタックボトム」と呼びます。要素をスタックトップに追加する操作を「プッシュ」、スタックトップの要素を削除する操作を「ポップ」と呼びます。
+図 5-1 のように、積み重ねた要素の上端を「スタックの先頭」、下端を「底」と呼びます。先頭に要素を追加する操作を「プッシュ」、先頭要素を削除する操作を「ポップ」と呼びます。
 
-![スタックの後入れ先出しの規則](stack.assets/stack_operations.png){ class="animation-figure" }
+![スタックの先入れ後出しの規則](stack.assets/stack_operations.png){ class="animation-figure" }
 
-<p align="center"> 図 5-1 &nbsp; スタックの後入れ先出しの規則 </p>
+<p align="center"> 図 5-1 &nbsp; スタックの先入れ後出しの規則 </p>
 
-## 5.1.1 &nbsp; スタックの基本操作
+## 5.1.1 &nbsp; スタックの主な操作
 
-スタックの基本操作を以下の表に示します。具体的なメソッド名は使用するプログラミング言語によって異なります。ここでは、一般的な `push()`、`pop()`、`peek()` を例に挙げます。
+主な操作を表 5-1 に示します。具体的なメソッド名は言語によりますが、ここでは一般的な `push()`、`pop()`、`peek()` を例にします。
 
 <p align="center"> 表 5-1 &nbsp; スタックの操作効率 </p>
 
 <div class="center-table" markdown>
 
-| メソッド | 説明                   | 時間計算量 |
+| メソッド     | 説明                   | 時間計算量 |
 | -------- | ---------------------- | ---------- |
-| `push()` | 要素をプッシュする（スタックトップに追加） | $O(1)$     |
-| `pop()`  | スタックトップの要素をポップする           | $O(1)$     |
-| `peek()` | スタックトップの要素にアクセスする         | $O(1)$     |
+| `push()` | 要素をプッシュする（先頭に追加） | $O(1)$     |
+| `pop()`  | 先頭要素をポップする           | $O(1)$     |
+| `peek()` | 先頭要素にアクセスする           | $O(1)$     |
 
 </div>
 
-通常は、プログラミング言語に組み込まれているスタッククラスをそのまま利用できます。ただし、専用のスタッククラスが用意されていない言語もあります。その場合は、その言語の「配列」や「連結リスト」をスタックとして用い、プログラムのロジック上でスタックに無関係な操作を無視します。
+通常は、言語に組み込まれたスタッククラスをそのまま使えます。専用クラスがない言語では、配列や連結リストをスタックとして使い、スタックに関係しない操作をプログラムの論理上使わないようにします。
 
 === "Python"
 
     ```python title="stack.py"
     # スタックを初期化
-    # Python には組み込みのスタッククラスがないため、list をスタックとして使用できる
+    # Python には組み込みのスタッククラスがないため、list をスタックとして使える
     stack: list[int] = []
 
     # 要素をプッシュ
@@ -46,7 +46,7 @@ comments: true
     stack.append(5)
     stack.append(4)
 
-    # スタックトップの要素にアクセス
+    # スタックの先頭要素にアクセス
     peek: int = stack[-1]
 
     # 要素をポップ
@@ -72,7 +72,7 @@ comments: true
     stack.push(5);
     stack.push(4);
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセス */
     int top = stack.top();
 
     /* 要素をポップ */
@@ -98,7 +98,7 @@ comments: true
     stack.push(5);
     stack.push(4);
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセス */
     int peek = stack.peek();
 
     /* 要素をポップ */
@@ -124,7 +124,7 @@ comments: true
     stack.Push(5);
     stack.Push(4);
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセス */
     int peek = stack.Peek();
 
     /* 要素をポップ */
@@ -141,7 +141,7 @@ comments: true
 
     ```go title="stack_test.go"
     /* スタックを初期化 */
-    // Go では、Slice をスタックとして使うのが一般的
+    // Go では Slice をスタックとして使うことを推奨
     var stack []int
 
     /* 要素をプッシュ */
@@ -151,7 +151,7 @@ comments: true
     stack = append(stack, 5)
     stack = append(stack, 4)
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセス */
     peek := stack[len(stack)-1]
 
     /* 要素をポップ */
@@ -169,7 +169,7 @@ comments: true
 
     ```swift title="stack.swift"
     /* スタックを初期化 */
-    // Swift には組み込みのスタッククラスがないため、Array をスタックとして使用できる
+    // Swift には組み込みのスタッククラスがないため、Array をスタックとして使える
     var stack: [Int] = []
 
     /* 要素をプッシュ */
@@ -179,7 +179,7 @@ comments: true
     stack.append(5)
     stack.append(4)
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセス */
     let peek = stack.last!
 
     /* 要素をポップ */
@@ -196,7 +196,7 @@ comments: true
 
     ```javascript title="stack.js"
     /* スタックを初期化 */
-    // JavaScript には組み込みのスタッククラスがないため、Array をスタックとして使用できる
+    // JavaScript には組み込みのスタッククラスがないため、Array をスタックとして使える
     const stack = [];
 
     /* 要素をプッシュ */
@@ -206,7 +206,7 @@ comments: true
     stack.push(5);
     stack.push(4);
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセス */
     const peek = stack[stack.length-1];
 
     /* 要素をポップ */
@@ -223,7 +223,7 @@ comments: true
 
     ```typescript title="stack.ts"
     /* スタックを初期化 */
-    // TypeScript には組み込みのスタッククラスがないため、Array をスタックとして使用できる
+    // TypeScript には組み込みのスタッククラスがないため、Array をスタックとして使える
     const stack: number[] = [];
 
     /* 要素をプッシュ */
@@ -233,7 +233,7 @@ comments: true
     stack.push(5);
     stack.push(4);
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセス */
     const peek = stack[stack.length - 1];
 
     /* 要素をポップ */
@@ -250,7 +250,7 @@ comments: true
 
     ```dart title="stack.dart"
     /* スタックを初期化 */
-    // Dart には組み込みのスタッククラスがないため、List をスタックとして使用できる
+    // Dart には組み込みのスタッククラスがないため、List をスタックとして使える
     List<int> stack = [];
 
     /* 要素をプッシュ */
@@ -260,7 +260,7 @@ comments: true
     stack.add(5);
     stack.add(4);
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセス */
     int peek = stack.last;
 
     /* 要素をポップ */
@@ -277,7 +277,7 @@ comments: true
 
     ```rust title="stack.rs"
     /* スタックを初期化 */
-    // Vec をスタックとして使用する
+    // Vec をスタックとして使う
     let mut stack: Vec<i32> = Vec::new();
 
     /* 要素をプッシュ */
@@ -287,7 +287,7 @@ comments: true
     stack.push(5);
     stack.push(4);
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセス */
     let top = stack.last().unwrap();
 
     /* 要素をポップ */
@@ -319,7 +319,7 @@ comments: true
     stack.push(5)
     stack.push(4)
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセス */
     val peek = stack.peek()
 
     /* 要素をポップ */
@@ -336,7 +336,7 @@ comments: true
 
     ```ruby title="stack.rb"
     # スタックを初期化
-    # Ruby には組み込みのスタッククラスがないため、Array をスタックとして使用できる
+    # Ruby には組み込みのスタッククラスがないため、Array をスタックとして使える
     stack = []
 
     # 要素をプッシュ
@@ -346,7 +346,7 @@ comments: true
     stack << 5
     stack << 4
 
-    # スタックトップの要素にアクセス
+    # スタックの先頭要素にアクセス
     peek = stack.last
 
     # 要素をポップ
@@ -361,39 +361,39 @@ comments: true
 
 ??? pythontutor "実行の可視化"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A0%88%0A%20%20%20%20%23%20Python%20%E6%B2%A1%E6%9C%89%E5%86%85%E7%BD%AE%E7%9A%84%E6%A0%88%E7%B1%BB%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%8A%8A%20list%20%E5%BD%93%E4%BD%9C%E6%A0%88%E6%9D%A5%E4%BD%BF%E7%94%A8%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E6%A0%88%0A%20%20%20%20stack.append%281%29%0A%20%20%20%20stack.append%283%29%0A%20%20%20%20stack.append%282%29%0A%20%20%20%20stack.append%285%29%0A%20%20%20%20stack.append%284%29%0A%20%20%20%20print%28%22%E6%A0%88%20stack%20%3D%22,%20stack%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E6%A0%88%E9%A1%B6%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20stack%5B-1%5D%0A%20%20%20%20print%28%22%E6%A0%88%E9%A1%B6%E5%85%83%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E6%A0%88%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E5%87%BA%E6%A0%88%E5%85%83%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E5%87%BA%E6%A0%88%E5%90%8E%20stack%20%3D%22,%20stack%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E6%A0%88%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28stack%29%0A%20%20%20%20print%28%22%E6%A0%88%E7%9A%84%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28stack%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E6%A0%88%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A0%88%0A%20%20%20%20%23%20Python%20%E6%B2%A1%E6%9C%89%E5%86%85%E7%BD%AE%E7%9A%84%E6%A0%88%E7%B1%BB%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%8A%8A%20list%20%E5%BD%93%E4%BD%9C%E6%A0%88%E6%9D%A5%E4%BD%BF%E7%94%A8%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E6%A0%88%0A%20%20%20%20stack.append%281%29%0A%20%20%20%20stack.append%283%29%0A%20%20%20%20stack.append%282%29%0A%20%20%20%20stack.append%285%29%0A%20%20%20%20stack.append%284%29%0A%20%20%20%20print%28%22%E6%A0%88%20stack%20%3D%22,%20stack%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E6%A0%88%E9%A1%B6%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20stack%5B-1%5D%0A%20%20%20%20print%28%22%E6%A0%88%E9%A1%B6%E5%85%83%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E6%A0%88%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E5%87%BA%E6%A0%88%E5%85%83%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E5%87%BA%E6%A0%88%E5%90%8E%20stack%20%3D%22,%20stack%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E6%A0%88%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28stack%29%0A%20%20%20%20print%28%22%E6%A0%88%E7%9A%84%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28stack%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E6%A0%88%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20Python%20%E3%81%AB%E3%81%AF%E7%B5%84%E3%81%BF%E8%BE%BC%E3%81%BF%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%80%81list%20%E3%82%92%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%A8%E3%81%97%E3%81%A6%E4%BD%BF%E3%81%88%E3%82%8B%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%0A%20%20%20%20stack.append(1)%0A%20%20%20%20stack.append(3)%0A%20%20%20%20stack.append(2)%0A%20%20%20%20stack.append(5)%0A%20%20%20%20stack.append(4)%0A%20%20%20%20print(%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%20stack%20%3D%22%2C%20stack)%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20peek%20%3D%20stack%5B-1%5D%0A%20%20%20%20print(%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20peek%20%3D%22%2C%20peek)%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%9D%E3%83%83%E3%83%97%0A%20%20%20%20pop%20%3D%20stack.pop()%0A%20%20%20%20print(%22%E3%83%9D%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22%2C%20pop)%0A%20%20%20%20print(%22%E3%83%9D%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E5%BE%8C%E3%81%AE%20stack%20%3D%22%2C%20stack)%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%0A%20%20%20%20size%20%3D%20len(stack)%0A%20%20%20%20print(%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22%2C%20size)%0A%0A%20%20%20%20%23%20%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%0A%20%20%20%20is_empty%20%3D%20len(stack)%20%3D%3D%200%0A%20%20%20%20print(%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AF%E7%A9%BA%E3%81%8B%20%3D%22%2C%20is_empty)&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20Python%20%E3%81%AB%E3%81%AF%E7%B5%84%E3%81%BF%E8%BE%BC%E3%81%BF%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%80%81list%20%E3%82%92%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%A8%E3%81%97%E3%81%A6%E4%BD%BF%E3%81%88%E3%82%8B%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%0A%20%20%20%20stack.append(1)%0A%20%20%20%20stack.append(3)%0A%20%20%20%20stack.append(2)%0A%20%20%20%20stack.append(5)%0A%20%20%20%20stack.append(4)%0A%20%20%20%20print(%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%20stack%20%3D%22%2C%20stack)%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20peek%20%3D%20stack%5B-1%5D%0A%20%20%20%20print(%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20peek%20%3D%22%2C%20peek)%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%9D%E3%83%83%E3%83%97%0A%20%20%20%20pop%20%3D%20stack.pop()%0A%20%20%20%20print(%22%E3%83%9D%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22%2C%20pop)%0A%20%20%20%20print(%22%E3%83%9D%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E5%BE%8C%E3%81%AE%20stack%20%3D%22%2C%20stack)%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%0A%20%20%20%20size%20%3D%20len(stack)%0A%20%20%20%20print(%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22%2C%20size)%0A%0A%20%20%20%20%23%20%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%0A%20%20%20%20is_empty%20%3D%20len(stack)%20%3D%3D%200%0A%20%20%20%20print(%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AF%E7%A9%BA%E3%81%8B%20%3D%22%2C%20is_empty)&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
 ## 5.1.2 &nbsp; スタックの実装
 
-スタックの動作の仕組みをより深く理解するために、自分でスタッククラスを実装してみましょう。
+動作の仕組みを深く理解するため、スタッククラスを自分で実装してみましょう。
 
-スタックは後入れ先出しの原則に従うため、要素の追加や削除はスタックトップでしか行えません。一方、配列や連結リストでは任意の位置で要素を追加・削除できます。**つまり、スタックは制限付きの配列または連結リストとみなせます。** 言い換えると、配列や連結リストのうち無関係な操作を「隠蔽」することで、外から見た振る舞いをスタックの特性に合わせられます。
+スタックは先入れ後出しなので、要素の追加と削除は先頭でしかできません。一方、配列や連結リストは任意の位置で追加や削除ができるため、**スタックは制限を加えた配列や連結リストと見なせます**。つまり、不要な操作を使えなくすることで、外から見た動作をスタックの性質に合わせられます。
 
 ### 1. &nbsp; 連結リストによる実装
 
-連結リストでスタックを実装する場合、連結リストの先頭ノードをスタックトップ、末尾ノードをスタックボトムとみなせます。
+連結リストを使う場合、先頭ノードをスタックの先頭、末尾ノードを底と見なせます。
 
-下図のように、プッシュ操作では要素を連結リストの先頭に挿入するだけでよく、このノード挿入方法は「頭部挿入法」と呼ばれます。ポップ操作では、先頭ノードを連結リストから削除するだけです。
+図 5-2 のように、プッシュではリストの先頭へ要素を挿入するだけです。この方法を「先頭挿入」と呼びます。ポップでは、先頭ノードをリストから削除するだけです。
 
 === "<1>"
-    ![連結リストによるスタック実装のプッシュ・ポップ操作](stack.assets/linkedlist_stack_step1.png){ class="animation-figure" }
+    ![連結リストによるスタックのプッシュとポップ](stack.assets/linkedlist_stack_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.png){ class="animation-figure" }
+    ![連結リストによるスタック：要素の挿入](stack.assets/linkedlist_stack_step2_push.png){ class="animation-figure" }
 
 === "<3>"
-    ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.png){ class="animation-figure" }
+    ![連結リストによるスタック：要素の取り出し](stack.assets/linkedlist_stack_step3_pop.png){ class="animation-figure" }
 
-<p align="center"> 図 5-2 &nbsp; 連結リストによるスタック実装のプッシュ・ポップ操作 </p>
+<p align="center"> 図 5-2 &nbsp; 連結リストによるスタックのプッシュとポップ </p>
 
-以下は、連結リストによってスタックを実装したコード例です：
+連結リストによる実装例を示します。
 
 === "Python"
 
     ```python title="linkedlist_stack.py"
     class LinkedListStack:
-        """連結リストベースのスタック"""
+        """連結リストで実装したスタック"""
 
         def __init__(self):
             """コンストラクタ"""
@@ -401,11 +401,11 @@ comments: true
             self._size: int = 0
 
         def size(self) -> int:
-            """スタックの長さを取得"""
+            """スタックの長さを取得する"""
             return self._size
 
         def is_empty(self) -> bool:
-            """スタックが空かどうかを判定"""
+            """スタックが空かどうかを判定する"""
             return self._size == 0
 
         def push(self, val: int):
@@ -423,13 +423,13 @@ comments: true
             return num
 
         def peek(self) -> int:
-            """スタックトップの要素にアクセス"""
+            """スタックの先頭要素にアクセスする"""
             if self.is_empty():
                 raise IndexError("スタックが空です")
             return self._peek.val
 
         def to_list(self) -> list[int]:
-            """表示用にリストへ変換"""
+            """表示用のリストに変換する"""
             arr = []
             node = self._peek
             while node:
@@ -442,10 +442,10 @@ comments: true
 === "C++"
 
     ```cpp title="linkedlist_stack.cpp"
-    /* 連結リストベースのスタック */
+    /* 連結リストで実装したスタック */
     class LinkedListStack {
       private:
-        ListNode *stackTop; // 先頭ノードをスタックトップとする
+        ListNode *stackTop; // 先頭ノードをスタックの先頭とする
         int stkSize;        // スタックの長さ
 
       public:
@@ -459,12 +459,12 @@ comments: true
             freeMemoryLinkedList(stackTop);
         }
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         int size() {
             return stkSize;
         }
 
-        /* スタックが空かどうかを判定 */
+        /* スタックが空かどうかを判定する */
         bool isEmpty() {
             return size() == 0;
         }
@@ -488,7 +488,7 @@ comments: true
             return num;
         }
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         int top() {
             if (isEmpty())
                 throw out_of_range("スタックが空です");
@@ -511,21 +511,21 @@ comments: true
 === "Java"
 
     ```java title="linkedlist_stack.java"
-    /* 連結リストベースのスタック */
+    /* 連結リストで実装したスタック */
     class LinkedListStack {
-        private ListNode stackPeek; // 先頭ノードをスタックトップとする
+        private ListNode stackPeek; // 先頭ノードをスタックの先頭とする
         private int stkSize = 0; // スタックの長さ
 
         public LinkedListStack() {
             stackPeek = null;
         }
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         public int size() {
             return stkSize;
         }
 
-        /* スタックが空かどうかを判定 */
+        /* スタックが空かどうかを判定する */
         public boolean isEmpty() {
             return size() == 0;
         }
@@ -546,7 +546,7 @@ comments: true
             return num;
         }
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         public int peek() {
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
@@ -569,21 +569,21 @@ comments: true
 === "C#"
 
     ```csharp title="linkedlist_stack.cs"
-    /* 連結リストベースのスタック */
+    /* 連結リストで実装したスタック */
     class LinkedListStack {
-        ListNode? stackPeek;  // 先頭ノードをスタックトップとする
+        ListNode? stackPeek;  // 先頭ノードをスタックの先頭とする
         int stkSize = 0;   // スタックの長さ
 
         public LinkedListStack() {
             stackPeek = null;
         }
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         public int Size() {
             return stkSize;
         }
 
-        /* スタックが空かどうかを判定 */
+        /* スタックが空かどうかを判定する */
         public bool IsEmpty() {
             return Size() == 0;
         }
@@ -605,7 +605,7 @@ comments: true
             return num;
         }
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         public int Peek() {
             if (IsEmpty())
                 throw new Exception();
@@ -631,13 +631,13 @@ comments: true
 === "Go"
 
     ```go title="linkedlist_stack.go"
-    /* 連結リストベースのスタック */
+    /* 連結リストで実装したスタック */
     type linkedListStack struct {
         // 組み込みパッケージ list でスタックを実装する
         data *list.List
     }
 
-    /* スタックを初期化 */
+    /* スタックを初期化する */
     func newLinkedListStack() *linkedListStack {
         return &linkedListStack{
             data: list.New(),
@@ -659,7 +659,7 @@ comments: true
         return e.Value
     }
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセスする */
     func (s *linkedListStack) peek() any {
         if s.isEmpty() {
             return nil
@@ -668,17 +668,17 @@ comments: true
         return e.Value
     }
 
-    /* スタックの長さを取得 */
+    /* スタックの長さを取得する */
     func (s *linkedListStack) size() int {
         return s.data.Len()
     }
 
-    /* スタックが空かどうかを判定 */
+    /* スタックが空かどうかを判定する */
     func (s *linkedListStack) isEmpty() bool {
         return s.data.Len() == 0
     }
 
-    /* 表示用に List を取得 */
+    /* 表示用の List を取得する */
     func (s *linkedListStack) toList() *list.List {
         return s.data
     }
@@ -687,21 +687,21 @@ comments: true
 === "Swift"
 
     ```swift title="linkedlist_stack.swift"
-    /* 連結リストベースのスタック */
+    /* 連結リストで実装したスタック */
     class LinkedListStack {
-        private var _peek: ListNode? // 先頭ノードをスタックトップとする
+        private var _peek: ListNode? // 先頭ノードをスタックの先頭とする
         private var _size: Int // スタックの長さ
 
         init() {
             _size = 0
         }
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         func size() -> Int {
             _size
         }
 
-        /* スタックが空かどうかを判定 */
+        /* スタックが空かどうかを判定する */
         func isEmpty() -> Bool {
             size() == 0
         }
@@ -723,7 +723,7 @@ comments: true
             return num
         }
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         func peek() -> Int {
             if isEmpty() {
                 fatalError("スタックが空です")
@@ -747,21 +747,21 @@ comments: true
 === "JS"
 
     ```javascript title="linkedlist_stack.js"
-    /* 連結リストベースのスタック */
+    /* 連結リストで実装したスタック */
     class LinkedListStack {
-        #stackPeek; // 先頭ノードをスタックトップとする
+        #stackPeek; // 先頭ノードをスタックの先頭とする
         #stkSize = 0; // スタックの長さ
 
         constructor() {
             this.#stackPeek = null;
         }
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         get size() {
             return this.#stkSize;
         }
 
-        /* スタックが空かどうかを判定 */
+        /* スタックが空かどうかを判定する */
         isEmpty() {
             return this.size === 0;
         }
@@ -782,9 +782,9 @@ comments: true
             return num;
         }
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         peek() {
-            if (!this.#stackPeek) throw new Error('スタックが空');
+            if (!this.#stackPeek) throw new Error('スタックが空です');
             return this.#stackPeek.val;
         }
 
@@ -804,21 +804,21 @@ comments: true
 === "TS"
 
     ```typescript title="linkedlist_stack.ts"
-    /* 連結リストベースのスタック */
+    /* 連結リストで実装したスタック */
     class LinkedListStack {
-        private stackPeek: ListNode | null; // 先頭ノードをスタックトップとする
+        private stackPeek: ListNode | null; // 先頭ノードをスタックの先頭とする
         private stkSize: number = 0; // スタックの長さ
 
         constructor() {
             this.stackPeek = null;
         }
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         get size(): number {
             return this.stkSize;
         }
 
-        /* スタックが空かどうかを判定 */
+        /* スタックが空かどうかを判定する */
         isEmpty(): boolean {
             return this.size === 0;
         }
@@ -840,7 +840,7 @@ comments: true
             return num;
         }
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         peek(): number {
             if (!this.stackPeek) throw new Error('スタックが空です');
             return this.stackPeek.val;
@@ -862,21 +862,21 @@ comments: true
 === "Dart"
 
     ```dart title="linkedlist_stack.dart"
-    /* 連結リストクラスに基づくスタック */
+    /* 連結リストクラスで実装したスタック */
     class LinkedListStack {
-      ListNode? _stackPeek; // 先頭ノードをスタックトップとする
+      ListNode? _stackPeek; // 先頭ノードをスタックの先頭とする
       int _stkSize = 0; // スタックの長さ
 
       LinkedListStack() {
         _stackPeek = null;
       }
 
-      /* スタックの長さを取得 */
+      /* スタックの長さを取得する */
       int size() {
         return _stkSize;
       }
 
-      /* スタックが空かどうかを判定 */
+      /* スタックが空かどうかを判定する */
       bool isEmpty() {
         return _stkSize == 0;
       }
@@ -897,7 +897,7 @@ comments: true
         return _num;
       }
 
-      /* スタックトップの要素にアクセス */
+      /* スタックの先頭要素にアクセスする */
       int peek() {
         if (_stackPeek == null) {
           throw Exception("スタックが空です");
@@ -922,10 +922,10 @@ comments: true
 === "Rust"
 
     ```rust title="linkedlist_stack.rs"
-    /* 連結リストベースのスタック */
+    /* 連結リストで実装したスタック */
     #[allow(dead_code)]
     pub struct LinkedListStack<T> {
-        stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // 先頭ノードをスタックトップとする
+        stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // 先頭ノードをスタックの先頭とする
         stk_size: usize,                              // スタックの長さ
     }
 
@@ -937,12 +937,12 @@ comments: true
             }
         }
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         pub fn size(&self) -> usize {
             return self.stk_size;
         }
 
-        /* スタックが空かどうかを判定 */
+        /* スタックが空かどうかを判定する */
         pub fn is_empty(&self) -> bool {
             return self.size() == 0;
         }
@@ -965,7 +965,7 @@ comments: true
             })
         }
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
             self.stack_peek.as_ref()
         }
@@ -989,9 +989,9 @@ comments: true
 === "C"
 
     ```c title="linkedlist_stack.c"
-    /* 連結リストベースのスタック */
+    /* 連結リストで実装したスタック */
     typedef struct {
-        ListNode *top; // 先頭ノードをスタックトップとする
+        ListNode *top; // 先頭ノードをスタックの先頭とする
         int size;      // スタックの長さ
     } LinkedListStack;
 
@@ -1013,12 +1013,12 @@ comments: true
         free(s);
     }
 
-    /* スタックの長さを取得 */
+    /* スタックの長さを取得する */
     int size(LinkedListStack *s) {
         return s->size;
     }
 
-    /* スタックが空かどうかを判定 */
+    /* スタックが空かどうかを判定する */
     bool isEmpty(LinkedListStack *s) {
         return size(s) == 0;
     }
@@ -1026,16 +1026,16 @@ comments: true
     /* プッシュ */
     void push(LinkedListStack *s, int num) {
         ListNode *node = (ListNode *)malloc(sizeof(ListNode));
-        node->next = s->top; // 新しく追加したノードのポインタフィールドを更新
-        node->val = num;     // 新しく追加したノードのデータフィールドを更新
-        s->top = node;       // スタックトップを更新
-        s->size++;           // スタックサイズを更新
+        node->next = s->top; // 追加するノードのポインタ領域を更新する
+        node->val = num;     // 追加するノードのデータ領域を更新する
+        s->top = node;       // スタックの先頭を更新する
+        s->size++;           // スタックのサイズを更新する
     }
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセスする */
     int peek(LinkedListStack *s) {
         if (s->size == 0) {
-            printf("スタックは空です\n");
+            printf("スタックが空です\n");
             return INT_MAX;
         }
         return s->top->val;
@@ -1056,18 +1056,18 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="linkedlist_stack.kt"
-    /* 連結リストベースのスタック */
+    /* 連結リストで実装したスタック */
     class LinkedListStack(
-        private var stackPeek: ListNode? = null, // 先頭ノードをスタックトップとする
+        private var stackPeek: ListNode? = null, // 先頭ノードをスタックの先頭とする
         private var stkSize: Int = 0 // スタックの長さ
     ) {
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         fun size(): Int {
             return stkSize
         }
 
-        /* スタックが空かどうかを判定 */
+        /* スタックが空かどうかを判定する */
         fun isEmpty(): Boolean {
             return size() == 0
         }
@@ -1088,7 +1088,7 @@ comments: true
             return num
         }
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         fun peek(): Int? {
             if (isEmpty()) throw IndexOutOfBoundsException()
             return stackPeek?._val
@@ -1119,7 +1119,7 @@ comments: true
         @size = 0
       end
 
-      ### スタックが空か判定 ###
+      ### スタックが空かどうかを判定する ###
       def is_empty?
         @peek.nil?
       end
@@ -1140,9 +1140,9 @@ comments: true
         num
       end
 
-      ### スタックトップ要素を参照 ###
+      ### スタックの先頭要素にアクセスする ###
       def peek
-        raise IndexError, 'スタックは空です' if is_empty?
+        raise IndexError, 'スタックが空です' if is_empty?
 
         @peek.val
       end
@@ -1160,44 +1160,44 @@ comments: true
     end
     ```
 
-??? pythontutor "コードの可視化"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B6%9A%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%0Aclass%20LinkedListStack%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%20%20%20%20self._peek%3A%20ListNode%20%7C%20None%20%3D%20None%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%22%22%22%0A%20%20%20%20%20%20%20%20return%20not%20self._peek%0A%0A%20%20%20%20def%20push%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20%20%20%20%20node%20%3D%20ListNode%28val%29%0A%20%20%20%20%20%20%20%20node.next%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20node%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%9D%E3%83%83%E3%83%97%22%22%22%0A%20%20%20%20%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20self._peek.next%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%22%29%0A%20%20%20%20%20%20%20%20return%20self._peek.val%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A1%A8%E7%A4%BA%E7%94%A8%E3%81%AB%E3%83%AA%E3%82%B9%E3%83%88%E3%81%B8%E5%A4%89%E6%8F%9B%22%22%22%0A%20%20%20%20%20%20%20%20arr%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20node%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20while%20node%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20arr.append%28node.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20node%20%3D%20node.next%0A%20%20%20%20%20%20%20%20arr.reverse%28%29%0A%20%20%20%20%20%20%20%20return%20arr%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20stack%20%3D%20LinkedListStack%28%29%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%20stack%20%3D%22%2C%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E8%A6%81%E7%B4%A0%20peek%20%3D%22%2C%20peek%29%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%9D%E3%83%83%E3%83%97%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22%2C%20pop%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E5%BE%8C%20stack%20%3D%22%2C%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%20%3D%22%2C%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B6%9A%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%0Aclass%20LinkedListStack%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%20%20%20%20self._peek%3A%20ListNode%20%7C%20None%20%3D%20None%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%22%22%22%0A%20%20%20%20%20%20%20%20return%20not%20self._peek%0A%0A%20%20%20%20def%20push%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20%20%20%20%20node%20%3D%20ListNode%28val%29%0A%20%20%20%20%20%20%20%20node.next%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20node%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%9D%E3%83%83%E3%83%97%22%22%22%0A%20%20%20%20%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20self._peek.next%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%22%29%0A%20%20%20%20%20%20%20%20return%20self._peek.val%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A1%A8%E7%A4%BA%E7%94%A8%E3%81%AB%E3%83%AA%E3%82%B9%E3%83%88%E3%81%B8%E5%A4%89%E6%8F%9B%22%22%22%0A%20%20%20%20%20%20%20%20arr%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20node%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20while%20node%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20arr.append%28node.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20node%20%3D%20node.next%0A%20%20%20%20%20%20%20%20arr.reverse%28%29%0A%20%20%20%20%20%20%20%20return%20arr%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20stack%20%3D%20LinkedListStack%28%29%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%20stack%20%3D%22%2C%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E8%A6%81%E7%B4%A0%20peek%20%3D%22%2C%20peek%29%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%9D%E3%83%83%E3%83%97%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22%2C%20pop%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E5%BE%8C%20stack%20%3D%22%2C%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%20%3D%22%2C%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B6%9A%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%0Aclass%20LinkedListStack%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%A7%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%9F%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%20%20%20%20self._peek%3A%20ListNode%20%7C%20None%20%3D%20None%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%20not%20self._peek%0A%0A%20%20%20%20def%20push%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20%20%20%20%20node%20%3D%20ListNode%28val%29%0A%20%20%20%20%20%20%20%20node.next%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20node%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%9D%E3%83%83%E3%83%97%22%22%22%0A%20%20%20%20%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20self._peek.next%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%22%29%0A%20%20%20%20%20%20%20%20return%20self._peek.val%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A1%A8%E7%A4%BA%E7%94%A8%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20arr%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20node%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20while%20node%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20arr.append%28node.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20node%20%3D%20node.next%0A%20%20%20%20%20%20%20%20arr.reverse%28%29%0A%20%20%20%20%20%20%20%20return%20arr%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20stack%20%3D%20LinkedListStack%28%29%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%E3%81%99%E3%82%8B%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%9D%E3%83%83%E3%83%97%E3%81%99%E3%82%8B%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E5%BE%8C%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AF%E7%A9%BA%E3%81%8B%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B6%9A%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%0Aclass%20LinkedListStack%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%A7%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%9F%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%20%20%20%20self._peek%3A%20ListNode%20%7C%20None%20%3D%20None%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%20not%20self._peek%0A%0A%20%20%20%20def%20push%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20%20%20%20%20node%20%3D%20ListNode%28val%29%0A%20%20%20%20%20%20%20%20node.next%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20node%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%9D%E3%83%83%E3%83%97%22%22%22%0A%20%20%20%20%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20self._peek.next%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%22%29%0A%20%20%20%20%20%20%20%20return%20self._peek.val%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A1%A8%E7%A4%BA%E7%94%A8%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20arr%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20node%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20while%20node%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20arr.append%28node.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20node%20%3D%20node.next%0A%20%20%20%20%20%20%20%20arr.reverse%28%29%0A%20%20%20%20%20%20%20%20return%20arr%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20stack%20%3D%20LinkedListStack%28%29%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%E3%81%99%E3%82%8B%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%9D%E3%83%83%E3%83%97%E3%81%99%E3%82%8B%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E5%BE%8C%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AF%E7%A9%BA%E3%81%8B%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
 ### 2. &nbsp; 配列による実装
 
-配列でスタックを実装する場合、配列の末尾をスタックトップとして扱えます。下図のように、プッシュとポップはそれぞれ配列末尾への要素追加と削除に対応し、どちらの時間計算量も $O(1)$ です。
+配列を使う場合、配列の末尾をスタックの先頭にできます。図 5-3 のように、プッシュとポップは配列末尾への追加と削除に対応し、どちらも時間計算量は $O(1)$ です。
 
 === "<1>"
-    ![配列によるスタック実装のプッシュ・ポップ操作](stack.assets/array_stack_step1.png){ class="animation-figure" }
+    ![配列によるスタックのプッシュとポップ](stack.assets/array_stack_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![array_stack_push](stack.assets/array_stack_step2_push.png){ class="animation-figure" }
+    ![配列によるスタック：要素の挿入](stack.assets/array_stack_step2_push.png){ class="animation-figure" }
 
 === "<3>"
-    ![array_stack_pop](stack.assets/array_stack_step3_pop.png){ class="animation-figure" }
+    ![配列によるスタック：要素の取り出し](stack.assets/array_stack_step3_pop.png){ class="animation-figure" }
 
-<p align="center"> 図 5-3 &nbsp; 配列によるスタック実装のプッシュ・ポップ操作 </p>
+<p align="center"> 図 5-3 &nbsp; 配列によるスタックのプッシュとポップ </p>
 
-プッシュされる要素は際限なく増える可能性があるため、動的配列を使えば、配列の拡張を自前で処理する必要がありません。以下にコード例を示します：
+プッシュする要素が増え続ける可能性があるため、動的配列を使うと、容量拡張を自分で処理せずに済みます。コード例を示します。
 
 === "Python"
 
     ```python title="array_stack.py"
     class ArrayStack:
-        """配列ベースのスタック"""
+        """配列で実装したスタック"""
 
         def __init__(self):
             """コンストラクタ"""
             self._stack: list[int] = []
 
         def size(self) -> int:
-            """スタックの長さを取得"""
+            """スタックの長さを取得する"""
             return len(self._stack)
 
         def is_empty(self) -> bool:
-            """スタックが空かどうかを判定"""
+            """スタックが空かどうかを判定する"""
             return self.size() == 0
 
         def push(self, item: int):
@@ -1211,7 +1211,7 @@ comments: true
             return self._stack.pop()
 
         def peek(self) -> int:
-            """スタックトップの要素にアクセス"""
+            """スタックの先頭要素にアクセスする"""
             if self.is_empty():
                 raise IndexError("スタックが空です")
             return self._stack[-1]
@@ -1224,18 +1224,18 @@ comments: true
 === "C++"
 
     ```cpp title="array_stack.cpp"
-    /* 配列ベースのスタック */
+    /* 配列で実装したスタック */
     class ArrayStack {
       private:
         vector<int> stack;
 
       public:
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         int size() {
             return stack.size();
         }
 
-        /* スタックが空かどうかを判定 */
+        /* スタックが空かどうかを判定する */
         bool isEmpty() {
             return stack.size() == 0;
         }
@@ -1252,7 +1252,7 @@ comments: true
             return num;
         }
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         int top() {
             if (isEmpty())
                 throw out_of_range("スタックが空です");
@@ -1269,7 +1269,7 @@ comments: true
 === "Java"
 
     ```java title="array_stack.java"
-    /* 配列ベースのスタック */
+    /* 配列で実装したスタック */
     class ArrayStack {
         private ArrayList<Integer> stack;
 
@@ -1278,12 +1278,12 @@ comments: true
             stack = new ArrayList<>();
         }
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         public int size() {
             return stack.size();
         }
 
-        /* スタックが空かどうかを判定 */
+        /* スタックが空かどうかを判定する */
         public boolean isEmpty() {
             return size() == 0;
         }
@@ -1300,7 +1300,7 @@ comments: true
             return stack.remove(size() - 1);
         }
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         public int peek() {
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
@@ -1317,7 +1317,7 @@ comments: true
 === "C#"
 
     ```csharp title="array_stack.cs"
-    /* 配列ベースのスタック */
+    /* 配列で実装したスタック */
     class ArrayStack {
         List<int> stack;
         public ArrayStack() {
@@ -1325,12 +1325,12 @@ comments: true
             stack = [];
         }
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         public int Size() {
             return stack.Count;
         }
 
-        /* スタックが空かどうかを判定 */
+        /* スタックが空かどうかを判定する */
         public bool IsEmpty() {
             return Size() == 0;
         }
@@ -1349,7 +1349,7 @@ comments: true
             return val;
         }
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         public int Peek() {
             if (IsEmpty())
                 throw new Exception();
@@ -1366,15 +1366,15 @@ comments: true
 === "Go"
 
     ```go title="array_stack.go"
-    /* 配列ベースのスタック */
+    /* 配列で実装したスタック */
     type arrayStack struct {
         data []int // データ
     }
 
-    /* スタックを初期化 */
+    /* スタックを初期化する */
     func newArrayStack() *arrayStack {
         return &arrayStack{
-            // スタックの長さを 0、容量を 16 に設定
+            // スタックの長さを 0、容量を 16 に設定する
             data: make([]int, 0, 16),
         }
     }
@@ -1391,7 +1391,7 @@ comments: true
 
     /* プッシュ */
     func (s *arrayStack) push(v int) {
-        // スライスは自動で拡張される
+        // スライスの容量は自動で拡張される
         s.data = append(s.data, v)
     }
 
@@ -1402,7 +1402,7 @@ comments: true
         return val
     }
 
-    /* スタックトップ要素を取得する */
+    /* スタックの先頭要素を取得する */
     func (s *arrayStack) peek() any {
         if s.isEmpty() {
             return nil
@@ -1411,7 +1411,7 @@ comments: true
         return val
     }
 
-    /* 表示用に Slice を取得 */
+    /* 表示用の Slice を取得する */
     func (s *arrayStack) toSlice() []int {
         return s.data
     }
@@ -1420,7 +1420,7 @@ comments: true
 === "Swift"
 
     ```swift title="array_stack.swift"
-    /* 配列ベースのスタック */
+    /* 配列で実装したスタック */
     class ArrayStack {
         private var stack: [Int]
 
@@ -1429,12 +1429,12 @@ comments: true
             stack = []
         }
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         func size() -> Int {
             stack.count
         }
 
-        /* スタックが空かどうかを判定 */
+        /* スタックが空かどうかを判定する */
         func isEmpty() -> Bool {
             stack.isEmpty
         }
@@ -1453,7 +1453,7 @@ comments: true
             return stack.removeLast()
         }
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         func peek() -> Int {
             if isEmpty() {
                 fatalError("スタックが空です")
@@ -1471,19 +1471,19 @@ comments: true
 === "JS"
 
     ```javascript title="array_stack.js"
-    /* 配列ベースのスタック */
+    /* 配列で実装したスタック */
     class ArrayStack {
         #stack;
         constructor() {
             this.#stack = [];
         }
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         get size() {
             return this.#stack.length;
         }
 
-        /* スタックが空かどうかを判定 */
+        /* スタックが空かどうかを判定する */
         isEmpty() {
             return this.#stack.length === 0;
         }
@@ -1495,13 +1495,13 @@ comments: true
 
         /* ポップ */
         pop() {
-            if (this.isEmpty()) throw new Error('スタックが空');
+            if (this.isEmpty()) throw new Error('スタックが空です');
             return this.#stack.pop();
         }
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         top() {
-            if (this.isEmpty()) throw new Error('スタックが空');
+            if (this.isEmpty()) throw new Error('スタックが空です');
             return this.#stack[this.#stack.length - 1];
         }
 
@@ -1515,19 +1515,19 @@ comments: true
 === "TS"
 
     ```typescript title="array_stack.ts"
-    /* 配列ベースのスタック */
+    /* 配列で実装したスタック */
     class ArrayStack {
         private stack: number[];
         constructor() {
             this.stack = [];
         }
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         get size(): number {
             return this.stack.length;
         }
 
-        /* スタックが空かどうかを判定 */
+        /* スタックが空かどうかを判定する */
         isEmpty(): boolean {
             return this.stack.length === 0;
         }
@@ -1543,7 +1543,7 @@ comments: true
             return this.stack.pop();
         }
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         top(): number | undefined {
             if (this.isEmpty()) throw new Error('スタックが空です');
             return this.stack[this.stack.length - 1];
@@ -1559,19 +1559,19 @@ comments: true
 === "Dart"
 
     ```dart title="array_stack.dart"
-    /* 配列ベースのスタック */
+    /* 配列で実装したスタック */
     class ArrayStack {
       late List<int> _stack;
       ArrayStack() {
         _stack = [];
       }
 
-      /* スタックの長さを取得 */
+      /* スタックの長さを取得する */
       int size() {
         return _stack.length;
       }
 
-      /* スタックが空かどうかを判定 */
+      /* スタックが空かどうかを判定する */
       bool isEmpty() {
         return _stack.isEmpty;
       }
@@ -1589,7 +1589,7 @@ comments: true
         return _stack.removeLast();
       }
 
-      /* スタックトップの要素にアクセス */
+      /* スタックの先頭要素にアクセスする */
       int peek() {
         if (isEmpty()) {
           throw Exception("スタックが空です");
@@ -1605,25 +1605,25 @@ comments: true
 === "Rust"
 
     ```rust title="array_stack.rs"
-    /* 配列ベースのスタック */
+    /* 配列で実装したスタック */
     struct ArrayStack<T> {
         stack: Vec<T>,
     }
 
     impl<T> ArrayStack<T> {
-        /* スタックを初期化 */
+        /* スタックを初期化する */
         fn new() -> ArrayStack<T> {
             ArrayStack::<T> {
                 stack: Vec::<T>::new(),
             }
         }
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         fn size(&self) -> usize {
             self.stack.len()
         }
 
-        /* スタックが空かどうかを判定 */
+        /* スタックが空かどうかを判定する */
         fn is_empty(&self) -> bool {
             self.size() == 0
         }
@@ -1638,7 +1638,7 @@ comments: true
             self.stack.pop()
         }
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         fn peek(&self) -> Option<&T> {
             if self.is_empty() {
                 panic!("スタックが空です")
@@ -1656,7 +1656,7 @@ comments: true
 === "C"
 
     ```c title="array_stack.c"
-    /* 配列ベースのスタック */
+    /* 配列で実装したスタック */
     typedef struct {
         int *data;
         int size;
@@ -1665,7 +1665,7 @@ comments: true
     /* コンストラクタ */
     ArrayStack *newArrayStack() {
         ArrayStack *stack = malloc(sizeof(ArrayStack));
-        // 大きめの容量で初期化し、拡張を避ける
+        // 容量の拡張を避けるため、初期容量を大きくする
         stack->data = malloc(sizeof(int) * MAX_SIZE);
         stack->size = 0;
         return stack;
@@ -1677,12 +1677,12 @@ comments: true
         free(stack);
     }
 
-    /* スタックの長さを取得 */
+    /* スタックの長さを取得する */
     int size(ArrayStack *stack) {
         return stack->size;
     }
 
-    /* スタックが空かどうかを判定 */
+    /* スタックが空かどうかを判定する */
     bool isEmpty(ArrayStack *stack) {
         return stack->size == 0;
     }
@@ -1690,17 +1690,17 @@ comments: true
     /* プッシュ */
     void push(ArrayStack *stack, int num) {
         if (stack->size == MAX_SIZE) {
-            printf("スタックは満杯です\n");
+            printf("スタックが満杯です\n");
             return;
         }
         stack->data[stack->size] = num;
         stack->size++;
     }
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセスする */
     int peek(ArrayStack *stack) {
         if (stack->size == 0) {
-            printf("スタックは空です\n");
+            printf("スタックが空です\n");
             return INT_MAX;
         }
         return stack->data[stack->size - 1];
@@ -1717,17 +1717,17 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="array_stack.kt"
-    /* 配列ベースのスタック */
+    /* 配列で実装したスタック */
     class ArrayStack {
         // リスト（動的配列）を初期化する
         private val stack = mutableListOf<Int>()
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         fun size(): Int {
             return stack.size
         }
 
-        /* スタックが空かどうかを判定 */
+        /* スタックが空かどうかを判定する */
         fun isEmpty(): Boolean {
             return size() == 0
         }
@@ -1743,7 +1743,7 @@ comments: true
             return stack.removeAt(size() - 1)
         }
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         fun peek(): Int {
             if (isEmpty()) throw IndexOutOfBoundsException()
             return stack[size() - 1]
@@ -1766,12 +1766,12 @@ comments: true
         @stack = []
       end
 
-      ### スタックの長さを取得 ###
+      ### スタックの長さを取得する ###
       def size
         @stack.length
       end
 
-      ### スタックが空か判定 ###
+      ### スタックが空かどうかを判定する ###
       def is_empty?
         @stack.empty?
       end
@@ -1783,14 +1783,14 @@ comments: true
 
       ### ポップ ###
       def pop
-        raise IndexError, 'スタックは空です' if is_empty?
+        raise IndexError, 'スタックが空です' if is_empty?
 
         @stack.pop
       end
 
-      ### スタックトップ要素を参照 ###
+      ### スタックの先頭要素にアクセスする ###
       def peek
-        raise IndexError, 'スタックは空です' if is_empty?
+        raise IndexError, 'スタックが空です' if is_empty?
 
         @stack.last
       end
@@ -1802,37 +1802,37 @@ comments: true
     end
     ```
 
-??? pythontutor "コードの可視化"
+??? pythontutor "実行の可視化"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20ArrayStack%3A%0A%20%20%20%20%22%22%22%E9%85%8D%E5%88%97%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%20%20%20%20self._stack%3A%20list%5Bint%5D%20%3D%20%5B%5D%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self._stack%29%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%20%3D%3D%20%5B%5D%0A%0A%20%20%20%20def%20push%28self%2C%20item%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20%20%20%20%20self._stack.append%28item%29%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%9D%E3%83%83%E3%83%97%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack.pop%28%29%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack%5B-1%5D%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A1%A8%E7%A4%BA%E7%94%A8%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E8%BF%94%E3%81%99%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20stack%20%3D%20ArrayStack%28%29%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%20stack%20%3D%22%2C%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E8%A6%81%E7%B4%A0%20peek%20%3D%22%2C%20peek%29%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%9D%E3%83%83%E3%83%97%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22%2C%20pop%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E5%BE%8C%20stack%20%3D%22%2C%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%20%3D%22%2C%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ArrayStack%3A%0A%20%20%20%20%22%22%22%E9%85%8D%E5%88%97%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%20%20%20%20self._stack%3A%20list%5Bint%5D%20%3D%20%5B%5D%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self._stack%29%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%20%3D%3D%20%5B%5D%0A%0A%20%20%20%20def%20push%28self%2C%20item%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20%20%20%20%20self._stack.append%28item%29%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%9D%E3%83%83%E3%83%97%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack.pop%28%29%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack%5B-1%5D%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A1%A8%E7%A4%BA%E7%94%A8%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E8%BF%94%E3%81%99%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20stack%20%3D%20ArrayStack%28%29%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%20stack%20%3D%22%2C%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E8%A6%81%E7%B4%A0%20peek%20%3D%22%2C%20peek%29%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%9D%E3%83%83%E3%83%97%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22%2C%20pop%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E5%BE%8C%20stack%20%3D%22%2C%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%20%3D%22%2C%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20ArrayStack%3A%0A%20%20%20%20%22%22%22%E9%85%8D%E5%88%97%E3%81%A7%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%9F%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%20%20%20%20self._stack%3A%20list%5Bint%5D%20%3D%20%5B%5D%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self._stack%29%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%20%3D%3D%20%5B%5D%0A%0A%20%20%20%20def%20push%28self,%20item%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20%20%20%20%20self._stack.append%28item%29%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%9D%E3%83%83%E3%83%97%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack.pop%28%29%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack%5B-1%5D%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A1%A8%E7%A4%BA%E7%94%A8%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E8%BF%94%E3%81%99%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20stack%20%3D%20ArrayStack%28%29%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%E3%81%99%E3%82%8B%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%9D%E3%83%83%E3%83%97%E3%81%99%E3%82%8B%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E5%BE%8C%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AF%E7%A9%BA%E3%81%8B%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ArrayStack%3A%0A%20%20%20%20%22%22%22%E9%85%8D%E5%88%97%E3%81%A7%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%9F%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%20%20%20%20self._stack%3A%20list%5Bint%5D%20%3D%20%5B%5D%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self._stack%29%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%20%3D%3D%20%5B%5D%0A%0A%20%20%20%20def%20push%28self,%20item%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20%20%20%20%20self._stack.append%28item%29%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%9D%E3%83%83%E3%83%97%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack.pop%28%29%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%A7%E3%81%99%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack%5B-1%5D%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A1%A8%E7%A4%BA%E7%94%A8%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E8%BF%94%E3%81%99%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20stack%20%3D%20ArrayStack%28%29%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%E3%81%99%E3%82%8B%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%9D%E3%83%83%E3%83%97%E3%81%99%E3%82%8B%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E5%BE%8C%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AF%E7%A9%BA%E3%81%8B%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-## 5.1.3 &nbsp; 2つの実装の比較
+## 5.1.3 &nbsp; 二つの実装の比較
 
 **対応する操作**
 
-どちらの実装も、スタックの定義に含まれる各種操作をサポートします。配列ベースの実装はランダムアクセスも可能ですが、これはスタックの定義範囲を超えているため、通常は利用しません。
+どちらもスタックで定義された操作をすべて実現できます。配列の実装はランダムアクセスにも対応しますが、スタックの定義を超えるため、通常は使いません。
 
 **時間効率**
 
-配列ベースの実装では、プッシュとポップの両方があらかじめ確保された連続メモリ上で行われるため、キャッシュ局所性が高く、効率に優れます。ただし、プッシュ時に配列容量を超えると拡張処理が発生し、その1回のプッシュの時間計算量は $O(n)$ になります。
+配列の実装では、プッシュとポップは確保済みの連続したメモリ上で行われます。キャッシュの局所性がよいため、効率が高くなります。ただし、プッシュで容量を超えると拡張が発生し、その一回の時間計算量は $O(n)$ になります。
 
-連結リストベースの実装では、サイズ拡張が非常に柔軟であり、前述のような配列拡張による効率低下はありません。ただし、プッシュ時にはノードオブジェクトの初期化とポインタの更新が必要になるため、効率は相対的に低くなります。もっとも、プッシュする要素自体がノードオブジェクトであれば、初期化の手間を省けるため、効率を高められます。
+連結リストは柔軟に拡張できるため、配列の容量拡張による効率低下はありません。ただし、プッシュ時にノードの初期化とポインタの変更が必要なので、効率は比較的低くなります。要素自体がノードオブジェクトなら、初期化を省いて効率を高められます。
 
-以上を踏まえると、プッシュおよびポップの対象が `int` や `double` のような基本データ型である場合、次の結論が得られます。
+以上より、`int` や `double` などの基本データ型をプッシュ・ポップする場合、次のように結論付けられます。
 
-- 配列ベースのスタックは拡張時に効率が低下しますが、拡張は低頻度の操作であるため、平均効率はより高くなります。
-- 連結リストベースのスタックは、より安定した効率を提供できます。
+- 配列によるスタックは、拡張時に効率が下がるものの、その頻度は低いため、平均的な効率は高くなります。
+- 連結リストによるスタックは、より安定した効率を提供できます。
 
 **空間効率**
 
-リストを初期化するとき、システムは「初期容量」を割り当てますが、この容量は実際の必要量を上回ることがあります。また、拡張は通常、一定の倍率（たとえば2倍）で行われるため、拡張後の容量も実際の必要量を超える可能性があります。したがって、**配列ベースのスタックは一定のメモリ浪費を招く可能性があります。**
+リストを初期化すると、実際の必要量を超える場合がある初期容量が割り当てられます。また、拡張は通常、2 倍など一定の倍率で行うため、拡張後も必要量を超える可能性があります。したがって、**配列によるスタックでは、ある程度の領域が無駄になる場合があります**。
 
-一方で、連結リストのノードはポインタを追加で保持する必要があるため、**連結リストノードは相対的に大きな領域を占有します。**
+一方、連結リストのノードはポインタも格納するため、**一つのノードが使う領域は比較的大きくなります**。
 
-以上より、どちらの実装がより省メモリかを単純に断定することはできず、具体的な状況に応じて分析する必要があります。
+どちらがメモリを節約できるかは一概に決められず、具体的な状況を分析する必要があります。
 
-## 5.1.4 &nbsp; スタックの典型的な応用
+## 5.1.4 &nbsp; スタックの代表的な用途
 
-- **ブラウザにおける戻ると進む、ソフトウェアにおける取り消しとやり直し**。新しいWebページを開くたびに、ブラウザは直前のページをスタックにプッシュするため、戻る操作によって前のページに戻れます。戻る操作は実際にはポップに相当します。戻ると進むを同時にサポートするには、2つのスタックを組み合わせて実現する必要があります。
-- **プログラムのメモリ管理**。関数を呼び出すたびに、システムはスタックトップにスタックフレームを追加し、関数のコンテキスト情報を記録します。再帰関数では、下向きに再帰していく段階でプッシュが繰り返され、上向きにバックトラックする段階でポップが繰り返されます。
+- **ブラウザの戻る・進む、ソフトウェアの元に戻す・やり直す**。新しいページを開くたびに、ブラウザは前のページをプッシュします。戻る操作で前のページに戻るときは、実際にはポップを行っています。戻ると進むの両方に対応するには、二つのスタックを組み合わせます。
+- **プログラムのメモリ管理**。関数を呼ぶたびに、システムはスタックの先頭にスタックフレームを追加し、関数の実行状況を記録します。再帰関数では、呼び出しを深める段階でプッシュを繰り返し、戻る段階でポップを繰り返します。

@@ -7,17 +7,17 @@ icon: material/map-marker-path
 
 ![バックトラッキング](../assets/covers/chapter_backtracking.jpg){ class="cover-image" }
 
-!!! abstract
+!!! abstract "概要"
 
-    私たちは迷宮の探検者のように、前へ進む道で困難に出会うことがあります。
+    私たちは迷路の探索者のように、進む先で困難に出会うことがあります。
     
-    バックトラッキングの力によってやり直しができ、試行を重ね、最後には光へ通じる出口を見つけられます。
+    バックトラッキングの力があれば、引き返して何度も試し、やがて光の差す出口を見つけられます。
 
-## 章の内容
+## この章の内容
 
 - [13.1 &nbsp; バックトラッキングアルゴリズム](backtracking_algorithm.md)
-- [13.2 &nbsp; 全順列問題](permutations_problem.md)
-- [13.3 &nbsp; 部分和問題](subset_sum_problem.md)
+- [13.2 &nbsp; 順列列挙問題](permutations_problem.md)
+- [13.3 &nbsp; 部分集合和問題](subset_sum_problem.md)
 - [13.4 &nbsp; n クイーン問題](n_queens_problem.md)
 - [13.5 &nbsp; まとめ](summary.md)
-- [13.6 &nbsp; 演習](exercises.md)
+- [13.6 &nbsp; 練習問題](exercises.md)

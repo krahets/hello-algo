@@ -3,18 +3,18 @@ comments: true
 icon: material/calculator-variant-outline
 ---
 
-# 第 1 章 &nbsp; アルゴリズム入門
+# 第 1 章 &nbsp; アルゴリズムとの出会い
 
-![アルゴリズム入門](../assets/covers/chapter_introduction.jpg){ class="cover-image" }
+![アルゴリズムとの出会い](../assets/covers/chapter_introduction.jpg){ class="cover-image" }
 
-!!! abstract
+!!! abstract "概要"
 
-    一人の少女が軽やかに舞い、データと織り重なり合いながら、スカートの裾にはアルゴリズムの旋律がたなびいています。
+    一人の少女がデータと絡み合うように軽やかに踊り、その裾にはアルゴリズムの旋律が揺れています。
     
-    彼女はあなたをこの舞いへと誘います。その足取りに続いて、論理と美しさに満ちたアルゴリズムの世界へ踏み入りましょう。
+    少女はあなたを踊りに誘います。その足取りについていき、論理と美しさに満ちたアルゴリズムの世界へ踏み出しましょう。
 
-## 章の内容
+## この章の内容
 
-- [1.1 &nbsp; アルゴリズムは至るところにある](algorithms_are_everywhere.md)
+- [1.1 &nbsp; アルゴリズムはどこにでもある](algorithms_are_everywhere.md)
 - [1.2 &nbsp; アルゴリズムとは](what_is_dsa.md)
 - [1.3 &nbsp; まとめ](summary.md)
