@@ -125,7 +125,7 @@ markdown_extensions:
   pymdownx.arithmatex:
     generic: true
   pymdownx.betterem:
-    smart_enable: all
+    smart_enable: underscore
   pymdownx.caret: {}
   pymdownx.details: {}
   # pymdownx.emoji:
