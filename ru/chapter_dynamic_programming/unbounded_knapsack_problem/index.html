@@ -113,8 +113,6 @@
 
 
 
-
-
 <div class="banner-svg">
     <svg xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -7166,10 +7164,6 @@ aria-label="Нижний колонтитул"
 <!-- Comment system -->
 
 
-
-
-
-
   <!-- Check-in button above comments -->
 
 
@@ -7206,7 +7200,20 @@ aria-label="Нижний колонтитул"
     /* Set palette on initial load */
     giscus.setAttribute("data-theme", getGiscusTheme())
 
-
+    /* The Giscus client creates the iframe asynchronously with an English title. */
+    ;(function() {
+      function labelCommentsFrame() {
+        var frame = document.querySelector("iframe.giscus-frame")
+        if (!frame) return false
+        frame.setAttribute("title", "Комментарии")
+        return true
+      }
+      if (labelCommentsFrame()) return
+      var observer = new MutationObserver(function() {
+        if (labelCommentsFrame()) observer.disconnect()
+      })
+      observer.observe(giscus.parentElement, { childList: true, subtree: true })
+    })()
 
     /* Register event handlers after documented loaded */
     document.addEventListener("DOMContentLoaded", function() {
@@ -7305,7 +7312,7 @@ aria-label="Нижний колонтитул"
       <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Скопировано в буфер","clipboard.copy":"Копировать в буфер","search.result.more.one":"Ещё 1 на этой странице","search.result.more.other":"Ещё # на этой странице","search.result.none":"Совпадений не найдено","search.result.one":"Найдено 1 совпадение","search.result.other":"Найдено совпадений: #","search.result.placeholder":"Начните печатать для поиска","search.result.term.missing":"Отсутствует","select.version":"Выберите версию"},"version":null}</script>
 
 
-      <script src="../../assets/javascripts/bundle.e559d5b757c25f1f23bd887b700c56e3018b129d471c011292faeb47b8b74ce4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6da8458d1f8fcf6cb55908975a78750613caee6ae192a4395e1803d5877c313f.min.js"></script>
 
         <script src="../../javascripts/mathjax.js"></script>
 

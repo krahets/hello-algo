@@ -113,8 +113,6 @@
 
 
 
-
-
 <div class="banner-svg">
     <svg xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -5016,10 +5014,6 @@ aria-label="Footer"
 <!-- Comment system -->
 
 
-
-
-
-
   <!-- Check-in button above comments -->
 
 
@@ -5056,7 +5050,20 @@ aria-label="Footer"
     /* Set palette on initial load */
     giscus.setAttribute("data-theme", getGiscusTheme())
 
-
+    /* The Giscus client creates the iframe asynchronously with an English title. */
+    ;(function() {
+      function labelCommentsFrame() {
+        var frame = document.querySelector("iframe.giscus-frame")
+        if (!frame) return false
+        frame.setAttribute("title", "Comments")
+        return true
+      }
+      if (labelCommentsFrame()) return
+      var observer = new MutationObserver(function() {
+        if (labelCommentsFrame()) observer.disconnect()
+      })
+      observer.observe(giscus.parentElement, { childList: true, subtree: true })
+    })()
 
     /* Register event handlers after documented loaded */
     document.addEventListener("DOMContentLoaded", function() {
@@ -5155,7 +5162,7 @@ aria-label="Footer"
       <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
 
 
-      <script src="../../assets/javascripts/bundle.e559d5b757c25f1f23bd887b700c56e3018b129d471c011292faeb47b8b74ce4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.4c77cc426d0f3fa104f93441ddd04163f2700feebac94e9373d3cea2d07bc643.min.js"></script>
 
         <script src="../../javascripts/mathjax.js"></script>
 

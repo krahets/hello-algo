@@ -108,6 +108,15 @@
     </div>
     <div data-md-component="announce">
 
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+
+
+
+          </div>
+
+        </aside>
+
     </div>
 
 
@@ -6689,10 +6698,6 @@ aria-label="하단/푸터"
 <!-- Comment system -->
 
 
-
-
-
-
   <!-- Check-in button above comments -->
 
 
@@ -6729,7 +6734,6 @@ aria-label="하단/푸터"
     /* Set palette on initial load */
     giscus.setAttribute("data-theme", getGiscusTheme())
 
-
     /* The Giscus client creates the iframe asynchronously with an English title. */
     ;(function() {
       function labelCommentsFrame() {
@@ -6744,7 +6748,6 @@ aria-label="하단/푸터"
       })
       observer.observe(giscus.parentElement, { childList: true, subtree: true })
     })()
-
 
     /* Register event handlers after documented loaded */
     document.addEventListener("DOMContentLoaded", function() {

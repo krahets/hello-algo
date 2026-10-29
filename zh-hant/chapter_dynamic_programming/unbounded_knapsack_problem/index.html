@@ -113,8 +113,6 @@
 
 
 
-
-
 <div class="banner-svg">
     <svg xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -7166,10 +7164,6 @@ aria-label="頁脚"
 <!-- Comment system -->
 
 
-
-
-
-
   <!-- Check-in button above comments -->
 
 
@@ -7206,7 +7200,20 @@ aria-label="頁脚"
     /* Set palette on initial load */
     giscus.setAttribute("data-theme", getGiscusTheme())
 
-
+    /* The Giscus client creates the iframe asynchronously with an English title. */
+    ;(function() {
+      function labelCommentsFrame() {
+        var frame = document.querySelector("iframe.giscus-frame")
+        if (!frame) return false
+        frame.setAttribute("title", "評論")
+        return true
+      }
+      if (labelCommentsFrame()) return
+      var observer = new MutationObserver(function() {
+        if (labelCommentsFrame()) observer.disconnect()
+      })
+      observer.observe(giscus.parentElement, { childList: true, subtree: true })
+    })()
 
     /* Register event handlers after documented loaded */
     document.addEventListener("DOMContentLoaded", function() {
@@ -7305,7 +7312,7 @@ aria-label="頁脚"
       <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"已拷貝","clipboard.copy":"拷貝","search.result.more.one":"此頁尚有 1 個符合的項目","search.result.more.other":"此頁尚有 # 個符合的項目","search.result.none":"沒有找到符合條件的結果","search.result.one":"找到 1 个符合條件的結果","search.result.other":"找到 # 個符合條件的結果","search.result.placeholder":"鍵入以開始檢索","search.result.term.missing":"缺失","select.version":"選擇版本"},"version":null}</script>
 
 
-      <script src="../../assets/javascripts/bundle.e559d5b757c25f1f23bd887b700c56e3018b129d471c011292faeb47b8b74ce4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.222719ff8b0164e5555206e60d7b8bb1071314706b42e7d8e1bf60667d0530f2.min.js"></script>
 
         <script src="../../javascripts/mathjax.js"></script>
 

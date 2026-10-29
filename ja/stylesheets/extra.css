@@ -490,6 +490,11 @@ html:has(body[data-md-color-scheme="default"]) {
   height: min(84vh, 69vw);
 }
 
+.hero-div--ja {
+  width: min(112vh, 76vw);
+  height: min(84vh, 57vw);
+}
+
 .hero-bg {
   width: 100%;
   height: 100%;
@@ -926,4 +931,4 @@ a:hover .device-on-hover {
     max-width: 100%;
   }
 }
-/*! update cache: 20261029071228 */
+/*! update cache: 20261029171338 */

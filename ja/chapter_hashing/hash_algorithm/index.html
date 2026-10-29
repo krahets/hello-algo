@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <meta name="description" content="アニメーション図解とワンクリック実行コードで学べるデータ構造とアルゴリズムの入門書">
+        <meta name="description" content="アニメーションによる図解とワンクリックで実行できるコードで学ぶ、データ構造とアルゴリズムの入門書">
 
 
         <meta name="author" content="krahets">
@@ -41,7 +41,7 @@
 
 
 
-        <title>6.3 ハッシュアルゴリズム - Hello アルゴリズム</title>
+        <title>6.3 ハッシュアルゴリズム - Hello Algo</title>
 
 
 
@@ -113,17 +113,6 @@
 
 
 
-
-
-<div class="banner-svg">
-    <svg xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-        <path
-            d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z" />
-    </svg>
-    <span>日本語版のレビュアーを募集しています。詳しくは <a href="/ja/chapter_appendix/contribution/">こちら</a> をご覧ください。</span>
-</div>
-
           </div>
 
         </aside>
@@ -137,9 +126,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="ヘッダー">
-    <a href="../.." title="Hello アルゴリズム" class="md-header__button md-logo" aria-label="Hello アルゴリズム" data-md-component="logo">
+    <a href="../.." title="Hello Algo" class="md-header__button md-logo" aria-label="Hello Algo" data-md-component="logo">
 
-  <img src="../../assets/images/logo.svg" alt="Hello アルゴリズム">
+  <img src="../../assets/images/logo.svg" alt="Hello Algo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer" aria-label="ナビゲーション">
@@ -150,7 +139,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Hello アルゴリズム
+            Hello Algo
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -169,9 +158,9 @@
 
 
 
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal"  aria-label="ダークモード"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal"  aria-label="ダークモードに切り替える"  type="radio" name="__palette" id="__palette_0">
 
-      <label class="md-header__button md-icon" title="ダークモード" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="ダークモードに切り替える" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
       </label>
 
@@ -179,9 +168,9 @@
 
 
 
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="ライトモード"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="ライトモードに切り替える"  type="radio" name="__palette" id="__palette_1">
 
-      <label class="md-header__button md-icon" title="ライトモード" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="ライトモードに切り替える" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
       </label>
 
@@ -295,12 +284,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Hello アルゴリズム" class="md-nav__button md-logo" aria-label="Hello アルゴリズム" data-md-component="logo">
+    <a href="../.." title="Hello Algo" class="md-nav__button md-logo" aria-label="Hello Algo" data-md-component="logo">
 
-  <img src="../../assets/images/logo.svg" alt="Hello アルゴリズム">
+  <img src="../../assets/images/logo.svg" alt="Hello Algo">
 
     </a>
-    Hello アルゴリズム
+    Hello Algo
   </label>
 
     <div class="md-nav__source">
@@ -351,7 +340,7 @@
   <span class="md-ellipsis">
 
 
-  はじめに
+  序文
 
 
   </span>
@@ -367,7 +356,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  はじめに
+  序文
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -421,7 +410,7 @@
   <span class="md-ellipsis">
 
 
-  第 0 章 &nbsp; 前書き
+  第 0 章 &nbsp; はじめに
 
 
   </span>
@@ -442,7 +431,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  第 0 章 &nbsp; 前書き
+  第 0 章 &nbsp; はじめに
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -577,7 +566,7 @@
   <span class="md-ellipsis">
 
 
-  第 1 章 &nbsp; アルゴリズムを知る
+  第 1 章 &nbsp; アルゴリズムとの出会い
 
 
   </span>
@@ -598,7 +587,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  第 1 章 &nbsp; アルゴリズムを知る
+  第 1 章 &nbsp; アルゴリズムとの出会い
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -619,7 +608,7 @@
   <span class="md-ellipsis">
 
 
-  1.1 &nbsp; アルゴリズムは至るところにある
+  1.1 &nbsp; アルゴリズムはどこにでもある
 
 
   </span>
@@ -739,7 +728,7 @@
   <span class="md-ellipsis">
 
 
-  第 2 章 &nbsp; 計算量解析
+  第 2 章 &nbsp; 計算量の解析
 
 
   </span>
@@ -760,7 +749,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  第 2 章 &nbsp; 計算量解析
+  第 2 章 &nbsp; 計算量の解析
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -781,7 +770,7 @@
   <span class="md-ellipsis">
 
 
-  2.1 &nbsp; アルゴリズム効率の評価
+  2.1 &nbsp; アルゴリズムの効率の評価
 
 
   </span>
@@ -916,7 +905,7 @@
   <span class="md-ellipsis">
 
 
-  2.6 &nbsp; 演習
+  2.6 &nbsp; 練習問題
 
 
   </span>
@@ -1078,7 +1067,7 @@
   <span class="md-ellipsis">
 
 
-  3.3 &nbsp; 数値エンコーディング *
+  3.3 &nbsp; 数値の符号化 *
 
 
   </span>
@@ -1159,7 +1148,7 @@
   <span class="md-ellipsis">
 
 
-  3.6 &nbsp; 演習
+  3.6 &nbsp; 練習問題
 
 
   </span>
@@ -1402,7 +1391,7 @@
   <span class="md-ellipsis">
 
 
-  4.6 &nbsp; 演習
+  4.6 &nbsp; 練習問題
 
 
   </span>
@@ -1616,7 +1605,7 @@
   <span class="md-ellipsis">
 
 
-  5.5 &nbsp; 演習
+  5.5 &nbsp; 練習問題
 
 
   </span>
@@ -1855,7 +1844,7 @@
   <a href="#633" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        6.3.3 &nbsp; 一般的なハッシュアルゴリズム
+        6.3.3 &nbsp; 主なハッシュアルゴリズム
       </span>
     </span>
   </a>
@@ -1923,7 +1912,7 @@
   <span class="md-ellipsis">
 
 
-  6.5 &nbsp; 演習
+  6.5 &nbsp; 練習問題
 
 
   </span>
@@ -2195,7 +2184,7 @@
   <span class="md-ellipsis">
 
 
-  7.7 &nbsp; 演習
+  7.7 &nbsp; 練習問題
 
 
   </span>
@@ -2328,7 +2317,7 @@
   <span class="md-ellipsis">
 
 
-  8.2 &nbsp; ヒープ構築
+  8.2 &nbsp; ヒープの構築
 
 
   </span>
@@ -2409,7 +2398,7 @@
   <span class="md-ellipsis">
 
 
-  8.5 &nbsp; 演習
+  8.5 &nbsp; 練習問題
 
 
   </span>
@@ -2623,7 +2612,7 @@
   <span class="md-ellipsis">
 
 
-  9.5 &nbsp; 演習
+  9.5 &nbsp; 練習問題
 
 
   </span>
@@ -2760,7 +2749,7 @@
   <span class="md-ellipsis">
 
 
-  10.2 &nbsp; 二分探索の挿入位置
+  10.2 &nbsp; 二分探索で挿入位置を探す
 
 
   </span>
@@ -2787,7 +2776,7 @@
   <span class="md-ellipsis">
 
 
-  10.3 &nbsp; 二分探索の境界
+  10.3 &nbsp; 二分探索で境界を探す
 
 
   </span>
@@ -2814,7 +2803,7 @@
   <span class="md-ellipsis">
 
 
-  10.4 &nbsp; ハッシュによる最適化戦略
+  10.4 &nbsp; ハッシュを使った最適化
 
 
   </span>
@@ -2841,7 +2830,7 @@
   <span class="md-ellipsis">
 
 
-  10.5 &nbsp; 探索アルゴリズム再考
+  10.5 &nbsp; 探索アルゴリズムを改めて考える
 
 
   </span>
@@ -2895,7 +2884,7 @@
   <span class="md-ellipsis">
 
 
-  10.7 &nbsp; 演習
+  10.7 &nbsp; 練習問題
 
 
   </span>
@@ -3231,7 +3220,7 @@
   <span class="md-ellipsis">
 
 
-  11.9 &nbsp; 計数ソート
+  11.9 &nbsp; カウントソート
 
 
   </span>
@@ -3312,7 +3301,7 @@
   <span class="md-ellipsis">
 
 
-  11.12 &nbsp; 演習
+  11.12 &nbsp; 練習問題
 
 
   </span>
@@ -3420,7 +3409,7 @@
   <span class="md-ellipsis">
 
 
-  12.1 &nbsp; 分割統治法
+  12.1 &nbsp; 分割統治アルゴリズム
 
 
   </span>
@@ -3447,7 +3436,7 @@
   <span class="md-ellipsis">
 
 
-  12.2 &nbsp; 分割統治探索戦略
+  12.2 &nbsp; 分割統治による探索戦略
 
 
   </span>
@@ -3555,7 +3544,7 @@
   <span class="md-ellipsis">
 
 
-  12.6 &nbsp; 演習
+  12.6 &nbsp; 練習問題
 
 
   </span>
@@ -3690,7 +3679,7 @@
   <span class="md-ellipsis">
 
 
-  13.2 &nbsp; 全順列問題
+  13.2 &nbsp; 順列列挙問題
 
 
   </span>
@@ -3717,7 +3706,7 @@
   <span class="md-ellipsis">
 
 
-  13.3 &nbsp; 部分和問題
+  13.3 &nbsp; 部分集合和問題
 
 
   </span>
@@ -3798,7 +3787,7 @@
   <span class="md-ellipsis">
 
 
-  13.6 &nbsp; 演習
+  13.6 &nbsp; 練習問題
 
 
   </span>
@@ -3910,7 +3899,7 @@
   <span class="md-ellipsis">
 
 
-  14.1 &nbsp; 動的計画法入門
+  14.1 &nbsp; 動的計画法への第一歩
 
 
   </span>
@@ -3937,7 +3926,7 @@
   <span class="md-ellipsis">
 
 
-  14.2 &nbsp; 動的計画法の問題特性
+  14.2 &nbsp; 動的計画法の問題の特徴
 
 
   </span>
@@ -3964,7 +3953,7 @@
   <span class="md-ellipsis">
 
 
-  14.3 &nbsp; 動的計画法の問題解決の考え方
+  14.3 &nbsp; 動的計画法の解き方
 
 
   </span>
@@ -4018,7 +4007,7 @@
   <span class="md-ellipsis">
 
 
-  14.5 &nbsp; 完全ナップサック問題
+  14.5 &nbsp; 個数制限なしナップサック問題
 
 
   </span>
@@ -4099,7 +4088,7 @@
   <span class="md-ellipsis">
 
 
-  14.8 &nbsp; 演習
+  14.8 &nbsp; 練習問題
 
 
   </span>
@@ -4207,7 +4196,7 @@
   <span class="md-ellipsis">
 
 
-  15.1 &nbsp; 貪欲法
+  15.1 &nbsp; 貪欲アルゴリズム
 
 
   </span>
@@ -4234,7 +4223,7 @@
   <span class="md-ellipsis">
 
 
-  15.2 &nbsp; 分数ナップサック問題
+  15.2 &nbsp; 分割可能ナップサック問題
 
 
   </span>
@@ -4288,7 +4277,7 @@
   <span class="md-ellipsis">
 
 
-  15.4 &nbsp; 最大積分割問題
+  15.4 &nbsp; 整数を分割して積を最大にする問題
 
 
   </span>
@@ -4342,7 +4331,7 @@
   <span class="md-ellipsis">
 
 
-  15.6 &nbsp; 演習
+  15.6 &nbsp; 練習問題
 
 
   </span>
@@ -4471,7 +4460,7 @@
   <span class="md-ellipsis">
 
 
-  16.2 &nbsp; 一緒に制作に参加しましょう
+  16.2 &nbsp; 一緒に本書を作りましょう
 
 
   </span>
@@ -4648,7 +4637,7 @@
   <a href="#633" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        6.3.3 &nbsp; 一般的なハッシュアルゴリズム
+        6.3.3 &nbsp; 主なハッシュアルゴリズム
       </span>
     </span>
   </a>
@@ -4703,43 +4692,43 @@
 
 
 <!-- Page content -->
-<h1 id="63">6.3 &nbsp; ハッシュアルゴリズム<a class="headerlink" href="#63" title="Permanent link">&para;</a></h1>
-<p>前の 2 節では、ハッシュテーブルの動作原理とハッシュ衝突の処理方法を紹介しました。しかし、オープンアドレス法であれ連鎖方式であれ、<strong>それらが保証できるのは衝突発生時でもハッシュテーブルが正常に動作することだけであり、ハッシュ衝突そのものを減らすことはできません</strong>。</p>
-<p>ハッシュ衝突があまりにも頻繁に発生すると、ハッシュテーブルの性能は急激に劣化します。下図のように、連鎖方式のハッシュテーブルでは、理想的な場合にはキーと値のペアが各バケットに均等に分布し、最良の検索効率を達成します。最悪の場合には、すべてのキーと値のペアが同じバケットに格納され、時間計算量は <span class="arithmatex">\(O(n)\)</span> に劣化します。</p>
-<p><img alt="ハッシュ衝突の最良ケースと最悪ケース" class="animation-figure" src="../hash_algorithm.assets/hash_collision_best_worst_condition.png" /></p>
-<p align="center"> 図 6-8 &nbsp; ハッシュ衝突の最良ケースと最悪ケース </p>
+<h1 id="63">6.3 &nbsp; ハッシュアルゴリズム<a class="headerlink" href="#63" title="この見出しへのリンク">&para;</a></h1>
+<p>前の二節では、ハッシュテーブルの仕組みと衝突への対処方法を紹介しました。ただし、オープンアドレス法もチェイン法も、<strong>衝突時に正しく動作することを保証するだけで、衝突の発生自体を減らすことはできません</strong>。</p>
+<p>衝突が頻繁すぎると、性能は急激に悪化します。図 6-8 のチェイン法では、理想的にはペアが各バケットへ均等に分布し、最高の照会効率を得られます。最悪の場合はすべて同じバケットに入り、時間計算量が <span class="arithmatex">\(O(n)\)</span> に悪化します。</p>
+<p><img alt="ハッシュ衝突の最良と最悪の場合" class="animation-figure" src="../hash_algorithm.assets/hash_collision_best_worst_condition.png" /></p>
+<p align="center"> 図 6-8 &nbsp; ハッシュ衝突の最良と最悪の場合 </p>
 
-<p><strong>キーと値のペアの分布はハッシュ関数によって決まります</strong>。ハッシュ関数の計算手順を思い出すと、まずハッシュ値を計算し、その後で配列長に対して剰余を取ります。</p>
+<p><strong>ペアの分布を決めるのはハッシュ関数です</strong>。計算手順を思い出すと、まずハッシュ値を求め、配列の長さで剰余を取ります。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hash<span class="o">(</span>key<span class="o">)</span><span class="w"> </span>%<span class="w"> </span>capacity
 </code></pre></div>
-<p>上の式から分かるように、ハッシュテーブルの容量 <code>capacity</code> が固定されているとき、<strong>出力値を決めるのはハッシュアルゴリズム <code>hash()</code> です</strong>。したがって、それがキーと値のペアのハッシュテーブル内での分布も決定します。</p>
-<p>これは、ハッシュ衝突の発生確率を下げるには、ハッシュアルゴリズム <code>hash()</code> の設計に注目すべきだということを意味します。</p>
-<h2 id="631">6.3.1 &nbsp; ハッシュアルゴリズムの目標<a class="headerlink" href="#631" title="Permanent link">&para;</a></h2>
-<p>「高速かつ安定した」ハッシュテーブルというデータ構造を実現するために、ハッシュアルゴリズムは次の特徴を備える必要があります。</p>
+<p>この式で容量 <code>capacity</code> が固定なら、<strong>ハッシュアルゴリズム <code>hash()</code> が出力値を決め</strong>、ひいてはハッシュテーブル内のペアの分布を決めます。</p>
+<p>したがって、衝突の確率を減らすには、<code>hash()</code> の設計に注目すべきです。</p>
+<h2 id="631">6.3.1 &nbsp; ハッシュアルゴリズムの目標<a class="headerlink" href="#631" title="この見出しへのリンク">&para;</a></h2>
+<p>速く安定したハッシュテーブルを実現するため、ハッシュアルゴリズムには次の特徴が必要です。</p>
 <ul>
-<li><strong>決定性</strong>：同じ入力に対して、ハッシュアルゴリズムは常に同じ出力を生成しなければなりません。そうして初めて、ハッシュテーブルの信頼性が保たれます。</li>
-<li><strong>高効率</strong>：ハッシュ値の計算過程は十分に高速であるべきです。計算コストが小さいほど、ハッシュテーブルの実用性は高くなります。</li>
-<li><strong>均一分布</strong>：ハッシュアルゴリズムは、キーと値のペアがハッシュテーブル内に均等に分布するようにすべきです。分布が均一であるほど、ハッシュ衝突の確率は低くなります。</li>
+<li><strong>決定性</strong>：同じ入力には常に同じ出力を返す必要があります。これにより、ハッシュテーブルの信頼性を確保できます。</li>
+<li><strong>高い効率</strong>：ハッシュ値を十分速く計算できる必要があります。計算負荷が小さいほど、実用性が高まります。</li>
+<li><strong>均等な分布</strong>：ペアがテーブル全体に均等に分布する必要があります。均等なほど、衝突の確率が低くなります。</li>
 </ul>
-<p>実際には、ハッシュアルゴリズムはハッシュテーブルの実装だけでなく、ほかの多くの分野でも広く利用されています。</p>
+<p>ハッシュアルゴリズムは、ハッシュテーブル以外の分野でも広く使われています。</p>
 <ul>
-<li><strong>パスワード保存</strong>：ユーザーのパスワードを保護するために、システムは通常、平文パスワードを直接保存せず、そのハッシュ値を保存します。ユーザーがパスワードを入力すると、システムは入力内容のハッシュ値を計算し、保存済みのハッシュ値と比較します。一致すれば、そのパスワードは正しいと見なされます。</li>
-<li><strong>データ完全性検査</strong>：送信側はデータのハッシュ値を計算してデータと一緒に送信できます。受信側は受け取ったデータのハッシュ値を再計算し、受信したハッシュ値と比較できます。両者が一致すれば、そのデータは完全だと見なされます。</li>
+<li><strong>パスワードの保存</strong>：安全性を守るため、通常はパスワードを平文で直接保存せず、ハッシュ値を保存します。入力されたパスワードのハッシュ値を計算し、保存済みの値と比較します。一致すれば、正しいパスワードと見なします。</li>
+<li><strong>データの完全性の確認</strong>：送信側はデータのハッシュ値を計算して一緒に送り、受信側は受け取ったデータのハッシュ値を再計算して、届いた値と比較できます。一致すれば、データは完全であると見なします。</li>
 </ul>
-<p>暗号分野の応用では、ハッシュ値から元のパスワードを推測するといった逆解析を防ぐために、ハッシュアルゴリズムにはさらに高いレベルの安全性が求められます。</p>
+<p>暗号分野では、ハッシュ値から元のパスワードを推測するなどの逆解析を防ぐため、より高い安全性が必要です。</p>
 <ul>
-<li><strong>一方向性</strong>：ハッシュ値から入力データに関するいかなる情報も逆算できないこと。</li>
-<li><strong>耐衝突性</strong>：異なる 2 つの入力で同じハッシュ値になるものを見つけることが、極めて困難であること。</li>
-<li><strong>アバランシェ効果</strong>：入力のわずかな変化が、出力の大きく予測不能な変化を引き起こすこと。</li>
+<li><strong>一方向性</strong>：ハッシュ値から入力データに関する情報を逆算できないことです。</li>
+<li><strong>衝突耐性</strong>：異なる二つの入力で同じハッシュ値になるものを見つけることが、極めて困難であることです。</li>
+<li><strong>雪崩効果</strong>：入力のわずかな変化が、出力の大きく予測できない変化を引き起こすことです。</li>
 </ul>
-<p>注意してほしいのは、<strong>「均一分布」と「耐衝突性」は独立した 2 つの概念である</strong>という点です。均一分布を満たしていても、耐衝突性を満たすとは限りません。たとえば、入力 <code>key</code> がランダムである場合、ハッシュ関数 <code>key % 100</code> は均一に分布した出力を生成できます。しかし、このハッシュアルゴリズムはあまりにも単純で、下 2 桁が同じ <code>key</code> はすべて同じ出力になります。そのため、ハッシュ値から利用可能な <code>key</code> を容易に逆算でき、結果としてパスワードが破られてしまいます。</p>
-<h2 id="632">6.3.2 &nbsp; ハッシュアルゴリズムの設計<a class="headerlink" href="#632" title="Permanent link">&para;</a></h2>
-<p>ハッシュアルゴリズムの設計は、多くの要素を考慮しなければならない複雑な問題です。しかし、要求の高くない場面であれば、いくつかの単純なハッシュアルゴリズムを設計することもできます。</p>
+<p><strong>均等な分布と衝突耐性は、独立した概念です</strong>。分布が均等でも、衝突耐性があるとは限りません。例えば、ランダムな <code>key</code> に対する <code>key % 100</code> は均等な出力を生みます。しかし単純すぎるため、下二桁が等しい <code>key</code> はすべて同じ出力になります。そのため、ハッシュ値から使える <code>key</code> を容易に逆算し、パスワードを破れます。</p>
+<h2 id="632">6.3.2 &nbsp; ハッシュアルゴリズムの設計<a class="headerlink" href="#632" title="この見出しへのリンク">&para;</a></h2>
+<p>設計には多くの要因を考慮する必要があり、複雑な問題です。ただし、要件が厳しくない場面では、単純なアルゴリズムも設計できます。</p>
 <ul>
-<li><strong>加算ハッシュ</strong>：入力の各文字の ASCII コードを足し合わせ、その合計をハッシュ値とします。</li>
-<li><strong>乗算ハッシュ</strong>：乗算の非相関性を利用し、各ラウンドで定数を掛けながら、各文字の ASCII コードをハッシュ値に累積します。</li>
-<li><strong>XOR ハッシュ</strong>：入力データの各要素を XOR 演算で 1 つのハッシュ値に累積します。</li>
-<li><strong>回転ハッシュ</strong>：各文字の ASCII コードを 1 つのハッシュ値に累積し、各回の累積前にハッシュ値を回転させます。</li>
+<li><strong>加算ハッシュ</strong>：入力の各文字の ASCII コードを足し、その合計をハッシュ値にします。</li>
+<li><strong>乗算ハッシュ</strong>：乗算による非相関性を利用し、毎回定数を掛けながら各文字の ASCII コードをハッシュ値に累積します。</li>
+<li><strong>排他的論理和ハッシュ</strong>：入力の各要素を XOR 演算で一つのハッシュ値に累積します。</li>
+<li><strong>回転ハッシュ</strong>：各文字の ASCII コードを累積する前に、毎回ハッシュ値のビットを回転させます。</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
@@ -4761,7 +4750,7 @@
 <a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="k">return</span> <span class="nb">hash</span> <span class="o">%</span> <span class="n">modulus</span>
 <a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
 <a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">xor_hash</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="sd">"""XOR ハッシュ"""</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="sd">"""排他的論理和ハッシュ"""</span>
 <a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="nb">hash</span> <span class="o">=</span> <span class="mi">0</span>
 <a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="n">modulus</span> <span class="o">=</span> <span class="mi">1000000007</span>
 <a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
@@ -4798,7 +4787,7 @@
 <a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">hash</span><span class="p">;</span>
 <a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="p">}</span>
 <a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="cm">/* XOR ハッシュ */</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="cm">/* 排他的論理和ハッシュ */</span>
 <a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="kt">int</span><span class="w"> </span><span class="nf">xorHash</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MODULUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000007</span><span class="p">;</span>
@@ -4840,7 +4829,7 @@
 <a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">hash</span><span class="p">;</span>
 <a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="p">}</span>
 <a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="cm">/* XOR ハッシュ */</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="cm">/* 排他的論理和ハッシュ */</span>
 <a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="kt">int</span><span class="w"> </span><span class="nf">xorHash</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MODULUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000007</span><span class="p">;</span>
@@ -4882,7 +4871,7 @@
 <a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">hash</span><span class="p">;</span>
 <a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="p">}</span>
 <a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
-<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="cm">/* XOR ハッシュ */</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="cm">/* 排他的論理和ハッシュ */</span>
 <a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="kt">int</span><span class="w"> </span><span class="nf">XorHash</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MODULUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000007</span><span class="p">;</span>
@@ -4928,7 +4917,7 @@
 <a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="nx">hash</span><span class="p">)</span>
 <a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="p">}</span>
 <a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>
-<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="cm">/* XOR ハッシュ */</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="cm">/* 排他的論理和ハッシュ */</span>
 <a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="kd">func</span><span class="w"> </span><span class="nx">xorHash</span><span class="p">(</span><span class="nx">key</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">    </span><span class="nx">hash</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">    </span><span class="nx">modulus</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1000000007</span>
@@ -4978,7 +4967,7 @@
 <a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">hash</span>
 <a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="p">}</span>
 <a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>
-<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="cm">/* XOR ハッシュ */</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="cm">/* 排他的論理和ハッシュ */</span>
 <a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="kd">func</span><span class="w"> </span><span class="nf">xorHash</span><span class="p">(</span><span class="n">key</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">hash</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">MODULUS</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1_000_000_007</span>
@@ -5024,7 +5013,7 @@
 <a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">hash</span><span class="p">;</span>
 <a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="p">}</span>
 <a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
-<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="cm">/* XOR ハッシュ */</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="cm">/* 排他的論理和ハッシュ */</span>
 <a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="kd">function</span><span class="w"> </span><span class="nx">xorHash</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">MODULUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1000000007</span><span class="p">;</span>
@@ -5066,7 +5055,7 @@
 <a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">hash</span><span class="p">;</span>
 <a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="p">}</span>
 <a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>
-<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="cm">/* XOR ハッシュ */</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="cm">/* 排他的論理和ハッシュ */</span>
 <a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="kd">function</span><span class="w"> </span><span class="nx">xorHash</span><span class="p">(</span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">MODULUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1000000007</span><span class="p">;</span>
@@ -5108,7 +5097,7 @@
 <a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">hash</span><span class="p">;</span>
 <a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="p">}</span>
 <a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>
-<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="cm">/* XOR ハッシュ */</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="cm">/* 排他的論理和ハッシュ */</span>
 <a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">xorHash</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
 <a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MODULUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000000007</span><span class="p">;</span>
@@ -5154,7 +5143,7 @@
 <a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">    </span><span class="n">hash</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span>
 <a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="p">}</span>
 <a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>
-<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="cm">/* XOR ハッシュ */</span>
+<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="cm">/* 排他的論理和ハッシュ */</span>
 <a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="k">fn</span><span class="w"> </span><span class="nf">xor_hash</span><span class="p">(</span><span class="n">key</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0_</span><span class="k">i64</span><span class="p">;</span>
 <a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">MODULUS</span><span class="p">:</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000007</span><span class="p">;</span>
@@ -5200,7 +5189,7 @@
 <a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">hash</span><span class="p">;</span>
 <a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="p">}</span>
 <a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>
-<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="cm">/* XOR ハッシュ */</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="cm">/* 排他的論理和ハッシュ */</span>
 <a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="kt">int</span><span class="w"> </span><span class="nf">xorHash</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MODULUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000007</span><span class="p">;</span>
@@ -5244,7 +5233,7 @@
 <a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">hash</span><span class="p">.</span><span class="na">toInt</span><span class="p">()</span>
 <a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="p">}</span>
 <a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>
-<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="cm">/* XOR ハッシュ */</span>
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="cm">/* 排他的論理和ハッシュ */</span>
 <a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">xorHash</span><span class="p">(</span><span class="n">key</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
 <a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">MODULUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000000007</span>
@@ -5286,7 +5275,7 @@
 <a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">  </span><span class="nb">hash</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">modulus</span>
 <a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="k">end</span>
 <a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>
-<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="c1">### XOR ハッシュ ###</span>
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="c1">### 排他的論理和ハッシュ ###</span>
 <a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="k">def</span><span class="w"> </span><span class="nf">xor_hash</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 <a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="w">  </span><span class="nb">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="w">  </span><span class="n">modulus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1_000_000_007</span>
@@ -5310,13 +5299,13 @@
 </div>
 </div>
 <details class="pythontutor">
-<summary>コードの可視化</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20add_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8A%A0%E7%AE%97%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%2B%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20mul_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%B9%97%E7%AE%97%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%2031%20%2A%20hash%20%2B%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20xor_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22XOR%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%5E%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20rot_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%9B%9E%E8%BB%A2%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%20%28hash%20%3C%3C%204%29%20%5E%20%28hash%20%3E%3E%2028%29%20%5E%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20key%20%3D%20%22Hello%20%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0%22%0A%0A%20%20%20%20hash%20%3D%20add_hash%28key%29%0A%20%20%20%20print%28f%22%E5%8A%A0%E7%AE%97%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20mul_hash%28key%29%0A%20%20%20%20print%28f%22%E4%B9%97%E7%AE%97%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20xor_hash%28key%29%0A%20%20%20%20print%28f%22XOR%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20rot_hash%28key%29%0A%20%20%20%20print%28f%22%E5%9B%9E%E8%BB%A2%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20add_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8A%A0%E7%AE%97%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%2B%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20mul_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%B9%97%E7%AE%97%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%2031%20%2A%20hash%20%2B%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20xor_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22XOR%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%5E%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20rot_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%9B%9E%E8%BB%A2%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%20%28hash%20%3C%3C%204%29%20%5E%20%28hash%20%3E%3E%2028%29%20%5E%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20key%20%3D%20%22Hello%20%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0%22%0A%0A%20%20%20%20hash%20%3D%20add_hash%28key%29%0A%20%20%20%20print%28f%22%E5%8A%A0%E7%AE%97%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20mul_hash%28key%29%0A%20%20%20%20print%28f%22%E4%B9%97%E7%AE%97%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20xor_hash%28key%29%0A%20%20%20%20print%28f%22XOR%20%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20rot_hash%28key%29%0A%20%20%20%20print%28f%22%E5%9B%9E%E8%BB%A2%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る &gt;</a></div></p>
+<summary>実行の可視化</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20add_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8A%A0%E7%AE%97%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%2B%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20mul_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%B9%97%E7%AE%97%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%2031%20%2A%20hash%20%2B%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20xor_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8E%92%E4%BB%96%E7%9A%84%E8%AB%96%E7%90%86%E5%92%8C%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%5E%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20rot_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%9B%9E%E8%BB%A2%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%20%28hash%20%3C%3C%204%29%20%5E%20%28hash%20%3E%3E%2028%29%20%5E%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20key%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%0A%20%20%20%20hash%20%3D%20add_hash%28key%29%0A%20%20%20%20print%28f%22%E5%8A%A0%E7%AE%97%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AE%E5%80%A4%E3%81%AF%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20mul_hash%28key%29%0A%20%20%20%20print%28f%22%E4%B9%97%E7%AE%97%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AE%E5%80%A4%E3%81%AF%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20xor_hash%28key%29%0A%20%20%20%20print%28f%22%E6%8E%92%E4%BB%96%E7%9A%84%E8%AB%96%E7%90%86%E5%92%8C%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AE%E5%80%A4%E3%81%AF%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20rot_hash%28key%29%0A%20%20%20%20print%28f%22%E5%9B%9E%E8%BB%A2%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AE%E5%80%A4%E3%81%AF%20%7Bhash%7D%22%29%0A&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20add_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8A%A0%E7%AE%97%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%2B%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20mul_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%B9%97%E7%AE%97%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%2031%20%2A%20hash%20%2B%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20xor_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8E%92%E4%BB%96%E7%9A%84%E8%AB%96%E7%90%86%E5%92%8C%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%5E%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20rot_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%9B%9E%E8%BB%A2%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%20%28hash%20%3C%3C%204%29%20%5E%20%28hash%20%3E%3E%2028%29%20%5E%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20key%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%0A%20%20%20%20hash%20%3D%20add_hash%28key%29%0A%20%20%20%20print%28f%22%E5%8A%A0%E7%AE%97%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AE%E5%80%A4%E3%81%AF%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20mul_hash%28key%29%0A%20%20%20%20print%28f%22%E4%B9%97%E7%AE%97%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AE%E5%80%A4%E3%81%AF%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20xor_hash%28key%29%0A%20%20%20%20print%28f%22%E6%8E%92%E4%BB%96%E7%9A%84%E8%AB%96%E7%90%86%E5%92%8C%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AE%E5%80%A4%E3%81%AF%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20rot_hash%28key%29%0A%20%20%20%20print%28f%22%E5%9B%9E%E8%BB%A2%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AE%E5%80%A4%E3%81%AF%20%7Bhash%7D%22%29%0A&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 &gt;</a></div></p>
 </details>
-<p>見て分かるように、各ハッシュアルゴリズムの最後のステップでは、大きな素数 <span class="arithmatex">\(1000000007\)</span> で剰余を取り、ハッシュ値が適切な範囲に収まるようにしています。ここで考えてみる価値があるのは、なぜ素数での剰余を強調するのか、あるいは合成数で剰余を取ることにどんな欠点があるのか、という点です。これは興味深い問題です。</p>
-<p>先に結論を述べると、<strong>法として大きな素数を使うと、ハッシュ値が均一に分布することを最大限に保証できます</strong>。素数はほかの数と公約数を持たないため、剰余演算によって生じる周期的なパターンを減らし、ハッシュ衝突を避けやすくなります。</p>
-<p>たとえば、法として合成数 <span class="arithmatex">\(9\)</span> を選ぶとします。これは <span class="arithmatex">\(3\)</span> で割り切れるため、<span class="arithmatex">\(3\)</span> で割り切れるすべての <code>key</code> は、<span class="arithmatex">\(0\)</span>、<span class="arithmatex">\(3\)</span>、<span class="arithmatex">\(6\)</span> の 3 つのハッシュ値に写像されます。</p>
+<p>どの方法も最後に大きな素数 <span class="arithmatex">\(1000000007\)</span> で剰余を取り、値を適切な範囲に収めています。なぜ素数を法とすることを強調するのでしょうか。合成数を法とすると、どのような欠点があるのでしょうか。興味深い問いです。</p>
+<p>先に結論を述べると、<strong>大きな素数を法とすることで、ハッシュ値の分布をできるだけ均等にできます</strong>。素数はほかの数と公約数を持たないため、剰余による周期的なパターンを減らし、衝突を避けられるからです。</p>
+<p>例えば、合成数 <span class="arithmatex">\(9\)</span> を法に選ぶと、<span class="arithmatex">\(3\)</span> で割り切れるため、<span class="arithmatex">\(3\)</span> で割り切れる <code>key</code> はすべて <span class="arithmatex">\(0\)</span>、<span class="arithmatex">\(3\)</span>、<span class="arithmatex">\(6\)</span> の三つに写されます。</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \text{modulus} &amp; = 9 \newline
@@ -5324,7 +5313,7 @@
 \text{hash} &amp; = \{ 0, 3, 6, 0, 3, 6, 0, 3, 6, 0, 3, 6,\dots \}
 \end{aligned}
 \]</div>
-<p>入力 <code>key</code> がたまたまこのような等差数列の分布をしていると、ハッシュ値に偏りが生じ、ハッシュ衝突がさらに深刻になります。そこで <code>modulus</code> を素数 <span class="arithmatex">\(13\)</span> に置き換えると仮定すると、<code>key</code> と <code>modulus</code> の間に公約数が存在しないため、出力されるハッシュ値の均一性は明らかに向上します。</p>
+<p>入力 <code>key</code> がちょうどこのような等差数列なら、ハッシュ値が集中し、衝突が増えます。<code>modulus</code> を素数 <span class="arithmatex">\(13\)</span> に置き換えると、<code>key</code> と <code>modulus</code> の間に公約数がないため、出力の均等性は大幅に向上します。</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \text{modulus} &amp; = 13 \newline
@@ -5332,18 +5321,18 @@
 \text{hash} &amp; = \{ 0, 3, 6, 9, 12, 2, 5, 8, 11, 1, 4, 7, \dots \}
 \end{aligned}
 \]</div>
-<p>補足すると、<code>key</code> がランダムかつ均一に分布していると保証できるなら、法に素数を選んでも合成数を選んでも構いません。どちらでも均一に分布したハッシュ値を出力できます。しかし、<code>key</code> の分布に何らかの周期性がある場合、合成数で剰余を取るほうが偏りが生じやすくなります。</p>
-<p>要するに、通常は法として素数を選び、その素数はできるだけ大きいほうが望ましいです。そうすることで周期的なパターンをできる限り取り除き、ハッシュアルゴリズムの堅牢性を高められます。</p>
-<h2 id="633">6.3.3 &nbsp; 一般的なハッシュアルゴリズム<a class="headerlink" href="#633" title="Permanent link">&para;</a></h2>
-<p>上で紹介した単純なハッシュアルゴリズムは、どれも比較的「脆弱」であり、ハッシュアルゴリズムの設計目標にはほど遠いことが分かります。たとえば、加算と XOR は交換法則を満たすため、加算ハッシュと XOR ハッシュでは、内容が同じで順序だけ異なる文字列を区別できません。これはハッシュ衝突を悪化させ、一部の安全上の問題を引き起こす可能性があります。</p>
-<p>実際には、MD5、SHA-1、SHA-2、SHA-3 などの標準的なハッシュアルゴリズムを用いることが一般的です。これらは任意長の入力データを、固定長のハッシュ値へ写像できます。</p>
-<p>ここ 1 世紀近くの間、ハッシュアルゴリズムは継続的に改良と最適化が進められてきました。ある研究者たちは性能向上に取り組み、別の研究者やハッカーたちは安全性の弱点を探し続けてきました。次の表は、実際の応用でよく使われるハッシュアルゴリズムを示したものです。</p>
+<p><code>key</code> がランダムかつ一様に分布すると保証できるなら、法は素数でも合成数でもよく、どちらも均等なハッシュ値を出力します。一方、<code>key</code> の分布に何らかの周期性があると、合成数ではクラスタリングが起きやすくなります。</p>
+<p>したがって、通常は法に素数を選び、できれば十分大きくすることで、周期的なパターンをできるだけ取り除き、アルゴリズムの頑健性を高めます。</p>
+<h2 id="633">6.3.3 &nbsp; 主なハッシュアルゴリズム<a class="headerlink" href="#633" title="この見出しへのリンク">&para;</a></h2>
+<p>ここまでの単純なアルゴリズムは脆弱で、設計目標には遠く及びません。例えば、加算と XOR は交換法則を満たすため、同じ文字を異なる順序で並べた文字列を区別できません。これは衝突を増やし、安全性の問題も引き起こす可能性があります。</p>
+<p>実際には、MD5、SHA-1、SHA-2、SHA-3 などの標準的なアルゴリズムをよく使います。任意の長さの入力を、固定長のハッシュ値へ写せます。</p>
+<p>この約一世紀、ハッシュアルゴリズムは改良と最適化を重ねてきました。性能向上に取り組む研究者がいる一方、安全性の問題を探す研究者やハッカーもいます。実用でよく使われるものを表 6-2 に示します。</p>
 <ul>
-<li>MD5 と SHA-1 は何度も攻撃に成功されているため、各種のセキュリティ用途では廃止されています。</li>
-<li>SHA-2 系列の SHA-256 は最も安全なハッシュアルゴリズムの 1 つであり、いまだに成功した攻撃例がないため、多くのセキュリティ用途やプロトコルで広く使われています。</li>
-<li>SHA-3 は SHA-2 と比べて実装コストが低く、計算効率も高い一方で、現時点での普及度は SHA-2 系列に及びません。</li>
+<li>MD5 と SHA-1 への攻撃は何度も成功しているため、各種のセキュリティ用途では使用されなくなっています。</li>
+<li>SHA-2 系列の SHA-256 は最も安全なハッシュアルゴリズムの一つで、攻撃の成功例がまだないため、各種のセキュリティ用途やプロトコルでよく使われています。</li>
+<li>SHA-3 は SHA-2 より実装の負担が小さく、計算効率が高いものの、現時点での普及度は SHA-2 系列に及びません。</li>
 </ul>
-<p align="center"> 表 6-2 &nbsp; 一般的なハッシュアルゴリズム </p>
+<p align="center"> 表 6-2 &nbsp; 主なハッシュアルゴリズム </p>
 
 <div class="center-table">
 <table>
@@ -5358,7 +5347,7 @@
 </thead>
 <tbody>
 <tr>
-<td>発表年</td>
+<td>登場年</td>
 <td>1992</td>
 <td>1995</td>
 <td>2002</td>
@@ -5373,39 +5362,39 @@
 </tr>
 <tr>
 <td>ハッシュ衝突</td>
-<td>多い</td>
-<td>多い</td>
+<td>比較的多い</td>
+<td>比較的多い</td>
 <td>非常に少ない</td>
 <td>非常に少ない</td>
 </tr>
 <tr>
-<td>セキュリティレベル</td>
-<td>低く、攻撃に成功されている</td>
-<td>低く、攻撃に成功されている</td>
+<td>安全性</td>
+<td>低い、攻撃の成功例あり</td>
+<td>低い、攻撃の成功例あり</td>
 <td>高い</td>
 <td>高い</td>
 </tr>
 <tr>
 <td>用途</td>
-<td>廃止済みだが、データ完全性検査には使われる</td>
-<td>廃止済み</td>
-<td>暗号資産の取引検証、デジタル署名など</td>
-<td>SHA-2 の代替に使える</td>
+<td>使用中止、データの完全性の確認には引き続き使用</td>
+<td>使用中止</td>
+<td>暗号資産の取引検証、電子署名など</td>
+<td>SHA-2 の代替に使用可能</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h2 id="634">6.3.4 &nbsp; データ構造のハッシュ値<a class="headerlink" href="#634" title="Permanent link">&para;</a></h2>
-<p>ご存じのように、ハッシュテーブルの <code>key</code> には整数、小数、文字列などのデータ型を使えます。プログラミング言語は通常、これらのデータ型に対して組み込みのハッシュアルゴリズムを提供し、ハッシュテーブル内のバケットインデックス計算に利用します。Python を例にすると、<code>hash()</code> 関数を呼び出して各種データ型のハッシュ値を計算できます。</p>
+<h2 id="634">6.3.4 &nbsp; データ構造のハッシュ値<a class="headerlink" href="#634" title="この見出しへのリンク">&para;</a></h2>
+<p>ハッシュテーブルの <code>key</code> には、整数、小数、文字列などを使えます。言語は通常、これらの型に組み込みのハッシュアルゴリズムを用意し、バケットのインデックスの計算に使います。Python では、<code>hash()</code> でさまざまな型のハッシュ値を求められます。</p>
 <ul>
-<li>整数と真理値のハッシュ値は、その値自身です。</li>
-<li>浮動小数点数と文字列のハッシュ値の計算はやや複雑なので、興味がある読者は自分で調べてみてください。</li>
-<li>タプルのハッシュ値は、各要素のハッシュ値を求めてから、それらを組み合わせて 1 つのハッシュ値にしたものです。</li>
-<li>オブジェクトのハッシュ値は、そのメモリアドレスに基づいて生成されます。オブジェクトのハッシュメソッドをオーバーライドすれば、内容に基づくハッシュ値を実装できます。</li>
+<li>整数と真偽値のハッシュ値は、その値自体です。</li>
+<li>浮動小数点数と文字列の計算はやや複雑なので、興味があれば調べてみてください。</li>
+<li>タプルは各要素をハッシュ化し、それらを組み合わせて一つのハッシュ値にします。</li>
+<li>オブジェクトはメモリアドレスに基づいてハッシュ値を生成します。ハッシュメソッドをオーバーライドすれば、内容に基づく生成も可能です。</li>
 </ul>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>注意してください。組み込みのハッシュ値計算関数の定義や方法は、プログラミング言語ごとに異なります。</p>
+<p class="admonition-title">ヒント</p>
+<p>組み込みのハッシュ値計算関数の定義や方法は、言語ごとに異なります。</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><input id="__tabbed_2_13" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
@@ -5416,19 +5405,19 @@
 <a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
 <a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">bol</span> <span class="o">=</span> <span class="kc">True</span>
 <a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="n">hash_bol</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">bol</span><span class="p">)</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># 真理値 True のハッシュ値は 1</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># 真偽値 True のハッシュ値は 1</span>
 <a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
 <a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="n">dec</span> <span class="o">=</span> <span class="mf">3.14159</span>
 <a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="n">hash_dec</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span>
 <a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="c1"># 小数 3.14159 のハッシュ値は 326484311674566659</span>
 <a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>
-<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="nb">str</span> <span class="o">=</span> <span class="s2">"Hello アルゴリズム"</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="nb">str</span> <span class="o">=</span> <span class="s2">"Hello 算法"</span>
 <a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="n">hash_str</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="c1"># 文字列「Hello アルゴリズム」のハッシュ値は 4617003410720528961</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="c1"># 文字列「Hello 算法」のハッシュ値は 4617003410720528961</span>
 <a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>
-<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12836</span><span class="p">,</span> <span class="s2">"シャオハ"</span><span class="p">)</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12836</span><span class="p">,</span> <span class="s2">"小哈"</span><span class="p">)</span>
 <a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="n">hash_tup</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
-<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="c1"># タプル (12836, 'シャオハ') のハッシュ値は 1029005403108185979</span>
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="c1"># タプル (12836, '小哈') のハッシュ値は 1029005403108185979</span>
 <a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>
 <a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="n">obj</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="n">hash_obj</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
@@ -5442,18 +5431,18 @@
 <a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
 <a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="kt">bool</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">bol</span><span class="p">);</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1">// 真理値 1 のハッシュ値は 1</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1">// 真偽値 1 のハッシュ値は 1</span>
 <a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
 <a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="kt">double</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span>
 <a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">dec</span><span class="p">);</span>
 <a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="c1">// 小数 3.14159 のハッシュ値は 4614256650576692846</span>
 <a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>
-<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="n">string</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello アルゴリズム"</span><span class="p">;</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="n">string</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello 算法"</span><span class="p">;</span>
 <a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">str</span><span class="p">);</span>
-<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="c1">// 文字列「Hello アルゴリズム」のハッシュ値は 15466937326284535026</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="c1">// 文字列「Hello 算法」のハッシュ値は 15466937326284535026</span>
 <a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>
-<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="c1">// C++ では、組み込みの std::hash() は基本データ型のハッシュ値計算のみを提供する</span>
-<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="c1">// 配列やオブジェクトのハッシュ値計算は自分で実装する必要がある</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="c1">// C++ の組み込み std::hash() は基本データ型のハッシュ値計算のみを提供する</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="c1">// 配列やオブジェクトのハッシュ値計算は自分で実装する</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -5463,19 +5452,19 @@
 <a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
 <a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 <a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Boolean</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(</span><span class="n">bol</span><span class="p">);</span>
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1">// 真理値 true のハッシュ値は 1231</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1">// 真偽値 true のハッシュ値は 1231</span>
 <a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
 <a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="kt">double</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span>
 <a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(</span><span class="n">dec</span><span class="p">);</span>
 <a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="c1">// 小数 3.14159 のハッシュ値は -1340954729</span>
 <a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
-<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello アルゴリズム"</span><span class="p">;</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello 算法"</span><span class="p">;</span>
 <a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">hashCode</span><span class="p">();</span>
-<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="c1">// 文字列「Hello アルゴリズム」のハッシュ値は -727081396</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="c1">// 文字列「Hello 算法」のハッシュ値は -727081396</span>
 <a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>
-<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="s">"シャオハ"</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="s">"小哈"</span><span class="w"> </span><span class="p">};</span>
 <a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashTup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
-<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="c1">// 配列 [12836, シャオハ] のハッシュ値は 1151158</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="c1">// 配列 [12836, 小哈] のハッシュ値は 1151158</span>
 <a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>
 <a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="na">hashCode</span><span class="p">();</span>
@@ -5489,19 +5478,19 @@
 <a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
 <a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="kt">bool</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
 <a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bol</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1">// 真理値 true のハッシュ値は 1;</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1">// 真偽値 true のハッシュ値は 1;</span>
 <a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
 <a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="kt">double</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span>
 <a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
 <a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="c1">// 小数 3.14159 のハッシュ値は -1340954729;</span>
 <a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>
-<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="kt">string</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello アルゴリズム"</span><span class="p">;</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="kt">string</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello 算法"</span><span class="p">;</span>
 <a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="c1">// 文字列「Hello アルゴリズム」のハッシュ値は -586107568;</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="c1">// 文字列「Hello 算法」のハッシュ値は -586107568;</span>
 <a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>
-<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="kt">object</span><span class="p">[]</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="s">"シャオハ"</span><span class="p">];</span>
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="kt">object</span><span class="p">[]</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="s">"小哈"</span><span class="p">];</span>
 <a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashTup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="c1">// 配列 [12836, シャオハ] のハッシュ値は 42931033;</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="c1">// 配列 [12836, 小哈] のハッシュ値は 42931033;</span>
 <a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>
 <a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
@@ -5509,7 +5498,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">built_in_hash.go</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">// Go は組み込みの hash code 関数を提供していない</span>
+<div class="highlight"><span class="filename">built_in_hash.go</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">// Go には組み込みの hash code 関数がない</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -5519,19 +5508,19 @@
 <a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
 <a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="kd">let</span><span class="w"> </span><span class="nv">bol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span>
 <a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="kd">let</span><span class="w"> </span><span class="nv">hashBol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">bol</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="c1">// 真理値 true のハッシュ値は -4431640247352757451</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="c1">// 真偽値 true のハッシュ値は -4431640247352757451</span>
 <a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>
 <a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="kd">let</span><span class="w"> </span><span class="nv">dec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">3.14159</span>
 <a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="kd">let</span><span class="w"> </span><span class="nv">hashDec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dec</span><span class="p">.</span><span class="n">hashValue</span>
 <a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="c1">// 小数 3.14159 のハッシュ値は -2465384235396674631</span>
 <a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>
-<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="kd">let</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"Hello アルゴリズム"</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="kd">let</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"Hello 算法"</span>
 <a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="kd">let</span><span class="w"> </span><span class="nv">hashStr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="c1">// 文字列「Hello アルゴリズム」のハッシュ値は -7850626797806988787</span>
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="c1">// 文字列「Hello 算法」のハッシュ値は -7850626797806988787</span>
 <a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>
-<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="kd">let</span><span class="w"> </span><span class="nv">arr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">AnyHashable</span><span class="p">(</span><span class="mi">12836</span><span class="p">),</span><span class="w"> </span><span class="n">AnyHashable</span><span class="p">(</span><span class="s">"シャオハ"</span><span class="p">)]</span>
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="kd">let</span><span class="w"> </span><span class="nv">arr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">AnyHashable</span><span class="p">(</span><span class="mi">12836</span><span class="p">),</span><span class="w"> </span><span class="n">AnyHashable</span><span class="p">(</span><span class="s">"小哈"</span><span class="p">)]</span>
 <a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="kd">let</span><span class="w"> </span><span class="nv">hashTup</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="c1">// 配列 [AnyHashable(12836), AnyHashable("シャオハ")] のハッシュ値は -2308633508154532996</span>
+<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="c1">// 配列 [AnyHashable(12836), AnyHashable("小哈")] のハッシュ値は -2308633508154532996</span>
 <a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>
 <a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a><span class="kd">let</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a><span class="kd">let</span><span class="w"> </span><span class="nv">hashObj</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">hashValue</span>
@@ -5539,11 +5528,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">built_in_hash.js</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">// JavaScript は組み込みの hash code 関数を提供していない</span>
+<div class="highlight"><span class="filename">built_in_hash.js</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">// JavaScript には組み込みの hash code 関数がない</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">built_in_hash.ts</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1">// TypeScript は組み込みの hash code 関数を提供していない</span>
+<div class="highlight"><span class="filename">built_in_hash.ts</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1">// TypeScript には組み込みの hash code 関数がない</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -5553,19 +5542,19 @@
 <a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
 <a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="kt">bool</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 <a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bol</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="c1">// 真理値 true のハッシュ値は 1231</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="c1">// 真偽値 true のハッシュ値は 1231</span>
 <a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>
 <a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="kt">double</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3.14159</span><span class="p">;</span>
 <a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
 <a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="c1">// 小数 3.14159 のハッシュ値は 2570631074981783</span>
 <a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>
-<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="kt">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello アルゴリズム"</span><span class="p">;</span>
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="kt">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello 算法"</span><span class="p">;</span>
 <a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="c1">// 文字列「Hello アルゴリズム」のハッシュ値は 468167534</span>
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="c1">// 文字列「Hello 算法」のハッシュ値は 468167534</span>
 <a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>
-<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="n">List</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m">12836</span><span class="p">,</span><span class="w"> </span><span class="s2">"シャオハ"</span><span class="p">];</span>
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="n">List</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m">12836</span><span class="p">,</span><span class="w"> </span><span class="s2">"小哈"</span><span class="p">];</span>
 <a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashArr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a><span class="c1">// 配列 [12836, シャオハ] のハッシュ値は 976512528</span>
+<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a><span class="c1">// 配列 [12836, 小哈] のハッシュ値は 976512528</span>
 <a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>
 <a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
 <a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
@@ -5586,7 +5575,7 @@
 <a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">bol_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="n">bol</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">bol_hasher</span><span class="p">);</span>
 <a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bol_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="c1">// 真理値 true のハッシュ値は 4952851536318644461</span>
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="c1">// 真偽値 true のハッシュ値は 4952851536318644461</span>
 <a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>
 <a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="kd">let</span><span class="w"> </span><span class="n">dec</span><span class="p">:</span><span class="w"> </span><span class="kt">f32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span>
 <a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">dec_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
@@ -5594,27 +5583,27 @@
 <a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
 <a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a><span class="c1">// 小数 3.14159 のハッシュ値は 2566941990314602357</span>
 <a id="__codelineno-23-21" name="__codelineno-23-21" href="#__codelineno-23-21"></a>
-<a id="__codelineno-23-22" name="__codelineno-23-22" href="#__codelineno-23-22"></a><span class="kd">let</span><span class="w"> </span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello アルゴリズム"</span><span class="p">;</span>
+<a id="__codelineno-23-22" name="__codelineno-23-22" href="#__codelineno-23-22"></a><span class="kd">let</span><span class="w"> </span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello 算法"</span><span class="p">;</span>
 <a id="__codelineno-23-23" name="__codelineno-23-23" href="#__codelineno-23-23"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">str_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-23-24" name="__codelineno-23-24" href="#__codelineno-23-24"></a><span class="kt">str</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">str_hasher</span><span class="p">);</span>
 <a id="__codelineno-23-25" name="__codelineno-23-25" href="#__codelineno-23-25"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-23-26" name="__codelineno-23-26" href="#__codelineno-23-26"></a><span class="c1">// 文字列「Hello アルゴリズム」のハッシュ値は 16092673739211250988</span>
+<a id="__codelineno-23-26" name="__codelineno-23-26" href="#__codelineno-23-26"></a><span class="c1">// 文字列「Hello 算法」のハッシュ値は 16092673739211250988</span>
 <a id="__codelineno-23-27" name="__codelineno-23-27" href="#__codelineno-23-27"></a>
-<a id="__codelineno-23-28" name="__codelineno-23-28" href="#__codelineno-23-28"></a><span class="kd">let</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="s">"シャオハ"</span><span class="p">);</span>
+<a id="__codelineno-23-28" name="__codelineno-23-28" href="#__codelineno-23-28"></a><span class="kd">let</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="s">"小哈"</span><span class="p">);</span>
 <a id="__codelineno-23-29" name="__codelineno-23-29" href="#__codelineno-23-29"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">tup_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-23-30" name="__codelineno-23-30" href="#__codelineno-23-30"></a><span class="n">arr</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">tup_hasher</span><span class="p">);</span>
 <a id="__codelineno-23-31" name="__codelineno-23-31" href="#__codelineno-23-31"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_tup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tup_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-23-32" name="__codelineno-23-32" href="#__codelineno-23-32"></a><span class="c1">// タプル (12836, "シャオハ") のハッシュ値は 1885128010422702749</span>
+<a id="__codelineno-23-32" name="__codelineno-23-32" href="#__codelineno-23-32"></a><span class="c1">// タプル (12836, "小哈") のハッシュ値は 1885128010422702749</span>
 <a id="__codelineno-23-33" name="__codelineno-23-33" href="#__codelineno-23-33"></a>
 <a id="__codelineno-23-34" name="__codelineno-23-34" href="#__codelineno-23-34"></a><span class="kd">let</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ListNode</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
 <a id="__codelineno-23-35" name="__codelineno-23-35" href="#__codelineno-23-35"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-23-36" name="__codelineno-23-36" href="#__codelineno-23-36"></a><span class="n">node</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">val</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">hasher</span><span class="p">);</span>
 <a id="__codelineno-23-37" name="__codelineno-23-37" href="#__codelineno-23-37"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-23-38" name="__codelineno-23-38" href="#__codelineno-23-38"></a><span class="c1">// ノードオブジェクト RefCell { value: ListNode { val: 42, next: None } } のハッシュ値は15387811073369036852</span>
+<a id="__codelineno-23-38" name="__codelineno-23-38" href="#__codelineno-23-38"></a><span class="c1">// ノードオブジェクト RefCell { value: ListNode { val: 42, next: None } } のハッシュ値は 15387811073369036852</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">built_in_hash.c</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1">// C は組み込みの hash code 関数を提供していない</span>
+<div class="highlight"><span class="filename">built_in_hash.c</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1">// C には組み込みの hash code 関数がない</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -5624,19 +5613,19 @@
 <a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>
 <a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="kd">val</span><span class="w"> </span><span class="nv">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 <a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="kd">val</span><span class="w"> </span><span class="nv">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bol</span><span class="p">.</span><span class="na">hashCode</span><span class="p">()</span>
-<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="c1">// 真理値 true のハッシュ値は 1231</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="c1">// 真偽値 true のハッシュ値は 1231</span>
 <a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>
 <a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="kd">val</span><span class="w"> </span><span class="nv">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3.14159</span>
 <a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="kd">val</span><span class="w"> </span><span class="nv">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec</span><span class="p">.</span><span class="na">hashCode</span><span class="p">()</span>
 <a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="c1">// 小数 3.14159 のハッシュ値は -1340954729</span>
 <a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>
-<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="kd">val</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello アルゴリズム"</span>
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="kd">val</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello 算法"</span>
 <a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a><span class="kd">val</span><span class="w"> </span><span class="nv">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">hashCode</span><span class="p">()</span>
-<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a><span class="c1">// 文字列「Hello アルゴリズム」のハッシュ値は -727081396</span>
+<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a><span class="c1">// 文字列「Hello 算法」のハッシュ値は -727081396</span>
 <a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>
-<a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a><span class="kd">val</span><span class="w"> </span><span class="nv">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arrayOf</span><span class="o">&lt;</span><span class="kt">Any</span><span class="o">&gt;</span><span class="p">(</span><span class="m">12836</span><span class="p">,</span><span class="w"> </span><span class="s">"シャオハ"</span><span class="p">)</span>
+<a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a><span class="kd">val</span><span class="w"> </span><span class="nv">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arrayOf</span><span class="o">&lt;</span><span class="kt">Any</span><span class="o">&gt;</span><span class="p">(</span><span class="m">12836</span><span class="p">,</span><span class="w"> </span><span class="s">"小哈"</span><span class="p">)</span>
 <a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a><span class="kd">val</span><span class="w"> </span><span class="nv">hashTup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="na">hashCode</span><span class="p">()</span>
-<a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a><span class="c1">// 配列 [12836, シャオハ] のハッシュ値は 189568618</span>
+<a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a><span class="c1">// 配列 [12836, 小哈] のハッシュ値は 189568618</span>
 <a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a>
 <a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a><span class="kd">val</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
 <a id="__codelineno-25-22" name="__codelineno-25-22" href="#__codelineno-25-22"></a><span class="kd">val</span><span class="w"> </span><span class="nv">hashObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="na">hashCode</span><span class="p">()</span>
@@ -5650,19 +5639,19 @@
 <a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>
 <a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kp">true</span>
 <a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="n">hash_bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bol</span><span class="o">.</span><span class="n">hash</span>
-<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="c1"># 真理値 true のハッシュ値は -1617938112149317027</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="c1"># 真偽値 true のハッシュ値は -1617938112149317027</span>
 <a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>
 <a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="o">.</span><span class="mi">14159</span>
 <a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="n">hash_dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec</span><span class="o">.</span><span class="n">hash</span>
 <a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="c1"># 小数 3.14159 のハッシュ値は -1479186995943067893</span>
 <a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>
-<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello アルゴリズム"</span>
+<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello 算法"</span>
 <a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a><span class="n">hash_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="o">.</span><span class="n">hash</span>
-<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a><span class="c1"># 文字列「Hello アルゴリズム」のハッシュ値は -4075943250025831763</span>
+<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a><span class="c1"># 文字列「Hello 算法」のハッシュ値は -4075943250025831763</span>
 <a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>
-<a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a><span class="n">tup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="s1">'シャオハ'</span><span class="o">]</span>
+<a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a><span class="n">tup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="s1">'小哈'</span><span class="o">]</span>
 <a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a><span class="n">hash_tup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tup</span><span class="o">.</span><span class="n">hash</span>
-<a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a><span class="c1"># タプル (12836, 'シャオハ') のハッシュ値は 1999544809202288822</span>
+<a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a><span class="c1"># タプル (12836, '小哈') のハッシュ値は 1999544809202288822</span>
 <a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a>
 <a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">ListNode</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a><span class="n">hash_obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="o">.</span><span class="n">hash</span>
@@ -5672,13 +5661,13 @@
 </div>
 </div>
 <details class="pythontutor">
-<summary>可視化実行</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="コードの可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で見る &gt;</a></div></p>
+<summary>実行の可視化</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__(self%2C%20val%3A%20int)%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash(num)%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash(bol)%0A%20%20%20%20%23%20%E7%9C%9F%E5%81%BD%E5%80%A4%20True%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash(dec)%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash(str)%0A%20%20%20%20%23%20%E6%96%87%E5%AD%97%E5%88%97%E3%80%8CHello%20%E7%AE%97%E6%B3%95%E3%80%8D%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20(12836%2C%20%22%E5%B0%8F%E5%93%88%22)%0A%20%20%20%20hash_tup%20%3D%20hash(tup)%0A%20%20%20%20%23%20%E3%82%BF%E3%83%97%E3%83%AB%20(12836%2C%20'%E5%B0%8F%E5%93%88')%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode(0)%0A%20%20%20%20hash_obj%20%3D%20hash(obj)%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%20%3CListNode%20object%20at%200x1058fd810%3E%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20274267521&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__(self%2C%20val%3A%20int)%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash(num)%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash(bol)%0A%20%20%20%20%23%20%E7%9C%9F%E5%81%BD%E5%80%A4%20True%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash(dec)%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash(str)%0A%20%20%20%20%23%20%E6%96%87%E5%AD%97%E5%88%97%E3%80%8CHello%20%E7%AE%97%E6%B3%95%E3%80%8D%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20(12836%2C%20%22%E5%B0%8F%E5%93%88%22)%0A%20%20%20%20hash_tup%20%3D%20hash(tup)%0A%20%20%20%20%23%20%E3%82%BF%E3%83%97%E3%83%AB%20(12836%2C%20'%E5%B0%8F%E5%93%88')%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode(0)%0A%20%20%20%20hash_obj%20%3D%20hash(obj)%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%20%3CListNode%20object%20at%200x1058fd810%3E%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20274267521&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 &gt;</a></div></p>
 </details>
-<p>多くのプログラミング言語では、<strong>不変オブジェクトだけがハッシュテーブルの <code>key</code> として使えます</strong>。仮にリスト（動的配列）を <code>key</code> とすると、その内容が変化したときにハッシュ値も変わってしまうため、もとの <code>value</code> をハッシュテーブルから検索できなくなります。</p>
-<p>カスタムオブジェクト（たとえば連結リストのノード）のメンバ変数は可変ですが、それでもハッシュ可能です。<strong>これは、オブジェクトのハッシュ値が通常はメモリアドレスに基づいて生成されるためです</strong>。オブジェクトの内容が変化しても、メモリアドレスが変わらなければ、ハッシュ値も変わりません。</p>
-<p>注意深い人なら、異なるコンソールでプログラムを実行したときに、出力されるハッシュ値が異なることに気づくかもしれません。<strong>これは、Python インタプリタが起動のたびに文字列ハッシュ関数へランダムな salt 値を追加しているためです</strong>。この方法によって HashDoS 攻撃を効果的に防ぎ、ハッシュアルゴリズムの安全性を高めています。</p>
+<p>多くの言語では、<strong>不変オブジェクトだけがハッシュテーブルの <code>key</code> になれます</strong>。リスト（動的配列）を <code>key</code> にすると、内容の変化とともにハッシュ値も変わり、元の <code>value</code> を照会できなくなります。</p>
+<p>連結リストのノードなど、自分で定義したオブジェクトは、メンバー変数が可変でもハッシュ化できます。<strong>通常、ハッシュ値がメモリアドレスに基づくためです</strong>。内容が変わってもアドレスが変わらなければ、ハッシュ値は変わりません。</p>
+<p>異なるコンソールで実行すると、出力されるハッシュ値が異なることに気付くかもしれません。<strong>Python インタープリタは起動のたびに、文字列のハッシュ関数へランダムなソルト（salt）を加えるためです</strong>。これにより HashDoS 攻撃を効果的に防ぎ、安全性を高めます。</p>
 
 <!-- Source file information -->
 
@@ -5701,7 +5690,7 @@ aria-label="フッター"
   <a
     href="../hash_collision/"
     class="md-footer__link md-footer__link--prev"
-    aria-label="前: 6.2 &amp;nbsp; ハッシュ衝突"
+    aria-label="前: 6.2   ハッシュ衝突"
     rel="prev"
   >
     <div class="md-footer__button md-icon">
@@ -5725,7 +5714,7 @@ aria-label="フッター"
   <a
     href="../summary/"
     class="md-footer__link md-footer__link--next"
-    aria-label="次: 6.4 &amp;nbsp; まとめ"
+    aria-label="次: 6.4   まとめ"
     rel="next"
   >
     <div class="md-footer__title">
@@ -5747,14 +5736,10 @@ aria-label="フッター"
 <!-- Comment system -->
 
 
-
-
-
-
   <!-- Check-in button above comments -->
 
 
-  <h5 align="center" id="__comments">ご意見、ご質問、ご提案があればぜひコメントしてください</h5>
+  <h5 align="center" id="__comments">コメント欄で、考えや質問、ご提案をお寄せください。</h5>
 
   <!-- Insert generated snippet here -->
   <script
@@ -5787,7 +5772,20 @@ aria-label="フッター"
     /* Set palette on initial load */
     giscus.setAttribute("data-theme", getGiscusTheme())
 
-
+    /* The Giscus client creates the iframe asynchronously with an English title. */
+    ;(function() {
+      function labelCommentsFrame() {
+        var frame = document.querySelector("iframe.giscus-frame")
+        if (!frame) return false
+        frame.setAttribute("title", "コメント")
+        return true
+      }
+      if (labelCommentsFrame()) return
+      var observer = new MutationObserver(function() {
+        if (labelCommentsFrame()) observer.disconnect()
+      })
+      observer.observe(giscus.parentElement, { childList: true, subtree: true })
+    })()
 
     /* Register event handlers after documented loaded */
     document.addEventListener("DOMContentLoaded", function() {
@@ -5826,7 +5824,7 @@ aria-label="フッター"
       <div class="md-copyright">
 
     <div class="md-copyright__highlight">
-      Copyright &copy; 2026 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      Copyright &copy; 2026 krahets<br>このサイトのコンテンツのライセンス： <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
 
 
@@ -5886,7 +5884,7 @@ aria-label="フッター"
       <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"コピーしました","clipboard.copy":"クリップボードへコピー","search.result.more.one":"このページ内にもう1件見つかりました","search.result.more.other":"このページ内にあと#件見つかりました","search.result.none":"何も見つかりませんでした","search.result.one":"1件見つかりました","search.result.other":"#件見つかりました","search.result.placeholder":"検索キーワードを入力してください","search.result.term.missing":"検索に含まれない","select.version":"バージョン切り替え"},"version":null}</script>
 
 
-      <script src="../../assets/javascripts/bundle.e559d5b757c25f1f23bd887b700c56e3018b129d471c011292faeb47b8b74ce4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.bbe737eb31084dfc2f0d91a916c44a189920caa85eb843c038b80c96c32c779e.min.js"></script>
 
         <script src="../../javascripts/mathjax.js"></script>
 
