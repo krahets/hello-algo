@@ -13,8 +13,8 @@ func TestNQueens(t *testing.T) {
 	n := 4
 	res := nQueens(n)
 
-	fmt.Println("入力された盤面の縦横は ", n)
-	fmt.Println("クイーンの配置パターンは ", len(res), " 通り")
+	fmt.Println("入力した盤面の縦横の長さは ", n)
+	fmt.Println("クイーンの配置方法は全部で ", len(res), " 通り")
 	for _, state := range res {
 		fmt.Println("--------------------")
 		for _, row := range state {

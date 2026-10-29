@@ -21,11 +21,11 @@ public class built_in_hash {
         int hashDec = dec.GetHashCode();
         Console.WriteLine("小数 " + dec + " のハッシュ値は " + hashDec);
 
-        string str = "Hello アルゴリズム";
+        string str = "Hello 算法";
         int hashStr = str.GetHashCode();
         Console.WriteLine("文字列 " + str + " のハッシュ値は " + hashStr);
 
-        object[] arr = [12836, "シャオハー"];
+        object[] arr = [12836, "小哈"];
         int hashTup = arr.GetHashCode();
         Console.WriteLine("配列 [" + string.Join(", ", arr) + "] のハッシュ値は " + hashTup);
 

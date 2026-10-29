@@ -1,25 +1,25 @@
 # 両端キュー
 
-キューでは、先頭要素を削除するか末尾に要素を追加することしかできません。次の図に示すように、<u>両端キュー（double-ended queue）</u>はより高い柔軟性を備えており、先頭と末尾の両方で要素の追加や削除を行えます。
+キューでは、先頭要素の削除と末尾への追加しかできません。下図の<u>両端キュー（double-ended queue）</u>は、先頭と末尾の両方で追加・削除ができ、より柔軟です。
 
 ![両端キューの操作](deque.assets/deque_operations.png)
 
-## 両端キューの基本操作
+## 両端キューの主な操作
 
-両端キューの基本操作を次の表に示します。具体的なメソッド名は、使用するプログラミング言語によって異なります。
+主な操作を下表に示します。具体的なメソッド名は、使う言語によって異なります。
 
 <p align="center"> 表 <id> &nbsp; 両端キューの操作効率 </p>
 
-| メソッド名     | 説明             | 時間計算量 |
+| メソッド名         | 説明             | 時間計算量 |
 | -------------- | ---------------- | ---------- |
 | `push_first()` | 先頭に要素を追加 | $O(1)$     |
 | `push_last()`  | 末尾に要素を追加 | $O(1)$     |
-| `pop_first()`  | 先頭要素を削除   | $O(1)$     |
-| `pop_last()`   | 末尾要素を削除   | $O(1)$     |
-| `peek_first()` | 先頭要素にアクセス | $O(1)$     |
-| `peek_last()`  | 末尾要素にアクセス | $O(1)$     |
+| `pop_first()`  | 先頭要素を削除     | $O(1)$     |
+| `pop_last()`   | 末尾要素を削除     | $O(1)$     |
+| `peek_first()` | 先頭要素にアクセス     | $O(1)$     |
+| `peek_last()`  | 末尾要素にアクセス     | $O(1)$     |
 
-同様に、プログラミング言語に組み込み実装されている両端キューのクラスを直接使うこともできます：
+同様に、言語が用意する両端キュークラスをそのまま利用できます。
 
 === "Python"
 
@@ -41,8 +41,8 @@
     rear: int = deq[-1]  # 末尾要素
 
     # 要素をデキュー
-    pop_front: int = deq.popleft()  # 先頭要素をデキュー
-    pop_rear: int = deq.pop()       # 末尾要素をデキュー
+    pop_front: int = deq.popleft()  # 先頭要素を取り出す
+    pop_rear: int = deq.pop()       # 末尾要素を取り出す
 
     # 両端キューの長さを取得
     size: int = len(deq)
@@ -69,8 +69,8 @@
     int back = deque.back();   // 末尾要素
 
     /* 要素をデキュー */
-    deque.pop_front();  // 先頭要素をデキュー
-    deque.pop_back();   // 末尾要素をデキュー
+    deque.pop_front();  // 先頭要素を取り出す
+    deque.pop_back();   // 末尾要素を取り出す
 
     /* 両端キューの長さを取得 */
     int size = deque.size();
@@ -97,8 +97,8 @@
     int peekLast = deque.peekLast();    // 末尾要素
 
     /* 要素をデキュー */
-    int popFirst = deque.pollFirst();  // 先頭要素をデキュー
-    int popLast = deque.pollLast();    // 末尾要素をデキュー
+    int popFirst = deque.pollFirst();  // 先頭要素を取り出す
+    int popLast = deque.pollLast();    // 末尾要素を取り出す
 
     /* 両端キューの長さを取得 */
     int size = deque.size();
@@ -111,7 +111,7 @@
 
     ```csharp title="deque.cs"
     /* 両端キューを初期化 */
-    // C# では、連結リスト LinkedList を両端キューとして使用する
+    // C# では LinkedList を両端キューとして使う
     LinkedList<int> deque = new();
 
     /* 要素をエンキュー */
@@ -126,8 +126,8 @@
     int peekLast = deque.Last.Value;    // 末尾要素
 
     /* 要素をデキュー */
-    deque.RemoveFirst();  // 先頭要素をデキュー
-    deque.RemoveLast();   // 末尾要素をデキュー
+    deque.RemoveFirst();  // 先頭要素を取り出す
+    deque.RemoveLast();   // 末尾要素を取り出す
 
     /* 両端キューの長さを取得 */
     int size = deque.Count;
@@ -140,7 +140,7 @@
 
     ```go title="deque_test.go"
     /* 両端キューを初期化 */
-    // Go では、list を両端キューとして使用する
+    // Go では list を両端キューとして使う
     deque := list.New()
 
     /* 要素をエンキュー */
@@ -155,8 +155,8 @@
     rear := deque.Back()   // 末尾要素
 
     /* 要素をデキュー */
-    deque.Remove(front)    // 先頭要素をデキュー
-    deque.Remove(rear)     // 末尾要素をデキュー
+    deque.Remove(front)    // 先頭要素を取り出す
+    deque.Remove(rear)     // 末尾要素を取り出す
 
     /* 両端キューの長さを取得 */
     size := deque.Len()
@@ -169,7 +169,7 @@
 
     ```swift title="deque.swift"
     /* 両端キューを初期化 */
-    // Swift には組み込みの両端キュークラスがないため、Array を両端キューとして使用する
+    // Swift には組み込みの両端キュークラスがないため、Array を両端キューとして使える
     var deque: [Int] = []
 
     /* 要素をエンキュー */
@@ -184,9 +184,9 @@
     let peekLast = deque.last! // 末尾要素
 
     /* 要素をデキュー */
-    // Array で模擬する場合、popFirst の計算量は O(n)
-    let popFirst = deque.removeFirst() // 先頭要素をデキュー
-    let popLast = deque.removeLast() // 末尾要素をデキュー
+    // Array で代用する場合、popFirst の計算量は O(n)
+    let popFirst = deque.removeFirst() // 先頭要素を取り出す
+    let popLast = deque.removeLast() // 末尾要素を取り出す
 
     /* 両端キューの長さを取得 */
     let size = deque.count
@@ -199,14 +199,14 @@
 
     ```javascript title="deque.js"
     /* 両端キューを初期化 */
-    // JavaScript には組み込みの両端キューがないため、Array を両端キューとして使用するしかない
+    // JavaScript には組み込みの両端キューがないため、Array で代用する必要がある
     const deque = [];
 
     /* 要素をエンキュー */
     deque.push(2);
     deque.push(5);
     deque.push(4);
-    // 配列であるため、unshift() メソッドの時間計算量は O(n) です
+    // 配列なので unshift() の時間計算量は O(n) であることに注意
     deque.unshift(3);
     deque.unshift(1);
 
@@ -215,7 +215,7 @@
     const peekLast = deque[deque.length - 1];
 
     /* 要素をデキュー */
-    // 配列であるため、shift() メソッドの時間計算量は O(n) です
+    // 配列なので shift() の時間計算量は O(n) であることに注意
     const popFront = deque.shift();
     const popBack = deque.pop();
 
@@ -230,14 +230,14 @@
 
     ```typescript title="deque.ts"
     /* 両端キューを初期化 */
-    // TypeScript には組み込みの両端キューがないため、Array を両端キューとして使用するしかない
+    // TypeScript には組み込みの両端キューがないため、Array で代用する必要がある
     const deque: number[] = [];
 
     /* 要素をエンキュー */
     deque.push(2);
     deque.push(5);
     deque.push(4);
-    // 配列であるため、unshift() メソッドの時間計算量は O(n) です
+    // 配列なので unshift() の時間計算量は O(n) であることに注意
     deque.unshift(3);
     deque.unshift(1);
 
@@ -246,7 +246,7 @@
     const peekLast: number = deque[deque.length - 1];
 
     /* 要素をデキュー */
-    // 配列であるため、shift() メソッドの時間計算量は O(n) です
+    // 配列なので shift() の時間計算量は O(n) であることに注意
     const popFront: number = deque.shift() as number;
     const popBack: number = deque.pop() as number;
 
@@ -261,7 +261,7 @@
 
     ```dart title="deque.dart"
     /* 両端キューを初期化 */
-    // Dart では、Queue は両端キューとして定義されています
+    // Dart では Queue は両端キューとして定義されている
     Queue<int> deque = Queue<int>();
 
     /* 要素をエンキュー */
@@ -276,8 +276,8 @@
     int peekLast = deque.last;   // 末尾要素
 
     /* 要素をデキュー */
-    int popFirst = deque.removeFirst(); // 先頭要素をデキュー
-    int popLast = deque.removeLast();   // 末尾要素をデキュー
+    int popFirst = deque.removeFirst(); // 先頭要素を取り出す
+    int popLast = deque.removeLast();   // 末尾要素を取り出す
 
     /* 両端キューの長さを取得 */
     int size = deque.length;
@@ -306,9 +306,9 @@
     }
 
     /* 要素をデキュー */
-    if let Some(pop_front) = deque.pop_front() { // 先頭要素をデキュー
+    if let Some(pop_front) = deque.pop_front() { // 先頭要素を取り出す
     }
-    if let Some(pop_rear) = deque.pop_back() {   // 末尾要素をデキュー
+    if let Some(pop_rear) = deque.pop_back() {   // 末尾要素を取り出す
     }
 
     /* 両端キューの長さを取得 */
@@ -321,7 +321,7 @@
 === "C"
 
     ```c title="deque.c"
-    // C には組み込みの両端キューがありません
+    // C には組み込みの両端キューがない
     ```
 
 === "Kotlin"
@@ -342,8 +342,8 @@
     val peekLast = deque.peekLast()   // 末尾要素
 
     /* 要素をデキュー */
-    val popFirst = deque.pollFirst() // 先頭要素をデキュー
-    val popLast = deque.pollLast()   // 末尾要素をデキュー
+    val popFirst = deque.pollFirst() // 先頭要素を取り出す
+    val popLast = deque.pollLast()   // 末尾要素を取り出す
 
     /* 両端キューの長さを取得 */
     val size = deque.size
@@ -356,14 +356,14 @@
 
     ```ruby title="deque.rb"
     # 両端キューを初期化
-    # Ruby には組み込みの両端キューがないため、Array を両端キューとして使用するしかありません
+    # Ruby には組み込みの両端キューがないため、Array で代用する必要がある
     deque = []
 
     # 要素をエンキュー
     deque << 2
     deque << 5
     deque << 4
-    # 配列であるため、Array#unshift メソッドの時間計算量は O(n) です
+    # 配列なので Array#unshift の時間計算量は O(n) であることに注意
     deque.unshift(3)
     deque.unshift(1)
 
@@ -372,7 +372,7 @@
     peek_last = deque.last
 
     # 要素をデキュー
-    # 配列であるため、 Array#shift メソッドの時間計算量は O(n) です
+    # 配列なので Array#shift の時間計算量は O(n) であることに注意
     pop_front = deque.shift
     pop_back = deque.pop
 
@@ -385,68 +385,68 @@
 
 ??? pythontutor "実行の可視化"
 
-    https://pythontutor.com/render.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E9%98%9F%0A%20%20%20%20deq.append%282%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E5%B0%BE%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E9%A6%96%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22,%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%20rear%20%3D%22,%20rear%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_front%20%3D%22,%20pop_front%29%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_rear%20%3D%22,%20pop_rear%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=from%20collections%20import%20deque%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E4%B8%A1%E7%AB%AF%E3%82%AD%E3%83%A5%E3%83%BC%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20deq%20%3D%20deque()%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%A8%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%BC%0A%20%20%20%20deq.append(2)%20%20%23%20%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%BF%BD%E5%8A%A0%0A%20%20%20%20deq.append(5)%0A%20%20%20%20deq.append(4)%0A%20%20%20%20deq.appendleft(3)%20%20%23%20%E5%85%88%E9%A0%AD%E3%81%AB%E8%BF%BD%E5%8A%A0%0A%20%20%20%20deq.appendleft(1)%0A%20%20%20%20print(%22%E4%B8%A1%E7%AB%AF%E3%82%AD%E3%83%A5%E3%83%BC%20deque%20%3D%22%2C%20deq)%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%0A%20%20%20%20print(%22%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20front%20%3D%22%2C%20front)%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20%E6%9C%AB%E5%B0%BE%E8%A6%81%E7%B4%A0%0A%20%20%20%20print(%22%E6%9C%AB%E5%B0%BE%E8%A6%81%E7%B4%A0%20rear%20%3D%22%2C%20rear)%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%0A%20%20%20%20pop_front%20%3D%20deq.popleft()%20%20%23%20%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%82%92%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%99%0A%20%20%20%20print(%22%E5%85%88%E9%A0%AD%E3%81%8B%E3%82%89%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20%20pop_front%20%3D%22%2C%20pop_front)%0A%20%20%20%20print(%22%E5%85%88%E9%A0%AD%E3%81%8B%E3%82%89%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E5%BE%8C%E3%81%AE%20deque%20%3D%22%2C%20deq)%0A%20%20%20%20pop_rear%20%3D%20deq.pop()%20%20%23%20%E6%9C%AB%E5%B0%BE%E8%A6%81%E7%B4%A0%E3%82%92%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%99%0A%20%20%20%20print(%22%E6%9C%AB%E5%B0%BE%E3%81%8B%E3%82%89%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20%20pop_rear%20%3D%22%2C%20pop_rear)%0A%20%20%20%20print(%22%E6%9C%AB%E5%B0%BE%E3%81%8B%E3%82%89%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E5%BE%8C%E3%81%AE%20deque%20%3D%22%2C%20deq)%0A%0A%20%20%20%20%23%20%E4%B8%A1%E7%AB%AF%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%0A%20%20%20%20size%20%3D%20len(deq)%0A%20%20%20%20print(%22%E4%B8%A1%E7%AB%AF%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22%2C%20size)%0A%0A%20%20%20%20%23%20%E4%B8%A1%E7%AB%AF%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%0A%20%20%20%20is_empty%20%3D%20len(deq)%20%3D%3D%200%0A%20%20%20%20print(%22%E4%B8%A1%E7%AB%AF%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AF%E7%A9%BA%E3%81%8B%20%3D%22%2C%20is_empty)&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 ## 両端キューの実装 *
 
-両端キューの実装はキューと似ており、連結リストまたは配列を基盤となるデータ構造として選べます。
+実装はキューと似ており、基盤となるデータ構造に連結リストか配列を選べます。
 
-### 双方向連結リストに基づく実装
+### 双方向連結リストによる実装
 
-前節を振り返ると、通常の単方向連結リストを使ってキューを実装しました。これは、先頭ノードの削除（デキューに対応）と末尾ノードの後ろへの新規ノード追加（エンキューに対応）を容易に行えるためです。
+前節では、通常の単方向連結リストでキューを実装しました。先頭ノードの削除（デキュー）と、末尾ノードの後への追加（エンキュー）が容易だからです。
 
-両端キューでは、先頭と末尾のどちらでもエンキューとデキューを行えます。言い換えると、両端キューではもう一方の対称方向の操作も実装する必要があります。そのため、両端キューの基盤データ構造として「双方向連結リスト」を採用します。
+両端キューでは、先頭でも末尾でも追加と削除ができます。つまり、反対側の対称的な操作も必要です。そのため、基盤に双方向連結リストを使います。
 
-次の図に示すように、双方向連結リストの先頭ノードと末尾ノードを両端キューの先頭と末尾と見なし、両端でノードを追加および削除する機能を実現します。
+下図のように、双方向連結リストの先頭と末尾を両端キューの先頭と末尾に対応させ、両端でノードを追加・削除できるようにします。
 
 === "<1>"
-    ![連結リストによる両端キューのエンキューとデキュー](deque.assets/linkedlist_deque_step1.png)
+    ![連結リストによる両端キューの追加と削除](deque.assets/linkedlist_deque_step1.png)
 
 === "<2>"
-    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.png)
+    ![連結リストによる両端キュー：末尾に追加](deque.assets/linkedlist_deque_step2_push_last.png)
 
 === "<3>"
-    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.png)
+    ![連結リストによる両端キュー：先頭に追加](deque.assets/linkedlist_deque_step3_push_first.png)
 
 === "<4>"
-    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.png)
+    ![連結リストによる両端キュー：末尾から取り出す](deque.assets/linkedlist_deque_step4_pop_last.png)
 
 === "<5>"
-    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.png)
+    ![連結リストによる両端キュー：先頭から取り出す](deque.assets/linkedlist_deque_step5_pop_first.png)
 
-実装コードは次のとおりです：
+実装は次のとおりです。
 
 ```src
 [file]{linkedlist_deque}-[class]{linked_list_deque}-[func]{}
 ```
 
-### 配列に基づく実装
+### 配列による実装
 
-次の図に示すように、配列によるキュー実装と同様に、循環配列を使って両端キューを実装することもできます。
+下図のように、配列によるキューと同様、循環配列で両端キューを実装できます。
 
 === "<1>"
-    ![配列による両端キューのエンキューとデキュー](deque.assets/array_deque_step1.png)
+    ![配列による両端キューの追加と削除](deque.assets/array_deque_step1.png)
 
 === "<2>"
-    ![array_deque_push_last](deque.assets/array_deque_step2_push_last.png)
+    ![配列による両端キュー：末尾に追加](deque.assets/array_deque_step2_push_last.png)
 
 === "<3>"
-    ![array_deque_push_first](deque.assets/array_deque_step3_push_first.png)
+    ![配列による両端キュー：先頭に追加](deque.assets/array_deque_step3_push_first.png)
 
 === "<4>"
-    ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.png)
+    ![配列による両端キュー：末尾から取り出す](deque.assets/array_deque_step4_pop_last.png)
 
 === "<5>"
-    ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.png)
+    ![配列による両端キュー：先頭から取り出す](deque.assets/array_deque_step5_pop_first.png)
 
-キュー実装を土台として、「先頭へのエンキュー」と「末尾からのデキュー」のメソッドを追加するだけで済みます：
+キューの実装に、先頭への追加と末尾からの取り出しのメソッドを加えるだけです。
 
 ```src
 [file]{array_deque}-[class]{array_deque}-[func]{}
 ```
 
-## 両端キューの応用
+## 両端キューの用途
 
-両端キューはスタックとキューの両方の論理を備えているため、**これら 2 つのすべての応用場面を実現でき、さらに高い自由度を提供します**。
+両端キューはスタックとキューの両方の論理を持つため、**両者のすべての用途を実現でき、さらに高い自由度も提供します**。
 
-私たちが知っているように、ソフトウェアの「元に戻す」機能は通常スタックを使って実装されます。システムは変更操作を毎回スタックに `push` し、その後 `pop` によって取り消しを実現します。しかし、システム資源の制約を考慮すると、通常ソフトウェアは取り消し可能な手数を制限します（たとえば $50$ 手まで保存可能）。スタックの長さが $50$ を超えると、ソフトウェアはスタックの底部（先頭）で削除操作を行う必要があります。**しかしスタックではこの機能を実現できないため、この場合はスタックの代わりに両端キューを使用する必要があります**。なお、「元に戻す」の中核ロジック自体は依然としてスタックの後入れ先出し原則に従っており、両端キューは追加のロジックをより柔軟に実装できるだけです。
+ソフトウェアの「元に戻す」は通常、変更のたびに操作をスタックへ `push` し、`pop` で取り消します。ただし、システム資源の制約から、通常は、保存できる履歴が例えば $50$ 回までに制限されます。長さが $50$ を超えたら、底、つまりキューの先頭から削除する必要があります。**スタックではできないため、両端キューに置き換えます**。「元に戻す」の中心的な論理は依然として先入れ後出しであり、両端キューは追加の処理をより柔軟に実現している点に注意してください。

@@ -6,24 +6,24 @@
 
 #include "../utils/common.hpp"
 
-/* 二分木を構築：分割統治 */
+/* 二分木の構築：分割統治法 */
 TreeNode *dfs(vector<int> &preorder, unordered_map<int, int> &inorderMap, int i, int l, int r) {
-    // 部分木区間が空なら終了する
+    // 部分木の区間が空の場合、終了する
     if (r - l < 0)
         return NULL;
-    // ルートノードを初期化する
+    // 根ノードを初期化する
     TreeNode *root = new TreeNode(preorder[i]);
-    // m を求めて左右部分木を分割する
+    // m を調べ、左右の部分木に分割する
     int m = inorderMap[preorder[i]];
-    // 部分問題：左部分木を構築する
+    // 部分問題：左部分木の構築
     root->left = dfs(preorder, inorderMap, i + 1, l, m - 1);
-    // 部分問題：右部分木を構築する
+    // 部分問題：右部分木の構築
     root->right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
     // 根ノードを返す
     return root;
 }
 
-/* 二分木を構築 */
+/* 二分木を構築する */
 TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
     // inorder の要素からインデックスへの対応を格納するハッシュテーブルを初期化する
     unordered_map<int, int> inorderMap;
@@ -34,13 +34,13 @@ TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
     return root;
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
     vector<int> preorder = {3, 9, 2, 1, 7};
     vector<int> inorder = {9, 3, 1, 2, 7};
-    cout << "前順走査 = ";
+    cout << "行きがけ順走査 = ";
     printVector(preorder);
-    cout << "中順走査 = ";
+    cout << "通りがけ順走査 = ";
     printVector(inorder);
 
     TreeNode *root = buildTree(preorder, inorder);

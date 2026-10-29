@@ -11,13 +11,13 @@
 extern "C" {
 #endif
 
-/* 連結リストノード構造体 */
+/* 連結リストのノードの構造体 */
 typedef struct ListNode {
-    int val;               // ノード値
+    int val;               // ノードの値
     struct ListNode *next; // 次のノードへの参照
 } ListNode;
 
-/* コンストラクタ。新しいノードを初期化する */
+/* コンストラクタ：新しいノードを初期化する */
 ListNode *newListNode(int val) {
     ListNode *node;
     node = (ListNode *)malloc(sizeof(ListNode));
@@ -26,7 +26,7 @@ ListNode *newListNode(int val) {
     return node;
 }
 
-/* 配列をデシリアライズして連結リストに変換する */
+/* 配列をデシリアライズして連結リストにする */
 ListNode *arrToLinkedList(const int *arr, size_t size) {
     if (size <= 0) {
         return NULL;
@@ -41,7 +41,7 @@ ListNode *arrToLinkedList(const int *arr, size_t size) {
     return dummy->next;
 }
 
-/* 連結リストに割り当てたメモリを解放する */
+/* 連結リストに確保したメモリ領域を解放する */
 void freeMemoryLinkedList(ListNode *cur) {
     // メモリを解放する
     ListNode *pre;

@@ -6,20 +6,20 @@ package chapter_hashing
 
 import "fmt"
 
-/* キーと値の組 */
+/* キーと値のペア */
 type pair struct {
 	key int
 	val string
 }
 
-/* 配列ベースのハッシュテーブル */
+/* 配列で実装したハッシュテーブル */
 type arrayHashMap struct {
 	buckets []*pair
 }
 
-/* ハッシュテーブルを初期化 */
+/* ハッシュテーブルを初期化する */
 func newArrayHashMap() *arrayHashMap {
-	// 100 個のバケットを含む配列を初期化
+	// 100 個のバケットを含む配列を初期化する
 	buckets := make([]*pair, 100)
 	return &arrayHashMap{buckets: buckets}
 }
@@ -30,7 +30,7 @@ func (a *arrayHashMap) hashFunc(key int) int {
 	return index
 }
 
-/* 検索操作 */
+/* 取得操作 */
 func (a *arrayHashMap) get(key int) string {
 	index := a.hashFunc(key)
 	pair := a.buckets[index]
@@ -50,11 +50,11 @@ func (a *arrayHashMap) put(key int, val string) {
 /* 削除操作 */
 func (a *arrayHashMap) remove(key int) {
 	index := a.hashFunc(key)
-	// nil に設定し、削除を表す
+	// nil に設定して、削除を表す
 	a.buckets[index] = nil
 }
 
-/* すべてのキーのペアを取得する */
+/* すべてのキーと値のペアを取得する */
 func (a *arrayHashMap) pairSet() []*pair {
 	var pairs []*pair
 	for _, pair := range a.buckets {
@@ -65,7 +65,7 @@ func (a *arrayHashMap) pairSet() []*pair {
 	return pairs
 }
 
-/* すべてのキーを取得 */
+/* すべてのキーを取得する */
 func (a *arrayHashMap) keySet() []int {
 	var keys []int
 	for _, pair := range a.buckets {
@@ -76,7 +76,7 @@ func (a *arrayHashMap) keySet() []int {
 	return keys
 }
 
-/* すべての値を取得 */
+/* すべての値を取得する */
 func (a *arrayHashMap) valueSet() []string {
 	var values []string
 	for _, pair := range a.buckets {
@@ -87,7 +87,7 @@ func (a *arrayHashMap) valueSet() []string {
 	return values
 }
 
-/* ハッシュテーブルを出力 */
+/* ハッシュテーブルを表示する */
 func (a *arrayHashMap) print() {
 	for _, pair := range a.buckets {
 		if pair != nil {

@@ -4,12 +4,12 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 二分木ノードクラス */
+/* 二分木のノードクラス */
 public class TreeNode {
-    public var val: Int // ノード値
+    public var val: Int // ノードの値
     public var height: Int // ノードの高さ
-    public var left: TreeNode? // 左子ノードへの参照
-    public var right: TreeNode? // 右子ノードへの参照
+    public var left: TreeNode? // 左の子ノードへの参照
+    public var right: TreeNode? // 右の子ノードへの参照
 
     /* コンストラクタ */
     public init(x: Int) {
@@ -17,23 +17,23 @@ public class TreeNode {
         height = 0
     }
 
-    // シリアライズの符号化規則は次を参照してください:
-    // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-    // 二分木の配列表現:
+    // シリアライズの符号化規則は次を参照：
+    // https://www.hello-algo.com/ja/chapter_tree/array_representation_of_tree/
+    // 二分木の配列表現：
     // [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
-    // 二分木の連結リスト表現:
-    // /——— 15
-    // /——— 7
-    // /——— 3
-    // |    \\——— 6
-    // |        \\——— 12
+    // 二分木の連結リスト表現：
+    //             /——— 15
+    //         /——— 7
+    //     /——— 3
+    //    |    \——— 6
+    //    |        \——— 12
     // ——— 1
-    // \\——— 2
-    // |    /——— 9
-    // \\——— 4
-    // \\——— 8
+    //     \——— 2
+    //        |    /——— 9
+    //         \——— 4
+    //             \——— 8
 
-    /* リストを二分木にデシリアライズする: 再帰 */
+    /* リストから二分木へデシリアライズ：再帰 */
     private static func listToTreeDFS(arr: [Int?], i: Int) -> TreeNode? {
         if i < 0 || i >= arr.count || arr[i] == nil {
             return nil
@@ -44,12 +44,12 @@ public class TreeNode {
         return root
     }
 
-    /* リストを二分木にデシリアライズする */
+    /* リストから二分木へデシリアライズ */
     public static func listToTree(arr: [Int?]) -> TreeNode? {
         listToTreeDFS(arr: arr, i: 0)
     }
 
-    /* 二分木をリストにシリアライズする: 再帰 */
+    /* 二分木をシリアライズしてリストにする：再帰 */
     private static func treeToListDFS(root: TreeNode?, i: Int, res: inout [Int?]) {
         if root == nil {
             return
@@ -62,7 +62,7 @@ public class TreeNode {
         treeToListDFS(root: root?.right, i: 2 * i + 2, res: &res)
     }
 
-    /* 二分木をリストにシリアライズする */
+    /* 二分木をシリアライズしてリストにする */
     public static func treeToList(root: TreeNode?) -> [Int?] {
         var res: [Int?] = []
         treeToListDFS(root: root, i: 0, res: &res)

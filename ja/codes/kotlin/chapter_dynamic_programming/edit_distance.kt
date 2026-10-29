@@ -8,22 +8,22 @@ package chapter_dynamic_programming
 
 import kotlin.math.min
 
-/* 編集距離：総当たり探索 */
+/* 編集距離：全探索 */
 fun editDistanceDFS(
     s: String,
     t: String,
     i: Int,
     j: Int
 ): Int {
-    // s と t がともに空なら 0 を返す
+    // s と t がともに空の場合、0 を返す
     if (i == 0 && j == 0) return 0
-    // s が空なら t の長さを返す
+    // s が空の場合、t の長さを返す
     if (i == 0) return j
-    // t が空なら s の長さを返す
+    // t が空の場合、s の長さを返す
     if (j == 0) return i
-    // 2 つの文字が等しければ、その 2 文字をそのままスキップする
+    // 2 つの文字が等しい場合、その 2 文字をスキップする
     if (s[i - 1] == t[j - 1]) return editDistanceDFS(s, t, i - 1, j - 1)
-    // 最小編集回数 = 挿入・削除・置換の 3 操作における最小編集回数 + 1
+    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
     val insert = editDistanceDFS(s, t, i, j - 1)
     val delete = editDistanceDFS(s, t, i - 1, j)
     val replace = editDistanceDFS(s, t, i - 1, j - 1)
@@ -39,17 +39,17 @@ fun editDistanceDFSMem(
     i: Int,
     j: Int
 ): Int {
-    // s と t がともに空なら 0 を返す
+    // s と t がともに空の場合、0 を返す
     if (i == 0 && j == 0) return 0
-    // s が空なら t の長さを返す
+    // s が空の場合、t の長さを返す
     if (i == 0) return j
-    // t が空なら s の長さを返す
+    // t が空の場合、s の長さを返す
     if (j == 0) return i
-    // 記録済みなら、それをそのまま返す
+    // 記録済みなら、その値をそのまま返す
     if (mem[i][j] != -1) return mem[i][j]
-    // 2 つの文字が等しければ、その 2 文字をそのままスキップする
+    // 2 つの文字が等しい場合、その 2 文字をスキップする
     if (s[i - 1] == t[j - 1]) return editDistanceDFSMem(s, t, mem, i - 1, j - 1)
-    // 最小編集回数 = 挿入・削除・置換の 3 操作における最小編集回数 + 1
+    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
     val insert = editDistanceDFSMem(s, t, mem, i, j - 1)
     val delete = editDistanceDFSMem(s, t, mem, i - 1, j)
     val replace = editDistanceDFSMem(s, t, mem, i - 1, j - 1)
@@ -70,14 +70,14 @@ fun editDistanceDP(s: String, t: String): Int {
     for (j in 1..m) {
         dp[0][j] = j
     }
-    // 状態遷移: 残りの行と列
+    // 状態遷移：残りの行と列
     for (i in 1..n) {
         for (j in 1..m) {
             if (s[i - 1] == t[j - 1]) {
-                // 2 つの文字が等しければ、その 2 文字をそのままスキップする
+                // 2 つの文字が等しい場合、その 2 文字をスキップする
                 dp[i][j] = dp[i - 1][j - 1]
             } else {
-                // 最小編集回数 = 挿入・削除・置換の 3 操作における最小編集回数 + 1
+                // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
                 dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1
             }
         }
@@ -85,7 +85,7 @@ fun editDistanceDP(s: String, t: String): Int {
     return dp[n][m]
 }
 
-/* 編集距離：空間最適化した動的計画法 */
+/* 編集距離：空間を最適化した動的計画法 */
 fun editDistanceDPComp(s: String, t: String): Int {
     val n = s.length
     val m = t.length
@@ -103,10 +103,10 @@ fun editDistanceDPComp(s: String, t: String): Int {
         for (j in 1..m) {
             val temp = dp[j]
             if (s[i - 1] == t[j - 1]) {
-                // 2 つの文字が等しければ、その 2 文字をそのままスキップする
+                // 2 つの文字が等しい場合、その 2 文字をスキップする
                 dp[j] = leftup
             } else {
-                // 最小編集回数 = 挿入・削除・置換の 3 操作における最小編集回数 + 1
+                // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
                 dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1
             }
             leftup = temp // 次の反復の dp[i-1, j-1] に更新する
@@ -115,7 +115,7 @@ fun editDistanceDPComp(s: String, t: String): Int {
     return dp[m]
 }
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
     val s = "bag"
     val t = "pack"
@@ -124,20 +124,20 @@ fun main() {
 
     // 全探索
     var res = editDistanceDFS(s, t, n, m)
-    println("$s を $t に変更するには最小で $res 回の編集が必要")
+    println("$s を $t に変更するには最低 $res 回の編集が必要")
 
     // メモ化探索
     val mem = Array(n + 1) { IntArray(m + 1) }
     for (row in mem)
         row.fill(-1)
     res = editDistanceDFSMem(s, t, mem, n, m)
-    println("$s を $t に変更するには最小で $res 回の編集が必要")
+    println("$s を $t に変更するには最低 $res 回の編集が必要")
 
     // 動的計画法
     res = editDistanceDP(s, t)
-    println("$s を $t に変更するには最小で $res 回の編集が必要")
+    println("$s を $t に変更するには最低 $res 回の編集が必要")
 
-    // 空間最適化後の動的計画法
+    // 空間を最適化した動的計画法
     res = editDistanceDPComp(s, t)
-    println("$s を $t に変更するには最小で $res 回の編集が必要")
+    println("$s を $t に変更するには最低 $res 回の編集が必要")
 }

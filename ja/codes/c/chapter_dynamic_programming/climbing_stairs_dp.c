@@ -6,16 +6,16 @@
 
 #include "../utils/common.h"
 
-/* 階段登り：動的計画法 */
+/* 階段の上り方：動的計画法 */
 int climbingStairsDP(int n) {
     if (n == 1 || n == 2)
         return n;
-    // 部分問題の解を保存するために dp テーブルを初期化
+    // 部分問題の解を格納する dp テーブルを初期化する
     int *dp = (int *)malloc((n + 1) * sizeof(int));
-    // 初期状態：最小部分問題の解をあらかじめ設定
+    // 初期状態：最小の部分問題の解を設定する
     dp[1] = 1;
     dp[2] = 2;
-    // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+    // 状態遷移：小さな部分問題から順に大きな部分問題を解く
     for (int i = 3; i <= n; i++) {
         dp[i] = dp[i - 1] + dp[i - 2];
     }
@@ -24,7 +24,7 @@ int climbingStairsDP(int n) {
     return result;
 }
 
-/* 階段登り：空間最適化した動的計画法 */
+/* 階段の上り方：空間を最適化した動的計画法 */
 int climbingStairsDPComp(int n) {
     if (n == 1 || n == 2)
         return n;
@@ -37,15 +37,15 @@ int climbingStairsDPComp(int n) {
     return b;
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
     int n = 9;
 
     int res = climbingStairsDP(n);
-    printf("%d 段の階段を登る方法は全部で %d 通りです\n", n, res);
+    printf("%d 段の階段を上る方法は全部で %d 通り\n", n, res);
 
     res = climbingStairsDPComp(n);
-    printf("%d 段の階段を登る方法は全部で %d 通りです\n", n, res);
+    printf("%d 段の階段を上る方法は全部で %d 通り\n", n, res);
 
     return 0;
 }

@@ -6,7 +6,7 @@
 
 package utils;
 
-/* 連結リストノード */
+/* 連結リストのノード */
 public class ListNode {
     public int val;
     public ListNode next;
@@ -15,7 +15,7 @@ public class ListNode {
         val = x;
     }
 
-    /* リストを連結リストにデシリアライズする */
+    /* リストをデシリアライズして連結リストにする */
     public static ListNode arrToLinkedList(int[] arr) {
         ListNode dum = new ListNode(0);
         ListNode head = dum;

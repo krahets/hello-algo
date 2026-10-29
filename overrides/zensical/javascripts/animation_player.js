@@ -3,10 +3,11 @@
   const AUTO_SLIDE_INITIAL_DELAY_MS = 1000;
   const AUTO_SLIDE_INTERVAL_MS = 1500;
   const IS_KOREAN = document.documentElement.lang.toLowerCase().startsWith("ko");
-  const PLAY_LABEL = IS_KOREAN ? "슬라이드 재생" : "播放幻灯片";
-  const PAUSE_LABEL = IS_KOREAN ? "슬라이드 일시 정지" : "暂停幻灯片";
-  const PREVIOUS_LABEL = IS_KOREAN ? "이전 슬라이드" : "上一页";
-  const NEXT_LABEL = IS_KOREAN ? "다음 슬라이드" : "下一页";
+  const IS_JAPANESE = document.documentElement.lang.toLowerCase().startsWith("ja");
+  const PLAY_LABEL = IS_KOREAN ? "슬라이드 재생" : IS_JAPANESE ? "スライドショーを再生" : "播放幻灯片";
+  const PAUSE_LABEL = IS_KOREAN ? "슬라이드 일시 정지" : IS_JAPANESE ? "スライドショーを一時停止" : "暂停幻灯片";
+  const PREVIOUS_LABEL = IS_KOREAN ? "이전 슬라이드" : IS_JAPANESE ? "前のスライド" : "上一页";
+  const NEXT_LABEL = IS_KOREAN ? "다음 슬라이드" : IS_JAPANESE ? "次のスライド" : "下一页";
   const SVG_NS = "http://www.w3.org/2000/svg";
   const FA_PLAY_PATH =
     "M91.2 36.9c-12.4-6.8-27.4-6.5-39.6.7S32 57.9 32 72v368c0 14.1 7.5 27.2 19.6 34.4s27.2 7.5 39.6.7l336-184c12.8-7 20.8-20.5 20.8-35.1s-8-28.1-20.8-35.1z";

@@ -14,88 +14,88 @@ import (
 )
 
 func testPush(h *intHeap, val int) {
-	// heap.Interface の関数を呼び出して要素を追加する
+	// heap.Interface の関数を呼び出し、要素を追加する
 	heap.Push(h, val)
-	fmt.Printf("\n要素 %d をヒープに追加後 \n", val)
+	fmt.Printf("\n要素 %d をヒープに挿入した後 \n", val)
 	PrintHeap(*h)
 }
 
 func testPop(h *intHeap) {
-	// heap.Interface の関数を呼び出して要素を削除する
+	// heap.Interface の関数を呼び出し、要素を取り除く
 	val := heap.Pop(h)
-	fmt.Printf("\nヒープ先頭要素 %d を取り出した後 \n", val)
+	fmt.Printf("\nヒープの先頭要素 %d を取り出した後 \n", val)
 	PrintHeap(*h)
 }
 
 func TestHeap(t *testing.T) {
-	/* ヒープを初期化 */
-	// 最大ヒープを初期化
+	/* ヒープを初期化する */
+	// 最大ヒープを初期化する
 	maxHeap := &intHeap{}
 	heap.Init(maxHeap)
-	/* 要素をヒープに追加 */
+	/* ヒープに要素を挿入する */
 	testPush(maxHeap, 1)
 	testPush(maxHeap, 3)
 	testPush(maxHeap, 2)
 	testPush(maxHeap, 5)
 	testPush(maxHeap, 4)
 
-	/* ヒープ頂点の要素を取得 */
+	/* ヒープの先頭要素を取得する */
 	top := maxHeap.Top()
-	fmt.Printf("ヒープ先頭要素は %d\n", top)
+	fmt.Printf("ヒープの先頭要素は %d\n", top)
 
-	/* ヒープ頂点の要素を取り出す */
+	/* ヒープの先頭要素を取り出す */
 	testPop(maxHeap)
 	testPop(maxHeap)
 	testPop(maxHeap)
 	testPop(maxHeap)
 	testPop(maxHeap)
 
-	/* ヒープのサイズを取得 */
+	/* ヒープのサイズを取得する */
 	size := len(*maxHeap)
 	fmt.Printf("ヒープの要素数は %d\n", size)
 
-	/* ヒープが空かどうかを判定 */
+	/* ヒープが空か判定 */
 	isEmpty := len(*maxHeap) == 0
-	fmt.Printf("ヒープが空か %t\n", isEmpty)
+	fmt.Printf("ヒープは空か %t\n", isEmpty)
 }
 
 func TestMyHeap(t *testing.T) {
-	/* ヒープを初期化 */
-	// 最大ヒープを初期化
+	/* ヒープを初期化する */
+	// 最大ヒープを初期化する
 	maxHeap := newMaxHeap([]any{9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2})
-	fmt.Printf("入力配列からヒープを構築した後\n")
+	fmt.Printf("配列を入力してヒープを構築した後\n")
 	maxHeap.print()
 
-	/* ヒープ頂点の要素を取得 */
+	/* ヒープの先頭要素を取得する */
 	peek := maxHeap.peek()
-	fmt.Printf("\nヒープ先頭要素は %d\n", peek)
+	fmt.Printf("\nヒープの先頭要素は %d\n", peek)
 
-	/* 要素をヒープに追加 */
+	/* ヒープに要素を挿入する */
 	val := 7
 	maxHeap.push(val)
-	fmt.Printf("\n要素 %d をヒープに追加した後\n", val)
+	fmt.Printf("\n要素 %d をヒープに挿入した後\n", val)
 	maxHeap.print()
 
-	/* ヒープ頂点の要素を取り出す */
+	/* ヒープの先頭要素を取り出す */
 	peek = maxHeap.pop()
-	fmt.Printf("\nヒープ先頭要素 %d を取り出した後\n", peek)
+	fmt.Printf("\nヒープの先頭要素 %d を取り出した後\n", peek)
 	maxHeap.print()
 
-	/* ヒープのサイズを取得 */
+	/* ヒープのサイズを取得する */
 	size := maxHeap.size()
 	fmt.Printf("\nヒープの要素数は %d\n", size)
 
-	/* ヒープが空かどうかを判定 */
+	/* ヒープが空か判定 */
 	isEmpty := maxHeap.isEmpty()
-	fmt.Printf("\nヒープが空か %t\n", isEmpty)
+	fmt.Printf("\nヒープは空か %t\n", isEmpty)
 }
 
 func TestTopKHeap(t *testing.T) {
-	/* ヒープを初期化 */
-	// 最大ヒープを初期化
+	/* ヒープを初期化する */
+	// 最大ヒープを初期化する
 	nums := []int{1, 7, 6, 3, 2}
 	k := 3
 	res := topKHeap(nums, k)
-	fmt.Printf("最大の " + strconv.Itoa(k) + " 個の要素は")
+	fmt.Printf("大きいほうから " + strconv.Itoa(k) + " 個の要素は")
 	PrintHeap(*res)
 }

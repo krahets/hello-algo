@@ -8,38 +8,38 @@ package chapter_stack_and_queue
 
 import java.util.*
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
-    /* 両端キューを初期化 */
+    /* 両端キューを初期化する */
     val deque = LinkedList<Int>()
     deque.offerLast(3)
     deque.offerLast(2)
     deque.offerLast(5)
     println("両端キュー deque = $deque")
 
-    /* 要素にアクセス */
+    /* 要素にアクセスする */
     val peekFirst = deque.peekFirst()
-    println("先頭要素 peekFirst = $peekFirst")
+    println("キューの先頭要素 peekFirst = $peekFirst")
     val peekLast = deque.peekLast()
-    println("末尾要素 peekLast = $peekLast")
+    println("キューの末尾要素 peekLast = $peekLast")
 
-    /* 要素をエンキュー */
+    /* 要素をエンキューする */
     deque.offerLast(4)
-    println("要素 4 を末尾に追加後 deque = $deque")
+    println("要素 4 を末尾にエンキューした後 deque = $deque")
     deque.offerFirst(1)
-    println("要素 1 を先頭に追加後 deque = $deque")
+    println("要素 1 を先頭にエンキューした後 deque = $deque")
 
-    /* 要素をデキュー */
+    /* 要素をデキューする */
     val popLast = deque.pollLast()
-    println("末尾から取り出した要素 = $popLast、取り出し後 deque = $deque")
+    println("末尾からデキューした要素 = $popLast、末尾からデキューした後 deque = $deque")
     val popFirst = deque.pollFirst()
-    println("先頭から取り出した要素 = $popFirst、取り出し後 deque = $deque")
+    println("先頭からデキューした要素 = $popFirst、先頭からデキューした後 deque = $deque")
 
-    /* 両端キューの長さを取得 */
+    /* 両端キューの長さを取得する */
     val size = deque.size
-    println("双方向キューの長さ size = $size")
+    println("両端キューの長さ size = $size")
 
-    /* 両端キューが空かどうかを判定 */
+    /* 両端キューが空かどうかを判定する */
     val isEmpty = deque.isEmpty()
-    println("双方向キューが空かどうか = $isEmpty")
+    println("両端キューは空か = $isEmpty")
 }

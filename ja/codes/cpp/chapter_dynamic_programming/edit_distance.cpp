@@ -6,21 +6,21 @@
 
 #include "../utils/common.hpp"
 
-/* 編集距離：総当たり探索 */
+/* 編集距離：全探索 */
 int editDistanceDFS(string s, string t, int i, int j) {
-    // s と t がともに空なら 0 を返す
+    // s と t がともに空の場合、0 を返す
     if (i == 0 && j == 0)
         return 0;
-    // s が空なら t の長さを返す
+    // s が空の場合、t の長さを返す
     if (i == 0)
         return j;
-    // t が空なら s の長さを返す
+    // t が空の場合、s の長さを返す
     if (j == 0)
         return i;
-    // 2 つの文字が等しければ、その 2 文字をそのままスキップする
+    // 2 つの文字が等しい場合、その 2 文字をスキップする
     if (s[i - 1] == t[j - 1])
         return editDistanceDFS(s, t, i - 1, j - 1);
-    // 最小編集回数 = 挿入・削除・置換の 3 操作における最小編集回数 + 1
+    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
     int insert = editDistanceDFS(s, t, i, j - 1);
     int del = editDistanceDFS(s, t, i - 1, j);
     int replace = editDistanceDFS(s, t, i - 1, j - 1);
@@ -30,22 +30,22 @@ int editDistanceDFS(string s, string t, int i, int j) {
 
 /* 編集距離：メモ化探索 */
 int editDistanceDFSMem(string s, string t, vector<vector<int>> &mem, int i, int j) {
-    // s と t がともに空なら 0 を返す
+    // s と t がともに空の場合、0 を返す
     if (i == 0 && j == 0)
         return 0;
-    // s が空なら t の長さを返す
+    // s が空の場合、t の長さを返す
     if (i == 0)
         return j;
-    // t が空なら s の長さを返す
+    // t が空の場合、s の長さを返す
     if (j == 0)
         return i;
-    // 記録済みなら、それをそのまま返す
+    // 記録済みなら、その値をそのまま返す
     if (mem[i][j] != -1)
         return mem[i][j];
-    // 2 つの文字が等しければ、その 2 文字をそのままスキップする
+    // 2 つの文字が等しい場合、その 2 文字をスキップする
     if (s[i - 1] == t[j - 1])
         return editDistanceDFSMem(s, t, mem, i - 1, j - 1);
-    // 最小編集回数 = 挿入・削除・置換の 3 操作における最小編集回数 + 1
+    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
     int insert = editDistanceDFSMem(s, t, mem, i, j - 1);
     int del = editDistanceDFSMem(s, t, mem, i - 1, j);
     int replace = editDistanceDFSMem(s, t, mem, i - 1, j - 1);
@@ -65,14 +65,14 @@ int editDistanceDP(string s, string t) {
     for (int j = 1; j <= m; j++) {
         dp[0][j] = j;
     }
-    // 状態遷移: 残りの行と列
+    // 状態遷移：残りの行と列
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (s[i - 1] == t[j - 1]) {
-                // 2 つの文字が等しければ、その 2 文字をそのままスキップする
+                // 2 つの文字が等しい場合、その 2 文字をスキップする
                 dp[i][j] = dp[i - 1][j - 1];
             } else {
-                // 最小編集回数 = 挿入・削除・置換の 3 操作における最小編集回数 + 1
+                // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
                 dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
             }
         }
@@ -80,7 +80,7 @@ int editDistanceDP(string s, string t) {
     return dp[n][m];
 }
 
-/* 編集距離：空間最適化した動的計画法 */
+/* 編集距離：空間を最適化した動的計画法 */
 int editDistanceDPComp(string s, string t) {
     int n = s.length(), m = t.length();
     vector<int> dp(m + 1, 0);
@@ -97,10 +97,10 @@ int editDistanceDPComp(string s, string t) {
         for (int j = 1; j <= m; j++) {
             int temp = dp[j];
             if (s[i - 1] == t[j - 1]) {
-                // 2 つの文字が等しければ、その 2 文字をそのままスキップする
+                // 2 つの文字が等しい場合、その 2 文字をスキップする
                 dp[j] = leftup;
             } else {
-                // 最小編集回数 = 挿入・削除・置換の 3 操作における最小編集回数 + 1
+                // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
                 dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1;
             }
             leftup = temp; // 次の反復の dp[i-1, j-1] に更新する
@@ -109,7 +109,7 @@ int editDistanceDPComp(string s, string t) {
     return dp[m];
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
     string s = "bag";
     string t = "pack";
@@ -117,20 +117,20 @@ int main() {
 
     // 全探索
     int res = editDistanceDFS(s, t, n, m);
-    cout << s << " を " << t << " に変更するには最小で " << res << " 回の編集が必要\n";
+    cout << "文字列 " << s << " を " << t << " に変更するのに必要な最小編集回数は " << res << " 回\n";
 
     // メモ化探索
     vector<vector<int>> mem(n + 1, vector<int>(m + 1, -1));
     res = editDistanceDFSMem(s, t, mem, n, m);
-    cout << s << " を " << t << " に変更するには最小で " << res << " 回の編集が必要\n";
+    cout << "文字列 " << s << " を " << t << " に変更するのに必要な最小編集回数は " << res << " 回\n";
 
     // 動的計画法
     res = editDistanceDP(s, t);
-    cout << s << " を " << t << " に変更するには最小で " << res << " 回の編集が必要\n";
+    cout << "文字列 " << s << " を " << t << " に変更するのに必要な最小編集回数は " << res << " 回\n";
 
-    // 空間最適化後の動的計画法
+    // 空間を最適化した動的計画法
     res = editDistanceDPComp(s, t);
-    cout << s << " を " << t << " に変更するには最小で " << res << " 回の編集が必要\n";
+    cout << "文字列 " << s << " を " << t << " に変更するのに必要な最小編集回数は " << res << " 回\n";
 
     return 0;
 }

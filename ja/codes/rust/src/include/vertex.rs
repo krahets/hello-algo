@@ -16,12 +16,12 @@ impl From<i32> for Vertex {
     }
 }
 
-/* 値リスト vals を入力し、頂点リスト vets を返す */
+/* 値のリスト vals を入力し、頂点のリスト vets を返す */
 pub fn vals_to_vets(vals: Vec<i32>) -> Vec<Vertex> {
     vals.into_iter().map(|val| val.into()).collect()
 }
 
-/* 頂点リスト vets を入力し、値リスト vals を返す */
+/* 頂点のリスト vets を入力し、値のリスト vals を返す */
 pub fn vets_to_vals(vets: Vec<Vertex>) -> Vec<i32> {
     vets.into_iter().map(|vet| vet.val).collect()
 }

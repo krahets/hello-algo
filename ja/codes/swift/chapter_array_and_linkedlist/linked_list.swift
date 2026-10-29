@@ -6,14 +6,14 @@
 
 import utils
 
-/* 連結リストでノード n0 の後ろにノード P を挿入する */
+/* 連結リストのノード n0 の直後にノード P を挿入する */
 func insert(n0: ListNode, P: ListNode) {
     let n1 = n0.next
     P.next = n1
     n0.next = P
 }
 
-/* 連結リストでノード n0 の直後のノードを削除する */
+/* 連結リストのノード n0 の直後のノードを削除する */
 func remove(n0: ListNode) {
     if n0.next == nil {
         return
@@ -24,7 +24,7 @@ func remove(n0: ListNode) {
     n0.next = n1
 }
 
-/* 連結リスト内で index 番目のノードにアクセス */
+/* 連結リストのインデックス index にあるノードにアクセスする */
 func access(head: ListNode, index: Int) -> ListNode? {
     var head: ListNode? = head
     for _ in 0 ..< index {
@@ -36,7 +36,7 @@ func access(head: ListNode, index: Int) -> ListNode? {
     return head
 }
 
-/* 連結リストで値が target の最初のノードを探す */
+/* 連結リストから値が target である最初のノードを探索する */
 func find(head: ListNode, target: Int) -> Int {
     var head: ListNode? = head
     var index = 0
@@ -52,39 +52,39 @@ func find(head: ListNode, target: Int) -> Int {
 
 @main
 enum LinkedList {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
-        /* 連結リストを初期化 */
-        // 各ノードを初期化
+        /* 連結リストを初期化する */
+        // 各ノードを初期化する
         let n0 = ListNode(x: 1)
         let n1 = ListNode(x: 3)
         let n2 = ListNode(x: 2)
         let n3 = ListNode(x: 5)
         let n4 = ListNode(x: 4)
-        // ノード間の参照を構築する
+        // ノード間の参照を設定する
         n0.next = n1
         n1.next = n2
         n2.next = n3
         n3.next = n4
-        print("初期化した連結リストは")
+        print("初期化した連結リスト")
         PrintUtil.printLinkedList(head: n0)
 
-        /* ノードを挿入 */
+        /* ノードを挿入する */
         insert(n0: n0, P: ListNode(x: 0))
-        print("ノード挿入後の連結リストは")
+        print("ノードを挿入した後の連結リスト")
         PrintUtil.printLinkedList(head: n0)
 
-        /* ノードを削除 */
+        /* ノードを削除する */
         remove(n0: n0)
-        print("ノード削除後の連結リストは")
+        print("ノードを削除した後の連結リスト")
         PrintUtil.printLinkedList(head: n0)
 
-        /* ノードにアクセス */
+        /* ノードにアクセスする */
         let node = access(head: n0, index: 3)
         print("連結リストのインデックス 3 にあるノードの値 = \(node!.val)")
 
-        /* ノードを探索 */
+        /* ノードを探索する */
         let index = find(head: n0, target: 2)
-        print("連結リスト内で値が 2 のノードのインデックス = \(index)")
+        print("連結リスト内で値が 2 であるノードのインデックス = \(index)")
     }
 }

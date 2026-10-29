@@ -6,7 +6,7 @@
 
 import utils
 
-/* 配列表現による二分木クラス */
+/* 配列で表した二分木クラス */
 class ArrayBinaryTree {
     private var tree: [Int?]
 
@@ -15,31 +15,31 @@ class ArrayBinaryTree {
         tree = arr
     }
 
-    /* リスト容量 */
+    /* リストの容量 */
     func size() -> Int {
         tree.count
     }
 
-    /* インデックス i のノードの値を取得 */
+    /* インデックス i のノードの値を取得する */
     func val(i: Int) -> Int? {
-        // インデックスが範囲外なら、空きを表す null を返す
+        // インデックスが範囲外の場合、空きを表す null を返す
         if i < 0 || i >= size() {
             return nil
         }
         return tree[i]
     }
 
-    /* インデックス i のノードの左子ノードのインデックスを取得 */
+    /* インデックス i のノードの左の子ノードのインデックスを取得する */
     func left(i: Int) -> Int {
         2 * i + 1
     }
 
-    /* インデックス i のノードの右子ノードのインデックスを取得 */
+    /* インデックス i のノードの右の子ノードのインデックスを取得する */
     func right(i: Int) -> Int {
         2 * i + 2
     }
 
-    /* インデックス i のノードの親ノードのインデックスを取得 */
+    /* インデックス i のノードの親ノードのインデックスを取得する */
     func parent(i: Int) -> Int {
         (i - 1) / 2
     }
@@ -47,7 +47,7 @@ class ArrayBinaryTree {
     /* レベル順走査 */
     func levelOrder() -> [Int] {
         var res: [Int] = []
-        // 配列を直接走査する
+        // 配列をそのまま走査する
         for i in 0 ..< size() {
             if let val = val(i: i) {
                 res.append(val)
@@ -56,43 +56,43 @@ class ArrayBinaryTree {
         return res
     }
 
-    /* 深さ優先探索 */
+    /* 深さ優先走査 */
     private func dfs(i: Int, order: String, res: inout [Int]) {
-        // 空きスロットなら返す
+        // 空きの場合、戻る
         guard let val = val(i: i) else {
             return
         }
-        // 先行順走査
+        // 行きがけ順走査
         if order == "pre" {
             res.append(val)
         }
         dfs(i: left(i: i), order: order, res: &res)
-        // 中順走査
+        // 通りがけ順走査
         if order == "in" {
             res.append(val)
         }
         dfs(i: right(i: i), order: order, res: &res)
-        // 後順走査
+        // 帰りがけ順走査
         if order == "post" {
             res.append(val)
         }
     }
 
-    /* 先行順走査 */
+    /* 行きがけ順走査 */
     func preOrder() -> [Int] {
         var res: [Int] = []
         dfs(i: 0, order: "pre", res: &res)
         return res
     }
 
-    /* 中順走査 */
+    /* 通りがけ順走査 */
     func inOrder() -> [Int] {
         var res: [Int] = []
         dfs(i: 0, order: "in", res: &res)
         return res
     }
 
-    /* 後順走査 */
+    /* 帰りがけ順走査 */
     func postOrder() -> [Int] {
         var res: [Int] = []
         dfs(i: 0, order: "post", res: &res)
@@ -102,23 +102,23 @@ class ArrayBinaryTree {
 
 @main
 enum _ArrayBinaryTree {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
-        // 二分木を初期化
-        // ここでは、配列から直接二分木を生成する関数を利用する
+        // 二分木を初期化する
+        // ここでは配列から二分木を直接生成する関数を使う
         let arr = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
 
         let root = TreeNode.listToTree(arr: arr)
-        print("\n二分木を初期化\n")
+        print("\n二分木を初期化する\n")
         print("二分木の配列表現：")
         print(arr)
         print("二分木の連結リスト表現：")
         PrintUtil.printTree(root: root)
 
-        // 配列表現による二分木クラス
+        // 配列で表した二分木クラス
         let abt = ArrayBinaryTree(arr: arr)
 
-        // ノードにアクセス
+        // ノードにアクセスする
         let i = 1
         let l = abt.left(i: i)
         let r = abt.right(i: i)
@@ -128,14 +128,14 @@ enum _ArrayBinaryTree {
         print("右の子ノードのインデックスは \(r) 、値は \(abt.val(i: r) as Any)")
         print("親ノードのインデックスは \(p) 、値は \(abt.val(i: p) as Any)")
 
-        // 木を走査
+        // 木を走査する
         var res = abt.levelOrder()
         print("\nレベル順走査：\(res)")
         res = abt.preOrder()
-        print("先行順走査：\(res)")
+        print("行きがけ順走査：\(res)")
         res = abt.inOrder()
-        print("中間順走査：\(res)")
+        print("通りがけ順走査：\(res)")
         res = abt.postOrder()
-        print("後順走査は：\(res)")
+        print("帰りがけ順走査：\(res)")
     }
 }

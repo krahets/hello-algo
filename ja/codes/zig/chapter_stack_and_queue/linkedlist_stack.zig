@@ -5,17 +5,17 @@
 const std = @import("std");
 const inc = @import("include");
 
-// 連結リストベースのスタック
+// 連結リストで実装したスタック
 pub fn LinkedListStack(comptime T: type) type {
     return struct {
         const Self = @This();
 
-        stack_top: ?*inc.ListNode(T) = null,             // 先頭ノードをスタックトップとする
+        stack_top: ?*inc.ListNode(T) = null,             // 先頭ノードをスタックの先頭とする
         stk_size: usize = 0,                             // スタックの長さ
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,    // メモリアロケータ
 
-        // コンストラクタ（メモリを確保してスタックを初期化）
+        // コンストラクタ（メモリの確保とスタックの初期化）
         pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
             if (self.mem_arena == null) {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);
@@ -25,23 +25,23 @@ pub fn LinkedListStack(comptime T: type) type {
             self.stk_size = 0;
         }
 
-        // デストラクタ（メモリを解放する）
+        // デストラクタ（メモリの解放）
         pub fn deinit(self: *Self) void {
             if (self.mem_arena == null) return;
             self.mem_arena.?.deinit();
         }
 
-        // スタックの長さを取得
+        // スタックの長さを取得する
         pub fn size(self: *Self) usize {
             return self.stk_size;
         }
 
-        // スタックが空かどうかを判定
+        // スタックが空かどうかを判定する
         pub fn isEmpty(self: *Self) bool {
             return self.size() == 0;
         }
 
-        // スタックトップの要素にアクセス
+        // スタックの先頭要素にアクセスする
         pub fn peek(self: *Self) T {
             if (self.size() == 0) @panic("スタックが空です");
             return self.stack_top.?.val;
@@ -64,7 +64,7 @@ pub fn LinkedListStack(comptime T: type) type {
             return num;
         } 
 
-        // スタックを配列に変換
+        // スタックを配列に変換する
         pub fn toArray(self: *Self) ![]T {
             var node = self.stack_top;
             var res = try self.mem_allocator.alloc(T, self.size());
@@ -79,15 +79,15 @@ pub fn LinkedListStack(comptime T: type) type {
     };
 }
 
-// Driver Code
+// 実行用コード
 pub fn main() !void {
-    // スタックを初期化
+    // スタックを初期化する
     var stack = LinkedListStack(i32){};
     try stack.init(std.heap.page_allocator);
-    // メモリの遅延解放
+    // メモリの解放を遅延させる
     defer stack.deinit();
 
-    // 要素をプッシュ
+    // 要素をプッシュする
     try stack.push(1);
     try stack.push(3);
     try stack.push(2);
@@ -96,22 +96,22 @@ pub fn main() !void {
     std.debug.print("スタック stack = ", .{});
     inc.PrintUtil.printArray(i32, try stack.toArray());
 
-    // スタックトップの要素にアクセス
+    // スタックの先頭要素にアクセスする
     var peek = stack.peek();
-    std.debug.print("\nスタック頂部の要素 top = {}", .{peek});
+    std.debug.print("\nスタックの先頭要素 top = {}", .{peek});
 
-    // 要素をポップ
+    // 要素をポップする
     var pop = stack.pop();
-    std.debug.print("\nポップした要素 pop = {}，ポップ後の stack = ", .{pop});
+    std.debug.print("\nポップした要素 pop = {}、ポップ後 stack = ", .{pop});
     inc.PrintUtil.printArray(i32, try stack.toArray());
 
-    // スタックの長さを取得
+    // スタックの長さを取得する
     var size = stack.size();
     std.debug.print("\nスタックの長さ size = {}", .{size});
 
-    // スタックが空かどうかを判定
+    // スタックが空かどうかを判定する
     var is_empty = stack.isEmpty();
-    std.debug.print("\nスタックが空かどうか = {}", .{is_empty});
+    std.debug.print("\nスタックは空か = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

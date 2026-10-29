@@ -13,12 +13,12 @@ class Vertex
   end
 end
 
-### 値リスト vals を入力し、頂点リスト vets を返す ###
+### 値のリスト vals を入力し、頂点のリスト vets を返す ###
 def vals_to_vets(vals)
   Array.new(vals.length) { |i| Vertex.new(vals[i]) }
 end
 
-### 頂点リスト vets を入力し、値リスト vals を返す ###
+### 頂点のリスト vets を入力し、値のリスト vals を返す ###
 def vets_to_vals(vets)
   Array.new(vets.length) { |i| vets[i].val }
 end

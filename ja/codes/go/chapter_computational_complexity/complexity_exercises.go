@@ -21,7 +21,7 @@ func sumRecur(n int) int {
 	return n + sumRecur(n-1)
 }
 
-/* 線形時間のループ */
+/* 線形オーダーのループ */
 func linearLoop(n int) int {
 	res := 0
 	for i := 0; i < n; i++ {
@@ -30,7 +30,7 @@ func linearLoop(n int) int {
 	return res
 }
 
-/* 二次時間のループ */
+/* 二次オーダーのループ */
 func quadraticLoop(n int) int {
 	res := 0
 	for i := 0; i < n; i++ {
@@ -41,7 +41,7 @@ func quadraticLoop(n int) int {
 	return res
 }
 
-/* 対数時間のループ */
+/* 対数オーダーのループ */
 func logarithmicLoop(n int) int {
 	for n > 1 {
 		n /= 2

@@ -12,17 +12,17 @@ class Item(
     val v: Int  // 品物の価値
 )
 
-/* 分数ナップサック：貪欲法 */
+/* 分割可能ナップサック問題：貪欲法 */
 fun fractionalKnapsack(wgt: IntArray, _val: IntArray, c: Int): Double {
-    // 重さと価値の 2 属性を持つ品物リストを作成
+    // 重さと価値の 2 つの属性を持つ品物のリストを作成する
     var cap = c
     val items = arrayOfNulls<Item>(wgt.size)
     for (i in wgt.indices) {
         items[i] = Item(wgt[i], _val[i])
     }
-    // 単位価値 item.v / item.w の高い順にソートする
+    // 単位重さ当たりの価値 item.v / item.w の降順にソートする
     items.sortBy { item: Item? -> -(item!!.v.toDouble() / item.w) }
-    // 貪欲選択を繰り返す
+    // 貪欲な選択を繰り返す
     var res = 0.0
     for (item in items) {
         if (item!!.w <= cap) {
@@ -30,22 +30,22 @@ fun fractionalKnapsack(wgt: IntArray, _val: IntArray, c: Int): Double {
             res += item.v
             cap -= item.w
         } else {
-            // 残り容量が足りない場合は、現在の品物の一部だけをナップサックに入れる
+            // 残り容量が不足している場合、現在の品物の一部をナップサックに入れる
             res += item.v.toDouble() / item.w * cap
-            // 残り容量がないため、ループを抜ける
+            // 残り容量がないため、ループを終了する
             break
         }
     }
     return res
 }
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
     val wgt = intArrayOf(10, 20, 30, 40, 50)
     val _val = intArrayOf(50, 120, 150, 210, 240)
     val cap = 50
 
-    // 貪欲法
+    // 貪欲アルゴリズム
     val res = fractionalKnapsack(wgt, _val, cap)
-    println("ナップサック容量を超えない最大価値は $res")
+    println("ナップサックの容量を超えない品物の最大価値は $res")
 }

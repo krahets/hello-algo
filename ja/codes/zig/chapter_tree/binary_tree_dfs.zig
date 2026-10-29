@@ -7,7 +7,7 @@ const inc = @import("include");
 
 var list = std.ArrayList(i32).init(std.heap.page_allocator);
 
-// 先行順走査
+// 行きがけ順走査
 fn preOrder(comptime T: type, root: ?*inc.TreeNode(T)) !void {
     if (root == null) return;
     // 訪問順序：根ノード -> 左部分木 -> 右部分木
@@ -16,54 +16,54 @@ fn preOrder(comptime T: type, root: ?*inc.TreeNode(T)) !void {
     try preOrder(T, root.?.right);
 }
 
-// 中順走査
+// 通りがけ順走査
 fn inOrder(comptime T: type, root: ?*inc.TreeNode(T)) !void {
     if (root == null) return;
-    // 訪問優先順: 左部分木 -> 根ノード -> 右部分木
+    // 訪問順序：左部分木 -> 根ノード -> 右部分木
     try inOrder(T, root.?.left);
     try list.append(root.?.val);
     try inOrder(T, root.?.right);
 }
 
-// 後順走査
+// 帰りがけ順走査
 fn postOrder(comptime T: type, root: ?*inc.TreeNode(T)) !void {
     if (root == null) return;
-    // 訪問優先順: 左部分木 -> 右部分木 -> 根ノード
+    // 訪問順序：左部分木 -> 右部分木 -> 根ノード
     try postOrder(T, root.?.left);
     try postOrder(T, root.?.right);
     try list.append(root.?.val);
 }
 
-// Driver Code
+// 実行用コード
 pub fn main() !void {
     // メモリアロケータを初期化する
     var mem_arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
     defer mem_arena.deinit();
     const mem_allocator = mem_arena.allocator();
 
-    // 二分木を初期化
-    // ここでは、配列から直接二分木を生成する関数を利用する
+    // 二分木を初期化する
+    // ここでは配列から二分木を直接生成する関数を使う
     var nums = [_]i32{1, 2, 3, 4, 5, 6, 7};
     var root = try inc.TreeUtil.arrToTree(i32, mem_allocator, &nums);
-    std.debug.print("二分木を初期化\n", .{});
+    std.debug.print("二分木を初期化する\n", .{});
     try inc.PrintUtil.printTree(root, null, false);
 
-    // 先行順走査
+    // 行きがけ順走査
     list.clearRetainingCapacity();
     try preOrder(i32, root);
-    std.debug.print("\n前順走査のノード出力シーケンス = ", .{});
+    std.debug.print("\n行きがけ順走査で表示するノードの順序 = ", .{});
     inc.PrintUtil.printList(i32, list);
 
-    // 中順走査
+    // 通りがけ順走査
     list.clearRetainingCapacity();
     try inOrder(i32, root);
-    std.debug.print("\n中順走査のノード出力シーケンス = ", .{});
+    std.debug.print("\n通りがけ順走査で表示するノードの順序 = ", .{});
     inc.PrintUtil.printList(i32, list);
 
-    // 後順走査
+    // 帰りがけ順走査
     list.clearRetainingCapacity();
     try postOrder(i32, root);
-    std.debug.print("\n後順走査のノード出力シーケンス = ", .{});
+    std.debug.print("\n帰りがけ順走査で表示するノードの順序 = ", .{});
     inc.PrintUtil.printList(i32, list);
 
     _ = try std.io.getStdIn().reader().readByte();

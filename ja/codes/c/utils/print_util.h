@@ -18,7 +18,7 @@
 extern "C" {
 #endif
 
-/* 配列を出力する */
+/* 配列を表示する */
 void printArray(int arr[], int size) {
     if (arr == NULL || size == 0) {
         printf("[]");
@@ -31,7 +31,7 @@ void printArray(int arr[], int size) {
     printf("%d]\n", arr[size - 1]);
 }
 
-/* 配列を出力する */
+/* 配列を表示する */
 void printArrayFloat(float arr[], int size) {
     if (arr == NULL || size == 0) {
         printf("[]");
@@ -44,7 +44,7 @@ void printArrayFloat(float arr[], int size) {
     printf("%.2f]\n", arr[size - 1]);
 }
 
-/* 連結リストを出力 */
+/* 連結リストを表示する */
 void printLinkedList(ListNode *node) {
     if (node == NULL) {
         return;
@@ -78,8 +78,8 @@ void showTrunks(Trunk *trunk) {
 }
 
 /**
- * 二分木を出力
- * This tree printer is borrowed from TECHIE DELIGHT
+ * 二分木を表示する
+ * この木の表示処理は TECHIE DELIGHT から借用した
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 void printTreeHelper(TreeNode *node, Trunk *prev, bool isRight) {
@@ -109,12 +109,12 @@ void printTreeHelper(TreeNode *node, Trunk *prev, bool isRight) {
     printTreeHelper(node->left, trunk, false);
 }
 
-/* 二分木を出力 */
+/* 二分木を表示する */
 void printTree(TreeNode *root) {
     printTreeHelper(root, NULL, false);
 }
 
-/* ヒープを出力 */
+/* ヒープを表示する */
 void printHeap(int arr[], int size) {
     TreeNode *root;
     printf("ヒープの配列表現：");

@@ -14,14 +14,14 @@ function minPathSumDFS(
     if (i === 0 && j == 0) {
         return grid[0][0];
     }
-    // 行または列のインデックスが範囲外なら、コスト +∞ を返す
+    // 行または列のインデックスが範囲外の場合、コスト +∞ を返す
     if (i < 0 || j < 0) {
         return Infinity;
     }
     // 左上から (i-1, j) および (i, j-1) までの最小経路コストを計算する
     const up = minPathSumDFS(grid, i - 1, j);
     const left = minPathSumDFS(grid, i, j - 1);
-    // 左上隅から (i, j) までの最小経路コストを返す
+    // 左上から (i, j) までの最小経路コストを返す
     return Math.min(left, up) + grid[i][j];
 }
 
@@ -36,15 +36,15 @@ function minPathSumDFSMem(
     if (i === 0 && j === 0) {
         return grid[0][0];
     }
-    // 行または列のインデックスが範囲外なら、コスト +∞ を返す
+    // 行または列のインデックスが範囲外の場合、コスト +∞ を返す
     if (i < 0 || j < 0) {
         return Infinity;
     }
-    // 既に記録があればそのまま返す
+    // 記録済みなら、その値をそのまま返す
     if (mem[i][j] != -1) {
         return mem[i][j];
     }
-    // 左と上のセルからの最小経路コスト
+    // 左隣と上隣のセルまでの最小経路コスト
     const up = minPathSumDFSMem(grid, mem, i - 1, j);
     const left = minPathSumDFSMem(grid, mem, i, j - 1);
     // 左上から (i, j) までの最小経路コストを記録して返す
@@ -56,7 +56,7 @@ function minPathSumDFSMem(
 function minPathSumDP(grid: Array<Array<number>>): number {
     const n = grid.length,
         m = grid[0].length;
-    // dp テーブルを初期化
+    // dp テーブルを初期化する
     const dp = Array.from({ length: n }, () =>
         Array.from({ length: m }, () => 0)
     );
@@ -69,7 +69,7 @@ function minPathSumDP(grid: Array<Array<number>>): number {
     for (let i = 1; i < n; i++) {
         dp[i][0] = dp[i - 1][0] + grid[i][0];
     }
-    // 状態遷移: 残りの行と列
+    // 状態遷移：残りの行と列
     for (let i = 1; i < n; i++) {
         for (let j: number = 1; j < m; j++) {
             dp[i][j] = Math.min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
@@ -78,11 +78,11 @@ function minPathSumDP(grid: Array<Array<number>>): number {
     return dp[n - 1][m - 1];
 }
 
-/* 最小経路和：空間最適化後の動的計画法 */
+/* 最小経路和：空間を最適化した動的計画法 */
 function minPathSumDPComp(grid: Array<Array<number>>): number {
     const n = grid.length,
         m = grid[0].length;
-    // dp テーブルを初期化
+    // dp テーブルを初期化する
     const dp = new Array(m);
     // 状態遷移：先頭行
     dp[0] = grid[0][0];
@@ -101,7 +101,7 @@ function minPathSumDPComp(grid: Array<Array<number>>): number {
     return dp[m - 1];
 }
 
-/* Driver Code */
+/* 実行用コード */
 const grid = [
     [1, 3, 1, 5],
     [2, 2, 4, 2],
@@ -125,7 +125,7 @@ console.log(`左上から右下までの最小経路和は ${res}`);
 res = minPathSumDP(grid);
 console.log(`左上から右下までの最小経路和は ${res}`);
 
-// 空間最適化後の動的計画法
+// 空間を最適化した動的計画法
 res = minPathSumDPComp(grid);
 console.log(`左上から右下までの最小経路和は ${res}`);
 

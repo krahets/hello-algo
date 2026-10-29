@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
     int num = 3;
     size_t hashNum = hash<int>()(num);
@@ -20,10 +20,10 @@ int main() {
     size_t hashDec = hash<double>()(dec);
     cout << "小数 " << dec << " のハッシュ値は " << hashDec << "\n";
 
-    string str = "Hello アルゴリズム";
+    string str = "Hello 算法";
     size_t hashStr = hash<string>()(str);
     cout << "文字列 " << str << " のハッシュ値は " << hashStr << "\n";
 
-    // C++ では、組み込みの std::hash() は基本データ型のハッシュ値計算しか提供しない
-    // 配列やオブジェクトのハッシュ値計算は自分で実装する必要がある
+    // C++ の組み込み std::hash() は、基本データ型のハッシュ値の計算にのみ対応する
+    // 配列やオブジェクトのハッシュ値の計算は自分で実装する必要がある
 }

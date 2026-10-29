@@ -1,21 +1,21 @@
 # リスト
 
-<u>リスト（list）</u>は抽象的なデータ構造の概念であり、要素の順序付き集合を表す。要素のアクセス、更新、追加、削除、走査などの操作をサポートし、利用者は容量制限の問題を考慮する必要がない。リストは連結リストまたは配列に基づいて実装できる。
+<u>リスト（list）</u>は抽象的なデータ構造の概念で、順序を持つ要素の集合を表します。要素へのアクセス、更新、追加、削除、走査などの操作をサポートし、利用者は容量の制限を気にする必要がありません。リストは連結リストや配列を使って実装できます。
 
-- 連結リストは本質的にリストと見なすことができ、要素の追加・削除・参照・更新をサポートし、柔軟に動的拡張できる。
-- 配列も要素の追加・削除・参照・更新をサポートするが、長さが不変であるため、長さ制限のあるリストとしか見なせない。
+- 連結リストは、要素の追加・削除・検索・更新をサポートし、動的に柔軟に拡張できるため、そのままリストとみなせます。
+- 配列も要素の追加・削除・検索・更新をサポートしますが、長さを変えられないため、長さに制限のあるリストとしかみなせません。
 
-配列でリストを実装する場合、**長さが不変である性質によってリストの実用性が低下する**。これは、通常は事前にどれだけのデータを格納する必要があるかを決められず、適切なリスト長を選びにくいためである。長さが小さすぎると利用要件を満たせない可能性が高く、大きすぎるとメモリ空間の浪費を招く。
+配列でリストを実装すると、**長さを変えられない性質が実用性を下げてしまいます**。通常、保存するデータ量を事前に確定できず、適切な長さを選ぶのが難しいためです。短すぎれば必要な量を格納できず、長すぎればメモリが無駄になります。
 
-この問題を解決するために、<u>動的配列（dynamic array）</u>を用いてリストを実装できる。これは配列の各種利点を引き継ぎつつ、プログラム実行中に動的な拡張を行える。
+この問題を解決するため、<u>動的配列（dynamic array）</u>でリストを実装できます。動的配列は配列の利点を受け継ぎ、プログラムの実行中に容量を動的に拡張できます。
 
-実際には、**多くのプログラミング言語の標準ライブラリが提供するリストは動的配列に基づいて実装されている**。たとえば、Python の `list` 、Java の `ArrayList` 、C++ の `vector` 、C# の `List` などである。以降の議論では、「リスト」と「動的配列」を同じ概念として扱う。
+実際、**多くのプログラミング言語の標準ライブラリで提供されるリストは、動的配列で実装されています**。Python の `list`、Java の `ArrayList`、C++ の `vector`、C# の `List` などがその例です。以下では、「リスト」と「動的配列」を同じ概念として扱います。
 
-## リストの基本操作
+## リストの主な操作
 
 ### リストの初期化
 
-通常は「初期値なし」と「初期値あり」の 2 つの初期化方法を用いる。
+通常は、「初期値なし」と「初期値あり」の二つの方法で初期化します。
 
 === "Python"
 
@@ -31,7 +31,7 @@
 
     ```cpp title="list.cpp"
     /* リストを初期化 */
-    // なお、C++ では vector が本稿でいう nums に相当する
+    // C++ の vector が、本節で扱う nums に相当することに注意
     // 初期値なし
     vector<int> nums1;
     // 初期値あり
@@ -44,7 +44,7 @@
     /* リストを初期化 */
     // 初期値なし
     List<Integer> nums1 = new ArrayList<>();
-    // 初期値あり（配列の要素型は int[] のラッパークラスである Integer[] である必要があることに注意）
+    // 初期値あり（配列には、int[] に対応するラッパー型の配列 Integer[] を使う必要がある）
     Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
     List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
     ```
@@ -147,13 +147,13 @@
     nums = [1, 3, 2, 5, 4]
     ```
 
-??? pythontutor "可視化実行"
+??? pythontutor "実行の可視化"
 
-    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20%23%20%E6%97%A0%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%AA%E3%81%97%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%82%E3%82%8A%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 ### 要素へのアクセス
 
-リストの本質は配列であるため、要素へのアクセスと更新は $O(1)$ 時間で行え、効率が高い。
+リストの実体は配列なので、要素へのアクセスと更新を $O(1)$ 時間で行え、非常に効率的です。
 
 === "Python"
 
@@ -278,18 +278,18 @@
     nums[1] = 0 # インデックス 1 の要素を 0 に更新
     ```
 
-??? pythontutor "可視化実行"
+??? pythontutor "実行の可視化"
 
-    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%E8%AE%BF%E9%97%AE%E7%B4%A2%E5%BC%95%201%20%E5%A4%84%E7%9A%84%E5%85%83%E7%B4%A0%0A%0A%20%20%20%20%23%20%E6%9B%B4%E6%96%B0%E5%85%83%E7%B4%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E5%B0%86%E7%B4%A2%E5%BC%95%201%20%E5%A4%84%E7%9A%84%E5%85%83%E7%B4%A0%E6%9B%B4%E6%96%B0%E4%B8%BA%200&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%201%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E6%9B%B4%E6%96%B0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%201%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%200%20%E3%81%AB%E6%9B%B4%E6%96%B0&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 ### 要素の挿入と削除
 
-配列と比べて、リストでは要素を自由に追加・削除できる。リスト末尾への要素追加の時間計算量は $O(1)$ だが、要素の挿入と削除の効率は依然として配列と同じで、時間計算量は $O(n)$ である。
+配列と比べて、リストは自由に要素を追加・削除できます。末尾への追加の時間計算量は $O(1)$ ですが、要素の挿入と削除の効率は配列と同じで、時間計算量は $O(n)$ です。
 
 === "Python"
 
     ```python title="list.py"
-    # リストをクリア
+    # リストを空にする
     nums.clear()
 
     # 末尾に要素を追加
@@ -309,7 +309,7 @@
 === "C++"
 
     ```cpp title="list.cpp"
-    /* リストをクリア */
+    /* リストを空にする */
     nums.clear();
 
     /* 末尾に要素を追加 */
@@ -329,7 +329,7 @@
 === "Java"
 
     ```java title="list.java"
-    /* リストをクリア */
+    /* リストを空にする */
     nums.clear();
 
     /* 末尾に要素を追加 */
@@ -349,7 +349,7 @@
 === "C#"
 
     ```csharp title="list.cs"
-    /* リストをクリア */
+    /* リストを空にする */
     nums.Clear();
 
     /* 末尾に要素を追加 */
@@ -369,7 +369,7 @@
 === "Go"
 
     ```go title="list_test.go"
-    /* リストをクリア */
+    /* リストを空にする */
     nums = nil
 
     /* 末尾に要素を追加 */
@@ -389,7 +389,7 @@
 === "Swift"
 
     ```swift title="list.swift"
-    /* リストをクリア */
+    /* リストを空にする */
     nums.removeAll()
 
     /* 末尾に要素を追加 */
@@ -409,7 +409,7 @@
 === "JS"
 
     ```javascript title="list.js"
-    /* リストをクリア */
+    /* リストを空にする */
     nums.length = 0;
 
     /* 末尾に要素を追加 */
@@ -429,7 +429,7 @@
 === "TS"
 
     ```typescript title="list.ts"
-    /* リストをクリア */
+    /* リストを空にする */
     nums.length = 0;
 
     /* 末尾に要素を追加 */
@@ -449,7 +449,7 @@
 === "Dart"
 
     ```dart title="list.dart"
-    /* リストをクリア */
+    /* リストを空にする */
     nums.clear();
 
     /* 末尾に要素を追加 */
@@ -469,7 +469,7 @@
 === "Rust"
 
     ```rust title="list.rs"
-    /* リストをクリア */
+    /* リストを空にする */
     nums.clear();
 
     /* 末尾に要素を追加 */
@@ -495,7 +495,7 @@
 === "Kotlin"
 
     ```kotlin title="list.kt"
-    /* リストをクリア */
+    /* リストを空にする */
     nums.clear();
 
     /* 末尾に要素を追加 */
@@ -515,7 +515,7 @@
 === "Ruby"
 
     ```ruby title="list.rb"
-    # リストをクリア
+    # リストを空にする
     nums.clear
 
     # 末尾に要素を追加
@@ -532,18 +532,18 @@
     nums.delete_at(3) # インデックス 3 の要素を削除
     ```
 
-??? pythontutor "可視化実行"
+??? pythontutor "実行の可視化"
 
-    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B8%85%E7%A9%BA%E5%88%97%E8%A1%A8%0A%20%20%20%20nums.clear%28%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%9C%A8%E5%B0%BE%E9%83%A8%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.append%281%29%0A%20%20%20%20nums.append%283%29%0A%20%20%20%20nums.append%282%29%0A%20%20%20%20nums.append%285%29%0A%20%20%20%20nums.append%284%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%9C%A8%E4%B8%AD%E9%97%B4%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.insert%283,%206%29%20%20%23%20%E5%9C%A8%E7%B4%A2%E5%BC%95%203%20%E5%A4%84%E6%8F%92%E5%85%A5%E6%95%B0%E5%AD%97%206%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.pop%283%29%20%20%20%20%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95%203%20%E5%A4%84%E7%9A%84%E5%85%83%E7%B4%A0&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%82%E3%82%8A%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E7%A9%BA%E3%81%AB%E3%81%99%E3%82%8B%0A%20%20%20%20nums.clear()%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E8%BF%BD%E5%8A%A0%0A%20%20%20%20nums.append(1)%0A%20%20%20%20nums.append(3)%0A%20%20%20%20nums.append(2)%0A%20%20%20%20nums.append(5)%0A%20%20%20%20nums.append(4)%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%80%94%E4%B8%AD%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20nums.insert(3%2C%206)%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AB%E6%95%B0%E5%80%A4%206%20%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4%0A%20%20%20%20nums.pop(3)%20%20%20%20%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 ### リストの走査
 
-配列と同様に、リストもインデックスに基づいて走査することも、各要素を直接走査することもできる。
+配列と同様に、インデックスを使って走査することも、各要素を直接取り出して走査することもできます。
 
 === "Python"
 
     ```python title="list.py"
-    # インデックスでリストを走査
+    # インデックスを使ってリストを走査
     count = 0
     for i in range(len(nums)):
         count += nums[i]
@@ -556,7 +556,7 @@
 === "C++"
 
     ```cpp title="list.cpp"
-    /* インデックスでリストを走査 */
+    /* インデックスを使ってリストを走査 */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
         count += nums[i];
@@ -572,7 +572,7 @@
 === "Java"
 
     ```java title="list.java"
-    /* インデックスでリストを走査 */
+    /* インデックスを使ってリストを走査 */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
         count += nums.get(i);
@@ -587,7 +587,7 @@
 === "C#"
 
     ```csharp title="list.cs"
-    /* インデックスでリストを走査 */
+    /* インデックスを使ってリストを走査 */
     int count = 0;
     for (int i = 0; i < nums.Count; i++) {
         count += nums[i];
@@ -603,7 +603,7 @@
 === "Go"
 
     ```go title="list_test.go"
-    /* インデックスでリストを走査 */
+    /* インデックスを使ってリストを走査 */
     count := 0
     for i := 0; i < len(nums); i++ {
         count += nums[i]
@@ -619,7 +619,7 @@
 === "Swift"
 
     ```swift title="list.swift"
-    /* インデックスでリストを走査 */
+    /* インデックスを使ってリストを走査 */
     var count = 0
     for i in nums.indices {
         count += nums[i]
@@ -635,7 +635,7 @@
 === "JS"
 
     ```javascript title="list.js"
-    /* インデックスでリストを走査 */
+    /* インデックスを使ってリストを走査 */
     let count = 0;
     for (let i = 0; i < nums.length; i++) {
         count += nums[i];
@@ -651,7 +651,7 @@
 === "TS"
 
     ```typescript title="list.ts"
-    /* インデックスでリストを走査 */
+    /* インデックスを使ってリストを走査 */
     let count = 0;
     for (let i = 0; i < nums.length; i++) {
         count += nums[i];
@@ -667,7 +667,7 @@
 === "Dart"
 
     ```dart title="list.dart"
-    /* インデックスでリストを走査 */
+    /* インデックスを使ってリストを走査 */
     int count = 0;
     for (var i = 0; i < nums.length; i++) {
         count += nums[i];
@@ -683,7 +683,7 @@
 === "Rust"
 
     ```rust title="list.rs"
-    // インデックスでリストを走査
+    // インデックスを使ってリストを走査
     let mut _count = 0;
     for i in 0..nums.len() {
         _count += nums[i];
@@ -705,7 +705,7 @@
 === "Kotlin"
 
     ```kotlin title="list.kt"
-    /* インデックスでリストを走査 */
+    /* インデックスを使ってリストを走査 */
     var count = 0
     for (i in nums.indices) {
         count += nums[i]
@@ -720,7 +720,7 @@
 === "Ruby"
 
     ```ruby title="list.rb"
-    # インデックスでリストを走査
+    # インデックスを使ってリストを走査
     count = 0
     for i in 0...nums.length
         count += nums[i]
@@ -733,18 +733,18 @@
     end
     ```
 
-??? pythontutor "可視化実行"
+??? pythontutor "実行の可視化"
 
-    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%80%9A%E8%BF%87%E7%B4%A2%E5%BC%95%E9%81%8D%E5%8E%86%E5%88%97%E8%A1%A8%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20%E7%9B%B4%E6%8E%A5%E9%81%8D%E5%8E%86%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E8%B5%B0%E6%9F%BB%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range(len(nums))%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E7%9B%B4%E6%8E%A5%E8%B5%B0%E6%9F%BB%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 ### リストの連結
 
-新しいリスト `nums1` が与えられたとき、それを元のリストの末尾に連結できる。
+新しいリスト `nums1` を、元のリストの末尾につなげられます。
 
 === "Python"
 
     ```python title="list.py"
-    # 2 つのリストを連結
+    # 二つのリストを連結
     nums1: list[int] = [6, 8, 7, 10, 9]
     nums += nums1  # リスト nums1 を nums の後ろに連結
     ```
@@ -752,7 +752,7 @@
 === "C++"
 
     ```cpp title="list.cpp"
-    /* 2 つのリストを連結 */
+    /* 二つのリストを連結 */
     vector<int> nums1 = { 6, 8, 7, 10, 9 };
     // リスト nums1 を nums の後ろに連結
     nums.insert(nums.end(), nums1.begin(), nums1.end());
@@ -761,7 +761,7 @@
 === "Java"
 
     ```java title="list.java"
-    /* 2 つのリストを連結 */
+    /* 二つのリストを連結 */
     List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
     nums.addAll(nums1);  // リスト nums1 を nums の後ろに連結
     ```
@@ -769,7 +769,7 @@
 === "C#"
 
     ```csharp title="list.cs"
-    /* 2 つのリストを連結 */
+    /* 二つのリストを連結 */
     List<int> nums1 = [6, 8, 7, 10, 9];
     nums.AddRange(nums1);  // リスト nums1 を nums の後ろに連結
     ```
@@ -777,7 +777,7 @@
 === "Go"
 
     ```go title="list_test.go"
-    /* 2 つのリストを連結 */
+    /* 二つのリストを連結 */
     nums1 := []int{6, 8, 7, 10, 9}
     nums = append(nums, nums1...)  // リスト nums1 を nums の後ろに連結
     ```
@@ -785,7 +785,7 @@
 === "Swift"
 
     ```swift title="list.swift"
-    /* 2 つのリストを連結 */
+    /* 二つのリストを連結 */
     let nums1 = [6, 8, 7, 10, 9]
     nums.append(contentsOf: nums1) // リスト nums1 を nums の後ろに連結
     ```
@@ -793,7 +793,7 @@
 === "JS"
 
     ```javascript title="list.js"
-    /* 2 つのリストを連結 */
+    /* 二つのリストを連結 */
     const nums1 = [6, 8, 7, 10, 9];
     nums.push(...nums1);  // リスト nums1 を nums の後ろに連結
     ```
@@ -801,7 +801,7 @@
 === "TS"
 
     ```typescript title="list.ts"
-    /* 2 つのリストを連結 */
+    /* 二つのリストを連結 */
     const nums1: number[] = [6, 8, 7, 10, 9];
     nums.push(...nums1);  // リスト nums1 を nums の後ろに連結
     ```
@@ -809,7 +809,7 @@
 === "Dart"
 
     ```dart title="list.dart"
-    /* 2 つのリストを連結 */
+    /* 二つのリストを連結 */
     List<int> nums1 = [6, 8, 7, 10, 9];
     nums.addAll(nums1);  // リスト nums1 を nums の後ろに連結
     ```
@@ -817,7 +817,7 @@
 === "Rust"
 
     ```rust title="list.rs"
-    /* 2 つのリストを連結 */
+    /* 二つのリストを連結 */
     let nums1: Vec<i32> = vec![6, 8, 7, 10, 9];
     nums.extend(nums1);
     ```
@@ -831,7 +831,7 @@
 === "Kotlin"
 
     ```kotlin title="list.kt"
-    /* 2 つのリストを連結 */
+    /* 二つのリストを連結 */
     val nums1 = intArrayOf(6, 8, 7, 10, 9).toMutableList()
     nums.addAll(nums1)  // リスト nums1 を nums の後ろに連結
     ```
@@ -839,87 +839,87 @@
 === "Ruby"
 
     ```ruby title="list.rb"
-    # 2 つのリストを連結
+    # 二つのリストを連結
     nums1 = [6, 8, 7, 10, 9]
     nums += nums1
     ```
 
-??? pythontutor "可視化実行"
+??? pythontutor "実行の可視化"
 
-    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%8B%BC%E6%8E%A5%E4%B8%A4%E4%B8%AA%E5%88%97%E8%A1%A8%0A%20%20%20%20nums1%20%3D%20%5B6,%208,%207,%2010,%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20%E5%B0%86%E5%88%97%E8%A1%A8%20nums1%20%E6%8B%BC%E6%8E%A5%E5%88%B0%20nums%20%E4%B9%8B%E5%90%8E&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E4%BA%8C%E3%81%A4%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E9%80%A3%E7%B5%90%0A%20%20%20%20nums1%20%3D%20%5B6%2C%208%2C%207%2C%2010%2C%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%20nums1%20%E3%82%92%20nums%20%E3%81%AE%E5%BE%8C%E3%82%8D%E3%81%AB%E9%80%A3%E7%B5%90&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-### リストをソート
+### リストのソート
 
-リストのソートが完了すると、配列系アルゴリズム問題でよく問われる「二分探索」や「両ポインタ」アルゴリズムを使えるようになる。
+リストをソートすると、配列を扱うアルゴリズムの問題でよく問われる「二分探索」や「二つのポインタを使う」アルゴリズムを利用できます。
 
 === "Python"
 
     ```python title="list.py"
     # リストをソート
-    nums.sort()  # ソート後、リスト要素は小さい順に並ぶ
+    nums.sort()  # ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
     /* リストをソート */
-    sort(nums.begin(), nums.end());  // ソート後、リスト要素は小さい順に並ぶ
+    sort(nums.begin(), nums.end());  // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "Java"
 
     ```java title="list.java"
     /* リストをソート */
-    Collections.sort(nums);  // ソート後、リスト要素は小さい順に並ぶ
+    Collections.sort(nums);  // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
     /* リストをソート */
-    nums.Sort(); // ソート後、リスト要素は小さい順に並ぶ
+    nums.Sort(); // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "Go"
 
     ```go title="list_test.go"
     /* リストをソート */
-    sort.Ints(nums)  // ソート後、リスト要素は小さい順に並ぶ
+    sort.Ints(nums)  // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
     /* リストをソート */
-    nums.sort() // ソート後、リスト要素は小さい順に並ぶ
+    nums.sort() // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "JS"
 
     ```javascript title="list.js"
     /* リストをソート */
-    nums.sort((a, b) => a - b);  // ソート後、リスト要素は小さい順に並ぶ
+    nums.sort((a, b) => a - b);  // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
     /* リストをソート */
-    nums.sort((a, b) => a - b);  // ソート後、リスト要素は小さい順に並ぶ
+    nums.sort((a, b) => a - b);  // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
     /* リストをソート */
-    nums.sort(); // ソート後、リスト要素は小さい順に並ぶ
+    nums.sort(); // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
     /* リストをソート */
-    nums.sort(); // ソート後、リスト要素は小さい順に並ぶ
+    nums.sort(); // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "C"
@@ -932,29 +932,29 @@
 
     ```kotlin title="list.kt"
     /* リストをソート */
-    nums.sort() // ソート後、リスト要素は小さい順に並ぶ
+    nums.sort() // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "Ruby"
 
     ```ruby title="list.rb"
     # リストをソート
-    nums = nums.sort { |a, b| a <=> b } # ソート後、リスト要素は小さい順に並ぶ
+    nums = nums.sort { |a, b| a <=> b } # ソート後、リストの要素は昇順に並ぶ
     ```
 
-??? pythontutor "可視化実行"
+??? pythontutor "実行の可視化"
 
-    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%8E%92%E5%BA%8F%E5%88%97%E8%A1%A8%0A%20%20%20%20nums.sort%28%29%20%20%23%20%E6%8E%92%E5%BA%8F%E5%90%8E%EF%BC%8C%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7%E6%8E%92%E5%88%97&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E3%82%BD%E3%83%BC%E3%83%88%0A%20%20%20%20nums.sort()%20%20%23%20%E3%82%BD%E3%83%BC%E3%83%88%E5%BE%8C%E3%81%AF%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8C%E6%98%87%E9%A0%86%E3%81%AB%E4%B8%A6%E3%81%B6&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 ## リストの実装
 
-多くのプログラミング言語にはリストが組み込まれており、たとえば Java、C++、Python などがある。それらの実装は比較的複雑で、初期容量や拡張倍率など各種パラメータの設定もよく考えられている。興味があればソースコードを参照して学べる。
+Java、C++、Python など、多くのプログラミング言語にはリストが用意されています。その実装は比較的複雑で、初期容量や拡張倍率などのパラメータも慎重に設計されています。興味があれば、ソースコードを読んで学んでみてください。
 
-リストの動作原理への理解を深めるため、ここでは簡易版のリストを実装し、以下の 3 つの設計ポイントを含める。
+リストの仕組みをより深く理解するため、次の三つを設計の要点とする簡単なリストを実装してみましょう。
 
-- **初期容量**：妥当な配列の初期容量を選ぶ。この例では 10 を初期容量として選ぶ。
-- **要素数の記録**：`size` という変数を宣言して、現在のリスト要素数を記録し、要素の挿入と削除に応じてリアルタイムに更新する。この変数により、リスト末尾の位置を特定し、拡張が必要かどうかを判断できる。
-- **拡張機構**：要素を挿入する時点でリスト容量がいっぱいなら、拡張が必要になる。まず拡張倍率に応じてより大きな配列を作成し、次に現在の配列の全要素を順に新しい配列へ移す。この例では、配列を毎回以前の 2 倍に拡張する。
+- **初期容量**：配列の初期容量を適切に設定します。この例では 10 とします。
+- **要素数の記録**：現在の要素数を記録する変数 `size` を用意し、挿入と削除のたびに更新します。この変数からリストの末尾を特定し、容量拡張が必要かどうか判断できます。
+- **容量拡張の仕組み**：挿入時に容量がいっぱいなら、拡張する必要があります。まず拡張倍率に従って大きな配列を作り、現在の配列の全要素を順に移します。この例では、毎回、容量を元の 2 倍にします。
 
 ```src
 [file]{my_list}-[class]{my_list}-[func]{}

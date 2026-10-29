@@ -10,40 +10,40 @@ namespace hello_algo.chapter_hashing;
 public class hash_map {
     [Test]
     public void Test() {
-        /* ハッシュテーブルを初期化 */
+        /* ハッシュテーブルを初期化する */
         Dictionary<int, string> map = new() {
             /* 追加操作 */
-            // ハッシュテーブルにキーと値のペア (key, value) を追加
-            { 12836, "シャオハー" },
-            { 15937, "シャオルオ" },
-            { 16750, "シャオスワン" },
-            { 13276, "シャオファー" },
-            { 10583, "シャオヤー" }
+            // ハッシュテーブルにキーと値のペア (key, value) を追加する
+            { 12836, "小哈" },
+            { 15937, "小啰" },
+            { 16750, "小算" },
+            { 13276, "小法" },
+            { 10583, "小鸭" }
         };
-        Console.WriteLine("\n追加完了後、ハッシュテーブルは\nKey -> Value");
+        Console.WriteLine("\n追加後のハッシュテーブル\nKey -> Value");
         PrintUtil.PrintHashMap(map);
 
-        /* 検索操作 */
-        // キー key をハッシュテーブルに渡し、値 value を取得
+        /* 取得操作 */
+        // ハッシュテーブルにキー key を渡し、値 value を取得する
         string name = map[15937];
-        Console.WriteLine("\n学籍番号 15937 を入力すると、氏名 " + name);
+        Console.WriteLine("\n学生番号 15937 に対応する氏名は " + name);
 
         /* 削除操作 */
-        // ハッシュテーブルからキーと値のペア (key, value) を削除
+        // ハッシュテーブルからキーと値のペア (key, value) を削除する
         map.Remove(10583);
-        Console.WriteLine("\n10583 を削除した後、ハッシュテーブルは\nKey -> Value");
+        Console.WriteLine("\n10583 を削除した後のハッシュテーブル\nKey -> Value");
         PrintUtil.PrintHashMap(map);
 
-        /* ハッシュテーブルを走査 */
-        Console.WriteLine("\nキーと値のペア Key->Value を走査");
+        /* ハッシュテーブルを走査する */
+        Console.WriteLine("\nキーと値のペア Key->Value を走査する");
         foreach (var kv in map) {
             Console.WriteLine(kv.Key + " -> " + kv.Value);
         }
-        Console.WriteLine("\nキー Key のみを走査");
+        Console.WriteLine("\nキー Key だけを走査する");
         foreach (int key in map.Keys) {
             Console.WriteLine(key);
         }
-        Console.WriteLine("\n値 Value のみを走査");
+        Console.WriteLine("\n値 Value だけを走査する");
         foreach (string val in map.Values) {
             Console.WriteLine(val);
         }

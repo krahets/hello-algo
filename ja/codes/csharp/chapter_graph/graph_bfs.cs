@@ -7,36 +7,36 @@
 namespace hello_algo.chapter_graph;
 
 public class graph_bfs {
-    /* 幅優先探索 */
-    // グラフを隣接リストで表し、指定した頂点の隣接頂点をすべて取得できるようにする
+    /* 幅優先走査 */
+    // 指定した頂点に隣接する全頂点を取得しやすいように、グラフを隣接リストで表す
     List<Vertex> GraphBFS(GraphAdjList graph, Vertex startVet) {
         // 頂点の走査順序
         List<Vertex> res = [];
-        // 訪問済み頂点を記録するためのハッシュ集合
+        // 訪問済みの頂点を記録するハッシュ集合
         HashSet<Vertex> visited = [startVet];
-        // BFS の実装にキューを用いる
+        // BFS の実装にキューを使う
         Queue<Vertex> que = new();
         que.Enqueue(startVet);
-        // 頂点 vet を起点に、すべての頂点を訪問し終えるまで繰り返す
+        // 頂点 vet を始点として、すべての頂点を訪問するまで繰り返す
         while (que.Count > 0) {
-            Vertex vet = que.Dequeue(); // 先頭の頂点をデキュー
-            res.Add(vet);               // 訪問した頂点を記録
+            Vertex vet = que.Dequeue(); // キューの先頭の頂点をデキューする
+            res.Add(vet);               // 訪問した頂点を記録する
             foreach (Vertex adjVet in graph.adjList[vet]) {
                 if (visited.Contains(adjVet)) {
-                    continue;          // 訪問済みの頂点をスキップ
+                    continue;          // 訪問済みの頂点をスキップする
                 }
-                que.Enqueue(adjVet);   // 未訪問の頂点のみをキューに追加
+                que.Enqueue(adjVet);   // 未訪問の頂点だけをエンキューする
                 visited.Add(adjVet);   // この頂点を訪問済みにする
             }
         }
 
-        // 頂点の走査順を返す
+        // 頂点の走査順序を返す
         return res;
     }
 
     [Test]
     public void Test() {
-        /* 無向グラフを初期化 */
+        /* 無向グラフを初期化する */
         Vertex[] v = Vertex.ValsToVets([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
         Vertex[][] edges =
         [
@@ -47,12 +47,12 @@ public class graph_bfs {
         ];
 
         GraphAdjList graph = new(edges);
-        Console.WriteLine("\n初期化後、グラフは");
+        Console.WriteLine("\n初期化後のグラフ");
         graph.Print();
 
-        /* 幅優先探索 */
+        /* 幅優先走査 */
         List<Vertex> res = GraphBFS(graph, v[0]);
-        Console.WriteLine("\n幅優先探索（BFS）の頂点順序は");
+        Console.WriteLine("\n幅優先走査（BFS）の頂点の順序");
         Console.WriteLine(string.Join(" ", Vertex.VetsToVals(res)));
     }
 }

@@ -13,7 +13,7 @@ import (
 )
 
 func TestHanota(t *testing.T) {
-	// リスト末尾が柱の頂上
+	// リストの末尾が棒の一番上に対応する
 	A := list.New()
 	for i := 5; i > 0; i-- {
 		A.PushBack(i)

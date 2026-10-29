@@ -10,7 +10,7 @@ import (
 
 var nums []any
 
-/* 先行順走査 */
+/* 行きがけ順走査 */
 func preOrder(node *TreeNode) {
 	if node == nil {
 		return
@@ -21,23 +21,23 @@ func preOrder(node *TreeNode) {
 	preOrder(node.Right)
 }
 
-/* 中順走査 */
+/* 通りがけ順走査 */
 func inOrder(node *TreeNode) {
 	if node == nil {
 		return
 	}
-	// 訪問優先順: 左部分木 -> 根ノード -> 右部分木
+	// 訪問順序：左部分木 -> 根ノード -> 右部分木
 	inOrder(node.Left)
 	nums = append(nums, node.Val)
 	inOrder(node.Right)
 }
 
-/* 後順走査 */
+/* 帰りがけ順走査 */
 func postOrder(node *TreeNode) {
 	if node == nil {
 		return
 	}
-	// 訪問優先順: 左部分木 -> 右部分木 -> 根ノード
+	// 訪問順序：左部分木 -> 右部分木 -> 根ノード
 	postOrder(node.Left)
 	postOrder(node.Right)
 	nums = append(nums, node.Val)

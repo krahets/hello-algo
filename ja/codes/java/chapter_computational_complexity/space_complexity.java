@@ -12,44 +12,44 @@ import java.util.*;
 public class space_complexity {
     /* 関数 */
     static int function() {
-        // 何らかの処理を行う
+        // 何らかの処理を実行する
         return 0;
     }
 
-    /* 定数階 */
+    /* 定数オーダー */
     static void constant(int n) {
-        // 定数、変数、オブジェクトは O(1) の空間を占める
+        // 定数、変数、オブジェクトは O(1) の領域を使用する
         final int a = 0;
         int b = 0;
         int[] nums = new int[10000];
         ListNode node = new ListNode(0);
-        // ループ内の変数は O(1) の空間を占める
+        // ループ内の変数は O(1) の領域を使用する
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
-        // ループ内の関数は O(1) の空間を占める
+        // ループ内の関数は O(1) の領域を使用する
         for (int i = 0; i < n; i++) {
             function();
         }
     }
 
-    /* 線形階 */
+    /* 線形オーダー */
     static void linear(int n) {
-        // 長さ n の配列は O(n) の空間を使用
+        // 長さ n の配列は O(n) の領域を使用する
         int[] nums = new int[n];
-        // 長さ n のリストは O(n) の空間を使用
+        // 長さ n のリストは O(n) の領域を使用する
         List<ListNode> nodes = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             nodes.add(new ListNode(i));
         }
-        // 長さ n のハッシュテーブルは O(n) の空間を使用
+        // 長さ n のハッシュテーブルは O(n) の領域を使用する
         Map<Integer, String> map = new HashMap<>();
         for (int i = 0; i < n; i++) {
             map.put(i, String.valueOf(i));
         }
     }
 
-    /* 線形時間（再帰実装） */
+    /* 線形オーダー（再帰による実装） */
     static void linearRecur(int n) {
         System.out.println("再帰 n = " + n);
         if (n == 1)
@@ -57,11 +57,11 @@ public class space_complexity {
         linearRecur(n - 1);
     }
 
-    /* 二乗階 */
+    /* 二次オーダー */
     static void quadratic(int n) {
-        // 行列は O(n^2) の空間を使用する
+        // 行列は O(n^2) の領域を使用する
         int[][] numMatrix = new int[n][n];
-        // 二次元リストは O(n^2) の空間を使用
+        // 二次元リストは O(n^2) の領域を使用する
         List<List<Integer>> numList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             List<Integer> tmp = new ArrayList<>();
@@ -72,7 +72,7 @@ public class space_complexity {
         }
     }
 
-    /* 二次時間（再帰実装） */
+    /* 二次オーダー（再帰による実装） */
     static int quadraticRecur(int n) {
         if (n <= 0)
             return 0;
@@ -82,7 +82,7 @@ public class space_complexity {
         return quadraticRecur(n - 1);
     }
 
-    /* 指数時間（完全二分木の構築） */
+    /* 指数オーダー（パーフェクト二分木の構築） */
     static TreeNode buildTree(int n) {
         if (n == 0)
             return null;
@@ -92,15 +92,15 @@ public class space_complexity {
         return root;
     }
 
-    /* Driver Code */
+    /* 実行用コード */
     public static void main(String[] args) {
         int n = 5;
-        // 定数階
+        // 定数オーダー
         constant(n);
-        // 線形階
+        // 線形オーダー
         linear(n);
         linearRecur(n);
-        // 二乗階
+        // 二次オーダー
         quadratic(n);
         quadraticRecur(n);
         // 指数オーダー

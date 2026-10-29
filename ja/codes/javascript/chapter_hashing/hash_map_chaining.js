@@ -4,7 +4,7 @@
  * Author: yuan0221 (yl1452491917@gmail.com)
  */
 
-/* キーと値の組 Number -> String */
+/* キーと値のペア Number -> String */
 class Pair {
     constructor(key, val) {
         this.key = key;
@@ -12,12 +12,12 @@ class Pair {
     }
 }
 
-/* チェイン法ハッシュテーブル */
+/* チェイン法のハッシュテーブル */
 class HashMapChaining {
-    #size; // キーと値のペア数
-    #capacity; // ハッシュテーブル容量
-    #loadThres; // リサイズを発動する負荷率のしきい値
-    #extendRatio; // 拡張倍率
+    #size; // キーと値のペアの数
+    #capacity; // ハッシュテーブルの容量
+    #loadThres; // 容量の拡張を開始する負荷率のしきい値
+    #extendRatio; // 容量の拡張倍率
     #buckets; // バケット配列
 
     /* コンストラクタ */
@@ -39,36 +39,36 @@ class HashMapChaining {
         return this.#size / this.#capacity;
     }
 
-    /* 検索操作 */
+    /* 取得操作 */
     get(key) {
         const index = this.#hashFunc(key);
         const bucket = this.#buckets[index];
-        // バケットを走査し、key が見つかれば対応する val を返す
+        // バケットを走査し、key が見つかったら対応する val を返す
         for (const pair of bucket) {
             if (pair.key === key) {
                 return pair.val;
             }
         }
-        // key が見つからない場合は null を返す
+        // key が見つからなかった場合、null を返す
         return null;
     }
 
     /* 追加操作 */
     put(key, val) {
-        // 負荷率がしきい値を超えたら、リサイズを実行
+        // 負荷率がしきい値を超えた場合、容量を拡張する
         if (this.#loadFactor() > this.#loadThres) {
             this.#extend();
         }
         const index = this.#hashFunc(key);
         const bucket = this.#buckets[index];
-        // バケットを走査し、指定した key が見つかれば対応する val を更新して返す
+        // バケットを走査し、指定された key が見つかったら、対応する val を更新して戻る
         for (const pair of bucket) {
             if (pair.key === key) {
                 pair.val = val;
                 return;
             }
         }
-        // その key が存在しなければ、キーと値のペアを末尾に追加
+        // key が存在しない場合、キーと値のペアを末尾に追加する
         const pair = new Pair(key, val);
         bucket.push(pair);
         this.#size++;
@@ -78,7 +78,7 @@ class HashMapChaining {
     remove(key) {
         const index = this.#hashFunc(key);
         let bucket = this.#buckets[index];
-        // バケットを走査してキーと値のペアを削除
+        // バケットを走査し、キーと値のペアを削除する
         for (let i = 0; i < bucket.length; i++) {
             if (bucket[i].key === key) {
                 bucket.splice(i, 1);
@@ -88,15 +88,15 @@ class HashMapChaining {
         }
     }
 
-    /* ハッシュテーブルを拡張 */
+    /* ハッシュテーブルの容量を拡張する */
     #extend() {
-        // 元のハッシュテーブルを一時保存
+        // 元のハッシュテーブルを一時保存する
         const bucketsTmp = this.#buckets;
-        // リサイズ後の新しいハッシュテーブルを初期化
+        // 拡張後の新しいハッシュテーブルを初期化する
         this.#capacity *= this.#extendRatio;
         this.#buckets = new Array(this.#capacity).fill(null).map((x) => []);
         this.#size = 0;
-        // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルへ移す
+        // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルに移す
         for (const bucket of bucketsTmp) {
             for (const pair of bucket) {
                 this.put(pair.key, pair.val);
@@ -104,7 +104,7 @@ class HashMapChaining {
         }
     }
 
-    /* ハッシュテーブルを出力 */
+    /* ハッシュテーブルを表示する */
     print() {
         for (const bucket of this.#buckets) {
             let res = [];
@@ -116,27 +116,27 @@ class HashMapChaining {
     }
 }
 
-/* Driver Code */
-/* ハッシュテーブルを初期化 */
+/* 実行用コード */
+/* ハッシュテーブルを初期化する */
 const map = new HashMapChaining();
 
 /* 追加操作 */
-// ハッシュテーブルにキーと値のペア (key, value) を追加
-map.put(12836, 'シャオハー');
-map.put(15937, 'シャオルオ');
-map.put(16750, 'シャオスワン');
-map.put(13276, 'シャオファー');
-map.put(10583, 'シャオヤー');
-console.log('\n追加完了後、ハッシュ表は\nKey -> Value');
+// ハッシュテーブルにキーと値のペア (key, value) を追加する
+map.put(12836, '小哈');
+map.put(15937, '小啰');
+map.put(16750, '小算');
+map.put(13276, '小法');
+map.put(10583, '小鸭');
+console.log('\n追加後のハッシュテーブル\nKey -> Value');
 map.print();
 
-/* 検索操作 */
-// キー key をハッシュテーブルに渡し、値 value を取得
+/* 取得操作 */
+// ハッシュテーブルにキー key を渡し、値 value を取得する
 const name = map.get(13276);
-console.log('\n学籍番号 13276 を入力すると、名前 ' + name);
+console.log('\n学生番号 13276 に対応する氏名は ' + name);
 
 /* 削除操作 */
-// ハッシュテーブルからキーと値のペア (key, value) を削除
+// ハッシュテーブルからキーと値のペア (key, value) を削除する
 map.remove(12836);
-console.log('\n12836 を削除した後、ハッシュテーブルは\nKey -> Value');
+console.log('\n12836 を削除した後のハッシュテーブル\nKey -> Value');
 map.print();

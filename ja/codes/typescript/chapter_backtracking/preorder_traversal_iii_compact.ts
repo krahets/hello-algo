@@ -8,7 +8,7 @@ import { type TreeNode } from '../modules/TreeNode';
 import { arrToTree } from '../modules/TreeNode';
 import { printTree } from '../modules/PrintUtil';
 
-/* 前順走査：例題 3 */
+/* 行きがけ順走査：例題 3 */
 function preOrder(
     root: TreeNode | null,
     path: TreeNode[],
@@ -18,29 +18,29 @@ function preOrder(
     if (root === null || root.val === 3) {
         return;
     }
-    // 試す
+    // 試行
     path.push(root);
     if (root.val === 7) {
-        // 解を記録
+        // 解を記録する
         res.push([...path]);
     }
     preOrder(root.left, path, res);
     preOrder(root.right, path, res);
-    // バックトラック
+    // 復元
     path.pop();
 }
 
-// Driver Code
+// 実行用コード
 const root = arrToTree([1, 7, 3, 4, 5, 6, 7]);
-console.log('\n二分木を初期化');
+console.log('\n二分木を初期化する');
 printTree(root);
 
-// 先行順走査
+// 行きがけ順走査
 const path: TreeNode[] = [];
 const res: TreeNode[][] = [];
 preOrder(root, path, res);
 
-console.log('\nすべての根ノードからノード 7 への経路を出力，経路に値が 3 のノードを含まない');
+console.log('\n値が 3 のノードを含まない、根ノードからノード 7 までのすべての経路を出力する');
 res.forEach((path) => {
     console.log(path.map((node) => node.val));
 });

@@ -9,7 +9,7 @@
     {% set comm = "Feel free to drop your insights, questions or suggestions" %}
     {% set lang = "en" %}
   {% elif config.theme.language == 'ja' %}
-    {% set comm = "ご意見、ご質問、ご提案があればぜひコメントしてください" %}
+    {% set comm = "コメント欄で、考えや質問、ご提案をお寄せください。" %}
     {% set lang = "ja" %}
   {% elif config.theme.language == 'ru' %}
     {% set comm = "Оставляйте свои идеи, вопросы и предложения в комментариях" %}
@@ -55,13 +55,13 @@
     /* Set palette on initial load */
     giscus.setAttribute("data-theme", getGiscusTheme())
 
-    {% if config.theme.language == 'ko' %}
+    {% if config.theme.language in ['ja', 'ko'] %}
     /* The Giscus client creates the iframe asynchronously with an English title. */
     ;(function() {
       function labelCommentsFrame() {
         var frame = document.querySelector("iframe.giscus-frame")
         if (!frame) return false
-        frame.setAttribute("title", "댓글")
+        frame.setAttribute("title", {{ {"ja": "コメント", "ko": "댓글"}[config.theme.language] | tojson }})
         return true
       }
       if (labelCommentsFrame()) return

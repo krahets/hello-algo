@@ -6,12 +6,12 @@
 
 import 'array_hash_map.dart';
 
-/* チェイン法ハッシュテーブル */
+/* チェイン法のハッシュテーブル */
 class HashMapChaining {
-  late int size; // キーと値のペア数
-  late int capacity; // ハッシュテーブル容量
-  late double loadThres; // リサイズを発動する負荷率のしきい値
-  late int extendRatio; // 拡張倍率
+  late int size; // キーと値のペアの数
+  late int capacity; // ハッシュテーブルの容量
+  late double loadThres; // 容量の拡張を開始する負荷率のしきい値
+  late int extendRatio; // 容量の拡張倍率
   late List<List<Pair>> buckets; // バケット配列
 
   /* コンストラクタ */
@@ -33,36 +33,36 @@ class HashMapChaining {
     return size / capacity;
   }
 
-  /* 検索操作 */
+  /* 取得操作 */
   String? get(int key) {
     int index = hashFunc(key);
     List<Pair> bucket = buckets[index];
-    // バケットを走査し、key が見つかれば対応する val を返す
+    // バケットを走査し、key が見つかったら対応する val を返す
     for (Pair pair in bucket) {
       if (pair.key == key) {
         return pair.val;
       }
     }
-    // key が見つからない場合は null を返す
+    // key が見つからなかった場合、null を返す
     return null;
   }
 
   /* 追加操作 */
   void put(int key, String val) {
-    // 負荷率がしきい値を超えたら、リサイズを実行
+    // 負荷率がしきい値を超えた場合、容量を拡張する
     if (loadFactor() > loadThres) {
       extend();
     }
     int index = hashFunc(key);
     List<Pair> bucket = buckets[index];
-    // バケットを走査し、指定した key が見つかれば対応する val を更新して返す
+    // バケットを走査し、指定された key が見つかったら、対応する val を更新して戻る
     for (Pair pair in bucket) {
       if (pair.key == key) {
         pair.val = val;
         return;
       }
     }
-    // その key が存在しなければ、キーと値のペアを末尾に追加
+    // key が存在しない場合、キーと値のペアを末尾に追加する
     Pair pair = Pair(key, val);
     bucket.add(pair);
     size++;
@@ -72,7 +72,7 @@ class HashMapChaining {
   void remove(int key) {
     int index = hashFunc(key);
     List<Pair> bucket = buckets[index];
-    // バケットを走査してキーと値のペアを削除
+    // バケットを走査し、キーと値のペアを削除する
     for (Pair pair in bucket) {
       if (pair.key == key) {
         bucket.remove(pair);
@@ -82,15 +82,15 @@ class HashMapChaining {
     }
   }
 
-  /* ハッシュテーブルを拡張 */
+  /* ハッシュテーブルの容量を拡張する */
   void extend() {
-    // 元のハッシュテーブルを一時保存
+    // 元のハッシュテーブルを一時保存する
     List<List<Pair>> bucketsTmp = buckets;
-    // リサイズ後の新しいハッシュテーブルを初期化
+    // 拡張後の新しいハッシュテーブルを初期化する
     capacity *= extendRatio;
     buckets = List.generate(capacity, (_) => []);
     size = 0;
-    // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルへ移す
+    // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルに移す
     for (List<Pair> bucket in bucketsTmp) {
       for (Pair pair in bucket) {
         put(pair.key, pair.val);
@@ -98,7 +98,7 @@ class HashMapChaining {
     }
   }
 
-  /* ハッシュテーブルを出力 */
+  /* ハッシュテーブルを表示する */
   void printHashMap() {
     for (List<Pair> bucket in buckets) {
       List<String> res = [];
@@ -110,29 +110,29 @@ class HashMapChaining {
   }
 }
 
-/* Driver Code */
+/* 実行用コード */
 void main() {
-  /* ハッシュテーブルを初期化 */
+  /* ハッシュテーブルを初期化する */
   HashMapChaining map = HashMapChaining();
 
   /* 追加操作 */
-  // ハッシュテーブルにキーと値のペア (key, value) を追加
-  map.put(12836, "シャオハー");
-  map.put(15937, "シャオルオ");
-  map.put(16750, "シャオスワン");
-  map.put(13276, "シャオファー");
-  map.put(10583, "シャオヤー");
-  print("\n追加完了後、ハッシュテーブルは\nKey -> Value");
+  // ハッシュテーブルにキーと値のペア (key, value) を追加する
+  map.put(12836, "小哈");
+  map.put(15937, "小啰");
+  map.put(16750, "小算");
+  map.put(13276, "小法");
+  map.put(10583, "小鸭");
+  print("\n追加後のハッシュテーブル\nKey -> Value");
   map.printHashMap();
 
-  /* 検索操作 */
-  // キー key をハッシュテーブルに渡し、値 value を取得
+  /* 取得操作 */
+  // ハッシュテーブルにキー key を渡し、値 value を取得する
   String? name = map.get(13276);
-  print("\n学籍番号 13276 を入力すると、氏名 ${name} が見つかります");
+  print("\n学生番号 13276 に対応する氏名は ${name}");
 
   /* 削除操作 */
-  // ハッシュテーブルからキーと値のペア (key, value) を削除
+  // ハッシュテーブルからキーと値のペア (key, value) を削除する
   map.remove(12836);
-  print("\n12836 を削除した後、ハッシュテーブルは\nKey -> Value");
+  print("\n12836 を削除した後のハッシュテーブル\nKey -> Value");
   map.printHashMap();
 }

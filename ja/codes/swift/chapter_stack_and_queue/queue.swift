@@ -6,13 +6,13 @@
 
 @main
 enum Queue {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
-        /* キューを初期化 */
-        // Swift には組み込みのキュークラスがないため、Array をキューとして使う
+        /* キューを初期化する */
+        // Swift には組み込みのキュークラスがないため、Array をキューとして使える
         var queue: [Int] = []
 
-        /* 要素をエンキュー */
+        /* 要素をエンキューする */
         queue.append(1)
         queue.append(3)
         queue.append(2)
@@ -20,21 +20,21 @@ enum Queue {
         queue.append(4)
         print("キュー queue = \(queue)")
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         let peek = queue.first!
-        print("先頭要素 peek = \(peek)")
+        print("キューの先頭要素 peek = \(peek)")
 
-        /* 要素をデキュー */
-        // Array を用いる場合、pop の計算量は O(n)
+        /* 要素をデキューする */
+        // Array で再現する場合、pop の計算量は O(n)
         let pop = queue.removeFirst()
-        print("デキューした要素 pop = \(pop)、デキュー後の queue = \(queue)")
+        print("デキューした要素 pop = \(pop)、デキュー後 queue = \(queue)")
 
         /* キューの長さを取得 */
         let size = queue.count
-        print("キューのサイズ size = \(size)")
+        print("キューの長さ size = \(size)")
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         let isEmpty = queue.isEmpty
-        print("キューが空かどうか = \(isEmpty)")
+        print("キューは空か = \(isEmpty)")
     }
 }

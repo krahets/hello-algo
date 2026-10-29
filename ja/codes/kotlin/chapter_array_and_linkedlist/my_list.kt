@@ -8,92 +8,92 @@ package chapter_array_and_linkedlist
 
 /* リストクラス */
 class MyList {
-    private var arr: IntArray = intArrayOf() // 配列（リスト要素を格納）
-    private var capacity: Int = 10 // リスト容量
+    private var arr: IntArray = intArrayOf() // 配列（リストの要素を格納する）
+    private var capacity: Int = 10 // リストの容量
     private var size: Int = 0 // リストの長さ（現在の要素数）
-    private var extendRatio: Int = 2 // リスト拡張時の増加倍率
+    private var extendRatio: Int = 2 // リストの容量を拡張する際の倍率
 
     /* コンストラクタ */
     init {
         arr = IntArray(capacity)
     }
 
-    /* リストの長さを取得（現在の要素数） */
+    /* リストの長さ（現在の要素数）を取得する */
     fun size(): Int {
         return size
     }
 
-    /* リスト容量を取得する */
+    /* リストの容量を取得する */
     fun capacity(): Int {
         return capacity
     }
 
-    /* 要素にアクセス */
+    /* 要素にアクセスする */
     fun get(index: Int): Int {
-        // インデックスが範囲外なら例外を送出する。以下同様
+        // インデックスが範囲外の場合、例外を送出する。以下も同様
         if (index < 0 || index >= size)
-            throw IndexOutOfBoundsException("インデックスが範囲外")
+            throw IndexOutOfBoundsException("インデックスが範囲外です")
         return arr[index]
     }
 
-    /* 要素を更新 */
+    /* 要素を更新する */
     fun set(index: Int, num: Int) {
         if (index < 0 || index >= size)
-            throw IndexOutOfBoundsException("インデックスが範囲外")
+            throw IndexOutOfBoundsException("インデックスが範囲外です")
         arr[index] = num
     }
 
-    /* 末尾に要素を追加 */
+    /* 末尾に要素を追加する */
     fun add(num: Int) {
-        // 要素数が容量を超えると、拡張機構が発動する
+        // 要素数が容量を超える場合、容量を拡張する
         if (size == capacity())
             extendCapacity()
         arr[size] = num
-        // 要素数を更新
+        // 要素数を更新する
         size++
     }
 
-    /* 中間に要素を挿入 */
+    /* 途中に要素を挿入する */
     fun insert(index: Int, num: Int) {
         if (index < 0 || index >= size)
-            throw IndexOutOfBoundsException("インデックスが範囲外")
-        // 要素数が容量を超えると、拡張機構が発動する
+            throw IndexOutOfBoundsException("インデックスが範囲外です")
+        // 要素数が容量を超える場合、容量を拡張する
         if (size == capacity())
             extendCapacity()
-        // index 以降の要素をすべて 1 つ後ろへずらす
+        // インデックス index 以降の全要素を後ろに 1 つずらす
         for (j in size - 1 downTo index)
             arr[j + 1] = arr[j]
         arr[index] = num
-        // 要素数を更新
+        // 要素数を更新する
         size++
     }
 
-    /* 要素を削除 */
+    /* 要素を削除する */
     fun remove(index: Int): Int {
         if (index < 0 || index >= size)
-            throw IndexOutOfBoundsException("インデックスが範囲外")
+            throw IndexOutOfBoundsException("インデックスが範囲外です")
         val num = arr[index]
-        // インデックス index より後の要素をすべて 1 つ前に移動する
+        // インデックス index より後の全要素を前に 1 つずらす
         for (j in index..<size - 1)
             arr[j] = arr[j + 1]
-        // 要素数を更新
+        // 要素数を更新する
         size--
-        // 削除された要素を返す
+        // 削除した要素を返す
         return num
     }
 
-    /* リストの拡張 */
+    /* リストの容量を拡張する */
     fun extendCapacity() {
-        // 元の配列の extendRatio 倍の長さを持つ新しい配列を作成し、元の配列をコピーする
+        // 元の配列の extendRatio 倍の長さの配列を新たに作成し、元の配列をコピーする
         arr = arr.copyOf(capacity() * extendRatio)
-        // リストの容量を更新
+        // リストの容量を更新する
         capacity = arr.size
     }
 
     /* リストを配列に変換する */
     fun toArray(): IntArray {
         val size = size()
-        // 有効長の範囲内のリスト要素のみを変換
+        // 有効な長さの範囲内にあるリストの要素だけを変換する
         val arr = IntArray(size)
         for (i in 0..<size) {
             arr[i] = get(i)
@@ -102,38 +102,38 @@ class MyList {
     }
 }
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
-    /* リストを初期化 */
+    /* リストを初期化する */
     val nums = MyList()
-    /* 末尾に要素を追加 */
+    /* 末尾に要素を追加する */
     nums.add(1)
     nums.add(3)
     nums.add(2)
     nums.add(5)
     nums.add(4)
-    println("リスト nums = ${nums.toArray().contentToString()}，容量 = ${nums.capacity()}，長さ = ${nums.size()}")
+    println("リスト nums = ${nums.toArray().contentToString()}、容量 = ${nums.capacity()}、長さ = ${nums.size()}")
 
-    /* 中間に要素を挿入 */
+    /* 途中に要素を挿入する */
     nums.insert(3, 6)
-    println("インデックス 3 に数値 6 を挿入し，nums = ${nums.toArray().contentToString()}")
+    println("インデックス 3 に数値 6 を挿入した結果 nums = ${nums.toArray().contentToString()}")
 
-    /* 要素を削除 */
+    /* 要素を削除する */
     nums.remove(3)
-    println("インデックス 3 の要素を削除し，nums = ${nums.toArray().contentToString()}")
+    println("インデックス 3 の要素を削除した結果 nums = ${nums.toArray().contentToString()}")
 
-    /* 要素にアクセス */
+    /* 要素にアクセスする */
     val num = nums.get(1)
-    println("インデックス 1 の要素にアクセスし，num = $num")
+    println("インデックス 1 の要素にアクセスした結果 num = $num")
 
-    /* 要素を更新 */
+    /* 要素を更新する */
     nums.set(1, 0)
-    println("インデックス 1 の要素を 0 に更新し，nums = ${nums.toArray().contentToString()}")
+    println("インデックス 1 の要素を 0 に更新した結果 nums = ${nums.toArray().contentToString()}")
 
-    /* 拡張機構をテストする */
+    /* 容量の拡張をテストする */
     for (i in 0..9) {
-        // i = 5 のとき、リスト長が容量を超えるため、この時点で拡張機構が発動する
+        // i = 5 のときにリストの長さが容量を超えるため、容量が拡張される
         nums.add(i)
     }
-    println("拡張後のリスト nums = ${nums.toArray().contentToString()}，容量 = ${nums.capacity()}，長さ =  ${nums.size()}")
+    println("容量を拡張した後のリスト nums = ${nums.toArray().contentToString()}、容量 = ${nums.capacity()}、長さ =  ${nums.size()}")
 }

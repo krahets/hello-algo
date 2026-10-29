@@ -9,7 +9,7 @@ use hello_algo_rust::include::ListNode;
 use std::collections::hash_map::DefaultHasher;
 use std::hash::{Hash, Hasher};
 
-/* Driver Code */
+/* 実行用コード */
 fn main() {
     let num = 3;
     let mut num_hasher = DefaultHasher::new();
@@ -29,13 +29,13 @@ fn main() {
     let hash_dec = dec_hasher.finish();
     println!("小数 {} のハッシュ値は {}", dec, hash_dec);
 
-    let str = "Hello アルゴリズム";
+    let str = "Hello 算法";
     let mut str_hasher = DefaultHasher::new();
     str.hash(&mut str_hasher);
     let hash_str = str_hasher.finish();
     println!("文字列 {} のハッシュ値は {}", str, hash_str);
 
-    let arr = (&12836, &"シャオハー");
+    let arr = (&12836, &"小哈");
     let mut tup_hasher = DefaultHasher::new();
     arr.hash(&mut tup_hasher);
     let hash_tup = tup_hasher.finish();

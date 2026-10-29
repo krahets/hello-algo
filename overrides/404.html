@@ -2,6 +2,8 @@
 {% block content %}
   {% if config.theme.language == 'ko' %}
     <h1>404 - 페이지를 찾을 수 없습니다</h1>
+  {% elif config.theme.language == 'ja' %}
+    <h1>404 - ページが見つかりません</h1>
   {% else %}
     <h1>404 - Not found</h1>
   {% endif %}

@@ -4,13 +4,13 @@
 
 package pkg
 
-// ListNode は連結リストノード
+// ListNode は連結リストのノード
 type ListNode struct {
 	Next *ListNode
 	Val  int
 }
 
-// NewListNode は連結リストノードのコンストラクタ
+// NewListNode は連結リストのノードのコンストラクタ
 func NewListNode(v int) *ListNode {
 	return &ListNode{
 		Next: nil,
@@ -18,9 +18,9 @@ func NewListNode(v int) *ListNode {
 	}
 }
 
-// ArrayToLinkedList は配列を連結リストにデシリアライズする
+// ArrayToLinkedList は配列をデシリアライズして連結リストにする
 func ArrayToLinkedList(arr []int) *ListNode {
-	// dummy header of linked list
+	// 連結リストのダミーの先頭ノード
 	dummy := NewListNode(0)
 	node := dummy
 	for _, val := range arr {

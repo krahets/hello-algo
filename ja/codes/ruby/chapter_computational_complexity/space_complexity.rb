@@ -10,49 +10,49 @@ require_relative '../utils/print_util'
 
 ### 関数 ###
 def function
-  # 何らかの処理を行う
+  # 何らかの処理を実行する
   0
 end
 
-### 定数階 ###
+### 定数オーダー ###
 def constant(n)
-  # 定数、変数、オブジェクトは O(1) の空間を占める
+  # 定数、変数、オブジェクトは O(1) の領域を使用する
   a = 0
   nums = [0] * 10000
   node = ListNode.new
 
-  # ループ内の変数は O(1) の空間を占める
+  # ループ内の変数は O(1) の領域を使用する
   (0...n).each { c = 0 }
-  # ループ内の関数は O(1) の空間を占める
+  # ループ内の関数は O(1) の領域を使用する
   (0...n).each { function }
 end
 
-### 線形階 ###
+### 線形オーダー ###
 def linear(n)
-  # 長さ n のリストは O(n) の空間を使用
+  # 長さ n のリストは O(n) の領域を使用する
   nums = Array.new(n, 0)
 
-  # 長さ n のハッシュテーブルは O(n) の空間を使用
+  # 長さ n のハッシュテーブルは O(n) の領域を使用する
   hmap = {}
   for i in 0...n
     hmap[i] = i.to_s
   end
 end
 
-# ## 線形階（再帰実装）###
+### 線形オーダー（再帰による実装）###
 def linear_recur(n)
   puts "再帰 n = #{n}"
   return if n == 1
   linear_recur(n - 1)
 end
 
-### 平方階 ###
+### 二次オーダー ###
 def quadratic(n)
-  # 二次元リストは O(n^2) の空間を使用
+  # 二次元リストは O(n^2) の領域を使用する
   Array.new(n) { Array.new(n, 0) }
 end
 
-# ## 平方階（再帰実装）###
+### 二次オーダー（再帰による実装）###
 def quadratic_recur(n)
   return 0 unless n > 0
 
@@ -61,7 +61,7 @@ def quadratic_recur(n)
   quadratic_recur(n - 1)
 end
 
-# ## 指数階（満二分木を構築）###
+### 指数オーダー（パーフェクト二分木の構築）###
 def build_tree(n)
   return if n == 0
 
@@ -71,18 +71,18 @@ def build_tree(n)
   end
 end
 
-### Driver Code ###
+### 実行用コード ###
 if __FILE__ == $0
   n = 5
 
-  # 定数階
+  # 定数オーダー
   constant(n)
 
-  # 線形階
+  # 線形オーダー
   linear(n)
   linear_recur(n)
 
-  # 二乗階
+  # 二次オーダー
   quadratic(n)
   quadratic_recur(n)
 

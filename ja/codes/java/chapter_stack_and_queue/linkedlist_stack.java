@@ -9,21 +9,21 @@ package chapter_stack_and_queue;
 import java.util.*;
 import utils.*;
 
-/* 連結リストベースのスタック */
+/* 連結リストで実装したスタック */
 class LinkedListStack {
-    private ListNode stackPeek; // 先頭ノードをスタックトップとする
+    private ListNode stackPeek; // 先頭ノードをスタックの先頭とする
     private int stkSize = 0; // スタックの長さ
 
     public LinkedListStack() {
         stackPeek = null;
     }
 
-    /* スタックの長さを取得 */
+    /* スタックの長さを取得する */
     public int size() {
         return stkSize;
     }
 
-    /* スタックが空かどうかを判定 */
+    /* スタックが空かどうかを判定する */
     public boolean isEmpty() {
         return size() == 0;
     }
@@ -44,7 +44,7 @@ class LinkedListStack {
         return num;
     }
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセスする */
     public int peek() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
@@ -65,10 +65,10 @@ class LinkedListStack {
 
 public class linkedlist_stack {
     public static void main(String[] args) {
-        /* スタックを初期化 */
+        /* スタックを初期化する */
         LinkedListStack stack = new LinkedListStack();
 
-        /* 要素をプッシュ */
+        /* 要素をプッシュする */
         stack.push(1);
         stack.push(3);
         stack.push(2);
@@ -76,20 +76,20 @@ public class linkedlist_stack {
         stack.push(4);
         System.out.println("スタック stack = " + Arrays.toString(stack.toArray()));
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         int peek = stack.peek();
-        System.out.println("スタックトップ要素 peek = " + peek);
+        System.out.println("スタックの先頭要素 peek = " + peek);
 
-        /* 要素をポップ */
+        /* 要素をポップする */
         int pop = stack.pop();
-        System.out.println("ポップした要素 pop = " + pop + "、ポップ後の stack = " + Arrays.toString(stack.toArray()));
+        System.out.println("ポップした要素 pop = " + pop + "、ポップ後 stack = " + Arrays.toString(stack.toArray()));
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         int size = stack.size();
         System.out.println("スタックの長さ size = " + size);
 
-        /* 空かどうかを判定 */
+        /* 空かどうかを判定する */
         boolean isEmpty = stack.isEmpty();
-        System.out.println("スタックが空かどうか = " + isEmpty);
+        System.out.println("スタックは空か = " + isEmpty);
     }
 }

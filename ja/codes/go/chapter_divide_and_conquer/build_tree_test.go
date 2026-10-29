@@ -14,12 +14,12 @@ import (
 func TestBuildTree(t *testing.T) {
 	preorder := []int{3, 9, 2, 1, 7}
 	inorder := []int{9, 3, 1, 2, 7}
-	fmt.Print("前順走査 = ")
+	fmt.Print("行きがけ順走査 = ")
 	PrintSlice(preorder)
-	fmt.Print("中順走査 = ")
+	fmt.Print("通りがけ順走査 = ")
 	PrintSlice(inorder)
 
 	root := buildTree(preorder, inorder)
-	fmt.Println("構築した二分木は：")
+	fmt.Println("構築した二分木：")
 	PrintTree(root)
 }

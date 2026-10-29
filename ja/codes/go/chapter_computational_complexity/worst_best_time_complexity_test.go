@@ -14,7 +14,7 @@ func TestWorstBestTimeComplexity(t *testing.T) {
 		n := 100
 		nums := randomNumbers(n)
 		index := findOne(nums)
-		fmt.Println("\n配列 [ 1, 2, ..., n ] をシャッフルした後 =", nums)
-		fmt.Println("数字 1 のインデックスは", index)
+		fmt.Println("\n配列 [ 1, 2, ..., n ] をシャッフルした結果 =", nums)
+		fmt.Println("数値 1 のインデックスは", index)
 	}
 }

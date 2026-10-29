@@ -4,18 +4,18 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-/* 二分木ノードクラス */
+/* 二分木のノードクラス */
 class TreeNode {
-  int val; // ノード値
+  int val; // ノードの値
   int height; // ノードの高さ
-  TreeNode? left; // 左子ノードへの参照
-  TreeNode? right; // 右子ノードへの参照
+  TreeNode? left; // 左の子ノードへの参照
+  TreeNode? right; // 右の子ノードへの参照
 
   /* コンストラクタ */
   TreeNode(this.val, [this.height = 0, this.left, this.right]);
 }
 
-/* リストを二分木にデシリアライズする: 再帰 */
+/* リストから二分木へデシリアライズ：再帰 */
 TreeNode? listToTreeDFS(List<int?> arr, int i) {
   if (i < 0 || i >= arr.length || arr[i] == null) {
     return null;
@@ -26,12 +26,12 @@ TreeNode? listToTreeDFS(List<int?> arr, int i) {
   return root;
 }
 
-/* リストを二分木にデシリアライズする */
+/* リストから二分木へデシリアライズ */
 TreeNode? listToTree(List<int?> arr) {
   return listToTreeDFS(arr, 0);
 }
 
-/* 二分木をリストにシリアライズする: 再帰 */
+/* 二分木をシリアライズしてリストにする：再帰 */
 void treeToListDFS(TreeNode? root, int i, List<int?> res) {
   if (root == null) return;
   while (i >= res.length) {
@@ -42,7 +42,7 @@ void treeToListDFS(TreeNode? root, int i, List<int?> res) {
   treeToListDFS(root.right, 2 * i + 2, res);
 }
 
-/* 二分木をリストにシリアライズする */
+/* 二分木をシリアライズしてリストにする */
 List<int?> treeToList(TreeNode? root) {
   List<int?> res = [];
   treeToListDFS(root, 0, res);

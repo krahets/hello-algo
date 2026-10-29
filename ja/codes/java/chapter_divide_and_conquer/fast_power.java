@@ -7,7 +7,7 @@
 package chapter_divide_and_conquer;
 
 public class fast_power {
-    /* 高速べき乗 */
+    /* 高速べき乗法 */
     static int fastPow(int x, int n) {
         if (n == 0) {
             return 1;

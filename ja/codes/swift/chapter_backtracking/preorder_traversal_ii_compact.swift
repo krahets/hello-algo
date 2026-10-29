@@ -9,37 +9,37 @@ import utils
 var path: [TreeNode] = []
 var res: [[TreeNode]] = []
 
-/* 前順走査：例題 2 */
+/* 行きがけ順走査：例題 2 */
 func preOrder(root: TreeNode?) {
     guard let root = root else {
         return
     }
-    // 試す
+    // 試行
     path.append(root)
     if root.val == 7 {
-        // 解を記録
+        // 解を記録する
         res.append(path)
     }
     preOrder(root: root.left)
     preOrder(root: root.right)
-    // バックトラック
+    // 復元
     path.removeLast()
 }
 
 @main
 enum PreorderTraversalIICompact {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
         let root = TreeNode.listToTree(arr: [1, 7, 3, 4, 5, 6, 7])
-        print("\n二分木を初期化")
+        print("\n二分木を初期化する")
         PrintUtil.printTree(root: root)
 
-        // 先行順走査
+        // 行きがけ順走査
         path = []
         res = []
         preOrder(root: root)
 
-        print("\n根ノードからノード 7 までのすべての経路を出力")
+        print("\n根ノードからノード 7 までのすべての経路を出力する")
         for path in res {
             var vals: [Int] = []
             for node in path {

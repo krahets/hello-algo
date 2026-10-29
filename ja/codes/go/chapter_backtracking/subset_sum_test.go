@@ -20,11 +20,11 @@ func TestSubsetSumINaive(t *testing.T) {
 	fmt.Printf("target = " + strconv.Itoa(target) + ", 入力配列 nums = ")
 	PrintSlice(nums)
 
-	fmt.Println("合計が " + strconv.Itoa(target) + " に等しい部分集合 res = ")
+	fmt.Println("和が " + strconv.Itoa(target) + " になるすべての部分集合 res = ")
 	for i := range res {
 		PrintSlice(res[i])
 	}
-	fmt.Println("この方法の出力結果には重複した集合が含まれることに注意してください")
+	fmt.Println("この方法の出力結果には重複した集合が含まれることに注意")
 }
 
 func TestSubsetSumI(t *testing.T) {
@@ -35,7 +35,7 @@ func TestSubsetSumI(t *testing.T) {
 	fmt.Printf("target = " + strconv.Itoa(target) + ", 入力配列 nums = ")
 	PrintSlice(nums)
 
-	fmt.Println("合計が " + strconv.Itoa(target) + " に等しい部分集合 res = ")
+	fmt.Println("和が " + strconv.Itoa(target) + " になるすべての部分集合 res = ")
 	for i := range res {
 		PrintSlice(res[i])
 	}
@@ -49,7 +49,7 @@ func TestSubsetSumII(t *testing.T) {
 	fmt.Printf("target = " + strconv.Itoa(target) + ", 入力配列 nums = ")
 	PrintSlice(nums)
 
-	fmt.Println("合計が " + strconv.Itoa(target) + " に等しい部分集合 res = ")
+	fmt.Println("和が " + strconv.Itoa(target) + " になるすべての部分集合 res = ")
 	for i := range res {
 		PrintSlice(res[i])
 	}

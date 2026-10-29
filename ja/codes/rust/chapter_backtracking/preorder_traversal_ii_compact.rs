@@ -7,7 +7,7 @@
 use hello_algo_rust::include::{print_util, vec_to_tree, TreeNode};
 use std::{cell::RefCell, rc::Rc};
 
-/* 前順走査：例題 2 */
+/* 行きがけ順走査：例題 2 */
 fn pre_order(
     res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
     path: &mut Vec<Rc<RefCell<TreeNode>>>,
@@ -17,31 +17,31 @@ fn pre_order(
         return;
     }
     if let Some(node) = root {
-        // 試す
+        // 試行
         path.push(node.clone());
         if node.borrow().val == 7 {
-            // 解を記録
+            // 解を記録する
             res.push(path.clone());
         }
         pre_order(res, path, node.borrow().left.as_ref());
         pre_order(res, path, node.borrow().right.as_ref());
-        // バックトラック
+        // 復元
         path.pop();
     }
 }
 
-/* Driver Code */
+/* 実行用コード */
 pub fn main() {
     let root = vec_to_tree([1, 7, 3, 4, 5, 6, 7].map(|x| Some(x)).to_vec());
-    println!("二分木を初期化");
+    println!("二分木を初期化する");
     print_util::print_tree(root.as_ref().unwrap());
 
-    // 先行順走査
+    // 行きがけ順走査
     let mut path = Vec::new();
     let mut res = Vec::new();
     pre_order(&mut res, &mut path, root.as_ref());
 
-    println!("\n根ノードからノード 7 までのすべての経路を出力");
+    println!("\n根ノードからノード 7 までのすべての経路を出力する");
     for path in res {
         let mut vals = Vec::new();
         for node in path {

@@ -8,25 +8,25 @@ import (
 	"math/rand"
 )
 
-/* 要素が { 1, 2, ..., n } で、順序がシャッフルされた配列を生成 */
+/* 要素が { 1, 2, ..., n } で、順序をシャッフルした配列を生成する */
 func randomNumbers(n int) []int {
 	nums := make([]int, n)
-	// 配列 nums = { 1, 2, 3, ..., n } を生成
+	// 配列 nums = { 1, 2, 3, ..., n } を生成する
 	for i := 0; i < n; i++ {
 		nums[i] = i + 1
 	}
-	// 配列要素をランダムにシャッフル
+	// 配列の要素をランダムに並べ替える
 	rand.Shuffle(len(nums), func(i, j int) {
 		nums[i], nums[j] = nums[j], nums[i]
 	})
 	return nums
 }
 
-/* 配列 nums 内で数値 1 のインデックスを探す */
+/* 配列 nums 内で数値 1 のインデックスを探索する */
 func findOne(nums []int) int {
 	for i := 0; i < len(nums); i++ {
-		// 要素 1 が配列の先頭にあるとき、最良時間計算量 O(1) となる
-		// 要素 1 が配列の末尾にあるとき、最悪時間計算量 O(n) となる
+		// 要素 1 が配列の先頭にある場合、最良時間計算量 O(1) となる
+		// 要素 1 が配列の末尾にある場合、最悪時間計算量 O(n) となる
 		if nums[i] == 1 {
 			return i
 		}

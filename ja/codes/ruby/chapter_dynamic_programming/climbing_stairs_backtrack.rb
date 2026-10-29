@@ -6,29 +6,29 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### バックトラッキング ###
 def backtrack(choices, state, n, res)
-  # 第 n 段に到達したら、方法数を 1 増やす
+  # n 段目に到達したら、方法の数を 1 増やす
   res[0] += 1 if state == n
-  # すべての選択肢を走査
+  # すべての選択肢を走査する
   for choice in choices
-    # 枝刈り: 第 n 段を超えないようにする
+    # 枝刈り：n 段目を越えてはならない
     next if state + choice > n
 
-    # 試行: 選択を行い、状態を更新
+    # 試行：選択を行い、状態を更新する
     backtrack(choices, state + choice, n, res)
   end
-  # バックトラック
+  # 復元
 end
 
-### 階段登り：バックトラッキング ###
+### 階段の上り方：バックトラッキング ###
 def climbing_stairs_backtrack(n)
-  choices = [1, 2] # 1 段または 2 段上ることを選べる
-  state = 0 # 第 0 段から上り始める
-  res = [0] # res[0] を使って方法数を記録する
+  choices = [1, 2] # 1 段または 2 段上ることを選択できる
+  state = 0 # 0 段目から上り始める
+  res = [0] # res[0] に方法の数を記録する
   backtrack(choices, state, n, res)
   res.first
 end
 
-### Driver Code ###
+### 実行用コード ###
 if __FILE__ == $0
   n = 9
 

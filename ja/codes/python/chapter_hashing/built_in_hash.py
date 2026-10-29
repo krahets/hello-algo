@@ -10,7 +10,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 from modules import ListNode
 
-"""Driver Code"""
+"""実行用コード"""
 if __name__ == "__main__":
     num = 3
     hash_num = hash(num)
@@ -18,17 +18,17 @@ if __name__ == "__main__":
 
     bol = True
     hash_bol = hash(bol)
-    print(f"ブール値 {bol} のハッシュ値は {hash_bol}")
+    print(f"真偽値 {bol} のハッシュ値は {hash_bol}")
 
     dec = 3.14159
     hash_dec = hash(dec)
     print(f"小数 {dec} のハッシュ値は {hash_dec}")
 
-    str = "Hello アルゴリズム"
+    str = "Hello 算法"
     hash_str = hash(str)
     print(f"文字列 {str} のハッシュ値は {hash_str}")
 
-    tup = (12836, "シャオハー")
+    tup = (12836, "小哈")
     hash_tup = hash(tup)
     print(f"タプル {tup} のハッシュ値は {hash(hash_tup)}")
 

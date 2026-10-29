@@ -6,23 +6,23 @@
 
 /* 選択ソート */
 func selectionSort(nums: inout [Int]) {
-    // 外側ループ：未整列区間は [i, n-1]
+    // 外側のループ：未ソート区間は [i, n-1]
     for i in nums.indices.dropLast() {
-        // 内側のループ：未ソート区間の最小要素を見つける
+        // 内側のループ：未ソート区間の最小要素を探す
         var k = i
         for j in nums.indices.dropFirst(i + 1) {
             if nums[j] < nums[k] {
-                k = j // 最小要素のインデックスを記録
+                k = j // 最小要素のインデックスを記録する
             }
         }
-        // その最小要素を未整列区間の先頭要素と交換する
+        // この最小要素を未ソート区間の先頭要素と交換する
         nums.swapAt(i, k)
     }
 }
 
 @main
 enum SelectionSort {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
         var nums = [4, 1, 3, 1, 5, 2]
         selectionSort(nums: &nums)

@@ -8,7 +8,7 @@ import (
 	"container/list"
 )
 
-/* 双方向連結リストベースの両端キュー */
+/* 双方向連結リストで実装した両端キュー */
 type linkedListDeque struct {
 	// 組み込みパッケージ list を使う
 	data *list.List
@@ -21,17 +21,17 @@ func newLinkedListDeque() *linkedListDeque {
 	}
 }
 
-/* キュー先頭に要素を追加する */
+/* 先頭に要素をエンキューする */
 func (s *linkedListDeque) pushFirst(value any) {
 	s.data.PushFront(value)
 }
 
-/* キュー末尾に要素を追加する */
+/* 末尾に要素をエンキューする */
 func (s *linkedListDeque) pushLast(value any) {
 	s.data.PushBack(value)
 }
 
-/* 先頭要素を取り出す */
+/* キューの先頭要素をデキューする */
 func (s *linkedListDeque) popFirst() any {
 	if s.isEmpty() {
 		return nil
@@ -41,7 +41,7 @@ func (s *linkedListDeque) popFirst() any {
 	return e.Value
 }
 
-/* 末尾要素を取り出す */
+/* キューの末尾要素をデキューする */
 func (s *linkedListDeque) popLast() any {
 	if s.isEmpty() {
 		return nil
@@ -51,7 +51,7 @@ func (s *linkedListDeque) popLast() any {
 	return e.Value
 }
 
-/* キュー先頭の要素にアクセス */
+/* キューの先頭要素にアクセス */
 func (s *linkedListDeque) peekFirst() any {
 	if s.isEmpty() {
 		return nil
@@ -60,7 +60,7 @@ func (s *linkedListDeque) peekFirst() any {
 	return e.Value
 }
 
-/* キュー末尾の要素にアクセス */
+/* キューの末尾要素にアクセスする */
 func (s *linkedListDeque) peekLast() any {
 	if s.isEmpty() {
 		return nil
@@ -74,12 +74,12 @@ func (s *linkedListDeque) size() int {
 	return s.data.Len()
 }
 
-/* キューが空かどうかを判定 */
+/* キューが空か判定 */
 func (s *linkedListDeque) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-/* 表示用に List を取得 */
+/* 表示用の List を取得する */
 func (s *linkedListDeque) toList() *list.List {
 	return s.data
 }

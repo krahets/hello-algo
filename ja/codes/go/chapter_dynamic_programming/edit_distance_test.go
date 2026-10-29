@@ -17,7 +17,7 @@ func TestEditDistanceDFS(test *testing.T) {
 
 	// 全探索
 	res := editDistanceDFS(s, t, n, m)
-	fmt.Printf("%s を %s に変更するには最低 %d 回の編集が必要です\n", s, t, res)
+	fmt.Printf("%s を %s に変更するには最低 %d 回の編集が必要\n", s, t, res)
 
 	// メモ化探索
 	mem := make([][]int, n+1)
@@ -28,13 +28,13 @@ func TestEditDistanceDFS(test *testing.T) {
 		}
 	}
 	res = editDistanceDFSMem(s, t, mem, n, m)
-	fmt.Printf("%s を %s に変更するには最低 %d 回の編集が必要です\n", s, t, res)
+	fmt.Printf("%s を %s に変更するには最低 %d 回の編集が必要\n", s, t, res)
 
 	// 動的計画法
 	res = editDistanceDP(s, t)
-	fmt.Printf("%s を %s に変更するには最低 %d 回の編集が必要です\n", s, t, res)
+	fmt.Printf("%s を %s に変更するには最低 %d 回の編集が必要\n", s, t, res)
 
-	// 空間最適化後の動的計画法
+	// 空間を最適化した動的計画法
 	res = editDistanceDPComp(s, t)
-	fmt.Printf("%s を %s に変更するには最低 %d 回の編集が必要です\n", s, t, res)
+	fmt.Printf("%s を %s に変更するには最低 %d 回の編集が必要\n", s, t, res)
 }

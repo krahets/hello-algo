@@ -10,25 +10,25 @@ fn recur(n: i32) -> i32 {
     if n == 1 {
         return 1;
     }
-    // 再帰：再帰呼び出し
+    // 往路：再帰呼び出し
     let res = recur(n - 1);
-    // 帰りがけ：結果を返す
+    // 復路：結果を返す
     n + res
 }
 
-/* 反復で再帰を模擬する */
+/* 反復を使って再帰を再現する */
 fn for_loop_recur(n: i32) -> i32 {
-    // 明示的なスタックを使ってシステムコールスタックを模擬する
+    // 明示的なスタックを使って、システムの呼び出しスタックを再現する
     let mut stack = Vec::new();
     let mut res = 0;
-    // 再帰：再帰呼び出し
+    // 往路：再帰呼び出し
     for i in (1..=n).rev() {
-        // 「スタックへのプッシュ」で「再帰」を模擬する
+        // 「プッシュ操作」で再帰の「往路」を再現する
         stack.push(i);
     }
-    // 帰りがけ：結果を返す
+    // 復路：結果を返す
     while !stack.is_empty() {
-        // 「スタックから取り出す操作」で「帰り」をシミュレート
+        // 「ポップ操作」で再帰の「復路」を再現する
         res += stack.pop().unwrap();
     }
     // res = 1+2+3+...+n
@@ -51,25 +51,25 @@ fn fib(n: i32) -> i32 {
     if n == 1 || n == 2 {
         return n - 1;
     }
-    // f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+    // 再帰呼び出し f(n) = f(n-1) + f(n-2)
     let res = fib(n - 1) + fib(n - 2);
     // 結果を返す
     res
 }
 
-/* Driver Code */
+/* 実行用コード */
 fn main() {
     let n = 5;
     let mut res;
 
     res = recur(n);
-    println!("\n再帰関数による合計結果 res = {res}");
+    println!("\n再帰関数で求めた和 res = {res}");
 
     res = for_loop_recur(n);
-    println!("\n反復で再帰を模擬した合計結果 res = {res}");
+    println!("\n反復で再帰を再現して求めた和 res = {res}");
 
     res = tail_recur(n, 0);
-    println!("\n末尾再帰関数による合計結果 res = {res}");
+    println!("\n末尾再帰関数で求めた和 res = {res}");
 
     res = fib(n);
     println!("\nフィボナッチ数列の第 {n} 項は {res}");

@@ -7,10 +7,10 @@
 package chapter_dynamic_programming;
 
 public class coin_change_ii {
-    /* コイン両替 II：動的計画法 */
+    /* 硬貨の両替 II：動的計画法 */
     static int coinChangeIIDP(int[] coins, int amt) {
         int n = coins.length;
-        // dp テーブルを初期化
+        // dp テーブルを初期化する
         int[][] dp = new int[n + 1][amt + 1];
         // 先頭列を初期化する
         for (int i = 0; i <= n; i++) {
@@ -20,10 +20,10 @@ public class coin_change_ii {
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 目標金額を超えるなら硬貨 i は選ばない
+                    // 目標金額を超える場合、硬貨 i を選ばない
                     dp[i][a] = dp[i - 1][a];
                 } else {
-                    // コイン i を選ばない場合と選ぶ場合の和
+                    // 硬貨 i を選ばない場合と選ぶ場合の方法の数の和
                     dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
                 }
             }
@@ -31,20 +31,20 @@ public class coin_change_ii {
         return dp[n][amt];
     }
 
-    /* コイン両替 II：空間最適化した動的計画法 */
+    /* 硬貨の両替 II：空間を最適化した動的計画法 */
     static int coinChangeIIDPComp(int[] coins, int amt) {
         int n = coins.length;
-        // dp テーブルを初期化
+        // dp テーブルを初期化する
         int[] dp = new int[amt + 1];
         dp[0] = 1;
         // 状態遷移
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 目標金額を超えるなら硬貨 i は選ばない
+                    // 目標金額を超える場合、硬貨 i を選ばない
                     dp[a] = dp[a];
                 } else {
-                    // コイン i を選ばない場合と選ぶ場合の和
+                    // 硬貨 i を選ばない場合と選ぶ場合の方法の数の和
                     dp[a] = dp[a] + dp[a - coins[i - 1]];
                 }
             }
@@ -58,10 +58,10 @@ public class coin_change_ii {
 
         // 動的計画法
         int res = coinChangeIIDP(coins, amt);
-        System.out.println("目標金額を作る硬貨の組み合わせ数は " + res);
+        System.out.println("目標金額になる硬貨の組み合わせの数は " + res);
 
-        // 空間最適化後の動的計画法
+        // 空間を最適化した動的計画法
         res = coinChangeIIDPComp(coins, amt);
-        System.out.println("目標金額を作る硬貨の組み合わせ数は " + res);
+        System.out.println("目標金額になる硬貨の組み合わせの数は " + res);
     }
 }

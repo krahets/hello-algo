@@ -4,25 +4,25 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* 編集距離：総当たり探索 */
+/* 編集距離：全探索 */
 fn edit_distance_dfs(s: &str, t: &str, i: usize, j: usize) -> i32 {
-    // s と t がともに空なら 0 を返す
+    // s と t がともに空の場合、0 を返す
     if i == 0 && j == 0 {
         return 0;
     }
-    // s が空なら t の長さを返す
+    // s が空の場合、t の長さを返す
     if i == 0 {
         return j as i32;
     }
-    // t が空なら s の長さを返す
+    // t が空の場合、s の長さを返す
     if j == 0 {
         return i as i32;
     }
-    // 2 つの文字が等しければ、その 2 文字をそのままスキップする
+    // 2 つの文字が等しい場合、その 2 文字をスキップする
     if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
         return edit_distance_dfs(s, t, i - 1, j - 1);
     }
-    // 最小編集回数 = 挿入・削除・置換の 3 操作における最小編集回数 + 1
+    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
     let insert = edit_distance_dfs(s, t, i, j - 1);
     let delete = edit_distance_dfs(s, t, i - 1, j);
     let replace = edit_distance_dfs(s, t, i - 1, j - 1);
@@ -32,27 +32,27 @@ fn edit_distance_dfs(s: &str, t: &str, i: usize, j: usize) -> i32 {
 
 /* 編集距離：メモ化探索 */
 fn edit_distance_dfs_mem(s: &str, t: &str, mem: &mut Vec<Vec<i32>>, i: usize, j: usize) -> i32 {
-    // s と t がともに空なら 0 を返す
+    // s と t がともに空の場合、0 を返す
     if i == 0 && j == 0 {
         return 0;
     }
-    // s が空なら t の長さを返す
+    // s が空の場合、t の長さを返す
     if i == 0 {
         return j as i32;
     }
-    // t が空なら s の長さを返す
+    // t が空の場合、s の長さを返す
     if j == 0 {
         return i as i32;
     }
-    // 記録済みなら、それをそのまま返す
+    // 記録済みなら、その値をそのまま返す
     if mem[i][j] != -1 {
         return mem[i][j];
     }
-    // 2 つの文字が等しければ、その 2 文字をそのままスキップする
+    // 2 つの文字が等しい場合、その 2 文字をスキップする
     if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
         return edit_distance_dfs_mem(s, t, mem, i - 1, j - 1);
     }
-    // 最小編集回数 = 挿入・削除・置換の 3 操作における最小編集回数 + 1
+    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
     let insert = edit_distance_dfs_mem(s, t, mem, i, j - 1);
     let delete = edit_distance_dfs_mem(s, t, mem, i - 1, j);
     let replace = edit_distance_dfs_mem(s, t, mem, i - 1, j - 1);
@@ -72,14 +72,14 @@ fn edit_distance_dp(s: &str, t: &str) -> i32 {
     for j in 1..m {
         dp[0][j] = j as i32;
     }
-    // 状態遷移: 残りの行と列
+    // 状態遷移：残りの行と列
     for i in 1..=n {
         for j in 1..=m {
             if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
-                // 2 つの文字が等しければ、その 2 文字をそのままスキップする
+                // 2 つの文字が等しい場合、その 2 文字をスキップする
                 dp[i][j] = dp[i - 1][j - 1];
             } else {
-                // 最小編集回数 = 挿入・削除・置換の 3 操作における最小編集回数 + 1
+                // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
                 dp[i][j] =
                     std::cmp::min(std::cmp::min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
             }
@@ -88,7 +88,7 @@ fn edit_distance_dp(s: &str, t: &str) -> i32 {
     dp[n][m]
 }
 
-/* 編集距離：空間最適化した動的計画法 */
+/* 編集距離：空間を最適化した動的計画法 */
 fn edit_distance_dp_comp(s: &str, t: &str) -> i32 {
     let (n, m) = (s.len(), t.len());
     let mut dp = vec![0; m + 1];
@@ -105,10 +105,10 @@ fn edit_distance_dp_comp(s: &str, t: &str) -> i32 {
         for j in 1..=m {
             let temp = dp[j];
             if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
-                // 2 つの文字が等しければ、その 2 文字をそのままスキップする
+                // 2 つの文字が等しい場合、その 2 文字をスキップする
                 dp[j] = leftup;
             } else {
-                // 最小編集回数 = 挿入・削除・置換の 3 操作における最小編集回数 + 1
+                // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
                 dp[j] = std::cmp::min(std::cmp::min(dp[j - 1], dp[j]), leftup) + 1;
             }
             leftup = temp; // 次の反復の dp[i-1, j-1] に更新する
@@ -117,7 +117,7 @@ fn edit_distance_dp_comp(s: &str, t: &str) -> i32 {
     dp[m]
 }
 
-/* Driver Code */
+/* 実行用コード */
 pub fn main() {
     let s = "bag";
     let t = "pack";
@@ -125,7 +125,7 @@ pub fn main() {
 
     // 全探索
     let res = edit_distance_dfs(s, t, n, m);
-    println!("{s} を {t} に変更するには最小で {res} 回の編集が必要");
+    println!("{s} を {t} に変更するには最低 {res} 回の編集が必要");
 
     // メモ化探索
     let mut mem = vec![vec![0; m + 1]; n + 1];
@@ -133,13 +133,13 @@ pub fn main() {
         row.fill(-1);
     }
     let res = edit_distance_dfs_mem(s, t, &mut mem, n, m);
-    println!("{s} を {t} に変更するには最小で {res} 回の編集が必要");
+    println!("{s} を {t} に変更するには最低 {res} 回の編集が必要");
 
     // 動的計画法
     let res = edit_distance_dp(s, t);
-    println!("{s} を {t} に変更するには最小で {res} 回の編集が必要");
+    println!("{s} を {t} に変更するには最低 {res} 回の編集が必要");
 
-    // 空間最適化後の動的計画法
+    // 空間を最適化した動的計画法
     let res = edit_distance_dp_comp(s, t);
-    println!("{s} を {t} に変更するには最小で {res} 回の編集が必要");
+    println!("{s} を {t} に変更するには最低 {res} 回の編集が必要");
 }

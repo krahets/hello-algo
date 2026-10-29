@@ -11,13 +11,13 @@ import (
 	"strings"
 )
 
-// PrintSlice はスライスを出力する
+// PrintSlice はスライスを表示する
 func PrintSlice[T any](nums []T) {
 	fmt.Printf("%v", nums)
 	fmt.Println()
 }
 
-// PrintList はリストを出力する
+// PrintList はリストを表示する
 func PrintList(list *list.List) {
 	if list.Len() == 0 {
 		fmt.Print("[]\n")
@@ -33,23 +33,23 @@ func PrintList(list *list.List) {
 	fmt.Print(e.Value, "]\n")
 }
 
-// PrintMap はハッシュテーブルを出力する
+// PrintMap はハッシュテーブルを表示する
 func PrintMap[K comparable, V any](m map[K]V) {
 	for key, value := range m {
 		fmt.Println(key, "->", value)
 	}
 }
 
-// PrintHeap はヒープを出力する
+// PrintHeap はヒープを表示する
 func PrintHeap(h []any) {
 	fmt.Printf("ヒープの配列表現：")
 	fmt.Printf("%v", h)
-	fmt.Printf("\nヒープの木構造表示：\n")
+	fmt.Printf("\nヒープの木構造表現：\n")
 	root := SliceToTree(h)
 	PrintTree(root)
 }
 
-// PrintLinkedList は連結リストを出力する
+// PrintLinkedList は連結リストを表示する
 func PrintLinkedList(node *ListNode) {
 	if node == nil {
 		return
@@ -63,13 +63,13 @@ func PrintLinkedList(node *ListNode) {
 	fmt.Println(builder.String())
 }
 
-// PrintTree は二分木を出力する
+// PrintTree は二分木を表示する
 func PrintTree(root *TreeNode) {
 	printTreeHelper(root, nil, false)
 }
 
-// printTreeHelper は二分木を出力する
-// This tree printer is borrowed from TECHIE DELIGHT
+// printTreeHelper は二分木を表示する
+// この木の表示処理は TECHIE DELIGHT から借用した
 // https://www.techiedelight.com/c-program-print-binary-tree/
 func printTreeHelper(root *TreeNode, prev *trunk, isRight bool) {
 	if root == nil {

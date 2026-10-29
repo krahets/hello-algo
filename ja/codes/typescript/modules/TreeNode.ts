@@ -4,9 +4,9 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* 二分木ノード */
+/* 二分木のノード */
 class TreeNode {
-    val: number; // ノード値
+    val: number; // ノードの値
     height: number; // ノードの高さ
     left: TreeNode | null; // 左の子ノードへのポインタ
     right: TreeNode | null; // 右の子ノードへのポインタ
@@ -23,7 +23,7 @@ class TreeNode {
     }
 }
 
-/* 配列をデシリアライズして二分木に変換する */
+/* 配列をデシリアライズして二分木にする */
 function arrToTree(arr: (number | null)[], i: number = 0): TreeNode | null {
     if (i < 0 || i >= arr.length || arr[i] === null) {
         return null;

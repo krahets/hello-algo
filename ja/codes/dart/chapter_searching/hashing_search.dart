@@ -9,8 +9,8 @@ import '../utils/list_node.dart';
 
 /* ハッシュ探索（配列） */
 int hashingSearchArray(Map<int, int> map, int target) {
-  // ハッシュテーブルの key: 目標要素、value: インデックス
-  // ハッシュテーブルにこの key がなければ -1 を返す
+  // ハッシュテーブルの key：目的の要素、value：インデックス
+  // ハッシュテーブルにこの key が存在しない場合、-1 を返す
   if (!map.containsKey(target)) {
     return -1;
   }
@@ -19,36 +19,36 @@ int hashingSearchArray(Map<int, int> map, int target) {
 
 /* ハッシュ探索（連結リスト） */
 ListNode? hashingSearchLinkedList(Map<int, ListNode> map, int target) {
-  // ハッシュテーブルの key: 目標ノード値、value: ノードオブジェクト
-  // ハッシュテーブルにこの key がなければ null を返す
+  // ハッシュテーブルの key：目的のノードの値、value：ノードオブジェクト
+  // ハッシュテーブルにこの key が存在しない場合、null を返す
   if (!map.containsKey(target)) {
     return null;
   }
   return map[target]!;
 }
 
-/* Driver Code */
+/* 実行用コード */
 void main() {
   int target = 3;
 
   /* ハッシュ探索（配列） */
   List<int> nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
-  // ハッシュテーブルを初期化
+  // ハッシュテーブルを初期化する
   Map<int, int> map = HashMap();
   for (int i = 0; i < nums.length; i++) {
-    map.putIfAbsent(nums[i], () => i); // key: 要素、value: インデックス
+    map.putIfAbsent(nums[i], () => i); // key：要素、value：インデックス
   }
   int index = hashingSearchArray(map, target);
-  print('対象要素 3 のインデックス = $index');
+  print('目的の要素 3 のインデックス = $index');
 
   /* ハッシュ探索（連結リスト） */
   ListNode? head = listToLinkedList(nums);
-  // ハッシュテーブルを初期化
+  // ハッシュテーブルを初期化する
   Map<int, ListNode> map1 = HashMap();
   while (head != null) {
-    map1.putIfAbsent(head.val, () => head!); // key: ノード値、value: ノード
+    map1.putIfAbsent(head.val, () => head!); // key：ノードの値、value：ノード
     head = head.next;
   }
   ListNode? node = hashingSearchLinkedList(map1, target);
-  print('目標ノード値 3 に対応するノードオブジェクトは $node です');
+  print('目的のノードの値 3 に対応するノードオブジェクトは $node');
 }

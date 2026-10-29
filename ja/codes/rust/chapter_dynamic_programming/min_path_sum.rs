@@ -10,14 +10,14 @@ fn min_path_sum_dfs(grid: &Vec<Vec<i32>>, i: i32, j: i32) -> i32 {
     if i == 0 && j == 0 {
         return grid[0][0];
     }
-    // 行または列のインデックスが範囲外なら、コスト +∞ を返す
+    // 行または列のインデックスが範囲外の場合、コスト +∞ を返す
     if i < 0 || j < 0 {
         return i32::MAX;
     }
     // 左上から (i-1, j) および (i, j-1) までの最小経路コストを計算する
     let up = min_path_sum_dfs(grid, i - 1, j);
     let left = min_path_sum_dfs(grid, i, j - 1);
-    // 左上隅から (i, j) までの最小経路コストを返す
+    // 左上から (i, j) までの最小経路コストを返す
     std::cmp::min(left, up) + grid[i as usize][j as usize]
 }
 
@@ -27,15 +27,15 @@ fn min_path_sum_dfs_mem(grid: &Vec<Vec<i32>>, mem: &mut Vec<Vec<i32>>, i: i32, j
     if i == 0 && j == 0 {
         return grid[0][0];
     }
-    // 行または列のインデックスが範囲外なら、コスト +∞ を返す
+    // 行または列のインデックスが範囲外の場合、コスト +∞ を返す
     if i < 0 || j < 0 {
         return i32::MAX;
     }
-    // 既に記録があればそのまま返す
+    // 記録済みなら、その値をそのまま返す
     if mem[i as usize][j as usize] != -1 {
         return mem[i as usize][j as usize];
     }
-    // 左と上のセルからの最小経路コスト
+    // 左隣と上隣のセルまでの最小経路コスト
     let up = min_path_sum_dfs_mem(grid, mem, i - 1, j);
     let left = min_path_sum_dfs_mem(grid, mem, i, j - 1);
     // 左上から (i, j) までの最小経路コストを記録して返す
@@ -46,7 +46,7 @@ fn min_path_sum_dfs_mem(grid: &Vec<Vec<i32>>, mem: &mut Vec<Vec<i32>>, i: i32, j
 /* 最小経路和：動的計画法 */
 fn min_path_sum_dp(grid: &Vec<Vec<i32>>) -> i32 {
     let (n, m) = (grid.len(), grid[0].len());
-    // dp テーブルを初期化
+    // dp テーブルを初期化する
     let mut dp = vec![vec![0; m]; n];
     dp[0][0] = grid[0][0];
     // 状態遷移：先頭行
@@ -57,7 +57,7 @@ fn min_path_sum_dp(grid: &Vec<Vec<i32>>) -> i32 {
     for i in 1..n {
         dp[i][0] = dp[i - 1][0] + grid[i][0];
     }
-    // 状態遷移: 残りの行と列
+    // 状態遷移：残りの行と列
     for i in 1..n {
         for j in 1..m {
             dp[i][j] = std::cmp::min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
@@ -66,10 +66,10 @@ fn min_path_sum_dp(grid: &Vec<Vec<i32>>) -> i32 {
     dp[n - 1][m - 1]
 }
 
-/* 最小経路和：空間最適化後の動的計画法 */
+/* 最小経路和：空間を最適化した動的計画法 */
 fn min_path_sum_dp_comp(grid: &Vec<Vec<i32>>) -> i32 {
     let (n, m) = (grid.len(), grid[0].len());
-    // dp テーブルを初期化
+    // dp テーブルを初期化する
     let mut dp = vec![0; m];
     // 状態遷移：先頭行
     dp[0] = grid[0][0];
@@ -88,7 +88,7 @@ fn min_path_sum_dp_comp(grid: &Vec<Vec<i32>>) -> i32 {
     dp[m - 1]
 }
 
-/* Driver Code */
+/* 実行用コード */
 pub fn main() {
     let grid = vec![
         vec![1, 3, 1, 5],
@@ -114,7 +114,7 @@ pub fn main() {
     let res = min_path_sum_dp(&grid);
     println!("左上から右下までの最小経路和は {res}");
 
-    // 空間最適化後の動的計画法
+    // 空間を最適化した動的計画法
     let res = min_path_sum_dp_comp(&grid);
     println!("左上から右下までの最小経路和は {res}");
 }

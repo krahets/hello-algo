@@ -4,38 +4,38 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* Driver Code */
+/* 実行用コード */
 void main() {
-  /* ハッシュテーブルを初期化 */
+  /* ハッシュテーブルを初期化する */
   final Map<int, String> map = {};
 
   /* 追加操作 */
-  // ハッシュテーブルにキーと値のペア (key, value) を追加
-  map[12836] = "シャオハー";
-  map[15937] = "シャオルオ";
-  map[16750] = "シャオスワン";
-  map[13276] = "シャオファー";
-  map[10583] = "シャオヤー";
-  print("\n追加完了後、ハッシュテーブルは\nKey -> Value");
+  // ハッシュテーブルにキーと値のペア (key, value) を追加する
+  map[12836] = "小哈";
+  map[15937] = "小啰";
+  map[16750] = "小算";
+  map[13276] = "小法";
+  map[10583] = "小鸭";
+  print("\n追加後のハッシュテーブル\nKey -> Value");
   map.forEach((key, value) => print("$key -> $value"));
 
-  /* 検索操作 */
-  // キー key をハッシュテーブルに渡し、値 value を取得
+  /* 取得操作 */
+  // ハッシュテーブルにキー key を渡し、値 value を取得する
   final String? name = map[15937];
-  print("\n学籍番号 15937 を入力すると、名前 $name が見つかりました");
+  print("\n学生番号 15937 に対応する氏名は $name");
 
   /* 削除操作 */
-  // ハッシュテーブルからキーと値のペア (key, value) を削除
+  // ハッシュテーブルからキーと値のペア (key, value) を削除する
   map.remove(10583);
-  print("\n10583 を削除後、ハッシュテーブルは\nKey -> Value");
+  print("\n10583 を削除した後のハッシュテーブル\nKey -> Value");
   map.forEach((key, value) => print("$key -> $value"));
 
-  /* ハッシュテーブルを走査 */
-  print("\nキーと値のペア Key->Value を走査");
+  /* ハッシュテーブルを走査する */
+  print("\nキーと値のペア Key->Value を走査する");
   map.forEach((key, value) => print("$key -> $value"));
-  print("\nキー Key のみを走査");
+  print("\nキー Key だけを走査する");
   map.keys.forEach((key) => print(key));
-  print("\n値 Value のみを走査");
+  print("\n値 Value だけを走査する");
   map.forEach((key, value) => print("$value"));
   map.values.forEach((value) => print(value));
 }

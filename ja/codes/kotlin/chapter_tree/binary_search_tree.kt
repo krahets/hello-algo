@@ -14,42 +14,42 @@ class BinarySearchTree {
     // 空の木を初期化する
     private var root: TreeNode? = null
 
-    /* 二分木の根ノードを取得 */
+    /* 二分木の根ノードを取得する */
     fun getRoot(): TreeNode? {
         return root
     }
 
-    /* ノードを探索 */
+    /* ノードを探索する */
     fun search(num: Int): TreeNode? {
         var cur = root
-        // ループで探索し、葉ノードを越えたら抜ける
+        // 繰り返し探索し、葉ノードを越えたら終了する
         while (cur != null) {
-            // 目標ノードは cur の右部分木にある
+            // 目的のノードは cur の右部分木にある
             cur = if (cur._val < num)
                 cur.right
-            // 目標ノードは cur の左部分木にある
+            // 目的のノードは cur の左部分木にある
             else if (cur._val > num)
                 cur.left
-            // 目標ノードが見つかったらループを抜ける
+            // 目的のノードが見つかったので、ループを終了する
             else
                 break
         }
-        // 目標ノードを返す
+        // 目的のノードを返す
         return cur
     }
 
-    /* ノードを挿入 */
+    /* ノードを挿入する */
     fun insert(num: Int) {
-        // 木が空なら、根ノードを初期化する
+        // 木が空の場合、根ノードを初期化する
         if (root == null) {
             root = TreeNode(num)
             return
         }
         var cur = root
         var pre: TreeNode? = null
-        // ループで探索し、葉ノードを越えたら抜ける
+        // 繰り返し探索し、葉ノードを越えたら終了する
         while (cur != null) {
-            // 重複ノードが見つかったら、直ちに返す
+            // 重複したノードが見つかったので、そのまま戻る
             if (cur._val == num)
                 return
             pre = cur
@@ -60,7 +60,7 @@ class BinarySearchTree {
             else
                 cur.left
         }
-        // ノードを挿入
+        // ノードを挿入する
         val node = TreeNode(num)
         if (pre?._val!! < num)
             pre.right = node
@@ -68,32 +68,32 @@ class BinarySearchTree {
             pre.left = node
     }
 
-    /* ノードを削除 */
+    /* ノードを削除する */
     fun remove(num: Int) {
-        // 木が空なら、そのまま早期リターンする
+        // 木が空の場合、そのまま早期リターンする
         if (root == null)
             return
         var cur = root
         var pre: TreeNode? = null
-        // ループで探索し、葉ノードを越えたら抜ける
+        // 繰り返し探索し、葉ノードを越えたら終了する
         while (cur != null) {
-            // 削除対象のノードが見つかったら、ループを抜ける
+            // 削除対象のノードが見つかったので、ループを終了する
             if (cur._val == num)
                 break
             pre = cur
-            // 削除対象ノードは cur の右部分木にある
+            // 削除対象のノードは cur の右部分木にある
             cur = if (cur._val < num)
                 cur.right
-            // 削除対象ノードは cur の左部分木にある
+            // 削除対象のノードは cur の左部分木にある
             else
                 cur.left
         }
-        // 削除対象ノードがなければそのまま返す
+        // 削除対象のノードが存在しない場合、そのまま戻る
         if (cur == null)
             return
-        // 子ノード数 = 0 or 1
+        // 子ノード数 = 0 または 1
         if (cur.left == null || cur.right == null) {
-            // 子ノード数が 0 / 1 のとき、child = null / その子ノード
+            // 子ノード数 = 0 / 1 の場合、child = null / その子ノード
             val child = if (cur.left != null)
                 cur.left
             else
@@ -105,17 +105,17 @@ class BinarySearchTree {
                 else
                     pre.right = child
             } else {
-                // 削除ノードが根ノードなら、根ノードを再設定
+                // 削除するノードが根ノードの場合、根ノードを指定し直す
                 root = child
             }
             // 子ノード数 = 2
         } else {
-            // 中順走査における cur の次ノードを取得
+            // 通りがけ順で cur の次のノードを取得する
             var tmp = cur.right
             while (tmp!!.left != null) {
                 tmp = tmp.left
             }
-            // ノード tmp を再帰的に削除
+            // ノード tmp を再帰的に削除する
             remove(tmp._val)
             // tmp で cur を上書きする
             cur._val = tmp._val
@@ -123,35 +123,35 @@ class BinarySearchTree {
     }
 }
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
-    /* 二分探索木を初期化 */
+    /* 二分探索木を初期化する */
     val bst = BinarySearchTree()
-    // 注意：挿入順序が異なると異なる二分木が生成される。このシーケンスからは完全二分木を生成できる
+    // 挿入順序が異なると異なる二分木になることに注意。この順序ではパーフェクト二分木を生成できる
     val nums = intArrayOf(8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15)
     for (num in nums) {
         bst.insert(num)
     }
-    println("\n初期化した二分木は\n")
+    println("\n初期化した二分木\n")
     printTree(bst.getRoot())
 
-    /* ノードを探索 */
+    /* ノードを探索する */
     val node = bst.search(7)
     println("見つかったノードオブジェクトは $node、ノードの値 = ${node?._val}")
 
-    /* ノードを挿入 */
+    /* ノードを挿入する */
     bst.insert(16)
-    println("\nノード 16 を挿入後、二分木は\n")
+    println("\nノード 16 を挿入した後の二分木\n")
     printTree(bst.getRoot())
 
-    /* ノードを削除 */
+    /* ノードを削除する */
     bst.remove(1)
-    println("\nノード 1 を削除後、二分木は\n")
+    println("\nノード 1 を削除した後の二分木\n")
     printTree(bst.getRoot())
     bst.remove(2)
-    println("\nノード 2 を削除後、二分木は\n")
+    println("\nノード 2 を削除した後の二分木\n")
     printTree(bst.getRoot())
     bst.remove(4)
-    println("\nノード 4 を削除後、二分木は\n")
+    println("\nノード 4 を削除した後の二分木\n")
     printTree(bst.getRoot())
 }

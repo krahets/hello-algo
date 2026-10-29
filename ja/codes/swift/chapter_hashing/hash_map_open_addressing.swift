@@ -6,14 +6,14 @@
 
 import utils
 
-/* オープンアドレス法ハッシュテーブル */
+/* オープンアドレス法のハッシュテーブル */
 class HashMapOpenAddressing {
-    var size: Int // キーと値のペア数
-    var capacity: Int // ハッシュテーブル容量
-    var loadThres: Double // リサイズを発動する負荷率のしきい値
-    var extendRatio: Int // 拡張倍率
+    var size: Int // キーと値のペアの数
+    var capacity: Int // ハッシュテーブルの容量
+    var loadThres: Double // 容量の拡張を開始する負荷率のしきい値
+    var extendRatio: Int // 容量の拡張倍率
     var buckets: [Pair?] // バケット配列
-    var TOMBSTONE: Pair // 削除済みマーク
+    var TOMBSTONE: Pair // 削除マーカー
 
     /* コンストラクタ */
     init() {
@@ -35,83 +35,83 @@ class HashMapOpenAddressing {
         Double(size) / Double(capacity)
     }
 
-    /* key に対応するバケットインデックスを探す */
+    /* key に対応するバケットのインデックスを探索する */
     func findBucket(key: Int) -> Int {
         var index = hashFunc(key: key)
         var firstTombstone = -1
-        // 線形プロービングを行い、空バケットに達したら終了
+        // 線形探索法で探索し、空のバケットに到達したら終了する
         while buckets[index] != nil {
-            // key が見つかったら、対応するバケットのインデックスを返す
+            // key が見つかった場合、対応するバケットのインデックスを返す
             if buckets[index]!.key == key {
-                // 以前に削除マークが見つかっていれば、そのインデックスへキーと値のペアを移動
+                // それ以前に削除マーカーが見つかっていれば、そのインデックスにキーと値のペアを移す
                 if firstTombstone != -1 {
                     buckets[firstTombstone] = buckets[index]
                     buckets[index] = TOMBSTONE
-                    return firstTombstone // 移動後のバケットインデックスを返す
+                    return firstTombstone // 移動後のバケットのインデックスを返す
                 }
                 return index // バケットのインデックスを返す
             }
-            // 最初に見つかった削除マークを記録
+            // 最初に見つかった削除マーカーを記録する
             if firstTombstone == -1 && buckets[index] == TOMBSTONE {
                 firstTombstone = index
             }
             // バケットのインデックスを計算し、末尾を越えたら先頭に戻る
             index = (index + 1) % capacity
         }
-        // key が存在しない場合は追加位置のインデックスを返す
+        // key が存在しない場合、追加位置のインデックスを返す
         return firstTombstone == -1 ? index : firstTombstone
     }
 
-    /* 検索操作 */
+    /* 取得操作 */
     func get(key: Int) -> String? {
-        // key に対応するバケットインデックスを探す
+        // key に対応するバケットのインデックスを探索する
         let index = findBucket(key: key)
-        // キーと値の組が見つかったら、対応する val を返す
+        // キーと値のペアが見つかった場合、対応する val を返す
         if buckets[index] != nil, buckets[index] != TOMBSTONE {
             return buckets[index]!.val
         }
-        // キーと値の組が存在しなければ null を返す
+        // キーと値のペアが存在しない場合、null を返す
         return nil
     }
 
     /* 追加操作 */
     func put(key: Int, val: String) {
-        // 負荷率がしきい値を超えたら、リサイズを実行
+        // 負荷率がしきい値を超えた場合、容量を拡張する
         if loadFactor() > loadThres {
             extend()
         }
-        // key に対応するバケットインデックスを探す
+        // key に対応するバケットのインデックスを探索する
         let index = findBucket(key: key)
-        // キーと値の組が見つかったら、val を上書きして返す
+        // キーと値のペアが見つかった場合、val を上書きして戻る
         if buckets[index] != nil, buckets[index] != TOMBSTONE {
             buckets[index]!.val = val
             return
         }
-        // キーと値の組が存在しない場合は、その組を追加する
+        // キーと値のペアが存在しない場合、そのペアを追加する
         buckets[index] = Pair(key: key, val: val)
         size += 1
     }
 
     /* 削除操作 */
     func remove(key: Int) {
-        // key に対応するバケットインデックスを探す
+        // key に対応するバケットのインデックスを探索する
         let index = findBucket(key: key)
-        // キーと値の組が見つかったら、削除マーカーで上書きする
+        // キーと値のペアが見つかった場合、削除マーカーで上書きする
         if buckets[index] != nil, buckets[index] != TOMBSTONE {
             buckets[index] = TOMBSTONE
             size -= 1
         }
     }
 
-    /* ハッシュテーブルを拡張 */
+    /* ハッシュテーブルの容量を拡張する */
     func extend() {
-        // 元のハッシュテーブルを一時保存
+        // 元のハッシュテーブルを一時保存する
         let bucketsTmp = buckets
-        // リサイズ後の新しいハッシュテーブルを初期化
+        // 拡張後の新しいハッシュテーブルを初期化する
         capacity *= extendRatio
         buckets = Array(repeating: nil, count: capacity)
         size = 0
-        // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルへ移す
+        // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルに移す
         for pair in bucketsTmp {
             if let pair, pair != TOMBSTONE {
                 put(key: pair.key, val: pair.val)
@@ -119,7 +119,7 @@ class HashMapOpenAddressing {
         }
     }
 
-    /* ハッシュテーブルを出力 */
+    /* ハッシュテーブルを表示する */
     func print() {
         for pair in buckets {
             if pair == nil {
@@ -135,30 +135,30 @@ class HashMapOpenAddressing {
 
 @main
 enum _HashMapOpenAddressing {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
-        /* ハッシュテーブルを初期化 */
+        /* ハッシュテーブルを初期化する */
         let map = HashMapOpenAddressing()
 
         /* 追加操作 */
-        // ハッシュテーブルにキーと値のペア (key, value) を追加
-        map.put(key: 12836, val: "シャオハー")
-        map.put(key: 15937, val: "シャオルオ")
-        map.put(key: 16750, val: "シャオスワン")
-        map.put(key: 13276, val: "シャオファー")
-        map.put(key: 10583, val: "シャオヤー")
-        print("\n追加完了後のハッシュテーブルは\nKey -> Value")
+        // ハッシュテーブルにキーと値のペア (key, value) を追加する
+        map.put(key: 12836, val: "小哈")
+        map.put(key: 15937, val: "小啰")
+        map.put(key: 16750, val: "小算")
+        map.put(key: 13276, val: "小法")
+        map.put(key: 10583, val: "小鸭")
+        print("\n追加後のハッシュテーブル\nKey -> Value")
         map.print()
 
-        /* 検索操作 */
-        // キー key をハッシュテーブルに渡し、値 value を取得
+        /* 取得操作 */
+        // ハッシュテーブルにキー key を渡し、値 value を取得する
         let name = map.get(key: 13276)
-        print("\n学籍番号 13276 を入力すると、名前 \(name!) が見つかりました")
+        print("\n学生番号 13276 に対応する氏名は \(name!)")
 
         /* 削除操作 */
-        // ハッシュテーブルからキーと値のペア (key, value) を削除
+        // ハッシュテーブルからキーと値のペア (key, value) を削除する
         map.remove(key: 16750)
-        print("\n16750 を削除後、ハッシュテーブルは\nKey -> Value")
+        print("\n16750 を削除した後のハッシュテーブル\nKey -> Value")
         map.print()
     }
 }

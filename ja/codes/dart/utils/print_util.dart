@@ -16,7 +16,7 @@ class Trunk {
   Trunk(this.prev, this.str);
 }
 
-/* 行列を出力する (Array) */
+/* 行列を表示する（Array） */
 void printMatrix(List<List<int>> matrix) {
   print("[");
   for (List<int> row in matrix) {
@@ -25,7 +25,7 @@ void printMatrix(List<List<int>> matrix) {
   print("]");
 }
 
-/* 連結リストを出力 */
+/* 連結リストを表示する */
 void printLinkedList(ListNode? head) {
   List<String> list = [];
 
@@ -38,8 +38,8 @@ void printLinkedList(ListNode? head) {
 }
 
 /**
- * 二分木を出力
- * This tree printer is borrowed from TECHIE DELIGHT
+ * 二分木を表示する
+ * この木の表示処理は TECHIE DELIGHT から借用した
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 void printTree(TreeNode? root, [Trunk? prev = null, bool isRight = false]) {
@@ -81,10 +81,10 @@ void showTrunks(Trunk? p) {
   stdout.write(p.str);
 }
 
-/* ヒープを出力 */
+/* ヒープを表示する */
 void printHeap(List<int> heap) {
   print("ヒープの配列表現：$heap");
-  print("ヒープの木構造表示：");
+  print("ヒープの木構造表現：");
   TreeNode? root = listToTree(heap);
   printTree(root);
 }

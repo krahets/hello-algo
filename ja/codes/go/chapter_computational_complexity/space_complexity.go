@@ -17,30 +17,30 @@ type node struct {
 	next *node
 }
 
-/* node 構造体を作成する */
+/* node 構造体を作成する  */
 func newNode(val int) *node {
 	return &node{val: val}
 }
 
 /* 関数 */
 func function() int {
-	// いくつかの操作を実行...
+	// 何らかの処理を実行する...
 	return 0
 }
 
-/* 定数階 */
+/* 定数オーダー */
 func spaceConstant(n int) {
-	// 定数、変数、オブジェクトは O(1) の空間を占める
+	// 定数、変数、オブジェクトは O(1) の領域を使用する
 	const a = 0
 	b := 0
 	nums := make([]int, 10000)
 	node := newNode(0)
-	// ループ内の変数は O(1) の空間を占める
+	// ループ内の変数は O(1) の領域を使用する
 	var c int
 	for i := 0; i < n; i++ {
 		c = 0
 	}
-	// ループ内の関数は O(1) の空間を占める
+	// ループ内の関数は O(1) の領域を使用する
 	for i := 0; i < n; i++ {
 		function()
 	}
@@ -50,23 +50,23 @@ func spaceConstant(n int) {
 	node.val = 0
 }
 
-/* 線形階 */
+/* 線形オーダー */
 func spaceLinear(n int) {
-	// 長さ n の配列は O(n) の空間を使用
+	// 長さ n の配列は O(n) の領域を使用する
 	_ = make([]int, n)
-	// 長さ n のリストは O(n) の空間を使用
+	// 長さ n のリストは O(n) の領域を使用する
 	var nodes []*node
 	for i := 0; i < n; i++ {
 		nodes = append(nodes, newNode(i))
 	}
-	// 長さ n のハッシュテーブルは O(n) の空間を使用
+	// 長さ n のハッシュテーブルは O(n) の領域を使用する
 	m := make(map[int]string, n)
 	for i := 0; i < n; i++ {
 		m[i] = strconv.Itoa(i)
 	}
 }
 
-/* 線形時間（再帰実装） */
+/* 線形オーダー（再帰による実装） */
 func spaceLinearRecur(n int) {
 	fmt.Println("再帰 n =", n)
 	if n == 1 {
@@ -75,16 +75,16 @@ func spaceLinearRecur(n int) {
 	spaceLinearRecur(n - 1)
 }
 
-/* 二乗階 */
+/* 二次オーダー */
 func spaceQuadratic(n int) {
-	// 行列は O(n^2) の空間を使用する
+	// 行列は O(n^2) の領域を使用する
 	numMatrix := make([][]int, n)
 	for i := 0; i < n; i++ {
 		numMatrix[i] = make([]int, n)
 	}
 }
 
-/* 二次時間（再帰実装） */
+/* 二次オーダー（再帰による実装） */
 func spaceQuadraticRecur(n int) int {
 	if n <= 0 {
 		return 0
@@ -94,7 +94,7 @@ func spaceQuadraticRecur(n int) int {
 	return spaceQuadraticRecur(n - 1)
 }
 
-/* 指数時間（完全二分木の構築） */
+/* 指数オーダー（パーフェクト二分木の構築） */
 func buildTree(n int) *TreeNode {
 	if n == 0 {
 		return nil

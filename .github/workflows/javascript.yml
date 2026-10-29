@@ -7,6 +7,7 @@ on:
       - ".github/workflows/javascript.yml"
       - "codes/javascript/**/*.js"
       - "en/codes/javascript/**/*.js"
+      - "ja/codes/javascript/**/*.js"
       - "ko/codes/javascript/**/*.js"
   pull_request:
     branches: ["main"]
@@ -14,6 +15,7 @@ on:
       - ".github/workflows/javascript.yml"
       - "codes/javascript/**/*.js"
       - "en/codes/javascript/**/*.js"
+      - "ja/codes/javascript/**/*.js"
       - "ko/codes/javascript/**/*.js"
   workflow_dispatch:
 
@@ -23,7 +25,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        code-dir: ["codes/javascript", "en/codes/javascript", "ko/codes/javascript"]
+        code-dir: ["codes/javascript", "en/codes/javascript", "ja/codes/javascript", "ko/codes/javascript"]
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6

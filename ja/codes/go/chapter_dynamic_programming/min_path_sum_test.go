@@ -37,7 +37,7 @@ func TestMinPathSum(t *testing.T) {
 	res = minPathSumDP(grid)
 	fmt.Printf("左上から右下までの最小経路和は  %d\n", res)
 
-	// 空間最適化後の動的計画法
+	// 空間を最適化した動的計画法
 	res = minPathSumDPComp(grid)
 	fmt.Printf("左上から右下までの最小経路和は  %d\n", res)
 }

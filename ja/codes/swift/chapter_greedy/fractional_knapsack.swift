@@ -15,13 +15,13 @@ class Item {
     }
 }
 
-/* 分数ナップサック：貪欲法 */
+/* 分割可能ナップサック問題：貪欲法 */
 func fractionalKnapsack(wgt: [Int], val: [Int], cap: Int) -> Double {
-    // 重さと価値の 2 属性を持つ品物リストを作成
+    // 重さと価値の 2 つの属性を持つ品物のリストを作成する
     var items = zip(wgt, val).map { Item(w: $0, v: $1) }
-    // 単位価値 item.v / item.w の高い順にソートする
+    // 単位重さ当たりの価値 item.v / item.w の降順にソートする
     items.sort { -(Double($0.v) / Double($0.w)) < -(Double($1.v) / Double($1.w)) }
-    // 貪欲選択を繰り返す
+    // 貪欲な選択を繰り返す
     var res = 0.0
     var cap = cap
     for item in items {
@@ -30,9 +30,9 @@ func fractionalKnapsack(wgt: [Int], val: [Int], cap: Int) -> Double {
             res += Double(item.v)
             cap -= item.w
         } else {
-            // 残り容量が足りない場合は、現在の品物の一部だけをナップサックに入れる
+            // 残り容量が不足している場合、現在の品物の一部をナップサックに入れる
             res += Double(item.v) / Double(item.w) * Double(cap)
-            // 残り容量がないため、ループを抜ける
+            // 残り容量がないため、ループを終了する
             break
         }
     }
@@ -41,17 +41,17 @@ func fractionalKnapsack(wgt: [Int], val: [Int], cap: Int) -> Double {
 
 @main
 enum FractionalKnapsack {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
         // 品物の重さ
         let wgt = [10, 20, 30, 40, 50]
         // 品物の価値
         let val = [50, 120, 150, 210, 240]
-        // ナップサック容量
+        // ナップサックの容量
         let cap = 50
 
-        // 貪欲法
+        // 貪欲アルゴリズム
         let res = fractionalKnapsack(wgt: wgt, val: val, cap: cap)
-        print("ナップサック容量を超えない最大価値は \(res)")
+        print("ナップサックの容量を超えない品物の最大価値は \(res)")
     }
 }

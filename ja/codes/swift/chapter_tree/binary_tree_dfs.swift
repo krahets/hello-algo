@@ -6,10 +6,10 @@
 
 import utils
 
-// 走査順序を格納するリストを初期化
+// 走査順序を格納するリストを初期化する
 var list: [Int] = []
 
-/* 先行順走査 */
+/* 行きがけ順走査 */
 func preOrder(root: TreeNode?) {
     guard let root = root else {
         return
@@ -20,23 +20,23 @@ func preOrder(root: TreeNode?) {
     preOrder(root: root.right)
 }
 
-/* 中順走査 */
+/* 通りがけ順走査 */
 func inOrder(root: TreeNode?) {
     guard let root = root else {
         return
     }
-    // 訪問優先順: 左部分木 -> 根ノード -> 右部分木
+    // 訪問順序：左部分木 -> 根ノード -> 右部分木
     inOrder(root: root.left)
     list.append(root.val)
     inOrder(root: root.right)
 }
 
-/* 後順走査 */
+/* 帰りがけ順走査 */
 func postOrder(root: TreeNode?) {
     guard let root = root else {
         return
     }
-    // 訪問優先順: 左部分木 -> 右部分木 -> 根ノード
+    // 訪問順序：左部分木 -> 右部分木 -> 根ノード
     postOrder(root: root.left)
     postOrder(root: root.right)
     list.append(root.val)
@@ -44,27 +44,27 @@ func postOrder(root: TreeNode?) {
 
 @main
 enum BinaryTreeDFS {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
-        /* 二分木を初期化 */
-        // ここでは、配列から直接二分木を生成する関数を利用する
+        /* 二分木を初期化する */
+        // ここでは配列から二分木を直接生成する関数を使う
         let root = TreeNode.listToTree(arr: [1, 2, 3, 4, 5, 6, 7])!
-        print("\n二分木を初期化\n")
+        print("\n二分木を初期化する\n")
         PrintUtil.printTree(root: root)
 
-        /* 先行順走査 */
+        /* 行きがけ順走査 */
         list.removeAll()
         preOrder(root: root)
-        print("\n前順走査のノード出力シーケンス = \(list)")
+        print("\n行きがけ順走査で表示するノードの順序 = \(list)")
 
-        /* 中順走査 */
+        /* 通りがけ順走査 */
         list.removeAll()
         inOrder(root: root)
-        print("\n中順走査のノード出力シーケンス = \(list)")
+        print("\n通りがけ順走査で表示するノードの順序 = \(list)")
 
-        /* 後順走査 */
+        /* 帰りがけ順走査 */
         list.removeAll()
         postOrder(root: root)
-        print("\n後順走査のノード出力シーケンス = \(list)")
+        print("\n帰りがけ順走査で表示するノードの順序 = \(list)")
     }
 }

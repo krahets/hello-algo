@@ -19,42 +19,42 @@ func newBinarySearchTree() *binarySearchTree {
 	return bst
 }
 
-/* 根ノードを取得 */
+/* 根ノードを取得する */
 func (bst *binarySearchTree) getRoot() *TreeNode {
 	return bst.root
 }
 
-/* ノードを探索 */
+/* ノードを探索する */
 func (bst *binarySearchTree) search(num int) *TreeNode {
 	node := bst.root
-	// ループで探索し、葉ノードを越えたら抜ける
+	// 繰り返し探索し、葉ノードを越えたら終了する
 	for node != nil {
 		if node.Val.(int) < num {
-			// 目標ノードは cur の右部分木にある
+			// 目的のノードは cur の右部分木にある
 			node = node.Right
 		} else if node.Val.(int) > num {
-			// 目標ノードは cur の左部分木にある
+			// 目的のノードは cur の左部分木にある
 			node = node.Left
 		} else {
-			// 目標ノードが見つかったらループを抜ける
+			// 目的のノードが見つかったので、ループを終了する
 			break
 		}
 	}
-	// 目標ノードを返す
+	// 目的のノードを返す
 	return node
 }
 
-/* ノードを挿入 */
+/* ノードを挿入する */
 func (bst *binarySearchTree) insert(num int) {
 	cur := bst.root
-	// 木が空なら、根ノードを初期化する
+	// 木が空の場合、根ノードを初期化する
 	if cur == nil {
 		bst.root = NewTreeNode(num)
 		return
 	}
-	// 挿入対象ノードの直前のノード位置
+	// 挿入対象ノードの直前のノードの位置
 	var pre *TreeNode = nil
-	// ループで探索し、葉ノードを越えたら抜ける
+	// 繰り返し探索し、葉ノードを越えたら終了する
 	for cur != nil {
 		if cur.Val == num {
 			return
@@ -66,7 +66,7 @@ func (bst *binarySearchTree) insert(num int) {
 			cur = cur.Left
 		}
 	}
-	// ノードを挿入
+	// ノードを挿入する
 	node := NewTreeNode(num)
 	if pre.Val.(int) < num {
 		pre.Right = node
@@ -75,37 +75,37 @@ func (bst *binarySearchTree) insert(num int) {
 	}
 }
 
-/* ノードを削除 */
+/* ノードを削除する */
 func (bst *binarySearchTree) remove(num int) {
 	cur := bst.root
-	// 木が空なら、そのまま早期リターンする
+	// 木が空の場合、そのまま早期リターンする
 	if cur == nil {
 		return
 	}
-	// 削除対象ノードの直前のノード位置
+	// 削除対象ノードの直前のノードの位置
 	var pre *TreeNode = nil
-	// ループで探索し、葉ノードを越えたら抜ける
+	// 繰り返し探索し、葉ノードを越えたら終了する
 	for cur != nil {
 		if cur.Val == num {
 			break
 		}
 		pre = cur
 		if cur.Val.(int) < num {
-			// 削除対象ノードは右部分木にある
+			// 削除対象のノードは右部分木にある
 			cur = cur.Right
 		} else {
-			// 削除対象ノードは左部分木にある
+			// 削除対象のノードは左部分木にある
 			cur = cur.Left
 		}
 	}
-	// 削除対象ノードがなければそのまま返す
+	// 削除対象のノードが存在しない場合、そのまま戻る
 	if cur == nil {
 		return
 	}
 	// 子ノード数は 0 または 1
 	if cur.Left == nil || cur.Right == nil {
 		var child *TreeNode = nil
-		// 削除対象ノードの子ノードを取り出す
+		// 削除対象のノードの子ノードを取り出す
 		if cur.Left != nil {
 			child = cur.Left
 		} else {
@@ -119,24 +119,24 @@ func (bst *binarySearchTree) remove(num int) {
 				pre.Right = child
 			}
 		} else {
-			// 削除ノードが根ノードなら、根ノードを再設定
+			// 削除するノードが根ノードの場合、根ノードを指定し直す
 			bst.root = child
 		}
 		// 子ノード数は 2
 	} else {
-		// 中順走査で削除対象ノード `cur` の次のノードを取得する
+		// 通りがけ順で削除対象ノード cur の次のノードを取得する
 		tmp := cur.Right
 		for tmp.Left != nil {
 			tmp = tmp.Left
 		}
-		// ノード tmp を再帰的に削除
+		// ノード tmp を再帰的に削除する
 		bst.remove(tmp.Val.(int))
 		// tmp で cur を上書きする
 		cur.Val = tmp.Val
 	}
 }
 
-/* 二分探索木を出力 */
+/* 二分探索木を表示する */
 func (bst *binarySearchTree) print() {
 	PrintTree(bst.root)
 }

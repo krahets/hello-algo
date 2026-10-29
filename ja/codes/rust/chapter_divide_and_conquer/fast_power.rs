@@ -4,7 +4,7 @@
  * Author: Hello Algo Team
  */
 
-/* 高速べき乗 */
+/* 高速べき乗法 */
 fn fast_pow(x: i32, n: i32) -> i32 {
     if n == 0 {
         return 1;

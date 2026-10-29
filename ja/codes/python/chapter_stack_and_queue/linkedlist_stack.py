@@ -12,7 +12,7 @@ from modules import ListNode
 
 
 class LinkedListStack:
-    """連結リストベースのスタック"""
+    """連結リストで実装したスタック"""
 
     def __init__(self):
         """コンストラクタ"""
@@ -20,11 +20,11 @@ class LinkedListStack:
         self._size: int = 0
 
     def size(self) -> int:
-        """スタックの長さを取得"""
+        """スタックの長さを取得する"""
         return self._size
 
     def is_empty(self) -> bool:
-        """スタックが空かどうかを判定"""
+        """スタックが空かどうかを判定する"""
         return self._size == 0
 
     def push(self, val: int):
@@ -42,13 +42,13 @@ class LinkedListStack:
         return num
 
     def peek(self) -> int:
-        """スタックトップの要素にアクセス"""
+        """スタックの先頭要素にアクセスする"""
         if self.is_empty():
             raise IndexError("スタックが空です")
         return self._peek.val
 
     def to_list(self) -> list[int]:
-        """表示用にリストへ変換"""
+        """表示用のリストに変換する"""
         arr = []
         node = self._peek
         while node:
@@ -58,12 +58,12 @@ class LinkedListStack:
         return arr
 
 
-"""Driver Code"""
+"""実行用コード"""
 if __name__ == "__main__":
-    # スタックを初期化
+    # スタックを初期化する
     stack = LinkedListStack()
 
-    # 要素をプッシュ
+    # 要素をプッシュする
     stack.push(1)
     stack.push(3)
     stack.push(2)
@@ -71,19 +71,19 @@ if __name__ == "__main__":
     stack.push(4)
     print("スタック stack =", stack.to_list())
 
-    # スタックトップの要素にアクセス
+    # スタックの先頭要素にアクセスする
     peek: int = stack.peek()
-    print("スタックトップ要素 peek =", peek)
+    print("スタックの先頭要素 peek =", peek)
 
-    # 要素をポップ
+    # 要素をポップする
     pop: int = stack.pop()
     print("ポップした要素 pop =", pop)
     print("ポップ後 stack =", stack.to_list())
 
-    # スタックの長さを取得
+    # スタックの長さを取得する
     size: int = stack.size()
     print("スタックの長さ size =", size)
 
-    # 空かどうかを判定
+    # 空かどうかを判定する
     is_empty: bool = stack.is_empty()
-    print("スタックが空かどうか =", is_empty)
+    print("スタックは空か =", is_empty)

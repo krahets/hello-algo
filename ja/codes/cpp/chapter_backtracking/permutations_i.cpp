@@ -6,31 +6,31 @@
 
 #include "../utils/common.hpp"
 
-/* バックトラッキング：順列 I */
+/* バックトラッキング：すべての順列 I */
 void backtrack(vector<int> &state, const vector<int> &choices, vector<bool> &selected, vector<vector<int>> &res) {
-    // 状態の長さが要素数に等しければ、解を記録
+    // 状態の長さが要素数と等しくなったら、解を記録する
     if (state.size() == choices.size()) {
         res.push_back(state);
         return;
     }
-    // すべての選択肢を走査
+    // すべての選択肢を走査する
     for (int i = 0; i < choices.size(); i++) {
         int choice = choices[i];
-        // 枝刈り：要素の重複選択を許可しない
+        // 枝刈り：同じ要素を繰り返し選んではならない
         if (!selected[i]) {
-            // 試行: 選択を行い、状態を更新
+            // 試行：選択を行い、状態を更新する
             selected[i] = true;
             state.push_back(choice);
-            // 次の選択へ進む
+            // 次の選択に進む
             backtrack(state, choices, selected, res);
-            // バックトラック：選択を取り消し、前の状態に戻す
+            // 復元：選択を取り消し、以前の状態に戻す
             selected[i] = false;
             state.pop_back();
         }
     }
 }
 
-/* 全順列 I */
+/* すべての順列 I */
 vector<vector<int>> permutationsI(vector<int> nums) {
     vector<int> state;
     vector<bool> selected(nums.size(), false);
@@ -39,7 +39,7 @@ vector<vector<int>> permutationsI(vector<int> nums) {
     return res;
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
     vector<int> nums = {1, 2, 3};
 

@@ -4,15 +4,15 @@
 
 package chapter_stack_and_queue
 
-/* 循環配列ベースのキュー */
+/* 循環配列で実装したキュー */
 type arrayQueue struct {
-	nums        []int // キュー要素を格納する配列
-	front       int   // 先頭ポインタ。先頭要素を指す
+	nums        []int // キューの要素を格納する配列
+	front       int   // キューの先頭要素を指す先頭ポインタ
 	queSize     int   // キューの長さ
-	queCapacity int   // キュー容量（格納できる要素数の上限）
+	queCapacity int   // キューの容量（格納できる要素数の上限）
 }
 
-/* キューを初期化 */
+/* キューを初期化する */
 func newArrayQueue(queCapacity int) *arrayQueue {
 	return &arrayQueue{
 		nums:        make([]int, queCapacity),
@@ -27,21 +27,21 @@ func (q *arrayQueue) size() int {
 	return q.queSize
 }
 
-/* キューが空かどうかを判定 */
+/* キューが空か判定 */
 func (q *arrayQueue) isEmpty() bool {
 	return q.queSize == 0
 }
 
 /* エンキュー */
 func (q *arrayQueue) push(num int) {
-	// rear == queCapacity のときキューは満杯
+	// rear == queCapacity のとき、キューは満杯である
 	if q.queSize == q.queCapacity {
 		return
 	}
-	// 末尾ポインタを計算し、末尾インデックス + 1 を指す
-	// 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
+	// 末尾のインデックス + 1 を指す末尾ポインタを計算する
+	// 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
 	rear := (q.front + q.queSize) % q.queCapacity
-	// num をキュー末尾に追加
+	// num をキューの末尾に追加する
 	q.nums[rear] = num
 	q.queSize++
 }
@@ -53,13 +53,13 @@ func (q *arrayQueue) pop() any {
 		return nil
 	}
 
-	// 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
+	// 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
 	q.front = (q.front + 1) % q.queCapacity
 	q.queSize--
 	return num
 }
 
-/* キュー先頭の要素にアクセス */
+/* キューの先頭要素にアクセス */
 func (q *arrayQueue) peek() any {
 	if q.isEmpty() {
 		return nil
@@ -67,7 +67,7 @@ func (q *arrayQueue) peek() any {
 	return q.nums[q.front]
 }
 
-/* 表示用に Slice を取得 */
+/* 表示用の Slice を取得する */
 func (q *arrayQueue) toSlice() []int {
 	rear := (q.front + q.queSize)
 	if rear >= q.queCapacity {

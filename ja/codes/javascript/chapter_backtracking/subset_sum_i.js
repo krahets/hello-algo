@@ -4,43 +4,43 @@
  * Author: yuan0221 (yl1452491917@gmail.com)
  */
 
-/* バックトラッキング：部分和 I */
+/* バックトラッキング：部分集合和 I */
 function backtrack(state, target, choices, start, res) {
-    // 部分集合の和が target に等しければ、解を記録
+    // 部分集合の和が target と等しくなったら、解を記録する
     if (target === 0) {
         res.push([...state]);
         return;
     }
-    // すべての選択肢を走査
-    // 枝刈り 2: start から走査し、重複する部分集合の生成を避ける
+    // すべての選択肢を走査する
+    // 枝刈り 2：start から走査を始め、重複した部分集合の生成を避ける
     for (let i = start; i < choices.length; i++) {
-        // 枝刈り1：部分集合の和が target を超えたら、直ちにループを終了する
-        // 配列はソート済みで後続要素のほうが大きく、部分集合の和は必ず target を超えるため
+        // 枝刈り 1：部分集合の和が target を超えたら、直ちにループを終了する
+        // 配列はソート済みで後ろの要素ほど大きいため、部分集合の和が必ず target を超えるからである
         if (target - choices[i] < 0) {
             break;
         }
-        // 試す：選択を行い、target と start を更新
+        // 試行：選択を行い、target, start を更新する
         state.push(choices[i]);
-        // 次の選択へ進む
+        // 次の選択に進む
         backtrack(state, target - choices[i], choices, i, res);
-        // バックトラック：選択を取り消し、前の状態に戻す
+        // 復元：選択を取り消し、以前の状態に戻す
         state.pop();
     }
 }
 
-/* 部分和 I を解く */
+/* 部分集合和 I を解く */
 function subsetSumI(nums, target) {
     const state = []; // 状態（部分集合）
-    nums.sort((a, b) => a - b); // nums をソート
-    const start = 0; // 開始点を走査
+    nums.sort((a, b) => a - b); // nums をソートする
+    const start = 0; // 走査の開始位置
     const res = []; // 結果リスト（部分集合のリスト）
     backtrack(state, target, nums, start, res);
     return res;
 }
 
-/* Driver Code */
+/* 実行用コード */
 const nums = [3, 4, 5];
 const target = 9;
 const res = subsetSumI(nums, target);
 console.log(`入力配列 nums = ${JSON.stringify(nums)}, target = ${target}`);
-console.log(`和が ${target} に等しいすべての部分集合 res = ${JSON.stringify(res)}`);
+console.log(`和が ${target} になるすべての部分集合 res = ${JSON.stringify(res)}`);

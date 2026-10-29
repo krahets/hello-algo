@@ -6,20 +6,20 @@
 
 #include "../utils/common.hpp"
 
-/* 要素へランダムアクセス */
+/* 要素にランダムアクセスする */
 int randomAccess(int *nums, int size) {
-    // 区間 [0, size) からランダムに 1 つの数を選ぶ
+    // 区間 [0, size) から数値をランダムに 1 つ選ぶ
     int randomIndex = rand() % size;
-    // ランダムな要素を取得して返す
+    // ランダムに選んだ要素を取得して返す
     int randomNum = nums[randomIndex];
     return randomNum;
 }
 
-/* 配列長を拡張する */
+/* 配列の長さを拡張する */
 int *extend(int *nums, int size, int enlarge) {
-    // 拡張後の長さを持つ配列を初期化する
+    // 拡張後の長さの配列を初期化する
     int *res = new int[size + enlarge];
-    // 元の配列の全要素を新しい配列にコピー
+    // 元の配列の全要素を新しい配列にコピーする
     for (int i = 0; i < size; i++) {
         res[i] = nums[i];
     }
@@ -29,34 +29,34 @@ int *extend(int *nums, int size, int enlarge) {
     return res;
 }
 
-/* 配列の index 番目に要素 num を挿入 */
+/* 配列のインデックス index に要素 num を挿入する */
 void insert(int *nums, int size, int num, int index) {
-    // インデックス index 以降の全要素を 1 つ後ろへ移動する
+    // インデックス index 以降の全要素を 1 つ後ろにずらす
     for (int i = size - 1; i > index; i--) {
         nums[i] = nums[i - 1];
     }
-    // index の要素に num を代入する
+    // インデックス index の要素に num を代入する
     nums[index] = num;
 }
 
-/* index の要素を削除する */
+/* インデックス index の要素を削除する */
 void remove(int *nums, int size, int index) {
-    // インデックス index より後ろの全要素を 1 つ前へ移動する
+    // インデックス index より後の全要素を 1 つ前にずらす
     for (int i = index; i < size - 1; i++) {
         nums[i] = nums[i + 1];
     }
 }
 
-/* 配列を走査 */
+/* 配列を走査する */
 void traverse(int *nums, int size) {
     int count = 0;
-    // インデックスで配列を走査
+    // インデックスを使って配列を走査する
     for (int i = 0; i < size; i++) {
         count += nums[i];
     }
 }
 
-/* 配列内で指定要素を探す */
+/* 配列から指定した要素を探索する */
 int find(int *nums, int size, int target) {
     for (int i = 0; i < size; i++) {
         if (nums[i] == target)
@@ -65,9 +65,9 @@ int find(int *nums, int size, int target) {
     return -1;
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    /* 配列を初期化 */
+    /* 配列を初期化する */
     int size = 5;
     int *arr = new int[size];
     cout << "配列 arr = ";
@@ -79,31 +79,31 @@ int main() {
 
     /* ランダムアクセス */
     int randomNum = randomAccess(nums, size);
-    cout << "nums から取得したランダム要素 " << randomNum << endl;
+    cout << "nums からランダムに取得した要素 " << randomNum << endl;
 
-    /* 長さを拡張 */
+    /* 長さの拡張 */
     int enlarge = 3;
     nums = extend(nums, size, enlarge);
     size += enlarge;
-    cout << "配列長を 8 に拡張し、nums = ";
+    cout << "配列の長さを 8 に拡張した結果 nums = ";
     printArray(nums, size);
 
     /* 要素を挿入する */
     insert(nums, size, 6, 3);
-    cout << "インデックス 3 に数値 6 を挿入し、nums = ";
+    cout << "インデックス 3 に数値 6 を挿入した結果 nums = ";
     printArray(nums, size);
 
-    /* 要素を削除 */
+    /* 要素を削除する */
     remove(nums, size, 2);
-    cout << "インデックス 2 の要素を削除し、nums = ";
+    cout << "インデックス 2 の要素を削除した結果 nums = ";
     printArray(nums, size);
 
-    /* 配列を走査 */
+    /* 配列を走査する */
     traverse(nums, size);
 
     /* 要素を探索する */
     int index = find(nums, size, 3);
-    cout << "nums 内で要素 3 を検索し、インデックス = " << index << endl;
+    cout << "nums から要素 3 を探索した結果のインデックス = " << index << endl;
 
     // メモリを解放する
     delete[] arr;

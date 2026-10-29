@@ -4,15 +4,15 @@
 
 package pkg
 
-// TreeNode は二分木ノード
+// TreeNode は二分木のノード
 type TreeNode struct {
-	Val    any       // ノード値
+	Val    any       // ノードの値
 	Height int       // ノードの高さ
-	Left   *TreeNode // 左子ノードへの参照
-	Right  *TreeNode // 右子ノードへの参照
+	Left   *TreeNode // 左の子ノードへの参照
+	Right  *TreeNode // 右の子ノードへの参照
 }
 
-// NewTreeNode は二分木ノードのコンストラクタ
+// NewTreeNode は二分木のノードのコンストラクタ
 func NewTreeNode(v any) *TreeNode {
 	return &TreeNode{
 		Val:    v,
@@ -22,26 +22,26 @@ func NewTreeNode(v any) *TreeNode {
 	}
 }
 
-// シリアライズの符号化規則は次を参照してください:
-// https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-// 二分木の配列表現:
+// シリアライズの符号化規則は次を参照：
+// https://www.hello-algo.com/ja/chapter_tree/array_representation_of_tree/
+// 二分木の配列表現：
 // [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
-// 二分木の連結リスト表現:
+// 二分木の連結リスト表現：
 //
-// /——— 15
-// /——— 7
-// /——— 3
-// |    \\——— 6
-// |        \\——— 12
+//	         /——— 15
+//	     /——— 7
+//	 /——— 3
+//	|    \——— 6
+//	|        \——— 12
 //
 // ——— 1
 //
-// \\——— 2
-// |    /——— 9
-// \\——— 4
-// \\——— 8
+//	\——— 2
+//	   |    /——— 9
+//	    \——— 4
+//	        \——— 8
 
-// SliceToTreeDFS はリストを二分木にデシリアライズする：再帰
+// SliceToTreeDFS はリストをデシリアライズして二分木にする：再帰
 func SliceToTreeDFS(arr []any, i int) *TreeNode {
 	if i < 0 || i >= len(arr) || arr[i] == nil {
 		return nil
@@ -52,12 +52,12 @@ func SliceToTreeDFS(arr []any, i int) *TreeNode {
 	return root
 }
 
-// SliceToTree はスライスを二分木にデシリアライズする
+// SliceToTree はスライスをデシリアライズして二分木にする
 func SliceToTree(arr []any) *TreeNode {
 	return SliceToTreeDFS(arr, 0)
 }
 
-// TreeToSliceDFS は二分木をスライスにシリアライズする：再帰
+// TreeToSliceDFS は二分木をシリアライズしてスライスにする：再帰
 func TreeToSliceDFS(root *TreeNode, i int, res *[]any) {
 	if root == nil {
 		return
@@ -70,7 +70,7 @@ func TreeToSliceDFS(root *TreeNode, i int, res *[]any) {
 	TreeToSliceDFS(root.Right, 2*i+2, res)
 }
 
-// TreeToSlice は二分木をスライスにシリアライズする
+// TreeToSlice は二分木をシリアライズしてスライスにする
 func TreeToSlice(root *TreeNode) []any {
 	var res []any
 	TreeToSliceDFS(root, 0, &res)

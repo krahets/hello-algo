@@ -7,15 +7,15 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/list_node'
 require_relative '../utils/print_util'
 
-### 連結リストのノード n0 の後にノード _p を挿入 ###
-# Ruby の `p` は組み込み関数で、`P` は定数なので、代わりに `_p` を使える
+### 連結リストのノード n0 の直後にノード _p を挿入する ###
+# Ruby では `p` は組み込み関数、`P` は定数なので、代わりに `_p` を使える
 def insert(n0, _p)
   n1 = n0.next
   _p.next = n1
   n0.next = _p
 end
 
-### 連結リストのノード n0 の直後のノードを削除 ###
+### 連結リストのノード n0 の直後のノードを削除する ###
 def remove(n0)
   return if n0.next.nil?
 
@@ -25,7 +25,7 @@ def remove(n0)
   n0.next = n1
 end
 
-### 連結リスト内の index 番目のノードにアクセス ###
+### 連結リストのインデックス index にあるノードにアクセスする ###
 def access(head, index)
   for i in 0...index
     return nil if head.nil?
@@ -35,7 +35,7 @@ def access(head, index)
   head
 end
 
-### 連結リストで値が target の最初のノードを探す ###
+### 連結リストから値が target である最初のノードを探索する ###
 def find(head, target)
   index = 0
   while head
@@ -47,7 +47,7 @@ def find(head, target)
   -1
 end
 
-### Driver Code ###
+### 実行用コード ###
 if __FILE__ == $0
   # 連結リストを初期化する
   # 各ノードを初期化する
@@ -56,28 +56,28 @@ if __FILE__ == $0
   n2 = ListNode.new(2)
   n3 = ListNode.new(5)
   n4 = ListNode.new(4)
-  # ノード間の参照を構築する
+  # ノード間の参照を設定する
   n0.next = n1
   n1.next = n2
   n2.next = n3
   n3.next = n4
-  puts "初期化した連結リストは"
+  puts "初期化した連結リスト"
   print_linked_list(n0)
 
-  # ノードを挿入
+  # ノードを挿入する
   insert(n0, ListNode.new(0))
   print_linked_list n0
 
-  # ノードを削除
+  # ノードを削除する
   remove(n0)
-  puts "ノード削除後の連結リストは"
+  puts "ノードを削除した後の連結リスト"
   print_linked_list(n0)
 
-  # ノードにアクセス
+  # ノードにアクセスする
   node = access(n0, 3)
   puts "連結リストのインデックス 3 にあるノードの値 = #{node.val}"
 
-  # ノードを探索
+  # ノードを探索する
   index = find(n0, 2)
-  puts "連結リスト内で値が 2 のノードのインデックス = #{index}"
+  puts "連結リスト内で値が 2 であるノードのインデックス = #{index}"
 end

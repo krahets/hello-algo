@@ -11,8 +11,10 @@ on:
       - "codes/c/**/*.c"
       - "codes/c/**/*.h"
       - "en/codes/c/**/*.c"
+      - "ja/codes/c/**/*.c"
       - "ko/codes/c/**/*.c"
       - "en/codes/c/**/*.h"
+      - "ja/codes/c/**/*.h"
       - "ko/codes/c/**/*.h"
   pull_request:
     branches: ["main"]
@@ -21,8 +23,10 @@ on:
       - "codes/c/**/*.c"
       - "codes/c/**/*.h"
       - "en/codes/c/**/*.c"
+      - "ja/codes/c/**/*.c"
       - "ko/codes/c/**/*.c"
       - "en/codes/c/**/*.h"
+      - "ja/codes/c/**/*.h"
       - "ko/codes/c/**/*.h"
   workflow_dispatch:
 
@@ -44,7 +48,7 @@ jobs:
         os: [ubuntu-latest, windows-latest]
         build_type: [Release]
         c_compiler: [gcc, clang, cl]
-        code-dir: ["codes/c", "en/codes/c", "ko/codes/c"]
+        code-dir: ["codes/c", "en/codes/c", "ja/codes/c", "ko/codes/c"]
         include:
           - os: windows-latest
             c_compiler: cl

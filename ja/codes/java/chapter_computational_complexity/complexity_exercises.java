@@ -24,7 +24,7 @@ public class complexity_exercises {
         return n + sumRecur(n - 1);
     }
 
-    /* 線形時間のループ */
+    /* 線形オーダーのループ */
     static int linearLoop(int n) {
         int res = 0;
         for (int i = 0; i < n; i++) {
@@ -33,7 +33,7 @@ public class complexity_exercises {
         return res;
     }
 
-    /* 二次時間のループ */
+    /* 二次オーダーのループ */
     static int quadraticLoop(int n) {
         int res = 0;
         for (int i = 0; i < n; i++) {
@@ -44,7 +44,7 @@ public class complexity_exercises {
         return res;
     }
 
-    /* 対数時間のループ */
+    /* 対数オーダーのループ */
     static int logarithmicLoop(int n) {
         while (n > 1) {
             n /= 2;

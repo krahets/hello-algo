@@ -7,30 +7,30 @@ const inc = @import("include");
 
 // 線形探索（配列）
 fn linearSearchArray(comptime T: type, nums: std.ArrayList(T), target: T) T {
-    // 配列を走査
+    // 配列を走査する
     for (nums.items, 0..) |num, i| {
-        // 対象要素が見つかったら、その添字を返す
+        // 目的の要素が見つかったので、そのインデックスを返す
         if (num == target) {
             return @intCast(i);
         }
     }
-    // 目標要素が見つからなければ -1 を返す
+    // 目的の要素が見つからなかったので、-1 を返す
     return -1;
 }
 
 // 線形探索（連結リスト）
 pub fn linearSearchLinkedList(comptime T: type, node: ?*inc.ListNode(T), target: T) ?*inc.ListNode(T) {
     var head = node;
-    // 連結リストを走査
+    // 連結リストを走査する
     while (head != null) {
-        // 対象ノードが見つかったら、それを返す
+        // 目的のノードが見つかったので、それを返す
         if (head.?.val == target) return head;
         head = head.?.next;
     }
     return null;
 }
 
-// Driver Code
+// 実行用コード
 pub fn main() !void {
     var target: i32 = 3;
 
@@ -39,7 +39,7 @@ pub fn main() !void {
     defer nums.deinit();
     try nums.appendSlice(&[_]i32{ 1, 5, 3, 2, 4, 7, 5, 9, 10, 8 });
     var index = linearSearchArray(i32, nums, target);
-    std.debug.print("対象要素 3 のインデックス = {}\n", .{index});
+    std.debug.print("目的の要素 3 のインデックス = {}\n", .{index});
 
     // 連結リストで線形探索を行う
     var mem_arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
@@ -47,7 +47,7 @@ pub fn main() !void {
     const mem_allocator = mem_arena.allocator();
     var head = try inc.ListUtil.listToLinkedList(i32, mem_allocator, nums);
     var node = linearSearchLinkedList(i32, head, target);
-    std.debug.print("対象ノード値 3 に対応するノードオブジェクトは ", .{});
+    std.debug.print("目的のノードの値 3 に対応するノードオブジェクトは ", .{});
     try inc.PrintUtil.printLinkedList(i32, node);
 
     _ = try std.io.getStdIn().reader().readByte();

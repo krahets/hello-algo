@@ -13,8 +13,8 @@ void main() {
         Process.runSync('dart', [file.path]);
       } catch (e) {
         errorCount++;
-        print('Error: $e');
-        print('File: ${file.path}');
+        print('エラー: $e');
+        print('ファイル: ${file.path}');
       }
     } else if (file is Directory) {
       List<FileSystemEntity> subFiles = file.listSync();
@@ -25,15 +25,15 @@ void main() {
             Process.runSync('dart', [subFile.path]);
           } catch (e) {
             errorCount++;
-            print('Error: $e');
-            print('File: ${file.path}');
+            print('エラー: $e');
+            print('ファイル: ${file.path}');
           }
         }
       }
     }
   }
 
-  print('===== Build Complete =====');
-  print('Total: $totalCount');
-  print('Error: $errorCount');
+  print('===== ビルド完了 =====');
+  print('合計: $totalCount');
+  print('エラー: $errorCount');
 }

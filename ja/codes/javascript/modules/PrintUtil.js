@@ -6,7 +6,7 @@
 
 const { arrToTree } = require('./TreeNode');
 
-/* 連結リストを出力 */
+/* 連結リストを表示する */
 function printLinkedList(head) {
     let list = [];
     while (head !== null) {
@@ -22,15 +22,15 @@ function Trunk(prev, str) {
 }
 
 /**
- * 二分木を出力
- * This tree printer is borrowed from TECHIE DELIGHT
+ * 二分木を表示する
+ * この木の表示処理は TECHIE DELIGHT から借用した
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 function printTree(root) {
     printTree(root, null, false);
 }
 
-/* 二分木を出力 */
+/* 二分木を表示する */
 function printTree(root, prev, isRight) {
     if (root === null) {
         return;
@@ -71,7 +71,7 @@ function showTrunks(p) {
     process.stdout.write(p.str);
 }
 
-/* ヒープを出力 */
+/* ヒープを表示する */
 function printHeap(arr) {
     console.log('ヒープの配列表現：');
     console.log(arr);

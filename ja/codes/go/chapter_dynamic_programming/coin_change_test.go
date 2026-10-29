@@ -15,9 +15,9 @@ func TestCoinChange(t *testing.T) {
 
 	// 動的計画法
 	res := coinChangeDP(coins, amt)
-	fmt.Printf("目標金額を作るのに必要な最小硬貨枚数は %d\n", res)
+	fmt.Printf("目標金額にするために必要な硬貨の最小枚数は %d\n", res)
 
-	// 空間最適化後の動的計画法
+	// 空間を最適化した動的計画法
 	res = coinChangeDPComp(coins, amt)
-	fmt.Printf("目標金額を作るのに必要な最小硬貨枚数は %d\n", res)
+	fmt.Printf("目標金額にするために必要な硬貨の最小枚数は %d\n", res)
 }

@@ -8,11 +8,11 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-/* 双方向連結リストノード */
+/* 双方向連結リストのノード */
 class ListNode {
-    int val; // ノード値
+    int val; // ノードの値
     ListNode next; // 後続ノードへの参照
-    ListNode prev; // 前駆ノードへの参照
+    ListNode prev; // 前のノードへの参照
 
     ListNode(int val) {
         this.val = val;
@@ -20,21 +20,21 @@ class ListNode {
     }
 }
 
-/* 双方向連結リストベースの両端キュー */
+/* 双方向連結リストで実装した両端キュー */
 class LinkedListDeque {
-    private ListNode front, rear; // 先頭ノード front、末尾ノード rear
+    private ListNode front, rear; // 先頭ノード front 、末尾ノード rear
     private int queSize = 0; // 両端キューの長さ
 
     public LinkedListDeque() {
         front = rear = null;
     }
 
-    /* 両端キューの長さを取得 */
+    /* 両端キューの長さを取得する */
     public int size() {
         return queSize;
     }
 
-    /* 両端キューが空かどうかを判定 */
+    /* 両端キューが空かどうかを判定する */
     public boolean isEmpty() {
         return size() == 0;
     }
@@ -42,31 +42,31 @@ class LinkedListDeque {
     /* エンキュー操作 */
     private void push(int num, boolean isFront) {
         ListNode node = new ListNode(num);
-        // 連結リストが空なら、front と rear の両方を node に向ける
+        // 連結リストが空の場合、front と rear の両方が node を指すようにする
         if (isEmpty())
             front = rear = node;
         // 先頭へのエンキュー操作
         else if (isFront) {
-            // node を連結リストの先頭に追加
+            // node を連結リストの先頭に追加する
             front.prev = node;
             node.next = front;
             front = node; // 先頭ノードを更新する
         // 末尾へのエンキュー操作
         } else {
-            // node を連結リストの末尾に追加
+            // node を連結リストの末尾に追加する
             rear.next = node;
             node.prev = rear;
             rear = node; // 末尾ノードを更新する
         }
-        queSize++; // キューの長さを更新
+        queSize++; // キューの長さを更新する
     }
 
-    /* キュー先頭にエンキュー */
+    /* 先頭にエンキューする */
     public void pushFirst(int num) {
         push(num, true);
     }
 
-    /* キュー末尾にエンキュー */
+    /* 末尾にエンキューする */
     public void pushLast(int num) {
         push(num, false);
     }
@@ -76,58 +76,58 @@ class LinkedListDeque {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         int val;
-        // 要素が1つの場合、先頭と末尾は同じノードを指す
+        // キューの長さが 1 のとき、先頭と末尾は同じノードを指す
         if (queSize == 1) {
             val = front.val;
             front = null;
             rear = null;
         }
-        // キュー先頭からの取り出し
+        // 先頭からのデキュー操作
         else if (isFront) {
-            val = front.val; // 先頭ノードの値を一時保存
-            // 先頭ノードを削除
+            val = front.val; // 先頭ノードの値を一時保存する
+            // 先頭ノードを削除する
             ListNode fNext = front.next;
             fNext.prev = null;
             front.next = null;
             front = fNext; // 先頭ノードを更新する
-        // キュー末尾からの取り出し
+        // 末尾からのデキュー操作
         } else {
-            val = rear.val; // 末尾ノードの値を一時保存
-            // 末尾ノードを削除
+            val = rear.val; // 末尾ノードの値を一時保存する
+            // 末尾ノードを削除する
             ListNode rPrev = rear.prev;
             rPrev.next = null;
             rear.prev = null;
             rear = rPrev; // 末尾ノードを更新する
         }
-        queSize--; // キューの長さを更新
+        queSize--; // キューの長さを更新する
         return val;
     }
 
-    /* キュー先頭からデキュー */
+    /* 先頭からデキューする */
     public int popFirst() {
         return pop(true);
     }
 
-    /* キュー末尾からデキュー */
+    /* 末尾からデキューする */
     public int popLast() {
         return pop(false);
     }
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     public int peekFirst() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return front.val;
     }
 
-    /* キュー末尾の要素にアクセス */
+    /* キューの末尾要素にアクセスする */
     public int peekLast() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return rear.val;
     }
 
-    /* 出力用の配列を返す */
+    /* 表示用の配列を返す */
     public int[] toArray() {
         ListNode node = front;
         int[] res = new int[size()];
@@ -141,37 +141,37 @@ class LinkedListDeque {
 
 public class linkedlist_deque {
     public static void main(String[] args) {
-        /* 両端キューを初期化 */
+        /* 両端キューを初期化する */
         LinkedListDeque deque = new LinkedListDeque();
         deque.pushLast(3);
         deque.pushLast(2);
         deque.pushLast(5);
-        System.out.println("双方向キュー deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("両端キュー deque = " + Arrays.toString(deque.toArray()));
 
-        /* 要素にアクセス */
+        /* 要素にアクセスする */
         int peekFirst = deque.peekFirst();
-        System.out.println("先頭要素 peekFirst = " + peekFirst);
+        System.out.println("キューの先頭要素 peekFirst = " + peekFirst);
         int peekLast = deque.peekLast();
-        System.out.println("末尾要素 peekLast = " + peekLast);
+        System.out.println("キューの末尾要素 peekLast = " + peekLast);
 
-        /* 要素をエンキュー */
+        /* 要素をエンキューする */
         deque.pushLast(4);
-        System.out.println("要素 4 を末尾にエンキューした後の deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("要素 4 を末尾にエンキューした後 deque = " + Arrays.toString(deque.toArray()));
         deque.pushFirst(1);
-        System.out.println("要素 1 を先頭にエンキューした後の deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("要素 1 を先頭にエンキューした後 deque = " + Arrays.toString(deque.toArray()));
 
-        /* 要素をデキュー */
+        /* 要素をデキューする */
         int popLast = deque.popLast();
-        System.out.println("末尾からデキューした要素 = " + popLast + "、末尾からデキューした後の deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("末尾からデキューした要素 = " + popLast + "、末尾からデキューした後 deque = " + Arrays.toString(deque.toArray()));
         int popFirst = deque.popFirst();
-        System.out.println("先頭からデキューした要素 = " + popFirst + "、先頭からデキューした後の deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("先頭からデキューした要素 = " + popFirst + "、先頭からデキューした後 deque = " + Arrays.toString(deque.toArray()));
 
-        /* 両端キューの長さを取得 */
+        /* 両端キューの長さを取得する */
         int size = deque.size();
-        System.out.println("双方向キューの長さ size = " + size);
+        System.out.println("両端キューの長さ size = " + size);
 
-        /* 両端キューが空かどうかを判定 */
+        /* 両端キューが空かどうかを判定する */
         boolean isEmpty = deque.isEmpty();
-        System.out.println("双方向キューが空かどうか = " + isEmpty);
+        System.out.println("両端キューは空か = " + isEmpty);
     }
 }

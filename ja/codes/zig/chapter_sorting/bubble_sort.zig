@@ -11,10 +11,10 @@ fn bubbleSort(nums: []i32) void {
     var i: usize = nums.len - 1;
     while (i > 0) : (i -= 1) {
         var j: usize = 0;
-        // 内側のループ：未ソート区間 [0, i] の最大要素をその区間の最右端へ交換
+        // 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
         while (j < i) : (j += 1) {
             if (nums[j] > nums[j + 1]) {
-                // nums[j] と nums[j + 1] を交換
+                // nums[j] と nums[j + 1] を交換する
                 var tmp = nums[j];
                 nums[j] = nums[j + 1];
                 nums[j + 1] = tmp;
@@ -23,28 +23,28 @@ fn bubbleSort(nums: []i32) void {
     }
 }
 
-// バブルソート（フラグ最適化）
+// バブルソート（フラグによる最適化）
 fn bubbleSortWithFlag(nums: []i32) void {
     // 外側のループ：未ソート区間は [0, i]
     var i: usize = nums.len - 1;
     while (i > 0) : (i -= 1) {
         var flag = false;   // フラグを初期化する
         var j: usize = 0;
-        // 内側のループ：未ソート区間 [0, i] の最大要素をその区間の最右端へ交換
+        // 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
         while (j < i) : (j += 1) {
             if (nums[j] > nums[j + 1]) {
-                // nums[j] と nums[j + 1] を交換
+                // nums[j] と nums[j + 1] を交換する
                 var tmp = nums[j];
                 nums[j] = nums[j + 1];
                 nums[j + 1] = tmp;
                 flag = true;
             }
         }
-        if (!flag) break;   // このバブル処理で要素交換が一度もなければそのまま終了
+        if (!flag) break;   // 今回の「バブル」で要素を一度も交換しなかった場合、直ちに終了する
     }
 }
 
-// Driver Code
+// 実行用コード
 pub fn main() !void {
     var nums = [_]i32{ 4, 1, 3, 1, 5, 2 };
     bubbleSort(&nums);

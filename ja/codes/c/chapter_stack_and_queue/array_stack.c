@@ -8,7 +8,7 @@
 
 #define MAX_SIZE 5000
 
-/* 配列ベースのスタック */
+/* 配列で実装したスタック */
 typedef struct {
     int *data;
     int size;
@@ -17,7 +17,7 @@ typedef struct {
 /* コンストラクタ */
 ArrayStack *newArrayStack() {
     ArrayStack *stack = malloc(sizeof(ArrayStack));
-    // 大きめの容量で初期化し、拡張を避ける
+    // 容量の拡張を避けるため、初期容量を大きくする
     stack->data = malloc(sizeof(int) * MAX_SIZE);
     stack->size = 0;
     return stack;
@@ -29,12 +29,12 @@ void delArrayStack(ArrayStack *stack) {
     free(stack);
 }
 
-/* スタックの長さを取得 */
+/* スタックの長さを取得する */
 int size(ArrayStack *stack) {
     return stack->size;
 }
 
-/* スタックが空かどうかを判定 */
+/* スタックが空かどうかを判定する */
 bool isEmpty(ArrayStack *stack) {
     return stack->size == 0;
 }
@@ -42,17 +42,17 @@ bool isEmpty(ArrayStack *stack) {
 /* プッシュ */
 void push(ArrayStack *stack, int num) {
     if (stack->size == MAX_SIZE) {
-        printf("スタックは満杯です\n");
+        printf("スタックが満杯です\n");
         return;
     }
     stack->data[stack->size] = num;
     stack->size++;
 }
 
-/* スタックトップの要素にアクセス */
+/* スタックの先頭要素にアクセスする */
 int peek(ArrayStack *stack) {
     if (stack->size == 0) {
-        printf("スタックは空です\n");
+        printf("スタックが空です\n");
         return INT_MAX;
     }
     return stack->data[stack->size - 1];
@@ -65,12 +65,12 @@ int pop(ArrayStack *stack) {
     return val;
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    /* スタックを初期化 */
+    /* スタックを初期化する */
     ArrayStack *stack = newArrayStack();
 
-    /* 要素をプッシュ */
+    /* 要素をプッシュする */
     push(stack, 1);
     push(stack, 3);
     push(stack, 2);
@@ -79,22 +79,22 @@ int main() {
     printf("スタック stack = ");
     printArray(stack->data, stack->size);
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセスする */
     int val = peek(stack);
-    printf("先頭要素 top = %d\n", val);
+    printf("スタックの先頭要素 top = %d\n", val);
 
-    /* 要素をポップ */
+    /* 要素をポップする */
     val = pop(stack);
-    printf("ポップした要素 pop = %d ，ポップ後 stack = ", val);
+    printf("ポップした要素 pop = %d 、ポップ後 stack = ", val);
     printArray(stack->data, stack->size);
 
-    /* スタックの長さを取得 */
+    /* スタックの長さを取得する */
     int size = stack->size;
     printf("スタックの長さ size = %d\n", size);
 
-    /* 空かどうかを判定 */
+    /* 空かどうかを判定する */
     bool empty = isEmpty(stack);
-    printf("スタックが空かどうか = %s\n", empty ? "true" : "false");
+    printf("スタックは空か = %s\n", empty ? "true" : "false");
 
     // メモリを解放する
     delArrayStack(stack);

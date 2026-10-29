@@ -4,19 +4,19 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* キーと値の組 */
+/* キーと値のペア */
 class Pair {
   int key;
   String val;
   Pair(this.key, this.val);
 }
 
-/* 配列ベースのハッシュテーブル */
+/* 配列で実装したハッシュテーブル */
 class ArrayHashMap {
   late List<Pair?> _buckets;
 
   ArrayHashMap() {
-    // 100 個のバケットを含む配列を初期化
+    // 100 個のバケットを含む配列を初期化する
     _buckets = List.filled(100, null);
   }
 
@@ -26,7 +26,7 @@ class ArrayHashMap {
     return index;
   }
 
-  /* 検索操作 */
+  /* 取得操作 */
   String? get(int key) {
     final int index = _hashFunc(key);
     final Pair? pair = _buckets[index];
@@ -49,7 +49,7 @@ class ArrayHashMap {
     _buckets[index] = null;
   }
 
-  /* すべてのキーと値のペアを取得 */
+  /* キーと値のペアをすべて取得する */
   List<Pair> pairSet() {
     List<Pair> pairSet = [];
     for (final Pair? pair in _buckets) {
@@ -60,7 +60,7 @@ class ArrayHashMap {
     return pairSet;
   }
 
-  /* すべてのキーを取得 */
+  /* すべてのキーを取得する */
   List<int> keySet() {
     List<int> keySet = [];
     for (final Pair? pair in _buckets) {
@@ -71,7 +71,7 @@ class ArrayHashMap {
     return keySet;
   }
 
-  /* すべての値を取得 */
+  /* すべての値を取得する */
   List<String> values() {
     List<String> valueSet = [];
     for (final Pair? pair in _buckets) {
@@ -82,7 +82,7 @@ class ArrayHashMap {
     return valueSet;
   }
 
-  /* ハッシュテーブルを出力 */
+  /* ハッシュテーブルを表示する */
   void printHashMap() {
     for (final Pair kv in pairSet()) {
       print("${kv.key} -> ${kv.val}");
@@ -90,37 +90,37 @@ class ArrayHashMap {
   }
 }
 
-/* Driver Code */
+/* 実行用コード */
 void main() {
-  /* ハッシュテーブルを初期化 */
+  /* ハッシュテーブルを初期化する */
   final ArrayHashMap map = ArrayHashMap();
 
   /* 追加操作 */
-  // ハッシュテーブルにキーと値のペア (key, value) を追加
-  map.put(12836, "シャオハー");
-  map.put(15937, "シャオルオ");
-  map.put(16750, "シャオスワン");
-  map.put(13276, "シャオファー");
-  map.put(10583, "シャオヤー");
-  print("\n追加完了後、ハッシュテーブルは\nKey -> Value");
+  // ハッシュテーブルにキーと値のペア (key, value) を追加する
+  map.put(12836, "小哈");
+  map.put(15937, "小啰");
+  map.put(16750, "小算");
+  map.put(13276, "小法");
+  map.put(10583, "小鸭");
+  print("\n追加後のハッシュテーブル\nKey -> Value");
   map.printHashMap();
 
-  /* 検索操作 */
-  // キー key をハッシュテーブルに渡し、値 value を取得
+  /* 取得操作 */
+  // ハッシュテーブルにキー key を渡し、値 value を取得する
   String? name = map.get(15937);
-  print("\n学籍番号 15937 を入力すると、名前 $name が見つかりました");
+  print("\n学生番号 15937 に対応する氏名は $name");
 
   /* 削除操作 */
-  // ハッシュテーブルからキーと値のペア (key, value) を削除
+  // ハッシュテーブルからキーと値のペア (key, value) を削除する
   map.remove(10583);
-  print("\n10583 を削除後、ハッシュテーブルは\nKey -> Value");
+  print("\n10583 を削除した後のハッシュテーブル\nKey -> Value");
   map.printHashMap();
 
-  /* ハッシュテーブルを走査 */
-  print("\nキーと値のペア Key->Value を走査");
+  /* ハッシュテーブルを走査する */
+  print("\nキーと値のペア Key->Value を走査する");
   map.pairSet().forEach((kv) => print("${kv.key} -> ${kv.val}"));
-  print("\nキー Key のみを走査");
+  print("\nキー Key だけを走査する");
   map.keySet().forEach((key) => print("$key"));
-  print("\n値 Value のみを走査");
+  print("\n値 Value だけを走査する");
   map.values().forEach((val) => print("$val"));
 }

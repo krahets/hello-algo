@@ -6,7 +6,7 @@
 
 package chapter_backtracking.n_queens
 
-/* バックトラッキング：N クイーン */
+/* バックトラッキング：n クイーン */
 fun backtrack(
     row: Int,
     n: Int,
@@ -16,7 +16,7 @@ fun backtrack(
     diags1: BooleanArray,
     diags2: BooleanArray
 ) {
-    // すべての行への配置が完了したら、解を記録する
+    // すべての行への配置が終わったら、解を記録する
     if (row == n) {
         val copyState = mutableListOf<MutableList<String>>()
         for (sRow in state) {
@@ -25,21 +25,21 @@ fun backtrack(
         res.add(copyState)
         return
     }
-    // すべての列を走査
+    // すべての列を走査する
     for (col in 0..<n) {
-        // このマスに対応する主対角線と副対角線を計算
+        // このマスに対応する主対角線と副対角線を求める
         val diag1 = row - col + n - 1
         val diag2 = row + col
-        // 枝刈り：そのマスの列、主対角線、副対角線にクイーンがあってはならない
+        // 枝刈り：このマスと同じ列、主対角線、副対角線にクイーンがあってはならない
         if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-            // 試行：そのマスにクイーンを置く
+            // 試行：このマスにクイーンを配置する
             state[row][col] = "Q"
             diags2[diag2] = true
             diags1[diag1] = diags2[diag2]
             cols[col] = diags1[diag1]
             // 次の行に配置する
             backtrack(row + 1, n, state, res, cols, diags1, diags2)
-            // 戻す：そのマスを空きマスに戻す
+            // 復元：このマスを空きマスに戻す
             state[row][col] = "#"
             diags2[diag2] = false
             diags1[diag1] = diags2[diag2]
@@ -48,7 +48,7 @@ fun backtrack(
     }
 }
 
-/* N クイーンを解く */
+/* n クイーン問題を解く */
 fun nQueens(n: Int): MutableList<MutableList<MutableList<String>>?> {
     // n*n の盤面を初期化する。'Q' はクイーン、'#' は空きマスを表す
     val state = mutableListOf<MutableList<String>>()
@@ -59,9 +59,9 @@ fun nQueens(n: Int): MutableList<MutableList<MutableList<String>>?> {
         }
         state.add(row)
     }
-    val cols = BooleanArray(n) // 列にクイーンがあるか記録
-    val diags1 = BooleanArray(2 * n - 1) // 主対角線にクイーンがあるかを記録
-    val diags2 = BooleanArray(2 * n - 1) // 副対角線にクイーンがあるかを記録
+    val cols = BooleanArray(n) // 列にクイーンがあるかどうかを記録する
+    val diags1 = BooleanArray(2 * n - 1) // 主対角線にクイーンがあるかどうかを記録する
+    val diags2 = BooleanArray(2 * n - 1) // 副対角線にクイーンがあるかどうかを記録する
     val res = mutableListOf<MutableList<MutableList<String>>?>()
 
     backtrack(0, n, state, res, cols, diags1, diags2)
@@ -69,13 +69,13 @@ fun nQueens(n: Int): MutableList<MutableList<MutableList<String>>?> {
     return res
 }
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
     val n = 4
     val res = nQueens(n)
 
-    println("入力された盤面の縦横は $n")
-    println("クイーンの配置パターンは全部で ${res.size} 通り")
+    println("入力した盤面の縦横の長さは $n")
+    println("クイーンの配置方法は全部で ${res.size} 通り")
     for (state in res) {
         println("--------------------")
         for (row in state!!) {

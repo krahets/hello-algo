@@ -10,10 +10,10 @@ import java.util.*;
 
 public class stack {
     public static void main(String[] args) {
-        /* スタックを初期化 */
+        /* スタックを初期化する */
         Stack<Integer> stack = new Stack<>();
 
-        /* 要素をプッシュ */
+        /* 要素をプッシュする */
         stack.push(1);
         stack.push(3);
         stack.push(2);
@@ -21,20 +21,20 @@ public class stack {
         stack.push(4);
         System.out.println("スタック stack = " + stack);
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         int peek = stack.peek();
-        System.out.println("スタックトップ要素 peek = " + peek);
+        System.out.println("スタックの先頭要素 peek = " + peek);
 
-        /* 要素をポップ */
+        /* 要素をポップする */
         int pop = stack.pop();
-        System.out.println("ポップした要素 pop = " + pop + "、ポップ後の stack = " + stack);
+        System.out.println("ポップした要素 pop = " + pop + "、ポップ後 stack = " + stack);
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         int size = stack.size();
         System.out.println("スタックの長さ size = " + size);
 
-        /* 空かどうかを判定 */
+        /* 空かどうかを判定する */
         boolean isEmpty = stack.isEmpty();
-        System.out.println("スタックが空かどうか = " + isEmpty);
+        System.out.println("スタックは空か = " + isEmpty);
     }
 }

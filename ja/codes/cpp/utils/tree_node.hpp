@@ -11,7 +11,7 @@
 
 using namespace std;
 
-/* 二分木ノード構造体 */
+/* 二分木のノードの構造体 */
 struct TreeNode {
     int val{};
     int height = 0;
@@ -23,23 +23,23 @@ struct TreeNode {
     }
 };
 
-// シリアライズの符号化規則は以下を参照:
-// https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-// 二分木の配列表現:
+// シリアライズの符号化規則は次を参照：
+// https://www.hello-algo.com/ja/chapter_tree/array_representation_of_tree/
+// 二分木の配列表現：
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-// 二分木の連結リスト表現:
-// /——— 15
-// /——— 7
-// /——— 3
-// |    \——— 6
-// |        \——— 12
+// 二分木の連結リスト表現：
+//             /——— 15
+//         /——— 7
+//     /——— 3
+//    |    \——— 6
+//    |        \——— 12
 // ——— 1
-// \——— 2
-// |    /——— 9
-// \——— 4
-// \——— 8
+//     \——— 2
+//        |    /——— 9
+//         \——— 4
+//             \——— 8
 
-/* リストを二分木にデシリアライズする: 再帰 */
+/* リストから二分木へデシリアライズ：再帰 */
 TreeNode *vectorToTreeDFS(vector<int> &arr, int i) {
     if (i < 0 || i >= arr.size() || arr[i] == INT_MAX) {
         return nullptr;
@@ -50,12 +50,12 @@ TreeNode *vectorToTreeDFS(vector<int> &arr, int i) {
     return root;
 }
 
-/* リストを二分木にデシリアライズする */
+/* リストから二分木へデシリアライズ */
 TreeNode *vectorToTree(vector<int> arr) {
     return vectorToTreeDFS(arr, 0);
 }
 
-/* 二分木をリストにシリアライズする: 再帰 */
+/* 二分木をシリアライズしてリストにする：再帰 */
 void treeToVecorDFS(TreeNode *root, int i, vector<int> &res) {
     if (root == nullptr)
         return;
@@ -67,7 +67,7 @@ void treeToVecorDFS(TreeNode *root, int i, vector<int> &res) {
     treeToVecorDFS(root->right, 2 * i + 2, res);
 }
 
-/* 二分木をリストにシリアライズする */
+/* 二分木をシリアライズしてリストにする */
 vector<int> treeToVecor(TreeNode *root) {
     vector<int> res;
     treeToVecorDFS(root, 0, res);

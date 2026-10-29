@@ -11,12 +11,12 @@
 extern "C" {
 #endif
 
-/* 頂点構造体 */
+/* 頂点の構造体 */
 typedef struct {
     int val;
 } Vertex;
 
-/* コンストラクタ。新しいノードを初期化する */
+/* コンストラクタ：新しいノードを初期化する */
 Vertex *newVertex(int val) {
     Vertex *vet;
     vet = (Vertex *)malloc(sizeof(Vertex));
@@ -24,7 +24,7 @@ Vertex *newVertex(int val) {
     return vet;
 }
 
-/* 値の配列を頂点配列に変換 */
+/* 値の配列を頂点の配列に変換する */
 Vertex **valsToVets(int *vals, int size) {
     Vertex **vertices = (Vertex **)malloc(size * sizeof(Vertex *));
     for (int i = 0; i < size; ++i) {
@@ -33,7 +33,7 @@ Vertex **valsToVets(int *vals, int size) {
     return vertices;
 }
 
-/* 頂点配列を値配列に変換 */
+/* 頂点の配列を値の配列に変換する */
 int *vetsToVals(Vertex **vertices, int size) {
     int *vals = (int *)malloc(size * sizeof(int));
     for (int i = 0; i < size; ++i) {
