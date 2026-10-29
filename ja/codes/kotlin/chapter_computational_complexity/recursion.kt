@@ -13,25 +13,25 @@ fun recur(n: Int): Int {
     // 終了条件
     if (n == 1)
         return 1
-    // 再帰: 再帰呼び出し
+    // 往路：再帰呼び出し
     val res = recur(n - 1)
-    // 戻る: 結果を返す
+    // 復路：結果を返す
     return n + res
 }
 
-/* 反復で再帰を模擬する */
+/* 反復を使って再帰を再現する */
 fun forLoopRecur(n: Int): Int {
-    // 明示的なスタックを使ってシステムコールスタックを模擬する
+    // 明示的なスタックを使って、システムの呼び出しスタックを再現する
     val stack = Stack<Int>()
     var res = 0
-    // 再帰: 再帰呼び出し
+    // 往路：再帰呼び出し
     for (i in n downTo 0) {
-        // 「スタックへのプッシュ」で「再帰」を模擬する
+        // 「プッシュ操作」で再帰の「往路」を再現する
         stack.push(i)
     }
-    // 戻る: 結果を返す
+    // 復路：結果を返す
     while (stack.isNotEmpty()) {
-        // 「スタックから取り出す操作」で「帰り」をシミュレート
+        // 「ポップ操作」で再帰の「復路」を再現する
         res += stack.pop()
     }
     // res = 1+2+3+...+n
@@ -40,7 +40,7 @@ fun forLoopRecur(n: Int): Int {
 
 /* 末尾再帰 */
 tailrec fun tailRecur(n: Int, res: Int): Int {
-    // `tailrec` キーワードを追加して末尾再帰最適化を有効にする
+    // tailrec キーワードを追加し、末尾再帰の最適化を有効にする
     // 終了条件
     if (n == 0)
         return res
@@ -53,25 +53,25 @@ fun fib(n: Int): Int {
     // 終了条件 f(1) = 0, f(2) = 1
     if (n == 1 || n == 2)
         return n - 1
-    // f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+    // 再帰呼び出し f(n) = f(n-1) + f(n-2)
     val res = fib(n - 1) + fib(n - 2)
     // 結果 f(n) を返す
     return res
 }
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
     val n = 5
     var res: Int
 
     res = recur(n)
-    println("\n再帰関数の合計結果 res = $res")
+    println("\n再帰関数で求めた和 res = $res")
 
     res = forLoopRecur(n)
-    println("\n反復で再帰をシミュレートした合計結果 res = $res")
+    println("\n反復で再帰を再現して求めた和 res = $res")
 
     res = tailRecur(n, 0)
-    println("\n末尾再帰関数の合計結果 res = $res")
+    println("\n末尾再帰関数で求めた和 res = $res")
 
     res = fib(n)
     println("\nフィボナッチ数列の第 $n 項は $res")

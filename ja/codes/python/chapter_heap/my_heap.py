@@ -15,123 +15,123 @@ class MaxHeap:
     """最大ヒープ"""
 
     def __init__(self, nums: list[int]):
-        """コンストラクタ。入力リストに基づいてヒープを構築する"""
-        # リスト要素をそのままヒープに追加
+        """コンストラクタ：入力リストからヒープを構築する"""
+        # リストの要素をそのままヒープに追加する
         self.max_heap = nums
-        # 葉ノード以外のすべてのノードをヒープ化
+        # 葉ノード以外の全ノードをヒープ化する
         for i in range(self.parent(self.size() - 1), -1, -1):
             self.sift_down(i)
 
     def left(self, i: int) -> int:
-        """左子ノードのインデックスを取得"""
+        """左の子のインデックスを取得"""
         return 2 * i + 1
 
     def right(self, i: int) -> int:
-        """右子ノードのインデックスを取得"""
+        """右の子のインデックスを取得"""
         return 2 * i + 2
 
     def parent(self, i: int) -> int:
-        """親ノードのインデックスを取得"""
+        """親のインデックスを取得"""
         return (i - 1) // 2  # 切り捨て除算
 
     def swap(self, i: int, j: int):
-        """要素を交換"""
+        """要素を交換する"""
         self.max_heap[i], self.max_heap[j] = self.max_heap[j], self.max_heap[i]
 
     def size(self) -> int:
-        """ヒープのサイズを取得"""
+        """ヒープのサイズを取得する"""
         return len(self.max_heap)
 
     def is_empty(self) -> bool:
-        """ヒープが空かどうかを判定"""
+        """ヒープが空か判定"""
         return self.size() == 0
 
     def peek(self) -> int:
-        """ヒープ先頭要素にアクセス"""
+        """ヒープの先頭要素にアクセスする"""
         return self.max_heap[0]
 
     def push(self, val: int):
-        """要素をヒープに追加"""
-        # ノードを追加
+        """ヒープに要素を挿入する"""
+        # ノードを追加する
         self.max_heap.append(val)
-        # 下から上へヒープ化
+        # 下から上へヒープ化する
         self.sift_up(self.size() - 1)
 
     def sift_up(self, i: int):
-        """ノード i から始めて、下から上へヒープ化"""
+        """ノード i から上向きにヒープ化する"""
         while True:
-            # ノード i の親ノードを取得
+            # ノード i の親ノードを取得する
             p = self.parent(i)
-            # 「根ノードを越えた」または「ノードの修復が不要」になったらヒープ化を終了
+            # 「根ノードを越えた」または「ノードの修復が不要」の場合、ヒープ化を終了する
             if p < 0 or self.max_heap[i] <= self.max_heap[p]:
                 break
-            # 2 つのノードを交換
+            # 2 つのノードを交換する
             self.swap(i, p)
-            # ループで下から上へヒープ化
+            # 上向きのヒープ化を繰り返す
             i = p
 
     def pop(self) -> int:
-        """要素をヒープから取り出す"""
-        # 空判定の処理
+        """ヒープから要素を取り出す"""
+        # 空かどうかを確認する
         if self.is_empty():
             raise IndexError("ヒープが空です")
-        # 根ノードと最も右の葉ノードを交換（先頭要素と末尾要素を交換）
+        # 根と最右の葉を交換（先頭要素と末尾要素を交換）
         self.swap(0, self.size() - 1)
-        # ノードを削除
+        # ノードを削除する
         val = self.max_heap.pop()
-        # 上から下へヒープ化
+        # 上から下へヒープ化する
         self.sift_down(0)
-        # ヒープ先頭要素を返す
+        # ヒープの先頭要素を返す
         return val
 
     def sift_down(self, i: int):
-        """ノード i から始めて、上から下へヒープ化"""
+        """ノード i から下向きにヒープ化する"""
         while True:
-            # ノード i, l, r のうち値が最大のノードを ma とする
+            # ノード i, l, r のうち値が最大のノードを求め、ma とする
             l, r, ma = self.left(i), self.right(i), i
             if l < self.size() and self.max_heap[l] > self.max_heap[ma]:
                 ma = l
             if r < self.size() and self.max_heap[r] > self.max_heap[ma]:
                 ma = r
-            # ノード i が最大、またはインデックス l, r が範囲外なら、ヒープ化は不要なので抜ける
+            # ノード i が最大か添字 l, r が範囲外なら、ヒープ化は不要なので終了
             if ma == i:
                 break
-            # 2 つのノードを交換
+            # 2 つのノードを交換する
             self.swap(i, ma)
-            # ループで上から下へヒープ化
+            # 下向きのヒープ化を繰り返す
             i = ma
 
     def print(self):
-        """ヒープ（二分木）を出力"""
+        """ヒープ（二分木）を表示する"""
         print_heap(self.max_heap)
 
 
-"""Driver Code"""
+"""実行用コード"""
 if __name__ == "__main__":
-    # 最大ヒープを初期化
+    # 最大ヒープを初期化する
     max_heap = MaxHeap([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2])
     print("\nリストを入力してヒープを構築した後")
     max_heap.print()
 
-    # ヒープ頂点の要素を取得
+    # ヒープの先頭要素を取得する
     peek = max_heap.peek()
-    print(f"\nヒープ先頭要素は {peek}")
+    print(f"\nヒープの先頭要素は {peek}")
 
-    # 要素をヒープに追加
+    # ヒープに要素を挿入する
     val = 7
     max_heap.push(val)
-    print(f"\n要素 {val} をヒープに追加した後")
+    print(f"\n要素 {val} をヒープに挿入した後")
     max_heap.print()
 
-    # ヒープ頂点の要素を取り出す
+    # ヒープの先頭要素を取り出す
     peek = max_heap.pop()
-    print(f"\nヒープ先頭要素 {peek} を取り出した後")
+    print(f"\nヒープの先頭要素 {peek} を取り出した後")
     max_heap.print()
 
-    # ヒープのサイズを取得
+    # ヒープのサイズを取得する
     size = max_heap.size()
-    print(f"\nヒープ要素数は {size}")
+    print(f"\nヒープの要素数は {size}")
 
-    # ヒープが空かどうかを判定
+    # ヒープが空か判定
     is_empty = max_heap.is_empty()
-    print(f"\nヒープが空かどうかは {is_empty}")
+    print(f"\nヒープは空か {is_empty}")

@@ -8,13 +8,13 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* 前順走査：例題 1 */
+/* 行きがけ順走査：例題 1 */
 func preOrderI(root *TreeNode, res *[]*TreeNode) {
 	if root == nil {
 		return
 	}
 	if (root.Val).(int) == 7 {
-		// 解を記録
+		// 解を記録する
 		*res = append(*res, root)
 	}
 	preOrderI(root.Left, res)

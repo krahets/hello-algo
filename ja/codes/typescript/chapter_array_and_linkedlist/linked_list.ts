@@ -7,14 +7,14 @@
 import { ListNode } from '../modules/ListNode';
 import { printLinkedList } from '../modules/PrintUtil';
 
-/* 連結リストでノード n0 の後ろにノード P を挿入する */
+/* 連結リストのノード n0 の直後にノード P を挿入する */
 function insert(n0: ListNode, P: ListNode): void {
     const n1 = n0.next;
     P.next = n1;
     n0.next = P;
 }
 
-/* 連結リストでノード n0 の直後のノードを削除する */
+/* 連結リストのノード n0 の直後のノードを削除する */
 function remove(n0: ListNode): void {
     if (!n0.next) {
         return;
@@ -25,7 +25,7 @@ function remove(n0: ListNode): void {
     n0.next = n1;
 }
 
-/* 連結リスト内で index 番目のノードにアクセス */
+/* 連結リストのインデックス index にあるノードにアクセスする */
 function access(head: ListNode | null, index: number): ListNode | null {
     for (let i = 0; i < index; i++) {
         if (!head) {
@@ -36,7 +36,7 @@ function access(head: ListNode | null, index: number): ListNode | null {
     return head;
 }
 
-/* 連結リストで値が target の最初のノードを探す */
+/* 連結リストから値が target である最初のノードを探索する */
 function find(head: ListNode | null, target: number): number {
     let index = 0;
     while (head !== null) {
@@ -49,38 +49,38 @@ function find(head: ListNode | null, target: number): number {
     return -1;
 }
 
-/* Driver Code */
-/* 連結リストを初期化 */
-// 各ノードを初期化
+/* 実行用コード */
+/* 連結リストを初期化する */
+// 各ノードを初期化する
 const n0 = new ListNode(1);
 const n1 = new ListNode(3);
 const n2 = new ListNode(2);
 const n3 = new ListNode(5);
 const n4 = new ListNode(4);
-// ノード間の参照を構築する
+// ノード間の参照を設定する
 n0.next = n1;
 n1.next = n2;
 n2.next = n3;
 n3.next = n4;
-console.log('初期化された連結リストは');
+console.log('初期化した連結リスト');
 printLinkedList(n0);
 
-/* ノードを挿入 */
+/* ノードを挿入する */
 insert(n0, new ListNode(0));
-console.log('ノード挿入後の連結リストは');
+console.log('ノードを挿入した後の連結リスト');
 printLinkedList(n0);
 
-/* ノードを削除 */
+/* ノードを削除する */
 remove(n0);
-console.log('ノード削除後の連結リストは');
+console.log('ノードを削除した後の連結リスト');
 printLinkedList(n0);
 
-/* ノードにアクセス */
+/* ノードにアクセスする */
 const node = access(n0, 3);
 console.log(`連結リストのインデックス 3 にあるノードの値 = ${node?.val}`);
 
-/* ノードを探索 */
+/* ノードを探索する */
 const index = find(n0, 2);
-console.log(`連結リスト内で値が 2 のノードのインデックス = ${index}`);
+console.log(`連結リスト内で値が 2 であるノードのインデックス = ${index}`);
 
 export {};

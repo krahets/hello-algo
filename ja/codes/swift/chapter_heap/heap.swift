@@ -9,51 +9,51 @@ import utils
 
 func testPush(heap: inout Heap<Int>, val: Int) {
     heap.insert(val)
-    print("\n要素 \(val) をヒープに追加した後\n")
+    print("\n要素 \(val) をヒープに挿入した後\n")
     PrintUtil.printHeap(queue: heap.unordered)
 }
 
 func testPop(heap: inout Heap<Int>) {
     let val = heap.removeMax()
-    print("\nヒープ先頭要素 \(val) を取り出した後\n")
+    print("\nヒープの先頭要素 \(val) を取り出した後\n")
     PrintUtil.printHeap(queue: heap.unordered)
 }
 
 @main
 enum _Heap {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
-        /* ヒープを初期化 */
-        // Swift の Heap 型は最大ヒープと最小ヒープの両方をサポートする
+        /* ヒープを初期化する */
+        // Swift の Heap 型は最大ヒープと最小ヒープの両方に対応する
         var heap = Heap<Int>()
 
-        /* 要素をヒープに追加 */
+        /* ヒープに要素を挿入する */
         testPush(heap: &heap, val: 1)
         testPush(heap: &heap, val: 3)
         testPush(heap: &heap, val: 2)
         testPush(heap: &heap, val: 5)
         testPush(heap: &heap, val: 4)
 
-        /* ヒープ頂点の要素を取得 */
+        /* ヒープの先頭要素を取得する */
         let peek = heap.max()
-        print("\nヒープ先頭要素は \(peek!)\n")
+        print("\nヒープの先頭要素は \(peek!)\n")
 
-        /* ヒープ頂点の要素を取り出す */
+        /* ヒープの先頭要素を取り出す */
         testPop(heap: &heap)
         testPop(heap: &heap)
         testPop(heap: &heap)
         testPop(heap: &heap)
         testPop(heap: &heap)
 
-        /* ヒープのサイズを取得 */
+        /* ヒープのサイズを取得する */
         let size = heap.count
-        print("\nヒープ内の要素数は \(size)\n")
+        print("\nヒープの要素数は \(size)\n")
 
-        /* ヒープが空かどうかを判定 */
+        /* ヒープが空か判定 */
         let isEmpty = heap.isEmpty
-        print("\nヒープが空かどうか \(isEmpty)\n")
+        print("\nヒープは空か \(isEmpty)\n")
 
-        /* リストを入力してヒープを構築 */
+        /* リストを入力してヒープを構築する */
         // 時間計算量は O(n) であり、O(nlogn) ではない
         let heap2 = Heap([1, 3, 2, 5, 4])
         print("\nリストを入力してヒープを構築した後")

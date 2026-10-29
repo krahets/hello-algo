@@ -4,25 +4,25 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* 階段登り：動的計画法 */
+/* 階段の上り方：動的計画法 */
 fn climbing_stairs_dp(n: usize) -> i32 {
-    // dp[1] と dp[2] は既知なので返す
+    // dp[1] と dp[2] は既知なので、その値を返す
     if n == 1 || n == 2 {
         return n as i32;
     }
-    // 部分問題の解を保存するために dp テーブルを初期化
+    // 部分問題の解を格納する dp テーブルを初期化する
     let mut dp = vec![-1; n + 1];
-    // 初期状態：最小部分問題の解をあらかじめ設定
+    // 初期状態：最小の部分問題の解を設定する
     dp[1] = 1;
     dp[2] = 2;
-    // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+    // 状態遷移：小さな部分問題から順に大きな部分問題を解く
     for i in 3..=n {
         dp[i] = dp[i - 1] + dp[i - 2];
     }
     dp[n]
 }
 
-/* 階段登り：空間最適化した動的計画法 */
+/* 階段の上り方：空間を最適化した動的計画法 */
 fn climbing_stairs_dp_comp(n: usize) -> i32 {
     if n == 1 || n == 2 {
         return n as i32;
@@ -36,7 +36,7 @@ fn climbing_stairs_dp_comp(n: usize) -> i32 {
     b
 }
 
-/* Driver Code */
+/* 実行用コード */
 pub fn main() {
     let n: usize = 9;
 

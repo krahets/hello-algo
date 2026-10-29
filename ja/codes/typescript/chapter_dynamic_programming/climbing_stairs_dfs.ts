@@ -4,23 +4,23 @@
  * Author: yuan0221 (yl1452491917@gmail.com)
  */
 
-/* 検索 */
+/* 探索 */
 function dfs(i: number): number {
-    // dp[1] と dp[2] は既知なので返す
+    // dp[1] と dp[2] は既知なので、その値を返す
     if (i === 1 || i === 2) return i;
     // dp[i] = dp[i-1] + dp[i-2]
     const count = dfs(i - 1) + dfs(i - 2);
     return count;
 }
 
-/* 階段登り：探索 */
+/* 階段の上り方：探索 */
 function climbingStairsDFS(n: number): number {
     return dfs(n);
 }
 
-/* Driver Code */
+/* 実行用コード */
 const n = 9;
 const res = climbingStairsDFS(n);
-console.log(`${n} 段の階段を登る方法は ${res} 通り`);
+console.log(`${n} 段の階段を上る方法は全部で ${res} 通り`);
 
 export {};

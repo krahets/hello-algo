@@ -26,7 +26,7 @@ fun mulHash(key: String): Int {
     return hash.toInt()
 }
 
-/* XOR ハッシュ */
+/* 排他的論理和ハッシュ */
 fun xorHash(key: String): Int {
     var hash = 0
     val MODULUS = 1000000007
@@ -46,19 +46,19 @@ fun rotHash(key: String): Int {
     return hash.toInt()
 }
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
-    val key = "Hello アルゴリズム"
+    val key = "Hello 算法"
 
     var hash = addHash(key)
-    println("加算ハッシュ値は $hash")
+    println("加算ハッシュの値は $hash")
 
     hash = mulHash(key)
-    println("乗算ハッシュ値は $hash")
+    println("乗算ハッシュの値は $hash")
 
     hash = xorHash(key)
-    println("XORハッシュ値は $hash")
+    println("排他的論理和ハッシュの値は $hash")
 
     hash = rotHash(key)
-    println("回転ハッシュ値は $hash")
+    println("回転ハッシュの値は $hash")
 }

@@ -6,30 +6,30 @@
 
 #include "../utils/common.h"
 
-// すべての要素が 1000 未満であると仮定する
+// すべての要素は 1000 未満と仮定する
 #define MAX_SIZE 1000
 
-/* 二分木を構築：分割統治 */
+/* 二分木の構築：分割統治法 */
 TreeNode *dfs(int *preorder, int *inorderMap, int i, int l, int r, int size) {
-    // 部分木区間が空なら終了する
+    // 部分木の区間が空の場合、終了する
     if (r - l < 0)
         return NULL;
-    // ルートノードを初期化する
+    // 根ノードを初期化する
     TreeNode *root = (TreeNode *)malloc(sizeof(TreeNode));
     root->val = preorder[i];
     root->left = NULL;
     root->right = NULL;
-    // m を求めて左右部分木を分割する
+    // m を調べ、左右の部分木に分割する
     int m = inorderMap[preorder[i]];
-    // 部分問題：左部分木を構築する
+    // 部分問題：左部分木の構築
     root->left = dfs(preorder, inorderMap, i + 1, l, m - 1, size);
-    // 部分問題：右部分木を構築する
+    // 部分問題：右部分木の構築
     root->right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r, size);
     // 根ノードを返す
     return root;
 }
 
-/* 二分木を構築 */
+/* 二分木を構築する */
 TreeNode *buildTree(int *preorder, int preorderSize, int *inorder, int inorderSize) {
     // inorder の要素からインデックスへの対応を格納するハッシュテーブルを初期化する
     int *inorderMap = (int *)malloc(sizeof(int) * MAX_SIZE);
@@ -41,19 +41,19 @@ TreeNode *buildTree(int *preorder, int preorderSize, int *inorder, int inorderSi
     return root;
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
     int preorder[] = {3, 9, 2, 1, 7};
     int inorder[] = {9, 3, 1, 2, 7};
     int preorderSize = sizeof(preorder) / sizeof(preorder[0]);
     int inorderSize = sizeof(inorder) / sizeof(inorder[0]);
-    printf("前順走査 = ");
+    printf("行きがけ順走査 = ");
     printArray(preorder, preorderSize);
-    printf("中順走査 = ");
+    printf("通りがけ順走査 = ");
     printArray(inorder, inorderSize);
 
     TreeNode *root = buildTree(preorder, preorderSize, inorder, inorderSize);
-    printf("構築した二分木は：\n");
+    printf("構築した二分木：\n");
     printTree(root);
 
     freeMemoryTree(root);

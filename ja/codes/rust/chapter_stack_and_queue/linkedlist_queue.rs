@@ -9,7 +9,7 @@ use hello_algo_rust::include::{print_util, ListNode};
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* 連結リストベースのキュー */
+/* 連結リストで実装したキュー */
 #[allow(dead_code)]
 pub struct LinkedListQueue<T> {
     front: Option<Rc<RefCell<ListNode<T>>>>, // 先頭ノード front
@@ -31,22 +31,22 @@ impl<T: Copy> LinkedListQueue<T> {
         return self.que_size;
     }
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     pub fn is_empty(&self) -> bool {
         return self.que_size == 0;
     }
 
     /* エンキュー */
     pub fn push(&mut self, num: T) {
-        // 末尾ノードの後ろに num を追加
+        // 末尾ノードの後ろに num を追加する
         let new_rear = ListNode::new(num);
         match self.rear.take() {
-            // キューが空でなければ、そのノードを末尾ノードの後ろに追加
+            // キューが空でない場合、このノードを末尾ノードの後ろに追加する
             Some(old_rear) => {
                 old_rear.borrow_mut().next = Some(new_rear.clone());
                 self.rear = Some(new_rear);
             }
-            // キューが空なら、先頭・末尾ノードをともにそのノードに設定
+            // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
             None => {
                 self.front = Some(new_rear.clone());
                 self.rear = Some(new_rear);
@@ -71,7 +71,7 @@ impl<T: Copy> LinkedListQueue<T> {
         })
     }
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.front.as_ref()
     }
@@ -93,12 +93,12 @@ impl<T: Copy> LinkedListQueue<T> {
     }
 }
 
-/* Driver Code */
+/* 実行用コード */
 fn main() {
-    /* キューを初期化 */
+    /* キューを初期化する */
     let mut queue = LinkedListQueue::new();
 
-    /* 要素をエンキュー */
+    /* 要素をエンキューする */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -107,20 +107,20 @@ fn main() {
     print!("キュー queue = ");
     print_util::print_array(&queue.to_array(queue.peek()));
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     let peek = queue.peek().unwrap().borrow().val;
-    print!("\n先頭要素 peek = {}", peek);
+    print!("\nキューの先頭要素 peek = {}", peek);
 
-    /* 要素をデキュー */
+    /* 要素をデキューする */
     let pop = queue.pop().unwrap();
-    print!("\n取り出した要素 pop = {}、取り出し後 queue = ", pop);
+    print!("\nデキューした要素 pop = {}、デキュー後 queue = ", pop);
     print_util::print_array(&queue.to_array(queue.peek()));
 
     /* キューの長さを取得 */
     let size = queue.size();
     print!("\nキューの長さ size = {}", size);
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     let is_empty = queue.is_empty();
-    print!("\nキューが空かどうか = {}", is_empty);
+    print!("\nキューは空か = {}", is_empty);
 }

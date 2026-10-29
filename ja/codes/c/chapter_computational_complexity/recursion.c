@@ -11,25 +11,25 @@ int recur(int n) {
     // 終了条件
     if (n == 1)
         return 1;
-    // 再帰：再帰呼び出し
+    // 往路：再帰呼び出し
     int res = recur(n - 1);
-    // 帰りがけ：結果を返す
+    // 復路：結果を返す
     return n + res;
 }
 
-/* 反復で再帰を模擬する */
+/* 反復を使って再帰を再現する */
 int forLoopRecur(int n) {
-    int stack[1000]; // 大きな配列を使ってスタックを実装する
-    int top = -1;    // スタックトップのインデックス
+    int stack[1000]; // 大きな配列を使ってスタックを再現する
+    int top = -1;    // スタックの先頭のインデックス
     int res = 0;
-    // 再帰：再帰呼び出し
+    // 往路：再帰呼び出し
     for (int i = n; i > 0; i--) {
-        // 「スタックへのプッシュ」で「再帰」を模擬する
+        // 「プッシュ操作」で再帰の「往路」を再現する
         stack[1 + top++] = i;
     }
-    // 帰りがけ：結果を返す
+    // 復路：結果を返す
     while (top >= 0) {
-        // 「スタックから取り出す操作」で「帰り」をシミュレート
+        // 「ポップ操作」で再帰の「復路」を再現する
         res += stack[top--];
     }
     // res = 1+2+3+...+n
@@ -50,25 +50,25 @@ int fib(int n) {
     // 終了条件 f(1) = 0, f(2) = 1
     if (n == 1 || n == 2)
         return n - 1;
-    // f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+    // 再帰呼び出し f(n) = f(n-1) + f(n-2)
     int res = fib(n - 1) + fib(n - 2);
     // 結果 f(n) を返す
     return res;
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
     int n = 5;
     int res;
 
     res = recur(n);
-    printf("\n再帰関数の合計結果 res = %d\n", res);
+    printf("\n再帰関数で求めた和 res = %d\n", res);
 
     res = forLoopRecur(n);
-    printf("\n反復で再帰をシミュレートした合計結果 res = %d\n", res);
+    printf("\n反復で再帰を再現して求めた和 res = %d\n", res);
 
     res = tailRecur(n, 0);
-    printf("\n末尾再帰関数の合計結果 res = %d\n", res);
+    printf("\n末尾再帰関数で求めた和 res = %d\n", res);
 
     res = fib(n);
     printf("\nフィボナッチ数列の第 %d 項は %d\n", n, res);

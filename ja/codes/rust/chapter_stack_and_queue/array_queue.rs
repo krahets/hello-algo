@@ -4,10 +4,10 @@
  * Author: WSL0809 (wslzzy@outlook.com)
  */
 
-/* 循環配列ベースのキュー */
+/* 循環配列で実装したキュー */
 struct ArrayQueue<T> {
-    nums: Vec<T>,      // キュー要素を格納する配列
-    front: i32,        // 先頭ポインタ。先頭要素を指す
+    nums: Vec<T>,      // キューの要素を格納する配列
+    front: i32,        // キューの先頭要素を指す先頭ポインタ
     que_size: i32,     // キューの長さ
     que_capacity: i32, // キューの容量
 }
@@ -23,7 +23,7 @@ impl<T: Copy + Default> ArrayQueue<T> {
         }
     }
 
-    /* キューの容量を取得 */
+    /* キューの容量を取得する */
     fn capacity(&self) -> i32 {
         self.que_capacity
     }
@@ -33,7 +33,7 @@ impl<T: Copy + Default> ArrayQueue<T> {
         self.que_size
     }
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     fn is_empty(&self) -> bool {
         self.que_size == 0
     }
@@ -41,13 +41,13 @@ impl<T: Copy + Default> ArrayQueue<T> {
     /* エンキュー */
     fn push(&mut self, num: T) {
         if self.que_size == self.capacity() {
-            println!("キューがいっぱいです");
+            println!("キューが満杯です");
             return;
         }
-        // 末尾ポインタを計算し、末尾インデックス + 1 を指す
-        // 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
+        // 末尾のインデックス + 1 を指す末尾ポインタを計算する
+        // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
         let rear = (self.front + self.que_size) % self.que_capacity;
-        // num をキュー末尾に追加
+        // num をキューの末尾に追加する
         self.nums[rear as usize] = num;
         self.que_size += 1;
     }
@@ -55,16 +55,16 @@ impl<T: Copy + Default> ArrayQueue<T> {
     /* デキュー */
     fn pop(&mut self) -> T {
         let num = self.peek();
-        // 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
+        // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
         self.front = (self.front + 1) % self.que_capacity;
         self.que_size -= 1;
         num
     }
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     fn peek(&self) -> T {
         if self.is_empty() {
-            panic!("index out of bounds");
+            panic!("インデックスが範囲外です");
         }
         self.nums[self.front as usize]
     }
@@ -82,13 +82,13 @@ impl<T: Copy + Default> ArrayQueue<T> {
     }
 }
 
-/* Driver Code */
+/* 実行用コード */
 fn main() {
-    /* キューを初期化 */
+    /* キューを初期化する */
     let capacity = 10;
     let mut queue = ArrayQueue::new(capacity);
 
-    /* 要素をエンキュー */
+    /* 要素をエンキューする */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -96,14 +96,14 @@ fn main() {
     queue.push(4);
     println!("キュー queue = {:?}", queue.to_vector());
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     let peek = queue.peek();
-    println!("先頭要素 peek = {}", peek);
+    println!("キューの先頭要素 peek = {}", peek);
 
-    /* 要素をデキュー */
+    /* 要素をデキューする */
     let pop = queue.pop();
     println!(
-        "取り出した要素 pop = {:?},取り出し後 queue = {:?}",
+        "デキューした要素 pop = {:?},デキュー後 queue = {:?}",
         pop,
         queue.to_vector()
     );
@@ -112,14 +112,14 @@ fn main() {
     let size = queue.size();
     println!("キューの長さ size = {}", size);
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     let is_empty = queue.is_empty();
-    println!("キューが空かどうか = {}", is_empty);
+    println!("キューは空か = {}", is_empty);
 
     /* 循環配列をテストする */
     for i in 0..10 {
         queue.push(i);
         queue.pop();
-        println!("第 {:?} 回のエンキュー + デキュー後 queue = {:?}", i, queue.to_vector());
+        println!("第 {:?} 回のエンキューとデキューの後 queue = {:?}", i, queue.to_vector());
     }
 }

@@ -6,21 +6,21 @@
 
 import utils
 
-/* 連結リストベースのスタック */
+/* 連結リストで実装したスタック */
 class LinkedListStack {
-    private var _peek: ListNode? // 先頭ノードをスタックトップとする
+    private var _peek: ListNode? // 先頭ノードをスタックの先頭とする
     private var _size: Int // スタックの長さ
 
     init() {
         _size = 0
     }
 
-    /* スタックの長さを取得 */
+    /* スタックの長さを取得する */
     func size() -> Int {
         _size
     }
 
-    /* スタックが空かどうかを判定 */
+    /* スタックが空かどうかを判定する */
     func isEmpty() -> Bool {
         size() == 0
     }
@@ -42,7 +42,7 @@ class LinkedListStack {
         return num
     }
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセスする */
     func peek() -> Int {
         if isEmpty() {
             fatalError("スタックが空です")
@@ -64,12 +64,12 @@ class LinkedListStack {
 
 @main
 enum _LinkedListStack {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
-        /* スタックを初期化 */
+        /* スタックを初期化する */
         let stack = LinkedListStack()
 
-        /* 要素をプッシュ */
+        /* 要素をプッシュする */
         stack.push(num: 1)
         stack.push(num: 3)
         stack.push(num: 2)
@@ -77,20 +77,20 @@ enum _LinkedListStack {
         stack.push(num: 4)
         print("スタック stack = \(stack.toArray())")
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         let peek = stack.peek()
-        print("スタックトップ要素 peek = \(peek)")
+        print("スタックの先頭要素 peek = \(peek)")
 
-        /* 要素をポップ */
+        /* 要素をポップする */
         let pop = stack.pop()
-        print("ポップした要素 pop = \(pop)、ポップ後の stack = \(stack.toArray())")
+        print("ポップした要素 pop = \(pop)、ポップ後 stack = \(stack.toArray())")
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         let size = stack.size()
         print("スタックの長さ size = \(size)")
 
-        /* 空かどうかを判定 */
+        /* 空かどうかを判定する */
         let isEmpty = stack.isEmpty()
-        print("スタックが空かどうか = \(isEmpty)")
+        print("スタックは空か = \(isEmpty)")
     }
 }

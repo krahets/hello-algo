@@ -12,11 +12,11 @@ import (
 )
 
 func TestStack(t *testing.T) {
-	/* スタックを初期化 */
-	// Go では、Slice をスタックとして使うことが推奨される
+	/* スタックを初期化する */
+	// Go では Slice をスタックとして使うことを推奨する
 	var stack []int
 
-	/* 要素をプッシュ */
+	/* 要素をプッシュする */
 	stack = append(stack, 1)
 	stack = append(stack, 3)
 	stack = append(stack, 2)
@@ -25,30 +25,30 @@ func TestStack(t *testing.T) {
 	fmt.Print("スタック stack = ")
 	PrintSlice(stack)
 
-	/* スタックトップの要素にアクセス */
+	/* スタックの先頭要素にアクセスする */
 	peek := stack[len(stack)-1]
-	fmt.Println("スタックトップ要素 peek =", peek)
+	fmt.Println("スタックの先頭要素 peek =", peek)
 
-	/* 要素をポップ */
+	/* 要素をポップする */
 	pop := stack[len(stack)-1]
 	stack = stack[:len(stack)-1]
-	fmt.Print("ポップした要素 pop = ", pop, "，ポップ後 stack = ")
+	fmt.Print("ポップした要素 pop = ", pop, "、ポップ後 stack = ")
 	PrintSlice(stack)
 
-	/* スタックの長さを取得 */
+	/* スタックの長さを取得する */
 	size := len(stack)
 	fmt.Println("スタックの長さ size =", size)
 
-	/* 空かどうかを判定 */
+	/* 空かどうかを判定する */
 	isEmpty := len(stack) == 0
-	fmt.Println("スタックが空かどうか =", isEmpty)
+	fmt.Println("スタックは空か =", isEmpty)
 }
 
 func TestArrayStack(t *testing.T) {
-	// スタックを初期化し、インターフェース型で受ける
+	// スタックを初期化し、インターフェースで受け取る
 	stack := newArrayStack()
 
-	// 要素をプッシュ
+	// 要素をプッシュする
 	stack.push(1)
 	stack.push(3)
 	stack.push(2)
@@ -57,28 +57,28 @@ func TestArrayStack(t *testing.T) {
 	fmt.Print("スタック stack = ")
 	PrintSlice(stack.toSlice())
 
-	// スタックトップの要素にアクセス
+	// スタックの先頭要素にアクセスする
 	peek := stack.peek()
-	fmt.Println("スタックトップ要素 peek =", peek)
+	fmt.Println("スタックの先頭要素 peek =", peek)
 
-	// 要素をポップ
+	// 要素をポップする
 	pop := stack.pop()
 	fmt.Print("ポップした要素 pop = ", pop, ", ポップ後 stack = ")
 	PrintSlice(stack.toSlice())
 
-	// スタックの長さを取得
+	// スタックの長さを取得する
 	size := stack.size()
 	fmt.Println("スタックの長さ size =", size)
 
-	// 空かどうかを判定
+	// 空かどうかを判定する
 	isEmpty := stack.isEmpty()
-	fmt.Println("スタックが空かどうか =", isEmpty)
+	fmt.Println("スタックは空か =", isEmpty)
 }
 
 func TestLinkedListStack(t *testing.T) {
-	// スタックを初期化
+	// スタックを初期化する
 	stack := newLinkedListStack()
-	// 要素をプッシュ
+	// 要素をプッシュする
 	stack.push(1)
 	stack.push(3)
 	stack.push(2)
@@ -87,28 +87,28 @@ func TestLinkedListStack(t *testing.T) {
 	fmt.Print("スタック stack = ")
 	PrintList(stack.toList())
 
-	// スタックトップの要素にアクセス
+	// スタックの先頭要素にアクセスする
 	peek := stack.peek()
-	fmt.Println("スタックトップ要素 peek =", peek)
+	fmt.Println("スタックの先頭要素 peek =", peek)
 
-	// 要素をポップ
+	// 要素をポップする
 	pop := stack.pop()
 	fmt.Print("ポップした要素 pop = ", pop, ", ポップ後 stack = ")
 	PrintList(stack.toList())
 
-	// スタックの長さを取得
+	// スタックの長さを取得する
 	size := stack.size()
 	fmt.Println("スタックの長さ size =", size)
 
-	// 空かどうかを判定
+	// 空かどうかを判定する
 	isEmpty := stack.isEmpty()
-	fmt.Println("スタックが空かどうか =", isEmpty)
+	fmt.Println("スタックは空か =", isEmpty)
 }
 
-// BenchmarkArrayStack 8 ns/op in Mac M1 Pro
+// Mac M1 Pro での BenchmarkArrayStack は 8 ns/op
 func BenchmarkArrayStack(b *testing.B) {
 	stack := newArrayStack()
-	// use b.N for looping
+	// ループには b.N を使う
 	for i := 0; i < b.N; i++ {
 		stack.push(777)
 	}
@@ -117,10 +117,10 @@ func BenchmarkArrayStack(b *testing.B) {
 	}
 }
 
-// BenchmarkLinkedListStack 65.02 ns/op in Mac M1 Pro
+// Mac M1 Pro での BenchmarkLinkedListStack は 65.02 ns/op
 func BenchmarkLinkedListStack(b *testing.B) {
 	stack := newLinkedListStack()
-	// use b.N for looping
+	// ループには b.N を使う
 	for i := 0; i < b.N; i++ {
 		stack.push(777)
 	}

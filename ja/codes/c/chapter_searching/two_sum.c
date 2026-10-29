@@ -26,10 +26,10 @@ int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
 typedef struct {
     int key;
     int val;
-    UT_hash_handle hh; // uthash.h を用いて実装
+    UT_hash_handle hh; // uthash.h を用いて実装する
 } HashTable;
 
-/* ハッシュテーブルを検索する */
+/* ハッシュテーブルから取得する */
 HashTable *find(HashTable *h, int key) {
     HashTable *tmp;
     HASH_FIND_INT(h, &key, tmp);
@@ -65,21 +65,21 @@ int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
     return NULL;
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    // ======= Test Case =======
+    // ======= テストケース =======
     int nums[] = {2, 7, 11, 15};
     int target = 13;
-    // ====== Driver Code ======
+    // ====== 実行用コード ======
     int returnSize;
     int *res = twoSumBruteForce(nums, sizeof(nums) / sizeof(int), target, &returnSize);
     // 方法 1
-    printf("方法1 res = ");
+    printf("方法 1 res = ");
     printArray(res, returnSize);
 
     // 方法 2
     res = twoSumHashTable(nums, sizeof(nums) / sizeof(int), target, &returnSize);
-    printf("方法2 res = ");
+    printf("方法 2 res = ");
     printArray(res, returnSize);
 
     return 0;

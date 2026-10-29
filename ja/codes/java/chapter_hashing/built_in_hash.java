@@ -23,11 +23,11 @@ public class built_in_hash {
         int hashDec = Double.hashCode(dec);
         System.out.println("小数 " + dec + " のハッシュ値は " + hashDec);
 
-        String str = "Hello アルゴリズム";
+        String str = "Hello 算法";
         int hashStr = str.hashCode();
         System.out.println("文字列 " + str + " のハッシュ値は " + hashStr);
 
-        Object[] arr = { 12836, "シャオハー" };
+        Object[] arr = { 12836, "小哈" };
         int hashTup = Arrays.hashCode(arr);
         System.out.println("配列 " + Arrays.toString(arr) + " のハッシュ値は " + hashTup);
 

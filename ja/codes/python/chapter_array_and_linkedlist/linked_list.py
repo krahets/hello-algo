@@ -12,14 +12,14 @@ from modules import ListNode, print_linked_list
 
 
 def insert(n0: ListNode, P: ListNode):
-    """連結リストでノード n0 の後ろにノード P を挿入する"""
+    """連結リストのノード n0 の直後にノード P を挿入する"""
     n1 = n0.next
     P.next = n1
     n0.next = P
 
 
 def remove(n0: ListNode):
-    """連結リストでノード n0 の直後のノードを削除する"""
+    """連結リストのノード n0 の直後のノードを削除する"""
     if not n0.next:
         return
     # n0 -> P -> n1
@@ -29,7 +29,7 @@ def remove(n0: ListNode):
 
 
 def access(head: ListNode, index: int) -> ListNode | None:
-    """連結リスト内で index 番目のノードにアクセス"""
+    """連結リストのインデックス index にあるノードにアクセスする"""
     for _ in range(index):
         if not head:
             return None
@@ -38,7 +38,7 @@ def access(head: ListNode, index: int) -> ListNode | None:
 
 
 def find(head: ListNode, target: int) -> int:
-    """連結リストで値が target の最初のノードを探す"""
+    """連結リストから値が target である最初のノードを探索する"""
     index = 0
     while head:
         if head.val == target:
@@ -48,7 +48,7 @@ def find(head: ListNode, target: int) -> int:
     return -1
 
 
-"""Driver Code"""
+"""実行用コード"""
 if __name__ == "__main__":
     # 連結リストを初期化する
     # 各ノードを初期化する
@@ -57,29 +57,29 @@ if __name__ == "__main__":
     n2 = ListNode(2)
     n3 = ListNode(5)
     n4 = ListNode(4)
-    # ノード間の参照を構築する
+    # ノード間の参照を設定する
     n0.next = n1
     n1.next = n2
     n2.next = n3
     n3.next = n4
-    print("初期化した連結リストは")
+    print("初期化した連結リスト")
     print_linked_list(n0)
 
-    # ノードを挿入
+    # ノードを挿入する
     p = ListNode(0)
     insert(n0, p)
-    print("ノード挿入後の連結リストは")
+    print("ノードを挿入した後の連結リスト")
     print_linked_list(n0)
 
-    # ノードを削除
+    # ノードを削除する
     remove(n0)
-    print("ノード削除後の連結リストは")
+    print("ノードを削除した後の連結リスト")
     print_linked_list(n0)
 
-    # ノードにアクセス
+    # ノードにアクセスする
     node: ListNode = access(n0, 3)
-    print("連結リストのインデックス 3 のノードの値 = {}".format(node.val))
+    print("連結リストのインデックス 3 にあるノードの値 = {}".format(node.val))
 
-    # ノードを探索
+    # ノードを探索する
     index: int = find(n0, 2)
-    print("連結リスト内で値が 2 のノードのインデックス = {}".format(index))
+    print("連結リスト内で値が 2 であるノードのインデックス = {}".format(index))

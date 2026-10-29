@@ -6,12 +6,12 @@
 
 package utils
 
-/* 連結リストノード */
+/* 連結リストのノード */
 class ListNode(var _val: Int) {
     var next: ListNode? = null
 
     companion object {
-        /* リストを連結リストにデシリアライズする */
+        /* リストをデシリアライズして連結リストにする */
         fun arrToLinkedList(arr: IntArray): ListNode? {
             val dum = ListNode(0)
             var head = dum

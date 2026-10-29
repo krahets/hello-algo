@@ -6,20 +6,20 @@
 
 #include "../utils/common.h"
 
-/* オープンアドレス法ハッシュテーブル */
+/* オープンアドレス法のハッシュテーブル */
 typedef struct {
     int key;
     char *val;
 } Pair;
 
-/* オープンアドレス法ハッシュテーブル */
+/* オープンアドレス法のハッシュテーブル */
 typedef struct {
-    int size;         // キーと値のペア数
-    int capacity;     // ハッシュテーブル容量
-    double loadThres; // リサイズを発動する負荷率のしきい値
-    int extendRatio;  // 拡張倍率
+    int size;         // キーと値のペアの数
+    int capacity;     // ハッシュテーブルの容量
+    double loadThres; // 容量の拡張を開始する負荷率のしきい値
+    int extendRatio;  // 容量の拡張倍率
     Pair **buckets;   // バケット配列
-    Pair *TOMBSTONE;  // 削除済みマーク
+    Pair *TOMBSTONE;  // 削除マーカー
 } HashMapOpenAddressing;
 
 // 関数宣言
@@ -64,54 +64,54 @@ double loadFactor(HashMapOpenAddressing *hashMap) {
     return (double)hashMap->size / (double)hashMap->capacity;
 }
 
-/* key に対応するバケットインデックスを探す */
+/* key に対応するバケットのインデックスを探索する */
 int findBucket(HashMapOpenAddressing *hashMap, int key) {
     int index = hashFunc(hashMap, key);
     int firstTombstone = -1;
-    // 線形プロービングを行い、空バケットに達したら終了
+    // 線形探索法で探索し、空のバケットに到達したら終了する
     while (hashMap->buckets[index] != NULL) {
-        // key が見つかったら、対応するバケットのインデックスを返す
+        // key が見つかった場合、対応するバケットのインデックスを返す
         if (hashMap->buckets[index]->key == key) {
-            // 以前に削除マークが見つかっていれば、そのインデックスへキーと値のペアを移動
+            // それ以前に削除マーカーが見つかっていれば、そのインデックスにキーと値のペアを移す
             if (firstTombstone != -1) {
                 hashMap->buckets[firstTombstone] = hashMap->buckets[index];
                 hashMap->buckets[index] = hashMap->TOMBSTONE;
-                return firstTombstone; // 移動後のバケットインデックスを返す
+                return firstTombstone; // 移動後のバケットのインデックスを返す
             }
             return index; // バケットのインデックスを返す
         }
-        // 最初に見つかった削除マークを記録
+        // 最初に見つかった削除マーカーを記録する
         if (firstTombstone == -1 && hashMap->buckets[index] == hashMap->TOMBSTONE) {
             firstTombstone = index;
         }
         // バケットのインデックスを計算し、末尾を越えたら先頭に戻る
         index = (index + 1) % hashMap->capacity;
     }
-    // key が存在しない場合は追加位置のインデックスを返す
+    // key が存在しない場合、追加位置のインデックスを返す
     return firstTombstone == -1 ? index : firstTombstone;
 }
 
-/* 検索操作 */
+/* 取得操作 */
 char *get(HashMapOpenAddressing *hashMap, int key) {
-    // key に対応するバケットインデックスを探す
+    // key に対応するバケットのインデックスを探索する
     int index = findBucket(hashMap, key);
-    // キーと値の組が見つかったら、対応する val を返す
+    // キーと値のペアが見つかった場合、対応する val を返す
     if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
         return hashMap->buckets[index]->val;
     }
-    // キーと値の組が存在しない場合は空文字列を返す
+    // キーと値のペアが存在しない場合、空文字列を返す
     return "";
 }
 
 /* 追加操作 */
 void put(HashMapOpenAddressing *hashMap, int key, char *val) {
-    // 負荷率がしきい値を超えたら、リサイズを実行
+    // 負荷率がしきい値を超えた場合、容量を拡張する
     if (loadFactor(hashMap) > hashMap->loadThres) {
         extend(hashMap);
     }
-    // key に対応するバケットインデックスを探す
+    // key に対応するバケットのインデックスを探索する
     int index = findBucket(hashMap, key);
-    // キーと値の組が見つかったら、val を上書きして返す
+    // キーと値のペアが見つかった場合、val を上書きして戻る
     if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
         free(hashMap->buckets[index]->val);
         hashMap->buckets[index]->val = (char *)malloc(sizeof(strlen(val) + 1));
@@ -119,7 +119,7 @@ void put(HashMapOpenAddressing *hashMap, int key, char *val) {
         hashMap->buckets[index]->val[strlen(val)] = '\0';
         return;
     }
-    // キーと値の組が存在しない場合は、その組を追加する
+    // キーと値のペアが存在しない場合、そのペアを追加する
     Pair *pair = (Pair *)malloc(sizeof(Pair));
     pair->key = key;
     pair->val = (char *)malloc(sizeof(strlen(val) + 1));
@@ -132,9 +132,9 @@ void put(HashMapOpenAddressing *hashMap, int key, char *val) {
 
 /* 削除操作 */
 void removeItem(HashMapOpenAddressing *hashMap, int key) {
-    // key に対応するバケットインデックスを探す
+    // key に対応するバケットのインデックスを探索する
     int index = findBucket(hashMap, key);
-    // キーと値の組が見つかったら、削除マーカーで上書きする
+    // キーと値のペアが見つかった場合、削除マーカーで上書きする
     if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
         Pair *pair = hashMap->buckets[index];
         free(pair->val);
@@ -144,16 +144,16 @@ void removeItem(HashMapOpenAddressing *hashMap, int key) {
     }
 }
 
-/* ハッシュテーブルを拡張 */
+/* ハッシュテーブルの容量を拡張する */
 void extend(HashMapOpenAddressing *hashMap) {
-    // 元のハッシュテーブルを一時保存
+    // 元のハッシュテーブルを一時保存する
     Pair **bucketsTmp = hashMap->buckets;
     int oldCapacity = hashMap->capacity;
-    // リサイズ後の新しいハッシュテーブルを初期化
+    // 拡張後の新しいハッシュテーブルを初期化する
     hashMap->capacity *= hashMap->extendRatio;
     hashMap->buckets = (Pair **)calloc(hashMap->capacity, sizeof(Pair *));
     hashMap->size = 0;
-    // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルへ移す
+    // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルに移す
     for (int i = 0; i < oldCapacity; i++) {
         Pair *pair = bucketsTmp[i];
         if (pair != NULL && pair != hashMap->TOMBSTONE) {
@@ -165,7 +165,7 @@ void extend(HashMapOpenAddressing *hashMap) {
     free(bucketsTmp);
 }
 
-/* ハッシュテーブルを出力 */
+/* ハッシュテーブルを表示する */
 void print(HashMapOpenAddressing *hashMap) {
     for (int i = 0; i < hashMap->capacity; i++) {
         Pair *pair = hashMap->buckets[i];
@@ -179,30 +179,30 @@ void print(HashMapOpenAddressing *hashMap) {
     }
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    // ハッシュテーブルを初期化
+    // ハッシュテーブルを初期化する
     HashMapOpenAddressing *hashmap = newHashMapOpenAddressing();
 
     // 追加操作
-    // ハッシュテーブルにキーと値の組 (key, val) を追加する
-    put(hashmap, 12836, "シャオハー");
-    put(hashmap, 15937, "シャオルオ");
-    put(hashmap, 16750, "シャオスワン");
-    put(hashmap, 13276, "シャオファー");
-    put(hashmap, 10583, "シャオヤー");
-    printf("\n追加完了後、ハッシュテーブルは\nKey -> Value\n");
+    // ハッシュテーブルにキーと値のペア (key, val) を追加する
+    put(hashmap, 12836, "小哈");
+    put(hashmap, 15937, "小啰");
+    put(hashmap, 16750, "小算");
+    put(hashmap, 13276, "小法");
+    put(hashmap, 10583, "小鸭");
+    printf("\n追加後のハッシュテーブル\nKey -> Value\n");
     print(hashmap);
 
-    // 検索操作
-    // ハッシュテーブルにキー key を入力し、値 val を得る
+    // 取得操作
+    // ハッシュテーブルにキー key を渡し、値 val を取得する
     char *name = get(hashmap, 13276);
-    printf("\n学籍番号 13276 を入力すると、名前 %s が見つかりました\n", name);
+    printf("\n学生番号 13276 に対応する氏名は %s\n", name);
 
     // 削除操作
-    // ハッシュテーブルからキーと値の組 (key, val) を削除する
+    // ハッシュテーブルからキーと値のペア (key, val) を削除する
     removeItem(hashmap, 16750);
-    printf("\n16750 を削除した後、ハッシュテーブルは\nKey -> Value\n");
+    printf("\n16750 を削除した後のハッシュテーブル\nKey -> Value\n");
     print(hashmap);
 
     // ハッシュテーブルを破棄する

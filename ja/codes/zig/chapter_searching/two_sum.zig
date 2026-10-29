@@ -9,7 +9,7 @@ const inc = @import("include");
 pub fn twoSumBruteForce(nums: []i32, target: i32) ?[2]i32 {
     var size: usize = nums.len;
     var i: usize = 0;
-    // 2重ループのため、時間計算量は O(n^2)
+    // 二重ループのため、時間計算量は O(n^2)
     while (i < size - 1) : (i += 1) {
         var j = i + 1;
         while (j < size) : (j += 1) {
@@ -24,11 +24,11 @@ pub fn twoSumBruteForce(nums: []i32, target: i32) ?[2]i32 {
 // 方法 2：補助ハッシュテーブル
 pub fn twoSumHashTable(nums: []i32, target: i32) !?[2]i32 {
     var size: usize = nums.len;
-    // 補助ハッシュテーブルを使用し、空間計算量は O(n)
+    // 補助ハッシュテーブルの空間計算量は O(n)
     var dic = std.AutoHashMap(i32, i32).init(std.heap.page_allocator);
     defer dic.deinit();
     var i: usize = 0;
-    // 単一ループで、時間計算量は O(n)
+    // 一重ループのため、時間計算量は O(n)
     while (i < size) : (i += 1) {
         if (dic.contains(target - nums[i])) {
             return [_]i32{dic.get(target - nums[i]).?, @intCast(i)};
@@ -40,18 +40,18 @@ pub fn twoSumHashTable(nums: []i32, target: i32) !?[2]i32 {
 
 
 pub fn main() !void {
-    // ======= Test Case =======
+    // ======= テストケース =======
     var nums = [_]i32{ 2, 7, 11, 15 };
     var target: i32 = 9;
 
-    // ====== Driver Code ======
+    // ====== 実行用コード ======
     // 方法 1
     var res = twoSumBruteForce(&nums, target).?;
-    std.debug.print("方法1 res = ", .{});
+    std.debug.print("方法 1 res = ", .{});
     inc.PrintUtil.printArray(i32, &res); 
     // 方法 2
     res = (try twoSumHashTable(&nums, target)).?;
-    std.debug.print("\n方法2 res = ", .{});
+    std.debug.print("\n方法 2 res = ", .{});
     inc.PrintUtil.printArray(i32, &res); 
 
     _ = try std.io.getStdIn().reader().readByte();

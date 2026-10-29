@@ -13,43 +13,43 @@ import (
 )
 
 func TestHashMap(t *testing.T) {
-	/* ハッシュテーブルを初期化 */
+	/* ハッシュテーブルを初期化する */
 	hmap := make(map[int]string)
 
 	/* 追加操作 */
-	// ハッシュテーブルにキーと値のペア (key, value) を追加
-	hmap[12836] = "シャオハー"
-	hmap[15937] = "シャオルオ"
-	hmap[16750] = "シャオスワン"
-	hmap[13276] = "シャオファー"
-	hmap[10583] = "シャオヤ"
-	fmt.Println("\n追加後、ハッシュ表は\nKey -> Value")
+	// ハッシュテーブルにキーと値のペア (key, value) を追加する
+	hmap[12836] = "小哈"
+	hmap[15937] = "小啰"
+	hmap[16750] = "小算"
+	hmap[13276] = "小法"
+	hmap[10583] = "小鸭"
+	fmt.Println("\n追加後のハッシュテーブル\nKey -> Value")
 	PrintMap(hmap)
 
-	/* 検索操作 */
-	// キー key をハッシュテーブルに渡し、値 value を取得
+	/* 取得操作 */
+	// ハッシュテーブルにキー key を渡し、値 value を取得する
 	name := hmap[15937]
-	fmt.Println("\n学籍番号 15937 を入力し、見つかった名前は ", name)
+	fmt.Println("\n学生番号 15937 に対応する氏名は ", name)
 
 	/* 削除操作 */
-	// ハッシュテーブルからキーと値のペア (key, value) を削除
+	// ハッシュテーブルからキーと値のペア (key, value) を削除する
 	delete(hmap, 10583)
-	fmt.Println("\n10583 を削除後、ハッシュ表は\nKey -> Value")
+	fmt.Println("\n10583 を削除した後のハッシュテーブル\nKey -> Value")
 	PrintMap(hmap)
 
-	/* ハッシュテーブルを走査 */
-	// キーと値の組 key->value を走査する
-	fmt.Println("\nキーと値の組 Key->Value を走査")
+	/* ハッシュテーブルを走査する */
+	// キーと値のペア key->value を走査する
+	fmt.Println("\nキーと値のペア Key->Value を走査する")
 	for key, value := range hmap {
 		fmt.Println(key, "->", value)
 	}
-	// キー key のみを走査する
-	fmt.Println("\nキー Key を個別に走査")
+	// キー key だけを走査する
+	fmt.Println("\nキー Key だけを走査する")
 	for key := range hmap {
 		fmt.Println(key)
 	}
-	// 値 value のみを走査する
-	fmt.Println("\n値 Value を個別に走査")
+	// 値 value だけを走査する
+	fmt.Println("\n値 Value だけを走査する")
 	for _, value := range hmap {
 		fmt.Println(value)
 	}
@@ -58,17 +58,17 @@ func TestHashMap(t *testing.T) {
 func TestSimpleHash(t *testing.T) {
 	var hash int
 
-	key := "Hello アルゴリズム"
+	key := "Hello 算法"
 
 	hash = addHash(key)
-	fmt.Println("加算ハッシュ値は " + strconv.Itoa(hash))
+	fmt.Println("加算ハッシュの値は " + strconv.Itoa(hash))
 
 	hash = mulHash(key)
-	fmt.Println("乗算ハッシュ値は " + strconv.Itoa(hash))
+	fmt.Println("乗算ハッシュの値は " + strconv.Itoa(hash))
 
 	hash = xorHash(key)
-	fmt.Println("排他的論理和ハッシュ値は " + strconv.Itoa(hash))
+	fmt.Println("排他的論理和ハッシュの値は " + strconv.Itoa(hash))
 
 	hash = rotHash(key)
-	fmt.Println("回転ハッシュ値は " + strconv.Itoa(hash))
+	fmt.Println("回転ハッシュの値は " + strconv.Itoa(hash))
 }

@@ -8,7 +8,7 @@ pub const ListNode = ListUtil.ListNode;
 pub const TreeUtil = @import("TreeNode.zig");
 pub const TreeNode = TreeUtil.TreeNode;
 
-// キューを出力する
+// キューを表示する
 pub fn printQueue(comptime T: type, queue: std.TailQueue(T)) void {
     var node = queue.first;
     std.debug.print("[", .{});
@@ -20,7 +20,7 @@ pub fn printQueue(comptime T: type, queue: std.TailQueue(T)) void {
     }
 }
 
-// ハッシュテーブルを出力
+// ハッシュテーブルを表示する
 pub fn printHashMap(comptime TKey: type, comptime TValue: type, map: std.AutoHashMap(TKey, TValue)) void {
     var it = map.iterator();
     while (it.next()) |kv| {
@@ -30,7 +30,7 @@ pub fn printHashMap(comptime TKey: type, comptime TValue: type, map: std.AutoHas
     }
 }
 
-// ヒープを出力
+// ヒープを表示する
 pub fn printHeap(comptime T: type, mem_allocator: std.mem.Allocator, queue: anytype) !void {
     var arr = queue.items;
     var len = queue.len;

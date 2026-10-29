@@ -21,7 +21,7 @@ def sum_recur(n: int) -> int:
 
 
 def linear_loop(n: int) -> int:
-    """線形時間のループ"""
+    """線形オーダーのループ"""
     res = 0
     for i in range(n):
         res += i
@@ -29,7 +29,7 @@ def linear_loop(n: int) -> int:
 
 
 def quadratic_loop(n: int) -> int:
-    """二次時間のループ"""
+    """二次オーダーのループ"""
     res = 0
     for i in range(n):
         for j in range(i, n):
@@ -38,7 +38,7 @@ def quadratic_loop(n: int) -> int:
 
 
 def logarithmic_loop(n: int) -> int:
-    """対数時間のループ"""
+    """対数オーダーのループ"""
     while n > 1:
         n //= 2
     return n

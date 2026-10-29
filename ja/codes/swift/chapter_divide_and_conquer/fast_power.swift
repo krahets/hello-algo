@@ -4,7 +4,7 @@
  Author: Hello Algo Team
  */
 
-/* 高速べき乗 */
+/* 高速べき乗法 */
 func fastPow(x: Int, n: Int) -> Int {
     if n == 0 {
         return 1

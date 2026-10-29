@@ -8,14 +8,14 @@ use hello_algo_rust::include::print_util;
 
 /* バケットソート */
 fn bucket_sort(nums: &mut [f64]) {
-    // k = n/2 個のバケットを初期化し、各バケットに 2 要素ずつ割り当てる想定とする
+    // k = n/2 個のバケットを初期化し、各バケットに平均 2 個の要素を割り当てることを想定する
     let k = nums.len() / 2;
     let mut buckets = vec![vec![]; k];
-    // 1. 配列要素を各バケットに振り分ける
+    // 1. 配列の要素を各バケットに振り分ける
     for &num in nums.iter() {
-        // 入力データの範囲は [0, 1) であり、num * k を用いてインデックス範囲 [0, k-1] に写像する
+        // 入力データの範囲は [0, 1) なので、num * k によりインデックス範囲 [0, k-1] に対応付ける
         let i = (num * k as f64) as usize;
-        // num をバケット i に追加
+        // num をバケット i に追加する
         buckets[i].push(num);
     }
     // 2. 各バケットをソートする
@@ -23,7 +23,7 @@ fn bucket_sort(nums: &mut [f64]) {
         // 組み込みのソート関数を使う。他のソートアルゴリズムに置き換えてもよい
         bucket.sort_by(|a, b| a.partial_cmp(b).unwrap());
     }
-    // 3. バケットを走査して結果を結合
+    // 3. バケットを走査して結果を結合する
     let mut i = 0;
     for bucket in buckets.iter() {
         for &num in bucket.iter() {
@@ -33,9 +33,9 @@ fn bucket_sort(nums: &mut [f64]) {
     }
 }
 
-/* Driver Code */
+/* 実行用コード */
 fn main() {
-    // 入力データは範囲 [0, 1) の浮動小数点数とする
+    // 入力データは [0, 1) の範囲の浮動小数点数とする
     let mut nums = [0.49, 0.96, 0.82, 0.09, 0.57, 0.43, 0.91, 0.75, 0.15, 0.37];
     bucket_sort(&mut nums);
     print!("バケットソート完了後 nums = ");

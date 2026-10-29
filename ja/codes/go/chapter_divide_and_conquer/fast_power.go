@@ -4,7 +4,7 @@
 
 package chapter_divide_and_conquer
 
-/* 高速べき乗 */
+/* 高速べき乗法 */
 func fastPow(x, n int) int {
 	if n == 0 {
 		return 1

@@ -9,11 +9,11 @@ import (
 	"testing"
 )
 
-/* Driver Code */
+/* 実行用コード */
 func TestMyList(t *testing.T) {
-	/* リストを初期化 */
+	/* リストを初期化する */
 	nums := newMyList()
-	/* 末尾に要素を追加 */
+	/* 末尾に要素を追加する */
 	nums.add(1)
 	nums.add(3)
 	nums.add(2)
@@ -21,26 +21,26 @@ func TestMyList(t *testing.T) {
 	nums.add(4)
 	fmt.Printf("リスト nums = %v 、容量 = %v 、長さ = %v\n", nums.toArray(), nums.capacity(), nums.size())
 
-	/* 中間に要素を挿入 */
+	/* 途中に要素を挿入する */
 	nums.insert(6, 3)
-	fmt.Printf("インデックス 3 に数字 6 を挿入すると、nums = %v\n", nums.toArray())
+	fmt.Printf("インデックス 3 に数値 6 を挿入した結果 nums = %v\n", nums.toArray())
 
-	/* 要素を削除 */
+	/* 要素を削除する */
 	nums.remove(3)
-	fmt.Printf("インデックス 3 の要素を削除すると、nums = %v\n", nums.toArray())
+	fmt.Printf("インデックス 3 の要素を削除した結果 nums = %v\n", nums.toArray())
 
-	/* 要素にアクセス */
+	/* 要素にアクセスする */
 	num := nums.get(1)
-	fmt.Printf("インデックス 1 の要素にアクセスすると、num = %v\n", num)
+	fmt.Printf("インデックス 1 の要素にアクセスした結果 num = %v\n", num)
 
-	/* 要素を更新 */
+	/* 要素を更新する */
 	nums.set(0, 1)
-	fmt.Printf("インデックス 1 の要素を 0 に更新すると、nums = %v\n", nums.toArray())
+	fmt.Printf("インデックス 1 の要素を 0 に更新した結果 nums = %v\n", nums.toArray())
 
-	/* 拡張機構をテストする */
+	/* 容量の拡張をテストする */
 	for i := 0; i < 10; i++ {
-		// i = 5 のとき、リスト長が容量を超えるため、この時点で拡張機構が発動する
+		// i = 5 のときにリストの長さが容量を超えるため、容量が拡張される
 		nums.add(i)
 	}
-	fmt.Printf("拡張後のリスト nums = %v 、容量 = %v 、長さ = %v\n", nums.toArray(), nums.capacity(), nums.size())
+	fmt.Printf("容量を拡張した後のリスト nums = %v 、容量 = %v 、長さ = %v\n", nums.toArray(), nums.capacity(), nums.size())
 }

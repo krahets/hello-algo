@@ -7,36 +7,36 @@
 import 'dart:collection';
 
 void main() {
-  /* 両端キューを初期化 */
+  /* 両端キューを初期化する */
   final Queue<int> deque = Queue();
   deque.addFirst(3);
   deque.addLast(2);
   deque.addLast(5);
   print("両端キュー deque = $deque");
 
-  /* 要素にアクセス */
+  /* 要素にアクセスする */
   final int peekFirst = deque.first;
-  print("先頭要素 peekFirst = $peekFirst");
+  print("キューの先頭要素 peekFirst = $peekFirst");
   final int peekLast = deque.last;
-  print("末尾要素 peekLast = $peekLast");
+  print("キューの末尾要素 peekLast = $peekLast");
 
-  /* 要素をエンキュー */
+  /* 要素をエンキューする */
   deque.addLast(4);
-  print("要素 4 を末尾にエンキューした後の deque = $deque");
+  print("要素 4 を末尾にエンキューした後 deque = $deque");
   deque.addFirst(1);
-  print("要素 1 を先頭にエンキューした後の deque = $deque");
+  print("要素 1 を先頭にエンキューした後 deque = $deque");
 
-  /* 要素をデキュー */
+  /* 要素をデキューする */
   final int popLast = deque.removeLast();
-  print("末尾からデキューした要素 = $popLast ，末尾からデキュー後の deque = $deque");
+  print("末尾からデキューした要素 = $popLast 、末尾からデキューした後 deque = $deque");
   final int popFirst = deque.removeFirst();
-  print("先頭からデキューした要素 = $popFirst ，先頭からデキュー後の deque = $deque");
+  print("先頭からデキューした要素 = $popFirst 、先頭からデキューした後 deque = $deque");
 
-  /* 両端キューの長さを取得 */
+  /* 両端キューの長さを取得する */
   final int size = deque.length;
   print("両端キューの長さ size = $size");
 
-  /* 両端キューが空かどうかを判定 */
+  /* 両端キューが空かどうかを判定する */
   final bool isEmpty = deque.isEmpty;
-  print("両端キューが空かどうか = $isEmpty");
+  print("両端キューは空か = $isEmpty");
 }

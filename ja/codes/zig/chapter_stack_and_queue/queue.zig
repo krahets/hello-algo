@@ -5,13 +5,13 @@
 const std = @import("std");
 const inc = @import("include");
 
-// Driver Code
+// 実行用コード
 pub fn main() !void {
-    // キューを初期化
+    // キューを初期化する
     const L = std.TailQueue(i32);
     var queue = L{};  
 
-    // 要素をエンキュー
+    // 要素をエンキューする
     var node1 = L.Node{ .data = 1 };
     var node2 = L.Node{ .data = 3 };
     var node3 = L.Node{ .data = 2 };
@@ -25,11 +25,11 @@ pub fn main() !void {
     std.debug.print("キュー queue = ", .{});
     inc.PrintUtil.printQueue(i32, queue);
 
-    // キュー先頭の要素にアクセス
+    // キューの先頭要素にアクセス
     var peek = queue.first.?.data;
-    std.debug.print("\n先頭要素 peek = {}", .{peek});
+    std.debug.print("\nキューの先頭要素 peek = {}", .{peek});
 
-    // 要素をデキュー
+    // 要素をデキューする
     var pop = queue.popFirst().?.data;
     std.debug.print("\nデキューした要素 pop = {}、デキュー後 queue = ", .{pop});
     inc.PrintUtil.printQueue(i32, queue);
@@ -38,9 +38,9 @@ pub fn main() !void {
     var size = queue.len;
     std.debug.print("\nキューの長さ size = {}", .{size});
 
-    // キューが空かどうかを判定
+    // キューが空か判定
     var is_empty = if (queue.len == 0) true else false;
-    std.debug.print("\nキューが空かどうか = {}", .{is_empty});
+    std.debug.print("\nキューは空か = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

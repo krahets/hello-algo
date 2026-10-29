@@ -8,10 +8,10 @@ pub use hello_algo_rust::include::{vals_to_vets, vets_to_vals, Vertex};
 
 use std::collections::HashMap;
 
-/* 隣接リストに基づく無向グラフ型 */
+/* 隣接リストで実装した無向グラフの型 */
 pub struct GraphAdjList {
-    // 隣接リスト。key は頂点、value はその頂点に隣接する全頂点
-    pub adj_list: HashMap<Vertex, Vec<Vertex>>, // maybe HashSet<Vertex> for value part is better?
+    // 隣接リスト。key：頂点、value：その頂点に隣接する全頂点
+    pub adj_list: HashMap<Vertex, Vec<Vertex>>, // 値の部分には HashSet<Vertex> のほうがよいかもしれない？
 }
 
 impl GraphAdjList {
@@ -20,7 +20,7 @@ impl GraphAdjList {
         let mut graph = GraphAdjList {
             adj_list: HashMap::new(),
         };
-        // すべての頂点と辺を追加
+        // すべての頂点と辺を追加する
         for edge in edges {
             graph.add_vertex(edge[0]);
             graph.add_vertex(edge[1]);
@@ -30,29 +30,29 @@ impl GraphAdjList {
         graph
     }
 
-    /* 頂点数を取得 */
+    /* 頂点数を取得する */
     #[allow(unused)]
     pub fn size(&self) -> usize {
         self.adj_list.len()
     }
 
-    /* 辺を追加 */
+    /* 辺を追加する */
     pub fn add_edge(&mut self, vet1: Vertex, vet2: Vertex) {
         if vet1 == vet2 {
-            panic!("value error");
+            panic!("値のエラー");
         }
-        // 辺 vet1 - vet2 を追加
+        // 辺 vet1 - vet2 を追加する
         self.adj_list.entry(vet1).or_default().push(vet2);
         self.adj_list.entry(vet2).or_default().push(vet1);
     }
 
-    /* 辺を削除 */
+    /* 辺を削除する */
     #[allow(unused)]
     pub fn remove_edge(&mut self, vet1: Vertex, vet2: Vertex) {
         if vet1 == vet2 {
-            panic!("value error");
+            panic!("値のエラー");
         }
-        // 辺 vet1 - vet2 を削除
+        // 辺 vet1 - vet2 を削除する
         self.adj_list
             .entry(vet1)
             .and_modify(|v| v.retain(|&e| e != vet2));
@@ -61,27 +61,27 @@ impl GraphAdjList {
             .and_modify(|v| v.retain(|&e| e != vet1));
     }
 
-    /* 頂点を追加 */
+    /* 頂点を追加する */
     pub fn add_vertex(&mut self, vet: Vertex) {
         if self.adj_list.contains_key(&vet) {
             return;
         }
-        // 隣接リストに新しいリストを追加
+        // 隣接リストに新しい連結リストを追加する
         self.adj_list.insert(vet, vec![]);
     }
 
-    /* 頂点を削除 */
+    /* 頂点を削除する */
     #[allow(unused)]
     pub fn remove_vertex(&mut self, vet: Vertex) {
-        // 隣接リストから頂点 vet に対応するリストを削除
+        // 隣接リストから頂点 vet に対応する連結リストを削除する
         self.adj_list.remove(&vet);
-        // 他の頂点のリストを走査し、vet を含むすべての辺を削除
+        // 他の頂点の連結リストを走査し、vet を含むすべての辺を削除する
         for list in self.adj_list.values_mut() {
             list.retain(|&v| v != vet);
         }
     }
 
-    /* 隣接リストを出力 */
+    /* 隣接リストを表示する */
     pub fn print(&self) {
         println!("隣接リスト =");
         for (vertex, list) in &self.adj_list {
@@ -91,10 +91,10 @@ impl GraphAdjList {
     }
 }
 
-/* Driver Code */
+/* 実行用コード */
 #[allow(unused)]
 fn main() {
-    /* 無向グラフを初期化 */
+    /* 無向グラフを初期化する */
     let v = vals_to_vets(vec![1, 3, 2, 5, 4]);
     let edges = vec![
         [v[0], v[1]],
@@ -106,30 +106,30 @@ fn main() {
     ];
 
     let mut graph = GraphAdjList::new(edges);
-    println!("\n初期化後、グラフは");
+    println!("\n初期化後のグラフ");
     graph.print();
 
-    /* 辺を追加 */
-    // 頂点 1, 2 は v[0], v[2]
+    /* 辺を追加する */
+    // 頂点 1, 2 は v[0], v[2] に対応する
     graph.add_edge(v[0], v[2]);
-    println!("\n辺 1-2 を追加した後、グラフは");
+    println!("\n辺 1-2 を追加した後のグラフ");
     graph.print();
 
-    /* 辺を削除 */
-    // 頂点 1, 3 は v[0], v[1]
+    /* 辺を削除する */
+    // 頂点 1, 3 は v[0], v[1] に対応する
     graph.remove_edge(v[0], v[1]);
-    println!("\n辺 1-3 を削除した後、グラフは");
+    println!("\n辺 1-3 を削除した後のグラフ");
     graph.print();
 
-    /* 頂点を追加 */
+    /* 頂点を追加する */
     let v5 = Vertex { val: 6 };
     graph.add_vertex(v5);
-    println!("\n頂点 6 を追加した後、グラフは");
+    println!("\n頂点 6 を追加した後のグラフ");
     graph.print();
 
-    /* 頂点を削除 */
-    // 頂点 3 は v[1]
+    /* 頂点を削除する */
+    // 頂点 3 は v[1] に対応する
     graph.remove_vertex(v[1]);
-    println!("\n頂点 3 を削除した後、グラフは");
+    println!("\n頂点 3 を削除した後のグラフ");
     graph.print();
 }

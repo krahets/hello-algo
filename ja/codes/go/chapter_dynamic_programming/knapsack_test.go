@@ -17,7 +17,7 @@ func TestKnapsack(t *testing.T) {
 
 	// 全探索
 	res := knapsackDFS(wgt, val, n, c)
-	fmt.Printf("ナップサック容量を超えない最大価値は %d\n", res)
+	fmt.Printf("ナップサックの容量を超えない品物の最大価値は %d\n", res)
 
 	// メモ化探索
 	mem := make([][]int, n+1)
@@ -28,15 +28,15 @@ func TestKnapsack(t *testing.T) {
 		}
 	}
 	res = knapsackDFSMem(wgt, val, mem, n, c)
-	fmt.Printf("ナップサック容量を超えない最大価値は %d\n", res)
+	fmt.Printf("ナップサックの容量を超えない品物の最大価値は %d\n", res)
 
 	// 動的計画法
 	res = knapsackDP(wgt, val, c)
-	fmt.Printf("ナップサック容量を超えない最大価値は %d\n", res)
+	fmt.Printf("ナップサックの容量を超えない品物の最大価値は %d\n", res)
 
-	// 空間最適化後の動的計画法
+	// 空間を最適化した動的計画法
 	res = knapsackDPComp(wgt, val, c)
-	fmt.Printf("ナップサック容量を超えない最大価値は %d\n", res)
+	fmt.Printf("ナップサックの容量を超えない品物の最大価値は %d\n", res)
 }
 
 func TestUnboundedKnapsack(t *testing.T) {
@@ -46,9 +46,9 @@ func TestUnboundedKnapsack(t *testing.T) {
 
 	// 動的計画法
 	res := unboundedKnapsackDP(wgt, val, c)
-	fmt.Printf("ナップサック容量を超えない最大価値は %d\n", res)
+	fmt.Printf("ナップサックの容量を超えない品物の最大価値は %d\n", res)
 
-	// 空間最適化後の動的計画法
+	// 空間を最適化した動的計画法
 	res = unboundedKnapsackDPComp(wgt, val, c)
-	fmt.Printf("ナップサック容量を超えない最大価値は %d\n", res)
+	fmt.Printf("ナップサックの容量を超えない品物の最大価値は %d\n", res)
 }

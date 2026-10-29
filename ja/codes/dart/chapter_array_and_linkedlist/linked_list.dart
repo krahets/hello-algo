@@ -7,14 +7,14 @@
 import '../utils/list_node.dart';
 import '../utils/print_util.dart';
 
-/* 連結リストでノード n0 の後ろにノード P を挿入する */
+/* 連結リストのノード n0 の直後にノード P を挿入する */
 void insert(ListNode n0, ListNode P) {
   ListNode? n1 = n0.next;
   P.next = n1;
   n0.next = P;
 }
 
-/* 連結リストでノード n0 の直後のノードを削除する */
+/* 連結リストのノード n0 の直後のノードを削除する */
 void remove(ListNode n0) {
   if (n0.next == null) return;
   // n0 -> P -> n1
@@ -23,7 +23,7 @@ void remove(ListNode n0) {
   n0.next = n1;
 }
 
-/* 連結リスト内で index 番目のノードにアクセス */
+/* 連結リストのインデックス index にあるノードにアクセスする */
 ListNode? access(ListNode? head, int index) {
   for (var i = 0; i < index; i++) {
     if (head == null) return null;
@@ -32,7 +32,7 @@ ListNode? access(ListNode? head, int index) {
   return head;
 }
 
-/* 連結リストで値が target の最初のノードを探す */
+/* 連結リストから値が target である最初のノードを探索する */
 int find(ListNode? head, int target) {
   int index = 0;
   while (head != null) {
@@ -45,7 +45,7 @@ int find(ListNode? head, int target) {
   return -1;
 }
 
-/* Driver Code */
+/* 実行用コード */
 void main() {
   // 連結リストを初期化する
   // 各ノードを初期化する
@@ -54,30 +54,30 @@ void main() {
   ListNode n2 = ListNode(2);
   ListNode n3 = ListNode(5);
   ListNode n4 = ListNode(4);
-  // ノード間の参照を構築する
+  // ノード間の参照を設定する
   n0.next = n1;
   n1.next = n2;
   n2.next = n3;
   n3.next = n4;
 
-  print('初期化した連結リストは');
+  print('初期化した連結リスト');
   printLinkedList(n0);
 
-  /* ノードを挿入 */
+  /* ノードを挿入する */
   insert(n0, ListNode(0));
-  print('ノードを挿入した後の連結リストは');
+  print('ノードを挿入した後の連結リスト');
   printLinkedList(n0);
 
-  /* ノードを削除 */
+  /* ノードを削除する */
   remove(n0);
-  print('ノードを削除した後の連結リストは');
+  print('ノードを削除した後の連結リスト');
   printLinkedList(n0);
 
-  /* ノードにアクセス */
+  /* ノードにアクセスする */
   ListNode? node = access(n0, 3);
   print('連結リストのインデックス 3 にあるノードの値 = ${node!.val}');
 
-  /* ノードを探索 */
+  /* ノードを探索する */
   int index = find(n0, 2);
-  print('連結リストで値 2 のノードのインデックス = $index');
+  print('連結リスト内で値が 2 であるノードのインデックス = $index');
 }

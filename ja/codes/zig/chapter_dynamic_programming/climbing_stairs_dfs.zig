@@ -4,9 +4,9 @@
 
 const std = @import("std");
 
-// 検索
+// 探索
 fn dfs(i: usize) i32 {
-    // dp[1] と dp[2] は既知なので返す
+    // dp[1] と dp[2] は既知なので、その値を返す
     if (i == 1 or i == 2) {
         return @intCast(i);
     }
@@ -15,12 +15,12 @@ fn dfs(i: usize) i32 {
     return count;
 }
 
-// 階段登り：探索
+// 階段の上り方：探索
 fn climbingStairsDFS(comptime n: usize) i32 {
     return dfs(n);
 }
 
-// Driver Code
+// 実行用コード
 pub fn main() !void {
     comptime var n: usize = 9;
 

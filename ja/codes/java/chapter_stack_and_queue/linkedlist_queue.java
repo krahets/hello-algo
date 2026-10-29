@@ -8,9 +8,9 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-/* 連結リストベースのキュー */
+/* 連結リストで実装したキュー */
 class LinkedListQueue {
-    private ListNode front, rear; // 先頭ノード front、末尾ノード rear
+    private ListNode front, rear; // 先頭ノード front 、末尾ノード rear
     private int queSize = 0;
 
     public LinkedListQueue() {
@@ -23,20 +23,20 @@ class LinkedListQueue {
         return queSize;
     }
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     public boolean isEmpty() {
         return size() == 0;
     }
 
     /* エンキュー */
     public void push(int num) {
-        // 末尾ノードの後ろに num を追加
+        // 末尾ノードの後ろに num を追加する
         ListNode node = new ListNode(num);
-        // キューが空なら、先頭・末尾ノードをともにそのノードに設定
+        // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
         if (front == null) {
             front = node;
             rear = node;
-        // キューが空でなければ、そのノードを末尾ノードの後ろに追加
+        // キューが空でない場合、このノードを末尾ノードの後ろに追加する
         } else {
             rear.next = node;
             rear = node;
@@ -47,13 +47,13 @@ class LinkedListQueue {
     /* デキュー */
     public int pop() {
         int num = peek();
-        // 先頭ノードを削除
+        // 先頭ノードを削除する
         front = front.next;
         queSize--;
         return num;
     }
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     public int peek() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
@@ -74,10 +74,10 @@ class LinkedListQueue {
 
 public class linkedlist_queue {
     public static void main(String[] args) {
-        /* キューを初期化 */
+        /* キューを初期化する */
         LinkedListQueue queue = new LinkedListQueue();
 
-        /* 要素をエンキュー */
+        /* 要素をエンキューする */
         queue.push(1);
         queue.push(3);
         queue.push(2);
@@ -85,20 +85,20 @@ public class linkedlist_queue {
         queue.push(4);
         System.out.println("キュー queue = " + Arrays.toString(queue.toArray()));
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         int peek = queue.peek();
-        System.out.println("先頭要素 peek = " + peek);
+        System.out.println("キューの先頭要素 peek = " + peek);
 
-        /* 要素をデキュー */
+        /* 要素をデキューする */
         int pop = queue.pop();
-        System.out.println("デキューした要素 pop = " + pop + "、デキュー後の queue = " + Arrays.toString(queue.toArray()));
+        System.out.println("デキューした要素 pop = " + pop + "、デキュー後 queue = " + Arrays.toString(queue.toArray()));
 
         /* キューの長さを取得 */
         int size = queue.size();
         System.out.println("キューの長さ size = " + size);
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         boolean isEmpty = queue.isEmpty();
-        System.out.println("キューが空かどうか = " + isEmpty);
+        System.out.println("キューは空か = " + isEmpty);
     }
 }

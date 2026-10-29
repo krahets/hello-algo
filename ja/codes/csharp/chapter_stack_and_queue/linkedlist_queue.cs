@@ -6,9 +6,9 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
-/* 連結リストベースのキュー */
+/* 連結リストで実装したキュー */
 class LinkedListQueue {
-    ListNode? front, rear;  // 先頭ノード front、末尾ノード rear
+    ListNode? front, rear;  // 先頭ノード front 、末尾ノード rear 
     int queSize = 0;
 
     public LinkedListQueue() {
@@ -21,20 +21,20 @@ class LinkedListQueue {
         return queSize;
     }
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     public bool IsEmpty() {
         return Size() == 0;
     }
 
     /* エンキュー */
     public void Push(int num) {
-        // 末尾ノードの後ろに num を追加
+        // 末尾ノードの後ろに num を追加する
         ListNode node = new(num);
-        // キューが空なら、先頭・末尾ノードをともにそのノードに設定
+        // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
         if (front == null) {
             front = node;
             rear = node;
-            // キューが空でなければ、そのノードを末尾ノードの後ろに追加
+            // キューが空でない場合、このノードを末尾ノードの後ろに追加する
         } else if (rear != null) {
             rear.next = node;
             rear = node;
@@ -45,13 +45,13 @@ class LinkedListQueue {
     /* デキュー */
     public int Pop() {
         int num = Peek();
-        // 先頭ノードを削除
+        // 先頭ノードを削除する
         front = front?.next;
         queSize--;
         return num;
     }
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     public int Peek() {
         if (IsEmpty())
             throw new Exception();
@@ -76,10 +76,10 @@ class LinkedListQueue {
 public class linkedlist_queue {
     [Test]
     public void Test() {
-        /* キューを初期化 */
+        /* キューを初期化する */
         LinkedListQueue queue = new();
 
-        /* 要素をエンキュー */
+        /* 要素をエンキューする */
         queue.Push(1);
         queue.Push(3);
         queue.Push(2);
@@ -87,20 +87,20 @@ public class linkedlist_queue {
         queue.Push(4);
         Console.WriteLine("キュー queue = " + string.Join(",", queue.ToArray()));
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         int peek = queue.Peek();
-        Console.WriteLine("先頭要素 peek = " + peek);
+        Console.WriteLine("キューの先頭要素 peek = " + peek);
 
-        /* 要素をデキュー */
+        /* 要素をデキューする */
         int pop = queue.Pop();
-        Console.WriteLine("デキューした要素 pop = " + pop + "、デキュー後の queue = " + string.Join(",", queue.ToArray()));
+        Console.WriteLine("デキューした要素 pop = " + pop + "、デキュー後 queue = " + string.Join(",", queue.ToArray()));
 
         /* キューの長さを取得 */
         int size = queue.Size();
         Console.WriteLine("キューの長さ size = " + size);
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         bool isEmpty = queue.IsEmpty();
-        Console.WriteLine("キューが空かどうか = " + isEmpty);
+        Console.WriteLine("キューは空か = " + isEmpty);
     }
 }

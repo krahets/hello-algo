@@ -4,17 +4,17 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-/* 連結リストノード */
+/* 連結リストのノード */
 class ListNode {
-    val; // ノード値
-    next; // 次のノードを指す参照（ポインタ）
+    val; // ノードの値
+    next; // 次のノードへの参照（ポインタ）
     constructor(val, next) {
         this.val = val === undefined ? 0 : val;
         this.next = next === undefined ? null : next;
     }
 }
 
-/* リストを連結リストにデシリアライズする */
+/* リストをデシリアライズして連結リストにする */
 function arrToLinkedList(arr) {
     const dum = new ListNode(0);
     let head = dum;

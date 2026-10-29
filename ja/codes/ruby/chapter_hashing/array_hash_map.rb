@@ -18,7 +18,7 @@ end
 class ArrayHashMap
   ### コンストラクタ ###
   def initialize
-    # 100 個のバケットを含む配列を初期化
+    # 100 個のバケットを含む配列を初期化する
     @buckets = Array.new(100)
   end
 
@@ -27,7 +27,7 @@ class ArrayHashMap
     index = key % 100
   end
 
-  ### 検索操作 ###
+  ### 取得操作 ###
   def get(key)
     index = hash_func(key)
     pair = @buckets[index]
@@ -46,75 +46,75 @@ class ArrayHashMap
   ### 削除操作 ###
   def remove(key)
     index = hash_func(key)
-    # nil に設定し、削除を表す
+    # nil に設定して、削除を表す
     @buckets[index] = nil
   end
 
-  ### すべてのキーと値のペアを取得 ###
+  ### キーと値のペアをすべて取得する ###
   def entry_set
     result = []
     @buckets.each { |pair| result << pair unless pair.nil? }
     result
   end
 
-  ### すべてのキーを取得 ###
+  ### すべてのキーを取得する ###
   def key_set
     result = []
     @buckets.each { |pair| result << pair.key unless pair.nil? }
     result
   end
 
-  ### すべての値を取得 ###
+  ### すべての値を取得する ###
   def value_set
     result = []
     @buckets.each { |pair| result << pair.val unless pair.nil? }
     result
   end
 
-  ### ハッシュテーブルを出力 ###
+  ### ハッシュテーブルを表示する ###
   def print
     @buckets.each { |pair| puts "#{pair.key} -> #{pair.val}" unless pair.nil? }
   end
 end
 
-### Driver Code ###
+### 実行用コード ###
 if __FILE__ == $0
-  # ハッシュテーブルを初期化
+  # ハッシュテーブルを初期化する
   hmap = ArrayHashMap.new
 
   # 追加操作
-  # ハッシュテーブルにキーと値の組 (key, value) を追加する
-  hmap.put(12836, "シャオハー")
-  hmap.put(15937, "シャオルオ")
-  hmap.put(16750, "シャオスワン")
-  hmap.put(13276, "シャオファー")
-  hmap.put(10583, "シャオヤー")
-  puts "\n追加完了後、ハッシュテーブルは\nKey -> Value"
+  # ハッシュテーブルにキーと値のペア (key, value) を追加する
+  hmap.put(12836, "小哈")
+  hmap.put(15937, "小啰")
+  hmap.put(16750, "小算")
+  hmap.put(13276, "小法")
+  hmap.put(10583, "小鸭")
+  puts "\n追加後のハッシュテーブル\nKey -> Value"
   hmap.print
 
-  # 検索操作
-  # ハッシュテーブルにキー `key` を入力し、値 `value` を取得する
+  # 取得操作
+  # ハッシュテーブルにキー key を渡し、値 value を取得する
   name = hmap.get(15937)
-  puts "\n学籍番号 15937 を入力すると、名前 #{name} が見つかりました"
+  puts "\n学生番号 15937 に対応する氏名は #{name}"
 
   # 削除操作
-  # ハッシュテーブルからキーと値の組 (key, value) を削除する
+  # ハッシュテーブルから値のペア (key, value) を削除する
   hmap.remove(10583)
-  puts "\n10583 を削除した後、ハッシュテーブルは\nKey -> Value"
+  puts "\n10583 を削除した後のハッシュテーブル\nKey -> Value"
   hmap.print
 
-  # ハッシュテーブルを走査
-  puts "\nキーと値のペア Key->Value を走査"
+  # ハッシュテーブルを走査する
+  puts "\nキーと値のペア Key->Value を走査する"
   for pair in hmap.entry_set
     puts "#{pair.key} -> #{pair.val}"
   end
 
-  puts "\nキー Key のみを個別に走査"
+  puts "\nキー Key だけを走査する"
   for key in hmap.key_set
     puts key
   end
 
-  puts "\n値 Value のみを個別に走査"
+  puts "\n値 Value だけを走査する"
   for val in hmap.value_set
     puts val
   end

@@ -6,17 +6,17 @@
 
 #include "../utils/common.hpp"
 
-/* 循環配列ベースのキュー */
+/* 循環配列で実装したキュー */
 class ArrayQueue {
   private:
-    int *nums;       // キュー要素を格納する配列
-    int front;       // 先頭ポインタ。先頭要素を指す
+    int *nums;       // キューの要素を格納する配列
+    int front;       // キューの先頭要素を指す先頭ポインタ
     int queSize;     // キューの長さ
     int queCapacity; // キューの容量
 
   public:
     ArrayQueue(int capacity) {
-        // 配列を初期化
+        // 配列を初期化する
         nums = new int[capacity];
         queCapacity = capacity;
         front = queSize = 0;
@@ -26,7 +26,7 @@ class ArrayQueue {
         delete[] nums;
     }
 
-    /* キューの容量を取得 */
+    /* キューの容量を取得する */
     int capacity() {
         return queCapacity;
     }
@@ -36,7 +36,7 @@ class ArrayQueue {
         return queSize;
     }
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     bool isEmpty() {
         return size() == 0;
     }
@@ -44,13 +44,13 @@ class ArrayQueue {
     /* エンキュー */
     void push(int num) {
         if (queSize == queCapacity) {
-            cout << "キューがいっぱいです" << endl;
+            cout << "キューが満杯です" << endl;
             return;
         }
-        // 末尾ポインタを計算し、末尾インデックス + 1 を指す
-        // 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
+        // 末尾のインデックス + 1 を指す末尾ポインタを計算する
+        // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
         int rear = (front + queSize) % queCapacity;
-        // num をキュー末尾に追加
+        // num をキューの末尾に追加する
         nums[rear] = num;
         queSize++;
     }
@@ -58,13 +58,13 @@ class ArrayQueue {
     /* デキュー */
     int pop() {
         int num = peek();
-        // 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
+        // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
         front = (front + 1) % queCapacity;
         queSize--;
         return num;
     }
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     int peek() {
         if (isEmpty())
             throw out_of_range("キューが空です");
@@ -73,7 +73,7 @@ class ArrayQueue {
 
     /* 配列を Vector に変換して返す */
     vector<int> toVector() {
-        // 有効長の範囲内のリスト要素のみを変換
+        // 有効な長さの範囲内にあるリストの要素だけを変換する
         vector<int> arr(queSize);
         for (int i = 0, j = front; i < queSize; i++, j++) {
             arr[i] = nums[j % queCapacity];
@@ -82,13 +82,13 @@ class ArrayQueue {
     }
 };
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    /* キューを初期化 */
+    /* キューを初期化する */
     int capacity = 10;
     ArrayQueue *queue = new ArrayQueue(capacity);
 
-    /* 要素をエンキュー */
+    /* 要素をエンキューする */
     queue->push(1);
     queue->push(3);
     queue->push(2);
@@ -97,28 +97,28 @@ int main() {
     cout << "キュー queue = ";
     printVector(queue->toVector());
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     int peek = queue->peek();
-    cout << "先頭要素 peek = " << peek << endl;
+    cout << "キューの先頭要素 peek = " << peek << endl;
 
-    /* 要素をデキュー */
+    /* 要素をデキューする */
     peek = queue->pop();
-    cout << "取り出した要素 pop = " << peek << "、取り出し後の queue = ";
+    cout << "デキューした要素 pop = " << peek << "、デキュー後 queue = ";
     printVector(queue->toVector());
 
     /* キューの長さを取得 */
     int size = queue->size();
     cout << "キューの長さ size = " << size << endl;
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     bool empty = queue->isEmpty();
-    cout << "キューが空かどうか = " << empty << endl;
+    cout << "キューは空か = " << empty << endl;
 
     /* 循環配列をテストする */
     for (int i = 0; i < 10; i++) {
         queue->push(i);
         queue->pop();
-        cout << "第 " << i << " 回のエンキュー + デキュー後の queue = ";
+        cout << "第 " << i << " 回のエンキューとデキューの後 queue = ";
         printVector(queue->toVector());
     }
 

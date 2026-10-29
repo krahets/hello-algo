@@ -6,7 +6,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-### Driver Code ###
+### 実行用コード ###
 if __FILE__ == $0
   num = 3
   hash_num = num.hash
@@ -14,17 +14,17 @@ if __FILE__ == $0
 
   bol = true
   hash_bol = bol.hash
-  puts "ブール値 #{bol} のハッシュ値は #{hash_bol}"
+  puts "真偽値 #{bol} のハッシュ値は #{hash_bol}"
 
   dec = 3.14159
   hash_dec = dec.hash
   puts "小数 #{dec} のハッシュ値は #{hash_dec}"
 
-  str = "Hello アルゴリズム"
+  str = "Hello 算法"
   hash_str = str.hash
   puts "文字列 #{str} のハッシュ値は #{hash_str}"
 
-  tup = [12836, 'シャオハー']
+  tup = [12836, '小哈']
   hash_tup = tup.hash
   puts "タプル #{tup} のハッシュ値は #{hash_tup}"
 

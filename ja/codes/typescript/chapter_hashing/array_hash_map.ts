@@ -4,7 +4,7 @@
  * Author: Daniel (better.sunjian@gmail.com)
  */
 
-/* キーと値の組 Number -> String */
+/* キーと値のペア Number -> String */
 class Pair {
     public key: number;
     public val: string;
@@ -15,12 +15,12 @@ class Pair {
     }
 }
 
-/* 配列ベースのハッシュテーブル */
+/* 配列で実装したハッシュテーブル */
 class ArrayHashMap {
     private readonly buckets: (Pair | null)[];
 
     constructor() {
-        // 100 個のバケットを含む配列を初期化
+        // 100 個のバケットを含む配列を初期化する
         this.buckets = new Array(100).fill(null);
     }
 
@@ -29,7 +29,7 @@ class ArrayHashMap {
         return key % 100;
     }
 
-    /* 検索操作 */
+    /* 取得操作 */
     public get(key: number): string | null {
         let index = this.hashFunc(key);
         let pair = this.buckets[index];
@@ -46,11 +46,11 @@ class ArrayHashMap {
     /* 削除操作 */
     public delete(key: number) {
         let index = this.hashFunc(key);
-        // null に設定し、削除を表す
+        // null に設定して、削除を表す
         this.buckets[index] = null;
     }
 
-    /* すべてのキーと値のペアを取得 */
+    /* キーと値のペアをすべて取得する */
     public entries(): (Pair | null)[] {
         let arr: (Pair | null)[] = [];
         for (let i = 0; i < this.buckets.length; i++) {
@@ -61,7 +61,7 @@ class ArrayHashMap {
         return arr;
     }
 
-    /* すべてのキーを取得 */
+    /* すべてのキーを取得する */
     public keys(): (number | undefined)[] {
         let arr: (number | undefined)[] = [];
         for (let i = 0; i < this.buckets.length; i++) {
@@ -72,7 +72,7 @@ class ArrayHashMap {
         return arr;
     }
 
-    /* すべての値を取得 */
+    /* すべての値を取得する */
     public values(): (string | undefined)[] {
         let arr: (string | undefined)[] = [];
         for (let i = 0; i < this.buckets.length; i++) {
@@ -83,7 +83,7 @@ class ArrayHashMap {
         return arr;
     }
 
-    /* ハッシュテーブルを出力 */
+    /* ハッシュテーブルを表示する */
     public print() {
         let pairSet = this.entries();
         for (const pair of pairSet) {
@@ -92,41 +92,41 @@ class ArrayHashMap {
     }
 }
 
-/* Driver Code */
-/* ハッシュテーブルを初期化 */
+/* 実行用コード */
+/* ハッシュテーブルを初期化する */
 const map = new ArrayHashMap();
 /* 追加操作 */
-// ハッシュテーブルにキーと値のペア (key, value) を追加
-map.set(12836, 'シャオハー');
-map.set(15937, 'シャオルオ');
-map.set(16750, 'シャオスワン');
-map.set(13276, 'シャオファー');
-map.set(10583, 'シャオヤー');
-console.info('\n追加完了後，ハッシュテーブルは\nKey -> Value');
+// ハッシュテーブルにキーと値のペア (key, value) を追加する
+map.set(12836, '小哈');
+map.set(15937, '小啰');
+map.set(16750, '小算');
+map.set(13276, '小法');
+map.set(10583, '小鸭');
+console.info('\n追加後のハッシュテーブル\nKey -> Value');
 map.print();
 
-/* 検索操作 */
-// キー key をハッシュテーブルに渡し、値 value を取得
+/* 取得操作 */
+// ハッシュテーブルにキー key を渡し、値 value を取得する
 let name = map.get(15937);
-console.info('\n学籍番号 15937 を入力し，見つかった氏名 ' + name);
+console.info('\n学生番号 15937 に対応する氏名は ' + name);
 
 /* 削除操作 */
-// ハッシュテーブルからキーと値のペア (key, value) を削除
+// ハッシュテーブルからキーと値のペア (key, value) を削除する
 map.delete(10583);
-console.info('\n10583 を削除した後，ハッシュテーブルは\nKey -> Value');
+console.info('\n10583 を削除した後のハッシュテーブル\nKey -> Value');
 map.print();
 
-/* ハッシュテーブルを走査 */
-console.info('\nキーと値の組 Key->Value を走査');
+/* ハッシュテーブルを走査する */
+console.info('\nキーと値のペア Key->Value を走査する');
 for (const pair of map.entries()) {
     if (!pair) continue;
     console.info(pair.key + ' -> ' + pair.val);
 }
-console.info('\nキー Key を個別に走査');
+console.info('\nキー Key だけを走査する');
 for (const key of map.keys()) {
     console.info(key);
 }
-console.info('\n値 Value を個別に走査');
+console.info('\n値 Value だけを走査する');
 for (const val of map.values()) {
     console.info(val);
 }

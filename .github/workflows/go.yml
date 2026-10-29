@@ -7,6 +7,7 @@ on:
       - ".github/workflows/go.yml"
       - "codes/go/**/*.go"
       - "en/codes/go/**/*.go"
+      - "ja/codes/go/**/*.go"
       - "ko/codes/go/**/*.go"
   pull_request:
     branches: ["main"]
@@ -14,6 +15,7 @@ on:
       - ".github/workflows/go.yml"
       - "codes/go/**/*.go"
       - "en/codes/go/**/*.go"
+      - "ja/codes/go/**/*.go"
       - "ko/codes/go/**/*.go"
   workflow_dispatch:
 
@@ -28,7 +30,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         go-version: ["1.19.x"]
-        code-dir: ["codes/go", "en/codes/go", "ko/codes/go"]
+        code-dir: ["codes/go", "en/codes/go", "ja/codes/go", "ko/codes/go"]
 
     steps:
       - uses: actions/checkout@v6

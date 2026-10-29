@@ -6,10 +6,10 @@
 
 #include "graph_adjacency_list.c"
 
-// ノード数の上限を 100 と仮定
+// ノード数は最大 100 と仮定する
 #define MAX_SIZE 100
 
-/* ノードキュー構造体 */
+/* ノードのキューの構造体 */
 typedef struct {
     Vertex *vertices[MAX_SIZE];
     int front, rear, size;
@@ -22,7 +22,7 @@ Queue *newQueue() {
     return q;
 }
 
-/* キューが空かどうかを判定 */
+/* キューが空か判定 */
 int isEmpty(Queue *q) {
     return q->size == 0;
 }
@@ -42,9 +42,9 @@ Vertex *dequeue(Queue *q) {
     return vet;
 }
 
-/* 頂点が訪問済みかを確認 */
+/* 頂点が訪問済みかどうかを確認する */
 int isVisited(Vertex **visited, int size, Vertex *vet) {
-    // 走査してノードを探すため、O(n) 時間を要する
+    // 走査してノードを探すため、O(n) の時間を要する
     for (int i = 0; i < size; i++) {
         if (visited[i] == vet)
             return 1;
@@ -52,23 +52,23 @@ int isVisited(Vertex **visited, int size, Vertex *vet) {
     return 0;
 }
 
-/* 幅優先探索 */
-// グラフを隣接リストで表し、指定した頂点の隣接頂点をすべて取得できるようにする
+/* 幅優先走査 */
+// 指定した頂点に隣接する全頂点を取得しやすいように、グラフを隣接リストで表す
 void graphBFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize, Vertex **visited, int *visitedSize) {
-    // BFS の実装にキューを用いる
+    // BFS の実装にキューを使う
     Queue *queue = newQueue();
     enqueue(queue, startVet);
     visited[(*visitedSize)++] = startVet;
-    // 頂点 vet を起点に、すべての頂点を訪問し終えるまで繰り返す
+    // 頂点 vet を始点として、すべての頂点を訪問するまで繰り返す
     while (!isEmpty(queue)) {
-        Vertex *vet = dequeue(queue); // 先頭の頂点をデキュー
-        res[(*resSize)++] = vet;      // 訪問した頂点を記録
-        // この頂点のすべての隣接頂点を走査
+        Vertex *vet = dequeue(queue); // キューの先頭の頂点をデキューする
+        res[(*resSize)++] = vet;      // 訪問した頂点を記録する
+        // この頂点に隣接する全頂点を走査する
         AdjListNode *node = findNode(graph, vet);
         while (node != NULL) {
-            // 訪問済みの頂点をスキップ
+            // 訪問済みの頂点をスキップする
             if (!isVisited(visited, *visitedSize, node->vertex)) {
-                enqueue(queue, node->vertex);             // 未訪問の頂点のみをキューに追加
+                enqueue(queue, node->vertex);             // 未訪問の頂点だけをエンキューする
                 visited[(*visitedSize)++] = node->vertex; // この頂点を訪問済みにする
             }
             node = node->next;
@@ -78,9 +78,9 @@ void graphBFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize,
     free(queue);
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    // 無向グラフを初期化
+    // 無向グラフを初期化する
     int vals[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     int size = sizeof(vals) / sizeof(vals[0]);
     Vertex **v = valsToVets(vals, size);
@@ -88,25 +88,25 @@ int main() {
                           {v[3], v[6]}, {v[4], v[5]}, {v[4], v[7]}, {v[5], v[8]}, {v[6], v[7]}, {v[7], v[8]}};
     int egdeSize = sizeof(edges) / sizeof(edges[0]);
     GraphAdjList *graph = newGraphAdjList();
-    // すべての頂点と辺を追加
+    // すべての頂点と辺を追加する
     for (int i = 0; i < size; i++) {
         addVertex(graph, v[i]);
     }
     for (int i = 0; i < egdeSize; i++) {
         addEdge(graph, edges[i][0], edges[i][1]);
     }
-    printf("\n初期化後のグラフは\n");
+    printf("\n初期化後のグラフ\n");
     printGraph(graph);
 
-    // 幅優先探索
+    // 幅優先走査
     // 頂点の走査順序
     Vertex *res[MAX_SIZE];
     int resSize = 0;
-    // 訪問済みの頂点を記録する
+    // 訪問済みの頂点を記録するために使う
     Vertex *visited[MAX_SIZE];
     int visitedSize = 0;
     graphBFS(graph, v[0], res, &resSize, visited, &visitedSize);
-    printf("\n幅優先探索（BFS）の頂点列は次のとおりです\n");
+    printf("\n幅優先走査（BFS）の頂点の順序\n");
     printArray(vetsToVals(res, resSize), resSize);
 
     // メモリを解放する

@@ -12,7 +12,7 @@ public class Trunk(Trunk? prev, string str) {
 };
 
 public static class PrintUtil {
-    /* リストを出力する */
+    /* リストを表示する */
     public static void PrintList<T>(IList<T> list) {
         Console.WriteLine("[" + string.Join(", ", list) + "]");
     }
@@ -21,7 +21,7 @@ public static class PrintUtil {
         return $"[ {string.Join(", ", list.Select(x => x?.ToString() ?? "null"))} ]";
     }
 
-    /* 行列を出力する (Array) */
+    /* 行列を表示する（Array） */
     public static void PrintMatrix<T>(T[][] matrix) {
         Console.WriteLine("[");
         foreach (T[] row in matrix) {
@@ -30,7 +30,7 @@ public static class PrintUtil {
         Console.WriteLine("]");
     }
 
-    /* 行列を出力 (List) */
+    /* 行列を表示する（List） */
     public static void PrintMatrix<T>(List<List<T>> matrix) {
         Console.WriteLine("[");
         foreach (List<T> row in matrix) {
@@ -39,7 +39,7 @@ public static class PrintUtil {
         Console.WriteLine("]");
     }
 
-    /* 連結リストを出力 */
+    /* 連結リストを表示する */
     public static void PrintLinkedList(ListNode? head) {
         List<string> list = [];
         while (head != null) {
@@ -50,15 +50,15 @@ public static class PrintUtil {
     }
 
     /**
- * 二分木を出力
- * This tree printer is borrowed from TECHIE DELIGHT
- * https://www.techiedelight.com/c-program-print-binary-tree/
- */
+     * 二分木を表示する
+     * この木の表示処理は TECHIE DELIGHT から借用した
+     * https://www.techiedelight.com/c-program-print-binary-tree/
+     */
     public static void PrintTree(TreeNode? root) {
         PrintTree(root, null, false);
     }
 
-    /* 二分木を出力 */
+    /* 二分木を表示する */
     public static void PrintTree(TreeNode? root, Trunk? prev, bool isRight) {
         if (root == null) {
             return;
@@ -99,24 +99,24 @@ public static class PrintUtil {
         Console.Write(p.str);
     }
 
-    /* ハッシュテーブルを出力 */
+    /* ハッシュテーブルを表示する */
     public static void PrintHashMap<K, V>(Dictionary<K, V> map) where K : notnull {
         foreach (var kv in map.Keys) {
             Console.WriteLine(kv.ToString() + " -> " + map[kv]?.ToString());
         }
     }
 
-    /* ヒープを出力 */
+    /* ヒープを表示する */
     public static void PrintHeap(Queue<int> queue) {
         Console.Write("ヒープの配列表現：");
         List<int> list = [.. queue];
         Console.WriteLine(string.Join(',', list));
-        Console.WriteLine("ヒープの木構造表示：");
+        Console.WriteLine("ヒープの木構造表現：");
         TreeNode? tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);
     }
 
-    /* 優先キューを出力 */
+    /* 優先度付きキューを表示する */
     public static void PrintHeap(PriorityQueue<int, int> queue) {
         var newQueue = new PriorityQueue<int, int>(queue.UnorderedItems, queue.Comparer);
         Console.Write("ヒープの配列表現：");
@@ -124,7 +124,7 @@ public static class PrintUtil {
         while (newQueue.TryDequeue(out int element, out _)) {
             list.Add(element);
         }
-        Console.WriteLine("ヒープの木構造表示：");
+        Console.WriteLine("ヒープの木構造表現：");
         Console.WriteLine(string.Join(',', list.ToList()));
         TreeNode? tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);

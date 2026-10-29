@@ -30,7 +30,7 @@ func mulHash(key string) int {
 	return int(hash)
 }
 
-/* XOR ハッシュ */
+/* 排他的論理和ハッシュ */
 func xorHash(key string) int {
 	hash := 0
 	modulus := 1000000007

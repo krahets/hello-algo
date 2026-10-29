@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* キーと値の組 */
+/* キーと値のペア */
 struct Pair {
   public:
     int key;
@@ -17,14 +17,14 @@ struct Pair {
     }
 };
 
-/* 配列ベースのハッシュテーブル */
+/* 配列で実装したハッシュテーブル */
 class ArrayHashMap {
   private:
     vector<Pair *> buckets;
 
   public:
     ArrayHashMap() {
-        // 100 個のバケットを含む配列を初期化
+        // 100 個のバケットを含む配列を初期化する
         buckets = vector<Pair *>(100);
     }
 
@@ -42,7 +42,7 @@ class ArrayHashMap {
         return index;
     }
 
-    /* 検索操作 */
+    /* 取得操作 */
     string get(int key) {
         int index = hashFunc(key);
         Pair *pair = buckets[index];
@@ -61,12 +61,12 @@ class ArrayHashMap {
     /* 削除操作 */
     void remove(int key) {
         int index = hashFunc(key);
-        // メモリを解放して nullptr に設定する
+        // メモリを解放し、nullptr に設定する
         delete buckets[index];
         buckets[index] = nullptr;
     }
 
-    /* すべてのキーと値のペアを取得 */
+    /* キーと値のペアをすべて取得する */
     vector<Pair *> pairSet() {
         vector<Pair *> pairSet;
         for (Pair *pair : buckets) {
@@ -77,7 +77,7 @@ class ArrayHashMap {
         return pairSet;
     }
 
-    /* すべてのキーを取得 */
+    /* すべてのキーを取得する */
     vector<int> keySet() {
         vector<int> keySet;
         for (Pair *pair : buckets) {
@@ -88,7 +88,7 @@ class ArrayHashMap {
         return keySet;
     }
 
-    /* すべての値を取得 */
+    /* すべての値を取得する */
     vector<string> valueSet() {
         vector<string> valueSet;
         for (Pair *pair : buckets) {
@@ -99,7 +99,7 @@ class ArrayHashMap {
         return valueSet;
     }
 
-    /* ハッシュテーブルを出力 */
+    /* ハッシュテーブルを表示する */
     void print() {
         for (Pair *kv : pairSet()) {
             cout << kv->key << " -> " << kv->val << endl;
@@ -107,4 +107,4 @@ class ArrayHashMap {
     }
 };
 
-// テストケースは `array_hash_map_test.cpp` を参照
+// テストケースは array_hash_map_test.cpp を参照

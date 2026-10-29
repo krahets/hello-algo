@@ -6,12 +6,12 @@
 
 import utils
 
-/* 配列ベースのハッシュテーブル */
+/* 配列で実装したハッシュテーブル */
 class ArrayHashMap {
     private var buckets: [Pair?]
 
     init() {
-        // 100 個のバケットを含む配列を初期化
+        // 100 個のバケットを含む配列を初期化する
         buckets = Array(repeating: nil, count: 100)
     }
 
@@ -21,7 +21,7 @@ class ArrayHashMap {
         return index
     }
 
-    /* 検索操作 */
+    /* 取得操作 */
     func get(key: Int) -> String? {
         let index = hashFunc(key: key)
         let pair = buckets[index]
@@ -38,26 +38,26 @@ class ArrayHashMap {
     /* 削除操作 */
     func remove(key: Int) {
         let index = hashFunc(key: key)
-        // nil に設定し、削除を表す
+        // nil に設定して、削除を表す
         buckets[index] = nil
     }
 
-    /* すべてのキーと値のペアを取得 */
+    /* キーと値のペアをすべて取得する */
     func pairSet() -> [Pair] {
         buckets.compactMap { $0 }
     }
 
-    /* すべてのキーを取得 */
+    /* すべてのキーを取得する */
     func keySet() -> [Int] {
         buckets.compactMap { $0?.key }
     }
 
-    /* すべての値を取得 */
+    /* すべての値を取得する */
     func valueSet() -> [String] {
         buckets.compactMap { $0?.val }
     }
 
-    /* ハッシュテーブルを出力 */
+    /* ハッシュテーブルを表示する */
     func print() {
         for pair in pairSet() {
             Swift.print("\(pair.key) -> \(pair.val)")
@@ -67,42 +67,42 @@ class ArrayHashMap {
 
 @main
 enum _ArrayHashMap {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
-        /* ハッシュテーブルを初期化 */
+        /* ハッシュテーブルを初期化する */
         let map = ArrayHashMap()
 
         /* 追加操作 */
-        // ハッシュテーブルにキーと値のペア (key, value) を追加
-        map.put(key: 12836, val: "シャオハー")
-        map.put(key: 15937, val: "シャオルオ")
-        map.put(key: 16750, val: "シャオスワン")
-        map.put(key: 13276, val: "シャオファー")
-        map.put(key: 10583, val: "シャオヤー")
-        print("\n追加完了後のハッシュテーブルは\nKey -> Value")
+        // ハッシュテーブルにキーと値のペア (key, value) を追加する
+        map.put(key: 12836, val: "小哈")
+        map.put(key: 15937, val: "小啰")
+        map.put(key: 16750, val: "小算")
+        map.put(key: 13276, val: "小法")
+        map.put(key: 10583, val: "小鸭")
+        print("\n追加後のハッシュテーブル\nKey -> Value")
         map.print()
 
-        /* 検索操作 */
-        // キー key をハッシュテーブルに渡し、値 value を取得
+        /* 取得操作 */
+        // ハッシュテーブルにキー key を渡し、値 value を取得する
         let name = map.get(key: 15937)!
-        print("\n学籍番号 15937 を入力すると、名前 \(name) が見つかりました")
+        print("\n学生番号 15937 に対応する氏名は \(name)")
 
         /* 削除操作 */
-        // ハッシュテーブルからキーと値のペア (key, value) を削除
+        // ハッシュテーブルからキーと値のペア (key, value) を削除する
         map.remove(key: 10583)
-        print("\n10583 を削除後のハッシュテーブルは\nKey -> Value")
+        print("\n10583 を削除した後のハッシュテーブル\nKey -> Value")
         map.print()
 
-        /* ハッシュテーブルを走査 */
-        print("\nキーと値の組 Key->Value を走査")
+        /* ハッシュテーブルを走査する */
+        print("\nキーと値のペア Key->Value を走査する")
         for pair in map.pairSet() {
             print("\(pair.key) -> \(pair.val)")
         }
-        print("\nキー Key を個別に走査")
+        print("\nキー Key だけを走査する")
         for key in map.keySet() {
             print(key)
         }
-        print("\n値 Value を個別に走査")
+        print("\n値 Value だけを走査する")
         for val in map.valueSet() {
             print(val)
         }

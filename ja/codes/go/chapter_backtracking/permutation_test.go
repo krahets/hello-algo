@@ -12,7 +12,7 @@ import (
 )
 
 func TestPermutationI(t *testing.T) {
-	/* 全順列 I */
+	/* すべての順列 I */
 	nums := []int{1, 2, 3}
 	fmt.Printf("入力配列 nums = ")
 	PrintSlice(nums)

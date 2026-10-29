@@ -9,6 +9,7 @@ on:
       - ".github/workflows/dart.yml"
       - "codes/dart/**/*.dart"
       - "en/codes/dart/**/*.dart"
+      - "ja/codes/dart/**/*.dart"
       - "ko/codes/dart/**/*.dart"
   pull_request:
     branches: ["main"]
@@ -16,6 +17,7 @@ on:
       - ".github/workflows/dart.yml"
       - "codes/dart/**/*.dart"
       - "en/codes/dart/**/*.dart"
+      - "ja/codes/dart/**/*.dart"
       - "ko/codes/dart/**/*.dart"
   workflow_dispatch:
 
@@ -30,7 +32,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         dart-sdk: [stable]
-        code-dir: ["codes/dart", "en/codes/dart", "ko/codes/dart"]
+        code-dir: ["codes/dart", "en/codes/dart", "ja/codes/dart", "ko/codes/dart"]
     steps:
       - uses: actions/checkout@v6
       - name: Set up Dart ${{ matrix.dart-sdk }}

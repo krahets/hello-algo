@@ -10,10 +10,10 @@ import utils.*;
 import java.util.*;
 
 public class binary_tree_dfs {
-    // 走査順序を格納するリストを初期化
+    // 走査順序を格納するリストを初期化する
     static ArrayList<Integer> list = new ArrayList<>();
 
-    /* 先行順走査 */
+    /* 行きがけ順走査 */
     static void preOrder(TreeNode root) {
         if (root == null)
             return;
@@ -23,46 +23,46 @@ public class binary_tree_dfs {
         preOrder(root.right);
     }
 
-    /* 中順走査 */
+    /* 通りがけ順走査 */
     static void inOrder(TreeNode root) {
         if (root == null)
             return;
-        // 訪問優先順: 左部分木 -> 根ノード -> 右部分木
+        // 訪問順序：左部分木 -> 根ノード -> 右部分木
         inOrder(root.left);
         list.add(root.val);
         inOrder(root.right);
     }
 
-    /* 後順走査 */
+    /* 帰りがけ順走査 */
     static void postOrder(TreeNode root) {
         if (root == null)
             return;
-        // 訪問優先順: 左部分木 -> 右部分木 -> 根ノード
+        // 訪問順序：左部分木 -> 右部分木 -> 根ノード
         postOrder(root.left);
         postOrder(root.right);
         list.add(root.val);
     }
 
     public static void main(String[] args) {
-        /* 二分木を初期化 */
-        // ここでは、配列から直接二分木を生成する関数を利用する
+        /* 二分木を初期化する */
+        // ここでは配列から二分木を直接生成する関数を使う
         TreeNode root = TreeNode.listToTree(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
-        System.out.println("\n二分木を初期化\n");
+        System.out.println("\n二分木を初期化する\n");
         PrintUtil.printTree(root);
 
-        /* 先行順走査 */
+        /* 行きがけ順走査 */
         list.clear();
         preOrder(root);
-        System.out.println("\n先行順走査のノード出力シーケンス = " + list);
+        System.out.println("\n行きがけ順走査で表示するノードの順序 = " + list);
 
-        /* 中順走査 */
+        /* 通りがけ順走査 */
         list.clear();
         inOrder(root);
-        System.out.println("\n中間順走査のノード出力シーケンス = " + list);
+        System.out.println("\n通りがけ順走査で表示するノードの順序 = " + list);
 
-        /* 後順走査 */
+        /* 帰りがけ順走査 */
         list.clear();
         postOrder(root);
-        System.out.println("\n後行順走査のノード出力シーケンス = " + list);
+        System.out.println("\n帰りがけ順走査で表示するノードの順序 = " + list);
     }
 }

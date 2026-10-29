@@ -9,55 +9,55 @@ namespace hello_algo.chapter_computational_complexity;
 public class space_complexity {
     /* 関数 */
     int Function() {
-        // 何らかの処理を行う
+        // 何らかの処理を実行する
         return 0;
     }
 
-    /* 定数階 */
+    /* 定数オーダー */
     void Constant(int n) {
-        // 定数、変数、オブジェクトは O(1) の空間を占める
+        // 定数、変数、オブジェクトは O(1) の領域を使用する
         int a = 0;
         int b = 0;
         int[] nums = new int[10000];
         ListNode node = new(0);
-        // ループ内の変数は O(1) の空間を占める
+        // ループ内の変数は O(1) の領域を使用する
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
-        // ループ内の関数は O(1) の空間を占める
+        // ループ内の関数は O(1) の領域を使用する
         for (int i = 0; i < n; i++) {
             Function();
         }
     }
 
-    /* 線形階 */
+    /* 線形オーダー */
     void Linear(int n) {
-        // 長さ n の配列は O(n) の空間を使用
+        // 長さ n の配列は O(n) の領域を使用する
         int[] nums = new int[n];
-        // 長さ n のリストは O(n) の空間を使用
+        // 長さ n のリストは O(n) の領域を使用する
         List<ListNode> nodes = [];
         for (int i = 0; i < n; i++) {
             nodes.Add(new ListNode(i));
         }
-        // 長さ n のハッシュテーブルは O(n) の空間を使用
+        // 長さ n のハッシュテーブルは O(n) の領域を使用する
         Dictionary<int, string> map = [];
         for (int i = 0; i < n; i++) {
             map.Add(i, i.ToString());
         }
     }
 
-    /* 線形時間（再帰実装） */
+    /* 線形オーダー（再帰による実装） */
     void LinearRecur(int n) {
         Console.WriteLine("再帰 n = " + n);
         if (n == 1) return;
         LinearRecur(n - 1);
     }
 
-    /* 二乗階 */
+    /* 二次オーダー */
     void Quadratic(int n) {
-        // 行列は O(n^2) の空間を使用する
+        // 行列は O(n^2) の領域を使用する
         int[,] numMatrix = new int[n, n];
-        // 二次元リストは O(n^2) の空間を使用
+        // 二次元リストは O(n^2) の領域を使用する
         List<List<int>> numList = [];
         for (int i = 0; i < n; i++) {
             List<int> tmp = [];
@@ -68,7 +68,7 @@ public class space_complexity {
         }
     }
 
-    /* 二次時間（再帰実装） */
+    /* 二次オーダー（再帰による実装） */
     int QuadraticRecur(int n) {
         if (n <= 0) return 0;
         int[] nums = new int[n];
@@ -76,7 +76,7 @@ public class space_complexity {
         return QuadraticRecur(n - 1);
     }
 
-    /* 指数時間（完全二分木の構築） */
+    /* 指数オーダー（パーフェクト二分木の構築） */
     TreeNode? BuildTree(int n) {
         if (n == 0) return null;
         TreeNode root = new(0) {
@@ -89,12 +89,12 @@ public class space_complexity {
     [Test]
     public void Test() {
         int n = 5;
-        // 定数階
+        // 定数オーダー
         Constant(n);
-        // 線形階
+        // 線形オーダー
         Linear(n);
         LinearRecur(n);
-        // 二乗階
+        // 二次オーダー
         Quadratic(n);
         QuadraticRecur(n);
         // 指数オーダー

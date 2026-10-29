@@ -7,11 +7,11 @@
 import 'dart:collection';
 
 void main() {
-  /* キューを初期化 */
-  // Dart では、通常は両端キュー Queue をキューとして使う
+  /* キューを初期化する */
+  // Dart では一般に、両端キューのクラス Queue をキューとして使う
   final Queue<int> queue = Queue();
 
-  /* 要素をエンキュー */
+  /* 要素をエンキューする */
   queue.add(1);
   queue.add(3);
   queue.add(2);
@@ -19,19 +19,19 @@ void main() {
   queue.add(4);
   print("キュー queue = $queue");
 
-  /* キュー先頭の要素にアクセス */
+  /* キューの先頭要素にアクセス */
   final int peek = queue.first;
-  print("先頭要素 peek = $peek");
+  print("キューの先頭要素 peek = $peek");
 
-  /* 要素をデキュー */
+  /* 要素をデキューする */
   final int pop = queue.removeFirst();
-  print("デキューした要素 pop = $pop ，デキュー後の queue = $queue");
+  print("デキューした要素 pop = $pop 、デキュー後 queue = $queue");
 
-  /* キューの長さを取得 */
+  /* キューの長さを取得する */
   final int size = queue.length;
   print("キューの長さ size = $size");
 
-  /* キューが空かどうかを判定 */
+  /* キューが空か判定 */
   final bool isEmpty = queue.isEmpty;
-  print("キューが空かどうか = $isEmpty");
+  print("キューは空か = $isEmpty");
 }

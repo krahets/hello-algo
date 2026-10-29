@@ -6,10 +6,10 @@
 
 #include "../utils/common.hpp"
 
-/* 連結リストベースのキュー */
+/* 連結リストで実装したキュー */
 class LinkedListQueue {
   private:
-    ListNode *front, *rear; // 先頭ノード front、末尾ノード rear
+    ListNode *front, *rear; // 先頭ノード front 、末尾ノード rear
     int queSize;
 
   public:
@@ -29,21 +29,21 @@ class LinkedListQueue {
         return queSize;
     }
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     bool isEmpty() {
         return queSize == 0;
     }
 
     /* エンキュー */
     void push(int num) {
-        // 末尾ノードの後ろに num を追加
+        // 末尾ノードの後ろに num を追加する
         ListNode *node = new ListNode(num);
-        // キューが空なら、先頭・末尾ノードをともにそのノードに設定
+        // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
         if (front == nullptr) {
             front = node;
             rear = node;
         }
-        // キューが空でなければ、そのノードを末尾ノードの後ろに追加
+        // キューが空でない場合、このノードを末尾ノードの後ろに追加する
         else {
             rear->next = node;
             rear = node;
@@ -54,7 +54,7 @@ class LinkedListQueue {
     /* デキュー */
     int pop() {
         int num = peek();
-        // 先頭ノードを削除
+        // 先頭ノードを削除する
         ListNode *tmp = front;
         front = front->next;
         // メモリを解放する
@@ -63,7 +63,7 @@ class LinkedListQueue {
         return num;
     }
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     int peek() {
         if (size() == 0)
             throw out_of_range("キューが空です");
@@ -82,12 +82,12 @@ class LinkedListQueue {
     }
 };
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    /* キューを初期化 */
+    /* キューを初期化する */
     LinkedListQueue *queue = new LinkedListQueue();
 
-    /* 要素をエンキュー */
+    /* 要素をエンキューする */
     queue->push(1);
     queue->push(3);
     queue->push(2);
@@ -96,22 +96,22 @@ int main() {
     cout << "キュー queue = ";
     printVector(queue->toVector());
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     int peek = queue->peek();
-    cout << "先頭要素 peek = " << peek << endl;
+    cout << "キューの先頭要素 peek = " << peek << endl;
 
-    /* 要素をデキュー */
+    /* 要素をデキューする */
     peek = queue->pop();
-    cout << "取り出した要素 pop = " << peek << "、取り出し後の queue = ";
+    cout << "デキューした要素 pop = " << peek << "、デキュー後 queue = ";
     printVector(queue->toVector());
 
     /* キューの長さを取得 */
     int size = queue->size();
     cout << "キューの長さ size = " << size << endl;
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     bool empty = queue->isEmpty();
-    cout << "キューが空かどうか = " << empty << endl;
+    cout << "キューは空か = " << empty << endl;
 
     // メモリを解放する
     delete queue;

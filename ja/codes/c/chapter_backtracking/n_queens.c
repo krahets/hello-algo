@@ -8,10 +8,10 @@
 
 #define MAX_SIZE 100
 
-/* バックトラッキング：N クイーン */
+/* バックトラッキング：n クイーン */
 void backtrack(int row, int n, char state[MAX_SIZE][MAX_SIZE], char ***res, int *resSize, bool cols[MAX_SIZE],
                bool diags1[2 * MAX_SIZE - 1], bool diags2[2 * MAX_SIZE - 1]) {
-    // すべての行への配置が完了したら、解を記録する
+    // すべての行への配置が終わったら、解を記録する
     if (row == n) {
         res[*resSize] = (char **)malloc(sizeof(char *) * n);
         for (int i = 0; i < n; ++i) {
@@ -21,26 +21,26 @@ void backtrack(int row, int n, char state[MAX_SIZE][MAX_SIZE], char ***res, int 
         (*resSize)++;
         return;
     }
-    // すべての列を走査
+    // すべての列を走査する
     for (int col = 0; col < n; col++) {
-        // このマスに対応する主対角線と副対角線を計算
+        // このマスに対応する主対角線と副対角線を求める
         int diag1 = row - col + n - 1;
         int diag2 = row + col;
-        // 枝刈り：そのマスの列、主対角線、副対角線にクイーンがあってはならない
+        // 枝刈り：このマスと同じ列、主対角線、副対角線にクイーンがあってはならない
         if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-            // 試行：そのマスにクイーンを置く
+            // 試行：このマスにクイーンを配置する
             state[row][col] = 'Q';
             cols[col] = diags1[diag1] = diags2[diag2] = true;
             // 次の行に配置する
             backtrack(row + 1, n, state, res, resSize, cols, diags1, diags2);
-            // 戻す：そのマスを空きマスに戻す
+            // 復元：このマスを空きマスに戻す
             state[row][col] = '#';
             cols[col] = diags1[diag1] = diags2[diag2] = false;
         }
     }
 }
 
-/* N クイーンを解く */
+/* n クイーン問題を解く */
 char ***nQueens(int n, int *returnSize) {
     char state[MAX_SIZE][MAX_SIZE];
     // n*n の盤面を初期化する。'Q' はクイーン、'#' は空きマスを表す
@@ -50,9 +50,9 @@ char ***nQueens(int n, int *returnSize) {
         }
         state[i][n] = '\0';
     }
-    bool cols[MAX_SIZE] = {false};           // 列にクイーンがあるか記録
-    bool diags1[2 * MAX_SIZE - 1] = {false}; // 主対角線にクイーンがあるかを記録
-    bool diags2[2 * MAX_SIZE - 1] = {false}; // 副対角線にクイーンがあるかを記録
+    bool cols[MAX_SIZE] = {false};           // 列にクイーンがあるかどうかを記録する
+    bool diags1[2 * MAX_SIZE - 1] = {false}; // 主対角線にクイーンがあるかどうかを記録する
+    bool diags2[2 * MAX_SIZE - 1] = {false}; // 副対角線にクイーンがあるかどうかを記録する
 
     char ***res = (char ***)malloc(sizeof(char **) * MAX_SIZE);
     *returnSize = 0;
@@ -60,13 +60,13 @@ char ***nQueens(int n, int *returnSize) {
     return res;
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
     int n = 4;
     int returnSize;
     char ***res = nQueens(n, &returnSize);
 
-    printf("盤面の縦横は%d\n", n);
+    printf("入力した盤面の縦横の長さは%d\n", n);
     printf("クイーンの配置方法は全部で %d 通り\n", returnSize);
     for (int i = 0; i < returnSize; ++i) {
         for (int j = 0; j < n; ++j) {

@@ -409,6 +409,11 @@ a:hover .text-button span {
   height: min(84vh, 69vw);
 }
 
+.hero-div--ja {
+  width: min(112vh, 76vw);
+  height: min(84vh, 57vw);
+}
+
 .hero-bg {
   height: 100%;
   width: 100%;

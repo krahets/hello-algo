@@ -6,32 +6,32 @@
 
 package utils
 
-/* 二分木ノードクラス */
+/* 二分木のノードクラス */
 /* コンストラクタ */
 class TreeNode(
-    var _val: Int // ノード値
+    var _val: Int // ノードの値
 ) {
     var height: Int = 0 // ノードの高さ
-    var left: TreeNode? = null // 左子ノードへの参照
-    var right: TreeNode? = null // 右子ノードへの参照
+    var left: TreeNode? = null // 左の子ノードへの参照
+    var right: TreeNode? = null // 右の子ノードへの参照
 
-    // シリアライズの符号化規則は以下を参照:
-    // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-    // 二分木の配列表現:
+    // シリアライズの符号化規則は次を参照：
+    // https://www.hello-algo.com/ja/chapter_tree/array_representation_of_tree/
+    // 二分木の配列表現：
     // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-    // 二分木の連結リスト表現:
-    // /——— 15
-    // /——— 7
-    // /——— 3
-    // |    \——— 6
-    // |        \——— 12
+    // 二分木の連結リスト表現：
+    //             /——— 15
+    //         /——— 7
+    //     /——— 3
+    //    |    \——— 6
+    //    |        \——— 12
     // ——— 1
-    // \——— 2
-    // |    /——— 9
-    // \——— 4
-    // \——— 8
+    //     \——— 2
+    //        |    /——— 9
+    //         \——— 4
+    //             \——— 8
 
-    /* リストを二分木にデシリアライズする: 再帰 */
+    /* リストから二分木へデシリアライズ：再帰 */
     companion object {
         private fun listToTreeDFS(arr: MutableList<Int?>, i: Int): TreeNode? {
             if (i < 0 || i >= arr.size || arr[i] == null) {
@@ -43,12 +43,12 @@ class TreeNode(
             return root
         }
 
-        /* リストを二分木にデシリアライズする */
+        /* リストから二分木へデシリアライズ */
         fun listToTree(arr: MutableList<Int?>): TreeNode? {
             return listToTreeDFS(arr, 0)
         }
 
-        /* 二分木をリストにシリアライズする: 再帰 */
+        /* 二分木をシリアライズしてリストにする：再帰 */
         private fun treeToListDFS(root: TreeNode?, i: Int, res: MutableList<Int?>) {
             if (root == null) return
             while (i >= res.size) {
@@ -59,7 +59,7 @@ class TreeNode(
             treeToListDFS(root.right, 2 * i + 2, res)
         }
 
-        /* 二分木をリストにシリアライズする */
+        /* 二分木をシリアライズしてリストにする */
         fun treeToList(root: TreeNode?): MutableList<Int?> {
             val res = mutableListOf<Int?>()
             treeToListDFS(root, 0, res)

@@ -6,7 +6,7 @@
 
 import utils
 
-/* 連結リストベースのキュー */
+/* 連結リストで実装したキュー */
 class LinkedListQueue {
     private var front: ListNode? // 先頭ノード
     private var rear: ListNode? // 末尾ノード
@@ -21,21 +21,21 @@ class LinkedListQueue {
         _size
     }
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     func isEmpty() -> Bool {
         size() == 0
     }
 
     /* エンキュー */
     func push(num: Int) {
-        // 末尾ノードの後ろに num を追加
+        // 末尾ノードの後ろに num を追加する
         let node = ListNode(x: num)
-        // キューが空なら、先頭・末尾ノードをともにそのノードに設定
+        // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
         if front == nil {
             front = node
             rear = node
         }
-        // キューが空でなければ、そのノードを末尾ノードの後ろに追加
+        // キューが空でない場合、このノードを末尾ノードの後ろに追加する
         else {
             rear?.next = node
             rear = node
@@ -47,13 +47,13 @@ class LinkedListQueue {
     @discardableResult
     func pop() -> Int {
         let num = peek()
-        // 先頭ノードを削除
+        // 先頭ノードを削除する
         front = front?.next
         _size -= 1
         return num
     }
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     func peek() -> Int {
         if isEmpty() {
             fatalError("キューが空です")
@@ -75,12 +75,12 @@ class LinkedListQueue {
 
 @main
 enum _LinkedListQueue {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
-        /* キューを初期化 */
+        /* キューを初期化する */
         let queue = LinkedListQueue()
 
-        /* 要素をエンキュー */
+        /* 要素をエンキューする */
         queue.push(num: 1)
         queue.push(num: 3)
         queue.push(num: 2)
@@ -88,20 +88,20 @@ enum _LinkedListQueue {
         queue.push(num: 4)
         print("キュー queue = \(queue.toArray())")
 
-        /* キュー先頭の要素にアクセス */
+        /* キューの先頭要素にアクセス */
         let peek = queue.peek()
-        print("先頭要素 peek = \(peek)")
+        print("キューの先頭要素 peek = \(peek)")
 
-        /* 要素をデキュー */
+        /* 要素をデキューする */
         let pop = queue.pop()
-        print("取り出した要素 pop = \(pop)，取り出し後 queue = \(queue.toArray())")
+        print("デキューした要素 pop = \(pop)、デキュー後 queue = \(queue.toArray())")
 
         /* キューの長さを取得 */
         let size = queue.size()
-        print("キューのサイズ size = \(size)")
+        print("キューの長さ size = \(size)")
 
-        /* キューが空かどうかを判定 */
+        /* キューが空か判定 */
         let isEmpty = queue.isEmpty()
-        print("キューが空かどうか = \(isEmpty)")
+        print("キューは空か = \(isEmpty)")
     }
 }

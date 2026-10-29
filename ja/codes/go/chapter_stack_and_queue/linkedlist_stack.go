@@ -8,13 +8,13 @@ import (
 	"container/list"
 )
 
-/* 連結リストベースのスタック */
+/* 連結リストで実装したスタック */
 type linkedListStack struct {
 	// 組み込みパッケージ list でスタックを実装する
 	data *list.List
 }
 
-/* スタックを初期化 */
+/* スタックを初期化する */
 func newLinkedListStack() *linkedListStack {
 	return &linkedListStack{
 		data: list.New(),
@@ -36,7 +36,7 @@ func (s *linkedListStack) pop() any {
 	return e.Value
 }
 
-/* スタックトップの要素にアクセス */
+/* スタックの先頭要素にアクセスする */
 func (s *linkedListStack) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -45,17 +45,17 @@ func (s *linkedListStack) peek() any {
 	return e.Value
 }
 
-/* スタックの長さを取得 */
+/* スタックの長さを取得する */
 func (s *linkedListStack) size() int {
 	return s.data.Len()
 }
 
-/* スタックが空かどうかを判定 */
+/* スタックが空かどうかを判定する */
 func (s *linkedListStack) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-/* 表示用に List を取得 */
+/* 表示用の List を取得する */
 func (s *linkedListStack) toList() *list.List {
 	return s.data
 }

@@ -9,31 +9,31 @@ package chapter_tree
 import utils.TreeNode
 import utils.printTree
 
-/* 配列表現による二分木クラス */
+/* 配列で表した二分木クラス */
 class ArrayBinaryTree(private val tree: MutableList<Int?>) {
-    /* リスト容量 */
+    /* リストの容量 */
     fun size(): Int {
         return tree.size
     }
 
-    /* インデックス i のノードの値を取得 */
+    /* インデックス i のノードの値を取得する */
     fun _val(i: Int): Int? {
-        // インデックスが範囲外なら、空きを表す null を返す
+        // インデックスが範囲外の場合、空きを表す null を返す
         if (i < 0 || i >= size()) return null
         return tree[i]
     }
 
-    /* インデックス i のノードの左子ノードのインデックスを取得 */
+    /* インデックス i のノードの左の子ノードのインデックスを取得する */
     fun left(i: Int): Int {
         return 2 * i + 1
     }
 
-    /* インデックス i のノードの右子ノードのインデックスを取得 */
+    /* インデックス i のノードの右の子ノードのインデックスを取得する */
     fun right(i: Int): Int {
         return 2 * i + 2
     }
 
-    /* インデックス i のノードの親ノードのインデックスを取得 */
+    /* インデックス i のノードの親ノードのインデックスを取得する */
     fun parent(i: Int): Int {
         return (i - 1) / 2
     }
@@ -41,7 +41,7 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
     /* レベル順走査 */
     fun levelOrder(): MutableList<Int?> {
         val res = mutableListOf<Int?>()
-        // 配列を直接走査する
+        // 配列をそのまま走査する
         for (i in 0..<size()) {
             if (_val(i) != null)
                 res.add(_val(i))
@@ -49,39 +49,39 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
         return res
     }
 
-    /* 深さ優先探索 */
+    /* 深さ優先走査 */
     fun dfs(i: Int, order: String, res: MutableList<Int?>) {
-        // 空きスロットなら返す
+        // 空きの場合、戻る
         if (_val(i) == null)
             return
-        // 先行順走査
+        // 行きがけ順走査
         if ("pre" == order)
             res.add(_val(i))
         dfs(left(i), order, res)
-        // 中順走査
+        // 通りがけ順走査
         if ("in" == order)
             res.add(_val(i))
         dfs(right(i), order, res)
-        // 後順走査
+        // 帰りがけ順走査
         if ("post" == order)
             res.add(_val(i))
     }
 
-    /* 先行順走査 */
+    /* 行きがけ順走査 */
     fun preOrder(): MutableList<Int?> {
         val res = mutableListOf<Int?>()
         dfs(0, "pre", res)
         return res
     }
 
-    /* 中順走査 */
+    /* 通りがけ順走査 */
     fun inOrder(): MutableList<Int?> {
         val res = mutableListOf<Int?>()
         dfs(0, "in", res)
         return res
     }
 
-    /* 後順走査 */
+    /* 帰りがけ順走査 */
     fun postOrder(): MutableList<Int?> {
         val res = mutableListOf<Int?>()
         dfs(0, "post", res)
@@ -89,23 +89,23 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
     }
 }
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
     // 二分木を初期化する
-    // ここでは、リストから二分木を直接生成する関数を利用する
+    // ここではリストから二分木を直接生成する関数を使う
     val arr = mutableListOf(1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15)
 
     val root = TreeNode.listToTree(arr)
-    println("\n二分木を初期化\n")
+    println("\n二分木を初期化する\n")
     println("二分木の配列表現：")
     println(arr)
     println("二分木の連結リスト表現：")
     printTree(root)
 
-    // 配列表現による二分木クラス
+    // 配列で表した二分木クラス
     val abt = ArrayBinaryTree(arr)
 
-    // ノードにアクセス
+    // ノードにアクセスする
     val i = 1
     val l = abt.left(i)
     val r = abt.right(i)
@@ -115,13 +115,13 @@ fun main() {
     println("右の子ノードのインデックスは $r 、値は ${abt._val(r)}")
     println("親ノードのインデックスは $p 、値は ${abt._val(p)}")
 
-    // 木を走査
+    // 木を走査する
     var res = abt.levelOrder()
     println("\nレベル順走査：$res")
     res = abt.preOrder()
-    println("先行順走査：$res")
+    println("行きがけ順走査：$res")
     res = abt.inOrder()
-    println("中間順走査：$res")
+    println("通りがけ順走査：$res")
     res = abt.postOrder()
-    println("後行順走査：$res")
+    println("帰りがけ順走査：$res")
 }

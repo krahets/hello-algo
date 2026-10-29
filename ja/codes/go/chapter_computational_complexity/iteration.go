@@ -9,7 +9,7 @@ import "fmt"
 /* for ループ */
 func forLoop(n int) int {
 	res := 0
-	// 1, 2, ..., n-1, n を順に加算する
+	// ループで 1, 2, ..., n-1, n の和を求める
 	for i := 1; i <= n; i++ {
 		res += i
 	}
@@ -21,7 +21,7 @@ func whileLoop(n int) int {
 	res := 0
 	// 条件変数を初期化する
 	i := 1
-	// 1, 2, ..., n-1, n を順に加算する
+	// ループで 1, 2, ..., n-1, n の和を求める
 	for i <= n {
 		res += i
 		// 条件変数を更新する
@@ -30,12 +30,12 @@ func whileLoop(n int) int {
 	return res
 }
 
-/* while ループ（2回更新） */
+/* while ループ（2 回の更新） */
 func whileLoopII(n int) int {
 	res := 0
 	// 条件変数を初期化する
 	i := 1
-	// 1, 4, 10, ... を順に加算する
+	// ループで 1, 4, 10, ... の和を求める
 	for i <= n {
 		res += i
 		// 条件変数を更新する
@@ -48,10 +48,10 @@ func whileLoopII(n int) int {
 /* 二重 for ループ */
 func nestedForLoop(n int) string {
 	res := ""
-	// i = 1, 2, ..., n-1, n とループする
+	// i = 1, 2, ..., n-1, n のループ
 	for i := 1; i <= n; i++ {
 		for j := 1; j <= n; j++ {
-			// j = 1, 2, ..., n-1, n とループする
+			// j = 1, 2, ..., n-1, n のループ
 			res += fmt.Sprintf("(%d, %d), ", i, j)
 		}
 	}

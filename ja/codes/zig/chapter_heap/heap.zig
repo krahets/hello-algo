@@ -15,18 +15,18 @@ fn greaterThan(context: void, a: i32, b: i32) std.math.Order {
 }
 
 fn testPush(comptime T: type, mem_allocator: std.mem.Allocator, heap: anytype, val: T) !void {
-    try heap.add(val);  // 要素をヒープに追加
-    std.debug.print("\n要素 {} をヒープに追加した後\n", .{val});
+    try heap.add(val);  //ヒープに要素を挿入する
+    std.debug.print("\n要素 {} をヒープに挿入した後\n", .{val});
     try inc.PrintUtil.printHeap(T, mem_allocator, heap);
 }
 
 fn testPop(comptime T: type, mem_allocator: std.mem.Allocator, heap: anytype) !void {
-    var val = heap.remove();    // ヒープ頂点の要素を取り出す
+    var val = heap.remove();    //ヒープの先頭要素を取り出す
     std.debug.print("\nヒープの先頭要素 {} を取り出した後\n", .{val});
     try inc.PrintUtil.printHeap(T, mem_allocator, heap);
 }
 
-// Driver Code
+// 実行用コード
 pub fn main() !void {
     // メモリアロケータを初期化する
     var mem_arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
@@ -38,40 +38,40 @@ pub fn main() !void {
     const PQlt = std.PriorityQueue(i32, void, lessThan);
     var min_heap = PQlt.init(std.heap.page_allocator, {});
     defer min_heap.deinit();
-    // 最大ヒープを初期化
+    // 最大ヒープを初期化する
     const PQgt = std.PriorityQueue(i32, void, greaterThan);
     var max_heap = PQgt.init(std.heap.page_allocator, {});
     defer max_heap.deinit();
 
-    std.debug.print("\n以下のテストケースは最大ヒープ", .{});
+    std.debug.print("\n以下のテストケースは最大ヒープを対象とする", .{});
 
-    // 要素をヒープに追加
+    // ヒープに要素を挿入する
     try testPush(i32, mem_allocator, &max_heap, 1);
     try testPush(i32, mem_allocator, &max_heap, 3);
     try testPush(i32, mem_allocator, &max_heap, 2);
     try testPush(i32, mem_allocator, &max_heap, 5);
     try testPush(i32, mem_allocator, &max_heap, 4);
 
-    // ヒープ頂点の要素を取得
+    // ヒープの先頭要素を取得する
     var peek = max_heap.peek().?;
     std.debug.print("\nヒープの先頭要素は {}\n", .{peek});
 
-    // ヒープ頂点の要素を取り出す
+    // ヒープの先頭要素を取り出す
     try testPop(i32, mem_allocator, &max_heap);
     try testPop(i32, mem_allocator, &max_heap);
     try testPop(i32, mem_allocator, &max_heap);
     try testPop(i32, mem_allocator, &max_heap);
     try testPop(i32, mem_allocator, &max_heap);
 
-    // ヒープのサイズを取得
+    // ヒープのサイズを取得する
     var size = max_heap.len;
-    std.debug.print("\nヒープ要素数は {}\n", .{size});
+    std.debug.print("\nヒープの要素数は {}\n", .{size});
 
-    // ヒープが空かどうかを判定
+    // ヒープが空か判定
     var is_empty = if (max_heap.len == 0) true else false;
-    std.debug.print("\nヒープが空かどうか {}\n", .{is_empty});
+    std.debug.print("\nヒープは空か {}\n", .{is_empty});
 
-    // リストを入力してヒープを構築
+    // リストを入力してヒープを構築する
     try min_heap.addSlice(&[_]i32{ 1, 3, 2, 5, 4 });
     std.debug.print("\nリストを入力して最小ヒープを構築した後\n", .{});
     try inc.PrintUtil.printHeap(i32, mem_allocator, min_heap);

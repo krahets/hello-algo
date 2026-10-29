@@ -12,13 +12,13 @@ import java.util.*;
 public class preorder_traversal_i_compact {
     static List<TreeNode> res;
 
-    /* 前順走査：例題 1 */
+    /* 行きがけ順走査：例題 1 */
     static void preOrder(TreeNode root) {
         if (root == null) {
             return;
         }
         if (root.val == 7) {
-            // 解を記録
+            // 解を記録する
             res.add(root);
         }
         preOrder(root.left);
@@ -27,14 +27,14 @@ public class preorder_traversal_i_compact {
 
     public static void main(String[] args) {
         TreeNode root = TreeNode.listToTree(Arrays.asList(1, 7, 3, 4, 5, 6, 7));
-        System.out.println("\n二分木を初期化");
+        System.out.println("\n二分木を初期化する");
         PrintUtil.printTree(root);
 
-        // 先行順走査
+        // 行きがけ順走査
         res = new ArrayList<>();
         preOrder(root);
 
-        System.out.println("\n値が 7 のノードをすべて出力");
+        System.out.println("\n値が 7 であるすべてのノードを出力する");
         List<Integer> vals = new ArrayList<>();
         for (TreeNode node : res) {
             vals.add(node.val);

@@ -8,6 +8,6 @@ import "testing"
 
 func TestFastPower(t *testing.T) {
 	if fastPow(7, 0) != 1 || fastPow(3, 5) != 243 || fastPow(2, 6) != 64 {
-		t.Fatal("fast power returned an unexpected value")
+		t.Fatal("高速べき乗法が予期しない値を返しました")
 	}
 }

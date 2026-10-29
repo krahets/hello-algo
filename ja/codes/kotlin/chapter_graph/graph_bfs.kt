@@ -9,36 +9,36 @@ package chapter_graph
 import utils.Vertex
 import java.util.*
 
-/* 幅優先探索 */
-// グラフを隣接リストで表し、指定した頂点の隣接頂点をすべて取得できるようにする
+/* 幅優先走査 */
+// 指定した頂点に隣接する全頂点を取得しやすいように、グラフを隣接リストで表す
 fun graphBFS(graph: GraphAdjList, startVet: Vertex): MutableList<Vertex?> {
     // 頂点の走査順序
     val res = mutableListOf<Vertex?>()
-    // 訪問済み頂点を記録するためのハッシュ集合
+    // 訪問済みの頂点を記録するハッシュ集合
     val visited = HashSet<Vertex>()
     visited.add(startVet)
-    // BFS の実装にキューを用いる
+    // BFS の実装にキューを使う
     val que = LinkedList<Vertex>()
     que.offer(startVet)
-    // 頂点 vet を起点に、すべての頂点を訪問し終えるまで繰り返す
+    // 頂点 vet を始点として、すべての頂点を訪問するまで繰り返す
     while (!que.isEmpty()) {
-        val vet = que.poll() // 先頭の頂点をデキュー
-        res.add(vet)         // 訪問した頂点を記録
-        // この頂点のすべての隣接頂点を走査
+        val vet = que.poll() // キューの先頭の頂点をデキューする
+        res.add(vet)         // 訪問した頂点を記録する
+        // この頂点に隣接する全頂点を走査する
         for (adjVet in graph.adjList[vet]!!) {
             if (visited.contains(adjVet))
-                continue        // 訪問済みの頂点をスキップ
-            que.offer(adjVet)   // 未訪問の頂点のみをキューに追加
+                continue        // 訪問済みの頂点をスキップする
+            que.offer(adjVet)   // 未訪問の頂点だけをエンキューする
             visited.add(adjVet) // この頂点を訪問済みにする
         }
     }
-    // 頂点の走査順を返す
+    // 頂点の走査順序を返す
     return res
 }
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
-    /* 無向グラフを初期化 */
+    /* 無向グラフを初期化する */
     val v = Vertex.valsToVets(intArrayOf(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
     val edges = arrayOf(
         arrayOf(v[0], v[1]),
@@ -55,11 +55,11 @@ fun main() {
         arrayOf(v[7], v[8])
     )
     val graph = GraphAdjList(edges)
-    println("\n初期化後のグラフは")
+    println("\n初期化後のグラフ")
     graph.print()
 
-    /* 幅優先探索 */
+    /* 幅優先走査 */
     val res = graphBFS(graph, v[0]!!)
-    println("\n幅優先探索（BFS）の頂点順序は")
+    println("\n幅優先走査（BFS）の頂点の順序")
     println(Vertex.vetsToVals(res))
 }

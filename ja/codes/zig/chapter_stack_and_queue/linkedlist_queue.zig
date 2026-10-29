@@ -5,7 +5,7 @@
 const std = @import("std");
 const inc = @import("include");
 
-// 連結リストベースのキュー
+// 連結リストで実装したキュー
 pub fn LinkedListQueue(comptime T: type) type {
     return struct {
         const Self = @This();
@@ -16,7 +16,7 @@ pub fn LinkedListQueue(comptime T: type) type {
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // メモリアロケータ
 
-        // コンストラクタ（メモリ確保 + キューを初期化）
+        // コンストラクタ（メモリの確保とキューの初期化）
         pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
             if (self.mem_arena == null) {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);
@@ -27,7 +27,7 @@ pub fn LinkedListQueue(comptime T: type) type {
             self.que_size = 0;
         }
 
-        // デストラクタ（メモリを解放する）
+        // デストラクタ（メモリの解放）
         pub fn deinit(self: *Self) void {
             if (self.mem_arena == null) return;
             self.mem_arena.?.deinit();
@@ -38,12 +38,12 @@ pub fn LinkedListQueue(comptime T: type) type {
             return self.que_size;
         }
 
-        // キューが空かどうかを判定
+        // キューが空か判定
         pub fn isEmpty(self: *Self) bool {
             return self.size() == 0;
         }
 
-        // キュー先頭の要素にアクセス
+        // キューの先頭要素にアクセス
         pub fn peek(self: *Self) T {
             if (self.size() == 0) @panic("キューが空です");
             return self.front.?.val;
@@ -51,14 +51,14 @@ pub fn LinkedListQueue(comptime T: type) type {
 
         // エンキュー
         pub fn push(self: *Self, num: T) !void {
-            // 末尾ノードの後ろに num を追加
+            // 末尾ノードの後ろに num を追加する
             var node = try self.mem_allocator.create(inc.ListNode(T));
             node.init(num);
-            // キューが空なら、先頭・末尾ノードをともにそのノードに設定
+            // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
             if (self.front == null) {
                 self.front = node;
                 self.rear = node;
-            // キューが空でなければ、そのノードを末尾ノードの後ろに追加
+            // キューが空でない場合、このノードを末尾ノードの後ろに追加する
             } else {
                 self.rear.?.next = node;
                 self.rear = node;
@@ -69,13 +69,13 @@ pub fn LinkedListQueue(comptime T: type) type {
         // デキュー
         pub fn pop(self: *Self) T {
             var num = self.peek();
-            // 先頭ノードを削除
+            // 先頭ノードを削除する
             self.front = self.front.?.next;
             self.que_size -= 1;
             return num;
         } 
 
-        // 連結リストを配列に変換
+        // 連結リストを配列に変換する
         pub fn toArray(self: *Self) ![]T {
             var node = self.front;
             var res = try self.mem_allocator.alloc(T, self.size());
@@ -90,14 +90,14 @@ pub fn LinkedListQueue(comptime T: type) type {
     };
 }
 
-// Driver Code
+// 実行用コード
 pub fn main() !void {
-    // キューを初期化
+    // キューを初期化する
     var queue = LinkedListQueue(i32){};
     try queue.init(std.heap.page_allocator);
     defer queue.deinit();
 
-    // 要素をエンキュー
+    // 要素をエンキューする
     try queue.push(1);
     try queue.push(3);
     try queue.push(2);
@@ -106,11 +106,11 @@ pub fn main() !void {
     std.debug.print("キュー queue = ", .{});
     inc.PrintUtil.printArray(i32, try queue.toArray());
 
-    // キュー先頭の要素にアクセス
+    // キューの先頭要素にアクセス
     var peek = queue.peek();
-    std.debug.print("\n先頭要素 peek = {}", .{peek});
+    std.debug.print("\nキューの先頭要素 peek = {}", .{peek});
 
-    // 要素をデキュー
+    // 要素をデキューする
     var pop = queue.pop();
     std.debug.print("\nデキューした要素 pop = {}、デキュー後 queue = ", .{pop});
     inc.PrintUtil.printArray(i32, try queue.toArray());
@@ -119,9 +119,9 @@ pub fn main() !void {
     var size = queue.size();
     std.debug.print("\nキューの長さ size = {}", .{size});
 
-    // キューが空かどうかを判定
+    // キューが空か判定
     var is_empty = queue.isEmpty();
-    std.debug.print("\nキューが空かどうか = {}", .{is_empty});
+    std.debug.print("\nキューは空か = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

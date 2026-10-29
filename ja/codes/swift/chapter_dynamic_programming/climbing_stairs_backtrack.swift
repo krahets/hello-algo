@@ -6,35 +6,35 @@
 
 /* バックトラッキング */
 func backtrack(choices: [Int], state: Int, n: Int, res: inout [Int]) {
-    // 第 n 段に到達したら、方法数を 1 増やす
+    // n 段目に到達したら、方法の数を 1 増やす
     if state == n {
         res[0] += 1
     }
-    // すべての選択肢を走査
+    // すべての選択肢を走査する
     for choice in choices {
-        // 枝刈り: 第 n 段を超えないようにする
+        // 枝刈り：n 段目を越えてはならない
         if state + choice > n {
             continue
         }
-        // 試行: 選択を行い、状態を更新
+        // 試行：選択を行い、状態を更新する
         backtrack(choices: choices, state: state + choice, n: n, res: &res)
-        // バックトラック
+        // 復元
     }
 }
 
-/* 階段登り：バックトラッキング */
+/* 階段の上り方：バックトラッキング */
 func climbingStairsBacktrack(n: Int) -> Int {
-    let choices = [1, 2] // 1 段または 2 段上ることを選べる
-    let state = 0 // 第 0 段から上り始める
+    let choices = [1, 2] // 1 段または 2 段上ることを選択できる
+    let state = 0 // 0 段目から上り始める
     var res: [Int] = []
-    res.append(0) // res[0] を使って方法数を記録する
+    res.append(0) // res[0] に方法の数を記録する
     backtrack(choices: choices, state: state, n: n, res: &res)
     return res[0]
 }
 
 @main
 enum ClimbingStairsBacktrack {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
         let n = 9
 

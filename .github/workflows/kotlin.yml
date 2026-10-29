@@ -7,6 +7,7 @@ on:
       - ".github/workflows/kotlin.yml"
       - "codes/kotlin/**/*.kt"
       - "en/codes/kotlin/**/*.kt"
+      - "ja/codes/kotlin/**/*.kt"
       - "ko/codes/kotlin/**/*.kt"
   pull_request:
     branches: ["main"]
@@ -14,6 +15,7 @@ on:
       - ".github/workflows/kotlin.yml"
       - "codes/kotlin/**/*.kt"
       - "en/codes/kotlin/**/*.kt"
+      - "ja/codes/kotlin/**/*.kt"
       - "ko/codes/kotlin/**/*.kt"
   workflow_dispatch:
 
@@ -23,7 +25,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
-        code-dir: ["codes/kotlin", "en/codes/kotlin", "ko/codes/kotlin"]
+        code-dir: ["codes/kotlin", "en/codes/kotlin", "ja/codes/kotlin", "ko/codes/kotlin"]
 
     name: Kotlin on ${{ matrix.os }}
     steps:

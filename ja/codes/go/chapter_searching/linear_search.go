@@ -10,27 +10,27 @@ import (
 
 /* 線形探索（配列） */
 func linearSearchArray(nums []int, target int) int {
-	// 配列を走査
+	// 配列を走査する
 	for i := 0; i < len(nums); i++ {
-		// 目標要素が見つかったらそのインデックスを返す
+		// 目的の要素が見つかったので、そのインデックスを返す
 		if nums[i] == target {
 			return i
 		}
 	}
-	// 目標要素が見つからなければ -1 を返す
+	// 目的の要素が見つからなかったので、-1 を返す
 	return -1
 }
 
 /* 線形探索（連結リスト） */
 func linearSearchLinkedList(node *ListNode, target int) *ListNode {
-	// 連結リストを走査
+	// 連結リストを走査する
 	for node != nil {
-		// 対象ノードが見つかったら、それを返す
+		// 目的のノードが見つかったので、それを返す
 		if node.Val == target {
 			return node
 		}
 		node = node.Next
 	}
-	// 対象要素が見つからない場合は `nil` を返す
+	// 目的の要素が見つからなかったので、nil を返す
 	return nil
 }

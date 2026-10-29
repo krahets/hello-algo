@@ -10,97 +10,97 @@ import utils
 class MaxHeap {
     private var maxHeap: [Int]
 
-    /* コンストラクタ。入力リストに基づいてヒープを構築する */
+    /* コンストラクタ：入力リストからヒープを構築する */
     init(nums: [Int]) {
-        // リスト要素をそのままヒープに追加
+        // リストの要素をそのままヒープに追加する
         maxHeap = nums
-        // 葉ノード以外のすべてのノードをヒープ化
+        // 葉ノード以外の全ノードをヒープ化する
         for i in (0 ... parent(i: size() - 1)).reversed() {
             siftDown(i: i)
         }
     }
 
-    /* 左子ノードのインデックスを取得 */
+    /* 左の子のインデックスを取得 */
     private func left(i: Int) -> Int {
         2 * i + 1
     }
 
-    /* 右子ノードのインデックスを取得 */
+    /* 右の子のインデックスを取得 */
     private func right(i: Int) -> Int {
         2 * i + 2
     }
 
-    /* 親ノードのインデックスを取得 */
+    /* 親のインデックスを取得 */
     private func parent(i: Int) -> Int {
         (i - 1) / 2 // 切り捨て除算
     }
 
-    /* 要素を交換 */
+    /* 要素を交換する */
     private func swap(i: Int, j: Int) {
         maxHeap.swapAt(i, j)
     }
 
-    /* ヒープのサイズを取得 */
+    /* ヒープのサイズを取得する */
     func size() -> Int {
         maxHeap.count
     }
 
-    /* ヒープが空かどうかを判定 */
+    /* ヒープが空か判定 */
     func isEmpty() -> Bool {
         size() == 0
     }
 
-    /* ヒープ先頭要素にアクセス */
+    /* ヒープの先頭要素にアクセスする */
     func peek() -> Int {
         maxHeap[0]
     }
 
-    /* 要素をヒープに追加 */
+    /* ヒープに要素を挿入する */
     func push(val: Int) {
-        // ノードを追加
+        // ノードを追加する
         maxHeap.append(val)
-        // 下から上へヒープ化
+        // 下から上へヒープ化する
         siftUp(i: size() - 1)
     }
 
-    /* ノード i から始めて、下から上へヒープ化 */
+    /* ノード i から上向きにヒープ化する */
     private func siftUp(i: Int) {
         var i = i
         while true {
-            // ノード i の親ノードを取得
+            // ノード i の親ノードを取得する
             let p = parent(i: i)
-            // 「根ノードを越えた」または「ノードの修復が不要」になったらヒープ化を終了
+            // 「根ノードを越えた」または「ノードの修復が不要」の場合、ヒープ化を終了する
             if p < 0 || maxHeap[i] <= maxHeap[p] {
                 break
             }
-            // 2 つのノードを交換
+            // 2 つのノードを交換する
             swap(i: i, j: p)
-            // ループで下から上へヒープ化
+            // 上向きのヒープ化を繰り返す
             i = p
         }
     }
 
-    /* 要素をヒープから取り出す */
+    /* ヒープから要素を取り出す */
     func pop() -> Int {
-        // 空判定の処理
+        // 空かどうかを確認する
         if isEmpty() {
             fatalError("ヒープが空です")
         }
-        // 根ノードと最も右の葉ノードを交換（先頭要素と末尾要素を交換）
+        // 根と最右の葉を交換（先頭要素と末尾要素を交換）
         swap(i: 0, j: size() - 1)
-        // ノードを削除
+        // ノードを削除する
         let val = maxHeap.remove(at: size() - 1)
-        // 上から下へヒープ化
+        // 上から下へヒープ化する
         siftDown(i: 0)
-        // ヒープ先頭要素を返す
+        // ヒープの先頭要素を返す
         return val
     }
 
-    /* ノード i から始めて、上から下へヒープ化 */
+    /* ノード i から下向きにヒープ化する */
     private func siftDown(i: Int) {
         var i = i
         while true {
-            // ノード i, l, r のうち値が最大のノードを ma とする
+            // ノード i, l, r のうち値が最大のノードを求め、ma とする
             let l = left(i: i)
             let r = right(i: i)
             var ma = i
@@ -110,18 +110,18 @@ class MaxHeap {
             if r < size(), maxHeap[r] > maxHeap[ma] {
                 ma = r
             }
-            // ノード i が最大、またはインデックス l, r が範囲外なら、ヒープ化は不要なので抜ける
+            // ノード i が最大か添字 l, r が範囲外なら、ヒープ化は不要なので終了
             if ma == i {
                 break
             }
-            // 2 つのノードを交換
+            // 2 つのノードを交換する
             swap(i: i, j: ma)
-            // ループで上から下へヒープ化
+            // 下向きのヒープ化を繰り返す
             i = ma
         }
     }
 
-    /* ヒープ（二分木）を出力 */
+    /* ヒープ（二分木）を表示する */
     func print() {
         let queue = maxHeap
         PrintUtil.printHeap(queue: queue)
@@ -130,34 +130,34 @@ class MaxHeap {
 
 @main
 enum MyHeap {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
-        /* 最大ヒープを初期化 */
+        /* 最大ヒープを初期化する */
         let maxHeap = MaxHeap(nums: [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2])
         print("\nリストを入力してヒープを構築した後")
         maxHeap.print()
 
-        /* ヒープ頂点の要素を取得 */
+        /* ヒープの先頭要素を取得する */
         var peek = maxHeap.peek()
-        print("\nヒープ先頭要素は \(peek)")
+        print("\nヒープの先頭要素は \(peek)")
 
-        /* 要素をヒープに追加 */
+        /* ヒープに要素を挿入する */
         let val = 7
         maxHeap.push(val: val)
-        print("\n要素 \(val) をヒープに追加した後")
+        print("\n要素 \(val) をヒープに挿入した後")
         maxHeap.print()
 
-        /* ヒープ頂点の要素を取り出す */
+        /* ヒープの先頭要素を取り出す */
         peek = maxHeap.pop()
-        print("\nヒープ先頭要素 \(peek) を取り出した後")
+        print("\nヒープの先頭要素 \(peek) を取り出した後")
         maxHeap.print()
 
-        /* ヒープのサイズを取得 */
+        /* ヒープのサイズを取得する */
         let size = maxHeap.size()
-        print("\nヒープ内の要素数は \(size)")
+        print("\nヒープの要素数は \(size)")
 
-        /* ヒープが空かどうかを判定 */
+        /* ヒープが空か判定 */
         let isEmpty = maxHeap.isEmpty()
-        print("\nヒープが空かどうか \(isEmpty)")
+        print("\nヒープは空か \(isEmpty)")
     }
 }

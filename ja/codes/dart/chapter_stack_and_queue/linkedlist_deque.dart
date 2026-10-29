@@ -4,16 +4,16 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* 双方向連結リストノード */
+/* 双方向連結リストのノード */
 class ListNode {
-  int val; // ノード値
+  int val; // ノードの値
   ListNode? next; // 後続ノードへの参照
-  ListNode? prev; // 前駆ノードへの参照
+  ListNode? prev; // 前のノードへの参照
 
   ListNode(this.val, {this.next, this.prev});
 }
 
-/* 双方向連結リストに基づく双方向キュー */
+/* 双方向連結リストで実装した両端キュー */
 class LinkedListDeque {
   late ListNode? _front; // 先頭ノード _front
   late ListNode? _rear; // 末尾ノード _rear
@@ -24,12 +24,12 @@ class LinkedListDeque {
     this._rear = null;
   }
 
-  /* 両端キューの長さを取得 */
+  /* 両端キューの長さを取得する */
   int size() {
     return this._queSize;
   }
 
-  /* 両端キューが空かどうかを判定 */
+  /* 両端キューが空かどうかを判定する */
   bool isEmpty() {
     return size() == 0;
   }
@@ -38,7 +38,7 @@ class LinkedListDeque {
   void push(int _num, bool isFront) {
     final ListNode node = ListNode(_num);
     if (isEmpty()) {
-      // 連結リストが空なら、`_front` と `_rear` の両方を `node` に向ける
+      // 連結リストが空の場合、_front と _rear の両方が node を指すようにする
       _front = _rear = node;
     } else if (isFront) {
       // 先頭へのエンキュー操作
@@ -53,74 +53,74 @@ class LinkedListDeque {
       node.prev = _rear;
       _rear = node; // 末尾ノードを更新する
     }
-    _queSize++; // キューの長さを更新
+    _queSize++; // キューの長さを更新する
   }
 
-  /* キュー先頭にエンキュー */
+  /* 先頭にエンキューする */
   void pushFirst(int _num) {
     push(_num, true);
   }
 
-  /* キュー末尾にエンキュー */
+  /* 末尾にエンキューする */
   void pushLast(int _num) {
     push(_num, false);
   }
 
   /* デキュー操作 */
   int? pop(bool isFront) {
-    // キューが空なら、そのまま `null` を返す
+    // キューが空の場合、そのまま null を返す
     if (isEmpty()) {
       return null;
     }
     final int val;
-    // 要素が1つの場合、先頭と末尾は同じノードを指す
+    // キューの長さが 1 のとき、先頭と末尾は同じノードを指す
     if (_queSize == 1) {
       val = _front!.val;
       _front = null;
       _rear = null;
     }
-    // キュー先頭からの取り出し
+    // 先頭からのデキュー操作
     else if (isFront) {
-      val = _front!.val; // 先頭ノードの値を一時保存
-      // 先頭ノードを削除
+      val = _front!.val; // 先頭ノードの値を一時保存する
+      // 先頭ノードを削除する
       ListNode? fNext = _front!.next;
       fNext!.prev = null;
       _front!.next = null;
       _front = fNext; // 先頭ノードを更新する
-    // キュー末尾からの取り出し
+    // 末尾からのデキュー操作
     } else {
-      val = _rear!.val; // 末尾ノードの値を一時保存
-      // 末尾ノードを削除
+      val = _rear!.val; // 末尾ノードの値を一時保存する
+      // 末尾ノードを削除する
       ListNode? rPrev = _rear!.prev;
       rPrev!.next = null;
       _rear!.prev = null;
       _rear = rPrev; // 末尾ノードを更新する
     }
-    _queSize--; // キューの長さを更新
+    _queSize--; // キューの長さを更新する
     return val;
   }
 
-  /* キュー先頭からデキュー */
+  /* 先頭からデキューする */
   int? popFirst() {
     return pop(true);
   }
 
-  /* キュー末尾からデキュー */
+  /* 末尾からデキューする */
   int? popLast() {
     return pop(false);
   }
 
-  /* キュー先頭の要素にアクセス */
+  /* キューの先頭要素にアクセス */
   int? peekFirst() {
     return _front?.val;
   }
 
-  /* キュー末尾の要素にアクセス */
+  /* キューの末尾要素にアクセスする */
   int? peekLast() {
     return _rear?.val;
   }
 
-  /* 出力用の配列を返す */
+  /* 表示用の配列を返す */
   List<int> toArray() {
     ListNode? node = _front;
     final List<int> res = [];
@@ -132,38 +132,38 @@ class LinkedListDeque {
   }
 }
 
-/* Driver Code */
+/* 実行用コード */
 void main() {
-  /* 両端キューを初期化 */
+  /* 両端キューを初期化する */
   final LinkedListDeque deque = LinkedListDeque();
   deque.pushLast(3);
   deque.pushLast(2);
   deque.pushLast(5);
   print("両端キュー deque = ${deque.toArray()}");
 
-  /* 要素にアクセス */
+  /* 要素にアクセスする */
   int? peekFirst = deque.peekFirst();
-  print("先頭要素 peekFirst = $peekFirst");
+  print("キューの先頭要素 peekFirst = $peekFirst");
   int? peekLast = deque.peekLast();
-  print("末尾要素 peekLast = $peekLast");
+  print("キューの末尾要素 peekLast = $peekLast");
 
-  /* 要素をエンキュー */
+  /* 要素をエンキューする */
   deque.pushLast(4);
-  print("要素 4 を末尾に追加した後 deque = ${deque.toArray()}");
+  print("要素 4 を末尾にエンキューした後 deque = ${deque.toArray()}");
   deque.pushFirst(1);
-  print("要素 1 を先頭に追加した後 deque = ${deque.toArray()}");
+  print("要素 1 を先頭にエンキューした後 deque = ${deque.toArray()}");
 
-  /* 要素をデキュー */
+  /* 要素をデキューする */
   int? popLast = deque.popLast();
-  print("末尾から取り出した要素 = $popLast ，末尾から取り出した後 deque = ${deque.toArray()}");
+  print("末尾からデキューした要素 = $popLast 、末尾からデキューした後 deque = ${deque.toArray()}");
   int? popFirst = deque.popFirst();
-  print("先頭から取り出した要素 = $popFirst ，先頭から取り出した後 deque = ${deque.toArray()}");
+  print("先頭からデキューした要素 = $popFirst 、先頭からデキューした後 deque = ${deque.toArray()}");
 
-  /* 両端キューの長さを取得 */
+  /* 両端キューの長さを取得する */
   int size = deque.size();
   print("両端キューの長さ size = $size");
 
-  /* 両端キューが空かどうかを判定 */
+  /* 両端キューが空かどうかを判定する */
   bool isEmpty = deque.isEmpty();
-  print("両端キューが空かどうか = $isEmpty");
+  print("両端キューは空か = $isEmpty");
 }

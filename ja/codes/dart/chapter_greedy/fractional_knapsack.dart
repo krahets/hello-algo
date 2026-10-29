@@ -12,13 +12,13 @@ class Item {
   Item(this.w, this.v);
 }
 
-/* 分数ナップサック：貪欲法 */
+/* 分割可能ナップサック問題：貪欲法 */
 double fractionalKnapsack(List<int> wgt, List<int> val, int cap) {
-  // 重さと価値の 2 属性を持つ品物リストを作成
+  // 重さと価値の 2 つの属性を持つ品物のリストを作成する
   List<Item> items = List.generate(wgt.length, (i) => Item(wgt[i], val[i]));
-  // 単位価値 item.v / item.w の高い順にソートする
+  // 単位重さ当たりの価値 item.v / item.w の降順にソートする
   items.sort((a, b) => (b.v / b.w).compareTo(a.v / a.w));
-  // 貪欲選択を繰り返す
+  // 貪欲な選択を繰り返す
   double res = 0;
   for (Item item in items) {
     if (item.w <= cap) {
@@ -26,22 +26,22 @@ double fractionalKnapsack(List<int> wgt, List<int> val, int cap) {
       res += item.v;
       cap -= item.w;
     } else {
-      // 残り容量が足りない場合は、現在の品物の一部だけをナップサックに入れる
+      // 残り容量が不足している場合、現在の品物の一部をナップサックに入れる
       res += item.v / item.w * cap;
-      // 残り容量がないため、ループを抜ける
+      // 残り容量がないため、ループを終了する
       break;
     }
   }
   return res;
 }
 
-/* Driver Code */
+/* 実行用コード */
 void main() {
   List<int> wgt = [10, 20, 30, 40, 50];
   List<int> val = [50, 120, 150, 210, 240];
   int cap = 50;
 
-  // 貪欲法
+  // 貪欲アルゴリズム
   double res = fractionalKnapsack(wgt, val, cap);
-  print("ナップサック容量を超えない最大価値は $res");
+  print("ナップサックの容量を超えない品物の最大価値は $res");
 }

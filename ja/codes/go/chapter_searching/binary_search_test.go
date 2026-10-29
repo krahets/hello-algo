@@ -15,11 +15,11 @@ func TestBinarySearch(t *testing.T) {
 		nums     = []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
 		expected = 2
 	)
-	// 配列で二分探索を実行
+	// 配列で二分探索を行う
 	actual := binarySearch(nums, target)
-	fmt.Println("対象要素 6 のインデックス =", actual)
+	fmt.Println("目的の要素 6 のインデックス =", actual)
 	if actual != expected {
-		t.Errorf("対象要素 6 のインデックス = %d, 想定値は %d", actual, expected)
+		t.Errorf("目的の要素 6 のインデックス = %d、期待値は %d", actual, expected)
 	}
 }
 
@@ -28,13 +28,13 @@ func TestBinarySearchEdge(t *testing.T) {
 	nums := []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
 	fmt.Println("\n配列 nums = ", nums)
 
-	// 二分探索で左端と右端を探す
+	// 二分探索で左境界と右境界を求める
 	for _, target := range []int{6, 7} {
 		index := binarySearchLeftEdge(nums, target)
-		fmt.Println("最も左の要素", target, "のインデックスは", index)
+		fmt.Println("最も左にある要素", target, "のインデックスは", index)
 
 		index = binarySearchRightEdge(nums, target)
-		fmt.Println("最も右の要素", target, "のインデックスは", index)
+		fmt.Println("最も右にある要素", target, "のインデックスは", index)
 	}
 }
 
@@ -43,7 +43,7 @@ func TestBinarySearchInsertion(t *testing.T) {
 	nums := []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
 	fmt.Println("配列 nums =", nums)
 
-	// 二分探索で挿入位置を探す
+	// 二分探索による挿入位置の探索
 	for _, target := range []int{6, 9} {
 		index := binarySearchInsertionSimple(nums, target)
 		fmt.Println("要素", target, "の挿入位置のインデックスは", index)
@@ -53,7 +53,7 @@ func TestBinarySearchInsertion(t *testing.T) {
 	nums = []int{1, 3, 6, 6, 6, 6, 6, 10, 12, 15}
 	fmt.Println("\n配列 nums =", nums)
 
-	// 二分探索で挿入位置を探す
+	// 二分探索による挿入位置の探索
 	for _, target := range []int{2, 6, 20} {
 		index := binarySearchInsertion(nums, target)
 		fmt.Println("要素", target, "の挿入位置のインデックスは", index)

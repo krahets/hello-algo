@@ -6,9 +6,9 @@
 
 /* メモ化探索 */
 function dfs(i, mem) {
-    // dp[1] と dp[2] は既知なので返す
+    // dp[1] と dp[2] は既知なので、その値を返す
     if (i === 1 || i === 2) return i;
-    // dp[i] の記録があれば、それをそのまま返す
+    // dp[i] が記録済みなら、その値をそのまま返す
     if (mem[i] != -1) return mem[i];
     // dp[i] = dp[i-1] + dp[i-2]
     const count = dfs(i - 1, mem) + dfs(i - 2, mem);
@@ -17,14 +17,14 @@ function dfs(i, mem) {
     return count;
 }
 
-/* 階段登り：メモ化探索 */
+/* 階段の上り方：メモ化探索 */
 function climbingStairsDFSMem(n) {
-    // mem[i] は第 i 段まで上る方法の総数を記録し、-1 は未記録を表す
+    // mem[i] は i 段目まで上る方法の総数を記録し、-1 は未記録を表す
     const mem = new Array(n + 1).fill(-1);
     return dfs(n, mem);
 }
 
-/* Driver Code */
+/* 実行用コード */
 const n = 9;
 const res = climbingStairsDFSMem(n);
-console.log(`${n} 階の階段を上る方法は全部で ${res} 通り`);
+console.log(`${n} 段の階段を上る方法は全部で ${res} 通り`);

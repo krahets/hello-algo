@@ -10,6 +10,7 @@ on:
       - ".github/workflows/python.yml"
       - "codes/python/**/*.py"
       - "en/codes/python/**/*.py"
+      - "ja/codes/python/**/*.py"
       - "ko/codes/python/**/*.py"
   pull_request:
     branches: ["main"]
@@ -17,6 +18,7 @@ on:
       - ".github/workflows/python.yml"
       - "codes/python/**/*.py"
       - "en/codes/python/**/*.py"
+      - "ja/codes/python/**/*.py"
       - "ko/codes/python/**/*.py"
   workflow_dispatch:
 
@@ -33,7 +35,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         python-version: ["3.10"]
-        code-dir: ["codes/python", "en/codes/python", "ko/codes/python"]
+        code-dir: ["codes/python", "en/codes/python", "ja/codes/python", "ko/codes/python"]
     steps:
       - uses: actions/checkout@v6
       - name: Set up Python ${{ matrix.python-version }}

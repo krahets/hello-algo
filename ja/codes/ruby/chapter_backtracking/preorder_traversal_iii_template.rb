@@ -7,61 +7,61 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-### 現在の状態が解かどうかを判定 ###
+### 現在の状態が解かを判定 ###
 def is_solution?(state)
   !state.empty? && state.last.val == 7
 end
 
-### 解を記録 ###
+### 解を記録する ###
 def record_solution(state, res)
   res << state.dup
 end
 
-### 現在の状態で、この選択が妥当かを判定 ###
+### 現在の状態でこの選択が有効か判定 ###
 def is_valid?(state, choice)
   choice && choice.val != 3
 end
 
-### 状態を更新 ###
+### 状態を更新する ###
 def make_choice(state, choice)
   state << choice
 end
 
-### 状態を復元 ###
+### 状態を復元する ###
 def undo_choice(state, choice)
   state.pop
 end
 
-### バックトラッキング法：例題3 ###
+### バックトラッキング：例題 3 ###
 def backtrack(state, choices, res)
-  # 解かどうかを確認
+  # 解かを確認
   record_solution(state, res) if is_solution?(state)
 
-  # すべての選択肢を走査
+  # すべての選択肢を走査する
   for choice in choices
-    # 枝刈り：選択が妥当かを確認する
+    # 枝刈り：選択が有効か確認
     if is_valid?(state, choice)
-      # 試行: 選択を行い、状態を更新
+      # 試行：選択を行い、状態を更新する
       make_choice(state, choice)
-      # 次の選択へ進む
+      # 次の選択に進む
       backtrack(state, [choice.left, choice.right], res)
-      # バックトラック：選択を取り消し、前の状態に戻す
+      # 復元：選択を取り消し、以前の状態に戻す
       undo_choice(state, choice)
     end
   end
 end
 
-### Driver Code ###
+### 実行用コード ###
 if __FILE__ == $0
   root = arr_to_tree([1, 7, 3, 4, 5, 6, 7])
-  puts "\n二分木を初期化"
+  puts "\n二分木を初期化する"
   print_tree(root)
 
-  # バックトラッキング法
+  # バックトラッキング
   res = []
   backtrack([], [root], res)
 
-  puts "\n根ノードからノード 7 までのすべての経路を出力し、経路に値が 3 のノードを含まないことを条件とする"
+  puts "\n値が 3 のノードを含まない、根ノードからノード 7 までのすべての経路を出力する"
   for path in res
     p path.map { |node| node.val }
   end

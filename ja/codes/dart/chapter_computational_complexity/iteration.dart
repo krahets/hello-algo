@@ -7,7 +7,7 @@
 /* for ループ */
 int forLoop(int n) {
   int res = 0;
-  // 1, 2, ..., n-1, n を順に加算する
+  // ループで 1, 2, ..., n-1, n の和を求める
   for (int i = 1; i <= n; i++) {
     res += i;
   }
@@ -18,7 +18,7 @@ int forLoop(int n) {
 int whileLoop(int n) {
   int res = 0;
   int i = 1; // 条件変数を初期化する
-  // 1, 2, ..., n-1, n を順に加算する
+  // ループで 1, 2, ..., n-1, n の和を求める
   while (i <= n) {
     res += i;
     i++; // 条件変数を更新する
@@ -26,11 +26,11 @@ int whileLoop(int n) {
   return res;
 }
 
-/* while ループ（2回更新） */
+/* while ループ（2 回の更新） */
 int whileLoopII(int n) {
   int res = 0;
   int i = 1; // 条件変数を初期化する
-  // 1, 4, 10, ... を順に加算する
+  // ループで 1, 4, 10, ... の和を求める
   while (i <= n) {
     res += i;
     // 条件変数を更新する
@@ -43,9 +43,9 @@ int whileLoopII(int n) {
 /* 二重 for ループ */
 String nestedForLoop(int n) {
   String res = "";
-  // i = 1, 2, ..., n-1, n とループする
+  // i = 1, 2, ..., n-1, n のループ
   for (int i = 1; i <= n; i++) {
-    // j = 1, 2, ..., n-1, n とループする
+    // j = 1, 2, ..., n-1, n のループ
     for (int j = 1; j <= n; j++) {
       res += "($i, $j), ";
     }
@@ -53,19 +53,19 @@ String nestedForLoop(int n) {
   return res;
 }
 
-/* Driver Code */
+/* 実行用コード */
 void main() {
   int n = 5;
   int res;
 
   res = forLoop(n);
-  print("\nfor ループの合計結果 res = $res");
+  print("\nfor ループで求めた和 res = $res");
 
   res = whileLoop(n);
-  print("\nwhile ループの合計結果 res = $res");
+  print("\nwhile ループで求めた和 res = $res");
 
   res = whileLoopII(n);
-  print("\nwhile ループ（2 回更新）の合計結果 res = $res");
+  print("\nwhile ループ（2 回の更新）で求めた和 res = $res");
 
   String resStr = nestedForLoop(n);
   print("\n二重 for ループの結果 $resStr");

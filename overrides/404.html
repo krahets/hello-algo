@@ -1,8 +1,5 @@
 {% extends "main.html" %}
 {% block content %}
-  {% if config.theme.language == 'ko' %}
-    <h1>404 - 페이지를 찾을 수 없습니다</h1>
-  {% else %}
-    <h1>404 - Not found</h1>
-  {% endif %}
+  {% from "partials/i18n.html" import ui with context %}
+  <h1>404 - {{ ui.not_found }}</h1>
 {% endblock %}

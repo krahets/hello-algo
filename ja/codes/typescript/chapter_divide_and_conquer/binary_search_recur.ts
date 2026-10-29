@@ -6,11 +6,11 @@
 
 /* 二分探索：問題 f(i, j) */
 function dfs(nums: number[], target: number, i: number, j: number): number {
-    // 区間が空なら対象要素は存在しないので -1 を返す
+    // 区間が空なら目的の要素が存在しないため、-1 を返す
     if (i > j) {
         return -1;
     }
-    // 中点インデックス m を計算
+    // 中央のインデックス m を計算する
     const m = i + ((j - i) >> 1);
     if (nums[m] < target) {
         // 部分問題 f(m+1, j) を再帰的に解く
@@ -19,7 +19,7 @@ function dfs(nums: number[], target: number, i: number, j: number): number {
         // 部分問題 f(i, m-1) を再帰的に解く
         return dfs(nums, target, i, m - 1);
     } else {
-        // 目標要素が見つかったらそのインデックスを返す
+        // 目的の要素が見つかったので、そのインデックスを返す
         return m;
     }
 }
@@ -31,11 +31,11 @@ function binarySearch(nums: number[], target: number): number {
     return dfs(nums, target, 0, n - 1);
 }
 
-/* Driver Code */
+/* 実行用コード */
 const target = 6;
 const nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
-// 二分探索（両閉区間）
+// 二分探索（閉区間）
 const index = binarySearch(nums, target);
-console.log(`対象要素 6 のインデックス = ${index}`);
+console.log(`目的の要素 6 のインデックス = ${index}`);
 
 export {};

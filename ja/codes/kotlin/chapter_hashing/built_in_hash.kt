@@ -8,7 +8,7 @@ package chapter_hashing
 
 import utils.ListNode
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
     val num = 3
     val hashNum = num.hashCode()
@@ -22,11 +22,11 @@ fun main() {
     val hashDec = dec.hashCode()
     println("小数 $dec のハッシュ値は $hashDec")
 
-    val str = "Hello アルゴリズム"
+    val str = "Hello 算法"
     val hashStr = str.hashCode()
     println("文字列 $str のハッシュ値は $hashStr")
 
-    val arr = arrayOf<Any>(12836, "シャオハー")
+    val arr = arrayOf<Any>(12836, "小哈")
     val hashTup = arr.contentHashCode()
     println("配列 ${arr.contentToString()} のハッシュ値は $hashTup")
 
