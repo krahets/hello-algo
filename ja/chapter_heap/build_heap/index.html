@@ -4985,7 +4985,7 @@
 <p><img alt="満二分木の各層のノード数" class="animation-figure" src="../build_heap.assets/heapify_operations_count.png" /></p>
 <p align="center"> 図 8-5 &nbsp; 満二分木の各層のノード数 </p>
 
-<p>上図に示すように、ノードを「上から下へヒープ化」する最大反復回数は、そのノードから葉ノードまでの距離に等しく、この距離こそが「ノードの高さ」です。したがって、各層の「ノード数 <span class="arithmatex">\(\times\)</span> ノードの高さ」を合計すれば、**すべてのノードのヒープ化反復回数の総和**が得られます。</p>
+<p>上図に示すように、ノードを「上から下へヒープ化」する最大反復回数は、そのノードから葉ノードまでの距離に等しく、この距離こそが「ノードの高さ」です。したがって、各層の「ノード数 <span class="arithmatex">\(\times\)</span> ノードの高さ」を合計すれば、<strong>すべてのノードのヒープ化反復回数の総和</strong>が得られます。</p>
 <div class="arithmatex">\[
 T(h) = 2^0h + 2^1(h-1) + 2^2(h-2) + \dots + 2^{(h-1)}\times1
 \]</div>
@@ -5008,7 +5008,7 @@ T(h) &amp; = 2 \frac{1 - 2^h}{1 - 2} - h \newline
 &amp; = O(2^h)
 \end{aligned}
 \]</div>
-<p>さらに、高さ <span class="arithmatex">\(h\)</span> の満二分木のノード数は <span class="arithmatex">\(n = 2^{h+1} - 1\)</span> であるため、計算量は容易に <span class="arithmatex">\(O(2^h) = O(n)\)</span> とわかります。以上の導出は、**入力リストからヒープを構築する時間計算量が <span class="arithmatex">\(O(n)\)</span> であり、非常に効率的である**ことを示しています。</p>
+<p>さらに、高さ <span class="arithmatex">\(h\)</span> の満二分木のノード数は <span class="arithmatex">\(n = 2^{h+1} - 1\)</span> であるため、計算量は容易に <span class="arithmatex">\(O(2^h) = O(n)\)</span> とわかります。以上の導出は、<strong>入力リストからヒープを構築する時間計算量が <span class="arithmatex">\(O(n)\)</span> であり、非常に効率的である</strong>ことを示しています。</p>
 
 <!-- Source file information -->
 

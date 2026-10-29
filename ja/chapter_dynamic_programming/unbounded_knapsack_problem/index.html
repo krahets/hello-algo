@@ -5627,7 +5627,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i, c - wgt[i-1]] + val[i-1])
 <li>完全ナップサック問題はナップサック容量を「超えない」解を求めますが、硬貨交換は目標金額に「ちょうど」一致する解を求めます。</li>
 </ul>
 <p><strong>ステップ 1：各ラウンドの選択を考え、状態を定義して、<span class="arithmatex">\(dp\)</span> テーブルを得る</strong></p>
-<p>状態 <span class="arithmatex">\([i, a]\)</span> に対応する部分問題は、**先頭 <span class="arithmatex">\(i\)</span> 種類の硬貨で金額 <span class="arithmatex">\(a\)</span> を作るための最小硬貨枚数**であり、これを <span class="arithmatex">\(dp[i, a]\)</span> と表します。</p>
+<p>状態 <span class="arithmatex">\([i, a]\)</span> に対応する部分問題は、<strong>先頭 <span class="arithmatex">\(i\)</span> 種類の硬貨で金額 <span class="arithmatex">\(a\)</span> を作るための最小硬貨枚数</strong>であり、これを <span class="arithmatex">\(dp[i, a]\)</span> と表します。</p>
 <p>2 次元 <span class="arithmatex">\(dp\)</span> テーブルのサイズは <span class="arithmatex">\((n+1) \times (amt+1)\)</span> です。</p>
 <p><strong>ステップ 2：最適部分構造を見つけ、状態遷移方程式を導く</strong></p>
 <p>本問の状態遷移方程式は、完全ナップサック問題と比べて次の 2 点が異なります。</p>
@@ -6417,7 +6417,7 @@ dp[i, a] = \min(dp[i-1, a], dp[i, a - coins[i-1]] + 1)
 <h2 id="1453-ii">14.5.3 &nbsp; 硬貨交換問題 II<a class="headerlink" href="#1453-ii" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p><span class="arithmatex">\(n\)</span> 種類の硬貨が与えられ、<span class="arithmatex">\(i\)</span> 番目の硬貨の額面は <span class="arithmatex">\(coins[i - 1]\)</span> 、目標金額は <span class="arithmatex">\(amt\)</span> です。各硬貨は繰り返し選択できるとして、**目標金額を作る硬貨の組合せ数**を求めてください。例を以下の図に示します。</p>
+<p><span class="arithmatex">\(n\)</span> 種類の硬貨が与えられ、<span class="arithmatex">\(i\)</span> 番目の硬貨の額面は <span class="arithmatex">\(coins[i - 1]\)</span> 、目標金額は <span class="arithmatex">\(amt\)</span> です。各硬貨は繰り返し選択できるとして、<strong>目標金額を作る硬貨の組合せ数</strong>を求めてください。例を以下の図に示します。</p>
 </div>
 <p><img alt="硬貨交換問題 II のサンプルデータ" class="animation-figure" src="../unbounded_knapsack_problem.assets/coin_change_ii_example.png" /></p>
 <p align="center"> 図 14-26 &nbsp; 硬貨交換問題 II のサンプルデータ </p>

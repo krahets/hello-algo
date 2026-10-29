@@ -5105,15 +5105,15 @@
 dp[i-1], dp[i-2], \dots, dp[2], dp[1]
 \]</div>
 <p>各ラウンドでは <span class="arithmatex">\(1\)</span> 段または <span class="arithmatex">\(2\)</span> 段しか上れないため、<span class="arithmatex">\(i\)</span> 段目の階段に立っているとき、直前のラウンドでは <span class="arithmatex">\(i - 1\)</span> 段目または <span class="arithmatex">\(i - 2\)</span> 段目にしか立てません。言い換えると、<span class="arithmatex">\(i -1\)</span> 段目または <span class="arithmatex">\(i - 2\)</span> 段目からしか <span class="arithmatex">\(i\)</span> 段目へ進めません。</p>
-<p>ここから重要な帰結が得られます。**<span class="arithmatex">\(i - 1\)</span> 段目まで上る方法数と <span class="arithmatex">\(i - 2\)</span> 段目まで上る方法数の和が、<span class="arithmatex">\(i\)</span> 段目まで上る方法数に等しい**のです。式は次のとおりです：</p>
+<p>ここから重要な帰結が得られます。<strong><span class="arithmatex">\(i - 1\)</span> 段目まで上る方法数と <span class="arithmatex">\(i - 2\)</span> 段目まで上る方法数の和が、<span class="arithmatex">\(i\)</span> 段目まで上る方法数に等しい</strong>のです。式は次のとおりです：</p>
 <div class="arithmatex">\[
 dp[i] = dp[i-1] + dp[i-2]
 \]</div>
-<p>これは、階段を上る問題では各部分問題の間に漸化関係があり、**元の問題の解は部分問題の解から構築できる**ことを意味します。次の図はこの漸化関係を示しています。</p>
+<p>これは、階段を上る問題では各部分問題の間に漸化関係があり、<strong>元の問題の解は部分問題の解から構築できる</strong>ことを意味します。次の図はこの漸化関係を示しています。</p>
 <p><img alt="方法数の漸化関係" class="animation-figure" src="../intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png" /></p>
 <p align="center"> 図 14-2 &nbsp; 方法数の漸化関係 </p>
 
-<p>漸化式に基づいて総当たり探索の解法を得ることができます。<span class="arithmatex">\(dp[n]\)</span> を出発点とし、**より大きな問題を再帰的に 2 つのより小さな問題の和へ分解**していき、最小部分問題 <span class="arithmatex">\(dp[1]\)</span> と <span class="arithmatex">\(dp[2]\)</span> に到達したら返します。ここで最小部分問題の解は既知であり、<span class="arithmatex">\(dp[1] = 1\)</span>、<span class="arithmatex">\(dp[2] = 2\)</span> です。これは、第 <span class="arithmatex">\(1\)</span> 段目と第 <span class="arithmatex">\(2\)</span> 段目まで上る方法がそれぞれ <span class="arithmatex">\(1\)</span> 通り、<span class="arithmatex">\(2\)</span> 通りであることを表します。</p>
+<p>漸化式に基づいて総当たり探索の解法を得ることができます。<span class="arithmatex">\(dp[n]\)</span> を出発点とし、<strong>より大きな問題を再帰的に 2 つのより小さな問題の和へ分解</strong>していき、最小部分問題 <span class="arithmatex">\(dp[1]\)</span> と <span class="arithmatex">\(dp[2]\)</span> に到達したら返します。ここで最小部分問題の解は既知であり、<span class="arithmatex">\(dp[1] = 1\)</span>、<span class="arithmatex">\(dp[2] = 2\)</span> です。これは、第 <span class="arithmatex">\(1\)</span> 段目と第 <span class="arithmatex">\(2\)</span> 段目まで上る方法がそれぞれ <span class="arithmatex">\(1\)</span> 通り、<span class="arithmatex">\(2\)</span> 通りであることを表します。</p>
 <p>次のコードを見ると、標準的なバックトラッキングコードと同じく深さ優先探索に属しますが、より簡潔です：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><input id="__tabbed_2_13" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
@@ -5347,7 +5347,7 @@ dp[i] = dp[i-1] + dp[i-2]
 <p>上の図を見ると、<strong>指数オーダーの時間計算量は「重複部分問題」によって生じています</strong>。たとえば <span class="arithmatex">\(dp[9]\)</span> は <span class="arithmatex">\(dp[8]\)</span> と <span class="arithmatex">\(dp[7]\)</span> に分解され、<span class="arithmatex">\(dp[8]\)</span> は <span class="arithmatex">\(dp[7]\)</span> と <span class="arithmatex">\(dp[6]\)</span> に分解されるため、どちらにも部分問題 <span class="arithmatex">\(dp[7]\)</span> が含まれています。</p>
 <p>このように、部分問題の中にはさらに小さな重複部分問題が含まれ、それが際限なく続いていきます。計算資源の大部分は、こうした重複部分問題に浪費されています。</p>
 <h2 id="1412-2">14.1.2 &nbsp; 方法 2：メモ化探索<a class="headerlink" href="#1412-2" title="Permanent link">&para;</a></h2>
-<p>アルゴリズム効率を高めるため、**すべての重複部分問題を 1 回だけ計算したい**と考えます。そのために、各部分問題の解を記録する配列 <code>mem</code> を宣言し、探索の過程で重複部分問題を枝刈りします。</p>
+<p>アルゴリズム効率を高めるため、<strong>すべての重複部分問題を 1 回だけ計算したい</strong>と考えます。そのために、各部分問題の解を記録する配列 <code>mem</code> を宣言し、探索の過程で重複部分問題を枝刈りします。</p>
 <ol>
 <li><span class="arithmatex">\(dp[i]\)</span> を初めて計算したとき、その結果を <code>mem[i]</code> に記録して後で使えるようにします。</li>
 <li>再び <span class="arithmatex">\(dp[i]\)</span> を計算する必要が生じたときは、<code>mem[i]</code> から直接結果を取得し、その部分問題の重複計算を避けます。</li>
@@ -5684,8 +5684,8 @@ dp[i] = dp[i-1] + dp[i-2]
 <p align="center"> 図 14-4 &nbsp; メモ化探索に対応する再帰木 </p>
 
 <h2 id="1413-3">14.1.3 &nbsp; 方法 3：動的計画法<a class="headerlink" href="#1413-3" title="Permanent link">&para;</a></h2>
-<p>**メモ化探索は「トップダウン」の方法**です。元の問題（根ノード）から始めて、より大きな部分問題を再帰的により小さな部分問題へ分解し、解が既知である最小部分問題（葉ノード）に至ります。その後、バックトラックしながら各層で部分問題の解を集め、元の問題の解を構築します。</p>
-<p>これとは対照的に、**動的計画法は「ボトムアップ」の方法**です。最小部分問題の解から始めて、より大きな部分問題の解を反復的に構築し、最終的に元の問題の解を得ます。</p>
+<p><strong>メモ化探索は「トップダウン」の方法</strong>です。元の問題（根ノード）から始めて、より大きな部分問題を再帰的により小さな部分問題へ分解し、解が既知である最小部分問題（葉ノード）に至ります。その後、バックトラックしながら各層で部分問題の解を集め、元の問題の解を構築します。</p>
+<p>これとは対照的に、<strong>動的計画法は「ボトムアップ」の方法</strong>です。最小部分問題の解から始めて、より大きな部分問題の解を反復的に構築し、最終的に元の問題の解を得ます。</p>
 <p>動的計画法にはバックトラックの過程が含まれないため、再帰を使う必要はなく、ループによる反復だけで実装できます。次のコードでは、部分問題の解を保存する配列 <code>dp</code> を初期化しており、これはメモ化探索における配列 <code>mem</code> と同じ記録の役割を果たします：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:13"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><input id="__tabbed_4_13" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Java</label><label for="__tabbed_4_4">C#</label><label for="__tabbed_4_5">Go</label><label for="__tabbed_4_6">Swift</label><label for="__tabbed_4_7">JS</label><label for="__tabbed_4_8">TS</label><label for="__tabbed_4_9">Dart</label><label for="__tabbed_4_10">Rust</label><label for="__tabbed_4_11">C</label><label for="__tabbed_4_12">Kotlin</label><label for="__tabbed_4_13">Ruby</label></div>
 <div class="tabbed-content">

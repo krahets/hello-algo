@@ -4681,7 +4681,7 @@
 <div class="arithmatex">\[
 dp[i] = \min(dp[i-1], dp[i-2]) + cost[i]
 \]</div>
-<p>ここから最適部分構造の意味を導けます。**元の問題の最適解は、部分問題の最適解から構築される**ということです。</p>
+<p>ここから最適部分構造の意味を導けます。<strong>元の問題の最適解は、部分問題の最適解から構築される</strong>ということです。</p>
 <p>この問題が最適部分構造を持つことは明らかです。二つの部分問題の最適解 <span class="arithmatex">\(dp[i-1]\)</span> と <span class="arithmatex">\(dp[i-2]\)</span> からより良いほうを選び、それを用いて元の問題 <span class="arithmatex">\(dp[i]\)</span> の最適解を構築しています。</p>
 <p>では、前節の階段昇り問題には最適部分構造があるのでしょうか。その目的は方法数を求めることで、一見すると計数問題です。しかし問い方を変えて「最大の方法数を求める」とすると、意外にも、<strong>問題の変更前後は等価であるにもかかわらず、最適部分構造が現れます</strong>。すなわち、第 <span class="arithmatex">\(n\)</span> 段の最大方法数は第 <span class="arithmatex">\(n-1\)</span> 段と第 <span class="arithmatex">\(n-2\)</span> 段の最大方法数の和に等しいのです。このように、最適部分構造の解釈は比較的柔軟であり、問題によって意味合いが異なります。</p>
 <p>状態遷移方程式と初期状態 <span class="arithmatex">\(dp[1] = cost[1]\)</span> および <span class="arithmatex">\(dp[2] = cost[2]\)</span> に基づいて、次の動的計画法コードが得られます。</p>
@@ -5196,9 +5196,9 @@ dp[i] = \min(dp[i-1], dp[i-2]) + cost[i]
 <p><img alt="制約付きで第 3 段まで上る方法数" class="animation-figure" src="../dp_problem_features.assets/climbing_stairs_constraint_example.png" /></p>
 <p align="center"> 図 14-8 &nbsp; 制約付きで第 3 段まで上る方法数 </p>
 
-<p>この問題では、前回が <span class="arithmatex">\(1\)</span> 段上りだった場合、次回は必ず <span class="arithmatex">\(2\)</span> 段上らなければなりません。これは、**次の一手が現在の状態（現在いる階段の段数）だけでは独立に決まらず、一つ前の状態（前回いた段数）にも関係する**ことを意味します。</p>
+<p>この問題では、前回が <span class="arithmatex">\(1\)</span> 段上りだった場合、次回は必ず <span class="arithmatex">\(2\)</span> 段上らなければなりません。これは、<strong>次の一手が現在の状態（現在いる階段の段数）だけでは独立に決まらず、一つ前の状態（前回いた段数）にも関係する</strong>ことを意味します。</p>
 <p>容易に分かるように、この問題はもはや無後効性を満たしておらず、状態遷移方程式 <span class="arithmatex">\(dp[i] = dp[i-1] + dp[i-2]\)</span> も成立しません。というのも、<span class="arithmatex">\(dp[i-1]\)</span> は今回 <span class="arithmatex">\(1\)</span> 段上る場合を表しますが、その中には「前回も <span class="arithmatex">\(1\)</span> 段上ってきた」方法が多数含まれており、制約を満たすためには <span class="arithmatex">\(dp[i-1]\)</span> をそのまま <span class="arithmatex">\(dp[i]\)</span> に加えることができないからです。</p>
-<p>このため、状態定義を拡張する必要があります。**状態 <span class="arithmatex">\([i, j]\)</span> は、第 <span class="arithmatex">\(i\)</span> 段にいて前回に <span class="arithmatex">\(j\)</span> 段上ったことを表す**とし、ここで <span class="arithmatex">\(j \in \{1, 2\}\)</span> です。この状態定義により、前回が <span class="arithmatex">\(1\)</span> 段上りか <span class="arithmatex">\(2\)</span> 段上りかを有効に区別でき、現在の状態がどこから来たのかを判断できます。</p>
+<p>このため、状態定義を拡張する必要があります。<strong>状態 <span class="arithmatex">\([i, j]\)</span> は、第 <span class="arithmatex">\(i\)</span> 段にいて前回に <span class="arithmatex">\(j\)</span> 段上ったことを表す</strong>とし、ここで <span class="arithmatex">\(j \in \{1, 2\}\)</span> です。この状態定義により、前回が <span class="arithmatex">\(1\)</span> 段上りか <span class="arithmatex">\(2\)</span> 段上りかを有効に区別でき、現在の状態がどこから来たのかを判断できます。</p>
 <ul>
 <li>前回に <span class="arithmatex">\(1\)</span> 段上った場合、その前の回は <span class="arithmatex">\(2\)</span> 段上りしか選べないため、<span class="arithmatex">\(dp[i, 1]\)</span> は <span class="arithmatex">\(dp[i-1, 2]\)</span> からのみ遷移できます。</li>
 <li>前回に <span class="arithmatex">\(2\)</span> 段上った場合、その前の回は <span class="arithmatex">\(1\)</span> 段上りまたは <span class="arithmatex">\(2\)</span> 段上りを選べるため、<span class="arithmatex">\(dp[i, 2]\)</span> は <span class="arithmatex">\(dp[i-2, 1]\)</span> または <span class="arithmatex">\(dp[i-2, 2]\)</span> から遷移できます。</li>
@@ -5514,7 +5514,7 @@ dp[i, 2] = dp[i-2, 1] + dp[i-2, 2]
 <p>上の例では、追加で考慮すべきなのは一つ前の状態だけであるため、状態定義を拡張することで問題を再び無後効性に適合させることができます。しかし、問題によっては非常に強い「後効性」があります。</p>
 <div class="admonition question">
 <p class="admonition-title">階段昇りと障害物生成</p>
-<p>全部で <span class="arithmatex">\(n\)</span> 段ある階段が与えられ、各ステップで <span class="arithmatex">\(1\)</span> 段または <span class="arithmatex">\(2\)</span> 段上ることができます。**第 <span class="arithmatex">\(i\)</span> 段に到達すると、システムは自動的に第 <span class="arithmatex">\(2i\)</span> 段に障害物を置き、それ以降はどの回でも第 <span class="arithmatex">\(2i\)</span> 段へ跳ぶことができない**とします。例えば、最初の 2 回でそれぞれ第 <span class="arithmatex">\(2\)</span> 段、第 <span class="arithmatex">\(3\)</span> 段に到達した場合、その後は第 <span class="arithmatex">\(4\)</span> 段と第 <span class="arithmatex">\(6\)</span> 段に跳ぶことはできません。頂上まで上る方法は何通りあるでしょうか。</p>
+<p>全部で <span class="arithmatex">\(n\)</span> 段ある階段が与えられ、各ステップで <span class="arithmatex">\(1\)</span> 段または <span class="arithmatex">\(2\)</span> 段上ることができます。<strong>第 <span class="arithmatex">\(i\)</span> 段に到達すると、システムは自動的に第 <span class="arithmatex">\(2i\)</span> 段に障害物を置き、それ以降はどの回でも第 <span class="arithmatex">\(2i\)</span> 段へ跳ぶことができない</strong>とします。例えば、最初の 2 回でそれぞれ第 <span class="arithmatex">\(2\)</span> 段、第 <span class="arithmatex">\(3\)</span> 段に到達した場合、その後は第 <span class="arithmatex">\(4\)</span> 段と第 <span class="arithmatex">\(6\)</span> 段に跳ぶことはできません。頂上まで上る方法は何通りあるでしょうか。</p>
 </div>
 <p>この問題では、次の跳躍が過去のすべての状態に依存します。なぜなら、各跳躍がより高い段に障害物を設置し、将来の跳躍に影響するからです。この種の問題は、動的計画法では解きにくいことが多いです。</p>
 <p>実際、多くの複雑な組合せ最適化問題（例えば巡回セールスマン問題）は無後効性を満たしません。このような問題に対しては、通常、ヒューリスティック探索、遺伝的アルゴリズム、強化学習などの他の方法を用いて、限られた時間内に実用的な局所最適解を得ます。</p>

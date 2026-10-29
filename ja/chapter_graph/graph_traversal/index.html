@@ -5654,8 +5654,8 @@
 </details>
 <p>深さ優先走査のアルゴリズムの流れは以下の図のとおりです。</p>
 <ul>
-<li>**直線の破線は下向きの再帰呼び出し**を表し、新しい頂点を訪問するために新たな再帰メソッドが開始されたことを意味します。</li>
-<li>**曲線の破線は上向きのバックトラック**を表し、この再帰メソッドがすでに戻って、呼び出し元の位置までたどり着いたことを意味します。</li>
+<li><strong>直線の破線は下向きの再帰呼び出し</strong>を表し、新しい頂点を訪問するために新たな再帰メソッドが開始されたことを意味します。</li>
+<li><strong>曲線の破線は上向きのバックトラック</strong>を表し、この再帰メソッドがすでに戻って、呼び出し元の位置までたどり着いたことを意味します。</li>
 </ul>
 <p>理解を深めるために、以下の図とコードを結びつけて、DFS 全体の過程を頭の中でシミュレーションする（あるいは紙に書き出す）ことを勧めます。各再帰メソッドがいつ開始し、いつ戻るかも含めて追ってみてください。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:11"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label><label for="__tabbed_4_5">&lt;5&gt;</label><label for="__tabbed_4_6">&lt;6&gt;</label><label for="__tabbed_4_7">&lt;7&gt;</label><label for="__tabbed_4_8">&lt;8&gt;</label><label for="__tabbed_4_9">&lt;9&gt;</label><label for="__tabbed_4_10">&lt;10&gt;</label><label for="__tabbed_4_11">&lt;11&gt;</label></div>

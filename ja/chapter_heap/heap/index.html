@@ -5534,7 +5534,7 @@
 </details>
 <h3 id="3">3. &nbsp; 要素をヒープに追加<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>与えられた要素 <code>val</code> を、まずヒープの底に追加します。追加後、<code>val</code> がヒープ内のほかの要素より大きい可能性があるため、ヒープ条件が崩れているかもしれません。<strong>そのため、挿入ノードから根ノードまでの経路上にある各ノードを修復する必要があります</strong>。この操作を<u>ヒープ化（heapify）</u>と呼びます。</p>
-<p>ヒープへ追加したノードから始めて、**下から上へヒープ化**を行います。次の図のように、挿入ノードとその親ノードの値を比較し、挿入ノードのほうが大きければそれらを交換します。その後もこの操作を繰り返し、下から上へ各ノードを修復して、根ノードを越えるか交換不要のノードに達した時点で終了します。</p>
+<p>ヒープへ追加したノードから始めて、<strong>下から上へヒープ化</strong>を行います。次の図のように、挿入ノードとその親ノードの値を比較し、挿入ノードのほうが大きければそれらを交換します。その後もこの操作を繰り返し、下から上へ各ノードを修復して、根ノードを越えるか交換不要のノードに達した時点で終了します。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:9"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label><label for="__tabbed_4_5">&lt;5&gt;</label><label for="__tabbed_4_6">&lt;6&gt;</label><label for="__tabbed_4_7">&lt;7&gt;</label><label for="__tabbed_4_8">&lt;8&gt;</label><label for="__tabbed_4_9">&lt;9&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5920,9 +5920,9 @@
 <ol>
 <li>ヒープ頂点の要素とヒープ底の要素を交換する（根ノードと最も右の葉ノードを交換する）。</li>
 <li>交換後、ヒープ底をリストから削除する（すでに交換済みであるため、実際に削除されるのは元のヒープ頂点の要素であることに注意）。</li>
-<li>根ノードから開始し、**上から下へヒープ化**を行う。</li>
+<li>根ノードから開始し、<strong>上から下へヒープ化</strong>を行う。</li>
 </ol>
-<p>次の図のように、**「上から下へのヒープ化」の方向は「下から上へのヒープ化」と逆**です。根ノードの値を 2 つの子ノードと比較し、最大の子ノードと根ノードを交換します。その後、この操作を繰り返し、葉ノードを越えるか交換不要のノードに達した時点で終了します。</p>
+<p>次の図のように、<strong>「上から下へのヒープ化」の方向は「下から上へのヒープ化」と逆</strong>です。根ノードの値を 2 つの子ノードと比較し、最大の子ノードと根ノードを交換します。その後、この操作を繰り返し、葉ノードを越えるか交換不要のノードに達した時点で終了します。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:10"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">&lt;1&gt;</label><label for="__tabbed_6_2">&lt;2&gt;</label><label for="__tabbed_6_3">&lt;3&gt;</label><label for="__tabbed_6_4">&lt;4&gt;</label><label for="__tabbed_6_5">&lt;5&gt;</label><label for="__tabbed_6_6">&lt;6&gt;</label><label for="__tabbed_6_7">&lt;7&gt;</label><label for="__tabbed_6_8">&lt;8&gt;</label><label for="__tabbed_6_9">&lt;9&gt;</label><label for="__tabbed_6_10">&lt;10&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

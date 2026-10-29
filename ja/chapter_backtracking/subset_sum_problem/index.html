@@ -4806,7 +4806,7 @@
 </ul>
 <h3 id="1">1. &nbsp; 全順列の解法を参考にする<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>全順列問題と同様に、部分集合の生成過程を一連の選択結果として捉え、選択の過程で「要素の和」を逐次更新できます。そして要素の和が <code>target</code> に等しくなった時点で、その部分集合を結果リストに記録します。</p>
-<p>ただし全順列問題と異なるのは、**この問題では集合内の要素を無制限に選択できる**点です。そのため、要素がすでに選択されたかどうかを記録する <code>selected</code> ブール配列は不要です。全順列のコードに少し修正を加えると、まず次の解法コードが得られます。</p>
+<p>ただし全順列問題と異なるのは、<strong>この問題では集合内の要素を無制限に選択できる</strong>点です。そのため、要素がすでに選択されたかどうかを記録する <code>selected</code> ブール配列は不要です。全順列のコードに少し修正を加えると、まず次の解法コードが得られます。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5296,33 +5296,33 @@
 <p><img alt="部分集合探索と境界超過の枝刈り" class="animation-figure" src="../subset_sum_problem.assets/subset_sum_i_naive.png" /></p>
 <p align="center"> 図 13-10 &nbsp; 部分集合探索と境界超過の枝刈り </p>
 
-<p>重複する部分集合を取り除くために、**直接的な方法として結果リストの重複を除去する**ことが考えられます。しかし、この方法は効率が低く、その理由は次の 2 点です。</p>
+<p>重複する部分集合を取り除くために、<strong>直接的な方法として結果リストの重複を除去する</strong>ことが考えられます。しかし、この方法は効率が低く、その理由は次の 2 点です。</p>
 <ul>
 <li>配列要素が多い場合、特に <code>target</code> が大きい場合には、探索過程で大量の重複部分集合が生成されます。</li>
 <li>部分集合（配列）同士の違いを比較するのは非常に時間がかかり、まず配列をソートし、その後に各要素を比較する必要があります。</li>
 </ul>
 <h3 id="2">2. &nbsp; 重複部分集合の枝刈り<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>**探索過程で枝刈りを行って重複を除去する**ことを考えます。次の図を観察すると、重複部分集合は配列要素を異なる順序で選択したときに生じます。例えば次のような状況です。</p>
+<p><strong>探索過程で枝刈りを行って重複を除去する</strong>ことを考えます。次の図を観察すると、重複部分集合は配列要素を異なる順序で選択したときに生じます。例えば次のような状況です。</p>
 <ol>
 <li>1 回目と 2 回目でそれぞれ <span class="arithmatex">\(3\)</span> と <span class="arithmatex">\(4\)</span> を選ぶと、これら 2 要素を含むすべての部分集合、すなわち <span class="arithmatex">\([3, 4, \dots]\)</span> が生成されます。</li>
-<li>その後、1 回目で <span class="arithmatex">\(4\)</span> を選んだ場合、**2 回目では <span class="arithmatex">\(3\)</span> をスキップすべき**です。というのも、この選択で生成される部分集合 <span class="arithmatex">\([4, 3, \dots]\)</span> は、手順 <code>1.</code> で生成された部分集合と完全に重複するからです。</li>
+<li>その後、1 回目で <span class="arithmatex">\(4\)</span> を選んだ場合、<strong>2 回目では <span class="arithmatex">\(3\)</span> をスキップすべき</strong>です。というのも、この選択で生成される部分集合 <span class="arithmatex">\([4, 3, \dots]\)</span> は、手順 <code>1.</code> で生成された部分集合と完全に重複するからです。</li>
 </ol>
 <p>探索過程では、各階層の選択は左から右へ順に試されるため、右側にある分岐ほど多く枝刈りされます。</p>
 <ol>
 <li>最初の 2 回で <span class="arithmatex">\(3\)</span> と <span class="arithmatex">\(5\)</span> を選ぶと、部分集合 <span class="arithmatex">\([3, 5, \dots]\)</span> が生成されます。</li>
 <li>最初の 2 回で <span class="arithmatex">\(4\)</span> と <span class="arithmatex">\(5\)</span> を選ぶと、部分集合 <span class="arithmatex">\([4, 5, \dots]\)</span> が生成されます。</li>
-<li>もし 1 回目で <span class="arithmatex">\(5\)</span> を選ぶなら、**2 回目では <span class="arithmatex">\(3\)</span> と <span class="arithmatex">\(4\)</span> をスキップすべき**です。なぜなら、部分集合 <span class="arithmatex">\([5, 3, \dots]\)</span> と <span class="arithmatex">\([5, 4, \dots]\)</span> は、手順 <code>1.</code> と手順 <code>2.</code> で述べた部分集合と完全に重複するからです。</li>
+<li>もし 1 回目で <span class="arithmatex">\(5\)</span> を選ぶなら、<strong>2 回目では <span class="arithmatex">\(3\)</span> と <span class="arithmatex">\(4\)</span> をスキップすべき</strong>です。なぜなら、部分集合 <span class="arithmatex">\([5, 3, \dots]\)</span> と <span class="arithmatex">\([5, 4, \dots]\)</span> は、手順 <code>1.</code> と手順 <code>2.</code> で述べた部分集合と完全に重複するからです。</li>
 </ol>
 <p><img alt="異なる選択順によって生じる重複部分集合" class="animation-figure" src="../subset_sum_problem.assets/subset_sum_i_pruning.png" /></p>
 <p align="center"> 図 13-11 &nbsp; 異なる選択順によって生じる重複部分集合 </p>
 
 <p>まとめると、入力配列 <span class="arithmatex">\([x_1, x_2, \dots, x_n]\)</span> が与えられ、探索過程における選択列を <span class="arithmatex">\([x_{i_1}, x_{i_2}, \dots, x_{i_m}]\)</span> とすると、この選択列は <span class="arithmatex">\(i_1 \leq i_2 \leq \dots \leq i_m\)</span> を満たす必要があります。<strong>この条件を満たさない選択列は重複を生むため、枝刈りすべきです</strong>。</p>
 <h3 id="3">3. &nbsp; コード実装<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>この枝刈りを実現するために、走査の開始位置を示す変数 <code>start</code> を初期化します。**選択 <span class="arithmatex">\(x_{i}\)</span> を行った後、次のラウンドはインデックス <span class="arithmatex">\(i\)</span> から走査を開始する**ように設定します。これにより、選択列が <span class="arithmatex">\(i_1 \leq i_2 \leq \dots \leq i_m\)</span> を満たし、部分集合の一意性が保証されます。</p>
+<p>この枝刈りを実現するために、走査の開始位置を示す変数 <code>start</code> を初期化します。<strong>選択 <span class="arithmatex">\(x_{i}\)</span> を行った後、次のラウンドはインデックス <span class="arithmatex">\(i\)</span> から走査を開始する</strong>ように設定します。これにより、選択列が <span class="arithmatex">\(i_1 \leq i_2 \leq \dots \leq i_m\)</span> を満たし、部分集合の一意性が保証されます。</p>
 <p>これに加えて、コードには次の 2 つの最適化も施しています。</p>
 <ul>
-<li>探索を始める前に、まず配列 <code>nums</code> をソートします。すべての選択肢を走査するとき、**部分集合の和が <code>target</code> を超えたら直ちにループを終了**します。後続の要素はさらに大きいため、その和も必ず <code>target</code> を超えるからです。</li>
-<li>要素和を保持する変数 <code>total</code> は省略し、**<code>target</code> から減算することで要素和を管理**します。<code>target</code> が <span class="arithmatex">\(0\)</span> になったときに解を記録します。</li>
+<li>探索を始める前に、まず配列 <code>nums</code> をソートします。すべての選択肢を走査するとき、<strong>部分集合の和が <code>target</code> を超えたら直ちにループを終了</strong>します。後続の要素はさらに大きいため、その和も必ず <code>target</code> を超えるからです。</li>
+<li>要素和を保持する変数 <code>total</code> は省略し、<strong><code>target</code> から減算することで要素和を管理</strong>します。<code>target</code> が <span class="arithmatex">\(0\)</span> になったときに解を記録します。</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><input id="__tabbed_2_13" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
@@ -5838,7 +5838,7 @@
 
 <h3 id="1_1">1. &nbsp; 等しい要素の枝刈り<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
 <p>この問題を解決するには、<strong>各ラウンドで等しい要素が 1 回しか選ばれないように制限する必要があります</strong>。実装方法は巧妙です。配列はすでにソートされているため、等しい要素は必ず隣り合っています。したがって、あるラウンドの選択で現在の要素が左隣の要素と等しいなら、それはすでに選ばれたことを意味するので、その要素を直接スキップします。</p>
-<p>同時に、**この問題では各配列要素を 1 回しか選択できない**という制約もあります。幸い、この制約も変数 <code>start</code> を使って満たせます。すなわち、選択 <span class="arithmatex">\(x_{i}\)</span> を行った後、次のラウンドはインデックス <span class="arithmatex">\(i + 1\)</span> から後ろへ走査するよう設定します。これにより、重複部分集合を除去できるだけでなく、同じ要素を繰り返し選ぶことも防げます。</p>
+<p>同時に、<strong>この問題では各配列要素を 1 回しか選択できない</strong>という制約もあります。幸い、この制約も変数 <code>start</code> を使って満たせます。すなわち、選択 <span class="arithmatex">\(x_{i}\)</span> を行った後、次のラウンドはインデックス <span class="arithmatex">\(i + 1\)</span> から後ろへ走査するよう設定します。これにより、重複部分集合を除去できるだけでなく、同じ要素を繰り返し選ぶことも防げます。</p>
 <h3 id="2_1">2. &nbsp; コード実装<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:13"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><input id="__tabbed_3_13" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Kotlin</label><label for="__tabbed_3_13">Ruby</label></div>
 <div class="tabbed-content">
