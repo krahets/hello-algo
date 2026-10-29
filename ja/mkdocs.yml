@@ -122,6 +122,7 @@ markdown_extensions:
   md_in_html: {}
   toc:
     permalink: true
+    permalink_title: この見出しへのリンク
   pymdownx.arithmatex:
     generic: true
   pymdownx.betterem:
