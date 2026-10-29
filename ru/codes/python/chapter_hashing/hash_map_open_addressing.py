@@ -36,7 +36,9 @@ class HashMapOpenAddressing:
         index = self.hash_func(key)
         first_tombstone = -1
         # Выполнять линейное пробирование и завершить при встрече с пустой корзиной
-        while self.buckets[index] is not None:
+        for _ in range(self.capacity):
+            if self.buckets[index] is None:
+                break
             # Если встретился key, вернуть соответствующий индекс корзины
             if self.buckets[index].key == key:
                 # Если ранее встретилась метка удаления, переместить пару ключ-значение на этот индекс

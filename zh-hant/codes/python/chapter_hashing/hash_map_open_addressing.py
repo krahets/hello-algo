@@ -36,7 +36,9 @@ class HashMapOpenAddressing:
         index = self.hash_func(key)
         first_tombstone = -1
         # 線性探查，當遇到空桶時跳出
-        while self.buckets[index] is not None:
+        for _ in range(self.capacity):
+            if self.buckets[index] is None:
+                break
             # 若遇到 key ，返回對應的桶索引
             if self.buckets[index].key == key:
                 # 若之前遇到了刪除標記，則將鍵值對移動至該索引處
