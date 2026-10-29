@@ -1,0 +1,47 @@
+{# Shared copy for site templates. Theme language is a configured locale. #}
+{% set translations = {
+  "zh": {
+    "not_found": "未找到页面",
+    "comments_title": "评论",
+    "comments_prompt": "欢迎在评论区留下你的见解、问题或建议",
+    "giscus_language": "zh-CN",
+    "announcement": "纸质书已发行，详情请见<a href=\"/chapter_paperbook/\">这里</a>"
+  },
+  "zh-hant": {
+    "not_found": "找不到頁面",
+    "comments_title": "評論",
+    "comments_prompt": "歡迎在評論區留下你的見解、問題或建議",
+    "giscus_language": "zh-TW",
+    "announcement": "紙質書（簡體中文版）已發行，詳情請見<a href=\"/chapter_paperbook/\">這裡</a>"
+  },
+  "en": {
+    "not_found": "Not found",
+    "comments_title": "Comments",
+    "comments_prompt": "Feel free to drop your insights, questions or suggestions",
+    "giscus_language": "en",
+    "announcement": "Welcome to contribute to Chinese-to-English translation! For more details, please refer to <a href=\"https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md\">CONTRIBUTING.md</a>."
+  },
+  "ja": {
+    "not_found": "ページが見つかりません",
+    "comments_title": "コメント",
+    "comments_prompt": "コメント欄で、考えや質問、ご提案をお寄せください。",
+    "giscus_language": "ja",
+    "announcement": ""
+  },
+  "ru": {
+    "not_found": "Страница не найдена",
+    "comments_title": "Комментарии",
+    "comments_prompt": "Оставляйте свои идеи, вопросы и предложения в комментариях",
+    "giscus_language": "ru",
+    "announcement": "Приглашаем вас участвовать в развитии русской версии! Подробнее <a href=\"/ru/chapter_appendix/contribution/\">здесь</a>."
+  },
+  "ko": {
+    "not_found": "페이지를 찾을 수 없습니다",
+    "comments_title": "댓글",
+    "comments_prompt": "댓글로 의견이나 질문, 제안을 남겨 주세요",
+    "giscus_language": "ko",
+    "announcement": ""
+  }
+} %}
+{% set locale = config.theme.language | lower %}
+{% set ui = translations[locale] | default(translations.en) %}

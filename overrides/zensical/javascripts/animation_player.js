@@ -2,12 +2,58 @@
   const ANIMATION_LABEL_PATTERN = /^<\d+>$/;
   const AUTO_SLIDE_INITIAL_DELAY_MS = 1000;
   const AUTO_SLIDE_INTERVAL_MS = 1500;
-  const IS_KOREAN = document.documentElement.lang.toLowerCase().startsWith("ko");
-  const IS_JAPANESE = document.documentElement.lang.toLowerCase().startsWith("ja");
-  const PLAY_LABEL = IS_KOREAN ? "슬라이드 재생" : IS_JAPANESE ? "スライドショーを再生" : "播放幻灯片";
-  const PAUSE_LABEL = IS_KOREAN ? "슬라이드 일시 정지" : IS_JAPANESE ? "スライドショーを一時停止" : "暂停幻灯片";
-  const PREVIOUS_LABEL = IS_KOREAN ? "이전 슬라이드" : IS_JAPANESE ? "前のスライド" : "上一页";
-  const NEXT_LABEL = IS_KOREAN ? "다음 슬라이드" : IS_JAPANESE ? "次のスライド" : "下一页";
+  const LABELS = {
+    "zh": {
+      "play": "播放幻灯片",
+      "pause": "暂停幻灯片",
+      "previous": "上一页",
+      "next": "下一页"
+    },
+    "zh-hant": {
+      "play": "播放投影片",
+      "pause": "暫停投影片",
+      "previous": "上一頁",
+      "next": "下一頁"
+    },
+    "en": {
+      "play": "Play slideshow",
+      "pause": "Pause slideshow",
+      "previous": "Previous slide",
+      "next": "Next slide"
+    },
+    "ru": {
+      "play": "Запустить показ слайдов",
+      "pause": "Приостановить показ слайдов",
+      "previous": "Предыдущий слайд",
+      "next": "Следующий слайд"
+    },
+    "ja": {
+      "play": "スライドショーを再生",
+      "pause": "スライドショーを一時停止",
+      "previous": "前のスライド",
+      "next": "次のスライド"
+    },
+    "ko": {
+      "play": "슬라이드 재생",
+      "pause": "슬라이드 일시 정지",
+      "previous": "이전 슬라이드",
+      "next": "다음 슬라이드"
+    }
+  };
+  // Prefer the full locale, then its parents, and finally English.
+  const LOCALE_ALIASES = { "zh-tw": "zh-hant", "zh-hk": "zh-hant", "zh-mo": "zh-hant" };
+  const resolveLabels = (language) => {
+    let locale = language.trim().toLowerCase().replaceAll("_", "-");
+    while (locale) {
+      const candidate = Object.prototype.hasOwnProperty.call(LOCALE_ALIASES, locale)
+        ? LOCALE_ALIASES[locale] : locale;
+      if (Object.prototype.hasOwnProperty.call(LABELS, candidate)) return LABELS[candidate];
+      const separator = locale.lastIndexOf("-");
+      locale = separator === -1 ? "" : locale.slice(0, separator);
+    }
+    return LABELS.en;
+  };
+  const labels = resolveLabels(document.documentElement.lang);
   const SVG_NS = "http://www.w3.org/2000/svg";
   const FA_PLAY_PATH =
     "M91.2 36.9c-12.4-6.8-27.4-6.5-39.6.7S32 57.9 32 72v368c0 14.1 7.5 27.2 19.6 34.4s27.2 7.5 39.6.7l336-184c12.8-7 20.8-20.5 20.8-35.1s-8-28.1-20.8-35.1z";
@@ -87,7 +133,7 @@
 
     button.type = "button";
     button.className = "animation-controls__button animation-controls__play";
-    button.setAttribute("aria-label", PLAY_LABEL);
+    button.setAttribute("aria-label", labels.play);
 
     glyph.className = "animation-controls__play-glyph";
 
@@ -95,7 +141,7 @@
     glyph.append(icon);
 
     srOnly.className = "animation-controls__sr-only";
-    srOnly.textContent = PLAY_LABEL;
+    srOnly.textContent = labels.play;
 
     button.append(glyph, srOnly);
     return { button, srOnly, icon, iconPath };
@@ -125,7 +171,7 @@
 
     const prevButton = createIconButton({
       className: "animation-controls__prev",
-      ariaLabel: PREVIOUS_LABEL,
+      ariaLabel: labels.previous,
       path: FA_ARROW_LEFT_PATH,
     });
     const pageIndicator = document.createElement("span");
@@ -134,7 +180,7 @@
 
     const nextButton = createIconButton({
       className: "animation-controls__next",
-      ariaLabel: NEXT_LABEL,
+      ariaLabel: labels.next,
       path: FA_ARROW_RIGHT_PATH,
     });
 
@@ -151,7 +197,7 @@
     };
 
     const updatePlayButton = () => {
-      const label = state.isPlaying ? PAUSE_LABEL : PLAY_LABEL;
+      const label = state.isPlaying ? labels.pause : labels.play;
       playButton.setAttribute("aria-label", label);
       playButton.classList.toggle("is-playing", state.isPlaying);
       playControl.srOnly.textContent = label;

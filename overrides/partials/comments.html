@@ -1,28 +1,9 @@
 {% if page.meta.comments %}
-  {% if config.theme.language == 'zh' %}
-    {% set comm = "欢迎在评论区留下你的见解、问题或建议" %}
-    {% set lang = "zh-CN" %}
-  {% elif config.theme.language == 'zh-Hant' %}
-    {% set comm = "歡迎在評論區留下你的見解、問題或建議" %}
-    {% set lang = "zh-TW" %}
-  {% elif config.theme.language == 'en' %}
-    {% set comm = "Feel free to drop your insights, questions or suggestions" %}
-    {% set lang = "en" %}
-  {% elif config.theme.language == 'ja' %}
-    {% set comm = "コメント欄で、考えや質問、ご提案をお寄せください。" %}
-    {% set lang = "ja" %}
-  {% elif config.theme.language == 'ru' %}
-    {% set comm = "Оставляйте свои идеи, вопросы и предложения в комментариях" %}
-    {% set lang = "ru" %}
-  {% elif config.theme.language == 'ko' %}
-    {% set comm = "댓글로 의견이나 질문, 제안을 남겨 주세요" %}
-    {% set lang = "ko" %}
-  {% endif %}
-
+  {% from "partials/i18n.html" import ui with context %}
   <!-- Check-in button above comments -->
   {% include "partials/checkin.html" ignore missing %}
 
-  <h5 align="center" id="__comments">{{ comm }}</h5>
+  <h5 align="center" id="__comments">{{ ui.comments_prompt }}</h5>
 
   <!-- Insert generated snippet here -->
   <script
@@ -37,7 +18,7 @@
     data-emit-metadata="1"
     data-input-position="top"
     data-theme="light"
-    data-lang="{{ lang }}"
+    data-lang="{{ ui.giscus_language }}"
     crossorigin="anonymous"
     async
   >
@@ -55,13 +36,12 @@
     /* Set palette on initial load */
     giscus.setAttribute("data-theme", getGiscusTheme())
 
-    {% if config.theme.language in ['ja', 'ko'] %}
     /* The Giscus client creates the iframe asynchronously with an English title. */
     ;(function() {
       function labelCommentsFrame() {
         var frame = document.querySelector("iframe.giscus-frame")
         if (!frame) return false
-        frame.setAttribute("title", {{ {"ja": "コメント", "ko": "댓글"}[config.theme.language] | tojson }})
+        frame.setAttribute("title", {{ ui.comments_title | tojson }})
         return true
       }
       if (labelCommentsFrame()) return
@@ -70,7 +50,6 @@
       })
       observer.observe(giscus.parentElement, { childList: true, subtree: true })
     })()
-    {% endif %}
 
     /* Register event handlers after documented loaded */
     document.addEventListener("DOMContentLoaded", function() {
