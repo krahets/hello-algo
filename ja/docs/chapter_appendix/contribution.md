@@ -34,7 +34,7 @@
 
 ### Docker での起動
 
-`hello-algo` のルートディレクトリで次の Docker スクリプトを実行すると、`http://localhost:8000` から本プロジェクトにアクセスできます。
+`hello-algo` のルートディレクトリで次の Docker スクリプトを実行すると、`http://localhost:8000/ja/` から本プロジェクトの日本語版にアクセスできます。
 
 ```shell
 docker-compose up -d
