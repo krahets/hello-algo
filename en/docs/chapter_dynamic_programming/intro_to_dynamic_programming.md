@@ -54,7 +54,7 @@ The figure below shows the recursion tree for brute-force search. For $dp[n]$, i
 
 As the figure above shows, **overlapping subproblems cause the exponential time complexity**. For example, $dp[9]$ splits into $dp[8]$ and $dp[7]$, while $dp[8]$ splits into $dp[7]$ and $dp[6]$. Both contain $dp[7]$.
 
-Those subproblems contain still smaller overlapping subproblems, repeated through generation after generation. Most of the computation is wasted on these duplicates.
+These subproblems in turn contain smaller overlapping subproblems, and the pattern repeats at deeper levels of the recursion tree. Most of the computation is wasted on solving the same subproblems repeatedly.
 
 ## Method 2: Memoized search
 

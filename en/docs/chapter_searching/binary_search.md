@@ -1,6 +1,6 @@
 # Binary search
 
-<u>Binary search</u> is an efficient search algorithm based on divide and conquer. It uses the ordering of the data to halve the search range each round, continuing until it finds the target element or the search interval becomes empty.
+<u>Binary search</u> is an efficient search algorithm based on divide and conquer. It uses the sorted order of the data to halve the search range each round, continuing until it finds the target element or the search interval becomes empty.
 
 !!! question
 

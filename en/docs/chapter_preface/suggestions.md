@@ -192,7 +192,7 @@ The accompanying code is hosted in the [GitHub repository](https://github.com/kr
 
 If time permits, **we recommend typing out the code yourself while referring to the examples**. If your study time is limited, at least read and run all the code.
 
-Writing code often teaches us more than reading it. **To truly learn, learn by doing**.
+Writing code often teaches us more than reading it. **Hands-on practice is where real learning happens**.
 
 ![An example of running code](../index.assets/running_code.gif)
 
