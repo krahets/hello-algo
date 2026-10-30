@@ -4,88 +4,88 @@ comments: true
 
 # 13.6 &nbsp; Exercises
 
-## 13.6.1 &nbsp; Concept Review
+## 13.6.1 &nbsp; Check your understanding
 
-### 1. &nbsp; Will This Permutation Algorithm Miss Results?
+### 1. &nbsp; Will this permutation algorithm miss results?
 
-A backtracking algorithm tries to generate all permutations using `1, 2, 3` in that order. Each time it chooses a number `x`, it:
+A backtracking algorithm tries the numbers `1, 2, 3` in order to generate all permutations. Whenever it chooses a number `x`, it:
 
 1. Appends `x` to the current path.
-2. Marks `x` as "used."
+2. Marks `x` as used.
 3. Recursively fills the next position.
 
-When the recursive call returns, the student removes only `x` from the end of the path and then tries the next number.
+After the recursive call returns, the student removes only `x` from the end of the path, then continues trying the next number.
 
 <!-- numbered-subquestions -->
 
-1. Which permutation does the algorithm generate first? Can it still generate all 6 permutations?
-2. Before returning to the previous level, is removing only the last number from the path enough? If not, what else must be done? Explain why.
+1. Which permutation does the algorithm produce first? Can it still produce all six permutations?
+2. Before returning to the previous recursion level, is removing the last number from the path enough? If not, what else is needed? Explain.
 
-??? success "Answer"
+??? success "Reference answer"
 
-    1. It first generates `[1, 2, 3]`, but it cannot generate all the permutations. Although the path becomes shorter when calls return,
-        the markers for 1, 2, and 3 all remain "used," leaving no available number for later branches.
+    1. It first produces `[1, 2, 3]`, but cannot generate every permutation. Although the path becomes shorter as calls return,
+        the numbers 1, 2, and 3 remain marked as used, leaving later branches with no available numbers.
 
-    2. It is not enough. After removing `x` from the end of the path, the algorithm must also mark `x` as "unused" again.
-        The current path and the used markers together describe the search state. A choice changes both of them, so backtracking must restore both
-        before another branch can choose `x` again.
+    2. No. After removing `x` from the end of the path, we must also mark `x` as unused again.
+        The current path and the used markers together describe the search state. Choosing a number changes both, so backtracking must restore both
+        to allow other branches to choose `x` again.
 
-### 2. &nbsp; Does the Order of Choosing Numbers Matter?
+### 2. &nbsp; Does the order of choosing numbers matter?
 
-You are given the sorted array `[2, 3, 5]` and target value 5. Each number may be chosen repeatedly.
-The algorithm requires the numbers along each search path to appear only in nondecreasing order.
+Given the sorted array `[2, 3, 5]` and target value 5, each number may be chosen repeatedly.
+The algorithm requires the numbers along each search path to appear in nondecreasing order.
 
 <!-- numbered-subquestions -->
 
-1. Which distinct combinations can be found?
-2. Why is there no need to search for the same group of numbers in different orders? What does the nondecreasing-order restriction accomplish?
-3. Suppose the current path is `[3]`, the remaining amount is 2, and the next candidate is 3. Why can the algorithm stop checking all later candidates at this level?
+1. Which distinct combinations can be obtained?
+2. Why is it unnecessary to search the same set of numbers in different orders? What does the nondecreasing-order restriction achieve?
+3. The current path is `[3]`, the remaining sum is 2, and the next candidate is 3. Why can we stop checking all further candidates at this level?
 
-??? success "Answer"
+??? success "Reference answer"
 
     1. The distinct combinations are `[2, 3]` and `[5]`.
 
-    2. This exercise treats `[2, 3]` and `[3, 2]` as the same combination; the order in which numbers are selected does not create a different answer.
-        Requiring numbers in a path to appear in nondecreasing order lets the search skip duplicate arrangements such as `[3, 2]`.
+    2. This problem treats `[2, 3]` and `[3, 2]` as the same combination: selection order does not distinguish answers.
+        Requiring the path's numbers to appear in nondecreasing order lets the search skip duplicate combinations such as `[3, 2]` directly.
 
-    3. The remaining amount is 2, while candidate 3 is already greater than 2. Because the array is sorted,
-        all later candidates are even larger and cannot be added to the current combination, so the algorithm can stop checking this level immediately.
+    3. The remaining sum is 2, and candidate 3 already exceeds it. Since the array is sorted,
+        all candidates after 3 are larger still and cannot join the current combination. We can therefore stop checking this level.
 
-### 3. &nbsp; Where Can the Next Queen Be Placed?
+### 3. &nbsp; Where can the next queen be placed?
 
-Place queens row by row on a `4 × 4` chessboard, with both row and column indices starting at 0.
-Queens have already been placed at `(0, 1)` and `(1, 3)`. The next queen must be placed in row 2.
+Place queens row by row on a `4 × 4` board, with both row and column indices starting at 0.
+Queens are already at `(0, 1)` and `(1, 3)`. The next queen must be placed in row 2.
 
 <!-- numbered-subquestions -->
 
 1. Which columns are ruled out because they already contain a queen?
-2. Among the remaining columns, which positions are ruled out because they share a diagonal with an existing queen?
+2. Among the remaining columns, which positions are ruled out by sharing a diagonal with a queen?
 3. Which positions in row 2 remain available to try?
 
-??? success "Answer"
+??? success "Reference answer"
 
-    1. Columns 1 and 3 already contain queens, so positions `(2, 1)` and `(2, 3)` are ruled out.
+    1. Columns 1 and 3 already contain queens, ruling out positions `(2, 1)` and `(2, 3)`.
 
-    2. Among the remaining positions, `(2, 2)` lies on the same diagonal as `(1, 3)`, so it is also ruled out.
+    2. Of the remaining positions, `(2, 2)` shares a diagonal with `(1, 3)`, so it is also ruled out.
         Position `(2, 0)` shares neither a column nor a diagonal with either existing queen.
 
     3. The only position to try in row 2 is `(2, 0)`.
 
-        This step shows only that the current placement is valid. If the board cannot be completed later, the algorithm must still backtrack and try an earlier alternative.
+        This step establishes only that the current placement is valid. If the board cannot be completed later, we must still backtrack and try other earlier choices.
 
-## 13.6.2 &nbsp; Programming Exercises
+## 13.6.2 &nbsp; Programming exercises
 
-### 1. &nbsp; Permutations of Distinct Elements
+### 1. &nbsp; All permutations of distinct elements
 
 The integer array `nums` contains at least one element, and all its elements are distinct.
-List every possible order formed by using each element exactly once, and return each order as an array.
+List every possible ordering that uses each element exactly once, returning each ordering as an array.
 The permutations may appear in any order in the result.
-Use backtracking, with a Boolean array recording whether the element at each position has already been selected for the current permutation.
+Use backtracking and a Boolean array to record whether the element at each position is already included in the current permutation.
 
 ??? tip "Hints"
 
-    1. The recursion depth indicates which position of the permutation is currently being filled
-    2. At each level, try only elements that have not yet been used
-    3. When the path's length equals the length of `nums`, add a copy of the path to the answer
+    1. The recursion depth indicates which position in the permutation is being filled.
+    2. At each level, try only unused elements.
+    3. When the path length reaches the length of `nums`, add a copy of the path to the answer.
 
 [LeetCode](https://leetcode.com/problems/permutations/){ .rounded-button .exercise-button target="_blank" rel="noopener noreferrer" }

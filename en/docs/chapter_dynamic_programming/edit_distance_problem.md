@@ -2,101 +2,101 @@
 comments: true
 ---
 
-# 14.6 &nbsp; Edit Distance Problem
+# 14.6 &nbsp; Edit distance problem
 
-Edit distance, also known as Levenshtein distance, refers to the minimum number of edits required to transform one string into another, commonly used in information retrieval and natural language processing to measure the similarity between two sequences.
+Edit distance, also called Levenshtein distance, is the minimum number of edits needed to transform one string into another. It is commonly used in information retrieval and natural language processing to measure similarity between sequences.
 
 !!! question
 
-    Given two strings $s$ and $t$, return the minimum number of edits required to transform $s$ into $t$.
+    Given two strings $s$ and $t$, return the minimum number of edits needed to transform $s$ into $t$.
+    
+    Three edits are allowed: insert a character, delete a character, or replace a character with any other character.
 
-    You can perform three types of edit operations on a string: insert a character, delete a character, or replace a character with any other character.
+As shown in Figure 14-27, transforming `kitten` into `sitting` takes 3 edits: 2 replacements and 1 insertion. Transforming `hello` into `algo` also takes 3 edits: 2 replacements and 1 deletion.
 
-As shown in Figure 14-27, transforming `kitten` into `sitting` requires 3 edits, including 2 replacements and 1 insertion; transforming `hello` into `algo` requires 3 steps, including 2 replacements and 1 deletion.
+![Examples of edit distance](edit_distance_problem.assets/edit_distance_example.png){ class="animation-figure" }
 
-![Example data for edit distance](edit_distance_problem.assets/edit_distance_example.png){ class="animation-figure" }
+<p align="center"> Figure 14-27 &nbsp; Examples of edit distance </p>
 
-<p align="center"> Figure 14-27 &nbsp; Example data for edit distance </p>
+**Edit distance fits naturally into a decision tree model**. Strings are nodes, and each decision (an edit) is an edge.
 
-**The edit distance problem can be naturally explained using the decision tree model**. Strings correspond to tree nodes, and each edit operation corresponds to an edge in the tree.
+As shown in Figure 14-28, without restrictions on the edits, each node can have many outgoing edges, one for each possible operation. Thus, many paths can transform `hello` into `algo`.
 
-As shown in Figure 14-28, without restricting operations, each node can branch into many edges, with each edge corresponding to one operation, meaning there are many possible paths to transform `hello` into `algo`.
+From the decision tree perspective, the goal is to find the shortest path between nodes `hello` and `algo`.
 
-From the perspective of the decision tree, the goal of this problem is to find the shortest path between node `hello` and node `algo`.
+![Edit distance as a decision tree](edit_distance_problem.assets/edit_distance_decision_tree.png){ class="animation-figure" }
 
-![Representing edit distance problem based on decision tree model](edit_distance_problem.assets/edit_distance_decision_tree.png){ class="animation-figure" }
+<p align="center"> Figure 14-28 &nbsp; Edit distance as a decision tree </p>
 
-<p align="center"> Figure 14-28 &nbsp; Representing edit distance problem based on decision tree model </p>
+### 1. &nbsp; Dynamic programming approach
 
-### 1. &nbsp; Dynamic Programming Approach
+**Step 1: Identify each decision, define the state, and establish the $dp$ table**
 
-**Step 1: Think about the decisions in each round, define the state, and thus obtain the $dp$ table**
+Each decision applies one edit to string $s$.
 
-Each round of decision involves performing one edit operation on string $s$.
+We want each edit to reduce the problem's size so that we can form subproblems. Let the lengths of $s$ and $t$ be $n$ and $m$. First consider their last characters, $s[n-1]$ and $t[m-1]$.
 
-We want the problem size to gradually decrease during the editing process so that we can construct subproblems. Let the lengths of strings $s$ and $t$ be $n$ and $m$ respectively. We first consider the tail characters of the two strings, $s[n-1]$ and $t[m-1]$.
+- If $s[n-1]$ and $t[m-1]$ match, skip them and consider $s[n-2]$ and $t[m-2]$.
+- If $s[n-1]$ and $t[m-1]$ differ, apply an edit to $s$ (insertion, deletion, or replacement) to match the endings, allowing us to move on to a smaller problem.
 
-- If $s[n-1]$ and $t[m-1]$ are the same, we can skip them and directly consider $s[n-2]$ and $t[m-2]$.
-- If $s[n-1]$ and $t[m-1]$ are different, we need to perform one edit on $s$ (insert, delete, or replace) to make the tail characters of the two strings the same, allowing us to skip them and consider a smaller-scale problem.
+Each decision (edit) in $s$ changes the characters still to be matched in $s$ and $t$. The state therefore specifies the $i$-th and $j$-th characters currently under consideration in $s$ and $t$, denoted by $[i, j]$.
 
-In other words, each round of decision (edit operation) we make on string $s$ will change the remaining characters to be matched in $s$ and $t$. Therefore, the state is the $i$-th and $j$-th characters currently being considered in $s$ and $t$, denoted as $[i, j]$.
+State $[i, j]$ represents the subproblem of finding **the minimum number of edits needed to transform the first $i$ characters of $s$ into the first $j$ characters of $t$**.
 
-State $[i, j]$ corresponds to the subproblem: **the minimum number of edits required to change the first $i$ characters of $s$ into the first $j$ characters of $t$**.
+This gives a two-dimensional $dp$ table of size $(n+1) \times (m+1)$.
 
-From this, we obtain a two-dimensional $dp$ table of size $(n+1) \times (m+1)$.
+**Step 2: Identify optimal substructure and derive the state transition equation**
 
-**Step 2: Identify the optimal substructure, and then derive the state transition equation**
+For subproblem $dp[i, j]$, the final characters are $s[i-1]$ and $t[j-1]$. The three possible edits give the cases shown in Figure 14-29.
 
-Consider subproblem $dp[i, j]$, where the tail characters of the corresponding two strings are $s[i-1]$ and $t[j-1]$, which can be divided into the three cases shown in Figure 14-29 based on different edit operations.
+1. Insert $t[j-1]$ after $s[i-1]$, leaving subproblem $dp[i, j-1]$.
+2. Delete $s[i-1]$, leaving subproblem $dp[i-1, j]$.
+3. Replace $s[i-1]$ with $t[j-1]$, leaving subproblem $dp[i-1, j-1]$.
 
-1. Insert $t[j-1]$ after $s[i-1]$, then the remaining subproblem is $dp[i, j-1]$.
-2. Delete $s[i-1]$, then the remaining subproblem is $dp[i-1, j]$.
-3. Replace $s[i-1]$ with $t[j-1]$, then the remaining subproblem is $dp[i-1, j-1]$.
+![State transitions for edit distance](edit_distance_problem.assets/edit_distance_state_transfer.png){ class="animation-figure" }
 
-![State transition for edit distance](edit_distance_problem.assets/edit_distance_state_transfer.png){ class="animation-figure" }
+<p align="center"> Figure 14-29 &nbsp; State transitions for edit distance </p>
 
-<p align="center"> Figure 14-29 &nbsp; State transition for edit distance </p>
-
-Based on the above analysis, we obtain the optimal substructure: the minimum number of edits for $dp[i, j]$ equals the minimum of $dp[i, j-1]$, $dp[i-1, j]$, and $dp[i-1, j-1]$, plus the current edit cost of $1$. The corresponding state transition equation is:
+The optimal substructure follows: the minimum edit count $dp[i, j]$ is the smallest of $dp[i, j-1]$, $dp[i-1, j]$, and $dp[i-1, j-1]$, plus $1$ for the current edit. The state transition equation is:
 
 $$
 dp[i, j] = \min(dp[i, j-1], dp[i-1, j], dp[i-1, j-1]) + 1
 $$
 
-Please note that **when $s[i-1]$ and $t[j-1]$ are the same, no edit is required for the current character**, in which case the state transition equation is:
+When **$s[i-1]$ and $t[j-1]$ match, no edit is needed for the current characters**, and the state transition equation becomes:
 
 $$
 dp[i, j] = dp[i-1, j-1]
 $$
 
-**Step 3: Determine boundary conditions and state transition order**
+**Step 3: Determine the boundary conditions and evaluation order**
 
-When both strings are empty, the number of edit steps is $0$, i.e., $dp[0, 0] = 0$. When $s$ is empty but $t$ is not, the minimum number of edit steps equals the length of $t$, i.e., the first row $dp[0, j] = j$. When $s$ is not empty but $t$ is empty, the minimum number of edit steps equals the length of $s$, i.e., the first column $dp[i, 0] = i$.
+If both strings are empty, $0$ edits are needed, so $dp[0, 0] = 0$. If $s$ is empty but $t$ is not, the minimum edit count is the length of $t$, giving the first row $dp[0, j] = j$. If $s$ is nonempty but $t$ is empty, the count is the length of $s$, giving the first column $dp[i, 0] = i$.
 
-Observing the state transition equation, the solution $dp[i, j]$ depends on solutions to the left, above, and upper-left, so the entire $dp$ table can be traversed in order through two nested loops.
+The solution $dp[i, j]$ depends on entries to its left, above, and upper left, so two nested loops can traverse the $dp$ table in increasing index order.
 
-### 2. &nbsp; Code Implementation
+### 2. &nbsp; Code implementation
 
 === "Python"
 
     ```python title="edit_distance.py"
     def edit_distance_dp(s: str, t: str) -> int:
-        """Edit distance: Dynamic programming"""
+        """Edit distance: dynamic programming"""
         n, m = len(s), len(t)
         dp = [[0] * (m + 1) for _ in range(n + 1)]
-        # State transition: first row and first column
+        # State transitions: first row and first column
         for i in range(1, n + 1):
             dp[i][0] = i
         for j in range(1, m + 1):
             dp[0][j] = j
-        # State transition: rest of the rows and columns
+        # State transitions: remaining rows and columns
         for i in range(1, n + 1):
             for j in range(1, m + 1):
                 if s[i - 1] == t[j - 1]:
-                    # If two characters are equal, skip both characters
+                    # If the two characters are equal, skip both of them
                     dp[i][j] = dp[i - 1][j - 1]
                 else:
-                    # Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    # Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[i][j] = min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]) + 1
         return dp[n][m]
     ```
@@ -104,25 +104,25 @@ Observing the state transition equation, the solution $dp[i, j]$ depends on solu
 === "C++"
 
     ```cpp title="edit_distance.cpp"
-    /* Edit distance: Dynamic programming */
+    /* Edit distance: dynamic programming */
     int editDistanceDP(string s, string t) {
         int n = s.length(), m = t.length();
         vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for (int i = 1; i <= n; i++) {
             dp[i][0] = i;
         }
         for (int j = 1; j <= m; j++) {
             dp[0][j] = j;
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 if (s[i - 1] == t[j - 1]) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
                 }
             }
@@ -134,25 +134,25 @@ Observing the state transition equation, the solution $dp[i, j]$ depends on solu
 === "Java"
 
     ```java title="edit_distance.java"
-    /* Edit distance: Dynamic programming */
+    /* Edit distance: dynamic programming */
     int editDistanceDP(String s, String t) {
         int n = s.length(), m = t.length();
         int[][] dp = new int[n + 1][m + 1];
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for (int i = 1; i <= n; i++) {
             dp[i][0] = i;
         }
         for (int j = 1; j <= m; j++) {
             dp[0][j] = j;
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 if (s.charAt(i - 1) == t.charAt(j - 1)) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[i][j] = Math.min(Math.min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
                 }
             }
@@ -164,25 +164,25 @@ Observing the state transition equation, the solution $dp[i, j]$ depends on solu
 === "C#"
 
     ```csharp title="edit_distance.cs"
-    /* Edit distance: Dynamic programming */
+    /* Edit distance: dynamic programming */
     int EditDistanceDP(string s, string t) {
         int n = s.Length, m = t.Length;
         int[,] dp = new int[n + 1, m + 1];
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for (int i = 1; i <= n; i++) {
             dp[i, 0] = i;
         }
         for (int j = 1; j <= m; j++) {
             dp[0, j] = j;
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 if (s[i - 1] == t[j - 1]) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[i, j] = dp[i - 1, j - 1];
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[i, j] = Math.Min(Math.Min(dp[i, j - 1], dp[i - 1, j]), dp[i - 1, j - 1]) + 1;
                 }
             }
@@ -194,7 +194,7 @@ Observing the state transition equation, the solution $dp[i, j]$ depends on solu
 === "Go"
 
     ```go title="edit_distance.go"
-    /* Edit distance: Dynamic programming */
+    /* Edit distance: dynamic programming */
     func editDistanceDP(s string, t string) int {
         n := len(s)
         m := len(t)
@@ -202,21 +202,21 @@ Observing the state transition equation, the solution $dp[i, j]$ depends on solu
         for i := 0; i <= n; i++ {
             dp[i] = make([]int, m+1)
         }
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for i := 1; i <= n; i++ {
             dp[i][0] = i
         }
         for j := 1; j <= m; j++ {
             dp[0][j] = j
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for i := 1; i <= n; i++ {
             for j := 1; j <= m; j++ {
                 if s[i-1] == t[j-1] {
-                    // If two characters are equal, skip both characters
+                    // If the two bytes are equal, skip both (each byte is one character for ASCII input)
                     dp[i][j] = dp[i-1][j-1]
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[i][j] = MinInt(MinInt(dp[i][j-1], dp[i-1][j]), dp[i-1][j-1]) + 1
                 }
             }
@@ -228,26 +228,26 @@ Observing the state transition equation, the solution $dp[i, j]$ depends on solu
 === "Swift"
 
     ```swift title="edit_distance.swift"
-    /* Edit distance: Dynamic programming */
+    /* Edit distance: dynamic programming */
     func editDistanceDP(s: String, t: String) -> Int {
         let n = s.utf8CString.count
         let m = t.utf8CString.count
         var dp = Array(repeating: Array(repeating: 0, count: m + 1), count: n + 1)
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for i in 1 ... n {
             dp[i][0] = i
         }
         for j in 1 ... m {
             dp[0][j] = j
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for i in 1 ... n {
             for j in 1 ... m {
                 if s.utf8CString[i - 1] == t.utf8CString[j - 1] {
-                    // If two characters are equal, skip both characters
+                    // If the two current UTF-8 bytes match, skip both
                     dp[i][j] = dp[i - 1][j - 1]
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1
                 }
             }
@@ -259,26 +259,26 @@ Observing the state transition equation, the solution $dp[i, j]$ depends on solu
 === "JS"
 
     ```javascript title="edit_distance.js"
-    /* Edit distance: Dynamic programming */
+    /* Edit distance: dynamic programming */
     function editDistanceDP(s, t) {
         const n = s.length,
             m = t.length;
         const dp = Array.from({ length: n + 1 }, () => new Array(m + 1).fill(0));
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for (let i = 1; i <= n; i++) {
             dp[i][0] = i;
         }
         for (let j = 1; j <= m; j++) {
             dp[0][j] = j;
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for (let i = 1; i <= n; i++) {
             for (let j = 1; j <= m; j++) {
                 if (s.charAt(i - 1) === t.charAt(j - 1)) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[i][j] =
                         Math.min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]) + 1;
                 }
@@ -291,28 +291,28 @@ Observing the state transition equation, the solution $dp[i, j]$ depends on solu
 === "TS"
 
     ```typescript title="edit_distance.ts"
-    /* Edit distance: Dynamic programming */
+    /* Edit distance: dynamic programming */
     function editDistanceDP(s: string, t: string): number {
         const n = s.length,
             m = t.length;
         const dp = Array.from({ length: n + 1 }, () =>
             Array.from({ length: m + 1 }, () => 0)
         );
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for (let i = 1; i <= n; i++) {
             dp[i][0] = i;
         }
         for (let j = 1; j <= m; j++) {
             dp[0][j] = j;
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for (let i = 1; i <= n; i++) {
             for (let j = 1; j <= m; j++) {
                 if (s.charAt(i - 1) === t.charAt(j - 1)) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[i][j] =
                         Math.min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]) + 1;
                 }
@@ -325,25 +325,25 @@ Observing the state transition equation, the solution $dp[i, j]$ depends on solu
 === "Dart"
 
     ```dart title="edit_distance.dart"
-    /* Edit distance: Dynamic programming */
+    /* Edit distance: dynamic programming */
     int editDistanceDP(String s, String t) {
       int n = s.length, m = t.length;
       List<List<int>> dp = List.generate(n + 1, (_) => List.filled(m + 1, 0));
-      // State transition: first row and first column
+      // State transitions: first row and first column
       for (int i = 1; i <= n; i++) {
         dp[i][0] = i;
       }
       for (int j = 1; j <= m; j++) {
         dp[0][j] = j;
       }
-      // State transition: rest of the rows and columns
+      // State transitions: remaining rows and columns
       for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
           if (s[i - 1] == t[j - 1]) {
-            // If two characters are equal, skip both characters
+            // If the two characters are equal, skip both of them
             dp[i][j] = dp[i - 1][j - 1];
           } else {
-            // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+            // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
             dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
           }
         }
@@ -355,25 +355,25 @@ Observing the state transition equation, the solution $dp[i, j]$ depends on solu
 === "Rust"
 
     ```rust title="edit_distance.rs"
-    /* Edit distance: Dynamic programming */
+    /* Edit distance: dynamic programming */
     fn edit_distance_dp(s: &str, t: &str) -> i32 {
         let (n, m) = (s.len(), t.len());
         let mut dp = vec![vec![0; m + 1]; n + 1];
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for i in 1..=n {
             dp[i][0] = i as i32;
         }
         for j in 1..m {
             dp[0][j] = j as i32;
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for i in 1..=n {
             for j in 1..=m {
                 if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[i][j] =
                         std::cmp::min(std::cmp::min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
                 }
@@ -386,27 +386,27 @@ Observing the state transition equation, the solution $dp[i, j]$ depends on solu
 === "C"
 
     ```c title="edit_distance.c"
-    /* Edit distance: Dynamic programming */
+    /* Edit distance: dynamic programming */
     int editDistanceDP(char *s, char *t, int n, int m) {
         int **dp = malloc((n + 1) * sizeof(int *));
         for (int i = 0; i <= n; i++) {
             dp[i] = calloc(m + 1, sizeof(int));
         }
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for (int i = 1; i <= n; i++) {
             dp[i][0] = i;
         }
         for (int j = 1; j <= m; j++) {
             dp[0][j] = j;
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 if (s[i - 1] == t[j - 1]) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[i][j] = myMin(myMin(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
                 }
             }
@@ -423,26 +423,26 @@ Observing the state transition equation, the solution $dp[i, j]$ depends on solu
 === "Kotlin"
 
     ```kotlin title="edit_distance.kt"
-    /* Edit distance: Dynamic programming */
+    /* Edit distance: dynamic programming */
     fun editDistanceDP(s: String, t: String): Int {
         val n = s.length
         val m = t.length
         val dp = Array(n + 1) { IntArray(m + 1) }
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for (i in 1..n) {
             dp[i][0] = i
         }
         for (j in 1..m) {
             dp[0][j] = j
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for (i in 1..n) {
             for (j in 1..m) {
                 if (s[i - 1] == t[j - 1]) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[i][j] = dp[i - 1][j - 1]
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1
                 }
             }
@@ -458,17 +458,17 @@ Observing the state transition equation, the solution $dp[i, j]$ depends on solu
     def edit_distance_dp(s, t)
       n, m = s.length, t.length
       dp = Array.new(n + 1) { Array.new(m + 1, 0) }
-      # State transition: first row and first column
+      # State transitions: first row and first column
       (1...(n + 1)).each { |i| dp[i][0] = i }
       (1...(m + 1)).each { |j| dp[0][j] = j }
-      # State transition: rest of the rows and columns
+      # State transitions: remaining rows and columns
       for i in 1...(n + 1)
         for j in 1...(m +1)
           if s[i - 1] == t[j - 1]
-            # If two characters are equal, skip both characters
+            # If the two characters are equal, skip both of them
             dp[i][j] = dp[i - 1][j - 1]
           else
-            # Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+            # Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
             dp[i][j] = [dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]].min + 1
           end
         end
@@ -477,10 +477,15 @@ Observing the state transition equation, the solution $dp[i, j]$ depends on solu
     end
     ```
 
-As shown in Figure 14-30, the state transition process for the edit distance problem is very similar to that of the knapsack problem; both can be viewed as the process of filling a two-dimensional grid.
+??? pythontutor "Visualize execution"
+
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20edit_distance_dp%28s%3A%20str,%20t%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Edit%20distance%3A%20dynamic%20programming%22%22%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%20%20%20%20dp%20%3D%20%5B%5B0%5D%20%2A%20%28m%20%2B%201%29%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20%23%20State%20transitions%3A%20first%20row%20and%20first%20column%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%5B0%5D%20%3D%20i%0A%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5B0%5D%5Bj%5D%20%3D%20j%0A%20%20%20%20%23%20State%20transitions%3A%20remaining%20rows%20and%20columns%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20s%5Bi%20-%201%5D%20%3D%3D%20t%5Bj%20-%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20If%20the%20two%20characters%20are%20equal,%20skip%20both%20of%20them%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bj%5D%20%3D%20dp%5Bi%20-%201%5D%5Bj%20-%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Minimum%20edits%20%3D%20the%20minimum%20among%20the%20insertion,%20deletion,%20and%20replacement%20subproblems%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bj%5D%20%3D%20min%28dp%5Bi%5D%5Bj%20-%201%5D,%20dp%5Bi%20-%201%5D%5Bj%5D,%20dp%5Bi%20-%201%5D%5Bj%20-%201%5D%29%20%2B%201%0A%20%20%20%20return%20dp%5Bn%5D%5Bm%5D%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20s%20%3D%20%22bag%22%0A%20%20%20%20t%20%3D%20%22pack%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%0A%20%20%20%20%23%20Dynamic%20programming%0A%20%20%20%20res%20%3D%20edit_distance_dp%28s,%20t%29%0A%20%20%20%20print%28f%22Changing%20%7Bs%7D%20to%20%7Bt%7D%20requires%20at%20least%20%7Bres%7D%20edits%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20edit_distance_dp%28s%3A%20str,%20t%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Edit%20distance%3A%20dynamic%20programming%22%22%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%20%20%20%20dp%20%3D%20%5B%5B0%5D%20%2A%20%28m%20%2B%201%29%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20%23%20State%20transitions%3A%20first%20row%20and%20first%20column%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%5B0%5D%20%3D%20i%0A%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5B0%5D%5Bj%5D%20%3D%20j%0A%20%20%20%20%23%20State%20transitions%3A%20remaining%20rows%20and%20columns%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20s%5Bi%20-%201%5D%20%3D%3D%20t%5Bj%20-%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20If%20the%20two%20characters%20are%20equal,%20skip%20both%20of%20them%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bj%5D%20%3D%20dp%5Bi%20-%201%5D%5Bj%20-%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Minimum%20edits%20%3D%20the%20minimum%20among%20the%20insertion,%20deletion,%20and%20replacement%20subproblems%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bj%5D%20%3D%20min%28dp%5Bi%5D%5Bj%20-%201%5D,%20dp%5Bi%20-%201%5D%5Bj%5D,%20dp%5Bi%20-%201%5D%5Bj%20-%201%5D%29%20%2B%201%0A%20%20%20%20return%20dp%5Bn%5D%5Bm%5D%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20s%20%3D%20%22bag%22%0A%20%20%20%20t%20%3D%20%22pack%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%0A%20%20%20%20%23%20Dynamic%20programming%0A%20%20%20%20res%20%3D%20edit_distance_dp%28s,%20t%29%0A%20%20%20%20print%28f%22Changing%20%7Bs%7D%20to%20%7Bt%7D%20requires%20at%20least%20%7Bres%7D%20edits%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+As shown in Figure 14-30, the state transition process resembles that of the knapsack problem: both fill a two-dimensional grid.
 
 === "<1>"
-    ![Dynamic programming process for edit distance](edit_distance_problem.assets/edit_distance_dp_step1.png){ class="animation-figure" }
+    ![Dynamic programming for edit distance](edit_distance_problem.assets/edit_distance_dp_step1.png){ class="animation-figure" }
 
 === "<2>"
     ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.png){ class="animation-figure" }
@@ -524,69 +529,69 @@ As shown in Figure 14-30, the state transition process for the edit distance pro
 === "<15>"
     ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.png){ class="animation-figure" }
 
-<p align="center"> Figure 14-30 &nbsp; Dynamic programming process for edit distance </p>
+<p align="center"> Figure 14-30 &nbsp; Dynamic programming for edit distance </p>
 
-### 3. &nbsp; Space Optimization
+### 3. &nbsp; Space optimization
 
-Since $dp[i, j]$ depends on the states above $dp[i-1, j]$, to the left $dp[i, j-1]$, and at the upper-left $dp[i-1, j-1]$, forward traversal will lose the upper-left state $dp[i-1, j-1]$, while reverse traversal cannot construct $dp[i, j-1]$ in advance, so neither traversal order is suitable.
+The state $dp[i,j]$ depends on $dp[i-1, j]$ above, $dp[i, j-1]$ to the left, and $dp[i-1, j-1]$ at the upper left. Forward iteration loses $dp[i-1, j-1]$, while backward iteration cannot compute $dp[i, j-1]$ in advance. Neither order alone is sufficient.
 
-For this reason, we can use a variable `leftup` to temporarily store the upper-left solution $dp[i-1, j-1]$, so we only need to consider the solutions to the left and above. This situation is the same as in the unbounded knapsack problem, so we can use forward traversal. The code is as follows:
+We can use a variable `leftup` to preserve the upper-left solution $dp[i-1, j-1]$, leaving only the left and upper entries to consider. The situation then matches unbounded knapsack, and forward iteration works. The code is as follows:
 
 === "Python"
 
     ```python title="edit_distance.py"
     def edit_distance_dp_comp(s: str, t: str) -> int:
-        """Edit distance: Space-optimized dynamic programming"""
+        """Edit distance: space-optimized dynamic programming"""
         n, m = len(s), len(t)
         dp = [0] * (m + 1)
-        # State transition: first row
+        # State transitions: first row
         for j in range(1, m + 1):
             dp[j] = j
-        # State transition: rest of the rows
+        # State transitions: remaining rows
         for i in range(1, n + 1):
-            # State transition: first column
+            # State transitions: first column
             leftup = dp[0]  # Temporarily store dp[i-1, j-1]
             dp[0] += 1
-            # State transition: rest of the columns
+            # State transitions: remaining columns
             for j in range(1, m + 1):
                 temp = dp[j]
                 if s[i - 1] == t[j - 1]:
-                    # If two characters are equal, skip both characters
+                    # If the two characters are equal, skip both of them
                     dp[j] = leftup
                 else:
-                    # Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    # Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[j] = min(dp[j - 1], dp[j], leftup) + 1
-                leftup = temp  # Update for next round's dp[i-1, j-1]
+                leftup = temp  # Update to dp[i-1, j-1] for the next iteration
         return dp[m]
     ```
 
 === "C++"
 
     ```cpp title="edit_distance.cpp"
-    /* Edit distance: Space-optimized dynamic programming */
+    /* Edit distance: space-optimized dynamic programming */
     int editDistanceDPComp(string s, string t) {
         int n = s.length(), m = t.length();
         vector<int> dp(m + 1, 0);
-        // State transition: first row
+        // State transitions: first row
         for (int j = 1; j <= m; j++) {
             dp[j] = j;
         }
-        // State transition: rest of the rows
+        // State transitions: remaining rows
         for (int i = 1; i <= n; i++) {
-            // State transition: first column
+            // State transitions: first column
             int leftup = dp[0]; // Temporarily store dp[i-1, j-1]
             dp[0] = i;
-            // State transition: rest of the columns
+            // State transitions: remaining columns
             for (int j = 1; j <= m; j++) {
                 int temp = dp[j];
                 if (s[i - 1] == t[j - 1]) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[j] = leftup;
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1;
                 }
-                leftup = temp; // Update for next round's dp[i-1, j-1]
+                leftup = temp; // Update to dp[i-1, j-1] for the next iteration
             }
         }
         return dp[m];
@@ -596,30 +601,30 @@ For this reason, we can use a variable `leftup` to temporarily store the upper-l
 === "Java"
 
     ```java title="edit_distance.java"
-    /* Edit distance: Space-optimized dynamic programming */
+    /* Edit distance: space-optimized dynamic programming */
     int editDistanceDPComp(String s, String t) {
         int n = s.length(), m = t.length();
         int[] dp = new int[m + 1];
-        // State transition: first row
+        // State transitions: first row
         for (int j = 1; j <= m; j++) {
             dp[j] = j;
         }
-        // State transition: rest of the rows
+        // State transitions: remaining rows
         for (int i = 1; i <= n; i++) {
-            // State transition: first column
+            // State transitions: first column
             int leftup = dp[0]; // Temporarily store dp[i-1, j-1]
             dp[0] = i;
-            // State transition: rest of the columns
+            // State transitions: remaining columns
             for (int j = 1; j <= m; j++) {
                 int temp = dp[j];
                 if (s.charAt(i - 1) == t.charAt(j - 1)) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[j] = leftup;
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[j] = Math.min(Math.min(dp[j - 1], dp[j]), leftup) + 1;
                 }
-                leftup = temp; // Update for next round's dp[i-1, j-1]
+                leftup = temp; // Update to dp[i-1, j-1] for the next iteration
             }
         }
         return dp[m];
@@ -629,30 +634,30 @@ For this reason, we can use a variable `leftup` to temporarily store the upper-l
 === "C#"
 
     ```csharp title="edit_distance.cs"
-    /* Edit distance: Space-optimized dynamic programming */
+    /* Edit distance: space-optimized dynamic programming */
     int EditDistanceDPComp(string s, string t) {
         int n = s.Length, m = t.Length;
         int[] dp = new int[m + 1];
-        // State transition: first row
+        // State transitions: first row
         for (int j = 1; j <= m; j++) {
             dp[j] = j;
         }
-        // State transition: rest of the rows
+        // State transitions: remaining rows
         for (int i = 1; i <= n; i++) {
-            // State transition: first column
+            // State transitions: first column
             int leftup = dp[0]; // Temporarily store dp[i-1, j-1]
             dp[0] = i;
-            // State transition: rest of the columns
+            // State transitions: remaining columns
             for (int j = 1; j <= m; j++) {
                 int temp = dp[j];
                 if (s[i - 1] == t[j - 1]) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[j] = leftup;
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[j] = Math.Min(Math.Min(dp[j - 1], dp[j]), leftup) + 1;
                 }
-                leftup = temp; // Update for next round's dp[i-1, j-1]
+                leftup = temp; // Update to dp[i-1, j-1] for the next iteration
             }
         }
         return dp[m];
@@ -662,31 +667,31 @@ For this reason, we can use a variable `leftup` to temporarily store the upper-l
 === "Go"
 
     ```go title="edit_distance.go"
-    /* Edit distance: Space-optimized dynamic programming */
+    /* Edit distance: space-optimized dynamic programming */
     func editDistanceDPComp(s string, t string) int {
         n := len(s)
         m := len(t)
         dp := make([]int, m+1)
-        // State transition: first row
+        // State transitions: first row
         for j := 1; j <= m; j++ {
             dp[j] = j
         }
-        // State transition: rest of the rows
+        // State transitions: remaining rows
         for i := 1; i <= n; i++ {
-            // State transition: first column
+            // State transitions: first column
             leftUp := dp[0] // Temporarily store dp[i-1, j-1]
             dp[0] = i
-            // State transition: rest of the columns
+            // State transitions: remaining columns
             for j := 1; j <= m; j++ {
                 temp := dp[j]
                 if s[i-1] == t[j-1] {
-                    // If two characters are equal, skip both characters
+                    // If the two bytes are equal, skip both (each byte is one character for ASCII input)
                     dp[j] = leftUp
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[j] = MinInt(MinInt(dp[j-1], dp[j]), leftUp) + 1
                 }
-                leftUp = temp // Update for next round's dp[i-1, j-1]
+                leftUp = temp // Update to dp[i-1, j-1] for the next iteration
             }
         }
         return dp[m]
@@ -696,31 +701,31 @@ For this reason, we can use a variable `leftup` to temporarily store the upper-l
 === "Swift"
 
     ```swift title="edit_distance.swift"
-    /* Edit distance: Space-optimized dynamic programming */
+    /* Edit distance: space-optimized dynamic programming */
     func editDistanceDPComp(s: String, t: String) -> Int {
         let n = s.utf8CString.count
         let m = t.utf8CString.count
         var dp = Array(repeating: 0, count: m + 1)
-        // State transition: first row
+        // State transitions: first row
         for j in 1 ... m {
             dp[j] = j
         }
-        // State transition: rest of the rows
+        // State transitions: remaining rows
         for i in 1 ... n {
-            // State transition: first column
+            // State transitions: first column
             var leftup = dp[0] // Temporarily store dp[i-1, j-1]
             dp[0] = i
-            // State transition: rest of the columns
+            // State transitions: remaining columns
             for j in 1 ... m {
                 let temp = dp[j]
                 if s.utf8CString[i - 1] == t.utf8CString[j - 1] {
-                    // If two characters are equal, skip both characters
+                    // If the two current UTF-8 bytes match, skip both
                     dp[j] = leftup
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1
                 }
-                leftup = temp // Update for next round's dp[i-1, j-1]
+                leftup = temp // Update to dp[i-1, j-1] for the next iteration
             }
         }
         return dp[m]
@@ -730,31 +735,31 @@ For this reason, we can use a variable `leftup` to temporarily store the upper-l
 === "JS"
 
     ```javascript title="edit_distance.js"
-    /* Edit distance: Space-optimized dynamic programming */
+    /* Edit distance: space-optimized dynamic programming */
     function editDistanceDPComp(s, t) {
         const n = s.length,
             m = t.length;
         const dp = new Array(m + 1).fill(0);
-        // State transition: first row
+        // State transitions: first row
         for (let j = 1; j <= m; j++) {
             dp[j] = j;
         }
-        // State transition: rest of the rows
+        // State transitions: remaining rows
         for (let i = 1; i <= n; i++) {
-            // State transition: first column
+            // State transitions: first column
             let leftup = dp[0]; // Temporarily store dp[i-1, j-1]
             dp[0] = i;
-            // State transition: rest of the columns
+            // State transitions: remaining columns
             for (let j = 1; j <= m; j++) {
                 const temp = dp[j];
                 if (s.charAt(i - 1) === t.charAt(j - 1)) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[j] = leftup;
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[j] = Math.min(dp[j - 1], dp[j], leftup) + 1;
                 }
-                leftup = temp; // Update for next round's dp[i-1, j-1]
+                leftup = temp; // Update to dp[i-1, j-1] for the next iteration
             }
         }
         return dp[m];
@@ -764,31 +769,31 @@ For this reason, we can use a variable `leftup` to temporarily store the upper-l
 === "TS"
 
     ```typescript title="edit_distance.ts"
-    /* Edit distance: Space-optimized dynamic programming */
+    /* Edit distance: space-optimized dynamic programming */
     function editDistanceDPComp(s: string, t: string): number {
         const n = s.length,
             m = t.length;
         const dp = new Array(m + 1).fill(0);
-        // State transition: first row
+        // State transitions: first row
         for (let j = 1; j <= m; j++) {
             dp[j] = j;
         }
-        // State transition: rest of the rows
+        // State transitions: remaining rows
         for (let i = 1; i <= n; i++) {
-            // State transition: first column
+            // State transitions: first column
             let leftup = dp[0]; // Temporarily store dp[i-1, j-1]
             dp[0] = i;
-            // State transition: rest of the columns
+            // State transitions: remaining columns
             for (let j = 1; j <= m; j++) {
                 const temp = dp[j];
                 if (s.charAt(i - 1) === t.charAt(j - 1)) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[j] = leftup;
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[j] = Math.min(dp[j - 1], dp[j], leftup) + 1;
                 }
-                leftup = temp; // Update for next round's dp[i-1, j-1]
+                leftup = temp; // Update to dp[i-1, j-1] for the next iteration
             }
         }
         return dp[m];
@@ -798,30 +803,30 @@ For this reason, we can use a variable `leftup` to temporarily store the upper-l
 === "Dart"
 
     ```dart title="edit_distance.dart"
-    /* Edit distance: Space-optimized dynamic programming */
+    /* Edit distance: space-optimized dynamic programming */
     int editDistanceDPComp(String s, String t) {
       int n = s.length, m = t.length;
       List<int> dp = List.filled(m + 1, 0);
-      // State transition: first row
+      // State transitions: first row
       for (int j = 1; j <= m; j++) {
         dp[j] = j;
       }
-      // State transition: rest of the rows
+      // State transitions: remaining rows
       for (int i = 1; i <= n; i++) {
-        // State transition: first column
+        // State transitions: first column
         int leftup = dp[0]; // Temporarily store dp[i-1, j-1]
         dp[0] = i;
-        // State transition: rest of the columns
+        // State transitions: remaining columns
         for (int j = 1; j <= m; j++) {
           int temp = dp[j];
           if (s[i - 1] == t[j - 1]) {
-            // If two characters are equal, skip both characters
+            // If the two characters are equal, skip both of them
             dp[j] = leftup;
           } else {
-            // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+            // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
             dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1;
           }
-          leftup = temp; // Update for next round's dp[i-1, j-1]
+          leftup = temp; // Update to dp[i-1, j-1] for the next iteration
         }
       }
       return dp[m];
@@ -831,30 +836,30 @@ For this reason, we can use a variable `leftup` to temporarily store the upper-l
 === "Rust"
 
     ```rust title="edit_distance.rs"
-    /* Edit distance: Space-optimized dynamic programming */
+    /* Edit distance: space-optimized dynamic programming */
     fn edit_distance_dp_comp(s: &str, t: &str) -> i32 {
         let (n, m) = (s.len(), t.len());
         let mut dp = vec![0; m + 1];
-        // State transition: first row
+        // State transitions: first row
         for j in 1..m {
             dp[j] = j as i32;
         }
-        // State transition: rest of the rows
+        // State transitions: remaining rows
         for i in 1..=n {
-            // State transition: first column
+            // State transitions: first column
             let mut leftup = dp[0]; // Temporarily store dp[i-1, j-1]
             dp[0] = i as i32;
-            // State transition: rest of the columns
+            // State transitions: remaining columns
             for j in 1..=m {
                 let temp = dp[j];
                 if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[j] = leftup;
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[j] = std::cmp::min(std::cmp::min(dp[j - 1], dp[j]), leftup) + 1;
                 }
-                leftup = temp; // Update for next round's dp[i-1, j-1]
+                leftup = temp; // Update to dp[i-1, j-1] for the next iteration
             }
         }
         dp[m]
@@ -864,29 +869,29 @@ For this reason, we can use a variable `leftup` to temporarily store the upper-l
 === "C"
 
     ```c title="edit_distance.c"
-    /* Edit distance: Space-optimized dynamic programming */
+    /* Edit distance: space-optimized dynamic programming */
     int editDistanceDPComp(char *s, char *t, int n, int m) {
         int *dp = calloc(m + 1, sizeof(int));
-        // State transition: first row
+        // State transitions: first row
         for (int j = 1; j <= m; j++) {
             dp[j] = j;
         }
-        // State transition: rest of the rows
+        // State transitions: remaining rows
         for (int i = 1; i <= n; i++) {
-            // State transition: first column
+            // State transitions: first column
             int leftup = dp[0]; // Temporarily store dp[i-1, j-1]
             dp[0] = i;
-            // State transition: rest of the columns
+            // State transitions: remaining columns
             for (int j = 1; j <= m; j++) {
                 int temp = dp[j];
                 if (s[i - 1] == t[j - 1]) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[j] = leftup;
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[j] = myMin(myMin(dp[j - 1], dp[j]), leftup) + 1;
                 }
-                leftup = temp; // Update for next round's dp[i-1, j-1]
+                leftup = temp; // Update to dp[i-1, j-1] for the next iteration
             }
         }
         int res = dp[m];
@@ -899,31 +904,31 @@ For this reason, we can use a variable `leftup` to temporarily store the upper-l
 === "Kotlin"
 
     ```kotlin title="edit_distance.kt"
-    /* Edit distance: Space-optimized dynamic programming */
+    /* Edit distance: space-optimized dynamic programming */
     fun editDistanceDPComp(s: String, t: String): Int {
         val n = s.length
         val m = t.length
         val dp = IntArray(m + 1)
-        // State transition: first row
+        // State transitions: first row
         for (j in 1..m) {
             dp[j] = j
         }
-        // State transition: rest of the rows
+        // State transitions: remaining rows
         for (i in 1..n) {
-            // State transition: first column
+            // State transitions: first column
             var leftup = dp[0] // Temporarily store dp[i-1, j-1]
             dp[0] = i
-            // State transition: rest of the columns
+            // State transitions: remaining columns
             for (j in 1..m) {
                 val temp = dp[j]
                 if (s[i - 1] == t[j - 1]) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[j] = leftup
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1
                 }
-                leftup = temp // Update for next round's dp[i-1, j-1]
+                leftup = temp // Update to dp[i-1, j-1] for the next iteration
             }
         }
         return dp[m]
@@ -933,30 +938,35 @@ For this reason, we can use a variable `leftup` to temporarily store the upper-l
 === "Ruby"
 
     ```ruby title="edit_distance.rb"
-    ### Edit distance: space-optimized DP ###
+    ### Edit distance: space-optimized dynamic programming ###
     def edit_distance_dp_comp(s, t)
       n, m = s.length, t.length
       dp = Array.new(m + 1, 0)
-      # State transition: first row
+      # State transitions: first row
       (1...(m + 1)).each { |j| dp[j] = j }
-      # State transition: rest of the rows
+      # State transitions: remaining rows
       for i in 1...(n + 1)
-        # State transition: first column
+        # State transitions: first column
         leftup = dp.first # Temporarily store dp[i-1, j-1]
         dp[0] += 1
-        # State transition: rest of the columns
+        # State transitions: remaining columns
         for j in 1...(m + 1)
           temp = dp[j]
           if s[i - 1] == t[j - 1]
-            # If two characters are equal, skip both characters
+            # If the two characters are equal, skip both of them
             dp[j] = leftup
           else
-            # Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+            # Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
             dp[j] = [dp[j - 1], dp[j], leftup].min + 1
           end
-          leftup = temp # Update for next round's dp[i-1, j-1]
+          leftup = temp # Update to dp[i-1, j-1] for the next iteration
         end
       end
       dp[m]
     end
     ```
+
+??? pythontutor "Visualize execution"
+
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20edit_distance_dp_comp%28s%3A%20str,%20t%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Edit%20distance%3A%20space-optimized%20dynamic%20programming%22%22%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%20%20%20%20dp%20%3D%20%5B0%5D%20%2A%20%28m%20%2B%201%29%0A%20%20%20%20%23%20State%20transitions%3A%20first%20row%0A%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20j%0A%20%20%20%20%23%20State%20transitions%3A%20remaining%20rows%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20State%20transitions%3A%20first%20column%0A%20%20%20%20%20%20%20%20leftup%20%3D%20dp%5B0%5D%20%20%23%20Temporarily%20store%20dp%5Bi-1,%20j-1%5D%0A%20%20%20%20%20%20%20%20dp%5B0%5D%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%23%20State%20transitions%3A%20remaining%20columns%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20temp%20%3D%20dp%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20s%5Bi%20-%201%5D%20%3D%3D%20t%5Bj%20-%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20If%20the%20two%20characters%20are%20equal,%20skip%20both%20of%20them%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20leftup%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Minimum%20edits%20%3D%20the%20minimum%20among%20the%20insertion,%20deletion,%20and%20replacement%20subproblems%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20min%28dp%5Bj%20-%201%5D,%20dp%5Bj%5D,%20leftup%29%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20leftup%20%3D%20temp%20%20%23%20Update%20to%20dp%5Bi-1,%20j-1%5D%20for%20the%20next%20iteration%0A%20%20%20%20return%20dp%5Bm%5D%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20s%20%3D%20%22bag%22%0A%20%20%20%20t%20%3D%20%22pack%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%0A%20%20%20%20%23%20Space-optimized%20dynamic%20programming%0A%20%20%20%20res%20%3D%20edit_distance_dp_comp%28s,%20t%29%0A%20%20%20%20print%28f%22Changing%20%7Bs%7D%20to%20%7Bt%7D%20requires%20at%20least%20%7Bres%7D%20edits%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20edit_distance_dp_comp%28s%3A%20str,%20t%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Edit%20distance%3A%20space-optimized%20dynamic%20programming%22%22%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%20%20%20%20dp%20%3D%20%5B0%5D%20%2A%20%28m%20%2B%201%29%0A%20%20%20%20%23%20State%20transitions%3A%20first%20row%0A%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20j%0A%20%20%20%20%23%20State%20transitions%3A%20remaining%20rows%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20State%20transitions%3A%20first%20column%0A%20%20%20%20%20%20%20%20leftup%20%3D%20dp%5B0%5D%20%20%23%20Temporarily%20store%20dp%5Bi-1,%20j-1%5D%0A%20%20%20%20%20%20%20%20dp%5B0%5D%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%23%20State%20transitions%3A%20remaining%20columns%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20temp%20%3D%20dp%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20s%5Bi%20-%201%5D%20%3D%3D%20t%5Bj%20-%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20If%20the%20two%20characters%20are%20equal,%20skip%20both%20of%20them%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20leftup%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Minimum%20edits%20%3D%20the%20minimum%20among%20the%20insertion,%20deletion,%20and%20replacement%20subproblems%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20min%28dp%5Bj%20-%201%5D,%20dp%5Bj%5D,%20leftup%29%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20leftup%20%3D%20temp%20%20%23%20Update%20to%20dp%5Bi-1,%20j-1%5D%20for%20the%20next%20iteration%0A%20%20%20%20return%20dp%5Bm%5D%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20s%20%3D%20%22bag%22%0A%20%20%20%20t%20%3D%20%22pack%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%0A%20%20%20%20%23%20Space-optimized%20dynamic%20programming%0A%20%20%20%20res%20%3D%20edit_distance_dp_comp%28s,%20t%29%0A%20%20%20%20print%28f%22Changing%20%7Bs%7D%20to%20%7Bt%7D%20requires%20at%20least%20%7Bres%7D%20edits%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>

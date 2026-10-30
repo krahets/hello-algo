@@ -3,20 +3,20 @@ comments: true
 icon: material/graphql
 ---
 
-# Chapter 9. &nbsp; Graph
+# Chapter 9. &nbsp; Graphs
 
-![Graph](../assets/covers/chapter_graph.jpg){ class="cover-image" }
+![Graphs](../assets/covers/chapter_graph.jpg){ class="cover-image" }
 
 !!! abstract
 
-    In the journey of life, we are like nodes, connected by countless invisible edges.
-
-    Each encounter and parting leaves a unique mark on this vast network graph.
+    On the journey of life, we are like nodes joined by countless invisible edges.
+    
+    Every meeting and parting leaves a unique mark on this vast network.
 
 ## Chapter contents
 
-- [9.1 &nbsp; Graph](graph.md)
-- [9.2 &nbsp; Basic Operations on Graphs](graph_operations.md)
-- [9.3 &nbsp; Graph Traversal](graph_traversal.md)
+- [9.1 &nbsp; Graphs](graph.md)
+- [9.2 &nbsp; Basic graph operations](graph_operations.md)
+- [9.3 &nbsp; Graph traversal](graph_traversal.md)
 - [9.4 &nbsp; Summary](summary.md)
 - [9.5 &nbsp; Exercises](exercises.md)

@@ -2,65 +2,65 @@
 comments: true
 ---
 
-# 1.1 &nbsp; Algorithms Are Everywhere
+# 1.1 &nbsp; Algorithms are everywhere
 
-When we hear the term "algorithm," we naturally think of mathematics. However, many algorithms do not involve complex mathematics but rely more on basic logic, which can be seen everywhere in our daily lives.
+When we hear the word “algorithm,” we naturally think of mathematics. In fact, many algorithms do not involve complex mathematics. Instead, they rely on basic logic that we encounter throughout everyday life.
 
-Before we formally explore algorithms, here's an interesting fact worth sharing: **you have already learned many algorithms without realizing it, and you are used to applying them in daily life**. Let me give a few specific examples to illustrate this point.
+Before we formally explore algorithms, here is an interesting fact: **you have already learned many algorithms without realizing it, and you routinely use them in everyday life**. The following examples illustrate this point.
 
-**Example 1: Looking Up a Dictionary**. In an English dictionary, words are listed alphabetically. Assuming we're searching for a word that starts with the letter $r$, this is typically done in the following way:
+**Example 1: Looking up a word in a dictionary**. In a Chinese dictionary, each character has a corresponding pinyin pronunciation, and entries are arranged alphabetically by pinyin. Suppose we want to find a character whose pinyin begins with $r$. We would usually follow the process shown in Figure 1-1.
 
-1. Open the dictionary to about halfway and check the first word on that page; suppose it starts with the letter $m$.
-2. Since $r$ comes after $m$ in the alphabet, the first half can be ignored and the search space is narrowed down to the second half.
-3. Repeat steps `1.` and `2.` until you find the page where the word starts with $r$.
+1. Open the dictionary roughly halfway through and check the initial letter on that page. Suppose it is $m$.
+2. Since $r$ comes after $m$ in the pinyin alphabet, rule out the first half of the dictionary and narrow the search to the second half.
+3. Repeat steps `1.` and `2.` until you find the pages whose pinyin entries begin with $r$.
 
 === "<1>"
-    ![Process of looking up a dictionary](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png){ class="animation-figure" }
+    ![Steps for looking up a word in a dictionary](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![Binary search in dictionary step 2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png){ class="animation-figure" }
+    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![Binary search in dictionary step 3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png){ class="animation-figure" }
+    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png){ class="animation-figure" }
 
 === "<4>"
-    ![Binary search in dictionary step 4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png){ class="animation-figure" }
+    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png){ class="animation-figure" }
 
 === "<5>"
-    ![Binary search in dictionary step 5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png){ class="animation-figure" }
+    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png){ class="animation-figure" }
 
-<p align="center"> Figure 1-1 &nbsp; Process of looking up a dictionary </p>
+<p align="center"> Figure 1-1 &nbsp; Steps for looking up a word in a dictionary </p>
 
-Looking up a dictionary, an essential skill for elementary school students is actually the famous "Binary Search" algorithm. From a data structure perspective, we can consider the dictionary as a sorted "array"; from an algorithmic perspective, the series of actions taken to look up a word in the dictionary can be viewed as the algorithm "Binary Search."
+This dictionary skill, learned in elementary school, is actually the well-known “binary search” algorithm. From a data structure perspective, we can view the dictionary as a sorted “array”; from an algorithm perspective, the sequence of lookup operations above is “binary search.”
 
-**Example 2: Organizing Playing Cards**. When playing cards, we need to arrange the cards in our hands in ascending order, as shown in the following process.
+**Example 2: Arranging playing cards**. When playing cards, we need to arrange our hand from smallest to largest each round. The process is shown in Figure 1-2.
 
-1. Divide the playing cards into "ordered" and "unordered" sections, assuming initially the leftmost card is already in order.
-2. Take out a card from the unordered section and insert it into the correct position in the ordered section; after this, the leftmost two cards are in order.
-3. Repeat step `2` until all cards are in order.
+1. Divide the cards into “sorted” and “unsorted” sections, initially treating the single leftmost card as sorted.
+2. Take a card from the unsorted section and insert it into the correct position in the sorted section. The two leftmost cards are now sorted.
+3. Repeat step `2.`, inserting one card from the unsorted section into the sorted section each round, until all the cards are sorted.
 
-![Process of sorting a deck of cards](algorithms_are_everywhere.assets/playing_cards_sorting.png){ class="animation-figure" }
+![Steps for sorting playing cards](algorithms_are_everywhere.assets/playing_cards_sorting.png){ class="animation-figure" }
 
-<p align="center"> Figure 1-2 &nbsp; Process of sorting a deck of cards </p>
+<p align="center"> Figure 1-2 &nbsp; Steps for sorting playing cards </p>
 
-The above method of organizing playing cards is essentially the "Insertion Sort" algorithm, which is very efficient for small datasets. Many programming languages' built-in sorting implementations use insertion sort internally.
+This method of arranging playing cards is essentially “insertion sort,” an algorithm that is very efficient for small datasets. Insertion sort appears in the library sorting functions of many programming languages.
 
-**Example 3: Making Change**. Assume making a purchase of $69$ at a supermarket. If you give the cashier $100$, they will need to provide you with $31$ in change. This process can be clearly understood as illustrated in Figure 1-3.
+**Example 3: Making change**. Suppose we buy goods costing $69$ yuan at a supermarket and pay the cashier $100$ yuan. The cashier needs to give us $31$ yuan in change and naturally reasons through the process shown in Figure 1-3.
 
-1. The available denominations smaller than $31$ are $1$, $5$, $10$, and $20$.
-2. Take out the largest $20$ from the options, leaving $31 - 20 = 11$.
-3. Take out the largest $10$ from the remaining options, leaving $11 - 10 = 1$.
-4. Take out the largest $1$ from the remaining options, leaving $1 - 1 = 0$.
-5. Complete change-making, the solution is $20 + 10 + 1 = 31$.
+1. The available denominations smaller than $31$ yuan are $1$, $5$, $10$, and $20$ yuan.
+2. Take the largest available denomination, $20$ yuan, leaving $31 - 20 = 11$ yuan.
+3. Take the largest denomination that fits the remaining amount, $10$ yuan, leaving $11 - 10 = 1$ yuan.
+4. Take the largest denomination that fits the remaining amount, $1$ yuan, leaving $1 - 1 = 0$ yuan.
+5. The change is complete: $20 + 10 + 1 = 31$ yuan.
 
-![Process of making change](algorithms_are_everywhere.assets/greedy_change.png){ class="animation-figure" }
+![The process of making change](algorithms_are_everywhere.assets/greedy_change.png){ class="animation-figure" }
 
-<p align="center"> Figure 1-3 &nbsp; Process of making change </p>
+<p align="center"> Figure 1-3 &nbsp; The process of making change </p>
 
-In the steps above, we choose what seems to be the best option at each stage by using the largest denomination available, which leads to an effective way to make change. From a data structures and algorithms perspective, this approach is known as a "Greedy" algorithm.
+At each step above, we make the choice that looks best at the moment—using the largest possible denomination—and eventually obtain a valid way to make change. In terms of data structures and algorithms, this is a “greedy” algorithm.
 
-From cooking a meal to interstellar travel, almost all problem-solving involves algorithms. The advent of computers allows us to store data structures in memory and write code to call the CPU and GPU to execute algorithms. In this way, we can transfer real-life problems to computers and solve various complex issues in a more efficient way.
+From cooking a meal to traveling between stars, solving almost any problem involves algorithms. Computers allow us to store data structures in memory through programming and write code that calls on CPUs and GPUs to execute algorithms. We can therefore bring real-world problems to computers and solve complex problems more efficiently.
 
 !!! tip
 
-    If concepts such as data structures, algorithms, arrays, and binary search still feel only half-familiar, keep reading. This book will guide you into the world of data structures and algorithms.
+    If concepts such as data structures, algorithms, arrays, and binary search still seem unclear, keep reading. This book will guide you into the world of data structures and algorithms.

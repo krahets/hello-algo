@@ -2,247 +2,247 @@
 comments: true
 ---
 
-# 6.1 &nbsp; Hash Table
+# 6.1 &nbsp; Hash tables
 
-A <u>hash table</u>, also known as a <u>hash map</u>, stores mappings from keys `key` to values `value`, enabling efficient lookups. Specifically, given a key `key`, we can retrieve the corresponding value `value` from a hash table in $O(1)$ time.
+A <u>hash table</u>, also called a <u>hash map</u>, supports efficient lookup by mapping a `key` to a `value`. Given a key, it can retrieve the corresponding value in $O(1)$ time.
 
-As shown below, suppose we have $n$ students, each with two pieces of information: a name and a student ID. If we want to support the query "given a student ID, return the corresponding name," we can use the hash table shown below.
+Suppose we have $n$ students, each with a name and a student ID. To support the query “given a student ID, return the corresponding name,” use the hash table shown below.
 
-![Abstract representation of a hash table](hash_map.assets/hash_table_lookup.png){ class="animation-figure" }
+![An abstract view of hash-table lookup](hash_map.assets/hash_table_lookup.png){ class="animation-figure" }
 
-<p align="center"> Figure 6-1 &nbsp; Abstract representation of a hash table </p>
+<p align="center"> Figure 6-1 &nbsp; An abstract view of hash-table lookup </p>
 
-In addition to hash tables, arrays and linked lists can also implement query functionality. Their efficiency comparison is shown in the following table.
+Arrays and linked lists also support lookup. Table 6-1 compares their efficiency.
 
-- **Adding elements**: Simply add elements to the end of the array (linked list), using $O(1)$ time.
-- **Querying elements**: Since the array (linked list) is unordered, all elements need to be traversed, using $O(n)$ time.
-- **Deleting elements**: The element must first be located, then deleted from the array (linked list), using $O(n)$ time.
+- **Insertion**: append an element to the end of the array or linked list in $O(1)$ time.
+- **Lookup**: because the array or list is unsorted, searching may require visiting every element, taking $O(n)$ time.
+- **Deletion**: first find the element, then remove it from the array or list, taking $O(n)$ time.
 
-<p align="center"> Table 6-1 &nbsp; Comparison of element query efficiency </p>
+<p align="center"> Table 6-1 &nbsp; Comparison of element-lookup efficiency </p>
 
 <div class="center-table" markdown>
 
-|                 | Array  | Linked List | Hash Table |
-| --------------- | ------ | ----------- | ---------- |
-| Find element    | $O(n)$ | $O(n)$      | $O(1)$     |
-| Add element     | $O(1)$ | $O(1)$      | $O(1)$     |
-| Delete element  | $O(n)$ | $O(n)$      | $O(1)$     |
+|          | Array   | Linked list   | Hash table |
+| -------- | ------ | ------ | ------ |
+| Find an element | $O(n)$ | $O(n)$ | $O(1)$ |
+| Insert an element | $O(1)$ | $O(1)$ | $O(1)$ |
+| Delete an element | $O(n)$ | $O(n)$ | $O(1)$ |
 
 </div>
 
-As we can see, **insertion, deletion, lookup, and update operations in a hash table all have time complexity $O(1)$**, making hash tables highly efficient.
+**Hash-table insertion, deletion, lookup, and updating all take $O(1)$ time**, making them highly efficient.
 
-## 6.1.1 &nbsp; Common Hash Table Operations
+## 6.1.1 &nbsp; Common hash-table operations
 
-Common operations on hash tables include: initialization, query operations, adding key-value pairs, and deleting key-value pairs. Example code is as follows:
+Common operations include initialization, lookup, adding key-value pairs, and deleting pairs. Examples follow:
 
 === "Python"
 
     ```python title="hash_map.py"
-    # Initialize hash table
+    # Initialize a hash table
     hmap: dict = {}
 
-    # Add operation
-    # Add key-value pair (key, value) to hash table
-    hmap[12836] = "XiaoHa"
-    hmap[15937] = "XiaoLuo"
-    hmap[16750] = "XiaoSuan"
-    hmap[13276] = "XiaoFa"
-    hmap[10583] = "XiaoYa"
+    # Insertion
+    # Add key-value pairs (key, value) to the hash table
+    hmap[12836] = "小哈"
+    hmap[15937] = "小啰"
+    hmap[16750] = "小算"
+    hmap[13276] = "小法"
+    hmap[10583] = "小鸭"
 
-    # Query operation
-    # Input key into hash table to get value
+    # Lookup
+    # Look up key in the hash table to obtain value
     name: str = hmap[15937]
 
-    # Delete operation
-    # Delete key-value pair (key, value) from hash table
+    # Deletion
+    # Remove a key-value pair (key, value) from the hash table
     hmap.pop(10583)
     ```
 
 === "C++"
 
     ```cpp title="hash_map.cpp"
-    /* Initialize hash table */
+    /* Initialize a hash table */
     unordered_map<int, string> map;
 
-    /* Add operation */
-    // Add key-value pair (key, value) to hash table
-    map[12836] = "XiaoHa";
-    map[15937] = "XiaoLuo";
-    map[16750] = "XiaoSuan";
-    map[13276] = "XiaoFa";
-    map[10583] = "XiaoYa";
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
+    map[12836] = "小哈";
+    map[15937] = "小啰";
+    map[16750] = "小算";
+    map[13276] = "小法";
+    map[10583] = "小鸭";
 
-    /* Query operation */
-    // Input key into hash table to get value
+    /* Lookup */
+    // Look up key in the hash table to obtain value
     string name = map[15937];
 
-    /* Delete operation */
-    // Delete key-value pair (key, value) from hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     map.erase(10583);
     ```
 
 === "Java"
 
     ```java title="hash_map.java"
-    /* Initialize hash table */
+    /* Initialize a hash table */
     Map<Integer, String> map = new HashMap<>();
 
-    /* Add operation */
-    // Add key-value pair (key, value) to hash table
-    map.put(12836, "XiaoHa");
-    map.put(15937, "XiaoLuo");
-    map.put(16750, "XiaoSuan");
-    map.put(13276, "XiaoFa");
-    map.put(10583, "XiaoYa");
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
+    map.put(12836, "小哈");
+    map.put(15937, "小啰");
+    map.put(16750, "小算");
+    map.put(13276, "小法");
+    map.put(10583, "小鸭");
 
-    /* Query operation */
-    // Input key into hash table to get value
+    /* Lookup */
+    // Look up key in the hash table to obtain value
     String name = map.get(15937);
 
-    /* Delete operation */
-    // Delete key-value pair (key, value) from hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     map.remove(10583);
     ```
 
 === "C#"
 
     ```csharp title="hash_map.cs"
-    /* Initialize hash table */
+    /* Initialize a hash table */
     Dictionary<int, string> map = new() {
-        /* Add operation */
-        // Add key-value pair (key, value) to hash table
-        { 12836, "XiaoHa" },
-        { 15937, "XiaoLuo" },
-        { 16750, "XiaoSuan" },
-        { 13276, "XiaoFa" },
-        { 10583, "XiaoYa" }
+        /* Insertion */
+        // Add key-value pairs (key, value) to the hash table
+        { 12836, "小哈" },
+        { 15937, "小啰" },
+        { 16750, "小算" },
+        { 13276, "小法" },
+        { 10583, "小鸭" }
     };
 
-    /* Query operation */
-    // Input key into hash table to get value
+    /* Lookup */
+    // Look up key in the hash table to obtain value
     string name = map[15937];
 
-    /* Delete operation */
-    // Delete key-value pair (key, value) from hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     map.Remove(10583);
     ```
 
 === "Go"
 
     ```go title="hash_map_test.go"
-    /* Initialize hash table */
+    /* Initialize a hash table */
     hmap := make(map[int]string)
 
-    /* Add operation */
-    // Add key-value pair (key, value) to hash table
-    hmap[12836] = "XiaoHa"
-    hmap[15937] = "XiaoLuo"
-    hmap[16750] = "XiaoSuan"
-    hmap[13276] = "XiaoFa"
-    hmap[10583] = "XiaoYa"
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
+    hmap[12836] = "小哈"
+    hmap[15937] = "小啰"
+    hmap[16750] = "小算"
+    hmap[13276] = "小法"
+    hmap[10583] = "小鸭"
 
-    /* Query operation */
-    // Input key into hash table to get value
+    /* Lookup */
+    // Look up key in the hash table to obtain value
     name := hmap[15937]
 
-    /* Delete operation */
-    // Delete key-value pair (key, value) from hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     delete(hmap, 10583)
     ```
 
 === "Swift"
 
     ```swift title="hash_map.swift"
-    /* Initialize hash table */
+    /* Initialize a hash table */
     var map: [Int: String] = [:]
 
-    /* Add operation */
-    // Add key-value pair (key, value) to hash table
-    map[12836] = "XiaoHa"
-    map[15937] = "XiaoLuo"
-    map[16750] = "XiaoSuan"
-    map[13276] = "XiaoFa"
-    map[10583] = "XiaoYa"
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
+    map[12836] = "小哈"
+    map[15937] = "小啰"
+    map[16750] = "小算"
+    map[13276] = "小法"
+    map[10583] = "小鸭"
 
-    /* Query operation */
-    // Input key into hash table to get value
+    /* Lookup */
+    // Look up key in the hash table to obtain value
     let name = map[15937]!
 
-    /* Delete operation */
-    // Delete key-value pair (key, value) from hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     map.removeValue(forKey: 10583)
     ```
 
 === "JS"
 
     ```javascript title="hash_map.js"
-    /* Initialize hash table */
+    /* Initialize a hash table */
     const map = new Map();
-    /* Add operation */
-    // Add key-value pair (key, value) to hash table
-    map.set(12836, 'XiaoHa');
-    map.set(15937, 'XiaoLuo');
-    map.set(16750, 'XiaoSuan');
-    map.set(13276, 'XiaoFa');
-    map.set(10583, 'XiaoYa');
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
+    map.set(12836, '小哈');
+    map.set(15937, '小啰');
+    map.set(16750, '小算');
+    map.set(13276, '小法');
+    map.set(10583, '小鸭');
 
-    /* Query operation */
-    // Input key into hash table to get value
+    /* Lookup */
+    // Look up key in the hash table to obtain value
     let name = map.get(15937);
 
-    /* Delete operation */
-    // Delete key-value pair (key, value) from hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     map.delete(10583);
     ```
 
 === "TS"
 
     ```typescript title="hash_map.ts"
-    /* Initialize hash table */
+    /* Initialize a hash table */
     const map = new Map<number, string>();
-    /* Add operation */
-    // Add key-value pair (key, value) to hash table
-    map.set(12836, 'XiaoHa');
-    map.set(15937, 'XiaoLuo');
-    map.set(16750, 'XiaoSuan');
-    map.set(13276, 'XiaoFa');
-    map.set(10583, 'XiaoYa');
-    console.info('\nAfter adding, hash table is\nKey -> Value');
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
+    map.set(12836, '小哈');
+    map.set(15937, '小啰');
+    map.set(16750, '小算');
+    map.set(13276, '小法');
+    map.set(10583, '小鸭');
+    console.info('\nAfter insertion, the hash table is\nKey -> Value');
     console.info(map);
 
-    /* Query operation */
-    // Input key into hash table to get value
+    /* Lookup */
+    // Look up key in the hash table to obtain value
     let name = map.get(15937);
-    console.info('\nInput student ID 15937, queried name ' + name);
+    console.info('\nLooking up student ID 15937 gives the name ' + name);
 
-    /* Delete operation */
-    // Delete key-value pair (key, value) from hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     map.delete(10583);
-    console.info('\nAfter deleting 10583, hash table is\nKey -> Value');
+    console.info('\nAfter deleting 10583, the hash table is\nKey -> Value');
     console.info(map);
     ```
 
 === "Dart"
 
     ```dart title="hash_map.dart"
-    /* Initialize hash table */
+    /* Initialize a hash table */
     Map<int, String> map = {};
 
-    /* Add operation */
-    // Add key-value pair (key, value) to hash table
-    map[12836] = "XiaoHa";
-    map[15937] = "XiaoLuo";
-    map[16750] = "XiaoSuan";
-    map[13276] = "XiaoFa";
-    map[10583] = "XiaoYa";
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
+    map[12836] = "小哈";
+    map[15937] = "小啰";
+    map[16750] = "小算";
+    map[13276] = "小法";
+    map[10583] = "小鸭";
 
-    /* Query operation */
-    // Input key into hash table to get value
+    /* Lookup */
+    // Look up key in the hash table to obtain value
     String name = map[15937];
 
-    /* Delete operation */
-    // Delete key-value pair (key, value) from hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     map.remove(10583);
     ```
 
@@ -251,96 +251,96 @@ Common operations on hash tables include: initialization, query operations, addi
     ```rust title="hash_map.rs"
     use std::collections::HashMap;
 
-    /* Initialize hash table */
+    /* Initialize a hash table */
     let mut map: HashMap<i32, String> = HashMap::new();
 
-    /* Add operation */
-    // Add key-value pair (key, value) to hash table
-    map.insert(12836, "XiaoHa".to_string());
-    map.insert(15937, "XiaoLuo".to_string());
-    map.insert(16750, "XiaoSuan".to_string());
-    map.insert(13276, "XiaoFa".to_string());
-    map.insert(10583, "XiaoYa".to_string());
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
+    map.insert(12836, "小哈".to_string());
+    map.insert(15937, "小啰".to_string());
+    map.insert(16750, "小算".to_string());
+    map.insert(13279, "小法".to_string());
+    map.insert(10583, "小鸭".to_string());
 
-    /* Query operation */
-    // Input key into hash table to get value
+    /* Lookup */
+    // Look up key in the hash table to obtain value
     let _name: Option<&String> = map.get(&15937);
 
-    /* Delete operation */
-    // Delete key-value pair (key, value) from hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     let _removed_value: Option<String> = map.remove(&10583);
     ```
 
 === "C"
 
     ```c title="hash_map.c"
-    // C does not provide a built-in hash table
+    // C provides no built-in hash table
     ```
 
 === "Kotlin"
 
     ```kotlin title="hash_map.kt"
-    /* Initialize hash table */
+    /* Initialize a hash table */
     val map = HashMap<Int,String>()
 
-    /* Add operation */
-    // Add key-value pair (key, value) to hash table
-    map[12836] = "XiaoHa"
-    map[15937] = "XiaoLuo"
-    map[16750] = "XiaoSuan"
-    map[13276] = "XiaoFa"
-    map[10583] = "XiaoYa"
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
+    map[12836] = "小哈"
+    map[15937] = "小啰"
+    map[16750] = "小算"
+    map[13276] = "小法"
+    map[10583] = "小鸭"
 
-    /* Query operation */
-    // Input key into hash table to get value
+    /* Lookup */
+    // Look up key in the hash table to obtain value
     val name = map[15937]
 
-    /* Delete operation */
-    // Delete key-value pair (key, value) from hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     map.remove(10583)
     ```
 
 === "Ruby"
 
     ```ruby title="hash_map.rb"
-    # Initialize hash table
+    # Initialize a hash table
     hmap = {}
 
-    # Add operation
-    # Add key-value pair (key, value) to hash table
-    hmap[12836] = "XiaoHa"
-    hmap[15937] = "XiaoLuo"
-    hmap[16750] = "XiaoSuan"
-    hmap[13276] = "XiaoFa"
-    hmap[10583] = "XiaoYa"
+    # Insertion
+    # Add key-value pairs (key, value) to the hash table
+    hmap[12836] = "小哈"
+    hmap[15937] = "小啰"
+    hmap[16750] = "小算"
+    hmap[13276] = "小法"
+    hmap[10583] = "小鸭"
 
-    # Query operation
-    # Input key into hash table to get value
+    # Lookup
+    # Look up key in the hash table to obtain value
     name = hmap[15937]
 
-    # Delete operation
-    # Delete key-value pair (key, value) from hash table
+    # Deletion
+    # Remove a key-value pair (key, value) from the hash table
     hmap.delete(10583)
     ```
 
-??? pythontutor "Visualized Execution"
+??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Code Visualization" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%90%91%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E8%BE%93%E5%85%A5%E9%94%AE%20key%20%EF%BC%8C%E5%BE%97%E5%88%B0%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap.pop%2810583%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%90%91%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E8%BE%93%E5%85%A5%E9%94%AE%20key%20%EF%BC%8C%E5%BE%97%E5%88%B0%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap.pop%2810583%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20a%20hash%20table%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20Insertion%0A%20%20%20%20%23%20Add%20key-value%20pairs%20%28key%2C%20value%29%20to%20the%20hash%20table%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20Lookup%0A%20%20%20%20%23%20Look%20up%20key%20in%20the%20hash%20table%20to%20obtain%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Deletion%0A%20%20%20%20%23%20Remove%20a%20key-value%20pair%20%28key%2C%20value%29%20from%20the%20hash%20table%0A%20%20%20%20hmap.pop%2810583%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20a%20hash%20table%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20Insertion%0A%20%20%20%20%23%20Add%20key-value%20pairs%20%28key%2C%20value%29%20to%20the%20hash%20table%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20Lookup%0A%20%20%20%20%23%20Look%20up%20key%20in%20the%20hash%20table%20to%20obtain%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Deletion%0A%20%20%20%20%23%20Remove%20a%20key-value%20pair%20%28key%2C%20value%29%20from%20the%20hash%20table%0A%20%20%20%20hmap.pop%2810583%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-There are three common ways to traverse a hash table: traversing key-value pairs, traversing keys, and traversing values. Example code is as follows:
+There are three common ways to traverse a hash table: visit key-value pairs, keys only, or values only. Examples follow:
 
 === "Python"
 
     ```python title="hash_map.py"
-    # Traverse hash table
-    # Traverse key-value pairs key->value
+    # Traverse the hash table
+    # Traverse key-value pairs: key->value
     for key, value in hmap.items():
         print(key, "->", value)
-    # Traverse keys only
+    # Traverse keys only: key
     for key in hmap.keys():
         print(key)
-    # Traverse values only
+    # Traverse values only: value
     for value in hmap.values():
         print(value)
     ```
@@ -348,12 +348,12 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 === "C++"
 
     ```cpp title="hash_map.cpp"
-    /* Traverse hash table */
-    // Traverse key-value pairs key->value
+    /* Traverse the hash table */
+    // Traverse key-value pairs: key->value
     for (auto kv: map) {
         cout << kv.first << " -> " << kv.second << endl;
     }
-    // Traverse using iterator key->value
+    // Use an iterator to traverse key->value pairs
     for (auto iter = map.begin(); iter != map.end(); iter++) {
         cout << iter->first << "->" << iter->second << endl;
     }
@@ -362,16 +362,16 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 === "Java"
 
     ```java title="hash_map.java"
-    /* Traverse hash table */
-    // Traverse key-value pairs key->value
-    for (Map.Entry<Integer, String> kv: map.entrySet()) {
+    /* Traverse the hash table */
+    // Traverse key-value pairs: key->value
+    for (Map.Entry <Integer, String> kv: map.entrySet()) {
         System.out.println(kv.getKey() + " -> " + kv.getValue());
     }
-    // Traverse keys only
+    // Traverse keys only: key
     for (int key: map.keySet()) {
         System.out.println(key);
     }
-    // Traverse values only
+    // Traverse values only: value
     for (String val: map.values()) {
         System.out.println(val);
     }
@@ -380,16 +380,16 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 === "C#"
 
     ```csharp title="hash_map.cs"
-    /* Traverse hash table */
-    // Traverse key-value pairs Key->Value
+    /* Traverse the hash table */
+    // Traverse key-value pairs: Key->Value
     foreach (var kv in map) {
         Console.WriteLine(kv.Key + " -> " + kv.Value);
     }
-    // Traverse keys only
+    // Traverse keys only: key
     foreach (int key in map.Keys) {
         Console.WriteLine(key);
     }
-    // Traverse values only
+    // Traverse values only: value
     foreach (string val in map.Values) {
         Console.WriteLine(val);
     }
@@ -398,16 +398,16 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 === "Go"
 
     ```go title="hash_map_test.go"
-    /* Traverse hash table */
-    // Traverse key-value pairs key->value
+    /* Traverse the hash table */
+    // Traverse key-value pairs: key->value
     for key, value := range hmap {
         fmt.Println(key, "->", value)
     }
-    // Traverse keys only
+    // Traverse keys only: key
     for key := range hmap {
         fmt.Println(key)
     }
-    // Traverse values only
+    // Traverse values only: value
     for _, value := range hmap {
         fmt.Println(value)
     }
@@ -416,16 +416,16 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 === "Swift"
 
     ```swift title="hash_map.swift"
-    /* Traverse hash table */
-    // Traverse key-value pairs Key->Value
+    /* Traverse the hash table */
+    // Traverse key-value pairs: Key->Value
     for (key, value) in map {
         print("\(key) -> \(value)")
     }
-    // Traverse keys only
+    // Traverse keys only: Key
     for key in map.keys {
         print(key)
     }
-    // Traverse values only
+    // Traverse values only: Value
     for value in map.values {
         print(value)
     }
@@ -434,16 +434,16 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 === "JS"
 
     ```javascript title="hash_map.js"
-    /* Traverse hash table */
-    console.info('\nTraverse key-value pairs Key->Value');
+    /* Traverse the hash table */
+    console.info('\nTraverse key-value pairs: Key->Value');
     for (const [k, v] of map.entries()) {
         console.info(k + ' -> ' + v);
     }
-    console.info('\nTraverse keys only Key');
+    console.info('\nTraverse keys only: Key');
     for (const k of map.keys()) {
         console.info(k);
     }
-    console.info('\nTraverse values only Value');
+    console.info('\nTraverse values only: Value');
     for (const v of map.values()) {
         console.info(v);
     }
@@ -452,16 +452,16 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 === "TS"
 
     ```typescript title="hash_map.ts"
-    /* Traverse hash table */
-    console.info('\nTraverse key-value pairs Key->Value');
+    /* Traverse the hash table */
+    console.info('\nTraverse key-value pairs: Key->Value');
     for (const [k, v] of map.entries()) {
         console.info(k + ' -> ' + v);
     }
-    console.info('\nTraverse keys only Key');
+    console.info('\nTraverse keys only: Key');
     for (const k of map.keys()) {
         console.info(k);
     }
-    console.info('\nTraverse values only Value');
+    console.info('\nTraverse values only: Value');
     for (const v of map.values()) {
         console.info(v);
     }
@@ -470,18 +470,18 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 === "Dart"
 
     ```dart title="hash_map.dart"
-    /* Traverse hash table */
-    // Traverse key-value pairs Key->Value
+    /* Traverse the hash table */
+    // Traverse key-value pairs: Key->Value
     map.forEach((key, value) {
       print('$key -> $value');
     });
 
-    // Traverse keys only
+    // Traverse keys only: Key
     map.keys.forEach((key) {
       print(key);
     });
 
-    // Traverse values only
+    // Traverse values only: Value
     map.values.forEach((value) {
       print(value);
     });
@@ -490,18 +490,18 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 === "Rust"
 
     ```rust title="hash_map.rs"
-    /* Traverse hash table */
-    // Traverse key-value pairs Key->Value
+    /* Traverse the hash table */
+    // Traverse key-value pairs: Key->Value
     for (key, value) in &map {
         println!("{key} -> {value}");
     }
 
-    // Traverse keys only
+    // Traverse keys only: Key
     for key in map.keys() {
         println!("{key}");
     }
 
-    // Traverse values only
+    // Traverse values only: Value
     for value in map.values() {
         println!("{value}");
     }
@@ -510,22 +510,22 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 === "C"
 
     ```c title="hash_map.c"
-    // C does not provide a built-in hash table
+    // C provides no built-in hash table
     ```
 
 === "Kotlin"
 
     ```kotlin title="hash_map.kt"
-    /* Traverse hash table */
-    // Traverse key-value pairs key->value
+    /* Traverse the hash table */
+    // Traverse key-value pairs: key->value
     for ((key, value) in map) {
         println("$key -> $value")
     }
-    // Traverse keys only
+    // Traverse keys only: key
     for (key in map.keys) {
         println(key)
     }
-    // Traverse values only
+    // Traverse values only: value
     for (_val in map.values) {
         println(_val)
     }
@@ -534,46 +534,46 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 === "Ruby"
 
     ```ruby title="hash_map.rb"
-    # Traverse hash table
-    # Traverse key-value pairs key->value
+    # Traverse the hash table
+    # Traverse key-value pairs: key->value
     hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 
-    # Traverse keys only
+    # Traverse keys only: key
     hmap.keys.each { |key| puts key }
 
-    # Traverse values only
+    # Traverse values only: value
     hmap.values.each { |val| puts val }
     ```
 
-??? pythontutor "Visualized Execution"
+??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Code Visualization" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E9%94%AE%E5%80%BC%E5%AF%B9%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E9%94%AE%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E5%80%BC%20value%0A%20%20%20%20for%20value%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28value%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E9%94%AE%E5%80%BC%E5%AF%B9%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E9%94%AE%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E5%80%BC%20value%0A%20%20%20%20for%20value%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28value%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20a%20hash%20table%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20Insertion%0A%20%20%20%20%23%20Add%20key-value%20pairs%20%28key%2C%20value%29%20to%20the%20hash%20table%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20Traverse%20the%20hash%20table%0A%20%20%20%20%23%20Traverse%20key-value%20pairs%3A%20key-%3Evalue%0A%20%20%20%20for%20key%2C%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%2C%20%22-%3E%22%2C%20value%29%0A%20%20%20%20%23%20Traverse%20keys%20only%3A%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20Traverse%20values%20only%3A%20value%0A%20%20%20%20for%20value%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28value%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20a%20hash%20table%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20Insertion%0A%20%20%20%20%23%20Add%20key-value%20pairs%20%28key%2C%20value%29%20to%20the%20hash%20table%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20Traverse%20the%20hash%20table%0A%20%20%20%20%23%20Traverse%20key-value%20pairs%3A%20key-%3Evalue%0A%20%20%20%20for%20key%2C%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%2C%20%22-%3E%22%2C%20value%29%0A%20%20%20%20%23%20Traverse%20keys%20only%3A%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20Traverse%20values%20only%3A%20value%0A%20%20%20%20for%20value%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28value%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-## 6.1.2 &nbsp; Simple Hash Table Implementation
+## 6.1.2 &nbsp; A simple implementation
 
-Let's start with the simplest case: **implementing a hash table with just an array**. In a hash table, each empty slot in the array is called a <u>bucket</u>, and each bucket can store one key-value pair. A lookup therefore consists of finding the bucket for `key` and reading the `value` stored there.
+Start with the simplest case: **implement a hash table using just one array**. Each slot is called a <u>bucket</u> and holds one key-value pair. A lookup finds the bucket corresponding to `key` and retrieves its `value`.
 
-So how do we find the right bucket for a given `key`? We do this with a <u>hash function</u>. A hash function maps a larger input space to a smaller output space. In a hash table, the input space is the set of all `key`s, and the output space is the set of all buckets (array indices). In other words, given a `key`, **the hash function tells us where the corresponding key-value pair should be stored in the array**.
+How do we locate the bucket for a key? A <u>hash function</u> maps a larger input space into a smaller output space. Here, the inputs are all possible keys, and the outputs are bucket indices. **Given a key, the hash function tells us where its key-value pair is stored in the array**.
 
-Given a `key`, computing the bucket index involves the following two steps:
+For an input `key`, the calculation has two steps.
 
-1. Use a hash algorithm `hash()` to compute a hash value.
-2. Take that hash value modulo the number of buckets (array length), `capacity`, to obtain the bucket (array index) `index` corresponding to the `key`.
+1. Use a hash algorithm, `hash()`, to calculate a hash value.
+2. Take that value modulo the number of buckets, the array length `capacity`, to obtain the bucket index `index`.
 
 ```shell
 index = hash(key) % capacity
 ```
 
-We can then use `index` to access the corresponding bucket in the hash table and retrieve the `value`.
+Use `index` to access the bucket and retrieve `value`.
 
-Suppose the array length is `capacity = 100` and the hash algorithm is `hash(key) = key`. Then the hash function is `key % 100`. Figure 6-2 illustrates how this hash function works, using student ID as `key` and name as `value`.
+If `capacity = 100` and `hash(key) = key`, the resulting hash function is `key % 100`. Figure 6-2 illustrates it with student IDs as keys and names as values.
 
-![Working principle of hash function](hash_map.assets/hash_function.png){ class="animation-figure" }
+![How a hash function works](hash_map.assets/hash_function.png){ class="animation-figure" }
 
-<p align="center"> Figure 6-2 &nbsp; Working principle of hash function </p>
+<p align="center"> Figure 6-2 &nbsp; How a hash function works </p>
 
-The following code implements a simple hash table. Here, we encapsulate `key` and `value` into a class `Pair` to represent a key-value pair.
+The code below implements a simple hash table. The `Pair` class groups a `key` and `value` into a key-value pair.
 
 === "Python"
 
@@ -586,11 +586,11 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             self.val = val
 
     class ArrayHashMap:
-        """Hash table based on array implementation"""
+        """Hash table implemented with an array"""
 
         def __init__(self):
             """Constructor"""
-            # Initialize array with 100 buckets
+            # Initialize an array containing 100 buckets
             self.buckets: list[Pair | None] = [None] * 100
 
         def hash_func(self, key: int) -> int:
@@ -599,7 +599,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return index
 
         def get(self, key: int) -> str | None:
-            """Query operation"""
+            """Lookup operation"""
             index: int = self.hash_func(key)
             pair: Pair = self.buckets[index]
             if pair is None:
@@ -607,7 +607,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return pair.val
 
         def put(self, key: int, val: str):
-            """Add and update operation"""
+            """Insert and update operations"""
             pair = Pair(key, val)
             index: int = self.hash_func(key)
             self.buckets[index] = pair
@@ -615,7 +615,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         def remove(self, key: int):
             """Remove operation"""
             index: int = self.hash_func(key)
-            # Set to None to represent removal
+            # Set to None to mark removal
             self.buckets[index] = None
 
         def entry_set(self) -> list[Pair]:
@@ -643,7 +643,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return result
 
         def print(self):
-            """Print hash table"""
+            """Print the hash table"""
             for pair in self.buckets:
                 if pair is not None:
                     print(pair.key, "->", pair.val)
@@ -663,14 +663,14 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         }
     };
 
-    /* Hash table based on array implementation */
+    /* Hash table implemented with an array */
     class ArrayHashMap {
       private:
         vector<Pair *> buckets;
 
       public:
         ArrayHashMap() {
-            // Initialize array with 100 buckets
+            // Initialize an array containing 100 buckets
             buckets = vector<Pair *>(100);
         }
 
@@ -688,7 +688,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return index;
         }
 
-        /* Query operation */
+        /* Lookup operation */
         string get(int key) {
             int index = hashFunc(key);
             Pair *pair = buckets[index];
@@ -697,7 +697,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return pair->val;
         }
 
-        /* Add operation */
+        /* Insert operation */
         void put(int key, string val) {
             Pair *pair = new Pair(key, val);
             int index = hashFunc(key);
@@ -707,7 +707,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         /* Remove operation */
         void remove(int key) {
             int index = hashFunc(key);
-            // Free memory and set to nullptr
+            // Free the memory and set the pointer to nullptr
             delete buckets[index];
             buckets[index] = nullptr;
         }
@@ -745,7 +745,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return valueSet;
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         void print() {
             for (Pair *kv : pairSet()) {
                 cout << kv->key << " -> " << kv->val << endl;
@@ -768,12 +768,12 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         }
     }
 
-    /* Hash table based on array implementation */
+    /* Hash table implemented with an array */
     class ArrayHashMap {
         private List<Pair> buckets;
 
         public ArrayHashMap() {
-            // Initialize array with 100 buckets
+            // Initialize an array containing 100 buckets
             buckets = new ArrayList<>();
             for (int i = 0; i < 100; i++) {
                 buckets.add(null);
@@ -786,7 +786,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return index;
         }
 
-        /* Query operation */
+        /* Lookup operation */
         public String get(int key) {
             int index = hashFunc(key);
             Pair pair = buckets.get(index);
@@ -795,7 +795,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return pair.val;
         }
 
-        /* Add operation */
+        /* Insert operation */
         public void put(int key, String val) {
             Pair pair = new Pair(key, val);
             int index = hashFunc(key);
@@ -805,7 +805,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         /* Remove operation */
         public void remove(int key) {
             int index = hashFunc(key);
-            // Set to null to represent deletion
+            // Set the bucket to null to mark it as removed
             buckets.set(index, null);
         }
 
@@ -839,7 +839,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return valueSet;
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         public void print() {
             for (Pair kv : pairSet()) {
                 System.out.println(kv.key + " -> " + kv.val);
@@ -851,17 +851,17 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
 === "C#"
 
     ```csharp title="array_hash_map.cs"
-    /* Key-value pair int->string */
+    /* Key-value pair: int->string */
     class Pair(int key, string val) {
         public int key = key;
         public string val = val;
     }
 
-    /* Hash table based on array implementation */
+    /* Hash table implemented with an array */
     class ArrayHashMap {
         List<Pair?> buckets;
         public ArrayHashMap() {
-            // Initialize array with 100 buckets
+            // Initialize an array containing 100 buckets
             buckets = [];
             for (int i = 0; i < 100; i++) {
                 buckets.Add(null);
@@ -874,7 +874,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return index;
         }
 
-        /* Query operation */
+        /* Lookup operation */
         public string? Get(int key) {
             int index = HashFunc(key);
             Pair? pair = buckets[index];
@@ -882,7 +882,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return pair.val;
         }
 
-        /* Add operation */
+        /* Insert operation */
         public void Put(int key, string val) {
             Pair pair = new(key, val);
             int index = HashFunc(key);
@@ -892,7 +892,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         /* Remove operation */
         public void Remove(int key) {
             int index = HashFunc(key);
-            // Set to null to represent deletion
+            // Set the bucket to null to mark it as removed
             buckets[index] = null;
         }
 
@@ -926,7 +926,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return valueSet;
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         public void Print() {
             foreach (Pair kv in PairSet()) {
                 Console.WriteLine(kv.key + " -> " + kv.val);
@@ -944,14 +944,14 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         val string
     }
 
-    /* Hash table based on array implementation */
+    /* Hash table implemented with an array */
     type arrayHashMap struct {
         buckets []*pair
     }
 
-    /* Initialize hash table */
+    /* Initialize the hash table */
     func newArrayHashMap() *arrayHashMap {
-        // Initialize array with 100 buckets
+        // Initialize an array containing 100 buckets
         buckets := make([]*pair, 100)
         return &arrayHashMap{buckets: buckets}
     }
@@ -962,7 +962,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         return index
     }
 
-    /* Query operation */
+    /* Lookup operation */
     func (a *arrayHashMap) get(key int) string {
         index := a.hashFunc(key)
         pair := a.buckets[index]
@@ -972,7 +972,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         return pair.val
     }
 
-    /* Add operation */
+    /* Insert operation */
     func (a *arrayHashMap) put(key int, val string) {
         pair := &pair{key: key, val: val}
         index := a.hashFunc(key)
@@ -982,11 +982,11 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
     /* Remove operation */
     func (a *arrayHashMap) remove(key int) {
         index := a.hashFunc(key)
-        // Set to nil to delete
+        // Set to nil to mark the entry as removed
         a.buckets[index] = nil
     }
 
-    /* Get all key pairs */
+    /* Get all key-value pairs */
     func (a *arrayHashMap) pairSet() []*pair {
         var pairs []*pair
         for _, pair := range a.buckets {
@@ -1019,7 +1019,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         return values
     }
 
-    /* Print hash table */
+    /* Print the hash table */
     func (a *arrayHashMap) print() {
         for _, pair := range a.buckets {
             if pair != nil {
@@ -1047,12 +1047,12 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         }
     }
 
-    /* Hash table based on array implementation */
+    /* Hash table implemented with an array */
     class ArrayHashMap {
         private var buckets: [Pair?]
 
         init() {
-            // Initialize array with 100 buckets
+            // Initialize an array containing 100 buckets
             buckets = Array(repeating: nil, count: 100)
         }
 
@@ -1062,14 +1062,14 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return index
         }
 
-        /* Query operation */
+        /* Lookup operation */
         func get(key: Int) -> String? {
             let index = hashFunc(key: key)
             let pair = buckets[index]
             return pair?.val
         }
 
-        /* Add operation */
+        /* Insert operation */
         func put(key: Int, val: String) {
             let pair = Pair(key: key, val: val)
             let index = hashFunc(key: key)
@@ -1079,7 +1079,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         /* Remove operation */
         func remove(key: Int) {
             let index = hashFunc(key: key)
-            // Set to nil to delete
+            // Set to nil to mark the entry as removed
             buckets[index] = nil
         }
 
@@ -1098,7 +1098,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             buckets.compactMap { $0?.val }
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         func print() {
             for pair in pairSet() {
                 Swift.print("\(pair.key) -> \(pair.val)")
@@ -1110,7 +1110,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
 === "JS"
 
     ```javascript title="array_hash_map.js"
-    /* Key-value pair Number -> String */
+    /* Key-value pair: Number -> String */
     class Pair {
         constructor(key, val) {
             this.key = key;
@@ -1118,11 +1118,11 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         }
     }
 
-    /* Hash table based on array implementation */
+    /* Hash table implemented with an array */
     class ArrayHashMap {
         #buckets;
         constructor() {
-            // Initialize array with 100 buckets
+            // Initialize an array containing 100 buckets
             this.#buckets = new Array(100).fill(null);
         }
 
@@ -1131,7 +1131,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return key % 100;
         }
 
-        /* Query operation */
+        /* Lookup operation */
         get(key) {
             let index = this.#hashFunc(key);
             let pair = this.#buckets[index];
@@ -1139,7 +1139,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return pair.val;
         }
 
-        /* Add operation */
+        /* Insert operation */
         set(key, val) {
             let index = this.#hashFunc(key);
             this.#buckets[index] = new Pair(key, val);
@@ -1148,7 +1148,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         /* Remove operation */
         delete(key) {
             let index = this.#hashFunc(key);
-            // Set to null to represent deletion
+            // Set the bucket to null to mark it as deleted
             this.#buckets[index] = null;
         }
 
@@ -1185,7 +1185,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return arr;
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         print() {
             let pairSet = this.entries();
             for (const pair of pairSet) {
@@ -1198,7 +1198,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
 === "TS"
 
     ```typescript title="array_hash_map.ts"
-    /* Key-value pair Number -> String */
+    /* Key-value pair: Number -> String */
     class Pair {
         public key: number;
         public val: string;
@@ -1209,12 +1209,12 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         }
     }
 
-    /* Hash table based on array implementation */
+    /* Hash table implemented with an array */
     class ArrayHashMap {
         private readonly buckets: (Pair | null)[];
 
         constructor() {
-            // Initialize array with 100 buckets
+            // Initialize an array containing 100 buckets
             this.buckets = new Array(100).fill(null);
         }
 
@@ -1223,7 +1223,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return key % 100;
         }
 
-        /* Query operation */
+        /* Lookup operation */
         public get(key: number): string | null {
             let index = this.hashFunc(key);
             let pair = this.buckets[index];
@@ -1231,7 +1231,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return pair.val;
         }
 
-        /* Add operation */
+        /* Insert operation */
         public set(key: number, val: string) {
             let index = this.hashFunc(key);
             this.buckets[index] = new Pair(key, val);
@@ -1240,7 +1240,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         /* Remove operation */
         public delete(key: number) {
             let index = this.hashFunc(key);
-            // Set to null to represent deletion
+            // Set the bucket to null to mark it as deleted
             this.buckets[index] = null;
         }
 
@@ -1277,7 +1277,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return arr;
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         public print() {
             let pairSet = this.entries();
             for (const pair of pairSet) {
@@ -1297,12 +1297,12 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
       Pair(this.key, this.val);
     }
 
-    /* Hash table based on array implementation */
+    /* Hash table implemented with an array */
     class ArrayHashMap {
       late List<Pair?> _buckets;
 
       ArrayHashMap() {
-        // Initialize array with 100 buckets
+        // Initialize an array containing 100 buckets
         _buckets = List.filled(100, null);
       }
 
@@ -1312,7 +1312,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         return index;
       }
 
-      /* Query operation */
+      /* Lookup operation */
       String? get(int key) {
         final int index = _hashFunc(key);
         final Pair? pair = _buckets[index];
@@ -1322,7 +1322,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         return pair.val;
       }
 
-      /* Add operation */
+      /* Insert operation */
       void put(int key, String val) {
         final Pair pair = Pair(key, val);
         final int index = _hashFunc(key);
@@ -1368,7 +1368,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         return valueSet;
       }
 
-      /* Print hash table */
+      /* Print the hash table */
       void printHashMap() {
         for (final Pair kv in pairSet()) {
           print("${kv.key} -> ${kv.val}");
@@ -1387,14 +1387,14 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         pub val: String,
     }
 
-    /* Hash table based on array implementation */
+    /* Hash table implemented with an array */
     pub struct ArrayHashMap {
         buckets: Vec<Option<Pair>>,
     }
 
     impl ArrayHashMap {
         pub fn new() -> ArrayHashMap {
-            // Initialize array with 100 buckets
+            // Initialize an array containing 100 buckets
             Self {
                 buckets: vec![None; 100],
             }
@@ -1405,13 +1405,13 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             key as usize % 100
         }
 
-        /* Query operation */
+        /* Lookup operation */
         pub fn get(&self, key: i32) -> Option<&String> {
             let index = self.hash_func(key);
             self.buckets[index].as_ref().map(|pair| &pair.val)
         }
 
-        /* Add operation */
+        /* Insert operation */
         pub fn put(&mut self, key: i32, val: &str) {
             let index = self.hash_func(key);
             self.buckets[index] = Some(Pair {
@@ -1423,7 +1423,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         /* Remove operation */
         pub fn remove(&mut self, key: i32) {
             let index = self.hash_func(key);
-            // Set to None to represent removal
+            // Set to None to mark removal
             self.buckets[index] = None;
         }
 
@@ -1451,7 +1451,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
                 .collect()
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         pub fn print(&self) {
             for pair in self.entry_set() {
                 println!("{} -> {}", pair.key, pair.val);
@@ -1463,13 +1463,13 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
 === "C"
 
     ```c title="array_hash_map.c"
-    /* Key-value pair int->string */
+    /* Key-value pair: int -> string */
     typedef struct {
         int key;
         char *val;
     } Pair;
 
-    /* Hash table based on array implementation */
+    /* Hash table implemented with an array */
     typedef struct {
         Pair *buckets[MAX_SIZE];
     } ArrayHashMap;
@@ -1494,7 +1494,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         free(hmap);
     }
 
-    /* Add operation */
+    /* Insert operation */
     void put(ArrayHashMap *hmap, const int key, const char *val) {
         Pair *Pair = malloc(sizeof(Pair));
         Pair->key = key;
@@ -1518,7 +1518,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         Pair *entries;
         int i = 0, index = 0;
         int total = 0;
-        /* Count valid key-value pairs */
+        /* Count stored key-value pairs */
         for (i = 0; i < MAX_SIZE; i++) {
             if (hmap->buckets[i] != NULL) {
                 total++;
@@ -1542,7 +1542,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         int *keys;
         int i = 0, index = 0;
         int total = 0;
-        /* Count valid key-value pairs */
+        /* Count stored key-value pairs */
         for (i = 0; i < MAX_SIZE; i++) {
             if (hmap->buckets[i] != NULL) {
                 total++;
@@ -1564,7 +1564,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         char **vals;
         int i = 0, index = 0;
         int total = 0;
-        /* Count valid key-value pairs */
+        /* Count stored key-value pairs */
         for (i = 0; i < MAX_SIZE; i++) {
             if (hmap->buckets[i] != NULL) {
                 total++;
@@ -1581,7 +1581,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         set->len = total;
     }
 
-    /* Print hash table */
+    /* Print the hash table */
     void print(ArrayHashMap *hmap) {
         int i;
         MapSet set;
@@ -1603,9 +1603,9 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         var _val: String
     )
 
-    /* Hash table based on array implementation */
+    /* Hash table implemented with an array */
     class ArrayHashMap {
-        // Initialize array with 100 buckets
+        // Initialize an array containing 100 buckets
         private val buckets = arrayOfNulls<Pair>(100)
 
         /* Hash function */
@@ -1614,14 +1614,14 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return index
         }
 
-        /* Query operation */
+        /* Lookup operation */
         fun get(key: Int): String? {
             val index = hashFunc(key)
             val pair = buckets[index] ?: return null
             return pair._val
         }
 
-        /* Add operation */
+        /* Insert operation */
         fun put(key: Int, _val: String) {
             val pair = Pair(key, _val)
             val index = hashFunc(key)
@@ -1631,7 +1631,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         /* Remove operation */
         fun remove(key: Int) {
             val index = hashFunc(key)
-            // Set to null to represent deletion
+            // Set the bucket to null to mark it as removed
             buckets[index] = null
         }
 
@@ -1665,7 +1665,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             return valueSet
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         fun print() {
             for (kv in pairSet()) {
                 val key = kv.key
@@ -1689,11 +1689,11 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
       end
     end
 
-    ### Hash map based on array ###
+    ### Hash table implemented with an array ###
     class ArrayHashMap
       ### Constructor ###
       def initialize
-        # Initialize array with 100 buckets
+        # Initialize an array containing 100 buckets
         @buckets = Array.new(100)
       end
 
@@ -1702,7 +1702,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         index = key % 100
       end
 
-      ### Query operation ###
+      ### Lookup operation ###
       def get(key)
         index = hash_func(key)
         pair = @buckets[index]
@@ -1711,17 +1711,17 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         pair.val
       end
 
-      ### Add operation ###
+      ### Insert operation ###
       def put(key, val)
         pair = Pair.new(key, val)
         index = hash_func(key)
         @buckets[index] = pair
       end
 
-      ### Delete operation ###
+      ### Remove operation ###
       def remove(key)
         index = hash_func(key)
-        # Set to nil to delete
+        # Set the bucket to nil to indicate removal
         @buckets[index] = nil
       end
 
@@ -1746,38 +1746,43 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         result
       end
 
-      ### Print hash table ###
+      ### Print the hash table ###
       def print
         @buckets.each { |pair| puts "#{pair.key} -> #{pair.val}" unless pair.nil? }
       end
     end
     ```
 
-## 6.1.3 &nbsp; Hash Collision and Resizing
+??? pythontutor "Visualize execution"
 
-Fundamentally, a hash function maps the input space consisting of all `key`s to the output space consisting of all array indices, and the input space is often much larger than the output space. Therefore, **in theory, different inputs must sometimes map to the same output**.
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20Pair%3A%0A%20%20%20%20%22%22%22Key-value%20pair%22%22%22%0A%20%20%20%20def%20__init__%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20self.key%20%3D%20key%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0A%0Aclass%20ArrayHashMap%3A%0A%20%20%20%20%22%22%22Hash%20table%20implemented%20with%20an%20array%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20%23%20Initialize%20an%20array%20containing%2020%20buckets%0A%20%20%20%20%20%20%20%20self.buckets%3A%20list%5BPair%20%7C%20None%5D%20%3D%20%5BNone%5D%20%2A%2020%0A%0A%20%20%20%20def%20hash_func%28self,%20key%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Hash%20function%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20key%20%25%2020%0A%20%20%20%20%20%20%20%20return%20index%0A%0A%20%20%20%20def%20get%28self,%20key%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%20%20%20%20%22%22%22Lookup%20operation%22%22%22%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20pair%3A%20Pair%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20if%20pair%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20return%20pair.val%0A%0A%20%20%20%20def%20put%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Insert%20operation%22%22%22%0A%20%20%20%20%20%20%20%20pair%20%3D%20Pair%28key,%20val%29%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20self.buckets%5Bindex%5D%20%3D%20pair%0A%0A%20%20%20%20def%20remove%28self,%20key%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20operation%22%22%22%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20%23%20Set%20to%20None%20to%20mark%20removal%0A%20%20%20%20%20%20%20%20self.buckets%5Bindex%5D%20%3D%20None%0A%0A%20%20%20%20def%20entry_set%28self%29%20-%3E%20list%5BPair%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20all%20key-value%20pairs%22%22%22%0A%20%20%20%20%20%20%20%20result%3A%20list%5BPair%5D%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20key_set%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20all%20keys%22%22%22%0A%20%20%20%20%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair.key%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20value_set%28self%29%20-%3E%20list%5Bstr%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20all%20values%22%22%22%0A%20%20%20%20%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair.val%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20print%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Print%20the%20hash%20table%22%22%22%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%28pair.key,%20%22-%3E%22,%20pair.val%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20hash%20table%0A%20%20%20%20hmap%20%3D%20ArrayHashMap%28%29%0A%0A%20%20%20%20%23%20Insert%20operation%0A%20%20%20%20hmap.put%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hmap.put%2815937,%20%22%E5%B0%8F%E5%95%B0%22%29%0A%20%20%20%20hmap.put%2816750,%20%22%E5%B0%8F%E7%AE%97%22%29%0A%20%20%20%20hmap.put%2813276,%20%22%E5%B0%8F%E6%B3%95%22%29%0A%20%20%20%20hmap.put%2810583,%20%22%E5%B0%8F%E9%B8%AD%22%29%0A%0A%20%20%20%20%23%20Lookup%20operation%0A%20%20%20%20name%20%3D%20hmap.get%2815937%29%0A%0A%20%20%20%20%23%20Remove%20operation%0A%20%20%20%20hmap.remove%2810583%29%0A%0A%20%20%20%20%23%20Traverse%20the%20hash%20table%0A%20%20%20%20print%28%22%5CnTraverse%20key-value%20pairs%3A%20Key-%3EValue%22%29%0A%20%20%20%20for%20pair%20in%20hmap.entry_set%28%29%3A%0A%20%20%20%20%20%20%20%20print%28pair.key,%20%22-%3E%22,%20pair.val%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20Pair%3A%0A%20%20%20%20%22%22%22Key-value%20pair%22%22%22%0A%20%20%20%20def%20__init__%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20self.key%20%3D%20key%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0A%0Aclass%20ArrayHashMap%3A%0A%20%20%20%20%22%22%22Hash%20table%20implemented%20with%20an%20array%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20%23%20Initialize%20an%20array%20containing%2020%20buckets%0A%20%20%20%20%20%20%20%20self.buckets%3A%20list%5BPair%20%7C%20None%5D%20%3D%20%5BNone%5D%20%2A%2020%0A%0A%20%20%20%20def%20hash_func%28self,%20key%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Hash%20function%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20key%20%25%2020%0A%20%20%20%20%20%20%20%20return%20index%0A%0A%20%20%20%20def%20get%28self,%20key%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%20%20%20%20%22%22%22Lookup%20operation%22%22%22%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20pair%3A%20Pair%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20if%20pair%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20return%20pair.val%0A%0A%20%20%20%20def%20put%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Insert%20operation%22%22%22%0A%20%20%20%20%20%20%20%20pair%20%3D%20Pair%28key,%20val%29%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20self.buckets%5Bindex%5D%20%3D%20pair%0A%0A%20%20%20%20def%20remove%28self,%20key%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20operation%22%22%22%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20%23%20Set%20to%20None%20to%20mark%20removal%0A%20%20%20%20%20%20%20%20self.buckets%5Bindex%5D%20%3D%20None%0A%0A%20%20%20%20def%20entry_set%28self%29%20-%3E%20list%5BPair%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20all%20key-value%20pairs%22%22%22%0A%20%20%20%20%20%20%20%20result%3A%20list%5BPair%5D%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20key_set%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20all%20keys%22%22%22%0A%20%20%20%20%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair.key%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20value_set%28self%29%20-%3E%20list%5Bstr%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20all%20values%22%22%22%0A%20%20%20%20%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair.val%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20print%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Print%20the%20hash%20table%22%22%22%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%28pair.key,%20%22-%3E%22,%20pair.val%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20hash%20table%0A%20%20%20%20hmap%20%3D%20ArrayHashMap%28%29%0A%0A%20%20%20%20%23%20Insert%20operation%0A%20%20%20%20hmap.put%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hmap.put%2815937,%20%22%E5%B0%8F%E5%95%B0%22%29%0A%20%20%20%20hmap.put%2816750,%20%22%E5%B0%8F%E7%AE%97%22%29%0A%20%20%20%20hmap.put%2813276,%20%22%E5%B0%8F%E6%B3%95%22%29%0A%20%20%20%20hmap.put%2810583,%20%22%E5%B0%8F%E9%B8%AD%22%29%0A%0A%20%20%20%20%23%20Lookup%20operation%0A%20%20%20%20name%20%3D%20hmap.get%2815937%29%0A%0A%20%20%20%20%23%20Remove%20operation%0A%20%20%20%20hmap.remove%2810583%29%0A%0A%20%20%20%20%23%20Traverse%20the%20hash%20table%0A%20%20%20%20print%28%22%5CnTraverse%20key-value%20pairs%3A%20Key-%3EValue%22%29%0A%20%20%20%20for%20pair%20in%20hmap.entry_set%28%29%3A%0A%20%20%20%20%20%20%20%20print%28pair.key,%20%22-%3E%22,%20pair.val%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-For the hash function in the above example, when the input `key`s have the same last two digits, the hash function produces the same output. For example, when querying two students with IDs 12836 and 20336, we get:
+## 6.1.3 &nbsp; Collisions and expansion
+
+A hash function maps the input space of all possible keys into the output space of array indices. The input space is usually far larger, **so multiple inputs must theoretically map to the same output**.
+
+For the function above, keys with the same last two digits produce the same output. Looking up student IDs 12836 and 20336 gives:
 
 ```shell
 12836 % 100 = 36
 20336 % 100 = 36
 ```
 
-As shown below, two student IDs now point to the same name, which is clearly incorrect. We call this situation, where multiple inputs map to the same output, a <u>hash collision</u>.
+As shown below, both IDs point to the same name, which is clearly incorrect. This situation, where different inputs produce the same output, is called a <u>hash collision</u>.
 
-![Hash collision example](hash_map.assets/hash_collision.png){ class="animation-figure" }
+![An example of a hash collision](hash_map.assets/hash_collision.png){ class="animation-figure" }
 
-<p align="center"> Figure 6-3 &nbsp; Hash collision example </p>
+<p align="center"> Figure 6-3 &nbsp; An example of a hash collision </p>
 
-It's easy to see that the larger the hash table capacity $n$, the lower the probability that multiple `key`s will be assigned to the same bucket, and the fewer collisions. Therefore, **we can reduce hash collisions by expanding the hash table**.
+A larger table capacity $n$ makes it less likely that several keys share a bucket, reducing collisions. **Expanding the hash table can therefore reduce hash collisions**.
 
-As shown in Figure 6-4, before expansion, the key-value pairs `(136, A)` and `(236, D)` collided, but after expansion, the collision disappears.
+In the example below, `(136, A)` and `(236, D)` collide before expansion but no longer collide afterward.
 
-![Hash table resizing](hash_map.assets/hash_table_reshash.png){ class="animation-figure" }
+![Expanding a hash table](hash_map.assets/hash_table_reshash.png){ class="animation-figure" }
 
-<p align="center"> Figure 6-4 &nbsp; Hash table resizing </p>
+<p align="center"> Figure 6-4 &nbsp; Expanding a hash table </p>
 
-Like resizing an array, resizing a hash table requires migrating all key-value pairs from the original table to the new table, which is expensive. In addition, because the hash table capacity `capacity` changes, we must recompute the storage location of every key-value pair using the hash function, which further increases the cost of resizing. For this reason, programming languages typically reserve a sufficiently large hash table capacity to avoid frequent resizing.
+As with array expansion, expanding a hash table requires moving every pair into a new table, which is time-consuming. Because `capacity` changes, the hash function must also recalculate every pair's position, adding further computation. Programming languages therefore usually reserve enough capacity to avoid frequent expansion.
 
-The <u>load factor</u> is an important concept in hash tables. It is defined as the number of elements in the hash table divided by the number of buckets and is used to measure the severity of hash collisions. **It is also commonly used as a threshold for triggering hash table resizing**. For example, in Java, when the load factor exceeds $0.75$, the system expands the hash table to twice its original size.
+The <u>load factor</u> is the number of elements divided by the number of buckets. It measures how crowded the table is and **often serves as the trigger for expansion**. For example, in Java, a load factor above $0.75$ causes the capacity to grow to $2$ times its previous size.

@@ -2,27 +2,27 @@
 comments: true
 ---
 
-# 12.4 &nbsp; Tower of Hanoi Problem
+# 12.4 &nbsp; Tower of Hanoi
 
-In merge sort and building binary trees, we decompose the original problem into two subproblems, each half the size of the original problem. However, for the Tower of Hanoi problem, we adopt a different decomposition strategy.
+In merge sort and binary tree reconstruction, we divided the original problem into two subproblems, each half its size. The Tower of Hanoi uses a different division strategy.
 
 !!! question
 
-    Given three pillars, denoted as `A`, `B`, and `C`. Initially, pillar `A` has $n$ discs stacked on it, arranged from top to bottom in ascending order of size. Our task is to move these $n$ discs to pillar `C` while maintaining their original order (as shown in Figure 12-10). The following rules must be followed when moving the discs.
+    Given three rods called `A`, `B`, and `C`, initially rod `A` holds $n$ disks arranged from smallest at the top to largest at the bottom. Move all $n$ disks to rod `C` while preserving their order, as shown in Figure 12-10. The following rules apply.
+    
+    1. A disk can only be removed from the top of one rod and placed on top of another.
+    2. Only one disk may be moved at a time.
+    3. A smaller disk must always be above a larger disk.
 
-    1. A disc can only be taken from the top of one pillar and placed on top of another pillar.
-    2. Only one disc can be moved at a time.
-    3. A smaller disc must always be on top of a larger disc.
+![Example of the Tower of Hanoi](hanota_problem.assets/hanota_example.png){ class="animation-figure" }
 
-![Example of the Tower of Hanoi problem](hanota_problem.assets/hanota_example.png){ class="animation-figure" }
+<p align="center"> Figure 12-10 &nbsp; Example of the Tower of Hanoi </p>
 
-<p align="center"> Figure 12-10 &nbsp; Example of the Tower of Hanoi problem </p>
+**Let $f(i)$ denote a Tower of Hanoi problem of size $i$**. For example, $f(3)$ means moving $3$ disks from `A` to `C`.
 
-**We denote the Tower of Hanoi problem of size $i$ as $f(i)$**. For example, $f(3)$ represents moving $3$ discs from `A` to `C`.
+### 1. &nbsp; Considering the base cases
 
-### 1. &nbsp; Considering the Base Cases
-
-As shown in Figure 12-11, for problem $f(1)$, when there is only one disc, we can move it directly from `A` to `C`.
+For $f(1)$, with just one disk, simply move it directly from `A` to `C`, as shown in Figure 12-11.
 
 === "<1>"
     ![Solution for a problem of size 1](hanota_problem.assets/hanota_f1_step1.png){ class="animation-figure" }
@@ -32,11 +32,11 @@ As shown in Figure 12-11, for problem $f(1)$, when there is only one disc, we ca
 
 <p align="center"> Figure 12-11 &nbsp; Solution for a problem of size 1 </p>
 
-As shown in Figure 12-12, for problem $f(2)$, when there are two discs, **since we must always keep the smaller disc on top of the larger disc, we need to use `B` to assist in the move**.
+For $f(2)$, with two disks, **we need to use `B` because the smaller disk must remain above the larger one**, as shown in Figure 12-12.
 
-1. First, move the smaller disc from `A` to `B`.
-2. Then move the larger disc from `A` to `C`.
-3. Finally, move the smaller disc from `B` to `C`.
+1. Move the smaller top disk from `A` to `B`.
+2. Move the larger disk from `A` to `C`.
+3. Move the smaller disk from `B` to `C`.
 
 === "<1>"
     ![Solution for a problem of size 2](hanota_problem.assets/hanota_f2_step1.png){ class="animation-figure" }
@@ -52,17 +52,17 @@ As shown in Figure 12-12, for problem $f(2)$, when there are two discs, **since 
 
 <p align="center"> Figure 12-12 &nbsp; Solution for a problem of size 2 </p>
 
-The process of solving problem $f(2)$ can be summarized as: **moving two discs from `A` to `C` with the help of `B`**. Here, `C` is called the target pillar, and `B` is called the buffer pillar.
+We can summarize the solution to $f(2)$ as **moving two disks from `A` to `C` using `B`**. Here, `C` is the destination rod and `B` is the auxiliary rod.
 
-### 2. &nbsp; Subproblem Decomposition
+### 2. &nbsp; Dividing the problem
 
-For problem $f(3)$, when there are three discs, the situation becomes slightly more complex.
+For $f(3)$, with three disks, the situation is a little more complicated.
 
-Since we already know the solutions to $f(1)$ and $f(2)$, we can think from a divide and conquer perspective, **treating the top two discs on `A` as a whole**, and execute the steps shown in Figure 12-13. This successfully moves the three discs from `A` to `C`.
+Since we know how to solve $f(1)$ and $f(2)$, we can use divide and conquer: **treat the top two disks on `A` as a group** and follow the steps in Figure 12-13. This moves all three disks from `A` to `C`.
 
-1. Let `B` be the target pillar and `C` be the buffer pillar, and move two discs from `A` to `B`.
-2. Move the remaining disc from `A` directly to `C`.
-3. Let `C` be the target pillar and `A` be the buffer pillar, and move two discs from `B` to `C`.
+1. Use `B` as the destination and `C` as the auxiliary rod to move two disks from `A` to `B`.
+2. Move the remaining disk directly from `A` to `C`.
+3. Use `C` as the destination and `A` as the auxiliary rod to move two disks from `B` to `C`.
 
 === "<1>"
     ![Solution for a problem of size 3](hanota_problem.assets/hanota_f3_step1.png){ class="animation-figure" }
@@ -78,43 +78,43 @@ Since we already know the solutions to $f(1)$ and $f(2)$, we can think from a di
 
 <p align="center"> Figure 12-13 &nbsp; Solution for a problem of size 3 </p>
 
-Essentially, **we divide problem $f(3)$ into two subproblems $f(2)$ and one subproblem $f(1)$**. By solving these three subproblems in order, the original problem is solved. This shows that the subproblems are independent and their solutions can be merged.
+In essence, **we have divided $f(3)$ into two $f(2)$ subproblems and one $f(1)$ subproblem**. Solving these three subproblems in order solves the original problem. This shows that the subproblems are independent and their solutions can be combined.
 
-From this, we can summarize the divide and conquer strategy for solving the Tower of Hanoi problem shown in Figure 12-14: divide the original problem $f(n)$ into two subproblems $f(n-1)$ and one subproblem $f(1)$, and solve these three subproblems in the following order.
+We can now state the divide-and-conquer strategy for the Tower of Hanoi, illustrated in Figure 12-14: divide $f(n)$ into two subproblems $f(n-1)$ and one subproblem $f(1)$, then solve them in this order.
 
-1. Move $n-1$ discs from `A` to `B` with the help of `C`.
-2. Move the remaining $1$ disc directly from `A` to `C`.
-3. Move $n-1$ discs from `B` to `C` with the help of `A`.
+1. Move $n-1$ disks from `A` to `B` using `C`.
+2. Move the remaining $1$ disk directly from `A` to `C`.
+3. Move $n-1$ disks from `B` to `C` using `A`.
 
-For these two subproblems $f(n-1)$, **we can recursively divide them in the same way** until reaching the smallest subproblem $f(1)$. The solution to $f(1)$ is known and requires only one move operation.
+Each of the two $f(n-1)$ subproblems **can be divided recursively in the same way** until we reach the smallest subproblem, $f(1)$. The solution to $f(1)$ is a single move.
 
-![Divide and conquer strategy for solving the Tower of Hanoi problem](hanota_problem.assets/hanota_divide_and_conquer.png){ class="animation-figure" }
+![Divide-and-conquer strategy for the Tower of Hanoi](hanota_problem.assets/hanota_divide_and_conquer.png){ class="animation-figure" }
 
-<p align="center"> Figure 12-14 &nbsp; Divide and conquer strategy for solving the Tower of Hanoi problem </p>
+<p align="center"> Figure 12-14 &nbsp; Divide-and-conquer strategy for the Tower of Hanoi </p>
 
-### 3. &nbsp; Code Implementation
+### 3. &nbsp; Code implementation
 
-In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purpose is to move the top $i$ discs from pillar `src` to target pillar `tar` with the help of buffer pillar `buf`:
+We define a recursive function `dfs(i, src, buf, tar)` that moves the top $i$ disks from rod `src` to destination rod `tar` using auxiliary rod `buf`:
 
 === "Python"
 
     ```python title="hanota.py"
     def move(src: list[int], tar: list[int]):
-        """Move a disk"""
-        # Take out a disk from the top of src
+        """Move one disk"""
+        # Take a disk from the top of src
         pan = src.pop()
         # Place the disk on top of tar
         tar.append(pan)
 
     def dfs(i: int, src: list[int], buf: list[int], tar: list[int]):
         """Solve the Tower of Hanoi problem f(i)"""
-        # If there is only one disk left in src, move it directly to tar
+        # If this subproblem has only one disk to move, move it directly from src to tar
         if i == 1:
             move(src, tar)
             return
         # Subproblem f(i-1): move the top i-1 disks from src to buf using tar
         dfs(i - 1, src, tar, buf)
-        # Subproblem f(1): move the remaining disk from src to tar
+        # Subproblem f(1): move the remaining disk of this subproblem from src to tar
         move(src, tar)
         # Subproblem f(i-1): move the top i-1 disks from buf to tar using src
         dfs(i - 1, buf, src, tar)
@@ -129,9 +129,9 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 === "C++"
 
     ```cpp title="hanota.cpp"
-    /* Move a disk */
+    /* Move one disk */
     void move(vector<int> &src, vector<int> &tar) {
-        // Take out a disk from the top of src
+        // Take a disk from the top of src
         int pan = src.back();
         src.pop_back();
         // Place the disk on top of tar
@@ -140,14 +140,14 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 
     /* Solve the Tower of Hanoi problem f(i) */
     void dfs(int i, vector<int> &src, vector<int> &buf, vector<int> &tar) {
-        // If there is only one disk left in src, move it directly to tar
+        // If only one disk remains to be moved from src, move it directly to tar
         if (i == 1) {
             move(src, tar);
             return;
         }
         // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
         dfs(i - 1, src, tar, buf);
-        // Subproblem f(1): move the remaining disk from src to tar
+        // Subproblem f(1): move the remaining disk of this subproblem from src to tar
         move(src, tar);
         // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
         dfs(i - 1, buf, src, tar);
@@ -164,9 +164,9 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 === "Java"
 
     ```java title="hanota.java"
-    /* Move a disk */
+    /* Move one disk */
     void move(List<Integer> src, List<Integer> tar) {
-        // Take out a disk from the top of src
+        // Take a disk from the top of src
         Integer pan = src.remove(src.size() - 1);
         // Place the disk on top of tar
         tar.add(pan);
@@ -174,14 +174,14 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 
     /* Solve the Tower of Hanoi problem f(i) */
     void dfs(int i, List<Integer> src, List<Integer> buf, List<Integer> tar) {
-        // If there is only one disk left in src, move it directly to tar
+        // If only one disk remains to be moved from src, move it directly to tar
         if (i == 1) {
             move(src, tar);
             return;
         }
         // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
         dfs(i - 1, src, tar, buf);
-        // Subproblem f(1): move the remaining disk from src to tar
+        // Subproblem f(1): move the remaining disk of this subproblem from src to tar
         move(src, tar);
         // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
         dfs(i - 1, buf, src, tar);
@@ -198,9 +198,9 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 === "C#"
 
     ```csharp title="hanota.cs"
-    /* Move a disk */
+    /* Move one disk */
     void Move(List<int> src, List<int> tar) {
-        // Take out a disk from the top of src
+        // Take a disk from the top of src
         int pan = src[^1];
         src.RemoveAt(src.Count - 1);
         // Place the disk on top of tar
@@ -209,14 +209,14 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 
     /* Solve the Tower of Hanoi problem f(i) */
     void DFS(int i, List<int> src, List<int> buf, List<int> tar) {
-        // If there is only one disk left in src, move it directly to tar
+        // If only one disk in this subproblem remains on src, move it directly to tar
         if (i == 1) {
             Move(src, tar);
             return;
         }
         // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
         DFS(i - 1, src, tar, buf);
-        // Subproblem f(1): move the remaining disk from src to tar
+        // Subproblem f(1): move the remaining disk of this subproblem from src to tar
         Move(src, tar);
         // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
         DFS(i - 1, buf, src, tar);
@@ -233,26 +233,26 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 === "Go"
 
     ```go title="hanota.go"
-    /* Move a disk */
+    /* Move one disk */
     func move(src, tar *list.List) {
-        // Take out a disk from the top of src
+        // Take a disk from the top of src
         pan := src.Back()
         // Place the disk on top of tar
         tar.PushBack(pan.Value)
-        // Remove top disk from src
+        // Remove the disk from the top of src
         src.Remove(pan)
     }
 
     /* Solve the Tower of Hanoi problem f(i) */
     func dfsHanota(i int, src, buf, tar *list.List) {
-        // If there is only one disk left in src, move it directly to tar
+        // If only one disk in this subproblem remains on src, move it directly to tar
         if i == 1 {
             move(src, tar)
             return
         }
         // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
         dfsHanota(i-1, src, tar, buf)
-        // Subproblem f(1): move the remaining disk from src to tar
+        // Subproblem f(1): move the remaining disk of this subproblem from src to tar
         move(src, tar)
         // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
         dfsHanota(i-1, buf, src, tar)
@@ -269,9 +269,9 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 === "Swift"
 
     ```swift title="hanota.swift"
-    /* Move a disk */
+    /* Move one disk */
     func move(src: inout [Int], tar: inout [Int]) {
-        // Take out a disk from the top of src
+        // Take a disk from the top of src
         let pan = src.popLast()!
         // Place the disk on top of tar
         tar.append(pan)
@@ -279,14 +279,14 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 
     /* Solve the Tower of Hanoi problem f(i) */
     func dfs(i: Int, src: inout [Int], buf: inout [Int], tar: inout [Int]) {
-        // If there is only one disk left in src, move it directly to tar
+        // If only one disk in this subproblem remains on src, move it directly to tar
         if i == 1 {
             move(src: &src, tar: &tar)
             return
         }
         // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
         dfs(i: i - 1, src: &src, buf: &tar, tar: &buf)
-        // Subproblem f(1): move the remaining disk from src to tar
+        // Subproblem f(1): move the remaining disk of this subproblem from src to tar
         move(src: &src, tar: &tar)
         // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
         dfs(i: i - 1, src: &buf, buf: &src, tar: &tar)
@@ -295,8 +295,8 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
     /* Solve the Tower of Hanoi problem */
     func solveHanota(A: inout [Int], B: inout [Int], C: inout [Int]) {
         let n = A.count
-        // The tail of the list is the top of the rod
-        // Move top n disks from src to C using B
+        // The end of each list represents the top of the peg
+        // Move the top n disks from A to C using B
         dfs(i: n, src: &A, buf: &B, tar: &C)
     }
     ```
@@ -304,9 +304,9 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 === "JS"
 
     ```javascript title="hanota.js"
-    /* Move a disk */
+    /* Move one disk */
     function move(src, tar) {
-        // Take out a disk from the top of src
+        // Take a disk from the top of src
         const pan = src.pop();
         // Place the disk on top of tar
         tar.push(pan);
@@ -314,14 +314,14 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 
     /* Solve the Tower of Hanoi problem f(i) */
     function dfs(i, src, buf, tar) {
-        // If there is only one disk left in src, move it directly to tar
+        // If only one disk remains to be moved from src, move it directly to tar
         if (i === 1) {
             move(src, tar);
             return;
         }
         // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
         dfs(i - 1, src, tar, buf);
-        // Subproblem f(1): move the remaining disk from src to tar
+        // Subproblem f(1): move the remaining disk of this subproblem from src to tar
         move(src, tar);
         // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
         dfs(i - 1, buf, src, tar);
@@ -338,9 +338,9 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 === "TS"
 
     ```typescript title="hanota.ts"
-    /* Move a disk */
+    /* Move one disk */
     function move(src: number[], tar: number[]): void {
-        // Take out a disk from the top of src
+        // Take a disk from the top of src
         const pan = src.pop();
         // Place the disk on top of tar
         tar.push(pan);
@@ -348,14 +348,14 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 
     /* Solve the Tower of Hanoi problem f(i) */
     function dfs(i: number, src: number[], buf: number[], tar: number[]): void {
-        // If there is only one disk left in src, move it directly to tar
+        // If only one disk remains to be moved from src, move it directly to tar
         if (i === 1) {
             move(src, tar);
             return;
         }
         // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
         dfs(i - 1, src, tar, buf);
-        // Subproblem f(1): move the remaining disk from src to tar
+        // Subproblem f(1): move the remaining disk of this subproblem from src to tar
         move(src, tar);
         // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
         dfs(i - 1, buf, src, tar);
@@ -372,9 +372,9 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 === "Dart"
 
     ```dart title="hanota.dart"
-    /* Move a disk */
+    /* Move one disk */
     void move(List<int> src, List<int> tar) {
-      // Take out a disk from the top of src
+      // Take a disk from the top of src
       int pan = src.removeLast();
       // Place the disk on top of tar
       tar.add(pan);
@@ -382,14 +382,14 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 
     /* Solve the Tower of Hanoi problem f(i) */
     void dfs(int i, List<int> src, List<int> buf, List<int> tar) {
-      // If there is only one disk left in src, move it directly to tar
+      // If only one disk remains to be moved from src, move it directly to tar
       if (i == 1) {
         move(src, tar);
         return;
       }
       // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
       dfs(i - 1, src, tar, buf);
-      // Subproblem f(1): move the remaining disk from src to tar
+      // Subproblem f(1): move the remaining disk of this subproblem from src to tar
       move(src, tar);
       // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
       dfs(i - 1, buf, src, tar);
@@ -406,9 +406,9 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 === "Rust"
 
     ```rust title="hanota.rs"
-    /* Move a disk */
+    /* Move one disk */
     fn move_pan(src: &mut Vec<i32>, tar: &mut Vec<i32>) {
-        // Take out a disk from the top of src
+        // Take a disk from the top of src
         let pan = src.pop().unwrap();
         // Place the disk on top of tar
         tar.push(pan);
@@ -416,14 +416,14 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 
     /* Solve the Tower of Hanoi problem f(i) */
     fn dfs(i: i32, src: &mut Vec<i32>, buf: &mut Vec<i32>, tar: &mut Vec<i32>) {
-        // If there is only one disk left in src, move it directly to tar
+        // If only one disk remains to be moved from src, move it directly to tar
         if i == 1 {
             move_pan(src, tar);
             return;
         }
         // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
         dfs(i - 1, src, tar, buf);
-        // Subproblem f(1): move the remaining disk from src to tar
+        // Subproblem f(1): move the remaining disk of this subproblem from src to tar
         move_pan(src, tar);
         // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
         dfs(i - 1, buf, src, tar);
@@ -440,9 +440,9 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 === "C"
 
     ```c title="hanota.c"
-    /* Move a disk */
+    /* Move one disk */
     void move(int *src, int *srcSize, int *tar, int *tarSize) {
-        // Take out a disk from the top of src
+        // Take a disk from the top of src
         int pan = src[*srcSize - 1];
         src[*srcSize - 1] = 0;
         (*srcSize)--;
@@ -453,14 +453,14 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 
     /* Solve the Tower of Hanoi problem f(i) */
     void dfs(int i, int *src, int *srcSize, int *buf, int *bufSize, int *tar, int *tarSize) {
-        // If there is only one disk left in src, move it directly to tar
+        // If only one disk remains to be moved from src, move it directly to tar
         if (i == 1) {
             move(src, srcSize, tar, tarSize);
             return;
         }
         // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
         dfs(i - 1, src, srcSize, tar, tarSize, buf, bufSize);
-        // Subproblem f(1): move the remaining disk from src to tar
+        // Subproblem f(1): move the remaining disk of this subproblem from src to tar
         move(src, srcSize, tar, tarSize);
         // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
         dfs(i - 1, buf, bufSize, src, srcSize, tar, tarSize);
@@ -476,9 +476,9 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 === "Kotlin"
 
     ```kotlin title="hanota.kt"
-    /* Move a disk */
+    /* Move one disk */
     fun move(src: MutableList<Int>, tar: MutableList<Int>) {
-        // Take out a disk from the top of src
+        // Take a disk from the top of src
         val pan = src.removeAt(src.size - 1)
         // Place the disk on top of tar
         tar.add(pan)
@@ -486,14 +486,14 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 
     /* Solve the Tower of Hanoi problem f(i) */
     fun dfs(i: Int, src: MutableList<Int>, buf: MutableList<Int>, tar: MutableList<Int>) {
-        // If there is only one disk left in src, move it directly to tar
+        // If only one disk in this subproblem remains on src, move it directly to tar
         if (i == 1) {
             move(src, tar)
             return
         }
         // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
         dfs(i - 1, src, tar, buf)
-        // Subproblem f(1): move the remaining disk from src to tar
+        // Subproblem f(1): move the remaining disk of this subproblem from src to tar
         move(src, tar)
         // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
         dfs(i - 1, buf, src, tar)
@@ -512,15 +512,15 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
     ```ruby title="hanota.rb"
     ### Move one disk ###
     def move(src, tar)
-      # Take out a disk from the top of src
+      # Take a disk from the top of src
       pan = src.pop
       # Place the disk on top of tar
       tar << pan
     end
 
-    ### Solve Tower of Hanoi f(i) ###
+    ### Solve the Tower of Hanoi problem f(i) ###
     def dfs(i, src, buf, tar)
-      # If there is only one disk left in src, move it directly to tar
+      # If only one disk remains to be moved from src, move it directly to tar
       if i == 1
         move(src, tar)
         return
@@ -528,13 +528,13 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
 
       # Subproblem f(i-1): move the top i-1 disks from src to buf using tar
       dfs(i - 1, src, tar, buf)
-      # Subproblem f(1): move the remaining disk from src to tar
+      # Subproblem f(1): move the remaining disk in the current subproblem from src to tar
       move(src, tar)
       # Subproblem f(i-1): move the top i-1 disks from buf to tar using src
       dfs(i - 1, buf, src, tar)
     end
 
-    ### Solve Tower of Hanoi ###
+    ### Solve the Tower of Hanoi problem ###
     def solve_hanota(_A, _B, _C)
       n = _A.length
       # Move the top n disks from A to C using B
@@ -542,14 +542,19 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purp
     end
     ```
 
-As shown in Figure 12-15, the Tower of Hanoi problem forms a recursion tree of height $n$, where each node represents a subproblem corresponding to an invocation of the `dfs()` function, **therefore the time complexity is $O(2^n)$ and the space complexity is $O(n)$**.
+??? pythontutor "Visualize execution"
 
-![Recursion tree of the Tower of Hanoi problem](hanota_problem.assets/hanota_recursive_tree.png){ class="animation-figure" }
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20move%28src%3A%20list%5Bint%5D,%20tar%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22Move%20one%20disk%22%22%22%0A%20%20%20%20%23%20Take%20a%20disk%20from%20the%20top%20of%20src%0A%20%20%20%20pan%20%3D%20src.pop%28%29%0A%20%20%20%20%23%20Place%20the%20disk%20on%20top%20of%20tar%0A%20%20%20%20tar.append%28pan%29%0A%0A%0Adef%20dfs%28i%3A%20int,%20src%3A%20list%5Bint%5D,%20buf%3A%20list%5Bint%5D,%20tar%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22Solve%20the%20Tower%20of%20Hanoi%20problem%20f%28i%29%22%22%22%0A%20%20%20%20%23%20If%20the%20current%20subproblem%20has%20only%20one%20disk,%20move%20it%20from%20src%20directly%20to%20tar%0A%20%20%20%20if%20i%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20move%28src,%20tar%29%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Subproblem%20f%28i-1%29%3A%20move%20the%20top%20i-1%20disks%20from%20src%20to%20buf%20using%20tar%0A%20%20%20%20dfs%28i%20-%201,%20src,%20tar,%20buf%29%0A%20%20%20%20%23%20Subproblem%20f%281%29%3A%20move%20the%20remaining%20disk%20of%20this%20subproblem%20from%20src%20to%20tar%0A%20%20%20%20move%28src,%20tar%29%0A%20%20%20%20%23%20Subproblem%20f%28i-1%29%3A%20move%20the%20top%20i-1%20disks%20from%20buf%20to%20tar%20using%20src%0A%20%20%20%20dfs%28i%20-%201,%20buf,%20src,%20tar%29%0A%0A%0Adef%20solve_hanota%28A%3A%20list%5Bint%5D,%20B%3A%20list%5Bint%5D,%20C%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22Solve%20the%20Tower%20of%20Hanoi%20problem%22%22%22%0A%20%20%20%20n%20%3D%20len%28A%29%0A%20%20%20%20%23%20Move%20the%20top%20n%20disks%20from%20A%20to%20C%20using%20B%0A%20%20%20%20dfs%28n,%20A,%20B,%20C%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20The%20end%20of%20each%20list%20represents%20the%20top%20of%20the%20peg%0A%20%20%20%20A%20%3D%20%5B5,%204,%203,%202,%201%5D%0A%20%20%20%20B%20%3D%20%5B%5D%0A%20%20%20%20C%20%3D%20%5B%5D%0A%20%20%20%20print%28%22Initial%20state%3A%22%29%0A%20%20%20%20print%28f%22A%20%3D%20%7BA%7D%22%29%0A%20%20%20%20print%28f%22B%20%3D%20%7BB%7D%22%29%0A%20%20%20%20print%28f%22C%20%3D%20%7BC%7D%22%29%0A%0A%20%20%20%20solve_hanota%28A,%20B,%20C%29%0A%0A%20%20%20%20print%28%22After%20moving%20the%20disks%3A%22%29%0A%20%20%20%20print%28f%22A%20%3D%20%7BA%7D%22%29%0A%20%20%20%20print%28f%22B%20%3D%20%7BB%7D%22%29%0A%20%20%20%20print%28f%22C%20%3D%20%7BC%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=12&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20move%28src%3A%20list%5Bint%5D,%20tar%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22Move%20one%20disk%22%22%22%0A%20%20%20%20%23%20Take%20a%20disk%20from%20the%20top%20of%20src%0A%20%20%20%20pan%20%3D%20src.pop%28%29%0A%20%20%20%20%23%20Place%20the%20disk%20on%20top%20of%20tar%0A%20%20%20%20tar.append%28pan%29%0A%0A%0Adef%20dfs%28i%3A%20int,%20src%3A%20list%5Bint%5D,%20buf%3A%20list%5Bint%5D,%20tar%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22Solve%20the%20Tower%20of%20Hanoi%20problem%20f%28i%29%22%22%22%0A%20%20%20%20%23%20If%20the%20current%20subproblem%20has%20only%20one%20disk,%20move%20it%20from%20src%20directly%20to%20tar%0A%20%20%20%20if%20i%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20move%28src,%20tar%29%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Subproblem%20f%28i-1%29%3A%20move%20the%20top%20i-1%20disks%20from%20src%20to%20buf%20using%20tar%0A%20%20%20%20dfs%28i%20-%201,%20src,%20tar,%20buf%29%0A%20%20%20%20%23%20Subproblem%20f%281%29%3A%20move%20the%20remaining%20disk%20of%20this%20subproblem%20from%20src%20to%20tar%0A%20%20%20%20move%28src,%20tar%29%0A%20%20%20%20%23%20Subproblem%20f%28i-1%29%3A%20move%20the%20top%20i-1%20disks%20from%20buf%20to%20tar%20using%20src%0A%20%20%20%20dfs%28i%20-%201,%20buf,%20src,%20tar%29%0A%0A%0Adef%20solve_hanota%28A%3A%20list%5Bint%5D,%20B%3A%20list%5Bint%5D,%20C%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22Solve%20the%20Tower%20of%20Hanoi%20problem%22%22%22%0A%20%20%20%20n%20%3D%20len%28A%29%0A%20%20%20%20%23%20Move%20the%20top%20n%20disks%20from%20A%20to%20C%20using%20B%0A%20%20%20%20dfs%28n,%20A,%20B,%20C%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20The%20end%20of%20each%20list%20represents%20the%20top%20of%20the%20peg%0A%20%20%20%20A%20%3D%20%5B5,%204,%203,%202,%201%5D%0A%20%20%20%20B%20%3D%20%5B%5D%0A%20%20%20%20C%20%3D%20%5B%5D%0A%20%20%20%20print%28%22Initial%20state%3A%22%29%0A%20%20%20%20print%28f%22A%20%3D%20%7BA%7D%22%29%0A%20%20%20%20print%28f%22B%20%3D%20%7BB%7D%22%29%0A%20%20%20%20print%28f%22C%20%3D%20%7BC%7D%22%29%0A%0A%20%20%20%20solve_hanota%28A,%20B,%20C%29%0A%0A%20%20%20%20print%28%22After%20moving%20the%20disks%3A%22%29%0A%20%20%20%20print%28f%22A%20%3D%20%7BA%7D%22%29%0A%20%20%20%20print%28f%22B%20%3D%20%7BB%7D%22%29%0A%20%20%20%20print%28f%22C%20%3D%20%7BC%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=12&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-<p align="center"> Figure 12-15 &nbsp; Recursion tree of the Tower of Hanoi problem </p>
+As shown in Figure 12-15, the Tower of Hanoi forms a recursion tree of height $n$. Each node represents a subproblem and corresponds to a call to `dfs()`. **The time complexity is therefore $O(2^n)$, and the space complexity is $O(n)$**.
+
+![Recursion tree for the Tower of Hanoi](hanota_problem.assets/hanota_recursive_tree.png){ class="animation-figure" }
+
+<p align="center"> Figure 12-15 &nbsp; Recursion tree for the Tower of Hanoi </p>
 
 !!! quote
 
-    The Tower of Hanoi problem originates from an ancient legend. In a temple in ancient India, monks had three tall diamond pillars and $64$ golden discs of different sizes. The monks continuously moved the discs, believing that when the last disc was correctly placed, the world would come to an end.
+    The Tower of Hanoi comes from an ancient legend. In a temple in ancient India, monks had three tall diamond rods and $64$ gold disks of different sizes. They continually moved the disks, believing that the world would end when the last disk was placed in its correct position.
 
-    However, even if the monks moved one disc per second, it would take approximately $2^{64} \approx 1.84×10^{19}$ seconds, which is about $585$ billion years, far exceeding current estimates of the age of the universe. Therefore, if this legend is true, we should not need to worry about the end of the world.
+    Even at one move per second, however, this would take about $2^{64} \approx 1.84×10^{19}$ seconds, or roughly $585$ billion years, far longer than current estimates of the age of the universe. If the legend is true, we should have little reason to worry about the end of the world.

@@ -2,41 +2,41 @@
 comments: true
 ---
 
-# 7.3 &nbsp; Array Representation of Binary Trees
+# 7.3 &nbsp; Array representation of a binary tree
 
-In the linked-list representation, the storage unit of a binary tree is a node `TreeNode`, and nodes are connected by pointers. The previous section introduced the basic operations of binary trees in this representation.
+In a linked representation, a binary tree stores data in `TreeNode` nodes connected by pointers. The previous section introduced basic operations on binary trees in this form.
 
-So, can we use an array to represent a binary tree? The answer is yes.
+Can we represent a binary tree with an array instead? Yes.
 
-## 7.3.1 &nbsp; Representing Perfect Binary Trees
+## 7.3.1 &nbsp; Representing a perfect binary tree
 
-Let's analyze a simple case first. Given a perfect binary tree, we store all nodes in an array according to the order of level-order traversal, where each node corresponds to a unique array index.
+Start with a simple case. Store every node of a perfect binary tree in an array in level order. Each node then corresponds to a unique array index.
 
-Based on the characteristics of level-order traversal, we can derive a "mapping formula" between parent node index and child node indices: **If a node's index is $i$, then its left child index is $2i + 1$ and its right child index is $2i + 2$**. Figure 7-12 shows the mapping relationships between various node indices.
+Level-order traversal gives us a mapping between parent and child indices: **if a node has index $i$, its left child has index $2i + 1$ and its right child has index $2i + 2$**. Figure 7-12 illustrates this relationship.
 
 ![Array representation of a perfect binary tree](array_representation_of_tree.assets/array_representation_binary_tree.png){ class="animation-figure" }
 
 <p align="center"> Figure 7-12 &nbsp; Array representation of a perfect binary tree </p>
 
-**The mapping formula plays a role similar to the node references (pointers) in linked lists**. Given any node in the array, we can access its left (right) child node using the mapping formula.
+**The mapping formulas serve the same role as node references or pointers in a linked representation**. Given any node in the array, we can use them to access its left or right child.
 
-## 7.3.2 &nbsp; Representing Any Binary Tree
+## 7.3.2 &nbsp; Representing an arbitrary binary tree
 
-Perfect binary trees are a special case; in the middle levels of a binary tree, there are typically many `None` values. Since the level-order traversal sequence does not include these `None` values, we cannot infer the number and distribution of `None` values based on this sequence alone. **This means multiple binary tree structures can correspond to the same level-order traversal sequence**.
+A perfect binary tree is a special case. Other binary trees often contain many missing nodes, `None`, at intermediate levels. Ordinary level-order traversal omits these positions, so its sequence alone cannot tell us their number or locations. **Multiple tree structures can therefore produce the same level-order sequence**.
 
-As shown in Figure 7-13, given a non-perfect binary tree, the above method of array representation fails.
+As shown below, the array representation above no longer works for a non-perfect binary tree.
 
-![Level-order traversal sequence corresponds to multiple binary tree possibilities](array_representation_of_tree.assets/array_representation_without_empty.png){ class="animation-figure" }
+![Multiple binary trees can share a level-order sequence](array_representation_of_tree.assets/array_representation_without_empty.png){ class="animation-figure" }
 
-<p align="center"> Figure 7-13 &nbsp; Level-order traversal sequence corresponds to multiple binary tree possibilities </p>
+<p align="center"> Figure 7-13 &nbsp; Multiple binary trees can share a level-order sequence </p>
 
-To solve this problem, **we can explicitly write out all `None` values in the level-order traversal sequence**. As shown in Figure 7-14, once we do this, the level-order traversal sequence can uniquely represent a binary tree. Example code is as follows:
+To solve this, **include every `None` position explicitly in the level-order sequence**. The sequence then represents the tree uniquely, as shown below. Example code follows:
 
 === "Python"
 
     ```python title=""
     # Array representation of a binary tree
-    # Using None to represent empty slots
+    # Use None for empty positions
     tree = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
     ```
 
@@ -44,7 +44,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```cpp title=""
     /* Array representation of a binary tree */
-    // Using the maximum integer value INT_MAX to mark empty slots
+    // Use INT_MAX, the maximum int value, for empty positions
     vector<int> tree = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     ```
 
@@ -52,7 +52,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```java title=""
     /* Array representation of a binary tree */
-    // Using the Integer wrapper class allows for using null to mark empty slots
+    // Use the wrapper class Integer so that null can mark empty positions
     Integer[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
     ```
 
@@ -60,7 +60,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```csharp title=""
     /* Array representation of a binary tree */
-    // Using nullable int (int?) allows for using null to mark empty slots
+    // Use the nullable type int? so that null can mark empty positions
     int?[] tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
@@ -68,7 +68,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```go title=""
     /* Array representation of a binary tree */
-    // Using an any type slice, allowing for nil to mark empty slots
+    // Use a slice of any so that nil can mark empty positions
     tree := []any{1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15}
     ```
 
@@ -76,7 +76,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```swift title=""
     /* Array representation of a binary tree */
-    // Using optional Int (Int?) allows for using nil to mark empty slots
+    // Use the optional type Int? so that nil can mark empty positions
     let tree: [Int?] = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
@@ -84,7 +84,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```javascript title=""
     /* Array representation of a binary tree */
-    // Using null to represent empty slots
+    // Use null for empty positions
     let tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
@@ -92,7 +92,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```typescript title=""
     /* Array representation of a binary tree */
-    // Using null to represent empty slots
+    // Use null for empty positions
     let tree: (number | null)[] = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
@@ -100,7 +100,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```dart title=""
     /* Array representation of a binary tree */
-    // Using nullable int (int?) allows for using null to mark empty slots
+    // Use the nullable type int? so that null can mark empty positions
     List<int?> tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
@@ -108,7 +108,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```rust title=""
     /* Array representation of a binary tree */
-    // Using None to mark empty slots
+    // Use None for empty positions
     let tree = [Some(1), Some(2), Some(3), Some(4), None, Some(6), Some(7), Some(8), Some(9), None, None, Some(12), None, None, Some(15)];
     ```
 
@@ -116,7 +116,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```c title=""
     /* Array representation of a binary tree */
-    // Using the maximum int value to mark empty slots, therefore, node values must not be INT_MAX
+    // Use the maximum int value for empty positions, so node values must not equal INT_MAX
     int tree[] = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     ```
 
@@ -124,7 +124,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```kotlin title=""
     /* Array representation of a binary tree */
-    // Using null to represent empty slots
+    // Use null for empty positions
     val tree = arrayOf( 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 )
     ```
 
@@ -132,7 +132,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```ruby title=""
     ### Array representation of a binary tree ###
-    # Using nil to represent empty slots
+    # Use nil for empty positions
     tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
@@ -140,56 +140,56 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
 <p align="center"> Figure 7-14 &nbsp; Array representation of an arbitrary binary tree </p>
 
-It's worth noting that **complete binary trees are very well-suited for array representation**. Recalling the definition of a complete binary tree, `None` only appears at the bottom level and towards the right, **meaning all `None` values must appear at the end of the level-order traversal sequence**.
+**Complete binary trees are particularly well suited to array representation**. By definition, missing positions occur only at the right end of the lowest level, **so all `None` entries appear at the end of the level-order sequence**.
 
-This means that when using an array to represent a complete binary tree, it's possible to omit storing all `None` values, which is very convenient. Figure 7-15 gives an example.
+We can therefore omit all `None` entries when storing a complete binary tree in an array. An example is shown below.
 
 ![Array representation of a complete binary tree](array_representation_of_tree.assets/array_representation_complete_binary_tree.png){ class="animation-figure" }
 
 <p align="center"> Figure 7-15 &nbsp; Array representation of a complete binary tree </p>
 
-The following code implements a binary tree using an array representation, including the following operations:
+The following code implements an array-based binary tree with these operations.
 
-- Given a node, obtain its value, left (right) child node, and parent node.
-- Obtain the preorder, inorder, postorder, and level-order traversal sequences.
+- Given a node, get its value, left or right child, and parent.
+- Obtain preorder, inorder, postorder, and level-order traversal sequences.
 
 === "Python"
 
     ```python title="array_binary_tree.py"
     class ArrayBinaryTree:
-        """Binary tree class represented by array"""
+        """Binary tree class using an array representation"""
 
         def __init__(self, arr: list[int | None]):
             """Constructor"""
             self._tree = list(arr)
 
         def size(self):
-            """List capacity"""
+            """Length of the backing list"""
             return len(self._tree)
 
         def val(self, i: int) -> int | None:
-            """Get value of node at index i"""
-            # If index is out of bounds, return None, representing empty position
+            """Get the value of the node at index i"""
+            # If the index is out of bounds, return None to represent an empty position
             if i < 0 or i >= self.size():
                 return None
             return self._tree[i]
 
         def left(self, i: int) -> int | None:
-            """Get index of left child node of node at index i"""
+            """Get the left child index of the node at index i"""
             return 2 * i + 1
 
         def right(self, i: int) -> int | None:
-            """Get index of right child node of node at index i"""
+            """Get the right child index of the node at index i"""
             return 2 * i + 2
 
         def parent(self, i: int) -> int | None:
-            """Get index of parent node of node at index i"""
+            """Get the parent index of the node at index i"""
             return (i - 1) // 2
 
         def level_order(self) -> list[int]:
             """Level-order traversal"""
             self.res = []
-            # Traverse array directly
+            # Traverse the array directly
             for i in range(self.size()):
                 if self.val(i) is not None:
                     self.res.append(self.val(i))
@@ -233,7 +233,7 @@ The following code implements a binary tree using an array representation, inclu
 === "C++"
 
     ```cpp title="array_binary_tree.cpp"
-    /* Binary tree class represented by array */
+    /* Binary tree class using an array representation */
     class ArrayBinaryTree {
       public:
         /* Constructor */
@@ -241,30 +241,30 @@ The following code implements a binary tree using an array representation, inclu
             tree = arr;
         }
 
-        /* List capacity */
+        /* Number of positions in the array */
         int size() {
             return tree.size();
         }
 
-        /* Get value of node at index i */
+        /* Get the value of the node at index i */
         int val(int i) {
-            // Return INT_MAX if index out of bounds, representing empty position
+            // If the index is out of bounds, return INT_MAX to represent an empty position
             if (i < 0 || i >= size())
                 return INT_MAX;
             return tree[i];
         }
 
-        /* Get index of left child node of node at index i */
+        /* Get the left child index of the node at index i */
         int left(int i) {
             return 2 * i + 1;
         }
 
-        /* Get index of right child node of node at index i */
+        /* Get the right child index of the node at index i */
         int right(int i) {
             return 2 * i + 2;
         }
 
-        /* Get index of parent node of node at index i */
+        /* Get the parent index of the node at index i */
         int parent(int i) {
             return (i - 1) / 2;
         }
@@ -272,7 +272,7 @@ The following code implements a binary tree using an array representation, inclu
         /* Level-order traversal */
         vector<int> levelOrder() {
             vector<int> res;
-            // Traverse array directly
+            // Traverse the array directly
             for (int i = 0; i < size(); i++) {
                 if (val(i) != INT_MAX)
                     res.push_back(val(i));
@@ -306,7 +306,7 @@ The following code implements a binary tree using an array representation, inclu
 
         /* Depth-first traversal */
         void dfs(int i, string order, vector<int> &res) {
-            // If empty position, return
+            // Return if this position is empty
             if (val(i) == INT_MAX)
                 return;
             // Preorder traversal
@@ -327,7 +327,7 @@ The following code implements a binary tree using an array representation, inclu
 === "Java"
 
     ```java title="array_binary_tree.java"
-    /* Binary tree class represented by array */
+    /* Binary tree class using an array representation */
     class ArrayBinaryTree {
         private List<Integer> tree;
 
@@ -336,30 +336,30 @@ The following code implements a binary tree using an array representation, inclu
             tree = new ArrayList<>(arr);
         }
 
-        /* List capacity */
+        /* List size */
         public int size() {
             return tree.size();
         }
 
-        /* Get value of node at index i */
+        /* Get the value of the node at index i */
         public Integer val(int i) {
-            // If index out of bounds, return null to represent empty position
+            // If the index is out of bounds, return null to represent an empty position
             if (i < 0 || i >= size())
                 return null;
             return tree.get(i);
         }
 
-        /* Get index of left child node of node at index i */
+        /* Get the left child index of the node at index i */
         public Integer left(int i) {
             return 2 * i + 1;
         }
 
-        /* Get index of right child node of node at index i */
+        /* Get the right child index of the node at index i */
         public Integer right(int i) {
             return 2 * i + 2;
         }
 
-        /* Get index of parent node of node at index i */
+        /* Get the parent index of the node at index i */
         public Integer parent(int i) {
             return (i - 1) / 2;
         }
@@ -367,7 +367,7 @@ The following code implements a binary tree using an array representation, inclu
         /* Level-order traversal */
         public List<Integer> levelOrder() {
             List<Integer> res = new ArrayList<>();
-            // Traverse array directly
+            // Traverse the array directly
             for (int i = 0; i < size(); i++) {
                 if (val(i) != null)
                     res.add(val(i));
@@ -377,7 +377,7 @@ The following code implements a binary tree using an array representation, inclu
 
         /* Depth-first traversal */
         private void dfs(Integer i, String order, List<Integer> res) {
-            // If empty position, return
+            // Return if this position is empty
             if (val(i) == null)
                 return;
             // Preorder traversal
@@ -419,34 +419,34 @@ The following code implements a binary tree using an array representation, inclu
 === "C#"
 
     ```csharp title="array_binary_tree.cs"
-    /* Binary tree class represented by array */
+    /* Binary tree class using an array representation */
     class ArrayBinaryTree(List<int?> arr) {
         List<int?> tree = new(arr);
 
-        /* List capacity */
+        /* List size */
         public int Size() {
             return tree.Count;
         }
 
-        /* Get value of node at index i */
+        /* Get the value of the node at index i */
         public int? Val(int i) {
-            // If index out of bounds, return null to represent empty position
+            // If the index is out of bounds, return null to represent an empty position
             if (i < 0 || i >= Size())
                 return null;
             return tree[i];
         }
 
-        /* Get index of left child node of node at index i */
+        /* Get the left child index of the node at index i */
         public int Left(int i) {
             return 2 * i + 1;
         }
 
-        /* Get index of right child node of node at index i */
+        /* Get the right child index of the node at index i */
         public int Right(int i) {
             return 2 * i + 2;
         }
 
-        /* Get index of parent node of node at index i */
+        /* Get the parent index of the node at index i */
         public int Parent(int i) {
             return (i - 1) / 2;
         }
@@ -454,7 +454,7 @@ The following code implements a binary tree using an array representation, inclu
         /* Level-order traversal */
         public List<int> LevelOrder() {
             List<int> res = [];
-            // Traverse array directly
+            // Traverse the array directly
             for (int i = 0; i < Size(); i++) {
                 if (Val(i).HasValue)
                     res.Add(Val(i)!.Value);
@@ -464,7 +464,7 @@ The following code implements a binary tree using an array representation, inclu
 
         /* Depth-first traversal */
         void DFS(int i, string order, List<int> res) {
-            // If empty position, return
+            // Return if this position is empty
             if (!Val(i).HasValue)
                 return;
             // Preorder traversal
@@ -506,7 +506,7 @@ The following code implements a binary tree using an array representation, inclu
 === "Go"
 
     ```go title="array_binary_tree.go"
-    /* Binary tree class represented by array */
+    /* Binary tree type using an array representation */
     type arrayBinaryTree struct {
         tree []any
     }
@@ -518,31 +518,31 @@ The following code implements a binary tree using an array representation, inclu
         }
     }
 
-    /* List capacity */
+    /* Length of the backing slice */
     func (abt *arrayBinaryTree) size() int {
         return len(abt.tree)
     }
 
-    /* Get value of node at index i */
+    /* Get the value of the node at index i */
     func (abt *arrayBinaryTree) val(i int) any {
-        // If index out of bounds, return null to represent empty position
+        // If the index is out of bounds, return nil to represent an empty position
         if i < 0 || i >= abt.size() {
             return nil
         }
         return abt.tree[i]
     }
 
-    /* Get index of left child node of node at index i */
+    /* Get the left child index of the node at index i */
     func (abt *arrayBinaryTree) left(i int) int {
         return 2*i + 1
     }
 
-    /* Get index of right child node of node at index i */
+    /* Get the right child index of the node at index i */
     func (abt *arrayBinaryTree) right(i int) int {
         return 2*i + 2
     }
 
-    /* Get index of parent node of node at index i */
+    /* Get the parent index of the node at index i */
     func (abt *arrayBinaryTree) parent(i int) int {
         return (i - 1) / 2
     }
@@ -550,7 +550,7 @@ The following code implements a binary tree using an array representation, inclu
     /* Level-order traversal */
     func (abt *arrayBinaryTree) levelOrder() []any {
         var res []any
-        // Traverse array directly
+        // Traverse the array directly
         for i := 0; i < abt.size(); i++ {
             if abt.val(i) != nil {
                 res = append(res, abt.val(i))
@@ -561,7 +561,7 @@ The following code implements a binary tree using an array representation, inclu
 
     /* Depth-first traversal */
     func (abt *arrayBinaryTree) dfs(i int, order string, res *[]any) {
-        // If empty position, return
+        // Return if this position is empty
         if abt.val(i) == nil {
             return
         }
@@ -606,7 +606,7 @@ The following code implements a binary tree using an array representation, inclu
 === "Swift"
 
     ```swift title="array_binary_tree.swift"
-    /* Binary tree class represented by array */
+    /* Binary tree class using an array representation */
     class ArrayBinaryTree {
         private var tree: [Int?]
 
@@ -615,31 +615,31 @@ The following code implements a binary tree using an array representation, inclu
             tree = arr
         }
 
-        /* List capacity */
+        /* Length of the backing array */
         func size() -> Int {
             tree.count
         }
 
-        /* Get value of node at index i */
+        /* Get the value of the node at index i */
         func val(i: Int) -> Int? {
-            // If index out of bounds, return null to represent empty position
+            // If the index is out of bounds, return nil to represent an empty position
             if i < 0 || i >= size() {
                 return nil
             }
             return tree[i]
         }
 
-        /* Get index of left child node of node at index i */
+        /* Get the left child index of the node at index i */
         func left(i: Int) -> Int {
             2 * i + 1
         }
 
-        /* Get index of right child node of node at index i */
+        /* Get the right child index of the node at index i */
         func right(i: Int) -> Int {
             2 * i + 2
         }
 
-        /* Get index of parent node of node at index i */
+        /* Get the parent index of the node at index i */
         func parent(i: Int) -> Int {
             (i - 1) / 2
         }
@@ -647,7 +647,7 @@ The following code implements a binary tree using an array representation, inclu
         /* Level-order traversal */
         func levelOrder() -> [Int] {
             var res: [Int] = []
-            // Traverse array directly
+            // Traverse the array directly
             for i in 0 ..< size() {
                 if let val = val(i: i) {
                     res.append(val)
@@ -658,7 +658,7 @@ The following code implements a binary tree using an array representation, inclu
 
         /* Depth-first traversal */
         private func dfs(i: Int, order: String, res: inout [Int]) {
-            // If empty position, return
+            // Return if this position is empty
             guard let val = val(i: i) else {
                 return
             }
@@ -704,7 +704,7 @@ The following code implements a binary tree using an array representation, inclu
 === "JS"
 
     ```javascript title="array_binary_tree.js"
-    /* Binary tree class represented by array */
+    /* Binary tree class using an array representation */
     class ArrayBinaryTree {
         #tree;
 
@@ -713,29 +713,29 @@ The following code implements a binary tree using an array representation, inclu
             this.#tree = arr;
         }
 
-        /* List capacity */
+        /* Array length */
         size() {
             return this.#tree.length;
         }
 
-        /* Get value of node at index i */
+        /* Get the value of the node at index i */
         val(i) {
-            // If index out of bounds, return null to represent empty position
+            // If the index is out of bounds, return null to indicate an empty position
             if (i < 0 || i >= this.size()) return null;
             return this.#tree[i];
         }
 
-        /* Get index of left child node of node at index i */
+        /* Get the left child index of the node at index i */
         left(i) {
             return 2 * i + 1;
         }
 
-        /* Get index of right child node of node at index i */
+        /* Get the right child index of the node at index i */
         right(i) {
             return 2 * i + 2;
         }
 
-        /* Get index of parent node of node at index i */
+        /* Get the parent index of the node at index i */
         parent(i) {
             return Math.floor((i - 1) / 2); // Floor division
         }
@@ -743,7 +743,7 @@ The following code implements a binary tree using an array representation, inclu
         /* Level-order traversal */
         levelOrder() {
             let res = [];
-            // Traverse array directly
+            // Traverse the array directly
             for (let i = 0; i < this.size(); i++) {
                 if (this.val(i) !== null) res.push(this.val(i));
             }
@@ -752,7 +752,7 @@ The following code implements a binary tree using an array representation, inclu
 
         /* Depth-first traversal */
         #dfs(i, order, res) {
-            // If empty position, return
+            // Return if this position is empty
             if (this.val(i) === null) return;
             // Preorder traversal
             if (order === 'pre') res.push(this.val(i));
@@ -790,7 +790,7 @@ The following code implements a binary tree using an array representation, inclu
 === "TS"
 
     ```typescript title="array_binary_tree.ts"
-    /* Binary tree class represented by array */
+    /* Binary tree class using an array representation */
     class ArrayBinaryTree {
         #tree: (number | null)[];
 
@@ -799,29 +799,29 @@ The following code implements a binary tree using an array representation, inclu
             this.#tree = arr;
         }
 
-        /* List capacity */
+        /* Array length, including empty positions */
         size(): number {
             return this.#tree.length;
         }
 
-        /* Get value of node at index i */
+        /* Get the value of the node at index i */
         val(i: number): number | null {
-            // If index out of bounds, return null to represent empty position
+            // If the index is out of bounds, return null to indicate an empty position
             if (i < 0 || i >= this.size()) return null;
             return this.#tree[i];
         }
 
-        /* Get index of left child node of node at index i */
+        /* Get the left child index of the node at index i */
         left(i: number): number {
             return 2 * i + 1;
         }
 
-        /* Get index of right child node of node at index i */
+        /* Get the right child index of the node at index i */
         right(i: number): number {
             return 2 * i + 2;
         }
 
-        /* Get index of parent node of node at index i */
+        /* Get the parent index of the node at index i */
         parent(i: number): number {
             return Math.floor((i - 1) / 2); // Floor division
         }
@@ -829,7 +829,7 @@ The following code implements a binary tree using an array representation, inclu
         /* Level-order traversal */
         levelOrder(): number[] {
             let res = [];
-            // Traverse array directly
+            // Traverse the array directly
             for (let i = 0; i < this.size(); i++) {
                 if (this.val(i) !== null) res.push(this.val(i));
             }
@@ -838,7 +838,7 @@ The following code implements a binary tree using an array representation, inclu
 
         /* Depth-first traversal */
         #dfs(i: number, order: Order, res: (number | null)[]): void {
-            // If empty position, return
+            // Return if this position is empty
             if (this.val(i) === null) return;
             // Preorder traversal
             if (order === 'pre') res.push(this.val(i));
@@ -876,38 +876,38 @@ The following code implements a binary tree using an array representation, inclu
 === "Dart"
 
     ```dart title="array_binary_tree.dart"
-    /* Binary tree class represented by array */
+    /* Binary tree class using an array representation */
     class ArrayBinaryTree {
       late List<int?> _tree;
 
       /* Constructor */
       ArrayBinaryTree(this._tree);
 
-      /* List capacity */
+      /* Array length, including empty positions */
       int size() {
         return _tree.length;
       }
 
-      /* Get value of node at index i */
+      /* Get the value of the node at index i */
       int? val(int i) {
-        // If index out of bounds, return null to represent empty position
+        // If the index is out of bounds, return null to indicate an empty position
         if (i < 0 || i >= size()) {
           return null;
         }
         return _tree[i];
       }
 
-      /* Get index of left child node of node at index i */
+      /* Get the left child index of the node at index i */
       int? left(int i) {
         return 2 * i + 1;
       }
 
-      /* Get index of right child node of node at index i */
+      /* Get the right child index of the node at index i */
       int? right(int i) {
         return 2 * i + 2;
       }
 
-      /* Get index of parent node of node at index i */
+      /* Get the parent index of the node at index i */
       int? parent(int i) {
         return (i - 1) ~/ 2;
       }
@@ -925,7 +925,7 @@ The following code implements a binary tree using an array representation, inclu
 
       /* Depth-first traversal */
       void dfs(int i, String order, List<int?> res) {
-        // If empty position, return
+        // Return if this position is empty
         if (val(i) == null) {
           return;
         }
@@ -971,7 +971,7 @@ The following code implements a binary tree using an array representation, inclu
 === "Rust"
 
     ```rust title="array_binary_tree.rs"
-    /* Binary tree class represented by array */
+    /* Binary tree type using an array representation */
     struct ArrayBinaryTree {
         tree: Vec<Option<i32>>,
     }
@@ -982,14 +982,14 @@ The following code implements a binary tree using an array representation, inclu
             Self { tree: arr }
         }
 
-        /* List capacity */
+        /* Number of positions in the array */
         fn size(&self) -> i32 {
             self.tree.len() as i32
         }
 
-        /* Get value of node at index i */
+        /* Get the value of the node at index i */
         fn val(&self, i: i32) -> Option<i32> {
-            // If index is out of bounds, return None, representing empty position
+            // If the index is out of bounds, return None to represent an empty position
             if i < 0 || i >= self.size() {
                 None
             } else {
@@ -997,17 +997,17 @@ The following code implements a binary tree using an array representation, inclu
             }
         }
 
-        /* Get index of left child node of node at index i */
+        /* Get the left child index of the node at index i */
         fn left(&self, i: i32) -> i32 {
             2 * i + 1
         }
 
-        /* Get index of right child node of node at index i */
+        /* Get the right child index of the node at index i */
         fn right(&self, i: i32) -> i32 {
             2 * i + 2
         }
 
-        /* Get index of parent node of node at index i */
+        /* Get the parent index of the node at index i */
         fn parent(&self, i: i32) -> i32 {
             (i - 1) / 2
         }
@@ -1065,7 +1065,7 @@ The following code implements a binary tree using an array representation, inclu
 === "C"
 
     ```c title="array_binary_tree.c"
-    /* Binary tree structure in array representation */
+    /* Binary tree structure represented by an array */
     typedef struct {
         int *tree;
         int size;
@@ -1086,14 +1086,14 @@ The following code implements a binary tree using an array representation, inclu
         free(abt);
     }
 
-    /* List capacity */
+    /* Array length */
     int size(ArrayBinaryTree *abt) {
         return abt->size;
     }
 
-    /* Get value of node at index i */
+    /* Get the value of the node at index i */
     int val(ArrayBinaryTree *abt, int i) {
-        // Return INT_MAX if index out of bounds, representing empty position
+        // If the index is out of bounds, return INT_MAX to represent an empty position
         if (i < 0 || i >= size(abt))
             return INT_MAX;
         return abt->tree[i];
@@ -1103,7 +1103,7 @@ The following code implements a binary tree using an array representation, inclu
     int *levelOrder(ArrayBinaryTree *abt, int *returnSize) {
         int *res = (int *)malloc(sizeof(int) * size(abt));
         int index = 0;
-        // Traverse array directly
+        // Traverse the array directly
         for (int i = 0; i < size(abt); i++) {
             if (val(abt, i) != INT_MAX)
                 res[index++] = val(abt, i);
@@ -1114,7 +1114,7 @@ The following code implements a binary tree using an array representation, inclu
 
     /* Depth-first traversal */
     void dfs(ArrayBinaryTree *abt, int i, char *order, int *res, int *index) {
-        // If empty position, return
+        // Return if this position is empty
         if (val(abt, i) == INT_MAX)
             return;
         // Preorder traversal
@@ -1161,31 +1161,31 @@ The following code implements a binary tree using an array representation, inclu
 === "Kotlin"
 
     ```kotlin title="array_binary_tree.kt"
-    /* Binary tree class represented by array */
+    /* Binary tree class using an array representation */
     class ArrayBinaryTree(val tree: MutableList<Int?>) {
-        /* List capacity */
+        /* List size */
         fun size(): Int {
             return tree.size
         }
 
-        /* Get value of node at index i */
+        /* Get the value of the node at index i */
         fun _val(i: Int): Int? {
-            // If index out of bounds, return null to represent empty position
+            // If the index is out of bounds, return null to represent an empty position
             if (i < 0 || i >= size()) return null
             return tree[i]
         }
 
-        /* Get index of left child node of node at index i */
+        /* Get the left child index of the node at index i */
         fun left(i: Int): Int {
             return 2 * i + 1
         }
 
-        /* Get index of right child node of node at index i */
+        /* Get the right child index of the node at index i */
         fun right(i: Int): Int {
             return 2 * i + 2
         }
 
-        /* Get index of parent node of node at index i */
+        /* Get the parent index of the node at index i */
         fun parent(i: Int): Int {
             return (i - 1) / 2
         }
@@ -1193,7 +1193,7 @@ The following code implements a binary tree using an array representation, inclu
         /* Level-order traversal */
         fun levelOrder(): MutableList<Int?> {
             val res = mutableListOf<Int?>()
-            // Traverse array directly
+            // Traverse the array directly
             for (i in 0..<size()) {
                 if (_val(i) != null)
                     res.add(_val(i))
@@ -1203,7 +1203,7 @@ The following code implements a binary tree using an array representation, inclu
 
         /* Depth-first traversal */
         fun dfs(i: Int, order: String, res: MutableList<Int?>) {
-            // If empty position, return
+            // Return if this position is empty
             if (_val(i) == null)
                 return
             // Preorder traversal
@@ -1245,37 +1245,37 @@ The following code implements a binary tree using an array representation, inclu
 === "Ruby"
 
     ```ruby title="array_binary_tree.rb"
-    ### Array representation of binary tree class ###
+    ### Binary tree class using an array representation ###
     class ArrayBinaryTree
       ### Constructor ###
       def initialize(arr)
         @tree = arr.to_a
       end
 
-      ### List capacity ###
+      ### Length of the array representation ###
       def size
         @tree.length
       end
 
-      ### Get value of node at index i ###
+      ### Get the value of the node at index i ###
       def val(i)
-        # Return nil if index out of bounds, representing empty position
+        # If the index is out of bounds, return nil to indicate an empty position
         return if i < 0 || i >= size
 
         @tree[i]
       end
 
-      ### Get left child index of node at index i ###
+      ### Get the left child index of the node at index i ###
       def left(i)
         2 * i + 1
       end
 
-      ### Get right child index of node at index i ###
+      ### Get the right child index of the node at index i ###
       def right(i)
         2 * i + 2
       end
 
-      ### Get parent node index of node at index i ###
+      ### Get the parent index of the node at index i ###
       def parent(i)
         (i - 1) / 2
       end
@@ -1284,7 +1284,7 @@ The following code implements a binary tree using an array representation, inclu
       def level_order
         @res = []
 
-        # Traverse array directly
+        # Traverse the array directly
         for i in 0...size
           @res << val(i) unless val(i).nil?
         end
@@ -1305,21 +1305,21 @@ The following code implements a binary tree using an array representation, inclu
         @res << val(i) if order == :post
       end
 
-      ### Pre-order traversal ###
+      ### Preorder traversal ###
       def pre_order
         @res = []
         dfs(0, :pre)
         @res
       end
 
-      ### In-order traversal ###
+      ### Inorder traversal ###
       def in_order
         @res = []
         dfs(0, :in)
         @res
       end
 
-      ### Post-order traversal ###
+      ### Postorder traversal ###
       def post_order
         @res = []
         dfs(0, :post)
@@ -1328,16 +1328,21 @@ The following code implements a binary tree using an array representation, inclu
     end
     ```
 
-## 7.3.3 &nbsp; Advantages and Limitations
+??? pythontutor "Visualize execution"
 
-The array representation of binary trees has the following advantages:
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%29%3A%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%20%20%20%20%20%20%20%20self.left%20%3D%20None%0A%20%20%20%20%20%20%20%20self.right%20%3D%20None%0A%0Aclass%20ArrayBinaryTree%3A%0A%20%20%20%20%22%22%22Binary%20tree%20class%20using%20an%20array%20representation%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20arr%3A%20list%5Bint%20%7C%20None%5D%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self._tree%20%3D%20list%28arr%29%0A%0A%20%20%20%20def%20size%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Length%20of%20the%20backing%20list%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self._tree%29%0A%0A%20%20%20%20def%20val%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20value%20of%20the%20node%20at%20index%20i%22%22%22%0A%20%20%20%20%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20self.size%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20return%20self._tree%5Bi%5D%0A%0A%20%20%20%20def%20left%28self,%20i%3A%20int%29%20-%3E%20int%20%7C%20None%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20left%20child%20index%22%22%22%0A%20%20%20%20%20%20%20%20return%202%20%2A%20i%20%2B%201%0A%0A%20%20%20%20def%20right%28self,%20i%3A%20int%29%20-%3E%20int%20%7C%20None%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20right%20child%20index%22%22%22%0A%20%20%20%20%20%20%20%20return%202%20%2A%20i%20%2B%202%0A%0A%20%20%20%20def%20parent%28self,%20i%3A%20int%29%20-%3E%20int%20%7C%20None%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20parent%20index%22%22%22%0A%20%20%20%20%20%20%20%20return%20%28i%20-%201%29%20//%202%0A%0A%20%20%20%20def%20level_order%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Level-order%20traversal%22%22%22%0A%20%20%20%20%20%20%20%20self.res%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20%23%20Traverse%20the%20array%20directly%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%28self.size%28%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20self.val%28i%29%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.res.append%28self.val%28i%29%29%0A%20%20%20%20%20%20%20%20return%20self.res%0A%0A%20%20%20%20def%20dfs%28self,%20i%3A%20int,%20order%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Depth-first%20traversal%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.val%28i%29%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20%20%20%20%20if%20order%20%3D%3D%20%22pre%22%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.res.append%28self.val%28i%29%29%0A%20%20%20%20%20%20%20%20self.dfs%28self.left%28i%29,%20order%29%0A%20%20%20%20%20%20%20%20%23%20Inorder%20traversal%0A%20%20%20%20%20%20%20%20if%20order%20%3D%3D%20%22in%22%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.res.append%28self.val%28i%29%29%0A%20%20%20%20%20%20%20%20self.dfs%28self.right%28i%29,%20order%29%0A%20%20%20%20%20%20%20%20%23%20Postorder%20traversal%0A%20%20%20%20%20%20%20%20if%20order%20%3D%3D%20%22post%22%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.res.append%28self.val%28i%29%29%0A%0A%20%20%20%20def%20pre_order%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Preorder%20traversal%22%22%22%0A%20%20%20%20%20%20%20%20self.res%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20self.dfs%280,%20order%3D%22pre%22%29%0A%20%20%20%20%20%20%20%20return%20self.res%0A%0A%20%20%20%20def%20in_order%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Inorder%20traversal%22%22%22%0A%20%20%20%20%20%20%20%20self.res%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20self.dfs%280,%20order%3D%22in%22%29%0A%20%20%20%20%20%20%20%20return%20self.res%0A%0A%20%20%20%20def%20post_order%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Postorder%20traversal%22%22%22%0A%20%20%20%20%20%20%20%20self.res%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20self.dfs%280,%20order%3D%22post%22%29%0A%20%20%20%20%20%20%20%20return%20self.res%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20binary%20tree%0A%20%20%20%20arr%20%3D%20%5B1,%202,%203,%204,%20None,%206,%20None%5D%0A%20%20%20%20abt%20%3D%20ArrayBinaryTree%28arr%29%0A%0A%20%20%20%20%23%20Access%20a%20node%0A%20%20%20%20i%20%3D%201%0A%20%20%20%20l,%20r,%20p%20%3D%20abt.left%28i%29,%20abt.right%28i%29,%20abt.parent%28i%29%0A%0A%20%20%20%20%23%20Traverse%20the%20tree%0A%20%20%20%20res%20%3D%20abt.level_order%28%29%0A%20%20%20%20res%20%3D%20abt.pre_order%28%29%0A%20%20%20%20res%20%3D%20abt.in_order%28%29%0A%20%20%20%20res%20%3D%20abt.post_order%28%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%29%3A%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%20%20%20%20%20%20%20%20self.left%20%3D%20None%0A%20%20%20%20%20%20%20%20self.right%20%3D%20None%0A%0Aclass%20ArrayBinaryTree%3A%0A%20%20%20%20%22%22%22Binary%20tree%20class%20using%20an%20array%20representation%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20arr%3A%20list%5Bint%20%7C%20None%5D%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self._tree%20%3D%20list%28arr%29%0A%0A%20%20%20%20def%20size%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Length%20of%20the%20backing%20list%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self._tree%29%0A%0A%20%20%20%20def%20val%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20value%20of%20the%20node%20at%20index%20i%22%22%22%0A%20%20%20%20%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20self.size%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20return%20self._tree%5Bi%5D%0A%0A%20%20%20%20def%20left%28self,%20i%3A%20int%29%20-%3E%20int%20%7C%20None%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20left%20child%20index%22%22%22%0A%20%20%20%20%20%20%20%20return%202%20%2A%20i%20%2B%201%0A%0A%20%20%20%20def%20right%28self,%20i%3A%20int%29%20-%3E%20int%20%7C%20None%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20right%20child%20index%22%22%22%0A%20%20%20%20%20%20%20%20return%202%20%2A%20i%20%2B%202%0A%0A%20%20%20%20def%20parent%28self,%20i%3A%20int%29%20-%3E%20int%20%7C%20None%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20parent%20index%22%22%22%0A%20%20%20%20%20%20%20%20return%20%28i%20-%201%29%20//%202%0A%0A%20%20%20%20def%20level_order%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Level-order%20traversal%22%22%22%0A%20%20%20%20%20%20%20%20self.res%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20%23%20Traverse%20the%20array%20directly%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%28self.size%28%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20self.val%28i%29%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.res.append%28self.val%28i%29%29%0A%20%20%20%20%20%20%20%20return%20self.res%0A%0A%20%20%20%20def%20dfs%28self,%20i%3A%20int,%20order%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Depth-first%20traversal%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.val%28i%29%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20%20%20%20%20if%20order%20%3D%3D%20%22pre%22%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.res.append%28self.val%28i%29%29%0A%20%20%20%20%20%20%20%20self.dfs%28self.left%28i%29,%20order%29%0A%20%20%20%20%20%20%20%20%23%20Inorder%20traversal%0A%20%20%20%20%20%20%20%20if%20order%20%3D%3D%20%22in%22%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.res.append%28self.val%28i%29%29%0A%20%20%20%20%20%20%20%20self.dfs%28self.right%28i%29,%20order%29%0A%20%20%20%20%20%20%20%20%23%20Postorder%20traversal%0A%20%20%20%20%20%20%20%20if%20order%20%3D%3D%20%22post%22%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.res.append%28self.val%28i%29%29%0A%0A%20%20%20%20def%20pre_order%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Preorder%20traversal%22%22%22%0A%20%20%20%20%20%20%20%20self.res%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20self.dfs%280,%20order%3D%22pre%22%29%0A%20%20%20%20%20%20%20%20return%20self.res%0A%0A%20%20%20%20def%20in_order%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Inorder%20traversal%22%22%22%0A%20%20%20%20%20%20%20%20self.res%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20self.dfs%280,%20order%3D%22in%22%29%0A%20%20%20%20%20%20%20%20return%20self.res%0A%0A%20%20%20%20def%20post_order%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Postorder%20traversal%22%22%22%0A%20%20%20%20%20%20%20%20self.res%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20self.dfs%280,%20order%3D%22post%22%29%0A%20%20%20%20%20%20%20%20return%20self.res%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20binary%20tree%0A%20%20%20%20arr%20%3D%20%5B1,%202,%203,%204,%20None,%206,%20None%5D%0A%20%20%20%20abt%20%3D%20ArrayBinaryTree%28arr%29%0A%0A%20%20%20%20%23%20Access%20a%20node%0A%20%20%20%20i%20%3D%201%0A%20%20%20%20l,%20r,%20p%20%3D%20abt.left%28i%29,%20abt.right%28i%29,%20abt.parent%28i%29%0A%0A%20%20%20%20%23%20Traverse%20the%20tree%0A%20%20%20%20res%20%3D%20abt.level_order%28%29%0A%20%20%20%20res%20%3D%20abt.pre_order%28%29%0A%20%20%20%20res%20%3D%20abt.in_order%28%29%0A%20%20%20%20res%20%3D%20abt.post_order%28%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-- Arrays are stored in contiguous memory space, which is cache-friendly, allowing faster access and traversal.
-- It does not require storing pointers, which saves space.
-- It allows random access to nodes.
+## 7.3.3 &nbsp; Strengths and limitations
 
-However, the array representation also has some limitations:
+Array representation offers the following advantages.
 
-- Array storage requires contiguous memory space, so it is not suitable for storing trees with a large amount of data.
-- Adding or removing nodes requires array insertion and deletion operations, which have lower efficiency.
-- When there are many `None` values in the binary tree, the proportion of node data contained in the array is low, leading to lower space utilization.
+- Contiguous memory is cache-friendly, making access and traversal fast.
+- No pointers need to be stored, saving space.
+- Nodes can be accessed randomly by index.
+
+However, it also has limitations.
+
+- Arrays require contiguous memory, making them unsuitable for extremely large trees.
+- Adding and removing nodes requires array insertion and deletion operations, which are inefficient.
+- If the tree has many missing nodes, actual node data occupies only a small fraction of the array, wasting space.

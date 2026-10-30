@@ -2,28 +2,28 @@
 comments: true
 ---
 
-# 11.6 &nbsp; Merge Sort
+# 11.6 &nbsp; Merge sort
 
-<u>Merge sort</u> is a sorting algorithm based on a divide-and-conquer strategy, consisting of the "divide" and "merge" phases shown in Figure 11-10.
+<u>Merge sort</u> is a divide-and-conquer sorting algorithm with the “division” and “merging” phases shown below.
 
-1. **Divide phase**: Recursively split the array at the midpoint, reducing the problem of sorting a long array to the problem of sorting shorter arrays.
-2. **Merge phase**: When a sub-array has length 1, stop dividing and start merging, continuously combining the shorter sorted sub-arrays on the left and right into a longer sorted array until the process is complete.
+1. **Division**: recursively split the array at its midpoint, turning the problem of sorting a long array into problems of sorting shorter arrays.
+2. **Merging**: stop dividing when a subarray has length 1, then repeatedly merge two shorter sorted arrays into one longer sorted array until the process is complete.
 
-![Divide and merge phases of merge sort](merge_sort.assets/merge_sort_overview.png){ class="animation-figure" }
+![The division and merging phases of merge sort](merge_sort.assets/merge_sort_overview.png){ class="animation-figure" }
 
-<p align="center"> Figure 11-10 &nbsp; Divide and merge phases of merge sort </p>
+<p align="center"> Figure 11-10 &nbsp; The division and merging phases of merge sort </p>
 
-## 11.6.1 &nbsp; Algorithm Flow
+## 11.6.1 &nbsp; Algorithm steps
 
-As shown in Figure 11-11, the "divide phase" recursively splits the array from the midpoint into two sub-arrays from top to bottom.
+As shown below, the division phase works from the top down, recursively splitting each array into two subarrays at its midpoint.
 
-1. Calculate the array midpoint `mid`, recursively divide the left sub-array (interval `[left, mid]`) and right sub-array (interval `[mid + 1, right]`).
-2. Repeat step `1.` recursively until a sub-array has length 1.
+1. Calculate the midpoint `mid`, then recursively divide the left subarray, `[left, mid]`, and the right subarray, `[mid + 1, right]`.
+2. Repeat step `1.` recursively until each subarray has length 1.
 
-The "merge phase" merges the left and right sub-arrays into a sorted array from bottom to top. Note that merging starts from sub-arrays of length 1, so every sub-array involved in this phase is already sorted.
+The merging phase works from the bottom up, combining the left and right subarrays into a sorted array. Merging begins with subarrays of length 1, so every subarray involved in this phase is already sorted.
 
 === "<1>"
-    ![Merge sort steps](merge_sort.assets/merge_sort_step1.png){ class="animation-figure" }
+    ![Steps of merge sort](merge_sort.assets/merge_sort_step1.png){ class="animation-figure" }
 
 === "<2>"
     ![merge_sort_step2](merge_sort.assets/merge_sort_step2.png){ class="animation-figure" }
@@ -52,26 +52,26 @@ The "merge phase" merges the left and right sub-arrays into a sorted array from 
 === "<10>"
     ![merge_sort_step10](merge_sort.assets/merge_sort_step10.png){ class="animation-figure" }
 
-<p align="center"> Figure 11-11 &nbsp; Merge sort steps </p>
+<p align="center"> Figure 11-11 &nbsp; Steps of merge sort </p>
 
-The recursive order of merge sort is consistent with the post-order traversal of a binary tree.
+Merge sort follows the same recursive order as a postorder traversal of a binary tree.
 
-- **Post-order traversal**: First recursively traverse the left subtree, then recursively traverse the right subtree, and finally process the root node.
-- **Merge sort**: First recursively process the left sub-array, then recursively process the right sub-array, and finally perform the merge.
+- **Postorder traversal**: recurse into the left subtree, then the right subtree, and finally process the root.
+- **Merge sort**: recurse into the left subarray, then the right subarray, and finally merge them.
 
-The implementation of merge sort is shown in the code below. Note that the interval to be merged in `nums` is `[left, right]`, while the corresponding interval in `tmp` is `[0, right - left]`.
+The implementation follows. The interval to merge in `nums` is `[left, right]`, while its corresponding interval in `tmp` is `[0, right - left]`.
 
 === "Python"
 
     ```python title="merge_sort.py"
     def merge(nums: list[int], left: int, mid: int, right: int):
-        """Merge left subarray and right subarray"""
-        # Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
-        # Create a temporary array tmp to store the merged results
+        """Merge the left and right subarrays"""
+        # The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
+        # Create a temporary array tmp to store the merged result
         tmp = [0] * (right - left + 1)
-        # Initialize the start indices of the left and right subarrays
+        # Initialize the starting indices of the left and right subarrays
         i, j, k = left, mid + 1, 0
-        # While both subarrays still have elements, compare and copy the smaller element into the temporary array
+        # While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
         while i <= mid and j <= right:
             if nums[i] <= nums[j]:
                 tmp[k] = nums[i]
@@ -89,34 +89,34 @@ The implementation of merge sort is shown in the code below. Note that the inter
             tmp[k] = nums[j]
             j += 1
             k += 1
-        # Copy the elements from the temporary array tmp back to the original array nums at the corresponding interval
+        # Copy the elements of temporary array tmp back into the corresponding range of the original array nums
         for k in range(0, len(tmp)):
             nums[left + k] = tmp[k]
 
     def merge_sort(nums: list[int], left: int, right: int):
         """Merge sort"""
-        # Termination condition
+        # Base case
         if left >= right:
-            return  # Terminate recursion when subarray length is 1
-        # Divide and conquer stage
-        mid = (left + right) // 2  # Calculate midpoint
-        merge_sort(nums, left, mid)  # Recursively process the left subarray
-        merge_sort(nums, mid + 1, right)  # Recursively process the right subarray
-        # Merge stage
+            return  # Stop recursing when the subarray has at most one element
+        # Divide phase
+        mid = (left + right) // 2 # Calculate the midpoint
+        merge_sort(nums, left, mid)  # Recurse on the left subarray
+        merge_sort(nums, mid + 1, right)  # Recurse on the right subarray
+        # Merge phase
         merge(nums, left, mid, right)
     ```
 
 === "C++"
 
     ```cpp title="merge_sort.cpp"
-    /* Merge left subarray and right subarray */
+    /* Merge the left and right subarrays */
     void merge(vector<int> &nums, int left, int mid, int right) {
-        // Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
-        // Create a temporary array tmp to store the merged results
+        // The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
+        // Create a temporary array tmp to store the merged result
         vector<int> tmp(right - left + 1);
-        // Initialize the start indices of the left and right subarrays
+        // Initialize the starting indices of the left and right subarrays
         int i = left, j = mid + 1, k = 0;
-        // While both subarrays still have elements, compare and copy the smaller element into the temporary array
+        // While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
         while (i <= mid && j <= right) {
             if (nums[i] <= nums[j])
                 tmp[k++] = nums[i++];
@@ -130,7 +130,7 @@ The implementation of merge sort is shown in the code below. Note that the inter
         while (j <= right) {
             tmp[k++] = nums[j++];
         }
-        // Copy the elements from the temporary array tmp back to the original array nums at the corresponding interval
+        // Copy the elements of temporary array tmp back into the corresponding range of the original array nums
         for (k = 0; k < tmp.size(); k++) {
             nums[left + k] = tmp[k];
         }
@@ -138,14 +138,14 @@ The implementation of merge sort is shown in the code below. Note that the inter
 
     /* Merge sort */
     void mergeSort(vector<int> &nums, int left, int right) {
-        // Termination condition
+        // Base case
         if (left >= right)
-            return; // Terminate recursion when subarray length is 1
-        // Divide and conquer stage
-        int mid = left + (right - left) / 2;    // Calculate midpoint
-        mergeSort(nums, left, mid);      // Recursively process the left subarray
-        mergeSort(nums, mid + 1, right); // Recursively process the right subarray
-        // Merge stage
+            return; // Stop recursing when the subarray has at most one element
+        // Divide phase
+        int mid = left + (right - left) / 2;    // Calculate the midpoint
+        mergeSort(nums, left, mid);      // Recurse on the left subarray
+        mergeSort(nums, mid + 1, right); // Recurse on the right subarray
+        // Merge phase
         merge(nums, left, mid, right);
     }
     ```
@@ -153,14 +153,14 @@ The implementation of merge sort is shown in the code below. Note that the inter
 === "Java"
 
     ```java title="merge_sort.java"
-    /* Merge left subarray and right subarray */
+    /* Merge the left and right subarrays */
     void merge(int[] nums, int left, int mid, int right) {
-        // Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
-        // Create a temporary array tmp to store the merged results
+        // The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
+        // Create a temporary array tmp to store the merged result
         int[] tmp = new int[right - left + 1];
-        // Initialize the start indices of the left and right subarrays
+        // Initialize the starting indices of the left and right subarrays
         int i = left, j = mid + 1, k = 0;
-        // While both subarrays still have elements, compare and copy the smaller element into the temporary array
+        // While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
         while (i <= mid && j <= right) {
             if (nums[i] <= nums[j])
                 tmp[k++] = nums[i++];
@@ -174,7 +174,7 @@ The implementation of merge sort is shown in the code below. Note that the inter
         while (j <= right) {
             tmp[k++] = nums[j++];
         }
-        // Copy the elements from the temporary array tmp back to the original array nums at the corresponding interval
+        // Copy the elements of temporary array tmp back into the corresponding range of the original array nums
         for (k = 0; k < tmp.length; k++) {
             nums[left + k] = tmp[k];
         }
@@ -182,14 +182,14 @@ The implementation of merge sort is shown in the code below. Note that the inter
 
     /* Merge sort */
     void mergeSort(int[] nums, int left, int right) {
-        // Termination condition
+        // Base case
         if (left >= right)
-            return; // Terminate recursion when subarray length is 1
-        // Divide and conquer stage
-        int mid = left + (right - left) / 2; // Calculate midpoint
-        mergeSort(nums, left, mid); // Recursively process the left subarray
-        mergeSort(nums, mid + 1, right); // Recursively process the right subarray
-        // Merge stage
+            return; // Stop recursing when the subarray has at most one element
+        // Divide phase
+        int mid = left + (right - left) / 2; // Calculate the midpoint
+        mergeSort(nums, left, mid); // Recurse on the left subarray
+        mergeSort(nums, mid + 1, right); // Recurse on the right subarray
+        // Merge phase
         merge(nums, left, mid, right);
     }
     ```
@@ -197,14 +197,14 @@ The implementation of merge sort is shown in the code below. Note that the inter
 === "C#"
 
     ```csharp title="merge_sort.cs"
-    /* Merge left subarray and right subarray */
+    /* Merge the left and right subarrays */
     void Merge(int[] nums, int left, int mid, int right) {
-        // Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
-        // Create a temporary array tmp to store the merged results
+        // The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
+        // Create a temporary array tmp to store the merged result
         int[] tmp = new int[right - left + 1];
-        // Initialize the start indices of the left and right subarrays
+        // Initialize the starting indices of the left and right subarrays
         int i = left, j = mid + 1, k = 0;
-        // While both subarrays still have elements, compare and copy the smaller element into the temporary array
+        // While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
         while (i <= mid && j <= right) {
             if (nums[i] <= nums[j])
                 tmp[k++] = nums[i++];
@@ -218,7 +218,7 @@ The implementation of merge sort is shown in the code below. Note that the inter
         while (j <= right) {
             tmp[k++] = nums[j++];
         }
-        // Copy the elements from the temporary array tmp back to the original array nums at the corresponding interval
+        // Copy the elements of temporary array tmp back into the corresponding range of the original array nums
         for (k = 0; k < tmp.Length; ++k) {
             nums[left + k] = tmp[k];
         }
@@ -226,13 +226,13 @@ The implementation of merge sort is shown in the code below. Note that the inter
 
     /* Merge sort */
     void MergeSort(int[] nums, int left, int right) {
-        // Termination condition
-        if (left >= right) return;       // Terminate recursion when subarray length is 1
-        // Divide and conquer stage
-        int mid = left + (right - left) / 2;    // Calculate midpoint
-        MergeSort(nums, left, mid);      // Recursively process the left subarray
-        MergeSort(nums, mid + 1, right); // Recursively process the right subarray
-        // Merge stage
+        // Base case
+        if (left >= right) return;       // Stop recursing when the subarray has at most one element
+        // Divide phase
+        int mid = left + (right - left) / 2;    // Calculate the midpoint
+        MergeSort(nums, left, mid);      // Recurse on the left subarray
+        MergeSort(nums, mid + 1, right); // Recurse on the right subarray
+        // Merge phase
         Merge(nums, left, mid, right);
     }
     ```
@@ -240,14 +240,14 @@ The implementation of merge sort is shown in the code below. Note that the inter
 === "Go"
 
     ```go title="merge_sort.go"
-    /* Merge left subarray and right subarray */
+    /* Merge the left and right subarrays */
     func merge(nums []int, left, mid, right int) {
-        // Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
-        // Create a temporary array tmp to store the merged results
+        // The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
+        // Create a temporary array tmp to store the merged result
         tmp := make([]int, right-left+1)
-        // Initialize the start indices of the left and right subarrays
+        // Initialize the starting indices of the left and right subarrays
         i, j, k := left, mid+1, 0
-        // While both subarrays still have elements, compare and copy the smaller element into the temporary array
+        // While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
         for i <= mid && j <= right {
             if nums[i] <= nums[j] {
                 tmp[k] = nums[i]
@@ -269,7 +269,7 @@ The implementation of merge sort is shown in the code below. Note that the inter
             j++
             k++
         }
-        // Copy the elements from the temporary array tmp back to the original array nums at the corresponding interval
+        // Copy the elements of temporary array tmp back into the corresponding range of the original array nums
         for k := 0; k < len(tmp); k++ {
             nums[left+k] = tmp[k]
         }
@@ -277,15 +277,15 @@ The implementation of merge sort is shown in the code below. Note that the inter
 
     /* Merge sort */
     func mergeSort(nums []int, left, right int) {
-        // Termination condition
+        // Base case
         if left >= right {
             return
         }
-        // Divide and conquer stage
+        // Divide phase
         mid := left + (right - left) / 2
         mergeSort(nums, left, mid)
         mergeSort(nums, mid+1, right)
-        // Merge stage
+        // Merge phase
         merge(nums, left, mid, right)
     }
     ```
@@ -293,14 +293,14 @@ The implementation of merge sort is shown in the code below. Note that the inter
 === "Swift"
 
     ```swift title="merge_sort.swift"
-    /* Merge left subarray and right subarray */
+    /* Merge the left and right subarrays */
     func merge(nums: inout [Int], left: Int, mid: Int, right: Int) {
-        // Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
-        // Create a temporary array tmp to store the merged results
+        // The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
+        // Create a temporary array tmp to store the merged result
         var tmp = Array(repeating: 0, count: right - left + 1)
-        // Initialize the start indices of the left and right subarrays
+        // Initialize the starting indices of the left and right subarrays
         var i = left, j = mid + 1, k = 0
-        // While both subarrays still have elements, compare and copy the smaller element into the temporary array
+        // While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
         while i <= mid, j <= right {
             if nums[i] <= nums[j] {
                 tmp[k] = nums[i]
@@ -322,7 +322,7 @@ The implementation of merge sort is shown in the code below. Note that the inter
             j += 1
             k += 1
         }
-        // Copy the elements from the temporary array tmp back to the original array nums at the corresponding interval
+        // Copy the elements of temporary array tmp back into the corresponding range of the original array nums
         for k in tmp.indices {
             nums[left + k] = tmp[k]
         }
@@ -330,15 +330,15 @@ The implementation of merge sort is shown in the code below. Note that the inter
 
     /* Merge sort */
     func mergeSort(nums: inout [Int], left: Int, right: Int) {
-        // Termination condition
-        if left >= right { // Terminate recursion when subarray length is 1
+        // Base case
+        if left >= right { // Stop recursing when the subarray has at most one element
             return
         }
-        // Divide and conquer stage
-        let mid = left + (right - left) / 2 // Calculate midpoint
-        mergeSort(nums: &nums, left: left, right: mid) // Recursively process the left subarray
-        mergeSort(nums: &nums, left: mid + 1, right: right) // Recursively process the right subarray
-        // Merge stage
+        // Divide phase
+        let mid = left + (right - left) / 2 // Calculate the midpoint
+        mergeSort(nums: &nums, left: left, right: mid) // Recurse on the left subarray
+        mergeSort(nums: &nums, left: mid + 1, right: right) // Recurse on the right subarray
+        // Merge phase
         merge(nums: &nums, left: left, mid: mid, right: right)
     }
     ```
@@ -346,16 +346,16 @@ The implementation of merge sort is shown in the code below. Note that the inter
 === "JS"
 
     ```javascript title="merge_sort.js"
-    /* Merge left subarray and right subarray */
+    /* Merge the left and right subarrays */
     function merge(nums, left, mid, right) {
-        // Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
-        // Create a temporary array tmp to store the merged results
+        // The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
+        // Create a temporary array tmp to store the merged result
         const tmp = new Array(right - left + 1);
-        // Initialize the start indices of the left and right subarrays
+        // Initialize the starting indices of the left and right subarrays
         let i = left,
             j = mid + 1,
             k = 0;
-        // While both subarrays still have elements, compare and copy the smaller element into the temporary array
+        // While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
         while (i <= mid && j <= right) {
             if (nums[i] <= nums[j]) {
                 tmp[k++] = nums[i++];
@@ -370,7 +370,7 @@ The implementation of merge sort is shown in the code below. Note that the inter
         while (j <= right) {
             tmp[k++] = nums[j++];
         }
-        // Copy the elements from the temporary array tmp back to the original array nums at the corresponding interval
+        // Copy the elements of temporary array tmp back into the corresponding range of the original array nums
         for (k = 0; k < tmp.length; k++) {
             nums[left + k] = tmp[k];
         }
@@ -378,13 +378,13 @@ The implementation of merge sort is shown in the code below. Note that the inter
 
     /* Merge sort */
     function mergeSort(nums, left, right) {
-        // Termination condition
-        if (left >= right) return; // Terminate recursion when subarray length is 1
-        // Divide and conquer stage
-        let mid = Math.floor(left + (right - left) / 2); // Calculate midpoint
-        mergeSort(nums, left, mid); // Recursively process the left subarray
-        mergeSort(nums, mid + 1, right); // Recursively process the right subarray
-        // Merge stage
+        // Base case
+        if (left >= right) return; // Stop recursing when the subarray has at most one element
+        // Divide phase
+        let mid = Math.floor(left + (right - left) / 2); // Calculate the midpoint
+        mergeSort(nums, left, mid); // Recurse on the left subarray
+        mergeSort(nums, mid + 1, right); // Recurse on the right subarray
+        // Merge phase
         merge(nums, left, mid, right);
     }
     ```
@@ -392,16 +392,16 @@ The implementation of merge sort is shown in the code below. Note that the inter
 === "TS"
 
     ```typescript title="merge_sort.ts"
-    /* Merge left subarray and right subarray */
+    /* Merge the left and right subarrays */
     function merge(nums: number[], left: number, mid: number, right: number): void {
-        // Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
-        // Create a temporary array tmp to store the merged results
+        // The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
+        // Create a temporary array tmp to store the merged result
         const tmp = new Array(right - left + 1);
-        // Initialize the start indices of the left and right subarrays
+        // Initialize the starting indices of the left and right subarrays
         let i = left,
             j = mid + 1,
             k = 0;
-        // While both subarrays still have elements, compare and copy the smaller element into the temporary array
+        // While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
         while (i <= mid && j <= right) {
             if (nums[i] <= nums[j]) {
                 tmp[k++] = nums[i++];
@@ -416,7 +416,7 @@ The implementation of merge sort is shown in the code below. Note that the inter
         while (j <= right) {
             tmp[k++] = nums[j++];
         }
-        // Copy the elements from the temporary array tmp back to the original array nums at the corresponding interval
+        // Copy the elements of temporary array tmp back into the corresponding range of the original array nums
         for (k = 0; k < tmp.length; k++) {
             nums[left + k] = tmp[k];
         }
@@ -424,13 +424,13 @@ The implementation of merge sort is shown in the code below. Note that the inter
 
     /* Merge sort */
     function mergeSort(nums: number[], left: number, right: number): void {
-        // Termination condition
-        if (left >= right) return; // Terminate recursion when subarray length is 1
-        // Divide and conquer stage
-        let mid = Math.floor(left + (right - left) / 2); // Calculate midpoint
-        mergeSort(nums, left, mid); // Recursively process the left subarray
-        mergeSort(nums, mid + 1, right); // Recursively process the right subarray
-        // Merge stage
+        // Base case
+        if (left >= right) return; // Stop recursing when the subarray has zero or one element
+        // Divide phase
+        let mid = Math.floor(left + (right - left) / 2); // Calculate the midpoint
+        mergeSort(nums, left, mid); // Recurse on the left subarray
+        mergeSort(nums, mid + 1, right); // Recurse on the right subarray
+        // Merge phase
         merge(nums, left, mid, right);
     }
     ```
@@ -438,14 +438,14 @@ The implementation of merge sort is shown in the code below. Note that the inter
 === "Dart"
 
     ```dart title="merge_sort.dart"
-    /* Merge left subarray and right subarray */
+    /* Merge the left and right subarrays */
     void merge(List<int> nums, int left, int mid, int right) {
-      // Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
-      // Create a temporary array tmp to store the merged results
+      // The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
+      // Create a temporary array tmp to store the merged result
       List<int> tmp = List.filled(right - left + 1, 0);
-      // Initialize the start indices of the left and right subarrays
+      // Initialize the starting indices of the left and right subarrays
       int i = left, j = mid + 1, k = 0;
-      // While both subarrays still have elements, compare and copy the smaller element into the temporary array
+      // While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
       while (i <= mid && j <= right) {
         if (nums[i] <= nums[j])
           tmp[k++] = nums[i++];
@@ -459,7 +459,7 @@ The implementation of merge sort is shown in the code below. Note that the inter
       while (j <= right) {
         tmp[k++] = nums[j++];
       }
-      // Copy the elements from the temporary array tmp back to the original array nums at the corresponding interval
+      // Copy the elements of temporary array tmp back into the corresponding range of the original array nums
       for (k = 0; k < tmp.length; k++) {
         nums[left + k] = tmp[k];
       }
@@ -467,13 +467,13 @@ The implementation of merge sort is shown in the code below. Note that the inter
 
     /* Merge sort */
     void mergeSort(List<int> nums, int left, int right) {
-      // Termination condition
-      if (left >= right) return; // Terminate recursion when subarray length is 1
-      // Divide and conquer stage
-      int mid = left + (right - left) ~/ 2; // Calculate midpoint
-      mergeSort(nums, left, mid); // Recursively process the left subarray
-      mergeSort(nums, mid + 1, right); // Recursively process the right subarray
-      // Merge stage
+      // Base case
+      if (left >= right) return; // Stop recursing when the subarray has at most one element
+      // Divide phase
+      int mid = left + (right - left) ~/ 2; // Calculate the midpoint
+      mergeSort(nums, left, mid); // Recurse on the left subarray
+      mergeSort(nums, mid + 1, right); // Recurse on the right subarray
+      // Merge phase
       merge(nums, left, mid, right);
     }
     ```
@@ -481,15 +481,15 @@ The implementation of merge sort is shown in the code below. Note that the inter
 === "Rust"
 
     ```rust title="merge_sort.rs"
-    /* Merge left subarray and right subarray */
+    /* Merge the left and right subarrays */
     fn merge(nums: &mut [i32], left: usize, mid: usize, right: usize) {
-        // Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
-        // Create a temporary array tmp to store the merged results
+        // The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
+        // Create a temporary array tmp to store the merged result
         let tmp_size = right - left + 1;
         let mut tmp = vec![0; tmp_size];
-        // Initialize the start indices of the left and right subarrays
+        // Initialize the starting indices of the left and right subarrays
         let (mut i, mut j, mut k) = (left, mid + 1, 0);
-        // While both subarrays still have elements, compare and copy the smaller element into the temporary array
+        // While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
         while i <= mid && j <= right {
             if nums[i] <= nums[j] {
                 tmp[k] = nums[i];
@@ -511,7 +511,7 @@ The implementation of merge sort is shown in the code below. Note that the inter
             k += 1;
             j += 1;
         }
-        // Copy the elements from the temporary array tmp back to the original array nums at the corresponding interval
+        // Copy the elements of temporary array tmp back into the corresponding range of the original array nums
         for k in 0..tmp_size {
             nums[left + k] = tmp[k];
         }
@@ -519,17 +519,17 @@ The implementation of merge sort is shown in the code below. Note that the inter
 
     /* Merge sort */
     fn merge_sort(nums: &mut [i32], left: usize, right: usize) {
-        // Termination condition
+        // Base case
         if left >= right {
-            return; // Terminate recursion when subarray length is 1
+            return; // Stop recursing when the subarray has at most one element
         }
 
-        // Divide and conquer stage
-        let mid = left + (right - left) / 2; // Calculate midpoint
-        merge_sort(nums, left, mid); // Recursively process the left subarray
-        merge_sort(nums, mid + 1, right); // Recursively process the right subarray
+        // Divide phase
+        let mid = left + (right - left) / 2; // Calculate the midpoint
+        merge_sort(nums, left, mid); // Recurse on the left subarray
+        merge_sort(nums, mid + 1, right); // Recurse on the right subarray
 
-        // Merge stage
+        // Merge phase
         merge(nums, left, mid, right);
     }
     ```
@@ -537,15 +537,15 @@ The implementation of merge sort is shown in the code below. Note that the inter
 === "C"
 
     ```c title="merge_sort.c"
-    /* Merge left subarray and right subarray */
+    /* Merge the left and right subarrays */
     void merge(int *nums, int left, int mid, int right) {
-        // Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
-        // Create a temporary array tmp to store the merged results
+        // The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
+        // Create a temporary array tmp to store the merged result
         int tmpSize = right - left + 1;
         int *tmp = (int *)malloc(tmpSize * sizeof(int));
-        // Initialize the start indices of the left and right subarrays
+        // Initialize the starting indices of the left and right subarrays
         int i = left, j = mid + 1, k = 0;
-        // While both subarrays still have elements, compare and copy the smaller element into the temporary array
+        // While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
         while (i <= mid && j <= right) {
             if (nums[i] <= nums[j]) {
                 tmp[k++] = nums[i++];
@@ -560,7 +560,7 @@ The implementation of merge sort is shown in the code below. Note that the inter
         while (j <= right) {
             tmp[k++] = nums[j++];
         }
-        // Copy the elements from the temporary array tmp back to the original array nums at the corresponding interval
+        // Copy the elements of temporary array tmp back into the corresponding range of the original array nums
         for (k = 0; k < tmpSize; ++k) {
             nums[left + k] = tmp[k];
         }
@@ -570,14 +570,14 @@ The implementation of merge sort is shown in the code below. Note that the inter
 
     /* Merge sort */
     void mergeSort(int *nums, int left, int right) {
-        // Termination condition
+        // Base case
         if (left >= right)
-            return; // Terminate recursion when subarray length is 1
-        // Divide and conquer stage
-        int mid = left + (right - left) / 2;    // Calculate midpoint
-        mergeSort(nums, left, mid);      // Recursively process the left subarray
-        mergeSort(nums, mid + 1, right); // Recursively process the right subarray
-        // Merge stage
+            return; // Stop recursing when the subarray has at most one element
+        // Divide phase
+        int mid = left + (right - left) / 2;    // Calculate the midpoint
+        mergeSort(nums, left, mid);      // Recurse on the left subarray
+        mergeSort(nums, mid + 1, right); // Recurse on the right subarray
+        // Merge phase
         merge(nums, left, mid, right);
     }
     ```
@@ -585,16 +585,16 @@ The implementation of merge sort is shown in the code below. Note that the inter
 === "Kotlin"
 
     ```kotlin title="merge_sort.kt"
-    /* Merge left subarray and right subarray */
+    /* Merge the left and right subarrays */
     fun merge(nums: IntArray, left: Int, mid: Int, right: Int) {
-        // Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
-        // Create a temporary array tmp to store the merged results
+        // The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
+        // Create a temporary array tmp to store the merged result
         val tmp = IntArray(right - left + 1)
-        // Initialize the start indices of the left and right subarrays
+        // Initialize the starting indices of the left and right subarrays
         var i = left
         var j = mid + 1
         var k = 0
-        // While both subarrays still have elements, compare and copy the smaller element into the temporary array
+        // While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
         while (i <= mid && j <= right) {
             if (nums[i] <= nums[j])
                 tmp[k++] = nums[i++]
@@ -608,7 +608,7 @@ The implementation of merge sort is shown in the code below. Note that the inter
         while (j <= right) {
             tmp[k++] = nums[j++]
         }
-        // Copy the elements from the temporary array tmp back to the original array nums at the corresponding interval
+        // Copy the elements of temporary array tmp back into the corresponding range of the original array nums
         for (l in tmp.indices) {
             nums[left + l] = tmp[l]
         }
@@ -616,13 +616,13 @@ The implementation of merge sort is shown in the code below. Note that the inter
 
     /* Merge sort */
     fun mergeSort(nums: IntArray, left: Int, right: Int) {
-        // Termination condition
-        if (left >= right) return  // Terminate recursion when subarray length is 1
-        // Divide and conquer stage
-        val mid = left + (right - left) / 2 // Calculate midpoint
-        mergeSort(nums, left, mid) // Recursively process the left subarray
-        mergeSort(nums, mid + 1, right) // Recursively process the right subarray
-        // Merge stage
+        // Base case
+        if (left >= right) return  // Stop recursing when the subarray has at most one element
+        // Divide phase
+        val mid = left + (right - left) / 2 // Calculate the midpoint
+        mergeSort(nums, left, mid) // Recurse on the left subarray
+        mergeSort(nums, mid + 1, right) // Recurse on the right subarray
+        // Merge phase
         merge(nums, left, mid, right)
     }
     ```
@@ -630,14 +630,14 @@ The implementation of merge sort is shown in the code below. Note that the inter
 === "Ruby"
 
     ```ruby title="merge_sort.rb"
-    ### Merge left and right subarrays ###
+    ### Merge the left and right subarrays ###
     def merge(nums, left, mid, right)
-      # Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
-      # Create temporary array tmp to store merged result
+      # The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
+      # Create a temporary array tmp to store the merged result
       tmp = Array.new(right - left + 1, 0)
-      # Initialize the start indices of the left and right subarrays
+      # Initialize the starting indices of the left and right subarrays
       i, j, k = left, mid + 1, 0
-      # While both subarrays still have elements, compare and copy the smaller element into the temporary array
+      # While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
       while i <= mid && j <= right
         if nums[i] <= nums[j]
           tmp[k] = nums[i]
@@ -659,7 +659,7 @@ The implementation of merge sort is shown in the code below. Note that the inter
         j += 1
         k += 1
       end
-      # Copy the elements from the temporary array tmp back to the original array nums at the corresponding interval
+      # Copy the elements of temporary array tmp back into the corresponding range of the original array nums
       (0...tmp.length).each do |k|
         nums[left + k] = tmp[k]
       end
@@ -667,29 +667,34 @@ The implementation of merge sort is shown in the code below. Note that the inter
 
     ### Merge sort ###
     def merge_sort(nums, left, right)
-      # Termination condition
-      # Terminate recursion when subarray length is 1
+      # Base case
+      # Stop recursing when the subarray contains at most one element
       return if left >= right
-      # Divide and conquer stage
-      mid = left + (right - left) / 2 # Calculate midpoint
-      merge_sort(nums, left, mid) # Recursively process the left subarray
-      merge_sort(nums, mid + 1, right) # Recursively process the right subarray
-      # Merge stage
+      # Divide phase
+      mid = left + (right - left) / 2 # Calculate the midpoint
+      merge_sort(nums, left, mid) # Recurse on the left subarray
+      merge_sort(nums, mid + 1, right) # Recurse on the right subarray
+      # Merge phase
       merge(nums, left, mid, right)
     end
     ```
 
-## 11.6.2 &nbsp; Algorithm Characteristics
+??? pythontutor "Visualize execution"
 
-- **Time complexity is $O(n \log n)$; merge sort is non-adaptive**: The divide phase produces a recursion tree of height $\log n$, and the total number of operations performed during merging at each level is $n$, so the overall time complexity is $O(n \log n)$.
-- **Space complexity is $O(n)$; merge sort is not in-place**: The recursion depth is $\log n$, which uses $O(\log n)$ stack-frame space. The merge operation requires an auxiliary array, which uses $O(n)$ additional space.
-- **Stable sort**: During merging, the relative order of equal elements remains unchanged.
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20merge%28nums%3A%20list%5Bint%5D,%20left%3A%20int,%20mid%3A%20int,%20right%3A%20int%29%3A%0A%20%20%20%20%22%22%22Merge%20the%20left%20and%20right%20subarrays%22%22%22%0A%20%20%20%20%23%20The%20left%20subarray%20spans%20%5Bleft,%20mid%5D,%20and%20the%20right%20subarray%20spans%20%5Bmid%2B1,%20right%5D%0A%20%20%20%20%23%20Create%20a%20temporary%20array%20tmp%20to%20store%20the%20merged%20result%0A%20%20%20%20tmp%20%3D%20%5B0%5D%20%2A%20%28right%20-%20left%20%2B%201%29%0A%20%20%20%20%23%20Initialize%20the%20starting%20indices%20of%20the%20left%20and%20right%20subarrays%0A%20%20%20%20i,%20j,%20k%20%3D%20left,%20mid%20%2B%201,%200%0A%20%20%20%20%23%20While%20both%20subarrays%20have%20elements%20remaining,%20compare%20them%20and%20copy%20the%20smaller%20element%20into%20the%20temporary%20array%0A%20%20%20%20while%20i%20%3C%3D%20mid%20and%20j%20%3C%3D%20right%3A%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3C%3D%20nums%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bi%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20%23%20Copy%20the%20remaining%20elements%20of%20the%20left%20and%20right%20subarrays%20into%20the%20temporary%20array%0A%20%20%20%20while%20i%20%3C%3D%20mid%3A%0A%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bi%5D%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20while%20j%20%3C%3D%20right%3A%0A%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20%23%20Copy%20the%20elements%20of%20temporary%20array%20tmp%20back%20into%20the%20corresponding%20range%20of%20the%20original%20array%20nums%0A%20%20%20%20for%20k%20in%20range%280,%20len%28tmp%29%29%3A%0A%20%20%20%20%20%20%20%20nums%5Bleft%20%2B%20k%5D%20%3D%20tmp%5Bk%5D%0A%0A%0Adef%20merge_sort%28nums%3A%20list%5Bint%5D,%20left%3A%20int,%20right%3A%20int%29%3A%0A%20%20%20%20%22%22%22Merge%20sort%22%22%22%0A%20%20%20%20%23%20Base%20case%0A%20%20%20%20if%20left%20%3E%3D%20right%3A%0A%20%20%20%20%20%20%20%20return%20%20%23%20Stop%20recursing%20when%20the%20subarray%20has%20at%20most%20one%20element%0A%20%20%20%20%23%20Divide%20phase%0A%20%20%20%20mid%20%3D%20%28left%20%2B%20right%29%20//%202%20%20%23%20Calculate%20the%20midpoint%0A%20%20%20%20merge_sort%28nums,%20left,%20mid%29%20%20%23%20Recurse%20on%20the%20left%20subarray%0A%20%20%20%20merge_sort%28nums,%20mid%20%2B%201,%20right%29%20%20%23%20Recurse%20on%20the%20right%20subarray%0A%20%20%20%20%23%20Merge%20phase%0A%20%20%20%20merge%28nums,%20left,%20mid,%20right%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B7,%203,%202,%206,%200,%201,%205,%204%5D%0A%20%20%20%20merge_sort%28nums,%200,%20len%28nums%29%20-%201%29%0A%20%20%20%20print%28%22After%20merge%20sort,%20nums%20%3D%22,%20nums%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20merge%28nums%3A%20list%5Bint%5D,%20left%3A%20int,%20mid%3A%20int,%20right%3A%20int%29%3A%0A%20%20%20%20%22%22%22Merge%20the%20left%20and%20right%20subarrays%22%22%22%0A%20%20%20%20%23%20The%20left%20subarray%20spans%20%5Bleft,%20mid%5D,%20and%20the%20right%20subarray%20spans%20%5Bmid%2B1,%20right%5D%0A%20%20%20%20%23%20Create%20a%20temporary%20array%20tmp%20to%20store%20the%20merged%20result%0A%20%20%20%20tmp%20%3D%20%5B0%5D%20%2A%20%28right%20-%20left%20%2B%201%29%0A%20%20%20%20%23%20Initialize%20the%20starting%20indices%20of%20the%20left%20and%20right%20subarrays%0A%20%20%20%20i,%20j,%20k%20%3D%20left,%20mid%20%2B%201,%200%0A%20%20%20%20%23%20While%20both%20subarrays%20have%20elements%20remaining,%20compare%20them%20and%20copy%20the%20smaller%20element%20into%20the%20temporary%20array%0A%20%20%20%20while%20i%20%3C%3D%20mid%20and%20j%20%3C%3D%20right%3A%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3C%3D%20nums%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bi%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20%23%20Copy%20the%20remaining%20elements%20of%20the%20left%20and%20right%20subarrays%20into%20the%20temporary%20array%0A%20%20%20%20while%20i%20%3C%3D%20mid%3A%0A%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bi%5D%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20while%20j%20%3C%3D%20right%3A%0A%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20%23%20Copy%20the%20elements%20of%20temporary%20array%20tmp%20back%20into%20the%20corresponding%20range%20of%20the%20original%20array%20nums%0A%20%20%20%20for%20k%20in%20range%280,%20len%28tmp%29%29%3A%0A%20%20%20%20%20%20%20%20nums%5Bleft%20%2B%20k%5D%20%3D%20tmp%5Bk%5D%0A%0A%0Adef%20merge_sort%28nums%3A%20list%5Bint%5D,%20left%3A%20int,%20right%3A%20int%29%3A%0A%20%20%20%20%22%22%22Merge%20sort%22%22%22%0A%20%20%20%20%23%20Base%20case%0A%20%20%20%20if%20left%20%3E%3D%20right%3A%0A%20%20%20%20%20%20%20%20return%20%20%23%20Stop%20recursing%20when%20the%20subarray%20has%20at%20most%20one%20element%0A%20%20%20%20%23%20Divide%20phase%0A%20%20%20%20mid%20%3D%20%28left%20%2B%20right%29%20//%202%20%20%23%20Calculate%20the%20midpoint%0A%20%20%20%20merge_sort%28nums,%20left,%20mid%29%20%20%23%20Recurse%20on%20the%20left%20subarray%0A%20%20%20%20merge_sort%28nums,%20mid%20%2B%201,%20right%29%20%20%23%20Recurse%20on%20the%20right%20subarray%0A%20%20%20%20%23%20Merge%20phase%0A%20%20%20%20merge%28nums,%20left,%20mid,%20right%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B7,%203,%202,%206,%200,%201,%205,%204%5D%0A%20%20%20%20merge_sort%28nums,%200,%20len%28nums%29%20-%201%29%0A%20%20%20%20print%28%22After%20merge%20sort,%20nums%20%3D%22,%20nums%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-## 11.6.3 &nbsp; Linked List Sorting
+## 11.6.2 &nbsp; Algorithm properties
 
-For linked lists, merge sort has significant advantages over other sorting algorithms, **and it can reduce the space complexity of the sorting task to $O(1)$**.
+- **Time complexity: $O(n \log n)$; not adaptive**. Division produces a recursion tree of height $\log n$. Merging performs a total of $n$ operations at each level, giving $O(n \log n)$ overall.
+- **Space complexity: $O(n)$; not in-place**. The recursion depth is $\log n$, requiring $O(\log n)$ space for stack frames. Merging uses an auxiliary array requiring $O(n)$ extra space.
+- **Stable**. Merging preserves the order of equal elements.
 
-- **Divide phase**: Iteration can be used instead of recursion to split the linked list, thereby eliminating the stack-frame space used by recursion.
-- **Merge phase**: In linked lists, node insertion and deletion require only pointer updates, so the merge phase (merging two short sorted linked lists into one longer sorted linked list) does not require creating an additional linked list.
+## 11.6.3 &nbsp; Sorting linked lists
 
-The specific implementation details are quite complex, and interested readers can consult related materials for learning.
+Merge sort has a significant advantage over other sorting algorithms for linked lists: **it can reduce the space complexity of sorting a linked list to $O(1)$**.
+
+- **Division**: use iteration instead of recursion to divide the list, eliminating the space needed for recursive stack frames.
+- **Merging**: inserting and deleting linked-list nodes requires only changing references or pointers. Merging two short sorted lists into a longer one therefore needs no additional list.
+
+The implementation is fairly involved. Interested readers can consult further resources for details.

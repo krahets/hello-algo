@@ -2,46 +2,46 @@
 comments: true
 ---
 
-# 14.1 &nbsp; Introduction to Dynamic Programming
+# 14.1 &nbsp; Introduction to dynamic programming
 
-<u>Dynamic programming</u> is an important algorithmic paradigm that decomposes a problem into a series of smaller subproblems and avoids redundant computation by storing the solutions to subproblems, thereby significantly improving time efficiency.
+<u>Dynamic programming</u> is an important algorithmic paradigm. It breaks a problem into smaller subproblems and stores their solutions to avoid repeated computation, greatly improving time efficiency.
 
-In this section, we start with a classic example, first presenting its brute force backtracking solution, observing the overlapping subproblems within it, and then gradually deriving a more efficient dynamic programming solution.
+We will start with a classic example, give a brute-force backtracking solution, identify its overlapping subproblems, and gradually derive a more efficient dynamic programming solution.
 
 !!! question "Climbing stairs"
 
-    Given a staircase with $n$ steps, where you can climb $1$ or $2$ steps at a time, how many different ways are there to reach the top?
+    Given a staircase with $n$ steps, you may climb $1$ or $2$ steps at a time. How many ways are there to reach the top?
 
-As shown in Figure 14-1, for a $3$-step staircase, there are $3$ different ways to reach the top.
+As shown in Figure 14-1, a staircase with $3$ steps has $3$ possible ways to reach the top.
 
-![Number of ways to reach the 3rd step](intro_to_dynamic_programming.assets/climbing_stairs_example.png){ class="animation-figure" }
+![Number of ways to reach step 3](intro_to_dynamic_programming.assets/climbing_stairs_example.png){ class="animation-figure" }
 
-<p align="center"> Figure 14-1 &nbsp; Number of ways to reach the 3rd step </p>
+<p align="center"> Figure 14-1 &nbsp; Number of ways to reach step 3 </p>
 
-The goal of this problem is to determine the number of ways, so **we can consider using backtracking to enumerate all possibilities**. Specifically, imagine climbing stairs as a multi-round selection process: starting from the ground, choosing to go up $1$ or $2$ steps in each round, incrementing the count by $1$ whenever the top of the stairs is reached, and pruning when exceeding the top. The code is as follows:
+The goal is to count solutions, so **we can use backtracking to enumerate every possibility**. View climbing as a sequence of choices: starting from the ground, choose to climb $1$ or $2$ steps each time. Add $1$ to the count whenever we reach the top, and prune any branch that goes beyond it. The code is as follows:
 
 === "Python"
 
     ```python title="climbing_stairs_backtrack.py"
     def backtrack(choices: list[int], state: int, n: int, res: list[int]) -> int:
         """Backtracking"""
-        # When climbing to the n-th stair, add 1 to the solution count
+        # When step n is reached, increase the number of ways by 1
         if state == n:
             res[0] += 1
-        # Traverse all choices
+        # Iterate over all choices
         for choice in choices:
-            # Pruning: not allowed to go beyond the n-th stair
+            # Prune: do not go beyond step n
             if state + choice > n:
                 continue
-            # Attempt: make a choice, update state
+            # Try: make a choice and update the state
             backtrack(choices, state + choice, n, res)
             # Backtrack
 
     def climbing_stairs_backtrack(n: int) -> int:
-        """Climbing stairs: Backtracking"""
-        choices = [1, 2]  # Can choose to climb up 1 or 2 stairs
-        state = 0  # Start climbing from the 0-th stair
-        res = [0]  # Use res[0] to record the solution count
+        """Climbing stairs: backtracking"""
+        choices = [1, 2]  # Choose to climb 1 or 2 steps
+        state = 0  # Start climbing from step 0
+        res = [0]  # Use res[0] to record the number of ways
         backtrack(choices, state, n, res)
         return res[0]
     ```
@@ -51,25 +51,25 @@ The goal of this problem is to determine the number of ways, so **we can conside
     ```cpp title="climbing_stairs_backtrack.cpp"
     /* Backtracking */
     void backtrack(vector<int> &choices, int state, int n, vector<int> &res) {
-        // When climbing to the n-th stair, add 1 to the solution count
+        // When step n is reached, increase the number of ways by 1
         if (state == n)
             res[0]++;
-        // Traverse all choices
+        // Iterate over all choices
         for (auto &choice : choices) {
-            // Pruning: not allowed to go beyond the n-th stair
+            // Prune: do not go beyond step n
             if (state + choice > n)
                 continue;
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             backtrack(choices, state + choice, n, res);
             // Backtrack
         }
     }
 
-    /* Climbing stairs: Backtracking */
+    /* Climbing stairs: backtracking */
     int climbingStairsBacktrack(int n) {
-        vector<int> choices = {1, 2}; // Can choose to climb up 1 or 2 stairs
-        int state = 0;                // Start climbing from the 0-th stair
-        vector<int> res = {0};        // Use res[0] to record the solution count
+        vector<int> choices = {1, 2}; // Choose to climb 1 or 2 steps
+        int state = 0;                // Start climbing from step 0
+        vector<int> res = {0};        // Use res[0] to record the number of ways
         backtrack(choices, state, n, res);
         return res[0];
     }
@@ -80,26 +80,26 @@ The goal of this problem is to determine the number of ways, so **we can conside
     ```java title="climbing_stairs_backtrack.java"
     /* Backtracking */
     void backtrack(List<Integer> choices, int state, int n, List<Integer> res) {
-        // When climbing to the n-th stair, add 1 to the solution count
+        // When step n is reached, increase the number of ways by 1
         if (state == n)
             res.set(0, res.get(0) + 1);
-        // Traverse all choices
+        // Iterate over all choices
         for (Integer choice : choices) {
-            // Pruning: not allowed to go beyond the n-th stair
+            // Prune: do not go beyond step n
             if (state + choice > n)
                 continue;
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             backtrack(choices, state + choice, n, res);
             // Backtrack
         }
     }
 
-    /* Climbing stairs: Backtracking */
+    /* Climbing stairs: backtracking */
     int climbingStairsBacktrack(int n) {
-        List<Integer> choices = Arrays.asList(1, 2); // Can choose to climb up 1 or 2 stairs
-        int state = 0; // Start climbing from the 0-th stair
+        List<Integer> choices = Arrays.asList(1, 2); // Choose to climb 1 or 2 steps
+        int state = 0; // Start climbing from step 0
         List<Integer> res = new ArrayList<>();
-        res.add(0); // Use res[0] to record the solution count
+        res.add(0); // Use res[0] to record the number of ways
         backtrack(choices, state, n, res);
         return res.get(0);
     }
@@ -110,25 +110,25 @@ The goal of this problem is to determine the number of ways, so **we can conside
     ```csharp title="climbing_stairs_backtrack.cs"
     /* Backtracking */
     void Backtrack(List<int> choices, int state, int n, List<int> res) {
-        // When climbing to the n-th stair, add 1 to the solution count
+        // When step n is reached, increase the number of ways by 1
         if (state == n)
             res[0]++;
-        // Traverse all choices
+        // Iterate over all choices
         foreach (int choice in choices) {
-            // Pruning: not allowed to go beyond the n-th stair
+            // Prune: do not go beyond step n
             if (state + choice > n)
                 continue;
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             Backtrack(choices, state + choice, n, res);
             // Backtrack
         }
     }
 
-    /* Climbing stairs: Backtracking */
+    /* Climbing stairs: backtracking */
     int ClimbingStairsBacktrack(int n) {
-        List<int> choices = [1, 2]; // Can choose to climb up 1 or 2 stairs
-        int state = 0; // Start climbing from the 0-th stair
-        List<int> res = [0]; // Use res[0] to record the solution count
+        List<int> choices = [1, 2]; // Choose to climb 1 or 2 steps
+        int state = 0; // Start climbing from step 0
+        List<int> res = [0]; // Use res[0] to record the number of ways
         Backtrack(choices, state, n, res);
         return res[0];
     }
@@ -139,30 +139,30 @@ The goal of this problem is to determine the number of ways, so **we can conside
     ```go title="climbing_stairs_backtrack.go"
     /* Backtracking */
     func backtrack(choices []int, state, n int, res []int) {
-        // When climbing to the n-th stair, add 1 to the solution count
+        // When step n is reached, increase the number of ways by 1
         if state == n {
             res[0] = res[0] + 1
         }
-        // Traverse all choices
+        // Iterate over all choices
         for _, choice := range choices {
-            // Pruning: not allowed to go beyond the n-th stair
+            // Prune: do not go beyond step n
             if state+choice > n {
                 continue
             }
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             backtrack(choices, state+choice, n, res)
             // Backtrack
         }
     }
 
-    /* Climbing stairs: Backtracking */
+    /* Climbing stairs: backtracking */
     func climbingStairsBacktrack(n int) int {
-        // Can choose to climb up 1 or 2 stairs
+        // Choose to climb 1 or 2 steps
         choices := []int{1, 2}
-        // Start climbing from the 0-th stair
+        // Start climbing from step 0
         state := 0
         res := make([]int, 1)
-        // Use res[0] to record the solution count
+        // Use res[0] to record the number of ways
         res[0] = 0
         backtrack(choices, state, n, res)
         return res[0]
@@ -174,28 +174,28 @@ The goal of this problem is to determine the number of ways, so **we can conside
     ```swift title="climbing_stairs_backtrack.swift"
     /* Backtracking */
     func backtrack(choices: [Int], state: Int, n: Int, res: inout [Int]) {
-        // When climbing to the n-th stair, add 1 to the solution count
+        // When step n is reached, increase the number of ways by 1
         if state == n {
             res[0] += 1
         }
-        // Traverse all choices
+        // Iterate over all choices
         for choice in choices {
-            // Pruning: not allowed to go beyond the n-th stair
+            // Prune: do not go beyond step n
             if state + choice > n {
                 continue
             }
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             backtrack(choices: choices, state: state + choice, n: n, res: &res)
             // Backtrack
         }
     }
 
-    /* Climbing stairs: Backtracking */
+    /* Climbing stairs: backtracking */
     func climbingStairsBacktrack(n: Int) -> Int {
-        let choices = [1, 2] // Can choose to climb up 1 or 2 stairs
-        let state = 0 // Start climbing from the 0-th stair
+        let choices = [1, 2] // Choose to climb 1 or 2 steps
+        let state = 0 // Start climbing from step 0
         var res: [Int] = []
-        res.append(0) // Use res[0] to record the solution count
+        res.append(0) // Use res[0] to record the number of ways
         backtrack(choices: choices, state: state, n: n, res: &res)
         return res[0]
     }
@@ -206,24 +206,24 @@ The goal of this problem is to determine the number of ways, so **we can conside
     ```javascript title="climbing_stairs_backtrack.js"
     /* Backtracking */
     function backtrack(choices, state, n, res) {
-        // When climbing to the n-th stair, add 1 to the solution count
+        // When step n is reached, increase the number of ways by 1
         if (state === n) res.set(0, res.get(0) + 1);
-        // Traverse all choices
+        // Iterate over all choices
         for (const choice of choices) {
-            // Pruning: not allowed to go beyond the n-th stair
+            // Prune: do not go beyond step n
             if (state + choice > n) continue;
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             backtrack(choices, state + choice, n, res);
             // Backtrack
         }
     }
 
-    /* Climbing stairs: Backtracking */
+    /* Climbing stairs: backtracking */
     function climbingStairsBacktrack(n) {
-        const choices = [1, 2]; // Can choose to climb up 1 or 2 stairs
-        const state = 0; // Start climbing from the 0-th stair
+        const choices = [1, 2]; // Choose to climb 1 or 2 steps
+        const state = 0; // Start climbing from step 0
         const res = new Map();
-        res.set(0, 0); // Use res[0] to record the solution count
+        res.set(0, 0); // Store the number of ways at key 0 in res
         backtrack(choices, state, n, res);
         return res.get(0);
     }
@@ -239,24 +239,24 @@ The goal of this problem is to determine the number of ways, so **we can conside
         n: number,
         res: Map<0, any>
     ): void {
-        // When climbing to the n-th stair, add 1 to the solution count
+        // When step n is reached, increase the number of ways by 1
         if (state === n) res.set(0, res.get(0) + 1);
-        // Traverse all choices
+        // Iterate over all choices
         for (const choice of choices) {
-            // Pruning: not allowed to go beyond the n-th stair
+            // Prune: do not go beyond step n
             if (state + choice > n) continue;
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             backtrack(choices, state + choice, n, res);
             // Backtrack
         }
     }
 
-    /* Climbing stairs: Backtracking */
+    /* Climbing stairs: backtracking */
     function climbingStairsBacktrack(n: number): number {
-        const choices = [1, 2]; // Can choose to climb up 1 or 2 stairs
-        const state = 0; // Start climbing from the 0-th stair
+        const choices = [1, 2]; // Choose to climb 1 or 2 steps
+        const state = 0; // Start climbing from step 0
         const res = new Map();
-        res.set(0, 0); // Use res[0] to record the solution count
+        res.set(0, 0); // Store the number of ways at key 0 in res
         backtrack(choices, state, n, res);
         return res.get(0);
     }
@@ -267,26 +267,26 @@ The goal of this problem is to determine the number of ways, so **we can conside
     ```dart title="climbing_stairs_backtrack.dart"
     /* Backtracking */
     void backtrack(List<int> choices, int state, int n, List<int> res) {
-      // When climbing to the n-th stair, add 1 to the solution count
+      // When step n is reached, increase the number of ways by 1
       if (state == n) {
         res[0]++;
       }
-      // Traverse all choices
+      // Iterate over all choices
       for (int choice in choices) {
-        // Pruning: not allowed to go beyond the n-th stair
+        // Prune: do not go beyond step n
         if (state + choice > n) continue;
-        // Attempt: make choice, update state
+        // Try: make a choice and update the state
         backtrack(choices, state + choice, n, res);
         // Backtrack
       }
     }
 
-    /* Climbing stairs: Backtracking */
+    /* Climbing stairs: backtracking */
     int climbingStairsBacktrack(int n) {
-      List<int> choices = [1, 2]; // Can choose to climb up 1 or 2 stairs
-      int state = 0; // Start climbing from the 0-th stair
+      List<int> choices = [1, 2]; // Choose to climb 1 or 2 steps
+      int state = 0; // Start climbing from step 0
       List<int> res = [];
-      res.add(0); // Use res[0] to record the solution count
+      res.add(0); // Use res[0] to record the number of ways
       backtrack(choices, state, n, res);
       return res[0];
     }
@@ -297,28 +297,28 @@ The goal of this problem is to determine the number of ways, so **we can conside
     ```rust title="climbing_stairs_backtrack.rs"
     /* Backtracking */
     fn backtrack(choices: &[i32], state: i32, n: i32, res: &mut [i32]) {
-        // When climbing to the n-th stair, add 1 to the solution count
+        // When step n is reached, increase the number of ways by 1
         if state == n {
             res[0] = res[0] + 1;
         }
-        // Traverse all choices
+        // Iterate over all choices
         for &choice in choices {
-            // Pruning: not allowed to go beyond the n-th stair
+            // Prune: do not go beyond step n
             if state + choice > n {
                 continue;
             }
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             backtrack(choices, state + choice, n, res);
             // Backtrack
         }
     }
 
-    /* Climbing stairs: Backtracking */
+    /* Climbing stairs: backtracking */
     fn climbing_stairs_backtrack(n: usize) -> i32 {
-        let choices = vec![1, 2]; // Can choose to climb up 1 or 2 stairs
-        let state = 0; // Start climbing from the 0-th stair
+        let choices = vec![1, 2]; // Choose to climb 1 or 2 steps
+        let state = 0; // Start climbing from step 0
         let mut res = Vec::new();
-        res.push(0); // Use res[0] to record the solution count
+        res.push(0); // Use res[0] to record the number of ways
         backtrack(&choices, state, n as i32, &mut res);
         res[0]
     }
@@ -329,27 +329,27 @@ The goal of this problem is to determine the number of ways, so **we can conside
     ```c title="climbing_stairs_backtrack.c"
     /* Backtracking */
     void backtrack(int *choices, int state, int n, int *res, int len) {
-        // When climbing to the n-th stair, add 1 to the solution count
+        // When step n is reached, increase the number of ways by 1
         if (state == n)
             res[0]++;
-        // Traverse all choices
+        // Iterate over all choices
         for (int i = 0; i < len; i++) {
             int choice = choices[i];
-            // Pruning: not allowed to go beyond the n-th stair
+            // Prune: do not go beyond step n
             if (state + choice > n)
                 continue;
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             backtrack(choices, state + choice, n, res, len);
             // Backtrack
         }
     }
 
-    /* Climbing stairs: Backtracking */
+    /* Climbing stairs: backtracking */
     int climbingStairsBacktrack(int n) {
-        int choices[2] = {1, 2}; // Can choose to climb up 1 or 2 stairs
-        int state = 0;           // Start climbing from the 0-th stair
+        int choices[2] = {1, 2}; // Choose to climb 1 or 2 steps
+        int state = 0;           // Start climbing from step 0
         int *res = (int *)malloc(sizeof(int));
-        *res = 0; // Use res[0] to record the solution count
+        *res = 0; // Use res[0] to record the number of ways
         int len = sizeof(choices) / sizeof(int);
         backtrack(choices, state, n, res, len);
         int result = *res;
@@ -368,25 +368,25 @@ The goal of this problem is to determine the number of ways, so **we can conside
         n: Int,
         res: MutableList<Int>
     ) {
-        // When climbing to the n-th stair, add 1 to the solution count
+        // When step n is reached, increase the number of ways by 1
         if (state == n)
             res[0] = res[0] + 1
-        // Traverse all choices
+        // Iterate over all choices
         for (choice in choices) {
-            // Pruning: not allowed to go beyond the n-th stair
+            // Prune: do not go beyond step n
             if (state + choice > n) continue
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             backtrack(choices, state + choice, n, res)
             // Backtrack
         }
     }
 
-    /* Climbing stairs: Backtracking */
+    /* Climbing stairs: backtracking */
     fun climbingStairsBacktrack(n: Int): Int {
-        val choices = mutableListOf(1, 2) // Can choose to climb up 1 or 2 stairs
-        val state = 0 // Start climbing from the 0-th stair
+        val choices = mutableListOf(1, 2) // Choose to climb 1 or 2 steps
+        val state = 0 // Start climbing from step 0
         val res = mutableListOf<Int>()
-        res.add(0) // Use res[0] to record the solution count
+        res.add(0) // Use res[0] to record the number of ways
         backtrack(choices, state, n, res)
         return res[0]
     }
@@ -397,14 +397,14 @@ The goal of this problem is to determine the number of ways, so **we can conside
     ```ruby title="climbing_stairs_backtrack.rb"
     ### Backtracking ###
     def backtrack(choices, state, n, res)
-      # When climbing to the n-th stair, add 1 to the solution count
+      # When step n is reached, increase the number of ways by 1
       res[0] += 1 if state == n
-      # Traverse all choices
+      # Iterate over all choices
       for choice in choices
-        # Pruning: not allowed to go beyond the n-th stair
+        # Prune: do not go beyond step n
         next if state + choice > n
 
-        # Attempt: make choice, update state
+        # Try: make a choice and update the state
         backtrack(choices, state + choice, n, res)
       end
       # Backtrack
@@ -412,48 +412,53 @@ The goal of this problem is to determine the number of ways, so **we can conside
 
     ### Climbing stairs: backtracking ###
     def climbing_stairs_backtrack(n)
-      choices = [1, 2] # Can choose to climb up 1 or 2 stairs
-      state = 0 # Start climbing from the 0-th stair
-      res = [0] # Use res[0] to record the solution count
+      choices = [1, 2] # Choose to climb 1 or 2 steps
+      state = 0 # Start climbing from step 0
+      res = [0] # Use res[0] to record the number of ways
       backtrack(choices, state, n, res)
       res.first
     end
     ```
 
-## 14.1.1 &nbsp; Method 1: Brute Force Search
+??? pythontutor "Visualize execution"
 
-Backtracking algorithms typically do not explicitly decompose problems, but rather treat solving the problem as a series of decision steps, searching for all possible solutions through trial and pruning.
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20backtrack%28choices%3A%20list%5Bint%5D,%20state%3A%20int,%20n%3A%20int,%20res%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Backtracking%22%22%22%0A%20%20%20%20%23%20When%20step%20n%20is%20reached,%20increase%20the%20number%20of%20ways%20by%201%0A%20%20%20%20if%20state%20%3D%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%5B0%5D%20%2B%3D%201%0A%20%20%20%20%23%20Iterate%20over%20all%20choices%0A%20%20%20%20for%20choice%20in%20choices%3A%0A%20%20%20%20%20%20%20%20%23%20Prune%3A%20do%20not%20go%20beyond%20step%20n%0A%20%20%20%20%20%20%20%20if%20state%20%2B%20choice%20%3E%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20continue%0A%20%20%20%20%20%20%20%20%23%20Try%3A%20make%20a%20choice%20and%20update%20the%20state%0A%20%20%20%20%20%20%20%20backtrack%28choices,%20state%20%2B%20choice,%20n,%20res%29%0A%20%20%20%20%20%20%20%20%23%20Backtrack%0A%0A%0Adef%20climbing_stairs_backtrack%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Climbing%20stairs%3A%20backtracking%22%22%22%0A%20%20%20%20choices%20%3D%20%5B1,%202%5D%20%20%23%20Choose%20to%20climb%201%20or%202%20steps%0A%20%20%20%20state%20%3D%200%20%20%23%20Start%20climbing%20from%20step%200%0A%20%20%20%20res%20%3D%20%5B0%5D%20%20%23%20Use%20res%5B0%5D%20to%20record%20the%20number%20of%20ways%0A%20%20%20%20backtrack%28choices,%20state,%20n,%20res%29%0A%20%20%20%20return%20res%5B0%5D%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%0A%20%20%20%20res%20%3D%20climbing_stairs_backtrack%28n%29%0A%20%20%20%20print%28f%22Number%20of%20ways%20to%20climb%20%7Bn%7D%20stairs%3A%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20backtrack%28choices%3A%20list%5Bint%5D,%20state%3A%20int,%20n%3A%20int,%20res%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Backtracking%22%22%22%0A%20%20%20%20%23%20When%20step%20n%20is%20reached,%20increase%20the%20number%20of%20ways%20by%201%0A%20%20%20%20if%20state%20%3D%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%5B0%5D%20%2B%3D%201%0A%20%20%20%20%23%20Iterate%20over%20all%20choices%0A%20%20%20%20for%20choice%20in%20choices%3A%0A%20%20%20%20%20%20%20%20%23%20Prune%3A%20do%20not%20go%20beyond%20step%20n%0A%20%20%20%20%20%20%20%20if%20state%20%2B%20choice%20%3E%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20continue%0A%20%20%20%20%20%20%20%20%23%20Try%3A%20make%20a%20choice%20and%20update%20the%20state%0A%20%20%20%20%20%20%20%20backtrack%28choices,%20state%20%2B%20choice,%20n,%20res%29%0A%20%20%20%20%20%20%20%20%23%20Backtrack%0A%0A%0Adef%20climbing_stairs_backtrack%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Climbing%20stairs%3A%20backtracking%22%22%22%0A%20%20%20%20choices%20%3D%20%5B1,%202%5D%20%20%23%20Choose%20to%20climb%201%20or%202%20steps%0A%20%20%20%20state%20%3D%200%20%20%23%20Start%20climbing%20from%20step%200%0A%20%20%20%20res%20%3D%20%5B0%5D%20%20%23%20Use%20res%5B0%5D%20to%20record%20the%20number%20of%20ways%0A%20%20%20%20backtrack%28choices,%20state,%20n,%20res%29%0A%20%20%20%20return%20res%5B0%5D%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%0A%20%20%20%20res%20%3D%20climbing_stairs_backtrack%28n%29%0A%20%20%20%20print%28f%22Number%20of%20ways%20to%20climb%20%7Bn%7D%20stairs%3A%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-We can try to analyze this problem from the perspective of problem decomposition. Let the number of ways to climb to the $i$-th step be $dp[i]$, then $dp[i]$ is the original problem, and its subproblems include:
+## 14.1.1 &nbsp; Method 1: Brute-force search
+
+Backtracking usually does not explicitly decompose the problem. Instead, it treats a solution as a sequence of decisions and searches all possible solutions through trial and pruning.
+
+Let's analyze this problem through decomposition. Let $dp[i]$ be the number of ways to reach step $i$. The original problem is $dp[i]$, and its subproblems include:
 
 $$
 dp[i-1], dp[i-2], \dots, dp[2], dp[1]
 $$
 
-Since we can only go up $1$ or $2$ steps in each round, when we stand on the $i$-th step, we could only have been on the $i-1$-th or $i-2$-th step in the previous round. In other words, we can only reach the $i$-th step from the $i-1$-th or $i-2$-th step.
+Since each move climbs $1$ or $2$ steps, when we stand on step $i$, we must previously have been on step $i - 1$ or $i - 2$. In other words, step $i$ can only be reached from step $i -1$ or $i - 2$.
 
-This leads to an important conclusion: **the number of ways to climb to the $i-1$-th step plus the number of ways to climb to the $i-2$-th step equals the number of ways to climb to the $i$-th step**. The formula is as follows:
+This gives an important result: **the number of ways to reach step $i - 1$ plus the number of ways to reach step $i - 2$ equals the number of ways to reach step $i$**. In symbols:
 
 $$
 dp[i] = dp[i-1] + dp[i-2]
 $$
 
-This means that in the stair climbing problem, there exists a recurrence relation among the subproblems, and **the solution to the original problem can be constructed from the solutions to the subproblems**. Figure 14-2 illustrates this recurrence relation.
+Thus, the subproblems are linked by a recurrence: **the solution to the original problem can be constructed from subproblem solutions**. Figure 14-2 illustrates this relationship.
 
-![Recurrence relation for the number of ways](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png){ class="animation-figure" }
+![Recurrence for the number of ways](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png){ class="animation-figure" }
 
-<p align="center"> Figure 14-2 &nbsp; Recurrence relation for the number of ways </p>
+<p align="center"> Figure 14-2 &nbsp; Recurrence for the number of ways </p>
 
-We can obtain a brute force search solution based on the recurrence formula. Starting from $dp[n]$, **recursively decompose a larger problem into the sum of two smaller problems**, until reaching the smallest subproblems $dp[1]$ and $dp[2]$ and returning. Among them, the solutions to the smallest subproblems are known, namely $dp[1] = 1$ and $dp[2] = 2$, representing $1$ and $2$ ways to climb to the $1$st and $2$nd steps, respectively.
+The recurrence gives a brute-force search solution. Starting at $dp[n]$, **recursively express a larger problem as the sum of two smaller ones** until reaching $dp[1]$ or $dp[2]$. Their solutions are known: $dp[1] = 1$ and $dp[2] = 2$, meaning steps $1$ and $2$ can be reached in $1$ and $2$ ways, respectively.
 
-Observe the following code: like standard backtracking code, it also uses depth-first search but is more concise:
+Like the standard backtracking code, the following code performs depth-first search, but is more concise:
 
 === "Python"
 
     ```python title="climbing_stairs_dfs.py"
     def dfs(i: int) -> int:
         """Search"""
-        # Known dp[1] and dp[2], return them
+        # The values of dp[1] and dp[2] are known; return the corresponding value
         if i == 1 or i == 2:
             return i
         # dp[i] = dp[i-1] + dp[i-2]
@@ -461,7 +466,7 @@ Observe the following code: like standard backtracking code, it also uses depth-
         return count
 
     def climbing_stairs_dfs(n: int) -> int:
-        """Climbing stairs: Search"""
+        """Climbing stairs: search"""
         return dfs(n)
     ```
 
@@ -470,7 +475,7 @@ Observe the following code: like standard backtracking code, it also uses depth-
     ```cpp title="climbing_stairs_dfs.cpp"
     /* Search */
     int dfs(int i) {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if (i == 1 || i == 2)
             return i;
         // dp[i] = dp[i-1] + dp[i-2]
@@ -478,7 +483,7 @@ Observe the following code: like standard backtracking code, it also uses depth-
         return count;
     }
 
-    /* Climbing stairs: Search */
+    /* Climbing stairs: search */
     int climbingStairsDFS(int n) {
         return dfs(n);
     }
@@ -489,7 +494,7 @@ Observe the following code: like standard backtracking code, it also uses depth-
     ```java title="climbing_stairs_dfs.java"
     /* Search */
     int dfs(int i) {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if (i == 1 || i == 2)
             return i;
         // dp[i] = dp[i-1] + dp[i-2]
@@ -497,7 +502,7 @@ Observe the following code: like standard backtracking code, it also uses depth-
         return count;
     }
 
-    /* Climbing stairs: Search */
+    /* Climbing stairs: search */
     int climbingStairsDFS(int n) {
         return dfs(n);
     }
@@ -508,7 +513,7 @@ Observe the following code: like standard backtracking code, it also uses depth-
     ```csharp title="climbing_stairs_dfs.cs"
     /* Search */
     int DFS(int i) {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if (i == 1 || i == 2)
             return i;
         // dp[i] = dp[i-1] + dp[i-2]
@@ -516,7 +521,7 @@ Observe the following code: like standard backtracking code, it also uses depth-
         return count;
     }
 
-    /* Climbing stairs: Search */
+    /* Climbing stairs: search */
     int ClimbingStairsDFS(int n) {
         return DFS(n);
     }
@@ -527,7 +532,7 @@ Observe the following code: like standard backtracking code, it also uses depth-
     ```go title="climbing_stairs_dfs.go"
     /* Search */
     func dfs(i int) int {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if i == 1 || i == 2 {
             return i
         }
@@ -536,7 +541,7 @@ Observe the following code: like standard backtracking code, it also uses depth-
         return count
     }
 
-    /* Climbing stairs: Search */
+    /* Climbing stairs: search */
     func climbingStairsDFS(n int) int {
         return dfs(n)
     }
@@ -547,7 +552,7 @@ Observe the following code: like standard backtracking code, it also uses depth-
     ```swift title="climbing_stairs_dfs.swift"
     /* Search */
     func dfs(i: Int) -> Int {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if i == 1 || i == 2 {
             return i
         }
@@ -556,7 +561,7 @@ Observe the following code: like standard backtracking code, it also uses depth-
         return count
     }
 
-    /* Climbing stairs: Search */
+    /* Climbing stairs: search */
     func climbingStairsDFS(n: Int) -> Int {
         dfs(i: n)
     }
@@ -567,14 +572,14 @@ Observe the following code: like standard backtracking code, it also uses depth-
     ```javascript title="climbing_stairs_dfs.js"
     /* Search */
     function dfs(i) {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if (i === 1 || i === 2) return i;
         // dp[i] = dp[i-1] + dp[i-2]
         const count = dfs(i - 1) + dfs(i - 2);
         return count;
     }
 
-    /* Climbing stairs: Search */
+    /* Climbing stairs: search */
     function climbingStairsDFS(n) {
         return dfs(n);
     }
@@ -585,14 +590,14 @@ Observe the following code: like standard backtracking code, it also uses depth-
     ```typescript title="climbing_stairs_dfs.ts"
     /* Search */
     function dfs(i: number): number {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if (i === 1 || i === 2) return i;
         // dp[i] = dp[i-1] + dp[i-2]
         const count = dfs(i - 1) + dfs(i - 2);
         return count;
     }
 
-    /* Climbing stairs: Search */
+    /* Climbing stairs: search */
     function climbingStairsDFS(n: number): number {
         return dfs(n);
     }
@@ -603,14 +608,14 @@ Observe the following code: like standard backtracking code, it also uses depth-
     ```dart title="climbing_stairs_dfs.dart"
     /* Search */
     int dfs(int i) {
-      // Known dp[1] and dp[2], return them
+      // The values of dp[1] and dp[2] are known; return them
       if (i == 1 || i == 2) return i;
       // dp[i] = dp[i-1] + dp[i-2]
       int count = dfs(i - 1) + dfs(i - 2);
       return count;
     }
 
-    /* Climbing stairs: Search */
+    /* Climbing stairs: search */
     int climbingStairsDFS(int n) {
       return dfs(n);
     }
@@ -621,7 +626,7 @@ Observe the following code: like standard backtracking code, it also uses depth-
     ```rust title="climbing_stairs_dfs.rs"
     /* Search */
     fn dfs(i: usize) -> i32 {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if i == 1 || i == 2 {
             return i as i32;
         }
@@ -630,7 +635,7 @@ Observe the following code: like standard backtracking code, it also uses depth-
         count
     }
 
-    /* Climbing stairs: Search */
+    /* Climbing stairs: search */
     fn climbing_stairs_dfs(n: usize) -> i32 {
         dfs(n)
     }
@@ -641,7 +646,7 @@ Observe the following code: like standard backtracking code, it also uses depth-
     ```c title="climbing_stairs_dfs.c"
     /* Search */
     int dfs(int i) {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if (i == 1 || i == 2)
             return i;
         // dp[i] = dp[i-1] + dp[i-2]
@@ -649,7 +654,7 @@ Observe the following code: like standard backtracking code, it also uses depth-
         return count;
     }
 
-    /* Climbing stairs: Search */
+    /* Climbing stairs: search */
     int climbingStairsDFS(int n) {
         return dfs(n);
     }
@@ -660,14 +665,14 @@ Observe the following code: like standard backtracking code, it also uses depth-
     ```kotlin title="climbing_stairs_dfs.kt"
     /* Search */
     fun dfs(i: Int): Int {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if (i == 1 || i == 2) return i
         // dp[i] = dp[i-1] + dp[i-2]
         val count = dfs(i - 1) + dfs(i - 2)
         return count
     }
 
-    /* Climbing stairs: Search */
+    /* Climbing stairs: search */
     fun climbingStairsDFS(n: Int): Int {
         return dfs(n)
     }
@@ -678,7 +683,7 @@ Observe the following code: like standard backtracking code, it also uses depth-
     ```ruby title="climbing_stairs_dfs.rb"
     ### Search ###
     def dfs(i)
-      # Known dp[1] and dp[2], return them
+      # The values of dp[1] and dp[2] are known; return them
       return i if i == 1 || i == 2
       # dp[i] = dp[i-1] + dp[i-2]
       dfs(i - 1) + dfs(i - 2)
@@ -690,22 +695,27 @@ Observe the following code: like standard backtracking code, it also uses depth-
     end
     ```
 
-Figure 14-3 shows the recursion tree formed by brute force search. For the problem $dp[n]$, the depth of its recursion tree is $n$, with a time complexity of $O(2^n)$. Exponential growth is explosive; if we input a relatively large $n$, the wait can be very long.
+??? pythontutor "Visualize execution"
+
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20dfs%28i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Search%22%22%22%0A%20%20%20%20%23%20The%20values%20of%20dp%5B1%5D%20and%20dp%5B2%5D%20are%20known%3B%20return%20the%20corresponding%20value%0A%20%20%20%20if%20i%20%3D%3D%201%20or%20i%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20i%0A%20%20%20%20%23%20dp%5Bi%5D%20%3D%20dp%5Bi-1%5D%20%2B%20dp%5Bi-2%5D%0A%20%20%20%20count%20%3D%20dfs%28i%20-%201%29%20%2B%20dfs%28i%20-%202%29%0A%20%20%20%20return%20count%0A%0A%0Adef%20climbing_stairs_dfs%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Climbing%20stairs%3A%20search%22%22%22%0A%20%20%20%20return%20dfs%28n%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%209%0A%0A%20%20%20%20res%20%3D%20climbing_stairs_dfs%28n%29%0A%20%20%20%20print%28f%22Number%20of%20ways%20to%20climb%20%7Bn%7D%20stairs%3A%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20dfs%28i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Search%22%22%22%0A%20%20%20%20%23%20The%20values%20of%20dp%5B1%5D%20and%20dp%5B2%5D%20are%20known%3B%20return%20the%20corresponding%20value%0A%20%20%20%20if%20i%20%3D%3D%201%20or%20i%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20i%0A%20%20%20%20%23%20dp%5Bi%5D%20%3D%20dp%5Bi-1%5D%20%2B%20dp%5Bi-2%5D%0A%20%20%20%20count%20%3D%20dfs%28i%20-%201%29%20%2B%20dfs%28i%20-%202%29%0A%20%20%20%20return%20count%0A%0A%0Adef%20climbing_stairs_dfs%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Climbing%20stairs%3A%20search%22%22%22%0A%20%20%20%20return%20dfs%28n%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%209%0A%0A%20%20%20%20res%20%3D%20climbing_stairs_dfs%28n%29%0A%20%20%20%20print%28f%22Number%20of%20ways%20to%20climb%20%7Bn%7D%20stairs%3A%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+Figure 14-3 shows the recursion tree for brute-force search. For $dp[n]$, its depth is $n$, and the time complexity is $O(2^n)$. Exponential growth is explosive, so a relatively large $n$ leads to a very long wait.
 
 ![Recursion tree for climbing stairs](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png){ class="animation-figure" }
 
 <p align="center"> Figure 14-3 &nbsp; Recursion tree for climbing stairs </p>
 
-Observing the above figure, **the exponential time complexity is caused by "overlapping subproblems"**. For example, $dp[9]$ is decomposed into $dp[8]$ and $dp[7]$, and $dp[8]$ is decomposed into $dp[7]$ and $dp[6]$, both of which contain the subproblem $dp[7]$.
+As Figure 14-3 shows, **overlapping subproblems cause the exponential time complexity**. For example, $dp[9]$ splits into $dp[8]$ and $dp[7]$, while $dp[8]$ splits into $dp[7]$ and $dp[6]$. Both contain $dp[7]$.
 
-And so on, subproblems contain smaller overlapping subproblems, ad infinitum. The vast majority of computational resources are wasted on these overlapping subproblems.
+These subproblems in turn contain smaller overlapping subproblems, and the pattern repeats at deeper levels of the recursion tree. Most of the computation is wasted on solving the same subproblems repeatedly.
 
-## 14.1.2 &nbsp; Method 2: Memoization
+## 14.1.2 &nbsp; Method 2: Memoized search
 
-To improve algorithm efficiency, **we want all overlapping subproblems to be computed only once**. For this purpose, we declare an array `mem` to record the solution to each subproblem and prune overlapping subproblems during the search process.
+To improve efficiency, **we want every overlapping subproblem to be solved only once**. Introduce an array `mem` to record each solution and prune repeated subproblems during the search.
 
-1. When computing $dp[i]$ for the first time, we record it in `mem[i]` for later use.
-2. When we need to compute $dp[i]$ again, we can directly retrieve the result from `mem[i]`, thereby avoiding redundant computation of that subproblem.
+1. The first time we calculate $dp[i]$, store it in `mem[i]` for later use.
+2. When $dp[i]$ is needed again, retrieve it directly from `mem[i]` instead of recomputing it.
 
 The code is as follows:
 
@@ -713,11 +723,11 @@ The code is as follows:
 
     ```python title="climbing_stairs_dfs_mem.py"
     def dfs(i: int, mem: list[int]) -> int:
-        """Memoization search"""
-        # Known dp[1] and dp[2], return them
+        """Memoized search"""
+        # The values of dp[1] and dp[2] are known; return the corresponding value
         if i == 1 or i == 2:
             return i
-        # If record dp[i] exists, return it directly
+        # If dp[i] has been recorded, return it directly
         if mem[i] != -1:
             return mem[i]
         # dp[i] = dp[i-1] + dp[i-2]
@@ -727,8 +737,8 @@ The code is as follows:
         return count
 
     def climbing_stairs_dfs_mem(n: int) -> int:
-        """Climbing stairs: Memoization search"""
-        # mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+        """Climbing stairs: memoized search"""
+        # mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
         mem = [-1] * (n + 1)
         return dfs(n, mem)
     ```
@@ -736,12 +746,12 @@ The code is as follows:
 === "C++"
 
     ```cpp title="climbing_stairs_dfs_mem.cpp"
-    /* Memoization search */
+    /* Memoized search */
     int dfs(int i, vector<int> &mem) {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if (i == 1 || i == 2)
             return i;
-        // If record dp[i] exists, return it directly
+        // If dp[i] has been recorded, return it directly
         if (mem[i] != -1)
             return mem[i];
         // dp[i] = dp[i-1] + dp[i-2]
@@ -751,9 +761,9 @@ The code is as follows:
         return count;
     }
 
-    /* Climbing stairs: Memoization search */
+    /* Climbing stairs: memoized search */
     int climbingStairsDFSMem(int n) {
-        // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+        // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
         vector<int> mem(n + 1, -1);
         return dfs(n, mem);
     }
@@ -762,12 +772,12 @@ The code is as follows:
 === "Java"
 
     ```java title="climbing_stairs_dfs_mem.java"
-    /* Memoization search */
+    /* Memoized search */
     int dfs(int i, int[] mem) {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if (i == 1 || i == 2)
             return i;
-        // If record dp[i] exists, return it directly
+        // If dp[i] has been recorded, return it directly
         if (mem[i] != -1)
             return mem[i];
         // dp[i] = dp[i-1] + dp[i-2]
@@ -777,9 +787,9 @@ The code is as follows:
         return count;
     }
 
-    /* Climbing stairs: Memoization search */
+    /* Climbing stairs: memoized search */
     int climbingStairsDFSMem(int n) {
-        // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+        // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
         int[] mem = new int[n + 1];
         Arrays.fill(mem, -1);
         return dfs(n, mem);
@@ -789,12 +799,12 @@ The code is as follows:
 === "C#"
 
     ```csharp title="climbing_stairs_dfs_mem.cs"
-    /* Memoization search */
+    /* Memoized search */
     int DFS(int i, int[] mem) {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if (i == 1 || i == 2)
             return i;
-        // If record dp[i] exists, return it directly
+        // If dp[i] has been recorded, return it directly
         if (mem[i] != -1)
             return mem[i];
         // dp[i] = dp[i-1] + dp[i-2]
@@ -804,9 +814,9 @@ The code is as follows:
         return count;
     }
 
-    /* Climbing stairs: Memoization search */
+    /* Climbing stairs: memoized search */
     int ClimbingStairsDFSMem(int n) {
-        // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+        // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
         int[] mem = new int[n + 1];
         Array.Fill(mem, -1);
         return DFS(n, mem);
@@ -816,13 +826,13 @@ The code is as follows:
 === "Go"
 
     ```go title="climbing_stairs_dfs_mem.go"
-    /* Memoization search */
+    /* Memoized search */
     func dfsMem(i int, mem []int) int {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if i == 1 || i == 2 {
             return i
         }
-        // If record dp[i] exists, return it directly
+        // If dp[i] has been recorded, return it directly
         if mem[i] != -1 {
             return mem[i]
         }
@@ -833,9 +843,9 @@ The code is as follows:
         return count
     }
 
-    /* Climbing stairs: Memoization search */
+    /* Climbing stairs: memoized search */
     func climbingStairsDFSMem(n int) int {
-        // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+        // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
         mem := make([]int, n+1)
         for i := range mem {
             mem[i] = -1
@@ -847,13 +857,13 @@ The code is as follows:
 === "Swift"
 
     ```swift title="climbing_stairs_dfs_mem.swift"
-    /* Memoization search */
+    /* Memoized search */
     func dfs(i: Int, mem: inout [Int]) -> Int {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if i == 1 || i == 2 {
             return i
         }
-        // If record dp[i] exists, return it directly
+        // If dp[i] has been recorded, return it directly
         if mem[i] != -1 {
             return mem[i]
         }
@@ -864,9 +874,9 @@ The code is as follows:
         return count
     }
 
-    /* Climbing stairs: Memoization search */
+    /* Climbing stairs: memoized search */
     func climbingStairsDFSMem(n: Int) -> Int {
-        // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+        // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
         var mem = Array(repeating: -1, count: n + 1)
         return dfs(i: n, mem: &mem)
     }
@@ -875,11 +885,11 @@ The code is as follows:
 === "JS"
 
     ```javascript title="climbing_stairs_dfs_mem.js"
-    /* Memoization search */
+    /* Memoized search */
     function dfs(i, mem) {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if (i === 1 || i === 2) return i;
-        // If record dp[i] exists, return it directly
+        // If dp[i] has been recorded, return it directly
         if (mem[i] != -1) return mem[i];
         // dp[i] = dp[i-1] + dp[i-2]
         const count = dfs(i - 1, mem) + dfs(i - 2, mem);
@@ -888,9 +898,9 @@ The code is as follows:
         return count;
     }
 
-    /* Climbing stairs: Memoization search */
+    /* Climbing stairs: memoized search */
     function climbingStairsDFSMem(n) {
-        // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+        // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
         const mem = new Array(n + 1).fill(-1);
         return dfs(n, mem);
     }
@@ -899,11 +909,11 @@ The code is as follows:
 === "TS"
 
     ```typescript title="climbing_stairs_dfs_mem.ts"
-    /* Memoization search */
+    /* Memoized search */
     function dfs(i: number, mem: number[]): number {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if (i === 1 || i === 2) return i;
-        // If record dp[i] exists, return it directly
+        // If dp[i] has been recorded, return it directly
         if (mem[i] != -1) return mem[i];
         // dp[i] = dp[i-1] + dp[i-2]
         const count = dfs(i - 1, mem) + dfs(i - 2, mem);
@@ -912,9 +922,9 @@ The code is as follows:
         return count;
     }
 
-    /* Climbing stairs: Memoization search */
+    /* Climbing stairs: memoized search */
     function climbingStairsDFSMem(n: number): number {
-        // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+        // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
         const mem = new Array(n + 1).fill(-1);
         return dfs(n, mem);
     }
@@ -923,11 +933,11 @@ The code is as follows:
 === "Dart"
 
     ```dart title="climbing_stairs_dfs_mem.dart"
-    /* Memoization search */
+    /* Memoized search */
     int dfs(int i, List<int> mem) {
-      // Known dp[1] and dp[2], return them
+      // The values of dp[1] and dp[2] are known; return them
       if (i == 1 || i == 2) return i;
-      // If record dp[i] exists, return it directly
+      // If dp[i] has been recorded, return it directly
       if (mem[i] != -1) return mem[i];
       // dp[i] = dp[i-1] + dp[i-2]
       int count = dfs(i - 1, mem) + dfs(i - 2, mem);
@@ -936,9 +946,9 @@ The code is as follows:
       return count;
     }
 
-    /* Climbing stairs: Memoization search */
+    /* Climbing stairs: memoized search */
     int climbingStairsDFSMem(int n) {
-      // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+      // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
       List<int> mem = List.filled(n + 1, -1);
       return dfs(n, mem);
     }
@@ -947,13 +957,13 @@ The code is as follows:
 === "Rust"
 
     ```rust title="climbing_stairs_dfs_mem.rs"
-    /* Memoization search */
+    /* Memoized search */
     fn dfs(i: usize, mem: &mut [i32]) -> i32 {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if i == 1 || i == 2 {
             return i as i32;
         }
-        // If record dp[i] exists, return it directly
+        // If dp[i] has been recorded, return it directly
         if mem[i] != -1 {
             return mem[i];
         }
@@ -964,9 +974,9 @@ The code is as follows:
         count
     }
 
-    /* Climbing stairs: Memoization search */
+    /* Climbing stairs: memoized search */
     fn climbing_stairs_dfs_mem(n: usize) -> i32 {
-        // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+        // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
         let mut mem = vec![-1; n + 1];
         dfs(n, &mut mem)
     }
@@ -975,12 +985,12 @@ The code is as follows:
 === "C"
 
     ```c title="climbing_stairs_dfs_mem.c"
-    /* Memoization search */
+    /* Memoized search */
     int dfs(int i, int *mem) {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if (i == 1 || i == 2)
             return i;
-        // If record dp[i] exists, return it directly
+        // If dp[i] has been recorded, return it directly
         if (mem[i] != -1)
             return mem[i];
         // dp[i] = dp[i-1] + dp[i-2]
@@ -990,9 +1000,9 @@ The code is as follows:
         return count;
     }
 
-    /* Climbing stairs: Memoization search */
+    /* Climbing stairs: memoized search */
     int climbingStairsDFSMem(int n) {
-        // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+        // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
         int *mem = (int *)malloc((n + 1) * sizeof(int));
         for (int i = 0; i <= n; i++) {
             mem[i] = -1;
@@ -1006,11 +1016,11 @@ The code is as follows:
 === "Kotlin"
 
     ```kotlin title="climbing_stairs_dfs_mem.kt"
-    /* Memoization search */
+    /* Memoized search */
     fun dfs(i: Int, mem: IntArray): Int {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if (i == 1 || i == 2) return i
-        // If record dp[i] exists, return it directly
+        // If dp[i] has been recorded, return it directly
         if (mem[i] != -1) return mem[i]
         // dp[i] = dp[i-1] + dp[i-2]
         val count = dfs(i - 1, mem) + dfs(i - 2, mem)
@@ -1019,9 +1029,9 @@ The code is as follows:
         return count
     }
 
-    /* Climbing stairs: Memoization search */
+    /* Climbing stairs: memoized search */
     fun climbingStairsDFSMem(n: Int): Int {
-        // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+        // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
         val mem = IntArray(n + 1)
         mem.fill(-1)
         return dfs(n, mem)
@@ -1031,11 +1041,11 @@ The code is as follows:
 === "Ruby"
 
     ```ruby title="climbing_stairs_dfs_mem.rb"
-    ### Memoization search ###
+    ### Memoized search ###
     def dfs(i, mem)
-      # Known dp[1] and dp[2], return them
+      # The values of dp[1] and dp[2] are known; return them
       return i if i == 1 || i == 2
-      # If record dp[i] exists, return it directly
+      # If dp[i] has been recorded, return it directly
       return mem[i] if mem[i] != -1
 
       # dp[i] = dp[i-1] + dp[i-2]
@@ -1044,40 +1054,45 @@ The code is as follows:
       mem[i] = count
     end
 
-    ### Climbing stairs: memoization search ###
+    ### Climbing stairs: memoized search ###
     def climbing_stairs_dfs_mem(n)
-      # mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+      # mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
       mem = Array.new(n + 1, -1)
       dfs(n, mem)
     end
     ```
 
-Observe Figure 14-4: **after memoization, all overlapping subproblems need to be computed only once, reducing the time complexity to $O(n)$**, which is a tremendous leap.
+??? pythontutor "Visualize execution"
 
-![Recursion tree with memoization](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png){ class="animation-figure" }
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20dfs%28i%3A%20int,%20mem%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Memoized%20search%22%22%22%0A%20%20%20%20%23%20The%20values%20of%20dp%5B1%5D%20and%20dp%5B2%5D%20are%20known%3B%20return%20the%20corresponding%20value%0A%20%20%20%20if%20i%20%3D%3D%201%20or%20i%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20i%0A%20%20%20%20%23%20If%20dp%5Bi%5D%20has%20been%20recorded,%20return%20it%20directly%0A%20%20%20%20if%20mem%5Bi%5D%20%21%3D%20-1%3A%0A%20%20%20%20%20%20%20%20return%20mem%5Bi%5D%0A%20%20%20%20%23%20dp%5Bi%5D%20%3D%20dp%5Bi-1%5D%20%2B%20dp%5Bi-2%5D%0A%20%20%20%20count%20%3D%20dfs%28i%20-%201,%20mem%29%20%2B%20dfs%28i%20-%202,%20mem%29%0A%20%20%20%20%23%20Record%20dp%5Bi%5D%0A%20%20%20%20mem%5Bi%5D%20%3D%20count%0A%20%20%20%20return%20count%0A%0A%0Adef%20climbing_stairs_dfs_mem%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Climbing%20stairs%3A%20memoized%20search%22%22%22%0A%20%20%20%20%23%20mem%5Bi%5D%20stores%20the%20number%20of%20ways%20to%20reach%20step%20i%3B%20-1%20means%20no%20result%20has%20been%20recorded%0A%20%20%20%20mem%20%3D%20%5B-1%5D%20%2A%20%28n%20%2B%201%29%0A%20%20%20%20return%20dfs%28n,%20mem%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%209%0A%0A%20%20%20%20res%20%3D%20climbing_stairs_dfs_mem%28n%29%0A%20%20%20%20print%28f%22Number%20of%20ways%20to%20climb%20%7Bn%7D%20stairs%3A%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20dfs%28i%3A%20int,%20mem%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Memoized%20search%22%22%22%0A%20%20%20%20%23%20The%20values%20of%20dp%5B1%5D%20and%20dp%5B2%5D%20are%20known%3B%20return%20the%20corresponding%20value%0A%20%20%20%20if%20i%20%3D%3D%201%20or%20i%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20i%0A%20%20%20%20%23%20If%20dp%5Bi%5D%20has%20been%20recorded,%20return%20it%20directly%0A%20%20%20%20if%20mem%5Bi%5D%20%21%3D%20-1%3A%0A%20%20%20%20%20%20%20%20return%20mem%5Bi%5D%0A%20%20%20%20%23%20dp%5Bi%5D%20%3D%20dp%5Bi-1%5D%20%2B%20dp%5Bi-2%5D%0A%20%20%20%20count%20%3D%20dfs%28i%20-%201,%20mem%29%20%2B%20dfs%28i%20-%202,%20mem%29%0A%20%20%20%20%23%20Record%20dp%5Bi%5D%0A%20%20%20%20mem%5Bi%5D%20%3D%20count%0A%20%20%20%20return%20count%0A%0A%0Adef%20climbing_stairs_dfs_mem%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Climbing%20stairs%3A%20memoized%20search%22%22%22%0A%20%20%20%20%23%20mem%5Bi%5D%20stores%20the%20number%20of%20ways%20to%20reach%20step%20i%3B%20-1%20means%20no%20result%20has%20been%20recorded%0A%20%20%20%20mem%20%3D%20%5B-1%5D%20%2A%20%28n%20%2B%201%29%0A%20%20%20%20return%20dfs%28n,%20mem%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%209%0A%0A%20%20%20%20res%20%3D%20climbing_stairs_dfs_mem%28n%29%0A%20%20%20%20print%28f%22Number%20of%20ways%20to%20climb%20%7Bn%7D%20stairs%3A%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-<p align="center"> Figure 14-4 &nbsp; Recursion tree with memoization </p>
+As shown in Figure 14-4, **memoization makes every overlapping subproblem require only one computation, reducing the time complexity to $O(n)$**: a major improvement.
 
-## 14.1.3 &nbsp; Method 3: Dynamic Programming
+![Recursion tree for memoized search](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png){ class="animation-figure" }
 
-**Memoization is a "top-down" method**: we start from the original problem (root node), recursively decompose larger subproblems into smaller ones, until reaching the smallest known subproblems (leaf nodes). Afterward, by backtracking, we collect the solutions to the subproblems layer by layer to construct the solution to the original problem.
+<p align="center"> Figure 14-4 &nbsp; Recursion tree for memoized search </p>
 
-In contrast, **dynamic programming is a "bottom-up" method**: starting from the solutions to the smallest subproblems, iteratively constructing solutions to larger subproblems until obtaining the solution to the original problem.
+## 14.1.3 &nbsp; Method 3: Dynamic programming
 
-Since dynamic programming does not include a backtracking process, it only requires loop iteration for implementation and does not need recursion. In the following code, we initialize an array `dp` to store the solutions to subproblems, which serves the same recording function as the array `mem` in memoization:
+**Memoized search is a top-down approach**: start with the original problem (the root), recursively divide larger subproblems into smaller ones until reaching the smallest subproblems with known solutions (the leaves), then collect their solutions as recursion returns to construct the solution to the original problem.
+
+In contrast, **dynamic programming is a bottom-up approach**: start with the smallest subproblem solutions and iteratively build solutions to larger subproblems until the original problem is solved.
+
+Because this dynamic programming process does not backtrack, it needs only iterative loops, not recursion. In the following code, the array `dp` stores subproblem solutions, serving the same role as `mem` in memoized search:
 
 === "Python"
 
     ```python title="climbing_stairs_dp.py"
     def climbing_stairs_dp(n: int) -> int:
-        """Climbing stairs: Dynamic programming"""
+        """Climbing stairs: dynamic programming"""
         if n == 1 or n == 2:
             return n
-        # Initialize dp table, used to store solutions to subproblems
+        # Initialize the dp table to store subproblem solutions
         dp = [0] * (n + 1)
-        # Initial state: preset the solution to the smallest subproblem
+        # Initial states: set the solutions to the smallest subproblems
         dp[1], dp[2] = 1, 2
-        # State transition: gradually solve larger subproblems from smaller ones
+        # State transitions: solve progressively larger subproblems using smaller ones
         for i in range(3, n + 1):
             dp[i] = dp[i - 1] + dp[i - 2]
         return dp[n]
@@ -1086,16 +1101,16 @@ Since dynamic programming does not include a backtracking process, it only requi
 === "C++"
 
     ```cpp title="climbing_stairs_dp.cpp"
-    /* Climbing stairs: Dynamic programming */
+    /* Climbing stairs: dynamic programming */
     int climbingStairsDP(int n) {
         if (n == 1 || n == 2)
             return n;
-        // Initialize dp table, used to store solutions to subproblems
+        // Initialize the dp table to store subproblem solutions
         vector<int> dp(n + 1);
-        // Initial state: preset the solution to the smallest subproblem
+        // Initial states: set the solutions to the smallest subproblems
         dp[1] = 1;
         dp[2] = 2;
-        // State transition: gradually solve larger subproblems from smaller ones
+        // State transitions: solve progressively larger subproblems using smaller ones
         for (int i = 3; i <= n; i++) {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
@@ -1106,16 +1121,16 @@ Since dynamic programming does not include a backtracking process, it only requi
 === "Java"
 
     ```java title="climbing_stairs_dp.java"
-    /* Climbing stairs: Dynamic programming */
+    /* Climbing stairs: dynamic programming */
     int climbingStairsDP(int n) {
         if (n == 1 || n == 2)
             return n;
-        // Initialize dp table, used to store solutions to subproblems
+        // Initialize the dp table to store subproblem solutions
         int[] dp = new int[n + 1];
-        // Initial state: preset the solution to the smallest subproblem
+        // Initial states: set the solutions to the smallest subproblems
         dp[1] = 1;
         dp[2] = 2;
-        // State transition: gradually solve larger subproblems from smaller ones
+        // State transitions: solve progressively larger subproblems using smaller ones
         for (int i = 3; i <= n; i++) {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
@@ -1126,16 +1141,16 @@ Since dynamic programming does not include a backtracking process, it only requi
 === "C#"
 
     ```csharp title="climbing_stairs_dp.cs"
-    /* Climbing stairs: Dynamic programming */
+    /* Climbing stairs: dynamic programming */
     int ClimbingStairsDP(int n) {
         if (n == 1 || n == 2)
             return n;
-        // Initialize dp table, used to store solutions to subproblems
+        // Initialize the dp table to store subproblem solutions
         int[] dp = new int[n + 1];
-        // Initial state: preset the solution to the smallest subproblem
+        // Initial states: set the solutions to the smallest subproblems
         dp[1] = 1;
         dp[2] = 2;
-        // State transition: gradually solve larger subproblems from smaller ones
+        // State transitions: solve progressively larger subproblems using smaller ones
         for (int i = 3; i <= n; i++) {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
@@ -1146,17 +1161,17 @@ Since dynamic programming does not include a backtracking process, it only requi
 === "Go"
 
     ```go title="climbing_stairs_dp.go"
-    /* Climbing stairs: Dynamic programming */
+    /* Climbing stairs: dynamic programming */
     func climbingStairsDP(n int) int {
         if n == 1 || n == 2 {
             return n
         }
-        // Initialize dp table, used to store solutions to subproblems
+        // Initialize the dp table to store subproblem solutions
         dp := make([]int, n+1)
-        // Initial state: preset the solution to the smallest subproblem
+        // Initial states: set the solutions to the smallest subproblems
         dp[1] = 1
         dp[2] = 2
-        // State transition: gradually solve larger subproblems from smaller ones
+        // State transitions: solve progressively larger subproblems using smaller ones
         for i := 3; i <= n; i++ {
             dp[i] = dp[i-1] + dp[i-2]
         }
@@ -1167,17 +1182,17 @@ Since dynamic programming does not include a backtracking process, it only requi
 === "Swift"
 
     ```swift title="climbing_stairs_dp.swift"
-    /* Climbing stairs: Dynamic programming */
+    /* Climbing stairs: dynamic programming */
     func climbingStairsDP(n: Int) -> Int {
         if n == 1 || n == 2 {
             return n
         }
-        // Initialize dp table, used to store solutions to subproblems
+        // Initialize the dp table to store subproblem solutions
         var dp = Array(repeating: 0, count: n + 1)
-        // Initial state: preset the solution to the smallest subproblem
+        // Initial states: set the solutions to the smallest subproblems
         dp[1] = 1
         dp[2] = 2
-        // State transition: gradually solve larger subproblems from smaller ones
+        // State transitions: solve progressively larger subproblems using smaller ones
         for i in 3 ... n {
             dp[i] = dp[i - 1] + dp[i - 2]
         }
@@ -1188,15 +1203,15 @@ Since dynamic programming does not include a backtracking process, it only requi
 === "JS"
 
     ```javascript title="climbing_stairs_dp.js"
-    /* Climbing stairs: Dynamic programming */
+    /* Climbing stairs: dynamic programming */
     function climbingStairsDP(n) {
         if (n === 1 || n === 2) return n;
-        // Initialize dp table, used to store solutions to subproblems
+        // Initialize the dp table to store subproblem solutions
         const dp = new Array(n + 1).fill(-1);
-        // Initial state: preset the solution to the smallest subproblem
+        // Initial states: set the solutions to the smallest subproblems
         dp[1] = 1;
         dp[2] = 2;
-        // State transition: gradually solve larger subproblems from smaller ones
+        // State transitions: solve progressively larger subproblems using smaller ones
         for (let i = 3; i <= n; i++) {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
@@ -1207,15 +1222,15 @@ Since dynamic programming does not include a backtracking process, it only requi
 === "TS"
 
     ```typescript title="climbing_stairs_dp.ts"
-    /* Climbing stairs: Dynamic programming */
+    /* Climbing stairs: dynamic programming */
     function climbingStairsDP(n: number): number {
         if (n === 1 || n === 2) return n;
-        // Initialize dp table, used to store solutions to subproblems
+        // Initialize the dp table to store subproblem solutions
         const dp = new Array(n + 1).fill(-1);
-        // Initial state: preset the solution to the smallest subproblem
+        // Initial states: set the solutions to the smallest subproblems
         dp[1] = 1;
         dp[2] = 2;
-        // State transition: gradually solve larger subproblems from smaller ones
+        // State transitions: solve progressively larger subproblems using smaller ones
         for (let i = 3; i <= n; i++) {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
@@ -1226,15 +1241,15 @@ Since dynamic programming does not include a backtracking process, it only requi
 === "Dart"
 
     ```dart title="climbing_stairs_dp.dart"
-    /* Climbing stairs: Dynamic programming */
+    /* Climbing stairs: dynamic programming */
     int climbingStairsDP(int n) {
       if (n == 1 || n == 2) return n;
-      // Initialize dp table, used to store solutions to subproblems
+      // Initialize the dp table to store subproblem solutions
       List<int> dp = List.filled(n + 1, 0);
-      // Initial state: preset the solution to the smallest subproblem
+      // Initial states: set the solutions to the smallest subproblems
       dp[1] = 1;
       dp[2] = 2;
-      // State transition: gradually solve larger subproblems from smaller ones
+      // State transitions: solve progressively larger subproblems using smaller ones
       for (int i = 3; i <= n; i++) {
         dp[i] = dp[i - 1] + dp[i - 2];
       }
@@ -1245,18 +1260,18 @@ Since dynamic programming does not include a backtracking process, it only requi
 === "Rust"
 
     ```rust title="climbing_stairs_dp.rs"
-    /* Climbing stairs: Dynamic programming */
+    /* Climbing stairs: dynamic programming */
     fn climbing_stairs_dp(n: usize) -> i32 {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if n == 1 || n == 2 {
             return n as i32;
         }
-        // Initialize dp table, used to store solutions to subproblems
+        // Initialize the dp table to store subproblem solutions
         let mut dp = vec![-1; n + 1];
-        // Initial state: preset the solution to the smallest subproblem
+        // Initial states: set the solutions to the smallest subproblems
         dp[1] = 1;
         dp[2] = 2;
-        // State transition: gradually solve larger subproblems from smaller ones
+        // State transitions: solve progressively larger subproblems using smaller ones
         for i in 3..=n {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
@@ -1267,16 +1282,16 @@ Since dynamic programming does not include a backtracking process, it only requi
 === "C"
 
     ```c title="climbing_stairs_dp.c"
-    /* Climbing stairs: Dynamic programming */
+    /* Climbing stairs: dynamic programming */
     int climbingStairsDP(int n) {
         if (n == 1 || n == 2)
             return n;
-        // Initialize dp table, used to store solutions to subproblems
+        // Initialize the dp table to store subproblem solutions
         int *dp = (int *)malloc((n + 1) * sizeof(int));
-        // Initial state: preset the solution to the smallest subproblem
+        // Initial states: set the solutions to the smallest subproblems
         dp[1] = 1;
         dp[2] = 2;
-        // State transition: gradually solve larger subproblems from smaller ones
+        // State transitions: solve progressively larger subproblems using smaller ones
         for (int i = 3; i <= n; i++) {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
@@ -1289,15 +1304,15 @@ Since dynamic programming does not include a backtracking process, it only requi
 === "Kotlin"
 
     ```kotlin title="climbing_stairs_dp.kt"
-    /* Climbing stairs: Dynamic programming */
+    /* Climbing stairs: dynamic programming */
     fun climbingStairsDP(n: Int): Int {
         if (n == 1 || n == 2) return n
-        // Initialize dp table, used to store solutions to subproblems
+        // Initialize the dp table to store subproblem solutions
         val dp = IntArray(n + 1)
-        // Initial state: preset the solution to the smallest subproblem
+        // Initial states: set the solutions to the smallest subproblems
         dp[1] = 1
         dp[2] = 2
-        // State transition: gradually solve larger subproblems from smaller ones
+        // State transitions: solve progressively larger subproblems using smaller ones
         for (i in 3..n) {
             dp[i] = dp[i - 1] + dp[i - 2]
         }
@@ -1312,40 +1327,45 @@ Since dynamic programming does not include a backtracking process, it only requi
     def climbing_stairs_dp(n)
       return n  if n == 1 || n == 2
 
-      # Initialize dp table, used to store solutions to subproblems
+      # Initialize the dp table to store subproblem solutions
       dp = Array.new(n + 1, 0)
-      # Initial state: preset the solution to the smallest subproblem
+      # Initial states: set the solutions to the smallest subproblems
       dp[1], dp[2] = 1, 2
-      # State transition: gradually solve larger subproblems from smaller ones
+      # State transitions: solve progressively larger subproblems using smaller ones
       (3...(n + 1)).each { |i| dp[i] = dp[i - 1] + dp[i - 2] }
 
       dp[n]
     end
     ```
 
-Figure 14-5 simulates the execution process of the above code.
+??? pythontutor "Visualize execution"
 
-![Dynamic programming process for climbing stairs](intro_to_dynamic_programming.assets/climbing_stairs_dp.png){ class="animation-figure" }
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20climbing_stairs_dp%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Climbing%20stairs%3A%20dynamic%20programming%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20n%0A%20%20%20%20%23%20Initialize%20the%20dp%20table%20to%20store%20subproblem%20solutions%0A%20%20%20%20dp%20%3D%20%5B0%5D%20%2A%20%28n%20%2B%201%29%0A%20%20%20%20%23%20Initial%20states%3A%20set%20the%20solutions%20to%20the%20smallest%20subproblems%0A%20%20%20%20dp%5B1%5D,%20dp%5B2%5D%20%3D%201,%202%0A%20%20%20%20%23%20State%20transitions%3A%20solve%20progressively%20larger%20subproblems%20using%20smaller%20ones%0A%20%20%20%20for%20i%20in%20range%283,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%20%3D%20dp%5Bi%20-%201%5D%20%2B%20dp%5Bi%20-%202%5D%0A%20%20%20%20return%20dp%5Bn%5D%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%209%0A%0A%20%20%20%20res%20%3D%20climbing_stairs_dp%28n%29%0A%20%20%20%20print%28f%22Number%20of%20ways%20to%20climb%20%7Bn%7D%20stairs%3A%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20climbing_stairs_dp%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Climbing%20stairs%3A%20dynamic%20programming%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20n%0A%20%20%20%20%23%20Initialize%20the%20dp%20table%20to%20store%20subproblem%20solutions%0A%20%20%20%20dp%20%3D%20%5B0%5D%20%2A%20%28n%20%2B%201%29%0A%20%20%20%20%23%20Initial%20states%3A%20set%20the%20solutions%20to%20the%20smallest%20subproblems%0A%20%20%20%20dp%5B1%5D,%20dp%5B2%5D%20%3D%201,%202%0A%20%20%20%20%23%20State%20transitions%3A%20solve%20progressively%20larger%20subproblems%20using%20smaller%20ones%0A%20%20%20%20for%20i%20in%20range%283,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%20%3D%20dp%5Bi%20-%201%5D%20%2B%20dp%5Bi%20-%202%5D%0A%20%20%20%20return%20dp%5Bn%5D%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%209%0A%0A%20%20%20%20res%20%3D%20climbing_stairs_dp%28n%29%0A%20%20%20%20print%28f%22Number%20of%20ways%20to%20climb%20%7Bn%7D%20stairs%3A%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-<p align="center"> Figure 14-5 &nbsp; Dynamic programming process for climbing stairs </p>
+Figure 14-5 traces the code's execution.
 
-Like backtracking algorithms, dynamic programming also uses the "state" concept to represent specific stages of problem solving, with each state corresponding to a subproblem and its corresponding local optimal solution. For example, the state in the stair climbing problem is defined as the current stair step number $i$.
+![Dynamic programming for climbing stairs](intro_to_dynamic_programming.assets/climbing_stairs_dp.png){ class="animation-figure" }
 
-Based on the above content, we can summarize the commonly used terminology in dynamic programming.
+<p align="center"> Figure 14-5 &nbsp; Dynamic programming for climbing stairs </p>
 
-- The array `dp` is called the <u>dp table</u>, where $dp[i]$ represents the solution to the subproblem corresponding to state $i$.
-- The states corresponding to the smallest subproblems (the $1$st and $2$nd steps) are called <u>initial states</u>.
-- The recurrence formula $dp[i] = dp[i-1] + dp[i-2]$ is called the <u>state transition equation</u>.
+Like backtracking, dynamic programming uses states to represent stages of solving a problem. Each state corresponds to a subproblem and its locally optimal solution. For climbing stairs, the state is the current step number $i$.
 
-## 14.1.4 &nbsp; Space Optimization
+We can now summarize some common dynamic programming terminology.
 
-Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i-1]$ and $dp[i-2]$, we do not need to use an array `dp` to store the solutions to all subproblems**, and can instead use two variables that roll forward. The code is as follows:
+- The array `dp` is called the <u>dp table</u>, and $dp[i]$ stores the solution to the subproblem for state $i$.
+- The states for the smallest subproblems (steps $1$ and $2$) are called the <u>initial states</u>.
+- The recurrence $dp[i] = dp[i-1] + dp[i-2]$ is called the <u>state transition equation</u>.
+
+## 14.1.4 &nbsp; Space optimization
+
+You may have noticed that **$dp[i]$ depends only on $dp[i-1]$ and $dp[i-2]$, so we do not need an entire `dp` array storing every subproblem solution**. Two variables updated as we proceed are enough. The code is as follows:
 
 === "Python"
 
     ```python title="climbing_stairs_dp.py"
     def climbing_stairs_dp_comp(n: int) -> int:
-        """Climbing stairs: Space-optimized dynamic programming"""
+        """Climbing stairs: space-optimized dynamic programming"""
         if n == 1 or n == 2:
             return n
         a, b = 1, 2
@@ -1357,7 +1377,7 @@ Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i
 === "C++"
 
     ```cpp title="climbing_stairs_dp.cpp"
-    /* Climbing stairs: Space-optimized dynamic programming */
+    /* Climbing stairs: space-optimized dynamic programming */
     int climbingStairsDPComp(int n) {
         if (n == 1 || n == 2)
             return n;
@@ -1374,7 +1394,7 @@ Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i
 === "Java"
 
     ```java title="climbing_stairs_dp.java"
-    /* Climbing stairs: Space-optimized dynamic programming */
+    /* Climbing stairs: space-optimized dynamic programming */
     int climbingStairsDPComp(int n) {
         if (n == 1 || n == 2)
             return n;
@@ -1391,7 +1411,7 @@ Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i
 === "C#"
 
     ```csharp title="climbing_stairs_dp.cs"
-    /* Climbing stairs: Space-optimized dynamic programming */
+    /* Climbing stairs: space-optimized dynamic programming */
     int ClimbingStairsDPComp(int n) {
         if (n == 1 || n == 2)
             return n;
@@ -1408,13 +1428,13 @@ Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i
 === "Go"
 
     ```go title="climbing_stairs_dp.go"
-    /* Climbing stairs: Space-optimized dynamic programming */
+    /* Climbing stairs: space-optimized dynamic programming */
     func climbingStairsDPComp(n int) int {
         if n == 1 || n == 2 {
             return n
         }
         a, b := 1, 2
-        // State transition: gradually solve larger subproblems from smaller ones
+        // State transitions: solve progressively larger subproblems using smaller ones
         for i := 3; i <= n; i++ {
             a, b = b, a+b
         }
@@ -1425,7 +1445,7 @@ Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i
 === "Swift"
 
     ```swift title="climbing_stairs_dp.swift"
-    /* Climbing stairs: Space-optimized dynamic programming */
+    /* Climbing stairs: space-optimized dynamic programming */
     func climbingStairsDPComp(n: Int) -> Int {
         if n == 1 || n == 2 {
             return n
@@ -1442,7 +1462,7 @@ Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i
 === "JS"
 
     ```javascript title="climbing_stairs_dp.js"
-    /* Climbing stairs: Space-optimized dynamic programming */
+    /* Climbing stairs: space-optimized dynamic programming */
     function climbingStairsDPComp(n) {
         if (n === 1 || n === 2) return n;
         let a = 1,
@@ -1459,7 +1479,7 @@ Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i
 === "TS"
 
     ```typescript title="climbing_stairs_dp.ts"
-    /* Climbing stairs: Space-optimized dynamic programming */
+    /* Climbing stairs: space-optimized dynamic programming */
     function climbingStairsDPComp(n: number): number {
         if (n === 1 || n === 2) return n;
         let a = 1,
@@ -1476,7 +1496,7 @@ Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i
 === "Dart"
 
     ```dart title="climbing_stairs_dp.dart"
-    /* Climbing stairs: Space-optimized dynamic programming */
+    /* Climbing stairs: space-optimized dynamic programming */
     int climbingStairsDPComp(int n) {
       if (n == 1 || n == 2) return n;
       int a = 1, b = 2;
@@ -1492,7 +1512,7 @@ Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i
 === "Rust"
 
     ```rust title="climbing_stairs_dp.rs"
-    /* Climbing stairs: Space-optimized dynamic programming */
+    /* Climbing stairs: space-optimized dynamic programming */
     fn climbing_stairs_dp_comp(n: usize) -> i32 {
         if n == 1 || n == 2 {
             return n as i32;
@@ -1510,7 +1530,7 @@ Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i
 === "C"
 
     ```c title="climbing_stairs_dp.c"
-    /* Climbing stairs: Space-optimized dynamic programming */
+    /* Climbing stairs: space-optimized dynamic programming */
     int climbingStairsDPComp(int n) {
         if (n == 1 || n == 2)
             return n;
@@ -1527,7 +1547,7 @@ Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i
 === "Kotlin"
 
     ```kotlin title="climbing_stairs_dp.kt"
-    /* Climbing stairs: Space-optimized dynamic programming */
+    /* Climbing stairs: space-optimized dynamic programming */
     fun climbingStairsDPComp(n: Int): Int {
         if (n == 1 || n == 2) return n
         var a = 1
@@ -1544,7 +1564,7 @@ Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i
 === "Ruby"
 
     ```ruby title="climbing_stairs_dp.rb"
-    ### Climbing stairs: space-optimized DP ###
+    ### Climbing stairs: space-optimized dynamic programming ###
     def climbing_stairs_dp_comp(n)
       return n if n == 1 || n == 2
 
@@ -1555,6 +1575,11 @@ Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i
     end
     ```
 
-As the above code shows, by eliminating the space occupied by the array `dp`, the space complexity is reduced from $O(n)$ to $O(1)$.
+??? pythontutor "Visualize execution"
 
-In dynamic programming problems, the current state often depends only on a limited number of preceding states, allowing us to retain only the necessary states and save memory space through "dimension reduction". **This space optimization technique is called "rolling variable" or "rolling array"**.
+    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20climbing_stairs_dp_comp%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Climbing%20stairs%3A%20space-optimized%20dynamic%20programming%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20n%0A%20%20%20%20a,%20b%20%3D%201,%202%0A%20%20%20%20for%20_%20in%20range%283,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20a,%20b%20%3D%20b,%20a%20%2B%20b%0A%20%20%20%20return%20b%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%209%0A%0A%20%20%20%20res%20%3D%20climbing_stairs_dp_comp%28n%29%0A%20%20%20%20print%28f%22Number%20of%20ways%20to%20climb%20%7Bn%7D%20stairs%3A%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20climbing_stairs_dp_comp%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Climbing%20stairs%3A%20space-optimized%20dynamic%20programming%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20n%0A%20%20%20%20a,%20b%20%3D%201,%202%0A%20%20%20%20for%20_%20in%20range%283,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20a,%20b%20%3D%20b,%20a%20%2B%20b%0A%20%20%20%20return%20b%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%209%0A%0A%20%20%20%20res%20%3D%20climbing_stairs_dp_comp%28n%29%0A%20%20%20%20print%28f%22Number%20of%20ways%20to%20climb%20%7Bn%7D%20stairs%3A%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+Removing the `dp` array reduces space complexity from $O(n)$ to $O(1)$.
+
+In dynamic programming, a state often depends on only a limited number of preceding states. We can keep just those needed, reducing the storage dimensions to save memory. **This technique is called using rolling variables or a rolling array**.

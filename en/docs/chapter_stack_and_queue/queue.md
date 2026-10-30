@@ -2,42 +2,42 @@
 comments: true
 ---
 
-# 5.2 &nbsp; Queue
+# 5.2 &nbsp; Queues
 
-A <u>queue</u> is a linear data structure that follows the First In, First Out (FIFO) rule. As the name suggests, it models people lining up: newcomers continuously join the rear of the queue, while the people at the front leave one by one.
+A <u>queue</u> is a linear data structure that follows a first-in, first-out rule. It models a line of people: newcomers join at the back, while those at the front leave one by one.
 
-As shown in Figure 5-4, we call the front of the queue the "front" and the end the "rear." The operation of adding an element to the rear is called "enqueue," and the operation of removing the front element is called "dequeue."
+As shown below, the two ends are called the “front” and the “rear.” Adding an element at the rear is called “enqueueing,” and removing an element from the front is called “dequeueing.”
 
-![FIFO rule of queue](queue.assets/queue_operations.png){ class="animation-figure" }
+![The first-in, first-out rule of a queue](queue.assets/queue_operations.png){ class="animation-figure" }
 
-<p align="center"> Figure 5-4 &nbsp; FIFO rule of queue </p>
+<p align="center"> Figure 5-4 &nbsp; The first-in, first-out rule of a queue </p>
 
-## 5.2.1 &nbsp; Common Queue Operations
+## 5.2.1 &nbsp; Common queue operations
 
-The common operations on a queue are shown in Table 5-2. Note that method names may vary across programming languages. Here, we use the same naming convention as for stacks.
+Table 5-2 lists common operations. Method names vary between programming languages; here we use the same names as for stacks.
 
-<p align="center"> Table 5-2 &nbsp; Efficiency of Queue Operations </p>
+<p align="center"> Table 5-2 &nbsp; Efficiency of queue operations </p>
 
 <div class="center-table" markdown>
 
-| Method   | Description                                | Time Complexity |
-| -------- | ------------------------------------------ | --------------- |
-| `push()` | Enqueue element, add element to rear       | $O(1)$          |
-| `pop()`  | Dequeue front element                      | $O(1)$          |
-| `peek()` | Access front element                       | $O(1)$          |
+| Method   | Description                         | Time complexity |
+| -------- | ---------------------------- | ---------- |
+| `push()` | Enqueue an element at the rear | $O(1)$     |
+| `pop()`  | Dequeue the front element                 | $O(1)$     |
+| `peek()` | Access the front element                 | $O(1)$     |
 
 </div>
 
-We can directly use the queue classes provided by the programming language:
+We can use a queue class already provided by the programming language:
 
 === "Python"
 
     ```python title="queue.py"
     from collections import deque
 
-    # Initialize queue
-    # In Python, we generally use the deque class as a queue
-    # Although queue.Queue() is a pure queue class, it is not very user-friendly, so it is not recommended
+    # Initialize a queue
+    # In Python, we usually use the deque class as a queue
+    # Although queue.Queue() is a dedicated queue class, it is less convenient and is not recommended here
     que: deque[int] = deque()
 
     # Enqueue elements
@@ -47,23 +47,23 @@ We can directly use the queue classes provided by the programming language:
     que.append(5)
     que.append(4)
 
-    # Access front element
+    # Access the front element
     front: int = que[0]
 
-    # Dequeue element
+    # Dequeue an element
     pop: int = que.popleft()
 
-    # Get queue length
+    # Get the queue size
     size: int = len(que)
 
-    # Check if queue is empty
+    # Check whether the queue is empty
     is_empty: bool = len(que) == 0
     ```
 
 === "C++"
 
     ```cpp title="queue.cpp"
-    /* Initialize queue */
+    /* Initialize a queue */
     queue<int> queue;
 
     /* Enqueue elements */
@@ -73,23 +73,23 @@ We can directly use the queue classes provided by the programming language:
     queue.push(5);
     queue.push(4);
 
-    /* Access front element */
+    /* Access the front element */
     int front = queue.front();
 
-    /* Dequeue element */
+    /* Dequeue an element */
     queue.pop();
 
-    /* Get queue length */
+    /* Get the queue size */
     int size = queue.size();
 
-    /* Check if queue is empty */
+    /* Check whether the queue is empty */
     bool empty = queue.empty();
     ```
 
 === "Java"
 
     ```java title="queue.java"
-    /* Initialize queue */
+    /* Initialize a queue */
     Queue<Integer> queue = new LinkedList<>();
 
     /* Enqueue elements */
@@ -99,23 +99,23 @@ We can directly use the queue classes provided by the programming language:
     queue.offer(5);
     queue.offer(4);
 
-    /* Access front element */
+    /* Access the front element */
     int peek = queue.peek();
 
-    /* Dequeue element */
+    /* Dequeue an element */
     int pop = queue.poll();
 
-    /* Get queue length */
+    /* Get the queue size */
     int size = queue.size();
 
-    /* Check if queue is empty */
+    /* Check whether the queue is empty */
     boolean isEmpty = queue.isEmpty();
     ```
 
 === "C#"
 
     ```csharp title="queue.cs"
-    /* Initialize queue */
+    /* Initialize a queue */
     Queue<int> queue = new();
 
     /* Enqueue elements */
@@ -125,24 +125,24 @@ We can directly use the queue classes provided by the programming language:
     queue.Enqueue(5);
     queue.Enqueue(4);
 
-    /* Access front element */
+    /* Access the front element */
     int peek = queue.Peek();
 
-    /* Dequeue element */
+    /* Dequeue an element */
     int pop = queue.Dequeue();
 
-    /* Get queue length */
+    /* Get the queue size */
     int size = queue.Count;
 
-    /* Check if queue is empty */
+    /* Check whether the queue is empty */
     bool isEmpty = queue.Count == 0;
     ```
 
 === "Go"
 
     ```go title="queue_test.go"
-    /* Initialize queue */
-    // In Go, use list as a queue
+    /* Initialize a queue */
+    // In Go, use a list as a queue
     queue := list.New()
 
     /* Enqueue elements */
@@ -152,25 +152,25 @@ We can directly use the queue classes provided by the programming language:
     queue.PushBack(5)
     queue.PushBack(4)
 
-    /* Access front element */
+    /* Access the front element */
     peek := queue.Front()
 
-    /* Dequeue element */
+    /* Dequeue an element */
     pop := queue.Front()
     queue.Remove(pop)
 
-    /* Get queue length */
+    /* Get the queue size */
     size := queue.Len()
 
-    /* Check if queue is empty */
+    /* Check whether the queue is empty */
     isEmpty := queue.Len() == 0
     ```
 
 === "Swift"
 
     ```swift title="queue.swift"
-    /* Initialize queue */
-    // Swift does not have a built-in queue class, can use Array as a queue
+    /* Initialize a queue */
+    // Swift has no built-in queue class; use an Array as a queue
     var queue: [Int] = []
 
     /* Enqueue elements */
@@ -180,25 +180,25 @@ We can directly use the queue classes provided by the programming language:
     queue.append(5)
     queue.append(4)
 
-    /* Access front element */
+    /* Access the front element */
     let peek = queue.first!
 
-    /* Dequeue element */
-    // Since it's an array, removeFirst has O(n) complexity
+    /* Dequeue an element */
+    // Because this is an array, removeFirst takes O(n) time
     let pop = queue.removeFirst()
 
-    /* Get queue length */
+    /* Get the queue size */
     let size = queue.count
 
-    /* Check if queue is empty */
+    /* Check whether the queue is empty */
     let isEmpty = queue.isEmpty
     ```
 
 === "JS"
 
     ```javascript title="queue.js"
-    /* Initialize queue */
-    // JavaScript does not have a built-in queue, can use Array as a queue
+    /* Initialize a queue */
+    // JavaScript has no built-in queue; use an Array as a queue
     const queue = [];
 
     /* Enqueue elements */
@@ -208,25 +208,25 @@ We can directly use the queue classes provided by the programming language:
     queue.push(5);
     queue.push(4);
 
-    /* Access front element */
+    /* Access the front element */
     const peek = queue[0];
 
-    /* Dequeue element */
-    // The underlying structure is an array, so shift() has O(n) time complexity
+    /* Dequeue an element */
+    // The underlying structure is an array, so shift() takes O(n) time
     const pop = queue.shift();
 
-    /* Get queue length */
+    /* Get the queue size */
     const size = queue.length;
 
-    /* Check if queue is empty */
+    /* Check whether the queue is empty */
     const empty = queue.length === 0;
     ```
 
 === "TS"
 
     ```typescript title="queue.ts"
-    /* Initialize queue */
-    // TypeScript does not have a built-in queue, can use Array as a queue
+    /* Initialize a queue */
+    // TypeScript has no built-in queue; use an Array as a queue
     const queue: number[] = [];
 
     /* Enqueue elements */
@@ -236,25 +236,25 @@ We can directly use the queue classes provided by the programming language:
     queue.push(5);
     queue.push(4);
 
-    /* Access front element */
+    /* Access the front element */
     const peek = queue[0];
 
-    /* Dequeue element */
-    // The underlying structure is an array, so shift() has O(n) time complexity
+    /* Dequeue an element */
+    // The underlying structure is an array, so shift() takes O(n) time
     const pop = queue.shift();
 
-    /* Get queue length */
+    /* Get the queue size */
     const size = queue.length;
 
-    /* Check if queue is empty */
+    /* Check whether the queue is empty */
     const empty = queue.length === 0;
     ```
 
 === "Dart"
 
     ```dart title="queue.dart"
-    /* Initialize queue */
-    // In Dart, the Queue class is a deque and can also be used as a queue
+    /* Initialize a queue */
+    // In Dart, Queue is a deque and can also be used as a queue
     Queue<int> queue = Queue();
 
     /* Enqueue elements */
@@ -264,24 +264,24 @@ We can directly use the queue classes provided by the programming language:
     queue.add(5);
     queue.add(4);
 
-    /* Access front element */
+    /* Access the front element */
     int peek = queue.first;
 
-    /* Dequeue element */
+    /* Dequeue an element */
     int pop = queue.removeFirst();
 
-    /* Get queue length */
+    /* Get the queue size */
     int size = queue.length;
 
-    /* Check if queue is empty */
+    /* Check whether the queue is empty */
     bool isEmpty = queue.isEmpty;
     ```
 
 === "Rust"
 
     ```rust title="queue.rs"
-    /* Initialize deque */
-    // In Rust, use deque as a regular queue
+    /* Initialize a deque */
+    // In Rust, use a deque as an ordinary queue
     let mut deque: VecDeque<u32> = VecDeque::new();
 
     /* Enqueue elements */
@@ -291,31 +291,31 @@ We can directly use the queue classes provided by the programming language:
     deque.push_back(5);
     deque.push_back(4);
 
-    /* Access front element */
+    /* Access the front element */
     if let Some(front) = deque.front() {
     }
 
-    /* Dequeue element */
+    /* Dequeue an element */
     if let Some(pop) = deque.pop_front() {
     }
 
-    /* Get queue length */
+    /* Get the queue size */
     let size = deque.len();
 
-    /* Check if queue is empty */
+    /* Check whether the queue is empty */
     let is_empty = deque.is_empty();
     ```
 
 === "C"
 
     ```c title="queue.c"
-    // C does not provide a built-in queue
+    // C provides no built-in queue
     ```
 
 === "Kotlin"
 
     ```kotlin title="queue.kt"
-    /* Initialize queue */
+    /* Initialize a queue */
     val queue = LinkedList<Int>()
 
     /* Enqueue elements */
@@ -325,24 +325,24 @@ We can directly use the queue classes provided by the programming language:
     queue.offer(5)
     queue.offer(4)
 
-    /* Access front element */
+    /* Access the front element */
     val peek = queue.peek()
 
-    /* Dequeue element */
+    /* Dequeue an element */
     val pop = queue.poll()
 
-    /* Get queue length */
+    /* Get the queue size */
     val size = queue.size
 
-    /* Check if queue is empty */
+    /* Check whether the queue is empty */
     val isEmpty = queue.isEmpty()
     ```
 
 === "Ruby"
 
     ```ruby title="queue.rb"
-    # Initialize queue
-    # Ruby's built-in queue (Thread::Queue) does not have peek and traversal methods, can use Array as a queue
+    # Initialize a queue
+    # Ruby's built-in Thread::Queue has no peek or traversal methods; use an Array as a queue
     queue = []
 
     # Enqueue elements
@@ -352,35 +352,35 @@ We can directly use the queue classes provided by the programming language:
     queue.push(5)
     queue.push(4)
 
-    # Access front element
+    # Access the front element of the queue
     peek = queue.first
 
-    # Dequeue element
-    # Please note that since it's an array, Array#shift has O(n) time complexity
+    # Dequeue an element
+    # Note that this is an array, so Array#shift takes O(n) time
     pop = queue.shift
 
-    # Get queue length
+    # Get the queue size
     size = queue.length
 
-    # Check if queue is empty
+    # Check whether the queue is empty
     is_empty = queue.empty?
     ```
 
-??? pythontutor "Code Visualization"
+??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Code Visualization" src="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%98%9F%E5%88%97%0A%20%20%20%20%23%20%E5%9C%A8%20Python%20%E4%B8%AD%EF%BC%8C%E6%88%91%E4%BB%AC%E4%B8%80%E8%88%AC%E5%B0%86%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E7%B1%BB%20deque%20%E7%9C%8B%E4%BD%9C%E9%98%9F%E5%88%97%E4%BD%BF%E7%94%A8%0A%20%20%20%20%23%20%E8%99%BD%E7%84%B6%20queue.Queue%28%29%20%E6%98%AF%E7%BA%AF%E6%AD%A3%E7%9A%84%E9%98%9F%E5%88%97%E7%B1%BB%EF%BC%8C%E4%BD%86%E4%B8%8D%E5%A4%AA%E5%A5%BD%E7%94%A8%0A%20%20%20%20que%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E9%98%9F%0A%20%20%20%20que.append%281%29%0A%20%20%20%20que.append%283%29%0A%20%20%20%20que.append%282%29%0A%20%20%20%20que.append%285%29%0A%20%20%20%20que.append%284%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%88%97%20que%20%3D%22,%20que%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20que%5B0%5D%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22,%20front%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20pop%20%3D%20que.popleft%28%29%0A%20%20%20%20print%28%22%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E5%87%BA%E9%98%9F%E5%90%8E%20que%20%3D%22,%20que%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E9%98%9F%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28que%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%88%97%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28que%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%98%9F%E5%88%97%0A%20%20%20%20%23%20%E5%9C%A8%20Python%20%E4%B8%AD%EF%BC%8C%E6%88%91%E4%BB%AC%E4%B8%80%E8%88%AC%E5%B0%86%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E7%B1%BB%20deque%20%E7%9C%8B%E4%BD%9C%E9%98%9F%E5%88%97%E4%BD%BF%E7%94%A8%0A%20%20%20%20%23%20%E8%99%BD%E7%84%B6%20queue.Queue%28%29%20%E6%98%AF%E7%BA%AF%E6%AD%A3%E7%9A%84%E9%98%9F%E5%88%97%E7%B1%BB%EF%BC%8C%E4%BD%86%E4%B8%8D%E5%A4%AA%E5%A5%BD%E7%94%A8%0A%20%20%20%20que%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E9%98%9F%0A%20%20%20%20que.append%281%29%0A%20%20%20%20que.append%283%29%0A%20%20%20%20que.append%282%29%0A%20%20%20%20que.append%285%29%0A%20%20%20%20que.append%284%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%88%97%20que%20%3D%22,%20que%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20que%5B0%5D%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22,%20front%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20pop%20%3D%20que.popleft%28%29%0A%20%20%20%20print%28%22%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E5%87%BA%E9%98%9F%E5%90%8E%20que%20%3D%22,%20que%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E9%98%9F%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28que%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%88%97%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28que%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20a%20queue%0A%20%20%20%20%23%20In%20Python%2C%20we%20usually%20use%20the%20deque%20class%20as%20a%20queue%0A%20%20%20%20%23%20Although%20queue.Queue%28%29%20is%20a%20dedicated%20queue%20class%2C%20it%20is%20less%20convenient%0A%20%20%20%20que%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20Enqueue%20elements%0A%20%20%20%20que.append%281%29%0A%20%20%20%20que.append%283%29%0A%20%20%20%20que.append%282%29%0A%20%20%20%20que.append%285%29%0A%20%20%20%20que.append%284%29%0A%20%20%20%20print%28%22Queue%3A%20que%20%3D%22%2C%20que%29%0A%0A%20%20%20%20%23%20Access%20the%20front%20element%0A%20%20%20%20front%20%3D%20que%5B0%5D%0A%20%20%20%20print%28%22Front%20element%3A%20front%20%3D%22%2C%20front%29%0A%0A%20%20%20%20%23%20Dequeue%20an%20element%0A%20%20%20%20pop%20%3D%20que.popleft%28%29%0A%20%20%20%20print%28%22Dequeued%20element%3A%20pop%20%3D%22%2C%20pop%29%0A%20%20%20%20print%28%22After%20dequeuing%3A%20que%20%3D%22%2C%20que%29%0A%0A%20%20%20%20%23%20Get%20the%20queue%20size%0A%20%20%20%20size%20%3D%20len%28que%29%0A%20%20%20%20print%28%22Queue%20size%3A%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20Check%20whether%20the%20queue%20is%20empty%0A%20%20%20%20is_empty%20%3D%20len%28que%29%20%3D%3D%200%0A%20%20%20%20print%28%22Is%20the%20queue%20empty%20%3D%22%2C%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20a%20queue%0A%20%20%20%20%23%20In%20Python%2C%20we%20usually%20use%20the%20deque%20class%20as%20a%20queue%0A%20%20%20%20%23%20Although%20queue.Queue%28%29%20is%20a%20dedicated%20queue%20class%2C%20it%20is%20less%20convenient%0A%20%20%20%20que%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20Enqueue%20elements%0A%20%20%20%20que.append%281%29%0A%20%20%20%20que.append%283%29%0A%20%20%20%20que.append%282%29%0A%20%20%20%20que.append%285%29%0A%20%20%20%20que.append%284%29%0A%20%20%20%20print%28%22Queue%3A%20que%20%3D%22%2C%20que%29%0A%0A%20%20%20%20%23%20Access%20the%20front%20element%0A%20%20%20%20front%20%3D%20que%5B0%5D%0A%20%20%20%20print%28%22Front%20element%3A%20front%20%3D%22%2C%20front%29%0A%0A%20%20%20%20%23%20Dequeue%20an%20element%0A%20%20%20%20pop%20%3D%20que.popleft%28%29%0A%20%20%20%20print%28%22Dequeued%20element%3A%20pop%20%3D%22%2C%20pop%29%0A%20%20%20%20print%28%22After%20dequeuing%3A%20que%20%3D%22%2C%20que%29%0A%0A%20%20%20%20%23%20Get%20the%20queue%20size%0A%20%20%20%20size%20%3D%20len%28que%29%0A%20%20%20%20print%28%22Queue%20size%3A%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20Check%20whether%20the%20queue%20is%20empty%0A%20%20%20%20is_empty%20%3D%20len%28que%29%20%3D%3D%200%0A%20%20%20%20print%28%22Is%20the%20queue%20empty%20%3D%22%2C%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-## 5.2.2 &nbsp; Queue Implementation
+## 5.2.2 &nbsp; Implementing a queue
 
-To implement a queue, we need a data structure that allows adding elements at one end and removing elements at the other end. Both linked lists and arrays meet this requirement.
+A queue needs a data structure that allows insertion at one end and deletion at the other. Both linked lists and arrays can meet this requirement.
 
-### 1. &nbsp; Linked List Implementation
+### 1. &nbsp; Implementation with a linked list
 
-As shown in Figure 5-5, we can treat the "head node" and "tail node" of a linked list as the "front" and "rear" of the queue, respectively, with the rule that nodes can only be added at the rear and removed from the front.
+As shown below, treat the linked list's head and tail as the queue's front and rear. Nodes may be added only at the rear and removed only from the front.
 
 === "<1>"
-    ![Enqueue and dequeue operations in linked list implementation of queue](queue.assets/linkedlist_queue_step1.png){ class="animation-figure" }
+    ![Enqueue and dequeue in a linked-list queue](queue.assets/linkedlist_queue_step1.png){ class="animation-figure" }
 
 === "<2>"
     ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.png){ class="animation-figure" }
@@ -388,15 +388,15 @@ As shown in Figure 5-5, we can treat the "head node" and "tail node" of a linked
 === "<3>"
     ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.png){ class="animation-figure" }
 
-<p align="center"> Figure 5-5 &nbsp; Enqueue and dequeue operations in linked list implementation of queue </p>
+<p align="center"> Figure 5-5 &nbsp; Enqueue and dequeue in a linked-list queue </p>
 
-Below is the code for implementing a queue using a linked list:
+Here is an implementation using a linked list:
 
 === "Python"
 
     ```python title="linkedlist_queue.py"
     class LinkedListQueue:
-        """Queue based on linked list implementation"""
+        """Queue implemented with a linked list"""
 
         def __init__(self):
             """Constructor"""
@@ -405,22 +405,22 @@ Below is the code for implementing a queue using a linked list:
             self._size: int = 0
 
         def size(self) -> int:
-            """Get the length of the queue"""
+            """Get the queue size"""
             return self._size
 
         def is_empty(self) -> bool:
-            """Check if the queue is empty"""
+            """Check whether the queue is empty"""
             return self._size == 0
 
         def push(self, num: int):
             """Enqueue"""
             # Add num after the tail node
             node = ListNode(num)
-            # If the queue is empty, make both front and rear point to the node
+            # If the queue is empty, make both the head and tail point to this node
             if self._front is None:
                 self._front = node
                 self._rear = node
-            # If the queue is not empty, add the node after the tail node
+            # If the queue is not empty, add this node after the tail node
             else:
                 self._rear.next = node
                 self._rear = node
@@ -429,19 +429,19 @@ Below is the code for implementing a queue using a linked list:
         def pop(self) -> int:
             """Dequeue"""
             num = self.peek()
-            # Delete head node
+            # Remove the head node
             self._front = self._front.next
             self._size -= 1
             return num
 
         def peek(self) -> int:
-            """Access front of the queue element"""
+            """Access the front element"""
             if self.is_empty():
                 raise IndexError("Queue is empty")
             return self._front.val
 
         def to_list(self) -> list[int]:
-            """Convert to list for printing"""
+            """Convert to a list for printing"""
             queue = []
             temp = self._front
             while temp:
@@ -453,10 +453,10 @@ Below is the code for implementing a queue using a linked list:
 === "C++"
 
     ```cpp title="linkedlist_queue.cpp"
-    /* Queue based on linked list implementation */
+    /* Queue implemented with a linked list */
     class LinkedListQueue {
       private:
-        ListNode *front, *rear; // Head node front, tail node rear
+        ListNode *front, *rear; // Head node front and tail node rear
         int queSize;
 
       public:
@@ -467,16 +467,16 @@ Below is the code for implementing a queue using a linked list:
         }
 
         ~LinkedListQueue() {
-            // Traverse linked list to delete nodes and free memory
+            // Traverse the linked list and delete each node to free its memory
             freeMemoryLinkedList(front);
         }
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         int size() {
             return queSize;
         }
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         bool isEmpty() {
             return queSize == 0;
         }
@@ -485,12 +485,12 @@ Below is the code for implementing a queue using a linked list:
         void push(int num) {
             // Add num after the tail node
             ListNode *node = new ListNode(num);
-            // If the queue is empty, make both front and rear point to the node
+            // If the queue is empty, make both the head and tail point to this node
             if (front == nullptr) {
                 front = node;
                 rear = node;
             }
-            // If the queue is not empty, add the node after the tail node
+            // If the queue is not empty, add this node after the tail node
             else {
                 rear->next = node;
                 rear = node;
@@ -501,7 +501,7 @@ Below is the code for implementing a queue using a linked list:
         /* Dequeue */
         int pop() {
             int num = peek();
-            // Delete head node
+            // Remove the head node
             ListNode *tmp = front;
             front = front->next;
             // Free memory
@@ -510,14 +510,14 @@ Below is the code for implementing a queue using a linked list:
             return num;
         }
 
-        /* Return list for printing */
+        /* Access the front element */
         int peek() {
             if (size() == 0)
                 throw out_of_range("Queue is empty");
             return front->val;
         }
 
-        /* Convert linked list to Vector and return */
+        /* Convert the linked list to a vector and return it */
         vector<int> toVector() {
             ListNode *node = front;
             vector<int> res(size());
@@ -533,9 +533,9 @@ Below is the code for implementing a queue using a linked list:
 === "Java"
 
     ```java title="linkedlist_queue.java"
-    /* Queue based on linked list implementation */
+    /* Queue implemented with a linked list */
     class LinkedListQueue {
-        private ListNode front, rear; // Head node front, tail node rear
+        private ListNode front, rear; // Head node front and tail node rear
         private int queSize = 0;
 
         public LinkedListQueue() {
@@ -543,12 +543,12 @@ Below is the code for implementing a queue using a linked list:
             rear = null;
         }
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         public int size() {
             return queSize;
         }
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         public boolean isEmpty() {
             return size() == 0;
         }
@@ -557,11 +557,11 @@ Below is the code for implementing a queue using a linked list:
         public void push(int num) {
             // Add num after the tail node
             ListNode node = new ListNode(num);
-            // If the queue is empty, make both front and rear point to the node
+            // If the queue is empty, make both the head and tail point to this node
             if (front == null) {
                 front = node;
                 rear = node;
-            // If the queue is not empty, add the node after the tail node
+            // If the queue is not empty, add this node after the tail node
             } else {
                 rear.next = node;
                 rear = node;
@@ -572,20 +572,20 @@ Below is the code for implementing a queue using a linked list:
         /* Dequeue */
         public int pop() {
             int num = peek();
-            // Delete head node
+            // Remove the head node
             front = front.next;
             queSize--;
             return num;
         }
 
-        /* Return list for printing */
+        /* Access the front element */
         public int peek() {
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
             return front.val;
         }
 
-        /* Convert linked list to Array and return */
+        /* Convert the linked list to an array and return it */
         public int[] toArray() {
             ListNode node = front;
             int[] res = new int[size()];
@@ -601,9 +601,9 @@ Below is the code for implementing a queue using a linked list:
 === "C#"
 
     ```csharp title="linkedlist_queue.cs"
-    /* Queue based on linked list implementation */
+    /* Queue implemented with a linked list */
     class LinkedListQueue {
-        ListNode? front, rear;  // Head node front, tail node rear
+        ListNode? front, rear;  // Head node front and tail node rear 
         int queSize = 0;
 
         public LinkedListQueue() {
@@ -611,12 +611,12 @@ Below is the code for implementing a queue using a linked list:
             rear = null;
         }
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         public int Size() {
             return queSize;
         }
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         public bool IsEmpty() {
             return Size() == 0;
         }
@@ -625,11 +625,11 @@ Below is the code for implementing a queue using a linked list:
         public void Push(int num) {
             // Add num after the tail node
             ListNode node = new(num);
-            // If the queue is empty, make both front and rear point to the node
+            // If the queue is empty, make both the head and tail point to this node
             if (front == null) {
                 front = node;
                 rear = node;
-                // If the queue is not empty, add the node after the tail node
+                // If the queue is not empty, add this node after the tail node
             } else if (rear != null) {
                 rear.next = node;
                 rear = node;
@@ -640,20 +640,20 @@ Below is the code for implementing a queue using a linked list:
         /* Dequeue */
         public int Pop() {
             int num = Peek();
-            // Delete head node
+            // Remove the head node
             front = front?.next;
             queSize--;
             return num;
         }
 
-        /* Return list for printing */
+        /* Access the front element */
         public int Peek() {
             if (IsEmpty())
                 throw new Exception();
             return front!.val;
         }
 
-        /* Convert linked list to Array and return */
+        /* Convert the linked list to an array and return it */
         public int[] ToArray() {
             if (front == null)
                 return [];
@@ -672,13 +672,13 @@ Below is the code for implementing a queue using a linked list:
 === "Go"
 
     ```go title="linkedlist_queue.go"
-    /* Queue based on linked list implementation */
+    /* Queue implemented with a linked list */
     type linkedListQueue struct {
-        // Use built-in package list to implement queue
+        // Use the standard library list package to implement the queue
         data *list.List
     }
 
-    /* Access front of the queue element */
+    /* Initialize the queue */
     func newLinkedListQueue() *linkedListQueue {
         return &linkedListQueue{
             data: list.New(),
@@ -700,7 +700,7 @@ Below is the code for implementing a queue using a linked list:
         return e.Value
     }
 
-    /* Return list for printing */
+    /* Access the front element */
     func (s *linkedListQueue) peek() any {
         if s.isEmpty() {
             return nil
@@ -709,17 +709,17 @@ Below is the code for implementing a queue using a linked list:
         return e.Value
     }
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     func (s *linkedListQueue) size() int {
         return s.data.Len()
     }
 
-    /* Check if the queue is empty */
+    /* Check whether the queue is empty */
     func (s *linkedListQueue) isEmpty() bool {
         return s.data.Len() == 0
     }
 
-    /* Get List for printing */
+    /* Get the list for printing */
     func (s *linkedListQueue) toList() *list.List {
         return s.data
     }
@@ -728,7 +728,7 @@ Below is the code for implementing a queue using a linked list:
 === "Swift"
 
     ```swift title="linkedlist_queue.swift"
-    /* Queue based on linked list implementation */
+    /* Queue implemented with a linked list */
     class LinkedListQueue {
         private var front: ListNode? // Head node
         private var rear: ListNode? // Tail node
@@ -738,12 +738,12 @@ Below is the code for implementing a queue using a linked list:
             _size = 0
         }
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         func size() -> Int {
             _size
         }
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         func isEmpty() -> Bool {
             size() == 0
         }
@@ -752,12 +752,12 @@ Below is the code for implementing a queue using a linked list:
         func push(num: Int) {
             // Add num after the tail node
             let node = ListNode(x: num)
-            // If the queue is empty, make both front and rear point to the node
+            // If the queue is empty, make both the head and tail point to this node
             if front == nil {
                 front = node
                 rear = node
             }
-            // If the queue is not empty, add the node after the tail node
+            // If the queue is not empty, add this node after the tail node
             else {
                 rear?.next = node
                 rear = node
@@ -769,13 +769,13 @@ Below is the code for implementing a queue using a linked list:
         @discardableResult
         func pop() -> Int {
             let num = peek()
-            // Delete head node
+            // Remove the head node
             front = front?.next
             _size -= 1
             return num
         }
 
-        /* Return list for printing */
+        /* Access the front element */
         func peek() -> Int {
             if isEmpty() {
                 fatalError("Queue is empty")
@@ -783,7 +783,7 @@ Below is the code for implementing a queue using a linked list:
             return front!.val
         }
 
-        /* Convert linked list to Array and return */
+        /* Convert the linked list to an array and return it */
         func toArray() -> [Int] {
             var node = front
             var res = Array(repeating: 0, count: size())
@@ -799,10 +799,10 @@ Below is the code for implementing a queue using a linked list:
 === "JS"
 
     ```javascript title="linkedlist_queue.js"
-    /* Queue based on linked list implementation */
+    /* Queue implemented with a linked list */
     class LinkedListQueue {
-        #front; // Front node #front
-        #rear; // Rear node #rear
+        #front; // Head node #front
+        #rear; // Tail node #rear
         #queSize = 0;
 
         constructor() {
@@ -810,12 +810,12 @@ Below is the code for implementing a queue using a linked list:
             this.#rear = null;
         }
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         get size() {
             return this.#queSize;
         }
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         isEmpty() {
             return this.size === 0;
         }
@@ -824,11 +824,11 @@ Below is the code for implementing a queue using a linked list:
         push(num) {
             // Add num after the tail node
             const node = new ListNode(num);
-            // If the queue is empty, make both front and rear point to the node
+            // If the queue is empty, make both the head and tail point to this node
             if (!this.#front) {
                 this.#front = node;
                 this.#rear = node;
-                // If the queue is not empty, add the node after the tail node
+                // If the queue is not empty, add this node after the tail node
             } else {
                 this.#rear.next = node;
                 this.#rear = node;
@@ -839,19 +839,19 @@ Below is the code for implementing a queue using a linked list:
         /* Dequeue */
         pop() {
             const num = this.peek();
-            // Delete head node
+            // Remove the head node
             this.#front = this.#front.next;
             this.#queSize--;
             return num;
         }
 
-        /* Return list for printing */
+        /* Access the front element */
         peek() {
             if (this.size === 0) throw new Error('Queue is empty');
             return this.#front.val;
         }
 
-        /* Convert linked list to Array and return */
+        /* Convert the linked list to an Array and return it */
         toArray() {
             let node = this.#front;
             const res = new Array(this.size);
@@ -867,7 +867,7 @@ Below is the code for implementing a queue using a linked list:
 === "TS"
 
     ```typescript title="linkedlist_queue.ts"
-    /* Queue based on linked list implementation */
+    /* Queue implemented with a linked list */
     class LinkedListQueue {
         private front: ListNode | null; // Head node front
         private rear: ListNode | null; // Tail node rear
@@ -878,12 +878,12 @@ Below is the code for implementing a queue using a linked list:
             this.rear = null;
         }
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         get size(): number {
             return this.queSize;
         }
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         isEmpty(): boolean {
             return this.size === 0;
         }
@@ -892,11 +892,11 @@ Below is the code for implementing a queue using a linked list:
         push(num: number): void {
             // Add num after the tail node
             const node = new ListNode(num);
-            // If the queue is empty, make both front and rear point to the node
+            // If the queue is empty, make both the head and tail point to this node
             if (!this.front) {
                 this.front = node;
                 this.rear = node;
-                // If the queue is not empty, add the node after the tail node
+                // If the queue is not empty, add this node after the tail node
             } else {
                 this.rear!.next = node;
                 this.rear = node;
@@ -908,19 +908,19 @@ Below is the code for implementing a queue using a linked list:
         pop(): number {
             const num = this.peek();
             if (!this.front) throw new Error('Queue is empty');
-            // Delete head node
+            // Remove the head node
             this.front = this.front.next;
             this.queSize--;
             return num;
         }
 
-        /* Return list for printing */
+        /* Access the front element */
         peek(): number {
             if (this.size === 0) throw new Error('Queue is empty');
             return this.front!.val;
         }
 
-        /* Convert linked list to Array and return */
+        /* Convert the linked list to an Array and return it */
         toArray(): number[] {
             let node = this.front;
             const res = new Array<number>(this.size);
@@ -936,37 +936,37 @@ Below is the code for implementing a queue using a linked list:
 === "Dart"
 
     ```dart title="linkedlist_queue.dart"
-    /* Queue based on linked list implementation */
+    /* Queue implemented with a linked list */
     class LinkedListQueue {
       ListNode? _front; // Head node _front
       ListNode? _rear; // Tail node _rear
-      int _queSize = 0; // Queue length
+      int _queSize = 0; // Queue size
 
       LinkedListQueue() {
         _front = null;
         _rear = null;
       }
 
-      /* Get the length of the queue */
+      /* Get the queue size */
       int size() {
         return _queSize;
       }
 
-      /* Check if the queue is empty */
+      /* Check whether the queue is empty */
       bool isEmpty() {
         return _queSize == 0;
       }
 
       /* Enqueue */
       void push(int _num) {
-        // Add _num after tail node
+        // Add _num after the tail node
         final node = ListNode(_num);
-        // If the queue is empty, make both front and rear point to the node
+        // If the queue is empty, make both the head and tail point to this node
         if (_front == null) {
           _front = node;
           _rear = node;
         } else {
-          // If the queue is not empty, add the node after the tail node
+          // If the queue is not empty, add this node after the tail node
           _rear!.next = node;
           _rear = node;
         }
@@ -976,13 +976,13 @@ Below is the code for implementing a queue using a linked list:
       /* Dequeue */
       int pop() {
         final int _num = peek();
-        // Delete head node
+        // Remove the head node
         _front = _front!.next;
         _queSize--;
         return _num;
       }
 
-      /* Return list for printing */
+      /* Access the front element */
       int peek() {
         if (_queSize == 0) {
           throw Exception('Queue is empty');
@@ -990,7 +990,7 @@ Below is the code for implementing a queue using a linked list:
         return _front!.val;
       }
 
-      /* Convert linked list to Array and return */
+      /* Convert the linked list to an array and return it */
       List<int> toArray() {
         ListNode? node = _front;
         final List<int> queue = [];
@@ -1006,12 +1006,12 @@ Below is the code for implementing a queue using a linked list:
 === "Rust"
 
     ```rust title="linkedlist_queue.rs"
-    /* Queue based on linked list implementation */
+    /* Queue implemented with a linked list */
     #[allow(dead_code)]
     pub struct LinkedListQueue<T> {
         front: Option<Rc<RefCell<ListNode<T>>>>, // Head node front
         rear: Option<Rc<RefCell<ListNode<T>>>>,  // Tail node rear
-        que_size: usize,                         // Queue length
+        que_size: usize,                         // Queue size
     }
 
     impl<T: Copy> LinkedListQueue<T> {
@@ -1023,12 +1023,12 @@ Below is the code for implementing a queue using a linked list:
             }
         }
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         pub fn size(&self) -> usize {
             return self.que_size;
         }
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         pub fn is_empty(&self) -> bool {
             return self.que_size == 0;
         }
@@ -1038,12 +1038,12 @@ Below is the code for implementing a queue using a linked list:
             // Add num after the tail node
             let new_rear = ListNode::new(num);
             match self.rear.take() {
-                // If the queue is not empty, add the node after the tail node
+                // If the queue is not empty, add this node after the tail node
                 Some(old_rear) => {
                     old_rear.borrow_mut().next = Some(new_rear.clone());
                     self.rear = Some(new_rear);
                 }
-                // If the queue is empty, make both front and rear point to the node
+                // If the queue is empty, make both the head and tail point to this node
                 None => {
                     self.front = Some(new_rear.clone());
                     self.rear = Some(new_rear);
@@ -1068,12 +1068,12 @@ Below is the code for implementing a queue using a linked list:
             })
         }
 
-        /* Return list for printing */
+        /* Access the front element */
         pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
             self.front.as_ref()
         }
 
-        /* Convert linked list to Array and return */
+        /* Convert the linked list to a vector and return it */
         pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
             let mut res: Vec<T> = Vec::new();
 
@@ -1094,7 +1094,7 @@ Below is the code for implementing a queue using a linked list:
 === "C"
 
     ```c title="linkedlist_queue.c"
-    /* Queue based on linked list implementation */
+    /* Queue implemented with a linked list */
     typedef struct {
         ListNode *front, *rear;
         int queSize;
@@ -1117,30 +1117,30 @@ Below is the code for implementing a queue using a linked list:
             queue->front = queue->front->next;
             free(tmp);
         }
-        // Free queue structure
+        // Free the queue structure
         free(queue);
     }
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     int size(LinkedListQueue *queue) {
         return queue->queSize;
     }
 
-    /* Check if the queue is empty */
+    /* Check whether the queue is empty */
     bool empty(LinkedListQueue *queue) {
         return (size(queue) == 0);
     }
 
     /* Enqueue */
     void push(LinkedListQueue *queue, int num) {
-        // Add node at tail
+        // Add node at the tail
         ListNode *node = newListNode(num);
-        // If the queue is empty, make both front and rear point to the node
+        // If the queue is empty, make both the head and tail point to this node
         if (queue->front == NULL) {
             queue->front = node;
             queue->rear = node;
         }
-        // If the queue is not empty, add the node after the tail node
+        // If the queue is not empty, add this node after the tail node
         else {
             queue->rear->next = node;
             queue->rear = node;
@@ -1148,7 +1148,7 @@ Below is the code for implementing a queue using a linked list:
         queue->queSize++;
     }
 
-    /* Return list for printing */
+    /* Access the front element */
     int peek(LinkedListQueue *queue) {
         assert(size(queue) && queue->front);
         return queue->front->val;
@@ -1164,10 +1164,10 @@ Below is the code for implementing a queue using a linked list:
         return num;
     }
 
-    /* Print queue */
+    /* Print the queue */
     void printLinkedListQueue(LinkedListQueue *queue) {
         int *arr = malloc(sizeof(int) * queue->queSize);
-        // Copy data from list to array
+        // Copy the linked list data into an array
         int i;
         ListNode *node;
         for (i = 0, node = queue->front; i < queue->queSize; i++) {
@@ -1182,20 +1182,20 @@ Below is the code for implementing a queue using a linked list:
 === "Kotlin"
 
     ```kotlin title="linkedlist_queue.kt"
-    /* Queue based on linked list implementation */
+    /* Queue implemented with a linked list */
     class LinkedListQueue(
-        // Head node front, tail node rear
+        // Head node front and tail node rear
         private var front: ListNode? = null,
         private var rear: ListNode? = null,
         private var queSize: Int = 0
     ) {
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         fun size(): Int {
             return queSize
         }
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         fun isEmpty(): Boolean {
             return size() == 0
         }
@@ -1204,11 +1204,11 @@ Below is the code for implementing a queue using a linked list:
         fun push(num: Int) {
             // Add num after the tail node
             val node = ListNode(num)
-            // If the queue is empty, make both front and rear point to the node
+            // If the queue is empty, make both the head and tail point to this node
             if (front == null) {
                 front = node
                 rear = node
-                // If the queue is not empty, add the node after the tail node
+                // If the queue is not empty, add this node after the tail node
             } else {
                 rear?.next = node
                 rear = node
@@ -1219,19 +1219,19 @@ Below is the code for implementing a queue using a linked list:
         /* Dequeue */
         fun pop(): Int {
             val num = peek()
-            // Delete head node
+            // Remove the head node
             front = front?.next
             queSize--
             return num
         }
 
-        /* Return list for printing */
+        /* Access the front element */
         fun peek(): Int {
             if (isEmpty()) throw IndexOutOfBoundsException()
             return front!!._val
         }
 
-        /* Convert linked list to Array and return */
+        /* Convert the linked list to an array and return it */
         fun toArray(): IntArray {
             var node = front
             val res = IntArray(size())
@@ -1247,9 +1247,9 @@ Below is the code for implementing a queue using a linked list:
 === "Ruby"
 
     ```ruby title="linkedlist_queue.rb"
-    ### Queue based on linked list ###
+    ### Queue implemented with a linked list ###
     class LinkedListQueue
-      ### Get queue length ###
+      ### Get the queue size ###
       attr_reader :size
 
       ### Constructor ###
@@ -1259,7 +1259,7 @@ Below is the code for implementing a queue using a linked list:
         @size = 0
       end
 
-      ### Check if queue is empty ###
+      ### Check whether the queue is empty ###
       def is_empty?
         @front.nil?
       end
@@ -1269,11 +1269,11 @@ Below is the code for implementing a queue using a linked list:
         # Add num after the tail node
         node = ListNode.new(num)
 
-        # If queue is empty, set both front and rear to this node
+        # If the queue is empty, point both the head and tail to this node
         if @front.nil?
           @front = node
           @rear = node
-        # If queue is not empty, add this node after rear
+        # If the queue is not empty, append this node after the tail
         else
           @rear.next = node
           @rear = node
@@ -1285,20 +1285,20 @@ Below is the code for implementing a queue using a linked list:
       ### Dequeue ###
       def pop
         num = peek
-        # Delete head node
+        # Remove the head node
         @front = @front.next
         @size -= 1
         num
       end
 
-      ### Access front element ###
+      ### Access the front element ###
       def peek
         raise IndexError, 'Queue is empty' if is_empty?
 
         @front.val
       end
 
-      ### Convert linked list to Array and return ###
+      ### Convert the linked list to an Array and return it ###
       def to_array
         queue = []
         temp = @front
@@ -1311,21 +1311,26 @@ Below is the code for implementing a queue using a linked list:
     end
     ```
 
-### 2. &nbsp; Array Implementation
+??? pythontutor "Visualize execution"
 
-Deleting the first element in an array has a time complexity of $O(n)$, which would make the dequeue operation inefficient. However, we can use the following clever method to avoid this problem.
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0A%0Aclass%20LinkedListQueue%3A%0A%20%20%20%20%22%22%22Queue%20implemented%20with%20a%20linked%20list%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self._front%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Head%20node%20front%0A%20%20%20%20%20%20%20%20self._rear%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Tail%20node%20rear%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20queue%20size%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22Check%20whether%20the%20queue%20is%20empty%22%22%22%0A%20%20%20%20%20%20%20%20return%20not%20self._front%0A%0A%20%20%20%20def%20push%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Enqueue%22%22%22%0A%20%20%20%20%20%20%20%20%23%20Add%20num%20after%20the%20tail%20node%0A%20%20%20%20%20%20%20%20node%20%3D%20ListNode%28num%29%0A%20%20%20%20%20%20%20%20%23%20If%20the%20queue%20is%20empty,%20make%20both%20the%20head%20and%20tail%20point%20to%20this%20node%0A%20%20%20%20%20%20%20%20if%20self._front%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self._front%20%3D%20node%0A%20%20%20%20%20%20%20%20%20%20%20%20self._rear%20%3D%20node%0A%20%20%20%20%20%20%20%20%23%20If%20the%20queue%20is%20not%20empty,%20add%20this%20node%20after%20the%20tail%20node%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self._rear.next%20%3D%20node%0A%20%20%20%20%20%20%20%20%20%20%20%20self._rear%20%3D%20node%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Dequeue%22%22%22%0A%20%20%20%20%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20the%20head%20node%0A%20%20%20%20%20%20%20%20self._front%20%3D%20self._front.next%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Access%20the%20front%20element%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Queue%20is%20empty%22%29%0A%20%20%20%20%20%20%20%20return%20self._front.val%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Convert%20to%20a%20list%20for%20printing%22%22%22%0A%20%20%20%20%20%20%20%20queue%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20temp%20%3D%20self._front%0A%20%20%20%20%20%20%20%20while%20temp%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20queue.append%28temp.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20temp%20%3D%20temp.next%0A%20%20%20%20%20%20%20%20return%20queue%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20queue%0A%20%20%20%20queue%20%3D%20LinkedListQueue%28%29%0A%0A%20%20%20%20%23%20Enqueue%20elements%0A%20%20%20%20queue.push%281%29%0A%20%20%20%20queue.push%283%29%0A%20%20%20%20queue.push%282%29%0A%20%20%20%20queue.push%285%29%0A%20%20%20%20queue.push%284%29%0A%20%20%20%20print%28%22Queue%20queue%20%3D%22,%20queue.to_list%28%29%29%0A%0A%20%20%20%20%23%20Access%20the%20front%20element%0A%20%20%20%20peek%20%3D%20queue.peek%28%29%0A%20%20%20%20print%28%22Front%20element%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20Dequeue%20an%20element%0A%20%20%20%20pop_front%20%3D%20queue.pop%28%29%0A%20%20%20%20print%28%22Dequeued%20element%20pop_front%20%3D%22,%20pop_front%29%0A%20%20%20%20print%28%22After%20dequeuing,%20queue%20%3D%22,%20queue.to_list%28%29%29%0A%0A%20%20%20%20%23%20Get%20the%20queue%20size%0A%20%20%20%20size%20%3D%20queue.size%28%29%0A%20%20%20%20print%28%22Queue%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20Check%20whether%20the%20queue%20is%20empty%0A%20%20%20%20is_empty%20%3D%20queue.is_empty%28%29%0A%20%20%20%20print%28%22Is%20the%20queue%20empty%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0A%0Aclass%20LinkedListQueue%3A%0A%20%20%20%20%22%22%22Queue%20implemented%20with%20a%20linked%20list%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self._front%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Head%20node%20front%0A%20%20%20%20%20%20%20%20self._rear%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Tail%20node%20rear%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20queue%20size%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22Check%20whether%20the%20queue%20is%20empty%22%22%22%0A%20%20%20%20%20%20%20%20return%20not%20self._front%0A%0A%20%20%20%20def%20push%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Enqueue%22%22%22%0A%20%20%20%20%20%20%20%20%23%20Add%20num%20after%20the%20tail%20node%0A%20%20%20%20%20%20%20%20node%20%3D%20ListNode%28num%29%0A%20%20%20%20%20%20%20%20%23%20If%20the%20queue%20is%20empty,%20make%20both%20the%20head%20and%20tail%20point%20to%20this%20node%0A%20%20%20%20%20%20%20%20if%20self._front%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self._front%20%3D%20node%0A%20%20%20%20%20%20%20%20%20%20%20%20self._rear%20%3D%20node%0A%20%20%20%20%20%20%20%20%23%20If%20the%20queue%20is%20not%20empty,%20add%20this%20node%20after%20the%20tail%20node%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self._rear.next%20%3D%20node%0A%20%20%20%20%20%20%20%20%20%20%20%20self._rear%20%3D%20node%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Dequeue%22%22%22%0A%20%20%20%20%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20the%20head%20node%0A%20%20%20%20%20%20%20%20self._front%20%3D%20self._front.next%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Access%20the%20front%20element%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Queue%20is%20empty%22%29%0A%20%20%20%20%20%20%20%20return%20self._front.val%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Convert%20to%20a%20list%20for%20printing%22%22%22%0A%20%20%20%20%20%20%20%20queue%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20temp%20%3D%20self._front%0A%20%20%20%20%20%20%20%20while%20temp%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20queue.append%28temp.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20temp%20%3D%20temp.next%0A%20%20%20%20%20%20%20%20return%20queue%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20queue%0A%20%20%20%20queue%20%3D%20LinkedListQueue%28%29%0A%0A%20%20%20%20%23%20Enqueue%20elements%0A%20%20%20%20queue.push%281%29%0A%20%20%20%20queue.push%283%29%0A%20%20%20%20queue.push%282%29%0A%20%20%20%20queue.push%285%29%0A%20%20%20%20queue.push%284%29%0A%20%20%20%20print%28%22Queue%20queue%20%3D%22,%20queue.to_list%28%29%29%0A%0A%20%20%20%20%23%20Access%20the%20front%20element%0A%20%20%20%20peek%20%3D%20queue.peek%28%29%0A%20%20%20%20print%28%22Front%20element%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20Dequeue%20an%20element%0A%20%20%20%20pop_front%20%3D%20queue.pop%28%29%0A%20%20%20%20print%28%22Dequeued%20element%20pop_front%20%3D%22,%20pop_front%29%0A%20%20%20%20print%28%22After%20dequeuing,%20queue%20%3D%22,%20queue.to_list%28%29%29%0A%0A%20%20%20%20%23%20Get%20the%20queue%20size%0A%20%20%20%20size%20%3D%20queue.size%28%29%0A%20%20%20%20print%28%22Queue%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20Check%20whether%20the%20queue%20is%20empty%0A%20%20%20%20is_empty%20%3D%20queue.is_empty%28%29%0A%20%20%20%20print%28%22Is%20the%20queue%20empty%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-We can use a variable `front` to point to the index of the front element and maintain a variable `size` to record the queue length. We define `rear = front + size`, which calculates the position right after the rear element.
+### 2. &nbsp; Implementation with an array
 
-Based on this design, **the valid interval containing elements in the array is `[front, rear - 1]`**. The implementation methods for various operations are shown in Figure 5-6:
+Removing the first element of an array takes $O(n)$ time, which would make dequeueing inefficient. A useful technique avoids this problem.
 
-- Enqueue operation: Assign the input element to the `rear` index and increase `size` by 1.
-- Dequeue operation: Simply increase `front` by 1 and decrease `size` by 1.
+Use a variable `front` for the index of the front element and a variable `size` for the queue's length. Define `rear = front + size`, so `rear` points to the position immediately after the last element.
 
-As you can see, both enqueue and dequeue operations require only one operation, with a time complexity of $O(1)$.
+With this design, **the occupied interval is `[front, rear - 1]`**. Operations work as shown below.
+
+- Enqueue: assign the new element to index `rear` and increase `size` by 1.
+- Dequeue: increase `front` by 1 and decrease `size` by 1.
+
+Both operations require only a constant amount of work and take $O(1)$ time.
 
 === "<1>"
-    ![Enqueue and dequeue operations in array implementation of queue](queue.assets/array_queue_step1.png){ class="animation-figure" }
+    ![Enqueue and dequeue in an array-based queue](queue.assets/array_queue_step1.png){ class="animation-figure" }
 
 === "<2>"
     ![array_queue_push](queue.assets/array_queue_step2_push.png){ class="animation-figure" }
@@ -1333,63 +1338,63 @@ As you can see, both enqueue and dequeue operations require only one operation, 
 === "<3>"
     ![array_queue_pop](queue.assets/array_queue_step3_pop.png){ class="animation-figure" }
 
-<p align="center"> Figure 5-6 &nbsp; Enqueue and dequeue operations in array implementation of queue </p>
+<p align="center"> Figure 5-6 &nbsp; Enqueue and dequeue in an array-based queue </p>
 
-You may notice a problem: as we continuously enqueue and dequeue, both `front` and `rear` move to the right. **When they reach the end of the array, they cannot continue moving**. To solve this problem, we can treat the array as a "circular array" with head and tail connected.
+There is a problem: repeated enqueueing and dequeueing move both `front` and `rear` to the right, **and they cannot continue once they reach the end of the array**. To solve this, treat the array as circular, with its end connected to its beginning.
 
-For a circular array, we need to let `front` or `rear` wrap around to the beginning of the array when they cross the end. This periodic pattern can be implemented using the "modulo operation," as shown in the code below:
+When `front` or `rear` passes the array's end, wrap it back to the beginning. The remainder operation implements this cyclic behavior:
 
 === "Python"
 
     ```python title="array_queue.py"
     class ArrayQueue:
-        """Queue based on circular array implementation"""
+        """Queue implemented with a circular array"""
 
         def __init__(self, size: int):
             """Constructor"""
-            self._nums: list[int] = [0] * size  # Array for storing queue elements
-            self._front: int = 0  # Front pointer, points to the front of the queue element
-            self._size: int = 0  # Queue length
+            self._nums: list[int] = [0] * size  # Array that stores the queue elements
+            self._front: int = 0  # Front pointer, pointing to the first element
+            self._size: int = 0  # Queue size
 
         def capacity(self) -> int:
-            """Get the capacity of the queue"""
+            """Get the queue capacity"""
             return len(self._nums)
 
         def size(self) -> int:
-            """Get the length of the queue"""
+            """Get the queue size"""
             return self._size
 
         def is_empty(self) -> bool:
-            """Check if the queue is empty"""
+            """Check whether the queue is empty"""
             return self._size == 0
 
         def push(self, num: int):
             """Enqueue"""
             if self._size == self.capacity():
                 raise IndexError("Queue is full")
-            # Calculate rear pointer, points to rear index + 1
-            # Use modulo operation to wrap rear around to the head after passing the tail of the array
+            # Calculate the rear pointer, which points one position past the last element
+            # Use modulo to wrap rear to the beginning when it passes the end of the array
             rear: int = (self._front + self._size) % self.capacity()
-            # Add num to the rear of the queue
+            # Add num to the rear
             self._nums[rear] = num
             self._size += 1
 
         def pop(self) -> int:
             """Dequeue"""
             num: int = self.peek()
-            # Front pointer moves one position backward, if it passes the tail, return to the head of the array
+            # Advance the front pointer by one position, wrapping to the beginning if it passes the end
             self._front = (self._front + 1) % self.capacity()
             self._size -= 1
             return num
 
         def peek(self) -> int:
-            """Access front of the queue element"""
+            """Access the front element"""
             if self.is_empty():
                 raise IndexError("Queue is empty")
             return self._nums[self._front]
 
         def to_list(self) -> list[int]:
-            """Return list for printing"""
+            """Return a list for printing"""
             res = [0] * self.size()
             j: int = self._front
             for i in range(self.size()):
@@ -1401,17 +1406,17 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
 === "C++"
 
     ```cpp title="array_queue.cpp"
-    /* Queue based on circular array implementation */
+    /* Queue implemented with a circular array */
     class ArrayQueue {
       private:
-        int *nums;       // Array for storing queue elements
-        int front;       // Front pointer, points to the front of the queue element
-        int queSize;     // Queue length
+        int *nums;       // Array that stores the queue elements
+        int front;       // Front index, identifying the first element
+        int queSize;     // Queue size
         int queCapacity; // Queue capacity
 
       public:
         ArrayQueue(int capacity) {
-            // Initialize array
+            // Initialize the array
             nums = new int[capacity];
             queCapacity = capacity;
             front = queSize = 0;
@@ -1421,17 +1426,17 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
             delete[] nums;
         }
 
-        /* Get the capacity of the queue */
+        /* Get the queue capacity */
         int capacity() {
             return queCapacity;
         }
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         int size() {
             return queSize;
         }
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         bool isEmpty() {
             return size() == 0;
         }
@@ -1442,10 +1447,10 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
                 cout << "Queue is full" << endl;
                 return;
             }
-            // Use modulo operation to wrap rear around to the head after passing the tail of the array
-            // Add num to the rear of the queue
+            // Calculate the rear index, one position past the last element
+            // Use modulo to wrap rear to the beginning when it passes the end of the array
             int rear = (front + queSize) % queCapacity;
-            // Front pointer moves one position backward
+            // Add num to the rear
             nums[rear] = num;
             queSize++;
         }
@@ -1453,22 +1458,22 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
         /* Dequeue */
         int pop() {
             int num = peek();
-            // Move front pointer backward by one position, if it passes the tail, return to array head
+            // Advance the front index by one position, wrapping to the beginning if it passes the end
             front = (front + 1) % queCapacity;
             queSize--;
             return num;
         }
 
-        /* Return list for printing */
+        /* Access the front element */
         int peek() {
             if (isEmpty())
                 throw out_of_range("Queue is empty");
             return nums[front];
         }
 
-        /* Convert array to Vector and return */
+        /* Convert the array to a vector and return it */
         vector<int> toVector() {
-            // Elements enqueue
+            // Copy only the elements in the occupied range
             vector<int> arr(queSize);
             for (int i = 0, j = front; i < queSize; i++, j++) {
                 arr[i] = nums[j % queCapacity];
@@ -1481,28 +1486,28 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
 === "Java"
 
     ```java title="array_queue.java"
-    /* Queue based on circular array implementation */
+    /* Queue implemented with a circular array */
     class ArrayQueue {
-        private int[] nums; // Array for storing queue elements
-        private int front; // Front pointer, points to the front of the queue element
-        private int queSize; // Queue length
+        private int[] nums; // Array that stores the queue elements
+        private int front; // Front pointer, pointing to the first element
+        private int queSize; // Queue size
 
         public ArrayQueue(int capacity) {
             nums = new int[capacity];
             front = queSize = 0;
         }
 
-        /* Get the capacity of the queue */
+        /* Get the queue capacity */
         public int capacity() {
             return nums.length;
         }
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         public int size() {
             return queSize;
         }
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         public boolean isEmpty() {
             return queSize == 0;
         }
@@ -1513,10 +1518,10 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
                 System.out.println("Queue is full");
                 return;
             }
-            // Use modulo operation to wrap rear around to the head after passing the tail of the array
-            // Add num to the rear of the queue
+            // Calculate the rear pointer, which points one position past the last element
+            // Use modulo to wrap rear to the beginning when it passes the end of the array
             int rear = (front + queSize) % capacity();
-            // Front pointer moves one position backward
+            // Add num to the rear
             nums[rear] = num;
             queSize++;
         }
@@ -1524,22 +1529,22 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
         /* Dequeue */
         public int pop() {
             int num = peek();
-            // Move front pointer backward by one position, if it passes the tail, return to array head
+            // Advance the front pointer by one position, wrapping to the beginning if it passes the end
             front = (front + 1) % capacity();
             queSize--;
             return num;
         }
 
-        /* Return list for printing */
+        /* Access the front element */
         public int peek() {
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
             return nums[front];
         }
 
-        /* Return array */
+        /* Return an array */
         public int[] toArray() {
-            // Elements enqueue
+            // Convert only the list elements within the occupied range
             int[] res = new int[queSize];
             for (int i = 0, j = front; i < queSize; i++, j++) {
                 res[i] = nums[j % capacity()];
@@ -1552,28 +1557,28 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
 === "C#"
 
     ```csharp title="array_queue.cs"
-    /* Queue based on circular array implementation */
+    /* Queue implemented with a circular array */
     class ArrayQueue {
-        int[] nums;  // Array for storing queue elements
-        int front;   // Front pointer, points to the front of the queue element
-        int queSize; // Queue length
+        int[] nums;  // Array that stores the queue elements
+        int front;   // Front pointer, pointing to the first element
+        int queSize; // Queue size
 
         public ArrayQueue(int capacity) {
             nums = new int[capacity];
             front = queSize = 0;
         }
 
-        /* Get the capacity of the queue */
+        /* Get the queue capacity */
         int Capacity() {
             return nums.Length;
         }
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         public int Size() {
             return queSize;
         }
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         public bool IsEmpty() {
             return queSize == 0;
         }
@@ -1584,10 +1589,10 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
                 Console.WriteLine("Queue is full");
                 return;
             }
-            // Use modulo operation to wrap rear around to the head after passing the tail of the array
-            // Add num to the rear of the queue
+            // Calculate the rear pointer, which points one position past the last element
+            // Use modulo to wrap rear to the beginning when it passes the end of the array
             int rear = (front + queSize) % Capacity();
-            // Front pointer moves one position backward
+            // Add num to the rear
             nums[rear] = num;
             queSize++;
         }
@@ -1595,22 +1600,22 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
         /* Dequeue */
         public int Pop() {
             int num = Peek();
-            // Move front pointer backward by one position, if it passes the tail, return to array head
+            // Advance the front pointer by one position, wrapping to the beginning if it passes the end
             front = (front + 1) % Capacity();
             queSize--;
             return num;
         }
 
-        /* Return list for printing */
+        /* Access the front element */
         public int Peek() {
             if (IsEmpty())
                 throw new Exception();
             return nums[front];
         }
 
-        /* Return array */
+        /* Return an array */
         public int[] ToArray() {
-            // Elements enqueue
+            // Copy only the elements within the occupied range
             int[] res = new int[queSize];
             for (int i = 0, j = front; i < queSize; i++, j++) {
                 res[i] = nums[j % this.Capacity()];
@@ -1623,15 +1628,15 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
 === "Go"
 
     ```go title="array_queue.go"
-    /* Queue based on circular array implementation */
+    /* Queue implemented with a circular array */
     type arrayQueue struct {
-        nums        []int // Array for storing queue elements
-        front       int   // Front pointer, points to the front of the queue element
-        queSize     int   // Queue length
-        queCapacity int   // Queue capacity (maximum number of elements)
+        nums        []int // Array that stores the queue elements
+        front       int   // Front pointer, pointing to the first element
+        queSize     int   // Queue size
+        queCapacity int   // Queue capacity (the maximum number of elements)
     }
 
-    /* Access front of the queue element */
+    /* Initialize the queue */
     func newArrayQueue(queCapacity int) *arrayQueue {
         return &arrayQueue{
             nums:        make([]int, queCapacity),
@@ -1641,26 +1646,26 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
         }
     }
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     func (q *arrayQueue) size() int {
         return q.queSize
     }
 
-    /* Check if the queue is empty */
+    /* Check whether the queue is empty */
     func (q *arrayQueue) isEmpty() bool {
         return q.queSize == 0
     }
 
     /* Enqueue */
     func (q *arrayQueue) push(num int) {
-        // When rear == queCapacity, queue is full
+        // The queue is full when queSize == queCapacity
         if q.queSize == q.queCapacity {
             return
         }
-        // Use modulo operation to wrap rear around to the head after passing the tail of the array
-        // Add num to the rear of the queue
+        // Calculate the rear pointer, which points one position past the last element
+        // Use modulo to wrap rear to the beginning when it passes the end of the array
         rear := (q.front + q.queSize) % q.queCapacity
-        // Front pointer moves one position backward
+        // Add num to the rear
         q.nums[rear] = num
         q.queSize++
     }
@@ -1672,13 +1677,13 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
             return nil
         }
 
-        // Move front pointer backward by one position, if it passes the tail, return to array head
+        // Advance the front pointer by one position, wrapping to the beginning if it passes the end
         q.front = (q.front + 1) % q.queCapacity
         q.queSize--
         return num
     }
 
-    /* Return list for printing */
+    /* Access the front element */
     func (q *arrayQueue) peek() any {
         if q.isEmpty() {
             return nil
@@ -1686,7 +1691,7 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
         return q.nums[q.front]
     }
 
-    /* Get Slice for printing */
+    /* Get a slice for printing */
     func (q *arrayQueue) toSlice() []int {
         rear := (q.front + q.queSize)
         if rear >= q.queCapacity {
@@ -1700,30 +1705,30 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
 === "Swift"
 
     ```swift title="array_queue.swift"
-    /* Queue based on circular array implementation */
+    /* Queue implemented with a circular array */
     class ArrayQueue {
-        private var nums: [Int] // Array for storing queue elements
-        private var front: Int // Front pointer, points to the front of the queue element
-        private var _size: Int // Queue length
+        private var nums: [Int] // Array that stores the queue elements
+        private var front: Int // Front index, identifying the first element
+        private var _size: Int // Queue size
 
         init(capacity: Int) {
-            // Initialize array
+            // Initialize the array
             nums = Array(repeating: 0, count: capacity)
             front = 0
             _size = 0
         }
 
-        /* Get the capacity of the queue */
+        /* Get the queue capacity */
         func capacity() -> Int {
             nums.count
         }
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         func size() -> Int {
             _size
         }
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         func isEmpty() -> Bool {
             size() == 0
         }
@@ -1734,10 +1739,10 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
                 print("Queue is full")
                 return
             }
-            // Use modulo operation to wrap rear around to the head after passing the tail of the array
-            // Add num to the rear of the queue
+            // Calculate the rear index, one position past the last element
+            // Use modulo to wrap rear to the beginning when it passes the end of the array
             let rear = (front + size()) % capacity()
-            // Front pointer moves one position backward
+            // Add num to the rear
             nums[rear] = num
             _size += 1
         }
@@ -1746,13 +1751,13 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
         @discardableResult
         func pop() -> Int {
             let num = peek()
-            // Move front pointer backward by one position, if it passes the tail, return to array head
+            // Advance the front index by one position, wrapping to the beginning if it passes the end
             front = (front + 1) % capacity()
             _size -= 1
             return num
         }
 
-        /* Return list for printing */
+        /* Access the front element */
         func peek() -> Int {
             if isEmpty() {
                 fatalError("Queue is empty")
@@ -1760,9 +1765,9 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
             return nums[front]
         }
 
-        /* Return array */
+        /* Return an array */
         func toArray() -> [Int] {
-            // Elements enqueue
+            // Include only the elements in the occupied range
             (front ..< front + size()).map { nums[$0 % capacity()] }
         }
     }
@@ -1771,27 +1776,27 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
 === "JS"
 
     ```javascript title="array_queue.js"
-    /* Queue based on circular array implementation */
+    /* Queue implemented with a circular array */
     class ArrayQueue {
-        #nums; // Array for storing queue elements
-        #front = 0; // Front pointer, points to the front of the queue element
-        #queSize = 0; // Queue length
+        #nums; // Array that stores the queue elements
+        #front = 0; // Front pointer, pointing to the first element
+        #queSize = 0; // Queue size
 
         constructor(capacity) {
             this.#nums = new Array(capacity);
         }
 
-        /* Get the capacity of the queue */
+        /* Get the queue capacity */
         get capacity() {
             return this.#nums.length;
         }
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         get size() {
             return this.#queSize;
         }
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         isEmpty() {
             return this.#queSize === 0;
         }
@@ -1802,10 +1807,10 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
                 console.log('Queue is full');
                 return;
             }
-            // Use modulo operation to wrap rear around to the head after passing the tail of the array
-            // Add num to the rear of the queue
+            // Calculate the rear pointer, which points one position past the last element
+            // Use modulo to wrap rear to the beginning when it passes the end of the array
             const rear = (this.#front + this.size) % this.capacity;
-            // Front pointer moves one position backward
+            // Add num to the rear
             this.#nums[rear] = num;
             this.#queSize++;
         }
@@ -1813,21 +1818,21 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
         /* Dequeue */
         pop() {
             const num = this.peek();
-            // Move front pointer backward by one position, if it passes the tail, return to array head
+            // Advance the front pointer by one position, wrapping to the beginning if it passes the end
             this.#front = (this.#front + 1) % this.capacity;
             this.#queSize--;
             return num;
         }
 
-        /* Return list for printing */
+        /* Access the front element */
         peek() {
             if (this.isEmpty()) throw new Error('Queue is empty');
             return this.#nums[this.#front];
         }
 
-        /* Return Array */
+        /* Return an Array */
         toArray() {
-            // Elements enqueue
+            // Convert only the list elements within the occupied range
             const arr = new Array(this.size);
             for (let i = 0, j = this.#front; i < this.size; i++, j++) {
                 arr[i] = this.#nums[j % this.capacity];
@@ -1840,28 +1845,28 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
 === "TS"
 
     ```typescript title="array_queue.ts"
-    /* Queue based on circular array implementation */
+    /* Queue implemented with a circular array */
     class ArrayQueue {
-        private nums: number[]; // Array for storing queue elements
-        private front: number; // Front pointer, points to the front of the queue element
-        private queSize: number; // Queue length
+        private nums: number[]; // Array that stores the queue elements
+        private front: number; // Front pointer, pointing to the first element
+        private queSize: number; // Queue size
 
         constructor(capacity: number) {
             this.nums = new Array(capacity);
             this.front = this.queSize = 0;
         }
 
-        /* Get the capacity of the queue */
+        /* Get the queue capacity */
         get capacity(): number {
             return this.nums.length;
         }
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         get size(): number {
             return this.queSize;
         }
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         isEmpty(): boolean {
             return this.queSize === 0;
         }
@@ -1872,10 +1877,10 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
                 console.log('Queue is full');
                 return;
             }
-            // Use modulo operation to wrap rear around to the head after passing the tail of the array
-            // Add num to the rear of the queue
+            // Calculate the rear pointer, which points one position past the last element
+            // Use modulo to wrap rear to the beginning when it passes the end of the array
             const rear = (this.front + this.queSize) % this.capacity;
-            // Front pointer moves one position backward
+            // Add num to the rear
             this.nums[rear] = num;
             this.queSize++;
         }
@@ -1883,21 +1888,21 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
         /* Dequeue */
         pop(): number {
             const num = this.peek();
-            // Move front pointer backward by one position, if it passes the tail, return to array head
+            // Advance the front pointer by one position, wrapping to the beginning if it passes the end
             this.front = (this.front + 1) % this.capacity;
             this.queSize--;
             return num;
         }
 
-        /* Return list for printing */
+        /* Access the front element */
         peek(): number {
             if (this.isEmpty()) throw new Error('Queue is empty');
             return this.nums[this.front];
         }
 
-        /* Return Array */
+        /* Return an Array */
         toArray(): number[] {
-            // Elements enqueue
+            // Convert only the list elements within the occupied range
             const arr = new Array(this.size);
             for (let i = 0, j = this.front; i < this.size; i++, j++) {
                 arr[i] = this.nums[j % this.capacity];
@@ -1910,28 +1915,28 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
 === "Dart"
 
     ```dart title="array_queue.dart"
-    /* Queue based on circular array implementation */
+    /* Queue implemented with a circular array */
     class ArrayQueue {
-      late List<int> _nums; // Array for storing queue elements
-      late int _front; // Front pointer, points to the front of the queue element
-      late int _queSize; // Queue length
+      late List<int> _nums; // Array that stores the queue elements
+      late int _front; // Front pointer, pointing to the first element
+      late int _queSize; // Queue size
 
       ArrayQueue(int capacity) {
         _nums = List.filled(capacity, 0);
         _front = _queSize = 0;
       }
 
-      /* Get the capacity of the queue */
+      /* Get the queue capacity */
       int capaCity() {
         return _nums.length;
       }
 
-      /* Get the length of the queue */
+      /* Get the queue size */
       int size() {
         return _queSize;
       }
 
-      /* Check if the queue is empty */
+      /* Check whether the queue is empty */
       bool isEmpty() {
         return _queSize == 0;
       }
@@ -1941,10 +1946,10 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
         if (_queSize == capaCity()) {
           throw Exception("Queue is full");
         }
-        // Use modulo operation to wrap rear around to the head after passing the tail of the array
-        // Add num to the rear of the queue
+        // Calculate the rear pointer, which points one position past the last element
+        // Use modulo to wrap rear to the beginning when it passes the end of the array
         int rear = (_front + _queSize) % capaCity();
-        // Add _num to queue rear
+        // Add _num to the rear
         _nums[rear] = _num;
         _queSize++;
       }
@@ -1952,13 +1957,13 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
       /* Dequeue */
       int pop() {
         int _num = peek();
-        // Move front pointer backward by one position, if it passes the tail, return to array head
+        // Advance the front pointer by one position, wrapping to the beginning if it passes the end
         _front = (_front + 1) % capaCity();
         _queSize--;
         return _num;
       }
 
-      /* Return list for printing */
+      /* Access the front element */
       int peek() {
         if (isEmpty()) {
           throw Exception("Queue is empty");
@@ -1966,9 +1971,9 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
         return _nums[_front];
       }
 
-      /* Return Array */
+      /* Return an array */
       List<int> toArray() {
-        // Elements enqueue
+        // Convert only the list elements within the occupied range
         final List<int> res = List.filled(_queSize, 0);
         for (int i = 0, j = _front; i < _queSize; i++, j++) {
           res[i] = _nums[j % capaCity()];
@@ -1981,11 +1986,11 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
 === "Rust"
 
     ```rust title="array_queue.rs"
-    /* Queue based on circular array implementation */
+    /* Queue implemented with a circular array */
     struct ArrayQueue<T> {
-        nums: Vec<T>,      // Array for storing queue elements
-        front: i32,        // Front pointer, points to the front of the queue element
-        que_size: i32,     // Queue length
+        nums: Vec<T>,      // Array that stores the queue elements
+        front: i32,        // Front index, identifying the first element
+        que_size: i32,     // Queue size
         que_capacity: i32, // Queue capacity
     }
 
@@ -2000,17 +2005,17 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
             }
         }
 
-        /* Get the capacity of the queue */
+        /* Get the queue capacity */
         fn capacity(&self) -> i32 {
             self.que_capacity
         }
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         fn size(&self) -> i32 {
             self.que_size
         }
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         fn is_empty(&self) -> bool {
             self.que_size == 0
         }
@@ -2021,10 +2026,10 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
                 println!("Queue is full");
                 return;
             }
-            // Use modulo operation to wrap rear around to the head after passing the tail of the array
-            // Add num to the rear of the queue
+            // Calculate the rear index, one position past the last element
+            // Use modulo to wrap rear to the beginning when it passes the end of the array
             let rear = (self.front + self.que_size) % self.que_capacity;
-            // Front pointer moves one position backward
+            // Add num to the rear
             self.nums[rear as usize] = num;
             self.que_size += 1;
         }
@@ -2032,21 +2037,21 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
         /* Dequeue */
         fn pop(&mut self) -> T {
             let num = self.peek();
-            // Move front pointer backward by one position, if it passes the tail, return to array head
+            // Advance the front index by one position, wrapping to the beginning if it passes the end
             self.front = (self.front + 1) % self.que_capacity;
             self.que_size -= 1;
             num
         }
 
-        /* Return list for printing */
+        /* Access the front element */
         fn peek(&self) -> T {
             if self.is_empty() {
-                panic!("index out of bounds");
+                panic!("Index out of bounds");
             }
             self.nums[self.front as usize]
         }
 
-        /* Return array */
+        /* Return a vector */
         fn to_vector(&self) -> Vec<T> {
             let cap = self.que_capacity;
             let mut j = self.front;
@@ -2063,10 +2068,10 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
 === "C"
 
     ```c title="array_queue.c"
-    /* Queue based on circular array implementation */
+    /* Queue implemented with a circular array */
     typedef struct {
-        int *nums;       // Array for storing queue elements
-        int front;       // Front pointer, points to the front of the queue element
+        int *nums;       // Array that stores the queue elements
+        int front;       // Front pointer, pointing to the first element
         int queSize;     // Current number of elements in the queue
         int queCapacity; // Queue capacity
     } ArrayQueue;
@@ -2074,7 +2079,7 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
     /* Constructor */
     ArrayQueue *newArrayQueue(int capacity) {
         ArrayQueue *queue = (ArrayQueue *)malloc(sizeof(ArrayQueue));
-        // Initialize array
+        // Initialize the array
         queue->queCapacity = capacity;
         queue->nums = (int *)malloc(sizeof(int) * queue->queCapacity);
         queue->front = queue->queSize = 0;
@@ -2087,22 +2092,22 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
         free(queue);
     }
 
-    /* Get the capacity of the queue */
+    /* Get the queue capacity */
     int capacity(ArrayQueue *queue) {
         return queue->queCapacity;
     }
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     int size(ArrayQueue *queue) {
         return queue->queSize;
     }
 
-    /* Check if the queue is empty */
+    /* Check whether the queue is empty */
     bool empty(ArrayQueue *queue) {
         return queue->queSize == 0;
     }
 
-    /* Return list for printing */
+    /* Access the front element */
     int peek(ArrayQueue *queue) {
         assert(size(queue) != 0);
         return queue->nums[queue->front];
@@ -2114,10 +2119,10 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
             printf("Queue is full\r\n");
             return;
         }
-        // Use modulo operation to wrap rear around to the head after passing the tail of the array
-        // Add num to the rear of the queue
+        // Calculate the rear pointer, which points one position past the last element
+        // Use modulo to wrap rear to the beginning when it passes the end of the array
         int rear = (queue->front + queue->queSize) % queue->queCapacity;
-        // Front pointer moves one position backward
+        // Add num to the rear
         queue->nums[rear] = num;
         queue->queSize++;
     }
@@ -2125,13 +2130,13 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
     /* Dequeue */
     int pop(ArrayQueue *queue) {
         int num = peek(queue);
-        // Move front pointer backward by one position, if it passes the tail, return to array head
+        // Advance the front pointer by one position, wrapping to the beginning if it passes the end
         queue->front = (queue->front + 1) % queue->queCapacity;
         queue->queSize--;
         return num;
     }
 
-    /* Return array for printing */
+    /* Return an array for printing */
     int *toArray(ArrayQueue *queue, int *queSize) {
         *queSize = queue->queSize;
         int *res = (int *)calloc(queue->queSize, sizeof(int));
@@ -2147,23 +2152,23 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
 === "Kotlin"
 
     ```kotlin title="array_queue.kt"
-    /* Queue based on circular array implementation */
+    /* Queue implemented with a circular array */
     class ArrayQueue(capacity: Int) {
-        private val nums: IntArray = IntArray(capacity) // Array for storing queue elements
-        private var front: Int = 0 // Front pointer, points to the front of the queue element
-        private var queSize: Int = 0 // Queue length
+        private val nums: IntArray = IntArray(capacity) // Array that stores the queue elements
+        private var front: Int = 0 // Front pointer, pointing to the first element
+        private var queSize: Int = 0 // Queue size
 
-        /* Get the capacity of the queue */
+        /* Get the queue capacity */
         fun capacity(): Int {
             return nums.size
         }
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         fun size(): Int {
             return queSize
         }
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         fun isEmpty(): Boolean {
             return queSize == 0
         }
@@ -2174,10 +2179,10 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
                 println("Queue is full")
                 return
             }
-            // Use modulo operation to wrap rear around to the head after passing the tail of the array
-            // Add num to the rear of the queue
+            // Calculate the rear pointer, which points one position past the last element
+            // Use modulo to wrap rear to the beginning when it passes the end of the array
             val rear = (front + queSize) % capacity()
-            // Front pointer moves one position backward
+            // Add num to the rear
             nums[rear] = num
             queSize++
         }
@@ -2185,21 +2190,21 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
         /* Dequeue */
         fun pop(): Int {
             val num = peek()
-            // Move front pointer backward by one position, if it passes the tail, return to array head
+            // Advance the front pointer by one position, wrapping to the beginning if it passes the end
             front = (front + 1) % capacity()
             queSize--
             return num
         }
 
-        /* Return list for printing */
+        /* Access the front element */
         fun peek(): Int {
             if (isEmpty()) throw IndexOutOfBoundsException()
             return nums[front]
         }
 
-        /* Return array */
+        /* Return an array */
         fun toArray(): IntArray {
-            // Elements enqueue
+            // Copy only the elements within the occupied range
             val res = IntArray(queSize)
             var i = 0
             var j = front
@@ -2216,24 +2221,24 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
 === "Ruby"
 
     ```ruby title="array_queue.rb"
-    ### Queue based on circular array ###
+    ### Queue implemented with a circular array ###
     class ArrayQueue
-      ### Get queue length ###
+      ### Get the queue size ###
       attr_reader :size
 
       ### Constructor ###
       def initialize(size)
-        @nums = Array.new(size, 0) # Array for storing queue elements
-        @front = 0 # Front pointer, points to the front of the queue element
-        @size = 0 # Queue length
+        @nums = Array.new(size, 0) # Array that stores the queue elements
+        @front = 0 # Front pointer, pointing to the first element
+        @size = 0 # Queue size
       end
 
-      ### Get queue capacity ###
+      ### Get the queue capacity ###
       def capacity
         @nums.length
       end
 
-      ### Check if queue is empty ###
+      ### Check whether the queue is empty ###
       def is_empty?
         size.zero?
       end
@@ -2242,10 +2247,10 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
       def push(num)
         raise IndexError, 'Queue is full' if size == capacity
 
-        # Use modulo operation to wrap rear around to the head after passing the tail of the array
-        # Add num to the rear of the queue
+        # Calculate the rear pointer, which points one position past the last element
+        # Use modulo to wrap rear to the beginning when it passes the end of the array
         rear = (@front + size) % capacity
-        # Front pointer moves one position backward
+        # Add num to the rear
         @nums[rear] = num
         @size += 1
       end
@@ -2253,20 +2258,20 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
       ### Dequeue ###
       def pop
         num = peek
-        # Move front pointer backward by one position, if it passes the tail, return to array head
+        # Advance the front pointer by one position, wrapping to the beginning if it passes the end
         @front = (@front + 1) % capacity
         @size -= 1
         num
       end
 
-      ### Access front element ###
+      ### Access the front element ###
       def peek
         raise IndexError, 'Queue is empty' if is_empty?
 
         @nums[@front]
       end
 
-      ### Return list for printing ###
+      ### Return a list for printing ###
       def to_array
         res = Array.new(size, 0)
         j = @front
@@ -2281,11 +2286,16 @@ For a circular array, we need to let `front` or `rear` wrap around to the beginn
     end
     ```
 
-The queue implemented above still has limitations: its length is immutable. However, this problem is not difficult to solve. We can replace the array with a dynamic array to introduce an expansion mechanism. Interested readers can try to implement this themselves.
+??? pythontutor "Visualize execution"
 
-The comparison conclusions for the two implementations are consistent with those for stacks and will not be repeated here.
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20ArrayQueue%3A%0A%20%20%20%20%22%22%22Queue%20implemented%20with%20a%20circular%20array%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20size%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self._nums%3A%20list%5Bint%5D%20%3D%20%5B0%5D%20%2A%20size%20%20%23%20Array%20that%20stores%20the%20queue%20elements%0A%20%20%20%20%20%20%20%20self._front%3A%20int%20%3D%200%20%20%23%20Front%20pointer,%20pointing%20to%20the%20first%20element%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%20%20%23%20Queue%20size%0A%0A%20%20%20%20def%20capacity%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20queue%20capacity%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self._nums%29%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20queue%20size%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22Check%20whether%20the%20queue%20is%20empty%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%20%3D%3D%200%0A%0A%20%20%20%20def%20push%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Enqueue%22%22%22%0A%20%20%20%20%20%20%20%20if%20self._size%20%3D%3D%20self.capacity%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Queue%20is%20full%22%29%0A%20%20%20%20%20%20%20%20%23%20Calculate%20the%20rear%20pointer,%20which%20points%20one%20position%20past%20the%20last%20element%0A%20%20%20%20%20%20%20%20%23%20Use%20modulo%20to%20wrap%20rear%20to%20the%20beginning%20when%20it%20passes%20the%20end%20of%20the%20array%0A%20%20%20%20%20%20%20%20rear%3A%20int%20%3D%20%28self._front%20%2B%20self._size%29%20%25%20self.capacity%28%29%0A%20%20%20%20%20%20%20%20%23%20Add%20num%20to%20the%20rear%0A%20%20%20%20%20%20%20%20self._nums%5Brear%5D%20%3D%20num%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Dequeue%22%22%22%0A%20%20%20%20%20%20%20%20num%3A%20int%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20%23%20Advance%20the%20front%20pointer%20by%20one%20position,%20wrapping%20to%20the%20beginning%20if%20it%20passes%20the%20end%0A%20%20%20%20%20%20%20%20self._front%20%3D%20%28self._front%20%2B%201%29%20%25%20self.capacity%28%29%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Access%20the%20front%20element%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Queue%20is%20empty%22%29%0A%20%20%20%20%20%20%20%20return%20self._nums%5Bself._front%5D%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Return%20a%20list%20for%20printing%22%22%22%0A%20%20%20%20%20%20%20%20res%20%3D%20%5B0%5D%20%2A%20self.size%28%29%0A%20%20%20%20%20%20%20%20j%3A%20int%20%3D%20self._front%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%28self.size%28%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%5Bi%5D%20%3D%20self._nums%5B%28j%20%25%20self.capacity%28%29%29%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20return%20res%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20queue%0A%20%20%20%20queue%20%3D%20ArrayQueue%2810%29%0A%0A%20%20%20%20%23%20Enqueue%20elements%0A%20%20%20%20queue.push%281%29%0A%20%20%20%20queue.push%283%29%0A%20%20%20%20queue.push%282%29%0A%20%20%20%20queue.push%285%29%0A%20%20%20%20queue.push%284%29%0A%0A%20%20%20%20%23%20Access%20the%20front%20element%0A%20%20%20%20peek%20%3D%20queue.peek%28%29%0A%20%20%20%20print%28%22Front%20element%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20Dequeue%20an%20element%0A%20%20%20%20pop%20%3D%20queue.pop%28%29%0A%20%20%20%20print%28%22Dequeued%20element%20pop%20%3D%22,%20pop%29%0A%0A%20%20%20%20%23%20Get%20the%20queue%20size%0A%20%20%20%20size%20%3D%20queue.size%28%29%0A%20%20%20%20print%28%22Queue%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20Check%20whether%20the%20queue%20is%20empty%0A%20%20%20%20is_empty%20%3D%20queue.is_empty%28%29%0A%20%20%20%20print%28%22Is%20the%20queue%20empty%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ArrayQueue%3A%0A%20%20%20%20%22%22%22Queue%20implemented%20with%20a%20circular%20array%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20size%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self._nums%3A%20list%5Bint%5D%20%3D%20%5B0%5D%20%2A%20size%20%20%23%20Array%20that%20stores%20the%20queue%20elements%0A%20%20%20%20%20%20%20%20self._front%3A%20int%20%3D%200%20%20%23%20Front%20pointer,%20pointing%20to%20the%20first%20element%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%20%20%23%20Queue%20size%0A%0A%20%20%20%20def%20capacity%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20queue%20capacity%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self._nums%29%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20queue%20size%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22Check%20whether%20the%20queue%20is%20empty%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%20%3D%3D%200%0A%0A%20%20%20%20def%20push%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Enqueue%22%22%22%0A%20%20%20%20%20%20%20%20if%20self._size%20%3D%3D%20self.capacity%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Queue%20is%20full%22%29%0A%20%20%20%20%20%20%20%20%23%20Calculate%20the%20rear%20pointer,%20which%20points%20one%20position%20past%20the%20last%20element%0A%20%20%20%20%20%20%20%20%23%20Use%20modulo%20to%20wrap%20rear%20to%20the%20beginning%20when%20it%20passes%20the%20end%20of%20the%20array%0A%20%20%20%20%20%20%20%20rear%3A%20int%20%3D%20%28self._front%20%2B%20self._size%29%20%25%20self.capacity%28%29%0A%20%20%20%20%20%20%20%20%23%20Add%20num%20to%20the%20rear%0A%20%20%20%20%20%20%20%20self._nums%5Brear%5D%20%3D%20num%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Dequeue%22%22%22%0A%20%20%20%20%20%20%20%20num%3A%20int%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20%23%20Advance%20the%20front%20pointer%20by%20one%20position,%20wrapping%20to%20the%20beginning%20if%20it%20passes%20the%20end%0A%20%20%20%20%20%20%20%20self._front%20%3D%20%28self._front%20%2B%201%29%20%25%20self.capacity%28%29%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Access%20the%20front%20element%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Queue%20is%20empty%22%29%0A%20%20%20%20%20%20%20%20return%20self._nums%5Bself._front%5D%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Return%20a%20list%20for%20printing%22%22%22%0A%20%20%20%20%20%20%20%20res%20%3D%20%5B0%5D%20%2A%20self.size%28%29%0A%20%20%20%20%20%20%20%20j%3A%20int%20%3D%20self._front%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%28self.size%28%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%5Bi%5D%20%3D%20self._nums%5B%28j%20%25%20self.capacity%28%29%29%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20return%20res%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20queue%0A%20%20%20%20queue%20%3D%20ArrayQueue%2810%29%0A%0A%20%20%20%20%23%20Enqueue%20elements%0A%20%20%20%20queue.push%281%29%0A%20%20%20%20queue.push%283%29%0A%20%20%20%20queue.push%282%29%0A%20%20%20%20queue.push%285%29%0A%20%20%20%20queue.push%284%29%0A%0A%20%20%20%20%23%20Access%20the%20front%20element%0A%20%20%20%20peek%20%3D%20queue.peek%28%29%0A%20%20%20%20print%28%22Front%20element%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20Dequeue%20an%20element%0A%20%20%20%20pop%20%3D%20queue.pop%28%29%0A%20%20%20%20print%28%22Dequeued%20element%20pop%20%3D%22,%20pop%29%0A%0A%20%20%20%20%23%20Get%20the%20queue%20size%0A%20%20%20%20size%20%3D%20queue.size%28%29%0A%20%20%20%20print%28%22Queue%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20Check%20whether%20the%20queue%20is%20empty%0A%20%20%20%20is_empty%20%3D%20queue.is_empty%28%29%0A%20%20%20%20print%28%22Is%20the%20queue%20empty%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-## 5.2.3 &nbsp; Typical Applications of Queue
+This queue still has a limitation: its capacity is fixed. We can address it by replacing the array with a dynamic array and adding resizing. Interested readers can try implementing this themselves.
 
-- **Taobao orders**. After shoppers place orders, the orders are added to a queue, and the system subsequently processes the orders in the queue according to their sequence. During Double Eleven, massive orders are generated in a short time, and high concurrency becomes a key challenge that engineers need to tackle.
-- **Various to-do tasks**. Any scenario that needs to implement "first come, first served" functionality, such as a printer's task queue or a restaurant's order queue, can effectively maintain the processing order using queues.
+The comparison between these two implementations is the same as for stacks, so we will not repeat it here.
+
+## 5.2.3 &nbsp; Typical applications
+
+- **Taobao orders**. When a shopper places an order, it enters a queue, and the system processes orders in sequence. During the Singles' Day shopping festival, enormous numbers of orders arrive in a short time, making high concurrency a major engineering challenge.
+- **Tasks awaiting processing**. Queues preserve processing order wherever first-come, first-served behavior is needed, such as printer jobs or restaurant orders.

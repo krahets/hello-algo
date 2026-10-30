@@ -3,20 +3,20 @@ comments: true
 icon: material/family-tree
 ---
 
-# Chapter 8. &nbsp; Heap
+# Chapter 8. &nbsp; Heaps
 
-![Heap](../assets/covers/chapter_heap.jpg){ class="cover-image" }
+![Heaps](../assets/covers/chapter_heap.jpg){ class="cover-image" }
 
 !!! abstract
 
-    Heaps are like mountain peaks, rising layer upon layer, each with a distinct shape.
-
-    The peaks rise and fall at varying heights, yet the tallest peak always catches the eye first.
+    Heaps resemble mountain ranges, rising in layers of varied shapes.
+    
+    The peaks stand at different heights, yet the highest always catches the eye first.
 
 ## Chapter contents
 
-- [8.1 &nbsp; Heap](heap.md)
-- [8.2 &nbsp; Heap Construction Operation](build_heap.md)
-- [8.3 &nbsp; Top-k Problem](top_k.md)
+- [8.1 &nbsp; Heaps](heap.md)
+- [8.2 &nbsp; Building a heap](build_heap.md)
+- [8.3 &nbsp; The top-k problem](top_k.md)
 - [8.4 &nbsp; Summary](summary.md)
 - [8.5 &nbsp; Exercises](exercises.md)

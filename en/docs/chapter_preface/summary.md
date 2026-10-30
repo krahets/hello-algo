@@ -4,11 +4,11 @@ comments: true
 
 # 0.3 &nbsp; Summary
 
-### 1. &nbsp; Key Review
+### 1. &nbsp; Key takeaways
 
-- The main audience of this book is algorithm beginners. If you already have some background, this book can help you systematically review algorithm knowledge, and the source code in the book can also be used as a "problem-solving toolkit."
-- The content of the book mainly includes three parts: complexity analysis, data structures, and algorithms, covering most topics in this field.
-- For algorithm novices, reading an introductory book during the initial learning stage is crucial, as it can help you avoid many detours.
-- The animated illustrations in the book are usually used to introduce key concepts and challenging topics. When reading this book, you should pay more attention to these topics.
-- Practice is the best way to learn programming. It is strongly recommended to run the source code and type the code yourself.
-- The web version of this book has a comments section for each chapter, where you are welcome to share your questions and insights at any time.
+- This book is primarily for beginners in algorithms. If you already have some background, it can help you review your knowledge systematically, and its source code can serve as a toolkit for solving practice problems.
+- The book has three main parts—complexity analysis, data structures, and algorithms—covering most topics in the field.
+- For beginners, reading an introductory book early on is essential and can help avoid many detours.
+- The animated illustrations usually explain key or challenging concepts. Pay particular attention to them as you read.
+- Practice is the best way to learn programming. We strongly recommend running the source code and writing it out yourself.
+- Every section in the web edition has a comments area. You are welcome to share your questions and insights at any time.

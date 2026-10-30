@@ -2,27 +2,27 @@
 comments: true
 ---
 
-# 13.1 &nbsp; Backtracking Algorithm
+# 13.1 &nbsp; Backtracking algorithms
 
-<u>The backtracking algorithm</u> is a method for solving problems through exhaustive search. Its core idea is to start from an initial state and exhaustively search all possible solutions. When a correct solution is found, it is recorded. This process continues until a solution is found or all possible choices have been tried without finding a solution.
+A <u>backtracking algorithm</u> solves a problem through exhaustive search. Starting from an initial state, it explores possible solutions by brute force, recording valid solutions as it finds them, until a solution is found or every possible choice has been tried without success.
 
-The backtracking algorithm typically employs "depth-first search" to traverse the solution space. In the "Binary Tree" chapter, we mentioned that preorder, inorder, and postorder traversals all belong to depth-first search. Next, we will construct a backtracking problem using preorder traversal to progressively understand how the backtracking algorithm works.
+Backtracking usually traverses the solution space through depth-first search. In the binary tree chapter, we learned that preorder, inorder, and postorder traversal are all forms of depth-first search. We will use preorder traversal to build a backtracking problem and explore the approach step by step.
 
 !!! question "Example 1"
 
-    Given a binary tree, search and record all nodes with value $7$, and return a list of these nodes.
+    Given a binary tree, find and record every node with value $7$. Return a list of these nodes.
 
-For this problem, we perform a preorder traversal of the tree and check whether the current node's value is $7$. If it is, we add the node to the result list `res`. The relevant implementation is shown in the following figure and code:
+Traverse the tree in preorder and check whether the current node's value is $7$. If so, add that node's value to the result list `res`. The code and figure below show the process:
 
 === "Python"
 
     ```python title="preorder_traversal_i_compact.py"
     def pre_order(root: TreeNode):
-        """Preorder traversal: Example 1"""
+        """Preorder traversal: example 1"""
         if root is None:
             return
         if root.val == 7:
-            # Record solution
+            # Record the solution
             res.append(root)
         pre_order(root.left)
         pre_order(root.right)
@@ -31,13 +31,13 @@ For this problem, we perform a preorder traversal of the tree and check whether 
 === "C++"
 
     ```cpp title="preorder_traversal_i_compact.cpp"
-    /* Preorder traversal: Example 1 */
+    /* Preorder traversal: example 1 */
     void preOrder(TreeNode *root) {
         if (root == nullptr) {
             return;
         }
         if (root->val == 7) {
-            // Record solution
+            // Record the solution
             res.push_back(root);
         }
         preOrder(root->left);
@@ -48,13 +48,13 @@ For this problem, we perform a preorder traversal of the tree and check whether 
 === "Java"
 
     ```java title="preorder_traversal_i_compact.java"
-    /* Preorder traversal: Example 1 */
+    /* Preorder traversal: example 1 */
     void preOrder(TreeNode root) {
         if (root == null) {
             return;
         }
         if (root.val == 7) {
-            // Record solution
+            // Record the solution
             res.add(root);
         }
         preOrder(root.left);
@@ -65,13 +65,13 @@ For this problem, we perform a preorder traversal of the tree and check whether 
 === "C#"
 
     ```csharp title="preorder_traversal_i_compact.cs"
-    /* Preorder traversal: Example 1 */
+    /* Preorder traversal: example 1 */
     void PreOrder(TreeNode? root) {
         if (root == null) {
             return;
         }
         if (root.val == 7) {
-            // Record solution
+            // Record the solution
             res.Add(root);
         }
         PreOrder(root.left);
@@ -82,13 +82,13 @@ For this problem, we perform a preorder traversal of the tree and check whether 
 === "Go"
 
     ```go title="preorder_traversal_i_compact.go"
-    /* Preorder traversal: Example 1 */
+    /* Preorder traversal: example 1 */
     func preOrderI(root *TreeNode, res *[]*TreeNode) {
         if root == nil {
             return
         }
         if (root.Val).(int) == 7 {
-            // Record solution
+            // Record the solution
             *res = append(*res, root)
         }
         preOrderI(root.Left, res)
@@ -99,13 +99,13 @@ For this problem, we perform a preorder traversal of the tree and check whether 
 === "Swift"
 
     ```swift title="preorder_traversal_i_compact.swift"
-    /* Preorder traversal: Example 1 */
+    /* Preorder traversal: example 1 */
     func preOrder(root: TreeNode?) {
         guard let root = root else {
             return
         }
         if root.val == 7 {
-            // Record solution
+            // Record the solution
             res.append(root)
         }
         preOrder(root: root.left)
@@ -116,13 +116,13 @@ For this problem, we perform a preorder traversal of the tree and check whether 
 === "JS"
 
     ```javascript title="preorder_traversal_i_compact.js"
-    /* Preorder traversal: Example 1 */
+    /* Preorder traversal: example 1 */
     function preOrder(root, res) {
         if (root === null) {
             return;
         }
         if (root.val === 7) {
-            // Record solution
+            // Record the solution
             res.push(root);
         }
         preOrder(root.left, res);
@@ -133,13 +133,13 @@ For this problem, we perform a preorder traversal of the tree and check whether 
 === "TS"
 
     ```typescript title="preorder_traversal_i_compact.ts"
-    /* Preorder traversal: Example 1 */
+    /* Preorder traversal: example 1 */
     function preOrder(root: TreeNode | null, res: TreeNode[]): void {
         if (root === null) {
             return;
         }
         if (root.val === 7) {
-            // Record solution
+            // Record the solution
             res.push(root);
         }
         preOrder(root.left, res);
@@ -150,13 +150,13 @@ For this problem, we perform a preorder traversal of the tree and check whether 
 === "Dart"
 
     ```dart title="preorder_traversal_i_compact.dart"
-    /* Preorder traversal: Example 1 */
+    /* Preorder traversal: example 1 */
     void preOrder(TreeNode? root, List<TreeNode> res) {
       if (root == null) {
         return;
       }
       if (root.val == 7) {
-        // Record solution
+        // Record the solution
         res.add(root);
       }
       preOrder(root.left, res);
@@ -167,14 +167,14 @@ For this problem, we perform a preorder traversal of the tree and check whether 
 === "Rust"
 
     ```rust title="preorder_traversal_i_compact.rs"
-    /* Preorder traversal: Example 1 */
+    /* Preorder traversal: example 1 */
     fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<&Rc<RefCell<TreeNode>>>) {
         if root.is_none() {
             return;
         }
         if let Some(node) = root {
             if node.borrow().val == 7 {
-                // Record solution
+                // Record the solution
                 res.push(node.clone());
             }
             pre_order(res, node.borrow().left.as_ref());
@@ -186,13 +186,13 @@ For this problem, we perform a preorder traversal of the tree and check whether 
 === "C"
 
     ```c title="preorder_traversal_i_compact.c"
-    /* Preorder traversal: Example 1 */
+    /* Preorder traversal: example 1 */
     void preOrder(TreeNode *root) {
         if (root == NULL) {
             return;
         }
         if (root->val == 7) {
-            // Record solution
+            // Record the solution
             res[resSize++] = root;
         }
         preOrder(root->left);
@@ -203,13 +203,13 @@ For this problem, we perform a preorder traversal of the tree and check whether 
 === "Kotlin"
 
     ```kotlin title="preorder_traversal_i_compact.kt"
-    /* Preorder traversal: Example 1 */
+    /* Preorder traversal: example 1 */
     fun preOrder(root: TreeNode?) {
         if (root == null) {
             return
         }
         if (root._val == 7) {
-            // Record solution
+            // Record the solution
             res!!.add(root)
         }
         preOrder(root.left)
@@ -220,11 +220,11 @@ For this problem, we perform a preorder traversal of the tree and check whether 
 === "Ruby"
 
     ```ruby title="preorder_traversal_i_compact.rb"
-    ### Pre-order traversal: example 1 ###
+    ### Preorder traversal: example 1 ###
     def pre_order(root)
       return unless root
 
-      # Record solution
+      # Record the solution
       $res << root if root.val == 7
 
       pre_order(root.left)
@@ -232,35 +232,40 @@ For this problem, we perform a preorder traversal of the tree and check whether 
     end
     ```
 
-![Search for nodes in preorder traversal](backtracking_algorithm.assets/preorder_find_nodes.png){ class="animation-figure" }
+??? pythontutor "Visualize execution"
 
-<p align="center"> Figure 13-1 &nbsp; Search for nodes in preorder traversal </p>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Return%20None%20if%20the%20index%20is%20out%20of%20bounds%20or%20the%20corresponding%20element%20is%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Create%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Recursively%20build%20the%20left%20and%20right%20subtrees%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%201%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28root%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20res%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnOutput%20all%20nodes%20with%20value%207%22%29%0A%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20res%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Return%20None%20if%20the%20index%20is%20out%20of%20bounds%20or%20the%20corresponding%20element%20is%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Create%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Recursively%20build%20the%20left%20and%20right%20subtrees%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%201%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28root%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20res%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnOutput%20all%20nodes%20with%20value%207%22%29%0A%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20res%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-## 13.1.1 &nbsp; Attempt and Backtrack
+![Finding nodes during preorder traversal](backtracking_algorithm.assets/preorder_find_nodes.png){ class="animation-figure" }
 
-**The reason it is called a backtracking algorithm is that it employs "attempt" and "backtrack" strategies when searching the solution space**. When the algorithm encounters a state where it cannot continue forward or cannot find a solution that satisfies the constraints, it will undo the previous choice, return to a previous state, and try other possible choices.
+<p align="center"> Figure 13-1 &nbsp; Finding nodes during preorder traversal </p>
 
-For Example 1, visiting each node represents an "attempt", while skipping over a leaf node or the `return` that brings the traversal back to the parent node represents a "backtrack".
+## 13.1.1 &nbsp; Trying choices and backtracking
 
-It is worth noting that **backtracking is not limited to function returns alone**. To illustrate this, let's extend Example 1 slightly.
+**Backtracking gets its name from its pattern of trying choices and undoing them while searching the solution space**. When the search reaches a state that cannot advance or lead to a valid solution, it undoes the last choice, returns to the previous state, and tries other possibilities.
+
+In Example 1, visiting a node is a trial, while a `return` after passing a leaf or returning to a parent is backtracking.
+
+**Backtracking involves more than returning from a function**. To see why, let's extend Example 1.
 
 !!! question "Example 2"
 
-    In a binary tree, search all nodes with value $7$, **and return the paths from the root node to these nodes**.
+    Find every node with value $7$ in a binary tree, and **return the paths from the root to those nodes**.
 
-Based on the code from Example 1, we need to use a list `path` to record the path of visited nodes. When we reach a node with value $7$, we copy `path` and add it to the result list `res`. After traversal is complete, `res` contains all the solutions. The code is as follows:
+Extend the first solution with a list `path` recording the current path of visited nodes. When a node with value $7$ is reached, append a copy of `path` to the result list `res`. After traversal, `res` contains all solutions. The code is as follows:
 
 === "Python"
 
     ```python title="preorder_traversal_ii_compact.py"
     def pre_order(root: TreeNode):
-        """Preorder traversal: Example 2"""
+        """Preorder traversal: example 2"""
         if root is None:
             return
-        # Attempt
+        # Try
         path.append(root)
         if root.val == 7:
-            # Record solution
+            # Record the solution
             res.append(list(path))
         pre_order(root.left)
         pre_order(root.right)
@@ -271,15 +276,15 @@ Based on the code from Example 1, we need to use a list `path` to record the pat
 === "C++"
 
     ```cpp title="preorder_traversal_ii_compact.cpp"
-    /* Preorder traversal: Example 2 */
+    /* Preorder traversal: example 2 */
     void preOrder(TreeNode *root) {
         if (root == nullptr) {
             return;
         }
-        // Attempt
+        // Try
         path.push_back(root);
         if (root->val == 7) {
-            // Record solution
+            // Record the solution
             res.push_back(path);
         }
         preOrder(root->left);
@@ -292,15 +297,15 @@ Based on the code from Example 1, we need to use a list `path` to record the pat
 === "Java"
 
     ```java title="preorder_traversal_ii_compact.java"
-    /* Preorder traversal: Example 2 */
+    /* Preorder traversal: example 2 */
     void preOrder(TreeNode root) {
         if (root == null) {
             return;
         }
-        // Attempt
+        // Try
         path.add(root);
         if (root.val == 7) {
-            // Record solution
+            // Record the solution
             res.add(new ArrayList<>(path));
         }
         preOrder(root.left);
@@ -313,15 +318,15 @@ Based on the code from Example 1, we need to use a list `path` to record the pat
 === "C#"
 
     ```csharp title="preorder_traversal_ii_compact.cs"
-    /* Preorder traversal: Example 2 */
+    /* Preorder traversal: example 2 */
     void PreOrder(TreeNode? root) {
         if (root == null) {
             return;
         }
-        // Attempt
+        // Try
         path.Add(root);
         if (root.val == 7) {
-            // Record solution
+            // Record the solution
             res.Add(new List<TreeNode>(path));
         }
         PreOrder(root.left);
@@ -334,15 +339,15 @@ Based on the code from Example 1, we need to use a list `path` to record the pat
 === "Go"
 
     ```go title="preorder_traversal_ii_compact.go"
-    /* Preorder traversal: Example 2 */
+    /* Preorder traversal: example 2 */
     func preOrderII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
         if root == nil {
             return
         }
-        // Attempt
+        // Try
         *path = append(*path, root)
         if root.Val.(int) == 7 {
-            // Record solution
+            // Record the solution
             *res = append(*res, append([]*TreeNode{}, *path...))
         }
         preOrderII(root.Left, res, path)
@@ -355,15 +360,15 @@ Based on the code from Example 1, we need to use a list `path` to record the pat
 === "Swift"
 
     ```swift title="preorder_traversal_ii_compact.swift"
-    /* Preorder traversal: Example 2 */
+    /* Preorder traversal: example 2 */
     func preOrder(root: TreeNode?) {
         guard let root = root else {
             return
         }
-        // Attempt
+        // Try
         path.append(root)
         if root.val == 7 {
-            // Record solution
+            // Record the solution
             res.append(path)
         }
         preOrder(root: root.left)
@@ -376,15 +381,15 @@ Based on the code from Example 1, we need to use a list `path` to record the pat
 === "JS"
 
     ```javascript title="preorder_traversal_ii_compact.js"
-    /* Preorder traversal: Example 2 */
+    /* Preorder traversal: example 2 */
     function preOrder(root, path, res) {
         if (root === null) {
             return;
         }
-        // Attempt
+        // Try
         path.push(root);
         if (root.val === 7) {
-            // Record solution
+            // Record the solution
             res.push([...path]);
         }
         preOrder(root.left, path, res);
@@ -397,7 +402,7 @@ Based on the code from Example 1, we need to use a list `path` to record the pat
 === "TS"
 
     ```typescript title="preorder_traversal_ii_compact.ts"
-    /* Preorder traversal: Example 2 */
+    /* Preorder traversal: example 2 */
     function preOrder(
         root: TreeNode | null,
         path: TreeNode[],
@@ -406,10 +411,10 @@ Based on the code from Example 1, we need to use a list `path` to record the pat
         if (root === null) {
             return;
         }
-        // Attempt
+        // Try
         path.push(root);
         if (root.val === 7) {
-            // Record solution
+            // Record the solution
             res.push([...path]);
         }
         preOrder(root.left, path, res);
@@ -422,7 +427,7 @@ Based on the code from Example 1, we need to use a list `path` to record the pat
 === "Dart"
 
     ```dart title="preorder_traversal_ii_compact.dart"
-    /* Preorder traversal: Example 2 */
+    /* Preorder traversal: example 2 */
     void preOrder(
       TreeNode? root,
       List<TreeNode> path,
@@ -432,10 +437,10 @@ Based on the code from Example 1, we need to use a list `path` to record the pat
         return;
       }
 
-      // Attempt
+      // Try
       path.add(root);
       if (root.val == 7) {
-        // Record solution
+        // Record the solution
         res.add(List.from(path));
       }
       preOrder(root.left, path, res);
@@ -448,7 +453,7 @@ Based on the code from Example 1, we need to use a list `path` to record the pat
 === "Rust"
 
     ```rust title="preorder_traversal_ii_compact.rs"
-    /* Preorder traversal: Example 2 */
+    /* Preorder traversal: example 2 */
     fn pre_order(
         res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
         path: &mut Vec<Rc<RefCell<TreeNode>>>,
@@ -458,10 +463,10 @@ Based on the code from Example 1, we need to use a list `path` to record the pat
             return;
         }
         if let Some(node) = root {
-            // Attempt
+            // Try
             path.push(node.clone());
             if node.borrow().val == 7 {
-                // Record solution
+                // Record the solution
                 res.push(path.clone());
             }
             pre_order(res, path, node.borrow().left.as_ref());
@@ -475,15 +480,15 @@ Based on the code from Example 1, we need to use a list `path` to record the pat
 === "C"
 
     ```c title="preorder_traversal_ii_compact.c"
-    /* Preorder traversal: Example 2 */
+    /* Preorder traversal: example 2 */
     void preOrder(TreeNode *root) {
         if (root == NULL) {
             return;
         }
-        // Attempt
+        // Try
         path[pathSize++] = root;
         if (root->val == 7) {
-            // Record solution
+            // Record the solution
             for (int i = 0; i < pathSize; ++i) {
                 res[resSize][i] = path[i];
             }
@@ -499,15 +504,15 @@ Based on the code from Example 1, we need to use a list `path` to record the pat
 === "Kotlin"
 
     ```kotlin title="preorder_traversal_ii_compact.kt"
-    /* Preorder traversal: Example 2 */
+    /* Preorder traversal: example 2 */
     fun preOrder(root: TreeNode?) {
         if (root == null) {
             return
         }
-        // Attempt
+        // Try
         path!!.add(root)
         if (root._val == 7) {
-            // Record solution
+            // Record the solution
             res!!.add(path!!.toMutableList())
         }
         preOrder(root.left)
@@ -520,14 +525,14 @@ Based on the code from Example 1, we need to use a list `path` to record the pat
 === "Ruby"
 
     ```ruby title="preorder_traversal_ii_compact.rb"
-    ### Pre-order traversal: example 2 ###
+    ### Preorder traversal: example 2 ###
     def pre_order(root)
       return unless root
 
-      # Attempt
+      # Try
       $path << root
 
-      # Record solution
+      # Record the solution
       $res << $path.dup if root.val == 7
 
       pre_order(root.left)
@@ -538,12 +543,17 @@ Based on the code from Example 1, we need to use a list `path` to record the pat
     end
     ```
 
-In each "attempt", we record the path by adding the current node to `path`; before "backtracking", we need to remove the node from `path`, **to restore the state before this attempt**.
+??? pythontutor "Visualize execution"
 
-Observing the process shown in the following figure, **we can understand attempt and backtrack as "advance" and "undo"**, two operations that are the reverse of each other.
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Return%20None%20if%20the%20index%20is%20out%20of%20bounds%20or%20the%20corresponding%20element%20is%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Create%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Recursively%20build%20the%20left%20and%20right%20subtrees%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%202%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Try%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20Backtrack%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnOutput%20all%20paths%20from%20the%20root%20to%20nodes%20with%20value%207%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Return%20None%20if%20the%20index%20is%20out%20of%20bounds%20or%20the%20corresponding%20element%20is%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Create%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Recursively%20build%20the%20left%20and%20right%20subtrees%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%202%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Try%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20Backtrack%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnOutput%20all%20paths%20from%20the%20root%20to%20nodes%20with%20value%207%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+Each time we try a node, append it to `path`. Before backtracking, pop that node from `path` **to restore the state from before the trial**.
+
+As Figure 13-2 illustrates, **trying a choice and backtracking are like moving forward and undoing that move**: they are inverse operations.
 
 === "<1>"
-    ![Attempt and backtrack](backtracking_algorithm.assets/preorder_find_paths_step1.png){ class="animation-figure" }
+    ![Trying choices and backtracking](backtracking_algorithm.assets/preorder_find_paths_step1.png){ class="animation-figure" }
 
 === "<2>"
     ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.png){ class="animation-figure" }
@@ -575,30 +585,30 @@ Observing the process shown in the following figure, **we can understand attempt
 === "<11>"
     ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.png){ class="animation-figure" }
 
-<p align="center"> Figure 13-2 &nbsp; Attempt and backtrack </p>
+<p align="center"> Figure 13-2 &nbsp; Trying choices and backtracking </p>
 
 ## 13.1.2 &nbsp; Pruning
 
-Complex backtracking problems usually contain one or more constraints. **Constraints can typically be used for "pruning"**.
+Complex backtracking problems usually have one or more constraints, **which can often be used for pruning**.
 
 !!! question "Example 3"
 
-    In a binary tree, search all nodes with value $7$ and return the paths from the root node to these nodes, **but require that the paths do not contain nodes with value $3$**.
+    Find every node with value $7$ in a binary tree and return the paths from the root to those nodes, **requiring that no path contain a node with value $3$**.
 
-To satisfy the above constraints, **we need to add pruning operations**: during the search process, if we encounter a node with value $3$, we return early and do not continue searching. The code is as follows:
+To enforce this constraint, **add a pruning step**: when a node with value $3$ is encountered, return immediately without searching farther. The code is as follows:
 
 === "Python"
 
     ```python title="preorder_traversal_iii_compact.py"
     def pre_order(root: TreeNode):
-        """Preorder traversal: Example 3"""
-        # Pruning
+        """Preorder traversal: example 3"""
+        # Prune
         if root is None or root.val == 3:
             return
-        # Attempt
+        # Try
         path.append(root)
         if root.val == 7:
-            # Record solution
+            # Record the solution
             res.append(list(path))
         pre_order(root.left)
         pre_order(root.right)
@@ -609,16 +619,16 @@ To satisfy the above constraints, **we need to add pruning operations**: during 
 === "C++"
 
     ```cpp title="preorder_traversal_iii_compact.cpp"
-    /* Preorder traversal: Example 3 */
+    /* Preorder traversal: example 3 */
     void preOrder(TreeNode *root) {
-        // Pruning
+        // Prune
         if (root == nullptr || root->val == 3) {
             return;
         }
-        // Attempt
+        // Try
         path.push_back(root);
         if (root->val == 7) {
-            // Record solution
+            // Record the solution
             res.push_back(path);
         }
         preOrder(root->left);
@@ -631,16 +641,16 @@ To satisfy the above constraints, **we need to add pruning operations**: during 
 === "Java"
 
     ```java title="preorder_traversal_iii_compact.java"
-    /* Preorder traversal: Example 3 */
+    /* Preorder traversal: example 3 */
     void preOrder(TreeNode root) {
-        // Pruning
+        // Prune
         if (root == null || root.val == 3) {
             return;
         }
-        // Attempt
+        // Try
         path.add(root);
         if (root.val == 7) {
-            // Record solution
+            // Record the solution
             res.add(new ArrayList<>(path));
         }
         preOrder(root.left);
@@ -653,16 +663,16 @@ To satisfy the above constraints, **we need to add pruning operations**: during 
 === "C#"
 
     ```csharp title="preorder_traversal_iii_compact.cs"
-    /* Preorder traversal: Example 3 */
+    /* Preorder traversal: example 3 */
     void PreOrder(TreeNode? root) {
-        // Pruning
+        // Prune
         if (root == null || root.val == 3) {
             return;
         }
-        // Attempt
+        // Try
         path.Add(root);
         if (root.val == 7) {
-            // Record solution
+            // Record the solution
             res.Add(new List<TreeNode>(path));
         }
         PreOrder(root.left);
@@ -675,16 +685,16 @@ To satisfy the above constraints, **we need to add pruning operations**: during 
 === "Go"
 
     ```go title="preorder_traversal_iii_compact.go"
-    /* Preorder traversal: Example 3 */
+    /* Preorder traversal: example 3 */
     func preOrderIII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
-        // Pruning
+        // Prune
         if root == nil || root.Val == 3 {
             return
         }
-        // Attempt
+        // Try
         *path = append(*path, root)
         if root.Val.(int) == 7 {
-            // Record solution
+            // Record the solution
             *res = append(*res, append([]*TreeNode{}, *path...))
         }
         preOrderIII(root.Left, res, path)
@@ -697,16 +707,16 @@ To satisfy the above constraints, **we need to add pruning operations**: during 
 === "Swift"
 
     ```swift title="preorder_traversal_iii_compact.swift"
-    /* Preorder traversal: Example 3 */
+    /* Preorder traversal: example 3 */
     func preOrder(root: TreeNode?) {
-        // Pruning
+        // Prune
         guard let root = root, root.val != 3 else {
             return
         }
-        // Attempt
+        // Try
         path.append(root)
         if root.val == 7 {
-            // Record solution
+            // Record the solution
             res.append(path)
         }
         preOrder(root: root.left)
@@ -719,16 +729,16 @@ To satisfy the above constraints, **we need to add pruning operations**: during 
 === "JS"
 
     ```javascript title="preorder_traversal_iii_compact.js"
-    /* Preorder traversal: Example 3 */
+    /* Preorder traversal: example 3 */
     function preOrder(root, path, res) {
-        // Pruning
+        // Prune
         if (root === null || root.val === 3) {
             return;
         }
-        // Attempt
+        // Try
         path.push(root);
         if (root.val === 7) {
-            // Record solution
+            // Record the solution
             res.push([...path]);
         }
         preOrder(root.left, path, res);
@@ -741,20 +751,20 @@ To satisfy the above constraints, **we need to add pruning operations**: during 
 === "TS"
 
     ```typescript title="preorder_traversal_iii_compact.ts"
-    /* Preorder traversal: Example 3 */
+    /* Preorder traversal: example 3 */
     function preOrder(
         root: TreeNode | null,
         path: TreeNode[],
         res: TreeNode[][]
     ): void {
-        // Pruning
+        // Prune
         if (root === null || root.val === 3) {
             return;
         }
-        // Attempt
+        // Try
         path.push(root);
         if (root.val === 7) {
-            // Record solution
+            // Record the solution
             res.push([...path]);
         }
         preOrder(root.left, path, res);
@@ -767,7 +777,7 @@ To satisfy the above constraints, **we need to add pruning operations**: during 
 === "Dart"
 
     ```dart title="preorder_traversal_iii_compact.dart"
-    /* Preorder traversal: Example 3 */
+    /* Preorder traversal: example 3 */
     void preOrder(
       TreeNode? root,
       List<TreeNode> path,
@@ -777,10 +787,10 @@ To satisfy the above constraints, **we need to add pruning operations**: during 
         return;
       }
 
-      // Attempt
+      // Try
       path.add(root);
       if (root.val == 7) {
-        // Record solution
+        // Record the solution
         res.add(List.from(path));
       }
       preOrder(root.left, path, res);
@@ -793,21 +803,21 @@ To satisfy the above constraints, **we need to add pruning operations**: during 
 === "Rust"
 
     ```rust title="preorder_traversal_iii_compact.rs"
-    /* Preorder traversal: Example 3 */
+    /* Preorder traversal: example 3 */
     fn pre_order(
         res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
         path: &mut Vec<Rc<RefCell<TreeNode>>>,
         root: Option<&Rc<RefCell<TreeNode>>>,
     ) {
-        // Pruning
+        // Prune
         if root.is_none() || root.as_ref().unwrap().borrow().val == 3 {
             return;
         }
         if let Some(node) = root {
-            // Attempt
+            // Try
             path.push(node.clone());
             if node.borrow().val == 7 {
-                // Record solution
+                // Record the solution
                 res.push(path.clone());
             }
             pre_order(res, path, node.borrow().left.as_ref());
@@ -821,16 +831,16 @@ To satisfy the above constraints, **we need to add pruning operations**: during 
 === "C"
 
     ```c title="preorder_traversal_iii_compact.c"
-    /* Preorder traversal: Example 3 */
+    /* Preorder traversal: example 3 */
     void preOrder(TreeNode *root) {
-        // Pruning
+        // Prune
         if (root == NULL || root->val == 3) {
             return;
         }
-        // Attempt
+        // Try
         path[pathSize++] = root;
         if (root->val == 7) {
-            // Record solution
+            // Record the solution
             for (int i = 0; i < pathSize; i++) {
                 res[resSize][i] = path[i];
             }
@@ -846,16 +856,16 @@ To satisfy the above constraints, **we need to add pruning operations**: during 
 === "Kotlin"
 
     ```kotlin title="preorder_traversal_iii_compact.kt"
-    /* Preorder traversal: Example 3 */
+    /* Preorder traversal: example 3 */
     fun preOrder(root: TreeNode?) {
-        // Pruning
+        // Prune
         if (root == null || root._val == 3) {
             return
         }
-        // Attempt
+        // Try
         path!!.add(root)
         if (root._val == 7) {
-            // Record solution
+            // Record the solution
             res!!.add(path!!.toMutableList())
         }
         preOrder(root.left)
@@ -868,15 +878,15 @@ To satisfy the above constraints, **we need to add pruning operations**: during 
 === "Ruby"
 
     ```ruby title="preorder_traversal_iii_compact.rb"
-    ### Pre-order traversal: example 3 ###
+    ### Preorder traversal: example 3 ###
     def pre_order(root)
-      # Pruning
+      # Prune
       return if !root || root.val == 3
 
-      # Attempt
+      # Try
       $path.append(root)
 
-      # Record solution
+      # Record the solution
       $res << $path.dup if root.val == 7
 
       pre_order(root.left)
@@ -887,60 +897,65 @@ To satisfy the above constraints, **we need to add pruning operations**: during 
     end
     ```
 
-"Pruning" is a vivid term. As shown in the following figure, during the search process, **we "prune" search branches that do not satisfy the constraints**, avoiding many meaningless attempts and thus improving search efficiency.
+??? pythontutor "Visualize execution"
+
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Return%20None%20if%20the%20index%20is%20out%20of%20bounds%20or%20the%20corresponding%20element%20is%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Create%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Recursively%20build%20the%20left%20and%20right%20subtrees%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%203%22%22%22%0A%20%20%20%20%23%20Prune%0A%20%20%20%20if%20root%20is%20None%20or%20root.val%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Try%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20Backtrack%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnOutput%20all%20paths%20from%20the%20root%20to%20nodes%20with%20value%207%20that%20contain%20no%20node%20with%20value%203%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Return%20None%20if%20the%20index%20is%20out%20of%20bounds%20or%20the%20corresponding%20element%20is%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Create%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Recursively%20build%20the%20left%20and%20right%20subtrees%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%203%22%22%22%0A%20%20%20%20%23%20Prune%0A%20%20%20%20if%20root%20is%20None%20or%20root.val%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Try%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20Backtrack%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnOutput%20all%20paths%20from%20the%20root%20to%20nodes%20with%20value%207%20that%20contain%20no%20node%20with%20value%203%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+Pruning is an apt name. As shown in Figure 13-3, **we cut off search branches that violate the constraints**, avoiding pointless trials and improving efficiency.
 
 ![Pruning according to constraints](backtracking_algorithm.assets/preorder_find_constrained_paths.png){ class="animation-figure" }
 
 <p align="center"> Figure 13-3 &nbsp; Pruning according to constraints </p>
 
-## 13.1.3 &nbsp; Framework Code
+## 13.1.3 &nbsp; A code template
 
-Next, we attempt to extract a general framework centered on backtracking's "attempt, backtrack, and pruning" to improve code generality.
+We will now extract the core pattern of trying, undoing, and pruning into a more general backtracking template.
 
-In the following framework code, `state` represents the current state of the problem, and `choices` represents the choices available in the current state:
+In the following template, `state` is the current problem state, and `choices` contains the choices available from that state:
 
 === "Python"
 
     ```python title=""
     def backtrack(state: State, choices: list[choice], res: list[state]):
-        """Backtracking algorithm framework"""
-        # Check if it is a solution
+        """Backtracking template"""
+        # Check whether the state is a solution
         if is_solution(state):
             # Record the solution
             record_solution(state, res)
-            # Stop searching
+            # Stop searching this branch
             return
-        # Traverse all choices
+        # Try every choice
         for choice in choices:
-            # Pruning: check if the choice is valid
+            # Prune: check whether the choice is valid
             if is_valid(state, choice):
-                # Attempt: make a choice and update the state
+                # Try: make the choice and update the state
                 make_choice(state, choice)
                 backtrack(state, choices, res)
-                # Backtrack: undo the choice and restore to the previous state
+                # Backtrack: undo the choice and restore the previous state
                 undo_choice(state, choice)
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* Backtracking algorithm framework */
+    /* Backtracking template */
     void backtrack(State *state, vector<Choice *> &choices, vector<State *> &res) {
-        // Check if it is a solution
+        // Check whether the state is a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res);
-            // Stop searching
+            // Stop searching this branch
             return;
         }
-        // Traverse all choices
+        // Try every choice
         for (Choice choice : choices) {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Attempt: make a choice and update the state
+                // Try: make the choice and update the state
                 makeChoice(state, choice);
                 backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore to the previous state
+                // Backtrack: undo the choice and restore the previous state
                 undoChoice(state, choice);
             }
         }
@@ -950,23 +965,23 @@ In the following framework code, `state` represents the current state of the pro
 === "Java"
 
     ```java title=""
-    /* Backtracking algorithm framework */
+    /* Backtracking template */
     void backtrack(State state, List<Choice> choices, List<State> res) {
-        // Check if it is a solution
+        // Check whether the state is a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res);
-            // Stop searching
+            // Stop searching this branch
             return;
         }
-        // Traverse all choices
+        // Try every choice
         for (Choice choice : choices) {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Attempt: make a choice and update the state
+                // Try: make the choice and update the state
                 makeChoice(state, choice);
                 backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore to the previous state
+                // Backtrack: undo the choice and restore the previous state
                 undoChoice(state, choice);
             }
         }
@@ -976,23 +991,23 @@ In the following framework code, `state` represents the current state of the pro
 === "C#"
 
     ```csharp title=""
-    /* Backtracking algorithm framework */
+    /* Backtracking template */
     void Backtrack(State state, List<Choice> choices, List<State> res) {
-        // Check if it is a solution
+        // Check whether the state is a solution
         if (IsSolution(state)) {
             // Record the solution
             RecordSolution(state, res);
-            // Stop searching
+            // Stop searching this branch
             return;
         }
-        // Traverse all choices
+        // Try every choice
         foreach (Choice choice in choices) {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if (IsValid(state, choice)) {
-                // Attempt: make a choice and update the state
+                // Try: make the choice and update the state
                 MakeChoice(state, choice);
                 Backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore to the previous state
+                // Backtrack: undo the choice and restore the previous state
                 UndoChoice(state, choice);
             }
         }
@@ -1002,23 +1017,23 @@ In the following framework code, `state` represents the current state of the pro
 === "Go"
 
     ```go title=""
-    /* Backtracking algorithm framework */
+    /* Backtracking template */
     func backtrack(state *State, choices []Choice, res *[]State) {
-        // Check if it is a solution
+        // Check whether the state is a solution
         if isSolution(state) {
             // Record the solution
             recordSolution(state, res)
-            // Stop searching
+            // Stop searching this branch
             return
         }
-        // Traverse all choices
+        // Try every choice
         for _, choice := range choices {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if isValid(state, choice) {
-                // Attempt: make a choice and update the state
+                // Try: make the choice and update the state
                 makeChoice(state, choice)
                 backtrack(state, choices, res)
-                // Backtrack: undo the choice and restore to the previous state
+                // Backtrack: undo the choice and restore the previous state
                 undoChoice(state, choice)
             }
         }
@@ -1028,23 +1043,23 @@ In the following framework code, `state` represents the current state of the pro
 === "Swift"
 
     ```swift title=""
-    /* Backtracking algorithm framework */
+    /* Backtracking template */
     func backtrack(state: inout State, choices: [Choice], res: inout [State]) {
-        // Check if it is a solution
+        // Check whether the state is a solution
         if isSolution(state: state) {
             // Record the solution
             recordSolution(state: state, res: &res)
-            // Stop searching
+            // Stop searching this branch
             return
         }
-        // Traverse all choices
+        // Try every choice
         for choice in choices {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if isValid(state: state, choice: choice) {
-                // Attempt: make a choice and update the state
+                // Try: make the choice and update the state
                 makeChoice(state: &state, choice: choice)
                 backtrack(state: &state, choices: choices, res: &res)
-                // Backtrack: undo the choice and restore to the previous state
+                // Backtrack: undo the choice and restore the previous state
                 undoChoice(state: &state, choice: choice)
             }
         }
@@ -1054,23 +1069,23 @@ In the following framework code, `state` represents the current state of the pro
 === "JS"
 
     ```javascript title=""
-    /* Backtracking algorithm framework */
+    /* Backtracking template */
     function backtrack(state, choices, res) {
-        // Check if it is a solution
+        // Check whether the state is a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res);
-            // Stop searching
+            // Stop searching this branch
             return;
         }
-        // Traverse all choices
+        // Try every choice
         for (let choice of choices) {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Attempt: make a choice and update the state
+                // Try: make the choice and update the state
                 makeChoice(state, choice);
                 backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore to the previous state
+                // Backtrack: undo the choice and restore the previous state
                 undoChoice(state, choice);
             }
         }
@@ -1080,23 +1095,23 @@ In the following framework code, `state` represents the current state of the pro
 === "TS"
 
     ```typescript title=""
-    /* Backtracking algorithm framework */
+    /* Backtracking template */
     function backtrack(state: State, choices: Choice[], res: State[]): void {
-        // Check if it is a solution
+        // Check whether the state is a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res);
-            // Stop searching
+            // Stop searching this branch
             return;
         }
-        // Traverse all choices
+        // Try every choice
         for (let choice of choices) {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Attempt: make a choice and update the state
+                // Try: make the choice and update the state
                 makeChoice(state, choice);
                 backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore to the previous state
+                // Backtrack: undo the choice and restore the previous state
                 undoChoice(state, choice);
             }
         }
@@ -1106,23 +1121,23 @@ In the following framework code, `state` represents the current state of the pro
 === "Dart"
 
     ```dart title=""
-    /* Backtracking algorithm framework */
+    /* Backtracking template */
     void backtrack(State state, List<Choice>, List<State> res) {
-      // Check if it is a solution
+      // Check whether the state is a solution
       if (isSolution(state)) {
         // Record the solution
         recordSolution(state, res);
-        // Stop searching
+        // Stop searching this branch
         return;
       }
-      // Traverse all choices
+      // Try every choice
       for (Choice choice in choices) {
-        // Pruning: check if the choice is valid
+        // Prune: check whether the choice is valid
         if (isValid(state, choice)) {
-          // Attempt: make a choice and update the state
+          // Try: make the choice and update the state
           makeChoice(state, choice);
           backtrack(state, choices, res);
-          // Backtrack: undo the choice and restore to the previous state
+          // Backtrack: undo the choice and restore the previous state
           undoChoice(state, choice);
         }
       }
@@ -1132,23 +1147,23 @@ In the following framework code, `state` represents the current state of the pro
 === "Rust"
 
     ```rust title=""
-    /* Backtracking algorithm framework */
+    /* Backtracking template */
     fn backtrack(state: &mut State, choices: &Vec<Choice>, res: &mut Vec<State>) {
-        // Check if it is a solution
+        // Check whether the state is a solution
         if is_solution(state) {
             // Record the solution
             record_solution(state, res);
-            // Stop searching
+            // Stop searching this branch
             return;
         }
-        // Traverse all choices
+        // Try every choice
         for choice in choices {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if is_valid(state, choice) {
-                // Attempt: make a choice and update the state
+                // Try: make the choice and update the state
                 make_choice(state, choice);
                 backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore to the previous state
+                // Backtrack: undo the choice and restore the previous state
                 undo_choice(state, choice);
             }
         }
@@ -1158,23 +1173,23 @@ In the following framework code, `state` represents the current state of the pro
 === "C"
 
     ```c title=""
-    /* Backtracking algorithm framework */
+    /* Backtracking template */
     void backtrack(State *state, Choice *choices, int numChoices, State *res, int numRes) {
-        // Check if it is a solution
+        // Check whether the state is a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res, numRes);
-            // Stop searching
+            // Stop searching this branch
             return;
         }
-        // Traverse all choices
+        // Try every choice
         for (int i = 0; i < numChoices; i++) {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if (isValid(state, &choices[i])) {
-                // Attempt: make a choice and update the state
+                // Try: make the choice and update the state
                 makeChoice(state, &choices[i]);
                 backtrack(state, choices, numChoices, res, numRes);
-                // Backtrack: undo the choice and restore to the previous state
+                // Backtrack: undo the choice and restore the previous state
                 undoChoice(state, &choices[i]);
             }
         }
@@ -1184,23 +1199,23 @@ In the following framework code, `state` represents the current state of the pro
 === "Kotlin"
 
     ```kotlin title=""
-    /* Backtracking algorithm framework */
+    /* Backtracking template */
     fun backtrack(state: State?, choices: List<Choice?>, res: List<State?>?) {
-        // Check if it is a solution
+        // Check whether the state is a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res)
-            // Stop searching
+            // Stop searching this branch
             return
         }
-        // Traverse all choices
+        // Try every choice
         for (choice in choices) {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Attempt: make a choice and update the state
+                // Try: make the choice and update the state
                 makeChoice(state, choice)
                 backtrack(state, choices, res)
-                // Backtrack: undo the choice and restore to the previous state
+                // Backtrack: undo the choice and restore the previous state
                 undoChoice(state, choice)
             }
         }
@@ -1210,119 +1225,119 @@ In the following framework code, `state` represents the current state of the pro
 === "Ruby"
 
     ```ruby title=""
-    ### Backtracking algorithm framework ###
+    ### Backtracking template ###
     def backtrack(state, choices, res)
-        # Check if it is a solution
+        # Check whether the state is a solution
         if is_solution?(state)
             # Record the solution
             record_solution(state, res)
             return
         end
 
-        # Traverse all choices
+        # Try every choice
         for choice in choices
-            # Pruning: check if the choice is valid
+            # Prune: check whether the choice is valid
             if is_valid?(state, choice)
-                # Attempt: make a choice and update the state
+                # Try: make the choice and update the state
                 make_choice(state, choice)
                 backtrack(state, choices, res)
-                # Backtrack: undo the choice and restore to the previous state
+                # Backtrack: undo the choice and restore the previous state
                 undo_choice(state, choice)
             end
         end
     end
     ```
 
-Next, we solve Example 3 based on the framework code. The state `state` is the node traversal path, the choices `choices` are the left and right child nodes of the current node, and the result `res` is a list of paths:
+Now apply this template to Example 3. The `state` is the current path of visited nodes, `choices` consists of the current node's left and right children, and `res` is the list of paths:
 
 === "Python"
 
     ```python title="preorder_traversal_iii_template.py"
     def is_solution(state: list[TreeNode]) -> bool:
-        """Check if the current state is a solution"""
+        """Check whether the current state is a solution"""
         return state and state[-1].val == 7
 
     def record_solution(state: list[TreeNode], res: list[list[TreeNode]]):
-        """Record solution"""
+        """Record the solution"""
         res.append(list(state))
 
     def is_valid(state: list[TreeNode], choice: TreeNode) -> bool:
-        """Check if the choice is valid under the current state"""
+        """Check whether the choice is valid in the current state"""
         return choice is not None and choice.val != 3
 
     def make_choice(state: list[TreeNode], choice: TreeNode):
-        """Update state"""
+        """Update the state"""
         state.append(choice)
 
     def undo_choice(state: list[TreeNode], choice: TreeNode):
-        """Restore state"""
+        """Restore the state"""
         state.pop()
 
     def backtrack(
         state: list[TreeNode], choices: list[TreeNode], res: list[list[TreeNode]]
     ):
-        """Backtracking algorithm: Example 3"""
-        # Check if it is a solution
+        """Backtracking: example 3"""
+        # Check whether this is a solution
         if is_solution(state):
-            # Record solution
+            # Record the solution
             record_solution(state, res)
-        # Traverse all choices
+        # Iterate over all choices
         for choice in choices:
-            # Pruning: check if the choice is valid
+            # Prune: check whether the choice is valid
             if is_valid(state, choice):
-                # Attempt: make choice, update state
+                # Try: make a choice and update the state
                 make_choice(state, choice)
-                # Proceed to the next round of selection
+                # Proceed to the next choice
                 backtrack(state, [choice.left, choice.right], res)
-                # Backtrack: undo choice, restore to previous state
+                # Backtrack: undo the choice and restore the previous state
                 undo_choice(state, choice)
     ```
 
 === "C++"
 
     ```cpp title="preorder_traversal_iii_template.cpp"
-    /* Check if the current state is a solution */
+    /* Check whether the current state is a solution */
     bool isSolution(vector<TreeNode *> &state) {
         return !state.empty() && state.back()->val == 7;
     }
 
-    /* Record solution */
+    /* Record the solution */
     void recordSolution(vector<TreeNode *> &state, vector<vector<TreeNode *>> &res) {
         res.push_back(state);
     }
 
-    /* Check if the choice is valid under the current state */
+    /* Check whether the choice is valid in the current state */
     bool isValid(vector<TreeNode *> &state, TreeNode *choice) {
         return choice != nullptr && choice->val != 3;
     }
 
-    /* Update state */
+    /* Update the state */
     void makeChoice(vector<TreeNode *> &state, TreeNode *choice) {
         state.push_back(choice);
     }
 
-    /* Restore state */
+    /* Restore the state */
     void undoChoice(vector<TreeNode *> &state, TreeNode *choice) {
         state.pop_back();
     }
 
-    /* Backtracking algorithm: Example 3 */
+    /* Backtracking: example 3 */
     void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<vector<TreeNode *>> &res) {
-        // Check if it is a solution
+        // Check whether this is a solution
         if (isSolution(state)) {
-            // Record solution
+            // Record the solution
             recordSolution(state, res);
         }
-        // Traverse all choices
+        // Iterate over all choices
         for (TreeNode *choice : choices) {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Attempt: make choice, update state
+                // Try: make a choice and update the state
                 makeChoice(state, choice);
-                // Proceed to the next round of selection
+                // Proceed to the next choice
                 vector<TreeNode *> nextChoices{choice->left, choice->right};
                 backtrack(state, nextChoices, res);
-                // Backtrack: undo choice, restore to previous state
+                // Backtrack: undo the choice and restore the previous state
                 undoChoice(state, choice);
             }
         }
@@ -1332,47 +1347,47 @@ Next, we solve Example 3 based on the framework code. The state `state` is the n
 === "Java"
 
     ```java title="preorder_traversal_iii_template.java"
-    /* Check if the current state is a solution */
+    /* Check whether the current state is a solution */
     boolean isSolution(List<TreeNode> state) {
         return !state.isEmpty() && state.get(state.size() - 1).val == 7;
     }
 
-    /* Record solution */
+    /* Record the solution */
     void recordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
         res.add(new ArrayList<>(state));
     }
 
-    /* Check if the choice is valid under the current state */
+    /* Check whether the choice is valid in the current state */
     boolean isValid(List<TreeNode> state, TreeNode choice) {
         return choice != null && choice.val != 3;
     }
 
-    /* Update state */
+    /* Update the state */
     void makeChoice(List<TreeNode> state, TreeNode choice) {
         state.add(choice);
     }
 
-    /* Restore state */
+    /* Restore the state */
     void undoChoice(List<TreeNode> state, TreeNode choice) {
         state.remove(state.size() - 1);
     }
 
-    /* Backtracking algorithm: Example 3 */
+    /* Backtracking: example 3 */
     void backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
-        // Check if it is a solution
+        // Check whether this is a solution
         if (isSolution(state)) {
-            // Record solution
+            // Record the solution
             recordSolution(state, res);
         }
-        // Traverse all choices
+        // Iterate over all choices
         for (TreeNode choice : choices) {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Attempt: make choice, update state
+                // Try: make a choice and update the state
                 makeChoice(state, choice);
-                // Proceed to the next round of selection
+                // Proceed to the next choice
                 backtrack(state, Arrays.asList(choice.left, choice.right), res);
-                // Backtrack: undo choice, restore to previous state
+                // Backtrack: undo the choice and restore the previous state
                 undoChoice(state, choice);
             }
         }
@@ -1382,47 +1397,47 @@ Next, we solve Example 3 based on the framework code. The state `state` is the n
 === "C#"
 
     ```csharp title="preorder_traversal_iii_template.cs"
-    /* Check if the current state is a solution */
+    /* Check whether the current state is a solution */
     bool IsSolution(List<TreeNode> state) {
         return state.Count != 0 && state[^1].val == 7;
     }
 
-    /* Record solution */
+    /* Record the solution */
     void RecordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
         res.Add(new List<TreeNode>(state));
     }
 
-    /* Check if the choice is valid under the current state */
+    /* Check whether the choice is valid in the current state */
     bool IsValid(List<TreeNode> state, TreeNode choice) {
         return choice != null && choice.val != 3;
     }
 
-    /* Update state */
+    /* Update the state */
     void MakeChoice(List<TreeNode> state, TreeNode choice) {
         state.Add(choice);
     }
 
-    /* Restore state */
+    /* Restore the state */
     void UndoChoice(List<TreeNode> state, TreeNode choice) {
         state.RemoveAt(state.Count - 1);
     }
 
-    /* Backtracking algorithm: Example 3 */
+    /* Backtracking: example 3 */
     void Backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
-        // Check if it is a solution
+        // Check whether this is a solution
         if (IsSolution(state)) {
-            // Record solution
+            // Record the solution
             RecordSolution(state, res);
         }
-        // Traverse all choices
+        // Iterate over all choices
         foreach (TreeNode choice in choices) {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if (IsValid(state, choice)) {
-                // Attempt: make choice, update state
+                // Try: make a choice and update the state
                 MakeChoice(state, choice);
-                // Proceed to the next round of selection
+                // Proceed to the next choice
                 Backtrack(state, [choice.left!, choice.right!], res);
-                // Backtrack: undo choice, restore to previous state
+                // Backtrack: undo the choice and restore the previous state
                 UndoChoice(state, choice);
             }
         }
@@ -1432,49 +1447,49 @@ Next, we solve Example 3 based on the framework code. The state `state` is the n
 === "Go"
 
     ```go title="preorder_traversal_iii_template.go"
-    /* Check if the current state is a solution */
+    /* Check whether the current state is a solution */
     func isSolution(state *[]*TreeNode) bool {
         return len(*state) != 0 && (*state)[len(*state)-1].Val == 7
     }
 
-    /* Record solution */
+    /* Record the solution */
     func recordSolution(state *[]*TreeNode, res *[][]*TreeNode) {
         *res = append(*res, append([]*TreeNode{}, *state...))
     }
 
-    /* Check if the choice is valid under the current state */
+    /* Check whether the choice is valid in the current state */
     func isValid(state *[]*TreeNode, choice *TreeNode) bool {
         return choice != nil && choice.Val != 3
     }
 
-    /* Update state */
+    /* Update the state */
     func makeChoice(state *[]*TreeNode, choice *TreeNode) {
         *state = append(*state, choice)
     }
 
-    /* Restore state */
+    /* Restore the state */
     func undoChoice(state *[]*TreeNode, choice *TreeNode) {
         *state = (*state)[:len(*state)-1]
     }
 
-    /* Backtracking algorithm: Example 3 */
+    /* Backtracking: example 3 */
     func backtrackIII(state *[]*TreeNode, choices *[]*TreeNode, res *[][]*TreeNode) {
-        // Check if it is a solution
+        // Check whether this is a solution
         if isSolution(state) {
-            // Record solution
+            // Record the solution
             recordSolution(state, res)
         }
-        // Traverse all choices
+        // Iterate over all choices
         for _, choice := range *choices {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if isValid(state, choice) {
-                // Attempt: make choice, update state
+                // Try: make a choice and update the state
                 makeChoice(state, choice)
-                // Proceed to the next round of selection
+                // Proceed to the next choice
                 temp := make([]*TreeNode, 0)
                 temp = append(temp, choice.Left, choice.Right)
                 backtrackIII(state, &temp, res)
-                // Backtrack: undo choice, restore to previous state
+                // Backtrack: undo the choice and restore the previous state
                 undoChoice(state, choice)
             }
         }
@@ -1484,46 +1499,46 @@ Next, we solve Example 3 based on the framework code. The state `state` is the n
 === "Swift"
 
     ```swift title="preorder_traversal_iii_template.swift"
-    /* Check if the current state is a solution */
+    /* Check whether the current state is a solution */
     func isSolution(state: [TreeNode]) -> Bool {
         !state.isEmpty && state.last!.val == 7
     }
 
-    /* Record solution */
+    /* Record the solution */
     func recordSolution(state: [TreeNode], res: inout [[TreeNode]]) {
         res.append(state)
     }
 
-    /* Check if the choice is valid under the current state */
+    /* Check whether the choice is valid in the current state */
     func isValid(state: [TreeNode], choice: TreeNode?) -> Bool {
         choice != nil && choice!.val != 3
     }
 
-    /* Update state */
+    /* Update the state */
     func makeChoice(state: inout [TreeNode], choice: TreeNode) {
         state.append(choice)
     }
 
-    /* Restore state */
+    /* Restore the state */
     func undoChoice(state: inout [TreeNode], choice: TreeNode) {
         state.removeLast()
     }
 
-    /* Backtracking algorithm: Example 3 */
+    /* Backtracking: example 3 */
     func backtrack(state: inout [TreeNode], choices: [TreeNode], res: inout [[TreeNode]]) {
-        // Check if it is a solution
+        // Check whether this is a solution
         if isSolution(state: state) {
             recordSolution(state: state, res: &res)
         }
-        // Traverse all choices
+        // Iterate over all choices
         for choice in choices {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if isValid(state: state, choice: choice) {
-                // Attempt: make choice, update state
+                // Try: make a choice and update the state
                 makeChoice(state: &state, choice: choice)
-                // Proceed to the next round of selection
+                // Proceed to the next choice
                 backtrack(state: &state, choices: [choice.left, choice.right].compactMap { $0 }, res: &res)
-                // Backtrack: undo choice, restore to previous state
+                // Backtrack: undo the choice and restore the previous state
                 undoChoice(state: &state, choice: choice)
             }
         }
@@ -1533,47 +1548,47 @@ Next, we solve Example 3 based on the framework code. The state `state` is the n
 === "JS"
 
     ```javascript title="preorder_traversal_iii_template.js"
-    /* Check if the current state is a solution */
+    /* Check whether the current state is a solution */
     function isSolution(state) {
         return state && state[state.length - 1]?.val === 7;
     }
 
-    /* Record solution */
+    /* Record the solution */
     function recordSolution(state, res) {
         res.push([...state]);
     }
 
-    /* Check if the choice is valid under the current state */
+    /* Check whether the choice is valid in the current state */
     function isValid(state, choice) {
         return choice !== null && choice.val !== 3;
     }
 
-    /* Update state */
+    /* Update the state */
     function makeChoice(state, choice) {
         state.push(choice);
     }
 
-    /* Restore state */
+    /* Restore the state */
     function undoChoice(state) {
         state.pop();
     }
 
-    /* Backtracking algorithm: Example 3 */
+    /* Backtracking: example 3 */
     function backtrack(state, choices, res) {
-        // Check if it is a solution
+        // Check whether this is a solution
         if (isSolution(state)) {
-            // Record solution
+            // Record the solution
             recordSolution(state, res);
         }
-        // Traverse all choices
+        // Iterate over all choices
         for (const choice of choices) {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Attempt: make choice, update state
+                // Try: make a choice and update the state
                 makeChoice(state, choice);
-                // Proceed to the next round of selection
+                // Proceed to the next choice
                 backtrack(state, [choice.left, choice.right], res);
-                // Backtrack: undo choice, restore to previous state
+                // Backtrack: undo the choice and restore the previous state
                 undoChoice(state);
             }
         }
@@ -1583,51 +1598,51 @@ Next, we solve Example 3 based on the framework code. The state `state` is the n
 === "TS"
 
     ```typescript title="preorder_traversal_iii_template.ts"
-    /* Check if the current state is a solution */
+    /* Check whether the current state is a solution */
     function isSolution(state: TreeNode[]): boolean {
         return state && state[state.length - 1]?.val === 7;
     }
 
-    /* Record solution */
+    /* Record the solution */
     function recordSolution(state: TreeNode[], res: TreeNode[][]): void {
         res.push([...state]);
     }
 
-    /* Check if the choice is valid under the current state */
+    /* Check whether the choice is valid in the current state */
     function isValid(state: TreeNode[], choice: TreeNode): boolean {
         return choice !== null && choice.val !== 3;
     }
 
-    /* Update state */
+    /* Update the state */
     function makeChoice(state: TreeNode[], choice: TreeNode): void {
         state.push(choice);
     }
 
-    /* Restore state */
+    /* Restore the state */
     function undoChoice(state: TreeNode[]): void {
         state.pop();
     }
 
-    /* Backtracking algorithm: Example 3 */
+    /* Backtracking: example 3 */
     function backtrack(
         state: TreeNode[],
         choices: TreeNode[],
         res: TreeNode[][]
     ): void {
-        // Check if it is a solution
+        // Check whether this is a solution
         if (isSolution(state)) {
-            // Record solution
+            // Record the solution
             recordSolution(state, res);
         }
-        // Traverse all choices
+        // Iterate over all choices
         for (const choice of choices) {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Attempt: make choice, update state
+                // Try: make a choice and update the state
                 makeChoice(state, choice);
-                // Proceed to the next round of selection
+                // Proceed to the next choice
                 backtrack(state, [choice.left, choice.right], res);
-                // Backtrack: undo choice, restore to previous state
+                // Backtrack: undo the choice and restore the previous state
                 undoChoice(state);
             }
         }
@@ -1637,51 +1652,51 @@ Next, we solve Example 3 based on the framework code. The state `state` is the n
 === "Dart"
 
     ```dart title="preorder_traversal_iii_template.dart"
-    /* Check if the current state is a solution */
+    /* Check whether the current state is a solution */
     bool isSolution(List<TreeNode> state) {
       return state.isNotEmpty && state.last.val == 7;
     }
 
-    /* Record solution */
+    /* Record the solution */
     void recordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
       res.add(List.from(state));
     }
 
-    /* Check if the choice is valid under the current state */
+    /* Check whether the choice is valid in the current state */
     bool isValid(List<TreeNode> state, TreeNode? choice) {
       return choice != null && choice.val != 3;
     }
 
-    /* Update state */
+    /* Update the state */
     void makeChoice(List<TreeNode> state, TreeNode? choice) {
       state.add(choice!);
     }
 
-    /* Restore state */
+    /* Restore the state */
     void undoChoice(List<TreeNode> state, TreeNode? choice) {
       state.removeLast();
     }
 
-    /* Backtracking algorithm: Example 3 */
+    /* Backtracking: example 3 */
     void backtrack(
       List<TreeNode> state,
       List<TreeNode?> choices,
       List<List<TreeNode>> res,
     ) {
-      // Check if it is a solution
+      // Check whether this is a solution
       if (isSolution(state)) {
-        // Record solution
+        // Record the solution
         recordSolution(state, res);
       }
-      // Traverse all choices
+      // Iterate over all choices
       for (TreeNode? choice in choices) {
-        // Pruning: check if the choice is valid
+        // Prune: check whether the choice is valid
         if (isValid(state, choice)) {
-          // Attempt: make choice, update state
+          // Try: make a choice and update the state
           makeChoice(state, choice);
-          // Proceed to the next round of selection
+          // Proceed to the next choice
           backtrack(state, [choice!.left, choice.right], res);
-          // Backtrack: undo choice, restore to previous state
+          // Backtrack: undo the choice and restore the previous state
           undoChoice(state, choice);
         }
       }
@@ -1691,12 +1706,12 @@ Next, we solve Example 3 based on the framework code. The state `state` is the n
 === "Rust"
 
     ```rust title="preorder_traversal_iii_template.rs"
-    /* Check if the current state is a solution */
+    /* Check whether the current state is a solution */
     fn is_solution(state: &mut Vec<Rc<RefCell<TreeNode>>>) -> bool {
         return !state.is_empty() && state.last().unwrap().borrow().val == 7;
     }
 
-    /* Record solution */
+    /* Record the solution */
     fn record_solution(
         state: &mut Vec<Rc<RefCell<TreeNode>>>,
         res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
@@ -1704,39 +1719,39 @@ Next, we solve Example 3 based on the framework code. The state `state` is the n
         res.push(state.clone());
     }
 
-    /* Check if the choice is valid under the current state */
+    /* Check whether the choice is valid in the current state */
     fn is_valid(_: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Option<&Rc<RefCell<TreeNode>>>) -> bool {
         return choice.is_some() && choice.unwrap().borrow().val != 3;
     }
 
-    /* Update state */
+    /* Update the state */
     fn make_choice(state: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Rc<RefCell<TreeNode>>) {
         state.push(choice);
     }
 
-    /* Restore state */
+    /* Restore the state */
     fn undo_choice(state: &mut Vec<Rc<RefCell<TreeNode>>>, _: Rc<RefCell<TreeNode>>) {
         state.pop();
     }
 
-    /* Backtracking algorithm: Example 3 */
+    /* Backtracking: example 3 */
     fn backtrack(
         state: &mut Vec<Rc<RefCell<TreeNode>>>,
         choices: &Vec<Option<&Rc<RefCell<TreeNode>>>>,
         res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
     ) {
-        // Check if it is a solution
+        // Check whether this is a solution
         if is_solution(state) {
-            // Record solution
+            // Record the solution
             record_solution(state, res);
         }
-        // Traverse all choices
+        // Iterate over all choices
         for &choice in choices.iter() {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if is_valid(state, choice) {
-                // Attempt: make choice, update state
+                // Try: make a choice and update the state
                 make_choice(state, choice.unwrap().clone());
-                // Proceed to the next round of selection
+                // Proceed to the next choice
                 backtrack(
                     state,
                     &vec![
@@ -1745,7 +1760,7 @@ Next, we solve Example 3 based on the framework code. The state `state` is the n
                     ],
                     res,
                 );
-                // Backtrack: undo choice, restore to previous state
+                // Backtrack: undo the choice and restore the previous state
                 undo_choice(state, choice.unwrap().clone());
             }
         }
@@ -1755,12 +1770,12 @@ Next, we solve Example 3 based on the framework code. The state `state` is the n
 === "C"
 
     ```c title="preorder_traversal_iii_template.c"
-    /* Check if the current state is a solution */
+    /* Check whether the current state is a solution */
     bool isSolution(void) {
         return pathSize > 0 && path[pathSize - 1]->val == 7;
     }
 
-    /* Record solution */
+    /* Record the solution */
     void recordSolution(void) {
         for (int i = 0; i < pathSize; i++) {
             res[resSize][i] = path[i];
@@ -1768,39 +1783,39 @@ Next, we solve Example 3 based on the framework code. The state `state` is the n
         resSize++;
     }
 
-    /* Check if the choice is valid under the current state */
+    /* Check whether the choice is valid in the current state */
     bool isValid(TreeNode *choice) {
         return choice != NULL && choice->val != 3;
     }
 
-    /* Update state */
+    /* Update the state */
     void makeChoice(TreeNode *choice) {
         path[pathSize++] = choice;
     }
 
-    /* Restore state */
+    /* Restore the state */
     void undoChoice(void) {
         pathSize--;
     }
 
-    /* Backtracking algorithm: Example 3 */
+    /* Backtracking: example 3 */
     void backtrack(TreeNode *choices[2]) {
-        // Check if it is a solution
+        // Check whether this is a solution
         if (isSolution()) {
-            // Record solution
+            // Record the solution
             recordSolution();
         }
-        // Traverse all choices
+        // Iterate over all choices
         for (int i = 0; i < 2; i++) {
             TreeNode *choice = choices[i];
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if (isValid(choice)) {
-                // Attempt: make choice, update state
+                // Try: make a choice and update the state
                 makeChoice(choice);
-                // Proceed to the next round of selection
+                // Proceed to the next choice
                 TreeNode *nextChoices[2] = {choice->left, choice->right};
                 backtrack(nextChoices);
-                // Backtrack: undo choice, restore to previous state
+                // Backtrack: undo the choice and restore the previous state
                 undoChoice();
             }
         }
@@ -1810,51 +1825,51 @@ Next, we solve Example 3 based on the framework code. The state `state` is the n
 === "Kotlin"
 
     ```kotlin title="preorder_traversal_iii_template.kt"
-    /* Check if the current state is a solution */
+    /* Check whether the current state is a solution */
     fun isSolution(state: MutableList<TreeNode?>): Boolean {
         return state.isNotEmpty() && state[state.size - 1]?._val == 7
     }
 
-    /* Record solution */
+    /* Record the solution */
     fun recordSolution(state: MutableList<TreeNode?>?, res: MutableList<MutableList<TreeNode?>?>) {
         res.add(state!!.toMutableList())
     }
 
-    /* Check if the choice is valid under the current state */
+    /* Check whether the choice is valid in the current state */
     fun isValid(state: MutableList<TreeNode?>?, choice: TreeNode?): Boolean {
         return choice != null && choice._val != 3
     }
 
-    /* Update state */
+    /* Update the state */
     fun makeChoice(state: MutableList<TreeNode?>, choice: TreeNode?) {
         state.add(choice)
     }
 
-    /* Restore state */
+    /* Restore the state */
     fun undoChoice(state: MutableList<TreeNode?>, choice: TreeNode?) {
         state.removeLast()
     }
 
-    /* Backtracking algorithm: Example 3 */
+    /* Backtracking: example 3 */
     fun backtrack(
         state: MutableList<TreeNode?>,
         choices: MutableList<TreeNode?>,
         res: MutableList<MutableList<TreeNode?>?>
     ) {
-        // Check if it is a solution
+        // Check whether this is a solution
         if (isSolution(state)) {
-            // Record solution
+            // Record the solution
             recordSolution(state, res)
         }
-        // Traverse all choices
+        // Iterate over all choices
         for (choice in choices) {
-            // Pruning: check if the choice is valid
+            // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Attempt: make choice, update state
+                // Try: make a choice and update the state
                 makeChoice(state, choice)
-                // Proceed to the next round of selection
+                // Proceed to the next choice
                 backtrack(state, mutableListOf(choice!!.left, choice.right), res)
-                // Backtrack: undo choice, restore to previous state
+                // Backtrack: undo the choice and restore the previous state
                 undoChoice(state, choice)
             }
         }
@@ -1864,120 +1879,125 @@ Next, we solve Example 3 based on the framework code. The state `state` is the n
 === "Ruby"
 
     ```ruby title="preorder_traversal_iii_template.rb"
-    ### Check if current state is solution ###
+    ### Check whether the current state is a solution ###
     def is_solution?(state)
       !state.empty? && state.last.val == 7
     end
 
-    ### Record solution ###
+    ### Record the solution ###
     def record_solution(state, res)
       res << state.dup
     end
 
-    ### Check if choice is valid in current state ###
+    ### Check whether the choice is valid in the current state ###
     def is_valid?(state, choice)
       choice && choice.val != 3
     end
 
-    ### Update state ###
+    ### Update the state ###
     def make_choice(state, choice)
       state << choice
     end
 
-    ### Restore state ###
+    ### Restore the state ###
     def undo_choice(state, choice)
       state.pop
     end
 
     ### Backtracking: example 3 ###
     def backtrack(state, choices, res)
-      # Check if it is a solution
+      # Check whether this is a solution
       record_solution(state, res) if is_solution?(state)
 
-      # Traverse all choices
+      # Iterate over all choices
       for choice in choices
-        # Pruning: check if the choice is valid
+        # Prune: check whether the choice is valid
         if is_valid?(state, choice)
-          # Attempt: make choice, update state
+          # Try: make a choice and update the state
           make_choice(state, choice)
-          # Proceed to the next round of selection
+          # Proceed to the next choice
           backtrack(state, [choice.left, choice.right], res)
-          # Backtrack: undo choice, restore to previous state
+          # Backtrack: undo the choice and restore the previous state
           undo_choice(state, choice)
         end
       end
     end
     ```
 
-As per the problem statement, we should continue searching after finding a node with value $7$. **Therefore, we need to remove the `return` statement after recording the solution**. The following figure compares the search process with and without the `return` statement.
+??? pythontutor "Visualize execution"
 
-![Comparison of search process with and without return statement](backtracking_algorithm.assets/backtrack_remove_return_or_not.png){ class="animation-figure" }
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Return%20None%20if%20the%20index%20is%20out%20of%20bounds%20or%20the%20corresponding%20element%20is%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Create%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Recursively%20build%20the%20left%20and%20right%20subtrees%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20is_solution%28state%3A%20list%5BTreeNode%5D%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22Check%20whether%20the%20current%20state%20is%20a%20solution%22%22%22%0A%20%20%20%20return%20state%20and%20state%5B-1%5D.val%20%3D%3D%207%0A%0Adef%20record_solution%28state%3A%20list%5BTreeNode%5D,%20res%3A%20list%5Blist%5BTreeNode%5D%5D%29%3A%0A%20%20%20%20%22%22%22Record%20the%20solution%22%22%22%0A%20%20%20%20res.append%28list%28state%29%29%0A%0Adef%20is_valid%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22Check%20whether%20the%20choice%20is%20valid%20in%20the%20current%20state%22%22%22%0A%20%20%20%20return%20choice%20is%20not%20None%20and%20choice.val%20%21%3D%203%0A%0Adef%20make_choice%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Update%20the%20state%22%22%22%0A%20%20%20%20state.append%28choice%29%0A%0Adef%20undo_choice%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Restore%20the%20state%22%22%22%0A%20%20%20%20state.pop%28%29%0A%0Adef%20backtrack%28%0A%20%20%20%20state%3A%20list%5BTreeNode%5D,%20choices%3A%20list%5BTreeNode%5D,%20res%3A%20list%5Blist%5BTreeNode%5D%5D%0A%29%3A%0A%20%20%20%20%22%22%22Backtracking%3A%20example%203%22%22%22%0A%20%20%20%20%23%20Check%20whether%20this%20is%20a%20solution%0A%20%20%20%20if%20is_solution%28state%29%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20record_solution%28state,%20res%29%0A%20%20%20%20%23%20Iterate%20over%20all%20choices%0A%20%20%20%20for%20choice%20in%20choices%3A%0A%20%20%20%20%20%20%20%20%23%20Prune%3A%20check%20whether%20the%20choice%20is%20valid%0A%20%20%20%20%20%20%20%20if%20is_valid%28state,%20choice%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Try%3A%20make%20a%20choice%20and%20update%20the%20state%0A%20%20%20%20%20%20%20%20%20%20%20%20make_choice%28state,%20choice%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Proceed%20to%20the%20next%20choice%0A%20%20%20%20%20%20%20%20%20%20%20%20backtrack%28state,%20%5Bchoice.left,%20choice.right%5D,%20res%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Backtrack%3A%20undo%20the%20choice%20and%20restore%20the%20previous%20state%0A%20%20%20%20%20%20%20%20%20%20%20%20undo_choice%28state,%20choice%29%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Backtracking%20algorithm%0A%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20backtrack%28state%3D%5B%5D,%20choices%3D%5Broot%5D,%20res%3Dres%29%0A%20%20%20%20print%28%22%5CnOutput%20all%20paths%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=138&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Return%20None%20if%20the%20index%20is%20out%20of%20bounds%20or%20the%20corresponding%20element%20is%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Create%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Recursively%20build%20the%20left%20and%20right%20subtrees%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20is_solution%28state%3A%20list%5BTreeNode%5D%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22Check%20whether%20the%20current%20state%20is%20a%20solution%22%22%22%0A%20%20%20%20return%20state%20and%20state%5B-1%5D.val%20%3D%3D%207%0A%0Adef%20record_solution%28state%3A%20list%5BTreeNode%5D,%20res%3A%20list%5Blist%5BTreeNode%5D%5D%29%3A%0A%20%20%20%20%22%22%22Record%20the%20solution%22%22%22%0A%20%20%20%20res.append%28list%28state%29%29%0A%0Adef%20is_valid%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22Check%20whether%20the%20choice%20is%20valid%20in%20the%20current%20state%22%22%22%0A%20%20%20%20return%20choice%20is%20not%20None%20and%20choice.val%20%21%3D%203%0A%0Adef%20make_choice%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Update%20the%20state%22%22%22%0A%20%20%20%20state.append%28choice%29%0A%0Adef%20undo_choice%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Restore%20the%20state%22%22%22%0A%20%20%20%20state.pop%28%29%0A%0Adef%20backtrack%28%0A%20%20%20%20state%3A%20list%5BTreeNode%5D,%20choices%3A%20list%5BTreeNode%5D,%20res%3A%20list%5Blist%5BTreeNode%5D%5D%0A%29%3A%0A%20%20%20%20%22%22%22Backtracking%3A%20example%203%22%22%22%0A%20%20%20%20%23%20Check%20whether%20this%20is%20a%20solution%0A%20%20%20%20if%20is_solution%28state%29%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20record_solution%28state,%20res%29%0A%20%20%20%20%23%20Iterate%20over%20all%20choices%0A%20%20%20%20for%20choice%20in%20choices%3A%0A%20%20%20%20%20%20%20%20%23%20Prune%3A%20check%20whether%20the%20choice%20is%20valid%0A%20%20%20%20%20%20%20%20if%20is_valid%28state,%20choice%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Try%3A%20make%20a%20choice%20and%20update%20the%20state%0A%20%20%20%20%20%20%20%20%20%20%20%20make_choice%28state,%20choice%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Proceed%20to%20the%20next%20choice%0A%20%20%20%20%20%20%20%20%20%20%20%20backtrack%28state,%20%5Bchoice.left,%20choice.right%5D,%20res%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Backtrack%3A%20undo%20the%20choice%20and%20restore%20the%20previous%20state%0A%20%20%20%20%20%20%20%20%20%20%20%20undo_choice%28state,%20choice%29%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Backtracking%20algorithm%0A%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20backtrack%28state%3D%5B%5D,%20choices%3D%5Broot%5D,%20res%3Dres%29%0A%20%20%20%20print%28%22%5CnOutput%20all%20paths%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=138&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-<p align="center"> Figure 13-4 &nbsp; Comparison of search process with and without return statement </p>
+The problem requires us to keep searching after finding a node with value $7$, **so remove the `return` after recording a solution**. Figure 13-4 compares the searches with and without that `return`.
 
-Compared to code based on preorder traversal, code based on the backtracking algorithm framework appears more verbose, but is more general. In fact, **many backtracking problems can be solved within this framework**. We only need to define `state` and `choices` for the specific problem and implement each method in the framework.
+![Comparing searches with and without return](backtracking_algorithm.assets/backtrack_remove_return_or_not.png){ class="animation-figure" }
 
-## 13.1.4 &nbsp; Common Terminology
+<p align="center"> Figure 13-4 &nbsp; Comparing searches with and without return </p>
 
-To analyze algorithmic problems more clearly, we summarize the meanings of common terminology used in backtracking algorithms and provide corresponding examples from Example 3, as shown in the following table.
+The template-based implementation is more verbose than the preorder version, but more general. **Many backtracking problems can be solved within this template**: define `state` and `choices` for the problem, then implement each helper method.
 
-<p align="center"> Table 13-1 &nbsp; Common Backtracking Algorithm Terminology </p>
+## 13.1.4 &nbsp; Common terminology
+
+Table 13-1 summarizes common backtracking terms and illustrates them with Example 3, helping us analyze problems more clearly.
+
+<p align="center"> Table 13-1 &nbsp; Common backtracking terminology </p>
 
 <div class="center-table" markdown>
 
-| Term                      | Definition                                                                                                                   | Example 3                                                                          |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Solution (solution)       | A solution is an answer that satisfies the specific conditions of a problem; there may be one or more solutions             | All paths from root to nodes with value $7$ that satisfy the constraint            |
-| Constraint (constraint)   | A constraint is a condition in the problem that limits the feasibility of solutions, typically used for pruning              | Paths do not contain nodes with value $3$                                          |
-| State (state)             | State represents the situation of a problem at a certain moment, including the choices already made                           | The currently visited node path, i.e., the `path` list of nodes                    |
-| Attempt (attempt)         | An attempt is the process of exploring the solution space according to available choices, including making choices, updating state, and checking if it is a solution | Recursively visit left (right) child nodes, add nodes to `path`, check if node value is $7$ |
-| Backtrack (backtracking)  | Backtracking refers to undoing previous choices and returning to a previous state when encountering a state that does not satisfy constraints | Stop searching when passing over leaf nodes, ending node visits, or encountering nodes with value $3$; function returns |
-| Pruning (pruning)         | Pruning is a method of avoiding meaningless search paths according to problem characteristics and constraints, which can improve search efficiency | When encountering a node with value $3$, do not continue searching                 |
+| Term                   | Definition                                                                       | Example 3                                                               |
+| ---------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| Solution         | An answer satisfying the problem's conditions; there may be one or more                               | All paths from the root to a node valued $7$ that satisfy the constraint                            |
+| Constraint | A condition restricting which solutions are feasible, often used for pruning                         | The path contains no node valued $3$                                                 |
+| State          | The situation at a particular point, including the choices already made                           | The current path of visited nodes, stored in `path`                             |
+| Trial        | Exploring the solution space by making a choice, updating the state, and checking for a solution | Recursively visit a left or right child, append it to `path`, and check whether its value is $7$ |
+| Backtracking   | Undoing an earlier choice and returning to the previous state when a constraint cannot be met       | Stop searching and return after passing a leaf, finishing a node, or encountering value $3$  |
+| Pruning        | Using problem properties and constraints to avoid pointless search paths and improve efficiency     | Stop searching when a node valued $3$ is encountered                              |
 
 </div>
 
 !!! tip
 
-    The concepts of problem, solution, state, etc. are universal and appear in divide-and-conquer, backtracking, dynamic programming, greedy algorithms, and others.
+    Concepts such as problems, solutions, and states are shared by divide and conquer, backtracking, dynamic programming, greedy algorithms, and other approaches.
 
-## 13.1.5 &nbsp; Advantages and Limitations
+## 13.1.5 &nbsp; Strengths and limitations
 
-The backtracking algorithm is essentially a depth-first search algorithm that tries all possible solutions until it finds one that satisfies the conditions. The advantage of this approach is that it can find all possible solutions, and with reasonable pruning operations, it achieves high efficiency.
+Backtracking is fundamentally a depth-first search that tries possible solutions until it finds ones meeting the conditions. It can find all possible solutions and can be highly efficient with effective pruning.
 
-However, when dealing with large-scale or complex problems, **the running efficiency of the backtracking algorithm may be unacceptable**.
+However, for large or complex problems, **backtracking may be unacceptably slow**.
 
-- **Time**: The backtracking algorithm usually needs to traverse all possibilities in the state space, and the time complexity can reach exponential or factorial order.
-- **Space**: During recursive calls, the current state needs to be saved (such as paths, auxiliary variables used for pruning, etc.), and when the depth is large, the space requirement can become very large.
+- **Time**: Backtracking often explores every possibility in the state space, leading to exponential or factorial time complexity.
+- **Space**: Recursive calls must preserve state, such as the path and auxiliary pruning variables. Deep recursion can therefore require substantial space.
 
-Nevertheless, **the backtracking algorithm is still the best solution for certain search problems and constraint satisfaction problems**. For these problems, since we cannot predict which choices will generate valid solutions, we must traverse all possible choices. In this case, **the key is how to optimize efficiency**. There are two common efficiency optimization methods.
+Even so, **backtracking remains the best approach for some search and constraint satisfaction problems**. When we cannot predict which choices lead to valid solutions, we must explore every possibility. **The key is then to improve efficiency**, commonly through two techniques.
 
-- **Pruning**: Avoid searching paths that are guaranteed not to produce solutions, thereby saving time and space.
-- **Heuristic search**: Introduce certain strategies or estimation values during the search process to prioritize searching paths that are most likely to produce valid solutions.
+- **Pruning**: Avoid paths that cannot produce a solution, saving time and space.
+- **Heuristic search**: Use strategies or estimates to explore paths most likely to yield valid solutions first.
 
-## 13.1.6 &nbsp; Typical Backtracking Examples
+## 13.1.6 &nbsp; Typical backtracking problems
 
-The backtracking algorithm can be used to solve many search problems, constraint satisfaction problems, and combinatorial optimization problems.
+Backtracking can solve many search, constraint satisfaction, and combinatorial optimization problems.
 
-**Search problems**: The goal of these problems is to find solutions that satisfy specific conditions.
+**Search problems** seek solutions satisfying specified conditions.
 
-- Permutation problem: Given a set, find all possible permutations and combinations.
-- Subset sum problem: Given a set and a target sum, find all subsets in the set whose elements sum to the target.
-- Tower of Hanoi: Given three pegs and a series of disks of different sizes, move all disks from one peg to another, moving only one disk at a time, and never placing a larger disk on a smaller disk.
+- Permutations: Given a collection, find every possible ordering of its elements.
+- Subset sum: Given a collection and a target sum, find every subset whose sum equals the target.
+- Tower of Hanoi: Given three rods and disks of different sizes, move all disks from one rod to another, moving only one at a time and never placing a larger disk on a smaller one.
 
-**Constraint satisfaction problems**: The goal of these problems is to find solutions that satisfy all constraints.
+**Constraint satisfaction problems** seek solutions meeting all constraints.
 
-- N-Queens: Place $n$ queens on an $n \times n$ chessboard such that they do not attack each other.
-- Sudoku: Fill numbers $1$ to $9$ in a $9 \times 9$ grid such that each row, column, and $3 \times 3$ subgrid contains no repeated digits.
-- Graph coloring: Given an undirected graph, color each vertex with the minimum number of colors such that adjacent vertices have different colors.
+- $n$-queens: Place $n$ queens on an $n \times n$ chessboard so that no two attack each other.
+- Sudoku: Fill a $9 \times 9$ grid with digits $1$ ~ $9$ so that no digit repeats in any row, column, or $3 \times 3$ subgrid.
+- Graph coloring: Color an undirected graph's vertices with as few colors as possible, ensuring adjacent vertices have different colors.
 
-**Combinatorial optimization problems**: The goal of these problems is to find an optimal solution that satisfies certain conditions in a combinatorial space.
+**Combinatorial optimization problems** seek an optimal solution satisfying conditions within a space of combinations.
 
-- 0-1 Knapsack: Given a set of items and a knapsack, each item has a value and weight. Under the knapsack capacity constraint, select items to maximize total value.
-- Traveling Salesman Problem: Starting from a point in a graph, visit all other points exactly once and return to the starting point, finding the shortest path.
-- Maximum Clique: Given an undirected graph, find the largest complete subgraph, i.e., a subgraph where any two vertices are connected by an edge.
+- 0-1 knapsack: Given items with values and weights and a knapsack, choose items to maximize total value within the capacity limit.
+- Traveling salesperson: Starting at a vertex in a graph, visit every other vertex exactly once and return to the start along the shortest possible route.
+- Maximum clique: Given an undirected graph, find its largest complete subgraph, in which every pair of vertices is connected by an edge.
 
-Note that for many combinatorial optimization problems, backtracking is not the optimal solution.
+For many combinatorial optimization problems, backtracking is not the best approach.
 
-- The 0-1 Knapsack problem is usually solved using dynamic programming to achieve higher time efficiency.
-- The Traveling Salesman Problem is a famous NP-Hard problem; common solutions include genetic algorithms and ant colony algorithms.
-- The Maximum Clique problem is a classical problem in graph theory and can be solved using heuristic algorithms such as greedy algorithms.
+- 0-1 knapsack is usually solved more efficiently with dynamic programming.
+- The traveling salesperson problem is a well-known NP-hard problem. Common approaches include genetic algorithms and ant colony algorithms.
+- Maximum clique is a classic graph theory problem that can be approached with heuristics such as greedy algorithms.

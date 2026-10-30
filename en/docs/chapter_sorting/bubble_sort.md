@@ -2,14 +2,14 @@
 comments: true
 ---
 
-# 11.3 &nbsp; Bubble Sort
+# 11.3 &nbsp; Bubble sort
 
-<u>Bubble sort</u> sorts an array by continuously comparing and swapping adjacent elements. This process resembles bubbles rising from the bottom to the top, hence the name bubble sort.
+<u>Bubble sort</u> sorts by repeatedly comparing and swapping adjacent elements. The process resembles bubbles rising from the bottom to the top, which gives the algorithm its name.
 
-As shown in Figure 11-4, the bubbling process can be simulated using element swaps: starting from the leftmost end of the array and traversing to the right, compare each pair of adjacent elements, and if "left element > right element", swap them. After the traversal is complete, the largest element is moved to the rightmost end of the array.
+As shown below, we can simulate bubbling through swaps. Scan from the left end of the array to the right, comparing each pair of adjacent elements. If the left element is greater than the right, swap them. After the scan, the largest element has moved to the far right.
 
 === "<1>"
-    ![Simulating bubble sort using element swaps](bubble_sort.assets/bubble_operation_step1.png){ class="animation-figure" }
+    ![Simulating bubbling through element swaps](bubble_sort.assets/bubble_operation_step1.png){ class="animation-figure" }
 
 === "<2>"
     ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.png){ class="animation-figure" }
@@ -29,22 +29,22 @@ As shown in Figure 11-4, the bubbling process can be simulated using element swa
 === "<7>"
     ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.png){ class="animation-figure" }
 
-<p align="center"> Figure 11-4 &nbsp; Simulating bubble sort using element swaps </p>
+<p align="center"> Figure 11-4 &nbsp; Simulating bubbling through element swaps </p>
 
-## 11.3.1 &nbsp; Algorithm Flow
+## 11.3.1 &nbsp; Algorithm steps
 
-Assume the array has length $n$. The steps of bubble sort are shown in Figure 11-5.
+For an array of length $n$, bubble sort proceeds as shown below.
 
-1. First, perform "bubbling" on $n$ elements, **swapping the largest element of the array to its correct position**.
-2. Next, perform "bubbling" on the remaining $n - 1$ elements, **swapping the second largest element to its correct position**.
-3. And so on. After $n - 1$ rounds of "bubbling", **the largest $n - 1$ elements have all been swapped to their correct positions**.
-4. The only remaining element must be the smallest element, requiring no sorting, so the array sorting is complete.
+1. First, perform a bubbling pass over all $n$ elements, **moving the largest element to its correct position**.
+2. Next, perform a pass over the remaining $n - 1$ elements, **moving the second-largest element to its correct position**.
+3. Continue in this way. After $n - 1$ passes, **the largest $n - 1$ elements are all in their correct positions**.
+4. The one remaining element must be the smallest and needs no further sorting. The array is now sorted.
 
-![Bubble sort flow](bubble_sort.assets/bubble_sort_overview.png){ class="animation-figure" }
+![The bubble sort process](bubble_sort.assets/bubble_sort_overview.png){ class="animation-figure" }
 
-<p align="center"> Figure 11-5 &nbsp; Bubble sort flow </p>
+<p align="center"> Figure 11-5 &nbsp; The bubble sort process </p>
 
-Example code is as follows:
+An implementation follows:
 
 === "Python"
 
@@ -52,9 +52,9 @@ Example code is as follows:
     def bubble_sort(nums: list[int]):
         """Bubble sort"""
         n = len(nums)
-        # Outer loop: unsorted interval is [0, i]
+        # Outer loop: the unsorted range is [0, i]
         for i in range(n - 1, 0, -1):
-            # Inner loop: swap the largest element in the unsorted interval [0, i] to the rightmost end of the interval
+            # Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for j in range(i):
                 if nums[j] > nums[j + 1]:
                     # Swap nums[j] and nums[j + 1]
@@ -66,13 +66,13 @@ Example code is as follows:
     ```cpp title="bubble_sort.cpp"
     /* Bubble sort */
     void bubbleSort(vector<int> &nums) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (int i = nums.size() - 1; i > 0; i--) {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
-                    // Using std::swap() function here
+                    // Use the std::swap() function here
                     swap(nums[j], nums[j + 1]);
                 }
             }
@@ -85,9 +85,9 @@ Example code is as follows:
     ```java title="bubble_sort.java"
     /* Bubble sort */
     void bubbleSort(int[] nums) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (int i = nums.length - 1; i > 0; i--) {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
@@ -105,9 +105,9 @@ Example code is as follows:
     ```csharp title="bubble_sort.cs"
     /* Bubble sort */
     void BubbleSort(int[] nums) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (int i = nums.Length - 1; i > 0; i--) {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
@@ -123,9 +123,9 @@ Example code is as follows:
     ```go title="bubble_sort.go"
     /* Bubble sort */
     func bubbleSort(nums []int) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for i := len(nums) - 1; i > 0; i-- {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for j := 0; j < i; j++ {
                 if nums[j] > nums[j+1] {
                     // Swap nums[j] and nums[j + 1]
@@ -141,9 +141,9 @@ Example code is as follows:
     ```swift title="bubble_sort.swift"
     /* Bubble sort */
     func bubbleSort(nums: inout [Int]) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for i in nums.indices.dropFirst().reversed() {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for j in 0 ..< i {
                 if nums[j] > nums[j + 1] {
                     // Swap nums[j] and nums[j + 1]
@@ -159,9 +159,9 @@ Example code is as follows:
     ```javascript title="bubble_sort.js"
     /* Bubble sort */
     function bubbleSort(nums) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (let i = nums.length - 1; i > 0; i--) {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (let j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
@@ -179,9 +179,9 @@ Example code is as follows:
     ```typescript title="bubble_sort.ts"
     /* Bubble sort */
     function bubbleSort(nums: number[]): void {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (let i = nums.length - 1; i > 0; i--) {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (let j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
@@ -199,9 +199,9 @@ Example code is as follows:
     ```dart title="bubble_sort.dart"
     /* Bubble sort */
     void bubbleSort(List<int> nums) {
-      // Outer loop: unsorted range is [0, i]
+      // Outer loop: the unsorted range is [0, i]
       for (int i = nums.length - 1; i > 0; i--) {
-        // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+        // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
         for (int j = 0; j < i; j++) {
           if (nums[j] > nums[j + 1]) {
             // Swap nums[j] and nums[j + 1]
@@ -219,9 +219,9 @@ Example code is as follows:
     ```rust title="bubble_sort.rs"
     /* Bubble sort */
     fn bubble_sort(nums: &mut [i32]) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for i in (1..nums.len()).rev() {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for j in 0..i {
                 if nums[j] > nums[j + 1] {
                     // Swap nums[j] and nums[j + 1]
@@ -237,9 +237,9 @@ Example code is as follows:
     ```c title="bubble_sort.c"
     /* Bubble sort */
     void bubbleSort(int nums[], int size) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (int i = size - 1; i > 0; i--) {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     int temp = nums[j];
@@ -256,9 +256,9 @@ Example code is as follows:
     ```kotlin title="bubble_sort.kt"
     /* Bubble sort */
     fun bubbleSort(nums: IntArray) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (i in nums.size - 1 downTo 1) {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (j in 0..<i) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
@@ -277,9 +277,9 @@ Example code is as follows:
     ### Bubble sort ###
     def bubble_sort(nums)
       n = nums.length
-      # Outer loop: unsorted range is [0, i]
+      # Outer loop: the unsorted range is [0, i]
       for i in (n - 1).downto(1)
-        # Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+        # Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
         for j in 0...i
           if nums[j] > nums[j + 1]
             # Swap nums[j] and nums[j + 1]
@@ -290,11 +290,16 @@ Example code is as follows:
     end
     ```
 
-## 11.3.2 &nbsp; Efficiency Optimization
+??? pythontutor "Visualize execution"
 
-We can observe that if no swaps occur during a round of "bubbling", the array is already sorted and the algorithm can return immediately. Therefore, we can add a flag `flag` to detect this situation and terminate as soon as it occurs.
+    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20bubble_sort%28nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22Bubble%20sort%22%22%22%0A%20%20%20%20n%20%3D%20len%28nums%29%0A%20%20%20%20%23%20Outer%20loop%3A%20the%20unsorted%20range%20is%20%5B0,%20i%5D%0A%20%20%20%20for%20i%20in%20range%28n%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20Inner%20loop%3A%20move%20the%20largest%20element%20in%20the%20unsorted%20range%20%5B0,%20i%5D%20to%20its%20right%20end%20through%20swaps%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Swap%20nums%5Bj%5D%20and%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D,%20nums%5Bj%20%2B%201%5D%20%3D%20nums%5Bj%20%2B%201%5D,%20nums%5Bj%5D%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B4,%201,%203,%201,%205,%202%5D%0A%20%20%20%20bubble_sort%28nums%29%0A%20%20%20%20print%28%22After%20bubble%20sort,%20nums%20%3D%22,%20nums%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20bubble_sort%28nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22Bubble%20sort%22%22%22%0A%20%20%20%20n%20%3D%20len%28nums%29%0A%20%20%20%20%23%20Outer%20loop%3A%20the%20unsorted%20range%20is%20%5B0,%20i%5D%0A%20%20%20%20for%20i%20in%20range%28n%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20Inner%20loop%3A%20move%20the%20largest%20element%20in%20the%20unsorted%20range%20%5B0,%20i%5D%20to%20its%20right%20end%20through%20swaps%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Swap%20nums%5Bj%5D%20and%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D,%20nums%5Bj%20%2B%201%5D%20%3D%20nums%5Bj%20%2B%201%5D,%20nums%5Bj%5D%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B4,%201,%203,%201,%205,%202%5D%0A%20%20%20%20bubble_sort%28nums%29%0A%20%20%20%20print%28%22After%20bubble%20sort,%20nums%20%3D%22,%20nums%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-After this optimization, the worst-case and average-case time complexities of bubble sort remain $O(n^2)$; however, when the input array is already sorted, the best-case time complexity becomes $O(n)$.
+## 11.3.2 &nbsp; Improving efficiency
+
+If a bubbling pass performs no swaps, the array is already sorted and we can return immediately. We can therefore add a variable `flag` to detect this situation and stop as soon as it occurs.
+
+With this optimization, the worst-case and average time complexities remain $O(n^2)$. However, a fully sorted input achieves the best-case time complexity of $O(n)$.
 
 === "Python"
 
@@ -302,17 +307,17 @@ After this optimization, the worst-case and average-case time complexities of bu
     def bubble_sort_with_flag(nums: list[int]):
         """Bubble sort (flag optimization)"""
         n = len(nums)
-        # Outer loop: unsorted interval is [0, i]
+        # Outer loop: the unsorted range is [0, i]
         for i in range(n - 1, 0, -1):
-            flag = False  # Initialize flag
-            # Inner loop: swap the largest element in the unsorted interval [0, i] to the rightmost end of the interval
+            flag = False  # Initialize the flag
+            # Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for j in range(i):
                 if nums[j] > nums[j + 1]:
                     # Swap nums[j] and nums[j + 1]
                     nums[j], nums[j + 1] = nums[j + 1], nums[j]
-                    flag = True  # Record element swap
+                    flag = True  # Record that a swap occurred
             if not flag:
-                break  # No elements were swapped in this round of "bubbling", exit directly
+                break  # Exit immediately if this pass made no swaps
     ```
 
 === "C++"
@@ -320,20 +325,20 @@ After this optimization, the worst-case and average-case time complexities of bu
     ```cpp title="bubble_sort.cpp"
     /* Bubble sort (flag optimization)*/
     void bubbleSortWithFlag(vector<int> &nums) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (int i = nums.size() - 1; i > 0; i--) {
-            bool flag = false; // Initialize flag
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            bool flag = false; // Initialize the flag
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
-                    // Using std::swap() function here
+                    // Use the std::swap() function here
                     swap(nums[j], nums[j + 1]);
-                    flag = true; // Record element swap
+                    flag = true; // Record that a swap occurred
                 }
             }
             if (!flag)
-                break; // No elements were swapped in this round of "bubbling", exit directly
+                break; // Exit immediately if this pass made no swaps
         }
     }
     ```
@@ -343,21 +348,21 @@ After this optimization, the worst-case and average-case time complexities of bu
     ```java title="bubble_sort.java"
     /* Bubble sort (flag optimization) */
     void bubbleSortWithFlag(int[] nums) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (int i = nums.length - 1; i > 0; i--) {
-            boolean flag = false; // Initialize flag
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            boolean flag = false; // Initialize the flag
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
                     int tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    flag = true; // Record element swap
+                    flag = true; // Record that a swap occurred
                 }
             }
             if (!flag)
-                break; // No elements were swapped in this round of "bubbling", exit directly
+                break; // Exit immediately if this pass made no swaps
         }
     }
     ```
@@ -365,20 +370,20 @@ After this optimization, the worst-case and average-case time complexities of bu
 === "C#"
 
     ```csharp title="bubble_sort.cs"
-    /* Bubble sort (flag optimization) */
+    /* Bubble sort (flag optimization)*/
     void BubbleSortWithFlag(int[] nums) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (int i = nums.Length - 1; i > 0; i--) {
-            bool flag = false; // Initialize flag
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            bool flag = false; // Initialize the flag
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
                     (nums[j + 1], nums[j]) = (nums[j], nums[j + 1]);
-                    flag = true;  // Record element swap
+                    flag = true;  // Record that a swap occurred
                 }
             }
-            if (!flag) break;     // No elements were swapped in this round of "bubbling", exit directly
+            if (!flag) break;     // Exit immediately if this pass made no swaps
         }
     }
     ```
@@ -386,20 +391,20 @@ After this optimization, the worst-case and average-case time complexities of bu
 === "Go"
 
     ```go title="bubble_sort.go"
-    /* Bubble sort (flag optimization) */
+    /* Bubble sort (flag optimization)*/
     func bubbleSortWithFlag(nums []int) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for i := len(nums) - 1; i > 0; i-- {
-            flag := false // Initialize flag
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            flag := false // Initialize the flag
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for j := 0; j < i; j++ {
                 if nums[j] > nums[j+1] {
                     // Swap nums[j] and nums[j + 1]
                     nums[j], nums[j+1] = nums[j+1], nums[j]
-                    flag = true // Record element swap
+                    flag = true // Record that a swap occurred
                 }
             }
-            if flag == false { // No elements were swapped in this round of "bubbling", exit directly
+            if flag == false { // Exit immediately if this pass made no swaps
                 break
             }
         }
@@ -409,19 +414,19 @@ After this optimization, the worst-case and average-case time complexities of bu
 === "Swift"
 
     ```swift title="bubble_sort.swift"
-    /* Bubble sort (flag optimization) */
+    /* Bubble sort (flag optimization)*/
     func bubbleSortWithFlag(nums: inout [Int]) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for i in nums.indices.dropFirst().reversed() {
-            var flag = false // Initialize flag
+            var flag = false // Initialize the flag
             for j in 0 ..< i {
                 if nums[j] > nums[j + 1] {
                     // Swap nums[j] and nums[j + 1]
                     nums.swapAt(j, j + 1)
-                    flag = true // Record element swap
+                    flag = true // Record that a swap occurred
                 }
             }
-            if !flag { // No elements were swapped in this round of "bubbling", exit directly
+            if !flag { // Exit immediately if this pass made no swaps
                 break
             }
         }
@@ -431,22 +436,22 @@ After this optimization, the worst-case and average-case time complexities of bu
 === "JS"
 
     ```javascript title="bubble_sort.js"
-    /* Bubble sort (flag optimization) */
+    /* Bubble sort (flag optimization)*/
     function bubbleSortWithFlag(nums) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (let i = nums.length - 1; i > 0; i--) {
-            let flag = false; // Initialize flag
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            let flag = false; // Initialize the flag
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (let j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
                     let tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    flag = true; // Record element swap
+                    flag = true; // Record that a swap occurred
                 }
             }
-            if (!flag) break; // No elements were swapped in this round of "bubbling", exit directly
+            if (!flag) break; // Exit immediately if this pass made no swaps
         }
     }
     ```
@@ -454,22 +459,22 @@ After this optimization, the worst-case and average-case time complexities of bu
 === "TS"
 
     ```typescript title="bubble_sort.ts"
-    /* Bubble sort (flag optimization) */
+    /* Bubble sort (flag optimization)*/
     function bubbleSortWithFlag(nums: number[]): void {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (let i = nums.length - 1; i > 0; i--) {
-            let flag = false; // Initialize flag
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            let flag = false; // Initialize the flag
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (let j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
                     let tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    flag = true; // Record element swap
+                    flag = true; // Record that a swap occurred
                 }
             }
-            if (!flag) break; // No elements were swapped in this round of "bubbling", exit directly
+            if (!flag) break; // Exit immediately if this pass made no swaps
         }
     }
     ```
@@ -477,22 +482,22 @@ After this optimization, the worst-case and average-case time complexities of bu
 === "Dart"
 
     ```dart title="bubble_sort.dart"
-    /* Bubble sort (flag optimization) */
+    /* Bubble sort (flag optimization)*/
     void bubbleSortWithFlag(List<int> nums) {
-      // Outer loop: unsorted range is [0, i]
+      // Outer loop: the unsorted range is [0, i]
       for (int i = nums.length - 1; i > 0; i--) {
-        bool flag = false; // Initialize flag
-        // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+        bool flag = false; // Initialize the flag
+        // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
         for (int j = 0; j < i; j++) {
           if (nums[j] > nums[j + 1]) {
             // Swap nums[j] and nums[j + 1]
             int tmp = nums[j];
             nums[j] = nums[j + 1];
             nums[j + 1] = tmp;
-            flag = true; // Record element swap
+            flag = true; // Record that a swap occurred
           }
         }
-        if (!flag) break; // No elements were swapped in this round of "bubbling", exit directly
+        if (!flag) break; // Exit immediately if this pass made no swaps
       }
     }
     ```
@@ -502,19 +507,19 @@ After this optimization, the worst-case and average-case time complexities of bu
     ```rust title="bubble_sort.rs"
     /* Bubble sort (flag optimization) */
     fn bubble_sort_with_flag(nums: &mut [i32]) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for i in (1..nums.len()).rev() {
-            let mut flag = false; // Initialize flag
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            let mut flag = false; // Initialize the flag
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for j in 0..i {
                 if nums[j] > nums[j + 1] {
                     // Swap nums[j] and nums[j + 1]
                     nums.swap(j, j + 1);
-                    flag = true; // Record element swap
+                    flag = true; // Record that a swap occurred
                 }
             }
             if !flag {
-                break; // No elements were swapped in this round of "bubbling", exit directly
+                break; // Exit immediately if this pass made no swaps
             };
         }
     }
@@ -523,12 +528,12 @@ After this optimization, the worst-case and average-case time complexities of bu
 === "C"
 
     ```c title="bubble_sort.c"
-    /* Bubble sort (flag optimization) */
+    /* Bubble sort (flag optimization)*/
     void bubbleSortWithFlag(int nums[], int size) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (int i = size - 1; i > 0; i--) {
             bool flag = false;
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     int temp = nums[j];
@@ -548,20 +553,20 @@ After this optimization, the worst-case and average-case time complexities of bu
     ```kotlin title="bubble_sort.kt"
     /* Bubble sort (flag optimization) */
     fun bubbleSortWithFlag(nums: IntArray) {
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (i in nums.size - 1 downTo 1) {
-            var flag = false // Initialize flag
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            var flag = false // Initialize the flag
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (j in 0..<i) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
                     val temp = nums[j]
                     nums[j] = nums[j + 1]
                     nums[j + 1] = temp
-                    flag = true // Record element swap
+                    flag = true // Record that a swap occurred
                 }
             }
-            if (!flag) break // No elements were swapped in this round of "bubbling", exit directly
+            if (!flag) break // Exit immediately if this pass made no swaps
         }
     }
     ```
@@ -569,29 +574,34 @@ After this optimization, the worst-case and average-case time complexities of bu
 === "Ruby"
 
     ```ruby title="bubble_sort.rb"
-    ### Bubble sort (flag optimization) ###
+    ### Bubble sort (flag optimization)###
     def bubble_sort_with_flag(nums)
       n = nums.length
-      # Outer loop: unsorted range is [0, i]
+      # Outer loop: the unsorted range is [0, i]
       for i in (n - 1).downto(1)
-        flag = false # Initialize flag
+        flag = false # Initialize the flag
 
-        # Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+        # Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
         for j in 0...i
           if nums[j] > nums[j + 1]
             # Swap nums[j] and nums[j + 1]
             nums[j], nums[j + 1] = nums[j + 1], nums[j]
-            flag = true # Record element swap
+            flag = true # Record that a swap occurred
           end
         end
 
-        break unless flag # No elements were swapped in this round of "bubbling", exit directly
+        break unless flag # Exit immediately if this pass made no swaps
       end
     end
     ```
 
-## 11.3.3 &nbsp; Algorithm Characteristics
+??? pythontutor "Visualize execution"
 
-- **Time complexity is $O(n^2)$; adaptive**: In successive rounds of "bubbling", the traversed portion of the array has lengths $n - 1$, $n - 2$, $\dots$, $2$, $1$, for a total of $(n - 1) n / 2$. After introducing the `flag` optimization, the best-case time complexity can reach $O(n)$.
-- **Space complexity of $O(1)$, in-place sorting**: Pointers $i$ and $j$ use a constant amount of extra space.
-- **Stable sorting**: Equal elements are not swapped during "bubbling".
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20bubble_sort_with_flag%28nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22Bubble%20sort%20%28flag%20optimization%29%22%22%22%0A%20%20%20%20n%20%3D%20len%28nums%29%0A%20%20%20%20%23%20Outer%20loop%3A%20the%20unsorted%20range%20is%20%5B0,%20i%5D%0A%20%20%20%20for%20i%20in%20range%28n%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20flag%20%3D%20False%20%20%23%20Initialize%20the%20flag%0A%20%20%20%20%20%20%20%20%23%20Inner%20loop%3A%20move%20the%20largest%20element%20in%20the%20unsorted%20range%20%5B0,%20i%5D%20to%20its%20right%20end%20through%20swaps%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Swap%20nums%5Bj%5D%20and%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D,%20nums%5Bj%20%2B%201%5D%20%3D%20nums%5Bj%20%2B%201%5D,%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20flag%20%3D%20True%20%20%23%20Record%20that%20a%20swap%20occurred%0A%20%20%20%20%20%20%20%20if%20not%20flag%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20break%20%20%23%20Exit%20immediately%20if%20this%20pass%20made%20no%20swaps%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B4,%201,%203,%201,%205,%202%5D%0A%20%20%20%20bubble_sort_with_flag%28nums%29%0A%20%20%20%20print%28%22After%20bubble%20sort,%20nums%20%3D%22,%20nums%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20bubble_sort_with_flag%28nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22Bubble%20sort%20%28flag%20optimization%29%22%22%22%0A%20%20%20%20n%20%3D%20len%28nums%29%0A%20%20%20%20%23%20Outer%20loop%3A%20the%20unsorted%20range%20is%20%5B0,%20i%5D%0A%20%20%20%20for%20i%20in%20range%28n%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20flag%20%3D%20False%20%20%23%20Initialize%20the%20flag%0A%20%20%20%20%20%20%20%20%23%20Inner%20loop%3A%20move%20the%20largest%20element%20in%20the%20unsorted%20range%20%5B0,%20i%5D%20to%20its%20right%20end%20through%20swaps%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Swap%20nums%5Bj%5D%20and%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D,%20nums%5Bj%20%2B%201%5D%20%3D%20nums%5Bj%20%2B%201%5D,%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20flag%20%3D%20True%20%20%23%20Record%20that%20a%20swap%20occurred%0A%20%20%20%20%20%20%20%20if%20not%20flag%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20break%20%20%23%20Exit%20immediately%20if%20this%20pass%20made%20no%20swaps%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B4,%201,%203,%201,%205,%202%5D%0A%20%20%20%20bubble_sort_with_flag%28nums%29%0A%20%20%20%20print%28%22After%20bubble%20sort,%20nums%20%3D%22,%20nums%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+## 11.3.3 &nbsp; Algorithm properties
+
+- **Time complexity: $O(n^2)$; adaptive**. Successive passes traverse $n - 1$, $n - 2$, $\dots$, $2$, and $1$ positions, totaling $(n - 1) n / 2$. With the `flag` optimization, the best-case time complexity is $O(n)$.
+- **Space complexity: $O(1)$; in-place**. Pointers $i$ and $j$ use constant extra space.
+- **Stable**. Equal elements are not swapped during a bubbling pass.

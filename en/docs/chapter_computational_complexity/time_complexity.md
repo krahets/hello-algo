@@ -2,25 +2,25 @@
 comments: true
 ---
 
-# 2.3 &nbsp; Time Complexity
+# 2.3 &nbsp; Time complexity
 
-Runtime can intuitively and accurately reflect the efficiency of an algorithm. If we want to accurately estimate the runtime of a piece of code, how should we proceed?
+Runtime gives a direct, accurate picture of an algorithm's efficiency. How might we predict the runtime of a piece of code precisely?
 
-1. **Determine the running platform**, including hardware configuration, programming language, system environment, etc., as these factors all affect code execution efficiency.
-2. **Evaluate the runtime required for various computational operations**, for example, an addition operation `+` requires 1 ns, a multiplication operation `*` requires 10 ns, a print operation `print()` requires 5 ns, etc.
-3. **Count all computational operations in the code**, and sum the execution times of all operations to obtain the runtime.
+1. **Specify the execution platform**, including hardware, programming language, and system environment, all of which affect performance.
+2. **Determine the time required by each operation**: for example, addition `+` might take 1 ns, multiplication `*` 10 ns, and `print()` 5 ns.
+3. **Count every operation in the code** and sum their execution times to obtain the total runtime.
 
-For example, in the following code, the input data size is $n$:
+For example, consider the following code with input size $n$:
 
 === "Python"
 
     ```python title=""
-    # On a certain running platform
+    # On a particular execution platform
     def algorithm(n: int):
         a = 2      # 1 ns
         a = a + 1  # 1 ns
         a = a * 2  # 10 ns
-        # Loop n times
+        # Repeat n times
         for _ in range(n):  # 1 ns
             print(0)        # 5 ns
     ```
@@ -28,12 +28,12 @@ For example, in the following code, the input data size is $n$:
 === "C++"
 
     ```cpp title=""
-    // On a certain running platform
+    // On a particular execution platform
     void algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
-        // Loop n times
+        // Repeat n times
         for (int i = 0; i < n; i++) {  // 1 ns
             cout << 0 << endl;         // 5 ns
         }
@@ -43,12 +43,12 @@ For example, in the following code, the input data size is $n$:
 === "Java"
 
     ```java title=""
-    // On a certain running platform
+    // On a particular execution platform
     void algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
-        // Loop n times
+        // Repeat n times
         for (int i = 0; i < n; i++) {  // 1 ns
             System.out.println(0);     // 5 ns
         }
@@ -58,12 +58,12 @@ For example, in the following code, the input data size is $n$:
 === "C#"
 
     ```csharp title=""
-    // On a certain running platform
+    // On a particular execution platform
     void Algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
-        // Loop n times
+        // Repeat n times
         for (int i = 0; i < n; i++) {  // 1 ns
             Console.WriteLine(0);      // 5 ns
         }
@@ -73,12 +73,12 @@ For example, in the following code, the input data size is $n$:
 === "Go"
 
     ```go title=""
-    // On a certain running platform
+    // On a particular execution platform
     func algorithm(n int) {
         a := 2     // 1 ns
         a = a + 1  // 1 ns
         a = a * 2  // 10 ns
-        // Loop n times
+        // Repeat n times
         for i := 0; i < n; i++ {  // 1 ns
             fmt.Println(a)        // 5 ns
         }
@@ -88,12 +88,12 @@ For example, in the following code, the input data size is $n$:
 === "Swift"
 
     ```swift title=""
-    // On a certain running platform
+    // On a particular execution platform
     func algorithm(n: Int) {
         var a = 2 // 1 ns
         a = a + 1 // 1 ns
         a = a * 2 // 10 ns
-        // Loop n times
+        // Repeat n times
         for _ in 0 ..< n { // 1 ns
             print(0) // 5 ns
         }
@@ -103,12 +103,12 @@ For example, in the following code, the input data size is $n$:
 === "JS"
 
     ```javascript title=""
-    // On a certain running platform
+    // On a particular execution platform
     function algorithm(n) {
         var a = 2; // 1 ns
         a = a + 1; // 1 ns
         a = a * 2; // 10 ns
-        // Loop n times
+        // Repeat n times
         for(let i = 0; i < n; i++) { // 1 ns
             console.log(0); // 5 ns
         }
@@ -118,12 +118,12 @@ For example, in the following code, the input data size is $n$:
 === "TS"
 
     ```typescript title=""
-    // On a certain running platform
+    // On a particular execution platform
     function algorithm(n: number): void {
         var a: number = 2; // 1 ns
         a = a + 1; // 1 ns
         a = a * 2; // 10 ns
-        // Loop n times
+        // Repeat n times
         for(let i = 0; i < n; i++) { // 1 ns
             console.log(0); // 5 ns
         }
@@ -133,12 +133,12 @@ For example, in the following code, the input data size is $n$:
 === "Dart"
 
     ```dart title=""
-    // On a certain running platform
+    // On a particular execution platform
     void algorithm(int n) {
       int a = 2; // 1 ns
       a = a + 1; // 1 ns
       a = a * 2; // 10 ns
-      // Loop n times
+      // Repeat n times
       for (int i = 0; i < n; i++) { // 1 ns
         print(0); // 5 ns
       }
@@ -148,12 +148,12 @@ For example, in the following code, the input data size is $n$:
 === "Rust"
 
     ```rust title=""
-    // On a certain running platform
+    // On a particular execution platform
     fn algorithm(n: i32) {
         let mut a = 2;      // 1 ns
         a = a + 1;          // 1 ns
         a = a * 2;          // 10 ns
-        // Loop n times
+        // Repeat n times
         for _ in 0..n {     // 1 ns
             println!("{}", 0);  // 5 ns
         }
@@ -163,12 +163,12 @@ For example, in the following code, the input data size is $n$:
 === "C"
 
     ```c title=""
-    // On a certain running platform
+    // On a particular execution platform
     void algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
-        // Loop n times
+        // Repeat n times
         for (int i = 0; i < n; i++) {   // 1 ns
             printf("%d", 0);            // 5 ns
         }
@@ -178,12 +178,12 @@ For example, in the following code, the input data size is $n$:
 === "Kotlin"
 
     ```kotlin title=""
-    // On a certain running platform
+    // On a particular execution platform
     fun algorithm(n: Int) {
         var a = 2 // 1 ns
         a = a + 1 // 1 ns
         a = a * 2 // 10 ns
-        // Loop n times
+        // Repeat n times
         for (i in 0..<n) {  // 1 ns
             println(0)      // 5 ns
         }
@@ -193,43 +193,43 @@ For example, in the following code, the input data size is $n$:
 === "Ruby"
 
     ```ruby title=""
-    # On a certain running platform
+    # On a particular execution platform
     def algorithm(n)
         a = 2       # 1 ns
         a = a + 1   # 1 ns
         a = a * 2   # 10 ns
-        # Loop n times
+        # Repeat n times
         (0...n).each do # 1 ns
             puts 0      # 5 ns
         end
     end
     ```
 
-According to the above method, the algorithm's runtime can be obtained as $(6n + 12)$ ns:
+This gives a runtime of $(6n + 12)$ ns:
 
 $$
 1 + 1 + 10 + (1 + 5) \times n = 6n + 12
 $$
 
-In reality, however, **trying to count an algorithm's exact runtime is neither practical nor realistic**. First, we do not want to tie the estimated time to the running platform, because algorithms need to run on many different platforms. Second, it is difficult to know the runtime of each type of operation, which makes the estimation process extremely difficult.
+In practice, **calculating runtime this way is neither suitable nor realistic**. We do not want estimates tied to one platform, since algorithms run on many platforms. Also, the time taken by each operation is difficult to determine, making accurate prediction very hard.
 
-## 2.3.1 &nbsp; Counting Time Growth Trends
+## 2.3.1 &nbsp; Measuring growth in runtime
 
-Time complexity analysis does not count the algorithm's runtime, **but rather counts the growth trend of the algorithm's runtime as the data volume increases**.
+Time complexity analysis measures **how runtime grows as the input gets larger**, rather than the runtime itself.
 
-The concept of "time growth trend" is rather abstract; let us understand it through an example. Suppose the input data size is $n$, and given three algorithms `A`, `B`, and `C`:
+To make this abstract idea concrete, consider three algorithms, `A`, `B`, and `C`, with input size $n$:
 
 === "Python"
 
     ```python title=""
-    # Time complexity of algorithm A: constant order
+    # Algorithm A: constant time complexity
     def algorithm_A(n: int):
         print(0)
-    # Time complexity of algorithm B: linear order
+    # Algorithm B: linear time complexity
     def algorithm_B(n: int):
         for _ in range(n):
             print(0)
-    # Time complexity of algorithm C: constant order
+    # Algorithm C: constant time complexity
     def algorithm_C(n: int):
         for _ in range(1000000):
             print(0)
@@ -238,17 +238,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "C++"
 
     ```cpp title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     void algorithm_A(int n) {
         cout << 0 << endl;
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     void algorithm_B(int n) {
         for (int i = 0; i < n; i++) {
             cout << 0 << endl;
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     void algorithm_C(int n) {
         for (int i = 0; i < 1000000; i++) {
             cout << 0 << endl;
@@ -259,17 +259,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "Java"
 
     ```java title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     void algorithm_A(int n) {
         System.out.println(0);
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     void algorithm_B(int n) {
         for (int i = 0; i < n; i++) {
             System.out.println(0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     void algorithm_C(int n) {
         for (int i = 0; i < 1000000; i++) {
             System.out.println(0);
@@ -280,17 +280,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "C#"
 
     ```csharp title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     void AlgorithmA(int n) {
         Console.WriteLine(0);
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     void AlgorithmB(int n) {
         for (int i = 0; i < n; i++) {
             Console.WriteLine(0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     void AlgorithmC(int n) {
         for (int i = 0; i < 1000000; i++) {
             Console.WriteLine(0);
@@ -301,17 +301,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "Go"
 
     ```go title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     func algorithm_A(n int) {
         fmt.Println(0)
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     func algorithm_B(n int) {
         for i := 0; i < n; i++ {
             fmt.Println(0)
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     func algorithm_C(n int) {
         for i := 0; i < 1000000; i++ {
             fmt.Println(0)
@@ -322,19 +322,19 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "Swift"
 
     ```swift title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     func algorithmA(n: Int) {
         print(0)
     }
 
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     func algorithmB(n: Int) {
         for _ in 0 ..< n {
             print(0)
         }
     }
 
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     func algorithmC(n: Int) {
         for _ in 0 ..< 1_000_000 {
             print(0)
@@ -345,17 +345,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "JS"
 
     ```javascript title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     function algorithm_A(n) {
         console.log(0);
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     function algorithm_B(n) {
         for (let i = 0; i < n; i++) {
             console.log(0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     function algorithm_C(n) {
         for (let i = 0; i < 1000000; i++) {
             console.log(0);
@@ -367,17 +367,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "TS"
 
     ```typescript title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     function algorithm_A(n: number): void {
         console.log(0);
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     function algorithm_B(n: number): void {
         for (let i = 0; i < n; i++) {
             console.log(0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     function algorithm_C(n: number): void {
         for (let i = 0; i < 1000000; i++) {
             console.log(0);
@@ -388,17 +388,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "Dart"
 
     ```dart title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     void algorithmA(int n) {
       print(0);
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     void algorithmB(int n) {
       for (int i = 0; i < n; i++) {
         print(0);
       }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     void algorithmC(int n) {
       for (int i = 0; i < 1000000; i++) {
         print(0);
@@ -409,17 +409,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "Rust"
 
     ```rust title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     fn algorithm_A(n: i32) {
         println!("{}", 0);
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     fn algorithm_B(n: i32) {
         for _ in 0..n {
             println!("{}", 0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     fn algorithm_C(n: i32) {
         for _ in 0..1000000 {
             println!("{}", 0);
@@ -430,17 +430,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "C"
 
     ```c title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     void algorithm_A(int n) {
         printf("%d", 0);
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     void algorithm_B(int n) {
         for (int i = 0; i < n; i++) {
             printf("%d", 0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     void algorithm_C(int n) {
         for (int i = 0; i < 1000000; i++) {
             printf("%d", 0);
@@ -451,17 +451,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "Kotlin"
 
     ```kotlin title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     fun algoritm_A(n: Int) {
         println(0)
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     fun algorithm_B(n: Int) {
         for (i in 0..<n){
             println(0)
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     fun algorithm_C(n: Int) {
         for (i in 0..<1000000) {
             println(0)
@@ -472,41 +472,41 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "Ruby"
 
     ```ruby title=""
-    # Time complexity of algorithm A: constant order
+    # Algorithm A: constant time complexity
     def algorithm_A(n)
         puts 0
     end
 
-    # Time complexity of algorithm B: linear order
+    # Algorithm B: linear time complexity
     def algorithm_B(n)
         (0...n).each { puts 0 }
     end
 
-    # Time complexity of algorithm C: constant order
+    # Algorithm C: constant time complexity
     def algorithm_C(n)
         (0...1_000_000).each { puts 0 }
     end
     ```
 
-Figure 2-7 shows the time complexity of the above three algorithm functions.
+Figure 2-7 shows their time complexities.
 
-- Algorithm `A` has only $1$ print operation, and the algorithm's runtime does not grow as $n$ increases. We call the time complexity of this algorithm "constant order".
-- In algorithm `B`, the print operation needs to loop $n$ times, and the algorithm's runtime grows linearly as $n$ increases. The time complexity of this algorithm is called "linear order".
-- In algorithm `C`, the print operation needs to loop $1000000$ times. Although the runtime is very long, it is independent of the input data size $n$. Therefore, the time complexity of `C` is the same as `A`, still "constant order".
+- Algorithm `A` performs $1$ print operation. Its runtime does not grow with $n$, so it has constant time complexity.
+- Algorithm `B` prints $n$ times. Its runtime grows linearly with $n$, so it has linear time complexity.
+- Algorithm `C` prints $1000000$ times. It may take a long time, but that time is independent of input size $n$. Its complexity is therefore constant, like `A`.
 
-![Time growth trends of algorithms A, B, and C](time_complexity.assets/time_complexity_simple_example.png){ class="animation-figure" }
+![Runtime growth of algorithms A, B, and C](time_complexity.assets/time_complexity_simple_example.png){ class="animation-figure" }
 
-<p align="center"> Figure 2-7 &nbsp; Time growth trends of algorithms A, B, and C </p>
+<p align="center"> Figure 2-7 &nbsp; Runtime growth of algorithms A, B, and C </p>
 
-Compared to directly counting the algorithm's runtime, what are the characteristics of time complexity analysis?
+How does time complexity analysis differ from calculating runtime directly?
 
-- **Time complexity can effectively evaluate algorithm efficiency**. For example, the runtime of algorithm `B` grows linearly; when $n > 1$ it is slower than algorithm `A`, and when $n > 1000000$ it is slower than algorithm `C`. In fact, as long as the input data size $n$ is sufficiently large, an algorithm with "constant order" complexity will always be superior to one with "linear order" complexity, which is precisely the meaning of time growth trend.
-- **The derivation method for time complexity is simpler**. Obviously, the running platform and the types of computational operations are both unrelated to the growth trend of the algorithm's runtime. Therefore, in time complexity analysis, we can simply treat the execution time of all computational operations as the same "unit time", reducing "tracking the runtime of each operation" to "counting the number of operations", which greatly reduces the difficulty of estimation.
-- **Time complexity also has certain limitations**. For example, although algorithms `A` and `C` have the same time complexity, their actual runtimes differ significantly. Similarly, although algorithm `B` has a higher time complexity than `C`, when the input data size $n$ is small, algorithm `B` is clearly superior to algorithm `C`. In such cases, it is often difficult to judge the efficiency of algorithms based solely on time complexity. Of course, despite the above issues, complexity analysis remains the most effective and commonly used method for evaluating algorithm efficiency.
+- **Time complexity evaluates efficiency effectively**. Algorithm `B` grows linearly, becoming slower than `A` when $n > 1$ and slower than `C` when $n > 1000000$. With sufficiently large input size $n$, a constant-time algorithm will outperform a linear-time one. This is what a growth trend tells us.
+- **Time complexity is easier to derive**. The execution platform and kinds of elementary operations do not determine the growth trend. We can treat each elementary operation as taking the same unit of time, reducing runtime estimation to operation counting and greatly simplifying analysis.
+- **Time complexity has limitations**. Algorithms `A` and `C` have the same complexity but very different runtimes. Although `B` has higher complexity than `C`, it is much faster for small $n$. Complexity alone may not settle such comparisons. Even so, it remains the most effective and widely used way to evaluate algorithm efficiency.
 
-## 2.3.2 &nbsp; Asymptotic Upper Bound of Functions
+## 2.3.2 &nbsp; Asymptotic upper bounds
 
-Given a function with input size $n$:
+Consider this function with input size $n$:
 
 === "Python"
 
@@ -515,7 +515,7 @@ Given a function with input size $n$:
         a = 1      # +1
         a = a + 1  # +1
         a = a * 2  # +1
-        # Loop n times
+        # Repeat n times
         for i in range(n):  # +1
             print(0)        # +1
     ```
@@ -527,8 +527,8 @@ Given a function with input size $n$:
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
-        // Loop n times
-        for (int i = 0; i < n; i++) { // +1 (i++ is executed each round)
+        // Repeat n times
+        for (int i = 0; i < n; i++) { // +1 (i ++ executes each iteration)
             cout << 0 << endl;    // +1
         }
     }
@@ -541,8 +541,8 @@ Given a function with input size $n$:
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
-        // Loop n times
-        for (int i = 0; i < n; i++) { // +1 (i++ is executed each round)
+        // Repeat n times
+        for (int i = 0; i < n; i++) { // +1 (i ++ executes each iteration)
             System.out.println(0);    // +1
         }
     }
@@ -555,8 +555,8 @@ Given a function with input size $n$:
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
-        // Loop n times
-        for (int i = 0; i < n; i++) {   // +1 (i++ is executed each round)
+        // Repeat n times
+        for (int i = 0; i < n; i++) {   // +1 (i ++ executes each iteration)
             Console.WriteLine(0);   // +1
         }
     }
@@ -569,7 +569,7 @@ Given a function with input size $n$:
         a := 1      // +1
         a = a + 1   // +1
         a = a * 2   // +1
-        // Loop n times
+        // Repeat n times
         for i := 0; i < n; i++ {   // +1
             fmt.Println(a)         // +1
         }
@@ -583,7 +583,7 @@ Given a function with input size $n$:
         var a = 1 // +1
         a = a + 1 // +1
         a = a * 2 // +1
-        // Loop n times
+        // Repeat n times
         for _ in 0 ..< n { // +1
             print(0) // +1
         }
@@ -597,8 +597,8 @@ Given a function with input size $n$:
         var a = 1; // +1
         a += 1; // +1
         a *= 2; // +1
-        // Loop n times
-        for(let i = 0; i < n; i++){ // +1 (i++ is executed each round)
+        // Repeat n times
+        for(let i = 0; i < n; i++){ // +1 (i ++ executes each iteration)
             console.log(0); // +1
         }
     }
@@ -611,8 +611,8 @@ Given a function with input size $n$:
         var a: number = 1; // +1
         a += 1; // +1
         a *= 2; // +1
-        // Loop n times
-        for(let i = 0; i < n; i++){ // +1 (i++ is executed each round)
+        // Repeat n times
+        for(let i = 0; i < n; i++){ // +1 (i ++ executes each iteration)
             console.log(0); // +1
         }
     }
@@ -625,8 +625,8 @@ Given a function with input size $n$:
       int a = 1; // +1
       a = a + 1; // +1
       a = a * 2; // +1
-      // Loop n times
-      for (int i = 0; i < n; i++) { // +1 (i++ is executed each round)
+      // Repeat n times
+      for (int i = 0; i < n; i++) { // +1 (i ++ executes each iteration)
         print(0); // +1
       }
     }
@@ -640,8 +640,8 @@ Given a function with input size $n$:
         a = a + 1;      // +1
         a = a * 2;      // +1
 
-        // Loop n times
-        for _ in 0..n { // +1 (i++ is executed each round)
+        // Repeat n times
+        for _ in 0..n { // +1 (i ++ executes each iteration)
             println!("{}", 0); // +1
         }
     }
@@ -654,8 +654,8 @@ Given a function with input size $n$:
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
-        // Loop n times
-        for (int i = 0; i < n; i++) {   // +1 (i++ is executed each round)
+        // Repeat n times
+        for (int i = 0; i < n; i++) {   // +1 (i ++ executes each iteration)
             printf("%d", 0);            // +1
         }
     }
@@ -668,8 +668,8 @@ Given a function with input size $n$:
         var a = 1 // +1
         a = a + 1 // +1
         a = a * 2 // +1
-        // Loop n times
-        for (i in 0..<n) { // +1 (i++ is executed each round)
+        // Repeat n times
+        for (i in 0..<n) { // +1 (i ++ executes each iteration)
             println(0) // +1
         }
     }
@@ -682,61 +682,61 @@ Given a function with input size $n$:
         a = 1       # +1
         a = a + 1   # +1
         a = a * 2   # +1
-        # Loop n times
+        # Repeat n times
         (0...n).each do # +1
             puts 0      # +1
         end
     end
     ```
 
-Let the number of operations of the algorithm be a function of the input data size $n$, denoted as $T(n)$. Then the number of operations of the above function is:
+Let $T(n)$ be the operation count as a function of input size $n$. For the function above:
 
 $$
 T(n) = 3 + 2n
 $$
 
-$T(n)$ is a linear function, indicating that its runtime growth trend is linear, and therefore its time complexity is linear order.
+Since $T(n)$ is a first-degree function, runtime grows linearly, giving linear time complexity.
 
-We denote the time complexity of linear order as $O(n)$. This mathematical symbol is called <u>big-$O$ notation</u>, representing the <u>asymptotic upper bound</u> of the function $T(n)$.
+We write linear time complexity as $O(n)$. This is called <u>big-$O$ notation</u>, and it gives an <u>asymptotic upper bound</u> on $T(n)$.
 
-Time complexity analysis essentially calculates the asymptotic upper bound of "the number of operations $T(n)$", which has a clear mathematical definition.
+Time complexity analysis essentially finds an asymptotic upper bound on the operation count $T(n)$. It has a precise mathematical definition.
 
-!!! note "Asymptotic upper bound of functions"
+!!! note "Asymptotic upper bound"
 
-    If there exist positive real numbers $c$ and $n_0$ such that for all $n > n_0$, we have $T(n) \leq c \cdot f(n)$, then $f(n)$ can be considered as an asymptotic upper bound of $T(n)$, denoted as $T(n) = O(f(n))$.
+    If a positive real constant $c$ and a real number $n_0$ exist such that $T(n) \leq c \cdot f(n)$ for all $n > n_0$, then $f(n)$ is an asymptotic upper bound on $T(n)$, written $T(n) = O(f(n))$.
 
-As shown in Figure 2-8, calculating the asymptotic upper bound is to find a function $f(n)$ such that when $n$ tends to infinity, $T(n)$ and $f(n)$ are at the same growth level, differing only by a constant coefficient $c$.
+As shown in Figure 2-8, we seek a function $f(n)$ such that, as $n$ tends to infinity, $T(n)$ and $f(n)$ have the same order of growth, differing only by a constant factor $c$.
 
 ![Asymptotic upper bound of a function](time_complexity.assets/asymptotic_upper_bound.png){ class="animation-figure" }
 
 <p align="center"> Figure 2-8 &nbsp; Asymptotic upper bound of a function </p>
 
-## 2.3.3 &nbsp; Derivation Method
+## 2.3.3 &nbsp; How to derive time complexity
 
-The idea of an asymptotic upper bound is somewhat mathematical. If you feel you haven't fully understood it, don't worry. We can first master the derivation method, and gradually grasp its mathematical meaning through continuous practice.
+The mathematics of asymptotic bounds may feel unfamiliar. Do not worry if it is not fully clear yet: learn the practical method first, and its meaning will become clearer with practice.
 
-According to the definition, after determining $f(n)$, we can obtain the time complexity $O(f(n))$. So how do we determine the asymptotic upper bound $f(n)$? Overall, it is divided into two steps: first count the number of operations, then determine the asymptotic upper bound.
+Once we identify $f(n)$, the time complexity is $O(f(n))$. Finding the asymptotic upper bound $f(n)$ takes two steps: count operations, then determine the bound.
 
-### 1. &nbsp; Step 1: Count the Number of Operations
+### 1. &nbsp; Step 1: Count operations
 
-For code, count from top to bottom line by line. However, since the constant coefficient $c$ in $c \cdot f(n)$ above can be of any size, **coefficients and constant terms in the number of operations $T(n)$ can all be ignored**. According to this principle, the following counting simplification techniques can be summarized.
+We can count code operations line by line. Since the constant factor $c$ in $c \cdot f(n)$ may be arbitrarily large, **coefficients and constant terms in $T(n)$ can be ignored**. This gives three useful shortcuts.
 
-1. **Ignore constants in $T(n)$**. Because they are all independent of $n$, they do not affect time complexity.
-2. **Omit all coefficients**. For example, looping $2n$ times, $5n + 1$ times, etc., can all be simplified as $n$ times, because the coefficient before $n$ does not affect time complexity.
-3. **Use multiplication for nested loops**. The total number of operations equals the product of the number of operations in the outer and inner loops, with each layer of loop still able to apply techniques `1.` and `2.` separately.
+1. **Ignore constant terms in $T(n)$**. They are independent of $n$ and do not affect complexity.
+2. **Drop coefficients**. For example, $2n$ or $5n + 1$ iterations can be counted simply as $n$, because the coefficient of $n$ does not affect complexity.
+3. **Multiply for nested loops**. Multiply the outer and inner iteration counts, applying shortcuts `1.` and `2.` to each level.
 
-Given a function, we can use the above techniques to count the number of operations:
+We can apply these shortcuts to the following function:
 
 === "Python"
 
     ```python title=""
     def algorithm(n: int):
-        a = 1      # +0 (Technique 1)
-        a = a + n  # +0 (Technique 1)
-        # +n (Technique 2)
+        a = 1      # +0 (shortcut 1)
+        a = a + n  # +0 (shortcut 1)
+        # +n (shortcut 2)
         for i in range(5 * n + 1):
             print(0)
-        # +n*n (Technique 3)
+        # +n*n (shortcut 3)
         for i in range(2 * n):
             for j in range(n + 1):
                 print(0)
@@ -746,13 +746,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```cpp title=""
     void algorithm(int n) {
-        int a = 1;  // +0 (Technique 1)
-        a = a + n;  // +0 (Technique 1)
-        // +n (Technique 2)
+        int a = 1;  // +0 (shortcut 1)
+        a = a + n;  // +0 (shortcut 1)
+        // +n (shortcut 2)
         for (int i = 0; i < 5 * n + 1; i++) {
             cout << 0 << endl;
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 cout << 0 << endl;
@@ -765,13 +765,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```java title=""
     void algorithm(int n) {
-        int a = 1;  // +0 (Technique 1)
-        a = a + n;  // +0 (Technique 1)
-        // +n (Technique 2)
+        int a = 1;  // +0 (shortcut 1)
+        a = a + n;  // +0 (shortcut 1)
+        // +n (shortcut 2)
         for (int i = 0; i < 5 * n + 1; i++) {
             System.out.println(0);
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 System.out.println(0);
@@ -784,13 +784,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```csharp title=""
     void Algorithm(int n) {
-        int a = 1;  // +0 (Technique 1)
-        a = a + n;  // +0 (Technique 1)
-        // +n (Technique 2)
+        int a = 1;  // +0 (shortcut 1)
+        a = a + n;  // +0 (shortcut 1)
+        // +n (shortcut 2)
         for (int i = 0; i < 5 * n + 1; i++) {
             Console.WriteLine(0);
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 Console.WriteLine(0);
@@ -803,13 +803,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```go title=""
     func algorithm(n int) {
-        a := 1     // +0 (Technique 1)
-        a = a + n  // +0 (Technique 1)
-        // +n (Technique 2)
+        a := 1     // +0 (shortcut 1)
+        a = a + n  // +0 (shortcut 1)
+        // +n (shortcut 2)
         for i := 0; i < 5 * n + 1; i++ {
             fmt.Println(0)
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for i := 0; i < 2 * n; i++ {
             for j := 0; j < n + 1; j++ {
                 fmt.Println(0)
@@ -822,13 +822,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```swift title=""
     func algorithm(n: Int) {
-        var a = 1 // +0 (Technique 1)
-        a = a + n // +0 (Technique 1)
-        // +n (Technique 2)
+        var a = 1 // +0 (shortcut 1)
+        a = a + n // +0 (shortcut 1)
+        // +n (shortcut 2)
         for _ in 0 ..< (5 * n + 1) {
             print(0)
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for _ in 0 ..< (2 * n) {
             for _ in 0 ..< (n + 1) {
                 print(0)
@@ -841,13 +841,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```javascript title=""
     function algorithm(n) {
-        let a = 1;  // +0 (Technique 1)
-        a = a + n;  // +0 (Technique 1)
-        // +n (Technique 2)
+        let a = 1;  // +0 (shortcut 1)
+        a = a + n;  // +0 (shortcut 1)
+        // +n (shortcut 2)
         for (let i = 0; i < 5 * n + 1; i++) {
             console.log(0);
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for (let i = 0; i < 2 * n; i++) {
             for (let j = 0; j < n + 1; j++) {
                 console.log(0);
@@ -860,13 +860,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```typescript title=""
     function algorithm(n: number): void {
-        let a = 1;  // +0 (Technique 1)
-        a = a + n;  // +0 (Technique 1)
-        // +n (Technique 2)
+        let a = 1;  // +0 (shortcut 1)
+        a = a + n;  // +0 (shortcut 1)
+        // +n (shortcut 2)
         for (let i = 0; i < 5 * n + 1; i++) {
             console.log(0);
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for (let i = 0; i < 2 * n; i++) {
             for (let j = 0; j < n + 1; j++) {
                 console.log(0);
@@ -879,13 +879,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```dart title=""
     void algorithm(int n) {
-      int a = 1; // +0 (Technique 1)
-      a = a + n; // +0 (Technique 1)
-      // +n (Technique 2)
+      int a = 1; // +0 (shortcut 1)
+      a = a + n; // +0 (shortcut 1)
+      // +n (shortcut 2)
       for (int i = 0; i < 5 * n + 1; i++) {
         print(0);
       }
-      // +n*n (Technique 3)
+      // +n*n (shortcut 3)
       for (int i = 0; i < 2 * n; i++) {
         for (int j = 0; j < n + 1; j++) {
           print(0);
@@ -898,15 +898,15 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```rust title=""
     fn algorithm(n: i32) {
-        let mut a = 1;     // +0 (Technique 1)
-        a = a + n;        // +0 (Technique 1)
+        let mut a = 1;     // +0 (shortcut 1)
+        a = a + n;        // +0 (shortcut 1)
 
-        // +n (Technique 2)
+        // +n (shortcut 2)
         for i in 0..(5 * n + 1) {
             println!("{}", 0);
         }
 
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for i in 0..(2 * n) {
             for j in 0..(n + 1) {
                 println!("{}", 0);
@@ -919,13 +919,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```c title=""
     void algorithm(int n) {
-        int a = 1;  // +0 (Technique 1)
-        a = a + n;  // +0 (Technique 1)
-        // +n (Technique 2)
+        int a = 1;  // +0 (shortcut 1)
+        a = a + n;  // +0 (shortcut 1)
+        // +n (shortcut 2)
         for (int i = 0; i < 5 * n + 1; i++) {
             printf("%d", 0);
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 printf("%d", 0);
@@ -938,13 +938,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```kotlin title=""
     fun algorithm(n: Int) {
-        var a = 1   // +0 (Technique 1)
-        a = a + n   // +0 (Technique 1)
-        // +n (Technique 2)
+        var a = 1   // +0 (shortcut 1)
+        a = a + n   // +0 (shortcut 1)
+        // +n (shortcut 2)
         for (i in 0..<5 * n + 1) {
             println(0)
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for (i in 0..<2 * n) {
             for (j in 0..<n + 1) {
                 println(0)
@@ -957,38 +957,38 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```ruby title=""
     def algorithm(n)
-        a = 1       # +0 (Technique 1)
-        a = a + n   # +0 (Technique 1)
-        # +n (Technique 2)
+        a = 1       # +0 (shortcut 1)
+        a = a + n   # +0 (shortcut 1)
+        # +n (shortcut 2)
         (0...(5 * n + 1)).each do { puts 0 }
-        # +n*n (Technique 3)
+        # +n*n (shortcut 3)
         (0...(2 * n)).each do
             (0...(n + 1)).each do { puts 0 }
         end
     end
     ```
 
-The following formula shows the counting results before and after using the above techniques; both derive a time complexity of $O(n^2)$.
+The formulas below compare full and simplified counts. Both give time complexity $O(n^2)$.
 
 $$
 \begin{aligned}
-T(n) & = 2n(n + 1) + (5n + 1) + 2 & \text{Complete count (-.-|||)} \newline
+T(n) & = 2n(n + 1) + (5n + 1) + 2 & \text{Full count (-.-|||)} \newline
 & = 2n^2 + 7n + 3 \newline
-T(n) & = n^2 + n & \text{Simplified count (o.O)}
+T(n) & = n^2 + n & \text{Shortcut count (o.O)}
 \end{aligned}
 $$
 
-### 2. &nbsp; Step 2: Determine the Asymptotic Upper Bound
+### 2. &nbsp; Step 2: Determine the asymptotic upper bound
 
-**Time complexity is determined by the highest-order term in $T(n)$**. This is because as $n$ tends to infinity, the highest-order term will play a dominant role, and the influence of other terms can be ignored.
+**The highest-order term in $T(n)$ determines time complexity**. As $n$ tends to infinity, that term dominates, and the others become negligible.
 
-Table 2-2 shows some examples, where some exaggerated values are used to emphasize the conclusion that "coefficients cannot shake the order". When $n$ tends to infinity, these constants become insignificant.
+Table 2-2 includes deliberately extreme coefficients to emphasize that coefficients cannot overcome growth order. As $n$ tends to infinity, those constants become insignificant.
 
-<p align="center"> Table 2-2 &nbsp; Time complexities corresponding to different numbers of operations </p>
+<p align="center"> Table 2-2 &nbsp; Operation counts and their time complexities </p>
 
 <div class="center-table" markdown>
 
-| Number of Operations $T(n)$ | Time Complexity $O(f(n))$ |
+| Operation count $T(n)$        | Time complexity $O(f(n))$ |
 | ---------------------- | -------------------- |
 | $100000$               | $O(1)$               |
 | $3n + 2$               | $O(n)$               |
@@ -998,9 +998,9 @@ Table 2-2 shows some examples, where some exaggerated values are used to emphasi
 
 </div>
 
-## 2.3.4 &nbsp; Common Types
+## 2.3.4 &nbsp; Common complexity classes
 
-Let the input data size be $n$. Common time complexity types are shown in Figure 2-9 (arranged in order from low to high).
+For input size $n$, common time complexities are shown below in increasing order of growth.
 
 $$
 \begin{aligned}
@@ -1009,21 +1009,21 @@ $$
 \end{aligned}
 $$
 
-![Common time complexity types](time_complexity.assets/time_complexity_common_types.png){ class="animation-figure" }
+![Common time complexity classes](time_complexity.assets/time_complexity_common_types.png){ class="animation-figure" }
 
-<p align="center"> Figure 2-9 &nbsp; Common time complexity types </p>
+<p align="center"> Figure 2-9 &nbsp; Common time complexity classes </p>
 
-### 1. &nbsp; Constant Order $O(1)$ {data-toc-label="1. &nbsp; Constant Order"}
+### 1. &nbsp; Constant time $O(1)$ {data-toc-label="1. &nbsp; Constant time"}
 
-The number of operations in constant order is independent of the input data size $n$, meaning it does not change as $n$ changes.
+A constant operation count is independent of input size $n$: changing $n$ does not change the count.
 
-In the following function, although the value of `size` may be large, it is independent of the input data size $n$, so the time complexity remains $O(1)$:
+In the following function, `size` may be large, but it is independent of input size $n$, so the time complexity remains $O(1)$:
 
 === "Python"
 
     ```python title="time_complexity.py"
     def constant(n: int) -> int:
-        """Constant order"""
+        """Constant complexity"""
         count = 0
         size = 100000
         for _ in range(size):
@@ -1034,7 +1034,7 @@ In the following function, although the value of `size` may be large, it is inde
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* Constant order */
+    /* Constant complexity */
     int constant(int n) {
         int count = 0;
         int size = 100000;
@@ -1047,7 +1047,7 @@ In the following function, although the value of `size` may be large, it is inde
 === "Java"
 
     ```java title="time_complexity.java"
-    /* Constant order */
+    /* Constant complexity */
     int constant(int n) {
         int count = 0;
         int size = 100000;
@@ -1060,7 +1060,7 @@ In the following function, although the value of `size` may be large, it is inde
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* Constant order */
+    /* Constant complexity */
     int Constant(int n) {
         int count = 0;
         int size = 100000;
@@ -1073,7 +1073,7 @@ In the following function, although the value of `size` may be large, it is inde
 === "Go"
 
     ```go title="time_complexity.go"
-    /* Constant order */
+    /* Constant complexity */
     func constant(n int) int {
         count := 0
         size := 100000
@@ -1087,7 +1087,7 @@ In the following function, although the value of `size` may be large, it is inde
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* Constant order */
+    /* Constant complexity */
     func constant(n: Int) -> Int {
         var count = 0
         let size = 100_000
@@ -1101,7 +1101,7 @@ In the following function, although the value of `size` may be large, it is inde
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* Constant order */
+    /* Constant complexity */
     function constant(n) {
         let count = 0;
         const size = 100000;
@@ -1113,7 +1113,7 @@ In the following function, although the value of `size` may be large, it is inde
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* Constant order */
+    /* Constant complexity */
     function constant(n: number): number {
         let count = 0;
         const size = 100000;
@@ -1125,7 +1125,7 @@ In the following function, although the value of `size` may be large, it is inde
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* Constant order */
+    /* Constant complexity */
     int constant(int n) {
       int count = 0;
       int size = 100000;
@@ -1139,7 +1139,7 @@ In the following function, although the value of `size` may be large, it is inde
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* Constant order */
+    /* Constant complexity */
     fn constant(n: i32) -> i32 {
         _ = n;
         let mut count = 0;
@@ -1154,7 +1154,7 @@ In the following function, although the value of `size` may be large, it is inde
 === "C"
 
     ```c title="time_complexity.c"
-    /* Constant order */
+    /* Constant complexity */
     int constant(int n) {
         int count = 0;
         int size = 100000;
@@ -1168,7 +1168,7 @@ In the following function, although the value of `size` may be large, it is inde
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* Constant order */
+    /* Constant complexity */
     fun constant(n: Int): Int {
         var count = 0
         val size = 100000
@@ -1181,7 +1181,7 @@ In the following function, although the value of `size` may be large, it is inde
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### Constant time ###
+    ### Constant complexity ###
     def constant(n)
       count = 0
       size = 100000
@@ -1192,15 +1192,20 @@ In the following function, although the value of `size` may be large, it is inde
     end
     ```
 
-### 2. &nbsp; Linear Order $O(n)$ {data-toc-label="2. &nbsp; Linear Order"}
+??? pythontutor "Visualize execution"
 
-The number of operations in linear order grows linearly relative to the input data size $n$. Linear order typically appears in single-layer loops:
+    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20constant%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Constant%20complexity%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20size%20%3D%2010%0A%20%20%20%20for%20_%20in%20range%28size%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20constant%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20constant%20complexity%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20constant%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Constant%20complexity%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20size%20%3D%2010%0A%20%20%20%20for%20_%20in%20range%28size%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20constant%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20constant%20complexity%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+### 2. &nbsp; Linear time $O(n)$ {data-toc-label="2. &nbsp; Linear time"}
+
+A linear operation count grows proportionally to input size $n$. It commonly appears in a single loop:
 
 === "Python"
 
     ```python title="time_complexity.py"
     def linear(n: int) -> int:
-        """Linear order"""
+        """Linear complexity"""
         count = 0
         for _ in range(n):
             count += 1
@@ -1210,7 +1215,7 @@ The number of operations in linear order grows linearly relative to the input da
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* Linear order */
+    /* Linear complexity */
     int linear(int n) {
         int count = 0;
         for (int i = 0; i < n; i++)
@@ -1222,7 +1227,7 @@ The number of operations in linear order grows linearly relative to the input da
 === "Java"
 
     ```java title="time_complexity.java"
-    /* Linear order */
+    /* Linear complexity */
     int linear(int n) {
         int count = 0;
         for (int i = 0; i < n; i++)
@@ -1234,7 +1239,7 @@ The number of operations in linear order grows linearly relative to the input da
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* Linear order */
+    /* Linear complexity */
     int Linear(int n) {
         int count = 0;
         for (int i = 0; i < n; i++)
@@ -1246,7 +1251,7 @@ The number of operations in linear order grows linearly relative to the input da
 === "Go"
 
     ```go title="time_complexity.go"
-    /* Linear order */
+    /* Linear complexity */
     func linear(n int) int {
         count := 0
         for i := 0; i < n; i++ {
@@ -1259,7 +1264,7 @@ The number of operations in linear order grows linearly relative to the input da
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* Linear order */
+    /* Linear complexity */
     func linear(n: Int) -> Int {
         var count = 0
         for _ in 0 ..< n {
@@ -1272,7 +1277,7 @@ The number of operations in linear order grows linearly relative to the input da
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* Linear order */
+    /* Linear complexity */
     function linear(n) {
         let count = 0;
         for (let i = 0; i < n; i++) count++;
@@ -1283,7 +1288,7 @@ The number of operations in linear order grows linearly relative to the input da
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* Linear order */
+    /* Linear complexity */
     function linear(n: number): number {
         let count = 0;
         for (let i = 0; i < n; i++) count++;
@@ -1294,7 +1299,7 @@ The number of operations in linear order grows linearly relative to the input da
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* Linear order */
+    /* Linear complexity */
     int linear(int n) {
       int count = 0;
       for (var i = 0; i < n; i++) {
@@ -1307,7 +1312,7 @@ The number of operations in linear order grows linearly relative to the input da
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* Linear order */
+    /* Linear complexity */
     fn linear(n: i32) -> i32 {
         let mut count = 0;
         for _ in 0..n {
@@ -1320,7 +1325,7 @@ The number of operations in linear order grows linearly relative to the input da
 === "C"
 
     ```c title="time_complexity.c"
-    /* Linear order */
+    /* Linear complexity */
     int linear(int n) {
         int count = 0;
         for (int i = 0; i < n; i++) {
@@ -1333,7 +1338,7 @@ The number of operations in linear order grows linearly relative to the input da
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* Linear order */
+    /* Linear complexity */
     fun linear(n: Int): Int {
         var count = 0
         for (i in 0..<n)
@@ -1345,7 +1350,7 @@ The number of operations in linear order grows linearly relative to the input da
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### Linear time ###
+    ### Linear complexity ###
     def linear(n)
       count = 0
       (0...n).each { count += 1 }
@@ -1353,15 +1358,20 @@ The number of operations in linear order grows linearly relative to the input da
     end
     ```
 
-Operations such as traversing arrays and traversing linked lists have a time complexity of $O(n)$, where $n$ is the length of the array or linked list:
+??? pythontutor "Visualize execution"
+
+    <div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20linear%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Linear%20complexity%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20linear%20complexity%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20linear%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Linear%20complexity%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20linear%20complexity%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+Traversing an array or linked list takes $O(n)$ time, where $n$ is its length:
 
 === "Python"
 
     ```python title="time_complexity.py"
     def array_traversal(nums: list[int]) -> int:
-        """Linear order (traversing array)"""
+        """Linear complexity (array traversal)"""
         count = 0
-        # Number of iterations is proportional to the array length
+        # The number of iterations is proportional to the array length
         for num in nums:
             count += 1
         return count
@@ -1370,10 +1380,10 @@ Operations such as traversing arrays and traversing linked lists have a time com
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* Linear order (traversing array) */
+    /* Linear complexity (array traversal) */
     int arrayTraversal(vector<int> &nums) {
         int count = 0;
-        // Number of iterations is proportional to the array length
+        // The number of iterations is proportional to the array length
         for (int num : nums) {
             count++;
         }
@@ -1384,10 +1394,10 @@ Operations such as traversing arrays and traversing linked lists have a time com
 === "Java"
 
     ```java title="time_complexity.java"
-    /* Linear order (traversing array) */
+    /* Linear complexity (array traversal) */
     int arrayTraversal(int[] nums) {
         int count = 0;
-        // Number of iterations is proportional to the array length
+        // The number of iterations is proportional to the array length
         for (int num : nums) {
             count++;
         }
@@ -1398,10 +1408,10 @@ Operations such as traversing arrays and traversing linked lists have a time com
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* Linear order (traversing array) */
+    /* Linear complexity (array traversal) */
     int ArrayTraversal(int[] nums) {
         int count = 0;
-        // Number of iterations is proportional to the array length
+        // The number of iterations is proportional to the array length
         foreach (int num in nums) {
             count++;
         }
@@ -1412,10 +1422,10 @@ Operations such as traversing arrays and traversing linked lists have a time com
 === "Go"
 
     ```go title="time_complexity.go"
-    /* Linear order (traversing array) */
+    /* Linear complexity (array traversal) */
     func arrayTraversal(nums []int) int {
         count := 0
-        // Number of iterations is proportional to the array length
+        // The number of iterations is proportional to the array length
         for range nums {
             count++
         }
@@ -1426,10 +1436,10 @@ Operations such as traversing arrays and traversing linked lists have a time com
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* Linear order (traversing array) */
+    /* Linear complexity (array traversal) */
     func arrayTraversal(nums: [Int]) -> Int {
         var count = 0
-        // Number of iterations is proportional to the array length
+        // The number of iterations is proportional to the array length
         for _ in nums {
             count += 1
         }
@@ -1440,10 +1450,10 @@ Operations such as traversing arrays and traversing linked lists have a time com
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* Linear order (traversing array) */
+    /* Linear complexity (array traversal) */
     function arrayTraversal(nums) {
         let count = 0;
-        // Number of iterations is proportional to the array length
+        // The number of iterations is proportional to the array length
         for (let i = 0; i < nums.length; i++) {
             count++;
         }
@@ -1454,10 +1464,10 @@ Operations such as traversing arrays and traversing linked lists have a time com
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* Linear order (traversing array) */
+    /* Linear complexity (array traversal) */
     function arrayTraversal(nums: number[]): number {
         let count = 0;
-        // Number of iterations is proportional to the array length
+        // The number of iterations is proportional to the array length
         for (let i = 0; i < nums.length; i++) {
             count++;
         }
@@ -1468,10 +1478,10 @@ Operations such as traversing arrays and traversing linked lists have a time com
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* Linear order (traversing array) */
+    /* Linear complexity (array traversal) */
     int arrayTraversal(List<int> nums) {
       int count = 0;
-      // Number of iterations is proportional to the array length
+      // The number of iterations is proportional to the array length
       for (var _num in nums) {
         count++;
       }
@@ -1482,10 +1492,10 @@ Operations such as traversing arrays and traversing linked lists have a time com
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* Linear order (traversing array) */
+    /* Linear complexity (array traversal) */
     fn array_traversal(nums: &[i32]) -> i32 {
         let mut count = 0;
-        // Number of iterations is proportional to the array length
+        // The number of iterations is proportional to the array length
         for _ in nums {
             count += 1;
         }
@@ -1496,10 +1506,10 @@ Operations such as traversing arrays and traversing linked lists have a time com
 === "C"
 
     ```c title="time_complexity.c"
-    /* Linear order (traversing array) */
+    /* Linear complexity (array traversal) */
     int arrayTraversal(int *nums, int n) {
         int count = 0;
-        // Number of iterations is proportional to the array length
+        // The number of iterations is proportional to the array length
         for (int i = 0; i < n; i++) {
             count++;
         }
@@ -1510,10 +1520,10 @@ Operations such as traversing arrays and traversing linked lists have a time com
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* Linear order (traversing array) */
+    /* Linear complexity (array traversal) */
     fun arrayTraversal(nums: IntArray): Int {
         var count = 0
-        // Number of iterations is proportional to the array length
+        // The number of iterations is proportional to the array length
         for (num in nums) {
             count++
         }
@@ -1524,11 +1534,11 @@ Operations such as traversing arrays and traversing linked lists have a time com
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### Linear time (array traversal) ###
+    ### Linear complexity (array traversal)###
     def array_traversal(nums)
       count = 0
 
-      # Number of iterations is proportional to the array length
+      # The number of iterations is proportional to the array length
       for num in nums
         count += 1
       end
@@ -1537,19 +1547,24 @@ Operations such as traversing arrays and traversing linked lists have a time com
     end
     ```
 
-It is worth noting that **the input data size $n$ should be determined according to the type of input data**. For example, in the first example, the variable $n$ is the input data size; in the second example, the array length $n$ is the data size.
+??? pythontutor "Visualize execution"
 
-### 3. &nbsp; Quadratic Order $O(n^2)$ {data-toc-label="3. &nbsp; Quadratic Order"}
+    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20array_traversal%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Linear%20complexity%20%28array%20traversal%29%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20The%20number%20of%20iterations%20is%20proportional%20to%20the%20array%20length%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20array_traversal%28%5B0%5D%20%2A%20n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20linear%20complexity%20%28array%20traversal%29%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20array_traversal%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Linear%20complexity%20%28array%20traversal%29%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20The%20number%20of%20iterations%20is%20proportional%20to%20the%20array%20length%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20array_traversal%28%5B0%5D%20%2A%20n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20linear%20complexity%20%28array%20traversal%29%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-The number of operations in quadratic order grows quadratically relative to the input data size $n$. Quadratic order typically appears in nested loops, where both the outer and inner loops have a time complexity of $O(n)$, resulting in an overall time complexity of $O(n^2)$:
+**The meaning of input size $n$ depends on the input type**. In the first example, it is the variable $n$; in the second, it is the array length $n$.
+
+### 3. &nbsp; Quadratic time $O(n^2)$ {data-toc-label="3. &nbsp; Quadratic time"}
+
+A quadratic operation count grows with the square of input size $n$. It commonly appears in nested loops where both levels take $O(n)$ time, giving $O(n^2)$ overall:
 
 === "Python"
 
     ```python title="time_complexity.py"
     def quadratic(n: int) -> int:
-        """Quadratic order"""
+        """Quadratic complexity"""
         count = 0
-        # Number of iterations is quadratically related to the data size n
+        # The number of iterations is proportional to the square of the input size n
         for i in range(n):
             for j in range(n):
                 count += 1
@@ -1559,10 +1574,10 @@ The number of operations in quadratic order grows quadratically relative to the 
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* Exponential order */
+    /* Quadratic complexity */
     int quadratic(int n) {
         int count = 0;
-        // Number of iterations is quadratically related to the data size n
+        // The number of iterations is proportional to the square of the input size n
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -1575,10 +1590,10 @@ The number of operations in quadratic order grows quadratically relative to the 
 === "Java"
 
     ```java title="time_complexity.java"
-    /* Exponential order */
+    /* Quadratic complexity */
     int quadratic(int n) {
         int count = 0;
-        // Number of iterations is quadratically related to the data size n
+        // The number of iterations is proportional to the square of the input size n
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -1591,10 +1606,10 @@ The number of operations in quadratic order grows quadratically relative to the 
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* Exponential order */
+    /* Quadratic complexity */
     int Quadratic(int n) {
         int count = 0;
-        // Number of iterations is quadratically related to the data size n
+        // The number of iterations is proportional to the square of the input size n
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -1607,10 +1622,10 @@ The number of operations in quadratic order grows quadratically relative to the 
 === "Go"
 
     ```go title="time_complexity.go"
-    /* Exponential order */
+    /* Quadratic complexity */
     func quadratic(n int) int {
         count := 0
-        // Number of iterations is quadratically related to the data size n
+        // The number of iterations is proportional to the square of the input size n
         for i := 0; i < n; i++ {
             for j := 0; j < n; j++ {
                 count++
@@ -1623,10 +1638,10 @@ The number of operations in quadratic order grows quadratically relative to the 
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* Exponential order */
+    /* Quadratic complexity */
     func quadratic(n: Int) -> Int {
         var count = 0
-        // Number of iterations is quadratically related to the data size n
+        // The number of iterations is proportional to the square of the input size n
         for _ in 0 ..< n {
             for _ in 0 ..< n {
                 count += 1
@@ -1639,10 +1654,10 @@ The number of operations in quadratic order grows quadratically relative to the 
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* Exponential order */
+    /* Quadratic complexity */
     function quadratic(n) {
         let count = 0;
-        // Number of iterations is quadratically related to the data size n
+        // The number of iterations is proportional to the square of the input size n
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
                 count++;
@@ -1655,10 +1670,10 @@ The number of operations in quadratic order grows quadratically relative to the 
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* Exponential order */
+    /* Quadratic complexity */
     function quadratic(n: number): number {
         let count = 0;
-        // Number of iterations is quadratically related to the data size n
+        // The number of iterations is proportional to the square of the input size n
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
                 count++;
@@ -1671,10 +1686,10 @@ The number of operations in quadratic order grows quadratically relative to the 
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* Exponential order */
+    /* Quadratic complexity */
     int quadratic(int n) {
       int count = 0;
-      // Number of iterations is quadratically related to the data size n
+      // The number of iterations is proportional to the square of the input size n
       for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
           count++;
@@ -1687,10 +1702,10 @@ The number of operations in quadratic order grows quadratically relative to the 
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* Exponential order */
+    /* Quadratic complexity */
     fn quadratic(n: i32) -> i32 {
         let mut count = 0;
-        // Number of iterations is quadratically related to the data size n
+        // The number of iterations is proportional to the square of the input size n
         for _ in 0..n {
             for _ in 0..n {
                 count += 1;
@@ -1703,10 +1718,10 @@ The number of operations in quadratic order grows quadratically relative to the 
 === "C"
 
     ```c title="time_complexity.c"
-    /* Exponential order */
+    /* Quadratic complexity */
     int quadratic(int n) {
         int count = 0;
-        // Number of iterations is quadratically related to the data size n
+        // The number of iterations is proportional to the square of the input size n
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -1719,10 +1734,10 @@ The number of operations in quadratic order grows quadratically relative to the 
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* Exponential order */
+    /* Quadratic complexity */
     fun quadratic(n: Int): Int {
         var count = 0
-        // Number of iterations is quadratically related to the data size n
+        // The number of iterations is proportional to the square of the input size n
         for (i in 0..<n) {
             for (j in 0..<n) {
                 count++
@@ -1735,11 +1750,11 @@ The number of operations in quadratic order grows quadratically relative to the 
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### Quadratic time ###
+    ### Quadratic complexity ###
     def quadratic(n)
       count = 0
 
-      # Number of iterations is quadratically related to the data size n
+      # The number of iterations is proportional to the square of the input size n
       for i in 0...n
         for j in 0...n
           count += 1
@@ -1750,49 +1765,54 @@ The number of operations in quadratic order grows quadratically relative to the 
     end
     ```
 
-Figure 2-10 compares constant order, linear order, and quadratic order time complexities.
+??? pythontutor "Visualize execution"
 
-![Time complexities of constant, linear, and quadratic orders](time_complexity.assets/time_complexity_constant_linear_quadratic.png){ class="animation-figure" }
+    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Quadratic%20complexity%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20The%20number%20of%20iterations%20is%20proportional%20to%20the%20square%20of%20the%20input%20size%20n%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20quadratic%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20quadratic%20complexity%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Quadratic%20complexity%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20The%20number%20of%20iterations%20is%20proportional%20to%20the%20square%20of%20the%20input%20size%20n%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20quadratic%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20quadratic%20complexity%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-<p align="center"> Figure 2-10 &nbsp; Time complexities of constant, linear, and quadratic orders </p>
+Figure 2-10 compares constant, linear, and quadratic time complexity.
 
-Taking bubble sort as an example, the outer loop executes $n - 1$ times, and the inner loop executes $n-1$, $n-2$, $\dots$, $2$, $1$ times, averaging $n / 2$ times, resulting in a time complexity of $O((n - 1) n / 2) = O(n^2)$:
+![Constant, linear, and quadratic time complexity](time_complexity.assets/time_complexity_constant_linear_quadratic.png){ class="animation-figure" }
+
+<p align="center"> Figure 2-10 &nbsp; Constant, linear, and quadratic time complexity </p>
+
+In bubble sort, for example, the outer loop runs $n - 1$ times, while the inner loop runs $n-1$, $n-2$, $\dots$, $2$, and $1$ times, averaging $n / 2$. The resulting complexity is $O((n - 1) n / 2) = O(n^2)$:
 
 === "Python"
 
     ```python title="time_complexity.py"
     def bubble_sort(nums: list[int]) -> int:
-        """Quadratic order (bubble sort)"""
+        """Quadratic complexity (bubble sort)"""
         count = 0  # Counter
-        # Outer loop: unsorted range is [0, i]
+        # Outer loop: the unsorted range is [0, i]
         for i in range(len(nums) - 1, 0, -1):
-            # Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            # Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for j in range(i):
                 if nums[j] > nums[j + 1]:
                     # Swap nums[j] and nums[j + 1]
                     tmp: int = nums[j]
                     nums[j] = nums[j + 1]
                     nums[j + 1] = tmp
-                    count += 3  # Element swap includes 3 unit operations
+                    count += 3  # Swapping two elements takes 3 elementary operations
         return count
     ```
 
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* Quadratic order (bubble sort) */
+    /* Quadratic complexity (bubble sort) */
     int bubbleSort(vector<int> &nums) {
         int count = 0; // Counter
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (int i = nums.size() - 1; i > 0; i--) {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
                     int tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3; // Element swap includes 3 unit operations
+                    count += 3; // Swapping two elements takes 3 elementary operations
                 }
             }
         }
@@ -1803,19 +1823,19 @@ Taking bubble sort as an example, the outer loop executes $n - 1$ times, and the
 === "Java"
 
     ```java title="time_complexity.java"
-    /* Quadratic order (bubble sort) */
+    /* Quadratic complexity (bubble sort) */
     int bubbleSort(int[] nums) {
         int count = 0; // Counter
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (int i = nums.length - 1; i > 0; i--) {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
                     int tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3; // Element swap includes 3 unit operations
+                    count += 3; // Swapping two elements takes 3 elementary operations
                 }
             }
         }
@@ -1826,17 +1846,17 @@ Taking bubble sort as an example, the outer loop executes $n - 1$ times, and the
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* Quadratic order (bubble sort) */
+    /* Quadratic complexity (bubble sort) */
     int BubbleSort(int[] nums) {
         int count = 0;  // Counter
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (int i = nums.Length - 1; i > 0; i--) {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
                     (nums[j + 1], nums[j]) = (nums[j], nums[j + 1]);
-                    count += 3;  // Element swap includes 3 unit operations
+                    count += 3;  // Swapping two elements takes 3 elementary operations
                 }
             }
         }
@@ -1847,19 +1867,19 @@ Taking bubble sort as an example, the outer loop executes $n - 1$ times, and the
 === "Go"
 
     ```go title="time_complexity.go"
-    /* Quadratic order (bubble sort) */
+    /* Quadratic complexity (bubble sort) */
     func bubbleSort(nums []int) int {
         count := 0 // Counter
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for i := len(nums) - 1; i > 0; i-- {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for j := 0; j < i; j++ {
                 if nums[j] > nums[j+1] {
                     // Swap nums[j] and nums[j + 1]
                     tmp := nums[j]
                     nums[j] = nums[j+1]
                     nums[j+1] = tmp
-                    count += 3 // Element swap includes 3 unit operations
+                    count += 3 // Swapping two elements takes 3 elementary operations
                 }
             }
         }
@@ -1870,19 +1890,19 @@ Taking bubble sort as an example, the outer loop executes $n - 1$ times, and the
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* Quadratic order (bubble sort) */
+    /* Quadratic complexity (bubble sort) */
     func bubbleSort(nums: inout [Int]) -> Int {
         var count = 0 // Counter
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for i in nums.indices.dropFirst().reversed() {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for j in 0 ..< i {
                 if nums[j] > nums[j + 1] {
                     // Swap nums[j] and nums[j + 1]
                     let tmp = nums[j]
                     nums[j] = nums[j + 1]
                     nums[j + 1] = tmp
-                    count += 3 // Element swap includes 3 unit operations
+                    count += 3 // Swapping two elements takes 3 elementary operations
                 }
             }
         }
@@ -1893,19 +1913,19 @@ Taking bubble sort as an example, the outer loop executes $n - 1$ times, and the
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* Quadratic order (bubble sort) */
+    /* Quadratic complexity (bubble sort) */
     function bubbleSort(nums) {
         let count = 0; // Counter
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (let i = nums.length - 1; i > 0; i--) {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (let j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
                     let tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3; // Element swap includes 3 unit operations
+                    count += 3; // Swapping two elements takes 3 elementary operations
                 }
             }
         }
@@ -1916,19 +1936,19 @@ Taking bubble sort as an example, the outer loop executes $n - 1$ times, and the
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* Quadratic order (bubble sort) */
+    /* Quadratic complexity (bubble sort) */
     function bubbleSort(nums: number[]): number {
         let count = 0; // Counter
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (let i = nums.length - 1; i > 0; i--) {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (let j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
                     let tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3; // Element swap includes 3 unit operations
+                    count += 3; // Swapping two elements takes 3 elementary operations
                 }
             }
         }
@@ -1939,19 +1959,19 @@ Taking bubble sort as an example, the outer loop executes $n - 1$ times, and the
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* Quadratic order (bubble sort) */
+    /* Quadratic complexity (bubble sort) */
     int bubbleSort(List<int> nums) {
       int count = 0; // Counter
-      // Outer loop: unsorted range is [0, i]
+      // Outer loop: the unsorted range is [0, i]
       for (var i = nums.length - 1; i > 0; i--) {
-        // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+        // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
         for (var j = 0; j < i; j++) {
           if (nums[j] > nums[j + 1]) {
             // Swap nums[j] and nums[j + 1]
             int tmp = nums[j];
             nums[j] = nums[j + 1];
             nums[j + 1] = tmp;
-            count += 3; // Element swap includes 3 unit operations
+            count += 3; // Swapping two elements takes 3 elementary operations
           }
         }
       }
@@ -1962,20 +1982,20 @@ Taking bubble sort as an example, the outer loop executes $n - 1$ times, and the
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* Quadratic order (bubble sort) */
+    /* Quadratic complexity (bubble sort) */
     fn bubble_sort(nums: &mut [i32]) -> i32 {
         let mut count = 0; // Counter
 
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for i in (1..nums.len()).rev() {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for j in 0..i {
                 if nums[j] > nums[j + 1] {
                     // Swap nums[j] and nums[j + 1]
                     let tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3; // Element swap includes 3 unit operations
+                    count += 3; // Swapping two elements takes 3 elementary operations
                 }
             }
         }
@@ -1986,19 +2006,19 @@ Taking bubble sort as an example, the outer loop executes $n - 1$ times, and the
 === "C"
 
     ```c title="time_complexity.c"
-    /* Quadratic order (bubble sort) */
+    /* Quadratic complexity (bubble sort) */
     int bubbleSort(int *nums, int n) {
         int count = 0; // Counter
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (int i = n - 1; i > 0; i--) {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
                     int tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3; // Element swap includes 3 unit operations
+                    count += 3; // Swapping two elements takes 3 elementary operations
                 }
             }
         }
@@ -2009,19 +2029,19 @@ Taking bubble sort as an example, the outer loop executes $n - 1$ times, and the
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* Quadratic order (bubble sort) */
+    /* Quadratic complexity (bubble sort) */
     fun bubbleSort(nums: IntArray): Int {
         var count = 0 // Counter
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (i in nums.size - 1 downTo 1) {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (j in 0..<i) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
                     val temp = nums[j]
                     nums[j] = nums[j + 1]
                     nums[j + 1] = temp
-                    count += 3 // Element swap includes 3 unit operations
+                    count += 3 // Swapping two elements takes 3 elementary operations
                 }
             }
         }
@@ -2032,20 +2052,20 @@ Taking bubble sort as an example, the outer loop executes $n - 1$ times, and the
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### Quadratic time (bubble sort) ###
+    ### Quadratic complexity (bubble sort)###
     def bubble_sort(nums)
       count = 0  # Counter
 
-      # Outer loop: unsorted range is [0, i]
+      # Outer loop: the unsorted range is [0, i]
       for i in (nums.length - 1).downto(0)
-        # Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+        # Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
         for j in 0...i
           if nums[j] > nums[j + 1]
             # Swap nums[j] and nums[j + 1]
             tmp = nums[j]
             nums[j] = nums[j + 1]
             nums[j + 1] = tmp
-            count += 3 # Element swap includes 3 unit operations
+            count += 3 # Swapping two elements takes 3 elementary operations
           end
         end
       end
@@ -2054,20 +2074,25 @@ Taking bubble sort as an example, the outer loop executes $n - 1$ times, and the
     end
     ```
 
-### 4. &nbsp; Exponential Order $O(2^n)$ {data-toc-label="4. &nbsp; Exponential Order"}
+??? pythontutor "Visualize execution"
 
-Biological "cell division" is a typical example of exponential order growth: the initial state is $1$ cell, after one round of division it becomes $2$, after two rounds it becomes $4$, and so on; after $n$ rounds of division there are $2^n$ cells.
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20bubble_sort%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Quadratic%20complexity%20%28bubble%20sort%29%22%22%22%0A%20%20%20%20count%20%3D%200%20%20%23%20Counter%0A%20%20%20%20%23%20Outer%20loop%3A%20the%20unsorted%20range%20is%20%5B0,%20i%5D%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20Inner%20loop%3A%20move%20the%20largest%20element%20in%20the%20unsorted%20range%20%5B0,%20i%5D%20to%20its%20right%20end%20through%20swaps%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Swap%20nums%5Bj%5D%20and%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tmp%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D%20%3D%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20tmp%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%203%20%20%23%20Swapping%20two%20elements%20takes%203%20elementary%20operations%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%28n,%200,%20-1%29%5D%20%20%23%20%5Bn,%20n-1,%20...,%202,%201%5D%0A%20%20%20%20count%20%3D%20bubble_sort%28nums%29%0A%20%20%20%20print%28%22Operation%20count%20for%20quadratic%20complexity%20%28bubble%20sort%29%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20bubble_sort%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Quadratic%20complexity%20%28bubble%20sort%29%22%22%22%0A%20%20%20%20count%20%3D%200%20%20%23%20Counter%0A%20%20%20%20%23%20Outer%20loop%3A%20the%20unsorted%20range%20is%20%5B0,%20i%5D%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20Inner%20loop%3A%20move%20the%20largest%20element%20in%20the%20unsorted%20range%20%5B0,%20i%5D%20to%20its%20right%20end%20through%20swaps%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Swap%20nums%5Bj%5D%20and%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tmp%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D%20%3D%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20tmp%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%203%20%20%23%20Swapping%20two%20elements%20takes%203%20elementary%20operations%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%28n,%200,%20-1%29%5D%20%20%23%20%5Bn,%20n-1,%20...,%202,%201%5D%0A%20%20%20%20count%20%3D%20bubble_sort%28nums%29%0A%20%20%20%20print%28%22Operation%20count%20for%20quadratic%20complexity%20%28bubble%20sort%29%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-Figure 2-11 and the following code simulate the cell division process, with a time complexity of $O(2^n)$. Note that the input $n$ represents the number of division rounds, and the return value `count` represents the total number of divisions.
+### 4. &nbsp; Exponential time $O(2^n)$ {data-toc-label="4. &nbsp; Exponential time"}
+
+Cell division is a classic example of exponential growth. Starting with $1$ cell, one round produces $2$, two rounds produce $4$, and after $n$ rounds there are $2^n$ cells.
+
+The figure and code below simulate cell division in $O(2^n)$ time. The input $n$ is the number of rounds, while the returned `count` is the total number of individual divisions.
 
 === "Python"
 
     ```python title="time_complexity.py"
     def exponential(n: int) -> int:
-        """Exponential order (loop implementation)"""
+        """Exponential complexity (iterative implementation)"""
         count = 0
         base = 1
-        # Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+        # Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
         for _ in range(n):
             for _ in range(base):
                 count += 1
@@ -2079,10 +2104,10 @@ Figure 2-11 and the following code simulate the cell division process, with a ti
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* Exponential order (loop implementation) */
+    /* Exponential complexity (iterative implementation) */
     int exponential(int n) {
         int count = 0, base = 1;
-        // Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+        // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < base; j++) {
                 count++;
@@ -2097,10 +2122,10 @@ Figure 2-11 and the following code simulate the cell division process, with a ti
 === "Java"
 
     ```java title="time_complexity.java"
-    /* Exponential order (loop implementation) */
+    /* Exponential complexity (iterative implementation) */
     int exponential(int n) {
         int count = 0, base = 1;
-        // Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+        // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < base; j++) {
                 count++;
@@ -2115,10 +2140,10 @@ Figure 2-11 and the following code simulate the cell division process, with a ti
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* Exponential order (loop implementation) */
+    /* Exponential complexity (iterative implementation) */
     int Exponential(int n) {
         int count = 0, bas = 1;
-        // Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+        // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < bas; j++) {
                 count++;
@@ -2133,10 +2158,10 @@ Figure 2-11 and the following code simulate the cell division process, with a ti
 === "Go"
 
     ```go title="time_complexity.go"
-    /* Exponential order (loop implementation) */
+    /* Exponential complexity (iterative implementation)*/
     func exponential(n int) int {
         count, base := 0, 1
-        // Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+        // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
         for i := 0; i < n; i++ {
             for j := 0; j < base; j++ {
                 count++
@@ -2151,11 +2176,11 @@ Figure 2-11 and the following code simulate the cell division process, with a ti
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* Exponential order (loop implementation) */
+    /* Exponential complexity (iterative implementation) */
     func exponential(n: Int) -> Int {
         var count = 0
         var base = 1
-        // Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+        // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
         for _ in 0 ..< n {
             for _ in 0 ..< base {
                 count += 1
@@ -2170,11 +2195,11 @@ Figure 2-11 and the following code simulate the cell division process, with a ti
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* Exponential order (loop implementation) */
+    /* Exponential complexity (iterative implementation) */
     function exponential(n) {
         let count = 0,
             base = 1;
-        // Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+        // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < base; j++) {
                 count++;
@@ -2189,11 +2214,11 @@ Figure 2-11 and the following code simulate the cell division process, with a ti
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* Exponential order (loop implementation) */
+    /* Exponential complexity (iterative implementation) */
     function exponential(n: number): number {
         let count = 0,
             base = 1;
-        // Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+        // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < base; j++) {
                 count++;
@@ -2208,10 +2233,10 @@ Figure 2-11 and the following code simulate the cell division process, with a ti
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* Exponential order (loop implementation) */
+    /* Exponential complexity (iterative implementation) */
     int exponential(int n) {
       int count = 0, base = 1;
-      // Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+      // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
       for (var i = 0; i < n; i++) {
         for (var j = 0; j < base; j++) {
           count++;
@@ -2226,11 +2251,11 @@ Figure 2-11 and the following code simulate the cell division process, with a ti
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* Exponential order (loop implementation) */
+    /* Exponential complexity (iterative implementation) */
     fn exponential(n: i32) -> i32 {
         let mut count = 0;
         let mut base = 1;
-        // Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+        // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
         for _ in 0..n {
             for _ in 0..base {
                 count += 1
@@ -2245,11 +2270,11 @@ Figure 2-11 and the following code simulate the cell division process, with a ti
 === "C"
 
     ```c title="time_complexity.c"
-    /* Exponential order (loop implementation) */
+    /* Exponential complexity (iterative implementation) */
     int exponential(int n) {
         int count = 0;
         int bas = 1;
-        // Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+        // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < bas; j++) {
                 count++;
@@ -2264,11 +2289,11 @@ Figure 2-11 and the following code simulate the cell division process, with a ti
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* Exponential order (loop implementation) */
+    /* Exponential complexity (iterative implementation) */
     fun exponential(n: Int): Int {
         var count = 0
         var base = 1
-        // Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+        // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
         for (i in 0..<n) {
             for (j in 0..<base) {
                 count++
@@ -2283,11 +2308,11 @@ Figure 2-11 and the following code simulate the cell division process, with a ti
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### Exponential time (iterative) ###
+    ### Exponential complexity (iterative implementation)###
     def exponential(n)
       count, base = 0, 1
 
-      # Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+      # Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
       (0...n).each do
         (0...base).each { count += 1 }
         base *= 2
@@ -2298,17 +2323,22 @@ Figure 2-11 and the following code simulate the cell division process, with a ti
     end
     ```
 
-![Time complexity of exponential order](time_complexity.assets/time_complexity_exponential.png){ class="animation-figure" }
+??? pythontutor "Visualize execution"
 
-<p align="center"> Figure 2-11 &nbsp; Time complexity of exponential order </p>
+    <div style="height: 531px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20exponential%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Exponential%20complexity%20%28iterative%20implementation%29%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20base%20%3D%201%0A%20%20%20%20%23%20Each%20cell%20divides%20into%20two%20per%20round,%20giving%20the%20sequence%201,%202,%204,%208,%20...,%202%5E%28n-1%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20_%20in%20range%28base%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%20%20%20%20base%20%2A%3D%202%0A%20%20%20%20%23%20count%20%3D%201%20%2B%202%20%2B%204%20%2B%208%20%2B%20..%20%2B%202%5E%28n-1%29%20%3D%202%5En%20-%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exponential%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20exponential%20complexity%20%28iterative%20implementation%29%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20exponential%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Exponential%20complexity%20%28iterative%20implementation%29%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20base%20%3D%201%0A%20%20%20%20%23%20Each%20cell%20divides%20into%20two%20per%20round,%20giving%20the%20sequence%201,%202,%204,%208,%20...,%202%5E%28n-1%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20_%20in%20range%28base%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%20%20%20%20base%20%2A%3D%202%0A%20%20%20%20%23%20count%20%3D%201%20%2B%202%20%2B%204%20%2B%208%20%2B%20..%20%2B%202%5E%28n-1%29%20%3D%202%5En%20-%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exponential%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20exponential%20complexity%20%28iterative%20implementation%29%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-In actual algorithms, exponential order often appears in recursive functions. For example, in the following code, it recursively splits in two, stopping after $n$ splits:
+![Exponential time complexity](time_complexity.assets/time_complexity_exponential.png){ class="animation-figure" }
+
+<p align="center"> Figure 2-11 &nbsp; Exponential time complexity </p>
+
+Exponential time often appears in recursive algorithms. The following function branches into two calls at each level, stopping after $n$ levels:
 
 === "Python"
 
     ```python title="time_complexity.py"
     def exp_recur(n: int) -> int:
-        """Exponential order (recursive implementation)"""
+        """Exponential complexity (recursive implementation)"""
         if n == 1:
             return 1
         return exp_recur(n - 1) + exp_recur(n - 1) + 1
@@ -2317,7 +2347,7 @@ In actual algorithms, exponential order often appears in recursive functions. Fo
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* Exponential order (recursive implementation) */
+    /* Exponential complexity (recursive implementation) */
     int expRecur(int n) {
         if (n == 1)
             return 1;
@@ -2328,7 +2358,7 @@ In actual algorithms, exponential order often appears in recursive functions. Fo
 === "Java"
 
     ```java title="time_complexity.java"
-    /* Exponential order (recursive implementation) */
+    /* Exponential complexity (recursive implementation) */
     int expRecur(int n) {
         if (n == 1)
             return 1;
@@ -2339,7 +2369,7 @@ In actual algorithms, exponential order often appears in recursive functions. Fo
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* Exponential order (recursive implementation) */
+    /* Exponential complexity (recursive implementation) */
     int ExpRecur(int n) {
         if (n == 1) return 1;
         return ExpRecur(n - 1) + ExpRecur(n - 1) + 1;
@@ -2349,7 +2379,7 @@ In actual algorithms, exponential order often appears in recursive functions. Fo
 === "Go"
 
     ```go title="time_complexity.go"
-    /* Exponential order (recursive implementation) */
+    /* Exponential complexity (recursive implementation)*/
     func expRecur(n int) int {
         if n == 1 {
             return 1
@@ -2361,7 +2391,7 @@ In actual algorithms, exponential order often appears in recursive functions. Fo
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* Exponential order (recursive implementation) */
+    /* Exponential complexity (recursive implementation) */
     func expRecur(n: Int) -> Int {
         if n == 1 {
             return 1
@@ -2373,7 +2403,7 @@ In actual algorithms, exponential order often appears in recursive functions. Fo
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* Exponential order (recursive implementation) */
+    /* Exponential complexity (recursive implementation) */
     function expRecur(n) {
         if (n === 1) return 1;
         return expRecur(n - 1) + expRecur(n - 1) + 1;
@@ -2383,7 +2413,7 @@ In actual algorithms, exponential order often appears in recursive functions. Fo
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* Exponential order (recursive implementation) */
+    /* Exponential complexity (recursive implementation) */
     function expRecur(n: number): number {
         if (n === 1) return 1;
         return expRecur(n - 1) + expRecur(n - 1) + 1;
@@ -2393,7 +2423,7 @@ In actual algorithms, exponential order often appears in recursive functions. Fo
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* Exponential order (recursive implementation) */
+    /* Exponential complexity (recursive implementation) */
     int expRecur(int n) {
       if (n == 1) return 1;
       return expRecur(n - 1) + expRecur(n - 1) + 1;
@@ -2403,7 +2433,7 @@ In actual algorithms, exponential order often appears in recursive functions. Fo
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* Exponential order (recursive implementation) */
+    /* Exponential complexity (recursive implementation) */
     fn exp_recur(n: i32) -> i32 {
         if n == 1 {
             return 1;
@@ -2415,7 +2445,7 @@ In actual algorithms, exponential order often appears in recursive functions. Fo
 === "C"
 
     ```c title="time_complexity.c"
-    /* Exponential order (recursive implementation) */
+    /* Exponential complexity (recursive implementation) */
     int expRecur(int n) {
         if (n == 1)
             return 1;
@@ -2426,7 +2456,7 @@ In actual algorithms, exponential order often appears in recursive functions. Fo
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* Exponential order (recursive implementation) */
+    /* Exponential complexity (recursive implementation) */
     fun expRecur(n: Int): Int {
         if (n == 1) {
             return 1
@@ -2438,26 +2468,31 @@ In actual algorithms, exponential order often appears in recursive functions. Fo
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### Exponential time (recursive) ###
+    ### Exponential complexity (recursive implementation)###
     def exp_recur(n)
       return 1 if n == 1
       exp_recur(n - 1) + exp_recur(n - 1) + 1
     end
     ```
 
-Exponential order growth is very rapid and is common in exhaustive methods (brute force search, backtracking, etc.). For problems with large data scales, exponential order is unacceptable and typically requires dynamic programming or greedy algorithms to solve.
+??? pythontutor "Visualize execution"
 
-### 5. &nbsp; Logarithmic Order $O(\log n)$ {data-toc-label="5. &nbsp; Logarithmic Order"}
+    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20exp_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Exponential%20complexity%20%28recursive%20implementation%29%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20exp_recur%28n%20-%201%29%20%2B%20exp_recur%28n%20-%201%29%20%2B%201%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%207%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exp_recur%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20exponential%20complexity%20%28recursive%20implementation%29%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20exp_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Exponential%20complexity%20%28recursive%20implementation%29%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20exp_recur%28n%20-%201%29%20%2B%20exp_recur%28n%20-%201%29%20%2B%201%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%207%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exp_recur%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20exponential%20complexity%20%28recursive%20implementation%29%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-In contrast to exponential order, logarithmic order reflects the situation of "reducing to half each round". Let the input data size be $n$. Since it is reduced to half each round, the number of loops is $\log_2 n$, which is the inverse function of $2^n$.
+Exponential growth is very rapid and common in exhaustive approaches such as brute-force search and backtracking. It is unacceptable for large inputs, which usually require approaches such as dynamic programming or greedy algorithms.
 
-Figure 2-12 and the following code simulate the process of "reducing to half each round", with a time complexity of $O(\log_2 n)$, abbreviated as $O(\log n)$:
+### 5. &nbsp; Logarithmic time $O(\log n)$ {data-toc-label="5. &nbsp; Logarithmic time"}
+
+Logarithmic growth corresponds to repeatedly halving a quantity, the reverse of exponential growth. Starting with input size $n$, halving each round gives $\log_2 n$ iterations, the inverse of $2^n$.
+
+The figure and code below simulate repeated halving, taking $O(\log_2 n)$ time, usually written $O(\log n)$:
 
 === "Python"
 
     ```python title="time_complexity.py"
     def logarithmic(n: int) -> int:
-        """Logarithmic order (loop implementation)"""
+        """Logarithmic complexity (iterative implementation)"""
         count = 0
         while n > 1:
             n = n / 2
@@ -2468,7 +2503,7 @@ Figure 2-12 and the following code simulate the process of "reducing to half eac
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* Logarithmic order (loop implementation) */
+    /* Logarithmic complexity (iterative implementation) */
     int logarithmic(int n) {
         int count = 0;
         while (n > 1) {
@@ -2482,7 +2517,7 @@ Figure 2-12 and the following code simulate the process of "reducing to half eac
 === "Java"
 
     ```java title="time_complexity.java"
-    /* Logarithmic order (loop implementation) */
+    /* Logarithmic complexity (iterative implementation) */
     int logarithmic(int n) {
         int count = 0;
         while (n > 1) {
@@ -2496,7 +2531,7 @@ Figure 2-12 and the following code simulate the process of "reducing to half eac
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* Logarithmic order (loop implementation) */
+    /* Logarithmic complexity (iterative implementation) */
     int Logarithmic(int n) {
         int count = 0;
         while (n > 1) {
@@ -2510,7 +2545,7 @@ Figure 2-12 and the following code simulate the process of "reducing to half eac
 === "Go"
 
     ```go title="time_complexity.go"
-    /* Logarithmic order (loop implementation) */
+    /* Logarithmic complexity (iterative implementation)*/
     func logarithmic(n int) int {
         count := 0
         for n > 1 {
@@ -2524,7 +2559,7 @@ Figure 2-12 and the following code simulate the process of "reducing to half eac
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* Logarithmic order (loop implementation) */
+    /* Logarithmic complexity (iterative implementation) */
     func logarithmic(n: Int) -> Int {
         var count = 0
         var n = n
@@ -2539,7 +2574,7 @@ Figure 2-12 and the following code simulate the process of "reducing to half eac
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* Logarithmic order (loop implementation) */
+    /* Logarithmic complexity (iterative implementation) */
     function logarithmic(n) {
         let count = 0;
         while (n > 1) {
@@ -2553,7 +2588,7 @@ Figure 2-12 and the following code simulate the process of "reducing to half eac
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* Logarithmic order (loop implementation) */
+    /* Logarithmic complexity (iterative implementation) */
     function logarithmic(n: number): number {
         let count = 0;
         while (n > 1) {
@@ -2567,7 +2602,7 @@ Figure 2-12 and the following code simulate the process of "reducing to half eac
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* Logarithmic order (loop implementation) */
+    /* Logarithmic complexity (iterative implementation) */
     int logarithmic(int n) {
       int count = 0;
       while (n > 1) {
@@ -2581,7 +2616,7 @@ Figure 2-12 and the following code simulate the process of "reducing to half eac
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* Logarithmic order (loop implementation) */
+    /* Logarithmic complexity (iterative implementation) */
     fn logarithmic(mut n: i32) -> i32 {
         let mut count = 0;
         while n > 1 {
@@ -2595,7 +2630,7 @@ Figure 2-12 and the following code simulate the process of "reducing to half eac
 === "C"
 
     ```c title="time_complexity.c"
-    /* Logarithmic order (loop implementation) */
+    /* Logarithmic complexity (iterative implementation) */
     int logarithmic(int n) {
         int count = 0;
         while (n > 1) {
@@ -2609,7 +2644,7 @@ Figure 2-12 and the following code simulate the process of "reducing to half eac
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* Logarithmic order (loop implementation) */
+    /* Logarithmic complexity (iterative implementation) */
     fun logarithmic(n: Int): Int {
         var n1 = n
         var count = 0
@@ -2624,7 +2659,7 @@ Figure 2-12 and the following code simulate the process of "reducing to half eac
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### Logarithmic time (iterative) ###
+    ### Logarithmic complexity (iterative implementation)###
     def logarithmic(n)
       count = 0
 
@@ -2637,17 +2672,22 @@ Figure 2-12 and the following code simulate the process of "reducing to half eac
     end
     ```
 
-![Time complexity of logarithmic order](time_complexity.assets/time_complexity_logarithmic.png){ class="animation-figure" }
+??? pythontutor "Visualize execution"
 
-<p align="center"> Figure 2-12 &nbsp; Time complexity of logarithmic order </p>
+    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Logarithmic%20complexity%20%28iterative%20implementation%29%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20logarithmic%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20logarithmic%20complexity%20%28iterative%20implementation%29%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Logarithmic%20complexity%20%28iterative%20implementation%29%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20logarithmic%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20logarithmic%20complexity%20%28iterative%20implementation%29%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-Like exponential order, logarithmic order also commonly appears in recursive functions. The following code forms a recursion tree of height $\log_2 n$:
+![Logarithmic time complexity](time_complexity.assets/time_complexity_logarithmic.png){ class="animation-figure" }
+
+<p align="center"> Figure 2-12 &nbsp; Logarithmic time complexity </p>
+
+Like exponential growth, logarithmic growth often occurs in recursion. The following code produces a recursion tree of height $\log_2 n$:
 
 === "Python"
 
     ```python title="time_complexity.py"
     def log_recur(n: int) -> int:
-        """Logarithmic order (recursive implementation)"""
+        """Logarithmic complexity (recursive implementation)"""
         if n <= 1:
             return 0
         return log_recur(n / 2) + 1
@@ -2656,7 +2696,7 @@ Like exponential order, logarithmic order also commonly appears in recursive fun
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* Logarithmic order (recursive implementation) */
+    /* Logarithmic complexity (recursive implementation) */
     int logRecur(int n) {
         if (n <= 1)
             return 0;
@@ -2667,7 +2707,7 @@ Like exponential order, logarithmic order also commonly appears in recursive fun
 === "Java"
 
     ```java title="time_complexity.java"
-    /* Logarithmic order (recursive implementation) */
+    /* Logarithmic complexity (recursive implementation) */
     int logRecur(int n) {
         if (n <= 1)
             return 0;
@@ -2678,7 +2718,7 @@ Like exponential order, logarithmic order also commonly appears in recursive fun
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* Logarithmic order (recursive implementation) */
+    /* Logarithmic complexity (recursive implementation) */
     int LogRecur(int n) {
         if (n <= 1) return 0;
         return LogRecur(n / 2) + 1;
@@ -2688,7 +2728,7 @@ Like exponential order, logarithmic order also commonly appears in recursive fun
 === "Go"
 
     ```go title="time_complexity.go"
-    /* Logarithmic order (recursive implementation) */
+    /* Logarithmic complexity (recursive implementation)*/
     func logRecur(n int) int {
         if n <= 1 {
             return 0
@@ -2700,7 +2740,7 @@ Like exponential order, logarithmic order also commonly appears in recursive fun
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* Logarithmic order (recursive implementation) */
+    /* Logarithmic complexity (recursive implementation) */
     func logRecur(n: Int) -> Int {
         if n <= 1 {
             return 0
@@ -2712,7 +2752,7 @@ Like exponential order, logarithmic order also commonly appears in recursive fun
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* Logarithmic order (recursive implementation) */
+    /* Logarithmic complexity (recursive implementation) */
     function logRecur(n) {
         if (n <= 1) return 0;
         return logRecur(n / 2) + 1;
@@ -2722,7 +2762,7 @@ Like exponential order, logarithmic order also commonly appears in recursive fun
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* Logarithmic order (recursive implementation) */
+    /* Logarithmic complexity (recursive implementation) */
     function logRecur(n: number): number {
         if (n <= 1) return 0;
         return logRecur(n / 2) + 1;
@@ -2732,7 +2772,7 @@ Like exponential order, logarithmic order also commonly appears in recursive fun
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* Logarithmic order (recursive implementation) */
+    /* Logarithmic complexity (recursive implementation) */
     int logRecur(int n) {
       if (n <= 1) return 0;
       return logRecur(n ~/ 2) + 1;
@@ -2742,7 +2782,7 @@ Like exponential order, logarithmic order also commonly appears in recursive fun
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* Logarithmic order (recursive implementation) */
+    /* Logarithmic complexity (recursive implementation) */
     fn log_recur(n: i32) -> i32 {
         if n <= 1 {
             return 0;
@@ -2754,7 +2794,7 @@ Like exponential order, logarithmic order also commonly appears in recursive fun
 === "C"
 
     ```c title="time_complexity.c"
-    /* Logarithmic order (recursive implementation) */
+    /* Logarithmic complexity (recursive implementation) */
     int logRecur(int n) {
         if (n <= 1)
             return 0;
@@ -2765,7 +2805,7 @@ Like exponential order, logarithmic order also commonly appears in recursive fun
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* Logarithmic order (recursive implementation) */
+    /* Logarithmic complexity (recursive implementation) */
     fun logRecur(n: Int): Int {
         if (n <= 1)
             return 0
@@ -2776,39 +2816,44 @@ Like exponential order, logarithmic order also commonly appears in recursive fun
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### Logarithmic time (recursive) ###
+    ### Logarithmic complexity (recursive implementation)###
     def log_recur(n)
       return 0 unless n > 1
       log_recur(n / 2) + 1
     end
     ```
 
-Logarithmic order commonly appears in algorithms based on the divide-and-conquer strategy, reflecting the idea of repeatedly splitting a problem and simplifying it. It grows slowly and is the ideal time complexity second only to constant order.
+??? pythontutor "Visualize execution"
+
+    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Logarithmic%20complexity%20%28recursive%20implementation%29%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20return%20log_recur%28n%20/%202%29%20%2B%201%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20log_recur%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20logarithmic%20complexity%20%28recursive%20implementation%29%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Logarithmic%20complexity%20%28recursive%20implementation%29%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20return%20log_recur%28n%20/%202%29%20%2B%201%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20log_recur%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20logarithmic%20complexity%20%28recursive%20implementation%29%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+Logarithmic time often arises in divide-and-conquer algorithms, reflecting the idea of dividing a problem into smaller, simpler parts. It grows slowly and is highly desirable, second only to constant time among these classes.
 
 !!! tip "What is the base of $O(\log n)$?"
 
-    To be precise, "dividing into $m$" corresponds to a time complexity of $O(\log_m n)$. And through the logarithmic base change formula, we can obtain time complexities with different bases that are equal:
+    More precisely, reducing the size by a factor of $m$ gives $O(\log_m n)$. The change-of-base formula shows that different fixed bases yield the same complexity:
 
     $$
     O(\log_m n) = O(\log_k n / \log_k m) = O(\log_k n)
     $$
 
-    That is to say, the base $m$ can be converted without affecting the complexity. Therefore, we usually omit the base $m$ and denote logarithmic order simply as $O(\log n)$.
+    Thus, changing the base $m$ does not affect the complexity. We usually omit $m$ and simply write $O(\log n)$.
 
-### 6. &nbsp; Linearithmic Order $O(n \log n)$ {data-toc-label="6. &nbsp; Linearithmic Order"}
+### 6. &nbsp; Linearithmic time $O(n \log n)$ {data-toc-label="6. &nbsp; Linearithmic time"}
 
-Linearithmic order commonly appears in nested loops, where the time complexities of the two layers of loops are $O(\log n)$ and $O(n)$ respectively. The relevant code is as follows:
+Linearithmic time often appears when one level of a nested process takes $O(\log n)$ and another takes $O(n)$. An example follows:
 
 === "Python"
 
     ```python title="time_complexity.py"
     def linear_log_recur(n: int) -> int:
-        """Linearithmic order"""
+        """Linearithmic complexity"""
         if n <= 1:
             return 1
-        # Divide into two, the scale of subproblems is reduced by half
+        # Split into two subproblems, each half the original size
         count = linear_log_recur(n // 2) + linear_log_recur(n // 2)
-        # Current subproblem contains n operations
+        # The current subproblem includes n operations
         for _ in range(n):
             count += 1
         return count
@@ -2817,7 +2862,7 @@ Linearithmic order commonly appears in nested loops, where the time complexities
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* Linearithmic order */
+    /* Linearithmic complexity */
     int linearLogRecur(int n) {
         if (n <= 1)
             return 1;
@@ -2832,7 +2877,7 @@ Linearithmic order commonly appears in nested loops, where the time complexities
 === "Java"
 
     ```java title="time_complexity.java"
-    /* Linearithmic order */
+    /* Linearithmic complexity */
     int linearLogRecur(int n) {
         if (n <= 1)
             return 1;
@@ -2847,7 +2892,7 @@ Linearithmic order commonly appears in nested loops, where the time complexities
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* Linearithmic order */
+    /* Linearithmic complexity */
     int LinearLogRecur(int n) {
         if (n <= 1) return 1;
         int count = LinearLogRecur(n / 2) + LinearLogRecur(n / 2);
@@ -2861,7 +2906,7 @@ Linearithmic order commonly appears in nested loops, where the time complexities
 === "Go"
 
     ```go title="time_complexity.go"
-    /* Linearithmic order */
+    /* Linearithmic complexity */
     func linearLogRecur(n int) int {
         if n <= 1 {
             return 1
@@ -2877,7 +2922,7 @@ Linearithmic order commonly appears in nested loops, where the time complexities
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* Linearithmic order */
+    /* Linearithmic complexity */
     func linearLogRecur(n: Int) -> Int {
         if n <= 1 {
             return 1
@@ -2893,7 +2938,7 @@ Linearithmic order commonly appears in nested loops, where the time complexities
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* Linearithmic order */
+    /* Linearithmic complexity */
     function linearLogRecur(n) {
         if (n <= 1) return 1;
         let count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
@@ -2907,7 +2952,7 @@ Linearithmic order commonly appears in nested loops, where the time complexities
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* Linearithmic order */
+    /* Linearithmic complexity */
     function linearLogRecur(n: number): number {
         if (n <= 1) return 1;
         let count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
@@ -2921,7 +2966,7 @@ Linearithmic order commonly appears in nested loops, where the time complexities
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* Linearithmic order */
+    /* Linearithmic complexity */
     int linearLogRecur(int n) {
       if (n <= 1) return 1;
       int count = linearLogRecur(n ~/ 2) + linearLogRecur(n ~/ 2);
@@ -2935,7 +2980,7 @@ Linearithmic order commonly appears in nested loops, where the time complexities
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* Linearithmic order */
+    /* Linearithmic complexity */
     fn linear_log_recur(n: i32) -> i32 {
         if n <= 1 {
             return 1;
@@ -2951,7 +2996,7 @@ Linearithmic order commonly appears in nested loops, where the time complexities
 === "C"
 
     ```c title="time_complexity.c"
-    /* Linearithmic order */
+    /* Linearithmic complexity */
     int linearLogRecur(int n) {
         if (n <= 1)
             return 1;
@@ -2966,7 +3011,7 @@ Linearithmic order commonly appears in nested loops, where the time complexities
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* Linearithmic order */
+    /* Linearithmic complexity */
     fun linearLogRecur(n: Int): Int {
         if (n <= 1)
             return 1
@@ -2981,7 +3026,7 @@ Linearithmic order commonly appears in nested loops, where the time complexities
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### Linearithmic time ###
+    ### Linearithmic complexity ###
     def linear_log_recur(n)
       return 1 unless n > 1
 
@@ -2992,33 +3037,38 @@ Linearithmic order commonly appears in nested loops, where the time complexities
     end
     ```
 
-Figure 2-13 shows how linearithmic order is generated. Each level of the binary tree has a total of $n$ operations, and the tree has $\log_2 n + 1$ levels, resulting in a time complexity of $O(n \log n)$.
+??? pythontutor "Visualize execution"
 
-![Time complexity of linearithmic order](time_complexity.assets/time_complexity_logarithmic_linear.png){ class="animation-figure" }
+    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20linear_log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Linearithmic%20complexity%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%20//%202%29%20%2B%20linear_log_recur%28n%20//%202%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20linearithmic%20complexity%20%28recursive%20implementation%29%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20linear_log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Linearithmic%20complexity%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%20//%202%29%20%2B%20linear_log_recur%28n%20//%202%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20linearithmic%20complexity%20%28recursive%20implementation%29%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-<p align="center"> Figure 2-13 &nbsp; Time complexity of linearithmic order </p>
+Figure 2-13 shows how linearithmic growth arises. Each level of the binary tree performs $n$ operations, and there are $\log_2 n + 1$ levels, giving $O(n \log n)$ time.
 
-Mainstream sorting algorithms typically have a time complexity of $O(n \log n)$, such as quicksort, merge sort, and heap sort.
+![Linearithmic time complexity](time_complexity.assets/time_complexity_logarithmic_linear.png){ class="animation-figure" }
 
-### 7. &nbsp; Factorial Order $O(n!)$ {data-toc-label="7. &nbsp; Factorial Order"}
+<p align="center"> Figure 2-13 &nbsp; Linearithmic time complexity </p>
 
-Factorial order corresponds to the mathematical "permutation" problem. Given $n$ distinct elements, find all possible permutation schemes; the number of schemes is:
+Common sorting algorithms, including quick sort, merge sort, and heap sort, typically take $O(n \log n)$ time.
+
+### 7. &nbsp; Factorial time $O(n!)$ {data-toc-label="7. &nbsp; Factorial time"}
+
+Factorial growth arises when generating every permutation of $n$ distinct elements. The number of permutations is:
 
 $$
 n! = n \times (n - 1) \times (n - 2) \times \dots \times 2 \times 1
 $$
 
-Factorials are typically implemented using recursion. As shown in Figure 2-14 and the following code, the first level splits into $n$ branches, the second level splits into $n - 1$ branches, and so on, until the $n$-th level when splitting stops:
+Algorithms with factorial time complexity are usually implemented recursively. As the figure and code below show, each call creates $n$ branches at the first level, $n - 1$ at the second, and so on until level $n$:
 
 === "Python"
 
     ```python title="time_complexity.py"
     def factorial_recur(n: int) -> int:
-        """Factorial order (recursive implementation)"""
+        """Factorial complexity (recursive implementation)"""
         if n == 0:
             return 1
         count = 0
-        # Split from 1 into n
+        # Split one problem into n subproblems
         for _ in range(n):
             count += factorial_recur(n - 1)
         return count
@@ -3027,12 +3077,12 @@ Factorials are typically implemented using recursion. As shown in Figure 2-14 an
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* Factorial order (recursive implementation) */
+    /* Factorial complexity (recursive implementation) */
     int factorialRecur(int n) {
         if (n == 0)
             return 1;
         int count = 0;
-        // Split from 1 into n
+        // Split one problem into n subproblems
         for (int i = 0; i < n; i++) {
             count += factorialRecur(n - 1);
         }
@@ -3043,12 +3093,12 @@ Factorials are typically implemented using recursion. As shown in Figure 2-14 an
 === "Java"
 
     ```java title="time_complexity.java"
-    /* Factorial order (recursive implementation) */
+    /* Factorial complexity (recursive implementation) */
     int factorialRecur(int n) {
         if (n == 0)
             return 1;
         int count = 0;
-        // Split from 1 into n
+        // Split one problem into n subproblems
         for (int i = 0; i < n; i++) {
             count += factorialRecur(n - 1);
         }
@@ -3059,11 +3109,11 @@ Factorials are typically implemented using recursion. As shown in Figure 2-14 an
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* Factorial order (recursive implementation) */
+    /* Factorial complexity (recursive implementation) */
     int FactorialRecur(int n) {
         if (n == 0) return 1;
         int count = 0;
-        // Split from 1 into n
+        // Split one problem into n subproblems
         for (int i = 0; i < n; i++) {
             count += FactorialRecur(n - 1);
         }
@@ -3074,13 +3124,13 @@ Factorials are typically implemented using recursion. As shown in Figure 2-14 an
 === "Go"
 
     ```go title="time_complexity.go"
-    /* Factorial order (recursive implementation) */
+    /* Factorial complexity (recursive implementation) */
     func factorialRecur(n int) int {
         if n == 0 {
             return 1
         }
         count := 0
-        // Split from 1 into n
+        // Split one problem into n subproblems
         for i := 0; i < n; i++ {
             count += factorialRecur(n - 1)
         }
@@ -3091,13 +3141,13 @@ Factorials are typically implemented using recursion. As shown in Figure 2-14 an
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* Factorial order (recursive implementation) */
+    /* Factorial complexity (recursive implementation) */
     func factorialRecur(n: Int) -> Int {
         if n == 0 {
             return 1
         }
         var count = 0
-        // Split from 1 into n
+        // Split one problem into n subproblems
         for _ in 0 ..< n {
             count += factorialRecur(n: n - 1)
         }
@@ -3108,11 +3158,11 @@ Factorials are typically implemented using recursion. As shown in Figure 2-14 an
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* Factorial order (recursive implementation) */
+    /* Factorial complexity (recursive implementation) */
     function factorialRecur(n) {
         if (n === 0) return 1;
         let count = 0;
-        // Split from 1 into n
+        // Split one problem into n subproblems
         for (let i = 0; i < n; i++) {
             count += factorialRecur(n - 1);
         }
@@ -3123,11 +3173,11 @@ Factorials are typically implemented using recursion. As shown in Figure 2-14 an
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* Factorial order (recursive implementation) */
+    /* Factorial complexity (recursive implementation) */
     function factorialRecur(n: number): number {
         if (n === 0) return 1;
         let count = 0;
-        // Split from 1 into n
+        // Split one problem into n subproblems
         for (let i = 0; i < n; i++) {
             count += factorialRecur(n - 1);
         }
@@ -3138,11 +3188,11 @@ Factorials are typically implemented using recursion. As shown in Figure 2-14 an
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* Factorial order (recursive implementation) */
+    /* Factorial complexity (recursive implementation) */
     int factorialRecur(int n) {
       if (n == 0) return 1;
       int count = 0;
-      // Split from 1 into n
+      // Split one problem into n subproblems
       for (var i = 0; i < n; i++) {
         count += factorialRecur(n - 1);
       }
@@ -3153,13 +3203,13 @@ Factorials are typically implemented using recursion. As shown in Figure 2-14 an
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* Factorial order (recursive implementation) */
+    /* Factorial complexity (recursive implementation) */
     fn factorial_recur(n: i32) -> i32 {
         if n == 0 {
             return 1;
         }
         let mut count = 0;
-        // Split from 1 into n
+        // Split one problem into n subproblems
         for _ in 0..n {
             count += factorial_recur(n - 1);
         }
@@ -3170,7 +3220,7 @@ Factorials are typically implemented using recursion. As shown in Figure 2-14 an
 === "C"
 
     ```c title="time_complexity.c"
-    /* Factorial order (recursive implementation) */
+    /* Factorial complexity (recursive implementation) */
     int factorialRecur(int n) {
         if (n == 0)
             return 1;
@@ -3185,12 +3235,12 @@ Factorials are typically implemented using recursion. As shown in Figure 2-14 an
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* Factorial order (recursive implementation) */
+    /* Factorial complexity (recursive implementation) */
     fun factorialRecur(n: Int): Int {
         if (n == 0)
             return 1
         var count = 0
-        // Split from 1 into n
+        // Split one problem into n subproblems
         for (i in 0..<n) {
             count += factorialRecur(n - 1)
         }
@@ -3201,49 +3251,54 @@ Factorials are typically implemented using recursion. As shown in Figure 2-14 an
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### Factorial time (recursive) ###
+    ### Factorial complexity (recursive implementation)###
     def factorial_recur(n)
       return 1 if n == 0
 
       count = 0
-      # Split from 1 into n
+      # Split one problem into n subproblems
       (0...n).each { count += factorial_recur(n - 1) }
 
       count
     end
     ```
 
-![Time complexity of factorial order](time_complexity.assets/time_complexity_factorial.png){ class="animation-figure" }
+??? pythontutor "Visualize execution"
 
-<p align="center"> Figure 2-14 &nbsp; Time complexity of factorial order </p>
+    <div style="height: 495px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20factorial_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Factorial%20complexity%20%28recursive%20implementation%29%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20Split%20one%20problem%20into%20n%20subproblems%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20factorial_recur%28n%20-%201%29%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20factorial_recur%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20factorial%20complexity%20%28recursive%20implementation%29%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20factorial_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Factorial%20complexity%20%28recursive%20implementation%29%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20Split%20one%20problem%20into%20n%20subproblems%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20factorial_recur%28n%20-%201%29%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20factorial_recur%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20factorial%20complexity%20%28recursive%20implementation%29%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-Note that because when $n \geq 4$ we always have $n! > 2^n$, factorial order grows faster than exponential order, and is also unacceptable for large $n$.
+![Factorial time complexity](time_complexity.assets/time_complexity_factorial.png){ class="animation-figure" }
 
-## 2.3.5 &nbsp; Worst, Best, and Average Time Complexities
+<p align="center"> Figure 2-14 &nbsp; Factorial time complexity </p>
 
-**The time efficiency of an algorithm is often not fixed, but is related to the distribution of the input data**. Suppose we input an array `nums` of length $n$, where `nums` consists of numbers from $1$ to $n$, with each number appearing only once, but the element order is randomly shuffled. The task is to return the index of element $1$. We can draw the following conclusions.
+Since $n! > 2^n$ whenever $n \geq 4$, factorial growth is faster than exponential growth and is also unacceptable for large $n$.
 
-- When `nums = [?, ?, ..., 1]`, i.e., when the last element is $1$, it requires a complete traversal of the array, **reaching worst-case time complexity $O(n)$**.
-- When `nums = [1, ?, ?, ...]`, i.e., when the first element is $1$, no matter how long the array is, there is no need to continue traversing, **reaching best-case time complexity $\Omega(1)$**.
+## 2.3.5 &nbsp; Worst-case, best-case, and average-case time complexity
 
-The "worst-case time complexity" corresponds to the function's asymptotic upper bound, denoted using big-$O$ notation. Correspondingly, the "best-case time complexity" corresponds to the function's asymptotic lower bound, denoted using $\Omega$ notation:
+**An algorithm's efficiency often depends on how its input data is arranged**. Suppose `nums` is an array of length $n$ containing every integer from $1$ through $n$ exactly once in a random order. The task is to return the index of $1$. We can conclude the following.
+
+- If `nums = [?, ?, ..., 1]`, with $1$ last, we must traverse the whole array, **giving worst-case time complexity $O(n)$**.
+- If `nums = [1, ?, ?, ...]`, with $1$ first, no further traversal is needed regardless of array length, **giving best-case time complexity $\Omega(1)$**.
+
+Worst-case time complexity corresponds to an asymptotic upper bound, expressed with big-$O$ notation. Best-case time complexity corresponds to an asymptotic lower bound, expressed with $\Omega$:
 
 === "Python"
 
     ```python title="worst_best_time_complexity.py"
     def random_numbers(n: int) -> list[int]:
-        """Generate an array with elements: 1, 2, ..., n, shuffled in order"""
-        # Generate array nums =: 1, 2, 3, ..., n
+        """Generate an array containing 1, 2, ..., n in shuffled order"""
+        # Generate the array nums = 1, 2, 3, ..., n
         nums = [i for i in range(1, n + 1)]
-        # Randomly shuffle array elements
+        # Randomly shuffle the array elements
         random.shuffle(nums)
         return nums
 
     def find_one(nums: list[int]) -> int:
-        """Find the index of number 1 in array nums"""
+        """Find the index of the number 1 in array nums"""
         for i in range(len(nums)):
-            # When element 1 is at the head of the array, best time complexity O(1) is achieved
-            # When element 1 is at the tail of the array, worst time complexity O(n) is achieved
+            # When 1 is at the start of the array, the best-case time complexity is O(1)
+            # When 1 is at the end of the array, the worst-case time complexity is O(n)
             if nums[i] == 1:
                 return i
         return -1
@@ -3252,25 +3307,25 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
 === "C++"
 
     ```cpp title="worst_best_time_complexity.cpp"
-    /* Generate an array with elements { 1, 2, ..., n }, order shuffled */
+    /* Generate an array containing { 1, 2, ..., n } in shuffled order */
     vector<int> randomNumbers(int n) {
         vector<int> nums(n);
-        // Generate array nums = { 1, 2, 3, ..., n }
+        // Generate the array nums = { 1, 2, 3, ..., n }
         for (int i = 0; i < n; i++) {
             nums[i] = i + 1;
         }
-        // Use system time to generate random seed
+        // Use the system time to generate a random seed
         unsigned seed = chrono::system_clock::now().time_since_epoch().count();
-        // Randomly shuffle array elements
+        // Randomly shuffle the array elements
         shuffle(nums.begin(), nums.end(), default_random_engine(seed));
         return nums;
     }
 
-    /* Find the index of number 1 in array nums */
+    /* Find the index of the number 1 in array nums */
     int findOne(vector<int> &nums) {
         for (int i = 0; i < nums.size(); i++) {
-            // When element 1 is at the head of the array, best time complexity O(1) is achieved
-            // When element 1 is at the tail of the array, worst time complexity O(n) is achieved
+            // When 1 is at the start of the array, the best-case time complexity is O(1)
+            // When 1 is at the end of the array, the worst-case time complexity is O(n)
             if (nums[i] == 1)
                 return i;
         }
@@ -3281,14 +3336,14 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
 === "Java"
 
     ```java title="worst_best_time_complexity.java"
-    /* Generate an array with elements { 1, 2, ..., n }, order shuffled */
+    /* Generate an array containing { 1, 2, ..., n } in shuffled order */
     int[] randomNumbers(int n) {
         Integer[] nums = new Integer[n];
-        // Generate array nums = { 1, 2, 3, ..., n }
+        // Generate the array nums = { 1, 2, 3, ..., n }
         for (int i = 0; i < n; i++) {
             nums[i] = i + 1;
         }
-        // Randomly shuffle array elements
+        // Randomly shuffle the array elements
         Collections.shuffle(Arrays.asList(nums));
         // Integer[] -> int[]
         int[] res = new int[n];
@@ -3298,11 +3353,11 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
         return res;
     }
 
-    /* Find the index of number 1 in array nums */
+    /* Find the index of the number 1 in array nums */
     int findOne(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
-            // When element 1 is at the head of the array, best time complexity O(1) is achieved
-            // When element 1 is at the tail of the array, worst time complexity O(n) is achieved
+            // When 1 is at the start of the array, the best-case time complexity is O(1)
+            // When 1 is at the end of the array, the worst-case time complexity is O(n)
             if (nums[i] == 1)
                 return i;
         }
@@ -3313,15 +3368,15 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
 === "C#"
 
     ```csharp title="worst_best_time_complexity.cs"
-    /* Generate an array with elements { 1, 2, ..., n }, order shuffled */
+    /* Generate an array containing { 1, 2, ..., n } in shuffled order */
     int[] RandomNumbers(int n) {
         int[] nums = new int[n];
-        // Generate array nums = { 1, 2, 3, ..., n }
+        // Generate the array nums = { 1, 2, 3, ..., n }
         for (int i = 0; i < n; i++) {
             nums[i] = i + 1;
         }
 
-        // Randomly shuffle array elements
+        // Randomly shuffle the array elements
         for (int i = 0; i < nums.Length; i++) {
             int index = new Random().Next(i, nums.Length);
             (nums[i], nums[index]) = (nums[index], nums[i]);
@@ -3329,11 +3384,11 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
         return nums;
     }
 
-    /* Find the index of number 1 in array nums */
+    /* Find the index of the number 1 in array nums */
     int FindOne(int[] nums) {
         for (int i = 0; i < nums.Length; i++) {
-            // When element 1 is at the head of the array, best time complexity O(1) is achieved
-            // When element 1 is at the tail of the array, worst time complexity O(n) is achieved
+            // When 1 is at the start of the array, the best-case time complexity is O(1)
+            // When 1 is at the end of the array, the worst-case time complexity is O(n)
             if (nums[i] == 1)
                 return i;
         }
@@ -3344,25 +3399,25 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
 === "Go"
 
     ```go title="worst_best_time_complexity.go"
-    /* Generate an array with elements { 1, 2, ..., n }, order shuffled */
+    /* Generate an array containing { 1, 2, ..., n } in shuffled order */
     func randomNumbers(n int) []int {
         nums := make([]int, n)
-        // Generate array nums = { 1, 2, 3, ..., n }
+        // Generate the array nums = { 1, 2, 3, ..., n }
         for i := 0; i < n; i++ {
             nums[i] = i + 1
         }
-        // Randomly shuffle array elements
+        // Randomly shuffle the array elements
         rand.Shuffle(len(nums), func(i, j int) {
             nums[i], nums[j] = nums[j], nums[i]
         })
         return nums
     }
 
-    /* Find the index of number 1 in array nums */
+    /* Find the index of the number 1 in array nums */
     func findOne(nums []int) int {
         for i := 0; i < len(nums); i++ {
-            // When element 1 is at the head of the array, best time complexity O(1) is achieved
-            // When element 1 is at the tail of the array, worst time complexity O(n) is achieved
+            // When 1 is at the start of the array, the best-case time complexity is O(1)
+            // When 1 is at the end of the array, the worst-case time complexity is O(n)
             if nums[i] == 1 {
                 return i
             }
@@ -3374,20 +3429,20 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
 === "Swift"
 
     ```swift title="worst_best_time_complexity.swift"
-    /* Generate an array with elements { 1, 2, ..., n }, order shuffled */
+    /* Generate an array containing { 1, 2, ..., n } in shuffled order */
     func randomNumbers(n: Int) -> [Int] {
-        // Generate array nums = { 1, 2, 3, ..., n }
+        // Generate the array nums = { 1, 2, 3, ..., n }
         var nums = Array(1 ... n)
-        // Randomly shuffle array elements
+        // Randomly shuffle the array elements
         nums.shuffle()
         return nums
     }
 
-    /* Find the index of number 1 in array nums */
+    /* Find the index of the number 1 in array nums */
     func findOne(nums: [Int]) -> Int {
         for i in nums.indices {
-            // When element 1 is at the head of the array, best time complexity O(1) is achieved
-            // When element 1 is at the tail of the array, worst time complexity O(n) is achieved
+            // When 1 is at the start of the array, the best-case time complexity is O(1)
+            // When 1 is at the end of the array, the worst-case time complexity is O(n)
             if nums[i] == 1 {
                 return i
             }
@@ -3399,14 +3454,14 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
 === "JS"
 
     ```javascript title="worst_best_time_complexity.js"
-    /* Generate an array with elements { 1, 2, ..., n }, order shuffled */
+    /* Generate an array containing { 1, 2, ..., n } in shuffled order */
     function randomNumbers(n) {
         const nums = Array(n);
-        // Generate array nums = { 1, 2, 3, ..., n }
+        // Generate the array nums = { 1, 2, 3, ..., n }
         for (let i = 0; i < n; i++) {
             nums[i] = i + 1;
         }
-        // Randomly shuffle array elements
+        // Randomly shuffle the array elements
         for (let i = 0; i < n; i++) {
             const r = Math.floor(Math.random() * (i + 1));
             const temp = nums[i];
@@ -3416,11 +3471,11 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
         return nums;
     }
 
-    /* Find the index of number 1 in array nums */
+    /* Find the index of the number 1 in array nums */
     function findOne(nums) {
         for (let i = 0; i < nums.length; i++) {
-            // When element 1 is at the head of the array, best time complexity O(1) is achieved
-            // When element 1 is at the tail of the array, worst time complexity O(n) is achieved
+            // When 1 is at the start of the array, the best-case time complexity is O(1)
+            // When 1 is at the end of the array, the worst-case time complexity is O(n)
             if (nums[i] === 1) {
                 return i;
             }
@@ -3432,14 +3487,14 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
 === "TS"
 
     ```typescript title="worst_best_time_complexity.ts"
-    /* Generate an array with elements { 1, 2, ..., n }, order shuffled */
+    /* Generate an array containing { 1, 2, ..., n } in shuffled order */
     function randomNumbers(n: number): number[] {
         const nums = Array(n);
-        // Generate array nums = { 1, 2, 3, ..., n }
+        // Generate the array nums = { 1, 2, 3, ..., n }
         for (let i = 0; i < n; i++) {
             nums[i] = i + 1;
         }
-        // Randomly shuffle array elements
+        // Randomly shuffle the array elements
         for (let i = 0; i < n; i++) {
             const r = Math.floor(Math.random() * (i + 1));
             const temp = nums[i];
@@ -3449,11 +3504,11 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
         return nums;
     }
 
-    /* Find the index of number 1 in array nums */
+    /* Find the index of the number 1 in array nums */
     function findOne(nums: number[]): number {
         for (let i = 0; i < nums.length; i++) {
-            // When element 1 is at the head of the array, best time complexity O(1) is achieved
-            // When element 1 is at the tail of the array, worst time complexity O(n) is achieved
+            // When 1 is at the start of the array, the best-case time complexity is O(1)
+            // When 1 is at the end of the array, the worst-case time complexity is O(n)
             if (nums[i] === 1) {
                 return i;
             }
@@ -3465,24 +3520,24 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
 === "Dart"
 
     ```dart title="worst_best_time_complexity.dart"
-    /* Generate an array with elements { 1, 2, ..., n }, order shuffled */
+    /* Generate an array containing { 1, 2, ..., n } in shuffled order */
     List<int> randomNumbers(int n) {
       final nums = List.filled(n, 0);
-      // Generate array nums = { 1, 2, 3, ..., n }
+      // Generate the array nums = { 1, 2, 3, ..., n }
       for (var i = 0; i < n; i++) {
         nums[i] = i + 1;
       }
-      // Randomly shuffle array elements
+      // Randomly shuffle the array elements
       nums.shuffle();
 
       return nums;
     }
 
-    /* Find the index of number 1 in array nums */
+    /* Find the index of the number 1 in array nums */
     int findOne(List<int> nums) {
       for (var i = 0; i < nums.length; i++) {
-        // When element 1 is at the head of the array, best time complexity O(1) is achieved
-        // When element 1 is at the tail of the array, worst time complexity O(n) is achieved
+        // When 1 is at the start of the array, the best-case time complexity is O(1)
+        // When 1 is at the end of the array, the worst-case time complexity is O(n)
         if (nums[i] == 1) return i;
       }
 
@@ -3493,20 +3548,20 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
 === "Rust"
 
     ```rust title="worst_best_time_complexity.rs"
-    /* Generate an array with elements { 1, 2, ..., n }, order shuffled */
+    /* Generate an array containing { 1, 2, ..., n } in shuffled order */
     fn random_numbers(n: i32) -> Vec<i32> {
-        // Generate array nums = { 1, 2, 3, ..., n }
+        // Generate the array nums = { 1, 2, 3, ..., n }
         let mut nums = (1..=n).collect::<Vec<i32>>();
-        // Randomly shuffle array elements
+        // Randomly shuffle the array elements
         nums.shuffle(&mut thread_rng());
         nums
     }
 
-    /* Find the index of number 1 in array nums */
+    /* Find the index of the number 1 in array nums */
     fn find_one(nums: &[i32]) -> Option<usize> {
         for i in 0..nums.len() {
-            // When element 1 is at the head of the array, best time complexity O(1) is achieved
-            // When element 1 is at the tail of the array, worst time complexity O(n) is achieved
+            // When 1 is at the start of the array, the best-case time complexity is O(1)
+            // When 1 is at the end of the array, the worst-case time complexity is O(n)
             if nums[i] == 1 {
                 return Some(i);
             }
@@ -3518,15 +3573,15 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
 === "C"
 
     ```c title="worst_best_time_complexity.c"
-    /* Generate an array with elements { 1, 2, ..., n }, order shuffled */
+    /* Generate an array containing { 1, 2, ..., n } in shuffled order */
     int *randomNumbers(int n) {
-        // Allocate heap memory (create 1D variable-length array: n elements of type int)
+        // Allocate heap memory for a one-dimensional array of n int elements
         int *nums = (int *)malloc(n * sizeof(int));
-        // Generate array nums = { 1, 2, 3, ..., n }
+        // Generate the array nums = { 1, 2, 3, ..., n }
         for (int i = 0; i < n; i++) {
             nums[i] = i + 1;
         }
-        // Randomly shuffle array elements
+        // Randomly shuffle the array elements
         for (int i = n - 1; i > 0; i--) {
             int j = rand() % (i + 1);
             int temp = nums[i];
@@ -3536,11 +3591,11 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
         return nums;
     }
 
-    /* Find the index of number 1 in array nums */
+    /* Find the index of the number 1 in array nums */
     int findOne(int *nums, int n) {
         for (int i = 0; i < n; i++) {
-            // When element 1 is at the head of the array, best time complexity O(1) is achieved
-            // When element 1 is at the tail of the array, worst time complexity O(n) is achieved
+            // When 1 is at the start of the array, the best-case time complexity is O(1)
+            // When 1 is at the end of the array, the worst-case time complexity is O(n)
             if (nums[i] == 1)
                 return i;
         }
@@ -3551,14 +3606,14 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
 === "Kotlin"
 
     ```kotlin title="worst_best_time_complexity.kt"
-    /* Generate an array with elements { 1, 2, ..., n }, order shuffled */
+    /* Generate an array containing { 1, 2, ..., n } in shuffled order */
     fun randomNumbers(n: Int): Array<Int?> {
         val nums = IntArray(n)
-        // Generate array nums = { 1, 2, 3, ..., n }
+        // Generate the array nums = { 1, 2, 3, ..., n }
         for (i in 0..<n) {
             nums[i] = i + 1
         }
-        // Randomly shuffle array elements
+        // Randomly shuffle the array elements
         nums.shuffle()
         val res = arrayOfNulls<Int>(n)
         for (i in 0..<n) {
@@ -3567,11 +3622,11 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
         return res
     }
 
-    /* Find the index of number 1 in array nums */
+    /* Find the index of the number 1 in array nums */
     fun findOne(nums: Array<Int?>): Int {
         for (i in nums.indices) {
-            // When element 1 is at the head of the array, best time complexity O(1) is achieved
-            // When element 1 is at the tail of the array, worst time complexity O(n) is achieved
+            // When 1 is at the start of the array, the best-case time complexity is O(1)
+            // When 1 is at the end of the array, the worst-case time complexity is O(n)
             if (nums[i] == 1)
                 return i
         }
@@ -3582,19 +3637,19 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
 === "Ruby"
 
     ```ruby title="worst_best_time_complexity.rb"
-    ### Generate array with elements: 1, 2, ..., n, shuffled ###
+    ### Generate an array containing 1, 2, ..., n in shuffled order ###
     def random_numbers(n)
-      # Generate array nums =: 1, 2, 3, ..., n
+      # Generate the array nums = 1, 2, 3, ..., n
       nums = Array.new(n) { |i| i + 1 }
-      # Randomly shuffle array elements
+      # Randomly shuffle the array elements
       nums.shuffle!
     end
 
-    ### Find index of number 1 in array nums ###
+    ### Find the index of the number 1 in array nums ###
     def find_one(nums)
       for i in 0...nums.length
-        # When element 1 is at the head of the array, best time complexity O(1) is achieved
-        # When element 1 is at the tail of the array, worst time complexity O(n) is achieved
+        # When 1 is at the start of the array, the best-case time complexity is O(1)
+        # When 1 is at the end of the array, the worst-case time complexity is O(n)
         return i if nums[i] == 1
       end
 
@@ -3602,14 +3657,19 @@ The "worst-case time complexity" corresponds to the function's asymptotic upper 
     end
     ```
 
-It is worth noting that we rarely use best-case time complexity in practice, because it can usually only be achieved with a very small probability and may be somewhat misleading. **The worst-case time complexity is more practical because it gives a safety value for efficiency**, allowing us to use the algorithm with confidence.
+??? pythontutor "Visualize execution"
 
-From the above example, we can see that both worst-case and best-case time complexities arise only under particular input distributions, which may occur with very low probability and may not truly reflect the algorithm's running efficiency. In contrast, **average time complexity can reflect the algorithm's running efficiency under random input data**, denoted using the $\Theta$ notation.
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=import%20random%0A%0Adef%20random_numbers%28n%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22Generate%20an%20array%20containing%201,%202,%20...,%20n%20in%20shuffled%20order%22%22%22%0A%20%20%20%20%23%20Generate%20the%20array%20nums%20%3D%201,%202,%203,%20...,%20n%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%281,%20n%20%2B%201%29%5D%0A%20%20%20%20%23%20Randomly%20shuffle%20the%20array%20elements%0A%20%20%20%20random.shuffle%28nums%29%0A%20%20%20%20return%20nums%0A%0Adef%20find_one%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20the%20index%20of%20the%20number%201%20in%20array%20nums%22%22%22%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20When%201%20is%20at%20the%20start%20of%20the%20array,%20the%20best-case%20time%20complexity%20is%20O%281%29%0A%20%20%20%20%20%20%20%20%23%20When%201%20is%20at%20the%20end%20of%20the%20array,%20the%20worst-case%20time%20complexity%20is%20O%28n%29%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20i%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2010%0A%20%20%20%20nums%20%3D%20random_numbers%28n%29%0A%20%20%20%20index%20%3D%20find_one%28nums%29%0A%20%20%20%20print%28%22%5CnArray%20%5B%201,%202,%20...,%20n%20%5D%20after%20shuffling%20%3D%22,%20nums%29%0A%20%20%20%20print%28%22The%20index%20of%20the%20number%201%20is%22,%20index%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=25&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20random%0A%0Adef%20random_numbers%28n%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22Generate%20an%20array%20containing%201,%202,%20...,%20n%20in%20shuffled%20order%22%22%22%0A%20%20%20%20%23%20Generate%20the%20array%20nums%20%3D%201,%202,%203,%20...,%20n%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%281,%20n%20%2B%201%29%5D%0A%20%20%20%20%23%20Randomly%20shuffle%20the%20array%20elements%0A%20%20%20%20random.shuffle%28nums%29%0A%20%20%20%20return%20nums%0A%0Adef%20find_one%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20the%20index%20of%20the%20number%201%20in%20array%20nums%22%22%22%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20When%201%20is%20at%20the%20start%20of%20the%20array,%20the%20best-case%20time%20complexity%20is%20O%281%29%0A%20%20%20%20%20%20%20%20%23%20When%201%20is%20at%20the%20end%20of%20the%20array,%20the%20worst-case%20time%20complexity%20is%20O%28n%29%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20i%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2010%0A%20%20%20%20nums%20%3D%20random_numbers%28n%29%0A%20%20%20%20index%20%3D%20find_one%28nums%29%0A%20%20%20%20print%28%22%5CnArray%20%5B%201,%202,%20...,%20n%20%5D%20after%20shuffling%20%3D%22,%20nums%29%0A%20%20%20%20print%28%22The%20index%20of%20the%20number%201%20is%22,%20index%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=25&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-For some algorithms, we can simply derive the average case under random data distribution. For example, in the above example, since the input array is shuffled, the probability of element $1$ appearing at any index is equal, so the algorithm's average number of loops is half the array length $n / 2$, giving an average time complexity of $\Theta(n / 2) = \Theta(n)$.
+Best-case complexity is rarely used in practice because it may occur only with low probability and can be misleading. **Worst-case complexity is more useful because it gives a safe performance bound**, allowing us to use the algorithm with confidence.
 
-But for more complex algorithms, calculating average time complexity is often quite difficult, because it is hard to analyze the overall mathematical expectation under data distribution. In this case, we usually use worst-case time complexity as the criterion for judging algorithm efficiency.
+In this example, both the worst and best cases occur only for particular arrangements, perhaps with low probability, and may not reflect ordinary performance. **Average-case complexity describes performance on random inputs** and is expressed with $\Theta$.
 
-!!! question "Why is the $\Theta$ symbol rarely seen?"
+For some algorithms, the average case is easy to derive. In the example above, $1$ is equally likely to occur at any index in the shuffled array. The average number of iterations is half the array length, $n / 2$, giving $\Theta(n / 2) = \Theta(n)$.
 
-    This may be because the $O$ symbol is too catchy, so we often use it to represent average time complexity. But strictly speaking, this practice is not standard. In this book and other materials, if you encounter expressions like "average time complexity $O(n)$", please understand it directly as $\Theta(n)$.
+For more complex algorithms, average-case complexity can be difficult to calculate because the overall expectation under the input distribution is hard to derive. In such cases, we usually judge efficiency by worst-case complexity.
+
+!!! question "Why is $\Theta$ rarely seen?"
+
+    Perhaps because $O$ is so familiar, it is often used for average-case complexity too. Strictly speaking, this usage is not standard. In this book and other resources, read a statement such as "average-case time complexity $O(n)$" as $\Theta(n)$.

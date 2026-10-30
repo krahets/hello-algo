@@ -2,33 +2,33 @@
 comments: true
 ---
 
-# 2.4 &nbsp; Space Complexity
+# 2.4 &nbsp; Space complexity
 
-<u>Space complexity</u> measures the growth trend of memory space occupied by an algorithm as the data size increases. This concept is very similar to time complexity, except that "running time" is replaced with "occupied memory space".
+<u>Space complexity</u> measures how an algorithm's memory use grows as the input gets larger. It is much like time complexity, with memory usage replacing runtime.
 
-## 2.4.1 &nbsp; Algorithm-Related Space
+## 2.4.1 &nbsp; Space used by an algorithm
 
-The memory space used by an algorithm during execution mainly includes the following types.
+The memory an algorithm uses during execution falls into these main categories.
 
-- **Input space**: Used to store the input data of the algorithm.
-- **Temporary space**: Used to store variables, objects, function contexts, and other data during the algorithm's execution.
-- **Output space**: Used to store the output data of the algorithm.
+- **Input space**: Stores the input data.
+- **Temporary space**: Stores variables, objects, function contexts, and other working data.
+- **Output space**: Stores the output data.
 
-In general, the scope of space complexity statistics is "temporary space" plus "output space".
+Space complexity generally counts temporary space plus output space.
 
-Temporary space can be further divided into three parts.
+Temporary space can be divided further into three parts.
 
-- **Temporary data**: Used to save various constants, variables, objects, etc., during the algorithm's execution.
-- **Stack frame space**: Used to save the context data of called functions. The system creates a stack frame at the top of the stack each time a function is called, and the stack frame space is released after the function returns.
-- **Instruction space**: Used to save compiled program instructions, which are usually ignored in actual statistics.
+- **Temporary data**: Constants, variables, objects, and other data used during execution.
+- **Stack frames**: Context data for function calls. Each call creates a frame at the top of the stack, which is released when the function returns.
+- **Instruction space**: Compiled program instructions, usually ignored in the analysis.
 
-When analyzing the space complexity of a program, **we usually consider three parts: temporary data, stack frame space, and output data**, as shown in the following figure.
+**We usually count temporary data, stack frames, and output data** when analyzing space complexity, as shown in Figure 2-15.
 
-![Algorithm-related space](space_complexity.assets/space_types.png){ class="animation-figure" }
+![Space used by an algorithm](space_complexity.assets/space_types.png){ class="animation-figure" }
 
-<p align="center"> Figure 2-15 &nbsp; Algorithm-related space </p>
+<p align="center"> Figure 2-15 &nbsp; Space used by an algorithm </p>
 
-The related code is as follows:
+The corresponding code is:
 
 === "Python"
 
@@ -45,10 +45,10 @@ The related code is as follows:
         return 0
 
     def algorithm(n) -> int:  # Input data
-        A = 0                 # Temporary data (constant, usually represented by uppercase letters)
+        A = 0                 # Temporary data (constant, conventionally named in uppercase)
         b = 0                 # Temporary data (variable)
         node = Node(0)        # Temporary data (object)
-        c = function()        # Stack frame space (function call)
+        c = function()        # Stack frame (function call)
         return A + b + c      # Output data
     ```
 
@@ -72,7 +72,7 @@ The related code is as follows:
         const int a = 0;          // Temporary data (constant)
         int b = 0;                // Temporary data (variable)
         Node* node = new Node(0); // Temporary data (object)
-        int c = func();           // Stack frame space (function call)
+        int c = func();           // Stack frame (function call)
         return a + b + c;         // Output data
     }
     ```
@@ -86,18 +86,18 @@ The related code is as follows:
         Node next;
         Node(int x) { val = x; }
     }
-
+    
     /* Function */
     int function() {
         // Perform some operations...
         return 0;
     }
-
+    
     int algorithm(int n) {        // Input data
         final int a = 0;          // Temporary data (constant)
         int b = 0;                // Temporary data (variable)
         Node node = new Node(0);  // Temporary data (object)
-        int c = function();       // Stack frame space (function call)
+        int c = function();       // Stack frame (function call)
         return a + b + c;         // Output data
     }
     ```
@@ -121,7 +121,7 @@ The related code is as follows:
         const int a = 0;          // Temporary data (constant)
         int b = 0;                // Temporary data (variable)
         Node node = new(0);       // Temporary data (object)
-        int c = Function();       // Stack frame space (function call)
+        int c = Function();       // Stack frame (function call)
         return a + b + c;         // Output data
     }
     ```
@@ -135,11 +135,11 @@ The related code is as follows:
         next *node
     }
 
-    /* Create node structure */
+    /* Create a node structure  */
     func newNode(val int) *node {
         return &node{val: val}
     }
-
+    
     /* Function */
     func function() int {
         // Perform some operations...
@@ -150,7 +150,7 @@ The related code is as follows:
         const a = 0             // Temporary data (constant)
         b := 0                  // Temporary data (variable)
         newNode(0)              // Temporary data (object)
-        c := function()         // Stack frame space (function call)
+        c := function()         // Stack frame (function call)
         return a + b + c        // Output data
     }
     ```
@@ -178,7 +178,7 @@ The related code is as follows:
         let a = 0             // Temporary data (constant)
         var b = 0             // Temporary data (variable)
         let node = Node(x: 0) // Temporary data (object)
-        let c = function()    // Stack frame space (function call)
+        let c = function()    // Stack frame (function call)
         return a + b + c      // Output data
     }
     ```
@@ -206,7 +206,7 @@ The related code is as follows:
         const a = 0;              // Temporary data (constant)
         let b = 0;                // Temporary data (variable)
         const node = new Node(0); // Temporary data (object)
-        const c = constFunc();    // Stack frame space (function call)
+        const c = constFunc();    // Stack frame (function call)
         return a + b + c;         // Output data
     }
     ```
@@ -234,7 +234,7 @@ The related code is as follows:
         const a = 0;                        // Temporary data (constant)
         let b = 0;                          // Temporary data (variable)
         const node = new Node(0);           // Temporary data (object)
-        const c = constFunc();              // Stack frame space (function call)
+        const c = constFunc();              // Stack frame (function call)
         return a + b + c;                   // Output data
     }
     ```
@@ -259,7 +259,7 @@ The related code is as follows:
       const int a = 0;      // Temporary data (constant)
       int b = 0;            // Temporary data (variable)
       Node node = Node(0);  // Temporary data (object)
-      int c = function();   // Stack frame space (function call)
+      int c = function();   // Stack frame (function call)
       return a + b + c;     // Output data
     }
     ```
@@ -269,14 +269,14 @@ The related code is as follows:
     ```rust title=""
     use std::rc::Rc;
     use std::cell::RefCell;
-
+    
     /* Structure */
     struct Node {
         val: i32,
         next: Option<Rc<RefCell<Node>>>,
     }
 
-    /* Create Node structure */
+    /* Create a Node structure */
     impl Node {
         fn new(val: i32) -> Self {
             Self { val: val, next: None }
@@ -284,7 +284,7 @@ The related code is as follows:
     }
 
     /* Function */
-    fn function() -> i32 {
+    fn function() -> i32 {      
         // Perform some operations...
         return 0;
     }
@@ -293,7 +293,7 @@ The related code is as follows:
         const a: i32 = 0;               // Temporary data (constant)
         let mut b = 0;                  // Temporary data (variable)
         let node = Node::new(0);        // Temporary data (object)
-        let c = function();             // Stack frame space (function call)
+        let c = function();             // Stack frame (function call)
         return a + b + c;               // Output data
     }
     ```
@@ -310,7 +310,7 @@ The related code is as follows:
     int algorithm(int n) { // Input data
         const int a = 0;   // Temporary data (constant)
         int b = 0;         // Temporary data (variable)
-        int c = func();    // Stack frame space (function call)
+        int c = func();    // Stack frame (function call)
         return a + b + c;  // Output data
     }
     ```
@@ -333,7 +333,7 @@ The related code is as follows:
         val a = 0                // Temporary data (constant)
         var b = 0                // Temporary data (variable)
         val node = Node(0)       // Temporary data (object)
-        val c = function()       // Stack frame space (function call)
+        val c = function()       // Stack frame (function call)
         return a + b + c         // Output data
     }
     ```
@@ -362,21 +362,21 @@ The related code is as follows:
         a = 0               # Temporary data (constant)
         b = 0               # Temporary data (variable)
         node = Node.new(0)  # Temporary data (object)
-        c = function        # Stack frame space (function call)
+        c = function        # Stack frame (function call)
         a + b + c           # Output data
     end
     ```
 
-## 2.4.2 &nbsp; Calculation Method
+## 2.4.2 &nbsp; Deriving space complexity
 
-The calculation method for space complexity is roughly the same as for time complexity, except that what we measure changes from the "number of operations" to the "amount of space used".
+The approach is much like time complexity analysis, except that we count memory used rather than operations performed.
 
-Unlike time complexity, **we usually only focus on the worst-case space complexity**. This is because memory space is a hard requirement, and we must ensure that sufficient memory space is reserved for all input data.
+Unlike time complexity, **we usually focus only on worst-case space complexity**. Memory is a hard requirement: enough must be available for every valid input.
 
-Observe the following code. Here, "worst case" in worst-case space complexity has two meanings.
+In the following code, "worst case" has two meanings.
 
-1. **Based on the worst input data**: When $n < 10$, the space complexity is $O(1)$; but when $n > 10$, the initialized array `nums` occupies $O(n)$ space, so the worst-case space complexity is $O(n)$.
-2. **Based on the peak memory during algorithm execution**: For example, before executing the last line, the program occupies $O(1)$ space; when initializing the array `nums`, the program occupies $O(n)$ space, so the worst-case space complexity is $O(n)$.
+1. **The worst input**: When $n < 10$, space complexity is $O(1)$. When $n > 10$, initializing `nums` requires $O(n)$ space, so worst-case space complexity is $O(n)$.
+2. **Peak memory during execution**: Before the final line, the program uses $O(1)$ space. Initializing `nums` raises usage to $O(n)$, so worst-case space complexity is $O(n)$.
 
 === "Python"
 
@@ -529,7 +529,7 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
     end
     ```
 
-**In recursive functions, it is necessary to count the stack frame space**. Observe the following code:
+**For recursive functions, remember to count stack frames**. Consider the following code:
 
 === "Python"
 
@@ -539,12 +539,12 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         return 0
 
     def loop(n: int):
-        """Loop has space complexity of O(1)"""
+        """The loop uses O(1) space"""
         for _ in range(n):
             function()
 
     def recur(n: int):
-        """Recursion has space complexity of O(n)"""
+        """The recursion uses O(n) space"""
         if n == 1:
             return
         return recur(n - 1)
@@ -557,13 +557,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0;
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             func();
         }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     void recur(int n) {
         if (n == 1) return;
         recur(n - 1);
@@ -577,13 +577,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0;
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             function();
         }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     void recur(int n) {
         if (n == 1) return;
         recur(n - 1);
@@ -597,13 +597,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0;
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     void Loop(int n) {
         for (int i = 0; i < n; i++) {
             Function();
         }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     int Recur(int n) {
         if (n == 1) return 1;
         return Recur(n - 1);
@@ -617,15 +617,15 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0
     }
-
-    /* Loop has space complexity of O(1) */
+    
+    /* The loop uses O(1) space */
     func loop(n int) {
         for i := 0; i < n; i++ {
             function()
         }
     }
-
-    /* Recursion has space complexity of O(n) */
+    
+    /* The recursion uses O(n) space */
     func recur(n int) {
         if n == 1 {
             return
@@ -643,14 +643,14 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         return 0
     }
 
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     func loop(n: Int) {
         for _ in 0 ..< n {
             function()
         }
     }
 
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     func recur(n: Int) {
         if n == 1 {
             return
@@ -666,13 +666,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0;
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     function loop(n) {
         for (let i = 0; i < n; i++) {
             constFunc();
         }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     function recur(n) {
         if (n === 1) return;
         return recur(n - 1);
@@ -686,13 +686,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0;
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     function loop(n: number): void {
         for (let i = 0; i < n; i++) {
             constFunc();
         }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     function recur(n: number): void {
         if (n === 1) return;
         return recur(n - 1);
@@ -706,13 +706,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
       // Perform some operations
       return 0;
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     void loop(int n) {
       for (int i = 0; i < n; i++) {
         function();
       }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     void recur(int n) {
       if (n == 1) return;
       recur(n - 1);
@@ -726,13 +726,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0;
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     fn loop(n: i32) {
         for i in 0..n {
             function();
         }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     fn recur(n: i32) {
         if n == 1 {
             return;
@@ -748,13 +748,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0;
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             func();
         }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     void recur(int n) {
         if (n == 1) return;
         recur(n - 1);
@@ -768,13 +768,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     fun loop(n: Int) {
         for (i in 0..<n) {
             function()
         }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     fun recur(n: Int) {
         if (n == 1) return
         return recur(n - 1)
@@ -789,26 +789,26 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         0
     end
 
-    ### Loop has space complexity of O(1) ###
+    ### The loop uses O(1) space ###
     def loop(n)
         (0...n).each { function }
     end
 
-    ### Recursion has space complexity of O(n) ###
+    ### The recursion uses O(n) space ###
     def recur(n)
         return if n == 1
         recur(n - 1)
     end
     ```
 
-The time complexity of both functions `loop()` and `recur()` is $O(n)$, but their space complexities are different.
+Both `loop()` and `recur()` take $O(n)$ time, but their space complexities differ.
 
-- The function `loop()` calls `function()` $n$ times in a loop. In each iteration, `function()` returns and releases its stack frame space, so the space complexity remains $O(1)$.
-- The recursive function `recur()` has $n$ unreturned `recur()` instances existing simultaneously during execution, thus occupying $O(n)$ stack frame space.
+- `loop()` calls `function()` $n$ times. Each call returns and releases its stack frame before the next iteration, so space complexity remains $O(1)$.
+- During `recur()`, $n$ calls can remain active at once, using $O(n)$ space for stack frames.
 
-## 2.4.3 &nbsp; Common Types
+## 2.4.3 &nbsp; Common complexity classes
 
-Let the input data size be $n$. The following figure shows common types of space complexity (arranged from low to high).
+For input size $n$, Figure 2-16 shows common space complexities in increasing order of growth.
 
 $$
 \begin{aligned}
@@ -817,15 +817,15 @@ $$
 \end{aligned}
 $$
 
-![Common types of space complexity](space_complexity.assets/space_complexity_common_types.png){ class="animation-figure" }
+![Common space complexity classes](space_complexity.assets/space_complexity_common_types.png){ class="animation-figure" }
 
-<p align="center"> Figure 2-16 &nbsp; Common types of space complexity </p>
+<p align="center"> Figure 2-16 &nbsp; Common space complexity classes </p>
 
-### 1. &nbsp; Constant Order $O(1)$ {data-toc-label="1. &nbsp; Constant Order"}
+### 1. &nbsp; Constant space $O(1)$ {data-toc-label="1. &nbsp; Constant space"}
 
-Constant order is common for constants, variables, and objects whose number is independent of the input data size $n$.
+Constant space commonly occurs when the number of constants, variables, and objects is independent of input size $n$.
 
-It should be noted that memory occupied by initializing variables or calling functions in a loop is released when entering the next iteration, so it does not accumulate space, and the space complexity remains $O(1)$:
+Memory for variables initialized or functions called within a loop is released by the next iteration, so it does not accumulate. Space complexity remains $O(1)$:
 
 === "Python"
 
@@ -836,15 +836,15 @@ It should be noted that memory occupied by initializing variables or calling fun
         return 0
 
     def constant(n: int):
-        """Constant order"""
-        # Constants, variables, objects occupy O(1) space
+        """Constant complexity"""
+        # Constants, variables, and objects occupy O(1) space
         a = 0
         nums = [0] * 10000
         node = ListNode(0)
         # Variables in the loop occupy O(1) space
         for _ in range(n):
             c = 0
-        # Functions in the loop occupy O(1) space
+        # Function calls in the loop occupy O(1) space
         for _ in range(n):
             function()
     ```
@@ -858,9 +858,9 @@ It should be noted that memory occupied by initializing variables or calling fun
         return 0;
     }
 
-    /* Constant order */
+    /* Constant complexity */
     void constant(int n) {
-        // Constants, variables, objects occupy O(1) space
+        // Constants, variables, and objects occupy O(1) space
         const int a = 0;
         int b = 0;
         vector<int> nums(10000);
@@ -869,7 +869,7 @@ It should be noted that memory occupied by initializing variables or calling fun
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
-        // Functions in the loop occupy O(1) space
+        // Function calls in the loop occupy O(1) space
         for (int i = 0; i < n; i++) {
             func();
         }
@@ -885,9 +885,9 @@ It should be noted that memory occupied by initializing variables or calling fun
         return 0;
     }
 
-    /* Constant order */
+    /* Constant complexity */
     void constant(int n) {
-        // Constants, variables, objects occupy O(1) space
+        // Constants, variables, and objects occupy O(1) space
         final int a = 0;
         int b = 0;
         int[] nums = new int[10000];
@@ -896,7 +896,7 @@ It should be noted that memory occupied by initializing variables or calling fun
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
-        // Functions in the loop occupy O(1) space
+        // Function calls in the loop occupy O(1) space
         for (int i = 0; i < n; i++) {
             function();
         }
@@ -912,9 +912,9 @@ It should be noted that memory occupied by initializing variables or calling fun
         return 0;
     }
 
-    /* Constant order */
+    /* Constant complexity */
     void Constant(int n) {
-        // Constants, variables, objects occupy O(1) space
+        // Constants, variables, and objects occupy O(1) space
         int a = 0;
         int b = 0;
         int[] nums = new int[10000];
@@ -923,7 +923,7 @@ It should be noted that memory occupied by initializing variables or calling fun
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
-        // Functions in the loop occupy O(1) space
+        // Function calls in the loop occupy O(1) space
         for (int i = 0; i < n; i++) {
             Function();
         }
@@ -939,9 +939,9 @@ It should be noted that memory occupied by initializing variables or calling fun
         return 0
     }
 
-    /* Constant order */
+    /* Constant complexity */
     func spaceConstant(n int) {
-        // Constants, variables, objects occupy O(1) space
+        // Constants, variables, and objects occupy O(1) space
         const a = 0
         b := 0
         nums := make([]int, 10000)
@@ -951,7 +951,7 @@ It should be noted that memory occupied by initializing variables or calling fun
         for i := 0; i < n; i++ {
             c = 0
         }
-        // Functions in the loop occupy O(1) space
+        // Function calls in the loop occupy O(1) space
         for i := 0; i < n; i++ {
             function()
         }
@@ -972,9 +972,9 @@ It should be noted that memory occupied by initializing variables or calling fun
         return 0
     }
 
-    /* Constant order */
+    /* Constant complexity */
     func constant(n: Int) {
-        // Constants, variables, objects occupy O(1) space
+        // Constants, variables, and objects occupy O(1) space
         let a = 0
         var b = 0
         let nums = Array(repeating: 0, count: 10000)
@@ -983,7 +983,7 @@ It should be noted that memory occupied by initializing variables or calling fun
         for _ in 0 ..< n {
             let c = 0
         }
-        // Functions in the loop occupy O(1) space
+        // Function calls in the loop occupy O(1) space
         for _ in 0 ..< n {
             function()
         }
@@ -999,9 +999,9 @@ It should be noted that memory occupied by initializing variables or calling fun
         return 0;
     }
 
-    /* Constant order */
+    /* Constant complexity */
     function constant(n) {
-        // Constants, variables, objects occupy O(1) space
+        // Constants, variables, and objects occupy O(1) space
         const a = 0;
         const b = 0;
         const nums = new Array(10000);
@@ -1010,7 +1010,7 @@ It should be noted that memory occupied by initializing variables or calling fun
         for (let i = 0; i < n; i++) {
             const c = 0;
         }
-        // Functions in the loop occupy O(1) space
+        // Function calls in the loop occupy O(1) space
         for (let i = 0; i < n; i++) {
             constFunc();
         }
@@ -1026,9 +1026,9 @@ It should be noted that memory occupied by initializing variables or calling fun
         return 0;
     }
 
-    /* Constant order */
+    /* Constant complexity */
     function constant(n: number): void {
-        // Constants, variables, objects occupy O(1) space
+        // Constants, variables, and objects occupy O(1) space
         const a = 0;
         const b = 0;
         const nums = new Array(10000);
@@ -1037,7 +1037,7 @@ It should be noted that memory occupied by initializing variables or calling fun
         for (let i = 0; i < n; i++) {
             const c = 0;
         }
-        // Functions in the loop occupy O(1) space
+        // Function calls in the loop occupy O(1) space
         for (let i = 0; i < n; i++) {
             constFunc();
         }
@@ -1053,9 +1053,9 @@ It should be noted that memory occupied by initializing variables or calling fun
       return 0;
     }
 
-    /* Constant order */
+    /* Constant complexity */
     void constant(int n) {
-      // Constants, variables, objects occupy O(1) space
+      // Constants, variables, and objects occupy O(1) space
       final int a = 0;
       int b = 0;
       List<int> nums = List.filled(10000, 0);
@@ -1064,7 +1064,7 @@ It should be noted that memory occupied by initializing variables or calling fun
       for (var i = 0; i < n; i++) {
         int c = 0;
       }
-      // Functions in the loop occupy O(1) space
+      // Function calls in the loop occupy O(1) space
       for (var i = 0; i < n; i++) {
         function();
       }
@@ -1080,10 +1080,10 @@ It should be noted that memory occupied by initializing variables or calling fun
         return 0;
     }
 
-    /* Constant order */
+    /* Constant complexity */
     #[allow(unused)]
     fn constant(n: i32) {
-        // Constants, variables, objects occupy O(1) space
+        // Constants, variables, and objects occupy O(1) space
         const A: i32 = 0;
         let b = 0;
         let nums = vec![0; 10000];
@@ -1092,7 +1092,7 @@ It should be noted that memory occupied by initializing variables or calling fun
         for i in 0..n {
             let c = 0;
         }
-        // Functions in the loop occupy O(1) space
+        // Function calls in the loop occupy O(1) space
         for i in 0..n {
             function();
         }
@@ -1108,9 +1108,9 @@ It should be noted that memory occupied by initializing variables or calling fun
         return 0;
     }
 
-    /* Constant order */
+    /* Constant complexity */
     void constant(int n) {
-        // Constants, variables, objects occupy O(1) space
+        // Constants, variables, and objects occupy O(1) space
         const int a = 0;
         int b = 0;
         int nums[1000];
@@ -1120,7 +1120,7 @@ It should be noted that memory occupied by initializing variables or calling fun
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
-        // Functions in the loop occupy O(1) space
+        // Function calls in the loop occupy O(1) space
         for (int i = 0; i < n; i++) {
             func();
         }
@@ -1136,9 +1136,9 @@ It should be noted that memory occupied by initializing variables or calling fun
         return 0
     }
 
-    /* Constant order */
+    /* Constant complexity */
     fun constant(n: Int) {
-        // Constants, variables, objects occupy O(1) space
+        // Constants, variables, and objects occupy O(1) space
         val a = 0
         var b = 0
         val nums = Array(10000) { 0 }
@@ -1147,7 +1147,7 @@ It should be noted that memory occupied by initializing variables or calling fun
         for (i in 0..<n) {
             val c = 0
         }
-        // Functions in the loop occupy O(1) space
+        // Function calls in the loop occupy O(1) space
         for (i in 0..<n) {
             function()
         }
@@ -1163,32 +1163,37 @@ It should be noted that memory occupied by initializing variables or calling fun
       0
     end
 
-    ### Constant time ###
+    ### Constant complexity ###
     def constant(n)
-      # Constants, variables, objects occupy O(1) space
+      # Constants, variables, and objects occupy O(1) space
       a = 0
       nums = [0] * 10000
       node = ListNode.new
 
       # Variables in the loop occupy O(1) space
       (0...n).each { c = 0 }
-      # Functions in the loop occupy O(1) space
+      # Function calls in the loop occupy O(1) space
       (0...n).each { function }
     end
     ```
 
-### 2. &nbsp; Linear Order $O(n)$ {data-toc-label="2. &nbsp; Linear Order"}
+??? pythontutor "Visualize execution"
 
-Linear order is common in arrays, linked lists, stacks, queues, etc., where the number of elements is proportional to $n$:
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20function%28%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Function%22%22%22%0A%20%20%20%20%23%20Perform%20some%20operations%0A%20%20%20%20return%200%0A%0Adef%20constant%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22Constant%20complexity%22%22%22%0A%20%20%20%20%23%20Constants,%20variables,%20and%20objects%20occupy%20O%281%29%20space%0A%20%20%20%20a%20%3D%200%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%2010%0A%20%20%20%20node%20%3D%20ListNode%280%29%0A%20%20%20%20%23%20Variables%20in%20the%20loop%20occupy%20O%281%29%20space%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20c%20%3D%200%0A%20%20%20%20%23%20Function%20calls%20in%20the%20loop%20occupy%20O%281%29%20space%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20function%28%29%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20Constant%20complexity%0A%20%20%20%20constant%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20function%28%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Function%22%22%22%0A%20%20%20%20%23%20Perform%20some%20operations%0A%20%20%20%20return%200%0A%0Adef%20constant%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22Constant%20complexity%22%22%22%0A%20%20%20%20%23%20Constants,%20variables,%20and%20objects%20occupy%20O%281%29%20space%0A%20%20%20%20a%20%3D%200%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%2010%0A%20%20%20%20node%20%3D%20ListNode%280%29%0A%20%20%20%20%23%20Variables%20in%20the%20loop%20occupy%20O%281%29%20space%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20c%20%3D%200%0A%20%20%20%20%23%20Function%20calls%20in%20the%20loop%20occupy%20O%281%29%20space%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20function%28%29%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20Constant%20complexity%0A%20%20%20%20constant%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+### 2. &nbsp; Linear space $O(n)$ {data-toc-label="2. &nbsp; Linear space"}
+
+Linear space commonly occurs in arrays, linked lists, stacks, and queues whose element counts are proportional to $n$:
 
 === "Python"
 
     ```python title="space_complexity.py"
     def linear(n: int):
-        """Linear order"""
+        """Linear complexity"""
         # A list of length n occupies O(n) space
         nums = [0] * n
-        # A hash table of length n occupies O(n) space
+        # A hash table with n entries occupies O(n) space
         hmap = dict[int, str]()
         for i in range(n):
             hmap[i] = str(i)
@@ -1197,16 +1202,16 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* Linear order */
+    /* Linear complexity */
     void linear(int n) {
-        // Array of length n uses O(n) space
+        // An array of length n uses O(n) space
         vector<int> nums(n);
         // A list of length n occupies O(n) space
         vector<ListNode> nodes;
         for (int i = 0; i < n; i++) {
             nodes.push_back(ListNode(i));
         }
-        // A hash table of length n occupies O(n) space
+        // A hash table with n entries occupies O(n) space
         unordered_map<int, string> map;
         for (int i = 0; i < n; i++) {
             map[i] = to_string(i);
@@ -1217,16 +1222,16 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
 === "Java"
 
     ```java title="space_complexity.java"
-    /* Linear order */
+    /* Linear complexity */
     void linear(int n) {
-        // Array of length n uses O(n) space
+        // An array of length n uses O(n) space
         int[] nums = new int[n];
         // A list of length n occupies O(n) space
         List<ListNode> nodes = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             nodes.add(new ListNode(i));
         }
-        // A hash table of length n occupies O(n) space
+        // A hash table with n entries occupies O(n) space
         Map<Integer, String> map = new HashMap<>();
         for (int i = 0; i < n; i++) {
             map.put(i, String.valueOf(i));
@@ -1237,16 +1242,16 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    /* Linear order */
+    /* Linear complexity */
     void Linear(int n) {
-        // Array of length n uses O(n) space
+        // An array of length n uses O(n) space
         int[] nums = new int[n];
         // A list of length n occupies O(n) space
         List<ListNode> nodes = [];
         for (int i = 0; i < n; i++) {
             nodes.Add(new ListNode(i));
         }
-        // A hash table of length n occupies O(n) space
+        // A hash table with n entries occupies O(n) space
         Dictionary<int, string> map = [];
         for (int i = 0; i < n; i++) {
             map.Add(i, i.ToString());
@@ -1257,16 +1262,16 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
 === "Go"
 
     ```go title="space_complexity.go"
-    /* Linear order */
+    /* Linear complexity */
     func spaceLinear(n int) {
-        // Array of length n uses O(n) space
+        // An array of length n uses O(n) space
         _ = make([]int, n)
         // A list of length n occupies O(n) space
         var nodes []*node
         for i := 0; i < n; i++ {
             nodes = append(nodes, newNode(i))
         }
-        // A hash table of length n occupies O(n) space
+        // A hash table with n entries occupies O(n) space
         m := make(map[int]string, n)
         for i := 0; i < n; i++ {
             m[i] = strconv.Itoa(i)
@@ -1277,13 +1282,13 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    /* Linear order */
+    /* Linear complexity */
     func linear(n: Int) {
-        // Array of length n uses O(n) space
+        // An array of length n uses O(n) space
         let nums = Array(repeating: 0, count: n)
         // A list of length n occupies O(n) space
         let nodes = (0 ..< n).map { ListNode(x: $0) }
-        // A hash table of length n occupies O(n) space
+        // A hash table with n entries occupies O(n) space
         let map = Dictionary(uniqueKeysWithValues: (0 ..< n).map { ($0, "\($0)") })
     }
     ```
@@ -1291,16 +1296,16 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
 === "JS"
 
     ```javascript title="space_complexity.js"
-    /* Linear order */
+    /* Linear complexity */
     function linear(n) {
-        // Array of length n uses O(n) space
+        // An array of length n uses O(n) space
         const nums = new Array(n);
         // A list of length n occupies O(n) space
         const nodes = [];
         for (let i = 0; i < n; i++) {
             nodes.push(new ListNode(i));
         }
-        // A hash table of length n occupies O(n) space
+        // A hash table with n entries occupies O(n) space
         const map = new Map();
         for (let i = 0; i < n; i++) {
             map.set(i, i.toString());
@@ -1311,16 +1316,16 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
 === "TS"
 
     ```typescript title="space_complexity.ts"
-    /* Linear order */
+    /* Linear complexity */
     function linear(n: number): void {
-        // Array of length n uses O(n) space
+        // An array of length n uses O(n) space
         const nums = new Array(n);
         // A list of length n occupies O(n) space
         const nodes: ListNode[] = [];
         for (let i = 0; i < n; i++) {
             nodes.push(new ListNode(i));
         }
-        // A hash table of length n occupies O(n) space
+        // A hash table with n entries occupies O(n) space
         const map = new Map();
         for (let i = 0; i < n; i++) {
             map.set(i, i.toString());
@@ -1331,16 +1336,16 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
 === "Dart"
 
     ```dart title="space_complexity.dart"
-    /* Linear order */
+    /* Linear complexity */
     void linear(int n) {
-      // Array of length n uses O(n) space
+      // An array of length n uses O(n) space
       List<int> nums = List.filled(n, 0);
       // A list of length n occupies O(n) space
       List<ListNode> nodes = [];
       for (var i = 0; i < n; i++) {
         nodes.add(ListNode(i));
       }
-      // A hash table of length n occupies O(n) space
+      // A hash table with n entries occupies O(n) space
       Map<int, String> map = HashMap();
       for (var i = 0; i < n; i++) {
         map.putIfAbsent(i, () => i.toString());
@@ -1351,17 +1356,17 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
 === "Rust"
 
     ```rust title="space_complexity.rs"
-    /* Linear order */
+    /* Linear complexity */
     #[allow(unused)]
     fn linear(n: i32) {
-        // Array of length n uses O(n) space
+        // An array of length n uses O(n) space
         let mut nums = vec![0; n as usize];
         // A list of length n occupies O(n) space
         let mut nodes = Vec::new();
         for i in 0..n {
             nodes.push(ListNode::new(i))
         }
-        // A hash table of length n occupies O(n) space
+        // A hash table with n entries occupies O(n) space
         let mut map = HashMap::new();
         for i in 0..n {
             map.insert(i, i.to_string());
@@ -1379,9 +1384,9 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
         UT_hash_handle hh; // Implemented using uthash.h
     } HashTable;
 
-    /* Linear order */
+    /* Linear complexity */
     void linear(int n) {
-        // Array of length n uses O(n) space
+        // An array of length n uses O(n) space
         int *nums = malloc(sizeof(int) * n);
         free(nums);
 
@@ -1390,13 +1395,13 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
         for (int i = 0; i < n; i++) {
             nodes[i] = newListNode(i);
         }
-        // Memory release
+        // Free memory
         for (int i = 0; i < n; i++) {
             free(nodes[i]);
         }
         free(nodes);
 
-        // A hash table of length n occupies O(n) space
+        // A hash table with n entries occupies O(n) space
         HashTable *h = NULL;
         for (int i = 0; i < n; i++) {
             HashTable *tmp = malloc(sizeof(HashTable));
@@ -1405,7 +1410,7 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
             HASH_ADD_INT(h, key, tmp);
         }
 
-        // Memory release
+        // Free memory
         HashTable *curr, *tmp;
         HASH_ITER(hh, h, curr, tmp) {
             HASH_DEL(h, curr);
@@ -1417,16 +1422,16 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
 === "Kotlin"
 
     ```kotlin title="space_complexity.kt"
-    /* Linear order */
+    /* Linear complexity */
     fun linear(n: Int) {
-        // Array of length n uses O(n) space
+        // An array of length n uses O(n) space
         val nums = Array(n) { 0 }
         // A list of length n occupies O(n) space
         val nodes = mutableListOf<ListNode>()
         for (i in 0..<n) {
             nodes.add(ListNode(i))
         }
-        // A hash table of length n occupies O(n) space
+        // A hash table with n entries occupies O(n) space
         val map = mutableMapOf<Int, String>()
         for (i in 0..<n) {
             map[i] = i.toString()
@@ -1437,12 +1442,12 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
 === "Ruby"
 
     ```ruby title="space_complexity.rb"
-    ### Linear time ###
+    ### Linear complexity ###
     def linear(n)
       # A list of length n occupies O(n) space
       nums = Array.new(n, 0)
 
-      # A hash table of length n occupies O(n) space
+      # A hash table with n entries occupies O(n) space
       hmap = {}
       for i in 0...n
         hmap[i] = i.to_s
@@ -1450,14 +1455,19 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
     end
     ```
 
-As shown in the following figure, the recursion depth of this function is $n$, meaning that there are $n$ unreturned `linear_recur()` functions existing simultaneously, using $O(n)$ stack frame space:
+??? pythontutor "Visualize execution"
+
+    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20linear%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22Linear%20complexity%22%22%22%0A%20%20%20%20%23%20A%20list%20of%20length%20n%20occupies%20O%28n%29%20space%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%20n%0A%20%20%20%20%23%20A%20hash%20table%20with%20n%20entries%20occupies%20O%28n%29%20space%0A%20%20%20%20hmap%20%3D%20dict%5Bint,%20str%5D%28%29%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20hmap%5Bi%5D%20%3D%20str%28i%29%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20Linear%20complexity%0A%20%20%20%20linear%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=20&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20linear%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22Linear%20complexity%22%22%22%0A%20%20%20%20%23%20A%20list%20of%20length%20n%20occupies%20O%28n%29%20space%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%20n%0A%20%20%20%20%23%20A%20hash%20table%20with%20n%20entries%20occupies%20O%28n%29%20space%0A%20%20%20%20hmap%20%3D%20dict%5Bint,%20str%5D%28%29%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20hmap%5Bi%5D%20%3D%20str%28i%29%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20Linear%20complexity%0A%20%20%20%20linear%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=20&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+As shown in Figure 2-17, this function has recursion depth $n$, with $n$ active calls to `linear_recur()` at once, using $O(n)$ space for stack frames:
 
 === "Python"
 
     ```python title="space_complexity.py"
     def linear_recur(n: int):
-        """Linear order (recursive implementation)"""
-        print("Recursion n =", n)
+        """Linear complexity (recursive implementation)"""
+        print("Recursion: n =", n)
         if n == 1:
             return
         linear_recur(n - 1)
@@ -1466,9 +1476,9 @@ As shown in the following figure, the recursion depth of this function is $n$, m
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* Linear order (recursive implementation) */
+    /* Linear complexity (recursive implementation) */
     void linearRecur(int n) {
-        cout << "Recursion n = " << n << endl;
+        cout << "Recursion: n = " << n << endl;
         if (n == 1)
             return;
         linearRecur(n - 1);
@@ -1478,9 +1488,9 @@ As shown in the following figure, the recursion depth of this function is $n$, m
 === "Java"
 
     ```java title="space_complexity.java"
-    /* Linear order (recursive implementation) */
+    /* Linear complexity (recursive implementation) */
     void linearRecur(int n) {
-        System.out.println("Recursion n = " + n);
+        System.out.println("Recursive call: n = " + n);
         if (n == 1)
             return;
         linearRecur(n - 1);
@@ -1490,9 +1500,9 @@ As shown in the following figure, the recursion depth of this function is $n$, m
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    /* Linear order (recursive implementation) */
+    /* Linear complexity (recursive implementation) */
     void LinearRecur(int n) {
-        Console.WriteLine("Recursion n = " + n);
+        Console.WriteLine("Recursive call: n = " + n);
         if (n == 1) return;
         LinearRecur(n - 1);
     }
@@ -1501,9 +1511,9 @@ As shown in the following figure, the recursion depth of this function is $n$, m
 === "Go"
 
     ```go title="space_complexity.go"
-    /* Linear order (recursive implementation) */
+    /* Linear complexity (recursive implementation) */
     func spaceLinearRecur(n int) {
-        fmt.Println("Recursion n =", n)
+        fmt.Println("Recursive call: n =", n)
         if n == 1 {
             return
         }
@@ -1514,9 +1524,9 @@ As shown in the following figure, the recursion depth of this function is $n$, m
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    /* Linear order (recursive implementation) */
+    /* Linear complexity (recursive implementation) */
     func linearRecur(n: Int) {
-        print("Recursion n = \(n)")
+        print("Recursion: n = \(n)")
         if n == 1 {
             return
         }
@@ -1527,9 +1537,9 @@ As shown in the following figure, the recursion depth of this function is $n$, m
 === "JS"
 
     ```javascript title="space_complexity.js"
-    /* Linear order (recursive implementation) */
+    /* Linear complexity (recursive implementation) */
     function linearRecur(n) {
-        console.log(`Recursion n = ${n}`);
+        console.log(`Recursive call with n = ${n}`);
         if (n === 1) return;
         linearRecur(n - 1);
     }
@@ -1538,9 +1548,9 @@ As shown in the following figure, the recursion depth of this function is $n$, m
 === "TS"
 
     ```typescript title="space_complexity.ts"
-    /* Linear order (recursive implementation) */
+    /* Linear complexity (recursive implementation) */
     function linearRecur(n: number): void {
-        console.log(`Recursion n = ${n}`);
+        console.log(`Recursive call with n = ${n}`);
         if (n === 1) return;
         linearRecur(n - 1);
     }
@@ -1549,9 +1559,9 @@ As shown in the following figure, the recursion depth of this function is $n$, m
 === "Dart"
 
     ```dart title="space_complexity.dart"
-    /* Linear order (recursive implementation) */
+    /* Linear complexity (recursive implementation) */
     void linearRecur(int n) {
-      print('Recursion n = $n');
+      print('Recursive call: n = $n');
       if (n == 1) return;
       linearRecur(n - 1);
     }
@@ -1560,9 +1570,9 @@ As shown in the following figure, the recursion depth of this function is $n$, m
 === "Rust"
 
     ```rust title="space_complexity.rs"
-    /* Linear order (recursive implementation) */
+    /* Linear complexity (recursive implementation) */
     fn linear_recur(n: i32) {
-        println!("Recursion n = {}", n);
+        println!("Recursive call n = {}", n);
         if n == 1 {
             return;
         };
@@ -1573,9 +1583,9 @@ As shown in the following figure, the recursion depth of this function is $n$, m
 === "C"
 
     ```c title="space_complexity.c"
-    /* Linear order (recursive implementation) */
+    /* Linear complexity (recursive implementation) */
     void linearRecur(int n) {
-        printf("Recursion n = %d\r\n", n);
+        printf("Recursive call n = %d\r\n", n);
         if (n == 1)
             return;
         linearRecur(n - 1);
@@ -1585,9 +1595,9 @@ As shown in the following figure, the recursion depth of this function is $n$, m
 === "Kotlin"
 
     ```kotlin title="space_complexity.kt"
-    /* Linear order (recursive implementation) */
+    /* Linear complexity (recursive implementation) */
     fun linearRecur(n: Int) {
-        println("Recursion n = $n")
+        println("Recursive call: n = $n")
         if (n == 1)
             return
         linearRecur(n - 1)
@@ -1597,37 +1607,42 @@ As shown in the following figure, the recursion depth of this function is $n$, m
 === "Ruby"
 
     ```ruby title="space_complexity.rb"
-    ### Linear space (recursive) ###
+    ### Linear complexity (recursive implementation)###
     def linear_recur(n)
-      puts "Recursion n = #{n}"
+      puts "Recursion: n = #{n}"
       return if n == 1
       linear_recur(n - 1)
     end
     ```
 
-![Linear order space complexity generated by recursive function](space_complexity.assets/space_complexity_recursive_linear.png){ class="animation-figure" }
+??? pythontutor "Visualize execution"
 
-<p align="center"> Figure 2-17 &nbsp; Linear order space complexity generated by recursive function </p>
+    <div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20linear_recur%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22Linear%20complexity%20%28recursive%20implementation%29%22%22%22%0A%20%20%20%20print%28%22Recursion%3A%20n%20%3D%22,%20n%29%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20linear_recur%28n%20-%201%29%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20Linear%20complexity%0A%20%20%20%20linear_recur%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=25&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20linear_recur%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22Linear%20complexity%20%28recursive%20implementation%29%22%22%22%0A%20%20%20%20print%28%22Recursion%3A%20n%20%3D%22,%20n%29%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20linear_recur%28n%20-%201%29%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20Linear%20complexity%0A%20%20%20%20linear_recur%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=25&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-### 3. &nbsp; Quadratic Order $O(n^2)$ {data-toc-label="3. &nbsp; Quadratic Order"}
+![Linear space complexity from recursion](space_complexity.assets/space_complexity_recursive_linear.png){ class="animation-figure" }
 
-Quadratic order is common in matrices and graphs, where the number of elements is quadratically related to $n$:
+<p align="center"> Figure 2-17 &nbsp; Linear space complexity from recursion </p>
+
+### 3. &nbsp; Quadratic space $O(n^2)$ {data-toc-label="3. &nbsp; Quadratic space"}
+
+Quadratic space commonly occurs in matrices and graphs whose element counts grow with the square of $n$:
 
 === "Python"
 
     ```python title="space_complexity.py"
     def quadratic(n: int):
-        """Quadratic order"""
-        # A 2D list occupies O(n^2) space
+        """Quadratic complexity"""
+        # The two-dimensional list occupies O(n^2) space
         num_matrix = [[0] * n for _ in range(n)]
     ```
 
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* Exponential order */
+    /* Quadratic complexity */
     void quadratic(int n) {
-        // 2D list uses O(n^2) space
+        // The two-dimensional list occupies O(n^2) space
         vector<vector<int>> numMatrix;
         for (int i = 0; i < n; i++) {
             vector<int> tmp;
@@ -1642,11 +1657,11 @@ Quadratic order is common in matrices and graphs, where the number of elements i
 === "Java"
 
     ```java title="space_complexity.java"
-    /* Exponential order */
+    /* Quadratic complexity */
     void quadratic(int n) {
-        // Matrix uses O(n^2) space
+        // The matrix uses O(n^2) space
         int[][] numMatrix = new int[n][n];
-        // 2D list uses O(n^2) space
+        // The two-dimensional list occupies O(n^2) space
         List<List<Integer>> numList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             List<Integer> tmp = new ArrayList<>();
@@ -1661,11 +1676,11 @@ Quadratic order is common in matrices and graphs, where the number of elements i
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    /* Exponential order */
+    /* Quadratic complexity */
     void Quadratic(int n) {
-        // Matrix uses O(n^2) space
+        // The matrix uses O(n^2) space
         int[,] numMatrix = new int[n, n];
-        // 2D list uses O(n^2) space
+        // The two-dimensional list occupies O(n^2) space
         List<List<int>> numList = [];
         for (int i = 0; i < n; i++) {
             List<int> tmp = [];
@@ -1680,9 +1695,9 @@ Quadratic order is common in matrices and graphs, where the number of elements i
 === "Go"
 
     ```go title="space_complexity.go"
-    /* Exponential order */
+    /* Quadratic complexity */
     func spaceQuadratic(n int) {
-        // Matrix uses O(n^2) space
+        // The matrix uses O(n^2) space
         numMatrix := make([][]int, n)
         for i := 0; i < n; i++ {
             numMatrix[i] = make([]int, n)
@@ -1693,9 +1708,9 @@ Quadratic order is common in matrices and graphs, where the number of elements i
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    /* Exponential order */
+    /* Quadratic complexity */
     func quadratic(n: Int) {
-        // 2D list uses O(n^2) space
+        // A fully materialized two-dimensional list uses O(n^2) space; Swift may share repeated row storage
         let numList = Array(repeating: Array(repeating: 0, count: n), count: n)
     }
     ```
@@ -1703,13 +1718,13 @@ Quadratic order is common in matrices and graphs, where the number of elements i
 === "JS"
 
     ```javascript title="space_complexity.js"
-    /* Exponential order */
+    /* Quadratic complexity */
     function quadratic(n) {
-        // Matrix uses O(n^2) space
+        // The matrix uses O(n^2) space
         const numMatrix = Array(n)
             .fill(null)
             .map(() => Array(n).fill(null));
-        // 2D list uses O(n^2) space
+        // The two-dimensional list occupies O(n^2) space
         const numList = [];
         for (let i = 0; i < n; i++) {
             const tmp = [];
@@ -1724,13 +1739,13 @@ Quadratic order is common in matrices and graphs, where the number of elements i
 === "TS"
 
     ```typescript title="space_complexity.ts"
-    /* Exponential order */
+    /* Quadratic complexity */
     function quadratic(n: number): void {
-        // Matrix uses O(n^2) space
+        // The matrix uses O(n^2) space
         const numMatrix = Array(n)
             .fill(null)
             .map(() => Array(n).fill(null));
-        // 2D list uses O(n^2) space
+        // The two-dimensional list occupies O(n^2) space
         const numList = [];
         for (let i = 0; i < n; i++) {
             const tmp = [];
@@ -1745,11 +1760,11 @@ Quadratic order is common in matrices and graphs, where the number of elements i
 === "Dart"
 
     ```dart title="space_complexity.dart"
-    /* Exponential order */
+    /* Quadratic complexity */
     void quadratic(int n) {
-      // Matrix uses O(n^2) space
+      // The matrix uses O(n^2) space
       List<List<int>> numMatrix = List.generate(n, (_) => List.filled(n, 0));
-      // 2D list uses O(n^2) space
+      // The two-dimensional list occupies O(n^2) space
       List<List<int>> numList = [];
       for (var i = 0; i < n; i++) {
         List<int> tmp = [];
@@ -1764,12 +1779,12 @@ Quadratic order is common in matrices and graphs, where the number of elements i
 === "Rust"
 
     ```rust title="space_complexity.rs"
-    /* Exponential order */
+    /* Quadratic complexity */
     #[allow(unused)]
     fn quadratic(n: i32) {
-        // Matrix uses O(n^2) space
+        // The matrix uses O(n^2) space
         let num_matrix = vec![vec![0; n as usize]; n as usize];
-        // 2D list uses O(n^2) space
+        // The two-dimensional list occupies O(n^2) space
         let mut num_list = Vec::new();
         for i in 0..n {
             let mut tmp = Vec::new();
@@ -1784,9 +1799,9 @@ Quadratic order is common in matrices and graphs, where the number of elements i
 === "C"
 
     ```c title="space_complexity.c"
-    /* Exponential order */
+    /* Quadratic complexity */
     void quadratic(int n) {
-        // 2D list uses O(n^2) space
+        // The two-dimensional list occupies O(n^2) space
         int **numMatrix = malloc(sizeof(int *) * n);
         for (int i = 0; i < n; i++) {
             int *tmp = malloc(sizeof(int) * n);
@@ -1796,7 +1811,7 @@ Quadratic order is common in matrices and graphs, where the number of elements i
             numMatrix[i] = tmp;
         }
 
-        // Memory release
+        // Free memory
         for (int i = 0; i < n; i++) {
             free(numMatrix[i]);
         }
@@ -1807,11 +1822,11 @@ Quadratic order is common in matrices and graphs, where the number of elements i
 === "Kotlin"
 
     ```kotlin title="space_complexity.kt"
-    /* Exponential order */
+    /* Quadratic complexity */
     fun quadratic(n: Int) {
-        // Matrix uses O(n^2) space
+        // A full n*n matrix uses O(n^2) space; only its outer array is allocated here
         val numMatrix = arrayOfNulls<Array<Int>?>(n)
-        // 2D list uses O(n^2) space
+        // The two-dimensional list occupies O(n^2) space
         val numList = mutableListOf<MutableList<Int>>()
         for (i in 0..<n) {
             val tmp = mutableListOf<Int>()
@@ -1826,23 +1841,28 @@ Quadratic order is common in matrices and graphs, where the number of elements i
 === "Ruby"
 
     ```ruby title="space_complexity.rb"
-    ### Quadratic time ###
+    ### Quadratic complexity ###
     def quadratic(n)
-      # 2D list uses O(n^2) space
+      # The two-dimensional list occupies O(n^2) space
       Array.new(n) { Array.new(n, 0) }
     end
     ```
 
-As shown in the following figure, the recursion depth of this function is $n$, and an array is initialized in each recursive function with lengths of $n$, $n-1$, $\dots$, $2$, $1$, with an average length of $n / 2$, thus occupying $O(n^2)$ space overall:
+??? pythontutor "Visualize execution"
+
+    <div style="height: 405px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22Quadratic%20complexity%22%22%22%0A%20%20%20%20%23%20The%20two-dimensional%20list%20occupies%20O%28n%5E2%29%20space%0A%20%20%20%20num_matrix%20%3D%20%5B%5B0%5D%20%2A%20n%20for%20_%20in%20range%28n%29%5D%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20Quadratic%20complexity%0A%20%20%20%20quadratic%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=16&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22Quadratic%20complexity%22%22%22%0A%20%20%20%20%23%20The%20two-dimensional%20list%20occupies%20O%28n%5E2%29%20space%0A%20%20%20%20num_matrix%20%3D%20%5B%5B0%5D%20%2A%20n%20for%20_%20in%20range%28n%29%5D%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20Quadratic%20complexity%0A%20%20%20%20quadratic%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=16&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+As shown in Figure 2-18, the recursion depth is $n$, and each call initializes an array. Their lengths are $n$, $n-1$, $\dots$, $2$, and $1$, averaging $n / 2$, so total space is $O(n^2)$:
 
 === "Python"
 
     ```python title="space_complexity.py"
     def quadratic_recur(n: int) -> int:
-        """Quadratic order (recursive implementation)"""
+        """Quadratic complexity (recursive implementation)"""
         if n <= 0:
             return 0
-        # Array nums length is n, n-1, ..., 2, 1
+        # The lengths of array nums are n, n-1, ..., 2, 1
         nums = [0] * n
         return quadratic_recur(n - 1)
     ```
@@ -1850,12 +1870,12 @@ As shown in the following figure, the recursion depth of this function is $n$, a
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* Quadratic order (recursive implementation) */
+    /* Quadratic complexity (recursive implementation) */
     int quadraticRecur(int n) {
         if (n <= 0)
             return 0;
         vector<int> nums(n);
-        cout << "In recursion n = " << n << ", nums length = " << nums.size() << endl;
+        cout << "Recursion: n = " << n << " , length of nums = " << nums.size() << endl;
         return quadraticRecur(n - 1);
     }
     ```
@@ -1863,13 +1883,13 @@ As shown in the following figure, the recursion depth of this function is $n$, a
 === "Java"
 
     ```java title="space_complexity.java"
-    /* Quadratic order (recursive implementation) */
+    /* Quadratic complexity (recursive implementation) */
     int quadraticRecur(int n) {
         if (n <= 0)
             return 0;
-        // Array nums has length n, n-1, ..., 2, 1
+        // The lengths of array nums are n, n-1, ..., 2, 1
         int[] nums = new int[n];
-        System.out.println("In recursion n = " + n + ", nums length = " + nums.length);
+        System.out.println("Recursive call: n = " + n + " with nums length = " + nums.length);
         return quadraticRecur(n - 1);
     }
     ```
@@ -1877,11 +1897,11 @@ As shown in the following figure, the recursion depth of this function is $n$, a
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    /* Quadratic order (recursive implementation) */
+    /* Quadratic complexity (recursive implementation) */
     int QuadraticRecur(int n) {
         if (n <= 0) return 0;
         int[] nums = new int[n];
-        Console.WriteLine("Recursion n = " + n + ", nums length = " + nums.Length);
+        Console.WriteLine("Recursive call: n = " + n + " with nums length = " + nums.Length);
         return QuadraticRecur(n - 1);
     }
     ```
@@ -1889,13 +1909,13 @@ As shown in the following figure, the recursion depth of this function is $n$, a
 === "Go"
 
     ```go title="space_complexity.go"
-    /* Quadratic order (recursive implementation) */
+    /* Quadratic complexity (recursive implementation) */
     func spaceQuadraticRecur(n int) int {
         if n <= 0 {
             return 0
         }
         nums := make([]int, n)
-        fmt.Printf("In recursion n = %d, nums length = %d \n", n, len(nums))
+        fmt.Printf("Recursive call n = %d: length of nums = %d \n", n, len(nums))
         return spaceQuadraticRecur(n - 1)
     }
     ```
@@ -1903,15 +1923,15 @@ As shown in the following figure, the recursion depth of this function is $n$, a
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    /* Quadratic order (recursive implementation) */
+    /* Quadratic complexity (recursive implementation) */
     @discardableResult
     func quadraticRecur(n: Int) -> Int {
         if n <= 0 {
             return 0
         }
-        // Array nums has length n, n-1, ..., 2, 1
+        // The lengths of array nums are n, n-1, ..., 2, 1
         let nums = Array(repeating: 0, count: n)
-        print("In recursion n = \(n), nums length = \(nums.count)")
+        print("At recursion n = \(n), nums has length \(nums.count)")
         return quadraticRecur(n: n - 1)
     }
     ```
@@ -1919,11 +1939,11 @@ As shown in the following figure, the recursion depth of this function is $n$, a
 === "JS"
 
     ```javascript title="space_complexity.js"
-    /* Quadratic order (recursive implementation) */
+    /* Quadratic complexity (recursive implementation) */
     function quadraticRecur(n) {
         if (n <= 0) return 0;
         const nums = new Array(n);
-        console.log(`In recursion n = ${n}, nums length = ${nums.length}`);
+        console.log(`In the recursive call with n = ${n}, nums has length ${nums.length}`);
         return quadraticRecur(n - 1);
     }
     ```
@@ -1931,11 +1951,11 @@ As shown in the following figure, the recursion depth of this function is $n$, a
 === "TS"
 
     ```typescript title="space_complexity.ts"
-    /* Quadratic order (recursive implementation) */
+    /* Quadratic complexity (recursive implementation) */
     function quadraticRecur(n: number): number {
         if (n <= 0) return 0;
         const nums = new Array(n);
-        console.log(`In recursion n = ${n}, nums length = ${nums.length}`);
+        console.log(`In the recursive call with n = ${n}, nums has length ${nums.length}`);
         return quadraticRecur(n - 1);
     }
     ```
@@ -1943,11 +1963,11 @@ As shown in the following figure, the recursion depth of this function is $n$, a
 === "Dart"
 
     ```dart title="space_complexity.dart"
-    /* Quadratic order (recursive implementation) */
+    /* Quadratic complexity (recursive implementation) */
     int quadraticRecur(int n) {
       if (n <= 0) return 0;
       List<int> nums = List.filled(n, 0);
-      print('In recursion n = $n, nums length = ${nums.length}');
+      print('In the recursive call with n = $n, length of nums = ${nums.length}');
       return quadraticRecur(n - 1);
     }
     ```
@@ -1955,14 +1975,14 @@ As shown in the following figure, the recursion depth of this function is $n$, a
 === "Rust"
 
     ```rust title="space_complexity.rs"
-    /* Quadratic order (recursive implementation) */
+    /* Quadratic complexity (recursive implementation) */
     fn quadratic_recur(n: i32) -> i32 {
         if n <= 0 {
             return 0;
         };
-        // Array nums has length n, n-1, ..., 2, 1
+        // The lengths of array nums are n, n-1, ..., 2, 1
         let nums = vec![0; n as usize];
-        println!("In recursion n = {}, nums length = {}", n, nums.len());
+        println!("In recursive call n = {}, nums has length {}", n, nums.len());
         return quadratic_recur(n - 1);
     }
     ```
@@ -1970,12 +1990,12 @@ As shown in the following figure, the recursion depth of this function is $n$, a
 === "C"
 
     ```c title="space_complexity.c"
-    /* Quadratic order (recursive implementation) */
+    /* Quadratic complexity (recursive implementation) */
     int quadraticRecur(int n) {
         if (n <= 0)
             return 0;
         int *nums = malloc(sizeof(int) * n);
-        printf("In recursion n = %d, nums length = %d\r\n", n, n);
+        printf("In recursive call n = %d, nums has length = %d\r\n", n, n);
         int res = quadraticRecur(n - 1);
         free(nums);
         return res;
@@ -1985,13 +2005,13 @@ As shown in the following figure, the recursion depth of this function is $n$, a
 === "Kotlin"
 
     ```kotlin title="space_complexity.kt"
-    /* Quadratic order (recursive implementation) */
+    /* Quadratic allocation total (recursive example; tailrec removes recursive stack growth) */
     tailrec fun quadraticRecur(n: Int): Int {
         if (n <= 0)
             return 0
-        // Array nums has length n, n-1, ..., 2, 1
+        // The lengths of array nums are n, n-1, ..., 2, 1
         val nums = Array(n) { 0 }
-        println("In recursion n = $n, nums length = ${nums.size}")
+        println("In the recursive call with n = $n, nums has length ${nums.size}")
         return quadraticRecur(n - 1)
     }
     ```
@@ -1999,29 +2019,34 @@ As shown in the following figure, the recursion depth of this function is $n$, a
 === "Ruby"
 
     ```ruby title="space_complexity.rb"
-    ### Quadratic space (recursive) ###
+    ### Quadratic complexity (recursive implementation)###
     def quadratic_recur(n)
       return 0 unless n > 0
 
-      # Array nums has length n, n-1, ..., 2, 1
+      # The lengths of array nums are n, n-1, ..., 2, 1
       nums = Array.new(n, 0)
       quadratic_recur(n - 1)
     end
     ```
 
-![Quadratic order space complexity generated by recursive function](space_complexity.assets/space_complexity_recursive_quadratic.png){ class="animation-figure" }
+??? pythontutor "Visualize execution"
 
-<p align="center"> Figure 2-18 &nbsp; Quadratic order space complexity generated by recursive function </p>
+    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20quadratic_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Quadratic%20complexity%20%28recursive%20implementation%29%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%200%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20%23%20The%20lengths%20of%20array%20nums%20are%20n,%20n-1,%20...,%202,%201%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%20n%0A%20%20%20%20return%20quadratic_recur%28n%20-%201%29%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20Quadratic%20complexity%0A%20%20%20%20quadratic_recur%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=28&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20quadratic_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Quadratic%20complexity%20%28recursive%20implementation%29%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%200%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20%23%20The%20lengths%20of%20array%20nums%20are%20n,%20n-1,%20...,%202,%201%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%20n%0A%20%20%20%20return%20quadratic_recur%28n%20-%201%29%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20Quadratic%20complexity%0A%20%20%20%20quadratic_recur%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=28&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-### 4. &nbsp; Exponential Order $O(2^n)$ {data-toc-label="4. &nbsp; Exponential Order"}
+![Quadratic space complexity from recursion](space_complexity.assets/space_complexity_recursive_quadratic.png){ class="animation-figure" }
 
-Exponential order is common in binary trees. Observe the following figure: a "full binary tree" with $n$ levels has $2^n - 1$ nodes, occupying $O(2^n)$ space:
+<p align="center"> Figure 2-18 &nbsp; Quadratic space complexity from recursion </p>
+
+### 4. &nbsp; Exponential space $O(2^n)$ {data-toc-label="4. &nbsp; Exponential space"}
+
+Exponential space commonly occurs in binary trees. In Figure 2-19, a perfect binary tree with $n$ levels contains $2^n - 1$ nodes and uses $O(2^n)$ space:
 
 === "Python"
 
     ```python title="space_complexity.py"
     def build_tree(n: int) -> TreeNode | None:
-        """Exponential order (build full binary tree)"""
+        """Exponential complexity (building a perfect binary tree)"""
         if n == 0:
             return None
         root = TreeNode(0)
@@ -2033,7 +2058,7 @@ Exponential order is common in binary trees. Observe the following figure: a "fu
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* Driver Code */
+    /* Exponential complexity (building a perfect binary tree) */
     TreeNode *buildTree(int n) {
         if (n == 0)
             return nullptr;
@@ -2047,7 +2072,7 @@ Exponential order is common in binary trees. Observe the following figure: a "fu
 === "Java"
 
     ```java title="space_complexity.java"
-    /* Driver Code */
+    /* Exponential complexity (building a perfect binary tree) */
     TreeNode buildTree(int n) {
         if (n == 0)
             return null;
@@ -2061,7 +2086,7 @@ Exponential order is common in binary trees. Observe the following figure: a "fu
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    /* Driver Code */
+    /* Exponential complexity (building a perfect binary tree) */
     TreeNode? BuildTree(int n) {
         if (n == 0) return null;
         TreeNode root = new(0) {
@@ -2075,7 +2100,7 @@ Exponential order is common in binary trees. Observe the following figure: a "fu
 === "Go"
 
     ```go title="space_complexity.go"
-    /* Driver Code */
+    /* Exponential complexity (building a perfect binary tree) */
     func buildTree(n int) *TreeNode {
         if n == 0 {
             return nil
@@ -2090,7 +2115,7 @@ Exponential order is common in binary trees. Observe the following figure: a "fu
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    /* Driver Code */
+    /* Exponential complexity (building a perfect binary tree) */
     func buildTree(n: Int) -> TreeNode? {
         if n == 0 {
             return nil
@@ -2105,7 +2130,7 @@ Exponential order is common in binary trees. Observe the following figure: a "fu
 === "JS"
 
     ```javascript title="space_complexity.js"
-    /* Driver Code */
+    /* Exponential complexity (building a perfect binary tree) */
     function buildTree(n) {
         if (n === 0) return null;
         const root = new TreeNode(0);
@@ -2118,7 +2143,7 @@ Exponential order is common in binary trees. Observe the following figure: a "fu
 === "TS"
 
     ```typescript title="space_complexity.ts"
-    /* Driver Code */
+    /* Exponential complexity (building a perfect binary tree) */
     function buildTree(n: number): TreeNode | null {
         if (n === 0) return null;
         const root = new TreeNode(0);
@@ -2131,7 +2156,7 @@ Exponential order is common in binary trees. Observe the following figure: a "fu
 === "Dart"
 
     ```dart title="space_complexity.dart"
-    /* Driver Code */
+    /* Exponential complexity (building a perfect binary tree) */
     TreeNode? buildTree(int n) {
       if (n == 0) return null;
       TreeNode root = TreeNode(0);
@@ -2144,7 +2169,7 @@ Exponential order is common in binary trees. Observe the following figure: a "fu
 === "Rust"
 
     ```rust title="space_complexity.rs"
-    /* Driver Code */
+    /* Exponential complexity (building a perfect binary tree) */
     fn build_tree(n: i32) -> Option<Rc<RefCell<TreeNode>>> {
         if n == 0 {
             return None;
@@ -2159,7 +2184,7 @@ Exponential order is common in binary trees. Observe the following figure: a "fu
 === "C"
 
     ```c title="space_complexity.c"
-    /* Driver Code */
+    /* Exponential complexity (building a perfect binary tree) */
     TreeNode *buildTree(int n) {
         if (n == 0)
             return NULL;
@@ -2173,7 +2198,7 @@ Exponential order is common in binary trees. Observe the following figure: a "fu
 === "Kotlin"
 
     ```kotlin title="space_complexity.kt"
-    /* Driver Code */
+    /* Exponential complexity (building a perfect binary tree) */
     fun buildTree(n: Int): TreeNode? {
         if (n == 0)
             return null
@@ -2187,7 +2212,7 @@ Exponential order is common in binary trees. Observe the following figure: a "fu
 === "Ruby"
 
     ```ruby title="space_complexity.rb"
-    ### Exponential space (build full binary tree) ###
+    ### Exponential complexity (building a perfect binary tree)###
     def build_tree(n)
       return if n == 0
 
@@ -2198,20 +2223,25 @@ Exponential order is common in binary trees. Observe the following figure: a "fu
     end
     ```
 
-![Exponential order space complexity generated by full binary tree](space_complexity.assets/space_complexity_exponential.png){ class="animation-figure" }
+??? pythontutor "Visualize execution"
 
-<p align="center"> Figure 2-19 &nbsp; Exponential order space complexity generated by full binary tree </p>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20build_tree%28n%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Exponential%20complexity%20%28building%20a%20perfect%20binary%20tree%29%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20root%20%3D%20TreeNode%280%29%0A%20%20%20%20root.left%20%3D%20build_tree%28n%20-%201%29%0A%20%20%20%20root.right%20%3D%20build_tree%28n%20-%201%29%0A%20%20%20%20return%20root%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20Exponential%20complexity%0A%20%20%20%20root%20%3D%20build_tree%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=507&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20build_tree%28n%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Exponential%20complexity%20%28building%20a%20perfect%20binary%20tree%29%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20root%20%3D%20TreeNode%280%29%0A%20%20%20%20root.left%20%3D%20build_tree%28n%20-%201%29%0A%20%20%20%20root.right%20%3D%20build_tree%28n%20-%201%29%0A%20%20%20%20return%20root%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20Exponential%20complexity%0A%20%20%20%20root%20%3D%20build_tree%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=507&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-### 5. &nbsp; Logarithmic Order $O(\log n)$ {data-toc-label="5. &nbsp; Logarithmic Order"}
+![Exponential space used by a perfect binary tree](space_complexity.assets/space_complexity_exponential.png){ class="animation-figure" }
 
-Logarithmic order is common in divide-and-conquer algorithms. For example, merge sort: given an input array of length $n$, each recursion divides the array in half from the midpoint, forming a recursion tree of height $\log n$, using $O(\log n)$ stack frame space.
+<p align="center"> Figure 2-19 &nbsp; Exponential space used by a perfect binary tree </p>
 
-Another example is converting a number to a string. Given a positive integer $n$, it has $\lfloor \log_{10} n \rfloor + 1$ digits, i.e., the corresponding string length is $\lfloor \log_{10} n \rfloor + 1$, so the space complexity is $O(\log_{10} n + 1) = O(\log n)$.
+### 5. &nbsp; Logarithmic space $O(\log n)$ {data-toc-label="5. &nbsp; Logarithmic space"}
 
-## 2.4.4 &nbsp; Trading Time for Space
+Logarithmic space often appears in divide-and-conquer algorithms. For example, merge sort splits an array of length $n$ in half at each recursive step, producing a recursion tree of height $\log n$ and using $O(\log n)$ space for stack frames.
 
-Ideally, we hope that both the time complexity and space complexity of an algorithm can reach optimal. However, in practice, optimizing both time complexity and space complexity simultaneously is usually very difficult.
+Another example is converting a number to a string. A positive integer $n$ has $\lfloor \log_{10} n \rfloor + 1$ digits, giving a string of length $\lfloor \log_{10} n \rfloor + 1$. The space complexity is therefore $O(\log_{10} n + 1) = O(\log n)$.
 
-**Reducing time complexity usually comes at the cost of increasing space complexity, and vice versa**. Sacrificing memory space to improve execution speed is called "trading space for time"; the reverse is called "trading time for space".
+## 2.4.4 &nbsp; Balancing time and space
 
-The choice of which approach depends on which aspect we value more. In most cases, time is more precious than space, so "trading space for time" is usually the more common strategy. Of course, when the data volume is very large, controlling space complexity is also very important.
+Ideally, we would minimize both time and space complexity. In practice, optimizing both simultaneously is usually difficult.
+
+**Reducing time complexity often increases space complexity, and vice versa**. Using more memory to run faster is called trading space for time; accepting slower execution to use less memory is trading time for space.
+
+The choice depends on which resource matters more. Time is usually more valuable than space, so trading space for time is common. For very large datasets, however, keeping space complexity under control is also crucial.

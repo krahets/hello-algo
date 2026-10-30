@@ -4,50 +4,50 @@ comments: true
 
 # 11.11 &nbsp; Summary
 
-### 1. &nbsp; Key Review
+### 1. &nbsp; Key takeaways
 
-- Bubble sort achieves sorting by swapping adjacent elements. By adding a flag to enable early return, we can optimize the best-case time complexity of bubble sort to $O(n)$.
-- In each round, insertion sort inserts an element from the unsorted portion into its correct position in the sorted portion. Although insertion sort has a time complexity of $O(n^2)$, it remains very popular for small sorting tasks because each operation is relatively lightweight.
-- Quick sort relies on sentinel partitioning. In sentinel partitioning, repeatedly choosing the worst possible pivot can degrade the time complexity to $O(n^2)$. Choosing a median-based pivot or a random pivot can reduce the probability of this degradation. By recursing on the shorter subarray first, we can effectively reduce the recursion depth and optimize the space complexity to $O(\log n)$.
-- Merge sort includes two phases: divide and merge, which typically embody the divide-and-conquer strategy. In merge sort, sorting an array requires creating auxiliary arrays, with a space complexity of $O(n)$; however, the space complexity of sorting a linked list can be optimized to $O(1)$.
-- Bucket sort consists of three steps: distributing data into buckets, sorting within buckets, and merging results. It also embodies the divide-and-conquer strategy and is suitable for very large data volumes. The key to bucket sort is distributing data evenly.
-- Counting sort is a special case of bucket sort, which achieves sorting by counting the number of occurrences of data. Counting sort is suitable for situations where the data volume is large but the data range is limited, and requires that data can be converted to positive integers.
-- Radix sort achieves data sorting by sorting digit by digit, requiring that data can be represented as fixed-digit numbers.
-- Overall, we hope to find a sorting algorithm that is efficient, stable, in-place, and adaptive. However, as with other data structures and algorithms, no sorting algorithm can satisfy all of these criteria at the same time. In practice, we need to choose the appropriate sorting algorithm based on the characteristics of the data.
-- Figure 11-19 compares mainstream sorting algorithms in terms of efficiency, stability, in-place property, and adaptability.
+- Bubble sort sorts by swapping adjacent elements. Adding a flag to stop early improves its best-case time complexity to $O(n)$.
+- Insertion sort inserts one element from the unsorted section into its correct position in the sorted section each round. Although its time complexity is $O(n^2)$, its low operation count makes it popular for small datasets.
+- Quick sort sorts through partitioning. Repeatedly choosing the worst pivot can degrade its time complexity to $O(n^2)$. Median or random pivot selection reduces this risk. Recursing on the shorter subarray reduces recursion depth and improves space complexity to $O(\log n)$.
+- Merge sort has division and merging phases, exemplifying divide and conquer. Sorting an array requires an auxiliary array and $O(n)$ space, while sorting a linked list can be optimized to use $O(1)$ space.
+- Bucket sort has three steps: distribute data into buckets, sort within each bucket, and combine the results. It also uses divide and conquer and suits very large datasets. The key is distributing data evenly.
+- Counting sort is a special case of bucket sort that sorts by counting occurrences. It suits large datasets with a limited value range and requires data that can be converted to positive integers.
+- Radix sort sorts one digit at a time and requires data that can be represented as numbers with a fixed number of digits.
+- Ideally, a sorting algorithm would be efficient, stable, in-place, and adaptive. As with other data structures and algorithms, however, no single sorting algorithm meets all these requirements. In practice, choose one according to the data's properties.
+- Figure 11-19 compares common sorting algorithms in efficiency, stability, in-place operation, and adaptiveness.
 
-![Sorting algorithm comparison](summary.assets/sorting_algorithms_comparison.png){ class="animation-figure" }
+![Comparison of sorting algorithms](summary.assets/sorting_algorithms_comparison.png){ class="animation-figure" }
 
-<p align="center"> Figure 11-19 &nbsp; Sorting algorithm comparison </p>
+<p align="center"> Figure 11-19 &nbsp; Comparison of sorting algorithms </p>
 
 ### 2. &nbsp; Q & A
 
-**Q**: In what situations is the stability of sorting algorithms necessary?
+**Q**: When is stability necessary in a sorting algorithm?
 
-In reality, we may sort based on a certain attribute of objects. For example, students have two attributes: name and height. We want to implement multi-level sorting: first sort by name to get `(A, 180) (B, 185) (C, 170) (D, 170)`; then sort by height. Because the sorting algorithm is unstable, we may get `(D, 170) (C, 170) (A, 180) (B, 185)`.
+We often sort objects by one of their attributes. For example, students have names and heights, and we want a multilevel sort. First sort by name to obtain `(A, 180) (B, 185) (C, 170) (D, 170)`, then sort by height. An unstable algorithm may produce `(D, 170) (C, 170) (A, 180) (B, 185)`.
 
-We can see that students D and C have swapped positions, destroying the ordering by name, which is not what we want.
+Students D and C have switched positions, breaking the ordering by name. This is not what we want.
 
-**Q**: Can the order of "searching from right to left" and "searching from left to right" in sentinel partitioning be swapped?
+**Q**: Can the right-to-left and left-to-right scans in partitioning be reversed?
 
-No. When we use the leftmost element as the pivot, we must first "search from right to left" and then "search from left to right". This conclusion is somewhat counterintuitive; let's analyze the reason.
+No. When the leftmost element is the pivot, the right-to-left scan must come first. This may seem counterintuitive, so let us examine why.
 
-The last step of sentinel partitioning `partition()` is to swap `nums[left]` and `nums[i]`. After the swap is complete, the elements to the left of the pivot are all `<=` the pivot, **which requires that `nums[left] >= nums[i]` must hold before the last swap**. Suppose we first "search from left to right", then if we cannot find an element larger than the pivot, **we will exit the loop when `i == j`, at which point it may be that `nums[j] == nums[i] > nums[left]`**. In other words, the last swap operation will swap an element larger than the pivot to the leftmost end of the array, causing sentinel partitioning to fail.
+The final step of `partition()` swaps `nums[left]` and `nums[i]`. Afterward, every element to the left of the pivot must be `<=` the pivot, **so `nums[left] >= nums[i]` must hold before that swap**. If we scan left to right first and fail to find a larger element, **the loop stops at `i == j`, where it is possible that `nums[j] == nums[i] > nums[left]`**. The final swap would then move an element larger than the pivot to the far left, causing partitioning to fail.
 
-For example, given the array `[0, 0, 0, 0, 1]`, if we first "search from left to right", the array after sentinel partitioning is `[1, 0, 0, 0, 0]`, which is incorrect.
+For example, given `[0, 0, 0, 0, 1]`, scanning left to right first produces `[1, 0, 0, 0, 0]` after partitioning, which is incorrect.
 
-By the same reasoning, if we select `nums[right]` as the pivot, the order is reversed: we must first "search from left to right".
+Conversely, if we choose `nums[right]` as the pivot, we must scan left to right first.
 
-**Q**: Regarding the optimization of recursion depth in quick sort, why can selecting the shorter array ensure that the recursion depth does not exceed $\log n$?
+**Q**: In the recursion-depth optimization for quick sort, why does choosing the shorter subarray keep the depth at most $\log n$?
 
-Recursion depth is the number of recursive calls that have not yet returned. Each round of sentinel partitioning divides the original array into two sub-arrays. After this optimization, the sub-array selected for further recursion is at most half the length of the original array. In the worst case, if it is always half as long, the final recursion depth is $\log n$.
+Recursion depth is the number of recursive calls that have not yet returned. Each partition divides the array into two subarrays. After the optimization, the subarray chosen for recursion is at most half the original length. Even in the worst case, where it is always exactly half, the depth is $\log n$.
 
-Reviewing the original quick sort, we may continuously recurse on the longer array. In the worst case, it would be $n$, $n - 1$, $\dots$, $2$, $1$, with a recursion depth of $n$. Recursion depth optimization can avoid this situation.
+In the original quick sort, we may repeatedly recurse on the larger subarray, with lengths $n$, $n - 1$, $\dots$, $2$, and $1$ in the worst case, giving depth $n$. The optimization prevents this.
 
-**Q**: When all elements in the array are equal, is the time complexity of quick sort $O(n^2)$? How should this degenerate case be handled?
+**Q**: If all array elements are equal, does quick sort take $O(n^2)$ time? How can we handle this degeneration?
 
-Yes. In this case, the array can be partitioned into three parts through sentinel partitioning: less than, equal to, and greater than the pivot. We then recurse only on the less-than and greater-than parts. With this approach, an array whose elements are all equal can be sorted in just one round of sentinel partitioning.
+Yes. In this case, consider partitioning into three sections: elements smaller than, equal to, and greater than the pivot. Recurse only on the smaller and greater sections. If all elements are equal, a single partition then completes the sort.
 
-**Q**: Why is the worst-case time complexity of bucket sort $O(n^2)$?
+**Q**: Why is bucket sort's worst-case time complexity $O(n^2)$?
 
-In the worst case, all elements are distributed into the same bucket. If we use an $O(n^2)$ algorithm to sort these elements, the time complexity will be $O(n^2)$.
+In the worst case, all elements fall into one bucket. If an $O(n^2)$ algorithm is used to sort that bucket, the overall time complexity is $O(n^2)$.

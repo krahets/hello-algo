@@ -2,41 +2,41 @@
 comments: true
 ---
 
-# 5.1 &nbsp; Stack
+# 5.1 &nbsp; Stacks
 
-A <u>stack</u> is a linear data structure that follows the Last In, First Out (LIFO) principle.
+A <u>stack</u> is a linear data structure that follows a last-in, first-out rule.
 
-We can compare a stack to a pile of plates on a table. If we specify that only one plate can be moved at a time, then to get the bottom plate, we must first remove the plates above it one by one. If we replace the plates with various types of elements (such as integers, characters, objects, etc.), we get the stack data structure.
+Think of a stack of plates on a table. If we can move only one plate at a time, reaching the bottom plate requires removing all the plates above it first. Replace the plates with elements such as integers, characters, or objects, and we have a stack.
 
-As shown in Figure 5-1, we call the top of the stacked elements the "top" and the bottom the "bottom." The operation of adding an element to the top is called "push," and the operation of removing the top element is called "pop."
+As shown below, the upper end is the “top” of the stack and the lower end is the “bottom.” Adding an element to the top is called “pushing,” and removing the top element is called “popping.”
 
-![LIFO rule of stack](stack.assets/stack_operations.png){ class="animation-figure" }
+![The last-in, first-out rule of a stack](stack.assets/stack_operations.png){ class="animation-figure" }
 
-<p align="center"> Figure 5-1 &nbsp; LIFO rule of stack </p>
+<p align="center"> Figure 5-1 &nbsp; The last-in, first-out rule of a stack </p>
 
-## 5.1.1 &nbsp; Common Stack Operations
+## 5.1.1 &nbsp; Common stack operations
 
-The common operations on a stack are shown in Table 5-1. The specific method names depend on the programming language used. Here, we use the common naming convention of `push()`, `pop()`, and `peek()`.
+Table 5-1 lists common operations. Actual method names depend on the programming language; here we use the familiar names `push()`, `pop()`, and `peek()`.
 
-<p align="center"> Table 5-1 &nbsp; Efficiency of Stack Operations </p>
+<p align="center"> Table 5-1 &nbsp; Efficiency of stack operations </p>
 
 <div class="center-table" markdown>
 
-| Method   | Description                                    | Time Complexity |
-| -------- | ---------------------------------------------- | --------------- |
-| `push()` | Push element onto stack (add to top)          | $O(1)$          |
-| `pop()`  | Pop top element from stack                     | $O(1)$          |
-| `peek()` | Access top element                             | $O(1)$          |
+| Method     | Description                   | Time complexity |
+| -------- | ---------------------- | ---------- |
+| `push()` | Push an element onto the top | $O(1)$     |
+| `pop()`  | Remove the top element           | $O(1)$     |
+| `peek()` | Access the top element           | $O(1)$     |
 
 </div>
 
-Typically, we can directly use the built-in stack class provided by the programming language. However, some languages may not provide a dedicated stack class. In such cases, we can use the language's "array" or "linked list" as a stack and simply avoid using operations unrelated to stack behavior.
+We can usually use a language's built-in stack class. If no dedicated class is provided, use an array or linked list as a stack and avoid operations unrelated to stack behavior.
 
 === "Python"
 
     ```python title="stack.py"
-    # Initialize stack
-    # Python does not have a built-in stack class, can use list as a stack
+    # Initialize a stack
+    # Python has no built-in stack class; use a list as a stack
     stack: list[int] = []
 
     # Push elements
@@ -46,23 +46,23 @@ Typically, we can directly use the built-in stack class provided by the programm
     stack.append(5)
     stack.append(4)
 
-    # Access top element
+    # Access the top element
     peek: int = stack[-1]
 
-    # Pop element
+    # Pop an element
     pop: int = stack.pop()
 
-    # Get stack length
+    # Get the stack size
     size: int = len(stack)
 
-    # Check if empty
+    # Check whether the stack is empty
     is_empty: bool = len(stack) == 0
     ```
 
 === "C++"
 
     ```cpp title="stack.cpp"
-    /* Initialize stack */
+    /* Initialize a stack */
     stack<int> stack;
 
     /* Push elements */
@@ -72,23 +72,23 @@ Typically, we can directly use the built-in stack class provided by the programm
     stack.push(5);
     stack.push(4);
 
-    /* Access top element */
+    /* Access the top element */
     int top = stack.top();
 
-    /* Pop element */
+    /* Pop an element */
     stack.pop(); // No return value
 
-    /* Get stack length */
+    /* Get the stack size */
     int size = stack.size();
 
-    /* Check if empty */
+    /* Check whether the stack is empty */
     bool empty = stack.empty();
     ```
 
 === "Java"
 
     ```java title="stack.java"
-    /* Initialize stack */
+    /* Initialize a stack */
     Stack<Integer> stack = new Stack<>();
 
     /* Push elements */
@@ -98,23 +98,23 @@ Typically, we can directly use the built-in stack class provided by the programm
     stack.push(5);
     stack.push(4);
 
-    /* Access top element */
+    /* Access the top element */
     int peek = stack.peek();
 
-    /* Pop element */
+    /* Pop an element */
     int pop = stack.pop();
 
-    /* Get stack length */
+    /* Get the stack size */
     int size = stack.size();
 
-    /* Check if empty */
+    /* Check whether the stack is empty */
     boolean isEmpty = stack.isEmpty();
     ```
 
 === "C#"
 
     ```csharp title="stack.cs"
-    /* Initialize stack */
+    /* Initialize a stack */
     Stack<int> stack = new();
 
     /* Push elements */
@@ -124,24 +124,24 @@ Typically, we can directly use the built-in stack class provided by the programm
     stack.Push(5);
     stack.Push(4);
 
-    /* Access top element */
+    /* Access the top element */
     int peek = stack.Peek();
 
-    /* Pop element */
+    /* Pop an element */
     int pop = stack.Pop();
 
-    /* Get stack length */
+    /* Get the stack size */
     int size = stack.Count;
 
-    /* Check if empty */
+    /* Check whether the stack is empty */
     bool isEmpty = stack.Count == 0;
     ```
 
 === "Go"
 
     ```go title="stack_test.go"
-    /* Initialize stack */
-    // In Go, it is recommended to use Slice as a stack
+    /* Initialize a stack */
+    // In Go, a slice is recommended for use as a stack
     var stack []int
 
     /* Push elements */
@@ -151,25 +151,25 @@ Typically, we can directly use the built-in stack class provided by the programm
     stack = append(stack, 5)
     stack = append(stack, 4)
 
-    /* Access top element */
+    /* Access the top element */
     peek := stack[len(stack)-1]
 
-    /* Pop element */
+    /* Pop an element */
     pop := stack[len(stack)-1]
     stack = stack[:len(stack)-1]
 
-    /* Get stack length */
+    /* Get the stack size */
     size := len(stack)
 
-    /* Check if empty */
+    /* Check whether the stack is empty */
     isEmpty := len(stack) == 0
     ```
 
 === "Swift"
 
     ```swift title="stack.swift"
-    /* Initialize stack */
-    // Swift does not have a built-in stack class, can use Array as a stack
+    /* Initialize a stack */
+    // Swift has no built-in stack class; use an Array as a stack
     var stack: [Int] = []
 
     /* Push elements */
@@ -179,24 +179,24 @@ Typically, we can directly use the built-in stack class provided by the programm
     stack.append(5)
     stack.append(4)
 
-    /* Access top element */
+    /* Access the top element */
     let peek = stack.last!
 
-    /* Pop element */
+    /* Pop an element */
     let pop = stack.removeLast()
 
-    /* Get stack length */
+    /* Get the stack size */
     let size = stack.count
 
-    /* Check if empty */
+    /* Check whether the stack is empty */
     let isEmpty = stack.isEmpty
     ```
 
 === "JS"
 
     ```javascript title="stack.js"
-    /* Initialize stack */
-    // JavaScript does not have a built-in stack class, can use Array as a stack
+    /* Initialize a stack */
+    // JavaScript has no built-in stack class; use an Array as a stack
     const stack = [];
 
     /* Push elements */
@@ -206,24 +206,24 @@ Typically, we can directly use the built-in stack class provided by the programm
     stack.push(5);
     stack.push(4);
 
-    /* Access top element */
+    /* Access the top element */
     const peek = stack[stack.length-1];
 
-    /* Pop element */
+    /* Pop an element */
     const pop = stack.pop();
 
-    /* Get stack length */
+    /* Get the stack size */
     const size = stack.length;
 
-    /* Check if empty */
+    /* Check whether the stack is empty */
     const is_empty = stack.length === 0;
     ```
 
 === "TS"
 
     ```typescript title="stack.ts"
-    /* Initialize stack */
-    // TypeScript does not have a built-in stack class, can use Array as a stack
+    /* Initialize a stack */
+    // TypeScript has no built-in stack class; use an Array as a stack
     const stack: number[] = [];
 
     /* Push elements */
@@ -233,24 +233,24 @@ Typically, we can directly use the built-in stack class provided by the programm
     stack.push(5);
     stack.push(4);
 
-    /* Access top element */
+    /* Access the top element */
     const peek = stack[stack.length - 1];
 
-    /* Pop element */
+    /* Pop an element */
     const pop = stack.pop();
 
-    /* Get stack length */
+    /* Get the stack size */
     const size = stack.length;
 
-    /* Check if empty */
+    /* Check whether the stack is empty */
     const is_empty = stack.length === 0;
     ```
 
 === "Dart"
 
     ```dart title="stack.dart"
-    /* Initialize stack */
-    // Dart does not have a built-in stack class, can use List as a stack
+    /* Initialize a stack */
+    // Dart has no built-in stack class; use a List as a stack
     List<int> stack = [];
 
     /* Push elements */
@@ -260,24 +260,24 @@ Typically, we can directly use the built-in stack class provided by the programm
     stack.add(5);
     stack.add(4);
 
-    /* Access top element */
+    /* Access the top element */
     int peek = stack.last;
 
-    /* Pop element */
+    /* Pop an element */
     int pop = stack.removeLast();
 
-    /* Get stack length */
+    /* Get the stack size */
     int size = stack.length;
 
-    /* Check if empty */
+    /* Check whether the stack is empty */
     bool isEmpty = stack.isEmpty;
     ```
 
 === "Rust"
 
     ```rust title="stack.rs"
-    /* Initialize stack */
-    // Use Vec as a stack
+    /* Initialize a stack */
+    // Use a Vec as a stack
     let mut stack: Vec<i32> = Vec::new();
 
     /* Push elements */
@@ -287,29 +287,29 @@ Typically, we can directly use the built-in stack class provided by the programm
     stack.push(5);
     stack.push(4);
 
-    /* Access top element */
+    /* Access the top element */
     let top = stack.last().unwrap();
 
-    /* Pop element */
+    /* Pop an element */
     let pop = stack.pop().unwrap();
 
-    /* Get stack length */
+    /* Get the stack size */
     let size = stack.len();
 
-    /* Check if empty */
+    /* Check whether the stack is empty */
     let is_empty = stack.is_empty();
     ```
 
 === "C"
 
     ```c title="stack.c"
-    // C does not provide a built-in stack
+    // C provides no built-in stack
     ```
 
 === "Kotlin"
 
     ```kotlin title="stack.kt"
-    /* Initialize stack */
+    /* Initialize a stack */
     val stack = Stack<Int>()
 
     /* Push elements */
@@ -319,24 +319,24 @@ Typically, we can directly use the built-in stack class provided by the programm
     stack.push(5)
     stack.push(4)
 
-    /* Access top element */
+    /* Access the top element */
     val peek = stack.peek()
 
-    /* Pop element */
+    /* Pop an element */
     val pop = stack.pop()
 
-    /* Get stack length */
+    /* Get the stack size */
     val size = stack.size
 
-    /* Check if empty */
+    /* Check whether the stack is empty */
     val isEmpty = stack.isEmpty()
     ```
 
 === "Ruby"
 
     ```ruby title="stack.rb"
-    # Initialize stack
-    # Ruby does not have a built-in stack class, can use Array as a stack
+    # Initialize a stack
+    # Ruby has no built-in stack class; use an Array as a stack
     stack = []
 
     # Push elements
@@ -346,38 +346,38 @@ Typically, we can directly use the built-in stack class provided by the programm
     stack << 5
     stack << 4
 
-    # Access top element
+    # Access the top element
     peek = stack.last
 
-    # Pop element
+    # Pop an element
     pop = stack.pop
 
-    # Get stack length
+    # Get the stack size
     size = stack.length
 
-    # Check if empty
+    # Check whether the stack is empty
     is_empty = stack.empty?
     ```
 
-??? pythontutor "Code Visualization"
+??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Code Visualization" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A0%88%0A%20%20%20%20%23%20Python%20%E6%B2%A1%E6%9C%89%E5%86%85%E7%BD%AE%E7%9A%84%E6%A0%88%E7%B1%BB%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%8A%8A%20list%20%E5%BD%93%E4%BD%9C%E6%A0%88%E6%9D%A5%E4%BD%BF%E7%94%A8%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E6%A0%88%0A%20%20%20%20stack.append%281%29%0A%20%20%20%20stack.append%283%29%0A%20%20%20%20stack.append%282%29%0A%20%20%20%20stack.append%285%29%0A%20%20%20%20stack.append%284%29%0A%20%20%20%20print%28%22%E6%A0%88%20stack%20%3D%22,%20stack%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E6%A0%88%E9%A1%B6%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20stack%5B-1%5D%0A%20%20%20%20print%28%22%E6%A0%88%E9%A1%B6%E5%85%83%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E6%A0%88%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E5%87%BA%E6%A0%88%E5%85%83%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E5%87%BA%E6%A0%88%E5%90%8E%20stack%20%3D%22,%20stack%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E6%A0%88%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28stack%29%0A%20%20%20%20print%28%22%E6%A0%88%E7%9A%84%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28stack%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E6%A0%88%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A0%88%0A%20%20%20%20%23%20Python%20%E6%B2%A1%E6%9C%89%E5%86%85%E7%BD%AE%E7%9A%84%E6%A0%88%E7%B1%BB%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%8A%8A%20list%20%E5%BD%93%E4%BD%9C%E6%A0%88%E6%9D%A5%E4%BD%BF%E7%94%A8%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E6%A0%88%0A%20%20%20%20stack.append%281%29%0A%20%20%20%20stack.append%283%29%0A%20%20%20%20stack.append%282%29%0A%20%20%20%20stack.append%285%29%0A%20%20%20%20stack.append%284%29%0A%20%20%20%20print%28%22%E6%A0%88%20stack%20%3D%22,%20stack%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E6%A0%88%E9%A1%B6%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20stack%5B-1%5D%0A%20%20%20%20print%28%22%E6%A0%88%E9%A1%B6%E5%85%83%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E6%A0%88%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E5%87%BA%E6%A0%88%E5%85%83%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E5%87%BA%E6%A0%88%E5%90%8E%20stack%20%3D%22,%20stack%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E6%A0%88%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28stack%29%0A%20%20%20%20print%28%22%E6%A0%88%E7%9A%84%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28stack%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E6%A0%88%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20a%20stack%0A%20%20%20%20%23%20Python%20has%20no%20built-in%20stack%20class%3B%20use%20a%20list%20as%20a%20stack%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%0A%20%20%20%20%23%20Push%20elements%0A%20%20%20%20stack.append%281%29%0A%20%20%20%20stack.append%283%29%0A%20%20%20%20stack.append%282%29%0A%20%20%20%20stack.append%285%29%0A%20%20%20%20stack.append%284%29%0A%20%20%20%20print%28%22Stack%3A%20stack%20%3D%22%2C%20stack%29%0A%0A%20%20%20%20%23%20Access%20the%20top%20element%0A%20%20%20%20peek%20%3D%20stack%5B-1%5D%0A%20%20%20%20print%28%22Top%20element%3A%20peek%20%3D%22%2C%20peek%29%0A%0A%20%20%20%20%23%20Pop%20an%20element%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22Popped%20element%3A%20pop%20%3D%22%2C%20pop%29%0A%20%20%20%20print%28%22After%20popping%3A%20stack%20%3D%22%2C%20stack%29%0A%0A%20%20%20%20%23%20Get%20the%20stack%20size%0A%20%20%20%20size%20%3D%20len%28stack%29%0A%20%20%20%20print%28%22Stack%20size%3A%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20Check%20whether%20the%20stack%20is%20empty%0A%20%20%20%20is_empty%20%3D%20len%28stack%29%20%3D%3D%200%0A%20%20%20%20print%28%22Is%20the%20stack%20empty%20%3D%22%2C%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20a%20stack%0A%20%20%20%20%23%20Python%20has%20no%20built-in%20stack%20class%3B%20use%20a%20list%20as%20a%20stack%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%0A%20%20%20%20%23%20Push%20elements%0A%20%20%20%20stack.append%281%29%0A%20%20%20%20stack.append%283%29%0A%20%20%20%20stack.append%282%29%0A%20%20%20%20stack.append%285%29%0A%20%20%20%20stack.append%284%29%0A%20%20%20%20print%28%22Stack%3A%20stack%20%3D%22%2C%20stack%29%0A%0A%20%20%20%20%23%20Access%20the%20top%20element%0A%20%20%20%20peek%20%3D%20stack%5B-1%5D%0A%20%20%20%20print%28%22Top%20element%3A%20peek%20%3D%22%2C%20peek%29%0A%0A%20%20%20%20%23%20Pop%20an%20element%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22Popped%20element%3A%20pop%20%3D%22%2C%20pop%29%0A%20%20%20%20print%28%22After%20popping%3A%20stack%20%3D%22%2C%20stack%29%0A%0A%20%20%20%20%23%20Get%20the%20stack%20size%0A%20%20%20%20size%20%3D%20len%28stack%29%0A%20%20%20%20print%28%22Stack%20size%3A%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20Check%20whether%20the%20stack%20is%20empty%0A%20%20%20%20is_empty%20%3D%20len%28stack%29%20%3D%3D%200%0A%20%20%20%20print%28%22Is%20the%20stack%20empty%20%3D%22%2C%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-## 5.1.2 &nbsp; Stack Implementation
+## 5.1.2 &nbsp; Implementing a stack
 
-To gain a deeper understanding of how a stack operates, let's try implementing a stack class ourselves.
+To understand how a stack works more deeply, let us implement a stack class ourselves.
 
-A stack follows the LIFO principle, so we can only add or remove elements at the top. However, both arrays and linked lists allow adding and removing elements at any position. **Therefore, a stack can be viewed as a restricted array or linked list**. In other words, we can "shield" some irrelevant operations of arrays or linked lists so that their external logic conforms to the characteristics of a stack.
+A stack follows last-in, first-out order, so elements can be added or removed only at the top. Arrays and linked lists allow insertion and deletion at arbitrary positions, **so a stack can be viewed as a restricted array or linked list**. By hiding irrelevant operations, we make its public behavior conform to the stack's rules.
 
-### 1. &nbsp; Linked List Implementation
+### 1. &nbsp; Implementation with a linked list
 
-When implementing a stack using a linked list, we can treat the head node of the linked list as the top of the stack and the tail node as the base.
+When implementing a stack with a linked list, treat the head as the top and the tail as the bottom.
 
-As shown in Figure 5-2, for the push operation, we simply insert an element at the head of the linked list. This node insertion method is called the "head insertion method." For the pop operation, we just need to remove the head node from the linked list.
+As shown below, pushing simply inserts a node at the head, an operation called “head insertion.” Popping removes the head node.
 
 === "<1>"
-    ![Push and pop operations in linked list implementation of stack](stack.assets/linkedlist_stack_step1.png){ class="animation-figure" }
+    ![Push and pop in a linked-list stack](stack.assets/linkedlist_stack_step1.png){ class="animation-figure" }
 
 === "<2>"
     ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.png){ class="animation-figure" }
@@ -385,15 +385,15 @@ As shown in Figure 5-2, for the push operation, we simply insert an element at t
 === "<3>"
     ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.png){ class="animation-figure" }
 
-<p align="center"> Figure 5-2 &nbsp; Push and pop operations in linked list implementation of stack </p>
+<p align="center"> Figure 5-2 &nbsp; Push and pop in a linked-list stack </p>
 
-Below is sample code for implementing a stack based on a linked list:
+Here is an implementation using a linked list:
 
 === "Python"
 
     ```python title="linkedlist_stack.py"
     class LinkedListStack:
-        """Stack based on linked list implementation"""
+        """Stack implemented with a linked list"""
 
         def __init__(self):
             """Constructor"""
@@ -401,11 +401,11 @@ Below is sample code for implementing a stack based on a linked list:
             self._size: int = 0
 
         def size(self) -> int:
-            """Get the length of the stack"""
+            """Get the stack size"""
             return self._size
 
         def is_empty(self) -> bool:
-            """Check if the stack is empty"""
+            """Check whether the stack is empty"""
             return self._size == 0
 
         def push(self, val: int):
@@ -423,13 +423,13 @@ Below is sample code for implementing a stack based on a linked list:
             return num
 
         def peek(self) -> int:
-            """Access top of the stack element"""
+            """Access the top element"""
             if self.is_empty():
                 raise IndexError("Stack is empty")
             return self._peek.val
 
         def to_list(self) -> list[int]:
-            """Convert to list for printing"""
+            """Convert to a list for printing"""
             arr = []
             node = self._peek
             while node:
@@ -442,11 +442,11 @@ Below is sample code for implementing a stack based on a linked list:
 === "C++"
 
     ```cpp title="linkedlist_stack.cpp"
-    /* Stack based on linked list implementation */
+    /* Stack implemented with a linked list */
     class LinkedListStack {
       private:
-        ListNode *stackTop; // Use head node as stack top
-        int stkSize;        // Stack length
+        ListNode *stackTop; // Use the head node as the stack top
+        int stkSize;        // Stack size
 
       public:
         LinkedListStack() {
@@ -455,16 +455,16 @@ Below is sample code for implementing a stack based on a linked list:
         }
 
         ~LinkedListStack() {
-            // Traverse linked list to delete nodes and free memory
+            // Traverse the linked list and delete each node to free its memory
             freeMemoryLinkedList(stackTop);
         }
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         int size() {
             return stkSize;
         }
 
-        /* Check if the stack is empty */
+        /* Check whether the stack is empty */
         bool isEmpty() {
             return size() == 0;
         }
@@ -488,14 +488,14 @@ Below is sample code for implementing a stack based on a linked list:
             return num;
         }
 
-        /* Return list for printing */
+        /* Access the top element */
         int top() {
             if (isEmpty())
                 throw out_of_range("Stack is empty");
             return stackTop->val;
         }
 
-        /* Convert List to Array and return */
+        /* Convert the linked list to a vector and return it */
         vector<int> toVector() {
             ListNode *node = stackTop;
             vector<int> res(size());
@@ -511,21 +511,21 @@ Below is sample code for implementing a stack based on a linked list:
 === "Java"
 
     ```java title="linkedlist_stack.java"
-    /* Stack based on linked list implementation */
+    /* Stack implemented with a linked list */
     class LinkedListStack {
-        private ListNode stackPeek; // Use head node as stack top
-        private int stkSize = 0; // Stack length
+        private ListNode stackPeek; // Use the head node as the stack top
+        private int stkSize = 0; // Stack size
 
         public LinkedListStack() {
             stackPeek = null;
         }
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         public int size() {
             return stkSize;
         }
 
-        /* Check if the stack is empty */
+        /* Check whether the stack is empty */
         public boolean isEmpty() {
             return size() == 0;
         }
@@ -546,14 +546,14 @@ Below is sample code for implementing a stack based on a linked list:
             return num;
         }
 
-        /* Return list for printing */
+        /* Access the top element */
         public int peek() {
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
             return stackPeek.val;
         }
 
-        /* Convert List to Array and return */
+        /* Convert the list to an array and return it */
         public int[] toArray() {
             ListNode node = stackPeek;
             int[] res = new int[size()];
@@ -569,21 +569,21 @@ Below is sample code for implementing a stack based on a linked list:
 === "C#"
 
     ```csharp title="linkedlist_stack.cs"
-    /* Stack based on linked list implementation */
+    /* Stack implemented with a linked list */
     class LinkedListStack {
-        ListNode? stackPeek;  // Use head node as stack top
-        int stkSize = 0;   // Stack length
+        ListNode? stackPeek;  // Use the head node as the stack top
+        int stkSize = 0;   // Stack size
 
         public LinkedListStack() {
             stackPeek = null;
         }
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         public int Size() {
             return stkSize;
         }
 
-        /* Check if the stack is empty */
+        /* Check whether the stack is empty */
         public bool IsEmpty() {
             return Size() == 0;
         }
@@ -605,14 +605,14 @@ Below is sample code for implementing a stack based on a linked list:
             return num;
         }
 
-        /* Return list for printing */
+        /* Access the top element */
         public int Peek() {
             if (IsEmpty())
                 throw new Exception();
             return stackPeek!.val;
         }
 
-        /* Convert List to Array and return */
+        /* Convert the linked list to an array and return it */
         public int[] ToArray() {
             if (stackPeek == null)
                 return [];
@@ -631,13 +631,13 @@ Below is sample code for implementing a stack based on a linked list:
 === "Go"
 
     ```go title="linkedlist_stack.go"
-    /* Stack based on linked list implementation */
+    /* Stack implemented with a linked list */
     type linkedListStack struct {
-        // Use built-in package list to implement stack
+        // Use the standard library list package to implement the stack
         data *list.List
     }
 
-    /* Access top of the stack element */
+    /* Initialize the stack */
     func newLinkedListStack() *linkedListStack {
         return &linkedListStack{
             data: list.New(),
@@ -659,7 +659,7 @@ Below is sample code for implementing a stack based on a linked list:
         return e.Value
     }
 
-    /* Return list for printing */
+    /* Access the top element */
     func (s *linkedListStack) peek() any {
         if s.isEmpty() {
             return nil
@@ -668,17 +668,17 @@ Below is sample code for implementing a stack based on a linked list:
         return e.Value
     }
 
-    /* Get the length of the stack */
+    /* Get the stack size */
     func (s *linkedListStack) size() int {
         return s.data.Len()
     }
 
-    /* Check if the stack is empty */
+    /* Check whether the stack is empty */
     func (s *linkedListStack) isEmpty() bool {
         return s.data.Len() == 0
     }
 
-    /* Get List for printing */
+    /* Get the list for printing */
     func (s *linkedListStack) toList() *list.List {
         return s.data
     }
@@ -687,21 +687,21 @@ Below is sample code for implementing a stack based on a linked list:
 === "Swift"
 
     ```swift title="linkedlist_stack.swift"
-    /* Stack based on linked list implementation */
+    /* Stack implemented with a linked list */
     class LinkedListStack {
-        private var _peek: ListNode? // Use head node as stack top
-        private var _size: Int // Stack length
+        private var _peek: ListNode? // Use the head node as the stack top
+        private var _size: Int // Stack size
 
         init() {
             _size = 0
         }
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         func size() -> Int {
             _size
         }
 
-        /* Check if the stack is empty */
+        /* Check whether the stack is empty */
         func isEmpty() -> Bool {
             size() == 0
         }
@@ -723,7 +723,7 @@ Below is sample code for implementing a stack based on a linked list:
             return num
         }
 
-        /* Return list for printing */
+        /* Access the top element */
         func peek() -> Int {
             if isEmpty() {
                 fatalError("Stack is empty")
@@ -731,7 +731,7 @@ Below is sample code for implementing a stack based on a linked list:
             return _peek!.val
         }
 
-        /* Convert List to Array and return */
+        /* Convert the linked list to an array and return it */
         func toArray() -> [Int] {
             var node = _peek
             var res = Array(repeating: 0, count: size())
@@ -747,21 +747,21 @@ Below is sample code for implementing a stack based on a linked list:
 === "JS"
 
     ```javascript title="linkedlist_stack.js"
-    /* Stack based on linked list implementation */
+    /* Stack implemented with a linked list */
     class LinkedListStack {
-        #stackPeek; // Use head node as stack top
-        #stkSize = 0; // Stack length
+        #stackPeek; // Use the head node as the stack top
+        #stkSize = 0; // Stack size
 
         constructor() {
             this.#stackPeek = null;
         }
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         get size() {
             return this.#stkSize;
         }
 
-        /* Check if the stack is empty */
+        /* Check whether the stack is empty */
         isEmpty() {
             return this.size === 0;
         }
@@ -782,13 +782,13 @@ Below is sample code for implementing a stack based on a linked list:
             return num;
         }
 
-        /* Return list for printing */
+        /* Access the top element */
         peek() {
             if (!this.#stackPeek) throw new Error('Stack is empty');
             return this.#stackPeek.val;
         }
 
-        /* Convert linked list to Array and return */
+        /* Convert the linked list to an Array and return it */
         toArray() {
             let node = this.#stackPeek;
             const res = new Array(this.size);
@@ -804,21 +804,21 @@ Below is sample code for implementing a stack based on a linked list:
 === "TS"
 
     ```typescript title="linkedlist_stack.ts"
-    /* Stack based on linked list implementation */
+    /* Stack implemented with a linked list */
     class LinkedListStack {
-        private stackPeek: ListNode | null; // Use head node as stack top
-        private stkSize: number = 0; // Stack length
+        private stackPeek: ListNode | null; // Use the head node as the stack top
+        private stkSize: number = 0; // Stack size
 
         constructor() {
             this.stackPeek = null;
         }
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         get size(): number {
             return this.stkSize;
         }
 
-        /* Check if the stack is empty */
+        /* Check whether the stack is empty */
         isEmpty(): boolean {
             return this.size === 0;
         }
@@ -840,13 +840,13 @@ Below is sample code for implementing a stack based on a linked list:
             return num;
         }
 
-        /* Return list for printing */
+        /* Access the top element */
         peek(): number {
             if (!this.stackPeek) throw new Error('Stack is empty');
             return this.stackPeek.val;
         }
 
-        /* Convert linked list to Array and return */
+        /* Convert the linked list to an Array and return it */
         toArray(): number[] {
             let node = this.stackPeek;
             const res = new Array<number>(this.size);
@@ -862,21 +862,21 @@ Below is sample code for implementing a stack based on a linked list:
 === "Dart"
 
     ```dart title="linkedlist_stack.dart"
-    /* Stack implemented based on linked list class */
+    /* Stack implemented with a linked list */
     class LinkedListStack {
-      ListNode? _stackPeek; // Use head node as stack top
-      int _stkSize = 0; // Stack length
+      ListNode? _stackPeek; // Use the head node as the stack top
+      int _stkSize = 0; // Stack size
 
       LinkedListStack() {
         _stackPeek = null;
       }
 
-      /* Get the length of the stack */
+      /* Get the stack size */
       int size() {
         return _stkSize;
       }
 
-      /* Check if the stack is empty */
+      /* Check whether the stack is empty */
       bool isEmpty() {
         return _stkSize == 0;
       }
@@ -897,7 +897,7 @@ Below is sample code for implementing a stack based on a linked list:
         return _num;
       }
 
-      /* Return list for printing */
+      /* Access the top element */
       int peek() {
         if (_stackPeek == null) {
           throw Exception("Stack is empty");
@@ -905,7 +905,7 @@ Below is sample code for implementing a stack based on a linked list:
         return _stackPeek!.val;
       }
 
-      /* Convert linked list to List and return */
+      /* Convert the linked list to a List and return it */
       List<int> toList() {
         ListNode? node = _stackPeek;
         List<int> list = [];
@@ -922,11 +922,11 @@ Below is sample code for implementing a stack based on a linked list:
 === "Rust"
 
     ```rust title="linkedlist_stack.rs"
-    /* Stack based on linked list implementation */
+    /* Stack implemented with a linked list */
     #[allow(dead_code)]
     pub struct LinkedListStack<T> {
-        stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // Use head node as stack top
-        stk_size: usize,                              // Stack length
+        stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // Use the head node as the stack top
+        stk_size: usize,                              // Stack size
     }
 
     impl<T: Copy> LinkedListStack<T> {
@@ -937,12 +937,12 @@ Below is sample code for implementing a stack based on a linked list:
             }
         }
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         pub fn size(&self) -> usize {
             return self.stk_size;
         }
 
-        /* Check if the stack is empty */
+        /* Check whether the stack is empty */
         pub fn is_empty(&self) -> bool {
             return self.size() == 0;
         }
@@ -965,12 +965,12 @@ Below is sample code for implementing a stack based on a linked list:
             })
         }
 
-        /* Return list for printing */
+        /* Access the top element */
         pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
             self.stack_peek.as_ref()
         }
 
-        /* Convert List to Array and return */
+        /* Convert the linked list to a vector and return it */
         pub fn to_array(&self) -> Vec<T> {
             fn _to_array<T: Sized + Copy>(head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
                 if let Some(node) = head {
@@ -989,10 +989,10 @@ Below is sample code for implementing a stack based on a linked list:
 === "C"
 
     ```c title="linkedlist_stack.c"
-    /* Stack based on linked list implementation */
+    /* Stack implemented with a linked list */
     typedef struct {
-        ListNode *top; // Use head node as stack top
-        int size;      // Stack length
+        ListNode *top; // Use the head node as the stack top
+        int size;      // Stack size
     } LinkedListStack;
 
     /* Constructor */
@@ -1013,12 +1013,12 @@ Below is sample code for implementing a stack based on a linked list:
         free(s);
     }
 
-    /* Get the length of the stack */
+    /* Get the stack size */
     int size(LinkedListStack *s) {
         return s->size;
     }
 
-    /* Check if the stack is empty */
+    /* Check whether the stack is empty */
     bool isEmpty(LinkedListStack *s) {
         return size(s) == 0;
     }
@@ -1026,13 +1026,13 @@ Below is sample code for implementing a stack based on a linked list:
     /* Push */
     void push(LinkedListStack *s, int num) {
         ListNode *node = (ListNode *)malloc(sizeof(ListNode));
-        node->next = s->top; // Update new node's pointer field
-        node->val = num;     // Update new node's data field
-        s->top = node;       // Update stack top
-        s->size++;           // Update stack size
+        node->next = s->top; // Set the new node's pointer field
+        node->val = num;     // Set the new node's data field
+        s->top = node;       // Update the stack top
+        s->size++;           // Update the stack size
     }
 
-    /* Return list for printing */
+    /* Access the top element */
     int peek(LinkedListStack *s) {
         if (s->size == 0) {
             printf("Stack is empty\n");
@@ -1056,18 +1056,18 @@ Below is sample code for implementing a stack based on a linked list:
 === "Kotlin"
 
     ```kotlin title="linkedlist_stack.kt"
-    /* Stack based on linked list implementation */
+    /* Stack implemented with a linked list */
     class LinkedListStack(
-        private var stackPeek: ListNode? = null, // Use head node as stack top
-        private var stkSize: Int = 0 // Stack length
+        private var stackPeek: ListNode? = null, // Use the head node as the stack top
+        private var stkSize: Int = 0 // Stack size
     ) {
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         fun size(): Int {
             return stkSize
         }
 
-        /* Check if the stack is empty */
+        /* Check whether the stack is empty */
         fun isEmpty(): Boolean {
             return size() == 0
         }
@@ -1088,13 +1088,13 @@ Below is sample code for implementing a stack based on a linked list:
             return num
         }
 
-        /* Return list for printing */
+        /* Access the top element */
         fun peek(): Int? {
             if (isEmpty()) throw IndexOutOfBoundsException()
             return stackPeek?._val
         }
 
-        /* Convert List to Array and return */
+        /* Convert the list to an array and return it */
         fun toArray(): IntArray {
             var node = stackPeek
             val res = IntArray(size())
@@ -1110,7 +1110,7 @@ Below is sample code for implementing a stack based on a linked list:
 === "Ruby"
 
     ```ruby title="linkedlist_stack.rb"
-    ### Stack based on linked list ###
+    ### Stack implemented with a linked list ###
     class LinkedListStack
       attr_reader :size
 
@@ -1119,7 +1119,7 @@ Below is sample code for implementing a stack based on a linked list:
         @size = 0
       end
 
-      ### Check if stack is empty ###
+      ### Check whether the stack is empty ###
       def is_empty?
         @peek.nil?
       end
@@ -1140,14 +1140,14 @@ Below is sample code for implementing a stack based on a linked list:
         num
       end
 
-      ### Access top element ###
+      ### Access the top element ###
       def peek
         raise IndexError, 'Stack is empty' if is_empty?
 
         @peek.val
       end
 
-      ### Convert linked list to Array and return ###
+      ### Convert the linked list to an Array and return it ###
       def to_array
         arr = []
         node = @peek
@@ -1160,12 +1160,17 @@ Below is sample code for implementing a stack based on a linked list:
     end
     ```
 
-### 2. &nbsp; Array Implementation
+??? pythontutor "Visualize execution"
 
-When implementing a stack using an array, we can treat the end of the array as the top of the stack. As shown in Figure 5-3, push and pop operations correspond to adding and removing elements at the end of the array, both with a time complexity of $O(1)$.
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0A%0Aclass%20LinkedListStack%3A%0A%20%20%20%20%22%22%22Stack%20implemented%20with%20a%20linked%20list%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self._peek%3A%20ListNode%20%7C%20None%20%3D%20None%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20stack%20size%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22Check%20whether%20the%20stack%20is%20empty%22%22%22%0A%20%20%20%20%20%20%20%20return%20not%20self._peek%0A%0A%20%20%20%20def%20push%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Push%22%22%22%0A%20%20%20%20%20%20%20%20node%20%3D%20ListNode%28val%29%0A%20%20%20%20%20%20%20%20node.next%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20node%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Pop%22%22%22%0A%20%20%20%20%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20self._peek.next%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Access%20the%20top%20element%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Stack%20is%20empty%22%29%0A%20%20%20%20%20%20%20%20return%20self._peek.val%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Convert%20to%20a%20list%20for%20printing%22%22%22%0A%20%20%20%20%20%20%20%20arr%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20node%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20while%20node%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20arr.append%28node.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20node%20%3D%20node.next%0A%20%20%20%20%20%20%20%20arr.reverse%28%29%0A%20%20%20%20%20%20%20%20return%20arr%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20stack%0A%20%20%20%20stack%20%3D%20LinkedListStack%28%29%0A%0A%20%20%20%20%23%20Push%20elements%20onto%20the%20stack%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22Stack%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20Access%20the%20top%20element%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22Top%20element%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20Pop%20an%20element%20from%20the%20stack%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22Popped%20element%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22After%20popping,%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20Get%20the%20stack%20size%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22Stack%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20Check%20whether%20it%20is%20empty%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22Is%20the%20stack%20empty%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0A%0Aclass%20LinkedListStack%3A%0A%20%20%20%20%22%22%22Stack%20implemented%20with%20a%20linked%20list%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self._peek%3A%20ListNode%20%7C%20None%20%3D%20None%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20stack%20size%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22Check%20whether%20the%20stack%20is%20empty%22%22%22%0A%20%20%20%20%20%20%20%20return%20not%20self._peek%0A%0A%20%20%20%20def%20push%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Push%22%22%22%0A%20%20%20%20%20%20%20%20node%20%3D%20ListNode%28val%29%0A%20%20%20%20%20%20%20%20node.next%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20node%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Pop%22%22%22%0A%20%20%20%20%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20self._peek.next%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Access%20the%20top%20element%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Stack%20is%20empty%22%29%0A%20%20%20%20%20%20%20%20return%20self._peek.val%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Convert%20to%20a%20list%20for%20printing%22%22%22%0A%20%20%20%20%20%20%20%20arr%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20node%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20while%20node%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20arr.append%28node.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20node%20%3D%20node.next%0A%20%20%20%20%20%20%20%20arr.reverse%28%29%0A%20%20%20%20%20%20%20%20return%20arr%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20stack%0A%20%20%20%20stack%20%3D%20LinkedListStack%28%29%0A%0A%20%20%20%20%23%20Push%20elements%20onto%20the%20stack%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22Stack%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20Access%20the%20top%20element%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22Top%20element%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20Pop%20an%20element%20from%20the%20stack%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22Popped%20element%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22After%20popping,%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20Get%20the%20stack%20size%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22Stack%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20Check%20whether%20it%20is%20empty%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22Is%20the%20stack%20empty%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+### 2. &nbsp; Implementation with an array
+
+For an array-based stack, use the end of the array as the top. As shown below, pushing and popping correspond to adding and removing the last element, both taking $O(1)$ time.
 
 === "<1>"
-    ![Push and pop operations in array implementation of stack](stack.assets/array_stack_step1.png){ class="animation-figure" }
+    ![Push and pop in an array-based stack](stack.assets/array_stack_step1.png){ class="animation-figure" }
 
 === "<2>"
     ![array_stack_push](stack.assets/array_stack_step2_push.png){ class="animation-figure" }
@@ -1173,26 +1178,26 @@ When implementing a stack using an array, we can treat the end of the array as t
 === "<3>"
     ![array_stack_pop](stack.assets/array_stack_step3_pop.png){ class="animation-figure" }
 
-<p align="center"> Figure 5-3 &nbsp; Push and pop operations in array implementation of stack </p>
+<p align="center"> Figure 5-3 &nbsp; Push and pop in an array-based stack </p>
 
-Since elements pushed onto the stack may increase continuously, we can use a dynamic array, which eliminates the need to handle array expansion ourselves. Here is the sample code:
+Since elements may keep arriving, use a dynamic array so that resizing is handled for us. An implementation follows:
 
 === "Python"
 
     ```python title="array_stack.py"
     class ArrayStack:
-        """Stack based on array implementation"""
+        """Stack implemented with an array"""
 
         def __init__(self):
             """Constructor"""
             self._stack: list[int] = []
 
         def size(self) -> int:
-            """Get the length of the stack"""
+            """Get the stack size"""
             return len(self._stack)
 
         def is_empty(self) -> bool:
-            """Check if the stack is empty"""
+            """Check whether the stack is empty"""
             return self.size() == 0
 
         def push(self, item: int):
@@ -1206,31 +1211,31 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
             return self._stack.pop()
 
         def peek(self) -> int:
-            """Access top of the stack element"""
+            """Access the top element"""
             if self.is_empty():
                 raise IndexError("Stack is empty")
             return self._stack[-1]
 
         def to_list(self) -> list[int]:
-            """Return list for printing"""
+            """Return a list for printing"""
             return self._stack
     ```
 
 === "C++"
 
     ```cpp title="array_stack.cpp"
-    /* Stack based on array implementation */
+    /* Stack implemented with an array */
     class ArrayStack {
       private:
         vector<int> stack;
 
       public:
-        /* Get the length of the stack */
+        /* Get the stack size */
         int size() {
             return stack.size();
         }
 
-        /* Check if the stack is empty */
+        /* Check whether the stack is empty */
         bool isEmpty() {
             return stack.size() == 0;
         }
@@ -1247,14 +1252,14 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
             return num;
         }
 
-        /* Return list for printing */
+        /* Access the top element */
         int top() {
             if (isEmpty())
                 throw out_of_range("Stack is empty");
             return stack.back();
         }
 
-        /* Return Vector */
+        /* Return a vector */
         vector<int> toVector() {
             return stack;
         }
@@ -1264,21 +1269,21 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
 === "Java"
 
     ```java title="array_stack.java"
-    /* Stack based on array implementation */
+    /* Stack implemented with an array */
     class ArrayStack {
         private ArrayList<Integer> stack;
 
         public ArrayStack() {
-            // Initialize list (dynamic array)
+            // Initialize the list (dynamic array)
             stack = new ArrayList<>();
         }
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         public int size() {
             return stack.size();
         }
 
-        /* Check if the stack is empty */
+        /* Check whether the stack is empty */
         public boolean isEmpty() {
             return size() == 0;
         }
@@ -1295,14 +1300,14 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
             return stack.remove(size() - 1);
         }
 
-        /* Return list for printing */
+        /* Access the top element */
         public int peek() {
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
             return stack.get(size() - 1);
         }
 
-        /* Convert List to Array and return */
+        /* Convert the list to an array and return it */
         public Object[] toArray() {
             return stack.toArray();
         }
@@ -1312,20 +1317,20 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
 === "C#"
 
     ```csharp title="array_stack.cs"
-    /* Stack based on array implementation */
+    /* Stack implemented with an array */
     class ArrayStack {
         List<int> stack;
         public ArrayStack() {
-            // Initialize list (dynamic array)
+            // Initialize the list (dynamic array)
             stack = [];
         }
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         public int Size() {
             return stack.Count;
         }
 
-        /* Check if the stack is empty */
+        /* Check whether the stack is empty */
         public bool IsEmpty() {
             return Size() == 0;
         }
@@ -1344,14 +1349,14 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
             return val;
         }
 
-        /* Return list for printing */
+        /* Access the top element */
         public int Peek() {
             if (IsEmpty())
                 throw new Exception();
             return stack[Size() - 1];
         }
 
-        /* Convert List to Array and return */
+        /* Convert the list to an array and return it */
         public int[] ToArray() {
             return [.. stack];
         }
@@ -1361,32 +1366,32 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
 === "Go"
 
     ```go title="array_stack.go"
-    /* Stack based on array implementation */
+    /* Stack implemented with an array */
     type arrayStack struct {
         data []int // Data
     }
 
-    /* Access top of the stack element */
+    /* Initialize the stack */
     func newArrayStack() *arrayStack {
         return &arrayStack{
-            // Set stack length to 0, capacity to 16
+            // Set the stack length to 0 and its capacity to 16
             data: make([]int, 0, 16),
         }
     }
 
-    /* Stack length */
+    /* Stack size */
     func (s *arrayStack) size() int {
         return len(s.data)
     }
 
-    /* Is stack empty */
+    /* Check whether the stack is empty */
     func (s *arrayStack) isEmpty() bool {
         return s.size() == 0
     }
 
     /* Push */
     func (s *arrayStack) push(v int) {
-        // Slice will automatically expand
+        // Appending grows the slice capacity automatically when needed
         s.data = append(s.data, v)
     }
 
@@ -1397,7 +1402,7 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
         return val
     }
 
-    /* Get stack top element */
+    /* Get the top element */
     func (s *arrayStack) peek() any {
         if s.isEmpty() {
             return nil
@@ -1406,7 +1411,7 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
         return val
     }
 
-    /* Get Slice for printing */
+    /* Get a slice for printing */
     func (s *arrayStack) toSlice() []int {
         return s.data
     }
@@ -1415,21 +1420,21 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
 === "Swift"
 
     ```swift title="array_stack.swift"
-    /* Stack based on array implementation */
+    /* Stack implemented with an array */
     class ArrayStack {
         private var stack: [Int]
 
         init() {
-            // Initialize list (dynamic array)
+            // Initialize the list (dynamic array)
             stack = []
         }
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         func size() -> Int {
             stack.count
         }
 
-        /* Check if the stack is empty */
+        /* Check whether the stack is empty */
         func isEmpty() -> Bool {
             stack.isEmpty
         }
@@ -1448,7 +1453,7 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
             return stack.removeLast()
         }
 
-        /* Return list for printing */
+        /* Access the top element */
         func peek() -> Int {
             if isEmpty() {
                 fatalError("Stack is empty")
@@ -1456,7 +1461,7 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
             return stack.last!
         }
 
-        /* Convert List to Array and return */
+        /* Return the stack elements as an array */
         func toArray() -> [Int] {
             stack
         }
@@ -1466,19 +1471,19 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
 === "JS"
 
     ```javascript title="array_stack.js"
-    /* Stack based on array implementation */
+    /* Stack implemented with an array */
     class ArrayStack {
         #stack;
         constructor() {
             this.#stack = [];
         }
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         get size() {
             return this.#stack.length;
         }
 
-        /* Check if the stack is empty */
+        /* Check whether the stack is empty */
         isEmpty() {
             return this.#stack.length === 0;
         }
@@ -1494,13 +1499,13 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
             return this.#stack.pop();
         }
 
-        /* Return list for printing */
+        /* Access the top element */
         top() {
             if (this.isEmpty()) throw new Error('Stack is empty');
             return this.#stack[this.#stack.length - 1];
         }
 
-        /* Return Array */
+        /* Return an Array */
         toArray() {
             return this.#stack;
         }
@@ -1510,19 +1515,19 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
 === "TS"
 
     ```typescript title="array_stack.ts"
-    /* Stack based on array implementation */
+    /* Stack implemented with an array */
     class ArrayStack {
         private stack: number[];
         constructor() {
             this.stack = [];
         }
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         get size(): number {
             return this.stack.length;
         }
 
-        /* Check if the stack is empty */
+        /* Check whether the stack is empty */
         isEmpty(): boolean {
             return this.stack.length === 0;
         }
@@ -1538,13 +1543,13 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
             return this.stack.pop();
         }
 
-        /* Return list for printing */
+        /* Access the top element */
         top(): number | undefined {
             if (this.isEmpty()) throw new Error('Stack is empty');
             return this.stack[this.stack.length - 1];
         }
 
-        /* Return Array */
+        /* Return an Array */
         toArray() {
             return this.stack;
         }
@@ -1554,19 +1559,19 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
 === "Dart"
 
     ```dart title="array_stack.dart"
-    /* Stack based on array implementation */
+    /* Stack implemented with an array */
     class ArrayStack {
       late List<int> _stack;
       ArrayStack() {
         _stack = [];
       }
 
-      /* Get the length of the stack */
+      /* Get the stack size */
       int size() {
         return _stack.length;
       }
 
-      /* Check if the stack is empty */
+      /* Check whether the stack is empty */
       bool isEmpty() {
         return _stack.isEmpty;
       }
@@ -1584,7 +1589,7 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
         return _stack.removeLast();
       }
 
-      /* Return list for printing */
+      /* Access the top element */
       int peek() {
         if (isEmpty()) {
           throw Exception("Stack is empty");
@@ -1592,7 +1597,7 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
         return _stack.last;
       }
 
-      /* Convert stack to Array and return */
+      /* Return the underlying stack array */
       List<int> toArray() => _stack;
     }
     ```
@@ -1600,25 +1605,25 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
 === "Rust"
 
     ```rust title="array_stack.rs"
-    /* Stack based on array implementation */
+    /* Stack implemented with an array */
     struct ArrayStack<T> {
         stack: Vec<T>,
     }
 
     impl<T> ArrayStack<T> {
-        /* Access top of the stack element */
+        /* Initialize the stack */
         fn new() -> ArrayStack<T> {
             ArrayStack::<T> {
                 stack: Vec::<T>::new(),
             }
         }
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         fn size(&self) -> usize {
             self.stack.len()
         }
 
-        /* Check if the stack is empty */
+        /* Check whether the stack is empty */
         fn is_empty(&self) -> bool {
             self.size() == 0
         }
@@ -1633,7 +1638,7 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
             self.stack.pop()
         }
 
-        /* Return list for printing */
+        /* Access the top element */
         fn peek(&self) -> Option<&T> {
             if self.is_empty() {
                 panic!("Stack is empty")
@@ -1641,7 +1646,7 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
             self.stack.last()
         }
 
-        /* Return &Vec */
+        /* Return a reference to the vector */
         fn to_array(&self) -> &Vec<T> {
             &self.stack
         }
@@ -1651,7 +1656,7 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
 === "C"
 
     ```c title="array_stack.c"
-    /* Stack based on array implementation */
+    /* Stack implemented with an array */
     typedef struct {
         int *data;
         int size;
@@ -1660,7 +1665,7 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
     /* Constructor */
     ArrayStack *newArrayStack() {
         ArrayStack *stack = malloc(sizeof(ArrayStack));
-        // Initialize with large capacity to avoid expansion
+        // Initialize with a large capacity to avoid resizing
         stack->data = malloc(sizeof(int) * MAX_SIZE);
         stack->size = 0;
         return stack;
@@ -1672,12 +1677,12 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
         free(stack);
     }
 
-    /* Get the length of the stack */
+    /* Get the stack size */
     int size(ArrayStack *stack) {
         return stack->size;
     }
 
-    /* Check if the stack is empty */
+    /* Check whether the stack is empty */
     bool isEmpty(ArrayStack *stack) {
         return stack->size == 0;
     }
@@ -1692,7 +1697,7 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
         stack->size++;
     }
 
-    /* Return list for printing */
+    /* Access the top element */
     int peek(ArrayStack *stack) {
         if (stack->size == 0) {
             printf("Stack is empty\n");
@@ -1712,17 +1717,17 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
 === "Kotlin"
 
     ```kotlin title="array_stack.kt"
-    /* Stack based on array implementation */
+    /* Stack implemented with an array */
     class ArrayStack {
-        // Initialize list (dynamic array)
+        // Initialize the list (dynamic array)
         private val stack = mutableListOf<Int>()
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         fun size(): Int {
             return stack.size
         }
 
-        /* Check if the stack is empty */
+        /* Check whether the stack is empty */
         fun isEmpty(): Boolean {
             return size() == 0
         }
@@ -1738,13 +1743,13 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
             return stack.removeAt(size() - 1)
         }
 
-        /* Return list for printing */
+        /* Access the top element */
         fun peek(): Int {
             if (isEmpty()) throw IndexOutOfBoundsException()
             return stack[size() - 1]
         }
 
-        /* Convert List to Array and return */
+        /* Convert the list to an array and return it */
         fun toArray(): Array<Any> {
             return stack.toTypedArray()
         }
@@ -1754,19 +1759,19 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
 === "Ruby"
 
     ```ruby title="array_stack.rb"
-    ### Stack based on array ###
+    ### Stack implemented with an array ###
     class ArrayStack
       ### Constructor ###
       def initialize
         @stack = []
       end
 
-      ### Get stack length ###
+      ### Get the stack size ###
       def size
         @stack.length
       end
 
-      ### Check if stack is empty ###
+      ### Check whether the stack is empty ###
       def is_empty?
         @stack.empty?
       end
@@ -1783,46 +1788,51 @@ Since elements pushed onto the stack may increase continuously, we can use a dyn
         @stack.pop
       end
 
-      ### Access top element ###
+      ### Access the top element ###
       def peek
         raise IndexError, 'Stack is empty' if is_empty?
 
         @stack.last
       end
 
-      ### Return list for printing ###
+      ### Return a list for printing ###
       def to_array
         @stack
       end
     end
     ```
 
-## 5.1.3 &nbsp; Comparison of the Two Implementations
+??? pythontutor "Visualize execution"
 
-**Supported Operations**
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20ArrayStack%3A%0A%20%20%20%20%22%22%22Stack%20implemented%20with%20an%20array%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self._stack%3A%20list%5Bint%5D%20%3D%20%5B%5D%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20stack%20size%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self._stack%29%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22Check%20whether%20the%20stack%20is%20empty%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%20%3D%3D%20%5B%5D%0A%0A%20%20%20%20def%20push%28self,%20item%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Push%22%22%22%0A%20%20%20%20%20%20%20%20self._stack.append%28item%29%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Pop%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Stack%20is%20empty%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack.pop%28%29%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Access%20the%20top%20element%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Stack%20is%20empty%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack%5B-1%5D%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Return%20a%20list%20for%20printing%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20stack%0A%20%20%20%20stack%20%3D%20ArrayStack%28%29%0A%0A%20%20%20%20%23%20Push%20elements%20onto%20the%20stack%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22Stack%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20Access%20the%20top%20element%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22Top%20element%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20Pop%20an%20element%20from%20the%20stack%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22Popped%20element%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22After%20popping,%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20Get%20the%20stack%20size%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22Stack%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20Check%20whether%20it%20is%20empty%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22Is%20the%20stack%20empty%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ArrayStack%3A%0A%20%20%20%20%22%22%22Stack%20implemented%20with%20an%20array%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self._stack%3A%20list%5Bint%5D%20%3D%20%5B%5D%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20stack%20size%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self._stack%29%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22Check%20whether%20the%20stack%20is%20empty%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%20%3D%3D%20%5B%5D%0A%0A%20%20%20%20def%20push%28self,%20item%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Push%22%22%22%0A%20%20%20%20%20%20%20%20self._stack.append%28item%29%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Pop%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Stack%20is%20empty%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack.pop%28%29%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Access%20the%20top%20element%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Stack%20is%20empty%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack%5B-1%5D%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22Return%20a%20list%20for%20printing%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20stack%0A%20%20%20%20stack%20%3D%20ArrayStack%28%29%0A%0A%20%20%20%20%23%20Push%20elements%20onto%20the%20stack%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22Stack%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20Access%20the%20top%20element%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22Top%20element%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20Pop%20an%20element%20from%20the%20stack%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22Popped%20element%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22After%20popping,%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20Get%20the%20stack%20size%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22Stack%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20Check%20whether%20it%20is%20empty%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22Is%20the%20stack%20empty%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-Both implementations support all operations defined by the stack. The array implementation additionally supports random access, but this goes beyond the stack definition and is generally not used.
+## 5.1.3 &nbsp; Comparing the implementations
 
-**Time Efficiency**
+**Supported operations**
 
-In the array-based implementation, both push and pop operations occur in pre-allocated contiguous memory, which has good cache locality and is therefore more efficient. However, if pushing exceeds the array capacity, it triggers an expansion mechanism, causing the time complexity of that particular push operation to become $O(n)$.
+Both implementations support all stack operations. An array also allows random access, but that is outside the stack abstraction and is generally not used.
 
-In the linked list-based implementation, list expansion is very flexible, and there is no issue of reduced efficiency due to array expansion. However, the push operation requires initializing a node object and modifying pointers, so it is relatively less efficient. Nevertheless, if the pushed elements are already node objects, the initialization step can be omitted, thereby improving efficiency.
+**Time efficiency**
 
-In summary, when the elements pushed and popped are basic data types such as `int` or `double`, we can draw the following conclusions:
+In an array-based stack, pushes and pops operate in preallocated contiguous memory, giving good cache locality and high efficiency. However, a push that exceeds the array's capacity triggers expansion, making that particular push an $O(n)$ operation.
 
-- The array-based stack implementation has reduced efficiency when expansion is triggered, but since expansion is an infrequent operation, the average efficiency is higher.
-- The linked list-based stack implementation can provide more stable efficiency performance.
+A linked list grows flexibly and avoids the slowdown associated with array expansion. However, pushing requires creating a node object and updating pointers, so it is relatively slower. If the element is already a node object, the creation step can be skipped to improve efficiency.
 
-**Space Efficiency**
+For elements of primitive types such as `int` or `double`, we can therefore draw the following conclusions.
 
-When initializing a list, the system allocates an "initial capacity" that may exceed the actual need. Additionally, the expansion mechanism typically expands at a specific ratio (e.g., 2x), and the capacity after expansion may also exceed actual needs. Therefore, **the array-based stack implementation may cause some space wastage**.
+- An array-based stack slows down when expansion is triggered, but expansion is infrequent, so average efficiency is higher.
+- A linked-list stack provides more consistent performance.
 
-However, since linked list nodes need to store additional pointers, **the space occupied by linked list nodes is relatively large**.
+**Space efficiency**
 
-In summary, we cannot simply determine which implementation is more memory-efficient and need to analyze the specific situation.
+When a dynamic array is initialized, its initial capacity may exceed actual needs. Expansion typically multiplies the capacity by a fixed factor, such as 2, which may again leave excess space. **An array-based stack can therefore waste some space**.
 
-## 5.1.4 &nbsp; Typical Applications of Stack
+However, linked-list nodes also store pointers, **so each node occupies relatively more space**.
 
-- **Back and forward in browsers, undo and redo in software**. Every time we open a new webpage, the browser pushes the previous page onto the stack, allowing us to return to the previous page via the back operation. The back operation is essentially performing a pop. To support both back and forward, two stacks are needed to work together.
-- **Program memory management**. Each time a function is called, the system adds a stack frame to the top of the stack to record the function's context information. During recursion, the downward recursive phase continuously performs push operations, while the upward backtracking phase continuously performs pop operations.
+We cannot say universally which implementation uses less memory; the answer depends on the situation.
+
+## 5.1.4 &nbsp; Typical applications
+
+- **Browser back and forward navigation, and software undo and redo**. When a new web page is opened, the browser pushes the previous page onto a stack. Going back pops that page. Supporting both back and forward requires two stacks working together.
+- **Program memory management**. Each function call adds a stack frame containing the function's context. During recursion, frames are pushed as calls descend and popped as they return.

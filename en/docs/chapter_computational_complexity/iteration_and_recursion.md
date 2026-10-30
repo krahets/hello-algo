@@ -2,19 +2,19 @@
 comments: true
 ---
 
-# 2.2 &nbsp; Iteration and Recursion
+# 2.2 &nbsp; Iteration and recursion
 
-In algorithms, repeatedly executing a task is very common and closely related to complexity analysis. Therefore, before introducing time complexity and space complexity, let's first understand how to implement repeated task execution in programs, namely the two basic program control structures: iteration and recursion.
+Algorithms often repeat tasks, and repetition is closely tied to complexity analysis. Before introducing time and space complexity, let's examine two basic ways to repeat work in a program: iteration and recursion.
 
 ## 2.2.1 &nbsp; Iteration
 
-<u>Iteration</u> is a control structure for repeatedly executing a task. In iteration, a program repeatedly executes a segment of code under certain conditions until those conditions are no longer satisfied.
+<u>Iteration</u> is a control structure for repeating a task. A program repeatedly executes a block of code while a condition holds, stopping when it no longer does.
 
-### 1. &nbsp; For Loop
+### 1. &nbsp; For loops
 
-The `for` loop is one of the most common forms of iteration, **suitable for use when the number of iterations is known in advance**.
+A `for` loop is one of the most common forms of iteration, **especially when the number of iterations is known in advance**.
 
-The following function implements the summation $1 + 2 + \dots + n$ using a `for` loop, with the result stored in the variable `res`. Note that in Python, `range(a, b)` corresponds to a "left-closed, right-open" interval, with the traversal range being $a, a + 1, \dots, b-1$:
+The following function uses a `for` loop to compute $1 + 2 + \dots + n$, storing the result in `res`. In Python, `range(a, b)` includes the left endpoint but excludes the right, so it visits $a, a + 1, \dots, b-1$:
 
 === "Python"
 
@@ -22,7 +22,7 @@ The following function implements the summation $1 + 2 + \dots + n$ using a `for
     def for_loop(n: int) -> int:
         """for loop"""
         res = 0
-        # Sum 1, 2, ..., n-1, n
+        # Sum 1, 2, ..., n-1, n in a loop
         for i in range(1, n + 1):
             res += i
         return res
@@ -34,7 +34,7 @@ The following function implements the summation $1 + 2 + \dots + n$ using a `for
     /* for loop */
     int forLoop(int n) {
         int res = 0;
-        // Sum 1, 2, ..., n-1, n
+        // Sum 1, 2, ..., n-1, n in a loop
         for (int i = 1; i <= n; ++i) {
             res += i;
         }
@@ -48,7 +48,7 @@ The following function implements the summation $1 + 2 + \dots + n$ using a `for
     /* for loop */
     int forLoop(int n) {
         int res = 0;
-        // Sum 1, 2, ..., n-1, n
+        // Sum 1, 2, ..., n-1, n in a loop
         for (int i = 1; i <= n; i++) {
             res += i;
         }
@@ -62,7 +62,7 @@ The following function implements the summation $1 + 2 + \dots + n$ using a `for
     /* for loop */
     int ForLoop(int n) {
         int res = 0;
-        // Sum 1, 2, ..., n-1, n
+        // Sum 1, 2, ..., n-1, n in a loop
         for (int i = 1; i <= n; i++) {
             res += i;
         }
@@ -76,7 +76,7 @@ The following function implements the summation $1 + 2 + \dots + n$ using a `for
     /* for loop */
     func forLoop(n int) int {
         res := 0
-        // Sum 1, 2, ..., n-1, n
+        // Sum 1, 2, ..., n-1, n in a loop
         for i := 1; i <= n; i++ {
             res += i
         }
@@ -90,7 +90,7 @@ The following function implements the summation $1 + 2 + \dots + n$ using a `for
     /* for loop */
     func forLoop(n: Int) -> Int {
         var res = 0
-        // Sum 1, 2, ..., n-1, n
+        // Sum 1, 2, ..., n-1, n in a loop
         for i in 1 ... n {
             res += i
         }
@@ -104,7 +104,7 @@ The following function implements the summation $1 + 2 + \dots + n$ using a `for
     /* for loop */
     function forLoop(n) {
         let res = 0;
-        // Sum 1, 2, ..., n-1, n
+        // Sum 1, 2, ..., n-1, n in a loop
         for (let i = 1; i <= n; i++) {
             res += i;
         }
@@ -118,7 +118,7 @@ The following function implements the summation $1 + 2 + \dots + n$ using a `for
     /* for loop */
     function forLoop(n: number): number {
         let res = 0;
-        // Sum 1, 2, ..., n-1, n
+        // Sum 1, 2, ..., n-1, n in a loop
         for (let i = 1; i <= n; i++) {
             res += i;
         }
@@ -132,7 +132,7 @@ The following function implements the summation $1 + 2 + \dots + n$ using a `for
     /* for loop */
     int forLoop(int n) {
       int res = 0;
-      // Sum 1, 2, ..., n-1, n
+      // Sum 1, 2, ..., n-1, n in a loop
       for (int i = 1; i <= n; i++) {
         res += i;
       }
@@ -146,7 +146,7 @@ The following function implements the summation $1 + 2 + \dots + n$ using a `for
     /* for loop */
     fn for_loop(n: i32) -> i32 {
         let mut res = 0;
-        // Sum 1, 2, ..., n-1, n
+        // Sum 1, 2, ..., n-1, n in a loop
         for i in 1..=n {
             res += i;
         }
@@ -160,7 +160,7 @@ The following function implements the summation $1 + 2 + \dots + n$ using a `for
     /* for loop */
     int forLoop(int n) {
         int res = 0;
-        // Sum 1, 2, ..., n-1, n
+        // Sum 1, 2, ..., n-1, n in a loop
         for (int i = 1; i <= n; i++) {
             res += i;
         }
@@ -174,7 +174,7 @@ The following function implements the summation $1 + 2 + \dots + n$ using a `for
     /* for loop */
     fun forLoop(n: Int): Int {
         var res = 0
-        // Sum 1, 2, ..., n-1, n
+        // Sum 1, 2, ..., n-1, n in a loop
         for (i in 1..n) {
             res += i
         }
@@ -189,7 +189,7 @@ The following function implements the summation $1 + 2 + \dots + n$ using a `for
     def for_loop(n)
       res = 0
 
-      # Sum 1, 2, ..., n-1, n
+      # Sum 1, 2, ..., n-1, n in a loop
       for i in 1..n
         res += i
       end
@@ -198,19 +198,24 @@ The following function implements the summation $1 + 2 + \dots + n$ using a `for
     end
     ```
 
-Figure 2-1 shows the flowchart of this summation function.
+??? pythontutor "Visualize execution"
+
+    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20for_loop%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22for%20loop%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20Sum%201,%202,%20...,%20n-1,%20n%20in%20a%20loop%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20for_loop%28n%29%0A%20%20%20%20print%28f%22%5CnSum%20from%20the%20for%20loop%3A%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20for_loop%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22for%20loop%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20Sum%201,%202,%20...,%20n-1,%20n%20in%20a%20loop%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20for_loop%28n%29%0A%20%20%20%20print%28f%22%5CnSum%20from%20the%20for%20loop%3A%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+Figure 2-1 is a flowchart of this summation function.
 
 ![Flowchart of the summation function](iteration_and_recursion.assets/iteration.png){ class="animation-figure" }
 
 <p align="center"> Figure 2-1 &nbsp; Flowchart of the summation function </p>
 
-The number of operations in this summation function is proportional to the input data size $n$, or has a "linear relationship". In fact, **time complexity describes precisely this "linear relationship"**. Related content will be introduced in detail in the next section.
+Its operation count is proportional to the input size $n$: the relationship is linear. **Time complexity describes this relationship**, as the next section will explain.
 
-### 2. &nbsp; While Loop
+### 2. &nbsp; While loops
 
-Similar to the `for` loop, the `while` loop is also a method for implementing iteration. In a `while` loop, the program first checks the condition in each round; if the condition is true, it continues execution, otherwise it ends the loop.
+Like `for`, a `while` loop implements iteration. Before each iteration, it checks a condition: if true, execution continues; otherwise, the loop ends.
 
-Below we use a `while` loop to implement the summation $1 + 2 + \dots + n$:
+Here is a `while` loop computing $1 + 2 + \dots + n$:
 
 === "Python"
 
@@ -218,11 +223,11 @@ Below we use a `while` loop to implement the summation $1 + 2 + \dots + n$:
     def while_loop(n: int) -> int:
         """while loop"""
         res = 0
-        i = 1  # Initialize condition variable
-        # Sum 1, 2, ..., n-1, n
+        i = 1  # Initialize the loop control variable
+        # Sum 1, 2, ..., n-1, n in a loop
         while i <= n:
             res += i
-            i += 1  # Update condition variable
+            i += 1  # Update the loop control variable
         return res
     ```
 
@@ -232,11 +237,11 @@ Below we use a `while` loop to implement the summation $1 + 2 + \dots + n$:
     /* while loop */
     int whileLoop(int n) {
         int res = 0;
-        int i = 1; // Initialize condition variable
-        // Sum 1, 2, ..., n-1, n
+        int i = 1; // Initialize the loop control variable
+        // Sum 1, 2, ..., n-1, n in a loop
         while (i <= n) {
             res += i;
-            i++; // Update condition variable
+            i++; // Update the loop control variable
         }
         return res;
     }
@@ -248,11 +253,11 @@ Below we use a `while` loop to implement the summation $1 + 2 + \dots + n$:
     /* while loop */
     int whileLoop(int n) {
         int res = 0;
-        int i = 1; // Initialize condition variable
-        // Sum 1, 2, ..., n-1, n
+        int i = 1; // Initialize the loop control variable
+        // Sum 1, 2, ..., n-1, n in a loop
         while (i <= n) {
             res += i;
-            i++; // Update condition variable
+            i++; // Update the loop control variable
         }
         return res;
     }
@@ -264,11 +269,11 @@ Below we use a `while` loop to implement the summation $1 + 2 + \dots + n$:
     /* while loop */
     int WhileLoop(int n) {
         int res = 0;
-        int i = 1; // Initialize condition variable
-        // Sum 1, 2, ..., n-1, n
+        int i = 1; // Initialize the loop control variable
+        // Sum 1, 2, ..., n-1, n in a loop
         while (i <= n) {
             res += i;
-            i += 1; // Update condition variable
+            i += 1; // Update the loop control variable
         }
         return res;
     }
@@ -280,12 +285,12 @@ Below we use a `while` loop to implement the summation $1 + 2 + \dots + n$:
     /* while loop */
     func whileLoop(n int) int {
         res := 0
-        // Initialize condition variable
+        // Initialize the loop control variable
         i := 1
-        // Sum 1, 2, ..., n-1, n
+        // Sum 1, 2, ..., n-1, n in a loop
         for i <= n {
             res += i
-            // Update condition variable
+            // Update the loop control variable
             i++
         }
         return res
@@ -298,11 +303,11 @@ Below we use a `while` loop to implement the summation $1 + 2 + \dots + n$:
     /* while loop */
     func whileLoop(n: Int) -> Int {
         var res = 0
-        var i = 1 // Initialize condition variable
-        // Sum 1, 2, ..., n-1, n
+        var i = 1 // Initialize the loop control variable
+        // Sum 1, 2, ..., n-1, n in a loop
         while i <= n {
             res += i
-            i += 1 // Update condition variable
+            i += 1 // Update the loop control variable
         }
         return res
     }
@@ -314,11 +319,11 @@ Below we use a `while` loop to implement the summation $1 + 2 + \dots + n$:
     /* while loop */
     function whileLoop(n) {
         let res = 0;
-        let i = 1; // Initialize condition variable
-        // Sum 1, 2, ..., n-1, n
+        let i = 1; // Initialize the loop control variable
+        // Sum 1, 2, ..., n-1, n in a loop
         while (i <= n) {
             res += i;
-            i++; // Update condition variable
+            i++; // Update the loop control variable
         }
         return res;
     }
@@ -330,11 +335,11 @@ Below we use a `while` loop to implement the summation $1 + 2 + \dots + n$:
     /* while loop */
     function whileLoop(n: number): number {
         let res = 0;
-        let i = 1; // Initialize condition variable
-        // Sum 1, 2, ..., n-1, n
+        let i = 1; // Initialize the loop control variable
+        // Sum 1, 2, ..., n-1, n in a loop
         while (i <= n) {
             res += i;
-            i++; // Update condition variable
+            i++; // Update the loop control variable
         }
         return res;
     }
@@ -346,11 +351,11 @@ Below we use a `while` loop to implement the summation $1 + 2 + \dots + n$:
     /* while loop */
     int whileLoop(int n) {
       int res = 0;
-      int i = 1; // Initialize condition variable
-      // Sum 1, 2, ..., n-1, n
+      int i = 1; // Initialize the loop control variable
+      // Sum 1, 2, ..., n-1, n in a loop
       while (i <= n) {
         res += i;
-        i++; // Update condition variable
+        i++; // Update the loop control variable
       }
       return res;
     }
@@ -362,12 +367,12 @@ Below we use a `while` loop to implement the summation $1 + 2 + \dots + n$:
     /* while loop */
     fn while_loop(n: i32) -> i32 {
         let mut res = 0;
-        let mut i = 1; // Initialize condition variable
+        let mut i = 1; // Initialize the loop control variable
 
-        // Sum 1, 2, ..., n-1, n
+        // Sum 1, 2, ..., n-1, n in a loop
         while i <= n {
             res += i;
-            i += 1; // Update condition variable
+            i += 1; // Update the loop control variable
         }
         res
     }
@@ -379,11 +384,11 @@ Below we use a `while` loop to implement the summation $1 + 2 + \dots + n$:
     /* while loop */
     int whileLoop(int n) {
         int res = 0;
-        int i = 1; // Initialize condition variable
-        // Sum 1, 2, ..., n-1, n
+        int i = 1; // Initialize the loop control variable
+        // Sum 1, 2, ..., n-1, n in a loop
         while (i <= n) {
             res += i;
-            i++; // Update condition variable
+            i++; // Update the loop control variable
         }
         return res;
     }
@@ -395,11 +400,11 @@ Below we use a `while` loop to implement the summation $1 + 2 + \dots + n$:
     /* while loop */
     fun whileLoop(n: Int): Int {
         var res = 0
-        var i = 1 // Initialize condition variable
-        // Sum 1, 2, ..., n-1, n
+        var i = 1 // Initialize the loop control variable
+        // Sum 1, 2, ..., n-1, n in a loop
         while (i <= n) {
             res += i
-            i++ // Update condition variable
+            i++ // Update the loop control variable
         }
         return res
     }
@@ -411,21 +416,26 @@ Below we use a `while` loop to implement the summation $1 + 2 + \dots + n$:
     ### while loop ###
     def while_loop(n)
       res = 0
-      i = 1 # Initialize condition variable
+      i = 1 # Initialize the loop control variable
 
-      # Sum 1, 2, ..., n-1, n
+      # Sum 1, 2, ..., n-1, n in a loop
       while i <= n
         res += i
-        i += 1 # Update condition variable
+        i += 1 # Update the loop control variable
       end
 
       res
     end
     ```
 
-**The `while` loop has greater flexibility than the `for` loop**. In a `while` loop, we can freely design the initialization and update steps of the condition variable.
+??? pythontutor "Visualize execution"
 
-For example, in the following code, the condition variable $i$ is updated twice per round, which is not convenient to implement using a `for` loop:
+    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20while_loop%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22while%20loop%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20i%20%3D%201%20%20%23%20Initialize%20the%20loop%20control%20variable%0A%20%20%20%20%23%20Sum%201,%202,%20...,%20n-1,%20n%20in%20a%20loop%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%20%20%23%20Update%20the%20loop%20control%20variable%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20while_loop%28n%29%0A%20%20%20%20print%28f%22%5CnSum%20from%20the%20while%20loop%3A%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20while_loop%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22while%20loop%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20i%20%3D%201%20%20%23%20Initialize%20the%20loop%20control%20variable%0A%20%20%20%20%23%20Sum%201,%202,%20...,%20n-1,%20n%20in%20a%20loop%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%20%20%23%20Update%20the%20loop%20control%20variable%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20while_loop%28n%29%0A%20%20%20%20print%28f%22%5CnSum%20from%20the%20while%20loop%3A%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+**A `while` loop offers more flexibility than a `for` loop** in how its condition variables are initialized and updated.
+
+For example, the following code updates the condition variable $i$ twice per iteration, which is less convenient to express with a `for` loop:
 
 === "Python"
 
@@ -433,11 +443,11 @@ For example, in the following code, the condition variable $i$ is updated twice 
     def while_loop_ii(n: int) -> int:
         """while loop (two updates)"""
         res = 0
-        i = 1  # Initialize condition variable
-        # Sum 1, 4, 10, ...
+        i = 1  # Initialize the loop control variable
+        # Sum 1, 4, 10, ... in a loop
         while i <= n:
             res += i
-            # Update condition variable
+            # Update the loop control variable
             i += 1
             i *= 2
         return res
@@ -449,11 +459,11 @@ For example, in the following code, the condition variable $i$ is updated twice 
     /* while loop (two updates) */
     int whileLoopII(int n) {
         int res = 0;
-        int i = 1; // Initialize condition variable
-        // Sum 1, 4, 10, ...
+        int i = 1; // Initialize the loop control variable
+        // Sum 1, 4, 10, ... in a loop
         while (i <= n) {
             res += i;
-            // Update condition variable
+            // Update the loop control variable
             i++;
             i *= 2;
         }
@@ -467,11 +477,11 @@ For example, in the following code, the condition variable $i$ is updated twice 
     /* while loop (two updates) */
     int whileLoopII(int n) {
         int res = 0;
-        int i = 1; // Initialize condition variable
-        // Sum 1, 4, 10, ...
+        int i = 1; // Initialize the loop control variable
+        // Sum 1, 4, 10, ... in a loop
         while (i <= n) {
             res += i;
-            // Update condition variable
+            // Update the loop control variable
             i++;
             i *= 2;
         }
@@ -485,11 +495,11 @@ For example, in the following code, the condition variable $i$ is updated twice 
     /* while loop (two updates) */
     int WhileLoopII(int n) {
         int res = 0;
-        int i = 1; // Initialize condition variable
-        // Sum 1, 4, 10, ...
+        int i = 1; // Initialize the loop control variable
+        // Sum 1, 4, 10, ... in a loop
         while (i <= n) {
             res += i;
-            // Update condition variable
+            // Update the loop control variable
             i += 1; 
             i *= 2;
         }
@@ -503,12 +513,12 @@ For example, in the following code, the condition variable $i$ is updated twice 
     /* while loop (two updates) */
     func whileLoopII(n int) int {
         res := 0
-        // Initialize condition variable
+        // Initialize the loop control variable
         i := 1
-        // Sum 1, 4, 10, ...
+        // Sum 1, 4, 10, ... in a loop
         for i <= n {
             res += i
-            // Update condition variable
+            // Update the loop control variable
             i++
             i *= 2
         }
@@ -522,11 +532,11 @@ For example, in the following code, the condition variable $i$ is updated twice 
     /* while loop (two updates) */
     func whileLoopII(n: Int) -> Int {
         var res = 0
-        var i = 1 // Initialize condition variable
-        // Sum 1, 4, 10, ...
+        var i = 1 // Initialize the loop control variable
+        // Sum 1, 4, 10, ... in a loop
         while i <= n {
             res += i
-            // Update condition variable
+            // Update the loop control variable
             i += 1
             i *= 2
         }
@@ -540,11 +550,11 @@ For example, in the following code, the condition variable $i$ is updated twice 
     /* while loop (two updates) */
     function whileLoopII(n) {
         let res = 0;
-        let i = 1; // Initialize condition variable
-        // Sum 1, 4, 10, ...
+        let i = 1; // Initialize the loop control variable
+        // Sum 1, 4, 10, ... in a loop
         while (i <= n) {
             res += i;
-            // Update condition variable
+            // Update the loop control variable
             i++;
             i *= 2;
         }
@@ -558,11 +568,11 @@ For example, in the following code, the condition variable $i$ is updated twice 
     /* while loop (two updates) */
     function whileLoopII(n: number): number {
         let res = 0;
-        let i = 1; // Initialize condition variable
-        // Sum 1, 4, 10, ...
+        let i = 1; // Initialize the loop control variable
+        // Sum 1, 4, 10, ... in a loop
         while (i <= n) {
             res += i;
-            // Update condition variable
+            // Update the loop control variable
             i++;
             i *= 2;
         }
@@ -576,11 +586,11 @@ For example, in the following code, the condition variable $i$ is updated twice 
     /* while loop (two updates) */
     int whileLoopII(int n) {
       int res = 0;
-      int i = 1; // Initialize condition variable
-      // Sum 1, 4, 10, ...
+      int i = 1; // Initialize the loop control variable
+      // Sum 1, 4, 10, ... in a loop
       while (i <= n) {
         res += i;
-        // Update condition variable
+        // Update the loop control variable
         i++;
         i *= 2;
       }
@@ -594,12 +604,12 @@ For example, in the following code, the condition variable $i$ is updated twice 
     /* while loop (two updates) */
     fn while_loop_ii(n: i32) -> i32 {
         let mut res = 0;
-        let mut i = 1; // Initialize condition variable
+        let mut i = 1; // Initialize the loop control variable
 
-        // Sum 1, 4, 10, ...
+        // Sum 1, 4, 10, ... in a loop
         while i <= n {
             res += i;
-            // Update condition variable
+            // Update the loop control variable
             i += 1;
             i *= 2;
         }
@@ -613,11 +623,11 @@ For example, in the following code, the condition variable $i$ is updated twice 
     /* while loop (two updates) */
     int whileLoopII(int n) {
         int res = 0;
-        int i = 1; // Initialize condition variable
-        // Sum 1, 4, 10, ...
+        int i = 1; // Initialize the loop control variable
+        // Sum 1, 4, 10, ... in a loop
         while (i <= n) {
             res += i;
-            // Update condition variable
+            // Update the loop control variable
             i++;
             i *= 2;
         }
@@ -631,11 +641,11 @@ For example, in the following code, the condition variable $i$ is updated twice 
     /* while loop (two updates) */
     fun whileLoopII(n: Int): Int {
         var res = 0
-        var i = 1 // Initialize condition variable
-        // Sum 1, 4, 10, ...
+        var i = 1 // Initialize the loop control variable
+        // Sum 1, 4, 10, ... in a loop
         while (i <= n) {
             res += i
-            // Update condition variable
+            // Update the loop control variable
             i++
             i *= 2
         }
@@ -646,15 +656,15 @@ For example, in the following code, the condition variable $i$ is updated twice 
 === "Ruby"
 
     ```ruby title="iteration.rb"
-    ### while loop (two updates) ###
+    ### while loop (two updates)###
     def while_loop_ii(n)
       res = 0
-      i = 1 # Initialize condition variable
+      i = 1 # Initialize the loop control variable
 
-      # Sum 1, 4, 10, ...
+      # Sum 1, 4, 10, ... in a loop
       while i <= n
         res += i
-        # Update condition variable
+        # Update the loop control variable
         i += 1
         i *= 2
       end
@@ -663,21 +673,26 @@ For example, in the following code, the condition variable $i$ is updated twice 
     end
     ```
 
-Overall, **`for` loops have more compact code, while `while` loops are more flexible**; both can implement iterative structures. The choice of which to use should be determined based on the requirements of the specific problem.
+??? pythontutor "Visualize execution"
 
-### 3. &nbsp; Nested Loops
+    <div style="height: 495px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20while_loop_ii%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22while%20loop%20%28two%20updates%29%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20i%20%3D%201%20%20%23%20Initialize%20the%20loop%20control%20variable%0A%20%20%20%20%23%20Sum%201,%204,%2010,%20...%20in%20a%20loop%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20%20%20%20%20%23%20Update%20the%20loop%20control%20variable%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20i%20%2A%3D%202%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20while_loop_ii%28n%29%0A%20%20%20%20print%28f%22%5CnSum%20from%20the%20while%20loop%20%28two%20updates%29%3A%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20while_loop_ii%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22while%20loop%20%28two%20updates%29%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20i%20%3D%201%20%20%23%20Initialize%20the%20loop%20control%20variable%0A%20%20%20%20%23%20Sum%201,%204,%2010,%20...%20in%20a%20loop%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20%20%20%20%20%23%20Update%20the%20loop%20control%20variable%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20i%20%2A%3D%202%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20while_loop_ii%28n%29%0A%20%20%20%20print%28f%22%5CnSum%20from%20the%20while%20loop%20%28two%20updates%29%3A%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-We can nest one loop structure inside another. Below is an example using `for` loops:
+In general, **`for` loops are more compact, while `while` loops are more flexible**. Both implement iteration; choose according to the problem's needs.
+
+### 3. &nbsp; Nested loops
+
+We can place one loop inside another, as in the following `for`-loop example:
 
 === "Python"
 
     ```python title="iteration.py"
     def nested_for_loop(n: int) -> str:
-        """Nested for loop"""
+        """Nested for loops"""
         res = ""
-        # Loop i = 1, 2, ..., n-1, n
+        # Loop over i = 1, 2, ..., n-1, n
         for i in range(1, n + 1):
-            # Loop j = 1, 2, ..., n-1, n
+            # Loop over j = 1, 2, ..., n-1, n
             for j in range(1, n + 1):
                 res += f"({i}, {j}), "
         return res
@@ -686,12 +701,12 @@ We can nest one loop structure inside another. Below is an example using `for` l
 === "C++"
 
     ```cpp title="iteration.cpp"
-    /* Nested for loop */
+    /* Nested for loops */
     string nestedForLoop(int n) {
         ostringstream res;
-        // Loop i = 1, 2, ..., n-1, n
+        // Loop over i = 1, 2, ..., n-1, n
         for (int i = 1; i <= n; ++i) {
-            // Loop j = 1, 2, ..., n-1, n
+            // Loop over j = 1, 2, ..., n-1, n
             for (int j = 1; j <= n; ++j) {
                 res << "(" << i << ", " << j << "), ";
             }
@@ -703,12 +718,12 @@ We can nest one loop structure inside another. Below is an example using `for` l
 === "Java"
 
     ```java title="iteration.java"
-    /* Nested for loop */
+    /* Nested for loops */
     String nestedForLoop(int n) {
         StringBuilder res = new StringBuilder();
-        // Loop i = 1, 2, ..., n-1, n
+        // Loop over i = 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
-            // Loop j = 1, 2, ..., n-1, n
+            // Loop over j = 1, 2, ..., n-1, n
             for (int j = 1; j <= n; j++) {
                 res.append("(" + i + ", " + j + "), ");
             }
@@ -720,12 +735,12 @@ We can nest one loop structure inside another. Below is an example using `for` l
 === "C#"
 
     ```csharp title="iteration.cs"
-    /* Nested for loop */
+    /* Nested for loops */
     string NestedForLoop(int n) {
         StringBuilder res = new();
-        // Loop i = 1, 2, ..., n-1, n
+        // Loop over i = 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
-            // Loop j = 1, 2, ..., n-1, n
+            // Loop over j = 1, 2, ..., n-1, n
             for (int j = 1; j <= n; j++) {
                 res.Append($"({i}, {j}), ");
             }
@@ -737,13 +752,13 @@ We can nest one loop structure inside another. Below is an example using `for` l
 === "Go"
 
     ```go title="iteration.go"
-    /* Nested for loop */
+    /* Nested for loops */
     func nestedForLoop(n int) string {
         res := ""
-        // Loop i = 1, 2, ..., n-1, n
+        // Loop over i = 1, 2, ..., n-1, n
         for i := 1; i <= n; i++ {
             for j := 1; j <= n; j++ {
-                // Loop j = 1, 2, ..., n-1, n
+                // Loop over j = 1, 2, ..., n-1, n
                 res += fmt.Sprintf("(%d, %d), ", i, j)
             }
         }
@@ -754,12 +769,12 @@ We can nest one loop structure inside another. Below is an example using `for` l
 === "Swift"
 
     ```swift title="iteration.swift"
-    /* Nested for loop */
+    /* Nested for loops */
     func nestedForLoop(n: Int) -> String {
         var res = ""
-        // Loop i = 1, 2, ..., n-1, n
+        // Loop over i = 1, 2, ..., n-1, n
         for i in 1 ... n {
-            // Loop j = 1, 2, ..., n-1, n
+            // Loop over j = 1, 2, ..., n-1, n
             for j in 1 ... n {
                 res.append("(\(i), \(j)), ")
             }
@@ -771,12 +786,12 @@ We can nest one loop structure inside another. Below is an example using `for` l
 === "JS"
 
     ```javascript title="iteration.js"
-    /* Nested for loop */
+    /* Nested for loops */
     function nestedForLoop(n) {
         let res = '';
-        // Loop i = 1, 2, ..., n-1, n
+        // Loop over i = 1, 2, ..., n-1, n
         for (let i = 1; i <= n; i++) {
-            // Loop j = 1, 2, ..., n-1, n
+            // Loop over j = 1, 2, ..., n-1, n
             for (let j = 1; j <= n; j++) {
                 res += `(${i}, ${j}), `;
             }
@@ -788,12 +803,12 @@ We can nest one loop structure inside another. Below is an example using `for` l
 === "TS"
 
     ```typescript title="iteration.ts"
-    /* Nested for loop */
+    /* Nested for loops */
     function nestedForLoop(n: number): string {
         let res = '';
-        // Loop i = 1, 2, ..., n-1, n
+        // Loop over i = 1, 2, ..., n-1, n
         for (let i = 1; i <= n; i++) {
-            // Loop j = 1, 2, ..., n-1, n
+            // Loop over j = 1, 2, ..., n-1, n
             for (let j = 1; j <= n; j++) {
                 res += `(${i}, ${j}), `;
             }
@@ -805,12 +820,12 @@ We can nest one loop structure inside another. Below is an example using `for` l
 === "Dart"
 
     ```dart title="iteration.dart"
-    /* Nested for loop */
+    /* Nested for loops */
     String nestedForLoop(int n) {
       String res = "";
-      // Loop i = 1, 2, ..., n-1, n
+      // Loop over i = 1, 2, ..., n-1, n
       for (int i = 1; i <= n; i++) {
-        // Loop j = 1, 2, ..., n-1, n
+        // Loop over j = 1, 2, ..., n-1, n
         for (int j = 1; j <= n; j++) {
           res += "($i, $j), ";
         }
@@ -822,12 +837,12 @@ We can nest one loop structure inside another. Below is an example using `for` l
 === "Rust"
 
     ```rust title="iteration.rs"
-    /* Nested for loop */
+    /* Nested for loops */
     fn nested_for_loop(n: i32) -> String {
         let mut res = vec![];
-        // Loop i = 1, 2, ..., n-1, n
+        // Loop over i = 1, 2, ..., n-1, n
         for i in 1..=n {
-            // Loop j = 1, 2, ..., n-1, n
+            // Loop over j = 1, 2, ..., n-1, n
             for j in 1..=n {
                 res.push(format!("({}, {}), ", i, j));
             }
@@ -839,14 +854,14 @@ We can nest one loop structure inside another. Below is an example using `for` l
 === "C"
 
     ```c title="iteration.c"
-    /* Nested for loop */
+    /* Nested for loops */
     char *nestedForLoop(int n) {
-        // n * n is the number of points, "(i, j), " string max length is 6+10*2, plus extra space for null character \0
+        // There are n * n points; each "(i, j), " takes at most 6+10*2 characters, plus space for the final null character \0
         int size = n * n * 26 + 1;
         char *res = malloc(size * sizeof(char));
-        // Loop i = 1, 2, ..., n-1, n
+        // Loop over i = 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
-            // Loop j = 1, 2, ..., n-1, n
+            // Loop over j = 1, 2, ..., n-1, n
             for (int j = 1; j <= n; j++) {
                 char tmp[26];
                 snprintf(tmp, sizeof(tmp), "(%d, %d), ", i, j);
@@ -860,12 +875,12 @@ We can nest one loop structure inside another. Below is an example using `for` l
 === "Kotlin"
 
     ```kotlin title="iteration.kt"
-    /* Nested for loop */
+    /* Nested for loops */
     fun nestedForLoop(n: Int): String {
         val res = StringBuilder()
-        // Loop i = 1, 2, ..., n-1, n
+        // Loop over i = 1, 2, ..., n-1, n
         for (i in 1..n) {
-            // Loop j = 1, 2, ..., n-1, n
+            // Loop over j = 1, 2, ..., n-1, n
             for (j in 1..n) {
                 res.append(" ($i, $j), ")
             }
@@ -877,13 +892,13 @@ We can nest one loop structure inside another. Below is an example using `for` l
 === "Ruby"
 
     ```ruby title="iteration.rb"
-    ### Nested for loop ###
+    ### Nested for loops ###
     def nested_for_loop(n)
       res = ""
 
-      # Loop i = 1, 2, ..., n-1, n
+      # Loop over i = 1, 2, ..., n-1, n
       for i in 1..n
-        # Loop j = 1, 2, ..., n-1, n
+        # Loop over j = 1, 2, ..., n-1, n
         for j in 1..n
           res += "(#{i}, #{j}), "
         end
@@ -893,42 +908,47 @@ We can nest one loop structure inside another. Below is an example using `for` l
     end
     ```
 
-Figure 2-2 shows the flowchart of this nested loop.
+??? pythontutor "Visualize execution"
+
+    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20nested_for_loop%28n%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%22%22%22Nested%20for%20loops%22%22%22%0A%20%20%20%20res%20%3D%20%22%22%0A%20%20%20%20%23%20Loop%20over%20i%20%3D%201,%202,%20...,%20n-1,%20n%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20Loop%20over%20j%20%3D%201,%202,%20...,%20n-1,%20n%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%20%2B%3D%20f%22%28%7Bi%7D,%20%7Bj%7D%29,%20%22%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20nested_for_loop%28n%29%0A%20%20%20%20print%28f%22%5CnTraversal%20from%20the%20nested%20for%20loops%3A%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20nested_for_loop%28n%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%22%22%22Nested%20for%20loops%22%22%22%0A%20%20%20%20res%20%3D%20%22%22%0A%20%20%20%20%23%20Loop%20over%20i%20%3D%201,%202,%20...,%20n-1,%20n%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20Loop%20over%20j%20%3D%201,%202,%20...,%20n-1,%20n%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%20%2B%3D%20f%22%28%7Bi%7D,%20%7Bj%7D%29,%20%22%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20nested_for_loop%28n%29%0A%20%20%20%20print%28f%22%5CnTraversal%20from%20the%20nested%20for%20loops%3A%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+Figure 2-2 shows the nested loop's flowchart.
 
 ![Flowchart of nested loops](iteration_and_recursion.assets/nested_iteration.png){ class="animation-figure" }
 
 <p align="center"> Figure 2-2 &nbsp; Flowchart of nested loops </p>
 
-In this case, the number of operations of the function is proportional to $n^2$, or the algorithm's running time has a "quadratic relationship" with the input data size $n$.
+Here, the operation count is proportional to $n^2$: runtime has a quadratic relationship with input size $n$.
 
-We can continue adding nested loops, where each additional level of nesting can be viewed as an increase in dimensionality, raising the time complexity to a "cubic relationship", a "quartic relationship", and so on.
+Adding further nesting increases the dimension each time, producing cubic, fourth-power, and higher-order time complexity.
 
 ## 2.2.2 &nbsp; Recursion
 
-<u>Recursion</u> is an algorithmic strategy that solves problems by having a function call itself. It mainly consists of two phases.
+ <u>Recursion</u> is an algorithmic strategy in which a function calls itself to solve a problem. It has two main phases.
 
-1. **Descend**: The program continuously calls itself deeper, usually passing in smaller or more simplified parameters, until reaching a "termination condition".
-2. **Ascend**: After triggering the "termination condition", the program returns layer by layer from the deepest recursive function, aggregating the result of each layer.
+1. **Descent**: The function calls itself more deeply, usually with smaller or simpler arguments, until a base case is reached.
+2. **Return**: Once the base case is reached, calls return from the deepest level upward, combining results along the way.
 
-From an implementation perspective, recursive code mainly consists of three elements.
+In implementation, recursive code has three main elements.
 
-1. **Termination condition**: Used to determine when to switch from "descending" to "ascending".
-2. **Recursive call**: Corresponds to "descending", where the function calls itself, usually with smaller or more simplified parameters.
-3. **Return result**: Corresponds to "ascending", returning the result of the current recursion level to the previous layer.
+1. **Base case**: Determines when descent stops and returning begins.
+2. **Recursive call**: The function calls itself, usually with smaller or simpler arguments.
+3. **Returned result**: The current level returns its result to the previous level.
 
-Observe the following code. We only need to call the function `recur(n)` to complete the calculation of $1 + 2 + \dots + n$:
+In the following code, calling `recur(n)` computes $1 + 2 + \dots + n$:
 
 === "Python"
 
     ```python title="recursion.py"
     def recur(n: int) -> int:
         """Recursion"""
-        # Termination condition
+        # Base case
         if n == 1:
             return 1
-        # Recurse: recursive call
+        # Recurse: make a recursive call
         res = recur(n - 1)
-        # Return: return result
+        # Unwind: return the result
         return n + res
     ```
 
@@ -937,12 +957,12 @@ Observe the following code. We only need to call the function `recur(n)` to comp
     ```cpp title="recursion.cpp"
     /* Recursion */
     int recur(int n) {
-        // Termination condition
+        // Base case
         if (n == 1)
             return 1;
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         int res = recur(n - 1);
-        // Return: return result
+        // Unwind: return the result
         return n + res;
     }
     ```
@@ -952,12 +972,12 @@ Observe the following code. We only need to call the function `recur(n)` to comp
     ```java title="recursion.java"
     /* Recursion */
     int recur(int n) {
-        // Termination condition
+        // Base case
         if (n == 1)
             return 1;
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         int res = recur(n - 1);
-        // Return: return result
+        // Unwind: return the result
         return n + res;
     }
     ```
@@ -967,12 +987,12 @@ Observe the following code. We only need to call the function `recur(n)` to comp
     ```csharp title="recursion.cs"
     /* Recursion */
     int Recur(int n) {
-        // Termination condition
+        // Base case
         if (n == 1)
             return 1;
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         int res = Recur(n - 1);
-        // Return: return result
+        // Unwind: return the result
         return n + res;
     }
     ```
@@ -982,13 +1002,13 @@ Observe the following code. We only need to call the function `recur(n)` to comp
     ```go title="recursion.go"
     /* Recursion */
     func recur(n int) int {
-        // Termination condition
+        // Base case
         if n == 1 {
             return 1
         }
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         res := recur(n - 1)
-        // Return: return result
+        // Unwind: return the result
         return n + res
     }
     ```
@@ -998,13 +1018,13 @@ Observe the following code. We only need to call the function `recur(n)` to comp
     ```swift title="recursion.swift"
     /* Recursion */
     func recur(n: Int) -> Int {
-        // Termination condition
+        // Base case
         if n == 1 {
             return 1
         }
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         let res = recur(n: n - 1)
-        // Return: return result
+        // Unwind: return the result
         return n + res
     }
     ```
@@ -1014,11 +1034,11 @@ Observe the following code. We only need to call the function `recur(n)` to comp
     ```javascript title="recursion.js"
     /* Recursion */
     function recur(n) {
-        // Termination condition
+        // Base case
         if (n === 1) return 1;
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         const res = recur(n - 1);
-        // Return: return result
+        // Unwind: return the result
         return n + res;
     }
     ```
@@ -1028,11 +1048,11 @@ Observe the following code. We only need to call the function `recur(n)` to comp
     ```typescript title="recursion.ts"
     /* Recursion */
     function recur(n: number): number {
-        // Termination condition
+        // Base case
         if (n === 1) return 1;
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         const res = recur(n - 1);
-        // Return: return result
+        // Unwind: return the result
         return n + res;
     }
     ```
@@ -1042,11 +1062,11 @@ Observe the following code. We only need to call the function `recur(n)` to comp
     ```dart title="recursion.dart"
     /* Recursion */
     int recur(int n) {
-      // Termination condition
+      // Base case
       if (n == 1) return 1;
-      // Recurse: recursive call
+      // Recurse: make a recursive call
       int res = recur(n - 1);
-      // Return: return result
+      // Unwind: return the result
       return n + res;
     }
     ```
@@ -1056,13 +1076,13 @@ Observe the following code. We only need to call the function `recur(n)` to comp
     ```rust title="recursion.rs"
     /* Recursion */
     fn recur(n: i32) -> i32 {
-        // Termination condition
+        // Base case
         if n == 1 {
             return 1;
         }
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         let res = recur(n - 1);
-        // Return: return result
+        // Unwind: return the result
         n + res
     }
     ```
@@ -1072,12 +1092,12 @@ Observe the following code. We only need to call the function `recur(n)` to comp
     ```c title="recursion.c"
     /* Recursion */
     int recur(int n) {
-        // Termination condition
+        // Base case
         if (n == 1)
             return 1;
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         int res = recur(n - 1);
-        // Return: return result
+        // Unwind: return the result
         return n + res;
     }
     ```
@@ -1087,12 +1107,12 @@ Observe the following code. We only need to call the function `recur(n)` to comp
     ```kotlin title="recursion.kt"
     /* Recursion */
     fun recur(n: Int): Int {
-        // Termination condition
+        // Base case
         if (n == 1)
             return 1
-        // Descend: recursive call
+        // Descending: recursive calls
         val res = recur(n - 1)
-        // Return: return result
+        // Unwinding: return the result
         return n + res
     }
     ```
@@ -1102,64 +1122,69 @@ Observe the following code. We only need to call the function `recur(n)` to comp
     ```ruby title="recursion.rb"
     ### Recursion ###
     def recur(n)
-      # Termination condition
+      # Base case
       return 1 if n == 1
-      # Recurse: recursive call
+      # Recurse: make a recursive call
       res = recur(n - 1)
-      # Return: return result
+      # Unwind: return the result
       n + res
     end
     ```
 
-Figure 2-3 shows the recursive process of this function.
+??? pythontutor "Visualize execution"
+
+    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Recursion%22%22%22%0A%20%20%20%20%23%20Base%20case%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20%23%20Recursive-call%20phase%0A%20%20%20%20res%20%3D%20recur%28n%20-%201%29%0A%20%20%20%20%23%20Unwinding%20phase%3A%20compute%20the%20result%0A%20%20%20%20return%20n%20%2B%20res%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20recur%28n%29%0A%20%20%20%20print%28f%22%5CnSum%20from%20the%20recursive%20function%3A%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Recursion%22%22%22%0A%20%20%20%20%23%20Base%20case%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20%23%20Recursive-call%20phase%0A%20%20%20%20res%20%3D%20recur%28n%20-%201%29%0A%20%20%20%20%23%20Unwinding%20phase%3A%20compute%20the%20result%0A%20%20%20%20return%20n%20%2B%20res%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20recur%28n%29%0A%20%20%20%20print%28f%22%5CnSum%20from%20the%20recursive%20function%3A%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+Figure 2-3 illustrates the recursive process.
 
 ![Recursive process of the summation function](iteration_and_recursion.assets/recursion_sum.png){ class="animation-figure" }
 
 <p align="center"> Figure 2-3 &nbsp; Recursive process of the summation function </p>
 
-Although from a computational perspective, iteration and recursion can achieve the same results, **they represent two completely different paradigms for thinking about and solving problems**.
+Iteration and recursion can produce the same answer, **but represent two different ways of thinking about and solving a problem**.
 
-- **Iteration**: Solves problems "bottom-up". Starting from the most basic steps, these steps are then repeatedly executed or accumulated until the task is complete.
-- **Recursion**: Solves problems "top-down". The original problem is decomposed into smaller subproblems that have the same form as the original problem. These subproblems continue to be decomposed into even smaller subproblems until reaching the base case (where the solution is known).
+- **Iteration** works bottom up, starting with basic steps and repeatedly performing or accumulating them until the task is complete.
+- **Recursion** works top down, dividing the original problem into smaller subproblems of the same form, then repeating the division until reaching base cases with known solutions.
 
-Taking the above summation function as an example, let the problem be $f(n) = 1 + 2 + \dots + n$.
+For the summation example, let $f(n) = 1 + 2 + \dots + n$.
 
-- **Iteration**: Simulates the summation process in a loop, traversing from $1$ to $n$, performing the summation operation in each round to obtain $f(n)$.
-- **Recursion**: Decomposes the problem into the subproblem $f(n) = n + f(n-1)$, continuously decomposing (recursively) until terminating at the base case $f(1) = 1$.
+- **Iteration**: Loop from $1$ to $n$, accumulating the sum at each step to obtain $f(n)$.
+- **Recursion**: Decompose the problem as $f(n) = n + f(n-1)$ and keep doing so recursively until the base case $f(1) = 1$.
 
-### 1. &nbsp; Call Stack
+### 1. &nbsp; The call stack
 
-Each time a recursive function calls itself, the system allocates memory for the newly invoked function to store local variables, call addresses, and other information. This leads to two consequences.
+Each time a recursive function calls itself, the system allocates memory for the new call's local variables, return address, and other information. This has two consequences.
 
-- The function's context data is stored in a memory area called "stack frame space", which is not released until the function returns. Therefore, **recursion usually consumes more memory space than iteration**.
-- Recursive function calls incur additional overhead. **Therefore, recursion is usually less time-efficient than loops**.
+- The call's context is stored in a stack frame until it returns. **Recursion therefore usually uses more memory than iteration**.
+- Each recursive call adds overhead. **Recursion is therefore usually slower than a loop**.
 
-As shown in Figure 2-4, before the termination condition is triggered, there are $n$ unreturned recursive functions existing simultaneously, with a **recursion depth of $n$**.
+As shown in Figure 2-4, before the base case is reached, $n$ recursive calls remain active at once: **the recursion depth is $n$**.
 
-![Recursion call depth](iteration_and_recursion.assets/recursion_sum_depth.png){ class="animation-figure" }
+![Depth of recursive calls](iteration_and_recursion.assets/recursion_sum_depth.png){ class="animation-figure" }
 
-<p align="center"> Figure 2-4 &nbsp; Recursion call depth </p>
+<p align="center"> Figure 2-4 &nbsp; Depth of recursive calls </p>
 
-In practice, the recursion depth allowed by programming languages is usually limited, and excessively deep recursion may lead to stack overflow errors.
+Programming languages usually limit recursion depth, and excessively deep recursion may cause a stack overflow.
 
-### 2. &nbsp; Tail Recursion
+### 2. &nbsp; Tail recursion
 
-Interestingly, **if a function makes the recursive call as the very last step before returning**, the compiler or interpreter may optimize it so that its space efficiency is comparable to iteration. This case is called <u>tail recursion</u>.
+Interestingly, **if the recursive call is the last operation before a function returns**, a compiler or interpreter can optimize it to use as little space as iteration. This is called <u>tail recursion</u>.
 
-- **Regular recursion**: When a function returns to the previous level, it needs to continue executing code, so the system needs to save the context of the previous layer's call.
-- **Tail recursion**: The recursive call is the last operation before the function returns, meaning that after returning to the previous level, there is no need to continue executing other operations, so the system does not need to save the context of the previous layer's function.
+- **Ordinary recursion**: After a call returns, its caller must continue executing code, so the caller's context must be preserved.
+- **Tail recursion**: Nothing remains to be done after the recursive call returns, so the caller's context need not be retained.
 
-Taking the calculation of $1 + 2 + \dots + n$ as an example, we can set the result variable `res` as a function parameter to implement tail recursion:
+For $1 + 2 + \dots + n$, passing the accumulated result `res` as a parameter gives a tail-recursive solution:
 
 === "Python"
 
     ```python title="recursion.py"
     def tail_recur(n, res):
         """Tail recursion"""
-        # Termination condition
+        # Base case
         if n == 0:
             return res
-        # Tail recursive call
+        # Tail-recursive call
         return tail_recur(n - 1, res + n)
     ```
 
@@ -1168,10 +1193,10 @@ Taking the calculation of $1 + 2 + \dots + n$ as an example, we can set the resu
     ```cpp title="recursion.cpp"
     /* Tail recursion */
     int tailRecur(int n, int res) {
-        // Termination condition
+        // Base case
         if (n == 0)
             return res;
-        // Tail recursive call
+        // Tail-recursive call
         return tailRecur(n - 1, res + n);
     }
     ```
@@ -1181,10 +1206,10 @@ Taking the calculation of $1 + 2 + \dots + n$ as an example, we can set the resu
     ```java title="recursion.java"
     /* Tail recursion */
     int tailRecur(int n, int res) {
-        // Termination condition
+        // Base case
         if (n == 0)
             return res;
-        // Tail recursive call
+        // Tail-recursive call
         return tailRecur(n - 1, res + n);
     }
     ```
@@ -1194,10 +1219,10 @@ Taking the calculation of $1 + 2 + \dots + n$ as an example, we can set the resu
     ```csharp title="recursion.cs"
     /* Tail recursion */
     int TailRecur(int n, int res) {
-        // Termination condition
+        // Base case
         if (n == 0)
             return res;
-        // Tail recursive call
+        // Tail-recursive call
         return TailRecur(n - 1, res + n);
     }
     ```
@@ -1207,11 +1232,11 @@ Taking the calculation of $1 + 2 + \dots + n$ as an example, we can set the resu
     ```go title="recursion.go"
     /* Tail recursion */
     func tailRecur(n int, res int) int {
-        // Termination condition
+        // Base case
         if n == 0 {
             return res
         }
-        // Tail recursive call
+        // Tail-recursive call
         return tailRecur(n-1, res+n)
     }
     ```
@@ -1221,11 +1246,11 @@ Taking the calculation of $1 + 2 + \dots + n$ as an example, we can set the resu
     ```swift title="recursion.swift"
     /* Tail recursion */
     func tailRecur(n: Int, res: Int) -> Int {
-        // Termination condition
+        // Base case
         if n == 0 {
             return res
         }
-        // Tail recursive call
+        // Tail-recursive call
         return tailRecur(n: n - 1, res: res + n)
     }
     ```
@@ -1235,9 +1260,9 @@ Taking the calculation of $1 + 2 + \dots + n$ as an example, we can set the resu
     ```javascript title="recursion.js"
     /* Tail recursion */
     function tailRecur(n, res) {
-        // Termination condition
+        // Base case
         if (n === 0) return res;
-        // Tail recursive call
+        // Tail-recursive call
         return tailRecur(n - 1, res + n);
     }
     ```
@@ -1247,9 +1272,9 @@ Taking the calculation of $1 + 2 + \dots + n$ as an example, we can set the resu
     ```typescript title="recursion.ts"
     /* Tail recursion */
     function tailRecur(n: number, res: number): number {
-        // Termination condition
+        // Base case
         if (n === 0) return res;
-        // Tail recursive call
+        // Tail-recursive call
         return tailRecur(n - 1, res + n);
     }
     ```
@@ -1259,9 +1284,9 @@ Taking the calculation of $1 + 2 + \dots + n$ as an example, we can set the resu
     ```dart title="recursion.dart"
     /* Tail recursion */
     int tailRecur(int n, int res) {
-      // Termination condition
+      // Base case
       if (n == 0) return res;
-      // Tail recursive call
+      // Tail-recursive call
       return tailRecur(n - 1, res + n);
     }
     ```
@@ -1271,11 +1296,11 @@ Taking the calculation of $1 + 2 + \dots + n$ as an example, we can set the resu
     ```rust title="recursion.rs"
     /* Tail recursion */
     fn tail_recur(n: i32, res: i32) -> i32 {
-        // Termination condition
+        // Base case
         if n == 0 {
             return res;
         }
-        // Tail recursive call
+        // Tail-recursive call
         tail_recur(n - 1, res + n)
     }
     ```
@@ -1285,10 +1310,10 @@ Taking the calculation of $1 + 2 + \dots + n$ as an example, we can set the resu
     ```c title="recursion.c"
     /* Tail recursion */
     int tailRecur(int n, int res) {
-        // Termination condition
+        // Base case
         if (n == 0)
             return res;
-        // Tail recursive call
+        // Tail-recursive call
         return tailRecur(n - 1, res + n);
     }
     ```
@@ -1298,11 +1323,11 @@ Taking the calculation of $1 + 2 + \dots + n$ as an example, we can set the resu
     ```kotlin title="recursion.kt"
     /* Tail recursion */
     tailrec fun tailRecur(n: Int, res: Int): Int {
-        // Add tailrec keyword to enable tail recursion optimization
-        // Termination condition
+        // Add the tailrec modifier to enable tail-call optimization
+        // Base case
         if (n == 0)
             return res
-        // Tail recursive call
+        // Tail-recursive call
         return tailRecur(n - 1, res + n)
     }
     ```
@@ -1312,52 +1337,57 @@ Taking the calculation of $1 + 2 + \dots + n$ as an example, we can set the resu
     ```ruby title="recursion.rb"
     ### Tail recursion ###
     def tail_recur(n, res)
-      # Termination condition
+      # Base case
       return res if n == 0
-      # Tail recursive call
+      # Tail-recursive call
       tail_recur(n - 1, res + n)
     end
     ```
 
-The execution process of tail recursion is shown in Figure 2-5. Comparing regular recursion and tail recursion, the summation operation is performed at different points.
+??? pythontutor "Visualize execution"
 
-- **Regular recursion**: The summation operation is performed during the "ascending" process, requiring an additional summation operation after each layer returns.
-- **Tail recursion**: The summation operation is performed during the "descending" process; the "ascending" process only needs to return layer by layer.
+    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20tail_recur%28n,%20res%29%3A%0A%20%20%20%20%22%22%22Tail%20recursion%22%22%22%0A%20%20%20%20%23%20Base%20case%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20res%0A%20%20%20%20%23%20Tail-recursive%20call%0A%20%20%20%20return%20tail_recur%28n%20-%201,%20res%20%2B%20n%29%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20tail_recur%28n,%200%29%0A%20%20%20%20print%28f%22%5CnSum%20from%20the%20tail-recursive%20function%3A%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20tail_recur%28n,%20res%29%3A%0A%20%20%20%20%22%22%22Tail%20recursion%22%22%22%0A%20%20%20%20%23%20Base%20case%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20res%0A%20%20%20%20%23%20Tail-recursive%20call%0A%20%20%20%20return%20tail_recur%28n%20-%201,%20res%20%2B%20n%29%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20tail_recur%28n,%200%29%0A%20%20%20%20print%28f%22%5CnSum%20from%20the%20tail-recursive%20function%3A%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-![Tail recursion process](iteration_and_recursion.assets/tail_recursion_sum.png){ class="animation-figure" }
+Figure 2-5 illustrates tail recursion. Ordinary and tail recursion perform their additions at different points.
 
-<p align="center"> Figure 2-5 &nbsp; Tail recursion process </p>
+- **Ordinary recursion**: Addition occurs during the return phase, after each deeper call returns.
+- **Tail recursion**: Addition occurs during descent; the return phase simply returns through the levels.
+
+![Tail-recursive summation](iteration_and_recursion.assets/tail_recursion_sum.png){ class="animation-figure" }
+
+<p align="center"> Figure 2-5 &nbsp; Tail-recursive summation </p>
 
 !!! tip
 
-    Please note that many compilers or interpreters do not support tail recursion optimization. For example, Python does not support tail recursion optimization by default, so even if a function is in tail recursive form, it may still encounter stack overflow issues.
+    Many compilers and interpreters do not support tail-recursion optimization. Python, for example, does not optimize it by default, so even a tail-recursive function can run into a stack overflow.
 
-### 3. &nbsp; Recursion Tree
+### 3. &nbsp; Recursion trees
 
-When dealing with algorithmic problems related to "divide and conquer", recursion often provides a more intuitive approach and more readable code than iteration. Taking the "Fibonacci sequence" as an example.
+For divide-and-conquer problems, recursion often provides a more intuitive approach and more readable code than iteration. Consider the Fibonacci sequence.
 
 !!! question
 
-    Given a Fibonacci sequence $0, 1, 1, 2, 3, 5, 8, 13, \dots$, find the $n$-th number in the sequence.
+    Given the Fibonacci sequence $0, 1, 1, 2, 3, 5, 8, 13, \dots$, find its $n$-th number.
 
-Let the $n$-th number of the Fibonacci sequence be $f(n)$. Two conclusions can be easily obtained.
+Let $f(n)$ be its $n$-th number. Two facts follow.
 
-- The first two numbers of the sequence are $f(1) = 0$ and $f(2) = 1$.
-- Each number in the sequence is the sum of the previous two numbers, i.e., $f(n) = f(n - 1) + f(n - 2)$.
+- The first two numbers are $f(1) = 0$ and $f(2) = 1$.
+- Every later number is the sum of the two preceding numbers: $f(n) = f(n - 1) + f(n - 2)$.
 
-Following the recurrence relation to make recursive calls, with the first two numbers as termination conditions, we can write the recursive code. Calling `fib(n)` will give us the $n$-th number of the Fibonacci sequence:
+Use the recurrence for recursive calls and the first two numbers as base cases. Calling `fib(n)` then returns the $n$-th Fibonacci number:
 
 === "Python"
 
     ```python title="recursion.py"
     def fib(n: int) -> int:
         """Fibonacci sequence: recursion"""
-        # Termination condition f(1) = 0, f(2) = 1
+        # Base cases: f(1) = 0, f(2) = 1
         if n == 1 or n == 2:
             return n - 1
-        # Recursive call f(n) = f(n-1) + f(n-2)
+        # Recursive calls: f(n) = f(n-1) + f(n-2)
         res = fib(n - 1) + fib(n - 2)
-        # Return result f(n)
+        # Return the result f(n)
         return res
     ```
 
@@ -1366,12 +1396,12 @@ Following the recurrence relation to make recursive calls, with the first two nu
     ```cpp title="recursion.cpp"
     /* Fibonacci sequence: recursion */
     int fib(int n) {
-        // Termination condition f(1) = 0, f(2) = 1
+        // Base cases: f(1) = 0, f(2) = 1
         if (n == 1 || n == 2)
             return n - 1;
-        // Recursive call f(n) = f(n-1) + f(n-2)
+        // Recursive calls: f(n) = f(n-1) + f(n-2)
         int res = fib(n - 1) + fib(n - 2);
-        // Return result f(n)
+        // Return the result f(n)
         return res;
     }
     ```
@@ -1381,12 +1411,12 @@ Following the recurrence relation to make recursive calls, with the first two nu
     ```java title="recursion.java"
     /* Fibonacci sequence: recursion */
     int fib(int n) {
-        // Termination condition f(1) = 0, f(2) = 1
+        // Base cases: f(1) = 0, f(2) = 1
         if (n == 1 || n == 2)
             return n - 1;
-        // Recursive call f(n) = f(n-1) + f(n-2)
+        // Recursive calls: f(n) = f(n-1) + f(n-2)
         int res = fib(n - 1) + fib(n - 2);
-        // Return result f(n)
+        // Return the result f(n)
         return res;
     }
     ```
@@ -1396,12 +1426,12 @@ Following the recurrence relation to make recursive calls, with the first two nu
     ```csharp title="recursion.cs"
     /* Fibonacci sequence: recursion */
     int Fib(int n) {
-        // Termination condition f(1) = 0, f(2) = 1
+        // Base cases: f(1) = 0, f(2) = 1
         if (n == 1 || n == 2)
             return n - 1;
-        // Recursive call f(n) = f(n-1) + f(n-2)
+        // Recursive calls: f(n) = f(n-1) + f(n-2)
         int res = Fib(n - 1) + Fib(n - 2);
-        // Return result f(n)
+        // Return the result f(n)
         return res;
     }
     ```
@@ -1411,13 +1441,13 @@ Following the recurrence relation to make recursive calls, with the first two nu
     ```go title="recursion.go"
     /* Fibonacci sequence: recursion */
     func fib(n int) int {
-        // Termination condition f(1) = 0, f(2) = 1
+        // Base cases: f(1) = 0, f(2) = 1
         if n == 1 || n == 2 {
             return n - 1
         }
-        // Recursive call f(n) = f(n-1) + f(n-2)
+        // Recursive calls: f(n) = f(n-1) + f(n-2)
         res := fib(n-1) + fib(n-2)
-        // Return result f(n)
+        // Return the result f(n)
         return res
     }
     ```
@@ -1427,13 +1457,13 @@ Following the recurrence relation to make recursive calls, with the first two nu
     ```swift title="recursion.swift"
     /* Fibonacci sequence: recursion */
     func fib(n: Int) -> Int {
-        // Termination condition f(1) = 0, f(2) = 1
+        // Base cases: f(1) = 0, f(2) = 1
         if n == 1 || n == 2 {
             return n - 1
         }
-        // Recursive call f(n) = f(n-1) + f(n-2)
+        // Recursive calls: f(n) = f(n-1) + f(n-2)
         let res = fib(n: n - 1) + fib(n: n - 2)
-        // Return result f(n)
+        // Return the result f(n)
         return res
     }
     ```
@@ -1443,11 +1473,11 @@ Following the recurrence relation to make recursive calls, with the first two nu
     ```javascript title="recursion.js"
     /* Fibonacci sequence: recursion */
     function fib(n) {
-        // Termination condition f(1) = 0, f(2) = 1
+        // Base cases: f(1) = 0, f(2) = 1
         if (n === 1 || n === 2) return n - 1;
-        // Recursive call f(n) = f(n-1) + f(n-2)
+        // Recursive calls: f(n) = f(n-1) + f(n-2)
         const res = fib(n - 1) + fib(n - 2);
-        // Return result f(n)
+        // Return the result f(n)
         return res;
     }
     ```
@@ -1457,11 +1487,11 @@ Following the recurrence relation to make recursive calls, with the first two nu
     ```typescript title="recursion.ts"
     /* Fibonacci sequence: recursion */
     function fib(n: number): number {
-        // Termination condition f(1) = 0, f(2) = 1
+        // Base cases: f(1) = 0, f(2) = 1
         if (n === 1 || n === 2) return n - 1;
-        // Recursive call f(n) = f(n-1) + f(n-2)
+        // Recursive calls: f(n) = f(n-1) + f(n-2)
         const res = fib(n - 1) + fib(n - 2);
-        // Return result f(n)
+        // Return the result f(n)
         return res;
     }
     ```
@@ -1471,11 +1501,11 @@ Following the recurrence relation to make recursive calls, with the first two nu
     ```dart title="recursion.dart"
     /* Fibonacci sequence: recursion */
     int fib(int n) {
-      // Termination condition f(1) = 0, f(2) = 1
+      // Base cases: f(1) = 0, f(2) = 1
       if (n == 1 || n == 2) return n - 1;
-      // Recursive call f(n) = f(n-1) + f(n-2)
+      // Recursive calls: f(n) = f(n-1) + f(n-2)
       int res = fib(n - 1) + fib(n - 2);
-      // Return result f(n)
+      // Return the result f(n)
       return res;
     }
     ```
@@ -1485,13 +1515,13 @@ Following the recurrence relation to make recursive calls, with the first two nu
     ```rust title="recursion.rs"
     /* Fibonacci sequence: recursion */
     fn fib(n: i32) -> i32 {
-        // Termination condition f(1) = 0, f(2) = 1
+        // Base cases: f(1) = 0, f(2) = 1
         if n == 1 || n == 2 {
             return n - 1;
         }
-        // Recursive call f(n) = f(n-1) + f(n-2)
+        // Recursive calls: f(n) = f(n-1) + f(n-2)
         let res = fib(n - 1) + fib(n - 2);
-        // Return result
+        // Return the result
         res
     }
     ```
@@ -1501,12 +1531,12 @@ Following the recurrence relation to make recursive calls, with the first two nu
     ```c title="recursion.c"
     /* Fibonacci sequence: recursion */
     int fib(int n) {
-        // Termination condition f(1) = 0, f(2) = 1
+        // Base cases: f(1) = 0, f(2) = 1
         if (n == 1 || n == 2)
             return n - 1;
-        // Recursive call f(n) = f(n-1) + f(n-2)
+        // Recursive calls: f(n) = f(n-1) + f(n-2)
         int res = fib(n - 1) + fib(n - 2);
-        // Return result f(n)
+        // Return the result f(n)
         return res;
     }
     ```
@@ -1516,12 +1546,12 @@ Following the recurrence relation to make recursive calls, with the first two nu
     ```kotlin title="recursion.kt"
     /* Fibonacci sequence: recursion */
     fun fib(n: Int): Int {
-        // Termination condition f(1) = 0, f(2) = 1
+        // Base cases: f(1) = 0, f(2) = 1
         if (n == 1 || n == 2)
             return n - 1
-        // Recursive call f(n) = f(n-1) + f(n-2)
+        // Recursive calls: f(n) = f(n-1) + f(n-2)
         val res = fib(n - 1) + fib(n - 2)
-        // Return result f(n)
+        // Return the result f(n)
         return res
     }
     ```
@@ -1531,55 +1561,60 @@ Following the recurrence relation to make recursive calls, with the first two nu
     ```ruby title="recursion.rb"
     ### Fibonacci sequence: recursion ###
     def fib(n)
-      # Termination condition f(1) = 0, f(2) = 1
+      # Base cases: f(1) = 0, f(2) = 1
       return n - 1 if n == 1 || n == 2
-      # Recursive call f(n) = f(n-1) + f(n-2)
+      # Recursive calls: f(n) = f(n-1) + f(n-2)
       res = fib(n - 1) + fib(n - 2)
-      # Return result f(n)
+      # Return the result f(n)
       res
     end
     ```
 
-Observing the above code, we make two recursive calls within the function, **meaning that one call produces two call branches**. As shown in Figure 2-6, this repeated recursive calling eventually produces a <u>recursion tree</u> with $n$ levels.
+??? pythontutor "Visualize execution"
 
-![Recursion tree of the Fibonacci sequence](iteration_and_recursion.assets/recursion_tree.png){ class="animation-figure" }
+    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20fib%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Fibonacci%20sequence%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Base%20cases%3A%20f%281%29%20%3D%200,%20f%282%29%20%3D%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20n%20-%201%0A%20%20%20%20%23%20Recursive%20calls%3A%20f%28n%29%20%3D%20f%28n-1%29%20%2B%20f%28n-2%29%0A%20%20%20%20res%20%3D%20fib%28n%20-%201%29%20%2B%20fib%28n%20-%202%29%0A%20%20%20%20%23%20Return%20the%20result%20f%28n%29%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20fib%28n%29%0A%20%20%20%20print%28f%22%5CnTerm%20%7Bn%7D%20of%20the%20Fibonacci%20sequence%20is%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20fib%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Fibonacci%20sequence%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Base%20cases%3A%20f%281%29%20%3D%200,%20f%282%29%20%3D%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20n%20-%201%0A%20%20%20%20%23%20Recursive%20calls%3A%20f%28n%29%20%3D%20f%28n-1%29%20%2B%20f%28n-2%29%0A%20%20%20%20res%20%3D%20fib%28n%20-%201%29%20%2B%20fib%28n%20-%202%29%0A%20%20%20%20%23%20Return%20the%20result%20f%28n%29%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20fib%28n%29%0A%20%20%20%20print%28f%22%5CnTerm%20%7Bn%7D%20of%20the%20Fibonacci%20sequence%20is%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-<p align="center"> Figure 2-6 &nbsp; Recursion tree of the Fibonacci sequence </p>
+The function makes two recursive calls, **so each call creates two branches**. Continuing this process produces a <u>recursion tree</u> with $n$ levels, as shown in Figure 2-6.
 
-Fundamentally, recursion embodies the paradigm of "decomposing a problem into smaller subproblems", and this divide-and-conquer strategy is crucial.
+![Recursion tree for the Fibonacci sequence](iteration_and_recursion.assets/recursion_tree.png){ class="animation-figure" }
 
-- From an algorithmic perspective, many important algorithmic strategies such as searching, sorting, backtracking, divide and conquer, and dynamic programming directly or indirectly apply this way of thinking.
-- From a data structure perspective, recursion is naturally suited for handling problems related to linked lists, trees, and graphs, because they are well-suited for analysis using divide-and-conquer thinking.
+<p align="center"> Figure 2-6 &nbsp; Recursion tree for the Fibonacci sequence </p>
 
-## 2.2.3 &nbsp; Comparison of the Two
+Recursion embodies the idea of breaking a problem into smaller subproblems, a crucial divide-and-conquer strategy.
 
-Summarizing the above content, as shown in Table 2-1, iteration and recursion differ in implementation, performance, and applicability.
+- In algorithms, searching, sorting, backtracking, divide and conquer, dynamic programming, and many other techniques use this idea directly or indirectly.
+- In data structures, recursion naturally handles linked lists, trees, and graphs because divide-and-conquer reasoning suits them well.
 
-<p align="center"> Table 2-1 &nbsp; Comparison of iteration and recursion characteristics </p>
+## 2.2.3 &nbsp; Comparing iteration and recursion
+
+Table 2-1 summarizes their differences in implementation, performance, and suitability.
+
+<p align="center"> Table 2-1 &nbsp; Comparing iteration and recursion </p>
 
 <div class="center-table" markdown>
 
-|                | Iteration                                                | Recursion                                                                              |
-| -------------- | -------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| Implementation | Loop structure                                           | Function calls itself                                                                  |
-| Time efficiency | Generally more efficient, no function call overhead      | Each function call incurs overhead                                                     |
-| Memory usage   | Usually uses a fixed amount of memory space              | Accumulated function calls may use a large amount of stack frame space                 |
-| Suitable problems | Suitable for simple loop tasks, with intuitive and readable code | Suitable for subproblem decomposition, such as trees, graphs, divide and conquer, backtracking, etc., with concise and clear code structure |
+|          | Iteration                                   | Recursion                                                         |
+| -------- | -------------------------------------- | ------------------------------------------------------------ |
+| Implementation | Loops                               | A function calls itself                                                 |
+| Time efficiency | Usually high, with no function-call overhead           | Each call adds overhead                                     |
+| Memory use | Usually a fixed amount of memory             | Accumulated calls may require many stack frames                           |
+| Suitable problems | Simple repetitive tasks, with straightforward, readable code | Subproblem decomposition, including trees, graphs, divide and conquer, and backtracking; concise, clear structure |
 
 </div>
 
 !!! tip
 
-    If you find the following content difficult to understand, you can review it after reading the "Stack" chapter.
+    If the following discussion feels difficult, return to it after reading the section on stacks.
 
-What is the intrinsic relationship between iteration and recursion? Taking the above recursive function as an example, the summation operation is performed during the "ascending" phase of recursion. This means that the function called first actually completes its summation operation last, **and this working mechanism is similar to the "last-in, first-out" principle of stacks**.
+How are iteration and recursion connected? In the summation example, additions occur during the return phase. The first function called is the last to finish its addition, **matching a stack's last-in, first-out behavior**.
 
-In fact, recursive terminology such as "call stack" and "stack frame space" already hints at the close relationship between recursion and stacks.
+The terms call stack and stack frame already suggest this close relationship.
 
-1. **Descend**: When a function is called, the system allocates a new stack frame on the "call stack" for that function to store the function's local variables, parameters, return address, and other data.
-2. **Ascend**: When the function completes execution and returns, the corresponding stack frame is removed from the "call stack", restoring the execution environment of the previous function.
+1. **Descent**: A function call adds a new stack frame to the call stack, holding local variables, parameters, the return address, and other data.
+2. **Return**: When the function finishes, its frame is removed, restoring the caller's execution context.
 
-Therefore, **we can use an explicit stack to simulate the behavior of the call stack**, thus transforming recursion into iterative form:
+Thus, **an explicit stack can simulate the call stack**, converting recursion into iteration:
 
 === "Python"
 
@@ -1589,13 +1624,13 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
         # Use an explicit stack to simulate the system call stack
         stack = []
         res = 0
-        # Recurse: recursive call
+        # Simulate the recursive-call phase
         for i in range(n, 0, -1):
-            # Simulate "recurse" with "push"
+            # Simulate recursive calls by pushing onto the stack
             stack.append(i)
-        # Return: return result
+        # Simulate unwinding and accumulating the result
         while stack:
-            # Simulate "return" with "pop"
+            # Simulate unwinding by popping from the stack
             res += stack.pop()
         # res = 1+2+3+...+n
         return res
@@ -1609,14 +1644,14 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
         // Use an explicit stack to simulate the system call stack
         stack<int> stack;
         int res = 0;
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         for (int i = n; i > 0; i--) {
-            // Simulate "recurse" with "push"
+            // Simulate recursive calls by pushing onto the stack
             stack.push(i);
         }
-        // Return: return result
+        // Unwind: return the result
         while (!stack.empty()) {
-            // Simulate "return" with "pop"
+            // Simulate unwinding by popping from the stack
             res += stack.top();
             stack.pop();
         }
@@ -1633,14 +1668,14 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
         // Use an explicit stack to simulate the system call stack
         Stack<Integer> stack = new Stack<>();
         int res = 0;
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         for (int i = n; i > 0; i--) {
-            // Simulate "recurse" with "push"
+            // Simulate recursive calls by pushing onto the stack
             stack.push(i);
         }
-        // Return: return result
+        // Unwind: return the result
         while (!stack.isEmpty()) {
-            // Simulate "return" with "pop"
+            // Simulate unwinding by popping from the stack
             res += stack.pop();
         }
         // res = 1+2+3+...+n
@@ -1656,14 +1691,14 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
         // Use an explicit stack to simulate the system call stack
         Stack<int> stack = new();
         int res = 0;
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         for (int i = n; i > 0; i--) {
-            // Simulate "recurse" with "push"
+            // Simulate recursive calls by pushing onto the stack
             stack.Push(i);
         }
-        // Return: return result
+        // Unwind: return the result
         while (stack.Count > 0) {
-            // Simulate "return" with "pop"
+            // Simulate unwinding by popping from the stack
             res += stack.Pop();
         }
         // res = 1+2+3+...+n
@@ -1679,14 +1714,14 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
         // Use an explicit stack to simulate the system call stack
         stack := list.New()
         res := 0
-        // Recurse: recursive call
+        // Descending: simulate recursive calls
         for i := n; i > 0; i-- {
-            // Simulate "recurse" with "push"
+            // Simulate recursive calls by pushing onto the stack
             stack.PushBack(i)
         }
-        // Return: return result
+        // Unwinding: simulate returning results
         for stack.Len() != 0 {
-            // Simulate "return" with "pop"
+            // Simulate unwinding by popping from the stack
             res += stack.Back().Value.(int)
             stack.Remove(stack.Back())
         }
@@ -1703,14 +1738,14 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
         // Use an explicit stack to simulate the system call stack
         var stack: [Int] = []
         var res = 0
-        // Recurse: recursive call
+        // Descending: simulate recursive calls
         for i in (1 ... n).reversed() {
-            // Simulate "recurse" with "push"
+            // Simulate recursive calls by pushing onto the stack
             stack.append(i)
         }
-        // Return: return result
+        // Unwinding: simulate returning results
         while !stack.isEmpty {
-            // Simulate "return" with "pop"
+            // Simulate unwinding by popping from the stack
             res += stack.removeLast()
         }
         // res = 1+2+3+...+n
@@ -1726,14 +1761,14 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
         // Use an explicit stack to simulate the system call stack
         const stack = [];
         let res = 0;
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         for (let i = n; i > 0; i--) {
-            // Simulate "recurse" with "push"
+            // Simulate recursive calls by pushing onto the stack
             stack.push(i);
         }
-        // Return: return result
+        // Unwind: return the result
         while (stack.length) {
-            // Simulate "return" with "pop"
+            // Simulate unwinding by popping from the stack
             res += stack.pop();
         }
         // res = 1+2+3+...+n
@@ -1746,17 +1781,17 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
     ```typescript title="recursion.ts"
     /* Simulate recursion using iteration */
     function forLoopRecur(n: number): number {
-        // Use an explicit stack to simulate the system call stack
+        // Use an explicit stack to simulate the system call stack 
         const stack: number[] = [];
         let res: number = 0;
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         for (let i = n; i > 0; i--) {
-            // Simulate "recurse" with "push"
+            // Simulate recursive calls by pushing onto the stack
             stack.push(i);
         }
-        // Return: return result
+        // Unwind: return the result
         while (stack.length) {
-            // Simulate "return" with "pop"
+            // Simulate unwinding by popping from the stack
             res += stack.pop();
         }
         // res = 1+2+3+...+n
@@ -1772,14 +1807,14 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
       // Use an explicit stack to simulate the system call stack
       List<int> stack = [];
       int res = 0;
-      // Recurse: recursive call
+      // Recurse: make a recursive call
       for (int i = n; i > 0; i--) {
-        // Simulate "recurse" with "push"
+        // Simulate recursive calls by pushing onto the stack
         stack.add(i);
       }
-      // Return: return result
+      // Unwind: return the result
       while (!stack.isEmpty) {
-        // Simulate "return" with "pop"
+        // Simulate unwinding by popping from the stack
         res += stack.removeLast();
       }
       // res = 1+2+3+...+n
@@ -1795,14 +1830,14 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
         // Use an explicit stack to simulate the system call stack
         let mut stack = Vec::new();
         let mut res = 0;
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         for i in (1..=n).rev() {
-            // Simulate "recurse" with "push"
+            // Simulate recursive calls by pushing onto the stack
             stack.push(i);
         }
-        // Return: return result
+        // Unwind: return the result
         while !stack.is_empty() {
-            // Simulate "return" with "pop"
+            // Simulate unwinding by popping from the stack
             res += stack.pop().unwrap();
         }
         // res = 1+2+3+...+n
@@ -1815,17 +1850,17 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
     ```c title="recursion.c"
     /* Simulate recursion using iteration */
     int forLoopRecur(int n) {
-        int stack[1000]; // Use a large array to simulate stack
-        int top = -1;    // Stack top index
+        int stack[1000]; // Use a large array to simulate a stack
+        int top = -1;    // Top-of-stack index
         int res = 0;
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         for (int i = n; i > 0; i--) {
-            // Simulate "recurse" with "push"
+            // Simulate recursive calls by pushing onto the stack
             stack[1 + top++] = i;
         }
-        // Return: return result
+        // Unwind: return the result
         while (top >= 0) {
-            // Simulate "return" with "pop"
+            // Simulate unwinding by popping from the stack
             res += stack[top--];
         }
         // res = 1+2+3+...+n
@@ -1841,14 +1876,14 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
         // Use an explicit stack to simulate the system call stack
         val stack = Stack<Int>()
         var res = 0
-        // Descend: recursive call
+        // Descending: recursive calls
         for (i in n downTo 0) {
-            // Simulate "recurse" with "push"
+            // Simulate recursive calls by pushing onto the stack
             stack.push(i)
         }
-        // Return: return result
+        // Unwinding: return the result
         while (stack.isNotEmpty()) {
-            // Simulate "return" with "pop"
+            // Simulate unwinding by popping from the stack
             res += stack.pop()
         }
         // res = 1+2+3+...+n
@@ -1859,18 +1894,18 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
 === "Ruby"
 
     ```ruby title="recursion.rb"
-    ### Use iteration to simulate recursion ###
+    ### Simulate recursion using iteration ###
     def for_loop_recur(n)
       # Use an explicit stack to simulate the system call stack
       stack = []
       res = 0
 
-      # Recurse: recursive call
+      # Recurse: make a recursive call
       for i in n.downto(0)
-        # Simulate "recurse" with "push"
+        # Simulate recursive calls by pushing onto the stack
         stack << i
       end
-      # Return: return result
+      # Unwind: return the result
       while !stack.empty?
         res += stack.pop
       end
@@ -1880,9 +1915,14 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
     end
     ```
 
-Observing the above code, when recursion is transformed into iteration, the code becomes more complex. Although iteration and recursion can be converted into each other in many cases, it may not be worthwhile to do so for the following two reasons.
+??? pythontutor "Visualize execution"
 
-- The transformed code may be more difficult to understand and less readable.
-- For some complex problems, simulating the behavior of the system call stack can be very difficult.
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20for_loop_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Simulate%20recursion%20using%20iteration%22%22%22%0A%20%20%20%20%23%20Use%20an%20explicit%20stack%20to%20simulate%20the%20system%20call%20stack%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20Recursive-call%20phase%0A%20%20%20%20for%20i%20in%20range%28n,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20Simulate%20recursive%20calls%20by%20pushing%20onto%20the%20stack%0A%20%20%20%20%20%20%20%20stack.append%28i%29%0A%20%20%20%20%23%20Unwinding%20phase%3A%20compute%20the%20result%0A%20%20%20%20while%20stack%3A%0A%20%20%20%20%20%20%20%20%23%20Simulate%20unwinding%20by%20popping%20from%20the%20stack%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20stack.pop%28%29%0A%20%20%20%20%23%20res%20%3D%201%2B2%2B3%2B...%2Bn%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20for_loop_recur%28n%29%0A%20%20%20%20print%28f%22%5CnSum%20from%20simulating%20recursion%20using%20iteration%3A%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20for_loop_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Simulate%20recursion%20using%20iteration%22%22%22%0A%20%20%20%20%23%20Use%20an%20explicit%20stack%20to%20simulate%20the%20system%20call%20stack%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20Recursive-call%20phase%0A%20%20%20%20for%20i%20in%20range%28n,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20Simulate%20recursive%20calls%20by%20pushing%20onto%20the%20stack%0A%20%20%20%20%20%20%20%20stack.append%28i%29%0A%20%20%20%20%23%20Unwinding%20phase%3A%20compute%20the%20result%0A%20%20%20%20while%20stack%3A%0A%20%20%20%20%20%20%20%20%23%20Simulate%20unwinding%20by%20popping%20from%20the%20stack%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20stack.pop%28%29%0A%20%20%20%20%23%20res%20%3D%201%2B2%2B3%2B...%2Bn%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20for_loop_recur%28n%29%0A%20%20%20%20print%28f%22%5CnSum%20from%20simulating%20recursion%20using%20iteration%3A%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-In summary, **choosing between iteration and recursion depends on the nature of the specific problem**. In programming practice, it is crucial to weigh the pros and cons of both and choose the appropriate method based on the context.
+The resulting iterative code is more complicated. Although iteration and recursion can often be converted into each other, doing so is not always worthwhile.
+
+- The converted code may be harder to understand and less readable.
+- Simulating the call stack can be very difficult for complex problems.
+
+**The choice between iteration and recursion depends on the problem**. In practice, weigh their strengths and weaknesses and choose the approach that fits the situation.

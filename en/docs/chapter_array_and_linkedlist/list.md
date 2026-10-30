@@ -2,29 +2,29 @@
 comments: true
 ---
 
-# 4.3 &nbsp; List
+# 4.3 &nbsp; Lists
 
-A <u>list</u> is an abstract data structure concept that represents an ordered collection of elements, supporting operations such as element access, modification, insertion, deletion, and traversal, without requiring users to consider capacity limitations. Lists can be implemented based on linked lists or arrays.
+A <u>list</u> is an abstract data structure representing an ordered collection. It supports access, modification, insertion, removal, and traversal without requiring users to manage capacity limits. Lists can be implemented with linked lists or arrays.
 
-- A linked list can naturally be viewed as a list: it supports insertion, deletion, search, and update, and can grow flexibly as needed.
-- An array also supports insertion, deletion, search, and update, but because its length is fixed, it can only be regarded as a list with a capacity limit.
+- A linked list naturally serves as a list, supporting these operations and flexible dynamic growth.
+- An array also supports these operations, but its fixed length makes it a list with a length limit.
 
-When a list is implemented with an array, **its fixed length makes it less practical**. This is because we usually cannot determine in advance how much data we need to store, making it difficult to choose an appropriate capacity. If the capacity is too small, it may fail to meet our needs; if it is too large, memory space will be wasted.
+When an array implements a list, **its fixed length limits the list's usefulness**. We often cannot predict how much data we will store. Too small an allocation may not meet our needs; too large an allocation wastes memory.
 
-To solve this problem, we can use a <u>dynamic array</u> to implement a list. It inherits all the advantages of arrays while supporting dynamic resizing during program execution.
+A <u>dynamic array</u> solves this problem. It retains the advantages of an array while allowing capacity to grow during execution.
 
-In fact, **the list types provided by the standard libraries of many programming languages are implemented with dynamic arrays**, such as `list` in Python, `ArrayList` in Java, `vector` in C++, and `List` in C#. In the following discussion, we will treat "list" and "dynamic array" as equivalent concepts.
+**Many standard-library lists use dynamic arrays**, including Python's `list`, Java's `ArrayList`, C++'s `vector`, and C#'s `List`. In the discussion that follows, we treat lists and dynamic arrays as equivalent concepts.
 
-## 4.3.1 &nbsp; Common List Operations
+## 4.3.1 &nbsp; Common list operations
 
-### 1. &nbsp; Initialize a List
+### 1. &nbsp; Initializing a list
 
-We typically initialize a list in one of two ways: empty or with predefined values:
+We usually initialize a list either without elements or with explicit initial values:
 
 === "Python"
 
     ```python title="list.py"
-    # Initialize a list
+    # Initialize lists
     # Without initial values
     nums1: list[int] = []
     # With initial values
@@ -34,8 +34,8 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "C++"
 
     ```cpp title="list.cpp"
-    /* Initialize a list */
-    // Note that vector in C++ is equivalent to nums as described in this article
+    /* Initialize lists */
+    // In C++, vector is the list type used for nums here
     // Without initial values
     vector<int> nums1;
     // With initial values
@@ -45,10 +45,10 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "Java"
 
     ```java title="list.java"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     List<Integer> nums1 = new ArrayList<>();
-    // With initial values (note that array elements should use the wrapper class Integer[] instead of int[])
+    // With initial values (use Integer[], the boxed counterpart of int[])
     Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
     List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
     ```
@@ -56,7 +56,7 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "C#"
 
     ```csharp title="list.cs"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     List<int> nums1 = [];
     // With initial values
@@ -67,7 +67,7 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "Go"
 
     ```go title="list_test.go"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     nums1 := []int{}
     // With initial values
@@ -77,7 +77,7 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "Swift"
 
     ```swift title="list.swift"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     let nums1: [Int] = []
     // With initial values
@@ -87,7 +87,7 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "JS"
 
     ```javascript title="list.js"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     const nums1 = [];
     // With initial values
@@ -97,7 +97,7 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "TS"
 
     ```typescript title="list.ts"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     const nums1: number[] = [];
     // With initial values
@@ -107,7 +107,7 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "Dart"
 
     ```dart title="list.dart"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     List<int> nums1 = [];
     // With initial values
@@ -117,7 +117,7 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "Rust"
 
     ```rust title="list.rs"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     let nums1: Vec<i32> = Vec::new();
     // With initial values
@@ -127,13 +127,13 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C does not provide a built-in dynamic array
     ```
 
 === "Kotlin"
 
     ```kotlin title="list.kt"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     var nums1 = listOf<Int>()
     // With initial values
@@ -144,153 +144,153 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "Ruby"
 
     ```ruby title="list.rb"
-    # Initialize a list
+    # Initialize lists
     # Without initial values
     nums1 = []
     # With initial values
     nums = [1, 3, 2, 5, 4]
     ```
 
-??? pythontutor "Code Visualization"
+??? pythontutor "Visualize execution"
 
-    <div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" title="Code Visualization" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20%23%20%E6%97%A0%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20%23%20%E6%97%A0%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
+    <div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20%23%20Without%20initial%20values%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20With%20initial%20values%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20%23%20Without%20initial%20values%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20With%20initial%20values%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-### 2. &nbsp; Access Elements
+### 2. &nbsp; Accessing an element
 
-Since a list is essentially an array, we can access and update elements in $O(1)$ time complexity, which is very efficient.
+Since the list is based on an array, accessing and updating an element are efficient $O(1)$ operations.
 
 === "Python"
 
     ```python title="list.py"
     # Access an element
-    num: int = nums[1]  # Access element at index 1
+    num: int = nums[1]  # Access the element at index 1
 
     # Update an element
-    nums[1] = 0    # Update element at index 1 to 0
+    nums[1] = 0    # Set the element at index 1 to 0
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
     /* Access an element */
-    int num = nums[1];  // Access element at index 1
+    int num = nums[1];  // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0;  // Update element at index 1 to 0
+    nums[1] = 0;  // Set the element at index 1 to 0
     ```
 
 === "Java"
 
     ```java title="list.java"
     /* Access an element */
-    int num = nums.get(1);  // Access element at index 1
+    int num = nums.get(1);  // Access the element at index 1
 
     /* Update an element */
-    nums.set(1, 0);  // Update element at index 1 to 0
+    nums.set(1, 0);  // Set the element at index 1 to 0
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
     /* Access an element */
-    int num = nums[1];  // Access element at index 1
+    int num = nums[1];  // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0;  // Update element at index 1 to 0
+    nums[1] = 0;  // Set the element at index 1 to 0
     ```
 
 === "Go"
 
     ```go title="list_test.go"
     /* Access an element */
-    num := nums[1]  // Access element at index 1
+    num := nums[1]  // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0     // Update element at index 1 to 0
+    nums[1] = 0     // Set the element at index 1 to 0
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
     /* Access an element */
-    let num = nums[1] // Access element at index 1
+    let num = nums[1] // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0 // Update element at index 1 to 0
+    nums[1] = 0 // Set the element at index 1 to 0
     ```
 
 === "JS"
 
     ```javascript title="list.js"
     /* Access an element */
-    const num = nums[1];  // Access element at index 1
+    const num = nums[1];  // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0;  // Update element at index 1 to 0
+    nums[1] = 0;  // Set the element at index 1 to 0
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
     /* Access an element */
-    const num: number = nums[1];  // Access element at index 1
+    const num: number = nums[1];  // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0;  // Update element at index 1 to 0
+    nums[1] = 0;  // Set the element at index 1 to 0
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
     /* Access an element */
-    int num = nums[1];  // Access element at index 1
+    int num = nums[1];  // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0;  // Update element at index 1 to 0
+    nums[1] = 0;  // Set the element at index 1 to 0
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
     /* Access an element */
-    let num: i32 = nums[1];  // Access element at index 1
+    let num: i32 = nums[1];  // Access the element at index 1
     /* Update an element */
-    nums[1] = 0;             // Update element at index 1 to 0
+    nums[1] = 0;             // Set the element at index 1 to 0
     ```
 
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C does not provide a built-in dynamic array
     ```
 
 === "Kotlin"
 
     ```kotlin title="list.kt"
     /* Access an element */
-    val num = nums[1]       // Access element at index 1
+    val num = nums[1]       // Access the element at index 1
     /* Update an element */
-    nums[1] = 0             // Update element at index 1 to 0
+    nums[1] = 0             // Set the element at index 1 to 0
     ```
 
 === "Ruby"
 
     ```ruby title="list.rb"
     # Access an element
-    num = nums[1] # Access element at index 1
+    num = nums[1] # Access the element at index 1
     # Update an element
-    nums[1] = 0 # Update element at index 1 to 0
+    nums[1] = 0 # Set the element at index 1 to 0
     ```
 
-??? pythontutor "Code Visualization"
+??? pythontutor "Visualize execution"
 
-    <div style="height: 369px; width: 100%;"><iframe class="pythontutor-iframe" title="Code Visualization" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%E8%AE%BF%E9%97%AE%E7%B4%A2%E5%BC%95%201%20%E5%A4%84%E7%9A%84%E5%85%83%E7%B4%A0%0A%0A%20%20%20%20%23%20%E6%9B%B4%E6%96%B0%E5%85%83%E7%B4%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E5%B0%86%E7%B4%A2%E5%BC%95%201%20%E5%A4%84%E7%9A%84%E5%85%83%E7%B4%A0%E6%9B%B4%E6%96%B0%E4%B8%BA%200&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%E8%AE%BF%E9%97%AE%E7%B4%A2%E5%BC%95%201%20%E5%A4%84%E7%9A%84%E5%85%83%E7%B4%A0%0A%0A%20%20%20%20%23%20%E6%9B%B4%E6%96%B0%E5%85%83%E7%B4%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E5%B0%86%E7%B4%A2%E5%BC%95%201%20%E5%A4%84%E7%9A%84%E5%85%83%E7%B4%A0%E6%9B%B4%E6%96%B0%E4%B8%BA%200&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
+    <div style="height: 369px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20Access%20an%20element%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20Access%20the%20element%20at%20index%201%0A%0A%20%20%20%20%23%20Update%20an%20element%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20Set%20the%20element%20at%20index%201%20to%200&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20Access%20an%20element%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20Access%20the%20element%20at%20index%201%0A%0A%20%20%20%20%23%20Update%20an%20element%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20Set%20the%20element%20at%20index%201%20to%200&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-### 3. &nbsp; Insert and Delete Elements
+### 3. &nbsp; Inserting and removing elements
 
-Compared to arrays, lists can freely add and delete elements. Adding an element at the end of a list has a time complexity of $O(1)$, but inserting and deleting elements still have the same efficiency as arrays, with a time complexity of $O(n)$.
+Unlike a fixed array, a list can freely add and remove elements. Appending takes $O(1)$ time, while insertion and removal retain the array's $O(n)$ time complexity.
 
 === "Python"
 
@@ -298,7 +298,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     # Clear the list
     nums.clear()
 
-    # Add elements at the end
+    # Append elements
     nums.append(1)
     nums.append(3)
     nums.append(2)
@@ -306,10 +306,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.append(4)
 
     # Insert an element in the middle
-    nums.insert(3, 6)  # Insert number 6 at index 3
+    nums.insert(3, 6)  # Insert 6 at index 3
 
-    # Delete an element
-    nums.pop(3)        # Delete element at index 3
+    # Remove an element
+    nums.pop(3)        # Remove the element at index 3
     ```
 
 === "C++"
@@ -318,7 +318,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.clear();
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.push_back(1);
     nums.push_back(3);
     nums.push_back(2);
@@ -326,10 +326,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.push_back(4);
 
     /* Insert an element in the middle */
-    nums.insert(nums.begin() + 3, 6);  // Insert number 6 at index 3
+    nums.insert(nums.begin() + 3, 6);  // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.erase(nums.begin() + 3);      // Delete element at index 3
+    /* Remove an element */
+    nums.erase(nums.begin() + 3);      // Remove the element at index 3
     ```
 
 === "Java"
@@ -338,7 +338,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.clear();
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.add(1);
     nums.add(3);
     nums.add(2);
@@ -346,10 +346,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.add(4);
 
     /* Insert an element in the middle */
-    nums.add(3, 6);  // Insert number 6 at index 3
+    nums.add(3, 6);  // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.remove(3);  // Delete element at index 3
+    /* Remove an element */
+    nums.remove(3);  // Remove the element at index 3
     ```
 
 === "C#"
@@ -358,7 +358,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.Clear();
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.Add(1);
     nums.Add(3);
     nums.Add(2);
@@ -366,10 +366,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.Add(4);
 
     /* Insert an element in the middle */
-    nums.Insert(3, 6);  // Insert number 6 at index 3
+    nums.Insert(3, 6);  // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.RemoveAt(3);  // Delete element at index 3
+    /* Remove an element */
+    nums.RemoveAt(3);  // Remove the element at index 3
     ```
 
 === "Go"
@@ -378,7 +378,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums = nil
 
-    /* Add elements at the end */
+    /* Append elements */
     nums = append(nums, 1)
     nums = append(nums, 3)
     nums = append(nums, 2)
@@ -386,10 +386,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums = append(nums, 4)
 
     /* Insert an element in the middle */
-    nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // Insert number 6 at index 3
+    nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // Insert 6 at index 3
 
-    /* Delete an element */
-    nums = append(nums[:3], nums[4:]...) // Delete element at index 3
+    /* Remove an element */
+    nums = append(nums[:3], nums[4:]...) // Remove the element at index 3
     ```
 
 === "Swift"
@@ -398,7 +398,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.removeAll()
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.append(1)
     nums.append(3)
     nums.append(2)
@@ -406,10 +406,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.append(4)
 
     /* Insert an element in the middle */
-    nums.insert(6, at: 3) // Insert number 6 at index 3
+    nums.insert(6, at: 3) // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.remove(at: 3) // Delete element at index 3
+    /* Remove an element */
+    nums.remove(at: 3) // Remove the element at index 3
     ```
 
 === "JS"
@@ -418,7 +418,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.length = 0;
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.push(1);
     nums.push(3);
     nums.push(2);
@@ -426,10 +426,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.push(4);
 
     /* Insert an element in the middle */
-    nums.splice(3, 0, 6); // Insert number 6 at index 3
+    nums.splice(3, 0, 6); // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.splice(3, 1);  // Delete element at index 3
+    /* Remove an element */
+    nums.splice(3, 1);  // Remove the element at index 3
     ```
 
 === "TS"
@@ -438,7 +438,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.length = 0;
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.push(1);
     nums.push(3);
     nums.push(2);
@@ -446,10 +446,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.push(4);
 
     /* Insert an element in the middle */
-    nums.splice(3, 0, 6); // Insert number 6 at index 3
+    nums.splice(3, 0, 6); // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.splice(3, 1);  // Delete element at index 3
+    /* Remove an element */
+    nums.splice(3, 1);  // Remove the element at index 3
     ```
 
 === "Dart"
@@ -458,7 +458,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.clear();
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.add(1);
     nums.add(3);
     nums.add(2);
@@ -466,10 +466,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.add(4);
 
     /* Insert an element in the middle */
-    nums.insert(3, 6); // Insert number 6 at index 3
+    nums.insert(3, 6); // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.removeAt(3); // Delete element at index 3
+    /* Remove an element */
+    nums.removeAt(3); // Remove the element at index 3
     ```
 
 === "Rust"
@@ -478,7 +478,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.clear();
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.push(1);
     nums.push(3);
     nums.push(2);
@@ -486,16 +486,16 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.push(4);
 
     /* Insert an element in the middle */
-    nums.insert(3, 6);  // Insert number 6 at index 3
+    nums.insert(3, 6);  // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.remove(3);    // Delete element at index 3
+    /* Remove an element */
+    nums.remove(3);    // Remove the element at index 3
     ```
 
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C does not provide a built-in dynamic array
     ```
 
 === "Kotlin"
@@ -504,7 +504,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.clear();
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.add(1);
     nums.add(3);
     nums.add(2);
@@ -512,10 +512,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.add(4);
 
     /* Insert an element in the middle */
-    nums.add(3, 6);  // Insert number 6 at index 3
+    nums.add(3, 6);  // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.remove(3);  // Delete element at index 3
+    /* Remove an element */
+    nums.remove(3);  // Remove the element at index 3
     ```
 
 === "Ruby"
@@ -524,7 +524,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     # Clear the list
     nums.clear
 
-    # Add elements at the end
+    # Append elements
     nums << 1
     nums << 3
     nums << 2
@@ -532,20 +532,20 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums << 4
 
     # Insert an element in the middle
-    nums.insert(3, 6) # Insert number 6 at index 3
+    nums.insert(3, 6) # Insert 6 at index 3
 
-    # Delete an element
-    nums.delete_at(3) # Delete element at index 3
+    # Remove an element
+    nums.delete_at(3) # Remove the element at index 3
     ```
 
-??? pythontutor "Code Visualization"
+??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Code Visualization" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B8%85%E7%A9%BA%E5%88%97%E8%A1%A8%0A%20%20%20%20nums.clear%28%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%9C%A8%E5%B0%BE%E9%83%A8%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.append%281%29%0A%20%20%20%20nums.append%283%29%0A%20%20%20%20nums.append%282%29%0A%20%20%20%20nums.append%285%29%0A%20%20%20%20nums.append%284%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%9C%A8%E4%B8%AD%E9%97%B4%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.insert%283,%206%29%20%20%23%20%E5%9C%A8%E7%B4%A2%E5%BC%95%203%20%E5%A4%84%E6%8F%92%E5%85%A5%E6%95%B0%E5%AD%97%206%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.pop%283%29%20%20%20%20%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95%203%20%E5%A4%84%E7%9A%84%E5%85%83%E7%B4%A0&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B8%85%E7%A9%BA%E5%88%97%E8%A1%A8%0A%20%20%20%20nums.clear%28%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%9C%A8%E5%B0%BE%E9%83%A8%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.append%281%29%0A%20%20%20%20nums.append%283%29%0A%20%20%20%20nums.append%282%29%0A%20%20%20%20nums.append%285%29%0A%20%20%20%20nums.append%284%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%9C%A8%E4%B8%AD%E9%97%B4%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.insert%283,%206%29%20%20%23%20%E5%9C%A8%E7%B4%A2%E5%BC%95%203%20%E5%A4%84%E6%8F%92%E5%85%A5%E6%95%B0%E5%AD%97%206%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.pop%283%29%20%20%20%20%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95%203%20%E5%A4%84%E7%9A%84%E5%85%83%E7%B4%A0&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20With%20initial%20values%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Clear%20the%20list%0A%20%20%20%20nums.clear%28%29%0A%20%20%20%20%0A%20%20%20%20%23%20Append%20elements%0A%20%20%20%20nums.append%281%29%0A%20%20%20%20nums.append%283%29%0A%20%20%20%20nums.append%282%29%0A%20%20%20%20nums.append%285%29%0A%20%20%20%20nums.append%284%29%0A%20%20%20%20%0A%20%20%20%20%23%20Insert%20an%20element%20in%20the%20middle%0A%20%20%20%20nums.insert%283%2C%206%29%20%20%23%20Insert%206%20at%20index%203%0A%20%20%20%20%0A%20%20%20%20%23%20Remove%20an%20element%0A%20%20%20%20nums.pop%283%29%20%20%20%20%20%20%20%20%23%20Remove%20the%20element%20at%20index%203&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20With%20initial%20values%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Clear%20the%20list%0A%20%20%20%20nums.clear%28%29%0A%20%20%20%20%0A%20%20%20%20%23%20Append%20elements%0A%20%20%20%20nums.append%281%29%0A%20%20%20%20nums.append%283%29%0A%20%20%20%20nums.append%282%29%0A%20%20%20%20nums.append%285%29%0A%20%20%20%20nums.append%284%29%0A%20%20%20%20%0A%20%20%20%20%23%20Insert%20an%20element%20in%20the%20middle%0A%20%20%20%20nums.insert%283%2C%206%29%20%20%23%20Insert%206%20at%20index%203%0A%20%20%20%20%0A%20%20%20%20%23%20Remove%20an%20element%0A%20%20%20%20nums.pop%283%29%20%20%20%20%20%20%20%20%23%20Remove%20the%20element%20at%20index%203&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-### 4. &nbsp; Traverse a List
+### 4. &nbsp; Traversing a list
 
-Like arrays, lists can be traversed by index or by directly iterating through elements.
+Like an array, a list can be traversed by index or by visiting its elements directly.
 
 === "Python"
 
@@ -706,7 +706,7 @@ Like arrays, lists can be traversed by index or by directly iterating through el
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C does not provide a built-in dynamic array
     ```
 
 === "Kotlin"
@@ -740,21 +740,21 @@ Like arrays, lists can be traversed by index or by directly iterating through el
     end
     ```
 
-??? pythontutor "Code Visualization"
+??? pythontutor "Visualize execution"
 
-    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" title="Code Visualization" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%80%9A%E8%BF%87%E7%B4%A2%E5%BC%95%E9%81%8D%E5%8E%86%E5%88%97%E8%A1%A8%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20%E7%9B%B4%E6%8E%A5%E9%81%8D%E5%8E%86%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%80%9A%E8%BF%87%E7%B4%A2%E5%BC%95%E9%81%8D%E5%8E%86%E5%88%97%E8%A1%A8%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20%E7%9B%B4%E6%8E%A5%E9%81%8D%E5%8E%86%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
+    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Traverse%20the%20list%20by%20index%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20Traverse%20list%20elements%20directly%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Traverse%20the%20list%20by%20index%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20Traverse%20list%20elements%20directly%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-### 5. &nbsp; Concatenate Lists
+### 5. &nbsp; Concatenating lists
 
-Given a new list `nums1`, we can concatenate it to the end of the original list.
+Given another list `nums1`, we can append its elements to the end of the original list.
 
 === "Python"
 
     ```python title="list.py"
     # Concatenate two lists
     nums1: list[int] = [6, 8, 7, 10, 9]
-    nums += nums1  # Concatenate list nums1 to the end of nums
+    nums += nums1  # Append nums1 to nums
     ```
 
 === "C++"
@@ -762,7 +762,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```cpp title="list.cpp"
     /* Concatenate two lists */
     vector<int> nums1 = { 6, 8, 7, 10, 9 };
-    // Concatenate list nums1 to the end of nums
+    // Append nums1 to nums
     nums.insert(nums.end(), nums1.begin(), nums1.end());
     ```
 
@@ -771,7 +771,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```java title="list.java"
     /* Concatenate two lists */
     List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
-    nums.addAll(nums1);  // Concatenate list nums1 to the end of nums
+    nums.addAll(nums1);  // Append nums1 to nums
     ```
 
 === "C#"
@@ -779,7 +779,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```csharp title="list.cs"
     /* Concatenate two lists */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.AddRange(nums1);  // Concatenate list nums1 to the end of nums
+    nums.AddRange(nums1);  // Append nums1 to nums
     ```
 
 === "Go"
@@ -787,7 +787,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```go title="list_test.go"
     /* Concatenate two lists */
     nums1 := []int{6, 8, 7, 10, 9}
-    nums = append(nums, nums1...)  // Concatenate list nums1 to the end of nums
+    nums = append(nums, nums1...)  // Append nums1 to nums
     ```
 
 === "Swift"
@@ -795,7 +795,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```swift title="list.swift"
     /* Concatenate two lists */
     let nums1 = [6, 8, 7, 10, 9]
-    nums.append(contentsOf: nums1) // Concatenate list nums1 to the end of nums
+    nums.append(contentsOf: nums1) // Append nums1 to nums
     ```
 
 === "JS"
@@ -803,7 +803,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```javascript title="list.js"
     /* Concatenate two lists */
     const nums1 = [6, 8, 7, 10, 9];
-    nums.push(...nums1);  // Concatenate list nums1 to the end of nums
+    nums.push(...nums1);  // Append nums1 to nums
     ```
 
 === "TS"
@@ -811,7 +811,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```typescript title="list.ts"
     /* Concatenate two lists */
     const nums1: number[] = [6, 8, 7, 10, 9];
-    nums.push(...nums1);  // Concatenate list nums1 to the end of nums
+    nums.push(...nums1);  // Append nums1 to nums
     ```
 
 === "Dart"
@@ -819,7 +819,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```dart title="list.dart"
     /* Concatenate two lists */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.addAll(nums1);  // Concatenate list nums1 to the end of nums
+    nums.addAll(nums1);  // Append nums1 to nums
     ```
 
 === "Rust"
@@ -833,7 +833,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C does not provide a built-in dynamic array
     ```
 
 === "Kotlin"
@@ -841,7 +841,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```kotlin title="list.kt"
     /* Concatenate two lists */
     val nums1 = intArrayOf(6, 8, 7, 10, 9).toMutableList()
-    nums.addAll(nums1)  // Concatenate list nums1 to the end of nums
+    nums.addAll(nums1)  // Append nums1 to nums
     ```
 
 === "Ruby"
@@ -852,119 +852,119 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     nums += nums1
     ```
 
-??? pythontutor "Code Visualization"
+??? pythontutor "Visualize execution"
 
-    <div style="height: 333px; width: 100%;"><iframe class="pythontutor-iframe" title="Code Visualization" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%8B%BC%E6%8E%A5%E4%B8%A4%E4%B8%AA%E5%88%97%E8%A1%A8%0A%20%20%20%20nums1%20%3D%20%5B6,%208,%207,%2010,%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20%E5%B0%86%E5%88%97%E8%A1%A8%20nums1%20%E6%8B%BC%E6%8E%A5%E5%88%B0%20nums%20%E4%B9%8B%E5%90%8E&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%8B%BC%E6%8E%A5%E4%B8%A4%E4%B8%AA%E5%88%97%E8%A1%A8%0A%20%20%20%20nums1%20%3D%20%5B6,%208,%207,%2010,%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20%E5%B0%86%E5%88%97%E8%A1%A8%20nums1%20%E6%8B%BC%E6%8E%A5%E5%88%B0%20nums%20%E4%B9%8B%E5%90%8E&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
+    <div style="height: 333px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Concatenate%20two%20lists%0A%20%20%20%20nums1%20%3D%20%5B6%2C%208%2C%207%2C%2010%2C%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20Append%20nums1%20to%20nums&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Concatenate%20two%20lists%0A%20%20%20%20nums1%20%3D%20%5B6%2C%208%2C%207%2C%2010%2C%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20Append%20nums1%20to%20nums&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-### 6. &nbsp; Sort a List
+### 6. &nbsp; Sorting a list
 
-After sorting a list, we can use "binary search" and "two-pointer" algorithms, which are frequently tested in array algorithm problems.
+Once the list is sorted, we can apply binary search and two-pointer algorithms, which often appear in array problems.
 
 === "Python"
 
     ```python title="list.py"
-    # Sort a list
-    nums.sort()  # After sorting, list elements are arranged from smallest to largest
+    # Sort the list
+    nums.sort()  # After sorting, elements are in ascending order
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
-    /* Sort a list */
-    sort(nums.begin(), nums.end());  // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    sort(nums.begin(), nums.end());  // After sorting, elements are in ascending order
     ```
 
 === "Java"
 
     ```java title="list.java"
-    /* Sort a list */
-    Collections.sort(nums);  // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    Collections.sort(nums);  // After sorting, elements are in ascending order
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
-    /* Sort a list */
-    nums.Sort(); // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    nums.Sort(); // After sorting, elements are in ascending order
     ```
 
 === "Go"
 
     ```go title="list_test.go"
-    /* Sort a list */
-    sort.Ints(nums)  // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    sort.Ints(nums)  // After sorting, elements are in ascending order
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
-    /* Sort a list */
-    nums.sort() // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    nums.sort() // After sorting, elements are in ascending order
     ```
 
 === "JS"
 
     ```javascript title="list.js"
-    /* Sort a list */
-    nums.sort((a, b) => a - b);  // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    nums.sort((a, b) => a - b);  // After sorting, elements are in ascending order
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
-    /* Sort a list */
-    nums.sort((a, b) => a - b);  // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    nums.sort((a, b) => a - b);  // After sorting, elements are in ascending order
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
-    /* Sort a list */
-    nums.sort(); // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    nums.sort(); // After sorting, elements are in ascending order
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* Sort a list */
-    nums.sort(); // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    nums.sort(); // After sorting, elements are in ascending order
     ```
 
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C does not provide a built-in dynamic array
     ```
 
 === "Kotlin"
 
     ```kotlin title="list.kt"
-    /* Sort a list */
-    nums.sort() // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    nums.sort() // After sorting, elements are in ascending order
     ```
 
 === "Ruby"
 
     ```ruby title="list.rb"
-    # Sort a list
-    nums = nums.sort { |a, b| a <=> b } # After sorting, list elements are arranged from smallest to largest
+    # Sort the list
+    nums = nums.sort { |a, b| a <=> b } # After sorting, elements are in ascending order
     ```
 
-??? pythontutor "Code Visualization"
+??? pythontutor "Visualize execution"
 
-    <div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" title="Code Visualization" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%8E%92%E5%BA%8F%E5%88%97%E8%A1%A8%0A%20%20%20%20nums.sort%28%29%20%20%23%20%E6%8E%92%E5%BA%8F%E5%90%8E%EF%BC%8C%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7%E6%8E%92%E5%88%97&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%8E%92%E5%BA%8F%E5%88%97%E8%A1%A8%0A%20%20%20%20nums.sort%28%29%20%20%23%20%E6%8E%92%E5%BA%8F%E5%90%8E%EF%BC%8C%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7%E6%8E%92%E5%88%97&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
+    <div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Sort%20the%20list%0A%20%20%20%20nums.sort%28%29%20%20%23%20After%20sorting%2C%20elements%20are%20in%20ascending%20order&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Sort%20the%20list%0A%20%20%20%20nums.sort%28%29%20%20%23%20After%20sorting%2C%20elements%20are%20in%20ascending%20order&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-## 4.3.2 &nbsp; List Implementation
+## 4.3.2 &nbsp; Implementing a list
 
-Many programming languages have built-in lists, such as Java, C++, and Python. Their implementations are quite complex, and the parameters are carefully considered, such as initial capacity, expansion multiples, and so on. Interested readers can consult the source code to learn more.
+Many languages, including Java, C++, and Python, provide lists. Their implementations are sophisticated, with carefully chosen parameters such as initial capacity and growth factor. Interested readers can study their source code.
 
-To deepen our understanding of how lists work, we attempt to implement a simple list with three key design considerations:
+To understand how a list works, let's implement a simplified version with three key design choices.
 
-- **Initial capacity**: Select a reasonable initial capacity for the underlying array. In this example, we choose 10 as the initial capacity.
-- **Size tracking**: Declare a variable `size` to record the current number of elements in the list and update it in real-time as elements are inserted and deleted. Based on this variable, we can locate the end of the list and determine whether expansion is needed.
-- **Expansion mechanism**: When the list capacity is full upon inserting an element, we need to expand. We create a larger array based on the expansion multiple and then move all elements from the current array to the new array in order. In this example, we specify that the array should be expanded to 2 times its previous size each time.
+- **Initial capacity**: Choose a reasonable starting array capacity. We use 10 here.
+- **Element count**: Maintain `size`, the number of elements, updating it on insertion and removal. It identifies the list's end and tells us when expansion is needed.
+- **Growth mechanism**: If insertion finds the capacity full, allocate a larger array using a growth factor and copy all current elements into it. Here, capacity doubles each time.
 
 === "Python"
 
@@ -975,47 +975,47 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
         def __init__(self):
             """Constructor"""
             self._capacity: int = 10  # List capacity
-            self._arr: list[int] = [0] * self._capacity  # Array (stores list elements)
+            self._arr: list[int] = [0] * self._capacity  # Array (stores the list elements)
             self._size: int = 0  # List length (current number of elements)
-            self._extend_ratio: int = 2  # Multiple by which the list capacity is extended each time
+            self._extend_ratio: int = 2  # Factor by which the list capacity grows each time
 
         def size(self) -> int:
-            """Get list length (current number of elements)"""
+            """Get the list length (current number of elements)"""
             return self._size
 
         def capacity(self) -> int:
-            """Get list capacity"""
+            """Get the list capacity"""
             return self._capacity
 
         def get(self, index: int) -> int:
-            """Access element"""
-            # If the index is out of bounds, throw an exception, as below
+            """Access an element"""
+            # Raise an exception if the index is out of bounds; the same applies below
             if index < 0 or index >= self._size:
                 raise IndexError("Index out of bounds")
             return self._arr[index]
 
         def set(self, num: int, index: int):
-            """Update element"""
+            """Update an element"""
             if index < 0 or index >= self._size:
                 raise IndexError("Index out of bounds")
             self._arr[index] = num
 
         def add(self, num: int):
-            """Add element at the end"""
-            # When the number of elements exceeds capacity, trigger the extension mechanism
+            """Append an element at the end"""
+            # Grow the capacity when adding an element would exceed it
             if self.size() == self.capacity():
                 self.extend_capacity()
             self._arr[self._size] = num
             self._size += 1
 
         def insert(self, num: int, index: int):
-            """Insert element in the middle"""
+            """Insert an element in the middle"""
             if index < 0 or index >= self._size:
                 raise IndexError("Index out of bounds")
-            # When the number of elements exceeds capacity, trigger the extension mechanism
+            # Grow the capacity when adding an element would exceed it
             if self._size == self.capacity():
                 self.extend_capacity()
-            # Move all elements at and after index index backward by one position
+            # Shift all elements at and after index `index` one position to the right
             for j in range(self._size - 1, index - 1, -1):
                 self._arr[j + 1] = self._arr[j]
             self._arr[index] = num
@@ -1023,11 +1023,11 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             self._size += 1
 
         def remove(self, index: int) -> int:
-            """Remove element"""
+            """Remove an element"""
             if index < 0 or index >= self._size:
                 raise IndexError("Index out of bounds")
             num = self._arr[index]
-            # Move all elements after index index forward by one position
+            # Shift all elements after index `index` one position to the left
             for j in range(index, self._size - 1):
                 self._arr[j] = self._arr[j + 1]
             # Update the number of elements
@@ -1036,14 +1036,14 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             return num
 
         def extend_capacity(self):
-            """Extend list capacity"""
-            # Create a new array with length _extend_ratio times the original array, and copy the original array to the new array
+            """Grow the list capacity"""
+            # Create a new array with _extend_ratio times the original length and copy the original array into it
             self._arr = self._arr + [0] * self.capacity() * (self._extend_ratio - 1)
-            # Update list capacity
+            # Update the list capacity
             self._capacity = len(self._arr)
 
         def to_array(self) -> list[int]:
-            """Return list with valid length"""
+            """Return the portion of the list that contains elements"""
             return self._arr[: self._size]
     ```
 
@@ -1053,10 +1053,10 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
     /* List class */
     class MyList {
       private:
-        int *arr;             // Array (stores list elements)
+        int *arr;             // Array (stores the list elements)
         int arrCapacity = 10; // List capacity
         int arrSize = 0;      // List length (current number of elements)
-        int extendRatio = 2;   // Multiple by which the list capacity is extended each time
+        int extendRatio = 2;   // Factor by which the list capacity grows each time
 
       public:
         /* Constructor */
@@ -1069,34 +1069,34 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             delete[] arr;
         }
 
-        /* Get list length (current number of elements)*/
+        /* Get the list length (current number of elements)*/
         int size() {
             return arrSize;
         }
 
-        /* Get list capacity */
+        /* Get the list capacity */
         int capacity() {
             return arrCapacity;
         }
 
-        /* Update element */
+        /* Access an element */
         int get(int index) {
-            // If the index is out of bounds, throw an exception, as below
+            // Raise an exception if the index is out of bounds; the same applies below
             if (index < 0 || index >= size())
                 throw out_of_range("Index out of bounds");
             return arr[index];
         }
 
-        /* Add elements at the end */
+        /* Update an element */
         void set(int index, int num) {
             if (index < 0 || index >= size())
                 throw out_of_range("Index out of bounds");
             arr[index] = num;
         }
 
-        /* Direct traversal of list elements */
+        /* Append an element at the end */
         void add(int num) {
-            // When the number of elements exceeds capacity, trigger the extension mechanism
+            // Grow the capacity when adding an element would exceed it
             if (size() == capacity())
                 extendCapacity();
             arr[size()] = num;
@@ -1104,14 +1104,14 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             arrSize++;
         }
 
-        /* Sort list */
+        /* Insert an element in the middle */
         void insert(int index, int num) {
             if (index < 0 || index >= size())
                 throw out_of_range("Index out of bounds");
-            // When the number of elements exceeds capacity, trigger the extension mechanism
+            // Grow the capacity when adding an element would exceed it
             if (size() == capacity())
                 extendCapacity();
-            // Move all elements after index index forward by one position
+            // Shift all elements at and after index `index` one position to the right
             for (int j = size() - 1; j >= index; j--) {
                 arr[j + 1] = arr[j];
             }
@@ -1120,12 +1120,12 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             arrSize++;
         }
 
-        /* Remove element */
+        /* Remove an element */
         int remove(int index) {
             if (index < 0 || index >= size())
                 throw out_of_range("Index out of bounds");
             int num = arr[index];
-            // Create a new array with length _extend_ratio times the original array, and copy the original array to the new array
+            // Shift all elements after index `index` one position to the left
             for (int j = index; j < size() - 1; j++) {
                 arr[j] = arr[j + 1];
             }
@@ -1135,9 +1135,9 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             return num;
         }
 
-        /* Driver Code */
+        /* Grow the list capacity */
         void extendCapacity() {
-            // Create a new array with length extendRatio times the original array
+            // Create a new array with extendRatio times the original array's length
             int newCapacity = capacity() * extendRatio;
             int *tmp = arr;
             arr = new int[newCapacity];
@@ -1150,9 +1150,9 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             arrCapacity = newCapacity;
         }
 
-        /* Convert list to Vector for printing */
+        /* Convert the list to a vector for printing */
         vector<int> toVector() {
-            // Elements enqueue
+            // Convert only the list elements within the occupied range
             vector<int> vec(size());
             for (int i = 0; i < size(); i++) {
                 vec[i] = arr[i];
@@ -1167,44 +1167,44 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
     ```java title="my_list.java"
     /* List class */
     class MyList {
-        private int[] arr; // Array (stores list elements)
+        private int[] arr; // Array (stores the list elements)
         private int capacity = 10; // List capacity
         private int size = 0; // List length (current number of elements)
-        private int extendRatio = 2; // Multiple by which the list capacity is extended each time
+        private int extendRatio = 2; // Factor by which the list capacity grows each time
 
         /* Constructor */
         public MyList() {
             arr = new int[capacity];
         }
 
-        /* Get list length (current number of elements) */
+        /* Get the list length (current number of elements) */
         public int size() {
             return size;
         }
 
-        /* Get list capacity */
+        /* Get the list capacity */
         public int capacity() {
             return capacity;
         }
 
-        /* Update element */
+        /* Access an element */
         public int get(int index) {
-            // If the index is out of bounds, throw an exception, as below
+            // Throw an exception if the index is out of bounds; the same applies below
             if (index < 0 || index >= size)
                 throw new IndexOutOfBoundsException("Index out of bounds");
             return arr[index];
         }
 
-        /* Add elements at the end */
+        /* Update an element */
         public void set(int index, int num) {
             if (index < 0 || index >= size)
                 throw new IndexOutOfBoundsException("Index out of bounds");
             arr[index] = num;
         }
 
-        /* Direct traversal of list elements */
+        /* Append at the end */
         public void add(int num) {
-            // When the number of elements exceeds capacity, trigger the extension mechanism
+            // Grow the capacity when adding an element would exceed it
             if (size == capacity())
                 extendCapacity();
             arr[size] = num;
@@ -1212,14 +1212,14 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             size++;
         }
 
-        /* Sort list */
+        /* Insert an element in the middle */
         public void insert(int index, int num) {
             if (index < 0 || index >= size)
                 throw new IndexOutOfBoundsException("Index out of bounds");
-            // When the number of elements exceeds capacity, trigger the extension mechanism
+            // Grow the capacity when adding an element would exceed it
             if (size == capacity())
                 extendCapacity();
-            // Move all elements after index index forward by one position
+            // Shift all elements at and after index `index` one position to the right
             for (int j = size - 1; j >= index; j--) {
                 arr[j + 1] = arr[j];
             }
@@ -1228,12 +1228,12 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             size++;
         }
 
-        /* Remove element */
+        /* Remove an element */
         public int remove(int index) {
             if (index < 0 || index >= size)
                 throw new IndexOutOfBoundsException("Index out of bounds");
             int num = arr[index];
-            // Move all elements after index forward by one position
+            // Shift all elements after index `index` one position to the left
             for (int j = index; j < size - 1; j++) {
                 arr[j] = arr[j + 1];
             }
@@ -1243,18 +1243,18 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             return num;
         }
 
-        /* Driver Code */
+        /* Grow the list capacity */
         public void extendCapacity() {
-            // Create a new array with length extendRatio times the original array and copy the original array to the new array
+            // Create an array extendRatio times as long as the original and copy the original array into it
             arr = Arrays.copyOf(arr, capacity() * extendRatio);
-            // Add elements at the end
+            // Update the list capacity
             capacity = arr.length;
         }
 
-        /* Convert list to array */
+        /* Convert the list to an array */
         public int[] toArray() {
             int size = size();
-            // Elements enqueue
+            // Convert only the list elements within the occupied range
             int[] arr = new int[size];
             for (int i = 0; i < size; i++) {
                 arr[i] = get(i);
@@ -1269,44 +1269,44 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
     ```csharp title="my_list.cs"
     /* List class */
     class MyList {
-        private int[] arr;           // Array (stores list elements)
+        private int[] arr;           // Array (stores the list elements)
         private int arrCapacity = 10;    // List capacity
         private int arrSize = 0;         // List length (current number of elements)
-        private readonly int extendRatio = 2;  // Multiple by which the list capacity is extended each time
+        private readonly int extendRatio = 2;  // Factor by which the list capacity grows each time
 
         /* Constructor */
         public MyList() {
             arr = new int[arrCapacity];
         }
 
-        /* Get list length (current number of elements) */
+        /* Get the list length (current number of elements)*/
         public int Size() {
             return arrSize;
         }
 
-        /* Get list capacity */
+        /* Get the list capacity */
         public int Capacity() {
             return arrCapacity;
         }
 
-        /* Update element */
+        /* Access an element */
         public int Get(int index) {
-            // If the index is out of bounds, throw an exception, as below
+            // Throw an exception if the index is out of bounds; the same applies below
             if (index < 0 || index >= arrSize)
                 throw new IndexOutOfRangeException("Index out of bounds");
             return arr[index];
         }
 
-        /* Add elements at the end */
+        /* Update an element */
         public void Set(int index, int num) {
             if (index < 0 || index >= arrSize)
                 throw new IndexOutOfRangeException("Index out of bounds");
             arr[index] = num;
         }
 
-        /* Direct traversal of list elements */
+        /* Append at the end */
         public void Add(int num) {
-            // When the number of elements exceeds capacity, trigger the extension mechanism
+            // Grow the capacity when adding an element would exceed it
             if (arrSize == arrCapacity)
                 ExtendCapacity();
             arr[arrSize] = num;
@@ -1314,14 +1314,14 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             arrSize++;
         }
 
-        /* Sort list */
+        /* Insert an element in the middle */
         public void Insert(int index, int num) {
             if (index < 0 || index >= arrSize)
                 throw new IndexOutOfRangeException("Index out of bounds");
-            // When the number of elements exceeds capacity, trigger the extension mechanism
+            // Grow the capacity when adding an element would exceed it
             if (arrSize == arrCapacity)
                 ExtendCapacity();
-            // Move all elements after index index forward by one position
+            // Shift all elements at and after index `index` one position to the right
             for (int j = arrSize - 1; j >= index; j--) {
                 arr[j + 1] = arr[j];
             }
@@ -1330,12 +1330,12 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             arrSize++;
         }
 
-        /* Remove element */
+        /* Remove an element */
         public int Remove(int index) {
             if (index < 0 || index >= arrSize)
                 throw new IndexOutOfRangeException("Index out of bounds");
             int num = arr[index];
-            // Move all elements after index forward by one position
+            // Shift all elements after index `index` one position to the left
             for (int j = index; j < arrSize - 1; j++) {
                 arr[j] = arr[j + 1];
             }
@@ -1345,17 +1345,17 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             return num;
         }
 
-        /* Driver Code */
+        /* Grow the list capacity */
         public void ExtendCapacity() {
-            // Create new array of length arrCapacity * extendRatio and copy original array to new array
+            // Create an array of length arrCapacity * extendRatio and copy the original array into it
             Array.Resize(ref arr, arrCapacity * extendRatio);
-            // Add elements at the end
+            // Update the list capacity
             arrCapacity = arr.Length;
         }
 
-        /* Convert list to array */
+        /* Convert the list to an array */
         public int[] ToArray() {
-            // Elements enqueue
+            // Convert only the list elements within the occupied range
             int[] arr = new int[arrSize];
             for (int i = 0; i < arrSize; i++) {
                 arr[i] = Get(i);
@@ -1368,7 +1368,7 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
 === "Go"
 
     ```go title="my_list.go"
-    /* List class */
+    /* List type */
     type myList struct {
         arrCapacity int
         arr         []int
@@ -1380,32 +1380,32 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
     func newMyList() *myList {
         return &myList{
             arrCapacity: 10,              // List capacity
-            arr:         make([]int, 10), // Array (stores list elements)
+            arr:         make([]int, 10), // Array (stores the list elements)
             arrSize:     0,               // List length (current number of elements)
-            extendRatio: 2,               // Multiple by which the list capacity is extended each time
+            extendRatio: 2,               // Factor by which the list capacity grows each time
         }
     }
 
-    /* Get list length (current number of elements) */
+    /* Get the list length (current number of elements) */
     func (l *myList) size() int {
         return l.arrSize
     }
 
-    /* Get list capacity */
+    /*  Get the list capacity */
     func (l *myList) capacity() int {
         return l.arrCapacity
     }
 
-    /* Update element */
+    /* Access an element */
     func (l *myList) get(index int) int {
-        // If the index is out of bounds, throw an exception, as below
+        // Panic if the index is out of bounds; the same applies below
         if index < 0 || index >= l.arrSize {
             panic("Index out of bounds")
         }
         return l.arr[index]
     }
 
-    /* Add elements at the end */
+    /* Update an element */
     func (l *myList) set(num, index int) {
         if index < 0 || index >= l.arrSize {
             panic("Index out of bounds")
@@ -1413,9 +1413,9 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
         l.arr[index] = num
     }
 
-    /* Direct traversal of list elements */
+    /* Append at the end */
     func (l *myList) add(num int) {
-        // When the number of elements exceeds capacity, trigger the extension mechanism
+        // Grow the capacity when adding an element would exceed it
         if l.arrSize == l.arrCapacity {
             l.extendCapacity()
         }
@@ -1424,16 +1424,16 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
         l.arrSize++
     }
 
-    /* Sort list */
+    /* Insert an element in the middle */
     func (l *myList) insert(num, index int) {
         if index < 0 || index >= l.arrSize {
             panic("Index out of bounds")
         }
-        // When the number of elements exceeds capacity, trigger the extension mechanism
+        // Grow the capacity when adding an element would exceed it
         if l.arrSize == l.arrCapacity {
             l.extendCapacity()
         }
-        // Move all elements after index index forward by one position
+        // Shift all elements at and after index `index` one position to the right
         for j := l.arrSize - 1; j >= index; j-- {
             l.arr[j+1] = l.arr[j]
         }
@@ -1442,13 +1442,13 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
         l.arrSize++
     }
 
-    /* Remove element */
+    /* Remove an element */
     func (l *myList) remove(index int) int {
         if index < 0 || index >= l.arrSize {
             panic("Index out of bounds")
         }
         num := l.arr[index]
-        // Create a new array with length _extend_ratio times the original array, and copy the original array to the new array
+        // Shift all elements after index `index` one position to the left
         for j := index; j < l.arrSize-1; j++ {
             l.arr[j] = l.arr[j+1]
         }
@@ -1458,17 +1458,17 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
         return num
     }
 
-    /* Driver Code */
+    /* Grow the list capacity */
     func (l *myList) extendCapacity() {
-        // Create a new array with length extendRatio times the original array and copy the original array to the new array
+        // Extend the backing slice to extendRatio times its original length, preserving the existing elements
         l.arr = append(l.arr, make([]int, l.arrCapacity*(l.extendRatio-1))...)
-        // Add elements at the end
+        // Update the list capacity
         l.arrCapacity = len(l.arr)
     }
 
-    /* Return list with valid length */
+    /* Return the portion of the list that contains elements */
     func (l *myList) toArray() []int {
-        // Elements enqueue
+        // Return a slice containing only the occupied elements
         return l.arr[:l.arrSize]
     }
     ```
@@ -1478,10 +1478,10 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
     ```swift title="my_list.swift"
     /* List class */
     class MyList {
-        private var arr: [Int] // Array (stores list elements)
+        private var arr: [Int] // Array (stores the list elements)
         private var _capacity: Int // List capacity
         private var _size: Int // List length (current number of elements)
-        private let extendRatio: Int // Multiple by which the list capacity is extended each time
+        private let extendRatio: Int // Factor by which the list capacity grows each time
 
         /* Constructor */
         init() {
@@ -1491,26 +1491,26 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             arr = Array(repeating: 0, count: _capacity)
         }
 
-        /* Get list length (current number of elements) */
+        /* Get the list length (current number of elements)*/
         func size() -> Int {
             _size
         }
 
-        /* Get list capacity */
+        /* Get the list capacity */
         func capacity() -> Int {
             _capacity
         }
 
-        /* Update element */
+        /* Access an element */
         func get(index: Int) -> Int {
-            // Throw error if index out of bounds, same below
+            // An out-of-bounds index triggers a fatal error; the same check is used below
             if index < 0 || index >= size() {
                 fatalError("Index out of bounds")
             }
             return arr[index]
         }
 
-        /* Add elements at the end */
+        /* Update an element */
         func set(index: Int, num: Int) {
             if index < 0 || index >= size() {
                 fatalError("Index out of bounds")
@@ -1518,9 +1518,9 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             arr[index] = num
         }
 
-        /* Direct traversal of list elements */
+        /* Append at the end */
         func add(num: Int) {
-            // When the number of elements exceeds capacity, trigger the extension mechanism
+            // Grow the capacity when adding an element would exceed it
             if size() == capacity() {
                 extendCapacity()
             }
@@ -1529,16 +1529,16 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             _size += 1
         }
 
-        /* Sort list */
+        /* Insert an element in the middle */
         func insert(index: Int, num: Int) {
             if index < 0 || index >= size() {
                 fatalError("Index out of bounds")
             }
-            // When the number of elements exceeds capacity, trigger the extension mechanism
+            // Grow the capacity when adding an element would exceed it
             if size() == capacity() {
                 extendCapacity()
             }
-            // Move all elements after index index forward by one position
+            // Shift all elements at and after index `index` one position to the right
             for j in (index ..< size()).reversed() {
                 arr[j + 1] = arr[j]
             }
@@ -1547,14 +1547,14 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             _size += 1
         }
 
-        /* Remove element */
+        /* Remove an element */
         @discardableResult
         func remove(index: Int) -> Int {
             if index < 0 || index >= size() {
                 fatalError("Index out of bounds")
             }
             let num = arr[index]
-            // Move all elements after index forward by one position
+            // Shift all elements after index `index` one position to the left
             for j in index ..< (size() - 1) {
                 arr[j] = arr[j + 1]
             }
@@ -1564,15 +1564,15 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             return num
         }
 
-        /* Driver Code */
+        /* Grow the list capacity */
         func extendCapacity() {
-            // Create a new array with length extendRatio times the original array and copy the original array to the new array
+            // Create an array extendRatio times as long as the original and copy the original array into it
             arr = arr + Array(repeating: 0, count: capacity() * (extendRatio - 1))
-            // Add elements at the end
+            // Update the list capacity
             _capacity = arr.count
         }
 
-        /* Convert list to array */
+        /* Convert the list to an array */
         func toArray() -> [Int] {
             Array(arr.prefix(size()))
         }
@@ -1584,58 +1584,58 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
     ```javascript title="my_list.js"
     /* List class */
     class MyList {
-        #arr = new Array(); // Array (stores list elements)
+        #arr = new Array(); // Array (stores the list elements)
         #capacity = 10; // List capacity
         #size = 0; // List length (current number of elements)
-        #extendRatio = 2; // Multiple by which the list capacity is extended each time
+        #extendRatio = 2; // Factor by which the list capacity grows each time
 
         /* Constructor */
         constructor() {
             this.#arr = new Array(this.#capacity);
         }
 
-        /* Get list length (current number of elements) */
+        /* Get the list length (current number of elements)*/
         size() {
             return this.#size;
         }
 
-        /* Get list capacity */
+        /* Get the list capacity */
         capacity() {
             return this.#capacity;
         }
 
-        /* Update element */
+        /* Access an element */
         get(index) {
-            // If the index is out of bounds, throw an exception, as below
+            // Throw an exception if the index is out of bounds; the same applies below
             if (index < 0 || index >= this.#size) throw new Error('Index out of bounds');
             return this.#arr[index];
         }
 
-        /* Add elements at the end */
+        /* Update an element */
         set(index, num) {
             if (index < 0 || index >= this.#size) throw new Error('Index out of bounds');
             this.#arr[index] = num;
         }
 
-        /* Direct traversal of list elements */
+        /* Append an element at the end */
         add(num) {
-            // If length equals capacity, need to expand
+            // Grow the capacity if the length equals the capacity
             if (this.#size === this.#capacity) {
                 this.extendCapacity();
             }
-            // Add new element to end of list
+            // Append the new element to the end of the list
             this.#arr[this.#size] = num;
             this.#size++;
         }
 
-        /* Sort list */
+        /* Insert an element in the middle */
         insert(index, num) {
             if (index < 0 || index >= this.#size) throw new Error('Index out of bounds');
-            // When the number of elements exceeds capacity, trigger the extension mechanism
+            // Grow the capacity when adding an element would exceed it
             if (this.#size === this.#capacity) {
                 this.extendCapacity();
             }
-            // Move all elements after index index forward by one position
+            // Shift all elements at and after index `index` one position to the right
             for (let j = this.#size - 1; j >= index; j--) {
                 this.#arr[j + 1] = this.#arr[j];
             }
@@ -1644,11 +1644,11 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             this.#size++;
         }
 
-        /* Remove element */
+        /* Remove an element */
         remove(index) {
             if (index < 0 || index >= this.#size) throw new Error('Index out of bounds');
             let num = this.#arr[index];
-            // Create a new array with length _extend_ratio times the original array, and copy the original array to the new array
+            // Shift all elements after index `index` one position to the left
             for (let j = index; j < this.#size - 1; j++) {
                 this.#arr[j] = this.#arr[j + 1];
             }
@@ -1658,20 +1658,20 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             return num;
         }
 
-        /* Driver Code */
+        /* Grow the list capacity */
         extendCapacity() {
-            // Create a new array with length extendRatio times the original array and copy the original array to the new array
+            // Create an array extendRatio times the original length and copy the original array into it
             this.#arr = this.#arr.concat(
                 new Array(this.capacity() * (this.#extendRatio - 1))
             );
-            // Add elements at the end
+            // Update the list capacity
             this.#capacity = this.#arr.length;
         }
 
-        /* Convert list to array */
+        /* Convert the list to an array */
         toArray() {
             let size = this.size();
-            // Elements enqueue
+            // Convert only the list elements within the occupied range
             const arr = new Array(size);
             for (let i = 0; i < size; i++) {
                 arr[i] = this.get(i);
@@ -1686,56 +1686,56 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
     ```typescript title="my_list.ts"
     /* List class */
     class MyList {
-        private arr: Array<number>; // Array (stores list elements)
+        private arr: Array<number>; // Array (stores the list elements)
         private _capacity: number = 10; // List capacity
         private _size: number = 0; // List length (current number of elements)
-        private extendRatio: number = 2; // Multiple by which the list capacity is extended each time
+        private extendRatio: number = 2; // Factor by which the list capacity grows each time
 
         /* Constructor */
         constructor() {
             this.arr = new Array(this._capacity);
         }
 
-        /* Get list length (current number of elements) */
+        /* Get the list length (current number of elements)*/
         public size(): number {
             return this._size;
         }
 
-        /* Get list capacity */
+        /* Get the list capacity */
         public capacity(): number {
             return this._capacity;
         }
 
-        /* Update element */
+        /* Access an element */
         public get(index: number): number {
-            // If the index is out of bounds, throw an exception, as below
+            // Throw an exception if the index is out of bounds; the same applies below
             if (index < 0 || index >= this._size) throw new Error('Index out of bounds');
             return this.arr[index];
         }
 
-        /* Add elements at the end */
+        /* Update an element */
         public set(index: number, num: number): void {
             if (index < 0 || index >= this._size) throw new Error('Index out of bounds');
             this.arr[index] = num;
         }
 
-        /* Direct traversal of list elements */
+        /* Append an element at the end */
         public add(num: number): void {
-            // If length equals capacity, need to expand
+            // Grow the capacity if the length equals the capacity
             if (this._size === this._capacity) this.extendCapacity();
-            // Add new element to end of list
+            // Append the new element to the end of the list
             this.arr[this._size] = num;
             this._size++;
         }
 
-        /* Sort list */
+        /* Insert an element in the middle */
         public insert(index: number, num: number): void {
             if (index < 0 || index >= this._size) throw new Error('Index out of bounds');
-            // When the number of elements exceeds capacity, trigger the extension mechanism
+            // Grow the capacity when adding an element would exceed it
             if (this._size === this._capacity) {
                 this.extendCapacity();
             }
-            // Move all elements after index index forward by one position
+            // Shift all elements at and after index `index` one position to the right
             for (let j = this._size - 1; j >= index; j--) {
                 this.arr[j + 1] = this.arr[j];
             }
@@ -1744,11 +1744,11 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             this._size++;
         }
 
-        /* Remove element */
+        /* Remove an element */
         public remove(index: number): number {
             if (index < 0 || index >= this._size) throw new Error('Index out of bounds');
             let num = this.arr[index];
-            // Move all elements after index forward by one position
+            // Shift all elements after index one position to the left
             for (let j = index; j < this._size - 1; j++) {
                 this.arr[j] = this.arr[j + 1];
             }
@@ -1758,20 +1758,20 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             return num;
         }
 
-        /* Driver Code */
+        /* Grow the list capacity */
         public extendCapacity(): void {
-            // Create new array of length size and copy original array to new array
+            // Create a larger array by appending empty slots to a copy of the original array
             this.arr = this.arr.concat(
                 new Array(this.capacity() * (this.extendRatio - 1))
             );
-            // Add elements at the end
+            // Update the list capacity
             this._capacity = this.arr.length;
         }
 
-        /* Convert list to array */
+        /* Convert the list to an array */
         public toArray(): number[] {
             let size = this.size();
-            // Elements enqueue
+            // Convert only the list elements within the occupied range
             const arr = new Array(size);
             for (let i = 0; i < size; i++) {
                 arr[i] = this.get(i);
@@ -1786,49 +1786,49 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
     ```dart title="my_list.dart"
     /* List class */
     class MyList {
-      late List<int> _arr; // Array (stores list elements)
+      late List<int> _arr; // Array (stores the list elements)
       int _capacity = 10; // List capacity
       int _size = 0; // List length (current number of elements)
-      int _extendRatio = 2; // Multiple by which the list capacity is extended each time
+      int _extendRatio = 2; // Factor by which the list capacity grows each time
 
       /* Constructor */
       MyList() {
         _arr = List.filled(_capacity, 0);
       }
 
-      /* Get list length (current number of elements) */
+      /* Get the list length (current number of elements)*/
       int size() => _size;
 
-      /* Get list capacity */
+      /* Get the list capacity */
       int capacity() => _capacity;
 
-      /* Update element */
+      /* Access an element */
       int get(int index) {
         if (index >= _size) throw RangeError('Index out of bounds');
         return _arr[index];
       }
 
-      /* Add elements at the end */
+      /* Update an element */
       void set(int index, int _num) {
         if (index >= _size) throw RangeError('Index out of bounds');
         _arr[index] = _num;
       }
 
-      /* Direct traversal of list elements */
+      /* Append an element at the end */
       void add(int _num) {
-        // When the number of elements exceeds capacity, trigger the extension mechanism
+        // Grow the capacity when adding an element would exceed it
         if (_size == _capacity) extendCapacity();
         _arr[_size] = _num;
         // Update the number of elements
         _size++;
       }
 
-      /* Sort list */
+      /* Insert an element in the middle */
       void insert(int index, int _num) {
         if (index >= _size) throw RangeError('Index out of bounds');
-        // When the number of elements exceeds capacity, trigger the extension mechanism
+        // Grow the capacity when adding an element would exceed it
         if (_size == _capacity) extendCapacity();
-        // Move all elements after index index forward by one position
+        // Shift all elements at and after index `index` one position to the right
         for (var j = _size - 1; j >= index; j--) {
           _arr[j + 1] = _arr[j];
         }
@@ -1837,11 +1837,11 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
         _size++;
       }
 
-      /* Remove element */
+      /* Remove an element */
       int remove(int index) {
         if (index >= _size) throw RangeError('Index out of bounds');
         int _num = _arr[index];
-        // Move all elements after index forward by one position
+        // Shift all elements after index one position to the left
         for (var j = index; j < _size - 1; j++) {
           _arr[j] = _arr[j + 1];
         }
@@ -1851,19 +1851,19 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
         return _num;
       }
 
-      /* Driver Code */
+      /* Grow the list capacity */
       void extendCapacity() {
-        // Create new array with length _extendRatio times original array
+        // Create a new array with _extendRatio times the length of the original array
         final _newNums = List.filled(_capacity * _extendRatio, 0);
-        // Copy original array to new array
+        // Copy the original array into the new array
         List.copyRange(_newNums, 0, _arr);
-        // Update _arr reference
+        // Update the reference _arr
         _arr = _newNums;
-        // Add elements at the end
+        // Update the list capacity
         _capacity = _arr.length;
       }
 
-      /* Convert list to array */
+      /* Convert the list to an array */
       List<int> toArray() {
         List<int> arr = [];
         for (var i = 0; i < _size; i++) {
@@ -1877,13 +1877,13 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
 === "Rust"
 
     ```rust title="my_list.rs"
-    /* List class */
+    /* List type */
     #[allow(dead_code)]
     struct MyList {
-        arr: Vec<i32>,       // Array (stores list elements)
+        arr: Vec<i32>,       // Array (stores the list elements)
         capacity: usize,     // List capacity
         size: usize,         // List length (current number of elements)
-        extend_ratio: usize, // Multiple by which the list capacity is extended each time
+        extend_ratio: usize, // Factor by which the list capacity grows each time
     }
 
     #[allow(unused, unused_comparisons)]
@@ -1899,26 +1899,26 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             }
         }
 
-        /* Get list length (current number of elements) */
+        /* Get the list length (current number of elements)*/
         pub fn size(&self) -> usize {
             return self.size;
         }
 
-        /* Get list capacity */
+        /* Get the list capacity */
         pub fn capacity(&self) -> usize {
             return self.capacity;
         }
 
-        /* Update element */
+        /* Access an element */
         pub fn get(&self, index: usize) -> i32 {
-            // If the index is out of bounds, throw an exception, as below
+            // Panic if the index is out of bounds; the same applies below
             if index >= self.size {
                 panic!("Index out of bounds")
             };
             return self.arr[index];
         }
 
-        /* Add elements at the end */
+        /* Update an element */
         pub fn set(&mut self, index: usize, num: i32) {
             if index >= self.size {
                 panic!("Index out of bounds")
@@ -1926,9 +1926,9 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             self.arr[index] = num;
         }
 
-        /* Direct traversal of list elements */
+        /* Append an element at the end */
         pub fn add(&mut self, num: i32) {
-            // When the number of elements exceeds capacity, trigger the extension mechanism
+            // Grow the capacity when adding an element would exceed it
             if self.size == self.capacity() {
                 self.extend_capacity();
             }
@@ -1937,16 +1937,16 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             self.size += 1;
         }
 
-        /* Sort list */
+        /* Insert an element in the middle */
         pub fn insert(&mut self, index: usize, num: i32) {
             if index >= self.size() {
                 panic!("Index out of bounds")
             };
-            // When the number of elements exceeds capacity, trigger the extension mechanism
+            // Grow the capacity when adding an element would exceed it
             if self.size == self.capacity() {
                 self.extend_capacity();
             }
-            // Move all elements after index index forward by one position
+            // Shift all elements at and after index `index` one position to the right
             for j in (index..self.size).rev() {
                 self.arr[j + 1] = self.arr[j];
             }
@@ -1955,13 +1955,13 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             self.size += 1;
         }
 
-        /* Remove element */
+        /* Remove an element */
         pub fn remove(&mut self, index: usize) -> i32 {
             if index >= self.size() {
                 panic!("Index out of bounds")
             };
             let num = self.arr[index];
-            // Create a new array with length _extend_ratio times the original array, and copy the original array to the new array
+            // Shift all elements after index `index` one position to the left
             for j in index..self.size - 1 {
                 self.arr[j] = self.arr[j + 1];
             }
@@ -1971,18 +1971,18 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             return num;
         }
 
-        /* Driver Code */
+        /* Grow the list capacity */
         pub fn extend_capacity(&mut self) {
-            // Create new array with length extend_ratio times original, copy original array to new array
+            // Grow the backing vector to extend_ratio times its original length, preserving its elements
             let new_capacity = self.capacity * self.extend_ratio;
             self.arr.resize(new_capacity, 0);
-            // Add elements at the end
+            // Update the list capacity
             self.capacity = new_capacity;
         }
 
-        /* Convert list to array */
+        /* Copy the list elements into a vector */
         pub fn to_array(&self) -> Vec<i32> {
-            // Elements enqueue
+            // Convert only the list elements within the occupied range
             let mut arr = Vec::new();
             for i in 0..self.size {
                 arr.push(self.get(i));
@@ -1995,12 +1995,12 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
 === "C"
 
     ```c title="my_list.c"
-    /* List class */
+    /* List structure */
     typedef struct {
-        int *arr;        // Array (stores list elements)
+        int *arr;        // Array (stores the list elements)
         int capacity;    // List capacity
         int size;        // List size
-        int extendRatio; // List expansion multiplier
+        int extendRatio; // List capacity growth factor
     } MyList;
 
     /* Constructor */
@@ -2019,43 +2019,43 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
         free(nums);
     }
 
-    /* Get list length */
+    /* Get the list size */
     int size(MyList *nums) {
         return nums->size;
     }
 
-    /* Get list capacity */
+    /* Get the list capacity */
     int capacity(MyList *nums) {
         return nums->capacity;
     }
 
-    /* Update element */
+    /* Access an element */
     int get(MyList *nums, int index) {
         assert(index >= 0 && index < nums->size);
         return nums->arr[index];
     }
 
-    /* Add elements at the end */
+    /* Update an element */
     void set(MyList *nums, int index, int num) {
         assert(index >= 0 && index < nums->size);
         nums->arr[index] = num;
     }
 
-    /* Direct traversal of list elements */
+    /* Append an element at the end */
     void add(MyList *nums, int num) {
         if (size(nums) == capacity(nums)) {
-            extendCapacity(nums); // Expand capacity
+            extendCapacity(nums); // Grow the capacity
         }
         nums->arr[size(nums)] = num;
         nums->size++;
     }
 
-    /* Sort list */
+    /* Insert an element in the middle */
     void insert(MyList *nums, int index, int num) {
         assert(index >= 0 && index < size(nums));
-        // When the number of elements exceeds capacity, trigger the extension mechanism
+        // Grow the capacity when adding an element would exceed it
         if (size(nums) == capacity(nums)) {
-            extendCapacity(nums); // Expand capacity
+            extendCapacity(nums); // Grow the capacity
         }
         for (int i = size(nums); i > index; --i) {
             nums->arr[i] = nums->arr[i - 1];
@@ -2064,8 +2064,8 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
         nums->size++;
     }
 
-    /* Remove element */
-    // Note: stdio.h occupies the remove keyword
+    /* Remove an element */
+    // Note: stdio.h already declares a function named remove
     int removeItem(MyList *nums, int index) {
         assert(index >= 0 && index < size(nums));
         int num = nums->arr[index];
@@ -2076,26 +2076,26 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
         return num;
     }
 
-    /* Driver Code */
+    /* Grow the list capacity */
     void extendCapacity(MyList *nums) {
-        // Allocate space first
+        // Allocate new space first
         int newCapacity = capacity(nums) * nums->extendRatio;
         int *extend = (int *)malloc(sizeof(int) * newCapacity);
         int *temp = nums->arr;
 
-        // Copy old data to new data
+        // Copy the old data into the new array
         for (int i = 0; i < size(nums); i++)
             extend[i] = nums->arr[i];
 
-        // Free old data
+        // Free the old array
         free(temp);
 
-        // Update new data
+        // Update the array pointer and capacity
         nums->arr = extend;
         nums->capacity = newCapacity;
     }
 
-    /* Convert list to Array for printing */
+    /* Convert the list to an array for printing */
     int *toArray(MyList *nums) {
         return nums->arr;
     }
@@ -2106,44 +2106,44 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
     ```kotlin title="my_list.kt"
     /* List class */
     class MyList {
-        private var arr: IntArray = intArrayOf() // Array (stores list elements)
+        private var arr: IntArray = intArrayOf() // Array (stores the list elements)
         private var capacity: Int = 10 // List capacity
         private var size: Int = 0 // List length (current number of elements)
-        private var extendRatio: Int = 2 // Multiple by which the list capacity is extended each time
+        private var extendRatio: Int = 2 // Factor by which the list capacity grows each time
 
         /* Constructor */
         init {
             arr = IntArray(capacity)
         }
 
-        /* Get list length (current number of elements) */
+        /* Get the list length (current number of elements) */
         fun size(): Int {
             return size
         }
 
-        /* Get list capacity */
+        /* Get the list capacity */
         fun capacity(): Int {
             return capacity
         }
 
-        /* Update element */
+        /* Access an element */
         fun get(index: Int): Int {
-            // If the index is out of bounds, throw an exception, as below
+            // Throw an exception if the index is out of bounds; the same applies below
             if (index < 0 || index >= size)
                 throw IndexOutOfBoundsException("Index out of bounds")
             return arr[index]
         }
 
-        /* Add elements at the end */
+        /* Update an element */
         fun set(index: Int, num: Int) {
             if (index < 0 || index >= size)
                 throw IndexOutOfBoundsException("Index out of bounds")
             arr[index] = num
         }
 
-        /* Direct traversal of list elements */
+        /* Append at the end */
         fun add(num: Int) {
-            // When the number of elements exceeds capacity, trigger the extension mechanism
+            // Grow the capacity when adding an element would exceed it
             if (size == capacity())
                 extendCapacity()
             arr[size] = num
@@ -2151,14 +2151,14 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             size++
         }
 
-        /* Sort list */
+        /* Insert an element in the middle */
         fun insert(index: Int, num: Int) {
             if (index < 0 || index >= size)
                 throw IndexOutOfBoundsException("Index out of bounds")
-            // When the number of elements exceeds capacity, trigger the extension mechanism
+            // Grow the capacity when adding an element would exceed it
             if (size == capacity())
                 extendCapacity()
-            // Move all elements after index index forward by one position
+            // Shift all elements at and after index `index` one position to the right
             for (j in size - 1 downTo index)
                 arr[j + 1] = arr[j]
             arr[index] = num
@@ -2166,12 +2166,12 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             size++
         }
 
-        /* Remove element */
+        /* Remove an element */
         fun remove(index: Int): Int {
             if (index < 0 || index >= size)
                 throw IndexOutOfBoundsException("Index out of bounds")
             val num = arr[index]
-            // Move all elements after index forward by one position
+            // Shift all elements after index `index` one position to the left
             for (j in index..<size - 1)
                 arr[j] = arr[j + 1]
             // Update the number of elements
@@ -2180,18 +2180,18 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
             return num
         }
 
-        /* Driver Code */
+        /* Grow the list capacity */
         fun extendCapacity() {
-            // Create a new array with length extendRatio times the original array and copy the original array to the new array
+            // Create an array extendRatio times as long as the original and copy the original array into it
             arr = arr.copyOf(capacity() * extendRatio)
-            // Add elements at the end
+            // Update the list capacity
             capacity = arr.size
         }
 
-        /* Convert list to array */
+        /* Convert the list to an array */
         fun toArray(): IntArray {
             val size = size()
-            // Elements enqueue
+            // Convert only the list elements within the occupied range
             val arr = IntArray(size)
             for (i in 0..<size) {
                 arr[i] = get(i)
@@ -2206,8 +2206,8 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
     ```ruby title="my_list.rb"
     ### List class ###
     class MyList
-      attr_reader :size       # Get list length (current number of elements)
-      attr_reader :capacity   # Get list capacity
+      attr_reader :size       # Get the list length (current number of elements)
+      attr_reader :capacity   # Get the list capacity
 
       ### Constructor ###
       def initialize
@@ -2217,22 +2217,22 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
         @arr = Array.new(capacity)
       end
 
-      ### Access element ###
+      ### Access an element ###
       def get(index)
-        # If the index is out of bounds, throw an exception, as below
+        # Raise an exception if the index is out of bounds; the same applies below
         raise IndexError, "Index out of bounds" if index < 0 || index >= size
         @arr[index]
       end
 
-      ### Access element ###
+      ### Update an element ###
       def set(index, num)
         raise IndexError, "Index out of bounds" if index < 0 || index >= size
         @arr[index] = num
       end
 
-      ### Add element at end ###
+      ### Append an element at the end ###
       def add(num)
-        # When the number of elements exceeds capacity, trigger the extension mechanism
+        # Grow the capacity when adding an element would exceed it
         extend_capacity if size == capacity
         @arr[size] = num
 
@@ -2240,14 +2240,14 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
         @size += 1
       end
 
-      ### Insert element in middle ###
+      ### Insert an element in the middle ###
       def insert(index, num)
         raise IndexError, "Index out of bounds" if index < 0 || index >= size
 
-        # When the number of elements exceeds capacity, trigger the extension mechanism
+        # Grow the capacity when adding an element would exceed it
         extend_capacity if size == capacity
 
-        # Move all elements after index index forward by one position
+        # Shift all elements at and after index `index` one position to the right
         for j in (size - 1).downto(index)
           @arr[j + 1] = @arr[j]
         end
@@ -2257,12 +2257,12 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
         @size += 1
       end
 
-      ### Delete element ###
+      ### Remove an element ###
       def remove(index)
         raise IndexError, "Index out of bounds" if index < 0 || index >= size
         num = @arr[index]
 
-        # Move all elements after index forward by one position
+        # Shift all elements after index one position to the left
         for j in index...size
           @arr[j] = @arr[j + 1]
         end
@@ -2274,18 +2274,18 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
         num
       end
 
-      ### Expand list capacity ###
+      ### Grow the list capacity ###
       def extend_capacity
-        # Create new array with length extend_ratio times original, copy original array to new array
+        # Duplicate the original array and append capacity * (extend_ratio - 1) empty slots
         arr = @arr.dup + Array.new(capacity * (@extend_ratio - 1))
-        # Add elements at the end
+        # Update the list capacity
         @capacity = arr.length
       end
 
-      ### Convert list to array ###
+      ### Convert the list to an array ###
       def to_array
         sz = size
-        # Elements enqueue
+        # Convert only the list elements within the occupied range
         arr = Array.new(sz)
         for i in 0...sz
           arr[i] = get(i)
@@ -2294,3 +2294,8 @@ To deepen our understanding of how lists work, we attempt to implement a simple 
       end
     end
     ```
+
+??? pythontutor "Visualize execution"
+
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20MyList%3A%0A%20%20%20%20%22%22%22List%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self._capacity%3A%20int%20%3D%2010%0A%20%20%20%20%20%20%20%20self._arr%3A%20list%5Bint%5D%20%3D%20%5B0%5D%20%2A%20self._capacity%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%20%20%20%20%20%20%20%20self._extend_ratio%3A%20int%20%3D%202%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20list%20length%20%28current%20number%20of%20elements%29%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20capacity%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20list%20capacity%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._capacity%0A%0A%20%20%20%20def%20get%28self,%20index%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Access%20an%20element%22%22%22%0A%20%20%20%20%20%20%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Index%20out%20of%20bounds%22%29%0A%20%20%20%20%20%20%20%20return%20self._arr%5Bindex%5D%0A%0A%20%20%20%20def%20set%28self,%20num%3A%20int,%20index%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Update%20an%20element%22%22%22%0A%20%20%20%20%20%20%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Index%20out%20of%20bounds%22%29%0A%20%20%20%20%20%20%20%20self._arr%5Bindex%5D%20%3D%20num%0A%0A%20%20%20%20def%20add%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Append%20an%20element%20at%20the%20end%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.size%28%29%20%3D%3D%20self.capacity%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.extend_capacity%28%29%0A%20%20%20%20%20%20%20%20self._arr%5Bself._size%5D%20%3D%20num%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20insert%28self,%20num%3A%20int,%20index%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Insert%20an%20element%20in%20the%20middle%22%22%22%0A%20%20%20%20%20%20%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Index%20out%20of%20bounds%22%29%0A%20%20%20%20%20%20%20%20%20%20%20%20self.extend_capacity%28%29%0A%20%20%20%20%20%20%20%20%23%20Shift%20all%20elements%20at%20and%20after%20index%20%60index%60%20one%20position%20to%20the%20right%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28self._size%20-%201,%20index%20-%201,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self._arr%5Bj%20%2B%201%5D%20%3D%20self._arr%5Bj%5D%0A%20%20%20%20%20%20%20%20self._arr%5Bindex%5D%20%3D%20num%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20remove%28self,%20index%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20an%20element%22%22%22%0A%20%20%20%20%20%20%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Index%20out%20of%20bounds%22%29%0A%20%20%20%20%20%20%20%20num%20%3D%20self._arr%5Bindex%5D%0A%20%20%20%20%20%20%20%20%23%20Shift%20all%20elements%20after%20index%20%60index%60%20one%20position%20to%20the%20left%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28index,%20self._size%20-%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self._arr%5Bj%5D%20%3D%20self._arr%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20extend_capacity%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Grow%20the%20list%20capacity%22%22%22%0A%20%20%20%20%20%20%20%20self._arr%20%3D%20self._arr%20%2B%20%5B0%5D%20%2A%20self.capacity%28%29%20%2A%20%28self._extend_ratio%20-%201%29%0A%20%20%20%20%20%20%20%20self._capacity%20%3D%20len%28self._arr%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20list%0A%20%20%20%20nums%20%3D%20MyList%28%29%0A%20%20%20%20%23%20Append%20an%20element%20at%20the%20end%0A%20%20%20%20nums.add%281%29%0A%20%20%20%20nums.add%283%29%0A%20%20%20%20nums.add%282%29%0A%20%20%20%20nums.add%285%29%0A%20%20%20%20nums.add%284%29%0A%0A%20%20%20%20%23%20Insert%20an%20element%20in%20the%20middle%0A%20%20%20%20nums.insert%286,%20index%3D3%29%0A%0A%20%20%20%20%23%20Remove%20an%20element%0A%20%20%20%20nums.remove%283%29%0A%0A%20%20%20%20%23%20Access%20an%20element%0A%20%20%20%20num%20%3D%20nums.get%281%29%0A%0A%20%20%20%20%23%20Update%20an%20element%0A%20%20%20%20nums.set%280,%201%29%0A%0A%20%20%20%20%23%20Test%20capacity%20growth%0A%20%20%20%20for%20i%20in%20range%2810%29%3A%0A%20%20%20%20%20%20%20%20nums.add%28i%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20MyList%3A%0A%20%20%20%20%22%22%22List%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self._capacity%3A%20int%20%3D%2010%0A%20%20%20%20%20%20%20%20self._arr%3A%20list%5Bint%5D%20%3D%20%5B0%5D%20%2A%20self._capacity%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%20%20%20%20%20%20%20%20self._extend_ratio%3A%20int%20%3D%202%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20list%20length%20%28current%20number%20of%20elements%29%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20capacity%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20list%20capacity%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._capacity%0A%0A%20%20%20%20def%20get%28self,%20index%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Access%20an%20element%22%22%22%0A%20%20%20%20%20%20%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Index%20out%20of%20bounds%22%29%0A%20%20%20%20%20%20%20%20return%20self._arr%5Bindex%5D%0A%0A%20%20%20%20def%20set%28self,%20num%3A%20int,%20index%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Update%20an%20element%22%22%22%0A%20%20%20%20%20%20%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Index%20out%20of%20bounds%22%29%0A%20%20%20%20%20%20%20%20self._arr%5Bindex%5D%20%3D%20num%0A%0A%20%20%20%20def%20add%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Append%20an%20element%20at%20the%20end%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.size%28%29%20%3D%3D%20self.capacity%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.extend_capacity%28%29%0A%20%20%20%20%20%20%20%20self._arr%5Bself._size%5D%20%3D%20num%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20insert%28self,%20num%3A%20int,%20index%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Insert%20an%20element%20in%20the%20middle%22%22%22%0A%20%20%20%20%20%20%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Index%20out%20of%20bounds%22%29%0A%20%20%20%20%20%20%20%20%20%20%20%20self.extend_capacity%28%29%0A%20%20%20%20%20%20%20%20%23%20Shift%20all%20elements%20at%20and%20after%20index%20%60index%60%20one%20position%20to%20the%20right%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28self._size%20-%201,%20index%20-%201,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self._arr%5Bj%20%2B%201%5D%20%3D%20self._arr%5Bj%5D%0A%20%20%20%20%20%20%20%20self._arr%5Bindex%5D%20%3D%20num%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20remove%28self,%20index%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20an%20element%22%22%22%0A%20%20%20%20%20%20%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22Index%20out%20of%20bounds%22%29%0A%20%20%20%20%20%20%20%20num%20%3D%20self._arr%5Bindex%5D%0A%20%20%20%20%20%20%20%20%23%20Shift%20all%20elements%20after%20index%20%60index%60%20one%20position%20to%20the%20left%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28index,%20self._size%20-%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self._arr%5Bj%5D%20%3D%20self._arr%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20extend_capacity%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Grow%20the%20list%20capacity%22%22%22%0A%20%20%20%20%20%20%20%20self._arr%20%3D%20self._arr%20%2B%20%5B0%5D%20%2A%20self.capacity%28%29%20%2A%20%28self._extend_ratio%20-%201%29%0A%20%20%20%20%20%20%20%20self._capacity%20%3D%20len%28self._arr%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20list%0A%20%20%20%20nums%20%3D%20MyList%28%29%0A%20%20%20%20%23%20Append%20an%20element%20at%20the%20end%0A%20%20%20%20nums.add%281%29%0A%20%20%20%20nums.add%283%29%0A%20%20%20%20nums.add%282%29%0A%20%20%20%20nums.add%285%29%0A%20%20%20%20nums.add%284%29%0A%0A%20%20%20%20%23%20Insert%20an%20element%20in%20the%20middle%0A%20%20%20%20nums.insert%286,%20index%3D3%29%0A%0A%20%20%20%20%23%20Remove%20an%20element%0A%20%20%20%20nums.remove%283%29%0A%0A%20%20%20%20%23%20Access%20an%20element%0A%20%20%20%20num%20%3D%20nums.get%281%29%0A%0A%20%20%20%20%23%20Update%20an%20element%0A%20%20%20%20nums.set%280,%201%29%0A%0A%20%20%20%20%23%20Test%20capacity%20growth%0A%20%20%20%20for%20i%20in%20range%2810%29%3A%0A%20%20%20%20%20%20%20%20nums.add%28i%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>

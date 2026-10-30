@@ -2,40 +2,40 @@
 comments: true
 ---
 
-# 6.2 &nbsp; Hash Collision
+# 6.2 &nbsp; Hash collisions
 
-The previous section mentioned that, **in most cases, the input space of a hash function is much larger than the output space**, so theoretically, hash collisions are inevitable. For example, if the input space is all integers and the output space is the array capacity size, then multiple integers will inevitably be mapped to the same bucket index.
+As discussed in the previous section, **a hash function's input space is usually much larger than its output space**, so collisions are theoretically unavoidable. For example, if the input space is all integers and the output space is limited to the array's capacity, multiple integers must map to the same bucket index.
 
-Hash collisions can lead to incorrect query results, severely impacting the usability of the hash table. To address this issue, whenever a hash collision occurs, we can perform hash table expansion until the collision disappears. This approach is simple, straightforward, and effective, but it is very inefficient because hash table expansion involves a large amount of data migration and hash value recalculation. To improve efficiency, we can adopt the following strategies:
+Hash collisions can produce incorrect lookup results and make a hash table unusable. One solution is to expand the table whenever a collision occurs until the collision disappears. This simple, brute-force approach works, but is inefficient because expansion requires substantial data movement and hash computation. We can improve efficiency with the following strategies.
 
-1. Improve the hash table data structure so that **the hash table can function normally when hash collisions occur**.
-2. Only expand when necessary, that is, only when hash collisions are severe.
+1. Improve the data structure **so that it works correctly even when collisions occur**.
+2. Expand only when necessary, when collisions become sufficiently frequent.
 
-The main approaches to improving a hash table's structure are separate chaining and open addressing.
+The main structural approaches are “separate chaining” and “open addressing.”
 
-## 6.2.1 &nbsp; Separate Chaining
+## 6.2.1 &nbsp; Separate chaining
 
-In the original hash table, each bucket can store only one key-value pair. <u>Separate chaining</u> replaces the single element in each bucket with a linked list, treating each key-value pair as a node and storing all colliding key-value pairs in the same list. Figure 6-5 shows an example of a separate chaining hash table.
+In the original hash table, each bucket holds only one key-value pair. <u>Separate chaining</u> replaces this single element with a linked list. Each pair becomes a node, and all colliding pairs are stored in the same list. An example is shown below.
 
-![Separate chaining hash table](hash_collision.assets/hash_table_chaining.png){ class="animation-figure" }
+![A hash table using separate chaining](hash_collision.assets/hash_table_chaining.png){ class="animation-figure" }
 
-<p align="center"> Figure 6-5 &nbsp; Separate chaining hash table </p>
+<p align="center"> Figure 6-5 &nbsp; A hash table using separate chaining </p>
 
-In a hash table implemented with separate chaining, the basic operations work as follows:
+The operations change as follows.
 
-- **Querying elements**: Input `key`, compute the bucket index using the hash function, access the head of the corresponding linked list, and traverse the list while comparing keys until the target key-value pair is found.
-- **Adding elements**: First use the hash function to locate the corresponding linked list, then insert the node (key-value pair) into the list.
-- **Deleting elements**: Use the hash function to locate the corresponding linked list, then traverse it to find and delete the target node.
+- **Lookup**: Hash the input `key` to obtain a bucket index, access the list's head, and traverse the list comparing keys to find the target pair.
+- **Insertion**: Use the hash function to access the list's head, then add the node containing the key-value pair to the list.
+- **Deletion**: Use the hash function to locate the list, traverse it to find the target node, and remove that node.
 
-Separate chaining has the following limitations:
+Separate chaining has the following limitations.
 
-- **Increased Space Usage**: The linked list contains node pointers, which consume more memory space than arrays.
-- **Reduced Query Efficiency**: This is because linear traversal of the linked list is required to find the corresponding element.
+- **More space**: Linked lists store node pointers and consume more memory than arrays.
+- **Slower lookup**: Finding an element requires a linear scan of the list.
 
-The code below provides a simple implementation of a separate chaining hash table, with two things to note:
+The code below gives a simple implementation. Keep two points in mind.
 
-- Lists (dynamic arrays) are used instead of linked lists to simplify the code. In this setup, the hash table (array) contains multiple buckets, each of which is a list.
-- This implementation includes a hash table expansion method. When the load factor exceeds $\frac{2}{3}$, we expand the hash table to $2$ times its original size.
+- Lists, implemented as dynamic arrays, replace linked lists to simplify the code. The hash table is an array of buckets, each of which is a list.
+- The implementation includes expansion: when the load factor exceeds $\frac{2}{3}$, the table's capacity is doubled to $2$ times its original size.
 
 === "Python"
 
@@ -47,8 +47,8 @@ The code below provides a simple implementation of a separate chaining hash tabl
             """Constructor"""
             self.size = 0  # Number of key-value pairs
             self.capacity = 4  # Hash table capacity
-            self.load_thres = 2.0 / 3.0  # Load factor threshold for triggering expansion
-            self.extend_ratio = 2  # Expansion multiplier
+            self.load_thres = 2.0 / 3.0  # Load factor threshold that triggers capacity growth
+            self.extend_ratio = 2  # Capacity growth factor
             self.buckets = [[] for _ in range(self.capacity)]  # Bucket array
 
         def hash_func(self, key: int) -> int:
@@ -60,29 +60,29 @@ The code below provides a simple implementation of a separate chaining hash tabl
             return self.size / self.capacity
 
         def get(self, key: int) -> str | None:
-            """Query operation"""
+            """Lookup operation"""
             index = self.hash_func(key)
             bucket = self.buckets[index]
-            # Traverse bucket, if key is found, return corresponding val
+            # Traverse the bucket; if key is found, return its corresponding val
             for pair in bucket:
                 if pair.key == key:
                     return pair.val
-            # If key is not found, return None
+            # Return None if key is not found
             return None
 
         def put(self, key: int, val: str):
-            """Add operation"""
-            # When load factor exceeds threshold, perform expansion
+            """Insert operation"""
+            # Grow the capacity when the load factor exceeds the threshold
             if self.load_factor() > self.load_thres:
                 self.extend()
             index = self.hash_func(key)
             bucket = self.buckets[index]
-            # Traverse bucket, if specified key is encountered, update corresponding val and return
+            # Traverse the bucket; if the specified key is found, update its val and return
             for pair in bucket:
                 if pair.key == key:
                     pair.val = val
                     return
-            # If key does not exist, append key-value pair to the end
+            # If key is absent, append the key-value pair at the end
             pair = Pair(key, val)
             bucket.append(pair)
             self.size += 1
@@ -91,7 +91,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
             """Remove operation"""
             index = self.hash_func(key)
             bucket = self.buckets[index]
-            # Traverse bucket and remove key-value pair from it
+            # Traverse the bucket and remove the key-value pair
             for pair in bucket:
                 if pair.key == key:
                     bucket.remove(pair)
@@ -99,20 +99,20 @@ The code below provides a simple implementation of a separate chaining hash tabl
                     break
 
         def extend(self):
-            """Expand hash table"""
-            # Temporarily store the original hash table
+            """Grow the hash table capacity"""
+            # Keep a reference to the original hash table
             buckets = self.buckets
-            # Initialize expanded new hash table
+            # Initialize a new hash table with the expanded capacity
             self.capacity *= self.extend_ratio
             self.buckets = [[] for _ in range(self.capacity)]
             self.size = 0
-            # Move key-value pairs from original hash table to new hash table
+            # Move the key-value pairs from the original hash table to the new one
             for bucket in buckets:
                 for pair in bucket:
                     self.put(pair.key, pair.val)
 
         def print(self):
-            """Print hash table"""
+            """Print the hash table"""
             for bucket in self.buckets:
                 res = []
                 for pair in bucket:
@@ -128,8 +128,8 @@ The code below provides a simple implementation of a separate chaining hash tabl
       private:
         int size;                       // Number of key-value pairs
         int capacity;                   // Hash table capacity
-        double loadThres;               // Load factor threshold for triggering expansion
-        int extendRatio;                // Expansion multiplier
+        double loadThres;               // Load factor threshold that triggers capacity growth
+        int extendRatio;                // Capacity growth factor
         vector<vector<Pair *>> buckets; // Bucket array
 
       public:
@@ -158,34 +158,34 @@ The code below provides a simple implementation of a separate chaining hash tabl
             return (double)size / (double)capacity;
         }
 
-        /* Query operation */
+        /* Lookup operation */
         string get(int key) {
             int index = hashFunc(key);
-            // Traverse bucket, if key is found, return corresponding val
+            // Traverse the bucket; if key is found, return its corresponding val
             for (Pair *pair : buckets[index]) {
                 if (pair->key == key) {
                     return pair->val;
                 }
             }
-            // Return empty string if key not found
+            // Return an empty string if key is not found
             return "";
         }
 
-        /* Add operation */
+        /* Insert operation */
         void put(int key, string val) {
-            // When load factor exceeds threshold, perform expansion
+            // Grow the capacity when the load factor exceeds the threshold
             if (loadFactor() > loadThres) {
                 extend();
             }
             int index = hashFunc(key);
-            // Traverse bucket, if specified key is encountered, update corresponding val and return
+            // Traverse the bucket; if the specified key is found, update its val and return
             for (Pair *pair : buckets[index]) {
                 if (pair->key == key) {
                     pair->val = val;
                     return;
                 }
             }
-            // If key does not exist, append key-value pair to the end
+            // If key is absent, append the key-value pair at the end
             buckets[index].push_back(new Pair(key, val));
             size++;
         }
@@ -194,11 +194,11 @@ The code below provides a simple implementation of a separate chaining hash tabl
         void remove(int key) {
             int index = hashFunc(key);
             auto &bucket = buckets[index];
-            // Traverse bucket and remove key-value pair from it
+            // Traverse the bucket and remove the key-value pair
             for (int i = 0; i < bucket.size(); i++) {
                 if (bucket[i]->key == key) {
                     Pair *tmp = bucket[i];
-                    bucket.erase(bucket.begin() + i); // Remove key-value pair from it
+                    bucket.erase(bucket.begin() + i); // Remove the key-value pair from the list
                     delete tmp;                       // Free memory
                     size--;
                     return;
@@ -206,16 +206,16 @@ The code below provides a simple implementation of a separate chaining hash tabl
             }
         }
 
-        /* Expand hash table */
+        /* Grow the hash table capacity */
         void extend() {
-            // Temporarily store the original hash table
+            // Keep a copy of the original bucket array
             vector<vector<Pair *>> bucketsTmp = buckets;
-            // Initialize expanded new hash table
+            // Initialize a new hash table with the expanded capacity
             capacity *= extendRatio;
             buckets.clear();
             buckets.resize(capacity);
             size = 0;
-            // Move key-value pairs from original hash table to new hash table
+            // Move the key-value pairs from the original hash table to the new one
             for (auto &bucket : bucketsTmp) {
                 for (Pair *pair : bucket) {
                     put(pair->key, pair->val);
@@ -225,7 +225,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
             }
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         void print() {
             for (auto &bucket : buckets) {
                 cout << "[";
@@ -245,8 +245,8 @@ The code below provides a simple implementation of a separate chaining hash tabl
     class HashMapChaining {
         int size; // Number of key-value pairs
         int capacity; // Hash table capacity
-        double loadThres; // Load factor threshold for triggering expansion
-        int extendRatio; // Expansion multiplier
+        double loadThres; // Load factor threshold that triggers capacity growth
+        int extendRatio; // Capacity growth factor
         List<List<Pair>> buckets; // Bucket array
 
         /* Constructor */
@@ -271,36 +271,36 @@ The code below provides a simple implementation of a separate chaining hash tabl
             return (double) size / capacity;
         }
 
-        /* Query operation */
+        /* Lookup operation */
         String get(int key) {
             int index = hashFunc(key);
             List<Pair> bucket = buckets.get(index);
-            // Traverse bucket, if key is found, return corresponding val
+            // Traverse the bucket; if key is found, return its corresponding val
             for (Pair pair : bucket) {
                 if (pair.key == key) {
                     return pair.val;
                 }
             }
-            // If key is not found, return null
+            // Return null if key is not found
             return null;
         }
 
-        /* Add operation */
+        /* Insert operation */
         void put(int key, String val) {
-            // When load factor exceeds threshold, perform expansion
+            // Grow the capacity when the load factor exceeds the threshold
             if (loadFactor() > loadThres) {
                 extend();
             }
             int index = hashFunc(key);
             List<Pair> bucket = buckets.get(index);
-            // Traverse bucket, if specified key is encountered, update corresponding val and return
+            // Traverse the bucket; if the specified key is found, update its val and return
             for (Pair pair : bucket) {
                 if (pair.key == key) {
                     pair.val = val;
                     return;
                 }
             }
-            // If key does not exist, append key-value pair to the end
+            // If key is absent, append the key-value pair at the end
             Pair pair = new Pair(key, val);
             bucket.add(pair);
             size++;
@@ -310,7 +310,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
         void remove(int key) {
             int index = hashFunc(key);
             List<Pair> bucket = buckets.get(index);
-            // Traverse bucket and remove key-value pair from it
+            // Traverse the bucket and remove the key-value pair
             for (Pair pair : bucket) {
                 if (pair.key == key) {
                     bucket.remove(pair);
@@ -320,18 +320,18 @@ The code below provides a simple implementation of a separate chaining hash tabl
             }
         }
 
-        /* Expand hash table */
+        /* Grow the hash table capacity */
         void extend() {
-            // Temporarily store the original hash table
+            // Keep a reference to the original hash table
             List<List<Pair>> bucketsTmp = buckets;
-            // Initialize expanded new hash table
+            // Initialize a new hash table with the expanded capacity
             capacity *= extendRatio;
             buckets = new ArrayList<>(capacity);
             for (int i = 0; i < capacity; i++) {
                 buckets.add(new ArrayList<>());
             }
             size = 0;
-            // Move key-value pairs from original hash table to new hash table
+            // Move the key-value pairs from the original hash table to the new one
             for (List<Pair> bucket : bucketsTmp) {
                 for (Pair pair : bucket) {
                     put(pair.key, pair.val);
@@ -339,7 +339,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
             }
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         void print() {
             for (List<Pair> bucket : buckets) {
                 List<String> res = new ArrayList<>();
@@ -359,8 +359,8 @@ The code below provides a simple implementation of a separate chaining hash tabl
     class HashMapChaining {
         int size; // Number of key-value pairs
         int capacity; // Hash table capacity
-        double loadThres; // Load factor threshold for triggering expansion
-        int extendRatio; // Expansion multiplier
+        double loadThres; // Load factor threshold that triggers capacity growth
+        int extendRatio; // Capacity growth factor
         List<List<Pair>> buckets; // Bucket array
 
         /* Constructor */
@@ -385,34 +385,34 @@ The code below provides a simple implementation of a separate chaining hash tabl
             return (double)size / capacity;
         }
 
-        /* Query operation */
+        /* Lookup operation */
         public string? Get(int key) {
             int index = HashFunc(key);
-            // Traverse bucket, if key is found, return corresponding val
+            // Traverse the bucket; if key is found, return its corresponding val
             foreach (Pair pair in buckets[index]) {
                 if (pair.key == key) {
                     return pair.val;
                 }
             }
-            // If key is not found, return null
+            // Return null if key is not found
             return null;
         }
 
-        /* Add operation */
+        /* Insert operation */
         public void Put(int key, string val) {
-            // When load factor exceeds threshold, perform expansion
+            // Grow the capacity when the load factor exceeds the threshold
             if (LoadFactor() > loadThres) {
                 Extend();
             }
             int index = HashFunc(key);
-            // Traverse bucket, if specified key is encountered, update corresponding val and return
+            // Traverse the bucket; if the specified key is found, update its val and return
             foreach (Pair pair in buckets[index]) {
                 if (pair.key == key) {
                     pair.val = val;
                     return;
                 }
             }
-            // If key does not exist, append key-value pair to the end
+            // If key is absent, append the key-value pair at the end
             buckets[index].Add(new Pair(key, val));
             size++;
         }
@@ -420,7 +420,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
         /* Remove operation */
         public void Remove(int key) {
             int index = HashFunc(key);
-            // Traverse bucket and remove key-value pair from it
+            // Traverse the bucket and remove the key-value pair
             foreach (Pair pair in buckets[index].ToList()) {
                 if (pair.key == key) {
                     buckets[index].Remove(pair);
@@ -430,18 +430,18 @@ The code below provides a simple implementation of a separate chaining hash tabl
             }
         }
 
-        /* Expand hash table */
+        /* Grow the hash table capacity */
         void Extend() {
-            // Temporarily store the original hash table
+            // Keep a reference to the original hash table
             List<List<Pair>> bucketsTmp = buckets;
-            // Initialize expanded new hash table
+            // Initialize a new hash table with the expanded capacity
             capacity *= extendRatio;
             buckets = new List<List<Pair>>(capacity);
             for (int i = 0; i < capacity; i++) {
                 buckets.Add([]);
             }
             size = 0;
-            // Move key-value pairs from original hash table to new hash table
+            // Move the key-value pairs from the original hash table to the new one
             foreach (List<Pair> bucket in bucketsTmp) {
                 foreach (Pair pair in bucket) {
                     Put(pair.key, pair.val);
@@ -449,7 +449,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
             }
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         public void Print() {
             foreach (List<Pair> bucket in buckets) {
                 List<string> res = [];
@@ -471,8 +471,8 @@ The code below provides a simple implementation of a separate chaining hash tabl
     type hashMapChaining struct {
         size        int      // Number of key-value pairs
         capacity    int      // Hash table capacity
-        loadThres   float64  // Load factor threshold for triggering expansion
-        extendRatio int      // Expansion multiplier
+        loadThres   float64  // Load factor threshold that triggers capacity growth
+        extendRatio int      // Capacity growth factor
         buckets     [][]pair // Bucket array
     }
 
@@ -501,35 +501,35 @@ The code below provides a simple implementation of a separate chaining hash tabl
         return float64(m.size) / float64(m.capacity)
     }
 
-    /* Query operation */
+    /* Lookup operation */
     func (m *hashMapChaining) get(key int) string {
         idx := m.hashFunc(key)
         bucket := m.buckets[idx]
-        // Traverse bucket, if key is found, return corresponding val
+        // Traverse the bucket; if key is found, return its corresponding val
         for _, p := range bucket {
             if p.key == key {
                 return p.val
             }
         }
-        // Return empty string if key not found
+        // If key is not found, return an empty string
         return ""
     }
 
-    /* Add operation */
+    /* Insert operation */
     func (m *hashMapChaining) put(key int, val string) {
-        // When load factor exceeds threshold, perform expansion
+        // Grow the capacity when the load factor exceeds the threshold
         if m.loadFactor() > m.loadThres {
             m.extend()
         }
         idx := m.hashFunc(key)
-        // Traverse bucket, if specified key is encountered, update corresponding val and return
+        // Traverse the bucket; if the specified key is found, update its val and return
         for i := range m.buckets[idx] {
             if m.buckets[idx][i].key == key {
                 m.buckets[idx][i].val = val
                 return
             }
         }
-        // If key does not exist, append key-value pair to the end
+        // If key is absent, append the key-value pair at the end
         p := pair{
             key: key,
             val: val,
@@ -541,10 +541,10 @@ The code below provides a simple implementation of a separate chaining hash tabl
     /* Remove operation */
     func (m *hashMapChaining) remove(key int) {
         idx := m.hashFunc(key)
-        // Traverse bucket and remove key-value pair from it
+        // Traverse the bucket and remove the key-value pair
         for i, p := range m.buckets[idx] {
             if p.key == key {
-                // Slice deletion
+                // Remove the element from the slice
                 m.buckets[idx] = append(m.buckets[idx][:i], m.buckets[idx][i+1:]...)
                 m.size -= 1
                 break
@@ -552,22 +552,22 @@ The code below provides a simple implementation of a separate chaining hash tabl
         }
     }
 
-    /* Expand hash table */
+    /* Grow the hash table capacity */
     func (m *hashMapChaining) extend() {
-        // Temporarily store the original hash table
+        // Save a copy of the original hash table
         tmpBuckets := make([][]pair, len(m.buckets))
         for i := 0; i < len(m.buckets); i++ {
             tmpBuckets[i] = make([]pair, len(m.buckets[i]))
             copy(tmpBuckets[i], m.buckets[i])
         }
-        // Initialize expanded new hash table
+        // Initialize a new hash table with the expanded capacity
         m.capacity *= m.extendRatio
         m.buckets = make([][]pair, m.capacity)
         for i := 0; i < m.capacity; i++ {
             m.buckets[i] = make([]pair, 0)
         }
         m.size = 0
-        // Move key-value pairs from original hash table to new hash table
+        // Move the key-value pairs from the original hash table to the new one
         for _, bucket := range tmpBuckets {
             for _, p := range bucket {
                 m.put(p.key, p.val)
@@ -575,7 +575,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
         }
     }
 
-    /* Print hash table */
+    /* Print the hash table */
     func (m *hashMapChaining) print() {
         var builder strings.Builder
 
@@ -598,8 +598,8 @@ The code below provides a simple implementation of a separate chaining hash tabl
     class HashMapChaining {
         var size: Int // Number of key-value pairs
         var capacity: Int // Hash table capacity
-        var loadThres: Double // Load factor threshold for triggering expansion
-        var extendRatio: Int // Expansion multiplier
+        var loadThres: Double // Load factor threshold that triggers capacity growth
+        var extendRatio: Int // Capacity growth factor
         var buckets: [[Pair]] // Bucket array
 
         /* Constructor */
@@ -621,36 +621,36 @@ The code below provides a simple implementation of a separate chaining hash tabl
             Double(size) / Double(capacity)
         }
 
-        /* Query operation */
+        /* Lookup operation */
         func get(key: Int) -> String? {
             let index = hashFunc(key: key)
             let bucket = buckets[index]
-            // Traverse bucket, if key is found, return corresponding val
+            // Traverse the bucket; if key is found, return its corresponding val
             for pair in bucket {
                 if pair.key == key {
                     return pair.val
                 }
             }
-            // Return nil if key not found
+            // Return nil if key is not found
             return nil
         }
 
-        /* Add operation */
+        /* Insert operation */
         func put(key: Int, val: String) {
-            // When load factor exceeds threshold, perform expansion
+            // Grow the capacity when the load factor exceeds the threshold
             if loadFactor() > loadThres {
                 extend()
             }
             let index = hashFunc(key: key)
             let bucket = buckets[index]
-            // Traverse bucket, if specified key is encountered, update corresponding val and return
+            // Traverse the bucket; if the specified key is found, update its val and return
             for pair in bucket {
                 if pair.key == key {
                     pair.val = val
                     return
                 }
             }
-            // If key does not exist, append key-value pair to the end
+            // If key is absent, append the key-value pair at the end
             let pair = Pair(key: key, val: val)
             buckets[index].append(pair)
             size += 1
@@ -660,7 +660,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
         func remove(key: Int) {
             let index = hashFunc(key: key)
             let bucket = buckets[index]
-            // Traverse bucket and remove key-value pair from it
+            // Traverse the bucket and remove the key-value pair
             for (pairIndex, pair) in bucket.enumerated() {
                 if pair.key == key {
                     buckets[index].remove(at: pairIndex)
@@ -670,15 +670,15 @@ The code below provides a simple implementation of a separate chaining hash tabl
             }
         }
 
-        /* Expand hash table */
+        /* Grow the hash table capacity */
         func extend() {
-            // Temporarily store the original hash table
+            // Save the original bucket array
             let bucketsTmp = buckets
-            // Initialize expanded new hash table
+            // Initialize a new hash table with the expanded capacity
             capacity *= extendRatio
             buckets = Array(repeating: [], count: capacity)
             size = 0
-            // Move key-value pairs from original hash table to new hash table
+            // Move the key-value pairs from the original hash table to the new one
             for bucket in bucketsTmp {
                 for pair in bucket {
                     put(key: pair.key, val: pair.val)
@@ -686,7 +686,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
             }
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         func print() {
             for bucket in buckets {
                 let res = bucket.map { "\($0.key) -> \($0.val)" }
@@ -703,8 +703,8 @@ The code below provides a simple implementation of a separate chaining hash tabl
     class HashMapChaining {
         #size; // Number of key-value pairs
         #capacity; // Hash table capacity
-        #loadThres; // Load factor threshold for triggering expansion
-        #extendRatio; // Expansion multiplier
+        #loadThres; // Load factor threshold that triggers capacity growth
+        #extendRatio; // Capacity growth factor
         #buckets; // Bucket array
 
         /* Constructor */
@@ -726,36 +726,36 @@ The code below provides a simple implementation of a separate chaining hash tabl
             return this.#size / this.#capacity;
         }
 
-        /* Query operation */
+        /* Lookup operation */
         get(key) {
             const index = this.#hashFunc(key);
             const bucket = this.#buckets[index];
-            // Traverse bucket, if key is found, return corresponding val
+            // Traverse the bucket; if key is found, return its corresponding val
             for (const pair of bucket) {
                 if (pair.key === key) {
                     return pair.val;
                 }
             }
-            // If key is not found, return null
+            // Return null if key was not found
             return null;
         }
 
-        /* Add operation */
+        /* Insert operation */
         put(key, val) {
-            // When load factor exceeds threshold, perform expansion
+            // Grow the capacity when the load factor exceeds the threshold
             if (this.#loadFactor() > this.#loadThres) {
                 this.#extend();
             }
             const index = this.#hashFunc(key);
             const bucket = this.#buckets[index];
-            // Traverse bucket, if specified key is encountered, update corresponding val and return
+            // Traverse the bucket; if the specified key is found, update its val and return
             for (const pair of bucket) {
                 if (pair.key === key) {
                     pair.val = val;
                     return;
                 }
             }
-            // If key does not exist, append key-value pair to the end
+            // If key is absent, append the key-value pair at the end
             const pair = new Pair(key, val);
             bucket.push(pair);
             this.#size++;
@@ -765,7 +765,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
         remove(key) {
             const index = this.#hashFunc(key);
             let bucket = this.#buckets[index];
-            // Traverse bucket and remove key-value pair from it
+            // Traverse the bucket and remove the key-value pair
             for (let i = 0; i < bucket.length; i++) {
                 if (bucket[i].key === key) {
                     bucket.splice(i, 1);
@@ -775,15 +775,15 @@ The code below provides a simple implementation of a separate chaining hash tabl
             }
         }
 
-        /* Expand hash table */
+        /* Grow the hash table capacity */
         #extend() {
-            // Temporarily store the original hash table
+            // Keep a reference to the original hash table
             const bucketsTmp = this.#buckets;
-            // Initialize expanded new hash table
+            // Initialize a new hash table with the expanded capacity
             this.#capacity *= this.#extendRatio;
             this.#buckets = new Array(this.#capacity).fill(null).map((x) => []);
             this.#size = 0;
-            // Move key-value pairs from original hash table to new hash table
+            // Move the key-value pairs from the original hash table to the new one
             for (const bucket of bucketsTmp) {
                 for (const pair of bucket) {
                     this.put(pair.key, pair.val);
@@ -791,7 +791,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
             }
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         print() {
             for (const bucket of this.#buckets) {
                 let res = [];
@@ -811,8 +811,8 @@ The code below provides a simple implementation of a separate chaining hash tabl
     class HashMapChaining {
         #size: number; // Number of key-value pairs
         #capacity: number; // Hash table capacity
-        #loadThres: number; // Load factor threshold for triggering expansion
-        #extendRatio: number; // Expansion multiplier
+        #loadThres: number; // Load factor threshold that triggers capacity growth
+        #extendRatio: number; // Capacity growth factor
         #buckets: Pair[][]; // Bucket array
 
         /* Constructor */
@@ -834,36 +834,36 @@ The code below provides a simple implementation of a separate chaining hash tabl
             return this.#size / this.#capacity;
         }
 
-        /* Query operation */
+        /* Lookup operation */
         get(key: number): string | null {
             const index = this.#hashFunc(key);
             const bucket = this.#buckets[index];
-            // Traverse bucket, if key is found, return corresponding val
+            // Traverse the bucket; if key is found, return its corresponding val
             for (const pair of bucket) {
                 if (pair.key === key) {
                     return pair.val;
                 }
             }
-            // If key is not found, return null
+            // Return null if key was not found
             return null;
         }
 
-        /* Add operation */
+        /* Insert operation */
         put(key: number, val: string): void {
-            // When load factor exceeds threshold, perform expansion
+            // Grow the capacity when the load factor exceeds the threshold
             if (this.#loadFactor() > this.#loadThres) {
                 this.#extend();
             }
             const index = this.#hashFunc(key);
             const bucket = this.#buckets[index];
-            // Traverse bucket, if specified key is encountered, update corresponding val and return
+            // Traverse the bucket; if the specified key is found, update its val and return
             for (const pair of bucket) {
                 if (pair.key === key) {
                     pair.val = val;
                     return;
                 }
             }
-            // If key does not exist, append key-value pair to the end
+            // If key is absent, append the key-value pair at the end
             const pair = new Pair(key, val);
             bucket.push(pair);
             this.#size++;
@@ -873,7 +873,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
         remove(key: number): void {
             const index = this.#hashFunc(key);
             let bucket = this.#buckets[index];
-            // Traverse bucket and remove key-value pair from it
+            // Traverse the bucket and remove the key-value pair
             for (let i = 0; i < bucket.length; i++) {
                 if (bucket[i].key === key) {
                     bucket.splice(i, 1);
@@ -883,15 +883,15 @@ The code below provides a simple implementation of a separate chaining hash tabl
             }
         }
 
-        /* Expand hash table */
+        /* Grow the hash table capacity */
         #extend(): void {
-            // Temporarily store the original hash table
+            // Keep a reference to the original hash table
             const bucketsTmp = this.#buckets;
-            // Initialize expanded new hash table
+            // Initialize a new hash table with the expanded capacity
             this.#capacity *= this.#extendRatio;
             this.#buckets = new Array(this.#capacity).fill(null).map((x) => []);
             this.#size = 0;
-            // Move key-value pairs from original hash table to new hash table
+            // Move the key-value pairs from the original hash table to the new one
             for (const bucket of bucketsTmp) {
                 for (const pair of bucket) {
                     this.put(pair.key, pair.val);
@@ -899,7 +899,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
             }
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         print(): void {
             for (const bucket of this.#buckets) {
                 let res = [];
@@ -919,8 +919,8 @@ The code below provides a simple implementation of a separate chaining hash tabl
     class HashMapChaining {
       late int size; // Number of key-value pairs
       late int capacity; // Hash table capacity
-      late double loadThres; // Load factor threshold for triggering expansion
-      late int extendRatio; // Expansion multiplier
+      late double loadThres; // Load factor threshold that triggers capacity growth
+      late int extendRatio; // Capacity growth factor
       late List<List<Pair>> buckets; // Bucket array
 
       /* Constructor */
@@ -942,36 +942,36 @@ The code below provides a simple implementation of a separate chaining hash tabl
         return size / capacity;
       }
 
-      /* Query operation */
+      /* Lookup operation */
       String? get(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets[index];
-        // Traverse bucket, if key is found, return corresponding val
+        // Traverse the bucket; if key is found, return its corresponding val
         for (Pair pair in bucket) {
           if (pair.key == key) {
             return pair.val;
           }
         }
-        // If key is not found, return null
+        // Return null if key was not found
         return null;
       }
 
-      /* Add operation */
+      /* Insert operation */
       void put(int key, String val) {
-        // When load factor exceeds threshold, perform expansion
+        // Grow the capacity when the load factor exceeds the threshold
         if (loadFactor() > loadThres) {
           extend();
         }
         int index = hashFunc(key);
         List<Pair> bucket = buckets[index];
-        // Traverse bucket, if specified key is encountered, update corresponding val and return
+        // Traverse the bucket; if the specified key is found, update its val and return
         for (Pair pair in bucket) {
           if (pair.key == key) {
             pair.val = val;
             return;
           }
         }
-        // If key does not exist, append key-value pair to the end
+        // If key is absent, append the key-value pair at the end
         Pair pair = Pair(key, val);
         bucket.add(pair);
         size++;
@@ -981,7 +981,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
       void remove(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets[index];
-        // Traverse bucket and remove key-value pair from it
+        // Traverse the bucket and remove the key-value pair
         for (Pair pair in bucket) {
           if (pair.key == key) {
             bucket.remove(pair);
@@ -991,15 +991,15 @@ The code below provides a simple implementation of a separate chaining hash tabl
         }
       }
 
-      /* Expand hash table */
+      /* Grow the hash table capacity */
       void extend() {
-        // Temporarily store the original hash table
+        // Keep a reference to the original hash table
         List<List<Pair>> bucketsTmp = buckets;
-        // Initialize expanded new hash table
+        // Initialize a new hash table with the expanded capacity
         capacity *= extendRatio;
         buckets = List.generate(capacity, (_) => []);
         size = 0;
-        // Move key-value pairs from original hash table to new hash table
+        // Move the key-value pairs from the original hash table to the new one
         for (List<Pair> bucket in bucketsTmp) {
           for (Pair pair in bucket) {
             put(pair.key, pair.val);
@@ -1007,7 +1007,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
         }
       }
 
-      /* Print hash table */
+      /* Print the hash table */
       void printHashMap() {
         for (List<Pair> bucket in buckets) {
           List<String> res = [];
@@ -1058,7 +1058,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
         fn remove(&mut self, key: i32) -> Option<String> {
             let index = self.hash_func(key);
 
-            // Traverse bucket and remove key-value pair from it
+            // Traverse the bucket and remove the key-value pair
             for (i, p) in self.buckets[index].iter_mut().enumerate() {
                 if p.key == key {
                     let pair = self.buckets[index].remove(i);
@@ -1067,21 +1067,21 @@ The code below provides a simple implementation of a separate chaining hash tabl
                 }
             }
 
-            // If key is not found, return None
+            // Return None if key is not found
             None
         }
 
-        /* Expand hash table */
+        /* Grow the hash table capacity */
         fn extend(&mut self) {
-            // Temporarily store the original hash table
+            // Temporarily take ownership of the original buckets
             let buckets_tmp = std::mem::take(&mut self.buckets);
 
-            // Initialize expanded new hash table
+            // Initialize a new hash table with the expanded capacity
             self.capacity *= self.extend_ratio;
             self.buckets = vec![Vec::new(); self.capacity as usize];
             self.size = 0;
 
-            // Move key-value pairs from original hash table to new hash table
+            // Move the key-value pairs from the original hash table to the new one
             for bucket in buckets_tmp {
                 for pair in bucket {
                     self.put(pair.key, pair.val);
@@ -1089,7 +1089,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
             }
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         fn print(&self) {
             for bucket in &self.buckets {
                 let mut res = Vec::new();
@@ -1100,16 +1100,16 @@ The code below provides a simple implementation of a separate chaining hash tabl
             }
         }
 
-        /* Add operation */
+        /* Insert operation */
         fn put(&mut self, key: i32, val: String) {
-            // When load factor exceeds threshold, perform expansion
+            // Grow the capacity when the load factor exceeds the threshold
             if self.load_factor() > self.load_thres {
                 self.extend();
             }
 
             let index = self.hash_func(key);
 
-            // Traverse bucket, if specified key is encountered, update corresponding val and return
+            // Traverse the bucket; if the specified key is found, update its val and return
             for pair in self.buckets[index].iter_mut() {
                 if pair.key == key {
                     pair.val = val;
@@ -1117,24 +1117,24 @@ The code below provides a simple implementation of a separate chaining hash tabl
                 }
             }
 
-            // If key does not exist, append key-value pair to the end
+            // If key is absent, append the key-value pair at the end
             let pair = Pair { key, val };
             self.buckets[index].push(pair);
             self.size += 1;
         }
 
-        /* Query operation */
+        /* Lookup operation */
         fn get(&self, key: i32) -> Option<&str> {
             let index = self.hash_func(key);
 
-            // Traverse bucket, if key is found, return corresponding val
+            // Traverse the bucket; if key is found, return its corresponding val
             for pair in self.buckets[index].iter() {
                 if pair.key == key {
                     return Some(&pair.val);
                 }
             }
 
-            // If key is not found, return None
+            // Return None if key is not found
             None
         }
     }
@@ -1153,8 +1153,8 @@ The code below provides a simple implementation of a separate chaining hash tabl
     typedef struct {
         int size;         // Number of key-value pairs
         int capacity;     // Hash table capacity
-        double loadThres; // Load factor threshold for triggering expansion
-        int extendRatio;  // Expansion multiplier
+        double loadThres; // Load factor threshold that triggers capacity growth
+        int extendRatio;  // Capacity growth factor
         Node **buckets;   // Bucket array
     } HashMapChaining;
 
@@ -1197,10 +1197,10 @@ The code below provides a simple implementation of a separate chaining hash tabl
         return (double)hashMap->size / (double)hashMap->capacity;
     }
 
-    /* Query operation */
+    /* Lookup operation */
     char *get(HashMapChaining *hashMap, int key) {
         int index = hashFunc(hashMap, key);
-        // Traverse bucket, if key is found, return corresponding val
+        // Traverse the bucket; if key is found, return its corresponding val
         Node *cur = hashMap->buckets[index];
         while (cur) {
             if (cur->pair->key == key) {
@@ -1208,26 +1208,26 @@ The code below provides a simple implementation of a separate chaining hash tabl
             }
             cur = cur->next;
         }
-        return ""; // Return empty string if key not found
+        return ""; // Return an empty string if key is not found
     }
 
-    /* Add operation */
+    /* Insert operation */
     void put(HashMapChaining *hashMap, int key, const char *val) {
-        // When load factor exceeds threshold, perform expansion
+        // Grow the capacity when the load factor exceeds the threshold
         if (loadFactor(hashMap) > hashMap->loadThres) {
             extend(hashMap);
         }
         int index = hashFunc(hashMap, key);
-        // Traverse bucket, if specified key is encountered, update corresponding val and return
+        // Traverse the bucket; if the specified key is found, update its val and return
         Node *cur = hashMap->buckets[index];
         while (cur) {
             if (cur->pair->key == key) {
-                strcpy(cur->pair->val, val); // If specified key is found, update corresponding val and return
+                strcpy(cur->pair->val, val); // If the specified key is found, update its val and return
                 return;
             }
             cur = cur->next;
         }
-        // If key not found, add key-value pair to list head
+        // If key is absent, add the key-value pair at the head of the linked list
         Pair *newPair = (Pair *)malloc(sizeof(Pair));
         newPair->key = key;
         strcpy(newPair->val, val);
@@ -1238,19 +1238,19 @@ The code below provides a simple implementation of a separate chaining hash tabl
         hashMap->size++;
     }
 
-    /* Expand hash table */
+    /* Grow the hash table capacity */
     void extend(HashMapChaining *hashMap) {
-        // Temporarily store the original hash table
+        // Keep a reference to the original hash table
         int oldCapacity = hashMap->capacity;
         Node **oldBuckets = hashMap->buckets;
-        // Initialize expanded new hash table
+        // Initialize a new hash table with the expanded capacity
         hashMap->capacity *= hashMap->extendRatio;
         hashMap->buckets = (Node **)malloc(hashMap->capacity * sizeof(Node *));
         for (int i = 0; i < hashMap->capacity; i++) {
             hashMap->buckets[i] = NULL;
         }
         hashMap->size = 0;
-        // Move key-value pairs from original hash table to new hash table
+        // Move the key-value pairs from the original hash table to the new one
         for (int i = 0; i < oldCapacity; i++) {
             Node *cur = oldBuckets[i];
             while (cur) {
@@ -1273,7 +1273,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
         Node *pre = NULL;
         while (cur) {
             if (cur->pair->key == key) {
-                // Remove key-value pair from it
+                // Remove the key-value pair from the list
                 if (pre) {
                     pre->next = cur->next;
                 } else {
@@ -1290,7 +1290,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
         }
     }
 
-    /* Print hash table */
+    /* Print the hash table */
     void print(HashMapChaining *hashMap) {
         for (int i = 0; i < hashMap->capacity; i++) {
             Node *cur = hashMap->buckets[i];
@@ -1311,8 +1311,8 @@ The code below provides a simple implementation of a separate chaining hash tabl
     class HashMapChaining {
         var size: Int // Number of key-value pairs
         var capacity: Int // Hash table capacity
-        val loadThres: Double // Load factor threshold for triggering expansion
-        val extendRatio: Int // Expansion multiplier
+        val loadThres: Double // Load factor threshold that triggers capacity growth
+        val extendRatio: Int // Capacity growth factor
         var buckets: MutableList<MutableList<Pair>> // Bucket array
 
         /* Constructor */
@@ -1337,34 +1337,34 @@ The code below provides a simple implementation of a separate chaining hash tabl
             return (size / capacity).toDouble()
         }
 
-        /* Query operation */
+        /* Lookup operation */
         fun get(key: Int): String? {
             val index = hashFunc(key)
             val bucket = buckets[index]
-            // Traverse bucket, if key is found, return corresponding val
+            // Traverse the bucket; if key is found, return its corresponding val
             for (pair in bucket) {
                 if (pair.key == key) return pair._val
             }
-            // If key is not found, return null
+            // Return null if key is not found
             return null
         }
 
-        /* Add operation */
+        /* Insert operation */
         fun put(key: Int, _val: String) {
-            // When load factor exceeds threshold, perform expansion
+            // Grow the capacity when the load factor exceeds the threshold
             if (loadFactor() > loadThres) {
                 extend()
             }
             val index = hashFunc(key)
             val bucket = buckets[index]
-            // Traverse bucket, if specified key is encountered, update corresponding val and return
+            // Traverse the bucket; if the specified key is found, update its val and return
             for (pair in bucket) {
                 if (pair.key == key) {
                     pair._val = _val
                     return
                 }
             }
-            // If key does not exist, append key-value pair to the end
+            // If key is absent, append the key-value pair at the end
             val pair = Pair(key, _val)
             bucket.add(pair)
             size++
@@ -1374,7 +1374,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
         fun remove(key: Int) {
             val index = hashFunc(key)
             val bucket = buckets[index]
-            // Traverse bucket and remove key-value pair from it
+            // Traverse the bucket and remove the key-value pair
             for (pair in bucket) {
                 if (pair.key == key) {
                     bucket.remove(pair)
@@ -1384,19 +1384,19 @@ The code below provides a simple implementation of a separate chaining hash tabl
             }
         }
 
-        /* Expand hash table */
+        /* Grow the hash table capacity */
         fun extend() {
-            // Temporarily store the original hash table
+            // Keep a reference to the original hash table
             val bucketsTmp = buckets
-            // Initialize expanded new hash table
+            // Initialize a new hash table with the expanded capacity
             capacity *= extendRatio
-            // mutablelist has no fixed size
+            // A mutable list has no fixed size
             buckets = mutableListOf()
             for (i in 0..<capacity) {
                 buckets.add(mutableListOf())
             }
             size = 0
-            // Move key-value pairs from original hash table to new hash table
+            // Move the key-value pairs from the original hash table to the new one
             for (bucket in bucketsTmp) {
                 for (pair in bucket) {
                     put(pair.key, pair._val)
@@ -1404,7 +1404,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
             }
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         fun print() {
             for (bucket in buckets) {
                 val res = mutableListOf<String>()
@@ -1422,14 +1422,14 @@ The code below provides a simple implementation of a separate chaining hash tabl
 === "Ruby"
 
     ```ruby title="hash_map_chaining.rb"
-    ### Hash map with chaining ###
+    ### Hash table using chaining ###
     class HashMapChaining
       ### Constructor ###
       def initialize
         @size = 0 # Number of key-value pairs
         @capacity = 4 # Hash table capacity
-        @load_thres = 2.0 / 3.0 # Load factor threshold for triggering expansion
-        @extend_ratio = 2 # Expansion multiplier
+        @load_thres = 2.0 / 3.0 # Load factor threshold that triggers capacity growth
+        @extend_ratio = 2 # Capacity growth factor
         @buckets = Array.new(@capacity) { [] } # Bucket array
       end
 
@@ -1443,42 +1443,42 @@ The code below provides a simple implementation of a separate chaining hash tabl
         @size / @capacity
       end
 
-      ### Query operation ###
+      ### Lookup operation ###
       def get(key)
         index = hash_func(key)
         bucket = @buckets[index]
-        # Traverse bucket, if key is found, return corresponding val
+        # Traverse the bucket; if key is found, return its corresponding val
         for pair in bucket
           return pair.val if pair.key == key
         end
-        # Return nil if key not found
+        # Return nil if key is not found
         nil
       end
 
-      ### Add operation ###
+      ### Insert operation ###
       def put(key, val)
-        # When load factor exceeds threshold, perform expansion
+        # Grow the capacity when the load factor exceeds the threshold
         extend if load_factor > @load_thres
         index = hash_func(key)
         bucket = @buckets[index]
-        # Traverse bucket, if specified key is encountered, update corresponding val and return
+        # Traverse the bucket; if the specified key is found, update its val and return
         for pair in bucket
           if pair.key == key
             pair.val = val
             return
           end
         end
-        # If key does not exist, append key-value pair to the end
+        # If key is absent, append the key-value pair at the end
         pair = Pair.new(key, val)
         bucket << pair
         @size += 1
       end
 
-      ### Delete operation ###
+      ### Remove operation ###
       def remove(key)
         index = hash_func(key)
         bucket = @buckets[index]
-        # Traverse bucket and remove key-value pair from it
+        # Traverse the bucket and remove the key-value pair
         for pair in bucket
           if pair.key == key
             bucket.delete(pair)
@@ -1488,15 +1488,15 @@ The code below provides a simple implementation of a separate chaining hash tabl
         end
       end
 
-      ### Expand hash table ###
+      ### Grow the hash table capacity ###
       def extend
-        # Temporarily store original hash table
+        # Temporarily store the original hash table
         buckets = @buckets
-        # Initialize expanded new hash table
+        # Initialize a new hash table with the expanded capacity
         @capacity *= @extend_ratio
         @buckets = Array.new(@capacity) { [] }
         @size = 0
-        # Move key-value pairs from original hash table to new hash table
+        # Move the key-value pairs from the original hash table to the new one
         for bucket in buckets
           for pair in bucket
             put(pair.key, pair.val)
@@ -1504,7 +1504,7 @@ The code below provides a simple implementation of a separate chaining hash tabl
         end
       end
 
-      ### Print hash table ###
+      ### Print the hash table ###
       def print
         for bucket in @buckets
           res = []
@@ -1517,42 +1517,47 @@ The code below provides a simple implementation of a separate chaining hash tabl
     end
     ```
 
-It's worth noting that when the linked list becomes very long, the query time $O(n)$ is poor. **In this case, the linked list can be converted into an AVL tree or a red-black tree**, reducing the time complexity of lookups to $O(\log n)$.
+??? pythontutor "Visualize execution"
 
-## 6.2.2 &nbsp; Open Addressing
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20Pair%3A%0A%20%20%20%20%22%22%22Key-value%20pair%22%22%22%0A%20%20%20%20def%20__init__%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20self.key%20%3D%20key%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0Aclass%20HashMapChaining%3A%0A%20%20%20%20%22%22%22Hash%20table%20with%20separate%20chaining%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self.size%20%3D%200%0A%20%20%20%20%20%20%20%20self.capacity%20%3D%204%0A%20%20%20%20%20%20%20%20self.load_thres%20%3D%202.0%20/%203.0%0A%20%20%20%20%20%20%20%20self.extend_ratio%20%3D%202%0A%20%20%20%20%20%20%20%20self.buckets%20%3D%20%5B%5B%5D%20for%20_%20in%20range%28self.capacity%29%5D%0A%0A%20%20%20%20def%20hash_func%28self,%20key%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Hash%20function%22%22%22%0A%20%20%20%20%20%20%20%20return%20key%20%25%20self.capacity%0A%0A%20%20%20%20def%20load_factor%28self%29%20-%3E%20float%3A%0A%20%20%20%20%20%20%20%20%22%22%22Load%20factor%22%22%22%0A%20%20%20%20%20%20%20%20return%20self.size%20/%20self.capacity%0A%0A%20%20%20%20def%20get%28self,%20key%3A%20int%29%20-%3E%20str%20%7C%20None%3A%0A%20%20%20%20%20%20%20%20%22%22%22Lookup%20operation%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20pair.val%0A%20%20%20%20%20%20%20%20return%20None%0A%0A%20%20%20%20def%20put%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Insert%20operation%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.load_factor%28%29%20%3E%20self.load_thres%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.extend%28%29%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pair.val%20%3D%20val%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20pair%20%3D%20Pair%28key,%20val%29%0A%20%20%20%20%20%20%20%20bucket.append%28pair%29%0A%20%20%20%20%20%20%20%20self.size%20%2B%3D%201%0A%0A%20%20%20%20def%20remove%28self,%20key%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20operation%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bucket.remove%28pair%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.size%20-%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break%0A%0A%20%20%20%20def%20extend%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Grow%20the%20hash%20table%20capacity%22%22%22%0A%20%20%20%20%20%20%20%20buckets%20%3D%20self.buckets%0A%20%20%20%20%20%20%20%20self.capacity%20%2A%3D%20self.extend_ratio%0A%20%20%20%20%20%20%20%20self.buckets%20%3D%20%5B%5B%5D%20for%20_%20in%20range%28self.capacity%29%5D%0A%20%20%20%20%20%20%20%20self.size%20%3D%200%0A%20%20%20%20%20%20%20%20for%20bucket%20in%20buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.put%28pair.key,%20pair.val%29%0A%0A%20%20%20%20def%20print%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Print%20the%20hash%20table%22%22%22%0A%20%20%20%20%20%20%20%20for%20bucket%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20res.append%28str%28pair.key%29%20%2B%20%22%20-%3E%20%22%20%2B%20pair.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28res%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20hash%20table%0A%20%20%20%20hashmap%20%3D%20HashMapChaining%28%29%0A%0A%20%20%20%20%23%20Insert%20operation%0A%20%20%20%20hashmap.put%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hashmap.put%2815937,%20%22%E5%B0%8F%E5%95%B0%22%29%0A%20%20%20%20hashmap.put%2816750,%20%22%E5%B0%8F%E7%AE%97%22%29%0A%20%20%20%20hashmap.put%2813276,%20%22%E5%B0%8F%E6%B3%95%22%29%0A%20%20%20%20hashmap.put%2810583,%20%22%E5%B0%8F%E9%B8%AD%22%29%0A%0A%20%20%20%20%23%20Lookup%20operation%0A%20%20%20%20name%20%3D%20hashmap.get%2813276%29%0A%0A%20%20%20%20%23%20Remove%20operation%0A%20%20%20%20hashmap.remove%2812836%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20Pair%3A%0A%20%20%20%20%22%22%22Key-value%20pair%22%22%22%0A%20%20%20%20def%20__init__%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20self.key%20%3D%20key%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0Aclass%20HashMapChaining%3A%0A%20%20%20%20%22%22%22Hash%20table%20with%20separate%20chaining%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self.size%20%3D%200%0A%20%20%20%20%20%20%20%20self.capacity%20%3D%204%0A%20%20%20%20%20%20%20%20self.load_thres%20%3D%202.0%20/%203.0%0A%20%20%20%20%20%20%20%20self.extend_ratio%20%3D%202%0A%20%20%20%20%20%20%20%20self.buckets%20%3D%20%5B%5B%5D%20for%20_%20in%20range%28self.capacity%29%5D%0A%0A%20%20%20%20def%20hash_func%28self,%20key%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Hash%20function%22%22%22%0A%20%20%20%20%20%20%20%20return%20key%20%25%20self.capacity%0A%0A%20%20%20%20def%20load_factor%28self%29%20-%3E%20float%3A%0A%20%20%20%20%20%20%20%20%22%22%22Load%20factor%22%22%22%0A%20%20%20%20%20%20%20%20return%20self.size%20/%20self.capacity%0A%0A%20%20%20%20def%20get%28self,%20key%3A%20int%29%20-%3E%20str%20%7C%20None%3A%0A%20%20%20%20%20%20%20%20%22%22%22Lookup%20operation%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20pair.val%0A%20%20%20%20%20%20%20%20return%20None%0A%0A%20%20%20%20def%20put%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Insert%20operation%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.load_factor%28%29%20%3E%20self.load_thres%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.extend%28%29%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pair.val%20%3D%20val%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20pair%20%3D%20Pair%28key,%20val%29%0A%20%20%20%20%20%20%20%20bucket.append%28pair%29%0A%20%20%20%20%20%20%20%20self.size%20%2B%3D%201%0A%0A%20%20%20%20def%20remove%28self,%20key%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20operation%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bucket.remove%28pair%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.size%20-%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break%0A%0A%20%20%20%20def%20extend%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Grow%20the%20hash%20table%20capacity%22%22%22%0A%20%20%20%20%20%20%20%20buckets%20%3D%20self.buckets%0A%20%20%20%20%20%20%20%20self.capacity%20%2A%3D%20self.extend_ratio%0A%20%20%20%20%20%20%20%20self.buckets%20%3D%20%5B%5B%5D%20for%20_%20in%20range%28self.capacity%29%5D%0A%20%20%20%20%20%20%20%20self.size%20%3D%200%0A%20%20%20%20%20%20%20%20for%20bucket%20in%20buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.put%28pair.key,%20pair.val%29%0A%0A%20%20%20%20def%20print%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Print%20the%20hash%20table%22%22%22%0A%20%20%20%20%20%20%20%20for%20bucket%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20res.append%28str%28pair.key%29%20%2B%20%22%20-%3E%20%22%20%2B%20pair.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28res%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20hash%20table%0A%20%20%20%20hashmap%20%3D%20HashMapChaining%28%29%0A%0A%20%20%20%20%23%20Insert%20operation%0A%20%20%20%20hashmap.put%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hashmap.put%2815937,%20%22%E5%B0%8F%E5%95%B0%22%29%0A%20%20%20%20hashmap.put%2816750,%20%22%E5%B0%8F%E7%AE%97%22%29%0A%20%20%20%20hashmap.put%2813276,%20%22%E5%B0%8F%E6%B3%95%22%29%0A%20%20%20%20hashmap.put%2810583,%20%22%E5%B0%8F%E9%B8%AD%22%29%0A%0A%20%20%20%20%23%20Lookup%20operation%0A%20%20%20%20name%20%3D%20hashmap.get%2813276%29%0A%0A%20%20%20%20%23%20Remove%20operation%0A%20%20%20%20hashmap.remove%2812836%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-<u>Open addressing</u> does not introduce additional data structures. Instead, it handles hash collisions through repeated probing. Common probing strategies include linear probing, quadratic probing, and multiple hashing.
+When a list becomes long, its $O(n)$ lookup time is poor. **Replacing it with an AVL tree or red-black tree** improves lookup time to $O(\log n)$.
 
-Let's use linear probing as an example to introduce the mechanism of open addressing hash tables.
+## 6.2.2 &nbsp; Open addressing
 
-### 1. &nbsp; Linear Probing
+<u>Open addressing</u> handles collisions by probing multiple locations without introducing another data structure. Common strategies include linear probing, quadratic probing, and multiple hashing.
 
-Linear probing uses a fixed step size to probe sequentially, so its operations differ somewhat from those of an ordinary hash table.
+We use linear probing to explain how an open-addressing hash table works.
 
-- **Inserting elements**: Compute the bucket index using the hash function. If the bucket is already occupied, continue probing forward from the collision position with a fixed step size (usually $1$) until an empty bucket is found, then insert the element there.
-- **Searching for elements**: If a collision occurs, continue probing forward with the same step size until the corresponding element is found and return its `value`; if an empty bucket is encountered, the target element is not in the hash table, so return `None`.
+### 1. &nbsp; Linear probing
 
-Figure 6-6 shows the distribution of key-value pairs in an open-addressing hash table that uses linear probing. Under this hash function, keys with the same last two digits are mapped to the same bucket. Linear probing then places them in that bucket and the subsequent buckets.
+Linear probing searches with a fixed step size. Its operations differ from those of a basic hash table.
 
-![Distribution of key-value pairs in open addressing (linear probing) hash table](hash_collision.assets/hash_table_linear_probing.png){ class="animation-figure" }
+- **Insertion**: Calculate the bucket index using the hash function. If the bucket is occupied, scan forward from that position with a fixed step size, usually $1$, until an empty bucket is found, then insert the element.
+- **Lookup**: If a collision is encountered, scan forward with the same step size until the target is found, then return its `value`. An empty bucket means the target is absent, so return `None`.
 
-<p align="center"> Figure 6-6 &nbsp; Distribution of key-value pairs in open addressing (linear probing) hash table </p>
+Figure 6-6 shows key-value pairs in an open-addressing table using linear probing. With this hash function, keys sharing the same last two digits map to the same bucket. Linear probing stores them successively in that bucket and the following buckets.
 
-However, **linear probing is prone to clustering**. Specifically, the longer a contiguous occupied region in the array becomes, the more likely new collisions are to occur within that region. This in turn makes the cluster grow even further, creating a vicious cycle that gradually degrades the efficiency of insertion, deletion, lookup, and update operations.
+![Distribution of key-value pairs with linear probing](hash_collision.assets/hash_table_linear_probing.png){ class="animation-figure" }
 
-It's important to note that **we cannot directly delete elements from an open-addressing hash table**. Deleting an element creates an empty bucket `None` in the array. During lookup, once linear probing reaches that empty bucket, it stops, which means any elements stored farther along the probe sequence become unreachable. As a result, the program may incorrectly conclude that those elements do not exist, as shown in Figure 6-7.
+<p align="center"> Figure 6-6 &nbsp; Distribution of key-value pairs with linear probing </p>
 
-![Query issues caused by deletion in open addressing](hash_collision.assets/hash_table_open_addressing_deletion.png){ class="animation-figure" }
+However, **linear probing is prone to clustering**. The longer a run of occupied positions becomes, the more likely a collision is to occur within it, causing the cluster to grow further. This feedback loop eventually degrades insertion, deletion, lookup, and update performance.
 
-<p align="center"> Figure 6-7 &nbsp; Query issues caused by deletion in open addressing </p>
+**We cannot simply delete an element from an open-addressing table**. Deletion would leave an empty bucket, `None`. A lookup stops when linear probing reaches such a bucket, making later elements in the probe sequence inaccessible and potentially reporting them as absent, as shown below.
 
-To solve this problem, we can adopt <u>lazy deletion</u>: instead of directly removing an element from the hash table, **use a constant `TOMBSTONE` to mark the bucket**. Under this mechanism, both `None` and `TOMBSTONE` denote buckets that can accept key-value pairs. The difference is that when linear probing encounters `TOMBSTONE`, it must continue probing, because key-value pairs may still exist farther along the sequence.
+![Lookup problems caused by deletion in open addressing](hash_collision.assets/hash_table_open_addressing_deletion.png){ class="animation-figure" }
 
-However, **lazy deletion may accelerate hash-table performance degradation**. Each deletion leaves behind a marker, and as the number of `TOMBSTONE` entries grows, search time increases as well, because linear probing may need to skip over multiple tombstones before finding the target element.
+<p align="center"> Figure 6-7 &nbsp; Lookup problems caused by deletion in open addressing </p>
 
-To address this, we can record the index of the first `TOMBSTONE` encountered during linear probing and swap the found target element into that position. The benefit is that each query or insertion can move elements closer to their ideal positions, that is, closer to where probing begins, which improves lookup efficiency.
+To solve this, use <u>lazy deletion</u>: rather than simply removing the entry, **mark its bucket with the constant `TOMBSTONE`**. Both `None` and `TOMBSTONE` represent available buckets that can hold a new pair. Unlike `None`, however, a `TOMBSTONE` does not stop a search, because further pairs may lie beyond it.
 
-The code below implements an open addressing (linear probing) hash table with lazy deletion. To make better use of the hash table space, we treat the hash table as a "circular array". When going beyond the end of the array, we return to the beginning and continue traversing.
+However, **lazy deletion can accelerate performance degradation**. Each deletion leaves a marker. As `TOMBSTONE` entries accumulate, searches may need to skip many of them before reaching the target, increasing search time.
+
+To address this, record the first `TOMBSTONE` encountered during probing and swap the target entry with it when found. On each lookup or insertion, this moves the entry closer to its ideal location—the start of the probe sequence—and improves lookup efficiency.
+
+The code below implements linear probing with lazy deletion. To use the table's space more fully, treat the array as circular: after reaching the end, wrap around to the beginning.
 
 === "Python"
 
@@ -1564,10 +1569,10 @@ The code below implements an open addressing (linear probing) hash table with la
             """Constructor"""
             self.size = 0  # Number of key-value pairs
             self.capacity = 4  # Hash table capacity
-            self.load_thres = 2.0 / 3.0  # Load factor threshold for triggering expansion
-            self.extend_ratio = 2  # Expansion multiplier
+            self.load_thres = 2.0 / 3.0  # Load factor threshold that triggers capacity growth
+            self.extend_ratio = 2  # Capacity growth factor
             self.buckets: list[Pair | None] = [None] * self.capacity  # Bucket array
-            self.TOMBSTONE = Pair(-1, "-1")  # Removal marker
+            self.TOMBSTONE = Pair(-1, "-1")  # Tombstone marker
 
         def hash_func(self, key: int) -> int:
             """Hash function"""
@@ -1578,76 +1583,76 @@ The code below implements an open addressing (linear probing) hash table with la
             return self.size / self.capacity
 
         def find_bucket(self, key: int) -> int:
-            """Search for bucket index corresponding to key"""
+            """Find the bucket index for key"""
             index = self.hash_func(key)
             first_tombstone = -1
-            # Linear probing, break when encountering an empty bucket
+            # Probe linearly until an empty bucket is reached
             while self.buckets[index] is not None:
-                # If key is encountered, return the corresponding bucket index
+                # If key is found, return its bucket index
                 if self.buckets[index].key == key:
-                    # If a removal marker was encountered before, move the key-value pair to that index
+                    # If a tombstone was encountered earlier, move the key-value pair to that index
                     if first_tombstone != -1:
                         self.buckets[first_tombstone] = self.buckets[index]
                         self.buckets[index] = self.TOMBSTONE
-                        return first_tombstone  # Return the moved bucket index
-                    return index  # Return bucket index
-                # Record the first removal marker encountered
+                        return first_tombstone  # Return the bucket index after the move
+                    return index  # Return the bucket index
+                # Record the first tombstone encountered
                 if first_tombstone == -1 and self.buckets[index] is self.TOMBSTONE:
                     first_tombstone = index
-                # Calculate bucket index, wrap around to the head if past the tail
+                # Calculate the bucket index, wrapping to the beginning after the end
                 index = (index + 1) % self.capacity
-            # If key does not exist, return the index for insertion
+            # If key is absent, return the index for insertion
             return index if first_tombstone == -1 else first_tombstone
 
         def get(self, key: int) -> str:
-            """Query operation"""
-            # Search for bucket index corresponding to key
+            """Lookup operation"""
+            # Find the bucket index for key
             index = self.find_bucket(key)
-            # If key-value pair is found, return corresponding val
+            # If the key-value pair is found, return its val
             if self.buckets[index] not in [None, self.TOMBSTONE]:
                 return self.buckets[index].val
-            # If key-value pair does not exist, return None
+            # Return None if the key-value pair is absent
             return None
 
         def put(self, key: int, val: str):
-            """Add operation"""
-            # When load factor exceeds threshold, perform expansion
+            """Insert operation"""
+            # Grow the capacity when the load factor exceeds the threshold
             if self.load_factor() > self.load_thres:
                 self.extend()
-            # Search for bucket index corresponding to key
+            # Find the bucket index for key
             index = self.find_bucket(key)
-            # If key-value pair is found, overwrite val and return
+            # If the key-value pair is found, overwrite val and return
             if self.buckets[index] not in [None, self.TOMBSTONE]:
                 self.buckets[index].val = val
                 return
-            # If key-value pair does not exist, add the key-value pair
+            # If the key-value pair is absent, insert it
             self.buckets[index] = Pair(key, val)
             self.size += 1
 
         def remove(self, key: int):
             """Remove operation"""
-            # Search for bucket index corresponding to key
+            # Find the bucket index for key
             index = self.find_bucket(key)
-            # If key-value pair is found, overwrite it with removal marker
+            # If the key-value pair is found, replace it with a tombstone
             if self.buckets[index] not in [None, self.TOMBSTONE]:
                 self.buckets[index] = self.TOMBSTONE
                 self.size -= 1
 
         def extend(self):
-            """Expand hash table"""
-            # Temporarily store the original hash table
+            """Grow the hash table capacity"""
+            # Keep a reference to the original hash table
             buckets_tmp = self.buckets
-            # Initialize expanded new hash table
+            # Initialize a new hash table with the expanded capacity
             self.capacity *= self.extend_ratio
             self.buckets = [None] * self.capacity
             self.size = 0
-            # Move key-value pairs from original hash table to new hash table
+            # Move the key-value pairs from the original hash table to the new one
             for pair in buckets_tmp:
                 if pair not in [None, self.TOMBSTONE]:
                     self.put(pair.key, pair.val)
 
         def print(self):
-            """Print hash table"""
+            """Print the hash table"""
             for pair in self.buckets:
                 if pair is None:
                     print("None")
@@ -1665,10 +1670,10 @@ The code below implements an open addressing (linear probing) hash table with la
       private:
         int size;                             // Number of key-value pairs
         int capacity = 4;                     // Hash table capacity
-        const double loadThres = 2.0 / 3.0;     // Load factor threshold for triggering expansion
-        const int extendRatio = 2;            // Expansion multiplier
+        const double loadThres = 2.0 / 3.0;     // Load factor threshold that triggers capacity growth
+        const int extendRatio = 2;            // Capacity growth factor
         vector<Pair *> buckets;               // Bucket array
-        Pair *TOMBSTONE = new Pair(-1, "-1"); // Removal marker
+        Pair *TOMBSTONE = new Pair(-1, "-1"); // Tombstone marker
 
       public:
         /* Constructor */
@@ -1695,68 +1700,68 @@ The code below implements an open addressing (linear probing) hash table with la
             return (double)size / capacity;
         }
 
-        /* Search for bucket index corresponding to key */
+        /* Find the bucket index for key */
         int findBucket(int key) {
             int index = hashFunc(key);
             int firstTombstone = -1;
-            // Linear probing, break when encountering an empty bucket
+            // Probe linearly until an empty bucket is reached
             while (buckets[index] != nullptr) {
-                // If key is encountered, return the corresponding bucket index
+                // If key is found, return its bucket index
                 if (buckets[index]->key == key) {
-                    // If a removal marker was encountered before, move the key-value pair to that index
+                    // If a tombstone was encountered earlier, move the key-value pair to that index
                     if (firstTombstone != -1) {
                         buckets[firstTombstone] = buckets[index];
                         buckets[index] = TOMBSTONE;
-                        return firstTombstone; // Return the moved bucket index
+                        return firstTombstone; // Return the bucket index after the move
                     }
-                    return index; // Return bucket index
+                    return index; // Return the bucket index
                 }
-                // Record the first removal marker encountered
+                // Record the first tombstone encountered
                 if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                     firstTombstone = index;
                 }
-                // Calculate bucket index, wrap around to the head if past the tail
+                // Calculate the bucket index, wrapping to the beginning after the end
                 index = (index + 1) % capacity;
             }
-            // If key does not exist, return the index for insertion
+            // If key is absent, return the index for insertion
             return firstTombstone == -1 ? index : firstTombstone;
         }
 
-        /* Query operation */
+        /* Lookup operation */
         string get(int key) {
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             int index = findBucket(key);
-            // If key-value pair is found, return corresponding val
+            // If the key-value pair is found, return its val
             if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
                 return buckets[index]->val;
             }
-            // Return empty string if key-value pair does not exist
+            // Return an empty string if the key-value pair does not exist
             return "";
         }
 
-        /* Add operation */
+        /* Insert operation */
         void put(int key, string val) {
-            // When load factor exceeds threshold, perform expansion
+            // Grow the capacity when the load factor exceeds the threshold
             if (loadFactor() > loadThres) {
                 extend();
             }
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             int index = findBucket(key);
-            // If key-value pair is found, overwrite val and return
+            // If the key-value pair is found, overwrite val and return
             if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
                 buckets[index]->val = val;
                 return;
             }
-            // If key-value pair does not exist, add the key-value pair
+            // If the key-value pair is absent, insert it
             buckets[index] = new Pair(key, val);
             size++;
         }
 
         /* Remove operation */
         void remove(int key) {
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             int index = findBucket(key);
-            // If key-value pair is found, overwrite it with removal marker
+            // If the key-value pair is found, replace it with a tombstone
             if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
                 delete buckets[index];
                 buckets[index] = TOMBSTONE;
@@ -1764,15 +1769,15 @@ The code below implements an open addressing (linear probing) hash table with la
             }
         }
 
-        /* Expand hash table */
+        /* Grow the hash table capacity */
         void extend() {
-            // Temporarily store the original hash table
+            // Keep a copy of the original bucket array
             vector<Pair *> bucketsTmp = buckets;
-            // Initialize expanded new hash table
+            // Initialize a new hash table with the expanded capacity
             capacity *= extendRatio;
             buckets = vector<Pair *>(capacity, nullptr);
             size = 0;
-            // Move key-value pairs from original hash table to new hash table
+            // Move the key-value pairs from the original hash table to the new one
             for (Pair *pair : bucketsTmp) {
                 if (pair != nullptr && pair != TOMBSTONE) {
                     put(pair->key, pair->val);
@@ -1781,7 +1786,7 @@ The code below implements an open addressing (linear probing) hash table with la
             }
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         void print() {
             for (Pair *pair : buckets) {
                 if (pair == nullptr) {
@@ -1803,10 +1808,10 @@ The code below implements an open addressing (linear probing) hash table with la
     class HashMapOpenAddressing {
         private int size; // Number of key-value pairs
         private int capacity = 4; // Hash table capacity
-        private final double loadThres = 2.0 / 3.0; // Load factor threshold for triggering expansion
-        private final int extendRatio = 2; // Expansion multiplier
+        private final double loadThres = 2.0 / 3.0; // Load factor threshold that triggers capacity growth
+        private final int extendRatio = 2; // Capacity growth factor
         private Pair[] buckets; // Bucket array
-        private final Pair TOMBSTONE = new Pair(-1, "-1"); // Removal marker
+        private final Pair TOMBSTONE = new Pair(-1, "-1"); // Tombstone marker
 
         /* Constructor */
         public HashMapOpenAddressing() {
@@ -1824,83 +1829,83 @@ The code below implements an open addressing (linear probing) hash table with la
             return (double) size / capacity;
         }
 
-        /* Search for bucket index corresponding to key */
+        /* Find the bucket index for key */
         private int findBucket(int key) {
             int index = hashFunc(key);
             int firstTombstone = -1;
-            // Linear probing, break when encountering an empty bucket
+            // Probe linearly until an empty bucket is reached
             while (buckets[index] != null) {
-                // If key is encountered, return the corresponding bucket index
+                // If key is found, return its bucket index
                 if (buckets[index].key == key) {
-                    // If a removal marker was encountered before, move the key-value pair to that index
+                    // If a tombstone was encountered earlier, move the key-value pair to that index
                     if (firstTombstone != -1) {
                         buckets[firstTombstone] = buckets[index];
                         buckets[index] = TOMBSTONE;
-                        return firstTombstone; // Return the moved bucket index
+                        return firstTombstone; // Return the bucket index after the move
                     }
-                    return index; // Return bucket index
+                    return index; // Return the bucket index
                 }
-                // Record the first removal marker encountered
+                // Record the first tombstone encountered
                 if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                     firstTombstone = index;
                 }
-                // Calculate bucket index, wrap around to the head if past the tail
+                // Calculate the bucket index, wrapping to the beginning after the end
                 index = (index + 1) % capacity;
             }
-            // If key does not exist, return the index for insertion
+            // If key is absent, return the index for insertion
             return firstTombstone == -1 ? index : firstTombstone;
         }
 
-        /* Query operation */
+        /* Lookup operation */
         public String get(int key) {
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             int index = findBucket(key);
-            // If key-value pair is found, return corresponding val
+            // If the key-value pair is found, return its val
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 return buckets[index].val;
             }
-            // If key-value pair does not exist, return null
+            // Return null if the key-value pair is absent
             return null;
         }
 
-        /* Add operation */
+        /* Insert operation */
         public void put(int key, String val) {
-            // When load factor exceeds threshold, perform expansion
+            // Grow the capacity when the load factor exceeds the threshold
             if (loadFactor() > loadThres) {
                 extend();
             }
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             int index = findBucket(key);
-            // If key-value pair is found, overwrite val and return
+            // If the key-value pair is found, overwrite val and return
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 buckets[index].val = val;
                 return;
             }
-            // If key-value pair does not exist, add the key-value pair
+            // If the key-value pair is absent, insert it
             buckets[index] = new Pair(key, val);
             size++;
         }
 
         /* Remove operation */
         public void remove(int key) {
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             int index = findBucket(key);
-            // If key-value pair is found, overwrite it with removal marker
+            // If the key-value pair is found, replace it with a tombstone
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 buckets[index] = TOMBSTONE;
                 size--;
             }
         }
 
-        /* Expand hash table */
+        /* Grow the hash table capacity */
         private void extend() {
-            // Temporarily store the original hash table
+            // Keep a reference to the original hash table
             Pair[] bucketsTmp = buckets;
-            // Initialize expanded new hash table
+            // Initialize a new hash table with the expanded capacity
             capacity *= extendRatio;
             buckets = new Pair[capacity];
             size = 0;
-            // Move key-value pairs from original hash table to new hash table
+            // Move the key-value pairs from the original hash table to the new one
             for (Pair pair : bucketsTmp) {
                 if (pair != null && pair != TOMBSTONE) {
                     put(pair.key, pair.val);
@@ -1908,7 +1913,7 @@ The code below implements an open addressing (linear probing) hash table with la
             }
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         public void print() {
             for (Pair pair : buckets) {
                 if (pair == null) {
@@ -1930,10 +1935,10 @@ The code below implements an open addressing (linear probing) hash table with la
     class HashMapOpenAddressing {
         int size; // Number of key-value pairs
         int capacity = 4; // Hash table capacity
-        double loadThres = 2.0 / 3.0; // Load factor threshold for triggering expansion
-        int extendRatio = 2; // Expansion multiplier
+        double loadThres = 2.0 / 3.0; // Load factor threshold that triggers capacity growth
+        int extendRatio = 2; // Capacity growth factor
         Pair[] buckets; // Bucket array
-        Pair TOMBSTONE = new(-1, "-1"); // Removal marker
+        Pair TOMBSTONE = new(-1, "-1"); // Tombstone marker
 
         /* Constructor */
         public HashMapOpenAddressing() {
@@ -1951,83 +1956,83 @@ The code below implements an open addressing (linear probing) hash table with la
             return (double)size / capacity;
         }
 
-        /* Search for bucket index corresponding to key */
+        /* Find the bucket index for key */
         int FindBucket(int key) {
             int index = HashFunc(key);
             int firstTombstone = -1;
-            // Linear probing, break when encountering an empty bucket
+            // Probe linearly until an empty bucket is reached
             while (buckets[index] != null) {
-                // If key is encountered, return the corresponding bucket index
+                // If key is found, return its bucket index
                 if (buckets[index].key == key) {
-                    // If a removal marker was encountered before, move the key-value pair to that index
+                    // If a tombstone was encountered earlier, move the key-value pair to that index
                     if (firstTombstone != -1) {
                         buckets[firstTombstone] = buckets[index];
                         buckets[index] = TOMBSTONE;
-                        return firstTombstone; // Return the moved bucket index
+                        return firstTombstone; // Return the bucket index after the move
                     }
-                    return index; // Return bucket index
+                    return index; // Return the bucket index
                 }
-                // Record the first removal marker encountered
+                // Record the first tombstone encountered
                 if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                     firstTombstone = index;
                 }
-                // Calculate bucket index, wrap around to the head if past the tail
+                // Calculate the bucket index, wrapping to the beginning after the end
                 index = (index + 1) % capacity;
             }
-            // If key does not exist, return the index for insertion
+            // If key is absent, return the index for insertion
             return firstTombstone == -1 ? index : firstTombstone;
         }
 
-        /* Query operation */
+        /* Lookup operation */
         public string? Get(int key) {
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             int index = FindBucket(key);
-            // If key-value pair is found, return corresponding val
+            // If the key-value pair is found, return its val
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 return buckets[index].val;
             }
-            // If key-value pair does not exist, return null
+            // Return null if the key-value pair is absent
             return null;
         }
 
-        /* Add operation */
+        /* Insert operation */
         public void Put(int key, string val) {
-            // When load factor exceeds threshold, perform expansion
+            // Grow the capacity when the load factor exceeds the threshold
             if (LoadFactor() > loadThres) {
                 Extend();
             }
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             int index = FindBucket(key);
-            // If key-value pair is found, overwrite val and return
+            // If the key-value pair is found, overwrite val and return
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 buckets[index].val = val;
                 return;
             }
-            // If key-value pair does not exist, add the key-value pair
+            // If the key-value pair is absent, insert it
             buckets[index] = new Pair(key, val);
             size++;
         }
 
         /* Remove operation */
         public void Remove(int key) {
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             int index = FindBucket(key);
-            // If key-value pair is found, overwrite it with removal marker
+            // If the key-value pair is found, replace it with a tombstone
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 buckets[index] = TOMBSTONE;
                 size--;
             }
         }
 
-        /* Expand hash table */
+        /* Grow the hash table capacity */
         void Extend() {
-            // Temporarily store the original hash table
+            // Keep a reference to the original hash table
             Pair[] bucketsTmp = buckets;
-            // Initialize expanded new hash table
+            // Initialize a new hash table with the expanded capacity
             capacity *= extendRatio;
             buckets = new Pair[capacity];
             size = 0;
-            // Move key-value pairs from original hash table to new hash table
+            // Move the key-value pairs from the original hash table to the new one
             foreach (Pair pair in bucketsTmp) {
                 if (pair != null && pair != TOMBSTONE) {
                     Put(pair.key, pair.val);
@@ -2035,7 +2040,7 @@ The code below implements an open addressing (linear probing) hash table with la
             }
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         public void Print() {
             foreach (Pair pair in buckets) {
                 if (pair == null) {
@@ -2057,10 +2062,10 @@ The code below implements an open addressing (linear probing) hash table with la
     type hashMapOpenAddressing struct {
         size        int     // Number of key-value pairs
         capacity    int     // Hash table capacity
-        loadThres   float64 // Load factor threshold for triggering expansion
-        extendRatio int     // Expansion multiplier
+        loadThres   float64 // Load factor threshold that triggers capacity growth
+        extendRatio int     // Capacity growth factor
         buckets     []*pair // Bucket array
-        TOMBSTONE   *pair   // Removal marker
+        TOMBSTONE   *pair   // Tombstone marker
     }
 
     /* Constructor */
@@ -2077,79 +2082,79 @@ The code below implements an open addressing (linear probing) hash table with la
 
     /* Hash function */
     func (h *hashMapOpenAddressing) hashFunc(key int) int {
-        return key % h.capacity // Calculate hash value based on key
+        return key % h.capacity // Calculate the hash value from the key
     }
 
     /* Load factor */
     func (h *hashMapOpenAddressing) loadFactor() float64 {
-        return float64(h.size) / float64(h.capacity) // Calculate current load factor
+        return float64(h.size) / float64(h.capacity) // Calculate the current load factor
     }
 
-    /* Search for bucket index corresponding to key */
+    /* Find the bucket index for key */
     func (h *hashMapOpenAddressing) findBucket(key int) int {
-        index := h.hashFunc(key) // Get initial index
-        firstTombstone := -1     // Record position of first TOMBSTONE encountered
+        index := h.hashFunc(key) // Get the initial index
+        firstTombstone := -1     // Record the position of the first TOMBSTONE encountered
         for h.buckets[index] != nil {
             if h.buckets[index].key == key {
                 if firstTombstone != -1 {
-                    // If a removal marker was encountered before, move the key-value pair to that index
+                    // If a tombstone was encountered earlier, move the key-value pair to that index
                     h.buckets[firstTombstone] = h.buckets[index]
                     h.buckets[index] = h.TOMBSTONE
-                    return firstTombstone // Return the moved bucket index
+                    return firstTombstone // Return the bucket index after the move
                 }
-                return index // Return found index
+                return index // Return the index found
             }
             if firstTombstone == -1 && h.buckets[index] == h.TOMBSTONE {
-                firstTombstone = index // Record position of first deletion marker encountered
+                firstTombstone = index // Record the position of the first tombstone encountered
             }
-            index = (index + 1) % h.capacity // Linear probing, wrap around to head if past tail
+            index = (index + 1) % h.capacity // Probe linearly, wrapping to the beginning after the end
         }
-        // If key does not exist, return the index for insertion
+        // If key is absent, return the index for insertion
         if firstTombstone != -1 {
             return firstTombstone
         }
         return index
     }
 
-    /* Query operation */
+    /* Lookup operation */
     func (h *hashMapOpenAddressing) get(key int) string {
-        index := h.findBucket(key) // Search for bucket index corresponding to key
+        index := h.findBucket(key) // Find the bucket index for key
         if h.buckets[index] != nil && h.buckets[index] != h.TOMBSTONE {
-            return h.buckets[index].val // If key-value pair is found, return corresponding val
+            return h.buckets[index].val // If the key-value pair is found, return its val
         }
-        return "" // Return "" if key-value pair does not exist
+        return "" // If the key-value pair is absent, return ""
     }
 
-    /* Add operation */
+    /* Insert operation */
     func (h *hashMapOpenAddressing) put(key int, val string) {
         if h.loadFactor() > h.loadThres {
-            h.extend() // When load factor exceeds threshold, perform expansion
+            h.extend() // Grow the capacity when the load factor exceeds the threshold
         }
-        index := h.findBucket(key) // Search for bucket index corresponding to key
+        index := h.findBucket(key) // Find the bucket index for key
         if h.buckets[index] == nil || h.buckets[index] == h.TOMBSTONE {
-            h.buckets[index] = &pair{key, val} // If key-value pair does not exist, add the key-value pair
+            h.buckets[index] = &pair{key, val} // If the key-value pair is absent, insert it
             h.size++
         } else {
-            h.buckets[index].val = val // If key-value pair found, overwrite val
+            h.buckets[index].val = val // If the key-value pair is found, overwrite val
         }
     }
 
     /* Remove operation */
     func (h *hashMapOpenAddressing) remove(key int) {
-        index := h.findBucket(key) // Search for bucket index corresponding to key
+        index := h.findBucket(key) // Find the bucket index for key
         if h.buckets[index] != nil && h.buckets[index] != h.TOMBSTONE {
-            h.buckets[index] = h.TOMBSTONE // If key-value pair is found, overwrite it with removal marker
+            h.buckets[index] = h.TOMBSTONE // If the key-value pair is found, replace it with a tombstone
             h.size--
         }
     }
 
-    /* Expand hash table */
+    /* Grow the hash table capacity */
     func (h *hashMapOpenAddressing) extend() {
-        oldBuckets := h.buckets               // Temporarily store the original hash table
-        h.capacity *= h.extendRatio           // Update capacity
-        h.buckets = make([]*pair, h.capacity) // Initialize expanded new hash table
-        h.size = 0                            // Reset size
-        // Move key-value pairs from original hash table to new hash table
+        oldBuckets := h.buckets               // Keep a reference to the original hash table
+        h.capacity *= h.extendRatio           // Update the capacity
+        h.buckets = make([]*pair, h.capacity) // Initialize a new hash table with the expanded capacity
+        h.size = 0                            // Reset the size
+        // Move the key-value pairs from the original hash table to the new one
         for _, pair := range oldBuckets {
             if pair != nil && pair != h.TOMBSTONE {
                 h.put(pair.key, pair.val)
@@ -2157,7 +2162,7 @@ The code below implements an open addressing (linear probing) hash table with la
         }
     }
 
-    /* Print hash table */
+    /* Print the hash table */
     func (h *hashMapOpenAddressing) print() {
         for _, pair := range h.buckets {
             if pair == nil {
@@ -2178,10 +2183,10 @@ The code below implements an open addressing (linear probing) hash table with la
     class HashMapOpenAddressing {
         var size: Int // Number of key-value pairs
         var capacity: Int // Hash table capacity
-        var loadThres: Double // Load factor threshold for triggering expansion
-        var extendRatio: Int // Expansion multiplier
+        var loadThres: Double // Load factor threshold that triggers capacity growth
+        var extendRatio: Int // Capacity growth factor
         var buckets: [Pair?] // Bucket array
-        var TOMBSTONE: Pair // Removal marker
+        var TOMBSTONE: Pair // Tombstone marker
 
         /* Constructor */
         init() {
@@ -2203,83 +2208,83 @@ The code below implements an open addressing (linear probing) hash table with la
             Double(size) / Double(capacity)
         }
 
-        /* Search for bucket index corresponding to key */
+        /* Find the bucket index for key */
         func findBucket(key: Int) -> Int {
             var index = hashFunc(key: key)
             var firstTombstone = -1
-            // Linear probing, break when encountering an empty bucket
+            // Probe linearly until an empty bucket is reached
             while buckets[index] != nil {
-                // If key is encountered, return the corresponding bucket index
+                // If key is found, return its bucket index
                 if buckets[index]!.key == key {
-                    // If a removal marker was encountered before, move the key-value pair to that index
+                    // If a tombstone was encountered earlier, move the key-value pair to that index
                     if firstTombstone != -1 {
                         buckets[firstTombstone] = buckets[index]
                         buckets[index] = TOMBSTONE
-                        return firstTombstone // Return the moved bucket index
+                        return firstTombstone // Return the bucket index after the move
                     }
-                    return index // Return bucket index
+                    return index // Return the bucket index
                 }
-                // Record the first removal marker encountered
+                // Record the first tombstone encountered
                 if firstTombstone == -1 && buckets[index] == TOMBSTONE {
                     firstTombstone = index
                 }
-                // Calculate bucket index, wrap around to the head if past the tail
+                // Calculate the bucket index, wrapping to the beginning after the end
                 index = (index + 1) % capacity
             }
-            // If key does not exist, return the index for insertion
+            // If key is absent, return the index for insertion
             return firstTombstone == -1 ? index : firstTombstone
         }
 
-        /* Query operation */
+        /* Lookup operation */
         func get(key: Int) -> String? {
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             let index = findBucket(key: key)
-            // If key-value pair is found, return corresponding val
+            // If the key-value pair is found, return its val
             if buckets[index] != nil, buckets[index] != TOMBSTONE {
                 return buckets[index]!.val
             }
-            // If key-value pair does not exist, return null
+            // Return nil if the key-value pair is absent
             return nil
         }
 
-        /* Add operation */
+        /* Insert operation */
         func put(key: Int, val: String) {
-            // When load factor exceeds threshold, perform expansion
+            // Grow the capacity when the load factor exceeds the threshold
             if loadFactor() > loadThres {
                 extend()
             }
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             let index = findBucket(key: key)
-            // If key-value pair is found, overwrite val and return
+            // If the key-value pair is found, overwrite val and return
             if buckets[index] != nil, buckets[index] != TOMBSTONE {
                 buckets[index]!.val = val
                 return
             }
-            // If key-value pair does not exist, add the key-value pair
+            // If the key-value pair is absent, insert it
             buckets[index] = Pair(key: key, val: val)
             size += 1
         }
 
         /* Remove operation */
         func remove(key: Int) {
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             let index = findBucket(key: key)
-            // If key-value pair is found, overwrite it with removal marker
+            // If the key-value pair is found, replace it with a tombstone
             if buckets[index] != nil, buckets[index] != TOMBSTONE {
                 buckets[index] = TOMBSTONE
                 size -= 1
             }
         }
 
-        /* Expand hash table */
+        /* Grow the hash table capacity */
         func extend() {
-            // Temporarily store the original hash table
+            // Save the original bucket array
             let bucketsTmp = buckets
-            // Initialize expanded new hash table
+            // Initialize a new hash table with the expanded capacity
             capacity *= extendRatio
             buckets = Array(repeating: nil, count: capacity)
             size = 0
-            // Move key-value pairs from original hash table to new hash table
+            // Move the key-value pairs from the original hash table to the new one
             for pair in bucketsTmp {
                 if let pair, pair != TOMBSTONE {
                     put(key: pair.key, val: pair.val)
@@ -2287,7 +2292,7 @@ The code below implements an open addressing (linear probing) hash table with la
             }
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         func print() {
             for pair in buckets {
                 if pair == nil {
@@ -2309,19 +2314,19 @@ The code below implements an open addressing (linear probing) hash table with la
     class HashMapOpenAddressing {
         #size; // Number of key-value pairs
         #capacity; // Hash table capacity
-        #loadThres; // Load factor threshold for triggering expansion
-        #extendRatio; // Expansion multiplier
+        #loadThres; // Load factor threshold that triggers capacity growth
+        #extendRatio; // Capacity growth factor
         #buckets; // Bucket array
-        #TOMBSTONE; // Removal marker
+        #TOMBSTONE; // Tombstone marker
 
         /* Constructor */
         constructor() {
             this.#size = 0; // Number of key-value pairs
             this.#capacity = 4; // Hash table capacity
-            this.#loadThres = 2.0 / 3.0; // Load factor threshold for triggering expansion
-            this.#extendRatio = 2; // Expansion multiplier
+            this.#loadThres = 2.0 / 3.0; // Load factor threshold that triggers capacity growth
+            this.#extendRatio = 2; // Capacity growth factor
             this.#buckets = Array(this.#capacity).fill(null); // Bucket array
-            this.#TOMBSTONE = new Pair(-1, '-1'); // Removal marker
+            this.#TOMBSTONE = new Pair(-1, '-1'); // Tombstone marker
         }
 
         /* Hash function */
@@ -2334,60 +2339,60 @@ The code below implements an open addressing (linear probing) hash table with la
             return this.#size / this.#capacity;
         }
 
-        /* Search for bucket index corresponding to key */
+        /* Find the bucket index for key */
         #findBucket(key) {
             let index = this.#hashFunc(key);
             let firstTombstone = -1;
-            // Linear probing, break when encountering an empty bucket
+            // Probe linearly until an empty bucket is reached
             while (this.#buckets[index] !== null) {
-                // If key is encountered, return the corresponding bucket index
+                // If key is found, return its bucket index
                 if (this.#buckets[index].key === key) {
-                    // If a removal marker was encountered before, move the key-value pair to that index
+                    // If a tombstone was encountered earlier, move the key-value pair to that index
                     if (firstTombstone !== -1) {
                         this.#buckets[firstTombstone] = this.#buckets[index];
                         this.#buckets[index] = this.#TOMBSTONE;
-                        return firstTombstone; // Return the moved bucket index
+                        return firstTombstone; // Return the bucket index after the move
                     }
-                    return index; // Return bucket index
+                    return index; // Return the bucket index
                 }
-                // Record the first removal marker encountered
+                // Record the first tombstone encountered
                 if (
                     firstTombstone === -1 &&
                     this.#buckets[index] === this.#TOMBSTONE
                 ) {
                     firstTombstone = index;
                 }
-                // Calculate bucket index, wrap around to the head if past the tail
+                // Calculate the bucket index, wrapping to the beginning after the end
                 index = (index + 1) % this.#capacity;
             }
-            // If key does not exist, return the index for insertion
+            // If key is absent, return the index for insertion
             return firstTombstone === -1 ? index : firstTombstone;
         }
 
-        /* Query operation */
+        /* Lookup operation */
         get(key) {
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             const index = this.#findBucket(key);
-            // If key-value pair is found, return corresponding val
+            // If the key-value pair is found, return its val
             if (
                 this.#buckets[index] !== null &&
                 this.#buckets[index] !== this.#TOMBSTONE
             ) {
                 return this.#buckets[index].val;
             }
-            // If key-value pair does not exist, return null
+            // Return null if the key-value pair does not exist
             return null;
         }
 
-        /* Add operation */
+        /* Insert operation */
         put(key, val) {
-            // When load factor exceeds threshold, perform expansion
+            // Grow the capacity when the load factor exceeds the threshold
             if (this.#loadFactor() > this.#loadThres) {
                 this.#extend();
             }
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             const index = this.#findBucket(key);
-            // If key-value pair is found, overwrite val and return
+            // If the key-value pair is found, overwrite val and return
             if (
                 this.#buckets[index] !== null &&
                 this.#buckets[index] !== this.#TOMBSTONE
@@ -2395,16 +2400,16 @@ The code below implements an open addressing (linear probing) hash table with la
                 this.#buckets[index].val = val;
                 return;
             }
-            // If key-value pair does not exist, add the key-value pair
+            // If the key-value pair is absent, insert it
             this.#buckets[index] = new Pair(key, val);
             this.#size++;
         }
 
         /* Remove operation */
         remove(key) {
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             const index = this.#findBucket(key);
-            // If key-value pair is found, overwrite it with removal marker
+            // If the key-value pair is found, replace it with a tombstone
             if (
                 this.#buckets[index] !== null &&
                 this.#buckets[index] !== this.#TOMBSTONE
@@ -2414,15 +2419,15 @@ The code below implements an open addressing (linear probing) hash table with la
             }
         }
 
-        /* Expand hash table */
+        /* Grow the hash table capacity */
         #extend() {
-            // Temporarily store the original hash table
+            // Keep a reference to the original hash table
             const bucketsTmp = this.#buckets;
-            // Initialize expanded new hash table
+            // Initialize a new hash table with the expanded capacity
             this.#capacity *= this.#extendRatio;
             this.#buckets = Array(this.#capacity).fill(null);
             this.#size = 0;
-            // Move key-value pairs from original hash table to new hash table
+            // Move the key-value pairs from the original hash table to the new one
             for (const pair of bucketsTmp) {
                 if (pair !== null && pair !== this.#TOMBSTONE) {
                     this.put(pair.key, pair.val);
@@ -2430,7 +2435,7 @@ The code below implements an open addressing (linear probing) hash table with la
             }
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         print() {
             for (const pair of this.#buckets) {
                 if (pair === null) {
@@ -2452,19 +2457,19 @@ The code below implements an open addressing (linear probing) hash table with la
     class HashMapOpenAddressing {
         private size: number; // Number of key-value pairs
         private capacity: number; // Hash table capacity
-        private loadThres: number; // Load factor threshold for triggering expansion
-        private extendRatio: number; // Expansion multiplier
+        private loadThres: number; // Load factor threshold that triggers capacity growth
+        private extendRatio: number; // Capacity growth factor
         private buckets: Array<Pair | null>; // Bucket array
-        private TOMBSTONE: Pair; // Removal marker
+        private TOMBSTONE: Pair; // Tombstone marker
 
         /* Constructor */
         constructor() {
             this.size = 0; // Number of key-value pairs
             this.capacity = 4; // Hash table capacity
-            this.loadThres = 2.0 / 3.0; // Load factor threshold for triggering expansion
-            this.extendRatio = 2; // Expansion multiplier
+            this.loadThres = 2.0 / 3.0; // Load factor threshold that triggers capacity growth
+            this.extendRatio = 2; // Capacity growth factor
             this.buckets = Array(this.capacity).fill(null); // Bucket array
-            this.TOMBSTONE = new Pair(-1, '-1'); // Removal marker
+            this.TOMBSTONE = new Pair(-1, '-1'); // Tombstone marker
         }
 
         /* Hash function */
@@ -2477,60 +2482,60 @@ The code below implements an open addressing (linear probing) hash table with la
             return this.size / this.capacity;
         }
 
-        /* Search for bucket index corresponding to key */
+        /* Find the bucket index for key */
         private findBucket(key: number): number {
             let index = this.hashFunc(key);
             let firstTombstone = -1;
-            // Linear probing, break when encountering an empty bucket
+            // Probe linearly until an empty bucket is reached
             while (this.buckets[index] !== null) {
-                // If key is encountered, return the corresponding bucket index
+                // If key is found, return its bucket index
                 if (this.buckets[index]!.key === key) {
-                    // If a removal marker was encountered before, move the key-value pair to that index
+                    // If a tombstone was encountered earlier, move the key-value pair to that index
                     if (firstTombstone !== -1) {
                         this.buckets[firstTombstone] = this.buckets[index];
                         this.buckets[index] = this.TOMBSTONE;
-                        return firstTombstone; // Return the moved bucket index
+                        return firstTombstone; // Return the bucket index after the move
                     }
-                    return index; // Return bucket index
+                    return index; // Return the bucket index
                 }
-                // Record the first removal marker encountered
+                // Record the first tombstone encountered
                 if (
                     firstTombstone === -1 &&
                     this.buckets[index] === this.TOMBSTONE
                 ) {
                     firstTombstone = index;
                 }
-                // Calculate bucket index, wrap around to the head if past the tail
+                // Calculate the bucket index, wrapping to the beginning after the end
                 index = (index + 1) % this.capacity;
             }
-            // If key does not exist, return the index for insertion
+            // If key is absent, return the index for insertion
             return firstTombstone === -1 ? index : firstTombstone;
         }
 
-        /* Query operation */
+        /* Lookup operation */
         get(key: number): string | null {
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             const index = this.findBucket(key);
-            // If key-value pair is found, return corresponding val
+            // If the key-value pair is found, return its val
             if (
                 this.buckets[index] !== null &&
                 this.buckets[index] !== this.TOMBSTONE
             ) {
                 return this.buckets[index]!.val;
             }
-            // If key-value pair does not exist, return null
+            // Return null if the key-value pair does not exist
             return null;
         }
 
-        /* Add operation */
+        /* Insert operation */
         put(key: number, val: string): void {
-            // When load factor exceeds threshold, perform expansion
+            // Grow the capacity when the load factor exceeds the threshold
             if (this.loadFactor() > this.loadThres) {
                 this.extend();
             }
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             const index = this.findBucket(key);
-            // If key-value pair is found, overwrite val and return
+            // If the key-value pair is found, overwrite val and return
             if (
                 this.buckets[index] !== null &&
                 this.buckets[index] !== this.TOMBSTONE
@@ -2538,16 +2543,16 @@ The code below implements an open addressing (linear probing) hash table with la
                 this.buckets[index]!.val = val;
                 return;
             }
-            // If key-value pair does not exist, add the key-value pair
+            // If the key-value pair is absent, insert it
             this.buckets[index] = new Pair(key, val);
             this.size++;
         }
 
         /* Remove operation */
         remove(key: number): void {
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             const index = this.findBucket(key);
-            // If key-value pair is found, overwrite it with removal marker
+            // If the key-value pair is found, replace it with a tombstone
             if (
                 this.buckets[index] !== null &&
                 this.buckets[index] !== this.TOMBSTONE
@@ -2557,15 +2562,15 @@ The code below implements an open addressing (linear probing) hash table with la
             }
         }
 
-        /* Expand hash table */
+        /* Grow the hash table capacity */
         private extend(): void {
-            // Temporarily store the original hash table
+            // Keep a reference to the original hash table
             const bucketsTmp = this.buckets;
-            // Initialize expanded new hash table
+            // Initialize a new hash table with the expanded capacity
             this.capacity *= this.extendRatio;
             this.buckets = Array(this.capacity).fill(null);
             this.size = 0;
-            // Move key-value pairs from original hash table to new hash table
+            // Move the key-value pairs from the original hash table to the new one
             for (const pair of bucketsTmp) {
                 if (pair !== null && pair !== this.TOMBSTONE) {
                     this.put(pair.key, pair.val);
@@ -2573,7 +2578,7 @@ The code below implements an open addressing (linear probing) hash table with la
             }
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         print(): void {
             for (const pair of this.buckets) {
                 if (pair === null) {
@@ -2595,10 +2600,10 @@ The code below implements an open addressing (linear probing) hash table with la
     class HashMapOpenAddressing {
       late int _size; // Number of key-value pairs
       int _capacity = 4; // Hash table capacity
-      double _loadThres = 2.0 / 3.0; // Load factor threshold for triggering expansion
-      int _extendRatio = 2; // Expansion multiplier
+      double _loadThres = 2.0 / 3.0; // Load factor threshold that triggers capacity growth
+      int _extendRatio = 2; // Capacity growth factor
       late List<Pair?> _buckets; // Bucket array
-      Pair _TOMBSTONE = Pair(-1, "-1"); // Removal marker
+      Pair _TOMBSTONE = Pair(-1, "-1"); // Tombstone marker
 
       /* Constructor */
       HashMapOpenAddressing() {
@@ -2616,83 +2621,83 @@ The code below implements an open addressing (linear probing) hash table with la
         return _size / _capacity;
       }
 
-      /* Search for bucket index corresponding to key */
+      /* Find the bucket index for key */
       int findBucket(int key) {
         int index = hashFunc(key);
         int firstTombstone = -1;
-        // Linear probing, break when encountering an empty bucket
+        // Probe linearly until an empty bucket is reached
         while (_buckets[index] != null) {
-          // If key is encountered, return the corresponding bucket index
+          // If key is found, return its bucket index
           if (_buckets[index]!.key == key) {
-            // If a removal marker was encountered before, move the key-value pair to that index
+            // If a tombstone was encountered earlier, move the key-value pair to that index
             if (firstTombstone != -1) {
               _buckets[firstTombstone] = _buckets[index];
               _buckets[index] = _TOMBSTONE;
-              return firstTombstone; // Return the moved bucket index
+              return firstTombstone; // Return the bucket index after the move
             }
-            return index; // Return bucket index
+            return index; // Return the bucket index
           }
-          // Record the first removal marker encountered
+          // Record the first tombstone encountered
           if (firstTombstone == -1 && _buckets[index] == _TOMBSTONE) {
             firstTombstone = index;
           }
-          // Calculate bucket index, wrap around to the head if past the tail
+          // Calculate the bucket index, wrapping to the beginning after the end
           index = (index + 1) % _capacity;
         }
-        // If key does not exist, return the index for insertion
+        // If key is absent, return the index for insertion
         return firstTombstone == -1 ? index : firstTombstone;
       }
 
-      /* Query operation */
+      /* Lookup operation */
       String? get(int key) {
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         int index = findBucket(key);
-        // If key-value pair is found, return corresponding val
+        // If the key-value pair is found, return its val
         if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
           return _buckets[index]!.val;
         }
-        // If key-value pair does not exist, return null
+        // Return null if the key-value pair does not exist
         return null;
       }
 
-      /* Add operation */
+      /* Insert operation */
       void put(int key, String val) {
-        // When load factor exceeds threshold, perform expansion
+        // Grow the capacity when the load factor exceeds the threshold
         if (loadFactor() > _loadThres) {
           extend();
         }
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         int index = findBucket(key);
-        // If key-value pair is found, overwrite val and return
+        // If the key-value pair is found, overwrite val and return
         if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
           _buckets[index]!.val = val;
           return;
         }
-        // If key-value pair does not exist, add the key-value pair
+        // If the key-value pair is absent, insert it
         _buckets[index] = new Pair(key, val);
         _size++;
       }
 
       /* Remove operation */
       void remove(int key) {
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         int index = findBucket(key);
-        // If key-value pair is found, overwrite it with removal marker
+        // If the key-value pair is found, replace it with a tombstone
         if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
           _buckets[index] = _TOMBSTONE;
           _size--;
         }
       }
 
-      /* Expand hash table */
+      /* Grow the hash table capacity */
       void extend() {
-        // Temporarily store the original hash table
+        // Keep a reference to the original hash table
         List<Pair?> bucketsTmp = _buckets;
-        // Initialize expanded new hash table
+        // Initialize a new hash table with the expanded capacity
         _capacity *= _extendRatio;
         _buckets = List.generate(_capacity, (index) => null);
         _size = 0;
-        // Move key-value pairs from original hash table to new hash table
+        // Move the key-value pairs from the original hash table to the new one
         for (Pair? pair in bucketsTmp) {
           if (pair != null && pair != _TOMBSTONE) {
             put(pair.key, pair.val);
@@ -2700,7 +2705,7 @@ The code below implements an open addressing (linear probing) hash table with la
         }
       }
 
-      /* Print hash table */
+      /* Print the hash table */
       void printHashMap() {
         for (Pair? pair in _buckets) {
           if (pair == null) {
@@ -2722,10 +2727,10 @@ The code below implements an open addressing (linear probing) hash table with la
     struct HashMapOpenAddressing {
         size: usize,                // Number of key-value pairs
         capacity: usize,            // Hash table capacity
-        load_thres: f64,            // Load factor threshold for triggering expansion
-        extend_ratio: usize,        // Expansion multiplier
+        load_thres: f64,            // Load factor threshold that triggers capacity growth
+        extend_ratio: usize,        // Capacity growth factor
         buckets: Vec<Option<Pair>>, // Bucket array
-        TOMBSTONE: Option<Pair>,    // Removal marker
+        TOMBSTONE: Option<Pair>,    // Tombstone marker
     }
 
     impl HashMapOpenAddressing {
@@ -2754,30 +2759,30 @@ The code below implements an open addressing (linear probing) hash table with la
             self.size as f64 / self.capacity as f64
         }
 
-        /* Search for bucket index corresponding to key */
+        /* Find the bucket index for key */
         fn find_bucket(&mut self, key: i32) -> usize {
             let mut index = self.hash_func(key);
             let mut first_tombstone = -1;
-            // Linear probing, break when encountering an empty bucket
+            // Probe linearly until an empty bucket is reached
             while self.buckets[index].is_some() {
-                // If key is found, return corresponding bucket index
+                // If key is found, return the corresponding bucket index
                 if self.buckets[index].as_ref().unwrap().key == key {
-                    // If deletion marker was encountered before, move key-value pair to that index
+                    // If a tombstone was encountered earlier, move the key-value pair to that index
                     if first_tombstone != -1 {
                         self.buckets[first_tombstone as usize] = self.buckets[index].take();
                         self.buckets[index] = self.TOMBSTONE.clone();
-                        return first_tombstone as usize; // Return the moved bucket index
+                        return first_tombstone as usize; // Return the bucket index after the move
                     }
-                    return index; // Return bucket index
+                    return index; // Return the bucket index
                 }
-                // Record the first removal marker encountered
+                // Record the first tombstone encountered
                 if first_tombstone == -1 && self.buckets[index] == self.TOMBSTONE {
                     first_tombstone = index as i32;
                 }
-                // Calculate bucket index, wrap around to the head if past the tail
+                // Calculate the bucket index, wrapping to the beginning after the end
                 index = (index + 1) % self.capacity;
             }
-            // If key does not exist, return the index for insertion
+            // If key is absent, return the index for insertion
             if first_tombstone == -1 {
                 index
             } else {
@@ -2785,57 +2790,57 @@ The code below implements an open addressing (linear probing) hash table with la
             }
         }
 
-        /* Query operation */
+        /* Lookup operation */
         fn get(&mut self, key: i32) -> Option<&str> {
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             let index = self.find_bucket(key);
-            // If key-value pair is found, return corresponding val
+            // If the key-value pair is found, return its val
             if self.buckets[index].is_some() && self.buckets[index] != self.TOMBSTONE {
                 return self.buckets[index].as_ref().map(|pair| &pair.val as &str);
             }
-            // If key-value pair does not exist, return null
+            // If the key-value pair does not exist, return None
             None
         }
 
-        /* Add operation */
+        /* Insert operation */
         fn put(&mut self, key: i32, val: String) {
-            // When load factor exceeds threshold, perform expansion
+            // Grow the capacity when the load factor exceeds the threshold
             if self.load_factor() > self.load_thres {
                 self.extend();
             }
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             let index = self.find_bucket(key);
-            // If key-value pair is found, overwrite val and return
+            // If the key-value pair is found, overwrite val and return
             if self.buckets[index].is_some() && self.buckets[index] != self.TOMBSTONE {
                 self.buckets[index].as_mut().unwrap().val = val;
                 return;
             }
-            // If key-value pair does not exist, add the key-value pair
+            // If the key-value pair is absent, insert it
             self.buckets[index] = Some(Pair { key, val });
             self.size += 1;
         }
 
         /* Remove operation */
         fn remove(&mut self, key: i32) {
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             let index = self.find_bucket(key);
-            // If key-value pair is found, overwrite it with removal marker
+            // If the key-value pair is found, replace it with a tombstone
             if self.buckets[index].is_some() && self.buckets[index] != self.TOMBSTONE {
                 self.buckets[index] = self.TOMBSTONE.clone();
                 self.size -= 1;
             }
         }
 
-        /* Expand hash table */
+        /* Grow the hash table capacity */
         fn extend(&mut self) {
-            // Temporarily store the original hash table
+            // Temporarily save a copy of the original buckets
             let buckets_tmp = self.buckets.clone();
-            // Initialize expanded new hash table
+            // Initialize a new hash table with the expanded capacity
             self.capacity *= self.extend_ratio;
             self.buckets = vec![None; self.capacity];
             self.size = 0;
 
-            // Move key-value pairs from original hash table to new hash table
+            // Move the key-value pairs from the original hash table to the new one
             for pair in buckets_tmp {
                 if pair.is_none() || pair == self.TOMBSTONE {
                     continue;
@@ -2845,7 +2850,7 @@ The code below implements an open addressing (linear probing) hash table with la
                 self.put(pair.key, pair.val);
             }
         }
-        /* Print hash table */
+        /* Print the hash table */
         fn print(&self) {
             for pair in &self.buckets {
                 if pair.is_none() {
@@ -2868,10 +2873,10 @@ The code below implements an open addressing (linear probing) hash table with la
     typedef struct {
         int size;         // Number of key-value pairs
         int capacity;     // Hash table capacity
-        double loadThres; // Load factor threshold for triggering expansion
-        int extendRatio;  // Expansion multiplier
+        double loadThres; // Load factor threshold that triggers capacity growth
+        int extendRatio;  // Capacity growth factor
         Pair **buckets;   // Bucket array
-        Pair *TOMBSTONE;  // Removal marker
+        Pair *TOMBSTONE;  // Tombstone marker
     } HashMapOpenAddressing;
 
     /* Constructor */
@@ -2913,54 +2918,54 @@ The code below implements an open addressing (linear probing) hash table with la
         return (double)hashMap->size / (double)hashMap->capacity;
     }
 
-    /* Search for bucket index corresponding to key */
+    /* Find the bucket index for key */
     int findBucket(HashMapOpenAddressing *hashMap, int key) {
         int index = hashFunc(hashMap, key);
         int firstTombstone = -1;
-        // Linear probing, break when encountering an empty bucket
+        // Probe linearly until an empty bucket is reached
         while (hashMap->buckets[index] != NULL) {
-            // If key is encountered, return the corresponding bucket index
+            // If key is found, return its bucket index
             if (hashMap->buckets[index]->key == key) {
-                // If a removal marker was encountered before, move the key-value pair to that index
+                // If a tombstone was encountered earlier, move the key-value pair to that index
                 if (firstTombstone != -1) {
                     hashMap->buckets[firstTombstone] = hashMap->buckets[index];
                     hashMap->buckets[index] = hashMap->TOMBSTONE;
-                    return firstTombstone; // Return the moved bucket index
+                    return firstTombstone; // Return the bucket index after the move
                 }
-                return index; // Return bucket index
+                return index; // Return the bucket index
             }
-            // Record the first removal marker encountered
+            // Record the first tombstone encountered
             if (firstTombstone == -1 && hashMap->buckets[index] == hashMap->TOMBSTONE) {
                 firstTombstone = index;
             }
-            // Calculate bucket index, wrap around to the head if past the tail
+            // Calculate the bucket index, wrapping to the beginning after the end
             index = (index + 1) % hashMap->capacity;
         }
-        // If key does not exist, return the index for insertion
+        // If key is absent, return the index for insertion
         return firstTombstone == -1 ? index : firstTombstone;
     }
 
-    /* Query operation */
+    /* Lookup operation */
     char *get(HashMapOpenAddressing *hashMap, int key) {
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         int index = findBucket(hashMap, key);
-        // If key-value pair is found, return corresponding val
+        // If the key-value pair is found, return its val
         if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
             return hashMap->buckets[index]->val;
         }
-        // Return empty string if key-value pair does not exist
+        // Return an empty string if the key-value pair does not exist
         return "";
     }
 
-    /* Add operation */
+    /* Insert operation */
     void put(HashMapOpenAddressing *hashMap, int key, char *val) {
-        // When load factor exceeds threshold, perform expansion
+        // Grow the capacity when the load factor exceeds the threshold
         if (loadFactor(hashMap) > hashMap->loadThres) {
             extend(hashMap);
         }
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         int index = findBucket(hashMap, key);
-        // If key-value pair is found, overwrite val and return
+        // If the key-value pair is found, overwrite val and return
         if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
             free(hashMap->buckets[index]->val);
             hashMap->buckets[index]->val = (char *)malloc(sizeof(strlen(val) + 1));
@@ -2968,7 +2973,7 @@ The code below implements an open addressing (linear probing) hash table with la
             hashMap->buckets[index]->val[strlen(val)] = '\0';
             return;
         }
-        // If key-value pair does not exist, add the key-value pair
+        // If the key-value pair is absent, insert it
         Pair *pair = (Pair *)malloc(sizeof(Pair));
         pair->key = key;
         pair->val = (char *)malloc(sizeof(strlen(val) + 1));
@@ -2981,9 +2986,9 @@ The code below implements an open addressing (linear probing) hash table with la
 
     /* Remove operation */
     void removeItem(HashMapOpenAddressing *hashMap, int key) {
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         int index = findBucket(hashMap, key);
-        // If key-value pair is found, overwrite it with removal marker
+        // If the key-value pair is found, replace it with a tombstone
         if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
             Pair *pair = hashMap->buckets[index];
             free(pair->val);
@@ -2993,16 +2998,16 @@ The code below implements an open addressing (linear probing) hash table with la
         }
     }
 
-    /* Expand hash table */
+    /* Grow the hash table capacity */
     void extend(HashMapOpenAddressing *hashMap) {
-        // Temporarily store the original hash table
+        // Keep a reference to the original hash table
         Pair **bucketsTmp = hashMap->buckets;
         int oldCapacity = hashMap->capacity;
-        // Initialize expanded new hash table
+        // Initialize a new hash table with the expanded capacity
         hashMap->capacity *= hashMap->extendRatio;
         hashMap->buckets = (Pair **)calloc(hashMap->capacity, sizeof(Pair *));
         hashMap->size = 0;
-        // Move key-value pairs from original hash table to new hash table
+        // Move the key-value pairs from the original hash table to the new one
         for (int i = 0; i < oldCapacity; i++) {
             Pair *pair = bucketsTmp[i];
             if (pair != NULL && pair != hashMap->TOMBSTONE) {
@@ -3014,7 +3019,7 @@ The code below implements an open addressing (linear probing) hash table with la
         free(bucketsTmp);
     }
 
-    /* Print hash table */
+    /* Print the hash table */
     void print(HashMapOpenAddressing *hashMap) {
         for (int i = 0; i < hashMap->capacity; i++) {
             Pair *pair = hashMap->buckets[i];
@@ -3036,10 +3041,10 @@ The code below implements an open addressing (linear probing) hash table with la
     class HashMapOpenAddressing {
         private var size: Int               // Number of key-value pairs
         private var capacity: Int           // Hash table capacity
-        private val loadThres: Double       // Load factor threshold for triggering expansion
-        private val extendRatio: Int        // Expansion multiplier
+        private val loadThres: Double       // Load factor threshold that triggers capacity growth
+        private val extendRatio: Int        // Capacity growth factor
         private var buckets: Array<Pair?>   // Bucket array
-        private val TOMBSTONE: Pair         // Removal marker
+        private val TOMBSTONE: Pair         // Tombstone marker
 
         /* Constructor */
         init {
@@ -3061,83 +3066,83 @@ The code below implements an open addressing (linear probing) hash table with la
             return (size / capacity).toDouble()
         }
 
-        /* Search for bucket index corresponding to key */
+        /* Find the bucket index for key */
         fun findBucket(key: Int): Int {
             var index = hashFunc(key)
             var firstTombstone = -1
-            // Linear probing, break when encountering an empty bucket
+            // Probe linearly until an empty bucket is reached
             while (buckets[index] != null) {
-                // If key is encountered, return the corresponding bucket index
+                // If key is found, return its bucket index
                 if (buckets[index]?.key == key) {
-                    // If a removal marker was encountered before, move the key-value pair to that index
+                    // If a tombstone was encountered earlier, move the key-value pair to that index
                     if (firstTombstone != -1) {
                         buckets[firstTombstone] = buckets[index]
                         buckets[index] = TOMBSTONE
-                        return firstTombstone // Return the moved bucket index
+                        return firstTombstone // Return the bucket index after the move
                     }
-                    return index // Return bucket index
+                    return index // Return the bucket index
                 }
-                // Record the first removal marker encountered
+                // Record the first tombstone encountered
                 if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                     firstTombstone = index
                 }
-                // Calculate bucket index, wrap around to the head if past the tail
+                // Calculate the bucket index, wrapping to the beginning after the end
                 index = (index + 1) % capacity
             }
-            // If key does not exist, return the index for insertion
+            // If key is absent, return the index for insertion
             return if (firstTombstone == -1) index else firstTombstone
         }
 
-        /* Query operation */
+        /* Lookup operation */
         fun get(key: Int): String? {
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             val index = findBucket(key)
-            // If key-value pair is found, return corresponding val
+            // If the key-value pair is found, return its val
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 return buckets[index]?._val
             }
-            // If key-value pair does not exist, return null
+            // Return null if the key-value pair is absent
             return null
         }
 
-        /* Add operation */
+        /* Insert operation */
         fun put(key: Int, _val: String) {
-            // When load factor exceeds threshold, perform expansion
+            // Grow the capacity when the load factor exceeds the threshold
             if (loadFactor() > loadThres) {
                 extend()
             }
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             val index = findBucket(key)
-            // If key-value pair is found, overwrite val and return
+            // If the key-value pair is found, overwrite val and return
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 buckets[index]!!._val = _val
                 return
             }
-            // If key-value pair does not exist, add the key-value pair
+            // If the key-value pair is absent, insert it
             buckets[index] = Pair(key, _val)
             size++
         }
 
         /* Remove operation */
         fun remove(key: Int) {
-            // Search for bucket index corresponding to key
+            // Find the bucket index for key
             val index = findBucket(key)
-            // If key-value pair is found, overwrite it with removal marker
+            // If the key-value pair is found, replace it with a tombstone
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 buckets[index] = TOMBSTONE
                 size--
             }
         }
 
-        /* Expand hash table */
+        /* Grow the hash table capacity */
         fun extend() {
-            // Temporarily store the original hash table
+            // Keep a reference to the original hash table
             val bucketsTmp = buckets
-            // Initialize expanded new hash table
+            // Initialize a new hash table with the expanded capacity
             capacity *= extendRatio
             buckets = arrayOfNulls(capacity)
             size = 0
-            // Move key-value pairs from original hash table to new hash table
+            // Move the key-value pairs from the original hash table to the new one
             for (pair in bucketsTmp) {
                 if (pair != null && pair != TOMBSTONE) {
                     put(pair.key, pair._val)
@@ -3145,7 +3150,7 @@ The code below implements an open addressing (linear probing) hash table with la
             }
         }
 
-        /* Print hash table */
+        /* Print the hash table */
         fun print() {
             for (pair in buckets) {
                 if (pair == null) {
@@ -3163,16 +3168,16 @@ The code below implements an open addressing (linear probing) hash table with la
 === "Ruby"
 
     ```ruby title="hash_map_open_addressing.rb"
-    ### Hash map with open addressing ###
+    ### Hash table with open addressing ###
     class HashMapOpenAddressing
-      TOMBSTONE = Pair.new(-1, '-1') # Removal marker
+      TOMBSTONE = Pair.new(-1, '-1') # Tombstone marker
 
       ### Constructor ###
       def initialize
         @size = 0 # Number of key-value pairs
         @capacity = 4 # Hash table capacity
-        @load_thres = 2.0 / 3.0 # Load factor threshold for triggering expansion
-        @extend_ratio = 2 # Expansion multiplier
+        @load_thres = 2.0 / 3.0 # Load factor threshold that triggers capacity growth
+        @extend_ratio = 2 # Capacity growth factor
         @buckets = Array.new(@capacity) # Bucket array
       end
 
@@ -3186,83 +3191,83 @@ The code below implements an open addressing (linear probing) hash table with la
         @size / @capacity
       end
 
-      ### Search bucket index for key ###
+      ### Find the bucket index for key ###
       def find_bucket(key)
         index = hash_func(key)
         first_tombstone = -1
-        # Linear probing, break when encountering an empty bucket
+        # Probe linearly until an empty bucket is reached
         while !@buckets[index].nil?
-          # If key is encountered, return the corresponding bucket index
+          # If key is found, return its bucket index
           if @buckets[index].key == key
-            # If a removal marker was encountered before, move the key-value pair to that index
+            # If a tombstone was encountered earlier, move the key-value pair to that index
             if first_tombstone != -1
               @buckets[first_tombstone] = @buckets[index]
               @buckets[index] = TOMBSTONE
-              return first_tombstone # Return the moved bucket index
+              return first_tombstone # Return the bucket index after the move
             end
-            return index # Return bucket index
+            return index # Return the bucket index
           end
-          # Record the first removal marker encountered
+          # Record the first tombstone encountered
           first_tombstone = index if first_tombstone == -1 && @buckets[index] == TOMBSTONE
-          # Calculate bucket index, wrap around to the head if past the tail
+          # Calculate the bucket index, wrapping to the beginning after the end
           index = (index + 1) % @capacity
         end
-        # If key does not exist, return the index for insertion
+        # If key is absent, return the index for insertion
         first_tombstone == -1 ? index : first_tombstone
       end
 
-      ### Query operation ###
+      ### Lookup operation ###
       def get(key)
-        # Search for bucket index corresponding to key
+        # Find the bucket index for key
         index = find_bucket(key)
-        # If key-value pair is found, return corresponding val
+        # If the key-value pair is found, return its val
         return @buckets[index].val unless [nil, TOMBSTONE].include?(@buckets[index])
-        # Return nil if key-value pair does not exist
+        # Return nil if the key-value pair does not exist
         nil
       end
 
-      ### Add operation ###
+      ### Insert operation ###
       def put(key, val)
-        # When load factor exceeds threshold, perform expansion
+        # Grow the capacity when the load factor exceeds the threshold
         extend if load_factor > @load_thres
-        # Search for bucket index corresponding to key
+        # Find the bucket index for key
         index = find_bucket(key)
-        # If key-value pair found, overwrite val and return
+        # If the key-value pair is found, overwrite val and return
         unless [nil, TOMBSTONE].include?(@buckets[index])
           @buckets[index].val = val
           return
         end
-        # If key-value pair does not exist, add the key-value pair
+        # If the key-value pair is absent, insert it
         @buckets[index] = Pair.new(key, val)
         @size += 1
       end
 
-      ### Delete operation ###
+      ### Remove operation ###
       def remove(key)
-        # Search for bucket index corresponding to key
+        # Find the bucket index for key
         index = find_bucket(key)
-        # If key-value pair is found, overwrite it with removal marker
+        # If the key-value pair is found, replace it with a tombstone
         unless [nil, TOMBSTONE].include?(@buckets[index])
           @buckets[index] = TOMBSTONE
           @size -= 1
         end
       end
 
-      ### Expand hash table ###
+      ### Grow the hash table capacity ###
       def extend
-        # Temporarily store the original hash table
+        # Keep a reference to the original hash table
         buckets_tmp = @buckets
-        # Initialize expanded new hash table
+        # Initialize a new hash table with the expanded capacity
         @capacity *= @extend_ratio
         @buckets = Array.new(@capacity)
         @size = 0
-        # Move key-value pairs from original hash table to new hash table
+        # Move the key-value pairs from the original hash table to the new one
         for pair in buckets_tmp
           put(pair.key, pair.val) unless [nil, TOMBSTONE].include?(pair)
         end
       end
 
-      ### Print hash table ###
+      ### Print the hash table ###
       def print
         for pair in @buckets
           if pair.nil?
@@ -3277,37 +3282,37 @@ The code below implements an open addressing (linear probing) hash table with la
     end
     ```
 
-### 2. &nbsp; Quadratic Probing
+### 2. &nbsp; Quadratic probing
 
-Quadratic probing is similar to linear probing and is one of the common strategies for open addressing. When a collision occurs, quadratic probing does not simply skip a fixed number of steps but skips a number of steps equal to the "square of the number of probes", i.e., $1, 4, 9, \dots$ steps.
+Like linear probing, quadratic probing is a common open-addressing strategy. On a collision, it probes at distances determined by the square of the probe number—$1, 4, 9, \dots$—rather than a fixed step size.
 
-Quadratic probing has the following advantages:
+Its main advantages are as follows.
 
-- Quadratic probing attempts to alleviate the clustering effect of linear probing by skipping distances equal to the square of the probe count.
-- Quadratic probing skips larger distances to find empty positions, which helps to distribute data more evenly.
+- Squared probe distances aim to reduce the clustering caused by linear probing.
+- Larger jumps help distribute entries more evenly while searching for empty positions.
 
-However, quadratic probing is not perfect:
+However, quadratic probing is not perfect.
 
-- Clustering still exists, i.e., some positions are more likely to be occupied than others.
-- Due to the growth of squares, quadratic probing may not probe the entire hash table, meaning that even if there are empty buckets in the hash table, quadratic probing may not be able to access them.
+- Clustering still occurs: some positions are more likely to be occupied than others.
+- The growing squared distances may prevent probing the entire table, so an empty bucket may remain unreachable.
 
-### 3. &nbsp; Multiple Hashing
+### 3. &nbsp; Multiple hashing
 
-As the name suggests, multiple hashing uses multiple hash functions $f_1(x)$, $f_2(x)$, $f_3(x)$, $\dots$ for probing.
+As its name suggests, multiple hashing probes using several hash functions, $f_1(x)$, $f_2(x)$, $f_3(x)$, $\dots$.
 
-- **Inserting elements**: If hash function $f_1(x)$ encounters a conflict, try $f_2(x)$, and so on, until an empty position is found and the element is inserted.
-- **Searching for elements**: Search in the same order of hash functions until the target element is found and return it; if an empty position is encountered or all hash functions have been tried, it indicates the element is not in the hash table, then return `None`.
+- **Insertion**: If $f_1(x)$ produces a collision, try $f_2(x)$, and so on, inserting the element when an empty position is found.
+- **Lookup**: Try the hash functions in the same order and return when the target is found. If an empty position is reached or all functions have been tried, the target is absent; return `None`.
 
-Compared with linear probing, multiple hashing is less prone to clustering, but using multiple hash functions introduces additional computational overhead.
+Multiple hashing is less prone to clustering than linear probing, but computing several hash functions adds overhead.
 
 !!! tip
 
-    Please note that hash tables based on open addressing, including linear probing, quadratic probing, and multiple hashing, all have the problem that elements cannot be deleted directly.
+    All open-addressing strategies—linear probing, quadratic probing, and multiple hashing—share the restriction that elements cannot simply be deleted.
 
-## 6.2.3 &nbsp; Choice of Programming Languages
+## 6.2.3 &nbsp; Choices made by programming languages
 
-Different programming languages adopt different hash table implementation strategies. Here are a few examples:
+Programming languages use different hash-table implementations. Here are a few examples.
 
-- Python uses open addressing. The `dict` dictionary uses pseudo-random numbers for probing.
-- Java uses separate chaining. Since JDK 1.8, when the array length in `HashMap` reaches 64 and the length of a linked list reaches 8, the linked list is converted to a red-black tree to improve search performance.
-- Starting with Go 1.24, the built-in `map` uses an open-addressed implementation based on Swiss Tables by default. Go 1.23 and earlier use separate chaining, with up to 8 key-value pairs per bucket and overflow buckets linked when that capacity is exceeded.
+- Python uses open addressing. Its `dict` probes using pseudorandom values.
+- Java uses separate chaining. Since JDK 1.8, when a `HashMap`'s underlying array has length at least 64 and a chain reaches length 8, the chain is converted to a red-black tree to improve lookup performance.
+- Since Go 1.24, the built-in `map` uses open addressing based on Swiss Tables by default. Go 1.23 and earlier use separate chaining, with up to 8 key-value pairs per bucket and linked overflow buckets when that capacity is exceeded.

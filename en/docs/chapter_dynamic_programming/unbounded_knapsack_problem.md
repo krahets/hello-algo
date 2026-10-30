@@ -2,58 +2,58 @@
 comments: true
 ---
 
-# 14.5 &nbsp; Unbounded Knapsack Problem
+# 14.5 &nbsp; Unbounded knapsack problem
 
-In this section, we first solve another common knapsack problem: the unbounded knapsack, and then explore a special case of it: the coin change problem.
+We will now solve another common knapsack variant, unbounded knapsack, and then examine a special case: coin change.
 
-## 14.5.1 &nbsp; Unbounded Knapsack Problem
+## 14.5.1 &nbsp; Unbounded knapsack
 
 !!! question
 
-    Given $n$ items, where the weight of the $i$-th item is $wgt[i-1]$ and its value is $val[i-1]$, and a knapsack with capacity $cap$. **Each item can be selected multiple times**. What is the maximum value that can be placed in the knapsack within the capacity limit? An example is shown in Figure 14-22.
+    Given $n$ items, where item $i$ has weight $wgt[i-1]$ and value $val[i-1]$, and a knapsack of capacity $cap$, **each item may be chosen repeatedly**. What is the maximum value that fits within the capacity? An example is shown in Figure 14-22.
 
-![Example data for unbounded knapsack problem](unbounded_knapsack_problem.assets/unbounded_knapsack_example.png){ class="animation-figure" }
+![Example input for unbounded knapsack](unbounded_knapsack_problem.assets/unbounded_knapsack_example.png){ class="animation-figure" }
 
-<p align="center"> Figure 14-22 &nbsp; Example data for unbounded knapsack problem </p>
+<p align="center"> Figure 14-22 &nbsp; Example input for unbounded knapsack </p>
 
-### 1. &nbsp; Dynamic Programming Approach
+### 1. &nbsp; Dynamic programming approach
 
-The unbounded knapsack problem is very similar to the 0-1 knapsack problem, **differing only in that there is no limit on the number of times an item can be selected**.
+Unbounded knapsack is very similar to 0-1 knapsack. **The only difference is that there is no limit on how many times an item may be chosen**.
 
-- In the 0-1 knapsack problem, there is only one of each type of item, so after placing item $i$ in the knapsack, we can only choose from the first $i-1$ items.
-- In the unbounded knapsack problem, the quantity of each type of item is unlimited, so after placing item $i$ in the knapsack, **we can still choose from the first $i$ items**.
+- In 0-1 knapsack, there is only one of each item, so after including item $i$, we can choose only from the first $i-1$ items.
+- In unbounded knapsack, each item has an unlimited supply, so after including item $i$, **we can still choose from the first $i$ items**.
 
-Under the rules of the unbounded knapsack problem, the changes in state $[i, c]$ are divided into two cases.
+For unbounded knapsack, state $[i, c]$ has two cases.
 
-- **Not putting item $i$**: Same as the 0-1 knapsack problem, transfer to $[i-1, c]$.
-- **Putting item $i$**: Different from the 0-1 knapsack problem, transfer to $[i, c-wgt[i-1]]$.
+- **Leave item $i$ out**: As in 0-1 knapsack, the remaining state is $[i-1, c]$.
+- **Put item $i$ in**: Unlike 0-1 knapsack, the remaining state is $[i, c-wgt[i-1]]$.
 
-Thus, the state transition equation becomes:
+The state transition equation becomes:
 
 $$
 dp[i, c] = \max(dp[i-1, c], dp[i, c - wgt[i-1]] + val[i-1])
 $$
 
-### 2. &nbsp; Code Implementation
+### 2. &nbsp; Code implementation
 
-Comparing the code for the two problems, there is one change in state transition from $i-1$ to $i$, with everything else identical:
+Compared with 0-1 knapsack, only one $i-1$ in the transition changes to $i$; the rest of the code is identical:
 
 === "Python"
 
     ```python title="unbounded_knapsack.py"
     def unbounded_knapsack_dp(wgt: list[int], val: list[int], cap: int) -> int:
-        """Unbounded knapsack: Dynamic programming"""
+        """Unbounded knapsack: dynamic programming"""
         n = len(wgt)
-        # Initialize dp table
+        # Initialize the dp table
         dp = [[0] * (cap + 1) for _ in range(n + 1)]
-        # State transition
+        # State transitions
         for i in range(1, n + 1):
             for c in range(1, cap + 1):
                 if wgt[i - 1] > c:
-                    # If exceeds knapsack capacity, don't select item i
+                    # If item i exceeds the remaining capacity, do not choose it
                     dp[i][c] = dp[i - 1][c]
                 else:
-                    # The larger value between not selecting and selecting item i
+                    # Take the larger value obtained by excluding and including item i
                     dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1])
         return dp[n][cap]
     ```
@@ -61,19 +61,19 @@ Comparing the code for the two problems, there is one change in state transition
 === "C++"
 
     ```cpp title="unbounded_knapsack.cpp"
-    /* Unbounded knapsack: Dynamic programming */
+    /* Unbounded knapsack: dynamic programming */
     int unboundedKnapsackDP(vector<int> &wgt, vector<int> &val, int cap) {
         int n = wgt.size();
-        // Initialize dp table
+        // Initialize the dp table
         vector<vector<int>> dp(n + 1, vector<int>(cap + 1, 0));
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int c = 1; c <= cap; c++) {
                 if (wgt[i - 1] > c) {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[i][c] = dp[i - 1][c];
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
                 }
             }
@@ -85,19 +85,19 @@ Comparing the code for the two problems, there is one change in state transition
 === "Java"
 
     ```java title="unbounded_knapsack.java"
-    /* Unbounded knapsack: Dynamic programming */
+    /* Unbounded knapsack: dynamic programming */
     int unboundedKnapsackDP(int[] wgt, int[] val, int cap) {
         int n = wgt.length;
-        // Initialize dp table
+        // Initialize the dp table
         int[][] dp = new int[n + 1][cap + 1];
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int c = 1; c <= cap; c++) {
                 if (wgt[i - 1] > c) {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[i][c] = dp[i - 1][c];
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[i][c] = Math.max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
                 }
             }
@@ -109,19 +109,19 @@ Comparing the code for the two problems, there is one change in state transition
 === "C#"
 
     ```csharp title="unbounded_knapsack.cs"
-    /* Unbounded knapsack: Dynamic programming */
+    /* Unbounded knapsack: dynamic programming */
     int UnboundedKnapsackDP(int[] wgt, int[] val, int cap) {
         int n = wgt.Length;
-        // Initialize dp table
+        // Initialize the dp table
         int[,] dp = new int[n + 1, cap + 1];
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int c = 1; c <= cap; c++) {
                 if (wgt[i - 1] > c) {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[i, c] = dp[i - 1, c];
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[i, c] = Math.Max(dp[i - 1, c], dp[i, c - wgt[i - 1]] + val[i - 1]);
                 }
             }
@@ -133,22 +133,22 @@ Comparing the code for the two problems, there is one change in state transition
 === "Go"
 
     ```go title="unbounded_knapsack.go"
-    /* Unbounded knapsack: Dynamic programming */
+    /* Unbounded knapsack: dynamic programming */
     func unboundedKnapsackDP(wgt, val []int, cap int) int {
         n := len(wgt)
-        // Initialize dp table
+        // Initialize the dp table
         dp := make([][]int, n+1)
         for i := 0; i <= n; i++ {
             dp[i] = make([]int, cap+1)
         }
-        // State transition
+        // State transitions
         for i := 1; i <= n; i++ {
             for c := 1; c <= cap; c++ {
                 if wgt[i-1] > c {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[i][c] = dp[i-1][c]
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[i][c] = int(math.Max(float64(dp[i-1][c]), float64(dp[i][c-wgt[i-1]]+val[i-1])))
                 }
             }
@@ -160,19 +160,19 @@ Comparing the code for the two problems, there is one change in state transition
 === "Swift"
 
     ```swift title="unbounded_knapsack.swift"
-    /* Unbounded knapsack: Dynamic programming */
+    /* Unbounded knapsack: dynamic programming */
     func unboundedKnapsackDP(wgt: [Int], val: [Int], cap: Int) -> Int {
         let n = wgt.count
-        // Initialize dp table
+        // Initialize the dp table
         var dp = Array(repeating: Array(repeating: 0, count: cap + 1), count: n + 1)
-        // State transition
+        // State transitions
         for i in 1 ... n {
             for c in 1 ... cap {
                 if wgt[i - 1] > c {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[i][c] = dp[i - 1][c]
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1])
                 }
             }
@@ -184,21 +184,21 @@ Comparing the code for the two problems, there is one change in state transition
 === "JS"
 
     ```javascript title="unbounded_knapsack.js"
-    /* Unbounded knapsack: Dynamic programming */
+    /* Unbounded knapsack: dynamic programming */
     function unboundedKnapsackDP(wgt, val, cap) {
         const n = wgt.length;
-        // Initialize dp table
+        // Initialize the dp table
         const dp = Array.from({ length: n + 1 }, () =>
             Array.from({ length: cap + 1 }, () => 0)
         );
-        // State transition
+        // State transitions
         for (let i = 1; i <= n; i++) {
             for (let c = 1; c <= cap; c++) {
                 if (wgt[i - 1] > c) {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[i][c] = dp[i - 1][c];
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[i][c] = Math.max(
                         dp[i - 1][c],
                         dp[i][c - wgt[i - 1]] + val[i - 1]
@@ -213,25 +213,25 @@ Comparing the code for the two problems, there is one change in state transition
 === "TS"
 
     ```typescript title="unbounded_knapsack.ts"
-    /* Unbounded knapsack: Dynamic programming */
+    /* Unbounded knapsack: dynamic programming */
     function unboundedKnapsackDP(
         wgt: Array<number>,
         val: Array<number>,
         cap: number
     ): number {
         const n = wgt.length;
-        // Initialize dp table
+        // Initialize the dp table
         const dp = Array.from({ length: n + 1 }, () =>
             Array.from({ length: cap + 1 }, () => 0)
         );
-        // State transition
+        // State transitions
         for (let i = 1; i <= n; i++) {
             for (let c = 1; c <= cap; c++) {
                 if (wgt[i - 1] > c) {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[i][c] = dp[i - 1][c];
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[i][c] = Math.max(
                         dp[i - 1][c],
                         dp[i][c - wgt[i - 1]] + val[i - 1]
@@ -246,19 +246,19 @@ Comparing the code for the two problems, there is one change in state transition
 === "Dart"
 
     ```dart title="unbounded_knapsack.dart"
-    /* Unbounded knapsack: Dynamic programming */
+    /* Unbounded knapsack: dynamic programming */
     int unboundedKnapsackDP(List<int> wgt, List<int> val, int cap) {
       int n = wgt.length;
-      // Initialize dp table
+      // Initialize the dp table
       List<List<int>> dp = List.generate(n + 1, (index) => List.filled(cap + 1, 0));
-      // State transition
+      // State transitions
       for (int i = 1; i <= n; i++) {
         for (int c = 1; c <= cap; c++) {
           if (wgt[i - 1] > c) {
-            // If exceeds knapsack capacity, don't select item i
+            // If item i exceeds the remaining capacity, do not choose it
             dp[i][c] = dp[i - 1][c];
           } else {
-            // The larger value between not selecting and selecting item i
+            // Take the larger value obtained by excluding and including item i
             dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
           }
         }
@@ -270,19 +270,19 @@ Comparing the code for the two problems, there is one change in state transition
 === "Rust"
 
     ```rust title="unbounded_knapsack.rs"
-    /* Unbounded knapsack: Dynamic programming */
+    /* Unbounded knapsack: dynamic programming */
     fn unbounded_knapsack_dp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
         let n = wgt.len();
-        // Initialize dp table
+        // Initialize the dp table
         let mut dp = vec![vec![0; cap + 1]; n + 1];
-        // State transition
+        // State transitions
         for i in 1..=n {
             for c in 1..=cap {
                 if wgt[i - 1] > c as i32 {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[i][c] = dp[i - 1][c];
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[i][c] = std::cmp::max(dp[i - 1][c], dp[i][c - wgt[i - 1] as usize] + val[i - 1]);
                 }
             }
@@ -294,22 +294,22 @@ Comparing the code for the two problems, there is one change in state transition
 === "C"
 
     ```c title="unbounded_knapsack.c"
-    /* Unbounded knapsack: Dynamic programming */
+    /* Unbounded knapsack: dynamic programming */
     int unboundedKnapsackDP(int wgt[], int val[], int cap, int wgtSize) {
         int n = wgtSize;
-        // Initialize dp table
+        // Initialize the dp table
         int **dp = malloc((n + 1) * sizeof(int *));
         for (int i = 0; i <= n; i++) {
             dp[i] = calloc(cap + 1, sizeof(int));
         }
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int c = 1; c <= cap; c++) {
                 if (wgt[i - 1] > c) {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[i][c] = dp[i - 1][c];
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[i][c] = myMax(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
                 }
             }
@@ -326,19 +326,19 @@ Comparing the code for the two problems, there is one change in state transition
 === "Kotlin"
 
     ```kotlin title="unbounded_knapsack.kt"
-    /* Unbounded knapsack: Dynamic programming */
+    /* Unbounded knapsack: dynamic programming */
     fun unboundedKnapsackDP(wgt: IntArray, _val: IntArray, cap: Int): Int {
         val n = wgt.size
-        // Initialize dp table
+        // Initialize the dp table
         val dp = Array(n + 1) { IntArray(cap + 1) }
-        // State transition
+        // State transitions
         for (i in 1..n) {
             for (c in 1..cap) {
                 if (wgt[i - 1] > c) {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[i][c] = dp[i - 1][c]
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + _val[i - 1])
                 }
             }
@@ -353,16 +353,16 @@ Comparing the code for the two problems, there is one change in state transition
     ### Unbounded knapsack: dynamic programming ###
     def unbounded_knapsack_dp(wgt, val, cap)
       n = wgt.length
-      # Initialize dp table
+      # Initialize the dp table
       dp = Array.new(n + 1) { Array.new(cap + 1, 0) }
-      # State transition
+      # State transitions
       for i in 1...(n + 1)
         for c in 1...(cap + 1)
           if wgt[i - 1] > c
-            # If exceeds knapsack capacity, don't select item i
+            # If item i exceeds the remaining capacity, do not choose it
             dp[i][c] = dp[i - 1][c]
           else
-            # The larger value between not selecting and selecting item i
+            # Take the larger value obtained by excluding and including item i
             dp[i][c] = [dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]].max
           end
         end
@@ -371,14 +371,19 @@ Comparing the code for the two problems, there is one change in state transition
     end
     ```
 
-### 3. &nbsp; Space Optimization
+??? pythontutor "Visualize execution"
 
-Since the current state is transferred from states on the left and above, **after space optimization, each row in the $dp$ table should be traversed in forward order**.
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20unbounded_knapsack_dp%28wgt%3A%20list%5Bint%5D,%20val%3A%20list%5Bint%5D,%20cap%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Unbounded%20knapsack%3A%20dynamic%20programming%22%22%22%0A%20%20%20%20n%20%3D%20len%28wgt%29%0A%20%20%20%20%23%20Initialize%20the%20dp%20table%0A%20%20%20%20dp%20%3D%20%5B%5B0%5D%20%2A%20%28cap%20%2B%201%29%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20%23%20State%20transitions%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20for%20c%20in%20range%281,%20cap%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20wgt%5Bi%20-%201%5D%20%3E%20c%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20If%20item%20i%20exceeds%20the%20remaining%20capacity,%20do%20not%20choose%20it%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bc%5D%20%3D%20dp%5Bi%20-%201%5D%5Bc%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Take%20the%20larger%20value%20obtained%20by%20excluding%20and%20including%20item%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bc%5D%20%3D%20max%28dp%5Bi%20-%201%5D%5Bc%5D,%20dp%5Bi%5D%5Bc%20-%20wgt%5Bi%20-%201%5D%5D%20%2B%20val%5Bi%20-%201%5D%29%0A%20%20%20%20return%20dp%5Bn%5D%5Bcap%5D%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20wgt%20%3D%20%5B1,%202,%203%5D%0A%20%20%20%20val%20%3D%20%5B5,%2011,%2015%5D%0A%20%20%20%20cap%20%3D%204%0A%0A%20%20%20%20%23%20Dynamic%20programming%0A%20%20%20%20res%20%3D%20unbounded_knapsack_dp%28wgt,%20val,%20cap%29%0A%20%20%20%20print%28f%22Maximum%20total%20value%20within%20the%20knapsack%20capacity%3A%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20unbounded_knapsack_dp%28wgt%3A%20list%5Bint%5D,%20val%3A%20list%5Bint%5D,%20cap%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Unbounded%20knapsack%3A%20dynamic%20programming%22%22%22%0A%20%20%20%20n%20%3D%20len%28wgt%29%0A%20%20%20%20%23%20Initialize%20the%20dp%20table%0A%20%20%20%20dp%20%3D%20%5B%5B0%5D%20%2A%20%28cap%20%2B%201%29%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20%23%20State%20transitions%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20for%20c%20in%20range%281,%20cap%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20wgt%5Bi%20-%201%5D%20%3E%20c%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20If%20item%20i%20exceeds%20the%20remaining%20capacity,%20do%20not%20choose%20it%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bc%5D%20%3D%20dp%5Bi%20-%201%5D%5Bc%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Take%20the%20larger%20value%20obtained%20by%20excluding%20and%20including%20item%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bc%5D%20%3D%20max%28dp%5Bi%20-%201%5D%5Bc%5D,%20dp%5Bi%5D%5Bc%20-%20wgt%5Bi%20-%201%5D%5D%20%2B%20val%5Bi%20-%201%5D%29%0A%20%20%20%20return%20dp%5Bn%5D%5Bcap%5D%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20wgt%20%3D%20%5B1,%202,%203%5D%0A%20%20%20%20val%20%3D%20%5B5,%2011,%2015%5D%0A%20%20%20%20cap%20%3D%204%0A%0A%20%20%20%20%23%20Dynamic%20programming%0A%20%20%20%20res%20%3D%20unbounded_knapsack_dp%28wgt,%20val,%20cap%29%0A%20%20%20%20print%28f%22Maximum%20total%20value%20within%20the%20knapsack%20capacity%3A%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-This traversal order is exactly opposite to the 0-1 knapsack. Please refer to Figure 14-23 to understand the difference between the two.
+### 3. &nbsp; Space optimization
+
+The current state depends on states to its left and above, **so after space optimization, each row of the $dp$ table must be processed in forward order**.
+
+This is the opposite of 0-1 knapsack. Use Figure 14-23 to understand the difference.
 
 === "<1>"
-    ![Space-optimized dynamic programming process for unbounded knapsack problem](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png){ class="animation-figure" }
+    ![Space-optimized dynamic programming for unbounded knapsack](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png){ class="animation-figure" }
 
 === "<2>"
     ![unbounded_knapsack_dp_comp_step2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.png){ class="animation-figure" }
@@ -395,27 +400,27 @@ This traversal order is exactly opposite to the 0-1 knapsack. Please refer to Fi
 === "<6>"
     ![unbounded_knapsack_dp_comp_step6](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.png){ class="animation-figure" }
 
-<p align="center"> Figure 14-23 &nbsp; Space-optimized dynamic programming process for unbounded knapsack problem </p>
+<p align="center"> Figure 14-23 &nbsp; Space-optimized dynamic programming for unbounded knapsack </p>
 
-The code implementation is relatively simple, just delete the first dimension of the array `dp`:
+The implementation simply removes the first dimension of `dp`:
 
 === "Python"
 
     ```python title="unbounded_knapsack.py"
     def unbounded_knapsack_dp_comp(wgt: list[int], val: list[int], cap: int) -> int:
-        """Unbounded knapsack: Space-optimized dynamic programming"""
+        """Unbounded knapsack: space-optimized dynamic programming"""
         n = len(wgt)
-        # Initialize dp table
+        # Initialize the dp table
         dp = [0] * (cap + 1)
-        # State transition
+        # State transitions
         for i in range(1, n + 1):
-            # Traverse in forward order
+            # Traverse in increasing order
             for c in range(1, cap + 1):
                 if wgt[i - 1] > c:
-                    # If exceeds knapsack capacity, don't select item i
+                    # If item i exceeds the remaining capacity, do not choose it
                     dp[c] = dp[c]
                 else:
-                    # The larger value between not selecting and selecting item i
+                    # Take the larger value obtained by excluding and including item i
                     dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1])
         return dp[cap]
     ```
@@ -423,19 +428,19 @@ The code implementation is relatively simple, just delete the first dimension of
 === "C++"
 
     ```cpp title="unbounded_knapsack.cpp"
-    /* Unbounded knapsack: Space-optimized dynamic programming */
+    /* Unbounded knapsack: space-optimized dynamic programming */
     int unboundedKnapsackDPComp(vector<int> &wgt, vector<int> &val, int cap) {
         int n = wgt.size();
-        // Initialize dp table
+        // Initialize the dp table
         vector<int> dp(cap + 1, 0);
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int c = 1; c <= cap; c++) {
                 if (wgt[i - 1] > c) {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[c] = dp[c];
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
                 }
             }
@@ -447,19 +452,19 @@ The code implementation is relatively simple, just delete the first dimension of
 === "Java"
 
     ```java title="unbounded_knapsack.java"
-    /* Unbounded knapsack: Space-optimized dynamic programming */
+    /* Unbounded knapsack: space-optimized dynamic programming */
     int unboundedKnapsackDPComp(int[] wgt, int[] val, int cap) {
         int n = wgt.length;
-        // Initialize dp table
+        // Initialize the dp table
         int[] dp = new int[cap + 1];
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int c = 1; c <= cap; c++) {
                 if (wgt[i - 1] > c) {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[c] = dp[c];
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[c] = Math.max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
                 }
             }
@@ -471,19 +476,19 @@ The code implementation is relatively simple, just delete the first dimension of
 === "C#"
 
     ```csharp title="unbounded_knapsack.cs"
-    /* Unbounded knapsack: Space-optimized dynamic programming */
+    /* Unbounded knapsack: space-optimized dynamic programming */
     int UnboundedKnapsackDPComp(int[] wgt, int[] val, int cap) {
         int n = wgt.Length;
-        // Initialize dp table
+        // Initialize the dp table
         int[] dp = new int[cap + 1];
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int c = 1; c <= cap; c++) {
                 if (wgt[i - 1] > c) {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[c] = dp[c];
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[c] = Math.Max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
                 }
             }
@@ -495,19 +500,19 @@ The code implementation is relatively simple, just delete the first dimension of
 === "Go"
 
     ```go title="unbounded_knapsack.go"
-    /* Unbounded knapsack: Space-optimized dynamic programming */
+    /* Unbounded knapsack: space-optimized dynamic programming */
     func unboundedKnapsackDPComp(wgt, val []int, cap int) int {
         n := len(wgt)
-        // Initialize dp table
+        // Initialize the dp table
         dp := make([]int, cap+1)
-        // State transition
+        // State transitions
         for i := 1; i <= n; i++ {
             for c := 1; c <= cap; c++ {
                 if wgt[i-1] > c {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[c] = dp[c]
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[c] = int(math.Max(float64(dp[c]), float64(dp[c-wgt[i-1]]+val[i-1])))
                 }
             }
@@ -519,19 +524,19 @@ The code implementation is relatively simple, just delete the first dimension of
 === "Swift"
 
     ```swift title="unbounded_knapsack.swift"
-    /* Unbounded knapsack: Space-optimized dynamic programming */
+    /* Unbounded knapsack: space-optimized dynamic programming */
     func unboundedKnapsackDPComp(wgt: [Int], val: [Int], cap: Int) -> Int {
         let n = wgt.count
-        // Initialize dp table
+        // Initialize the dp table
         var dp = Array(repeating: 0, count: cap + 1)
-        // State transition
+        // State transitions
         for i in 1 ... n {
             for c in 1 ... cap {
                 if wgt[i - 1] > c {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[c] = dp[c]
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1])
                 }
             }
@@ -543,19 +548,19 @@ The code implementation is relatively simple, just delete the first dimension of
 === "JS"
 
     ```javascript title="unbounded_knapsack.js"
-    /* Unbounded knapsack: Space-optimized dynamic programming */
+    /* Unbounded knapsack: space-optimized dynamic programming */
     function unboundedKnapsackDPComp(wgt, val, cap) {
         const n = wgt.length;
-        // Initialize dp table
+        // Initialize the dp table
         const dp = Array.from({ length: cap + 1 }, () => 0);
-        // State transition
+        // State transitions
         for (let i = 1; i <= n; i++) {
             for (let c = 1; c <= cap; c++) {
                 if (wgt[i - 1] > c) {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[c] = dp[c];
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[c] = Math.max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
                 }
             }
@@ -567,23 +572,23 @@ The code implementation is relatively simple, just delete the first dimension of
 === "TS"
 
     ```typescript title="unbounded_knapsack.ts"
-    /* Unbounded knapsack: Space-optimized dynamic programming */
+    /* Unbounded knapsack: space-optimized dynamic programming */
     function unboundedKnapsackDPComp(
         wgt: Array<number>,
         val: Array<number>,
         cap: number
     ): number {
         const n = wgt.length;
-        // Initialize dp table
+        // Initialize the dp table
         const dp = Array.from({ length: cap + 1 }, () => 0);
-        // State transition
+        // State transitions
         for (let i = 1; i <= n; i++) {
             for (let c = 1; c <= cap; c++) {
                 if (wgt[i - 1] > c) {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[c] = dp[c];
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[c] = Math.max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
                 }
             }
@@ -595,19 +600,19 @@ The code implementation is relatively simple, just delete the first dimension of
 === "Dart"
 
     ```dart title="unbounded_knapsack.dart"
-    /* Unbounded knapsack: Space-optimized dynamic programming */
+    /* Unbounded knapsack: space-optimized dynamic programming */
     int unboundedKnapsackDPComp(List<int> wgt, List<int> val, int cap) {
       int n = wgt.length;
-      // Initialize dp table
+      // Initialize the dp table
       List<int> dp = List.filled(cap + 1, 0);
-      // State transition
+      // State transitions
       for (int i = 1; i <= n; i++) {
         for (int c = 1; c <= cap; c++) {
           if (wgt[i - 1] > c) {
-            // If exceeds knapsack capacity, don't select item i
+            // If item i exceeds the remaining capacity, do not choose it
             dp[c] = dp[c];
           } else {
-            // The larger value between not selecting and selecting item i
+            // Take the larger value obtained by excluding and including item i
             dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
           }
         }
@@ -619,19 +624,19 @@ The code implementation is relatively simple, just delete the first dimension of
 === "Rust"
 
     ```rust title="unbounded_knapsack.rs"
-    /* Unbounded knapsack: Space-optimized dynamic programming */
+    /* Unbounded knapsack: space-optimized dynamic programming */
     fn unbounded_knapsack_dp_comp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
         let n = wgt.len();
-        // Initialize dp table
+        // Initialize the dp table
         let mut dp = vec![0; cap + 1];
-        // State transition
+        // State transitions
         for i in 1..=n {
             for c in 1..=cap {
                 if wgt[i - 1] > c as i32 {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[c] = dp[c];
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[c] = std::cmp::max(dp[c], dp[c - wgt[i - 1] as usize] + val[i - 1]);
                 }
             }
@@ -643,19 +648,19 @@ The code implementation is relatively simple, just delete the first dimension of
 === "C"
 
     ```c title="unbounded_knapsack.c"
-    /* Unbounded knapsack: Space-optimized dynamic programming */
+    /* Unbounded knapsack: space-optimized dynamic programming */
     int unboundedKnapsackDPComp(int wgt[], int val[], int cap, int wgtSize) {
         int n = wgtSize;
-        // Initialize dp table
+        // Initialize the dp table
         int *dp = calloc(cap + 1, sizeof(int));
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int c = 1; c <= cap; c++) {
                 if (wgt[i - 1] > c) {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[c] = dp[c];
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[c] = myMax(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
                 }
             }
@@ -670,23 +675,23 @@ The code implementation is relatively simple, just delete the first dimension of
 === "Kotlin"
 
     ```kotlin title="unbounded_knapsack.kt"
-    /* Unbounded knapsack: Space-optimized dynamic programming */
+    /* Unbounded knapsack: space-optimized dynamic programming */
     fun unboundedKnapsackDPComp(
         wgt: IntArray,
         _val: IntArray,
         cap: Int
     ): Int {
         val n = wgt.size
-        // Initialize dp table
+        // Initialize the dp table
         val dp = IntArray(cap + 1)
-        // State transition
+        // State transitions
         for (i in 1..n) {
             for (c in 1..cap) {
                 if (wgt[i - 1] > c) {
-                    // If exceeds knapsack capacity, don't select item i
+                    // If item i exceeds the remaining capacity, do not choose it
                     dp[c] = dp[c]
                 } else {
-                    // The larger value between not selecting and selecting item i
+                    // Take the larger value obtained by excluding and including item i
                     dp[c] = max(dp[c], dp[c - wgt[i - 1]] + _val[i - 1])
                 }
             }
@@ -698,20 +703,20 @@ The code implementation is relatively simple, just delete the first dimension of
 === "Ruby"
 
     ```ruby title="unbounded_knapsack.rb"
-    ### Unbounded knapsack: space-optimized DP ###
+    ### Unbounded knapsack: space-optimized dynamic programming ###
     def unbounded_knapsack_dp_comp(wgt, val, cap)
       n = wgt.length
-      # Initialize dp table
+      # Initialize the dp table
       dp = Array.new(cap + 1, 0)
-      # State transition
+      # State transitions
       for i in 1...(n + 1)
-        # Traverse in forward order
+        # Traverse in increasing order
         for c in 1...(cap + 1)
           if wgt[i -1] > c
-            # If exceeds knapsack capacity, don't select item i
+            # If item i exceeds the remaining capacity, do not choose it
             dp[c] = dp[c]
           else
-            # The larger value between not selecting and selecting item i
+            # Take the larger value obtained by excluding and including item i
             dp[c] = [dp[c], dp[c - wgt[i - 1]] + val[i - 1]].max
           end
         end
@@ -720,75 +725,80 @@ The code implementation is relatively simple, just delete the first dimension of
     end
     ```
 
-## 14.5.2 &nbsp; Coin Change Problem
+??? pythontutor "Visualize execution"
 
-The knapsack problem represents a large class of dynamic programming problems and has many variants, such as the coin change problem.
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20unbounded_knapsack_dp_comp%28wgt%3A%20list%5Bint%5D,%20val%3A%20list%5Bint%5D,%20cap%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Unbounded%20knapsack%3A%20space-optimized%20dynamic%20programming%22%22%22%0A%20%20%20%20n%20%3D%20len%28wgt%29%0A%20%20%20%20%23%20Initialize%20the%20dp%20table%0A%20%20%20%20dp%20%3D%20%5B0%5D%20%2A%20%28cap%20%2B%201%29%0A%20%20%20%20%23%20State%20transitions%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20Traverse%20in%20increasing%20order%0A%20%20%20%20%20%20%20%20for%20c%20in%20range%281,%20cap%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20wgt%5Bi%20-%201%5D%20%3E%20c%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20If%20item%20i%20exceeds%20the%20remaining%20capacity,%20do%20not%20choose%20it%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bc%5D%20%3D%20dp%5Bc%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Take%20the%20larger%20value%20obtained%20by%20excluding%20and%20including%20item%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bc%5D%20%3D%20max%28dp%5Bc%5D,%20dp%5Bc%20-%20wgt%5Bi%20-%201%5D%5D%20%2B%20val%5Bi%20-%201%5D%29%0A%20%20%20%20return%20dp%5Bcap%5D%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20wgt%20%3D%20%5B1,%202,%203%5D%0A%20%20%20%20val%20%3D%20%5B5,%2011,%2015%5D%0A%20%20%20%20cap%20%3D%204%0A%0A%20%20%20%20%23%20Space-optimized%20dynamic%20programming%0A%20%20%20%20res%20%3D%20unbounded_knapsack_dp_comp%28wgt,%20val,%20cap%29%0A%20%20%20%20print%28f%22Maximum%20total%20value%20within%20the%20knapsack%20capacity%3A%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20unbounded_knapsack_dp_comp%28wgt%3A%20list%5Bint%5D,%20val%3A%20list%5Bint%5D,%20cap%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Unbounded%20knapsack%3A%20space-optimized%20dynamic%20programming%22%22%22%0A%20%20%20%20n%20%3D%20len%28wgt%29%0A%20%20%20%20%23%20Initialize%20the%20dp%20table%0A%20%20%20%20dp%20%3D%20%5B0%5D%20%2A%20%28cap%20%2B%201%29%0A%20%20%20%20%23%20State%20transitions%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20Traverse%20in%20increasing%20order%0A%20%20%20%20%20%20%20%20for%20c%20in%20range%281,%20cap%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20wgt%5Bi%20-%201%5D%20%3E%20c%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20If%20item%20i%20exceeds%20the%20remaining%20capacity,%20do%20not%20choose%20it%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bc%5D%20%3D%20dp%5Bc%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Take%20the%20larger%20value%20obtained%20by%20excluding%20and%20including%20item%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bc%5D%20%3D%20max%28dp%5Bc%5D,%20dp%5Bc%20-%20wgt%5Bi%20-%201%5D%5D%20%2B%20val%5Bi%20-%201%5D%29%0A%20%20%20%20return%20dp%5Bcap%5D%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20wgt%20%3D%20%5B1,%202,%203%5D%0A%20%20%20%20val%20%3D%20%5B5,%2011,%2015%5D%0A%20%20%20%20cap%20%3D%204%0A%0A%20%20%20%20%23%20Space-optimized%20dynamic%20programming%0A%20%20%20%20res%20%3D%20unbounded_knapsack_dp_comp%28wgt,%20val,%20cap%29%0A%20%20%20%20print%28f%22Maximum%20total%20value%20within%20the%20knapsack%20capacity%3A%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+## 14.5.2 &nbsp; Coin change problem
+
+Knapsack represents a broad family of dynamic programming problems, with many variants such as coin change.
 
 !!! question
 
-    Given $n$ types of coins, where the denomination of the $i$-th type of coin is $coins[i - 1]$, and the target amount is $amt$. **Each type of coin can be selected multiple times**. What is the minimum number of coins needed to make up the target amount? If it is impossible to make up the target amount, return $-1$. An example is shown in Figure 14-24.
+    Given $n$ coin denominations, where denomination $i$ has value $coins[i - 1]$, and a target amount $amt$, **each denomination may be used repeatedly**. What is the minimum number of coins needed to make the target? Return $-1$ if it cannot be made. An example is shown in Figure 14-24.
 
-![Example data for coin change problem](unbounded_knapsack_problem.assets/coin_change_example.png){ class="animation-figure" }
+![Example input for coin change](unbounded_knapsack_problem.assets/coin_change_example.png){ class="animation-figure" }
 
-<p align="center"> Figure 14-24 &nbsp; Example data for coin change problem </p>
+<p align="center"> Figure 14-24 &nbsp; Example input for coin change </p>
 
-### 1. &nbsp; Dynamic Programming Approach
+### 1. &nbsp; Dynamic programming approach
 
-**The coin change problem can be viewed as a special case of the unbounded knapsack problem**, with the following connections and differences.
+**Coin change can be viewed as a special case of unbounded knapsack**, with the following connections and differences.
 
-- The two problems can be converted to each other: "item" corresponds to "coin", "item weight" corresponds to "coin denomination", and "knapsack capacity" corresponds to "target amount".
-- The optimization goals are opposite: the unbounded knapsack problem aims to maximize item value, while the coin change problem aims to minimize the number of coins.
-- The unbounded knapsack problem seeks solutions "not exceeding" the knapsack capacity, while the coin change problem seeks solutions that "exactly" make up the target amount.
+- The two problems can be translated into one another: items correspond to coins, item weights to coin denominations, and knapsack capacity to the target amount.
+- The optimization objectives are opposite: unbounded knapsack maximizes item value, while coin change minimizes the number of coins.
+- Unbounded knapsack must stay within a capacity limit, whereas coin change must reach the target amount exactly.
 
-**Step 1: Think about the decisions in each round, define the state, and thus obtain the $dp$ table**
+**Step 1: Identify each decision, define the state, and establish the $dp$ table**
 
-State $[i, a]$ corresponds to the subproblem: **the minimum number of coins among the first $i$ types of coins that can make up amount $a$**, denoted as $dp[i, a]$.
+State $[i, a]$ represents the subproblem of finding **the minimum number of coins needed to make amount $a$ using the first $i$ denominations**, denoted by $dp[i, a]$.
 
 The two-dimensional $dp$ table has size $(n+1) \times (amt+1)$.
 
-**Step 2: Identify the optimal substructure, and then derive the state transition equation**
+**Step 2: Identify optimal substructure and derive the state transition equation**
 
-This problem differs from the unbounded knapsack problem in the following two aspects regarding the state transition equation.
+The state transition differs from unbounded knapsack in two ways.
 
-- This problem seeks the minimum value, so the operator $\max()$ needs to be changed to $\min()$.
-- The optimization target is the number of coins rather than item value, so when a coin is selected, simply add $1$.
+- We want a minimum, so replace $\max()$ with $\min()$.
+- We optimize the coin count rather than item value, so choosing a coin adds $+1$.
 
 $$
 dp[i, a] = \min(dp[i-1, a], dp[i, a - coins[i-1]] + 1)
 $$
 
-**Step 3: Determine boundary conditions and state transition order**
+**Step 3: Determine the boundary conditions and evaluation order**
 
-When the target amount is $0$, the minimum number of coins needed to make it up is $0$, so all $dp[i, 0]$ in the first column equal $0$.
+A target amount of $0$ requires $0$ coins, so every entry $dp[i, 0]$ in the first column is $0$.
 
-When there are no coins, **it is impossible to make up any amount $> 0$**, which is an invalid solution. To enable the $\min()$ function in the state transition equation to identify and filter out invalid solutions, we consider using $+ \infty$ to represent them, i.e., set all $dp[0, a]$ in the first row to $+ \infty$.
+With no coins, **any target amount $> 0$ is impossible**. To let $\min()$ recognize and discard these infeasible solutions, represent them by $+ \infty$: set the first-row entries $dp[0, a]$ to $+ \infty$.
 
-### 2. &nbsp; Code Implementation
+### 2. &nbsp; Code implementation
 
-Most programming languages do not provide a $+ \infty$ variable, and can only use the maximum value of integer type `int` as a substitute. However, this can lead to integer overflow: the $+ 1$ operation in the state transition equation may cause overflow.
+Most programming languages do not provide an integer value for $+ \infty$, so the maximum `int` value is used instead. However, the $+ 1$ in the transition may then overflow.
 
-For this reason, we use the number $amt + 1$ to represent invalid solutions, because the maximum number of coins needed to make up $amt$ is at most $amt$. Before returning, check whether $dp[n, amt]$ equals $amt + 1$; if so, return $-1$, indicating that the target amount cannot be made up. The code is as follows:
+Instead, use $amt + 1$ to represent an infeasible solution, since making $amt$ requires at most $amt$ coins. Before returning, check whether $dp[n, amt]$ equals $amt + 1$. If so, return $-1$ to indicate that the target cannot be made. The code is as follows:
 
 === "Python"
 
     ```python title="coin_change.py"
     def coin_change_dp(coins: list[int], amt: int) -> int:
-        """Coin change: Dynamic programming"""
+        """Coin change: dynamic programming"""
         n = len(coins)
         MAX = amt + 1
-        # Initialize dp table
+        # Initialize the dp table
         dp = [[0] * (amt + 1) for _ in range(n + 1)]
-        # State transition: first row and first column
+        # State transitions: first row and first column
         for a in range(1, amt + 1):
             dp[0][a] = MAX
-        # State transition: rest of the rows and columns
+        # State transitions: remaining rows and columns
         for i in range(1, n + 1):
             for a in range(1, amt + 1):
                 if coins[i - 1] > a:
-                    # If exceeds target amount, don't select coin i
+                    # If the coin value exceeds the current amount a, do not choose coin i
                     dp[i][a] = dp[i - 1][a]
                 else:
-                    # The smaller value between not selecting and selecting coin i
+                    # Take the smaller result of not choosing and choosing coin i
                     dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1)
         return dp[n][amt] if dp[n][amt] != MAX else -1
     ```
@@ -796,24 +806,24 @@ For this reason, we use the number $amt + 1$ to represent invalid solutions, bec
 === "C++"
 
     ```cpp title="coin_change.cpp"
-    /* Coin change: Dynamic programming */
+    /* Coin change: dynamic programming */
     int coinChangeDP(vector<int> &coins, int amt) {
         int n = coins.size();
         int MAX = amt + 1;
-        // Initialize dp table
+        // Initialize the dp table
         vector<vector<int>> dp(n + 1, vector<int>(amt + 1, 0));
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for (int a = 1; a <= amt; a++) {
             dp[0][a] = MAX;
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[i][a] = dp[i - 1][a];
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
                 }
             }
@@ -825,24 +835,24 @@ For this reason, we use the number $amt + 1$ to represent invalid solutions, bec
 === "Java"
 
     ```java title="coin_change.java"
-    /* Coin change: Dynamic programming */
+    /* Coin change: dynamic programming */
     int coinChangeDP(int[] coins, int amt) {
         int n = coins.length;
         int MAX = amt + 1;
-        // Initialize dp table
+        // Initialize the dp table
         int[][] dp = new int[n + 1][amt + 1];
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for (int a = 1; a <= amt; a++) {
             dp[0][a] = MAX;
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[i][a] = dp[i - 1][a];
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[i][a] = Math.min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
                 }
             }
@@ -854,24 +864,24 @@ For this reason, we use the number $amt + 1$ to represent invalid solutions, bec
 === "C#"
 
     ```csharp title="coin_change.cs"
-    /* Coin change: Dynamic programming */
+    /* Coin change: dynamic programming */
     int CoinChangeDP(int[] coins, int amt) {
         int n = coins.Length;
         int MAX = amt + 1;
-        // Initialize dp table
+        // Initialize the dp table
         int[,] dp = new int[n + 1, amt + 1];
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for (int a = 1; a <= amt; a++) {
             dp[0, a] = MAX;
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[i, a] = dp[i - 1, a];
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[i, a] = Math.Min(dp[i - 1, a], dp[i, a - coins[i - 1]] + 1);
                 }
             }
@@ -883,27 +893,27 @@ For this reason, we use the number $amt + 1$ to represent invalid solutions, bec
 === "Go"
 
     ```go title="coin_change.go"
-    /* Coin change: Dynamic programming */
+    /* Coin change: dynamic programming */
     func coinChangeDP(coins []int, amt int) int {
         n := len(coins)
         max := amt + 1
-        // Initialize dp table
+        // Initialize the dp table
         dp := make([][]int, n+1)
         for i := 0; i <= n; i++ {
             dp[i] = make([]int, amt+1)
         }
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for a := 1; a <= amt; a++ {
             dp[0][a] = max
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for i := 1; i <= n; i++ {
             for a := 1; a <= amt; a++ {
                 if coins[i-1] > a {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the current target amount a, do not choose coin i
                     dp[i][a] = dp[i-1][a]
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[i][a] = int(math.Min(float64(dp[i-1][a]), float64(dp[i][a-coins[i-1]]+1)))
                 }
             }
@@ -918,24 +928,24 @@ For this reason, we use the number $amt + 1$ to represent invalid solutions, bec
 === "Swift"
 
     ```swift title="coin_change.swift"
-    /* Coin change: Dynamic programming */
+    /* Coin change: dynamic programming */
     func coinChangeDP(coins: [Int], amt: Int) -> Int {
         let n = coins.count
         let MAX = amt + 1
-        // Initialize dp table
+        // Initialize the dp table
         var dp = Array(repeating: Array(repeating: 0, count: amt + 1), count: n + 1)
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for a in 1 ... amt {
             dp[0][a] = MAX
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for i in 1 ... n {
             for a in 1 ... amt {
                 if coins[i - 1] > a {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the current target amount a, do not choose coin i
                     dp[i][a] = dp[i - 1][a]
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1)
                 }
             }
@@ -947,26 +957,26 @@ For this reason, we use the number $amt + 1$ to represent invalid solutions, bec
 === "JS"
 
     ```javascript title="coin_change.js"
-    /* Coin change: Dynamic programming */
+    /* Coin change: dynamic programming */
     function coinChangeDP(coins, amt) {
         const n = coins.length;
         const MAX = amt + 1;
-        // Initialize dp table
+        // Initialize the dp table
         const dp = Array.from({ length: n + 1 }, () =>
             Array.from({ length: amt + 1 }, () => 0)
         );
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for (let a = 1; a <= amt; a++) {
             dp[0][a] = MAX;
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for (let i = 1; i <= n; i++) {
             for (let a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[i][a] = dp[i - 1][a];
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[i][a] = Math.min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
                 }
             }
@@ -978,26 +988,26 @@ For this reason, we use the number $amt + 1$ to represent invalid solutions, bec
 === "TS"
 
     ```typescript title="coin_change.ts"
-    /* Coin change: Dynamic programming */
+    /* Coin change: dynamic programming */
     function coinChangeDP(coins: Array<number>, amt: number): number {
         const n = coins.length;
         const MAX = amt + 1;
-        // Initialize dp table
+        // Initialize the dp table
         const dp = Array.from({ length: n + 1 }, () =>
             Array.from({ length: amt + 1 }, () => 0)
         );
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for (let a = 1; a <= amt; a++) {
             dp[0][a] = MAX;
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for (let i = 1; i <= n; i++) {
             for (let a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[i][a] = dp[i - 1][a];
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[i][a] = Math.min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
                 }
             }
@@ -1009,24 +1019,24 @@ For this reason, we use the number $amt + 1$ to represent invalid solutions, bec
 === "Dart"
 
     ```dart title="coin_change.dart"
-    /* Coin change: Dynamic programming */
+    /* Coin change: dynamic programming */
     int coinChangeDP(List<int> coins, int amt) {
       int n = coins.length;
       int MAX = amt + 1;
-      // Initialize dp table
+      // Initialize the dp table
       List<List<int>> dp = List.generate(n + 1, (index) => List.filled(amt + 1, 0));
-      // State transition: first row and first column
+      // State transitions: first row and first column
       for (int a = 1; a <= amt; a++) {
         dp[0][a] = MAX;
       }
-      // State transition: rest of the rows and columns
+      // State transitions: remaining rows and columns
       for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
           if (coins[i - 1] > a) {
-            // If exceeds target amount, don't select coin i
+            // If the coin exceeds the current amount a, do not choose coin i
             dp[i][a] = dp[i - 1][a];
           } else {
-            // The smaller value between not selecting and selecting coin i
+            // Take the smaller result of not choosing and choosing coin i
             dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
           }
         }
@@ -1038,24 +1048,24 @@ For this reason, we use the number $amt + 1$ to represent invalid solutions, bec
 === "Rust"
 
     ```rust title="coin_change.rs"
-    /* Coin change: Dynamic programming */
+    /* Coin change: dynamic programming */
     fn coin_change_dp(coins: &[i32], amt: usize) -> i32 {
         let n = coins.len();
         let max = amt + 1;
-        // Initialize dp table
+        // Initialize the dp table
         let mut dp = vec![vec![0; amt + 1]; n + 1];
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for a in 1..=amt {
             dp[0][a] = max;
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for i in 1..=n {
             for a in 1..=amt {
                 if coins[i - 1] > a as i32 {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[i][a] = dp[i - 1][a];
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[i][a] = std::cmp::min(dp[i - 1][a], dp[i][a - coins[i - 1] as usize] + 1);
                 }
             }
@@ -1071,27 +1081,27 @@ For this reason, we use the number $amt + 1$ to represent invalid solutions, bec
 === "C"
 
     ```c title="coin_change.c"
-    /* Coin change: Dynamic programming */
+    /* Coin change: dynamic programming */
     int coinChangeDP(int coins[], int amt, int coinsSize) {
         int n = coinsSize;
         int MAX = amt + 1;
-        // Initialize dp table
+        // Initialize the dp table
         int **dp = malloc((n + 1) * sizeof(int *));
         for (int i = 0; i <= n; i++) {
             dp[i] = calloc(amt + 1, sizeof(int));
         }
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for (int a = 1; a <= amt; a++) {
             dp[0][a] = MAX;
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[i][a] = dp[i - 1][a];
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[i][a] = myMin(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
                 }
             }
@@ -1109,24 +1119,24 @@ For this reason, we use the number $amt + 1$ to represent invalid solutions, bec
 === "Kotlin"
 
     ```kotlin title="coin_change.kt"
-    /* Coin change: Dynamic programming */
+    /* Coin change: dynamic programming */
     fun coinChangeDP(coins: IntArray, amt: Int): Int {
         val n = coins.size
         val MAX = amt + 1
-        // Initialize dp table
+        // Initialize the dp table
         val dp = Array(n + 1) { IntArray(amt + 1) }
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for (a in 1..amt) {
             dp[0][a] = MAX
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for (i in 1..n) {
             for (a in 1..amt) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin value exceeds the current amount a, do not choose coin i
                     dp[i][a] = dp[i - 1][a]
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1)
                 }
             }
@@ -1142,18 +1152,18 @@ For this reason, we use the number $amt + 1$ to represent invalid solutions, bec
     def coin_change_dp(coins, amt)
       n = coins.length
       _MAX = amt + 1
-      # Initialize dp table
+      # Initialize the dp table
       dp = Array.new(n + 1) { Array.new(amt + 1, 0) }
-      # State transition: first row and first column
+      # State transitions: first row and first column
       (1...(amt + 1)).each { |a| dp[0][a] = _MAX }
-      # State transition: rest of the rows and columns
+      # State transitions: remaining rows and columns
       for i in 1...(n + 1)
         for a in 1...(amt + 1)
           if coins[i - 1] > a
-            # If exceeds target amount, don't select coin i
+            # If the coin exceeds the current amount a, do not choose coin i
             dp[i][a] = dp[i - 1][a]
           else
-            # The smaller value between not selecting and selecting coin i
+            # Take the smaller result of not choosing and choosing coin i
             dp[i][a] = [dp[i - 1][a], dp[i][a - coins[i - 1]] + 1].min
           end
         end
@@ -1162,10 +1172,15 @@ For this reason, we use the number $amt + 1$ to represent invalid solutions, bec
     end
     ```
 
-Figure 14-25 shows the dynamic programming process for coin change, which is very similar to the unbounded knapsack problem.
+??? pythontutor "Visualize execution"
+
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20coin_change_dp%28coins%3A%20list%5Bint%5D,%20amt%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Coin%20change%3A%20dynamic%20programming%22%22%22%0A%20%20%20%20n%20%3D%20len%28coins%29%0A%20%20%20%20MAX%20%3D%20amt%20%2B%201%0A%20%20%20%20%23%20Initialize%20the%20dp%20table%0A%20%20%20%20dp%20%3D%20%5B%5B0%5D%20%2A%20%28amt%20%2B%201%29%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20%23%20State%20transitions%3A%20first%20row%20and%20first%20column%0A%20%20%20%20for%20a%20in%20range%281,%20amt%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5B0%5D%5Ba%5D%20%3D%20MAX%0A%20%20%20%20%23%20State%20transitions%3A%20remaining%20rows%20and%20columns%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20for%20a%20in%20range%281,%20amt%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20coins%5Bi%20-%201%5D%20%3E%20a%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20If%20the%20coin%20value%20exceeds%20the%20current%20amount%20a,%20do%20not%20choose%20coin%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Ba%5D%20%3D%20dp%5Bi%20-%201%5D%5Ba%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Take%20the%20smaller%20result%20of%20not%20choosing%20and%20choosing%20coin%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Ba%5D%20%3D%20min%28dp%5Bi%20-%201%5D%5Ba%5D,%20dp%5Bi%5D%5Ba%20-%20coins%5Bi%20-%201%5D%5D%20%2B%201%29%0A%20%20%20%20return%20dp%5Bn%5D%5Bamt%5D%20if%20dp%5Bn%5D%5Bamt%5D%20%21%3D%20MAX%20else%20-1%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20coins%20%3D%20%5B1,%202,%205%5D%0A%20%20%20%20amt%20%3D%204%0A%0A%20%20%20%20%23%20Dynamic%20programming%0A%20%20%20%20res%20%3D%20coin_change_dp%28coins,%20amt%29%0A%20%20%20%20print%28f%22Minimum%20number%20of%20coins%20needed%20to%20make%20the%20target%20amount%3A%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20coin_change_dp%28coins%3A%20list%5Bint%5D,%20amt%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Coin%20change%3A%20dynamic%20programming%22%22%22%0A%20%20%20%20n%20%3D%20len%28coins%29%0A%20%20%20%20MAX%20%3D%20amt%20%2B%201%0A%20%20%20%20%23%20Initialize%20the%20dp%20table%0A%20%20%20%20dp%20%3D%20%5B%5B0%5D%20%2A%20%28amt%20%2B%201%29%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20%23%20State%20transitions%3A%20first%20row%20and%20first%20column%0A%20%20%20%20for%20a%20in%20range%281,%20amt%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5B0%5D%5Ba%5D%20%3D%20MAX%0A%20%20%20%20%23%20State%20transitions%3A%20remaining%20rows%20and%20columns%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20for%20a%20in%20range%281,%20amt%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20coins%5Bi%20-%201%5D%20%3E%20a%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20If%20the%20coin%20value%20exceeds%20the%20current%20amount%20a,%20do%20not%20choose%20coin%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Ba%5D%20%3D%20dp%5Bi%20-%201%5D%5Ba%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Take%20the%20smaller%20result%20of%20not%20choosing%20and%20choosing%20coin%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Ba%5D%20%3D%20min%28dp%5Bi%20-%201%5D%5Ba%5D,%20dp%5Bi%5D%5Ba%20-%20coins%5Bi%20-%201%5D%5D%20%2B%201%29%0A%20%20%20%20return%20dp%5Bn%5D%5Bamt%5D%20if%20dp%5Bn%5D%5Bamt%5D%20%21%3D%20MAX%20else%20-1%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20coins%20%3D%20%5B1,%202,%205%5D%0A%20%20%20%20amt%20%3D%204%0A%0A%20%20%20%20%23%20Dynamic%20programming%0A%20%20%20%20res%20%3D%20coin_change_dp%28coins,%20amt%29%0A%20%20%20%20print%28f%22Minimum%20number%20of%20coins%20needed%20to%20make%20the%20target%20amount%3A%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+Figure 14-25 shows dynamic programming for coin change, which closely resembles unbounded knapsack.
 
 === "<1>"
-    ![Dynamic programming process for coin change problem](unbounded_knapsack_problem.assets/coin_change_dp_step1.png){ class="animation-figure" }
+    ![Dynamic programming for coin change](unbounded_knapsack_problem.assets/coin_change_dp_step1.png){ class="animation-figure" }
 
 === "<2>"
     ![coin_change_dp_step2](unbounded_knapsack_problem.assets/coin_change_dp_step2.png){ class="animation-figure" }
@@ -1209,31 +1224,31 @@ Figure 14-25 shows the dynamic programming process for coin change, which is ver
 === "<15>"
     ![coin_change_dp_step15](unbounded_knapsack_problem.assets/coin_change_dp_step15.png){ class="animation-figure" }
 
-<p align="center"> Figure 14-25 &nbsp; Dynamic programming process for coin change problem </p>
+<p align="center"> Figure 14-25 &nbsp; Dynamic programming for coin change </p>
 
-### 3. &nbsp; Space Optimization
+### 3. &nbsp; Space optimization
 
-The space optimization for the coin change problem is handled in the same way as the unbounded knapsack problem:
+Space optimization is the same as for unbounded knapsack:
 
 === "Python"
 
     ```python title="coin_change.py"
     def coin_change_dp_comp(coins: list[int], amt: int) -> int:
-        """Coin change: Space-optimized dynamic programming"""
+        """Coin change: space-optimized dynamic programming"""
         n = len(coins)
         MAX = amt + 1
-        # Initialize dp table
+        # Initialize the dp table
         dp = [MAX] * (amt + 1)
         dp[0] = 0
-        # State transition
+        # State transitions
         for i in range(1, n + 1):
-            # Traverse in forward order
+            # Traverse in increasing order
             for a in range(1, amt + 1):
                 if coins[i - 1] > a:
-                    # If exceeds target amount, don't select coin i
+                    # If the coin value exceeds the current amount a, do not choose coin i
                     dp[a] = dp[a]
                 else:
-                    # The smaller value between not selecting and selecting coin i
+                    # Take the smaller result of not choosing and choosing coin i
                     dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1)
         return dp[amt] if dp[amt] != MAX else -1
     ```
@@ -1241,21 +1256,21 @@ The space optimization for the coin change problem is handled in the same way as
 === "C++"
 
     ```cpp title="coin_change.cpp"
-    /* Coin change: Space-optimized dynamic programming */
+    /* Coin change: space-optimized dynamic programming */
     int coinChangeDPComp(vector<int> &coins, int amt) {
         int n = coins.size();
         int MAX = amt + 1;
-        // Initialize dp table
+        // Initialize the dp table
         vector<int> dp(amt + 1, MAX);
         dp[0] = 0;
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[a] = dp[a];
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1);
                 }
             }
@@ -1267,22 +1282,22 @@ The space optimization for the coin change problem is handled in the same way as
 === "Java"
 
     ```java title="coin_change.java"
-    /* Coin change: Space-optimized dynamic programming */
+    /* Coin change: space-optimized dynamic programming */
     int coinChangeDPComp(int[] coins, int amt) {
         int n = coins.length;
         int MAX = amt + 1;
-        // Initialize dp table
+        // Initialize the dp table
         int[] dp = new int[amt + 1];
         Arrays.fill(dp, MAX);
         dp[0] = 0;
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[a] = dp[a];
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[a] = Math.min(dp[a], dp[a - coins[i - 1]] + 1);
                 }
             }
@@ -1294,22 +1309,22 @@ The space optimization for the coin change problem is handled in the same way as
 === "C#"
 
     ```csharp title="coin_change.cs"
-    /* Coin change: Space-optimized dynamic programming */
+    /* Coin change: space-optimized dynamic programming */
     int CoinChangeDPComp(int[] coins, int amt) {
         int n = coins.Length;
         int MAX = amt + 1;
-        // Initialize dp table
+        // Initialize the dp table
         int[] dp = new int[amt + 1];
         Array.Fill(dp, MAX);
         dp[0] = 0;
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[a] = dp[a];
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[a] = Math.Min(dp[a], dp[a - coins[i - 1]] + 1);
                 }
             }
@@ -1321,24 +1336,24 @@ The space optimization for the coin change problem is handled in the same way as
 === "Go"
 
     ```go title="coin_change.go"
-    /* Coin change: Dynamic programming */
+    /* Coin change: dynamic programming */
     func coinChangeDPComp(coins []int, amt int) int {
         n := len(coins)
         max := amt + 1
-        // Initialize dp table
+        // Initialize the dp table
         dp := make([]int, amt+1)
         for i := 1; i <= amt; i++ {
             dp[i] = max
         }
-        // State transition
+        // State transitions
         for i := 1; i <= n; i++ {
-            // Traverse in forward order
+            // Traverse in increasing order
             for a := 1; a <= amt; a++ {
                 if coins[i-1] > a {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the current target amount a, do not choose coin i
                     dp[a] = dp[a]
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[a] = int(math.Min(float64(dp[a]), float64(dp[a-coins[i-1]]+1)))
                 }
             }
@@ -1353,21 +1368,21 @@ The space optimization for the coin change problem is handled in the same way as
 === "Swift"
 
     ```swift title="coin_change.swift"
-    /* Coin change: Space-optimized dynamic programming */
+    /* Coin change: space-optimized dynamic programming */
     func coinChangeDPComp(coins: [Int], amt: Int) -> Int {
         let n = coins.count
         let MAX = amt + 1
-        // Initialize dp table
+        // Initialize the dp table
         var dp = Array(repeating: MAX, count: amt + 1)
         dp[0] = 0
-        // State transition
+        // State transitions
         for i in 1 ... n {
             for a in 1 ... amt {
                 if coins[i - 1] > a {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the current target amount a, do not choose coin i
                     dp[a] = dp[a]
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1)
                 }
             }
@@ -1379,21 +1394,21 @@ The space optimization for the coin change problem is handled in the same way as
 === "JS"
 
     ```javascript title="coin_change.js"
-    /* Coin change: Space-optimized dynamic programming */
+    /* Coin change: space-optimized dynamic programming */
     function coinChangeDPComp(coins, amt) {
         const n = coins.length;
         const MAX = amt + 1;
-        // Initialize dp table
+        // Initialize the dp table
         const dp = Array.from({ length: amt + 1 }, () => MAX);
         dp[0] = 0;
-        // State transition
+        // State transitions
         for (let i = 1; i <= n; i++) {
             for (let a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[a] = dp[a];
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[a] = Math.min(dp[a], dp[a - coins[i - 1]] + 1);
                 }
             }
@@ -1405,21 +1420,21 @@ The space optimization for the coin change problem is handled in the same way as
 === "TS"
 
     ```typescript title="coin_change.ts"
-    /* Coin change: Space-optimized dynamic programming */
+    /* Coin change: space-optimized dynamic programming */
     function coinChangeDPComp(coins: Array<number>, amt: number): number {
         const n = coins.length;
         const MAX = amt + 1;
-        // Initialize dp table
+        // Initialize the dp table
         const dp = Array.from({ length: amt + 1 }, () => MAX);
         dp[0] = 0;
-        // State transition
+        // State transitions
         for (let i = 1; i <= n; i++) {
             for (let a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[a] = dp[a];
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[a] = Math.min(dp[a], dp[a - coins[i - 1]] + 1);
                 }
             }
@@ -1431,21 +1446,21 @@ The space optimization for the coin change problem is handled in the same way as
 === "Dart"
 
     ```dart title="coin_change.dart"
-    /* Coin change: Space-optimized dynamic programming */
+    /* Coin change: space-optimized dynamic programming */
     int coinChangeDPComp(List<int> coins, int amt) {
       int n = coins.length;
       int MAX = amt + 1;
-      // Initialize dp table
+      // Initialize the dp table
       List<int> dp = List.filled(amt + 1, MAX);
       dp[0] = 0;
-      // State transition
+      // State transitions
       for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
           if (coins[i - 1] > a) {
-            // If exceeds target amount, don't select coin i
+            // If the coin exceeds the current amount a, do not choose coin i
             dp[a] = dp[a];
           } else {
-            // The smaller value between not selecting and selecting coin i
+            // Take the smaller result of not choosing and choosing coin i
             dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1);
           }
         }
@@ -1457,22 +1472,22 @@ The space optimization for the coin change problem is handled in the same way as
 === "Rust"
 
     ```rust title="coin_change.rs"
-    /* Coin change: Space-optimized dynamic programming */
+    /* Coin change: space-optimized dynamic programming */
     fn coin_change_dp_comp(coins: &[i32], amt: usize) -> i32 {
         let n = coins.len();
         let max = amt + 1;
-        // Initialize dp table
+        // Initialize the dp table
         let mut dp = vec![0; amt + 1];
         dp.fill(max);
         dp[0] = 0;
-        // State transition
+        // State transitions
         for i in 1..=n {
             for a in 1..=amt {
                 if coins[i - 1] > a as i32 {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[a] = dp[a];
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[a] = std::cmp::min(dp[a], dp[a - coins[i - 1] as usize] + 1);
                 }
             }
@@ -1488,25 +1503,25 @@ The space optimization for the coin change problem is handled in the same way as
 === "C"
 
     ```c title="coin_change.c"
-    /* Coin change: Space-optimized dynamic programming */
+    /* Coin change: space-optimized dynamic programming */
     int coinChangeDPComp(int coins[], int amt, int coinsSize) {
         int n = coinsSize;
         int MAX = amt + 1;
-        // Initialize dp table
+        // Initialize the dp table
         int *dp = malloc((amt + 1) * sizeof(int));
         for (int j = 1; j <= amt; j++) {
             dp[j] = MAX;
         } 
         dp[0] = 0;
 
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[a] = dp[a];
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[a] = myMin(dp[a], dp[a - coins[i - 1]] + 1);
                 }
             }
@@ -1521,22 +1536,22 @@ The space optimization for the coin change problem is handled in the same way as
 === "Kotlin"
 
     ```kotlin title="coin_change.kt"
-    /* Coin change: Space-optimized dynamic programming */
+    /* Coin change: space-optimized dynamic programming */
     fun coinChangeDPComp(coins: IntArray, amt: Int): Int {
         val n = coins.size
         val MAX = amt + 1
-        // Initialize dp table
+        // Initialize the dp table
         val dp = IntArray(amt + 1)
         dp.fill(MAX)
         dp[0] = 0
-        // State transition
+        // State transitions
         for (i in 1..n) {
             for (a in 1..amt) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin value exceeds the current amount a, do not choose coin i
                     dp[a] = dp[a]
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1)
                 }
             }
@@ -1548,22 +1563,22 @@ The space optimization for the coin change problem is handled in the same way as
 === "Ruby"
 
     ```ruby title="coin_change.rb"
-    ### Coin change: space-optimized DP ###
+    ### Coin change: space-optimized dynamic programming ###
     def coin_change_dp_comp(coins, amt)
       n = coins.length
       _MAX = amt + 1
-      # Initialize dp table
+      # Initialize the dp table
       dp = Array.new(amt + 1, _MAX)
       dp[0] = 0
-      # State transition
+      # State transitions
       for i in 1...(n + 1)
-        # Traverse in forward order
+        # Traverse in increasing order
         for a in 1...(amt + 1)
           if coins[i - 1] > a
-            # If exceeds target amount, don't select coin i
+            # If the coin exceeds the current amount a, do not choose coin i
             dp[a] = dp[a]
           else
-            # The smaller value between not selecting and selecting coin i
+            # Take the smaller result of not choosing and choosing coin i
             dp[a] = [dp[a], dp[a - coins[i - 1]] + 1].min
           end
         end
@@ -1572,49 +1587,54 @@ The space optimization for the coin change problem is handled in the same way as
     end
     ```
 
-## 14.5.3 &nbsp; Coin Change Problem II
+??? pythontutor "Visualize execution"
+
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20coin_change_dp_comp%28coins%3A%20list%5Bint%5D,%20amt%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Coin%20change%3A%20space-optimized%20dynamic%20programming%22%22%22%0A%20%20%20%20n%20%3D%20len%28coins%29%0A%20%20%20%20MAX%20%3D%20amt%20%2B%201%0A%20%20%20%20%23%20Initialize%20the%20dp%20table%0A%20%20%20%20dp%20%3D%20%5BMAX%5D%20%2A%20%28amt%20%2B%201%29%0A%20%20%20%20dp%5B0%5D%20%3D%200%0A%20%20%20%20%23%20State%20transitions%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20Traverse%20in%20increasing%20order%0A%20%20%20%20%20%20%20%20for%20a%20in%20range%281,%20amt%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20coins%5Bi%20-%201%5D%20%3E%20a%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20If%20the%20coin%20value%20exceeds%20the%20current%20amount%20a,%20do%20not%20choose%20coin%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Ba%5D%20%3D%20dp%5Ba%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Take%20the%20smaller%20result%20of%20not%20choosing%20and%20choosing%20coin%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Ba%5D%20%3D%20min%28dp%5Ba%5D,%20dp%5Ba%20-%20coins%5Bi%20-%201%5D%5D%20%2B%201%29%0A%20%20%20%20return%20dp%5Bamt%5D%20if%20dp%5Bamt%5D%20%21%3D%20MAX%20else%20-1%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20coins%20%3D%20%5B1,%202,%205%5D%0A%20%20%20%20amt%20%3D%204%0A%0A%20%20%20%20%23%20Space-optimized%20dynamic%20programming%0A%20%20%20%20res%20%3D%20coin_change_dp_comp%28coins,%20amt%29%0A%20%20%20%20print%28f%22Minimum%20number%20of%20coins%20needed%20to%20make%20the%20target%20amount%3A%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20coin_change_dp_comp%28coins%3A%20list%5Bint%5D,%20amt%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Coin%20change%3A%20space-optimized%20dynamic%20programming%22%22%22%0A%20%20%20%20n%20%3D%20len%28coins%29%0A%20%20%20%20MAX%20%3D%20amt%20%2B%201%0A%20%20%20%20%23%20Initialize%20the%20dp%20table%0A%20%20%20%20dp%20%3D%20%5BMAX%5D%20%2A%20%28amt%20%2B%201%29%0A%20%20%20%20dp%5B0%5D%20%3D%200%0A%20%20%20%20%23%20State%20transitions%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20Traverse%20in%20increasing%20order%0A%20%20%20%20%20%20%20%20for%20a%20in%20range%281,%20amt%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20coins%5Bi%20-%201%5D%20%3E%20a%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20If%20the%20coin%20value%20exceeds%20the%20current%20amount%20a,%20do%20not%20choose%20coin%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Ba%5D%20%3D%20dp%5Ba%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Take%20the%20smaller%20result%20of%20not%20choosing%20and%20choosing%20coin%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Ba%5D%20%3D%20min%28dp%5Ba%5D,%20dp%5Ba%20-%20coins%5Bi%20-%201%5D%5D%20%2B%201%29%0A%20%20%20%20return%20dp%5Bamt%5D%20if%20dp%5Bamt%5D%20%21%3D%20MAX%20else%20-1%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20coins%20%3D%20%5B1,%202,%205%5D%0A%20%20%20%20amt%20%3D%204%0A%0A%20%20%20%20%23%20Space-optimized%20dynamic%20programming%0A%20%20%20%20res%20%3D%20coin_change_dp_comp%28coins,%20amt%29%0A%20%20%20%20print%28f%22Minimum%20number%20of%20coins%20needed%20to%20make%20the%20target%20amount%3A%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+## 14.5.3 &nbsp; Coin change problem II
 
 !!! question
 
-    Given $n$ types of coins, where the denomination of the $i$-th type of coin is $coins[i - 1]$, and the target amount is $amt$. Each type of coin can be selected multiple times. **What is the number of coin combinations that can make up the target amount?** An example is shown in Figure 14-26.
+    Given $n$ coin denominations, where denomination $i$ has value $coins[i - 1]$, and a target amount $amt$, each denomination may be used repeatedly. **How many combinations of coins make the target amount**? An example is shown in Figure 14-26.
 
-![Example data for coin change problem II](unbounded_knapsack_problem.assets/coin_change_ii_example.png){ class="animation-figure" }
+![Example input for coin change II](unbounded_knapsack_problem.assets/coin_change_ii_example.png){ class="animation-figure" }
 
-<p align="center"> Figure 14-26 &nbsp; Example data for coin change problem II </p>
+<p align="center"> Figure 14-26 &nbsp; Example input for coin change II </p>
 
-### 1. &nbsp; Dynamic Programming Approach
+### 1. &nbsp; Dynamic programming approach
 
-Compared to the previous problem, this problem's goal is to find the number of combinations, so the subproblem becomes: **the number of combinations among the first $i$ types of coins that can make up amount $a$**. The $dp$ table remains a two-dimensional matrix of size $(n+1) \times (amt + 1)$.
+This time, we count combinations, so the subproblem becomes **the number of combinations that make amount $a$ using the first $i$ denominations**. The $dp$ table remains a two-dimensional matrix of size $(n+1) \times (amt + 1)$.
 
-The number of combinations for the current state equals the sum of the combinations from not selecting the current coin and selecting the current coin. The state transition equation is:
+The number of combinations for the current state is the sum of those that exclude the current coin and those that include it. The state transition equation is:
 
 $$
 dp[i, a] = dp[i-1, a] + dp[i, a - coins[i-1]]
 $$
 
-When the target amount is $0$, no coins need to be selected to make up the target amount, so all $dp[i, 0]$ in the first column should be initialized to $1$. When there are no coins, it is impossible to make up any amount $>0$, so all $dp[0, a]$ in the first row equal $0$.
+A target of $0$ can be made by choosing no coins, so initialize every first-column entry $dp[i, 0]$ to $1$. With no coins, any target $>0$ is impossible, so the first-row entries $dp[0, a]$ are $0$.
 
-### 2. &nbsp; Code Implementation
+### 2. &nbsp; Code implementation
 
 === "Python"
 
     ```python title="coin_change_ii.py"
     def coin_change_ii_dp(coins: list[int], amt: int) -> int:
-        """Coin change II: Dynamic programming"""
+        """Coin change II: dynamic programming"""
         n = len(coins)
-        # Initialize dp table
+        # Initialize the dp table
         dp = [[0] * (amt + 1) for _ in range(n + 1)]
-        # Initialize first column
+        # Initialize the first column
         for i in range(n + 1):
             dp[i][0] = 1
-        # State transition
+        # State transitions
         for i in range(1, n + 1):
             for a in range(1, amt + 1):
                 if coins[i - 1] > a:
-                    # If exceeds target amount, don't select coin i
+                    # If the coin value exceeds the current amount a, do not choose coin i
                     dp[i][a] = dp[i - 1][a]
                 else:
-                    # Sum of the two options: not selecting and selecting coin i
+                    # Add the numbers of ways without and with coin i
                     dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]]
         return dp[n][amt]
     ```
@@ -1622,23 +1642,23 @@ When the target amount is $0$, no coins need to be selected to make up the targe
 === "C++"
 
     ```cpp title="coin_change_ii.cpp"
-    /* Coin change II: Dynamic programming */
+    /* Coin change II: dynamic programming */
     int coinChangeIIDP(vector<int> &coins, int amt) {
         int n = coins.size();
-        // Initialize dp table
+        // Initialize the dp table
         vector<vector<int>> dp(n + 1, vector<int>(amt + 1, 0));
-        // Initialize first column
+        // Initialize the first column
         for (int i = 0; i <= n; i++) {
             dp[i][0] = 1;
         }
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[i][a] = dp[i - 1][a];
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
                 }
             }
@@ -1650,23 +1670,23 @@ When the target amount is $0$, no coins need to be selected to make up the targe
 === "Java"
 
     ```java title="coin_change_ii.java"
-    /* Coin change II: Dynamic programming */
+    /* Coin change II: dynamic programming */
     int coinChangeIIDP(int[] coins, int amt) {
         int n = coins.length;
-        // Initialize dp table
+        // Initialize the dp table
         int[][] dp = new int[n + 1][amt + 1];
-        // Initialize first column
+        // Initialize the first column
         for (int i = 0; i <= n; i++) {
             dp[i][0] = 1;
         }
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[i][a] = dp[i - 1][a];
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
                 }
             }
@@ -1678,23 +1698,23 @@ When the target amount is $0$, no coins need to be selected to make up the targe
 === "C#"
 
     ```csharp title="coin_change_ii.cs"
-    /* Coin change II: Dynamic programming */
+    /* Coin change II: dynamic programming */
     int CoinChangeIIDP(int[] coins, int amt) {
         int n = coins.Length;
-        // Initialize dp table
+        // Initialize the dp table
         int[,] dp = new int[n + 1, amt + 1];
-        // Initialize first column
+        // Initialize the first column
         for (int i = 0; i <= n; i++) {
             dp[i, 0] = 1;
         }
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[i, a] = dp[i - 1, a];
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[i, a] = dp[i - 1, a] + dp[i, a - coins[i - 1]];
                 }
             }
@@ -1706,26 +1726,26 @@ When the target amount is $0$, no coins need to be selected to make up the targe
 === "Go"
 
     ```go title="coin_change_ii.go"
-    /* Coin change II: Dynamic programming */
+    /* Coin change II: dynamic programming */
     func coinChangeIIDP(coins []int, amt int) int {
         n := len(coins)
-        // Initialize dp table
+        // Initialize the dp table
         dp := make([][]int, n+1)
         for i := 0; i <= n; i++ {
             dp[i] = make([]int, amt+1)
         }
-        // Initialize first column
+        // Initialize the first column
         for i := 0; i <= n; i++ {
             dp[i][0] = 1
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for i := 1; i <= n; i++ {
             for a := 1; a <= amt; a++ {
                 if coins[i-1] > a {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the current target amount a, do not choose coin i
                     dp[i][a] = dp[i-1][a]
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[i][a] = dp[i-1][a] + dp[i][a-coins[i-1]]
                 }
             }
@@ -1737,23 +1757,23 @@ When the target amount is $0$, no coins need to be selected to make up the targe
 === "Swift"
 
     ```swift title="coin_change_ii.swift"
-    /* Coin change II: Dynamic programming */
+    /* Coin change II: dynamic programming */
     func coinChangeIIDP(coins: [Int], amt: Int) -> Int {
         let n = coins.count
-        // Initialize dp table
+        // Initialize the dp table
         var dp = Array(repeating: Array(repeating: 0, count: amt + 1), count: n + 1)
-        // Initialize first column
+        // Initialize the first column
         for i in 0 ... n {
             dp[i][0] = 1
         }
-        // State transition
+        // State transitions
         for i in 1 ... n {
             for a in 1 ... amt {
                 if coins[i - 1] > a {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the current target amount a, do not choose coin i
                     dp[i][a] = dp[i - 1][a]
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]]
                 }
             }
@@ -1765,25 +1785,25 @@ When the target amount is $0$, no coins need to be selected to make up the targe
 === "JS"
 
     ```javascript title="coin_change_ii.js"
-    /* Coin change II: Dynamic programming */
+    /* Coin change II: dynamic programming */
     function coinChangeIIDP(coins, amt) {
         const n = coins.length;
-        // Initialize dp table
+        // Initialize the dp table
         const dp = Array.from({ length: n + 1 }, () =>
             Array.from({ length: amt + 1 }, () => 0)
         );
-        // Initialize first column
+        // Initialize the first column
         for (let i = 0; i <= n; i++) {
             dp[i][0] = 1;
         }
-        // State transition
+        // State transitions
         for (let i = 1; i <= n; i++) {
             for (let a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[i][a] = dp[i - 1][a];
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
                 }
             }
@@ -1795,25 +1815,25 @@ When the target amount is $0$, no coins need to be selected to make up the targe
 === "TS"
 
     ```typescript title="coin_change_ii.ts"
-    /* Coin change II: Dynamic programming */
+    /* Coin change II: dynamic programming */
     function coinChangeIIDP(coins: Array<number>, amt: number): number {
         const n = coins.length;
-        // Initialize dp table
+        // Initialize the dp table
         const dp = Array.from({ length: n + 1 }, () =>
             Array.from({ length: amt + 1 }, () => 0)
         );
-        // Initialize first column
+        // Initialize the first column
         for (let i = 0; i <= n; i++) {
             dp[i][0] = 1;
         }
-        // State transition
+        // State transitions
         for (let i = 1; i <= n; i++) {
             for (let a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[i][a] = dp[i - 1][a];
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
                 }
             }
@@ -1825,23 +1845,23 @@ When the target amount is $0$, no coins need to be selected to make up the targe
 === "Dart"
 
     ```dart title="coin_change_ii.dart"
-    /* Coin change II: Dynamic programming */
+    /* Coin change II: dynamic programming */
     int coinChangeIIDP(List<int> coins, int amt) {
       int n = coins.length;
-      // Initialize dp table
+      // Initialize the dp table
       List<List<int>> dp = List.generate(n + 1, (index) => List.filled(amt + 1, 0));
-      // Initialize first column
+      // Initialize the first column
       for (int i = 0; i <= n; i++) {
         dp[i][0] = 1;
       }
-      // State transition
+      // State transitions
       for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
           if (coins[i - 1] > a) {
-            // If exceeds target amount, don't select coin i
+            // If the coin exceeds the current amount a, do not choose coin i
             dp[i][a] = dp[i - 1][a];
           } else {
-            // Sum of the two options: not selecting and selecting coin i
+            // Add the numbers of ways without and with coin i
             dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
           }
         }
@@ -1853,23 +1873,23 @@ When the target amount is $0$, no coins need to be selected to make up the targe
 === "Rust"
 
     ```rust title="coin_change_ii.rs"
-    /* Coin change II: Dynamic programming */
+    /* Coin change II: dynamic programming */
     fn coin_change_ii_dp(coins: &[i32], amt: usize) -> i32 {
         let n = coins.len();
-        // Initialize dp table
+        // Initialize the dp table
         let mut dp = vec![vec![0; amt + 1]; n + 1];
-        // Initialize first column
+        // Initialize the first column
         for i in 0..=n {
             dp[i][0] = 1;
         }
-        // State transition
+        // State transitions
         for i in 1..=n {
             for a in 1..=amt {
                 if coins[i - 1] > a as i32 {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[i][a] = dp[i - 1][a];
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1] as usize];
                 }
             }
@@ -1881,26 +1901,26 @@ When the target amount is $0$, no coins need to be selected to make up the targe
 === "C"
 
     ```c title="coin_change_ii.c"
-    /* Coin change II: Dynamic programming */
+    /* Coin change II: dynamic programming */
     int coinChangeIIDP(int coins[], int amt, int coinsSize) {
         int n = coinsSize;
-        // Initialize dp table
+        // Initialize the dp table
         int **dp = malloc((n + 1) * sizeof(int *));
         for (int i = 0; i <= n; i++) {
             dp[i] = calloc(amt + 1, sizeof(int));
         }
-        // Initialize first column
+        // Initialize the first column
         for (int i = 0; i <= n; i++) {
             dp[i][0] = 1;
         }
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[i][a] = dp[i - 1][a];
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
                 }
             }
@@ -1918,23 +1938,23 @@ When the target amount is $0$, no coins need to be selected to make up the targe
 === "Kotlin"
 
     ```kotlin title="coin_change_ii.kt"
-    /* Coin change II: Dynamic programming */
+    /* Coin change II: dynamic programming */
     fun coinChangeIIDP(coins: IntArray, amt: Int): Int {
         val n = coins.size
-        // Initialize dp table
+        // Initialize the dp table
         val dp = Array(n + 1) { IntArray(amt + 1) }
-        // Initialize first column
+        // Initialize the first column
         for (i in 0..n) {
             dp[i][0] = 1
         }
-        // State transition
+        // State transitions
         for (i in 1..n) {
             for (a in 1..amt) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin value exceeds the current amount a, do not choose coin i
                     dp[i][a] = dp[i - 1][a]
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]]
                 }
             }
@@ -1949,18 +1969,18 @@ When the target amount is $0$, no coins need to be selected to make up the targe
     ### Coin change II: dynamic programming ###
     def coin_change_ii_dp(coins, amt)
       n = coins.length
-      # Initialize dp table
+      # Initialize the dp table
       dp = Array.new(n + 1) { Array.new(amt + 1, 0) }
-      # Initialize first column
+      # Initialize the first column
       (0...(n + 1)).each { |i| dp[i][0] = 1 }
-      # State transition
+      # State transitions
       for i in 1...(n + 1)
         for a in 1...(amt + 1)
           if coins[i - 1] > a
-            # If exceeds target amount, don't select coin i
+            # If the coin exceeds the current amount a, do not choose coin i
             dp[i][a] = dp[i - 1][a]
           else
-            # Sum of the two options: not selecting and selecting coin i
+            # Add the numbers of ways without and with coin i
             dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]]
           end
         end
@@ -1969,28 +1989,33 @@ When the target amount is $0$, no coins need to be selected to make up the targe
     end
     ```
 
-### 3. &nbsp; Space Optimization
+??? pythontutor "Visualize execution"
 
-The space optimization is handled in the same way, just delete the coin dimension:
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20coin_change_ii_dp%28coins%3A%20list%5Bint%5D,%20amt%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Coin%20change%20II%3A%20dynamic%20programming%22%22%22%0A%20%20%20%20n%20%3D%20len%28coins%29%0A%20%20%20%20%23%20Initialize%20the%20dp%20table%0A%20%20%20%20dp%20%3D%20%5B%5B0%5D%20%2A%20%28amt%20%2B%201%29%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20%23%20Initialize%20the%20first%20column%0A%20%20%20%20for%20i%20in%20range%28n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%5B0%5D%20%3D%201%0A%20%20%20%20%23%20State%20transitions%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20for%20a%20in%20range%281,%20amt%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20coins%5Bi%20-%201%5D%20%3E%20a%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20If%20the%20coin%20value%20exceeds%20the%20current%20amount%20a,%20do%20not%20choose%20coin%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Ba%5D%20%3D%20dp%5Bi%20-%201%5D%5Ba%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Add%20the%20numbers%20of%20ways%20without%20and%20with%20coin%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Ba%5D%20%3D%20dp%5Bi%20-%201%5D%5Ba%5D%20%2B%20dp%5Bi%5D%5Ba%20-%20coins%5Bi%20-%201%5D%5D%0A%20%20%20%20return%20dp%5Bn%5D%5Bamt%5D%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20coins%20%3D%20%5B1,%202,%205%5D%0A%20%20%20%20amt%20%3D%205%0A%0A%20%20%20%20%23%20Dynamic%20programming%0A%20%20%20%20res%20%3D%20coin_change_ii_dp%28coins,%20amt%29%0A%20%20%20%20print%28f%22Number%20of%20coin%20combinations%20that%20make%20the%20target%20amount%3A%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20coin_change_ii_dp%28coins%3A%20list%5Bint%5D,%20amt%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Coin%20change%20II%3A%20dynamic%20programming%22%22%22%0A%20%20%20%20n%20%3D%20len%28coins%29%0A%20%20%20%20%23%20Initialize%20the%20dp%20table%0A%20%20%20%20dp%20%3D%20%5B%5B0%5D%20%2A%20%28amt%20%2B%201%29%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20%23%20Initialize%20the%20first%20column%0A%20%20%20%20for%20i%20in%20range%28n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%5B0%5D%20%3D%201%0A%20%20%20%20%23%20State%20transitions%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20for%20a%20in%20range%281,%20amt%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20coins%5Bi%20-%201%5D%20%3E%20a%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20If%20the%20coin%20value%20exceeds%20the%20current%20amount%20a,%20do%20not%20choose%20coin%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Ba%5D%20%3D%20dp%5Bi%20-%201%5D%5Ba%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Add%20the%20numbers%20of%20ways%20without%20and%20with%20coin%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Ba%5D%20%3D%20dp%5Bi%20-%201%5D%5Ba%5D%20%2B%20dp%5Bi%5D%5Ba%20-%20coins%5Bi%20-%201%5D%5D%0A%20%20%20%20return%20dp%5Bn%5D%5Bamt%5D%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20coins%20%3D%20%5B1,%202,%205%5D%0A%20%20%20%20amt%20%3D%205%0A%0A%20%20%20%20%23%20Dynamic%20programming%0A%20%20%20%20res%20%3D%20coin_change_ii_dp%28coins,%20amt%29%0A%20%20%20%20print%28f%22Number%20of%20coin%20combinations%20that%20make%20the%20target%20amount%3A%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+
+### 3. &nbsp; Space optimization
+
+The space optimization is the same: remove the coin dimension:
 
 === "Python"
 
     ```python title="coin_change_ii.py"
     def coin_change_ii_dp_comp(coins: list[int], amt: int) -> int:
-        """Coin change II: Space-optimized dynamic programming"""
+        """Coin change II: space-optimized dynamic programming"""
         n = len(coins)
-        # Initialize dp table
+        # Initialize the dp table
         dp = [0] * (amt + 1)
         dp[0] = 1
-        # State transition
+        # State transitions
         for i in range(1, n + 1):
-            # Traverse in forward order
+            # Traverse in increasing order
             for a in range(1, amt + 1):
                 if coins[i - 1] > a:
-                    # If exceeds target amount, don't select coin i
+                    # If the coin value exceeds the current amount a, do not choose coin i
                     dp[a] = dp[a]
                 else:
-                    # Sum of the two options: not selecting and selecting coin i
+                    # Add the numbers of ways without and with coin i
                     dp[a] = dp[a] + dp[a - coins[i - 1]]
         return dp[amt]
     ```
@@ -1998,20 +2023,20 @@ The space optimization is handled in the same way, just delete the coin dimensio
 === "C++"
 
     ```cpp title="coin_change_ii.cpp"
-    /* Coin change II: Space-optimized dynamic programming */
+    /* Coin change II: space-optimized dynamic programming */
     int coinChangeIIDPComp(vector<int> &coins, int amt) {
         int n = coins.size();
-        // Initialize dp table
+        // Initialize the dp table
         vector<int> dp(amt + 1, 0);
         dp[0] = 1;
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[a] = dp[a];
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[a] = dp[a] + dp[a - coins[i - 1]];
                 }
             }
@@ -2023,20 +2048,20 @@ The space optimization is handled in the same way, just delete the coin dimensio
 === "Java"
 
     ```java title="coin_change_ii.java"
-    /* Coin change II: Space-optimized dynamic programming */
+    /* Coin change II: space-optimized dynamic programming */
     int coinChangeIIDPComp(int[] coins, int amt) {
         int n = coins.length;
-        // Initialize dp table
+        // Initialize the dp table
         int[] dp = new int[amt + 1];
         dp[0] = 1;
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[a] = dp[a];
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[a] = dp[a] + dp[a - coins[i - 1]];
                 }
             }
@@ -2048,20 +2073,20 @@ The space optimization is handled in the same way, just delete the coin dimensio
 === "C#"
 
     ```csharp title="coin_change_ii.cs"
-    /* Coin change II: Space-optimized dynamic programming */
+    /* Coin change II: space-optimized dynamic programming */
     int CoinChangeIIDPComp(int[] coins, int amt) {
         int n = coins.Length;
-        // Initialize dp table
+        // Initialize the dp table
         int[] dp = new int[amt + 1];
         dp[0] = 1;
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[a] = dp[a];
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[a] = dp[a] + dp[a - coins[i - 1]];
                 }
             }
@@ -2073,21 +2098,21 @@ The space optimization is handled in the same way, just delete the coin dimensio
 === "Go"
 
     ```go title="coin_change_ii.go"
-    /* Coin change II: Space-optimized dynamic programming */
+    /* Coin change II: space-optimized dynamic programming */
     func coinChangeIIDPComp(coins []int, amt int) int {
         n := len(coins)
-        // Initialize dp table
+        // Initialize the dp table
         dp := make([]int, amt+1)
         dp[0] = 1
-        // State transition
+        // State transitions
         for i := 1; i <= n; i++ {
-            // Traverse in forward order
+            // Traverse in increasing order
             for a := 1; a <= amt; a++ {
                 if coins[i-1] > a {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the current target amount a, do not choose coin i
                     dp[a] = dp[a]
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[a] = dp[a] + dp[a-coins[i-1]]
                 }
             }
@@ -2099,20 +2124,20 @@ The space optimization is handled in the same way, just delete the coin dimensio
 === "Swift"
 
     ```swift title="coin_change_ii.swift"
-    /* Coin change II: Space-optimized dynamic programming */
+    /* Coin change II: space-optimized dynamic programming */
     func coinChangeIIDPComp(coins: [Int], amt: Int) -> Int {
         let n = coins.count
-        // Initialize dp table
+        // Initialize the dp table
         var dp = Array(repeating: 0, count: amt + 1)
         dp[0] = 1
-        // State transition
+        // State transitions
         for i in 1 ... n {
             for a in 1 ... amt {
                 if coins[i - 1] > a {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the current target amount a, do not choose coin i
                     dp[a] = dp[a]
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[a] = dp[a] + dp[a - coins[i - 1]]
                 }
             }
@@ -2124,20 +2149,20 @@ The space optimization is handled in the same way, just delete the coin dimensio
 === "JS"
 
     ```javascript title="coin_change_ii.js"
-    /* Coin change II: Space-optimized dynamic programming */
+    /* Coin change II: space-optimized dynamic programming */
     function coinChangeIIDPComp(coins, amt) {
         const n = coins.length;
-        // Initialize dp table
+        // Initialize the dp table
         const dp = Array.from({ length: amt + 1 }, () => 0);
         dp[0] = 1;
-        // State transition
+        // State transitions
         for (let i = 1; i <= n; i++) {
             for (let a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[a] = dp[a];
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[a] = dp[a] + dp[a - coins[i - 1]];
                 }
             }
@@ -2149,20 +2174,20 @@ The space optimization is handled in the same way, just delete the coin dimensio
 === "TS"
 
     ```typescript title="coin_change_ii.ts"
-    /* Coin change II: Space-optimized dynamic programming */
+    /* Coin change II: space-optimized dynamic programming */
     function coinChangeIIDPComp(coins: Array<number>, amt: number): number {
         const n = coins.length;
-        // Initialize dp table
+        // Initialize the dp table
         const dp = Array.from({ length: amt + 1 }, () => 0);
         dp[0] = 1;
-        // State transition
+        // State transitions
         for (let i = 1; i <= n; i++) {
             for (let a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[a] = dp[a];
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[a] = dp[a] + dp[a - coins[i - 1]];
                 }
             }
@@ -2174,20 +2199,20 @@ The space optimization is handled in the same way, just delete the coin dimensio
 === "Dart"
 
     ```dart title="coin_change_ii.dart"
-    /* Coin change II: Space-optimized dynamic programming */
+    /* Coin change II: space-optimized dynamic programming */
     int coinChangeIIDPComp(List<int> coins, int amt) {
       int n = coins.length;
-      // Initialize dp table
+      // Initialize the dp table
       List<int> dp = List.filled(amt + 1, 0);
       dp[0] = 1;
-      // State transition
+      // State transitions
       for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
           if (coins[i - 1] > a) {
-            // If exceeds target amount, don't select coin i
+            // If the coin exceeds the current amount a, do not choose coin i
             dp[a] = dp[a];
           } else {
-            // Sum of the two options: not selecting and selecting coin i
+            // Add the numbers of ways without and with coin i
             dp[a] = dp[a] + dp[a - coins[i - 1]];
           }
         }
@@ -2199,20 +2224,20 @@ The space optimization is handled in the same way, just delete the coin dimensio
 === "Rust"
 
     ```rust title="coin_change_ii.rs"
-    /* Coin change II: Space-optimized dynamic programming */
+    /* Coin change II: space-optimized dynamic programming */
     fn coin_change_ii_dp_comp(coins: &[i32], amt: usize) -> i32 {
         let n = coins.len();
-        // Initialize dp table
+        // Initialize the dp table
         let mut dp = vec![0; amt + 1];
         dp[0] = 1;
-        // State transition
+        // State transitions
         for i in 1..=n {
             for a in 1..=amt {
                 if coins[i - 1] > a as i32 {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[a] = dp[a];
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[a] = dp[a] + dp[a - coins[i - 1] as usize];
                 }
             }
@@ -2224,20 +2249,20 @@ The space optimization is handled in the same way, just delete the coin dimensio
 === "C"
 
     ```c title="coin_change_ii.c"
-    /* Coin change II: Space-optimized dynamic programming */
+    /* Coin change II: space-optimized dynamic programming */
     int coinChangeIIDPComp(int coins[], int amt, int coinsSize) {
         int n = coinsSize;
-        // Initialize dp table
+        // Initialize the dp table
         int *dp = calloc(amt + 1, sizeof(int));
         dp[0] = 1;
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[a] = dp[a];
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[a] = dp[a] + dp[a - coins[i - 1]];
                 }
             }
@@ -2252,20 +2277,20 @@ The space optimization is handled in the same way, just delete the coin dimensio
 === "Kotlin"
 
     ```kotlin title="coin_change_ii.kt"
-    /* Coin change II: Space-optimized dynamic programming */
+    /* Coin change II: space-optimized dynamic programming */
     fun coinChangeIIDPComp(coins: IntArray, amt: Int): Int {
         val n = coins.size
-        // Initialize dp table
+        // Initialize the dp table
         val dp = IntArray(amt + 1)
         dp[0] = 1
-        // State transition
+        // State transitions
         for (i in 1..n) {
             for (a in 1..amt) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin value exceeds the current amount a, do not choose coin i
                     dp[a] = dp[a]
                 } else {
-                    // Sum of the two options: not selecting and selecting coin i
+                    // Add the numbers of ways without and with coin i
                     dp[a] = dp[a] + dp[a - coins[i - 1]]
                 }
             }
@@ -2277,21 +2302,21 @@ The space optimization is handled in the same way, just delete the coin dimensio
 === "Ruby"
 
     ```ruby title="coin_change_ii.rb"
-    ### Coin change II: space-optimized DP ###
+    ### Coin change II: space-optimized dynamic programming ###
     def coin_change_ii_dp_comp(coins, amt)
       n = coins.length
-      # Initialize dp table
+      # Initialize the dp table
       dp = Array.new(amt + 1, 0)
       dp[0] = 1
-      # State transition
+      # State transitions
       for i in 1...(n + 1)
-        # Traverse in forward order
+        # Traverse in increasing order
         for a in 1...(amt + 1)
           if coins[i - 1] > a
-            # If exceeds target amount, don't select coin i
+            # If the coin exceeds the current amount a, do not choose coin i
             dp[a] = dp[a]
           else
-            # Sum of the two options: not selecting and selecting coin i
+            # Add the numbers of ways without and with coin i
             dp[a] = dp[a] + dp[a - coins[i - 1]]
           end
         end
@@ -2299,3 +2324,8 @@ The space optimization is handled in the same way, just delete the coin dimensio
       dp[amt]
     end
     ```
+
+??? pythontutor "Visualize execution"
+
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20coin_change_ii_dp_comp%28coins%3A%20list%5Bint%5D,%20amt%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Coin%20change%20II%3A%20space-optimized%20dynamic%20programming%22%22%22%0A%20%20%20%20n%20%3D%20len%28coins%29%0A%20%20%20%20%23%20Initialize%20the%20dp%20table%0A%20%20%20%20dp%20%3D%20%5B0%5D%20%2A%20%28amt%20%2B%201%29%0A%20%20%20%20dp%5B0%5D%20%3D%201%0A%20%20%20%20%23%20State%20transitions%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20Traverse%20in%20increasing%20order%0A%20%20%20%20%20%20%20%20for%20a%20in%20range%281,%20amt%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20coins%5Bi%20-%201%5D%20%3E%20a%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20If%20the%20coin%20value%20exceeds%20the%20current%20amount%20a,%20do%20not%20choose%20coin%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Ba%5D%20%3D%20dp%5Ba%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Add%20the%20numbers%20of%20ways%20without%20and%20with%20coin%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Ba%5D%20%3D%20dp%5Ba%5D%20%2B%20dp%5Ba%20-%20coins%5Bi%20-%201%5D%5D%0A%20%20%20%20return%20dp%5Bamt%5D%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20coins%20%3D%20%5B1,%202,%205%5D%0A%20%20%20%20amt%20%3D%205%0A%0A%20%20%20%20%23%20Space-optimized%20dynamic%20programming%0A%20%20%20%20res%20%3D%20coin_change_ii_dp_comp%28coins,%20amt%29%0A%20%20%20%20print%28f%22Number%20of%20coin%20combinations%20that%20make%20the%20target%20amount%3A%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20coin_change_ii_dp_comp%28coins%3A%20list%5Bint%5D,%20amt%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Coin%20change%20II%3A%20space-optimized%20dynamic%20programming%22%22%22%0A%20%20%20%20n%20%3D%20len%28coins%29%0A%20%20%20%20%23%20Initialize%20the%20dp%20table%0A%20%20%20%20dp%20%3D%20%5B0%5D%20%2A%20%28amt%20%2B%201%29%0A%20%20%20%20dp%5B0%5D%20%3D%201%0A%20%20%20%20%23%20State%20transitions%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20Traverse%20in%20increasing%20order%0A%20%20%20%20%20%20%20%20for%20a%20in%20range%281,%20amt%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20coins%5Bi%20-%201%5D%20%3E%20a%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20If%20the%20coin%20value%20exceeds%20the%20current%20amount%20a,%20do%20not%20choose%20coin%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Ba%5D%20%3D%20dp%5Ba%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Add%20the%20numbers%20of%20ways%20without%20and%20with%20coin%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Ba%5D%20%3D%20dp%5Ba%5D%20%2B%20dp%5Ba%20-%20coins%5Bi%20-%201%5D%5D%0A%20%20%20%20return%20dp%5Bamt%5D%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20coins%20%3D%20%5B1,%202,%205%5D%0A%20%20%20%20amt%20%3D%205%0A%0A%20%20%20%20%23%20Space-optimized%20dynamic%20programming%0A%20%20%20%20res%20%3D%20coin_change_ii_dp_comp%28coins,%20amt%29%0A%20%20%20%20print%28f%22Number%20of%20coin%20combinations%20that%20make%20the%20target%20amount%3A%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>

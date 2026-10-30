@@ -4,25 +4,25 @@ comments: true
 
 # 2.6 &nbsp; Exercises
 
-## 2.6.1 &nbsp; Concept Review
+## 2.6.1 &nbsp; Check your understanding
 
-### 1. &nbsp; Time and Space Complexity of Iteration and Recursion
+### 1. &nbsp; Time and space in iteration and recursion
 
-The two functions below both calculate $1 + 2 + \dots + n$ (assume $n \ge 1$). Set `n` to 4,
-answer the questions by following the program's actual execution order, and then compare the efficiency of the two approaches.
+Both functions below compute $1 + 2 + \dots + n$ (assume $n \ge 1$). Set `n` to 4,
+follow the program's execution order to answer the questions, and then compare the efficiency of the two approaches.
 
 === "Python"
 
     ```python title="complexity_exercises.py"
     def sum_iter(n: int) -> int:
-        """Iterative summation"""
+        """Sum using iteration"""
         res = 0
         for i in range(1, n + 1):
             res += i
         return res
 
     def sum_recur(n: int) -> int:
-        """Recursive summation"""
+        """Sum using recursion"""
         if n == 1:
             return 1
         return n + sum_recur(n - 1)
@@ -31,7 +31,7 @@ answer the questions by following the program's actual execution order, and then
 === "C++"
 
     ```cpp title="complexity_exercises.cpp"
-    /* Iterative summation */
+    /* Sum using iteration */
     int sumIter(int n) {
         int res = 0;
         for (int i = 1; i <= n; ++i) {
@@ -40,7 +40,7 @@ answer the questions by following the program's actual execution order, and then
         return res;
     }
 
-    /* Recursive summation */
+    /* Sum using recursion */
     int sumRecur(int n) {
         if (n == 1) {
             return 1;
@@ -52,7 +52,7 @@ answer the questions by following the program's actual execution order, and then
 === "Java"
 
     ```java title="complexity_exercises.java"
-    /* Iterative summation */
+    /* Sum using iteration */
     int sumIter(int n) {
         int res = 0;
         for (int i = 1; i <= n; i++) {
@@ -61,7 +61,7 @@ answer the questions by following the program's actual execution order, and then
         return res;
     }
 
-    /* Recursive summation */
+    /* Sum using recursion */
     int sumRecur(int n) {
         if (n == 1) {
             return 1;
@@ -73,7 +73,7 @@ answer the questions by following the program's actual execution order, and then
 === "C#"
 
     ```csharp title="complexity_exercises.cs"
-    /* Iterative summation */
+    /* Sum using iteration */
     int SumIter(int n) {
         int res = 0;
         for (int i = 1; i <= n; i++) {
@@ -82,7 +82,7 @@ answer the questions by following the program's actual execution order, and then
         return res;
     }
 
-    /* Recursive summation */
+    /* Sum using recursion */
     int SumRecur(int n) {
         if (n == 1) {
             return 1;
@@ -94,7 +94,7 @@ answer the questions by following the program's actual execution order, and then
 === "Go"
 
     ```go title="complexity_exercises.go"
-    /* Iterative summation */
+    /* Sum using iteration */
     func sumIter(n int) int {
         res := 0
         for i := 1; i <= n; i++ {
@@ -103,7 +103,7 @@ answer the questions by following the program's actual execution order, and then
         return res
     }
 
-    /* Recursive summation */
+    /* Sum using recursion */
     func sumRecur(n int) int {
         if n == 1 {
             return 1
@@ -115,7 +115,7 @@ answer the questions by following the program's actual execution order, and then
 === "Swift"
 
     ```swift title="complexity_exercises.swift"
-    /* Iterative summation */
+    /* Sum using iteration */
     func sumIter(n: Int) -> Int {
         var res = 0
         for i in 1 ... n {
@@ -124,7 +124,7 @@ answer the questions by following the program's actual execution order, and then
         return res
     }
 
-    /* Recursive summation */
+    /* Sum using recursion */
     func sumRecur(n: Int) -> Int {
         if n == 1 {
             return 1
@@ -136,7 +136,7 @@ answer the questions by following the program's actual execution order, and then
 === "JS"
 
     ```javascript title="complexity_exercises.js"
-    /* Iterative summation */
+    /* Sum using iteration */
     function sumIter(n) {
         let res = 0;
         for (let i = 1; i <= n; i++) {
@@ -145,7 +145,7 @@ answer the questions by following the program's actual execution order, and then
         return res;
     }
 
-    /* Recursive summation */
+    /* Sum using recursion */
     function sumRecur(n) {
         if (n === 1) {
             return 1;
@@ -157,7 +157,7 @@ answer the questions by following the program's actual execution order, and then
 === "TS"
 
     ```typescript title="complexity_exercises.ts"
-    /* Iterative summation */
+    /* Sum using iteration */
     function sumIter(n: number): number {
         let res = 0;
         for (let i = 1; i <= n; i++) {
@@ -166,7 +166,7 @@ answer the questions by following the program's actual execution order, and then
         return res;
     }
 
-    /* Recursive summation */
+    /* Sum using recursion */
     function sumRecur(n: number): number {
         if (n === 1) {
             return 1;
@@ -178,7 +178,7 @@ answer the questions by following the program's actual execution order, and then
 === "Dart"
 
     ```dart title="complexity_exercises.dart"
-    /* Iterative summation */
+    /* Sum using iteration */
     int sumIter(int n) {
       int res = 0;
       for (int i = 1; i <= n; i++) {
@@ -187,7 +187,7 @@ answer the questions by following the program's actual execution order, and then
       return res;
     }
 
-    /* Recursive summation */
+    /* Sum using recursion */
     int sumRecur(int n) {
       if (n == 1) {
         return 1;
@@ -199,7 +199,7 @@ answer the questions by following the program's actual execution order, and then
 === "Rust"
 
     ```rust title="complexity_exercises.rs"
-    /* Iterative summation */
+    /* Sum using iteration */
     fn sum_iter(n: i32) -> i32 {
         let mut res = 0;
         for i in 1..=n {
@@ -208,7 +208,7 @@ answer the questions by following the program's actual execution order, and then
         res
     }
 
-    /* Recursive summation */
+    /* Sum using recursion */
     fn sum_recur(n: i32) -> i32 {
         if n == 1 {
             return 1;
@@ -220,7 +220,7 @@ answer the questions by following the program's actual execution order, and then
 === "C"
 
     ```c title="complexity_exercises.c"
-    /* Iterative summation */
+    /* Sum using iteration */
     int sumIter(int n) {
         int res = 0;
         for (int i = 1; i <= n; i++) {
@@ -229,7 +229,7 @@ answer the questions by following the program's actual execution order, and then
         return res;
     }
 
-    /* Recursive summation */
+    /* Sum using recursion */
     int sumRecur(int n) {
         if (n == 1) {
             return 1;
@@ -241,7 +241,7 @@ answer the questions by following the program's actual execution order, and then
 === "Kotlin"
 
     ```kotlin title="complexity_exercises.kt"
-    /* Iterative summation */
+    /* Sum using iteration */
     fun sumIter(n: Int): Int {
         var res = 0
         for (i in 1..n) {
@@ -250,7 +250,7 @@ answer the questions by following the program's actual execution order, and then
         return res
     }
 
-    /* Recursive summation */
+    /* Sum using recursion */
     fun sumRecur(n: Int): Int {
         if (n == 1) {
             return 1
@@ -262,7 +262,7 @@ answer the questions by following the program's actual execution order, and then
 === "Ruby"
 
     ```ruby title="complexity_exercises.rb"
-    ### Iterative summation ###
+    ### Sum using iteration ###
     def sum_iter(n)
       res = 0
       for i in 1..n
@@ -271,7 +271,7 @@ answer the questions by following the program's actual execution order, and then
       res
     end
 
-    ### Recursive summation ###
+    ### Sum using recursion ###
     def sum_recur(n)
       return 1 if n == 1
 
@@ -281,42 +281,42 @@ answer the questions by following the program's actual execution order, and then
 
 <!-- numbered-subquestions -->
 
-1. When the iterative function runs with `n = 4`, what is the value of the accumulator `res` after each loop iteration?
-2. When the recursive function runs with `n = 4`, which values does the argument `n` take in order? As the calls return from the deepest level, how is the result obtained?
-3. What are the time and space complexities of the two approaches? Explain your reasoning using the execution processes from Questions 1 and 2.
+1. When the iterative function runs with `n = 4`, what is the value of the accumulator `res` at the end of each iteration?
+2. When the recursive function runs with `n = 4`, what values does the parameter `n` take, in order? How is the result computed as the calls return, starting from the deepest call?
+3. What are the time and space complexities of each approach? Explain using the execution steps from questions 1 and 2.
 
-??? success "Answer"
+??? success "Reference answer"
 
-    1. The loop variable `i` takes the values `1, 2, 3, 4`. After each iteration, `res` becomes
+    1. The loop variable `i` takes the values `1, 2, 3, 4` in order. At the end of each iteration, `res` becomes
         `1, 3, 6, 10`, respectively, so the iterative function returns 10.
 
-    2. The argument `n` takes the values `4 → 3 → 2 → 1`.
-        The deepest call returns 1. The remaining calls then obtain `2 + 1 = 3`, `3 + 3 = 6`, and `4 + 6 = 10`, in that order.
-        At the deepest point, all four function calls are still unfinished.
+    2. The parameter `n` follows the sequence `4 → 3 → 2 → 1`.
+        The deepest call returns 1. The remaining calls then compute `2 + 1 = 3`, `3 + 3 = 6`, and `4 + 6 = 10`, in order.
+        At the deepest point, all four function calls are still active.
 
-    3. Both functions perform a number of loop iterations or calls proportional to $n$, so both have a time complexity of $O(n)$.
-        Their space complexities differ. The iterative version uses only a constant number of variables, so its space complexity is $O(1)$.
-        In the recursive version, earlier calls must wait for a result before returning, so the call stack holds up to $n$ calls at the same time.
-        Its space complexity is $O(n)$.
+    3. Both functions perform a number of iterations or calls proportional to $n$, so both have time complexity $O(n)$.
+        Their space complexities differ: the iterative version uses only a constant number of variables, giving $O(1)$.
+        In the recursive version, earlier calls must wait for their results until the base case is reached. The call stack therefore holds up to $n$ calls at once,
+        giving space complexity $O(n)$.
 
-        When analyzing space complexity, remember to include the space used by recursive calls as well as the variables written in the code.
+        When analyzing space complexity, consider the space used by recursive calls as well as the variables in the code.
 
-### 2. &nbsp; Time Complexity of Three Code Fragments
+### 2. &nbsp; Time complexity of three code snippets
 
-Each of the following code fragments takes a positive integer $n$ as input. Order them from lowest to highest time complexity, and give the complexity of each one.
+Each of the following three code snippets takes a positive integer $n$ as input. Rank them from lowest to highest time complexity, and state each complexity.
 
 === "Python"
 
     ```python title="complexity_exercises.py"
     def linear_loop(n: int) -> int:
-        """Linear loop"""
+        """Linear-time loop"""
         res = 0
         for i in range(n):
             res += i
         return res
 
     def quadratic_loop(n: int) -> int:
-        """Quadratic loop"""
+        """Quadratic-time loop"""
         res = 0
         for i in range(n):
             for j in range(i, n):
@@ -324,7 +324,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res
 
     def logarithmic_loop(n: int) -> int:
-        """Logarithmic loop"""
+        """Logarithmic-time loop"""
         while n > 1:
             n //= 2
         return n
@@ -333,7 +333,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
 === "C++"
 
     ```cpp title="complexity_exercises.cpp"
-    /* Linear loop */
+    /* Linear-time loop */
     int linearLoop(int n) {
         int res = 0;
         for (int i = 0; i < n; ++i) {
@@ -342,7 +342,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res;
     }
 
-    /* Quadratic loop */
+    /* Quadratic-time loop */
     int quadraticLoop(int n) {
         int res = 0;
         for (int i = 0; i < n; ++i) {
@@ -353,7 +353,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res;
     }
 
-    /* Logarithmic loop */
+    /* Logarithmic-time loop */
     int logarithmicLoop(int n) {
         while (n > 1) {
             n /= 2;
@@ -365,7 +365,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
 === "Java"
 
     ```java title="complexity_exercises.java"
-    /* Linear loop */
+    /* Linear-time loop */
     int linearLoop(int n) {
         int res = 0;
         for (int i = 0; i < n; i++) {
@@ -374,7 +374,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res;
     }
 
-    /* Quadratic loop */
+    /* Quadratic-time loop */
     int quadraticLoop(int n) {
         int res = 0;
         for (int i = 0; i < n; i++) {
@@ -385,7 +385,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res;
     }
 
-    /* Logarithmic loop */
+    /* Logarithmic-time loop */
     int logarithmicLoop(int n) {
         while (n > 1) {
             n /= 2;
@@ -397,7 +397,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
 === "C#"
 
     ```csharp title="complexity_exercises.cs"
-    /* Linear loop */
+    /* Linear-time loop */
     int LinearLoop(int n) {
         int res = 0;
         for (int i = 0; i < n; i++) {
@@ -406,7 +406,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res;
     }
 
-    /* Quadratic loop */
+    /* Quadratic-time loop */
     int QuadraticLoop(int n) {
         int res = 0;
         for (int i = 0; i < n; i++) {
@@ -417,7 +417,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res;
     }
 
-    /* Logarithmic loop */
+    /* Logarithmic-time loop */
     int LogarithmicLoop(int n) {
         while (n > 1) {
             n /= 2;
@@ -429,7 +429,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
 === "Go"
 
     ```go title="complexity_exercises.go"
-    /* Linear loop */
+    /* Linear-time loop */
     func linearLoop(n int) int {
         res := 0
         for i := 0; i < n; i++ {
@@ -438,7 +438,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res
     }
 
-    /* Quadratic loop */
+    /* Quadratic-time loop */
     func quadraticLoop(n int) int {
         res := 0
         for i := 0; i < n; i++ {
@@ -449,7 +449,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res
     }
 
-    /* Logarithmic loop */
+    /* Logarithmic-time loop */
     func logarithmicLoop(n int) int {
         for n > 1 {
             n /= 2
@@ -461,7 +461,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
 === "Swift"
 
     ```swift title="complexity_exercises.swift"
-    /* Linear loop */
+    /* Linear-time loop */
     func linearLoop(n: Int) -> Int {
         var res = 0
         for i in 0 ..< n {
@@ -470,7 +470,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res
     }
 
-    /* Quadratic loop */
+    /* Quadratic-time loop */
     func quadraticLoop(n: Int) -> Int {
         var res = 0
         for i in 0 ..< n {
@@ -481,7 +481,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res
     }
 
-    /* Logarithmic loop */
+    /* Logarithmic-time loop */
     func logarithmicLoop(n: Int) -> Int {
         var n = n
         while n > 1 {
@@ -494,7 +494,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
 === "JS"
 
     ```javascript title="complexity_exercises.js"
-    /* Linear loop */
+    /* Linear-time loop */
     function linearLoop(n) {
         let res = 0;
         for (let i = 0; i < n; i++) {
@@ -503,7 +503,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res;
     }
 
-    /* Quadratic loop */
+    /* Quadratic-time loop */
     function quadraticLoop(n) {
         let res = 0;
         for (let i = 0; i < n; i++) {
@@ -514,7 +514,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res;
     }
 
-    /* Logarithmic loop */
+    /* Logarithmic-time loop */
     function logarithmicLoop(n) {
         while (n > 1) {
             n = Math.floor(n / 2);
@@ -526,7 +526,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
 === "TS"
 
     ```typescript title="complexity_exercises.ts"
-    /* Linear loop */
+    /* Linear-time loop */
     function linearLoop(n: number): number {
         let res = 0;
         for (let i = 0; i < n; i++) {
@@ -535,7 +535,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res;
     }
 
-    /* Quadratic loop */
+    /* Quadratic-time loop */
     function quadraticLoop(n: number): number {
         let res = 0;
         for (let i = 0; i < n; i++) {
@@ -546,7 +546,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res;
     }
 
-    /* Logarithmic loop */
+    /* Logarithmic-time loop */
     function logarithmicLoop(n: number): number {
         while (n > 1) {
             n = Math.floor(n / 2);
@@ -558,7 +558,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
 === "Dart"
 
     ```dart title="complexity_exercises.dart"
-    /* Linear loop */
+    /* Linear-time loop */
     int linearLoop(int n) {
       int res = 0;
       for (int i = 0; i < n; i++) {
@@ -567,7 +567,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
       return res;
     }
 
-    /* Quadratic loop */
+    /* Quadratic-time loop */
     int quadraticLoop(int n) {
       int res = 0;
       for (int i = 0; i < n; i++) {
@@ -578,7 +578,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
       return res;
     }
 
-    /* Logarithmic loop */
+    /* Logarithmic-time loop */
     int logarithmicLoop(int n) {
       while (n > 1) {
         n ~/= 2;
@@ -590,7 +590,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
 === "Rust"
 
     ```rust title="complexity_exercises.rs"
-    /* Linear loop */
+    /* Linear-time loop */
     fn linear_loop(n: i32) -> i32 {
         let mut res = 0;
         for i in 0..n {
@@ -599,7 +599,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         res
     }
 
-    /* Quadratic loop */
+    /* Quadratic-time loop */
     fn quadratic_loop(n: i32) -> i32 {
         let mut res = 0;
         for i in 0..n {
@@ -610,7 +610,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         res
     }
 
-    /* Logarithmic loop */
+    /* Logarithmic-time loop */
     fn logarithmic_loop(mut n: i32) -> i32 {
         while n > 1 {
             n /= 2;
@@ -622,7 +622,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
 === "C"
 
     ```c title="complexity_exercises.c"
-    /* Linear loop */
+    /* Linear-time loop */
     int linearLoop(int n) {
         int res = 0;
         for (int i = 0; i < n; i++) {
@@ -631,7 +631,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res;
     }
 
-    /* Quadratic loop */
+    /* Quadratic-time loop */
     int quadraticLoop(int n) {
         int res = 0;
         for (int i = 0; i < n; i++) {
@@ -642,7 +642,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res;
     }
 
-    /* Logarithmic loop */
+    /* Logarithmic-time loop */
     int logarithmicLoop(int n) {
         while (n > 1) {
             n /= 2;
@@ -654,7 +654,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
 === "Kotlin"
 
     ```kotlin title="complexity_exercises.kt"
-    /* Linear loop */
+    /* Linear-time loop */
     fun linearLoop(n: Int): Int {
         var res = 0
         for (i in 0 until n) {
@@ -663,7 +663,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res
     }
 
-    /* Quadratic loop */
+    /* Quadratic-time loop */
     fun quadraticLoop(n: Int): Int {
         var res = 0
         for (i in 0 until n) {
@@ -674,7 +674,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
         return res
     }
 
-    /* Logarithmic loop */
+    /* Logarithmic-time loop */
     fun logarithmicLoop(n: Int): Int {
         var value = n
         while (value > 1) {
@@ -687,7 +687,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
 === "Ruby"
 
     ```ruby title="complexity_exercises.rb"
-    ### Linear loop ###
+    ### Linear-time loop ###
     def linear_loop(n)
       res = 0
       for i in 0...n
@@ -696,7 +696,7 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
       res
     end
 
-    ### Quadratic loop ###
+    ### Quadratic-time loop ###
     def quadratic_loop(n)
       res = 0
       for i in 0...n
@@ -707,54 +707,54 @@ Each of the following code fragments takes a positive integer $n$ as input. Orde
       res
     end
 
-    ### Logarithmic loop ###
+    ### Logarithmic-time loop ###
     def logarithmic_loop(n)
       n /= 2 while n > 1
       n
     end
     ```
 
-??? success "Answer"
+??? success "Reference answer"
 
-    From lowest to highest, the order is Fragment 3 with $O(\log n)$, Fragment 1 with $O(n)$, and Fragment 2 with $O(n^2)$.
-    Fragment 3 halves $n$ in each iteration, so it runs about $\log_2 n$ times.
-    The loop in Fragment 1 runs exactly $n$ times. The inner loop in Fragment 2 runs
-    $n,n-1,\dots,1$ times, for a total of $n(n+1)/2$, so its time complexity is quadratic.
+    From lowest to highest: snippet 3, $O(\log n)$; snippet 1, $O(n)$; snippet 2, $O(n^2)$.
+    Snippet 3 halves $n$ at each iteration, so it runs approximately $\log_2 n$ times.
+    Snippet 1 runs its loop exactly $n$ times. In snippet 2, the inner loop runs
+    $n,n-1,\dots,1$ times in successive iterations, for a total of $n(n+1)/2$, giving quadratic time complexity.
 
-### 3. &nbsp; Which Reversal Uses Less Space?
+### 3. &nbsp; Which reversal method uses less space?
 
-There are two ways to reverse all the elements in the array `nums`:
+There are two ways to reverse all the elements in an array `nums`:
 
 <!-- numbered-subquestions -->
 
-1. Create a new array `res` of the same length, copy the elements into it in reverse order, and return it.
-2. Move two indices `i` and `j` inward from the beginning and end, swapping `nums[i]` and `nums[j]` at each step.
+1. Create an array `res` of the same length, copy the elements into it in reverse order, and return it.
+2. Move two indices, `i` and `j`, inward from the beginning and end, swapping `nums[i]` with `nums[j]` in pairs.
 
-    What is the space complexity of each approach? Which one is an "in-place" operation?
+    What is the space complexity of each approach? Which operation is in-place?
 
-??? success "Answer"
+??? success "Reference answer"
 
-    1. This approach needs an auxiliary array with the same length as the input, so its space complexity is $O(n)$.
+    1. An auxiliary array as long as the input is needed, giving space complexity $O(n)$.
 
-    2. This approach uses only two index variables,
-        so its space complexity is $O(1)$. It is an in-place operation.
+    2. Only two index variables are used,
+        giving space complexity $O(1)$. This is an in-place operation.
 
-        Note that an in-place reversal changes the input array,
-        so it should be preferred only when modifying the input is allowed. If the original array must be kept, the copying cost of the first approach is unavoidable.
+        Keep in mind that in-place reversal modifies the input array.
+        Prefer it only when modifying the input is allowed. If the original array must be preserved, the copying cost of approach 1 is unavoidable.
 
-## 2.6.2 &nbsp; Programming Exercises
+## 2.6.2 &nbsp; Programming exercises
 
-### 1. &nbsp; Fibonacci Number
+### 1. &nbsp; Fibonacci number
 
-The Fibonacci sequence is defined by $F(0)=0$, $F(1)=1$, and, for $n\ge2$,
+The Fibonacci sequence satisfies $F(0)=0$, $F(1)=1$, and, for $n\ge2$,
 $F(n)=F(n-1)+F(n-2)$.
 
-Given a non-negative integer `n`, use a loop to calculate and return $F(n)$. Do not use recursion.
+Given a nonnegative integer `n`, use a loop to compute and return $F(n)$ without recursion.
 
 ??? tip "Hints"
 
-    1. Handle the cases where n is 0 or 1 separately
-    2. Only the previous two terms are needed to calculate the next term; there is no need to store the entire sequence
-    3. When updating the two variables, take care not to overwrite an old value before it is used
+    1. Handle n equal to 0 or 1 separately first.
+    2. Computing the next term requires only the previous two terms; there is no need to store the entire sequence.
+    3. When updating the two variables, take care not to overwrite an old value before you have finished using it.
 
 [LeetCode](https://leetcode.com/problems/fibonacci-number/){ .rounded-button .exercise-button target="_blank" rel="noopener noreferrer" }
