@@ -4,19 +4,19 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* Stack based on array implementation */
+/* Stack implemented with an array */
 class ArrayStack {
   late List<int> _stack;
   ArrayStack() {
     _stack = [];
   }
 
-  /* Get the length of the stack */
+  /* Get the stack size */
   int size() {
     return _stack.length;
   }
 
-  /* Check if the stack is empty */
+  /* Check whether the stack is empty */
   bool isEmpty() {
     return _stack.isEmpty;
   }
@@ -34,7 +34,7 @@ class ArrayStack {
     return _stack.removeLast();
   }
 
-  /* Return list for printing */
+  /* Access the top element */
   int peek() {
     if (isEmpty()) {
       throw Exception("Stack is empty");
@@ -42,16 +42,16 @@ class ArrayStack {
     return _stack.last;
   }
 
-  /* Convert stack to Array and return */
+  /* Return the underlying stack array */
   List<int> toArray() => _stack;
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
-  /* Access top of the stack element */
+  /* Initialize the stack */
   final ArrayStack stack = ArrayStack();
 
-  /* Elements push onto stack */
+  /* Push elements onto the stack */
   stack.push(1);
   stack.push(3);
   stack.push(2);
@@ -59,19 +59,19 @@ void main() {
   stack.push(4);
   print("Stack stack = ${stack.toArray()}");
 
-  /* Return list for printing */
+  /* Access the top element */
   final int peek = stack.peek();
   print("Top element peek = $peek");
 
-  /* Element pop from stack */
+  /* Pop an element from the stack */
   final int pop = stack.pop();
-  print("Pop element pop = $pop, after pop stack = ${stack.toArray()}");
+  print("Popped element pop = $pop; after popping, stack = ${stack.toArray()}");
 
-  /* Get the length of the stack */
+  /* Get the stack size */
   final int size = stack.size();
-  print("Stack length size = $size");
+  print("Stack size = $size");
 
-  /* Check if empty */
+  /* Check whether it is empty */
   final bool isEmpty = stack.isEmpty();
-  print("Is stack empty = $isEmpty");
+  print("Is the stack empty = $isEmpty");
 }

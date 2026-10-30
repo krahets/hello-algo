@@ -4,13 +4,13 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  # Access front of the queue element
-  # Ruby's built-in queue (Thread::Queue) has no peek and traversal methods, can use Array as queue
+  # Initialize the queue
+  # The built-in Ruby queue (Thread::Queue) has no peek or traversal methods; use an Array as a queue
   queue = []
 
-  # Elements enqueue
+  # Enqueue elements
   queue.push(1)
   queue.push(3)
   queue.push(2)
@@ -18,21 +18,21 @@ if __FILE__ == $0
   queue.push(4)
   puts "Queue queue = #{queue}"
 
-  # Access queue elements
+  # Access a queue element
   peek = queue.first
   puts "Front element peek = #{peek}"
 
-  # Element dequeue
-  # Note: due to array, Array#shift method has O(n) time complexity
+  # Dequeue an element
+  # Front removal in a simple array takes O(n); Ruby implementations can optimize Array#shift
   pop = queue.shift
-  puts "Dequeue element pop = #{pop}"
-  puts "After dequeue, queue = #{queue}"
+  puts "Dequeued element pop = #{pop}"
+  puts "After dequeueing, queue = #{queue}"
 
-  # Get the length of the queue
+  # Get the queue size
   size = queue.length
-  puts "Queue length size = #{size}"
+  puts "Queue size = #{size}"
 
-  # Check if the queue is empty
+  # Check whether the queue is empty
   is_empty = queue.empty?
-  puts "Is queue empty = #{is_empty}"
+  puts "Is the queue empty? #{is_empty}"
 end

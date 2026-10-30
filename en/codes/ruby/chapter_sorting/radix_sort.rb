@@ -4,53 +4,53 @@ Created Time: 2024-05-03
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Get k-th digit of element num, where exp = 10^(k-1) ###
+### Get the k-th digit of num, where exp = 10^(k-1) ###
 def digit(num, exp)
-  # Passing exp instead of k avoids expensive exponentiation calculations
+  # Passing exp instead of k avoids repeatedly performing expensive exponentiation here
   (num / exp) % 10
 end
 
-### Counting sort (sort by k-th digit of nums) ###
+### Counting sort (sort nums by the k-th digit)###
 def counting_sort_digit(nums, exp)
-  # Decimal digit range is 0~9, therefore need a bucket array of length 10
+  # Decimal digits range from 0 to 9, so the bucket array needs length 10
   counter = Array.new(10, 0)
   n = nums.length
-  # Count the occurrence of digits 0~9
+  # Count the occurrences of each digit from 0 to 9
   for i in 0...n
-    d = digit(nums[i], exp) # Get the k-th digit of nums[i], noted as d
-    counter[d] += 1 # Count the occurrence of digit d
+    d = digit(nums[i], exp) # Get the k-th digit of nums[i] and store it in d
+    counter[d] += 1 # Count the occurrences of digit d
   end
-  # Calculate prefix sum, converting "occurrence count" into "array index"
+  # Compute prefix sums to convert occurrence counts into array positions
   (1...10).each { |i| counter[i] += counter[i - 1] }
-  # Traverse in reverse, based on bucket statistics, place each element into res
+  # Traverse in reverse and place each element into res according to the bucket counts
   res = Array.new(n, 0)
   for i in (n - 1).downto(0)
     d = digit(nums[i], exp)
-    j = counter[d] - 1 # Get the index j for d in the array
+    j = counter[d] - 1 # Get the destination index j for digit d in the array
     res[j] = nums[i] # Place the current element at index j
-    counter[d] -= 1 # Decrease the count of d by 1
+    counter[d] -= 1 # Decrease the count for d by 1
   end
-  # Use result to overwrite the original array nums
+  # Overwrite the original array nums with the result
   (0...n).each { |i| nums[i] = res[i] }
 end
 
 ### Radix sort ###
 def radix_sort(nums)
-  # Get the maximum element of the array, used to determine the maximum number of digits
+  # Get the largest array element to determine the maximum number of digits
   m = nums.max
-  # Traverse from the lowest to the highest digit
+  # Process digits from least significant to most significant
   exp = 1
   while exp <= m
-    # Perform counting sort on the k-th digit of array elements
+    # Apply counting sort to the k-th digit of the array elements
     # k = 1 -> exp = 1
     # k = 2 -> exp = 10
-    # i.e., exp = 10^(k-1)
+    # That is, exp = 10^(k-1)
     counting_sort_digit(nums, exp)
     exp *= 10
   end
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
   # Radix sort
   nums = [

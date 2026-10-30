@@ -4,19 +4,19 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* Max capacity: Greedy algorithm */
+/* Maximum container capacity: greedy algorithm */
 function maxCapacity(ht) {
-    // Initialize i, j to be at both ends of the array
+    // Initialize i and j at opposite ends of the array
     let i = 0,
         j = ht.length - 1;
-    // Initial max capacity is 0
+    // The initial maximum capacity is 0
     let res = 0;
-    // Loop for greedy selection until the two boards meet
+    // Repeatedly make greedy choices until the two sides meet
     while (i < j) {
-        // Update max capacity
+        // Update the maximum capacity
         const cap = Math.min(ht[i], ht[j]) * (j - i);
         res = Math.max(res, cap);
-        // Move the shorter board inward
+        // Move the shorter side inward
         if (ht[i] < ht[j]) {
             i += 1;
         } else {
@@ -26,9 +26,9 @@ function maxCapacity(ht) {
     return res;
 }
 
-/* Driver Code */
+/* Driver code */
 const ht = [3, 8, 5, 2, 7, 7, 3, 4];
 
 // Greedy algorithm
 const res = maxCapacity(ht);
-console.log(`Maximum capacity is ${res}`);
+console.log(`Maximum capacity: ${res}`);

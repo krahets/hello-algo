@@ -6,10 +6,10 @@
 
 const { ListNode } = require('../modules/ListNode');
 
-/* Queue based on linked list implementation */
+/* Queue implemented with a linked list */
 class LinkedListQueue {
-    #front; // Front node #front
-    #rear; // Rear node #rear
+    #front; // Head node #front
+    #rear; // Tail node #rear
     #queSize = 0;
 
     constructor() {
@@ -17,12 +17,12 @@ class LinkedListQueue {
         this.#rear = null;
     }
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     get size() {
         return this.#queSize;
     }
 
-    /* Check if the queue is empty */
+    /* Check whether the queue is empty */
     isEmpty() {
         return this.size === 0;
     }
@@ -31,11 +31,11 @@ class LinkedListQueue {
     push(num) {
         // Add num after the tail node
         const node = new ListNode(num);
-        // If the queue is empty, make both front and rear point to the node
+        // If the queue is empty, make both the head and tail point to this node
         if (!this.#front) {
             this.#front = node;
             this.#rear = node;
-            // If the queue is not empty, add the node after the tail node
+            // If the queue is not empty, add this node after the tail node
         } else {
             this.#rear.next = node;
             this.#rear = node;
@@ -46,19 +46,19 @@ class LinkedListQueue {
     /* Dequeue */
     pop() {
         const num = this.peek();
-        // Delete head node
+        // Remove the head node
         this.#front = this.#front.next;
         this.#queSize--;
         return num;
     }
 
-    /* Return list for printing */
+    /* Access the front element */
     peek() {
         if (this.size === 0) throw new Error('Queue is empty');
         return this.#front.val;
     }
 
-    /* Convert linked list to Array and return */
+    /* Convert the linked list to an Array and return it */
     toArray() {
         let node = this.#front;
         const res = new Array(this.size);
@@ -70,11 +70,11 @@ class LinkedListQueue {
     }
 }
 
-/* Driver Code */
-/* Access front of the queue element */
+/* Driver code */
+/* Initialize the queue */
 const queue = new LinkedListQueue();
 
-/* Elements enqueue */
+/* Enqueue elements */
 queue.push(1);
 queue.push(3);
 queue.push(2);
@@ -82,18 +82,18 @@ queue.push(5);
 queue.push(4);
 console.log('Queue queue = ' + queue.toArray());
 
-/* Return list for printing */
+/* Access the front element */
 const peek = queue.peek();
 console.log('Front element peek = ' + peek);
 
-/* Element dequeue */
+/* Dequeue an element */
 const pop = queue.pop();
-console.log('Dequeue element pop = ' + pop + ', after dequeue, queue = ' + queue.toArray());
+console.log('Dequeued element pop = ' + pop + '; after dequeuing, queue = ' + queue.toArray());
 
-/* Get the length of the queue */
+/* Get the queue size */
 const size = queue.size;
-console.log('Queue length size = ' + size);
+console.log('Queue size = ' + size);
 
-/* Check if the queue is empty */
+/* Check whether the queue is empty */
 const isEmpty = queue.isEmpty();
-console.log('Queue is empty = ' + isEmpty);
+console.log('Is the queue empty = ' + isEmpty);

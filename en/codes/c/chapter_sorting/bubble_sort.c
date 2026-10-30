@@ -8,9 +8,9 @@
 
 /* Bubble sort */
 void bubbleSort(int nums[], int size) {
-    // Outer loop: unsorted range is [0, i]
+    // Outer loop: the unsorted range is [0, i]
     for (int i = size - 1; i > 0; i--) {
-        // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+        // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
         for (int j = 0; j < i; j++) {
             if (nums[j] > nums[j + 1]) {
                 int temp = nums[j];
@@ -21,12 +21,12 @@ void bubbleSort(int nums[], int size) {
     }
 }
 
-/* Bubble sort (flag optimization) */
+/* Bubble sort (flag optimization)*/
 void bubbleSortWithFlag(int nums[], int size) {
-    // Outer loop: unsorted range is [0, i]
+    // Outer loop: the unsorted range is [0, i]
     for (int i = size - 1; i > 0; i--) {
         bool flag = false;
-        // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+        // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
         for (int j = 0; j < i; j++) {
             if (nums[j] > nums[j + 1]) {
                 int temp = nums[j];
@@ -40,7 +40,7 @@ void bubbleSortWithFlag(int nums[], int size) {
     }
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     int nums[6] = {4, 1, 3, 1, 5, 2};
     printf("After bubble sort: ");

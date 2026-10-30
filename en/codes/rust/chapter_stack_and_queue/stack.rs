@@ -6,13 +6,13 @@
 
 use hello_algo_rust::include::print_util;
 
-/* Driver Code */
+/* Driver code */
 pub fn main() {
-    // Access top of the stack element
-    // In Rust, it's recommended to use Vec as a stack
+    // Initialize the stack
+    // In Rust, Vec is the recommended type for implementing a stack
     let mut stack: Vec<i32> = Vec::new();
 
-    // Elements push onto stack
+    // Push elements onto the stack
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -21,20 +21,20 @@ pub fn main() {
     print!("Stack stack = ");
     print_util::print_array(&stack);
 
-    // Return list for printing
+    // Access the top element
     let peek = stack.last().unwrap();
     print!("\nTop element peek = {peek}");
 
-    // Element pop from stack
+    // Pop an element from the stack
     let pop = stack.pop().unwrap();
-    print!("\nPop element pop = {pop}, after pop stack = ");
+    print!("\nPopped element pop = {pop}; after popping, stack = ");
     print_util::print_array(&stack);
 
-    // Get the length of the stack
+    // Get the stack size
     let size = stack.len();
-    print!("\nStack length size = {size}");
+    print!("\nStack size = {size}");
 
-    // Check if the stack is empty
+    // Check whether the stack is empty
     let is_empty = stack.is_empty();
-    print!("\nIs stack empty = {is_empty}");
+    print!("\nIs the stack empty? {is_empty}");
 }

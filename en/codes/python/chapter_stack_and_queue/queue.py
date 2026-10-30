@@ -6,34 +6,34 @@ Author: Peng Chen (pengchzn@gmail.com)
 
 from collections import deque
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
-    # Initialize queue
-    # In Python, we generally use the double-ended queue class deque as a queue
-    # Although queue.Queue() is a proper queue class, it is not very convenient to use
+    # Initialize the queue
+    # In Python, we generally use the deque class as a queue
+    # Although queue.Queue() is a dedicated queue class, deque is more convenient for this example
     que: deque[int] = deque()
 
-    # Elements enqueue
+    # Enqueue elements
     que.append(1)
     que.append(3)
     que.append(2)
     que.append(5)
     que.append(4)
-    print("queue que =", que)
+    print("Queue que =", que)
 
-    # Access front of the queue element
+    # Access the front element
     front: int = que[0]
-    print("Front of the queue element front =", front)
+    print("Front element front =", front)
 
-    # Element dequeue
+    # Dequeue an element
     pop: int = que.popleft()
     print("Dequeued element pop =", pop)
-    print("After dequeue que =", que)
+    print("After dequeuing, que =", que)
 
-    # Get the length of the queue
+    # Get the queue size
     size: int = len(que)
-    print("Length of the queue size =", size)
+    print("Queue size =", size)
 
-    # Check if the queue is empty
+    # Check whether the queue is empty
     is_empty: bool = len(que) == 0
     print("Is the queue empty =", is_empty)

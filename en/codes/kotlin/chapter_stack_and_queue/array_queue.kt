@@ -6,23 +6,23 @@
 
 package chapter_stack_and_queue
 
-/* Queue based on circular array implementation */
+/* Queue implemented with a circular array */
 class ArrayQueue(capacity: Int) {
-    private val nums: IntArray = IntArray(capacity) // Array for storing queue elements
-    private var front: Int = 0 // Front pointer, points to the front of the queue element
-    private var queSize: Int = 0 // Queue length
+    private val nums: IntArray = IntArray(capacity) // Array that stores the queue elements
+    private var front: Int = 0 // Front pointer, pointing to the first element
+    private var queSize: Int = 0 // Queue size
 
-    /* Get the capacity of the queue */
+    /* Get the queue capacity */
     fun capacity(): Int {
         return nums.size
     }
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     fun size(): Int {
         return queSize
     }
 
-    /* Check if the queue is empty */
+    /* Check whether the queue is empty */
     fun isEmpty(): Boolean {
         return queSize == 0
     }
@@ -33,10 +33,10 @@ class ArrayQueue(capacity: Int) {
             println("Queue is full")
             return
         }
-        // Use modulo operation to wrap rear around to the head after passing the tail of the array
-        // Add num to the rear of the queue
+        // Calculate the rear pointer, which points one position past the last element
+        // Use modulo to wrap rear to the beginning when it passes the end of the array
         val rear = (front + queSize) % capacity()
-        // Front pointer moves one position backward
+        // Add num to the rear
         nums[rear] = num
         queSize++
     }
@@ -44,21 +44,21 @@ class ArrayQueue(capacity: Int) {
     /* Dequeue */
     fun pop(): Int {
         val num = peek()
-        // Move front pointer backward by one position, if it passes the tail, return to array head
+        // Advance the front pointer by one position, wrapping to the beginning if it passes the end
         front = (front + 1) % capacity()
         queSize--
         return num
     }
 
-    /* Return list for printing */
+    /* Access the front element */
     fun peek(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return nums[front]
     }
 
-    /* Return array */
+    /* Return an array */
     fun toArray(): IntArray {
-        // Elements enqueue
+        // Copy only the elements within the occupied range
         val res = IntArray(queSize)
         var i = 0
         var j = front
@@ -71,13 +71,13 @@ class ArrayQueue(capacity: Int) {
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    /* Access front of the queue element */
+    /* Initialize the queue */
     val capacity = 10
     val queue = ArrayQueue(capacity)
 
-    /* Elements enqueue */
+    /* Enqueue elements */
     queue.push(1)
     queue.push(3)
     queue.push(2)
@@ -85,26 +85,26 @@ fun main() {
     queue.push(4)
     println("Queue queue = ${queue.toArray().contentToString()}")
 
-    /* Return list for printing */
+    /* Access the front element */
     val peek = queue.peek()
-    println("Front element peek = $peek")
+    println("Front element: peek = $peek")
 
-    /* Element dequeue */
+    /* Dequeue an element */
     val pop = queue.pop()
-    println("Dequeue element pop = ${pop}, after dequeue queue =  ${queue.toArray().contentToString()}")
+    println("Dequeued element: pop = ${pop}; queue after removal = ${queue.toArray().contentToString()}")
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     val size = queue.size()
-    println("Queue length size = $size")
+    println("Queue size = $size")
 
-    /* Check if the queue is empty */
+    /* Check whether the queue is empty */
     val isEmpty = queue.isEmpty()
-    println("Is queue empty = $isEmpty")
+    println("Is the queue empty? $isEmpty")
 
-    /* Test circular array */
+    /* Test the circular array */
     for (i in 0..9) {
         queue.push(i)
         queue.pop()
-        println("After round $i enqueue + dequeue, queue = ${queue.toArray().contentToString()}")
+        println("After enqueue and dequeue round $i: queue = ${queue.toArray().contentToString()}")
     }
 }

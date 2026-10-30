@@ -6,16 +6,16 @@
 
 package chapter_sorting
 
-/* Merge left subarray and right subarray */
+/* Merge the left and right subarrays */
 fun merge(nums: IntArray, left: Int, mid: Int, right: Int) {
-    // Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
-    // Create a temporary array tmp to store the merged results
+    // The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
+    // Create a temporary array tmp to store the merged result
     val tmp = IntArray(right - left + 1)
-    // Initialize the start indices of the left and right subarrays
+    // Initialize the starting indices of the left and right subarrays
     var i = left
     var j = mid + 1
     var k = 0
-    // While both subarrays still have elements, compare and copy the smaller element into the temporary array
+    // While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
     while (i <= mid && j <= right) {
         if (nums[i] <= nums[j])
             tmp[k++] = nums[i++]
@@ -29,7 +29,7 @@ fun merge(nums: IntArray, left: Int, mid: Int, right: Int) {
     while (j <= right) {
         tmp[k++] = nums[j++]
     }
-    // Copy the elements from the temporary array tmp back to the original array nums at the corresponding interval
+    // Copy the elements of temporary array tmp back into the corresponding range of the original array nums
     for (l in tmp.indices) {
         nums[left + l] = tmp[l]
     }
@@ -37,20 +37,20 @@ fun merge(nums: IntArray, left: Int, mid: Int, right: Int) {
 
 /* Merge sort */
 fun mergeSort(nums: IntArray, left: Int, right: Int) {
-    // Termination condition
-    if (left >= right) return  // Terminate recursion when subarray length is 1
-    // Divide and conquer stage
-    val mid = left + (right - left) / 2 // Calculate midpoint
-    mergeSort(nums, left, mid) // Recursively process the left subarray
-    mergeSort(nums, mid + 1, right) // Recursively process the right subarray
-    // Merge stage
+    // Base case
+    if (left >= right) return  // Stop recursing when the subarray has at most one element
+    // Divide phase
+    val mid = left + (right - left) / 2 // Calculate the midpoint
+    mergeSort(nums, left, mid) // Recurse on the left subarray
+    mergeSort(nums, mid + 1, right) // Recurse on the right subarray
+    // Merge phase
     merge(nums, left, mid, right)
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
     /* Merge sort */
     val nums = intArrayOf(7, 3, 2, 6, 0, 1, 5, 4)
     mergeSort(nums, 0, nums.size - 1)
-    println("After merge sort, nums = ${nums.contentToString()}")
+    println("After merge sort: nums = ${nums.contentToString()}")
 }

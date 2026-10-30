@@ -4,7 +4,7 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* Backtracking algorithm: Subset sum I */
+/* Backtracking: subset sum I */
 fn backtrack(
     state: &mut Vec<i32>,
     target: i32,
@@ -12,36 +12,36 @@ fn backtrack(
     choices: &[i32],
     res: &mut Vec<Vec<i32>>,
 ) {
-    // When the subset sum equals target, record the solution
+    // Record a solution when the subset sum equals target
     if total == target {
         res.push(state.clone());
         return;
     }
-    // Traverse all choices
+    // Iterate over all choices
     for i in 0..choices.len() {
-        // Pruning: if the subset sum exceeds target, skip this choice
+        // Prune: skip this choice if the subset sum would exceed target
         if total + choices[i] > target {
             continue;
         }
-        // Attempt: make choice, update element sum total
+        // Try: make a choice and update the sum total
         state.push(choices[i]);
-        // Proceed to the next round of selection
+        // Proceed to the next choice
         backtrack(state, target, total + choices[i], choices, res);
-        // Backtrack: undo choice, restore to previous state
+        // Backtrack: undo the choice and restore the previous state
         state.pop();
     }
 }
 
-/* Solve subset sum I (including duplicate subsets) */
+/* Solve subset sum I (with duplicate subsets) */
 fn subset_sum_i_naive(nums: &[i32], target: i32) -> Vec<Vec<i32>> {
     let mut state = Vec::new(); // State (subset)
     let total = 0; // Subset sum
-    let mut res = Vec::new(); // Result list (subset list)
+    let mut res = Vec::new(); // Result list (list of subsets)
     backtrack(&mut state, target, total, nums, &mut res);
     res
 }
 
-/* Driver Code */
+/* Driver code */
 pub fn main() {
     let nums = [3, 4, 5];
     let target = 9;
@@ -49,6 +49,6 @@ pub fn main() {
     let res = subset_sum_i_naive(&nums, target);
 
     println!("Input array nums = {:?}, target = {}", &nums, target);
-    println!("All subsets with sum equal to {} res = {:?}", target, &res);
-    println!("Please note that this method outputs results containing duplicate sets");
+    println!("All subsets with sum {}: res = {:?}", target, &res);
+    println!("Note that this method produces duplicate subsets");
 }

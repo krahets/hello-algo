@@ -24,20 +24,20 @@ void delAVLTree(AVLTree *tree) {
     free(tree);
 }
 
-/* Get node height */
+/* Get the node height */
 int height(TreeNode *node) {
-    // Empty node height is -1, leaf node height is 0
+    // A null node has height -1; a leaf has height 0
     if (node != NULL) {
         return node->height;
     }
     return -1;
 }
 
-/* Update node height */
+/* Update the node height */
 void updateHeight(TreeNode *node) {
     int lh = height(node->left);
     int rh = height(node->right);
-    // Node height equals the height of the tallest subtree + 1
+    // The node height equals the height of its taller subtree + 1
     if (lh > rh) {
         node->height = lh + 1;
     } else {
@@ -45,9 +45,9 @@ void updateHeight(TreeNode *node) {
     }
 }
 
-/* Get balance factor */
+/* Get the balance factor */
 int balanceFactor(TreeNode *node) {
-    // Empty node balance factor is 0
+    // A null node has balance factor 0
     if (node == NULL) {
         return 0;
     }
@@ -55,100 +55,100 @@ int balanceFactor(TreeNode *node) {
     return height(node->left) - height(node->right);
 }
 
-/* Right rotation operation */
+/* Right rotation */
 TreeNode *rightRotate(TreeNode *node) {
     TreeNode *child, *grandChild;
     child = node->left;
     grandChild = child->right;
-    // Using child as pivot, rotate node to the right
+    // Rotate node to the right around child
     child->right = node;
     node->left = grandChild;
-    // Update node height
+    // Update the node height
     updateHeight(node);
     updateHeight(child);
-    // Return root node of subtree after rotation
+    // Return the root of the rotated subtree
     return child;
 }
 
-/* Left rotation operation */
+/* Left rotation */
 TreeNode *leftRotate(TreeNode *node) {
     TreeNode *child, *grandChild;
     child = node->right;
     grandChild = child->left;
-    // Using child as pivot, rotate node to the left
+    // Rotate node to the left around child
     child->left = node;
     node->right = grandChild;
-    // Update node height
+    // Update the node height
     updateHeight(node);
     updateHeight(child);
-    // Return root node of subtree after rotation
+    // Return the root of the rotated subtree
     return child;
 }
 
-/* Perform rotation operation to restore balance to this subtree */
+/* Perform rotations to restore balance in this subtree */
 TreeNode *rotate(TreeNode *node) {
-    // Get balance factor of node
+    // Get the balance factor of node
     int bf = balanceFactor(node);
-    // Left-leaning tree
+    // Left-heavy tree
     if (bf > 1) {
         if (balanceFactor(node->left) >= 0) {
-            // Right rotation
+            // Rotate right
             return rightRotate(node);
         } else {
-            // First left rotation then right rotation
+            // Rotate left, then right
             node->left = leftRotate(node->left);
             return rightRotate(node);
         }
     }
-    // Right-leaning tree
+    // Right-heavy tree
     if (bf < -1) {
         if (balanceFactor(node->right) <= 0) {
-            // Left rotation
+            // Rotate left
             return leftRotate(node);
         } else {
-            // First right rotation then left rotation
+            // Rotate right, then left
             node->right = rightRotate(node->right);
             return leftRotate(node);
         }
     }
-    // Balanced tree, no rotation needed, return directly
+    // The tree is balanced; return without rotating
     return node;
 }
 
-/* Recursively insert node (helper function) */
+/* Recursively insert a node (helper function) */
 TreeNode *insertHelper(TreeNode *node, int val) {
     if (node == NULL) {
         return newTreeNode(val);
     }
-    /* 1. Find insertion position and insert node */
+    /* 1. Find the insertion position and insert the node */
     if (val < node->val) {
         node->left = insertHelper(node->left, val);
     } else if (val > node->val) {
         node->right = insertHelper(node->right, val);
     } else {
-        // Duplicate node not inserted, return directly
+        // Return without inserting a duplicate node
         return node;
     }
-    // Update node height
+    // Update the node height
     updateHeight(node);
-    /* 2. Perform rotation operation to restore balance to this subtree */
+    /* 2. Perform rotations to restore balance in this subtree */
     node = rotate(node);
-    // Return root node of subtree
+    // Return the root of the subtree
     return node;
 }
 
-/* Insert node */
+/* Insert a node */
 void insert(AVLTree *tree, int val) {
     tree->root = insertHelper(tree->root, val);
 }
 
-/* Recursively remove node (helper function) */
+/* Recursively remove a node (helper function) */
 TreeNode *removeHelper(TreeNode *node, int val) {
     TreeNode *child, *grandChild;
     if (node == NULL) {
         return NULL;
     }
-    /* 1. Find node and delete */
+    /* 1. Find and remove the node */
     if (val < node->val) {
         node->left = removeHelper(node->left, val);
     } else if (val > node->val) {
@@ -159,15 +159,15 @@ TreeNode *removeHelper(TreeNode *node, int val) {
             if (node->right != NULL) {
                 child = node->right;
             }
-            // Number of child nodes = 0, delete node directly and return
+            // Number of children = 0: remove node and return
             if (child == NULL) {
                 return NULL;
             } else {
-                // Number of child nodes = 1, delete node directly
+                // Number of children = 1: remove node directly
                 node = child;
             }
         } else {
-            // Number of child nodes = 2, delete the next node in inorder traversal and replace current node with it
+            // Number of children = 2: remove the inorder successor and use its value to replace the current node value
             TreeNode *temp = node->right;
             while (temp->left != NULL) {
                 temp = temp->left;
@@ -177,58 +177,58 @@ TreeNode *removeHelper(TreeNode *node, int val) {
             node->val = tempVal;
         }
     }
-    // Update node height
+    // Update the node height
     updateHeight(node);
-    /* 2. Perform rotation operation to restore balance to this subtree */
+    /* 2. Perform rotations to restore balance in this subtree */
     node = rotate(node);
-    // Return root node of subtree
+    // Return the root of the subtree
     return node;
 }
 
-/* Remove node */
-// Cannot use remove keyword here due to stdio.h inclusion
+/* Remove a node */
+// The name remove conflicts with the function declared in stdio.h
 void removeItem(AVLTree *tree, int val) {
     TreeNode *root = removeHelper(tree->root, val);
 }
 
-/* Search node */
+/* Find a node */
 TreeNode *search(AVLTree *tree, int val) {
     TreeNode *cur = tree->root;
-    // Loop search, exit after passing leaf node
+    // Search in a loop until reaching a null reference beyond a leaf
     while (cur != NULL) {
         if (cur->val < val) {
-            // Target node is in cur's right subtree
+            // The target node lies in the right subtree of cur
             cur = cur->right;
         } else if (cur->val > val) {
-            // Target node is in cur's left subtree
+            // The target node lies in the left subtree of cur
             cur = cur->left;
         } else {
-            // Found target node, exit loop
+            // The target node was found; exit the loop
             break;
         }
     }
-    // Found target node, exit loop
+    // Return the matching node, or NULL if no match was found
     return cur;
 }
 
 void testInsert(AVLTree *tree, int val) {
     insert(tree, val);
-    printf("\nAfter inserting node %d, AVL tree is \n", val);
+    printf("\nAVL tree after inserting node %d: \n", val);
     printTree(tree->root);
 }
 
 void testRemove(AVLTree *tree, int val) {
     removeItem(tree, val);
-    printf("\nAfter removing node %d, AVL tree is \n", val);
+    printf("\nAVL tree after removing node %d: \n", val);
     printTree(tree->root);
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Please pay attention to how the AVL tree maintains balance after inserting nodes */
+    /* Initialize an empty AVL tree */
     AVLTree *tree = (AVLTree *)newAVLTree();
-    /* Insert node */
-    // Delete nodes
+    /* Insert a node */
+    // Observe how the AVL tree maintains balance after a node is inserted
     testInsert(tree, 1);
     testInsert(tree, 2);
     testInsert(tree, 3);
@@ -240,18 +240,18 @@ int main() {
     testInsert(tree, 10);
     testInsert(tree, 6);
 
-    /* Please pay attention to how the AVL tree maintains balance after deleting nodes */
+    /* Insert a duplicate node */
     testInsert(tree, 7);
 
-    /* Remove node */
-    // Delete node with degree 1
-    testRemove(tree, 8); // Delete node with degree 2
-    testRemove(tree, 5); // Remove node with degree 1
-    testRemove(tree, 4); // Remove node with degree 2
+    /* Remove a node */
+    // Observe how the AVL tree maintains balance after a node is removed
+    testRemove(tree, 8); // Remove a node with 0 children
+    testRemove(tree, 5); // Remove a node with 1 child
+    testRemove(tree, 4); // Remove a node with 2 children
 
-    /* Search node */
+    /* Look up a node */
     TreeNode *node = search(tree, 7);
-    printf("\nFound node object value = %d \n", node->val);
+    printf("\nValue of the node found = %d \n", node->val);
 
     // Free memory
     delAVLTree(tree);

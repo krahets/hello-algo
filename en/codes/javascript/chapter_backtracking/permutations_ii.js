@@ -4,25 +4,25 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* Backtracking algorithm: Permutations II */
+/* Backtracking: permutations II */
 function backtrack(state, choices, selected, res) {
-    // When the state length equals the number of elements, record the solution
+    // Record a solution when the state length equals the number of elements
     if (state.length === choices.length) {
         res.push([...state]);
         return;
     }
-    // Traverse all choices
+    // Iterate over all choices
     const duplicated = new Set();
     choices.forEach((choice, i) => {
-        // Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
+        // Prune: do not reuse an element or choose the same value again at this depth
         if (!selected[i] && !duplicated.has(choice)) {
-            // Attempt: make choice, update state
-            duplicated.add(choice); // Record the selected element value
+            // Try: make a choice and update the state
+            duplicated.add(choice); // Record the chosen value
             selected[i] = true;
             state.push(choice);
-            // Proceed to the next round of selection
+            // Proceed to the next choice
             backtrack(state, choices, selected, res);
-            // Backtrack: undo choice, restore to previous state
+            // Backtrack: undo the choice and restore the previous state
             selected[i] = false;
             state.pop();
         }
@@ -36,7 +36,7 @@ function permutationsII(nums) {
     return res;
 }
 
-// Driver Code
+// Driver code
 const nums = [1, 2, 2];
 const res = permutationsII(nums);
 

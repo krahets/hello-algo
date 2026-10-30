@@ -1,27 +1,27 @@
-# Binary Search
+# Binary search
 
-<u>Binary search</u> is an efficient search algorithm based on the divide-and-conquer strategy. It leverages the sorted order of the data to reduce the search range by half in each round until the target element is found or the search interval becomes empty.
+<u>Binary search</u> is an efficient search algorithm based on divide and conquer. It uses the sorted order of the data to halve the search range each round, continuing until it finds the target element or the search interval becomes empty.
 
 !!! question
 
-    Given an array `nums` of length $n$ with elements arranged in ascending order and no duplicates, search for and return the index of element `target` in the array. If the array does not contain the element, return $-1$. An example is shown in the figure below.
+    Given an array `nums` of length $n$, with distinct elements arranged in ascending order, find and return the index of `target`. If the array does not contain this element, return $-1$. An example is shown below.
 
-![Binary search example data](binary_search.assets/binary_search_example.png)
+![Example data for binary search](binary_search.assets/binary_search_example.png)
 
-As shown in the figure below, we first initialize pointers $i = 0$ and $j = n - 1$, pointing to the first and last elements of the array respectively, representing the search interval $[0, n - 1]$. Note that square brackets denote a closed interval, which includes the boundary values themselves.
+As shown below, initialize pointers $i = 0$ and $j = n - 1$ to the first and last elements, respectively. They represent the search interval $[0, n - 1]$. Square brackets denote a closed interval, which includes its endpoints.
 
-Next, perform the following two steps in a loop:
+Next, repeat the following two steps.
 
-1. Calculate the midpoint index $m = \lfloor {(i + j) / 2} \rfloor$, where $\lfloor \: \rfloor$ denotes the floor operation.
-2. Compare `nums[m]` and `target`, which results in three cases:
-    1. When `nums[m] < target`, it indicates that `target` is in the interval $[m + 1, j]$, so execute $i = m + 1$.
-    2. When `nums[m] > target`, it indicates that `target` is in the interval $[i, m - 1]$, so execute $j = m - 1$.
-    3. When `nums[m] = target`, it indicates that `target` has been found, so return index $m$.
+1. Calculate the midpoint index $m = \lfloor {(i + j) / 2} \rfloor$, where $\lfloor \: \rfloor$ denotes rounding down.
+2. Compare `nums[m]` with `target`. There are three cases.
+    1. If `nums[m] < target`, then `target` lies in $[m + 1, j]$, so set $i = m + 1$.
+    2. If `nums[m] > target`, then `target` lies in $[i, m - 1]$, so set $j = m - 1$.
+    3. If `nums[m] = target`, we have found `target`, so return index $m$.
 
-If the array does not contain the target element, the search interval will eventually become empty. In this case, return $-1$.
+If the array does not contain the target, the search interval eventually becomes empty. Return $-1$ in this case.
 
 === "<1>"
-    ![Binary search process](binary_search.assets/binary_search_step1.png)
+    ![The binary search process](binary_search.assets/binary_search_step1.png)
 
 === "<2>"
     ![binary_search_step2](binary_search.assets/binary_search_step2.png)
@@ -41,43 +41,43 @@ If the array does not contain the target element, the search interval will event
 === "<7>"
     ![binary_search_step7](binary_search.assets/binary_search_step7.png)
 
-It's worth noting that since both $i$ and $j$ are of `int` type, **$i + j$ may exceed the range of the `int` type**. To avoid integer overflow, we typically use the formula $m = \lfloor {i + (j - i) / 2} \rfloor$ to calculate the midpoint.
+Because $i$ and $j$ are both of type `int`, **$i + j$ may exceed the range of `int`**. To avoid integer overflow, we usually calculate the midpoint using $m = \lfloor {i + (j - i) / 2} \rfloor$.
 
-The code is shown below:
+The implementation is shown below:
 
 ```src
 [file]{binary_search}-[class]{}-[func]{binary_search}
 ```
 
-**Time complexity is $O(\log n)$**: In the binary search loop, the interval is reduced by half each round, so the number of iterations is $\log_2 n$.
+**Time complexity is $O(\log n)$**: the search interval is halved each round, so the loop runs $\log_2 n$ times.
 
-**Space complexity is $O(1)$**: Pointers $i$ and $j$ use constant-size space.
+**Space complexity is $O(1)$**: pointers $i$ and $j$ use constant space.
 
-## Interval Representation Methods
+## Ways to represent the interval
 
-In addition to the closed interval mentioned above, another common interval representation is the "left-closed right-open" interval, defined as $[0, n)$, meaning that the left boundary is inclusive while the right boundary is exclusive. Under this representation, the interval $[i, j)$ is empty when $i = j$.
+Besides the closed interval above, another common representation is a “left-closed, right-open” interval, written $[0, n)$. It includes the left endpoint but excludes the right endpoint. With this representation, $[i, j)$ is empty when $i = j$.
 
-We can implement a binary search algorithm with the same functionality based on this representation:
+We can implement an equivalent binary search algorithm using this representation:
 
 ```src
 [file]{binary_search}-[class]{}-[func]{binary_search_lcro}
 ```
 
-As shown in the figure below, under the two interval representations, the initialization, loop condition, and interval narrowing operations of the binary search algorithm are all different.
+As shown below, the two interval representations require different initialization, loop conditions, and operations for narrowing the interval.
 
-Since both the left and right boundaries in the "closed interval" representation are defined as closed, the operations to narrow the interval through pointers $i$ and $j$ are also symmetric. This makes it less error-prone, **so the "closed interval" approach is generally recommended**.
+Since a closed interval includes both endpoints, the operations that narrow the interval through pointers $i$ and $j$ are symmetric. This makes mistakes less likely, **so we generally recommend the closed-interval version**.
 
-![Two interval definitions](binary_search.assets/binary_search_ranges.png)
+![Two ways to define the interval](binary_search.assets/binary_search_ranges.png)
 
-## Advantages and Limitations
+## Strengths and limitations
 
-Binary search offers good performance in both time and space.
+Binary search performs well in both time and space.
 
-- Binary search has high time efficiency. With large data volumes, the logarithmic time complexity has significant advantages. For example, when the data size $n = 2^{20}$, linear search requires $2^{20} = 1048576$ iterations, while binary search only needs $\log_2 2^{20} = 20$ iterations.
-- Binary search requires no extra space. Compared to searching algorithms that require additional space (such as hash-based search), binary search is more space-efficient.
+- Binary search is time-efficient. Its logarithmic time complexity offers a significant advantage for large datasets. For example, when $n = 2^{20}$, linear search requires $2^{20} = 1048576$ iterations, whereas binary search needs only $\log_2 2^{20} = 20$.
+- Binary search requires no extra storage. It uses less space than search algorithms that rely on additional storage, such as hash lookup.
 
-However, binary search is not suitable for all situations, mainly for the following reasons:
+However, binary search is not suitable in every situation, mainly for the following reasons.
 
-- Binary search is only applicable to sorted data. If the input data is unsorted, sorting specifically to use binary search would be counterproductive, as sorting algorithms typically have a time complexity of $O(n \log n)$, which is higher than both linear search and binary search. For scenarios with frequent element insertions, keeping the array sorted requires inserting elements at specific positions with a time complexity of $O(n)$, which is also very expensive.
-- Binary search is only applicable to arrays. Binary search requires non-contiguous, jump-style access to elements, and this kind of access is inefficient in linked lists, making it unsuitable for linked lists or linked-list-based data structures.
-- For small data volumes, linear search performs better. In linear search, each round requires only 1 comparison operation; while in binary search, it requires 1 addition, 1 division, 1-3 comparison operations, and 1 addition (subtraction), totaling 4-6 unit operations. Therefore, when the data volume $n$ is small, linear search is actually faster than binary search.
+- Binary search requires sorted data. Sorting unsorted input solely to perform a binary search is not worthwhile, because sorting usually takes $O(n \log n)$ time, more than either linear or binary search. When insertions are frequent, preserving the array's order requires inserting each element at a specific position, an expensive $O(n)$ operation.
+- Binary search is suitable only for arrays. It needs to jump between nonadjacent elements, which is inefficient in a linked list. It is therefore unsuitable for linked lists and data structures based on them.
+- Linear search performs better on small datasets. Each iteration of linear search needs only one comparison. Binary search needs one addition, one division, 1–3 comparisons, and one more addition or subtraction, totaling 4–6 elementary operations. When $n$ is small, linear search can therefore be faster.

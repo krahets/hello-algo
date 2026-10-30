@@ -1,9 +1,9 @@
-# Data Structures
+# Data structures
 
 ![Data structures](../assets/covers/chapter_data_structure.jpg)
 
 !!! abstract
 
-    Data structures are like a sturdy and diverse framework.
-
-    It provides a blueprint for the orderly organization of data, upon which algorithms come to life.
+    Data structures provide a framework that is both sturdy and versatile.
+    
+    They offer a blueprint for organizing data, a foundation on which algorithms come to life.

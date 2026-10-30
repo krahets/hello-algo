@@ -6,10 +6,10 @@
 
 #include "../utils/common.hpp"
 
-/* Queue based on linked list implementation */
+/* Queue implemented with a linked list */
 class LinkedListQueue {
   private:
-    ListNode *front, *rear; // Head node front, tail node rear
+    ListNode *front, *rear; // Head node front and tail node rear
     int queSize;
 
   public:
@@ -20,16 +20,16 @@ class LinkedListQueue {
     }
 
     ~LinkedListQueue() {
-        // Traverse linked list to delete nodes and free memory
+        // Traverse the linked list and delete each node to free its memory
         freeMemoryLinkedList(front);
     }
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     int size() {
         return queSize;
     }
 
-    /* Check if the queue is empty */
+    /* Check whether the queue is empty */
     bool isEmpty() {
         return queSize == 0;
     }
@@ -38,12 +38,12 @@ class LinkedListQueue {
     void push(int num) {
         // Add num after the tail node
         ListNode *node = new ListNode(num);
-        // If the queue is empty, make both front and rear point to the node
+        // If the queue is empty, make both the head and tail point to this node
         if (front == nullptr) {
             front = node;
             rear = node;
         }
-        // If the queue is not empty, add the node after the tail node
+        // If the queue is not empty, add this node after the tail node
         else {
             rear->next = node;
             rear = node;
@@ -54,7 +54,7 @@ class LinkedListQueue {
     /* Dequeue */
     int pop() {
         int num = peek();
-        // Delete head node
+        // Remove the head node
         ListNode *tmp = front;
         front = front->next;
         // Free memory
@@ -63,14 +63,14 @@ class LinkedListQueue {
         return num;
     }
 
-    /* Return list for printing */
+    /* Access the front element */
     int peek() {
         if (size() == 0)
             throw out_of_range("Queue is empty");
         return front->val;
     }
 
-    /* Convert linked list to Vector and return */
+    /* Convert the linked list to a vector and return it */
     vector<int> toVector() {
         ListNode *node = front;
         vector<int> res(size());
@@ -82,12 +82,12 @@ class LinkedListQueue {
     }
 };
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Access front of the queue element */
+    /* Initialize the queue */
     LinkedListQueue *queue = new LinkedListQueue();
 
-    /* Elements enqueue */
+    /* Enqueue elements */
     queue->push(1);
     queue->push(3);
     queue->push(2);
@@ -96,22 +96,22 @@ int main() {
     cout << "Queue queue = ";
     printVector(queue->toVector());
 
-    /* Return list for printing */
+    /* Access the front element */
     int peek = queue->peek();
     cout << "Front element peek = " << peek << endl;
 
-    /* Element dequeue */
+    /* Dequeue an element */
     peek = queue->pop();
-    cout << "Dequeue element pop = " << peek << ", after dequeue, queue = ";
+    cout << "Dequeued element pop = " << peek << "; after dequeueing, queue = ";
     printVector(queue->toVector());
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     int size = queue->size();
-    cout << "Queue length size = " << size << endl;
+    cout << "Queue size = " << size << endl;
 
-    /* Check if the queue is empty */
+    /* Check whether the queue is empty */
     bool empty = queue->isEmpty();
-    cout << "Queue is empty = " << empty << endl;
+    cout << "Is the queue empty = " << empty << endl;
 
     // Free memory
     delete queue;

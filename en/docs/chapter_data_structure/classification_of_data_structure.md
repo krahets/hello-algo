@@ -1,48 +1,48 @@
-# Classification of Data Structures
+# Classifying data structures
 
-Common data structures include arrays, linked lists, stacks, queues, hash tables, trees, heaps, and graphs. They can be classified from two dimensions: "logical structure" and "physical structure".
+Common data structures include arrays, linked lists, stacks, queues, hash tables, trees, heaps, and graphs. They can be classified by their logical structure and physical structure.
 
-## Logical Structure: Linear and Non-Linear
+## Logical structure: linear and nonlinear
 
-**Logical structure reveals the logical relationships between data elements**. In arrays and linked lists, data is arranged in a certain order, embodying linear relationships between elements; while in trees, data is arranged hierarchically from top to bottom, showing parent-descendant relationships; graphs are composed of nodes and edges, reflecting complex network relationships.
+**Logical structure describes the relationships between data elements**. Arrays and linked lists arrange data in sequence, expressing linear relationships. Trees arrange data hierarchically from top to bottom, expressing ancestry and descent. Graphs consist of vertices and edges that express complex network relationships.
 
-As shown in the figure below, logical structures can be divided into two major categories: "linear" and "non-linear". Linear structures are more intuitive, indicating that data is linearly arranged in logical relationships; non-linear structures are the opposite, arranged non-linearly.
+As shown in the figure below, logical structures fall into two broad categories: linear and nonlinear. A linear structure arranges data in a logical sequence; a nonlinear structure does not.
 
-- **Linear data structures**: Arrays, linked lists, stacks, queues, hash tables, where elements have a one-to-one sequential relationship.
-- **Non-linear data structures**: Trees, heaps, graphs, hash tables.
+- **Linear data structures**: Arrays, linked lists, stacks, queues, and hash tables. Elements have one-to-one sequential relationships.
+- **Nonlinear data structures**: Trees, heaps, graphs, and hash tables.
 
-Non-linear data structures can be further divided into tree structures and network structures.
+Nonlinear data structures can be divided further into tree and network structures.
 
-- **Tree structures**: Trees, heaps, hash tables, where elements have a one-to-many relationship.
-- **Network structures**: Graphs, where elements have a many-to-many relationship.
+- **Tree structures**: Trees, heaps, and hash tables, with one-to-many relationships.
+- **Network structures**: Graphs, with many-to-many relationships.
 
-![Linear and non-linear data structures](classification_of_data_structure.assets/classification_logic_structure.png)
+![Linear and nonlinear data structures](classification_of_data_structure.assets/classification_logic_structure.png)
 
-## Physical Structure: Contiguous and Dispersed
+## Physical structure: contiguous and scattered storage
 
-**When an algorithm program runs, the data being processed is mainly stored in memory**. The figure below shows a computer memory stick, where each black square contains a memory space. We can imagine memory as a huge Excel spreadsheet, where each cell can store a certain amount of data.
+**While an algorithm runs, the data it processes is mainly stored in memory**. The figure below shows a memory module, with each black chip containing storage space. We can imagine memory as a huge Excel spreadsheet, where each cell holds a certain amount of data.
 
-**The system accesses data at the target location through memory addresses**. As shown in the figure below, the computer assigns a number to each cell in the spreadsheet according to specific rules, ensuring that each memory space has a unique memory address. With these addresses, the program can access data in memory.
+**The system uses memory addresses to access data at particular locations**. As shown in the figure below, the computer assigns each cell a number according to specific rules, giving every memory location a unique address. Programs use these addresses to access data.
 
-![Memory stick, memory space, memory address](classification_of_data_structure.assets/computer_memory_location.png)
-
-!!! tip
-
-    It should be noted that comparing memory to an Excel spreadsheet is only a simplified analogy. The actual workings of memory are much more complex, involving concepts such as address space, memory management, cache mechanisms, virtual memory, and physical memory.
-
-Memory is a shared resource for all programs. When a block of memory is occupied by a program, it usually cannot be used by other programs at the same time. **Therefore, in the design of data structures and algorithms, memory resources are an important consideration**. For example, the peak memory occupied by an algorithm should not exceed the remaining free memory of the system; if there is a lack of contiguous large memory blocks, then the data structure chosen must be able to be stored in dispersed memory spaces.
-
-As shown in the figure below, **physical structure reflects the way data is stored in computer memory**. It can be divided into contiguous-space storage (arrays) and dispersed-space storage (linked lists). At a low level, physical structure determines how data is accessed, updated, inserted, and deleted. These two physical structures exhibit complementary characteristics in terms of time efficiency and space efficiency.
-
-![Contiguous space storage and dispersed space storage](classification_of_data_structure.assets/classification_phisical_structure.png)
-
-It is worth noting that **all data structures are implemented based on arrays, linked lists, or a combination of both**. For example, stacks and queues can be implemented using either arrays or linked lists; while the implementation of hash tables may include both arrays and linked lists.
-
-- **Can be implemented based on arrays**: Stacks, queues, hash tables, trees, heaps, graphs, matrices, tensors (arrays with dimensions $\geq 3$), etc.
-- **Can be implemented based on linked lists**: Stacks, queues, hash tables, trees, heaps, graphs, etc.
-
-After initialization, linked lists can still adjust their length during program execution, so they are also called "dynamic data structures". After initialization, the length of arrays cannot be changed, so they are also called "static data structures". It is worth noting that arrays can change length by reallocating memory, thus retaining a limited degree of flexibility.
+![Memory module, storage space, and memory addresses](classification_of_data_structure.assets/computer_memory_location.png)
 
 !!! tip
 
-    If you find it difficult to understand physical structure, it is recommended to read the next chapter first, and then review this section.
+    The Excel spreadsheet analogy is a simplification. Real memory is more complex and involves address spaces, memory management, caching, virtual memory, and physical memory.
+
+Memory is a resource used by all programs. When a program occupies a region of memory, other programs usually cannot use that region at the same time. **Memory resources are therefore an important consideration when designing data structures and algorithms**. For example, an algorithm's peak memory usage should not exceed the system's available memory. If no large contiguous region is available, the chosen data structure must support scattered storage.
+
+As shown in the figure below, **physical structure describes how data is stored in computer memory**: either contiguously (arrays) or in scattered locations (linked lists). It determines how data can be accessed, updated, inserted, and deleted. The two storage forms have complementary strengths in time and space efficiency.
+
+![Contiguous and scattered storage](classification_of_data_structure.assets/classification_phisical_structure.png)
+
+**All data structures are implemented using arrays, linked lists, or a combination of the two**. For example, stacks and queues can use either arrays or linked lists, while hash tables may use both.
+
+- **Array-based implementations**: Stacks, queues, hash tables, trees, heaps, graphs, matrices, tensors (arrays with dimension $\geq 3$), and more.
+- **Linked-list-based implementations**: Stacks, queues, hash tables, trees, heaps, graphs, and more.
+
+A linked list can change length during execution after initialization, so it is called a dynamic data structure. An array's length is fixed after initialization, so it is called a static data structure. However, reallocating memory can change an array's length, providing a degree of dynamic behavior.
+
+!!! tip
+
+    If physical structure feels difficult to understand, read the next chapter first and then return to this section.

@@ -6,7 +6,7 @@
 
 use hello_algo_rust::include::{print_util, tree_node};
 
-/* Binary tree class represented by array */
+/* Binary tree type using an array representation */
 struct ArrayBinaryTree {
     tree: Vec<Option<i32>>,
 }
@@ -17,14 +17,14 @@ impl ArrayBinaryTree {
         Self { tree: arr }
     }
 
-    /* List capacity */
+    /* Number of positions in the array */
     fn size(&self) -> i32 {
         self.tree.len() as i32
     }
 
-    /* Get value of node at index i */
+    /* Get the value of the node at index i */
     fn val(&self, i: i32) -> Option<i32> {
-        // If index is out of bounds, return None, representing empty position
+        // If the index is out of bounds, return None to represent an empty position
         if i < 0 || i >= self.size() {
             None
         } else {
@@ -32,17 +32,17 @@ impl ArrayBinaryTree {
         }
     }
 
-    /* Get index of left child node of node at index i */
+    /* Get the left child index of the node at index i */
     fn left(&self, i: i32) -> i32 {
         2 * i + 1
     }
 
-    /* Get index of right child node of node at index i */
+    /* Get the right child index of the node at index i */
     fn right(&self, i: i32) -> i32 {
         2 * i + 2
     }
 
-    /* Get index of parent node of node at index i */
+    /* Get the parent index of the node at index i */
     fn parent(&self, i: i32) -> i32 {
         (i - 1) / 2
     }
@@ -96,10 +96,10 @@ impl ArrayBinaryTree {
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
-    // Initialize binary tree
-    // Here we use a function to generate a binary tree directly from an array
+    // Initialize the binary tree
+    // Use a helper function that builds a binary tree directly from an array
     let arr = vec![
         Some(1),
         Some(2),
@@ -119,8 +119,8 @@ fn main() {
     ];
 
     let root = tree_node::vec_to_tree(arr.clone()).unwrap();
-    println!("\nInitialize binary tree\n");
-    println!("Array representation of binary tree:");
+    println!("\nInitialize the binary tree\n");
+    println!("Array representation of the binary tree:");
     println!(
         "[{}]",
         arr.iter()
@@ -132,19 +132,19 @@ fn main() {
             .collect::<Vec<String>>()
             .join(", ")
     );
-    println!("Linked list representation of binary tree:");
+    println!("Linked representation of the binary tree:");
     print_util::print_tree(&root);
 
-    // Binary tree class represented by array
+    // Binary tree type using an array representation
     let abt = ArrayBinaryTree::new(arr);
 
-    // Access node
+    // Access a node
     let i = 1;
     let l = abt.left(i);
     let r = abt.right(i);
     let p = abt.parent(i);
     println!(
-        "\nCurrent node index is {}, value is {}",
+        "\nCurrent node index: {}, value: {}",
         i,
         if let Some(val) = abt.val(i) {
             format!("{val}")
@@ -153,7 +153,7 @@ fn main() {
         }
     );
     println!(
-        "Left child index is {}, value is {}",
+        "Left child index: {}, value: {}",
         l,
         if let Some(val) = abt.val(l) {
             format!("{val}")
@@ -162,7 +162,7 @@ fn main() {
         }
     );
     println!(
-        "Right child index is {}, value is {}",
+        "Right child index: {}, value: {}",
         r,
         if let Some(val) = abt.val(r) {
             format!("{val}")
@@ -171,7 +171,7 @@ fn main() {
         }
     );
     println!(
-        "Parent node index is {}, value is {}",
+        "Parent index: {}, value: {}",
         p,
         if let Some(val) = abt.val(p) {
             format!("{val}")
@@ -180,13 +180,13 @@ fn main() {
         }
     );
 
-    // Traverse tree
+    // Traverse the tree
     let mut res = abt.level_order();
-    println!("\nLevel-order traversal is: {:?}", res);
+    println!("\nLevel-order traversal: {:?}", res);
     res = abt.pre_order();
-    println!("Pre-order traversal is: {:?}", res);
+    println!("Preorder traversal: {:?}", res);
     res = abt.in_order();
-    println!("In-order traversal is: {:?}", res);
+    println!("Inorder traversal: {:?}", res);
     res = abt.post_order();
-    println!("Post-order traversal is: {:?}", res);
+    println!("Postorder traversal: {:?}", res);
 }

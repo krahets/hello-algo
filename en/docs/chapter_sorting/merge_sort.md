@@ -1,23 +1,23 @@
-# Merge Sort
+# Merge sort
 
-<u>Merge sort</u> is a sorting algorithm based on a divide-and-conquer strategy, consisting of the "divide" and "merge" phases shown in the figure below.
+<u>Merge sort</u> is a divide-and-conquer sorting algorithm with the “division” and “merging” phases shown below.
 
-1. **Divide phase**: Recursively split the array at the midpoint, reducing the problem of sorting a long array to the problem of sorting shorter arrays.
-2. **Merge phase**: When a sub-array has length 1, stop dividing and start merging, continuously combining the shorter sorted sub-arrays on the left and right into a longer sorted array until the process is complete.
+1. **Division**: recursively split the array at its midpoint, turning the problem of sorting a long array into problems of sorting shorter arrays.
+2. **Merging**: stop dividing when a subarray has length 1, then repeatedly merge two shorter sorted arrays into one longer sorted array until the process is complete.
 
-![Divide and merge phases of merge sort](merge_sort.assets/merge_sort_overview.png)
+![The division and merging phases of merge sort](merge_sort.assets/merge_sort_overview.png)
 
-## Algorithm Flow
+## Algorithm steps
 
-As shown in the figure below, the "divide phase" recursively splits the array from the midpoint into two sub-arrays from top to bottom.
+As shown below, the division phase works from the top down, recursively splitting each array into two subarrays at its midpoint.
 
-1. Calculate the array midpoint `mid`, recursively divide the left sub-array (interval `[left, mid]`) and right sub-array (interval `[mid + 1, right]`).
-2. Repeat step `1.` recursively until a sub-array has length 1.
+1. Calculate the midpoint `mid`, then recursively divide the left subarray, `[left, mid]`, and the right subarray, `[mid + 1, right]`.
+2. Repeat step `1.` recursively until each subarray has length 1.
 
-The "merge phase" merges the left and right sub-arrays into a sorted array from bottom to top. Note that merging starts from sub-arrays of length 1, so every sub-array involved in this phase is already sorted.
+The merging phase works from the bottom up, combining the left and right subarrays into a sorted array. Merging begins with subarrays of length 1, so every subarray involved in this phase is already sorted.
 
 === "<1>"
-    ![Merge sort steps](merge_sort.assets/merge_sort_step1.png)
+    ![Steps of merge sort](merge_sort.assets/merge_sort_step1.png)
 
 === "<2>"
     ![merge_sort_step2](merge_sort.assets/merge_sort_step2.png)
@@ -46,28 +46,28 @@ The "merge phase" merges the left and right sub-arrays into a sorted array from 
 === "<10>"
     ![merge_sort_step10](merge_sort.assets/merge_sort_step10.png)
 
-The recursive order of merge sort is consistent with the post-order traversal of a binary tree.
+Merge sort follows the same recursive order as a postorder traversal of a binary tree.
 
-- **Post-order traversal**: First recursively traverse the left subtree, then recursively traverse the right subtree, and finally process the root node.
-- **Merge sort**: First recursively process the left sub-array, then recursively process the right sub-array, and finally perform the merge.
+- **Postorder traversal**: recurse into the left subtree, then the right subtree, and finally process the root.
+- **Merge sort**: recurse into the left subarray, then the right subarray, and finally merge them.
 
-The implementation of merge sort is shown in the code below. Note that the interval to be merged in `nums` is `[left, right]`, while the corresponding interval in `tmp` is `[0, right - left]`.
+The implementation follows. The interval to merge in `nums` is `[left, right]`, while its corresponding interval in `tmp` is `[0, right - left]`.
 
 ```src
 [file]{merge_sort}-[class]{}-[func]{merge_sort}
 ```
 
-## Algorithm Characteristics
+## Algorithm properties
 
-- **Time complexity is $O(n \log n)$; merge sort is non-adaptive**: The divide phase produces a recursion tree of height $\log n$, and the total number of operations performed during merging at each level is $n$, so the overall time complexity is $O(n \log n)$.
-- **Space complexity is $O(n)$; merge sort is not in-place**: The recursion depth is $\log n$, which uses $O(\log n)$ stack-frame space. The merge operation requires an auxiliary array, which uses $O(n)$ additional space.
-- **Stable sort**: During merging, the relative order of equal elements remains unchanged.
+- **Time complexity: $O(n \log n)$; not adaptive**. Division produces a recursion tree of height $\log n$. Merging performs a total of $n$ operations at each level, giving $O(n \log n)$ overall.
+- **Space complexity: $O(n)$; not in-place**. The recursion depth is $\log n$, requiring $O(\log n)$ space for stack frames. Merging uses an auxiliary array requiring $O(n)$ extra space.
+- **Stable**. Merging preserves the order of equal elements.
 
-## Linked List Sorting
+## Sorting linked lists
 
-For linked lists, merge sort has significant advantages over other sorting algorithms, **and it can reduce the space complexity of the sorting task to $O(1)$**.
+Merge sort has a significant advantage over other sorting algorithms for linked lists: **it can reduce the space complexity of sorting a linked list to $O(1)$**.
 
-- **Divide phase**: Iteration can be used instead of recursion to split the linked list, thereby eliminating the stack-frame space used by recursion.
-- **Merge phase**: In linked lists, node insertion and deletion require only pointer updates, so the merge phase (merging two short sorted linked lists into one longer sorted linked list) does not require creating an additional linked list.
+- **Division**: use iteration instead of recursion to divide the list, eliminating the space needed for recursive stack frames.
+- **Merging**: inserting and deleting linked-list nodes requires only changing references or pointers. Merging two short sorted lists into a longer one therefore needs no additional list.
 
-The specific implementation details are quite complex, and interested readers can consult related materials for learning.
+The implementation is fairly involved. Interested readers can consult further resources for details.

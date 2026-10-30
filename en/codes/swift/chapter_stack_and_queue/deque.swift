@@ -6,13 +6,13 @@
 
 @main
 enum Deque {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        /* Get the length of the double-ended queue */
-        // Swift has no built-in deque class, can use Array as deque
+        /* Initialize the deque */
+        // The Swift standard library has no built-in deque class; Array can be used as a deque
         var deque: [Int] = []
 
-        /* Elements enqueue */
+        /* Enqueue elements */
         deque.append(2)
         deque.append(5)
         deque.append(4)
@@ -20,25 +20,25 @@ enum Deque {
         deque.insert(1, at: 0)
         print("Deque deque = \(deque)")
 
-        /* Update element */
+        /* Access an element */
         let peekFirst = deque.first!
         print("Front element peekFirst = \(peekFirst)")
         let peekLast = deque.last!
         print("Rear element peekLast = \(peekLast)")
 
-        /* Element dequeue */
-        // When simulating with Array, popFirst complexity is O(n)
+        /* Dequeue an element */
+        // When using Array as a deque, removing the first element takes O(n) time
         let popFirst = deque.removeFirst()
-        print("Dequeue front element popFirst = \(popFirst), after front dequeue deque = \(deque)")
+        print("Element dequeued from the front, popFirst = \(popFirst); after dequeueing, deque = \(deque)")
         let popLast = deque.removeLast()
-        print("Dequeue rear element popLast = \(popLast), after rear dequeue deque = \(deque)")
+        print("Element dequeued from the rear, popLast = \(popLast); after dequeueing, deque = \(deque)")
 
-        /* Get the length of the double-ended queue */
+        /* Get the deque size */
         let size = deque.count
-        print("Deque length size = \(size)")
+        print("Deque size = \(size)")
 
-        /* Check if the double-ended queue is empty */
+        /* Check whether the deque is empty */
         let isEmpty = deque.isEmpty
-        print("Is deque empty = \(isEmpty)")
+        print("Is the deque empty? \(isEmpty)")
     }
 }

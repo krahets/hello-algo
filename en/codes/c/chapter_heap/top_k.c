@@ -6,27 +6,27 @@
 
 #include "my_heap.c"
 
-/* Element enters heap */
+/* Push an element onto the heap */
 void pushMinHeap(MaxHeap *maxHeap, int val) {
-    // Negate element
+    // Negate the element
     push(maxHeap, -val);
 }
 
-/* Element exits heap */
+/* Pop an element from the heap */
 int popMinHeap(MaxHeap *maxHeap) {
-    // Negate element
+    // Negate the element
     return -pop(maxHeap);
 }
 
-/* Access top element */
+/* Access the top element of the heap */
 int peekMinHeap(MaxHeap *maxHeap) {
-    // Negate element
+    // Negate the element
     return -peek(maxHeap);
 }
 
-/* Extract elements from heap */
+/* Get the elements in the heap */
 int *getMinHeap(MaxHeap *maxHeap) {
-    // Negate all heap elements and store in res array
+    // Negate every element in the heap and store the results in array res
     int *res = (int *)malloc(maxHeap->size * sizeof(int));
     for (int i = 0; i < maxHeap->size; i++) {
         res[i] = -maxHeap->data[i];
@@ -34,19 +34,19 @@ int *getMinHeap(MaxHeap *maxHeap) {
     return res;
 }
 
-// Function to find k largest elements in array using heap
+// Use a heap to find the k largest elements in an array
 int *topKHeap(int *nums, int sizeNums, int k) {
-    // Python's heapq module implements min heap by default
-    // Note: We negate all heap elements to simulate min heap using max heap
+    // Initialize a min heap
+    // Note: negate every element to simulate a min heap with a max heap
     int *empty = (int *)malloc(0);
     MaxHeap *maxHeap = newMaxHeap(empty, 0);
-    // Enter the first k elements of array into heap
+    // Push the first k array elements onto the heap
     for (int i = 0; i < k; i++) {
         pushMinHeap(maxHeap, nums[i]);
     }
-    // Starting from the (k+1)th element, maintain heap length as k
+    // Starting with element k+1, keep the heap size at k
     for (int i = k; i < sizeNums; i++) {
-        // If current element is greater than top element, top element exits heap, current element enters heap
+        // If the current element is larger than the heap top, pop the top element and push the current element
         if (nums[i] > peekMinHeap(maxHeap)) {
             popMinHeap(maxHeap);
             pushMinHeap(maxHeap, nums[i]);
@@ -58,14 +58,14 @@ int *topKHeap(int *nums, int sizeNums, int k) {
     return res;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     int nums[] = {1, 7, 6, 3, 2};
     int k = 3;
     int sizeNums = sizeof(nums) / sizeof(nums[0]);
 
     int *res = topKHeap(nums, sizeNums, k);
-    printf("The largest %d elements are: ", k);
+    printf("The %d largest elements are: ", k);
     printArray(res, k);
 
     free(res);

@@ -6,28 +6,28 @@
 
 #include "../utils/common.h"
 
-/* Find minimum value */
+/* Find the minimum */
 int myMin(int a, int b) {
     return a < b ? a : b;
 }
-/* Find maximum value */
+/* Find the maximum */
 int myMax(int a, int b) {
     return a > b ? a : b;
 }
 
-/* Max capacity: Greedy algorithm */
+/* Maximum container capacity: greedy algorithm */
 int maxCapacity(int ht[], int htLength) {
-    // Initialize i, j to be at both ends of the array
+    // Initialize i and j at opposite ends of the array
     int i = 0;
     int j = htLength - 1;
-    // Initial max capacity is 0
+    // The initial maximum capacity is 0
     int res = 0;
-    // Loop for greedy selection until the two boards meet
+    // Repeatedly make greedy choices until the two sides meet
     while (i < j) {
-        // Update max capacity
+        // Update the maximum capacity
         int capacity = myMin(ht[i], ht[j]) * (j - i);
         res = myMax(res, capacity);
-        // Move the shorter board inward
+        // Move the shorter side inward
         if (ht[i] < ht[j]) {
             i++;
         } else {
@@ -37,13 +37,13 @@ int maxCapacity(int ht[], int htLength) {
     return res;
 }
 
-/* Driver Code */
+/* Driver code */
 int main(void) {
     int ht[] = {3, 8, 5, 2, 7, 7, 3, 4};
 
     // Greedy algorithm
     int res = maxCapacity(ht, sizeof(ht) / sizeof(int));
-    printf("Maximum capacity is %d\n", res);
+    printf("Maximum capacity: %d\n", res);
 
     return 0;
 }

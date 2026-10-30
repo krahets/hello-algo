@@ -34,7 +34,7 @@ function xorHash(key: string): number {
     return hash % MODULUS;
 }
 
-/* Rotational hash */
+/* Rotating hash */
 function rotHash(key: string): number {
     let hash = 0;
     const MODULUS = 1000000007;
@@ -44,17 +44,17 @@ function rotHash(key: string): number {
     return hash;
 }
 
-/* Driver Code */
-const key = 'Hello Algo';
+/* Driver code */
+const key = 'Hello 算法';
 
 let hash = addHash(key);
-console.log('Additive hash value is ' + hash);
+console.log('Additive hash value: ' + hash);
 
 hash = mulHash(key);
-console.log('Multiplicative hash value is ' + hash);
+console.log('Multiplicative hash value: ' + hash);
 
 hash = xorHash(key);
-console.log('XOR hash value is ' + hash);
+console.log('XOR hash value: ' + hash);
 
 hash = rotHash(key);
-console.log('Rotational hash value is ' + hash);
+console.log('Rotating hash value: ' + hash);

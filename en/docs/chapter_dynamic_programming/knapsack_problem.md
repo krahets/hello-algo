@@ -1,97 +1,97 @@
-# 0-1 Knapsack Problem
+# 0-1 knapsack problem
 
-The knapsack problem is an excellent introductory problem for dynamic programming and is one of the most common problem forms in dynamic programming. It has many variants, such as the 0-1 knapsack problem, the unbounded knapsack problem, and the multiple knapsack problem.
+The knapsack problem is an excellent introduction to dynamic programming and one of its most common problem families. Variants include 0-1 knapsack, unbounded knapsack, and bounded knapsack.
 
-In this section, we will first solve the most common 0-1 knapsack problem.
+We will begin with the most common variant, 0-1 knapsack.
 
 !!! question
 
-    Given $n$ items and a knapsack with capacity $cap$, where the weight and value of the $i$-th item are $wgt[i-1]$ and $val[i-1]$, respectively. Each item can be selected at most once. What is the maximum value that can fit in the knapsack under the capacity limit?
+    Given $n$ items, where item $i$ has weight $wgt[i-1]$ and value $val[i-1]$, and a knapsack of capacity $cap$, each item may be chosen only once. What is the maximum total value that fits within the capacity?
 
-Observe the figure below. Since item number $i$ starts counting from $1$ and array indices start from $0$, item $i$ corresponds to weight $wgt[i-1]$ and value $val[i-1]$.
+As shown in the figure below, item numbers $i$ start at $1$, while array indices start at $0$. Item $i$ therefore has weight $wgt[i-1]$ and value $val[i-1]$.
 
-![Example data for 0-1 knapsack](knapsack_problem.assets/knapsack_example.png)
+![Example input for 0-1 knapsack](knapsack_problem.assets/knapsack_example.png)
 
-We can view the 0-1 knapsack problem as a process consisting of $n$ rounds of decisions, where for each item there are two decisions: not putting it in and putting it in, thus the problem satisfies the decision tree model.
+We can view 0-1 knapsack as $n$ rounds of decisions, with two choices for each item: leave it out or put it in. It therefore fits the decision tree model.
 
-The goal of this problem is to find "the maximum value that can be placed in the knapsack within the capacity limit", so it is more likely to be a dynamic programming problem.
+The objective is to maximize value within a capacity limit, making dynamic programming a promising approach.
 
-**Step 1: Think about the decisions in each round, define the state, and thus obtain the $dp$ table**
+**Step 1: Identify each decision, define the state, and establish the $dp$ table**
 
-For each item, if not placed in the knapsack, the knapsack capacity remains unchanged; if placed in, the knapsack capacity decreases. From this, we can derive the state definition: current item number $i$ and knapsack capacity $c$, denoted as $[i, c]$.
+Leaving an item out keeps the available capacity unchanged; putting it in reduces the capacity. The state therefore consists of the current item number $i$ and capacity $c$, denoted by $[i, c]$.
 
-State $[i, c]$ corresponds to the subproblem: **the maximum value among the first $i$ items in a knapsack of capacity $c$**, denoted as $dp[i, c]$.
+State $[i, c]$ represents the subproblem of finding **the maximum value obtainable from the first $i$ items with capacity $c$**, denoted by $dp[i, c]$.
 
-What we need to find is $dp[n, cap]$, so we need a two-dimensional $dp$ table of size $(n+1) \times (cap+1)$.
+We seek $dp[n, cap]$, so we need a two-dimensional $dp$ table of size $(n+1) \times (cap+1)$.
 
-**Step 2: Identify the optimal substructure, and then derive the state transition equation**
+**Step 2: Identify optimal substructure and derive the state transition equation**
 
-After making the decision for item $i$, what remains is the subproblem of the first $i-1$ items, which can be divided into the following two cases.
+After deciding what to do with item $i$, the remaining subproblem concerns the first $i-1$ items. There are two cases.
 
-- **Not putting item $i$**: The knapsack capacity remains unchanged, and the state changes to $[i-1, c]$.
-- **Putting item $i$**: The knapsack capacity decreases by $wgt[i-1]$, the value increases by $val[i-1]$, and the state changes to $[i-1, c-wgt[i-1]]$.
+- **Leave item $i$ out**: Capacity stays unchanged, and the remaining state is $[i-1, c]$.
+- **Put item $i$ in**: Capacity decreases by $wgt[i-1]$, value increases by $val[i-1]$, and the remaining state is $[i-1, c-wgt[i-1]]$.
 
-The above analysis reveals the optimal substructure of this problem: **the maximum value $dp[i, c]$ equals the greater of the values obtained by not putting item $i$ into the knapsack and by putting it into the knapsack**. From this, the state transition equation can be derived:
+This reveals the optimal substructure: **the maximum value $dp[i, c]$ is the larger value obtained by leaving item $i$ out or putting item $i$ in**. The state transition equation is:
 
 $$
 dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 $$
 
-Note that if the weight of the current item $wgt[i - 1]$ exceeds the remaining knapsack capacity $c$, then the only option is not to put it in the knapsack.
+If the current item's weight $wgt[i - 1]$ exceeds the remaining capacity $c$, the only option is to leave it out.
 
-**Step 3: Determine boundary conditions and state transition order**
+**Step 3: Determine the boundary conditions and evaluation order**
 
-When there are no items or the knapsack capacity is $0$, the maximum value is $0$, i.e., the first column $dp[i, 0]$ and the first row $dp[0, c]$ are both equal to $0$.
+With no items or capacity $0$, the maximum value is $0$. Thus, the first column $dp[i, 0]$ and first row $dp[0, c]$ are both $0$.
 
-The current state $[i, c]$ transitions from the state above $[i-1, c]$ and the upper-left state $[i-1, c-wgt[i-1]]$, so we can traverse the entire $dp$ table in forward order using two nested loops.
+The current state $[i, c]$ depends on $[i-1, c]$ above and $[i-1, c-wgt[i-1]]$ to the upper left, so two nested loops can traverse the $dp$ table in increasing index order.
 
-Based on the above analysis, we will next implement the brute force search, memoization, and dynamic programming solutions in order.
+We will now implement brute-force search, memoized search, and dynamic programming in that order.
 
-### Method 1: Brute Force Search
+### Method 1: Brute-force search
 
-The search code includes the following elements.
+The search has the following elements.
 
-- **Recursive parameters**: state $[i, c]$.
-- **Return value**: solution to the subproblem $dp[i, c]$.
-- **Termination condition**: when there are no items left ($i = 0$) or the remaining knapsack capacity is $0$, terminate the recursion and return value $0$.
-- **Pruning**: if the weight of the current item exceeds the remaining knapsack capacity, only the option of not putting it in is available.
+- **Parameters**: The state $[i, c]$.
+- **Return value**: The subproblem solution $dp[i, c]$.
+- **Base case**: If there are no items left, $i = 0$, or the remaining capacity is $0$, stop recursion and return value $0$.
+- **Pruning**: If the current item is heavier than the remaining capacity, only the choice to leave it out is allowed.
 
 ```src
 [file]{knapsack}-[class]{}-[func]{knapsack_dfs}
 ```
 
-As shown in the figure below, since each item generates two search branches, excluding it and including it, the time complexity is $O(2^n)$.
+As shown in the figure below, each item creates two branches, excluding it or including it, so the time complexity is $O(2^n)$.
 
-Observing the recursion tree, it is easy to see overlapping subproblems, such as $dp[1, 10]$. When there are many items, large knapsack capacity, and especially many items with the same weight, the number of overlapping subproblems will increase significantly.
+The recursion tree contains overlapping subproblems, such as $dp[1, 10]$. Their number grows substantially with more items and larger capacity, especially when many items share the same weight.
 
-![Brute force search recursion tree for 0-1 knapsack problem](knapsack_problem.assets/knapsack_dfs.png)
+![Brute-force recursion tree for 0-1 knapsack](knapsack_problem.assets/knapsack_dfs.png)
 
-### Method 2: Memoization
+### Method 2: Memoized search
 
-To ensure that overlapping subproblems are only computed once, we use a memo list `mem` to record the solutions to subproblems, where `mem[i][c]` corresponds to $dp[i, c]$.
+To solve each overlapping subproblem only once, use a memoization table `mem`, where `mem[i][c]` stores $dp[i, c]$.
 
-After introducing memoization, **the time complexity depends on the number of subproblems**, which is $O(n \times cap)$. The implementation code is as follows:
+With memoization, **the time complexity depends on the number of subproblems**, giving $O(n \times cap)$. The code is as follows:
 
 ```src
 [file]{knapsack}-[class]{}-[func]{knapsack_dfs_mem}
 ```
 
-The figure below shows the search branches pruned in memoization.
+The figure below shows the branches pruned by memoized search.
 
-![Memoization recursion tree for 0-1 knapsack problem](knapsack_problem.assets/knapsack_dfs_mem.png)
+![Memoized recursion tree for 0-1 knapsack](knapsack_problem.assets/knapsack_dfs_mem.png)
 
-### Method 3: Dynamic Programming
+### Method 3: Dynamic programming
 
-Dynamic programming is essentially the process of filling the $dp$ table during state transitions. The code is as follows:
+Dynamic programming essentially fills the $dp$ table using state transitions, as shown in the code below:
 
 ```src
 [file]{knapsack}-[class]{}-[func]{knapsack_dp}
 ```
 
-As shown in the figure below, both time complexity and space complexity are determined by the size of the array `dp`, which is $O(n \times cap)$.
+As shown in the figure below, both time and space complexity are determined by the size of `dp`: $O(n \times cap)$.
 
 === "<1>"
-    ![Dynamic programming process for 0-1 knapsack problem](knapsack_problem.assets/knapsack_dp_step1.png)
+    ![Dynamic programming for 0-1 knapsack](knapsack_problem.assets/knapsack_dp_step1.png)
 
 === "<2>"
     ![knapsack_dp_step2](knapsack_problem.assets/knapsack_dp_step2.png)
@@ -132,19 +132,19 @@ As shown in the figure below, both time complexity and space complexity are dete
 === "<14>"
     ![knapsack_dp_step14](knapsack_problem.assets/knapsack_dp_step14.png)
 
-### Space Optimization
+### Space optimization
 
-Since each state is only related to the state in the row above it, we can use two arrays rolling forward to reduce the space complexity from $O(n \times cap)$ to $O(cap)$.
+Each state depends only on the previous row, so two rolling arrays reduce space complexity from $O(n \times cap)$ to $O(cap)$.
 
-Further thinking, can we achieve space optimization using just one array? Observing, we can see that each state is transferred from the cell directly above or the cell in the upper-left. If there is only one array, when we start traversing row $i$, that array still stores the state of row $i-1$.
+Can we go further and use just one array? Each state depends on entries directly above or to the upper left. With one array, when we begin processing row $i$, it still holds the states from row $i-1$.
 
-- If using forward traversal, then when traversing to $dp[i, j]$, the values in the upper-left $dp[i-1, 1]$ ~ $dp[i-1, j-1]$ may have already been overwritten, thus preventing correct state transition.
-- If using reverse traversal, there will be no overwriting issue, and state transition can proceed correctly.
+- With forward iteration, by the time we reach $dp[i, j]$, the upper-left values $dp[i-1, 1]$ ~ $dp[i-1, j-1]$ may have been overwritten, making the transition incorrect.
+- With backward iteration, these values are not overwritten before they are needed, so transitions remain correct.
 
-The figure below shows the transition process from row $i = 1$ to row $i = 2$ using a single array. Please consider the difference between forward and reverse traversal.
+The figure below shows one array changing from row $i = 1$ to row $i = 2$. Consider how forward and backward iteration differ.
 
 === "<1>"
-    ![Space-optimized dynamic programming process for 0-1 knapsack](knapsack_problem.assets/knapsack_dp_comp_step1.png)
+    ![Space-optimized dynamic programming for 0-1 knapsack](knapsack_problem.assets/knapsack_dp_comp_step1.png)
 
 === "<2>"
     ![knapsack_dp_comp_step2](knapsack_problem.assets/knapsack_dp_comp_step2.png)
@@ -161,7 +161,7 @@ The figure below shows the transition process from row $i = 1$ to row $i = 2$ us
 === "<6>"
     ![knapsack_dp_comp_step6](knapsack_problem.assets/knapsack_dp_comp_step6.png)
 
-In the code implementation, we simply need to delete the first dimension $i$ of the array `dp` and change the inner loop to reverse traversal:
+In the implementation, simply remove the first dimension $i$ from `dp` and reverse the inner loop:
 
 ```src
 [file]{knapsack}-[class]{}-[func]{knapsack_dp_comp}

@@ -6,11 +6,11 @@
 
 /* Recursion */
 int recur(int n) {
-  // Termination condition
+  // Base case
   if (n == 1) return 1;
-  // Recurse: recursive call
+  // Recurse: make a recursive call
   int res = recur(n - 1);
-  // Return: return result
+  // Unwind: return the result
   return n + res;
 }
 
@@ -19,14 +19,14 @@ int forLoopRecur(int n) {
   // Use an explicit stack to simulate the system call stack
   List<int> stack = [];
   int res = 0;
-  // Recurse: recursive call
+  // Recurse: make a recursive call
   for (int i = n; i > 0; i--) {
-    // Simulate "recurse" with "push"
+    // Simulate recursive calls by pushing onto the stack
     stack.add(i);
   }
-  // Return: return result
+  // Unwind: return the result
   while (!stack.isEmpty) {
-    // Simulate "return" with "pop"
+    // Simulate unwinding by popping from the stack
     res += stack.removeLast();
   }
   // res = 1+2+3+...+n
@@ -35,36 +35,36 @@ int forLoopRecur(int n) {
 
 /* Tail recursion */
 int tailRecur(int n, int res) {
-  // Termination condition
+  // Base case
   if (n == 0) return res;
-  // Tail recursive call
+  // Tail-recursive call
   return tailRecur(n - 1, res + n);
 }
 
 /* Fibonacci sequence: recursion */
 int fib(int n) {
-  // Termination condition f(1) = 0, f(2) = 1
+  // Base cases: f(1) = 0, f(2) = 1
   if (n == 1 || n == 2) return n - 1;
-  // Recursive call f(n) = f(n-1) + f(n-2)
+  // Recursive calls: f(n) = f(n-1) + f(n-2)
   int res = fib(n - 1) + fib(n - 2);
-  // Return result f(n)
+  // Return the result f(n)
   return res;
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
   int n = 5;
   int res;
 
   res = recur(n);
-  print("\nRecursion sum result res = $res");
+  print("\nSum from the recursive function: res = $res");
 
   res = tailRecur(n, 0);
-  print("\nTail recursion sum result res = $res");
+  print("\nSum from the tail-recursive function: res = $res");
 
   res = forLoopRecur(n);
-  print("\nUsing iteration to simulate recursion sum result res = $res");
+  print("\nSum from simulating recursion with iteration: res = $res");
 
   res = fib(n);
-  print("\nThe ${n}th Fibonacci number is $res");
+  print("\nFibonacci term $n is $res");
 }

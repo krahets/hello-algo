@@ -4,9 +4,9 @@
 </p>
 
 <p align="center">
-  <img style="height: 60px;" src="https://readme-typing-svg.demolab.com?font=Roboto&weight=400&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+Algo!" alt="hello-algo-typing-svg" />
+  <img style="height: 60px;" src="https://readme-typing-svg.demolab.com?font=Noto+Sans&weight=400&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+Algo+!" alt="hello-algo-typing-svg" />
   </br>
-  Data structures and algorithms tutorial with animated illustrations and ready-to-run code
+  A data structures and algorithms tutorial with animated illustrations and code you can run with one click
 </p>
 
 <p align="center">
@@ -38,7 +38,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/krahets/hello-algo">简体中文</a>
+  <a href="https://github.com/krahets/hello-algo/blob/main/README.md">简体中文</a>
   ｜
   <a href="https://github.com/krahets/hello-algo/blob/main/zh-hant/README.md">繁體中文</a>
   ｜
@@ -51,41 +51,37 @@
   <a href="https://github.com/krahets/hello-algo/blob/main/ko/README.md">한국어</a>
 </p>
 
-## The book
+## About this book
 
-This open-source project aims to create a free and beginner-friendly crash course for data structures and algorithms.
+This project aims to create a free, open-source introduction to data structures and algorithms that is accessible to beginners.
 
-- Animated illustrations, easy-to-understand content, and a smooth learning curve help beginners explore the "knowledge map" of data structures and algorithms.
-- Run code with just one click, helping readers improve their programming skills and understand the working principle of algorithms and the underlying implementation of data structures.
-- Promoting learning by teaching, feel free to ask questions and share insights. Let's grow together through discussion.
+- Animated illustrations throughout the book, clear explanations, and a gradual learning curve guide beginners through data structures and algorithms.
+- Code that runs with one click helps readers build programming skills through practice and understand how algorithms work and how data structures are implemented.
+- Readers are encouraged to learn together. Ask questions and share insights in the comments so everyone can benefit from the discussion.
 
-If you find this book helpful, please give it a Star :star: to support us, thank you!
+If you find this book helpful, please support it by clicking Star :star: at the top right of the page. Thank you!
 
 ## Endorsements
 
-> "An easy-to-understand book on data structures and algorithms, which guides readers to learn by minds-on and hands-on. Strongly recommended for algorithm beginners!"
+> “An accessible introduction to data structures and algorithms that encourages readers to learn by thinking and doing. Highly recommended for anyone new to algorithms.”
 >
-> **—— Junhui Deng, Professor, Department of computer science and technology, Tsinghua University**
+> **— Junhui Deng, Professor, Department of Computer Science, Tsinghua University**
 
-> "If I had 'Hello Algo' when I was learning data structures and algorithms, it would have been 10 times easier!"
+> “If I had had *Hello Algo* when I was learning data structures and algorithms, it would have been ten times easier!”
 >
-> **—— Mu Li, Senior Principal Scientist, Amazon**
+> **— Mu Li, Senior Principal Scientist, Amazon**
 
 ## Contributing
 
-> [!Important]
->
-> Welcome to contribute to Chinese-to-English translation! For more information please see [CONTRIBUTING.md](CONTRIBUTING.md).
+This open-source book is continually being updated. You are welcome to join the project and help improve the learning material for readers.
 
-This open-source book is continuously being updated, and we welcome your participation in this project to provide better learning content for readers.
+- [Content corrections](https://www.hello-algo.com/en/chapter_appendix/contribution/): Help fix or report grammatical errors, missing content, ambiguous wording, broken links, and code bugs in the comments.
+- [Code ports](https://github.com/krahets/hello-algo/issues/15): Contributions in different programming languages are welcome. The book supports 12 languages, including Python, Java, C++, Go, and JavaScript.
+- Translation and review: Help translate and proofread the book so more readers can learn data structures and algorithms in their own language.
 
-- [Content Correction](https://www.hello-algo.com/en/chapter_appendix/contribution/): Please help us correct or point out mistakes in the comments section such as grammatical errors, missing content, ambiguities, invalid links, or code bugs.
-- [Code Transpilation](https://github.com/krahets/hello-algo/issues/15): We look forward to your contributions in various programming languages. We currently support 12 languages including Python, Java, C++, Go, and JavaScript.
-- Translation Review: Welcome to contribute to multilingual translation and review work, helping more readers learn data structures and algorithms in their native languages.
+Feedback and suggestions are welcome. If you have questions, open an issue or contact `krahets-jyd` on WeChat.
 
-We welcome your valuable suggestions and feedback. If you have any questions, please submit Issues or reach out via WeChat: `krahets-jyd`.
-
-We would like to dedicate our thanks to all the contributors of this book. It is their selfless dedication that has made this book better. They are:
+Thank you to everyone who has contributed to this open-source book. Their generous efforts have made it better:
 
 <p align="left">
     <a href="https://github.com/krahets/hello-algo/graphs/contributors">

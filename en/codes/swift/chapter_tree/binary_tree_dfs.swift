@@ -6,7 +6,7 @@
 
 import utils
 
-// Initialize list for storing traversal sequence
+// Initialize a list to store the traversal sequence
 var list: [Int] = []
 
 /* Preorder traversal */
@@ -14,7 +14,7 @@ func preOrder(root: TreeNode?) {
     guard let root = root else {
         return
     }
-    // Visit priority: root node -> left subtree -> right subtree
+    // Visit order: root -> left subtree -> right subtree
     list.append(root.val)
     preOrder(root: root.left)
     preOrder(root: root.right)
@@ -25,7 +25,7 @@ func inOrder(root: TreeNode?) {
     guard let root = root else {
         return
     }
-    // Visit priority: left subtree -> root node -> right subtree
+    // Visit order: left subtree -> root -> right subtree
     inOrder(root: root.left)
     list.append(root.val)
     inOrder(root: root.right)
@@ -36,7 +36,7 @@ func postOrder(root: TreeNode?) {
     guard let root = root else {
         return
     }
-    // Visit priority: left subtree -> right subtree -> root node
+    // Visit order: left subtree -> right subtree -> root
     postOrder(root: root.left)
     postOrder(root: root.right)
     list.append(root.val)
@@ -44,27 +44,27 @@ func postOrder(root: TreeNode?) {
 
 @main
 enum BinaryTreeDFS {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        /* Initialize binary tree */
-        // Here we use a function to generate a binary tree directly from an array
+        /* Initialize the binary tree */
+        // Use a helper function that builds a binary tree directly from an array
         let root = TreeNode.listToTree(arr: [1, 2, 3, 4, 5, 6, 7])!
-        print("\nInitialize binary tree\n")
+        print("\nInitialize the binary tree\n")
         PrintUtil.printTree(root: root)
 
         /* Preorder traversal */
         list.removeAll()
         preOrder(root: root)
-        print("\nPre-order traversal node print sequence = \(list)")
+        print("\nNode values in preorder = \(list)")
 
         /* Inorder traversal */
         list.removeAll()
         inOrder(root: root)
-        print("\nIn-order traversal node print sequence = \(list)")
+        print("\nNode values in inorder = \(list)")
 
         /* Postorder traversal */
         list.removeAll()
         postOrder(root: root)
-        print("\nPost-order traversal node print sequence = \(list)")
+        print("\nNode values in postorder = \(list)")
     }
 }

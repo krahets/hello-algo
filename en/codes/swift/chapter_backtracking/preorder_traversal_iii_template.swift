@@ -6,46 +6,46 @@
 
 import utils
 
-/* Check if the current state is a solution */
+/* Check whether the current state is a solution */
 func isSolution(state: [TreeNode]) -> Bool {
     !state.isEmpty && state.last!.val == 7
 }
 
-/* Record solution */
+/* Record the solution */
 func recordSolution(state: [TreeNode], res: inout [[TreeNode]]) {
     res.append(state)
 }
 
-/* Check if the choice is valid under the current state */
+/* Check whether the choice is valid in the current state */
 func isValid(state: [TreeNode], choice: TreeNode?) -> Bool {
     choice != nil && choice!.val != 3
 }
 
-/* Update state */
+/* Update the state */
 func makeChoice(state: inout [TreeNode], choice: TreeNode) {
     state.append(choice)
 }
 
-/* Restore state */
+/* Restore the state */
 func undoChoice(state: inout [TreeNode], choice: TreeNode) {
     state.removeLast()
 }
 
-/* Backtracking algorithm: Example 3 */
+/* Backtracking: example 3 */
 func backtrack(state: inout [TreeNode], choices: [TreeNode], res: inout [[TreeNode]]) {
-    // Check if it is a solution
+    // Check whether this is a solution
     if isSolution(state: state) {
         recordSolution(state: state, res: &res)
     }
-    // Traverse all choices
+    // Iterate over all choices
     for choice in choices {
-        // Pruning: check if the choice is valid
+        // Prune: check whether the choice is valid
         if isValid(state: state, choice: choice) {
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             makeChoice(state: &state, choice: choice)
-            // Proceed to the next round of selection
+            // Proceed to the next choice
             backtrack(state: &state, choices: [choice.left, choice.right].compactMap { $0 }, res: &res)
-            // Backtrack: undo choice, restore to previous state
+            // Backtrack: undo the choice and restore the previous state
             undoChoice(state: &state, choice: choice)
         }
     }
@@ -53,10 +53,10 @@ func backtrack(state: inout [TreeNode], choices: [TreeNode], res: inout [[TreeNo
 
 @main
 enum PreorderTraversalIIITemplate {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         let root = TreeNode.listToTree(arr: [1, 7, 3, 4, 5, 6, 7])
-        print("\nInitialize binary tree")
+        print("\nInitialize the binary tree")
         PrintUtil.printTree(root: root)
 
         // Backtracking algorithm
@@ -64,7 +64,7 @@ enum PreorderTraversalIIITemplate {
         var res: [[TreeNode]] = []
         backtrack(state: &state, choices: [root].compactMap { $0 }, res: &res)
 
-        print("\nOutput all paths from root node to node 7, paths do not include nodes with value 3")
+        print("\nOutput all paths from the root to nodes with value 7 that contain no node with value 3")
         for path in res {
             var vals: [Int] = []
             for node in path {

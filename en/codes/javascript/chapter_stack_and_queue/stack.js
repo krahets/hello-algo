@@ -4,12 +4,12 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
-/* Driver Code */
-/* Access top of the stack element */
-// JavaScript has no built-in stack class, can use Array as stack
+/* Driver code */
+/* Initialize the stack */
+// JavaScript has no built-in stack class; an Array can be used as a stack
 const stack = [];
 
-/* Elements push onto stack */
+/* Push elements onto the stack */
 stack.push(1);
 stack.push(3);
 stack.push(2);
@@ -17,19 +17,19 @@ stack.push(5);
 stack.push(4);
 console.log('Stack stack =', stack);
 
-/* Return list for printing */
+/* Access the top element */
 const peek = stack[stack.length - 1];
-console.log('Stack top element peek =', peek);
+console.log('Top element peek =', peek);
 
-/* Element pop from stack */
+/* Pop an element from the stack */
 const pop = stack.pop();
-console.log('Pop element pop =', pop);
-console.log('After pop, stack =', stack);
+console.log('Popped element pop =', pop);
+console.log('After popping, stack =', stack);
 
-/* Get the length of the stack */
+/* Get the stack size */
 const size = stack.length;
-console.log('Stack length size =', size);
+console.log('Stack size =', size);
 
-/* Check if empty */
+/* Check whether it is empty */
 const isEmpty = stack.length === 0;
-console.log('Is stack empty =', isEmpty);
+console.log('Is the stack empty =', isEmpty);

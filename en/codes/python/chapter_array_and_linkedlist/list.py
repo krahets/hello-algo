@@ -4,53 +4,53 @@ Created Time: 2022-11-25
 Author: krahets (krahets@163.com)
 """
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
-    # Initialize list
+    # Initialize the list
     nums: list[int] = [1, 3, 2, 5, 4]
     print("\nList nums =", nums)
 
-    # Access element
+    # Access an element
     x: int = nums[1]
-    print("\nAccess the element at index 1, get x =", x)
+    print("\nAccess the element at index 1, giving x =", x)
 
-    # Update element
+    # Update an element
     nums[1] = 0
-    print("\nUpdate the element at index 1 to 0, get nums =", nums)
+    print("\nUpdate the element at index 1 to 0, giving nums =", nums)
 
-    # Clear list
+    # Clear the list
     nums.clear()
-    print("\nAfter clearing the list nums =", nums)
+    print("\nAfter clearing the list, nums =", nums)
 
-    # Add elements at the end
+    # Append an element at the end
     nums.append(1)
     nums.append(3)
     nums.append(2)
     nums.append(5)
     nums.append(4)
-    print("\nAfter adding elements nums =", nums)
+    print("\nAfter adding elements, nums =", nums)
 
-    # Insert element in the middle
+    # Insert an element in the middle
     nums.insert(3, 6)
-    print("\nInsert number 6 at index 3, get nums =", nums)
+    print("\nInsert the number 6 at index 3, giving nums =", nums)
 
-    # Remove element
+    # Remove an element
     nums.pop(3)
-    print("\nRemove the element at index 3, get nums =", nums)
+    print("\nRemove the element at index 3, giving nums =", nums)
 
-    # Traverse list by index
+    # Traverse the list by index
     count = 0
     for i in range(len(nums)):
         count += nums[i]
-    # Direct traversal of list elements
+    # Iterate directly over the list elements
     for num in nums:
         count += num
 
     # Concatenate two lists
     nums1 = [6, 8, 7, 10, 9]
     nums += nums1
-    print("\nConcatenate list nums1 to nums, get nums =", nums)
+    print("\nAppend list nums1 to nums, giving nums =", nums)
 
-    # Sort list
+    # Sort the list
     nums.sort()
-    print("\nAfter sorting the list nums =", nums)
+    print("\nAfter sorting the list, nums =", nums)

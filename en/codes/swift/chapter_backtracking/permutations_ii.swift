@@ -4,25 +4,25 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Backtracking algorithm: Permutations II */
+/* Backtracking: permutations II */
 func backtrack(state: inout [Int], choices: [Int], selected: inout [Bool], res: inout [[Int]]) {
-    // When the state length equals the number of elements, record the solution
+    // Record a solution when the state length equals the number of elements
     if state.count == choices.count {
         res.append(state)
         return
     }
-    // Traverse all choices
+    // Iterate over all choices
     var duplicated: Set<Int> = []
     for (i, choice) in choices.enumerated() {
-        // Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
+        // Prune: do not reuse an element or choose the same value again at this depth
         if !selected[i], !duplicated.contains(choice) {
-            // Attempt: make choice, update state
-            duplicated.insert(choice) // Record the selected element value
+            // Try: make a choice and update the state
+            duplicated.insert(choice) // Record the chosen value
             selected[i] = true
             state.append(choice)
-            // Proceed to the next round of selection
+            // Proceed to the next choice
             backtrack(state: &state, choices: choices, selected: &selected, res: &res)
-            // Backtrack: undo choice, restore to previous state
+            // Backtrack: undo the choice and restore the previous state
             selected[i] = false
             state.removeLast()
         }
@@ -40,7 +40,7 @@ func permutationsII(nums: [Int]) -> [[Int]] {
 
 @main
 enum PermutationsII {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         let nums = [1, 2, 3]
 

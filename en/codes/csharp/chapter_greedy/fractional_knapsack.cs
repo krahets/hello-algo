@@ -13,26 +13,26 @@ class Item(int w, int v) {
 }
 
 public class fractional_knapsack {
-    /* Fractional knapsack: Greedy algorithm */
+    /* Fractional knapsack: greedy algorithm */
     double FractionalKnapsack(int[] wgt, int[] val, int cap) {
-        // Create item list with two attributes: weight, value
+        // Create a list of items, each with two attributes: weight and value
         Item[] items = new Item[wgt.Length];
         for (int i = 0; i < wgt.Length; i++) {
             items[i] = new Item(wgt[i], val[i]);
         }
-        // Sort by unit value item.v / item.w from high to low
+        // Sort by value per unit weight, item.v / item.w, in descending order
         Array.Sort(items, (x, y) => (y.v / y.w).CompareTo(x.v / x.w));
-        // Loop for greedy selection
+        // Repeatedly make greedy choices
         double res = 0;
         foreach (Item item in items) {
             if (item.w <= cap) {
-                // If remaining capacity is sufficient, put the entire current item into the knapsack
+                // If enough capacity remains, put the entire current item in the knapsack
                 res += item.v;
                 cap -= item.w;
             } else {
-                // If remaining capacity is insufficient, put part of the current item into the knapsack
+                // If the remaining capacity is insufficient, put part of the current item in the knapsack
                 res += (double)item.v / item.w * cap;
-                // No remaining capacity, so break out of the loop
+                // No capacity remains, so exit the loop
                 break;
             }
         }
@@ -47,6 +47,6 @@ public class fractional_knapsack {
 
         // Greedy algorithm
         double res = FractionalKnapsack(wgt, val, cap);
-        Console.WriteLine("Maximum item value not exceeding knapsack capacity is " + res);
+        Console.WriteLine("Maximum total item value within the knapsack capacity: " + res);
     }
 }

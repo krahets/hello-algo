@@ -14,7 +14,7 @@ class ListNode {
     }
 }
 
-/* Deserialize array to linked list */
+/* Deserialize an array into a linked list */
 function arrToLinkedList(arr: number[]): ListNode | null {
     const dum: ListNode = new ListNode(0);
     let head = dum;

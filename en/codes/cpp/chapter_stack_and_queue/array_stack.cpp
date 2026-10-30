@@ -6,18 +6,18 @@
 
 #include "../utils/common.hpp"
 
-/* Stack based on array implementation */
+/* Stack implemented with an array */
 class ArrayStack {
   private:
     vector<int> stack;
 
   public:
-    /* Get the length of the stack */
+    /* Get the stack size */
     int size() {
         return stack.size();
     }
 
-    /* Check if the stack is empty */
+    /* Check whether the stack is empty */
     bool isEmpty() {
         return stack.size() == 0;
     }
@@ -34,25 +34,25 @@ class ArrayStack {
         return num;
     }
 
-    /* Return list for printing */
+    /* Access the top element */
     int top() {
         if (isEmpty())
             throw out_of_range("Stack is empty");
         return stack.back();
     }
 
-    /* Return Vector */
+    /* Return a vector */
     vector<int> toVector() {
         return stack;
     }
 };
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Access top of the stack element */
+    /* Initialize the stack */
     ArrayStack *stack = new ArrayStack();
 
-    /* Elements push onto stack */
+    /* Push elements onto the stack */
     stack->push(1);
     stack->push(3);
     stack->push(2);
@@ -61,22 +61,22 @@ int main() {
     cout << "Stack stack = ";
     printVector(stack->toVector());
 
-    /* Return list for printing */
+    /* Access the top element */
     int top = stack->top();
-    cout << "Stack top element top = " << top << endl;
+    cout << "Top element top = " << top << endl;
 
-    /* Element pop from stack */
+    /* Pop an element from the stack */
     top = stack->pop();
-    cout << "Pop element pop = " << top << ", after pop, stack = ";
+    cout << "Popped element pop = " << top << "; after popping, stack = ";
     printVector(stack->toVector());
 
-    /* Get the length of the stack */
+    /* Get the stack size */
     int size = stack->size();
-    cout << "Stack length size = " << size << endl;
+    cout << "Stack size = " << size << endl;
 
-    /* Check if empty */
+    /* Check whether it is empty */
     bool empty = stack->isEmpty();
-    cout << "Stack is empty = " << empty << endl;
+    cout << "Is the stack empty = " << empty << endl;
 
     // Free memory
     delete stack;

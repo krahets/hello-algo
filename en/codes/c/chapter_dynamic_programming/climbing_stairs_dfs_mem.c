@@ -6,12 +6,12 @@
 
 #include "../utils/common.h"
 
-/* Memoization search */
+/* Memoized search */
 int dfs(int i, int *mem) {
-    // Known dp[1] and dp[2], return them
+    // The values of dp[1] and dp[2] are known; return them
     if (i == 1 || i == 2)
         return i;
-    // If record dp[i] exists, return it directly
+    // If dp[i] has been recorded, return it directly
     if (mem[i] != -1)
         return mem[i];
     // dp[i] = dp[i-1] + dp[i-2]
@@ -21,9 +21,9 @@ int dfs(int i, int *mem) {
     return count;
 }
 
-/* Climbing stairs: Memoization search */
+/* Climbing stairs: memoized search */
 int climbingStairsDFSMem(int n) {
-    // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+    // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
     int *mem = (int *)malloc((n + 1) * sizeof(int));
     for (int i = 0; i <= n; i++) {
         mem[i] = -1;
@@ -33,12 +33,12 @@ int climbingStairsDFSMem(int n) {
     return result;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     int n = 9;
 
     int res = climbingStairsDFSMem(n);
-    printf("Climbing %d stairs has %d solutions\n", n, res);
+    printf("Number of ways to climb %d stairs: %d\n", n, res);
 
     return 0;
 }

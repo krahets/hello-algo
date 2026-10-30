@@ -37,7 +37,7 @@ int xorHash(char *key) {
     return hash & MODULUS;
 }
 
-/* Rotational hash */
+/* Rotating hash */
 int rotHash(char *key) {
     long long hash = 0;
     const int MODULUS = 1000000007;
@@ -48,21 +48,21 @@ int rotHash(char *key) {
     return (int)hash;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    char *key = "Hello Algo";
+    char *key = "Hello 算法";
 
     int hash = addHash(key);
-    printf("Additive hash value is %d\n", hash);
+    printf("Additive hash value: %d\n", hash);
 
     hash = mulHash(key);
-    printf("Multiplicative hash value is %d\n", hash);
+    printf("Multiplicative hash value: %d\n", hash);
 
     hash = xorHash(key);
-    printf("XOR hash value is %d\n", hash);
+    printf("XOR hash value: %d\n", hash);
 
     hash = rotHash(key);
-    printf("Rotational hash value is %d\n", hash);
+    printf("Rotation hash value: %d\n", hash);
 
     return 0;
 }

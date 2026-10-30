@@ -4,20 +4,20 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Minimum cost climbing stairs: DP ###
+### Minimum cost to climb stairs: dynamic programming ###
 def min_cost_climbing_stairs_dp(cost)
   n = cost.length - 1
   return cost[n] if n == 1 || n == 2
-  # Initialize dp table, used to store solutions to subproblems
+  # Initialize the dp table to store subproblem solutions
   dp = Array.new(n + 1, 0)
-  # Initial state: preset the solution to the smallest subproblem
+  # Initial states: set the solutions to the smallest subproblems
   dp[1], dp[2] = cost[1], cost[2]
-  # State transition: gradually solve larger subproblems from smaller ones
+  # State transitions: solve progressively larger subproblems using smaller ones
   (3...(n + 1)).each { |i| dp[i] = [dp[i - 1], dp[i - 2]].min + cost[i] }
   dp[n]
 end
 
-# Minimum cost climbing stairs: Space-optimized dynamic programming
+# Minimum cost to climb stairs: space-optimized dynamic programming
 def min_cost_climbing_stairs_dp_comp(cost)
   n = cost.length - 1
   return cost[n] if n == 1 || n == 2
@@ -26,14 +26,14 @@ def min_cost_climbing_stairs_dp_comp(cost)
   b
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
   cost = [0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1]
-  puts "Input stair cost list is #{cost}"
+  puts "Input stair cost list: #{cost}"
 
   res = min_cost_climbing_stairs_dp(cost)
-  puts "Minimum cost to climb stairs is #{res}"
+  puts "Minimum cost to climb all the stairs: #{res}"
 
   res = min_cost_climbing_stairs_dp_comp(cost)
-  puts "Minimum cost to climb stairs is #{res}"
+  puts "Minimum cost to climb all the stairs: #{res}"
 end

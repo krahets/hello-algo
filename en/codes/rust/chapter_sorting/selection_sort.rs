@@ -12,21 +12,21 @@ fn selection_sort(nums: &mut [i32]) {
         return;
     }
     let n = nums.len();
-    // Outer loop: unsorted interval is [i, n-1]
+    // Outer loop: the unsorted range is [i, n-1]
     for i in 0..n - 1 {
-        // Inner loop: find the smallest element within the unsorted interval
+        // Inner loop: find the smallest element in the unsorted range
         let mut k = i;
         for j in i + 1..n {
             if nums[j] < nums[k] {
                 k = j; // Record the index of the smallest element
             }
         }
-        // Swap the smallest element with the first element of the unsorted interval
+        // Swap the smallest element with the first element of the unsorted range
         nums.swap(i, k);
     }
 }
 
-/* Driver Code */
+/* Driver code */
 pub fn main() {
     let mut nums = [4, 1, 3, 1, 5, 2];
     selection_sort(&mut nums);

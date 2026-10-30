@@ -4,39 +4,39 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  # Get the length of the double-ended queue
-  # Ruby has no built-in deque, can only use Array as deque
+  # Initialize the deque
+  # Ruby has no built-in deque class; use an Array as a deque
   deque = []
 
-  # Element enqueues
+  # Enqueue elements
   deque << 2
   deque << 5
   deque << 4
-  # Note: due to array, Array#unshift method has O(n) time complexity
+  # Front insertion in a simple array takes O(n); Ruby implementations can optimize Array#unshift
   deque.unshift(3)
   deque.unshift(1)
   puts "Deque deque = #{deque}"
 
-  # Update element
+  # Access an element
   peek_first = deque.first
   puts "Front element peek_first = #{peek_first}"
   peek_last = deque.last
   puts "Rear element peek_last = #{peek_last}"
 
-  # Element dequeue
-  # Note: due to array, Array#shift method has O(n) time complexity
+  # Dequeue an element
+  # Front removal in a simple array takes O(n); Ruby implementations can optimize Array#shift
   pop_front = deque.shift
-  puts "Dequeue front element pop_front = #{pop_front}, after dequeue deque = #{deque}"
+  puts "Element dequeued from the front: pop_front = #{pop_front}; deque = #{deque}"
   pop_back = deque.pop
-  puts "Dequeue rear element pop_back = #{pop_back}, after dequeue deque = #{deque}"
+  puts "Element dequeued from the rear: pop_back = #{pop_back}; deque = #{deque}"
 
-  # Get the length of the double-ended queue
+  # Get the deque size
   size = deque.length
-  puts "Deque length size = #{size}"
+  puts "Deque size = #{size}"
 
-  # Check if the double-ended queue is empty
+  # Check whether the deque is empty
   is_empty = size.zero?
-  puts "Is deque empty = #{is_empty}"
+  puts "Is the deque empty? #{is_empty}"
 end

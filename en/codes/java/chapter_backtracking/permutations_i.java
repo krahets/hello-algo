@@ -9,24 +9,24 @@ package chapter_backtracking;
 import java.util.*;
 
 public class permutations_i {
-    /* Backtracking algorithm: Permutations I */
+    /* Backtracking: permutations I */
     public static void backtrack(List<Integer> state, int[] choices, boolean[] selected, List<List<Integer>> res) {
-        // When the state length equals the number of elements, record the solution
+        // Record a solution when the state length equals the number of elements
         if (state.size() == choices.length) {
             res.add(new ArrayList<Integer>(state));
             return;
         }
-        // Traverse all choices
+        // Iterate over all choices
         for (int i = 0; i < choices.length; i++) {
             int choice = choices[i];
-            // Pruning: do not allow repeated selection of elements
+            // Prune: do not choose an element more than once
             if (!selected[i]) {
-                // Attempt: make choice, update state
+                // Try: make a choice and update the state
                 selected[i] = true;
                 state.add(choice);
-                // Proceed to the next round of selection
+                // Proceed to the next choice
                 backtrack(state, choices, selected, res);
-                // Backtrack: undo choice, restore to previous state
+                // Backtrack: undo the choice and restore the previous state
                 selected[i] = false;
                 state.remove(state.size() - 1);
             }
@@ -46,6 +46,6 @@ public class permutations_i {
         List<List<Integer>> res = permutationsI(nums);
 
         System.out.println("Input array nums = " + Arrays.toString(nums));
-        System.out.println("All permutations res = " + res);
+        System.out.println("All permutations: res = " + res);
     }
 }

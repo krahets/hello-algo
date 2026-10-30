@@ -1,9 +1,9 @@
-# Tree
+# Trees
 
-![Tree](../assets/covers/chapter_tree.jpg)
+![Trees](../assets/covers/chapter_tree.jpg)
 
 !!! abstract
 
-    Towering trees are full of vitality, with deep roots, lush foliage, and sprawling branches.
-
-    They offer a vivid illustration of divide-and-conquer in data structures.
+    A towering tree brims with life, its roots deep, its leaves lush, and its branches spreading wide.
+    
+    It gives vivid form to the idea of dividing data to conquer a problem.

@@ -6,9 +6,9 @@
 
 package chapter_divide_and_conquer.hanota
 
-/* Move a disk */
+/* Move one disk */
 fun move(src: MutableList<Int>, tar: MutableList<Int>) {
-    // Take out a disk from the top of src
+    // Take a disk from the top of src
     val pan = src.removeAt(src.size - 1)
     // Place the disk on top of tar
     tar.add(pan)
@@ -16,14 +16,14 @@ fun move(src: MutableList<Int>, tar: MutableList<Int>) {
 
 /* Solve the Tower of Hanoi problem f(i) */
 fun dfs(i: Int, src: MutableList<Int>, buf: MutableList<Int>, tar: MutableList<Int>) {
-    // If there is only one disk left in src, move it directly to tar
+    // If only one disk in this subproblem remains on src, move it directly to tar
     if (i == 1) {
         move(src, tar)
         return
     }
     // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
     dfs(i - 1, src, tar, buf)
-    // Subproblem f(1): move the remaining disk from src to tar
+    // Subproblem f(1): move the remaining disk of this subproblem from src to tar
     move(src, tar)
     // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
     dfs(i - 1, buf, src, tar)
@@ -36,20 +36,20 @@ fun solveHanota(A: MutableList<Int>, B: MutableList<Int>, C: MutableList<Int>) {
     dfs(n, A, B, C)
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    // The tail of the list is the top of the rod
+    // The end of each list represents the top of the peg
     val A = mutableListOf(5, 4, 3, 2, 1)
     val B = mutableListOf<Int>()
     val C = mutableListOf<Int>()
-    println("In initial state:")
+    println("Initial state:")
     println("A = $A")
     println("B = $B")
     println("C = $C")
 
     solveHanota(A, B, C)
 
-    println("After disk movement is complete:")
+    println("After moving the disks:")
     println("A = $A")
     println("B = $B")
     println("C = $C")

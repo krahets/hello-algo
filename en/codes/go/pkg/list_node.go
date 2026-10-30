@@ -4,13 +4,13 @@
 
 package pkg
 
-// ListNode linked list node
+// ListNode represents a linked list node.
 type ListNode struct {
 	Next *ListNode
 	Val  int
 }
 
-// NewListNode linked list node constructor
+// NewListNode constructs a linked list node.
 func NewListNode(v int) *ListNode {
 	return &ListNode{
 		Next: nil,
@@ -18,9 +18,9 @@ func NewListNode(v int) *ListNode {
 	}
 }
 
-// ArrayToLinkedList deserialize array to linked list
+// ArrayToLinkedList deserializes an array into a linked list.
 func ArrayToLinkedList(arr []int) *ListNode {
-	// dummy header of linked list
+	// Dummy head of the linked list
 	dummy := NewListNode(0)
 	node := dummy
 	for _, val := range arr {

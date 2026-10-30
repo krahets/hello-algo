@@ -7,13 +7,13 @@
 const { arrToTree } = require('../modules/TreeNode');
 const { printTree } = require('../modules/PrintUtil');
 
-// Initialize list for storing traversal sequence
+// Initialize a list to store the traversal sequence
 const list = [];
 
 /* Preorder traversal */
 function preOrder(root) {
     if (root === null) return;
-    // Visit priority: root node -> left subtree -> right subtree
+    // Visit order: root -> left subtree -> right subtree
     list.push(root.val);
     preOrder(root.left);
     preOrder(root.right);
@@ -22,7 +22,7 @@ function preOrder(root) {
 /* Inorder traversal */
 function inOrder(root) {
     if (root === null) return;
-    // Visit priority: left subtree -> root node -> right subtree
+    // Visit order: left subtree -> root -> right subtree
     inOrder(root.left);
     list.push(root.val);
     inOrder(root.right);
@@ -31,30 +31,30 @@ function inOrder(root) {
 /* Postorder traversal */
 function postOrder(root) {
     if (root === null) return;
-    // Visit priority: left subtree -> right subtree -> root node
+    // Visit order: left subtree -> right subtree -> root
     postOrder(root.left);
     postOrder(root.right);
     list.push(root.val);
 }
 
-/* Driver Code */
-/* Initialize binary tree */
-// Here we use a function to generate a binary tree directly from an array
+/* Driver code */
+/* Initialize the binary tree */
+// Use a helper function that builds a binary tree directly from an array
 const root = arrToTree([1, 2, 3, 4, 5, 6, 7]);
-console.log('\nInitialize binary tree\n');
+console.log('\nInitialize the binary tree\n');
 printTree(root);
 
 /* Preorder traversal */
 list.length = 0;
 preOrder(root);
-console.log('\nPreorder traversal node print sequence = ' + list);
+console.log('\nNode sequence from preorder traversal = ' + list);
 
 /* Inorder traversal */
 list.length = 0;
 inOrder(root);
-console.log('\nInorder traversal node print sequence = ' + list);
+console.log('\nNode sequence from inorder traversal = ' + list);
 
 /* Postorder traversal */
 list.length = 0;
 postOrder(root);
-console.log('\nPostorder traversal node print sequence = ' + list);
+console.log('\nNode sequence from postorder traversal = ' + list);

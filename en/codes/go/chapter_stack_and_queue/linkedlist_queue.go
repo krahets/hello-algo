@@ -8,13 +8,13 @@ import (
 	"container/list"
 )
 
-/* Queue based on linked list implementation */
+/* Queue implemented with a linked list */
 type linkedListQueue struct {
-	// Use built-in package list to implement queue
+	// Use the standard library list package to implement the queue
 	data *list.List
 }
 
-/* Access front of the queue element */
+/* Initialize the queue */
 func newLinkedListQueue() *linkedListQueue {
 	return &linkedListQueue{
 		data: list.New(),
@@ -36,7 +36,7 @@ func (s *linkedListQueue) pop() any {
 	return e.Value
 }
 
-/* Return list for printing */
+/* Access the front element */
 func (s *linkedListQueue) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -45,17 +45,17 @@ func (s *linkedListQueue) peek() any {
 	return e.Value
 }
 
-/* Get the length of the queue */
+/* Get the queue size */
 func (s *linkedListQueue) size() int {
 	return s.data.Len()
 }
 
-/* Check if the queue is empty */
+/* Check whether the queue is empty */
 func (s *linkedListQueue) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-/* Get List for printing */
+/* Get the list for printing */
 func (s *linkedListQueue) toList() *list.List {
 	return s.data
 }

@@ -19,8 +19,8 @@ extern "C" {
 typedef struct TreeNode {
     int val;                // Node value
     int height;             // Node height
-    struct TreeNode *left;  // Left child pointer
-    struct TreeNode *right; // Right child pointer
+    struct TreeNode *left;  // Pointer to the left child
+    struct TreeNode *right; // Pointer to the right child
 } TreeNode;
 
 /* Constructor */
@@ -35,11 +35,11 @@ TreeNode *newTreeNode(int val) {
     return node;
 }
 
-// For the serialization encoding rules, please refer to:
-// https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-// Array representation of binary tree:
+// For the serialization rules, see:
+// https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
+// Array representation of the binary tree:
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-// Linked list representation of binary tree:
+// Linked representation of the binary tree:
 //             /——— 15
 //         /——— 7
 //     /——— 3
@@ -91,7 +91,7 @@ int *treeToArray(TreeNode *root, int *size) {
     return res;
 }
 
-/* Free binary tree memory */
+/* Free the binary tree memory */
 void freeMemoryTree(TreeNode *root) {
     if (root == NULL)
         return;

@@ -36,7 +36,7 @@ int xorHash(string key) {
     return hash & MODULUS;
 }
 
-/* Rotational hash */
+/* Rotating hash */
 int rotHash(string key) {
     long long hash = 0;
     const int MODULUS = 1000000007;
@@ -46,21 +46,21 @@ int rotHash(string key) {
     return (int)hash;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    string key = "Hello Algo";
+    string key = "Hello 算法";
 
     int hash = addHash(key);
-    cout << "Additive hash value is " << hash << endl;
+    cout << "Additive hash value: " << hash << endl;
 
     hash = mulHash(key);
-    cout << "Multiplicative hash value is " << hash << endl;
+    cout << "Multiplicative hash value: " << hash << endl;
 
     hash = xorHash(key);
-    cout << "XOR hash value is " << hash << endl;
+    cout << "XOR hash value: " << hash << endl;
 
     hash = rotHash(key);
-    cout << "Rotational hash value is " << hash << endl;
+    cout << "Rotation hash value: " << hash << endl;
 
     return 0;
 }

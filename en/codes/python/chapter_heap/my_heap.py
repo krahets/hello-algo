@@ -15,23 +15,23 @@ class MaxHeap:
     """Max heap"""
 
     def __init__(self, nums: list[int]):
-        """Constructor, build heap based on input list"""
-        # Add list elements to heap as is
+        """Constructor: build a heap from the input list"""
+        # Place the list elements in the heap without changing their order
         self.max_heap = nums
-        # Heapify all nodes except leaf nodes
+        # Sift down from every non-leaf node
         for i in range(self.parent(self.size() - 1), -1, -1):
             self.sift_down(i)
 
     def left(self, i: int) -> int:
-        """Get index of left child node"""
+        """Get the left child index"""
         return 2 * i + 1
 
     def right(self, i: int) -> int:
-        """Get index of right child node"""
+        """Get the right child index"""
         return 2 * i + 2
 
     def parent(self, i: int) -> int:
-        """Get index of parent node"""
+        """Get the parent index"""
         return (i - 1) // 2  # Floor division
 
     def swap(self, i: int, j: int):
@@ -39,99 +39,99 @@ class MaxHeap:
         self.max_heap[i], self.max_heap[j] = self.max_heap[j], self.max_heap[i]
 
     def size(self) -> int:
-        """Get heap size"""
+        """Get the heap size"""
         return len(self.max_heap)
 
     def is_empty(self) -> bool:
-        """Check if heap is empty"""
+        """Check whether the heap is empty"""
         return self.size() == 0
 
     def peek(self) -> int:
-        """Access top element"""
+        """Access the top element of the heap"""
         return self.max_heap[0]
 
     def push(self, val: int):
-        """Element enters heap"""
-        # Add node
+        """Push an element onto the heap"""
+        # Add a node
         self.max_heap.append(val)
-        # Heapify from bottom to top
+        # Sift up
         self.sift_up(self.size() - 1)
 
     def sift_up(self, i: int):
-        """Starting from node i, heapify from bottom to top"""
+        """Sift up starting from node i"""
         while True:
-            # Get parent node of node i
+            # Get the parent of node i
             p = self.parent(i)
-            # When "crossing root node" or "node needs no repair", end heapify
+            # Stop sifting when the root has been passed or the node needs no repair
             if p < 0 or self.max_heap[i] <= self.max_heap[p]:
                 break
-            # Swap two nodes
+            # Swap the two nodes
             self.swap(i, p)
-            # Loop upward heapify
+            # Continue sifting up
             i = p
 
     def pop(self) -> int:
-        """Element exits heap"""
-        # Handle empty case
+        """Pop an element from the heap"""
+        # Handle an empty heap
         if self.is_empty():
             raise IndexError("Heap is empty")
-        # Swap root node with rightmost leaf node (swap first element with last element)
+        # Swap the root with the rightmost leaf on the last level (swap the first and last elements)
         self.swap(0, self.size() - 1)
-        # Delete node
+        # Remove a node
         val = self.max_heap.pop()
-        # Heapify from top to bottom
+        # Sift down
         self.sift_down(0)
-        # Return top element
+        # Return the top element of the heap
         return val
 
     def sift_down(self, i: int):
-        """Starting from node i, heapify from top to bottom"""
+        """Sift down starting from node i"""
         while True:
-            # Find node with largest value among i, l, r, denoted as ma
+            # Find the node with the largest value among i, l, and r, and store its index in ma
             l, r, ma = self.left(i), self.right(i), i
             if l < self.size() and self.max_heap[l] > self.max_heap[ma]:
                 ma = l
             if r < self.size() and self.max_heap[r] > self.max_heap[ma]:
                 ma = r
-            # If node i is largest or indices l, r are out of bounds, no need to continue heapify, break
+            # Stop if node i is largest or both child indices l and r are out of bounds
             if ma == i:
                 break
-            # Swap two nodes
+            # Swap the two nodes
             self.swap(i, ma)
-            # Loop downward heapify
+            # Continue sifting down
             i = ma
 
     def print(self):
-        """Print heap (binary tree)"""
+        """Print the heap (binary tree)"""
         print_heap(self.max_heap)
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
-    # Initialize max heap
+    # Initialize a max heap
     max_heap = MaxHeap([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2])
-    print("\nAfter inputting list and building heap")
+    print("\nAfter building a heap from the input list:")
     max_heap.print()
 
-    # Get top element
+    # Get the top element of the heap
     peek = max_heap.peek()
-    print(f"\nTop element is {peek}")
+    print(f"\nTop element of the heap: {peek}")
 
-    # Element enters heap
+    # Push an element onto the heap
     val = 7
     max_heap.push(val)
-    print(f"\nAfter element {val} enters heap")
+    print(f"\nAfter pushing element {val} onto the heap:")
     max_heap.print()
 
-    # Top element exits heap
+    # Pop the top element from the heap
     peek = max_heap.pop()
-    print(f"\nAfter top element {peek} exits heap")
+    print(f"\nAfter popping top element {peek} from the heap:")
     max_heap.print()
 
-    # Get heap size
+    # Get the heap size
     size = max_heap.size()
-    print(f"\nNumber of heap elements is {size}")
+    print(f"\nNumber of elements in the heap: {size}")
 
-    # Check if heap is empty
+    # Check whether the heap is empty
     is_empty = max_heap.is_empty()
-    print(f"\nIs heap empty {is_empty}")
+    print(f"\nIs the heap empty: {is_empty}")

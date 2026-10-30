@@ -9,41 +9,41 @@
 
 /* Depth-first traversal helper function */
 void dfs(GraphAdjList &graph, unordered_set<Vertex *> &visited, vector<Vertex *> &res, Vertex *vet) {
-    res.push_back(vet);   // Record visited vertex
+    res.push_back(vet);   // Record the visited vertex
     visited.emplace(vet); // Mark this vertex as visited
-    // Traverse all adjacent vertices of this vertex
+    // Traverse all neighbors of this vertex
     for (Vertex *adjVet : graph.adjList[vet]) {
         if (visited.count(adjVet))
-            continue; // Skip vertices that have been visited
-        // Recursively visit adjacent vertices
+            continue; // Skip vertices that have already been visited
+        // Recursively visit the neighboring vertex
         dfs(graph, visited, res, adjVet);
     }
 }
 
 /* Depth-first traversal */
-// Use adjacency list to represent the graph, in order to obtain all adjacent vertices of a specified vertex
+// Represent the graph with an adjacency list to access all neighbors of a given vertex
 vector<Vertex *> graphDFS(GraphAdjList &graph, Vertex *startVet) {
     // Vertex traversal sequence
     vector<Vertex *> res;
-    // Hash set for recording vertices that have been visited
+    // Hash set recording visited vertices
     unordered_set<Vertex *> visited;
     dfs(graph, visited, res, startVet);
     return res;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Add edge */
+    /* Initialize the undirected graph */
     vector<Vertex *> v = valsToVets(vector<int>{0, 1, 2, 3, 4, 5, 6});
     vector<vector<Vertex *>> edges = {{v[0], v[1]}, {v[0], v[3]}, {v[1], v[2]},
                                       {v[2], v[5]}, {v[4], v[5]}, {v[5], v[6]}};
     GraphAdjList graph(edges);
-    cout << "\nAfter initialization, graph is" << endl;
+    cout << "\nGraph after initialization:" << endl;
     graph.print();
 
     /* Depth-first traversal */
     vector<Vertex *> res = graphDFS(graph, v[0]);
-    cout << "\nDepth-first traversal (DFS) vertex sequence is" << endl;
+    cout << "\nVertex sequence from depth-first traversal (DFS):" << endl;
     printVector(vetsToVals(res));
 
     // Free memory

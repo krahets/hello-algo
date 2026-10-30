@@ -11,45 +11,45 @@ import utils.*;
 
 public class graph_bfs {
     /* Breadth-first traversal */
-    // Use adjacency list to represent the graph, in order to obtain all adjacent vertices of a specified vertex
+    // Represent the graph with an adjacency list to access all neighbors of a given vertex
     static List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
         // Vertex traversal sequence
         List<Vertex> res = new ArrayList<>();
-        // Hash set for recording vertices that have been visited
+        // Hash set recording visited vertices
         Set<Vertex> visited = new HashSet<>();
         visited.add(startVet);
-        // Queue used to implement BFS
+        // Use a queue to implement BFS
         Queue<Vertex> que = new LinkedList<>();
         que.offer(startVet);
-        // Starting from vertex vet, loop until all vertices are visited
+        // Starting from startVet, loop until all reachable vertices have been visited
         while (!que.isEmpty()) {
             Vertex vet = que.poll(); // Dequeue the front vertex
-            res.add(vet);            // Record visited vertex
-            // Traverse all adjacent vertices of this vertex
+            res.add(vet);            // Record the visited vertex
+            // Traverse all neighbors of this vertex
             for (Vertex adjVet : graph.adjList.get(vet)) {
                 if (visited.contains(adjVet))
-                    continue;        // Skip vertices that have been visited
-                que.offer(adjVet);   // Only enqueue unvisited vertices
+                    continue;        // Skip vertices that have already been visited
+                que.offer(adjVet);   // Enqueue only unvisited vertices
                 visited.add(adjVet); // Mark this vertex as visited
             }
         }
-        // Return vertex traversal sequence
+        // Return the vertex traversal sequence
         return res;
     }
 
     public static void main(String[] args) {
-        /* Add edge */
+        /* Initialize the undirected graph */
         Vertex[] v = Vertex.valsToVets(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
         Vertex[][] edges = { { v[0], v[1] }, { v[0], v[3] }, { v[1], v[2] }, { v[1], v[4] },
                              { v[2], v[5] }, { v[3], v[4] }, { v[3], v[6] }, { v[4], v[5] },
                              { v[4], v[7] }, { v[5], v[8] }, { v[6], v[7] }, { v[7], v[8] } };
         GraphAdjList graph = new GraphAdjList(edges);
-        System.out.println("\nAfter initialization, graph is");
+        System.out.println("\nGraph after initialization:");
         graph.print();
 
         /* Breadth-first traversal */
         List<Vertex> res = graphBFS(graph, v[0]);
-        System.out.println("\nBreadth-first traversal (BFS) vertex sequence is");
+        System.out.println("\nVertex sequence from breadth-first traversal (BFS):");
         System.out.println(Vertex.vetsToVals(res));
     }
 }

@@ -13,7 +13,7 @@
 #include <sstream>
 #include <string>
 
-/* Find an element in a vector */
+/* Find the last matching element's index in a vector */
 template <typename T> int vecFind(const vector<T> &vec, T ele) {
     int j = INT_MAX;
     for (int i = 0; i < vec.size(); i++) {
@@ -24,7 +24,7 @@ template <typename T> int vecFind(const vector<T> &vec, T ele) {
     return j;
 }
 
-/* Concatenate a vector with a delim */
+/* Join vector elements with a delimiter */
 template <typename T> string strJoin(const string &delim, const T &vec) {
     ostringstream s;
     for (const auto &i : vec) {
@@ -36,7 +36,7 @@ template <typename T> string strJoin(const string &delim, const T &vec) {
     return s.str();
 }
 
-/* Repeat a string for n times */
+/* Repeat a string n times */
 string strRepeat(string str, int n) {
     ostringstream os;
     for (int i = 0; i < n; i++)
@@ -44,7 +44,7 @@ string strRepeat(string str, int n) {
     return os.str();
 }
 
-/* Print array */
+/* Print an array */
 template <typename T> void printArray(T *arr, int n) {
     cout << "[";
     for (int i = 0; i < n - 1; i++) {
@@ -56,17 +56,17 @@ template <typename T> void printArray(T *arr, int n) {
         cout << "]" << endl;
 }
 
-/* Get the Vector String object */
+/* Get a string representation of a vector */
 template <typename T> string getVectorString(vector<T> &list) {
     return "[" + strJoin(", ", list) + "]";
 }
 
-/* Print list */
+/* Print the list */
 template <typename T> void printVector(vector<T> list) {
     cout << getVectorString(list) << '\n';
 }
 
-/* Print matrix */
+/* Print a matrix */
 template <typename T> void printVectorMatrix(vector<vector<T>> &matrix) {
     cout << "[" << '\n';
     for (vector<T> &list : matrix)
@@ -74,7 +74,7 @@ template <typename T> void printVectorMatrix(vector<vector<T>> &matrix) {
     cout << "]" << '\n';
 }
 
-/* Print linked list */
+/* Print a linked list */
 void printLinkedList(ListNode *head) {
     vector<int> list;
     while (head != nullptr) {
@@ -104,7 +104,7 @@ void showTrunks(Trunk *p) {
 }
 
 /**
- * 打印二叉树
+ * Print a binary tree
  * This tree printer is borrowed from TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
@@ -139,12 +139,12 @@ void printTree(TreeNode *root, Trunk *prev, bool isRight) {
     printTree(root->left, &trunk, false);
 }
 
-/* Print binary tree */
+/* Print a binary tree */
 void printTree(TreeNode *root) {
     printTree(root, nullptr, false);
 }
 
-/* Print stack */
+/* Print the stack */
 template <typename T> void printStack(stack<T> stk) {
     // Reverse the input stack
     stack<T> tmp;
@@ -166,7 +166,7 @@ template <typename T> void printStack(stack<T> stk) {
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* Print queue */
+/* Print the queue */
 template <typename T> void printQueue(queue<T> queue) {
     // Generate the string to print
     ostringstream s;
@@ -182,7 +182,7 @@ template <typename T> void printQueue(queue<T> queue) {
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* Print deque */
+/* Print the deque */
 template <typename T> void printDeque(deque<T> deque) {
     // Generate the string to print
     ostringstream s;
@@ -198,8 +198,8 @@ template <typename T> void printDeque(deque<T> deque) {
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* Print hash table */
-// Define template parameters TKey and TValue to specify key-value pair types
+/* Print the hash table */
+// Define template parameters TKey and TValue for the key and value types
 template <typename TKey, typename TValue> void printHashMap(unordered_map<TKey, TValue> map) {
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << '\n';
@@ -216,12 +216,12 @@ template <typename T, typename S, typename C> S &Container(priority_queue<T, S, 
     return HackedQueue::Container(pq);
 }
 
-/* Print heap (priority queue) */
+/* Print the heap (priority queue) */
 template <typename T, typename S, typename C> void printHeap(priority_queue<T, S, C> &heap) {
     vector<T> vec = Container(heap);
-    cout << "Heap array representation:";
+    cout << "Array representation of the heap:";
     printVector(vec);
-    cout << "Heap tree representation:" << endl;
+    cout << "Tree representation of the heap:" << endl;
     TreeNode *root = vectorToTree(vec);
     printTree(root);
     freeMemoryTree(root);

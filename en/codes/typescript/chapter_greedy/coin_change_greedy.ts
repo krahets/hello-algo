@@ -4,14 +4,14 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* Coin change: Greedy algorithm */
+/* Coin change: greedy algorithm */
 function coinChangeGreedy(coins: number[], amt: number): number {
-    // Assume coins array is sorted
+    // Assume coins is sorted in ascending order
     let i = coins.length - 1;
     let count = 0;
-    // Loop to make greedy choices until no remaining amount
+    // Repeatedly make greedy choices until no amount remains
     while (amt > 0) {
-        // Find the coin that is less than and closest to the remaining amount
+        // Find the largest coin no greater than the remaining amount
         while (i > 0 && coins[i] > amt) {
             i--;
         }
@@ -19,32 +19,32 @@ function coinChangeGreedy(coins: number[], amt: number): number {
         amt -= coins[i];
         count++;
     }
-    // If no feasible solution is found, return -1
+    // Return -1 if no feasible solution was found
     return amt === 0 ? count : -1;
 }
 
-/* Driver Code */
-// Greedy algorithm: Can guarantee finding the global optimal solution
+/* Driver code */
+// Greedy algorithm: guaranteed to find a globally optimal solution
 let coins: number[] = [1, 5, 10, 20, 50, 100];
 let amt: number = 186;
 let res: number = coinChangeGreedy(coins, amt);
 console.log(`\ncoins = ${coins}, amt = ${amt}`);
-console.log(`Minimum coins needed to make ${amt} is ${res}`);
+console.log(`Number of coins chosen by the greedy algorithm to make ${amt}: ${res}`);
 
-// Greedy algorithm: Cannot guarantee finding the global optimal solution
+// Greedy algorithm: not guaranteed to find a globally optimal solution
 coins = [1, 20, 50];
 amt = 60;
 res = coinChangeGreedy(coins, amt);
 console.log(`\ncoins = ${coins}, amt = ${amt}`);
-console.log(`Minimum coins needed to make ${amt} is ${res}`);
-console.log('Actually the minimum number needed is 3, i.e., 20 + 20 + 20');
+console.log(`Number of coins chosen by the greedy algorithm to make ${amt}: ${res}`);
+console.log('The actual minimum is 3 coins: 20 + 20 + 20');
 
-// Greedy algorithm: Cannot guarantee finding the global optimal solution
+// Greedy algorithm: not guaranteed to find a globally optimal solution
 coins = [1, 49, 50];
 amt = 98;
 res = coinChangeGreedy(coins, amt);
 console.log(`\ncoins = ${coins}, amt = ${amt}`);
-console.log(`Minimum coins needed to make ${amt} is ${res}`);
-console.log('Actually the minimum number needed is 2, i.e., 49 + 49');
+console.log(`Number of coins chosen by the greedy algorithm to make ${amt}: ${res}`);
+console.log('The actual minimum is 2 coins: 49 + 49');
 
 export {};

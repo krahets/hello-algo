@@ -4,7 +4,7 @@
  * Author: xBLACICEx (xBLACKICEx@outlook.com), codingonion (coderonion@gmail.com)
  */
 
-/* Constant order */
+/* Constant complexity */
 fn constant(n: i32) -> i32 {
     _ = n;
     let mut count = 0;
@@ -15,7 +15,7 @@ fn constant(n: i32) -> i32 {
     count
 }
 
-/* Linear order */
+/* Linear complexity */
 fn linear(n: i32) -> i32 {
     let mut count = 0;
     for _ in 0..n {
@@ -24,20 +24,20 @@ fn linear(n: i32) -> i32 {
     count
 }
 
-/* Linear order (traversing array) */
+/* Linear complexity (array traversal) */
 fn array_traversal(nums: &[i32]) -> i32 {
     let mut count = 0;
-    // Number of iterations is proportional to the array length
+    // The number of iterations is proportional to the array length
     for _ in nums {
         count += 1;
     }
     count
 }
 
-/* Exponential order */
+/* Quadratic complexity */
 fn quadratic(n: i32) -> i32 {
     let mut count = 0;
-    // Number of iterations is quadratically related to the data size n
+    // The number of iterations is proportional to the square of the input size n
     for _ in 0..n {
         for _ in 0..n {
             count += 1;
@@ -46,31 +46,31 @@ fn quadratic(n: i32) -> i32 {
     count
 }
 
-/* Quadratic order (bubble sort) */
+/* Quadratic complexity (bubble sort) */
 fn bubble_sort(nums: &mut [i32]) -> i32 {
     let mut count = 0; // Counter
 
-    // Outer loop: unsorted range is [0, i]
+    // Outer loop: the unsorted range is [0, i]
     for i in (1..nums.len()).rev() {
-        // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+        // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
         for j in 0..i {
             if nums[j] > nums[j + 1] {
                 // Swap nums[j] and nums[j + 1]
                 let tmp = nums[j];
                 nums[j] = nums[j + 1];
                 nums[j + 1] = tmp;
-                count += 3; // Element swap includes 3 unit operations
+                count += 3; // Swapping two elements takes 3 elementary operations
             }
         }
     }
     count
 }
 
-/* Exponential order (loop implementation) */
+/* Exponential complexity (iterative implementation) */
 fn exponential(n: i32) -> i32 {
     let mut count = 0;
     let mut base = 1;
-    // Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+    // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
     for _ in 0..n {
         for _ in 0..base {
             count += 1
@@ -81,7 +81,7 @@ fn exponential(n: i32) -> i32 {
     count
 }
 
-/* Exponential order (recursive implementation) */
+/* Exponential complexity (recursive implementation) */
 fn exp_recur(n: i32) -> i32 {
     if n == 1 {
         return 1;
@@ -89,7 +89,7 @@ fn exp_recur(n: i32) -> i32 {
     exp_recur(n - 1) + exp_recur(n - 1) + 1
 }
 
-/* Logarithmic order (loop implementation) */
+/* Logarithmic complexity (iterative implementation) */
 fn logarithmic(mut n: i32) -> i32 {
     let mut count = 0;
     while n > 1 {
@@ -99,7 +99,7 @@ fn logarithmic(mut n: i32) -> i32 {
     count
 }
 
-/* Logarithmic order (recursive implementation) */
+/* Logarithmic complexity (recursive implementation) */
 fn log_recur(n: i32) -> i32 {
     if n <= 1 {
         return 0;
@@ -107,7 +107,7 @@ fn log_recur(n: i32) -> i32 {
     log_recur(n / 2) + 1
 }
 
-/* Linearithmic order */
+/* Linearithmic complexity */
 fn linear_log_recur(n: i32) -> i32 {
     if n <= 1 {
         return 1;
@@ -119,52 +119,52 @@ fn linear_log_recur(n: i32) -> i32 {
     return count;
 }
 
-/* Factorial order (recursive implementation) */
+/* Factorial complexity (recursive implementation) */
 fn factorial_recur(n: i32) -> i32 {
     if n == 0 {
         return 1;
     }
     let mut count = 0;
-    // Split from 1 into n
+    // Split one problem into n subproblems
     for _ in 0..n {
         count += factorial_recur(n - 1);
     }
     count
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
-    // You can modify n to run and observe the trend of the number of operations for various complexities
+    // Try different values of n to see how the operation count grows for each complexity
     let n: i32 = 8;
-    println!("Input data size n = {}", n);
+    println!("Input size n = {}", n);
 
     let mut count = constant(n);
-    println!("Constant-time operations count = {}", count);
+    println!("Operation count for constant time = {}", count);
 
     count = linear(n);
-    println!("Linear-time operations count = {}", count);
+    println!("Operation count for linear time = {}", count);
     count = array_traversal(&vec![0; n as usize]);
-    println!("Linear-time (array traversal) operations count = {}", count);
+    println!("Operation count for linear time (array traversal) = {}", count);
 
     count = quadratic(n);
-    println!("Quadratic-time operations count = {}", count);
+    println!("Operation count for quadratic time = {}", count);
     let mut nums = (1..=n).rev().collect::<Vec<_>>(); // [n,n-1,...,2,1]
     count = bubble_sort(&mut nums);
-    println!("Quadratic-time (bubble sort) operations count = {}", count);
+    println!("Operation count for quadratic time (bubble sort) = {}", count);
 
     count = exponential(n);
-    println!("Exponential-time (iterative) operations count = {}", count);
+    println!("Operation count for exponential time (iteration) = {}", count);
     count = exp_recur(n);
-    println!("Exponential-time (recursive) operations count = {}", count);
+    println!("Operation count for exponential time (recursion) = {}", count);
 
     count = logarithmic(n);
-    println!("Logarithmic-time (iterative) operations count = {}", count);
+    println!("Operation count for logarithmic time (iteration) = {}", count);
     count = log_recur(n);
-    println!("Logarithmic-time (recursive) operations count = {}", count);
+    println!("Operation count for logarithmic time (recursion) = {}", count);
 
     count = linear_log_recur(n);
-    println!("Linearithmic-time (recursive) operations count = {}", count);
+    println!("Operation count for linearithmic time (recursion) = {}", count);
 
     count = factorial_recur(n);
-    println!("Factorial-time (recursive) operations count = {}", count);
+    println!("Operation count for factorial time (recursion) = {}", count);
 }

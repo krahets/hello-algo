@@ -6,29 +6,29 @@
 
 package chapter_backtracking.permutations_i
 
-/* Backtracking algorithm: Permutations I */
+/* Backtracking: permutations I */
 fun backtrack(
     state: MutableList<Int>,
     choices: IntArray,
     selected: BooleanArray,
     res: MutableList<MutableList<Int>?>
 ) {
-    // When the state length equals the number of elements, record the solution
+    // Record a solution when the state length equals the number of elements
     if (state.size == choices.size) {
         res.add(state.toMutableList())
         return
     }
-    // Traverse all choices
+    // Iterate over all choices
     for (i in choices.indices) {
         val choice = choices[i]
-        // Pruning: do not allow repeated selection of elements
+        // Prune: do not choose an element more than once
         if (!selected[i]) {
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             selected[i] = true
             state.add(choice)
-            // Proceed to the next round of selection
+            // Proceed to the next choice
             backtrack(state, choices, selected, res)
-            // Backtrack: undo choice, restore to previous state
+            // Backtrack: undo the choice and restore the previous state
             selected[i] = false
             state.removeAt(state.size - 1)
         }
@@ -42,7 +42,7 @@ fun permutationsI(nums: IntArray): MutableList<MutableList<Int>?> {
     return res
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
     val nums = intArrayOf(1, 2, 3)
 

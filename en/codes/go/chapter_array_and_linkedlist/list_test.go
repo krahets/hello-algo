@@ -10,25 +10,25 @@ import (
 	"testing"
 )
 
-/* Driver Code */
+/* Driver code */
 func TestList(t *testing.T) {
-	/* Initialize list */
+	/* Initialize the list */
 	nums := []int{1, 3, 2, 5, 4}
 	fmt.Println("List nums =", nums)
 
-	/* Update element */
-	num := nums[1] // Access element at index 1
-	fmt.Println("Access element at index 1, get num =", num)
+	/* Access an element */
+	num := nums[1] // Access the element at index 1
+	fmt.Println("Access the element at index 1, giving num =", num)
 
-	/* Add elements at the end */
-	nums[1] = 0 // Update element at index 1 to 0
-	fmt.Println("Update element at index 1 to 0, get nums =", nums)
+	/* Update an element */
+	nums[1] = 0 // Update the element at index 1 to 0
+	fmt.Println("Update the element at index 1 to 0, giving nums =", nums)
 
-	/* Remove element */
+	/* Clear the list */
 	nums = nil
-	fmt.Println("After clearing list, nums =", nums)
+	fmt.Println("After clearing the list, nums =", nums)
 
-	/* Direct traversal of list elements */
+	/* Append at the end */
 	nums = append(nums, 1)
 	nums = append(nums, 3)
 	nums = append(nums, 2)
@@ -36,20 +36,20 @@ func TestList(t *testing.T) {
 	nums = append(nums, 4)
 	fmt.Println("After adding elements, nums =", nums)
 
-	/* Sort list */
-	nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // Insert number 6 at index 3
-	fmt.Println("Insert number 6 at index 3, get nums =", nums)
+	/* Insert an element in the middle */
+	nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // Insert the number 6 at index 3
+	fmt.Println("Insert the number 6 at index 3, giving nums =", nums)
 
-	/* Remove element */
-	nums = append(nums[:3], nums[4:]...) // Remove element at index 3
-	fmt.Println("Remove element at index 3, get nums =", nums)
+	/* Remove an element */
+	nums = append(nums[:3], nums[4:]...) // Remove the element at index 3
+	fmt.Println("Remove the element at index 3, giving nums =", nums)
 
-	/* Traverse list by index */
+	/* Traverse the list by index */
 	count := 0
 	for i := 0; i < len(nums); i++ {
 		count += nums[i]
 	}
-	/* Directly traverse list elements */
+	/* Iterate directly over the list elements */
 	count = 0
 	for _, x := range nums {
 		count += x
@@ -57,10 +57,10 @@ func TestList(t *testing.T) {
 
 	/* Concatenate two lists */
 	nums1 := []int{6, 8, 7, 10, 9}
-	nums = append(nums, nums1...) // Concatenate list nums1 to nums
-	fmt.Println("Concatenate list nums1 to nums, get nums =", nums)
+	nums = append(nums, nums1...) // Append list nums1 to nums
+	fmt.Println("After appending list nums1 to nums, nums =", nums)
 
-	/* Sort list */
-	sort.Ints(nums) // After sorting, list elements are arranged from smallest to largest
-	fmt.Println("After sorting list, nums =", nums)
+	/* Sort the list */
+	sort.Ints(nums) // After sorting, the list elements are in ascending order
+	fmt.Println("After sorting the list, nums =", nums)
 }

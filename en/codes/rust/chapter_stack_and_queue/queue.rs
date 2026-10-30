@@ -8,12 +8,12 @@ use hello_algo_rust::include::print_util;
 
 use std::collections::VecDeque;
 
-/* Driver Code */
+/* Driver code */
 pub fn main() {
-    // Access front of the queue element
+    // Initialize the queue
     let mut queue: VecDeque<i32> = VecDeque::new();
 
-    // Elements enqueue
+    // Enqueue elements
     queue.push_back(1);
     queue.push_back(3);
     queue.push_back(2);
@@ -22,20 +22,20 @@ pub fn main() {
     print!("Queue queue = ");
     print_util::print_queue(&queue);
 
-    // Return list for printing
+    // Access the front element
     let peek = queue.front().unwrap();
     println!("\nFront element peek = {peek}");
 
-    // Element dequeue
+    // Dequeue an element
     let pop = queue.pop_front().unwrap();
-    print!("Dequeue element pop = {pop}, after dequeue queue = ");
+    print!("Dequeued element pop = {pop}; after dequeueing, queue = ");
     print_util::print_queue(&queue);
 
-    // Get the length of the queue
+    // Get the queue size
     let size = queue.len();
-    print!("\nQueue length size = {size}");
+    print!("\nQueue size = {size}");
 
-    // Check if the queue is empty
+    // Check whether the queue is empty
     let is_empty = queue.is_empty();
-    print!("\nIs queue empty = {is_empty}");
+    print!("\nIs the queue empty? {is_empty}");
 }

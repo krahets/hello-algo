@@ -7,14 +7,14 @@
 use hello_algo_rust::include::{print_util, vec_to_tree, TreeNode};
 use std::{cell::RefCell, rc::Rc};
 
-/* Preorder traversal: Example 1 */
+/* Preorder traversal: example 1 */
 fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<&Rc<RefCell<TreeNode>>>) {
     if root.is_none() {
         return;
     }
     if let Some(node) = root {
         if node.borrow().val == 7 {
-            // Record solution
+            // Record the solution
             res.push(node.clone());
         }
         pre_order(res, node.borrow().left.as_ref());
@@ -22,10 +22,10 @@ fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<&Rc<RefCell<Tree
     }
 }
 
-/* Driver Code */
+/* Driver code */
 pub fn main() {
     let root = vec_to_tree([1, 7, 3, 4, 5, 6, 7].map(|x| Some(x)).to_vec());
-    println!("Initialize binary tree");
+    println!("Initialize the binary tree");
     print_util::print_tree(root.as_ref().unwrap());
 
     // Preorder traversal

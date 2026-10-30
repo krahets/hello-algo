@@ -9,12 +9,12 @@ use hello_algo_rust::include::{print_util, ListNode};
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* Queue based on linked list implementation */
+/* Queue implemented with a linked list */
 #[allow(dead_code)]
 pub struct LinkedListQueue<T> {
     front: Option<Rc<RefCell<ListNode<T>>>>, // Head node front
     rear: Option<Rc<RefCell<ListNode<T>>>>,  // Tail node rear
-    que_size: usize,                         // Queue length
+    que_size: usize,                         // Queue size
 }
 
 impl<T: Copy> LinkedListQueue<T> {
@@ -26,12 +26,12 @@ impl<T: Copy> LinkedListQueue<T> {
         }
     }
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     pub fn size(&self) -> usize {
         return self.que_size;
     }
 
-    /* Check if the queue is empty */
+    /* Check whether the queue is empty */
     pub fn is_empty(&self) -> bool {
         return self.que_size == 0;
     }
@@ -41,12 +41,12 @@ impl<T: Copy> LinkedListQueue<T> {
         // Add num after the tail node
         let new_rear = ListNode::new(num);
         match self.rear.take() {
-            // If the queue is not empty, add the node after the tail node
+            // If the queue is not empty, add this node after the tail node
             Some(old_rear) => {
                 old_rear.borrow_mut().next = Some(new_rear.clone());
                 self.rear = Some(new_rear);
             }
-            // If the queue is empty, make both front and rear point to the node
+            // If the queue is empty, make both the head and tail point to this node
             None => {
                 self.front = Some(new_rear.clone());
                 self.rear = Some(new_rear);
@@ -71,12 +71,12 @@ impl<T: Copy> LinkedListQueue<T> {
         })
     }
 
-    /* Return list for printing */
+    /* Access the front element */
     pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.front.as_ref()
     }
 
-    /* Convert linked list to Array and return */
+    /* Convert the linked list to a vector and return it */
     pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
         let mut res: Vec<T> = Vec::new();
 
@@ -93,12 +93,12 @@ impl<T: Copy> LinkedListQueue<T> {
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
-    /* Access front of the queue element */
+    /* Initialize the queue */
     let mut queue = LinkedListQueue::new();
 
-    /* Elements enqueue */
+    /* Enqueue elements */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -107,20 +107,20 @@ fn main() {
     print!("Queue queue = ");
     print_util::print_array(&queue.to_array(queue.peek()));
 
-    /* Return list for printing */
+    /* Access the front element */
     let peek = queue.peek().unwrap().borrow().val;
     print!("\nFront element peek = {}", peek);
 
-    /* Element dequeue */
+    /* Dequeue an element */
     let pop = queue.pop().unwrap();
-    print!("\nDequeue element pop = {}, after dequeue queue = ", pop);
+    print!("\nDequeued element pop = {}; after dequeueing, queue = ", pop);
     print_util::print_array(&queue.to_array(queue.peek()));
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     let size = queue.size();
-    print!("\nQueue length size = {}", size);
+    print!("\nQueue size = {}", size);
 
-    /* Check if the queue is empty */
+    /* Check whether the queue is empty */
     let is_empty = queue.is_empty();
-    print!("\nIs queue empty = {}", is_empty);
+    print!("\nIs the queue empty? {}", is_empty);
 }

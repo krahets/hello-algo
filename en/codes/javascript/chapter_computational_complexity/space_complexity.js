@@ -14,9 +14,9 @@ function constFunc() {
     return 0;
 }
 
-/* Constant order */
+/* Constant complexity */
 function constant(n) {
-    // Constants, variables, objects occupy O(1) space
+    // Constants, variables, and objects occupy O(1) space
     const a = 0;
     const b = 0;
     const nums = new Array(10000);
@@ -25,42 +25,42 @@ function constant(n) {
     for (let i = 0; i < n; i++) {
         const c = 0;
     }
-    // Functions in the loop occupy O(1) space
+    // Function calls in the loop occupy O(1) space
     for (let i = 0; i < n; i++) {
         constFunc();
     }
 }
 
-/* Linear order */
+/* Linear complexity */
 function linear(n) {
-    // Array of length n uses O(n) space
+    // An array of length n uses O(n) space
     const nums = new Array(n);
     // A list of length n occupies O(n) space
     const nodes = [];
     for (let i = 0; i < n; i++) {
         nodes.push(new ListNode(i));
     }
-    // A hash table of length n occupies O(n) space
+    // A hash table with n entries occupies O(n) space
     const map = new Map();
     for (let i = 0; i < n; i++) {
         map.set(i, i.toString());
     }
 }
 
-/* Linear order (recursive implementation) */
+/* Linear complexity (recursive implementation) */
 function linearRecur(n) {
-    console.log(`Recursion n = ${n}`);
+    console.log(`Recursive call with n = ${n}`);
     if (n === 1) return;
     linearRecur(n - 1);
 }
 
-/* Exponential order */
+/* Quadratic complexity */
 function quadratic(n) {
-    // Matrix uses O(n^2) space
+    // The matrix uses O(n^2) space
     const numMatrix = Array(n)
         .fill(null)
         .map(() => Array(n).fill(null));
-    // 2D list uses O(n^2) space
+    // The two-dimensional list occupies O(n^2) space
     const numList = [];
     for (let i = 0; i < n; i++) {
         const tmp = [];
@@ -71,15 +71,15 @@ function quadratic(n) {
     }
 }
 
-/* Quadratic order (recursive implementation) */
+/* Quadratic complexity (recursive implementation) */
 function quadraticRecur(n) {
     if (n <= 0) return 0;
     const nums = new Array(n);
-    console.log(`In recursion n = ${n}, nums length = ${nums.length}`);
+    console.log(`In the recursive call with n = ${n}, nums has length ${nums.length}`);
     return quadraticRecur(n - 1);
 }
 
-/* Driver Code */
+/* Exponential complexity (building a perfect binary tree) */
 function buildTree(n) {
     if (n === 0) return null;
     const root = new TreeNode(0);
@@ -88,16 +88,16 @@ function buildTree(n) {
     return root;
 }
 
-/* Driver Code */
+/* Driver code */
 const n = 5;
-// Constant order
+// Constant complexity
 constant(n);
-// Linear order
+// Linear complexity
 linear(n);
 linearRecur(n);
-// Exponential order
+// Quadratic complexity
 quadratic(n);
 quadraticRecur(n);
-// Exponential order
+// Exponential complexity
 const root = buildTree(n);
 printTree(root);

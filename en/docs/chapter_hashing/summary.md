@@ -1,51 +1,51 @@
 # Summary
 
-### Key Review
+### Key takeaways
 
-- Given an input `key`, a hash table can retrieve the corresponding `value` in $O(1)$ time, which is highly efficient.
-- Common hash table operations include querying, adding key-value pairs, deleting key-value pairs, and traversing the hash table.
-- The hash function maps a `key` to an array index, allowing access to the corresponding bucket and retrieval of the `value`.
-- Two different keys may end up with the same array index after hashing, leading to erroneous query results. This phenomenon is known as hash collision.
-- The larger the capacity of the hash table, the lower the probability of hash collisions. Therefore, hash table expansion can mitigate hash collisions. Similar to array expansion, hash table expansion is costly.
-- The load factor, defined as the number of elements divided by the number of buckets, reflects the severity of hash collisions and is often used as a condition to trigger hash table expansion.
-- Separate chaining addresses hash collisions by storing all colliding elements in the same linked list. However, excessively long linked lists can reduce query efficiency, which can be improved by further converting the linked lists into red-black trees.
-- Open addressing handles hash collisions through multiple probing. Linear probing uses a fixed step size but cannot delete elements and is prone to clustering. Double hashing uses multiple hash functions for probing, which reduces clustering compared to linear probing but increases computational overhead.
-- Different programming languages adopt various hash table implementations. For example, Java's `HashMap` uses separate chaining, while Python's `dict` employs open addressing.
-- In hash tables, we desire hash algorithms with determinism, high efficiency, and uniform distribution. In cryptography, hash algorithms should also possess collision resistance and the avalanche effect.
-- Hash algorithms typically use large prime numbers as moduli to maximize the uniform distribution of hash values and reduce hash collisions.
-- Common hash algorithms include MD5, SHA-1, SHA-2, and SHA-3. MD5 is often used for file integrity checks, while SHA-2 is commonly used in secure applications and protocols.
-- Programming languages usually provide built-in hash algorithms for data types to calculate bucket indices in hash tables. Generally, only immutable objects are hashable.
+- Given a `key`, a hash table can retrieve its `value` in $O(1)$ time, making lookup highly efficient.
+- Common operations include lookup, adding and deleting key-value pairs, and traversing the table.
+- A hash function maps a `key` to an array index, allowing access to the corresponding bucket and its `value`.
+- Two different keys may map to the same array index and cause incorrect lookup results. This is called a hash collision.
+- A larger capacity lowers the likelihood of collisions, so expanding a hash table can alleviate them. Like array expansion, hash-table expansion is expensive.
+- The load factor is the number of elements divided by the number of buckets. It indicates how crowded the table is and is commonly used to trigger expansion.
+- Separate chaining replaces a single entry with a linked list and stores all colliding entries in that list. Long lists slow lookup; converting them to red-black trees can improve efficiency.
+- Open addressing resolves collisions through repeated probing. Linear probing uses a fixed step size, is prone to clustering, and does not allow straightforward deletion. Multiple hashing uses several hash functions, reducing clustering but adding computational cost.
+- Programming languages use different implementations: Java's `HashMap` uses separate chaining, while Python's `dict` uses open addressing.
+- For hash tables, we want deterministic, efficient hashing with uniformly distributed outputs. Cryptographic hashing also requires collision resistance and an avalanche effect.
+- Hash algorithms often use a large prime modulus to promote uniform hash values and reduce collisions.
+- Common hash algorithms include MD5, SHA-1, SHA-2, and SHA-3. MD5 is often used for file-integrity checks, while SHA-2 is widely used in security applications and protocols.
+- Programming languages usually provide built-in hashing for data types to calculate bucket indices. In general, only immutable objects are hashable.
 
 ### Q & A
 
-**Q**: When does the time complexity of a hash table degrade to $O(n)$?
+**Q**: When does a hash table have $O(n)$ time complexity?
 
-The time complexity of a hash table can degrade to $O(n)$ when hash collisions are severe. When the hash function is well-designed, the capacity is set appropriately, and collisions are evenly distributed, the time complexity is $O(1)$. We usually consider the time complexity to be $O(1)$ when using built-in hash tables in programming languages.
+When collisions are severe, its time complexity degrades to $O(n)$. With a well-designed hash function, suitable capacity, and evenly distributed collisions, it is $O(1)$. We usually assume $O(1)$ time when using a language's built-in hash table.
 
-**Q**: Why not use the hash function $f(x) = x$? This would eliminate collisions.
+**Q**: Why not use the hash function $f(x) = x$? Wouldn't that avoid collisions?
 
-Under the hash function $f(x) = x$, each element corresponds to a unique bucket index, which is equivalent to an array. However, the input space is usually much larger than the output space (array length), so the last step of a hash function is often to take the modulo of the array length. In other words, the goal of a hash table is to map a larger state space to a smaller one while providing $O(1)$ query efficiency.
+With $f(x) = x$, each element has a unique bucket index, making the structure equivalent to an array. But the input space is usually far larger than the output space, the array's length, so the final hashing step usually takes a remainder modulo that length. A hash table maps a larger state space into a smaller one while providing $O(1)$ lookup.
 
-**Q**: Why can hash tables be more efficient than arrays, linked lists, or binary trees, even though hash tables are implemented using these structures?
+**Q**: Hash tables are implemented with arrays, linked lists, and binary trees. How can they be faster than those structures?
 
-Firstly, hash tables have higher time efficiency but lower space efficiency. A significant portion of memory in hash tables remains unused.
+First, greater time efficiency comes at the cost of space efficiency: a significant portion of a hash table's memory is unused.
 
-Secondly, hash tables are only more time-efficient in specific use cases. If a feature can be implemented with the same time complexity using an array or a linked list, it's usually faster than using a hash table. This is because the computation of the hash function incurs overhead, making the constant factor in the time complexity larger.
+Second, the improvement applies only to particular operations. If an array or linked list can perform an operation with the same time complexity, it is usually faster because computing a hash adds overhead and increases the constant factor.
 
-Lastly, the time complexity of hash tables can degrade. For example, in separate chaining, we perform search operations in a linked list or red-black tree, which still risks degrading to $O(n)$ time.
+Finally, hash-table performance can degrade. For example, separate chaining searches within linked lists or red-black trees, and there is still a risk of degeneration to $O(n)$ time.
 
-**Q**: Does double hashing also have the flaw of not being able to delete elements directly? Can space marked as deleted be reused?
+**Q**: Does multiple hashing also prevent direct deletion? Can a deleted slot be reused?
 
-Double hashing is a form of open addressing, and all open addressing methods have the drawback of not being able to delete elements directly; they require marking elements as deleted. Marked spaces can be reused. When inserting new elements into the hash table, and the hash function points to a position marked as deleted, that position can be used by the new element. This maintains the probing sequence of the hash table while ensuring efficient use of space.
+Multiple hashing is a form of open addressing, and all open-addressing methods require deletion markers rather than simply emptying a slot. A marked slot can be reused. When inserting a new element, if the hash functions locate such a slot, the new element can occupy it. This preserves the probe sequence while making effective use of space.
 
-**Q**: Why do hash collisions occur during the search process in linear probing?
+**Q**: Why can a collision occur during a lookup with linear probing?
 
-During the search process, the hash function points to the corresponding bucket and key-value pair. If the `key` doesn't match, it indicates a hash collision. Therefore, linear probing will search downward at a predetermined step size until the correct key-value pair is found or the search fails.
+The hash function leads to a bucket and a key-value pair, but the stored `key` may not match the requested one. That indicates a collision. Linear probing then continues with its predefined step size until it finds the correct pair or determines that none exists.
 
-**Q**: Why can expanding a hash table alleviate hash collisions?
+**Q**: Why does expanding a hash table reduce collisions?
 
-The last step of a hash function often involves taking the modulo of the array length $n$, to keep the output within the array index range. When expanding, the array length $n$ changes, and the indices corresponding to the keys may also change. Keys that were previously mapped to the same bucket might be distributed across multiple buckets after expansion, thereby mitigating hash collisions.
+The final hashing step often takes the remainder modulo the array length $n$ to produce a valid index. After expansion, $n$ changes, so the index of a given `key` may change too. Keys that previously shared a bucket may be redistributed among several buckets, reducing collisions.
 
-**Q**: If the goal is efficient access, why not just use an array directly?
+**Q**: If fast access is the goal, why not just use an array?
 
-When the `key` values are continuous integers within a small range, an array is indeed a simple and efficient choice. But when the `key` is of another type, such as a string, we need a hash function to map the `key` to an array index and then store the element in a bucket array. That structure is precisely what a hash table is.
+When keys are consecutive integers in a small range, an array is simple and efficient. But for other key types, such as strings, we need a hash function to map keys to array indices and a bucket array to store entries. That structure is a hash table.

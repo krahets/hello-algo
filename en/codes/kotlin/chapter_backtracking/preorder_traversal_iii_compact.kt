@@ -12,16 +12,16 @@ import utils.printTree
 var path: MutableList<TreeNode>? = null
 var res: MutableList<MutableList<TreeNode>>? = null
 
-/* Preorder traversal: Example 3 */
+/* Preorder traversal: example 3 */
 fun preOrder(root: TreeNode?) {
-    // Pruning
+    // Prune
     if (root == null || root._val == 3) {
         return
     }
-    // Attempt
+    // Try
     path!!.add(root)
     if (root._val == 7) {
-        // Record solution
+        // Record the solution
         res!!.add(path!!.toMutableList())
     }
     preOrder(root.left)
@@ -30,10 +30,10 @@ fun preOrder(root: TreeNode?) {
     path!!.removeAt(path!!.size - 1)
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
     val root = TreeNode.listToTree(mutableListOf(1, 7, 3, 4, 5, 6, 7))
-    println("\nInitialize binary tree")
+    println("\nInitialize the binary tree")
     printTree(root)
 
     // Preorder traversal
@@ -41,7 +41,7 @@ fun main() {
     res = mutableListOf()
     preOrder(root)
 
-    println("\nOutput all paths from root node to node 7, paths do not include nodes with value 3")
+    println("\nOutput all paths from the root to nodes with value 7 that contain no node with value 3")
     for (path in res!!) {
         val _vals = mutableListOf<Int>()
         for (node in path) {

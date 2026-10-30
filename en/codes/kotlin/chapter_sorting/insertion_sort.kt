@@ -8,22 +8,22 @@ package chapter_sorting
 
 /* Insertion sort */
 fun insertionSort(nums: IntArray) {
-    // Outer loop: sorted elements are 1, 2, ..., n
+    //Outer loop: the sorted prefix grows to 1, 2, ..., n elements
     for (i in nums.indices) {
         val base = nums[i]
         var j = i - 1
-        // Inner loop: insert base into the correct position within the sorted interval [0, i-1]
+        // Inner loop: insert base at the correct position in the sorted range [0, i-1]
         while (j >= 0 && nums[j] > base) {
-            nums[j + 1] = nums[j] // Move nums[j] to the right by one position
+            nums[j + 1] = nums[j] // Shift nums[j] one position to the right
             j--
         }
-        nums[j + 1] = base        // Assign base to the correct position
+        nums[j + 1] = base        // Place base at the correct position
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
     val nums = intArrayOf(4, 1, 3, 1, 5, 2)
     insertionSort(nums)
-    println("After insertion sort, nums = ${nums.contentToString()}")
+    println("After insertion sort: nums = ${nums.contentToString()}")
 }

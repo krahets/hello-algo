@@ -8,40 +8,40 @@ use hello_algo_rust::include::print_util;
 
 use std::collections::HashMap;
 
-/* Driver Code */
+/* Driver code */
 pub fn main() {
-    // Initialize hash table
+    // Initialize the hash table
     let mut map = HashMap::new();
 
-    // Add operation
-    // Add key-value pair (key, value) to the hash table
-    map.insert(12836, "Xiao Ha");
-    map.insert(15937, "Xiao Luo");
-    map.insert(16750, "Xiao Suan");
-    map.insert(13276, "Xiao Fa");
-    map.insert(10583, "Xiao Ya");
-    println!("\nAfter adding is complete, hash table is\nKey -> Value");
+    // Insert operation
+    // Insert the key-value pair (key, value) into the hash table
+    map.insert(12836, "小哈");
+    map.insert(15937, "小啰");
+    map.insert(16750, "小算");
+    map.insert(13276, "小法");
+    map.insert(10583, "小鸭");
+    println!("\nHash table after insertion:\nKey -> Value");
     print_util::print_hash_map(&map);
 
-    // Query operation
-    // Input key into hash table to get value
+    // Lookup operation
+    // Look up key in the hash table to obtain value
     let name = map.get(&15937).copied().unwrap();
-    println!("\nInput student ID 15937, found name {name}");
+    println!("\nLooking up student ID 15937 gives name {name}");
 
     // Remove operation
-    // Remove key-value pair (key, value) from hash table
+    // Remove the key-value pair (key, value) from the hash table
     _ = map.remove(&10583);
-    println!("\nAfter removing 10583, hash table is\nKey -> Value");
+    println!("\nHash table after removing 10583:\nKey -> Value");
     print_util::print_hash_map(&map);
 
-    // Traverse hash table
-    println!("\nTraverse key-value pairs Key->Value");
+    // Traverse the hash table
+    println!("\nTraverse key-value pairs: Key->Value");
     print_util::print_hash_map(&map);
-    println!("\nTraverse keys only Key");
+    println!("\nTraverse keys only: Key");
     for key in map.keys() {
         println!("{key}");
     }
-    println!("\nTraverse values separately");
+    println!("\nIterate over values only");
     for value in map.values() {
         println!("{value}");
     }

@@ -6,26 +6,26 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### Recursion ###
 def recur(n)
-  # Termination condition
+  # Base case
   return 1 if n == 1
-  # Recurse: recursive call
+  # Recurse: make a recursive call
   res = recur(n - 1)
-  # Return: return result
+  # Unwind: return the result
   n + res
 end
 
-### Use iteration to simulate recursion ###
+### Simulate recursion using iteration ###
 def for_loop_recur(n)
   # Use an explicit stack to simulate the system call stack
   stack = []
   res = 0
 
-  # Recurse: recursive call
+  # Recurse: make a recursive call
   for i in n.downto(0)
-    # Simulate "recurse" with "push"
+    # Simulate recursive calls by pushing onto the stack
     stack << i
   end
-  # Return: return result
+  # Unwind: return the result
   while !stack.empty?
     res += stack.pop
   end
@@ -36,35 +36,35 @@ end
 
 ### Tail recursion ###
 def tail_recur(n, res)
-  # Termination condition
+  # Base case
   return res if n == 0
-  # Tail recursive call
+  # Tail-recursive call
   tail_recur(n - 1, res + n)
 end
 
 ### Fibonacci sequence: recursion ###
 def fib(n)
-  # Termination condition f(1) = 0, f(2) = 1
+  # Base cases: f(1) = 0, f(2) = 1
   return n - 1 if n == 1 || n == 2
-  # Recursive call f(n) = f(n-1) + f(n-2)
+  # Recursive calls: f(n) = f(n-1) + f(n-2)
   res = fib(n - 1) + fib(n - 2)
-  # Return result f(n)
+  # Return the result f(n)
   res
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
   n = 5
 
   res = recur(n)
-  puts "\nRecursion sum result res = #{res}"
+  puts "\nSum from recursion: res = #{res}"
 
   res = for_loop_recur(n)
-  puts "\nUsing iteration to simulate recursion sum result res = #{res}"
+  puts "\nSum from simulating recursion with iteration: res = #{res}"
 
   res = tail_recur(n, 0)
-  puts "\nTail recursion sum result res = #{res}"
+  puts "\nSum from tail recursion: res = #{res}"
 
   res = fib(n)
-  puts "\nThe #{n}th Fibonacci number is #{res}"
+  puts "\nFibonacci term #{n} is #{res}"
 end

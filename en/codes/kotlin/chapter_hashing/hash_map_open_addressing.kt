@@ -10,10 +10,10 @@ package chapter_hashing
 class HashMapOpenAddressing {
     private var size: Int               // Number of key-value pairs
     private var capacity: Int           // Hash table capacity
-    private val loadThres: Double       // Load factor threshold for triggering expansion
-    private val extendRatio: Int        // Expansion multiplier
+    private val loadThres: Double       // Load factor threshold that triggers capacity growth
+    private val extendRatio: Int        // Capacity growth factor
     private var buckets: Array<Pair?>   // Bucket array
-    private val TOMBSTONE: Pair         // Removal marker
+    private val TOMBSTONE: Pair         // Tombstone marker
 
     /* Constructor */
     init {
@@ -35,83 +35,83 @@ class HashMapOpenAddressing {
         return (size / capacity).toDouble()
     }
 
-    /* Search for bucket index corresponding to key */
+    /* Find the bucket index for key */
     fun findBucket(key: Int): Int {
         var index = hashFunc(key)
         var firstTombstone = -1
-        // Linear probing, break when encountering an empty bucket
+        // Probe linearly until an empty bucket is reached
         while (buckets[index] != null) {
-            // If key is encountered, return the corresponding bucket index
+            // If key is found, return its bucket index
             if (buckets[index]?.key == key) {
-                // If a removal marker was encountered before, move the key-value pair to that index
+                // If a tombstone was encountered earlier, move the key-value pair to that index
                 if (firstTombstone != -1) {
                     buckets[firstTombstone] = buckets[index]
                     buckets[index] = TOMBSTONE
-                    return firstTombstone // Return the moved bucket index
+                    return firstTombstone // Return the bucket index after the move
                 }
-                return index // Return bucket index
+                return index // Return the bucket index
             }
-            // Record the first removal marker encountered
+            // Record the first tombstone encountered
             if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                 firstTombstone = index
             }
-            // Calculate bucket index, wrap around to the head if past the tail
+            // Calculate the bucket index, wrapping to the beginning after the end
             index = (index + 1) % capacity
         }
-        // If key does not exist, return the index for insertion
+        // If key is absent, return the index for insertion
         return if (firstTombstone == -1) index else firstTombstone
     }
 
-    /* Query operation */
+    /* Lookup operation */
     fun get(key: Int): String? {
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         val index = findBucket(key)
-        // If key-value pair is found, return corresponding val
+        // If the key-value pair is found, return its val
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             return buckets[index]?._val
         }
-        // If key-value pair does not exist, return null
+        // Return null if the key-value pair is absent
         return null
     }
 
-    /* Add operation */
+    /* Insert operation */
     fun put(key: Int, _val: String) {
-        // When load factor exceeds threshold, perform expansion
+        // Grow the capacity when the load factor exceeds the threshold
         if (loadFactor() > loadThres) {
             extend()
         }
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         val index = findBucket(key)
-        // If key-value pair is found, overwrite val and return
+        // If the key-value pair is found, overwrite val and return
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             buckets[index]!!._val = _val
             return
         }
-        // If key-value pair does not exist, add the key-value pair
+        // If the key-value pair is absent, insert it
         buckets[index] = Pair(key, _val)
         size++
     }
 
     /* Remove operation */
     fun remove(key: Int) {
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         val index = findBucket(key)
-        // If key-value pair is found, overwrite it with removal marker
+        // If the key-value pair is found, replace it with a tombstone
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             buckets[index] = TOMBSTONE
             size--
         }
     }
 
-    /* Expand hash table */
+    /* Grow the hash table capacity */
     fun extend() {
-        // Temporarily store the original hash table
+        // Keep a reference to the original hash table
         val bucketsTmp = buckets
-        // Initialize expanded new hash table
+        // Initialize a new hash table with the expanded capacity
         capacity *= extendRatio
         buckets = arrayOfNulls(capacity)
         size = 0
-        // Move key-value pairs from original hash table to new hash table
+        // Move the key-value pairs from the original hash table to the new one
         for (pair in bucketsTmp) {
             if (pair != null && pair != TOMBSTONE) {
                 put(pair.key, pair._val)
@@ -119,7 +119,7 @@ class HashMapOpenAddressing {
         }
     }
 
-    /* Print hash table */
+    /* Print the hash table */
     fun print() {
         for (pair in buckets) {
             if (pair == null) {
@@ -133,29 +133,29 @@ class HashMapOpenAddressing {
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    // Initialize hash table
+    // Initialize the hash table
     val hashmap = HashMapOpenAddressing()
 
-    // Add operation
-    // Add key-value pair (key, val) to the hash table
-    hashmap.put(12836, "Xiao Ha")
-    hashmap.put(15937, "Xiao Luo")
-    hashmap.put(16750, "Xiao Suan")
-    hashmap.put(13276, "Xiao Fa")
-    hashmap.put(10583, "Xiao Ya")
-    println("\nAfter adding is complete, hash table is\nKey -> Value")
+    // Insert operation
+    // Insert the key-value pair (key, val) into the hash table
+    hashmap.put(12836, "小哈")
+    hashmap.put(15937, "小啰")
+    hashmap.put(16750, "小算")
+    hashmap.put(13276, "小法")
+    hashmap.put(10583, "小鸭")
+    println("\nHash table after insertion:\nKey -> Value")
     hashmap.print()
 
-    // Query operation
-    // Input key into hash table to get value val
+    // Lookup operation
+    // Look up key in the hash table to obtain val
     val name = hashmap.get(13276)
-    println("\nInput student ID 13276, found name $name")
+    println("\nLook up student ID 13276 to obtain the name $name")
 
     // Remove operation
-    // Remove key-value pair (key, val) from hash table
+    // Remove the key-value pair (key, val) from the hash table
     hashmap.remove(16750)
-    println("\nAfter removing 16750, hash table is\nKey -> Value")
+    println("\nHash table after removing 16750:\nKey -> Value")
     hashmap.print()
 }

@@ -6,16 +6,16 @@
 
 #include "../utils/common.h"
 
-/* Climbing stairs: Dynamic programming */
+/* Climbing stairs: dynamic programming */
 int climbingStairsDP(int n) {
     if (n == 1 || n == 2)
         return n;
-    // Initialize dp table, used to store solutions to subproblems
+    // Initialize the dp table to store subproblem solutions
     int *dp = (int *)malloc((n + 1) * sizeof(int));
-    // Initial state: preset the solution to the smallest subproblem
+    // Initial states: set the solutions to the smallest subproblems
     dp[1] = 1;
     dp[2] = 2;
-    // State transition: gradually solve larger subproblems from smaller ones
+    // State transitions: solve progressively larger subproblems using smaller ones
     for (int i = 3; i <= n; i++) {
         dp[i] = dp[i - 1] + dp[i - 2];
     }
@@ -24,7 +24,7 @@ int climbingStairsDP(int n) {
     return result;
 }
 
-/* Climbing stairs: Space-optimized dynamic programming */
+/* Climbing stairs: space-optimized dynamic programming */
 int climbingStairsDPComp(int n) {
     if (n == 1 || n == 2)
         return n;
@@ -37,15 +37,15 @@ int climbingStairsDPComp(int n) {
     return b;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     int n = 9;
 
     int res = climbingStairsDP(n);
-    printf("Climbing %d stairs has %d solutions\n", n, res);
+    printf("Number of ways to climb %d stairs: %d\n", n, res);
 
     res = climbingStairsDPComp(n);
-    printf("Climbing %d stairs has %d solutions\n", n, res);
+    printf("Number of ways to climb %d stairs: %d\n", n, res);
 
     return 0;
 }

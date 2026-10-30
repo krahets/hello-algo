@@ -12,36 +12,36 @@ func (h *minHeap) Len() int           { return len(*h) }
 func (h *minHeap) Less(i, j int) bool { return (*h)[i].(int) < (*h)[j].(int) }
 func (h *minHeap) Swap(i, j int)      { (*h)[i], (*h)[j] = (*h)[j], (*h)[i] }
 
-// Push method of heap.Interface, implements pushing element to heap
+// Push implements heap.Interface by appending an element for the heap package
 func (h *minHeap) Push(x any) {
 	*h = append(*h, x.(int))
 }
 
-// Pop method of heap.Interface, implements popping heap top element
+// Pop implements heap.Interface by removing the last element, where heap.Pop has moved the top element
 func (h *minHeap) Pop() any {
-	// Element to be popped is stored at the end
+	// The element to remove is stored at the end
 	last := (*h)[len(*h)-1]
 	*h = (*h)[:len(*h)-1]
 	return last
 }
 
-// Top gets heap top element
+// Top returns the top element of the heap
 func (h *minHeap) Top() any {
 	return (*h)[0]
 }
 
-/* Find the largest k elements in array based on heap */
+/* Use a heap to find the k largest elements in an array */
 func topKHeap(nums []int, k int) *minHeap {
-	// Python's heapq module implements min heap by default
+	// Initialize a min heap
 	h := &minHeap{}
 	heap.Init(h)
-	// Enter the first k elements of array into heap
+	// Push the first k array elements onto the heap
 	for i := 0; i < k; i++ {
 		heap.Push(h, nums[i])
 	}
-	// Starting from the (k+1)th element, maintain heap length as k
+	// Starting with element k+1, keep the heap size at k
 	for i := k; i < len(nums); i++ {
-		// If current element is greater than top element, top element exits heap, current element enters heap
+		// If the current element is larger than the heap top, pop the top element and push the current element
 		if nums[i] > h.Top().(int) {
 			heap.Pop(h)
 			heap.Push(h, nums[i])

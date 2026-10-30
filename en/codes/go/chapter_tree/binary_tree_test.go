@@ -12,30 +12,30 @@ import (
 )
 
 func TestBinaryTree(t *testing.T) {
-	/* Initialize binary tree */
-	// Initialize nodes
+	/* Initialize the binary tree */
+	// Initialize the nodes
 	n1 := NewTreeNode(1)
 	n2 := NewTreeNode(2)
 	n3 := NewTreeNode(3)
 	n4 := NewTreeNode(4)
 	n5 := NewTreeNode(5)
-	// Build references (pointers) between nodes
+	// Set up references (pointers) between the nodes
 	n1.Left = n2
 	n1.Right = n3
 	n2.Left = n4
 	n2.Right = n5
-	fmt.Println("Initialize binary tree")
+	fmt.Println("Initialize the binary tree")
 	PrintTree(n1)
 
-	/* Insert node P between n1 -> n2 */
-	// Insert node
+	/* Insert and remove nodes */
+	// Insert a node
 	p := NewTreeNode(0)
 	n1.Left = p
 	p.Left = n2
-	fmt.Println("After inserting node P")
+	fmt.Println("After inserting node p")
 	PrintTree(n1)
-	// Remove node
+	// Remove a node
 	n1.Left = n2
-	fmt.Println("After removing node P")
+	fmt.Println("After removing node p")
 	PrintTree(n1)
 }

@@ -6,26 +6,26 @@
 
 use std::collections::HashSet;
 
-/* Backtracking algorithm: Permutations II */
+/* Backtracking: permutations II */
 fn backtrack(mut state: Vec<i32>, choices: &[i32], selected: &mut [bool], res: &mut Vec<Vec<i32>>) {
-    // When the state length equals the number of elements, record the solution
+    // Record a solution when the state length equals the number of elements
     if state.len() == choices.len() {
         res.push(state);
         return;
     }
-    // Traverse all choices
+    // Iterate over all choices
     let mut duplicated = HashSet::<i32>::new();
     for i in 0..choices.len() {
         let choice = choices[i];
-        // Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
+        // Prune: do not reuse an element or choose the same value again at this depth
         if !selected[i] && !duplicated.contains(&choice) {
-            // Attempt: make choice, update state
-            duplicated.insert(choice); // Record the selected element value
+            // Try: make a choice and update the state
+            duplicated.insert(choice); // Record the chosen value
             selected[i] = true;
             state.push(choice);
-            // Proceed to the next round of selection
+            // Proceed to the next choice
             backtrack(state.clone(), choices, selected, res);
-            // Backtrack: undo choice, restore to previous state
+            // Backtrack: undo the choice and restore the previous state
             selected[i] = false;
             state.pop();
         }
@@ -39,7 +39,7 @@ fn permutations_ii(nums: &mut [i32]) -> Vec<Vec<i32>> {
     res
 }
 
-/* Driver Code */
+/* Driver code */
 pub fn main() {
     let mut nums = [1, 2, 2];
 

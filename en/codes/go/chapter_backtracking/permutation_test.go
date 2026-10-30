@@ -18,7 +18,7 @@ func TestPermutationI(t *testing.T) {
 	PrintSlice(nums)
 
 	res := permutationsI(nums)
-	fmt.Printf("All permutations res = ")
+	fmt.Printf("All permutations: res = ")
 	fmt.Println(res)
 }
 
@@ -28,6 +28,6 @@ func TestPermutationII(t *testing.T) {
 	PrintSlice(nums)
 
 	res := permutationsII(nums)
-	fmt.Printf("All permutations res = ")
+	fmt.Printf("All permutations: res = ")
 	fmt.Println(res)
 }

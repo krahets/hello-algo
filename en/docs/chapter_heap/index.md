@@ -1,9 +1,9 @@
-# Heap
+# Heaps
 
-![Heap](../assets/covers/chapter_heap.jpg)
+![Heaps](../assets/covers/chapter_heap.jpg)
 
 !!! abstract
 
-    Heaps are like mountain peaks, rising layer upon layer, each with a distinct shape.
-
-    The peaks rise and fall at varying heights, yet the tallest peak always catches the eye first.
+    Heaps resemble mountain ranges, rising in layers of varied shapes.
+    
+    The peaks stand at different heights, yet the highest always catches the eye first.

@@ -1,46 +1,46 @@
-# Insertion Sort
+# Insertion sort
 
-<u>Insertion sort</u> is a simple sorting algorithm that works very similarly to the process of manually sorting a deck of cards.
+<u>Insertion sort</u> is a simple sorting algorithm that works much like arranging a hand of playing cards.
 
-Specifically, we select a base element from the unsorted portion, compare it one by one with the elements in the sorted portion to its left, and insert it into the correct position.
+Choose a base element from the unsorted section, compare it with the elements in the sorted section to its left, and insert it into the correct position.
 
-The figure below illustrates how an element is inserted into an array. Let the base element be `base`. We need to shift all elements between the target index and `base` one position to the right, and then assign `base` to the target index.
+The figure below shows how to insert an element into an array. Let the base element be `base`. Shift all elements between the target index and `base` one position to the right, then assign `base` to the target index.
 
-![Single insertion operation](insertion_sort.assets/insertion_operation.png)
+![A single insertion operation](insertion_sort.assets/insertion_operation.png)
 
-## Algorithm Flow
+## Algorithm steps
 
-The overall flow of insertion sort is shown in the figure below.
+The overall insertion sort process is shown below.
 
-1. Initially, the first element of the array is already sorted.
-2. Select the second element of the array as `base`, and after inserting it into the correct position, **the first 2 elements of the array are sorted**.
-3. Select the third element as `base`, and after inserting it into the correct position, **the first 3 elements of the array are sorted**.
-4. And so on. In the last round, select the last element as `base`, and after inserting it into the correct position, **all elements are sorted**.
+1. Initially, the first element of the array is treated as sorted.
+2. Select the second element as `base` and insert it into the correct position. **The first two elements are now sorted**.
+3. Select the third element as `base` and insert it into the correct position. **The first three elements are now sorted**.
+4. Continue in this way. In the final round, select the last element as `base` and insert it into the correct position. **All elements are now sorted**.
 
-![Insertion sort flow](insertion_sort.assets/insertion_sort_overview.png)
+![The insertion sort process](insertion_sort.assets/insertion_sort_overview.png)
 
-Example code is as follows:
+An implementation follows:
 
 ```src
 [file]{insertion_sort}-[class]{}-[func]{insertion_sort}
 ```
 
-## Algorithm Characteristics
+## Algorithm properties
 
-- **Time complexity of $O(n^2)$, adaptive sorting**: In the worst case, the insertion operations require $n - 1$, $n-2$, $\dots$, $2$, and $1$ iterations, respectively, summing to $(n - 1) n / 2$, so the time complexity is $O(n^2)$. When the data is already sorted, each insertion operation terminates early. When the input array is completely sorted, insertion sort achieves its best-case time complexity of $O(n)$.
-- **Space complexity of $O(1)$, in-place sorting**: Pointers $i$ and $j$ use a constant amount of extra space.
-- **Stable sorting**: During insertion, we place elements to the right of equal elements, so their relative order is unchanged.
+- **Time complexity: $O(n^2)$; adaptive**. In the worst case, the insertion operations require $n - 1$, $n-2$, $\dots$, $2$, and $1$ iterations, totaling $(n - 1) n / 2$, so the time complexity is $O(n^2)$. For ordered data, an insertion can stop early. A fully sorted input achieves the best-case time complexity of $O(n)$.
+- **Space complexity: $O(1)$; in-place**. Pointers $i$ and $j$ use constant extra space.
+- **Stable**. Each element is inserted to the right of equal elements, preserving their order.
 
-## Advantages of Insertion Sort
+## Why use insertion sort?
 
-The time complexity of insertion sort is $O(n^2)$, while the time complexity of quick sort, which we will learn about next, is $O(n \log n)$. Although insertion sort has a higher time complexity, **it is usually faster on small datasets**.
+Insertion sort takes $O(n^2)$ time, while quick sort, which we will study shortly, takes $O(n \log n)$. Despite its higher time complexity, **insertion sort is usually faster for small datasets**.
 
-This conclusion is similar to the one about when linear search and binary search are applicable. Algorithms such as quick sort, with $O(n \log n)$ complexity, are divide-and-conquer sorting algorithms and often involve more primitive operations. When the dataset is small, the values of $n^2$ and $n \log n$ are relatively close, so asymptotic complexity does not dominate; instead, the number of primitive operations per round becomes the deciding factor.
+This resembles the comparison between linear and binary search. Algorithms such as quick sort, with $O(n \log n)$ time complexity, use divide and conquer and tend to involve more elementary operations. When the dataset is small, $n^2$ and $n \log n$ are relatively close, so asymptotic complexity is not the dominant factor; the number of elementary operations per round matters more.
 
-In fact, the built-in sorting functions of many programming languages (such as Java) use insertion sort. The general idea is: for large arrays, use divide-and-conquer sorting algorithms such as quick sort; for short arrays, use insertion sort directly.
+In fact, the built-in sorting functions of many programming languages, such as Java, use insertion sort. The general approach is to use a divide-and-conquer algorithm such as quick sort for long arrays and insertion sort directly for short ones.
 
-Although bubble sort, selection sort, and insertion sort all have a time complexity of $O(n^2)$, in actual situations, **insertion sort is used significantly more frequently than bubble sort and selection sort**, mainly for the following reasons.
+Although bubble sort, selection sort, and insertion sort all take $O(n^2)$ time, **insertion sort is used much more often in practice**, mainly for the following reasons.
 
-- Bubble sort is implemented through element swaps, which require a temporary variable and involve 3 primitive operations; insertion sort is implemented through element assignment and requires only 1 primitive operation. Therefore, **bubble sort usually has higher computational overhead than insertion sort**.
-- Selection sort has a time complexity of $O(n^2)$ in any case. **If given a set of partially ordered data, insertion sort is usually more efficient than selection sort**.
-- Selection sort is unstable and cannot be applied to multi-level sorting.
+- Bubble sort swaps elements, using a temporary variable and three elementary operations. Insertion sort shifts elements by assignment, requiring just one operation. **Bubble sort therefore usually has higher computational overhead**.
+- Selection sort takes $O(n^2)$ time in every case. **For partially sorted data, insertion sort is usually more efficient than selection sort**.
+- Selection sort is not stable and therefore cannot be used for multilevel sorting.

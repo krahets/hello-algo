@@ -34,7 +34,7 @@ int xorHash(String key) {
   return hash & MODULUS;
 }
 
-/* Rotational hash */
+/* Rotating hash */
 int rotHash(String key) {
   int hash = 0;
   final int MODULUS = 1000000007;
@@ -44,19 +44,19 @@ int rotHash(String key) {
   return hash;
 }
 
-/* Dirver Code */
+/* Driver code */
 void main() {
-  String key = "Hello Algo";
+  String key = "Hello 算法";
 
   int hash = addHash(key);
-  print("Additive hash value is $hash");
+  print("Additive hash value: $hash");
 
   hash = mulHash(key);
-  print("Multiplicative hash value is $hash");
+  print("Multiplicative hash value: $hash");
 
   hash = xorHash(key);
-  print("XOR hash value is $hash");
+  print("XOR hash value: $hash");
 
   hash = rotHash(key);
-  print("Rotational hash value is $hash");
+  print("Rotating hash value: $hash");
 }

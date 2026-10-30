@@ -16,38 +16,38 @@ impl Item {
     }
 }
 
-/* Fractional knapsack: Greedy algorithm */
+/* Fractional knapsack: greedy algorithm */
 fn fractional_knapsack(wgt: &[i32], val: &[i32], mut cap: i32) -> f64 {
-    // Create item list with two attributes: weight, value
+    // Create a list of items, each with two attributes: weight and value
     let mut items = wgt
         .iter()
         .zip(val.iter())
         .map(|(&w, &v)| Item::new(w, v))
         .collect::<Vec<Item>>();
-    // Sort by unit value item.v / item.w from high to low
+    // Sort by value per unit weight, item.v / item.w, in descending order
     items.sort_by(|a, b| {
         (b.v as f64 / b.w as f64)
             .partial_cmp(&(a.v as f64 / a.w as f64))
             .unwrap()
     });
-    // Loop for greedy selection
+    // Repeatedly make greedy choices
     let mut res = 0.0;
     for item in &items {
         if item.w <= cap {
-            // If remaining capacity is sufficient, put the entire current item into the knapsack
+            // If enough capacity remains, put the entire current item in the knapsack
             res += item.v as f64;
             cap -= item.w;
         } else {
-            // If remaining capacity is insufficient, put part of the current item into the knapsack
+            // If the remaining capacity is insufficient, put part of the current item in the knapsack
             res += item.v as f64 / item.w as f64 * cap as f64;
-            // No remaining capacity, so break out of the loop
+            // No capacity remains, so exit the loop
             break;
         }
     }
     res
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
     let wgt = [10, 20, 30, 40, 50];
     let val = [50, 120, 150, 210, 240];
@@ -55,5 +55,5 @@ fn main() {
 
     // Greedy algorithm
     let res = fractional_knapsack(&wgt, &val, cap);
-    println!("Maximum item value not exceeding knapsack capacity is {}", res);
+    println!("Maximum total item value within the knapsack capacity: {}", res);
 }

@@ -9,7 +9,7 @@
 /* for loop */
 int forLoop(int n) {
     int res = 0;
-    // Sum 1, 2, ..., n-1, n
+    // Sum 1, 2, ..., n-1, n in a loop
     for (int i = 1; i <= n; i++) {
         res += i;
     }
@@ -19,11 +19,11 @@ int forLoop(int n) {
 /* while loop */
 int whileLoop(int n) {
     int res = 0;
-    int i = 1; // Initialize condition variable
-    // Sum 1, 2, ..., n-1, n
+    int i = 1; // Initialize the loop control variable
+    // Sum 1, 2, ..., n-1, n in a loop
     while (i <= n) {
         res += i;
-        i++; // Update condition variable
+        i++; // Update the loop control variable
     }
     return res;
 }
@@ -31,25 +31,25 @@ int whileLoop(int n) {
 /* while loop (two updates) */
 int whileLoopII(int n) {
     int res = 0;
-    int i = 1; // Initialize condition variable
-    // Sum 1, 4, 10, ...
+    int i = 1; // Initialize the loop control variable
+    // Sum 1, 4, 10, ... in a loop
     while (i <= n) {
         res += i;
-        // Update condition variable
+        // Update the loop control variable
         i++;
         i *= 2;
     }
     return res;
 }
 
-/* Nested for loop */
+/* Nested for loops */
 char *nestedForLoop(int n) {
-    // n * n is the number of points, "(i, j), " string max length is 6+10*2, plus extra space for null character \0
+    // There are n * n points; each "(i, j), " takes at most 6+10*2 characters, plus space for the final null character \0
     int size = n * n * 26 + 1;
     char *res = malloc(size * sizeof(char));
-    // Loop i = 1, 2, ..., n-1, n
+    // Loop over i = 1, 2, ..., n-1, n
     for (int i = 1; i <= n; i++) {
-        // Loop j = 1, 2, ..., n-1, n
+        // Loop over j = 1, 2, ..., n-1, n
         for (int j = 1; j <= n; j++) {
             char tmp[26];
             snprintf(tmp, sizeof(tmp), "(%d, %d), ", i, j);
@@ -59,22 +59,22 @@ char *nestedForLoop(int n) {
     return res;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     int n = 5;
     int res;
 
     res = forLoop(n);
-    printf("\nFor loop sum result res = %d\n", res);
+    printf("\nSum from the for loop, res = %d\n", res);
 
     res = whileLoop(n);
-    printf("\nWhile loop sum result res = %d\n", res);
+    printf("\nSum from the while loop, res = %d\n", res);
 
     res = whileLoopII(n);
-    printf("\nWhile loop (two updates) sum result res = %d\n", res);
+    printf("\nSum from the while loop (two updates), res = %d\n", res);
 
     char *resStr = nestedForLoop(n);
-    printf("\nNested for loop traversal result %s\r\n", resStr);
+    printf("\nTraversal result from nested for loops: %s\r\n", resStr);
     free(resStr);
 
     return 0;

@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-// Assume path and result length not exceeding 100
+// Assume each path and the result list contain at most 100 entries
 #define MAX_SIZE 100
 #define MAX_RES_SIZE 100
 
@@ -14,16 +14,16 @@ TreeNode *path[MAX_SIZE];
 TreeNode *res[MAX_RES_SIZE][MAX_SIZE];
 int pathSize = 0, resSize = 0;
 
-/* Preorder traversal: Example 3 */
+/* Preorder traversal: example 3 */
 void preOrder(TreeNode *root) {
-    // Pruning
+    // Prune
     if (root == NULL || root->val == 3) {
         return;
     }
-    // Attempt
+    // Try
     path[pathSize++] = root;
     if (root->val == 7) {
-        // Record solution
+        // Record the solution
         for (int i = 0; i < pathSize; i++) {
             res[resSize][i] = path[i];
         }
@@ -35,17 +35,17 @@ void preOrder(TreeNode *root) {
     pathSize--;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     int arr[] = {1, 7, 3, 4, 5, 6, 7};
     TreeNode *root = arrayToTree(arr, sizeof(arr) / sizeof(arr[0]));
-    printf("\nInitialize binary tree\n");
+    printf("\nInitialize the binary tree\n");
     printTree(root);
 
     // Preorder traversal
     preOrder(root);
 
-    printf("\nOutput all paths from root to node 7, excluding nodes with value 3\n");
+    printf("\nPrint all paths from the root to nodes with value 7 that contain no node with value 3\n");
     for (int i = 0; i < resSize; ++i) {
         int *vals = malloc(MAX_SIZE * sizeof(int));
         int size = 0;

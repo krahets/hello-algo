@@ -8,35 +8,35 @@ namespace hello_algo.chapter_graph;
 
 public class graph_bfs {
     /* Breadth-first traversal */
-    // Use adjacency list to represent the graph, in order to obtain all adjacent vertices of a specified vertex
+    // Represent the graph with an adjacency list to access all neighbors of a given vertex
     List<Vertex> GraphBFS(GraphAdjList graph, Vertex startVet) {
         // Vertex traversal sequence
         List<Vertex> res = [];
-        // Hash set for recording vertices that have been visited
+        // Hash set recording visited vertices
         HashSet<Vertex> visited = [startVet];
-        // Queue used to implement BFS
+        // Use a queue to implement BFS
         Queue<Vertex> que = new();
         que.Enqueue(startVet);
-        // Starting from vertex vet, loop until all vertices are visited
+        // Starting from startVet, loop until all reachable vertices have been visited
         while (que.Count > 0) {
             Vertex vet = que.Dequeue(); // Dequeue the front vertex
-            res.Add(vet);               // Record visited vertex
+            res.Add(vet);               // Record the visited vertex
             foreach (Vertex adjVet in graph.adjList[vet]) {
                 if (visited.Contains(adjVet)) {
-                    continue;          // Skip vertices that have been visited
+                    continue;          // Skip vertices that have already been visited
                 }
-                que.Enqueue(adjVet);   // Only enqueue unvisited vertices
+                que.Enqueue(adjVet);   // Enqueue only unvisited vertices
                 visited.Add(adjVet);   // Mark this vertex as visited
             }
         }
 
-        // Return vertex traversal sequence
+        // Return the vertex traversal sequence
         return res;
     }
 
     [Test]
     public void Test() {
-        /* Add edge */
+        /* Initialize the undirected graph */
         Vertex[] v = Vertex.ValsToVets([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
         Vertex[][] edges =
         [
@@ -47,12 +47,12 @@ public class graph_bfs {
         ];
 
         GraphAdjList graph = new(edges);
-        Console.WriteLine("\nAfter initialization, graph is");
+        Console.WriteLine("\nGraph after initialization:");
         graph.Print();
 
         /* Breadth-first traversal */
         List<Vertex> res = GraphBFS(graph, v[0]);
-        Console.WriteLine("\nBreadth-first traversal (BFS) vertex sequence is");
+        Console.WriteLine("\nVertex sequence from breadth-first traversal (BFS):");
         Console.WriteLine(string.Join(" ", Vertex.VetsToVals(res)));
     }
 }

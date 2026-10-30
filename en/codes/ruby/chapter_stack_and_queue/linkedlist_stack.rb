@@ -6,7 +6,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-### Stack based on linked list ###
+### Stack implemented with a linked list ###
 class LinkedListStack
   attr_reader :size
 
@@ -15,7 +15,7 @@ class LinkedListStack
     @size = 0
   end
 
-  ### Check if stack is empty ###
+  ### Check whether the stack is empty ###
   def is_empty?
     @peek.nil?
   end
@@ -36,14 +36,14 @@ class LinkedListStack
     num
   end
 
-  ### Access top element ###
+  ### Access the top element ###
   def peek
     raise IndexError, 'Stack is empty' if is_empty?
 
     @peek.val
   end
 
-  ### Convert linked list to Array and return ###
+  ### Convert the linked list to an Array and return it ###
   def to_array
     arr = []
     node = @peek
@@ -55,12 +55,12 @@ class LinkedListStack
   end
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  # Access top of the stack element
+  # Initialize the stack
   stack = LinkedListStack.new
 
-  # Elements push onto stack
+  # Push elements onto the stack
   stack.push(1)
   stack.push(3)
   stack.push(2)
@@ -68,20 +68,20 @@ if __FILE__ == $0
   stack.push(4)
   puts "Stack stack = #{stack.to_array}"
 
-  # Return list for printing
+  # Access the top element
   peek = stack.peek
   puts "Top element peek = #{peek}"
 
-  # Element pop from stack
+  # Pop an element from the stack
   pop = stack.pop
-  puts "Pop element pop = #{pop}"
-  puts "After pop, stack = #{stack.to_array}"
+  puts "Popped element pop = #{pop}"
+  puts "After popping, stack = #{stack.to_array}"
 
-  # Get the length of the stack
+  # Get the stack size
   size = stack.size
-  puts "Stack length size = #{size}"
+  puts "Stack size = #{size}"
 
-  # Check if empty
+  # Check whether it is empty
   is_empty = stack.is_empty?
-  puts "Is stack empty = #{is_empty}"
+  puts "Is the stack empty? #{is_empty}"
 end

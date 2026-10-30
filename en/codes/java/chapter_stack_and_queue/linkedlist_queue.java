@@ -8,9 +8,9 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-/* Queue based on linked list implementation */
+/* Queue implemented with a linked list */
 class LinkedListQueue {
-    private ListNode front, rear; // Head node front, tail node rear
+    private ListNode front, rear; // Head node front and tail node rear
     private int queSize = 0;
 
     public LinkedListQueue() {
@@ -18,12 +18,12 @@ class LinkedListQueue {
         rear = null;
     }
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     public int size() {
         return queSize;
     }
 
-    /* Check if the queue is empty */
+    /* Check whether the queue is empty */
     public boolean isEmpty() {
         return size() == 0;
     }
@@ -32,11 +32,11 @@ class LinkedListQueue {
     public void push(int num) {
         // Add num after the tail node
         ListNode node = new ListNode(num);
-        // If the queue is empty, make both front and rear point to the node
+        // If the queue is empty, make both the head and tail point to this node
         if (front == null) {
             front = node;
             rear = node;
-        // If the queue is not empty, add the node after the tail node
+        // If the queue is not empty, add this node after the tail node
         } else {
             rear.next = node;
             rear = node;
@@ -47,20 +47,20 @@ class LinkedListQueue {
     /* Dequeue */
     public int pop() {
         int num = peek();
-        // Delete head node
+        // Remove the head node
         front = front.next;
         queSize--;
         return num;
     }
 
-    /* Return list for printing */
+    /* Access the front element */
     public int peek() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return front.val;
     }
 
-    /* Convert linked list to Array and return */
+    /* Convert the linked list to an array and return it */
     public int[] toArray() {
         ListNode node = front;
         int[] res = new int[size()];
@@ -74,10 +74,10 @@ class LinkedListQueue {
 
 public class linkedlist_queue {
     public static void main(String[] args) {
-        /* Access front of the queue element */
+        /* Initialize the queue */
         LinkedListQueue queue = new LinkedListQueue();
 
-        /* Elements enqueue */
+        /* Enqueue elements */
         queue.push(1);
         queue.push(3);
         queue.push(2);
@@ -85,20 +85,20 @@ public class linkedlist_queue {
         queue.push(4);
         System.out.println("Queue queue = " + Arrays.toString(queue.toArray()));
 
-        /* Return list for printing */
+        /* Access the front element */
         int peek = queue.peek();
         System.out.println("Front element peek = " + peek);
 
-        /* Element dequeue */
+        /* Dequeue an element */
         int pop = queue.pop();
-        System.out.println("Dequeue element pop = " + pop + ", after dequeue, queue = " + Arrays.toString(queue.toArray()));
+        System.out.println("Dequeued element pop = " + pop + ", after dequeuing, queue = " + Arrays.toString(queue.toArray()));
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         int size = queue.size();
-        System.out.println("Queue length size = " + size);
+        System.out.println("Queue size = " + size);
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         boolean isEmpty = queue.isEmpty();
-        System.out.println("Queue is empty = " + isEmpty);
+        System.out.println("Is the queue empty = " + isEmpty);
     }
 }

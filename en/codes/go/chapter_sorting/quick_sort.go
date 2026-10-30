@@ -7,40 +7,40 @@ package chapter_sorting
 // Quick sort
 type quickSort struct{}
 
-// Quick sort (recursion depth optimization)
+// Quick sort (median pivot optimization)
 type quickSortMedian struct{}
 
 // Quick sort (recursion depth optimization)
 type quickSortTailCall struct{}
 
-/* Sentinel partition */
+/* Two-pointer partitioning */
 func (q *quickSort) partition(nums []int, left, right int) int {
 	// Use nums[left] as the pivot
 	i, j := left, right
 	for i < j {
 		for i < j && nums[j] >= nums[left] {
-			j-- // Search from right to left for the first element smaller than the pivot
+			j-- // Scan from right to left for the first element smaller than the pivot
 		}
 		for i < j && nums[i] <= nums[left] {
-			i++ // Search from left to right for the first element greater than the pivot
+			i++ // Scan from left to right for the first element larger than the pivot
 		}
-		// Swap elements
+		// Swap the elements
 		nums[i], nums[j] = nums[j], nums[i]
 	}
-	// Swap the pivot to the boundary between the two subarrays
+	// Swap the pivot into the boundary position between the two subarrays
 	nums[i], nums[left] = nums[left], nums[i]
-	return i // Return the index of the pivot
+	return i // Return the pivot index
 }
 
 /* Quick sort */
 func (q *quickSort) quickSort(nums []int, left, right int) {
-	// Terminate recursion when subarray length is 1
+	// Stop recursing when the subarray has at most one element
 	if left >= right {
 		return
 	}
-	// Sentinel partition
+	// Two-pointer partitioning
 	pivot := q.partition(nums, left, right)
-	// Recursively process the left subarray and right subarray
+	// Recurse on the left and right subarrays
 	q.quickSort(nums, left, pivot-1)
 	q.quickSort(nums, pivot+1, right)
 }
@@ -49,82 +49,82 @@ func (q *quickSort) quickSort(nums []int, left, right int) {
 func (q *quickSortMedian) medianThree(nums []int, left, mid, right int) int {
 	l, m, r := nums[left], nums[mid], nums[right]
 	if (l <= m && m <= r) || (r <= m && m <= l) {
-		return mid // m is between l and r
+		return mid // m lies between l and r
 	}
 	if (m <= l && l <= r) || (r <= l && l <= m) {
-		return left // l is between m and r
+		return left // l lies between m and r
 	}
 	return right
 }
 
-/* Sentinel partition (median of three) */
+/* Two-pointer partitioning (median of three)*/
 func (q *quickSortMedian) partition(nums []int, left, right int) int {
-	// Use nums[left] as the pivot
+	// Select the median of the left, middle, and right elements as the pivot
 	med := q.medianThree(nums, left, (left+right)/2, right)
-	// Swap the median to the array's leftmost position
+	// Swap the median into the leftmost position of the current subarray
 	nums[left], nums[med] = nums[med], nums[left]
 	// Use nums[left] as the pivot
 	i, j := left, right
 	for i < j {
 		for i < j && nums[j] >= nums[left] {
-			j-- // Search from right to left for the first element smaller than the pivot
+			j-- //Scan from right to left for the first element smaller than the pivot
 		}
 		for i < j && nums[i] <= nums[left] {
-			i++ // Search from left to right for the first element greater than the pivot
+			i++ //Scan from left to right for the first element larger than the pivot
 		}
-		// Swap elements
+		//Swap the elements
 		nums[i], nums[j] = nums[j], nums[i]
 	}
-	// Swap the pivot to the boundary between the two subarrays
+	//Swap the pivot into the boundary position between the two subarrays
 	nums[i], nums[left] = nums[left], nums[i]
-	return i // Return the index of the pivot
+	return i //Return the pivot index
 }
 
 /* Quick sort */
 func (q *quickSortMedian) quickSort(nums []int, left, right int) {
-	// Terminate recursion when subarray length is 1
+	// Stop recursing when the subarray has at most one element
 	if left >= right {
 		return
 	}
-	// Sentinel partition
+	// Two-pointer partitioning
 	pivot := q.partition(nums, left, right)
-	// Recursively process the left subarray and right subarray
+	// Recurse on the left and right subarrays
 	q.quickSort(nums, left, pivot-1)
 	q.quickSort(nums, pivot+1, right)
 }
 
-/* Sentinel partition */
+/* Two-pointer partitioning */
 func (q *quickSortTailCall) partition(nums []int, left, right int) int {
 	// Use nums[left] as the pivot
 	i, j := left, right
 	for i < j {
 		for i < j && nums[j] >= nums[left] {
-			j-- // Search from right to left for the first element smaller than the pivot
+			j-- // Scan from right to left for the first element smaller than the pivot
 		}
 		for i < j && nums[i] <= nums[left] {
-			i++ // Search from left to right for the first element greater than the pivot
+			i++ // Scan from left to right for the first element larger than the pivot
 		}
-		// Swap elements
+		// Swap the elements
 		nums[i], nums[j] = nums[j], nums[i]
 	}
-	// Swap the pivot to the boundary between the two subarrays
+	// Swap the pivot into the boundary position between the two subarrays
 	nums[i], nums[left] = nums[left], nums[i]
-	return i // Return the index of the pivot
+	return i // Return the pivot index
 }
 
-/* Quick sort (recursion depth optimization) */
+/* Quick sort (recursion depth optimization)*/
 func (q *quickSortTailCall) quickSort(nums []int, left, right int) {
-	// Terminate when subarray length is 1
+	// Stop when the subarray has at most one element
 	for left < right {
-		// Sentinel partition operation
+		// Perform two-pointer partitioning
 		pivot := q.partition(nums, left, right)
-		// Perform quick sort on the shorter of the two subarrays
+		// Apply quick sort to the shorter of the two subarrays
 		if pivot-left < right-pivot {
 			q.quickSort(nums, left, pivot-1) // Recursively sort the left subarray
-			left = pivot + 1                 // Remaining unsorted interval is [pivot + 1, right]
+			left = pivot + 1                 // The remaining unsorted range is [pivot + 1, right]
 		} else {
 			q.quickSort(nums, pivot+1, right) // Recursively sort the right subarray
-			right = pivot - 1                 // Remaining unsorted interval is [left, pivot - 1]
+			right = pivot - 1                 // The remaining unsorted range is [left, pivot - 1]
 		}
 	}
 }

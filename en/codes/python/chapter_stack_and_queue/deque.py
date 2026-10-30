@@ -6,37 +6,37 @@ Author: Peng Chen (pengchzn@gmail.com)
 
 from collections import deque
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
-    # Initialize double-ended queue
+    # Initialize the deque
     deq: deque[int] = deque()
 
-    # Elements enqueue
-    deq.append(2)  # Add to the rear of the queue
+    # Enqueue elements
+    deq.append(2)  # Add to the rear
     deq.append(5)
     deq.append(4)
-    deq.appendleft(3)  # Add to the front of the queue
+    deq.appendleft(3)  # Add to the front
     deq.appendleft(1)
-    print("double-ended queue deque =", deq)
+    print("Deque deq =", deq)
 
-    # Access elements
-    front: int = deq[0]  # Front of the queue element
-    print("Front of the queue element front =", front)
-    rear: int = deq[-1]  # Rear of the queue element
-    print("Rear of the queue element rear =", rear)
+    # Access an element
+    front: int = deq[0]  # Front element
+    print("Front element front =", front)
+    rear: int = deq[-1]  # Rear element
+    print("Rear element rear =", rear)
 
-    # Elements dequeue
-    pop_front: int = deq.popleft()  # Front of the queue element dequeues
-    print("Front dequeued element  pop_front =", pop_front)
-    print("After front dequeue deque =", deq)
-    pop_rear: int = deq.pop()  # Rear of the queue element dequeues
-    print("Rear dequeued element  pop_rear =", pop_rear)
-    print("After rear dequeue deque =", deq)
+    # Dequeue an element
+    pop_front: int = deq.popleft()  # Dequeue the front element
+    print("Element dequeued from the front, pop_front =", pop_front)
+    print("After dequeuing from the front, deq =", deq)
+    pop_rear: int = deq.pop()  # Dequeue the rear element
+    print("Element dequeued from the rear, pop_rear =", pop_rear)
+    print("After dequeuing from the rear, deq =", deq)
 
-    # Get the length of the double-ended queue
+    # Get the deque size
     size: int = len(deq)
-    print("Length of the double-ended queue size =", size)
+    print("Deque size =", size)
 
-    # Check if the double-ended queue is empty
+    # Check whether the deque is empty
     is_empty: bool = len(deq) == 0
-    print("Is the double-ended queue empty =", is_empty)
+    print("Is the deque empty =", is_empty)

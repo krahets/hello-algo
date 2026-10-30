@@ -8,13 +8,13 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* Preorder traversal: Example 1 */
+/* Preorder traversal: example 1 */
 func preOrderI(root *TreeNode, res *[]*TreeNode) {
 	if root == nil {
 		return
 	}
 	if (root.Val).(int) == 7 {
-		// Record solution
+		// Record the solution
 		*res = append(*res, root)
 	}
 	preOrderI(root.Left, res)

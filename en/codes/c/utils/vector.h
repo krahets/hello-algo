@@ -11,15 +11,15 @@
 extern "C" {
 #endif
 
-/* Define vector type */
+/* Define the vector type */
 typedef struct vector {
     int size;     // Current vector size
     int capacity; // Current vector capacity
     int depth;    // Current vector depth
-    void **data;  // Pointer array to data
+    void **data;  // Array of pointers to the data
 } vector;
 
-/* Construct vector */
+/* Construct a vector */
 vector *newVector() {
     vector *v = malloc(sizeof(vector));
     v->size = 0;
@@ -29,7 +29,7 @@ vector *newVector() {
     return v;
 }
 
-/* Construct vector with specified size and default value */
+/* Construct a vector with the specified size and default element value */
 vector *_newVector(int size, void *elem, int elemSize) {
     vector *v = malloc(sizeof(vector));
     v->size = size;
@@ -44,7 +44,7 @@ vector *_newVector(int size, void *elem, int elemSize) {
     return v;
 }
 
-/* Destruct vector */
+/* Destroy the vector */
 void delVector(vector *v) {
     if (v) {
         if (v->depth == 0) {
@@ -63,7 +63,7 @@ void delVector(vector *v) {
     }
 }
 
-/* Add element (by copy) to vector tail */
+/*  Append a copy of an element to the vector */
 void vectorPushback(vector *v, void *elem, int elemSize) {
     if (v->size == v->capacity) {
         v->capacity *= 2;
@@ -74,7 +74,7 @@ void vectorPushback(vector *v, void *elem, int elemSize) {
     v->data[v->size++] = tmp;
 }
 
-/* Pop element from vector tail */
+/* Pop the last element from the vector */
 void vectorPopback(vector *v) {
     if (v->size != 0) {
         free(v->data[v->size - 1]);
@@ -82,7 +82,7 @@ void vectorPopback(vector *v) {
     }
 }
 
-/* Clear vector */
+/* Clear the vector */
 void vectorClear(vector *v) {
     delVector(v);
     v->size = 0;
@@ -91,23 +91,23 @@ void vectorClear(vector *v) {
     v->data = malloc(v->capacity * sizeof(void *));
 }
 
-/* Get vector size */
+/* Get the vector size */
 int vectorSize(vector *v) {
     return v->size;
 }
 
-/* Get vector tail element */
+/* Get the last element of the vector */
 void *vectorBack(vector *v) {
     int n = v->size;
     return n > 0 ? v->data[n - 1] : NULL;
 }
 
-/* Get vector head element */
+/* Get the first element of the vector */
 void *vectorFront(vector *v) {
     return v->size > 0 ? v->data[0] : NULL;
 }
 
-/* Get vector element at index pos */
+/* Get the vector element at index pos */
 void *vectorAt(vector *v, int pos) {
     if (pos < 0 || pos >= v->size) {
         printf("vectorAt: out of range\n");
@@ -116,7 +116,7 @@ void *vectorAt(vector *v, int pos) {
     return v->data[pos];
 }
 
-/* Set vector element at index pos */
+/* Set the vector element at index pos */
 void vectorSet(vector *v, int pos, void *elem, int elemSize) {
     if (pos < 0 || pos >= v->size) {
         printf("vectorSet: out of range\n");
@@ -128,19 +128,19 @@ void vectorSet(vector *v, int pos, void *elem, int elemSize) {
     v->data[pos] = tmp;
 }
 
-/* Expand vector capacity */
+/* Grow the vector capacity */
 void vectorExpand(vector *v) {
     v->capacity *= 2;
     v->data = realloc(v->data, v->capacity * sizeof(void *));
 }
 
-/* Shrink vector capacity */
+/* Shrink the vector capacity */
 void vectorShrink(vector *v) {
     v->capacity /= 2;
     v->data = realloc(v->data, v->capacity * sizeof(void *));
 }
 
-/* Insert element at vector index pos */
+/* Insert an element at vector index pos */
 void vectorInsert(vector *v, int pos, void *elem, int elemSize) {
     if (v->size == v->capacity) {
         vectorExpand(v);
@@ -154,7 +154,7 @@ void vectorInsert(vector *v, int pos, void *elem, int elemSize) {
     v->size++;
 }
 
-/* Delete element at vector index pos */
+/* Remove the element at vector index pos */
 void vectorErase(vector *v, int pos) {
     if (v->size != 0) {
         free(v->data[pos]);
@@ -172,40 +172,40 @@ void vectorSwap(vector *v, int i, int j) {
     v->data[j] = tmp;
 }
 
-/* Is vector empty */
+/* Check whether the vector is empty */
 bool vectorEmpty(vector *v) {
     return v->size == 0;
 }
 
-/* Is vector full */
+/* Check whether the vector is full */
 bool vectorFull(vector *v) {
     return v->size == v->capacity;
 }
 
-/* Are vectors equal */
+/* Check whether the vectors are equal */
 bool vectorEqual(vector *v1, vector *v2) {
     if (v1->size != v2->size) {
-        printf("size not equal\n");
+        printf("Sizes are not equal\n");
         return false;
     }
     for (int i = 0; i < v1->size; i++) {
         void *a = v1->data[i];
         void *b = v2->data[i];
         if (memcmp(a, b, sizeof(a)) != 0) {
-            printf("data %d not equal\n", i);
+            printf("Data at index %d are not equal\n", i);
             return false;
         }
     }
     return true;
 }
 
-/* Sort vector internally */
+/* Sort the elements within the vector */
 void vectorSort(vector *v, int (*cmp)(const void *, const void *)) {
     qsort(v->data, v->size, sizeof(void *), cmp);
 }
 
-/* Print function, need to pass a function to print variables */
-/* Currently only supports printing vector with depth 1 */
+/* Print the vector using a supplied element-printing function */
+/* Currently supports printing only vectors of depth 1 */
 void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
     if (v) {
         if (v->depth == 0) {
@@ -235,7 +235,7 @@ void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
     }
 }
 
-/* Currently only supports printing vector with depth 2 */
+/* Currently supports printing only vectors of depth 2 */
 void printVectorMatrix(vector *vv, void (*printFunc)(vector *v, void *p)) {
     printf("[\n");
     for (int i = 0; i < vv->size; i++) {

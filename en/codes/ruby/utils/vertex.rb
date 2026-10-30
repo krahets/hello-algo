@@ -13,12 +13,12 @@ class Vertex
   end
 end
 
-### Input value list vals, return vertex list vets ###
+### Given the list of values vals, return the list of vertices vets ###
 def vals_to_vets(vals)
   Array.new(vals.length) { |i| Vertex.new(vals[i]) }
 end
 
-### Input vertex list vets, return value list vals ###
+### Given the list of vertices vets, return the list of values vals ###
 def vets_to_vals(vets)
   Array.new(vets.length) { |i| vets[i].val }
 end

@@ -10,15 +10,15 @@ icon: material/bookshelf
 
 [3] Robert Sedgewick, et al. Algorithms (4th Edition).
 
-[4] Yan Weimin. Data Structures (C Language Version).
+[4] Weimin Yan. Data Structures (C Edition).
 
-[5] Deng Junhui. Data Structures (C++ Language Version, Third Edition).
+[5] Junhui Deng. Data Structures (C++ Edition, 3rd Edition).
 
-[6] Mark Allen Weiss, translated by Chen Yue. Data Structures and Algorithm Analysis in Java (Third Edition).
+[6] Mark Allen Weiss; translated by Yue Chen. Data Structures and Algorithm Analysis in Java (3rd Edition).
 
-[7] Cheng Jie. Data Structures in Plain Language.
+[7] Jie Cheng. A Friendly Guide to Data Structures.
 
-[8] Wang Zheng. The Beauty of Data Structures and Algorithms.
+[8] Zheng Wang. The Beauty of Data Structures and Algorithms.
 
 [9] Gayle Laakmann McDowell. Cracking the Coding Interview: 189 Programming Questions and Solutions (6th Edition).
 

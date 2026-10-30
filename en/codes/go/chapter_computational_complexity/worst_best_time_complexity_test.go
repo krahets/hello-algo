@@ -14,7 +14,7 @@ func TestWorstBestTimeComplexity(t *testing.T) {
 		n := 100
 		nums := randomNumbers(n)
 		index := findOne(nums)
-		fmt.Println("\nAfter shuffling array [ 1, 2, ..., n ] =", nums)
-		fmt.Println("Index of number 1 is", index)
+		fmt.Println("\nArray [ 1, 2, ..., n ] after shuffling =", nums)
+		fmt.Println("The index of the number 1 is", index)
 	}
 }

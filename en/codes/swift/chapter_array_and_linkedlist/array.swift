@@ -4,64 +4,64 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Random access to element */
+/* Access an element at a random index */
 func randomAccess(nums: [Int]) -> Int {
-    // Randomly select a number in interval [0, nums.count)
+    // Pick a random number in the interval [0, nums.count)
     let randomIndex = nums.indices.randomElement()!
-    // Retrieve and return the random element
+    // Get and return the randomly selected element
     let randomNum = nums[randomIndex]
     return randomNum
 }
 
-/* Extend array length */
+/* Extend the array length */
 func extend(nums: [Int], enlarge: Int) -> [Int] {
-    // Initialize an array with extended length
+    // Initialize an array with the extended length
     var res = Array(repeating: 0, count: nums.count + enlarge)
     // Copy all elements from the original array to the new array
     for i in nums.indices {
         res[i] = nums[i]
     }
-    // Return the extended new array
+    // Return the new, extended array
     return res
 }
 
-/* Insert element num at index index in the array */
+/* Insert element num at index `index` in the array */
 func insert(nums: inout [Int], num: Int, index: Int) {
-    // Move all elements at and after index index backward by one position
+    // Shift all elements at and after index `index` one position to the right
     for i in stride(from: nums.count - 1, to: index, by: -1) {
         nums[i] = nums[i - 1]
     }
-    // Assign num to the element at index index
+    // Assign num to the element at index `index`
     nums[index] = num
 }
 
-/* Remove the element at index index */
+/* Remove the element at index `index` */
 func remove(nums: inout [Int], index: Int) {
-    // Move all elements after index index forward by one position
+    // Shift all elements after index `index` one position to the left
     for i in nums.indices.dropFirst(index).dropLast() {
         nums[i] = nums[i + 1]
     }
 }
 
-/* Traverse array */
+/* Traverse the array */
 func traverse(nums: [Int]) {
     var count = 0
-    // Traverse array by index
+    // Traverse the array by index
     for i in nums.indices {
         count += nums[i]
     }
-    // Direct traversal of array elements
+    // Iterate directly over the array elements
     for num in nums {
         count += num
     }
-    // Traverse simultaneously data index and elements
+    // Iterate over both the indices and the elements
     for (i, num) in nums.enumerated() {
         count += nums[i]
         count += num
     }
 }
 
-/* Find the specified element in the array */
+/* Find a specified element in the array */
 func find(nums: [Int], target: Int) -> Int {
     for i in nums.indices {
         if nums[i] == target {
@@ -73,35 +73,35 @@ func find(nums: [Int], target: Int) -> Int {
 
 @main
 enum _Array {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        /* Initialize array */
+        /* Initialize the array */
         let arr = Array(repeating: 0, count: 5)
         print("Array arr = \(arr)")
         var nums = [1, 3, 2, 5, 4]
         print("Array nums = \(nums)")
 
-        /* Insert element */
+        /* Random access */
         let randomNum = randomAccess(nums: nums)
-        print("Get random element \(randomNum) from nums")
+        print("Randomly selected element from nums: \(randomNum)")
 
-        /* Traverse array */
+        /* Extend the length */
         nums = extend(nums: nums, enlarge: 3)
-        print("Extend array length to 8, get nums = \(nums)")
+        print("After extending the array length to 8, nums = \(nums)")
 
-        /* Insert element */
+        /* Insert an element */
         insert(nums: &nums, num: 6, index: 3)
-        print("Insert number 6 at index 3, get nums = \(nums)")
+        print("After inserting 6 at index 3, nums = \(nums)")
 
-        /* Remove element */
+        /* Remove an element */
         remove(nums: &nums, index: 2)
-        print("Delete element at index 2, get nums = \(nums)")
+        print("After removing the element at index 2, nums = \(nums)")
 
-        /* Traverse array */
+        /* Traverse the array */
         traverse(nums: nums)
 
-        /* Find element */
+        /* Find an element */
         let index = find(nums: nums, target: 3)
-        print("Find element 3 in nums, index = \(index)")
+        print("Find element 3 in nums; index = \(index)")
     }
 }

@@ -8,8 +8,8 @@
 class TreeNode {
   int val; // Node value
   int height; // Node height
-  TreeNode? left; // Reference to left child node
-  TreeNode? right; // Reference to right child node
+  TreeNode? left; // Reference to the left child
+  TreeNode? right; // Reference to the right child
 
   /* Constructor */
   TreeNode(this.val, [this.height = 0, this.left, this.right]);

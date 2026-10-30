@@ -1,70 +1,70 @@
-# Building a Binary Tree Problem
+# Building a binary tree
 
 !!! question
 
-    Given the preorder traversal `preorder` and inorder traversal `inorder` of a binary tree, construct the binary tree and return the root node of the binary tree. Assume there are no duplicate node values in the binary tree (as shown in the figure below).
+    Given a binary tree's preorder traversal `preorder` and inorder traversal `inorder`, reconstruct the tree and return its root node. Assume that all node values are distinct, as shown in the figure below.
 
-![Example data for building a binary tree](build_binary_tree_problem.assets/build_tree_example.png)
+![Example input for reconstructing a binary tree](build_binary_tree_problem.assets/build_tree_example.png)
 
-### Determining If It Is a Divide and Conquer Problem
+### Identifying a divide-and-conquer problem
 
-The original problem is defined as constructing a binary tree from `preorder` and `inorder`, which is a typical divide and conquer problem.
+Reconstructing a binary tree from `preorder` and `inorder` is a typical divide-and-conquer problem.
 
-- **The problem can be decomposed**: From a divide and conquer perspective, we can divide the original problem into two subproblems: constructing the left subtree and constructing the right subtree, plus one operation: initializing the root node. For each subtree (subproblem), we can still reuse the above division method, dividing it into smaller subtrees (subproblems) until the smallest subproblem (empty subtree) is reached.
-- **Subproblems are independent**: The left and right subtrees are independent of each other; there is no overlap between them. When constructing the left subtree, we only need to focus on the parts of the inorder and preorder traversals corresponding to the left subtree. The same applies to the right subtree.
-- **Solutions of subproblems can be merged**: Once we have the left and right subtrees (solutions of subproblems), we can link them to the root node to obtain the solution to the original problem.
+- **The problem can be divided**: We can split the original problem into two subproblems, building the left subtree and building the right subtree, plus one operation: initializing the root node. Each subtree can be divided in the same way into smaller subtrees, until we reach the smallest subproblem, an empty subtree.
+- **The subproblems are independent**: The left and right subtrees are independent and do not overlap. To build the left subtree, we need only the portions of the preorder and inorder traversals corresponding to it. The same applies to the right subtree.
+- **The subproblem solutions can be combined**: Once we have built the left and right subtrees, we can attach them to the root to obtain the solution to the original problem.
 
-### How to Divide Subtrees
+### Dividing the subtrees
 
-Based on the above analysis, this problem can be solved using divide and conquer, **but how do we divide the left and right subtrees through the preorder traversal `preorder` and inorder traversal `inorder`**?
+The analysis above shows that divide and conquer applies, **but how do we use `preorder` and `inorder` to separate the left and right subtrees**?
 
-According to the definition, both `preorder` and `inorder` can be divided into three parts.
+By definition, both `preorder` and `inorder` consist of three parts.
 
-- Preorder traversal: `[ Root Node | Left Subtree | Right Subtree ]`, for example, the tree in the figure above corresponds to `[ 3 | 9 | 2 1 7 ]`.
-- Inorder traversal: `[ Left Subtree | Root Node | Right Subtree ]`, for example, the tree in the figure above corresponds to `[ 9 | 3 | 1 2 7 ]`.
+- Preorder: `[ root | left subtree | right subtree ]`. For the tree above, this is `[ 3 | 9 | 2 1 7 ]`.
+- Inorder: `[ left subtree | root | right subtree ]`. For the tree above, this is `[ 9 | 3 | 1 2 7 ]`.
 
-Using the data from the figure above as an example, we can obtain the division results through the steps shown in the figure below.
+Using the example above, we can divide the traversals with the steps shown in the figure below.
 
-1. The first element 3 in the preorder traversal is the value of the root node.
-2. Find the index of root node 3 in `inorder`, and use this index to divide `inorder` into `[ 9 | 3 | 1 2 7 ]`.
-3. Based on the division result of `inorder`, it is easy to determine that the left and right subtrees have 1 and 3 nodes respectively, allowing us to divide `preorder` into `[ 3 | 9 | 2 1 7 ]`.
+1. The first element in the preorder traversal, 3, is the root value.
+2. Find the index of root value 3 in `inorder`, then use it to divide `inorder` into `[ 9 | 3 | 1 2 7 ]`.
+3. This division of `inorder` tells us that the left and right subtrees have 1 and 3 nodes, respectively, allowing us to divide `preorder` into `[ 3 | 9 | 2 1 7 ]`.
 
-![Dividing subtrees in preorder and inorder traversals](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png)
+![Separating subtrees in preorder and inorder traversals](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png)
 
-### Describing Subtree Intervals Based on Variables
+### Describing subtree intervals with variables
 
-Based on the above division method, **we have obtained the index intervals of the root node, left subtree, and right subtree in `preorder` and `inorder`**. To describe these index intervals, we need to use several index variables.
+Using this method, **we have identified the index intervals for the root, left subtree, and right subtree in `preorder` and `inorder`**. We need a few pointer variables to describe these intervals.
 
-- Denote the index of the current tree's root node in `preorder` as $i$.
-- Denote the index of the current tree's root node in `inorder` as $m$.
-- Denote the index interval of the current tree in `inorder` as $[l, r]$.
+- Let $i$ be the index of the current tree's root in `preorder`.
+- Let $m$ be the index of the current tree's root in `inorder`.
+- Let $[l, r]$ be the interval occupied by the current tree in `inorder`.
 
-As shown in the table below, through these variables we can represent the index of the root node in `preorder` and the index intervals of the subtrees in `inorder`.
+As shown in the table below, these variables describe the root index in `preorder` and each subtree's interval in `inorder`.
 
-<p align="center"> Table <id> &nbsp; Indices of root node and subtrees in preorder and inorder traversals </p>
+<p align="center"> Table <id> &nbsp; Root and subtree indices in preorder and inorder traversals </p>
 
-|              | Root node index in `preorder` | Subtree index interval in `inorder` |
-| ------------ | ----------------------------- | ----------------------------------- |
-| Current tree | $i$                           | $[l, r]$                            |
-| Left subtree | $i + 1$                       | $[l, m-1]$                          |
-| Right subtree| $i + 1 + (m - l)$             | $[m+1, r]$                          |
+|        | Root index in `preorder` | Subtree interval in `inorder` |
+| ------ | ---------------------------- | ----------------------------- |
+| Current tree | $i$                          | $[l, r]$                      |
+| Left subtree | $i + 1$                      | $[l, m-1]$                    |
+| Right subtree | $i + 1 + (m - l)$            | $[m+1, r]$                    |
 
-Please note that $(m-l)$ in the right subtree root node index means "the number of nodes in the left subtree". It is recommended to understand this in conjunction with the figure below.
+The term $(m-l)$ in the right subtree's root index is the number of nodes in the left subtree. The figure below helps illustrate this.
 
-![Index interval representation of root node and left and right subtrees](build_binary_tree_problem.assets/build_tree_division_pointers.png)
+![Index intervals for the root and the left and right subtrees](build_binary_tree_problem.assets/build_tree_division_pointers.png)
 
-### Code Implementation
+### Code implementation
 
-To improve the efficiency of querying $m$, we use a hash table `hmap` to store the mapping from elements in the `inorder` array to their indices:
+To find $m$ efficiently, we use a hash table `hmap` mapping each element of `inorder` to its index:
 
 ```src
 [file]{build_tree}-[class]{}-[func]{build_tree}
 ```
 
-The figure below shows the recursive process of building the binary tree. Each node is established during the downward "recursion" process, while each edge (reference) is established during the upward "return" process.
+The figure below shows the recursive reconstruction process. Nodes are created during recursive descent, while edges (references) are established as the recursive calls return.
 
 === "<1>"
-    ![Recursive process of building a binary tree](build_binary_tree_problem.assets/built_tree_step1.png)
+    ![Recursive process for building a binary tree](build_binary_tree_problem.assets/built_tree_step1.png)
 
 === "<2>"
     ![built_tree_step2](build_binary_tree_problem.assets/built_tree_step2.png)
@@ -90,10 +90,10 @@ The figure below shows the recursive process of building the binary tree. Each n
 === "<9>"
     ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.png)
 
-The division results of the preorder traversal `preorder` and inorder traversal `inorder` within each recursive function are shown in the figure below.
+The figure below shows how `preorder` and `inorder` are divided in each recursive call.
 
-![Division results in each recursive function](build_binary_tree_problem.assets/built_tree_overall.png)
+![Division within each recursive call](build_binary_tree_problem.assets/built_tree_overall.png)
 
-Let the number of nodes in the tree be $n$. Initializing each node (executing one recursive function `dfs()`) takes $O(1)$ time. **Therefore, the overall time complexity is $O(n)$**.
+For a tree with $n$ nodes, initializing each node (executing one call to `dfs()`) takes $O(1)$ time. **The overall time complexity is therefore $O(n)$**.
 
-The hash table stores the mapping from `inorder` elements to their indices, with a space complexity of $O(n)$. In the worst case, when the binary tree degenerates into a linked list, the recursion depth reaches $n$, using $O(n)$ stack frame space. **Therefore, the overall space complexity is $O(n)$**.
+The hash table maps `inorder` elements to indices, requiring $O(n)$ space. In the worst case, the binary tree degenerates into a linked list, and the recursion depth reaches $n$, using $O(n)$ space for stack frames. **The overall space complexity is therefore $O(n)$**.

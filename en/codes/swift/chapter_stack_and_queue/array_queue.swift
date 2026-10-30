@@ -4,30 +4,30 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Queue based on circular array implementation */
+/* Queue implemented with a circular array */
 class ArrayQueue {
-    private var nums: [Int] // Array for storing queue elements
-    private var front: Int // Front pointer, points to the front of the queue element
-    private var _size: Int // Queue length
+    private var nums: [Int] // Array that stores the queue elements
+    private var front: Int // Front index, identifying the first element
+    private var _size: Int // Queue size
 
     init(capacity: Int) {
-        // Initialize array
+        // Initialize the array
         nums = Array(repeating: 0, count: capacity)
         front = 0
         _size = 0
     }
 
-    /* Get the capacity of the queue */
+    /* Get the queue capacity */
     func capacity() -> Int {
         nums.count
     }
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     func size() -> Int {
         _size
     }
 
-    /* Check if the queue is empty */
+    /* Check whether the queue is empty */
     func isEmpty() -> Bool {
         size() == 0
     }
@@ -38,10 +38,10 @@ class ArrayQueue {
             print("Queue is full")
             return
         }
-        // Use modulo operation to wrap rear around to the head after passing the tail of the array
-        // Add num to the rear of the queue
+        // Calculate the rear index, one position past the last element
+        // Use modulo to wrap rear to the beginning when it passes the end of the array
         let rear = (front + size()) % capacity()
-        // Front pointer moves one position backward
+        // Add num to the rear
         nums[rear] = num
         _size += 1
     }
@@ -50,13 +50,13 @@ class ArrayQueue {
     @discardableResult
     func pop() -> Int {
         let num = peek()
-        // Move front pointer backward by one position, if it passes the tail, return to array head
+        // Advance the front index by one position, wrapping to the beginning if it passes the end
         front = (front + 1) % capacity()
         _size -= 1
         return num
     }
 
-    /* Return list for printing */
+    /* Access the front element */
     func peek() -> Int {
         if isEmpty() {
             fatalError("Queue is empty")
@@ -64,22 +64,22 @@ class ArrayQueue {
         return nums[front]
     }
 
-    /* Return array */
+    /* Return an array */
     func toArray() -> [Int] {
-        // Elements enqueue
+        // Include only the elements in the occupied range
         (front ..< front + size()).map { nums[$0 % capacity()] }
     }
 }
 
 @main
 enum _ArrayQueue {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        /* Access front of the queue element */
+        /* Initialize the queue */
         let capacity = 10
         let queue = ArrayQueue(capacity: capacity)
 
-        /* Elements enqueue */
+        /* Enqueue elements */
         queue.push(num: 1)
         queue.push(num: 3)
         queue.push(num: 2)
@@ -87,27 +87,27 @@ enum _ArrayQueue {
         queue.push(num: 4)
         print("Queue queue = \(queue.toArray())")
 
-        /* Return list for printing */
+        /* Access the front element */
         let peek = queue.peek()
         print("Front element peek = \(peek)")
 
-        /* Element dequeue */
+        /* Dequeue an element */
         let pop = queue.pop()
-        print("Dequeue element pop = \(pop), after dequeue queue = \(queue.toArray())")
+        print("Dequeued element pop = \(pop); after dequeueing, queue = \(queue.toArray())")
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         let size = queue.size()
-        print("Queue length size = \(size)")
+        print("Queue size = \(size)")
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         let isEmpty = queue.isEmpty()
-        print("Is queue empty = \(isEmpty)")
+        print("Is the queue empty? \(isEmpty)")
 
-        /* Test circular array */
+        /* Test the circular array */
         for i in 0 ..< 10 {
             queue.push(num: i)
             queue.pop()
-            print("After round \(i) enqueue + dequeue, queue = \(queue.toArray())")
+            print("After enqueueing and dequeueing in round \(i), queue = \(queue.toArray())")
         }
     }
 }

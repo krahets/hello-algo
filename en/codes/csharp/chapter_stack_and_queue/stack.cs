@@ -9,32 +9,32 @@ namespace hello_algo.chapter_stack_and_queue;
 public class stack {
     [Test]
     public void Test() {
-        /* Access top of the stack element */
+        /* Initialize the stack */
         Stack<int> stack = new();
 
-        /* Elements push onto stack */
+        /* Push elements onto the stack */
         stack.Push(1);
         stack.Push(3);
         stack.Push(2);
         stack.Push(5);
         stack.Push(4);
-        // Note: stack.ToArray() returns reversed sequence, index 0 is stack top
+        // Note that stack.ToArray() returns elements in reverse insertion order, with the stack top at index 0
         Console.WriteLine("Stack stack = " + string.Join(",", stack));
 
-        /* Return list for printing */
+        /* Access the top element */
         int peek = stack.Peek();
-        Console.WriteLine("Stack top element peek = " + peek);
+        Console.WriteLine("Top element peek = " + peek);
 
-        /* Element pop from stack */
+        /* Pop an element from the stack */
         int pop = stack.Pop();
-        Console.WriteLine("Pop element pop = " + pop + ", after pop, stack = " + string.Join(",", stack));
+        Console.WriteLine("Popped element pop = " + pop + ", after popping, stack = " + string.Join(",", stack));
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         int size = stack.Count;
-        Console.WriteLine("Stack length size = " + size);
+        Console.WriteLine("Stack size = " + size);
 
-        /* Check if empty */
+        /* Check whether it is empty */
         bool isEmpty = stack.Count == 0;
-        Console.WriteLine("Stack is empty = " + isEmpty);
+        Console.WriteLine("Is the stack empty = " + isEmpty);
     }
 }

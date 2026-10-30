@@ -10,115 +10,115 @@ namespace hello_algo.chapter_tree;
 class AVLTree {
     public TreeNode? root; // Root node
 
-    /* Get node height */
+    /* Get the node height */
     int Height(TreeNode? node) {
-        // Empty node height is -1, leaf node height is 0
+        // A null node has height -1; a leaf has height 0
         return node == null ? -1 : node.height;
     }
 
-    /* Update node height */
+    /* Update the node height */
     void UpdateHeight(TreeNode node) {
-        // Node height equals the height of the tallest subtree + 1
+        // The node height equals the height of its taller subtree + 1
         node.height = Math.Max(Height(node.left), Height(node.right)) + 1;
     }
 
-    /* Get balance factor */
+    /* Get the balance factor */
     public int BalanceFactor(TreeNode? node) {
-        // Empty node balance factor is 0
+        // A null node has balance factor 0
         if (node == null) return 0;
         // Node balance factor = left subtree height - right subtree height
         return Height(node.left) - Height(node.right);
     }
 
-    /* Right rotation operation */
+    /* Right rotation */
     TreeNode? RightRotate(TreeNode? node) {
         TreeNode? child = node?.left;
         TreeNode? grandChild = child?.right;
-        // Using child as pivot, rotate node to the right
+        // Rotate node to the right around child
         child.right = node;
         node.left = grandChild;
-        // Update node height
+        // Update the node height
         UpdateHeight(node);
         UpdateHeight(child);
-        // Return root node of subtree after rotation
+        // Return the root of the rotated subtree
         return child;
     }
 
-    /* Left rotation operation */
+    /* Left rotation */
     TreeNode? LeftRotate(TreeNode? node) {
         TreeNode? child = node?.right;
         TreeNode? grandChild = child?.left;
-        // Using child as pivot, rotate node to the left
+        // Rotate node to the left around child
         child.left = node;
         node.right = grandChild;
-        // Update node height
+        // Update the node height
         UpdateHeight(node);
         UpdateHeight(child);
-        // Return root node of subtree after rotation
+        // Return the root of the rotated subtree
         return child;
     }
 
-    /* Perform rotation operation to restore balance to this subtree */
+    /* Perform rotations to restore balance in this subtree */
     TreeNode? Rotate(TreeNode? node) {
-        // Get balance factor of node
+        // Get the balance factor of node
         int balanceFactorInt = BalanceFactor(node);
-        // Left-leaning tree
+        // Left-heavy tree
         if (balanceFactorInt > 1) {
             if (BalanceFactor(node?.left) >= 0) {
-                // Right rotation
+                // Rotate right
                 return RightRotate(node);
             } else {
-                // First left rotation then right rotation
+                // Rotate left, then right
                 node!.left = LeftRotate(node!.left);
                 return RightRotate(node);
             }
         }
-        // Right-leaning tree
+        // Right-heavy tree
         if (balanceFactorInt < -1) {
             if (BalanceFactor(node?.right) <= 0) {
-                // Left rotation
+                // Rotate left
                 return LeftRotate(node);
             } else {
-                // First right rotation then left rotation
+                // Rotate right, then left
                 node!.right = RightRotate(node!.right);
                 return LeftRotate(node);
             }
         }
-        // Balanced tree, no rotation needed, return directly
+        // The tree is balanced; return without rotating
         return node;
     }
 
-    /* Insert node */
+    /* Insert a node */
     public void Insert(int val) {
         root = InsertHelper(root, val);
     }
 
-    /* Recursively insert node (helper method) */
+    /* Insert a node recursively (helper method) */
     TreeNode? InsertHelper(TreeNode? node, int val) {
         if (node == null) return new TreeNode(val);
-        /* 1. Find insertion position and insert node */
+        /* 1. Find the insertion position and insert the node */
         if (val < node.val)
             node.left = InsertHelper(node.left, val);
         else if (val > node.val)
             node.right = InsertHelper(node.right, val);
         else
-            return node;     // Duplicate node not inserted, return directly
-        UpdateHeight(node);  // Update node height
-        /* 2. Perform rotation operation to restore balance to this subtree */
+            return node;     // Return without inserting a duplicate node
+        UpdateHeight(node);  // Update the node height
+        /* 2. Perform rotations to restore balance in this subtree */
         node = Rotate(node);
-        // Return root node of subtree
+        // Return the subtree root
         return node;
     }
 
-    /* Remove node */
+    /* Remove a node */
     public void Remove(int val) {
         root = RemoveHelper(root, val);
     }
 
-    /* Recursively delete node (helper method) */
+    /* Remove a node recursively (helper method) */
     TreeNode? RemoveHelper(TreeNode? node, int val) {
         if (node == null) return null;
-        /* 1. Find node and delete */
+        /* 1. Find and remove the node */
         if (val < node.val)
             node.left = RemoveHelper(node.left, val);
         else if (val > node.val)
@@ -126,14 +126,14 @@ class AVLTree {
         else {
             if (node.left == null || node.right == null) {
                 TreeNode? child = node.left ?? node.right;
-                // Number of child nodes = 0, delete node directly and return
+                // Number of children = 0: remove node and return
                 if (child == null)
                     return null;
-                // Number of child nodes = 1, delete node directly
+                // Number of children = 1: remove node directly
                 else
                     node = child;
             } else {
-                // Number of child nodes = 2, delete the next node in inorder traversal and replace current node with it
+                // Number of children = 2: remove the inorder successor and use its value to replace the current node value
                 TreeNode? temp = node.right;
                 while (temp.left != null) {
                     temp = temp.left;
@@ -142,29 +142,29 @@ class AVLTree {
                 node.val = temp.val;
             }
         }
-        UpdateHeight(node);  // Update node height
-        /* 2. Perform rotation operation to restore balance to this subtree */
+        UpdateHeight(node);  // Update the node height
+        /* 2. Perform rotations to restore balance in this subtree */
         node = Rotate(node);
-        // Return root node of subtree
+        // Return the subtree root
         return node;
     }
 
-    /* Search node */
+    /* Find a node */
     public TreeNode? Search(int val) {
         TreeNode? cur = root;
-        // Loop search, exit after passing leaf node
+        // Search in a loop, stopping if a null reference is reached
         while (cur != null) {
-            // Target node is in cur's right subtree
+            // The target node lies in the right subtree of cur
             if (cur.val < val)
                 cur = cur.right;
-            // Target node is in cur's left subtree
+            // The target node lies in the left subtree of cur
             else if (cur.val > val)
                 cur = cur.left;
-            // Found target node, exit loop
+            // The target node was found; exit the loop
             else
                 break;
         }
-        // Return target node
+        // Return the target node
         return cur;
     }
 }
@@ -172,23 +172,23 @@ class AVLTree {
 public class avl_tree {
     static void TestInsert(AVLTree tree, int val) {
         tree.Insert(val);
-        Console.WriteLine("\nInsert node " + val + ", AVL tree is");
+        Console.WriteLine("\nAfter inserting node " + val + " the AVL tree is:");
         PrintUtil.PrintTree(tree.root);
     }
 
     static void TestRemove(AVLTree tree, int val) {
         tree.Remove(val);
-        Console.WriteLine("\nRemove node " + val + ", AVL tree is");
+        Console.WriteLine("\nAfter removing node " + val + " the AVL tree is:");
         PrintUtil.PrintTree(tree.root);
     }
 
     [Test]
     public void Test() {
-        /* Please pay attention to how the AVL tree maintains balance after inserting nodes */
+        /* Initialize an empty AVL tree */
         AVLTree avlTree = new();
 
-        /* Insert node */
-        // Delete nodes
+        /* Insert a node */
+        // Observe how the AVL tree maintains balance after a node is inserted
         TestInsert(avlTree, 1);
         TestInsert(avlTree, 2);
         TestInsert(avlTree, 3);
@@ -200,17 +200,17 @@ public class avl_tree {
         TestInsert(avlTree, 10);
         TestInsert(avlTree, 6);
 
-        /* Please pay attention to how the AVL tree maintains balance after deleting nodes */
+        /* Insert a duplicate node */
         TestInsert(avlTree, 7);
 
-        /* Remove node */
-        // Delete node with degree 1
-        TestRemove(avlTree, 8); // Delete node with degree 2
-        TestRemove(avlTree, 5); // Remove node with degree 1
-        TestRemove(avlTree, 4); // Remove node with degree 2
+        /* Remove a node */
+        // Observe how the AVL tree maintains balance after a node is removed
+        TestRemove(avlTree, 8); // Remove a node with 0 children
+        TestRemove(avlTree, 5); // Remove a node with 1 child
+        TestRemove(avlTree, 4); // Remove a node with 2 children
 
-        /* Search node */
+        /* Look up a node */
         TreeNode? node = avlTree.Search(7);
-        Console.WriteLine("\nFound node object is " + node + ", node value = " + node?.val);
+        Console.WriteLine("\nFound node object: " + node + ", node value = " + node?.val);
     }
 }

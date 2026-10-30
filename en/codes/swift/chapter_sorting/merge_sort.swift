@@ -4,14 +4,14 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Merge left subarray and right subarray */
+/* Merge the left and right subarrays */
 func merge(nums: inout [Int], left: Int, mid: Int, right: Int) {
-    // Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
-    // Create a temporary array tmp to store the merged results
+    // The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
+    // Create a temporary array tmp to store the merged result
     var tmp = Array(repeating: 0, count: right - left + 1)
-    // Initialize the start indices of the left and right subarrays
+    // Initialize the starting indices of the left and right subarrays
     var i = left, j = mid + 1, k = 0
-    // While both subarrays still have elements, compare and copy the smaller element into the temporary array
+    // While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
     while i <= mid, j <= right {
         if nums[i] <= nums[j] {
             tmp[k] = nums[i]
@@ -33,7 +33,7 @@ func merge(nums: inout [Int], left: Int, mid: Int, right: Int) {
         j += 1
         k += 1
     }
-    // Copy the elements from the temporary array tmp back to the original array nums at the corresponding interval
+    // Copy the elements of temporary array tmp back into the corresponding range of the original array nums
     for k in tmp.indices {
         nums[left + k] = tmp[k]
     }
@@ -41,21 +41,21 @@ func merge(nums: inout [Int], left: Int, mid: Int, right: Int) {
 
 /* Merge sort */
 func mergeSort(nums: inout [Int], left: Int, right: Int) {
-    // Termination condition
-    if left >= right { // Terminate recursion when subarray length is 1
+    // Base case
+    if left >= right { // Stop recursing when the subarray has at most one element
         return
     }
-    // Divide and conquer stage
-    let mid = left + (right - left) / 2 // Calculate midpoint
-    mergeSort(nums: &nums, left: left, right: mid) // Recursively process the left subarray
-    mergeSort(nums: &nums, left: mid + 1, right: right) // Recursively process the right subarray
-    // Merge stage
+    // Divide phase
+    let mid = left + (right - left) / 2 // Calculate the midpoint
+    mergeSort(nums: &nums, left: left, right: mid) // Recurse on the left subarray
+    mergeSort(nums: &nums, left: mid + 1, right: right) // Recurse on the right subarray
+    // Merge phase
     merge(nums: &nums, left: left, mid: mid, right: right)
 }
 
 @main
 enum MergeSort {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         /* Merge sort */
         var nums = [7, 3, 2, 6, 0, 1, 5, 4]

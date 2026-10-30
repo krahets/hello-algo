@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* Binary tree class represented by array */
+/* Binary tree class using an array representation */
 class ArrayBinaryTree {
   public:
     /* Constructor */
@@ -14,30 +14,30 @@ class ArrayBinaryTree {
         tree = arr;
     }
 
-    /* List capacity */
+    /* Number of positions in the array */
     int size() {
         return tree.size();
     }
 
-    /* Get value of node at index i */
+    /* Get the value of the node at index i */
     int val(int i) {
-        // Return INT_MAX if index out of bounds, representing empty position
+        // If the index is out of bounds, return INT_MAX to represent an empty position
         if (i < 0 || i >= size())
             return INT_MAX;
         return tree[i];
     }
 
-    /* Get index of left child node of node at index i */
+    /* Get the left child index of the node at index i */
     int left(int i) {
         return 2 * i + 1;
     }
 
-    /* Get index of right child node of node at index i */
+    /* Get the right child index of the node at index i */
     int right(int i) {
         return 2 * i + 2;
     }
 
-    /* Get index of parent node of node at index i */
+    /* Get the parent index of the node at index i */
     int parent(int i) {
         return (i - 1) / 2;
     }
@@ -45,7 +45,7 @@ class ArrayBinaryTree {
     /* Level-order traversal */
     vector<int> levelOrder() {
         vector<int> res;
-        // Traverse array directly
+        // Traverse the array directly
         for (int i = 0; i < size(); i++) {
             if (val(i) != INT_MAX)
                 res.push_back(val(i));
@@ -79,7 +79,7 @@ class ArrayBinaryTree {
 
     /* Depth-first traversal */
     void dfs(int i, string order, vector<int> &res) {
-        // If empty position, return
+        // Return if this position is empty
         if (val(i) == INT_MAX)
             return;
         // Preorder traversal
@@ -96,41 +96,41 @@ class ArrayBinaryTree {
     }
 };
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    // Initialize binary tree
-    // Use INT_MAX to represent empty position nullptr
+    // Initialize the binary tree
+    // Use INT_MAX to represent an empty position (nullptr)
     vector<int> arr = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     TreeNode *root = vectorToTree(arr);
-    cout << "\nInitialize binary tree\n";
-    cout << "Array representation of binary tree:\n";
+    cout << "\nInitialize the binary tree\n";
+    cout << "Array representation of the binary tree:\n";
     printVector(arr);
-    cout << "Linked list representation of binary tree:\n";
+    cout << "Linked representation of the binary tree:\n";
     printTree(root);
 
-    // Binary tree class represented by array
+    // Binary tree class using an array representation
     ArrayBinaryTree abt(arr);
 
-    // Access node
+    // Access a node
     int i = 1;
     int l = abt.left(i), r = abt.right(i), p = abt.parent(i);
-    cout << "\nCurrent node index is " << i << ", value is " << abt.val(i) << "\n";
-    cout << "Its left child node index is " << l << ", value is " << (abt.val(l) != INT_MAX ? to_string(abt.val(l)) : "nullptr") << "\n";
-    cout << "Its right child node index is " << r << ", value is " << (abt.val(r) != INT_MAX ? to_string(abt.val(r)) : "nullptr") << "\n";
-    cout << "Its parent node index is " << p << ", value is " << (abt.val(p) != INT_MAX ? to_string(abt.val(p)) : "nullptr") << "\n";
+    cout << "\nCurrent node index: " << i << ", value: " << abt.val(i) << "\n";
+    cout << "Left child index: " << l << ", value: " << (abt.val(l) != INT_MAX ? to_string(abt.val(l)) : "nullptr") << "\n";
+    cout << "Right child index: " << r << ", value: " << (abt.val(r) != INT_MAX ? to_string(abt.val(r)) : "nullptr") << "\n";
+    cout << "Parent index: " << p << ", value: " << (abt.val(p) != INT_MAX ? to_string(abt.val(p)) : "nullptr") << "\n";
 
-    // Traverse tree
+    // Traverse the tree
     vector<int> res = abt.levelOrder();
     cout << "\nLevel-order traversal: ";
     printVector(res);
     res = abt.preOrder();
-    cout << "Pre-order traversal: ";
+    cout << "Preorder traversal: ";
     printVector(res);
     res = abt.inOrder();
-    cout << "In-order traversal: ";
+    cout << "Inorder traversal: ";
     printVector(res);
     res = abt.postOrder();
-    cout << "Post-order traversal: ";
+    cout << "Postorder traversal: ";
     printVector(res);
 
     return 0;

@@ -4,51 +4,51 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-/* Binary search (closed interval on both sides) */
+/* Binary search (closed interval) */
 int binarySearch(List<int> nums, int target) {
-  // Initialize closed interval [0, n-1], i.e., i, j point to the first and last elements of the array
+  // Initialize the closed interval [0, n-1], with i and j pointing to the first and last elements
   int i = 0, j = nums.length - 1;
-  // Loop, exit when the search interval is empty (empty when i > j)
+  // Loop until the search interval is empty (when i > j)
   while (i <= j) {
     int m = i + (j - i) ~/ 2; // Calculate the midpoint index m
     if (nums[m] < target) {
-      // This means target is in the interval [m+1, j]
+      // In this case, target must be in [m+1, j] if it exists
       i = m + 1;
     } else if (nums[m] > target) {
-      // This means target is in the interval [i, m-1]
+      // In this case, target must be in [i, m-1] if it exists
       j = m - 1;
     } else {
-      // Found the target element, return its index
+      // The target element was found; return its index
       return m;
     }
   }
-  // Target element not found, return -1
+  // The target element was not found; return -1
   return -1;
 }
 
-/* Binary search (left-closed right-open interval) */
+/* Binary search (left-closed, right-open interval) */
 int binarySearchLCRO(List<int> nums, int target) {
-  // Initialize left-closed right-open interval [0, n), i.e., i, j point to the first element and last element+1
+  // Initialize the left-closed, right-open interval [0, n), with i at the first element and j one past the last
   int i = 0, j = nums.length;
-  // Loop, exit when the search interval is empty (empty when i = j)
+  // Loop until the search interval is empty (when i = j)
   while (i < j) {
     int m = i + (j - i) ~/ 2; // Calculate the midpoint index m
     if (nums[m] < target) {
-      // This means target is in the interval [m+1, j)
+      // In this case, target must be in [m+1, j) if it exists
       i = m + 1;
     } else if (nums[m] > target) {
-      // This means target is in the interval [i, m)
+      // In this case, target must be in [i, m) if it exists
       j = m;
     } else {
-      // Found the target element, return its index
+      // The target element was found; return its index
       return m;
     }
   }
-  // Target element not found, return -1
+  // The target element was not found; return -1
   return -1;
 }
 
-/* Driver Code*/
+/* Driver code*/
 void main() {
   int target = 6;
   final nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
@@ -57,7 +57,7 @@ void main() {
   int index = binarySearch(nums, target);
   print('Index of target element 6 = $index');
 
-  /* Binary search (left-closed right-open interval) */
+  /* Binary search (left-closed, right-open interval) */
   index = binarySearchLCRO(nums, target);
   print('Index of target element 6 = $index');
 }

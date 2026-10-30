@@ -1,23 +1,23 @@
-# Sorting Algorithm
+# Sorting algorithms
 
-A <u>sorting algorithm</u> arranges a set of data in a specific order. Sorting algorithms have extensive applications because ordered data can usually be searched, analyzed, and processed more efficiently.
+A <u>sorting algorithm</u> arranges a dataset in a specified order. Sorting is widely used because ordered data is often easier to search, analyze, and process efficiently.
 
-As shown in the figure below, the data being sorted can be integers, floating-point numbers, characters, strings, and so on. The sorting rule can be defined as needed, such as numerical order, ASCII order, or a custom rule.
+As shown below, the data may consist of integers, floating-point numbers, characters, strings, and other types. The ordering rule can be chosen as needed: numerical magnitude, ASCII character order, or a custom rule.
 
-![Data type and criterion examples](sorting_algorithm.assets/sorting_examples.png)
+![Examples of data types and ordering rules](sorting_algorithm.assets/sorting_examples.png)
 
-## Evaluation Dimensions
+## Evaluation criteria
 
-**Execution efficiency**: We expect the time complexity of sorting algorithms to be as low as possible, with a smaller total number of operations (reducing the constant factor in time complexity). For large data volumes, execution efficiency is particularly important.
+**Efficiency**: We want low time complexity and few operations overall, corresponding to smaller constant factors in the complexity. Efficiency is especially important for large datasets.
 
-**In-place property**: As the name implies, <u>in-place sorting</u> achieves sorting by operating directly on the original array without requiring additional auxiliary arrays, thus saving memory. Typically, in-place sorting involves fewer data movement operations and runs faster.
+**In-place operation**: An <u>in-place sort</u> works directly on the original array without an auxiliary array, saving memory. It usually moves data fewer times and runs faster as well.
 
-**Stability**: <u>Stable sorting</u> ensures that the relative order of equal elements in the array does not change after sorting is completed.
+**Stability**: A <u>stable sort</u> preserves the relative order of equal elements in the array.
 
-Stable sorting is a necessary condition for multi-level sorting scenarios. Suppose we have a table storing student information, where column 1 and column 2 are name and age, respectively. In this case, <u>unstable sorting</u> may cause the ordered nature of the input data to be lost:
+Stable sorting is necessary for multilevel sorting. Suppose a table stores student names in its first column and ages in its second. An <u>unstable sort</u> may destroy the input's existing order:
 
 ```shell
-# The input data is sorted by name
+# The input is already sorted by name
 # (name, age)
   ('A', 19)
   ('B', 18)
@@ -25,9 +25,9 @@ Stable sorting is a necessary condition for multi-level sorting scenarios. Suppo
   ('D', 19)
   ('E', 23)
 
-# Suppose we use an unstable sorting algorithm to sort the list by age.
-# In the result, the relative positions of ('D', 19) and ('A', 19) change,
-# so the property that the input data is sorted by name is lost.
+# Suppose an unstable algorithm sorts the list by age.
+# The relative positions of ('D', 19) and ('A', 19) change,
+# so the original ordering by name is lost
   ('B', 18)
   ('D', 19)
   ('A', 19)
@@ -35,12 +35,12 @@ Stable sorting is a necessary condition for multi-level sorting scenarios. Suppo
   ('E', 23)
 ```
 
-**Adaptability**: <u>Adaptive sorting</u> can utilize the existing order information in the input data to reduce the amount of computation, achieving better time efficiency. The best-case time complexity of adaptive sorting algorithms is typically better than the average time complexity.
+**Adaptiveness**: An <u>adaptive sort</u> uses ordering already present in the input to reduce computation and improve efficiency. Its best-case time complexity is usually better than its average complexity.
 
-**Comparison-based or non-comparison**: <u>Comparison-based sorting</u> relies on comparison operators ($<$, $=$, $>$) to determine the relative order of elements, thereby sorting the entire array. Its worst-case time complexity has a lower bound of $\Omega(n \log n)$. <u>Non-comparison sorting</u> does not use comparison operators and can achieve a time complexity of $O(n)$, but its versatility is relatively limited.
+**Comparison-based or not**: A <u>comparison-based sort</u> uses comparison operators ($<$, $=$, $>$) to determine the relative order of elements and sort the array. Its worst-case time complexity has a lower bound of $\Omega(n \log n)$. A <u>non-comparison sort</u> does not use comparison operators and can achieve $O(n)$ time, but is less broadly applicable.
 
-## Ideal Sorting Algorithm
+## The ideal sorting algorithm
 
-**Fast, in-place, stable, adaptive, and broadly applicable**. Clearly, no sorting algorithm has been discovered to date that combines all of these characteristics. Therefore, when selecting a sorting algorithm, it is necessary to decide based on the specific characteristics of the data and the requirements of the problem.
+**Fast, in-place, stable, adaptive, and broadly applicable**. No sorting algorithm with all these properties has yet been found. We must therefore choose according to the characteristics of the data and the requirements of the problem.
 
-Next, we will examine various sorting algorithms and analyze their advantages and disadvantages based on the evaluation dimensions above.
+Next, we will study different sorting algorithms and analyze their strengths and weaknesses using these criteria.

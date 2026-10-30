@@ -7,35 +7,35 @@
 namespace hello_algo.chapter_sorting;
 
 public class radix_sort {
-    /* Get the k-th digit of element num, where exp = 10^(k-1) */
+    /* Get the k-th digit of num, where exp = 10^(k-1) */
     int Digit(int num, int exp) {
-        // Passing exp instead of k can avoid repeated expensive exponentiation here
+        // Passing exp instead of k avoids repeatedly performing expensive exponentiation here
         return (num / exp) % 10;
     }
 
-    /* Counting sort (based on nums k-th digit) */
+    /* Counting sort (sort nums by the k-th digit) */
     void CountingSortDigit(int[] nums, int exp) {
-        // Decimal digit range is 0~9, therefore need a bucket array of length 10
+        // Decimal digits range from 0 to 9, so the bucket array needs length 10
         int[] counter = new int[10];
         int n = nums.Length;
-        // Count the occurrence of digits 0~9
+        // Count the occurrences of each digit from 0 to 9
         for (int i = 0; i < n; i++) {
-            int d = Digit(nums[i], exp); // Get the k-th digit of nums[i], noted as d
-            counter[d]++;                // Count the occurrence of digit d
+            int d = Digit(nums[i], exp); // Get the k-th digit of nums[i] and store it in d
+            counter[d]++;                // Count the occurrences of digit d
         }
-        // Calculate prefix sum, converting "occurrence count" into "array index"
+        // Compute prefix sums to convert occurrence counts into array positions
         for (int i = 1; i < 10; i++) {
             counter[i] += counter[i - 1];
         }
-        // Traverse in reverse, based on bucket statistics, place each element into res
+        // Traverse in reverse and place each element into res according to the bucket counts
         int[] res = new int[n];
         for (int i = n - 1; i >= 0; i--) {
             int d = Digit(nums[i], exp);
-            int j = counter[d] - 1; // Get the index j for d in the array
+            int j = counter[d] - 1; // Get the destination index j for digit d in the array
             res[j] = nums[i];       // Place the current element at index j
-            counter[d]--;           // Decrease the count of d by 1
+            counter[d]--;           // Decrease the count for d by 1
         }
-        // Use result to overwrite the original array nums
+        // Overwrite the original array nums with the result
         for (int i = 0; i < n; i++) {
             nums[i] = res[i];
         }
@@ -43,17 +43,17 @@ public class radix_sort {
 
     /* Radix sort */
     void RadixSort(int[] nums) {
-        // Get the maximum element of the array, used to determine the maximum number of digits
+        // Get the largest array element to determine the maximum number of digits
         int m = int.MinValue;
         foreach (int num in nums) {
             if (num > m) m = num;
         }
-        // Traverse from the lowest to the highest digit
+        // Process digits from least significant to most significant
         for (int exp = 1; exp <= m; exp *= 10) {
-            // Perform counting sort on the k-th digit of array elements
+            // Apply counting sort to the k-th digit of the array elements
             // k = 1 -> exp = 1
             // k = 2 -> exp = 10
-            // i.e., exp = 10^(k-1)
+            // That is, exp = 10^(k-1)
             CountingSortDigit(nums, exp);
         }
     }
@@ -64,6 +64,6 @@ public class radix_sort {
         int[] nums = [ 10546151, 35663510, 42865989, 34862445, 81883077,
             88906420, 72429244, 30524779, 82060337, 63832996 ];
         RadixSort(nums);
-        Console.WriteLine("After radix sort completes, nums = " + string.Join(" ", nums));
+        Console.WriteLine("After radix sort, nums = " + string.Join(" ", nums));
     }
 }

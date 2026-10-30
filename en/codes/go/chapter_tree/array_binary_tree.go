@@ -4,7 +4,7 @@
 
 package chapter_tree
 
-/* Binary tree class represented by array */
+/* Binary tree type using an array representation */
 type arrayBinaryTree struct {
 	tree []any
 }
@@ -16,31 +16,31 @@ func newArrayBinaryTree(arr []any) *arrayBinaryTree {
 	}
 }
 
-/* List capacity */
+/* Length of the backing slice */
 func (abt *arrayBinaryTree) size() int {
 	return len(abt.tree)
 }
 
-/* Get value of node at index i */
+/* Get the value of the node at index i */
 func (abt *arrayBinaryTree) val(i int) any {
-	// If index out of bounds, return null to represent empty position
+	// If the index is out of bounds, return nil to represent an empty position
 	if i < 0 || i >= abt.size() {
 		return nil
 	}
 	return abt.tree[i]
 }
 
-/* Get index of left child node of node at index i */
+/* Get the left child index of the node at index i */
 func (abt *arrayBinaryTree) left(i int) int {
 	return 2*i + 1
 }
 
-/* Get index of right child node of node at index i */
+/* Get the right child index of the node at index i */
 func (abt *arrayBinaryTree) right(i int) int {
 	return 2*i + 2
 }
 
-/* Get index of parent node of node at index i */
+/* Get the parent index of the node at index i */
 func (abt *arrayBinaryTree) parent(i int) int {
 	return (i - 1) / 2
 }
@@ -48,7 +48,7 @@ func (abt *arrayBinaryTree) parent(i int) int {
 /* Level-order traversal */
 func (abt *arrayBinaryTree) levelOrder() []any {
 	var res []any
-	// Traverse array directly
+	// Traverse the array directly
 	for i := 0; i < abt.size(); i++ {
 		if abt.val(i) != nil {
 			res = append(res, abt.val(i))
@@ -59,7 +59,7 @@ func (abt *arrayBinaryTree) levelOrder() []any {
 
 /* Depth-first traversal */
 func (abt *arrayBinaryTree) dfs(i int, order string, res *[]any) {
-	// If empty position, return
+	// Return if this position is empty
 	if abt.val(i) == nil {
 		return
 	}

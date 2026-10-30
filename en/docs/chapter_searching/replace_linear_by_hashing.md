@@ -1,34 +1,34 @@
-# Hash Optimization Strategy
+# Optimizing with hashing
 
-In algorithm problems, **we often reduce the time complexity of algorithms by replacing linear search with hash-based search**. Let's use an algorithm problem to deepen our understanding.
+In algorithm problems, **we often reduce time complexity by replacing linear search with hash lookup**. Let us explore this strategy through a problem.
 
 !!! question
 
-    Given an integer array `nums` and a target value `target`, find two elements in the array whose sum is `target`, and return their indices. Any solution will do.
+    Given an integer array `nums` and a target value `target`, find two elements whose sum equals `target` and return their array indices. Any valid solution is acceptable.
 
-## Linear Search: Trading Time for Space
+## Linear search: trading time for space
 
-Consider directly traversing all possible combinations. As shown in the figure below, we use nested loops and check in each iteration whether the sum of two integers is `target`. If so, return their indices.
+Consider examining every possible pair directly. As shown below, use two nested loops and check whether the two integers sum to `target` each time. If they do, return their indices.
 
-![Linear search solution for two sum](replace_linear_by_hashing.assets/two_sum_brute_force.png)
+![Solving two sum with linear search](replace_linear_by_hashing.assets/two_sum_brute_force.png)
 
-The code is shown below:
+The code is as follows:
 
 ```src
 [file]{two_sum}-[class]{}-[func]{two_sum_brute_force}
 ```
 
-This method has a time complexity of $O(n^2)$ and a space complexity of $O(1)$, making it very time-consuming on large inputs.
+This approach takes $O(n^2)$ time and $O(1)$ space, making it very slow for large datasets.
 
-## Hash-Based Search: Trading Space for Time
+## Hash lookup: trading space for time
 
-Consider using a hash table whose keys are array elements and whose values are their indices. Traverse the array and perform the steps shown in the figure below in each iteration:
+Now use a hash table whose keys are array elements and whose values are their indices. Iterate through the array, performing the steps below each round.
 
-1. Check if the number `target - nums[i]` is in the hash table. If so, directly return the indices of these two elements.
-2. Add the key-value pair `nums[i]` and index `i` to the hash table.
+1. Check whether `target - nums[i]` is in the hash table. If it is, return the indices of the two elements.
+2. Add the key-value pair consisting of `nums[i]` and index `i` to the hash table.
 
 === "<1>"
-    ![Hash table solution for two sum](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png)
+    ![Solving two sum with an auxiliary hash table](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png)
 
 === "<2>"
     ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.png)
@@ -36,12 +36,12 @@ Consider using a hash table whose keys are array elements and whose values are t
 === "<3>"
     ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.png)
 
-The implementation is shown below and requires only a single loop:
+The implementation below requires only one loop:
 
 ```src
 [file]{two_sum}-[class]{}-[func]{two_sum_hash_table}
 ```
 
-This method reduces the time complexity from $O(n^2)$ to $O(n)$ through hash-based search, greatly improving runtime efficiency.
+Hash lookup reduces the time complexity from $O(n^2)$ to $O(n)$, greatly improving efficiency.
 
-Since an additional hash table needs to be maintained, the space complexity is $O(n)$. **Nevertheless, this method offers a more balanced overall time-space trade-off, making it the optimal solution to this problem**.
+Maintaining an additional hash table requires $O(n)$ space. **Even so, this approach offers a better balance of time and space efficiency, making it the optimal solution to this problem**.

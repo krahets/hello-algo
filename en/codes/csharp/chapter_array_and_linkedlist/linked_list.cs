@@ -22,7 +22,7 @@ public class linked_list {
         n0.next = n1;
     }
 
-    /* Access the node at index index in the linked list */
+    /* Access the node at index `index` in the linked list */
     ListNode? Access(ListNode? head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == null)
@@ -47,34 +47,34 @@ public class linked_list {
 
     [Test]
     public void Test() {
-        // Initialize linked list
-        // Initialize each node
+        // Initialize the linked list 
+        // Initialize the individual nodes 
         ListNode n0 = new(1);
         ListNode n1 = new(3);
         ListNode n2 = new(2);
         ListNode n3 = new(5);
         ListNode n4 = new(4);
-        // Build references between nodes
+        // Set up references between the nodes
         n0.next = n1;
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
-        Console.WriteLine($"Initialized linked list is{n0}");
+        Console.WriteLine($"Initialized linked list: {n0}");
 
-        // Insert node
+        // Insert a node 
         Insert(n0, new ListNode(0));
-        Console.WriteLine($"Linked list after node insertion is{n0}");
+        Console.WriteLine($"Linked list after inserting a node: {n0}");
 
-        // Remove node
+        // Remove a node 
         Remove(n0);
-        Console.WriteLine($"Linked list after node deletion is{n0}");
+        Console.WriteLine($"Linked list after removing a node: {n0}");
 
-        // Access node
+        // Access a node 
         ListNode? node = Access(n0, 3);
-        Console.WriteLine($"Value of node at index 3 in linked list = {node?.val}");
+        Console.WriteLine($"Value of the node at index 3 in the linked list = {node?.val}");
 
-        // Search node
+        // Find a node 
         int index = Find(n0, 2);
-        Console.WriteLine($"Index of node with value 2 in linked list = {index}");
+        Console.WriteLine($"Index of the node with value 2 in the linked list = {index}");
     }
 }

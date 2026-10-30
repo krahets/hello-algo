@@ -10,17 +10,17 @@ import utils.*;
 import java.util.*;
 
 public class top_k {
-    /* Find the largest k elements in array based on heap */
+    /* Use a heap to find the k largest elements in an array */
     static Queue<Integer> topKHeap(int[] nums, int k) {
-        // Python's heapq module implements min heap by default
+        // Initialize a min heap
         Queue<Integer> heap = new PriorityQueue<Integer>();
-        // Enter the first k elements of array into heap
+        // Push the first k array elements onto the heap
         for (int i = 0; i < k; i++) {
             heap.offer(nums[i]);
         }
-        // Starting from the (k+1)th element, maintain heap length as k
+        // Starting with element k+1, keep the heap size at k
         for (int i = k; i < nums.length; i++) {
-            // If current element is greater than top element, top element exits heap, current element enters heap
+            // If the current element is larger than the heap top, pop the top element and push the current element
             if (nums[i] > heap.peek()) {
                 heap.poll();
                 heap.offer(nums[i]);
@@ -34,7 +34,7 @@ public class top_k {
         int k = 3;
 
         Queue<Integer> res = topKHeap(nums, k);
-        System.out.println("The largest " + k + " elements are");
+        System.out.println("The largest " + k + " elements are:");
         PrintUtil.printHeap(res);
     }
 }

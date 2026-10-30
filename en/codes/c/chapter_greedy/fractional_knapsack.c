@@ -12,31 +12,31 @@ typedef struct {
     int v; // Item value
 } Item;
 
-/* Sort by value density */
+/* Sort by value per unit weight */
 int sortByValueDensity(const void *a, const void *b) {
     Item *t1 = (Item *)a;
     Item *t2 = (Item *)b;
     return (float)(t1->v) / t1->w < (float)(t2->v) / t2->w;
 }
 
-/* Fractional knapsack: Greedy algorithm */
+/* Fractional knapsack: greedy algorithm */
 float fractionalKnapsack(int wgt[], int val[], int itemCount, int cap) {
-    // Create item list with two attributes: weight, value
+    // Create a list of items, each with two attributes: weight and value
     Item *items = malloc(sizeof(Item) * itemCount);
     for (int i = 0; i < itemCount; i++) {
         items[i] = (Item){.w = wgt[i], .v = val[i]};
     }
-    // Sort by unit value item.v / item.w from high to low
+    // Sort by value per unit weight, item.v / item.w, in descending order
     qsort(items, (size_t)itemCount, sizeof(Item), sortByValueDensity);
-    // Loop for greedy selection
+    // Repeatedly make greedy choices
     float res = 0.0;
     for (int i = 0; i < itemCount; i++) {
         if (items[i].w <= cap) {
-            // If remaining capacity is sufficient, put the entire current item into the knapsack
+            // If enough capacity remains, put the entire current item in the knapsack
             res += items[i].v;
             cap -= items[i].w;
         } else {
-            // If remaining capacity is insufficient, put part of the current item into the knapsack
+            // If the remaining capacity is insufficient, put part of the current item in the knapsack
             res += (float)cap / items[i].w * items[i].v;
             cap = 0;
             break;
@@ -46,7 +46,7 @@ float fractionalKnapsack(int wgt[], int val[], int itemCount, int cap) {
     return res;
 }
 
-/* Driver Code */
+/* Driver code */
 int main(void) {
     int wgt[] = {10, 20, 30, 40, 50};
     int val[] = {50, 120, 150, 210, 240};
@@ -54,7 +54,7 @@ int main(void) {
 
     // Greedy algorithm
     float res = fractionalKnapsack(wgt, val, sizeof(wgt) / sizeof(int), capacity);
-    printf("Maximum item value not exceeding knapsack capacity is %0.2f\n", res);
+    printf("Maximum item value within the knapsack capacity: %0.2f\n", res);
 
     return 0;
 }

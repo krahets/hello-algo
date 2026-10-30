@@ -4,23 +4,23 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Backtracking algorithm: Permutations I */
+/* Backtracking: permutations I */
 func backtrack(state: inout [Int], choices: [Int], selected: inout [Bool], res: inout [[Int]]) {
-    // When the state length equals the number of elements, record the solution
+    // Record a solution when the state length equals the number of elements
     if state.count == choices.count {
         res.append(state)
         return
     }
-    // Traverse all choices
+    // Iterate over all choices
     for (i, choice) in choices.enumerated() {
-        // Pruning: do not allow repeated selection of elements
+        // Prune: do not choose an element more than once
         if !selected[i] {
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             selected[i] = true
             state.append(choice)
-            // Proceed to the next round of selection
+            // Proceed to the next choice
             backtrack(state: &state, choices: choices, selected: &selected, res: &res)
-            // Backtrack: undo choice, restore to previous state
+            // Backtrack: undo the choice and restore the previous state
             selected[i] = false
             state.removeLast()
         }
@@ -38,7 +38,7 @@ func permutationsI(nums: [Int]) -> [[Int]] {
 
 @main
 enum PermutationsI {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         let nums = [1, 2, 3]
 

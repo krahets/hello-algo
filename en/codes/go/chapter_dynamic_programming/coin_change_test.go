@@ -15,9 +15,9 @@ func TestCoinChange(t *testing.T) {
 
 	// Dynamic programming
 	res := coinChangeDP(coins, amt)
-	fmt.Printf("Minimum number of coins needed to make target amount is %d\n", res)
+	fmt.Printf("Minimum number of coins needed to make the target amount: %d\n", res)
 
 	// Space-optimized dynamic programming
 	res = coinChangeDPComp(coins, amt)
-	fmt.Printf("Minimum number of coins needed to make target amount is %d\n", res)
+	fmt.Printf("Minimum number of coins needed to make the target amount: %d\n", res)
 }

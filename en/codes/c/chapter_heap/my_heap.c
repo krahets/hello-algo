@@ -10,9 +10,9 @@
 
 /* Max heap */
 typedef struct {
-    // size represents the actual number of elements
+    // size is the actual number of elements
     int size;
-    // Use pre-allocated array to avoid expansion
+    // Use a preallocated array to avoid resizing
     int data[MAX_SIZE];
 } MaxHeap;
 
@@ -21,14 +21,14 @@ void siftDown(MaxHeap *maxHeap, int i);
 void siftUp(MaxHeap *maxHeap, int i);
 int parent(MaxHeap *maxHeap, int i);
 
-/* Constructor, build heap from slice */
+/* Constructor: build a heap from the input array */
 MaxHeap *newMaxHeap(int nums[], int size) {
-    // Push all elements to heap
+    // Place all elements in the heap
     MaxHeap *maxHeap = (MaxHeap *)malloc(sizeof(MaxHeap));
     maxHeap->size = size;
     memcpy(maxHeap->data, nums, size * sizeof(int));
     for (int i = parent(maxHeap, size - 1); i >= 0; i--) {
-        // Heapify all nodes except leaf nodes
+        // Sift down from every non-leaf node
         siftDown(maxHeap, i);
     }
     return maxHeap;
@@ -40,19 +40,19 @@ void delMaxHeap(MaxHeap *maxHeap) {
     free(maxHeap);
 }
 
-/* Get index of left child node */
+/* Get the left child index */
 int left(MaxHeap *maxHeap, int i) {
     return 2 * i + 1;
 }
 
-/* Get index of right child node */
+/* Get the right child index */
 int right(MaxHeap *maxHeap, int i) {
     return 2 * i + 2;
 }
 
-/* Get index of parent node */
+/* Get the parent index */
 int parent(MaxHeap *maxHeap, int i) {
-    return (i - 1) / 2; // Round down
+    return (i - 1) / 2; // Integer division truncates toward zero
 }
 
 /* Swap elements */
@@ -62,59 +62,59 @@ void swap(MaxHeap *maxHeap, int i, int j) {
     maxHeap->data[j] = temp;
 }
 
-/* Get heap size */
+/* Get the heap size */
 int size(MaxHeap *maxHeap) {
     return maxHeap->size;
 }
 
-/* Check if heap is empty */
+/* Check whether the heap is empty */
 int isEmpty(MaxHeap *maxHeap) {
     return maxHeap->size == 0;
 }
 
-/* Access top element */
+/* Access the top element of the heap */
 int peek(MaxHeap *maxHeap) {
     return maxHeap->data[0];
 }
 
-/* Element enters heap */
+/* Push an element onto the heap */
 void push(MaxHeap *maxHeap, int val) {
-    // By default, should not add this many nodes
+    // Normally, the number of nodes should remain below this limit
     if (maxHeap->size == MAX_SIZE) {
-        printf("heap is full!");
+        printf("Heap is full!");
         return;
     }
-    // Add node
+    // Add a node
     maxHeap->data[maxHeap->size] = val;
     maxHeap->size++;
 
-    // Heapify from bottom to top
+    // Sift up
     siftUp(maxHeap, maxHeap->size - 1);
 }
 
-/* Element exits heap */
+/* Pop an element from the heap */
 int pop(MaxHeap *maxHeap) {
-    // Handle empty case
+    // Handle an empty heap
     if (isEmpty(maxHeap)) {
-        printf("heap is empty!");
+        printf("Heap is empty!");
         return INT_MAX;
     }
-    // Delete node
+    // Swap the root with the rightmost leaf on the last level (swap the first and last elements)
     swap(maxHeap, 0, size(maxHeap) - 1);
-    // Remove node
+    // Remove a node
     int val = maxHeap->data[maxHeap->size - 1];
     maxHeap->size--;
-    // Return top element
+    // Sift down
     siftDown(maxHeap, 0);
 
-    // Return heap top element
+    // Return the top element of the heap
     return val;
 }
 
-/* Starting from node i, heapify from top to bottom */
+/* Sift down starting from node i */
 void siftDown(MaxHeap *maxHeap, int i) {
     while (true) {
-        // Find node with maximum value among nodes i, l, r, denoted as max
+        // Find the node with the largest value among i, l, and r, and store its index in max
         int l = left(maxHeap, i);
         int r = right(maxHeap, i);
         int max = i;
@@ -124,29 +124,29 @@ void siftDown(MaxHeap *maxHeap, int i) {
         if (r < size(maxHeap) && maxHeap->data[r] > maxHeap->data[max]) {
             max = r;
         }
-        // Swap two nodes
+        // Stop if node i is largest or both child indices l and r are out of bounds
         if (max == i) {
             break;
         }
-        // Swap two nodes
+        // Swap the two nodes
         swap(maxHeap, i, max);
-        // Loop downwards heapification
+        // Continue sifting down
         i = max;
     }
 }
 
-/* Starting from node i, heapify from bottom to top */
+/* Sift up starting from node i */
 void siftUp(MaxHeap *maxHeap, int i) {
     while (true) {
-        // Get parent node of node i
+        // Get the parent of node i
         int p = parent(maxHeap, i);
-        // When "crossing root node" or "node needs no repair", end heapify
+        // Stop sifting when the root has been passed or the node needs no repair
         if (p < 0 || maxHeap->data[i] <= maxHeap->data[p]) {
             break;
         }
-        // Swap two nodes
+        // Swap the two nodes
         swap(maxHeap, i, p);
-        // Loop upward heapify
+        // Continue sifting up
         i = p;
     }
 }

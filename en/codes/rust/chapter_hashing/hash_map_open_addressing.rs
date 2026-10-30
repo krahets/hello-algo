@@ -14,10 +14,10 @@ use array_hash_map::Pair;
 struct HashMapOpenAddressing {
     size: usize,                // Number of key-value pairs
     capacity: usize,            // Hash table capacity
-    load_thres: f64,            // Load factor threshold for triggering expansion
-    extend_ratio: usize,        // Expansion multiplier
+    load_thres: f64,            // Load factor threshold that triggers capacity growth
+    extend_ratio: usize,        // Capacity growth factor
     buckets: Vec<Option<Pair>>, // Bucket array
-    TOMBSTONE: Option<Pair>,    // Removal marker
+    TOMBSTONE: Option<Pair>,    // Tombstone marker
 }
 
 impl HashMapOpenAddressing {
@@ -46,30 +46,30 @@ impl HashMapOpenAddressing {
         self.size as f64 / self.capacity as f64
     }
 
-    /* Search for bucket index corresponding to key */
+    /* Find the bucket index for key */
     fn find_bucket(&mut self, key: i32) -> usize {
         let mut index = self.hash_func(key);
         let mut first_tombstone = -1;
-        // Linear probing, break when encountering an empty bucket
+        // Probe linearly until an empty bucket is reached
         while self.buckets[index].is_some() {
-            // If key is found, return corresponding bucket index
+            // If key is found, return the corresponding bucket index
             if self.buckets[index].as_ref().unwrap().key == key {
-                // If deletion marker was encountered before, move key-value pair to that index
+                // If a tombstone was encountered earlier, move the key-value pair to that index
                 if first_tombstone != -1 {
                     self.buckets[first_tombstone as usize] = self.buckets[index].take();
                     self.buckets[index] = self.TOMBSTONE.clone();
-                    return first_tombstone as usize; // Return the moved bucket index
+                    return first_tombstone as usize; // Return the bucket index after the move
                 }
-                return index; // Return bucket index
+                return index; // Return the bucket index
             }
-            // Record the first removal marker encountered
+            // Record the first tombstone encountered
             if first_tombstone == -1 && self.buckets[index] == self.TOMBSTONE {
                 first_tombstone = index as i32;
             }
-            // Calculate bucket index, wrap around to the head if past the tail
+            // Calculate the bucket index, wrapping to the beginning after the end
             index = (index + 1) % self.capacity;
         }
-        // If key does not exist, return the index for insertion
+        // If key is absent, return the index for insertion
         if first_tombstone == -1 {
             index
         } else {
@@ -77,57 +77,57 @@ impl HashMapOpenAddressing {
         }
     }
 
-    /* Query operation */
+    /* Lookup operation */
     fn get(&mut self, key: i32) -> Option<&str> {
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         let index = self.find_bucket(key);
-        // If key-value pair is found, return corresponding val
+        // If the key-value pair is found, return its val
         if self.buckets[index].is_some() && self.buckets[index] != self.TOMBSTONE {
             return self.buckets[index].as_ref().map(|pair| &pair.val as &str);
         }
-        // If key-value pair does not exist, return null
+        // If the key-value pair does not exist, return None
         None
     }
 
-    /* Add operation */
+    /* Insert operation */
     fn put(&mut self, key: i32, val: String) {
-        // When load factor exceeds threshold, perform expansion
+        // Grow the capacity when the load factor exceeds the threshold
         if self.load_factor() > self.load_thres {
             self.extend();
         }
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         let index = self.find_bucket(key);
-        // If key-value pair is found, overwrite val and return
+        // If the key-value pair is found, overwrite val and return
         if self.buckets[index].is_some() && self.buckets[index] != self.TOMBSTONE {
             self.buckets[index].as_mut().unwrap().val = val;
             return;
         }
-        // If key-value pair does not exist, add the key-value pair
+        // If the key-value pair is absent, insert it
         self.buckets[index] = Some(Pair { key, val });
         self.size += 1;
     }
 
     /* Remove operation */
     fn remove(&mut self, key: i32) {
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         let index = self.find_bucket(key);
-        // If key-value pair is found, overwrite it with removal marker
+        // If the key-value pair is found, replace it with a tombstone
         if self.buckets[index].is_some() && self.buckets[index] != self.TOMBSTONE {
             self.buckets[index] = self.TOMBSTONE.clone();
             self.size -= 1;
         }
     }
 
-    /* Expand hash table */
+    /* Grow the hash table capacity */
     fn extend(&mut self) {
-        // Temporarily store the original hash table
+        // Temporarily save a copy of the original buckets
         let buckets_tmp = self.buckets.clone();
-        // Initialize expanded new hash table
+        // Initialize a new hash table with the expanded capacity
         self.capacity *= self.extend_ratio;
         self.buckets = vec![None; self.capacity];
         self.size = 0;
 
-        // Move key-value pairs from original hash table to new hash table
+        // Move the key-value pairs from the original hash table to the new one
         for pair in buckets_tmp {
             if pair.is_none() || pair == self.TOMBSTONE {
                 continue;
@@ -137,7 +137,7 @@ impl HashMapOpenAddressing {
             self.put(pair.key, pair.val);
         }
     }
-    /* Print hash table */
+    /* Print the hash table */
     fn print(&self) {
         for pair in &self.buckets {
             if pair.is_none() {
@@ -152,30 +152,30 @@ impl HashMapOpenAddressing {
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
-    /* Initialize hash table */
+    /* Initialize the hash table */
     let mut hashmap = HashMapOpenAddressing::new();
 
-    /* Add operation */
-    // Add key-value pair (key, value) to the hash table
-    hashmap.put(12836, "Xiao Ha".to_string());
-    hashmap.put(15937, "Xiao Luo".to_string());
-    hashmap.put(16750, "Xiao Suan".to_string());
-    hashmap.put(13276, "Xiao Fa".to_string());
-    hashmap.put(10583, "Xiao Ya".to_string());
+    /* Insert operation */
+    // Insert the key-value pair (key, value) into the hash table
+    hashmap.put(12836, "小哈".to_string());
+    hashmap.put(15937, "小啰".to_string());
+    hashmap.put(16750, "小算".to_string());
+    hashmap.put(13276, "小法".to_string());
+    hashmap.put(10583, "小鸭".to_string());
 
-    println!("\nAfter adding is complete, hash table is\nKey -> Value");
+    println!("\nHash table after insertion:\nKey -> Value");
     hashmap.print();
 
-    /* Query operation */
-    // Input key into hash table to get value val
+    /* Lookup operation */
+    // Look up key in the hash table to obtain val
     let name = hashmap.get(13276).unwrap();
-    println!("\nInput student ID 13276, found name {}", name);
+    println!("\nLooking up student ID 13276 gives name {}", name);
 
     /* Remove operation */
-    // Remove key-value pair (key, val) from hash table
+    // Remove the key-value pair (key, val) from the hash table
     hashmap.remove(16750);
-    println!("\nAfter removing 16750, hash table is\nKey -> Value");
+    println!("\nHash table after removing 16750:\nKey -> Value");
     hashmap.print();
 }

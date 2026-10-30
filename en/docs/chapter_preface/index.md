@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    Algorithms are like a beautiful symphony, each line of code flows like a melody.
-
-    May this book gently resonate in your mind, leaving a unique and profound melody.
+    Algorithms are like a beautiful symphony, with each line of code flowing to its rhythm.
+    
+    May this book play softly in your mind, leaving a melody that is both distinctive and lasting.

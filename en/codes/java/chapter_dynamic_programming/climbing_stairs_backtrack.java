@@ -11,26 +11,26 @@ import java.util.*;
 public class climbing_stairs_backtrack {
     /* Backtracking */
     public static void backtrack(List<Integer> choices, int state, int n, List<Integer> res) {
-        // When climbing to the n-th stair, add 1 to the solution count
+        // When step n is reached, increase the number of ways by 1
         if (state == n)
             res.set(0, res.get(0) + 1);
-        // Traverse all choices
+        // Iterate over all choices
         for (Integer choice : choices) {
-            // Pruning: not allowed to go beyond the n-th stair
+            // Prune: do not go beyond step n
             if (state + choice > n)
                 continue;
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             backtrack(choices, state + choice, n, res);
             // Backtrack
         }
     }
 
-    /* Climbing stairs: Backtracking */
+    /* Climbing stairs: backtracking */
     public static int climbingStairsBacktrack(int n) {
-        List<Integer> choices = Arrays.asList(1, 2); // Can choose to climb up 1 or 2 stairs
-        int state = 0; // Start climbing from the 0-th stair
+        List<Integer> choices = Arrays.asList(1, 2); // Choose to climb 1 or 2 steps
+        int state = 0; // Start climbing from step 0
         List<Integer> res = new ArrayList<>();
-        res.add(0); // Use res[0] to record the solution count
+        res.add(0); // Use res[0] to record the number of ways
         backtrack(choices, state, n, res);
         return res.get(0);
     }
@@ -39,6 +39,6 @@ public class climbing_stairs_backtrack {
         int n = 9;
 
         int res = climbingStairsBacktrack(n);
-        System.out.println(String.format("Climbing %d stairs has %d solutions", n, res));
+        System.out.println(String.format("Number of ways to climb %d stairs: %d", n, res));
     }
 }

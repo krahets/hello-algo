@@ -12,9 +12,9 @@ int func() {
     return 0;
 }
 
-/* Constant order */
+/* Constant complexity */
 void constant(int n) {
-    // Constants, variables, objects occupy O(1) space
+    // Constants, variables, and objects occupy O(1) space
     const int a = 0;
     int b = 0;
     vector<int> nums(10000);
@@ -23,39 +23,39 @@ void constant(int n) {
     for (int i = 0; i < n; i++) {
         int c = 0;
     }
-    // Functions in the loop occupy O(1) space
+    // Function calls in the loop occupy O(1) space
     for (int i = 0; i < n; i++) {
         func();
     }
 }
 
-/* Linear order */
+/* Linear complexity */
 void linear(int n) {
-    // Array of length n uses O(n) space
+    // An array of length n uses O(n) space
     vector<int> nums(n);
     // A list of length n occupies O(n) space
     vector<ListNode> nodes;
     for (int i = 0; i < n; i++) {
         nodes.push_back(ListNode(i));
     }
-    // A hash table of length n occupies O(n) space
+    // A hash table with n entries occupies O(n) space
     unordered_map<int, string> map;
     for (int i = 0; i < n; i++) {
         map[i] = to_string(i);
     }
 }
 
-/* Linear order (recursive implementation) */
+/* Linear complexity (recursive implementation) */
 void linearRecur(int n) {
-    cout << "Recursion n = " << n << endl;
+    cout << "Recursion: n = " << n << endl;
     if (n == 1)
         return;
     linearRecur(n - 1);
 }
 
-/* Exponential order */
+/* Quadratic complexity */
 void quadratic(int n) {
-    // 2D list uses O(n^2) space
+    // The two-dimensional list occupies O(n^2) space
     vector<vector<int>> numMatrix;
     for (int i = 0; i < n; i++) {
         vector<int> tmp;
@@ -66,16 +66,16 @@ void quadratic(int n) {
     }
 }
 
-/* Quadratic order (recursive implementation) */
+/* Quadratic complexity (recursive implementation) */
 int quadraticRecur(int n) {
     if (n <= 0)
         return 0;
     vector<int> nums(n);
-    cout << "In recursion n = " << n << ", nums length = " << nums.size() << endl;
+    cout << "Recursion: n = " << n << " , length of nums = " << nums.size() << endl;
     return quadraticRecur(n - 1);
 }
 
-/* Driver Code */
+/* Exponential complexity (building a perfect binary tree) */
 TreeNode *buildTree(int n) {
     if (n == 0)
         return nullptr;
@@ -85,18 +85,18 @@ TreeNode *buildTree(int n) {
     return root;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     int n = 5;
-    // Constant order
+    // Constant complexity
     constant(n);
-    // Linear order
+    // Linear complexity
     linear(n);
     linearRecur(n);
-    // Exponential order
+    // Quadratic complexity
     quadratic(n);
     quadraticRecur(n);
-    // Exponential order
+    // Exponential complexity
     TreeNode *root = buildTree(n);
     printTree(root);
 

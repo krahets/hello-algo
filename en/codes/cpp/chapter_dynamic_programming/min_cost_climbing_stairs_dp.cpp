@@ -6,24 +6,24 @@
 
 #include "../utils/common.hpp"
 
-/* Minimum cost climbing stairs: Dynamic programming */
+/* Minimum cost to climb stairs: dynamic programming */
 int minCostClimbingStairsDP(vector<int> &cost) {
     int n = cost.size() - 1;
     if (n == 1 || n == 2)
         return cost[n];
-    // Initialize dp table, used to store solutions to subproblems
+    // Initialize the dp table to store subproblem solutions
     vector<int> dp(n + 1);
-    // Initial state: preset the solution to the smallest subproblem
+    // Initial states: set the solutions to the smallest subproblems
     dp[1] = cost[1];
     dp[2] = cost[2];
-    // State transition: gradually solve larger subproblems from smaller ones
+    // State transitions: solve progressively larger subproblems using smaller ones
     for (int i = 3; i <= n; i++) {
         dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i];
     }
     return dp[n];
 }
 
-/* Minimum cost climbing stairs: Space-optimized dynamic programming */
+/* Minimum cost to climb stairs: space-optimized dynamic programming */
 int minCostClimbingStairsDPComp(vector<int> &cost) {
     int n = cost.size() - 1;
     if (n == 1 || n == 2)
@@ -37,17 +37,17 @@ int minCostClimbingStairsDPComp(vector<int> &cost) {
     return b;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     vector<int> cost = {0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1};
-    cout << "Input stair cost list is ";
+    cout << "Input stair cost list: ";
     printVector(cost);
 
     int res = minCostClimbingStairsDP(cost);
-    cout << "Minimum cost to climb stairs is " << res << endl;
+    cout << "Minimum cost to climb the stairs: " << res << endl;
 
     res = minCostClimbingStairsDPComp(cost);
-    cout << "Minimum cost to climb stairs is " << res << endl;
+    cout << "Minimum cost to climb the stairs: " << res << endl;
 
     return 0;
 }

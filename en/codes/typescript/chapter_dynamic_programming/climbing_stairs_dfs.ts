@@ -6,21 +6,21 @@
 
 /* Search */
 function dfs(i: number): number {
-    // Known dp[1] and dp[2], return them
+    // The values of dp[1] and dp[2] are known; return them
     if (i === 1 || i === 2) return i;
     // dp[i] = dp[i-1] + dp[i-2]
     const count = dfs(i - 1) + dfs(i - 2);
     return count;
 }
 
-/* Climbing stairs: Search */
+/* Climbing stairs: search */
 function climbingStairsDFS(n: number): number {
     return dfs(n);
 }
 
-/* Driver Code */
+/* Driver code */
 const n = 9;
 const res = climbingStairsDFS(n);
-console.log(`Climbing ${n} stairs has ${res} solutions`);
+console.log(`Number of ways to climb ${n} stairs: ${res}`);
 
 export {};

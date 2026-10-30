@@ -1,28 +1,28 @@
-# Space Complexity
+# Space complexity
 
-<u>Space complexity</u> measures the growth trend of memory space occupied by an algorithm as the data size increases. This concept is very similar to time complexity, except that "running time" is replaced with "occupied memory space".
+<u>Space complexity</u> measures how an algorithm's memory use grows as the input gets larger. It is much like time complexity, with memory usage replacing runtime.
 
-## Algorithm-Related Space
+## Space used by an algorithm
 
-The memory space used by an algorithm during execution mainly includes the following types.
+The memory an algorithm uses during execution falls into these main categories.
 
-- **Input space**: Used to store the input data of the algorithm.
-- **Temporary space**: Used to store variables, objects, function contexts, and other data during the algorithm's execution.
-- **Output space**: Used to store the output data of the algorithm.
+- **Input space**: Stores the input data.
+- **Temporary space**: Stores variables, objects, function contexts, and other working data.
+- **Output space**: Stores the output data.
 
-In general, the scope of space complexity statistics is "temporary space" plus "output space".
+Space complexity generally counts temporary space plus output space.
 
-Temporary space can be further divided into three parts.
+Temporary space can be divided further into three parts.
 
-- **Temporary data**: Used to save various constants, variables, objects, etc., during the algorithm's execution.
-- **Stack frame space**: Used to save the context data of called functions. The system creates a stack frame at the top of the stack each time a function is called, and the stack frame space is released after the function returns.
-- **Instruction space**: Used to save compiled program instructions, which are usually ignored in actual statistics.
+- **Temporary data**: Constants, variables, objects, and other data used during execution.
+- **Stack frames**: Context data for function calls. Each call creates a frame at the top of the stack, which is released when the function returns.
+- **Instruction space**: Compiled program instructions, usually ignored in the analysis.
 
-When analyzing the space complexity of a program, **we usually consider three parts: temporary data, stack frame space, and output data**, as shown in the following figure.
+**We usually count temporary data, stack frames, and output data** when analyzing space complexity, as shown in the figure below.
 
-![Algorithm-related space](space_complexity.assets/space_types.png)
+![Space used by an algorithm](space_complexity.assets/space_types.png)
 
-The related code is as follows:
+The corresponding code is:
 
 === "Python"
 
@@ -39,10 +39,10 @@ The related code is as follows:
         return 0
 
     def algorithm(n) -> int:  # Input data
-        A = 0                 # Temporary data (constant, usually represented by uppercase letters)
+        A = 0                 # Temporary data (constant, conventionally named in uppercase)
         b = 0                 # Temporary data (variable)
         node = Node(0)        # Temporary data (object)
-        c = function()        # Stack frame space (function call)
+        c = function()        # Stack frame (function call)
         return A + b + c      # Output data
     ```
 
@@ -66,7 +66,7 @@ The related code is as follows:
         const int a = 0;          // Temporary data (constant)
         int b = 0;                // Temporary data (variable)
         Node* node = new Node(0); // Temporary data (object)
-        int c = func();           // Stack frame space (function call)
+        int c = func();           // Stack frame (function call)
         return a + b + c;         // Output data
     }
     ```
@@ -80,18 +80,18 @@ The related code is as follows:
         Node next;
         Node(int x) { val = x; }
     }
-
+    
     /* Function */
     int function() {
         // Perform some operations...
         return 0;
     }
-
+    
     int algorithm(int n) {        // Input data
         final int a = 0;          // Temporary data (constant)
         int b = 0;                // Temporary data (variable)
         Node node = new Node(0);  // Temporary data (object)
-        int c = function();       // Stack frame space (function call)
+        int c = function();       // Stack frame (function call)
         return a + b + c;         // Output data
     }
     ```
@@ -115,7 +115,7 @@ The related code is as follows:
         const int a = 0;          // Temporary data (constant)
         int b = 0;                // Temporary data (variable)
         Node node = new(0);       // Temporary data (object)
-        int c = Function();       // Stack frame space (function call)
+        int c = Function();       // Stack frame (function call)
         return a + b + c;         // Output data
     }
     ```
@@ -129,11 +129,11 @@ The related code is as follows:
         next *node
     }
 
-    /* Create node structure */
+    /* Create a node structure  */
     func newNode(val int) *node {
         return &node{val: val}
     }
-
+    
     /* Function */
     func function() int {
         // Perform some operations...
@@ -144,7 +144,7 @@ The related code is as follows:
         const a = 0             // Temporary data (constant)
         b := 0                  // Temporary data (variable)
         newNode(0)              // Temporary data (object)
-        c := function()         // Stack frame space (function call)
+        c := function()         // Stack frame (function call)
         return a + b + c        // Output data
     }
     ```
@@ -172,7 +172,7 @@ The related code is as follows:
         let a = 0             // Temporary data (constant)
         var b = 0             // Temporary data (variable)
         let node = Node(x: 0) // Temporary data (object)
-        let c = function()    // Stack frame space (function call)
+        let c = function()    // Stack frame (function call)
         return a + b + c      // Output data
     }
     ```
@@ -200,7 +200,7 @@ The related code is as follows:
         const a = 0;              // Temporary data (constant)
         let b = 0;                // Temporary data (variable)
         const node = new Node(0); // Temporary data (object)
-        const c = constFunc();    // Stack frame space (function call)
+        const c = constFunc();    // Stack frame (function call)
         return a + b + c;         // Output data
     }
     ```
@@ -228,7 +228,7 @@ The related code is as follows:
         const a = 0;                        // Temporary data (constant)
         let b = 0;                          // Temporary data (variable)
         const node = new Node(0);           // Temporary data (object)
-        const c = constFunc();              // Stack frame space (function call)
+        const c = constFunc();              // Stack frame (function call)
         return a + b + c;                   // Output data
     }
     ```
@@ -253,7 +253,7 @@ The related code is as follows:
       const int a = 0;      // Temporary data (constant)
       int b = 0;            // Temporary data (variable)
       Node node = Node(0);  // Temporary data (object)
-      int c = function();   // Stack frame space (function call)
+      int c = function();   // Stack frame (function call)
       return a + b + c;     // Output data
     }
     ```
@@ -263,14 +263,14 @@ The related code is as follows:
     ```rust title=""
     use std::rc::Rc;
     use std::cell::RefCell;
-
+    
     /* Structure */
     struct Node {
         val: i32,
         next: Option<Rc<RefCell<Node>>>,
     }
 
-    /* Create Node structure */
+    /* Create a Node structure */
     impl Node {
         fn new(val: i32) -> Self {
             Self { val: val, next: None }
@@ -278,7 +278,7 @@ The related code is as follows:
     }
 
     /* Function */
-    fn function() -> i32 {
+    fn function() -> i32 {      
         // Perform some operations...
         return 0;
     }
@@ -287,7 +287,7 @@ The related code is as follows:
         const a: i32 = 0;               // Temporary data (constant)
         let mut b = 0;                  // Temporary data (variable)
         let node = Node::new(0);        // Temporary data (object)
-        let c = function();             // Stack frame space (function call)
+        let c = function();             // Stack frame (function call)
         return a + b + c;               // Output data
     }
     ```
@@ -304,7 +304,7 @@ The related code is as follows:
     int algorithm(int n) { // Input data
         const int a = 0;   // Temporary data (constant)
         int b = 0;         // Temporary data (variable)
-        int c = func();    // Stack frame space (function call)
+        int c = func();    // Stack frame (function call)
         return a + b + c;  // Output data
     }
     ```
@@ -327,7 +327,7 @@ The related code is as follows:
         val a = 0                // Temporary data (constant)
         var b = 0                // Temporary data (variable)
         val node = Node(0)       // Temporary data (object)
-        val c = function()       // Stack frame space (function call)
+        val c = function()       // Stack frame (function call)
         return a + b + c         // Output data
     }
     ```
@@ -356,21 +356,21 @@ The related code is as follows:
         a = 0               # Temporary data (constant)
         b = 0               # Temporary data (variable)
         node = Node.new(0)  # Temporary data (object)
-        c = function        # Stack frame space (function call)
+        c = function        # Stack frame (function call)
         a + b + c           # Output data
     end
     ```
 
-## Calculation Method
+## Deriving space complexity
 
-The calculation method for space complexity is roughly the same as for time complexity, except that what we measure changes from the "number of operations" to the "amount of space used".
+The approach is much like time complexity analysis, except that we count memory used rather than operations performed.
 
-Unlike time complexity, **we usually only focus on the worst-case space complexity**. This is because memory space is a hard requirement, and we must ensure that sufficient memory space is reserved for all input data.
+Unlike time complexity, **we usually focus only on worst-case space complexity**. Memory is a hard requirement: enough must be available for every valid input.
 
-Observe the following code. Here, "worst case" in worst-case space complexity has two meanings.
+In the following code, "worst case" has two meanings.
 
-1. **Based on the worst input data**: When $n < 10$, the space complexity is $O(1)$; but when $n > 10$, the initialized array `nums` occupies $O(n)$ space, so the worst-case space complexity is $O(n)$.
-2. **Based on the peak memory during algorithm execution**: For example, before executing the last line, the program occupies $O(1)$ space; when initializing the array `nums`, the program occupies $O(n)$ space, so the worst-case space complexity is $O(n)$.
+1. **The worst input**: When $n < 10$, space complexity is $O(1)$. When $n > 10$, initializing `nums` requires $O(n)$ space, so worst-case space complexity is $O(n)$.
+2. **Peak memory during execution**: Before the final line, the program uses $O(1)$ space. Initializing `nums` raises usage to $O(n)$, so worst-case space complexity is $O(n)$.
 
 === "Python"
 
@@ -523,7 +523,7 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
     end
     ```
 
-**In recursive functions, it is necessary to count the stack frame space**. Observe the following code:
+**For recursive functions, remember to count stack frames**. Consider the following code:
 
 === "Python"
 
@@ -533,12 +533,12 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         return 0
 
     def loop(n: int):
-        """Loop has space complexity of O(1)"""
+        """The loop uses O(1) space"""
         for _ in range(n):
             function()
 
     def recur(n: int):
-        """Recursion has space complexity of O(n)"""
+        """The recursion uses O(n) space"""
         if n == 1:
             return
         return recur(n - 1)
@@ -551,13 +551,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0;
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             func();
         }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     void recur(int n) {
         if (n == 1) return;
         recur(n - 1);
@@ -571,13 +571,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0;
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             function();
         }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     void recur(int n) {
         if (n == 1) return;
         recur(n - 1);
@@ -591,13 +591,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0;
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     void Loop(int n) {
         for (int i = 0; i < n; i++) {
             Function();
         }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     int Recur(int n) {
         if (n == 1) return 1;
         return Recur(n - 1);
@@ -611,15 +611,15 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0
     }
-
-    /* Loop has space complexity of O(1) */
+    
+    /* The loop uses O(1) space */
     func loop(n int) {
         for i := 0; i < n; i++ {
             function()
         }
     }
-
-    /* Recursion has space complexity of O(n) */
+    
+    /* The recursion uses O(n) space */
     func recur(n int) {
         if n == 1 {
             return
@@ -637,14 +637,14 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         return 0
     }
 
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     func loop(n: Int) {
         for _ in 0 ..< n {
             function()
         }
     }
 
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     func recur(n: Int) {
         if n == 1 {
             return
@@ -660,13 +660,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0;
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     function loop(n) {
         for (let i = 0; i < n; i++) {
             constFunc();
         }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     function recur(n) {
         if (n === 1) return;
         return recur(n - 1);
@@ -680,13 +680,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0;
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     function loop(n: number): void {
         for (let i = 0; i < n; i++) {
             constFunc();
         }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     function recur(n: number): void {
         if (n === 1) return;
         return recur(n - 1);
@@ -700,13 +700,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
       // Perform some operations
       return 0;
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     void loop(int n) {
       for (int i = 0; i < n; i++) {
         function();
       }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     void recur(int n) {
       if (n == 1) return;
       recur(n - 1);
@@ -720,13 +720,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0;
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     fn loop(n: i32) {
         for i in 0..n {
             function();
         }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     fn recur(n: i32) {
         if n == 1 {
             return;
@@ -742,13 +742,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0;
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             func();
         }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     void recur(int n) {
         if (n == 1) return;
         recur(n - 1);
@@ -762,13 +762,13 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         // Perform some operations
         return 0
     }
-    /* Loop has space complexity of O(1) */
+    /* The loop uses O(1) space */
     fun loop(n: Int) {
         for (i in 0..<n) {
             function()
         }
     }
-    /* Recursion has space complexity of O(n) */
+    /* The recursion uses O(n) space */
     fun recur(n: Int) {
         if (n == 1) return
         return recur(n - 1)
@@ -783,26 +783,26 @@ Observe the following code. Here, "worst case" in worst-case space complexity ha
         0
     end
 
-    ### Loop has space complexity of O(1) ###
+    ### The loop uses O(1) space ###
     def loop(n)
         (0...n).each { function }
     end
 
-    ### Recursion has space complexity of O(n) ###
+    ### The recursion uses O(n) space ###
     def recur(n)
         return if n == 1
         recur(n - 1)
     end
     ```
 
-The time complexity of both functions `loop()` and `recur()` is $O(n)$, but their space complexities are different.
+Both `loop()` and `recur()` take $O(n)$ time, but their space complexities differ.
 
-- The function `loop()` calls `function()` $n$ times in a loop. In each iteration, `function()` returns and releases its stack frame space, so the space complexity remains $O(1)$.
-- The recursive function `recur()` has $n$ unreturned `recur()` instances existing simultaneously during execution, thus occupying $O(n)$ stack frame space.
+- `loop()` calls `function()` $n$ times. Each call returns and releases its stack frame before the next iteration, so space complexity remains $O(1)$.
+- During `recur()`, $n$ calls can remain active at once, using $O(n)$ space for stack frames.
 
-## Common Types
+## Common complexity classes
 
-Let the input data size be $n$. The following figure shows common types of space complexity (arranged from low to high).
+For input size $n$, the figure below shows common space complexities in increasing order of growth.
 
 $$
 \begin{aligned}
@@ -811,70 +811,70 @@ $$
 \end{aligned}
 $$
 
-![Common types of space complexity](space_complexity.assets/space_complexity_common_types.png)
+![Common space complexity classes](space_complexity.assets/space_complexity_common_types.png)
 
-### Constant Order $O(1)$
+### Constant space $O(1)$
 
-Constant order is common for constants, variables, and objects whose number is independent of the input data size $n$.
+Constant space commonly occurs when the number of constants, variables, and objects is independent of input size $n$.
 
-It should be noted that memory occupied by initializing variables or calling functions in a loop is released when entering the next iteration, so it does not accumulate space, and the space complexity remains $O(1)$:
+Memory for variables initialized or functions called within a loop is released by the next iteration, so it does not accumulate. Space complexity remains $O(1)$:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{constant}
 ```
 
-### Linear Order $O(n)$
+### Linear space $O(n)$
 
-Linear order is common in arrays, linked lists, stacks, queues, etc., where the number of elements is proportional to $n$:
+Linear space commonly occurs in arrays, linked lists, stacks, and queues whose element counts are proportional to $n$:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{linear}
 ```
 
-As shown in the following figure, the recursion depth of this function is $n$, meaning that there are $n$ unreturned `linear_recur()` functions existing simultaneously, using $O(n)$ stack frame space:
+As shown in the figure below, this function has recursion depth $n$, with $n$ active calls to `linear_recur()` at once, using $O(n)$ space for stack frames:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{linear_recur}
 ```
 
-![Linear order space complexity generated by recursive function](space_complexity.assets/space_complexity_recursive_linear.png)
+![Linear space complexity from recursion](space_complexity.assets/space_complexity_recursive_linear.png)
 
-### Quadratic Order $O(n^2)$
+### Quadratic space $O(n^2)$
 
-Quadratic order is common in matrices and graphs, where the number of elements is quadratically related to $n$:
+Quadratic space commonly occurs in matrices and graphs whose element counts grow with the square of $n$:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{quadratic}
 ```
 
-As shown in the following figure, the recursion depth of this function is $n$, and an array is initialized in each recursive function with lengths of $n$, $n-1$, $\dots$, $2$, $1$, with an average length of $n / 2$, thus occupying $O(n^2)$ space overall:
+As shown in the figure below, the recursion depth is $n$, and each call initializes an array. Their lengths are $n$, $n-1$, $\dots$, $2$, and $1$, averaging $n / 2$, so total space is $O(n^2)$:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{quadratic_recur}
 ```
 
-![Quadratic order space complexity generated by recursive function](space_complexity.assets/space_complexity_recursive_quadratic.png)
+![Quadratic space complexity from recursion](space_complexity.assets/space_complexity_recursive_quadratic.png)
 
-### Exponential Order $O(2^n)$
+### Exponential space $O(2^n)$
 
-Exponential order is common in binary trees. Observe the following figure: a "full binary tree" with $n$ levels has $2^n - 1$ nodes, occupying $O(2^n)$ space:
+Exponential space commonly occurs in binary trees. In the figure below, a perfect binary tree with $n$ levels contains $2^n - 1$ nodes and uses $O(2^n)$ space:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{build_tree}
 ```
 
-![Exponential order space complexity generated by full binary tree](space_complexity.assets/space_complexity_exponential.png)
+![Exponential space used by a perfect binary tree](space_complexity.assets/space_complexity_exponential.png)
 
-### Logarithmic Order $O(\log n)$
+### Logarithmic space $O(\log n)$
 
-Logarithmic order is common in divide-and-conquer algorithms. For example, merge sort: given an input array of length $n$, each recursion divides the array in half from the midpoint, forming a recursion tree of height $\log n$, using $O(\log n)$ stack frame space.
+Logarithmic space often appears in divide-and-conquer algorithms. For example, merge sort splits an array of length $n$ in half at each recursive step, producing a recursion tree of height $\log n$ and using $O(\log n)$ space for stack frames.
 
-Another example is converting a number to a string. Given a positive integer $n$, it has $\lfloor \log_{10} n \rfloor + 1$ digits, i.e., the corresponding string length is $\lfloor \log_{10} n \rfloor + 1$, so the space complexity is $O(\log_{10} n + 1) = O(\log n)$.
+Another example is converting a number to a string. A positive integer $n$ has $\lfloor \log_{10} n \rfloor + 1$ digits, giving a string of length $\lfloor \log_{10} n \rfloor + 1$. The space complexity is therefore $O(\log_{10} n + 1) = O(\log n)$.
 
-## Trading Time for Space
+## Balancing time and space
 
-Ideally, we hope that both the time complexity and space complexity of an algorithm can reach optimal. However, in practice, optimizing both time complexity and space complexity simultaneously is usually very difficult.
+Ideally, we would minimize both time and space complexity. In practice, optimizing both simultaneously is usually difficult.
 
-**Reducing time complexity usually comes at the cost of increasing space complexity, and vice versa**. Sacrificing memory space to improve execution speed is called "trading space for time"; the reverse is called "trading time for space".
+**Reducing time complexity often increases space complexity, and vice versa**. Using more memory to run faster is called trading space for time; accepting slower execution to use less memory is trading time for space.
 
-The choice of which approach depends on which aspect we value more. In most cases, time is more precious than space, so "trading space for time" is usually the more common strategy. Of course, when the data volume is very large, controlling space complexity is also very important.
+The choice depends on which resource matters more. Time is usually more valuable than space, so trading space for time is common. For very large datasets, however, keeping space complexity under control is also crucial.

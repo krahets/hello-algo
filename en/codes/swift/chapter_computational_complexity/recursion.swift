@@ -6,13 +6,13 @@
 
 /* Recursion */
 func recur(n: Int) -> Int {
-    // Termination condition
+    // Base case
     if n == 1 {
         return 1
     }
-    // Recurse: recursive call
+    // Recurse: make a recursive call
     let res = recur(n: n - 1)
-    // Return: return result
+    // Unwind: return the result
     return n + res
 }
 
@@ -21,14 +21,14 @@ func forLoopRecur(n: Int) -> Int {
     // Use an explicit stack to simulate the system call stack
     var stack: [Int] = []
     var res = 0
-    // Recurse: recursive call
+    // Descending: simulate recursive calls
     for i in (1 ... n).reversed() {
-        // Simulate "recurse" with "push"
+        // Simulate recursive calls by pushing onto the stack
         stack.append(i)
     }
-    // Return: return result
+    // Unwinding: simulate returning results
     while !stack.isEmpty {
-        // Simulate "return" with "pop"
+        // Simulate unwinding by popping from the stack
         res += stack.removeLast()
     }
     // res = 1+2+3+...+n
@@ -37,43 +37,43 @@ func forLoopRecur(n: Int) -> Int {
 
 /* Tail recursion */
 func tailRecur(n: Int, res: Int) -> Int {
-    // Termination condition
+    // Base case
     if n == 0 {
         return res
     }
-    // Tail recursive call
+    // Tail-recursive call
     return tailRecur(n: n - 1, res: res + n)
 }
 
 /* Fibonacci sequence: recursion */
 func fib(n: Int) -> Int {
-    // Termination condition f(1) = 0, f(2) = 1
+    // Base cases: f(1) = 0, f(2) = 1
     if n == 1 || n == 2 {
         return n - 1
     }
-    // Recursive call f(n) = f(n-1) + f(n-2)
+    // Recursive calls: f(n) = f(n-1) + f(n-2)
     let res = fib(n: n - 1) + fib(n: n - 2)
-    // Return result f(n)
+    // Return the result f(n)
     return res
 }
 
 @main
 enum Recursion {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         let n = 5
         var res = 0
 
         res = recursion.recur(n: n)
-        print("\nRecursion sum result res = \(res)")
+        print("\nSum from recursion: res = \(res)")
 
         res = recursion.forLoopRecur(n: n)
-        print("\nUsing iteration to simulate recursion sum result res = \(res)")
+        print("\nSum from simulating recursion with iteration: res = \(res)")
 
         res = recursion.tailRecur(n: n, res: 0)
-        print("\nTail recursion sum result res = \(res)")
+        print("\nSum from tail recursion: res = \(res)")
 
         res = recursion.fib(n: n)
-        print("\nThe \(n)th Fibonacci number is \(res)")
+        print("\nFibonacci term \(n) is \(res)")
     }
 }

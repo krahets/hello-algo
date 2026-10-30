@@ -6,7 +6,7 @@
 
 package chapter_backtracking.subset_sum_i
 
-/* Backtracking algorithm: Subset sum I */
+/* Backtracking: subset sum I */
 fun backtrack(
     state: MutableList<Int>,
     target: Int,
@@ -14,24 +14,24 @@ fun backtrack(
     start: Int,
     res: MutableList<MutableList<Int>?>
 ) {
-    // When the subset sum equals target, record the solution
+    // Record a solution when the subset reaches the original target (remaining target is 0)
     if (target == 0) {
         res.add(state.toMutableList())
         return
     }
-    // Traverse all choices
-    // Pruning 2: start traversing from start to avoid generating duplicate subsets
+    // Iterate over all choices
+    // Pruning 2: iterate from start to avoid generating duplicate subsets
     for (i in start..<choices.size) {
-        // Pruning 1: if the subset sum exceeds target, end the loop directly
-        // This is because the array is sorted, and later elements are larger, so the subset sum will definitely exceed target
+        // Pruning 1: exit the loop if this choice would exceed the remaining target
+        // The array is sorted, so later elements are at least as large and would also exceed the remaining target
         if (target - choices[i] < 0) {
             break
         }
-        // Attempt: make choice, update target, start
+        // Try: make a choice and update target and start
         state.add(choices[i])
-        // Proceed to the next round of selection
+        // Proceed to the next choice
         backtrack(state, target - choices[i], choices, i, res)
-        // Backtrack: undo choice, restore to previous state
+        // Backtrack: undo the choice and restore the previous state
         state.removeAt(state.size - 1)
     }
 }
@@ -40,13 +40,13 @@ fun backtrack(
 fun subsetSumI(nums: IntArray, target: Int): MutableList<MutableList<Int>?> {
     val state = mutableListOf<Int>() // State (subset)
     nums.sort() // Sort nums
-    val start = 0 // Start point for traversal
-    val res = mutableListOf<MutableList<Int>?>() // Result list (subset list)
+    val start = 0 // Starting index for iteration
+    val res = mutableListOf<MutableList<Int>?>() // Result list (list of subsets)
     backtrack(state, target, nums, start, res)
     return res
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
     val nums = intArrayOf(3, 4, 5)
     val target = 9
@@ -54,5 +54,5 @@ fun main() {
     val res = subsetSumI(nums, target)
 
     println("Input array nums = ${nums.contentToString()}, target = $target")
-    println("All subsets with sum equal to $target res = $res")
+    println("All subsets with sum $target: res = $res")
 }

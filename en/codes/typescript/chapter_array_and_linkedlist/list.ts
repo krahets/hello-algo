@@ -4,44 +4,44 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* Initialize list */
+/* Initialize the list */
 const nums: number[] = [1, 3, 2, 5, 4];
 console.log(`List nums = ${nums}`);
 
-/* Update element */
+/* Access an element */
 const num: number = nums[1];
-console.log(`Access element at index 1, get num = ${num}`);
+console.log(`Access the element at index 1, giving num = ${num}`);
 
-/* Add elements at the end */
+/* Update an element */
 nums[1] = 0;
-console.log(`Update element at index 1 to 0, get nums = ${nums}`);
+console.log(`Update the element at index 1 to 0, giving nums = ${nums}`);
 
-/* Remove element */
+/* Clear the list */
 nums.length = 0;
-console.log(`After clearing list, nums = ${nums}`);
+console.log(`After clearing the list, nums = ${nums}`);
 
-/* Direct traversal of list elements */
+/* Append an element at the end */
 nums.push(1);
 nums.push(3);
 nums.push(2);
 nums.push(5);
 nums.push(4);
-console.log(`After adding elements, nums = ${nums}`);
+console.log(`After appending elements, nums = ${nums}`);
 
-/* Sort list */
+/* Insert an element in the middle */
 nums.splice(3, 0, 6);
-console.log(`Insert number 6 at index 3, get nums = ${nums}`);
+console.log(`Insert the number 6 at index 3, giving nums = ${nums}`);
 
-/* Remove element */
+/* Remove an element */
 nums.splice(3, 1);
-console.log(`Delete element at index 3, get nums = ${nums}`);
+console.log(`Remove the element at index 3, giving nums = ${nums}`);
 
-/* Traverse list by index */
+/* Traverse the list by index */
 let count = 0;
 for (let i = 0; i < nums.length; i++) {
     count += nums[i];
 }
-/* Directly traverse list elements */
+/* Iterate directly over the list elements */
 count = 0;
 for (const x of nums) {
     count += x;
@@ -50,10 +50,10 @@ for (const x of nums) {
 /* Concatenate two lists */
 const nums1: number[] = [6, 8, 7, 10, 9];
 nums.push(...nums1);
-console.log(`After concatenating list nums1 to nums, get nums = ${nums}`);
+console.log(`Append list nums1 to nums, giving nums = ${nums}`);
 
-/* Sort list */
+/* Sort the list */
 nums.sort((a, b) => a - b);
-console.log(`After sorting list, nums = ${nums}`);
+console.log(`After sorting the list, nums = ${nums}`);
 
 export {};

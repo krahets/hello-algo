@@ -10,14 +10,14 @@ import (
 
 /* Linear search (array) */
 func linearSearchArray(nums []int, target int) int {
-	// Traverse array
+	// Traverse the array
 	for i := 0; i < len(nums); i++ {
-		// Found the target element, return its index
+		// The target element was found; return its index
 		if nums[i] == target {
 			return i
 		}
 	}
-	// Target element not found, return -1
+	// The target element was not found; return -1
 	return -1
 }
 
@@ -25,12 +25,12 @@ func linearSearchArray(nums []int, target int) int {
 func linearSearchLinkedList(node *ListNode, target int) *ListNode {
 	// Traverse the linked list
 	for node != nil {
-		// Found the target node, return it
+		// The target node was found; return it
 		if node.Val == target {
 			return node
 		}
 		node = node.Next
 	}
-	// Target element not found, return nil
+	// The target element was not found; return nil
 	return nil
 }

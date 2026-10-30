@@ -46,7 +46,7 @@ impl HashMapChaining {
     fn remove(&mut self, key: i32) -> Option<String> {
         let index = self.hash_func(key);
 
-        // Traverse bucket and remove key-value pair from it
+        // Traverse the bucket and remove the key-value pair
         for (i, p) in self.buckets[index].iter_mut().enumerate() {
             if p.key == key {
                 let pair = self.buckets[index].remove(i);
@@ -55,21 +55,21 @@ impl HashMapChaining {
             }
         }
 
-        // If key is not found, return None
+        // Return None if key is not found
         None
     }
 
-    /* Expand hash table */
+    /* Grow the hash table capacity */
     fn extend(&mut self) {
-        // Temporarily store the original hash table
+        // Temporarily take ownership of the original buckets
         let buckets_tmp = std::mem::take(&mut self.buckets);
 
-        // Initialize expanded new hash table
+        // Initialize a new hash table with the expanded capacity
         self.capacity *= self.extend_ratio;
         self.buckets = vec![Vec::new(); self.capacity as usize];
         self.size = 0;
 
-        // Move key-value pairs from original hash table to new hash table
+        // Move the key-value pairs from the original hash table to the new one
         for bucket in buckets_tmp {
             for pair in bucket {
                 self.put(pair.key, pair.val);
@@ -77,7 +77,7 @@ impl HashMapChaining {
         }
     }
 
-    /* Print hash table */
+    /* Print the hash table */
     fn print(&self) {
         for bucket in &self.buckets {
             let mut res = Vec::new();
@@ -88,16 +88,16 @@ impl HashMapChaining {
         }
     }
 
-    /* Add operation */
+    /* Insert operation */
     fn put(&mut self, key: i32, val: String) {
-        // When load factor exceeds threshold, perform expansion
+        // Grow the capacity when the load factor exceeds the threshold
         if self.load_factor() > self.load_thres {
             self.extend();
         }
 
         let index = self.hash_func(key);
 
-        // Traverse bucket, if specified key is encountered, update corresponding val and return
+        // Traverse the bucket; if the specified key is found, update its val and return
         for pair in self.buckets[index].iter_mut() {
             if pair.key == key {
                 pair.val = val;
@@ -105,56 +105,56 @@ impl HashMapChaining {
             }
         }
 
-        // If key does not exist, append key-value pair to the end
+        // If key is absent, append the key-value pair at the end
         let pair = Pair { key, val };
         self.buckets[index].push(pair);
         self.size += 1;
     }
 
-    /* Query operation */
+    /* Lookup operation */
     fn get(&self, key: i32) -> Option<&str> {
         let index = self.hash_func(key);
 
-        // Traverse bucket, if key is found, return corresponding val
+        // Traverse the bucket; if key is found, return its corresponding val
         for pair in self.buckets[index].iter() {
             if pair.key == key {
                 return Some(&pair.val);
             }
         }
 
-        // If key is not found, return None
+        // Return None if key is not found
         None
     }
 }
 
-/* Driver Code */
+/* Driver code */
 pub fn main() {
-    /* Initialize hash table */
+    /* Initialize the hash table */
     let mut map = HashMapChaining::new();
 
-    /* Add operation */
-    // Add key-value pair (key, value) to the hash table
-    map.put(12836, "Xiao Ha".to_string());
-    map.put(15937, "Xiao Luo".to_string());
-    map.put(16750, "Xiao Suan".to_string());
-    map.put(13276, "Xiao Fa".to_string());
-    map.put(10583, "Xiao Ya".to_string());
-    println!("\nAfter adding is complete, hash table is\nKey -> Value");
+    /* Insert operation */
+    // Insert the key-value pair (key, value) into the hash table
+    map.put(12836, "小哈".to_string());
+    map.put(15937, "小啰".to_string());
+    map.put(16750, "小算".to_string());
+    map.put(13276, "小法".to_string());
+    map.put(10583, "小鸭".to_string());
+    println!("\nHash table after insertion:\nKey -> Value");
     map.print();
 
-    /* Query operation */
-    // Input key into hash table to get value
+    /* Lookup operation */
+    // Look up key in the hash table to obtain value
     println!(
-        "\nInput student ID 13276, found name {}",
+        "\nLooking up student ID 13276 gives name {}",
         match map.get(13276) {
             Some(value) => value,
-            None => "Not a valid Key",
+            None => "Key not found",
         }
     );
 
     /* Remove operation */
-    // Remove key-value pair (key, value) from hash table
+    // Remove the key-value pair (key, value) from the hash table
     map.remove(12836);
-    println!("\nAfter removing 12836, hash table is\nKey -> Value");
+    println!("\nHash table after removing 12836:\nKey -> Value");
     map.print();
 }
