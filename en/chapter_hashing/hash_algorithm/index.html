@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
+        <meta name="description" content="A data structures and algorithms tutorial with animated illustrations and code you can run with one click">
 
 
         <meta name="author" content="krahets">
@@ -41,7 +41,7 @@
 
 
 
-        <title>6.3 Hash Algorithm - Hello Algo</title>
+        <title>6.3 Hash algorithms - Hello Algo</title>
 
 
 
@@ -67,8 +67,8 @@
 
 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"JetBrains Mono"}</style>
 
 
 
@@ -101,7 +101,7 @@
     <div data-md-component="skip">
 
 
-        <a href="#63-hash-algorithm" class="md-skip">
+        <a href="#63-hash-algorithms" class="md-skip">
           Skip to content
         </a>
 
@@ -119,7 +119,7 @@
         <path
             d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z" />
     </svg>
-    <span>Welcome to contribute to Chinese-to-English translation! For more details, please refer to <a href="https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md">CONTRIBUTING.md</a>.</span>
+    <span>Help improve the English edition. See our <a href="https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md">contribution guidelines</a>.</span>
 </div>
 
           </div>
@@ -154,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
 
-              6.3 &nbsp; Hash Algorithm
+              6.3 &nbsp; Hash algorithms
 
           </span>
         </div>
@@ -167,9 +167,9 @@
 
 
 
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
 
-      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
       </label>
 
@@ -177,9 +177,9 @@
 
 
 
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
 
-      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
       </label>
 
@@ -349,7 +349,7 @@
   <span class="md-ellipsis">
 
 
-  Before Starting
+  Foreword
 
 
   </span>
@@ -365,7 +365,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Before Starting
+  Foreword
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -419,7 +419,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 0. Preface
+  Chapter 0. &nbsp; Preface
 
 
   </span>
@@ -440,7 +440,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 0. Preface
+  Chapter 0. &nbsp; Preface
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -461,7 +461,7 @@
   <span class="md-ellipsis">
 
 
-  0.1 About This Book
+  0.1 &nbsp; About this book
 
 
   </span>
@@ -488,7 +488,7 @@
   <span class="md-ellipsis">
 
 
-  0.2 How to Use This Book
+  0.2 &nbsp; How to use this book
 
 
   </span>
@@ -515,7 +515,7 @@
   <span class="md-ellipsis">
 
 
-  0.3 Summary
+  0.3 &nbsp; Summary
 
 
   </span>
@@ -575,7 +575,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 1. Encounter with Algorithms
+  Chapter 1. &nbsp; Getting to know algorithms
 
 
   </span>
@@ -596,7 +596,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 1. Encounter with Algorithms
+  Chapter 1. &nbsp; Getting to know algorithms
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -617,7 +617,7 @@
   <span class="md-ellipsis">
 
 
-  1.1 Algorithms Are Everywhere
+  1.1 &nbsp; Algorithms are everywhere
 
 
   </span>
@@ -644,7 +644,7 @@
   <span class="md-ellipsis">
 
 
-  1.2 What Is an Algorithm
+  1.2 &nbsp; What is an algorithm?
 
 
   </span>
@@ -671,7 +671,7 @@
   <span class="md-ellipsis">
 
 
-  1.3 Summary
+  1.3 &nbsp; Summary
 
 
   </span>
@@ -737,7 +737,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 2. Complexity Analysis
+  Chapter 2. &nbsp; Complexity analysis
 
 
   </span>
@@ -758,7 +758,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 2. Complexity Analysis
+  Chapter 2. &nbsp; Complexity analysis
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -779,7 +779,7 @@
   <span class="md-ellipsis">
 
 
-  2.1 Algorithm Efficiency Evaluation
+  2.1 &nbsp; Evaluating algorithm efficiency
 
 
   </span>
@@ -806,7 +806,7 @@
   <span class="md-ellipsis">
 
 
-  2.2 Iteration and Recursion
+  2.2 &nbsp; Iteration and recursion
 
 
   </span>
@@ -833,7 +833,7 @@
   <span class="md-ellipsis">
 
 
-  2.3 Time Complexity
+  2.3 &nbsp; Time complexity
 
 
   </span>
@@ -860,7 +860,7 @@
   <span class="md-ellipsis">
 
 
-  2.4 Space Complexity
+  2.4 &nbsp; Space complexity
 
 
   </span>
@@ -887,7 +887,7 @@
   <span class="md-ellipsis">
 
 
-  2.5 Summary
+  2.5 &nbsp; Summary
 
 
   </span>
@@ -914,7 +914,7 @@
   <span class="md-ellipsis">
 
 
-  2.6 Exercises
+  2.6 &nbsp; Exercises
 
 
   </span>
@@ -980,7 +980,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 3. Data Structures
+  Chapter 3. &nbsp; Data structures
 
 
   </span>
@@ -1001,7 +1001,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 3. Data Structures
+  Chapter 3. &nbsp; Data structures
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1022,7 +1022,7 @@
   <span class="md-ellipsis">
 
 
-  3.1 Classification of Data Structures
+  3.1 &nbsp; Classifying data structures
 
 
   </span>
@@ -1049,7 +1049,7 @@
   <span class="md-ellipsis">
 
 
-  3.2 Basic Data Types
+  3.2 &nbsp; Basic data types
 
 
   </span>
@@ -1076,7 +1076,7 @@
   <span class="md-ellipsis">
 
 
-  3.3 Number Encoding *
+  3.3 &nbsp; Number encoding *
 
 
   </span>
@@ -1103,7 +1103,7 @@
   <span class="md-ellipsis">
 
 
-  3.4 Character Encoding *
+  3.4 &nbsp; Character encoding *
 
 
   </span>
@@ -1130,7 +1130,7 @@
   <span class="md-ellipsis">
 
 
-  3.5 Summary
+  3.5 &nbsp; Summary
 
 
   </span>
@@ -1157,7 +1157,7 @@
   <span class="md-ellipsis">
 
 
-  3.6 Exercises
+  3.6 &nbsp; Exercises
 
 
   </span>
@@ -1223,7 +1223,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 4. Arrays and Linked Lists
+  Chapter 4. &nbsp; Arrays and linked lists
 
 
   </span>
@@ -1244,7 +1244,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 4. Arrays and Linked Lists
+  Chapter 4. &nbsp; Arrays and linked lists
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1265,7 +1265,7 @@
   <span class="md-ellipsis">
 
 
-  4.1 Array
+  4.1 &nbsp; Arrays
 
 
   </span>
@@ -1292,7 +1292,7 @@
   <span class="md-ellipsis">
 
 
-  4.2 Linked List
+  4.2 &nbsp; Linked lists
 
 
   </span>
@@ -1319,7 +1319,7 @@
   <span class="md-ellipsis">
 
 
-  4.3 List
+  4.3 &nbsp; Lists
 
 
   </span>
@@ -1346,7 +1346,7 @@
   <span class="md-ellipsis">
 
 
-  4.4 Random-Access Memory and Cache *
+  4.4 &nbsp; Memory and cache *
 
 
   </span>
@@ -1373,7 +1373,7 @@
   <span class="md-ellipsis">
 
 
-  4.5 Summary
+  4.5 &nbsp; Summary
 
 
   </span>
@@ -1400,7 +1400,7 @@
   <span class="md-ellipsis">
 
 
-  4.6 Exercises
+  4.6 &nbsp; Exercises
 
 
   </span>
@@ -1464,7 +1464,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 5. Stacks and Queues
+  Chapter 5. &nbsp; Stacks and queues
 
 
   </span>
@@ -1485,7 +1485,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 5. Stacks and Queues
+  Chapter 5. &nbsp; Stacks and queues
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1506,7 +1506,7 @@
   <span class="md-ellipsis">
 
 
-  5.1 Stack
+  5.1 &nbsp; Stacks
 
 
   </span>
@@ -1533,7 +1533,7 @@
   <span class="md-ellipsis">
 
 
-  5.2 Queue
+  5.2 &nbsp; Queues
 
 
   </span>
@@ -1560,7 +1560,7 @@
   <span class="md-ellipsis">
 
 
-  5.3 Deque
+  5.3 &nbsp; Deques
 
 
   </span>
@@ -1587,7 +1587,7 @@
   <span class="md-ellipsis">
 
 
-  5.4 Summary
+  5.4 &nbsp; Summary
 
 
   </span>
@@ -1614,7 +1614,7 @@
   <span class="md-ellipsis">
 
 
-  5.5 Exercises
+  5.5 &nbsp; Exercises
 
 
   </span>
@@ -1680,7 +1680,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 6. Hashing
+  Chapter 6. &nbsp; Hash tables
 
 
   </span>
@@ -1701,7 +1701,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 6. Hashing
+  Chapter 6. &nbsp; Hash tables
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1722,7 +1722,7 @@
   <span class="md-ellipsis">
 
 
-  6.1 Hash Table
+  6.1 &nbsp; Hash tables
 
 
   </span>
@@ -1749,7 +1749,7 @@
   <span class="md-ellipsis">
 
 
-  6.2 Hash Collision
+  6.2 &nbsp; Hash collisions
 
 
   </span>
@@ -1785,7 +1785,7 @@
   <span class="md-ellipsis">
 
 
-  6.3 Hash Algorithm
+  6.3 &nbsp; Hash algorithms
 
 
   </span>
@@ -1802,7 +1802,7 @@
   <span class="md-ellipsis">
 
 
-  6.3 Hash Algorithm
+  6.3 &nbsp; Hash algorithms
 
 
   </span>
@@ -1828,10 +1828,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
 
         <li class="md-nav__item">
-  <a href="#631-goals-of-hash-algorithms" class="md-nav__link">
+  <a href="#631-goals-of-a-hash-algorithm" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        6.3.1 &nbsp; Goals of Hash Algorithms
+        6.3.1 &nbsp; Goals of a hash algorithm
       </span>
     </span>
   </a>
@@ -1839,10 +1839,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#632-design-of-hash-algorithms" class="md-nav__link">
+  <a href="#632-designing-a-hash-algorithm" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        6.3.2 &nbsp; Design of Hash Algorithms
+        6.3.2 &nbsp; Designing a hash algorithm
       </span>
     </span>
   </a>
@@ -1853,7 +1853,7 @@
   <a href="#633-common-hash-algorithms" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        6.3.3 &nbsp; Common Hash Algorithms
+        6.3.3 &nbsp; Common hash algorithms
       </span>
     </span>
   </a>
@@ -1861,10 +1861,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#634-hash-values-in-data-structures" class="md-nav__link">
+  <a href="#634-hash-values-of-data-structures" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        6.3.4 &nbsp; Hash Values in Data Structures
+        6.3.4 &nbsp; Hash values of data structures
       </span>
     </span>
   </a>
@@ -1894,7 +1894,7 @@
   <span class="md-ellipsis">
 
 
-  6.4 Summary
+  6.4 &nbsp; Summary
 
 
   </span>
@@ -1921,7 +1921,7 @@
   <span class="md-ellipsis">
 
 
-  6.5 Exercises
+  6.5 &nbsp; Exercises
 
 
   </span>
@@ -1989,7 +1989,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 7. Tree
+  Chapter 7. &nbsp; Trees
 
 
   </span>
@@ -2010,7 +2010,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 7. Tree
+  Chapter 7. &nbsp; Trees
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2031,7 +2031,7 @@
   <span class="md-ellipsis">
 
 
-  7.1 Binary Tree
+  7.1 &nbsp; Binary trees
 
 
   </span>
@@ -2058,7 +2058,7 @@
   <span class="md-ellipsis">
 
 
-  7.2 Binary Tree Traversal
+  7.2 &nbsp; Traversing a binary tree
 
 
   </span>
@@ -2085,7 +2085,7 @@
   <span class="md-ellipsis">
 
 
-  7.3 Array Representation of Binary Trees
+  7.3 &nbsp; Array representation of a binary tree
 
 
   </span>
@@ -2112,7 +2112,7 @@
   <span class="md-ellipsis">
 
 
-  7.4 Binary Search Tree
+  7.4 &nbsp; Binary search trees
 
 
   </span>
@@ -2139,7 +2139,7 @@
   <span class="md-ellipsis">
 
 
-  7.5 AVL Tree *
+  7.5 &nbsp; AVL trees *
 
 
   </span>
@@ -2166,7 +2166,7 @@
   <span class="md-ellipsis">
 
 
-  7.6 Summary
+  7.6 &nbsp; Summary
 
 
   </span>
@@ -2193,7 +2193,7 @@
   <span class="md-ellipsis">
 
 
-  7.7 Exercises
+  7.7 &nbsp; Exercises
 
 
   </span>
@@ -2257,7 +2257,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 8. Heap
+  Chapter 8. &nbsp; Heaps
 
 
   </span>
@@ -2278,7 +2278,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 8. Heap
+  Chapter 8. &nbsp; Heaps
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2299,7 +2299,7 @@
   <span class="md-ellipsis">
 
 
-  8.1 Heap
+  8.1 &nbsp; Heaps
 
 
   </span>
@@ -2326,7 +2326,7 @@
   <span class="md-ellipsis">
 
 
-  8.2 Heap Construction Operation
+  8.2 &nbsp; Building a heap
 
 
   </span>
@@ -2353,7 +2353,7 @@
   <span class="md-ellipsis">
 
 
-  8.3 Top-k Problem
+  8.3 &nbsp; The top-k problem
 
 
   </span>
@@ -2380,7 +2380,7 @@
   <span class="md-ellipsis">
 
 
-  8.4 Summary
+  8.4 &nbsp; Summary
 
 
   </span>
@@ -2407,7 +2407,7 @@
   <span class="md-ellipsis">
 
 
-  8.5 Exercises
+  8.5 &nbsp; Exercises
 
 
   </span>
@@ -2471,7 +2471,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 9. Graph
+  Chapter 9. &nbsp; Graphs
 
 
   </span>
@@ -2492,7 +2492,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 9. Graph
+  Chapter 9. &nbsp; Graphs
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2513,7 +2513,7 @@
   <span class="md-ellipsis">
 
 
-  9.1 Graph
+  9.1 &nbsp; Graphs
 
 
   </span>
@@ -2540,7 +2540,7 @@
   <span class="md-ellipsis">
 
 
-  9.2 Basic Operations on Graphs
+  9.2 &nbsp; Basic graph operations
 
 
   </span>
@@ -2567,7 +2567,7 @@
   <span class="md-ellipsis">
 
 
-  9.3 Graph Traversal
+  9.3 &nbsp; Graph traversal
 
 
   </span>
@@ -2594,7 +2594,7 @@
   <span class="md-ellipsis">
 
 
-  9.4 Summary
+  9.4 &nbsp; Summary
 
 
   </span>
@@ -2621,7 +2621,7 @@
   <span class="md-ellipsis">
 
 
-  9.5 Exercises
+  9.5 &nbsp; Exercises
 
 
   </span>
@@ -2689,7 +2689,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 10. Searching
+  Chapter 10. &nbsp; Searching
 
 
   </span>
@@ -2710,7 +2710,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 10. Searching
+  Chapter 10. &nbsp; Searching
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2731,7 +2731,7 @@
   <span class="md-ellipsis">
 
 
-  10.1 Binary Search
+  10.1 &nbsp; Binary search
 
 
   </span>
@@ -2758,7 +2758,7 @@
   <span class="md-ellipsis">
 
 
-  10.2 Binary Search Insertion Point
+  10.2 &nbsp; Finding an insertion point with binary search
 
 
   </span>
@@ -2785,7 +2785,7 @@
   <span class="md-ellipsis">
 
 
-  10.3 Binary Search Boundaries
+  10.3 &nbsp; Finding boundaries with binary search
 
 
   </span>
@@ -2812,7 +2812,7 @@
   <span class="md-ellipsis">
 
 
-  10.4 Hash Optimization Strategy
+  10.4 &nbsp; Optimizing with hashing
 
 
   </span>
@@ -2839,7 +2839,7 @@
   <span class="md-ellipsis">
 
 
-  10.5 Searching Algorithms Revisited
+  10.5 &nbsp; Search algorithms revisited
 
 
   </span>
@@ -2866,7 +2866,7 @@
   <span class="md-ellipsis">
 
 
-  10.6 Summary
+  10.6 &nbsp; Summary
 
 
   </span>
@@ -2893,7 +2893,7 @@
   <span class="md-ellipsis">
 
 
-  10.7 Exercises
+  10.7 &nbsp; Exercises
 
 
   </span>
@@ -2971,7 +2971,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 11. Sorting
+  Chapter 11. &nbsp; Sorting
 
 
   </span>
@@ -2992,7 +2992,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 11. Sorting
+  Chapter 11. &nbsp; Sorting
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3013,7 +3013,7 @@
   <span class="md-ellipsis">
 
 
-  11.1 Sorting Algorithm
+  11.1 &nbsp; Sorting algorithms
 
 
   </span>
@@ -3040,7 +3040,7 @@
   <span class="md-ellipsis">
 
 
-  11.2 Selection Sort
+  11.2 &nbsp; Selection sort
 
 
   </span>
@@ -3067,7 +3067,7 @@
   <span class="md-ellipsis">
 
 
-  11.3 Bubble Sort
+  11.3 &nbsp; Bubble sort
 
 
   </span>
@@ -3094,7 +3094,7 @@
   <span class="md-ellipsis">
 
 
-  11.4 Insertion Sort
+  11.4 &nbsp; Insertion sort
 
 
   </span>
@@ -3121,7 +3121,7 @@
   <span class="md-ellipsis">
 
 
-  11.5 Quick Sort
+  11.5 &nbsp; Quick sort
 
 
   </span>
@@ -3148,7 +3148,7 @@
   <span class="md-ellipsis">
 
 
-  11.6 Merge Sort
+  11.6 &nbsp; Merge sort
 
 
   </span>
@@ -3175,7 +3175,7 @@
   <span class="md-ellipsis">
 
 
-  11.7 Heap Sort
+  11.7 &nbsp; Heap sort
 
 
   </span>
@@ -3202,7 +3202,7 @@
   <span class="md-ellipsis">
 
 
-  11.8 Bucket Sort
+  11.8 &nbsp; Bucket sort
 
 
   </span>
@@ -3229,7 +3229,7 @@
   <span class="md-ellipsis">
 
 
-  11.9 Counting Sort
+  11.9 &nbsp; Counting sort
 
 
   </span>
@@ -3256,7 +3256,7 @@
   <span class="md-ellipsis">
 
 
-  11.10 Radix Sort
+  11.10 &nbsp; Radix sort
 
 
   </span>
@@ -3283,7 +3283,7 @@
   <span class="md-ellipsis">
 
 
-  11.11 Summary
+  11.11 &nbsp; Summary
 
 
   </span>
@@ -3310,7 +3310,7 @@
   <span class="md-ellipsis">
 
 
-  11.12 Exercises
+  11.12 &nbsp; Exercises
 
 
   </span>
@@ -3376,7 +3376,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 12. Divide and Conquer
+  Chapter 12. &nbsp; Divide and conquer
 
 
   </span>
@@ -3397,7 +3397,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 12. Divide and Conquer
+  Chapter 12. &nbsp; Divide and conquer
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3418,7 +3418,7 @@
   <span class="md-ellipsis">
 
 
-  12.1 Divide and Conquer Algorithms
+  12.1 &nbsp; Divide and conquer
 
 
   </span>
@@ -3445,7 +3445,7 @@
   <span class="md-ellipsis">
 
 
-  12.2 Divide and Conquer Search Strategy
+  12.2 &nbsp; Divide-and-conquer search
 
 
   </span>
@@ -3472,7 +3472,7 @@
   <span class="md-ellipsis">
 
 
-  12.3 Building a Binary Tree Problem
+  12.3 &nbsp; Building a binary tree
 
 
   </span>
@@ -3499,7 +3499,7 @@
   <span class="md-ellipsis">
 
 
-  12.4 Tower of Hanoi Problem
+  12.4 &nbsp; Tower of Hanoi
 
 
   </span>
@@ -3526,7 +3526,7 @@
   <span class="md-ellipsis">
 
 
-  12.5 Summary
+  12.5 &nbsp; Summary
 
 
   </span>
@@ -3553,7 +3553,7 @@
   <span class="md-ellipsis">
 
 
-  12.6 Exercises
+  12.6 &nbsp; Exercises
 
 
   </span>
@@ -3619,7 +3619,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 13. Backtracking
+  Chapter 13. &nbsp; Backtracking
 
 
   </span>
@@ -3640,7 +3640,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 13. Backtracking
+  Chapter 13. &nbsp; Backtracking
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3661,7 +3661,7 @@
   <span class="md-ellipsis">
 
 
-  13.1 Backtracking Algorithm
+  13.1 &nbsp; Backtracking algorithms
 
 
   </span>
@@ -3688,7 +3688,7 @@
   <span class="md-ellipsis">
 
 
-  13.2 Permutations Problem
+  13.2 &nbsp; Permutations problem
 
 
   </span>
@@ -3715,7 +3715,7 @@
   <span class="md-ellipsis">
 
 
-  13.3 Subset-Sum Problem
+  13.3 &nbsp; Subset sum problem
 
 
   </span>
@@ -3742,7 +3742,7 @@
   <span class="md-ellipsis">
 
 
-  13.4 N-Queens Problem
+  13.4 &nbsp; N-queens problem
 
 
   </span>
@@ -3769,7 +3769,7 @@
   <span class="md-ellipsis">
 
 
-  13.5 Summary
+  13.5 &nbsp; Summary
 
 
   </span>
@@ -3796,7 +3796,7 @@
   <span class="md-ellipsis">
 
 
-  13.6 Exercises
+  13.6 &nbsp; Exercises
 
 
   </span>
@@ -3866,7 +3866,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 14. Dynamic Programming
+  Chapter 14. &nbsp; Dynamic programming
 
 
   </span>
@@ -3887,7 +3887,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 14. Dynamic Programming
+  Chapter 14. &nbsp; Dynamic programming
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3908,7 +3908,7 @@
   <span class="md-ellipsis">
 
 
-  14.1 Introduction to Dynamic Programming
+  14.1 &nbsp; Introduction to dynamic programming
 
 
   </span>
@@ -3935,7 +3935,7 @@
   <span class="md-ellipsis">
 
 
-  14.2 Characteristics of Dynamic Programming Problems
+  14.2 &nbsp; Properties of dynamic programming problems
 
 
   </span>
@@ -3962,7 +3962,7 @@
   <span class="md-ellipsis">
 
 
-  14.3 Dynamic Programming Problem-Solving Approach
+  14.3 &nbsp; Solving dynamic programming problems
 
 
   </span>
@@ -3989,7 +3989,7 @@
   <span class="md-ellipsis">
 
 
-  14.4 0-1 Knapsack Problem
+  14.4 &nbsp; 0-1 knapsack problem
 
 
   </span>
@@ -4016,7 +4016,7 @@
   <span class="md-ellipsis">
 
 
-  14.5 Unbounded Knapsack Problem
+  14.5 &nbsp; Unbounded knapsack problem
 
 
   </span>
@@ -4043,7 +4043,7 @@
   <span class="md-ellipsis">
 
 
-  14.6 Edit Distance Problem
+  14.6 &nbsp; Edit distance problem
 
 
   </span>
@@ -4070,7 +4070,7 @@
   <span class="md-ellipsis">
 
 
-  14.7 Summary
+  14.7 &nbsp; Summary
 
 
   </span>
@@ -4097,7 +4097,7 @@
   <span class="md-ellipsis">
 
 
-  14.8 Exercises
+  14.8 &nbsp; Exercises
 
 
   </span>
@@ -4163,7 +4163,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 15. Greedy
+  Chapter 15. &nbsp; Greedy algorithms
 
 
   </span>
@@ -4184,7 +4184,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 15. Greedy
+  Chapter 15. &nbsp; Greedy algorithms
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4205,7 +4205,7 @@
   <span class="md-ellipsis">
 
 
-  15.1 Greedy Algorithm
+  15.1 &nbsp; Greedy algorithms
 
 
   </span>
@@ -4232,7 +4232,7 @@
   <span class="md-ellipsis">
 
 
-  15.2 Fractional Knapsack Problem
+  15.2 &nbsp; Fractional knapsack problem
 
 
   </span>
@@ -4259,7 +4259,7 @@
   <span class="md-ellipsis">
 
 
-  15.3 Maximum Capacity Problem
+  15.3 &nbsp; Maximum capacity problem
 
 
   </span>
@@ -4286,7 +4286,7 @@
   <span class="md-ellipsis">
 
 
-  15.4 Maximum Product Cutting Problem
+  15.4 &nbsp; Maximum product cutting problem
 
 
   </span>
@@ -4313,7 +4313,7 @@
   <span class="md-ellipsis">
 
 
-  15.5 Summary
+  15.5 &nbsp; Summary
 
 
   </span>
@@ -4340,7 +4340,7 @@
   <span class="md-ellipsis">
 
 
-  15.6 Exercises
+  15.6 &nbsp; Exercises
 
 
   </span>
@@ -4400,7 +4400,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 16. Appendix
+  Chapter 16. &nbsp; Appendix
 
 
   </span>
@@ -4421,7 +4421,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 16. Appendix
+  Chapter 16. &nbsp; Appendix
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4442,7 +4442,7 @@
   <span class="md-ellipsis">
 
 
-  16.1 Programming Environment Installation
+  16.1 &nbsp; Setting up a programming environment
 
 
   </span>
@@ -4469,7 +4469,7 @@
   <span class="md-ellipsis">
 
 
-  16.2 Contributing Together
+  16.2 &nbsp; Contribute to the book
 
 
   </span>
@@ -4496,7 +4496,7 @@
   <span class="md-ellipsis">
 
 
-  16.3 Glossary
+  16.3 &nbsp; Glossary
 
 
   </span>
@@ -4580,6 +4580,78 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="md-nav__item md-nav__item--nested">
+
+
+
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_20" >
+
+
+          <div class="md-nav__link md-nav__container">
+            <a href="../../chapter_paperbook/" class="md-nav__link ">
+
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+  <span class="md-ellipsis">
+
+
+  Print edition (Chinese)
+
+
+  </span>
+
+
+
+
+
+    <span class="md-status md-status--new" title="Recently added">
+    </span>
+
+
+
+
+            </a>
+
+          </div>
+
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_20">
+            <span class="md-nav__icon md-icon"></span>
+
+
+  Print edition (Chinese)
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+          </ul>
+        </nav>
+
+    </li>
+
+
+
   </ul>
 </nav>
                   </div>
@@ -4621,10 +4693,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
 
         <li class="md-nav__item">
-  <a href="#631-goals-of-hash-algorithms" class="md-nav__link">
+  <a href="#631-goals-of-a-hash-algorithm" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        6.3.1 &nbsp; Goals of Hash Algorithms
+        6.3.1 &nbsp; Goals of a hash algorithm
       </span>
     </span>
   </a>
@@ -4632,10 +4704,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#632-design-of-hash-algorithms" class="md-nav__link">
+  <a href="#632-designing-a-hash-algorithm" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        6.3.2 &nbsp; Design of Hash Algorithms
+        6.3.2 &nbsp; Designing a hash algorithm
       </span>
     </span>
   </a>
@@ -4646,7 +4718,7 @@
   <a href="#633-common-hash-algorithms" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        6.3.3 &nbsp; Common Hash Algorithms
+        6.3.3 &nbsp; Common hash algorithms
       </span>
     </span>
   </a>
@@ -4654,10 +4726,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#634-hash-values-in-data-structures" class="md-nav__link">
+  <a href="#634-hash-values-of-data-structures" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        6.3.4 &nbsp; Hash Values in Data Structures
+        6.3.4 &nbsp; Hash values of data structures
       </span>
     </span>
   </a>
@@ -4701,43 +4773,43 @@
 
 
 <!-- Page content -->
-<h1 id="63-hash-algorithm">6.3 &nbsp; Hash Algorithm<a class="headerlink" href="#63-hash-algorithm" title="Permanent link">&para;</a></h1>
-<p>The previous two sections introduced the working principle of hash tables and the methods to handle hash collisions. However, both open addressing and separate chaining <strong>can only ensure that the hash table functions normally when hash collisions occur, but cannot reduce the frequency of hash collisions</strong>.</p>
-<p>If hash collisions occur too frequently, the performance of the hash table will deteriorate drastically. As shown in Figure 6-8, for a separate chaining hash table, in the ideal case, the key-value pairs are evenly distributed across the buckets, achieving optimal query efficiency; in the worst case, all key-value pairs are stored in the same bucket, degrading the time complexity to <span class="arithmatex">\(O(n)\)</span>.</p>
-<p><img alt="Ideal and worst cases of hash collisions" class="animation-figure" src="../hash_algorithm.assets/hash_collision_best_worst_condition.png" /></p>
-<p align="center"> Figure 6-8 &nbsp; Ideal and worst cases of hash collisions </p>
+<h1 id="63-hash-algorithms">6.3 &nbsp; Hash algorithms<a class="headerlink" href="#63-hash-algorithms" title="Permanent link">&para;</a></h1>
+<p>The previous two sections explained how hash tables work and how collisions are resolved. Whether we use open addressing or separate chaining, <strong>these techniques keep the table working when collisions occur, but do not reduce how often collisions happen</strong>.</p>
+<p>Frequent collisions can severely degrade performance. In the separate-chaining table shown below, the ideal case distributes pairs evenly among buckets for the best lookup efficiency. In the worst case, all pairs occupy the same bucket, degrading the time complexity to <span class="arithmatex">\(O(n)\)</span>.</p>
+<p><img alt="Best and worst cases for hash collisions" class="animation-figure" src="../hash_algorithm.assets/hash_collision_best_worst_condition.png" /></p>
+<p align="center"> Figure 6-8 &nbsp; Best and worst cases for hash collisions </p>
 
-<p><strong>The distribution of key-value pairs is determined by the hash function</strong>. Recall the steps of the hash function: first compute the hash value, then take it modulo the array length:</p>
+<p><strong>The hash function determines how key-value pairs are distributed</strong>. Recall its two steps: calculate a hash value, then take it modulo the array length:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hash<span class="o">(</span>key<span class="o">)</span><span class="w"> </span>%<span class="w"> </span>capacity
 </code></pre></div>
-<p>Observing the above formula, when the hash table capacity <code>capacity</code> is fixed, <strong>the hash algorithm <code>hash()</code> determines the output value</strong>, thereby determining the distribution of key-value pairs in the hash table.</p>
-<p>This means that, to reduce the probability of hash collisions, we should focus on the design of the hash algorithm <code>hash()</code>.</p>
-<h2 id="631-goals-of-hash-algorithms">6.3.1 &nbsp; Goals of Hash Algorithms<a class="headerlink" href="#631-goals-of-hash-algorithms" title="Permanent link">&para;</a></h2>
-<p>To build a hash table that is both fast and robust, a hash algorithm should have the following properties:</p>
+<p>For a fixed <code>capacity</code>, <strong>the hash algorithm <code>hash()</code> determines the output</strong>, and therefore the distribution of pairs in the table.</p>
+<p>To lower the likelihood of collisions, we should therefore focus on designing <code>hash()</code>.</p>
+<h2 id="631-goals-of-a-hash-algorithm">6.3.1 &nbsp; Goals of a hash algorithm<a class="headerlink" href="#631-goals-of-a-hash-algorithm" title="Permanent link">&para;</a></h2>
+<p>To build a hash table that is both fast and reliable, its hash algorithm should have these properties.</p>
 <ul>
-<li><strong>Determinism</strong>: For the same input, the hash algorithm should always produce the same output. Only then can the hash table be reliable.</li>
-<li><strong>High efficiency</strong>: The process of computing the hash value should be fast enough. The smaller the computational overhead, the more practical the hash table.</li>
-<li><strong>Uniform distribution</strong>: The hash algorithm should ensure that key-value pairs are evenly distributed in the hash table. The more uniform the distribution, the lower the probability of hash collisions.</li>
+<li><strong>Determinism</strong>: The same input must always produce the same output, ensuring reliable lookup.</li>
+<li><strong>Efficiency</strong>: Calculating a hash should be fast. Lower computational overhead makes the table more practical.</li>
+<li><strong>Uniform distribution</strong>: The algorithm should distribute pairs evenly across the table. More uniform distribution means fewer collisions.</li>
 </ul>
-<p>In fact, hash algorithms are not only used to implement hash tables but are also widely applied in other fields.</p>
+<p>Hash algorithms also have many applications beyond hash tables.</p>
 <ul>
-<li><strong>Password storage</strong>: To protect the security of user passwords, systems usually do not store the plaintext passwords but rather the hash values of the passwords. When a user enters a password, the system calculates the hash value of the input and compares it with the stored hash value. If they match, the password is considered correct.</li>
-<li><strong>Data integrity check</strong>: The data sender can calculate the hash value of the data and send it along; the receiver can recalculate the hash value of the received data and compare it with the received hash value. If they match, the data is considered intact.</li>
+<li><strong>Password storage</strong>: To protect passwords, systems usually store password hashes rather than plaintext passwords. When a user enters a password, the system hashes it and compares the result with the stored hash. A match means the password is accepted.</li>
+<li><strong>Data-integrity checking</strong>: A sender can calculate a hash of the data and send it alongside the data. The receiver recomputes the hash and compares it with the received hash. A match indicates that the data is intact.</li>
 </ul>
-<p>For cryptographic applications, hash algorithms need stronger security properties to prevent reverse engineering, such as inferring the original password from a hash value.</p>
+<p>Cryptographic applications require stronger security properties to prevent reverse engineering, such as recovering an original password from its hash.</p>
 <ul>
-<li><strong>Unidirectionality</strong>: It should be impossible to deduce any information about the input data from the hash value.</li>
-<li><strong>Collision resistance</strong>: It should be extremely difficult to find two different inputs that produce the same hash value.</li>
-<li><strong>Avalanche effect</strong>: Minor changes in the input should lead to significant and unpredictable changes in the output.</li>
+<li><strong>One-wayness</strong>: The hash should not reveal any information about the input data.</li>
+<li><strong>Collision resistance</strong>: Finding two different inputs with the same hash should be extremely difficult.</li>
+<li><strong>Avalanche effect</strong>: A small input change should produce a large, unpredictable output change.</li>
 </ul>
-<p>Note that <strong>"uniform distribution" and "collision resistance" are two independent concepts</strong>. Satisfying uniform distribution does not necessarily mean collision resistance. For example, under random input <code>key</code>, the hash function <code>key % 100</code> can produce a uniformly distributed output. However, this hash algorithm is too simple, and all <code>key</code> with the same last two digits will have the same output, making it easy to deduce a usable <code>key</code> from the hash value, thereby cracking the password.</p>
-<h2 id="632-design-of-hash-algorithms">6.3.2 &nbsp; Design of Hash Algorithms<a class="headerlink" href="#632-design-of-hash-algorithms" title="Permanent link">&para;</a></h2>
-<p>The design of hash algorithms is a complex issue that requires consideration of many factors. However, for some less demanding scenarios, we can also design some simple hash algorithms.</p>
+<p><strong>Uniform distribution and collision resistance are independent concepts</strong>. Uniform output does not guarantee collision resistance. For example, with random keys, <code>key % 100</code> can produce uniform outputs. But this algorithm is too simple: all keys with the same last two digits give the same output. It is therefore easy to infer a usable key from a hash and crack a password.</p>
+<h2 id="632-designing-a-hash-algorithm">6.3.2 &nbsp; Designing a hash algorithm<a class="headerlink" href="#632-designing-a-hash-algorithm" title="Permanent link">&para;</a></h2>
+<p>Designing a hash algorithm is complex and involves many factors. For less demanding uses, however, we can devise simple algorithms.</p>
 <ul>
-<li><strong>Additive hash</strong>: Add up the ASCII codes of each character in the input and use the total sum as the hash value.</li>
-<li><strong>Multiplicative hash</strong>: Leverage the low correlation introduced by multiplication: multiply by a constant at each step and accumulate the ASCII codes of the characters into the hash value.</li>
-<li><strong>XOR hash</strong>: Accumulate the hash value by XORing each element of the input data.</li>
-<li><strong>Rotating hash</strong>: Accumulate the ASCII code of each character into a hash value, performing a rotation operation on the hash value before each accumulation.</li>
+<li><strong>Additive hashing</strong>: Add the ASCII codes of all input characters and use the sum as the hash.</li>
+<li><strong>Multiplicative hashing</strong>: Use multiplication to mix values, multiplying by a constant each round and accumulating character ASCII codes into the hash.</li>
+<li><strong>XOR hashing</strong>: Accumulate each input element into a hash using exclusive OR.</li>
+<li><strong>Rotational hashing</strong>: Accumulate each character's ASCII code into a hash, rotating the hash before each accumulation.</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
@@ -4767,7 +4839,7 @@
 <a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    <span class="k">return</span> <span class="nb">hash</span> <span class="o">%</span> <span class="n">modulus</span>
 <a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
 <a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="k">def</span><span class="w"> </span><span class="nf">rot_hash</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">    </span><span class="sd">"""Rotational hash"""</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">    </span><span class="sd">"""Rotating hash"""</span>
 <a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>    <span class="nb">hash</span> <span class="o">=</span> <span class="mi">0</span>
 <a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    <span class="n">modulus</span> <span class="o">=</span> <span class="mi">1000000007</span>
 <a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
@@ -4806,7 +4878,7 @@
 <a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">MODULUS</span><span class="p">;</span>
 <a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="p">}</span>
 <a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>
-<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="cm">/* Rotational hash */</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="cm">/* Rotating hash */</span>
 <a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="kt">int</span><span class="w"> </span><span class="nf">rotHash</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MODULUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000007</span><span class="p">;</span>
@@ -4848,7 +4920,7 @@
 <a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">MODULUS</span><span class="p">;</span>
 <a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="p">}</span>
 <a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
-<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="cm">/* Rotational hash */</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="cm">/* Rotating hash */</span>
 <a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="kt">int</span><span class="w"> </span><span class="nf">rotHash</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MODULUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000007</span><span class="p">;</span>
@@ -4890,7 +4962,7 @@
 <a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">MODULUS</span><span class="p">;</span>
 <a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="p">}</span>
 <a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>
-<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="cm">/* Rotational hash */</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="cm">/* Rotating hash */</span>
 <a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="kt">int</span><span class="w"> </span><span class="nf">RotHash</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MODULUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000007</span><span class="p">;</span>
@@ -4938,7 +5010,7 @@
 <a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">hash</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nx">modulus</span>
 <a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="p">}</span>
 <a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>
-<a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a><span class="cm">/* Rotational hash */</span>
+<a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a><span class="cm">/* Rotating hash */</span>
 <a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a><span class="kd">func</span><span class="w"> </span><span class="nx">rotHash</span><span class="p">(</span><span class="nx">key</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">hash</span><span class="w"> </span><span class="kt">int64</span>
 <a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">modulus</span><span class="w"> </span><span class="kt">int64</span>
@@ -4988,7 +5060,7 @@
 <a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">MODULUS</span>
 <a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a><span class="p">}</span>
 <a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>
-<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a><span class="cm">/* Rotational hash */</span>
+<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a><span class="cm">/* Rotating hash */</span>
 <a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a><span class="kd">func</span><span class="w"> </span><span class="nf">rotHash</span><span class="p">(</span><span class="n">key</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">hash</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">MODULUS</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1_000_000_007</span>
@@ -5032,7 +5104,7 @@
 <a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">hash</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nx">MODULUS</span><span class="p">;</span>
 <a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="p">}</span>
 <a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>
-<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="cm">/* Rotational hash */</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="cm">/* Rotating hash */</span>
 <a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="kd">function</span><span class="w"> </span><span class="nx">rotHash</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">MODULUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1000000007</span><span class="p">;</span>
@@ -5074,7 +5146,7 @@
 <a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">hash</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nx">MODULUS</span><span class="p">;</span>
 <a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="p">}</span>
 <a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>
-<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="cm">/* Rotational hash */</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="cm">/* Rotating hash */</span>
 <a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="kd">function</span><span class="w"> </span><span class="nx">rotHash</span><span class="p">(</span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">MODULUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1000000007</span><span class="p">;</span>
@@ -5116,7 +5188,7 @@
 <a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">MODULUS</span><span class="p">;</span>
 <a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="p">}</span>
 <a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a>
-<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="cm">/* Rotational hash */</span>
+<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="cm">/* Rotating hash */</span>
 <a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="kt">int</span><span class="w"> </span><span class="n">rotHash</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
 <a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MODULUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000000007</span><span class="p">;</span>
@@ -5164,7 +5236,7 @@
 <a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a><span class="w">    </span><span class="p">(</span><span class="n">hash</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">MODULUS</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span>
 <a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a><span class="p">}</span>
 <a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a>
-<a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a><span class="cm">/* Rotational hash */</span>
+<a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a><span class="cm">/* Rotating hash */</span>
 <a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a><span class="k">fn</span><span class="w"> </span><span class="nf">rot_hash</span><span class="p">(</span><span class="n">key</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0_</span><span class="k">i64</span><span class="p">;</span>
 <a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">MODULUS</span><span class="p">:</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000007</span><span class="p">;</span>
@@ -5209,7 +5281,7 @@
 <a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">MODULUS</span><span class="p">;</span>
 <a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="p">}</span>
 <a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>
-<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="cm">/* Rotational hash */</span>
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="cm">/* Rotating hash */</span>
 <a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a><span class="kt">int</span><span class="w"> </span><span class="nf">rotHash</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MODULUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000007</span><span class="p">;</span>
@@ -5252,7 +5324,7 @@
 <a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">MODULUS</span>
 <a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a><span class="p">}</span>
 <a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a>
-<a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a><span class="cm">/* Rotational hash */</span>
+<a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a><span class="cm">/* Rotating hash */</span>
 <a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">rotHash</span><span class="p">(</span><span class="n">key</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0L</span>
 <a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">MODULUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000000007</span>
@@ -5294,7 +5366,7 @@
 <a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a><span class="w">  </span><span class="nb">hash</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">modulus</span>
 <a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a><span class="k">end</span>
 <a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a>
-<a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a><span class="c1">### Rotational hash ###</span>
+<a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a><span class="c1">### Rotating hash ###</span>
 <a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a><span class="k">def</span><span class="w"> </span><span class="nf">rot_hash</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 <a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a><span class="w">  </span><span class="nb">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a><span class="w">  </span><span class="n">modulus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1_000_000_007</span>
@@ -5307,9 +5379,14 @@
 </div>
 </div>
 </div>
-<p>We can observe that the final step of each hash algorithm is to take the result modulo the large prime <span class="arithmatex">\(1000000007\)</span>, ensuring that the hash value stays within a suitable range. This naturally raises a question: why emphasize using a prime modulus, and what are the drawbacks of using a composite modulus?</p>
-<p>In short: <strong>using a large prime as the modulus helps maximize the uniformity of hash values</strong>. Because a prime shares no common factors with other numbers, it can reduce periodic patterns introduced by the modulo operation and thus mitigate hash collisions.</p>
-<p>For example, suppose we choose the composite number <span class="arithmatex">\(9\)</span> as the modulus, which can be divided by <span class="arithmatex">\(3\)</span>, then all <code>key</code> divisible by <span class="arithmatex">\(3\)</span> will be mapped to hash values <span class="arithmatex">\(0\)</span>, <span class="arithmatex">\(3\)</span>, <span class="arithmatex">\(6\)</span>.</p>
+<details class="pythontutor">
+<summary>Visualize execution</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20add_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Additive%20hash%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%2B%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20mul_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Multiplicative%20hash%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%2031%20%2A%20hash%20%2B%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20xor_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22XOR%20hash%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%5E%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20rot_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Rotating%20hash%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%20%28hash%20%3C%3C%204%29%20%5E%20%28hash%20%3E%3E%2028%29%20%5E%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20key%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%0A%20%20%20%20hash%20%3D%20add_hash%28key%29%0A%20%20%20%20print%28f%22Additive%20hash%20value%3A%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20mul_hash%28key%29%0A%20%20%20%20print%28f%22Multiplicative%20hash%20value%3A%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20xor_hash%28key%29%0A%20%20%20%20print%28f%22XOR%20hash%20value%3A%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20rot_hash%28key%29%0A%20%20%20%20print%28f%22Rotating%20hash%20value%3A%20%7Bhash%7D%22%29%0A&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20add_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Additive%20hash%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%2B%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20mul_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Multiplicative%20hash%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%2031%20%2A%20hash%20%2B%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20xor_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22XOR%20hash%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%5E%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20rot_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Rotating%20hash%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%20%28hash%20%3C%3C%204%29%20%5E%20%28hash%20%3E%3E%2028%29%20%5E%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20key%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%0A%20%20%20%20hash%20%3D%20add_hash%28key%29%0A%20%20%20%20print%28f%22Additive%20hash%20value%3A%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20mul_hash%28key%29%0A%20%20%20%20print%28f%22Multiplicative%20hash%20value%3A%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20xor_hash%28key%29%0A%20%20%20%20print%28f%22XOR%20hash%20value%3A%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20rot_hash%28key%29%0A%20%20%20%20print%28f%22Rotating%20hash%20value%3A%20%7Bhash%7D%22%29%0A&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen &gt;</a></div></p>
+</details>
+<p>Each algorithm ends by taking the result modulo the large prime <span class="arithmatex">\(1000000007\)</span> to keep it within a suitable range. Why emphasize a prime modulus? What goes wrong with a composite modulus? This is an interesting question.</p>
+<p>The conclusion is that <strong>using a large prime modulus helps make hash values as uniformly distributed as possible</strong>. Because a prime shares no nontrivial factors with other numbers, it reduces periodic patterns introduced by the modulo operation and thus avoids collisions.</p>
+<p>For example, choose the composite modulus <span class="arithmatex">\(9\)</span>, which is divisible by <span class="arithmatex">\(3\)</span>. Every key divisible by <span class="arithmatex">\(3\)</span> then maps to one of just three hash values: <span class="arithmatex">\(0\)</span>, <span class="arithmatex">\(3\)</span>, or <span class="arithmatex">\(6\)</span>.</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \text{modulus} &amp; = 9 \newline
@@ -5317,7 +5394,7 @@
 \text{hash} &amp; = \{ 0, 3, 6, 0, 3, 6, 0, 3, 6, 0, 3, 6,\dots \}
 \end{aligned}
 \]</div>
-<p>If the input <code>key</code> values happen to follow this kind of arithmetic progression, the hash values will cluster, worsening hash collisions. Now suppose we replace <code>modulus</code> with the prime number <span class="arithmatex">\(13\)</span>. Because <code>key</code> and <code>modulus</code> share no common factors, the output hash values become much more evenly distributed.</p>
+<p>If the input keys follow this arithmetic progression, the hash values cluster, increasing collisions. Now replace the modulus with the prime <span class="arithmatex">\(13\)</span>. With no common factor between the key pattern and the modulus, the output becomes noticeably more uniform.</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \text{modulus} &amp; = 13 \newline
@@ -5325,16 +5402,16 @@
 \text{hash} &amp; = \{ 0, 3, 6, 9, 12, 2, 5, 8, 11, 1, 4, 7, \dots \}
 \end{aligned}
 \]</div>
-<p>It is worth noting that if the <code>key</code> is guaranteed to be randomly and uniformly distributed, then choosing a prime number or a composite number as the modulus can both produce uniformly distributed hash values. However, when the distribution of <code>key</code> has some periodicity, modulo a composite number is more likely to result in clustering.</p>
-<p>In summary, we usually choose a prime number as the modulus, and this prime number should be large enough to eliminate periodic patterns as much as possible, enhancing the robustness of the hash algorithm.</p>
-<h2 id="633-common-hash-algorithms">6.3.3 &nbsp; Common Hash Algorithms<a class="headerlink" href="#633-common-hash-algorithms" title="Permanent link">&para;</a></h2>
-<p>It is easy to see that the simple hash algorithms introduced above are fairly "fragile" and fall far short of the design goals of hash algorithms. For example, because addition and XOR are commutative, additive hash and XOR hash cannot distinguish strings with the same characters in a different order, which may worsen hash collisions and introduce security risks.</p>
-<p>In practice, we usually use some standard hash algorithms, such as MD5, SHA-1, SHA-2, and SHA-3. They can map input data of any length to a fixed-length hash value.</p>
-<p>Over the past century, hash algorithms have been in a continuous process of upgrading and optimization. Some researchers strive to improve the performance of hash algorithms, while others, including hackers, are dedicated to finding security issues in hash algorithms. Table 6-2 shows hash algorithms commonly used in practical applications.</p>
+<p>If the keys are already uniformly random, either a prime or a composite modulus can produce uniformly distributed hashes. When the keys have a periodic pattern, however, a composite modulus is more likely to cause clustering.</p>
+<p>We therefore usually choose a prime modulus, preferably a large one, to suppress periodic patterns as much as possible and make the algorithm more robust.</p>
+<h2 id="633-common-hash-algorithms">6.3.3 &nbsp; Common hash algorithms<a class="headerlink" href="#633-common-hash-algorithms" title="Permanent link">&para;</a></h2>
+<p>The simple algorithms above are fragile and fall well short of our design goals. Addition and XOR are commutative, for example, so additive and XOR hashing cannot distinguish strings containing the same characters in different orders. This can increase collisions and create security problems.</p>
+<p>In practice, standard algorithms such as MD5, SHA-1, SHA-2, and SHA-3 are commonly used. They map inputs of arbitrary length to fixed-length hash values.</p>
+<p>Over nearly a century, hash algorithms have continually evolved. Some researchers work to improve their performance, while others, along with hackers, search for security weaknesses. Table 6-2 lists commonly used algorithms.</p>
 <ul>
-<li>MD5 and SHA-1 have been successfully attacked multiple times and are thus abandoned in various security applications.</li>
-<li>SHA-2 series, especially SHA-256, is one of the most secure hash algorithms to date, with no successful attacks reported, hence commonly used in various security applications and protocols.</li>
-<li>SHA-3 has lower implementation costs and higher computational efficiency compared to SHA-2, but its current usage coverage is not as extensive as the SHA-2 series.</li>
+<li>MD5 and SHA-1 have been successfully attacked repeatedly and have been retired from security applications.</li>
+<li>SHA-256, part of the SHA-2 family, is among the most secure hash algorithms. No successful attack has been reported, so it is widely used in security applications and protocols.</li>
+<li>SHA-3 has lower implementation overhead and higher computational efficiency than SHA-2, but is not yet as widely used.</li>
 </ul>
 <p align="center"> Table 6-2 &nbsp; Common hash algorithms </p>
 
@@ -5351,218 +5428,218 @@
 </thead>
 <tbody>
 <tr>
-<td>Release Year</td>
+<td>Introduced</td>
 <td>1992</td>
 <td>1995</td>
 <td>2002</td>
 <td>2008</td>
 </tr>
 <tr>
-<td>Output Length</td>
+<td>Output length</td>
 <td>128 bit</td>
 <td>160 bit</td>
 <td>256/512 bit</td>
 <td>224/256/384/512 bit</td>
 </tr>
 <tr>
-<td>Hash Collisions</td>
-<td>Frequent</td>
-<td>Frequent</td>
+<td>Hash collisions</td>
+<td>More frequent</td>
+<td>More frequent</td>
 <td>Rare</td>
 <td>Rare</td>
 </tr>
 <tr>
-<td>Security Level</td>
-<td>Low, has been successfully attacked</td>
-<td>Low, has been successfully attacked</td>
+<td>Security</td>
+<td>Low; successfully attacked</td>
+<td>Low; successfully attacked</td>
 <td>High</td>
 <td>High</td>
 </tr>
 <tr>
 <td>Applications</td>
-<td>Abandoned, still used for data integrity checks</td>
-<td>Abandoned</td>
-<td>Cryptocurrency transaction verification, digital signatures, etc.</td>
-<td>Can be used to replace SHA-2</td>
+<td>Deprecated; still used for integrity checks</td>
+<td>Deprecated</td>
+<td>Cryptocurrency transaction verification, digital signatures, and more</td>
+<td>Can replace SHA-2</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h2 id="634-hash-values-in-data-structures">6.3.4 &nbsp; Hash Values in Data Structures<a class="headerlink" href="#634-hash-values-in-data-structures" title="Permanent link">&para;</a></h2>
-<p>We know that hash table keys can be integers, floating-point numbers, strings, and other data types. Programming languages usually provide built-in hash algorithms for these types to compute bucket indices in a hash table. Taking Python as an example, we can call the <code>hash()</code> function to compute hash values for various data types.</p>
+<h2 id="634-hash-values-of-data-structures">6.3.4 &nbsp; Hash values of data structures<a class="headerlink" href="#634-hash-values-of-data-structures" title="Permanent link">&para;</a></h2>
+<p>Hash-table keys can be integers, floating-point numbers, strings, and other types. Programming languages usually provide built-in hashing for these types to calculate bucket indices. In Python, for example, <code>hash()</code> calculates hash values for various types.</p>
 <ul>
-<li>The hash values of integers and booleans are their own values.</li>
-<li>The calculation of hash values for floating-point numbers and strings is more complex, and interested readers are encouraged to study this on their own.</li>
-<li>The hash value of a tuple is obtained by hashing each of its elements and combining those results into a single hash value.</li>
-<li>An object's hash value is typically generated from its memory address. By overriding the object's hash method, it can instead be generated from the object's contents.</li>
+<li>Integers and Booleans have hash values equal to their own values.</li>
+<li>Hashing floating-point numbers and strings is more complex; interested readers can explore the details.</li>
+<li>A tuple's hash combines the hashes of its individual elements into one value.</li>
+<li>An object's hash is based on its memory address. Overriding its hash method allows hashing by content instead.</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Be aware that the definition and methods of the built-in hash value calculation functions in different programming languages vary.</p>
+<p>Built-in hash functions differ in their definitions and implementations across programming languages.</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><input id="__tabbed_2_13" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.py</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">num</span> <span class="o">=</span> <span class="mi">3</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">hash_num</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1"># Hash value of integer 3 is 3</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1"># The hash of the integer 3 is 3</span>
 <a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
 <a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">bol</span> <span class="o">=</span> <span class="kc">True</span>
 <a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="n">hash_bol</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">bol</span><span class="p">)</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># Hash value of boolean True is 1</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># The hash of the Boolean True is 1</span>
 <a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
 <a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="n">dec</span> <span class="o">=</span> <span class="mf">3.14159</span>
 <a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="n">hash_dec</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span>
-<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="c1"># Hash value of decimal 3.14159 is 326484311674566659</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="c1"># The hash of the floating-point number 3.14159 is 326484311674566659</span>
 <a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>
 <a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="nb">str</span> <span class="o">=</span> <span class="s2">"Hello 算法"</span>
 <a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="n">hash_str</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="c1"># Hash value of string "Hello 算法" is 4617003410720528961</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="c1"># The hash of the string “Hello 算法” is 4617003410720528961</span>
 <a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>
 <a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12836</span><span class="p">,</span> <span class="s2">"小哈"</span><span class="p">)</span>
 <a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="n">hash_tup</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
-<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="c1"># Hash value of tuple (12836, '小哈') is 1029005403108185979</span>
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="c1"># The hash of the tuple (12836, '小哈') is 1029005403108185979</span>
 <a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>
 <a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="n">obj</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="n">hash_obj</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-<a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="c1"># Hash value of ListNode object at 0x1058fd810 is 274267521</span>
+<a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="c1"># The hash of the node object &lt;ListNode object at 0x1058fd810&gt; is 274267521</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.cpp</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">hashNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">num</span><span class="p">);</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1">// Hash value of integer 3 is 3</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1">// The hash of the integer 3 is 3</span>
 <a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
 <a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="kt">bool</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">bol</span><span class="p">);</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1">// Hash value of boolean 1 is 1</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1">// The hash of the Boolean 1 is 1</span>
 <a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
 <a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="kt">double</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span>
 <a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">dec</span><span class="p">);</span>
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="c1">// Hash value of decimal 3.14159 is 4614256650576692846</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="c1">// The hash of the floating-point number 3.14159 is 4614256650576692846</span>
 <a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>
 <a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="n">string</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello 算法"</span><span class="p">;</span>
 <a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">str</span><span class="p">);</span>
-<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="c1">// Hash value of string "Hello 算法" is 15466937326284535026</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="c1">// The hash of the string “Hello 算法” is 15466937326284535026</span>
 <a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>
-<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="c1">// In C++, built-in std::hash() only provides hash values for basic data types</span>
-<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="c1">// Hash values for arrays and objects need to be implemented separately</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="c1">// In C++, built-in std::hash() provides hashing only for basic data types</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="c1">// Hashing for arrays and objects must be implemented separately</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.java</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1">// Hash value of integer 3 is 3</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1">// The hash of the integer 3 is 3</span>
 <a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
 <a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 <a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Boolean</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(</span><span class="n">bol</span><span class="p">);</span>
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1">// Hash value of boolean true is 1231</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1">// The hash of the Boolean true is 1231</span>
 <a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
 <a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="kt">double</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span>
 <a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(</span><span class="n">dec</span><span class="p">);</span>
-<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="c1">// Hash value of decimal 3.14159 is -1340954729</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="c1">// The hash of the floating-point number 3.14159 is -1340954729</span>
 <a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
 <a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello 算法"</span><span class="p">;</span>
 <a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">hashCode</span><span class="p">();</span>
-<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="c1">// Hash value of string "Hello 算法" is -727081396</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="c1">// The hash of the string “Hello 算法” is -727081396</span>
 <a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>
 <a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="s">"小哈"</span><span class="w"> </span><span class="p">};</span>
 <a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashTup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
-<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="c1">// Hash value of array [12836, 小哈] is 1151158</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="c1">// The hash of the array [12836, 小哈] is 1151158</span>
 <a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>
 <a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="na">hashCode</span><span class="p">();</span>
-<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="c1">// Hash value of ListNode object utils.ListNode@7dc5e7b4 is 2110121908</span>
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="c1">// The hash of the node object utils.ListNode@7dc5e7b4 is 2110121908</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.cs</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1">// Hash value of integer 3 is 3;</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1">// The hash of the integer 3 is 3;</span>
 <a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
 <a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="kt">bool</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
 <a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bol</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1">// Hash value of boolean true is 1;</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1">// The hash of the Boolean true is 1;</span>
 <a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
 <a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="kt">double</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span>
 <a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="c1">// Hash value of decimal 3.14159 is -1340954729;</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="c1">// The hash of the floating-point number 3.14159 is -1340954729;</span>
 <a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>
 <a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="kt">string</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello 算法"</span><span class="p">;</span>
 <a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="c1">// Hash value of string "Hello 算法" is -586107568;</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="c1">// The hash of the string “Hello 算法” is -586107568;</span>
 <a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>
 <a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="kt">object</span><span class="p">[]</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="s">"小哈"</span><span class="p">];</span>
 <a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashTup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="c1">// Hash value of array [12836, 小哈] is 42931033;</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="c1">// The hash of the array [12836, 小哈] is 42931033;</span>
 <a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>
 <a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="c1">// Hash value of ListNode object 0 is 39053774;</span>
+<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="c1">// The hash of the node object 0 is 39053774;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">built_in_hash.go</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">// Go does not provide built-in hash code functions</span>
+<div class="highlight"><span class="filename">built_in_hash.go</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">// Go provides no built-in hash-code function</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.swift</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kd">let</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span>
 <a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="kd">let</span><span class="w"> </span><span class="nv">hashNum</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">num</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="c1">// Hash value of integer 3 is 9047044699613009734</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="c1">// The hash of the integer 3 is 9047044699613009734</span>
 <a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
 <a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="kd">let</span><span class="w"> </span><span class="nv">bol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span>
 <a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="kd">let</span><span class="w"> </span><span class="nv">hashBol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">bol</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="c1">// Hash value of boolean true is -4431640247352757451</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="c1">// The hash of the Boolean true is -4431640247352757451</span>
 <a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>
 <a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="kd">let</span><span class="w"> </span><span class="nv">dec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">3.14159</span>
 <a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="kd">let</span><span class="w"> </span><span class="nv">hashDec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dec</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="c1">// Hash value of decimal 3.14159 is -2465384235396674631</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="c1">// The hash of the floating-point number 3.14159 is -2465384235396674631</span>
 <a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>
 <a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="kd">let</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"Hello 算法"</span>
 <a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="kd">let</span><span class="w"> </span><span class="nv">hashStr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="c1">// Hash value of string "Hello 算法" is -7850626797806988787</span>
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="c1">// The hash of the string “Hello 算法” is -7850626797806988787</span>
 <a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>
 <a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="kd">let</span><span class="w"> </span><span class="nv">arr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">AnyHashable</span><span class="p">(</span><span class="mi">12836</span><span class="p">),</span><span class="w"> </span><span class="n">AnyHashable</span><span class="p">(</span><span class="s">"小哈"</span><span class="p">)]</span>
 <a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="kd">let</span><span class="w"> </span><span class="nv">hashTup</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="c1">// Hash value of array [AnyHashable(12836), AnyHashable("小哈")] is -2308633508154532996</span>
+<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="c1">// The hash of the array [AnyHashable(12836), AnyHashable("小哈")] is -2308633508154532996</span>
 <a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>
 <a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a><span class="kd">let</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a><span class="kd">let</span><span class="w"> </span><span class="nv">hashObj</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a><span class="c1">// Hash value of ListNode object utils.ListNode is -2434780518035996159</span>
+<a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a><span class="c1">// The hash of the node object utils.ListNode is -2434780518035996159</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">built_in_hash.js</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">// JavaScript does not provide built-in hash code functions</span>
+<div class="highlight"><span class="filename">built_in_hash.js</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">// JavaScript provides no built-in hash-code function</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">built_in_hash.ts</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1">// TypeScript does not provide built-in hash code functions</span>
+<div class="highlight"><span class="filename">built_in_hash.ts</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1">// TypeScript provides no built-in hash-code function</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.dart</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kt">int</span><span class="w"> </span><span class="kt">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
 <a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">num</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="c1">// Hash value of integer 3 is 34803</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="c1">// The hash of the integer 3 is 34803</span>
 <a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
 <a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="kt">bool</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 <a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bol</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="c1">// Hash value of boolean true is 1231</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="c1">// The hash of the Boolean true is 1231</span>
 <a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>
 <a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="kt">double</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3.14159</span><span class="p">;</span>
 <a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="c1">// Hash value of decimal 3.14159 is 2570631074981783</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="c1">// The hash of the floating-point number 3.14159 is 2570631074981783</span>
 <a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>
 <a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="kt">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello 算法"</span><span class="p">;</span>
 <a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="c1">// Hash value of string "Hello 算法" is 468167534</span>
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="c1">// The hash of the string “Hello 算法” is 468167534</span>
 <a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>
 <a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="n">List</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m">12836</span><span class="p">,</span><span class="w"> </span><span class="s2">"小哈"</span><span class="p">];</span>
 <a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashArr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a><span class="c1">// Hash value of array [12836, 小哈] is 976512528</span>
+<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a><span class="c1">// The hash of the array [12836, 小哈] is 976512528</span>
 <a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>
 <a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
 <a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a><span class="c1">// Hash value of ListNode object Instance of 'ListNode' is 1033450432</span>
+<a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a><span class="c1">// The hash of the node object Instance of 'ListNode' is 1033450432</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -5573,105 +5650,105 @@
 <a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">num_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="n">num</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">num_hasher</span><span class="p">);</span>
 <a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="c1">// Hash value of integer 3 is 568126464209439262</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="c1">// The hash of the integer 3 is 568126464209439262</span>
 <a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
 <a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="kd">let</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 <a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">bol_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="n">bol</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">bol_hasher</span><span class="p">);</span>
 <a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bol_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="c1">// Hash value of boolean true is 4952851536318644461</span>
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="c1">// The hash of the Boolean true is 4952851536318644461</span>
 <a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>
 <a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="kd">let</span><span class="w"> </span><span class="n">dec</span><span class="p">:</span><span class="w"> </span><span class="kt">f32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span>
 <a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">dec_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a><span class="n">dec</span><span class="p">.</span><span class="n">to_bits</span><span class="p">().</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">dec_hasher</span><span class="p">);</span>
 <a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a><span class="c1">// Hash value of decimal 3.14159 is 2566941990314602357</span>
+<a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a><span class="c1">// The hash of the floating-point number 3.14159 is 2566941990314602357</span>
 <a id="__codelineno-23-21" name="__codelineno-23-21" href="#__codelineno-23-21"></a>
 <a id="__codelineno-23-22" name="__codelineno-23-22" href="#__codelineno-23-22"></a><span class="kd">let</span><span class="w"> </span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello 算法"</span><span class="p">;</span>
 <a id="__codelineno-23-23" name="__codelineno-23-23" href="#__codelineno-23-23"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">str_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-23-24" name="__codelineno-23-24" href="#__codelineno-23-24"></a><span class="kt">str</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">str_hasher</span><span class="p">);</span>
 <a id="__codelineno-23-25" name="__codelineno-23-25" href="#__codelineno-23-25"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-23-26" name="__codelineno-23-26" href="#__codelineno-23-26"></a><span class="c1">// Hash value of string "Hello 算法" is 16092673739211250988</span>
+<a id="__codelineno-23-26" name="__codelineno-23-26" href="#__codelineno-23-26"></a><span class="c1">// The hash of the string “Hello 算法” is 16092673739211250988</span>
 <a id="__codelineno-23-27" name="__codelineno-23-27" href="#__codelineno-23-27"></a>
 <a id="__codelineno-23-28" name="__codelineno-23-28" href="#__codelineno-23-28"></a><span class="kd">let</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="s">"小哈"</span><span class="p">);</span>
 <a id="__codelineno-23-29" name="__codelineno-23-29" href="#__codelineno-23-29"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">tup_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-23-30" name="__codelineno-23-30" href="#__codelineno-23-30"></a><span class="n">arr</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">tup_hasher</span><span class="p">);</span>
 <a id="__codelineno-23-31" name="__codelineno-23-31" href="#__codelineno-23-31"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_tup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tup_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-23-32" name="__codelineno-23-32" href="#__codelineno-23-32"></a><span class="c1">// Hash value of tuple (12836, "小哈") is 1885128010422702749</span>
+<a id="__codelineno-23-32" name="__codelineno-23-32" href="#__codelineno-23-32"></a><span class="c1">// The hash of the tuple (12836, "小哈") is 1885128010422702749</span>
 <a id="__codelineno-23-33" name="__codelineno-23-33" href="#__codelineno-23-33"></a>
 <a id="__codelineno-23-34" name="__codelineno-23-34" href="#__codelineno-23-34"></a><span class="kd">let</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ListNode</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
 <a id="__codelineno-23-35" name="__codelineno-23-35" href="#__codelineno-23-35"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-23-36" name="__codelineno-23-36" href="#__codelineno-23-36"></a><span class="n">node</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">val</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">hasher</span><span class="p">);</span>
 <a id="__codelineno-23-37" name="__codelineno-23-37" href="#__codelineno-23-37"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-23-38" name="__codelineno-23-38" href="#__codelineno-23-38"></a><span class="c1">// Hash value of ListNode object RefCell { value: ListNode { val: 42, next: None } } is 15387811073369036852</span>
+<a id="__codelineno-23-38" name="__codelineno-23-38" href="#__codelineno-23-38"></a><span class="c1">// The hash of the node object RefCell { value: ListNode { val: 42, next: None } } is 15387811073369036852</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">built_in_hash.c</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1">// C does not provide built-in hash code functions</span>
+<div class="highlight"><span class="filename">built_in_hash.c</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1">// C provides no built-in hash-code function</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.kt</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span>
 <a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="kd">val</span><span class="w"> </span><span class="nv">hashNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">.</span><span class="na">hashCode</span><span class="p">()</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="c1">// Hash value of integer 3 is 3</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="c1">// The hash of the integer 3 is 3</span>
 <a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>
 <a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="kd">val</span><span class="w"> </span><span class="nv">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 <a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="kd">val</span><span class="w"> </span><span class="nv">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bol</span><span class="p">.</span><span class="na">hashCode</span><span class="p">()</span>
-<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="c1">// Hash value of boolean true is 1231</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="c1">// The hash of the Boolean true is 1231</span>
 <a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>
 <a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="kd">val</span><span class="w"> </span><span class="nv">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3.14159</span>
 <a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="kd">val</span><span class="w"> </span><span class="nv">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec</span><span class="p">.</span><span class="na">hashCode</span><span class="p">()</span>
-<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="c1">// Hash value of decimal 3.14159 is -1340954729</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="c1">// The hash of the floating-point number 3.14159 is -1340954729</span>
 <a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>
 <a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="kd">val</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello 算法"</span>
 <a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a><span class="kd">val</span><span class="w"> </span><span class="nv">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">hashCode</span><span class="p">()</span>
-<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a><span class="c1">// Hash value of string "Hello 算法" is -727081396</span>
+<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a><span class="c1">// The hash of the string “Hello 算法” is -727081396</span>
 <a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>
 <a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a><span class="kd">val</span><span class="w"> </span><span class="nv">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arrayOf</span><span class="o">&lt;</span><span class="kt">Any</span><span class="o">&gt;</span><span class="p">(</span><span class="m">12836</span><span class="p">,</span><span class="w"> </span><span class="s">"小哈"</span><span class="p">)</span>
 <a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a><span class="kd">val</span><span class="w"> </span><span class="nv">hashTup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="na">hashCode</span><span class="p">()</span>
-<a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a><span class="c1">// Hash value of array [12836, 小哈] is 189568618</span>
+<a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a><span class="c1">// The hash of the array [12836, 小哈] is 189568618</span>
 <a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a>
 <a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a><span class="kd">val</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
 <a id="__codelineno-25-22" name="__codelineno-25-22" href="#__codelineno-25-22"></a><span class="kd">val</span><span class="w"> </span><span class="nv">hashObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="na">hashCode</span><span class="p">()</span>
-<a id="__codelineno-25-23" name="__codelineno-25-23" href="#__codelineno-25-23"></a><span class="c1">// Hash value of ListNode object utils.ListNode@1d81eb93 is 495053715</span>
+<a id="__codelineno-25-23" name="__codelineno-25-23" href="#__codelineno-25-23"></a><span class="c1">// The hash of the node object utils.ListNode@1d81eb93 is 495053715</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.rb</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
 <a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="n">hash_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="o">.</span><span class="n">hash</span>
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="c1"># Hash value of integer 3 is -4385856518450339636</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="c1"># The hash of the integer 3 is -4385856518450339636</span>
 <a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>
 <a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kp">true</span>
 <a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="n">hash_bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bol</span><span class="o">.</span><span class="n">hash</span>
-<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="c1"># Hash value of boolean true is -1617938112149317027</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="c1"># The hash of the Boolean true is -1617938112149317027</span>
 <a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>
 <a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="o">.</span><span class="mi">14159</span>
 <a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="n">hash_dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec</span><span class="o">.</span><span class="n">hash</span>
-<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="c1"># Hash value of decimal 3.14159 is -1479186995943067893</span>
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="c1"># The hash of the floating-point number 3.14159 is -1479186995943067893</span>
 <a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>
 <a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello 算法"</span>
 <a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a><span class="n">hash_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="o">.</span><span class="n">hash</span>
-<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a><span class="c1"># Hash value of string "Hello 算法" is -4075943250025831763</span>
+<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a><span class="c1"># The hash of the string “Hello 算法” is -4075943250025831763</span>
 <a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>
 <a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a><span class="n">tup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="s1">'小哈'</span><span class="o">]</span>
 <a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a><span class="n">hash_tup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tup</span><span class="o">.</span><span class="n">hash</span>
-<a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a><span class="c1"># Hash value of tuple (12836, '小哈') is 1999544809202288822</span>
+<a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a><span class="c1"># The hash of the tuple (12836, '小哈') is 1999544809202288822</span>
 <a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a>
 <a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">ListNode</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a><span class="n">hash_obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="o">.</span><span class="n">hash</span>
-<a id="__codelineno-26-23" name="__codelineno-26-23" href="#__codelineno-26-23"></a><span class="c1"># Hash value of ListNode object #&lt;ListNode:0x000078133140ab70&gt; is 4302940560806366381</span>
+<a id="__codelineno-26-23" name="__codelineno-26-23" href="#__codelineno-26-23"></a><span class="c1"># The hash of the node object #&lt;ListNode:0x000078133140ab70&gt; is 4302940560806366381</span>
 </code></pre></div>
 </div>
 </div>
 </div>
 <details class="pythontutor">
-<summary>Visualized Execution</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Code Visualization" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen &gt;</a></div></p>
+<summary>Visualize execution</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked-list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20The%20hash%20of%20the%20integer%203%20is%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20The%20hash%20of%20the%20Boolean%20True%20is%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20The%20hash%20of%20the%20floating-point%20number%203.14159%20is%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20The%20hash%20of%20the%20string%20%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%20is%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836%2C%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20The%20hash%20of%20the%20tuple%20%2812836%2C%20%27%E5%B0%8F%E5%93%88%27%29%20is%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20The%20hash%20of%20the%20node%20object%20%3CListNode%20object%20at%200x1058fd810%3E%20is%20274267521&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked-list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20The%20hash%20of%20the%20integer%203%20is%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20The%20hash%20of%20the%20Boolean%20True%20is%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20The%20hash%20of%20the%20floating-point%20number%203.14159%20is%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20The%20hash%20of%20the%20string%20%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%20is%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836%2C%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20The%20hash%20of%20the%20tuple%20%2812836%2C%20%27%E5%B0%8F%E5%93%88%27%29%20is%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20The%20hash%20of%20the%20node%20object%20%3CListNode%20object%20at%200x1058fd810%3E%20is%20274267521&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen &gt;</a></div></p>
 </details>
-<p>In many programming languages, <strong>only immutable objects can serve as the <code>key</code> in a hash table</strong>. If we use a list (dynamic array) as a <code>key</code>, when the contents of the list change, its hash value also changes, and we would no longer be able to find the original <code>value</code> in the hash table.</p>
-<p>Although the member variables of a custom object (such as a linked list node) are mutable, it is hashable. <strong>This is because the hash value of an object is usually generated based on its memory address</strong>, and even if the contents of the object change, the memory address remains the same, so the hash value remains unchanged.</p>
-<p>You might have noticed that the hash values output in different consoles are different. <strong>This is because the Python interpreter adds a random salt to the string hash function each time it starts up</strong>. This approach effectively prevents HashDoS attacks and enhances the security of the hash algorithm.</p>
+<p>In many programming languages, <strong>only immutable objects can serve as hash-table keys</strong>. If a list, a dynamic array, were used as a key, changing its contents would change its hash, making the original value impossible to retrieve from the table.</p>
+<p>Custom objects, such as linked-list nodes, can be hashable even though their member variables are mutable. <strong>Their hash is usually based on their memory address</strong>, which stays the same even when their contents change.</p>
+<p>You may notice different hash values when running the program in different consoles. <strong>Each time the Python interpreter starts, it adds a random salt to its string hash function</strong>. This helps prevent HashDoS attacks and improves security.</p>
 
 <!-- Source file information -->
 
@@ -5694,7 +5771,7 @@ aria-label="Footer"
   <a
     href="../hash_collision/"
     class="md-footer__link md-footer__link--prev"
-    aria-label="Previous: 6.2 Hash Collision"
+    aria-label="Previous: 6.2   Hash collisions"
     rel="prev"
   >
     <div class="md-footer__button md-icon">
@@ -5706,7 +5783,7 @@ aria-label="Footer"
         Previous
       </span>
       <div class="md-ellipsis">
-        6.2 Hash Collision
+        6.2 &nbsp; Hash collisions
       </div>
     </div>
   </a>
@@ -5718,7 +5795,7 @@ aria-label="Footer"
   <a
     href="../summary/"
     class="md-footer__link md-footer__link--next"
-    aria-label="Next: 6.4 Summary"
+    aria-label="Next: 6.4   Summary"
     rel="next"
   >
     <div class="md-footer__title">
@@ -5726,7 +5803,7 @@ aria-label="Footer"
         Next
       </span>
       <div class="md-ellipsis">
-        6.4 Summary
+        6.4 &nbsp; Summary
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -5743,7 +5820,7 @@ aria-label="Footer"
   <!-- Check-in button above comments -->
 
 
-  <h5 align="center" id="__comments">Feel free to drop your insights, questions or suggestions</h5>
+  <h5 align="center" id="__comments">Share your insights, questions, or suggestions in the comments</h5>
 
   <!-- Insert generated snippet here -->
   <script

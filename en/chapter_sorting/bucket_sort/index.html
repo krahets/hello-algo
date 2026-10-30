@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
+        <meta name="description" content="A data structures and algorithms tutorial with animated illustrations and code you can run with one click">
 
 
         <meta name="author" content="krahets">
@@ -41,7 +41,7 @@
 
 
 
-        <title>11.8 Bucket Sort - Hello Algo</title>
+        <title>11.8 Bucket sort - Hello Algo</title>
 
 
 
@@ -67,8 +67,8 @@
 
 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"JetBrains Mono"}</style>
 
 
 
@@ -119,7 +119,7 @@
         <path
             d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z" />
     </svg>
-    <span>Welcome to contribute to Chinese-to-English translation! For more details, please refer to <a href="https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md">CONTRIBUTING.md</a>.</span>
+    <span>Help improve the English edition. See our <a href="https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md">contribution guidelines</a>.</span>
 </div>
 
           </div>
@@ -154,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
 
-              11.8 &nbsp; Bucket Sort
+              11.8 &nbsp; Bucket sort
 
           </span>
         </div>
@@ -167,9 +167,9 @@
 
 
 
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
 
-      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
       </label>
 
@@ -177,9 +177,9 @@
 
 
 
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
 
-      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
       </label>
 
@@ -349,7 +349,7 @@
   <span class="md-ellipsis">
 
 
-  Before Starting
+  Foreword
 
 
   </span>
@@ -365,7 +365,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Before Starting
+  Foreword
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -419,7 +419,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 0. Preface
+  Chapter 0. &nbsp; Preface
 
 
   </span>
@@ -440,7 +440,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 0. Preface
+  Chapter 0. &nbsp; Preface
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -461,7 +461,7 @@
   <span class="md-ellipsis">
 
 
-  0.1 About This Book
+  0.1 &nbsp; About this book
 
 
   </span>
@@ -488,7 +488,7 @@
   <span class="md-ellipsis">
 
 
-  0.2 How to Use This Book
+  0.2 &nbsp; How to use this book
 
 
   </span>
@@ -515,7 +515,7 @@
   <span class="md-ellipsis">
 
 
-  0.3 Summary
+  0.3 &nbsp; Summary
 
 
   </span>
@@ -575,7 +575,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 1. Encounter with Algorithms
+  Chapter 1. &nbsp; Getting to know algorithms
 
 
   </span>
@@ -596,7 +596,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 1. Encounter with Algorithms
+  Chapter 1. &nbsp; Getting to know algorithms
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -617,7 +617,7 @@
   <span class="md-ellipsis">
 
 
-  1.1 Algorithms Are Everywhere
+  1.1 &nbsp; Algorithms are everywhere
 
 
   </span>
@@ -644,7 +644,7 @@
   <span class="md-ellipsis">
 
 
-  1.2 What Is an Algorithm
+  1.2 &nbsp; What is an algorithm?
 
 
   </span>
@@ -671,7 +671,7 @@
   <span class="md-ellipsis">
 
 
-  1.3 Summary
+  1.3 &nbsp; Summary
 
 
   </span>
@@ -737,7 +737,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 2. Complexity Analysis
+  Chapter 2. &nbsp; Complexity analysis
 
 
   </span>
@@ -758,7 +758,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 2. Complexity Analysis
+  Chapter 2. &nbsp; Complexity analysis
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -779,7 +779,7 @@
   <span class="md-ellipsis">
 
 
-  2.1 Algorithm Efficiency Evaluation
+  2.1 &nbsp; Evaluating algorithm efficiency
 
 
   </span>
@@ -806,7 +806,7 @@
   <span class="md-ellipsis">
 
 
-  2.2 Iteration and Recursion
+  2.2 &nbsp; Iteration and recursion
 
 
   </span>
@@ -833,7 +833,7 @@
   <span class="md-ellipsis">
 
 
-  2.3 Time Complexity
+  2.3 &nbsp; Time complexity
 
 
   </span>
@@ -860,7 +860,7 @@
   <span class="md-ellipsis">
 
 
-  2.4 Space Complexity
+  2.4 &nbsp; Space complexity
 
 
   </span>
@@ -887,7 +887,7 @@
   <span class="md-ellipsis">
 
 
-  2.5 Summary
+  2.5 &nbsp; Summary
 
 
   </span>
@@ -914,7 +914,7 @@
   <span class="md-ellipsis">
 
 
-  2.6 Exercises
+  2.6 &nbsp; Exercises
 
 
   </span>
@@ -980,7 +980,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 3. Data Structures
+  Chapter 3. &nbsp; Data structures
 
 
   </span>
@@ -1001,7 +1001,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 3. Data Structures
+  Chapter 3. &nbsp; Data structures
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1022,7 +1022,7 @@
   <span class="md-ellipsis">
 
 
-  3.1 Classification of Data Structures
+  3.1 &nbsp; Classifying data structures
 
 
   </span>
@@ -1049,7 +1049,7 @@
   <span class="md-ellipsis">
 
 
-  3.2 Basic Data Types
+  3.2 &nbsp; Basic data types
 
 
   </span>
@@ -1076,7 +1076,7 @@
   <span class="md-ellipsis">
 
 
-  3.3 Number Encoding *
+  3.3 &nbsp; Number encoding *
 
 
   </span>
@@ -1103,7 +1103,7 @@
   <span class="md-ellipsis">
 
 
-  3.4 Character Encoding *
+  3.4 &nbsp; Character encoding *
 
 
   </span>
@@ -1130,7 +1130,7 @@
   <span class="md-ellipsis">
 
 
-  3.5 Summary
+  3.5 &nbsp; Summary
 
 
   </span>
@@ -1157,7 +1157,7 @@
   <span class="md-ellipsis">
 
 
-  3.6 Exercises
+  3.6 &nbsp; Exercises
 
 
   </span>
@@ -1223,7 +1223,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 4. Arrays and Linked Lists
+  Chapter 4. &nbsp; Arrays and linked lists
 
 
   </span>
@@ -1244,7 +1244,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 4. Arrays and Linked Lists
+  Chapter 4. &nbsp; Arrays and linked lists
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1265,7 +1265,7 @@
   <span class="md-ellipsis">
 
 
-  4.1 Array
+  4.1 &nbsp; Arrays
 
 
   </span>
@@ -1292,7 +1292,7 @@
   <span class="md-ellipsis">
 
 
-  4.2 Linked List
+  4.2 &nbsp; Linked lists
 
 
   </span>
@@ -1319,7 +1319,7 @@
   <span class="md-ellipsis">
 
 
-  4.3 List
+  4.3 &nbsp; Lists
 
 
   </span>
@@ -1346,7 +1346,7 @@
   <span class="md-ellipsis">
 
 
-  4.4 Random-Access Memory and Cache *
+  4.4 &nbsp; Memory and cache *
 
 
   </span>
@@ -1373,7 +1373,7 @@
   <span class="md-ellipsis">
 
 
-  4.5 Summary
+  4.5 &nbsp; Summary
 
 
   </span>
@@ -1400,7 +1400,7 @@
   <span class="md-ellipsis">
 
 
-  4.6 Exercises
+  4.6 &nbsp; Exercises
 
 
   </span>
@@ -1464,7 +1464,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 5. Stacks and Queues
+  Chapter 5. &nbsp; Stacks and queues
 
 
   </span>
@@ -1485,7 +1485,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 5. Stacks and Queues
+  Chapter 5. &nbsp; Stacks and queues
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1506,7 +1506,7 @@
   <span class="md-ellipsis">
 
 
-  5.1 Stack
+  5.1 &nbsp; Stacks
 
 
   </span>
@@ -1533,7 +1533,7 @@
   <span class="md-ellipsis">
 
 
-  5.2 Queue
+  5.2 &nbsp; Queues
 
 
   </span>
@@ -1560,7 +1560,7 @@
   <span class="md-ellipsis">
 
 
-  5.3 Deque
+  5.3 &nbsp; Deques
 
 
   </span>
@@ -1587,7 +1587,7 @@
   <span class="md-ellipsis">
 
 
-  5.4 Summary
+  5.4 &nbsp; Summary
 
 
   </span>
@@ -1614,7 +1614,7 @@
   <span class="md-ellipsis">
 
 
-  5.5 Exercises
+  5.5 &nbsp; Exercises
 
 
   </span>
@@ -1678,7 +1678,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 6. Hashing
+  Chapter 6. &nbsp; Hash tables
 
 
   </span>
@@ -1699,7 +1699,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 6. Hashing
+  Chapter 6. &nbsp; Hash tables
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1720,7 +1720,7 @@
   <span class="md-ellipsis">
 
 
-  6.1 Hash Table
+  6.1 &nbsp; Hash tables
 
 
   </span>
@@ -1747,7 +1747,7 @@
   <span class="md-ellipsis">
 
 
-  6.2 Hash Collision
+  6.2 &nbsp; Hash collisions
 
 
   </span>
@@ -1774,7 +1774,7 @@
   <span class="md-ellipsis">
 
 
-  6.3 Hash Algorithm
+  6.3 &nbsp; Hash algorithms
 
 
   </span>
@@ -1801,7 +1801,7 @@
   <span class="md-ellipsis">
 
 
-  6.4 Summary
+  6.4 &nbsp; Summary
 
 
   </span>
@@ -1828,7 +1828,7 @@
   <span class="md-ellipsis">
 
 
-  6.5 Exercises
+  6.5 &nbsp; Exercises
 
 
   </span>
@@ -1896,7 +1896,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 7. Tree
+  Chapter 7. &nbsp; Trees
 
 
   </span>
@@ -1917,7 +1917,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 7. Tree
+  Chapter 7. &nbsp; Trees
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1938,7 +1938,7 @@
   <span class="md-ellipsis">
 
 
-  7.1 Binary Tree
+  7.1 &nbsp; Binary trees
 
 
   </span>
@@ -1965,7 +1965,7 @@
   <span class="md-ellipsis">
 
 
-  7.2 Binary Tree Traversal
+  7.2 &nbsp; Traversing a binary tree
 
 
   </span>
@@ -1992,7 +1992,7 @@
   <span class="md-ellipsis">
 
 
-  7.3 Array Representation of Binary Trees
+  7.3 &nbsp; Array representation of a binary tree
 
 
   </span>
@@ -2019,7 +2019,7 @@
   <span class="md-ellipsis">
 
 
-  7.4 Binary Search Tree
+  7.4 &nbsp; Binary search trees
 
 
   </span>
@@ -2046,7 +2046,7 @@
   <span class="md-ellipsis">
 
 
-  7.5 AVL Tree *
+  7.5 &nbsp; AVL trees *
 
 
   </span>
@@ -2073,7 +2073,7 @@
   <span class="md-ellipsis">
 
 
-  7.6 Summary
+  7.6 &nbsp; Summary
 
 
   </span>
@@ -2100,7 +2100,7 @@
   <span class="md-ellipsis">
 
 
-  7.7 Exercises
+  7.7 &nbsp; Exercises
 
 
   </span>
@@ -2164,7 +2164,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 8. Heap
+  Chapter 8. &nbsp; Heaps
 
 
   </span>
@@ -2185,7 +2185,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 8. Heap
+  Chapter 8. &nbsp; Heaps
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2206,7 +2206,7 @@
   <span class="md-ellipsis">
 
 
-  8.1 Heap
+  8.1 &nbsp; Heaps
 
 
   </span>
@@ -2233,7 +2233,7 @@
   <span class="md-ellipsis">
 
 
-  8.2 Heap Construction Operation
+  8.2 &nbsp; Building a heap
 
 
   </span>
@@ -2260,7 +2260,7 @@
   <span class="md-ellipsis">
 
 
-  8.3 Top-k Problem
+  8.3 &nbsp; The top-k problem
 
 
   </span>
@@ -2287,7 +2287,7 @@
   <span class="md-ellipsis">
 
 
-  8.4 Summary
+  8.4 &nbsp; Summary
 
 
   </span>
@@ -2314,7 +2314,7 @@
   <span class="md-ellipsis">
 
 
-  8.5 Exercises
+  8.5 &nbsp; Exercises
 
 
   </span>
@@ -2378,7 +2378,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 9. Graph
+  Chapter 9. &nbsp; Graphs
 
 
   </span>
@@ -2399,7 +2399,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 9. Graph
+  Chapter 9. &nbsp; Graphs
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2420,7 +2420,7 @@
   <span class="md-ellipsis">
 
 
-  9.1 Graph
+  9.1 &nbsp; Graphs
 
 
   </span>
@@ -2447,7 +2447,7 @@
   <span class="md-ellipsis">
 
 
-  9.2 Basic Operations on Graphs
+  9.2 &nbsp; Basic graph operations
 
 
   </span>
@@ -2474,7 +2474,7 @@
   <span class="md-ellipsis">
 
 
-  9.3 Graph Traversal
+  9.3 &nbsp; Graph traversal
 
 
   </span>
@@ -2501,7 +2501,7 @@
   <span class="md-ellipsis">
 
 
-  9.4 Summary
+  9.4 &nbsp; Summary
 
 
   </span>
@@ -2528,7 +2528,7 @@
   <span class="md-ellipsis">
 
 
-  9.5 Exercises
+  9.5 &nbsp; Exercises
 
 
   </span>
@@ -2596,7 +2596,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 10. Searching
+  Chapter 10. &nbsp; Searching
 
 
   </span>
@@ -2617,7 +2617,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 10. Searching
+  Chapter 10. &nbsp; Searching
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2638,7 +2638,7 @@
   <span class="md-ellipsis">
 
 
-  10.1 Binary Search
+  10.1 &nbsp; Binary search
 
 
   </span>
@@ -2665,7 +2665,7 @@
   <span class="md-ellipsis">
 
 
-  10.2 Binary Search Insertion Point
+  10.2 &nbsp; Finding an insertion point with binary search
 
 
   </span>
@@ -2692,7 +2692,7 @@
   <span class="md-ellipsis">
 
 
-  10.3 Binary Search Boundaries
+  10.3 &nbsp; Finding boundaries with binary search
 
 
   </span>
@@ -2719,7 +2719,7 @@
   <span class="md-ellipsis">
 
 
-  10.4 Hash Optimization Strategy
+  10.4 &nbsp; Optimizing with hashing
 
 
   </span>
@@ -2746,7 +2746,7 @@
   <span class="md-ellipsis">
 
 
-  10.5 Searching Algorithms Revisited
+  10.5 &nbsp; Search algorithms revisited
 
 
   </span>
@@ -2773,7 +2773,7 @@
   <span class="md-ellipsis">
 
 
-  10.6 Summary
+  10.6 &nbsp; Summary
 
 
   </span>
@@ -2800,7 +2800,7 @@
   <span class="md-ellipsis">
 
 
-  10.7 Exercises
+  10.7 &nbsp; Exercises
 
 
   </span>
@@ -2880,7 +2880,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 11. Sorting
+  Chapter 11. &nbsp; Sorting
 
 
   </span>
@@ -2901,7 +2901,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 11. Sorting
+  Chapter 11. &nbsp; Sorting
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2922,7 +2922,7 @@
   <span class="md-ellipsis">
 
 
-  11.1 Sorting Algorithm
+  11.1 &nbsp; Sorting algorithms
 
 
   </span>
@@ -2949,7 +2949,7 @@
   <span class="md-ellipsis">
 
 
-  11.2 Selection Sort
+  11.2 &nbsp; Selection sort
 
 
   </span>
@@ -2976,7 +2976,7 @@
   <span class="md-ellipsis">
 
 
-  11.3 Bubble Sort
+  11.3 &nbsp; Bubble sort
 
 
   </span>
@@ -3003,7 +3003,7 @@
   <span class="md-ellipsis">
 
 
-  11.4 Insertion Sort
+  11.4 &nbsp; Insertion sort
 
 
   </span>
@@ -3030,7 +3030,7 @@
   <span class="md-ellipsis">
 
 
-  11.5 Quick Sort
+  11.5 &nbsp; Quick sort
 
 
   </span>
@@ -3057,7 +3057,7 @@
   <span class="md-ellipsis">
 
 
-  11.6 Merge Sort
+  11.6 &nbsp; Merge sort
 
 
   </span>
@@ -3084,7 +3084,7 @@
   <span class="md-ellipsis">
 
 
-  11.7 Heap Sort
+  11.7 &nbsp; Heap sort
 
 
   </span>
@@ -3120,7 +3120,7 @@
   <span class="md-ellipsis">
 
 
-  11.8 Bucket Sort
+  11.8 &nbsp; Bucket sort
 
 
   </span>
@@ -3137,7 +3137,7 @@
   <span class="md-ellipsis">
 
 
-  11.8 Bucket Sort
+  11.8 &nbsp; Bucket sort
 
 
   </span>
@@ -3163,10 +3163,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
 
         <li class="md-nav__item">
-  <a href="#1181-algorithm-flow" class="md-nav__link">
+  <a href="#1181-algorithm-steps" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        11.8.1 &nbsp; Algorithm Flow
+        11.8.1 &nbsp; Algorithm steps
       </span>
     </span>
   </a>
@@ -3174,10 +3174,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#1182-algorithm-characteristics" class="md-nav__link">
+  <a href="#1182-algorithm-properties" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        11.8.2 &nbsp; Algorithm Characteristics
+        11.8.2 &nbsp; Algorithm properties
       </span>
     </span>
   </a>
@@ -3185,10 +3185,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#1183-how-to-achieve-even-distribution" class="md-nav__link">
+  <a href="#1183-distributing-elements-evenly" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        11.8.3 &nbsp; How to Achieve Even Distribution
+        11.8.3 &nbsp; Distributing elements evenly
       </span>
     </span>
   </a>
@@ -3218,7 +3218,7 @@
   <span class="md-ellipsis">
 
 
-  11.9 Counting Sort
+  11.9 &nbsp; Counting sort
 
 
   </span>
@@ -3245,7 +3245,7 @@
   <span class="md-ellipsis">
 
 
-  11.10 Radix Sort
+  11.10 &nbsp; Radix sort
 
 
   </span>
@@ -3272,7 +3272,7 @@
   <span class="md-ellipsis">
 
 
-  11.11 Summary
+  11.11 &nbsp; Summary
 
 
   </span>
@@ -3299,7 +3299,7 @@
   <span class="md-ellipsis">
 
 
-  11.12 Exercises
+  11.12 &nbsp; Exercises
 
 
   </span>
@@ -3365,7 +3365,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 12. Divide and Conquer
+  Chapter 12. &nbsp; Divide and conquer
 
 
   </span>
@@ -3386,7 +3386,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 12. Divide and Conquer
+  Chapter 12. &nbsp; Divide and conquer
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3407,7 +3407,7 @@
   <span class="md-ellipsis">
 
 
-  12.1 Divide and Conquer Algorithms
+  12.1 &nbsp; Divide and conquer
 
 
   </span>
@@ -3434,7 +3434,7 @@
   <span class="md-ellipsis">
 
 
-  12.2 Divide and Conquer Search Strategy
+  12.2 &nbsp; Divide-and-conquer search
 
 
   </span>
@@ -3461,7 +3461,7 @@
   <span class="md-ellipsis">
 
 
-  12.3 Building a Binary Tree Problem
+  12.3 &nbsp; Building a binary tree
 
 
   </span>
@@ -3488,7 +3488,7 @@
   <span class="md-ellipsis">
 
 
-  12.4 Tower of Hanoi Problem
+  12.4 &nbsp; Tower of Hanoi
 
 
   </span>
@@ -3515,7 +3515,7 @@
   <span class="md-ellipsis">
 
 
-  12.5 Summary
+  12.5 &nbsp; Summary
 
 
   </span>
@@ -3542,7 +3542,7 @@
   <span class="md-ellipsis">
 
 
-  12.6 Exercises
+  12.6 &nbsp; Exercises
 
 
   </span>
@@ -3608,7 +3608,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 13. Backtracking
+  Chapter 13. &nbsp; Backtracking
 
 
   </span>
@@ -3629,7 +3629,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 13. Backtracking
+  Chapter 13. &nbsp; Backtracking
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3650,7 +3650,7 @@
   <span class="md-ellipsis">
 
 
-  13.1 Backtracking Algorithm
+  13.1 &nbsp; Backtracking algorithms
 
 
   </span>
@@ -3677,7 +3677,7 @@
   <span class="md-ellipsis">
 
 
-  13.2 Permutations Problem
+  13.2 &nbsp; Permutations problem
 
 
   </span>
@@ -3704,7 +3704,7 @@
   <span class="md-ellipsis">
 
 
-  13.3 Subset-Sum Problem
+  13.3 &nbsp; Subset sum problem
 
 
   </span>
@@ -3731,7 +3731,7 @@
   <span class="md-ellipsis">
 
 
-  13.4 N-Queens Problem
+  13.4 &nbsp; N-queens problem
 
 
   </span>
@@ -3758,7 +3758,7 @@
   <span class="md-ellipsis">
 
 
-  13.5 Summary
+  13.5 &nbsp; Summary
 
 
   </span>
@@ -3785,7 +3785,7 @@
   <span class="md-ellipsis">
 
 
-  13.6 Exercises
+  13.6 &nbsp; Exercises
 
 
   </span>
@@ -3855,7 +3855,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 14. Dynamic Programming
+  Chapter 14. &nbsp; Dynamic programming
 
 
   </span>
@@ -3876,7 +3876,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 14. Dynamic Programming
+  Chapter 14. &nbsp; Dynamic programming
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3897,7 +3897,7 @@
   <span class="md-ellipsis">
 
 
-  14.1 Introduction to Dynamic Programming
+  14.1 &nbsp; Introduction to dynamic programming
 
 
   </span>
@@ -3924,7 +3924,7 @@
   <span class="md-ellipsis">
 
 
-  14.2 Characteristics of Dynamic Programming Problems
+  14.2 &nbsp; Properties of dynamic programming problems
 
 
   </span>
@@ -3951,7 +3951,7 @@
   <span class="md-ellipsis">
 
 
-  14.3 Dynamic Programming Problem-Solving Approach
+  14.3 &nbsp; Solving dynamic programming problems
 
 
   </span>
@@ -3978,7 +3978,7 @@
   <span class="md-ellipsis">
 
 
-  14.4 0-1 Knapsack Problem
+  14.4 &nbsp; 0-1 knapsack problem
 
 
   </span>
@@ -4005,7 +4005,7 @@
   <span class="md-ellipsis">
 
 
-  14.5 Unbounded Knapsack Problem
+  14.5 &nbsp; Unbounded knapsack problem
 
 
   </span>
@@ -4032,7 +4032,7 @@
   <span class="md-ellipsis">
 
 
-  14.6 Edit Distance Problem
+  14.6 &nbsp; Edit distance problem
 
 
   </span>
@@ -4059,7 +4059,7 @@
   <span class="md-ellipsis">
 
 
-  14.7 Summary
+  14.7 &nbsp; Summary
 
 
   </span>
@@ -4086,7 +4086,7 @@
   <span class="md-ellipsis">
 
 
-  14.8 Exercises
+  14.8 &nbsp; Exercises
 
 
   </span>
@@ -4152,7 +4152,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 15. Greedy
+  Chapter 15. &nbsp; Greedy algorithms
 
 
   </span>
@@ -4173,7 +4173,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 15. Greedy
+  Chapter 15. &nbsp; Greedy algorithms
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4194,7 +4194,7 @@
   <span class="md-ellipsis">
 
 
-  15.1 Greedy Algorithm
+  15.1 &nbsp; Greedy algorithms
 
 
   </span>
@@ -4221,7 +4221,7 @@
   <span class="md-ellipsis">
 
 
-  15.2 Fractional Knapsack Problem
+  15.2 &nbsp; Fractional knapsack problem
 
 
   </span>
@@ -4248,7 +4248,7 @@
   <span class="md-ellipsis">
 
 
-  15.3 Maximum Capacity Problem
+  15.3 &nbsp; Maximum capacity problem
 
 
   </span>
@@ -4275,7 +4275,7 @@
   <span class="md-ellipsis">
 
 
-  15.4 Maximum Product Cutting Problem
+  15.4 &nbsp; Maximum product cutting problem
 
 
   </span>
@@ -4302,7 +4302,7 @@
   <span class="md-ellipsis">
 
 
-  15.5 Summary
+  15.5 &nbsp; Summary
 
 
   </span>
@@ -4329,7 +4329,7 @@
   <span class="md-ellipsis">
 
 
-  15.6 Exercises
+  15.6 &nbsp; Exercises
 
 
   </span>
@@ -4389,7 +4389,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 16. Appendix
+  Chapter 16. &nbsp; Appendix
 
 
   </span>
@@ -4410,7 +4410,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 16. Appendix
+  Chapter 16. &nbsp; Appendix
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4431,7 +4431,7 @@
   <span class="md-ellipsis">
 
 
-  16.1 Programming Environment Installation
+  16.1 &nbsp; Setting up a programming environment
 
 
   </span>
@@ -4458,7 +4458,7 @@
   <span class="md-ellipsis">
 
 
-  16.2 Contributing Together
+  16.2 &nbsp; Contribute to the book
 
 
   </span>
@@ -4485,7 +4485,7 @@
   <span class="md-ellipsis">
 
 
-  16.3 Glossary
+  16.3 &nbsp; Glossary
 
 
   </span>
@@ -4569,6 +4569,78 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="md-nav__item md-nav__item--nested">
+
+
+
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_20" >
+
+
+          <div class="md-nav__link md-nav__container">
+            <a href="../../chapter_paperbook/" class="md-nav__link ">
+
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+  <span class="md-ellipsis">
+
+
+  Print edition (Chinese)
+
+
+  </span>
+
+
+
+
+
+    <span class="md-status md-status--new" title="Recently added">
+    </span>
+
+
+
+
+            </a>
+
+          </div>
+
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_20">
+            <span class="md-nav__icon md-icon"></span>
+
+
+  Print edition (Chinese)
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+          </ul>
+        </nav>
+
+    </li>
+
+
+
   </ul>
 </nav>
                   </div>
@@ -4610,10 +4682,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
 
         <li class="md-nav__item">
-  <a href="#1181-algorithm-flow" class="md-nav__link">
+  <a href="#1181-algorithm-steps" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        11.8.1 &nbsp; Algorithm Flow
+        11.8.1 &nbsp; Algorithm steps
       </span>
     </span>
   </a>
@@ -4621,10 +4693,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#1182-algorithm-characteristics" class="md-nav__link">
+  <a href="#1182-algorithm-properties" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        11.8.2 &nbsp; Algorithm Characteristics
+        11.8.2 &nbsp; Algorithm properties
       </span>
     </span>
   </a>
@@ -4632,10 +4704,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#1183-how-to-achieve-even-distribution" class="md-nav__link">
+  <a href="#1183-distributing-elements-evenly" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        11.8.3 &nbsp; How to Achieve Even Distribution
+        11.8.3 &nbsp; Distributing elements evenly
       </span>
     </span>
   </a>
@@ -4679,18 +4751,18 @@
 
 
 <!-- Page content -->
-<h1 id="118-bucket-sort">11.8 &nbsp; Bucket Sort<a class="headerlink" href="#118-bucket-sort" title="Permanent link">&para;</a></h1>
-<p>The sorting algorithms discussed earlier are all comparison-based sorting algorithms, which sort by comparing the relative order of elements. The worst-case time complexity of such algorithms has a lower bound of <span class="arithmatex">\(\Omega(n \log n)\)</span>. Next, we will explore several non-comparison sorting algorithms, whose time complexity can be linear.</p>
-<p><u>Bucket sort</u> is a typical application of the divide-and-conquer strategy. It works by creating a sequence of ordered buckets, each corresponding to a data range, and distributing the data evenly among them. The elements within each bucket are then sorted separately. Finally, all buckets are merged in order.</p>
-<h2 id="1181-algorithm-flow">11.8.1 &nbsp; Algorithm Flow<a class="headerlink" href="#1181-algorithm-flow" title="Permanent link">&para;</a></h2>
-<p>Consider an array of length <span class="arithmatex">\(n\)</span>, whose elements are floating-point numbers in the range <span class="arithmatex">\([0, 1)\)</span>. The flow of bucket sort is shown in Figure 11-13.</p>
+<h1 id="118-bucket-sort">11.8 &nbsp; Bucket sort<a class="headerlink" href="#118-bucket-sort" title="Permanent link">&para;</a></h1>
+<p>The sorting algorithms discussed so far are “comparison-based”: they sort by comparing elements. Their worst-case time complexity has a lower bound of <span class="arithmatex">\(\Omega(n \log n)\)</span>. We now turn to several “non-comparison” sorting algorithms, which can achieve linear time complexity.</p>
+<p><u>Bucket sort</u> is a classic application of divide and conquer. It creates ordered buckets, each corresponding to a range of values, and distributes the data evenly among them. It then sorts each bucket separately and combines the results in bucket order.</p>
+<h2 id="1181-algorithm-steps">11.8.1 &nbsp; Algorithm steps<a class="headerlink" href="#1181-algorithm-steps" title="Permanent link">&para;</a></h2>
+<p>Consider an array of length <span class="arithmatex">\(n\)</span> containing floating-point values in <span class="arithmatex">\([0, 1)\)</span>. Bucket sort proceeds as shown below.</p>
 <ol>
-<li>Initialize <span class="arithmatex">\(k\)</span> buckets and distribute the <span class="arithmatex">\(n\)</span> elements into the <span class="arithmatex">\(k\)</span> buckets.</li>
-<li>Sort each bucket separately (here we use the built-in sorting function of the programming language).</li>
-<li>Merge the results in order from smallest to largest bucket.</li>
+<li>Initialize <span class="arithmatex">\(k\)</span> buckets and distribute the <span class="arithmatex">\(n\)</span> elements among the <span class="arithmatex">\(k\)</span> buckets.</li>
+<li>Sort each bucket separately, using the programming language's built-in sorting function here.</li>
+<li>Combine the results in ascending bucket order.</li>
 </ol>
-<p><img alt="Bucket sort algorithm flow" class="animation-figure" src="../bucket_sort.assets/bucket_sort_overview.png" /></p>
-<p align="center"> Figure 11-13 &nbsp; Bucket sort algorithm flow </p>
+<p><img alt="The bucket sort process" class="animation-figure" src="../bucket_sort.assets/bucket_sort_overview.png" /></p>
+<p align="center"> Figure 11-13 &nbsp; The bucket sort process </p>
 
 <p>The code is as follows:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
@@ -4698,20 +4770,20 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">bucket_sort.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">bucket_sort</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]):</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Bucket sort"""</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># Initialize k = n/2 buckets, expected to allocate 2 elements per bucket</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># Initialize k = n/2 buckets, expecting 2 elements per bucket</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">k</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">buckets</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="c1"># 1. Distribute array elements into various buckets</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="c1"># 1. Distribute the array elements among the buckets</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="c1"># Input data range is [0, 1), use num * k to map to index range [0, k-1]</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="c1"># The input range is [0, 1); use num * k to map each value to an index in [0, k-1]</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="n">k</span><span class="p">)</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="c1"># Add num to bucket i</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="n">buckets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="c1"># 2. Sort each bucket</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">buckets</span><span class="p">:</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        <span class="c1"># Use built-in sorting function, can also replace with other sorting algorithms</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        <span class="c1"># Use the built-in sorting function, or replace it with another sorting algorithm</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        <span class="n">bucket</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="c1"># 3. Traverse buckets to merge results</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="c1"># 3. Traverse the buckets to combine the results</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">buckets</span><span class="p">:</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">bucket</span><span class="p">:</span>
@@ -4722,22 +4794,22 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">bucket_sort.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Bucket sort */</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">bucketSort</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Initialize k = n/2 buckets, expected to allocate 2 elements per bucket</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Initialize k = n/2 buckets, expecting 2 elements per bucket</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">buckets</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c1">// 1. Distribute array elements into various buckets</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c1">// 1. Distribute the array elements among the buckets</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="c1">// Input data range is [0, 1), use num * k to map to index range [0, k-1]</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="c1">// The input range is [0, 1); use num * k to map each value to an index in [0, k-1]</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="c1">// Add num to bucket bucket_idx</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="c1">// Add num to bucket i</span>
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="n">buckets</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="c1">// 2. Sort each bucket</span>
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bucket</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="c1">// Use built-in sorting function, can also replace with other sorting algorithms</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="c1">// Use the built-in sorting function, or replace it with another sorting algorithm</span>
 <a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="n">sort</span><span class="p">(</span><span class="n">bucket</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">bucket</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 <a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="c1">// 3. Traverse buckets to merge results</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="c1">// 3. Traverse the buckets to combine the results</span>
 <a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bucket</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">bucket</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4750,25 +4822,25 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">bucket_sort.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* Bucket sort */</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">bucketSort</span><span class="p">(</span><span class="kt">float</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Initialize k = n/2 buckets, expected to allocate 2 elements per bucket</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Initialize k = n/2 buckets, expecting 2 elements per bucket</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Float</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">buckets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="n">buckets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">());</span>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="c1">// 1. Distribute array elements into various buckets</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="c1">// 1. Distribute the array elements among the buckets</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="c1">// Input data range is [0, 1), use num * k to map to index range [0, k-1]</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="c1">// The input range is [0, 1); use num * k to map each value to an index in [0, k-1]</span>
 <a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k</span><span class="p">);</span>
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="c1">// Add num to bucket i</span>
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="n">buckets</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="na">add</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="c1">// 2. Sort each bucket</span>
 <a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bucket</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="c1">// Use built-in sorting function, can also replace with other sorting algorithms</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="c1">// Use the built-in sorting function, or replace it with another sorting algorithm</span>
 <a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">bucket</span><span class="p">);</span>
 <a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="c1">// 3. Traverse buckets to merge results</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="c1">// 3. Traverse the buckets to combine the results</span>
 <a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bucket</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">bucket</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4781,25 +4853,25 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">bucket_sort.cs</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* Bucket sort */</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">void</span><span class="w"> </span><span class="nf">BucketSort</span><span class="p">(</span><span class="kt">float</span><span class="p">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Initialize k = n/2 buckets, expected to allocate 2 elements per bucket</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Initialize k = n/2 buckets, expecting 2 elements per bucket</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">buckets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">buckets</span><span class="p">.</span><span class="n">Add</span><span class="p">([]);</span>
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="c1">// 1. Distribute array elements into various buckets</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="c1">// 1. Distribute the array elements among the buckets</span>
 <a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="c1">// Input data range is [0, 1), use num * k to map to index range [0, k-1]</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="c1">// The input range is [0, 1); use num * k to map each value to an index in [0, k-1]</span>
 <a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k</span><span class="p">);</span>
 <a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="c1">// Add num to bucket i</span>
 <a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="n">buckets</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Add</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
 <a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="c1">// 2. Sort each bucket</span>
 <a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bucket</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="c1">// Use built-in sorting function, can also replace with other sorting algorithms</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="c1">// Use the built-in sorting function, or replace it with another sorting algorithm</span>
 <a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="n">bucket</span><span class="p">.</span><span class="n">Sort</span><span class="p">();</span>
 <a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="c1">// 3. Traverse buckets to merge results</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="c1">// 3. Traverse the buckets to combine the results</span>
 <a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bucket</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">bucket</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4812,25 +4884,25 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">bucket_sort.go</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* Bucket sort */</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">bucketSort</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">float64</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Initialize k = n/2 buckets, expected to allocate 2 elements per bucket</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Initialize k = floor(n/2) buckets, expecting about 2 elements per bucket for uniformly distributed input</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nx">k</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nx">buckets</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([][]</span><span class="kt">float64</span><span class="p">,</span><span class="w"> </span><span class="nx">k</span><span class="p">)</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="nx">buckets</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">float64</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="c1">// 1. Distribute array elements into various buckets</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="c1">// 1. Distribute the array elements among the buckets</span>
 <a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">nums</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="c1">// Input data range is [0, 1), use num * k to map to index range [0, k-1]</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="c1">// The input range is [0, 1); use num * k to map each value to an index in [0, k-1]</span>
 <a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="nx">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kt">float64</span><span class="p">(</span><span class="nx">k</span><span class="p">))</span>
 <a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="c1">// Add num to bucket i</span>
 <a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="nx">buckets</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">buckets</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="nx">num</span><span class="p">)</span>
 <a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="c1">// 2. Sort each bucket</span>
 <a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="c1">// Use built-in slice sorting function, can also be replaced with other sorting algorithms</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="c1">// Use the standard slice-sorting function, or replace it with another sorting algorithm</span>
 <a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="nx">sort</span><span class="p">.</span><span class="nx">Float64s</span><span class="p">(</span><span class="nx">buckets</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
 <a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span><span class="c1">// 3. Traverse buckets to merge results</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span><span class="c1">// 3. Traverse the buckets to combine the results</span>
 <a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">    </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">bucket</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">buckets</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">bucket</span><span class="w"> </span><span class="p">{</span>
@@ -4844,22 +4916,22 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">bucket_sort.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* Bucket sort */</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">bucketSort</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="kr">inout</span><span class="w"> </span><span class="p">[</span><span class="nb">Double</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Initialize k = n/2 buckets, expected to allocate 2 elements per bucket</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Initialize k = n/2 buckets, expecting 2 elements per bucket</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">k</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="bp">count</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">buckets</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="p">..</span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">).</span><span class="bp">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kc">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">[</span><span class="nb">Double</span><span class="p">]()</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="c1">// 1. Distribute array elements into various buckets</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="c1">// 1. Distribute the array elements among the buckets</span>
 <a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="c1">// Input data range is [0, 1), use num * k to map to index range [0, k-1]</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="c1">// The input range is [0, 1); use num * k to map each value to an index in [0, k-1]</span>
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">Int</span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Double</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
 <a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="c1">// Add num to bucket i</span>
 <a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="n">buckets</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 <a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="c1">// 2. Sort each bucket</span>
 <a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">buckets</span><span class="p">.</span><span class="bp">indices</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="c1">// Use built-in sorting function, can also replace with other sorting algorithms</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="c1">// Use the built-in sorting function, or replace it with another sorting algorithm</span>
 <a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="n">buckets</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="bp">sort</span><span class="p">()</span>
 <a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="c1">// 3. Traverse buckets to merge results</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="c1">// 3. Traverse the buckets to combine the results</span>
 <a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">startIndex</span>
 <a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">bucket</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">buckets</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">bucket</span><span class="w"> </span><span class="p">{</span>
@@ -4873,25 +4945,25 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">bucket_sort.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/* Bucket sort */</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">bucketSort</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Initialize k = n/2 buckets, expected to allocate 2 elements per bucket</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Initialize ceil(n/2) buckets, aiming for about 2 elements per bucket</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">buckets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="nx">buckets</span><span class="p">.</span><span class="nx">push</span><span class="p">([]);</span>
 <a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="c1">// 1. Distribute array elements into various buckets</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="c1">// 1. Distribute the array elements among the buckets</span>
 <a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">        </span><span class="c1">// Input data range is [0, 1), use num * k to map to index range [0, k-1]</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">        </span><span class="c1">// The input range is [0, 1); floor(num * k) maps values to indices from 0 to ceil(k)-1</span>
 <a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">k</span><span class="p">);</span>
 <a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">        </span><span class="c1">// Add num to bucket i</span>
 <a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">        </span><span class="nx">buckets</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">push</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
 <a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="c1">// 2. Sort each bucket</span>
 <a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">bucket</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">        </span><span class="c1">// Use built-in sorting function, can also replace with other sorting algorithms</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">        </span><span class="c1">// Use the built-in sorting function, or replace it with another sorting algorithm</span>
 <a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">        </span><span class="nx">bucket</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span>
 <a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="c1">// 3. Traverse buckets to merge results</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="c1">// 3. Traverse the buckets to combine the results</span>
 <a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">bucket</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">bucket</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4904,25 +4976,25 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">bucket_sort.ts</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/* Bucket sort */</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">bucketSort</span><span class="p">(</span><span class="nx">nums</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Initialize k = n/2 buckets, expected to allocate 2 elements per bucket</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Set k = n/2 and create ceil(k) buckets, aiming for about 2 elements per bucket</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
 <a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">buckets</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[][]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="nx">buckets</span><span class="p">.</span><span class="nx">push</span><span class="p">([]);</span>
 <a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="c1">// 1. Distribute array elements into various buckets</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="c1">// 1. Distribute the array elements among the buckets</span>
 <a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="c1">// Input data range is [0, 1), use num * k to map to index range [0, k-1]</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="c1">// The input range is [0, 1); floor(num * k) maps each value to an index in [0, ceil(k)-1]</span>
 <a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">k</span><span class="p">);</span>
 <a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="c1">// Add num to bucket i</span>
 <a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">        </span><span class="nx">buckets</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">push</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
 <a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="c1">// 2. Sort each bucket</span>
 <a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">bucket</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">        </span><span class="c1">// Use built-in sorting function, can also replace with other sorting algorithms</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">        </span><span class="c1">// Use the built-in sorting function, or replace it with another sorting algorithm</span>
 <a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">        </span><span class="nx">bucket</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span>
 <a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">    </span><span class="c1">// 3. Traverse buckets to merge results</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">    </span><span class="c1">// 3. Traverse the buckets to combine the results</span>
 <a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">bucket</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">bucket</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4935,22 +5007,22 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">bucket_sort.dart</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* Bucket sort */</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">bucketSort</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="c1">// Initialize k = n/2 buckets, expected to allocate 2 elements per bucket</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="c1">// Initialize k = floor(n/2) buckets, aiming for about 2 elements per bucket</span>
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">~/</span><span class="w"> </span><span class="m">2</span><span class="p">;</span>
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">buckets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="n">generate</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">[]);</span>
 <a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="c1">// 1. Distribute array elements into various buckets</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="c1">// 1. Distribute the array elements among the buckets</span>
 <a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">_num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="c1">// Input data range is [0, 1), use _num * k to map to index range [0, k-1]</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="c1">// The input range is [0, 1); use _num * k to map each value to an index in [0, k-1]</span>
 <a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">_num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k</span><span class="p">).</span><span class="n">toInt</span><span class="p">();</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="c1">// Add _num to bucket bucket_idx</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="c1">// Add _num to bucket i</span>
 <a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="n">buckets</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">add</span><span class="p">(</span><span class="n">_num</span><span class="p">);</span>
 <a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">  </span><span class="c1">// 2. Sort each bucket</span>
 <a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bucket</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="n">bucket</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span>
 <a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">  </span><span class="c1">// 3. Traverse buckets to merge results</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">  </span><span class="c1">// 3. Traverse the buckets to combine the results</span>
 <a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
 <a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bucket</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">_num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">bucket</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4963,22 +5035,22 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">bucket_sort.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/* Bucket sort */</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">bucket_sort</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="p">[</span><span class="kt">f64</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Initialize k = n/2 buckets, expected to allocate 2 elements per bucket</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Initialize k = n/2 buckets, expecting 2 elements per bucket</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">buckets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="fm">vec!</span><span class="p">[];</span><span class="w"> </span><span class="n">k</span><span class="p">];</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="c1">// 1. Distribute array elements into various buckets</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="c1">// 1. Distribute the array elements among the buckets</span>
 <a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">iter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">        </span><span class="c1">// Input data range is [0, 1), use num * k to map to index range [0, k-1]</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">        </span><span class="c1">// The input range is [0, 1); use num * k to map each value to an index in [0, k-1]</span>
 <a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">f64</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">;</span>
 <a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">        </span><span class="c1">// Add num to bucket i</span>
 <a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">        </span><span class="n">buckets</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">push</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
 <a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="c1">// 2. Sort each bucket</span>
 <a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">bucket</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">buckets</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">        </span><span class="c1">// Use built-in sorting function, can also replace with other sorting algorithms</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">        </span><span class="c1">// Use the built-in sorting function, or replace it with another sorting algorithm</span>
 <a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">        </span><span class="n">bucket</span><span class="p">.</span><span class="n">sort_by</span><span class="p">(</span><span class="o">|</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">partial_cmp</span><span class="p">(</span><span class="n">b</span><span class="p">).</span><span class="n">unwrap</span><span class="p">());</span>
 <a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">    </span><span class="c1">// 3. Traverse buckets to merge results</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">    </span><span class="c1">// 3. Traverse the buckets to combine the results</span>
 <a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">bucket</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">buckets</span><span class="p">.</span><span class="n">iter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">bucket</span><span class="p">.</span><span class="n">iter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -4993,14 +5065,14 @@
 <div class="highlight"><span class="filename">bucket_sort.c</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* Bucket sort */</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">bucketSort</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">nums</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">                                 </span><span class="c1">// Initialize k = n/2 buckets</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">sizes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span><span class="w">          </span><span class="c1">// Record each bucket's size</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">sizes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span><span class="w">          </span><span class="c1">// Record the size of each bucket</span>
 <a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="o">**</span><span class="n">buckets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="p">));</span><span class="w"> </span><span class="c1">// Array of dynamic arrays (buckets)</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="c1">// Pre-allocate sufficient space for each bucket</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="c1">// Preallocate enough space for each bucket</span>
 <a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="n">buckets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">));</span>
 <a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">        </span><span class="n">sizes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="c1">// 1. Distribute array elements into various buckets</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="c1">// 1. Distribute the array elements among the buckets</span>
 <a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k</span><span class="p">);</span>
 <a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">        </span><span class="n">buckets</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">sizes</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
@@ -5009,7 +5081,7 @@
 <a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">        </span><span class="n">qsort</span><span class="p">(</span><span class="n">buckets</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">sizes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">),</span><span class="w"> </span><span class="n">compare</span><span class="p">);</span>
 <a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">    </span><span class="c1">// 3. Merge sorted buckets</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">    </span><span class="c1">// 3. Merge the sorted buckets</span>
 <a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sizes</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5024,25 +5096,25 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">bucket_sort.kt</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/* Bucket sort */</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">bucketSort</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">FloatArray</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="c1">// Initialize k = n/2 buckets, expected to allocate 2 elements per bucket</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="c1">// Initialize k = floor(n/2) buckets, expecting about 2 elements per bucket</span>
 <a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">size</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span>
 <a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">buckets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="o">&lt;</span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">Float</span><span class="o">&gt;&gt;</span><span class="p">()</span>
 <a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="o">&lt;</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">        </span><span class="n">buckets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">mutableListOf</span><span class="p">())</span>
 <a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="c1">// 1. Distribute array elements into various buckets</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="c1">// 1. Distribute the array elements among the buckets</span>
 <a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">        </span><span class="c1">// Input data range is [0, 1), use num * k to map to index range [0, k-1]</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">        </span><span class="c1">// The input range is [0, 1); use num * k to map each value to an index in [0, k-1]</span>
 <a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k</span><span class="p">).</span><span class="na">toInt</span><span class="p">()</span>
 <a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">        </span><span class="c1">// Add num to bucket i</span>
 <a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">        </span><span class="n">buckets</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 <a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">    </span><span class="c1">// 2. Sort each bucket</span>
 <a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">bucket</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">        </span><span class="c1">// Use built-in sorting function, can also replace with other sorting algorithms</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">        </span><span class="c1">// Use the built-in sorting function, or replace it with another sorting algorithm</span>
 <a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">        </span><span class="n">bucket</span><span class="p">.</span><span class="na">sort</span><span class="p">()</span>
 <a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w">    </span><span class="c1">// 3. Traverse buckets to merge results</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w">    </span><span class="c1">// 3. Traverse the buckets to combine the results</span>
 <a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
 <a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">bucket</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">bucket</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5055,13 +5127,13 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">bucket_sort.rb</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">### Bucket sort ###</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">bucket_sort</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Initialize k = n/2 buckets, expected to allocate 2 elements per bucket</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Initialize k = floor(n/2) buckets, aiming for about 2 elements per bucket</span>
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">.</span><span class="n">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span>
 <a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="n">buckets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="p">}</span>
 <a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span><span class="c1"># 1. Distribute array elements into various buckets</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span><span class="c1"># 1. Distribute the array elements among the buckets</span>
 <a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">  </span><span class="n">nums</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">num</span><span class="o">|</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="c1"># Input data range is [0, 1), use num * k to map to index range [0, k-1]</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="c1"># The input range is [0, 1); use num * k to map each value to an index in [0, k-1]</span>
 <a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span>
 <a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="c1"># Add num to bucket i</span>
 <a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">    </span><span class="n">buckets</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">num</span>
@@ -5069,11 +5141,11 @@
 <a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>
 <a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">  </span><span class="c1"># 2. Sort each bucket</span>
 <a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">  </span><span class="n">buckets</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">bucket</span><span class="o">|</span>
-<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">    </span><span class="c1"># Use built-in sorting function, can also replace with other sorting algorithms</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">    </span><span class="c1"># Use the built-in sorting function, or replace it with another sorting algorithm</span>
 <a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">    </span><span class="n">bucket</span><span class="o">.</span><span class="n">sort!</span>
 <a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">  </span><span class="k">end</span>
 <a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>
-<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="w">  </span><span class="c1"># 3. Traverse buckets to merge results</span>
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="w">  </span><span class="c1"># 3. Traverse the buckets to combine the results</span>
 <a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="w">  </span><span class="n">buckets</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">bucket</span><span class="o">|</span>
 <a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="w">    </span><span class="n">bucket</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">num</span><span class="o">|</span>
@@ -5086,24 +5158,29 @@
 </div>
 </div>
 </div>
-<h2 id="1182-algorithm-characteristics">11.8.2 &nbsp; Algorithm Characteristics<a class="headerlink" href="#1182-algorithm-characteristics" title="Permanent link">&para;</a></h2>
-<p>Bucket sort is suitable for processing very large datasets. For example, suppose the input contains 1 million elements, and limited memory prevents the system from loading all of them at once. In that case, the data can be divided into 1000 buckets, each bucket can be sorted separately, and the results can then be merged.</p>
+<details class="pythontutor">
+<summary>Visualize execution</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20bucket_sort%28nums%3A%20list%5Bfloat%5D%29%3A%0A%20%20%20%20%22%22%22Bucket%20sort%22%22%22%0A%20%20%20%20%23%20Initialize%20k%20%3D%20n/2%20buckets,%20expecting%202%20elements%20per%20bucket%0A%20%20%20%20k%20%3D%20len%28nums%29%20//%202%0A%20%20%20%20buckets%20%3D%20%5B%5B%5D%20for%20_%20in%20range%28k%29%5D%0A%20%20%20%20%23%201.%20Distribute%20the%20array%20elements%20among%20the%20buckets%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20%23%20The%20input%20range%20is%20%5B0,%201%29%3B%20use%20num%20%2A%20k%20to%20map%20each%20value%20to%20an%20index%20in%20%5B0,%20k-1%5D%0A%20%20%20%20%20%20%20%20i%20%3D%20int%28num%20%2A%20k%29%0A%20%20%20%20%20%20%20%20%23%20Add%20num%20to%20bucket%20i%0A%20%20%20%20%20%20%20%20buckets%5Bi%5D.append%28num%29%0A%20%20%20%20%23%202.%20Sort%20each%20bucket%0A%20%20%20%20for%20bucket%20in%20buckets%3A%0A%20%20%20%20%20%20%20%20%23%20Use%20the%20built-in%20sorting%20function,%20or%20replace%20it%20with%20another%20sorting%20algorithm%0A%20%20%20%20%20%20%20%20bucket.sort%28%29%0A%20%20%20%20%23%203.%20Traverse%20the%20buckets%20to%20combine%20the%20results%0A%20%20%20%20i%20%3D%200%0A%20%20%20%20for%20bucket%20in%20buckets%3A%0A%20%20%20%20%20%20%20%20for%20num%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bi%5D%20%3D%20num%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Assume%20the%20input%20consists%20of%20floating-point%20numbers%20in%20%5B0,%201%29%0A%20%20%20%20nums%20%3D%20%5B0.49,%200.96,%200.82,%200.09,%200.57,%200.43,%200.91,%200.75,%200.15,%200.37%5D%0A%20%20%20%20bucket_sort%28nums%29%0A%20%20%20%20print%28%22After%20bucket%20sort,%20nums%20%3D%22,%20nums%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20bucket_sort%28nums%3A%20list%5Bfloat%5D%29%3A%0A%20%20%20%20%22%22%22Bucket%20sort%22%22%22%0A%20%20%20%20%23%20Initialize%20k%20%3D%20n/2%20buckets,%20expecting%202%20elements%20per%20bucket%0A%20%20%20%20k%20%3D%20len%28nums%29%20//%202%0A%20%20%20%20buckets%20%3D%20%5B%5B%5D%20for%20_%20in%20range%28k%29%5D%0A%20%20%20%20%23%201.%20Distribute%20the%20array%20elements%20among%20the%20buckets%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20%23%20The%20input%20range%20is%20%5B0,%201%29%3B%20use%20num%20%2A%20k%20to%20map%20each%20value%20to%20an%20index%20in%20%5B0,%20k-1%5D%0A%20%20%20%20%20%20%20%20i%20%3D%20int%28num%20%2A%20k%29%0A%20%20%20%20%20%20%20%20%23%20Add%20num%20to%20bucket%20i%0A%20%20%20%20%20%20%20%20buckets%5Bi%5D.append%28num%29%0A%20%20%20%20%23%202.%20Sort%20each%20bucket%0A%20%20%20%20for%20bucket%20in%20buckets%3A%0A%20%20%20%20%20%20%20%20%23%20Use%20the%20built-in%20sorting%20function,%20or%20replace%20it%20with%20another%20sorting%20algorithm%0A%20%20%20%20%20%20%20%20bucket.sort%28%29%0A%20%20%20%20%23%203.%20Traverse%20the%20buckets%20to%20combine%20the%20results%0A%20%20%20%20i%20%3D%200%0A%20%20%20%20for%20bucket%20in%20buckets%3A%0A%20%20%20%20%20%20%20%20for%20num%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bi%5D%20%3D%20num%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Assume%20the%20input%20consists%20of%20floating-point%20numbers%20in%20%5B0,%201%29%0A%20%20%20%20nums%20%3D%20%5B0.49,%200.96,%200.82,%200.09,%200.57,%200.43,%200.91,%200.75,%200.15,%200.37%5D%0A%20%20%20%20bucket_sort%28nums%29%0A%20%20%20%20print%28%22After%20bucket%20sort,%20nums%20%3D%22,%20nums%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen &gt;</a></div></p>
+</details>
+<h2 id="1182-algorithm-properties">11.8.2 &nbsp; Algorithm properties<a class="headerlink" href="#1182-algorithm-properties" title="Permanent link">&para;</a></h2>
+<p>Bucket sort is useful for very large datasets. For example, suppose the input contains one million elements and memory limitations prevent loading all of them at once. We can divide them into 1,000 buckets, sort the buckets separately, and combine the results.</p>
 <ul>
-<li><strong>Time complexity is <span class="arithmatex">\(O(n + k)\)</span></strong>: Assuming the elements are evenly distributed across the buckets, each bucket contains <span class="arithmatex">\(\frac{n}{k}\)</span> elements. If sorting a single bucket takes <span class="arithmatex">\(O(\frac{n}{k} \log\frac{n}{k})\)</span> time, then sorting all buckets takes <span class="arithmatex">\(O(n \log\frac{n}{k})\)</span> time. <strong>When the number of buckets <span class="arithmatex">\(k\)</span> is relatively large, the time complexity approaches <span class="arithmatex">\(O(n)\)</span></strong>. Merging the results requires traversing all buckets and elements, which takes <span class="arithmatex">\(O(n + k)\)</span> time. In the worst case, all data is placed into a single bucket, and sorting that bucket takes <span class="arithmatex">\(O(n^2)\)</span> time.</li>
-<li><strong>Space complexity is <span class="arithmatex">\(O(n + k)\)</span>, and bucket sort is not in-place</strong>: It requires extra space for <span class="arithmatex">\(k\)</span> buckets and a total of <span class="arithmatex">\(n\)</span> elements.</li>
-<li>Whether bucket sort is stable depends on whether the algorithm for sorting elements within buckets is stable.</li>
+<li><strong>Time complexity: <span class="arithmatex">\(O(n + k)\)</span></strong>. If the elements are evenly distributed, each bucket contains <span class="arithmatex">\(\frac{n}{k}\)</span> elements. If sorting one bucket takes <span class="arithmatex">\(O(\frac{n}{k} \log\frac{n}{k})\)</span> time, sorting all buckets takes <span class="arithmatex">\(O(n \log\frac{n}{k})\)</span>. <strong>When the number of buckets <span class="arithmatex">\(k\)</span> is relatively large, this approaches <span class="arithmatex">\(O(n)\)</span></strong>. Combining the results visits all buckets and elements, taking <span class="arithmatex">\(O(n + k)\)</span> time. In the worst case, all data falls into one bucket, and sorting it takes <span class="arithmatex">\(O(n^2)\)</span> time.</li>
+<li><strong>Space complexity: <span class="arithmatex">\(O(n + k)\)</span>; not in-place</strong>. Extra space is needed for <span class="arithmatex">\(k\)</span> buckets and a total of <span class="arithmatex">\(n\)</span> elements.</li>
+<li>Whether bucket sort is stable depends on whether the algorithm used to sort within each bucket is stable.</li>
 </ul>
-<h2 id="1183-how-to-achieve-even-distribution">11.8.3 &nbsp; How to Achieve Even Distribution<a class="headerlink" href="#1183-how-to-achieve-even-distribution" title="Permanent link">&para;</a></h2>
-<p>In theory, bucket sort can achieve <span class="arithmatex">\(O(n)\)</span> time complexity. <strong>The key is to distribute the elements evenly across the buckets</strong>, because real-world data is often not uniformly distributed. For example, suppose we want to divide all products on Taobao evenly into 10 buckets by price range, but the price distribution is uneven: there are many products priced below 100 yuan and very few priced above 1000 yuan. If the price range is divided evenly into 10 intervals, the numbers of products in the buckets will differ greatly.</p>
-<p>To achieve a more even distribution, we can first choose a rough boundary and partition the data into 3 buckets. <strong>After that, buckets containing more products can be further divided into 3 buckets until the numbers of elements in all buckets are roughly equal</strong>.</p>
-<p>As shown in Figure 11-14, this method essentially builds a recursion tree whose goal is to make the leaf nodes as balanced as possible. Of course, the data does not have to be split into 3 buckets in every round; the specific partitioning strategy can be chosen flexibly based on the characteristics of the data.</p>
-<p><img alt="Recursively dividing buckets" class="animation-figure" src="../bucket_sort.assets/scatter_in_buckets_recursively.png" /></p>
-<p align="center"> Figure 11-14 &nbsp; Recursively dividing buckets </p>
+<h2 id="1183-distributing-elements-evenly">11.8.3 &nbsp; Distributing elements evenly<a class="headerlink" href="#1183-distributing-elements-evenly" title="Permanent link">&para;</a></h2>
+<p>Bucket sort can theoretically achieve <span class="arithmatex">\(O(n)\)</span> time. <strong>The key is distributing elements evenly among the buckets</strong>, since real data is often unevenly distributed. Suppose we want to divide all products on Taobao evenly into 10 buckets by price. There are many products below 100 yuan but few above 1,000 yuan. Splitting the price range into 10 equal intervals would leave very different numbers of products in the buckets.</p>
+<p>To obtain an even distribution, we can first choose rough boundaries and divide the data into 3 buckets. <strong>Then split the more crowded buckets into 3 smaller buckets, repeating until all buckets contain roughly equal numbers of elements</strong>.</p>
+<p>As shown below, this effectively creates a recursion tree whose leaf values should be as balanced as possible. We need not use 3 buckets at every step; the subdivision can be chosen to suit the data.</p>
+<p><img alt="Recursively subdividing buckets" class="animation-figure" src="../bucket_sort.assets/scatter_in_buckets_recursively.png" /></p>
+<p align="center"> Figure 11-14 &nbsp; Recursively subdividing buckets </p>
 
-<p>If we know the probability distribution of product prices in advance, <strong>we can set the price boundaries for each bucket according to that distribution</strong>. Notably, the data distribution does not need to be measured exactly; it can also be approximated with a probability model chosen to fit the characteristics of the data.</p>
-<p>As shown in Figure 11-15, we assume that product prices follow a normal distribution, which allows us to reasonably set price intervals to evenly distribute products to each bucket.</p>
-<p><img alt="Dividing buckets based on probability distribution" class="animation-figure" src="../bucket_sort.assets/scatter_in_buckets_distribution.png" /></p>
-<p align="center"> Figure 11-15 &nbsp; Dividing buckets based on probability distribution </p>
+<p>If we know the probability distribution of product prices in advance, <strong>we can choose bucket boundaries according to that distribution</strong>. We do not necessarily need to measure the distribution explicitly; we can approximate it with a probability model suited to the data.</p>
+<p>In Figure 11-15, we assume prices follow a normal distribution. This lets us choose suitable price intervals and distribute products evenly among the buckets.</p>
+<p><img alt="Defining buckets from a probability distribution" class="animation-figure" src="../bucket_sort.assets/scatter_in_buckets_distribution.png" /></p>
+<p align="center"> Figure 11-15 &nbsp; Defining buckets from a probability distribution </p>
 
 <!-- Source file information -->
 
@@ -5126,7 +5203,7 @@ aria-label="Footer"
   <a
     href="../heap_sort/"
     class="md-footer__link md-footer__link--prev"
-    aria-label="Previous: 11.7 Heap Sort"
+    aria-label="Previous: 11.7   Heap sort"
     rel="prev"
   >
     <div class="md-footer__button md-icon">
@@ -5138,7 +5215,7 @@ aria-label="Footer"
         Previous
       </span>
       <div class="md-ellipsis">
-        11.7 Heap Sort
+        11.7 &nbsp; Heap sort
       </div>
     </div>
   </a>
@@ -5150,7 +5227,7 @@ aria-label="Footer"
   <a
     href="../counting_sort/"
     class="md-footer__link md-footer__link--next"
-    aria-label="Next: 11.9 Counting Sort"
+    aria-label="Next: 11.9   Counting sort"
     rel="next"
   >
     <div class="md-footer__title">
@@ -5158,7 +5235,7 @@ aria-label="Footer"
         Next
       </span>
       <div class="md-ellipsis">
-        11.9 Counting Sort
+        11.9 &nbsp; Counting sort
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -5175,7 +5252,7 @@ aria-label="Footer"
   <!-- Check-in button above comments -->
 
 
-  <h5 align="center" id="__comments">Feel free to drop your insights, questions or suggestions</h5>
+  <h5 align="center" id="__comments">Share your insights, questions, or suggestions in the comments</h5>
 
   <!-- Insert generated snippet here -->
   <script

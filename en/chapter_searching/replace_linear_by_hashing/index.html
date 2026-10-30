@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
+        <meta name="description" content="A data structures and algorithms tutorial with animated illustrations and code you can run with one click">
 
 
         <meta name="author" content="krahets">
@@ -41,7 +41,7 @@
 
 
 
-        <title>10.4 Hash Optimization Strategy - Hello Algo</title>
+        <title>10.4 Optimizing with hashing - Hello Algo</title>
 
 
 
@@ -67,8 +67,8 @@
 
 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"JetBrains Mono"}</style>
 
 
 
@@ -101,7 +101,7 @@
     <div data-md-component="skip">
 
 
-        <a href="#104-hash-optimization-strategy" class="md-skip">
+        <a href="#104-optimizing-with-hashing" class="md-skip">
           Skip to content
         </a>
 
@@ -119,7 +119,7 @@
         <path
             d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z" />
     </svg>
-    <span>Welcome to contribute to Chinese-to-English translation! For more details, please refer to <a href="https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md">CONTRIBUTING.md</a>.</span>
+    <span>Help improve the English edition. See our <a href="https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md">contribution guidelines</a>.</span>
 </div>
 
           </div>
@@ -154,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
 
-              10.4 &nbsp; Hash Optimization Strategy
+              10.4 &nbsp; Optimizing with hashing
 
           </span>
         </div>
@@ -167,9 +167,9 @@
 
 
 
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
 
-      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
       </label>
 
@@ -177,9 +177,9 @@
 
 
 
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
 
-      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
       </label>
 
@@ -349,7 +349,7 @@
   <span class="md-ellipsis">
 
 
-  Before Starting
+  Foreword
 
 
   </span>
@@ -365,7 +365,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Before Starting
+  Foreword
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -419,7 +419,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 0. Preface
+  Chapter 0. &nbsp; Preface
 
 
   </span>
@@ -440,7 +440,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 0. Preface
+  Chapter 0. &nbsp; Preface
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -461,7 +461,7 @@
   <span class="md-ellipsis">
 
 
-  0.1 About This Book
+  0.1 &nbsp; About this book
 
 
   </span>
@@ -488,7 +488,7 @@
   <span class="md-ellipsis">
 
 
-  0.2 How to Use This Book
+  0.2 &nbsp; How to use this book
 
 
   </span>
@@ -515,7 +515,7 @@
   <span class="md-ellipsis">
 
 
-  0.3 Summary
+  0.3 &nbsp; Summary
 
 
   </span>
@@ -575,7 +575,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 1. Encounter with Algorithms
+  Chapter 1. &nbsp; Getting to know algorithms
 
 
   </span>
@@ -596,7 +596,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 1. Encounter with Algorithms
+  Chapter 1. &nbsp; Getting to know algorithms
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -617,7 +617,7 @@
   <span class="md-ellipsis">
 
 
-  1.1 Algorithms Are Everywhere
+  1.1 &nbsp; Algorithms are everywhere
 
 
   </span>
@@ -644,7 +644,7 @@
   <span class="md-ellipsis">
 
 
-  1.2 What Is an Algorithm
+  1.2 &nbsp; What is an algorithm?
 
 
   </span>
@@ -671,7 +671,7 @@
   <span class="md-ellipsis">
 
 
-  1.3 Summary
+  1.3 &nbsp; Summary
 
 
   </span>
@@ -737,7 +737,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 2. Complexity Analysis
+  Chapter 2. &nbsp; Complexity analysis
 
 
   </span>
@@ -758,7 +758,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 2. Complexity Analysis
+  Chapter 2. &nbsp; Complexity analysis
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -779,7 +779,7 @@
   <span class="md-ellipsis">
 
 
-  2.1 Algorithm Efficiency Evaluation
+  2.1 &nbsp; Evaluating algorithm efficiency
 
 
   </span>
@@ -806,7 +806,7 @@
   <span class="md-ellipsis">
 
 
-  2.2 Iteration and Recursion
+  2.2 &nbsp; Iteration and recursion
 
 
   </span>
@@ -833,7 +833,7 @@
   <span class="md-ellipsis">
 
 
-  2.3 Time Complexity
+  2.3 &nbsp; Time complexity
 
 
   </span>
@@ -860,7 +860,7 @@
   <span class="md-ellipsis">
 
 
-  2.4 Space Complexity
+  2.4 &nbsp; Space complexity
 
 
   </span>
@@ -887,7 +887,7 @@
   <span class="md-ellipsis">
 
 
-  2.5 Summary
+  2.5 &nbsp; Summary
 
 
   </span>
@@ -914,7 +914,7 @@
   <span class="md-ellipsis">
 
 
-  2.6 Exercises
+  2.6 &nbsp; Exercises
 
 
   </span>
@@ -980,7 +980,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 3. Data Structures
+  Chapter 3. &nbsp; Data structures
 
 
   </span>
@@ -1001,7 +1001,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 3. Data Structures
+  Chapter 3. &nbsp; Data structures
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1022,7 +1022,7 @@
   <span class="md-ellipsis">
 
 
-  3.1 Classification of Data Structures
+  3.1 &nbsp; Classifying data structures
 
 
   </span>
@@ -1049,7 +1049,7 @@
   <span class="md-ellipsis">
 
 
-  3.2 Basic Data Types
+  3.2 &nbsp; Basic data types
 
 
   </span>
@@ -1076,7 +1076,7 @@
   <span class="md-ellipsis">
 
 
-  3.3 Number Encoding *
+  3.3 &nbsp; Number encoding *
 
 
   </span>
@@ -1103,7 +1103,7 @@
   <span class="md-ellipsis">
 
 
-  3.4 Character Encoding *
+  3.4 &nbsp; Character encoding *
 
 
   </span>
@@ -1130,7 +1130,7 @@
   <span class="md-ellipsis">
 
 
-  3.5 Summary
+  3.5 &nbsp; Summary
 
 
   </span>
@@ -1157,7 +1157,7 @@
   <span class="md-ellipsis">
 
 
-  3.6 Exercises
+  3.6 &nbsp; Exercises
 
 
   </span>
@@ -1223,7 +1223,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 4. Arrays and Linked Lists
+  Chapter 4. &nbsp; Arrays and linked lists
 
 
   </span>
@@ -1244,7 +1244,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 4. Arrays and Linked Lists
+  Chapter 4. &nbsp; Arrays and linked lists
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1265,7 +1265,7 @@
   <span class="md-ellipsis">
 
 
-  4.1 Array
+  4.1 &nbsp; Arrays
 
 
   </span>
@@ -1292,7 +1292,7 @@
   <span class="md-ellipsis">
 
 
-  4.2 Linked List
+  4.2 &nbsp; Linked lists
 
 
   </span>
@@ -1319,7 +1319,7 @@
   <span class="md-ellipsis">
 
 
-  4.3 List
+  4.3 &nbsp; Lists
 
 
   </span>
@@ -1346,7 +1346,7 @@
   <span class="md-ellipsis">
 
 
-  4.4 Random-Access Memory and Cache *
+  4.4 &nbsp; Memory and cache *
 
 
   </span>
@@ -1373,7 +1373,7 @@
   <span class="md-ellipsis">
 
 
-  4.5 Summary
+  4.5 &nbsp; Summary
 
 
   </span>
@@ -1400,7 +1400,7 @@
   <span class="md-ellipsis">
 
 
-  4.6 Exercises
+  4.6 &nbsp; Exercises
 
 
   </span>
@@ -1464,7 +1464,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 5. Stacks and Queues
+  Chapter 5. &nbsp; Stacks and queues
 
 
   </span>
@@ -1485,7 +1485,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 5. Stacks and Queues
+  Chapter 5. &nbsp; Stacks and queues
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1506,7 +1506,7 @@
   <span class="md-ellipsis">
 
 
-  5.1 Stack
+  5.1 &nbsp; Stacks
 
 
   </span>
@@ -1533,7 +1533,7 @@
   <span class="md-ellipsis">
 
 
-  5.2 Queue
+  5.2 &nbsp; Queues
 
 
   </span>
@@ -1560,7 +1560,7 @@
   <span class="md-ellipsis">
 
 
-  5.3 Deque
+  5.3 &nbsp; Deques
 
 
   </span>
@@ -1587,7 +1587,7 @@
   <span class="md-ellipsis">
 
 
-  5.4 Summary
+  5.4 &nbsp; Summary
 
 
   </span>
@@ -1614,7 +1614,7 @@
   <span class="md-ellipsis">
 
 
-  5.5 Exercises
+  5.5 &nbsp; Exercises
 
 
   </span>
@@ -1678,7 +1678,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 6. Hashing
+  Chapter 6. &nbsp; Hash tables
 
 
   </span>
@@ -1699,7 +1699,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 6. Hashing
+  Chapter 6. &nbsp; Hash tables
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1720,7 +1720,7 @@
   <span class="md-ellipsis">
 
 
-  6.1 Hash Table
+  6.1 &nbsp; Hash tables
 
 
   </span>
@@ -1747,7 +1747,7 @@
   <span class="md-ellipsis">
 
 
-  6.2 Hash Collision
+  6.2 &nbsp; Hash collisions
 
 
   </span>
@@ -1774,7 +1774,7 @@
   <span class="md-ellipsis">
 
 
-  6.3 Hash Algorithm
+  6.3 &nbsp; Hash algorithms
 
 
   </span>
@@ -1801,7 +1801,7 @@
   <span class="md-ellipsis">
 
 
-  6.4 Summary
+  6.4 &nbsp; Summary
 
 
   </span>
@@ -1828,7 +1828,7 @@
   <span class="md-ellipsis">
 
 
-  6.5 Exercises
+  6.5 &nbsp; Exercises
 
 
   </span>
@@ -1896,7 +1896,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 7. Tree
+  Chapter 7. &nbsp; Trees
 
 
   </span>
@@ -1917,7 +1917,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 7. Tree
+  Chapter 7. &nbsp; Trees
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1938,7 +1938,7 @@
   <span class="md-ellipsis">
 
 
-  7.1 Binary Tree
+  7.1 &nbsp; Binary trees
 
 
   </span>
@@ -1965,7 +1965,7 @@
   <span class="md-ellipsis">
 
 
-  7.2 Binary Tree Traversal
+  7.2 &nbsp; Traversing a binary tree
 
 
   </span>
@@ -1992,7 +1992,7 @@
   <span class="md-ellipsis">
 
 
-  7.3 Array Representation of Binary Trees
+  7.3 &nbsp; Array representation of a binary tree
 
 
   </span>
@@ -2019,7 +2019,7 @@
   <span class="md-ellipsis">
 
 
-  7.4 Binary Search Tree
+  7.4 &nbsp; Binary search trees
 
 
   </span>
@@ -2046,7 +2046,7 @@
   <span class="md-ellipsis">
 
 
-  7.5 AVL Tree *
+  7.5 &nbsp; AVL trees *
 
 
   </span>
@@ -2073,7 +2073,7 @@
   <span class="md-ellipsis">
 
 
-  7.6 Summary
+  7.6 &nbsp; Summary
 
 
   </span>
@@ -2100,7 +2100,7 @@
   <span class="md-ellipsis">
 
 
-  7.7 Exercises
+  7.7 &nbsp; Exercises
 
 
   </span>
@@ -2164,7 +2164,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 8. Heap
+  Chapter 8. &nbsp; Heaps
 
 
   </span>
@@ -2185,7 +2185,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 8. Heap
+  Chapter 8. &nbsp; Heaps
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2206,7 +2206,7 @@
   <span class="md-ellipsis">
 
 
-  8.1 Heap
+  8.1 &nbsp; Heaps
 
 
   </span>
@@ -2233,7 +2233,7 @@
   <span class="md-ellipsis">
 
 
-  8.2 Heap Construction Operation
+  8.2 &nbsp; Building a heap
 
 
   </span>
@@ -2260,7 +2260,7 @@
   <span class="md-ellipsis">
 
 
-  8.3 Top-k Problem
+  8.3 &nbsp; The top-k problem
 
 
   </span>
@@ -2287,7 +2287,7 @@
   <span class="md-ellipsis">
 
 
-  8.4 Summary
+  8.4 &nbsp; Summary
 
 
   </span>
@@ -2314,7 +2314,7 @@
   <span class="md-ellipsis">
 
 
-  8.5 Exercises
+  8.5 &nbsp; Exercises
 
 
   </span>
@@ -2378,7 +2378,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 9. Graph
+  Chapter 9. &nbsp; Graphs
 
 
   </span>
@@ -2399,7 +2399,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 9. Graph
+  Chapter 9. &nbsp; Graphs
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2420,7 +2420,7 @@
   <span class="md-ellipsis">
 
 
-  9.1 Graph
+  9.1 &nbsp; Graphs
 
 
   </span>
@@ -2447,7 +2447,7 @@
   <span class="md-ellipsis">
 
 
-  9.2 Basic Operations on Graphs
+  9.2 &nbsp; Basic graph operations
 
 
   </span>
@@ -2474,7 +2474,7 @@
   <span class="md-ellipsis">
 
 
-  9.3 Graph Traversal
+  9.3 &nbsp; Graph traversal
 
 
   </span>
@@ -2501,7 +2501,7 @@
   <span class="md-ellipsis">
 
 
-  9.4 Summary
+  9.4 &nbsp; Summary
 
 
   </span>
@@ -2528,7 +2528,7 @@
   <span class="md-ellipsis">
 
 
-  9.5 Exercises
+  9.5 &nbsp; Exercises
 
 
   </span>
@@ -2598,7 +2598,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 10. Searching
+  Chapter 10. &nbsp; Searching
 
 
   </span>
@@ -2619,7 +2619,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 10. Searching
+  Chapter 10. &nbsp; Searching
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2640,7 +2640,7 @@
   <span class="md-ellipsis">
 
 
-  10.1 Binary Search
+  10.1 &nbsp; Binary search
 
 
   </span>
@@ -2667,7 +2667,7 @@
   <span class="md-ellipsis">
 
 
-  10.2 Binary Search Insertion Point
+  10.2 &nbsp; Finding an insertion point with binary search
 
 
   </span>
@@ -2694,7 +2694,7 @@
   <span class="md-ellipsis">
 
 
-  10.3 Binary Search Boundaries
+  10.3 &nbsp; Finding boundaries with binary search
 
 
   </span>
@@ -2730,7 +2730,7 @@
   <span class="md-ellipsis">
 
 
-  10.4 Hash Optimization Strategy
+  10.4 &nbsp; Optimizing with hashing
 
 
   </span>
@@ -2747,7 +2747,7 @@
   <span class="md-ellipsis">
 
 
-  10.4 Hash Optimization Strategy
+  10.4 &nbsp; Optimizing with hashing
 
 
   </span>
@@ -2776,7 +2776,7 @@
   <a href="#1041-linear-search-trading-time-for-space" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        10.4.1 &nbsp; Linear Search: Trading Time for Space
+        10.4.1 &nbsp; Linear search: trading time for space
       </span>
     </span>
   </a>
@@ -2784,10 +2784,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#1042-hash-based-search-trading-space-for-time" class="md-nav__link">
+  <a href="#1042-hash-lookup-trading-space-for-time" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        10.4.2 &nbsp; Hash-Based Search: Trading Space for Time
+        10.4.2 &nbsp; Hash lookup: trading space for time
       </span>
     </span>
   </a>
@@ -2817,7 +2817,7 @@
   <span class="md-ellipsis">
 
 
-  10.5 Searching Algorithms Revisited
+  10.5 &nbsp; Search algorithms revisited
 
 
   </span>
@@ -2844,7 +2844,7 @@
   <span class="md-ellipsis">
 
 
-  10.6 Summary
+  10.6 &nbsp; Summary
 
 
   </span>
@@ -2871,7 +2871,7 @@
   <span class="md-ellipsis">
 
 
-  10.7 Exercises
+  10.7 &nbsp; Exercises
 
 
   </span>
@@ -2949,7 +2949,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 11. Sorting
+  Chapter 11. &nbsp; Sorting
 
 
   </span>
@@ -2970,7 +2970,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 11. Sorting
+  Chapter 11. &nbsp; Sorting
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2991,7 +2991,7 @@
   <span class="md-ellipsis">
 
 
-  11.1 Sorting Algorithm
+  11.1 &nbsp; Sorting algorithms
 
 
   </span>
@@ -3018,7 +3018,7 @@
   <span class="md-ellipsis">
 
 
-  11.2 Selection Sort
+  11.2 &nbsp; Selection sort
 
 
   </span>
@@ -3045,7 +3045,7 @@
   <span class="md-ellipsis">
 
 
-  11.3 Bubble Sort
+  11.3 &nbsp; Bubble sort
 
 
   </span>
@@ -3072,7 +3072,7 @@
   <span class="md-ellipsis">
 
 
-  11.4 Insertion Sort
+  11.4 &nbsp; Insertion sort
 
 
   </span>
@@ -3099,7 +3099,7 @@
   <span class="md-ellipsis">
 
 
-  11.5 Quick Sort
+  11.5 &nbsp; Quick sort
 
 
   </span>
@@ -3126,7 +3126,7 @@
   <span class="md-ellipsis">
 
 
-  11.6 Merge Sort
+  11.6 &nbsp; Merge sort
 
 
   </span>
@@ -3153,7 +3153,7 @@
   <span class="md-ellipsis">
 
 
-  11.7 Heap Sort
+  11.7 &nbsp; Heap sort
 
 
   </span>
@@ -3180,7 +3180,7 @@
   <span class="md-ellipsis">
 
 
-  11.8 Bucket Sort
+  11.8 &nbsp; Bucket sort
 
 
   </span>
@@ -3207,7 +3207,7 @@
   <span class="md-ellipsis">
 
 
-  11.9 Counting Sort
+  11.9 &nbsp; Counting sort
 
 
   </span>
@@ -3234,7 +3234,7 @@
   <span class="md-ellipsis">
 
 
-  11.10 Radix Sort
+  11.10 &nbsp; Radix sort
 
 
   </span>
@@ -3261,7 +3261,7 @@
   <span class="md-ellipsis">
 
 
-  11.11 Summary
+  11.11 &nbsp; Summary
 
 
   </span>
@@ -3288,7 +3288,7 @@
   <span class="md-ellipsis">
 
 
-  11.12 Exercises
+  11.12 &nbsp; Exercises
 
 
   </span>
@@ -3354,7 +3354,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 12. Divide and Conquer
+  Chapter 12. &nbsp; Divide and conquer
 
 
   </span>
@@ -3375,7 +3375,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 12. Divide and Conquer
+  Chapter 12. &nbsp; Divide and conquer
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3396,7 +3396,7 @@
   <span class="md-ellipsis">
 
 
-  12.1 Divide and Conquer Algorithms
+  12.1 &nbsp; Divide and conquer
 
 
   </span>
@@ -3423,7 +3423,7 @@
   <span class="md-ellipsis">
 
 
-  12.2 Divide and Conquer Search Strategy
+  12.2 &nbsp; Divide-and-conquer search
 
 
   </span>
@@ -3450,7 +3450,7 @@
   <span class="md-ellipsis">
 
 
-  12.3 Building a Binary Tree Problem
+  12.3 &nbsp; Building a binary tree
 
 
   </span>
@@ -3477,7 +3477,7 @@
   <span class="md-ellipsis">
 
 
-  12.4 Tower of Hanoi Problem
+  12.4 &nbsp; Tower of Hanoi
 
 
   </span>
@@ -3504,7 +3504,7 @@
   <span class="md-ellipsis">
 
 
-  12.5 Summary
+  12.5 &nbsp; Summary
 
 
   </span>
@@ -3531,7 +3531,7 @@
   <span class="md-ellipsis">
 
 
-  12.6 Exercises
+  12.6 &nbsp; Exercises
 
 
   </span>
@@ -3597,7 +3597,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 13. Backtracking
+  Chapter 13. &nbsp; Backtracking
 
 
   </span>
@@ -3618,7 +3618,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 13. Backtracking
+  Chapter 13. &nbsp; Backtracking
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3639,7 +3639,7 @@
   <span class="md-ellipsis">
 
 
-  13.1 Backtracking Algorithm
+  13.1 &nbsp; Backtracking algorithms
 
 
   </span>
@@ -3666,7 +3666,7 @@
   <span class="md-ellipsis">
 
 
-  13.2 Permutations Problem
+  13.2 &nbsp; Permutations problem
 
 
   </span>
@@ -3693,7 +3693,7 @@
   <span class="md-ellipsis">
 
 
-  13.3 Subset-Sum Problem
+  13.3 &nbsp; Subset sum problem
 
 
   </span>
@@ -3720,7 +3720,7 @@
   <span class="md-ellipsis">
 
 
-  13.4 N-Queens Problem
+  13.4 &nbsp; N-queens problem
 
 
   </span>
@@ -3747,7 +3747,7 @@
   <span class="md-ellipsis">
 
 
-  13.5 Summary
+  13.5 &nbsp; Summary
 
 
   </span>
@@ -3774,7 +3774,7 @@
   <span class="md-ellipsis">
 
 
-  13.6 Exercises
+  13.6 &nbsp; Exercises
 
 
   </span>
@@ -3844,7 +3844,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 14. Dynamic Programming
+  Chapter 14. &nbsp; Dynamic programming
 
 
   </span>
@@ -3865,7 +3865,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 14. Dynamic Programming
+  Chapter 14. &nbsp; Dynamic programming
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3886,7 +3886,7 @@
   <span class="md-ellipsis">
 
 
-  14.1 Introduction to Dynamic Programming
+  14.1 &nbsp; Introduction to dynamic programming
 
 
   </span>
@@ -3913,7 +3913,7 @@
   <span class="md-ellipsis">
 
 
-  14.2 Characteristics of Dynamic Programming Problems
+  14.2 &nbsp; Properties of dynamic programming problems
 
 
   </span>
@@ -3940,7 +3940,7 @@
   <span class="md-ellipsis">
 
 
-  14.3 Dynamic Programming Problem-Solving Approach
+  14.3 &nbsp; Solving dynamic programming problems
 
 
   </span>
@@ -3967,7 +3967,7 @@
   <span class="md-ellipsis">
 
 
-  14.4 0-1 Knapsack Problem
+  14.4 &nbsp; 0-1 knapsack problem
 
 
   </span>
@@ -3994,7 +3994,7 @@
   <span class="md-ellipsis">
 
 
-  14.5 Unbounded Knapsack Problem
+  14.5 &nbsp; Unbounded knapsack problem
 
 
   </span>
@@ -4021,7 +4021,7 @@
   <span class="md-ellipsis">
 
 
-  14.6 Edit Distance Problem
+  14.6 &nbsp; Edit distance problem
 
 
   </span>
@@ -4048,7 +4048,7 @@
   <span class="md-ellipsis">
 
 
-  14.7 Summary
+  14.7 &nbsp; Summary
 
 
   </span>
@@ -4075,7 +4075,7 @@
   <span class="md-ellipsis">
 
 
-  14.8 Exercises
+  14.8 &nbsp; Exercises
 
 
   </span>
@@ -4141,7 +4141,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 15. Greedy
+  Chapter 15. &nbsp; Greedy algorithms
 
 
   </span>
@@ -4162,7 +4162,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 15. Greedy
+  Chapter 15. &nbsp; Greedy algorithms
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4183,7 +4183,7 @@
   <span class="md-ellipsis">
 
 
-  15.1 Greedy Algorithm
+  15.1 &nbsp; Greedy algorithms
 
 
   </span>
@@ -4210,7 +4210,7 @@
   <span class="md-ellipsis">
 
 
-  15.2 Fractional Knapsack Problem
+  15.2 &nbsp; Fractional knapsack problem
 
 
   </span>
@@ -4237,7 +4237,7 @@
   <span class="md-ellipsis">
 
 
-  15.3 Maximum Capacity Problem
+  15.3 &nbsp; Maximum capacity problem
 
 
   </span>
@@ -4264,7 +4264,7 @@
   <span class="md-ellipsis">
 
 
-  15.4 Maximum Product Cutting Problem
+  15.4 &nbsp; Maximum product cutting problem
 
 
   </span>
@@ -4291,7 +4291,7 @@
   <span class="md-ellipsis">
 
 
-  15.5 Summary
+  15.5 &nbsp; Summary
 
 
   </span>
@@ -4318,7 +4318,7 @@
   <span class="md-ellipsis">
 
 
-  15.6 Exercises
+  15.6 &nbsp; Exercises
 
 
   </span>
@@ -4378,7 +4378,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 16. Appendix
+  Chapter 16. &nbsp; Appendix
 
 
   </span>
@@ -4399,7 +4399,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 16. Appendix
+  Chapter 16. &nbsp; Appendix
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4420,7 +4420,7 @@
   <span class="md-ellipsis">
 
 
-  16.1 Programming Environment Installation
+  16.1 &nbsp; Setting up a programming environment
 
 
   </span>
@@ -4447,7 +4447,7 @@
   <span class="md-ellipsis">
 
 
-  16.2 Contributing Together
+  16.2 &nbsp; Contribute to the book
 
 
   </span>
@@ -4474,7 +4474,7 @@
   <span class="md-ellipsis">
 
 
-  16.3 Glossary
+  16.3 &nbsp; Glossary
 
 
   </span>
@@ -4558,6 +4558,78 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="md-nav__item md-nav__item--nested">
+
+
+
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_20" >
+
+
+          <div class="md-nav__link md-nav__container">
+            <a href="../../chapter_paperbook/" class="md-nav__link ">
+
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+  <span class="md-ellipsis">
+
+
+  Print edition (Chinese)
+
+
+  </span>
+
+
+
+
+
+    <span class="md-status md-status--new" title="Recently added">
+    </span>
+
+
+
+
+            </a>
+
+          </div>
+
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_20">
+            <span class="md-nav__icon md-icon"></span>
+
+
+  Print edition (Chinese)
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+          </ul>
+        </nav>
+
+    </li>
+
+
+
   </ul>
 </nav>
                   </div>
@@ -4602,7 +4674,7 @@
   <a href="#1041-linear-search-trading-time-for-space" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        10.4.1 &nbsp; Linear Search: Trading Time for Space
+        10.4.1 &nbsp; Linear search: trading time for space
       </span>
     </span>
   </a>
@@ -4610,10 +4682,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#1042-hash-based-search-trading-space-for-time" class="md-nav__link">
+  <a href="#1042-hash-lookup-trading-space-for-time" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        10.4.2 &nbsp; Hash-Based Search: Trading Space for Time
+        10.4.2 &nbsp; Hash lookup: trading space for time
       </span>
     </span>
   </a>
@@ -4657,24 +4729,24 @@
 
 
 <!-- Page content -->
-<h1 id="104-hash-optimization-strategy">10.4 &nbsp; Hash Optimization Strategy<a class="headerlink" href="#104-hash-optimization-strategy" title="Permanent link">&para;</a></h1>
-<p>In algorithm problems, <strong>we often reduce the time complexity of algorithms by replacing linear search with hash-based search</strong>. Let's use an algorithm problem to deepen our understanding.</p>
+<h1 id="104-optimizing-with-hashing">10.4 &nbsp; Optimizing with hashing<a class="headerlink" href="#104-optimizing-with-hashing" title="Permanent link">&para;</a></h1>
+<p>In algorithm problems, <strong>we often reduce time complexity by replacing linear search with hash lookup</strong>. Let us explore this strategy through a problem.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given an integer array <code>nums</code> and a target value <code>target</code>, find two elements in the array whose sum is <code>target</code>, and return their indices. Any solution will do.</p>
+<p>Given an integer array <code>nums</code> and a target value <code>target</code>, find two elements whose sum equals <code>target</code> and return their array indices. Any valid solution is acceptable.</p>
 </div>
-<h2 id="1041-linear-search-trading-time-for-space">10.4.1 &nbsp; Linear Search: Trading Time for Space<a class="headerlink" href="#1041-linear-search-trading-time-for-space" title="Permanent link">&para;</a></h2>
-<p>Consider directly traversing all possible combinations. As shown in Figure 10-9, we use nested loops and check in each iteration whether the sum of two integers is <code>target</code>. If so, return their indices.</p>
-<p><img alt="Linear search solution for two sum" class="animation-figure" src="../replace_linear_by_hashing.assets/two_sum_brute_force.png" /></p>
-<p align="center"> Figure 10-9 &nbsp; Linear search solution for two sum </p>
+<h2 id="1041-linear-search-trading-time-for-space">10.4.1 &nbsp; Linear search: trading time for space<a class="headerlink" href="#1041-linear-search-trading-time-for-space" title="Permanent link">&para;</a></h2>
+<p>Consider examining every possible pair directly. As shown below, use two nested loops and check whether the two integers sum to <code>target</code> each time. If they do, return their indices.</p>
+<p><img alt="Solving two sum with linear search" class="animation-figure" src="../replace_linear_by_hashing.assets/two_sum_brute_force.png" /></p>
+<p align="center"> Figure 10-9 &nbsp; Solving two sum with linear search </p>
 
-<p>The code is shown below:</p>
+<p>The code is as follows:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">two_sum.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">two_sum_brute_force</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Method 1: Brute force enumeration"""</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># Two nested loops, time complexity is O(n^2)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Method 1: brute-force enumeration"""</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># Two nested loops give a time complexity of O(n^2)</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
@@ -4683,10 +4755,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Method 1: Brute force enumeration */</span>
+<div class="highlight"><span class="filename">two_sum.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Method 1: brute-force enumeration */</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">twoSumBruteForce</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="c1">// Two nested loops, time complexity is O(n^2)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="c1">// Two nested loops give a time complexity of O(n^2)</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
@@ -4698,10 +4770,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* Method 1: Brute force enumeration */</span>
+<div class="highlight"><span class="filename">two_sum.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* Method 1: brute-force enumeration */</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="nf">twoSumBruteForce</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="c1">// Two nested loops, time complexity is O(n^2)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="c1">// Two nested loops give a time complexity of O(n^2)</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
@@ -4713,10 +4785,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.cs</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* Method 1: Brute force enumeration */</span>
+<div class="highlight"><span class="filename">two_sum.cs</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* Method 1: brute-force enumeration */</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="nf">TwoSumBruteForce</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="c1">// Two nested loops, time complexity is O(n^2)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="c1">// Two nested loops give a time complexity of O(n^2)</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
@@ -4728,10 +4800,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.go</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* Method 1: Brute force enumeration */</span>
+<div class="highlight"><span class="filename">two_sum.go</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* Method 1: brute-force enumeration */</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">twoSumBruteForce</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nx">size</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="c1">// Two nested loops, time complexity is O(n^2)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="c1">// Two nested loops give a time complexity of O(n^2)</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">size</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">size</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">+</span><span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="p">{</span>
@@ -4744,9 +4816,9 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* Method 1: Brute force enumeration */</span>
+<div class="highlight"><span class="filename">two_sum.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* Method 1: brute-force enumeration */</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">twoSumBruteForce</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Two nested loops, time complexity is O(n^2)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Two nested loops give a time complexity of O(n^2)</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="bp">indices</span><span class="p">.</span><span class="bp">dropLast</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="bp">indices</span><span class="p">.</span><span class="bp">dropFirst</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="p">{</span>
@@ -4759,10 +4831,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/* Method 1: Brute force enumeration */</span>
+<div class="highlight"><span class="filename">two_sum.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/* Method 1: brute-force enumeration */</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">twoSumBruteForce</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="c1">// Two nested loops, time complexity is O(n^2)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="c1">// Two nested loops give a time complexity of O(n^2)</span>
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4775,10 +4847,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.ts</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/* Method 1: Brute force enumeration */</span>
+<div class="highlight"><span class="filename">two_sum.ts</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/* Method 1: brute-force enumeration */</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">twoSumBruteForce</span><span class="p">(</span><span class="nx">nums</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="c1">// Two nested loops, time complexity is O(n^2)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="c1">// Two nested loops give a time complexity of O(n^2)</span>
 <a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4791,10 +4863,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.dart</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* Method 1: Brute force enumeration */</span>
+<div class="highlight"><span class="filename">two_sum.dart</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* Method 1: brute-force enumeration */</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">twoSumBruteForce</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="c1">// Two nested loops, time complexity is O(n^2)</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="c1">// Two nested loops give a time complexity of O(n^2)</span>
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">];</span>
@@ -4805,10 +4877,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/* Method 1: Brute force enumeration */</span>
+<div class="highlight"><span class="filename">two_sum.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/* Method 1: brute-force enumeration */</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">two_sum_brute_force</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">len</span><span class="p">();</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="c1">// Two nested loops, time complexity is O(n^2)</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="c1">// Two nested loops give a time complexity of O(n^2)</span>
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">..</span><span class="n">size</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="p">{</span>
@@ -4821,7 +4893,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.c</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* Method 1: Brute force enumeration */</span>
+<div class="highlight"><span class="filename">two_sum.c</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* Method 1: brute-force enumeration */</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">twoSumBruteForce</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numsSize</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">returnSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numsSize</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numsSize</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4839,10 +4911,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.kt</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/* Method 1: Brute force enumeration */</span>
+<div class="highlight"><span class="filename">two_sum.kt</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/* Method 1: brute-force enumeration */</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">twoSumBruteForce</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">IntArray</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="n">IntArray</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">size</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="c1">// Two nested loops, time complexity is O(n^2)</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="c1">// Two nested loops give a time complexity of O(n^2)</span>
 <a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="o">&lt;</span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.</span><span class="p">.</span><span class="o">&lt;</span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">intArrayOf</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span>
@@ -4853,9 +4925,9 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.rb</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">### Method 1: Brute force enumeration ###</span>
+<div class="highlight"><span class="filename">two_sum.rb</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">### Method 1: brute-force enumeration ###</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">two_sum_brute_force</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Two nested loops, time complexity is O(n^2)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Two nested loops give a time complexity of O(n^2)</span>
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">...</span><span class="p">(</span><span class="n">nums</span><span class="o">.</span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">...</span><span class="n">nums</span><span class="o">.</span><span class="n">length</span>
 <a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="o">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span>
@@ -4868,17 +4940,22 @@
 </div>
 </div>
 </div>
-<p>This method has a time complexity of <span class="arithmatex">\(O(n^2)\)</span> and a space complexity of <span class="arithmatex">\(O(1)\)</span>, making it very time-consuming on large inputs.</p>
-<h2 id="1042-hash-based-search-trading-space-for-time">10.4.2 &nbsp; Hash-Based Search: Trading Space for Time<a class="headerlink" href="#1042-hash-based-search-trading-space-for-time" title="Permanent link">&para;</a></h2>
-<p>Consider using a hash table whose keys are array elements and whose values are their indices. Traverse the array and perform the steps shown in Figure 10-10 in each iteration:</p>
+<details class="pythontutor">
+<summary>Visualize execution</summary>
+<p><div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_brute_force%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22Method%201%3A%20brute-force%20enumeration%22%22%22%0A%20%20%20%20%23%20Two%20nested%20loops%20give%20a%20time%20complexity%20of%20O%28n%5E2%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%20%2B%201,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%2B%20nums%5Bj%5D%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bi,%20j%5D%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%207,%2011,%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_brute_force%28nums,%20target%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_brute_force%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22Method%201%3A%20brute-force%20enumeration%22%22%22%0A%20%20%20%20%23%20Two%20nested%20loops%20give%20a%20time%20complexity%20of%20O%28n%5E2%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%20%2B%201,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%2B%20nums%5Bj%5D%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bi,%20j%5D%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%207,%2011,%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_brute_force%28nums,%20target%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen &gt;</a></div></p>
+</details>
+<p>This approach takes <span class="arithmatex">\(O(n^2)\)</span> time and <span class="arithmatex">\(O(1)\)</span> space, making it very slow for large datasets.</p>
+<h2 id="1042-hash-lookup-trading-space-for-time">10.4.2 &nbsp; Hash lookup: trading space for time<a class="headerlink" href="#1042-hash-lookup-trading-space-for-time" title="Permanent link">&para;</a></h2>
+<p>Now use a hash table whose keys are array elements and whose values are their indices. Iterate through the array, performing the steps below each round.</p>
 <ol>
-<li>Check if the number <code>target - nums[i]</code> is in the hash table. If so, directly return the indices of these two elements.</li>
-<li>Add the key-value pair <code>nums[i]</code> and index <code>i</code> to the hash table.</li>
+<li>Check whether <code>target - nums[i]</code> is in the hash table. If it is, return the indices of the two elements.</li>
+<li>Add the key-value pair consisting of <code>nums[i]</code> and index <code>i</code> to the hash table.</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><img alt="Hash table solution for two sum" class="animation-figure" src="../replace_linear_by_hashing.assets/two_sum_hashtable_step1.png" /></p>
+<p><img alt="Solving two sum with an auxiliary hash table" class="animation-figure" src="../replace_linear_by_hashing.assets/two_sum_hashtable_step1.png" /></p>
 </div>
 <div class="tabbed-block">
 <p><img alt="two_sum_hashtable_step2" class="animation-figure" src="../replace_linear_by_hashing.assets/two_sum_hashtable_step2.png" /></p>
@@ -4888,17 +4965,17 @@
 </div>
 </div>
 </div>
-<p align="center"> Figure 10-10 &nbsp; Hash table solution for two sum </p>
+<p align="center"> Figure 10-10 &nbsp; Solving two sum with an auxiliary hash table </p>
 
-<p>The implementation is shown below and requires only a single loop:</p>
+<p>The implementation below requires only one loop:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:13"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><input id="__tabbed_3_13" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Kotlin</label><label for="__tabbed_3_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">two_sum.py</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">two_sum_hash_table</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="sd">"""Method 2: Auxiliary hash table"""</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="c1"># Auxiliary hash table, space complexity is O(n)</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="sd">"""Method 2: auxiliary hash table"""</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="c1"># The auxiliary hash table uses O(n) space</span>
 <a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="n">dic</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    <span class="c1"># Single loop, time complexity is O(n)</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    <span class="c1"># A single loop with average O(1) hash operations gives an average time complexity of O(n)</span>
 <a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
 <a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>        <span class="k">if</span> <span class="n">target</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">dic</span><span class="p">:</span>
 <a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>            <span class="k">return</span> <span class="p">[</span><span class="n">dic</span><span class="p">[</span><span class="n">target</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">i</span><span class="p">]</span>
@@ -4907,12 +4984,12 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.cpp</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">/* Method 2: Auxiliary hash table */</span>
+<div class="highlight"><span class="filename">two_sum.cpp</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">/* Method 2: auxiliary hash table */</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">twoSumHashTable</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="c1">// Auxiliary hash table, space complexity is O(n)</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="c1">// The auxiliary hash table uses O(n) space</span>
 <a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dic</span><span class="p">;</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="c1">// Single loop, time complexity is O(n)</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="c1">// A single loop gives a time complexity of O(n)</span>
 <a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dic</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">dic</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span><span class="w"> </span><span class="n">i</span><span class="p">};</span>
@@ -4924,12 +5001,12 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.java</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cm">/* Method 2: Auxiliary hash table */</span>
+<div class="highlight"><span class="filename">two_sum.java</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cm">/* Method 2: auxiliary hash table */</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="nf">twoSumHashTable</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="c1">// Auxiliary hash table, space complexity is O(n)</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="c1">// The auxiliary hash table uses O(n) space</span>
 <a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="c1">// Single loop, time complexity is O(n)</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="c1">// A single loop gives a time complexity of O(n)</span>
 <a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dic</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">dic</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">};</span>
@@ -4941,12 +5018,12 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.cs</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">/* Method 2: Auxiliary hash table */</span>
+<div class="highlight"><span class="filename">two_sum.cs</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">/* Method 2: auxiliary hash table */</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="nf">TwoSumHashTable</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="c1">// Auxiliary hash table, space complexity is O(n)</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="c1">// The auxiliary hash table uses O(n) space</span>
 <a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="c1">// Single loop, time complexity is O(n)</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="c1">// A single loop gives a time complexity of O(n)</span>
 <a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dic</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span><span class="w"> </span><span class="n">i</span><span class="p">];</span>
@@ -4958,11 +5035,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.go</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="cm">/* Method 2: Auxiliary hash table */</span>
+<div class="highlight"><span class="filename">two_sum.go</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="cm">/* Method 2: auxiliary hash table */</span>
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">twoSumHashTable</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="c1">// Auxiliary hash table, space complexity is O(n)</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="c1">// The auxiliary hash table uses O(n) space</span>
 <a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="nx">hashTable</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kt">int</span><span class="p">{}</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="c1">// Single loop, time complexity is O(n)</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="c1">// A single loop gives a time complexity of O(n)</span>
 <a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">idx</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">nums</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">preIdx</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">hashTable</span><span class="p">[</span><span class="nx">target</span><span class="o">-</span><span class="nx">val</span><span class="p">];</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="nx">preIdx</span><span class="p">,</span><span class="w"> </span><span class="nx">idx</span><span class="p">}</span>
@@ -4974,11 +5051,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.swift</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="cm">/* Method 2: Auxiliary hash table */</span>
+<div class="highlight"><span class="filename">two_sum.swift</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="cm">/* Method 2: auxiliary hash table */</span>
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">twoSumHashTable</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="c1">// Auxiliary hash table, space complexity is O(n)</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="c1">// The auxiliary hash table uses O(n) space</span>
 <a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">dic</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[:]</span>
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="c1">// Single loop, time complexity is O(n)</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="c1">// A single loop gives a time complexity of O(n)</span>
 <a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="bp">indices</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">]</span>
@@ -4990,11 +5067,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.js</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="cm">/* Method 2: Auxiliary hash table */</span>
+<div class="highlight"><span class="filename">two_sum.js</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="cm">/* Method 2: auxiliary hash table */</span>
 <a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">twoSumHashTable</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="c1">// Auxiliary hash table, space complexity is O(n)</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="c1">// The auxiliary hash table uses O(n) space</span>
 <a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="c1">// Single loop, time complexity is O(n)</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="c1">// A single loop gives a time complexity of O(n)</span>
 <a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="nx">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="nx">m</span><span class="p">[</span><span class="nx">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]],</span><span class="w"> </span><span class="nx">i</span><span class="p">];</span>
@@ -5007,11 +5084,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.ts</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="cm">/* Method 2: Auxiliary hash table */</span>
+<div class="highlight"><span class="filename">two_sum.ts</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="cm">/* Method 2: auxiliary hash table */</span>
 <a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">twoSumHashTable</span><span class="p">(</span><span class="nx">nums</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="c1">// Auxiliary hash table, space complexity is O(n)</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="c1">// The auxiliary hash table uses O(n) space</span>
 <a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">m</span><span class="o">:</span><span class="w"> </span><span class="kt">Map</span><span class="o">&lt;</span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">();</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="c1">// Single loop, time complexity is O(n)</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="c1">// A single loop gives a time complexity of O(n)</span>
 <a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
 <a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">index</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5025,12 +5102,12 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.dart</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="cm">/* Method 2: Auxiliary hash table */</span>
+<div class="highlight"><span class="filename">two_sum.dart</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="cm">/* Method 2: auxiliary hash table */</span>
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">twoSumHashTable</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span><span class="c1">// Auxiliary hash table, space complexity is O(n)</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span><span class="c1">// The auxiliary hash table uses O(n) space</span>
 <a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="p">();</span>
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="c1">// Single loop, time complexity is O(n)</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="c1">// A single loop gives a time complexity of O(n)</span>
 <a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dic</span><span class="p">.</span><span class="n">containsKey</span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">!</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">];</span>
@@ -5042,11 +5119,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.rs</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="cm">/* Method 2: Auxiliary hash table */</span>
+<div class="highlight"><span class="filename">two_sum.rs</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="cm">/* Method 2: auxiliary hash table */</span>
 <a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">two_sum_hash_table</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span><span class="c1">// Auxiliary hash table, space complexity is O(n)</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span><span class="c1">// The auxiliary hash table uses O(n) space</span>
 <a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">dic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">    </span><span class="c1">// Single loop, time complexity is O(n)</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">    </span><span class="c1">// A single loop gives a time complexity of O(n)</span>
 <a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">enumerate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">        </span><span class="k">match</span><span class="w"> </span><span class="n">dic</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">num</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">            </span><span class="nb">Some</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="fm">vec!</span><span class="p">[</span><span class="o">*</span><span class="n">v</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">]),</span>
@@ -5065,14 +5142,14 @@
 <a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">    </span><span class="n">UT_hash_handle</span><span class="w"> </span><span class="n">hh</span><span class="p">;</span><span class="w"> </span><span class="c1">// Implemented using uthash.h</span>
 <a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="p">}</span><span class="w"> </span><span class="n">HashTable</span><span class="p">;</span>
 <a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>
-<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="cm">/* Hash table lookup */</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="cm">/* Look up a key in the hash table */</span>
 <a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="n">HashTable</span><span class="w"> </span><span class="o">*</span><span class="nf">find</span><span class="p">(</span><span class="n">HashTable</span><span class="w"> </span><span class="o">*</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">    </span><span class="n">HashTable</span><span class="w"> </span><span class="o">*</span><span class="n">tmp</span><span class="p">;</span>
 <a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="w">    </span><span class="n">HASH_FIND_INT</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="p">);</span>
 <a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
 <a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="p">}</span>
 <a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>
-<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="cm">/* Hash table element insertion */</span>
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="cm">/* Insert an entry into the hash table */</span>
 <a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">HashTable</span><span class="w"> </span><span class="o">**</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="w">    </span><span class="n">HashTable</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="o">*</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">);</span>
 <a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5084,7 +5161,7 @@
 <a id="__codelineno-23-24" name="__codelineno-23-24" href="#__codelineno-23-24"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-23-25" name="__codelineno-23-25" href="#__codelineno-23-25"></a><span class="p">}</span>
 <a id="__codelineno-23-26" name="__codelineno-23-26" href="#__codelineno-23-26"></a>
-<a id="__codelineno-23-27" name="__codelineno-23-27" href="#__codelineno-23-27"></a><span class="cm">/* Method 2: Auxiliary hash table */</span>
+<a id="__codelineno-23-27" name="__codelineno-23-27" href="#__codelineno-23-27"></a><span class="cm">/* Method 2: auxiliary hash table */</span>
 <a id="__codelineno-23-28" name="__codelineno-23-28" href="#__codelineno-23-28"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">twoSumHashTable</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numsSize</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">returnSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-23-29" name="__codelineno-23-29" href="#__codelineno-23-29"></a><span class="w">    </span><span class="n">HashTable</span><span class="w"> </span><span class="o">*</span><span class="n">hashtable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 <a id="__codelineno-23-30" name="__codelineno-23-30" href="#__codelineno-23-30"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numsSize</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5103,12 +5180,12 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.kt</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="cm">/* Method 2: Auxiliary hash table */</span>
+<div class="highlight"><span class="filename">two_sum.kt</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="cm">/* Method 2: auxiliary hash table */</span>
 <a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">twoSumHashTable</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">IntArray</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="n">IntArray</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">size</span>
-<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">    </span><span class="c1">// Auxiliary hash table, space complexity is O(n)</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">    </span><span class="c1">// The auxiliary hash table uses O(n) space</span>
 <a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">dic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">()</span>
-<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">    </span><span class="c1">// Single loop, time complexity is O(n)</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">    </span><span class="c1">// A single loop gives a time complexity of O(n)</span>
 <a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="o">&lt;</span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dic</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">intArrayOf</span><span class="p">(</span><span class="n">dic</span><span class="o">[</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]]!!</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
@@ -5120,11 +5197,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.rb</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1">### Method 2: Auxiliary hash table ###</span>
+<div class="highlight"><span class="filename">two_sum.rb</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1">### Method 2: auxiliary hash table ###</span>
 <a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">two_sum_hash_table</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">  </span><span class="c1"># Auxiliary hash table, space complexity is O(n)</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">  </span><span class="c1"># The auxiliary hash table uses O(n) space</span>
 <a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">  </span><span class="n">dic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
-<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">  </span><span class="c1"># Single loop, time complexity is O(n)</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">  </span><span class="c1"># A single loop gives a time complexity of O(n)</span>
 <a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">...</span><span class="n">nums</span><span class="o">.</span><span class="n">length</span>
 <a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">[</span><span class="n">dic</span><span class="o">[</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]]</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">dic</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
 <a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>
@@ -5137,8 +5214,13 @@
 </div>
 </div>
 </div>
-<p>This method reduces the time complexity from <span class="arithmatex">\(O(n^2)\)</span> to <span class="arithmatex">\(O(n)\)</span> through hash-based search, greatly improving runtime efficiency.</p>
-<p>Since an additional hash table needs to be maintained, the space complexity is <span class="arithmatex">\(O(n)\)</span>. <strong>Nevertheless, this method offers a more balanced overall time-space trade-off, making it the optimal solution to this problem</strong>.</p>
+<details class="pythontutor">
+<summary>Visualize execution</summary>
+<p><div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_hash_table%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22Method%202%3A%20auxiliary%20hash%20table%22%22%22%0A%20%20%20%20%23%20The%20auxiliary%20hash%20table%20uses%20O%28n%29%20space%0A%20%20%20%20dic%20%3D%20%7B%7D%0A%20%20%20%20%23%20A%20single%20loop%20gives%20average%20O%28n%29%20time%20with%20average%20O%281%29%20hash-table%20operations%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20if%20target%20-%20nums%5Bi%5D%20in%20dic%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bdic%5Btarget%20-%20nums%5Bi%5D%5D,%20i%5D%0A%20%20%20%20%20%20%20%20dic%5Bnums%5Bi%5D%5D%20%3D%20i%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%207,%2011,%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_hash_table%28nums,%20target%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_hash_table%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22Method%202%3A%20auxiliary%20hash%20table%22%22%22%0A%20%20%20%20%23%20The%20auxiliary%20hash%20table%20uses%20O%28n%29%20space%0A%20%20%20%20dic%20%3D%20%7B%7D%0A%20%20%20%20%23%20A%20single%20loop%20gives%20average%20O%28n%29%20time%20with%20average%20O%281%29%20hash-table%20operations%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20if%20target%20-%20nums%5Bi%5D%20in%20dic%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bdic%5Btarget%20-%20nums%5Bi%5D%5D,%20i%5D%0A%20%20%20%20%20%20%20%20dic%5Bnums%5Bi%5D%5D%20%3D%20i%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%207,%2011,%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_hash_table%28nums,%20target%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen &gt;</a></div></p>
+</details>
+<p>Hash lookup reduces the time complexity from <span class="arithmatex">\(O(n^2)\)</span> to <span class="arithmatex">\(O(n)\)</span>, greatly improving efficiency.</p>
+<p>Maintaining an additional hash table requires <span class="arithmatex">\(O(n)\)</span> space. <strong>Even so, this approach offers a better balance of time and space efficiency, making it the optimal solution to this problem</strong>.</p>
 
 <!-- Source file information -->
 
@@ -5161,7 +5243,7 @@ aria-label="Footer"
   <a
     href="../binary_search_edge/"
     class="md-footer__link md-footer__link--prev"
-    aria-label="Previous: 10.3 Binary Search Boundaries"
+    aria-label="Previous: 10.3   Finding boundaries with binary search"
     rel="prev"
   >
     <div class="md-footer__button md-icon">
@@ -5173,7 +5255,7 @@ aria-label="Footer"
         Previous
       </span>
       <div class="md-ellipsis">
-        10.3 Binary Search Boundaries
+        10.3 &nbsp; Finding boundaries with binary search
       </div>
     </div>
   </a>
@@ -5185,7 +5267,7 @@ aria-label="Footer"
   <a
     href="../searching_algorithm_revisited/"
     class="md-footer__link md-footer__link--next"
-    aria-label="Next: 10.5 Searching Algorithms Revisited"
+    aria-label="Next: 10.5   Search algorithms revisited"
     rel="next"
   >
     <div class="md-footer__title">
@@ -5193,7 +5275,7 @@ aria-label="Footer"
         Next
       </span>
       <div class="md-ellipsis">
-        10.5 Searching Algorithms Revisited
+        10.5 &nbsp; Search algorithms revisited
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -5210,7 +5292,7 @@ aria-label="Footer"
   <!-- Check-in button above comments -->
 
 
-  <h5 align="center" id="__comments">Feel free to drop your insights, questions or suggestions</h5>
+  <h5 align="center" id="__comments">Share your insights, questions, or suggestions in the comments</h5>
 
   <!-- Insert generated snippet here -->
   <script

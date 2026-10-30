@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
+        <meta name="description" content="A data structures and algorithms tutorial with animated illustrations and code you can run with one click">
 
 
         <meta name="author" content="krahets">
@@ -41,7 +41,7 @@
 
 
 
-        <title>15.1 Greedy Algorithm - Hello Algo</title>
+        <title>15.1 Greedy algorithms - Hello Algo</title>
 
 
 
@@ -67,8 +67,8 @@
 
 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"JetBrains Mono"}</style>
 
 
 
@@ -101,7 +101,7 @@
     <div data-md-component="skip">
 
 
-        <a href="#151-greedy-algorithm" class="md-skip">
+        <a href="#151-greedy-algorithms" class="md-skip">
           Skip to content
         </a>
 
@@ -119,7 +119,7 @@
         <path
             d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z" />
     </svg>
-    <span>Welcome to contribute to Chinese-to-English translation! For more details, please refer to <a href="https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md">CONTRIBUTING.md</a>.</span>
+    <span>Help improve the English edition. See our <a href="https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md">contribution guidelines</a>.</span>
 </div>
 
           </div>
@@ -154,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
 
-              15.1 &nbsp; Greedy Algorithm
+              15.1 &nbsp; Greedy algorithms
 
           </span>
         </div>
@@ -167,9 +167,9 @@
 
 
 
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
 
-      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
       </label>
 
@@ -177,9 +177,9 @@
 
 
 
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
 
-      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
       </label>
 
@@ -349,7 +349,7 @@
   <span class="md-ellipsis">
 
 
-  Before Starting
+  Foreword
 
 
   </span>
@@ -365,7 +365,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Before Starting
+  Foreword
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -419,7 +419,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 0. Preface
+  Chapter 0. &nbsp; Preface
 
 
   </span>
@@ -440,7 +440,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 0. Preface
+  Chapter 0. &nbsp; Preface
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -461,7 +461,7 @@
   <span class="md-ellipsis">
 
 
-  0.1 About This Book
+  0.1 &nbsp; About this book
 
 
   </span>
@@ -488,7 +488,7 @@
   <span class="md-ellipsis">
 
 
-  0.2 How to Use This Book
+  0.2 &nbsp; How to use this book
 
 
   </span>
@@ -515,7 +515,7 @@
   <span class="md-ellipsis">
 
 
-  0.3 Summary
+  0.3 &nbsp; Summary
 
 
   </span>
@@ -575,7 +575,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 1. Encounter with Algorithms
+  Chapter 1. &nbsp; Getting to know algorithms
 
 
   </span>
@@ -596,7 +596,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 1. Encounter with Algorithms
+  Chapter 1. &nbsp; Getting to know algorithms
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -617,7 +617,7 @@
   <span class="md-ellipsis">
 
 
-  1.1 Algorithms Are Everywhere
+  1.1 &nbsp; Algorithms are everywhere
 
 
   </span>
@@ -644,7 +644,7 @@
   <span class="md-ellipsis">
 
 
-  1.2 What Is an Algorithm
+  1.2 &nbsp; What is an algorithm?
 
 
   </span>
@@ -671,7 +671,7 @@
   <span class="md-ellipsis">
 
 
-  1.3 Summary
+  1.3 &nbsp; Summary
 
 
   </span>
@@ -737,7 +737,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 2. Complexity Analysis
+  Chapter 2. &nbsp; Complexity analysis
 
 
   </span>
@@ -758,7 +758,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 2. Complexity Analysis
+  Chapter 2. &nbsp; Complexity analysis
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -779,7 +779,7 @@
   <span class="md-ellipsis">
 
 
-  2.1 Algorithm Efficiency Evaluation
+  2.1 &nbsp; Evaluating algorithm efficiency
 
 
   </span>
@@ -806,7 +806,7 @@
   <span class="md-ellipsis">
 
 
-  2.2 Iteration and Recursion
+  2.2 &nbsp; Iteration and recursion
 
 
   </span>
@@ -833,7 +833,7 @@
   <span class="md-ellipsis">
 
 
-  2.3 Time Complexity
+  2.3 &nbsp; Time complexity
 
 
   </span>
@@ -860,7 +860,7 @@
   <span class="md-ellipsis">
 
 
-  2.4 Space Complexity
+  2.4 &nbsp; Space complexity
 
 
   </span>
@@ -887,7 +887,7 @@
   <span class="md-ellipsis">
 
 
-  2.5 Summary
+  2.5 &nbsp; Summary
 
 
   </span>
@@ -914,7 +914,7 @@
   <span class="md-ellipsis">
 
 
-  2.6 Exercises
+  2.6 &nbsp; Exercises
 
 
   </span>
@@ -980,7 +980,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 3. Data Structures
+  Chapter 3. &nbsp; Data structures
 
 
   </span>
@@ -1001,7 +1001,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 3. Data Structures
+  Chapter 3. &nbsp; Data structures
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1022,7 +1022,7 @@
   <span class="md-ellipsis">
 
 
-  3.1 Classification of Data Structures
+  3.1 &nbsp; Classifying data structures
 
 
   </span>
@@ -1049,7 +1049,7 @@
   <span class="md-ellipsis">
 
 
-  3.2 Basic Data Types
+  3.2 &nbsp; Basic data types
 
 
   </span>
@@ -1076,7 +1076,7 @@
   <span class="md-ellipsis">
 
 
-  3.3 Number Encoding *
+  3.3 &nbsp; Number encoding *
 
 
   </span>
@@ -1103,7 +1103,7 @@
   <span class="md-ellipsis">
 
 
-  3.4 Character Encoding *
+  3.4 &nbsp; Character encoding *
 
 
   </span>
@@ -1130,7 +1130,7 @@
   <span class="md-ellipsis">
 
 
-  3.5 Summary
+  3.5 &nbsp; Summary
 
 
   </span>
@@ -1157,7 +1157,7 @@
   <span class="md-ellipsis">
 
 
-  3.6 Exercises
+  3.6 &nbsp; Exercises
 
 
   </span>
@@ -1223,7 +1223,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 4. Arrays and Linked Lists
+  Chapter 4. &nbsp; Arrays and linked lists
 
 
   </span>
@@ -1244,7 +1244,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 4. Arrays and Linked Lists
+  Chapter 4. &nbsp; Arrays and linked lists
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1265,7 +1265,7 @@
   <span class="md-ellipsis">
 
 
-  4.1 Array
+  4.1 &nbsp; Arrays
 
 
   </span>
@@ -1292,7 +1292,7 @@
   <span class="md-ellipsis">
 
 
-  4.2 Linked List
+  4.2 &nbsp; Linked lists
 
 
   </span>
@@ -1319,7 +1319,7 @@
   <span class="md-ellipsis">
 
 
-  4.3 List
+  4.3 &nbsp; Lists
 
 
   </span>
@@ -1346,7 +1346,7 @@
   <span class="md-ellipsis">
 
 
-  4.4 Random-Access Memory and Cache *
+  4.4 &nbsp; Memory and cache *
 
 
   </span>
@@ -1373,7 +1373,7 @@
   <span class="md-ellipsis">
 
 
-  4.5 Summary
+  4.5 &nbsp; Summary
 
 
   </span>
@@ -1400,7 +1400,7 @@
   <span class="md-ellipsis">
 
 
-  4.6 Exercises
+  4.6 &nbsp; Exercises
 
 
   </span>
@@ -1464,7 +1464,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 5. Stacks and Queues
+  Chapter 5. &nbsp; Stacks and queues
 
 
   </span>
@@ -1485,7 +1485,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 5. Stacks and Queues
+  Chapter 5. &nbsp; Stacks and queues
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1506,7 +1506,7 @@
   <span class="md-ellipsis">
 
 
-  5.1 Stack
+  5.1 &nbsp; Stacks
 
 
   </span>
@@ -1533,7 +1533,7 @@
   <span class="md-ellipsis">
 
 
-  5.2 Queue
+  5.2 &nbsp; Queues
 
 
   </span>
@@ -1560,7 +1560,7 @@
   <span class="md-ellipsis">
 
 
-  5.3 Deque
+  5.3 &nbsp; Deques
 
 
   </span>
@@ -1587,7 +1587,7 @@
   <span class="md-ellipsis">
 
 
-  5.4 Summary
+  5.4 &nbsp; Summary
 
 
   </span>
@@ -1614,7 +1614,7 @@
   <span class="md-ellipsis">
 
 
-  5.5 Exercises
+  5.5 &nbsp; Exercises
 
 
   </span>
@@ -1678,7 +1678,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 6. Hashing
+  Chapter 6. &nbsp; Hash tables
 
 
   </span>
@@ -1699,7 +1699,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 6. Hashing
+  Chapter 6. &nbsp; Hash tables
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1720,7 +1720,7 @@
   <span class="md-ellipsis">
 
 
-  6.1 Hash Table
+  6.1 &nbsp; Hash tables
 
 
   </span>
@@ -1747,7 +1747,7 @@
   <span class="md-ellipsis">
 
 
-  6.2 Hash Collision
+  6.2 &nbsp; Hash collisions
 
 
   </span>
@@ -1774,7 +1774,7 @@
   <span class="md-ellipsis">
 
 
-  6.3 Hash Algorithm
+  6.3 &nbsp; Hash algorithms
 
 
   </span>
@@ -1801,7 +1801,7 @@
   <span class="md-ellipsis">
 
 
-  6.4 Summary
+  6.4 &nbsp; Summary
 
 
   </span>
@@ -1828,7 +1828,7 @@
   <span class="md-ellipsis">
 
 
-  6.5 Exercises
+  6.5 &nbsp; Exercises
 
 
   </span>
@@ -1896,7 +1896,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 7. Tree
+  Chapter 7. &nbsp; Trees
 
 
   </span>
@@ -1917,7 +1917,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 7. Tree
+  Chapter 7. &nbsp; Trees
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1938,7 +1938,7 @@
   <span class="md-ellipsis">
 
 
-  7.1 Binary Tree
+  7.1 &nbsp; Binary trees
 
 
   </span>
@@ -1965,7 +1965,7 @@
   <span class="md-ellipsis">
 
 
-  7.2 Binary Tree Traversal
+  7.2 &nbsp; Traversing a binary tree
 
 
   </span>
@@ -1992,7 +1992,7 @@
   <span class="md-ellipsis">
 
 
-  7.3 Array Representation of Binary Trees
+  7.3 &nbsp; Array representation of a binary tree
 
 
   </span>
@@ -2019,7 +2019,7 @@
   <span class="md-ellipsis">
 
 
-  7.4 Binary Search Tree
+  7.4 &nbsp; Binary search trees
 
 
   </span>
@@ -2046,7 +2046,7 @@
   <span class="md-ellipsis">
 
 
-  7.5 AVL Tree *
+  7.5 &nbsp; AVL trees *
 
 
   </span>
@@ -2073,7 +2073,7 @@
   <span class="md-ellipsis">
 
 
-  7.6 Summary
+  7.6 &nbsp; Summary
 
 
   </span>
@@ -2100,7 +2100,7 @@
   <span class="md-ellipsis">
 
 
-  7.7 Exercises
+  7.7 &nbsp; Exercises
 
 
   </span>
@@ -2164,7 +2164,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 8. Heap
+  Chapter 8. &nbsp; Heaps
 
 
   </span>
@@ -2185,7 +2185,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 8. Heap
+  Chapter 8. &nbsp; Heaps
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2206,7 +2206,7 @@
   <span class="md-ellipsis">
 
 
-  8.1 Heap
+  8.1 &nbsp; Heaps
 
 
   </span>
@@ -2233,7 +2233,7 @@
   <span class="md-ellipsis">
 
 
-  8.2 Heap Construction Operation
+  8.2 &nbsp; Building a heap
 
 
   </span>
@@ -2260,7 +2260,7 @@
   <span class="md-ellipsis">
 
 
-  8.3 Top-k Problem
+  8.3 &nbsp; The top-k problem
 
 
   </span>
@@ -2287,7 +2287,7 @@
   <span class="md-ellipsis">
 
 
-  8.4 Summary
+  8.4 &nbsp; Summary
 
 
   </span>
@@ -2314,7 +2314,7 @@
   <span class="md-ellipsis">
 
 
-  8.5 Exercises
+  8.5 &nbsp; Exercises
 
 
   </span>
@@ -2378,7 +2378,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 9. Graph
+  Chapter 9. &nbsp; Graphs
 
 
   </span>
@@ -2399,7 +2399,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 9. Graph
+  Chapter 9. &nbsp; Graphs
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2420,7 +2420,7 @@
   <span class="md-ellipsis">
 
 
-  9.1 Graph
+  9.1 &nbsp; Graphs
 
 
   </span>
@@ -2447,7 +2447,7 @@
   <span class="md-ellipsis">
 
 
-  9.2 Basic Operations on Graphs
+  9.2 &nbsp; Basic graph operations
 
 
   </span>
@@ -2474,7 +2474,7 @@
   <span class="md-ellipsis">
 
 
-  9.3 Graph Traversal
+  9.3 &nbsp; Graph traversal
 
 
   </span>
@@ -2501,7 +2501,7 @@
   <span class="md-ellipsis">
 
 
-  9.4 Summary
+  9.4 &nbsp; Summary
 
 
   </span>
@@ -2528,7 +2528,7 @@
   <span class="md-ellipsis">
 
 
-  9.5 Exercises
+  9.5 &nbsp; Exercises
 
 
   </span>
@@ -2596,7 +2596,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 10. Searching
+  Chapter 10. &nbsp; Searching
 
 
   </span>
@@ -2617,7 +2617,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 10. Searching
+  Chapter 10. &nbsp; Searching
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2638,7 +2638,7 @@
   <span class="md-ellipsis">
 
 
-  10.1 Binary Search
+  10.1 &nbsp; Binary search
 
 
   </span>
@@ -2665,7 +2665,7 @@
   <span class="md-ellipsis">
 
 
-  10.2 Binary Search Insertion Point
+  10.2 &nbsp; Finding an insertion point with binary search
 
 
   </span>
@@ -2692,7 +2692,7 @@
   <span class="md-ellipsis">
 
 
-  10.3 Binary Search Boundaries
+  10.3 &nbsp; Finding boundaries with binary search
 
 
   </span>
@@ -2719,7 +2719,7 @@
   <span class="md-ellipsis">
 
 
-  10.4 Hash Optimization Strategy
+  10.4 &nbsp; Optimizing with hashing
 
 
   </span>
@@ -2746,7 +2746,7 @@
   <span class="md-ellipsis">
 
 
-  10.5 Searching Algorithms Revisited
+  10.5 &nbsp; Search algorithms revisited
 
 
   </span>
@@ -2773,7 +2773,7 @@
   <span class="md-ellipsis">
 
 
-  10.6 Summary
+  10.6 &nbsp; Summary
 
 
   </span>
@@ -2800,7 +2800,7 @@
   <span class="md-ellipsis">
 
 
-  10.7 Exercises
+  10.7 &nbsp; Exercises
 
 
   </span>
@@ -2878,7 +2878,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 11. Sorting
+  Chapter 11. &nbsp; Sorting
 
 
   </span>
@@ -2899,7 +2899,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 11. Sorting
+  Chapter 11. &nbsp; Sorting
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2920,7 +2920,7 @@
   <span class="md-ellipsis">
 
 
-  11.1 Sorting Algorithm
+  11.1 &nbsp; Sorting algorithms
 
 
   </span>
@@ -2947,7 +2947,7 @@
   <span class="md-ellipsis">
 
 
-  11.2 Selection Sort
+  11.2 &nbsp; Selection sort
 
 
   </span>
@@ -2974,7 +2974,7 @@
   <span class="md-ellipsis">
 
 
-  11.3 Bubble Sort
+  11.3 &nbsp; Bubble sort
 
 
   </span>
@@ -3001,7 +3001,7 @@
   <span class="md-ellipsis">
 
 
-  11.4 Insertion Sort
+  11.4 &nbsp; Insertion sort
 
 
   </span>
@@ -3028,7 +3028,7 @@
   <span class="md-ellipsis">
 
 
-  11.5 Quick Sort
+  11.5 &nbsp; Quick sort
 
 
   </span>
@@ -3055,7 +3055,7 @@
   <span class="md-ellipsis">
 
 
-  11.6 Merge Sort
+  11.6 &nbsp; Merge sort
 
 
   </span>
@@ -3082,7 +3082,7 @@
   <span class="md-ellipsis">
 
 
-  11.7 Heap Sort
+  11.7 &nbsp; Heap sort
 
 
   </span>
@@ -3109,7 +3109,7 @@
   <span class="md-ellipsis">
 
 
-  11.8 Bucket Sort
+  11.8 &nbsp; Bucket sort
 
 
   </span>
@@ -3136,7 +3136,7 @@
   <span class="md-ellipsis">
 
 
-  11.9 Counting Sort
+  11.9 &nbsp; Counting sort
 
 
   </span>
@@ -3163,7 +3163,7 @@
   <span class="md-ellipsis">
 
 
-  11.10 Radix Sort
+  11.10 &nbsp; Radix sort
 
 
   </span>
@@ -3190,7 +3190,7 @@
   <span class="md-ellipsis">
 
 
-  11.11 Summary
+  11.11 &nbsp; Summary
 
 
   </span>
@@ -3217,7 +3217,7 @@
   <span class="md-ellipsis">
 
 
-  11.12 Exercises
+  11.12 &nbsp; Exercises
 
 
   </span>
@@ -3283,7 +3283,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 12. Divide and Conquer
+  Chapter 12. &nbsp; Divide and conquer
 
 
   </span>
@@ -3304,7 +3304,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 12. Divide and Conquer
+  Chapter 12. &nbsp; Divide and conquer
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3325,7 +3325,7 @@
   <span class="md-ellipsis">
 
 
-  12.1 Divide and Conquer Algorithms
+  12.1 &nbsp; Divide and conquer
 
 
   </span>
@@ -3352,7 +3352,7 @@
   <span class="md-ellipsis">
 
 
-  12.2 Divide and Conquer Search Strategy
+  12.2 &nbsp; Divide-and-conquer search
 
 
   </span>
@@ -3379,7 +3379,7 @@
   <span class="md-ellipsis">
 
 
-  12.3 Building a Binary Tree Problem
+  12.3 &nbsp; Building a binary tree
 
 
   </span>
@@ -3406,7 +3406,7 @@
   <span class="md-ellipsis">
 
 
-  12.4 Tower of Hanoi Problem
+  12.4 &nbsp; Tower of Hanoi
 
 
   </span>
@@ -3433,7 +3433,7 @@
   <span class="md-ellipsis">
 
 
-  12.5 Summary
+  12.5 &nbsp; Summary
 
 
   </span>
@@ -3460,7 +3460,7 @@
   <span class="md-ellipsis">
 
 
-  12.6 Exercises
+  12.6 &nbsp; Exercises
 
 
   </span>
@@ -3526,7 +3526,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 13. Backtracking
+  Chapter 13. &nbsp; Backtracking
 
 
   </span>
@@ -3547,7 +3547,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 13. Backtracking
+  Chapter 13. &nbsp; Backtracking
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3568,7 +3568,7 @@
   <span class="md-ellipsis">
 
 
-  13.1 Backtracking Algorithm
+  13.1 &nbsp; Backtracking algorithms
 
 
   </span>
@@ -3595,7 +3595,7 @@
   <span class="md-ellipsis">
 
 
-  13.2 Permutations Problem
+  13.2 &nbsp; Permutations problem
 
 
   </span>
@@ -3622,7 +3622,7 @@
   <span class="md-ellipsis">
 
 
-  13.3 Subset-Sum Problem
+  13.3 &nbsp; Subset sum problem
 
 
   </span>
@@ -3649,7 +3649,7 @@
   <span class="md-ellipsis">
 
 
-  13.4 N-Queens Problem
+  13.4 &nbsp; N-queens problem
 
 
   </span>
@@ -3676,7 +3676,7 @@
   <span class="md-ellipsis">
 
 
-  13.5 Summary
+  13.5 &nbsp; Summary
 
 
   </span>
@@ -3703,7 +3703,7 @@
   <span class="md-ellipsis">
 
 
-  13.6 Exercises
+  13.6 &nbsp; Exercises
 
 
   </span>
@@ -3773,7 +3773,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 14. Dynamic Programming
+  Chapter 14. &nbsp; Dynamic programming
 
 
   </span>
@@ -3794,7 +3794,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 14. Dynamic Programming
+  Chapter 14. &nbsp; Dynamic programming
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3815,7 +3815,7 @@
   <span class="md-ellipsis">
 
 
-  14.1 Introduction to Dynamic Programming
+  14.1 &nbsp; Introduction to dynamic programming
 
 
   </span>
@@ -3842,7 +3842,7 @@
   <span class="md-ellipsis">
 
 
-  14.2 Characteristics of Dynamic Programming Problems
+  14.2 &nbsp; Properties of dynamic programming problems
 
 
   </span>
@@ -3869,7 +3869,7 @@
   <span class="md-ellipsis">
 
 
-  14.3 Dynamic Programming Problem-Solving Approach
+  14.3 &nbsp; Solving dynamic programming problems
 
 
   </span>
@@ -3896,7 +3896,7 @@
   <span class="md-ellipsis">
 
 
-  14.4 0-1 Knapsack Problem
+  14.4 &nbsp; 0-1 knapsack problem
 
 
   </span>
@@ -3923,7 +3923,7 @@
   <span class="md-ellipsis">
 
 
-  14.5 Unbounded Knapsack Problem
+  14.5 &nbsp; Unbounded knapsack problem
 
 
   </span>
@@ -3950,7 +3950,7 @@
   <span class="md-ellipsis">
 
 
-  14.6 Edit Distance Problem
+  14.6 &nbsp; Edit distance problem
 
 
   </span>
@@ -3977,7 +3977,7 @@
   <span class="md-ellipsis">
 
 
-  14.7 Summary
+  14.7 &nbsp; Summary
 
 
   </span>
@@ -4004,7 +4004,7 @@
   <span class="md-ellipsis">
 
 
-  14.8 Exercises
+  14.8 &nbsp; Exercises
 
 
   </span>
@@ -4072,7 +4072,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 15. Greedy
+  Chapter 15. &nbsp; Greedy algorithms
 
 
   </span>
@@ -4093,7 +4093,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 15. Greedy
+  Chapter 15. &nbsp; Greedy algorithms
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4123,7 +4123,7 @@
   <span class="md-ellipsis">
 
 
-  15.1 Greedy Algorithm
+  15.1 &nbsp; Greedy algorithms
 
 
   </span>
@@ -4140,7 +4140,7 @@
   <span class="md-ellipsis">
 
 
-  15.1 Greedy Algorithm
+  15.1 &nbsp; Greedy algorithms
 
 
   </span>
@@ -4166,10 +4166,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
 
         <li class="md-nav__item">
-  <a href="#1511-advantages-and-limitations-of-greedy-algorithms" class="md-nav__link">
+  <a href="#1511-strengths-and-limitations-of-greedy-algorithms" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        15.1.1 &nbsp; Advantages and Limitations of Greedy Algorithms
+        15.1.1 &nbsp; Strengths and limitations of greedy algorithms
       </span>
     </span>
   </a>
@@ -4177,10 +4177,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#1512-characteristics-of-greedy-algorithms" class="md-nav__link">
+  <a href="#1512-properties-required-by-greedy-algorithms" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        15.1.2 &nbsp; Characteristics of Greedy Algorithms
+        15.1.2 &nbsp; Properties required by greedy algorithms
       </span>
     </span>
   </a>
@@ -4188,10 +4188,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#1513-steps-for-solving-problems-with-greedy-algorithms" class="md-nav__link">
+  <a href="#1513-steps-for-solving-a-problem-greedily" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        15.1.3 &nbsp; Steps for Solving Problems with Greedy Algorithms
+        15.1.3 &nbsp; Steps for solving a problem greedily
       </span>
     </span>
   </a>
@@ -4199,10 +4199,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#1514-typical-problems-solved-by-greedy-algorithms" class="md-nav__link">
+  <a href="#1514-typical-greedy-problems" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        15.1.4 &nbsp; Typical Problems Solved by Greedy Algorithms
+        15.1.4 &nbsp; Typical greedy problems
       </span>
     </span>
   </a>
@@ -4232,7 +4232,7 @@
   <span class="md-ellipsis">
 
 
-  15.2 Fractional Knapsack Problem
+  15.2 &nbsp; Fractional knapsack problem
 
 
   </span>
@@ -4259,7 +4259,7 @@
   <span class="md-ellipsis">
 
 
-  15.3 Maximum Capacity Problem
+  15.3 &nbsp; Maximum capacity problem
 
 
   </span>
@@ -4286,7 +4286,7 @@
   <span class="md-ellipsis">
 
 
-  15.4 Maximum Product Cutting Problem
+  15.4 &nbsp; Maximum product cutting problem
 
 
   </span>
@@ -4313,7 +4313,7 @@
   <span class="md-ellipsis">
 
 
-  15.5 Summary
+  15.5 &nbsp; Summary
 
 
   </span>
@@ -4340,7 +4340,7 @@
   <span class="md-ellipsis">
 
 
-  15.6 Exercises
+  15.6 &nbsp; Exercises
 
 
   </span>
@@ -4400,7 +4400,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 16. Appendix
+  Chapter 16. &nbsp; Appendix
 
 
   </span>
@@ -4421,7 +4421,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 16. Appendix
+  Chapter 16. &nbsp; Appendix
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4442,7 +4442,7 @@
   <span class="md-ellipsis">
 
 
-  16.1 Programming Environment Installation
+  16.1 &nbsp; Setting up a programming environment
 
 
   </span>
@@ -4469,7 +4469,7 @@
   <span class="md-ellipsis">
 
 
-  16.2 Contributing Together
+  16.2 &nbsp; Contribute to the book
 
 
   </span>
@@ -4496,7 +4496,7 @@
   <span class="md-ellipsis">
 
 
-  16.3 Glossary
+  16.3 &nbsp; Glossary
 
 
   </span>
@@ -4580,6 +4580,78 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="md-nav__item md-nav__item--nested">
+
+
+
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_20" >
+
+
+          <div class="md-nav__link md-nav__container">
+            <a href="../../chapter_paperbook/" class="md-nav__link ">
+
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+  <span class="md-ellipsis">
+
+
+  Print edition (Chinese)
+
+
+  </span>
+
+
+
+
+
+    <span class="md-status md-status--new" title="Recently added">
+    </span>
+
+
+
+
+            </a>
+
+          </div>
+
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_20">
+            <span class="md-nav__icon md-icon"></span>
+
+
+  Print edition (Chinese)
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+          </ul>
+        </nav>
+
+    </li>
+
+
+
   </ul>
 </nav>
                   </div>
@@ -4621,10 +4693,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
 
         <li class="md-nav__item">
-  <a href="#1511-advantages-and-limitations-of-greedy-algorithms" class="md-nav__link">
+  <a href="#1511-strengths-and-limitations-of-greedy-algorithms" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        15.1.1 &nbsp; Advantages and Limitations of Greedy Algorithms
+        15.1.1 &nbsp; Strengths and limitations of greedy algorithms
       </span>
     </span>
   </a>
@@ -4632,10 +4704,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#1512-characteristics-of-greedy-algorithms" class="md-nav__link">
+  <a href="#1512-properties-required-by-greedy-algorithms" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        15.1.2 &nbsp; Characteristics of Greedy Algorithms
+        15.1.2 &nbsp; Properties required by greedy algorithms
       </span>
     </span>
   </a>
@@ -4643,10 +4715,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#1513-steps-for-solving-problems-with-greedy-algorithms" class="md-nav__link">
+  <a href="#1513-steps-for-solving-a-problem-greedily" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        15.1.3 &nbsp; Steps for Solving Problems with Greedy Algorithms
+        15.1.3 &nbsp; Steps for solving a problem greedily
       </span>
     </span>
   </a>
@@ -4654,10 +4726,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#1514-typical-problems-solved-by-greedy-algorithms" class="md-nav__link">
+  <a href="#1514-typical-greedy-problems" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        15.1.4 &nbsp; Typical Problems Solved by Greedy Algorithms
+        15.1.4 &nbsp; Typical greedy problems
       </span>
     </span>
   </a>
@@ -4701,52 +4773,52 @@
 
 
 <!-- Page content -->
-<h1 id="151-greedy-algorithm">15.1 &nbsp; Greedy Algorithm<a class="headerlink" href="#151-greedy-algorithm" title="Permanent link">&para;</a></h1>
-<p><u>Greedy algorithm</u> is a common approach to solving optimization problems. Its basic idea is to choose the option that appears best at each decision stage, that is, to greedily make locally optimal decisions in the hope of obtaining a globally optimal solution. Greedy algorithms are simple and efficient, and are widely used in many practical problems.</p>
-<p>Greedy algorithms and dynamic programming are both commonly used to solve optimization problems. They share some similarities, such as both relying on the optimal substructure property, but they work differently.</p>
+<h1 id="151-greedy-algorithms">15.1 &nbsp; Greedy algorithms<a class="headerlink" href="#151-greedy-algorithms" title="Permanent link">&para;</a></h1>
+<p>A <u>greedy algorithm</u> is a common approach to optimization problems. At each decision point, it chooses the option that looks best at that moment: it makes a locally optimal choice in the hope of reaching a globally optimal solution. Greedy algorithms are simple and efficient, with many practical applications.</p>
+<p>Both greedy algorithms and dynamic programming are commonly used for optimization. They share some features, such as relying on optimal substructure, but work differently.</p>
 <ul>
-<li>Dynamic programming considers all previous decisions when making the current decision, and uses solutions to past subproblems to construct the solution to the current subproblem.</li>
-<li>Greedy algorithms do not consider past decisions, but instead make greedy choices moving forward, continually reducing the problem size until the problem is solved.</li>
+<li>Dynamic programming considers the current decision in light of all decisions from earlier stages, using solutions to earlier subproblems to build the solution to the current subproblem.</li>
+<li>A greedy algorithm does not reconsider past decisions. It keeps moving forward, making greedy choices and shrinking the problem until it is solved.</li>
 </ul>
-<p>We will first understand how greedy algorithms work through the example problem "coin change." This problem was already introduced in the "Complete Knapsack Problem" chapter, so it should already be familiar to you.</p>
+<p>Let's explore how greedy algorithms work through the coin change problem, which you have already encountered in the section on the unbounded knapsack problem.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given <span class="arithmatex">\(n\)</span> types of coins, where the denomination of the <span class="arithmatex">\(i\)</span>-th type is <span class="arithmatex">\(coins[i - 1]\)</span>, a target amount <span class="arithmatex">\(amt\)</span>, and an unlimited number of coins of each type, what is the minimum number of coins needed to make up the target amount? If the target amount cannot be made up, return <span class="arithmatex">\(-1\)</span>.</p>
+<p>Given <span class="arithmatex">\(n\)</span> coin denominations, where denomination <span class="arithmatex">\(i\)</span> has value <span class="arithmatex">\(coins[i - 1]\)</span>, and a target amount <span class="arithmatex">\(amt\)</span>, you may use each denomination any number of times. What is the minimum number of coins needed to make the target amount? Return <span class="arithmatex">\(-1\)</span> if it cannot be made.</p>
 </div>
-<p>The greedy strategy for this problem is shown in Figure 15-1. Given a target amount, <strong>we greedily choose the coin that does not exceed it and is closest to it</strong>, repeating this step until the target amount is made up.</p>
+<p>The greedy strategy is shown in Figure 15-1. Given the remaining target amount, <strong>we greedily choose the largest coin that does not exceed it</strong>, repeating this step until we have made the target amount.</p>
 <p><img alt="Greedy strategy for coin change" class="animation-figure" src="../greedy_algorithm.assets/coin_change_greedy_strategy.png" /></p>
 <p align="center"> Figure 15-1 &nbsp; Greedy strategy for coin change </p>
 
-<p>The implementation code is as follows:</p>
+<p>The implementation is as follows:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">coin_change_greedy.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">coin_change_greedy</span><span class="p">(</span><span class="n">coins</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">amt</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Coin change: Greedy algorithm"""</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># Assume coins list is sorted</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Coin change: greedy algorithm"""</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># Assume the coins list is sorted</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">i</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">coins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="c1"># Loop to make greedy choices until no remaining amount</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="c1"># Repeatedly make greedy choices until no amount remains</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">while</span> <span class="n">amt</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="c1"># Find the coin that is less than and closest to the remaining amount</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="c1"># Find the largest coin no greater than the remaining amount</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">amt</span><span class="p">:</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>            <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="c1"># Choose coins[i]</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="n">amt</span> <span class="o">-=</span> <span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="c1"># If no feasible solution is found, return -1</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="c1"># Return -1 if no feasible solution was found</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="k">return</span> <span class="n">count</span> <span class="k">if</span> <span class="n">amt</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">coin_change_greedy.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Coin change: Greedy algorithm */</span>
+<div class="highlight"><span class="filename">coin_change_greedy.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Coin change: greedy algorithm */</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">coinChangeGreedy</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">coins</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Assume coins list is sorted</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Assume the coins list is sorted</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coins</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c1">// Loop to make greedy choices until no remaining amount</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c1">// Repeatedly make greedy choices until no amount remains</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="c1">// Find the coin that is less than and closest to the remaining amount</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="c1">// Find the largest coin that does not exceed the remaining amount</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">            </span><span class="n">i</span><span class="o">--</span><span class="p">;</span>
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="p">}</span>
@@ -4754,20 +4826,20 @@
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="n">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 <a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="c1">// If no feasible solution is found, return -1</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="c1">// Return -1 if no feasible solution was found</span>
 <a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">coin_change_greedy.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* Coin change: Greedy algorithm */</span>
+<div class="highlight"><span class="filename">coin_change_greedy.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* Coin change: greedy algorithm */</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">coinChangeGreedy</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">coins</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Assume coins list is sorted</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Assume the coins list is sorted</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coins</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="c1">// Loop to make greedy choices until no remaining amount</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="c1">// Repeatedly make greedy choices until no amount remains</span>
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="c1">// Find the coin that is less than and closest to the remaining amount</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="c1">// Find the largest coin no greater than the remaining amount</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">            </span><span class="n">i</span><span class="o">--</span><span class="p">;</span>
 <a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="p">}</span>
@@ -4775,20 +4847,20 @@
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="n">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="c1">// If no feasible solution is found, return -1</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="c1">// Return -1 if no feasible solution was found</span>
 <a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">coin_change_greedy.cs</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* Coin change: Greedy algorithm */</span>
+<div class="highlight"><span class="filename">coin_change_greedy.cs</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* Coin change: greedy algorithm */</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">CoinChangeGreedy</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">coins</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Assume coins list is sorted</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Assume the coins list is sorted</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coins</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="c1">// Loop to make greedy choices until no remaining amount</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="c1">// Repeatedly make greedy choices until no amount remains</span>
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="c1">// Find the coin that is less than and closest to the remaining amount</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="c1">// Find the largest coin no greater than the remaining amount</span>
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">            </span><span class="n">i</span><span class="o">--</span><span class="p">;</span>
 <a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="p">}</span>
@@ -4796,20 +4868,20 @@
 <a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="n">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 <a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="c1">// If no feasible solution is found, return -1</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="c1">// Return -1 if no feasible solution was found</span>
 <a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">coin_change_greedy.go</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* Coin change: Greedy algorithm */</span>
+<div class="highlight"><span class="filename">coin_change_greedy.go</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* Coin change: greedy algorithm */</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">coinChangeGreedy</span><span class="p">(</span><span class="nx">coins</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">amt</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Assume coins list is sorted</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Assume the coins list is sorted in ascending order</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">coins</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="c1">// Loop to make greedy choices until no remaining amount</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="c1">// Repeatedly make greedy choices until no amount remains</span>
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="c1">// Find the coin that is less than and closest to the remaining amount</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="c1">// Find the largest coin no greater than the remaining amount</span>
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">coins</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">amt</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">            </span><span class="nx">i</span><span class="o">--</span>
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="p">}</span>
@@ -4817,7 +4889,7 @@
 <a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="nx">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">coins</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
 <a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="nx">count</span><span class="o">++</span>
 <a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="c1">// If no feasible solution is found, return -1</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="c1">// Return -1 if no feasible solution was found</span>
 <a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">amt</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
 <a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="p">}</span>
@@ -4826,15 +4898,15 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">coin_change_greedy.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* Coin change: Greedy algorithm */</span>
+<div class="highlight"><span class="filename">coin_change_greedy.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* Coin change: greedy algorithm */</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">coinChangeGreedy</span><span class="p">(</span><span class="n">coins</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">amt</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Assume coins list is sorted</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Assume the coins list is sorted in ascending order</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">coins</span><span class="p">.</span><span class="bp">count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">amt</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">amt</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="c1">// Loop to make greedy choices until no remaining amount</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="c1">// Repeatedly make greedy choices until no amount remains</span>
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="c1">// Find the coin that is less than and closest to the remaining amount</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="c1">// Find the largest coin no greater than the remaining amount</span>
 <a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="p">}</span>
@@ -4842,20 +4914,20 @@
 <a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="n">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 <a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="bp">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="c1">// If no feasible solution is found, return -1</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="c1">// Return -1 if no feasible solution was found</span>
 <a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">?</span><span class="w"> </span><span class="bp">count</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
 <a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">coin_change_greedy.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/* Coin change: Greedy algorithm */</span>
+<div class="highlight"><span class="filename">coin_change_greedy.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/* Coin change: greedy algorithm */</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">coinChangeGreedy</span><span class="p">(</span><span class="nx">coins</span><span class="p">,</span><span class="w"> </span><span class="nx">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Assume coins array is sorted</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Assume coins is sorted in ascending order</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">coins</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="c1">// Loop to make greedy choices until no remaining amount</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="c1">// Repeatedly make greedy choices until no amount remains</span>
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span><span class="c1">// Find the coin that is less than and closest to the remaining amount</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span><span class="c1">// Find the largest coin no greater than the remaining amount</span>
 <a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">coins</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">            </span><span class="nx">i</span><span class="o">--</span><span class="p">;</span>
 <a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">        </span><span class="p">}</span>
@@ -4863,20 +4935,20 @@
 <a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">        </span><span class="nx">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">coins</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
 <a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">        </span><span class="nx">count</span><span class="o">++</span><span class="p">;</span>
 <a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="c1">// If no feasible solution is found, return -1</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="c1">// Return -1 if no feasible solution was found</span>
 <a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">amt</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
 <a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">coin_change_greedy.ts</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/* Coin change: Greedy algorithm */</span>
+<div class="highlight"><span class="filename">coin_change_greedy.ts</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/* Coin change: greedy algorithm */</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">coinChangeGreedy</span><span class="p">(</span><span class="nx">coins</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">amt</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Assume coins array is sorted</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Assume coins is sorted in ascending order</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">coins</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
 <a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="c1">// Loop to make greedy choices until no remaining amount</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="c1">// Repeatedly make greedy choices until no amount remains</span>
 <a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="c1">// Find the coin that is less than and closest to the remaining amount</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="c1">// Find the largest coin no greater than the remaining amount</span>
 <a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">coins</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">            </span><span class="nx">i</span><span class="o">--</span><span class="p">;</span>
 <a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="p">}</span>
@@ -4884,20 +4956,20 @@
 <a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="nx">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">coins</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
 <a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">        </span><span class="nx">count</span><span class="o">++</span><span class="p">;</span>
 <a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="c1">// If no feasible solution is found, return -1</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="c1">// Return -1 if no feasible solution was found</span>
 <a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">amt</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
 <a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">coin_change_greedy.dart</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* Coin change: Greedy algorithm */</span>
+<div class="highlight"><span class="filename">coin_change_greedy.dart</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* Coin change: greedy algorithm */</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">coinChangeGreedy</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">coins</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="c1">// Assume coins list is sorted</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="c1">// Assume the coins list is sorted in ascending order</span>
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coins</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="c1">// Loop to make greedy choices until no remaining amount</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="c1">// Repeatedly make greedy choices until no amount remains</span>
 <a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="c1">// Find the coin that is less than and closest to the remaining amount</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="c1">// Find the largest coin no greater than the remaining amount</span>
 <a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">      </span><span class="n">i</span><span class="o">--</span><span class="p">;</span>
 <a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="p">}</span>
@@ -4905,20 +4977,20 @@
 <a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="n">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 <a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">  </span><span class="c1">// If no feasible solution is found, return -1</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">  </span><span class="c1">// Return -1 if no feasible solution was found</span>
 <a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">;</span>
 <a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">coin_change_greedy.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/* Coin change: Greedy algorithm */</span>
+<div class="highlight"><span class="filename">coin_change_greedy.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/* Coin change: greedy algorithm */</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">coin_change_greedy</span><span class="p">(</span><span class="n">coins</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="p">[</span><span class="kt">i32</span><span class="p">],</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">amt</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Assume coins list is sorted</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Assume the coins list is sorted</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coins</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="c1">// Loop to make greedy choices until no remaining amount</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="c1">// Repeatedly make greedy choices until no amount remains</span>
 <a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">        </span><span class="c1">// Find the coin that is less than and closest to the remaining amount</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">        </span><span class="c1">// Find the largest coin that does not exceed the remaining amount</span>
 <a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">        </span><span class="p">}</span>
@@ -4926,7 +4998,7 @@
 <a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">        </span><span class="n">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">        </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="c1">// If no feasible solution is found, return -1</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="c1">// Return -1 if no feasible solution was found</span>
 <a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">        </span><span class="n">count</span>
 <a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -4936,14 +5008,14 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">coin_change_greedy.c</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* Coin change: Greedy algorithm */</span>
+<div class="highlight"><span class="filename">coin_change_greedy.c</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* Coin change: greedy algorithm */</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">coinChangeGreedy</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">coins</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Assume coins list is sorted</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Assume the coins list is sorted</span>
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="c1">// Loop to make greedy choices until no remaining amount</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="c1">// Repeatedly make greedy choices until no amount remains</span>
 <a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="c1">// Find the coin that is less than and closest to the remaining amount</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="c1">// Find the largest coin no greater than the remaining amount</span>
 <a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">            </span><span class="n">i</span><span class="o">--</span><span class="p">;</span>
 <a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">        </span><span class="p">}</span>
@@ -4951,21 +5023,21 @@
 <a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">        </span><span class="n">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 <a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="c1">// If no feasible solution is found, return -1</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="c1">// Return -1 if no feasible solution was found</span>
 <a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">coin_change_greedy.kt</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/* Coin change: Greedy algorithm */</span>
+<div class="highlight"><span class="filename">coin_change_greedy.kt</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/* Coin change: greedy algorithm */</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">coinChangeGreedy</span><span class="p">(</span><span class="n">coins</span><span class="p">:</span><span class="w"> </span><span class="n">IntArray</span><span class="p">,</span><span class="w"> </span><span class="n">amt</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="c1">// Assume coins list is sorted</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="c1">// Assume coins is sorted in ascending order</span>
 <a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">am</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">amt</span>
 <a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coins</span><span class="p">.</span><span class="na">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span>
 <a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="c1">// Loop to make greedy choices until no remaining amount</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="c1">// Repeatedly make greedy choices until no amount remains</span>
 <a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">am</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">        </span><span class="c1">// Find the coin that is less than and closest to the remaining amount</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">        </span><span class="c1">// Find the largest coin no greater than the remaining amount</span>
 <a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">am</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">            </span><span class="n">i</span><span class="o">--</span>
 <a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">        </span><span class="p">}</span>
@@ -4973,20 +5045,20 @@
 <a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">        </span><span class="n">am</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
 <a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">        </span><span class="n">count</span><span class="o">++</span>
 <a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">    </span><span class="c1">// If no feasible solution is found, return -1</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">    </span><span class="c1">// Return -1 if no feasible solution was found</span>
 <a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">am</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="o">-</span><span class="m">1</span>
 <a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">coin_change_greedy.rb</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">### Coin change: greedy ###</span>
+<div class="highlight"><span class="filename">coin_change_greedy.rb</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">### Coin change: greedy algorithm ###</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">coin_change_greedy</span><span class="p">(</span><span class="n">coins</span><span class="p">,</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Assume coins list is sorted</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Assume the coins list is sorted in ascending order</span>
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coins</span><span class="o">.</span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="c1"># Loop to make greedy choices until no remaining amount</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="c1"># Repeatedly make greedy choices until no amount remains</span>
 <a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="c1"># Find the coin that is less than and closest to the remaining amount</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="c1"># Find the largest coin no greater than the remaining amount</span>
 <a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">amt</span>
 <a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">      </span><span class="n">i</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="k">end</span>
@@ -4994,69 +5066,74 @@
 <a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">    </span><span class="n">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
 <a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">  </span><span class="k">end</span>
-<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">  </span><span class="c1"># Return -1 if no solution found</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">  </span><span class="c1"># Return -1 if no feasible solution was found</span>
 <a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">  </span><span class="n">amt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
 <a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 </div>
 </div>
-<p>You may find yourself exclaiming, "So clean!" The greedy algorithm solves the coin change problem in only about ten lines of code.</p>
-<h2 id="1511-advantages-and-limitations-of-greedy-algorithms">15.1.1 &nbsp; Advantages and Limitations of Greedy Algorithms<a class="headerlink" href="#1511-advantages-and-limitations-of-greedy-algorithms" title="Permanent link">&para;</a></h2>
-<p><strong>Greedy algorithms are not only straightforward to apply and easy to implement, but are also usually very efficient</strong>. In the code above, if the smallest coin denomination is <span class="arithmatex">\(\min(coins)\)</span>, the greedy selection loop runs at most <span class="arithmatex">\(amt / \min(coins)\)</span> times, giving a time complexity of <span class="arithmatex">\(O(amt / \min(coins))\)</span>. This is an order of magnitude lower than the time complexity of the dynamic programming solution, <span class="arithmatex">\(O(n \times amt)\)</span>.</p>
-<p>However, <strong>for some coin denomination sets, greedy algorithms cannot find the optimal solution</strong>. Figure 15-2 shows two examples.</p>
+<details class="pythontutor">
+<summary>Visualize execution</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20coin_change_greedy%28coins%3A%20list%5Bint%5D,%20amt%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Coin%20change%3A%20greedy%20algorithm%22%22%22%0A%20%20%20%20%23%20Assume%20the%20coins%20list%20is%20sorted%0A%20%20%20%20i%20%3D%20len%28coins%29%20-%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20Repeatedly%20make%20greedy%20choices%20until%20no%20amount%20remains%0A%20%20%20%20while%20amt%20%3E%200%3A%0A%20%20%20%20%20%20%20%20%23%20Find%20the%20largest%20coin%20no%20greater%20than%20the%20remaining%20amount%0A%20%20%20%20%20%20%20%20while%20i%20%3E%200%20and%20coins%5Bi%5D%20%3E%20amt%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20-%3D%201%0A%20%20%20%20%20%20%20%20%23%20Choose%20coins%5Bi%5D%0A%20%20%20%20%20%20%20%20amt%20-%3D%20coins%5Bi%5D%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%23%20Return%20-1%20if%20no%20feasible%20solution%20was%20found%0A%20%20%20%20return%20count%20if%20amt%20%3D%3D%200%20else%20-1%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Greedy%20algorithm%3A%20guaranteed%20to%20find%20a%20globally%20optimal%20solution%0A%20%20%20%20coins%20%3D%20%5B1,%205,%2010,%2020,%2050,%20100%5D%0A%20%20%20%20amt%20%3D%20186%0A%20%20%20%20res%20%3D%20coin_change_greedy%28coins,%20amt%29%0A%20%20%20%20print%28f%22%5Cncoins%20%3D%20%7Bcoins%7D,%20amt%20%3D%20%7Bamt%7D%22%29%0A%20%20%20%20print%28f%22Number%20of%20coins%20chosen%20by%20the%20greedy%20algorithm%20for%20amount%20%7Bamt%7D%3A%20%7Bres%7D%22%29%0A%0A%20%20%20%20%23%20Greedy%20algorithm%3A%20not%20guaranteed%20to%20find%20a%20globally%20optimal%20solution%0A%20%20%20%20coins%20%3D%20%5B1,%2020,%2050%5D%0A%20%20%20%20amt%20%3D%2060%0A%20%20%20%20res%20%3D%20coin_change_greedy%28coins,%20amt%29%0A%20%20%20%20print%28f%22%5Cncoins%20%3D%20%7Bcoins%7D,%20amt%20%3D%20%7Bamt%7D%22%29%0A%20%20%20%20print%28f%22Number%20of%20coins%20chosen%20by%20the%20greedy%20algorithm%20for%20amount%20%7Bamt%7D%3A%20%7Bres%7D%22%29%0A%20%20%20%20print%28f%22The%20actual%20minimum%20is%203%20coins%3A%2020%20%2B%2020%20%2B%2020%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20coin_change_greedy%28coins%3A%20list%5Bint%5D,%20amt%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Coin%20change%3A%20greedy%20algorithm%22%22%22%0A%20%20%20%20%23%20Assume%20the%20coins%20list%20is%20sorted%0A%20%20%20%20i%20%3D%20len%28coins%29%20-%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20Repeatedly%20make%20greedy%20choices%20until%20no%20amount%20remains%0A%20%20%20%20while%20amt%20%3E%200%3A%0A%20%20%20%20%20%20%20%20%23%20Find%20the%20largest%20coin%20no%20greater%20than%20the%20remaining%20amount%0A%20%20%20%20%20%20%20%20while%20i%20%3E%200%20and%20coins%5Bi%5D%20%3E%20amt%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20-%3D%201%0A%20%20%20%20%20%20%20%20%23%20Choose%20coins%5Bi%5D%0A%20%20%20%20%20%20%20%20amt%20-%3D%20coins%5Bi%5D%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%23%20Return%20-1%20if%20no%20feasible%20solution%20was%20found%0A%20%20%20%20return%20count%20if%20amt%20%3D%3D%200%20else%20-1%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Greedy%20algorithm%3A%20guaranteed%20to%20find%20a%20globally%20optimal%20solution%0A%20%20%20%20coins%20%3D%20%5B1,%205,%2010,%2020,%2050,%20100%5D%0A%20%20%20%20amt%20%3D%20186%0A%20%20%20%20res%20%3D%20coin_change_greedy%28coins,%20amt%29%0A%20%20%20%20print%28f%22%5Cncoins%20%3D%20%7Bcoins%7D,%20amt%20%3D%20%7Bamt%7D%22%29%0A%20%20%20%20print%28f%22Number%20of%20coins%20chosen%20by%20the%20greedy%20algorithm%20for%20amount%20%7Bamt%7D%3A%20%7Bres%7D%22%29%0A%0A%20%20%20%20%23%20Greedy%20algorithm%3A%20not%20guaranteed%20to%20find%20a%20globally%20optimal%20solution%0A%20%20%20%20coins%20%3D%20%5B1,%2020,%2050%5D%0A%20%20%20%20amt%20%3D%2060%0A%20%20%20%20res%20%3D%20coin_change_greedy%28coins,%20amt%29%0A%20%20%20%20print%28f%22%5Cncoins%20%3D%20%7Bcoins%7D,%20amt%20%3D%20%7Bamt%7D%22%29%0A%20%20%20%20print%28f%22Number%20of%20coins%20chosen%20by%20the%20greedy%20algorithm%20for%20amount%20%7Bamt%7D%3A%20%7Bres%7D%22%29%0A%20%20%20%20print%28f%22The%20actual%20minimum%20is%203%20coins%3A%2020%20%2B%2020%20%2B%2020%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen &gt;</a></div></p>
+</details>
+<p>You might find yourself thinking, "So clean!" The greedy algorithm solves coin change in only about ten lines of code.</p>
+<h2 id="1511-strengths-and-limitations-of-greedy-algorithms">15.1.1 &nbsp; Strengths and limitations of greedy algorithms<a class="headerlink" href="#1511-strengths-and-limitations-of-greedy-algorithms" title="Permanent link">&para;</a></h2>
+<p><strong>Greedy algorithms are straightforward, easy to implement, and usually efficient</strong>. In the code above, let <span class="arithmatex">\(\min(coins)\)</span> be the smallest coin denomination. At most <span class="arithmatex">\(amt / \min(coins)\)</span> greedy choices are made, giving a time complexity of <span class="arithmatex">\(O(amt / \min(coins))\)</span>. This is an order of magnitude lower than the dynamic programming solution's <span class="arithmatex">\(O(n \times amt)\)</span> time complexity.</p>
+<p>However, <strong>for some sets of coin denominations, a greedy algorithm cannot find the optimal solution</strong>. Figure 15-2 illustrates two examples.</p>
 <ul>
-<li><strong>Positive example <span class="arithmatex">\(coins = [1, 5, 10, 20, 50, 100]\)</span></strong>: With this coin set, the greedy algorithm can find the optimal solution for any <span class="arithmatex">\(amt\)</span>.</li>
-<li><strong>Counterexample <span class="arithmatex">\(coins = [1, 20, 50]\)</span></strong>: Suppose <span class="arithmatex">\(amt = 60\)</span>. The greedy algorithm can only find the combination <span class="arithmatex">\(50 + 1 \times 10\)</span>, using <span class="arithmatex">\(11\)</span> coins in total, whereas dynamic programming can find the optimal solution <span class="arithmatex">\(20 + 20 + 20\)</span> using only <span class="arithmatex">\(3\)</span> coins.</li>
-<li><strong>Counterexample <span class="arithmatex">\(coins = [1, 49, 50]\)</span></strong>: Suppose <span class="arithmatex">\(amt = 98\)</span>. The greedy algorithm can only find the combination <span class="arithmatex">\(50 + 1 \times 48\)</span>, using <span class="arithmatex">\(49\)</span> coins in total, whereas dynamic programming can find the optimal solution <span class="arithmatex">\(49 + 49\)</span> using only <span class="arithmatex">\(2\)</span> coins.</li>
+<li><strong>Successful case: <span class="arithmatex">\(coins = [1, 5, 10, 20, 50, 100]\)</span></strong>. For these denominations, the greedy algorithm finds an optimal solution for any <span class="arithmatex">\(amt\)</span>.</li>
+<li><strong>Counterexample: <span class="arithmatex">\(coins = [1, 20, 50]\)</span></strong>. For <span class="arithmatex">\(amt = 60\)</span>, the greedy algorithm produces <span class="arithmatex">\(50 + 1 \times 10\)</span>, using <span class="arithmatex">\(11\)</span> coins. Dynamic programming finds the optimal solution <span class="arithmatex">\(20 + 20 + 20\)</span>, using only <span class="arithmatex">\(3\)</span> coins.</li>
+<li><strong>Counterexample: <span class="arithmatex">\(coins = [1, 49, 50]\)</span></strong>. For <span class="arithmatex">\(amt = 98\)</span>, the greedy algorithm produces <span class="arithmatex">\(50 + 1 \times 48\)</span>, using <span class="arithmatex">\(49\)</span> coins. Dynamic programming finds the optimal solution <span class="arithmatex">\(49 + 49\)</span>, using only <span class="arithmatex">\(2\)</span> coins.</li>
 </ul>
-<p><img alt="Examples where greedy algorithms cannot find the optimal solution" class="animation-figure" src="../greedy_algorithm.assets/coin_change_greedy_vs_dp.png" /></p>
-<p align="center"> Figure 15-2 &nbsp; Examples where greedy algorithms cannot find the optimal solution </p>
+<p><img alt="Examples where the greedy algorithm fails to find the optimal solution" class="animation-figure" src="../greedy_algorithm.assets/coin_change_greedy_vs_dp.png" /></p>
+<p align="center"> Figure 15-2 &nbsp; Examples where the greedy algorithm fails to find the optimal solution </p>
 
-<p>In other words, for the coin change problem, greedy algorithms cannot guarantee a globally optimal solution and may even produce very poor results. This problem is better solved with dynamic programming.</p>
-<p>In general, greedy algorithms are applicable in the following two situations.</p>
+<p>In other words, a greedy algorithm cannot guarantee a globally optimal solution to coin change and may produce a very poor solution. Dynamic programming is better suited to this problem.</p>
+<p>In general, greedy algorithms are useful in two situations.</p>
 <ol>
-<li><strong>The optimal solution can be guaranteed</strong>: In this case, greedy algorithms are often the best choice because they tend to be more efficient than backtracking and dynamic programming.</li>
-<li><strong>An approximately optimal solution can be found</strong>: Greedy algorithms are also useful in this case. For many complex problems, finding the global optimal solution is very difficult, so efficiently finding a suboptimal solution is already a very good outcome.</li>
+<li><strong>An optimal solution is guaranteed</strong>: A greedy algorithm is often the best choice because it is usually more efficient than backtracking or dynamic programming.</li>
+<li><strong>A near-optimal solution can be found</strong>: A greedy algorithm can still be useful. For many complex problems, finding a globally optimal solution is very difficult, so finding a good suboptimal solution efficiently is valuable.</li>
 </ol>
-<h2 id="1512-characteristics-of-greedy-algorithms">15.1.2 &nbsp; Characteristics of Greedy Algorithms<a class="headerlink" href="#1512-characteristics-of-greedy-algorithms" title="Permanent link">&para;</a></h2>
-<p>So the question arises: what kind of problems are suitable for solving with greedy algorithms? Or in other words, under what conditions can greedy algorithms guarantee finding the optimal solution?</p>
-<p>Compared to dynamic programming, the conditions for using greedy algorithms are stricter, mainly focusing on two properties of the problem.</p>
+<h2 id="1512-properties-required-by-greedy-algorithms">15.1.2 &nbsp; Properties required by greedy algorithms<a class="headerlink" href="#1512-properties-required-by-greedy-algorithms" title="Permanent link">&para;</a></h2>
+<p>What kinds of problems are suitable for greedy algorithms? More specifically, when can a greedy algorithm guarantee an optimal solution?</p>
+<p>Greedy algorithms have stricter requirements than dynamic programming. Two properties are particularly important.</p>
 <ul>
-<li><strong>Greedy choice property</strong>: Only when locally optimal choices can always lead to a globally optimal solution can greedy algorithms guarantee obtaining the optimal solution.</li>
-<li><strong>Optimal substructure</strong>: The optimal solution to the original problem contains the optimal solutions to subproblems.</li>
+<li><strong>Greedy-choice property</strong>: A greedy algorithm can guarantee an optimal solution only when locally optimal choices always lead to a globally optimal solution.</li>
+<li><strong>Optimal substructure</strong>: An optimal solution to the original problem contains optimal solutions to its subproblems.</li>
 </ul>
-<p>Optimal substructure has already been introduced in the "Dynamic Programming" chapter, so we won't elaborate on it here. It's worth noting that the optimal substructure of some problems is not obvious, but they can still be solved using greedy algorithms.</p>
-<p>We mainly explore methods for determining the greedy choice property. Although its description seems relatively simple, <strong>in practice, for many problems, proving the greedy choice property is not easy</strong>.</p>
-<p>For example, in the coin change problem, although we can easily provide counterexamples to disprove the greedy choice property, proving that it holds is much harder. If asked, <strong>under what conditions can a coin set be solved using a greedy algorithm</strong>? We often can only rely on intuition or examples to give a vague answer, and it is difficult to provide a rigorous mathematical proof.</p>
+<p>Optimal substructure was covered in the dynamic programming chapter, so we will not repeat that discussion here. Some problems have optimal substructure that is not immediately apparent, yet can still be solved greedily.</p>
+<p>We will focus on how to determine whether the greedy-choice property holds. Its description may sound simple, <strong>but proving it is difficult for many problems</strong>.</p>
+<p>For coin change, for example, it is easy to give counterexamples that disprove the greedy-choice property, but proving it is harder. If asked <strong>which conditions on the coin denominations allow a greedy solution</strong>, we may be able to give only a vague answer based on intuition or examples, rather than a rigorous mathematical proof.</p>
 <div class="admonition quote">
 <p class="admonition-title">Quote</p>
-<p>There is a paper that presents an <span class="arithmatex">\(O(n^3)\)</span> algorithm for determining whether a coin set can be solved optimally by a greedy algorithm for any amount.</p>
+<p>One paper gives an <span class="arithmatex">\(O(n^3)\)</span>-time algorithm for determining whether a set of coin denominations allows a greedy algorithm to find an optimal solution for every amount.</p>
 <p>Pearson, D. A polynomial-time algorithm for the change-making problem[J]. Operations Research Letters, 2005, 33(3): 231-234.</p>
 </div>
-<h2 id="1513-steps-for-solving-problems-with-greedy-algorithms">15.1.3 &nbsp; Steps for Solving Problems with Greedy Algorithms<a class="headerlink" href="#1513-steps-for-solving-problems-with-greedy-algorithms" title="Permanent link">&para;</a></h2>
-<p>The general process for solving greedy problems can be divided into the following three steps.</p>
+<h2 id="1513-steps-for-solving-a-problem-greedily">15.1.3 &nbsp; Steps for solving a problem greedily<a class="headerlink" href="#1513-steps-for-solving-a-problem-greedily" title="Permanent link">&para;</a></h2>
+<p>Solving a greedy problem generally involves three steps.</p>
 <ol>
-<li><strong>Problem analysis</strong>: Sort out and understand the characteristics of the problem, including state definitions, optimization objectives, and constraints. This step also appears in backtracking and dynamic programming.</li>
-<li><strong>Determine the greedy strategy</strong>: Decide how to make a greedy choice at each step. This strategy should reduce the problem size step by step and ultimately solve the entire problem.</li>
-<li><strong>Correctness proof</strong>: It is usually necessary to prove that the problem has both greedy choice property and optimal substructure. This step may require mathematical tools such as induction or proof by contradiction.</li>
+<li><strong>Analyze the problem</strong>: Understand its properties, including the state definition, optimization objective, and constraints. This step also appears in backtracking and dynamic programming.</li>
+<li><strong>Choose a greedy strategy</strong>: Decide how to make a greedy choice at each step. Each choice should reduce the problem's size, eventually solving the whole problem.</li>
+<li><strong>Prove correctness</strong>: Usually, we must establish the greedy-choice property and optimal substructure. This may require a mathematical proof, such as induction or proof by contradiction.</li>
 </ol>
-<p>Determining the greedy strategy is the core step in solving such problems, but it may not be easy in practice, mainly for the following reasons.</p>
+<p>Choosing the greedy strategy is the central step, but it can be difficult for the following reasons.</p>
 <ul>
-<li><strong>Greedy strategies vary greatly from problem to problem</strong>. For many problems, the greedy strategy is fairly intuitive and can be derived through rough reasoning and experimentation. For some complex problems, however, the greedy strategy may be deeply hidden, which strongly tests one's problem-solving experience and algorithmic ability.</li>
-<li><strong>Some greedy strategies are highly deceptive</strong>. We may confidently design a greedy strategy, write the solution code, and submit it, only to find that some test cases fail. This is because the designed greedy strategy is only "partially correct," as exemplified by the coin change problem discussed above.</li>
+<li><strong>Greedy strategies vary greatly from problem to problem</strong>. For many problems, the strategy is straightforward and can be found with a little thought and experimentation. For more complex problems, it may be well hidden, testing our problem-solving experience and algorithmic skills.</li>
+<li><strong>Some greedy strategies are misleading</strong>. We may confidently devise a strategy, implement it, and submit the code, only to find that it fails some test cases. The strategy is only partially correct; the coin change problem above is a typical example.</li>
 </ul>
-<p>To ensure correctness, we should give a rigorous mathematical proof of the greedy strategy, <strong>usually using proof by contradiction or mathematical induction</strong>.</p>
-<p>However, correctness proofs can also be difficult. If we have no clear direction, we usually resort to debugging against test cases, revising and validating the greedy strategy step by step.</p>
-<h2 id="1514-typical-problems-solved-by-greedy-algorithms">15.1.4 &nbsp; Typical Problems Solved by Greedy Algorithms<a class="headerlink" href="#1514-typical-problems-solved-by-greedy-algorithms" title="Permanent link">&para;</a></h2>
-<p>Greedy algorithms are often applied to optimization problems that satisfy greedy choice property and optimal substructure. Below are some typical greedy algorithm problems.</p>
+<p>To ensure correctness, we should give the greedy strategy a rigorous mathematical proof, <strong>usually using contradiction or mathematical induction</strong>.</p>
+<p>However, such a proof can itself be difficult. When we do not know where to start, we often debug against test cases, gradually refining and checking the greedy strategy.</p>
+<h2 id="1514-typical-greedy-problems">15.1.4 &nbsp; Typical greedy problems<a class="headerlink" href="#1514-typical-greedy-problems" title="Permanent link">&para;</a></h2>
+<p>Greedy algorithms often solve optimization problems with the greedy-choice property and optimal substructure. Some typical examples follow.</p>
 <ul>
-<li><strong>Coin change problem</strong>: With certain coin combinations, greedy algorithms can always obtain the optimal solution.</li>
-<li><strong>Interval scheduling problem</strong>: Suppose you have some tasks, each taking place during a period of time, and your goal is to complete as many tasks as possible. If you always choose the task that ends earliest, then the greedy algorithm can obtain the optimal solution.</li>
-<li><strong>Fractional knapsack problem</strong>: Given a set of items and a carrying capacity, your goal is to select a set of items such that the total weight does not exceed the carrying capacity and the total value is maximized. If you always choose the item with the highest value-to-weight ratio (value / weight), then the greedy algorithm can obtain the optimal solution in some cases.</li>
-<li><strong>Stock trading problem</strong>: Given a set of historical stock prices, you can make multiple trades, but if you already hold stocks, you cannot buy again before selling, and the goal is to obtain the maximum profit.</li>
-<li><strong>Huffman coding</strong>: Huffman coding is a greedy algorithm used for lossless data compression. By constructing a Huffman tree and always merging the two nodes with the lowest frequency, the resulting Huffman tree has the minimum weighted path length (encoding length).</li>
-<li><strong>Dijkstra's algorithm</strong>: For graphs with non-negative edge weights, it is a greedy algorithm for solving the shortest path problem from a given source vertex to all other vertices.</li>
+<li><strong>Coin change</strong>: For certain sets of coin denominations, a greedy algorithm always finds an optimal solution.</li>
+<li><strong>Interval scheduling</strong>: Given tasks that each occupy a time interval, the goal is to complete as many tasks as possible. Always choosing the available task that finishes earliest yields an optimal solution.</li>
+<li><strong>Fractional knapsack</strong>: Given items and a weight limit, choose items to maximize total value without exceeding the limit. Choosing the item with the highest value-to-weight ratio at each step can yield an optimal solution in some settings.</li>
+<li><strong>Stock trading</strong>: Given historical stock prices, you may buy and sell multiple times, but cannot buy again while holding stock until you sell it. The goal is to maximize profit.</li>
+<li><strong>Huffman coding</strong>: This greedy algorithm is used for lossless data compression. It builds a Huffman tree by repeatedly merging the two nodes with the lowest frequencies. The resulting tree has the minimum weighted path length (encoding length).</li>
+<li><strong>Dijkstra's algorithm</strong>: This greedy algorithm finds shortest paths from a given source vertex to every other vertex in a graph whose edge weights are all nonnegative.</li>
 </ul>
 
 <!-- Source file information -->
@@ -5080,7 +5157,7 @@ aria-label="Footer"
   <a
     href="../"
     class="md-footer__link md-footer__link--prev"
-    aria-label="Previous: Chapter 15. &amp;nbsp; Greedy"
+    aria-label="Previous: Chapter 15.   Greedy algorithms"
     rel="prev"
   >
     <div class="md-footer__button md-icon">
@@ -5092,7 +5169,7 @@ aria-label="Footer"
         Previous
       </span>
       <div class="md-ellipsis">
-        Chapter 15. &nbsp; Greedy
+        Chapter 15. &nbsp; Greedy algorithms
       </div>
     </div>
   </a>
@@ -5104,7 +5181,7 @@ aria-label="Footer"
   <a
     href="../fractional_knapsack_problem/"
     class="md-footer__link md-footer__link--next"
-    aria-label="Next: 15.2 Fractional Knapsack Problem"
+    aria-label="Next: 15.2   Fractional knapsack problem"
     rel="next"
   >
     <div class="md-footer__title">
@@ -5112,7 +5189,7 @@ aria-label="Footer"
         Next
       </span>
       <div class="md-ellipsis">
-        15.2 Fractional Knapsack Problem
+        15.2 &nbsp; Fractional knapsack problem
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -5129,7 +5206,7 @@ aria-label="Footer"
   <!-- Check-in button above comments -->
 
 
-  <h5 align="center" id="__comments">Feel free to drop your insights, questions or suggestions</h5>
+  <h5 align="center" id="__comments">Share your insights, questions, or suggestions in the comments</h5>
 
   <!-- Insert generated snippet here -->
   <script

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
+        <meta name="description" content="A data structures and algorithms tutorial with animated illustrations and code you can run with one click">
 
 
         <meta name="author" content="krahets">
@@ -41,7 +41,7 @@
 
 
 
-        <title>12.4 Tower of Hanoi Problem - Hello Algo</title>
+        <title>12.4 Tower of Hanoi - Hello Algo</title>
 
 
 
@@ -67,8 +67,8 @@
 
 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"JetBrains Mono"}</style>
 
 
 
@@ -101,7 +101,7 @@
     <div data-md-component="skip">
 
 
-        <a href="#124-tower-of-hanoi-problem" class="md-skip">
+        <a href="#124-tower-of-hanoi" class="md-skip">
           Skip to content
         </a>
 
@@ -119,7 +119,7 @@
         <path
             d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z" />
     </svg>
-    <span>Welcome to contribute to Chinese-to-English translation! For more details, please refer to <a href="https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md">CONTRIBUTING.md</a>.</span>
+    <span>Help improve the English edition. See our <a href="https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md">contribution guidelines</a>.</span>
 </div>
 
           </div>
@@ -154,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
 
-              12.4 &nbsp; Tower of Hanoi Problem
+              12.4 &nbsp; Tower of Hanoi
 
           </span>
         </div>
@@ -167,9 +167,9 @@
 
 
 
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
 
-      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
       </label>
 
@@ -177,9 +177,9 @@
 
 
 
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
 
-      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
       </label>
 
@@ -349,7 +349,7 @@
   <span class="md-ellipsis">
 
 
-  Before Starting
+  Foreword
 
 
   </span>
@@ -365,7 +365,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Before Starting
+  Foreword
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -419,7 +419,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 0. Preface
+  Chapter 0. &nbsp; Preface
 
 
   </span>
@@ -440,7 +440,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 0. Preface
+  Chapter 0. &nbsp; Preface
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -461,7 +461,7 @@
   <span class="md-ellipsis">
 
 
-  0.1 About This Book
+  0.1 &nbsp; About this book
 
 
   </span>
@@ -488,7 +488,7 @@
   <span class="md-ellipsis">
 
 
-  0.2 How to Use This Book
+  0.2 &nbsp; How to use this book
 
 
   </span>
@@ -515,7 +515,7 @@
   <span class="md-ellipsis">
 
 
-  0.3 Summary
+  0.3 &nbsp; Summary
 
 
   </span>
@@ -575,7 +575,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 1. Encounter with Algorithms
+  Chapter 1. &nbsp; Getting to know algorithms
 
 
   </span>
@@ -596,7 +596,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 1. Encounter with Algorithms
+  Chapter 1. &nbsp; Getting to know algorithms
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -617,7 +617,7 @@
   <span class="md-ellipsis">
 
 
-  1.1 Algorithms Are Everywhere
+  1.1 &nbsp; Algorithms are everywhere
 
 
   </span>
@@ -644,7 +644,7 @@
   <span class="md-ellipsis">
 
 
-  1.2 What Is an Algorithm
+  1.2 &nbsp; What is an algorithm?
 
 
   </span>
@@ -671,7 +671,7 @@
   <span class="md-ellipsis">
 
 
-  1.3 Summary
+  1.3 &nbsp; Summary
 
 
   </span>
@@ -737,7 +737,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 2. Complexity Analysis
+  Chapter 2. &nbsp; Complexity analysis
 
 
   </span>
@@ -758,7 +758,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 2. Complexity Analysis
+  Chapter 2. &nbsp; Complexity analysis
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -779,7 +779,7 @@
   <span class="md-ellipsis">
 
 
-  2.1 Algorithm Efficiency Evaluation
+  2.1 &nbsp; Evaluating algorithm efficiency
 
 
   </span>
@@ -806,7 +806,7 @@
   <span class="md-ellipsis">
 
 
-  2.2 Iteration and Recursion
+  2.2 &nbsp; Iteration and recursion
 
 
   </span>
@@ -833,7 +833,7 @@
   <span class="md-ellipsis">
 
 
-  2.3 Time Complexity
+  2.3 &nbsp; Time complexity
 
 
   </span>
@@ -860,7 +860,7 @@
   <span class="md-ellipsis">
 
 
-  2.4 Space Complexity
+  2.4 &nbsp; Space complexity
 
 
   </span>
@@ -887,7 +887,7 @@
   <span class="md-ellipsis">
 
 
-  2.5 Summary
+  2.5 &nbsp; Summary
 
 
   </span>
@@ -914,7 +914,7 @@
   <span class="md-ellipsis">
 
 
-  2.6 Exercises
+  2.6 &nbsp; Exercises
 
 
   </span>
@@ -980,7 +980,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 3. Data Structures
+  Chapter 3. &nbsp; Data structures
 
 
   </span>
@@ -1001,7 +1001,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 3. Data Structures
+  Chapter 3. &nbsp; Data structures
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1022,7 +1022,7 @@
   <span class="md-ellipsis">
 
 
-  3.1 Classification of Data Structures
+  3.1 &nbsp; Classifying data structures
 
 
   </span>
@@ -1049,7 +1049,7 @@
   <span class="md-ellipsis">
 
 
-  3.2 Basic Data Types
+  3.2 &nbsp; Basic data types
 
 
   </span>
@@ -1076,7 +1076,7 @@
   <span class="md-ellipsis">
 
 
-  3.3 Number Encoding *
+  3.3 &nbsp; Number encoding *
 
 
   </span>
@@ -1103,7 +1103,7 @@
   <span class="md-ellipsis">
 
 
-  3.4 Character Encoding *
+  3.4 &nbsp; Character encoding *
 
 
   </span>
@@ -1130,7 +1130,7 @@
   <span class="md-ellipsis">
 
 
-  3.5 Summary
+  3.5 &nbsp; Summary
 
 
   </span>
@@ -1157,7 +1157,7 @@
   <span class="md-ellipsis">
 
 
-  3.6 Exercises
+  3.6 &nbsp; Exercises
 
 
   </span>
@@ -1223,7 +1223,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 4. Arrays and Linked Lists
+  Chapter 4. &nbsp; Arrays and linked lists
 
 
   </span>
@@ -1244,7 +1244,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 4. Arrays and Linked Lists
+  Chapter 4. &nbsp; Arrays and linked lists
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1265,7 +1265,7 @@
   <span class="md-ellipsis">
 
 
-  4.1 Array
+  4.1 &nbsp; Arrays
 
 
   </span>
@@ -1292,7 +1292,7 @@
   <span class="md-ellipsis">
 
 
-  4.2 Linked List
+  4.2 &nbsp; Linked lists
 
 
   </span>
@@ -1319,7 +1319,7 @@
   <span class="md-ellipsis">
 
 
-  4.3 List
+  4.3 &nbsp; Lists
 
 
   </span>
@@ -1346,7 +1346,7 @@
   <span class="md-ellipsis">
 
 
-  4.4 Random-Access Memory and Cache *
+  4.4 &nbsp; Memory and cache *
 
 
   </span>
@@ -1373,7 +1373,7 @@
   <span class="md-ellipsis">
 
 
-  4.5 Summary
+  4.5 &nbsp; Summary
 
 
   </span>
@@ -1400,7 +1400,7 @@
   <span class="md-ellipsis">
 
 
-  4.6 Exercises
+  4.6 &nbsp; Exercises
 
 
   </span>
@@ -1464,7 +1464,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 5. Stacks and Queues
+  Chapter 5. &nbsp; Stacks and queues
 
 
   </span>
@@ -1485,7 +1485,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 5. Stacks and Queues
+  Chapter 5. &nbsp; Stacks and queues
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1506,7 +1506,7 @@
   <span class="md-ellipsis">
 
 
-  5.1 Stack
+  5.1 &nbsp; Stacks
 
 
   </span>
@@ -1533,7 +1533,7 @@
   <span class="md-ellipsis">
 
 
-  5.2 Queue
+  5.2 &nbsp; Queues
 
 
   </span>
@@ -1560,7 +1560,7 @@
   <span class="md-ellipsis">
 
 
-  5.3 Deque
+  5.3 &nbsp; Deques
 
 
   </span>
@@ -1587,7 +1587,7 @@
   <span class="md-ellipsis">
 
 
-  5.4 Summary
+  5.4 &nbsp; Summary
 
 
   </span>
@@ -1614,7 +1614,7 @@
   <span class="md-ellipsis">
 
 
-  5.5 Exercises
+  5.5 &nbsp; Exercises
 
 
   </span>
@@ -1678,7 +1678,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 6. Hashing
+  Chapter 6. &nbsp; Hash tables
 
 
   </span>
@@ -1699,7 +1699,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 6. Hashing
+  Chapter 6. &nbsp; Hash tables
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1720,7 +1720,7 @@
   <span class="md-ellipsis">
 
 
-  6.1 Hash Table
+  6.1 &nbsp; Hash tables
 
 
   </span>
@@ -1747,7 +1747,7 @@
   <span class="md-ellipsis">
 
 
-  6.2 Hash Collision
+  6.2 &nbsp; Hash collisions
 
 
   </span>
@@ -1774,7 +1774,7 @@
   <span class="md-ellipsis">
 
 
-  6.3 Hash Algorithm
+  6.3 &nbsp; Hash algorithms
 
 
   </span>
@@ -1801,7 +1801,7 @@
   <span class="md-ellipsis">
 
 
-  6.4 Summary
+  6.4 &nbsp; Summary
 
 
   </span>
@@ -1828,7 +1828,7 @@
   <span class="md-ellipsis">
 
 
-  6.5 Exercises
+  6.5 &nbsp; Exercises
 
 
   </span>
@@ -1896,7 +1896,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 7. Tree
+  Chapter 7. &nbsp; Trees
 
 
   </span>
@@ -1917,7 +1917,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 7. Tree
+  Chapter 7. &nbsp; Trees
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1938,7 +1938,7 @@
   <span class="md-ellipsis">
 
 
-  7.1 Binary Tree
+  7.1 &nbsp; Binary trees
 
 
   </span>
@@ -1965,7 +1965,7 @@
   <span class="md-ellipsis">
 
 
-  7.2 Binary Tree Traversal
+  7.2 &nbsp; Traversing a binary tree
 
 
   </span>
@@ -1992,7 +1992,7 @@
   <span class="md-ellipsis">
 
 
-  7.3 Array Representation of Binary Trees
+  7.3 &nbsp; Array representation of a binary tree
 
 
   </span>
@@ -2019,7 +2019,7 @@
   <span class="md-ellipsis">
 
 
-  7.4 Binary Search Tree
+  7.4 &nbsp; Binary search trees
 
 
   </span>
@@ -2046,7 +2046,7 @@
   <span class="md-ellipsis">
 
 
-  7.5 AVL Tree *
+  7.5 &nbsp; AVL trees *
 
 
   </span>
@@ -2073,7 +2073,7 @@
   <span class="md-ellipsis">
 
 
-  7.6 Summary
+  7.6 &nbsp; Summary
 
 
   </span>
@@ -2100,7 +2100,7 @@
   <span class="md-ellipsis">
 
 
-  7.7 Exercises
+  7.7 &nbsp; Exercises
 
 
   </span>
@@ -2164,7 +2164,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 8. Heap
+  Chapter 8. &nbsp; Heaps
 
 
   </span>
@@ -2185,7 +2185,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 8. Heap
+  Chapter 8. &nbsp; Heaps
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2206,7 +2206,7 @@
   <span class="md-ellipsis">
 
 
-  8.1 Heap
+  8.1 &nbsp; Heaps
 
 
   </span>
@@ -2233,7 +2233,7 @@
   <span class="md-ellipsis">
 
 
-  8.2 Heap Construction Operation
+  8.2 &nbsp; Building a heap
 
 
   </span>
@@ -2260,7 +2260,7 @@
   <span class="md-ellipsis">
 
 
-  8.3 Top-k Problem
+  8.3 &nbsp; The top-k problem
 
 
   </span>
@@ -2287,7 +2287,7 @@
   <span class="md-ellipsis">
 
 
-  8.4 Summary
+  8.4 &nbsp; Summary
 
 
   </span>
@@ -2314,7 +2314,7 @@
   <span class="md-ellipsis">
 
 
-  8.5 Exercises
+  8.5 &nbsp; Exercises
 
 
   </span>
@@ -2378,7 +2378,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 9. Graph
+  Chapter 9. &nbsp; Graphs
 
 
   </span>
@@ -2399,7 +2399,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 9. Graph
+  Chapter 9. &nbsp; Graphs
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2420,7 +2420,7 @@
   <span class="md-ellipsis">
 
 
-  9.1 Graph
+  9.1 &nbsp; Graphs
 
 
   </span>
@@ -2447,7 +2447,7 @@
   <span class="md-ellipsis">
 
 
-  9.2 Basic Operations on Graphs
+  9.2 &nbsp; Basic graph operations
 
 
   </span>
@@ -2474,7 +2474,7 @@
   <span class="md-ellipsis">
 
 
-  9.3 Graph Traversal
+  9.3 &nbsp; Graph traversal
 
 
   </span>
@@ -2501,7 +2501,7 @@
   <span class="md-ellipsis">
 
 
-  9.4 Summary
+  9.4 &nbsp; Summary
 
 
   </span>
@@ -2528,7 +2528,7 @@
   <span class="md-ellipsis">
 
 
-  9.5 Exercises
+  9.5 &nbsp; Exercises
 
 
   </span>
@@ -2596,7 +2596,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 10. Searching
+  Chapter 10. &nbsp; Searching
 
 
   </span>
@@ -2617,7 +2617,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 10. Searching
+  Chapter 10. &nbsp; Searching
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2638,7 +2638,7 @@
   <span class="md-ellipsis">
 
 
-  10.1 Binary Search
+  10.1 &nbsp; Binary search
 
 
   </span>
@@ -2665,7 +2665,7 @@
   <span class="md-ellipsis">
 
 
-  10.2 Binary Search Insertion Point
+  10.2 &nbsp; Finding an insertion point with binary search
 
 
   </span>
@@ -2692,7 +2692,7 @@
   <span class="md-ellipsis">
 
 
-  10.3 Binary Search Boundaries
+  10.3 &nbsp; Finding boundaries with binary search
 
 
   </span>
@@ -2719,7 +2719,7 @@
   <span class="md-ellipsis">
 
 
-  10.4 Hash Optimization Strategy
+  10.4 &nbsp; Optimizing with hashing
 
 
   </span>
@@ -2746,7 +2746,7 @@
   <span class="md-ellipsis">
 
 
-  10.5 Searching Algorithms Revisited
+  10.5 &nbsp; Search algorithms revisited
 
 
   </span>
@@ -2773,7 +2773,7 @@
   <span class="md-ellipsis">
 
 
-  10.6 Summary
+  10.6 &nbsp; Summary
 
 
   </span>
@@ -2800,7 +2800,7 @@
   <span class="md-ellipsis">
 
 
-  10.7 Exercises
+  10.7 &nbsp; Exercises
 
 
   </span>
@@ -2878,7 +2878,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 11. Sorting
+  Chapter 11. &nbsp; Sorting
 
 
   </span>
@@ -2899,7 +2899,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 11. Sorting
+  Chapter 11. &nbsp; Sorting
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2920,7 +2920,7 @@
   <span class="md-ellipsis">
 
 
-  11.1 Sorting Algorithm
+  11.1 &nbsp; Sorting algorithms
 
 
   </span>
@@ -2947,7 +2947,7 @@
   <span class="md-ellipsis">
 
 
-  11.2 Selection Sort
+  11.2 &nbsp; Selection sort
 
 
   </span>
@@ -2974,7 +2974,7 @@
   <span class="md-ellipsis">
 
 
-  11.3 Bubble Sort
+  11.3 &nbsp; Bubble sort
 
 
   </span>
@@ -3001,7 +3001,7 @@
   <span class="md-ellipsis">
 
 
-  11.4 Insertion Sort
+  11.4 &nbsp; Insertion sort
 
 
   </span>
@@ -3028,7 +3028,7 @@
   <span class="md-ellipsis">
 
 
-  11.5 Quick Sort
+  11.5 &nbsp; Quick sort
 
 
   </span>
@@ -3055,7 +3055,7 @@
   <span class="md-ellipsis">
 
 
-  11.6 Merge Sort
+  11.6 &nbsp; Merge sort
 
 
   </span>
@@ -3082,7 +3082,7 @@
   <span class="md-ellipsis">
 
 
-  11.7 Heap Sort
+  11.7 &nbsp; Heap sort
 
 
   </span>
@@ -3109,7 +3109,7 @@
   <span class="md-ellipsis">
 
 
-  11.8 Bucket Sort
+  11.8 &nbsp; Bucket sort
 
 
   </span>
@@ -3136,7 +3136,7 @@
   <span class="md-ellipsis">
 
 
-  11.9 Counting Sort
+  11.9 &nbsp; Counting sort
 
 
   </span>
@@ -3163,7 +3163,7 @@
   <span class="md-ellipsis">
 
 
-  11.10 Radix Sort
+  11.10 &nbsp; Radix sort
 
 
   </span>
@@ -3190,7 +3190,7 @@
   <span class="md-ellipsis">
 
 
-  11.11 Summary
+  11.11 &nbsp; Summary
 
 
   </span>
@@ -3217,7 +3217,7 @@
   <span class="md-ellipsis">
 
 
-  11.12 Exercises
+  11.12 &nbsp; Exercises
 
 
   </span>
@@ -3285,7 +3285,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 12. Divide and Conquer
+  Chapter 12. &nbsp; Divide and conquer
 
 
   </span>
@@ -3306,7 +3306,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 12. Divide and Conquer
+  Chapter 12. &nbsp; Divide and conquer
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3327,7 +3327,7 @@
   <span class="md-ellipsis">
 
 
-  12.1 Divide and Conquer Algorithms
+  12.1 &nbsp; Divide and conquer
 
 
   </span>
@@ -3354,7 +3354,7 @@
   <span class="md-ellipsis">
 
 
-  12.2 Divide and Conquer Search Strategy
+  12.2 &nbsp; Divide-and-conquer search
 
 
   </span>
@@ -3381,7 +3381,7 @@
   <span class="md-ellipsis">
 
 
-  12.3 Building a Binary Tree Problem
+  12.3 &nbsp; Building a binary tree
 
 
   </span>
@@ -3417,7 +3417,7 @@
   <span class="md-ellipsis">
 
 
-  12.4 Tower of Hanoi Problem
+  12.4 &nbsp; Tower of Hanoi
 
 
   </span>
@@ -3434,7 +3434,7 @@
   <span class="md-ellipsis">
 
 
-  12.4 Tower of Hanoi Problem
+  12.4 &nbsp; Tower of Hanoi
 
 
   </span>
@@ -3463,7 +3463,7 @@
   <a href="#1-considering-the-base-cases" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        1. &nbsp; Considering the Base Cases
+        1. &nbsp; Considering the base cases
       </span>
     </span>
   </a>
@@ -3471,10 +3471,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#2-subproblem-decomposition" class="md-nav__link">
+  <a href="#2-dividing-the-problem" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        2. &nbsp; Subproblem Decomposition
+        2. &nbsp; Dividing the problem
       </span>
     </span>
   </a>
@@ -3485,7 +3485,7 @@
   <a href="#3-code-implementation" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        3. &nbsp; Code Implementation
+        3. &nbsp; Code implementation
       </span>
     </span>
   </a>
@@ -3515,7 +3515,7 @@
   <span class="md-ellipsis">
 
 
-  12.5 Summary
+  12.5 &nbsp; Summary
 
 
   </span>
@@ -3542,7 +3542,7 @@
   <span class="md-ellipsis">
 
 
-  12.6 Exercises
+  12.6 &nbsp; Exercises
 
 
   </span>
@@ -3608,7 +3608,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 13. Backtracking
+  Chapter 13. &nbsp; Backtracking
 
 
   </span>
@@ -3629,7 +3629,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 13. Backtracking
+  Chapter 13. &nbsp; Backtracking
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3650,7 +3650,7 @@
   <span class="md-ellipsis">
 
 
-  13.1 Backtracking Algorithm
+  13.1 &nbsp; Backtracking algorithms
 
 
   </span>
@@ -3677,7 +3677,7 @@
   <span class="md-ellipsis">
 
 
-  13.2 Permutations Problem
+  13.2 &nbsp; Permutations problem
 
 
   </span>
@@ -3704,7 +3704,7 @@
   <span class="md-ellipsis">
 
 
-  13.3 Subset-Sum Problem
+  13.3 &nbsp; Subset sum problem
 
 
   </span>
@@ -3731,7 +3731,7 @@
   <span class="md-ellipsis">
 
 
-  13.4 N-Queens Problem
+  13.4 &nbsp; N-queens problem
 
 
   </span>
@@ -3758,7 +3758,7 @@
   <span class="md-ellipsis">
 
 
-  13.5 Summary
+  13.5 &nbsp; Summary
 
 
   </span>
@@ -3785,7 +3785,7 @@
   <span class="md-ellipsis">
 
 
-  13.6 Exercises
+  13.6 &nbsp; Exercises
 
 
   </span>
@@ -3855,7 +3855,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 14. Dynamic Programming
+  Chapter 14. &nbsp; Dynamic programming
 
 
   </span>
@@ -3876,7 +3876,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 14. Dynamic Programming
+  Chapter 14. &nbsp; Dynamic programming
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3897,7 +3897,7 @@
   <span class="md-ellipsis">
 
 
-  14.1 Introduction to Dynamic Programming
+  14.1 &nbsp; Introduction to dynamic programming
 
 
   </span>
@@ -3924,7 +3924,7 @@
   <span class="md-ellipsis">
 
 
-  14.2 Characteristics of Dynamic Programming Problems
+  14.2 &nbsp; Properties of dynamic programming problems
 
 
   </span>
@@ -3951,7 +3951,7 @@
   <span class="md-ellipsis">
 
 
-  14.3 Dynamic Programming Problem-Solving Approach
+  14.3 &nbsp; Solving dynamic programming problems
 
 
   </span>
@@ -3978,7 +3978,7 @@
   <span class="md-ellipsis">
 
 
-  14.4 0-1 Knapsack Problem
+  14.4 &nbsp; 0-1 knapsack problem
 
 
   </span>
@@ -4005,7 +4005,7 @@
   <span class="md-ellipsis">
 
 
-  14.5 Unbounded Knapsack Problem
+  14.5 &nbsp; Unbounded knapsack problem
 
 
   </span>
@@ -4032,7 +4032,7 @@
   <span class="md-ellipsis">
 
 
-  14.6 Edit Distance Problem
+  14.6 &nbsp; Edit distance problem
 
 
   </span>
@@ -4059,7 +4059,7 @@
   <span class="md-ellipsis">
 
 
-  14.7 Summary
+  14.7 &nbsp; Summary
 
 
   </span>
@@ -4086,7 +4086,7 @@
   <span class="md-ellipsis">
 
 
-  14.8 Exercises
+  14.8 &nbsp; Exercises
 
 
   </span>
@@ -4152,7 +4152,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 15. Greedy
+  Chapter 15. &nbsp; Greedy algorithms
 
 
   </span>
@@ -4173,7 +4173,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 15. Greedy
+  Chapter 15. &nbsp; Greedy algorithms
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4194,7 +4194,7 @@
   <span class="md-ellipsis">
 
 
-  15.1 Greedy Algorithm
+  15.1 &nbsp; Greedy algorithms
 
 
   </span>
@@ -4221,7 +4221,7 @@
   <span class="md-ellipsis">
 
 
-  15.2 Fractional Knapsack Problem
+  15.2 &nbsp; Fractional knapsack problem
 
 
   </span>
@@ -4248,7 +4248,7 @@
   <span class="md-ellipsis">
 
 
-  15.3 Maximum Capacity Problem
+  15.3 &nbsp; Maximum capacity problem
 
 
   </span>
@@ -4275,7 +4275,7 @@
   <span class="md-ellipsis">
 
 
-  15.4 Maximum Product Cutting Problem
+  15.4 &nbsp; Maximum product cutting problem
 
 
   </span>
@@ -4302,7 +4302,7 @@
   <span class="md-ellipsis">
 
 
-  15.5 Summary
+  15.5 &nbsp; Summary
 
 
   </span>
@@ -4329,7 +4329,7 @@
   <span class="md-ellipsis">
 
 
-  15.6 Exercises
+  15.6 &nbsp; Exercises
 
 
   </span>
@@ -4389,7 +4389,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 16. Appendix
+  Chapter 16. &nbsp; Appendix
 
 
   </span>
@@ -4410,7 +4410,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 16. Appendix
+  Chapter 16. &nbsp; Appendix
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4431,7 +4431,7 @@
   <span class="md-ellipsis">
 
 
-  16.1 Programming Environment Installation
+  16.1 &nbsp; Setting up a programming environment
 
 
   </span>
@@ -4458,7 +4458,7 @@
   <span class="md-ellipsis">
 
 
-  16.2 Contributing Together
+  16.2 &nbsp; Contribute to the book
 
 
   </span>
@@ -4485,7 +4485,7 @@
   <span class="md-ellipsis">
 
 
-  16.3 Glossary
+  16.3 &nbsp; Glossary
 
 
   </span>
@@ -4569,6 +4569,78 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="md-nav__item md-nav__item--nested">
+
+
+
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_20" >
+
+
+          <div class="md-nav__link md-nav__container">
+            <a href="../../chapter_paperbook/" class="md-nav__link ">
+
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+  <span class="md-ellipsis">
+
+
+  Print edition (Chinese)
+
+
+  </span>
+
+
+
+
+
+    <span class="md-status md-status--new" title="Recently added">
+    </span>
+
+
+
+
+            </a>
+
+          </div>
+
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_20">
+            <span class="md-nav__icon md-icon"></span>
+
+
+  Print edition (Chinese)
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+          </ul>
+        </nav>
+
+    </li>
+
+
+
   </ul>
 </nav>
                   </div>
@@ -4613,7 +4685,7 @@
   <a href="#1-considering-the-base-cases" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        1. &nbsp; Considering the Base Cases
+        1. &nbsp; Considering the base cases
       </span>
     </span>
   </a>
@@ -4621,10 +4693,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#2-subproblem-decomposition" class="md-nav__link">
+  <a href="#2-dividing-the-problem" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        2. &nbsp; Subproblem Decomposition
+        2. &nbsp; Dividing the problem
       </span>
     </span>
   </a>
@@ -4635,7 +4707,7 @@
   <a href="#3-code-implementation" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        3. &nbsp; Code Implementation
+        3. &nbsp; Code implementation
       </span>
     </span>
   </a>
@@ -4679,23 +4751,23 @@
 
 
 <!-- Page content -->
-<h1 id="124-tower-of-hanoi-problem">12.4 &nbsp; Tower of Hanoi Problem<a class="headerlink" href="#124-tower-of-hanoi-problem" title="Permanent link">&para;</a></h1>
-<p>In merge sort and building binary trees, we decompose the original problem into two subproblems, each half the size of the original problem. However, for the Tower of Hanoi problem, we adopt a different decomposition strategy.</p>
+<h1 id="124-tower-of-hanoi">12.4 &nbsp; Tower of Hanoi<a class="headerlink" href="#124-tower-of-hanoi" title="Permanent link">&para;</a></h1>
+<p>In merge sort and binary tree reconstruction, we divided the original problem into two subproblems, each half its size. The Tower of Hanoi uses a different division strategy.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given three pillars, denoted as <code>A</code>, <code>B</code>, and <code>C</code>. Initially, pillar <code>A</code> has <span class="arithmatex">\(n\)</span> discs stacked on it, arranged from top to bottom in ascending order of size. Our task is to move these <span class="arithmatex">\(n\)</span> discs to pillar <code>C</code> while maintaining their original order (as shown in Figure 12-10). The following rules must be followed when moving the discs.</p>
+<p>Given three rods called <code>A</code>, <code>B</code>, and <code>C</code>, initially rod <code>A</code> holds <span class="arithmatex">\(n\)</span> disks arranged from smallest at the top to largest at the bottom. Move all <span class="arithmatex">\(n\)</span> disks to rod <code>C</code> while preserving their order, as shown in Figure 12-10. The following rules apply.</p>
 <ol>
-<li>A disc can only be taken from the top of one pillar and placed on top of another pillar.</li>
-<li>Only one disc can be moved at a time.</li>
-<li>A smaller disc must always be on top of a larger disc.</li>
+<li>A disk can only be removed from the top of one rod and placed on top of another.</li>
+<li>Only one disk may be moved at a time.</li>
+<li>A smaller disk must always be above a larger disk.</li>
 </ol>
 </div>
-<p><img alt="Example of the Tower of Hanoi problem" class="animation-figure" src="../hanota_problem.assets/hanota_example.png" /></p>
-<p align="center"> Figure 12-10 &nbsp; Example of the Tower of Hanoi problem </p>
+<p><img alt="Example of the Tower of Hanoi" class="animation-figure" src="../hanota_problem.assets/hanota_example.png" /></p>
+<p align="center"> Figure 12-10 &nbsp; Example of the Tower of Hanoi </p>
 
-<p><strong>We denote the Tower of Hanoi problem of size <span class="arithmatex">\(i\)</span> as <span class="arithmatex">\(f(i)\)</span></strong>. For example, <span class="arithmatex">\(f(3)\)</span> represents moving <span class="arithmatex">\(3\)</span> discs from <code>A</code> to <code>C</code>.</p>
-<h3 id="1-considering-the-base-cases">1. &nbsp; Considering the Base Cases<a class="headerlink" href="#1-considering-the-base-cases" title="Permanent link">&para;</a></h3>
-<p>As shown in Figure 12-11, for problem <span class="arithmatex">\(f(1)\)</span>, when there is only one disc, we can move it directly from <code>A</code> to <code>C</code>.</p>
+<p><strong>Let <span class="arithmatex">\(f(i)\)</span> denote a Tower of Hanoi problem of size <span class="arithmatex">\(i\)</span></strong>. For example, <span class="arithmatex">\(f(3)\)</span> means moving <span class="arithmatex">\(3\)</span> disks from <code>A</code> to <code>C</code>.</p>
+<h3 id="1-considering-the-base-cases">1. &nbsp; Considering the base cases<a class="headerlink" href="#1-considering-the-base-cases" title="Permanent link">&para;</a></h3>
+<p>For <span class="arithmatex">\(f(1)\)</span>, with just one disk, simply move it directly from <code>A</code> to <code>C</code>, as shown in Figure 12-11.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4708,11 +4780,11 @@
 </div>
 <p align="center"> Figure 12-11 &nbsp; Solution for a problem of size 1 </p>
 
-<p>As shown in Figure 12-12, for problem <span class="arithmatex">\(f(2)\)</span>, when there are two discs, <strong>since we must always keep the smaller disc on top of the larger disc, we need to use <code>B</code> to assist in the move</strong>.</p>
+<p>For <span class="arithmatex">\(f(2)\)</span>, with two disks, <strong>we need to use <code>B</code> because the smaller disk must remain above the larger one</strong>, as shown in Figure 12-12.</p>
 <ol>
-<li>First, move the smaller disc from <code>A</code> to <code>B</code>.</li>
-<li>Then move the larger disc from <code>A</code> to <code>C</code>.</li>
-<li>Finally, move the smaller disc from <code>B</code> to <code>C</code>.</li>
+<li>Move the smaller top disk from <code>A</code> to <code>B</code>.</li>
+<li>Move the larger disk from <code>A</code> to <code>C</code>.</li>
+<li>Move the smaller disk from <code>B</code> to <code>C</code>.</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label></div>
 <div class="tabbed-content">
@@ -4732,14 +4804,14 @@
 </div>
 <p align="center"> Figure 12-12 &nbsp; Solution for a problem of size 2 </p>
 
-<p>The process of solving problem <span class="arithmatex">\(f(2)\)</span> can be summarized as: <strong>moving two discs from <code>A</code> to <code>C</code> with the help of <code>B</code></strong>. Here, <code>C</code> is called the target pillar, and <code>B</code> is called the buffer pillar.</p>
-<h3 id="2-subproblem-decomposition">2. &nbsp; Subproblem Decomposition<a class="headerlink" href="#2-subproblem-decomposition" title="Permanent link">&para;</a></h3>
-<p>For problem <span class="arithmatex">\(f(3)\)</span>, when there are three discs, the situation becomes slightly more complex.</p>
-<p>Since we already know the solutions to <span class="arithmatex">\(f(1)\)</span> and <span class="arithmatex">\(f(2)\)</span>, we can think from a divide and conquer perspective, <strong>treating the top two discs on <code>A</code> as a whole</strong>, and execute the steps shown in Figure 12-13. This successfully moves the three discs from <code>A</code> to <code>C</code>.</p>
+<p>We can summarize the solution to <span class="arithmatex">\(f(2)\)</span> as <strong>moving two disks from <code>A</code> to <code>C</code> using <code>B</code></strong>. Here, <code>C</code> is the destination rod and <code>B</code> is the auxiliary rod.</p>
+<h3 id="2-dividing-the-problem">2. &nbsp; Dividing the problem<a class="headerlink" href="#2-dividing-the-problem" title="Permanent link">&para;</a></h3>
+<p>For <span class="arithmatex">\(f(3)\)</span>, with three disks, the situation is a little more complicated.</p>
+<p>Since we know how to solve <span class="arithmatex">\(f(1)\)</span> and <span class="arithmatex">\(f(2)\)</span>, we can use divide and conquer: <strong>treat the top two disks on <code>A</code> as a group</strong> and follow the steps in Figure 12-13. This moves all three disks from <code>A</code> to <code>C</code>.</p>
 <ol>
-<li>Let <code>B</code> be the target pillar and <code>C</code> be the buffer pillar, and move two discs from <code>A</code> to <code>B</code>.</li>
-<li>Move the remaining disc from <code>A</code> directly to <code>C</code>.</li>
-<li>Let <code>C</code> be the target pillar and <code>A</code> be the buffer pillar, and move two discs from <code>B</code> to <code>C</code>.</li>
+<li>Use <code>B</code> as the destination and <code>C</code> as the auxiliary rod to move two disks from <code>A</code> to <code>B</code>.</li>
+<li>Move the remaining disk directly from <code>A</code> to <code>C</code>.</li>
+<li>Use <code>C</code> as the destination and <code>A</code> as the auxiliary rod to move two disks from <code>B</code> to <code>C</code>.</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">&lt;1&gt;</label><label for="__tabbed_3_2">&lt;2&gt;</label><label for="__tabbed_3_3">&lt;3&gt;</label><label for="__tabbed_3_4">&lt;4&gt;</label></div>
 <div class="tabbed-content">
@@ -4759,38 +4831,38 @@
 </div>
 <p align="center"> Figure 12-13 &nbsp; Solution for a problem of size 3 </p>
 
-<p>Essentially, <strong>we divide problem <span class="arithmatex">\(f(3)\)</span> into two subproblems <span class="arithmatex">\(f(2)\)</span> and one subproblem <span class="arithmatex">\(f(1)\)</span></strong>. By solving these three subproblems in order, the original problem is solved. This shows that the subproblems are independent and their solutions can be merged.</p>
-<p>From this, we can summarize the divide and conquer strategy for solving the Tower of Hanoi problem shown in Figure 12-14: divide the original problem <span class="arithmatex">\(f(n)\)</span> into two subproblems <span class="arithmatex">\(f(n-1)\)</span> and one subproblem <span class="arithmatex">\(f(1)\)</span>, and solve these three subproblems in the following order.</p>
+<p>In essence, <strong>we have divided <span class="arithmatex">\(f(3)\)</span> into two <span class="arithmatex">\(f(2)\)</span> subproblems and one <span class="arithmatex">\(f(1)\)</span> subproblem</strong>. Solving these three subproblems in order solves the original problem. This shows that the subproblems are independent and their solutions can be combined.</p>
+<p>We can now state the divide-and-conquer strategy for the Tower of Hanoi, illustrated in Figure 12-14: divide <span class="arithmatex">\(f(n)\)</span> into two subproblems <span class="arithmatex">\(f(n-1)\)</span> and one subproblem <span class="arithmatex">\(f(1)\)</span>, then solve them in this order.</p>
 <ol>
-<li>Move <span class="arithmatex">\(n-1\)</span> discs from <code>A</code> to <code>B</code> with the help of <code>C</code>.</li>
-<li>Move the remaining <span class="arithmatex">\(1\)</span> disc directly from <code>A</code> to <code>C</code>.</li>
-<li>Move <span class="arithmatex">\(n-1\)</span> discs from <code>B</code> to <code>C</code> with the help of <code>A</code>.</li>
+<li>Move <span class="arithmatex">\(n-1\)</span> disks from <code>A</code> to <code>B</code> using <code>C</code>.</li>
+<li>Move the remaining <span class="arithmatex">\(1\)</span> disk directly from <code>A</code> to <code>C</code>.</li>
+<li>Move <span class="arithmatex">\(n-1\)</span> disks from <code>B</code> to <code>C</code> using <code>A</code>.</li>
 </ol>
-<p>For these two subproblems <span class="arithmatex">\(f(n-1)\)</span>, <strong>we can recursively divide them in the same way</strong> until reaching the smallest subproblem <span class="arithmatex">\(f(1)\)</span>. The solution to <span class="arithmatex">\(f(1)\)</span> is known and requires only one move operation.</p>
-<p><img alt="Divide and conquer strategy for solving the Tower of Hanoi problem" class="animation-figure" src="../hanota_problem.assets/hanota_divide_and_conquer.png" /></p>
-<p align="center"> Figure 12-14 &nbsp; Divide and conquer strategy for solving the Tower of Hanoi problem </p>
+<p>Each of the two <span class="arithmatex">\(f(n-1)\)</span> subproblems <strong>can be divided recursively in the same way</strong> until we reach the smallest subproblem, <span class="arithmatex">\(f(1)\)</span>. The solution to <span class="arithmatex">\(f(1)\)</span> is a single move.</p>
+<p><img alt="Divide-and-conquer strategy for the Tower of Hanoi" class="animation-figure" src="../hanota_problem.assets/hanota_divide_and_conquer.png" /></p>
+<p align="center"> Figure 12-14 &nbsp; Divide-and-conquer strategy for the Tower of Hanoi </p>
 
-<h3 id="3-code-implementation">3. &nbsp; Code Implementation<a class="headerlink" href="#3-code-implementation" title="Permanent link">&para;</a></h3>
-<p>In the code, we declare a recursive function <code>dfs(i, src, buf, tar)</code>, whose purpose is to move the top <span class="arithmatex">\(i\)</span> discs from pillar <code>src</code> to target pillar <code>tar</code> with the help of buffer pillar <code>buf</code>:</p>
+<h3 id="3-code-implementation">3. &nbsp; Code implementation<a class="headerlink" href="#3-code-implementation" title="Permanent link">&para;</a></h3>
+<p>We define a recursive function <code>dfs(i, src, buf, tar)</code> that moves the top <span class="arithmatex">\(i\)</span> disks from rod <code>src</code> to destination rod <code>tar</code> using auxiliary rod <code>buf</code>:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:13"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><input id="__tabbed_4_13" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Java</label><label for="__tabbed_4_4">C#</label><label for="__tabbed_4_5">Go</label><label for="__tabbed_4_6">Swift</label><label for="__tabbed_4_7">JS</label><label for="__tabbed_4_8">TS</label><label for="__tabbed_4_9">Dart</label><label for="__tabbed_4_10">Rust</label><label for="__tabbed_4_11">C</label><label for="__tabbed_4_12">Kotlin</label><label for="__tabbed_4_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">hanota.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="n">src</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">tar</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Move a disk"""</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># Take out a disk from the top of src</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Move one disk"""</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># Take a disk from the top of src</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">pan</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="c1"># Place the disk on top of tar</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">tar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pan</span><span class="p">)</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">src</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">buf</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">tar</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="sd">"""Solve the Tower of Hanoi problem f(i)"""</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="c1"># If there is only one disk left in src, move it directly to tar</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="c1"># If this subproblem has only one disk to move, move it directly from src to tar</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">tar</span><span class="p">)</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="k">return</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="c1"># Subproblem f(i-1): move the top i-1 disks from src to buf using tar</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="n">dfs</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">tar</span><span class="p">,</span> <span class="n">buf</span><span class="p">)</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="c1"># Subproblem f(1): move the remaining disk from src to tar</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="c1"># Subproblem f(1): move the remaining disk of this subproblem from src to tar</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">tar</span><span class="p">)</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="c1"># Subproblem f(i-1): move the top i-1 disks from buf to tar using src</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="n">dfs</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">tar</span><span class="p">)</span>
@@ -4803,9 +4875,9 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">hanota.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Move a disk */</span>
+<div class="highlight"><span class="filename">hanota.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Move one disk */</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Take out a disk from the top of src</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Take a disk from the top of src</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">pan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">src</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c1">// Place the disk on top of tar</span>
@@ -4814,14 +4886,14 @@
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="cm">/* Solve the Tower of Hanoi problem f(i) */</span>
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="kt">void</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="c1">// If there is only one disk left in src, move it directly to tar</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="c1">// If only one disk remains to be moved from src, move it directly to tar</span>
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">);</span>
 <a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from src to buf using tar</span>
 <a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk from src to tar</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk of this subproblem from src to tar</span>
 <a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">);</span>
 <a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from buf to tar using src</span>
 <a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">);</span>
@@ -4836,9 +4908,9 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">hanota.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* Move a disk */</span>
+<div class="highlight"><span class="filename">hanota.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* Move one disk */</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Take out a disk from the top of src</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Take a disk from the top of src</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">Integer</span><span class="w"> </span><span class="n">pan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="c1">// Place the disk on top of tar</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="n">tar</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">pan</span><span class="p">);</span>
@@ -4846,14 +4918,14 @@
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="cm">/* Solve the Tower of Hanoi problem f(i) */</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="kt">void</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="c1">// If there is only one disk left in src, move it directly to tar</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="c1">// If only one disk remains to be moved from src, move it directly to tar</span>
 <a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">);</span>
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from src to buf using tar</span>
 <a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk from src to tar</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk of this subproblem from src to tar</span>
 <a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">);</span>
 <a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from buf to tar using src</span>
 <a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">);</span>
@@ -4868,9 +4940,9 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">hanota.cs</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* Move a disk */</span>
+<div class="highlight"><span class="filename">hanota.cs</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* Move one disk */</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">void</span><span class="w"> </span><span class="nf">Move</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Take out a disk from the top of src</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Take a disk from the top of src</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">pan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">[</span><span class="o">^</span><span class="mi">1</span><span class="p">];</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">src</span><span class="p">.</span><span class="n">RemoveAt</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="c1">// Place the disk on top of tar</span>
@@ -4879,14 +4951,14 @@
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
 <a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="cm">/* Solve the Tower of Hanoi problem f(i) */</span>
 <a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="k">void</span><span class="w"> </span><span class="nf">DFS</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="c1">// If there is only one disk left in src, move it directly to tar</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="c1">// If only one disk in this subproblem remains on src, move it directly to tar</span>
 <a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="n">Move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">);</span>
 <a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from src to buf using tar</span>
 <a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="n">DFS</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk from src to tar</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk of this subproblem from src to tar</span>
 <a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="n">Move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">);</span>
 <a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from buf to tar using src</span>
 <a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="n">DFS</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">);</span>
@@ -4901,26 +4973,26 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">hanota.go</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* Move a disk */</span>
+<div class="highlight"><span class="filename">hanota.go</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* Move one disk */</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">move</span><span class="p">(</span><span class="nx">src</span><span class="p">,</span><span class="w"> </span><span class="nx">tar</span><span class="w"> </span><span class="o">*</span><span class="nx">list</span><span class="p">.</span><span class="nx">List</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Take out a disk from the top of src</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Take a disk from the top of src</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nx">pan</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">src</span><span class="p">.</span><span class="nx">Back</span><span class="p">()</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="c1">// Place the disk on top of tar</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="nx">tar</span><span class="p">.</span><span class="nx">PushBack</span><span class="p">(</span><span class="nx">pan</span><span class="p">.</span><span class="nx">Value</span><span class="p">)</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="c1">// Remove top disk from src</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="c1">// Remove the disk from the top of src</span>
 <a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="nx">src</span><span class="p">.</span><span class="nx">Remove</span><span class="p">(</span><span class="nx">pan</span><span class="p">)</span>
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">}</span>
 <a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="cm">/* Solve the Tower of Hanoi problem f(i) */</span>
 <a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="kd">func</span><span class="w"> </span><span class="nx">dfsHanota</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">src</span><span class="p">,</span><span class="w"> </span><span class="nx">buf</span><span class="p">,</span><span class="w"> </span><span class="nx">tar</span><span class="w"> </span><span class="o">*</span><span class="nx">list</span><span class="p">.</span><span class="nx">List</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="c1">// If there is only one disk left in src, move it directly to tar</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="c1">// If only one disk in this subproblem remains on src, move it directly to tar</span>
 <a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="nx">move</span><span class="p">(</span><span class="nx">src</span><span class="p">,</span><span class="w"> </span><span class="nx">tar</span><span class="p">)</span>
 <a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">        </span><span class="k">return</span>
 <a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from src to buf using tar</span>
 <a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="nx">dfsHanota</span><span class="p">(</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">src</span><span class="p">,</span><span class="w"> </span><span class="nx">tar</span><span class="p">,</span><span class="w"> </span><span class="nx">buf</span><span class="p">)</span>
-<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk from src to tar</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk of this subproblem from src to tar</span>
 <a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span><span class="nx">move</span><span class="p">(</span><span class="nx">src</span><span class="p">,</span><span class="w"> </span><span class="nx">tar</span><span class="p">)</span>
 <a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from buf to tar using src</span>
 <a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">    </span><span class="nx">dfsHanota</span><span class="p">(</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">buf</span><span class="p">,</span><span class="w"> </span><span class="nx">src</span><span class="p">,</span><span class="w"> </span><span class="nx">tar</span><span class="p">)</span>
@@ -4935,9 +5007,9 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">hanota.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* Move a disk */</span>
+<div class="highlight"><span class="filename">hanota.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* Move one disk */</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="n">src</span><span class="p">:</span><span class="w"> </span><span class="kr">inout</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">tar</span><span class="p">:</span><span class="w"> </span><span class="kr">inout</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Take out a disk from the top of src</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Take a disk from the top of src</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">pan</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">src</span><span class="p">.</span><span class="n">popLast</span><span class="p">()</span><span class="o">!</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="c1">// Place the disk on top of tar</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="n">tar</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">pan</span><span class="p">)</span>
@@ -4945,14 +5017,14 @@
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="cm">/* Solve the Tower of Hanoi problem f(i) */</span>
 <a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="kd">func</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">:</span><span class="w"> </span><span class="kr">inout</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">buf</span><span class="p">:</span><span class="w"> </span><span class="kr">inout</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">tar</span><span class="p">:</span><span class="w"> </span><span class="kr">inout</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="c1">// If there is only one disk left in src, move it directly to tar</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="c1">// If only one disk in this subproblem remains on src, move it directly to tar</span>
 <a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">tar</span><span class="p">)</span>
 <a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="k">return</span>
 <a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from src to buf using tar</span>
 <a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">tar</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">buf</span><span class="p">)</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk from src to tar</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk of this subproblem from src to tar</span>
 <a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">tar</span><span class="p">)</span>
 <a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from buf to tar using src</span>
 <a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">tar</span><span class="p">)</span>
@@ -4961,16 +5033,16 @@
 <a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="cm">/* Solve the Tower of Hanoi problem */</span>
 <a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="kd">func</span><span class="w"> </span><span class="nf">solveHanota</span><span class="p">(</span><span class="n">A</span><span class="p">:</span><span class="w"> </span><span class="kr">inout</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">B</span><span class="p">:</span><span class="w"> </span><span class="kr">inout</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">C</span><span class="p">:</span><span class="w"> </span><span class="kr">inout</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="bp">count</span>
-<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">    </span><span class="c1">// The tail of the list is the top of the rod</span>
-<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">    </span><span class="c1">// Move top n disks from src to C using B</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">    </span><span class="c1">// The end of each list represents the top of the peg</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">    </span><span class="c1">// Move the top n disks from A to C using B</span>
 <a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">C</span><span class="p">)</span>
 <a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">hanota.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/* Move a disk */</span>
+<div class="highlight"><span class="filename">hanota.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/* Move one disk */</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">move</span><span class="p">(</span><span class="nx">src</span><span class="p">,</span><span class="w"> </span><span class="nx">tar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Take out a disk from the top of src</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Take a disk from the top of src</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">pan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">src</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="c1">// Place the disk on top of tar</span>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nx">tar</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">pan</span><span class="p">);</span>
@@ -4978,14 +5050,14 @@
 <a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
 <a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="cm">/* Solve the Tower of Hanoi problem f(i) */</span>
 <a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="kd">function</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">src</span><span class="p">,</span><span class="w"> </span><span class="nx">buf</span><span class="p">,</span><span class="w"> </span><span class="nx">tar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="c1">// If there is only one disk left in src, move it directly to tar</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="c1">// If only one disk remains to be moved from src, move it directly to tar</span>
 <a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">        </span><span class="nx">move</span><span class="p">(</span><span class="nx">src</span><span class="p">,</span><span class="w"> </span><span class="nx">tar</span><span class="p">);</span>
 <a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from src to buf using tar</span>
 <a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">    </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">src</span><span class="p">,</span><span class="w"> </span><span class="nx">tar</span><span class="p">,</span><span class="w"> </span><span class="nx">buf</span><span class="p">);</span>
-<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk from src to tar</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk of this subproblem from src to tar</span>
 <a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">    </span><span class="nx">move</span><span class="p">(</span><span class="nx">src</span><span class="p">,</span><span class="w"> </span><span class="nx">tar</span><span class="p">);</span>
 <a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from buf to tar using src</span>
 <a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">buf</span><span class="p">,</span><span class="w"> </span><span class="nx">src</span><span class="p">,</span><span class="w"> </span><span class="nx">tar</span><span class="p">);</span>
@@ -5000,9 +5072,9 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">hanota.ts</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/* Move a disk */</span>
+<div class="highlight"><span class="filename">hanota.ts</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/* Move one disk */</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">move</span><span class="p">(</span><span class="nx">src</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">tar</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Take out a disk from the top of src</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Take a disk from the top of src</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">pan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">src</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
 <a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="c1">// Place the disk on top of tar</span>
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nx">tar</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">pan</span><span class="p">);</span>
@@ -5010,14 +5082,14 @@
 <a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
 <a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="cm">/* Solve the Tower of Hanoi problem f(i) */</span>
 <a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="kd">function</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">i</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">src</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">buf</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">tar</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="c1">// If there is only one disk left in src, move it directly to tar</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="c1">// If only one disk remains to be moved from src, move it directly to tar</span>
 <a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="nx">move</span><span class="p">(</span><span class="nx">src</span><span class="p">,</span><span class="w"> </span><span class="nx">tar</span><span class="p">);</span>
 <a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from src to buf using tar</span>
 <a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">src</span><span class="p">,</span><span class="w"> </span><span class="nx">tar</span><span class="p">,</span><span class="w"> </span><span class="nx">buf</span><span class="p">);</span>
-<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk from src to tar</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk of this subproblem from src to tar</span>
 <a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">    </span><span class="nx">move</span><span class="p">(</span><span class="nx">src</span><span class="p">,</span><span class="w"> </span><span class="nx">tar</span><span class="p">);</span>
 <a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from buf to tar using src</span>
 <a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">    </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">buf</span><span class="p">,</span><span class="w"> </span><span class="nx">src</span><span class="p">,</span><span class="w"> </span><span class="nx">tar</span><span class="p">);</span>
@@ -5032,9 +5104,9 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">hanota.dart</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* Move a disk */</span>
+<div class="highlight"><span class="filename">hanota.dart</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* Move one disk */</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">move</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="c1">// Take out a disk from the top of src</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="c1">// Take a disk from the top of src</span>
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">pan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">.</span><span class="n">removeLast</span><span class="p">();</span>
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="c1">// Place the disk on top of tar</span>
 <a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="n">tar</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">pan</span><span class="p">);</span>
@@ -5042,14 +5114,14 @@
 <a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
 <a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="cm">/* Solve the Tower of Hanoi problem f(i) */</span>
 <a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="kt">void</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">  </span><span class="c1">// If there is only one disk left in src, move it directly to tar</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">  </span><span class="c1">// If only one disk remains to be moved from src, move it directly to tar</span>
 <a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">);</span>
 <a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">  </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from src to buf using tar</span>
 <a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">  </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">  </span><span class="c1">// Subproblem f(1): move the remaining disk from src to tar</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">  </span><span class="c1">// Subproblem f(1): move the remaining disk of this subproblem from src to tar</span>
 <a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">  </span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">);</span>
 <a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">  </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from buf to tar using src</span>
 <a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">  </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">);</span>
@@ -5064,9 +5136,9 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">hanota.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/* Move a disk */</span>
+<div class="highlight"><span class="filename">hanota.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/* Move one disk */</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">move_pan</span><span class="p">(</span><span class="n">src</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Take out a disk from the top of src</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Take a disk from the top of src</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">pan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">.</span><span class="n">pop</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span>
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="c1">// Place the disk on top of tar</span>
 <a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="n">tar</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">pan</span><span class="p">);</span>
@@ -5074,14 +5146,14 @@
 <a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
 <a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="cm">/* Solve the Tower of Hanoi problem f(i) */</span>
 <a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="k">fn</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="c1">// If there is only one disk left in src, move it directly to tar</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="c1">// If only one disk remains to be moved from src, move it directly to tar</span>
 <a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">        </span><span class="n">move_pan</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">);</span>
 <a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from src to buf using tar</span>
 <a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
-<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk from src to tar</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk of this subproblem from src to tar</span>
 <a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">    </span><span class="n">move_pan</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">);</span>
 <a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from buf to tar using src</span>
 <a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">);</span>
@@ -5096,9 +5168,9 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">hanota.c</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* Move a disk */</span>
+<div class="highlight"><span class="filename">hanota.c</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* Move one disk */</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">srcSize</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">tar</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">tarSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Take out a disk from the top of src</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Take a disk from the top of src</span>
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">pan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">[</span><span class="o">*</span><span class="n">srcSize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
 <a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="n">src</span><span class="p">[</span><span class="o">*</span><span class="n">srcSize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="p">(</span><span class="o">*</span><span class="n">srcSize</span><span class="p">)</span><span class="o">--</span><span class="p">;</span>
@@ -5109,14 +5181,14 @@
 <a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
 <a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="cm">/* Solve the Tower of Hanoi problem f(i) */</span>
 <a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="kt">void</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">srcSize</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">bufSize</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">tar</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">tarSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="c1">// If there is only one disk left in src, move it directly to tar</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="c1">// If only one disk remains to be moved from src, move it directly to tar</span>
 <a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">        </span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">srcSize</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">,</span><span class="w"> </span><span class="n">tarSize</span><span class="p">);</span>
 <a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from src to buf using tar</span>
 <a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">srcSize</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">,</span><span class="w"> </span><span class="n">tarSize</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">bufSize</span><span class="p">);</span>
-<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk from src to tar</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk of this subproblem from src to tar</span>
 <a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">    </span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">srcSize</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">,</span><span class="w"> </span><span class="n">tarSize</span><span class="p">);</span>
 <a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from buf to tar using src</span>
 <a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">bufSize</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">srcSize</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">,</span><span class="w"> </span><span class="n">tarSize</span><span class="p">);</span>
@@ -5130,9 +5202,9 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">hanota.kt</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/* Move a disk */</span>
+<div class="highlight"><span class="filename">hanota.kt</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/* Move one disk */</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="n">src</span><span class="p">:</span><span class="w"> </span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">:</span><span class="w"> </span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="c1">// Take out a disk from the top of src</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="c1">// Take a disk from the top of src</span>
 <a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">pan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">.</span><span class="na">removeAt</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="na">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 <a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="c1">// Place the disk on top of tar</span>
 <a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">tar</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">pan</span><span class="p">)</span>
@@ -5140,14 +5212,14 @@
 <a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
 <a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="cm">/* Solve the Tower of Hanoi problem f(i) */</span>
 <a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">:</span><span class="w"> </span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">:</span><span class="w"> </span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">:</span><span class="w"> </span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="c1">// If there is only one disk left in src, move it directly to tar</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="c1">// If only one disk in this subproblem remains on src, move it directly to tar</span>
 <a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">        </span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">)</span>
 <a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">        </span><span class="k">return</span>
 <a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from src to buf using tar</span>
 <a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">)</span>
-<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk from src to tar</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="c1">// Subproblem f(1): move the remaining disk of this subproblem from src to tar</span>
 <a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">    </span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">)</span>
 <a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">    </span><span class="c1">// Subproblem f(i-1): move the top i-1 disks from buf to tar using src</span>
 <a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">)</span>
@@ -5164,15 +5236,15 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">hanota.rb</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">### Move one disk ###</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">)</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Take out a disk from the top of src</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Take a disk from the top of src</span>
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="n">pan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="o">.</span><span class="n">pop</span>
 <a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="c1"># Place the disk on top of tar</span>
 <a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="n">tar</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">pan</span>
 <a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="k">end</span>
 <a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1">### Solve Tower of Hanoi f(i) ###</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1">### Solve the Tower of Hanoi problem f(i) ###</span>
 <a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">)</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">  </span><span class="c1"># If there is only one disk left in src, move it directly to tar</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">  </span><span class="c1"># If only one disk remains to be moved from src, move it directly to tar</span>
 <a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">    </span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">)</span>
 <a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">    </span><span class="k">return</span>
@@ -5180,13 +5252,13 @@
 <a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>
 <a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">  </span><span class="c1"># Subproblem f(i-1): move the top i-1 disks from src to buf using tar</span>
 <a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">  </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">)</span>
-<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">  </span><span class="c1"># Subproblem f(1): move the remaining disk from src to tar</span>
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">  </span><span class="c1"># Subproblem f(1): move the remaining disk in the current subproblem from src to tar</span>
 <a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">  </span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">)</span>
 <a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="w">  </span><span class="c1"># Subproblem f(i-1): move the top i-1 disks from buf to tar using src</span>
 <a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="w">  </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">)</span>
 <a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="k">end</span>
 <a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>
-<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a><span class="c1">### Solve Tower of Hanoi ###</span>
+<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a><span class="c1">### Solve the Tower of Hanoi problem ###</span>
 <a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a><span class="k">def</span><span class="w"> </span><span class="nf">solve_hanota</span><span class="p">(</span><span class="n">_A</span><span class="p">,</span><span class="w"> </span><span class="n">_B</span><span class="p">,</span><span class="w"> </span><span class="n">_C</span><span class="p">)</span>
 <a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a><span class="w">  </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_A</span><span class="o">.</span><span class="n">length</span>
 <a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a><span class="w">  </span><span class="c1"># Move the top n disks from A to C using B</span>
@@ -5196,14 +5268,19 @@
 </div>
 </div>
 </div>
-<p>As shown in Figure 12-15, the Tower of Hanoi problem forms a recursion tree of height <span class="arithmatex">\(n\)</span>, where each node represents a subproblem corresponding to an invocation of the <code>dfs()</code> function, <strong>therefore the time complexity is <span class="arithmatex">\(O(2^n)\)</span> and the space complexity is <span class="arithmatex">\(O(n)\)</span></strong>.</p>
-<p><img alt="Recursion tree of the Tower of Hanoi problem" class="animation-figure" src="../hanota_problem.assets/hanota_recursive_tree.png" /></p>
-<p align="center"> Figure 12-15 &nbsp; Recursion tree of the Tower of Hanoi problem </p>
+<details class="pythontutor">
+<summary>Visualize execution</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20move%28src%3A%20list%5Bint%5D,%20tar%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22Move%20one%20disk%22%22%22%0A%20%20%20%20%23%20Take%20a%20disk%20from%20the%20top%20of%20src%0A%20%20%20%20pan%20%3D%20src.pop%28%29%0A%20%20%20%20%23%20Place%20the%20disk%20on%20top%20of%20tar%0A%20%20%20%20tar.append%28pan%29%0A%0A%0Adef%20dfs%28i%3A%20int,%20src%3A%20list%5Bint%5D,%20buf%3A%20list%5Bint%5D,%20tar%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22Solve%20the%20Tower%20of%20Hanoi%20problem%20f%28i%29%22%22%22%0A%20%20%20%20%23%20If%20the%20current%20subproblem%20has%20only%20one%20disk,%20move%20it%20from%20src%20directly%20to%20tar%0A%20%20%20%20if%20i%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20move%28src,%20tar%29%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Subproblem%20f%28i-1%29%3A%20move%20the%20top%20i-1%20disks%20from%20src%20to%20buf%20using%20tar%0A%20%20%20%20dfs%28i%20-%201,%20src,%20tar,%20buf%29%0A%20%20%20%20%23%20Subproblem%20f%281%29%3A%20move%20the%20remaining%20disk%20of%20this%20subproblem%20from%20src%20to%20tar%0A%20%20%20%20move%28src,%20tar%29%0A%20%20%20%20%23%20Subproblem%20f%28i-1%29%3A%20move%20the%20top%20i-1%20disks%20from%20buf%20to%20tar%20using%20src%0A%20%20%20%20dfs%28i%20-%201,%20buf,%20src,%20tar%29%0A%0A%0Adef%20solve_hanota%28A%3A%20list%5Bint%5D,%20B%3A%20list%5Bint%5D,%20C%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22Solve%20the%20Tower%20of%20Hanoi%20problem%22%22%22%0A%20%20%20%20n%20%3D%20len%28A%29%0A%20%20%20%20%23%20Move%20the%20top%20n%20disks%20from%20A%20to%20C%20using%20B%0A%20%20%20%20dfs%28n,%20A,%20B,%20C%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20The%20end%20of%20each%20list%20represents%20the%20top%20of%20the%20peg%0A%20%20%20%20A%20%3D%20%5B5,%204,%203,%202,%201%5D%0A%20%20%20%20B%20%3D%20%5B%5D%0A%20%20%20%20C%20%3D%20%5B%5D%0A%20%20%20%20print%28%22Initial%20state%3A%22%29%0A%20%20%20%20print%28f%22A%20%3D%20%7BA%7D%22%29%0A%20%20%20%20print%28f%22B%20%3D%20%7BB%7D%22%29%0A%20%20%20%20print%28f%22C%20%3D%20%7BC%7D%22%29%0A%0A%20%20%20%20solve_hanota%28A,%20B,%20C%29%0A%0A%20%20%20%20print%28%22After%20moving%20the%20disks%3A%22%29%0A%20%20%20%20print%28f%22A%20%3D%20%7BA%7D%22%29%0A%20%20%20%20print%28f%22B%20%3D%20%7BB%7D%22%29%0A%20%20%20%20print%28f%22C%20%3D%20%7BC%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=12&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20move%28src%3A%20list%5Bint%5D,%20tar%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22Move%20one%20disk%22%22%22%0A%20%20%20%20%23%20Take%20a%20disk%20from%20the%20top%20of%20src%0A%20%20%20%20pan%20%3D%20src.pop%28%29%0A%20%20%20%20%23%20Place%20the%20disk%20on%20top%20of%20tar%0A%20%20%20%20tar.append%28pan%29%0A%0A%0Adef%20dfs%28i%3A%20int,%20src%3A%20list%5Bint%5D,%20buf%3A%20list%5Bint%5D,%20tar%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22Solve%20the%20Tower%20of%20Hanoi%20problem%20f%28i%29%22%22%22%0A%20%20%20%20%23%20If%20the%20current%20subproblem%20has%20only%20one%20disk,%20move%20it%20from%20src%20directly%20to%20tar%0A%20%20%20%20if%20i%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20move%28src,%20tar%29%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Subproblem%20f%28i-1%29%3A%20move%20the%20top%20i-1%20disks%20from%20src%20to%20buf%20using%20tar%0A%20%20%20%20dfs%28i%20-%201,%20src,%20tar,%20buf%29%0A%20%20%20%20%23%20Subproblem%20f%281%29%3A%20move%20the%20remaining%20disk%20of%20this%20subproblem%20from%20src%20to%20tar%0A%20%20%20%20move%28src,%20tar%29%0A%20%20%20%20%23%20Subproblem%20f%28i-1%29%3A%20move%20the%20top%20i-1%20disks%20from%20buf%20to%20tar%20using%20src%0A%20%20%20%20dfs%28i%20-%201,%20buf,%20src,%20tar%29%0A%0A%0Adef%20solve_hanota%28A%3A%20list%5Bint%5D,%20B%3A%20list%5Bint%5D,%20C%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22Solve%20the%20Tower%20of%20Hanoi%20problem%22%22%22%0A%20%20%20%20n%20%3D%20len%28A%29%0A%20%20%20%20%23%20Move%20the%20top%20n%20disks%20from%20A%20to%20C%20using%20B%0A%20%20%20%20dfs%28n,%20A,%20B,%20C%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20The%20end%20of%20each%20list%20represents%20the%20top%20of%20the%20peg%0A%20%20%20%20A%20%3D%20%5B5,%204,%203,%202,%201%5D%0A%20%20%20%20B%20%3D%20%5B%5D%0A%20%20%20%20C%20%3D%20%5B%5D%0A%20%20%20%20print%28%22Initial%20state%3A%22%29%0A%20%20%20%20print%28f%22A%20%3D%20%7BA%7D%22%29%0A%20%20%20%20print%28f%22B%20%3D%20%7BB%7D%22%29%0A%20%20%20%20print%28f%22C%20%3D%20%7BC%7D%22%29%0A%0A%20%20%20%20solve_hanota%28A,%20B,%20C%29%0A%0A%20%20%20%20print%28%22After%20moving%20the%20disks%3A%22%29%0A%20%20%20%20print%28f%22A%20%3D%20%7BA%7D%22%29%0A%20%20%20%20print%28f%22B%20%3D%20%7BB%7D%22%29%0A%20%20%20%20print%28f%22C%20%3D%20%7BC%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=12&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen &gt;</a></div></p>
+</details>
+<p>As shown in Figure 12-15, the Tower of Hanoi forms a recursion tree of height <span class="arithmatex">\(n\)</span>. Each node represents a subproblem and corresponds to a call to <code>dfs()</code>. <strong>The time complexity is therefore <span class="arithmatex">\(O(2^n)\)</span>, and the space complexity is <span class="arithmatex">\(O(n)\)</span></strong>.</p>
+<p><img alt="Recursion tree for the Tower of Hanoi" class="animation-figure" src="../hanota_problem.assets/hanota_recursive_tree.png" /></p>
+<p align="center"> Figure 12-15 &nbsp; Recursion tree for the Tower of Hanoi </p>
 
 <div class="admonition quote">
 <p class="admonition-title">Quote</p>
-<p>The Tower of Hanoi problem originates from an ancient legend. In a temple in ancient India, monks had three tall diamond pillars and <span class="arithmatex">\(64\)</span> golden discs of different sizes. The monks continuously moved the discs, believing that when the last disc was correctly placed, the world would come to an end.</p>
-<p>However, even if the monks moved one disc per second, it would take approximately <span class="arithmatex">\(2^{64} \approx 1.84×10^{19}\)</span> seconds, which is about <span class="arithmatex">\(585\)</span> billion years, far exceeding current estimates of the age of the universe. Therefore, if this legend is true, we should not need to worry about the end of the world.</p>
+<p>The Tower of Hanoi comes from an ancient legend. In a temple in ancient India, monks had three tall diamond rods and <span class="arithmatex">\(64\)</span> gold disks of different sizes. They continually moved the disks, believing that the world would end when the last disk was placed in its correct position.</p>
+<p>Even at one move per second, however, this would take about <span class="arithmatex">\(2^{64} \approx 1.84×10^{19}\)</span> seconds, or roughly <span class="arithmatex">\(585\)</span> billion years, far longer than current estimates of the age of the universe. If the legend is true, we should have little reason to worry about the end of the world.</p>
 </div>
 
 <!-- Source file information -->
@@ -5227,7 +5304,7 @@ aria-label="Footer"
   <a
     href="../build_binary_tree_problem/"
     class="md-footer__link md-footer__link--prev"
-    aria-label="Previous: 12.3 Building a Binary Tree Problem"
+    aria-label="Previous: 12.3   Building a binary tree"
     rel="prev"
   >
     <div class="md-footer__button md-icon">
@@ -5239,7 +5316,7 @@ aria-label="Footer"
         Previous
       </span>
       <div class="md-ellipsis">
-        12.3 Building a Binary Tree Problem
+        12.3 &nbsp; Building a binary tree
       </div>
     </div>
   </a>
@@ -5251,7 +5328,7 @@ aria-label="Footer"
   <a
     href="../summary/"
     class="md-footer__link md-footer__link--next"
-    aria-label="Next: 12.5 Summary"
+    aria-label="Next: 12.5   Summary"
     rel="next"
   >
     <div class="md-footer__title">
@@ -5259,7 +5336,7 @@ aria-label="Footer"
         Next
       </span>
       <div class="md-ellipsis">
-        12.5 Summary
+        12.5 &nbsp; Summary
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -5276,7 +5353,7 @@ aria-label="Footer"
   <!-- Check-in button above comments -->
 
 
-  <h5 align="center" id="__comments">Feel free to drop your insights, questions or suggestions</h5>
+  <h5 align="center" id="__comments">Share your insights, questions, or suggestions in the comments</h5>
 
   <!-- Insert generated snippet here -->
   <script

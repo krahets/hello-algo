@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
+        <meta name="description" content="A data structures and algorithms tutorial with animated illustrations and code you can run with one click">
 
 
         <meta name="author" content="krahets">
@@ -41,7 +41,7 @@
 
 
 
-        <title>10.5 Searching Algorithms Revisited - Hello Algo</title>
+        <title>10.5 Search algorithms revisited - Hello Algo</title>
 
 
 
@@ -67,8 +67,8 @@
 
 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"JetBrains Mono"}</style>
 
 
 
@@ -101,7 +101,7 @@
     <div data-md-component="skip">
 
 
-        <a href="#105-searching-algorithms-revisited" class="md-skip">
+        <a href="#105-search-algorithms-revisited" class="md-skip">
           Skip to content
         </a>
 
@@ -119,7 +119,7 @@
         <path
             d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z" />
     </svg>
-    <span>Welcome to contribute to Chinese-to-English translation! For more details, please refer to <a href="https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md">CONTRIBUTING.md</a>.</span>
+    <span>Help improve the English edition. See our <a href="https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md">contribution guidelines</a>.</span>
 </div>
 
           </div>
@@ -154,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
 
-              10.5 &nbsp; Searching Algorithms Revisited
+              10.5 &nbsp; Search algorithms revisited
 
           </span>
         </div>
@@ -167,9 +167,9 @@
 
 
 
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
 
-      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
       </label>
 
@@ -177,9 +177,9 @@
 
 
 
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
 
-      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
       </label>
 
@@ -349,7 +349,7 @@
   <span class="md-ellipsis">
 
 
-  Before Starting
+  Foreword
 
 
   </span>
@@ -365,7 +365,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Before Starting
+  Foreword
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -419,7 +419,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 0. Preface
+  Chapter 0. &nbsp; Preface
 
 
   </span>
@@ -440,7 +440,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 0. Preface
+  Chapter 0. &nbsp; Preface
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -461,7 +461,7 @@
   <span class="md-ellipsis">
 
 
-  0.1 About This Book
+  0.1 &nbsp; About this book
 
 
   </span>
@@ -488,7 +488,7 @@
   <span class="md-ellipsis">
 
 
-  0.2 How to Use This Book
+  0.2 &nbsp; How to use this book
 
 
   </span>
@@ -515,7 +515,7 @@
   <span class="md-ellipsis">
 
 
-  0.3 Summary
+  0.3 &nbsp; Summary
 
 
   </span>
@@ -575,7 +575,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 1. Encounter with Algorithms
+  Chapter 1. &nbsp; Getting to know algorithms
 
 
   </span>
@@ -596,7 +596,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 1. Encounter with Algorithms
+  Chapter 1. &nbsp; Getting to know algorithms
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -617,7 +617,7 @@
   <span class="md-ellipsis">
 
 
-  1.1 Algorithms Are Everywhere
+  1.1 &nbsp; Algorithms are everywhere
 
 
   </span>
@@ -644,7 +644,7 @@
   <span class="md-ellipsis">
 
 
-  1.2 What Is an Algorithm
+  1.2 &nbsp; What is an algorithm?
 
 
   </span>
@@ -671,7 +671,7 @@
   <span class="md-ellipsis">
 
 
-  1.3 Summary
+  1.3 &nbsp; Summary
 
 
   </span>
@@ -737,7 +737,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 2. Complexity Analysis
+  Chapter 2. &nbsp; Complexity analysis
 
 
   </span>
@@ -758,7 +758,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 2. Complexity Analysis
+  Chapter 2. &nbsp; Complexity analysis
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -779,7 +779,7 @@
   <span class="md-ellipsis">
 
 
-  2.1 Algorithm Efficiency Evaluation
+  2.1 &nbsp; Evaluating algorithm efficiency
 
 
   </span>
@@ -806,7 +806,7 @@
   <span class="md-ellipsis">
 
 
-  2.2 Iteration and Recursion
+  2.2 &nbsp; Iteration and recursion
 
 
   </span>
@@ -833,7 +833,7 @@
   <span class="md-ellipsis">
 
 
-  2.3 Time Complexity
+  2.3 &nbsp; Time complexity
 
 
   </span>
@@ -860,7 +860,7 @@
   <span class="md-ellipsis">
 
 
-  2.4 Space Complexity
+  2.4 &nbsp; Space complexity
 
 
   </span>
@@ -887,7 +887,7 @@
   <span class="md-ellipsis">
 
 
-  2.5 Summary
+  2.5 &nbsp; Summary
 
 
   </span>
@@ -914,7 +914,7 @@
   <span class="md-ellipsis">
 
 
-  2.6 Exercises
+  2.6 &nbsp; Exercises
 
 
   </span>
@@ -980,7 +980,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 3. Data Structures
+  Chapter 3. &nbsp; Data structures
 
 
   </span>
@@ -1001,7 +1001,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 3. Data Structures
+  Chapter 3. &nbsp; Data structures
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1022,7 +1022,7 @@
   <span class="md-ellipsis">
 
 
-  3.1 Classification of Data Structures
+  3.1 &nbsp; Classifying data structures
 
 
   </span>
@@ -1049,7 +1049,7 @@
   <span class="md-ellipsis">
 
 
-  3.2 Basic Data Types
+  3.2 &nbsp; Basic data types
 
 
   </span>
@@ -1076,7 +1076,7 @@
   <span class="md-ellipsis">
 
 
-  3.3 Number Encoding *
+  3.3 &nbsp; Number encoding *
 
 
   </span>
@@ -1103,7 +1103,7 @@
   <span class="md-ellipsis">
 
 
-  3.4 Character Encoding *
+  3.4 &nbsp; Character encoding *
 
 
   </span>
@@ -1130,7 +1130,7 @@
   <span class="md-ellipsis">
 
 
-  3.5 Summary
+  3.5 &nbsp; Summary
 
 
   </span>
@@ -1157,7 +1157,7 @@
   <span class="md-ellipsis">
 
 
-  3.6 Exercises
+  3.6 &nbsp; Exercises
 
 
   </span>
@@ -1223,7 +1223,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 4. Arrays and Linked Lists
+  Chapter 4. &nbsp; Arrays and linked lists
 
 
   </span>
@@ -1244,7 +1244,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 4. Arrays and Linked Lists
+  Chapter 4. &nbsp; Arrays and linked lists
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1265,7 +1265,7 @@
   <span class="md-ellipsis">
 
 
-  4.1 Array
+  4.1 &nbsp; Arrays
 
 
   </span>
@@ -1292,7 +1292,7 @@
   <span class="md-ellipsis">
 
 
-  4.2 Linked List
+  4.2 &nbsp; Linked lists
 
 
   </span>
@@ -1319,7 +1319,7 @@
   <span class="md-ellipsis">
 
 
-  4.3 List
+  4.3 &nbsp; Lists
 
 
   </span>
@@ -1346,7 +1346,7 @@
   <span class="md-ellipsis">
 
 
-  4.4 Random-Access Memory and Cache *
+  4.4 &nbsp; Memory and cache *
 
 
   </span>
@@ -1373,7 +1373,7 @@
   <span class="md-ellipsis">
 
 
-  4.5 Summary
+  4.5 &nbsp; Summary
 
 
   </span>
@@ -1400,7 +1400,7 @@
   <span class="md-ellipsis">
 
 
-  4.6 Exercises
+  4.6 &nbsp; Exercises
 
 
   </span>
@@ -1464,7 +1464,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 5. Stacks and Queues
+  Chapter 5. &nbsp; Stacks and queues
 
 
   </span>
@@ -1485,7 +1485,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 5. Stacks and Queues
+  Chapter 5. &nbsp; Stacks and queues
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1506,7 +1506,7 @@
   <span class="md-ellipsis">
 
 
-  5.1 Stack
+  5.1 &nbsp; Stacks
 
 
   </span>
@@ -1533,7 +1533,7 @@
   <span class="md-ellipsis">
 
 
-  5.2 Queue
+  5.2 &nbsp; Queues
 
 
   </span>
@@ -1560,7 +1560,7 @@
   <span class="md-ellipsis">
 
 
-  5.3 Deque
+  5.3 &nbsp; Deques
 
 
   </span>
@@ -1587,7 +1587,7 @@
   <span class="md-ellipsis">
 
 
-  5.4 Summary
+  5.4 &nbsp; Summary
 
 
   </span>
@@ -1614,7 +1614,7 @@
   <span class="md-ellipsis">
 
 
-  5.5 Exercises
+  5.5 &nbsp; Exercises
 
 
   </span>
@@ -1678,7 +1678,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 6. Hashing
+  Chapter 6. &nbsp; Hash tables
 
 
   </span>
@@ -1699,7 +1699,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 6. Hashing
+  Chapter 6. &nbsp; Hash tables
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1720,7 +1720,7 @@
   <span class="md-ellipsis">
 
 
-  6.1 Hash Table
+  6.1 &nbsp; Hash tables
 
 
   </span>
@@ -1747,7 +1747,7 @@
   <span class="md-ellipsis">
 
 
-  6.2 Hash Collision
+  6.2 &nbsp; Hash collisions
 
 
   </span>
@@ -1774,7 +1774,7 @@
   <span class="md-ellipsis">
 
 
-  6.3 Hash Algorithm
+  6.3 &nbsp; Hash algorithms
 
 
   </span>
@@ -1801,7 +1801,7 @@
   <span class="md-ellipsis">
 
 
-  6.4 Summary
+  6.4 &nbsp; Summary
 
 
   </span>
@@ -1828,7 +1828,7 @@
   <span class="md-ellipsis">
 
 
-  6.5 Exercises
+  6.5 &nbsp; Exercises
 
 
   </span>
@@ -1896,7 +1896,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 7. Tree
+  Chapter 7. &nbsp; Trees
 
 
   </span>
@@ -1917,7 +1917,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 7. Tree
+  Chapter 7. &nbsp; Trees
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1938,7 +1938,7 @@
   <span class="md-ellipsis">
 
 
-  7.1 Binary Tree
+  7.1 &nbsp; Binary trees
 
 
   </span>
@@ -1965,7 +1965,7 @@
   <span class="md-ellipsis">
 
 
-  7.2 Binary Tree Traversal
+  7.2 &nbsp; Traversing a binary tree
 
 
   </span>
@@ -1992,7 +1992,7 @@
   <span class="md-ellipsis">
 
 
-  7.3 Array Representation of Binary Trees
+  7.3 &nbsp; Array representation of a binary tree
 
 
   </span>
@@ -2019,7 +2019,7 @@
   <span class="md-ellipsis">
 
 
-  7.4 Binary Search Tree
+  7.4 &nbsp; Binary search trees
 
 
   </span>
@@ -2046,7 +2046,7 @@
   <span class="md-ellipsis">
 
 
-  7.5 AVL Tree *
+  7.5 &nbsp; AVL trees *
 
 
   </span>
@@ -2073,7 +2073,7 @@
   <span class="md-ellipsis">
 
 
-  7.6 Summary
+  7.6 &nbsp; Summary
 
 
   </span>
@@ -2100,7 +2100,7 @@
   <span class="md-ellipsis">
 
 
-  7.7 Exercises
+  7.7 &nbsp; Exercises
 
 
   </span>
@@ -2164,7 +2164,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 8. Heap
+  Chapter 8. &nbsp; Heaps
 
 
   </span>
@@ -2185,7 +2185,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 8. Heap
+  Chapter 8. &nbsp; Heaps
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2206,7 +2206,7 @@
   <span class="md-ellipsis">
 
 
-  8.1 Heap
+  8.1 &nbsp; Heaps
 
 
   </span>
@@ -2233,7 +2233,7 @@
   <span class="md-ellipsis">
 
 
-  8.2 Heap Construction Operation
+  8.2 &nbsp; Building a heap
 
 
   </span>
@@ -2260,7 +2260,7 @@
   <span class="md-ellipsis">
 
 
-  8.3 Top-k Problem
+  8.3 &nbsp; The top-k problem
 
 
   </span>
@@ -2287,7 +2287,7 @@
   <span class="md-ellipsis">
 
 
-  8.4 Summary
+  8.4 &nbsp; Summary
 
 
   </span>
@@ -2314,7 +2314,7 @@
   <span class="md-ellipsis">
 
 
-  8.5 Exercises
+  8.5 &nbsp; Exercises
 
 
   </span>
@@ -2378,7 +2378,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 9. Graph
+  Chapter 9. &nbsp; Graphs
 
 
   </span>
@@ -2399,7 +2399,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 9. Graph
+  Chapter 9. &nbsp; Graphs
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2420,7 +2420,7 @@
   <span class="md-ellipsis">
 
 
-  9.1 Graph
+  9.1 &nbsp; Graphs
 
 
   </span>
@@ -2447,7 +2447,7 @@
   <span class="md-ellipsis">
 
 
-  9.2 Basic Operations on Graphs
+  9.2 &nbsp; Basic graph operations
 
 
   </span>
@@ -2474,7 +2474,7 @@
   <span class="md-ellipsis">
 
 
-  9.3 Graph Traversal
+  9.3 &nbsp; Graph traversal
 
 
   </span>
@@ -2501,7 +2501,7 @@
   <span class="md-ellipsis">
 
 
-  9.4 Summary
+  9.4 &nbsp; Summary
 
 
   </span>
@@ -2528,7 +2528,7 @@
   <span class="md-ellipsis">
 
 
-  9.5 Exercises
+  9.5 &nbsp; Exercises
 
 
   </span>
@@ -2598,7 +2598,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 10. Searching
+  Chapter 10. &nbsp; Searching
 
 
   </span>
@@ -2619,7 +2619,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 10. Searching
+  Chapter 10. &nbsp; Searching
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2640,7 +2640,7 @@
   <span class="md-ellipsis">
 
 
-  10.1 Binary Search
+  10.1 &nbsp; Binary search
 
 
   </span>
@@ -2667,7 +2667,7 @@
   <span class="md-ellipsis">
 
 
-  10.2 Binary Search Insertion Point
+  10.2 &nbsp; Finding an insertion point with binary search
 
 
   </span>
@@ -2694,7 +2694,7 @@
   <span class="md-ellipsis">
 
 
-  10.3 Binary Search Boundaries
+  10.3 &nbsp; Finding boundaries with binary search
 
 
   </span>
@@ -2721,7 +2721,7 @@
   <span class="md-ellipsis">
 
 
-  10.4 Hash Optimization Strategy
+  10.4 &nbsp; Optimizing with hashing
 
 
   </span>
@@ -2757,7 +2757,7 @@
   <span class="md-ellipsis">
 
 
-  10.5 Searching Algorithms Revisited
+  10.5 &nbsp; Search algorithms revisited
 
 
   </span>
@@ -2774,7 +2774,7 @@
   <span class="md-ellipsis">
 
 
-  10.5 Searching Algorithms Revisited
+  10.5 &nbsp; Search algorithms revisited
 
 
   </span>
@@ -2803,7 +2803,7 @@
   <a href="#1051-brute-force-search" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        10.5.1 &nbsp; Brute-Force Search
+        10.5.1 &nbsp; Brute-force search
       </span>
     </span>
   </a>
@@ -2814,7 +2814,7 @@
   <a href="#1052-adaptive-search" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        10.5.2 &nbsp; Adaptive Search
+        10.5.2 &nbsp; Adaptive search
       </span>
     </span>
   </a>
@@ -2822,10 +2822,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#1053-search-method-selection" class="md-nav__link">
+  <a href="#1053-choosing-a-search-method" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        10.5.3 &nbsp; Search Method Selection
+        10.5.3 &nbsp; Choosing a search method
       </span>
     </span>
   </a>
@@ -2855,7 +2855,7 @@
   <span class="md-ellipsis">
 
 
-  10.6 Summary
+  10.6 &nbsp; Summary
 
 
   </span>
@@ -2882,7 +2882,7 @@
   <span class="md-ellipsis">
 
 
-  10.7 Exercises
+  10.7 &nbsp; Exercises
 
 
   </span>
@@ -2960,7 +2960,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 11. Sorting
+  Chapter 11. &nbsp; Sorting
 
 
   </span>
@@ -2981,7 +2981,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 11. Sorting
+  Chapter 11. &nbsp; Sorting
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3002,7 +3002,7 @@
   <span class="md-ellipsis">
 
 
-  11.1 Sorting Algorithm
+  11.1 &nbsp; Sorting algorithms
 
 
   </span>
@@ -3029,7 +3029,7 @@
   <span class="md-ellipsis">
 
 
-  11.2 Selection Sort
+  11.2 &nbsp; Selection sort
 
 
   </span>
@@ -3056,7 +3056,7 @@
   <span class="md-ellipsis">
 
 
-  11.3 Bubble Sort
+  11.3 &nbsp; Bubble sort
 
 
   </span>
@@ -3083,7 +3083,7 @@
   <span class="md-ellipsis">
 
 
-  11.4 Insertion Sort
+  11.4 &nbsp; Insertion sort
 
 
   </span>
@@ -3110,7 +3110,7 @@
   <span class="md-ellipsis">
 
 
-  11.5 Quick Sort
+  11.5 &nbsp; Quick sort
 
 
   </span>
@@ -3137,7 +3137,7 @@
   <span class="md-ellipsis">
 
 
-  11.6 Merge Sort
+  11.6 &nbsp; Merge sort
 
 
   </span>
@@ -3164,7 +3164,7 @@
   <span class="md-ellipsis">
 
 
-  11.7 Heap Sort
+  11.7 &nbsp; Heap sort
 
 
   </span>
@@ -3191,7 +3191,7 @@
   <span class="md-ellipsis">
 
 
-  11.8 Bucket Sort
+  11.8 &nbsp; Bucket sort
 
 
   </span>
@@ -3218,7 +3218,7 @@
   <span class="md-ellipsis">
 
 
-  11.9 Counting Sort
+  11.9 &nbsp; Counting sort
 
 
   </span>
@@ -3245,7 +3245,7 @@
   <span class="md-ellipsis">
 
 
-  11.10 Radix Sort
+  11.10 &nbsp; Radix sort
 
 
   </span>
@@ -3272,7 +3272,7 @@
   <span class="md-ellipsis">
 
 
-  11.11 Summary
+  11.11 &nbsp; Summary
 
 
   </span>
@@ -3299,7 +3299,7 @@
   <span class="md-ellipsis">
 
 
-  11.12 Exercises
+  11.12 &nbsp; Exercises
 
 
   </span>
@@ -3365,7 +3365,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 12. Divide and Conquer
+  Chapter 12. &nbsp; Divide and conquer
 
 
   </span>
@@ -3386,7 +3386,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 12. Divide and Conquer
+  Chapter 12. &nbsp; Divide and conquer
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3407,7 +3407,7 @@
   <span class="md-ellipsis">
 
 
-  12.1 Divide and Conquer Algorithms
+  12.1 &nbsp; Divide and conquer
 
 
   </span>
@@ -3434,7 +3434,7 @@
   <span class="md-ellipsis">
 
 
-  12.2 Divide and Conquer Search Strategy
+  12.2 &nbsp; Divide-and-conquer search
 
 
   </span>
@@ -3461,7 +3461,7 @@
   <span class="md-ellipsis">
 
 
-  12.3 Building a Binary Tree Problem
+  12.3 &nbsp; Building a binary tree
 
 
   </span>
@@ -3488,7 +3488,7 @@
   <span class="md-ellipsis">
 
 
-  12.4 Tower of Hanoi Problem
+  12.4 &nbsp; Tower of Hanoi
 
 
   </span>
@@ -3515,7 +3515,7 @@
   <span class="md-ellipsis">
 
 
-  12.5 Summary
+  12.5 &nbsp; Summary
 
 
   </span>
@@ -3542,7 +3542,7 @@
   <span class="md-ellipsis">
 
 
-  12.6 Exercises
+  12.6 &nbsp; Exercises
 
 
   </span>
@@ -3608,7 +3608,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 13. Backtracking
+  Chapter 13. &nbsp; Backtracking
 
 
   </span>
@@ -3629,7 +3629,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 13. Backtracking
+  Chapter 13. &nbsp; Backtracking
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3650,7 +3650,7 @@
   <span class="md-ellipsis">
 
 
-  13.1 Backtracking Algorithm
+  13.1 &nbsp; Backtracking algorithms
 
 
   </span>
@@ -3677,7 +3677,7 @@
   <span class="md-ellipsis">
 
 
-  13.2 Permutations Problem
+  13.2 &nbsp; Permutations problem
 
 
   </span>
@@ -3704,7 +3704,7 @@
   <span class="md-ellipsis">
 
 
-  13.3 Subset-Sum Problem
+  13.3 &nbsp; Subset sum problem
 
 
   </span>
@@ -3731,7 +3731,7 @@
   <span class="md-ellipsis">
 
 
-  13.4 N-Queens Problem
+  13.4 &nbsp; N-queens problem
 
 
   </span>
@@ -3758,7 +3758,7 @@
   <span class="md-ellipsis">
 
 
-  13.5 Summary
+  13.5 &nbsp; Summary
 
 
   </span>
@@ -3785,7 +3785,7 @@
   <span class="md-ellipsis">
 
 
-  13.6 Exercises
+  13.6 &nbsp; Exercises
 
 
   </span>
@@ -3855,7 +3855,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 14. Dynamic Programming
+  Chapter 14. &nbsp; Dynamic programming
 
 
   </span>
@@ -3876,7 +3876,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 14. Dynamic Programming
+  Chapter 14. &nbsp; Dynamic programming
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3897,7 +3897,7 @@
   <span class="md-ellipsis">
 
 
-  14.1 Introduction to Dynamic Programming
+  14.1 &nbsp; Introduction to dynamic programming
 
 
   </span>
@@ -3924,7 +3924,7 @@
   <span class="md-ellipsis">
 
 
-  14.2 Characteristics of Dynamic Programming Problems
+  14.2 &nbsp; Properties of dynamic programming problems
 
 
   </span>
@@ -3951,7 +3951,7 @@
   <span class="md-ellipsis">
 
 
-  14.3 Dynamic Programming Problem-Solving Approach
+  14.3 &nbsp; Solving dynamic programming problems
 
 
   </span>
@@ -3978,7 +3978,7 @@
   <span class="md-ellipsis">
 
 
-  14.4 0-1 Knapsack Problem
+  14.4 &nbsp; 0-1 knapsack problem
 
 
   </span>
@@ -4005,7 +4005,7 @@
   <span class="md-ellipsis">
 
 
-  14.5 Unbounded Knapsack Problem
+  14.5 &nbsp; Unbounded knapsack problem
 
 
   </span>
@@ -4032,7 +4032,7 @@
   <span class="md-ellipsis">
 
 
-  14.6 Edit Distance Problem
+  14.6 &nbsp; Edit distance problem
 
 
   </span>
@@ -4059,7 +4059,7 @@
   <span class="md-ellipsis">
 
 
-  14.7 Summary
+  14.7 &nbsp; Summary
 
 
   </span>
@@ -4086,7 +4086,7 @@
   <span class="md-ellipsis">
 
 
-  14.8 Exercises
+  14.8 &nbsp; Exercises
 
 
   </span>
@@ -4152,7 +4152,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 15. Greedy
+  Chapter 15. &nbsp; Greedy algorithms
 
 
   </span>
@@ -4173,7 +4173,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 15. Greedy
+  Chapter 15. &nbsp; Greedy algorithms
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4194,7 +4194,7 @@
   <span class="md-ellipsis">
 
 
-  15.1 Greedy Algorithm
+  15.1 &nbsp; Greedy algorithms
 
 
   </span>
@@ -4221,7 +4221,7 @@
   <span class="md-ellipsis">
 
 
-  15.2 Fractional Knapsack Problem
+  15.2 &nbsp; Fractional knapsack problem
 
 
   </span>
@@ -4248,7 +4248,7 @@
   <span class="md-ellipsis">
 
 
-  15.3 Maximum Capacity Problem
+  15.3 &nbsp; Maximum capacity problem
 
 
   </span>
@@ -4275,7 +4275,7 @@
   <span class="md-ellipsis">
 
 
-  15.4 Maximum Product Cutting Problem
+  15.4 &nbsp; Maximum product cutting problem
 
 
   </span>
@@ -4302,7 +4302,7 @@
   <span class="md-ellipsis">
 
 
-  15.5 Summary
+  15.5 &nbsp; Summary
 
 
   </span>
@@ -4329,7 +4329,7 @@
   <span class="md-ellipsis">
 
 
-  15.6 Exercises
+  15.6 &nbsp; Exercises
 
 
   </span>
@@ -4389,7 +4389,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 16. Appendix
+  Chapter 16. &nbsp; Appendix
 
 
   </span>
@@ -4410,7 +4410,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 16. Appendix
+  Chapter 16. &nbsp; Appendix
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4431,7 +4431,7 @@
   <span class="md-ellipsis">
 
 
-  16.1 Programming Environment Installation
+  16.1 &nbsp; Setting up a programming environment
 
 
   </span>
@@ -4458,7 +4458,7 @@
   <span class="md-ellipsis">
 
 
-  16.2 Contributing Together
+  16.2 &nbsp; Contribute to the book
 
 
   </span>
@@ -4485,7 +4485,7 @@
   <span class="md-ellipsis">
 
 
-  16.3 Glossary
+  16.3 &nbsp; Glossary
 
 
   </span>
@@ -4569,6 +4569,78 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="md-nav__item md-nav__item--nested">
+
+
+
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_20" >
+
+
+          <div class="md-nav__link md-nav__container">
+            <a href="../../chapter_paperbook/" class="md-nav__link ">
+
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+  <span class="md-ellipsis">
+
+
+  Print edition (Chinese)
+
+
+  </span>
+
+
+
+
+
+    <span class="md-status md-status--new" title="Recently added">
+    </span>
+
+
+
+
+            </a>
+
+          </div>
+
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_20">
+            <span class="md-nav__icon md-icon"></span>
+
+
+  Print edition (Chinese)
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+          </ul>
+        </nav>
+
+    </li>
+
+
+
   </ul>
 </nav>
                   </div>
@@ -4613,7 +4685,7 @@
   <a href="#1051-brute-force-search" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        10.5.1 &nbsp; Brute-Force Search
+        10.5.1 &nbsp; Brute-force search
       </span>
     </span>
   </a>
@@ -4624,7 +4696,7 @@
   <a href="#1052-adaptive-search" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        10.5.2 &nbsp; Adaptive Search
+        10.5.2 &nbsp; Adaptive search
       </span>
     </span>
   </a>
@@ -4632,10 +4704,10 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#1053-search-method-selection" class="md-nav__link">
+  <a href="#1053-choosing-a-search-method" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        10.5.3 &nbsp; Search Method Selection
+        10.5.3 &nbsp; Choosing a search method
       </span>
     </span>
   </a>
@@ -4679,42 +4751,42 @@
 
 
 <!-- Page content -->
-<h1 id="105-searching-algorithms-revisited">10.5 &nbsp; Searching Algorithms Revisited<a class="headerlink" href="#105-searching-algorithms-revisited" title="Permanent link">&para;</a></h1>
-<p><u>Searching algorithms</u> are used to search for one or a group of elements that meet specific conditions in data structures (such as arrays, linked lists, trees, or graphs).</p>
-<p>Searching algorithms can be divided into the following two categories based on their implementation approach:</p>
+<h1 id="105-search-algorithms-revisited">10.5 &nbsp; Search algorithms revisited<a class="headerlink" href="#105-search-algorithms-revisited" title="Permanent link">&para;</a></h1>
+<p>A <u>search algorithm</u> finds one or more elements that satisfy specified conditions in a data structure, such as an array, linked list, tree, or graph.</p>
+<p>Search algorithms fall into two categories according to their approach.</p>
 <ul>
-<li><strong>Locating target elements by traversing the data structure</strong>, such as traversing arrays, linked lists, trees, and graphs.</li>
-<li><strong>Achieving efficient element lookup by leveraging the way data is organized or prior information about the data</strong>, such as binary search, hash-based search, and binary search tree search.</li>
+<li><strong>Locate the target by traversing the data structure</strong>, as in traversals of arrays, linked lists, trees, and graphs.</li>
+<li><strong>Find elements efficiently by using the organization of the data or prior information about it</strong>, as in binary search, hash lookup, and binary search tree lookup.</li>
 </ul>
-<p>As these topics have already been introduced in earlier chapters, searching algorithms should already be familiar to us. In this section, we revisit them from a more systematic perspective.</p>
-<h2 id="1051-brute-force-search">10.5.1 &nbsp; Brute-Force Search<a class="headerlink" href="#1051-brute-force-search" title="Permanent link">&para;</a></h2>
-<p>Brute-force search locates target elements by traversing each element of the data structure.</p>
+<p>These ideas have all appeared in earlier chapters, so search algorithms are already familiar to us. In this section, we revisit them from a more systematic perspective.</p>
+<h2 id="1051-brute-force-search">10.5.1 &nbsp; Brute-force search<a class="headerlink" href="#1051-brute-force-search" title="Permanent link">&para;</a></h2>
+<p>Brute-force search locates a target by visiting the elements of a data structure one by one.</p>
 <ul>
-<li>"Linear search" is applicable to linear data structures such as arrays and linked lists. It starts from one end of the data structure and accesses elements one by one until the target element is found or the other end is reached without finding the target element.</li>
-<li>"Breadth-first search" and "depth-first search" are two traversal strategies for graphs and trees. Breadth-first search starts from the initial node and searches layer by layer, visiting nodes from near to far. Depth-first search starts from the initial node, follows a path to the end, then backtracks and tries other paths until the entire data structure is traversed.</li>
+<li>“Linear search” applies to linear data structures such as arrays and linked lists. Starting at one end, it visits elements in sequence until it finds the target or reaches the other end without finding it.</li>
+<li>“Breadth-first search” and “depth-first search” are two strategies for traversing graphs and trees. Breadth-first search starts at an initial node and searches level by level, visiting nearby nodes before more distant ones. Depth-first search follows a path as far as possible, then backtracks and tries other paths until the whole structure has been traversed.</li>
 </ul>
-<p>The advantage of brute-force search is that it is simple and has good generality, <strong>requiring no data preprocessing or additional data structures</strong>.</p>
-<p>However, <strong>the time complexity of such algorithms is <span class="arithmatex">\(O(n)\)</span></strong>, where <span class="arithmatex">\(n\)</span> is the number of elements, so performance is poor when dealing with large amounts of data.</p>
-<h2 id="1052-adaptive-search">10.5.2 &nbsp; Adaptive Search<a class="headerlink" href="#1052-adaptive-search" title="Permanent link">&para;</a></h2>
-<p>Adaptive search leverages properties of the data itself (such as sorted order) to optimize the search process and locate target elements more efficiently.</p>
+<p>Brute-force search is simple and broadly applicable. <strong>It requires neither preprocessing the data nor building an additional data structure</strong>.</p>
+<p>However, <strong>these algorithms take <span class="arithmatex">\(O(n)\)</span> time</strong>, where <span class="arithmatex">\(n\)</span> is the number of elements, so they perform poorly on large datasets.</p>
+<h2 id="1052-adaptive-search">10.5.2 &nbsp; Adaptive search<a class="headerlink" href="#1052-adaptive-search" title="Permanent link">&para;</a></h2>
+<p>Adaptive search uses properties of the data, such as its ordering, to optimize the search process and locate the target more efficiently.</p>
 <ul>
-<li>"Binary search" uses the orderliness of data to achieve efficient searching, applicable only to arrays.</li>
-<li>"Hash-based search" uses hash tables to store searchable data as key-value pairs, thereby enabling efficient queries.</li>
-<li>"Tree search" operates on specific tree structures (such as binary search trees), quickly ruling out nodes by comparing node values to locate the target element.</li>
+<li>“Binary search” uses sorted data to search efficiently and applies only to arrays.</li>
+<li>“Hash lookup” uses a hash table to map lookup keys to target data as key-value pairs.</li>
+<li>“Tree search” uses comparisons of node values in a particular tree structure, such as a binary search tree, to rule out nodes quickly and locate the target.</li>
 </ul>
-<p>The advantage of such algorithms is high efficiency, <strong>with time complexity reaching <span class="arithmatex">\(O(\log n)\)</span> or even <span class="arithmatex">\(O(1)\)</span></strong>.</p>
-<p>However, <strong>using these algorithms often requires data preprocessing</strong>. For example, binary search requires pre-sorting the array, while hash-based search and tree search both require additional data structures, and maintaining these data structures also requires extra time and space overhead.</p>
+<p>These algorithms are efficient, <strong>achieving time complexities of <span class="arithmatex">\(O(\log n)\)</span> or even <span class="arithmatex">\(O(1)\)</span></strong>.</p>
+<p>However, <strong>they often require preprocessing the data</strong>. Binary search requires sorting the array in advance; hash lookup and tree search require additional data structures, whose maintenance also costs time and space.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Adaptive search algorithms are often called lookup algorithms, <strong>mainly used to quickly retrieve target elements in specific data structures</strong>.</p>
+<p>Adaptive search algorithms are often called lookup algorithms. <strong>Their main purpose is to retrieve target elements quickly from specific data structures</strong>.</p>
 </div>
-<h2 id="1053-search-method-selection">10.5.3 &nbsp; Search Method Selection<a class="headerlink" href="#1053-search-method-selection" title="Permanent link">&para;</a></h2>
-<p>Given a dataset of size <span class="arithmatex">\(n\)</span>, we can use linear search, binary search, tree search, hash-based search, and other methods to search for the target element. The working principles of each method are shown in Figure 10-11.</p>
-<p><img alt="Multiple search strategies" class="animation-figure" src="../searching_algorithm_revisited.assets/searching_algorithms.png" /></p>
-<p align="center"> Figure 10-11 &nbsp; Multiple search strategies </p>
+<h2 id="1053-choosing-a-search-method">10.5.3 &nbsp; Choosing a search method<a class="headerlink" href="#1053-choosing-a-search-method" title="Permanent link">&para;</a></h2>
+<p>Given a dataset of size <span class="arithmatex">\(n\)</span>, we can find a target using linear search, binary search, tree search, hash lookup, and other methods. Figure 10-11 illustrates how these methods work.</p>
+<p><img alt="Different search strategies" class="animation-figure" src="../searching_algorithm_revisited.assets/searching_algorithms.png" /></p>
+<p align="center"> Figure 10-11 &nbsp; Different search strategies </p>
 
-<p>The efficiency and characteristics of these methods are summarized in Table 10-1.</p>
-<p align="center"> Table 10-1 &nbsp; Comparison of search algorithm efficiency </p>
+<p>Table 10-1 compares their efficiency and properties.</p>
+<p align="center"> Table 10-1 &nbsp; Efficiency of lookup algorithms </p>
 
 <div class="center-table">
 <table>
@@ -4724,26 +4796,26 @@
 <th>Linear search</th>
 <th>Binary search</th>
 <th>Tree search</th>
-<th>Hash-based search</th>
+<th>Hash lookup</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Search element</td>
+<td>Find an element</td>
 <td><span class="arithmatex">\(O(n)\)</span></td>
 <td><span class="arithmatex">\(O(\log n)\)</span></td>
 <td><span class="arithmatex">\(O(\log n)\)</span></td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
 </tr>
 <tr>
-<td>Insert element</td>
+<td>Insert an element</td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
 <td><span class="arithmatex">\(O(n)\)</span></td>
 <td><span class="arithmatex">\(O(\log n)\)</span></td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
 </tr>
 <tr>
-<td>Delete element</td>
+<td>Delete an element</td>
 <td><span class="arithmatex">\(O(n)\)</span></td>
 <td><span class="arithmatex">\(O(n)\)</span></td>
 <td><span class="arithmatex">\(O(\log n)\)</span></td>
@@ -4757,48 +4829,48 @@
 <td><span class="arithmatex">\(O(n)\)</span></td>
 </tr>
 <tr>
-<td>Data preprocessing</td>
+<td>Preprocessing</td>
 <td>/</td>
-<td>Sorting <span class="arithmatex">\(O(n \log n)\)</span></td>
-<td>Tree building <span class="arithmatex">\(O(n \log n)\)</span></td>
-<td>Hash table building <span class="arithmatex">\(O(n)\)</span></td>
+<td>Sort <span class="arithmatex">\(O(n \log n)\)</span></td>
+<td>Build a tree <span class="arithmatex">\(O(n \log n)\)</span></td>
+<td>Build a hash table <span class="arithmatex">\(O(n)\)</span></td>
 </tr>
 <tr>
-<td>Data ordered</td>
-<td>Unordered</td>
-<td>Ordered</td>
-<td>Ordered</td>
-<td>Unordered</td>
+<td>Data ordering</td>
+<td>Unsorted</td>
+<td>Sorted</td>
+<td>Sorted</td>
+<td>Unsorted</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>The choice of search algorithm also depends on data volume, search performance requirements, data query and update frequency, etc.</p>
+<p>The choice also depends on dataset size, required search performance, and how frequently the data is queried and updated.</p>
 <p><strong>Linear search</strong></p>
 <ul>
-<li>Good generality, requiring no data preprocessing operations. If we need to query the data only once, the preprocessing required by the other three methods can take longer than the linear search itself.</li>
-<li>Suitable for small data volumes, where time complexity has less impact on efficiency.</li>
-<li>Suitable for scenarios with high data update frequency, as this method does not require any additional data maintenance.</li>
+<li>It is broadly applicable and requires no preprocessing. If we need only one lookup, preprocessing for the other three methods takes longer than a linear search itself.</li>
+<li>It suits small datasets, where time complexity has less influence on actual performance.</li>
+<li>It suits frequently updated data because no additional data structure needs to be maintained.</li>
 </ul>
 <p><strong>Binary search</strong></p>
 <ul>
-<li>Suitable for large datasets, with stable performance and a worst-case time complexity of <span class="arithmatex">\(O(\log n)\)</span>.</li>
-<li>Data volume cannot be too large, as storing arrays requires contiguous memory space.</li>
-<li>Not suitable for scenarios with frequent data insertion and deletion, as maintaining a sorted array has high overhead.</li>
+<li>It suits large datasets, with predictable performance and a worst-case time complexity of <span class="arithmatex">\(O(\log n)\)</span>.</li>
+<li>The dataset cannot be excessively large, because an array requires contiguous memory.</li>
+<li>It is unsuitable for frequent insertions and deletions, since maintaining a sorted array is expensive.</li>
 </ul>
-<p><strong>Hash-based search</strong></p>
+<p><strong>Hash lookup</strong></p>
 <ul>
-<li>Suitable for scenarios with high query performance requirements, with an average time complexity of <span class="arithmatex">\(O(1)\)</span>.</li>
-<li>Not suitable for scenarios requiring ordered data or range searches, as hash tables cannot maintain the data in sorted order.</li>
-<li>High dependence on hash functions and hash collision handling strategies, with significant risk of performance degradation.</li>
-<li>Not suitable for excessively large data volumes, as hash tables require extra space to minimize collisions and thus provide good query performance.</li>
+<li>It suits situations demanding very fast queries, with an average time complexity of <span class="arithmatex">\(O(1)\)</span>.</li>
+<li>It is unsuitable when sorted data or range queries are needed, because a hash table does not preserve order.</li>
+<li>It depends heavily on the hash function and collision-resolution strategy, creating a greater risk of performance degradation.</li>
+<li>It is unsuitable for excessively large datasets, because a hash table needs extra space to minimize collisions and maintain good query performance.</li>
 </ul>
 <p><strong>Tree search</strong></p>
 <ul>
-<li>Suitable for massive datasets, as tree nodes are stored non-contiguously in memory.</li>
-<li>Suitable for scenarios that require maintaining ordered data or performing range searches.</li>
-<li>During continuous node insertion and deletion, binary search trees may become skewed, degrading time complexity to <span class="arithmatex">\(O(n)\)</span>.</li>
-<li>If AVL trees or red-black trees are used, all operations can consistently run in <span class="arithmatex">\(O(\log n)\)</span> time, though maintaining tree balance adds extra overhead.</li>
+<li>It suits very large datasets, because tree nodes are stored at separate locations in memory.</li>
+<li>It suits situations requiring sorted data or range queries.</li>
+<li>Repeated insertions and deletions can make a binary search tree skewed, degrading its time complexity to <span class="arithmatex">\(O(n)\)</span>.</li>
+<li>An AVL tree or red-black tree keeps operations at <span class="arithmatex">\(O(\log n)\)</span>, but maintaining balance adds overhead.</li>
 </ul>
 
 <!-- Source file information -->
@@ -4822,7 +4894,7 @@ aria-label="Footer"
   <a
     href="../replace_linear_by_hashing/"
     class="md-footer__link md-footer__link--prev"
-    aria-label="Previous: 10.4 Hash Optimization Strategy"
+    aria-label="Previous: 10.4   Optimizing with hashing"
     rel="prev"
   >
     <div class="md-footer__button md-icon">
@@ -4834,7 +4906,7 @@ aria-label="Footer"
         Previous
       </span>
       <div class="md-ellipsis">
-        10.4 Hash Optimization Strategy
+        10.4 &nbsp; Optimizing with hashing
       </div>
     </div>
   </a>
@@ -4846,7 +4918,7 @@ aria-label="Footer"
   <a
     href="../summary/"
     class="md-footer__link md-footer__link--next"
-    aria-label="Next: 10.6 Summary"
+    aria-label="Next: 10.6   Summary"
     rel="next"
   >
     <div class="md-footer__title">
@@ -4854,7 +4926,7 @@ aria-label="Footer"
         Next
       </span>
       <div class="md-ellipsis">
-        10.6 Summary
+        10.6 &nbsp; Summary
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -4871,7 +4943,7 @@ aria-label="Footer"
   <!-- Check-in button above comments -->
 
 
-  <h5 align="center" id="__comments">Feel free to drop your insights, questions or suggestions</h5>
+  <h5 align="center" id="__comments">Share your insights, questions, or suggestions in the comments</h5>
 
   <!-- Insert generated snippet here -->
   <script

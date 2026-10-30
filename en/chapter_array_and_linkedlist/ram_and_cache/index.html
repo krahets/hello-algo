@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
+        <meta name="description" content="A data structures and algorithms tutorial with animated illustrations and code you can run with one click">
 
 
         <meta name="author" content="krahets">
@@ -41,7 +41,7 @@
 
 
 
-        <title>4.4 Random-Access Memory and Cache * - Hello Algo</title>
+        <title>4.4 Memory and cache * - Hello Algo</title>
 
 
 
@@ -67,8 +67,8 @@
 
 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"JetBrains Mono"}</style>
 
 
 
@@ -101,7 +101,7 @@
     <div data-md-component="skip">
 
 
-        <a href="#44-random-access-memory-and-cache" class="md-skip">
+        <a href="#44-memory-and-cache" class="md-skip">
           Skip to content
         </a>
 
@@ -119,7 +119,7 @@
         <path
             d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z" />
     </svg>
-    <span>Welcome to contribute to Chinese-to-English translation! For more details, please refer to <a href="https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md">CONTRIBUTING.md</a>.</span>
+    <span>Help improve the English edition. See our <a href="https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md">contribution guidelines</a>.</span>
 </div>
 
           </div>
@@ -154,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
 
-              4.4 &nbsp; Random-Access Memory and Cache *
+              4.4 &nbsp; Memory and cache *
 
           </span>
         </div>
@@ -167,9 +167,9 @@
 
 
 
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
 
-      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
       </label>
 
@@ -177,9 +177,9 @@
 
 
 
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
 
-      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
       </label>
 
@@ -349,7 +349,7 @@
   <span class="md-ellipsis">
 
 
-  Before Starting
+  Foreword
 
 
   </span>
@@ -365,7 +365,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Before Starting
+  Foreword
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -419,7 +419,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 0. Preface
+  Chapter 0. &nbsp; Preface
 
 
   </span>
@@ -440,7 +440,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 0. Preface
+  Chapter 0. &nbsp; Preface
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -461,7 +461,7 @@
   <span class="md-ellipsis">
 
 
-  0.1 About This Book
+  0.1 &nbsp; About this book
 
 
   </span>
@@ -488,7 +488,7 @@
   <span class="md-ellipsis">
 
 
-  0.2 How to Use This Book
+  0.2 &nbsp; How to use this book
 
 
   </span>
@@ -515,7 +515,7 @@
   <span class="md-ellipsis">
 
 
-  0.3 Summary
+  0.3 &nbsp; Summary
 
 
   </span>
@@ -575,7 +575,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 1. Encounter with Algorithms
+  Chapter 1. &nbsp; Getting to know algorithms
 
 
   </span>
@@ -596,7 +596,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 1. Encounter with Algorithms
+  Chapter 1. &nbsp; Getting to know algorithms
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -617,7 +617,7 @@
   <span class="md-ellipsis">
 
 
-  1.1 Algorithms Are Everywhere
+  1.1 &nbsp; Algorithms are everywhere
 
 
   </span>
@@ -644,7 +644,7 @@
   <span class="md-ellipsis">
 
 
-  1.2 What Is an Algorithm
+  1.2 &nbsp; What is an algorithm?
 
 
   </span>
@@ -671,7 +671,7 @@
   <span class="md-ellipsis">
 
 
-  1.3 Summary
+  1.3 &nbsp; Summary
 
 
   </span>
@@ -737,7 +737,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 2. Complexity Analysis
+  Chapter 2. &nbsp; Complexity analysis
 
 
   </span>
@@ -758,7 +758,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 2. Complexity Analysis
+  Chapter 2. &nbsp; Complexity analysis
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -779,7 +779,7 @@
   <span class="md-ellipsis">
 
 
-  2.1 Algorithm Efficiency Evaluation
+  2.1 &nbsp; Evaluating algorithm efficiency
 
 
   </span>
@@ -806,7 +806,7 @@
   <span class="md-ellipsis">
 
 
-  2.2 Iteration and Recursion
+  2.2 &nbsp; Iteration and recursion
 
 
   </span>
@@ -833,7 +833,7 @@
   <span class="md-ellipsis">
 
 
-  2.3 Time Complexity
+  2.3 &nbsp; Time complexity
 
 
   </span>
@@ -860,7 +860,7 @@
   <span class="md-ellipsis">
 
 
-  2.4 Space Complexity
+  2.4 &nbsp; Space complexity
 
 
   </span>
@@ -887,7 +887,7 @@
   <span class="md-ellipsis">
 
 
-  2.5 Summary
+  2.5 &nbsp; Summary
 
 
   </span>
@@ -914,7 +914,7 @@
   <span class="md-ellipsis">
 
 
-  2.6 Exercises
+  2.6 &nbsp; Exercises
 
 
   </span>
@@ -980,7 +980,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 3. Data Structures
+  Chapter 3. &nbsp; Data structures
 
 
   </span>
@@ -1001,7 +1001,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 3. Data Structures
+  Chapter 3. &nbsp; Data structures
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1022,7 +1022,7 @@
   <span class="md-ellipsis">
 
 
-  3.1 Classification of Data Structures
+  3.1 &nbsp; Classifying data structures
 
 
   </span>
@@ -1049,7 +1049,7 @@
   <span class="md-ellipsis">
 
 
-  3.2 Basic Data Types
+  3.2 &nbsp; Basic data types
 
 
   </span>
@@ -1076,7 +1076,7 @@
   <span class="md-ellipsis">
 
 
-  3.3 Number Encoding *
+  3.3 &nbsp; Number encoding *
 
 
   </span>
@@ -1103,7 +1103,7 @@
   <span class="md-ellipsis">
 
 
-  3.4 Character Encoding *
+  3.4 &nbsp; Character encoding *
 
 
   </span>
@@ -1130,7 +1130,7 @@
   <span class="md-ellipsis">
 
 
-  3.5 Summary
+  3.5 &nbsp; Summary
 
 
   </span>
@@ -1157,7 +1157,7 @@
   <span class="md-ellipsis">
 
 
-  3.6 Exercises
+  3.6 &nbsp; Exercises
 
 
   </span>
@@ -1225,7 +1225,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 4. Arrays and Linked Lists
+  Chapter 4. &nbsp; Arrays and linked lists
 
 
   </span>
@@ -1246,7 +1246,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 4. Arrays and Linked Lists
+  Chapter 4. &nbsp; Arrays and linked lists
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1267,7 +1267,7 @@
   <span class="md-ellipsis">
 
 
-  4.1 Array
+  4.1 &nbsp; Arrays
 
 
   </span>
@@ -1294,7 +1294,7 @@
   <span class="md-ellipsis">
 
 
-  4.2 Linked List
+  4.2 &nbsp; Linked lists
 
 
   </span>
@@ -1321,7 +1321,7 @@
   <span class="md-ellipsis">
 
 
-  4.3 List
+  4.3 &nbsp; Lists
 
 
   </span>
@@ -1357,7 +1357,7 @@
   <span class="md-ellipsis">
 
 
-  4.4 Random-Access Memory and Cache *
+  4.4 &nbsp; Memory and cache *
 
 
   </span>
@@ -1374,7 +1374,7 @@
   <span class="md-ellipsis">
 
 
-  4.4 Random-Access Memory and Cache *
+  4.4 &nbsp; Memory and cache *
 
 
   </span>
@@ -1403,7 +1403,7 @@
   <a href="#441-computer-storage-devices" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        4.4.1 &nbsp; Computer Storage Devices
+        4.4.1 &nbsp; Computer storage devices
       </span>
     </span>
   </a>
@@ -1414,7 +1414,7 @@
   <a href="#442-memory-efficiency-of-data-structures" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        4.4.2 &nbsp; Memory Efficiency of Data Structures
+        4.4.2 &nbsp; Memory efficiency of data structures
       </span>
     </span>
   </a>
@@ -1425,7 +1425,7 @@
   <a href="#443-cache-efficiency-of-data-structures" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        4.4.3 &nbsp; Cache Efficiency of Data Structures
+        4.4.3 &nbsp; Cache efficiency of data structures
       </span>
     </span>
   </a>
@@ -1455,7 +1455,7 @@
   <span class="md-ellipsis">
 
 
-  4.5 Summary
+  4.5 &nbsp; Summary
 
 
   </span>
@@ -1482,7 +1482,7 @@
   <span class="md-ellipsis">
 
 
-  4.6 Exercises
+  4.6 &nbsp; Exercises
 
 
   </span>
@@ -1546,7 +1546,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 5. Stacks and Queues
+  Chapter 5. &nbsp; Stacks and queues
 
 
   </span>
@@ -1567,7 +1567,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 5. Stacks and Queues
+  Chapter 5. &nbsp; Stacks and queues
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1588,7 +1588,7 @@
   <span class="md-ellipsis">
 
 
-  5.1 Stack
+  5.1 &nbsp; Stacks
 
 
   </span>
@@ -1615,7 +1615,7 @@
   <span class="md-ellipsis">
 
 
-  5.2 Queue
+  5.2 &nbsp; Queues
 
 
   </span>
@@ -1642,7 +1642,7 @@
   <span class="md-ellipsis">
 
 
-  5.3 Deque
+  5.3 &nbsp; Deques
 
 
   </span>
@@ -1669,7 +1669,7 @@
   <span class="md-ellipsis">
 
 
-  5.4 Summary
+  5.4 &nbsp; Summary
 
 
   </span>
@@ -1696,7 +1696,7 @@
   <span class="md-ellipsis">
 
 
-  5.5 Exercises
+  5.5 &nbsp; Exercises
 
 
   </span>
@@ -1760,7 +1760,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 6. Hashing
+  Chapter 6. &nbsp; Hash tables
 
 
   </span>
@@ -1781,7 +1781,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 6. Hashing
+  Chapter 6. &nbsp; Hash tables
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1802,7 +1802,7 @@
   <span class="md-ellipsis">
 
 
-  6.1 Hash Table
+  6.1 &nbsp; Hash tables
 
 
   </span>
@@ -1829,7 +1829,7 @@
   <span class="md-ellipsis">
 
 
-  6.2 Hash Collision
+  6.2 &nbsp; Hash collisions
 
 
   </span>
@@ -1856,7 +1856,7 @@
   <span class="md-ellipsis">
 
 
-  6.3 Hash Algorithm
+  6.3 &nbsp; Hash algorithms
 
 
   </span>
@@ -1883,7 +1883,7 @@
   <span class="md-ellipsis">
 
 
-  6.4 Summary
+  6.4 &nbsp; Summary
 
 
   </span>
@@ -1910,7 +1910,7 @@
   <span class="md-ellipsis">
 
 
-  6.5 Exercises
+  6.5 &nbsp; Exercises
 
 
   </span>
@@ -1978,7 +1978,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 7. Tree
+  Chapter 7. &nbsp; Trees
 
 
   </span>
@@ -1999,7 +1999,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 7. Tree
+  Chapter 7. &nbsp; Trees
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2020,7 +2020,7 @@
   <span class="md-ellipsis">
 
 
-  7.1 Binary Tree
+  7.1 &nbsp; Binary trees
 
 
   </span>
@@ -2047,7 +2047,7 @@
   <span class="md-ellipsis">
 
 
-  7.2 Binary Tree Traversal
+  7.2 &nbsp; Traversing a binary tree
 
 
   </span>
@@ -2074,7 +2074,7 @@
   <span class="md-ellipsis">
 
 
-  7.3 Array Representation of Binary Trees
+  7.3 &nbsp; Array representation of a binary tree
 
 
   </span>
@@ -2101,7 +2101,7 @@
   <span class="md-ellipsis">
 
 
-  7.4 Binary Search Tree
+  7.4 &nbsp; Binary search trees
 
 
   </span>
@@ -2128,7 +2128,7 @@
   <span class="md-ellipsis">
 
 
-  7.5 AVL Tree *
+  7.5 &nbsp; AVL trees *
 
 
   </span>
@@ -2155,7 +2155,7 @@
   <span class="md-ellipsis">
 
 
-  7.6 Summary
+  7.6 &nbsp; Summary
 
 
   </span>
@@ -2182,7 +2182,7 @@
   <span class="md-ellipsis">
 
 
-  7.7 Exercises
+  7.7 &nbsp; Exercises
 
 
   </span>
@@ -2246,7 +2246,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 8. Heap
+  Chapter 8. &nbsp; Heaps
 
 
   </span>
@@ -2267,7 +2267,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 8. Heap
+  Chapter 8. &nbsp; Heaps
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2288,7 +2288,7 @@
   <span class="md-ellipsis">
 
 
-  8.1 Heap
+  8.1 &nbsp; Heaps
 
 
   </span>
@@ -2315,7 +2315,7 @@
   <span class="md-ellipsis">
 
 
-  8.2 Heap Construction Operation
+  8.2 &nbsp; Building a heap
 
 
   </span>
@@ -2342,7 +2342,7 @@
   <span class="md-ellipsis">
 
 
-  8.3 Top-k Problem
+  8.3 &nbsp; The top-k problem
 
 
   </span>
@@ -2369,7 +2369,7 @@
   <span class="md-ellipsis">
 
 
-  8.4 Summary
+  8.4 &nbsp; Summary
 
 
   </span>
@@ -2396,7 +2396,7 @@
   <span class="md-ellipsis">
 
 
-  8.5 Exercises
+  8.5 &nbsp; Exercises
 
 
   </span>
@@ -2460,7 +2460,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 9. Graph
+  Chapter 9. &nbsp; Graphs
 
 
   </span>
@@ -2481,7 +2481,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 9. Graph
+  Chapter 9. &nbsp; Graphs
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2502,7 +2502,7 @@
   <span class="md-ellipsis">
 
 
-  9.1 Graph
+  9.1 &nbsp; Graphs
 
 
   </span>
@@ -2529,7 +2529,7 @@
   <span class="md-ellipsis">
 
 
-  9.2 Basic Operations on Graphs
+  9.2 &nbsp; Basic graph operations
 
 
   </span>
@@ -2556,7 +2556,7 @@
   <span class="md-ellipsis">
 
 
-  9.3 Graph Traversal
+  9.3 &nbsp; Graph traversal
 
 
   </span>
@@ -2583,7 +2583,7 @@
   <span class="md-ellipsis">
 
 
-  9.4 Summary
+  9.4 &nbsp; Summary
 
 
   </span>
@@ -2610,7 +2610,7 @@
   <span class="md-ellipsis">
 
 
-  9.5 Exercises
+  9.5 &nbsp; Exercises
 
 
   </span>
@@ -2678,7 +2678,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 10. Searching
+  Chapter 10. &nbsp; Searching
 
 
   </span>
@@ -2699,7 +2699,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 10. Searching
+  Chapter 10. &nbsp; Searching
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2720,7 +2720,7 @@
   <span class="md-ellipsis">
 
 
-  10.1 Binary Search
+  10.1 &nbsp; Binary search
 
 
   </span>
@@ -2747,7 +2747,7 @@
   <span class="md-ellipsis">
 
 
-  10.2 Binary Search Insertion Point
+  10.2 &nbsp; Finding an insertion point with binary search
 
 
   </span>
@@ -2774,7 +2774,7 @@
   <span class="md-ellipsis">
 
 
-  10.3 Binary Search Boundaries
+  10.3 &nbsp; Finding boundaries with binary search
 
 
   </span>
@@ -2801,7 +2801,7 @@
   <span class="md-ellipsis">
 
 
-  10.4 Hash Optimization Strategy
+  10.4 &nbsp; Optimizing with hashing
 
 
   </span>
@@ -2828,7 +2828,7 @@
   <span class="md-ellipsis">
 
 
-  10.5 Searching Algorithms Revisited
+  10.5 &nbsp; Search algorithms revisited
 
 
   </span>
@@ -2855,7 +2855,7 @@
   <span class="md-ellipsis">
 
 
-  10.6 Summary
+  10.6 &nbsp; Summary
 
 
   </span>
@@ -2882,7 +2882,7 @@
   <span class="md-ellipsis">
 
 
-  10.7 Exercises
+  10.7 &nbsp; Exercises
 
 
   </span>
@@ -2960,7 +2960,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 11. Sorting
+  Chapter 11. &nbsp; Sorting
 
 
   </span>
@@ -2981,7 +2981,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 11. Sorting
+  Chapter 11. &nbsp; Sorting
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3002,7 +3002,7 @@
   <span class="md-ellipsis">
 
 
-  11.1 Sorting Algorithm
+  11.1 &nbsp; Sorting algorithms
 
 
   </span>
@@ -3029,7 +3029,7 @@
   <span class="md-ellipsis">
 
 
-  11.2 Selection Sort
+  11.2 &nbsp; Selection sort
 
 
   </span>
@@ -3056,7 +3056,7 @@
   <span class="md-ellipsis">
 
 
-  11.3 Bubble Sort
+  11.3 &nbsp; Bubble sort
 
 
   </span>
@@ -3083,7 +3083,7 @@
   <span class="md-ellipsis">
 
 
-  11.4 Insertion Sort
+  11.4 &nbsp; Insertion sort
 
 
   </span>
@@ -3110,7 +3110,7 @@
   <span class="md-ellipsis">
 
 
-  11.5 Quick Sort
+  11.5 &nbsp; Quick sort
 
 
   </span>
@@ -3137,7 +3137,7 @@
   <span class="md-ellipsis">
 
 
-  11.6 Merge Sort
+  11.6 &nbsp; Merge sort
 
 
   </span>
@@ -3164,7 +3164,7 @@
   <span class="md-ellipsis">
 
 
-  11.7 Heap Sort
+  11.7 &nbsp; Heap sort
 
 
   </span>
@@ -3191,7 +3191,7 @@
   <span class="md-ellipsis">
 
 
-  11.8 Bucket Sort
+  11.8 &nbsp; Bucket sort
 
 
   </span>
@@ -3218,7 +3218,7 @@
   <span class="md-ellipsis">
 
 
-  11.9 Counting Sort
+  11.9 &nbsp; Counting sort
 
 
   </span>
@@ -3245,7 +3245,7 @@
   <span class="md-ellipsis">
 
 
-  11.10 Radix Sort
+  11.10 &nbsp; Radix sort
 
 
   </span>
@@ -3272,7 +3272,7 @@
   <span class="md-ellipsis">
 
 
-  11.11 Summary
+  11.11 &nbsp; Summary
 
 
   </span>
@@ -3299,7 +3299,7 @@
   <span class="md-ellipsis">
 
 
-  11.12 Exercises
+  11.12 &nbsp; Exercises
 
 
   </span>
@@ -3365,7 +3365,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 12. Divide and Conquer
+  Chapter 12. &nbsp; Divide and conquer
 
 
   </span>
@@ -3386,7 +3386,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 12. Divide and Conquer
+  Chapter 12. &nbsp; Divide and conquer
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3407,7 +3407,7 @@
   <span class="md-ellipsis">
 
 
-  12.1 Divide and Conquer Algorithms
+  12.1 &nbsp; Divide and conquer
 
 
   </span>
@@ -3434,7 +3434,7 @@
   <span class="md-ellipsis">
 
 
-  12.2 Divide and Conquer Search Strategy
+  12.2 &nbsp; Divide-and-conquer search
 
 
   </span>
@@ -3461,7 +3461,7 @@
   <span class="md-ellipsis">
 
 
-  12.3 Building a Binary Tree Problem
+  12.3 &nbsp; Building a binary tree
 
 
   </span>
@@ -3488,7 +3488,7 @@
   <span class="md-ellipsis">
 
 
-  12.4 Tower of Hanoi Problem
+  12.4 &nbsp; Tower of Hanoi
 
 
   </span>
@@ -3515,7 +3515,7 @@
   <span class="md-ellipsis">
 
 
-  12.5 Summary
+  12.5 &nbsp; Summary
 
 
   </span>
@@ -3542,7 +3542,7 @@
   <span class="md-ellipsis">
 
 
-  12.6 Exercises
+  12.6 &nbsp; Exercises
 
 
   </span>
@@ -3608,7 +3608,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 13. Backtracking
+  Chapter 13. &nbsp; Backtracking
 
 
   </span>
@@ -3629,7 +3629,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 13. Backtracking
+  Chapter 13. &nbsp; Backtracking
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3650,7 +3650,7 @@
   <span class="md-ellipsis">
 
 
-  13.1 Backtracking Algorithm
+  13.1 &nbsp; Backtracking algorithms
 
 
   </span>
@@ -3677,7 +3677,7 @@
   <span class="md-ellipsis">
 
 
-  13.2 Permutations Problem
+  13.2 &nbsp; Permutations problem
 
 
   </span>
@@ -3704,7 +3704,7 @@
   <span class="md-ellipsis">
 
 
-  13.3 Subset-Sum Problem
+  13.3 &nbsp; Subset sum problem
 
 
   </span>
@@ -3731,7 +3731,7 @@
   <span class="md-ellipsis">
 
 
-  13.4 N-Queens Problem
+  13.4 &nbsp; N-queens problem
 
 
   </span>
@@ -3758,7 +3758,7 @@
   <span class="md-ellipsis">
 
 
-  13.5 Summary
+  13.5 &nbsp; Summary
 
 
   </span>
@@ -3785,7 +3785,7 @@
   <span class="md-ellipsis">
 
 
-  13.6 Exercises
+  13.6 &nbsp; Exercises
 
 
   </span>
@@ -3855,7 +3855,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 14. Dynamic Programming
+  Chapter 14. &nbsp; Dynamic programming
 
 
   </span>
@@ -3876,7 +3876,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 14. Dynamic Programming
+  Chapter 14. &nbsp; Dynamic programming
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3897,7 +3897,7 @@
   <span class="md-ellipsis">
 
 
-  14.1 Introduction to Dynamic Programming
+  14.1 &nbsp; Introduction to dynamic programming
 
 
   </span>
@@ -3924,7 +3924,7 @@
   <span class="md-ellipsis">
 
 
-  14.2 Characteristics of Dynamic Programming Problems
+  14.2 &nbsp; Properties of dynamic programming problems
 
 
   </span>
@@ -3951,7 +3951,7 @@
   <span class="md-ellipsis">
 
 
-  14.3 Dynamic Programming Problem-Solving Approach
+  14.3 &nbsp; Solving dynamic programming problems
 
 
   </span>
@@ -3978,7 +3978,7 @@
   <span class="md-ellipsis">
 
 
-  14.4 0-1 Knapsack Problem
+  14.4 &nbsp; 0-1 knapsack problem
 
 
   </span>
@@ -4005,7 +4005,7 @@
   <span class="md-ellipsis">
 
 
-  14.5 Unbounded Knapsack Problem
+  14.5 &nbsp; Unbounded knapsack problem
 
 
   </span>
@@ -4032,7 +4032,7 @@
   <span class="md-ellipsis">
 
 
-  14.6 Edit Distance Problem
+  14.6 &nbsp; Edit distance problem
 
 
   </span>
@@ -4059,7 +4059,7 @@
   <span class="md-ellipsis">
 
 
-  14.7 Summary
+  14.7 &nbsp; Summary
 
 
   </span>
@@ -4086,7 +4086,7 @@
   <span class="md-ellipsis">
 
 
-  14.8 Exercises
+  14.8 &nbsp; Exercises
 
 
   </span>
@@ -4152,7 +4152,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 15. Greedy
+  Chapter 15. &nbsp; Greedy algorithms
 
 
   </span>
@@ -4173,7 +4173,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 15. Greedy
+  Chapter 15. &nbsp; Greedy algorithms
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4194,7 +4194,7 @@
   <span class="md-ellipsis">
 
 
-  15.1 Greedy Algorithm
+  15.1 &nbsp; Greedy algorithms
 
 
   </span>
@@ -4221,7 +4221,7 @@
   <span class="md-ellipsis">
 
 
-  15.2 Fractional Knapsack Problem
+  15.2 &nbsp; Fractional knapsack problem
 
 
   </span>
@@ -4248,7 +4248,7 @@
   <span class="md-ellipsis">
 
 
-  15.3 Maximum Capacity Problem
+  15.3 &nbsp; Maximum capacity problem
 
 
   </span>
@@ -4275,7 +4275,7 @@
   <span class="md-ellipsis">
 
 
-  15.4 Maximum Product Cutting Problem
+  15.4 &nbsp; Maximum product cutting problem
 
 
   </span>
@@ -4302,7 +4302,7 @@
   <span class="md-ellipsis">
 
 
-  15.5 Summary
+  15.5 &nbsp; Summary
 
 
   </span>
@@ -4329,7 +4329,7 @@
   <span class="md-ellipsis">
 
 
-  15.6 Exercises
+  15.6 &nbsp; Exercises
 
 
   </span>
@@ -4389,7 +4389,7 @@
   <span class="md-ellipsis">
 
 
-  Chapter 16. Appendix
+  Chapter 16. &nbsp; Appendix
 
 
   </span>
@@ -4410,7 +4410,7 @@
             <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 16. Appendix
+  Chapter 16. &nbsp; Appendix
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4431,7 +4431,7 @@
   <span class="md-ellipsis">
 
 
-  16.1 Programming Environment Installation
+  16.1 &nbsp; Setting up a programming environment
 
 
   </span>
@@ -4458,7 +4458,7 @@
   <span class="md-ellipsis">
 
 
-  16.2 Contributing Together
+  16.2 &nbsp; Contribute to the book
 
 
   </span>
@@ -4485,7 +4485,7 @@
   <span class="md-ellipsis">
 
 
-  16.3 Glossary
+  16.3 &nbsp; Glossary
 
 
   </span>
@@ -4569,6 +4569,78 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="md-nav__item md-nav__item--nested">
+
+
+
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_20" >
+
+
+          <div class="md-nav__link md-nav__container">
+            <a href="../../chapter_paperbook/" class="md-nav__link ">
+
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+  <span class="md-ellipsis">
+
+
+  Print edition (Chinese)
+
+
+  </span>
+
+
+
+
+
+    <span class="md-status md-status--new" title="Recently added">
+    </span>
+
+
+
+
+            </a>
+
+          </div>
+
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_20">
+            <span class="md-nav__icon md-icon"></span>
+
+
+  Print edition (Chinese)
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+          </ul>
+        </nav>
+
+    </li>
+
+
+
   </ul>
 </nav>
                   </div>
@@ -4613,7 +4685,7 @@
   <a href="#441-computer-storage-devices" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        4.4.1 &nbsp; Computer Storage Devices
+        4.4.1 &nbsp; Computer storage devices
       </span>
     </span>
   </a>
@@ -4624,7 +4696,7 @@
   <a href="#442-memory-efficiency-of-data-structures" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        4.4.2 &nbsp; Memory Efficiency of Data Structures
+        4.4.2 &nbsp; Memory efficiency of data structures
       </span>
     </span>
   </a>
@@ -4635,7 +4707,7 @@
   <a href="#443-cache-efficiency-of-data-structures" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        4.4.3 &nbsp; Cache Efficiency of Data Structures
+        4.4.3 &nbsp; Cache efficiency of data structures
       </span>
     </span>
   </a>
@@ -4679,19 +4751,19 @@
 
 
 <!-- Page content -->
-<h1 id="44-random-access-memory-and-cache">4.4 &nbsp; Random-Access Memory and Cache *<a class="headerlink" href="#44-random-access-memory-and-cache" title="Permanent link">&para;</a></h1>
-<p>In the first two sections of this chapter, we explored arrays and linked lists, two fundamental and important data structures that represent two physical layouts: "contiguous storage" and "distributed storage", respectively.</p>
-<p>In fact, <strong>physical structure largely determines the efficiency with which programs utilize memory and cache</strong>, which in turn affects the overall performance of algorithmic programs.</p>
-<h2 id="441-computer-storage-devices">4.4.1 &nbsp; Computer Storage Devices<a class="headerlink" href="#441-computer-storage-devices" title="Permanent link">&para;</a></h2>
-<p>Computers include three types of storage devices: <u>hard disk</u>, <u>random-access memory (RAM)</u>, and <u>cache memory</u>. The following table shows their different roles and performance characteristics in a computer system.</p>
-<p align="center"> Table 4-2 &nbsp; Computer Storage Devices </p>
+<h1 id="44-memory-and-cache">4.4 &nbsp; Memory and cache *<a class="headerlink" href="#44-memory-and-cache" title="Permanent link">&para;</a></h1>
+<p>The first two sections of this chapter introduced arrays and linked lists, two fundamental structures representing contiguous and scattered storage, respectively.</p>
+<p><strong>Physical structure largely determines how efficiently a program uses memory and cache</strong>, affecting its overall performance.</p>
+<h2 id="441-computer-storage-devices">4.4.1 &nbsp; Computer storage devices<a class="headerlink" href="#441-computer-storage-devices" title="Permanent link">&para;</a></h2>
+<p>Computers have three types of storage: <u>disk storage</u>, <u>random-access memory (RAM)</u>, and <u>cache memory</u>. Table 4-2 compares their roles and performance characteristics.</p>
+<p align="center"> Table 4-2 &nbsp; Computer storage devices </p>
 
 <div class="center-table">
 <table>
 <thead>
 <tr>
 <th></th>
-<th>Hard Disk</th>
+<th>Disk storage</th>
 <th>RAM</th>
 <th>Cache</th>
 </tr>
@@ -4699,80 +4771,80 @@
 <tbody>
 <tr>
 <td>Purpose</td>
-<td>Long-term storage of data, including operating systems, programs, and files</td>
-<td>Temporary storage of currently running programs and data being processed</td>
-<td>Storage of frequently accessed data and instructions to reduce CPU's accesses to memory</td>
+<td>Long-term storage of the operating system, programs, files, and other data</td>
+<td>Temporary storage of running programs and data being processed</td>
+<td>Stores frequently accessed data and instructions to reduce CPU accesses to RAM</td>
 </tr>
 <tr>
 <td>Volatility</td>
-<td>Data is not lost after power-off</td>
-<td>Data is lost after power-off</td>
-<td>Data is lost after power-off</td>
+<td>Retains data without power</td>
+<td>Loses data without power</td>
+<td>Loses data without power</td>
 </tr>
 <tr>
 <td>Capacity</td>
-<td>Large, on the order of terabytes (TB)</td>
-<td>Small, on the order of gigabytes (GB)</td>
-<td>Very small, on the order of megabytes (MB)</td>
+<td>Large, on the TB scale</td>
+<td>Smaller, on the GB scale</td>
+<td>Very small, on the MB scale</td>
 </tr>
 <tr>
 <td>Speed</td>
-<td>Slow, hundreds to thousands of MB/s</td>
-<td>Fast, tens of GB/s</td>
+<td>Slower, hundreds to thousands of MB/s</td>
+<td>Faster, tens of GB/s</td>
 <td>Very fast, tens to hundreds of GB/s</td>
 </tr>
 <tr>
-<td>Cost (CNY/GB)</td>
-<td>Inexpensive, from a few tenths of a yuan to a few yuan per GB</td>
-<td>Expensive, from tens to hundreds of yuan per GB</td>
-<td>Very expensive, effectively bundled with the CPU package</td>
+<td>Price (Chinese yuan)</td>
+<td>Inexpensive, fractions of a yuan to several yuan per GB</td>
+<td>More expensive, tens to hundreds of yuan per GB</td>
+<td>Very expensive, priced as part of the CPU</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>We can imagine the computer storage system as a pyramid, as shown in the diagram below. Storage devices closer to the top are faster, have smaller capacity, and are more expensive. This multi-layered design is deliberate, the result of careful consideration by computer scientists and engineers.</p>
+<p>We can picture computer storage as the pyramid in Figure 4-9. Nearer the top, storage is faster, smaller, and more expensive. This hierarchy is a deliberate design by computer scientists and engineers.</p>
 <ul>
-<li><strong>Hard disk cannot be easily replaced by RAM</strong>. First, data in memory is lost after power-off, making it unsuitable for long-term data storage. Second, memory is tens of times more expensive than hard disk, which makes it difficult to popularize in the consumer market.</li>
-<li><strong>Cache cannot simultaneously achieve large capacity and high speed</strong>. As the capacity of L1, L2, and L3 caches increases, their physical size becomes larger, and the physical distance between them and the CPU core increases, resulting in longer data transmission time and higher element access latency. With current technology, the multi-layered cache structure represents the best balance point between capacity, speed, and cost.</li>
+<li><strong>RAM cannot readily replace disk storage</strong>. It loses data when power is removed, making it unsuitable for long-term storage. It also costs tens of times more than disk storage, making such a replacement impractical for consumers.</li>
+<li><strong>Cache capacity and speed are difficult to maximize together</strong>. From L1 to L2 to L3, increasing capacity means greater physical size and distance from the CPU core, increasing transfer time and access latency. With current technology, a multilevel cache offers the best balance of capacity, speed, and cost.</li>
 </ul>
-<p><img alt="Computer Storage System" class="animation-figure" src="../ram_and_cache.assets/storage_pyramid.png" /></p>
-<p align="center"> Figure 4-9 &nbsp; Computer Storage System </p>
+<p><img alt="Computer storage hierarchy" class="animation-figure" src="../ram_and_cache.assets/storage_pyramid.png" /></p>
+<p align="center"> Figure 4-9 &nbsp; Computer storage hierarchy </p>
 
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The storage hierarchy of computers embodies a delicate balance among speed, capacity, and cost. In fact, such trade-offs are common across all industrial fields, requiring us to find the optimal balance point between different advantages and constraints.</p>
+<p>The storage hierarchy balances speed, capacity, and cost. Such tradeoffs occur throughout industry, requiring us to find the best balance among competing strengths and limitations.</p>
 </div>
-<p>In summary, <strong>hard disks are used for long-term storage of large amounts of data, RAM is used to temporarily store the data being processed during program execution, and cache is used to store frequently accessed data and instructions</strong>, thereby improving program execution efficiency. The three work together to keep the computer system running efficiently.</p>
-<p>As shown in the diagram below, during program execution, data is read from the hard disk into RAM for CPU computation. Cache can be viewed as part of the CPU. <strong>By intelligently loading data from RAM</strong>, it provides the CPU with high-speed access to data, significantly improving program execution efficiency and reducing reliance on slower RAM.</p>
-<p><img alt="Data Flow Among Hard Disk, RAM, and Cache" class="animation-figure" src="../ram_and_cache.assets/computer_storage_devices.png" /></p>
-<p align="center"> Figure 4-10 &nbsp; Data Flow Among Hard Disk, RAM, and Cache </p>
+<p>In general, <strong>disks store large amounts of data long term, RAM temporarily holds data being processed, and caches hold frequently accessed data and instructions</strong> to speed up execution. The three work together to keep the computer efficient.</p>
+<p>As shown in Figure 4-10, a running program reads data from disk into RAM for the CPU to process. The cache can be viewed as part of the CPU: <strong>it intelligently loads data from RAM</strong> and provides faster access, improving execution speed and reducing dependence on slower memory.</p>
+<p><img alt="Data flow between disk, RAM, and cache" class="animation-figure" src="../ram_and_cache.assets/computer_storage_devices.png" /></p>
+<p align="center"> Figure 4-10 &nbsp; Data flow between disk, RAM, and cache </p>
 
-<h2 id="442-memory-efficiency-of-data-structures">4.4.2 &nbsp; Memory Efficiency of Data Structures<a class="headerlink" href="#442-memory-efficiency-of-data-structures" title="Permanent link">&para;</a></h2>
-<p>In terms of memory space utilization, arrays and linked lists each have advantages and limitations.</p>
-<p>On one hand, <strong>memory is limited, and the same memory cannot be shared by multiple programs</strong>, so we hope data structures can utilize space as efficiently as possible. Array elements are tightly packed and do not require additional space to store references (pointers) between linked list nodes, thus having higher space efficiency. However, arrays need to allocate sufficient contiguous memory space at once, which may lead to memory waste, and array expansion requires additional time and space costs. In comparison, linked lists perform dynamic memory allocation and deallocation on a "node" basis, providing greater flexibility.</p>
-<p>On the other hand, during program execution, <strong>as memory is repeatedly allocated and freed, the degree of fragmentation of free memory becomes increasingly severe</strong>, leading to reduced memory utilization efficiency. Arrays, due to their contiguous storage approach, are relatively less prone to memory fragmentation. Conversely, linked list elements are distributed in storage, and frequent insertion and deletion operations are more likely to cause memory fragmentation.</p>
-<h2 id="443-cache-efficiency-of-data-structures">4.4.3 &nbsp; Cache Efficiency of Data Structures<a class="headerlink" href="#443-cache-efficiency-of-data-structures" title="Permanent link">&para;</a></h2>
-<p>Although cache has much smaller space capacity than memory, it is much faster than memory and plays a crucial role in program execution speed. Since cache capacity is limited and can only store a small portion of frequently accessed data, when the CPU attempts to access data that is not in the cache, a <u>cache miss</u> occurs, and the CPU must load the required data from the slower memory.</p>
-<p>Clearly, <strong>the fewer "cache misses," the higher the efficiency of CPU data reads and writes</strong>, and the better the program performance. We call the proportion of data that the CPU successfully obtains from the cache the <u>cache hit rate</u>, a metric typically used to measure cache efficiency.</p>
-<p>To achieve the highest efficiency possible, cache employs the following data loading mechanisms.</p>
+<h2 id="442-memory-efficiency-of-data-structures">4.4.2 &nbsp; Memory efficiency of data structures<a class="headerlink" href="#442-memory-efficiency-of-data-structures" title="Permanent link">&para;</a></h2>
+<p>Arrays and linked lists each have strengths and limitations in memory use.</p>
+<p>On one hand, <strong>memory is finite, and the same region cannot be shared by multiple programs</strong>, so data structures should use it efficiently. Arrays pack elements tightly without extra references (pointers) between nodes, making them more space-efficient. However, they require a sufficiently large contiguous allocation, which can waste memory, and expansion costs extra time and space. Linked lists instead allocate and reclaim memory node by node, providing greater flexibility.</p>
+<p>On the other hand, <strong>repeated allocation and deallocation increasingly fragment free memory</strong>, reducing its usability. Arrays' contiguous storage is less prone to causing fragmentation. Linked lists store elements in scattered locations, so frequent insertions and deletions are more likely to fragment memory.</p>
+<h2 id="443-cache-efficiency-of-data-structures">4.4.3 &nbsp; Cache efficiency of data structures<a class="headerlink" href="#443-cache-efficiency-of-data-structures" title="Permanent link">&para;</a></h2>
+<p>A cache is much smaller than RAM but far faster, making it crucial to execution speed. Its limited capacity holds only a small portion of frequently accessed data. If the CPU requests data not in the cache, a <u>cache miss</u> occurs, and the data must be fetched from slower RAM.</p>
+<p>Clearly, <strong>fewer cache misses mean more efficient CPU reads and writes</strong> and better program performance. The fraction of accesses successfully served by the cache is the <u>cache hit rate</u>, a common measure of cache efficiency.</p>
+<p>Caches use the following mechanisms to improve efficiency.</p>
 <ul>
-<li><strong>Cache lines</strong>: The cache does not store and load data on a byte-by-byte basis, but rather as cache lines. Compared to byte-by-byte transmission, cache line transmission is more efficient.</li>
-<li><strong>Prefetching mechanism</strong>: The processor attempts to predict data access patterns (e.g., sequential access, fixed-stride jumping access, etc.) and loads data into the cache according to specific patterns, thereby improving hit rate.</li>
-<li><strong>Spatial locality</strong>: If a piece of data is accessed, nearby data may also be accessed in the near future. Therefore, when the cache loads a particular piece of data, it also loads nearby data to improve hit rate.</li>
-<li><strong>Temporal locality</strong>: If a piece of data is accessed, it is likely to be accessed again in the near future. Cache leverages this principle by retaining recently accessed data to improve hit rate.</li>
+<li><strong>Cache lines</strong>: Data is stored and loaded in cache-line units rather than one byte at a time, making transfers more efficient.</li>
+<li><strong>Prefetching</strong>: The processor tries to predict access patterns, such as sequential access or fixed strides, and loads matching data into the cache to improve the hit rate.</li>
+<li><strong>Spatial locality</strong>: Accessing data suggests that nearby data may soon be needed, so the cache loads neighboring data as well.</li>
+<li><strong>Temporal locality</strong>: Recently accessed data is likely to be accessed again soon, so keeping it in the cache improves the hit rate.</li>
 </ul>
-<p>In fact, <strong>arrays and linked lists differ in how efficiently they utilize cache</strong>, mainly in the following respects.</p>
+<p><strong>Arrays and linked lists use the cache differently</strong>, mainly in the following ways.</p>
 <ul>
-<li><strong>Space occupied</strong>: Linked-list elements occupy more space than array elements, so less useful data can fit in the cache.</li>
-<li><strong>Cache lines</strong>: Linked list data are scattered throughout memory, while cache loads "by lines," so the proportion of invalid data loaded is higher.</li>
-<li><strong>Prefetching mechanism</strong>: Arrays have more "predictable" data access patterns than linked lists, making it easier for the system to guess which data will be loaded next.</li>
-<li><strong>Spatial locality</strong>: Arrays are stored in centralized memory space, so data near loaded data is more likely to be accessed soon.</li>
+<li><strong>Storage size</strong>: Linked list elements require more space, leaving less room for useful data in the cache.</li>
+<li><strong>Cache lines</strong>: Linked list data is scattered, so loading a whole cache line brings in a larger proportion of unneeded data.</li>
+<li><strong>Prefetching</strong>: Array access patterns are more predictable, making it easier to anticipate the next data needed.</li>
+<li><strong>Spatial locality</strong>: Array elements are stored together, so data near a loaded element is more likely to be accessed soon.</li>
 </ul>
-<p>Overall, <strong>arrays have higher cache hit rates, thus they usually outperform linked lists in operation efficiency</strong>. This makes data structures implemented based on arrays more popular when solving algorithmic problems.</p>
-<p>It is important to note that <strong>high cache efficiency does not mean arrays are superior to linked lists in all cases</strong>. In practical applications, which data structure to choose should be determined based on specific requirements. For example, both arrays and linked lists can implement the "stack" data structure (which will be discussed in detail in the next chapter), but they are suitable for different scenarios.</p>
+<p>Overall, <strong>arrays have higher cache hit rates and usually faster operations than linked lists</strong>. This makes array-based structures popular for algorithmic problems.</p>
+<p>However, <strong>better cache efficiency does not make arrays superior in every situation</strong>. Choose a structure based on the requirements. Both arrays and linked lists can implement a stack, discussed in the next chapter, but suit different situations.</p>
 <ul>
-<li>When solving algorithm problems, we tend to prefer stack implementations based on arrays, because they provide higher operation efficiency and the ability of random access, at the cost of needing to pre-allocate a certain amount of memory space for the array.</li>
-<li>If the data volume is very large, the dynamic nature is high, and the expected size of the stack is difficult to estimate, then a stack implementation based on linked lists is more suitable. Linked lists can distribute large amounts of data across different parts of memory and avoid the additional overhead produced by array expansion.</li>
+<li>For algorithm exercises, an array-based stack is often preferable because of faster operations and random access, at the cost of allocating some memory in advance.</li>
+<li>If the dataset is very large, changes frequently, and the stack's size is hard to predict, a linked-list-based stack may be more suitable. It can distribute data throughout memory and avoid the extra cost of array expansion.</li>
 </ul>
 
 <!-- Source file information -->
@@ -4796,7 +4868,7 @@ aria-label="Footer"
   <a
     href="../list/"
     class="md-footer__link md-footer__link--prev"
-    aria-label="Previous: 4.3 List"
+    aria-label="Previous: 4.3   Lists"
     rel="prev"
   >
     <div class="md-footer__button md-icon">
@@ -4808,7 +4880,7 @@ aria-label="Footer"
         Previous
       </span>
       <div class="md-ellipsis">
-        4.3 List
+        4.3 &nbsp; Lists
       </div>
     </div>
   </a>
@@ -4820,7 +4892,7 @@ aria-label="Footer"
   <a
     href="../summary/"
     class="md-footer__link md-footer__link--next"
-    aria-label="Next: 4.5 Summary"
+    aria-label="Next: 4.5   Summary"
     rel="next"
   >
     <div class="md-footer__title">
@@ -4828,7 +4900,7 @@ aria-label="Footer"
         Next
       </span>
       <div class="md-ellipsis">
-        4.5 Summary
+        4.5 &nbsp; Summary
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -4845,7 +4917,7 @@ aria-label="Footer"
   <!-- Check-in button above comments -->
 
 
-  <h5 align="center" id="__comments">Feel free to drop your insights, questions or suggestions</h5>
+  <h5 align="center" id="__comments">Share your insights, questions, or suggestions in the comments</h5>
 
   <!-- Insert generated snippet here -->
   <script
