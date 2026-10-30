@@ -4,28 +4,28 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* Queue based on circular array implementation */
+/* Queue implemented with a circular array */
 class ArrayQueue {
-  late List<int> _nums; // Array for storing queue elements
-  late int _front; // Front pointer, points to the front of the queue element
-  late int _queSize; // Queue length
+  late List<int> _nums; // Array that stores the queue elements
+  late int _front; // Front pointer, pointing to the first element
+  late int _queSize; // Queue size
 
   ArrayQueue(int capacity) {
     _nums = List.filled(capacity, 0);
     _front = _queSize = 0;
   }
 
-  /* Get the capacity of the queue */
+  /* Get the queue capacity */
   int capaCity() {
     return _nums.length;
   }
 
-  /* Get the length of the queue */
+  /* Get the queue size */
   int size() {
     return _queSize;
   }
 
-  /* Check if the queue is empty */
+  /* Check whether the queue is empty */
   bool isEmpty() {
     return _queSize == 0;
   }
@@ -35,10 +35,10 @@ class ArrayQueue {
     if (_queSize == capaCity()) {
       throw Exception("Queue is full");
     }
-    // Use modulo operation to wrap rear around to the head after passing the tail of the array
-    // Add num to the rear of the queue
+    // Calculate the rear pointer, which points one position past the last element
+    // Use modulo to wrap rear to the beginning when it passes the end of the array
     int rear = (_front + _queSize) % capaCity();
-    // Add _num to queue rear
+    // Add _num to the rear
     _nums[rear] = _num;
     _queSize++;
   }
@@ -46,13 +46,13 @@ class ArrayQueue {
   /* Dequeue */
   int pop() {
     int _num = peek();
-    // Move front pointer backward by one position, if it passes the tail, return to array head
+    // Advance the front pointer by one position, wrapping to the beginning if it passes the end
     _front = (_front + 1) % capaCity();
     _queSize--;
     return _num;
   }
 
-  /* Return list for printing */
+  /* Access the front element */
   int peek() {
     if (isEmpty()) {
       throw Exception("Queue is empty");
@@ -60,9 +60,9 @@ class ArrayQueue {
     return _nums[_front];
   }
 
-  /* Return Array */
+  /* Return an array */
   List<int> toArray() {
-    // Elements enqueue
+    // Convert only the list elements within the occupied range
     final List<int> res = List.filled(_queSize, 0);
     for (int i = 0, j = _front; i < _queSize; i++, j++) {
       res[i] = _nums[j % capaCity()];
@@ -71,13 +71,13 @@ class ArrayQueue {
   }
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
-  /* Access front of the queue element */
+  /* Initialize the queue */
   final int capacity = 10;
   final ArrayQueue queue = ArrayQueue(capacity);
 
-  /* Elements enqueue */
+  /* Enqueue elements */
   queue.push(1);
   queue.push(3);
   queue.push(2);
@@ -85,26 +85,26 @@ void main() {
   queue.push(4);
   print("Queue queue = ${queue.toArray()}");
 
-  /* Return list for printing */
+  /* Access the front element */
   final int peek = queue.peek();
   print("Front element peek = $peek");
 
-  /* Element dequeue */
+  /* Dequeue an element */
   final int pop = queue.pop();
-  print("Dequeue element pop = $pop, after dequeue queue = ${queue.toArray()}");
+  print("Dequeued element pop = $pop; after dequeuing, queue = ${queue.toArray()}");
 
-  /* Get queue length */
+  /* Get the queue size */
   final int size = queue.size();
-  print("Queue length size = $size");
+  print("Queue size = $size");
 
-  /* Check if the queue is empty */
+  /* Check whether the queue is empty */
   final bool isEmpty = queue.isEmpty();
-  print("Is queue empty = $isEmpty");
+  print("Is the queue empty = $isEmpty");
 
-  /* Test circular array */
+  /* Test the circular array */
   for (int i = 0; i < 10; i++) {
     queue.push(i);
     queue.pop();
-    print("After round $i enqueue + dequeue, queue = ${queue.toArray()}");
+    print("Round $i: after enqueue + dequeue, queue = ${queue.toArray()}");
   }
 }

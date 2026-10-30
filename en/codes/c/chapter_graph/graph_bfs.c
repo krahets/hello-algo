@@ -6,10 +6,10 @@
 
 #include "graph_adjacency_list.c"
 
-// Assume max node count is 100
+// Assume at most 100 vertices
 #define MAX_SIZE 100
 
-/* Node queue structure */
+/* Vertex queue structure */
 typedef struct {
     Vertex *vertices[MAX_SIZE];
     int front, rear, size;
@@ -22,7 +22,7 @@ Queue *newQueue() {
     return q;
 }
 
-/* Check if the queue is empty */
+/* Check whether the queue is empty */
 int isEmpty(Queue *q) {
     return q->size == 0;
 }
@@ -42,9 +42,9 @@ Vertex *dequeue(Queue *q) {
     return vet;
 }
 
-/* Check if vertex has been visited */
+/* Check whether a vertex has been visited */
 int isVisited(Vertex **visited, int size, Vertex *vet) {
-    // Traverse to find node using O(n) time
+    // Search for the vertex with a linear scan in O(n) time
     for (int i = 0; i < size; i++) {
         if (visited[i] == vet)
             return 1;
@@ -53,22 +53,22 @@ int isVisited(Vertex **visited, int size, Vertex *vet) {
 }
 
 /* Breadth-first traversal */
-// Use adjacency list to represent the graph, in order to obtain all adjacent vertices of a specified vertex
+// Represent the graph with an adjacency list to access all neighbors of a given vertex
 void graphBFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize, Vertex **visited, int *visitedSize) {
-    // Queue used to implement BFS
+    // Use a queue to implement BFS
     Queue *queue = newQueue();
     enqueue(queue, startVet);
     visited[(*visitedSize)++] = startVet;
-    // Starting from vertex vet, loop until all vertices are visited
+    // Starting from startVet, continue until all reachable vertices have been visited
     while (!isEmpty(queue)) {
         Vertex *vet = dequeue(queue); // Dequeue the front vertex
-        res[(*resSize)++] = vet;      // Record visited vertex
-        // Traverse all adjacent vertices of this vertex
+        res[(*resSize)++] = vet;      // Record the visited vertex
+        // Traverse all neighbors of this vertex
         AdjListNode *node = findNode(graph, vet);
         while (node != NULL) {
-            // Skip vertices that have been visited
+            // Skip vertices that have already been visited
             if (!isVisited(visited, *visitedSize, node->vertex)) {
-                enqueue(queue, node->vertex);             // Only enqueue unvisited vertices
+                enqueue(queue, node->vertex);             // Enqueue only unvisited vertices
                 visited[(*visitedSize)++] = node->vertex; // Mark this vertex as visited
             }
             node = node->next;
@@ -78,9 +78,9 @@ void graphBFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize,
     free(queue);
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    // Add edge
+    // Initialize the undirected graph
     int vals[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     int size = sizeof(vals) / sizeof(vals[0]);
     Vertex **v = valsToVets(vals, size);
@@ -95,18 +95,18 @@ int main() {
     for (int i = 0; i < egdeSize; i++) {
         addEdge(graph, edges[i][0], edges[i][1]);
     }
-    printf("\nAfter initialization, graph is\n");
+    printf("\nGraph after initialization:\n");
     printGraph(graph);
 
     // Breadth-first traversal
     // Vertex traversal sequence
     Vertex *res[MAX_SIZE];
     int resSize = 0;
-    // Used to record visited vertices
+    // Track vertices that have already been visited
     Vertex *visited[MAX_SIZE];
     int visitedSize = 0;
     graphBFS(graph, v[0], res, &resSize, visited, &visitedSize);
-    printf("\nBreadth-first traversal (BFS) vertex sequence is\n");
+    printf("\nVertex sequence from breadth-first traversal (BFS):\n");
     printArray(vetsToVals(res, resSize), resSize);
 
     // Free memory

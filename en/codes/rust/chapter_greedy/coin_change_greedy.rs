@@ -4,14 +4,14 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-/* Coin change: Greedy algorithm */
+/* Coin change: greedy algorithm */
 fn coin_change_greedy(coins: &[i32], mut amt: i32) -> i32 {
-    // Assume coins list is sorted
+    // Assume the coins list is sorted
     let mut i = coins.len() - 1;
     let mut count = 0;
-    // Loop to make greedy choices until no remaining amount
+    // Repeatedly make greedy choices until no amount remains
     while amt > 0 {
-        // Find the coin that is less than and closest to the remaining amount
+        // Find the largest coin that does not exceed the remaining amount
         while i > 0 && coins[i] > amt {
             i -= 1;
         }
@@ -19,7 +19,7 @@ fn coin_change_greedy(coins: &[i32], mut amt: i32) -> i32 {
         amt -= coins[i];
         count += 1;
     }
-    // If no feasible solution is found, return -1
+    // Return -1 if no feasible solution was found
     if amt == 0 {
         count
     } else {
@@ -27,28 +27,28 @@ fn coin_change_greedy(coins: &[i32], mut amt: i32) -> i32 {
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
-    // Greedy algorithm: Can guarantee finding the global optimal solution
+    // Greedy algorithm: guaranteed to find a globally optimal solution
     let coins = [1, 5, 10, 20, 50, 100];
     let amt = 186;
     let res = coin_change_greedy(&coins, amt);
     println!("\ncoins = {:?}, amt = {}", coins, amt);
-    println!("Minimum coins needed to make {} is {}", amt, res);
+    println!("Greedy coin count for amount {}: {}", amt, res);
 
-    // Greedy algorithm: Cannot guarantee finding the global optimal solution
+    // Greedy algorithm: not guaranteed to find a globally optimal solution
     let coins = [1, 20, 50];
     let amt = 60;
     let res = coin_change_greedy(&coins, amt);
     println!("\ncoins = {:?}, amt = {}", coins, amt);
-    println!("Minimum coins needed to make {} is {}", amt, res);
-    println!("Actually the minimum number needed is 3, i.e., 20 + 20 + 20");
+    println!("Greedy coin count for amount {}: {}", amt, res);
+    println!("The actual minimum is 3 coins: 20 + 20 + 20");
 
-    // Greedy algorithm: Cannot guarantee finding the global optimal solution
+    // Greedy algorithm: not guaranteed to find a globally optimal solution
     let coins = [1, 49, 50];
     let amt = 98;
     let res = coin_change_greedy(&coins, amt);
     println!("\ncoins = {:?}, amt = {}", coins, amt);
-    println!("Minimum coins needed to make {} is {}", amt, res);
-    println!("Actually the minimum number needed is 2, i.e., 49 + 49");
+    println!("Greedy coin count for amount {}: {}", amt, res);
+    println!("The actual minimum is 2 coins: 49 + 49");
 }

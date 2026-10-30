@@ -4,13 +4,13 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Memoization search */
+/* Memoized search */
 func dfs(i: Int, mem: inout [Int]) -> Int {
-    // Known dp[1] and dp[2], return them
+    // The values of dp[1] and dp[2] are known; return them
     if i == 1 || i == 2 {
         return i
     }
-    // If record dp[i] exists, return it directly
+    // If dp[i] has been recorded, return it directly
     if mem[i] != -1 {
         return mem[i]
     }
@@ -21,20 +21,20 @@ func dfs(i: Int, mem: inout [Int]) -> Int {
     return count
 }
 
-/* Climbing stairs: Memoization search */
+/* Climbing stairs: memoized search */
 func climbingStairsDFSMem(n: Int) -> Int {
-    // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+    // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
     var mem = Array(repeating: -1, count: n + 1)
     return dfs(i: n, mem: &mem)
 }
 
 @main
 enum ClimbingStairsDFSMem {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         let n = 9
 
         let res = climbingStairsDFSMem(n: n)
-        print("Climbing \(n) stairs has \(res) solutions")
+        print("Number of ways to climb \(n) steps: \(res)")
     }
 }

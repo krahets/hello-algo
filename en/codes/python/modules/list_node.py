@@ -10,7 +10,7 @@ class ListNode:
 
     def __init__(self, val: int):
         self.val: int = val  # Node value
-        self.next: ListNode | None = None  # Reference to next node
+        self.next: ListNode | None = None  # Reference to the next node
 
 
 def list_to_linked_list(arr: list[int]) -> ListNode | None:

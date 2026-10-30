@@ -10,8 +10,8 @@ import utils
 class HashMapChaining {
     var size: Int // Number of key-value pairs
     var capacity: Int // Hash table capacity
-    var loadThres: Double // Load factor threshold for triggering expansion
-    var extendRatio: Int // Expansion multiplier
+    var loadThres: Double // Load factor threshold that triggers capacity growth
+    var extendRatio: Int // Capacity growth factor
     var buckets: [[Pair]] // Bucket array
 
     /* Constructor */
@@ -33,36 +33,36 @@ class HashMapChaining {
         Double(size) / Double(capacity)
     }
 
-    /* Query operation */
+    /* Lookup operation */
     func get(key: Int) -> String? {
         let index = hashFunc(key: key)
         let bucket = buckets[index]
-        // Traverse bucket, if key is found, return corresponding val
+        // Traverse the bucket; if key is found, return its corresponding val
         for pair in bucket {
             if pair.key == key {
                 return pair.val
             }
         }
-        // Return nil if key not found
+        // Return nil if key is not found
         return nil
     }
 
-    /* Add operation */
+    /* Insert operation */
     func put(key: Int, val: String) {
-        // When load factor exceeds threshold, perform expansion
+        // Grow the capacity when the load factor exceeds the threshold
         if loadFactor() > loadThres {
             extend()
         }
         let index = hashFunc(key: key)
         let bucket = buckets[index]
-        // Traverse bucket, if specified key is encountered, update corresponding val and return
+        // Traverse the bucket; if the specified key is found, update its val and return
         for pair in bucket {
             if pair.key == key {
                 pair.val = val
                 return
             }
         }
-        // If key does not exist, append key-value pair to the end
+        // If key is absent, append the key-value pair at the end
         let pair = Pair(key: key, val: val)
         buckets[index].append(pair)
         size += 1
@@ -72,7 +72,7 @@ class HashMapChaining {
     func remove(key: Int) {
         let index = hashFunc(key: key)
         let bucket = buckets[index]
-        // Traverse bucket and remove key-value pair from it
+        // Traverse the bucket and remove the key-value pair
         for (pairIndex, pair) in bucket.enumerated() {
             if pair.key == key {
                 buckets[index].remove(at: pairIndex)
@@ -82,15 +82,15 @@ class HashMapChaining {
         }
     }
 
-    /* Expand hash table */
+    /* Grow the hash table capacity */
     func extend() {
-        // Temporarily store the original hash table
+        // Save the original bucket array
         let bucketsTmp = buckets
-        // Initialize expanded new hash table
+        // Initialize a new hash table with the expanded capacity
         capacity *= extendRatio
         buckets = Array(repeating: [], count: capacity)
         size = 0
-        // Move key-value pairs from original hash table to new hash table
+        // Move the key-value pairs from the original hash table to the new one
         for bucket in bucketsTmp {
             for pair in bucket {
                 put(key: pair.key, val: pair.val)
@@ -98,7 +98,7 @@ class HashMapChaining {
         }
     }
 
-    /* Print hash table */
+    /* Print the hash table */
     func print() {
         for bucket in buckets {
             let res = bucket.map { "\($0.key) -> \($0.val)" }
@@ -109,30 +109,30 @@ class HashMapChaining {
 
 @main
 enum _HashMapChaining {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        /* Initialize hash table */
+        /* Initialize the hash table */
         let map = HashMapChaining()
 
-        /* Add operation */
-        // Add key-value pair (key, value) to the hash table
-        map.put(key: 12836, val: "Xiao Ha")
-        map.put(key: 15937, val: "Xiao Luo")
-        map.put(key: 16750, val: "Xiao Suan")
-        map.put(key: 13276, val: "Xiao Fa")
-        map.put(key: 10583, val: "Xiao Ya")
-        print("\nAfter adding is complete, hash table is\nKey -> Value")
+        /* Insert operation */
+        // Insert the key-value pair (key, value) into the hash table
+        map.put(key: 12836, val: "小哈")
+        map.put(key: 15937, val: "小啰")
+        map.put(key: 16750, val: "小算")
+        map.put(key: 13276, val: "小法")
+        map.put(key: 10583, val: "小鸭")
+        print("\nHash table after insertion:\nKey -> Value")
         map.print()
 
-        /* Query operation */
-        // Input key into hash table to get value
+        /* Lookup operation */
+        // Look up key in the hash table to obtain value
         let name = map.get(key: 13276)
-        print("\nInput student ID 13276, found name \(name!)")
+        print("\nLooking up student ID 13276 gives the name \(name!)")
 
         /* Remove operation */
-        // Remove key-value pair (key, value) from hash table
+        // Remove the key-value pair (key, value) from the hash table
         map.remove(key: 12836)
-        print("\nAfter removing 12836, hash table is\nKey -> Value")
+        print("\nHash table after removing 12836:\nKey -> Value")
         map.print()
     }
 }

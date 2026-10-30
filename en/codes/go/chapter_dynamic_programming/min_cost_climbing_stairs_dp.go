@@ -4,7 +4,7 @@
 
 package chapter_dynamic_programming
 
-/* Minimum cost climbing stairs: Dynamic programming */
+/* Minimum cost to climb stairs: dynamic programming */
 func minCostClimbingStairsDP(cost []int) int {
 	n := len(cost) - 1
 	if n == 1 || n == 2 {
@@ -16,19 +16,19 @@ func minCostClimbingStairsDP(cost []int) int {
 		}
 		return b
 	}
-	// Initialize dp table, used to store solutions to subproblems
+	// Initialize the dp table to store subproblem solutions
 	dp := make([]int, n+1)
-	// Initial state: preset the solution to the smallest subproblem
+	// Initial states: set the solutions to the smallest subproblems
 	dp[1] = cost[1]
 	dp[2] = cost[2]
-	// State transition: gradually solve larger subproblems from smaller ones
+	// State transitions: solve progressively larger subproblems using smaller ones
 	for i := 3; i <= n; i++ {
 		dp[i] = min(dp[i-1], dp[i-2]) + cost[i]
 	}
 	return dp[n]
 }
 
-/* Minimum cost climbing stairs: Space-optimized dynamic programming */
+/* Minimum cost to climb stairs: space-optimized dynamic programming */
 func minCostClimbingStairsDPComp(cost []int) int {
 	n := len(cost) - 1
 	if n == 1 || n == 2 {
@@ -40,9 +40,9 @@ func minCostClimbingStairsDPComp(cost []int) int {
 		}
 		return b
 	}
-	// Initial state: preset the solution to the smallest subproblem
+	// Initial states: set the solutions to the smallest subproblems
 	a, b := cost[1], cost[2]
-	// State transition: gradually solve larger subproblems from smaller ones
+	// State transitions: solve progressively larger subproblems using smaller ones
 	for i := 3; i <= n; i++ {
 		tmp := b
 		b = min(a, tmp) + cost[i]

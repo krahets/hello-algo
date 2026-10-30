@@ -29,7 +29,7 @@ def remove(n0: ListNode):
 
 
 def access(head: ListNode, index: int) -> ListNode | None:
-    """Access the node at index index in the linked list"""
+    """Access the node at index `index` in the linked list"""
     for _ in range(index):
         if not head:
             return None
@@ -48,16 +48,16 @@ def find(head: ListNode, target: int) -> int:
     return -1
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
-    # Initialize linked list
-    # Initialize each node
+    # Initialize the linked list
+    # Initialize the individual nodes
     n0 = ListNode(1)
     n1 = ListNode(3)
     n2 = ListNode(2)
     n3 = ListNode(5)
     n4 = ListNode(4)
-    # Build references between nodes
+    # Set up references between the nodes
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -65,21 +65,21 @@ if __name__ == "__main__":
     print("The initialized linked list is")
     print_linked_list(n0)
 
-    # Insert node
+    # Insert a node
     p = ListNode(0)
     insert(n0, p)
     print("The linked list after inserting a node is")
     print_linked_list(n0)
 
-    # Remove node
+    # Remove a node
     remove(n0)
     print("The linked list after removing a node is")
     print_linked_list(n0)
 
-    # Access node
+    # Access a node
     node: ListNode = access(n0, 3)
-    print("The value of the node at index 3 in the linked list = {}".format(node.val))
+    print("Value of the node at index 3 in the linked list = {}".format(node.val))
 
-    # Find node
+    # Find a node
     index: int = find(n0, 2)
-    print("The index of the node with value 2 in the linked list = {}".format(index))
+    print("Index of the node with value 2 in the linked list = {}".format(index))

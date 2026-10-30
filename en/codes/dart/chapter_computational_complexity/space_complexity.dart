@@ -17,9 +17,9 @@ int function() {
   return 0;
 }
 
-/* Constant order */
+/* Constant complexity */
 void constant(int n) {
-  // Constants, variables, objects occupy O(1) space
+  // Constants, variables, and objects occupy O(1) space
   final int a = 0;
   int b = 0;
   List<int> nums = List.filled(10000, 0);
@@ -28,40 +28,40 @@ void constant(int n) {
   for (var i = 0; i < n; i++) {
     int c = 0;
   }
-  // Functions in the loop occupy O(1) space
+  // Function calls in the loop occupy O(1) space
   for (var i = 0; i < n; i++) {
     function();
   }
 }
 
-/* Linear order */
+/* Linear complexity */
 void linear(int n) {
-  // Array of length n uses O(n) space
+  // An array of length n uses O(n) space
   List<int> nums = List.filled(n, 0);
   // A list of length n occupies O(n) space
   List<ListNode> nodes = [];
   for (var i = 0; i < n; i++) {
     nodes.add(ListNode(i));
   }
-  // A hash table of length n occupies O(n) space
+  // A hash table with n entries occupies O(n) space
   Map<int, String> map = HashMap();
   for (var i = 0; i < n; i++) {
     map.putIfAbsent(i, () => i.toString());
   }
 }
 
-/* Linear order (recursive implementation) */
+/* Linear complexity (recursive implementation) */
 void linearRecur(int n) {
-  print('Recursion n = $n');
+  print('Recursive call: n = $n');
   if (n == 1) return;
   linearRecur(n - 1);
 }
 
-/* Exponential order */
+/* Quadratic complexity */
 void quadratic(int n) {
-  // Matrix uses O(n^2) space
+  // The matrix uses O(n^2) space
   List<List<int>> numMatrix = List.generate(n, (_) => List.filled(n, 0));
-  // 2D list uses O(n^2) space
+  // The two-dimensional list occupies O(n^2) space
   List<List<int>> numList = [];
   for (var i = 0; i < n; i++) {
     List<int> tmp = [];
@@ -72,15 +72,15 @@ void quadratic(int n) {
   }
 }
 
-/* Quadratic order (recursive implementation) */
+/* Quadratic complexity (recursive implementation) */
 int quadraticRecur(int n) {
   if (n <= 0) return 0;
   List<int> nums = List.filled(n, 0);
-  print('In recursion n = $n, nums length = ${nums.length}');
+  print('In the recursive call with n = $n, length of nums = ${nums.length}');
   return quadraticRecur(n - 1);
 }
 
-/* Driver Code */
+/* Exponential complexity (building a perfect binary tree) */
 TreeNode? buildTree(int n) {
   if (n == 0) return null;
   TreeNode root = TreeNode(0);
@@ -89,18 +89,18 @@ TreeNode? buildTree(int n) {
   return root;
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
   int n = 5;
-  // Constant order
+  // Constant complexity
   constant(n);
-  // Linear order
+  // Linear complexity
   linear(n);
   linearRecur(n);
-  // Exponential order
+  // Quadratic complexity
   quadratic(n);
   quadraticRecur(n);
-  // Exponential order
+  // Exponential complexity
   TreeNode? root = buildTree(n);
   printTree(root);
 }

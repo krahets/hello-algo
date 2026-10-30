@@ -7,7 +7,7 @@
 /* for loop */
 func forLoop(n: Int) -> Int {
     var res = 0
-    // Sum 1, 2, ..., n-1, n
+    // Sum 1, 2, ..., n-1, n in a loop
     for i in 1 ... n {
         res += i
     }
@@ -17,11 +17,11 @@ func forLoop(n: Int) -> Int {
 /* while loop */
 func whileLoop(n: Int) -> Int {
     var res = 0
-    var i = 1 // Initialize condition variable
-    // Sum 1, 2, ..., n-1, n
+    var i = 1 // Initialize the loop control variable
+    // Sum 1, 2, ..., n-1, n in a loop
     while i <= n {
         res += i
-        i += 1 // Update condition variable
+        i += 1 // Update the loop control variable
     }
     return res
 }
@@ -29,23 +29,23 @@ func whileLoop(n: Int) -> Int {
 /* while loop (two updates) */
 func whileLoopII(n: Int) -> Int {
     var res = 0
-    var i = 1 // Initialize condition variable
-    // Sum 1, 4, 10, ...
+    var i = 1 // Initialize the loop control variable
+    // Sum 1, 4, 10, ... in a loop
     while i <= n {
         res += i
-        // Update condition variable
+        // Update the loop control variable
         i += 1
         i *= 2
     }
     return res
 }
 
-/* Nested for loop */
+/* Nested for loops */
 func nestedForLoop(n: Int) -> String {
     var res = ""
-    // Loop i = 1, 2, ..., n-1, n
+    // Loop over i = 1, 2, ..., n-1, n
     for i in 1 ... n {
-        // Loop j = 1, 2, ..., n-1, n
+        // Loop over j = 1, 2, ..., n-1, n
         for j in 1 ... n {
             res.append("(\(i), \(j)), ")
         }
@@ -55,21 +55,21 @@ func nestedForLoop(n: Int) -> String {
 
 @main
 enum Iteration {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         let n = 5
         var res = 0
 
         res = forLoop(n: n)
-        print("\nFor loop sum result res = \(res)")
+        print("\nSum from the for loop: res = \(res)")
 
         res = whileLoop(n: n)
-        print("\nWhile loop sum result res = \(res)")
+        print("\nSum from the while loop: res = \(res)")
 
         res = whileLoopII(n: n)
-        print("\nWhile loop (two updates) sum result res = \(res)")
+        print("\nSum from the while loop (two updates): res = \(res)")
 
         let resStr = nestedForLoop(n: n)
-        print("\nNested for loop traversal result \(resStr)")
+        print("\nTraversal result from nested for loops: \(resStr)")
     }
 }

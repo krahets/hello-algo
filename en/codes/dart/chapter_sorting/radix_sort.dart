@@ -4,54 +4,54 @@
  * Author: what-is-me (whatisme@outlook.jp)
  */
 
-/* Get k-th digit of element _num, where exp = 10^(k-1) */
+/* Get the k-th digit of _num, where exp = 10^(k-1) */
 int digit(int _num, int exp) {
-  // Passing exp instead of k can avoid repeated expensive exponentiation here
+  // Passing exp instead of k avoids repeatedly performing expensive exponentiation here
   return (_num ~/ exp) % 10;
 }
 
-/* Counting sort (based on nums k-th digit) */
+/* Counting sort (sort nums by the k-th digit) */
 void countingSortDigit(List<int> nums, int exp) {
-  // Decimal digit range is 0~9, therefore need a bucket array of length 10
+  // Decimal digits range from 0 to 9, so the bucket array needs length 10
   List<int> counter = List<int>.filled(10, 0);
   int n = nums.length;
-  // Count the occurrence of digits 0~9
+  // Count the occurrences of each digit from 0 to 9
   for (int i = 0; i < n; i++) {
-    int d = digit(nums[i], exp); // Get the k-th digit of nums[i], noted as d
-    counter[d]++; // Count the occurrence of digit d
+    int d = digit(nums[i], exp); // Get the k-th digit of nums[i] and store it in d
+    counter[d]++; // Count the occurrences of digit d
   }
-  // Calculate prefix sum, converting "occurrence count" into "array index"
+  // Compute prefix sums to convert occurrence counts into array positions
   for (int i = 1; i < 10; i++) {
     counter[i] += counter[i - 1];
   }
-  // Traverse in reverse, based on bucket statistics, place each element into res
+  // Traverse in reverse and place each element into res according to the bucket counts
   List<int> res = List<int>.filled(n, 0);
   for (int i = n - 1; i >= 0; i--) {
     int d = digit(nums[i], exp);
-    int j = counter[d] - 1; // Get the index j for d in the array
+    int j = counter[d] - 1; // Get the destination index j for digit d in the array
     res[j] = nums[i]; // Place the current element at index j
-    counter[d]--; // Decrease the count of d by 1
+    counter[d]--; // Decrease the count for d by 1
   }
-  // Use result to overwrite the original array nums
+  // Overwrite the original array nums with the result
   for (int i = 0; i < n; i++) nums[i] = res[i];
 }
 
 /* Radix sort */
 void radixSort(List<int> nums) {
-  // Get the maximum element of the array, used to determine the maximum number of digits
-  // In Dart, int length is 64 bits
+  // Get the largest array element to determine the maximum number of digits
+  // On native platforms, Dart int values are 64-bit integers
   int m = -1 << 63;
   for (int _num in nums) if (_num > m) m = _num;
-  // Traverse from the lowest to the highest digit
+  // Process digits from least significant to most significant
   for (int exp = 1; exp <= m; exp *= 10)
-    // Perform counting sort on the k-th digit of array elements
+    // Apply counting sort to the k-th digit of the array elements
     // k = 1 -> exp = 1
     // k = 2 -> exp = 10
-    // i.e., exp = 10^(k-1)
+    // That is, exp = 10^(k-1)
     countingSortDigit(nums, exp);
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
   // Radix sort
   List<int> nums = [

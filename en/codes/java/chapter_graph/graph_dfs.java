@@ -12,40 +12,40 @@ import utils.*;
 public class graph_dfs {
     /* Depth-first traversal helper function */
     static void dfs(GraphAdjList graph, Set<Vertex> visited, List<Vertex> res, Vertex vet) {
-        res.add(vet);     // Record visited vertex
+        res.add(vet);     // Record the visited vertex
         visited.add(vet); // Mark this vertex as visited
-        // Traverse all adjacent vertices of this vertex
+        // Traverse all neighbors of this vertex
         for (Vertex adjVet : graph.adjList.get(vet)) {
             if (visited.contains(adjVet))
-                continue; // Skip vertices that have been visited
-            // Recursively visit adjacent vertices
+                continue; // Skip vertices that have already been visited
+            // Recursively visit the neighboring vertex
             dfs(graph, visited, res, adjVet);
         }
     }
 
     /* Depth-first traversal */
-    // Use adjacency list to represent the graph, in order to obtain all adjacent vertices of a specified vertex
+    // Represent the graph with an adjacency list to access all neighbors of a given vertex
     static List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
         // Vertex traversal sequence
         List<Vertex> res = new ArrayList<>();
-        // Hash set for recording vertices that have been visited
+        // Hash set recording visited vertices
         Set<Vertex> visited = new HashSet<>();
         dfs(graph, visited, res, startVet);
         return res;
     }
 
     public static void main(String[] args) {
-        /* Add edge */
+        /* Initialize the undirected graph */
         Vertex[] v = Vertex.valsToVets(new int[] { 0, 1, 2, 3, 4, 5, 6 });
         Vertex[][] edges = { { v[0], v[1] }, { v[0], v[3] }, { v[1], v[2] },
                              { v[2], v[5] }, { v[4], v[5] }, { v[5], v[6] } };
         GraphAdjList graph = new GraphAdjList(edges);
-        System.out.println("\nAfter initialization, graph is");
+        System.out.println("\nGraph after initialization:");
         graph.print();
 
         /* Depth-first traversal */
         List<Vertex> res = graphDFS(graph, v[0]);
-        System.out.println("\nDepth-first traversal (DFS) vertex sequence is");
+        System.out.println("\nVertex sequence from depth-first traversal (DFS):");
         System.out.println(Vertex.vetsToVals(res));
     }
 }

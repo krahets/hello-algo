@@ -6,15 +6,15 @@ package chapter_sorting
 
 /* Insertion sort */
 func insertionSort(nums []int) {
-	// Outer loop: sorted interval is [0, i-1]
+	// Outer loop: the sorted range is [0, i-1]
 	for i := 1; i < len(nums); i++ {
 		base := nums[i]
 		j := i - 1
-		// Inner loop: insert base into the correct position within the sorted interval [0, i-1]
+		// Inner loop: insert base at the correct position in the sorted range [0, i-1]
 		for j >= 0 && nums[j] > base {
-			nums[j+1] = nums[j] // Move nums[j] to the right by one position
+			nums[j+1] = nums[j] // Shift nums[j] one position to the right
 			j--
 		}
-		nums[j+1] = base // Assign base to the correct position
+		nums[j+1] = base // Place base at the correct position
 	}
 }

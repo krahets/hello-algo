@@ -8,23 +8,23 @@
 
 vector<TreeNode *> res;
 
-/* Preorder traversal: Example 1 */
+/* Preorder traversal: example 1 */
 void preOrder(TreeNode *root) {
     if (root == nullptr) {
         return;
     }
     if (root->val == 7) {
-        // Record solution
+        // Record the solution
         res.push_back(root);
     }
     preOrder(root->left);
     preOrder(root->right);
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     TreeNode *root = vectorToTree(vector<int>{1, 7, 3, 4, 5, 6, 7});
-    cout << "\nInitialize binary tree" << endl;
+    cout << "\nInitialize the binary tree" << endl;
     printTree(root);
 
     // Preorder traversal

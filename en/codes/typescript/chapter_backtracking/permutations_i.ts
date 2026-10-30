@@ -4,28 +4,28 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* Backtracking algorithm: Permutations I */
+/* Backtracking: permutations I */
 function backtrack(
     state: number[],
     choices: number[],
     selected: boolean[],
     res: number[][]
 ): void {
-    // When the state length equals the number of elements, record the solution
+    // Record a solution when the state length equals the number of elements
     if (state.length === choices.length) {
         res.push([...state]);
         return;
     }
-    // Traverse all choices
+    // Iterate over all choices
     choices.forEach((choice, i) => {
-        // Pruning: do not allow repeated selection of elements
+        // Prune: do not choose an element more than once
         if (!selected[i]) {
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             selected[i] = true;
             state.push(choice);
-            // Proceed to the next round of selection
+            // Proceed to the next choice
             backtrack(state, choices, selected, res);
-            // Backtrack: undo choice, restore to previous state
+            // Backtrack: undo the choice and restore the previous state
             selected[i] = false;
             state.pop();
         }
@@ -39,7 +39,7 @@ function permutationsI(nums: number[]): number[][] {
     return res;
 }
 
-// Driver Code
+// Driver code
 const nums: number[] = [1, 2, 3];
 const res: number[][] = permutationsI(nums);
 

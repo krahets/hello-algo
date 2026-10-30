@@ -396,8 +396,73 @@ a:hover .text-button span {
   font-weight: normal;
 }
 
+/* Keep long English chapter labels inside the hero at tablet/desktop widths. */
 .hero-div--en {
+  width: min(112vh, 76vw);
+  height: min(84vh, 57vw);
   font-size: min(1.65vh, 2.3vw);
+}
+
+.hero-div--en > a > span {
+  z-index: 1;
+}
+
+/* The illustrated chapter map becomes readable touch targets on small screens. */
+@media screen and (max-width: 600px) {
+  .home-div:has(> .hero-div--en) {
+    display: block;
+    height: auto !important;
+    margin-top: 0 !important;
+    padding: 0.5rem 0 1rem !important;
+  }
+
+  .home-div > .hero-div--en {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem 0.5rem;
+    width: calc(100% - 1.5rem);
+    height: auto;
+    margin: 0.5rem auto 1rem;
+  }
+
+  .home-div > .hero-div--en > img {
+    display: none;
+  }
+
+  .home-div > .hero-div--en > a {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 0;
+    min-height: 48px;
+    padding: 0.3rem 0.15rem;
+    text-align: left;
+  }
+
+  .home-div > .hero-div--en > a > img {
+    position: static;
+    flex-shrink: 0;
+    width: 32px !important;
+    height: 32px !important;
+    object-fit: contain;
+  }
+
+  .home-div > .hero-div--en > a > span {
+    position: static;
+    min-width: 0;
+    transform: none;
+    white-space: normal;
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  .home-div > .hero-div--en + .heading-div {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    padding: 0 0.75rem;
+  }
 }
 
 .hero-div--ru {

@@ -6,52 +6,52 @@
 
 import { MaxHeap } from './my_heap';
 
-/* Element enters heap */
+/* Push an element onto the heap */
 function pushMinHeap(maxHeap: MaxHeap, val: number): void {
-    // Negate element
+    // Negate the value
     maxHeap.push(-val);
 }
 
-/* Element exits heap */
+/* Pop an element from the heap */
 function popMinHeap(maxHeap: MaxHeap): number {
-    // Negate element
+    // Negate the value
     return -maxHeap.pop();
 }
 
-/* Access top element */
+/* Access the top element of the heap */
 function peekMinHeap(maxHeap: MaxHeap): number {
-    // Negate element
+    // Negate the value
     return -maxHeap.peek();
 }
 
-/* Extract elements from heap */
+/* Get the elements in the heap */
 function getMinHeap(maxHeap: MaxHeap): number[] {
-    // Negate element
+    // Negate the value
     return maxHeap.getMaxHeap().map((num: number) => -num);
 }
 
-/* Find the largest k elements in array based on heap */
+/* Use a heap to find the k largest elements in an array */
 function topKHeap(nums: number[], k: number): number[] {
-    // Python's heapq module implements min heap by default
-    // Note: We negate all heap elements to simulate min heap using max heap
+    // Initialize a min heap
+    // Note: negate all values in the heap to simulate a min heap with a max heap
     const maxHeap = new MaxHeap([]);
-    // Enter the first k elements of array into heap
+    // Push the first k array elements onto the heap
     for (let i = 0; i < k; i++) {
         pushMinHeap(maxHeap, nums[i]);
     }
-    // Starting from the (k+1)th element, maintain heap length as k
+    // Starting with element k+1, keep the heap size at k
     for (let i = k; i < nums.length; i++) {
-        // If current element is greater than top element, top element exits heap, current element enters heap
+        // If the current element is larger than the heap top, pop the top element and push the current element
         if (nums[i] > peekMinHeap(maxHeap)) {
             popMinHeap(maxHeap);
             pushMinHeap(maxHeap, nums[i]);
         }
     }
-    // Return elements in heap
+    // Return the elements in the heap
     return getMinHeap(maxHeap);
 }
 
-/* Driver Code */
+/* Driver code */
 const nums = [1, 7, 6, 3, 2];
 const k = 3;
 const res = topKHeap(nums, k);

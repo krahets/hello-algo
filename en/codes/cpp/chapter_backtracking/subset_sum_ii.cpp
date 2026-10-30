@@ -6,31 +6,31 @@
 
 #include "../utils/common.hpp"
 
-/* Backtracking algorithm: Subset sum II */
+/* Backtracking: subset sum II */
 void backtrack(vector<int> &state, int target, vector<int> &choices, int start, vector<vector<int>> &res) {
-    // When the subset sum equals target, record the solution
+    // Record a solution when the remaining target reaches 0
     if (target == 0) {
         res.push_back(state);
         return;
     }
-    // Traverse all choices
-    // Pruning 2: start traversing from start to avoid generating duplicate subsets
-    // Pruning 3: start traversing from start to avoid repeatedly selecting the same element
+    // Iterate over all choices
+    // Pruning 2: iterate from start to avoid generating duplicate subsets
+    // Pruning 3: iterate from start to avoid choosing the same element again
     for (int i = start; i < choices.size(); i++) {
-        // Pruning 1: if the subset sum exceeds target, end the loop directly
-        // This is because the array is sorted, and later elements are larger, so the subset sum will definitely exceed target
+        // Pruning 1: exit the loop if this choice exceeds the remaining target
+        // The array is sorted, so later elements are at least as large and also exceed the remaining target
         if (target - choices[i] < 0) {
             break;
         }
-        // Pruning 4: if this element equals the left element, it means this search branch is duplicate, skip it directly
+        // Pruning 4: if this element equals its left neighbor at the same search depth, the branch is a duplicate; skip it
         if (i > start && choices[i] == choices[i - 1]) {
             continue;
         }
-        // Attempt: make choice, update target, start
+        // Try: make a choice and update target and start
         state.push_back(choices[i]);
-        // Proceed to the next round of selection
+        // Proceed to the next choice
         backtrack(state, target - choices[i], choices, i + 1, res);
-        // Backtrack: undo choice, restore to previous state
+        // Backtrack: undo the choice and restore the previous state
         state.pop_back();
     }
 }
@@ -39,13 +39,13 @@ void backtrack(vector<int> &state, int target, vector<int> &choices, int start, 
 vector<vector<int>> subsetSumII(vector<int> &nums, int target) {
     vector<int> state;              // State (subset)
     sort(nums.begin(), nums.end()); // Sort nums
-    int start = 0;                  // Start point for traversal
-    vector<vector<int>> res;        // Result list (subset list)
+    int start = 0;                  // Starting index for iteration
+    vector<vector<int>> res;        // Result list (list of subsets)
     backtrack(state, target, nums, start, res);
     return res;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     vector<int> nums = {4, 4, 5};
     int target = 9;
@@ -55,7 +55,7 @@ int main() {
     cout << "Input array nums = ";
     printVector(nums);
     cout << "target = " << target << endl;
-    cout << "All subsets with sum equal to " << target << " are res = " << endl;
+    cout << "All subsets with sum " << target << " , res = " << endl;
     printVectorMatrix(res);
 
     return 0;

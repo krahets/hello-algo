@@ -9,7 +9,7 @@ import { printTree } from '../modules/PrintUtil';
 
 type Order = 'pre' | 'in' | 'post';
 
-/* Binary tree class represented by array */
+/* Binary tree class using an array representation */
 class ArrayBinaryTree {
     #tree: (number | null)[];
 
@@ -18,29 +18,29 @@ class ArrayBinaryTree {
         this.#tree = arr;
     }
 
-    /* List capacity */
+    /* Array length, including empty positions */
     size(): number {
         return this.#tree.length;
     }
 
-    /* Get value of node at index i */
+    /* Get the value of the node at index i */
     val(i: number): number | null {
-        // If index out of bounds, return null to represent empty position
+        // If the index is out of bounds, return null to indicate an empty position
         if (i < 0 || i >= this.size()) return null;
         return this.#tree[i];
     }
 
-    /* Get index of left child node of node at index i */
+    /* Get the left child index of the node at index i */
     left(i: number): number {
         return 2 * i + 1;
     }
 
-    /* Get index of right child node of node at index i */
+    /* Get the right child index of the node at index i */
     right(i: number): number {
         return 2 * i + 2;
     }
 
-    /* Get index of parent node of node at index i */
+    /* Get the parent index of the node at index i */
     parent(i: number): number {
         return Math.floor((i - 1) / 2); // Floor division
     }
@@ -48,7 +48,7 @@ class ArrayBinaryTree {
     /* Level-order traversal */
     levelOrder(): number[] {
         let res = [];
-        // Traverse array directly
+        // Traverse the array directly
         for (let i = 0; i < this.size(); i++) {
             if (this.val(i) !== null) res.push(this.val(i));
         }
@@ -57,7 +57,7 @@ class ArrayBinaryTree {
 
     /* Depth-first traversal */
     #dfs(i: number, order: Order, res: (number | null)[]): void {
-        // If empty position, return
+        // Return if this position is empty
         if (this.val(i) === null) return;
         // Preorder traversal
         if (order === 'pre') res.push(this.val(i));
@@ -91,9 +91,9 @@ class ArrayBinaryTree {
     }
 }
 
-/* Driver Code */
-// Initialize binary tree
-// Here we use a function to generate a binary tree directly from an array
+/* Driver code */
+// Initialize the binary tree
+// Use a helper function that builds a binary tree directly from an array
 const arr = Array.of(
     1,
     2,
@@ -113,39 +113,39 @@ const arr = Array.of(
 );
 
 const root = arrToTree(arr);
-console.log('\nInitialize binary tree\n');
-console.log('Array representation of binary tree:');
+console.log('\nInitialize the binary tree\n');
+console.log('Array representation of the binary tree:');
 console.log(arr);
-console.log('Linked list representation of binary tree:');
+console.log('Linked representation of the binary tree:');
 printTree(root);
 
-// Binary tree class represented by array
+// Binary tree class using an array representation
 const abt = new ArrayBinaryTree(arr);
 
-// Access node
+// Access a node
 const i = 1;
 const l = abt.left(i);
 const r = abt.right(i);
 const p = abt.parent(i);
-console.log('\nCurrent node index is ' + i + ', value is ' + abt.val(i));
+console.log('\nCurrent node index: ' + i + ' with value ' + abt.val(i));
 console.log(
-    'Its left child node index is ' + l + ', value is ' + (l === null ? 'null' : abt.val(l))
+    'Left child index: ' + l + ' with value ' + (l === null ? 'null' : abt.val(l))
 );
 console.log(
-    'Its right child node index is ' + r + ', value is ' + (r === null ? 'null' : abt.val(r))
+    'Right child index: ' + r + ' with value ' + (r === null ? 'null' : abt.val(r))
 );
 console.log(
-    'Its parent node index is ' + p + ', value is ' + (p === null ? 'null' : abt.val(p))
+    'Parent index: ' + p + ' with value ' + (p === null ? 'null' : abt.val(p))
 );
 
-// Traverse tree
+// Traverse the tree
 let res = abt.levelOrder();
-console.log('\nLevel-order traversal is:' + res);
+console.log('\nLevel-order traversal:' + res);
 res = abt.preOrder();
-console.log('Preorder traversal is:' + res);
+console.log('Preorder traversal:' + res);
 res = abt.inOrder();
-console.log('Inorder traversal is:' + res);
+console.log('Inorder traversal:' + res);
 res = abt.postOrder();
-console.log('Postorder traversal is:' + res);
+console.log('Postorder traversal:' + res);
 
 export {};

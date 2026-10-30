@@ -10,7 +10,7 @@ namespace hello_algo.utils;
 public class Vertex(int val) {
     public int val = val;
 
-    /* Input value list vals, return vertex list vets */
+    /* Given the array of values vals, return the array of vertices vets */
     public static Vertex[] ValsToVets(int[] vals) {
         Vertex[] vets = new Vertex[vals.Length];
         for (int i = 0; i < vals.Length; i++) {
@@ -19,7 +19,7 @@ public class Vertex(int val) {
         return vets;
     }
 
-    /* Input vertex list vets, return value list vals */
+    /* Given the list of vertices vets, return the list of values vals */
     public static List<int> VetsToVals(List<Vertex> vets) {
         List<int> vals = [];
         foreach (Vertex vet in vets) {

@@ -6,21 +6,21 @@
 
 import '../utils/list_node.dart';
 
-/* Stack implemented based on linked list class */
+/* Stack implemented with a linked list */
 class LinkedListStack {
-  ListNode? _stackPeek; // Use head node as stack top
-  int _stkSize = 0; // Stack length
+  ListNode? _stackPeek; // Use the head node as the stack top
+  int _stkSize = 0; // Stack size
 
   LinkedListStack() {
     _stackPeek = null;
   }
 
-  /* Get the length of the stack */
+  /* Get the stack size */
   int size() {
     return _stkSize;
   }
 
-  /* Check if the stack is empty */
+  /* Check whether the stack is empty */
   bool isEmpty() {
     return _stkSize == 0;
   }
@@ -41,7 +41,7 @@ class LinkedListStack {
     return _num;
   }
 
-  /* Return list for printing */
+  /* Access the top element */
   int peek() {
     if (_stackPeek == null) {
       throw Exception("Stack is empty");
@@ -49,7 +49,7 @@ class LinkedListStack {
     return _stackPeek!.val;
   }
 
-  /* Convert linked list to List and return */
+  /* Convert the linked list to a List and return it */
   List<int> toList() {
     ListNode? node = _stackPeek;
     List<int> list = [];
@@ -62,12 +62,12 @@ class LinkedListStack {
   }
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
-  /* Access top of the stack element */
+  /* Initialize the stack */
   final LinkedListStack stack = LinkedListStack();
 
-  /* Elements push onto stack */
+  /* Push elements onto the stack */
   stack.push(1);
   stack.push(3);
   stack.push(2);
@@ -75,19 +75,19 @@ void main() {
   stack.push(4);
   print("Stack stack = ${stack.toList()}");
 
-  /* Return list for printing */
+  /* Access the top element */
   final int peek = stack.peek();
   print("Top element peek = $peek");
 
-  /* Element pop from stack */
+  /* Pop an element from the stack */
   final int pop = stack.pop();
-  print("Pop element pop = $pop, after pop stack = ${stack.toList()}");
+  print("Popped element pop = $pop; after popping, stack = ${stack.toList()}");
 
-  /* Get the length of the stack */
+  /* Get the stack size */
   final int size = stack.size();
-  print("Stack length size = $size");
+  print("Stack size = $size");
 
-  /* Check if empty */
+  /* Check whether it is empty */
   final bool isEmpty = stack.isEmpty();
-  print("Is stack empty = $isEmpty");
+  print("Is the stack empty = $isEmpty");
 }

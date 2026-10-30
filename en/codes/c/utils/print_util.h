@@ -18,7 +18,7 @@
 extern "C" {
 #endif
 
-/* Print array */
+/* Print an array */
 void printArray(int arr[], int size) {
     if (arr == NULL || size == 0) {
         printf("[]");
@@ -31,7 +31,7 @@ void printArray(int arr[], int size) {
     printf("%d]\n", arr[size - 1]);
 }
 
-/* Print array */
+/* Print an array */
 void printArrayFloat(float arr[], int size) {
     if (arr == NULL || size == 0) {
         printf("[]");
@@ -44,7 +44,7 @@ void printArrayFloat(float arr[], int size) {
     printf("%.2f]\n", arr[size - 1]);
 }
 
-/* Print linked list */
+/* Print a linked list */
 void printLinkedList(ListNode *node) {
     if (node == NULL) {
         return;
@@ -78,7 +78,7 @@ void showTrunks(Trunk *trunk) {
 }
 
 /**
- * Print binary tree
+ * Print a binary tree
  * This tree printer is borrowed from TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
@@ -109,17 +109,17 @@ void printTreeHelper(TreeNode *node, Trunk *prev, bool isRight) {
     printTreeHelper(node->left, trunk, false);
 }
 
-/* Print binary tree */
+/* Print a binary tree */
 void printTree(TreeNode *root) {
     printTreeHelper(root, NULL, false);
 }
 
-/* Print heap */
+/* Print a heap */
 void printHeap(int arr[], int size) {
     TreeNode *root;
-    printf("Heap array representation:");
+    printf("Array representation of the heap:");
     printArray(arr, size);
-    printf("Heap tree representation:\n");
+    printf("Tree representation of the heap:\n");
     root = arrayToTree(arr, size);
     printTree(root);
 }

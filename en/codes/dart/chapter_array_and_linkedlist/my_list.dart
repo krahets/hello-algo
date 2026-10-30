@@ -6,49 +6,49 @@
 
 /* List class */
 class MyList {
-  late List<int> _arr; // Array (stores list elements)
+  late List<int> _arr; // Array (stores the list elements)
   int _capacity = 10; // List capacity
   int _size = 0; // List length (current number of elements)
-  int _extendRatio = 2; // Multiple by which the list capacity is extended each time
+  int _extendRatio = 2; // Factor by which the list capacity grows each time
 
   /* Constructor */
   MyList() {
     _arr = List.filled(_capacity, 0);
   }
 
-  /* Get list length (current number of elements) */
+  /* Get the list length (current number of elements)*/
   int size() => _size;
 
-  /* Get list capacity */
+  /* Get the list capacity */
   int capacity() => _capacity;
 
-  /* Update element */
+  /* Access an element */
   int get(int index) {
     if (index >= _size) throw RangeError('Index out of bounds');
     return _arr[index];
   }
 
-  /* Add elements at the end */
+  /* Update an element */
   void set(int index, int _num) {
     if (index >= _size) throw RangeError('Index out of bounds');
     _arr[index] = _num;
   }
 
-  /* Direct traversal of list elements */
+  /* Append an element at the end */
   void add(int _num) {
-    // When the number of elements exceeds capacity, trigger the extension mechanism
+    // Grow the capacity when adding an element would exceed it
     if (_size == _capacity) extendCapacity();
     _arr[_size] = _num;
     // Update the number of elements
     _size++;
   }
 
-  /* Sort list */
+  /* Insert an element in the middle */
   void insert(int index, int _num) {
     if (index >= _size) throw RangeError('Index out of bounds');
-    // When the number of elements exceeds capacity, trigger the extension mechanism
+    // Grow the capacity when adding an element would exceed it
     if (_size == _capacity) extendCapacity();
-    // Move all elements after index index forward by one position
+    // Shift all elements at and after index `index` one position to the right
     for (var j = _size - 1; j >= index; j--) {
       _arr[j + 1] = _arr[j];
     }
@@ -57,11 +57,11 @@ class MyList {
     _size++;
   }
 
-  /* Remove element */
+  /* Remove an element */
   int remove(int index) {
     if (index >= _size) throw RangeError('Index out of bounds');
     int _num = _arr[index];
-    // Move all elements after index forward by one position
+    // Shift all elements after index one position to the left
     for (var j = index; j < _size - 1; j++) {
       _arr[j] = _arr[j + 1];
     }
@@ -71,19 +71,19 @@ class MyList {
     return _num;
   }
 
-  /* Driver Code */
+  /* Grow the list capacity */
   void extendCapacity() {
-    // Create new array with length _extendRatio times original array
+    // Create a new array with _extendRatio times the length of the original array
     final _newNums = List.filled(_capacity * _extendRatio, 0);
-    // Copy original array to new array
+    // Copy the original array into the new array
     List.copyRange(_newNums, 0, _arr);
-    // Update _arr reference
+    // Update the reference _arr
     _arr = _newNums;
-    // Add elements at the end
+    // Update the list capacity
     _capacity = _arr.length;
   }
 
-  /* Convert list to array */
+  /* Convert the list to an array */
   List<int> toArray() {
     List<int> arr = [];
     for (var i = 0; i < _size; i++) {
@@ -93,11 +93,11 @@ class MyList {
   }
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
-  /* Initialize list */
+  /* Initialize the list */
   MyList nums = MyList();
-  /* Direct traversal of list elements */
+  /* Append an element at the end */
   nums.add(1);
   nums.add(3);
   nums.add(2);
@@ -106,27 +106,27 @@ void main() {
   print(
       'List nums = ${nums.toArray()}, capacity = ${nums.capacity()}, length = ${nums.size()}');
 
-  /* Sort list */
+  /* Insert an element in the middle */
   nums.insert(3, 6);
-  print('Insert number 6 at index 3, get nums = ${nums.toArray()}');
+  print('Insert the number 6 at index 3, giving nums = ${nums.toArray()}');
 
-  /* Remove element */
+  /* Remove an element */
   nums.remove(3);
-  print('Delete element at index 3, get nums = ${nums.toArray()}');
+  print('Remove the element at index 3, giving nums = ${nums.toArray()}');
 
-  /* Update element */
+  /* Access an element */
   int _num = nums.get(1);
-  print('Access element at index 1, get _num = $_num');
+  print('Access the element at index 1: _num = $_num');
 
-  /* Add elements at the end */
+  /* Update an element */
   nums.set(1, 0);
-  print('Update element at index 1 to 0, get nums = ${nums.toArray()}');
+  print('Update the element at index 1 to 0, giving nums = ${nums.toArray()}');
 
-  /* Test capacity expansion mechanism */
+  /* Test capacity growth */
   for (var i = 0; i < 10; i++) {
-    // At i = 5, the list length will exceed the list capacity, triggering the expansion mechanism
+    // When i = 5, the list length would exceed its capacity, triggering capacity growth
     nums.add(i);
   }
   print(
-      'After expansion, list nums = ${nums.toArray()}, capacity = ${nums.capacity()}, length = ${nums.size()}');
+      'After capacity growth, list nums = ${nums.toArray()}, capacity = ${nums.capacity()}, length = ${nums.size()}');
 }

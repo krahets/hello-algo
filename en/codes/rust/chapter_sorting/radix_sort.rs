@@ -6,43 +6,43 @@
 
 use hello_algo_rust::include::print_util;
 
-/* Get the k-th digit of element num, where exp = 10^(k-1) */
+/* Get the k-th digit of num, where exp = 10^(k-1) */
 fn digit(num: i32, exp: i32) -> usize {
-    // Passing exp instead of k can avoid repeated expensive exponentiation here
+    // Passing exp instead of k avoids repeatedly performing expensive exponentiation here
     return ((num / exp) % 10) as usize;
 }
 
-/* Counting sort (based on nums k-th digit) */
+/* Counting sort (sort nums by the k-th digit) */
 fn counting_sort_digit(nums: &mut [i32], exp: i32) {
-    // Decimal digit range is 0~9, therefore need a bucket array of length 10
+    // Decimal digits range from 0 to 9, so the bucket array needs length 10
     let mut counter = [0; 10];
     let n = nums.len();
-    // Count the occurrence of digits 0~9
+    // Count the occurrences of each digit from 0 to 9
     for i in 0..n {
-        let d = digit(nums[i], exp); // Get the k-th digit of nums[i], noted as d
-        counter[d] += 1; // Count the occurrence of digit d
+        let d = digit(nums[i], exp); // Get the k-th digit of nums[i] and store it in d
+        counter[d] += 1; // Count the occurrences of digit d
     }
-    // Calculate prefix sum, converting "occurrence count" into "array index"
+    // Compute prefix sums to convert occurrence counts into array positions
     for i in 1..10 {
         counter[i] += counter[i - 1];
     }
-    // Traverse in reverse, based on bucket statistics, place each element into res
+    // Traverse in reverse and place each element into res according to the bucket counts
     let mut res = vec![0; n];
     for i in (0..n).rev() {
         let d = digit(nums[i], exp);
-        let j = counter[d] - 1; // Get the index j for d in the array
+        let j = counter[d] - 1; // Get the destination index j for digit d in the array
         res[j] = nums[i]; // Place the current element at index j
-        counter[d] -= 1; // Decrease the count of d by 1
+        counter[d] -= 1; // Decrease the count for d by 1
     }
-    // Use result to overwrite the original array nums
+    // Overwrite the original array nums with the result
     nums.copy_from_slice(&res);
 }
 
 /* Radix sort */
 fn radix_sort(nums: &mut [i32]) {
-    // Get the maximum element of the array, used to determine the maximum number of digits
+    // Get the largest array element to determine the maximum number of digits
     let m = *nums.into_iter().max().unwrap();
-    // Traverse from the lowest to the highest digit
+    // Process digits from least significant to most significant
     let mut exp = 1;
     while exp <= m {
         counting_sort_digit(nums, exp);
@@ -50,7 +50,7 @@ fn radix_sort(nums: &mut [i32]) {
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
     // Radix sort
     let mut nums = [
@@ -58,6 +58,6 @@ fn main() {
         63832996,
     ];
     radix_sort(&mut nums);
-    print!("After radix sort completes, nums = ");
+    print!("After radix sort, nums = ");
     print_util::print_array(&nums);
 }

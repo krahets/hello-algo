@@ -6,9 +6,9 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-### Queue based on linked list ###
+### Queue implemented with a linked list ###
 class LinkedListQueue
-  ### Get queue length ###
+  ### Get the queue size ###
   attr_reader :size
 
   ### Constructor ###
@@ -18,7 +18,7 @@ class LinkedListQueue
     @size = 0
   end
 
-  ### Check if queue is empty ###
+  ### Check whether the queue is empty ###
   def is_empty?
     @front.nil?
   end
@@ -28,11 +28,11 @@ class LinkedListQueue
     # Add num after the tail node
     node = ListNode.new(num)
 
-    # If queue is empty, set both front and rear to this node
+    # If the queue is empty, point both the head and tail to this node
     if @front.nil?
       @front = node
       @rear = node
-    # If queue is not empty, add this node after rear
+    # If the queue is not empty, append this node after the tail
     else
       @rear.next = node
       @rear = node
@@ -44,20 +44,20 @@ class LinkedListQueue
   ### Dequeue ###
   def pop
     num = peek
-    # Delete head node
+    # Remove the head node
     @front = @front.next
     @size -= 1
     num
   end
 
-  ### Access front element ###
+  ### Access the front element ###
   def peek
     raise IndexError, 'Queue is empty' if is_empty?
 
     @front.val
   end
 
-  ### Convert linked list to Array and return ###
+  ### Convert the linked list to an Array and return it ###
   def to_array
     queue = []
     temp = @front
@@ -69,12 +69,12 @@ class LinkedListQueue
   end
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  # Access front of the queue element
+  # Initialize the queue
   queue = LinkedListQueue.new
 
-  # Element enqueues
+  # Enqueue elements
   queue.push(1)
   queue.push(3)
   queue.push(2)
@@ -82,20 +82,20 @@ if __FILE__ == $0
   queue.push(4)
   puts "Queue queue = #{queue.to_array}"
 
-  # Return list for printing
+  # Access the front element
   peek = queue.peek
-  puts "Front element = #{peek}"
+  puts "Front element peek = #{peek}"
 
-  # Element dequeue
+  # Dequeue an element
   pop_front = queue.pop
-  puts "Dequeue element pop = #{pop_front}"
-  puts "After dequeue, queue = #{queue.to_array}"
+  puts "Dequeued element pop_front = #{pop_front}"
+  puts "After dequeueing, queue = #{queue.to_array}"
 
-  # Get the length of the queue
+  # Get the queue size
   size = queue.size
-  puts "Queue length size = #{size}"
+  puts "Queue size = #{size}"
 
-  # Check if the queue is empty
+  # Check whether the queue is empty
   is_empty = queue.is_empty?
-  puts "Is queue empty = #{is_empty}"
+  puts "Is the queue empty? #{is_empty}"
 end

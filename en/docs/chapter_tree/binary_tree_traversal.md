@@ -1,41 +1,41 @@
-# Binary Tree Traversal
+# Traversing a binary tree
 
-From a physical structure perspective, a tree is a data structure based on linked lists. Hence, its traversal method involves accessing nodes one by one through pointers. However, a tree is a non-linear data structure, which makes traversing a tree more complex than traversing a linked list, requiring the assistance of search algorithms.
+In its physical representation, a tree is a linked data structure, so traversal follows pointers from node to node. Unlike a linked list, however, a tree is nonlinear. Traversing it is more complex and requires a search algorithm.
 
-The common traversal methods for binary trees include level-order traversal, pre-order traversal, in-order traversal, and post-order traversal.
+Common binary-tree traversals include level-order, preorder, inorder, and postorder traversal.
 
-## Level-Order Traversal
+## Level-order traversal
 
-As shown in the figure below, <u>level-order traversal</u> traverses the binary tree from top to bottom, layer by layer. Within each level, it visits nodes from left to right.
+As shown below, <u>level-order traversal</u> visits the tree level by level from top to bottom, moving from left to right within each level.
 
-Level-order traversal is essentially <u>breadth-first traversal</u>, also known as <u>breadth-first search (BFS)</u>, which proceeds outward level by level.
+Level-order traversal is a form of <u>breadth-first traversal</u>, also called <u>breadth-first search (BFS)</u>. It explores outward one layer at a time.
 
 ![Level-order traversal of a binary tree](binary_tree_traversal.assets/binary_tree_bfs.png)
 
-### Code Implementation
+### Implementation
 
-Breadth-first traversal is typically implemented with the help of a "queue". The queue follows the "first in, first out" rule, while breadth-first traversal follows the "layer-by-layer progression" rule; the underlying ideas of the two are consistent. The implementation code is as follows:
+Breadth-first traversal usually uses a queue. A queue's first-in, first-out rule matches the traversal's level-by-level progression. The implementation follows:
 
 ```src
 [file]{binary_tree_bfs}-[class]{}-[func]{level_order}
 ```
 
-### Complexity Analysis
+### Complexity analysis
 
-- **Time complexity is $O(n)$**: All nodes are visited once, using $O(n)$ time, where $n$ is the number of nodes.
-- **Space complexity is $O(n)$**: In the worst case, i.e., a full binary tree, before traversing to the bottom level, the queue contains at most $(n + 1) / 2$ nodes simultaneously, occupying $O(n)$ space.
+- **Time complexity: $O(n)$**. Each of the $n$ nodes is visited once, taking $O(n)$ time.
+- **Space complexity: $O(n)$**. In the worst case, a perfect binary tree, the queue holds up to $(n + 1) / 2$ nodes just before the lowest level is visited, requiring $O(n)$ space.
 
-## Preorder, Inorder, and Postorder Traversal
+## Preorder, inorder, and postorder traversal
 
-Correspondingly, preorder, inorder, and postorder traversals all belong to <u>depth-first traversal</u>, also known as <u>depth-first search (DFS)</u>, which goes as deep as possible before backtracking.
+Preorder, inorder, and postorder traversal are forms of <u>depth-first traversal</u>, also called <u>depth-first search (DFS)</u>. They follow a path to its end, then backtrack and continue.
 
-The figure below shows how depth-first traversal works on a binary tree. **Depth-first traversal is like "walking" around the perimeter of the entire binary tree**, encountering three positions at each node, corresponding to preorder, inorder, and postorder traversal.
+The figure below illustrates depth-first traversal. **Imagine walking once around the outside of the entire binary tree**. At each node, you encounter three positions corresponding to preorder, inorder, and postorder visits.
 
-![Preorder, inorder, and postorder traversal of a binary tree](binary_tree_traversal.assets/binary_tree_dfs.png)
+![Preorder, inorder, and postorder traversal of a binary search tree](binary_tree_traversal.assets/binary_tree_dfs.png)
 
-### Code Implementation
+### Implementation
 
-Depth-first search is usually implemented based on recursion:
+Depth-first search is usually implemented recursively:
 
 ```src
 [file]{binary_tree_dfs}-[class]{}-[func]{post_order}
@@ -43,12 +43,12 @@ Depth-first search is usually implemented based on recursion:
 
 !!! tip
 
-    Depth-first search can also be implemented iteratively, and interested readers can explore this on their own.
+    Depth-first search can also be implemented iteratively. Interested readers can explore this approach themselves.
 
-The figure below shows the recursive process of preorder traversal of a binary tree, which can be divided into two opposite phases: "descending" and "returning".
+The figure below shows the recursive process for preorder traversal, with two opposing phases: descending into calls and returning from them.
 
-1. "Descending" means making a new recursive call, during which the program visits the next node.
-2. "Returning" means the function call returns, indicating that the current node has been fully processed.
+1. Descending starts a new function call and visits the next node.
+2. Returning ends a function call, indicating that the current node has been fully processed.
 
 === "<1>"
     ![The recursive process of preorder traversal](binary_tree_traversal.assets/preorder_step1.png)
@@ -83,7 +83,7 @@ The figure below shows the recursive process of preorder traversal of a binary t
 === "<11>"
     ![preorder_step11](binary_tree_traversal.assets/preorder_step11.png)
 
-### Complexity Analysis
+### Complexity analysis
 
-- **Time complexity is $O(n)$**: All nodes are visited once, using $O(n)$ time.
-- **Space complexity is $O(n)$**: In the worst case, i.e., the tree degenerates into a linked list, the recursion depth reaches $n$, and the system occupies $O(n)$ stack frame space.
+- **Time complexity: $O(n)$**. Every node is visited once, taking $O(n)$ time.
+- **Space complexity: $O(n)$**. In the worst case, the tree degenerates into a linked list, recursion reaches depth $n$, and stack frames require $O(n)$ space.

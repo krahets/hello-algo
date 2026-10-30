@@ -6,30 +6,30 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/print_util'
 
-### Undirected graph class based on adjacency matrix ###
+### Undirected graph class implemented with an adjacency matrix ###
 class GraphAdjMat
   def initialize(vertices, edges)
     ### Constructor ###
-    # Vertex list, where the element represents the "vertex value" and the index represents the "vertex index"
+    # Vertex list: elements are vertex values, and indices are vertex indices
     @vertices = []
-    # Adjacency matrix, where the row and column indices correspond to the "vertex index"
+    # Adjacency matrix: row and column indices correspond to vertex indices
     @adj_mat = []
-    # Add vertex
+    # Add a vertex
     vertices.each { |val| add_vertex(val) }
-    # Add edge
-    # Note that the edges elements represent vertex indices, i.e., corresponding to the vertices element indices
+    # Add an edge
+    # Note that the entries in edges are vertex indices, corresponding to element indices in vertices
     edges.each { |e| add_edge(e[0], e[1]) }
   end
 
-  ### Get number of vertices ###
+  ### Get the number of vertices ###
   def size
     @vertices.length
   end
 
-  ### Add vertex ###
+  ### Add a vertex ###
   def add_vertex(val)
     n = size
-    # Add the value of the new vertex to the vertex list
+    # Append the new vertex value to the vertex list
     @vertices << val
     # Add a row to the adjacency matrix
     new_row = Array.new(n, 0)
@@ -38,34 +38,34 @@ class GraphAdjMat
     @adj_mat.each { |row| row << 0 }
   end
 
-  ### Delete vertex ###
+  ### Remove a vertex ###
   def remove_vertex(index)
     raise IndexError if index >= size
 
-    # Remove the vertex at index from the vertex list
+    # Remove the vertex at index `index` from the vertex list
     @vertices.delete_at(index)
-    # Remove the row at index from the adjacency matrix
+    # Remove row `index` from the adjacency matrix
     @adj_mat.delete_at(index)
-    # Remove the column at index from the adjacency matrix
+    # Remove column `index` from the adjacency matrix
     @adj_mat.each { |row| row.delete_at(index) }
   end
 
-  ### Add edge ###
+  ### Add an edge ###
   def add_edge(i, j)
-    # Parameters i, j correspond to the vertices element indices
-    # Handle index out of bounds and equality
+    # Parameters i and j are element indices in vertices
+    # Handle out-of-bounds or equal indices
     if i < 0 || j < 0 || i >= size || j >= size || i == j
       raise IndexError
     end
-    # In an undirected graph, the adjacency matrix is symmetric about the main diagonal, i.e., (i, j) == (j, i)
+    # For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
     @adj_mat[i][j] = 1
     @adj_mat[j][i] = 1
   end
 
-  ### Delete edge ###
+  ### Remove an edge ###
   def remove_edge(i, j)
-    # Parameters i, j correspond to the vertices element indices
-    # Handle index out of bounds and equality
+    # Parameters i and j are element indices in vertices
+    # Handle out-of-bounds or equal indices
     if i < 0 || j < 0 || i >= size || j >= size || i == j
       raise IndexError
     end
@@ -73,7 +73,7 @@ class GraphAdjMat
     @adj_mat[j][i] = 0
   end
 
-  ### Print adjacency matrix ###
+  ### Print the adjacency matrix ###
   def __print__
     puts "Vertex list = #{@vertices}"
     puts 'Adjacency matrix ='
@@ -81,36 +81,36 @@ class GraphAdjMat
   end
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  # Add edge
-  # Note that the edges elements represent vertex indices, i.e., corresponding to the vertices element indices
+  # Initialize the undirected graph
+  # Note that the entries in edges are vertex indices, corresponding to element indices in vertices
   vertices = [1, 3, 2, 5, 4]
   edges = [[0, 1], [0, 3], [1, 2], [2, 3], [2, 4], [3, 4]]
   graph = GraphAdjMat.new(vertices, edges)
-  puts "\nAfter initialization, graph is"
+  puts "\nGraph after initialization:"
   graph.__print__
 
-  # Add edge
-  # Add vertex
+  # Add an edge
+  # Vertices 1 and 2 have indices 0 and 2, respectively
   graph.add_edge(0, 2)
-  puts "\nAfter adding edge 1-2, graph is"
+  puts "\nGraph after adding edge 1-2:"
   graph.__print__
 
-  # Remove edge
-  # Vertices 1, 3 have indices 0, 1 respectively
+  # Remove an edge
+  # The indices of vertices 1 and 3 are 0 and 1, respectively
   graph.remove_edge(0, 1)
-  puts "\nAfter removing edge 1-3, graph is"
+  puts "\nGraph after removing edge 1-3:"
   graph.__print__
 
-  # Add vertex
+  # Add a vertex
   graph.add_vertex(6)
-  puts "\nAfter adding vertex 6, graph is"
+  puts "\nGraph after adding vertex 6:"
   graph.__print__
 
-  # Remove vertex
+  # Remove a vertex
   # Vertex 3 has index 1
   graph.remove_vertex(1)
-  puts "\nAfter removing vertex 3, graph is"
+  puts "\nGraph after removing vertex 3:"
   graph.__print__
 end

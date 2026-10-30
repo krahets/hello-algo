@@ -4,26 +4,26 @@
 
 package chapter_dynamic_programming
 
-/* Coin change II: Dynamic programming */
+/* Coin change II: dynamic programming */
 func coinChangeIIDP(coins []int, amt int) int {
 	n := len(coins)
-	// Initialize dp table
+	// Initialize the dp table
 	dp := make([][]int, n+1)
 	for i := 0; i <= n; i++ {
 		dp[i] = make([]int, amt+1)
 	}
-	// Initialize first column
+	// Initialize the first column
 	for i := 0; i <= n; i++ {
 		dp[i][0] = 1
 	}
-	// State transition: rest of the rows and columns
+	// State transitions: remaining rows and columns
 	for i := 1; i <= n; i++ {
 		for a := 1; a <= amt; a++ {
 			if coins[i-1] > a {
-				// If exceeds target amount, don't select coin i
+				// If the coin exceeds the current target amount a, do not choose coin i
 				dp[i][a] = dp[i-1][a]
 			} else {
-				// Sum of the two options: not selecting and selecting coin i
+				// Add the numbers of ways without and with coin i
 				dp[i][a] = dp[i-1][a] + dp[i][a-coins[i-1]]
 			}
 		}
@@ -31,21 +31,21 @@ func coinChangeIIDP(coins []int, amt int) int {
 	return dp[n][amt]
 }
 
-/* Coin change II: Space-optimized dynamic programming */
+/* Coin change II: space-optimized dynamic programming */
 func coinChangeIIDPComp(coins []int, amt int) int {
 	n := len(coins)
-	// Initialize dp table
+	// Initialize the dp table
 	dp := make([]int, amt+1)
 	dp[0] = 1
-	// State transition
+	// State transitions
 	for i := 1; i <= n; i++ {
-		// Traverse in forward order
+		// Traverse in increasing order
 		for a := 1; a <= amt; a++ {
 			if coins[i-1] > a {
-				// If exceeds target amount, don't select coin i
+				// If the coin exceeds the current target amount a, do not choose coin i
 				dp[a] = dp[a]
 			} else {
-				// Sum of the two options: not selecting and selecting coin i
+				// Add the numbers of ways without and with coin i
 				dp[a] = dp[a] + dp[a-coins[i-1]]
 			}
 		}

@@ -1,22 +1,22 @@
-# Time Complexity
+# Time complexity
 
-Runtime can intuitively and accurately reflect the efficiency of an algorithm. If we want to accurately estimate the runtime of a piece of code, how should we proceed?
+Runtime gives a direct, accurate picture of an algorithm's efficiency. How might we predict the runtime of a piece of code precisely?
 
-1. **Determine the running platform**, including hardware configuration, programming language, system environment, etc., as these factors all affect code execution efficiency.
-2. **Evaluate the runtime required for various computational operations**, for example, an addition operation `+` requires 1 ns, a multiplication operation `*` requires 10 ns, a print operation `print()` requires 5 ns, etc.
-3. **Count all computational operations in the code**, and sum the execution times of all operations to obtain the runtime.
+1. **Specify the execution platform**, including hardware, programming language, and system environment, all of which affect performance.
+2. **Determine the time required by each operation**: for example, addition `+` might take 1 ns, multiplication `*` 10 ns, and `print()` 5 ns.
+3. **Count every operation in the code** and sum their execution times to obtain the total runtime.
 
-For example, in the following code, the input data size is $n$:
+For example, consider the following code with input size $n$:
 
 === "Python"
 
     ```python title=""
-    # On a certain running platform
+    # On a particular execution platform
     def algorithm(n: int):
         a = 2      # 1 ns
         a = a + 1  # 1 ns
         a = a * 2  # 10 ns
-        # Loop n times
+        # Repeat n times
         for _ in range(n):  # 1 ns
             print(0)        # 5 ns
     ```
@@ -24,12 +24,12 @@ For example, in the following code, the input data size is $n$:
 === "C++"
 
     ```cpp title=""
-    // On a certain running platform
+    // On a particular execution platform
     void algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
-        // Loop n times
+        // Repeat n times
         for (int i = 0; i < n; i++) {  // 1 ns
             cout << 0 << endl;         // 5 ns
         }
@@ -39,12 +39,12 @@ For example, in the following code, the input data size is $n$:
 === "Java"
 
     ```java title=""
-    // On a certain running platform
+    // On a particular execution platform
     void algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
-        // Loop n times
+        // Repeat n times
         for (int i = 0; i < n; i++) {  // 1 ns
             System.out.println(0);     // 5 ns
         }
@@ -54,12 +54,12 @@ For example, in the following code, the input data size is $n$:
 === "C#"
 
     ```csharp title=""
-    // On a certain running platform
+    // On a particular execution platform
     void Algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
-        // Loop n times
+        // Repeat n times
         for (int i = 0; i < n; i++) {  // 1 ns
             Console.WriteLine(0);      // 5 ns
         }
@@ -69,12 +69,12 @@ For example, in the following code, the input data size is $n$:
 === "Go"
 
     ```go title=""
-    // On a certain running platform
+    // On a particular execution platform
     func algorithm(n int) {
         a := 2     // 1 ns
         a = a + 1  // 1 ns
         a = a * 2  // 10 ns
-        // Loop n times
+        // Repeat n times
         for i := 0; i < n; i++ {  // 1 ns
             fmt.Println(a)        // 5 ns
         }
@@ -84,12 +84,12 @@ For example, in the following code, the input data size is $n$:
 === "Swift"
 
     ```swift title=""
-    // On a certain running platform
+    // On a particular execution platform
     func algorithm(n: Int) {
         var a = 2 // 1 ns
         a = a + 1 // 1 ns
         a = a * 2 // 10 ns
-        // Loop n times
+        // Repeat n times
         for _ in 0 ..< n { // 1 ns
             print(0) // 5 ns
         }
@@ -99,12 +99,12 @@ For example, in the following code, the input data size is $n$:
 === "JS"
 
     ```javascript title=""
-    // On a certain running platform
+    // On a particular execution platform
     function algorithm(n) {
         var a = 2; // 1 ns
         a = a + 1; // 1 ns
         a = a * 2; // 10 ns
-        // Loop n times
+        // Repeat n times
         for(let i = 0; i < n; i++) { // 1 ns
             console.log(0); // 5 ns
         }
@@ -114,12 +114,12 @@ For example, in the following code, the input data size is $n$:
 === "TS"
 
     ```typescript title=""
-    // On a certain running platform
+    // On a particular execution platform
     function algorithm(n: number): void {
         var a: number = 2; // 1 ns
         a = a + 1; // 1 ns
         a = a * 2; // 10 ns
-        // Loop n times
+        // Repeat n times
         for(let i = 0; i < n; i++) { // 1 ns
             console.log(0); // 5 ns
         }
@@ -129,12 +129,12 @@ For example, in the following code, the input data size is $n$:
 === "Dart"
 
     ```dart title=""
-    // On a certain running platform
+    // On a particular execution platform
     void algorithm(int n) {
       int a = 2; // 1 ns
       a = a + 1; // 1 ns
       a = a * 2; // 10 ns
-      // Loop n times
+      // Repeat n times
       for (int i = 0; i < n; i++) { // 1 ns
         print(0); // 5 ns
       }
@@ -144,12 +144,12 @@ For example, in the following code, the input data size is $n$:
 === "Rust"
 
     ```rust title=""
-    // On a certain running platform
+    // On a particular execution platform
     fn algorithm(n: i32) {
         let mut a = 2;      // 1 ns
         a = a + 1;          // 1 ns
         a = a * 2;          // 10 ns
-        // Loop n times
+        // Repeat n times
         for _ in 0..n {     // 1 ns
             println!("{}", 0);  // 5 ns
         }
@@ -159,12 +159,12 @@ For example, in the following code, the input data size is $n$:
 === "C"
 
     ```c title=""
-    // On a certain running platform
+    // On a particular execution platform
     void algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
-        // Loop n times
+        // Repeat n times
         for (int i = 0; i < n; i++) {   // 1 ns
             printf("%d", 0);            // 5 ns
         }
@@ -174,12 +174,12 @@ For example, in the following code, the input data size is $n$:
 === "Kotlin"
 
     ```kotlin title=""
-    // On a certain running platform
+    // On a particular execution platform
     fun algorithm(n: Int) {
         var a = 2 // 1 ns
         a = a + 1 // 1 ns
         a = a * 2 // 10 ns
-        // Loop n times
+        // Repeat n times
         for (i in 0..<n) {  // 1 ns
             println(0)      // 5 ns
         }
@@ -189,43 +189,43 @@ For example, in the following code, the input data size is $n$:
 === "Ruby"
 
     ```ruby title=""
-    # On a certain running platform
+    # On a particular execution platform
     def algorithm(n)
         a = 2       # 1 ns
         a = a + 1   # 1 ns
         a = a * 2   # 10 ns
-        # Loop n times
+        # Repeat n times
         (0...n).each do # 1 ns
             puts 0      # 5 ns
         end
     end
     ```
 
-According to the above method, the algorithm's runtime can be obtained as $(6n + 12)$ ns:
+This gives a runtime of $(6n + 12)$ ns:
 
 $$
 1 + 1 + 10 + (1 + 5) \times n = 6n + 12
 $$
 
-In reality, however, **trying to count an algorithm's exact runtime is neither practical nor realistic**. First, we do not want to tie the estimated time to the running platform, because algorithms need to run on many different platforms. Second, it is difficult to know the runtime of each type of operation, which makes the estimation process extremely difficult.
+In practice, **calculating runtime this way is neither suitable nor realistic**. We do not want estimates tied to one platform, since algorithms run on many platforms. Also, the time taken by each operation is difficult to determine, making accurate prediction very hard.
 
-## Counting Time Growth Trends
+## Measuring growth in runtime
 
-Time complexity analysis does not count the algorithm's runtime, **but rather counts the growth trend of the algorithm's runtime as the data volume increases**.
+Time complexity analysis measures **how runtime grows as the input gets larger**, rather than the runtime itself.
 
-The concept of "time growth trend" is rather abstract; let us understand it through an example. Suppose the input data size is $n$, and given three algorithms `A`, `B`, and `C`:
+To make this abstract idea concrete, consider three algorithms, `A`, `B`, and `C`, with input size $n$:
 
 === "Python"
 
     ```python title=""
-    # Time complexity of algorithm A: constant order
+    # Algorithm A: constant time complexity
     def algorithm_A(n: int):
         print(0)
-    # Time complexity of algorithm B: linear order
+    # Algorithm B: linear time complexity
     def algorithm_B(n: int):
         for _ in range(n):
             print(0)
-    # Time complexity of algorithm C: constant order
+    # Algorithm C: constant time complexity
     def algorithm_C(n: int):
         for _ in range(1000000):
             print(0)
@@ -234,17 +234,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "C++"
 
     ```cpp title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     void algorithm_A(int n) {
         cout << 0 << endl;
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     void algorithm_B(int n) {
         for (int i = 0; i < n; i++) {
             cout << 0 << endl;
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     void algorithm_C(int n) {
         for (int i = 0; i < 1000000; i++) {
             cout << 0 << endl;
@@ -255,17 +255,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "Java"
 
     ```java title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     void algorithm_A(int n) {
         System.out.println(0);
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     void algorithm_B(int n) {
         for (int i = 0; i < n; i++) {
             System.out.println(0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     void algorithm_C(int n) {
         for (int i = 0; i < 1000000; i++) {
             System.out.println(0);
@@ -276,17 +276,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "C#"
 
     ```csharp title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     void AlgorithmA(int n) {
         Console.WriteLine(0);
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     void AlgorithmB(int n) {
         for (int i = 0; i < n; i++) {
             Console.WriteLine(0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     void AlgorithmC(int n) {
         for (int i = 0; i < 1000000; i++) {
             Console.WriteLine(0);
@@ -297,17 +297,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "Go"
 
     ```go title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     func algorithm_A(n int) {
         fmt.Println(0)
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     func algorithm_B(n int) {
         for i := 0; i < n; i++ {
             fmt.Println(0)
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     func algorithm_C(n int) {
         for i := 0; i < 1000000; i++ {
             fmt.Println(0)
@@ -318,19 +318,19 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "Swift"
 
     ```swift title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     func algorithmA(n: Int) {
         print(0)
     }
 
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     func algorithmB(n: Int) {
         for _ in 0 ..< n {
             print(0)
         }
     }
 
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     func algorithmC(n: Int) {
         for _ in 0 ..< 1_000_000 {
             print(0)
@@ -341,17 +341,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "JS"
 
     ```javascript title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     function algorithm_A(n) {
         console.log(0);
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     function algorithm_B(n) {
         for (let i = 0; i < n; i++) {
             console.log(0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     function algorithm_C(n) {
         for (let i = 0; i < 1000000; i++) {
             console.log(0);
@@ -363,17 +363,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "TS"
 
     ```typescript title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     function algorithm_A(n: number): void {
         console.log(0);
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     function algorithm_B(n: number): void {
         for (let i = 0; i < n; i++) {
             console.log(0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     function algorithm_C(n: number): void {
         for (let i = 0; i < 1000000; i++) {
             console.log(0);
@@ -384,17 +384,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "Dart"
 
     ```dart title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     void algorithmA(int n) {
       print(0);
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     void algorithmB(int n) {
       for (int i = 0; i < n; i++) {
         print(0);
       }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     void algorithmC(int n) {
       for (int i = 0; i < 1000000; i++) {
         print(0);
@@ -405,17 +405,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "Rust"
 
     ```rust title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     fn algorithm_A(n: i32) {
         println!("{}", 0);
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     fn algorithm_B(n: i32) {
         for _ in 0..n {
             println!("{}", 0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     fn algorithm_C(n: i32) {
         for _ in 0..1000000 {
             println!("{}", 0);
@@ -426,17 +426,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "C"
 
     ```c title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     void algorithm_A(int n) {
         printf("%d", 0);
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     void algorithm_B(int n) {
         for (int i = 0; i < n; i++) {
             printf("%d", 0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     void algorithm_C(int n) {
         for (int i = 0; i < 1000000; i++) {
             printf("%d", 0);
@@ -447,17 +447,17 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "Kotlin"
 
     ```kotlin title=""
-    // Time complexity of algorithm A: constant order
+    // Algorithm A: constant time complexity
     fun algoritm_A(n: Int) {
         println(0)
     }
-    // Time complexity of algorithm B: linear order
+    // Algorithm B: linear time complexity
     fun algorithm_B(n: Int) {
         for (i in 0..<n){
             println(0)
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Algorithm C: constant time complexity
     fun algorithm_C(n: Int) {
         for (i in 0..<1000000) {
             println(0)
@@ -468,39 +468,39 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
 === "Ruby"
 
     ```ruby title=""
-    # Time complexity of algorithm A: constant order
+    # Algorithm A: constant time complexity
     def algorithm_A(n)
         puts 0
     end
 
-    # Time complexity of algorithm B: linear order
+    # Algorithm B: linear time complexity
     def algorithm_B(n)
         (0...n).each { puts 0 }
     end
 
-    # Time complexity of algorithm C: constant order
+    # Algorithm C: constant time complexity
     def algorithm_C(n)
         (0...1_000_000).each { puts 0 }
     end
     ```
 
-The figure below shows the time complexity of the above three algorithm functions.
+The figure below shows their time complexities.
 
-- Algorithm `A` has only $1$ print operation, and the algorithm's runtime does not grow as $n$ increases. We call the time complexity of this algorithm "constant order".
-- In algorithm `B`, the print operation needs to loop $n$ times, and the algorithm's runtime grows linearly as $n$ increases. The time complexity of this algorithm is called "linear order".
-- In algorithm `C`, the print operation needs to loop $1000000$ times. Although the runtime is very long, it is independent of the input data size $n$. Therefore, the time complexity of `C` is the same as `A`, still "constant order".
+- Algorithm `A` performs $1$ print operation. Its runtime does not grow with $n$, so it has constant time complexity.
+- Algorithm `B` prints $n$ times. Its runtime grows linearly with $n$, so it has linear time complexity.
+- Algorithm `C` prints $1000000$ times. It may take a long time, but that time is independent of input size $n$. Its complexity is therefore constant, like `A`.
 
-![Time growth trends of algorithms A, B, and C](time_complexity.assets/time_complexity_simple_example.png)
+![Runtime growth of algorithms A, B, and C](time_complexity.assets/time_complexity_simple_example.png)
 
-Compared to directly counting the algorithm's runtime, what are the characteristics of time complexity analysis?
+How does time complexity analysis differ from calculating runtime directly?
 
-- **Time complexity can effectively evaluate algorithm efficiency**. For example, the runtime of algorithm `B` grows linearly; when $n > 1$ it is slower than algorithm `A`, and when $n > 1000000$ it is slower than algorithm `C`. In fact, as long as the input data size $n$ is sufficiently large, an algorithm with "constant order" complexity will always be superior to one with "linear order" complexity, which is precisely the meaning of time growth trend.
-- **The derivation method for time complexity is simpler**. Obviously, the running platform and the types of computational operations are both unrelated to the growth trend of the algorithm's runtime. Therefore, in time complexity analysis, we can simply treat the execution time of all computational operations as the same "unit time", reducing "tracking the runtime of each operation" to "counting the number of operations", which greatly reduces the difficulty of estimation.
-- **Time complexity also has certain limitations**. For example, although algorithms `A` and `C` have the same time complexity, their actual runtimes differ significantly. Similarly, although algorithm `B` has a higher time complexity than `C`, when the input data size $n$ is small, algorithm `B` is clearly superior to algorithm `C`. In such cases, it is often difficult to judge the efficiency of algorithms based solely on time complexity. Of course, despite the above issues, complexity analysis remains the most effective and commonly used method for evaluating algorithm efficiency.
+- **Time complexity evaluates efficiency effectively**. Algorithm `B` grows linearly, becoming slower than `A` when $n > 1$ and slower than `C` when $n > 1000000$. With sufficiently large input size $n$, a constant-time algorithm will outperform a linear-time one. This is what a growth trend tells us.
+- **Time complexity is easier to derive**. The execution platform and kinds of elementary operations do not determine the growth trend. We can treat each elementary operation as taking the same unit of time, reducing runtime estimation to operation counting and greatly simplifying analysis.
+- **Time complexity has limitations**. Algorithms `A` and `C` have the same complexity but very different runtimes. Although `B` has higher complexity than `C`, it is much faster for small $n$. Complexity alone may not settle such comparisons. Even so, it remains the most effective and widely used way to evaluate algorithm efficiency.
 
-## Asymptotic Upper Bound of Functions
+## Asymptotic upper bounds
 
-Given a function with input size $n$:
+Consider this function with input size $n$:
 
 === "Python"
 
@@ -509,7 +509,7 @@ Given a function with input size $n$:
         a = 1      # +1
         a = a + 1  # +1
         a = a * 2  # +1
-        # Loop n times
+        # Repeat n times
         for i in range(n):  # +1
             print(0)        # +1
     ```
@@ -521,8 +521,8 @@ Given a function with input size $n$:
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
-        // Loop n times
-        for (int i = 0; i < n; i++) { // +1 (i++ is executed each round)
+        // Repeat n times
+        for (int i = 0; i < n; i++) { // +1 (i ++ executes each iteration)
             cout << 0 << endl;    // +1
         }
     }
@@ -535,8 +535,8 @@ Given a function with input size $n$:
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
-        // Loop n times
-        for (int i = 0; i < n; i++) { // +1 (i++ is executed each round)
+        // Repeat n times
+        for (int i = 0; i < n; i++) { // +1 (i ++ executes each iteration)
             System.out.println(0);    // +1
         }
     }
@@ -549,8 +549,8 @@ Given a function with input size $n$:
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
-        // Loop n times
-        for (int i = 0; i < n; i++) {   // +1 (i++ is executed each round)
+        // Repeat n times
+        for (int i = 0; i < n; i++) {   // +1 (i ++ executes each iteration)
             Console.WriteLine(0);   // +1
         }
     }
@@ -563,7 +563,7 @@ Given a function with input size $n$:
         a := 1      // +1
         a = a + 1   // +1
         a = a * 2   // +1
-        // Loop n times
+        // Repeat n times
         for i := 0; i < n; i++ {   // +1
             fmt.Println(a)         // +1
         }
@@ -577,7 +577,7 @@ Given a function with input size $n$:
         var a = 1 // +1
         a = a + 1 // +1
         a = a * 2 // +1
-        // Loop n times
+        // Repeat n times
         for _ in 0 ..< n { // +1
             print(0) // +1
         }
@@ -591,8 +591,8 @@ Given a function with input size $n$:
         var a = 1; // +1
         a += 1; // +1
         a *= 2; // +1
-        // Loop n times
-        for(let i = 0; i < n; i++){ // +1 (i++ is executed each round)
+        // Repeat n times
+        for(let i = 0; i < n; i++){ // +1 (i ++ executes each iteration)
             console.log(0); // +1
         }
     }
@@ -605,8 +605,8 @@ Given a function with input size $n$:
         var a: number = 1; // +1
         a += 1; // +1
         a *= 2; // +1
-        // Loop n times
-        for(let i = 0; i < n; i++){ // +1 (i++ is executed each round)
+        // Repeat n times
+        for(let i = 0; i < n; i++){ // +1 (i ++ executes each iteration)
             console.log(0); // +1
         }
     }
@@ -619,8 +619,8 @@ Given a function with input size $n$:
       int a = 1; // +1
       a = a + 1; // +1
       a = a * 2; // +1
-      // Loop n times
-      for (int i = 0; i < n; i++) { // +1 (i++ is executed each round)
+      // Repeat n times
+      for (int i = 0; i < n; i++) { // +1 (i ++ executes each iteration)
         print(0); // +1
       }
     }
@@ -634,8 +634,8 @@ Given a function with input size $n$:
         a = a + 1;      // +1
         a = a * 2;      // +1
 
-        // Loop n times
-        for _ in 0..n { // +1 (i++ is executed each round)
+        // Repeat n times
+        for _ in 0..n { // +1 (i ++ executes each iteration)
             println!("{}", 0); // +1
         }
     }
@@ -648,8 +648,8 @@ Given a function with input size $n$:
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
-        // Loop n times
-        for (int i = 0; i < n; i++) {   // +1 (i++ is executed each round)
+        // Repeat n times
+        for (int i = 0; i < n; i++) {   // +1 (i ++ executes each iteration)
             printf("%d", 0);            // +1
         }
     }
@@ -662,8 +662,8 @@ Given a function with input size $n$:
         var a = 1 // +1
         a = a + 1 // +1
         a = a * 2 // +1
-        // Loop n times
-        for (i in 0..<n) { // +1 (i++ is executed each round)
+        // Repeat n times
+        for (i in 0..<n) { // +1 (i ++ executes each iteration)
             println(0) // +1
         }
     }
@@ -676,59 +676,59 @@ Given a function with input size $n$:
         a = 1       # +1
         a = a + 1   # +1
         a = a * 2   # +1
-        # Loop n times
+        # Repeat n times
         (0...n).each do # +1
             puts 0      # +1
         end
     end
     ```
 
-Let the number of operations of the algorithm be a function of the input data size $n$, denoted as $T(n)$. Then the number of operations of the above function is:
+Let $T(n)$ be the operation count as a function of input size $n$. For the function above:
 
 $$
 T(n) = 3 + 2n
 $$
 
-$T(n)$ is a linear function, indicating that its runtime growth trend is linear, and therefore its time complexity is linear order.
+Since $T(n)$ is a first-degree function, runtime grows linearly, giving linear time complexity.
 
-We denote the time complexity of linear order as $O(n)$. This mathematical symbol is called <u>big-$O$ notation</u>, representing the <u>asymptotic upper bound</u> of the function $T(n)$.
+We write linear time complexity as $O(n)$. This is called <u>big-$O$ notation</u>, and it gives an <u>asymptotic upper bound</u> on $T(n)$.
 
-Time complexity analysis essentially calculates the asymptotic upper bound of "the number of operations $T(n)$", which has a clear mathematical definition.
+Time complexity analysis essentially finds an asymptotic upper bound on the operation count $T(n)$. It has a precise mathematical definition.
 
-!!! note "Asymptotic upper bound of functions"
+!!! note "Asymptotic upper bound"
 
-    If there exist positive real numbers $c$ and $n_0$ such that for all $n > n_0$, we have $T(n) \leq c \cdot f(n)$, then $f(n)$ can be considered as an asymptotic upper bound of $T(n)$, denoted as $T(n) = O(f(n))$.
+    If a positive real constant $c$ and a real number $n_0$ exist such that $T(n) \leq c \cdot f(n)$ for all $n > n_0$, then $f(n)$ is an asymptotic upper bound on $T(n)$, written $T(n) = O(f(n))$.
 
-As shown in the figure below, calculating the asymptotic upper bound is to find a function $f(n)$ such that when $n$ tends to infinity, $T(n)$ and $f(n)$ are at the same growth level, differing only by a constant coefficient $c$.
+As shown in the figure below, we seek a function $f(n)$ such that, as $n$ tends to infinity, $T(n)$ and $f(n)$ have the same order of growth, differing only by a constant factor $c$.
 
 ![Asymptotic upper bound of a function](time_complexity.assets/asymptotic_upper_bound.png)
 
-## Derivation Method
+## How to derive time complexity
 
-The idea of an asymptotic upper bound is somewhat mathematical. If you feel you haven't fully understood it, don't worry. We can first master the derivation method, and gradually grasp its mathematical meaning through continuous practice.
+The mathematics of asymptotic bounds may feel unfamiliar. Do not worry if it is not fully clear yet: learn the practical method first, and its meaning will become clearer with practice.
 
-According to the definition, after determining $f(n)$, we can obtain the time complexity $O(f(n))$. So how do we determine the asymptotic upper bound $f(n)$? Overall, it is divided into two steps: first count the number of operations, then determine the asymptotic upper bound.
+Once we identify $f(n)$, the time complexity is $O(f(n))$. Finding the asymptotic upper bound $f(n)$ takes two steps: count operations, then determine the bound.
 
-### Step 1: Count the Number of Operations
+### Step 1: Count operations
 
-For code, count from top to bottom line by line. However, since the constant coefficient $c$ in $c \cdot f(n)$ above can be of any size, **coefficients and constant terms in the number of operations $T(n)$ can all be ignored**. According to this principle, the following counting simplification techniques can be summarized.
+We can count code operations line by line. Since the constant factor $c$ in $c \cdot f(n)$ may be arbitrarily large, **coefficients and constant terms in $T(n)$ can be ignored**. This gives three useful shortcuts.
 
-1. **Ignore constants in $T(n)$**. Because they are all independent of $n$, they do not affect time complexity.
-2. **Omit all coefficients**. For example, looping $2n$ times, $5n + 1$ times, etc., can all be simplified as $n$ times, because the coefficient before $n$ does not affect time complexity.
-3. **Use multiplication for nested loops**. The total number of operations equals the product of the number of operations in the outer and inner loops, with each layer of loop still able to apply techniques `1.` and `2.` separately.
+1. **Ignore constant terms in $T(n)$**. They are independent of $n$ and do not affect complexity.
+2. **Drop coefficients**. For example, $2n$ or $5n + 1$ iterations can be counted simply as $n$, because the coefficient of $n$ does not affect complexity.
+3. **Multiply for nested loops**. Multiply the outer and inner iteration counts, applying shortcuts `1.` and `2.` to each level.
 
-Given a function, we can use the above techniques to count the number of operations:
+We can apply these shortcuts to the following function:
 
 === "Python"
 
     ```python title=""
     def algorithm(n: int):
-        a = 1      # +0 (Technique 1)
-        a = a + n  # +0 (Technique 1)
-        # +n (Technique 2)
+        a = 1      # +0 (shortcut 1)
+        a = a + n  # +0 (shortcut 1)
+        # +n (shortcut 2)
         for i in range(5 * n + 1):
             print(0)
-        # +n*n (Technique 3)
+        # +n*n (shortcut 3)
         for i in range(2 * n):
             for j in range(n + 1):
                 print(0)
@@ -738,13 +738,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```cpp title=""
     void algorithm(int n) {
-        int a = 1;  // +0 (Technique 1)
-        a = a + n;  // +0 (Technique 1)
-        // +n (Technique 2)
+        int a = 1;  // +0 (shortcut 1)
+        a = a + n;  // +0 (shortcut 1)
+        // +n (shortcut 2)
         for (int i = 0; i < 5 * n + 1; i++) {
             cout << 0 << endl;
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 cout << 0 << endl;
@@ -757,13 +757,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```java title=""
     void algorithm(int n) {
-        int a = 1;  // +0 (Technique 1)
-        a = a + n;  // +0 (Technique 1)
-        // +n (Technique 2)
+        int a = 1;  // +0 (shortcut 1)
+        a = a + n;  // +0 (shortcut 1)
+        // +n (shortcut 2)
         for (int i = 0; i < 5 * n + 1; i++) {
             System.out.println(0);
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 System.out.println(0);
@@ -776,13 +776,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```csharp title=""
     void Algorithm(int n) {
-        int a = 1;  // +0 (Technique 1)
-        a = a + n;  // +0 (Technique 1)
-        // +n (Technique 2)
+        int a = 1;  // +0 (shortcut 1)
+        a = a + n;  // +0 (shortcut 1)
+        // +n (shortcut 2)
         for (int i = 0; i < 5 * n + 1; i++) {
             Console.WriteLine(0);
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 Console.WriteLine(0);
@@ -795,13 +795,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```go title=""
     func algorithm(n int) {
-        a := 1     // +0 (Technique 1)
-        a = a + n  // +0 (Technique 1)
-        // +n (Technique 2)
+        a := 1     // +0 (shortcut 1)
+        a = a + n  // +0 (shortcut 1)
+        // +n (shortcut 2)
         for i := 0; i < 5 * n + 1; i++ {
             fmt.Println(0)
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for i := 0; i < 2 * n; i++ {
             for j := 0; j < n + 1; j++ {
                 fmt.Println(0)
@@ -814,13 +814,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```swift title=""
     func algorithm(n: Int) {
-        var a = 1 // +0 (Technique 1)
-        a = a + n // +0 (Technique 1)
-        // +n (Technique 2)
+        var a = 1 // +0 (shortcut 1)
+        a = a + n // +0 (shortcut 1)
+        // +n (shortcut 2)
         for _ in 0 ..< (5 * n + 1) {
             print(0)
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for _ in 0 ..< (2 * n) {
             for _ in 0 ..< (n + 1) {
                 print(0)
@@ -833,13 +833,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```javascript title=""
     function algorithm(n) {
-        let a = 1;  // +0 (Technique 1)
-        a = a + n;  // +0 (Technique 1)
-        // +n (Technique 2)
+        let a = 1;  // +0 (shortcut 1)
+        a = a + n;  // +0 (shortcut 1)
+        // +n (shortcut 2)
         for (let i = 0; i < 5 * n + 1; i++) {
             console.log(0);
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for (let i = 0; i < 2 * n; i++) {
             for (let j = 0; j < n + 1; j++) {
                 console.log(0);
@@ -852,13 +852,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```typescript title=""
     function algorithm(n: number): void {
-        let a = 1;  // +0 (Technique 1)
-        a = a + n;  // +0 (Technique 1)
-        // +n (Technique 2)
+        let a = 1;  // +0 (shortcut 1)
+        a = a + n;  // +0 (shortcut 1)
+        // +n (shortcut 2)
         for (let i = 0; i < 5 * n + 1; i++) {
             console.log(0);
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for (let i = 0; i < 2 * n; i++) {
             for (let j = 0; j < n + 1; j++) {
                 console.log(0);
@@ -871,13 +871,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```dart title=""
     void algorithm(int n) {
-      int a = 1; // +0 (Technique 1)
-      a = a + n; // +0 (Technique 1)
-      // +n (Technique 2)
+      int a = 1; // +0 (shortcut 1)
+      a = a + n; // +0 (shortcut 1)
+      // +n (shortcut 2)
       for (int i = 0; i < 5 * n + 1; i++) {
         print(0);
       }
-      // +n*n (Technique 3)
+      // +n*n (shortcut 3)
       for (int i = 0; i < 2 * n; i++) {
         for (int j = 0; j < n + 1; j++) {
           print(0);
@@ -890,15 +890,15 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```rust title=""
     fn algorithm(n: i32) {
-        let mut a = 1;     // +0 (Technique 1)
-        a = a + n;        // +0 (Technique 1)
+        let mut a = 1;     // +0 (shortcut 1)
+        a = a + n;        // +0 (shortcut 1)
 
-        // +n (Technique 2)
+        // +n (shortcut 2)
         for i in 0..(5 * n + 1) {
             println!("{}", 0);
         }
 
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for i in 0..(2 * n) {
             for j in 0..(n + 1) {
                 println!("{}", 0);
@@ -911,13 +911,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```c title=""
     void algorithm(int n) {
-        int a = 1;  // +0 (Technique 1)
-        a = a + n;  // +0 (Technique 1)
-        // +n (Technique 2)
+        int a = 1;  // +0 (shortcut 1)
+        a = a + n;  // +0 (shortcut 1)
+        // +n (shortcut 2)
         for (int i = 0; i < 5 * n + 1; i++) {
             printf("%d", 0);
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 printf("%d", 0);
@@ -930,13 +930,13 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```kotlin title=""
     fun algorithm(n: Int) {
-        var a = 1   // +0 (Technique 1)
-        a = a + n   // +0 (Technique 1)
-        // +n (Technique 2)
+        var a = 1   // +0 (shortcut 1)
+        a = a + n   // +0 (shortcut 1)
+        // +n (shortcut 2)
         for (i in 0..<5 * n + 1) {
             println(0)
         }
-        // +n*n (Technique 3)
+        // +n*n (shortcut 3)
         for (i in 0..<2 * n) {
             for (j in 0..<n + 1) {
                 println(0)
@@ -949,36 +949,36 @@ Given a function, we can use the above techniques to count the number of operati
 
     ```ruby title=""
     def algorithm(n)
-        a = 1       # +0 (Technique 1)
-        a = a + n   # +0 (Technique 1)
-        # +n (Technique 2)
+        a = 1       # +0 (shortcut 1)
+        a = a + n   # +0 (shortcut 1)
+        # +n (shortcut 2)
         (0...(5 * n + 1)).each do { puts 0 }
-        # +n*n (Technique 3)
+        # +n*n (shortcut 3)
         (0...(2 * n)).each do
             (0...(n + 1)).each do { puts 0 }
         end
     end
     ```
 
-The following formula shows the counting results before and after using the above techniques; both derive a time complexity of $O(n^2)$.
+The formulas below compare full and simplified counts. Both give time complexity $O(n^2)$.
 
 $$
 \begin{aligned}
-T(n) & = 2n(n + 1) + (5n + 1) + 2 & \text{Complete count (-.-|||)} \newline
+T(n) & = 2n(n + 1) + (5n + 1) + 2 & \text{Full count (-.-|||)} \newline
 & = 2n^2 + 7n + 3 \newline
-T(n) & = n^2 + n & \text{Simplified count (o.O)}
+T(n) & = n^2 + n & \text{Shortcut count (o.O)}
 \end{aligned}
 $$
 
-### Step 2: Determine the Asymptotic Upper Bound
+### Step 2: Determine the asymptotic upper bound
 
-**Time complexity is determined by the highest-order term in $T(n)$**. This is because as $n$ tends to infinity, the highest-order term will play a dominant role, and the influence of other terms can be ignored.
+**The highest-order term in $T(n)$ determines time complexity**. As $n$ tends to infinity, that term dominates, and the others become negligible.
 
-The table below shows some examples, where some exaggerated values are used to emphasize the conclusion that "coefficients cannot shake the order". When $n$ tends to infinity, these constants become insignificant.
+The table below includes deliberately extreme coefficients to emphasize that coefficients cannot overcome growth order. As $n$ tends to infinity, those constants become insignificant.
 
-<p align="center"> Table <id> &nbsp; Time complexities corresponding to different numbers of operations </p>
+<p align="center"> Table <id> &nbsp; Operation counts and their time complexities </p>
 
-| Number of Operations $T(n)$ | Time Complexity $O(f(n))$ |
+| Operation count $T(n)$        | Time complexity $O(f(n))$ |
 | ---------------------- | -------------------- |
 | $100000$               | $O(1)$               |
 | $3n + 2$               | $O(n)$               |
@@ -986,9 +986,9 @@ The table below shows some examples, where some exaggerated values are used to e
 | $n^3 + 10000n^2$       | $O(n^3)$             |
 | $2^n + 10000n^{10000}$ | $O(2^n)$             |
 
-## Common Types
+## Common complexity classes
 
-Let the input data size be $n$. Common time complexity types are shown in the figure below (arranged in order from low to high).
+For input size $n$, common time complexities are shown below in increasing order of growth.
 
 $$
 \begin{aligned}
@@ -997,155 +997,155 @@ $$
 \end{aligned}
 $$
 
-![Common time complexity types](time_complexity.assets/time_complexity_common_types.png)
+![Common time complexity classes](time_complexity.assets/time_complexity_common_types.png)
 
-### Constant Order $O(1)$
+### Constant time $O(1)$
 
-The number of operations in constant order is independent of the input data size $n$, meaning it does not change as $n$ changes.
+A constant operation count is independent of input size $n$: changing $n$ does not change the count.
 
-In the following function, although the value of `size` may be large, it is independent of the input data size $n$, so the time complexity remains $O(1)$:
+In the following function, `size` may be large, but it is independent of input size $n$, so the time complexity remains $O(1)$:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{constant}
 ```
 
-### Linear Order $O(n)$
+### Linear time $O(n)$
 
-The number of operations in linear order grows linearly relative to the input data size $n$. Linear order typically appears in single-layer loops:
+A linear operation count grows proportionally to input size $n$. It commonly appears in a single loop:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{linear}
 ```
 
-Operations such as traversing arrays and traversing linked lists have a time complexity of $O(n)$, where $n$ is the length of the array or linked list:
+Traversing an array or linked list takes $O(n)$ time, where $n$ is its length:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{array_traversal}
 ```
 
-It is worth noting that **the input data size $n$ should be determined according to the type of input data**. For example, in the first example, the variable $n$ is the input data size; in the second example, the array length $n$ is the data size.
+**The meaning of input size $n$ depends on the input type**. In the first example, it is the variable $n$; in the second, it is the array length $n$.
 
-### Quadratic Order $O(n^2)$
+### Quadratic time $O(n^2)$
 
-The number of operations in quadratic order grows quadratically relative to the input data size $n$. Quadratic order typically appears in nested loops, where both the outer and inner loops have a time complexity of $O(n)$, resulting in an overall time complexity of $O(n^2)$:
+A quadratic operation count grows with the square of input size $n$. It commonly appears in nested loops where both levels take $O(n)$ time, giving $O(n^2)$ overall:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{quadratic}
 ```
 
-The figure below compares constant order, linear order, and quadratic order time complexities.
+The figure below compares constant, linear, and quadratic time complexity.
 
-![Time complexities of constant, linear, and quadratic orders](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
+![Constant, linear, and quadratic time complexity](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
 
-Taking bubble sort as an example, the outer loop executes $n - 1$ times, and the inner loop executes $n-1$, $n-2$, $\dots$, $2$, $1$ times, averaging $n / 2$ times, resulting in a time complexity of $O((n - 1) n / 2) = O(n^2)$:
+In bubble sort, for example, the outer loop runs $n - 1$ times, while the inner loop runs $n-1$, $n-2$, $\dots$, $2$, and $1$ times, averaging $n / 2$. The resulting complexity is $O((n - 1) n / 2) = O(n^2)$:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{bubble_sort}
 ```
 
-### Exponential Order $O(2^n)$
+### Exponential time $O(2^n)$
 
-Biological "cell division" is a typical example of exponential order growth: the initial state is $1$ cell, after one round of division it becomes $2$, after two rounds it becomes $4$, and so on; after $n$ rounds of division there are $2^n$ cells.
+Cell division is a classic example of exponential growth. Starting with $1$ cell, one round produces $2$, two rounds produce $4$, and after $n$ rounds there are $2^n$ cells.
 
-The figure below and the following code simulate the cell division process, with a time complexity of $O(2^n)$. Note that the input $n$ represents the number of division rounds, and the return value `count` represents the total number of divisions.
+The figure and code below simulate cell division in $O(2^n)$ time. The input $n$ is the number of rounds, while the returned `count` is the total number of individual divisions.
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{exponential}
 ```
 
-![Time complexity of exponential order](time_complexity.assets/time_complexity_exponential.png)
+![Exponential time complexity](time_complexity.assets/time_complexity_exponential.png)
 
-In actual algorithms, exponential order often appears in recursive functions. For example, in the following code, it recursively splits in two, stopping after $n$ splits:
+Exponential time often appears in recursive algorithms. The following function branches into two calls at each level, stopping after $n$ levels:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{exp_recur}
 ```
 
-Exponential order growth is very rapid and is common in exhaustive methods (brute force search, backtracking, etc.). For problems with large data scales, exponential order is unacceptable and typically requires dynamic programming or greedy algorithms to solve.
+Exponential growth is very rapid and common in exhaustive approaches such as brute-force search and backtracking. It is unacceptable for large inputs, which usually require approaches such as dynamic programming or greedy algorithms.
 
-### Logarithmic Order $O(\log n)$
+### Logarithmic time $O(\log n)$
 
-In contrast to exponential order, logarithmic order reflects the situation of "reducing to half each round". Let the input data size be $n$. Since it is reduced to half each round, the number of loops is $\log_2 n$, which is the inverse function of $2^n$.
+Logarithmic growth corresponds to repeatedly halving a quantity, the reverse of exponential growth. Starting with input size $n$, halving each round gives $\log_2 n$ iterations, the inverse of $2^n$.
 
-The figure below and the following code simulate the process of "reducing to half each round", with a time complexity of $O(\log_2 n)$, abbreviated as $O(\log n)$:
+The figure and code below simulate repeated halving, taking $O(\log_2 n)$ time, usually written $O(\log n)$:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{logarithmic}
 ```
 
-![Time complexity of logarithmic order](time_complexity.assets/time_complexity_logarithmic.png)
+![Logarithmic time complexity](time_complexity.assets/time_complexity_logarithmic.png)
 
-Like exponential order, logarithmic order also commonly appears in recursive functions. The following code forms a recursion tree of height $\log_2 n$:
+Like exponential growth, logarithmic growth often occurs in recursion. The following code produces a recursion tree of height $\log_2 n$:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{log_recur}
 ```
 
-Logarithmic order commonly appears in algorithms based on the divide-and-conquer strategy, reflecting the idea of repeatedly splitting a problem and simplifying it. It grows slowly and is the ideal time complexity second only to constant order.
+Logarithmic time often arises in divide-and-conquer algorithms, reflecting the idea of dividing a problem into smaller, simpler parts. It grows slowly and is highly desirable, second only to constant time among these classes.
 
 !!! tip "What is the base of $O(\log n)$?"
 
-    To be precise, "dividing into $m$" corresponds to a time complexity of $O(\log_m n)$. And through the logarithmic base change formula, we can obtain time complexities with different bases that are equal:
+    More precisely, reducing the size by a factor of $m$ gives $O(\log_m n)$. The change-of-base formula shows that different fixed bases yield the same complexity:
 
     $$
     O(\log_m n) = O(\log_k n / \log_k m) = O(\log_k n)
     $$
 
-    That is to say, the base $m$ can be converted without affecting the complexity. Therefore, we usually omit the base $m$ and denote logarithmic order simply as $O(\log n)$.
+    Thus, changing the base $m$ does not affect the complexity. We usually omit $m$ and simply write $O(\log n)$.
 
-### Linearithmic Order $O(n \log n)$
+### Linearithmic time $O(n \log n)$
 
-Linearithmic order commonly appears in nested loops, where the time complexities of the two layers of loops are $O(\log n)$ and $O(n)$ respectively. The relevant code is as follows:
+Linearithmic time often appears when one level of a nested process takes $O(\log n)$ and another takes $O(n)$. An example follows:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{linear_log_recur}
 ```
 
-The figure below shows how linearithmic order is generated. Each level of the binary tree has a total of $n$ operations, and the tree has $\log_2 n + 1$ levels, resulting in a time complexity of $O(n \log n)$.
+The figure below shows how linearithmic growth arises. Each level of the binary tree performs $n$ operations, and there are $\log_2 n + 1$ levels, giving $O(n \log n)$ time.
 
-![Time complexity of linearithmic order](time_complexity.assets/time_complexity_logarithmic_linear.png)
+![Linearithmic time complexity](time_complexity.assets/time_complexity_logarithmic_linear.png)
 
-Mainstream sorting algorithms typically have a time complexity of $O(n \log n)$, such as quicksort, merge sort, and heap sort.
+Common sorting algorithms, including quick sort, merge sort, and heap sort, typically take $O(n \log n)$ time.
 
-### Factorial Order $O(n!)$
+### Factorial time $O(n!)$
 
-Factorial order corresponds to the mathematical "permutation" problem. Given $n$ distinct elements, find all possible permutation schemes; the number of schemes is:
+Factorial growth arises when generating every permutation of $n$ distinct elements. The number of permutations is:
 
 $$
 n! = n \times (n - 1) \times (n - 2) \times \dots \times 2 \times 1
 $$
 
-Factorials are typically implemented using recursion. As shown in the figure below and the following code, the first level splits into $n$ branches, the second level splits into $n - 1$ branches, and so on, until the $n$-th level when splitting stops:
+Algorithms with factorial time complexity are usually implemented recursively. As the figure and code below show, each call creates $n$ branches at the first level, $n - 1$ at the second, and so on until level $n$:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{factorial_recur}
 ```
 
-![Time complexity of factorial order](time_complexity.assets/time_complexity_factorial.png)
+![Factorial time complexity](time_complexity.assets/time_complexity_factorial.png)
 
-Note that because when $n \geq 4$ we always have $n! > 2^n$, factorial order grows faster than exponential order, and is also unacceptable for large $n$.
+Since $n! > 2^n$ whenever $n \geq 4$, factorial growth is faster than exponential growth and is also unacceptable for large $n$.
 
-## Worst, Best, and Average Time Complexities
+## Worst-case, best-case, and average-case time complexity
 
-**The time efficiency of an algorithm is often not fixed, but is related to the distribution of the input data**. Suppose we input an array `nums` of length $n$, where `nums` consists of numbers from $1$ to $n$, with each number appearing only once, but the element order is randomly shuffled. The task is to return the index of element $1$. We can draw the following conclusions.
+**An algorithm's efficiency often depends on how its input data is arranged**. Suppose `nums` is an array of length $n$ containing every integer from $1$ through $n$ exactly once in a random order. The task is to return the index of $1$. We can conclude the following.
 
-- When `nums = [?, ?, ..., 1]`, i.e., when the last element is $1$, it requires a complete traversal of the array, **reaching worst-case time complexity $O(n)$**.
-- When `nums = [1, ?, ?, ...]`, i.e., when the first element is $1$, no matter how long the array is, there is no need to continue traversing, **reaching best-case time complexity $\Omega(1)$**.
+- If `nums = [?, ?, ..., 1]`, with $1$ last, we must traverse the whole array, **giving worst-case time complexity $O(n)$**.
+- If `nums = [1, ?, ?, ...]`, with $1$ first, no further traversal is needed regardless of array length, **giving best-case time complexity $\Omega(1)$**.
 
-The "worst-case time complexity" corresponds to the function's asymptotic upper bound, denoted using big-$O$ notation. Correspondingly, the "best-case time complexity" corresponds to the function's asymptotic lower bound, denoted using $\Omega$ notation:
+Worst-case time complexity corresponds to an asymptotic upper bound, expressed with big-$O$ notation. Best-case time complexity corresponds to an asymptotic lower bound, expressed with $\Omega$:
 
 ```src
 [file]{worst_best_time_complexity}-[class]{}-[func]{find_one}
 ```
 
-It is worth noting that we rarely use best-case time complexity in practice, because it can usually only be achieved with a very small probability and may be somewhat misleading. **The worst-case time complexity is more practical because it gives a safety value for efficiency**, allowing us to use the algorithm with confidence.
+Best-case complexity is rarely used in practice because it may occur only with low probability and can be misleading. **Worst-case complexity is more useful because it gives a safe performance bound**, allowing us to use the algorithm with confidence.
 
-From the above example, we can see that both worst-case and best-case time complexities arise only under particular input distributions, which may occur with very low probability and may not truly reflect the algorithm's running efficiency. In contrast, **average time complexity can reflect the algorithm's running efficiency under random input data**, denoted using the $\Theta$ notation.
+In this example, both the worst and best cases occur only for particular arrangements, perhaps with low probability, and may not reflect ordinary performance. **Average-case complexity describes performance on random inputs** and is expressed with $\Theta$.
 
-For some algorithms, we can simply derive the average case under random data distribution. For example, in the above example, since the input array is shuffled, the probability of element $1$ appearing at any index is equal, so the algorithm's average number of loops is half the array length $n / 2$, giving an average time complexity of $\Theta(n / 2) = \Theta(n)$.
+For some algorithms, the average case is easy to derive. In the example above, $1$ is equally likely to occur at any index in the shuffled array. The average number of iterations is half the array length, $n / 2$, giving $\Theta(n / 2) = \Theta(n)$.
 
-But for more complex algorithms, calculating average time complexity is often quite difficult, because it is hard to analyze the overall mathematical expectation under data distribution. In this case, we usually use worst-case time complexity as the criterion for judging algorithm efficiency.
+For more complex algorithms, average-case complexity can be difficult to calculate because the overall expectation under the input distribution is hard to derive. In such cases, we usually judge efficiency by worst-case complexity.
 
-!!! question "Why is the $\Theta$ symbol rarely seen?"
+!!! question "Why is $\Theta$ rarely seen?"
 
-    This may be because the $O$ symbol is too catchy, so we often use it to represent average time complexity. But strictly speaking, this practice is not standard. In this book and other materials, if you encounter expressions like "average time complexity $O(n)$", please understand it directly as $\Theta(n)$.
+    Perhaps because $O$ is so familiar, it is often used for average-case complexity too. Strictly speaking, this usage is not standard. In this book and other resources, read a statement such as "average-case time complexity $O(n)$" as $\Theta(n)$.

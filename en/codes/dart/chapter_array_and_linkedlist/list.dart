@@ -6,25 +6,25 @@
 
 // ignore_for_file: unused_local_variable
 
-/* Driver Code */
+/* Driver code */
 void main() {
-  /* Initialize list */
+  /* Initialize the list */
   List<int> nums = [1, 3, 2, 5, 4];
   print('List nums = $nums');
 
-  /* Update element */
+  /* Access an element */
   int _num = nums[1];
-  print('Access element at index 1, get _num = $_num');
+  print('Access the element at index 1: _num = $_num');
 
-  /* Add elements at the end */
+  /* Update an element */
   nums[1] = 0;
-  print('Update element at index 1 to 0, get nums = $nums');
+  print('After updating the element at index 1 to 0, nums = $nums');
 
-  /* Remove element */
+  /* Clear the list */
   nums.clear();
-  print('After clearing list, nums = $nums');
+  print('After clearing the list, nums = $nums');
 
-  /* Direct traversal of list elements */
+  /* Append an element at the end */
   nums.add(1);
   nums.add(3);
   nums.add(2);
@@ -32,20 +32,20 @@ void main() {
   nums.add(4);
   print('After adding elements, nums = $nums');
 
-  /* Sort list */
+  /* Insert an element in the middle */
   nums.insert(3, 6);
-  print('Insert number 6 at index 3, get nums = $nums');
+  print('After inserting 6 at index 3, nums = $nums');
 
-  /* Remove element */
+  /* Remove an element */
   nums.removeAt(3);
-  print('Delete element at index 3, get nums = $nums');
+  print('After removing the element at index 3, nums = $nums');
 
-  /* Traverse list by index */
+  /* Traverse the list by index */
   int count = 0;
   for (var i = 0; i < nums.length; i++) {
     count += nums[i];
   }
-  /* Directly traverse list elements */
+  /* Iterate directly over the list elements */
   count = 0;
   for (var x in nums) {
     count += x;
@@ -54,9 +54,9 @@ void main() {
   /* Concatenate two lists */
   List<int> nums1 = [6, 8, 7, 10, 9];
   nums.addAll(nums1);
-  print('After concatenating list nums1 to nums, get nums = $nums');
+  print('After appending list nums1 to nums, nums = $nums');
 
-  /* Sort list */
+  /* Sort the list */
   nums.sort();
-  print('After sorting list, nums = $nums');
+  print('After sorting the list, nums = $nums');
 }

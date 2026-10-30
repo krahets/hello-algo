@@ -7,7 +7,7 @@
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-/* Preorder traversal: Example 3 */
+/* Preorder traversal: example 3 */
 void preOrder(
   TreeNode? root,
   List<TreeNode> path,
@@ -17,10 +17,10 @@ void preOrder(
     return;
   }
 
-  // Attempt
+  // Try
   path.add(root);
   if (root.val == 7) {
-    // Record solution
+    // Record the solution
     res.add(List.from(path));
   }
   preOrder(root.left, path, res);
@@ -29,10 +29,10 @@ void preOrder(
   path.removeLast();
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
   TreeNode? root = listToTree([1, 7, 3, 4, 5, 6, 7]);
-  print("\nInitialize binary tree");
+  print("\nInitialize the binary tree");
   printTree(root);
 
   // Preorder traversal
@@ -40,7 +40,7 @@ void main() {
   List<List<TreeNode>> res = [];
   preOrder(root, path, res);
 
-  print("\nOutput all paths from root node to node 7");
+  print("\nOutput all paths from the root to nodes with value 7 that avoid nodes with value 3");
   for (List<TreeNode> vals in res) {
     print(List.generate(vals.length, (i) => vals[i].val));
   }

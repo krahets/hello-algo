@@ -13,9 +13,9 @@ public class space_complexity {
         return 0;
     }
 
-    /* Constant order */
+    /* Constant complexity */
     void Constant(int n) {
-        // Constants, variables, objects occupy O(1) space
+        // Constants, variables, and objects occupy O(1) space
         int a = 0;
         int b = 0;
         int[] nums = new int[10000];
@@ -24,40 +24,40 @@ public class space_complexity {
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
-        // Functions in the loop occupy O(1) space
+        // Function calls in the loop occupy O(1) space
         for (int i = 0; i < n; i++) {
             Function();
         }
     }
 
-    /* Linear order */
+    /* Linear complexity */
     void Linear(int n) {
-        // Array of length n uses O(n) space
+        // An array of length n uses O(n) space
         int[] nums = new int[n];
         // A list of length n occupies O(n) space
         List<ListNode> nodes = [];
         for (int i = 0; i < n; i++) {
             nodes.Add(new ListNode(i));
         }
-        // A hash table of length n occupies O(n) space
+        // A hash table with n entries occupies O(n) space
         Dictionary<int, string> map = [];
         for (int i = 0; i < n; i++) {
             map.Add(i, i.ToString());
         }
     }
 
-    /* Linear order (recursive implementation) */
+    /* Linear complexity (recursive implementation) */
     void LinearRecur(int n) {
-        Console.WriteLine("Recursion n = " + n);
+        Console.WriteLine("Recursive call: n = " + n);
         if (n == 1) return;
         LinearRecur(n - 1);
     }
 
-    /* Exponential order */
+    /* Quadratic complexity */
     void Quadratic(int n) {
-        // Matrix uses O(n^2) space
+        // The matrix uses O(n^2) space
         int[,] numMatrix = new int[n, n];
-        // 2D list uses O(n^2) space
+        // The two-dimensional list occupies O(n^2) space
         List<List<int>> numList = [];
         for (int i = 0; i < n; i++) {
             List<int> tmp = [];
@@ -68,15 +68,15 @@ public class space_complexity {
         }
     }
 
-    /* Quadratic order (recursive implementation) */
+    /* Quadratic complexity (recursive implementation) */
     int QuadraticRecur(int n) {
         if (n <= 0) return 0;
         int[] nums = new int[n];
-        Console.WriteLine("Recursion n = " + n + ", nums length = " + nums.Length);
+        Console.WriteLine("Recursive call: n = " + n + " with nums length = " + nums.Length);
         return QuadraticRecur(n - 1);
     }
 
-    /* Driver Code */
+    /* Exponential complexity (building a perfect binary tree) */
     TreeNode? BuildTree(int n) {
         if (n == 0) return null;
         TreeNode root = new(0) {
@@ -89,15 +89,15 @@ public class space_complexity {
     [Test]
     public void Test() {
         int n = 5;
-        // Constant order
+        // Constant complexity
         Constant(n);
-        // Linear order
+        // Linear complexity
         Linear(n);
         LinearRecur(n);
-        // Exponential order
+        // Quadratic complexity
         Quadratic(n);
         QuadraticRecur(n);
-        // Exponential order
+        // Exponential complexity
         TreeNode? root = BuildTree(n);
         PrintUtil.PrintTree(root);
     }

@@ -8,13 +8,13 @@ import utils
 
 var res: [TreeNode] = []
 
-/* Preorder traversal: Example 1 */
+/* Preorder traversal: example 1 */
 func preOrder(root: TreeNode?) {
     guard let root = root else {
         return
     }
     if root.val == 7 {
-        // Record solution
+        // Record the solution
         res.append(root)
     }
     preOrder(root: root.left)
@@ -23,10 +23,10 @@ func preOrder(root: TreeNode?) {
 
 @main
 enum PreorderTraversalICompact {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         let root = TreeNode.listToTree(arr: [1, 7, 3, 4, 5, 6, 7])
-        print("\nInitialize binary tree")
+        print("\nInitialize the binary tree")
         PrintUtil.printTree(root: root)
 
         // Preorder traversal

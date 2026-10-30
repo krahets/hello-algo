@@ -1,18 +1,18 @@
-# Basic Operations on Graphs
+# Basic graph operations
 
-Basic operations on graphs can be divided into operations on "edges" and operations on "vertices". Their implementations differ depending on whether the graph is represented as an "adjacency matrix" or an "adjacency list".
+Basic graph operations fall into two categories: operations on edges and operations on vertices. Their implementations differ depending on whether the graph is represented by an adjacency matrix or an adjacency list.
 
-## Implementation Based on Adjacency Matrix
+## Adjacency matrix implementation
 
-Given an undirected graph with $n$ vertices, the various operations are implemented as shown in the figure below.
+For an undirected graph with $n$ vertices, the operations are implemented as shown in the figure below.
 
-- **Adding or removing an edge**: Directly modify the specified edge in the adjacency matrix, using $O(1)$ time. Since it is an undirected graph, both directions of the edge need to be updated simultaneously.
-- **Adding a vertex**: Add a row and a column at the end of the adjacency matrix and fill them all with $0$s, using $O(n)$ time.
-- **Removing a vertex**: Delete a row and a column in the adjacency matrix. The worst case occurs when removing the first row and column, requiring $(n-1)^2$ elements to be "moved up and to the left", thus using $O(n^2)$ time.
-- **Initialization**: Given $n$ vertices, initialize a vertex list `vertices` of length $n$, using $O(n)$ time; initialize an adjacency matrix `adjMat` of size $n \times n$, using $O(n^2)$ time.
+- **Add or remove an edge**: Modify the corresponding entry in the adjacency matrix directly, taking $O(1)$ time. Since the graph is undirected, update the edge in both directions.
+- **Add a vertex**: Append one row and one column to the adjacency matrix and fill them with $0$, taking $O(n)$ time.
+- **Remove a vertex**: Delete the corresponding row and column from the adjacency matrix. The worst case occurs when deleting the first row and column: $(n-1)^2$ entries must be shifted up and to the left, taking $O(n^2)$ time.
+- **Initialize the graph**: Given $n$ vertices, initialize the vertex list `vertices` of length $n$ in $O(n)$ time, then initialize the $n \times n$ adjacency matrix `adjMat` in $O(n^2)$ time.
 
 === "<1>"
-    ![Initialization, adding and removing edges, adding and removing vertices in adjacency matrix](graph_operations.assets/adjacency_matrix_step1_initialization.png)
+    ![Initializing an adjacency matrix and adding or removing edges and vertices](graph_operations.assets/adjacency_matrix_step1_initialization.png)
 
 === "<2>"
     ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_step2_add_edge.png)
@@ -26,24 +26,24 @@ Given an undirected graph with $n$ vertices, the various operations are implemen
 === "<5>"
     ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_step5_remove_vertex.png)
 
-The following is the implementation code for graphs represented using an adjacency matrix:
+The following code implements a graph using an adjacency matrix:
 
 ```src
 [file]{graph_adjacency_matrix}-[class]{graph_adj_mat}-[func]{}
 ```
 
-## Implementation Based on Adjacency List
+## Adjacency list implementation
 
-Given an undirected graph with a total of $n$ vertices and $m$ edges, the various operations can be implemented as shown in the figure below.
+For an undirected graph with $n$ vertices and $m$ edges, the operations can be implemented as shown in the figure below.
 
-- **Adding an edge**: Add the edge at the end of the corresponding vertex's linked list, using $O(1)$ time. Since it is an undirected graph, edges in both directions need to be added simultaneously.
-- **Removing an edge**: Find and remove the specified edge in the corresponding vertex's linked list, using $O(m)$ time. In an undirected graph, edges in both directions need to be removed simultaneously.
-- **Adding a vertex**: Add a linked list to the adjacency list, with the new vertex as the head node, using $O(1)$ time.
-- **Removing a vertex**: Traverse the entire adjacency list and remove all edges containing the specified vertex, using $O(n + m)$ time.
-- **Initialization**: Create $n$ vertices and $2m$ edges in the adjacency list, using $O(n + m)$ time.
+- **Add an edge**: Append the edge to the linked list of the corresponding vertex, taking $O(1)$ time. Since the graph is undirected, add the edge in both directions.
+- **Remove an edge**: Find and remove the specified edge in the corresponding vertex's linked list, taking $O(m)$ time. For an undirected graph, remove the edge in both directions.
+- **Add a vertex**: Add a linked list to the adjacency list with the new vertex as its head node, taking $O(1)$ time.
+- **Remove a vertex**: Traverse the entire adjacency list and remove every edge involving the specified vertex, taking $O(n + m)$ time.
+- **Initialize the graph**: Create $n$ vertices and $2m$ edge entries in the adjacency list, taking $O(n + m)$ time.
 
 === "<1>"
-    ![Initialization, adding and removing edges, adding and removing vertices in adjacency list](graph_operations.assets/adjacency_list_step1_initialization.png)
+    ![Initializing an adjacency list and adding or removing edges and vertices](graph_operations.assets/adjacency_list_step1_initialization.png)
 
 === "<2>"
     ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_step2_add_edge.png)
@@ -57,30 +57,30 @@ Given an undirected graph with a total of $n$ vertices and $m$ edges, the variou
 === "<5>"
     ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.png)
 
-The following code shows the adjacency list implementation. Compared with the figure above, the actual code differs in the following ways.
+The following code implements an adjacency list, with these differences from the figure above.
 
-- For convenience in adding and removing vertices, and to simplify the code, we use lists (dynamic arrays) instead of linked lists.
-- A hash table is used to store the adjacency list, where `key` is the vertex instance and `value` is the list (linked list) of adjacent vertices for that vertex.
+- To make adding and removing vertices easier and simplify the code, we use lists (dynamic arrays) in place of linked lists.
+- A hash table stores the adjacency list. Each `key` is a vertex instance, and its `value` is the list (linked list) of adjacent vertices.
 
-Additionally, we use the `Vertex` class to represent vertices in the adjacency list for the following reason: if we used list indices to distinguish different vertices, as with adjacency matrices, then to delete the vertex at index $i$, we would need to traverse the entire adjacency list and decrement all indices greater than $i$ by $1$, which is very inefficient. However, if each vertex is a unique `Vertex` instance, deleting one vertex does not require modifying the others.
+We also use the `Vertex` class to represent vertices in the adjacency list. If we identified vertices by list indices, as in the adjacency matrix, deleting the vertex at index $i$ would require traversing the entire adjacency list and subtracting $1$ from every index greater than $i$. This would be inefficient. When each vertex is a unique `Vertex` instance, deleting one vertex requires no changes to the other vertices.
 
 ```src
 [file]{graph_adjacency_list}-[class]{graph_adj_list}-[func]{}
 ```
 
-## Efficiency Comparison
+## Comparing efficiency
 
-Assuming the graph has $n$ vertices and $m$ edges, the table below compares the time efficiency and space efficiency of adjacency matrices and adjacency lists. Note that the adjacency list (linked list) corresponds to the implementation used in this section, while the adjacency list (hash table) refers specifically to the implementation where all linked lists are replaced with hash tables.
+For a graph with $n$ vertices and $m$ edges, the table below compares the time and space efficiency of adjacency matrices and adjacency lists. Here, "adjacency list (linked lists)" refers to the implementation in this section, while "adjacency list (hash tables)" specifically refers to an implementation in which every linked list is replaced by a hash table.
 
-<p align="center"> Table <id> &nbsp; Comparison of adjacency matrix and adjacency list </p>
+<p align="center"> Table <id> &nbsp; Comparing adjacency matrices and adjacency lists </p>
 
-|                        | Adjacency matrix | Adjacency list (linked list) | Adjacency list (hash table) |
-| ---------------------- | ---------------- | ---------------------------- | --------------------------- |
-| Determine adjacency    | $O(1)$           | $O(n)$                       | $O(1)$                      |
-| Add an edge            | $O(1)$           | $O(1)$                       | $O(1)$                      |
-| Remove an edge         | $O(1)$           | $O(n)$                       | $O(1)$                      |
-| Add a vertex           | $O(n)$           | $O(1)$                       | $O(1)$                      |
-| Remove a vertex        | $O(n^2)$         | $O(n + m)$                   | $O(n)$                      |
-| Memory space usage     | $O(n^2)$         | $O(n + m)$                   | $O(n + m)$                  |
+|              | Adjacency matrix | Adjacency list (linked lists) | Adjacency list (hash tables) |
+| ------------ | -------- | -------------- | ---------------- |
+| Check adjacency | $O(1)$   | $O(n)$         | $O(1)$           |
+| Add an edge       | $O(1)$   | $O(1)$         | $O(1)$           |
+| Remove an edge       | $O(1)$   | $O(n)$         | $O(1)$           |
+| Add a vertex     | $O(n)$   | $O(1)$         | $O(1)$           |
+| Remove a vertex     | $O(n^2)$ | $O(n + m)$     | $O(n)$           |
+| Memory usage | $O(n^2)$ | $O(n + m)$     | $O(n + m)$       |
 
-Observing the table above, it appears that the adjacency list (hash table) has the best time efficiency and space efficiency. However, in practice, operating on edges in the adjacency matrix is more efficient, requiring only a single array access or assignment operation. Overall, adjacency matrices embody the principle of "trading space for time", while adjacency lists embody "trading time for space".
+The table above suggests that an adjacency list using hash tables is the most efficient in both time and space. In practice, however, edge operations in an adjacency matrix are faster: each requires only a single array access or assignment. Overall, an adjacency matrix trades space for time, while an adjacency list trades time for space.

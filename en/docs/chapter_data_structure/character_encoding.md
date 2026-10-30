@@ -1,85 +1,85 @@
-# Character Encoding *
+# Character encoding *
 
-In computers, all data is stored in binary form, and character `char` is no exception. To represent characters, we need to establish a "character set" that defines a one-to-one correspondence between each character and binary numbers. With a character set, computers can convert binary numbers to characters by looking up the table.
+All computer data is stored as binary numbers, including characters of type `char`. To represent characters, we need a character set that assigns each character a unique binary number. The computer can then convert numbers to characters by looking them up.
 
-## ASCII Character Set
+## ASCII character set
 
-<u>ASCII code</u> is the earliest character set, with the full name American Standard Code for Information Interchange. It uses 7 binary bits (the lower 7 bits of one byte) to represent a character, and can represent a maximum of 128 different characters. As shown in the figure below, ASCII code includes uppercase and lowercase English letters, numbers 0 ~ 9, some punctuation marks, and some control characters (such as newline and tab).
+<u>ASCII</u>, short for American Standard Code for Information Interchange, was the earliest character set. It uses 7 bits (the lower 7 bits of a byte) per character, allowing up to 128 characters. As shown in the figure below, ASCII includes uppercase and lowercase English letters, digits 0 ~ 9, punctuation, and control characters such as newlines and tabs.
 
-![ASCII code](character_encoding.assets/ascii_table.png)
+![ASCII codes](character_encoding.assets/ascii_table.png)
 
-However, **ASCII code can only represent English**. With the globalization of computers, a character set called <u>EASCII</u> that can represent more languages emerged. It expands from the 7-bit basis of ASCII to 8 bits, and can represent 256 different characters.
+However, **ASCII can represent only English text**. As computers spread worldwide, <u>EASCII</u> character sets emerged to support more languages. Extending ASCII from 7 bits to 8 allowed 256 distinct characters.
 
-Worldwide, a batch of EASCII character sets suitable for different regions have appeared successively. The first 128 characters of these character sets are unified as ASCII code, and the last 128 characters are defined differently to adapt to the needs of different languages.
+Different regions developed their own EASCII character sets. The first 128 characters remained identical to ASCII, while the remaining 128 varied to meet different languages' needs.
 
-## GBK Character Set
+## GBK character set
 
-Later, people found that **EASCII still could not provide enough characters for many languages**. For example, there are nearly one hundred thousand Chinese characters, and several thousand are used in everyday life. In 1980, the China National Standardization Administration released the <u>GB2312</u> character set, which included 6,763 Chinese characters, basically meeting the needs of computer processing for Chinese.
+Eventually, **even EASCII proved too small for many languages**. Chinese, for example, has nearly 100,000 characters, with thousands used daily. In 1980, China's National Bureau of Standards released <u>GB2312</u>, containing 6,763 Chinese characters and meeting most basic needs for processing Chinese text.
 
-However, GB2312 cannot handle some rare characters and traditional Chinese characters. The <u>GBK</u> character set is an extension based on GB2312, which includes a total of 21,886 Chinese characters. In the GBK encoding scheme, ASCII characters are represented using one byte, and Chinese characters are represented using two bytes.
+GB2312 could not handle some rare and traditional characters. <u>GBK</u> extended it to 21,886 Chinese characters. In GBK encoding, ASCII characters use one byte, and Chinese characters use two.
 
-## Unicode Character Set
+## Unicode character set
 
-With the vigorous development of computer technology, character sets and encoding standards flourished, which brought many problems. On the one hand, these character sets generally only define characters for specific languages and cannot work normally in multilingual environments. On the other hand, multiple character set standards exist for the same language, and if two computers use different encoding standards, garbled characters will appear during information transmission.
+As computing grew, character sets and encoding standards proliferated, creating problems. Most covered only particular languages and did not work well in multilingual settings. Multiple standards also existed for the same language, so exchanging text between computers using different encodings could produce garbled text.
 
-Researchers of that era thought: **If a sufficiently complete character set were released to include all languages and symbols in the world, wouldn't that solve problems in cross-language environments and eliminate garbled text**? Driven by this idea, a large and comprehensive character set, Unicode, was born.
+Researchers asked: **could a sufficiently comprehensive character set, containing all the world's languages and symbols, solve both multilingual compatibility and garbled-text problems**? This idea led to Unicode.
 
-<u>Unicode</u>, or Unified Code, can theoretically accommodate over one million characters. It is committed to including characters from around the world into a unified character set, providing a universal character set to handle and display various language texts, reducing garbled character problems caused by different encoding standards. Since its release in 1991, Unicode has continuously expanded to include new languages and characters. As of September 2022, Unicode has included 149,186 characters, including characters, symbols, and even emojis from various languages.
+<u>Unicode</u>, whose Chinese name means "unified code", can theoretically accommodate over a million characters. It aims to bring the world's characters into one universal set for processing and displaying different languages, reducing garbled text caused by incompatible standards. Since its release in 1991, it has continued adding languages and characters. As of September 2022, Unicode contained 149,186 characters, including letters, symbols, and emoji.
 
-As a universal character set, Unicode essentially assigns each character a unique "code point" (character identifier), whose range is U+0000 to U+10FFFF, forming a unified character numbering space. However, **Unicode does not specify how to store these character code points in computers**. We can't help but ask: when Unicode code points of multiple lengths appear simultaneously in a text, how does the system parse the characters? For example, given an encoding with a length of 2 bytes, how does the system determine whether it is one 2-byte character or two 1-byte characters?
+As a universal character set, Unicode assigns each character a unique code point, or character number, from U+0000 to U+10FFFF. **It does not, by itself, specify how these code points are stored in a computer**. How can a system parse text containing code points of different lengths? For example, how does it distinguish one two-byte character from two one-byte characters?
 
-For the above problem, **a straightforward solution is to store all characters as equal-length encodings**. As shown in the figure below, each character in "Hello" occupies 1 byte, and each character in "算法" (algorithm) occupies 2 bytes. We can encode all characters in "Hello 算法" as 2 bytes in length by padding the high bits with 0. In this way, the system can parse one character every 2 bytes and restore the content of this phrase.
+**One straightforward solution is to store every character in a fixed-width encoding**. In the figure below, each character in "Hello" occupies 1 byte, while each in "算法" occupies 2 bytes. Padding the high bits with zeros lets us encode every character in "Hello 算法" with 2 bytes. The system can then read one character every 2 bytes to recover the phrase.
 
-![Unicode encoding example](character_encoding.assets/unicode_hello_algo.png)
+![Example of Unicode encoding](character_encoding.assets/unicode_hello_algo.png)
 
-However, ASCII code has already proven to us that encoding English only requires 1 byte. If the above scheme is adopted, the size of English text will be twice that under ASCII encoding, which is very wasteful of memory space. Therefore, we need a more efficient Unicode encoding method.
+ASCII has already shown that English text needs only 1 byte per character. This scheme would double its storage compared with ASCII, wasting memory. We therefore need a more efficient Unicode encoding.
 
-## UTF-8 Encoding
+## UTF-8 encoding
 
-Currently, UTF-8 has become the most widely used Unicode encoding method internationally. **It is a variable-length encoding** that uses 1 to 4 bytes to represent a character, depending on the complexity of the character. ASCII characters only require 1 byte, Latin and Greek letters require 2 bytes, commonly used Chinese characters require 3 bytes, and some other rare characters require 4 bytes.
+UTF-8 is now the most widely used Unicode encoding worldwide. **It is variable-length**, using 1 to 4 bytes per character depending on the character. ASCII characters need 1 byte, Latin and Greek letters need 2, common Chinese characters need 3, and some less common characters need 4.
 
-The encoding rules of UTF-8 are not complicated and can be divided into the following two cases.
+UTF-8's rules have two cases.
 
-- For 1-byte characters, set the highest bit to $0$, and set the remaining 7 bits to the Unicode code point. It is worth noting that ASCII characters occupy the first 128 code points in the Unicode character set. That is to say, **UTF-8 encoding is backward compatible with ASCII code**. This means we can use UTF-8 to parse very old ASCII code text.
-- For characters with a length of $n$ bytes (where $n > 1$), set the highest $n$ bits of the first byte to $1$, and set the $(n + 1)$-th bit to $0$; starting from the second byte, set the highest 2 bits of each byte to $10$; use all remaining bits to fill in the Unicode code point of the character.
+- For a one-byte character, set the highest bit to $0$ and the remaining 7 bits to its Unicode code point. ASCII occupies the first 128 Unicode code points, so **UTF-8 is backward-compatible with ASCII**. UTF-8 can therefore decode old ASCII text.
+- For an $n$-byte character, where $n > 1$, set the first byte's leading $n$ bits to $1$ and the next bit, $n + 1$, to $0$. Starting with the second byte, set the leading 2 bits of every byte to $10$. Fill the remaining bits with the character's Unicode code point.
 
-The figure below shows the UTF-8 encoding corresponding to "Hello 算法". It can be observed that since the highest $n$ bits are all set to $1$, the system can determine that the character length is $n$ by counting the leading $1$ bits.
+The figure below shows UTF-8 for "Hello算法". Since the leading $n$ bits are $1$, the system can determine the character length $n$ by counting the leading $1$ bits.
 
-But why set the highest 2 bits of all other bytes to $10$? In fact, this $10$ can serve as a check symbol. Assuming the system starts parsing text from an incorrect byte, the $10$ at the beginning of the byte can help the system quickly determine an anomaly.
+Why do all remaining bytes begin with $10$? This $10$ acts as a check marker. If decoding starts at the wrong byte, the leading $10$ helps the system quickly detect the problem.
 
-The reason for using $10$ as a check symbol is that under UTF-8 encoding rules, it is impossible for a character's highest two bits to be $10$. This conclusion can be proven by contradiction: assuming the highest two bits of a character are $10$, it means the length of the character is $1$, corresponding to ASCII code. However, the highest bit of ASCII code should be $0$, which contradicts the assumption.
+The prefix $10$ works as a marker because no character's first byte can begin with $10$ under UTF-8's rules. To see this by contradiction, suppose it did begin with $10$. The single leading one would imply a length of $1$ byte, corresponding to ASCII, but an ASCII byte must begin with $0$, a contradiction.
 
-![UTF-8 encoding example](character_encoding.assets/utf-8_hello_algo.png)
+![Example of UTF-8 encoding](character_encoding.assets/utf-8_hello_algo.png)
 
-In addition to UTF-8, common encoding methods also include the following two.
+Two other common encodings are:
 
-- **UTF-16 encoding**: Uses 2 or 4 bytes to represent a character. All ASCII characters and commonly used non-English characters are represented with 2 bytes; a few characters need to use 4 bytes. For 2-byte characters, UTF-16 encoding is equal to the Unicode code point.
-- **UTF-32 encoding**: Every character uses 4 bytes. This means that UTF-32 takes up more space than UTF-8 and UTF-16, especially for text with a high proportion of ASCII characters.
+- **UTF-16**: Uses 2 or 4 bytes per character. ASCII and common non-English characters use 2 bytes; some characters require 4. For a two-byte character, its UTF-16 encoding equals its Unicode code point.
+- **UTF-32**: Uses 4 bytes for every character. It therefore takes more space than UTF-8 or UTF-16, especially for text containing mostly ASCII characters.
 
-From the perspective of storage space occupation, using UTF-8 to represent English characters is very efficient because it only requires 1 byte; using UTF-16 encoding for some non-English characters (such as Chinese) will be more efficient because it only requires 2 bytes, while UTF-8 may require 3 bytes.
+In terms of storage, UTF-8 is efficient for English characters because each uses only 1 byte. UTF-16 is more efficient for some non-English characters, such as Chinese, using 2 bytes where UTF-8 may require 3.
 
-From a compatibility perspective, UTF-8 has the best universality, and many tools and libraries support UTF-8 first.
+In terms of compatibility, UTF-8 is the most widely supported, and many tools and libraries prioritize it.
 
-## Character Encoding in Programming Languages
+## Character encoding in programming languages
 
-For many programming languages in the past, strings during program execution used internal encodings such as UTF-16 or UTF-32. Under these representations, we can often treat strings like arrays during processing, and this approach has the following advantages.
+Historically, most programming languages have stored strings at runtime using fixed-width encodings such as UTF-16 or UTF-32. Fixed-width encoding lets us treat a string as an array, with the following advantages.
 
-- **Random access**: UTF-16 encoded strings can be easily accessed randomly. UTF-8 is a variable-length encoding. To find the $i$-th character, we need to traverse from the beginning of the string to the $i$-th character, which requires $O(n)$ time.
-- **Character counting**: Similar to random access, calculating the length of a UTF-16 encoded string is also an $O(1)$ operation. However, calculating the length of a UTF-8 encoded string requires traversing the entire string.
-- **String operations**: Many string operations (such as splitting, joining, inserting, deleting, etc.) on UTF-16 encoded strings are easier to perform. Performing these operations on UTF-8 encoded strings usually requires additional calculations to ensure that invalid UTF-8 encoding is not generated.
+- **Random access**: UTF-16 strings support straightforward random access. With variable-length UTF-8, finding the $i$-th character requires traversing from the beginning to the $i$-th character, taking $O(n)$ time.
+- **Character counting**: Similarly, finding the length of a UTF-16 string is an $O(1)$ operation, while finding the character count of a UTF-8 string requires traversing the whole string.
+- **String operations**: Operations such as splitting, concatenation, insertion, and deletion are easier on UTF-16 strings. With UTF-8, they usually require extra work to avoid producing invalid encodings.
 
-In fact, the design of character encoding schemes for programming languages is a very interesting topic involving many factors.
+The design of string representations is an interesting subject involving many factors.
 
-- Java's `String` type uses UTF-16 encoding, with each character occupying 2 bytes. This is because at the beginning of Java language design, people believed that 16 bits were sufficient to represent all possible characters. However, this was an incorrect judgment. Later, the Unicode specification expanded beyond 16 bits, so characters in Java may now be represented by a pair of 16-bit values (called "surrogate pairs").
-- The strings of JavaScript and TypeScript use UTF-16 encoding for reasons similar to Java. When Netscape first introduced the JavaScript language in 1995, Unicode was still in its early stages of development, and at that time, using 16-bit encoding was sufficient to represent all Unicode characters.
-- C# uses UTF-16 encoding mainly because the .NET platform was designed by Microsoft, and many of Microsoft's technologies (including the Windows operating system) extensively use UTF-16 encoding.
+- Java's `String` uses UTF-16, with 2 bytes per character. When Java was designed, 16 bits were thought sufficient for every character. This turned out to be incorrect: Unicode later expanded beyond 16 bits, so a Java character may now require a pair of 16-bit values called a surrogate pair.
+- JavaScript and TypeScript use UTF-16 for similar historical reasons. When Netscape introduced JavaScript in 1995, Unicode was still young, and 16 bits could represent all its characters at the time.
+- C# uses UTF-16 largely because Microsoft designed .NET, and many Microsoft technologies, including Windows, use UTF-16 extensively.
 
-Due to the underestimation of character quantities by the above programming languages, they had to adopt the "surrogate pair" method to represent Unicode characters with lengths exceeding 16 bits. This is a reluctant compromise. On the one hand, in strings containing surrogate pairs, one character may occupy 2 bytes or 4 bytes, thus losing the advantage of fixed-length encoding. On the other hand, handling surrogate pairs requires additional code, which increases the complexity and difficulty of debugging in programming.
+Having underestimated the number of characters, these languages had to adopt surrogate pairs for Unicode characters beyond 16 bits. This was a compromise. A character in such a string may occupy 2 or 4 bytes, losing the benefit of fixed width, and handling surrogate pairs requires additional code, making programming and debugging more complex.
 
-For the above reasons, some programming languages have proposed different encoding schemes.
+For these reasons, some languages use different representations.
 
-- Python's `str` uses Unicode encoding and adopts a flexible string representation where the stored character length depends on the largest Unicode code point in the string. If all characters in the string are ASCII characters, each character occupies 1 byte; if there are characters exceeding the ASCII range but all within the Basic Multilingual Plane (BMP), each character occupies 2 bytes; if there are characters exceeding the BMP, each character occupies 4 bytes.
-- Go language's `string` type uses UTF-8 encoding internally. Go language also provides the `rune` type, which is used to represent a single Unicode code point.
-- Rust language's `str` and `String` types use UTF-8 encoding internally. Rust also provides the `char` type for representing a single Unicode code point.
+- Python's `str` uses Unicode with a flexible representation whose character width depends on the largest code point in the string. If all characters are ASCII, each uses 1 byte. If some exceed ASCII but all lie within the Basic Multilingual Plane (BMP), each uses 2 bytes. If any lie outside the BMP, each uses 4 bytes.
+- Go's `string` uses UTF-8 internally. Go also provides `rune` to represent a single Unicode code point.
+- Rust's `str` and `String` use UTF-8 internally, while `char` represents a single Unicode code point.
 
-It should be noted that the above discussion is about how strings are stored in programming languages, **which is different from how strings are stored in files or transmitted over networks**. In file storage or network transmission, we usually encode strings into UTF-8 format to achieve optimal compatibility and space efficiency.
+These descriptions concern string storage within programming languages. **How strings are stored in files or transmitted over a network is a separate question**. For file storage and network transmission, strings are usually encoded as UTF-8 for compatibility and space efficiency.

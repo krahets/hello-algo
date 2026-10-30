@@ -10,44 +10,44 @@ import java.util.*;
 
 /* List class */
 class MyList {
-    private int[] arr; // Array (stores list elements)
+    private int[] arr; // Array (stores the list elements)
     private int capacity = 10; // List capacity
     private int size = 0; // List length (current number of elements)
-    private int extendRatio = 2; // Multiple by which the list capacity is extended each time
+    private int extendRatio = 2; // Factor by which the list capacity grows each time
 
     /* Constructor */
     public MyList() {
         arr = new int[capacity];
     }
 
-    /* Get list length (current number of elements) */
+    /* Get the list length (current number of elements) */
     public int size() {
         return size;
     }
 
-    /* Get list capacity */
+    /* Get the list capacity */
     public int capacity() {
         return capacity;
     }
 
-    /* Update element */
+    /* Access an element */
     public int get(int index) {
-        // If the index is out of bounds, throw an exception, as below
+        // Throw an exception if the index is out of bounds; the same applies below
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("Index out of bounds");
         return arr[index];
     }
 
-    /* Add elements at the end */
+    /* Update an element */
     public void set(int index, int num) {
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("Index out of bounds");
         arr[index] = num;
     }
 
-    /* Direct traversal of list elements */
+    /* Append at the end */
     public void add(int num) {
-        // When the number of elements exceeds capacity, trigger the extension mechanism
+        // Grow the capacity when adding an element would exceed it
         if (size == capacity())
             extendCapacity();
         arr[size] = num;
@@ -55,14 +55,14 @@ class MyList {
         size++;
     }
 
-    /* Sort list */
+    /* Insert an element in the middle */
     public void insert(int index, int num) {
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("Index out of bounds");
-        // When the number of elements exceeds capacity, trigger the extension mechanism
+        // Grow the capacity when adding an element would exceed it
         if (size == capacity())
             extendCapacity();
-        // Move all elements after index index forward by one position
+        // Shift all elements at and after index `index` one position to the right
         for (int j = size - 1; j >= index; j--) {
             arr[j + 1] = arr[j];
         }
@@ -71,12 +71,12 @@ class MyList {
         size++;
     }
 
-    /* Remove element */
+    /* Remove an element */
     public int remove(int index) {
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("Index out of bounds");
         int num = arr[index];
-        // Move all elements after index forward by one position
+        // Shift all elements after index `index` one position to the left
         for (int j = index; j < size - 1; j++) {
             arr[j] = arr[j + 1];
         }
@@ -86,18 +86,18 @@ class MyList {
         return num;
     }
 
-    /* Driver Code */
+    /* Grow the list capacity */
     public void extendCapacity() {
-        // Create a new array with length extendRatio times the original array and copy the original array to the new array
+        // Create an array extendRatio times as long as the original and copy the original array into it
         arr = Arrays.copyOf(arr, capacity() * extendRatio);
-        // Add elements at the end
+        // Update the list capacity
         capacity = arr.length;
     }
 
-    /* Convert list to array */
+    /* Convert the list to an array */
     public int[] toArray() {
         int size = size();
-        // Elements enqueue
+        // Convert only the list elements within the occupied range
         int[] arr = new int[size];
         for (int i = 0; i < size; i++) {
             arr[i] = get(i);
@@ -107,41 +107,41 @@ class MyList {
 }
 
 public class my_list {
-    /* Driver Code */
+    /* Driver code */
     public static void main(String[] args) {
-        /* Initialize list */
+        /* Initialize the list */
         MyList nums = new MyList();
-        /* Direct traversal of list elements */
+        /* Append at the end */
         nums.add(1);
         nums.add(3);
         nums.add(2);
         nums.add(5);
         nums.add(4);
         System.out.println("List nums = " + Arrays.toString(nums.toArray()) +
-                ", capacity = " + nums.capacity() + ", length = " + nums.size());
+                " , capacity = " + nums.capacity() + " , size = " + nums.size());
 
-        /* Sort list */
+        /* Insert an element in the middle */
         nums.insert(3, 6);
-        System.out.println("Insert number 6 at index 3, resulting in nums = " + Arrays.toString(nums.toArray()));
+        System.out.println("Insert the number 6 at index 3, giving nums = " + Arrays.toString(nums.toArray()));
 
-        /* Remove element */
+        /* Remove an element */
         nums.remove(3);
-        System.out.println("Remove element at index 3, resulting in nums = " + Arrays.toString(nums.toArray()));
+        System.out.println("Remove the element at index 3, giving nums = " + Arrays.toString(nums.toArray()));
 
-        /* Update element */
+        /* Access an element */
         int num = nums.get(1);
-        System.out.println("Access element at index 1, get num = " + num);
+        System.out.println("Access the element at index 1, giving num = " + num);
 
-        /* Add elements at the end */
+        /* Update an element */
         nums.set(1, 0);
-        System.out.println("Update element at index 1 to 0, resulting in nums = " + Arrays.toString(nums.toArray()));
+        System.out.println("Update the element at index 1 to 0, giving nums = " + Arrays.toString(nums.toArray()));
 
-        /* Test capacity expansion mechanism */
+        /* Test capacity growth */
         for (int i = 0; i < 10; i++) {
-            // At i = 5, the list length will exceed the list capacity, triggering the expansion mechanism
+            // When i = 5, the list length would exceed its capacity, triggering capacity growth
             nums.add(i);
         }
-        System.out.println("List nums after expansion = " + Arrays.toString(nums.toArray()) +
-                ", capacity = " + nums.capacity() + ", length = " + nums.size());
+        System.out.println("After expansion, list nums = " + Arrays.toString(nums.toArray()) +
+                " , capacity = " + nums.capacity() + " , size = " + nums.size());
     }
 }

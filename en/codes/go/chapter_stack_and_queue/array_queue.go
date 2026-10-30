@@ -4,15 +4,15 @@
 
 package chapter_stack_and_queue
 
-/* Queue based on circular array implementation */
+/* Queue implemented with a circular array */
 type arrayQueue struct {
-	nums        []int // Array for storing queue elements
-	front       int   // Front pointer, points to the front of the queue element
-	queSize     int   // Queue length
-	queCapacity int   // Queue capacity (maximum number of elements)
+	nums        []int // Array that stores the queue elements
+	front       int   // Front pointer, pointing to the first element
+	queSize     int   // Queue size
+	queCapacity int   // Queue capacity (the maximum number of elements)
 }
 
-/* Access front of the queue element */
+/* Initialize the queue */
 func newArrayQueue(queCapacity int) *arrayQueue {
 	return &arrayQueue{
 		nums:        make([]int, queCapacity),
@@ -22,26 +22,26 @@ func newArrayQueue(queCapacity int) *arrayQueue {
 	}
 }
 
-/* Get the length of the queue */
+/* Get the queue size */
 func (q *arrayQueue) size() int {
 	return q.queSize
 }
 
-/* Check if the queue is empty */
+/* Check whether the queue is empty */
 func (q *arrayQueue) isEmpty() bool {
 	return q.queSize == 0
 }
 
 /* Enqueue */
 func (q *arrayQueue) push(num int) {
-	// When rear == queCapacity, queue is full
+	// The queue is full when queSize == queCapacity
 	if q.queSize == q.queCapacity {
 		return
 	}
-	// Use modulo operation to wrap rear around to the head after passing the tail of the array
-	// Add num to the rear of the queue
+	// Calculate the rear pointer, which points one position past the last element
+	// Use modulo to wrap rear to the beginning when it passes the end of the array
 	rear := (q.front + q.queSize) % q.queCapacity
-	// Front pointer moves one position backward
+	// Add num to the rear
 	q.nums[rear] = num
 	q.queSize++
 }
@@ -53,13 +53,13 @@ func (q *arrayQueue) pop() any {
 		return nil
 	}
 
-	// Move front pointer backward by one position, if it passes the tail, return to array head
+	// Advance the front pointer by one position, wrapping to the beginning if it passes the end
 	q.front = (q.front + 1) % q.queCapacity
 	q.queSize--
 	return num
 }
 
-/* Return list for printing */
+/* Access the front element */
 func (q *arrayQueue) peek() any {
 	if q.isEmpty() {
 		return nil
@@ -67,7 +67,7 @@ func (q *arrayQueue) peek() any {
 	return q.nums[q.front]
 }
 
-/* Get Slice for printing */
+/* Get a slice for printing */
 func (q *arrayQueue) toSlice() []int {
 	rear := (q.front + q.queSize)
 	if rear >= q.queCapacity {

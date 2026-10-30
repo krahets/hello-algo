@@ -6,60 +6,60 @@
 
 #include "../utils/common.h"
 
-/* Random access to element */
+/* Access an element at a random index */
 int randomAccess(int *nums, int size) {
-    // Randomly select a number from interval [0, size)
+    // Choose a random number in [0, size)
     int randomIndex = rand() % size;
-    // Retrieve and return the random element
+    // Get and return the randomly selected element
     int randomNum = nums[randomIndex];
     return randomNum;
 }
 
-/* Extend array length */
+/* Extend the array length */
 int *extend(int *nums, int size, int enlarge) {
-    // Initialize an array with extended length
+    // Initialize an array with the extended length
     int *res = (int *)malloc(sizeof(int) * (size + enlarge));
     // Copy all elements from the original array to the new array
     for (int i = 0; i < size; i++) {
         res[i] = nums[i];
     }
-    // Initialize expanded space
+    // Initialize the newly added space
     for (int i = size; i < size + enlarge; i++) {
         res[i] = 0;
     }
-    // Return the extended new array
+    // Return the new, extended array
     return res;
 }
 
-/* Insert element num at index index in the array */
+/* Insert element num at index `index` in the array */
 void insert(int *nums, int size, int num, int index) {
-    // Move all elements at and after index index backward by one position
+    // Shift all elements at and after index `index` one position to the right
     for (int i = size - 1; i > index; i--) {
         nums[i] = nums[i - 1];
     }
-    // Assign num to the element at index index
+    // Assign num to the element at index `index`
     nums[index] = num;
 }
 
-/* Remove the element at index index */
-// Note: stdio.h occupies the remove keyword
+/* Remove the element at index `index` */
+// Note: stdio.h already declares a function named remove
 void removeItem(int *nums, int size, int index) {
-    // Move all elements after index index forward by one position
+    // Shift all elements after index `index` one position to the left
     for (int i = index; i < size - 1; i++) {
         nums[i] = nums[i + 1];
     }
 }
 
-/* Traverse array */
+/* Traverse the array */
 void traverse(int *nums, int size) {
     int count = 0;
-    // Traverse array by index
+    // Traverse the array by index
     for (int i = 0; i < size; i++) {
         count += nums[i];
     }
 }
 
-/* Find the specified element in the array */
+/* Find a specified element in the array */
 int find(int *nums, int size, int target) {
     for (int i = 0; i < size; i++) {
         if (nums[i] == target)
@@ -68,12 +68,12 @@ int find(int *nums, int size, int target) {
     return -1;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Initialize the random seed once */
+    /* Initialize the random seed (only once) */
     srand((unsigned)time(NULL));
 
-    /* Initialize array */
+    /* Initialize the array */
     int size = 5;
     int arr[5];
     printf("Array arr = ");
@@ -83,33 +83,33 @@ int main() {
     printf("Array nums = ");
     printArray(nums, size);
 
-    /* Insert element */
+    /* Random access */
     int randomNum = randomAccess(nums, size);
-    printf("Get random element %d from nums", randomNum);
+    printf("Random element selected from nums: %d", randomNum);
 
-    /* Traverse array */
+    /* Extend the length */
     int enlarge = 3;
     int *res = extend(nums, size, enlarge);
     size += enlarge;
-    printf("Extend array length to 8, resulting in nums = ");
+    printf("Extend the array length to 8, giving nums = ");
     printArray(res, size);
 
-    /* Insert element */
+    /* Insert an element */
     insert(res, size, 6, 3);
-    printf("Insert number 6 at index 3, resulting in nums = ");
+    printf("Insert the number 6 at index 3, giving nums = ");
     printArray(res, size);
 
-    /* Remove element */
+    /* Remove an element */
     removeItem(res, size, 2);
-    printf("Remove element at index 2, resulting in nums = ");
+    printf("Remove the element at index 2, giving nums = ");
     printArray(res, size);
 
-    /* Traverse array */
+    /* Traverse the array */
     traverse(res, size);
 
-    /* Find element */
+    /* Find an element */
     int index = find(res, size, 3);
-    printf("Find element 3 in res, index = %d\n", index);
+    printf("Find element 3 in res; its index = %d\n", index);
 
     /* Free memory */
     free(res);

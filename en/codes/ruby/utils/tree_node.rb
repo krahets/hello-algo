@@ -8,8 +8,8 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 class TreeNode
   attr_accessor :val    # Node value
   attr_accessor :height # Node height
-  attr_accessor :left   # Reference to left child node
-  attr_accessor :right  # Reference to right child node
+  attr_accessor :left   # Reference to the left child
+  attr_accessor :right  # Reference to the right child
 
   def initialize(val=0)
     @val = val
@@ -17,11 +17,11 @@ class TreeNode
   end
 end
 
-### Deserialize list to binary tree: recursion ###
+### Deserialize a list into a binary tree: recursion ###
 def arr_to_tree_dfs(arr, i)
-  # Return nil if index exceeds array length or element is nil
+  # Return nil if the index is out of bounds or the corresponding element is nil
   return if i < 0 || i >= arr.length || arr[i].nil?
-  # Build the current node
+  # Create the current node
   root = TreeNode.new(arr[i])
   # Recursively build the left and right subtrees
   root.left = arr_to_tree_dfs(arr, 2 * i + 1)
@@ -29,12 +29,12 @@ def arr_to_tree_dfs(arr, i)
   root
 end
 
-### Deserialize list to binary tree ###
+### Deserialize a list into a binary tree ###
 def arr_to_tree(arr)
   arr_to_tree_dfs(arr, 0)
 end
 
-### Serialize binary tree to list: recursion ###
+### Serialize a binary tree into a list: recursion ###
 def tree_to_arr_dfs(root, i, res)
   return if root.nil?
 
@@ -45,7 +45,7 @@ def tree_to_arr_dfs(root, i, res)
   tree_to_arr_dfs(root.right, 2 * i + 2, res)
 end
 
-### Serialize binary tree to list ###
+### Serialize a binary tree into a list ###
 def tree_to_arr(root)
   res = []
   tree_to_arr_dfs(root, 0, res)

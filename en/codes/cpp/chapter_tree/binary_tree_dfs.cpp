@@ -6,14 +6,14 @@
 
 #include "../utils/common.hpp"
 
-// Initialize list for storing traversal sequence
+// Initialize a list to store the traversal sequence
 vector<int> vec;
 
 /* Preorder traversal */
 void preOrder(TreeNode *root) {
     if (root == nullptr)
         return;
-    // Visit priority: root node -> left subtree -> right subtree
+    // Visit order: root -> left subtree -> right subtree
     vec.push_back(root->val);
     preOrder(root->left);
     preOrder(root->right);
@@ -23,7 +23,7 @@ void preOrder(TreeNode *root) {
 void inOrder(TreeNode *root) {
     if (root == nullptr)
         return;
-    // Visit priority: left subtree -> root node -> right subtree
+    // Visit order: left subtree -> root -> right subtree
     inOrder(root->left);
     vec.push_back(root->val);
     inOrder(root->right);
@@ -33,36 +33,36 @@ void inOrder(TreeNode *root) {
 void postOrder(TreeNode *root) {
     if (root == nullptr)
         return;
-    // Visit priority: left subtree -> right subtree -> root node
+    // Visit order: left subtree -> right subtree -> root
     postOrder(root->left);
     postOrder(root->right);
     vec.push_back(root->val);
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Initialize binary tree */
-    // Here we use a function to generate a binary tree directly from an array
+    /* Initialize the binary tree */
+    // Use a helper function that builds a binary tree directly from an array
     TreeNode *root = vectorToTree(vector<int>{1, 2, 3, 4, 5, 6, 7});
-    cout << endl << "Initialize binary tree\n" << endl;
+    cout << endl << "Initialize the binary tree\n" << endl;
     printTree(root);
 
     /* Preorder traversal */
     vec.clear();
     preOrder(root);
-    cout << endl << "Pre-order traversal node print sequence = ";
+    cout << endl << "Node sequence from preorder traversal = ";
     printVector(vec);
 
     /* Inorder traversal */
     vec.clear();
     inOrder(root);
-    cout << endl << "In-order traversal node print sequence = ";
+    cout << endl << "Node sequence from inorder traversal = ";
     printVector(vec);
 
     /* Postorder traversal */
     vec.clear();
     postOrder(root);
-    cout << endl << "Post-order traversal node print sequence = ";
+    cout << endl << "Node sequence from postorder traversal = ";
     printVector(vec);
 
     return 0;

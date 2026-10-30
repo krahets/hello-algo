@@ -12,9 +12,9 @@ import (
 )
 
 func TestPreorderTraversalICompact(t *testing.T) {
-	/* Initialize binary tree */
+	/* Initialize the binary tree */
 	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
-	fmt.Println("\nInitialize binary tree")
+	fmt.Println("\nInitialize the binary tree")
 	PrintTree(root)
 
 	// Preorder traversal
@@ -29,9 +29,9 @@ func TestPreorderTraversalICompact(t *testing.T) {
 }
 
 func TestPreorderTraversalIICompact(t *testing.T) {
-	/* Initialize binary tree */
+	/* Initialize the binary tree */
 	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
-	fmt.Println("\nInitialize binary tree")
+	fmt.Println("\nInitialize the binary tree")
 	PrintTree(root)
 
 	// Preorder traversal
@@ -39,7 +39,7 @@ func TestPreorderTraversalIICompact(t *testing.T) {
 	res := make([][]*TreeNode, 0)
 	preOrderII(root, &res, &path)
 
-	fmt.Println("\nOutput all paths from root node to node 7")
+	fmt.Println("\nOutput all paths from the root to nodes with value 7")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)
@@ -49,9 +49,9 @@ func TestPreorderTraversalIICompact(t *testing.T) {
 }
 
 func TestPreorderTraversalIIICompact(t *testing.T) {
-	/* Initialize binary tree */
+	/* Initialize the binary tree */
 	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
-	fmt.Println("\nInitialize binary tree")
+	fmt.Println("\nInitialize the binary tree")
 	PrintTree(root)
 
 	// Preorder traversal
@@ -59,7 +59,7 @@ func TestPreorderTraversalIIICompact(t *testing.T) {
 	res := make([][]*TreeNode, 0)
 	preOrderIII(root, &res, &path)
 
-	fmt.Println("\nOutput all paths from root node to node 7, paths do not include nodes with value 3")
+	fmt.Println("\nOutput all paths from the root to nodes with value 7 that contain no node with value 3")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)
@@ -69,9 +69,9 @@ func TestPreorderTraversalIIICompact(t *testing.T) {
 }
 
 func TestPreorderTraversalIIITemplate(t *testing.T) {
-	/* Initialize binary tree */
+	/* Initialize the binary tree */
 	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
-	fmt.Println("\nInitialize binary tree")
+	fmt.Println("\nInitialize the binary tree")
 	PrintTree(root)
 
 	// Backtracking algorithm
@@ -81,7 +81,7 @@ func TestPreorderTraversalIIITemplate(t *testing.T) {
 	choices = append(choices, root)
 	backtrackIII(&state, &choices, &res)
 
-	fmt.Println("\nOutput all paths from root node to node 7, paths do not include nodes with value 3")
+	fmt.Println("\nOutput all paths from the root to nodes with value 7 that contain no node with value 3")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)

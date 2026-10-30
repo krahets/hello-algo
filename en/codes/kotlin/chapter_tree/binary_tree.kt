@@ -9,32 +9,32 @@ package chapter_tree
 import utils.TreeNode
 import utils.printTree
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    /* Initialize binary tree */
-    // Initialize nodes
+    /* Initialize the binary tree */
+    // Initialize the nodes
     val n1 = TreeNode(1)
     val n2 = TreeNode(2)
     val n3 = TreeNode(3)
     val n4 = TreeNode(4)
     val n5 = TreeNode(5)
-    // Build references (pointers) between nodes
+    // Set up references (pointers) between the nodes
     n1.left = n2
     n1.right = n3
     n2.left = n4
     n2.right = n5
-    println("\nInitialize binary tree\n")
+    println("\nInitialize the binary tree\n")
     printTree(n1)
 
-    /* Insert node P between n1 -> n2 */
+    /* Insert and remove nodes */
     val P = TreeNode(0)
-    // Delete node
+    // Insert node P between n1 and n2 in n1 -> n2
     n1.left = P
     P.left = n2
-    println("\nAfter inserting node P\n")
+    println("\nAfter inserting node P:\n")
     printTree(n1)
     // Remove node P
     n1.left = n2
-    println("\nAfter removing node P\n")
+    println("\nAfter removing node P:\n")
     printTree(n1)
 }

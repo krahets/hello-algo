@@ -6,13 +6,13 @@
 
 import '../utils/print_util.dart';
 
-/* Find the largest k elements in array based on heap */
+/* Use a heap to find the k largest elements in an array */
 MinHeap topKHeap(List<int> nums, int k) {
-  // Initialize min heap, push first k elements of array to heap
+  // Initialize a min heap with the first k elements of the array
   MinHeap heap = MinHeap(nums.sublist(0, k));
-  // Starting from the (k+1)th element, maintain heap length as k
+  // Starting with element k+1, keep the heap size at k
   for (int i = k; i < nums.length; i++) {
-    // If current element is greater than top element, top element exits heap, current element enters heap
+    // If the current element is larger than the heap top, pop the top element and push the current element
     if (nums[i] > heap.peek()) {
       heap.pop();
       heap.push(nums[i]);
@@ -21,7 +21,7 @@ MinHeap topKHeap(List<int> nums, int k) {
   return heap;
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
   List<int> nums = [1, 7, 6, 3, 2];
   int k = 3;
@@ -35,34 +35,34 @@ void main() {
 class MinHeap {
   late List<int> _minHeap;
 
-  /* Constructor, build heap based on input list */
+  /* Constructor: build a heap from the input list */
   MinHeap(List<int> nums) {
-    // Add list elements to heap as is
+    // Place the list elements in the heap without changing their order
     _minHeap = nums;
-    // Heapify all nodes except leaf nodes
+    // Sift down from every non-leaf node
     for (int i = _parent(size() - 1); i >= 0; i--) {
       siftDown(i);
     }
   }
 
-  /* Return elements in heap */
+  /* Return the elements in the heap */
   List<int> getHeap() {
     return _minHeap;
   }
 
-  /* Get index of left child node */
+  /* Get the left child index */
   int _left(int i) {
     return 2 * i + 1;
   }
 
-  /* Get index of right child node */
+  /* Get the right child index */
   int _right(int i) {
     return 2 * i + 2;
   }
 
-  /* Get index of parent node */
+  /* Get the parent index */
   int _parent(int i) {
-    return (i - 1) ~/ 2; // Floor division
+    return (i - 1) ~/ 2; // Integer division
   }
 
   /* Swap elements */
@@ -72,78 +72,78 @@ class MinHeap {
     _minHeap[j] = tmp;
   }
 
-  /* Get heap size */
+  /* Get the heap size */
   int size() {
     return _minHeap.length;
   }
 
-  /* Check if heap is empty */
+  /* Check whether the heap is empty */
   bool isEmpty() {
     return size() == 0;
   }
 
-  /* Access top element */
+  /* Access the top element of the heap */
   int peek() {
     return _minHeap[0];
   }
 
-  /* Element enters heap */
+  /* Push an element onto the heap */
   void push(int val) {
-    // Add node
+    // Add a node
     _minHeap.add(val);
-    // Heapify from bottom to top
+    // Sift up
     siftUp(size() - 1);
   }
 
-  /* Starting from node i, heapify from bottom to top */
+  /* Sift up starting from node i */
   void siftUp(int i) {
     while (true) {
-      // Get parent node of node i
+      // Get the parent of node i
       int p = _parent(i);
-      // When "crossing root node" or "node needs no repair", end heapify
+      // Stop sifting when the root has been passed or the node needs no repair
       if (p < 0 || _minHeap[i] >= _minHeap[p]) {
         break;
       }
-      // Swap two nodes
+      // Swap the two nodes
       _swap(i, p);
-      // Loop upward heapify
+      // Continue sifting up
       i = p;
     }
   }
 
-  /* Element exits heap */
+  /* Pop an element from the heap */
   int pop() {
-    // Handle empty case
+    // Handle an empty heap
     if (isEmpty()) throw Exception('Heap is empty');
-    // Delete node
+    // Swap the root with the rightmost leaf on the last level (swap the first and last elements)
     _swap(0, size() - 1);
-    // Remove node
+    // Remove a node
     int val = _minHeap.removeLast();
-    // Return top element
+    // Sift down
     siftDown(0);
-    // Return heap top element
+    // Return the top element of the heap
     return val;
   }
 
-  /* Starting from node i, heapify from top to bottom */
+  /* Sift down starting from node i */
   void siftDown(int i) {
     while (true) {
-      // If node i is largest or indices l, r are out of bounds, no need to continue heapify, break
+      // Find the node with the smallest value among i, l, and r, and store its index in mi
       int l = _left(i);
       int r = _right(i);
       int mi = i;
       if (l < size() && _minHeap[l] < _minHeap[mi]) mi = l;
       if (r < size() && _minHeap[r] < _minHeap[mi]) mi = r;
-      // Swap two nodes
+      // Stop if node i is smallest or both child indices l and r are out of bounds
       if (mi == i) break;
-      // Swap two nodes
+      // Swap the two nodes
       _swap(i, mi);
-      // Loop downwards heapification
+      // Continue sifting down
       i = mi;
     }
   }
 
-  /* Driver Code */
+  /* Print the heap (binary tree) */
   void print() {
     printHeap(_minHeap);
   }

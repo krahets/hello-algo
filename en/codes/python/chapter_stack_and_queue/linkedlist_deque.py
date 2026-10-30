@@ -11,25 +11,25 @@ class ListNode:
     def __init__(self, val: int):
         """Constructor"""
         self.val: int = val
-        self.next: ListNode | None = None  # Successor node reference
-        self.prev: ListNode | None = None  # Predecessor node reference
+        self.next: ListNode | None = None  # Reference to the next node
+        self.prev: ListNode | None = None  # Reference to the previous node
 
 
 class LinkedListDeque:
-    """Double-ended queue based on doubly linked list implementation"""
+    """Deque implemented with a doubly linked list"""
 
     def __init__(self):
         """Constructor"""
         self._front: ListNode | None = None  # Head node front
         self._rear: ListNode | None = None  # Tail node rear
-        self._size: int = 0  # Length of the double-ended queue
+        self._size: int = 0  # Deque size
 
     def size(self) -> int:
-        """Get the length of the double-ended queue"""
+        """Get the deque size"""
         return self._size
 
     def is_empty(self) -> bool:
-        """Check if the double-ended queue is empty"""
+        """Check whether the deque is empty"""
         return self._size == 0
 
     def push(self, num: int, is_front: bool):
@@ -38,78 +38,78 @@ class LinkedListDeque:
         # If the linked list is empty, make both front and rear point to node
         if self.is_empty():
             self._front = self._rear = node
-        # Front of the queue enqueue operation
+        # Enqueue at the front
         elif is_front:
             # Add node to the head of the linked list
             self._front.prev = node
             node.next = self._front
-            self._front = node  # Update head node
-        # Rear of the queue enqueue operation
+            self._front = node  # Update the head node
+        # Enqueue at the rear
         else:
             # Add node to the tail of the linked list
             self._rear.next = node
             node.prev = self._rear
-            self._rear = node  # Update tail node
-        self._size += 1  # Update queue length
+            self._rear = node  # Update the tail node
+        self._size += 1  # Update the deque size
 
     def push_first(self, num: int):
-        """Front of the queue enqueue"""
+        """Enqueue at the front"""
         self.push(num, True)
 
     def push_last(self, num: int):
-        """Rear of the queue enqueue"""
+        """Enqueue at the rear"""
         self.push(num, False)
 
     def pop(self, is_front: bool) -> int:
         """Dequeue operation"""
         if self.is_empty():
-            raise IndexError("Double-ended queue is empty")
-        # When the deque has one element, front and rear point to the same node
+            raise IndexError("Deque is empty")
+        # When the deque size is 1, the head and tail point to the same node
         if self._size == 1:
             val: int = self._front.val
             self._front = None
             self._rear = None
-        # Front of the queue dequeue operation
+        # Dequeue from the front
         elif is_front:
-            val: int = self._front.val  # Temporarily store head node value
-            # Delete head node
+            val: int = self._front.val  # Save the head node value
+            # Remove the head node
             fnext: ListNode | None = self._front.next
             fnext.prev = None
             self._front.next = None
-            self._front = fnext  # Update head node
-        # Rear of the queue dequeue operation
+            self._front = fnext  # Update the head node
+        # Dequeue from the rear
         else:
-            val: int = self._rear.val  # Temporarily store tail node value
-            # Delete tail node
+            val: int = self._rear.val  # Save the tail node value
+            # Remove the tail node
             rprev: ListNode | None = self._rear.prev
             rprev.next = None
             self._rear.prev = None
-            self._rear = rprev  # Update tail node
-        self._size -= 1  # Update queue length
+            self._rear = rprev  # Update the tail node
+        self._size -= 1  # Update the deque size
         return val
 
     def pop_first(self) -> int:
-        """Front of the queue dequeue"""
+        """Dequeue from the front"""
         return self.pop(True)
 
     def pop_last(self) -> int:
-        """Rear of the queue dequeue"""
+        """Dequeue from the rear"""
         return self.pop(False)
 
     def peek_first(self) -> int:
-        """Access front of the queue element"""
+        """Access the front element"""
         if self.is_empty():
-            raise IndexError("Double-ended queue is empty")
+            raise IndexError("Deque is empty")
         return self._front.val
 
     def peek_last(self) -> int:
-        """Access rear of the queue element"""
+        """Access the rear element"""
         if self.is_empty():
-            raise IndexError("Double-ended queue is empty")
+            raise IndexError("Deque is empty")
         return self._rear.val
 
     def to_array(self) -> list[int]:
-        """Return array for printing"""
+        """Return an array for printing"""
         node = self._front
         res = [0] * self.size()
         for i in range(self.size()):
@@ -118,37 +118,37 @@ class LinkedListDeque:
         return res
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
-    # Initialize double-ended queue
+    # Initialize the deque
     deque = LinkedListDeque()
     deque.push_last(3)
     deque.push_last(2)
     deque.push_last(5)
-    print("double-ended queue deque =", deque.to_array())
+    print("Deque deque =", deque.to_array())
 
-    # Access elements
+    # Access an element
     peek_first: int = deque.peek_first()
-    print("Front of the queue element peek_first =", peek_first)
+    print("Front element peek_first =", peek_first)
     peek_last: int = deque.peek_last()
-    print("Rear of the queue element peek_last =", peek_last)
+    print("Rear element peek_last =", peek_last)
 
-    # Elements enqueue
+    # Enqueue elements
     deque.push_last(4)
-    print("Element 4 rear enqueue after deque =", deque.to_array())
+    print("After enqueuing element 4 at the rear, deque =", deque.to_array())
     deque.push_first(1)
-    print("Element 1 front enqueue after deque =", deque.to_array())
+    print("After enqueuing element 1 at the front, deque =", deque.to_array())
 
-    # Elements dequeue
+    # Dequeue an element
     pop_last: int = deque.pop_last()
-    print("Rear dequeued element =", pop_last, ", rear dequeue after deque =", deque.to_array())
+    print("Element dequeued from the rear =", pop_last, ", after dequeuing from the rear, deque =", deque.to_array())
     pop_first: int = deque.pop_first()
-    print("Front dequeued element =", pop_first, ", front dequeue after deque =", deque.to_array())
+    print("Element dequeued from the front =", pop_first, ", after dequeuing from the front, deque =", deque.to_array())
 
-    # Get the length of the double-ended queue
+    # Get the deque size
     size: int = deque.size()
-    print("Length of the double-ended queue size =", size)
+    print("Deque size =", size)
 
-    # Check if the double-ended queue is empty
+    # Check whether the deque is empty
     is_empty: bool = deque.is_empty()
-    print("Is the double-ended queue empty =", is_empty)
+    print("Is the deque empty =", is_empty)

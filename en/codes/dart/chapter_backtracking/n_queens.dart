@@ -4,7 +4,7 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* Backtracking algorithm: N queens */
+/* Backtracking: n-queens */
 void backtrack(
   int row,
   int n,
@@ -14,7 +14,7 @@ void backtrack(
   List<bool> diags1,
   List<bool> diags2,
 ) {
-  // When all rows are placed, record the solution
+  // Record a solution when a queen has been placed in every row
   if (row == n) {
     List<List<String>> copyState = [];
     for (List<String> sRow in state) {
@@ -23,21 +23,21 @@ void backtrack(
     res.add(copyState);
     return;
   }
-  // Traverse all columns
+  // Iterate over all columns
   for (int col = 0; col < n; col++) {
-    // Calculate the main diagonal and anti-diagonal corresponding to this cell
+    // Calculate the main-diagonal and anti-diagonal indices for this square
     int diag1 = row - col + n - 1;
     int diag2 = row + col;
-    // Pruning: do not allow queens to exist in the column, main diagonal, and anti-diagonal of this cell
+    // Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
     if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-      // Attempt: place the queen in this cell
+      // Try: place a queen on this square
       state[row][col] = "Q";
       cols[col] = true;
       diags1[diag1] = true;
       diags2[diag2] = true;
-      // Place the next row
+      // Place a queen in the next row
       backtrack(row + 1, n, state, res, cols, diags1, diags2);
-      // Backtrack: restore this cell to an empty cell
+      // Backtrack: restore this square to empty
       state[row][col] = "#";
       cols[col] = false;
       diags1[diag1] = false;
@@ -46,13 +46,13 @@ void backtrack(
   }
 }
 
-/* Solve N queens */
+/* Solve the n-queens problem */
 List<List<List<String>>> nQueens(int n) {
-  // Initialize an n*n chessboard, where 'Q' represents a queen and '#' represents an empty cell
+  // Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
   List<List<String>> state = List.generate(n, (index) => List.filled(n, "#"));
-  List<bool> cols = List.filled(n, false); // Record whether there is a queen in the column
-  List<bool> diags1 = List.filled(2 * n - 1, false); // Record whether there is a queen on the main diagonal
-  List<bool> diags2 = List.filled(2 * n - 1, false); // Record whether there is a queen on the anti-diagonal
+  List<bool> cols = List.filled(n, false); // Track whether a column contains a queen
+  List<bool> diags1 = List.filled(2 * n - 1, false); // Track whether a main diagonal contains a queen
+  List<bool> diags2 = List.filled(2 * n - 1, false); // Track whether an anti-diagonal contains a queen
   List<List<List<String>>> res = [];
 
   backtrack(0, n, state, res, cols, diags1, diags2);
@@ -60,12 +60,12 @@ List<List<List<String>>> nQueens(int n) {
   return res;
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
   int n = 4;
   List<List<List<String>>> res = nQueens(n);
-  print("Input board size is $n");
-  print("Total queen placement solutions: ${res.length}");
+  print("Input board width and height: $n");
+  print("Number of queen arrangements: ${res.length}");
   for (List<List<String>> state in res) {
     print("--------------------");
     for (List<String> row in state) {

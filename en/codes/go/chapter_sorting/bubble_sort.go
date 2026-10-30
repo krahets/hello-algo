@@ -6,9 +6,9 @@ package chapter_sorting
 
 /* Bubble sort */
 func bubbleSort(nums []int) {
-	// Outer loop: unsorted range is [0, i]
+	// Outer loop: the unsorted range is [0, i]
 	for i := len(nums) - 1; i > 0; i-- {
-		// Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+		// Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
 		for j := 0; j < i; j++ {
 			if nums[j] > nums[j+1] {
 				// Swap nums[j] and nums[j + 1]
@@ -18,20 +18,20 @@ func bubbleSort(nums []int) {
 	}
 }
 
-/* Bubble sort (flag optimization) */
+/* Bubble sort (flag optimization)*/
 func bubbleSortWithFlag(nums []int) {
-	// Outer loop: unsorted range is [0, i]
+	// Outer loop: the unsorted range is [0, i]
 	for i := len(nums) - 1; i > 0; i-- {
-		flag := false // Initialize flag
-		// Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+		flag := false // Initialize the flag
+		// Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
 		for j := 0; j < i; j++ {
 			if nums[j] > nums[j+1] {
 				// Swap nums[j] and nums[j + 1]
 				nums[j], nums[j+1] = nums[j+1], nums[j]
-				flag = true // Record element swap
+				flag = true // Record that a swap occurred
 			}
 		}
-		if flag == false { // No elements were swapped in this round of "bubbling", exit directly
+		if flag == false { // Exit immediately if this pass made no swaps
 			break
 		}
 	}

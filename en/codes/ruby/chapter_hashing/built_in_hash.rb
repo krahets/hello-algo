@@ -6,29 +6,29 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
   num = 3
   hash_num = num.hash
-  puts "Hash value of integer #{num} is #{hash_num}"
+  puts "Hash value of integer #{num}: #{hash_num}"
 
   bol = true
   hash_bol = bol.hash
-  puts "Hash value of boolean #{bol} is #{hash_bol}"
+  puts "Hash value of Boolean #{bol}: #{hash_bol}"
 
   dec = 3.14159
   hash_dec = dec.hash
-  puts "Hash value of decimal #{dec} is #{hash_dec}"
+  puts "Hash value of floating-point number #{dec}: #{hash_dec}"
 
-  str = "Hello Algo"
+  str = "Hello 算法"
   hash_str = str.hash
-  puts "Hash value of string #{str} is #{hash_str}"
+  puts "Hash value of string #{str}: #{hash_str}"
 
-  tup = [12836, 'Xiao Ha']
+  tup = [12836, '小哈']
   hash_tup = tup.hash
-  puts "Hash value of tuple #{tup} is #{hash_tup}"
+  puts "Hash value of array #{tup}: #{hash_tup}"
 
   obj = ListNode.new(0)
   hash_obj = obj.hash
-  puts "Hash value of object #{obj} is #{hash_obj}"
+  puts "Hash value of node object #{obj}: #{hash_obj}"
 end

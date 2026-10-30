@@ -7,7 +7,7 @@
 /* for loop */
 function forLoop(n: number): number {
     let res = 0;
-    // Sum 1, 2, ..., n-1, n
+    // Sum 1, 2, ..., n-1, n in a loop
     for (let i = 1; i <= n; i++) {
         res += i;
     }
@@ -17,11 +17,11 @@ function forLoop(n: number): number {
 /* while loop */
 function whileLoop(n: number): number {
     let res = 0;
-    let i = 1; // Initialize condition variable
-    // Sum 1, 2, ..., n-1, n
+    let i = 1; // Initialize the loop control variable
+    // Sum 1, 2, ..., n-1, n in a loop
     while (i <= n) {
         res += i;
-        i++; // Update condition variable
+        i++; // Update the loop control variable
     }
     return res;
 }
@@ -29,23 +29,23 @@ function whileLoop(n: number): number {
 /* while loop (two updates) */
 function whileLoopII(n: number): number {
     let res = 0;
-    let i = 1; // Initialize condition variable
-    // Sum 1, 4, 10, ...
+    let i = 1; // Initialize the loop control variable
+    // Sum 1, 4, 10, ... in a loop
     while (i <= n) {
         res += i;
-        // Update condition variable
+        // Update the loop control variable
         i++;
         i *= 2;
     }
     return res;
 }
 
-/* Nested for loop */
+/* Nested for loops */
 function nestedForLoop(n: number): string {
     let res = '';
-    // Loop i = 1, 2, ..., n-1, n
+    // Loop over i = 1, 2, ..., n-1, n
     for (let i = 1; i <= n; i++) {
-        // Loop j = 1, 2, ..., n-1, n
+        // Loop over j = 1, 2, ..., n-1, n
         for (let j = 1; j <= n; j++) {
             res += `(${i}, ${j}), `;
         }
@@ -53,20 +53,20 @@ function nestedForLoop(n: number): string {
     return res;
 }
 
-/* Driver Code */
+/* Driver code */
 const n = 5;
 let res: number;
 
 res = forLoop(n);
-console.log(`For loop sum result res = ${res}`);
+console.log(`Sum from the for loop: res = ${res}`);
 
 res = whileLoop(n);
-console.log(`While loop sum result res = ${res}`);
+console.log(`Sum from the while loop: res = ${res}`);
 
 res = whileLoopII(n);
-console.log(`While loop (two updates) sum result res = ${res}`);
+console.log(`Sum from the while loop with two updates: res = ${res}`);
 
 const resStr = nestedForLoop(n);
-console.log(`Nested for loop traversal result ${resStr}`);
+console.log(`Traversal result from the nested for loops: ${resStr}`);
 
 export {};

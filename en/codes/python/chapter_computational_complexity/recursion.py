@@ -7,12 +7,12 @@ Author: krahets (krahets@163.com)
 
 def recur(n: int) -> int:
     """Recursion"""
-    # Termination condition
+    # Base case
     if n == 1:
         return 1
-    # Recurse: recursive call
+    # Recurse: make a recursive call
     res = recur(n - 1)
-    # Return: return result
+    # Unwind: return the result
     return n + res
 
 
@@ -21,13 +21,13 @@ def for_loop_recur(n: int) -> int:
     # Use an explicit stack to simulate the system call stack
     stack = []
     res = 0
-    # Recurse: recursive call
+    # Simulate the recursive-call phase
     for i in range(n, 0, -1):
-        # Simulate "recurse" with "push"
+        # Simulate recursive calls by pushing onto the stack
         stack.append(i)
-    # Return: return result
+    # Simulate unwinding and accumulating the result
     while stack:
-        # Simulate "return" with "pop"
+        # Simulate unwinding by popping from the stack
         res += stack.pop()
     # res = 1+2+3+...+n
     return res
@@ -35,35 +35,35 @@ def for_loop_recur(n: int) -> int:
 
 def tail_recur(n, res):
     """Tail recursion"""
-    # Termination condition
+    # Base case
     if n == 0:
         return res
-    # Tail recursive call
+    # Tail-recursive call
     return tail_recur(n - 1, res + n)
 
 
 def fib(n: int) -> int:
     """Fibonacci sequence: recursion"""
-    # Termination condition f(1) = 0, f(2) = 1
+    # Base cases: f(1) = 0, f(2) = 1
     if n == 1 or n == 2:
         return n - 1
-    # Recursive call f(n) = f(n-1) + f(n-2)
+    # Recursive calls: f(n) = f(n-1) + f(n-2)
     res = fib(n - 1) + fib(n - 2)
-    # Return result f(n)
+    # Return the result f(n)
     return res
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
     n = 5
     res = recur(n)
-    print(f"\nSum result of recursive function res = {res}")
+    print(f"\nSum from the recursive function: res = {res}")
 
     res = for_loop_recur(n)
-    print(f"\nSum result of simulating recursion using iteration res = {res}")
+    print(f"\nSum from simulating recursion using iteration: res = {res}")
 
     res = tail_recur(n, 0)
-    print(f"\nSum result of tail recursive function res = {res}")
+    print(f"\nSum from the tail-recursive function: res = {res}")
 
     res = fib(n)
-    print(f"\nThe {n}th term of the Fibonacci sequence is {res}")
+    print(f"\nTerm {n} of the Fibonacci sequence is {res}")

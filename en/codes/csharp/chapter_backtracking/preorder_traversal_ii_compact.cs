@@ -10,15 +10,15 @@ public class preorder_traversal_ii_compact {
     List<TreeNode> path = [];
     List<List<TreeNode>> res = [];
 
-    /* Preorder traversal: Example 2 */
+    /* Preorder traversal: example 2 */
     void PreOrder(TreeNode? root) {
         if (root == null) {
             return;
         }
-        // Attempt
+        // Try
         path.Add(root);
         if (root.val == 7) {
-            // Record solution
+            // Record the solution
             res.Add(new List<TreeNode>(path));
         }
         PreOrder(root.left);
@@ -30,13 +30,13 @@ public class preorder_traversal_ii_compact {
     [Test]
     public void Test() {
         TreeNode? root = TreeNode.ListToTree([1, 7, 3, 4, 5, 6, 7]);
-        Console.WriteLine("\nInitialize binary tree");
+        Console.WriteLine("\nInitialize the binary tree");
         PrintUtil.PrintTree(root);
 
         // Preorder traversal
         PreOrder(root);
 
-        Console.WriteLine("\nOutput all paths from root node to node 7");
+        Console.WriteLine("\nOutput all paths from the root to nodes with value 7");
         foreach (List<TreeNode> path in res) {
             PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }

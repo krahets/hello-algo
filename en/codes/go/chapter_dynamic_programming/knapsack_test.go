@@ -17,9 +17,9 @@ func TestKnapsack(t *testing.T) {
 
 	// Brute-force search
 	res := knapsackDFS(wgt, val, n, c)
-	fmt.Printf("Maximum item value not exceeding knapsack capacity is %d\n", res)
+	fmt.Printf("Maximum total item value within the knapsack capacity: %d\n", res)
 
-	// Memoization search
+	// Memoized search
 	mem := make([][]int, n+1)
 	for i := 0; i <= n; i++ {
 		mem[i] = make([]int, c+1)
@@ -28,15 +28,15 @@ func TestKnapsack(t *testing.T) {
 		}
 	}
 	res = knapsackDFSMem(wgt, val, mem, n, c)
-	fmt.Printf("Maximum item value not exceeding knapsack capacity is %d\n", res)
+	fmt.Printf("Maximum total item value within the knapsack capacity: %d\n", res)
 
 	// Dynamic programming
 	res = knapsackDP(wgt, val, c)
-	fmt.Printf("Maximum item value not exceeding knapsack capacity is %d\n", res)
+	fmt.Printf("Maximum total item value within the knapsack capacity: %d\n", res)
 
 	// Space-optimized dynamic programming
 	res = knapsackDPComp(wgt, val, c)
-	fmt.Printf("Maximum item value not exceeding knapsack capacity is %d\n", res)
+	fmt.Printf("Maximum total item value within the knapsack capacity: %d\n", res)
 }
 
 func TestUnboundedKnapsack(t *testing.T) {
@@ -46,9 +46,9 @@ func TestUnboundedKnapsack(t *testing.T) {
 
 	// Dynamic programming
 	res := unboundedKnapsackDP(wgt, val, c)
-	fmt.Printf("Maximum item value not exceeding knapsack capacity is %d\n", res)
+	fmt.Printf("Maximum total item value within the knapsack capacity: %d\n", res)
 
 	// Space-optimized dynamic programming
 	res = unboundedKnapsackDPComp(wgt, val, c)
-	fmt.Printf("Maximum item value not exceeding knapsack capacity is %d\n", res)
+	fmt.Printf("Maximum total item value within the knapsack capacity: %d\n", res)
 }

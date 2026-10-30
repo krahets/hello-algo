@@ -7,36 +7,36 @@
 import 'dart:collection';
 
 void main() {
-  /* Get the length of the double-ended queue */
+  /* Initialize the deque */
   final Queue<int> deque = Queue();
   deque.addFirst(3);
   deque.addLast(2);
   deque.addLast(5);
   print("Deque deque = $deque");
 
-  /* Update element */
+  /* Access an element */
   final int peekFirst = deque.first;
   print("Front element peekFirst = $peekFirst");
   final int peekLast = deque.last;
   print("Rear element peekLast = $peekLast");
 
-  /* Elements enqueue */
+  /* Enqueue elements */
   deque.addLast(4);
-  print("After element 4 enqueues at rear, deque = $deque");
+  print("After enqueuing 4 at the rear, deque = $deque");
   deque.addFirst(1);
-  print("After element 1 enqueues at front, deque = $deque");
+  print("After enqueuing 1 at the front, deque = $deque");
 
-  /* Element dequeue */
+  /* Dequeue an element */
   final int popLast = deque.removeLast();
-  print("Dequeue rear element = $popLast, after rear dequeue deque = $deque");
+  print("Element dequeued from the rear = $popLast; after dequeuing from the rear, deque = $deque");
   final int popFirst = deque.removeFirst();
-  print("Dequeue front element = $popFirst, after front dequeue deque = $deque");
+  print("Element dequeued from the front = $popFirst; after dequeuing from the front, deque = $deque");
 
-  /* Get the length of the double-ended queue */
+  /* Get the deque size */
   final int size = deque.length;
-  print("Deque length size = $size");
+  print("Deque size = $size");
 
-  /* Check if the double-ended queue is empty */
+  /* Check whether the deque is empty */
   final bool isEmpty = deque.isEmpty;
-  print("Is deque empty = $isEmpty");
+  print("Is the deque empty = $isEmpty");
 }

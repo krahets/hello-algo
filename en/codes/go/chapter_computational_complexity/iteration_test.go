@@ -9,18 +9,18 @@ import (
 	"testing"
 )
 
-/* Driver Code */
+/* Driver code */
 func TestIteration(t *testing.T) {
 	n := 5
 	res := forLoop(n)
-	fmt.Println("\nfor loop sum result res = ", res)
+	fmt.Println("\nSum from the for loop: res = ", res)
 
 	res = whileLoop(n)
-	fmt.Println("\nwhile loop sum result res = ", res)
+	fmt.Println("\nSum from the while loop: res = ", res)
 
 	res = whileLoopII(n)
-	fmt.Println("\nwhile loop (two updates) sum result res = ", res)
+	fmt.Println("\nSum from the while loop (two updates): res = ", res)
 
 	resStr := nestedForLoop(n)
-	fmt.Println("\nDouble for loop traversal result ", resStr)
+	fmt.Println("\nTraversal result from the nested for loops: ", resStr)
 }

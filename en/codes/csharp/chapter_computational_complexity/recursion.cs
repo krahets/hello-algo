@@ -9,12 +9,12 @@ namespace hello_algo.chapter_computational_complexity;
 public class recursion {
     /* Recursion */
     int Recur(int n) {
-        // Termination condition
+        // Base case
         if (n == 1)
             return 1;
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         int res = Recur(n - 1);
-        // Return: return result
+        // Unwind: return the result
         return n + res;
     }
 
@@ -23,14 +23,14 @@ public class recursion {
         // Use an explicit stack to simulate the system call stack
         Stack<int> stack = new();
         int res = 0;
-        // Recurse: recursive call
+        // Recurse: make a recursive call
         for (int i = n; i > 0; i--) {
-            // Simulate "recurse" with "push"
+            // Simulate recursive calls by pushing onto the stack
             stack.Push(i);
         }
-        // Return: return result
+        // Unwind: return the result
         while (stack.Count > 0) {
-            // Simulate "return" with "pop"
+            // Simulate unwinding by popping from the stack
             res += stack.Pop();
         }
         // res = 1+2+3+...+n
@@ -39,40 +39,40 @@ public class recursion {
 
     /* Tail recursion */
     int TailRecur(int n, int res) {
-        // Termination condition
+        // Base case
         if (n == 0)
             return res;
-        // Tail recursive call
+        // Tail-recursive call
         return TailRecur(n - 1, res + n);
     }
 
     /* Fibonacci sequence: recursion */
     int Fib(int n) {
-        // Termination condition f(1) = 0, f(2) = 1
+        // Base cases: f(1) = 0, f(2) = 1
         if (n == 1 || n == 2)
             return n - 1;
-        // Recursive call f(n) = f(n-1) + f(n-2)
+        // Recursive calls: f(n) = f(n-1) + f(n-2)
         int res = Fib(n - 1) + Fib(n - 2);
-        // Return result f(n)
+        // Return the result f(n)
         return res;
     }
 
-    /* Driver Code */
+    /* Driver code */
     [Test]
     public void Test() {
         int n = 5;
         int res;
 
         res = Recur(n);
-        Console.WriteLine("\nRecursive function sum result res = " + res);
+        Console.WriteLine("\nSum from recursion: res = " + res);
 
         res = ForLoopRecur(n);
-        Console.WriteLine("\nUsing iteration to simulate recursive sum result res = " + res);
+        Console.WriteLine("\nSum from simulating recursion with iteration: res = " + res);
 
         res = TailRecur(n, 0);
-        Console.WriteLine("\nTail recursive function sum result res = " + res);
+        Console.WriteLine("\nSum from tail recursion: res = " + res);
 
         res = Fib(n);
-        Console.WriteLine("\nThe " + n + "th term of the Fibonacci sequence is " + res);
+        Console.WriteLine("\nFibonacci term " + n + " is " + res);
     }
 }

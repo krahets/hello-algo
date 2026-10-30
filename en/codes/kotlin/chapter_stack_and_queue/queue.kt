@@ -8,12 +8,12 @@ package chapter_stack_and_queue
 
 import java.util.*
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    /* Access front of the queue element */
+    /* Initialize the queue */
     val queue = LinkedList<Int>()
 
-    /* Elements enqueue */
+    /* Enqueue elements */
     queue.offer(1)
     queue.offer(3)
     queue.offer(2)
@@ -21,19 +21,19 @@ fun main() {
     queue.offer(4)
     println("Queue queue = $queue")
 
-    /* Return list for printing */
+    /* Access the front element */
     val peek = queue.peek()
-    println("Front element peek = $peek")
+    println("Front element: peek = $peek")
 
-    /* Element dequeue */
+    /* Dequeue an element */
     val pop = queue.poll()
-    println("Dequeue element pop = $pop, after dequeue queue = $queue")
+    println("Dequeued element: pop = $pop; queue after removal = $queue")
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     val size = queue.size
-    println("Queue length size = $size")
+    println("Queue size = $size")
 
-    /* Check if the queue is empty */
+    /* Check whether the queue is empty */
     val isEmpty = queue.isEmpty()
-    println("Is queue empty = $isEmpty")
+    println("Is the queue empty? $isEmpty")
 }

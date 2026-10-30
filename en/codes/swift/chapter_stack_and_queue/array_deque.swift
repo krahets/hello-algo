@@ -4,11 +4,11 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Double-ended queue based on circular array implementation */
+/* Deque implemented with a circular array */
 class ArrayDeque {
-    private var nums: [Int] // Array for storing double-ended queue elements
-    private var front: Int // Front pointer, points to the front of the queue element
-    private var _size: Int // Double-ended queue length
+    private var nums: [Int] // Array that stores the deque elements
+    private var front: Int // Front index, identifying the first element
+    private var _size: Int // Deque size
 
     /* Constructor */
     init(capacity: Int) {
@@ -17,73 +17,73 @@ class ArrayDeque {
         _size = 0
     }
 
-    /* Get the capacity of the double-ended queue */
+    /* Get the deque capacity */
     func capacity() -> Int {
         nums.count
     }
 
-    /* Get the length of the double-ended queue */
+    /* Get the deque size */
     func size() -> Int {
         _size
     }
 
-    /* Check if the double-ended queue is empty */
+    /* Check whether the deque is empty */
     func isEmpty() -> Bool {
         size() == 0
     }
 
-    /* Calculate circular array index */
+    /* Calculate an index in the circular array */
     private func index(i: Int) -> Int {
-        // Use modulo operation to wrap the array head and tail together
-        // When i passes the tail of the array, return to the head
-        // When i passes the head of the array, return to the tail
+        // Use modulo to connect the end of the array to its beginning
+        // When i passes the end of the array, wrap around to the beginning
+        // When i passes the beginning of the array, wrap around to the end
         (i + capacity()) % capacity()
     }
 
-    /* Front of the queue enqueue */
+    /* Enqueue at the front */
     func pushFirst(num: Int) {
         if size() == capacity() {
-            print("Double-ended queue is full")
+            print("Deque is full")
             return
         }
-        // Use modulo operation to wrap front around to the tail after passing the head of the array
-        // Add num to the front of the queue
+        // Move the front index one position to the left
+        // Use modulo to wrap front to the end when it passes the beginning of the array
         front = index(i: front - 1)
-        // Add num to front of queue
+        // Add num to the front
         nums[front] = num
         _size += 1
     }
 
-    /* Rear of the queue enqueue */
+    /* Enqueue at the rear */
     func pushLast(num: Int) {
         if size() == capacity() {
-            print("Double-ended queue is full")
+            print("Deque is full")
             return
         }
-        // Use modulo operation to wrap rear around to the head after passing the tail of the array
+        // Calculate the rear index, one position past the last element
         let rear = index(i: front + size())
-        // Front pointer moves one position backward
+        // Add num to the rear
         nums[rear] = num
         _size += 1
     }
 
-    /* Rear of the queue dequeue */
+    /* Dequeue from the front */
     func popFirst() -> Int {
         let num = peekFirst()
-        // Move front pointer backward by one position
+        // Advance the front index by one position
         front = index(i: front + 1)
         _size -= 1
         return num
     }
 
-    /* Access rear of the queue element */
+    /* Dequeue from the rear */
     func popLast() -> Int {
         let num = peekLast()
         _size -= 1
         return num
     }
 
-    /* Return list for printing */
+    /* Access the front element */
     func peekFirst() -> Int {
         if isEmpty() {
             fatalError("Deque is empty")
@@ -91,58 +91,58 @@ class ArrayDeque {
         return nums[front]
     }
 
-    /* Driver Code */
+    /* Access the rear element */
     func peekLast() -> Int {
         if isEmpty() {
             fatalError("Deque is empty")
         }
-        // Initialize double-ended queue
+        // Calculate the index of the last element
         let last = index(i: front + size() - 1)
         return nums[last]
     }
 
-    /* Return array for printing */
+    /* Return an array for printing */
     func toArray() -> [Int] {
-        // Elements enqueue
+        // Include only the elements in the occupied range
         (front ..< front + size()).map { nums[index(i: $0)] }
     }
 }
 
 @main
 enum _ArrayDeque {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        /* Get the length of the double-ended queue */
+        /* Initialize the deque */
         let deque = ArrayDeque(capacity: 10)
         deque.pushLast(num: 3)
         deque.pushLast(num: 2)
         deque.pushLast(num: 5)
         print("Deque deque = \(deque.toArray())")
 
-        /* Update element */
+        /* Access an element */
         let peekFirst = deque.peekFirst()
         print("Front element peekFirst = \(peekFirst)")
         let peekLast = deque.peekLast()
         print("Rear element peekLast = \(peekLast)")
 
-        /* Elements enqueue */
+        /* Enqueue elements */
         deque.pushLast(num: 4)
-        print("After element 4 enqueues at rear, deque = \(deque.toArray())")
+        print("After enqueueing 4 at the rear, deque = \(deque.toArray())")
         deque.pushFirst(num: 1)
-        print("After element 1 enqueues at front, deque = \(deque.toArray())")
+        print("After enqueueing 1 at the front, deque = \(deque.toArray())")
 
-        /* Element dequeue */
+        /* Dequeue an element */
         let popLast = deque.popLast()
-        print("Dequeue rear element = \(popLast), after rear dequeue deque = \(deque.toArray())")
+        print("Element dequeued from the rear = \(popLast); after dequeueing, deque = \(deque.toArray())")
         let popFirst = deque.popFirst()
-        print("Dequeue front element = \(popFirst), after front dequeue deque = \(deque.toArray())")
+        print("Element dequeued from the front = \(popFirst); after dequeueing, deque = \(deque.toArray())")
 
-        /* Get the length of the double-ended queue */
+        /* Get the deque size */
         let size = deque.size()
-        print("Deque length size = \(size)")
+        print("Deque size = \(size)")
 
-        /* Check if the double-ended queue is empty */
+        /* Check whether the deque is empty */
         let isEmpty = deque.isEmpty()
-        print("Is deque empty = \(isEmpty)")
+        print("Is the deque empty? \(isEmpty)")
     }
 }

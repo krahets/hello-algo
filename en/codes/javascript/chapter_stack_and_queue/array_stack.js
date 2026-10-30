@@ -4,19 +4,19 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
-/* Stack based on array implementation */
+/* Stack implemented with an array */
 class ArrayStack {
     #stack;
     constructor() {
         this.#stack = [];
     }
 
-    /* Get the length of the stack */
+    /* Get the stack size */
     get size() {
         return this.#stack.length;
     }
 
-    /* Check if the stack is empty */
+    /* Check whether the stack is empty */
     isEmpty() {
         return this.#stack.length === 0;
     }
@@ -32,23 +32,23 @@ class ArrayStack {
         return this.#stack.pop();
     }
 
-    /* Return list for printing */
+    /* Access the top element */
     top() {
         if (this.isEmpty()) throw new Error('Stack is empty');
         return this.#stack[this.#stack.length - 1];
     }
 
-    /* Return Array */
+    /* Return an Array */
     toArray() {
         return this.#stack;
     }
 }
 
-/* Driver Code */
-/* Access top of the stack element */
+/* Driver code */
+/* Initialize the stack */
 const stack = new ArrayStack();
 
-/* Elements push onto stack */
+/* Push elements onto the stack */
 stack.push(1);
 stack.push(3);
 stack.push(2);
@@ -57,19 +57,19 @@ stack.push(4);
 console.log('Stack stack = ');
 console.log(stack.toArray());
 
-/* Return list for printing */
+/* Access the top element */
 const top = stack.top();
-console.log('Stack top element top = ' + top);
+console.log('Top element top = ' + top);
 
-/* Element pop from stack */
+/* Pop an element from the stack */
 const pop = stack.pop();
-console.log('Pop element pop = ' + pop + ', after pop, stack = ');
+console.log('Popped element pop = ' + pop + '; after popping, stack = ');
 console.log(stack.toArray());
 
-/* Get the length of the stack */
+/* Get the stack size */
 const size = stack.size;
-console.log('Stack length size = ' + size);
+console.log('Stack size = ' + size);
 
-/* Check if empty */
+/* Check whether it is empty */
 const isEmpty = stack.isEmpty();
-console.log('Stack is empty = ' + isEmpty);
+console.log('Is the stack empty = ' + isEmpty);

@@ -7,38 +7,38 @@
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-/* Binary tree class represented by array */
+/* Binary tree class using an array representation */
 class ArrayBinaryTree {
   late List<int?> _tree;
 
   /* Constructor */
   ArrayBinaryTree(this._tree);
 
-  /* List capacity */
+  /* Array length, including empty positions */
   int size() {
     return _tree.length;
   }
 
-  /* Get value of node at index i */
+  /* Get the value of the node at index i */
   int? val(int i) {
-    // If index out of bounds, return null to represent empty position
+    // If the index is out of bounds, return null to indicate an empty position
     if (i < 0 || i >= size()) {
       return null;
     }
     return _tree[i];
   }
 
-  /* Get index of left child node of node at index i */
+  /* Get the left child index of the node at index i */
   int? left(int i) {
     return 2 * i + 1;
   }
 
-  /* Get index of right child node of node at index i */
+  /* Get the right child index of the node at index i */
   int? right(int i) {
     return 2 * i + 2;
   }
 
-  /* Get index of parent node of node at index i */
+  /* Get the parent index of the node at index i */
   int? parent(int i) {
     return (i - 1) ~/ 2;
   }
@@ -56,7 +56,7 @@ class ArrayBinaryTree {
 
   /* Depth-first traversal */
   void dfs(int i, String order, List<int?> res) {
-    // If empty position, return
+    // Return if this position is empty
     if (val(i) == null) {
       return;
     }
@@ -98,10 +98,10 @@ class ArrayBinaryTree {
   }
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
-  // Initialize binary tree
-  // Here we use a function to generate a binary tree directly from an array
+  // Initialize the binary tree
+  // Use a helper function that builds a binary tree directly from an array
   List<int?> arr = [
     1,
     2,
@@ -121,32 +121,32 @@ void main() {
   ];
 
   TreeNode? root = listToTree(arr);
-  print("\nInitialize binary tree\n");
-  print("Array representation of binary tree:");
+  print("\nInitialize the binary tree\n");
+  print("Array representation of the binary tree:");
   print(arr);
-  print("Linked list representation of binary tree:");
+  print("Linked representation of the binary tree:");
   printTree(root);
 
-  // Binary tree class represented by array
+  // Binary tree class using an array representation
   ArrayBinaryTree abt = ArrayBinaryTree(arr);
 
-  // Access node
+  // Access a node
   int i = 1;
   int? l = abt.left(i);
   int? r = abt.right(i);
   int? p = abt.parent(i);
-  print("\nCurrent node index is $i, value is ${abt.val(i)}");
-  print("Its left child index is $l, value is ${(l == null ? "null" : abt.val(l))}");
-  print("Its right child index is $r, value is ${(r == null ? "null" : abt.val(r))}");
-  print("Its parent node index is $p, value is ${(p == null ? "null" : abt.val(p))}");
+  print("\nCurrent node: index = $i, value = ${abt.val(i)}");
+  print("Left child: index = $l, value = ${(l == null ? "null" : abt.val(l))}");
+  print("Right child: index = $r, value = ${(r == null ? "null" : abt.val(r))}");
+  print("Parent: index = $p, value = ${(p == null ? "null" : abt.val(p))}");
 
-  // Traverse tree
+  // Traverse the tree
   List<int?> res = abt.levelOrder();
-  print("\nLevel-order traversal is: $res");
+  print("\nLevel-order traversal: $res");
   res = abt.preOrder();
-  print("Pre-order traversal is $res");
+  print("Preorder traversal: $res");
   res = abt.inOrder();
-  print("In-order traversal is $res");
+  print("Inorder traversal: $res");
   res = abt.postOrder();
-  print("Post-order traversal is $res");
+  print("Postorder traversal: $res");
 }

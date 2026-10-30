@@ -16,7 +16,7 @@ fn pre_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 
     fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
         if let Some(node) = root {
-            // Visit priority: root node -> left subtree -> right subtree
+            // Visit order: root -> left subtree -> right subtree
             let node = node.borrow();
             res.push(node.val);
             dfs(node.left.as_ref(), res);
@@ -34,7 +34,7 @@ fn in_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 
     fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
         if let Some(node) = root {
-            // Visit priority: left subtree -> root node -> right subtree
+            // Visit order: left subtree -> root -> right subtree
             let node = node.borrow();
             dfs(node.left.as_ref(), res);
             res.push(node.val);
@@ -52,7 +52,7 @@ fn post_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 
     fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
         if let Some(node) = root {
-            // Visit priority: left subtree -> right subtree -> root node
+            // Visit order: left subtree -> right subtree -> root
             let node = node.borrow();
             dfs(node.left.as_ref(), res);
             dfs(node.right.as_ref(), res);
@@ -65,23 +65,23 @@ fn post_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     result
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
-    /* Initialize binary tree */
-    // Here we use a function to generate a binary tree directly from an array
+    /* Initialize the binary tree */
+    // Use a helper function that builds a binary tree directly from an array
     let root = vec_to_tree(op_vec![1, 2, 3, 4, 5, 6, 7]);
-    println!("Initialize binary tree\n");
+    println!("Initialize the binary tree\n");
     print_util::print_tree(root.as_ref().unwrap());
 
     /* Preorder traversal */
     let vec = pre_order(root.as_ref());
-    println!("\nPre-order traversal node sequence = {:?}", vec);
+    println!("\nNode sequence from preorder traversal = {:?}", vec);
 
     /* Inorder traversal */
     let vec = in_order(root.as_ref());
-    println!("\nIn-order traversal node sequence = {:?}", vec);
+    println!("\nNode sequence from inorder traversal = {:?}", vec);
 
     /* Postorder traversal */
     let vec = post_order(root.as_ref());
-    print!("\nPost-order traversal node sequence = {:?}", vec);
+    print!("\nNode sequence from postorder traversal = {:?}", vec);
 }

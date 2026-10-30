@@ -47,7 +47,7 @@ for (const result of results) {
 }
 
 console.log(`Tested ${entries.length} files`);
-console.log(`Found exception in ${errors.length} files`);
+console.log(`Exceptions occurred in ${errors.length} files`);
 
 if (errors.length) {
     console.log();

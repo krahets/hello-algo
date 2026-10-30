@@ -6,42 +6,42 @@ Author: Blue Bean (lonnnnnnner@gmail.com)
 
 require_relative './binary_search_insertion'
 
-### Binary search leftmost target ###
+### Find the leftmost occurrence of target using binary search ###
 def binary_search_left_edge(nums, target)
-  # Equivalent to finding the insertion point of target
+  # This is equivalent to finding the insertion point of target
   i = binary_search_insertion(nums, target)
 
-  # Target not found, return -1
+  # If target was not found, return -1
   return -1 if i == nums.length || nums[i] != target
 
-  i # Found target, return index i
+  i # Target was found; return index i
 end
 
-### Binary search rightmost target ###
+### Find the rightmost occurrence of target using binary search ###
 def binary_search_right_edge(nums, target)
-  # Convert to finding the leftmost target + 1
+  # For integer elements, find the leftmost insertion point of target + 1
   i = binary_search_insertion(nums, target + 1)
 
-  # j points to the rightmost target, i points to the first element greater than target
+  # i is the index of the first element greater than target (or the array length); j is the candidate rightmost target index
   j = i - 1
 
-  # Target not found, return -1
+  # If target was not found, return -1
   return -1 if j == -1 || nums[j] != target
 
-  j # Found target, return index j
+  j # Target was found; return index j
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  # Array with duplicate elements
+  # Array containing duplicate elements
   nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
   puts "\nArray nums = #{nums}"
 
-  # Binary search left and right boundaries
+  # Find the left and right boundaries using binary search
   for target in [6, 7]
     index = binary_search_left_edge(nums, target)
-    puts "Leftmost element #{target} index is #{index}"
+    puts "Index of the leftmost occurrence of #{target}: #{index}"
     index = binary_search_right_edge(nums, target)
-    puts "Rightmost element #{target} index is #{index}"
+    puts "Index of the rightmost occurrence of #{target}: #{index}"
   end
 end

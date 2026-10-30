@@ -14,8 +14,8 @@ import (
 type hashMapChaining struct {
 	size        int      // Number of key-value pairs
 	capacity    int      // Hash table capacity
-	loadThres   float64  // Load factor threshold for triggering expansion
-	extendRatio int      // Expansion multiplier
+	loadThres   float64  // Load factor threshold that triggers capacity growth
+	extendRatio int      // Capacity growth factor
 	buckets     [][]pair // Bucket array
 }
 
@@ -44,35 +44,35 @@ func (m *hashMapChaining) loadFactor() float64 {
 	return float64(m.size) / float64(m.capacity)
 }
 
-/* Query operation */
+/* Lookup operation */
 func (m *hashMapChaining) get(key int) string {
 	idx := m.hashFunc(key)
 	bucket := m.buckets[idx]
-	// Traverse bucket, if key is found, return corresponding val
+	// Traverse the bucket; if key is found, return its corresponding val
 	for _, p := range bucket {
 		if p.key == key {
 			return p.val
 		}
 	}
-	// Return empty string if key not found
+	// If key is not found, return an empty string
 	return ""
 }
 
-/* Add operation */
+/* Insert operation */
 func (m *hashMapChaining) put(key int, val string) {
-	// When load factor exceeds threshold, perform expansion
+	// Grow the capacity when the load factor exceeds the threshold
 	if m.loadFactor() > m.loadThres {
 		m.extend()
 	}
 	idx := m.hashFunc(key)
-	// Traverse bucket, if specified key is encountered, update corresponding val and return
+	// Traverse the bucket; if the specified key is found, update its val and return
 	for i := range m.buckets[idx] {
 		if m.buckets[idx][i].key == key {
 			m.buckets[idx][i].val = val
 			return
 		}
 	}
-	// If key does not exist, append key-value pair to the end
+	// If key is absent, append the key-value pair at the end
 	p := pair{
 		key: key,
 		val: val,
@@ -84,10 +84,10 @@ func (m *hashMapChaining) put(key int, val string) {
 /* Remove operation */
 func (m *hashMapChaining) remove(key int) {
 	idx := m.hashFunc(key)
-	// Traverse bucket and remove key-value pair from it
+	// Traverse the bucket and remove the key-value pair
 	for i, p := range m.buckets[idx] {
 		if p.key == key {
-			// Slice deletion
+			// Remove the element from the slice
 			m.buckets[idx] = append(m.buckets[idx][:i], m.buckets[idx][i+1:]...)
 			m.size -= 1
 			break
@@ -95,22 +95,22 @@ func (m *hashMapChaining) remove(key int) {
 	}
 }
 
-/* Expand hash table */
+/* Grow the hash table capacity */
 func (m *hashMapChaining) extend() {
-	// Temporarily store the original hash table
+	// Save a copy of the original hash table
 	tmpBuckets := make([][]pair, len(m.buckets))
 	for i := 0; i < len(m.buckets); i++ {
 		tmpBuckets[i] = make([]pair, len(m.buckets[i]))
 		copy(tmpBuckets[i], m.buckets[i])
 	}
-	// Initialize expanded new hash table
+	// Initialize a new hash table with the expanded capacity
 	m.capacity *= m.extendRatio
 	m.buckets = make([][]pair, m.capacity)
 	for i := 0; i < m.capacity; i++ {
 		m.buckets[i] = make([]pair, 0)
 	}
 	m.size = 0
-	// Move key-value pairs from original hash table to new hash table
+	// Move the key-value pairs from the original hash table to the new one
 	for _, bucket := range tmpBuckets {
 		for _, p := range bucket {
 			m.put(p.key, p.val)
@@ -118,7 +118,7 @@ func (m *hashMapChaining) extend() {
 	}
 }
 
-/* Print hash table */
+/* Print the hash table */
 func (m *hashMapChaining) print() {
 	var builder strings.Builder
 

@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Constant order */
+/* Constant complexity */
 func constant(n: Int) -> Int {
     var count = 0
     let size = 100_000
@@ -14,7 +14,7 @@ func constant(n: Int) -> Int {
     return count
 }
 
-/* Linear order */
+/* Linear complexity */
 func linear(n: Int) -> Int {
     var count = 0
     for _ in 0 ..< n {
@@ -23,20 +23,20 @@ func linear(n: Int) -> Int {
     return count
 }
 
-/* Linear order (traversing array) */
+/* Linear complexity (array traversal) */
 func arrayTraversal(nums: [Int]) -> Int {
     var count = 0
-    // Number of iterations is proportional to the array length
+    // The number of iterations is proportional to the array length
     for _ in nums {
         count += 1
     }
     return count
 }
 
-/* Exponential order */
+/* Quadratic complexity */
 func quadratic(n: Int) -> Int {
     var count = 0
-    // Number of iterations is quadratically related to the data size n
+    // The number of iterations is proportional to the square of the input size n
     for _ in 0 ..< n {
         for _ in 0 ..< n {
             count += 1
@@ -45,30 +45,30 @@ func quadratic(n: Int) -> Int {
     return count
 }
 
-/* Quadratic order (bubble sort) */
+/* Quadratic complexity (bubble sort) */
 func bubbleSort(nums: inout [Int]) -> Int {
     var count = 0 // Counter
-    // Outer loop: unsorted range is [0, i]
+    // Outer loop: the unsorted range is [0, i]
     for i in nums.indices.dropFirst().reversed() {
-        // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+        // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
         for j in 0 ..< i {
             if nums[j] > nums[j + 1] {
                 // Swap nums[j] and nums[j + 1]
                 let tmp = nums[j]
                 nums[j] = nums[j + 1]
                 nums[j + 1] = tmp
-                count += 3 // Element swap includes 3 unit operations
+                count += 3 // Swapping two elements takes 3 elementary operations
             }
         }
     }
     return count
 }
 
-/* Exponential order (loop implementation) */
+/* Exponential complexity (iterative implementation) */
 func exponential(n: Int) -> Int {
     var count = 0
     var base = 1
-    // Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+    // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
     for _ in 0 ..< n {
         for _ in 0 ..< base {
             count += 1
@@ -79,7 +79,7 @@ func exponential(n: Int) -> Int {
     return count
 }
 
-/* Exponential order (recursive implementation) */
+/* Exponential complexity (recursive implementation) */
 func expRecur(n: Int) -> Int {
     if n == 1 {
         return 1
@@ -87,7 +87,7 @@ func expRecur(n: Int) -> Int {
     return expRecur(n: n - 1) + expRecur(n: n - 1) + 1
 }
 
-/* Logarithmic order (loop implementation) */
+/* Logarithmic complexity (iterative implementation) */
 func logarithmic(n: Int) -> Int {
     var count = 0
     var n = n
@@ -98,7 +98,7 @@ func logarithmic(n: Int) -> Int {
     return count
 }
 
-/* Logarithmic order (recursive implementation) */
+/* Logarithmic complexity (recursive implementation) */
 func logRecur(n: Int) -> Int {
     if n <= 1 {
         return 0
@@ -106,7 +106,7 @@ func logRecur(n: Int) -> Int {
     return logRecur(n: n / 2) + 1
 }
 
-/* Linearithmic order */
+/* Linearithmic complexity */
 func linearLogRecur(n: Int) -> Int {
     if n <= 1 {
         return 1
@@ -118,13 +118,13 @@ func linearLogRecur(n: Int) -> Int {
     return count
 }
 
-/* Factorial order (recursive implementation) */
+/* Factorial complexity (recursive implementation) */
 func factorialRecur(n: Int) -> Int {
     if n == 0 {
         return 1
     }
     var count = 0
-    // Split from 1 into n
+    // Split one problem into n subproblems
     for _ in 0 ..< n {
         count += factorialRecur(n: n - 1)
     }
@@ -133,40 +133,40 @@ func factorialRecur(n: Int) -> Int {
 
 @main
 enum TimeComplexity {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        // You can modify n to run and observe the trend of the number of operations for various complexities
+        // Try different values of n to see how the operation count grows for each complexity
         let n = 8
-        print("Input data size n = \(n)")
+        print("Input size n = \(n)")
 
         var count = constant(n: n)
-        print("Constant-time operations count = \(count)")
+        print("Operation count for constant complexity = \(count)")
 
         count = linear(n: n)
-        print("Linear-time operations count = \(count)")
+        print("Operation count for linear complexity = \(count)")
         count = arrayTraversal(nums: Array(repeating: 0, count: n))
-        print("Linear-time (array traversal) operations count = \(count)")
+        print("Operation count for linear complexity (array traversal) = \(count)")
 
         count = quadratic(n: n)
-        print("Quadratic-time operations count = \(count)")
+        print("Operation count for quadratic complexity = \(count)")
         var nums = Array(stride(from: n, to: 0, by: -1)) // [n,n-1,...,2,1]
         count = bubbleSort(nums: &nums)
-        print("Quadratic-time (bubble sort) operations count = \(count)")
+        print("Operation count for quadratic complexity (bubble sort) = \(count)")
 
         count = exponential(n: n)
-        print("Exponential-time (iterative) operations count = \(count)")
+        print("Operation count for exponential complexity (iterative implementation) = \(count)")
         count = expRecur(n: n)
-        print("Exponential-time (recursive) operations count = \(count)")
+        print("Operation count for exponential complexity (recursive implementation) = \(count)")
 
         count = logarithmic(n: n)
-        print("Logarithmic-time (iterative) operations count = \(count)")
+        print("Operation count for logarithmic complexity (iterative implementation) = \(count)")
         count = logRecur(n: n)
-        print("Logarithmic-time (recursive) operations count = \(count)")
+        print("Operation count for logarithmic complexity (recursive implementation) = \(count)")
 
         count = linearLogRecur(n: n)
-        print("Linearithmic-time (recursive) operations count = \(count)")
+        print("Operation count for linearithmic complexity (recursive implementation) = \(count)")
 
         count = factorialRecur(n: n)
-        print("Factorial-time (recursive) operations count = \(count)")
+        print("Operation count for factorial complexity (recursive implementation) = \(count)")
     }
 }

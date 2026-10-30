@@ -4,33 +4,33 @@ Created Time: 2022-11-29
 Author: Peng Chen (pengchzn@gmail.com)
 """
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
-    # Initialize stack
-    # Python does not have a built-in stack class, we can use list as a stack
+    # Initialize the stack
+    # Python has no built-in stack class; a list can be used as a stack
     stack: list[int] = []
 
-    # Elements push onto stack
+    # Push elements onto the stack
     stack.append(1)
     stack.append(3)
     stack.append(2)
     stack.append(5)
     stack.append(4)
-    print("stack =", stack)
+    print("Stack stack =", stack)
 
-    # Access top of the stack element
+    # Access the top element
     peek: int = stack[-1]
-    print("Top of the stack element peek =", peek)
+    print("Top element peek =", peek)
 
-    # Element pop from stack
+    # Pop an element from the stack
     pop: int = stack.pop()
     print("Popped element pop =", pop)
-    print("After pop stack =", stack)
+    print("After popping, stack =", stack)
 
-    # Get the length of the stack
+    # Get the stack size
     size: int = len(stack)
-    print("Length of the stack size =", size)
+    print("Stack size =", size)
 
-    # Check if it is empty
+    # Check whether it is empty
     is_empty: bool = len(stack) == 0
     print("Is the stack empty =", is_empty)

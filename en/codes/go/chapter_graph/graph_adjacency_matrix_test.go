@@ -10,34 +10,34 @@ import (
 )
 
 func TestGraphAdjMat(t *testing.T) {
-	/* Add edge */
-	// Note that the edges elements represent vertex indices, i.e., corresponding to the vertices element indices
+	/* Initialize the undirected graph */
+	// Note that the entries in edges are vertex indices, corresponding to element indices in vertices
 	vertices := []int{1, 3, 2, 5, 4}
 	edges := [][]int{{0, 1}, {1, 2}, {2, 3}, {0, 3}, {2, 4}, {3, 4}}
 	graph := newGraphAdjMat(vertices, edges)
-	fmt.Println("After initialization, graph is:")
+	fmt.Println("Graph after initialization:")
 	graph.print()
 
-	/* Add edge */
-	// Add vertex
+	/* Add an edge */
+	// Vertices 1 and 2 have indices 0 and 2, respectively
 	graph.addEdge(0, 2)
-	fmt.Println("After adding edge 1-2, graph is")
+	fmt.Println("Graph after adding edge 1-2:")
 	graph.print()
 
-	/* Remove edge */
-	// Vertices 1, 3 have indices 0, 1 respectively
+	/* Remove an edge */
+	// Vertices 1 and 3 have indices 0 and 1, respectively
 	graph.removeEdge(0, 1)
-	fmt.Println("After removing edge 1-3, graph is")
+	fmt.Println("Graph after removing edge 1-3:")
 	graph.print()
 
-	/* Add vertex */
+	/* Add a vertex */
 	graph.addVertex(6)
-	fmt.Println("After adding vertex 6, graph is")
+	fmt.Println("Graph after adding vertex 6:")
 	graph.print()
 
-	/* Remove vertex */
+	/* Remove a vertex */
 	// Vertex 3 has index 1
 	graph.removeVertex(1)
-	fmt.Println("After removing vertex 3, graph is")
+	fmt.Println("Graph after removing vertex 3:")
 	graph.print()
 }

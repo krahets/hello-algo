@@ -4,11 +4,11 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Heap length is n, start heapifying node i, from top to bottom */
+/* Sift down from node i in a heap of size n */
 func siftDown(nums: inout [Int], n: Int, i: Int) {
     var i = i
     while true {
-        // If node i is largest or indices l, r are out of bounds, no need to continue heapify, break
+        // Find the node with the largest value among i, l, and r, and store its index in ma
         let l = 2 * i + 1
         let r = 2 * i + 2
         var ma = i
@@ -18,35 +18,35 @@ func siftDown(nums: inout [Int], n: Int, i: Int) {
         if r < n, nums[r] > nums[ma] {
             ma = r
         }
-        // Swap two nodes
+        // Stop if node i is largest or both child indices l and r are out of bounds
         if ma == i {
             break
         }
-        // Swap two nodes
+        // Swap the two nodes
         nums.swapAt(i, ma)
-        // Loop downwards heapification
+        // Continue sifting down
         i = ma
     }
 }
 
 /* Heap sort */
 func heapSort(nums: inout [Int]) {
-    // Build heap operation: heapify all nodes except leaves
+    // Build the heap by sifting down from every non-leaf node
     for i in stride(from: nums.count / 2 - 1, through: 0, by: -1) {
         siftDown(nums: &nums, n: nums.count, i: i)
     }
-    // Extract the largest element from the heap and repeat for n-1 rounds
+    // Extract the largest element from the heap, repeating for n-1 rounds
     for i in nums.indices.dropFirst().reversed() {
-        // Delete node
+        // Swap the root with the rightmost leaf on the last level (the first and last elements of the current heap)
         nums.swapAt(0, i)
-        // Start heapifying the root node, from top to bottom
+        // Sift down starting at the root
         siftDown(nums: &nums, n: i, i: 0)
     }
 }
 
 @main
 enum HeapSort {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         var nums = [4, 1, 3, 1, 5, 2]
         heapSort(nums: &nums)

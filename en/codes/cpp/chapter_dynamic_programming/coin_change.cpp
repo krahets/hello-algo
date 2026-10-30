@@ -6,24 +6,24 @@
 
 #include "../utils/common.hpp"
 
-/* Coin change: Dynamic programming */
+/* Coin change: dynamic programming */
 int coinChangeDP(vector<int> &coins, int amt) {
     int n = coins.size();
     int MAX = amt + 1;
-    // Initialize dp table
+    // Initialize the dp table
     vector<vector<int>> dp(n + 1, vector<int>(amt + 1, 0));
-    // State transition: first row and first column
+    // State transitions: first row and first column
     for (int a = 1; a <= amt; a++) {
         dp[0][a] = MAX;
     }
-    // State transition: rest of the rows and columns
+    // State transitions: remaining rows and columns
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // If exceeds target amount, don't select coin i
+                // If the coin exceeds the target amount, do not choose coin i
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // The smaller value between not selecting and selecting coin i
+                // Take the smaller result of not choosing and choosing coin i
                 dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
             }
         }
@@ -31,21 +31,21 @@ int coinChangeDP(vector<int> &coins, int amt) {
     return dp[n][amt] != MAX ? dp[n][amt] : -1;
 }
 
-/* Coin change: Space-optimized dynamic programming */
+/* Coin change: space-optimized dynamic programming */
 int coinChangeDPComp(vector<int> &coins, int amt) {
     int n = coins.size();
     int MAX = amt + 1;
-    // Initialize dp table
+    // Initialize the dp table
     vector<int> dp(amt + 1, MAX);
     dp[0] = 0;
-    // State transition
+    // State transitions
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // If exceeds target amount, don't select coin i
+                // If the coin exceeds the target amount, do not choose coin i
                 dp[a] = dp[a];
             } else {
-                // The smaller value between not selecting and selecting coin i
+                // Take the smaller result of not choosing and choosing coin i
                 dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1);
             }
         }
@@ -60,11 +60,11 @@ int main() {
 
     // Dynamic programming
     int res = coinChangeDP(coins, amt);
-    cout << "Minimum number of coins needed to make target amount is " << res << endl;
+    cout << "Minimum number of coins needed to reach the target amount: " << res << endl;
 
     // Space-optimized dynamic programming
     res = coinChangeDPComp(coins, amt);
-    cout << "Minimum number of coins needed to make target amount is " << res << endl;
+    cout << "Minimum number of coins needed to reach the target amount: " << res << endl;
 
     return 0;
 }

@@ -40,7 +40,7 @@ fn xor_hash(key: &str) -> i32 {
     (hash & MODULUS) as i32
 }
 
-/* Rotational hash */
+/* Rotating hash */
 fn rot_hash(key: &str) -> i32 {
     let mut hash = 0_i64;
     const MODULUS: i64 = 1000000007;
@@ -52,19 +52,19 @@ fn rot_hash(key: &str) -> i32 {
     hash as i32
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
-    let key = "Hello Algo";
+    let key = "Hello 算法";
 
     let hash = add_hash(key);
-    println!("Additive hash value is {hash}");
+    println!("Additive hash value: {hash}");
 
     let hash = mul_hash(key);
-    println!("Multiplicative hash value is {hash}");
+    println!("Multiplicative hash value: {hash}");
 
     let hash = xor_hash(key);
-    println!("XOR hash value is {hash}");
+    println!("XOR hash value: {hash}");
 
     let hash = rot_hash(key);
-    println!("Rotational hash value is {hash}");
+    println!("Rotating hash value: {hash}");
 }

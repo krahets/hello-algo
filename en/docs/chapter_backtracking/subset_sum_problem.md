@@ -1,95 +1,95 @@
-# Subset-Sum Problem
+# Subset sum problem
 
-## Without Duplicate Elements
+## Distinct elements
 
 !!! question
 
-    Given a positive integer array `nums` and a target positive integer `target`, find all possible combinations where the sum of elements in the combination equals `target`. The given array has no duplicate elements, and each element can be selected multiple times. Return these combinations in list form, where the list should not contain duplicate combinations.
+    Given an array of positive integers `nums` and a positive target integer `target`, find all combinations whose elements sum to `target`. The array has no duplicate elements, and each element may be chosen multiple times. Return the combinations as a list containing no duplicates.
 
-For example, given the set $\{3, 4, 5\}$ and target integer $9$, the solutions are $\{3, 3, 3\}, \{4, 5\}$. Note the following two points:
+For example, with input $\{3, 4, 5\}$ and target $9$, the solutions are $\{3, 3, 3\}, \{4, 5\}$. Keep two points in mind.
 
-- Elements in the input set can be selected repeatedly without limit.
-- Subsets do not distinguish element order; for example, $\{4, 5\}$ and $\{5, 4\}$ are the same subset.
+- Each input element may be chosen an unlimited number of times.
+- Element order does not matter: $\{4, 5\}$ and $\{5, 4\}$ represent the same subset.
 
-### Using the Permutation Solution as a Reference
+### Starting from the permutations solution
 
-Similar to the permutation problem, we can view the process of generating subsets as the result of a series of choices and update the running sum during the selection process. When the sum equals `target`, we record the subset in the result list.
+As with permutations, we can view generating a subset as a sequence of choices. Update the sum as we make choices, and record the subset when the sum equals `target`.
 
-Unlike the permutation problem, **elements in this problem can be selected any number of times**, so we do not need to use a `selected` boolean list to track whether an element has already been selected. With a few small changes to the permutation code, we obtain an initial solution:
+Unlike permutations, **each element may be chosen an unlimited number of times**, so we do not need a Boolean `selected` list. A small modification to the permutations code gives an initial solution:
 
 ```src
 [file]{subset_sum_i_naive}-[class]{}-[func]{subset_sum_i_naive}
 ```
 
-Running the above code on array $[3, 4, 5]$ with target value $9$ produces $[3, 3, 3], [4, 5], [5, 4]$. **Although we successfully found all subsets that sum to $9$, there are duplicate subsets $[4, 5]$ and $[5, 4]$**.
+For input array $[3, 4, 5]$ and target $9$, this code returns $[3, 3, 3], [4, 5], [5, 4]$. **It finds all subsets summing to $9$, but includes the duplicate subsets $[4, 5]$ and $[5, 4]$**.
 
-This is because the search process distinguishes the order of selections, but subsets do not distinguish selection order. As shown in the figure below, selecting 4 first and then 5 versus selecting 5 first and then 4 are different branches, but they correspond to the same subset.
+The search distinguishes the order of choices, whereas subsets do not. As shown in the figure below, choosing $4$ then $5$ and choosing $5$ then $4$ follow different branches but produce the same subset.
 
-![Subset search and boundary pruning](subset_sum_problem.assets/subset_sum_i_naive.png)
+![Subset search and pruning when the sum exceeds the target](subset_sum_problem.assets/subset_sum_i_naive.png)
 
-To eliminate duplicate subsets, **one straightforward idea is to deduplicate the result list**. However, this approach is very inefficient for two reasons:
+**One straightforward way to remove duplicate subsets is to deduplicate the result list**. However, this is inefficient for two reasons.
 
-- When there are many array elements, especially when `target` is large, the search process generates many duplicate subsets.
-- Comparing subsets (arrays) is very time-consuming, requiring sorting the arrays first, then comparing each element in them.
+- With many array elements, especially when `target` is large, the search generates many duplicate subsets.
+- Comparing subsets (arrays) is expensive: we must sort them first, then compare their elements one by one.
 
-### Pruning Duplicate Subsets
+### Pruning duplicate subsets
 
-**We consider deduplication through pruning during the search process**. Observing the figure below, duplicate subsets occur when array elements are selected in different orders, as in the following cases:
+**Instead, we can eliminate duplicates by pruning during the search**. As shown in the figure below, duplicates arise when array elements are chosen in different orders, as in the following example.
 
-1. When the first and second rounds select $3$ and $4$ respectively, all subsets containing these two elements are generated, denoted as $[3, 4, \dots]$.
-2. Afterward, when the first round selects $4$, **the second round should skip $3$**, because the subset $[4, 3, \dots]$ generated by this choice is an exact duplicate of the subset generated in step `1.`
+1. Choosing $3$ and then $4$ in the first two rounds generates all subsets beginning with these choices, denoted by $[3, 4, \dots]$.
+2. Later, after choosing $4$ first, **we should skip $3$ in the second round**, because subsets $[4, 3, \dots]$ duplicate those generated in step `1.`.
 
-In the search process, each level's choices are tried from left to right, so the rightmost branches are pruned more.
+At each level of the search, choices are tried from left to right, so branches farther to the right have more choices pruned.
 
-1. The first two rounds select $3$ and $5$, generating subset $[3, 5, \dots]$.
-2. The first two rounds select $4$ and $5$, generating subset $[4, 5, \dots]$.
-3. If the first round selects $5$, **the second round should skip $3$ and $4$**, because subsets $[5, 3, \dots]$ and $[5, 4, \dots]$ are exact duplicates of the subsets described in steps `1.` and `2.`
+1. Choosing $3$ and then $5$ generates subsets $[3, 5, \dots]$.
+2. Choosing $4$ and then $5$ generates subsets $[4, 5, \dots]$.
+3. If $5$ is chosen first, **skip both $3$ and $4$ in the second round**, because $[5, 3, \dots]$ and $[5, 4, \dots]$ duplicate the subsets described in steps `1.` and `2.`.
 
-![Different selection orders leading to duplicate subsets](subset_sum_problem.assets/subset_sum_i_pruning.png)
+![Duplicate subsets caused by different choice orders](subset_sum_problem.assets/subset_sum_i_pruning.png)
 
-In summary, given an input array $[x_1, x_2, \dots, x_n]$, let the selection sequence in the search process be $[x_{i_1}, x_{i_2}, \dots, x_{i_m}]$. This selection sequence must satisfy $i_1 \leq i_2 \leq \dots \leq i_m$; **any selection sequence that does not satisfy this condition will cause duplicates and should be pruned**.
+In general, for input $[x_1, x_2, \dots, x_n]$, a sequence of choices $[x_{i_1}, x_{i_2}, \dots, x_{i_m}]$ must satisfy $i_1 \leq i_2 \leq \dots \leq i_m$. **Any sequence violating this condition creates a duplicate and should be pruned**.
 
-### Code Implementation
+### Code implementation
 
-To implement this pruning, we initialize a variable `start` to indicate the starting point of traversal. **After making choice $x_{i}$, set the next round to start traversal from index $i$**. This ensures that the selection sequence satisfies $i_1 \leq i_2 \leq \dots \leq i_m$, guaranteeing subset uniqueness.
+To implement this pruning, introduce `start` to specify where iteration begins. **After choosing $x_{i}$, begin the next round at index $i$**. This enforces $i_1 \leq i_2 \leq \dots \leq i_m$ and ensures that each subset is unique.
 
-In addition, we have made the following two optimizations to the code:
+We also make two further improvements.
 
-- Before starting the search, first sort the array `nums`. When traversing all choices, **end the loop immediately when the subset sum exceeds `target`**, because subsequent elements are larger, and their subset sums must exceed `target`.
-- Omit the element sum variable `total` and **use subtraction on `target` to track the sum of elements**. Record the solution when `target` equals $0$.
+- Sort `nums` before starting the search. While iterating over choices, **stop the loop as soon as the subset sum exceeds `target`**, because all later elements are larger and would also exceed it.
+- Remove the sum variable `total` and **track the sum by subtracting from `target`**. Record a solution when `target` reaches $0$.
 
 ```src
 [file]{subset_sum_i}-[class]{}-[func]{subset_sum_i}
 ```
 
-The figure below shows the complete backtracking process produced by running the above code on array $[3, 4, 5]$ with target value $9$.
+The figure below shows the complete backtracking process for input $[3, 4, 5]$ and target $9$.
 
-![Subset-sum I backtracking process](subset_sum_problem.assets/subset_sum_i.png)
+![Backtracking for subset sum I](subset_sum_problem.assets/subset_sum_i.png)
 
-## With Duplicate Elements in Array
+## Duplicate elements
 
 !!! question
 
-    Given a positive integer array `nums` and a target positive integer `target`, find all possible combinations where the sum of elements in the combination equals `target`. **The given array may contain duplicate elements, and each element can be selected at most once**. Return these combinations in list form, where the list should not contain duplicate combinations.
+    Given an array of positive integers `nums` and a positive target integer `target`, find all combinations whose elements sum to `target`. **The array may contain duplicate elements, and each element may be chosen only once**. Return the combinations as a list containing no duplicates.
 
-Compared to the previous problem, **the input array in this problem may contain duplicate elements**, which introduces a new issue. For example, given array $[4, \hat{4}, 5]$ and target value $9$, the output of the existing code is $[4, 5], [\hat{4}, 5]$, which contains duplicate subsets.
+Unlike the previous problem, **the input may contain duplicate elements**, which introduces a new issue. For array $[4, \hat{4}, 5]$ and target $9$, for example, the existing code produces $[4, 5], [\hat{4}, 5]$: duplicate subsets.
 
-**The reason for this duplication is that equal elements are selected multiple times in a certain round**. In the figure below, the first round has three choices, two of which are $4$, creating two duplicate search branches that output duplicate subsets. Similarly, the two $4$'s in the second round also produce duplicate subsets.
+**These duplicates occur because equal elements are tried more than once in a single round**. In the figure below, the first round has three choices, two of which are $4$. They generate duplicate branches and therefore duplicate subsets. The two occurrences of $4$ in the second round cause the same problem.
 
 ![Duplicate subsets caused by equal elements](subset_sum_problem.assets/subset_sum_ii_repeat.png)
 
-### Pruning Equal Elements
+### Pruning equal elements
 
-To solve this problem, **we need to limit equal elements to be selected only once in each round**. The implementation is quite clever: since the array is already sorted, equal elements are adjacent. This means that in a given round of selection, if the current element equals the element to its left, then the same value has already been chosen in this round, so we skip the current element directly.
+To solve this, **try each value only once in each round**. The implementation uses the fact that equal elements are adjacent in a sorted array. Within a round, if an element equals the preceding element, that value has already been tried, so skip the current element.
 
-At the same time, **this problem specifies that each array element can only be selected once**. Fortunately, we can also use the variable `start` to satisfy this constraint: after making choice $x_{i}$, set the next round to start traversal from index $i + 1$ onwards. This both eliminates duplicate subsets and avoids selecting elements multiple times.
+In addition, **each array element may be chosen only once**. Fortunately, `start` can enforce this constraint too: after choosing $x_{i}$, begin the next round at index $i + 1$. This both eliminates duplicate subsets and prevents reusing an element.
 
-### Code Implementation
+### Code implementation
 
 ```src
 [file]{subset_sum_ii}-[class]{}-[func]{subset_sum_ii}
 ```
 
-The figure below shows the backtracking process for array $[4, 4, 5]$ with target value $9$, which includes four types of pruning operations. Combine the illustration with the code comments to understand the entire search process and how each pruning operation works.
+The figure below shows backtracking for array $[4, 4, 5]$ and target $9$, including four types of pruning. Follow the illustration alongside the code comments to understand the full search and how each pruning rule works.
 
-![Subset-sum II backtracking process](subset_sum_problem.assets/subset_sum_ii.png)
+![Backtracking for subset sum II](subset_sum_problem.assets/subset_sum_ii.png)

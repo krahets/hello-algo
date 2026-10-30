@@ -8,63 +8,63 @@
 
 import 'dart:math';
 
-/* Random access to element */
+/* Access an element at a random index */
 int randomAccess(List<int> nums) {
-  // Randomly select a number in the interval [0, nums.length)
+  // Choose a random index in the interval [0, nums.length)
   int randomIndex = Random().nextInt(nums.length);
-  // Retrieve and return the random element
+  // Get and return the randomly selected element
   int randomNum = nums[randomIndex];
   return randomNum;
 }
 
-/* Extend array length */
+/* Extend the array length */
 List<int> extend(List<int> nums, int enlarge) {
-  // Initialize an array with extended length
+  // Initialize an array with the extended length
   List<int> res = List.filled(nums.length + enlarge, 0);
   // Copy all elements from the original array to the new array
   for (var i = 0; i < nums.length; i++) {
     res[i] = nums[i];
   }
-  // Return the extended new array
+  // Return the new, extended array
   return res;
 }
 
-/* Insert element _num at array index index */
+/* Insert element _num at index in the array */
 void insert(List<int> nums, int _num, int index) {
-  // Move all elements at and after index index backward by one position
+  // Shift all elements at and after index `index` one position to the right
   for (var i = nums.length - 1; i > index; i--) {
     nums[i] = nums[i - 1];
   }
-  // Assign _num to element at index
+  // Assign _num to the element at index
   nums[index] = _num;
 }
 
-/* Remove the element at index index */
+/* Remove the element at index `index` */
 void remove(List<int> nums, int index) {
-  // Move all elements after index index forward by one position
+  // Shift all elements after index `index` one position to the left
   for (var i = index; i < nums.length - 1; i++) {
     nums[i] = nums[i + 1];
   }
 }
 
-/* Traverse array elements */
+/* Traverse the array elements */
 void traverse(List<int> nums) {
   int count = 0;
-  // Traverse array by index
+  // Traverse the array by index
   for (var i = 0; i < nums.length; i++) {
     count += nums[i];
   }
-  // Direct traversal of array elements
+  // Iterate directly over the array elements
   for (int _num in nums) {
     count += _num;
   }
-  // Traverse array using forEach method
+  // Traverse the array using forEach
   nums.forEach((_num) {
     count += _num;
   });
 }
 
-/* Find the specified element in the array */
+/* Find a specified element in the array */
 int find(List<int> nums, int target) {
   for (var i = 0; i < nums.length; i++) {
     if (nums[i] == target) return i;
@@ -72,34 +72,34 @@ int find(List<int> nums, int target) {
   return -1;
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
-  /* Initialize array */
+  /* Initialize the array */
   var arr = List.filled(5, 0);
   print('Array arr = $arr');
   List<int> nums = [1, 3, 2, 5, 4];
   print('Array nums = $nums');
 
-  /* Insert element */
+  /* Random access */
   int randomNum = randomAccess(nums);
-  print('Get random element $randomNum from nums');
+  print('Random element from nums: $randomNum');
 
-  /* Traverse array */
+  /* Extend the length */
   nums = extend(nums, 3);
-  print('Extend array length to 8, get nums = $nums');
+  print('After extending the array length to 8, nums = $nums');
 
-  /* Insert element */
+  /* Insert an element */
   insert(nums, 6, 3);
-  print("Insert number 6 at index 3, get nums = $nums");
+  print("After inserting 6 at index 3, nums = $nums");
 
-  /* Remove element */
+  /* Remove an element */
   remove(nums, 2);
-  print("Delete element at index 2, get nums = $nums");
+  print("After removing the element at index 2, nums = $nums");
 
-  /* Traverse array */
+  /* Traverse the array */
   traverse(nums);
 
-  /* Find element */
+  /* Find an element */
   int index = find(nums, 3);
-  print("Find element 3 in nums, index = $index");
+  print("Search for 3 in nums: index = $index");
 }

@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_divide_and_conquer;
 
 public class fast_power {
-    /* Exponentiation by squaring */
+    /* Fast exponentiation */
     int FastPow(int x, int n) {
         if (n == 0) {
             return 1;

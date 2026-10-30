@@ -9,11 +9,11 @@ import (
 	"testing"
 )
 
-/* Driver Code */
+/* Driver code */
 func TestMyList(t *testing.T) {
-	/* Initialize list */
+	/* Initialize the list */
 	nums := newMyList()
-	/* Direct traversal of list elements */
+	/* Append at the end */
 	nums.add(1)
 	nums.add(3)
 	nums.add(2)
@@ -21,26 +21,26 @@ func TestMyList(t *testing.T) {
 	nums.add(4)
 	fmt.Printf("List nums = %v, capacity = %v, length = %v\n", nums.toArray(), nums.capacity(), nums.size())
 
-	/* Sort list */
+	/* Insert an element in the middle */
 	nums.insert(6, 3)
-	fmt.Printf("Insert number 6 at index 3, get nums = %v\n", nums.toArray())
+	fmt.Printf("Insert the number 6 at index 3, giving nums = %v\n", nums.toArray())
 
-	/* Remove element */
+	/* Remove an element */
 	nums.remove(3)
-	fmt.Printf("Remove element at index 3, get nums = %v\n", nums.toArray())
+	fmt.Printf("Remove the element at index 3, giving nums = %v\n", nums.toArray())
 
-	/* Update element */
+	/* Access an element */
 	num := nums.get(1)
-	fmt.Printf("Access element at index 1, get num = %v\n", num)
+	fmt.Printf("Access the element at index 1, giving num = %v\n", num)
 
-	/* Add elements at the end */
+	/* Update an element */
 	nums.set(0, 1)
-	fmt.Printf("Update element at index 1 to 0, get nums = %v\n", nums.toArray())
+	fmt.Printf("Update the element at index 1 to 0, giving nums = %v\n", nums.toArray())
 
-	/* Test capacity expansion mechanism */
+	/* Test capacity growth */
 	for i := 0; i < 10; i++ {
-		// At i = 5, the list length will exceed the list capacity, triggering the expansion mechanism
+		// When i = 5, the list length would exceed its capacity, triggering capacity growth
 		nums.add(i)
 	}
-	fmt.Printf("After expansion, list nums = %v, capacity = %v, length = %v\n", nums.toArray(), nums.capacity(), nums.size())
+	fmt.Printf("After capacity growth: list nums = %v, capacity = %v, length = %v\n", nums.toArray(), nums.capacity(), nums.size())
 }

@@ -4,64 +4,64 @@
 
 package chapter_dynamic_programming
 
-/* Edit distance: Brute-force search */
+/* Edit distance: brute-force search */
 func editDistanceDFS(s string, t string, i int, j int) int {
-	// If both s and t are empty, return 0
+	// If both prefixes of s and t are empty, return 0
 	if i == 0 && j == 0 {
 		return 0
 	}
-	// If s is empty, return length of t
+	// If the prefix of s is empty, return the prefix length of t
 	if i == 0 {
 		return j
 	}
-	// If t is empty, return length of s
+	// If the prefix of t is empty, return the prefix length of s
 	if j == 0 {
 		return i
 	}
-	// If two characters are equal, skip both characters
+	// If the two bytes are equal, skip both (each byte is one character for ASCII input)
 	if s[i-1] == t[j-1] {
 		return editDistanceDFS(s, t, i-1, j-1)
 	}
-	// Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+	// Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
 	insert := editDistanceDFS(s, t, i, j-1)
 	deleted := editDistanceDFS(s, t, i-1, j)
 	replace := editDistanceDFS(s, t, i-1, j-1)
-	// Return minimum edit steps
+	// Return the minimum number of edits
 	return MinInt(MinInt(insert, deleted), replace) + 1
 }
 
-/* Edit distance: Memoization search */
+/* Edit distance: memoized search */
 func editDistanceDFSMem(s string, t string, mem [][]int, i int, j int) int {
-	// If both s and t are empty, return 0
+	// If both prefixes of s and t are empty, return 0
 	if i == 0 && j == 0 {
 		return 0
 	}
-	// If s is empty, return length of t
+	// If the prefix of s is empty, return the prefix length of t
 	if i == 0 {
 		return j
 	}
-	// If t is empty, return length of s
+	// If the prefix of t is empty, return the prefix length of s
 	if j == 0 {
 		return i
 	}
-	// If there's a record, return it directly
+	// If a result has already been recorded, return it directly
 	if mem[i][j] != -1 {
 		return mem[i][j]
 	}
-	// If two characters are equal, skip both characters
+	// If the two bytes are equal, skip both (each byte is one character for ASCII input)
 	if s[i-1] == t[j-1] {
 		return editDistanceDFSMem(s, t, mem, i-1, j-1)
 	}
-	// Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+	// Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
 	insert := editDistanceDFSMem(s, t, mem, i, j-1)
 	deleted := editDistanceDFSMem(s, t, mem, i-1, j)
 	replace := editDistanceDFSMem(s, t, mem, i-1, j-1)
-	// Record and return minimum edit steps
+	// Record and return the minimum number of edits
 	mem[i][j] = MinInt(MinInt(insert, deleted), replace) + 1
 	return mem[i][j]
 }
 
-/* Edit distance: Dynamic programming */
+/* Edit distance: dynamic programming */
 func editDistanceDP(s string, t string) int {
 	n := len(s)
 	m := len(t)
@@ -69,21 +69,21 @@ func editDistanceDP(s string, t string) int {
 	for i := 0; i <= n; i++ {
 		dp[i] = make([]int, m+1)
 	}
-	// State transition: first row and first column
+	// State transitions: first row and first column
 	for i := 1; i <= n; i++ {
 		dp[i][0] = i
 	}
 	for j := 1; j <= m; j++ {
 		dp[0][j] = j
 	}
-	// State transition: rest of the rows and columns
+	// State transitions: remaining rows and columns
 	for i := 1; i <= n; i++ {
 		for j := 1; j <= m; j++ {
 			if s[i-1] == t[j-1] {
-				// If two characters are equal, skip both characters
+				// If the two bytes are equal, skip both (each byte is one character for ASCII input)
 				dp[i][j] = dp[i-1][j-1]
 			} else {
-				// Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+				// Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
 				dp[i][j] = MinInt(MinInt(dp[i][j-1], dp[i-1][j]), dp[i-1][j-1]) + 1
 			}
 		}
@@ -91,31 +91,31 @@ func editDistanceDP(s string, t string) int {
 	return dp[n][m]
 }
 
-/* Edit distance: Space-optimized dynamic programming */
+/* Edit distance: space-optimized dynamic programming */
 func editDistanceDPComp(s string, t string) int {
 	n := len(s)
 	m := len(t)
 	dp := make([]int, m+1)
-	// State transition: first row
+	// State transitions: first row
 	for j := 1; j <= m; j++ {
 		dp[j] = j
 	}
-	// State transition: rest of the rows
+	// State transitions: remaining rows
 	for i := 1; i <= n; i++ {
-		// State transition: first column
+		// State transitions: first column
 		leftUp := dp[0] // Temporarily store dp[i-1, j-1]
 		dp[0] = i
-		// State transition: rest of the columns
+		// State transitions: remaining columns
 		for j := 1; j <= m; j++ {
 			temp := dp[j]
 			if s[i-1] == t[j-1] {
-				// If two characters are equal, skip both characters
+				// If the two bytes are equal, skip both (each byte is one character for ASCII input)
 				dp[j] = leftUp
 			} else {
-				// Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+				// Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
 				dp[j] = MinInt(MinInt(dp[j-1], dp[j]), leftUp) + 1
 			}
-			leftUp = temp // Update for next round's dp[i-1, j-1]
+			leftUp = temp // Update to dp[i-1, j-1] for the next iteration
 		}
 	}
 	return dp[m]

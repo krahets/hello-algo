@@ -6,19 +6,19 @@
 
 package chapter_dynamic_programming
 
-/* Climbing stairs with constraint: Dynamic programming */
+/* Climbing stairs with constraints: dynamic programming */
 fun climbingStairsConstraintDP(n: Int): Int {
     if (n == 1 || n == 2) {
         return 1
     }
-    // Initialize dp table, used to store solutions to subproblems
+    // Initialize the dp table to store subproblem solutions
     val dp = Array(n + 1) { IntArray(3) }
-    // Initial state: preset the solution to the smallest subproblem
+    // Initial states: set the solutions to the smallest subproblems
     dp[1][1] = 1
     dp[1][2] = 0
     dp[2][1] = 0
     dp[2][2] = 1
-    // State transition: gradually solve larger subproblems from smaller ones
+    // State transitions: solve progressively larger subproblems using smaller ones
     for (i in 3..n) {
         dp[i][1] = dp[i - 1][2]
         dp[i][2] = dp[i - 2][1] + dp[i - 2][2]
@@ -26,10 +26,10 @@ fun climbingStairsConstraintDP(n: Int): Int {
     return dp[n][1] + dp[n][2]
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
     val n = 9
 
     val res = climbingStairsConstraintDP(n)
-    println("Climbing $n stairs has $res solutions")
+    println("There are $res ways to climb $n stairs")
 }

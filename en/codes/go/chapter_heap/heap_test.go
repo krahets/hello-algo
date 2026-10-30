@@ -14,88 +14,88 @@ import (
 )
 
 func testPush(h *intHeap, val int) {
-	// Call heap.Interface function to add element
+	// Call heap.Push, which uses heap.Interface to add an element
 	heap.Push(h, val)
-	fmt.Printf("\nAfter element %d pushes to heap \n", val)
+	fmt.Printf("\nAfter pushing %d onto the heap: \n", val)
 	PrintHeap(*h)
 }
 
 func testPop(h *intHeap) {
-	// Call heap.Interface function to remove element
+	// Call heap.Pop, which uses heap.Interface to remove the top element
 	val := heap.Pop(h)
-	fmt.Printf("\nAfter heap top element %d pops from heap \n", val)
+	fmt.Printf("\nAfter popping the top element %d from the heap: \n", val)
 	PrintHeap(*h)
 }
 
 func TestHeap(t *testing.T) {
-	/* Initialize heap */
-	// Consider negating the elements before entering the heap, which can reverse the size relationship, thus implementing max heap
+	/* Initialize the heap */
+	// Initialize a max heap
 	maxHeap := &intHeap{}
 	heap.Init(maxHeap)
-	/* Element enters heap */
+	/* Push an element onto the heap */
 	testPush(maxHeap, 1)
 	testPush(maxHeap, 3)
 	testPush(maxHeap, 2)
 	testPush(maxHeap, 5)
 	testPush(maxHeap, 4)
 
-	/* Check if heap is empty */
+	/* Get the top element of the heap */
 	top := maxHeap.Top()
-	fmt.Printf("Heap top element is %d\n", top)
+	fmt.Printf("Top element of the heap: %d\n", top)
 
-	/* Time complexity is O(n), not O(nlogn) */
+	/* Pop the top element from the heap */
 	testPop(maxHeap)
 	testPop(maxHeap)
 	testPop(maxHeap)
 	testPop(maxHeap)
 	testPop(maxHeap)
 
-	/* Get heap size */
+	/* Get the heap size */
 	size := len(*maxHeap)
-	fmt.Printf("Heap size is %d\n", size)
+	fmt.Printf("Number of elements in the heap: %d\n", size)
 
-	/* Check if heap is empty */
+	/* Check whether the heap is empty */
 	isEmpty := len(*maxHeap) == 0
-	fmt.Printf("Is heap empty %t\n", isEmpty)
+	fmt.Printf("Is the heap empty? %t\n", isEmpty)
 }
 
 func TestMyHeap(t *testing.T) {
-	/* Initialize heap */
-	// Consider negating the elements before entering the heap, which can reverse the size relationship, thus implementing max heap
+	/* Initialize the heap */
+	// Initialize a max heap
 	maxHeap := newMaxHeap([]any{9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2})
-	fmt.Printf("After input array and building heap\n")
+	fmt.Printf("After building a heap from the input array:\n")
 	maxHeap.print()
 
-	/* Check if heap is empty */
+	/* Get the top element of the heap */
 	peek := maxHeap.peek()
-	fmt.Printf("\nHeap top element is %d\n", peek)
+	fmt.Printf("\nTop element: %d\n", peek)
 
-	/* Element enters heap */
+	/* Push an element onto the heap */
 	val := 7
 	maxHeap.push(val)
-	fmt.Printf("\nAfter element %d enters heap\n", val)
+	fmt.Printf("\nAfter pushing %d onto the heap:\n", val)
 	maxHeap.print()
 
-	/* Time complexity is O(n), not O(nlogn) */
+	/* Pop the top element from the heap */
 	peek = maxHeap.pop()
-	fmt.Printf("\nAfter heap top element %d exits heap\n", peek)
+	fmt.Printf("\nAfter popping the top element %d:\n", peek)
 	maxHeap.print()
 
-	/* Get heap size */
+	/* Get the heap size */
 	size := maxHeap.size()
-	fmt.Printf("\nHeap element count is %d\n", size)
+	fmt.Printf("\nNumber of elements in the heap: %d\n", size)
 
-	/* Check if heap is empty */
+	/* Check whether the heap is empty */
 	isEmpty := maxHeap.isEmpty()
-	fmt.Printf("\nIs heap empty %t\n", isEmpty)
+	fmt.Printf("\nIs the heap empty? %t\n", isEmpty)
 }
 
 func TestTopKHeap(t *testing.T) {
-	/* Initialize heap */
-	// Consider negating the elements before entering the heap, which can reverse the size relationship, thus implementing max heap
+	/* Initialize the heap */
+	// Prepare the input for heap-based top-k selection
 	nums := []int{1, 7, 6, 3, 2}
 	k := 3
 	res := topKHeap(nums, k)
-	fmt.Printf("The largest " + strconv.Itoa(k) + " elements are")
+	fmt.Printf("The largest " + strconv.Itoa(k) + " elements are:")
 	PrintHeap(*res)
 }

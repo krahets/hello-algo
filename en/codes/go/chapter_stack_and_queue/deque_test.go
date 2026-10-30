@@ -13,90 +13,90 @@ import (
 )
 
 func TestDeque(t *testing.T) {
-	/* Get the length of the double-ended queue */
-	// In Go, use list as deque
+	/* Initialize the deque */
+	// In Go, list can be used as a deque
 	deque := list.New()
 
-	/* Elements enqueue */
+	/* Enqueue elements */
 	deque.PushBack(2)
 	deque.PushBack(5)
 	deque.PushBack(4)
 	deque.PushFront(3)
 	deque.PushFront(1)
-	fmt.Print("Double-ended queue deque = ")
+	fmt.Print("Deque deque = ")
 	PrintList(deque)
 
-	/* Update element */
+	/* Access an element */
 	front := deque.Front()
 	fmt.Println("Front element front =", front.Value)
 	rear := deque.Back()
 	fmt.Println("Rear element rear =", rear.Value)
 
-	/* Element dequeue */
+	/* Dequeue an element */
 	deque.Remove(front)
-	fmt.Print("Front dequeue element front = ", front.Value, ", after front dequeue, deque = ")
+	fmt.Print("Element dequeued from the front, front = ", front.Value, ", after dequeuing from the front, deque = ")
 	PrintList(deque)
 	deque.Remove(rear)
-	fmt.Print("Rear dequeue element rear = ", rear.Value, ", after rear dequeue, deque = ")
+	fmt.Print("Element dequeued from the rear, rear = ", rear.Value, ", after dequeuing from the rear, deque = ")
 	PrintList(deque)
 
-	/* Get the length of the double-ended queue */
+	/* Get the deque size */
 	size := deque.Len()
-	fmt.Println("Deque length size =", size)
+	fmt.Println("Deque size =", size)
 
-	/* Check if the double-ended queue is empty */
+	/* Check whether the deque is empty */
 	isEmpty := deque.Len() == 0
-	fmt.Println("Is deque empty =", isEmpty)
+	fmt.Println("Is the deque empty =", isEmpty)
 }
 
 func TestArrayDeque(t *testing.T) {
-	/* Get the length of the double-ended queue */
-	// In Go, use list as deque
+	/* Initialize the deque */
+	// Use the custom circular-array deque implementation
 	deque := newArrayDeque(16)
 
-	/* Elements enqueue */
+	/* Enqueue elements */
 	deque.pushLast(3)
 	deque.pushLast(2)
 	deque.pushLast(5)
-	fmt.Print("Double-ended queue deque = ")
+	fmt.Print("Deque deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* Update element */
+	/* Access an element */
 	peekFirst := deque.peekFirst()
 	fmt.Println("Front element peekFirst =", peekFirst)
 	peekLast := deque.peekLast()
 	fmt.Println("Rear element peekLast =", peekLast)
 
-	/* Elements enqueue */
+	/* Enqueue elements */
 	deque.pushLast(4)
-	fmt.Print("After element 4 enqueues at rear, deque = ")
+	fmt.Print("After enqueuing element 4 at the rear, deque = ")
 	PrintSlice(deque.toSlice())
 	deque.pushFirst(1)
-	fmt.Print("After element 1 enqueues at front, deque = ")
+	fmt.Print("After enqueuing element 1 at the front, deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* Element dequeue */
+	/* Dequeue an element */
 	popFirst := deque.popFirst()
-	fmt.Print("Front dequeue element popFirst = ", popFirst, ", after front dequeue, deque = ")
+	fmt.Print("Element dequeued from the front, popFirst = ", popFirst, ", after dequeuing from the front, deque = ")
 	PrintSlice(deque.toSlice())
 	popLast := deque.popLast()
-	fmt.Print("Back dequeue element popLast = ", popLast, ", after rear dequeue, deque = ")
+	fmt.Print("Element dequeued from the rear, popLast = ", popLast, ", after dequeuing from the rear, deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* Get the length of the double-ended queue */
+	/* Get the deque size */
 	size := deque.size()
-	fmt.Println("Deque length size =", size)
+	fmt.Println("Deque size =", size)
 
-	/* Check if the double-ended queue is empty */
+	/* Check whether the deque is empty */
 	isEmpty := deque.isEmpty()
-	fmt.Println("Is deque empty =", isEmpty)
+	fmt.Println("Is the deque empty =", isEmpty)
 }
 
 func TestLinkedListDeque(t *testing.T) {
-	// Access front of the queue element
+	// Initialize the queue
 	deque := newLinkedListDeque()
 
-	// Elements enqueue
+	// Enqueue elements
 	deque.pushLast(2)
 	deque.pushLast(5)
 	deque.pushLast(4)
@@ -105,33 +105,33 @@ func TestLinkedListDeque(t *testing.T) {
 	fmt.Print("Deque deque = ")
 	PrintList(deque.toList())
 
-	// Return list for printing
+	// Access the front element
 	front := deque.peekFirst()
 	fmt.Println("Front element front =", front)
 	rear := deque.peekLast()
 	fmt.Println("Rear element rear =", rear)
 
-	// Element dequeue
+	// Dequeue an element
 	popFirst := deque.popFirst()
-	fmt.Print("Front dequeue element popFirst = ", popFirst, ", after front dequeue, deque = ")
+	fmt.Print("Element dequeued from the front, popFirst = ", popFirst, ", after dequeuing from the front, deque = ")
 	PrintList(deque.toList())
 	popLast := deque.popLast()
-	fmt.Print("Back dequeue element popLast = ", popLast, ", after rear dequeue, deque = ")
+	fmt.Print("Element dequeued from the rear, popLast = ", popLast, ", after dequeuing from the rear, deque = ")
 	PrintList(deque.toList())
 
-	// Get queue length
+	// Get the deque size
 	size := deque.size()
-	fmt.Println("Queue length size =", size)
+	fmt.Println("Deque size =", size)
 
-	// Check if empty
+	// Check whether it is empty
 	isEmpty := deque.isEmpty()
-	fmt.Println("Is queue empty =", isEmpty)
+	fmt.Println("Is the deque empty =", isEmpty)
 }
 
-// BenchmarkLinkedListDeque 67.92 ns/op in Mac M1 Pro
+// BenchmarkLinkedListDeque: 67.92 ns/op on a Mac M1 Pro
 func BenchmarkLinkedListDeque(b *testing.B) {
 	deque := newLinkedListDeque()
-	// use b.N for looping
+	// Use b.N as the iteration count
 	for i := 0; i < b.N; i++ {
 		deque.pushLast(777)
 	}

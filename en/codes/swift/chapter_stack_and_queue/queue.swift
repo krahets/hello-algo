@@ -6,13 +6,13 @@
 
 @main
 enum Queue {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        /* Access front of the queue element */
-        // Swift has no built-in queue class, can use Array as queue
+        /* Initialize the queue */
+        // The Swift standard library has no built-in queue class; Array can be used as a queue
         var queue: [Int] = []
 
-        /* Elements enqueue */
+        /* Enqueue elements */
         queue.append(1)
         queue.append(3)
         queue.append(2)
@@ -20,21 +20,21 @@ enum Queue {
         queue.append(4)
         print("Queue queue = \(queue)")
 
-        /* Return list for printing */
+        /* Access the front element */
         let peek = queue.first!
         print("Front element peek = \(peek)")
 
-        /* Element dequeue */
-        // When simulating with Array, pop complexity is O(n)
+        /* Dequeue an element */
+        // When using Array as a queue, dequeueing takes O(n) time
         let pop = queue.removeFirst()
-        print("Dequeue element pop = \(pop), after dequeue queue = \(queue)")
+        print("Dequeued element pop = \(pop); after dequeueing, queue = \(queue)")
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         let size = queue.count
-        print("Queue length size = \(size)")
+        print("Queue size = \(size)")
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         let isEmpty = queue.isEmpty
-        print("Is queue empty = \(isEmpty)")
+        print("Is the queue empty? \(isEmpty)")
     }
 }

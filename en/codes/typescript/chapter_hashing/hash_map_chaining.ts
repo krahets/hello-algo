@@ -4,7 +4,7 @@
  * Author: yuan0221 (yl1452491917@gmail.com)
  */
 
-/* Key-value pair Number -> String */
+/* Key-value pair: Number -> String */
 class Pair {
     key: number;
     val: string;
@@ -18,8 +18,8 @@ class Pair {
 class HashMapChaining {
     #size: number; // Number of key-value pairs
     #capacity: number; // Hash table capacity
-    #loadThres: number; // Load factor threshold for triggering expansion
-    #extendRatio: number; // Expansion multiplier
+    #loadThres: number; // Load factor threshold that triggers capacity growth
+    #extendRatio: number; // Capacity growth factor
     #buckets: Pair[][]; // Bucket array
 
     /* Constructor */
@@ -41,36 +41,36 @@ class HashMapChaining {
         return this.#size / this.#capacity;
     }
 
-    /* Query operation */
+    /* Lookup operation */
     get(key: number): string | null {
         const index = this.#hashFunc(key);
         const bucket = this.#buckets[index];
-        // Traverse bucket, if key is found, return corresponding val
+        // Traverse the bucket; if key is found, return its corresponding val
         for (const pair of bucket) {
             if (pair.key === key) {
                 return pair.val;
             }
         }
-        // If key is not found, return null
+        // Return null if key was not found
         return null;
     }
 
-    /* Add operation */
+    /* Insert operation */
     put(key: number, val: string): void {
-        // When load factor exceeds threshold, perform expansion
+        // Grow the capacity when the load factor exceeds the threshold
         if (this.#loadFactor() > this.#loadThres) {
             this.#extend();
         }
         const index = this.#hashFunc(key);
         const bucket = this.#buckets[index];
-        // Traverse bucket, if specified key is encountered, update corresponding val and return
+        // Traverse the bucket; if the specified key is found, update its val and return
         for (const pair of bucket) {
             if (pair.key === key) {
                 pair.val = val;
                 return;
             }
         }
-        // If key does not exist, append key-value pair to the end
+        // If key is absent, append the key-value pair at the end
         const pair = new Pair(key, val);
         bucket.push(pair);
         this.#size++;
@@ -80,7 +80,7 @@ class HashMapChaining {
     remove(key: number): void {
         const index = this.#hashFunc(key);
         let bucket = this.#buckets[index];
-        // Traverse bucket and remove key-value pair from it
+        // Traverse the bucket and remove the key-value pair
         for (let i = 0; i < bucket.length; i++) {
             if (bucket[i].key === key) {
                 bucket.splice(i, 1);
@@ -90,15 +90,15 @@ class HashMapChaining {
         }
     }
 
-    /* Expand hash table */
+    /* Grow the hash table capacity */
     #extend(): void {
-        // Temporarily store the original hash table
+        // Keep a reference to the original hash table
         const bucketsTmp = this.#buckets;
-        // Initialize expanded new hash table
+        // Initialize a new hash table with the expanded capacity
         this.#capacity *= this.#extendRatio;
         this.#buckets = new Array(this.#capacity).fill(null).map((x) => []);
         this.#size = 0;
-        // Move key-value pairs from original hash table to new hash table
+        // Move the key-value pairs from the original hash table to the new one
         for (const bucket of bucketsTmp) {
             for (const pair of bucket) {
                 this.put(pair.key, pair.val);
@@ -106,7 +106,7 @@ class HashMapChaining {
         }
     }
 
-    /* Print hash table */
+    /* Print the hash table */
     print(): void {
         for (const bucket of this.#buckets) {
             let res = [];
@@ -118,29 +118,29 @@ class HashMapChaining {
     }
 }
 
-/* Driver Code */
-/* Initialize hash table */
+/* Driver code */
+/* Initialize the hash table */
 const map = new HashMapChaining();
 
-/* Add operation */
-// Add key-value pair (key, value) to the hash table
-map.put(12836, 'Xiao Ha');
-map.put(15937, 'Xiao Luo');
-map.put(16750, 'Xiao Suan');
-map.put(13276, 'Xiao Fa');
-map.put(10583, 'Xiao Ya');
-console.log('\nAfter adding is complete, hash table is\nKey -> Value');
+/* Insert operation */
+// Insert the key-value pair (key, value) into the hash table
+map.put(12836, '小哈');
+map.put(15937, '小啰');
+map.put(16750, '小算');
+map.put(13276, '小法');
+map.put(10583, '小鸭');
+console.log('\nHash table after insertion:\nKey -> Value');
 map.print();
 
-/* Query operation */
-// Input key into hash table to get value
+/* Lookup operation */
+// Look up key in the hash table to obtain value
 const name = map.get(13276);
-console.log('\nInput student ID 13276, query name ' + name);
+console.log('\nLook up student ID 13276 to obtain the name ' + name);
 
 /* Remove operation */
-// Remove key-value pair (key, value) from hash table
+// Remove the key-value pair (key, value) from the hash table
 map.remove(12836);
-console.log('\nAfter removing 12836, hash table is\nKey -> Value');
+console.log('\nHash table after removing 12836:\nKey -> Value');
 map.print();
 
 export {};

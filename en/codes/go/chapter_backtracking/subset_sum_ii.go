@@ -6,32 +6,32 @@ package chapter_backtracking
 
 import "sort"
 
-/* Backtracking algorithm: Subset sum II */
+/* Backtracking: subset sum II */
 func backtrackSubsetSumII(start, target int, state, choices *[]int, res *[][]int) {
-	// When the subset sum equals target, record the solution
+	// Record a solution when the subset reaches the original target sum (remaining target is zero)
 	if target == 0 {
 		newState := append([]int{}, *state...)
 		*res = append(*res, newState)
 		return
 	}
-	// Traverse all choices
-	// Pruning 2: start traversing from start to avoid generating duplicate subsets
-	// Pruning 3: start traversing from start to avoid repeatedly selecting the same element
+	// Iterate over all choices
+	// Pruning 2: iterate from start to avoid generating duplicate subsets
+	// Pruning 3: start after the previously chosen index to avoid choosing the same element again
 	for i := start; i < len(*choices); i++ {
-		// Pruning 1: if the subset sum exceeds target, end the loop directly
-		// This is because the array is sorted, and later elements are larger, so the subset sum will definitely exceed target
+		// Pruning 1: exit the loop if this choice exceeds the remaining target
+		// The array is sorted, so later elements are at least as large and also exceed the remaining target
 		if target-(*choices)[i] < 0 {
 			break
 		}
-		// Pruning 4: if this element equals the left element, it means this search branch is duplicate, skip it directly
+		// Pruning 4: if this element equals its left neighbor at the same search depth, the branch is a duplicate; skip it
 		if i > start && (*choices)[i] == (*choices)[i-1] {
 			continue
 		}
-		// Attempt: make choice, update target, start
+		// Try: make a choice and update target and start
 		*state = append(*state, (*choices)[i])
-		// Proceed to the next round of selection
+		// Proceed to the next choice
 		backtrackSubsetSumII(i+1, target-(*choices)[i], state, choices, res)
-		// Backtrack: undo choice, restore to previous state
+		// Backtrack: undo the choice and restore the previous state
 		*state = (*state)[:len(*state)-1]
 	}
 }
@@ -40,8 +40,8 @@ func backtrackSubsetSumII(start, target int, state, choices *[]int, res *[][]int
 func subsetSumII(nums []int, target int) [][]int {
 	state := make([]int, 0) // State (subset)
 	sort.Ints(nums)         // Sort nums
-	start := 0              // Start point for traversal
-	res := make([][]int, 0) // Result list (subset list)
+	start := 0              // Starting index for iteration
+	res := make([][]int, 0) // Result list (list of subsets)
 	backtrackSubsetSumII(start, target, &state, &nums, &res)
 	return res
 }

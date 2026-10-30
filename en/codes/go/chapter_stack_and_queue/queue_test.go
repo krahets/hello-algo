@@ -13,11 +13,11 @@ import (
 )
 
 func TestQueue(t *testing.T) {
-	/* Access front of the queue element */
-	// In Go, use list as queue
+	/* Initialize the queue */
+	// In Go, use list as a queue
 	queue := list.New()
 
-	/* Elements enqueue */
+	/* Enqueue elements */
 	queue.PushBack(1)
 	queue.PushBack(3)
 	queue.PushBack(2)
@@ -26,35 +26,35 @@ func TestQueue(t *testing.T) {
 	fmt.Print("Queue queue = ")
 	PrintList(queue)
 
-	/* Return list for printing */
+	/* Access the front element */
 	peek := queue.Front()
 	fmt.Println("Front element peek =", peek.Value)
 
-	/* Element dequeue */
+	/* Dequeue an element */
 	pop := queue.Front()
 	queue.Remove(pop)
-	fmt.Print("Dequeue element pop = ", pop.Value, ", after dequeue, queue = ")
+	fmt.Print("Dequeued element pop = ", pop.Value, ", after dequeuing, queue = ")
 	PrintList(queue)
 
-	/* Get the length of the queue */
+	/* Get the queue size */
 	size := queue.Len()
-	fmt.Println("Queue length size =", size)
+	fmt.Println("Queue size =", size)
 
-	/* Check if the queue is empty */
+	/* Check whether the queue is empty */
 	isEmpty := queue.Len() == 0
-	fmt.Println("Is queue empty =", isEmpty)
+	fmt.Println("Is the queue empty =", isEmpty)
 }
 
 func TestArrayQueue(t *testing.T) {
 
-	// Initialize queue using queue's common interface
+	// Initialize the queue and use its standard queue operations
 	capacity := 10
 	queue := newArrayQueue(capacity)
 	if queue.pop() != nil {
 		t.Errorf("want:%v,got:%v", nil, queue.pop())
 	}
 
-	// Elements enqueue
+	// Enqueue elements
 	queue.push(1)
 	queue.push(3)
 	queue.push(2)
@@ -63,37 +63,37 @@ func TestArrayQueue(t *testing.T) {
 	fmt.Print("Queue queue = ")
 	PrintSlice(queue.toSlice())
 
-	// Return list for printing
+	// Access the front element
 	peek := queue.peek()
 	fmt.Println("Front element peek =", peek)
 
-	// Element dequeue
+	// Dequeue an element
 	pop := queue.pop()
-	fmt.Print("Dequeue element pop = ", pop, ", after dequeue, queue = ")
+	fmt.Print("Dequeued element pop = ", pop, ", after dequeuing, queue = ")
 	PrintSlice(queue.toSlice())
 
-	// Get queue length
+	// Get the queue size
 	size := queue.size()
-	fmt.Println("Queue length size =", size)
+	fmt.Println("Queue size =", size)
 
-	// Check if empty
+	// Check whether it is empty
 	isEmpty := queue.isEmpty()
-	fmt.Println("Is queue empty =", isEmpty)
+	fmt.Println("Is the queue empty =", isEmpty)
 
-	/* Test circular array */
+	/* Test the circular array */
 	for i := 0; i < 10; i++ {
 		queue.push(i)
 		queue.pop()
-		fmt.Print("Round ", i, " enqueue + dequeue, queue =")
+		fmt.Print("Round #", i, ": after enqueue + dequeue, queue =")
 		PrintSlice(queue.toSlice())
 	}
 }
 
 func TestLinkedListQueue(t *testing.T) {
-	// Initialize queue
+	// Initialize the queue
 	queue := newLinkedListQueue()
 
-	// Elements enqueue
+	// Enqueue elements
 	queue.push(1)
 	queue.push(3)
 	queue.push(2)
@@ -102,29 +102,29 @@ func TestLinkedListQueue(t *testing.T) {
 	fmt.Print("Queue queue = ")
 	PrintList(queue.toList())
 
-	// Return list for printing
+	// Access the front element
 	peek := queue.peek()
 	fmt.Println("Front element peek =", peek)
 
-	// Element dequeue
+	// Dequeue an element
 	pop := queue.pop()
-	fmt.Print("Dequeue element pop = ", pop, ", after dequeue, queue = ")
+	fmt.Print("Dequeued element pop = ", pop, ", after dequeuing, queue = ")
 	PrintList(queue.toList())
 
-	// Get queue length
+	// Get the queue size
 	size := queue.size()
-	fmt.Println("Queue length size =", size)
+	fmt.Println("Queue size =", size)
 
-	// Check if empty
+	// Check whether it is empty
 	isEmpty := queue.isEmpty()
-	fmt.Println("Is queue empty =", isEmpty)
+	fmt.Println("Is the queue empty =", isEmpty)
 }
 
-// BenchmarkArrayQueue 8 ns/op in Mac M1 Pro
+// BenchmarkArrayQueue: 8 ns/op on a Mac M1 Pro
 func BenchmarkArrayQueue(b *testing.B) {
 	capacity := 1000
 	queue := newArrayQueue(capacity)
-	// use b.N for looping
+	// Use b.N as the iteration count
 	for i := 0; i < b.N; i++ {
 		queue.push(777)
 	}
@@ -133,10 +133,10 @@ func BenchmarkArrayQueue(b *testing.B) {
 	}
 }
 
-// BenchmarkLinkedQueue 62.66 ns/op in Mac M1 Pro
+// BenchmarkLinkedQueue: 62.66 ns/op on a Mac M1 Pro
 func BenchmarkLinkedQueue(b *testing.B) {
 	queue := newLinkedListQueue()
-	// use b.N for looping
+	// Use b.N as the iteration count
 	for i := 0; i < b.N; i++ {
 		queue.push(777)
 	}

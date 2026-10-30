@@ -18,52 +18,52 @@ int *levelOrder(TreeNode *root, int *size) {
 
     /* Auxiliary queue */
     queue = (TreeNode **)malloc(sizeof(TreeNode *) * MAX_SIZE);
-    // Queue pointer
+    // Queue indices
     front = 0, rear = 0;
-    // Add root node
+    // Enqueue the root node
     queue[rear++] = root;
-    // Initialize a list to save the traversal sequence
+    // Initialize a list to store the traversal sequence
     /* Auxiliary array */
     arr = (int *)malloc(sizeof(int) * MAX_SIZE);
-    // Array pointer
+    // Array index
     index = 0;
     while (front < rear) {
-        // Dequeue
+        // Dequeue from the queue
         node = queue[front++];
-        // Save node value
+        // Store the node value
         arr[index++] = node->val;
         if (node->left != NULL) {
-            // Left child node enqueue
+            // Enqueue the left child
             queue[rear++] = node->left;
         }
         if (node->right != NULL) {
-            // Right child node enqueue
+            // Enqueue the right child
             queue[rear++] = node->right;
         }
     }
-    // Update array length value
+    // Update the array length
     *size = index;
     arr = realloc(arr, sizeof(int) * (*size));
 
-    // Free auxiliary array space
+    // Free the auxiliary queue array
     free(queue);
     return arr;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Initialize binary tree */
-    // Here we use a function to generate a binary tree directly from an array
+    /* Initialize the binary tree */
+    // Use a helper function that builds a binary tree directly from an array
     int nums[] = {1, 2, 3, 4, 5, 6, 7};
     int size = sizeof(nums) / sizeof(int);
     TreeNode *root = arrayToTree(nums, size);
-    printf("Initialize binary tree\n");
+    printf("Initialize the binary tree\n");
     printTree(root);
 
     /* Level-order traversal */
-    // Need to pass array length
+    // Pass a pointer to receive the array length
     int *arr = levelOrder(root, &size);
-    printf("Level-order traversal node print sequence = ");
+    printf("Node sequence from level-order traversal = ");
     printArray(arr, size);
 
     // Free memory

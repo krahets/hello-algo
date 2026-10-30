@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 ### Linked list node class ###
 class ListNode
   attr_accessor :val  # Node value
-  attr_accessor :next # Reference to next node
+  attr_accessor :next # Reference to the next node
 
   def initialize(val=0, next_node=nil)
     @val = val
@@ -15,7 +15,7 @@ class ListNode
   end
 end
 
-### Deserialize list to linked list ###
+### Deserialize a list into a linked list ###
 def arr_to_linked_list(arr)
   head = current = ListNode.new(arr[0])
 
@@ -27,7 +27,7 @@ def arr_to_linked_list(arr)
   head
 end
 
-### Serialize linked list to list ###
+### Serialize a linked list into a list ###
 def linked_list_to_arr(head)
   arr = []
 

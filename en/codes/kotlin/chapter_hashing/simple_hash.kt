@@ -36,7 +36,7 @@ fun xorHash(key: String): Int {
     return hash and MODULUS
 }
 
-/* Rotational hash */
+/* Rotating hash */
 fun rotHash(key: String): Int {
     var hash = 0L
     val MODULUS = 1000000007
@@ -46,19 +46,19 @@ fun rotHash(key: String): Int {
     return hash.toInt()
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    val key = "Hello Algo"
+    val key = "Hello 算法"
 
     var hash = addHash(key)
-    println("Additive hash value is $hash")
+    println("Additive hash value: $hash")
 
     hash = mulHash(key)
-    println("Multiplicative hash value is $hash")
+    println("Multiplicative hash value: $hash")
 
     hash = xorHash(key)
-    println("XOR hash value is $hash")
+    println("XOR hash value: $hash")
 
     hash = rotHash(key)
-    println("Rotational hash value is $hash")
+    println("Rotating hash value: $hash")
 }

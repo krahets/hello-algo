@@ -4,24 +4,24 @@
 
 package chapter_backtracking
 
-/* Backtracking algorithm: Permutations I */
+/* Backtracking: permutations I */
 func backtrackI(state *[]int, choices *[]int, selected *[]bool, res *[][]int) {
-	// When the state length equals the number of elements, record the solution
+	// Record a solution when the state length equals the number of elements
 	if len(*state) == len(*choices) {
 		newState := append([]int{}, *state...)
 		*res = append(*res, newState)
 	}
-	// Traverse all choices
+	// Iterate over all choices
 	for i := 0; i < len(*choices); i++ {
 		choice := (*choices)[i]
-		// Pruning: do not allow repeated selection of elements
+		// Prune: do not choose an element more than once
 		if !(*selected)[i] {
-			// Attempt: make choice, update state
+			// Try: make a choice and update the state
 			(*selected)[i] = true
 			*state = append(*state, choice)
-			// Proceed to the next round of selection
+			// Proceed to the next choice
 			backtrackI(state, choices, selected, res)
-			// Backtrack: undo choice, restore to previous state
+			// Backtrack: undo the choice and restore the previous state
 			(*selected)[i] = false
 			*state = (*state)[:len(*state)-1]
 		}

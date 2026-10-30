@@ -6,12 +6,12 @@
 
 #include "../utils/common.h"
 
-// Assume at most 1000 permutations, max element value 1000
+// Assume at most 1000 permutations and a maximum element value of 1000
 #define MAX_SIZE 1000
 
-/* Backtracking algorithm: Permutations II */
+/* Backtracking: permutations II */
 void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *selected, int **res, int *resSize) {
-    // When the state length equals the number of elements, record the solution
+    // Record a solution when the state length equals the number of elements
     if (stateSize == choicesSize) {
         res[*resSize] = (int *)malloc(choicesSize * sizeof(int));
         for (int i = 0; i < choicesSize; i++) {
@@ -20,19 +20,19 @@ void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *s
         (*resSize)++;
         return;
     }
-    // Traverse all choices
+    // Iterate over all choices
     bool duplicated[MAX_SIZE] = {false};
     for (int i = 0; i < choicesSize; i++) {
         int choice = choices[i];
-        // Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
+        // Prune: do not reuse an element or choose the same value again at this depth
         if (!selected[i] && !duplicated[choice]) {
-            // Attempt: make choice, update state
-            duplicated[choice] = true; // Record the selected element value
+            // Try: make a choice and update the state
+            duplicated[choice] = true; // Record the chosen value
             selected[i] = true;
             state[stateSize] = choice;
-            // Proceed to the next round of selection
+            // Proceed to the next choice
             backtrack(state, stateSize + 1, choices, choicesSize, selected, res, resSize);
-            // Backtrack: undo choice, restore to previous state
+            // Backtrack: undo the choice and restore the previous state
             selected[i] = false;
         }
     }
@@ -56,7 +56,7 @@ int **permutationsII(int *nums, int numsSize, int *returnSize) {
     return res;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     int nums[] = {1, 1, 2};
     int numsSize = sizeof(nums) / sizeof(nums[0]);

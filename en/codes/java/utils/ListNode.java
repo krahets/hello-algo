@@ -15,7 +15,7 @@ public class ListNode {
         val = x;
     }
 
-    /* Deserialize a list into a linked list */
+    /* Deserialize an array into a linked list */
     public static ListNode arrToLinkedList(int[] arr) {
         ListNode dum = new ListNode(0);
         ListNode head = dum;

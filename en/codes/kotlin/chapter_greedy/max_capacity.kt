@@ -9,19 +9,19 @@ package chapter_greedy
 import kotlin.math.max
 import kotlin.math.min
 
-/* Max capacity: Greedy algorithm */
+/* Maximum container capacity: greedy algorithm */
 fun maxCapacity(ht: IntArray): Int {
-    // Initialize i, j to be at both ends of the array
+    // Initialize i and j at opposite ends of the array
     var i = 0
     var j = ht.size - 1
-    // Initial max capacity is 0
+    // The initial maximum capacity is 0
     var res = 0
-    // Loop for greedy selection until the two boards meet
+    // Repeatedly make greedy choices until the two sides meet
     while (i < j) {
-        // Update max capacity
+        // Update the maximum capacity
         val cap = min(ht[i], ht[j]) * (j - i)
         res = max(res, cap)
-        // Move the shorter board inward
+        // Move the shorter side inward
         if (ht[i] < ht[j]) {
             i++
         } else {
@@ -31,11 +31,11 @@ fun maxCapacity(ht: IntArray): Int {
     return res
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
     val ht = intArrayOf(3, 8, 5, 2, 7, 7, 3, 4)
 
     // Greedy algorithm
     val res = maxCapacity(ht)
-    println("Maximum capacity is $res")
+    println("Maximum container capacity: $res")
 }

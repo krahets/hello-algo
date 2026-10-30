@@ -7,43 +7,43 @@
 use hello_algo_rust::include::print_util;
 use std::collections::VecDeque;
 
-/* Driver Code */
+/* Driver code */
 pub fn main() {
-    // Get the length of the double-ended queue
+    // Initialize the deque
     let mut deque: VecDeque<i32> = VecDeque::new();
     deque.push_back(3);
     deque.push_back(2);
     deque.push_back(5);
-    print!("Double-ended queue deque = ");
+    print!("Deque deque = ");
     print_util::print_queue(&deque);
 
-    // Update element
+    // Access an element
     let peek_first = deque.front().unwrap();
-    print!("\nFront element peekFirst = {peek_first}");
+    print!("\nFront element peek_first = {peek_first}");
     let peek_last = deque.back().unwrap();
-    print!("\nRear element peekLast = {peek_last}");
+    print!("\nRear element peek_last = {peek_last}");
 
-    /* Elements enqueue */
+    /* Enqueue elements */
     deque.push_back(4);
-    print!("\nAfter element 4 enqueues at rear, deque = ");
+    print!("\nAfter enqueuing element 4 at the rear, deque = ");
     print_util::print_queue(&deque);
     deque.push_front(1);
-    print!("\nAfter element 1 enqueues at front, deque = ");
+    print!("\nAfter enqueuing element 1 at the front, deque = ");
     print_util::print_queue(&deque);
 
-    // Element dequeue
+    // Dequeue an element
     let pop_last = deque.pop_back().unwrap();
-    print!("\nDequeue rear element = {pop_last}, after dequeue deque = ");
+    print!("\nElement removed from the rear = {pop_last}; after removal, deque = ");
     print_util::print_queue(&deque);
     let pop_first = deque.pop_front().unwrap();
-    print!("\nDequeue front element = {pop_first}, after dequeue deque = ");
+    print!("\nElement removed from the front = {pop_first}; after removal, deque = ");
     print_util::print_queue(&deque);
 
-    // Get the length of the double-ended queue
+    // Get the deque size
     let size = deque.len();
-    print!("\nDeque length size = {size}");
+    print!("\nDeque size = {size}");
 
-    // Check if the double-ended queue is empty
+    // Check whether the deque is empty
     let is_empty = deque.is_empty();
-    print!("\nIs deque empty = {is_empty}");
+    print!("\nIs the deque empty? {is_empty}");
 }

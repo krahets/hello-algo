@@ -8,42 +8,42 @@ package chapter_searching
 
 import utils.ListNode
 
-/* Hash search (array) */
+/* Hash-based search (array) */
 fun hashingSearchArray(map: Map<Int?, Int>, target: Int): Int {
-    // Hash table key: target element, _val: index
-    // If this key does not exist in the hash table, return -1
+    // Hash table key: target element; value: index
+    // Return -1 if the hash table does not contain this key
     return map.getOrDefault(target, -1)
 }
 
-/* Hash search (linked list) */
+/* Hash-based search (linked list) */
 fun hashingSearchLinkedList(map: Map<Int?, ListNode?>, target: Int): ListNode? {
-    // Hash table key: target node value, _val: node object
-    // If key is not in hash table, return null
+    // Hash table key: target node value; value: node object
+    // Return null if the hash table does not contain this key
     return map.getOrDefault(target, null)
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
     val target = 3
 
-    /* Hash search (array) */
+    /* Hash-based search (array) */
     val nums = intArrayOf(1, 5, 3, 2, 4, 7, 5, 9, 10, 8)
-    // Initialize hash table
+    // Initialize the hash table
     val map = HashMap<Int?, Int>()
     for (i in nums.indices) {
-        map[nums[i]] = i // key: element, _val: index
+        map[nums[i]] = i // Key: element; value: index
     }
     val index = hashingSearchArray(map, target)
     println("Index of target element 3 = $index")
 
-    /* Hash search (linked list) */
+    /* Hash-based search (linked list) */
     var head = ListNode.arrToLinkedList(nums)
-    // Initialize hash table
+    // Initialize the hash table
     val map1 = HashMap<Int?, ListNode?>()
     while (head != null) {
-        map1[head._val] = head // key: node value, _val: node
+        map1[head._val] = head // Key: node value; value: node
         head = head.next
     }
     val node = hashingSearchLinkedList(map1, target)
-    println("Node object corresponding to target node value 3 is $node")
+    println("Node object with target value 3: $node")
 }

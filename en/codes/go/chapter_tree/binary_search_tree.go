@@ -14,47 +14,47 @@ type binarySearchTree struct {
 
 func newBinarySearchTree() *binarySearchTree {
 	bst := &binarySearchTree{}
-	// Initialize empty tree
+	// Initialize an empty tree
 	bst.root = nil
 	return bst
 }
 
-/* Get root node */
+/* Get the root node */
 func (bst *binarySearchTree) getRoot() *TreeNode {
 	return bst.root
 }
 
-/* Search node */
+/* Find a node */
 func (bst *binarySearchTree) search(num int) *TreeNode {
 	node := bst.root
-	// Loop search, exit after passing leaf node
+	// Continue searching while the current node is not nil
 	for node != nil {
 		if node.Val.(int) < num {
-			// Target node is in cur's right subtree
+			// If the target node exists, it lies in the right subtree of node
 			node = node.Right
 		} else if node.Val.(int) > num {
-			// Target node is in cur's left subtree
+			// If the target node exists, it lies in the left subtree of node
 			node = node.Left
 		} else {
-			// Found target node, exit loop
+			// The target node was found; exit the loop
 			break
 		}
 	}
-	// Return target node
+	// Return the target node, or nil if it was not found
 	return node
 }
 
-/* Insert node */
+/* Insert a node */
 func (bst *binarySearchTree) insert(num int) {
 	cur := bst.root
-	// If tree is empty, initialize root node
+	// If the tree is empty, initialize the root node
 	if cur == nil {
 		bst.root = NewTreeNode(num)
 		return
 	}
-	// Node position before the node to be inserted
+	// Track the parent of the node to insert
 	var pre *TreeNode = nil
-	// Loop search, exit after passing leaf node
+	// Continue searching while the current node is not nil
 	for cur != nil {
 		if cur.Val == num {
 			return
@@ -66,7 +66,7 @@ func (bst *binarySearchTree) insert(num int) {
 			cur = cur.Left
 		}
 	}
-	// Insert node
+	// Insert a node
 	node := NewTreeNode(num)
 	if pre.Val.(int) < num {
 		pre.Right = node
@@ -75,43 +75,43 @@ func (bst *binarySearchTree) insert(num int) {
 	}
 }
 
-/* Remove node */
+/* Remove a node */
 func (bst *binarySearchTree) remove(num int) {
 	cur := bst.root
-	// If tree is empty, return directly
+	// Return immediately if the tree is empty
 	if cur == nil {
 		return
 	}
-	// Node position before the node to be removed
+	// Track the parent of the node to remove
 	var pre *TreeNode = nil
-	// Loop search, exit after passing leaf node
+	// Continue searching while the current node is not nil
 	for cur != nil {
 		if cur.Val == num {
 			break
 		}
 		pre = cur
 		if cur.Val.(int) < num {
-			// Node to be removed is in right subtree
+			// The node to remove is in the right subtree
 			cur = cur.Right
 		} else {
-			// Node to be removed is in left subtree
+			// The node to remove is in the left subtree
 			cur = cur.Left
 		}
 	}
-	// If no node to delete, return directly
+	// Return immediately if the node to remove does not exist
 	if cur == nil {
 		return
 	}
-	// Number of child nodes is 0 or 1
+	// The node has 0 or 1 child
 	if cur.Left == nil || cur.Right == nil {
 		var child *TreeNode = nil
-		// Get child node of node to be removed
+		// Get the child of the node to remove
 		if cur.Left != nil {
 			child = cur.Left
 		} else {
 			child = cur.Right
 		}
-		// Delete node cur
+		// Remove node cur
 		if cur != bst.root {
 			if pre.Left == cur {
 				pre.Left = child
@@ -119,24 +119,24 @@ func (bst *binarySearchTree) remove(num int) {
 				pre.Right = child
 			}
 		} else {
-			// If deleted node is root node, reassign root node
+			// If the removed node is the root, assign the new root
 			bst.root = child
 		}
-		// Number of child nodes is 2
+		// The node has 2 children
 	} else {
-		// Get next node of node cur to be removed in in-order traversal
+		// Get the inorder successor of cur, the node to remove
 		tmp := cur.Right
 		for tmp.Left != nil {
 			tmp = tmp.Left
 		}
-		// Recursively delete node tmp
+		// Recursively remove node tmp
 		bst.remove(tmp.Val.(int))
-		// Replace cur with tmp
+		// Replace the value of cur with the value of tmp
 		cur.Val = tmp.Val
 	}
 }
 
-/* Print binary search tree */
+/* Print the binary search tree */
 func (bst *binarySearchTree) print() {
 	PrintTree(bst.root)
 }

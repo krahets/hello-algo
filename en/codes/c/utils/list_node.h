@@ -14,10 +14,10 @@ extern "C" {
 /* Linked list node structure */
 typedef struct ListNode {
     int val;               // Node value
-    struct ListNode *next; // Reference to next node
+    struct ListNode *next; // Reference to the next node
 } ListNode;
 
-/* Constructor, initialize a new node */
+/* Constructor: initialize a new node */
 ListNode *newListNode(int val) {
     ListNode *node;
     node = (ListNode *)malloc(sizeof(ListNode));
@@ -26,7 +26,7 @@ ListNode *newListNode(int val) {
     return node;
 }
 
-/* Deserialize array to linked list */
+/* Deserialize an array into a linked list */
 ListNode *arrToLinkedList(const int *arr, size_t size) {
     if (size <= 0) {
         return NULL;
@@ -41,7 +41,7 @@ ListNode *arrToLinkedList(const int *arr, size_t size) {
     return dummy->next;
 }
 
-/* Free memory allocated to linked list */
+/* Free the memory allocated to the linked list */
 void freeMemoryLinkedList(ListNode *cur) {
     // Free memory
     ListNode *pre;

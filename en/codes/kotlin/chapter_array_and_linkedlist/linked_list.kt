@@ -9,7 +9,7 @@ package chapter_array_and_linkedlist
 import utils.ListNode
 import utils.printLinkedList
 
-/* Insert node P after node n0 in the linked list */
+/* Insert node p after node n0 in the linked list */
 fun insert(n0: ListNode?, p: ListNode?) {
     val n1 = n0?.next
     p?.next = n1
@@ -26,7 +26,7 @@ fun remove(n0: ListNode?) {
     n0.next = n1
 }
 
-/* Access the node at index index in the linked list */
+/* Access the node at index `index` in the linked list */
 fun access(head: ListNode?, index: Int): ListNode? {
     var h = head
     for (i in 0..<index) {
@@ -50,39 +50,39 @@ fun find(head: ListNode?, target: Int): Int {
     return -1
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    /* Initialize linked list */
-    // Initialize each node
+    /* Initialize the linked list */
+    // Initialize the individual nodes
     val n0 = ListNode(1)
     val n1 = ListNode(3)
     val n2 = ListNode(2)
     val n3 = ListNode(5)
     val n4 = ListNode(4)
 
-    // Build references between nodes
+    // Set up references between the nodes
     n0.next = n1
     n1.next = n2
     n2.next = n3
     n3.next = n4
-    println("Initialized linked list is")
+    println("The initialized linked list is")
     printLinkedList(n0)
 
-    /* Insert node */
+    /* Insert a node */
     insert(n0, ListNode(0))
-    println("Linked list after inserting node is")
+    println("The linked list after inserting a node is")
     printLinkedList(n0)
 
-    /* Remove node */
+    /* Remove a node */
     remove(n0)
-    println("Linked list after removing node is")
+    println("The linked list after removing a node is")
     printLinkedList(n0)
 
-    /* Access node */
+    /* Access a node */
     val node = access(n0, 3)!!
-    println("Value of node at index 3 in linked list = ${node._val}")
+    println("Value of the linked-list node at index 3 = ${node._val}")
 
-    /* Search node */
+    /* Find a node */
     val index = find(n0, 2)
-    println("Index of node with value 2 in linked list = $index")
+    println("Index of the linked-list node with value 2 = $index")
 }

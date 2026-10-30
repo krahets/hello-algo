@@ -4,7 +4,7 @@
  * Author: Hello Algo Team
  */
 
-/* Exponentiation by squaring */
+/* Fast exponentiation */
 int fastPow(int x, int n) {
   if (n == 0) {
     return 1;
@@ -18,6 +18,6 @@ int fastPow(int x, int n) {
 
 void main() {
   if (fastPow(7, 0) != 1 || fastPow(3, 5) != 243 || fastPow(2, 6) != 64) {
-    throw StateError('fast power check failed');
+    throw StateError('Fast power check failed');
   }
 }

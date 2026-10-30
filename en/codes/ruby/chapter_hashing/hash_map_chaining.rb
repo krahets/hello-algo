@@ -6,14 +6,14 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative './array_hash_map'
 
-### Hash map with chaining ###
+### Hash table using chaining ###
 class HashMapChaining
   ### Constructor ###
   def initialize
     @size = 0 # Number of key-value pairs
     @capacity = 4 # Hash table capacity
-    @load_thres = 2.0 / 3.0 # Load factor threshold for triggering expansion
-    @extend_ratio = 2 # Expansion multiplier
+    @load_thres = 2.0 / 3.0 # Load factor threshold that triggers capacity growth
+    @extend_ratio = 2 # Capacity growth factor
     @buckets = Array.new(@capacity) { [] } # Bucket array
   end
 
@@ -27,42 +27,42 @@ class HashMapChaining
     @size / @capacity
   end
 
-  ### Query operation ###
+  ### Lookup operation ###
   def get(key)
     index = hash_func(key)
     bucket = @buckets[index]
-    # Traverse bucket, if key is found, return corresponding val
+    # Traverse the bucket; if key is found, return its corresponding val
     for pair in bucket
       return pair.val if pair.key == key
     end
-    # Return nil if key not found
+    # Return nil if key is not found
     nil
   end
 
-  ### Add operation ###
+  ### Insert operation ###
   def put(key, val)
-    # When load factor exceeds threshold, perform expansion
+    # Grow the capacity when the load factor exceeds the threshold
     extend if load_factor > @load_thres
     index = hash_func(key)
     bucket = @buckets[index]
-    # Traverse bucket, if specified key is encountered, update corresponding val and return
+    # Traverse the bucket; if the specified key is found, update its val and return
     for pair in bucket
       if pair.key == key
         pair.val = val
         return
       end
     end
-    # If key does not exist, append key-value pair to the end
+    # If key is absent, append the key-value pair at the end
     pair = Pair.new(key, val)
     bucket << pair
     @size += 1
   end
 
-  ### Delete operation ###
+  ### Remove operation ###
   def remove(key)
     index = hash_func(key)
     bucket = @buckets[index]
-    # Traverse bucket and remove key-value pair from it
+    # Traverse the bucket and remove the key-value pair
     for pair in bucket
       if pair.key == key
         bucket.delete(pair)
@@ -72,15 +72,15 @@ class HashMapChaining
     end
   end
 
-  ### Expand hash table ###
+  ### Grow the hash table capacity ###
   def extend
-    # Temporarily store original hash table
+    # Temporarily store the original hash table
     buckets = @buckets
-    # Initialize expanded new hash table
+    # Initialize a new hash table with the expanded capacity
     @capacity *= @extend_ratio
     @buckets = Array.new(@capacity) { [] }
     @size = 0
-    # Move key-value pairs from original hash table to new hash table
+    # Move the key-value pairs from the original hash table to the new one
     for bucket in buckets
       for pair in bucket
         put(pair.key, pair.val)
@@ -88,7 +88,7 @@ class HashMapChaining
     end
   end
 
-  ### Print hash table ###
+  ### Print the hash table ###
   def print
     for bucket in @buckets
       res = []
@@ -100,29 +100,29 @@ class HashMapChaining
   end
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  ### Initialize hash table
+  ### Initialize the hash table
   hashmap = HashMapChaining.new
 
-  # Add operation
-  # Add key-value pair (key, value) to the hash table
-  hashmap.put(12836, "Xiao Ha")
-  hashmap.put(15937, "Xiao Luo")
-  hashmap.put(16750, "Xiao Suan")
-  hashmap.put(13276, "Xiao Fa")
-  hashmap.put(10583, "Xiao Ya")
-  puts "\nAfter adding, hash table is\n[Key1 -> Value1, Key2 -> Value2, ...]"
+  # Insert operation
+  # Insert the key-value pair (key, value) into the hash table
+  hashmap.put(12836, "小哈")
+  hashmap.put(15937, "小啰")
+  hashmap.put(16750, "小算")
+  hashmap.put(13276, "小法")
+  hashmap.put(10583, "小鸭")
+  puts "\nHash table after insertion:\n[Key1 -> Value1, Key2 -> Value2, ...]"
   hashmap.print
 
-  # Query operation
-  # Input key into hash table to get value
+  # Lookup operation
+  # Look up key in the hash table to obtain value
   name = hashmap.get(13276)
-  puts "\nInput student ID 13276, found name #{name}"
+  puts "\nLook up student ID 13276: name = #{name}"
 
   # Remove operation
-  # Remove key-value pair (key, value) from hash table
+  # Remove the key-value pair (key, value) from the hash table
   hashmap.remove(12836)
-  puts "\nAfter deleting 12836, hash table is\n[Key1 -> Value1, Key2 -> Value2, ...]"
+  puts "\nHash table after removing 12836:\n[Key1 -> Value1, Key2 -> Value2, ...]"
   hashmap.print
 end

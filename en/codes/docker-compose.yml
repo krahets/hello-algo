@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  hello-algo-code:
+    build:
+      context: .
+      args:
+        # Choose which language environments to install
+        # Separate language names with spaces
+        LANGS: "python cpp java csharp"
+    image: hello-algo-code
+    container_name: hello-algo-code
+    stdin_open: true
+    tty: true

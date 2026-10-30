@@ -7,7 +7,7 @@
 package chapter_divide_and_conquer;
 
 public class fast_power {
-    /* Exponentiation by squaring */
+    /* Fast exponentiation */
     static int fastPow(int x, int n) {
         if (n == 0) {
             return 1;

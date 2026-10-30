@@ -8,34 +8,34 @@ const { GraphAdjList } = require('./graph_adjacency_list');
 const { Vertex } = require('../modules/Vertex');
 
 /* Breadth-first traversal */
-// Use adjacency list to represent the graph, in order to obtain all adjacent vertices of a specified vertex
+// Represent the graph with an adjacency list to access all neighbors of a given vertex
 function graphBFS(graph, startVet) {
     // Vertex traversal sequence
     const res = [];
-    // Hash set for recording vertices that have been visited
+    // Hash set recording visited vertices
     const visited = new Set();
     visited.add(startVet);
-    // Queue used to implement BFS
+    // Use a queue to implement BFS
     const que = [startVet];
-    // Starting from vertex vet, loop until all vertices are visited
+    // Starting from startVet, loop until all reachable vertices have been visited
     while (que.length) {
         const vet = que.shift(); // Dequeue the front vertex
-        res.push(vet); // Record visited vertex
-        // Traverse all adjacent vertices of this vertex
+        res.push(vet); // Record the visited vertex
+        // Traverse all neighbors of this vertex
         for (const adjVet of graph.adjList.get(vet) ?? []) {
             if (visited.has(adjVet)) {
-                continue; // Skip vertices that have been visited
+                continue; // Skip vertices that have already been visited
             }
-            que.push(adjVet); // Only enqueue unvisited vertices
+            que.push(adjVet); // Enqueue only unvisited vertices
             visited.add(adjVet); // Mark this vertex as visited
         }
     }
-    // Return vertex traversal sequence
+    // Return the vertex traversal sequence
     return res;
 }
 
-/* Driver Code */
-/* Add edge */
+/* Driver code */
+/* Initialize the undirected graph */
 const v = Vertex.valsToVets([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
 const edges = [
     [v[0], v[1]],
@@ -52,10 +52,10 @@ const edges = [
     [v[7], v[8]],
 ];
 const graph = new GraphAdjList(edges);
-console.log('\nAfter initialization, graph is');
+console.log('\nGraph after initialization:');
 graph.print();
 
 /* Breadth-first traversal */
 const res = graphBFS(graph, v[0]);
-console.log('\nBreadth-first traversal (BFS) vertex sequence is');
+console.log('\nVertex sequence from breadth-first traversal (BFS):');
 console.log(Vertex.vetsToVals(res));

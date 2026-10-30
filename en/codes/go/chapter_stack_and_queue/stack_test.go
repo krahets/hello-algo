@@ -12,11 +12,11 @@ import (
 )
 
 func TestStack(t *testing.T) {
-	/* Access top of the stack element */
-	// In Go, recommended to use Slice as stack
+	/* Initialize the stack */
+	// In Go, a slice is the recommended way to implement a stack
 	var stack []int
 
-	/* Elements push onto stack */
+	/* Push elements onto the stack */
 	stack = append(stack, 1)
 	stack = append(stack, 3)
 	stack = append(stack, 2)
@@ -25,30 +25,30 @@ func TestStack(t *testing.T) {
 	fmt.Print("Stack stack = ")
 	PrintSlice(stack)
 
-	/* Return list for printing */
+	/* Access the top element */
 	peek := stack[len(stack)-1]
-	fmt.Println("Stack top element peek =", peek)
+	fmt.Println("Top element peek =", peek)
 
-	/* Element pop from stack */
+	/* Pop an element from the stack */
 	pop := stack[len(stack)-1]
 	stack = stack[:len(stack)-1]
-	fmt.Print("Pop element pop = ", pop, ", after pop, stack = ")
+	fmt.Print("Popped element pop = ", pop, ", after popping, stack = ")
 	PrintSlice(stack)
 
-	/* Get the length of the stack */
+	/* Get the stack size */
 	size := len(stack)
-	fmt.Println("Stack length size =", size)
+	fmt.Println("Stack size =", size)
 
-	/* Check if empty */
+	/* Check whether it is empty */
 	isEmpty := len(stack) == 0
-	fmt.Println("Is stack empty =", isEmpty)
+	fmt.Println("Is the stack empty =", isEmpty)
 }
 
 func TestArrayStack(t *testing.T) {
-	// Initialize stack using interface
+	// Initialize the stack for use through its stack operations
 	stack := newArrayStack()
 
-	// Elements push onto stack
+	// Push elements onto the stack
 	stack.push(1)
 	stack.push(3)
 	stack.push(2)
@@ -57,28 +57,28 @@ func TestArrayStack(t *testing.T) {
 	fmt.Print("Stack stack = ")
 	PrintSlice(stack.toSlice())
 
-	// Return list for printing
+	// Access the top element
 	peek := stack.peek()
-	fmt.Println("Stack top element peek =", peek)
+	fmt.Println("Top element peek =", peek)
 
-	// Element pop from stack
+	// Pop an element from the stack
 	pop := stack.pop()
-	fmt.Print("Pop element pop = ", pop, ", after pop, stack = ")
+	fmt.Print("Popped element pop = ", pop, ", after popping, stack = ")
 	PrintSlice(stack.toSlice())
 
-	// Get the length of the stack
+	// Get the stack size
 	size := stack.size()
-	fmt.Println("Stack length size =", size)
+	fmt.Println("Stack size =", size)
 
-	// Check if empty
+	// Check whether it is empty
 	isEmpty := stack.isEmpty()
-	fmt.Println("Is stack empty =", isEmpty)
+	fmt.Println("Is the stack empty =", isEmpty)
 }
 
 func TestLinkedListStack(t *testing.T) {
-	// Access top of the stack element
+	// Initialize the stack
 	stack := newLinkedListStack()
-	// Elements push onto stack
+	// Push elements onto the stack
 	stack.push(1)
 	stack.push(3)
 	stack.push(2)
@@ -87,28 +87,28 @@ func TestLinkedListStack(t *testing.T) {
 	fmt.Print("Stack stack = ")
 	PrintList(stack.toList())
 
-	// Return list for printing
+	// Access the top element
 	peek := stack.peek()
-	fmt.Println("Stack top element peek =", peek)
+	fmt.Println("Top element peek =", peek)
 
-	// Element pop from stack
+	// Pop an element from the stack
 	pop := stack.pop()
-	fmt.Print("Pop element pop = ", pop, ", after pop, stack = ")
+	fmt.Print("Popped element pop = ", pop, ", after popping, stack = ")
 	PrintList(stack.toList())
 
-	// Get the length of the stack
+	// Get the stack size
 	size := stack.size()
-	fmt.Println("Stack length size =", size)
+	fmt.Println("Stack size =", size)
 
-	// Check if empty
+	// Check whether it is empty
 	isEmpty := stack.isEmpty()
-	fmt.Println("Is stack empty =", isEmpty)
+	fmt.Println("Is the stack empty =", isEmpty)
 }
 
-// BenchmarkArrayStack 8 ns/op in Mac M1 Pro
+// BenchmarkArrayStack: 8 ns/op on a Mac M1 Pro
 func BenchmarkArrayStack(b *testing.B) {
 	stack := newArrayStack()
-	// use b.N for looping
+	// Use b.N as the iteration count
 	for i := 0; i < b.N; i++ {
 		stack.push(777)
 	}
@@ -117,10 +117,10 @@ func BenchmarkArrayStack(b *testing.B) {
 	}
 }
 
-// BenchmarkLinkedListStack 65.02 ns/op in Mac M1 Pro
+// BenchmarkLinkedListStack: 65.02 ns/op on a Mac M1 Pro
 func BenchmarkLinkedListStack(b *testing.B) {
 	stack := newLinkedListStack()
-	// use b.N for looping
+	// Use b.N as the iteration count
 	for i := 0; i < b.N; i++ {
 		stack.push(777)
 	}

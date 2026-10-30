@@ -6,7 +6,7 @@
 
 package chapter_backtracking.subset_sum_i_naive
 
-/* Backtracking algorithm: Subset sum I */
+/* Backtracking: subset sum I */
 fun backtrack(
     state: MutableList<Int>,
     target: Int,
@@ -14,42 +14,42 @@ fun backtrack(
     choices: IntArray,
     res: MutableList<MutableList<Int>?>
 ) {
-    // When the subset sum equals target, record the solution
+    // Record a solution when the subset sum equals target
     if (total == target) {
         res.add(state.toMutableList())
         return
     }
-    // Traverse all choices
+    // Iterate over all choices
     for (i in choices.indices) {
-        // Pruning: if the subset sum exceeds target, skip this choice
+        // Prune: skip this choice if the subset sum would exceed target
         if (total + choices[i] > target) {
             continue
         }
-        // Attempt: make choice, update element sum total
+        // Try: make a choice and update the sum total
         state.add(choices[i])
-        // Proceed to the next round of selection
+        // Proceed to the next choice
         backtrack(state, target, total + choices[i], choices, res)
-        // Backtrack: undo choice, restore to previous state
+        // Backtrack: undo the choice and restore the previous state
         state.removeAt(state.size - 1)
     }
 }
 
-/* Solve subset sum I (including duplicate subsets) */
+/* Solve subset sum I (with duplicate subsets) */
 fun subsetSumINaive(nums: IntArray, target: Int): MutableList<MutableList<Int>?> {
     val state = mutableListOf<Int>() // State (subset)
     val total = 0 // Subset sum
-    val res = mutableListOf<MutableList<Int>?>() // Result list (subset list)
+    val res = mutableListOf<MutableList<Int>?>() // Result list (list of subsets)
     backtrack(state, target, total, nums, res)
     return res
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
     val nums = intArrayOf(3, 4, 5)
     val target = 9
     val res = subsetSumINaive(nums, target)
 
     println("Input array nums = ${nums.contentToString()}, target = $target")
-    println("All subsets with sum equal to $target res = $res")
-    println("Please note that this method outputs results containing duplicate sets")
+    println("All subsets with sum $target: res = $res")
+    println("Note that this method produces duplicate subsets")
 }

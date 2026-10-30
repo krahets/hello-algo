@@ -4,32 +4,32 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Generate array with elements: 1, 2, ..., n, shuffled ###
+### Generate an array containing 1, 2, ..., n in shuffled order ###
 def random_numbers(n)
-  # Generate array nums =: 1, 2, 3, ..., n
+  # Generate the array nums = 1, 2, 3, ..., n
   nums = Array.new(n) { |i| i + 1 }
-  # Randomly shuffle array elements
+  # Randomly shuffle the array elements
   nums.shuffle!
 end
 
-### Find index of number 1 in array nums ###
+### Find the index of the number 1 in array nums ###
 def find_one(nums)
   for i in 0...nums.length
-    # When element 1 is at the head of the array, best time complexity O(1) is achieved
-    # When element 1 is at the tail of the array, worst time complexity O(n) is achieved
+    # When 1 is at the start of the array, the best-case time complexity is O(1)
+    # When 1 is at the end of the array, the worst-case time complexity is O(n)
     return i if nums[i] == 1
   end
 
   -1
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
   for i in 0...10
     n = 100
     nums = random_numbers(n)
     index = find_one(nums)
-    puts "\nArray [ 1, 2, ..., n ] after shuffling = #{nums}"
-    puts "Index of number 1 is #{index}"
+    puts "\nArray [1, 2, ..., n] after shuffling = #{nums}"
+    puts "Index of 1: #{index}"
   end
 end

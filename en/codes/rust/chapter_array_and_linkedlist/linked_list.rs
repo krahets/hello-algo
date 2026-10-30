@@ -27,7 +27,7 @@ pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
     }
 }
 
-/* Access the node at index index in the linked list */
+/* Access the node at index `index` in the linked list */
 pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Option<Rc<RefCell<ListNode<T>>>> {
     fn dfs<T>(
         head: Option<&Rc<RefCell<ListNode<T>>>>,
@@ -63,38 +63,38 @@ pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
     find(Some(head).as_ref(), target, 0)
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
-    /* Initialize linked list */
-    // Initialize each node
+    /* Initialize the linked list */
+    // Initialize the individual nodes
     let n0 = ListNode::new(1);
     let n1 = ListNode::new(3);
     let n2 = ListNode::new(2);
     let n3 = ListNode::new(5);
     let n4 = ListNode::new(4);
-    // Build references between nodes
+    // Set up references between the nodes
     n0.borrow_mut().next = Some(n1.clone());
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
     n3.borrow_mut().next = Some(n4.clone());
-    print!("Initialized linked list is ");
+    print!("The initialized linked list is ");
     print_util::print_linked_list(&n0);
 
-    /* Insert node */
+    /* Insert a node */
     insert(&n0, ListNode::new(0));
-    print!("After inserting node, linked list is ");
+    print!("The linked list after inserting a node is ");
     print_util::print_linked_list(&n0);
 
-    /* Remove node */
+    /* Remove a node */
     remove(&n0);
-    print!("After deleting node, linked list is ");
+    print!("The linked list after removing a node is ");
     print_util::print_linked_list(&n0);
 
-    /* Access node */
+    /* Access a node */
     let node = access(n0.clone(), 3);
-    println!("Value of node at index 3 in linked list = {}", node.unwrap().borrow().val);
+    println!("Value of the node at index 3 in the linked list = {}", node.unwrap().borrow().val);
 
-    /* Search node */
+    /* Find a node */
     let index = find(n0.clone(), 2);
-    println!("Index of node with value 2 in linked list = {}", index);
+    println!("Index of the node with value 2 in the linked list = {}", index);
 }

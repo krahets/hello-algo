@@ -6,16 +6,16 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative './array_hash_map'
 
-### Hash map with open addressing ###
+### Hash table with open addressing ###
 class HashMapOpenAddressing
-  TOMBSTONE = Pair.new(-1, '-1') # Removal marker
+  TOMBSTONE = Pair.new(-1, '-1') # Tombstone marker
 
   ### Constructor ###
   def initialize
     @size = 0 # Number of key-value pairs
     @capacity = 4 # Hash table capacity
-    @load_thres = 2.0 / 3.0 # Load factor threshold for triggering expansion
-    @extend_ratio = 2 # Expansion multiplier
+    @load_thres = 2.0 / 3.0 # Load factor threshold that triggers capacity growth
+    @extend_ratio = 2 # Capacity growth factor
     @buckets = Array.new(@capacity) # Bucket array
   end
 
@@ -29,83 +29,83 @@ class HashMapOpenAddressing
     @size / @capacity
   end
 
-  ### Search bucket index for key ###
+  ### Find the bucket index for key ###
   def find_bucket(key)
     index = hash_func(key)
     first_tombstone = -1
-    # Linear probing, break when encountering an empty bucket
+    # Probe linearly until an empty bucket is reached
     while !@buckets[index].nil?
-      # If key is encountered, return the corresponding bucket index
+      # If key is found, return its bucket index
       if @buckets[index].key == key
-        # If a removal marker was encountered before, move the key-value pair to that index
+        # If a tombstone was encountered earlier, move the key-value pair to that index
         if first_tombstone != -1
           @buckets[first_tombstone] = @buckets[index]
           @buckets[index] = TOMBSTONE
-          return first_tombstone # Return the moved bucket index
+          return first_tombstone # Return the bucket index after the move
         end
-        return index # Return bucket index
+        return index # Return the bucket index
       end
-      # Record the first removal marker encountered
+      # Record the first tombstone encountered
       first_tombstone = index if first_tombstone == -1 && @buckets[index] == TOMBSTONE
-      # Calculate bucket index, wrap around to the head if past the tail
+      # Calculate the bucket index, wrapping to the beginning after the end
       index = (index + 1) % @capacity
     end
-    # If key does not exist, return the index for insertion
+    # If key is absent, return the index for insertion
     first_tombstone == -1 ? index : first_tombstone
   end
 
-  ### Query operation ###
+  ### Lookup operation ###
   def get(key)
-    # Search for bucket index corresponding to key
+    # Find the bucket index for key
     index = find_bucket(key)
-    # If key-value pair is found, return corresponding val
+    # If the key-value pair is found, return its val
     return @buckets[index].val unless [nil, TOMBSTONE].include?(@buckets[index])
-    # Return nil if key-value pair does not exist
+    # Return nil if the key-value pair does not exist
     nil
   end
 
-  ### Add operation ###
+  ### Insert operation ###
   def put(key, val)
-    # When load factor exceeds threshold, perform expansion
+    # Grow the capacity when the load factor exceeds the threshold
     extend if load_factor > @load_thres
-    # Search for bucket index corresponding to key
+    # Find the bucket index for key
     index = find_bucket(key)
-    # If key-value pair found, overwrite val and return
+    # If the key-value pair is found, overwrite val and return
     unless [nil, TOMBSTONE].include?(@buckets[index])
       @buckets[index].val = val
       return
     end
-    # If key-value pair does not exist, add the key-value pair
+    # If the key-value pair is absent, insert it
     @buckets[index] = Pair.new(key, val)
     @size += 1
   end
 
-  ### Delete operation ###
+  ### Remove operation ###
   def remove(key)
-    # Search for bucket index corresponding to key
+    # Find the bucket index for key
     index = find_bucket(key)
-    # If key-value pair is found, overwrite it with removal marker
+    # If the key-value pair is found, replace it with a tombstone
     unless [nil, TOMBSTONE].include?(@buckets[index])
       @buckets[index] = TOMBSTONE
       @size -= 1
     end
   end
 
-  ### Expand hash table ###
+  ### Grow the hash table capacity ###
   def extend
-    # Temporarily store the original hash table
+    # Keep a reference to the original hash table
     buckets_tmp = @buckets
-    # Initialize expanded new hash table
+    # Initialize a new hash table with the expanded capacity
     @capacity *= @extend_ratio
     @buckets = Array.new(@capacity)
     @size = 0
-    # Move key-value pairs from original hash table to new hash table
+    # Move the key-value pairs from the original hash table to the new one
     for pair in buckets_tmp
       put(pair.key, pair.val) unless [nil, TOMBSTONE].include?(pair)
     end
   end
 
-  ### Print hash table ###
+  ### Print the hash table ###
   def print
     for pair in @buckets
       if pair.nil?
@@ -119,29 +119,29 @@ class HashMapOpenAddressing
   end
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  # Initialize hash table
+  # Initialize the hash table
   hashmap = HashMapOpenAddressing.new
 
-  # Add operation
-  # Add key-value pair (key, val) to the hash table
-  hashmap.put(12836, "Xiao Ha")
-  hashmap.put(15937, "Xiao Luo")
-  hashmap.put(16750, "Xiao Suan")
-  hashmap.put(13276, "Xiao Fa")
-  hashmap.put(10583, "Xiao Ya")
-  puts "\nAfter adding is complete, hash table is\nKey -> Value"
+  # Insert operation
+  # Insert the key-value pair (key, val) into the hash table
+  hashmap.put(12836, "小哈")
+  hashmap.put(15937, "小啰")
+  hashmap.put(16750, "小算")
+  hashmap.put(13276, "小法")
+  hashmap.put(10583, "小鸭")
+  puts "\nHash table after insertion:\nKey -> Value"
   hashmap.print
 
-  # Query operation
-  # Input key into hash table to get value val
+  # Lookup operation
+  # Look up key in the hash table to obtain val
   name = hashmap.get(13276)
-  puts "\nInput student ID 13276, found name #{name}"
+  puts "\nLook up student ID 13276: name = #{name}"
 
   # Remove operation
-  # Remove key-value pair (key, val) from hash table
+  # Remove the key-value pair (key, val) from the hash table
   hashmap.remove(16750)
-  puts "\nAfter removing 16750, hash table is\nKey -> Value"
+  puts "\nHash table after removing 16750:\nKey -> Value"
   hashmap.print
 end

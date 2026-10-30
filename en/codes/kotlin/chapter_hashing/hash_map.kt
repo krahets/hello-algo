@@ -8,42 +8,42 @@ package chapter_hashing
 
 import utils.printHashMap
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    /* Initialize hash table */
+    /* Initialize the hash table */
     val map = HashMap<Int, String>()
 
-    /* Add operation */
-    // Add key-value pair (key, value) to the hash table
-    map[12836] = "Xiao Ha"
-    map[15937] = "Xiao Luo"
-    map[16750] = "Xiao Suan"
-    map[13276] = "Xiao Fa"
-    map[10583] = "Xiao Ya"
-    println("\nAfter adding is complete, hash table is\nKey -> Value")
+    /* Insert operation */
+    // Insert the key-value pair (key, value) into the hash table
+    map[12836] = "小哈"
+    map[15937] = "小啰"
+    map[16750] = "小算"
+    map[13276] = "小法"
+    map[10583] = "小鸭"
+    println("\nHash table after insertion:\nKey -> Value")
     printHashMap(map)
 
-    /* Query operation */
-    // Input key into hash table to get value
+    /* Lookup operation */
+    // Look up key in the hash table to obtain value
     val name = map[15937]
-    println("\nInput student ID 15937, found name $name")
+    println("\nLook up student ID 15937 to obtain the name $name")
 
     /* Remove operation */
-    // Remove key-value pair (key, value) from hash table
+    // Remove the key-value pair (key, value) from the hash table
     map.remove(10583)
-    println("\nAfter removing 10583, hash table is\nKey -> Value")
+    println("\nHash table after removing 10583:\nKey -> Value")
     printHashMap(map)
 
-    /* Traverse hash table */
-    println("\nTraverse key-value pairs Key->Value")
+    /* Traverse the hash table */
+    println("\nTraverse key-value pairs: Key->Value")
     for ((key, value) in map) {
         println("$key -> $value")
     }
-    println("\nTraverse keys only Key")
+    println("\nTraverse keys only: Key")
     for (key in map.keys) {
         println(key)
     }
-    println("\nTraverse values only Value")
+    println("\nTraverse values only: Value")
     for (_val in map.values) {
         println(_val)
     }

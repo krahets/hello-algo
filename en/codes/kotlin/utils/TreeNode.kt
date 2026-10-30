@@ -12,14 +12,14 @@ class TreeNode(
     var _val: Int // Node value
 ) {
     var height: Int = 0 // Node height
-    var left: TreeNode? = null // Reference to left child node
-    var right: TreeNode? = null // Reference to right child node
+    var left: TreeNode? = null // Reference to the left child
+    var right: TreeNode? = null // Reference to the right child
 
-    // For the serialization encoding rules, please refer to:
-    // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-    // Array representation of binary tree:
+    // For the serialization rules, see:
+    // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
+    // Array representation of the binary tree:
     // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-    // Linked list representation of binary tree:
+    // Linked representation of the binary tree:
     //             /——— 15
     //         /——— 7
     //     /——— 3

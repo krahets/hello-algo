@@ -5,17 +5,17 @@
  */
 
 /* Counting sort */
-// Simple implementation, cannot be used for sorting objects
+// Simple implementation; cannot be used to sort objects
 function countingSortNaive(nums: number[]): void {
-    // 1. Count the maximum element m in the array
+    // 1. Find the maximum array element m
     let m: number = Math.max(...nums);
-    // 2. Count the occurrence of each number
-    // counter[num] represents the occurrence of num
+    // 2. Count the occurrences of each number
+    // counter[num] is the number of occurrences of num
     const counter: number[] = new Array<number>(m + 1).fill(0);
     for (const num of nums) {
         counter[num]++;
     }
-    // 3. Traverse counter, filling each element back into the original array nums
+    // 3. Traverse counter and fill the original array nums with the elements
     let i = 0;
     for (let num = 0; num < m + 1; num++) {
         for (let j = 0; j < counter[num]; j++, i++) {
@@ -25,37 +25,37 @@ function countingSortNaive(nums: number[]): void {
 }
 
 /* Counting sort */
-// Complete implementation, can sort objects and is a stable sort
+// Full stable implementation; this approach can be adapted to sort objects
 function countingSort(nums: number[]): void {
-    // 1. Count the maximum element m in the array
+    // 1. Find the maximum array element m
     let m: number = Math.max(...nums);
-    // 2. Count the occurrence of each number
-    // counter[num] represents the occurrence of num
+    // 2. Count the occurrences of each number
+    // counter[num] is the number of occurrences of num
     const counter: number[] = new Array<number>(m + 1).fill(0);
     for (const num of nums) {
         counter[num]++;
     }
-    // 3. Calculate the prefix sum of counter, converting "occurrence count" to "tail index"
-    // counter[num]-1 is the last index where num appears in res
+    // 3. Compute prefix sums of counter to convert occurrence counts into end positions
+    // That is, counter[num]-1 is the index of the last occurrence of num in res
     for (let i = 0; i < m; i++) {
         counter[i + 1] += counter[i];
     }
-    // 4. Traverse nums in reverse order, placing each element into the result array res
-    // Initialize the array res to record results
+    // 4. Traverse nums in reverse and place each element in the result array res
+    // Initialize array res to store the result
     const n = nums.length;
     const res: number[] = new Array<number>(n);
     for (let i = n - 1; i >= 0; i--) {
         const num = nums[i];
         res[counter[num] - 1] = num; // Place num at the corresponding index
-        counter[num]--; // Decrement the prefix sum by 1, getting the next index to place num
+        counter[num]--; // Decrement the prefix sum by 1 to determine where to place the next occurrence of num
     }
-    // Use result array res to overwrite the original array nums
+    // Overwrite the original array nums with the result array res
     for (let i = 0; i < n; i++) {
         nums[i] = res[i];
     }
 }
 
-/* Driver Code */
+/* Driver code */
 const nums = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4];
 countingSortNaive(nums);
 console.log('After counting sort (cannot sort objects), nums =', nums);

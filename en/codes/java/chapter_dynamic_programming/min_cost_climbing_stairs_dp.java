@@ -9,24 +9,24 @@ package chapter_dynamic_programming;
 import java.util.Arrays;
 
 public class min_cost_climbing_stairs_dp {
-    /* Minimum cost climbing stairs: Dynamic programming */
+    /* Minimum cost to climb stairs: dynamic programming */
     public static int minCostClimbingStairsDP(int[] cost) {
         int n = cost.length - 1;
         if (n == 1 || n == 2)
             return cost[n];
-        // Initialize dp table, used to store solutions to subproblems
+        // Initialize the dp table to store subproblem solutions
         int[] dp = new int[n + 1];
-        // Initial state: preset the solution to the smallest subproblem
+        // Initial states: set the solutions to the smallest subproblems
         dp[1] = cost[1];
         dp[2] = cost[2];
-        // State transition: gradually solve larger subproblems from smaller ones
+        // State transitions: solve progressively larger subproblems using smaller ones
         for (int i = 3; i <= n; i++) {
             dp[i] = Math.min(dp[i - 1], dp[i - 2]) + cost[i];
         }
         return dp[n];
     }
 
-    /* Minimum cost climbing stairs: Space-optimized dynamic programming */
+    /* Minimum cost to climb stairs: space-optimized dynamic programming */
     public static int minCostClimbingStairsDPComp(int[] cost) {
         int n = cost.length - 1;
         if (n == 1 || n == 2)
@@ -42,12 +42,12 @@ public class min_cost_climbing_stairs_dp {
 
     public static void main(String[] args) {
         int[] cost = { 0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1 };
-        System.out.println(String.format("Input staircase cost list is %s", Arrays.toString(cost)));
+        System.out.println(String.format("Input stair costs: %s", Arrays.toString(cost)));
 
         int res = minCostClimbingStairsDP(cost);
-        System.out.println(String.format("Minimum cost to climb staircase is %d", res));
+        System.out.println(String.format("Minimum cost to climb the stairs: %d", res));
 
         res = minCostClimbingStairsDPComp(cost);
-        System.out.println(String.format("Minimum cost to climb staircase is %d", res));
+        System.out.println(String.format("Minimum cost to climb the stairs: %d", res));
     }
 }

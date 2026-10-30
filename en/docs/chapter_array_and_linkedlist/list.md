@@ -1,26 +1,26 @@
-# List
+# Lists
 
-A <u>list</u> is an abstract data structure concept that represents an ordered collection of elements, supporting operations such as element access, modification, insertion, deletion, and traversal, without requiring users to consider capacity limitations. Lists can be implemented based on linked lists or arrays.
+A <u>list</u> is an abstract data structure representing an ordered collection. It supports access, modification, insertion, removal, and traversal without requiring users to manage capacity limits. Lists can be implemented with linked lists or arrays.
 
-- A linked list can naturally be viewed as a list: it supports insertion, deletion, search, and update, and can grow flexibly as needed.
-- An array also supports insertion, deletion, search, and update, but because its length is fixed, it can only be regarded as a list with a capacity limit.
+- A linked list naturally serves as a list, supporting these operations and flexible dynamic growth.
+- An array also supports these operations, but its fixed length makes it a list with a length limit.
 
-When a list is implemented with an array, **its fixed length makes it less practical**. This is because we usually cannot determine in advance how much data we need to store, making it difficult to choose an appropriate capacity. If the capacity is too small, it may fail to meet our needs; if it is too large, memory space will be wasted.
+When an array implements a list, **its fixed length limits the list's usefulness**. We often cannot predict how much data we will store. Too small an allocation may not meet our needs; too large an allocation wastes memory.
 
-To solve this problem, we can use a <u>dynamic array</u> to implement a list. It inherits all the advantages of arrays while supporting dynamic resizing during program execution.
+A <u>dynamic array</u> solves this problem. It retains the advantages of an array while allowing capacity to grow during execution.
 
-In fact, **the list types provided by the standard libraries of many programming languages are implemented with dynamic arrays**, such as `list` in Python, `ArrayList` in Java, `vector` in C++, and `List` in C#. In the following discussion, we will treat "list" and "dynamic array" as equivalent concepts.
+**Many standard-library lists use dynamic arrays**, including Python's `list`, Java's `ArrayList`, C++'s `vector`, and C#'s `List`. In the discussion that follows, we treat lists and dynamic arrays as equivalent concepts.
 
-## Common List Operations
+## Common list operations
 
-### Initialize a List
+### Initializing a list
 
-We typically initialize a list in one of two ways: empty or with predefined values:
+We usually initialize a list either without elements or with explicit initial values:
 
 === "Python"
 
     ```python title="list.py"
-    # Initialize a list
+    # Initialize lists
     # Without initial values
     nums1: list[int] = []
     # With initial values
@@ -30,8 +30,8 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "C++"
 
     ```cpp title="list.cpp"
-    /* Initialize a list */
-    // Note that vector in C++ is equivalent to nums as described in this article
+    /* Initialize lists */
+    // In C++, vector is the list type used for nums here
     // Without initial values
     vector<int> nums1;
     // With initial values
@@ -41,10 +41,10 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "Java"
 
     ```java title="list.java"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     List<Integer> nums1 = new ArrayList<>();
-    // With initial values (note that array elements should use the wrapper class Integer[] instead of int[])
+    // With initial values (use Integer[], the boxed counterpart of int[])
     Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
     List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
     ```
@@ -52,7 +52,7 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "C#"
 
     ```csharp title="list.cs"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     List<int> nums1 = [];
     // With initial values
@@ -63,7 +63,7 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "Go"
 
     ```go title="list_test.go"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     nums1 := []int{}
     // With initial values
@@ -73,7 +73,7 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "Swift"
 
     ```swift title="list.swift"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     let nums1: [Int] = []
     // With initial values
@@ -83,7 +83,7 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "JS"
 
     ```javascript title="list.js"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     const nums1 = [];
     // With initial values
@@ -93,7 +93,7 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "TS"
 
     ```typescript title="list.ts"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     const nums1: number[] = [];
     // With initial values
@@ -103,7 +103,7 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "Dart"
 
     ```dart title="list.dart"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     List<int> nums1 = [];
     // With initial values
@@ -113,7 +113,7 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "Rust"
 
     ```rust title="list.rs"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     let nums1: Vec<i32> = Vec::new();
     // With initial values
@@ -123,13 +123,13 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C does not provide a built-in dynamic array
     ```
 
 === "Kotlin"
 
     ```kotlin title="list.kt"
-    /* Initialize a list */
+    /* Initialize lists */
     // Without initial values
     var nums1 = listOf<Int>()
     // With initial values
@@ -140,151 +140,151 @@ We typically initialize a list in one of two ways: empty or with predefined valu
 === "Ruby"
 
     ```ruby title="list.rb"
-    # Initialize a list
+    # Initialize lists
     # Without initial values
     nums1 = []
     # With initial values
     nums = [1, 3, 2, 5, 4]
     ```
 
-??? pythontutor "Code Visualization"
+??? pythontutor "Visualize execution"
 
-    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20%23%20%E6%97%A0%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20%23%20Without%20initial%20values%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20With%20initial%20values%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-### Access Elements
+### Accessing an element
 
-Since a list is essentially an array, we can access and update elements in $O(1)$ time complexity, which is very efficient.
+Since the list is based on an array, accessing and updating an element are efficient $O(1)$ operations.
 
 === "Python"
 
     ```python title="list.py"
     # Access an element
-    num: int = nums[1]  # Access element at index 1
+    num: int = nums[1]  # Access the element at index 1
 
     # Update an element
-    nums[1] = 0    # Update element at index 1 to 0
+    nums[1] = 0    # Set the element at index 1 to 0
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
     /* Access an element */
-    int num = nums[1];  // Access element at index 1
+    int num = nums[1];  // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0;  // Update element at index 1 to 0
+    nums[1] = 0;  // Set the element at index 1 to 0
     ```
 
 === "Java"
 
     ```java title="list.java"
     /* Access an element */
-    int num = nums.get(1);  // Access element at index 1
+    int num = nums.get(1);  // Access the element at index 1
 
     /* Update an element */
-    nums.set(1, 0);  // Update element at index 1 to 0
+    nums.set(1, 0);  // Set the element at index 1 to 0
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
     /* Access an element */
-    int num = nums[1];  // Access element at index 1
+    int num = nums[1];  // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0;  // Update element at index 1 to 0
+    nums[1] = 0;  // Set the element at index 1 to 0
     ```
 
 === "Go"
 
     ```go title="list_test.go"
     /* Access an element */
-    num := nums[1]  // Access element at index 1
+    num := nums[1]  // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0     // Update element at index 1 to 0
+    nums[1] = 0     // Set the element at index 1 to 0
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
     /* Access an element */
-    let num = nums[1] // Access element at index 1
+    let num = nums[1] // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0 // Update element at index 1 to 0
+    nums[1] = 0 // Set the element at index 1 to 0
     ```
 
 === "JS"
 
     ```javascript title="list.js"
     /* Access an element */
-    const num = nums[1];  // Access element at index 1
+    const num = nums[1];  // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0;  // Update element at index 1 to 0
+    nums[1] = 0;  // Set the element at index 1 to 0
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
     /* Access an element */
-    const num: number = nums[1];  // Access element at index 1
+    const num: number = nums[1];  // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0;  // Update element at index 1 to 0
+    nums[1] = 0;  // Set the element at index 1 to 0
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
     /* Access an element */
-    int num = nums[1];  // Access element at index 1
+    int num = nums[1];  // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0;  // Update element at index 1 to 0
+    nums[1] = 0;  // Set the element at index 1 to 0
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
     /* Access an element */
-    let num: i32 = nums[1];  // Access element at index 1
+    let num: i32 = nums[1];  // Access the element at index 1
     /* Update an element */
-    nums[1] = 0;             // Update element at index 1 to 0
+    nums[1] = 0;             // Set the element at index 1 to 0
     ```
 
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C does not provide a built-in dynamic array
     ```
 
 === "Kotlin"
 
     ```kotlin title="list.kt"
     /* Access an element */
-    val num = nums[1]       // Access element at index 1
+    val num = nums[1]       // Access the element at index 1
     /* Update an element */
-    nums[1] = 0             // Update element at index 1 to 0
+    nums[1] = 0             // Set the element at index 1 to 0
     ```
 
 === "Ruby"
 
     ```ruby title="list.rb"
     # Access an element
-    num = nums[1] # Access element at index 1
+    num = nums[1] # Access the element at index 1
     # Update an element
-    nums[1] = 0 # Update element at index 1 to 0
+    nums[1] = 0 # Set the element at index 1 to 0
     ```
 
-??? pythontutor "Code Visualization"
+??? pythontutor "Visualize execution"
 
-    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%E8%AE%BF%E9%97%AE%E7%B4%A2%E5%BC%95%201%20%E5%A4%84%E7%9A%84%E5%85%83%E7%B4%A0%0A%0A%20%20%20%20%23%20%E6%9B%B4%E6%96%B0%E5%85%83%E7%B4%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E5%B0%86%E7%B4%A2%E5%BC%95%201%20%E5%A4%84%E7%9A%84%E5%85%83%E7%B4%A0%E6%9B%B4%E6%96%B0%E4%B8%BA%200&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20Access%20an%20element%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20Access%20the%20element%20at%20index%201%0A%0A%20%20%20%20%23%20Update%20an%20element%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20Set%20the%20element%20at%20index%201%20to%200&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-### Insert and Delete Elements
+### Inserting and removing elements
 
-Compared to arrays, lists can freely add and delete elements. Adding an element at the end of a list has a time complexity of $O(1)$, but inserting and deleting elements still have the same efficiency as arrays, with a time complexity of $O(n)$.
+Unlike a fixed array, a list can freely add and remove elements. Appending takes $O(1)$ time, while insertion and removal retain the array's $O(n)$ time complexity.
 
 === "Python"
 
@@ -292,7 +292,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     # Clear the list
     nums.clear()
 
-    # Add elements at the end
+    # Append elements
     nums.append(1)
     nums.append(3)
     nums.append(2)
@@ -300,10 +300,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.append(4)
 
     # Insert an element in the middle
-    nums.insert(3, 6)  # Insert number 6 at index 3
+    nums.insert(3, 6)  # Insert 6 at index 3
 
-    # Delete an element
-    nums.pop(3)        # Delete element at index 3
+    # Remove an element
+    nums.pop(3)        # Remove the element at index 3
     ```
 
 === "C++"
@@ -312,7 +312,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.clear();
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.push_back(1);
     nums.push_back(3);
     nums.push_back(2);
@@ -320,10 +320,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.push_back(4);
 
     /* Insert an element in the middle */
-    nums.insert(nums.begin() + 3, 6);  // Insert number 6 at index 3
+    nums.insert(nums.begin() + 3, 6);  // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.erase(nums.begin() + 3);      // Delete element at index 3
+    /* Remove an element */
+    nums.erase(nums.begin() + 3);      // Remove the element at index 3
     ```
 
 === "Java"
@@ -332,7 +332,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.clear();
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.add(1);
     nums.add(3);
     nums.add(2);
@@ -340,10 +340,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.add(4);
 
     /* Insert an element in the middle */
-    nums.add(3, 6);  // Insert number 6 at index 3
+    nums.add(3, 6);  // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.remove(3);  // Delete element at index 3
+    /* Remove an element */
+    nums.remove(3);  // Remove the element at index 3
     ```
 
 === "C#"
@@ -352,7 +352,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.Clear();
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.Add(1);
     nums.Add(3);
     nums.Add(2);
@@ -360,10 +360,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.Add(4);
 
     /* Insert an element in the middle */
-    nums.Insert(3, 6);  // Insert number 6 at index 3
+    nums.Insert(3, 6);  // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.RemoveAt(3);  // Delete element at index 3
+    /* Remove an element */
+    nums.RemoveAt(3);  // Remove the element at index 3
     ```
 
 === "Go"
@@ -372,7 +372,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums = nil
 
-    /* Add elements at the end */
+    /* Append elements */
     nums = append(nums, 1)
     nums = append(nums, 3)
     nums = append(nums, 2)
@@ -380,10 +380,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums = append(nums, 4)
 
     /* Insert an element in the middle */
-    nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // Insert number 6 at index 3
+    nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // Insert 6 at index 3
 
-    /* Delete an element */
-    nums = append(nums[:3], nums[4:]...) // Delete element at index 3
+    /* Remove an element */
+    nums = append(nums[:3], nums[4:]...) // Remove the element at index 3
     ```
 
 === "Swift"
@@ -392,7 +392,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.removeAll()
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.append(1)
     nums.append(3)
     nums.append(2)
@@ -400,10 +400,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.append(4)
 
     /* Insert an element in the middle */
-    nums.insert(6, at: 3) // Insert number 6 at index 3
+    nums.insert(6, at: 3) // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.remove(at: 3) // Delete element at index 3
+    /* Remove an element */
+    nums.remove(at: 3) // Remove the element at index 3
     ```
 
 === "JS"
@@ -412,7 +412,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.length = 0;
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.push(1);
     nums.push(3);
     nums.push(2);
@@ -420,10 +420,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.push(4);
 
     /* Insert an element in the middle */
-    nums.splice(3, 0, 6); // Insert number 6 at index 3
+    nums.splice(3, 0, 6); // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.splice(3, 1);  // Delete element at index 3
+    /* Remove an element */
+    nums.splice(3, 1);  // Remove the element at index 3
     ```
 
 === "TS"
@@ -432,7 +432,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.length = 0;
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.push(1);
     nums.push(3);
     nums.push(2);
@@ -440,10 +440,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.push(4);
 
     /* Insert an element in the middle */
-    nums.splice(3, 0, 6); // Insert number 6 at index 3
+    nums.splice(3, 0, 6); // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.splice(3, 1);  // Delete element at index 3
+    /* Remove an element */
+    nums.splice(3, 1);  // Remove the element at index 3
     ```
 
 === "Dart"
@@ -452,7 +452,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.clear();
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.add(1);
     nums.add(3);
     nums.add(2);
@@ -460,10 +460,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.add(4);
 
     /* Insert an element in the middle */
-    nums.insert(3, 6); // Insert number 6 at index 3
+    nums.insert(3, 6); // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.removeAt(3); // Delete element at index 3
+    /* Remove an element */
+    nums.removeAt(3); // Remove the element at index 3
     ```
 
 === "Rust"
@@ -472,7 +472,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.clear();
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.push(1);
     nums.push(3);
     nums.push(2);
@@ -480,16 +480,16 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.push(4);
 
     /* Insert an element in the middle */
-    nums.insert(3, 6);  // Insert number 6 at index 3
+    nums.insert(3, 6);  // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.remove(3);    // Delete element at index 3
+    /* Remove an element */
+    nums.remove(3);    // Remove the element at index 3
     ```
 
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C does not provide a built-in dynamic array
     ```
 
 === "Kotlin"
@@ -498,7 +498,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     /* Clear the list */
     nums.clear();
 
-    /* Add elements at the end */
+    /* Append elements */
     nums.add(1);
     nums.add(3);
     nums.add(2);
@@ -506,10 +506,10 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums.add(4);
 
     /* Insert an element in the middle */
-    nums.add(3, 6);  // Insert number 6 at index 3
+    nums.add(3, 6);  // Insert 6 at index 3
 
-    /* Delete an element */
-    nums.remove(3);  // Delete element at index 3
+    /* Remove an element */
+    nums.remove(3);  // Remove the element at index 3
     ```
 
 === "Ruby"
@@ -518,7 +518,7 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     # Clear the list
     nums.clear
 
-    # Add elements at the end
+    # Append elements
     nums << 1
     nums << 3
     nums << 2
@@ -526,19 +526,19 @@ Compared to arrays, lists can freely add and delete elements. Adding an element 
     nums << 4
 
     # Insert an element in the middle
-    nums.insert(3, 6) # Insert number 6 at index 3
+    nums.insert(3, 6) # Insert 6 at index 3
 
-    # Delete an element
-    nums.delete_at(3) # Delete element at index 3
+    # Remove an element
+    nums.delete_at(3) # Remove the element at index 3
     ```
 
-??? pythontutor "Code Visualization"
+??? pythontutor "Visualize execution"
 
-    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B8%85%E7%A9%BA%E5%88%97%E8%A1%A8%0A%20%20%20%20nums.clear%28%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%9C%A8%E5%B0%BE%E9%83%A8%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.append%281%29%0A%20%20%20%20nums.append%283%29%0A%20%20%20%20nums.append%282%29%0A%20%20%20%20nums.append%285%29%0A%20%20%20%20nums.append%284%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%9C%A8%E4%B8%AD%E9%97%B4%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.insert%283,%206%29%20%20%23%20%E5%9C%A8%E7%B4%A2%E5%BC%95%203%20%E5%A4%84%E6%8F%92%E5%85%A5%E6%95%B0%E5%AD%97%206%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.pop%283%29%20%20%20%20%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95%203%20%E5%A4%84%E7%9A%84%E5%85%83%E7%B4%A0&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20With%20initial%20values%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Clear%20the%20list%0A%20%20%20%20nums.clear%28%29%0A%20%20%20%20%0A%20%20%20%20%23%20Append%20elements%0A%20%20%20%20nums.append%281%29%0A%20%20%20%20nums.append%283%29%0A%20%20%20%20nums.append%282%29%0A%20%20%20%20nums.append%285%29%0A%20%20%20%20nums.append%284%29%0A%20%20%20%20%0A%20%20%20%20%23%20Insert%20an%20element%20in%20the%20middle%0A%20%20%20%20nums.insert%283%2C%206%29%20%20%23%20Insert%206%20at%20index%203%0A%20%20%20%20%0A%20%20%20%20%23%20Remove%20an%20element%0A%20%20%20%20nums.pop%283%29%20%20%20%20%20%20%20%20%23%20Remove%20the%20element%20at%20index%203&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-### Traverse a List
+### Traversing a list
 
-Like arrays, lists can be traversed by index or by directly iterating through elements.
+Like an array, a list can be traversed by index or by visiting its elements directly.
 
 === "Python"
 
@@ -699,7 +699,7 @@ Like arrays, lists can be traversed by index or by directly iterating through el
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C does not provide a built-in dynamic array
     ```
 
 === "Kotlin"
@@ -733,20 +733,20 @@ Like arrays, lists can be traversed by index or by directly iterating through el
     end
     ```
 
-??? pythontutor "Code Visualization"
+??? pythontutor "Visualize execution"
 
-    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%80%9A%E8%BF%87%E7%B4%A2%E5%BC%95%E9%81%8D%E5%8E%86%E5%88%97%E8%A1%A8%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20%E7%9B%B4%E6%8E%A5%E9%81%8D%E5%8E%86%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Traverse%20the%20list%20by%20index%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20Traverse%20list%20elements%20directly%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-### Concatenate Lists
+### Concatenating lists
 
-Given a new list `nums1`, we can concatenate it to the end of the original list.
+Given another list `nums1`, we can append its elements to the end of the original list.
 
 === "Python"
 
     ```python title="list.py"
     # Concatenate two lists
     nums1: list[int] = [6, 8, 7, 10, 9]
-    nums += nums1  # Concatenate list nums1 to the end of nums
+    nums += nums1  # Append nums1 to nums
     ```
 
 === "C++"
@@ -754,7 +754,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```cpp title="list.cpp"
     /* Concatenate two lists */
     vector<int> nums1 = { 6, 8, 7, 10, 9 };
-    // Concatenate list nums1 to the end of nums
+    // Append nums1 to nums
     nums.insert(nums.end(), nums1.begin(), nums1.end());
     ```
 
@@ -763,7 +763,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```java title="list.java"
     /* Concatenate two lists */
     List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
-    nums.addAll(nums1);  // Concatenate list nums1 to the end of nums
+    nums.addAll(nums1);  // Append nums1 to nums
     ```
 
 === "C#"
@@ -771,7 +771,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```csharp title="list.cs"
     /* Concatenate two lists */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.AddRange(nums1);  // Concatenate list nums1 to the end of nums
+    nums.AddRange(nums1);  // Append nums1 to nums
     ```
 
 === "Go"
@@ -779,7 +779,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```go title="list_test.go"
     /* Concatenate two lists */
     nums1 := []int{6, 8, 7, 10, 9}
-    nums = append(nums, nums1...)  // Concatenate list nums1 to the end of nums
+    nums = append(nums, nums1...)  // Append nums1 to nums
     ```
 
 === "Swift"
@@ -787,7 +787,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```swift title="list.swift"
     /* Concatenate two lists */
     let nums1 = [6, 8, 7, 10, 9]
-    nums.append(contentsOf: nums1) // Concatenate list nums1 to the end of nums
+    nums.append(contentsOf: nums1) // Append nums1 to nums
     ```
 
 === "JS"
@@ -795,7 +795,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```javascript title="list.js"
     /* Concatenate two lists */
     const nums1 = [6, 8, 7, 10, 9];
-    nums.push(...nums1);  // Concatenate list nums1 to the end of nums
+    nums.push(...nums1);  // Append nums1 to nums
     ```
 
 === "TS"
@@ -803,7 +803,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```typescript title="list.ts"
     /* Concatenate two lists */
     const nums1: number[] = [6, 8, 7, 10, 9];
-    nums.push(...nums1);  // Concatenate list nums1 to the end of nums
+    nums.push(...nums1);  // Append nums1 to nums
     ```
 
 === "Dart"
@@ -811,7 +811,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```dart title="list.dart"
     /* Concatenate two lists */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.addAll(nums1);  // Concatenate list nums1 to the end of nums
+    nums.addAll(nums1);  // Append nums1 to nums
     ```
 
 === "Rust"
@@ -825,7 +825,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C does not provide a built-in dynamic array
     ```
 
 === "Kotlin"
@@ -833,7 +833,7 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     ```kotlin title="list.kt"
     /* Concatenate two lists */
     val nums1 = intArrayOf(6, 8, 7, 10, 9).toMutableList()
-    nums.addAll(nums1)  // Concatenate list nums1 to the end of nums
+    nums.addAll(nums1)  // Append nums1 to nums
     ```
 
 === "Ruby"
@@ -844,117 +844,117 @@ Given a new list `nums1`, we can concatenate it to the end of the original list.
     nums += nums1
     ```
 
-??? pythontutor "Code Visualization"
+??? pythontutor "Visualize execution"
 
-    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%8B%BC%E6%8E%A5%E4%B8%A4%E4%B8%AA%E5%88%97%E8%A1%A8%0A%20%20%20%20nums1%20%3D%20%5B6,%208,%207,%2010,%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20%E5%B0%86%E5%88%97%E8%A1%A8%20nums1%20%E6%8B%BC%E6%8E%A5%E5%88%B0%20nums%20%E4%B9%8B%E5%90%8E&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Concatenate%20two%20lists%0A%20%20%20%20nums1%20%3D%20%5B6%2C%208%2C%207%2C%2010%2C%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20Append%20nums1%20to%20nums&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-### Sort a List
+### Sorting a list
 
-After sorting a list, we can use "binary search" and "two-pointer" algorithms, which are frequently tested in array algorithm problems.
+Once the list is sorted, we can apply binary search and two-pointer algorithms, which often appear in array problems.
 
 === "Python"
 
     ```python title="list.py"
-    # Sort a list
-    nums.sort()  # After sorting, list elements are arranged from smallest to largest
+    # Sort the list
+    nums.sort()  # After sorting, elements are in ascending order
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
-    /* Sort a list */
-    sort(nums.begin(), nums.end());  // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    sort(nums.begin(), nums.end());  // After sorting, elements are in ascending order
     ```
 
 === "Java"
 
     ```java title="list.java"
-    /* Sort a list */
-    Collections.sort(nums);  // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    Collections.sort(nums);  // After sorting, elements are in ascending order
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
-    /* Sort a list */
-    nums.Sort(); // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    nums.Sort(); // After sorting, elements are in ascending order
     ```
 
 === "Go"
 
     ```go title="list_test.go"
-    /* Sort a list */
-    sort.Ints(nums)  // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    sort.Ints(nums)  // After sorting, elements are in ascending order
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
-    /* Sort a list */
-    nums.sort() // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    nums.sort() // After sorting, elements are in ascending order
     ```
 
 === "JS"
 
     ```javascript title="list.js"
-    /* Sort a list */
-    nums.sort((a, b) => a - b);  // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    nums.sort((a, b) => a - b);  // After sorting, elements are in ascending order
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
-    /* Sort a list */
-    nums.sort((a, b) => a - b);  // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    nums.sort((a, b) => a - b);  // After sorting, elements are in ascending order
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
-    /* Sort a list */
-    nums.sort(); // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    nums.sort(); // After sorting, elements are in ascending order
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* Sort a list */
-    nums.sort(); // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    nums.sort(); // After sorting, elements are in ascending order
     ```
 
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C does not provide a built-in dynamic array
     ```
 
 === "Kotlin"
 
     ```kotlin title="list.kt"
-    /* Sort a list */
-    nums.sort() // After sorting, list elements are arranged from smallest to largest
+    /* Sort the list */
+    nums.sort() // After sorting, elements are in ascending order
     ```
 
 === "Ruby"
 
     ```ruby title="list.rb"
-    # Sort a list
-    nums = nums.sort { |a, b| a <=> b } # After sorting, list elements are arranged from smallest to largest
+    # Sort the list
+    nums = nums.sort { |a, b| a <=> b } # After sorting, elements are in ascending order
     ```
 
-??? pythontutor "Code Visualization"
+??? pythontutor "Visualize execution"
 
-    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%8E%92%E5%BA%8F%E5%88%97%E8%A1%A8%0A%20%20%20%20nums.sort%28%29%20%20%23%20%E6%8E%92%E5%BA%8F%E5%90%8E%EF%BC%8C%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7%E6%8E%92%E5%88%97&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Sort%20the%20list%0A%20%20%20%20nums.sort%28%29%20%20%23%20After%20sorting%2C%20elements%20are%20in%20ascending%20order&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-## List Implementation
+## Implementing a list
 
-Many programming languages have built-in lists, such as Java, C++, and Python. Their implementations are quite complex, and the parameters are carefully considered, such as initial capacity, expansion multiples, and so on. Interested readers can consult the source code to learn more.
+Many languages, including Java, C++, and Python, provide lists. Their implementations are sophisticated, with carefully chosen parameters such as initial capacity and growth factor. Interested readers can study their source code.
 
-To deepen our understanding of how lists work, we attempt to implement a simple list with three key design considerations:
+To understand how a list works, let's implement a simplified version with three key design choices.
 
-- **Initial capacity**: Select a reasonable initial capacity for the underlying array. In this example, we choose 10 as the initial capacity.
-- **Size tracking**: Declare a variable `size` to record the current number of elements in the list and update it in real-time as elements are inserted and deleted. Based on this variable, we can locate the end of the list and determine whether expansion is needed.
-- **Expansion mechanism**: When the list capacity is full upon inserting an element, we need to expand. We create a larger array based on the expansion multiple and then move all elements from the current array to the new array in order. In this example, we specify that the array should be expanded to 2 times its previous size each time.
+- **Initial capacity**: Choose a reasonable starting array capacity. We use 10 here.
+- **Element count**: Maintain `size`, the number of elements, updating it on insertion and removal. It identifies the list's end and tells us when expansion is needed.
+- **Growth mechanism**: If insertion finds the capacity full, allocate a larger array using a growth factor and copy all current elements into it. Here, capacity doubles each time.
 
 ```src
 [file]{my_list}-[class]{my_list}-[func]{}

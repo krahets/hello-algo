@@ -8,15 +8,15 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* Preorder traversal: Example 2 */
+/* Preorder traversal: example 2 */
 func preOrderII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
 	if root == nil {
 		return
 	}
-	// Attempt
+	// Try
 	*path = append(*path, root)
 	if root.Val.(int) == 7 {
-		// Record solution
+		// Record the solution
 		*res = append(*res, append([]*TreeNode{}, *path...))
 	}
 	preOrderII(root.Left, res, path)

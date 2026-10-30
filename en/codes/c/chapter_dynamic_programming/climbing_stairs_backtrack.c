@@ -8,27 +8,27 @@
 
 /* Backtracking */
 void backtrack(int *choices, int state, int n, int *res, int len) {
-    // When climbing to the n-th stair, add 1 to the solution count
+    // When step n is reached, increase the number of ways by 1
     if (state == n)
         res[0]++;
-    // Traverse all choices
+    // Iterate over all choices
     for (int i = 0; i < len; i++) {
         int choice = choices[i];
-        // Pruning: not allowed to go beyond the n-th stair
+        // Prune: do not go beyond step n
         if (state + choice > n)
             continue;
-        // Attempt: make choice, update state
+        // Try: make a choice and update the state
         backtrack(choices, state + choice, n, res, len);
         // Backtrack
     }
 }
 
-/* Climbing stairs: Backtracking */
+/* Climbing stairs: backtracking */
 int climbingStairsBacktrack(int n) {
-    int choices[2] = {1, 2}; // Can choose to climb up 1 or 2 stairs
-    int state = 0;           // Start climbing from the 0-th stair
+    int choices[2] = {1, 2}; // Choose to climb 1 or 2 steps
+    int state = 0;           // Start climbing from step 0
     int *res = (int *)malloc(sizeof(int));
-    *res = 0; // Use res[0] to record the solution count
+    *res = 0; // Use res[0] to record the number of ways
     int len = sizeof(choices) / sizeof(int);
     backtrack(choices, state, n, res, len);
     int result = *res;
@@ -36,12 +36,12 @@ int climbingStairsBacktrack(int n) {
     return result;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     int n = 9;
 
     int res = climbingStairsBacktrack(n);
-    printf("Climbing %d stairs has %d solutions\n", n, res);
+    printf("Number of ways to climb %d stairs: %d\n", n, res);
 
     return 0;
 }

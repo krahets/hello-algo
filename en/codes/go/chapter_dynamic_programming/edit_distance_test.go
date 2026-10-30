@@ -17,9 +17,9 @@ func TestEditDistanceDFS(test *testing.T) {
 
 	// Brute-force search
 	res := editDistanceDFS(s, t, n, m)
-	fmt.Printf("Changing %s to %s requires a minimum of %d edits\n", s, t, res)
+	fmt.Printf("Changing %s to %s requires at least %d edits\n", s, t, res)
 
-	// Memoization search
+	// Memoized search
 	mem := make([][]int, n+1)
 	for i := 0; i <= n; i++ {
 		mem[i] = make([]int, m+1)
@@ -28,13 +28,13 @@ func TestEditDistanceDFS(test *testing.T) {
 		}
 	}
 	res = editDistanceDFSMem(s, t, mem, n, m)
-	fmt.Printf("Changing %s to %s requires a minimum of %d edits\n", s, t, res)
+	fmt.Printf("Changing %s to %s requires at least %d edits\n", s, t, res)
 
 	// Dynamic programming
 	res = editDistanceDP(s, t)
-	fmt.Printf("Changing %s to %s requires a minimum of %d edits\n", s, t, res)
+	fmt.Printf("Changing %s to %s requires at least %d edits\n", s, t, res)
 
 	// Space-optimized dynamic programming
 	res = editDistanceDPComp(s, t)
-	fmt.Printf("Changing %s to %s requires a minimum of %d edits\n", s, t, res)
+	fmt.Printf("Changing %s to %s requires at least %d edits\n", s, t, res)
 }

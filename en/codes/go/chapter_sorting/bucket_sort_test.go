@@ -10,8 +10,8 @@ import (
 )
 
 func TestBucketSort(t *testing.T) {
-	// Assume input data is floating point, interval [0, 1)
+	// Assume the input consists of floating-point numbers in [0, 1)
 	nums := []float64{0.49, 0.96, 0.82, 0.09, 0.57, 0.43, 0.91, 0.75, 0.15, 0.37}
 	bucketSort(nums)
-	fmt.Println("After bucket sort completes, nums = ", nums)
+	fmt.Println("After bucket sort, nums = ", nums)
 }

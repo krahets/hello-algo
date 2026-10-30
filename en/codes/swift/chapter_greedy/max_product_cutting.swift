@@ -10,24 +10,24 @@ func pow(_ x: Int, _ y: Int) -> Int {
     Int(Double(truncating: pow(Decimal(x), y) as NSDecimalNumber))
 }
 
-/* Max product cutting: Greedy algorithm */
+/* Maximum product after splitting: greedy algorithm */
 func maxProductCutting(n: Int) -> Int {
-    // When n <= 3, must cut out a 1
+    // When n <= 3, one part must be 1
     if n <= 3 {
         return 1 * (n - 1)
     }
-    // Greedily cut out 3, a is the number of 3s, b is the remainder
+    // Greedily split off parts of size 3; a is the number of 3s and b is the remainder
     let a = n / 3
     let b = n % 3
     if b == 1 {
-        // When the remainder is 1, convert a pair of 1 * 3 to 2 * 2
+        // When the remainder is 1, replace one pair 1 * 3 with 2 * 2
         return pow(3, a - 1) * 2 * 2
     }
     if b == 2 {
-        // When the remainder is 2, do nothing
+        // When the remainder is 2, no adjustment is needed
         return pow(3, a) * 2
     }
-    // When the remainder is 0, do nothing
+    // When the remainder is 0, no adjustment is needed
     return pow(3, a)
 }
 
@@ -38,6 +38,6 @@ enum MaxProductCutting {
 
         // Greedy algorithm
         let res = maxProductCutting(n: n)
-        print("Maximum cutting product is \(res)")
+        print("Maximum product after splitting: \(res)")
     }
 }

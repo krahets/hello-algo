@@ -11,23 +11,23 @@ import utils.printTree
 
 var res: MutableList<TreeNode>? = null
 
-/* Preorder traversal: Example 1 */
+/* Preorder traversal: example 1 */
 fun preOrder(root: TreeNode?) {
     if (root == null) {
         return
     }
     if (root._val == 7) {
-        // Record solution
+        // Record the solution
         res!!.add(root)
     }
     preOrder(root.left)
     preOrder(root.right)
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
     val root = TreeNode.listToTree(mutableListOf(1, 7, 3, 4, 5, 6, 7))
-    println("\nInitialize binary tree")
+    println("\nInitialize the binary tree")
     printTree(root)
 
     // Preorder traversal

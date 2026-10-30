@@ -12,37 +12,37 @@ import (
 )
 
 func TestLinkedList(t *testing.T) {
-	/* Initialize linked list 1 -> 3 -> 2 -> 5 -> 4 */
-	// Initialize each node
+	/* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
+	// Initialize the individual nodes
 	n0 := NewListNode(1)
 	n1 := NewListNode(3)
 	n2 := NewListNode(2)
 	n3 := NewListNode(5)
 	n4 := NewListNode(4)
 
-	// Build references between nodes
+	// Set up references between the nodes
 	n0.Next = n1
 	n1.Next = n2
 	n2.Next = n3
 	n3.Next = n4
-	fmt.Println("Initialized linked list is")
+	fmt.Println("The initialized linked list is")
 	PrintLinkedList(n0)
 
-	/* Insert node */
+	/* Insert a node */
 	insertNode(n0, NewListNode(0))
-	fmt.Println("Linked list after inserting node is")
+	fmt.Println("The linked list after inserting a node is")
 	PrintLinkedList(n0)
 
-	/* Remove node */
+	/* Remove a node */
 	removeItem(n0)
-	fmt.Println("Linked list after removing node is")
+	fmt.Println("The linked list after removing a node is")
 	PrintLinkedList(n0)
 
-	/* Access node */
+	/* Access a node */
 	node := access(n0, 3)
-	fmt.Println("Value of node at index 3 in linked list =", node)
+	fmt.Println("Node at index 3 in the linked list =", node)
 
-	/* Search node */
+	/* Find a node */
 	index := findNode(n0, 2)
-	fmt.Println("Index of node with value 2 in linked list =", index)
+	fmt.Println("Index of the node with value 2 in the linked list =", index)
 }

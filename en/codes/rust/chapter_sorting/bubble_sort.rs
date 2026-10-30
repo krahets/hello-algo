@@ -8,9 +8,9 @@ use hello_algo_rust::include::print_util;
 
 /* Bubble sort */
 fn bubble_sort(nums: &mut [i32]) {
-    // Outer loop: unsorted range is [0, i]
+    // Outer loop: the unsorted range is [0, i]
     for i in (1..nums.len()).rev() {
-        // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+        // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
         for j in 0..i {
             if nums[j] > nums[j + 1] {
                 // Swap nums[j] and nums[j + 1]
@@ -22,28 +22,28 @@ fn bubble_sort(nums: &mut [i32]) {
 
 /* Bubble sort (flag optimization) */
 fn bubble_sort_with_flag(nums: &mut [i32]) {
-    // Outer loop: unsorted range is [0, i]
+    // Outer loop: the unsorted range is [0, i]
     for i in (1..nums.len()).rev() {
-        let mut flag = false; // Initialize flag
-        // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+        let mut flag = false; // Initialize the flag
+        // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
         for j in 0..i {
             if nums[j] > nums[j + 1] {
                 // Swap nums[j] and nums[j + 1]
                 nums.swap(j, j + 1);
-                flag = true; // Record element swap
+                flag = true; // Record that a swap occurred
             }
         }
         if !flag {
-            break; // No elements were swapped in this round of "bubbling", exit directly
+            break; // Exit immediately if this pass made no swaps
         };
     }
 }
 
-/* Driver Code */
+/* Driver code */
 pub fn main() {
     let mut nums = [4, 1, 3, 1, 5, 2];
     bubble_sort(&mut nums);
-    print!("After bubble sort completes, nums = ");
+    print!("After bubble sort, nums = ");
     print_util::print_array(&nums);
 
     let mut nums1 = [4, 1, 3, 1, 5, 2];

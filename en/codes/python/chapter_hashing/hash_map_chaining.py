@@ -18,8 +18,8 @@ class HashMapChaining:
         """Constructor"""
         self.size = 0  # Number of key-value pairs
         self.capacity = 4  # Hash table capacity
-        self.load_thres = 2.0 / 3.0  # Load factor threshold for triggering expansion
-        self.extend_ratio = 2  # Expansion multiplier
+        self.load_thres = 2.0 / 3.0  # Load factor threshold that triggers capacity growth
+        self.extend_ratio = 2  # Capacity growth factor
         self.buckets = [[] for _ in range(self.capacity)]  # Bucket array
 
     def hash_func(self, key: int) -> int:
@@ -31,29 +31,29 @@ class HashMapChaining:
         return self.size / self.capacity
 
     def get(self, key: int) -> str | None:
-        """Query operation"""
+        """Lookup operation"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # Traverse bucket, if key is found, return corresponding val
+        # Traverse the bucket; if key is found, return its corresponding val
         for pair in bucket:
             if pair.key == key:
                 return pair.val
-        # If key is not found, return None
+        # Return None if key is not found
         return None
 
     def put(self, key: int, val: str):
-        """Add operation"""
-        # When load factor exceeds threshold, perform expansion
+        """Insert operation"""
+        # Grow the capacity when the load factor exceeds the threshold
         if self.load_factor() > self.load_thres:
             self.extend()
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # Traverse bucket, if specified key is encountered, update corresponding val and return
+        # Traverse the bucket; if the specified key is found, update its val and return
         for pair in bucket:
             if pair.key == key:
                 pair.val = val
                 return
-        # If key does not exist, append key-value pair to the end
+        # If key is absent, append the key-value pair at the end
         pair = Pair(key, val)
         bucket.append(pair)
         self.size += 1
@@ -62,7 +62,7 @@ class HashMapChaining:
         """Remove operation"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # Traverse bucket and remove key-value pair from it
+        # Traverse the bucket and remove the key-value pair
         for pair in bucket:
             if pair.key == key:
                 bucket.remove(pair)
@@ -70,20 +70,20 @@ class HashMapChaining:
                 break
 
     def extend(self):
-        """Expand hash table"""
-        # Temporarily store the original hash table
+        """Grow the hash table capacity"""
+        # Keep a reference to the original hash table
         buckets = self.buckets
-        # Initialize expanded new hash table
+        # Initialize a new hash table with the expanded capacity
         self.capacity *= self.extend_ratio
         self.buckets = [[] for _ in range(self.capacity)]
         self.size = 0
-        # Move key-value pairs from original hash table to new hash table
+        # Move the key-value pairs from the original hash table to the new one
         for bucket in buckets:
             for pair in bucket:
                 self.put(pair.key, pair.val)
 
     def print(self):
-        """Print hash table"""
+        """Print the hash table"""
         for bucket in self.buckets:
             res = []
             for pair in bucket:
@@ -91,28 +91,28 @@ class HashMapChaining:
             print(res)
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
-    # Initialize hash table
+    # Initialize the hash table
     hashmap = HashMapChaining()
 
-    # Add operation
-    # Add key-value pair (key, value) to the hash table
-    hashmap.put(12836, "Xiao Ha")
-    hashmap.put(15937, "Xiao Luo")
-    hashmap.put(16750, "Xiao Suan")
-    hashmap.put(13276, "Xiao Fa")
-    hashmap.put(10583, "Xiao Ya")
-    print("\nAfter adding, the hash table is\n[Key1 -> Value1, Key2 -> Value2, ...]")
+    # Insert operation
+    # Insert the key-value pair (key, value) into the hash table
+    hashmap.put(12836, "小哈")
+    hashmap.put(15937, "小啰")
+    hashmap.put(16750, "小算")
+    hashmap.put(13276, "小法")
+    hashmap.put(10583, "小鸭")
+    print("\nHash table after insertion:\n[Key1 -> Value1, Key2 -> Value2, ...]")
     hashmap.print()
 
-    # Query operation
-    # Input key into the hash table to get value
+    # Lookup operation
+    # Look up key in the hash table to obtain value
     name = hashmap.get(13276)
-    print("\nInput student ID 13276, found name " + name)
+    print("\nLook up student ID 13276 to obtain the name " + name)
 
     # Remove operation
-    # Remove key-value pair (key, value) from the hash table
+    # Remove the key-value pair (key, value) from the hash table
     hashmap.remove(12836)
-    print("\nAfter removing 12836, the hash table is\n[Key1 -> Value1, Key2 -> Value2, ...]")
+    print("\nHash table after removing 12836:\n[Key1 -> Value1, Key2 -> Value2, ...]")
     hashmap.print()

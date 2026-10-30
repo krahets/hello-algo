@@ -4,7 +4,7 @@
 
 package chapter_computational_complexity
 
-/* Constant order */
+/* Constant complexity */
 func constant(n int) int {
 	count := 0
 	size := 100000
@@ -14,7 +14,7 @@ func constant(n int) int {
 	return count
 }
 
-/* Linear order */
+/* Linear complexity */
 func linear(n int) int {
 	count := 0
 	for i := 0; i < n; i++ {
@@ -23,20 +23,20 @@ func linear(n int) int {
 	return count
 }
 
-/* Linear order (traversing array) */
+/* Linear complexity (array traversal) */
 func arrayTraversal(nums []int) int {
 	count := 0
-	// Number of iterations is proportional to the array length
+	// The number of iterations is proportional to the array length
 	for range nums {
 		count++
 	}
 	return count
 }
 
-/* Exponential order */
+/* Quadratic complexity */
 func quadratic(n int) int {
 	count := 0
-	// Number of iterations is quadratically related to the data size n
+	// The number of iterations is proportional to the square of the input size n
 	for i := 0; i < n; i++ {
 		for j := 0; j < n; j++ {
 			count++
@@ -45,29 +45,29 @@ func quadratic(n int) int {
 	return count
 }
 
-/* Quadratic order (bubble sort) */
+/* Quadratic complexity (bubble sort) */
 func bubbleSort(nums []int) int {
 	count := 0 // Counter
-	// Outer loop: unsorted range is [0, i]
+	// Outer loop: the unsorted range is [0, i]
 	for i := len(nums) - 1; i > 0; i-- {
-		// Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+		// Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
 		for j := 0; j < i; j++ {
 			if nums[j] > nums[j+1] {
 				// Swap nums[j] and nums[j + 1]
 				tmp := nums[j]
 				nums[j] = nums[j+1]
 				nums[j+1] = tmp
-				count += 3 // Element swap includes 3 unit operations
+				count += 3 // Swapping two elements takes 3 elementary operations
 			}
 		}
 	}
 	return count
 }
 
-/* Exponential order (loop implementation) */
+/* Exponential complexity (iterative implementation)*/
 func exponential(n int) int {
 	count, base := 0, 1
-	// Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+	// Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
 	for i := 0; i < n; i++ {
 		for j := 0; j < base; j++ {
 			count++
@@ -78,7 +78,7 @@ func exponential(n int) int {
 	return count
 }
 
-/* Exponential order (recursive implementation) */
+/* Exponential complexity (recursive implementation)*/
 func expRecur(n int) int {
 	if n == 1 {
 		return 1
@@ -86,7 +86,7 @@ func expRecur(n int) int {
 	return expRecur(n-1) + expRecur(n-1) + 1
 }
 
-/* Logarithmic order (loop implementation) */
+/* Logarithmic complexity (iterative implementation)*/
 func logarithmic(n int) int {
 	count := 0
 	for n > 1 {
@@ -96,7 +96,7 @@ func logarithmic(n int) int {
 	return count
 }
 
-/* Logarithmic order (recursive implementation) */
+/* Logarithmic complexity (recursive implementation)*/
 func logRecur(n int) int {
 	if n <= 1 {
 		return 0
@@ -104,7 +104,7 @@ func logRecur(n int) int {
 	return logRecur(n/2) + 1
 }
 
-/* Linearithmic order */
+/* Linearithmic complexity */
 func linearLogRecur(n int) int {
 	if n <= 1 {
 		return 1
@@ -116,13 +116,13 @@ func linearLogRecur(n int) int {
 	return count
 }
 
-/* Factorial order (recursive implementation) */
+/* Factorial complexity (recursive implementation) */
 func factorialRecur(n int) int {
 	if n == 0 {
 		return 1
 	}
 	count := 0
-	// Split from 1 into n
+	// Split one problem into n subproblems
 	for i := 0; i < n; i++ {
 		count += factorialRecur(n - 1)
 	}

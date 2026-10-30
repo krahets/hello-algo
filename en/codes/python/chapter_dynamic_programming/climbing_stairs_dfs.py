@@ -7,7 +7,7 @@ Author: krahets (krahets@163.com)
 
 def dfs(i: int) -> int:
     """Search"""
-    # Known dp[1] and dp[2], return them
+    # The values of dp[1] and dp[2] are known; return the corresponding value
     if i == 1 or i == 2:
         return i
     # dp[i] = dp[i-1] + dp[i-2]
@@ -16,13 +16,13 @@ def dfs(i: int) -> int:
 
 
 def climbing_stairs_dfs(n: int) -> int:
-    """Climbing stairs: Search"""
+    """Climbing stairs: search"""
     return dfs(n)
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
     n = 9
 
     res = climbing_stairs_dfs(n)
-    print(f"Climbing {n} stairs has {res} solutions")
+    print(f"Number of ways to climb {n} stairs: {res}")

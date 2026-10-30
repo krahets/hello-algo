@@ -10,14 +10,14 @@ import utils.*;
 import java.util.*;
 
 public class build_tree {
-    /* Build binary tree: divide and conquer */
+    /* Build a binary tree: divide and conquer */
     static TreeNode dfs(int[] preorder, Map<Integer, Integer> inorderMap, int i, int l, int r) {
-        // Terminate when the subtree interval is empty
+        // Stop when the subtree interval is empty
         if (r - l < 0)
             return null;
         // Initialize the root node
         TreeNode root = new TreeNode(preorder[i]);
-        // Query m to divide the left and right subtrees
+        // Look up m to separate the left and right subtrees
         int m = inorderMap.get(preorder[i]);
         // Subproblem: build the left subtree
         root.left = dfs(preorder, inorderMap, i + 1, l, m - 1);
@@ -27,9 +27,9 @@ public class build_tree {
         return root;
     }
 
-    /* Build binary tree */
+    /* Build a binary tree */
     static TreeNode buildTree(int[] preorder, int[] inorder) {
-        // Initialize hash map, storing the mapping from inorder elements to indices
+        // Initialize a hash table mapping each element in inorder to its index
         Map<Integer, Integer> inorderMap = new HashMap<>();
         for (int i = 0; i < inorder.length; i++) {
             inorderMap.put(inorder[i], i);

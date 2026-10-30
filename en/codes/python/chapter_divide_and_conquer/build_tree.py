@@ -18,13 +18,13 @@ def dfs(
     l: int,
     r: int,
 ) -> TreeNode | None:
-    """Build binary tree: divide and conquer"""
-    # Terminate when the subtree interval is empty
+    """Build a binary tree: divide and conquer"""
+    # Stop when the subtree interval is empty
     if r - l < 0:
         return None
     # Initialize the root node
     root = TreeNode(preorder[i])
-    # Query m to divide the left and right subtrees
+    # Look up m to separate the left and right subtrees
     m = inorder_map[preorder[i]]
     # Subproblem: build the left subtree
     root.left = dfs(preorder, inorder_map, i + 1, l, m - 1)
@@ -35,14 +35,14 @@ def dfs(
 
 
 def build_tree(preorder: list[int], inorder: list[int]) -> TreeNode | None:
-    """Build binary tree"""
-    # Initialize hash map, storing the mapping from inorder elements to indices
+    """Build a binary tree"""
+    # Initialize a hash table mapping each element in inorder to its index
     inorder_map = {val: i for i, val in enumerate(inorder)}
     root = dfs(preorder, inorder_map, 0, 0, len(inorder) - 1)
     return root
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
     preorder = [3, 9, 2, 1, 7]
     inorder = [9, 3, 1, 2, 7]
@@ -50,5 +50,5 @@ if __name__ == "__main__":
     print(f"Inorder traversal = {inorder}")
 
     root = build_tree(preorder, inorder)
-    print("The built binary tree is:")
+    print("The constructed binary tree is:")
     print_tree(root)

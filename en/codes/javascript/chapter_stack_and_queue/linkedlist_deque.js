@@ -6,8 +6,8 @@
 
 /* Doubly linked list node */
 class ListNode {
-    prev; // Predecessor node reference (pointer)
-    next; // Successor node reference (pointer)
+    prev; // Reference (pointer) to the previous node
+    next; // Reference (pointer) to the next node
     val; // Node value
 
     constructor(val) {
@@ -17,11 +17,11 @@ class ListNode {
     }
 }
 
-/* Double-ended queue based on doubly linked list implementation */
+/* Deque implemented with a doubly linked list */
 class LinkedListDeque {
     #front; // Head node front
     #rear; // Tail node rear
-    #queSize; // Length of the double-ended queue
+    #queSize; // Deque size
 
     constructor() {
         this.#front = null;
@@ -29,7 +29,7 @@ class LinkedListDeque {
         this.#queSize = 0;
     }
 
-    /* Rear of the queue enqueue operation */
+    /* Enqueue at the rear */
     pushLast(val) {
         const node = new ListNode(val);
         // If the linked list is empty, make both front and rear point to node
@@ -40,12 +40,12 @@ class LinkedListDeque {
             // Add node to the tail of the linked list
             this.#rear.next = node;
             node.prev = this.#rear;
-            this.#rear = node; // Update tail node
+            this.#rear = node; // Update the tail node
         }
         this.#queSize++;
     }
 
-    /* Front of the queue enqueue operation */
+    /* Enqueue at the front */
     pushFirst(val) {
         const node = new ListNode(val);
         // If the linked list is empty, make both front and rear point to node
@@ -56,76 +56,76 @@ class LinkedListDeque {
             // Add node to the head of the linked list
             this.#front.prev = node;
             node.next = this.#front;
-            this.#front = node; // Update head node
+            this.#front = node; // Update the head node
         }
         this.#queSize++;
     }
 
-    /* Temporarily store tail node value */
+    /* Dequeue from the rear */
     popLast() {
         if (this.#queSize === 0) {
             return null;
         }
-        const value = this.#rear.val; // Store tail node value
-        // When the deque has one element, front and rear point to the same node
+        const value = this.#rear.val; // Store the tail node value
+        // When the queue size is 1, the head and tail point to the same node
         if (this.#queSize === 1) {
             this.#front = null;
             this.#rear = null;
         }
-        // Update tail node
+        // Remove the tail node
         else {
             let temp = this.#rear.prev;
             temp.next = null;
             this.#rear.prev = null;
-            this.#rear = temp; // Update tail node
+            this.#rear = temp; // Update the tail node
         }
         this.#queSize--;
         return value;
     }
 
-    /* Temporarily store head node value */
+    /* Dequeue from the front */
     popFirst() {
         if (this.#queSize === 0) {
             return null;
         }
         const value = this.#front.val; // Store the head node value
-        // When the deque has one element, front and rear point to the same node
+        // When the queue size is 1, the head and tail point to the same node
         if (this.#queSize === 1) {
             this.#front = null;
             this.#rear = null;
         }
-        // Delete head node
+        // Remove the head node
         else {
             let temp = this.#front.next;
             temp.prev = null;
             this.#front.next = null;
-            this.#front = temp; // Update head node
+            this.#front = temp; // Update the head node
         }
         this.#queSize--;
         return value;
     }
 
-    /* Driver Code */
+    /* Access the rear element */
     peekLast() {
         return this.#queSize === 0 ? null : this.#rear.val;
     }
 
-    /* Return list for printing */
+    /* Access the front element */
     peekFirst() {
         return this.#queSize === 0 ? null : this.#front.val;
     }
 
-    /* Get the length of the double-ended queue */
+    /* Get the deque size */
     size() {
         return this.#queSize;
     }
 
-    /* Check if the double-ended queue is empty */
+    /* Check whether the deque is empty */
     isEmpty() {
         return this.#queSize === 0;
     }
 
-    /* Print deque */
+    /* Print the deque */
     print() {
         const arr = [];
         let temp = this.#front;
@@ -137,8 +137,8 @@ class LinkedListDeque {
     }
 }
 
-/* Driver Code */
-/* Get the length of the double-ended queue */
+/* Driver code */
+/* Initialize the deque */
 const linkedListDeque = new LinkedListDeque();
 linkedListDeque.pushLast(3);
 linkedListDeque.pushLast(2);
@@ -146,32 +146,32 @@ linkedListDeque.pushLast(5);
 console.log('Deque linkedListDeque = ');
 linkedListDeque.print();
 
-/* Update element */
+/* Access an element */
 const peekFirst = linkedListDeque.peekFirst();
 console.log('Front element peekFirst = ' + peekFirst);
 const peekLast = linkedListDeque.peekLast();
 console.log('Rear element peekLast = ' + peekLast);
 
-/* Elements enqueue */
+/* Enqueue elements */
 linkedListDeque.pushLast(4);
-console.log('After element 4 enqueues at rear, linkedListDeque = ');
+console.log('After enqueuing 4 at the rear, linkedListDeque = ');
 linkedListDeque.print();
 linkedListDeque.pushFirst(1);
-console.log('After element 1 enqueues at front, linkedListDeque = ');
+console.log('After enqueuing 1 at the front, linkedListDeque = ');
 linkedListDeque.print();
 
-/* Element dequeue */
+/* Dequeue an element */
 const popLast = linkedListDeque.popLast();
-console.log('Rear dequeue element = ' + popLast + ', after rear dequeue linkedListDeque = ');
+console.log('Element dequeued from the rear = ' + popLast + '; after removing from the rear, linkedListDeque = ');
 linkedListDeque.print();
 const popFirst = linkedListDeque.popFirst();
-console.log('Front dequeue element = ' + popFirst + ', after front dequeue linkedListDeque = ');
+console.log('Element dequeued from the front = ' + popFirst + '; after removing from the front, linkedListDeque = ');
 linkedListDeque.print();
 
-/* Get the length of the double-ended queue */
+/* Get the deque size */
 const size = linkedListDeque.size();
-console.log('Double-ended queue length size = ' + size);
+console.log('Deque size = ' + size);
 
-/* Check if the double-ended queue is empty */
+/* Check whether the deque is empty */
 const isEmpty = linkedListDeque.isEmpty();
-console.log('Double-ended queue is empty = ' + isEmpty);
+console.log('Is the deque empty = ' + isEmpty);

@@ -10,14 +10,14 @@ pub struct Pair {
     pub key: i32,
     pub val: String,
 }
-/* Hash table based on array implementation */
+/* Hash table implemented with an array */
 pub struct ArrayHashMap {
     buckets: Vec<Option<Pair>>,
 }
 
 impl ArrayHashMap {
     pub fn new() -> ArrayHashMap {
-        // Initialize array with 100 buckets
+        // Initialize an array containing 100 buckets
         Self {
             buckets: vec![None; 100],
         }
@@ -28,13 +28,13 @@ impl ArrayHashMap {
         key as usize % 100
     }
 
-    /* Query operation */
+    /* Lookup operation */
     pub fn get(&self, key: i32) -> Option<&String> {
         let index = self.hash_func(key);
         self.buckets[index].as_ref().map(|pair| &pair.val)
     }
 
-    /* Add operation */
+    /* Insert operation */
     pub fn put(&mut self, key: i32, val: &str) {
         let index = self.hash_func(key);
         self.buckets[index] = Some(Pair {
@@ -46,7 +46,7 @@ impl ArrayHashMap {
     /* Remove operation */
     pub fn remove(&mut self, key: i32) {
         let index = self.hash_func(key);
-        // Set to None to represent removal
+        // Set to None to mark removal
         self.buckets[index] = None;
     }
 
@@ -74,7 +74,7 @@ impl ArrayHashMap {
             .collect()
     }
 
-    /* Print hash table */
+    /* Print the hash table */
     pub fn print(&self) {
         for pair in self.entry_set() {
             println!("{} -> {}", pair.key, pair.val);
@@ -83,41 +83,41 @@ impl ArrayHashMap {
 }
 
 fn main() {
-    /* Initialize hash table */
+    /* Initialize the hash table */
     let mut map = ArrayHashMap::new();
-    /* Add operation */
-    // Add key-value pair (key, value) to hash table
-    map.put(12836, "Xiao Ha");
-    map.put(15937, "Xiao Luo");
-    map.put(16750, "Xiao Suan");
-    map.put(13276, "Xiao Fa");
-    map.put(10583, "Xiao Ya");
-    println!("\nAfter adding is complete, hash table is\nKey -> Value");
+    /*Insert operation */
+    // Add key-value pairs (key, value) to the hash table
+    map.put(12836, "小哈");
+    map.put(15937, "小啰");
+    map.put(16750, "小算");
+    map.put(13276, "小法");
+    map.put(10583, "小鸭");
+    println!("\nHash table after insertion:\nKey -> Value");
     map.print();
 
-    /* Query operation */
-    // Input key into hash table to get value
+    /* Lookup operation */
+    // Look up key in the hash table to obtain value
     let name = map.get(15937).unwrap();
-    println!("\nInput student ID 15937, found name {}", name);
+    println!("\nLooking up student ID 15937 gives name {}", name);
 
     /* Remove operation */
-    // Remove key-value pair (key, value) from hash table
+    // Remove the key-value pair (key, value) from the hash table
     map.remove(10583);
-    println!("\nAfter removing 10583, hash table is\nKey -> Value");
+    println!("\nHash table after removing 10583:\nKey -> Value");
     map.print();
 
-    /* Traverse hash table */
-    println!("\nTraverse key-value pairs Key->Value");
+    /* Traverse the hash table */
+    println!("\nTraverse key-value pairs: Key->Value");
     for pair in map.entry_set() {
         println!("{} -> {}", pair.key, pair.val);
     }
 
-    println!("\nTraverse keys only Key");
+    println!("\nTraverse keys only: Key");
     for key in map.key_set() {
         println!("{}", key);
     }
 
-    println!("\nTraverse values only Value");
+    println!("\nTraverse values only: Value");
     for val in map.value_set() {
         println!("{}", val);
     }

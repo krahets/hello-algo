@@ -15,31 +15,31 @@ fun dfs(
     res: MutableList<Vertex?>,
     vet: Vertex?
 ) {
-    res.add(vet)     // Record visited vertex
+    res.add(vet)     // Record the visited vertex
     visited.add(vet) // Mark this vertex as visited
-    // Traverse all adjacent vertices of this vertex
+    // Traverse all neighbors of this vertex
     for (adjVet in graph.adjList[vet]!!) {
         if (visited.contains(adjVet))
-            continue  // Skip vertices that have been visited
-        // Recursively visit adjacent vertices
+            continue  // Skip vertices that have already been visited
+        // Recursively visit the neighboring vertex
         dfs(graph, visited, res, adjVet)
     }
 }
 
 /* Depth-first traversal */
-// Use adjacency list to represent the graph, in order to obtain all adjacent vertices of a specified vertex
+// Represent the graph with an adjacency list to access all neighbors of a given vertex
 fun graphDFS(graph: GraphAdjList, startVet: Vertex?): MutableList<Vertex?> {
     // Vertex traversal sequence
     val res = mutableListOf<Vertex?>()
-    // Hash set for recording vertices that have been visited
+    // Hash set recording visited vertices
     val visited = HashSet<Vertex?>()
     dfs(graph, visited, res, startVet)
     return res
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    /* Add edge */
+    /* Initialize the undirected graph */
     val v = Vertex.valsToVets(intArrayOf(0, 1, 2, 3, 4, 5, 6))
     val edges = arrayOf(
         arrayOf(v[0], v[1]),
@@ -50,11 +50,11 @@ fun main() {
         arrayOf(v[5], v[6])
     )
     val graph = GraphAdjList(edges)
-    println("\nAfter initialization, graph is")
+    println("\nGraph after initialization:")
     graph.print()
 
     /* Depth-first traversal */
     val res = graphDFS(graph, v[0])
-    println("\nDepth-first traversal (DFS) vertex sequence is")
+    println("\nVertex sequence from depth-first traversal (DFS):")
     println(Vertex.vetsToVals(res))
 }

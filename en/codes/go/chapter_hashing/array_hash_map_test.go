@@ -10,42 +10,42 @@ import (
 )
 
 func TestArrayHashMap(t *testing.T) {
-	/* Initialize hash table */
+	/* Initialize the hash table */
 	hmap := newArrayHashMap()
 
-	/* Add operation */
-	// Add key-value pair (key, value) to the hash table
-	hmap.put(12836, "Xiao Ha")
-	hmap.put(15937, "Xiao Luo")
-	hmap.put(16750, "Xiao Suan")
-	hmap.put(13276, "Xiao Fa")
-	hmap.put(10583, "Xiao Ya")
-	fmt.Println("\nAfter adding is complete, hash table is\nKey -> Value")
+	/* Insert operation */
+	// Insert the key-value pair (key, value) into the hash table
+	hmap.put(12836, "小哈")
+	hmap.put(15937, "小啰")
+	hmap.put(16750, "小算")
+	hmap.put(13276, "小法")
+	hmap.put(10583, "小鸭")
+	fmt.Println("\nHash table after insertion:\nKey -> Value")
 	hmap.print()
 
-	/* Query operation */
-	// Input key into hash table to get value
+	/* Lookup operation */
+	// Look up key in the hash table to obtain value
 	name := hmap.get(15937)
-	fmt.Println("\nInput student ID 15937, query name " + name)
+	fmt.Println("\nLook up student ID 15937 to obtain the name " + name)
 
 	/* Remove operation */
-	// Remove key-value pair (key, value) from hash table
+	// Remove the key-value pair (key, value) from the hash table
 	hmap.remove(10583)
-	fmt.Println("\nAfter removing 10583, hash table is\nKey -> Value")
+	fmt.Println("\nHash table after removing 10583:\nKey -> Value")
 	hmap.print()
 
-	/* Traverse hash table */
-	fmt.Println("\nTraverse key-value pairs Key->Value")
+	/* Traverse the hash table */
+	fmt.Println("\nTraverse key-value pairs: Key->Value")
 	for _, kv := range hmap.pairSet() {
 		fmt.Println(kv.key, " -> ", kv.val)
 	}
 
-	fmt.Println("\nTraverse keys only Key")
+	fmt.Println("\nTraverse keys only: Key")
 	for _, key := range hmap.keySet() {
 		fmt.Println(key)
 	}
 
-	fmt.Println("\nTraverse values only Value")
+	fmt.Println("\nTraverse values only: Value")
 	for _, val := range hmap.valueSet() {
 		fmt.Println(val)
 	}

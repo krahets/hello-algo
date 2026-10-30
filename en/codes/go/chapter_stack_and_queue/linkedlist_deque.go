@@ -8,30 +8,30 @@ import (
 	"container/list"
 )
 
-/* Double-ended queue based on doubly linked list implementation */
+/* Deque implemented with a doubly linked list */
 type linkedListDeque struct {
-	// Use built-in package list
+	// Use the standard library list package
 	data *list.List
 }
 
-/* Initialize deque */
+/* Initialize the deque */
 func newLinkedListDeque() *linkedListDeque {
 	return &linkedListDeque{
 		data: list.New(),
 	}
 }
 
-/* Front element enqueue */
+/* Enqueue an element at the front */
 func (s *linkedListDeque) pushFirst(value any) {
 	s.data.PushFront(value)
 }
 
-/* Rear element enqueue */
+/* Enqueue an element at the rear */
 func (s *linkedListDeque) pushLast(value any) {
 	s.data.PushBack(value)
 }
 
-/* Check if the double-ended queue is empty */
+/* Dequeue the front element */
 func (s *linkedListDeque) popFirst() any {
 	if s.isEmpty() {
 		return nil
@@ -41,7 +41,7 @@ func (s *linkedListDeque) popFirst() any {
 	return e.Value
 }
 
-/* Rear element dequeue */
+/* Dequeue the rear element */
 func (s *linkedListDeque) popLast() any {
 	if s.isEmpty() {
 		return nil
@@ -51,7 +51,7 @@ func (s *linkedListDeque) popLast() any {
 	return e.Value
 }
 
-/* Return list for printing */
+/* Access the front element */
 func (s *linkedListDeque) peekFirst() any {
 	if s.isEmpty() {
 		return nil
@@ -60,7 +60,7 @@ func (s *linkedListDeque) peekFirst() any {
 	return e.Value
 }
 
-/* Driver Code */
+/* Access the rear element */
 func (s *linkedListDeque) peekLast() any {
 	if s.isEmpty() {
 		return nil
@@ -69,17 +69,17 @@ func (s *linkedListDeque) peekLast() any {
 	return e.Value
 }
 
-/* Get the length of the queue */
+/* Get the queue size */
 func (s *linkedListDeque) size() int {
 	return s.data.Len()
 }
 
-/* Check if the queue is empty */
+/* Check whether the queue is empty */
 func (s *linkedListDeque) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-/* Get List for printing */
+/* Get the list for printing */
 func (s *linkedListDeque) toList() *list.List {
 	return s.data
 }

@@ -9,8 +9,8 @@
 /* Doubly linked list node */
 typedef struct DoublyListNode {
     int val;                     // Node value
-    struct DoublyListNode *next; // Successor node
-    struct DoublyListNode *prev; // Predecessor node
+    struct DoublyListNode *next; // Next node
+    struct DoublyListNode *prev; // Previous node
 } DoublyListNode;
 
 /* Constructor */
@@ -27,10 +27,10 @@ void delDoublyListNode(DoublyListNode *node) {
     free(node);
 }
 
-/* Double-ended queue based on doubly linked list implementation */
+/* Deque implemented with a doubly linked list */
 typedef struct {
-    DoublyListNode *front, *rear; // Head node front, tail node rear
-    int queSize;                  // Length of the double-ended queue
+    DoublyListNode *front, *rear; // Head node front and tail node rear
+    int queSize;                  // Deque size
 } LinkedListDeque;
 
 /* Constructor */
@@ -50,16 +50,16 @@ void delLinkedListdeque(LinkedListDeque *deque) {
         deque->front = deque->front->next;
         free(tmp);
     }
-    // Free deque structure
+    // Free the deque structure
     free(deque);
 }
 
-/* Get the length of the queue */
+/* Get the queue size */
 int size(LinkedListDeque *deque) {
     return deque->queSize;
 }
 
-/* Check if the queue is empty */
+/* Check whether the queue is empty */
 bool empty(LinkedListDeque *deque) {
     return (size(deque) == 0);
 }
@@ -67,44 +67,44 @@ bool empty(LinkedListDeque *deque) {
 /* Enqueue */
 void push(LinkedListDeque *deque, int num, bool isFront) {
     DoublyListNode *node = newDoublyListNode(num);
-    // If list is empty, set both front and rear to node
+    // If the list is empty, make both front and rear point to node
     if (empty(deque)) {
         deque->front = deque->rear = node;
     }
-    // Front of the queue enqueue operation
+    // Enqueue at the front
     else if (isFront) {
         // Add node to the head of the linked list
         deque->front->prev = node;
         node->next = deque->front;
-        deque->front = node; // Update head node
+        deque->front = node; // Update the head node
     }
-    // Rear of the queue enqueue operation
+    // Enqueue at the rear
     else {
         // Add node to the tail of the linked list
         deque->rear->next = node;
         node->prev = deque->rear;
         deque->rear = node;
     }
-    deque->queSize++; // Update queue length
+    deque->queSize++; // Update the queue size
 }
 
-/* Front of the queue enqueue */
+/* Enqueue at the front */
 void pushFirst(LinkedListDeque *deque, int num) {
     push(deque, num, true);
 }
 
-/* Rear of the queue enqueue */
+/* Enqueue at the rear */
 void pushLast(LinkedListDeque *deque, int num) {
     push(deque, num, false);
 }
 
-/* Return list for printing */
+/* Access the front element */
 int peekFirst(LinkedListDeque *deque) {
     assert(size(deque) && deque->front);
     return deque->front->val;
 }
 
-/* Driver Code */
+/* Access the rear element */
 int peekLast(LinkedListDeque *deque) {
     assert(size(deque) && deque->rear);
     return deque->rear->val;
@@ -115,49 +115,49 @@ int pop(LinkedListDeque *deque, bool isFront) {
     if (empty(deque))
         return -1;
     int val;
-    // When the deque has one element, front and rear point to the same node
+    // When the queue size is 1, the head and tail point to the same node
     if (deque->queSize == 1) {
         val = deque->front->val;
-        delDoublyListNode(deque->front); // Free the shared node once
+        delDoublyListNode(deque->front); // Both point to the same node, so free it only once
         deque->front = NULL;
         deque->rear = NULL;
     }
-    // Temporarily store head node value
+    // Dequeue from the front
     else if (isFront) {
-        val = peekFirst(deque); // Delete head node
+        val = peekFirst(deque); // Save the head node value
         DoublyListNode *fNext = deque->front->next;
         fNext->prev = NULL;
         deque->front->next = NULL;
         delDoublyListNode(deque->front);
-        deque->front = fNext; // Update head node
+        deque->front = fNext; // Update the head node
     }
-    // Temporarily store tail node value
+    // Dequeue from the rear
     else {
-        val = peekLast(deque); // Delete tail node
+        val = peekLast(deque); // Save the tail node value
         DoublyListNode *rPrev = deque->rear->prev;
         rPrev->next = NULL;
         deque->rear->prev = NULL;
         delDoublyListNode(deque->rear);
-        deque->rear = rPrev; // Update tail node
+        deque->rear = rPrev; // Update the tail node
     }
-    deque->queSize--; // Update queue length
+    deque->queSize--; // Update the queue size
     return val;
 }
 
-/* Rear of the queue dequeue */
+/* Dequeue from the front */
 int popFirst(LinkedListDeque *deque) {
     return pop(deque, true);
 }
 
-/* Access rear of the queue element */
+/* Dequeue from the rear */
 int popLast(LinkedListDeque *deque) {
     return pop(deque, false);
 }
 
-/* Print queue */
+/* Print the queue */
 void printLinkedListDeque(LinkedListDeque *deque) {
     int *arr = malloc(sizeof(int) * deque->queSize);
-    // Copy data from list to array
+    // Copy the linked list data into an array
     int i;
     DoublyListNode *node;
     for (i = 0, node = deque->front; i < deque->queSize; i++) {
@@ -168,45 +168,45 @@ void printLinkedListDeque(LinkedListDeque *deque) {
     free(arr);
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Get the length of the double-ended queue */
+    /* Initialize the deque */
     LinkedListDeque *deque = newLinkedListDeque();
     pushLast(deque, 3);
     pushLast(deque, 2);
     pushLast(deque, 5);
-    printf("Double-ended queue deque = ");
+    printf("Deque deque = ");
     printLinkedListDeque(deque);
 
-    /* Update element */
+    /* Access an element */
     int peekFirstNum = peekFirst(deque);
     printf("Front element peekFirst = %d\r\n", peekFirstNum);
     int peekLastNum = peekLast(deque);
-    printf("Front element peekLast = %d\r\n", peekLastNum);
+    printf("Rear element peekLast = %d\r\n", peekLastNum);
 
-    /* Elements enqueue */
+    /* Enqueue elements */
     pushLast(deque, 4);
-    printf("After element 4 enqueues at back, deque =");
+    printf("After enqueuing element 4 at the rear, deque =");
     printLinkedListDeque(deque);
     pushFirst(deque, 1);
-    printf("After element 1 enqueues at front, deque =");
+    printf("After enqueuing element 1 at the front, deque =");
     printLinkedListDeque(deque);
 
-    /* Element dequeue */
+    /* Dequeue an element */
     int popLastNum = popLast(deque);
-    printf("Dequeue from rear popLast = %d, deque after rear dequeue = ", popLastNum);
+    printf("Element removed from the rear, popLast = %d; after removal, deque = ", popLastNum);
     printLinkedListDeque(deque);
     int popFirstNum = popFirst(deque);
-    printf("Dequeue from front popFirst = %d, deque after front dequeue = ", popFirstNum);
+    printf("Element removed from the front, popFirst = %d; after removal, deque = ", popFirstNum);
     printLinkedListDeque(deque);
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     int dequeSize = size(deque);
     printf("Deque size = %d\r\n", dequeSize);
 
-    /* Check if the queue is empty */
+    /* Check whether the queue is empty */
     bool isEmpty = empty(deque);
-    printf("Is deque empty = %s\r\n", isEmpty ? "true" : "false");
+    printf("Is the deque empty = %s\r\n", isEmpty ? "true" : "false");
 
     // Free memory
     delLinkedListdeque(deque);

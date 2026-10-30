@@ -12,5 +12,5 @@ import (
 func TestMergeSort(t *testing.T) {
 	nums := []int{7, 3, 2, 6, 0, 1, 5, 4}
 	mergeSort(nums, 0, len(nums)-1)
-	fmt.Println("After merge sort completes, nums = ", nums)
+	fmt.Println("After merge sort, nums = ", nums)
 }

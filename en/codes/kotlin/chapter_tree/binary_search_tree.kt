@@ -11,56 +11,56 @@ import utils.printTree
 
 /* Binary search tree */
 class BinarySearchTree {
-    // Initialize empty tree
+    // Initialize an empty tree
     private var root: TreeNode? = null
 
-    /* Get binary tree root node */
+    /* Get the root of the binary tree */
     fun getRoot(): TreeNode? {
         return root
     }
 
-    /* Search node */
+    /* Find a node */
     fun search(num: Int): TreeNode? {
         var cur = root
-        // Loop search, exit after passing leaf node
+        // Continue searching while cur is not null
         while (cur != null) {
-            // Target node is in cur's right subtree
+            // The target node lies in the right subtree of cur
             cur = if (cur._val < num)
                 cur.right
-            // Target node is in cur's left subtree
+            // The target node lies in the left subtree of cur
             else if (cur._val > num)
                 cur.left
-            // Found target node, exit loop
+            // The target node was found; exit the loop
             else
                 break
         }
-        // Return target node
+        // Return the target node
         return cur
     }
 
-    /* Insert node */
+    /* Insert a node */
     fun insert(num: Int) {
-        // If tree is empty, initialize root node
+        // If the tree is empty, initialize the root node
         if (root == null) {
             root = TreeNode(num)
             return
         }
         var cur = root
         var pre: TreeNode? = null
-        // Loop search, exit after passing leaf node
+        // Continue searching while cur is not null
         while (cur != null) {
-            // Found duplicate node, return directly
+            // Return immediately if a duplicate node is found
             if (cur._val == num)
                 return
             pre = cur
-            // Insertion position is in cur's right subtree
+            // The insertion position lies in the right subtree of cur
             cur = if (cur._val < num)
                 cur.right
-            // Insertion position is in cur's left subtree
+            // The insertion position lies in the left subtree of cur
             else
                 cur.left
         }
-        // Insert node
+        // Insert a node
         val node = TreeNode(num)
         if (pre?._val!! < num)
             pre.right = node
@@ -68,90 +68,90 @@ class BinarySearchTree {
             pre.left = node
     }
 
-    /* Remove node */
+    /* Remove a node */
     fun remove(num: Int) {
-        // If tree is empty, return directly
+        // Return immediately if the tree is empty
         if (root == null)
             return
         var cur = root
         var pre: TreeNode? = null
-        // Loop search, exit after passing leaf node
+        // Continue searching while cur is not null
         while (cur != null) {
-            // Found node to delete, exit loop
+            // The node to remove was found; exit the loop
             if (cur._val == num)
                 break
             pre = cur
-            // Node to delete is in cur's right subtree
+            // The node to remove lies in the right subtree of cur
             cur = if (cur._val < num)
                 cur.right
-            // Node to delete is in cur's left subtree
+            // The node to remove lies in the left subtree of cur
             else
                 cur.left
         }
-        // If no node to delete, return directly
+        // Return immediately if the node to remove does not exist
         if (cur == null)
             return
-        // Number of child nodes = 0 or 1
+        // Number of children = 0 or 1
         if (cur.left == null || cur.right == null) {
-            // When number of child nodes = 0 / 1, child = null / that child node
+            // With 0 / 1 children, child is null / the child node, respectively
             val child = if (cur.left != null)
                 cur.left
             else
                 cur.right
-            // Delete node cur
+            // Remove node cur
             if (cur != root) {
                 if (pre!!.left == cur)
                     pre.left = child
                 else
                     pre.right = child
             } else {
-                // If deleted node is root node, reassign root node
+                // If the removed node is the root, assign the new root
                 root = child
             }
-            // Number of child nodes = 2
+            // Number of children = 2
         } else {
-            // Get next node of cur in inorder traversal
+            // Get the inorder successor of cur
             var tmp = cur.right
             while (tmp!!.left != null) {
                 tmp = tmp.left
             }
-            // Recursively delete node tmp
+            // Recursively remove node tmp
             remove(tmp._val)
-            // Replace cur with tmp
+            // Replace the value of cur with the value of tmp
             cur._val = tmp._val
         }
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    /* Initialize binary search tree */
+    /* Initialize the binary search tree */
     val bst = BinarySearchTree()
-    // Please note that different insertion orders will generate different binary trees, this sequence can generate a perfect binary tree
+    // Different insertion orders produce different binary trees; this sequence produces a perfect binary tree
     val nums = intArrayOf(8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15)
     for (num in nums) {
         bst.insert(num)
     }
-    println("\nInitialized binary tree is\n")
+    println("\nThe initialized binary tree is:\n")
     printTree(bst.getRoot())
 
-    /* Search node */
+    /* Find a node */
     val node = bst.search(7)
-    println("Found node object is $node, node value = ${node?._val}")
+    println("Found node object: $node; node value = ${node?._val}")
 
-    /* Insert node */
+    /* Insert a node */
     bst.insert(16)
-    println("\nAfter inserting node 16, binary tree is\n")
+    println("\nBinary tree after inserting node 16:\n")
     printTree(bst.getRoot())
 
-    /* Remove node */
+    /* Remove a node */
     bst.remove(1)
-    println("\nAfter removing node 1, binary tree is\n")
+    println("\nBinary tree after removing node 1:\n")
     printTree(bst.getRoot())
     bst.remove(2)
-    println("\nAfter removing node 2, binary tree is\n")
+    println("\nBinary tree after removing node 2:\n")
     printTree(bst.getRoot())
     bst.remove(4)
-    println("\nAfter removing node 4, binary tree is\n")
+    println("\nBinary tree after removing node 4:\n")
     printTree(bst.getRoot())
 }

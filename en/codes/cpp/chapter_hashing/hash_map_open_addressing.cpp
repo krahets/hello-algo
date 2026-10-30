@@ -11,10 +11,10 @@ class HashMapOpenAddressing {
   private:
     int size;                             // Number of key-value pairs
     int capacity = 4;                     // Hash table capacity
-    const double loadThres = 2.0 / 3.0;     // Load factor threshold for triggering expansion
-    const int extendRatio = 2;            // Expansion multiplier
+    const double loadThres = 2.0 / 3.0;     // Load factor threshold that triggers capacity growth
+    const int extendRatio = 2;            // Capacity growth factor
     vector<Pair *> buckets;               // Bucket array
-    Pair *TOMBSTONE = new Pair(-1, "-1"); // Removal marker
+    Pair *TOMBSTONE = new Pair(-1, "-1"); // Tombstone marker
 
   public:
     /* Constructor */
@@ -41,68 +41,68 @@ class HashMapOpenAddressing {
         return (double)size / capacity;
     }
 
-    /* Search for bucket index corresponding to key */
+    /* Find the bucket index for key */
     int findBucket(int key) {
         int index = hashFunc(key);
         int firstTombstone = -1;
-        // Linear probing, break when encountering an empty bucket
+        // Probe linearly until an empty bucket is reached
         while (buckets[index] != nullptr) {
-            // If key is encountered, return the corresponding bucket index
+            // If key is found, return its bucket index
             if (buckets[index]->key == key) {
-                // If a removal marker was encountered before, move the key-value pair to that index
+                // If a tombstone was encountered earlier, move the key-value pair to that index
                 if (firstTombstone != -1) {
                     buckets[firstTombstone] = buckets[index];
                     buckets[index] = TOMBSTONE;
-                    return firstTombstone; // Return the moved bucket index
+                    return firstTombstone; // Return the bucket index after the move
                 }
-                return index; // Return bucket index
+                return index; // Return the bucket index
             }
-            // Record the first removal marker encountered
+            // Record the first tombstone encountered
             if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                 firstTombstone = index;
             }
-            // Calculate bucket index, wrap around to the head if past the tail
+            // Calculate the bucket index, wrapping to the beginning after the end
             index = (index + 1) % capacity;
         }
-        // If key does not exist, return the index for insertion
+        // If key is absent, return the index for insertion
         return firstTombstone == -1 ? index : firstTombstone;
     }
 
-    /* Query operation */
+    /* Lookup operation */
     string get(int key) {
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         int index = findBucket(key);
-        // If key-value pair is found, return corresponding val
+        // If the key-value pair is found, return its val
         if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
             return buckets[index]->val;
         }
-        // Return empty string if key-value pair does not exist
+        // Return an empty string if the key-value pair does not exist
         return "";
     }
 
-    /* Add operation */
+    /* Insert operation */
     void put(int key, string val) {
-        // When load factor exceeds threshold, perform expansion
+        // Grow the capacity when the load factor exceeds the threshold
         if (loadFactor() > loadThres) {
             extend();
         }
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         int index = findBucket(key);
-        // If key-value pair is found, overwrite val and return
+        // If the key-value pair is found, overwrite val and return
         if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
             buckets[index]->val = val;
             return;
         }
-        // If key-value pair does not exist, add the key-value pair
+        // If the key-value pair is absent, insert it
         buckets[index] = new Pair(key, val);
         size++;
     }
 
     /* Remove operation */
     void remove(int key) {
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         int index = findBucket(key);
-        // If key-value pair is found, overwrite it with removal marker
+        // If the key-value pair is found, replace it with a tombstone
         if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
             delete buckets[index];
             buckets[index] = TOMBSTONE;
@@ -110,15 +110,15 @@ class HashMapOpenAddressing {
         }
     }
 
-    /* Expand hash table */
+    /* Grow the hash table capacity */
     void extend() {
-        // Temporarily store the original hash table
+        // Keep a copy of the original bucket array
         vector<Pair *> bucketsTmp = buckets;
-        // Initialize expanded new hash table
+        // Initialize a new hash table with the expanded capacity
         capacity *= extendRatio;
         buckets = vector<Pair *>(capacity, nullptr);
         size = 0;
-        // Move key-value pairs from original hash table to new hash table
+        // Move the key-value pairs from the original hash table to the new one
         for (Pair *pair : bucketsTmp) {
             if (pair != nullptr && pair != TOMBSTONE) {
                 put(pair->key, pair->val);
@@ -127,7 +127,7 @@ class HashMapOpenAddressing {
         }
     }
 
-    /* Print hash table */
+    /* Print the hash table */
     void print() {
         for (Pair *pair : buckets) {
             if (pair == nullptr) {
@@ -141,30 +141,30 @@ class HashMapOpenAddressing {
     }
 };
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    // Initialize hash table
+    // Initialize the hash table
     HashMapOpenAddressing hashmap;
 
-    // Add operation
-    // Add key-value pair (key, val) to the hash table
-    hashmap.put(12836, "Xiao Ha");
-    hashmap.put(15937, "Xiao Luo");
-    hashmap.put(16750, "Xiao Suan");
-    hashmap.put(13276, "Xiao Fa");
-    hashmap.put(10583, "Xiao Ya");
-    cout << "\nAfter adding is complete, hash table is\nKey -> Value" << endl;
+    // Insert operation
+    // Insert the key-value pair (key, val) into the hash table
+    hashmap.put(12836, "小哈");
+    hashmap.put(15937, "小啰");
+    hashmap.put(16750, "小算");
+    hashmap.put(13276, "小法");
+    hashmap.put(10583, "小鸭");
+    cout << "\nHash table after insertion:\nKey -> Value" << endl;
     hashmap.print();
 
-    // Query operation
-    // Input key into hash table to get value val
+    // Lookup operation
+    // Look up key in the hash table to obtain val
     string name = hashmap.get(13276);
-    cout << "\nInput student ID 13276, query name " << name << endl;
+    cout << "\nLook up student ID 13276 to obtain the name " << name << endl;
 
     // Remove operation
-    // Remove key-value pair (key, val) from hash table
+    // Remove the key-value pair (key, val) from the hash table
     hashmap.remove(16750);
-    cout << "\nAfter removing 16750, hash table is\nKey -> Value" << endl;
+    cout << "\nHash table after removing 16750:\nKey -> Value" << endl;
     hashmap.print();
 
     return 0;

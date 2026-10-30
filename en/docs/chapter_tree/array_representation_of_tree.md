@@ -1,34 +1,34 @@
-# Array Representation of Binary Trees
+# Array representation of a binary tree
 
-In the linked-list representation, the storage unit of a binary tree is a node `TreeNode`, and nodes are connected by pointers. The previous section introduced the basic operations of binary trees in this representation.
+In a linked representation, a binary tree stores data in `TreeNode` nodes connected by pointers. The previous section introduced basic operations on binary trees in this form.
 
-So, can we use an array to represent a binary tree? The answer is yes.
+Can we represent a binary tree with an array instead? Yes.
 
-## Representing Perfect Binary Trees
+## Representing a perfect binary tree
 
-Let's analyze a simple case first. Given a perfect binary tree, we store all nodes in an array according to the order of level-order traversal, where each node corresponds to a unique array index.
+Start with a simple case. Store every node of a perfect binary tree in an array in level order. Each node then corresponds to a unique array index.
 
-Based on the characteristics of level-order traversal, we can derive a "mapping formula" between parent node index and child node indices: **If a node's index is $i$, then its left child index is $2i + 1$ and its right child index is $2i + 2$**. The figure below shows the mapping relationships between various node indices.
+Level-order traversal gives us a mapping between parent and child indices: **if a node has index $i$, its left child has index $2i + 1$ and its right child has index $2i + 2$**. The figure below illustrates this relationship.
 
 ![Array representation of a perfect binary tree](array_representation_of_tree.assets/array_representation_binary_tree.png)
 
-**The mapping formula plays a role similar to the node references (pointers) in linked lists**. Given any node in the array, we can access its left (right) child node using the mapping formula.
+**The mapping formulas serve the same role as node references or pointers in a linked representation**. Given any node in the array, we can use them to access its left or right child.
 
-## Representing Any Binary Tree
+## Representing an arbitrary binary tree
 
-Perfect binary trees are a special case; in the middle levels of a binary tree, there are typically many `None` values. Since the level-order traversal sequence does not include these `None` values, we cannot infer the number and distribution of `None` values based on this sequence alone. **This means multiple binary tree structures can correspond to the same level-order traversal sequence**.
+A perfect binary tree is a special case. Other binary trees often contain many missing nodes, `None`, at intermediate levels. Ordinary level-order traversal omits these positions, so its sequence alone cannot tell us their number or locations. **Multiple tree structures can therefore produce the same level-order sequence**.
 
-As shown in the figure below, given a non-perfect binary tree, the above method of array representation fails.
+As shown below, the array representation above no longer works for a non-perfect binary tree.
 
-![Level-order traversal sequence corresponds to multiple binary tree possibilities](array_representation_of_tree.assets/array_representation_without_empty.png)
+![Multiple binary trees can share a level-order sequence](array_representation_of_tree.assets/array_representation_without_empty.png)
 
-To solve this problem, **we can explicitly write out all `None` values in the level-order traversal sequence**. As shown in the figure below, once we do this, the level-order traversal sequence can uniquely represent a binary tree. Example code is as follows:
+To solve this, **include every `None` position explicitly in the level-order sequence**. The sequence then represents the tree uniquely, as shown below. Example code follows:
 
 === "Python"
 
     ```python title=""
     # Array representation of a binary tree
-    # Using None to represent empty slots
+    # Use None for empty positions
     tree = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
     ```
 
@@ -36,7 +36,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```cpp title=""
     /* Array representation of a binary tree */
-    // Using the maximum integer value INT_MAX to mark empty slots
+    // Use INT_MAX, the maximum int value, for empty positions
     vector<int> tree = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     ```
 
@@ -44,7 +44,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```java title=""
     /* Array representation of a binary tree */
-    // Using the Integer wrapper class allows for using null to mark empty slots
+    // Use the wrapper class Integer so that null can mark empty positions
     Integer[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
     ```
 
@@ -52,7 +52,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```csharp title=""
     /* Array representation of a binary tree */
-    // Using nullable int (int?) allows for using null to mark empty slots
+    // Use the nullable type int? so that null can mark empty positions
     int?[] tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
@@ -60,7 +60,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```go title=""
     /* Array representation of a binary tree */
-    // Using an any type slice, allowing for nil to mark empty slots
+    // Use a slice of any so that nil can mark empty positions
     tree := []any{1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15}
     ```
 
@@ -68,7 +68,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```swift title=""
     /* Array representation of a binary tree */
-    // Using optional Int (Int?) allows for using nil to mark empty slots
+    // Use the optional type Int? so that nil can mark empty positions
     let tree: [Int?] = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
@@ -76,7 +76,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```javascript title=""
     /* Array representation of a binary tree */
-    // Using null to represent empty slots
+    // Use null for empty positions
     let tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
@@ -84,7 +84,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```typescript title=""
     /* Array representation of a binary tree */
-    // Using null to represent empty slots
+    // Use null for empty positions
     let tree: (number | null)[] = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
@@ -92,7 +92,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```dart title=""
     /* Array representation of a binary tree */
-    // Using nullable int (int?) allows for using null to mark empty slots
+    // Use the nullable type int? so that null can mark empty positions
     List<int?> tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
@@ -100,7 +100,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```rust title=""
     /* Array representation of a binary tree */
-    // Using None to mark empty slots
+    // Use None for empty positions
     let tree = [Some(1), Some(2), Some(3), Some(4), None, Some(6), Some(7), Some(8), Some(9), None, None, Some(12), None, None, Some(15)];
     ```
 
@@ -108,7 +108,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```c title=""
     /* Array representation of a binary tree */
-    // Using the maximum int value to mark empty slots, therefore, node values must not be INT_MAX
+    // Use the maximum int value for empty positions, so node values must not equal INT_MAX
     int tree[] = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     ```
 
@@ -116,7 +116,7 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```kotlin title=""
     /* Array representation of a binary tree */
-    // Using null to represent empty slots
+    // Use null for empty positions
     val tree = arrayOf( 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 )
     ```
 
@@ -124,37 +124,37 @@ To solve this problem, **we can explicitly write out all `None` values in the le
 
     ```ruby title=""
     ### Array representation of a binary tree ###
-    # Using nil to represent empty slots
+    # Use nil for empty positions
     tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
 ![Array representation of an arbitrary binary tree](array_representation_of_tree.assets/array_representation_with_empty.png)
 
-It's worth noting that **complete binary trees are very well-suited for array representation**. Recalling the definition of a complete binary tree, `None` only appears at the bottom level and towards the right, **meaning all `None` values must appear at the end of the level-order traversal sequence**.
+**Complete binary trees are particularly well suited to array representation**. By definition, missing positions occur only at the right end of the lowest level, **so all `None` entries appear at the end of the level-order sequence**.
 
-This means that when using an array to represent a complete binary tree, it's possible to omit storing all `None` values, which is very convenient. The figure below gives an example.
+We can therefore omit all `None` entries when storing a complete binary tree in an array. An example is shown below.
 
 ![Array representation of a complete binary tree](array_representation_of_tree.assets/array_representation_complete_binary_tree.png)
 
-The following code implements a binary tree using an array representation, including the following operations:
+The following code implements an array-based binary tree with these operations.
 
-- Given a node, obtain its value, left (right) child node, and parent node.
-- Obtain the preorder, inorder, postorder, and level-order traversal sequences.
+- Given a node, get its value, left or right child, and parent.
+- Obtain preorder, inorder, postorder, and level-order traversal sequences.
 
 ```src
 [file]{array_binary_tree}-[class]{array_binary_tree}-[func]{}
 ```
 
-## Advantages and Limitations
+## Strengths and limitations
 
-The array representation of binary trees has the following advantages:
+Array representation offers the following advantages.
 
-- Arrays are stored in contiguous memory space, which is cache-friendly, allowing faster access and traversal.
-- It does not require storing pointers, which saves space.
-- It allows random access to nodes.
+- Contiguous memory is cache-friendly, making access and traversal fast.
+- No pointers need to be stored, saving space.
+- Nodes can be accessed randomly by index.
 
-However, the array representation also has some limitations:
+However, it also has limitations.
 
-- Array storage requires contiguous memory space, so it is not suitable for storing trees with a large amount of data.
-- Adding or removing nodes requires array insertion and deletion operations, which have lower efficiency.
-- When there are many `None` values in the binary tree, the proportion of node data contained in the array is low, leading to lower space utilization.
+- Arrays require contiguous memory, making them unsuitable for extremely large trees.
+- Adding and removing nodes requires array insertion and deletion operations, which are inefficient.
+- If the tree has many missing nodes, actual node data occupies only a small fraction of the array, wasting space.

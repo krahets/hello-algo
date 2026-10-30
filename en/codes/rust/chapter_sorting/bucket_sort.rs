@@ -8,22 +8,22 @@ use hello_algo_rust::include::print_util;
 
 /* Bucket sort */
 fn bucket_sort(nums: &mut [f64]) {
-    // Initialize k = n/2 buckets, expected to allocate 2 elements per bucket
+    // Initialize k = n/2 buckets, expecting 2 elements per bucket
     let k = nums.len() / 2;
     let mut buckets = vec![vec![]; k];
-    // 1. Distribute array elements into various buckets
+    // 1. Distribute the array elements among the buckets
     for &num in nums.iter() {
-        // Input data range is [0, 1), use num * k to map to index range [0, k-1]
+        // The input range is [0, 1); use num * k to map each value to an index in [0, k-1]
         let i = (num * k as f64) as usize;
         // Add num to bucket i
         buckets[i].push(num);
     }
     // 2. Sort each bucket
     for bucket in &mut buckets {
-        // Use built-in sorting function, can also replace with other sorting algorithms
+        // Use the built-in sorting function, or replace it with another sorting algorithm
         bucket.sort_by(|a, b| a.partial_cmp(b).unwrap());
     }
-    // 3. Traverse buckets to merge results
+    // 3. Traverse the buckets to combine the results
     let mut i = 0;
     for bucket in buckets.iter() {
         for &num in bucket.iter() {
@@ -33,11 +33,11 @@ fn bucket_sort(nums: &mut [f64]) {
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
-    // Assume input data is floating point, interval [0, 1)
+    // Assume the input consists of floating-point numbers in [0, 1)
     let mut nums = [0.49, 0.96, 0.82, 0.09, 0.57, 0.43, 0.91, 0.75, 0.15, 0.37];
     bucket_sort(&mut nums);
-    print!("After bucket sort completes, nums = ");
+    print!("After bucket sort, nums = ");
     print_util::print_array(&nums);
 }

@@ -6,10 +6,10 @@
 
 package chapter_searching
 
-/* Method 1: Brute force enumeration */
+/* Method 1: brute-force enumeration */
 fun twoSumBruteForce(nums: IntArray, target: Int): IntArray {
     val size = nums.size
-    // Two nested loops, time complexity is O(n^2)
+    // Two nested loops give a time complexity of O(n^2)
     for (i in 0..<size - 1) {
         for (j in i + 1..<size) {
             if (nums[i] + nums[j] == target) return intArrayOf(i, j)
@@ -18,12 +18,12 @@ fun twoSumBruteForce(nums: IntArray, target: Int): IntArray {
     return IntArray(0)
 }
 
-/* Method 2: Auxiliary hash table */
+/* Method 2: auxiliary hash table */
 fun twoSumHashTable(nums: IntArray, target: Int): IntArray {
     val size = nums.size
-    // Auxiliary hash table, space complexity is O(n)
+    // The auxiliary hash table uses O(n) space
     val dic = HashMap<Int, Int>()
-    // Single loop, time complexity is O(n)
+    // A single loop gives a time complexity of O(n)
     for (i in 0..<size) {
         if (dic.containsKey(target - nums[i])) {
             return intArrayOf(dic[target - nums[i]]!!, i)
@@ -33,17 +33,17 @@ fun twoSumHashTable(nums: IntArray, target: Int): IntArray {
     return IntArray(0)
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    // ======= Test Case =======
+    // ======= Test case =======
     val nums = intArrayOf(2, 7, 11, 15)
     val target = 13
 
-    // ====== Driver Code ======
+    // ====== Driver code ======
     // Method 1
     var res = twoSumBruteForce(nums, target)
-    println("Method 1 res = ${res.contentToString()}")
+    println("Method 1: res = ${res.contentToString()}")
     // Method 2
     res = twoSumHashTable(nums, target)
-    println("Method 2 res = ${res.contentToString()}")
+    println("Method 2: res = ${res.contentToString()}")
 }

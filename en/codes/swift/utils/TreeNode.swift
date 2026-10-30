@@ -8,8 +8,8 @@
 public class TreeNode {
     public var val: Int // Node value
     public var height: Int // Node height
-    public var left: TreeNode? // Reference to left child node
-    public var right: TreeNode? // Reference to right child node
+    public var left: TreeNode? // Reference to the left child
+    public var right: TreeNode? // Reference to the right child
 
     /* Constructor */
     public init(x: Int) {
@@ -17,11 +17,11 @@ public class TreeNode {
         height = 0
     }
 
-    // For the serialization encoding rules, please refer to:
-    // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-    // Array representation of binary tree:
+    // For the serialization rules, see:
+    // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
+    // Array representation of the binary tree:
     // [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
-    // Linked list representation of binary tree:
+    // Linked representation of the binary tree:
     //             /——— 15
     //         /——— 7
     //     /——— 3

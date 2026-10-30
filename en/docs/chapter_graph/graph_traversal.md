@@ -1,37 +1,37 @@
-# Graph Traversal
+# Graph traversal
 
-Trees represent "one-to-many" relationships, while graphs have a higher degree of freedom and can represent any "many-to-many" relationships. Therefore, we can view trees as a special case of graphs. Clearly, **tree traversal operations are also a special case of graph traversal operations**.
+A tree represents one-to-many relationships, whereas a graph allows more freedom and can represent arbitrary many-to-many relationships. We can therefore view a tree as a special case of a graph. Accordingly, **tree traversal is also a special case of graph traversal**.
 
-Both graphs and trees require the application of search algorithms to implement traversal operations. Graph traversal methods can also be divided into two types: <u>breadth-first traversal</u> and <u>depth-first traversal</u>.
+Both graphs and trees use search algorithms for traversal. Graph traversal can likewise be divided into two types: <u>breadth-first traversal</u> and <u>depth-first traversal</u>.
 
-## Breadth-First Search
+## Breadth-first traversal
 
-**Breadth-first search proceeds from near to far: starting from a given node, it always visits the nearest vertices first and expands outward layer by layer**. As shown in the figure below, starting from the top-left vertex, first traverse all adjacent vertices of that vertex, then traverse all adjacent vertices of the next vertex, and so on, until all vertices have been visited.
+**Breadth-first traversal visits vertices from near to far. Starting from a vertex, it always visits the nearest vertices first and expands outward layer by layer**. In the figure below, we start at the top-left vertex and visit all its adjacent vertices, then visit all the adjacent vertices of the next vertex, and so on until every vertex has been visited.
 
-![Breadth-first search of a graph](graph_traversal.assets/graph_bfs.png)
+![Breadth-first traversal of a graph](graph_traversal.assets/graph_bfs.png)
 
-### Algorithm Implementation
+### Algorithm implementation
 
-BFS is typically implemented with the help of a queue, as shown in the code below. The queue has a "first in, first out" property, which aligns with the BFS idea of "near to far".
+BFS is usually implemented with a queue, as shown in the code below. A queue's first-in, first-out behavior fits the near-to-far order of BFS.
 
-1. Add the starting vertex `startVet` to the queue and begin the loop.
-2. In each iteration of the loop, pop the vertex at the front of the queue and record it as visited, then add all adjacent vertices of that vertex to the back of the queue.
-3. Repeat step `2.` until all vertices have been visited.
+1. Enqueue the starting vertex `startVet` and begin the loop.
+2. In each iteration, dequeue the vertex at the front and record the visit, then enqueue all its adjacent vertices at the rear.
+3. Repeat step `2.` until every vertex has been visited.
 
-To prevent revisiting vertices, we use a hash set `visited` to record which nodes have been visited.
+To avoid visiting a vertex more than once, we use a hash set `visited` to track which vertices have already been visited.
 
 !!! tip
 
-    A hash set can be viewed as a hash table that stores only `key` without storing `value`. It supports insertion, deletion, lookup, and update operations on `key` in $O(1)$ time. Based on the uniqueness of `key`, hash sets are typically used for data deduplication and similar scenarios.
+    A hash set can be viewed as a hash table that stores only `key` entries, with no `value` entries. Adding, removing, looking up, and modifying a `key` take $O(1)$ time. Because every `key` is unique, hash sets are commonly used to remove duplicate data.
 
 ```src
 [file]{graph_bfs}-[class]{}-[func]{graph_bfs}
 ```
 
-The code is relatively abstract; it is recommended to refer to the figure below to deepen understanding.
+The code is fairly abstract; compare it with the figure below to build your understanding.
 
 === "<1>"
-    ![Steps of breadth-first search of a graph](graph_traversal.assets/graph_bfs_step1.png)
+    ![Steps in breadth-first traversal of a graph](graph_traversal.assets/graph_bfs_step1.png)
 
 === "<2>"
     ![graph_bfs_step2](graph_traversal.assets/graph_bfs_step2.png)
@@ -63,39 +63,39 @@ The code is relatively abstract; it is recommended to refer to the figure below 
 === "<11>"
     ![graph_bfs_step11](graph_traversal.assets/graph_bfs_step11.png)
 
-!!! question "Is the breadth-first traversal sequence unique?"
+!!! question "Is the breadth-first traversal order unique?"
 
-    Not unique. Breadth-first search only requires traversing in a "near to far" order, **and the traversal order of vertices at the same distance can be arbitrarily shuffled**. Taking the figure above as an example, the visit order of vertices $1$ and $3$ can be swapped, as can the visit order of vertices $2$, $4$, and $6$.
+    No. Breadth-first traversal only requires vertices to be visited from near to far; **vertices at the same distance may be visited in any order**. In the figure above, vertices $1$ and $3$ can be visited in either order, and vertices $2$, $4$, and $6$ can also be visited in any order.
 
-### Complexity Analysis
+### Complexity analysis
 
-**Time complexity**: All vertices will be enqueued and dequeued once, using $O(|V|)$ time; in the process of traversing adjacent vertices, since it is an undirected graph, all edges will be visited $2$ times, using $O(2|E|)$ time; overall using $O(|V| + |E|)$ time.
+**Time complexity**: Every vertex is enqueued and dequeued once, taking $O(|V|)$ time. While traversing adjacent vertices, every edge is visited $2$ times because the graph is undirected, taking $O(2|E|)$ time. The total time is $O(|V| + |E|)$.
 
-**Space complexity**: The list `res`, hash set `visited`, and queue `que` can contain at most $|V|$ vertices, using $O(|V|)$ space.
+**Space complexity**: The list `res`, hash set `visited`, and queue `que` each contain at most $|V|$ vertices, requiring $O(|V|)$ space.
 
-## Depth-First Search
+## Depth-first traversal
 
-**Depth-first search is a traversal method that prioritizes going as far as possible, then backtracks when no path remains**. As shown in the figure below, starting from the top-left vertex, visit an adjacent vertex of the current vertex, continuing until reaching a dead end, then return and continue going as far as possible before returning again, and so on, until all vertices have been traversed.
+**Depth-first traversal follows a path as far as possible and returns when it can go no farther**. In the figure below, we start at the top-left vertex and move to an adjacent vertex of the current vertex, continuing until we reach a dead end. We then return and explore another path as far as possible, repeating this process until every vertex has been visited.
 
-![Depth-first search of a graph](graph_traversal.assets/graph_dfs.png)
+![Depth-first traversal of a graph](graph_traversal.assets/graph_dfs.png)
 
-### Algorithm Implementation
+### Algorithm implementation
 
-This "go as far as possible then return" algorithm paradigm is typically implemented using recursion. Similar to breadth-first search, in depth-first search we also need a hash set `visited` to record visited vertices and avoid revisiting.
+This pattern of going as far as possible and then returning is usually implemented with recursion. As with breadth-first traversal, we use a hash set `visited` to track visited vertices and avoid visiting them again.
 
 ```src
 [file]{graph_dfs}-[class]{}-[func]{graph_dfs}
 ```
 
-The algorithm flow of depth-first search is shown in the figure below.
+The figure below shows the steps of depth-first traversal.
 
-- **Straight dashed lines represent downward recursion**, indicating that a new recursive method has been initiated to visit a new vertex.
-- **Curved dashed lines represent upward backtracking**, indicating that this recursive call has returned to the point where it was made.
+- **Straight dashed lines show recursive descent**, where a new recursive call begins to visit another vertex.
+- **Curved dashed lines show backtracking**, where a recursive call has returned to the point from which it was made.
 
-To deepen understanding, it is recommended to combine the figure below with the code to mentally simulate (or draw out) the entire DFS process, including when each recursive call begins and when it returns.
+To deepen your understanding, follow the figure below alongside the code and mentally simulate (or draw on paper) the entire DFS process, including when each recursive call begins and returns.
 
 === "<1>"
-    ![Steps of depth-first search of a graph](graph_traversal.assets/graph_dfs_step1.png)
+    ![Steps in depth-first traversal of a graph](graph_traversal.assets/graph_dfs_step1.png)
 
 === "<2>"
     ![graph_dfs_step2](graph_traversal.assets/graph_dfs_step2.png)
@@ -127,14 +127,14 @@ To deepen understanding, it is recommended to combine the figure below with the 
 === "<11>"
     ![graph_dfs_step11](graph_traversal.assets/graph_dfs_step11.png)
 
-!!! question "Is the depth-first traversal sequence unique?"
+!!! question "Is the depth-first traversal order unique?"
 
-    Similar to breadth-first search, depth-first traversal sequences are also not unique. Given a vertex, any exploration direction may be chosen first; that is, the order of adjacent vertices can be arbitrarily rearranged and still constitute depth-first search.
+    Like breadth-first traversal, depth-first traversal does not have a unique order. From any vertex, we can explore in any direction first: rearranging the order of adjacent vertices still produces a depth-first traversal.
+    
+    For example, in tree traversal, "root $\rightarrow$ left $\rightarrow$ right", "left $\rightarrow$ root $\rightarrow$ right", and "left $\rightarrow$ right $\rightarrow$ root" correspond to preorder, inorder, and postorder traversal. They use three different visiting priorities, yet all are depth-first traversals.
 
-    Taking tree traversal as an example, "root $\rightarrow$ left $\rightarrow$ right", "left $\rightarrow$ root $\rightarrow$ right", and "left $\rightarrow$ right $\rightarrow$ root" correspond to pre-order, in-order, and post-order traversals, respectively. They represent three different traversal priorities, yet all three belong to depth-first search.
+### Complexity analysis
 
-### Complexity Analysis
+**Time complexity**: Every vertex is visited $1$ time, taking $O(|V|)$ time, and every edge is visited $2$ times, taking $O(2|E|)$ time. The total time is $O(|V| + |E|)$.
 
-**Time complexity**: All vertices will be visited $1$ time, using $O(|V|)$ time; all edges will be visited $2$ times, using $O(2|E|)$ time; overall using $O(|V| + |E|)$ time.
-
-**Space complexity**: The list `res` and hash set `visited` can contain at most $|V|$ vertices, and the maximum recursion depth is $|V|$, therefore using $O(|V|)$ space.
+**Space complexity**: The list `res` and hash set `visited` each contain at most $|V|$ vertices, and the maximum recursion depth is $|V|$, so the space complexity is $O(|V|)$.

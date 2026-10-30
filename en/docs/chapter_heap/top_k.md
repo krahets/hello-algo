@@ -1,42 +1,42 @@
-# Top-k Problem
+# The top-k problem
 
 !!! question
 
-    Given an unordered array `nums` of length $n$, return the largest $k$ elements in the array.
+    Given an unsorted array `nums` of length $n$, return its largest $k$ elements.
 
-For this problem, we will first introduce two relatively straightforward solutions, followed by a more efficient heap-based solution.
+We first introduce two straightforward solutions, then a more efficient solution using a heap.
 
-## Method 1: Iterative Selection
+## Method 1: Repeated selection
 
-We can perform $k$ rounds of traversal as shown in the figure below, extracting the $1^{st}$, $2^{nd}$, $\dots$, $k^{th}$ largest elements in each round, with a time complexity of $O(nk)$.
+As shown below, scan the array $k$ times, selecting the $1$st, $2$nd, $\dots$, and $k$th largest elements in successive rounds. This takes $O(nk)$ time.
 
-This method is only suitable when $k \ll n$, because when $k$ is close to $n$, the time complexity approaches $O(n^2)$, making it very inefficient.
+This method is suitable only when $k \ll n$. As $k$ approaches $n$, its time complexity approaches $O(n^2)$, making it very slow.
 
-![Traversing to find the largest k elements](top_k.assets/top_k_traversal.png)
+![Finding the largest k elements by repeated scans](top_k.assets/top_k_traversal.png)
 
 !!! tip
 
-    When $k = n$, we can obtain a complete sorted sequence, which is equivalent to the "selection sort" algorithm.
+    When $k = n$, this produces a fully sorted sequence and is equivalent to selection sort.
 
 ## Method 2: Sorting
 
-As shown in the figure below, we can first sort the array `nums`, then return the rightmost $k$ elements, with a time complexity of $O(n \log n)$.
+As shown below, sort `nums` and return its rightmost $k$ elements. This takes $O(n \log n)$ time.
 
-Clearly, this method does more work than necessary, because we only need to find the largest $k$ elements rather than sort the other elements.
+This method does more work than necessary: we need only the largest $k$ elements, not a sorted order for all the others.
 
-![Sorting to find the largest k elements](top_k.assets/top_k_sorting.png)
+![Finding the largest k elements by sorting](top_k.assets/top_k_sorting.png)
 
-## Method 3: Heap
+## Method 3: A heap
 
-We can solve the Top-k problem more efficiently with a heap, as shown in the figure below.
+A heap solves the top-k problem more efficiently, following the steps below.
 
-1. Initialize a min heap, where the heap top element is the smallest.
-2. First, insert the first $k$ elements of the array into the heap in sequence.
-3. Starting from the $(k + 1)^{th}$ element, if the current element is greater than the heap top element, remove the heap top element and insert the current element into the heap.
-4. After traversal is complete, the heap contains the largest $k$ elements.
+1. Initialize a min heap, whose root holds its smallest element.
+2. Insert the first $k$ array elements into the heap one by one.
+3. Starting with element $k + 1$, if the current element is larger than the root, remove the root and insert the current element.
+4. After the traversal, the heap contains the largest $k$ elements.
 
 === "<1>"
-    ![Finding the largest k elements using a heap](top_k.assets/top_k_heap_step1.png)
+    ![Finding the largest k elements with a heap](top_k.assets/top_k_heap_step1.png)
 
 === "<2>"
     ![top_k_heap_step2](top_k.assets/top_k_heap_step2.png)
@@ -62,12 +62,12 @@ We can solve the Top-k problem more efficiently with a heap, as shown in the fig
 === "<9>"
     ![top_k_heap_step9](top_k.assets/top_k_heap_step9.png)
 
-Example code is as follows:
+An implementation follows:
 
 ```src
 [file]{top_k}-[class]{}-[func]{top_k_heap}
 ```
 
-A total of $n$ rounds of heap insertions and removals are performed, with the heap's maximum length being $k$, so the time complexity is $O(n \log k)$. This method is very efficient; when $k$ is small, the time complexity approaches $O(n)$; when $k$ is large, the time complexity does not exceed $O(n \log n)$.
+There are $n$ rounds of heap insertion and removal to consider, and the heap has at most $k$ elements, so the time complexity is $O(n \log k)$. This is highly efficient: when $k$ is small, the complexity approaches $O(n)$; when $k$ is large, it does not exceed $O(n \log n)$.
 
-Additionally, this method is well suited to dynamic data streams. As new data arrives, we can continuously maintain the elements in the heap, enabling dynamic updates to the largest $k$ elements.
+This approach also suits dynamic data streams. As new data arrives, we can maintain the heap to update the largest $k$ elements continuously.
