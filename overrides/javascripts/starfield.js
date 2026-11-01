@@ -3,6 +3,7 @@
   "use strict";
 
   let dispose = () => {};
+  const moduleBase = new URL(".", document.currentScript.src);
 
   function setup(config = {}) {
     dispose();
@@ -61,12 +62,41 @@
     let hovered = null, focused = null;
     let visible = false, suspended = false, destroyed = false;
     let raf = 0, last = 0, time = 0, paused = false;
+    let planets = null, hourglass = null, objectsRequested = false;
     try { paused = sessionStorage.getItem("hello-algo:hero-paused") === "true"; } catch (_) { /* Storage is optional. */ }
 
     const staticMotion = () => reduced.matches || paused;
     const listLayout = () => mobile.matches && map.classList.contains("hero-div--en");
     const canRun = () => !destroyed && visible && !suspended && !document.hidden && !staticMotion();
     const wrap = (n, size) => ((n % size) + size) % size;
+
+    function renderObjects() {
+      const enabled = !reduced.matches && !listLayout();
+      if (planets) {
+        try { planets.render(time, enabled); }
+        catch (error) {
+          planets.dispose();
+          planets = null;
+          console.warn("Planet rendering unavailable; keeping the original illustrations.", error);
+        }
+      }
+      hourglass?.render(time, enabled);
+    }
+
+    function loadObjects() {
+      if (objectsRequested || destroyed || !visible || reduced.matches || listLayout()) return;
+      objectsRequested = true;
+      import(new URL("hero-planets.js", moduleBase).href).then(module => {
+        if (destroyed) return;
+        planets = module.createPlanets(map, items, updatePlayback);
+        renderObjects();
+      }).catch(error => console.warn("3D enhancement unavailable; keeping the original planets.", error));
+      import(new URL("hero-hourglass.js", moduleBase).href).then(module => {
+        if (destroyed) return;
+        hourglass = module.createHourglass(items);
+        renderObjects();
+      }).catch(error => console.warn("Hourglass enhancement unavailable; keeping the original illustration.", error));
+    }
 
     function drawStars() {
       if (!ctx) return;
@@ -128,6 +158,7 @@
       time += dt;
       moveIllustrations(dt);
       drawStars();
+      renderObjects();
       raf = requestAnimationFrame(frame);
     }
 
@@ -146,6 +177,8 @@
         moveIllustrations(0);
       }
       drawStars();
+      renderObjects();
+      loadObjects();
       if (canRun()) raf = requestAnimationFrame(frame);
     }
 
@@ -171,12 +204,16 @@
       }));
       if (!paused || reduced.matches || listLayout()) moveIllustrations(0);
       drawStars();
+      planets?.resize();
+      renderObjects();
+      loadObjects();
     }
 
     function updateSelection() {
       const selected = focused || hovered;
       for (const item of items) item.anchor.classList.toggle("hero-selected", item.anchor === selected);
       map.classList.toggle("hero-network-active", Boolean(selected));
+      if (!canRun()) renderObjects();
     }
 
     on(hero, "pointermove", event => {
@@ -223,6 +260,8 @@
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
       listeners.forEach(remove => remove());
+      planets?.dispose();
+      hourglass?.dispose();
       canvas.remove();
       toggle.remove();
       hero.classList.remove("hero-universe", "hero-motion-paused");

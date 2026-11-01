@@ -121,3 +121,36 @@
     transform: none;
   }
 }
+
+/* The PNG boxes remain the native link hit targets and responsive layout anchors. */
+.hero-universe .hero-div > a > img.hero-replaced {
+  opacity: 0;
+}
+
+.hero-universe .hero-objects-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero-universe .hero-objects-canvas[hidden] {
+  display: none;
+}
+
+.hero-universe .hero-div > a > .hero-hourglass {
+  position: absolute;
+  width: auto;
+  aspect-ratio: 113 / 178;
+  overflow: visible;
+  pointer-events: none;
+  translate: var(--hero-x, 0px) var(--hero-y, 0px);
+  rotate: var(--hero-angle, 0deg);
+  transition: transform 240ms ease, filter 240ms ease;
+}
+
+.hero-universe .hero-div > a.hero-selected > .hero-hourglass {
+  transform: scale(1.045);
+  filter: drop-shadow(0 0 6px rgba(147, 213, 204, 0.3));
+}
