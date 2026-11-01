@@ -138,7 +138,7 @@ export function createPlanets(map, items, onRestore) {
   let seed=73;const random=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;};
   for(let layer=0;layer<3;layer++) {
     const positions=new Float32Array(110*3),phase=new Float32Array(110);
-    for(let i=0;i<110;i++){positions[i*3]=random()-.5;positions[i*3+1]=random()-.5;positions[i*3+2]=-300-layer*240+random()*120;phase[i]=random()*6.28;}
+    for(let i=0;i<110;i++){positions[i*3]=random()-.5;positions[i*3+1]=random()-.5;positions[i*3+2]=-780+layer*240+random()*120;phase[i]=random()*6.28;}
     const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(positions,3));g.setAttribute('phase',new THREE.BufferAttribute(phase,1));
     const material=new THREE.ShaderMaterial({transparent:true,depthWrite:false,uniforms:{time:{value:0},size:{value:1},opacity:{value:.27+layer*.10}},
       vertexShader:`attribute float phase;varying float a;uniform float time;uniform float size;
@@ -180,9 +180,12 @@ export function createPlanets(map, items, onRestore) {
     for(const target of targets){
       const {item,rect,root,spin,material,extent}=target;
       const selected=item.anchor.classList.contains('hero-selected');
-      const fit=Math.min(rect.width/extent.x,rect.height/extent.y)*.98;
+      // Leave breathing room for long introductory labels below the upper planets.
+      const inset=target.name==='divide_and_conquer'?.80:target.name==='graph'?.86:.98;
+      const lift=target.name==='divide_and_conquer'?map.clientHeight*.014:target.name==='graph'?map.clientHeight*.010:0;
+      const fit=Math.min(rect.width/extent.x,rect.height/extent.y)*inset;
       root.scale.setScalar(fit*(selected?1.045:1));
-      root.position.set(offsetX+rect.x+rect.width/2+item.x-width/2,height/2-offsetY-rect.y-rect.height/2-item.y,0);
+      root.position.set(offsetX+rect.x+rect.width/2+item.x-width/2,height/2-offsetY-rect.y-rect.height/2-item.y+lift,0);
       root.rotation.z=target.tilt-item.angle*Math.PI/180;spin.rotation.y=time*Math.PI*2/target.period+.4;
       material.uniforms.emphasis.value=selected?1:0;
     }

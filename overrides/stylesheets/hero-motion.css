@@ -151,3 +151,11 @@
   .hero-universe .hero-div img.hero-replaced { opacity: 1; }
   .hero-three-active .hero-stars { visibility: visible; }
 }
+
+/* Long localized labels need space beside the new volumetric silhouettes. */
+.hero-three-active :is(.hero-div--en, .hero-div--ru) > a[href$="chapter_greedy/"] > span {
+  margin-left: -4%;
+}
+.hero-three-active :is(.hero-div--en, .hero-div--ru, .hero-div--ja) > a[href$="chapter_stack_and_queue/"] > span {
+  margin-left: 4%;
+}
