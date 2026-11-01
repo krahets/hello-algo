@@ -139,18 +139,15 @@
   display: none;
 }
 
-.hero-universe .hero-div > a > .hero-hourglass {
-  position: absolute;
-  width: auto;
-  aspect-ratio: 113 / 178;
-  overflow: visible;
-  pointer-events: none;
-  translate: var(--hero-x, 0px) var(--hero-y, 0px);
-  rotate: var(--hero-angle, 0deg);
-  transition: transform 240ms ease, filter 240ms ease;
-}
+/* Original art is a complete fallback; labels and hit areas remain native HTML. */
+.hero-universe .hero-div > img.hero-replaced { opacity: 0; }
+.hero-three-active .hero-stars { visibility: hidden; }
+.hero-universe > .hero-objects-canvas { z-index: 0; }
 
-.hero-universe .hero-div > a.hero-selected > .hero-hourglass {
-  transform: scale(1.045);
-  filter: drop-shadow(0 0 6px rgba(147, 213, 204, 0.3));
+/* Immediate preference response also covers an already-paused animation clock. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-universe .hero-objects-canvas,
+  .hero-universe .hero-motion-toggle { display: none; }
+  .hero-universe .hero-div img.hero-replaced { opacity: 1; }
+  .hero-three-active .hero-stars { visibility: visible; }
 }

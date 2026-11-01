@@ -62,7 +62,7 @@
     let hovered = null, focused = null;
     let visible = false, suspended = false, destroyed = false;
     let raf = 0, last = 0, time = 0, paused = false;
-    let planets = null, hourglass = null, objectsRequested = false;
+    let planets = null, objectsRequested = false;
     try { paused = sessionStorage.getItem("hello-algo:hero-paused") === "true"; } catch (_) { /* Storage is optional. */ }
 
     const staticMotion = () => reduced.matches || paused;
@@ -73,14 +73,13 @@
     function renderObjects() {
       const enabled = !reduced.matches && !listLayout();
       if (planets) {
-        try { planets.render(time, enabled); }
+        try { planets.render(time, enabled, pointer); }
         catch (error) {
           planets.dispose();
           planets = null;
           console.warn("Planet rendering unavailable; keeping the original illustrations.", error);
         }
       }
-      hourglass?.render(time, enabled);
     }
 
     function loadObjects() {
@@ -91,15 +90,11 @@
         planets = module.createPlanets(map, items, updatePlayback);
         renderObjects();
       }).catch(error => console.warn("3D enhancement unavailable; keeping the original planets.", error));
-      import(new URL("hero-hourglass.js", moduleBase).href).then(module => {
-        if (destroyed) return;
-        hourglass = module.createHourglass(items);
-        renderObjects();
-      }).catch(error => console.warn("Hourglass enhancement unavailable; keeping the original illustration.", error));
+
     }
 
     function drawStars() {
-      if (!ctx) return;
+      if (!ctx || hero.classList.contains("hero-three-active")) return;
       ctx.clearRect(0, 0, width, height);
       for (const star of stars) {
         const drift = time * star.depth * 0.7;
@@ -126,7 +121,19 @@
       pointer.x += (target.x - pointer.x) * mix;
       pointer.y += (target.y - pointer.y) * mix;
       const still = staticMotion() || listLayout();
+      const central = item => item.astronaut || item.image.src.endsWith('/chapter_computational_complexity.png');
+      const centralSelected = items.some(item => central(item) && (item.anchor === hovered || item.anchor === focused));
       for (const item of items) {
+        if (central(item)) {
+          if (!still && centralSelected) continue;
+          item.x = still ? 0 : pointer.x * 2 * scale;
+          item.y = still ? 0 : (pointer.y * 1.5 - Math.sin(time * .45) * 1.2) * scale;
+          item.angle = 0;
+          item.anchor.style.setProperty('--hero-x', `${item.x.toFixed(2)}px`);
+          item.anchor.style.setProperty('--hero-y', `${item.y.toFixed(2)}px`);
+          item.anchor.style.setProperty('--hero-angle', '0deg');
+          continue;
+        }
         // Freeze the selected object so the pointer/keyboard target stays easy to use.
         if (!still && (item.anchor === hovered || item.anchor === focused)) continue;
         const amplitude = (item.astronaut ? 5 : 2.6) * scale;
@@ -147,6 +154,12 @@
     function frame(now) {
       raf = 0;
       if (!hero.isConnected) { dispose(); return; }
+      // A media preference may change before its queued change event is delivered.
+      // Apply its static state before this frame stops scheduling the next one.
+      if (reduced.matches && !hero.classList.contains('hero-motion-paused')) {
+        updatePlayback();
+        return;
+      }
       if (!canRun()) return;
       // Cap touch devices at 30 fps. Motion uses elapsed time, not frame count.
       if (last && now - last < (finePointer.matches ? 14 : 30)) {
@@ -261,7 +274,6 @@
       intersectionObserver.disconnect();
       listeners.forEach(remove => remove());
       planets?.dispose();
-      hourglass?.dispose();
       canvas.remove();
       toggle.remove();
       hero.classList.remove("hero-universe", "hero-motion-paused");
