@@ -23,6 +23,8 @@
     const items = Array.from(map.querySelectorAll(":scope > a")).map((anchor, i) => ({
       anchor,
       image: anchor.querySelector("img"),
+      label: anchor.querySelector("span"),
+      originalLabelMargin: anchor.querySelector("span")?.style.marginLeft || "",
       depth: 0.55 + (i % 4) * 0.15,
       phase: i * 2.39996,
       speed: 0.55 + (i % 5) * 0.055,
@@ -66,7 +68,7 @@
     try { paused = sessionStorage.getItem("hello-algo:hero-paused") === "true"; } catch (_) { /* Storage is optional. */ }
 
     const staticMotion = () => reduced.matches || paused;
-    const listLayout = () => mobile.matches && map.classList.contains("hero-div--en");
+    const listLayout = () => mobile.matches && (map.classList.contains("hero-div--en") || map.classList.contains("hero-div--ru"));
     const canRun = () => !destroyed && visible && !suspended && !document.hidden && !staticMotion();
     const wrap = (n, size) => ((n % size) + size) % size;
 
@@ -89,6 +91,7 @@
         if (destroyed) return;
         planets = module.createPlanets(map, items, updatePlayback);
         renderObjects();
+        resize();
       }).catch(error => console.warn("3D enhancement unavailable; keeping the original planets.", error));
 
     }
@@ -219,6 +222,20 @@
       drawStars();
       planets?.resize();
       renderObjects();
+      // A page can have no horizontal scroll while absolutely positioned text is clipped.
+      // Leave room for the small pointer displacement on both sides of the actual viewport.
+      const heroBounds = hero.getBoundingClientRect();
+      const left = Math.max(0, heroBounds.left) + 12;
+      const right = Math.min(document.documentElement.clientWidth, heroBounds.right) - 12;
+      for (const item of items) {
+        if (!item.label) continue;
+        item.label.style.marginLeft = item.originalLabelMargin;
+        if (listLayout()) continue;
+        const bounds = item.label.getBoundingClientRect();
+        const nudge = Math.max(left - bounds.left, Math.min(0, right - bounds.right));
+        const base = parseFloat(getComputedStyle(item.label).marginLeft) || 0;
+        if (Math.abs(nudge) > .1) item.label.style.marginLeft = `${base + nudge}px`;
+      }
       loadObjects();
     }
 
@@ -282,7 +299,8 @@
       map.style.removeProperty("--hero-ground-y");
       ground?.classList.remove("hero-ground");
       links?.classList.remove("hero-links");
-      for (const { anchor } of items) {
+      for (const { anchor, label, originalLabelMargin } of items) {
+        if (label) label.style.marginLeft = originalLabelMargin;
         anchor.classList.remove("hero-selected");
         ["--hero-x", "--hero-y", "--hero-angle"].forEach(name => anchor.style.removeProperty(name));
       }
