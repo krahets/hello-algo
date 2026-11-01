@@ -14,7 +14,7 @@
 
     const reduced = matchMedia("(prefers-reduced-motion: reduce)");
     const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
-    const mobile = matchMedia("(max-width: 600px)");
+    const mobile = matchMedia("(max-width: 900px)");
     const listeners = [];
     const on = (target, type, fn) => {
       target.addEventListener(type, fn);
@@ -68,7 +68,7 @@
     try { paused = sessionStorage.getItem("hello-algo:hero-paused") === "true"; } catch (_) { /* Storage is optional. */ }
 
     const staticMotion = () => reduced.matches || paused;
-    const listLayout = () => mobile.matches && (map.classList.contains("hero-div--en") || map.classList.contains("hero-div--ru"));
+    const listLayout = () => mobile.matches && ["hero-div--en", "hero-div--ru", "hero-div--ja"].some(name => map.classList.contains(name));
     const canRun = () => !destroyed && visible && !suspended && !document.hidden && !staticMotion();
     const wrap = (n, size) => ((n % size) + size) % size;
 
