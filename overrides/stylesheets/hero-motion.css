@@ -1,0 +1,123 @@
+/* Shared by the Zensical and legacy landing pages. No layout changes. */
+.hero-universe .starfield {
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse at 25% 30%, rgba(85, 174, 166, 0.055), transparent 55%),
+    radial-gradient(ellipse at 80% 60%, rgba(130, 144, 187, 0.045), transparent 50%);
+}
+
+.hero-universe .hero-stars {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Individual translate/rotate leave the existing hover scale and label centering intact. */
+.hero-universe .hero-div > a > img,
+.hero-universe .hero-div > a > span {
+  translate: var(--hero-x, 0px) var(--hero-y, 0px);
+}
+
+.hero-universe .hero-div > a > img {
+  rotate: var(--hero-angle, 0deg);
+  transition: transform 240ms ease, filter 240ms ease;
+}
+
+.hero-universe .hero-ground,
+.hero-universe .hero-links {
+  translate: var(--hero-ground-x, 0px) var(--hero-ground-y, 0px);
+  pointer-events: none;
+}
+
+.hero-universe .hero-links {
+  transition: filter 300ms ease;
+}
+
+.hero-universe .hero-network-active > .hero-links {
+  filter: brightness(1.3) drop-shadow(0 0 3px rgba(126, 207, 196, 0.5));
+}
+
+.hero-universe .hero-div > a.hero-selected > img {
+  transform: scale(1.045);
+  filter: brightness(1.1) saturate(1.05) drop-shadow(0 0 8px rgba(147, 213, 204, 0.35));
+}
+
+.hero-universe .hero-div > a.hero-selected > span {
+  color: var(--md-typeset-btn-color);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* The positioned children, rather than the zero-size inline anchor, show focus. */
+.hero-universe .hero-div > a:focus-visible {
+  outline: none;
+}
+
+.hero-universe .hero-div > a:focus-visible > span {
+  outline: 2px solid var(--md-typeset-btn-color);
+  outline-offset: 5px;
+  border-radius: 2px;
+}
+
+.hero-universe .hero-motion-toggle {
+  position: absolute;
+  bottom: 0.65rem;
+  right: 0.65rem;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 11px;
+  border: 1px solid rgba(197, 216, 213, 0.25);
+  border-radius: 50%;
+  background: rgba(30, 30, 30, 0.7);
+  color: #bbceca;
+  cursor: pointer;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+
+.hero-universe .hero-motion-toggle:hover,
+.hero-universe .hero-motion-toggle:focus-visible {
+  color: #e1f3ef;
+  border-color: var(--md-typeset-btn-color);
+  outline: 2px solid var(--md-typeset-btn-color);
+  outline-offset: 3px;
+}
+
+.hero-motion-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-motion-toggle .hero-play-icon,
+.hero-motion-toggle[data-paused="true"] .hero-pause-icon,
+.hero-universe .hero-motion-toggle[hidden] {
+  display: none;
+}
+
+.hero-motion-toggle[data-paused="true"] .hero-play-icon {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-universe .hero-div > a > img,
+  .hero-universe .hero-div > a > span,
+  .hero-universe .hero-ground,
+  .hero-universe .hero-links {
+    translate: none;
+    rotate: none;
+    transition: none;
+  }
+
+  .hero-universe .hero-div > a:hover > img,
+  .hero-universe .hero-div > a.hero-selected > img {
+    transform: none;
+  }
+}
