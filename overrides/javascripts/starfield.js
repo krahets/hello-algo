@@ -64,7 +64,7 @@
     let hovered = null, focused = null;
     let visible = false, suspended = false, destroyed = false;
     let raf = 0, last = 0, time = 0, paused = false;
-    let planets = null, objectsRequested = false;
+    let planets = null, hourglass = null, objectsRequested = false;
     try { paused = sessionStorage.getItem("hello-algo:hero-paused") === "true"; } catch (_) { /* Storage is optional. */ }
 
     const staticMotion = () => reduced.matches || paused;
@@ -82,6 +82,7 @@
           console.warn("Planet rendering unavailable; keeping the original illustrations.", error);
         }
       }
+      hourglass?.render(time, enabled);
     }
 
     function loadObjects() {
@@ -93,11 +94,16 @@
         renderObjects();
         resize();
       }).catch(error => console.warn("3D enhancement unavailable; keeping the original planets.", error));
+      import(new URL("hero-hourglass.js", moduleBase).href).then(module => {
+        if (destroyed) return;
+        hourglass = module.createHourglass(items);
+        renderObjects();
+      }).catch(error => console.warn("Hourglass enhancement unavailable; keeping the original illustration.", error));
 
     }
 
     function drawStars() {
-      if (!ctx || hero.classList.contains("hero-three-active")) return;
+      if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
       for (const star of stars) {
         const drift = time * star.depth * 0.7;
@@ -291,6 +297,7 @@
       intersectionObserver.disconnect();
       listeners.forEach(remove => remove());
       planets?.dispose();
+      hourglass?.dispose();
       canvas.remove();
       toggle.remove();
       hero.classList.remove("hero-universe", "hero-motion-paused");

@@ -31,6 +31,7 @@
 }
 
 .hero-universe .hero-links {
+  opacity: .72;
   transition: filter 300ms ease;
 }
 
@@ -141,7 +142,7 @@
 
 /* Original art is a complete fallback; labels and hit areas remain native HTML. */
 .hero-universe .hero-div > img.hero-replaced { opacity: 0; }
-.hero-three-active .hero-stars { visibility: hidden; }
+
 .hero-universe > .hero-objects-canvas { z-index: 0; }
 
 /* Immediate preference response also covers an already-paused animation clock. */
@@ -186,4 +187,23 @@
   .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) > a > img { position: static; flex-shrink: 0; width: 32px !important; height: 32px !important; object-fit: contain; }
   .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) > a > span { position: static; min-width: 0; transform: none; white-space: normal; font-size: 13px; line-height: 1.3; }
   .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) + .heading-div { position: relative; left: auto; bottom: auto; transform: none; padding: 0 .75rem; }
+}
+
+/* Restore the animated, hand-drawn glass from the accepted motion study. */
+.hero-universe .hero-div > a > .hero-hourglass {
+  position: absolute;
+  width: auto;
+  aspect-ratio: 113 / 178;
+  overflow: visible;
+  pointer-events: none;
+  translate: var(--hero-x, 0px) var(--hero-y, 0px);
+  rotate: var(--hero-angle, 0deg);
+  transition: transform 240ms ease, filter 240ms ease;
+}
+.hero-universe .hero-div > a.hero-selected > .hero-hourglass {
+  transform: scale(1.045);
+  filter: drop-shadow(0 0 6px rgba(147, 213, 204, 0.3));
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-universe .hero-hourglass { display: none !important; }
 }
