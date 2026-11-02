@@ -3,11 +3,11 @@ import * as T from './vendor/three/three.module.min.js';
 
 // Palette order: deep ink, secondary pigment, body, accent, paper highlight.
 // tilt sets the shared polar axis. belt traces a reference latitude in the paint
-// (top-down y at 9 evenly spaced x positions); beltLevel is its spherical latitude.
+// (top-down y at 9 evenly spaced x positions); beltLevel is its target latitude.
 // Monotone UV rectification aligns the painted flow over the entire revolution.
 // Shapes describe the original illustration's visual vocabulary, not its pixels.
 export const planets = [
-  {name:'array_and_linkedlist',texture:'array_and_linkedlist-albedo.webp',period:76,tilt:0.59,beltLevel:0.67,belt:[0.72,0.75,0.74,0.7,0.62,0.56,0.6,0.68,0.7],colors:['#554f6d','#99748b','#d9bd83','#f3dca0','#fff0bd'],circle:[237,166,130],ring:[237,166,277,51,176],ringStyle:0},
+  {name:'array_and_linkedlist',paintWindow:[.1,.62],texture:'array_and_linkedlist-albedo.webp',period:76,tilt:0.59,beltLevel:0.58,belt:[0.57,0.57,0.59,0.63,0.63,0.58,0.55,0.51,0.57],colors:['#554f6d','#99748b','#d9bd83','#f3dca0','#fff0bd'],circle:[237,166,130],ring:[237,166,277,51,176],ringStyle:0},
   {name:'stack_and_queue',texture:'stack_and_queue-albedo.webp',period:69,tilt:0.12,beltLevel:0.55,belt:[0.53,0.58,0.6,0.59,0.56,0.5,0.43,0.38,0.32],colors:['#263f56','#438c97','#e4b044','#4fa4a4','#f6ce64']},
   {name:'hashing',paintWindow:[.12,.72],texture:'hashing-albedo.webp',period:63,tilt:0.69,beltLevel:0.48,belt:[0.72,0.68,0.76,0.64,0.47,0.30,0.08,0.14,0.73],colors:['#294459','#a56870','#4a9e9b','#efad48','#f8d687']},
   {name:'tree',texture:'tree-albedo.webp',period:83,tilt:0.28,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#264458','#aa866e','#188e84','#cfcc94','#f1d99b']},
@@ -58,7 +58,7 @@ function surface(definition,paintMap) {
     vec3 paint(float x,float y,vec2 dx,vec2 dy){
       vec2 g=guide(x);
       // An odds-ratio warp maps the traced contour to one latitude. It is smooth,
-      // strictly monotone and fixes both poles: no cropped or mirrored paint.
+      // strictly monotone and fixes both poles: no latitude clipping or mirrored paint.
       float k=(1.-g.x)*beltLevel/(g.x*(1.-beltLevel));
       float den=1.-y+k*y;
       float v=k*y/den;
