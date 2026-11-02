@@ -28,12 +28,12 @@
       depth: 0.55 + (i % 4) * 0.15,
       phase: i * 2.39996,
       speed: 0.55 + (i % 5) * 0.055,
-      astronaut: anchor.querySelector('img[src$="/astronaut.png"]') !== null,
+      astronaut: anchor.querySelector('img[src$="/astronaut.webp"]') !== null,
       x: 0,
       y: 0,
       angle: 0,
     })).filter(item => item.image);
-    const ground = map.querySelector(':scope > img[src$="/ground.png"]');
+    const ground = map.querySelector(':scope > img[src$="/ground.webp"]');
     const links = map.querySelector(':scope > img[src$="/links.png"]');
     ground?.classList.add("hero-ground");
     links?.classList.add("hero-links");
@@ -64,7 +64,7 @@
     let hovered = null, focused = null;
     let visible = false, suspended = false, destroyed = false;
     let raf = 0, last = 0, time = 0, paused = false;
-    let planets = null, hourglass = null, repairs = null, objectsRequested = false, repairsRequested = false;
+    let planets = null, hourglass = null, objectsRequested = false;
     try { paused = sessionStorage.getItem("hello-algo:hero-paused") === "true"; } catch (_) { /* Storage is optional. */ }
 
     const staticMotion = () => reduced.matches || paused;
@@ -83,14 +83,6 @@
         }
       }
       hourglass?.render(time, enabled);
-    }
-
-    function loadRepairs() {
-      if (repairsRequested || destroyed || listLayout()) return;
-      repairsRequested = true;
-      import(new URL("hero-repairs.js", moduleBase).href).then(module => {
-        if (!destroyed) repairs = module.createRepairs(map, items, ground);
-      }).catch(error => console.warn("Central art repair unavailable.", error));
     }
 
     function loadObjects() {
@@ -250,7 +242,6 @@
         const base = parseFloat(getComputedStyle(item.label).marginLeft) || 0;
         if (Math.abs(nudge) > .1) item.label.style.marginLeft = `${base + nudge}px`;
       }
-      loadRepairs();
       loadObjects();
     }
 
@@ -307,7 +298,6 @@
       listeners.forEach(remove => remove());
       planets?.dispose();
       hourglass?.dispose();
-      repairs?.dispose();
       canvas.remove();
       toggle.remove();
       hero.classList.remove("hero-universe", "hero-motion-paused");

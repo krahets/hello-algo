@@ -211,11 +211,3 @@
 /* Override legacy :hover scaling, including the still-visible original hit targets. */
 .hero-universe .hero-div > a:hover > img { transform: none; filter: none; }
 .hero-universe .hero-div > a.hero-selected > img { filter: brightness(1.04); }
-.hero-universe .hero-art-hidden { opacity: 0; }
-.hero-art-repair { position: absolute; width: auto; pointer-events: none; overflow: visible; }
-.hero-repair-astronaut { translate: var(--hero-x, 0px) var(--hero-y, 0px); rotate: var(--hero-angle, 0deg); transition: filter 240ms ease; }
-.hero-universe .hero-div > a.hero-selected > .hero-repair-astronaut { filter: brightness(1.04); }
-@media (max-width: 900px) {
-  .hero-universe :is(.hero-div--en,.hero-div--ru,.hero-div--ja) .hero-art-repair { display: none; }
-  .hero-universe :is(.hero-div--en,.hero-div--ru,.hero-div--ja) .hero-art-hidden { opacity: 1; }
-}
