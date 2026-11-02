@@ -64,7 +64,7 @@
     let hovered = null, focused = null;
     let visible = false, suspended = false, destroyed = false;
     let raf = 0, last = 0, time = 0, paused = false;
-    let planets = null, hourglass = null, objectsRequested = false;
+    let planets = null, hourglass = null, repairs = null, objectsRequested = false, repairsRequested = false;
     try { paused = sessionStorage.getItem("hello-algo:hero-paused") === "true"; } catch (_) { /* Storage is optional. */ }
 
     const staticMotion = () => reduced.matches || paused;
@@ -83,6 +83,14 @@
         }
       }
       hourglass?.render(time, enabled);
+    }
+
+    function loadRepairs() {
+      if (repairsRequested || destroyed || listLayout()) return;
+      repairsRequested = true;
+      import(new URL("hero-repairs.js", moduleBase).href).then(module => {
+        if (!destroyed) repairs = module.createRepairs(map, items, ground);
+      }).catch(error => console.warn("Central art repair unavailable.", error));
     }
 
     function loadObjects() {
@@ -242,6 +250,7 @@
         const base = parseFloat(getComputedStyle(item.label).marginLeft) || 0;
         if (Math.abs(nudge) > .1) item.label.style.marginLeft = `${base + nudge}px`;
       }
+      loadRepairs();
       loadObjects();
     }
 
@@ -298,6 +307,7 @@
       listeners.forEach(remove => remove());
       planets?.dispose();
       hourglass?.dispose();
+      repairs?.dispose();
       canvas.remove();
       toggle.remove();
       hero.classList.remove("hero-universe", "hero-motion-paused");

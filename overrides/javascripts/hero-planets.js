@@ -12,7 +12,7 @@ export function createPlanets(map, items, onRestore) {
   const scene=new THREE.Scene(),camera=new THREE.OrthographicCamera(-1,1,1,-1,.1,5000);
   camera.position.z=2000;
   map.insertBefore(renderer.domElement,map.querySelector(':scope > a'));
-  let width=0,height=0,lost=false,disposed=false,ready=false;
+  let width=0,height=0,lost=false,disposed=false,ready=false,lastTime=0;
   const showOriginal=show=>{
     renderer.domElement.hidden=show;hero.classList.toggle('hero-three-active',!show);
     targets.forEach(({item})=>item.image.classList.toggle('hero-replaced',!show));
@@ -27,14 +27,15 @@ export function createPlanets(map, items, onRestore) {
   function render(time,enabled,pointer={x:0,y:0}){
     if(disposed)return;
     if(!enabled||lost||!ready||!width||!height){showOriginal(true);return;}
+    const emphasisBlend=time===lastTime?1:1-Math.exp(-Math.min(.1,Math.abs(time-lastTime))*10);lastTime=time;
     for(const target of targets){
       const {item,rect,root,sphere,material}=target,selected=item.anchor.classList.contains('hero-selected');
-      root.scale.setScalar(rect.height/item.image.naturalHeight*(selected?1.045:1));
+      root.scale.setScalar(rect.height/item.image.naturalHeight);
       root.position.set(rect.x+rect.width/2+item.x-width/2,height/2-rect.y-rect.height/2-item.y,0);
       root.rotation.set(pointer.y*.035,pointer.x*.045,-item.angle*Math.PI/180);
       sphere.rotation.y=time*Math.PI*2/target.period;
       if(target.moon)target.moon.rotation.y=sphere.rotation.y*2;
-      material.uniforms.emphasis.value=selected?1:0;
+      material.uniforms.emphasis.value+=((selected?1:0)-material.uniforms.emphasis.value)*emphasisBlend;
     }
     renderer.render(scene,camera);showOriginal(false);
     Object.assign(renderer.domElement.dataset,{drawCalls:String(renderer.info.render.calls),triangles:String(renderer.info.render.triangles),

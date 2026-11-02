@@ -1,4 +1,5 @@
 // A layered vector illustration; no physics engine or independent animation loop.
+export const HOURGLASS_CYCLE_SECONDS = 28;
 let instance = 0;
 export function createHourglass(items) {
   const item = items.find(item => item.image.getAttribute("src").endsWith("/chapter_computational_complexity.png"));
@@ -48,6 +49,8 @@ export function createHourglass(items) {
       svg.style.display = enabled ? "" : "none";
       item.image.classList.toggle("hero-replaced", enabled);
       if (!enabled) return;
+      // Slow the entire choreography, including falling grains and the turn.
+      time *= 14 / HOURGLASS_CYCLE_SECONDS;
       const phase = time % 14;
       const turns = Math.floor(time / 14);
       const progress = Math.min(phase / 11, 1);

@@ -85,8 +85,8 @@ function surface(definition,paintMap) {
       float shade=.72+.28*smoothstep(-.10,.86,light);
       vec3 color=ink*shade;
       float rim=1.-smoothstep(.015,.10,normal.z);
-      color=mix(color,pigments[4],rim*.18);
-      color*=1.+emphasis*.09;
+      color=mix(color,pigments[4],rim*(.18+emphasis*.18));
+      color*=1.+emphasis*.04;
       gl_FragColor=vec4(color,1.);
       #include <colorspace_fragment>
     }`});

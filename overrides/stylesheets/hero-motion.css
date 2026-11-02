@@ -13,7 +13,7 @@
   height: 100%;
 }
 
-/* Individual translate/rotate leave the existing hover scale and label centering intact. */
+/* Drift is independent of hover; selection never changes an object's size. */
 .hero-universe .hero-div > a > img,
 .hero-universe .hero-div > a > span {
   translate: var(--hero-x, 0px) var(--hero-y, 0px);
@@ -36,12 +36,12 @@
 }
 
 .hero-universe .hero-network-active > .hero-links {
-  filter: brightness(1.3) drop-shadow(0 0 3px rgba(126, 207, 196, 0.5));
+  filter: brightness(1.16) drop-shadow(0 0 2px rgba(126, 207, 196, 0.22));
 }
 
 .hero-universe .hero-div > a.hero-selected > img {
-  transform: scale(1.045);
-  filter: brightness(1.1) saturate(1.05) drop-shadow(0 0 8px rgba(147, 213, 204, 0.35));
+  transform: none;
+  filter: brightness(1.04) drop-shadow(0 0 3px rgba(147, 213, 204, 0.18));
 }
 
 .hero-universe .hero-div > a.hero-selected > span {
@@ -201,9 +201,21 @@
   transition: transform 240ms ease, filter 240ms ease;
 }
 .hero-universe .hero-div > a.hero-selected > .hero-hourglass {
-  transform: scale(1.045);
-  filter: drop-shadow(0 0 6px rgba(147, 213, 204, 0.3));
+  transform: none;
+  filter: brightness(1.04) drop-shadow(0 0 3px rgba(147, 213, 204, 0.18));
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-universe .hero-hourglass { display: none !important; }
+}
+
+/* Override legacy :hover scaling, including the still-visible original hit targets. */
+.hero-universe .hero-div > a:hover > img { transform: none; filter: none; }
+.hero-universe .hero-div > a.hero-selected > img { filter: brightness(1.04); }
+.hero-universe .hero-art-hidden { opacity: 0; }
+.hero-art-repair { position: absolute; width: auto; pointer-events: none; overflow: visible; }
+.hero-repair-astronaut { translate: var(--hero-x, 0px) var(--hero-y, 0px); rotate: var(--hero-angle, 0deg); transition: filter 240ms ease; }
+.hero-universe .hero-div > a.hero-selected > .hero-repair-astronaut { filter: brightness(1.04); }
+@media (max-width: 900px) {
+  .hero-universe :is(.hero-div--en,.hero-div--ru,.hero-div--ja) .hero-art-repair { display: none; }
+  .hero-universe :is(.hero-div--en,.hero-div--ru,.hero-div--ja) .hero-art-hidden { opacity: 1; }
 }
