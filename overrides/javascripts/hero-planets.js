@@ -19,7 +19,7 @@ export function createPlanets(map, items, onRestore) {
   };
   function resize(){
     width=map.clientWidth;height=map.clientHeight;
-    renderer.setPixelRatio(Math.min(devicePixelRatio||1,matchMedia('(pointer: fine)').matches?1.5:1));
+    renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
     renderer.setSize(Math.max(width,1),Math.max(height,1),false);
     camera.left=-width/2;camera.right=width/2;camera.top=height/2;camera.bottom=-height/2;camera.updateProjectionMatrix();
     for(const target of targets){const i=target.item.image;target.rect={x:i.offsetLeft,y:i.offsetTop,width:i.offsetWidth,height:i.offsetHeight};}
