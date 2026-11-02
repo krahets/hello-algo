@@ -108,7 +108,7 @@ export function createPlanet(image,d,paint) {
           gl_FragColor=vec4(color,alpha);
           #include <colorspace_fragment>
         }`}));
-    ring.rotation.set(Math.acos(minor/outer),0,d.tilt,'ZXY');
+    ring.rotation.set(-Math.acos(minor/outer),0,d.tilt,'ZXY');
     ring.position.set(x-w/2,h/2-y,0);root.add(ring);
   }
   let moon=null;
