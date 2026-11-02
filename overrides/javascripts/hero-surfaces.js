@@ -43,12 +43,18 @@ function surface(definition,paintMap) {
   return new T.ShaderMaterial({uniforms:{pigments:{value:definition.colors.map(c=>new T.Color(c))},paintMap:{value:paintMap},emphasis:{value:0}},vertexShader:vertex,
     fragmentShader:`varying vec3 p;varying vec3 n;uniform vec3 pigments[5];uniform float emphasis;uniform sampler2D paintMap;
     void main(){vec3 q=normalize(p);
-      // Reflect the authored hemisphere around the unseen side. A smooth absolute
-      // meridian makes both joins continuous without a blurred vertical seam.
-      // These are authored paint motifs, not screen-space projection of a PNG globe.
-      float longitude=atan(q.x,sqrt(q.z*q.z+.0025));
-      vec2 uv=vec2(longitude/6.28318530718+.5,asin(clamp(q.y,-1.,1.))/3.14159265359+.5);
-      vec3 ink=texture2D(paintMap,uv).rgb;
+      // Periodic paint overlap across the unseen meridian. Keep longitude monotonic
+      // so painted strokes flow around the globe without mirrored side folds.
+      float u=atan(q.x,q.z)/6.28318530718+.5;
+      float y=asin(clamp(q.y,-1.,1.))/3.14159265359+.5;
+      float x=.1+.8*u;
+      // Explicit angular derivatives keep mip selection continuous at atan's wrap.
+      float denom=6.28318530718*max(dot(q.xz,q.xz),.0001);
+      vec2 gradX=vec2(.8*(q.z*dFdx(q.x)-q.x*dFdx(q.z))/denom,dFdx(y));
+      vec2 gradY=vec2(.8*(q.z*dFdy(q.x)-q.x*dFdy(q.z))/denom,dFdy(y));
+      vec3 ink=textureGrad(paintMap,vec2(x,y),gradX,gradY).rgb;
+      if(u<.12)ink=mix(textureGrad(paintMap,vec2(x+.8,y),gradX,gradY).rgb,ink,smoothstep(-.12,.12,u));
+      if(u>.88)ink=mix(ink,textureGrad(paintMap,vec2(x-.8,y),gradX,gradY).rgb,smoothstep(.88,1.12,u));
       // Fixed, restrained illumination preserves the illustration's pigment values.
       vec3 normal=normalize(n);float light=dot(normal,normalize(vec3(-.60,.80,1.2)));
       float shade=.72+.28*smoothstep(-.10,.86,light);
