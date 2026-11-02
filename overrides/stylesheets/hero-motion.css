@@ -161,7 +161,24 @@
 }
 
 /* Long translated chapter names use readable native links on narrow screens. */
+@media screen and (min-width: 901px) {
+  /* Keep the original planet silhouettes; move long labels into the open gaps. */
+  .hero-universe :is(.hero-div--en, .hero-div--ru, .hero-div--ja, .hero-div--ko) > a[href$="chapter_introduction/"] > span {
+    margin-top: .6rem;
+  }
+  .hero-universe .hero-div--en > a[href$="chapter_divide_and_conquer/"] > span {
+    margin-left: -4.5%;
+  }
+}
+
 @media screen and (max-width: 900px) {
+  .hero-universe .hero-div--ko > a[href$="chapter_introduction/"] > span {
+    left: 48% !important;
+    top: 95% !important;
+  }
+  .hero-universe .hero-div--ko > a[href$="chapter_divide_and_conquer/"] > span {
+    margin-left: -2%;
+  }
   .home-div:has(> :is(.hero-div--en, .hero-div--ru, .hero-div--ja)) { display: block; height: auto !important; margin-top: 0 !important; padding: .5rem 0 1rem !important; }
   .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .35rem .5rem; width: calc(100% - 1.5rem); height: auto; margin: .5rem auto 1rem; }
   .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) > img { display: none; }
