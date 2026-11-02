@@ -2,7 +2,7 @@
 export const HOURGLASS_CYCLE_SECONDS = 28;
 let instance = 0;
 export function createHourglass(items) {
-  const item = items.find(item => item.image.getAttribute("src").endsWith("/chapter_computational_complexity.png"));
+  const item = items.find(item => item.image.dataset.heroAsset === "chapter_computational_complexity");
   if (!item) return null;
   const id = `hero-sand-${++instance}`;
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");

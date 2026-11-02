@@ -1,3 +1,4 @@
+import { textureCatalog } from './hero-assets.js';
 /* Reference-led painted sphere maps and antialiased three-dimensional rings. */
 import * as T from './vendor/three/three.module.min.js';
 
@@ -7,34 +8,35 @@ import * as T from './vendor/three/three.module.min.js';
 // Monotone UV rectification aligns the painted flow over the entire revolution.
 // Shapes describe the original illustration's visual vocabulary, not its pixels.
 export const planets = [
-  {name:'array_and_linkedlist',paintWindow:[.1,.62],texture:'array_and_linkedlist-albedo.webp',period:76,tilt:0.59,beltLevel:0.58,belt:[0.57,0.57,0.59,0.63,0.63,0.58,0.55,0.51,0.57],colors:['#554f6d','#99748b','#d9bd83','#f3dca0','#fff0bd'],circle:[237,166,130],ring:[237,166,277,51,176],ringStyle:0},
-  {name:'stack_and_queue',texture:'stack_and_queue-albedo.webp',period:69,tilt:0.12,beltLevel:0.55,belt:[0.53,0.58,0.6,0.59,0.56,0.5,0.43,0.38,0.32],colors:['#263f56','#438c97','#e4b044','#4fa4a4','#f6ce64']},
-  {name:'hashing',paintWindow:[.12,.72],texture:'hashing-albedo.webp',period:63,tilt:0.69,beltLevel:0.48,belt:[0.72,0.68,0.76,0.64,0.47,0.30,0.08,0.14,0.73],colors:['#294459','#a56870','#4a9e9b','#efad48','#f8d687']},
-  {name:'tree',texture:'tree-albedo.webp',period:83,tilt:0.28,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#264458','#aa866e','#188e84','#cfcc94','#f1d99b']},
-  {name:'heap',texture:'heap-albedo.webp',period:55,tilt:-0.55,beltLevel:0.57,belt:[0.25,0.35,0.47,0.57,0.67,0.75,0.65,0.5,0.35],colors:['#273e52','#ad7c99','#b4c67e','#ddab98','#e9d8a0']},
-  {name:'graph',texture:'graph-albedo.webp',period:89,tilt:0.27,beltLevel:0.57,belt:[0.66,0.64,0.61,0.58,0.54,0.5,0.47,0.44,0.42],colors:['#464464','#786587','#be8d9d','#e3a493','#f2ce9b'],circle:[270,136,135],ring:[270,136,280,9,146],ringStyle:1},
-  {name:'searching',texture:'searching-albedo.webp',period:58,tilt:0.12,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#4b526d','#a7788a','#63a5a0','#a6b28c','#eddb9e']},
-  {name:'sorting',texture:'sorting-albedo.webp',period:52,tilt:-0.5,beltLevel:0.5,belt:[0.32,0.3,0.28,0.25,0.34,0.48,0.64,0.74,0.78],colors:['#3e3d57','#b57191','#eaa9ae','#f6df98','#fff0b5']},
-  {name:'divide_and_conquer',texture:'divide_and_conquer-albedo.webp',period:94,tilt:0.58,beltLevel:0.55,belt:[0.82,0.79,0.76,0.68,0.59,0.49,0.34,0.2,0.12],colors:['#494a63','#b6777e','#e5a129','#f3c45c','#ffe6a1'],circle:[156,130,117],ring:[203,134,240,60,164],ringStyle:2,moon:[307,50,33],moonTexture:'moon-albedo.webp'},
-  {name:'backtracking',texture:'backtracking-albedo.webp',period:81,tilt:-0.08,beltLevel:0.62,belt:[0.55,0.59,0.63,0.63,0.62,0.6,0.57,0.53,0.5],colors:['#36475c','#727887','#eead30','#c58c4d','#f7d27b'],circle:[166,115,115],ring:[173,159,173,70,126],ringStyle:3},
-  {name:'dynamic_programming',texture:'dynamic_programming-albedo.webp',period:67,tilt:0.2,beltLevel:0.5,belt:[0.5,0.46,0.48,0.5,0.43,0.38,0.43,0.48,0.45],colors:['#36394f','#8c4b6d','#d36959','#ed9d46','#f5cb6e']},
-  {name:'greedy',texture:'greedy-albedo.webp',period:72,tilt:-0.57,beltLevel:0.58,belt:[0.41,0.43,0.51,0.62,0.67,0.67,0.61,0.54,0.49],colors:['#234c60','#32878d','#72b1a7','#b9bd84','#e8ba66'],circle:[135,85,83],ring:[133,101,149,61,111],ringStyle:4},
+  {name:'array_and_linkedlist',paintWindow:[.1,.62],period:76,tilt:0.59,beltLevel:0.58,belt:[0.57,0.57,0.59,0.63,0.63,0.58,0.55,0.51,0.57],colors:['#554f6d','#99748b','#d9bd83','#f3dca0','#fff0bd'],circle:[237,166,130],ring:[237,166,277,51,176],ringStyle:0},
+  {name:'stack_and_queue',period:69,tilt:0.12,beltLevel:0.55,belt:[0.53,0.58,0.6,0.59,0.56,0.5,0.43,0.38,0.32],colors:['#263f56','#438c97','#e4b044','#4fa4a4','#f6ce64']},
+  {name:'hashing',paintWindow:[.12,.72],period:63,tilt:0.69,beltLevel:0.48,belt:[0.72,0.68,0.76,0.64,0.47,0.30,0.08,0.14,0.73],colors:['#294459','#a56870','#4a9e9b','#efad48','#f8d687']},
+  {name:'tree',period:83,tilt:0.28,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#264458','#aa866e','#188e84','#cfcc94','#f1d99b']},
+  {name:'heap',period:55,tilt:-0.55,beltLevel:0.57,belt:[0.25,0.35,0.47,0.57,0.67,0.75,0.65,0.5,0.35],colors:['#273e52','#ad7c99','#b4c67e','#ddab98','#e9d8a0']},
+  {name:'graph',period:89,tilt:0.27,beltLevel:0.57,belt:[0.66,0.64,0.61,0.58,0.54,0.5,0.47,0.44,0.42],colors:['#464464','#786587','#be8d9d','#e3a493','#f2ce9b'],circle:[270,136,135],ring:[270,136,280,9,146],ringStyle:1},
+  {name:'searching',period:58,tilt:0.12,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#4b526d','#a7788a','#63a5a0','#a6b28c','#eddb9e']},
+  {name:'sorting',period:52,tilt:-0.5,beltLevel:0.5,belt:[0.32,0.3,0.28,0.25,0.34,0.48,0.64,0.74,0.78],colors:['#3e3d57','#b57191','#eaa9ae','#f6df98','#fff0b5']},
+  {name:'divide_and_conquer',period:94,tilt:0.58,beltLevel:0.55,belt:[0.82,0.79,0.76,0.68,0.59,0.49,0.34,0.2,0.12],colors:['#494a63','#b6777e','#e5a129','#f3c45c','#ffe6a1'],circle:[156,130,117],ring:[203,134,240,60,164],ringStyle:2,moon:[307,50,33]},
+  {name:'backtracking',period:81,tilt:-0.08,beltLevel:0.62,belt:[0.55,0.59,0.63,0.63,0.62,0.6,0.57,0.53,0.5],colors:['#36475c','#727887','#eead30','#c58c4d','#f7d27b'],circle:[166,115,115],ring:[173,159,173,70,126],ringStyle:3},
+  {name:'dynamic_programming',period:67,tilt:0.2,beltLevel:0.5,belt:[0.5,0.46,0.48,0.5,0.43,0.38,0.43,0.48,0.45],colors:['#36394f','#8c4b6d','#d36959','#ed9d46','#f5cb6e']},
+  {name:'greedy',period:72,tilt:-0.57,beltLevel:0.58,belt:[0.41,0.43,0.51,0.62,0.67,0.67,0.61,0.54,0.49],colors:['#234c60','#32878d','#72b1a7','#b9bd84','#e8ba66'],circle:[135,85,83],ring:[133,101,149,61,111],ringStyle:4},
 ];
 
 const vertex=`varying vec3 p;varying vec3 n;
   void main(){p=position;n=normalize(normalMatrix*normal);
   gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`;
 async function loadMap(file) {
-  const map=await new T.TextureLoader().loadAsync(new URL('./hero-textures/'+file,import.meta.url).href);
+  const map=await new T.TextureLoader().loadAsync(new URL(file,import.meta.url).href);
   map.colorSpace=T.SRGBColorSpace;map.wrapS=T.RepeatWrapping;
   map.minFilter=T.LinearMipmapLinearFilter;map.magFilter=T.LinearFilter;map.anisotropy=4;
   return map;
 }
 
-export async function loadPlanetPaint(definition) {
-  const surface=await loadMap(definition.texture);
+export async function loadPlanetPaint(definition, pixelWidth=1024) {
+  const small=pixelWidth<=512 && !!textureCatalog[definition.name].small;
+  const surface=await loadMap(textureCatalog[definition.name][small?'small':'full']);
   try {
-    return {surface,moon:definition.moonTexture?await loadMap(definition.moonTexture):null};
+    return {surface,small,moon:definition.moon?await loadMap(textureCatalog.moon[small && textureCatalog.moon.small?'small':'full']):null};
   } catch(error) {surface.dispose();throw error;}
 }
 
@@ -93,7 +95,7 @@ function surface(definition,paintMap) {
 }
 
 export function createPlanet(image,d,paint) {
-  const w=image.naturalWidth,h=image.naturalHeight,[cx,cy,r]=d.circle||[w/2,h/2,Math.min(w,h)/2];
+  const w=Number(image.dataset?.sourceWidth || image.naturalWidth),h=Number(image.dataset?.sourceHeight || image.naturalHeight),[cx,cy,r]=d.circle||[w/2,h/2,Math.min(w,h)/2];
   const root=new T.Group(),axis=new T.Group(),sphere=new T.Mesh(new T.SphereGeometry(1,64,40),surface(d,paint.surface));
   // Local Y is the polar axis for both the globe and its ring plane. A ring's
   // apparent minor/major ratio fixes the view elevation, not a separate tilt.

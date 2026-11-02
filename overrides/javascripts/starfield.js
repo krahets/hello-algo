@@ -28,13 +28,13 @@
       depth: 0.55 + (i % 4) * 0.15,
       phase: i * 2.39996,
       speed: 0.55 + (i % 5) * 0.055,
-      astronaut: anchor.querySelector('img[src$="/astronaut.webp"]') !== null,
+      astronaut: anchor.querySelector('img[data-hero-asset="astronaut"]') !== null,
       x: 0,
       y: 0,
       angle: 0,
     })).filter(item => item.image);
-    const ground = map.querySelector(':scope > img[src$="/ground.webp"]');
-    const links = map.querySelector(':scope > img[src$="/links.png"]');
+    const ground = map.querySelector(':scope > img[data-hero-asset="ground"]');
+    const links = map.querySelector(':scope > img[data-hero-asset="links"]');
     ground?.classList.add("hero-ground");
     links?.classList.add("hero-links");
     hero.classList.add("hero-universe");

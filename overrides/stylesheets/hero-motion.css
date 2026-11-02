@@ -211,3 +211,7 @@
 /* Override legacy :hover scaling, including the still-visible original hit targets. */
 .hero-universe .hero-div > a:hover > img { transform: none; filter: none; }
 .hero-universe .hero-div > a.hero-selected > img { filter: brightness(1.04); }
+
+/* Intrinsic dimensions reserve space without overriding responsive media height. */
+.home-div .profile-img { height: auto; }
+.home-div video.intro-image { height: auto; }
