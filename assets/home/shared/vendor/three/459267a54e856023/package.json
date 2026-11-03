@@ -1,0 +1,20 @@
+{
+  "name": "three",
+  "version": "0.180.0",
+  "license": "MIT",
+  "repository": "https://github.com/mrdoob/three.js",
+  "files": {
+    "three.module.min.js": {
+      "url": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.min.js",
+      "sha256": "e2b5ee6bccd38fd6d8a2428546b83c5f2426d84b152ef82be8055556e3b40eb6"
+    },
+    "three.core.min.js": {
+      "url": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.core.min.js",
+      "sha256": "61ba0df005b05991361d040d8ff670e1aadfd0ce7aeebd1fdb0725957a8957de"
+    },
+    "LICENSE": {
+      "url": "https://cdn.jsdelivr.net/npm/three@0.180.0/LICENSE",
+      "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+    }
+  }
+}

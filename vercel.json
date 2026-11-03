@@ -2,6 +2,24 @@
     "trailingSlash": true,
     "headers": [
         {
+            "source": "/assets/home/(.+)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                }
+            ]
+        },
+        {
+            "source": "(/en|/zh-hant|/ja|/ru|/ko)?/",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=0, must-revalidate"
+                }
+            ]
+        },
+        {
             "source": "(/en|/zh-hant|/ja|/ru|/ko)?/assets/javascripts/bundle.(.+).min.js",
             "headers": [
                 {
