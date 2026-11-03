@@ -77,6 +77,26 @@
       <link rel="stylesheet" href="../../stylesheets/animation_player.css">
 
     <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+<script data-ha-shared-palette="1">
+/* Share only the palette across language roots; other preferences stay scoped. */
+(() => {
+  const get = __md_get;
+  const set = __md_set;
+  const shared = new URL("/", location);
+  __md_get = (key, storage = localStorage, scope = __md_scope) => {
+    if (key !== "__palette") return get(key, storage, scope);
+    let value = get(key, storage, shared);
+    // Adopt the current language's old preference only if none is shared yet.
+    if (value === null && scope.pathname !== shared.pathname) {
+      value = get(key, storage, scope);
+      if (value !== null) set(key, value, storage, shared);
+    }
+    return value;
+  };
+  __md_set = (key, value, storage = localStorage, scope = __md_scope) =>
+    set(key, value, storage, key === "__palette" ? shared : scope);
+})();
+</script>
 
 
 
@@ -6316,7 +6336,7 @@ aria-label="页脚"
       <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"已复制","clipboard.copy":"复制","search.result.more.one":"在该页上还有 1 个符合条件的结果","search.result.more.other":"在该页上还有 # 个符合条件的结果","search.result.none":"没有找到符合条件的结果","search.result.one":"找到 1 个符合条件的结果","search.result.other":"# 个符合条件的结果","search.result.placeholder":"键入以开始搜索","search.result.term.missing":"缺少","select.version":"选择当前版本"},"version":null}</script>
 
 
-      <script src="../../assets/javascripts/bundle.c022f6c6d84151059d1b204cc2101b8230b09b433657fcc137f8a4a63744d0ec.min.js"></script>
+      <script src="../../assets/javascripts/bundle.4019d56ee3c5b0a3dedbc391860c6a94219c682a362eed02d260bc13cf55232c.min.js"></script>
 
         <script src="../../javascripts/mathjax.js"></script>
 

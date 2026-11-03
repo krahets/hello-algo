@@ -77,6 +77,26 @@
       <link rel="stylesheet" href="../../stylesheets/animation_player.css">
 
     <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+<script data-ha-shared-palette="1">
+/* Share only the palette across language roots; other preferences stay scoped. */
+(() => {
+  const get = __md_get;
+  const set = __md_set;
+  const shared = new URL("/", location);
+  __md_get = (key, storage = localStorage, scope = __md_scope) => {
+    if (key !== "__palette") return get(key, storage, scope);
+    let value = get(key, storage, shared);
+    // Adopt the current language's old preference only if none is shared yet.
+    if (value === null && scope.pathname !== shared.pathname) {
+      value = get(key, storage, scope);
+      if (value !== null) set(key, value, storage, shared);
+    }
+    return value;
+  };
+  __md_set = (key, value, storage = localStorage, scope = __md_scope) =>
+    set(key, value, storage, key === "__palette" ? shared : scope);
+})();
+</script>
 
 
 
@@ -7133,7 +7153,7 @@ aria-label="하단/푸터"
       <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"클립보드에 복사됨","clipboard.copy":"클립보드로 복사","search.result.more.one":"이 문서에서 1개의 검색 결과 더 보기","search.result.more.other":"이 문서에서 #개의 검색 결과 더 보기","search.result.none":"검색어와 일치하는 문서가 없습니다","search.result.one":"1개의 일치하는 문서","search.result.other":"#개의 일치하는 문서","search.result.placeholder":"검색어를 입력하세요","search.result.term.missing":"포함되지 않은 검색어","select.version":"버전 선택"},"version":null}</script>
 
 
-      <script src="../../assets/javascripts/bundle.ccde26d79129f886e2700a766aa45ca60a55d9d9d83894824e7708f702b2c83a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.9da20b33253961ce280a4a32ba173a4ae6a1344b3b104ddf2f5f2caf9b8f6ec8.min.js"></script>
 
         <script src="../../javascripts/mathjax.js"></script>
 
