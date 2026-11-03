@@ -1,4 +1,5 @@
 import { textureCatalog } from './hero-assets.js';
+import { paintSeams } from './hero-paint-seams.js';
 /* Reference-led painted sphere maps and antialiased three-dimensional rings. */
 import * as T from './vendor/three/three.module.min.js';
 
@@ -8,18 +9,18 @@ import * as T from './vendor/three/three.module.min.js';
 // Monotone UV rectification aligns the painted flow over the entire revolution.
 // Shapes describe the original illustration's visual vocabulary, not its pixels.
 export const planets = [
-  {name:'array_and_linkedlist',paintWindow:[.1,.62],period:76,tilt:0.59,beltLevel:0.58,belt:[0.57,0.57,0.59,0.63,0.63,0.58,0.55,0.51,0.57],colors:['#554f6d','#99748b','#d9bd83','#f3dca0','#fff0bd'],circle:[237,166,130],ring:[237,166,277,51,176],ringStyle:0},
-  {name:'stack_and_queue',period:69,tilt:0.12,beltLevel:0.55,belt:[0.53,0.58,0.6,0.59,0.56,0.5,0.43,0.38,0.32],colors:['#263f56','#438c97','#e4b044','#4fa4a4','#f6ce64']},
-  {name:'hashing',paintWindow:[.12,.72],period:63,tilt:0.69,beltLevel:0.48,belt:[0.72,0.68,0.76,0.64,0.47,0.30,0.08,0.14,0.73],colors:['#294459','#a56870','#4a9e9b','#efad48','#f8d687']},
+  {name:'array_and_linkedlist',paintWindow:[.1,.62],period:76,tilt:0.59,beltLevel:0.5,belt:[0.5,0.5175,0.59,0.63,0.63,0.58,0.55,0.5025,0.5],colors:['#554f6d','#99748b','#d9bd83','#f3dca0','#fff0bd'],circle:[237,166,130],ring:[237,166,277,51,176],ringStyle:0},
+  {name:'stack_and_queue',period:69,tilt:0.12,beltLevel:0.5,belt:[0.5,0.52,0.6,0.59,0.56,0.5,0.43,0.47,0.5],colors:['#263f56','#438c97','#e4b044','#4fa4a4','#f6ce64']},
+  {name:'hashing',paintWindow:[.04,.96],period:63,tilt:0.69,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#294459','#a56870','#4a9e9b','#efad48','#f8d687']},
   {name:'tree',period:83,tilt:0.28,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#264458','#aa866e','#188e84','#cfcc94','#f1d99b']},
-  {name:'heap',period:55,tilt:-0.55,beltLevel:0.57,belt:[0.25,0.35,0.47,0.57,0.67,0.75,0.65,0.5,0.35],colors:['#273e52','#ad7c99','#b4c67e','#ddab98','#e9d8a0']},
-  {name:'graph',period:89,tilt:0.27,beltLevel:0.57,belt:[0.66,0.64,0.61,0.58,0.54,0.5,0.47,0.44,0.42],colors:['#464464','#786587','#be8d9d','#e3a493','#f2ce9b'],circle:[270,136,135],ring:[270,136,280,9,146],ringStyle:1},
+  {name:'heap',period:55,tilt:-0.55,beltLevel:0.5,belt:[0.5,0.4625,0.47,0.57,0.67,0.75,0.65,0.5,0.5],colors:['#273e52','#ad7c99','#b4c67e','#ddab98','#e9d8a0']},
+  {name:'graph',period:89,tilt:0.27,beltLevel:0.5,belt:[0.5,0.535,0.61,0.58,0.54,0.5,0.47,0.485,0.5],colors:['#464464','#786587','#be8d9d','#e3a493','#f2ce9b'],circle:[270,136,135],ring:[270,136,280,9,146],ringStyle:1},
   {name:'searching',period:58,tilt:0.12,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#4b526d','#a7788a','#63a5a0','#a6b28c','#eddb9e']},
-  {name:'sorting',period:52,tilt:-0.5,beltLevel:0.5,belt:[0.32,0.3,0.28,0.25,0.34,0.48,0.64,0.74,0.78],colors:['#3e3d57','#b57191','#eaa9ae','#f6df98','#fff0b5']},
-  {name:'divide_and_conquer',period:94,tilt:0.58,beltLevel:0.55,belt:[0.82,0.79,0.76,0.68,0.59,0.49,0.34,0.2,0.12],colors:['#494a63','#b6777e','#e5a129','#f3c45c','#ffe6a1'],circle:[156,130,117],ring:[203,134,240,60,164],ringStyle:2,moon:[307,50,33]},
-  {name:'backtracking',period:81,tilt:-0.08,beltLevel:0.62,belt:[0.55,0.59,0.63,0.63,0.62,0.6,0.57,0.53,0.5],colors:['#36475c','#727887','#eead30','#c58c4d','#f7d27b'],circle:[166,115,115],ring:[173,159,173,70,126],ringStyle:3},
-  {name:'dynamic_programming',period:67,tilt:0.2,beltLevel:0.5,belt:[0.5,0.46,0.48,0.5,0.43,0.38,0.43,0.48,0.45],colors:['#36394f','#8c4b6d','#d36959','#ed9d46','#f5cb6e']},
-  {name:'greedy',period:72,tilt:-0.57,beltLevel:0.58,belt:[0.41,0.43,0.51,0.62,0.67,0.67,0.61,0.54,0.49],colors:['#234c60','#32878d','#72b1a7','#b9bd84','#e8ba66'],circle:[135,85,83],ring:[133,101,149,61,111],ringStyle:4},
+  {name:'sorting',period:52,tilt:-0.5,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#3e3d57','#b57191','#eaa9ae','#f6df98','#fff0b5']},
+  {name:'divide_and_conquer',period:94,tilt:0.58,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#494a63','#b6777e','#e5a129','#f3c45c','#ffe6a1'],circle:[156,130,117],ring:[203,134,240,60,164],ringStyle:2,moon:[307,50,33]},
+  {name:'backtracking',period:81,tilt:-0.08,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#36475c','#727887','#eead30','#c58c4d','#f7d27b'],circle:[166,115,115],ring:[173,159,173,70,126],ringStyle:3},
+  {name:'dynamic_programming',period:67,tilt:0.2,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#36394f','#8c4b6d','#d36959','#ed9d46','#f5cb6e']},
+  {name:'greedy',period:72,tilt:-0.57,beltLevel:0.5,belt:[0.5,0.4825,0.51,0.62,0.67,0.67,0.61,0.51,0.5],colors:['#234c60','#32878d','#72b1a7','#b9bd84','#e8ba66'],circle:[135,85,83],ring:[133,101,149,61,111],ringStyle:4},
 ];
 
 const vertex=`varying vec3 p;varying vec3 n;
@@ -45,8 +46,9 @@ export function disposePlanetPaint(paint) {
 }
 
 function surface(definition,paintMap) {
-  return new T.ShaderMaterial({uniforms:{pigments:{value:definition.colors.map(c=>new T.Color(c))},paintMap:{value:paintMap},paintWindow:{value:new T.Vector2(...(definition.paintWindow||[.1,.9]))},belt:{value:definition.belt||Array(9).fill(.5)},beltLevel:{value:definition.beltLevel||.5},emphasis:{value:0}},vertexShader:vertex,
-    fragmentShader:`varying vec3 p;varying vec3 n;uniform vec3 pigments[5];uniform float emphasis;uniform vec2 paintWindow;uniform float belt[9];uniform float beltLevel;uniform sampler2D paintMap;
+  const seam=paintSeams[definition.name];
+  return new T.ShaderMaterial({uniforms:{pigments:{value:definition.colors.map(c=>new T.Color(c))},paintMap:{value:paintMap},paintWindow:{value:new T.Vector2(...seam.window)},join:{value:seam.join},flowLeft:{value:seam.left},flowRight:{value:seam.right},belt:{value:definition.belt||Array(9).fill(.5)},beltLevel:{value:definition.beltLevel||.5},emphasis:{value:0}},vertexShader:vertex,
+    fragmentShader:`varying vec3 p;varying vec3 n;uniform vec3 pigments[5];uniform float emphasis;uniform vec2 paintWindow;uniform float join[65];uniform float flowLeft[33];uniform float flowRight[33];uniform float belt[9];uniform float beltLevel;uniform sampler2D paintMap;
     // Cubic paint-space guide with its analytic slope. Keeping derivatives explicit
     // avoids the atan seam selecting a blurry mip level during a full revolution.
     vec2 guide(float x){
@@ -68,9 +70,23 @@ function surface(definition,paintMap) {
       float dvdy=k/(den*den);
       return textureGrad(paintMap,vec2(x,v),vec2(dx.x,dvdx*dx.x+dvdy*dx.y),vec2(dy.x,dvdx*dy.x+dvdy*dy.y)).rgb;
     }
+    vec2 edgeFlow(float y,bool left){
+      float row=clamp(y,0.,1.)*32.;int i=min(int(floor(row)),31);
+      float a=left?flowLeft[i]:flowRight[i],b=left?flowLeft[i+1]:flowRight[i+1];
+      return vec2(mix(a,b,row-float(i)),32.*(b-a));
+    }
+    vec3 joinedPaint(float x,float y,vec2 dx,vec2 dy,float longitude,bool left){
+      vec2 flow=edgeFlow(y,left);
+      float t=clamp((abs(longitude)-.012)/.168,0.,1.);
+      float strength=1.-t*t*(3.-2.*t);
+      float slope=-sign(longitude)*6.*t*(1.-t)/.168;
+      float v=mix(y,flow.x,strength),dvdv=mix(1.,flow.y,strength);
+      float dvdu=(flow.x-y)*slope/(paintWindow.y-paintWindow.x);
+      return paint(x,v,vec2(dx.x,dvdu*dx.x+dvdv*dx.y),vec2(dy.x,dvdu*dy.x+dvdv*dy.y));
+    }
     void main(){vec3 q=normalize(p);
-      // Periodic paint overlap across the unseen meridian. Keep longitude monotonic
-      // so painted strokes flow around the globe without mirrored side folds.
+      // A pigment-matched join follows the paint rather than a vertical fade strip.
+      // Both samples stay inside the authored texture; no wrapped/clamped guide tails.
       float u=atan(q.x,q.z)/6.28318530718+.5;
       float y=asin(clamp(q.y,-1.,1.))/3.14159265359+.5;
       float span=paintWindow.y-paintWindow.x;
@@ -79,9 +95,22 @@ function surface(definition,paintMap) {
       float denom=6.28318530718*max(dot(q.xz,q.xz),.0001);
       vec2 gradX=vec2(span*(q.z*dFdx(q.x)-q.x*dFdx(q.z))/denom,dFdx(y));
       vec2 gradY=vec2(span*(q.z*dFdy(q.x)-q.x*dFdy(q.z))/denom,dFdy(y));
-      vec3 ink=paint(x,y,gradX,gradY);
-      if(u<.12)ink=mix(paint(x+span,y,gradX,gradY),ink,smoothstep(-.12,.12,u));
-      if(u>.88)ink=mix(ink,paint(x-span,y,gradX,gradY),smoothstep(.88,1.12,u));
+      vec3 ink;
+      float signedU=u>.5?u-1.:u;
+      if(abs(signedU)<.18){
+        float row=clamp(y,0.,1.)*64.;int i=min(int(floor(row)),63);
+        float center=mix(join[i],join[i+1],row-float(i));
+        float slope=64.*(join[i+1]-join[i]);
+        float distance=signedU-center;
+        float width=max(.003,abs(gradX.x/span-slope*dFdx(y))+abs(gradY.x/span-slope*dFdy(y)));
+        if(distance < -width)ink=joinedPaint(paintWindow.y+span*signedU,y,gradX,gradY,signedU,true);
+        else if(distance > width)ink=joinedPaint(paintWindow.x+span*signedU,y,gradX,gradY,signedU,false);
+        else{
+          vec3 left=joinedPaint(paintWindow.y+span*signedU,y,gradX,gradY,signedU,true);
+          vec3 right=joinedPaint(paintWindow.x+span*signedU,y,gradX,gradY,signedU,false);
+          ink=mix(left,right,smoothstep(-width,width,distance));
+        }
+      }else ink=paint(x,y,gradX,gradY);
       // Fixed, restrained illumination preserves the illustration's pigment values.
       vec3 normal=normalize(n);float light=dot(normal,normalize(vec3(-.60,.80,1.2)));
       float shade=.72+.28*smoothstep(-.10,.86,light);
@@ -160,7 +189,7 @@ export function createPlanet(image,d,paint) {
   }
   let moon=null;
   if(d.moon){
-    const [x,y,radius]=d.moon;moon=new T.Mesh(new T.SphereGeometry(radius,32,24),surface({...d,belt:Array(9).fill(.5),beltLevel:.5,colors:['#35475a','#b77c94','#659e98','#d9bb87','#eed6ac']},paint.moon));
+    const [x,y,radius]=d.moon;moon=new T.Mesh(new T.SphereGeometry(radius,32,24),surface({...d,name:'moon',belt:Array(9).fill(.5),beltLevel:.5,colors:['#35475a','#b77c94','#659e98','#d9bb87','#eed6ac']},paint.moon));
     moon.position.set(x-w/2,h/2-y,80);root.add(moon);
   }
   return {root,axis,sphere,ring,moon,material:sphere.material};

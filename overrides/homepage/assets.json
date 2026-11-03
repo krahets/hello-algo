@@ -458,6 +458,7 @@
     "vendor/three/three.module.min.js": "overrides/javascripts/vendor/three/three.module.min.js",
     "vendor/three/LICENSE": "overrides/javascripts/vendor/three/LICENSE",
     "vendor/three/package.json": "overrides/javascripts/vendor/three/package.json",
-    "vendor/three/three.core.min.js": "overrides/javascripts/vendor/three/three.core.min.js"
+    "vendor/three/three.core.min.js": "overrides/javascripts/vendor/three/three.core.min.js",
+    "hero-paint-seams.js": "overrides/javascripts/hero-paint-seams.js"
   }
 }
