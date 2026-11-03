@@ -1,0 +1,244 @@
+{
+  "hero_class": "hero-div hero-div--ja",
+  "list_layout": true,
+  "labels": {
+    "astronaut": "アルゴリズム入門",
+    "chapter_computational_complexity": "計算量",
+    "chapter_array_and_linkedlist": "配列と連結リスト",
+    "chapter_stack_and_queue": "スタックとキュー",
+    "chapter_hashing": "ハッシュテーブル",
+    "chapter_tree": "木",
+    "chapter_heap": "ヒープ",
+    "chapter_graph": "グラフ",
+    "chapter_searching": "探索",
+    "chapter_sorting": "ソート",
+    "chapter_divide_and_conquer": "分割統治",
+    "chapter_backtracking": "バックトラッキング",
+    "chapter_dynamic_programming": "動的計画法",
+    "chapter_greedy": "貪欲法"
+  },
+  "label_styles": {
+    "astronaut": "left: 52.244%; top: 20.919%;",
+    "chapter_computational_complexity": "left: 39.244%; top: 33.919%;",
+    "chapter_array_and_linkedlist": "left: 90.897%; top: 76.259%;",
+    "chapter_stack_and_queue": "left: 77.571%; top: 91.25%;",
+    "chapter_hashing": "left: 68.862%; top: 46.292%;",
+    "chapter_tree": "left: 96.159%; top: 44.8%;",
+    "chapter_heap": "left: 88.103%; top: 15.422%;",
+    "chapter_graph": "left: 71.195%; top: 6.503%;",
+    "chapter_searching": "left: 14.556%; top: 20.876%;",
+    "chapter_sorting": "left: 28.805%; top: 53.808%;",
+    "chapter_divide_and_conquer": "left: 31.42%; top: 8.679%;",
+    "chapter_backtracking": "left: 4.742%; top: 50.113%;",
+    "chapter_dynamic_programming": "left: 8.561%; top: 75.351%;",
+    "chapter_greedy": "left: 21.619%; top: 86.85%;"
+  },
+  "typing": {
+    "style": "height: min(9vh, 12vw);",
+    "src": "https://readme-typing-svg.demolab.com/?font=Noto+Sans+JP&weight=400&duration=3500&pause=2000&color=FFF&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+Algo+!",
+    "alt": ""
+  },
+  "tagline": "アニメーションによる図解とワンクリックで実行できるコードで学ぶ、データ構造とアルゴリズムの入門書",
+  "start_label": "読み始める",
+  "start_href": "chapter_hello_algo/",
+  "reading": [
+    {
+      "asset": "web_mac_iphone",
+      "href": "chapter_hello_algo/",
+      "alt": "",
+      "label": "オンラインで読む",
+      "image_style": "height: 66.31%;",
+      "spacers": [
+        "height: 4.34%;",
+        "height: 4.34%;"
+      ]
+    },
+    {
+      "asset": "pdf_ipad",
+      "href": "https://github.com/krahets/hello-algo/releases",
+      "alt": "",
+      "label": "既存の PDF/EPUB を確認",
+      "image_style": "height: 75%;",
+      "spacers": []
+    }
+  ],
+  "reading_description": "500 点のアニメーション図解、14 種類のプログラミング言語のコード、コミュニティでの 3000 件の質問と回答が、データ構造とアルゴリズムの入門を支えます。",
+  "endorsement_title": "推薦の言葉",
+  "endorsements": [
+    [
+      "「手を動かし、考えながら学べる、わかりやすいデータ構造とアルゴリズムの入門書です。アルゴリズムを初めて学ぶ方に、ぜひおすすめします。」",
+      "—— 邓俊辉、清華大学コンピュータ科学系教授"
+    ],
+    [
+      "「私がデータ構造とアルゴリズムを学んでいた頃に『Hello Algo』があれば、学ぶのが 10 倍楽になっていたでしょう！」",
+      "—— 李沐、Amazon シニア・プリンシパル・サイエンティスト"
+    ]
+  ],
+  "features": [
+    {
+      "title": "アニメーションによる図解",
+      "description": "わかりやすい内容で、無理なく学べます",
+      "quotes": [
+        "\"A picture is worth a thousand words.\"",
+        "「一枚の図は千の言葉に勝る」"
+      ],
+      "video": "animation",
+      "video_label": "アルゴリズムの動きを示すアニメーション"
+    },
+    {
+      "title": "ワンクリックで実行",
+      "description": "十数種類のプログラミング言語に対応し、コードの実行を可視化できます",
+      "quotes": [
+        "\"Talk is cheap. Show me the code.\"",
+        "「口で語るより、コードを見せよう」"
+      ],
+      "video": "running_code",
+      "video_label": "コードを実行する例"
+    },
+    {
+      "title": "読者同士で学び合う",
+      "description": "質問や意見を交わし、読者同士で一緒に理解を深めましょう",
+      "quotes": [
+        "\"Learning by teaching.\"",
+        "「教えることも、学びにつながる」"
+      ],
+      "video": "comment",
+      "video_label": "コメントで学び合う例"
+    }
+  ],
+  "people": [
+    {
+      "title": "著者",
+      "description": null,
+      "profiles": [
+        {
+          "href": "https://github.com/krahets",
+          "class": "profile-cell",
+          "asset": "avatar_yudongjin",
+          "alt": "著者：yudongjin",
+          "name": "靳宇栋（@krahets）",
+          "detail": null
+        }
+      ]
+    },
+    {
+      "title": "コードのレビュー担当者",
+      "description": "原書のさまざまな言語によるコードは、次の開発者の協力によって作られました。その尽力と貢献に感謝します！",
+      "profiles": [
+        {
+          "href": "https://github.com/coderonion",
+          "class": "profile-cell",
+          "asset": "avatar_coderonion",
+          "alt": "コードのレビュー担当者：coderonion",
+          "name": "coderonion",
+          "detail": "Zig, Rust"
+        },
+        {
+          "href": "https://github.com/curtishd",
+          "class": "profile-cell",
+          "asset": "avatar_curtishd",
+          "alt": "コードのレビュー担当者：curtishd",
+          "name": "curtishd",
+          "detail": "Kotlin"
+        },
+        {
+          "href": "https://github.com/Gonglja",
+          "class": "profile-cell",
+          "asset": "avatar_Gonglja",
+          "alt": "コードのレビュー担当者：Gonglja",
+          "name": "Gonglja",
+          "detail": "C, C++"
+        },
+        {
+          "href": "https://github.com/gvenusleo",
+          "class": "profile-cell",
+          "asset": "avatar_gvenusleo",
+          "alt": "コードのレビュー担当者：gvenusleo",
+          "name": "gvenusleo",
+          "detail": "Dart"
+        },
+        {
+          "href": "https://github.com/hpstory",
+          "class": "profile-cell",
+          "asset": "avatar_hpstory",
+          "alt": "コードのレビュー担当者：hpstory",
+          "name": "hpstory",
+          "detail": "C#"
+        },
+        {
+          "href": "https://github.com/justin-tse",
+          "class": "profile-cell",
+          "asset": "avatar_justin-tse",
+          "alt": "コードのレビュー担当者：justin-tse",
+          "name": "justin-tse",
+          "detail": "JS, TS"
+        },
+        {
+          "href": "https://github.com/khoaxuantu",
+          "class": "profile-cell",
+          "asset": "avatar_khoaxuantu",
+          "alt": "コードのレビュー担当者：khoaxuantu",
+          "name": "khoaxuantu",
+          "detail": "Ruby"
+        },
+        {
+          "href": "https://github.com/krahets",
+          "class": "profile-cell",
+          "asset": "avatar_krahets",
+          "alt": "コードのレビュー担当者：krahets",
+          "name": "krahets",
+          "detail": "Python, Java"
+        },
+        {
+          "href": "https://github.com/night-cruise",
+          "class": "profile-cell",
+          "asset": "avatar_night-cruise",
+          "alt": "コードのレビュー担当者：night-cruise",
+          "name": "night-cruise",
+          "detail": "Rust"
+        },
+        {
+          "href": "https://github.com/nuomi1",
+          "class": "profile-cell",
+          "asset": "avatar_nuomi1",
+          "alt": "コードのレビュー担当者：nuomi1",
+          "name": "nuomi1",
+          "detail": "Swift"
+        },
+        {
+          "href": "https://github.com/Reanon",
+          "class": "profile-cell",
+          "asset": "avatar_Reanon",
+          "alt": "コードのレビュー担当者：Reanon",
+          "name": "Reanon",
+          "detail": "Go, C"
+        },
+        {
+          "href": "https://github.com/rongyi",
+          "class": "profile-cell",
+          "asset": "avatar_rongyi",
+          "alt": "コードのレビュー担当者：rongyi",
+          "name": "rongyi",
+          "detail": "Rust"
+        }
+      ]
+    },
+    {
+      "title": "貢献者",
+      "description": "本書は、オープンソースコミュニティの 200 人以上の貢献者の協力により、改善を重ねています。時間と労力を注いでくださった皆さんに感謝します！",
+      "profiles": [],
+      "banner": {
+        "href": "https://github.com/krahets/hello-algo/graphs/contributors",
+        "url": "https://contrib.rocks/image?repo=krahets/hello-algo&max=300&columns=12",
+        "alt": "貢献者の皆さん",
+        "style": "width: 100%; max-width: 38.5em;"
+      }
+    }
+  ],
+  "reading_notes": [
+    {
+      "text": "日本語版はオンラインで公開しています。ダウンロード先には既存の各言語版が掲載されており、今回の公開に伴う新たな日本語 PDF/EPUB の配布はありません。",
+      "style": ""
+    }
+  ]
+}

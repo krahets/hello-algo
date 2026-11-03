@@ -1,471 +1,321 @@
-/*
- * starfield.js
- *
- * Version: 1.5.0
- * Description: Interactive starfield background
- *
- * Usage:
- *  Starfield.setup({
- *    // options
- *  });
- */
-(function (root, factory) {
-  if (typeof define === "function" && define.amd) {
-    define([], factory);
-  } else if (typeof module === "object" && module.exports) {
-    module.exports = factory();
-  } else {
-    root.Starfield = factory();
-  }
-})(this, function () {
-  const Starfield = {};
+/* Homepage illustration motion. Loaded only by the landing-page build hook. */
+(function (root) {
+  "use strict";
 
-  const config = {
-    numStars: 250, // Number of stars
-    baseSpeed: 1, // Base speed of stars (will affect acceleration)
-    trailLength: 0.8, // Length of star trail (0-1)
-    starColor: "rgb(255, 255, 255)", // Color of stars (only rgb)
-    canvasColor: "rgb(30, 30, 30)", // Canvas background color (only rgb)
-    hueJitter: 0, // Maximum hue variation in degrees (0-360)
-    maxAcceleration: 10, // Maximum acceleration
-    accelerationRate: 0.2, // Rate of acceleration
-    decelerationRate: 0.2, // Rate of deceleration
-    minSpawnRadius: 80, // Minimum spawn distance from origin
-    maxSpawnRadius: 500, // Maximum spawn distance from origin
-    auto: true,
-    originX: null,
-    originY: null,
-    container: null,
-    originElement: null,
-  };
+  let dispose = () => {};
+  const moduleBase = new URL(".", document.currentScript.src);
 
-  let stars = [];
-  let accelerate = false;
-  let accelerationFactor = 0;
-  let originX = 0;
-  let originY = 0;
-  let prevOriginX = 0;
-  let prevOriginY = 0;
+  function setup(config = {}) {
+    dispose();
+    const container = config.container || document.querySelector(".starfield");
+    const hero = container?.closest(".home-div");
+    const map = hero?.querySelector(".hero-div");
+    if (!map) return;
 
-  let canvas, ctx;
-  let width, height;
-  let lastTimestamp = 0;
-  let canvasRGB = [0, 0, 0];
-  let lastCanvasColor = config.canvasColor;
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+    const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
+    const mobile = matchMedia("(max-width: 900px)");
+    const listeners = [];
+    const on = (target, type, fn) => {
+      target.addEventListener(type, fn);
+      listeners.push(() => target.removeEventListener(type, fn));
+    };
+    const items = Array.from(map.querySelectorAll(":scope > a")).map((anchor, i) => ({
+      anchor,
+      image: anchor.querySelector("img"),
+      label: anchor.querySelector("span"),
+      originalLabelMargin: anchor.querySelector("span")?.style.marginLeft || "",
+      depth: 0.55 + (i % 4) * 0.15,
+      phase: i * 2.39996,
+      speed: 0.55 + (i % 5) * 0.055,
+      astronaut: anchor.querySelector('img[data-hero-asset="astronaut"]') !== null,
+      x: 0,
+      y: 0,
+      angle: 0,
+    })).filter(item => item.image);
+    const ground = map.querySelector(':scope > img[data-hero-asset="ground"]');
+    const links = map.querySelector(':scope > img[data-hero-asset="links"]');
+    ground?.classList.add("hero-ground");
+    links?.classList.add("hero-links");
+    hero.classList.add("hero-universe");
 
-  let origin;
-  let container;
-
-  const mouseEnterHandler = () => (accelerate = true);
-  const mouseLeaveHandler = () => (accelerate = false);
-  const resizeHandler = () => windowResized(container, origin);
-
-  function visibilityHandler() {
-    if (document.visibilityState === "visible") {
-      lastTimestamp = performance.now();
-    }
-  }
-
-  function getOriginY(origin, container) {
-    const originRect = origin.getBoundingClientRect();
-    const containerRect = container.getBoundingClientRect();
-    return originRect.top - containerRect.top + originRect.height / 2;
-  }
-
-  function getOriginX(origin, container) {
-    const originRect = origin.getBoundingClientRect();
-    const containerRect = container.getBoundingClientRect();
-    return originRect.left - containerRect.left + originRect.width / 2;
-  }
-
-  /**
-   * Set up and start the starfield animation.
-   * @param {Object} userConfig Configuration options.
-   */
-  function setup(userConfig = {}) {
-    Object.assign(config, userConfig);
-
-    container = config.container || document.querySelector(".starfield");
-    if (!container) {
-      throw new Error("Starfield: No container element found.");
-    }
-    // container.style.position = "relative";
-
-    width = container.clientWidth;
-    height = container.clientHeight;
-
-    canvas = document.createElement("canvas");
-    canvas.width = width;
-    canvas.height = height;
-
-    canvas.style.position = "absolute";
-    canvas.style.top = "0";
-    canvas.style.left = "0";
-    canvas.style.width = "100%";
-    canvas.style.height = "100%";
-    canvas.style.zIndex = "-1";
-    canvasRGB = parseRGBA(config.canvasColor);
-
+    const canvas = document.createElement("canvas");
+    canvas.className = "hero-stars";
+    canvas.setAttribute("aria-hidden", "true");
     container.appendChild(canvas);
+    // Illustration interactions also work if Canvas is unavailable.
+    let ctx = null;
+    try { ctx = canvas.getContext("2d"); } catch (_) { /* Static background remains. */ }
 
-    ctx = canvas.getContext("2d");
+    const lang = (document.documentElement.lang || "zh").toLowerCase();
+    const labels = lang.startsWith("en") ? ["Pause animation", "Play animation"]
+      : lang.startsWith("ja") ? ["アニメーションを一時停止", "アニメーションを再生"]
+      : lang.startsWith("ko") ? ["애니메이션 일시 정지", "애니메이션 재생"]
+      : lang.startsWith("ru") ? ["Приостановить анимацию", "Воспроизвести анимацию"]
+      : /hant|tw/.test(lang) ? ["暫停動畫", "播放動畫"] : ["暂停动画", "播放动画"];
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "hero-motion-toggle";
+    toggle.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="hero-pause-icon" d="M8 6v12M16 6v12"/><path class="hero-play-icon" d="m9 6 9 6-9 6Z"/></svg>';
+    hero.appendChild(toggle);
 
-    if (config.auto) {
-      origin =
-        config.originElement || document.querySelector(".starfield-origin");
-      if (!origin) {
-        throw new Error("Starfield: No origin element found.");
+    let width = 1, height = 1, scale = 1, stars = [];
+    let pointer = { x: 0, y: 0 }, target = { x: 0, y: 0 };
+    let hovered = null, focused = null;
+    let visible = false, suspended = false, destroyed = false;
+    let raf = 0, last = 0, time = 0, paused = false;
+    let planets = null, hourglass = null, objectsRequested = false;
+    try { paused = sessionStorage.getItem("hello-algo:hero-paused") === "true"; } catch (_) { /* Storage is optional. */ }
+
+    const staticMotion = () => reduced.matches || paused;
+    const listLayout = () => mobile.matches && ["hero-div--en", "hero-div--ru", "hero-div--ja"].some(name => map.classList.contains(name));
+    const canRun = () => !destroyed && visible && !suspended && !document.hidden && !staticMotion();
+    const wrap = (n, size) => ((n % size) + size) % size;
+
+    function renderObjects() {
+      const enabled = !reduced.matches && !listLayout();
+      if (planets) {
+        try { planets.render(time, enabled, pointer); }
+        catch (error) {
+          planets.dispose();
+          planets = null;
+          console.warn("Planet rendering unavailable; keeping the original illustrations.", error);
+        }
       }
-      originX = getOriginX(origin, container);
-      originY = getOriginY(origin, container);
-
-      origin.addEventListener("mouseenter", mouseEnterHandler);
-      origin.addEventListener("mouseleave", mouseLeaveHandler);
-
-      window.addEventListener("resize", resizeHandler);
-    } else {
-      originX = config.originX !== null ? config.originX : width / 2;
-      originY = config.originY !== null ? config.originY : height / 2;
+      hourglass?.render(time, enabled);
     }
 
-    for (let i = 0; i < config.numStars; i++) {
-      const star = createRandomStar();
-      stars.push(star);
+    function loadObjects() {
+      if (objectsRequested || destroyed || !visible || reduced.matches || listLayout()) return;
+      objectsRequested = true;
+      import(new URL("hero-planets.js", moduleBase).href).then(module => {
+        if (destroyed) return;
+        planets = module.createPlanets(map, items, updatePlayback);
+        renderObjects();
+        resize();
+      }).catch(error => console.warn("3D enhancement unavailable; keeping the original planets.", error));
+      import(new URL("hero-hourglass.js", moduleBase).href).then(module => {
+        if (destroyed) return;
+        hourglass = module.createHourglass(items);
+        renderObjects();
+      }).catch(error => console.warn("Hourglass enhancement unavailable; keeping the original illustration.", error));
+
     }
 
-    document.addEventListener("visibilitychange", visibilityHandler);
-
-    requestAnimationFrame(draw);
-  }
-
-  function windowResized(container, origin) {
-    width = container.clientWidth;
-    height = container.clientHeight;
-    canvas.width = width;
-    canvas.height = height;
-
-    originX = getOriginX(origin, container);
-    originY = getOriginY(origin, container);
-
-    stars.forEach((star) => star.reset());
-  }
-
-  function createRandomStar() {
-    const angle = random(0, Math.PI * 2);
-    const radius = random(config.minSpawnRadius, config.maxSpawnRadius);
-
-    const x = originX + Math.cos(angle) * radius;
-    const y = originY + Math.sin(angle) * radius;
-
-    return new Star(x, y);
-  }
-
-  class Star {
-    constructor(x, y) {
-      this.pos = {
-        x: x,
-        y: y,
-      };
-      this.prevpos = {
-        x: x,
-        y: y,
-      };
-      this.vel = {
-        x: 0,
-        y: 0,
-      };
-      this.angle = Math.atan2(y - originY, x - originX);
-      this.baseSpeed = random(config.baseSpeed * 0.5, config.baseSpeed * 1.5);
-      this.hueOffset = random(-config.hueJitter, config.hueJitter);
-    }
-
-    reset() {
-      const newStar = createRandomStar();
-      this.pos.x = newStar.pos.x;
-      this.pos.y = newStar.pos.y;
-      this.prevpos.x = this.pos.x;
-      this.prevpos.y = this.pos.y;
-      this.vel.x = 0;
-      this.vel.y = 0;
-      this.angle = Math.atan2(this.pos.y - originY, this.pos.x - originX);
-      this.baseSpeed = random(config.baseSpeed * 0.5, config.baseSpeed * 1.5);
-      this.hueOffset = random(-config.hueJitter, config.hueJitter);
-    }
-
-    update(acc, deltaTime) {
-      const adjustedAcc = acc * this.baseSpeed;
-
-      this.vel.x += Math.cos(this.angle) * adjustedAcc * deltaTime;
-      this.vel.y += Math.sin(this.angle) * adjustedAcc * deltaTime;
-
-      this.prevpos.x = this.pos.x;
-      this.prevpos.y = this.pos.y;
-      this.pos.x += this.vel.x * deltaTime;
-      this.pos.y += this.vel.y * deltaTime;
-    }
-
-    draw() {
-      let velMag = Math.sqrt(
-        this.vel.x * this.vel.x + this.vel.y * this.vel.y
-      );
-      velMag = velMag * 3;
-      const alpha = map(velMag, 0, 10, 0, 1);
-      const weight = map(velMag, 0, 10, 1, 3);
-
-      ctx.lineWidth = weight;
-
-      const [r, g, b] = parseRGBA(config.starColor);
-      const [h, s, l] = rgbToHsl(r, g, b);
-      const adjustedH = (h + this.hueOffset + 360) % 360;
-      const [newR, newG, newB] = hslToRgb(adjustedH, s, l).map((v) =>
-        Math.round(v)
-      );
-      ctx.strokeStyle = `rgba(${newR}, ${newG}, ${newB}, ${alpha})`;
-
-      ctx.beginPath();
-      ctx.moveTo(this.prevpos.x, this.prevpos.y);
-      ctx.lineTo(this.pos.x, this.pos.y);
-      ctx.stroke();
-    }
-
-    isActive() {
-      return onScreen(this.pos.x, this.pos.y);
-    }
-
-    updateAngle() {
-      this.angle = Math.atan2(this.pos.y - originY, this.pos.x - originX);
-    }
-  }
-
-  function draw(timestamp) {
-    if (!lastTimestamp) lastTimestamp = timestamp;
-    const deltaTime = (timestamp - lastTimestamp) / 16.67;
-    lastTimestamp = timestamp;
-
-    if (config.auto) {
-      originX = getOriginX(origin, container);
-      originY = getOriginY(origin, container);
-      if (originX !== prevOriginX || originY !== prevOriginY) {
-        stars.forEach((star) => {
-          star.updateAngle();
-        });
-        prevOriginX = originX;
-        prevOriginY = originY;
+    function drawStars() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, width, height);
+      for (const star of stars) {
+        const drift = time * star.depth * 0.7;
+        const x = wrap(star.x * width + drift + pointer.x * star.depth * 10, width + 16) - 8;
+        const y = wrap(star.y * height + Math.sin(time * 0.08 + star.phase) * 2 + pointer.y * star.depth * 7, height + 16) - 8;
+        const twinkle = 0.78 + Math.sin(time * star.speed + star.phase) * 0.22;
+        ctx.globalAlpha = star.opacity * twinkle;
+        ctx.fillStyle = star.color;
+        ctx.beginPath();
+        ctx.arc(x, y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+        if (star.radius > 1.2) {
+          ctx.globalAlpha *= 0.12;
+          ctx.beginPath();
+          ctx.arc(x, y, star.radius * 3, 0, Math.PI * 2);
+          ctx.fill();
+        }
       }
+      ctx.globalAlpha = 1;
     }
 
-    if (lastCanvasColor !== config.canvasColor) {
-      canvasRGB = parseRGBA(config.canvasColor);
-      lastCanvasColor = config.canvasColor;
-    }
-    const [bgR, bgG, bgB] = canvasRGB;
-    ctx.fillStyle = `rgba(${bgR}, ${bgG}, ${bgB}, ${1 - config.trailLength})`;
-    ctx.fillRect(0, 0, width, height);
-
-    if (accelerate) {
-      accelerationFactor = Math.min(
-        accelerationFactor + config.accelerationRate * deltaTime,
-        config.maxAcceleration
-      );
-    } else {
-      accelerationFactor = Math.max(
-        accelerationFactor - config.decelerationRate * deltaTime,
-        0
-      );
-    }
-
-    const baseAcc = 0.01;
-    const currentAcc = baseAcc * (1 + accelerationFactor * 10);
-
-    for (let star of stars) {
-      star.update(currentAcc, deltaTime);
-      star.draw();
-      if (!star.isActive()) {
-        star.reset();
+    function moveIllustrations(dt) {
+      const mix = 1 - Math.exp(-dt * 5);
+      pointer.x += (target.x - pointer.x) * mix;
+      pointer.y += (target.y - pointer.y) * mix;
+      const still = staticMotion() || listLayout();
+      const central = item => item.astronaut || item.image.dataset.heroAsset === 'chapter_computational_complexity';
+      const centralSelected = items.some(item => central(item) && (item.anchor === hovered || item.anchor === focused));
+      for (const item of items) {
+        if (central(item)) {
+          if (!still && centralSelected) continue;
+          item.x = still ? 0 : pointer.x * 2 * scale;
+          item.y = still ? 0 : (pointer.y * 1.5 - Math.sin(time * .45) * 1.2) * scale;
+          item.angle = 0;
+          item.anchor.style.setProperty('--hero-x', `${item.x.toFixed(2)}px`);
+          item.anchor.style.setProperty('--hero-y', `${item.y.toFixed(2)}px`);
+          item.anchor.style.setProperty('--hero-angle', '0deg');
+          continue;
+        }
+        // Freeze the selected object so the pointer/keyboard target stays easy to use.
+        if (!still && (item.anchor === hovered || item.anchor === focused)) continue;
+        const amplitude = (item.astronaut ? 5 : 2.6) * scale;
+        const x = (pointer.x * 7 * item.depth + Math.sin(time * item.speed * 0.7 + item.phase) * 1.4) * scale;
+        const y = pointer.y * 5 * item.depth * scale + Math.sin(time * item.speed + item.phase) * amplitude;
+        const angle = Math.sin(time * item.speed * 0.65 + item.phase) * (item.astronaut ? 0.65 : 0.35);
+        item.x = still ? 0 : item.x + (x - item.x) * mix;
+        item.y = still ? 0 : item.y + (y - item.y) * mix;
+        item.angle = still ? 0 : item.angle + (angle - item.angle) * mix;
+        item.anchor.style.setProperty("--hero-x", `${item.x.toFixed(2)}px`);
+        item.anchor.style.setProperty("--hero-y", `${item.y.toFixed(2)}px`);
+        item.anchor.style.setProperty("--hero-angle", `${item.angle.toFixed(3)}deg`);
       }
+      map.style.setProperty("--hero-ground-x", `${(still ? 0 : pointer.x * 2 * scale).toFixed(2)}px`);
+      map.style.setProperty("--hero-ground-y", `${(still ? 0 : pointer.y * 1.5 * scale).toFixed(2)}px`);
     }
 
-    requestAnimationFrame(draw);
-  }
-
-  function onScreen(x, y) {
-    return x >= 0 && x <= width && y >= 0 && y <= height;
-  }
-
-  function random(min, max) {
-    return Math.random() * (max - min) + min;
-  }
-
-  // https://gist.github.com/mjackson/5311256
-  function rgbToHsl(r, g, b) {
-    r /= 255;
-    g /= 255;
-    b /= 255;
-    const max = Math.max(r, g, b),
-      min = Math.min(r, g, b);
-    let h,
-      s,
-      l = (max + min) / 2;
-
-    if (max === min) {
-      h = s = 0;
-    } else {
-      const d = max - min;
-      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-      switch (max) {
-        case r:
-          h = (g - b) / d + (g < b ? 6 : 0);
-          break;
-        case g:
-          h = (b - r) / d + 2;
-          break;
-        case b:
-          h = (r - g) / d + 4;
-          break;
+    function frame(now) {
+      raf = 0;
+      if (!hero.isConnected) { dispose(); return; }
+      // A media preference may change before its queued change event is delivered.
+      // Apply its static state before this frame stops scheduling the next one.
+      if (reduced.matches && !hero.classList.contains('hero-motion-paused')) {
+        updatePlayback();
+        return;
       }
-      h /= 6;
+      if (!canRun()) return;
+      // Cap touch devices at 30 fps. Motion uses elapsed time, not frame count.
+      if (last && now - last < (finePointer.matches ? 14 : 30)) {
+        raf = requestAnimationFrame(frame);
+        return;
+      }
+      const dt = last ? Math.min((now - last) / 1000, 0.05) : 0;
+      last = now;
+      time += dt;
+      moveIllustrations(dt);
+      drawStars();
+      renderObjects();
+      raf = requestAnimationFrame(frame);
     }
 
-    return [h * 360, s, l];
-  }
-
-  // https://gist.github.com/mjackson/5311256
-  function hslToRgb(h, s, l) {
-    let r, g, b;
-    h = h / 360;
-
-    if (s === 0) {
-      r = g = b = l;
-    } else {
-      const hue2rgb = (p, q, t) => {
-        if (t < 0) t += 1;
-        if (t > 1) t -= 1;
-        if (t < 1 / 6) return p + (q - p) * 6 * t;
-        if (t < 1 / 2) return q;
-        if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
-        return p;
-      };
-
-      const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-      const p = 2 * l - q;
-      r = hue2rgb(p, q, h + 1 / 3);
-      g = hue2rgb(p, q, h);
-      b = hue2rgb(p, q, h - 1 / 3);
+    function updatePlayback() {
+      cancelAnimationFrame(raf);
+      raf = 0;
+      last = 0;
+      toggle.hidden = reduced.matches;
+      toggle.setAttribute("aria-label", labels[paused ? 1 : 0]);
+      toggle.title = labels[paused ? 1 : 0];
+      toggle.dataset.paused = String(paused);
+      hero.classList.toggle("hero-motion-paused", staticMotion());
+      if (reduced.matches) {
+        pointer = { x: 0, y: 0 };
+        target = { x: 0, y: 0 };
+        moveIllustrations(0);
+      }
+      drawStars();
+      renderObjects();
+      loadObjects();
+      if (canRun()) raf = requestAnimationFrame(frame);
     }
 
-    return [r * 255, g * 255, b * 255];
-  }
-
-  function parseRGBA(color) {
-    const rgbaRegex = /rgba?\((\d+),\s*(\d+),\s*(\d+)/;
-    const match = color.match(rgbaRegex);
-    if (match) {
-      return [
-        parseInt(match[1], 10),
-        parseInt(match[2], 10),
-        parseInt(match[3], 10),
-      ];
+    function resize() {
+      width = Math.max(container.clientWidth, 1);
+      height = Math.max(container.clientHeight, 1);
+      scale = Math.min(1, map.clientWidth / 1000);
+      const dpr = Math.min(window.devicePixelRatio || 1, finePointer.matches ? 1.5 : 1);
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      ctx?.setTransform(dpr, 0, 0, dpr, 0, 0);
+      // Deterministic positions avoid a new constellation on every resize.
+      let seed = 73;
+      const random = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+      const count = Math.min(finePointer.matches ? 300 : 130, Math.max(65, Math.round(width * height / 4200)));
+      stars = Array.from({ length: count }, (_, i) => ({
+        x: random(), y: random(), phase: random() * Math.PI * 2,
+        depth: [0.25, 0.6, 1][i % 3],
+        radius: (0.4 + random() * 0.55) * [0.7, 1, 1.5][i % 3],
+        opacity: 0.2 + random() * 0.45,
+        speed: 0.35 + random() * 0.45,
+        color: ["#d0dedc", "#c5d2e8", "#e3d5bf"][i % 3],
+      }));
+      if (!paused || reduced.matches || listLayout()) moveIllustrations(0);
+      drawStars();
+      planets?.resize();
+      renderObjects();
+      // A page can have no horizontal scroll while absolutely positioned text is clipped.
+      // Leave room for the small pointer displacement on both sides of the actual viewport.
+      const heroBounds = hero.getBoundingClientRect();
+      const left = Math.max(0, heroBounds.left) + 12;
+      const right = Math.min(document.documentElement.clientWidth, heroBounds.right) - 12;
+      for (const item of items) {
+        if (!item.label) continue;
+        item.label.style.marginLeft = item.originalLabelMargin;
+        if (listLayout()) continue;
+        const bounds = item.label.getBoundingClientRect();
+        const nudge = Math.max(left - bounds.left, Math.min(0, right - bounds.right));
+        const base = parseFloat(getComputedStyle(item.label).marginLeft) || 0;
+        if (Math.abs(nudge) > .1) item.label.style.marginLeft = `${base + nudge}px`;
+      }
+      loadObjects();
     }
-    return [255, 255, 255];
-  }
 
-  function map(value, start1, stop1, start2, stop2) {
-    return ((value - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
-  }
+    function updateSelection() {
+      const selected = focused || hovered;
+      for (const item of items) item.anchor.classList.toggle("hero-selected", item.anchor === selected);
+      map.classList.toggle("hero-network-active", Boolean(selected));
+      if (!canRun()) renderObjects();
+    }
 
-  /**
-   * Set the acceleration state of the starfield.
-   * @param {boolean} state The acceleration state.
-   */
-  function setAccelerate(state) {
-    accelerate = state;
-  }
-
-  /**
-   * Set the x-coordinate of the origin of the starfield.
-   * @param {number} x The x-coordinate of the origin.
-   */
-  function setOriginX(x) {
-    originX = x;
-    stars.forEach((star) => {
-      star.angle = Math.atan2(star.pos.y - originY, star.pos.x - originX);
+    on(hero, "pointermove", event => {
+      if (!finePointer.matches || event.pointerType === "touch" || staticMotion()) return;
+      const bounds = hero.getBoundingClientRect();
+      target.x = Math.max(-1, Math.min(1, (event.clientX - bounds.left) / bounds.width * 2 - 1));
+      target.y = Math.max(-1, Math.min(1, (event.clientY - bounds.top) / bounds.height * 2 - 1));
     });
-  }
-
-  /**
-   * Set the y-coordinate of the origin of the starfield.
-   * @param {number} y The y-coordinate of the origin.
-   */
-  function setOriginY(y) {
-    originY = y;
-    stars.forEach((star) => {
-      star.angle = Math.atan2(star.pos.y - originY, star.pos.x - originX);
+    on(hero, "pointerleave", () => { target = { x: 0, y: 0 }; hovered = null; updateSelection(); });
+    for (const item of items) {
+      on(item.anchor, "pointerenter", event => {
+        if (event.pointerType === "touch" || !finePointer.matches) return;
+        hovered = item.anchor;
+        updateSelection();
+      });
+      on(item.anchor, "pointerleave", () => { if (hovered === item.anchor) hovered = null; updateSelection(); });
+      on(item.anchor, "focus", () => { focused = item.anchor; updateSelection(); });
+      on(item.anchor, "blur", () => { focused = null; updateSelection(); });
+    }
+    on(toggle, "click", () => {
+      paused = !paused;
+      try { sessionStorage.setItem("hello-algo:hero-paused", String(paused)); } catch (_) { /* Storage is optional. */ }
+      updatePlayback();
     });
-  }
+    on(reduced, "change", updatePlayback);
+    on(finePointer, "change", () => { target = { x: 0, y: 0 }; resize(); });
+    on(mobile, "change", resize);
+    on(document, "visibilitychange", updatePlayback);
+    on(window, "pagehide", () => { suspended = true; updatePlayback(); });
+    on(window, "pageshow", () => { suspended = false; updatePlayback(); });
 
-  /**
-   * Set the origin of the starfield to a specific point.
-   * @param {number} x The x-coordinate of the origin.
-   * @param {number} y The y-coordinate of the origin.
-   */
-  function setOrigin(x, y) {
-    originX = x;
-    originY = y;
-    stars.forEach((star) => {
-      star.angle = Math.atan2(star.pos.y - originY, star.pos.x - originX);
+    const resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(hero);
+    resizeObserver.observe(map);
+    const intersectionObserver = new IntersectionObserver(entries => {
+      visible = entries[0].isIntersecting;
+      updatePlayback();
     });
+    intersectionObserver.observe(hero);
+
+    dispose = () => {
+      destroyed = true;
+      cancelAnimationFrame(raf);
+      resizeObserver.disconnect();
+      intersectionObserver.disconnect();
+      listeners.forEach(remove => remove());
+      planets?.dispose();
+      hourglass?.dispose();
+      canvas.remove();
+      toggle.remove();
+      hero.classList.remove("hero-universe", "hero-motion-paused");
+      map.classList.remove("hero-network-active");
+      map.style.removeProperty("--hero-ground-x");
+      map.style.removeProperty("--hero-ground-y");
+      ground?.classList.remove("hero-ground");
+      links?.classList.remove("hero-links");
+      for (const { anchor, label, originalLabelMargin } of items) {
+        if (label) label.style.marginLeft = originalLabelMargin;
+        anchor.classList.remove("hero-selected");
+        ["--hero-x", "--hero-y", "--hero-angle"].forEach(name => anchor.style.removeProperty(name));
+      }
+    };
+    resize();
+    updatePlayback();
   }
 
-  /**
-   * Resize the starfield to a new width and height.
-   * @param {number} newWidth The new width of the starfield.
-   * @param {number} newHeight The new height of the starfield.
-   */
-  function resize(newWidth, newHeight) {
-    width = newWidth;
-    height = newHeight;
-    canvas.width = width;
-    canvas.height = height;
-
-    if (config.originY !== null) {
-      originY = config.originY;
-    } else {
-      originY = height / 2;
-    }
-
-    stars.forEach((star) => star.reset());
-  }
-
-  function cleanup() {
-    if (origin) {
-      origin.removeEventListener("mouseenter", mouseEnterHandler);
-      origin.removeEventListener("mouseleave", mouseLeaveHandler);
-    }
-    window.removeEventListener("resize", resizeHandler);
-    document.removeEventListener("visibilitychange", visibilityHandler);
-
-    if (canvas && canvas.parentNode) {
-      canvas.parentNode.removeChild(canvas);
-    }
-
-    stars = [];
-    accelerate = false;
-    accelerationFactor = 0;
-    originX = 0;
-    originY = 0;
-    prevOriginX = 0;
-    prevOriginY = 0;
-    lastTimestamp = 0;
-  }
-
-  Starfield.setup = setup;
-  Starfield.setAccelerate = setAccelerate;
-  Starfield.setOrigin = setOrigin;
-  Starfield.setOriginX = setOriginX;
-  Starfield.setOriginY = setOriginY;
-  Starfield.resize = resize;
-  Starfield.config = config;
-  Starfield.cleanup = cleanup;
-
-  return Starfield;
-});
+  // Retain the build hook's entry point; all motion shares one cancellable loop.
+  root.Starfield = { setup, cleanup: () => dispose() };
+})(window);

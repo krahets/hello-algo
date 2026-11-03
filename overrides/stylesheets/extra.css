@@ -1,3 +1,4 @@
+
 /* Theme tokens */
 /* https://github.com/squidfunk/mkdocs-material/blob/6b5035f5580f97532d664e3d1babf5f320e88ee9/src/assets/stylesheets/main/_colors.scss */
 /* https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#custom-colors */
@@ -29,35 +30,71 @@
 }
 
 [data-md-color-scheme="slate"] {
-  --theme-dark-base: #1e1e1e;
-  --theme-dark-mantle: #1a1a1a;
-  --theme-dark-crust: #171717;
+  --theme-dark-base: #171717;
+  --theme-dark-surface: #1e1e1e;
+  --theme-dark-overlay: #252525;
+  /* Neutral reading hierarchy shared with the dark SVG palette. */
+  --theme-dark-text: #dcdcdc;
+  --theme-dark-text-strong: #eeeeee;
+  --theme-dark-text-secondary: #c1c1c1;
+  --theme-dark-text-muted: #a5a5a5;
   --hero-starfield-bg-color: var(--theme-dark-base);
 
   --md-primary-fg-color: var(--theme-dark-base);
-  --md-primary-bg-color: #adbac7;
+  --md-primary-bg-color: var(--theme-dark-text);
 
-  --md-default-fg-color: #adbac7;
+  --md-default-fg-color: var(--theme-dark-text);
+  --md-default-fg-color--light: var(--theme-dark-text-secondary);
+  --md-default-fg-color--lighter: rgb(220 220 220 / 0.32);
+  --md-default-fg-color--lightest: rgb(220 220 220 / 0.12);
   --md-default-bg-color: var(--theme-dark-base);
-  --md-default-bg-color--light: rgb(30 30 30 / 0.8);
+  --md-default-bg-color--light: color-mix(in srgb, var(--theme-dark-base) 80%, transparent);
 
   --md-body-bg-color: var(--md-default-bg-color);
-  --md-header-bg-color: rgba(26, 26, 26, 0.8);
+  --md-header-bg-color: var(--md-default-bg-color--light);
 
-  --md-code-fg-color: #adbac7;
-  --md-code-bg-color: var(--theme-dark-crust);
+  --md-code-fg-color: var(--theme-dark-text);
+  --md-code-hl-comment-color: var(--theme-dark-text-muted);
+  --md-code-hl-variable-color: var(--theme-dark-text);
+  --md-code-hl-punctuation-color: var(--theme-dark-text-secondary);
+  --md-code-hl-operator-color: var(--theme-dark-text-secondary);
+  --md-code-hl-generic-color: var(--theme-dark-text-secondary);
+  --md-code-bg-color: var(--theme-dark-surface);
+  --md-code-bg-color--light: color-mix(in srgb, var(--theme-dark-surface) 70%, transparent);
+  --md-code-bg-color--lighter: color-mix(in srgb, var(--theme-dark-surface) 30%, transparent);
 
-  --md-typeset-color: #adbac7;
+  --md-typeset-color: var(--theme-dark-text);
   --md-typeset-a-color: #52bbb1;
   --md-accent-fg-color: var(--md-typeset-a-color);
 
   --md-typeset-btn-color: #52bbb1;
   --md-typeset-btn-hover-color: #55aea6;
 
-  --md-footer-fg-color: #adbac7;
-  --md-footer-bg-color: var(--theme-dark-mantle);
+  --md-footer-fg-color: var(--theme-dark-text-secondary);
+  --md-footer-bg-color: var(--theme-dark-base);
+  --md-footer-bg-color--dark: var(--theme-dark-base);
 
   --md-admonition-pythontutor-color: var(--md-code-bg-color);
+
+  /* Search uses RGB channels inside its shadow root. */
+  --color-foreground: 220 220 220;
+  --color-background: 37 37 37;
+  --color-background-subtle: 30 30 30;
+  --color-backdrop: 23 23 23;
+}
+
+[data-md-color-scheme="slate"] .md-typeset :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--theme-dark-text-strong);
+}
+
+[data-md-color-scheme="slate"] :is(.md-select__inner, .md-tooltip, .md-tooltip2__inner) {
+  --md-default-bg-color: var(--theme-dark-overlay);
+  background-color: var(--theme-dark-overlay);
+}
+
+[data-md-color-scheme="slate"] .md-dialog {
+  background-color: var(--theme-dark-overlay);
+  color: var(--md-default-fg-color);
 }
 
 [data-md-color-scheme="slate"][data-md-color-primary="black"],
@@ -75,7 +112,7 @@ body {
 }
 
 html:has(body[data-md-color-scheme="slate"]) {
-  background-color: #1e1e1e;
+  background-color: #171717;
 }
 
 html:has(body[data-md-color-scheme="default"]) {
@@ -352,6 +389,14 @@ html:has(body[data-md-color-scheme="default"]) {
   padding-top: 0.4rem;
 }
 
+[data-md-color-scheme="slate"] .md-typeset :is(.admonition, details):not(.pythontutor) {
+  background-color: var(--theme-dark-surface);
+}
+
+[data-md-color-scheme="slate"] .md-typeset :is(.admonition, details):not(.pythontutor) > :is(.admonition-title, summary) {
+  background-color: color-mix(in srgb, var(--hello-algo-callout-color) 10%, var(--theme-dark-surface));
+}
+
 [dir="ltr"] .md-typeset :is(.admonition, details):not(.pythontutor) > :is(.admonition-title, summary) {
   padding-left: 2.4rem;
 }
@@ -393,12 +438,6 @@ html:has(body[data-md-color-scheme="default"]) {
   mask-image: var(--md-admonition-icon--pythontutor);
 }
 
-[data-md-color-scheme="slate"] .md-typeset details.pythontutor[open]> :not(summary),
-[data-md-color-scheme="slate"] .md-typeset details.pythontutor[open]> :not(summary) :is(p, li, strong, em, sub, sup, code, a) {
-  background-color: #f5f5f5;
-  color: #1d1d20;
-}
-
 .md-typeset .tabbed-labels>label {
   font-size: 0.61rem;
 }
@@ -408,6 +447,8 @@ html:has(body[data-md-color-scheme="default"]) {
 }
 
 .pythontutor-iframe {
+  /* The embedded third-party visualizer has its own light canvas. */
+  background-color: #f5f5f5;
   width: 125%;
   height: 125%;
   max-width: 125% !important;
@@ -441,7 +482,7 @@ html:has(body[data-md-color-scheme="default"]) {
 }
 
 .home-div--black {
-  background-color: #101010;
+  background-color: var(--theme-dark-base, #171717);
 }
 
 .home-div[data-md-color-scheme="default"],
@@ -812,7 +853,7 @@ a:hover .device-on-hover {
   margin: 0;
   padding: 1.25em 2.5em;
   border-radius: 28px;
-  background-color: #101010;
+  background-color: var(--theme-dark-surface, #1e1e1e);
   box-sizing: border-box;
   overflow: hidden;
 }

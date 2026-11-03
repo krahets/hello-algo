@@ -1,0 +1,249 @@
+{
+  "hero_class": "hero-div",
+  "list_layout": false,
+  "labels": {
+    "astronaut": "初识算法",
+    "chapter_computational_complexity": "复杂度",
+    "chapter_array_and_linkedlist": "数组与链表",
+    "chapter_stack_and_queue": "栈与队列",
+    "chapter_hashing": "哈希表",
+    "chapter_tree": "树",
+    "chapter_heap": "堆",
+    "chapter_graph": "图",
+    "chapter_searching": "搜索",
+    "chapter_sorting": "排序",
+    "chapter_divide_and_conquer": "分治",
+    "chapter_backtracking": "回溯",
+    "chapter_dynamic_programming": "动态规划",
+    "chapter_greedy": "贪心"
+  },
+  "label_styles": {
+    "astronaut": "left: 52.244%; top: 20.919%;",
+    "chapter_computational_complexity": "left: 39.244%; top: 33.919%;",
+    "chapter_array_and_linkedlist": "left: 90.897%; top: 76.259%;",
+    "chapter_stack_and_queue": "left: 77.571%; top: 91.25%;",
+    "chapter_hashing": "left: 68.862%; top: 46.292%;",
+    "chapter_tree": "left: 96.159%; top: 44.8%;",
+    "chapter_heap": "left: 88.103%; top: 15.422%;",
+    "chapter_graph": "left: 71.195%; top: 6.503%;",
+    "chapter_searching": "left: 14.556%; top: 20.876%;",
+    "chapter_sorting": "left: 28.805%; top: 53.808%;",
+    "chapter_divide_and_conquer": "left: 31.42%; top: 8.679%;",
+    "chapter_backtracking": "left: 4.742%; top: 50.113%;",
+    "chapter_dynamic_programming": "left: 8.561%; top: 75.351%;",
+    "chapter_greedy": "left: 21.619%; top: 86.85%;"
+  },
+  "typing": {
+    "style": "height: min(9vh, 12vw);",
+    "src": "https://readme-typing-svg.demolab.com/?font=Noto+Sans+SC&weight=400&duration=3500&pause=2000&color=FFF&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+%E7%AE%97%E6%B3%95+!",
+    "alt": ""
+  },
+  "tagline": "动画图解、一键运行的数据结构与算法教程",
+  "start_label": "开始阅读",
+  "start_href": "chapter_hello_algo/",
+  "reading": [
+    {
+      "asset": "cover_render",
+      "href": "chapter_paperbook/",
+      "alt": "Cover",
+      "label": "了解纸质书",
+      "image_style": "height: 66.83%;",
+      "spacers": [
+        "height: 8.17%;"
+      ]
+    },
+    {
+      "asset": "web_mac_iphone",
+      "href": "chapter_hello_algo/",
+      "alt": "",
+      "label": "在线阅读",
+      "image_style": "height: 66.31%;",
+      "spacers": [
+        "height: 4.34%;",
+        "height: 4.34%;"
+      ]
+    },
+    {
+      "asset": "pdf_ipad",
+      "href": "https://github.com/krahets/hello-algo/releases",
+      "alt": "",
+      "label": "下载 PDF/EPUB",
+      "image_style": "height: 75%;",
+      "spacers": []
+    }
+  ],
+  "reading_description": "500 幅动画图解、14 种编程语言代码、3000 条社区问答，助你快速入门数据结构与算法",
+  "endorsement_title": "推荐语",
+  "endorsements": [
+    [
+      "“一本通俗易懂的数据结构与算法入门书，引导读者手脑并用地学习，强烈推荐算法初学者阅读。”",
+      "—— 邓俊辉，清华大学计算机系教授"
+    ],
+    [
+      "“如果我当年学数据结构与算法的时候有《Hello 算法》，学起来应该会简单 10 倍！”",
+      "—— 李沐，亚马逊资深首席科学家"
+    ]
+  ],
+  "features": [
+    {
+      "title": "动画图解",
+      "description": "内容清晰易懂，学习曲线平滑",
+      "quotes": [
+        "\"A picture is worth a thousand words.\"",
+        "“一图胜千言”"
+      ],
+      "video": "animation",
+      "video_label": "Animation example"
+    },
+    {
+      "title": "一键运行",
+      "description": "十余种编程语言，代码可视化运行",
+      "quotes": [
+        "\"Talk is cheap. Show me the code.\"",
+        "“少吹牛，看代码”"
+      ],
+      "video": "running_code",
+      "video_label": "Running code example"
+    },
+    {
+      "title": "互助学习",
+      "description": "欢迎讨论与提问，读者间携手共进",
+      "quotes": [
+        "\"Learning by teaching.\"",
+        "“教学相长”"
+      ],
+      "video": "comment",
+      "video_label": "Comments example"
+    }
+  ],
+  "people": [
+    {
+      "title": "作者",
+      "description": null,
+      "profiles": [
+        {
+          "href": "https://github.com/krahets",
+          "class": "profile-cell",
+          "asset": "avatar_yudongjin",
+          "alt": "Author: yudongjin",
+          "name": "靳宇栋（@krahets）",
+          "detail": null
+        }
+      ]
+    },
+    {
+      "title": "代码审阅者",
+      "description": "本书多语言代码版本由以下开发者协力完成，感谢他们的投入与贡献！",
+      "profiles": [
+        {
+          "href": "https://github.com/coderonion",
+          "class": "profile-cell",
+          "asset": "avatar_coderonion",
+          "alt": "Reviewer: coderonion",
+          "name": "coderonion",
+          "detail": "Zig, Rust"
+        },
+        {
+          "href": "https://github.com/curtishd",
+          "class": "profile-cell",
+          "asset": "avatar_curtishd",
+          "alt": "Reviewer: curtishd",
+          "name": "curtishd",
+          "detail": "Kotlin"
+        },
+        {
+          "href": "https://github.com/Gonglja",
+          "class": "profile-cell",
+          "asset": "avatar_Gonglja",
+          "alt": "Reviewer: Gonglja",
+          "name": "Gonglja",
+          "detail": "C, C++"
+        },
+        {
+          "href": "https://github.com/gvenusleo",
+          "class": "profile-cell",
+          "asset": "avatar_gvenusleo",
+          "alt": "Reviewer: gvenusleo",
+          "name": "gvenusleo",
+          "detail": "Dart"
+        },
+        {
+          "href": "https://github.com/hpstory",
+          "class": "profile-cell",
+          "asset": "avatar_hpstory",
+          "alt": "Reviewer: hpstory",
+          "name": "hpstory",
+          "detail": "C#"
+        },
+        {
+          "href": "https://github.com/justin-tse",
+          "class": "profile-cell",
+          "asset": "avatar_justin-tse",
+          "alt": "Reviewer: justin-tse",
+          "name": "justin-tse",
+          "detail": "JS, TS"
+        },
+        {
+          "href": "https://github.com/khoaxuantu",
+          "class": "profile-cell",
+          "asset": "avatar_khoaxuantu",
+          "alt": "Reviewer: khoaxuantu",
+          "name": "khoaxuantu",
+          "detail": "Ruby"
+        },
+        {
+          "href": "https://github.com/krahets",
+          "class": "profile-cell",
+          "asset": "avatar_krahets",
+          "alt": "Reviewer: krahets",
+          "name": "krahets",
+          "detail": "Python, Java"
+        },
+        {
+          "href": "https://github.com/night-cruise",
+          "class": "profile-cell",
+          "asset": "avatar_night-cruise",
+          "alt": "Reviewer: night-cruise",
+          "name": "night-cruise",
+          "detail": "Rust"
+        },
+        {
+          "href": "https://github.com/nuomi1",
+          "class": "profile-cell",
+          "asset": "avatar_nuomi1",
+          "alt": "Reviewer: nuomi1",
+          "name": "nuomi1",
+          "detail": "Swift"
+        },
+        {
+          "href": "https://github.com/Reanon",
+          "class": "profile-cell",
+          "asset": "avatar_Reanon",
+          "alt": "Reviewer: Reanon",
+          "name": "Reanon",
+          "detail": "Go, C"
+        },
+        {
+          "href": "https://github.com/rongyi",
+          "class": "profile-cell",
+          "asset": "avatar_rongyi",
+          "alt": "Reviewer: rongyi",
+          "name": "rongyi",
+          "detail": "Rust"
+        }
+      ]
+    },
+    {
+      "title": "贡献者",
+      "description": "本书在开源社区 200 多位贡献者的共同努力下不断完善，感谢他们付出的时间与精力！",
+      "profiles": [],
+      "banner": {
+        "href": "https://github.com/krahets/hello-algo/graphs/contributors",
+        "url": "https://contrib.rocks/image?repo=krahets/hello-algo&max=300&columns=12",
+        "alt": "Contributors",
+        "style": "width: 100%; max-width: 38.5em;"
+      }
+    }
+  ],
+  "reading_notes": []
+}
