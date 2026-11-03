@@ -178,6 +178,9 @@
   }
 }
 
+/* Chapter labels stay clickable above neighbouring transparent image hit boxes. */
+.hero-div > a > span { z-index: 1; }
+
 /* Metadata-only boxes reserve layout and native hit targets without downloading fallback art. */
 .hero-div > a > noscript > img { width: auto; position: absolute; }
 .hero-div img[data-hero-fallback]:not([src]) { opacity: 0 !important; }
