@@ -1,13 +1,14 @@
 {% import 'icons.html.j2' as icons %}
 <!-- Generated from the shared homepage template and locale configuration. -->
 <link rel="stylesheet" href="{{ runtime('hero-motion.css') }}">
-<noscript><style>[data-home-src], video[data-home-poster] { display: none; }</style></noscript>
+<noscript><style>[data-home-src], video[data-home-poster], [data-hero-fallback] { display: none; }</style></noscript>
 <section data-md-color-scheme="slate" data-md-color-primary="grey" class="home-div home-universe-bg">
   <div class="starfield"><div class="starfield-origin"></div></div>
   <div class="{{ locale.hero_class }}" data-home-layout="{{ 'list' if locale.list_layout else 'universe' }}">
   {% for object in objects %}
     {% if object.href %}<a href="{{ object.href }}">{% endif %}
-    <img {{ hero_image(object.id)|safe }} alt="" style="{{ object.style }}">
+    <img {{ hero_image(object.id)|safe }} alt="" style="{{ object.style }}; aspect-ratio: {{ assets[object.id].width }} / {{ assets[object.id].height }}">
+    {% if object.id.startswith('chapter_') %}<noscript><img {{ image(object.id)|safe }} alt="" style="{{ object.style }}"></noscript>{% endif %}
     {% if object.href %}<span style="{{ locale.label_styles[object.id] }}">{{ locale.labels[object.id] }}</span></a>{% endif %}
   {% endfor %}
   </div>
@@ -77,15 +78,25 @@
       {% for person in group.profiles %}
         <div class="{{ person.class }}">
           {% if person.href %}<a href="{{ person.href }}">{% endif %}
-            <img class="profile-img" {{ image(person.asset)|safe }} alt="{{ person.alt }}" loading="lazy">
+            <img class="profile-img" {{ image(person.asset, true)|safe }} alt="{{ person.alt }}" decoding="async">
+            <noscript><img class="profile-img" {{ image(person.asset)|safe }} alt="{{ person.alt }}" loading="lazy"></noscript>
             <br><b>{{ person.name }}</b>{% if person.detail %}<br><sub>{{ person.detail }}</sub>{% endif %}
           {% if person.href %}</a>{% endif %}
         </div>
       {% endfor %}
-      </div>{% else %}<a href="{{ group.banner.href }}"><img src="{{ group.banner.url }}" alt="{{ group.banner.alt }}" style="{{ group.banner.style }}" loading="lazy"></a>{% endif %}
+      </div>{% else %}<a href="{{ group.banner.href }}"><img data-home-src="{{ group.banner.url }}" alt="{{ group.banner.alt }}" style="{{ group.banner.style }}" decoding="async"><noscript><img src="{{ group.banner.url }}" alt="{{ group.banner.alt }}" style="{{ group.banner.style }}" loading="lazy"></noscript></a>{% endif %}
     </div>
   {% endfor %}
   </div>
 </section>
 <!-- This independent fallback also works when the deferred loader cannot be fetched. -->
 <script src="{{ runtime('homepage-media.js') }}" defer onerror="document.querySelectorAll('[data-home-src], [data-home-poster]').forEach(function(el) { if (el.dataset.homeSrc) el.src = el.dataset.homeSrc; if (el.dataset.homePoster) el.poster = el.dataset.homePoster; });"></script>
+
+<script>
+// If the scene entry point itself fails, still provide chapter illustrations.
+addEventListener('load', function () {
+  if (!window.Starfield) document.querySelectorAll('[data-hero-fallback]').forEach(function (image) {
+    image.src = image.dataset.heroFallback;
+  });
+}, {once: true});
+</script>

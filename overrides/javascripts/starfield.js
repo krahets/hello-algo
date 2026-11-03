@@ -3,6 +3,9 @@
   "use strict";
 
   let dispose = () => {};
+  const restoreImage = image => {
+    if (image?.dataset.heroFallback && !image.getAttribute('src')) image.src = image.dataset.heroFallback;
+  };
   const moduleBase = new URL(".", document.currentScript.src);
 
   function setup(config = {}) {
@@ -11,6 +14,9 @@
     const hero = container?.closest(".home-div");
     const map = hero?.querySelector(".hero-div");
     if (!map) return;
+    // Below-fold preloading waits for the enhancement (or its static fallback).
+    let settleReady;
+    hero.homeReady = new Promise(resolve => { settleReady = resolve; });
 
     const reduced = matchMedia("(prefers-reduced-motion: reduce)");
     const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
@@ -74,11 +80,13 @@
 
     function renderObjects() {
       const enabled = !reduced.matches && !listLayout();
+      if (!enabled) items.forEach(item => restoreImage(item.image));
       if (planets) {
         try { planets.render(time, enabled, pointer); }
         catch (error) {
           planets.dispose();
           planets = null;
+          items.filter(item => item.image.dataset.heroAsset !== 'chapter_computational_complexity').forEach(item => restoreImage(item.image));
           console.warn("Planet rendering unavailable; keeping the original illustrations.", error);
         }
       }
@@ -88,18 +96,25 @@
     function loadObjects() {
       if (objectsRequested || destroyed || !visible || reduced.matches || listLayout()) return;
       objectsRequested = true;
-      import(new URL("hero-planets.js", moduleBase).href).then(module => {
+      const planetReady = import(new URL("hero-planets.js", moduleBase).href).then(module => {
         if (destroyed) return;
-        planets = module.createPlanets(map, items, updatePlayback);
+        planets = module.createPlanets(map, items, updatePlayback, restoreImage);
         renderObjects();
         resize();
-      }).catch(error => console.warn("3D enhancement unavailable; keeping the original planets.", error));
-      import(new URL("hero-hourglass.js", moduleBase).href).then(module => {
+        return planets.ready;
+      }).catch(error => {
+        items.filter(item => item.image.dataset.heroAsset !== 'chapter_computational_complexity').forEach(item => restoreImage(item.image));
+        console.warn("3D enhancement unavailable; loading fallback planets.", error);
+      });
+      const hourglassReady = import(new URL("hero-hourglass.js", moduleBase).href).then(module => {
         if (destroyed) return;
         hourglass = module.createHourglass(items);
         renderObjects();
-      }).catch(error => console.warn("Hourglass enhancement unavailable; keeping the original illustration.", error));
-
+      }).catch(error => {
+        restoreImage(items.find(item => item.image.dataset.heroAsset === 'chapter_computational_complexity')?.image);
+        console.warn("Hourglass enhancement unavailable; loading fallback illustration.", error);
+      });
+      Promise.allSettled([planetReady, hourglassReady]).then(settleReady);
     }
 
     function drawStars() {
@@ -287,11 +302,13 @@
     const intersectionObserver = new IntersectionObserver(entries => {
       visible = entries[0].isIntersecting;
       updatePlayback();
+      if (!objectsRequested && (!visible || reduced.matches || listLayout())) settleReady();
     });
     intersectionObserver.observe(hero);
 
     dispose = () => {
       destroyed = true;
+      settleReady();
       cancelAnimationFrame(raf);
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
@@ -317,5 +334,12 @@
   }
 
   // Retain the build hook's entry point; all motion shares one cancellable loop.
-  root.Starfield = { setup, cleanup: () => dispose() };
+  root.Starfield = { setup: config => {
+    try { setup(config); }
+    catch (error) {
+      dispose();
+      document.querySelectorAll('[data-hero-fallback]').forEach(restoreImage);
+      console.warn('Scene unavailable; loading fallback illustrations.', error);
+    }
+  }, cleanup: () => dispose() };
 })(window);
