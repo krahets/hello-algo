@@ -4,11 +4,11 @@
 
 아래 그림의 이진 탐색 트리는 노드를 두 번 삭제하면 연결 리스트로 퇴화한다.
 
-![노드 삭제 후 퇴화한 AVL 트리](avl_tree.assets/avltree_degradation_from_removing_node.png)
+![노드 삭제 후 퇴화한 AVL 트리](avl_tree.assets/avltree_degradation_from_removing_node.svg)
 
 또한 아래 그림의 포화 이진 트리에 노드 두 개를 삽입하면 왼쪽으로 심하게 기울어 탐색의 시간 복잡도도 저하된다.
 
-![노드 삽입 후 퇴화한 AVL 트리](avl_tree.assets/avltree_degradation_from_inserting_node.png)
+![노드 삽입 후 퇴화한 AVL 트리](avl_tree.assets/avltree_degradation_from_inserting_node.svg)
 
 1962년 G. M. Adelson-Velsky와 E. M. Landis는 논문 'An algorithm for the organization of information'에서 <u>AVL 트리</u>를 제안했다. 논문은 노드를 계속 추가하거나 삭제해도 트리가 퇴화하지 않게 하는 일련의 연산을 상세히 설명하여, 각 연산의 시간 복잡도를 $O(\log n)$으로 유지하도록 했다. 즉, 추가, 삭제, 조회, 수정이 잦은 상황에서도 효율적인 데이터 연산 성능을 유지하므로 활용 가치가 높다.
 
@@ -257,20 +257,20 @@ AVL 트리의 특징은 '회전' 연산이다. 이진 트리의 중위 순회 �
 아래 그림에서 노드 아래의 수는 균형 인수다. 아래에서 위로 볼 때 첫 불균형 노드는 '노드 3'이다. 이 노드를 루트로 하는 서브트리에 주목하여 불균형 노드를 `node`, 왼쪽 자식을 `child`라고 하고 '오른쪽 회전'을 수행한다. 회전 후 서브트리는 균형을 되찾으며 이진 탐색 트리의 성질도 유지한다.
 
 === "<1>"
-    ![오른쪽 회전 단계](avl_tree.assets/avltree_right_rotate_step1.png)
+    ![오른쪽 회전 단계](avl_tree.assets/avltree_right_rotate_step1.svg)
 
 === "<2>"
-    ![오른쪽 회전 2단계](avl_tree.assets/avltree_right_rotate_step2.png)
+    ![오른쪽 회전 2단계](avl_tree.assets/avltree_right_rotate_step2.svg)
 
 === "<3>"
-    ![오른쪽 회전 3단계](avl_tree.assets/avltree_right_rotate_step3.png)
+    ![오른쪽 회전 3단계](avl_tree.assets/avltree_right_rotate_step3.svg)
 
 === "<4>"
-    ![오른쪽 회전 4단계](avl_tree.assets/avltree_right_rotate_step4.png)
+    ![오른쪽 회전 4단계](avl_tree.assets/avltree_right_rotate_step4.svg)
 
 아래 그림처럼 `child`에 오른쪽 자식 `grand_child`가 있으면, 오른쪽 회전 중 `grand_child`를 `node`의 왼쪽 자식으로 연결하는 단계를 추가해야 한다.
 
-![grand_child가 있는 오른쪽 회전](avl_tree.assets/avltree_right_rotate_with_grandchild.png)
+![grand_child가 있는 오른쪽 회전](avl_tree.assets/avltree_right_rotate_with_grandchild.svg)
 
 '오른쪽으로 회전한다'는 시각적인 표현이며, 실제로는 노드 포인터를 수정하여 구현한다. 코드는 다음과 같다.
 
@@ -282,11 +282,11 @@ AVL 트리의 특징은 '회전' 연산이다. 이진 트리의 중위 순회 �
 
 앞의 불균형 이진 트리를 '거울에 비춘' 경우에는 아래 그림과 같이 '왼쪽 회전'이 필요하다.
 
-![왼쪽 회전](avl_tree.assets/avltree_left_rotate.png)
+![왼쪽 회전](avl_tree.assets/avltree_left_rotate.svg)
 
 마찬가지로 아래 그림처럼 `child`에 왼쪽 자식 `grand_child`가 있으면, 왼쪽 회전 중 `grand_child`를 `node`의 오른쪽 자식으로 연결하는 단계를 추가해야 한다.
 
-![grand_child가 있는 왼쪽 회전](avl_tree.assets/avltree_left_rotate_with_grandchild.png)
+![grand_child가 있는 왼쪽 회전](avl_tree.assets/avltree_left_rotate_with_grandchild.svg)
 
 **오른쪽 회전과 왼쪽 회전은 논리적으로 거울 대칭이며, 각각 해결하는 불균형 상황도 대칭이다**. 따라서 오른쪽 회전 코드의 모든 `left`를 `right`로, 모든 `right`를 `left`로 바꾸면 왼쪽 회전 코드를 얻는다.
 
@@ -298,19 +298,19 @@ AVL 트리의 특징은 '회전' 연산이다. 이진 트리의 중위 순회 �
 
 아래 그림의 불균형 노드 3은 왼쪽 회전이나 오른쪽 회전 한 번만으로 균형을 회복할 수 없다. 먼저 `child`를 '왼쪽 회전'한 뒤 `node`를 '오른쪽 회전'해야 한다.
 
-![왼쪽 회전 후 오른쪽 회전](avl_tree.assets/avltree_left_right_rotate.png)
+![왼쪽 회전 후 오른쪽 회전](avl_tree.assets/avltree_left_right_rotate.svg)
 
 ### 오른쪽 회전 후 왼쪽 회전
 
 아래 그림처럼 앞 상황의 거울 대칭인 경우에는 먼저 `child`를 '오른쪽 회전'한 뒤 `node`를 '왼쪽 회전'해야 한다.
 
-![오른쪽 회전 후 왼쪽 회전](avl_tree.assets/avltree_right_left_rotate.png)
+![오른쪽 회전 후 왼쪽 회전](avl_tree.assets/avltree_right_left_rotate.svg)
 
 ### 회전 선택
 
 아래 그림의 네 불균형 상황은 앞의 예시들과 각각 대응한다. 순서대로 오른쪽 회전, 왼쪽 후 오른쪽 회전, 오른쪽 후 왼쪽 회전, 왼쪽 회전이 필요하다.
 
-![AVL 트리의 네 가지 회전 상황](avl_tree.assets/avltree_rotation_cases.png)
+![AVL 트리의 네 가지 회전 상황](avl_tree.assets/avltree_rotation_cases.svg)
 
 아래 표처럼 불균형 노드의 균형 인수와 더 높은 쪽 자식의 균형 인수 부호를 확인하여 어느 상황에 해당하는지 판단한다.
 

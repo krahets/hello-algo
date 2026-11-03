@@ -20,7 +20,7 @@
 
 プログラムの空間計算量では、下図のように、**通常は一時データ、スタックフレーム、出力データの三つを数えます**。
 
-![アルゴリズムが使う空間](space_complexity.assets/space_types.png)
+![アルゴリズムが使う空間](space_complexity.assets/space_types.svg)
 
 関連するコードを次に示します。
 
@@ -811,7 +811,7 @@ $$
 \end{aligned}
 $$
 
-![代表的な空間計算量](space_complexity.assets/space_complexity_common_types.png)
+![代表的な空間計算量](space_complexity.assets/space_complexity_common_types.svg)
 
 ### 定数のオーダー $O(1)$
 
@@ -837,7 +837,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{linear_recur}
 ```
 
-![再帰関数による線形の空間計算量](space_complexity.assets/space_complexity_recursive_linear.png)
+![再帰関数による線形の空間計算量](space_complexity.assets/space_complexity_recursive_linear.svg)
 
 ### 二乗のオーダー $O(n^2)$
 
@@ -853,7 +853,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{quadratic_recur}
 ```
 
-![再帰関数による二乗の空間計算量](space_complexity.assets/space_complexity_recursive_quadratic.png)
+![再帰関数による二乗の空間計算量](space_complexity.assets/space_complexity_recursive_quadratic.svg)
 
 ### 指数のオーダー $O(2^n)$
 
@@ -863,7 +863,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{build_tree}
 ```
 
-![パーフェクト二分木による指数の空間計算量](space_complexity.assets/space_complexity_exponential.png)
+![パーフェクト二分木による指数の空間計算量](space_complexity.assets/space_complexity_exponential.svg)
 
 ### 対数のオーダー $O(\log n)$
 

@@ -8,7 +8,7 @@ Both graphs and trees use search algorithms for traversal. Graph traversal can l
 
 **Breadth-first traversal visits vertices from near to far. Starting from a vertex, it always visits the nearest vertices first and expands outward layer by layer**. In the figure below, we start at the top-left vertex and visit all its adjacent vertices, then visit all the adjacent vertices of the next vertex, and so on until every vertex has been visited.
 
-![Breadth-first traversal of a graph](graph_traversal.assets/graph_bfs.png)
+![Breadth-first traversal of a graph](graph_traversal.assets/graph_bfs.svg)
 
 ### Algorithm implementation
 
@@ -31,37 +31,37 @@ To avoid visiting a vertex more than once, we use a hash set `visited` to track 
 The code is fairly abstract; compare it with the figure below to build your understanding.
 
 === "<1>"
-    ![Steps in breadth-first traversal of a graph](graph_traversal.assets/graph_bfs_step1.png)
+    ![Steps in breadth-first traversal of a graph](graph_traversal.assets/graph_bfs_step1.svg)
 
 === "<2>"
-    ![graph_bfs_step2](graph_traversal.assets/graph_bfs_step2.png)
+    ![graph_bfs_step2](graph_traversal.assets/graph_bfs_step2.svg)
 
 === "<3>"
-    ![graph_bfs_step3](graph_traversal.assets/graph_bfs_step3.png)
+    ![graph_bfs_step3](graph_traversal.assets/graph_bfs_step3.svg)
 
 === "<4>"
-    ![graph_bfs_step4](graph_traversal.assets/graph_bfs_step4.png)
+    ![graph_bfs_step4](graph_traversal.assets/graph_bfs_step4.svg)
 
 === "<5>"
-    ![graph_bfs_step5](graph_traversal.assets/graph_bfs_step5.png)
+    ![graph_bfs_step5](graph_traversal.assets/graph_bfs_step5.svg)
 
 === "<6>"
-    ![graph_bfs_step6](graph_traversal.assets/graph_bfs_step6.png)
+    ![graph_bfs_step6](graph_traversal.assets/graph_bfs_step6.svg)
 
 === "<7>"
-    ![graph_bfs_step7](graph_traversal.assets/graph_bfs_step7.png)
+    ![graph_bfs_step7](graph_traversal.assets/graph_bfs_step7.svg)
 
 === "<8>"
-    ![graph_bfs_step8](graph_traversal.assets/graph_bfs_step8.png)
+    ![graph_bfs_step8](graph_traversal.assets/graph_bfs_step8.svg)
 
 === "<9>"
-    ![graph_bfs_step9](graph_traversal.assets/graph_bfs_step9.png)
+    ![graph_bfs_step9](graph_traversal.assets/graph_bfs_step9.svg)
 
 === "<10>"
-    ![graph_bfs_step10](graph_traversal.assets/graph_bfs_step10.png)
+    ![graph_bfs_step10](graph_traversal.assets/graph_bfs_step10.svg)
 
 === "<11>"
-    ![graph_bfs_step11](graph_traversal.assets/graph_bfs_step11.png)
+    ![graph_bfs_step11](graph_traversal.assets/graph_bfs_step11.svg)
 
 !!! question "Is the breadth-first traversal order unique?"
 
@@ -77,7 +77,7 @@ The code is fairly abstract; compare it with the figure below to build your unde
 
 **Depth-first traversal follows a path as far as possible and returns when it can go no farther**. In the figure below, we start at the top-left vertex and move to an adjacent vertex of the current vertex, continuing until we reach a dead end. We then return and explore another path as far as possible, repeating this process until every vertex has been visited.
 
-![Depth-first traversal of a graph](graph_traversal.assets/graph_dfs.png)
+![Depth-first traversal of a graph](graph_traversal.assets/graph_dfs.svg)
 
 ### Algorithm implementation
 
@@ -95,37 +95,37 @@ The figure below shows the steps of depth-first traversal.
 To deepen your understanding, follow the figure below alongside the code and mentally simulate (or draw on paper) the entire DFS process, including when each recursive call begins and returns.
 
 === "<1>"
-    ![Steps in depth-first traversal of a graph](graph_traversal.assets/graph_dfs_step1.png)
+    ![Steps in depth-first traversal of a graph](graph_traversal.assets/graph_dfs_step1.svg)
 
 === "<2>"
-    ![graph_dfs_step2](graph_traversal.assets/graph_dfs_step2.png)
+    ![graph_dfs_step2](graph_traversal.assets/graph_dfs_step2.svg)
 
 === "<3>"
-    ![graph_dfs_step3](graph_traversal.assets/graph_dfs_step3.png)
+    ![graph_dfs_step3](graph_traversal.assets/graph_dfs_step3.svg)
 
 === "<4>"
-    ![graph_dfs_step4](graph_traversal.assets/graph_dfs_step4.png)
+    ![graph_dfs_step4](graph_traversal.assets/graph_dfs_step4.svg)
 
 === "<5>"
-    ![graph_dfs_step5](graph_traversal.assets/graph_dfs_step5.png)
+    ![graph_dfs_step5](graph_traversal.assets/graph_dfs_step5.svg)
 
 === "<6>"
-    ![graph_dfs_step6](graph_traversal.assets/graph_dfs_step6.png)
+    ![graph_dfs_step6](graph_traversal.assets/graph_dfs_step6.svg)
 
 === "<7>"
-    ![graph_dfs_step7](graph_traversal.assets/graph_dfs_step7.png)
+    ![graph_dfs_step7](graph_traversal.assets/graph_dfs_step7.svg)
 
 === "<8>"
-    ![graph_dfs_step8](graph_traversal.assets/graph_dfs_step8.png)
+    ![graph_dfs_step8](graph_traversal.assets/graph_dfs_step8.svg)
 
 === "<9>"
-    ![graph_dfs_step9](graph_traversal.assets/graph_dfs_step9.png)
+    ![graph_dfs_step9](graph_traversal.assets/graph_dfs_step9.svg)
 
 === "<10>"
-    ![graph_dfs_step10](graph_traversal.assets/graph_dfs_step10.png)
+    ![graph_dfs_step10](graph_traversal.assets/graph_dfs_step10.svg)
 
 === "<11>"
-    ![graph_dfs_step11](graph_traversal.assets/graph_dfs_step11.png)
+    ![graph_dfs_step11](graph_traversal.assets/graph_dfs_step11.svg)
 
 !!! question "Is the depth-first traversal order unique?"
 

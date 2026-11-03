@@ -6,7 +6,7 @@
 
 この設計により、各ノードをメモリの各所に分散して格納でき、メモリアドレスが連続している必要はありません。
 
-![連結リストの定義と格納方法](linked_list.assets/linkedlist_definition.png)
+![連結リストの定義と格納方法](linked_list.assets/linkedlist_definition.svg)
 
 上図のように、連結リストを構成する単位は<u>ノード（node）</u>オブジェクトです。各ノードは、ノードの「値」と次のノードを指す「参照」という二つのデータを持ちます。
 
@@ -425,7 +425,7 @@
 
 対して、配列への要素の挿入は時間計算量が $O(n)$ であり、データ量が大きいと非効率になります。
 
-![連結リストへのノードの挿入例](linked_list.assets/linkedlist_insert_node.png)
+![連結リストへのノードの挿入例](linked_list.assets/linkedlist_insert_node.svg)
 
 ```src
 [file]{linked_list}-[class]{}-[func]{insert}
@@ -437,7 +437,7 @@
 
 削除後もノード `P` は `n1` を指していますが、この連結リストを走査しても `P` には到達できなくなることに注意してください。つまり、`P` はもはやこの連結リストに属していません。
 
-![連結リストからのノードの削除](linked_list.assets/linkedlist_remove_node.png)
+![連結リストからのノードの削除](linked_list.assets/linkedlist_remove_node.svg)
 
 ```src
 [file]{linked_list}-[class]{}-[func]{remove}
@@ -680,7 +680,7 @@
     end
     ```
 
-![連結リストの主な種類](linked_list.assets/linkedlist_common_types.png)
+![連結リストの主な種類](linked_list.assets/linkedlist_common_types.svg)
 
 ## 連結リストの代表的な用途
 

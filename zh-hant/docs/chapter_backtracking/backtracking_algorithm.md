@@ -14,7 +14,7 @@
 [file]{preorder_traversal_i_compact}-[class]{}-[func]{pre_order}
 ```
 
-![在前序走訪中搜索節點](backtracking_algorithm.assets/preorder_find_nodes.png)
+![在前序走訪中搜索節點](backtracking_algorithm.assets/preorder_find_nodes.svg)
 
 ## 嘗試與回退
 
@@ -39,37 +39,37 @@
 觀察下圖所示的過程，**我們可以將嘗試和回退理解為“前進”與“撤銷”**，兩個操作互為逆向。
 
 === "<1>"
-    ![嘗試與回退](backtracking_algorithm.assets/preorder_find_paths_step1.png)
+    ![嘗試與回退](backtracking_algorithm.assets/preorder_find_paths_step1.svg)
 
 === "<2>"
-    ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.png)
+    ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.svg)
 
 === "<3>"
-    ![preorder_find_paths_step3](backtracking_algorithm.assets/preorder_find_paths_step3.png)
+    ![preorder_find_paths_step3](backtracking_algorithm.assets/preorder_find_paths_step3.svg)
 
 === "<4>"
-    ![preorder_find_paths_step4](backtracking_algorithm.assets/preorder_find_paths_step4.png)
+    ![preorder_find_paths_step4](backtracking_algorithm.assets/preorder_find_paths_step4.svg)
 
 === "<5>"
-    ![preorder_find_paths_step5](backtracking_algorithm.assets/preorder_find_paths_step5.png)
+    ![preorder_find_paths_step5](backtracking_algorithm.assets/preorder_find_paths_step5.svg)
 
 === "<6>"
-    ![preorder_find_paths_step6](backtracking_algorithm.assets/preorder_find_paths_step6.png)
+    ![preorder_find_paths_step6](backtracking_algorithm.assets/preorder_find_paths_step6.svg)
 
 === "<7>"
-    ![preorder_find_paths_step7](backtracking_algorithm.assets/preorder_find_paths_step7.png)
+    ![preorder_find_paths_step7](backtracking_algorithm.assets/preorder_find_paths_step7.svg)
 
 === "<8>"
-    ![preorder_find_paths_step8](backtracking_algorithm.assets/preorder_find_paths_step8.png)
+    ![preorder_find_paths_step8](backtracking_algorithm.assets/preorder_find_paths_step8.svg)
 
 === "<9>"
-    ![preorder_find_paths_step9](backtracking_algorithm.assets/preorder_find_paths_step9.png)
+    ![preorder_find_paths_step9](backtracking_algorithm.assets/preorder_find_paths_step9.svg)
 
 === "<10>"
-    ![preorder_find_paths_step10](backtracking_algorithm.assets/preorder_find_paths_step10.png)
+    ![preorder_find_paths_step10](backtracking_algorithm.assets/preorder_find_paths_step10.svg)
 
 === "<11>"
-    ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.png)
+    ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.svg)
 
 ## 剪枝
 
@@ -87,7 +87,7 @@
 
 “剪枝”是一個非常形象的名詞。如下圖所示，在搜尋過程中，**我們“剪掉”了不滿足約束條件的搜尋分支**，避免許多無意義的嘗試，從而提高了搜尋效率。
 
-![根據約束條件剪枝](backtracking_algorithm.assets/preorder_find_constrained_paths.png)
+![根據約束條件剪枝](backtracking_algorithm.assets/preorder_find_constrained_paths.svg)
 
 ## 框架程式碼
 
@@ -437,7 +437,7 @@
 
 根據題意，我們在找到值為 $7$ 的節點後應該繼續搜尋，**因此需要將記錄解之後的 `return` 語句刪除**。下圖對比了保留或刪除 `return` 語句的搜尋過程。
 
-![保留與刪除 return 的搜尋過程對比](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
+![保留與刪除 return 的搜尋過程對比](backtracking_algorithm.assets/backtrack_remove_return_or_not.svg)
 
 相比基於前序走訪的程式碼實現，基於回溯演算法框架的程式碼實現雖然顯得囉唆，但通用性更好。實際上，**許多回溯問題可以在該框架下解決**。我們只需根據具體問題來定義 `state` 和 `choices` ，並實現框架中的各個方法即可。
 

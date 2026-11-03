@@ -6,7 +6,7 @@
 
     给定一个长度为 $n$ 的数组 `nums` ，元素按从小到大的顺序排列且不重复。请查找并返回元素 `target` 在该数组中的索引。若数组不包含该元素，则返回 $-1$ 。示例如下图所示。
 
-![二分查找示例数据](binary_search.assets/binary_search_example.png)
+![二分查找示例数据](binary_search.assets/binary_search_example.svg)
 
 如下图所示，我们先初始化指针 $i = 0$ 和 $j = n - 1$ ，分别指向数组首元素和尾元素，代表搜索区间 $[0, n - 1]$ 。请注意，中括号表示闭区间，其包含边界值本身。
 
@@ -21,25 +21,25 @@
 若数组不包含目标元素，搜索区间最终会缩小为空。此时返回 $-1$ 。
 
 === "<1>"
-    ![二分查找流程](binary_search.assets/binary_search_step1.png)
+    ![二分查找流程](binary_search.assets/binary_search_step1.svg)
 
 === "<2>"
-    ![binary_search_step2](binary_search.assets/binary_search_step2.png)
+    ![binary_search_step2](binary_search.assets/binary_search_step2.svg)
 
 === "<3>"
-    ![binary_search_step3](binary_search.assets/binary_search_step3.png)
+    ![binary_search_step3](binary_search.assets/binary_search_step3.svg)
 
 === "<4>"
-    ![binary_search_step4](binary_search.assets/binary_search_step4.png)
+    ![binary_search_step4](binary_search.assets/binary_search_step4.svg)
 
 === "<5>"
-    ![binary_search_step5](binary_search.assets/binary_search_step5.png)
+    ![binary_search_step5](binary_search.assets/binary_search_step5.svg)
 
 === "<6>"
-    ![binary_search_step6](binary_search.assets/binary_search_step6.png)
+    ![binary_search_step6](binary_search.assets/binary_search_step6.svg)
 
 === "<7>"
-    ![binary_search_step7](binary_search.assets/binary_search_step7.png)
+    ![binary_search_step7](binary_search.assets/binary_search_step7.svg)
 
 值得注意的是，由于 $i$ 和 $j$ 都是 `int` 类型，**因此 $i + j$ 可能会超出 `int` 类型的取值范围**。为了避免大数越界，我们通常采用公式 $m = \lfloor {i + (j - i) / 2} \rfloor$ 来计算中点。
 
@@ -67,7 +67,7 @@
 
 由于“双闭区间”表示中的左右边界都被定义为闭区间，因此通过指针 $i$ 和指针 $j$ 缩小区间的操作也是对称的。这样更不容易出错，**因此一般建议采用“双闭区间”的写法**。
 
-![两种区间定义](binary_search.assets/binary_search_ranges.png)
+![两种区间定义](binary_search.assets/binary_search_ranges.svg)
 
 ## 优点与局限性
 

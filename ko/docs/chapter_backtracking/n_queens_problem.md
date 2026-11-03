@@ -6,11 +6,11 @@
 
 아래 그림과 같이 $n = 4$이면 해는 두 개다. 백트래킹 관점에서 $n \times n$ 체스판의 $n^2$ 개 칸은 모든 선택지 `choices`를 제공한다. 퀸을 하나씩 놓는 동안 체스판은 계속 바뀌며, 각 시점의 체스판이 상태 `state`다.
 
-![4-퀸 문제의 해](n_queens_problem.assets/solution_4_queens.png)
+![4-퀸 문제의 해](n_queens_problem.assets/solution_4_queens.svg)
 
 아래 그림은 세 가지 제약 조건을 보여 준다. **여러 퀸이 같은 행, 같은 열, 같은 대각선에 있으면 안 된다**. 대각선은 주대각선 방향 `\`과 부대각선 방향 `/`의 두 종류로 나뉜다.
 
-![n-퀸 문제의 제약 조건](n_queens_problem.assets/n_queens_constraints.png)
+![n-퀸 문제의 제약 조건](n_queens_problem.assets/n_queens_constraints.svg)
 
 ### 한 행씩 배치하는 전략
 
@@ -20,7 +20,7 @@
 
 아래 그림은 4-퀸 문제에서 한 행씩 배치하는 과정이다. 공간 제약 때문에 첫 행의 탐색 가지 중 하나만 펼쳤으며, 열과 대각선 제약을 만족하지 않는 배치는 모두 가지치기했다.
 
-![한 행씩 배치하는 전략](n_queens_problem.assets/n_queens_placing.png)
+![한 행씩 배치하는 전략](n_queens_problem.assets/n_queens_placing.svg)
 
 본질적으로 **행별 배치 전략 자체가 가지치기 역할을 한다**. 같은 행에 여러 퀸이 놓이는 모든 탐색 가지를 피하기 때문이다.
 
@@ -38,7 +38,7 @@
 
 마찬가지로 **같은 부대각선 방향 대각선의 모든 칸에서는 $row + col$이 일정하다**. 배열 `diags2`를 이용하여 이 방향의 제약도 처리할 수 있다.
 
-![열 제약과 대각선 제약 처리](n_queens_problem.assets/n_queens_cols_diagonals.png)
+![열 제약과 대각선 제약 처리](n_queens_problem.assets/n_queens_cols_diagonals.svg)
 
 ### 코드 구현
 

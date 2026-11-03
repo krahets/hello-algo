@@ -490,7 +490,7 @@ $$
 - 演算法 `B` 中的列印操作需要迴圈 $n$ 次，演算法執行時間隨著 $n$ 增大呈線性增長。此演算法的時間複雜度被稱為“線性階”。
 - 演算法 `C` 中的列印操作需要迴圈 $1000000$ 次，雖然執行時間很長，但它與輸入資料大小 $n$ 無關。因此 `C` 的時間複雜度和 `A` 相同，仍為“常數階”。
 
-![演算法 A、B 和 C 的時間增長趨勢](time_complexity.assets/time_complexity_simple_example.png)
+![演算法 A、B 和 C 的時間增長趨勢](time_complexity.assets/time_complexity_simple_example.svg)
 
 相較於直接統計演算法的執行時間，時間複雜度分析有哪些特點呢？
 
@@ -701,7 +701,7 @@ $T(n)$ 是一次函式，說明其執行時間的增長趨勢是線性的，因�
 
 如下圖所示，計算漸近上界就是尋找一個函式 $f(n)$ ，使得當 $n$ 趨向於無窮大時，$T(n)$ 和 $f(n)$ 處於相同的增長級別，僅相差一個常數係數 $c$。
 
-![函式的漸近上界](time_complexity.assets/asymptotic_upper_bound.png)
+![函式的漸近上界](time_complexity.assets/asymptotic_upper_bound.svg)
 
 ## 推算方法
 
@@ -997,7 +997,7 @@ $$
 \end{aligned}
 $$
 
-![常見的時間複雜度型別](time_complexity.assets/time_complexity_common_types.png)
+![常見的時間複雜度型別](time_complexity.assets/time_complexity_common_types.svg)
 
 ### 常數階 $O(1)$
 
@@ -1035,7 +1035,7 @@ $$
 
 下圖對比了常數階、線性階和平方階三種時間複雜度。
 
-![常數階、線性階和平方階的時間複雜度](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
+![常數階、線性階和平方階的時間複雜度](time_complexity.assets/time_complexity_constant_linear_quadratic.svg)
 
 以泡沫排序為例，外層迴圈執行 $n - 1$ 次，內層迴圈執行 $n-1$、$n-2$、$\dots$、$2$、$1$ 次，平均為 $n / 2$ 次，因此時間複雜度為 $O((n - 1) n / 2) = O(n^2)$ ：
 
@@ -1053,7 +1053,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{exponential}
 ```
 
-![指數階的時間複雜度](time_complexity.assets/time_complexity_exponential.png)
+![指數階的時間複雜度](time_complexity.assets/time_complexity_exponential.svg)
 
 在實際演算法中，指數階常出現於遞迴函式中。例如在以下程式碼中，其遞迴地一分為二，經過 $n$ 次分裂後停止：
 
@@ -1073,7 +1073,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{logarithmic}
 ```
 
-![對數階的時間複雜度](time_complexity.assets/time_complexity_logarithmic.png)
+![對數階的時間複雜度](time_complexity.assets/time_complexity_logarithmic.svg)
 
 與指數階類似，對數階也常出現於遞迴函式中。以下程式碼形成了一棵高度為 $\log_2 n$ 的遞迴樹：
 
@@ -1103,7 +1103,7 @@ $$
 
 下圖展示了線性對數階的生成方式。二元樹的每一層的操作總數都為 $n$ ，樹共有 $\log_2 n + 1$ 層，因此時間複雜度為 $O(n \log n)$ 。
 
-![線性對數階的時間複雜度](time_complexity.assets/time_complexity_logarithmic_linear.png)
+![線性對數階的時間複雜度](time_complexity.assets/time_complexity_logarithmic_linear.svg)
 
 主流排序演算法的時間複雜度通常為 $O(n \log n)$ ，例如快速排序、合併排序、堆積排序等。
 
@@ -1121,7 +1121,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{factorial_recur}
 ```
 
-![階乘階的時間複雜度](time_complexity.assets/time_complexity_factorial.png)
+![階乘階的時間複雜度](time_complexity.assets/time_complexity_factorial.svg)
 
 請注意，因為當 $n \geq 4$ 時恆有 $n! > 2^n$ ，所以階乘階比指數階增長得更快，在 $n$ 較大時也是不可接受的。
 

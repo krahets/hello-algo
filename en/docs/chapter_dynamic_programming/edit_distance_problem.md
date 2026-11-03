@@ -10,7 +10,7 @@ Edit distance, also called Levenshtein distance, is the minimum number of edits 
 
 As shown in the figure below, transforming `kitten` into `sitting` takes 3 edits: 2 replacements and 1 insertion. Transforming `hello` into `algo` also takes 3 edits: 2 replacements and 1 deletion.
 
-![Examples of edit distance](edit_distance_problem.assets/edit_distance_example.png)
+![Examples of edit distance](edit_distance_problem.assets/edit_distance_example.svg)
 
 **Edit distance fits naturally into a decision tree model**. Strings are nodes, and each decision (an edit) is an edge.
 
@@ -18,7 +18,7 @@ As shown in the figure below, without restrictions on the edits, each node can h
 
 From the decision tree perspective, the goal is to find the shortest path between nodes `hello` and `algo`.
 
-![Edit distance as a decision tree](edit_distance_problem.assets/edit_distance_decision_tree.png)
+![Edit distance as a decision tree](edit_distance_problem.assets/edit_distance_decision_tree.svg)
 
 ### Dynamic programming approach
 
@@ -45,7 +45,7 @@ For subproblem $dp[i, j]$, the final characters are $s[i-1]$ and $t[j-1]$. The t
 2. Delete $s[i-1]$, leaving subproblem $dp[i-1, j]$.
 3. Replace $s[i-1]$ with $t[j-1]$, leaving subproblem $dp[i-1, j-1]$.
 
-![State transitions for edit distance](edit_distance_problem.assets/edit_distance_state_transfer.png)
+![State transitions for edit distance](edit_distance_problem.assets/edit_distance_state_transfer.svg)
 
 The optimal substructure follows: the minimum edit count $dp[i, j]$ is the smallest of $dp[i, j-1]$, $dp[i-1, j]$, and $dp[i-1, j-1]$, plus $1$ for the current edit. The state transition equation is:
 
@@ -74,49 +74,49 @@ The solution $dp[i, j]$ depends on entries to its left, above, and upper left, s
 As shown in the figure below, the state transition process resembles that of the knapsack problem: both fill a two-dimensional grid.
 
 === "<1>"
-    ![Dynamic programming for edit distance](edit_distance_problem.assets/edit_distance_dp_step1.png)
+    ![Dynamic programming for edit distance](edit_distance_problem.assets/edit_distance_dp_step1.svg)
 
 === "<2>"
-    ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.png)
+    ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.svg)
 
 === "<3>"
-    ![edit_distance_dp_step3](edit_distance_problem.assets/edit_distance_dp_step3.png)
+    ![edit_distance_dp_step3](edit_distance_problem.assets/edit_distance_dp_step3.svg)
 
 === "<4>"
-    ![edit_distance_dp_step4](edit_distance_problem.assets/edit_distance_dp_step4.png)
+    ![edit_distance_dp_step4](edit_distance_problem.assets/edit_distance_dp_step4.svg)
 
 === "<5>"
-    ![edit_distance_dp_step5](edit_distance_problem.assets/edit_distance_dp_step5.png)
+    ![edit_distance_dp_step5](edit_distance_problem.assets/edit_distance_dp_step5.svg)
 
 === "<6>"
-    ![edit_distance_dp_step6](edit_distance_problem.assets/edit_distance_dp_step6.png)
+    ![edit_distance_dp_step6](edit_distance_problem.assets/edit_distance_dp_step6.svg)
 
 === "<7>"
-    ![edit_distance_dp_step7](edit_distance_problem.assets/edit_distance_dp_step7.png)
+    ![edit_distance_dp_step7](edit_distance_problem.assets/edit_distance_dp_step7.svg)
 
 === "<8>"
-    ![edit_distance_dp_step8](edit_distance_problem.assets/edit_distance_dp_step8.png)
+    ![edit_distance_dp_step8](edit_distance_problem.assets/edit_distance_dp_step8.svg)
 
 === "<9>"
-    ![edit_distance_dp_step9](edit_distance_problem.assets/edit_distance_dp_step9.png)
+    ![edit_distance_dp_step9](edit_distance_problem.assets/edit_distance_dp_step9.svg)
 
 === "<10>"
-    ![edit_distance_dp_step10](edit_distance_problem.assets/edit_distance_dp_step10.png)
+    ![edit_distance_dp_step10](edit_distance_problem.assets/edit_distance_dp_step10.svg)
 
 === "<11>"
-    ![edit_distance_dp_step11](edit_distance_problem.assets/edit_distance_dp_step11.png)
+    ![edit_distance_dp_step11](edit_distance_problem.assets/edit_distance_dp_step11.svg)
 
 === "<12>"
-    ![edit_distance_dp_step12](edit_distance_problem.assets/edit_distance_dp_step12.png)
+    ![edit_distance_dp_step12](edit_distance_problem.assets/edit_distance_dp_step12.svg)
 
 === "<13>"
-    ![edit_distance_dp_step13](edit_distance_problem.assets/edit_distance_dp_step13.png)
+    ![edit_distance_dp_step13](edit_distance_problem.assets/edit_distance_dp_step13.svg)
 
 === "<14>"
-    ![edit_distance_dp_step14](edit_distance_problem.assets/edit_distance_dp_step14.png)
+    ![edit_distance_dp_step14](edit_distance_problem.assets/edit_distance_dp_step14.svg)
 
 === "<15>"
-    ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.png)
+    ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.svg)
 
 ### Space optimization
 

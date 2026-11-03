@@ -4,7 +4,7 @@ A <u>hash table</u>, also called a <u>hash map</u>, supports efficient lookup by
 
 Suppose we have $n$ students, each with a name and a student ID. To support the query “given a student ID, return the corresponding name,” use the hash table shown below.
 
-![An abstract view of hash-table lookup](hash_map.assets/hash_table_lookup.png)
+![An abstract view of hash-table lookup](hash_map.assets/hash_table_lookup.svg)
 
 Arrays and linked lists also support lookup. The table below compares their efficiency.
 
@@ -557,7 +557,7 @@ Use `index` to access the bucket and retrieve `value`.
 
 If `capacity = 100` and `hash(key) = key`, the resulting hash function is `key % 100`. The figure below illustrates it with student IDs as keys and names as values.
 
-![How a hash function works](hash_map.assets/hash_function.png)
+![How a hash function works](hash_map.assets/hash_function.svg)
 
 The code below implements a simple hash table. The `Pair` class groups a `key` and `value` into a key-value pair.
 
@@ -578,13 +578,13 @@ For the function above, keys with the same last two digits produce the same outp
 
 As shown below, both IDs point to the same name, which is clearly incorrect. This situation, where different inputs produce the same output, is called a <u>hash collision</u>.
 
-![An example of a hash collision](hash_map.assets/hash_collision.png)
+![An example of a hash collision](hash_map.assets/hash_collision.svg)
 
 A larger table capacity $n$ makes it less likely that several keys share a bucket, reducing collisions. **Expanding the hash table can therefore reduce hash collisions**.
 
 In the example below, `(136, A)` and `(236, D)` collide before expansion but no longer collide afterward.
 
-![Expanding a hash table](hash_map.assets/hash_table_reshash.png)
+![Expanding a hash table](hash_map.assets/hash_table_reshash.svg)
 
 As with array expansion, expanding a hash table requires moving every pair into a new table, which is time-consuming. Because `capacity` changes, the hash function must also recalculate every pair's position, adding further computation. Programming languages therefore usually reserve enough capacity to avoid frequent expansion.
 

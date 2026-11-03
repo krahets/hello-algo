@@ -20,7 +20,7 @@ Temporary space can be divided further into three parts.
 
 **We usually count temporary data, stack frames, and output data** when analyzing space complexity, as shown in the figure below.
 
-![Space used by an algorithm](space_complexity.assets/space_types.png)
+![Space used by an algorithm](space_complexity.assets/space_types.svg)
 
 The corresponding code is:
 
@@ -811,7 +811,7 @@ $$
 \end{aligned}
 $$
 
-![Common space complexity classes](space_complexity.assets/space_complexity_common_types.png)
+![Common space complexity classes](space_complexity.assets/space_complexity_common_types.svg)
 
 ### Constant space $O(1)$
 
@@ -837,7 +837,7 @@ As shown in the figure below, this function has recursion depth $n$, with $n$ ac
 [file]{space_complexity}-[class]{}-[func]{linear_recur}
 ```
 
-![Linear space complexity from recursion](space_complexity.assets/space_complexity_recursive_linear.png)
+![Linear space complexity from recursion](space_complexity.assets/space_complexity_recursive_linear.svg)
 
 ### Quadratic space $O(n^2)$
 
@@ -853,7 +853,7 @@ As shown in the figure below, the recursion depth is $n$, and each call initiali
 [file]{space_complexity}-[class]{}-[func]{quadratic_recur}
 ```
 
-![Quadratic space complexity from recursion](space_complexity.assets/space_complexity_recursive_quadratic.png)
+![Quadratic space complexity from recursion](space_complexity.assets/space_complexity_recursive_quadratic.svg)
 
 ### Exponential space $O(2^n)$
 
@@ -863,7 +863,7 @@ Exponential space commonly occurs in binary trees. In the figure below, a perfec
 [file]{space_complexity}-[class]{}-[func]{build_tree}
 ```
 
-![Exponential space used by a perfect binary tree](space_complexity.assets/space_complexity_exponential.png)
+![Exponential space used by a perfect binary tree](space_complexity.assets/space_complexity_exponential.svg)
 
 ### Logarithmic space $O(\log n)$
 

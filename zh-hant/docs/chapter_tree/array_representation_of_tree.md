@@ -10,7 +10,7 @@
 
 根據層序走訪的特性，我們可以推導出父節點索引與子節點索引之間的“對映公式”：**若某節點的索引為 $i$ ，則該節點的左子節點索引為 $2i + 1$ ，右子節點索引為 $2i + 2$** 。下圖展示了各個節點索引之間的對映關係。
 
-![完美二元樹的陣列表示](array_representation_of_tree.assets/array_representation_binary_tree.png)
+![完美二元樹的陣列表示](array_representation_of_tree.assets/array_representation_binary_tree.svg)
 
 **對映公式的角色相當於鏈結串列中的節點引用（指標）**。給定陣列中的任意一個節點，我們都可以透過對映公式來訪問它的左（右）子節點。
 
@@ -20,7 +20,7 @@
 
 如下圖所示，給定一棵非完美二元樹，上述陣列表示方法已經失效。
 
-![層序走訪序列對應多種二元樹可能性](array_representation_of_tree.assets/array_representation_without_empty.png)
+![層序走訪序列對應多種二元樹可能性](array_representation_of_tree.assets/array_representation_without_empty.svg)
 
 為了解決此問題，**我們可以考慮在層序走訪序列中顯式地寫出所有 `None`** 。如下圖所示，這樣處理後，層序走訪序列就可以唯一表示二元樹了。示例程式碼如下：
 
@@ -128,13 +128,13 @@
     tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
-![任意型別二元樹的陣列表示](array_representation_of_tree.assets/array_representation_with_empty.png)
+![任意型別二元樹的陣列表示](array_representation_of_tree.assets/array_representation_with_empty.svg)
 
 值得說明的是，**完全二元樹非常適合使用陣列來表示**。回顧完全二元樹的定義，`None` 只出現在最底層且靠右的位置，**因此所有 `None` 一定出現在層序走訪序列的末尾**。
 
 這意味著使用陣列表示完全二元樹時，可以省略儲存所有 `None` ，非常方便。下圖給出了一個例子。
 
-![完全二元樹的陣列表示](array_representation_of_tree.assets/array_representation_complete_binary_tree.png)
+![完全二元樹的陣列表示](array_representation_of_tree.assets/array_representation_complete_binary_tree.svg)
 
 以下程式碼實現了一棵基於陣列表示的二元樹，包括以下幾種操作。
 

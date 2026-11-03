@@ -10,7 +10,7 @@
 1. **분할**: 원래 배열(원래 문제)을 두 부분 배열(부분 문제)로 재귀적으로 나누고, 부분 배열에 원소가 하나만 남으면(가장 작은 부분 문제) 멈춘다.
 2. **정복**: 정렬된 부분 배열(부분 문제의 해)을 아래에서 위로 합쳐 정렬된 원래 배열(원래 문제의 해)을 얻는다.
 
-![병합 정렬의 분할 정복 전략](divide_and_conquer.assets/divide_and_conquer_merge_sort.png)
+![병합 정렬의 분할 정복 전략](divide_and_conquer.assets/divide_and_conquer_merge_sort.svg)
 
 ## 분할 정복 문제를 판단하는 방법
 
@@ -40,7 +40,7 @@ $$
 O(n + (\frac{n}{2})^2 \times 2 + n) = O(\frac{n^2}{2} + 2n)
 $$
 
-![배열 분할 전후의 버블 정렬](divide_and_conquer.assets/divide_and_conquer_bubble_sort.png)
+![배열 분할 전후의 버블 정렬](divide_and_conquer.assets/divide_and_conquer_bubble_sort.svg)
 
 이어서 왼쪽은 분할 전, 오른쪽은 분할 후의 총연산 수를 나타내는 다음 부등식을 계산해 보자.
 
@@ -66,7 +66,7 @@ $$
 
 예를 들어 아래 그림의 '버킷 정렬'에서 대규모 데이터를 각 버킷에 고르게 분배하면, 버킷별 정렬 작업을 여러 계산 장치에 나누어 맡긴 뒤 결과를 합칠 수 있다.
 
-![버킷 정렬의 병렬 계산](divide_and_conquer.assets/divide_and_conquer_parallel_computing.png)
+![버킷 정렬의 병렬 계산](divide_and_conquer.assets/divide_and_conquer_parallel_computing.svg)
 
 ## 분할 정복의 주요 응용
 

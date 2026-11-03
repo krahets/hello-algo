@@ -10,7 +10,7 @@
 2. **`counter` を使って、`nums` 内の各数値の出現回数を数えます**。`counter[num]` は数値 `num` の出現回数です。数え方は簡単で、`nums` を走査し、現在の数値を `num` として、毎回 `counter[num]` を $1$ 増やすだけです。
 3. **`counter` のインデックスはもともと順に並んでいるので、すべての数値がすでにソートされたのと同じです**。あとは `counter` を走査し、各数値の出現回数に従って、小さい順に `nums` へ書き込めば完了です。
 
-![カウントソートの流れ](counting_sort.assets/counting_sort_overview.png)
+![カウントソートの流れ](counting_sort.assets/counting_sort_overview.svg)
 
 コードは次のとおりです。
 
@@ -40,28 +40,28 @@ $$
 走査が終わると、配列 `res` がソート済みの結果になります。最後に `res` で元の配列 `nums` を上書きします。下図にカウントソートの全手順を示します。
 
 === "<1>"
-    ![カウントソートの手順](counting_sort.assets/counting_sort_step1.png)
+    ![カウントソートの手順](counting_sort.assets/counting_sort_step1.svg)
 
 === "<2>"
-    ![カウントソートの手順 2](counting_sort.assets/counting_sort_step2.png)
+    ![カウントソートの手順 2](counting_sort.assets/counting_sort_step2.svg)
 
 === "<3>"
-    ![カウントソートの手順 3](counting_sort.assets/counting_sort_step3.png)
+    ![カウントソートの手順 3](counting_sort.assets/counting_sort_step3.svg)
 
 === "<4>"
-    ![カウントソートの手順 4](counting_sort.assets/counting_sort_step4.png)
+    ![カウントソートの手順 4](counting_sort.assets/counting_sort_step4.svg)
 
 === "<5>"
-    ![カウントソートの手順 5](counting_sort.assets/counting_sort_step5.png)
+    ![カウントソートの手順 5](counting_sort.assets/counting_sort_step5.svg)
 
 === "<6>"
-    ![カウントソートの手順 6](counting_sort.assets/counting_sort_step6.png)
+    ![カウントソートの手順 6](counting_sort.assets/counting_sort_step6.svg)
 
 === "<7>"
-    ![カウントソートの手順 7](counting_sort.assets/counting_sort_step7.png)
+    ![カウントソートの手順 7](counting_sort.assets/counting_sort_step7.svg)
 
 === "<8>"
-    ![カウントソートの手順 8](counting_sort.assets/counting_sort_step8.png)
+    ![カウントソートの手順 8](counting_sort.assets/counting_sort_step8.svg)
 
 カウントソートの実装は次のとおりです。
 

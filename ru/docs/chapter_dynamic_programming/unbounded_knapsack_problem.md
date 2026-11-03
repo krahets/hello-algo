@@ -8,7 +8,7 @@
 
     Даны $n$ предметов. Вес $i$-го предмета равен $wgt[i-1]$ , стоимость равна $val[i-1]$ . Также дан рюкзак вместимости $cap$ . **Каждый предмет можно выбирать многократно**. Найдите максимальную суммарную стоимость, которую можно поместить в рюкзак при заданной вместимости. Пример показан на рисунке ниже.
 
-![Пример данных для задачи о полном рюкзаке](unbounded_knapsack_problem.assets/unbounded_knapsack_example.png)
+![Пример данных для задачи о полном рюкзаке](unbounded_knapsack_problem.assets/unbounded_knapsack_example.svg)
 
 ### Идея динамического программирования
 
@@ -43,22 +43,22 @@ $$
 Этот порядок обхода как раз противоположен задаче о рюкзаке 0-1. Эту разницу удобно понять, рассмотрев то, что показано на рисунке ниже.
 
 === "<1>"
-    ![Процесс динамического программирования после оптимизации памяти для полного рюкзака](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png)
+    ![Процесс динамического программирования после оптимизации памяти для полного рюкзака](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.svg)
 
 === "<2>"
-    ![unbounded_knapsack_dp_comp_step2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.png)
+    ![unbounded_knapsack_dp_comp_step2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.svg)
 
 === "<3>"
-    ![unbounded_knapsack_dp_comp_step3](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.png)
+    ![unbounded_knapsack_dp_comp_step3](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.svg)
 
 === "<4>"
-    ![unbounded_knapsack_dp_comp_step4](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.png)
+    ![unbounded_knapsack_dp_comp_step4](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.svg)
 
 === "<5>"
-    ![unbounded_knapsack_dp_comp_step5](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.png)
+    ![unbounded_knapsack_dp_comp_step5](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.svg)
 
 === "<6>"
-    ![unbounded_knapsack_dp_comp_step6](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.png)
+    ![unbounded_knapsack_dp_comp_step6](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.svg)
 
 Код реализации здесь довольно прост: достаточно просто убрать первое измерение массива `dp` :
 
@@ -74,7 +74,7 @@ $$
 
     Даны $n$ видов монет, номинал монеты $i$ равен $coins[i - 1]$ , а целевая сумма равна $amt$ . **Монеты каждого вида можно брать многократно**. Требуется найти минимальное число монет, которыми можно набрать целевую сумму. Если набрать сумму невозможно, верните $-1$ . Пример показан на рисунке ниже.
 
-![Пример данных для задачи о размене монет](unbounded_knapsack_problem.assets/coin_change_example.png)
+![Пример данных для задачи о размене монет](unbounded_knapsack_problem.assets/coin_change_example.svg)
 
 ### Идея динамического программирования
 
@@ -120,49 +120,49 @@ $$
 Как показано на рисунке ниже, процесс динамического программирования для задачи о размене монет очень похож на задачу о полном рюкзаке.
 
 === "<1>"
-    ![Процесс динамического программирования для задачи о размене монет](unbounded_knapsack_problem.assets/coin_change_dp_step1.png)
+    ![Процесс динамического программирования для задачи о размене монет](unbounded_knapsack_problem.assets/coin_change_dp_step1.svg)
 
 === "<2>"
-    ![coin_change_dp_step2](unbounded_knapsack_problem.assets/coin_change_dp_step2.png)
+    ![coin_change_dp_step2](unbounded_knapsack_problem.assets/coin_change_dp_step2.svg)
 
 === "<3>"
-    ![coin_change_dp_step3](unbounded_knapsack_problem.assets/coin_change_dp_step3.png)
+    ![coin_change_dp_step3](unbounded_knapsack_problem.assets/coin_change_dp_step3.svg)
 
 === "<4>"
-    ![coin_change_dp_step4](unbounded_knapsack_problem.assets/coin_change_dp_step4.png)
+    ![coin_change_dp_step4](unbounded_knapsack_problem.assets/coin_change_dp_step4.svg)
 
 === "<5>"
-    ![coin_change_dp_step5](unbounded_knapsack_problem.assets/coin_change_dp_step5.png)
+    ![coin_change_dp_step5](unbounded_knapsack_problem.assets/coin_change_dp_step5.svg)
 
 === "<6>"
-    ![coin_change_dp_step6](unbounded_knapsack_problem.assets/coin_change_dp_step6.png)
+    ![coin_change_dp_step6](unbounded_knapsack_problem.assets/coin_change_dp_step6.svg)
 
 === "<7>"
-    ![coin_change_dp_step7](unbounded_knapsack_problem.assets/coin_change_dp_step7.png)
+    ![coin_change_dp_step7](unbounded_knapsack_problem.assets/coin_change_dp_step7.svg)
 
 === "<8>"
-    ![coin_change_dp_step8](unbounded_knapsack_problem.assets/coin_change_dp_step8.png)
+    ![coin_change_dp_step8](unbounded_knapsack_problem.assets/coin_change_dp_step8.svg)
 
 === "<9>"
-    ![coin_change_dp_step9](unbounded_knapsack_problem.assets/coin_change_dp_step9.png)
+    ![coin_change_dp_step9](unbounded_knapsack_problem.assets/coin_change_dp_step9.svg)
 
 === "<10>"
-    ![coin_change_dp_step10](unbounded_knapsack_problem.assets/coin_change_dp_step10.png)
+    ![coin_change_dp_step10](unbounded_knapsack_problem.assets/coin_change_dp_step10.svg)
 
 === "<11>"
-    ![coin_change_dp_step11](unbounded_knapsack_problem.assets/coin_change_dp_step11.png)
+    ![coin_change_dp_step11](unbounded_knapsack_problem.assets/coin_change_dp_step11.svg)
 
 === "<12>"
-    ![coin_change_dp_step12](unbounded_knapsack_problem.assets/coin_change_dp_step12.png)
+    ![coin_change_dp_step12](unbounded_knapsack_problem.assets/coin_change_dp_step12.svg)
 
 === "<13>"
-    ![coin_change_dp_step13](unbounded_knapsack_problem.assets/coin_change_dp_step13.png)
+    ![coin_change_dp_step13](unbounded_knapsack_problem.assets/coin_change_dp_step13.svg)
 
 === "<14>"
-    ![coin_change_dp_step14](unbounded_knapsack_problem.assets/coin_change_dp_step14.png)
+    ![coin_change_dp_step14](unbounded_knapsack_problem.assets/coin_change_dp_step14.svg)
 
 === "<15>"
-    ![coin_change_dp_step15](unbounded_knapsack_problem.assets/coin_change_dp_step15.png)
+    ![coin_change_dp_step15](unbounded_knapsack_problem.assets/coin_change_dp_step15.svg)
 
 ### Оптимизация пространства
 
@@ -178,7 +178,7 @@ $$
 
     Даны $n$ видов монет, номинал монеты $i$ равен $coins[i - 1]$ , а целевая сумма равна $amt$ . Монеты каждого вида можно брать многократно. **Найдите число различных комбинаций монет, которыми можно набрать целевую сумму**. Пример показан на рисунке ниже.
 
-![Пример данных для задачи о размене монет II](unbounded_knapsack_problem.assets/coin_change_ii_example.png)
+![Пример данных для задачи о размене монет II](unbounded_knapsack_problem.assets/coin_change_ii_example.svg)
 
 ### Идея динамического программирования
 

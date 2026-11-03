@@ -4,7 +4,7 @@
 
 如下图所示，给定 $n$ 个学生，每个学生都有“姓名”和“学号”两项数据。假如我们希望实现“输入一个学号，返回对应的姓名”的查询功能，则可以采用下图所示的哈希表来实现。
 
-![哈希表的抽象表示](hash_map.assets/hash_table_lookup.png)
+![哈希表的抽象表示](hash_map.assets/hash_table_lookup.svg)
 
 除哈希表外，数组和链表也可以实现查询功能，它们的效率对比如下表所示。
 
@@ -557,7 +557,7 @@ index = hash(key) % capacity
 
 设数组长度 `capacity = 100`、哈希算法 `hash(key) = key` ，易得哈希函数为 `key % 100` 。下图以 `key` 学号和 `value` 姓名为例，展示了哈希函数的工作原理。
 
-![哈希函数工作原理](hash_map.assets/hash_function.png)
+![哈希函数工作原理](hash_map.assets/hash_function.svg)
 
 以下代码实现了一个简单哈希表。其中，我们将 `key` 和 `value` 封装成一个类 `Pair` ，以表示键值对。
 
@@ -578,13 +578,13 @@ index = hash(key) % capacity
 
 如下图所示，两个学号指向了同一个姓名，这显然是不对的。我们将这种多个输入对应同一输出的情况称为<u>哈希冲突（hash collision）</u>。
 
-![哈希冲突示例](hash_map.assets/hash_collision.png)
+![哈希冲突示例](hash_map.assets/hash_collision.svg)
 
 容易想到，哈希表容量 $n$ 越大，多个 `key` 被分配到同一个桶中的概率就越低，冲突就越少。因此，**我们可以通过扩容哈希表来减少哈希冲突**。
 
 如下图所示，扩容前键值对 `(136, A)` 和 `(236, D)` 发生冲突，扩容后冲突消失。
 
-![哈希表扩容](hash_map.assets/hash_table_reshash.png)
+![哈希表扩容](hash_map.assets/hash_table_reshash.svg)
 
 类似于数组扩容，哈希表扩容需将所有键值对从原哈希表迁移至新哈希表，非常耗时；并且由于哈希表容量 `capacity` 改变，我们需要通过哈希函数来重新计算所有键值对的存储位置，这进一步增加了扩容过程的计算开销。为此，编程语言通常会预留足够大的哈希表容量，防止频繁扩容。
 

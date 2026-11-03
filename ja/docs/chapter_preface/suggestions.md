@@ -212,7 +212,7 @@ git clone https://github.com/krahets/hello-algo.git
 
 **手順三：ソースコードを実行します**。下図のように、上部にファイル名があるコードブロックは、リポジトリの `ja/codes` フォルダ内に対応するソースファイルがあります。ワンクリックで実行できるので、不要なデバッグに時間を取られず、学習内容に集中できます。
 
-![コードブロックと対応するソースファイル](suggestions.assets/code_md_to_repo.png)
+![コードブロックと対応するソースファイル](suggestions.assets/code_md_to_repo.svg)
 
 ローカルでの実行に加え、**Web 版では Python コードの可視化実行にも対応しています**（[pythontutor](https://pythontutor.com/) を使用）。下図のように、コードブロックの下の「実行の可視化」をクリックすると表示が開き、アルゴリズムの実行過程を観察できます。「全画面で表示」をクリックすれば、さらに見やすくなります。
 
@@ -236,4 +236,4 @@ git clone https://github.com/krahets/hello-algo.git
 
 下図のように、本書は主に「段階一」を扱い、段階二と段階三の学習をより効率よく進めるための支援を目指しています。
 
-![アルゴリズムの学習の道筋](suggestions.assets/learning_route.png)
+![アルゴリズムの学習の道筋](suggestions.assets/learning_route.svg)

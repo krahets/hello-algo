@@ -10,7 +10,7 @@
 
 根据层序遍历的特性，我们可以推导出父节点索引与子节点索引之间的“映射公式”：**若某节点的索引为 $i$ ，则该节点的左子节点索引为 $2i + 1$ ，右子节点索引为 $2i + 2$** 。下图展示了各个节点索引之间的映射关系。
 
-![完美二叉树的数组表示](array_representation_of_tree.assets/array_representation_binary_tree.png)
+![完美二叉树的数组表示](array_representation_of_tree.assets/array_representation_binary_tree.svg)
 
 **映射公式的角色相当于链表中的节点引用（指针）**。给定数组中的任意一个节点，我们都可以通过映射公式来访问它的左（右）子节点。
 
@@ -20,7 +20,7 @@
 
 如下图所示，给定一棵非完美二叉树，上述数组表示方法已经失效。
 
-![层序遍历序列对应多种二叉树可能性](array_representation_of_tree.assets/array_representation_without_empty.png)
+![层序遍历序列对应多种二叉树可能性](array_representation_of_tree.assets/array_representation_without_empty.svg)
 
 为了解决此问题，**我们可以考虑在层序遍历序列中显式地写出所有 `None`** 。如下图所示，这样处理后，层序遍历序列就可以唯一表示二叉树了。示例代码如下：
 
@@ -128,13 +128,13 @@
     tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
-![任意类型二叉树的数组表示](array_representation_of_tree.assets/array_representation_with_empty.png)
+![任意类型二叉树的数组表示](array_representation_of_tree.assets/array_representation_with_empty.svg)
 
 值得说明的是，**完全二叉树非常适合使用数组来表示**。回顾完全二叉树的定义，`None` 只出现在最底层且靠右的位置，**因此所有 `None` 一定出现在层序遍历序列的末尾**。
 
 这意味着使用数组表示完全二叉树时，可以省略存储所有 `None` ，非常方便。下图给出了一个例子。
 
-![完全二叉树的数组表示](array_representation_of_tree.assets/array_representation_complete_binary_tree.png)
+![完全二叉树的数组表示](array_representation_of_tree.assets/array_representation_complete_binary_tree.svg)
 
 以下代码实现了一棵基于数组表示的二叉树，包括以下几种操作。
 

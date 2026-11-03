@@ -4,7 +4,7 @@
 
     Given a positive integer $n$, split it into a sum of at least two positive integers. What is the largest possible product of those integers? The problem is illustrated in the figure below.
 
-![Definition of the maximum product cutting problem](max_product_cutting_problem.assets/max_product_cutting_definition.png)
+![Definition of the maximum product cutting problem](max_product_cutting_problem.assets/max_product_cutting_definition.svg)
 
 Suppose we split $n$ into $m$ integers that will be factors in the product. Denote the $i$-th factor by $n_i$, so that
 
@@ -36,7 +36,7 @@ As shown in the figure below, when $n \geq 4$, splitting off a $2$ increases the
 
 **Greedy strategy 1**: If a factor $\geq 4$ appears in a split, divide it further. The final split should contain only the factors $1$, $2$, and $3$.
 
-![Splitting increases the product](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png)
+![Splitting increases the product](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.svg)
 
 Next, consider which factor is best. Of $1$, $2$, and $3$, clearly $1$ is the worst: $1 \times (n-1) < n$ always holds, so splitting off a $1$ reduces the product.
 
@@ -44,7 +44,7 @@ As shown in the figure below, when $n = 6$, we have $3 \times 3 > 2 \times 2 \ti
 
 **Greedy strategy 2**: A split should contain at most two factors of $2$, because three $2$s can always be replaced with two $3$s to obtain a larger product.
 
-![Optimal factors](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png)
+![Optimal factors](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.svg)
 
 These observations lead to the following greedy strategy.
 
@@ -67,7 +67,7 @@ For the boundary cases $n \leq 3$, we must split off a $1$, giving a product of 
 [file]{max_product_cutting}-[class]{}-[func]{max_product_cutting}
 ```
 
-![Calculating the maximum product](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png)
+![Calculating the maximum product](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.svg)
 
 **The time complexity depends on how the programming language implements exponentiation**. Python, for example, offers three common ways to compute powers.
 

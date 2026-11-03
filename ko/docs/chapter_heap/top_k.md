@@ -12,7 +12,7 @@
 
 이 방법은 $k \ll n$인 경우에만 적합하다. $k$가 $n$에 가까워지면 시간 복잡도가 $O(n^2)$에 가까워져 매우 오래 걸리기 때문이다.
 
-![순회로 가장 큰 k개의 원소 찾기](top_k.assets/top_k_traversal.png)
+![순회로 가장 큰 k개의 원소 찾기](top_k.assets/top_k_traversal.svg)
 
 !!! tip "참고"
 
@@ -24,7 +24,7 @@
 
 이 방법은 필요한 것보다 더 많은 일을 한다. 가장 큰 $k$ 개 원소만 찾으면 되며, 나머지 원소를 정렬할 필요는 없기 때문이다.
 
-![정렬로 가장 큰 k개의 원소 찾기](top_k.assets/top_k_sorting.png)
+![정렬로 가장 큰 k개의 원소 찾기](top_k.assets/top_k_sorting.svg)
 
 ## 방법 3: 힙
 
@@ -36,31 +36,31 @@
 4. 순회를 마치면 힙에 남은 원소가 가장 큰 $k$ 개 원소다.
 
 === "<1>"
-    ![힙으로 가장 큰 k개의 원소 찾기](top_k.assets/top_k_heap_step1.png)
+    ![힙으로 가장 큰 k개의 원소 찾기](top_k.assets/top_k_heap_step1.svg)
 
 === "<2>"
-    ![힙으로 Top-k 찾기 2단계](top_k.assets/top_k_heap_step2.png)
+    ![힙으로 Top-k 찾기 2단계](top_k.assets/top_k_heap_step2.svg)
 
 === "<3>"
-    ![힙으로 Top-k 찾기 3단계](top_k.assets/top_k_heap_step3.png)
+    ![힙으로 Top-k 찾기 3단계](top_k.assets/top_k_heap_step3.svg)
 
 === "<4>"
-    ![힙으로 Top-k 찾기 4단계](top_k.assets/top_k_heap_step4.png)
+    ![힙으로 Top-k 찾기 4단계](top_k.assets/top_k_heap_step4.svg)
 
 === "<5>"
-    ![힙으로 Top-k 찾기 5단계](top_k.assets/top_k_heap_step5.png)
+    ![힙으로 Top-k 찾기 5단계](top_k.assets/top_k_heap_step5.svg)
 
 === "<6>"
-    ![힙으로 Top-k 찾기 6단계](top_k.assets/top_k_heap_step6.png)
+    ![힙으로 Top-k 찾기 6단계](top_k.assets/top_k_heap_step6.svg)
 
 === "<7>"
-    ![힙으로 Top-k 찾기 7단계](top_k.assets/top_k_heap_step7.png)
+    ![힙으로 Top-k 찾기 7단계](top_k.assets/top_k_heap_step7.svg)
 
 === "<8>"
-    ![힙으로 Top-k 찾기 8단계](top_k.assets/top_k_heap_step8.png)
+    ![힙으로 Top-k 찾기 8단계](top_k.assets/top_k_heap_step8.svg)
 
 === "<9>"
-    ![힙으로 Top-k 찾기 9단계](top_k.assets/top_k_heap_step9.png)
+    ![힙으로 Top-k 찾기 9단계](top_k.assets/top_k_heap_step9.svg)
 
 예시 코드는 다음과 같다.
 

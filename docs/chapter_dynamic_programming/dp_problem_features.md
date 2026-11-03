@@ -18,7 +18,7 @@
 
 如下图所示，若第 $1$、$2$、$3$ 阶的代价分别为 $1$、$10$、$1$ ，则从地面爬到第 $3$ 阶的最小代价为 $2$ 。
 
-![爬到第 3 阶的最小代价](dp_problem_features.assets/min_cost_cs_example.png)
+![爬到第 3 阶的最小代价](dp_problem_features.assets/min_cost_cs_example.svg)
 
 设 $dp[i]$ 为爬到第 $i$ 阶累计付出的代价，由于第 $i$ 阶只可能从 $i - 1$ 阶或 $i - 2$ 阶走来，因此 $dp[i]$ 只可能等于 $dp[i - 1] + cost[i]$ 或 $dp[i - 2] + cost[i]$ 。为了尽可能减少代价，我们应该选择两者中较小的那一个：
 
@@ -40,7 +40,7 @@ $$
 
 下图展示了以上代码的动态规划过程。
 
-![爬楼梯最小代价的动态规划过程](dp_problem_features.assets/min_cost_cs_dp.png)
+![爬楼梯最小代价的动态规划过程](dp_problem_features.assets/min_cost_cs_dp.svg)
 
 本题也可以进行空间优化，将一维压缩至零维，使得空间复杂度从 $O(n)$ 降至 $O(1)$ ：
 
@@ -62,7 +62,7 @@ $$
 
 如下图所示，爬上第 $3$ 阶仅剩 $2$ 种可行方案，其中连续三次跳 $1$ 阶的方案不满足约束条件，因此被舍弃。
 
-![带约束爬到第 3 阶的方案数量](dp_problem_features.assets/climbing_stairs_constraint_example.png)
+![带约束爬到第 3 阶的方案数量](dp_problem_features.assets/climbing_stairs_constraint_example.svg)
 
 在该问题中，如果上一轮是跳 $1$ 阶上来的，那么下一轮就必须跳 $2$ 阶。这意味着，**下一步选择不能由当前状态（当前所在楼梯阶数）独立决定，还和前一个状态（上一轮所在楼梯阶数）有关**。
 
@@ -82,7 +82,7 @@ dp[i, 2] = dp[i-2, 1] + dp[i-2, 2]
 \end{cases}
 $$
 
-![考虑约束下的递推关系](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.png)
+![考虑约束下的递推关系](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.svg)
 
 最终，返回 $dp[n, 1] + dp[n, 2]$ 即可，两者之和代表爬到第 $n$ 阶的方案总数：
 

@@ -5,25 +5,25 @@
 아래 그림과 같이 원소 교환으로 거품이 올라오는 과정을 흉내 낼 수 있다. 배열의 맨 왼쪽부터 오른쪽으로 순회하며 인접한 두 원소를 비교하고, '왼쪽 원소 > 오른쪽 원소'이면 둘을 교환한다. 순회를 마치면 가장 큰 원소가 배열의 맨 오른쪽으로 이동한다.
 
 === "<1>"
-    ![원소 교환으로 거품의 이동 구현](bubble_sort.assets/bubble_operation_step1.png)
+    ![원소 교환으로 거품의 이동 구현](bubble_sort.assets/bubble_operation_step1.svg)
 
 === "<2>"
-    ![버블 연산 2단계](bubble_sort.assets/bubble_operation_step2.png)
+    ![버블 연산 2단계](bubble_sort.assets/bubble_operation_step2.svg)
 
 === "<3>"
-    ![버블 연산 3단계](bubble_sort.assets/bubble_operation_step3.png)
+    ![버블 연산 3단계](bubble_sort.assets/bubble_operation_step3.svg)
 
 === "<4>"
-    ![버블 연산 4단계](bubble_sort.assets/bubble_operation_step4.png)
+    ![버블 연산 4단계](bubble_sort.assets/bubble_operation_step4.svg)
 
 === "<5>"
-    ![버블 연산 5단계](bubble_sort.assets/bubble_operation_step5.png)
+    ![버블 연산 5단계](bubble_sort.assets/bubble_operation_step5.svg)
 
 === "<6>"
-    ![버블 연산 6단계](bubble_sort.assets/bubble_operation_step6.png)
+    ![버블 연산 6단계](bubble_sort.assets/bubble_operation_step6.svg)
 
 === "<7>"
-    ![버블 연산 7단계](bubble_sort.assets/bubble_operation_step7.png)
+    ![버블 연산 7단계](bubble_sort.assets/bubble_operation_step7.svg)
 
 ## 알고리즘 과정
 
@@ -34,7 +34,7 @@
 3. 같은 과정을 반복하여 $n - 1$ 회의 '버블 연산'을 수행하면 **큰 순서로 $n - 1$ 개 원소가 모두 올바른 위치에 놓인다**.
 4. 남은 원소 하나는 반드시 가장 작은 원소이므로 정렬할 필요가 없으며, 배열 정렬이 완료된다.
 
-![버블 정렬 과정](bubble_sort.assets/bubble_sort_overview.png)
+![버블 정렬 과정](bubble_sort.assets/bubble_sort_overview.svg)
 
 예시 코드는 다음과 같다.
 

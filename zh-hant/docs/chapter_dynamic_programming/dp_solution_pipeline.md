@@ -37,7 +37,7 @@
 
 下圖展示了一個例子，給定網格的最小路徑和為 $13$ 。
 
-![最小路徑和示例資料](dp_solution_pipeline.assets/min_path_sum_example.png)
+![最小路徑和示例資料](dp_solution_pipeline.assets/min_path_sum_example.svg)
 
 **第一步：思考每輪的決策，定義狀態，從而得到 $dp$ 表**
 
@@ -47,7 +47,7 @@
 
 至此，我們就得到了下圖所示的二維 $dp$ 矩陣，其尺寸與輸入網格 $grid$ 相同。
 
-![狀態定義與 dp 表](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.png)
+![狀態定義與 dp 表](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.svg)
 
 !!! note
 
@@ -65,7 +65,7 @@ $$
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 $$
 
-![最優子結構與狀態轉移方程](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.png)
+![最優子結構與狀態轉移方程](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.svg)
 
 !!! note
 
@@ -79,7 +79,7 @@ $$
 
 如下圖所示，由於每個格子是由其左方格子和上方格子轉移而來，因此我們使用迴圈來走訪矩陣，外迴圈走訪各行，內迴圈走訪各列。
 
-![邊界條件與狀態轉移順序](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.png)
+![邊界條件與狀態轉移順序](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.svg)
 
 !!! note
 
@@ -108,7 +108,7 @@ $$
 
 從本質上看，造成重疊子問題的原因為：**存在多條路徑可以從左上角到達某一單元格**。
 
-![暴力搜尋遞迴樹](dp_solution_pipeline.assets/min_path_sum_dfs.png)
+![暴力搜尋遞迴樹](dp_solution_pipeline.assets/min_path_sum_dfs.svg)
 
 每個狀態都有向下和向右兩種選擇，從左上角走到右下角總共需要 $m + n - 2$ 步，所以最差時間複雜度為 $O(2^{m + n})$ ，其中 $n$ 和 $m$ 分別為網格的行數和列數。請注意，這種計算方式未考慮臨近網格邊界的情況，當到達網格邊界時只剩下一種選擇，因此實際的路徑數量會少一些。
 
@@ -122,7 +122,7 @@ $$
 
 如下圖所示，在引入記憶化後，所有子問題的解只需計算一次，因此時間複雜度取決於狀態總數，即網格尺寸 $O(nm)$ 。
 
-![記憶化搜尋遞迴樹](dp_solution_pipeline.assets/min_path_sum_dfs_mem.png)
+![記憶化搜尋遞迴樹](dp_solution_pipeline.assets/min_path_sum_dfs_mem.svg)
 
 ### 方法三：動態規劃
 
@@ -137,40 +137,40 @@ $$
 陣列 `dp` 大小為 $n \times m$ ，**因此空間複雜度為 $O(nm)$** 。
 
 === "<1>"
-    ![最小路徑和的動態規劃過程](dp_solution_pipeline.assets/min_path_sum_dp_step1.png)
+    ![最小路徑和的動態規劃過程](dp_solution_pipeline.assets/min_path_sum_dp_step1.svg)
 
 === "<2>"
-    ![min_path_sum_dp_step2](dp_solution_pipeline.assets/min_path_sum_dp_step2.png)
+    ![min_path_sum_dp_step2](dp_solution_pipeline.assets/min_path_sum_dp_step2.svg)
 
 === "<3>"
-    ![min_path_sum_dp_step3](dp_solution_pipeline.assets/min_path_sum_dp_step3.png)
+    ![min_path_sum_dp_step3](dp_solution_pipeline.assets/min_path_sum_dp_step3.svg)
 
 === "<4>"
-    ![min_path_sum_dp_step4](dp_solution_pipeline.assets/min_path_sum_dp_step4.png)
+    ![min_path_sum_dp_step4](dp_solution_pipeline.assets/min_path_sum_dp_step4.svg)
 
 === "<5>"
-    ![min_path_sum_dp_step5](dp_solution_pipeline.assets/min_path_sum_dp_step5.png)
+    ![min_path_sum_dp_step5](dp_solution_pipeline.assets/min_path_sum_dp_step5.svg)
 
 === "<6>"
-    ![min_path_sum_dp_step6](dp_solution_pipeline.assets/min_path_sum_dp_step6.png)
+    ![min_path_sum_dp_step6](dp_solution_pipeline.assets/min_path_sum_dp_step6.svg)
 
 === "<7>"
-    ![min_path_sum_dp_step7](dp_solution_pipeline.assets/min_path_sum_dp_step7.png)
+    ![min_path_sum_dp_step7](dp_solution_pipeline.assets/min_path_sum_dp_step7.svg)
 
 === "<8>"
-    ![min_path_sum_dp_step8](dp_solution_pipeline.assets/min_path_sum_dp_step8.png)
+    ![min_path_sum_dp_step8](dp_solution_pipeline.assets/min_path_sum_dp_step8.svg)
 
 === "<9>"
-    ![min_path_sum_dp_step9](dp_solution_pipeline.assets/min_path_sum_dp_step9.png)
+    ![min_path_sum_dp_step9](dp_solution_pipeline.assets/min_path_sum_dp_step9.svg)
 
 === "<10>"
-    ![min_path_sum_dp_step10](dp_solution_pipeline.assets/min_path_sum_dp_step10.png)
+    ![min_path_sum_dp_step10](dp_solution_pipeline.assets/min_path_sum_dp_step10.svg)
 
 === "<11>"
-    ![min_path_sum_dp_step11](dp_solution_pipeline.assets/min_path_sum_dp_step11.png)
+    ![min_path_sum_dp_step11](dp_solution_pipeline.assets/min_path_sum_dp_step11.svg)
 
 === "<12>"
-    ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.png)
+    ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.svg)
 
 ### 空間最佳化
 

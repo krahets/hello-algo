@@ -4,11 +4,11 @@
 
 如下圖所示，經過兩次刪除節點操作，這棵二元搜尋樹便會退化為鏈結串列。
 
-![AVL 樹在刪除節點後發生退化](avl_tree.assets/avltree_degradation_from_removing_node.png)
+![AVL 樹在刪除節點後發生退化](avl_tree.assets/avltree_degradation_from_removing_node.svg)
 
 再例如，在下圖所示的完美二元樹中插入兩個節點後，樹將嚴重向左傾斜，查詢操作的時間複雜度也隨之劣化。
 
-![AVL 樹在插入節點後發生退化](avl_tree.assets/avltree_degradation_from_inserting_node.png)
+![AVL 樹在插入節點後發生退化](avl_tree.assets/avltree_degradation_from_inserting_node.svg)
 
 1962 年 G. M. Adelson-Velsky 和 E. M. Landis 在論文“An algorithm for the organization of information”中提出了 <u>AVL 樹</u>。論文中詳細描述了一系列操作，確保在持續新增和刪除節點後，AVL 樹不會退化，從而使得各種操作的時間複雜度保持在 $O(\log n)$ 級別。換句話說，在需要頻繁進行增刪查改操作的場景中，AVL 樹能始終保持高效的資料操作效能，具有很好的應用價值。
 
@@ -257,20 +257,20 @@ AVL 樹的特點在於“旋轉”操作，它能夠在不影響二元樹的中�
 如下圖所示，節點下方為平衡因子。從底至頂看，二元樹中首個失衡節點是“節點 3”。我們關注以該失衡節點為根節點的子樹，將該節點記為 `node` ，其左子節點記為 `child` ，執行“右旋”操作。完成右旋後，子樹恢復平衡，並且仍然保持二元搜尋樹的性質。
 
 === "<1>"
-    ![右旋操作步驟](avl_tree.assets/avltree_right_rotate_step1.png)
+    ![右旋操作步驟](avl_tree.assets/avltree_right_rotate_step1.svg)
 
 === "<2>"
-    ![avltree_right_rotate_step2](avl_tree.assets/avltree_right_rotate_step2.png)
+    ![avltree_right_rotate_step2](avl_tree.assets/avltree_right_rotate_step2.svg)
 
 === "<3>"
-    ![avltree_right_rotate_step3](avl_tree.assets/avltree_right_rotate_step3.png)
+    ![avltree_right_rotate_step3](avl_tree.assets/avltree_right_rotate_step3.svg)
 
 === "<4>"
-    ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.png)
+    ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.svg)
 
 如下圖所示，當節點 `child` 有右子節點（記為 `grand_child` ）時，需要在右旋中新增一步：將 `grand_child` 作為 `node` 的左子節點。
 
-![有 grand_child 的右旋操作](avl_tree.assets/avltree_right_rotate_with_grandchild.png)
+![有 grand_child 的右旋操作](avl_tree.assets/avltree_right_rotate_with_grandchild.svg)
 
 “向右旋轉”是一種形象化的說法，實際上需要透過修改節點指標來實現，程式碼如下所示：
 
@@ -282,11 +282,11 @@ AVL 樹的特點在於“旋轉”操作，它能夠在不影響二元樹的中�
 
 相應地，如果考慮上述失衡二元樹的“映象”，則需要執行下圖所示的“左旋”操作。
 
-![左旋操作](avl_tree.assets/avltree_left_rotate.png)
+![左旋操作](avl_tree.assets/avltree_left_rotate.svg)
 
 同理，如下圖所示，當節點 `child` 有左子節點（記為 `grand_child` ）時，需要在左旋中新增一步：將 `grand_child` 作為 `node` 的右子節點。
 
-![有 grand_child 的左旋操作](avl_tree.assets/avltree_left_rotate_with_grandchild.png)
+![有 grand_child 的左旋操作](avl_tree.assets/avltree_left_rotate_with_grandchild.svg)
 
 可以觀察到，**右旋和左旋操作在邏輯上是映象對稱的，它們分別解決的兩種失衡情況也是對稱的**。基於對稱性，我們只需將右旋的實現程式碼中的所有的 `left` 替換為 `right` ，將所有的 `right` 替換為 `left` ，即可得到左旋的實現程式碼：
 
@@ -298,19 +298,19 @@ AVL 樹的特點在於“旋轉”操作，它能夠在不影響二元樹的中�
 
 對於下圖中的失衡節點 3 ，僅使用左旋或右旋都無法使子樹恢復平衡。此時需要先對 `child` 執行“左旋”，再對 `node` 執行“右旋”。
 
-![先左旋後右旋](avl_tree.assets/avltree_left_right_rotate.png)
+![先左旋後右旋](avl_tree.assets/avltree_left_right_rotate.svg)
 
 ### 先右旋後左旋
 
 如下圖所示，對於上述失衡二元樹的映象情況，需要先對 `child` 執行“右旋”，再對 `node` 執行“左旋”。
 
-![先右旋後左旋](avl_tree.assets/avltree_right_left_rotate.png)
+![先右旋後左旋](avl_tree.assets/avltree_right_left_rotate.svg)
 
 ### 旋轉的選擇
 
 下圖展示的四種失衡情況與上述案例逐個對應，分別需要採用右旋、先左旋後右旋、先右旋後左旋、左旋的操作。
 
-![AVL 樹的四種旋轉情況](avl_tree.assets/avltree_rotation_cases.png)
+![AVL 樹的四種旋轉情況](avl_tree.assets/avltree_rotation_cases.svg)
 
 如下表所示，我們透過判斷失衡節點的平衡因子以及較高一側子節點的平衡因子的正負號，來確定失衡節點屬於上圖中的哪種情況。
 

@@ -10,7 +10,7 @@
 
 레벨 순서 순회의 특성에서 부모와 자식 인덱스 사이의 '매핑 공식'을 도출할 수 있다. **노드의 인덱스가 $i$이면 왼쪽 자식의 인덱스는 $2i + 1$, 오른쪽 자식의 인덱스는 $2i + 2$다**. 아래 그림은 노드 인덱스 사이의 매핑 관계를 보여 준다.
 
-![포화 이진 트리의 배열 표현](array_representation_of_tree.assets/array_representation_binary_tree.png)
+![포화 이진 트리의 배열 표현](array_representation_of_tree.assets/array_representation_binary_tree.svg)
 
 **매핑 공식은 연결 리스트의 노드 참조(포인터)와 같은 역할을 한다**. 배열의 임의의 노드가 주어지면 이 공식으로 왼쪽(오른쪽) 자식에 접근할 수 있다.
 
@@ -20,7 +20,7 @@
 
 아래 그림처럼 포화 이진 트리가 아니면 앞의 배열 표현 방법은 더 이상 유효하지 않다.
 
-![하나의 레벨 순서 순회 결과에 대응하는 여러 이진 트리](array_representation_of_tree.assets/array_representation_without_empty.png)
+![하나의 레벨 순서 순회 결과에 대응하는 여러 이진 트리](array_representation_of_tree.assets/array_representation_without_empty.svg)
 
 이를 해결하려면 **레벨 순서 순회 결과에 모든 `None`을 명시적으로 넣을 수 있다**. 아래 그림처럼 처리하면 순회 결과가 이진 트리를 유일하게 나타낸다. 예시 코드는 다음과 같다.
 
@@ -128,13 +128,13 @@
     tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
-![임의의 이진 트리의 배열 표현](array_representation_of_tree.assets/array_representation_with_empty.png)
+![임의의 이진 트리의 배열 표현](array_representation_of_tree.assets/array_representation_with_empty.svg)
 
 **완전 이진 트리는 배열로 표현하기에 매우 적합하다**. 정의를 떠올려 보면 `None`은 맨 아래 레벨의 오른쪽에만 있으므로 **레벨 순서 순회 결과의 끝에만 나타난다**.
 
 따라서 완전 이진 트리를 배열로 표현할 때는 모든 `None`의 저장을 생략할 수 있어 매우 편리하다. 아래 그림은 그 예다.
 
-![완전 이진 트리의 배열 표현](array_representation_of_tree.assets/array_representation_complete_binary_tree.png)
+![완전 이진 트리의 배열 표현](array_representation_of_tree.assets/array_representation_complete_binary_tree.svg)
 
 다음 코드는 배열로 표현한 이진 트리를 구현하며 아래 연산들을 포함한다.
 

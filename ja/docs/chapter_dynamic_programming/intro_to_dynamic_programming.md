@@ -10,7 +10,7 @@
 
 下図のように、$3$ 段の階段を上る方法は $3$ 通りあります。
 
-![3 段目まで上る方法の数](intro_to_dynamic_programming.assets/climbing_stairs_example.png)
+![3 段目まで上る方法の数](intro_to_dynamic_programming.assets/climbing_stairs_example.svg)
 
 求めたいのは方法の数なので、**バックトラッキングですべての可能性を列挙することが考えられます**。具体的には、階段を上ることを選択の繰り返しと捉えます。地面から出発し、毎回 $1$ 段か $2$ 段かを選び、一番上に着くたびに方法の数を $1$ 増やします。一番上を超えた場合は枝刈りします。コードは次のとおりです。
 
@@ -38,7 +38,7 @@ $$
 
 つまり、階段を上る問題では部分問題の間に漸化式があり、**部分問題の解から元の問題の解を組み立てられます**。下図に、この関係を示します。
 
-![方法の数の漸化式](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png)
+![方法の数の漸化式](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.svg)
 
 この漸化式から、全探索による解法が得られます。$dp[n]$ から始め、**大きな問題を二つの小さな問題の和へ再帰的に分解し**、最小の部分問題 $dp[1]$ と $dp[2]$ に到達したら戻ります。その解は既知で、$dp[1] = 1$、$dp[2] = 2$ です。つまり、$1$ 段目と $2$ 段目まで上る方法は、それぞれ $1$ 通りと $2$ 通りです。
 
@@ -50,7 +50,7 @@ $$
 
 下図に、全探索でできる再帰木を示します。問題 $dp[n]$ の再帰木の深さは $n$ で、時間計算量は $O(2^n)$ です。指数のオーダーは爆発的に増えるため、大きな $n$ を入力すると、長時間待つことになります。
 
-![階段を上る問題の再帰木](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png)
+![階段を上る問題の再帰木](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.svg)
 
 上図から、**指数のオーダーの時間計算量は「部分問題の重複」によって生じている**ことがわかります。たとえば $dp[9]$ は $dp[8]$ と $dp[7]$ に分解され、$dp[8]$ は $dp[7]$ と $dp[6]$ に分解されます。どちらにも部分問題 $dp[7]$ が含まれます。
 
@@ -71,7 +71,7 @@ $$
 
 下図のように、**メモ化すると、重複する部分問題はすべて 1 回の計算で済み、時間計算量は $O(n)$ に改善されます**。これは大きな進歩です。
 
-![メモ化探索の再帰木](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png)
+![メモ化探索の再帰木](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.svg)
 
 ## 方法 3：動的計画法
 
@@ -87,7 +87,7 @@ $$
 
 下図に、上のコードの実行過程を示します。
 
-![階段を上る問題を動的計画法で解く流れ](intro_to_dynamic_programming.assets/climbing_stairs_dp.png)
+![階段を上る問題を動的計画法で解く流れ](intro_to_dynamic_programming.assets/climbing_stairs_dp.svg)
 
 バックトラッキングと同様に、動的計画法でも「状態」を使って問題を解く途中の段階を表します。各状態は、一つの部分問題と、それに対応する局所的な最適解に対応します。たとえば階段を上る問題では、現在いる段数 $i$ を状態とします。
 

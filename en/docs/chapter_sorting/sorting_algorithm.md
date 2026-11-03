@@ -4,7 +4,7 @@ A <u>sorting algorithm</u> arranges a dataset in a specified order. Sorting is w
 
 As shown below, the data may consist of integers, floating-point numbers, characters, strings, and other types. The ordering rule can be chosen as needed: numerical magnitude, ASCII character order, or a custom rule.
 
-![Examples of data types and ordering rules](sorting_algorithm.assets/sorting_examples.png)
+![Examples of data types and ordering rules](sorting_algorithm.assets/sorting_examples.svg)
 
 ## Evaluation criteria
 

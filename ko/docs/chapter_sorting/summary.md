@@ -12,7 +12,7 @@
 - 우리는 효율, 안정성, 제자리 동작, 적응성 등의 장점을 갖춘 정렬 알고리즘을 원한다. 하지만 다른 자료 구조와 알고리즘처럼 이 모든 조건을 동시에 만족하는 정렬 알고리즘은 없다. 실제 응용에서는 데이터의 특성에 따라 적합한 알고리즘을 선택해야 한다.
 - 아래 그림은 주요 정렬 알고리즘의 효율, 안정성, 제자리 여부, 적응성 등을 비교한다.
 
-![정렬 알고리즘 비교](summary.assets/sorting_algorithms_comparison.png)
+![정렬 알고리즘 비교](summary.assets/sorting_algorithms_comparison.svg)
 
 ### Q & A
 

@@ -18,7 +18,7 @@
 
 아래 그림은 이 합계 함수의 순서도다.
 
-![합계 함수의 순서도](iteration_and_recursion.assets/iteration.png)
+![합계 함수의 순서도](iteration_and_recursion.assets/iteration.svg)
 
 이 합계 함수의 연산 횟수는 입력 데이터 크기 $n$에 비례한다. 이를 ‘선형 관계’라고도 한다. 실제로 **시간 복잡도가 설명하는 것이 바로 이 ‘선형 관계’다**. 관련 내용은 다음 절에서 자세히 소개한다.
 
@@ -52,7 +52,7 @@
 
 아래 그림은 이 중첩 반복문의 순서도다.
 
-![중첩 반복문의 순서도](iteration_and_recursion.assets/nested_iteration.png)
+![중첩 반복문의 순서도](iteration_and_recursion.assets/nested_iteration.svg)
 
 이 경우 함수의 연산 횟수는 $n^2$에 비례한다. 즉, 알고리즘 실행 시간과 입력 데이터 크기 $n$ 사이에는 ‘제곱 관계’가 있다.
 
@@ -79,7 +79,7 @@
 
 아래 그림은 이 함수의 재귀 과정을 보여 준다.
 
-![합계 함수의 재귀 과정](iteration_and_recursion.assets/recursion_sum.png)
+![합계 함수의 재귀 과정](iteration_and_recursion.assets/recursion_sum.svg)
 
 반복과 재귀는 계산 결과가 같을 수 있지만, **문제를 생각하고 해결하는 방식은 완전히 다르다**.
 
@@ -100,7 +100,7 @@
 
 아래 그림과 같이 종료 조건에 도달하기 전에는 아직 반환되지 않은 재귀 함수가 $n$개 동시에 존재하므로, **재귀 깊이는 $n$이다**.
 
-![재귀 호출 깊이](iteration_and_recursion.assets/recursion_sum_depth.png)
+![재귀 호출 깊이](iteration_and_recursion.assets/recursion_sum_depth.svg)
 
 실제로 프로그래밍 언어가 허용하는 재귀 깊이는 보통 제한되어 있으며, 재귀가 너무 깊어지면 스택 오버플로 오류가 발생할 수 있다.
 
@@ -122,7 +122,7 @@ $1 + 2 + \dots + n$을 계산하는 예에서 결과 변수 `res`를 함수 매�
 - **일반 재귀**: ‘돌아오기’ 과정에서 합을 구한다. 각 단계가 반환된 뒤에 덧셈을 한 번씩 수행한다.
 - **꼬리 재귀**: ‘내려가기’ 과정에서 합을 구한다. ‘돌아오기’ 과정에서는 단계별로 반환만 하면 된다.
 
-![꼬리 재귀 과정](iteration_and_recursion.assets/tail_recursion_sum.png)
+![꼬리 재귀 과정](iteration_and_recursion.assets/tail_recursion_sum.svg)
 
 !!! tip "참고"
 
@@ -149,7 +149,7 @@ $1 + 2 + \dots + n$을 계산하는 예에서 결과 변수 `res`를 함수 매�
 
 위 코드는 함수 안에서 두 번의 재귀 호출을 수행한다. **이는 하나의 호출에서 두 개의 호출 분기가 생긴다는 뜻이다**. 아래 그림과 같이 재귀 호출을 계속하면 최종적으로 $n$개 층으로 이루어진 <u>재귀 트리(recursion tree)</u>가 만들어진다.
 
-![피보나치 수열의 재귀 트리](iteration_and_recursion.assets/recursion_tree.png)
+![피보나치 수열의 재귀 트리](iteration_and_recursion.assets/recursion_tree.svg)
 
 본질적으로 재귀는 ‘문제를 더 작은 부분 문제로 나누는’ 사고방식을 보여 준다. 이러한 분할 정복 전략은 매우 중요하다.
 

@@ -10,7 +10,7 @@
 
 考虑直接遍历所有可能的组合。如下图所示，我们开启一个两层循环，在每轮中判断两个整数的和是否为 `target` ，若是，则返回它们的索引。
 
-![线性查找求解两数之和](replace_linear_by_hashing.assets/two_sum_brute_force.png)
+![线性查找求解两数之和](replace_linear_by_hashing.assets/two_sum_brute_force.svg)
 
 代码如下所示：
 
@@ -28,13 +28,13 @@
 2. 将键值对 `nums[i]` 和索引 `i` 添加进哈希表。
 
 === "<1>"
-    ![辅助哈希表求解两数之和](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png)
+    ![辅助哈希表求解两数之和](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg)
 
 === "<2>"
-    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.png)
+    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg)
 
 === "<3>"
-    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.png)
+    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg)
 
 实现代码如下所示，仅需单层循环即可：
 

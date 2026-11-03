@@ -12,7 +12,7 @@
 
 この方法は $k \ll n$ の場合にしか適していません。$k$ が $n$ に近づくと、時間計算量は $O(n^2)$ に近づき、非常に時間がかかるためです。
 
-![走査して大きいほうから k 個を探す](top_k.assets/top_k_traversal.png)
+![走査して大きいほうから k 個を探す](top_k.assets/top_k_traversal.svg)
 
 !!! tip
 
@@ -24,7 +24,7 @@
 
 ただし、この方法は必要以上の処理をしています。大きいほうから $k$ 個を求めるだけでよく、ほかの要素のソートは不要だからです。
 
-![ソートして大きいほうから k 個を探す](top_k.assets/top_k_sorting.png)
+![ソートして大きいほうから k 個を探す](top_k.assets/top_k_sorting.svg)
 
 ## 方法三：ヒープを使う
 
@@ -36,31 +36,31 @@
 4. 走査が終わると、ヒープには大きいほうから $k$ 個の要素が残ります。
 
 === "<1>"
-    ![ヒープで大きいほうから k 個を探す](top_k.assets/top_k_heap_step1.png)
+    ![ヒープで大きいほうから k 個を探す](top_k.assets/top_k_heap_step1.svg)
 
 === "<2>"
-    ![ヒープを使った top-k 問題の解法の手順 2](top_k.assets/top_k_heap_step2.png)
+    ![ヒープを使った top-k 問題の解法の手順 2](top_k.assets/top_k_heap_step2.svg)
 
 === "<3>"
-    ![ヒープを使った top-k 問題の解法の手順 3](top_k.assets/top_k_heap_step3.png)
+    ![ヒープを使った top-k 問題の解法の手順 3](top_k.assets/top_k_heap_step3.svg)
 
 === "<4>"
-    ![ヒープを使った top-k 問題の解法の手順 4](top_k.assets/top_k_heap_step4.png)
+    ![ヒープを使った top-k 問題の解法の手順 4](top_k.assets/top_k_heap_step4.svg)
 
 === "<5>"
-    ![ヒープを使った top-k 問題の解法の手順 5](top_k.assets/top_k_heap_step5.png)
+    ![ヒープを使った top-k 問題の解法の手順 5](top_k.assets/top_k_heap_step5.svg)
 
 === "<6>"
-    ![ヒープを使った top-k 問題の解法の手順 6](top_k.assets/top_k_heap_step6.png)
+    ![ヒープを使った top-k 問題の解法の手順 6](top_k.assets/top_k_heap_step6.svg)
 
 === "<7>"
-    ![ヒープを使った top-k 問題の解法の手順 7](top_k.assets/top_k_heap_step7.png)
+    ![ヒープを使った top-k 問題の解法の手順 7](top_k.assets/top_k_heap_step7.svg)
 
 === "<8>"
-    ![ヒープを使った top-k 問題の解法の手順 8](top_k.assets/top_k_heap_step8.png)
+    ![ヒープを使った top-k 問題の解法の手順 8](top_k.assets/top_k_heap_step8.svg)
 
 === "<9>"
-    ![ヒープを使った top-k 問題の解法の手順 9](top_k.assets/top_k_heap_step9.png)
+    ![ヒープを使った top-k 問題の解法の手順 9](top_k.assets/top_k_heap_step9.svg)
 
 コード例は次のとおりです。
 

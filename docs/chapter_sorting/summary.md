@@ -12,7 +12,7 @@
 - 总的来说，我们希望找到一种排序算法，具有高效率、稳定、原地以及自适应性等优点。然而，正如其他数据结构和算法一样，没有一种排序算法能够同时满足所有这些条件。在实际应用中，我们需要根据数据的特性来选择合适的排序算法。
 - 下图对比了主流排序算法的效率、稳定性、就地性和自适应性等。
 
-![排序算法对比](summary.assets/sorting_algorithms_comparison.png)
+![排序算法对比](summary.assets/sorting_algorithms_comparison.svg)
 
 ### Q & A
 

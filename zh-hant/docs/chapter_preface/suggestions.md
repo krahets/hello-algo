@@ -212,7 +212,7 @@ git clone https://github.com/krahets/hello-algo.git
 
 **第三步：執行源程式碼**。如下圖所示，對於頂部標有檔案名稱的程式碼塊，我們可以在倉庫的 `codes` 檔案夾內找到對應的源程式碼檔案。源程式碼檔案可一鍵執行，將幫助你節省不必要的除錯時間，讓你能夠專注於學習內容。
 
-![程式碼塊與對應的源程式碼檔案](suggestions.assets/code_md_to_repo.png)
+![程式碼塊與對應的源程式碼檔案](suggestions.assets/code_md_to_repo.svg)
 
 除了本地執行程式碼，**網頁版還支持 Python 程式碼的視覺化執行**（基於 [pythontutor](https://pythontutor.com/) 實現）。如下圖所示，你可以點選程式碼塊下方的“視覺化執行”來展開檢視，觀察演算法程式碼的執行過程；也可以點選“全屏觀看”，以獲得更好的閱覽體驗。
 
@@ -236,4 +236,4 @@ git clone https://github.com/krahets/hello-algo.git
 
 如下圖所示，本書內容主要涵蓋“階段一”，旨在幫助你更高效地展開階段二和階段三的學習。
 
-![演算法學習路線](suggestions.assets/learning_route.png)
+![演算法學習路線](suggestions.assets/learning_route.svg)

@@ -6,7 +6,7 @@
 
 아래 그림과 같이 원소가 쌓인 맨 위를 ‘스택의 꼭대기’, 맨 아래를 ‘스택의 바닥’이라고 한다. 맨 위에 원소를 추가하는 연산을 ‘스택에 삽입하기’, 맨 위 원소를 삭제하는 연산을 ‘스택에서 꺼내기’라고 한다.
 
-![스택의 후입선출 규칙](stack.assets/stack_operations.png)
+![스택의 후입선출 규칙](stack.assets/stack_operations.svg)
 
 ## 스택의 기본 연산
 
@@ -366,13 +366,13 @@
 아래 그림과 같이 스택에 삽입할 때는 연결 리스트의 맨 앞에 원소를 넣으면 된다. 이 방식을 ‘머리 삽입’이라고 한다. 스택에서 꺼낼 때는 머리 노드를 삭제하면 된다.
 
 === "<1>"
-    ![연결 리스트 기반 스택의 삽입과 꺼내기](stack.assets/linkedlist_stack_step1.png)
+    ![연결 리스트 기반 스택의 삽입과 꺼내기](stack.assets/linkedlist_stack_step1.svg)
 
 === "<2>"
-    ![연결 리스트 기반 스택에 원소 삽입](stack.assets/linkedlist_stack_step2_push.png)
+    ![연결 리스트 기반 스택에 원소 삽입](stack.assets/linkedlist_stack_step2_push.svg)
 
 === "<3>"
-    ![연결 리스트 기반 스택에서 원소 꺼내기](stack.assets/linkedlist_stack_step3_pop.png)
+    ![연결 리스트 기반 스택에서 원소 꺼내기](stack.assets/linkedlist_stack_step3_pop.svg)
 
 연결 리스트로 스택을 구현한 예제 코드는 다음과 같다.
 
@@ -385,13 +385,13 @@
 배열로 스택을 구현할 때는 배열의 끝을 스택의 꼭대기로 볼 수 있다. 아래 그림과 같이 삽입과 꺼내기는 각각 배열 끝에 원소를 추가하고 삭제하는 연산에 해당하며, 시간 복잡도는 모두 $O(1)$이다.
 
 === "<1>"
-    ![배열 기반 스택의 삽입과 꺼내기](stack.assets/array_stack_step1.png)
+    ![배열 기반 스택의 삽입과 꺼내기](stack.assets/array_stack_step1.svg)
 
 === "<2>"
-    ![배열 기반 스택에 원소 삽입](stack.assets/array_stack_step2_push.png)
+    ![배열 기반 스택에 원소 삽입](stack.assets/array_stack_step2_push.svg)
 
 === "<3>"
-    ![배열 기반 스택에서 원소 꺼내기](stack.assets/array_stack_step3_pop.png)
+    ![배열 기반 스택에서 원소 꺼내기](stack.assets/array_stack_step3_pop.svg)
 
 스택에 삽입되는 원소가 계속 늘어날 수 있으므로 동적 배열을 사용하면 배열의 용량 확장을 직접 처리하지 않아도 된다. 예제 코드는 다음과 같다.
 

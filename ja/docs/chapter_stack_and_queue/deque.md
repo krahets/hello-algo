@@ -2,7 +2,7 @@
 
 キューでは、先頭要素の削除と末尾への追加しかできません。下図の<u>両端キュー（double-ended queue）</u>は、先頭と末尾の両方で追加・削除ができ、より柔軟です。
 
-![両端キューの操作](deque.assets/deque_operations.png)
+![両端キューの操作](deque.assets/deque_operations.svg)
 
 ## 両端キューの主な操作
 
@@ -400,19 +400,19 @@
 下図のように、双方向連結リストの先頭と末尾を両端キューの先頭と末尾に対応させ、両端でノードを追加・削除できるようにします。
 
 === "<1>"
-    ![連結リストによる両端キューの追加と削除](deque.assets/linkedlist_deque_step1.png)
+    ![連結リストによる両端キューの追加と削除](deque.assets/linkedlist_deque_step1.svg)
 
 === "<2>"
-    ![連結リストによる両端キュー：末尾に追加](deque.assets/linkedlist_deque_step2_push_last.png)
+    ![連結リストによる両端キュー：末尾に追加](deque.assets/linkedlist_deque_step2_push_last.svg)
 
 === "<3>"
-    ![連結リストによる両端キュー：先頭に追加](deque.assets/linkedlist_deque_step3_push_first.png)
+    ![連結リストによる両端キュー：先頭に追加](deque.assets/linkedlist_deque_step3_push_first.svg)
 
 === "<4>"
-    ![連結リストによる両端キュー：末尾から取り出す](deque.assets/linkedlist_deque_step4_pop_last.png)
+    ![連結リストによる両端キュー：末尾から取り出す](deque.assets/linkedlist_deque_step4_pop_last.svg)
 
 === "<5>"
-    ![連結リストによる両端キュー：先頭から取り出す](deque.assets/linkedlist_deque_step5_pop_first.png)
+    ![連結リストによる両端キュー：先頭から取り出す](deque.assets/linkedlist_deque_step5_pop_first.svg)
 
 実装は次のとおりです。
 
@@ -425,19 +425,19 @@
 下図のように、配列によるキューと同様、循環配列で両端キューを実装できます。
 
 === "<1>"
-    ![配列による両端キューの追加と削除](deque.assets/array_deque_step1.png)
+    ![配列による両端キューの追加と削除](deque.assets/array_deque_step1.svg)
 
 === "<2>"
-    ![配列による両端キュー：末尾に追加](deque.assets/array_deque_step2_push_last.png)
+    ![配列による両端キュー：末尾に追加](deque.assets/array_deque_step2_push_last.svg)
 
 === "<3>"
-    ![配列による両端キュー：先頭に追加](deque.assets/array_deque_step3_push_first.png)
+    ![配列による両端キュー：先頭に追加](deque.assets/array_deque_step3_push_first.svg)
 
 === "<4>"
-    ![配列による両端キュー：末尾から取り出す](deque.assets/array_deque_step4_pop_last.png)
+    ![配列による両端キュー：末尾から取り出す](deque.assets/array_deque_step4_pop_last.svg)
 
 === "<5>"
-    ![配列による両端キュー：先頭から取り出す](deque.assets/array_deque_step5_pop_first.png)
+    ![配列による両端キュー：先頭から取り出す](deque.assets/array_deque_step5_pop_first.svg)
 
 キューの実装に、先頭への追加と末尾からの取り出しのメソッドを加えるだけです。
 

@@ -10,7 +10,7 @@
 
 下図のように、`kitten` を `sitting` に変換するには、置換 2 回と挿入 1 回の計 3 回が必要です。`hello` を `algo` に変換するには、置換 2 回と削除 1 回の計 3 回が必要です。
 
-![編集距離のデータ例](edit_distance_problem.assets/edit_distance_example.png)
+![編集距離のデータ例](edit_distance_problem.assets/edit_distance_example.svg)
 
 **編集距離問題は、決定木モデルで自然に説明できます**。文字列が木のノードに対応し、1 回の判断（編集操作）が辺に対応します。
 
@@ -18,7 +18,7 @@
 
 決定木の観点では、この問題の目標はノード `hello` とノード `algo` の間の最短経路を求めることです。
 
-![決定木モデルによる編集距離問題の表現](edit_distance_problem.assets/edit_distance_decision_tree.png)
+![決定木モデルによる編集距離問題の表現](edit_distance_problem.assets/edit_distance_decision_tree.svg)
 
 ### 動的計画法の考え方
 
@@ -45,7 +45,7 @@
 2. $s[i-1]$ を削除すると、残る部分問題は $dp[i-1, j]$ です。
 3. $s[i-1]$ を $t[j-1]$ に置換すると、残る部分問題は $dp[i-1, j-1]$ です。
 
-![編集距離の状態遷移](edit_distance_problem.assets/edit_distance_state_transfer.png)
+![編集距離の状態遷移](edit_distance_problem.assets/edit_distance_state_transfer.svg)
 
 ここから最適部分構造が得られます。$dp[i, j]$ の最小編集回数は、$dp[i, j-1]$、$dp[i-1, j]$、$dp[i-1, j-1]$ の三つの最小編集回数のうち、最も小さいものに、今回の編集 $1$ 回を加えた値です。状態遷移式は次のようになります。
 
@@ -74,49 +74,49 @@ $$
 下図のように、編集距離問題の状態遷移はナップサック問題によく似ており、どちらも二次元の表を埋める過程と捉えられます。
 
 === "<1>"
-    ![編集距離を動的計画法で求める流れ](edit_distance_problem.assets/edit_distance_dp_step1.png)
+    ![編集距離を動的計画法で求める流れ](edit_distance_problem.assets/edit_distance_dp_step1.svg)
 
 === "<2>"
-    ![編集距離を動的計画法で求める流れ：手順 2](edit_distance_problem.assets/edit_distance_dp_step2.png)
+    ![編集距離を動的計画法で求める流れ：手順 2](edit_distance_problem.assets/edit_distance_dp_step2.svg)
 
 === "<3>"
-    ![編集距離を動的計画法で求める流れ：手順 3](edit_distance_problem.assets/edit_distance_dp_step3.png)
+    ![編集距離を動的計画法で求める流れ：手順 3](edit_distance_problem.assets/edit_distance_dp_step3.svg)
 
 === "<4>"
-    ![編集距離を動的計画法で求める流れ：手順 4](edit_distance_problem.assets/edit_distance_dp_step4.png)
+    ![編集距離を動的計画法で求める流れ：手順 4](edit_distance_problem.assets/edit_distance_dp_step4.svg)
 
 === "<5>"
-    ![編集距離を動的計画法で求める流れ：手順 5](edit_distance_problem.assets/edit_distance_dp_step5.png)
+    ![編集距離を動的計画法で求める流れ：手順 5](edit_distance_problem.assets/edit_distance_dp_step5.svg)
 
 === "<6>"
-    ![編集距離を動的計画法で求める流れ：手順 6](edit_distance_problem.assets/edit_distance_dp_step6.png)
+    ![編集距離を動的計画法で求める流れ：手順 6](edit_distance_problem.assets/edit_distance_dp_step6.svg)
 
 === "<7>"
-    ![編集距離を動的計画法で求める流れ：手順 7](edit_distance_problem.assets/edit_distance_dp_step7.png)
+    ![編集距離を動的計画法で求める流れ：手順 7](edit_distance_problem.assets/edit_distance_dp_step7.svg)
 
 === "<8>"
-    ![編集距離を動的計画法で求める流れ：手順 8](edit_distance_problem.assets/edit_distance_dp_step8.png)
+    ![編集距離を動的計画法で求める流れ：手順 8](edit_distance_problem.assets/edit_distance_dp_step8.svg)
 
 === "<9>"
-    ![編集距離を動的計画法で求める流れ：手順 9](edit_distance_problem.assets/edit_distance_dp_step9.png)
+    ![編集距離を動的計画法で求める流れ：手順 9](edit_distance_problem.assets/edit_distance_dp_step9.svg)
 
 === "<10>"
-    ![編集距離を動的計画法で求める流れ：手順 10](edit_distance_problem.assets/edit_distance_dp_step10.png)
+    ![編集距離を動的計画法で求める流れ：手順 10](edit_distance_problem.assets/edit_distance_dp_step10.svg)
 
 === "<11>"
-    ![編集距離を動的計画法で求める流れ：手順 11](edit_distance_problem.assets/edit_distance_dp_step11.png)
+    ![編集距離を動的計画法で求める流れ：手順 11](edit_distance_problem.assets/edit_distance_dp_step11.svg)
 
 === "<12>"
-    ![編集距離を動的計画法で求める流れ：手順 12](edit_distance_problem.assets/edit_distance_dp_step12.png)
+    ![編集距離を動的計画法で求める流れ：手順 12](edit_distance_problem.assets/edit_distance_dp_step12.svg)
 
 === "<13>"
-    ![編集距離を動的計画法で求める流れ：手順 13](edit_distance_problem.assets/edit_distance_dp_step13.png)
+    ![編集距離を動的計画法で求める流れ：手順 13](edit_distance_problem.assets/edit_distance_dp_step13.svg)
 
 === "<14>"
-    ![編集距離を動的計画法で求める流れ：手順 14](edit_distance_problem.assets/edit_distance_dp_step14.png)
+    ![編集距離を動的計画法で求める流れ：手順 14](edit_distance_problem.assets/edit_distance_dp_step14.svg)
 
 === "<15>"
-    ![編集距離を動的計画法で求める流れ：手順 15](edit_distance_problem.assets/edit_distance_dp_step15.png)
+    ![編集距離を動的計画法で求める流れ：手順 15](edit_distance_problem.assets/edit_distance_dp_step15.svg)
 
 ### 空間の最適化
 

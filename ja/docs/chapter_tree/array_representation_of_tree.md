@@ -10,7 +10,7 @@
 
 レベル順走査の特徴から、親と子のインデックスの対応式を導けます。**ノードのインデックスが $i$ なら、左の子は $2i + 1$、右の子は $2i + 2$ です**。下図に対応関係を示します。
 
-![パーフェクト二分木の配列表現](array_representation_of_tree.assets/array_representation_binary_tree.png)
+![パーフェクト二分木の配列表現](array_representation_of_tree.assets/array_representation_binary_tree.svg)
 
 **この対応式は、連結リストのノード参照（ポインタ）と同じ役割を果たします**。配列内のどのノードからでも、式を使って左右の子にアクセスできます。
 
@@ -20,7 +20,7 @@
 
 下図のように、パーフェクト二分木でない木には、上の配列表現をそのまま使えません。
 
-![同じレベル順の列に対応する複数の二分木](array_representation_of_tree.assets/array_representation_without_empty.png)
+![同じレベル順の列に対応する複数の二分木](array_representation_of_tree.assets/array_representation_without_empty.svg)
 
 解決するには、**レベル順の列にすべての `None` を明示的に書き込みます**。下図のように、これで二分木を一意に表せます。コード例を示します。
 
@@ -128,13 +128,13 @@
     tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
-![任意の二分木の配列表現](array_representation_of_tree.assets/array_representation_with_empty.png)
+![任意の二分木の配列表現](array_representation_of_tree.assets/array_representation_with_empty.svg)
 
 **完全二分木は、配列で表すのに非常に適しています**。定義を思い出すと、`None` は最下層の右側にしかありません。**したがって、すべての `None` はレベル順の列の末尾に現れます**。
 
 つまり、完全二分木を配列で表す場合は、`None` の格納をすべて省けるので便利です。下図に例を示します。
 
-![完全二分木の配列表現](array_representation_of_tree.assets/array_representation_complete_binary_tree.png)
+![完全二分木の配列表現](array_representation_of_tree.assets/array_representation_complete_binary_tree.svg)
 
 以下は配列で二分木を実装したコードで、次の操作を含みます。
 

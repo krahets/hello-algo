@@ -11,37 +11,37 @@
 5. 남은 원소 하나는 반드시 가장 큰 원소이므로 정렬할 필요가 없으며, 배열 정렬이 완료된다.
 
 === "<1>"
-    ![선택 정렬 단계](selection_sort.assets/selection_sort_step1.png)
+    ![선택 정렬 단계](selection_sort.assets/selection_sort_step1.svg)
 
 === "<2>"
-    ![선택 정렬 2단계](selection_sort.assets/selection_sort_step2.png)
+    ![선택 정렬 2단계](selection_sort.assets/selection_sort_step2.svg)
 
 === "<3>"
-    ![선택 정렬 3단계](selection_sort.assets/selection_sort_step3.png)
+    ![선택 정렬 3단계](selection_sort.assets/selection_sort_step3.svg)
 
 === "<4>"
-    ![선택 정렬 4단계](selection_sort.assets/selection_sort_step4.png)
+    ![선택 정렬 4단계](selection_sort.assets/selection_sort_step4.svg)
 
 === "<5>"
-    ![선택 정렬 5단계](selection_sort.assets/selection_sort_step5.png)
+    ![선택 정렬 5단계](selection_sort.assets/selection_sort_step5.svg)
 
 === "<6>"
-    ![선택 정렬 6단계](selection_sort.assets/selection_sort_step6.png)
+    ![선택 정렬 6단계](selection_sort.assets/selection_sort_step6.svg)
 
 === "<7>"
-    ![선택 정렬 7단계](selection_sort.assets/selection_sort_step7.png)
+    ![선택 정렬 7단계](selection_sort.assets/selection_sort_step7.svg)
 
 === "<8>"
-    ![선택 정렬 8단계](selection_sort.assets/selection_sort_step8.png)
+    ![선택 정렬 8단계](selection_sort.assets/selection_sort_step8.svg)
 
 === "<9>"
-    ![선택 정렬 9단계](selection_sort.assets/selection_sort_step9.png)
+    ![선택 정렬 9단계](selection_sort.assets/selection_sort_step9.svg)
 
 === "<10>"
-    ![선택 정렬 10단계](selection_sort.assets/selection_sort_step10.png)
+    ![선택 정렬 10단계](selection_sort.assets/selection_sort_step10.svg)
 
 === "<11>"
-    ![선택 정렬 11단계](selection_sort.assets/selection_sort_step11.png)
+    ![선택 정렬 11단계](selection_sort.assets/selection_sort_step11.svg)
 
 코드에서는 $k$로 미정렬 구간의 최소 원소를 기록한다.
 
@@ -55,4 +55,4 @@
 - **공간 복잡도 $O(1)$, 제자리 정렬**: 포인터 $i$와 $j$는 상수 크기의 추가 공간을 사용한다.
 - **불안정 정렬**: 아래 그림과 같이 원소 `nums[i]`가 자신과 값이 같은 원소의 오른쪽으로 교환되어 두 원소의 상대적 순서가 바뀔 수 있다.
 
-![선택 정렬의 불안정성 예시](selection_sort.assets/selection_sort_instability.png)
+![선택 정렬의 불안정성 예시](selection_sort.assets/selection_sort_instability.svg)

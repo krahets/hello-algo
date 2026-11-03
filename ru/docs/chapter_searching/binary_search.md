@@ -6,7 +6,7 @@
 
     Дан массив `nums` длины $n$, элементы которого расположены в порядке возрастания и не повторяются. Найдите и верните индекс элемента `target` в этом массиве. Если массив не содержит этого элемента, верните $-1$ . Пример показан на рисунке ниже.
 
-![Пример данных для двоичного поиска](binary_search.assets/binary_search_example.png)
+![Пример данных для двоичного поиска](binary_search.assets/binary_search_example.svg)
 
 Как показано на рисунке ниже, сначала инициализируем указатели $i = 0$ и $j = n - 1$ , которые указывают на первый и последний элементы массива и задают интервал поиска $[0, n - 1]$ . Обратите внимание: квадратные скобки обозначают замкнутый интервал и включают граничные значения.
 
@@ -21,25 +21,25 @@
 Если массив не содержит целевой элемент, область поиска в итоге сузится до пустого интервала. В этом случае возвращается $-1$ .
 
 === "<1>"
-    ![Процесс двоичного поиска](binary_search.assets/binary_search_step1.png)
+    ![Процесс двоичного поиска](binary_search.assets/binary_search_step1.svg)
 
 === "<2>"
-    ![binary_search_step2](binary_search.assets/binary_search_step2.png)
+    ![binary_search_step2](binary_search.assets/binary_search_step2.svg)
 
 === "<3>"
-    ![binary_search_step3](binary_search.assets/binary_search_step3.png)
+    ![binary_search_step3](binary_search.assets/binary_search_step3.svg)
 
 === "<4>"
-    ![binary_search_step4](binary_search.assets/binary_search_step4.png)
+    ![binary_search_step4](binary_search.assets/binary_search_step4.svg)
 
 === "<5>"
-    ![binary_search_step5](binary_search.assets/binary_search_step5.png)
+    ![binary_search_step5](binary_search.assets/binary_search_step5.svg)
 
 === "<6>"
-    ![binary_search_step6](binary_search.assets/binary_search_step6.png)
+    ![binary_search_step6](binary_search.assets/binary_search_step6.svg)
 
 === "<7>"
-    ![binary_search_step7](binary_search.assets/binary_search_step7.png)
+    ![binary_search_step7](binary_search.assets/binary_search_step7.svg)
 
 Стоит отметить, что поскольку и $i$ , и $j$ имеют тип `int` , **то сумма $i + j$ может выйти за пределы диапазона типа `int`**. Чтобы избежать переполнения, обычно используют формулу $m = \lfloor {i + (j - i) / 2} \rfloor$ для вычисления середины.
 
@@ -67,7 +67,7 @@
 
 Поскольку в записи «замкнутый интервал» обе границы являются закрытыми, операции сужения интервала при помощи указателей $i$ и $j$ тоже получаются симметричными. Из-за этого в таком варианте сложнее допустить ошибку, **поэтому обычно рекомендуется использовать именно запись «замкнутый интервал»**.
 
-![Два определения интервалов](binary_search.assets/binary_search_ranges.png)
+![Два определения интервалов](binary_search.assets/binary_search_ranges.svg)
 
 ## Преимущества и ограничения
 

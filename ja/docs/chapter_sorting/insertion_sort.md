@@ -6,7 +6,7 @@
 
 下図は配列に要素を挿入する操作の流れです。基準の要素を `base` とすると、挿入先のインデックスから `base` までの要素をすべて一つ右へ移動し、挿入先のインデックスに `base` を代入します。
 
-![一回の挿入操作](insertion_sort.assets/insertion_operation.png)
+![一回の挿入操作](insertion_sort.assets/insertion_operation.svg)
 
 ## アルゴリズムの流れ
 
@@ -17,7 +17,7 @@
 3. 3 番目の要素を `base` として正しい位置に挿入すると、**先頭の 3 要素が整列済みになります**。
 4. 同様に繰り返し、最後の要素を `base` として正しい位置に挿入すると、**すべての要素が整列済みになります**。
 
-![挿入ソートの流れ](insertion_sort.assets/insertion_sort_overview.png)
+![挿入ソートの流れ](insertion_sort.assets/insertion_sort_overview.svg)
 
 コード例は次のとおりです。
 

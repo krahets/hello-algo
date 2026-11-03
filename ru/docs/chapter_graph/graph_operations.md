@@ -12,19 +12,19 @@
 - **Инициализация**: передаются $n$ вершин, затем инициализируется список вершин `vertices` длины $n$ , что требует $O(n)$ времени. После этого инициализируется матрица смежности `adjMat` размера $n \times n$ , что требует $O(n^2)$ времени.
 
 === "<1>"
-    ![Инициализация матрицы смежности, добавление и удаление ребер и вершин](graph_operations.assets/adjacency_matrix_step1_initialization.png)
+    ![Инициализация матрицы смежности, добавление и удаление ребер и вершин](graph_operations.assets/adjacency_matrix_step1_initialization.svg)
 
 === "<2>"
-    ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_step2_add_edge.png)
+    ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_step2_add_edge.svg)
 
 === "<3>"
-    ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_step3_remove_edge.png)
+    ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_step3_remove_edge.svg)
 
 === "<4>"
-    ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_step4_add_vertex.png)
+    ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_step4_add_vertex.svg)
 
 === "<5>"
-    ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_step5_remove_vertex.png)
+    ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_step5_remove_vertex.svg)
 
 Ниже приведен код реализации графа на основе матрицы смежности:
 
@@ -43,19 +43,19 @@
 - **Инициализация**: в списке смежности создаются $n$ вершин и $2m$ ребер. Это требует $O(n + m)$ времени.
 
 === "<1>"
-    ![Инициализация списка смежности, добавление и удаление ребер и вершин](graph_operations.assets/adjacency_list_step1_initialization.png)
+    ![Инициализация списка смежности, добавление и удаление ребер и вершин](graph_operations.assets/adjacency_list_step1_initialization.svg)
 
 === "<2>"
-    ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_step2_add_edge.png)
+    ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_step2_add_edge.svg)
 
 === "<3>"
-    ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_step3_remove_edge.png)
+    ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_step3_remove_edge.svg)
 
 === "<4>"
-    ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_step4_add_vertex.png)
+    ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_step4_add_vertex.svg)
 
 === "<5>"
-    ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.png)
+    ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.svg)
 
 Ниже приведен код списка смежности. По сравнению с тем, что показано на рисунке выше, реальная реализация имеет следующие отличия.
 

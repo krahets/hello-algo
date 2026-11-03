@@ -4,7 +4,7 @@
 
 如下图所示，排序算法中的数据类型可以是整数、浮点数、字符或字符串等。排序的判断规则可根据需求设定，如数字大小、字符 ASCII 码顺序或自定义规则。
 
-![数据类型和判断规则示例](sorting_algorithm.assets/sorting_examples.png)
+![数据类型和判断规则示例](sorting_algorithm.assets/sorting_examples.svg)
 
 ## 评价维度
 

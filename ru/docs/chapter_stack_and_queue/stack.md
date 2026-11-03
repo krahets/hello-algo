@@ -6,7 +6,7 @@
 
 Как показано на рисунке ниже, верхнюю часть стопки элементов мы называем вершиной стека, а нижнюю - основанием стека. Операция добавления элемента на вершину называется `push`, а операция удаления верхнего элемента - `pop`.
 
-![Правило LIFO для стека](stack.assets/stack_operations.png)
+![Правило LIFO для стека](stack.assets/stack_operations.svg)
 
 ## Основные операции со стеком
 
@@ -366,13 +366,13 @@
 Как показано на рисунке ниже, для операции `push` достаточно вставить элемент в голову связного списка. Такой способ вставки называется вставкой в голову. Для операции `pop` достаточно удалить головной узел из списка.
 
 === "<1>"
-    ![Операции push и pop в реализации стека на связном списке](stack.assets/linkedlist_stack_step1.png)
+    ![Операции push и pop в реализации стека на связном списке](stack.assets/linkedlist_stack_step1.svg)
 
 === "<2>"
-    ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.png)
+    ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.svg)
 
 === "<3>"
-    ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.png)
+    ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.svg)
 
 Ниже приведен пример кода реализации стека на основе связного списка:
 
@@ -385,13 +385,13 @@
 Если реализовывать стек на основе массива, то хвост массива можно рассматривать как вершину стека. Как показано на рисунке ниже, операции `push` и `pop` соответствуют добавлению элемента в конец массива и удалению элемента из конца, обе имеют временную сложность $O(1)$ .
 
 === "<1>"
-    ![Операции push и pop в реализации стека на массиве](stack.assets/array_stack_step1.png)
+    ![Операции push и pop в реализации стека на массиве](stack.assets/array_stack_step1.svg)
 
 === "<2>"
-    ![array_stack_push](stack.assets/array_stack_step2_push.png)
+    ![array_stack_push](stack.assets/array_stack_step2_push.svg)
 
 === "<3>"
-    ![array_stack_pop](stack.assets/array_stack_step3_pop.png)
+    ![array_stack_pop](stack.assets/array_stack_step3_pop.svg)
 
 Поскольку количество элементов, помещаемых в стек, может непрерывно расти, мы можем использовать динамический массив и тем самым не заниматься расширением массива вручную. Ниже приведен пример кода:
 

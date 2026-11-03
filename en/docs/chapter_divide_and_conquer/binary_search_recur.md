@@ -36,7 +36,7 @@ Starting with the original problem $f(0, n-1)$, perform binary search as follows
 
 The figure below shows the divide-and-conquer process for finding $6$ in an array using binary search.
 
-![Divide-and-conquer process for binary search](binary_search_recur.assets/binary_search_recur.png)
+![Divide-and-conquer process for binary search](binary_search_recur.assets/binary_search_recur.svg)
 
 In the implementation, we define a recursive function `dfs()` to solve $f(i, j)$:
 

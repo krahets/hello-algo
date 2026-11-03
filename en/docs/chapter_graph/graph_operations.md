@@ -12,19 +12,19 @@ For an undirected graph with $n$ vertices, the operations are implemented as sho
 - **Initialize the graph**: Given $n$ vertices, initialize the vertex list `vertices` of length $n$ in $O(n)$ time, then initialize the $n \times n$ adjacency matrix `adjMat` in $O(n^2)$ time.
 
 === "<1>"
-    ![Initializing an adjacency matrix and adding or removing edges and vertices](graph_operations.assets/adjacency_matrix_step1_initialization.png)
+    ![Initializing an adjacency matrix and adding or removing edges and vertices](graph_operations.assets/adjacency_matrix_step1_initialization.svg)
 
 === "<2>"
-    ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_step2_add_edge.png)
+    ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_step2_add_edge.svg)
 
 === "<3>"
-    ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_step3_remove_edge.png)
+    ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_step3_remove_edge.svg)
 
 === "<4>"
-    ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_step4_add_vertex.png)
+    ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_step4_add_vertex.svg)
 
 === "<5>"
-    ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_step5_remove_vertex.png)
+    ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_step5_remove_vertex.svg)
 
 The following code implements a graph using an adjacency matrix:
 
@@ -43,19 +43,19 @@ For an undirected graph with $n$ vertices and $m$ edges, the operations can be i
 - **Initialize the graph**: Create $n$ vertices and $2m$ edge entries in the adjacency list, taking $O(n + m)$ time.
 
 === "<1>"
-    ![Initializing an adjacency list and adding or removing edges and vertices](graph_operations.assets/adjacency_list_step1_initialization.png)
+    ![Initializing an adjacency list and adding or removing edges and vertices](graph_operations.assets/adjacency_list_step1_initialization.svg)
 
 === "<2>"
-    ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_step2_add_edge.png)
+    ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_step2_add_edge.svg)
 
 === "<3>"
-    ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_step3_remove_edge.png)
+    ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_step3_remove_edge.svg)
 
 === "<4>"
-    ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_step4_add_vertex.png)
+    ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_step4_add_vertex.svg)
 
 === "<5>"
-    ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.png)
+    ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.svg)
 
 The following code implements an adjacency list, with these differences from the figure above.
 

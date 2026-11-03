@@ -490,7 +490,7 @@ $$
 - `B` は出力を $n$ 回繰り返し、$n$ の増加に対して実行時間が線形に増えます。この時間計算量を「線形のオーダー」と呼びます。
 - `C` は出力を $1000000$ 回繰り返します。実行時間は長いものの、入力の大きさ $n$ とは無関係です。そのため、`C` の時間計算量は `A` と同じ「定数のオーダー」です。
 
-![アルゴリズム A、B、C の実行時間の増え方](time_complexity.assets/time_complexity_simple_example.png)
+![アルゴリズム A、B、C の実行時間の増え方](time_complexity.assets/time_complexity_simple_example.svg)
 
 実行時間を直接数える方法と比べ、時間計算量の解析にはどのような特徴があるでしょうか。
 
@@ -701,7 +701,7 @@ $T(n)$ は一次関数なので、実行時間は線形に増え、時間計算�
 
 下図のように、漸近上界を求めるとは、$n$ が無限大に近づくとき、$T(n)$ と $f(n)$ が同じ増加のオーダーとなり、定数係数 $c$ だけ異なるような関数 $f(n)$ を探すことです。
 
-![関数の漸近上界](time_complexity.assets/asymptotic_upper_bound.png)
+![関数の漸近上界](time_complexity.assets/asymptotic_upper_bound.svg)
 
 ## 見積もり方
 
@@ -997,7 +997,7 @@ $$
 \end{aligned}
 $$
 
-![代表的な時間計算量](time_complexity.assets/time_complexity_common_types.png)
+![代表的な時間計算量](time_complexity.assets/time_complexity_common_types.svg)
 
 ### 定数のオーダー $O(1)$
 
@@ -1035,7 +1035,7 @@ $$
 
 下図で、定数、線形、二乗の三つの時間計算量を比較します。
 
-![定数、線形、二乗の時間計算量](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
+![定数、線形、二乗の時間計算量](time_complexity.assets/time_complexity_constant_linear_quadratic.svg)
 
 バブルソートでは、外側のループが $n - 1$ 回、内側が $n-1$、$n-2$、$\dots$、$2$、$1$ 回、平均 $n / 2$ 回実行されます。したがって、時間計算量は $O((n - 1) n / 2) = O(n^2)$ です。
 
@@ -1053,7 +1053,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{exponential}
 ```
 
-![指数の時間計算量](time_complexity.assets/time_complexity_exponential.png)
+![指数の時間計算量](time_complexity.assets/time_complexity_exponential.svg)
 
 実際のアルゴリズムでは、指数のオーダーは再帰関数によく現れます。次のコードは、再帰的に二つに分かれ、$n$ 回分岐したら止まります。
 
@@ -1073,7 +1073,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{logarithmic}
 ```
 
-![対数の時間計算量](time_complexity.assets/time_complexity_logarithmic.png)
+![対数の時間計算量](time_complexity.assets/time_complexity_logarithmic.svg)
 
 指数と同様、対数のオーダーも再帰関数によく現れます。次のコードは、高さ $\log_2 n$ の再帰木を作ります。
 
@@ -1103,7 +1103,7 @@ $$
 
 下図に、線形対数のオーダーが生じる仕組みを示します。二分木の各層の総操作回数は $n$ で、層数は $\log_2 n + 1$ なので、時間計算量は $O(n \log n)$ です。
 
-![線形対数の時間計算量](time_complexity.assets/time_complexity_logarithmic_linear.png)
+![線形対数の時間計算量](time_complexity.assets/time_complexity_logarithmic_linear.svg)
 
 クイックソート、マージソート、ヒープソートなど、主要なソートの時間計算量は通常 $O(n \log n)$ です。
 
@@ -1121,7 +1121,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{factorial_recur}
 ```
 
-![階乗の時間計算量](time_complexity.assets/time_complexity_factorial.png)
+![階乗の時間計算量](time_complexity.assets/time_complexity_factorial.svg)
 
 $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増えます。したがって、$n$ が大きい場合には、これも許容できません。
 

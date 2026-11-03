@@ -10,7 +10,7 @@
     2. 一度に動かせる円盤は 1 枚だけです。
     3. 小さな円盤は、常に大きな円盤の上に置かなければなりません。
 
-![ハノイの塔の問題の例](hanota_problem.assets/hanota_example.png)
+![ハノイの塔の問題の例](hanota_problem.assets/hanota_example.svg)
 
 **大きさ $i$ のハノイの塔の問題を $f(i)$ と表します**。たとえば $f(3)$ は、$3$ 枚の円盤を `A` から `C` に移す問題です。
 
@@ -19,10 +19,10 @@
 下図のように、問題 $f(1)$、つまり円盤が 1 枚だけの場合は、その円盤を `A` から `C` に直接移せば完了です。
 
 === "<1>"
-    ![大きさ 1 の問題の解](hanota_problem.assets/hanota_f1_step1.png)
+    ![大きさ 1 の問題の解](hanota_problem.assets/hanota_f1_step1.svg)
 
 === "<2>"
-    ![円盤が 1 枚のハノイの塔：手順 2](hanota_problem.assets/hanota_f1_step2.png)
+    ![円盤が 1 枚のハノイの塔：手順 2](hanota_problem.assets/hanota_f1_step2.svg)
 
 下図のように、問題 $f(2)$、つまり円盤が 2 枚の場合は、**小さな円盤を常に大きな円盤の上に置くため、`B` を利用して移す必要があります**。
 
@@ -31,16 +31,16 @@
 3. 最後に、小さな円盤を `B` から `C` に移します。
 
 === "<1>"
-    ![大きさ 2 の問題の解](hanota_problem.assets/hanota_f2_step1.png)
+    ![大きさ 2 の問題の解](hanota_problem.assets/hanota_f2_step1.svg)
 
 === "<2>"
-    ![円盤が 2 枚のハノイの塔：手順 2](hanota_problem.assets/hanota_f2_step2.png)
+    ![円盤が 2 枚のハノイの塔：手順 2](hanota_problem.assets/hanota_f2_step2.svg)
 
 === "<3>"
-    ![円盤が 2 枚のハノイの塔：手順 3](hanota_problem.assets/hanota_f2_step3.png)
+    ![円盤が 2 枚のハノイの塔：手順 3](hanota_problem.assets/hanota_f2_step3.svg)
 
 === "<4>"
-    ![円盤が 2 枚のハノイの塔：手順 4](hanota_problem.assets/hanota_f2_step4.png)
+    ![円盤が 2 枚のハノイの塔：手順 4](hanota_problem.assets/hanota_f2_step4.svg)
 
 問題 $f(2)$ を解く手順は、**`B` を使って 2 枚の円盤を `A` から `C` に移すこと**とまとめられます。このとき、`C` を目的の柱、`B` を補助の柱と呼びます。
 
@@ -55,16 +55,16 @@ $f(1)$ と $f(2)$ の解はわかっているので、分割統治の観点か�
 3. `C` を目的の柱、`A` を補助の柱として、2 枚の円盤を `B` から `C` に移します。
 
 === "<1>"
-    ![大きさ 3 の問題の解](hanota_problem.assets/hanota_f3_step1.png)
+    ![大きさ 3 の問題の解](hanota_problem.assets/hanota_f3_step1.svg)
 
 === "<2>"
-    ![円盤が 3 枚のハノイの塔：手順 2](hanota_problem.assets/hanota_f3_step2.png)
+    ![円盤が 3 枚のハノイの塔：手順 2](hanota_problem.assets/hanota_f3_step2.svg)
 
 === "<3>"
-    ![円盤が 3 枚のハノイの塔：手順 3](hanota_problem.assets/hanota_f3_step3.png)
+    ![円盤が 3 枚のハノイの塔：手順 3](hanota_problem.assets/hanota_f3_step3.svg)
 
 === "<4>"
-    ![円盤が 3 枚のハノイの塔：手順 4](hanota_problem.assets/hanota_f3_step4.png)
+    ![円盤が 3 枚のハノイの塔：手順 4](hanota_problem.assets/hanota_f3_step4.svg)
 
 本質的には、**問題 $f(3)$ を、二つの部分問題 $f(2)$ と、一つの部分問題 $f(1)$ に分割しています**。この三つを順に解けば、元の問題も解けます。部分問題は独立しており、解を統合できるということです。
 
@@ -76,7 +76,7 @@ $f(1)$ と $f(2)$ の解はわかっているので、分割統治の観点か�
 
 二つの部分問題 $f(n-1)$ は、**同じ方法で再帰的に分割でき**、最小の部分問題 $f(1)$ に到達するまで続けます。$f(1)$ の解はわかっており、1 回移動するだけです。
 
-![ハノイの塔を解く分割統治戦略](hanota_problem.assets/hanota_divide_and_conquer.png)
+![ハノイの塔を解く分割統治戦略](hanota_problem.assets/hanota_divide_and_conquer.svg)
 
 ### コードの実装
 
@@ -88,7 +88,7 @@ $f(1)$ と $f(2)$ の解はわかっているので、分割統治の観点か�
 
 下図のように、ハノイの塔の問題は高さ $n$ の再帰木をなします。各ノードは一つの部分問題を表し、1 回の `dfs()` の呼び出しに対応します。**したがって、時間計算量は $O(2^n)$、空間計算量は $O(n)$ です**。
 
-![ハノイの塔の問題の再帰木](hanota_problem.assets/hanota_recursive_tree.png)
+![ハノイの塔の問題の再帰木](hanota_problem.assets/hanota_recursive_tree.svg)
 
 !!! quote
 

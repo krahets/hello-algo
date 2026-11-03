@@ -14,7 +14,7 @@ Traverse the tree in preorder and check whether the current node's value is $7$.
 [file]{preorder_traversal_i_compact}-[class]{}-[func]{pre_order}
 ```
 
-![Finding nodes during preorder traversal](backtracking_algorithm.assets/preorder_find_nodes.png)
+![Finding nodes during preorder traversal](backtracking_algorithm.assets/preorder_find_nodes.svg)
 
 ## Trying choices and backtracking
 
@@ -39,37 +39,37 @@ Each time we try a node, append it to `path`. Before backtracking, pop that node
 As the figure below illustrates, **trying a choice and backtracking are like moving forward and undoing that move**: they are inverse operations.
 
 === "<1>"
-    ![Trying choices and backtracking](backtracking_algorithm.assets/preorder_find_paths_step1.png)
+    ![Trying choices and backtracking](backtracking_algorithm.assets/preorder_find_paths_step1.svg)
 
 === "<2>"
-    ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.png)
+    ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.svg)
 
 === "<3>"
-    ![preorder_find_paths_step3](backtracking_algorithm.assets/preorder_find_paths_step3.png)
+    ![preorder_find_paths_step3](backtracking_algorithm.assets/preorder_find_paths_step3.svg)
 
 === "<4>"
-    ![preorder_find_paths_step4](backtracking_algorithm.assets/preorder_find_paths_step4.png)
+    ![preorder_find_paths_step4](backtracking_algorithm.assets/preorder_find_paths_step4.svg)
 
 === "<5>"
-    ![preorder_find_paths_step5](backtracking_algorithm.assets/preorder_find_paths_step5.png)
+    ![preorder_find_paths_step5](backtracking_algorithm.assets/preorder_find_paths_step5.svg)
 
 === "<6>"
-    ![preorder_find_paths_step6](backtracking_algorithm.assets/preorder_find_paths_step6.png)
+    ![preorder_find_paths_step6](backtracking_algorithm.assets/preorder_find_paths_step6.svg)
 
 === "<7>"
-    ![preorder_find_paths_step7](backtracking_algorithm.assets/preorder_find_paths_step7.png)
+    ![preorder_find_paths_step7](backtracking_algorithm.assets/preorder_find_paths_step7.svg)
 
 === "<8>"
-    ![preorder_find_paths_step8](backtracking_algorithm.assets/preorder_find_paths_step8.png)
+    ![preorder_find_paths_step8](backtracking_algorithm.assets/preorder_find_paths_step8.svg)
 
 === "<9>"
-    ![preorder_find_paths_step9](backtracking_algorithm.assets/preorder_find_paths_step9.png)
+    ![preorder_find_paths_step9](backtracking_algorithm.assets/preorder_find_paths_step9.svg)
 
 === "<10>"
-    ![preorder_find_paths_step10](backtracking_algorithm.assets/preorder_find_paths_step10.png)
+    ![preorder_find_paths_step10](backtracking_algorithm.assets/preorder_find_paths_step10.svg)
 
 === "<11>"
-    ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.png)
+    ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.svg)
 
 ## Pruning
 
@@ -87,7 +87,7 @@ To enforce this constraint, **add a pruning step**: when a node with value $3$ i
 
 Pruning is an apt name. As shown in the figure below, **we cut off search branches that violate the constraints**, avoiding pointless trials and improving efficiency.
 
-![Pruning according to constraints](backtracking_algorithm.assets/preorder_find_constrained_paths.png)
+![Pruning according to constraints](backtracking_algorithm.assets/preorder_find_constrained_paths.svg)
 
 ## A code template
 
@@ -437,7 +437,7 @@ Now apply this template to Example 3. The `state` is the current path of visited
 
 The problem requires us to keep searching after finding a node with value $7$, **so remove the `return` after recording a solution**. The figure below compares the searches with and without that `return`.
 
-![Comparing searches with and without return](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
+![Comparing searches with and without return](backtracking_algorithm.assets/backtrack_remove_return_or_not.svg)
 
 The template-based implementation is more verbose than the preorder version, but more general. **Many backtracking problems can be solved within this template**: define `state` and `choices` for the problem, then implement each helper method.
 

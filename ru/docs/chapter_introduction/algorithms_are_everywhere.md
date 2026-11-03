@@ -11,19 +11,19 @@
 3. Продолжайте повторять шаги `1.` и `2.` , пока не найдете страницу, где первой буквой слов будет $r$.
 
 === "<1>"
-    ![Этапы поиска в словаре](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png)
+    ![Этапы поиска в словаре](algorithms_are_everywhere.assets/binary_search_dictionary_step1.svg)
 
 === "<2>"
-    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png)
+    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg)
 
 === "<3>"
-    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png)
+    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg)
 
 === "<4>"
-    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png)
+    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg)
 
 === "<5>"
-    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png)
+    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg)
 
 Навык поиска в словаре, которым владеет каждый школьник, на самом деле является известным алгоритмом двоичного поиска. С точки зрения структуры данных словарь можно рассматривать как отсортированный массив. С точки зрения алгоритма последовательность операций по поиску в словаре можно считать двоичным поиском.
 
@@ -33,7 +33,7 @@
 2. Из неупорядоченной части извлеките одну карту и вставьте ее в правильное место в упорядоченной части. После этого две самые левые карты станут упорядоченными.
 3. Повторяйте шаг `2.` , каждый раз перемещая одну карту из неупорядоченной части в упорядоченную, пока все карты не станут упорядоченными.
 
-![Этапы упорядочивания карт](algorithms_are_everywhere.assets/playing_cards_sorting.png)
+![Этапы упорядочивания карт](algorithms_are_everywhere.assets/playing_cards_sorting.svg)
 
 Метод упорядочивания карт по своей сути является алгоритмом сортировки вставками, который весьма эффективен при обработке небольших наборов данных. Многие функции сортировки в библиотеках программирования используют именно этот алгоритм.
 
@@ -45,7 +45,7 @@
 4. Взять самую крупную из оставшихся купюр в $1$ руб. Остаток составит $1 - 1 = 0$ руб.
 5. Завершить выдачу сдачи, схема: $20 + 10 + 1 = 31$ руб.
 
-![Этапы выдачи сдачи](algorithms_are_everywhere.assets/greedy_change.png)
+![Этапы выдачи сдачи](algorithms_are_everywhere.assets/greedy_change.svg)
 
 В этих шагах мы на каждом этапе выбираем наилучший вариант (используя купюры наибольшего номинала), в итоге получая рабочую схему сдачи. С точки зрения структуры данных и алгоритмов этот метод по своей сути является жадным алгоритмом.
 

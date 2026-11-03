@@ -10,7 +10,7 @@ Start with a simple example: an array `nums` of length $n$ containing nonnegativ
 2. **Use `counter` to count occurrences of each number in `nums`**. Here, `counter[num]` is the number of occurrences of `num`. Simply traverse `nums` and increment `counter[num]` by $1$ for each current value `num`.
 3. **Because the indices of `counter` are inherently ordered, the numbers are effectively already sorted**. Traverse `counter` and write each number into `nums` in ascending order, repeating it according to its count.
 
-![The counting sort process](counting_sort.assets/counting_sort_overview.png)
+![The counting sort process](counting_sort.assets/counting_sort_overview.svg)
 
 The code is as follows:
 
@@ -40,28 +40,28 @@ $$
 After the traversal, `res` contains the sorted result. Finally, copy `res` over the original array `nums`. The figure below shows the complete process.
 
 === "<1>"
-    ![Steps of counting sort](counting_sort.assets/counting_sort_step1.png)
+    ![Steps of counting sort](counting_sort.assets/counting_sort_step1.svg)
 
 === "<2>"
-    ![counting_sort_step2](counting_sort.assets/counting_sort_step2.png)
+    ![counting_sort_step2](counting_sort.assets/counting_sort_step2.svg)
 
 === "<3>"
-    ![counting_sort_step3](counting_sort.assets/counting_sort_step3.png)
+    ![counting_sort_step3](counting_sort.assets/counting_sort_step3.svg)
 
 === "<4>"
-    ![counting_sort_step4](counting_sort.assets/counting_sort_step4.png)
+    ![counting_sort_step4](counting_sort.assets/counting_sort_step4.svg)
 
 === "<5>"
-    ![counting_sort_step5](counting_sort.assets/counting_sort_step5.png)
+    ![counting_sort_step5](counting_sort.assets/counting_sort_step5.svg)
 
 === "<6>"
-    ![counting_sort_step6](counting_sort.assets/counting_sort_step6.png)
+    ![counting_sort_step6](counting_sort.assets/counting_sort_step6.svg)
 
 === "<7>"
-    ![counting_sort_step7](counting_sort.assets/counting_sort_step7.png)
+    ![counting_sort_step7](counting_sort.assets/counting_sort_step7.svg)
 
 === "<8>"
-    ![counting_sort_step8](counting_sort.assets/counting_sort_step8.png)
+    ![counting_sort_step8](counting_sort.assets/counting_sort_step8.svg)
 
 The implementation is as follows:
 

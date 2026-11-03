@@ -12,7 +12,7 @@
 2. 各バケットをそれぞれソートします（ここでは言語の組み込みソート関数を使います）。
 3. バケットの小さいほうから順に結果を結合します。
 
-![バケットソートの流れ](bucket_sort.assets/bucket_sort_overview.png)
+![バケットソートの流れ](bucket_sort.assets/bucket_sort_overview.svg)
 
 コードは次のとおりです。
 
@@ -36,10 +36,10 @@
 
 下図のように、この方法は本質的に再帰木を作っており、葉ノードの値をできるだけ均等にすることを目指しています。毎回 3 個に分ける必要はなく、データの特徴に応じて柔軟に選べます。
 
-![バケットの再帰的な分割](bucket_sort.assets/scatter_in_buckets_recursively.png)
+![バケットの再帰的な分割](bucket_sort.assets/scatter_in_buckets_recursively.svg)
 
 商品価格の確率分布があらかじめ分かっていれば、**その分布に合わせてバケットごとの価格の境界を設定できます**。分布は必ずしも実測する必要はなく、データの特徴に応じた確率モデルで近似することもできます。
 
 下図では、商品価格が正規分布に従うと仮定しています。これにより価格帯を適切に設定し、商品を各バケットへ均等に振り分けられます。
 
-![確率分布に基づくバケットの分割](bucket_sort.assets/scatter_in_buckets_distribution.png)
+![確率分布に基づくバケットの分割](bucket_sort.assets/scatter_in_buckets_distribution.svg)

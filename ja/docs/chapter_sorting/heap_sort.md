@@ -25,40 +25,40 @@
     実は、ヒープから要素を取り出す操作にも手順 `2.` と `3.` が含まれています。違いは、要素を取り除く手順が追加されるだけです。
 
 === "<1>"
-    ![ヒープソートの手順](heap_sort.assets/heap_sort_step1.png)
+    ![ヒープソートの手順](heap_sort.assets/heap_sort_step1.svg)
 
 === "<2>"
-    ![ヒープソートの手順 2](heap_sort.assets/heap_sort_step2.png)
+    ![ヒープソートの手順 2](heap_sort.assets/heap_sort_step2.svg)
 
 === "<3>"
-    ![ヒープソートの手順 3](heap_sort.assets/heap_sort_step3.png)
+    ![ヒープソートの手順 3](heap_sort.assets/heap_sort_step3.svg)
 
 === "<4>"
-    ![ヒープソートの手順 4](heap_sort.assets/heap_sort_step4.png)
+    ![ヒープソートの手順 4](heap_sort.assets/heap_sort_step4.svg)
 
 === "<5>"
-    ![ヒープソートの手順 5](heap_sort.assets/heap_sort_step5.png)
+    ![ヒープソートの手順 5](heap_sort.assets/heap_sort_step5.svg)
 
 === "<6>"
-    ![ヒープソートの手順 6](heap_sort.assets/heap_sort_step6.png)
+    ![ヒープソートの手順 6](heap_sort.assets/heap_sort_step6.svg)
 
 === "<7>"
-    ![ヒープソートの手順 7](heap_sort.assets/heap_sort_step7.png)
+    ![ヒープソートの手順 7](heap_sort.assets/heap_sort_step7.svg)
 
 === "<8>"
-    ![ヒープソートの手順 8](heap_sort.assets/heap_sort_step8.png)
+    ![ヒープソートの手順 8](heap_sort.assets/heap_sort_step8.svg)
 
 === "<9>"
-    ![ヒープソートの手順 9](heap_sort.assets/heap_sort_step9.png)
+    ![ヒープソートの手順 9](heap_sort.assets/heap_sort_step9.svg)
 
 === "<10>"
-    ![ヒープソートの手順 10](heap_sort.assets/heap_sort_step10.png)
+    ![ヒープソートの手順 10](heap_sort.assets/heap_sort_step10.svg)
 
 === "<11>"
-    ![ヒープソートの手順 11](heap_sort.assets/heap_sort_step11.png)
+    ![ヒープソートの手順 11](heap_sort.assets/heap_sort_step11.svg)
 
 === "<12>"
-    ![ヒープソートの手順 12](heap_sort.assets/heap_sort_step12.png)
+    ![ヒープソートの手順 12](heap_sort.assets/heap_sort_step12.svg)
 
 実装では「ヒープ」の章と同じ、下向きにヒープ化する関数 `sift_down()` を使います。ただし、最大要素を取り出すたびにヒープの長さが縮むので、現在の有効な長さを指定する引数 $n$ を `sift_down()` に追加する必要があります。コードは次のとおりです。
 

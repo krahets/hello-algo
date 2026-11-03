@@ -5,7 +5,7 @@
 1. **分割の段階**：再帰的に配列を中点で分け続け、長い配列のソート問題を短い配列のソート問題へ変換します。
 2. **結合の段階**：部分配列の長さが 1 になったら分割を終了して結合を始めます。左右の短い整列済み配列を一つの長い整列済み配列へ結合し、最後まで続けます。
 
-![マージソートの分割と結合の段階](merge_sort.assets/merge_sort_overview.png)
+![マージソートの分割と結合の段階](merge_sort.assets/merge_sort_overview.svg)
 
 ## アルゴリズムの流れ
 
@@ -17,34 +17,34 @@
 結合の段階では、下から上へ左右の部分配列を一つの整列済み配列に結合します。長さ 1 の部分配列から結合を始めるので、この段階の各部分配列はすべて整列済みであることに注意してください。
 
 === "<1>"
-    ![マージソートの手順](merge_sort.assets/merge_sort_step1.png)
+    ![マージソートの手順](merge_sort.assets/merge_sort_step1.svg)
 
 === "<2>"
-    ![マージソートの手順 2](merge_sort.assets/merge_sort_step2.png)
+    ![マージソートの手順 2](merge_sort.assets/merge_sort_step2.svg)
 
 === "<3>"
-    ![マージソートの手順 3](merge_sort.assets/merge_sort_step3.png)
+    ![マージソートの手順 3](merge_sort.assets/merge_sort_step3.svg)
 
 === "<4>"
-    ![マージソートの手順 4](merge_sort.assets/merge_sort_step4.png)
+    ![マージソートの手順 4](merge_sort.assets/merge_sort_step4.svg)
 
 === "<5>"
-    ![マージソートの手順 5](merge_sort.assets/merge_sort_step5.png)
+    ![マージソートの手順 5](merge_sort.assets/merge_sort_step5.svg)
 
 === "<6>"
-    ![マージソートの手順 6](merge_sort.assets/merge_sort_step6.png)
+    ![マージソートの手順 6](merge_sort.assets/merge_sort_step6.svg)
 
 === "<7>"
-    ![マージソートの手順 7](merge_sort.assets/merge_sort_step7.png)
+    ![マージソートの手順 7](merge_sort.assets/merge_sort_step7.svg)
 
 === "<8>"
-    ![マージソートの手順 8](merge_sort.assets/merge_sort_step8.png)
+    ![マージソートの手順 8](merge_sort.assets/merge_sort_step8.svg)
 
 === "<9>"
-    ![マージソートの手順 9](merge_sort.assets/merge_sort_step9.png)
+    ![マージソートの手順 9](merge_sort.assets/merge_sort_step9.svg)
 
 === "<10>"
-    ![マージソートの手順 10](merge_sort.assets/merge_sort_step10.png)
+    ![マージソートの手順 10](merge_sort.assets/merge_sort_step10.svg)
 
 マージソートの再帰の順序は、二分木の帰りがけ順走査と同じです。
 

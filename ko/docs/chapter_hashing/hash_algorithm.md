@@ -4,7 +4,7 @@
 
 충돌이 너무 자주 발생하면 성능이 급격히 나빠진다. 아래 그림의 체이닝 해시 테이블에서 이상적인 경우는 키-값 쌍이 각 버킷에 고르게 분포하여 최고의 조회 효율을 얻는 것이다. 최악의 경우에는 모든 키-값 쌍이 같은 버킷에 들어가 시간 복잡도가 $O(n)$으로 나빠진다.
 
-![해시 충돌의 최선과 최악의 경우](hash_algorithm.assets/hash_collision_best_worst_condition.png)
+![해시 충돌의 최선과 최악의 경우](hash_algorithm.assets/hash_collision_best_worst_condition.svg)
 
 **키-값 쌍의 분포는 해시 함수가 결정한다**. 해시 함수는 먼저 해시값을 계산하고 배열 길이로 나눈 나머지를 구한다.
 

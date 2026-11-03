@@ -10,7 +10,7 @@
 
 これは本質的に<u>幅優先走査（breadth-first traversal）</u>であり、<u>幅優先探索（breadth-first search, BFS）</u>とも呼びます。一周ずつ外へ広がるように、層ごとに走査する方法です。
 
-![二分木のレベル順走査](binary_tree_traversal.assets/binary_tree_bfs.png)
+![二分木のレベル順走査](binary_tree_traversal.assets/binary_tree_bfs.svg)
 
 ### コードの実装
 
@@ -31,7 +31,7 @@
 
 下図は二分木の深さ優先走査の仕組みです。**木全体の外周を一周歩くようなものです**。各ノードで三つの位置を通り、それぞれが行きがけ順、通りがけ順、帰りがけ順に対応します。
 
-![二分探索木の行きがけ順・通りがけ順・帰りがけ順走査](binary_tree_traversal.assets/binary_tree_dfs.png)
+![二分探索木の行きがけ順・通りがけ順・帰りがけ順走査](binary_tree_traversal.assets/binary_tree_dfs.svg)
 
 ### コードの実装
 
@@ -51,37 +51,37 @@
 2. 「戻り」は関数から戻ることで、現在のノードの訪問が終わったことを表します。
 
 === "<1>"
-    ![行きがけ順走査の再帰過程](binary_tree_traversal.assets/preorder_step1.png)
+    ![行きがけ順走査の再帰過程](binary_tree_traversal.assets/preorder_step1.svg)
 
 === "<2>"
-    ![行きがけ順走査の手順 2](binary_tree_traversal.assets/preorder_step2.png)
+    ![行きがけ順走査の手順 2](binary_tree_traversal.assets/preorder_step2.svg)
 
 === "<3>"
-    ![行きがけ順走査の手順 3](binary_tree_traversal.assets/preorder_step3.png)
+    ![行きがけ順走査の手順 3](binary_tree_traversal.assets/preorder_step3.svg)
 
 === "<4>"
-    ![行きがけ順走査の手順 4](binary_tree_traversal.assets/preorder_step4.png)
+    ![行きがけ順走査の手順 4](binary_tree_traversal.assets/preorder_step4.svg)
 
 === "<5>"
-    ![行きがけ順走査の手順 5](binary_tree_traversal.assets/preorder_step5.png)
+    ![行きがけ順走査の手順 5](binary_tree_traversal.assets/preorder_step5.svg)
 
 === "<6>"
-    ![行きがけ順走査の手順 6](binary_tree_traversal.assets/preorder_step6.png)
+    ![行きがけ順走査の手順 6](binary_tree_traversal.assets/preorder_step6.svg)
 
 === "<7>"
-    ![行きがけ順走査の手順 7](binary_tree_traversal.assets/preorder_step7.png)
+    ![行きがけ順走査の手順 7](binary_tree_traversal.assets/preorder_step7.svg)
 
 === "<8>"
-    ![行きがけ順走査の手順 8](binary_tree_traversal.assets/preorder_step8.png)
+    ![行きがけ順走査の手順 8](binary_tree_traversal.assets/preorder_step8.svg)
 
 === "<9>"
-    ![行きがけ順走査の手順 9](binary_tree_traversal.assets/preorder_step9.png)
+    ![行きがけ順走査の手順 9](binary_tree_traversal.assets/preorder_step9.svg)
 
 === "<10>"
-    ![行きがけ順走査の手順 10](binary_tree_traversal.assets/preorder_step10.png)
+    ![行きがけ順走査の手順 10](binary_tree_traversal.assets/preorder_step10.svg)
 
 === "<11>"
-    ![行きがけ順走査の手順 11](binary_tree_traversal.assets/preorder_step11.png)
+    ![行きがけ順走査の手順 11](binary_tree_traversal.assets/preorder_step11.svg)
 
 ### 計算量の解析
 

@@ -212,7 +212,7 @@ git clone https://github.com/krahets/hello-algo.git
 
 **3단계: 소스 코드 실행**. 아래 그림처럼 위쪽에 파일명이 표시된 코드 블록은 저장소의 `ko/codes` 폴더에서 해당 한국어판 소스 파일을 찾을 수 있다. 소스 파일은 클릭 한 번으로 실행할 수 있으므로 불필요한 디버깅 시간을 줄이고 학습 내용에 집중할 수 있다.
 
-![코드 블록과 이에 대응하는 소스 파일](suggestions.assets/code_md_to_repo.png)
+![코드 블록과 이에 대응하는 소스 파일](suggestions.assets/code_md_to_repo.svg)
 
 로컬에서 실행하는 것 외에 **웹 버전에서는 Python 코드의 실행 과정을 시각화할 수도 있다**([pythontutor](https://pythontutor.com/) 기반). 아래 그림처럼 코드 블록 아래의 ‘코드 시각화’를 누르면 화면이 펼쳐져 알고리즘 코드의 실행 과정을 관찰할 수 있다. ‘전체 화면’을 누르면 더 넓은 화면에서 볼 수 있다.
 
@@ -236,4 +236,4 @@ git clone https://github.com/krahets/hello-algo.git
 
 아래 그림처럼 이 책은 주로 ‘1단계’를 다루며, 이후 2단계와 3단계의 학습을 더 효율적으로 진행하도록 돕는 것을 목표로 한다.
 
-![알고리즘 학습 경로](suggestions.assets/learning_route.png)
+![알고리즘 학습 경로](suggestions.assets/learning_route.svg)

@@ -5,7 +5,7 @@
 - <u>최소 힙(min heap)</u>: 모든 노드의 값이 자식 노드의 값보다 작거나 같다($\leq$).
 - <u>최대 힙(max heap)</u>: 모든 노드의 값이 자식 노드의 값보다 크거나 같다($\geq$).
 
-![최소 힙과 최대 힙](heap.assets/min_heap_and_max_heap.png)
+![최소 힙과 최대 힙](heap.assets/min_heap_and_max_heap.svg)
 
 힙은 완전 이진 트리의 특수한 형태이므로 다음 성질을 가진다.
 
@@ -424,7 +424,7 @@
 
 아래 그림과 같이 인덱스 $i$가 주어지면 왼쪽 자식 노드의 인덱스는 $2i + 1$, 오른쪽 자식 노드의 인덱스는 $2i + 2$, 부모 노드의 인덱스는 $(i - 1) / 2$(내림 정수 나눗셈)이다. 인덱스가 범위를 벗어나면 빈 노드이거나 노드가 존재하지 않는다는 뜻이다.
 
-![힙의 표현과 저장](heap.assets/representation_of_heap.png)
+![힙의 표현과 저장](heap.assets/representation_of_heap.svg)
 
 나중에 편리하게 사용할 수 있도록 인덱스 매핑 공식을 함수로 만들 수 있다.
 
@@ -447,31 +447,31 @@
 삽입한 노드부터 **아래에서 위로 힙을 재정렬**해 보자. 아래 그림과 같이 삽입한 노드의 값과 부모 노드의 값을 비교하여 삽입한 노드가 더 크면 서로 바꾼다. 이 작업을 반복하여 아래에서 위로 힙의 노드들을 조정하고, 루트 노드를 지나거나 바꿀 필요가 없는 노드를 만나면 종료한다.
 
 === "<1>"
-    ![힙에 원소를 삽입하는 단계](heap.assets/heap_push_step1.png)
+    ![힙에 원소를 삽입하는 단계](heap.assets/heap_push_step1.svg)
 
 === "<2>"
-    ![힙 삽입 2단계](heap.assets/heap_push_step2.png)
+    ![힙 삽입 2단계](heap.assets/heap_push_step2.svg)
 
 === "<3>"
-    ![힙 삽입 3단계](heap.assets/heap_push_step3.png)
+    ![힙 삽입 3단계](heap.assets/heap_push_step3.svg)
 
 === "<4>"
-    ![힙 삽입 4단계](heap.assets/heap_push_step4.png)
+    ![힙 삽입 4단계](heap.assets/heap_push_step4.svg)
 
 === "<5>"
-    ![힙 삽입 5단계](heap.assets/heap_push_step5.png)
+    ![힙 삽입 5단계](heap.assets/heap_push_step5.svg)
 
 === "<6>"
-    ![힙 삽입 6단계](heap.assets/heap_push_step6.png)
+    ![힙 삽입 6단계](heap.assets/heap_push_step6.svg)
 
 === "<7>"
-    ![힙 삽입 7단계](heap.assets/heap_push_step7.png)
+    ![힙 삽입 7단계](heap.assets/heap_push_step7.svg)
 
 === "<8>"
-    ![힙 삽입 8단계](heap.assets/heap_push_step8.png)
+    ![힙 삽입 8단계](heap.assets/heap_push_step8.svg)
 
 === "<9>"
-    ![힙 삽입 9단계](heap.assets/heap_push_step9.png)
+    ![힙 삽입 9단계](heap.assets/heap_push_step9.svg)
 
 전체 노드 수가 $n$이면 트리의 높이는 $O(\log n)$이다. 따라서 힙 재정렬의 반복 횟수는 최대 $O(\log n)$이며, **힙에 원소를 삽입하는 연산의 시간 복잡도는 $O(\log n)$**이다. 코드는 다음과 같다.
 
@@ -490,34 +490,34 @@
 아래 그림과 같이 **'위에서 아래로 힙 재정렬'은 '아래에서 위로 힙 재정렬'과 진행 방향이 반대다**. 루트 노드의 값을 두 자식 노드의 값과 비교하여, 더 큰 값을 가진 자식 노드와 루트 노드를 교환한다. 이 작업을 반복하며 리프 노드를 지나거나 교환할 필요가 없는 노드를 만나면 종료한다.
 
 === "<1>"
-    ![힙의 루트 원소를 꺼내는 단계](heap.assets/heap_pop_step1.png)
+    ![힙의 루트 원소를 꺼내는 단계](heap.assets/heap_pop_step1.svg)
 
 === "<2>"
-    ![힙에서 꺼내기 2단계](heap.assets/heap_pop_step2.png)
+    ![힙에서 꺼내기 2단계](heap.assets/heap_pop_step2.svg)
 
 === "<3>"
-    ![힙에서 꺼내기 3단계](heap.assets/heap_pop_step3.png)
+    ![힙에서 꺼내기 3단계](heap.assets/heap_pop_step3.svg)
 
 === "<4>"
-    ![힙에서 꺼내기 4단계](heap.assets/heap_pop_step4.png)
+    ![힙에서 꺼내기 4단계](heap.assets/heap_pop_step4.svg)
 
 === "<5>"
-    ![힙에서 꺼내기 5단계](heap.assets/heap_pop_step5.png)
+    ![힙에서 꺼내기 5단계](heap.assets/heap_pop_step5.svg)
 
 === "<6>"
-    ![힙에서 꺼내기 6단계](heap.assets/heap_pop_step6.png)
+    ![힙에서 꺼내기 6단계](heap.assets/heap_pop_step6.svg)
 
 === "<7>"
-    ![힙에서 꺼내기 7단계](heap.assets/heap_pop_step7.png)
+    ![힙에서 꺼내기 7단계](heap.assets/heap_pop_step7.svg)
 
 === "<8>"
-    ![힙에서 꺼내기 8단계](heap.assets/heap_pop_step8.png)
+    ![힙에서 꺼내기 8단계](heap.assets/heap_pop_step8.svg)
 
 === "<9>"
-    ![힙에서 꺼내기 9단계](heap.assets/heap_pop_step9.png)
+    ![힙에서 꺼내기 9단계](heap.assets/heap_pop_step9.svg)
 
 === "<10>"
-    ![힙에서 꺼내기 10단계](heap.assets/heap_pop_step10.png)
+    ![힙에서 꺼내기 10단계](heap.assets/heap_pop_step10.svg)
 
 원소 삽입과 마찬가지로 힙의 루트 원소를 꺼내는 연산의 시간 복잡도도 $O(\log n)$이다. 코드는 다음과 같다.
 

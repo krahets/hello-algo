@@ -4,7 +4,7 @@
 
 下図のように、前側を「先頭」、後ろ側を「末尾」と呼びます。末尾に要素を加える操作を「エンキュー」、先頭要素を削除する操作を「デキュー」と呼びます。
 
-![キューの先入れ先出しの規則](queue.assets/queue_operations.png)
+![キューの先入れ先出しの規則](queue.assets/queue_operations.svg)
 
 ## キューの主な操作
 
@@ -369,13 +369,13 @@
 下図のように、連結リストの先頭ノードと末尾ノードを、キューの先頭と末尾に対応させます。末尾では追加だけ、先頭では削除だけを行います。
 
 === "<1>"
-    ![連結リストによるキューのエンキューとデキュー](queue.assets/linkedlist_queue_step1.png)
+    ![連結リストによるキューのエンキューとデキュー](queue.assets/linkedlist_queue_step1.svg)
 
 === "<2>"
-    ![連結リストによるキュー：要素の挿入](queue.assets/linkedlist_queue_step2_push.png)
+    ![連結リストによるキュー：要素の挿入](queue.assets/linkedlist_queue_step2_push.svg)
 
 === "<3>"
-    ![連結リストによるキュー：要素の取り出し](queue.assets/linkedlist_queue_step3_pop.png)
+    ![連結リストによるキュー：要素の取り出し](queue.assets/linkedlist_queue_step3_pop.svg)
 
 連結リストを使うコードは次のとおりです。
 
@@ -397,13 +397,13 @@
 どちらも一度の操作で済み、時間計算量はともに $O(1)$ です。
 
 === "<1>"
-    ![配列によるキューのエンキューとデキュー](queue.assets/array_queue_step1.png)
+    ![配列によるキューのエンキューとデキュー](queue.assets/array_queue_step1.svg)
 
 === "<2>"
-    ![配列によるキュー：要素の挿入](queue.assets/array_queue_step2_push.png)
+    ![配列によるキュー：要素の挿入](queue.assets/array_queue_step2_push.svg)
 
 === "<3>"
-    ![配列によるキュー：要素の取り出し](queue.assets/array_queue_step3_pop.png)
+    ![配列によるキュー：要素の取り出し](queue.assets/array_queue_step3_pop.svg)
 
 一つ問題があります。追加と削除を続けると `front` と `rear` が右へ移動し、**配列の末尾に達すると、それ以上進めなくなります**。これを解決するため、配列の両端がつながった「循環配列」と見なします。
 

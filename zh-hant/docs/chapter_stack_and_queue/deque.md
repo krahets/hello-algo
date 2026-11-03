@@ -2,7 +2,7 @@
 
 在佇列中，我們僅能刪除頭部元素或在尾部新增元素。如下圖所示，<u>雙向佇列（double-ended queue）</u>提供了更高的靈活性，允許在頭部和尾部執行元素的新增或刪除操作。
 
-![雙向佇列的操作](deque.assets/deque_operations.png)
+![雙向佇列的操作](deque.assets/deque_operations.svg)
 
 ## 雙向佇列常用操作
 
@@ -400,19 +400,19 @@
 如下圖所示，我們將雙向鏈結串列的頭節點和尾節點視為雙向佇列的佇列首和佇列尾，同時實現在兩端新增和刪除節點的功能。
 
 === "<1>"
-    ![基於鏈結串列實現雙向佇列的入列出列操作](deque.assets/linkedlist_deque_step1.png)
+    ![基於鏈結串列實現雙向佇列的入列出列操作](deque.assets/linkedlist_deque_step1.svg)
 
 === "<2>"
-    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.png)
+    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.svg)
 
 === "<3>"
-    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.png)
+    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.svg)
 
 === "<4>"
-    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.png)
+    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.svg)
 
 === "<5>"
-    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.png)
+    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.svg)
 
 實現程式碼如下所示：
 
@@ -425,19 +425,19 @@
 如下圖所示，與基於陣列實現佇列類似，我們也可以使用環形陣列來實現雙向佇列。
 
 === "<1>"
-    ![基於陣列實現雙向佇列的入列出列操作](deque.assets/array_deque_step1.png)
+    ![基於陣列實現雙向佇列的入列出列操作](deque.assets/array_deque_step1.svg)
 
 === "<2>"
-    ![array_deque_push_last](deque.assets/array_deque_step2_push_last.png)
+    ![array_deque_push_last](deque.assets/array_deque_step2_push_last.svg)
 
 === "<3>"
-    ![array_deque_push_first](deque.assets/array_deque_step3_push_first.png)
+    ![array_deque_push_first](deque.assets/array_deque_step3_push_first.svg)
 
 === "<4>"
-    ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.png)
+    ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.svg)
 
 === "<5>"
-    ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.png)
+    ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.svg)
 
 在佇列的實現基礎上，僅需增加“佇列首入列”和“佇列尾出列”的方法：
 

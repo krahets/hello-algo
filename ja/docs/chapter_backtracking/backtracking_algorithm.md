@@ -14,7 +14,7 @@
 [file]{preorder_traversal_i_compact}-[class]{}-[func]{pre_order}
 ```
 
-![行きがけ順走査でノードを探す](backtracking_algorithm.assets/preorder_find_nodes.png)
+![行きがけ順走査でノードを探す](backtracking_algorithm.assets/preorder_find_nodes.svg)
 
 ## 試行と後戻り
 
@@ -39,37 +39,37 @@
 下図の流れを見ると、**試行と後戻りは「前進」と「取り消し」と考えられ**、互いに逆の操作だとわかります。
 
 === "<1>"
-    ![試行と後戻り](backtracking_algorithm.assets/preorder_find_paths_step1.png)
+    ![試行と後戻り](backtracking_algorithm.assets/preorder_find_paths_step1.svg)
 
 === "<2>"
-    ![行きがけ順走査による経路の探索：手順 2](backtracking_algorithm.assets/preorder_find_paths_step2.png)
+    ![行きがけ順走査による経路の探索：手順 2](backtracking_algorithm.assets/preorder_find_paths_step2.svg)
 
 === "<3>"
-    ![行きがけ順走査による経路の探索：手順 3](backtracking_algorithm.assets/preorder_find_paths_step3.png)
+    ![行きがけ順走査による経路の探索：手順 3](backtracking_algorithm.assets/preorder_find_paths_step3.svg)
 
 === "<4>"
-    ![行きがけ順走査による経路の探索：手順 4](backtracking_algorithm.assets/preorder_find_paths_step4.png)
+    ![行きがけ順走査による経路の探索：手順 4](backtracking_algorithm.assets/preorder_find_paths_step4.svg)
 
 === "<5>"
-    ![行きがけ順走査による経路の探索：手順 5](backtracking_algorithm.assets/preorder_find_paths_step5.png)
+    ![行きがけ順走査による経路の探索：手順 5](backtracking_algorithm.assets/preorder_find_paths_step5.svg)
 
 === "<6>"
-    ![行きがけ順走査による経路の探索：手順 6](backtracking_algorithm.assets/preorder_find_paths_step6.png)
+    ![行きがけ順走査による経路の探索：手順 6](backtracking_algorithm.assets/preorder_find_paths_step6.svg)
 
 === "<7>"
-    ![行きがけ順走査による経路の探索：手順 7](backtracking_algorithm.assets/preorder_find_paths_step7.png)
+    ![行きがけ順走査による経路の探索：手順 7](backtracking_algorithm.assets/preorder_find_paths_step7.svg)
 
 === "<8>"
-    ![行きがけ順走査による経路の探索：手順 8](backtracking_algorithm.assets/preorder_find_paths_step8.png)
+    ![行きがけ順走査による経路の探索：手順 8](backtracking_algorithm.assets/preorder_find_paths_step8.svg)
 
 === "<9>"
-    ![行きがけ順走査による経路の探索：手順 9](backtracking_algorithm.assets/preorder_find_paths_step9.png)
+    ![行きがけ順走査による経路の探索：手順 9](backtracking_algorithm.assets/preorder_find_paths_step9.svg)
 
 === "<10>"
-    ![行きがけ順走査による経路の探索：手順 10](backtracking_algorithm.assets/preorder_find_paths_step10.png)
+    ![行きがけ順走査による経路の探索：手順 10](backtracking_algorithm.assets/preorder_find_paths_step10.svg)
 
 === "<11>"
-    ![行きがけ順走査による経路の探索：手順 11](backtracking_algorithm.assets/preorder_find_paths_step11.png)
+    ![行きがけ順走査による経路の探索：手順 11](backtracking_algorithm.assets/preorder_find_paths_step11.svg)
 
 ## 枝刈り
 
@@ -87,7 +87,7 @@
 
 「枝刈り」は仕組みをよく表す名前です。下図のように、**制約を満たさない探索の枝を「刈り取る」ことで**、無意味な試行を多く避け、探索効率を高めます。
 
-![制約条件による枝刈り](backtracking_algorithm.assets/preorder_find_constrained_paths.png)
+![制約条件による枝刈り](backtracking_algorithm.assets/preorder_find_constrained_paths.svg)
 
 ## 基本形のコード
 
@@ -437,7 +437,7 @@
 
 問題の条件から、値が $7$ のノードが見つかっても探索を続ける必要があります。**そのため、解を記録した直後の `return` 文を削除します**。下図に、`return` を残す場合と削除する場合の探索の違いを示します。
 
-![return を残す場合と削除する場合の探索の比較](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
+![return を残す場合と削除する場合の探索の比較](backtracking_algorithm.assets/backtrack_remove_return_or_not.svg)
 
 行きがけ順走査を使った実装に比べると、基本形に沿ったコードは冗長に見えますが、汎用性に優れています。実際、**多くのバックトラッキングの問題はこの基本形で解けます**。問題に応じて `state` と `choices` を定義し、各メソッドを実装すればよいのです。
 

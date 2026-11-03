@@ -15,7 +15,7 @@ Let's explore how greedy algorithms work through the coin change problem, which 
 
 The greedy strategy is shown in the figure below. Given the remaining target amount, **we greedily choose the largest coin that does not exceed it**, repeating this step until we have made the target amount.
 
-![Greedy strategy for coin change](greedy_algorithm.assets/coin_change_greedy_strategy.png)
+![Greedy strategy for coin change](greedy_algorithm.assets/coin_change_greedy_strategy.svg)
 
 The implementation is as follows:
 
@@ -35,7 +35,7 @@ However, **for some sets of coin denominations, a greedy algorithm cannot find t
 - **Counterexample: $coins = [1, 20, 50]$**. For $amt = 60$, the greedy algorithm produces $50 + 1 \times 10$, using $11$ coins. Dynamic programming finds the optimal solution $20 + 20 + 20$, using only $3$ coins.
 - **Counterexample: $coins = [1, 49, 50]$**. For $amt = 98$, the greedy algorithm produces $50 + 1 \times 48$, using $49$ coins. Dynamic programming finds the optimal solution $49 + 49$, using only $2$ coins.
 
-![Examples where the greedy algorithm fails to find the optimal solution](greedy_algorithm.assets/coin_change_greedy_vs_dp.png)
+![Examples where the greedy algorithm fails to find the optimal solution](greedy_algorithm.assets/coin_change_greedy_vs_dp.svg)
 
 In other words, a greedy algorithm cannot guarantee a globally optimal solution to coin change and may produce a very poor solution. Dynamic programming is better suited to this problem.
 

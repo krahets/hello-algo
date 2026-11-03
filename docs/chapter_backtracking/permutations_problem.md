@@ -24,7 +24,7 @@
 
 如下图所示，我们可以将搜索过程展开成一棵递归树，树中的每个节点代表当前状态 `state` 。从根节点开始，经过三轮选择后到达叶节点，每个叶节点都对应一个排列。
 
-![全排列的递归树](permutations_problem.assets/permutations_i.png)
+![全排列的递归树](permutations_problem.assets/permutations_i.svg)
 
 ### 重复选择剪枝
 
@@ -35,7 +35,7 @@
 
 如下图所示，假设我们第一轮选择 1 ，第二轮选择 3 ，第三轮选择 2 ，则需要在第二轮剪掉元素 1 的分支，在第三轮剪掉元素 1 和元素 3 的分支。
 
-![全排列剪枝示例](permutations_problem.assets/permutations_i_pruning.png)
+![全排列剪枝示例](permutations_problem.assets/permutations_i_pruning.svg)
 
 观察上图发现，该剪枝操作将搜索空间大小从 $O(n^n)$ 减小至 $O(n!)$ 。
 
@@ -57,7 +57,7 @@
 
 如下图所示，上述方法生成的排列有一半是重复的。
 
-![重复排列](permutations_problem.assets/permutations_ii.png)
+![重复排列](permutations_problem.assets/permutations_ii.svg)
 
 那么如何去除重复的排列呢？最直接地，考虑借助一个哈希集合，直接对排列结果进行去重。然而这样做不够优雅，**因为生成重复排列的搜索分支没有必要，应当提前识别并剪枝**，这样可以进一步提升算法效率。
 
@@ -69,7 +69,7 @@
 
 从本质上看，**我们的目标是在某一轮选择中，保证多个相等的元素仅被选择一次**。
 
-![重复排列剪枝](permutations_problem.assets/permutations_ii_pruning.png)
+![重复排列剪枝](permutations_problem.assets/permutations_ii_pruning.svg)
 
 ### 代码实现
 
@@ -92,4 +92,4 @@
 
 下图展示了两个剪枝条件的生效范围。注意，树中的每个节点代表一个选择，从根节点到叶节点的路径上的各个节点构成一个排列。
 
-![两种剪枝条件的作用范围](permutations_problem.assets/permutations_ii_pruning_summary.png)
+![两种剪枝条件的作用范围](permutations_problem.assets/permutations_ii_pruning_summary.svg)

@@ -9,31 +9,31 @@
 3. 迴圈執行步驟 `2.` ，直到 `i` 和 `j` 相遇時停止，最後將基準數交換至兩個子陣列的分界線。
 
 === "<1>"
-    ![哨兵劃分步驟](quick_sort.assets/pivot_division_step1.png)
+    ![哨兵劃分步驟](quick_sort.assets/pivot_division_step1.svg)
 
 === "<2>"
-    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.png)
+    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.svg)
 
 === "<3>"
-    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.png)
+    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.svg)
 
 === "<4>"
-    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.png)
+    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.svg)
 
 === "<5>"
-    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.png)
+    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.svg)
 
 === "<6>"
-    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.png)
+    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.svg)
 
 === "<7>"
-    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.png)
+    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.svg)
 
 === "<8>"
-    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.png)
+    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.svg)
 
 === "<9>"
-    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.png)
+    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.svg)
 
 哨兵劃分完成後，原陣列被劃分成三部分：左子陣列、基準數、右子陣列，且滿足“左子陣列任意元素 $\leq$ 基準數 $\leq$ 右子陣列任意元素”。因此，我們接下來只需對這兩個子陣列進行排序。
 
@@ -53,7 +53,7 @@
 2. 然後，對左子陣列和右子陣列分別遞迴執行“哨兵劃分”。
 3. 持續遞迴，直至子陣列長度為 1 時終止，從而完成整個陣列的排序。
 
-![快速排序流程](quick_sort.assets/quick_sort_overview.png)
+![快速排序流程](quick_sort.assets/quick_sort_overview.svg)
 
 ```src
 [file]{quick_sort}-[class]{quick_sort}-[func]{quick_sort}

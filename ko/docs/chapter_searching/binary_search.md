@@ -6,7 +6,7 @@
 
     길이가 $n$인 배열 `nums`가 주어진다. 원소는 오름차순으로 정렬되어 있고 중복되지 않는다. 이 배열에서 원소 `target`을 찾아 그 인덱스를 반환하라. 배열에 해당 원소가 없으면 $-1$을 반환하라. 예시는 아래 그림과 같다.
 
-![이진 탐색 예시 데이터](binary_search.assets/binary_search_example.png)
+![이진 탐색 예시 데이터](binary_search.assets/binary_search_example.svg)
 
 아래 그림과 같이 포인터 $i = 0$과 $j = n - 1$을 초기화하여 각각 배열의 첫 원소와 마지막 원소를 가리키게 한다. 이는 탐색 구간 $[0, n - 1]$을 나타낸다. 대괄호는 경곗값 자체를 포함하는 닫힌 구간을 뜻한다.
 
@@ -21,25 +21,25 @@
 배열에 목표 원소가 없으면 탐색 구간은 결국 비게 된다. 이때 $-1$을 반환한다.
 
 === "<1>"
-    ![이진 탐색 과정](binary_search.assets/binary_search_step1.png)
+    ![이진 탐색 과정](binary_search.assets/binary_search_step1.svg)
 
 === "<2>"
-    ![이진 탐색 2단계](binary_search.assets/binary_search_step2.png)
+    ![이진 탐색 2단계](binary_search.assets/binary_search_step2.svg)
 
 === "<3>"
-    ![이진 탐색 3단계](binary_search.assets/binary_search_step3.png)
+    ![이진 탐색 3단계](binary_search.assets/binary_search_step3.svg)
 
 === "<4>"
-    ![이진 탐색 4단계](binary_search.assets/binary_search_step4.png)
+    ![이진 탐색 4단계](binary_search.assets/binary_search_step4.svg)
 
 === "<5>"
-    ![이진 탐색 5단계](binary_search.assets/binary_search_step5.png)
+    ![이진 탐색 5단계](binary_search.assets/binary_search_step5.svg)
 
 === "<6>"
-    ![이진 탐색 6단계](binary_search.assets/binary_search_step6.png)
+    ![이진 탐색 6단계](binary_search.assets/binary_search_step6.svg)
 
 === "<7>"
-    ![이진 탐색 7단계](binary_search.assets/binary_search_step7.png)
+    ![이진 탐색 7단계](binary_search.assets/binary_search_step7.svg)
 
 $i$와 $j$가 모두 `int` 타입이므로 **$i + j$가 `int` 타입의 표현 범위를 벗어날 수 있다**. 정수 오버플로를 피하기 위해 보통 $m = \lfloor {i + (j - i) / 2} \rfloor$ 공식으로 중간 인덱스를 계산한다.
 
@@ -67,7 +67,7 @@ $i$와 $j$가 모두 `int` 타입이므로 **$i + j$가 `int` 타입의 표현 �
 
 '양끝이 닫힌 구간'에서는 왼쪽과 오른쪽 경계를 모두 포함하므로, 포인터 $i$와 $j$로 구간을 줄이는 연산도 대칭적이다. 실수할 가능성이 더 작으므로 **일반적으로 '양끝이 닫힌 구간'으로 작성하기를 권장한다**.
 
-![두 가지 구간 정의](binary_search.assets/binary_search_ranges.png)
+![두 가지 구간 정의](binary_search.assets/binary_search_ranges.svg)
 
 ## 장점과 한계
 

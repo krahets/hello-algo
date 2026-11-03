@@ -11,19 +11,19 @@
 3. 手順 `1.` と `2.` を繰り返し、頭文字が $r$ のページを見つけます。
 
 === "<1>"
-    ![辞書を引く手順](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png)
+    ![辞書を引く手順](algorithms_are_everywhere.assets/binary_search_dictionary_step1.svg)
 
 === "<2>"
-    ![二分探索で辞書の漢字を探す手順 2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png)
+    ![二分探索で辞書の漢字を探す手順 2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg)
 
 === "<3>"
-    ![二分探索で辞書の漢字を探す手順 3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png)
+    ![二分探索で辞書の漢字を探す手順 3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg)
 
 === "<4>"
-    ![二分探索で辞書の漢字を探す手順 4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png)
+    ![二分探索で辞書の漢字を探す手順 4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg)
 
 === "<5>"
-    ![二分探索で辞書の漢字を探す手順 5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png)
+    ![二分探索で辞書の漢字を探す手順 5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg)
 
 小学生が身に付ける辞書の引き方は、実は有名な「二分探索」です。データ構造の観点では辞書を整列済みの「配列」と見なし、アルゴリズムの観点では一連の操作を「二分探索」と捉えられます。
 
@@ -33,7 +33,7 @@
 2. 未整列の部分から 1 枚取り出し、整列済みの部分の正しい位置へ挿入します。これで左の 2 枚が整列済みになります。
 3. 手順 `2.` を繰り返し、毎回 1 枚を未整列の部分から整列済みの部分へ挿入し、すべてが整列済みになるまで続けます。
 
-![トランプを並べる手順](algorithms_are_everywhere.assets/playing_cards_sorting.png)
+![トランプを並べる手順](algorithms_are_everywhere.assets/playing_cards_sorting.svg)
 
 この並べ方は、本質的に「挿入ソート」です。小さなデータ集合に対して非常に効率がよく、多くのプログラミング言語のソート用ライブラリ関数にも使われています。
 
@@ -45,7 +45,7 @@
 4. 残りの選択肢のうち最大の $1$ 元を取り出すと、残りは $1 - 1 = 0$ 元です。
 5. お釣りがそろいました。内訳は $20 + 10 + 1 = 31$ 元です。
 
-![お釣りを渡す過程](algorithms_are_everywhere.assets/greedy_change.png)
+![お釣りを渡す過程](algorithms_are_everywhere.assets/greedy_change.svg)
 
 この手順では、毎回その時点で最もよい選択、つまりできるだけ大きい額面を選び、最終的に実行可能なお釣りの渡し方を得ました。データ構造とアルゴリズムの観点では、これは「貪欲法」です。
 

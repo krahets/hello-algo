@@ -10,7 +10,7 @@
     2. За один раз можно перемещать только один диск.
     3. Меньший диск всегда должен лежать на большем.
 
-![Пример задачи о Ханойской башне](hanota_problem.assets/hanota_example.png)
+![Пример задачи о Ханойской башне](hanota_problem.assets/hanota_example.svg)
 
 **Обозначим задачу о Ханойской башне размера $i$ как $f(i)$** . Например, $f(3)$ означает задачу перемещения 3 дисков со стержня `A` на стержень `C` .
 
@@ -19,10 +19,10 @@
 Как показано на рисунке ниже, для задачи $f(1)$ , то есть когда имеется только один диск, достаточно просто переместить его напрямую со стержня `A` на стержень `C` .
 
 === "<1>"
-    ![Решение задачи размера 1](hanota_problem.assets/hanota_f1_step1.png)
+    ![Решение задачи размера 1](hanota_problem.assets/hanota_f1_step1.svg)
 
 === "<2>"
-    ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.png)
+    ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.svg)
 
 Как показано на рисунке ниже, для задачи $f(2)$ , то есть когда есть два диска, **поскольку меньший диск все время должен лежать на большем, приходится использовать `B` как вспомогательный стержень**.
 
@@ -31,16 +31,16 @@
 3. Наконец, переместить маленький диск с `B` на `C` .
 
 === "<1>"
-    ![Решение задачи размера 2](hanota_problem.assets/hanota_f2_step1.png)
+    ![Решение задачи размера 2](hanota_problem.assets/hanota_f2_step1.svg)
 
 === "<2>"
-    ![hanota_f2_step2](hanota_problem.assets/hanota_f2_step2.png)
+    ![hanota_f2_step2](hanota_problem.assets/hanota_f2_step2.svg)
 
 === "<3>"
-    ![hanota_f2_step3](hanota_problem.assets/hanota_f2_step3.png)
+    ![hanota_f2_step3](hanota_problem.assets/hanota_f2_step3.svg)
 
 === "<4>"
-    ![hanota_f2_step4](hanota_problem.assets/hanota_f2_step4.png)
+    ![hanota_f2_step4](hanota_problem.assets/hanota_f2_step4.svg)
 
 Процесс решения задачи $f(2)$ можно кратко описать так: **переместить два диска с `A` на `C` с помощью `B`** . Здесь `C` называется целевым стержнем, а `B` - буферным стержнем.
 
@@ -55,16 +55,16 @@
 3. Сделать `C` целевым стержнем, а `A` буферным, и переместить два диска с `B` на `C` .
 
 === "<1>"
-    ![Решение задачи размера 3](hanota_problem.assets/hanota_f3_step1.png)
+    ![Решение задачи размера 3](hanota_problem.assets/hanota_f3_step1.svg)
 
 === "<2>"
-    ![hanota_f3_step2](hanota_problem.assets/hanota_f3_step2.png)
+    ![hanota_f3_step2](hanota_problem.assets/hanota_f3_step2.svg)
 
 === "<3>"
-    ![hanota_f3_step3](hanota_problem.assets/hanota_f3_step3.png)
+    ![hanota_f3_step3](hanota_problem.assets/hanota_f3_step3.svg)
 
 === "<4>"
-    ![hanota_f3_step4](hanota_problem.assets/hanota_f3_step4.png)
+    ![hanota_f3_step4](hanota_problem.assets/hanota_f3_step4.svg)
 
 Иначе говоря, **мы разбиваем задачу $f(3)$ на две подзадачи $f(2)$ и одну подзадачу $f(1)$** . Если последовательно решить эти три подзадачи, исходная задача тоже будет решена. Это показывает, что подзадачи независимы и что их решения можно объединить.
 
@@ -76,7 +76,7 @@
 
 Для двух подзадач $f(n-1)$ **можно применять тот же способ рекурсивного разбиения**, пока не будет достигнута наименьшая подзадача $f(1)$ . А решение для $f(1)$ уже известно и требует всего одного перемещения.
 
-![Стратегия разделяй и властвуй для решения задачи о Ханойской башне](hanota_problem.assets/hanota_divide_and_conquer.png)
+![Стратегия разделяй и властвуй для решения задачи о Ханойской башне](hanota_problem.assets/hanota_divide_and_conquer.svg)
 
 ### Реализация кода
 
@@ -88,7 +88,7 @@
 
 Как показано на рисунке ниже, задача о Ханойской башне формирует дерево рекурсии высоты $n$ , в котором каждый узел представляет подзадачу и соответствует одному открытому вызову `dfs()`. **Поэтому временная сложность равна $O(2^n)$ , а пространственная сложность равна $O(n)$** .
 
-![Дерево рекурсии задачи о Ханойской башне](hanota_problem.assets/hanota_recursive_tree.png)
+![Дерево рекурсии задачи о Ханойской башне](hanota_problem.assets/hanota_recursive_tree.svg)
 
 !!! quote
 

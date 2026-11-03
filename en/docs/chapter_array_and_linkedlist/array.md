@@ -2,7 +2,7 @@
 
 An <u>array</u> is a linear data structure that stores elements of the same type in contiguous memory. An element's position in the array is its <u>index</u>. The figure below shows the main concepts and storage layout.
 
-![Array definition and storage layout](array.assets/array_definition.png)
+![Array definition and storage layout](array.assets/array_definition.svg)
 
 ## Common array operations
 
@@ -134,7 +134,7 @@ We can initialize an array with or without explicit values. When values are not 
 
 Because array elements occupy contiguous memory, their addresses are easy to calculate. Given the array's address (the address of its first element) and an index, the formula in the figure below gives the element's address, allowing direct access.
 
-![Calculating an array element's memory address](array.assets/array_memory_location_calculation.png)
+![Calculating an array element's memory address](array.assets/array_memory_location_calculation.svg)
 
 The first element has index $0$, which may seem unintuitive because counting from $1$ feels more natural. However, **an index essentially describes an offset from the starting memory address**. The first element's offset is $0$, so index $0$ makes sense.
 
@@ -148,7 +148,7 @@ Array access is very efficient: any element can be accessed directly in $O(1)$ t
 
 Array elements sit next to one another, with no room between them for more data. As shown in the figure below, inserting into the middle requires shifting every element at or after the insertion point one position toward the end, then assigning the new element at the desired index.
 
-![Inserting an element into an array](array.assets/array_insert_element.png)
+![Inserting an element into an array](array.assets/array_insert_element.svg)
 
 Because an array's length is fixed, inserting an element causes the last element to be lost. We will discuss the solution in the section on lists.
 
@@ -160,7 +160,7 @@ Because an array's length is fixed, inserting an element causes the last element
 
 Similarly, as shown in the figure below, removing the element at index $i$ requires shifting every element after $i$ one position toward the beginning.
 
-![Removing an element from an array](array.assets/array_remove_element.png)
+![Removing an element from an array](array.assets/array_remove_element.svg)
 
 After removal, the old final entry is no longer meaningful, so we do not need to change it explicitly.
 
