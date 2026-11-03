@@ -178,12 +178,17 @@
   }
 }
 
-/* The PNG boxes remain the native link hit targets and responsive layout anchors. */
+/* Metadata-only boxes reserve layout and native hit targets without downloading fallback art. */
+.hero-div > a > noscript > img { width: auto; position: absolute; }
+.hero-div img[data-hero-fallback]:not([src]) { opacity: 0 !important; }
+
+@keyframes hero-object-reveal { from { opacity: 0; } to { opacity: 1; } }
 .hero-universe .hero-div > a > img.hero-replaced {
   opacity: 0;
 }
 
 .hero-universe .hero-objects-canvas {
+  animation: hero-object-reveal 400ms ease-out both;
   position: absolute;
   inset: 0;
   width: 100%;
@@ -240,6 +245,7 @@
   .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .35rem .5rem; width: calc(100% - 1.5rem); height: auto; margin: .5rem auto 1rem; }
   .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) > img { display: none; }
   .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) > a { display: flex; align-items: center; gap: .4rem; min-width: 0; min-height: 48px; padding: .3rem .15rem; text-align: left; }
+  .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) > a > noscript > img,
   .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) > a > img { position: static; flex-shrink: 0; width: 32px !important; height: 32px !important; object-fit: contain; }
   .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) > a > span { position: static; min-width: 0; transform: none; white-space: normal; font-size: 13px; line-height: 1.3; }
   .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) + .heading-div { position: relative; left: auto; bottom: auto; transform: none; padding: 0 .75rem; }
