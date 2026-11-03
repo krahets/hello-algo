@@ -12,44 +12,73 @@
 
 .home-div.home-universe-bg {
   --hero-starfield-bg-color: var(--home-universe-bg);
+  --hero-map-height: min(84svh, 75vw);
   background-color: var(--home-universe-bg);
   position: relative;
   display: flex;
-  flex-direction: column;
-  height: auto;
-  min-height: calc(min(100svh, 120vw) - 2.4rem);
-  margin-top: 0;
-  padding: 0 0 1rem;
+  justify-content: center;
+  align-items: center;
+  height: min(100svh, 120vw);
+  margin-top: -2.4rem;
+  padding: 0;
   overflow: hidden;
 }
 
-/* Keep the map below the header and let captions grow in their own space.
-   Absolute positioning clipped the map and overlaid its bottom labels on short screens. */
+/* Restore the static illustration's scale and centered composition in every language. */
 .home-div.home-universe-bg > .hero-div {
   flex: none;
-  max-width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  margin: 0 auto;
+  width: min(112svh, 100%);
+  height: var(--hero-map-height);
+  margin: -2.4rem auto 0;
+  font-size: max(9px, min(1.8svh, 2.5vw));
 }
 
+.home-div.home-universe-bg > :is(.hero-div--en, .hero-div--ja, .hero-div--ru, .hero-div--ko) {
+  font-size: max(9px, min(1.5svh, 2vw));
+}
+
+/* The title occupies the illustration's lower central negative space, as in the static page. */
 .home-div.home-universe-bg > .heading-div {
-  position: relative;
-  left: auto;
-  bottom: auto;
-  transform: none;
-  padding: 0 .75rem 2rem;
+  position: absolute;
+  left: 50%;
+  bottom: min(2svh, 3vw);
+  transform: translateX(-50%);
+  padding: 0;
 }
 
-.home-div.home-universe-bg > .heading-div p {
-  text-wrap: balance;
+@media screen and (max-width: 60em) {
+  .home-div.home-universe-bg {
+    /* Keep the upper labels below the header on very small/short viewports. */
+    min-height: calc(var(--hero-map-height) + 8rem);
+  }
+  .home-div.home-universe-bg > .hero-div { margin-top: -4rem; }
 }
 
-/* Reserve room for the heading and actions on ordinary desktop screens.
-   Short landscape screens keep a readable map and scroll instead of shrinking it. */
-@media (min-width: 901px) and (min-height: 640px) {
-  .home-div.home-universe-bg > .hero-div {
-    max-width: min(100%, calc((100svh - 16rem) * 4 / 3));
+.home-universe-bg .heading-div .rounded-button { pointer-events: auto; }
+
+/* Preserve the map on phones and short windows; translations grow downward. */
+@media (max-width: 600px), (max-height: 600px) {
+  .home-div.home-universe-bg {
+    display: block;
+    height: auto;
+    min-height: min(100svh, 120vw);
+    padding-top: max(2rem, calc((min(100svh, 120vw) - var(--hero-map-height) - 4rem) / 2));
+  }
+  .home-div.home-universe-bg > .hero-div { margin: 0 auto; }
+  .home-div.home-universe-bg > .heading-div {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    margin-top: -2rem;
+    padding-bottom: max(1.5rem, min(2svh, 3vw));
+  }
+}
+@media (max-width: 600px) {
+  .home-universe-bg.hero-universe .hero-motion-toggle { bottom: .25rem; }
+  .home-universe-bg .heading-div p {
+    font-size: clamp(12px, 3.5vw, 16px);
+    padding-inline: 12px;
   }
 }
 
@@ -185,13 +214,11 @@
 .hero-div > a > noscript > img { width: auto; position: absolute; }
 .hero-div img[data-hero-fallback]:not([src]) { opacity: 0 !important; }
 
-@keyframes hero-object-reveal { from { opacity: 0; } to { opacity: 1; } }
 .hero-universe .hero-div > a > img.hero-replaced {
   opacity: 0;
 }
 
 .hero-universe .hero-objects-canvas {
-  animation: hero-object-reveal 400ms ease-out both;
   position: absolute;
   inset: 0;
   width: 100%;
@@ -217,41 +244,11 @@
 }
 
 /* Long localized labels need space beside the new volumetric silhouettes. */
-.hero-three-active :is(.hero-div--en, .hero-div--ru) > a[href$="chapter_greedy/"] > span {
+.hero-three-active .hero-div--en > a[href$="chapter_greedy/"] > span {
   margin-left: -4%;
 }
-.hero-three-active :is(.hero-div--en, .hero-div--ru, .hero-div--ja) > a[href$="chapter_stack_and_queue/"] > span {
+.hero-three-active :is(.hero-div--en, .hero-div--ja) > a[href$="chapter_stack_and_queue/"] > span {
   margin-left: 4%;
-}
-
-/* Long translated chapter names use readable native links on narrow screens. */
-@media screen and (min-width: 901px) {
-  /* Keep the original planet silhouettes; move long labels into the open gaps. */
-  .hero-universe :is(.hero-div--en, .hero-div--ru, .hero-div--ja, .hero-div--ko) > a[href$="chapter_introduction/"] > span {
-    margin-top: .6rem;
-  }
-  .hero-universe .hero-div--en > a[href$="chapter_divide_and_conquer/"] > span {
-    margin-left: -4.5%;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .home-div.home-universe-bg > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) { aspect-ratio: auto; }
-  .hero-universe .hero-div--ko > a[href$="chapter_introduction/"] > span {
-    left: 48% !important;
-    top: 95% !important;
-  }
-  .hero-universe .hero-div--ko > a[href$="chapter_divide_and_conquer/"] > span {
-    margin-left: -2%;
-  }
-  .home-div:has(> :is(.hero-div--en, .hero-div--ru, .hero-div--ja)) { display: block; height: auto !important; margin-top: 0 !important; padding: .5rem 0 1rem !important; }
-  .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .35rem .5rem; width: calc(100% - 1.5rem); height: auto; margin: .5rem auto 1rem; }
-  .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) > img { display: none; }
-  .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) > a { display: flex; align-items: center; gap: .4rem; min-width: 0; min-height: 48px; padding: .3rem .15rem; text-align: left; }
-  .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) > a > noscript > img,
-  .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) > a > img { position: static; flex-shrink: 0; width: 32px !important; height: 32px !important; object-fit: contain; }
-  .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) > a > span { position: static; min-width: 0; transform: none; white-space: normal; font-size: 13px; line-height: 1.3; }
-  .home-div > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) + .heading-div { position: relative; left: auto; bottom: auto; transform: none; padding: 0 .75rem; }
 }
 
 /* Restore the animated, hand-drawn glass from the accepted motion study. */
@@ -280,3 +277,21 @@
 /* Intrinsic dimensions reserve space without overriding responsive media height. */
 .home-div .profile-img { height: auto; }
 .home-div video.intro-image { height: auto; }
+
+/* Keep the full chapter title centered above the hourglass on compact maps. */
+@media (max-width: 600px), (max-height: 600px) {
+  .hero-div > a[href="chapter_computational_complexity/"] > span {
+    width: 22%;
+    max-width: 12ch;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+}
+
+@media (max-width: 600px), (max-height: 600px) {
+  .hero-div:is(.hero-div--ja, .hero-div--ru) > a[href="chapter_sorting/"] > span {
+    margin-top: 3%;
+  }
+}
