@@ -2,7 +2,7 @@
 <!-- Generated from the shared homepage template and locale configuration. -->
 <link rel="stylesheet" href="{{ runtime('hero-motion.css') }}">
 <noscript><style>[data-home-src], video[data-home-poster] { display: none; }</style></noscript>
-<section data-md-color-scheme="slate" data-md-color-primary="grey" class="home-div home-universe-bg" style="height: min(100vh, 120vw); position: relative; margin-top:-2.4rem; padding: 0; overflow: hidden;">
+<section data-md-color-scheme="slate" data-md-color-primary="grey" class="home-div home-universe-bg">
   <div class="starfield"><div class="starfield-origin"></div></div>
   <div class="{{ locale.hero_class }}" data-home-layout="{{ 'list' if locale.list_layout else 'universe' }}">
   {% for object in objects %}
@@ -87,4 +87,5 @@
   {% endfor %}
   </div>
 </section>
-<script src="{{ runtime('homepage-media.js') }}" defer></script>
+<!-- This independent fallback also works when the deferred loader cannot be fetched. -->
+<script src="{{ runtime('homepage-media.js') }}" defer onerror="document.querySelectorAll('[data-home-src], [data-home-poster]').forEach(function(el) { if (el.dataset.homeSrc) el.src = el.dataset.homeSrc; if (el.dataset.homePoster) el.poster = el.dataset.homePoster; });"></script>

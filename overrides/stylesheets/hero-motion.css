@@ -1,4 +1,4 @@
-/* Shared by the Zensical and legacy landing pages. No layout changes. */
+/* Shared by the Zensical and legacy landing pages. */
 :root {
   --home-universe-bg: #171717;
 }
@@ -13,6 +13,36 @@
 .home-div.home-universe-bg {
   --hero-starfield-bg-color: var(--home-universe-bg);
   background-color: var(--home-universe-bg);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: min(100svh, 120vw);
+  margin-top: 0;
+  padding: 0 0 1rem;
+  overflow: hidden;
+}
+
+/* Keep the map below the header and let captions grow in their own space.
+   Absolute positioning clipped the map and overlaid its bottom labels on short screens. */
+.home-div.home-universe-bg > .hero-div {
+  flex: none;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  margin: 0 auto;
+}
+
+.home-div.home-universe-bg > .heading-div {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  transform: none;
+  padding: 0 .75rem 2rem;
+}
+
+.home-div.home-universe-bg > .heading-div p {
+  text-wrap: balance;
 }
 
 .hero-universe .starfield {
@@ -190,6 +220,7 @@
 }
 
 @media screen and (max-width: 900px) {
+  .home-div.home-universe-bg > :is(.hero-div--en, .hero-div--ru, .hero-div--ja) { aspect-ratio: auto; }
   .hero-universe .hero-div--ko > a[href$="chapter_introduction/"] > span {
     left: 48% !important;
     top: 95% !important;

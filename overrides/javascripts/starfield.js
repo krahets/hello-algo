@@ -130,7 +130,7 @@
       pointer.x += (target.x - pointer.x) * mix;
       pointer.y += (target.y - pointer.y) * mix;
       const still = staticMotion() || listLayout();
-      const central = item => item.astronaut || item.image.src.endsWith('/chapter_computational_complexity.png');
+      const central = item => item.astronaut || item.image.dataset.heroAsset === 'chapter_computational_complexity';
       const centralSelected = items.some(item => central(item) && (item.anchor === hovered || item.anchor === focused));
       for (const item of items) {
         if (central(item)) {
