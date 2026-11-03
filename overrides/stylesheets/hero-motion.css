@@ -1,7 +1,24 @@
 /* Shared by the Zensical and legacy landing pages. No layout changes. */
+:root {
+  --home-universe-bg: #171717;
+}
+
+/* Keep the landing header and static/animated scene on the same opaque surface. */
+.md-header.md-header--landing {
+  background-color: var(--home-universe-bg);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.home-div.home-universe-bg {
+  --hero-starfield-bg-color: var(--home-universe-bg);
+  background-color: var(--home-universe-bg);
+}
+
 .hero-universe .starfield {
   pointer-events: none;
   background-image:
+    linear-gradient(var(--home-universe-bg) 72px, transparent 200px),
     radial-gradient(ellipse at 25% 30%, rgba(85, 174, 166, 0.055), transparent 55%),
     radial-gradient(ellipse at 80% 60%, rgba(130, 144, 187, 0.045), transparent 50%);
 }
