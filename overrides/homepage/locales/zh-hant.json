@@ -1,0 +1,159 @@
+{
+  "extends": "zh",
+  "overrides": {
+    "typing/src": "https://readme-typing-svg.demolab.com/?font=Noto+Sans+SC&weight=400&duration=3500&pause=2000&color=FFF&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+%E6%BC%94%E7%AE%97%E6%B3%95+!",
+    "reading/0/href": "/chapter_paperbook/",
+    "reading/0/label": "了解紙質書",
+    "people": [
+      {
+        "title": "作者",
+        "description": null,
+        "profiles": [
+          {
+            "href": "https://github.com/krahets",
+            "class": "profile-cell",
+            "asset": "avatar_yudongjin",
+            "alt": "Author: yudongjin",
+            "name": "靳宇棟（@krahets）",
+            "detail": null
+          }
+        ]
+      },
+      {
+        "title": "譯者",
+        "description": "本書繁體中文版由以下譯者審閱，感謝他們的貢獻！",
+        "profiles": [
+          {
+            "href": "https://github.com/Shyam-Chen",
+            "class": "profile-cell translator-profile-cell",
+            "asset": "avatar_Shyam-Chen",
+            "alt": "Reviewer: Shyam-Chen",
+            "name": "Shyam-Chen",
+            "detail": null
+          },
+          {
+            "href": "https://github.com/Dr-XYZ",
+            "class": "profile-cell translator-profile-cell",
+            "asset": "avatar_Dr-XYZ",
+            "alt": "Reviewer: Dr-XYZ",
+            "name": "Dr-XYZ",
+            "detail": null
+          }
+        ]
+      },
+      {
+        "title": "程式碼審閱者",
+        "description": "本書多語言程式碼版本由以下開發者協力完成，感謝他們的投入與貢獻！",
+        "profiles": [
+          {
+            "href": "https://github.com/coderonion",
+            "class": "profile-cell",
+            "asset": "avatar_coderonion",
+            "alt": "Reviewer: coderonion",
+            "name": "coderonion",
+            "detail": "Zig, Rust"
+          },
+          {
+            "href": "https://github.com/curtishd",
+            "class": "profile-cell",
+            "asset": "avatar_curtishd",
+            "alt": "Reviewer: curtishd",
+            "name": "curtishd",
+            "detail": "Kotlin"
+          },
+          {
+            "href": "https://github.com/Gonglja",
+            "class": "profile-cell",
+            "asset": "avatar_Gonglja",
+            "alt": "Reviewer: Gonglja",
+            "name": "Gonglja",
+            "detail": "C, C++"
+          },
+          {
+            "href": "https://github.com/gvenusleo",
+            "class": "profile-cell",
+            "asset": "avatar_gvenusleo",
+            "alt": "Reviewer: gvenusleo",
+            "name": "gvenusleo",
+            "detail": "Dart"
+          },
+          {
+            "href": "https://github.com/hpstory",
+            "class": "profile-cell",
+            "asset": "avatar_hpstory",
+            "alt": "Reviewer: hpstory",
+            "name": "hpstory",
+            "detail": "C#"
+          },
+          {
+            "href": "https://github.com/justin-tse",
+            "class": "profile-cell",
+            "asset": "avatar_justin-tse",
+            "alt": "Reviewer: justin-tse",
+            "name": "justin-tse",
+            "detail": "JS, TS"
+          },
+          {
+            "href": "https://github.com/khoaxuantu",
+            "class": "profile-cell",
+            "asset": "avatar_khoaxuantu",
+            "alt": "Reviewer: khoaxuantu",
+            "name": "khoaxuantu",
+            "detail": "Ruby"
+          },
+          {
+            "href": "https://github.com/krahets",
+            "class": "profile-cell",
+            "asset": "avatar_krahets",
+            "alt": "Reviewer: krahets",
+            "name": "krahets",
+            "detail": "Python, Java"
+          },
+          {
+            "href": "https://github.com/night-cruise",
+            "class": "profile-cell",
+            "asset": "avatar_night-cruise",
+            "alt": "Reviewer: night-cruise",
+            "name": "night-cruise",
+            "detail": "Rust"
+          },
+          {
+            "href": "https://github.com/nuomi1",
+            "class": "profile-cell",
+            "asset": "avatar_nuomi1",
+            "alt": "Reviewer: nuomi1",
+            "name": "nuomi1",
+            "detail": "Swift"
+          },
+          {
+            "href": "https://github.com/Reanon",
+            "class": "profile-cell",
+            "asset": "avatar_Reanon",
+            "alt": "Reviewer: Reanon",
+            "name": "Reanon",
+            "detail": "Go, C"
+          },
+          {
+            "href": "https://github.com/rongyi",
+            "class": "profile-cell",
+            "asset": "avatar_rongyi",
+            "alt": "Reviewer: rongyi",
+            "name": "rongyi",
+            "detail": "Rust"
+          }
+        ]
+      },
+      {
+        "title": "貢獻者",
+        "description": "本書在開源社群 200 多位貢獻者的共同努力下不斷完善，感謝他們付出的時間與精力！",
+        "profiles": [],
+        "banner": {
+          "href": "https://github.com/krahets/hello-algo/graphs/contributors",
+          "url": "https://contrib.rocks/image?repo=krahets/hello-algo&max=300&columns=12",
+          "alt": "Contributors",
+          "style": "width: 100%; max-width: 38.5em;"
+        }
+      }
+    ]
+  }
+}

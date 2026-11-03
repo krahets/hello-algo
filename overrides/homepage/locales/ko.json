@@ -1,0 +1,239 @@
+{
+  "hero_class": "hero-div hero-div--ko",
+  "list_layout": false,
+  "labels": {
+    "astronaut": "알고리즘과의 첫 만남",
+    "chapter_computational_complexity": "복잡도",
+    "chapter_array_and_linkedlist": "배열과 연결 리스트",
+    "chapter_stack_and_queue": "스택과 큐",
+    "chapter_hashing": "해시 테이블",
+    "chapter_tree": "트리",
+    "chapter_heap": "힙",
+    "chapter_graph": "그래프",
+    "chapter_searching": "탐색",
+    "chapter_sorting": "정렬",
+    "chapter_divide_and_conquer": "분할 정복",
+    "chapter_backtracking": "백트래킹",
+    "chapter_dynamic_programming": "동적 계획법",
+    "chapter_greedy": "탐욕"
+  },
+  "label_styles": {
+    "astronaut": "left: 52.244%; top: 20.919%;",
+    "chapter_computational_complexity": "left: 39.244%; top: 33.919%;",
+    "chapter_array_and_linkedlist": "left: 90.897%; top: 76.259%;",
+    "chapter_stack_and_queue": "left: 77.571%; top: 91.25%;",
+    "chapter_hashing": "left: 68.862%; top: 46.292%;",
+    "chapter_tree": "left: 96.159%; top: 44.8%;",
+    "chapter_heap": "left: 88.103%; top: 15.422%;",
+    "chapter_graph": "left: 71.195%; top: 6.503%;",
+    "chapter_searching": "left: 14.556%; top: 20.876%;",
+    "chapter_sorting": "left: 28.805%; top: 53.808%;",
+    "chapter_divide_and_conquer": "left: 31.42%; top: 8.679%;",
+    "chapter_backtracking": "left: 4.742%; top: 50.113%;",
+    "chapter_dynamic_programming": "left: 8.561%; top: 75.351%;",
+    "chapter_greedy": "left: 21.619%; top: 86.85%;"
+  },
+  "typing": {
+    "style": "height: min(9vh, 12vw);",
+    "src": "https://readme-typing-svg.demolab.com/?font=Noto+Sans+KR&weight=400&duration=3500&pause=2000&color=FFF&center=true&vCenter=true&random=false&width=200&lines=Hello%2C%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%21",
+    "alt": ""
+  },
+  "tagline": "애니메이션으로 설명하고 클릭 한 번으로 실행하는 자료 구조와 알고리즘 입문서",
+  "start_label": "읽기 시작하기",
+  "start_href": "chapter_hello_algo/",
+  "reading": [
+    {
+      "asset": "web_mac_iphone",
+      "href": "chapter_hello_algo/",
+      "alt": "",
+      "label": "온라인으로 읽기",
+      "image_style": "height: 66.31%;",
+      "spacers": [
+        "height: 4.34%;",
+        "height: 4.34%;"
+      ]
+    },
+    {
+      "asset": "pdf_ipad",
+      "href": "https://github.com/krahets/hello-algo/releases",
+      "alt": "",
+      "label": "PDF/EPUB 제공 언어 확인",
+      "image_style": "height: 75%;",
+      "spacers": []
+    }
+  ],
+  "reading_description": "500개의 애니메이션 그림, 14개 프로그래밍 언어의 코드, 3000개의 커뮤니티 질문과 답변으로 자료 구조와 알고리즘의 기초를 빠르게 익힐 수 있다",
+  "endorsement_title": "추천의 말",
+  "endorsements": [
+    [
+      "“쉽게 읽을 수 있는 자료 구조와 알고리즘 입문서다. 직접 실습하고 생각하며 배우도록 안내한다. 알고리즘 입문자에게 적극 추천한다.”",
+      "—— 덩쥔후이, 칭화대학교 컴퓨터학과 교수"
+    ],
+    [
+      "“내가 자료 구조와 알고리즘을 배울 때 『Hello 알고리즘』이 있었다면 공부가 열 배는 쉬웠을 것이다!”",
+      "—— 리무, 아마존 수석 과학자(Senior Principal Scientist)"
+    ]
+  ],
+  "features": [
+    {
+      "title": "애니메이션 그림",
+      "description": "명확하고 이해하기 쉬운 내용, 완만한 학습 곡선",
+      "quotes": [
+        "\"A picture is worth a thousand words.\"",
+        "“그림 한 장이 천 마디 말보다 낫다”"
+      ],
+      "video": "animation",
+      "video_label": "애니메이션 예제"
+    },
+    {
+      "title": "클릭 한 번으로 실행",
+      "description": "열 가지가 넘는 프로그래밍 언어와 코드 실행 시각화",
+      "quotes": [
+        "\"Talk is cheap. Show me the code.\"",
+        "“말보다 코드를 보여 달라”"
+      ],
+      "video": "running_code",
+      "video_label": "코드 실행 예제"
+    },
+    {
+      "title": "함께 배우기",
+      "description": "질문과 토론을 나누며 함께 성장하는 독자들",
+      "quotes": [
+        "\"Learning by teaching.\"",
+        "“가르치며 배운다”"
+      ],
+      "video": "comment",
+      "video_label": "댓글 예제"
+    }
+  ],
+  "people": [
+    {
+      "title": "저자",
+      "description": null,
+      "profiles": [
+        {
+          "href": "https://github.com/krahets",
+          "class": "profile-cell",
+          "asset": "avatar_yudongjin",
+          "alt": "저자: yudongjin",
+          "name": "진위둥(@krahets)",
+          "detail": null
+        }
+      ]
+    },
+    {
+      "title": "코드 검토자",
+      "description": "다음 개발자들이 함께 힘을 모아 여러 언어의 예제 코드를 완성했다. 이들의 노력과 기여에 감사드린다!",
+      "profiles": [
+        {
+          "href": "https://github.com/coderonion",
+          "class": "profile-cell",
+          "asset": "avatar_coderonion",
+          "alt": "검토자: coderonion",
+          "name": "coderonion",
+          "detail": "Zig, Rust"
+        },
+        {
+          "href": "https://github.com/curtishd",
+          "class": "profile-cell",
+          "asset": "avatar_curtishd",
+          "alt": "검토자: curtishd",
+          "name": "curtishd",
+          "detail": "Kotlin"
+        },
+        {
+          "href": "https://github.com/Gonglja",
+          "class": "profile-cell",
+          "asset": "avatar_Gonglja",
+          "alt": "검토자: Gonglja",
+          "name": "Gonglja",
+          "detail": "C, C++"
+        },
+        {
+          "href": "https://github.com/gvenusleo",
+          "class": "profile-cell",
+          "asset": "avatar_gvenusleo",
+          "alt": "검토자: gvenusleo",
+          "name": "gvenusleo",
+          "detail": "Dart"
+        },
+        {
+          "href": "https://github.com/hpstory",
+          "class": "profile-cell",
+          "asset": "avatar_hpstory",
+          "alt": "검토자: hpstory",
+          "name": "hpstory",
+          "detail": "C#"
+        },
+        {
+          "href": "https://github.com/justin-tse",
+          "class": "profile-cell",
+          "asset": "avatar_justin-tse",
+          "alt": "검토자: justin-tse",
+          "name": "justin-tse",
+          "detail": "JS, TS"
+        },
+        {
+          "href": "https://github.com/khoaxuantu",
+          "class": "profile-cell",
+          "asset": "avatar_khoaxuantu",
+          "alt": "검토자: khoaxuantu",
+          "name": "khoaxuantu",
+          "detail": "Ruby"
+        },
+        {
+          "href": "https://github.com/krahets",
+          "class": "profile-cell",
+          "asset": "avatar_krahets",
+          "alt": "검토자: krahets",
+          "name": "krahets",
+          "detail": "Python, Java"
+        },
+        {
+          "href": "https://github.com/night-cruise",
+          "class": "profile-cell",
+          "asset": "avatar_night-cruise",
+          "alt": "검토자: night-cruise",
+          "name": "night-cruise",
+          "detail": "Rust"
+        },
+        {
+          "href": "https://github.com/nuomi1",
+          "class": "profile-cell",
+          "asset": "avatar_nuomi1",
+          "alt": "검토자: nuomi1",
+          "name": "nuomi1",
+          "detail": "Swift"
+        },
+        {
+          "href": "https://github.com/Reanon",
+          "class": "profile-cell",
+          "asset": "avatar_Reanon",
+          "alt": "검토자: Reanon",
+          "name": "Reanon",
+          "detail": "Go, C"
+        },
+        {
+          "href": "https://github.com/rongyi",
+          "class": "profile-cell",
+          "asset": "avatar_rongyi",
+          "alt": "검토자: rongyi",
+          "name": "rongyi",
+          "detail": "Rust"
+        }
+      ]
+    },
+    {
+      "title": "기여자",
+      "description": "이 책은 오픈 소스 커뮤니티의 200명이 넘는 기여자가 함께 노력한 덕분에 꾸준히 발전하고 있다. 시간과 노력을 들여 준 모든 분께 감사드린다!",
+      "profiles": [],
+      "banner": {
+        "href": "https://github.com/krahets/hello-algo/graphs/contributors",
+        "url": "https://contrib.rocks/image?repo=krahets/hello-algo&max=300&columns=12",
+        "alt": "기여자",
+        "style": "width: 100%; max-width: 38.5em;"
+      }
+    }
+  ],
+  "reading_notes": []
+}

@@ -1,0 +1,236 @@
+{
+  "hero_class": "hero-div hero-div--en",
+  "list_layout": true,
+  "labels": {
+    "astronaut": "Getting to know algorithms",
+    "chapter_computational_complexity": "Complexity",
+    "chapter_array_and_linkedlist": "Arrays and linked lists",
+    "chapter_stack_and_queue": "Stacks and queues",
+    "chapter_hashing": "Hash tables",
+    "chapter_tree": "Trees",
+    "chapter_heap": "Heaps",
+    "chapter_graph": "Graphs",
+    "chapter_searching": "Searching",
+    "chapter_sorting": "Sorting",
+    "chapter_divide_and_conquer": "Divide and conquer",
+    "chapter_backtracking": "Backtracking",
+    "chapter_dynamic_programming": "Dynamic programming",
+    "chapter_greedy": "Greedy algorithms"
+  },
+  "label_styles": {
+    "astronaut": "left: 52.244%; top: 20.919%;",
+    "chapter_computational_complexity": "left: 39.244%; top: 33.919%;",
+    "chapter_array_and_linkedlist": "left: 90.897%; top: 76.259%;",
+    "chapter_stack_and_queue": "left: 77.571%; top: 91.25%;",
+    "chapter_hashing": "left: 68.862%; top: 46.292%;",
+    "chapter_tree": "left: 96.159%; top: 44.8%;",
+    "chapter_heap": "left: 88.103%; top: 15.422%;",
+    "chapter_graph": "left: 71.195%; top: 6.503%;",
+    "chapter_searching": "left: 14.556%; top: 20.876%;",
+    "chapter_sorting": "left: 28.805%; top: 53.808%;",
+    "chapter_divide_and_conquer": "left: 31.42%; top: 8.679%;",
+    "chapter_backtracking": "left: 4.742%; top: 50.113%;",
+    "chapter_dynamic_programming": "left: 8.561%; top: 75.351%;",
+    "chapter_greedy": "left: 21.619%; top: 86.85%;"
+  },
+  "typing": {
+    "style": "height: min(9vh, 12vw);",
+    "src": "https://readme-typing-svg.demolab.com/?font=Noto+Sans&weight=400&duration=3500&pause=2000&color=FFF&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+Algo+!",
+    "alt": ""
+  },
+  "tagline": "A data structures and algorithms tutorial with animated illustrations and code you can run with one click",
+  "start_label": "Start reading",
+  "start_href": "chapter_hello_algo/",
+  "reading": [
+    {
+      "asset": "web_mac_iphone",
+      "href": "chapter_hello_algo/",
+      "alt": "Web reading on a computer and phone",
+      "label": "Read online",
+      "image_style": "height: 66.31%;",
+      "spacers": [
+        "height: 4.34%;",
+        "height: 4.34%;"
+      ]
+    },
+    {
+      "asset": "pdf_ipad",
+      "href": "https://github.com/krahets/hello-algo/releases",
+      "alt": "PDF reading on a tablet",
+      "label": "Download PDF/EPUB",
+      "image_style": "height: 75%;",
+      "spacers": []
+    }
+  ],
+  "reading_description": "Get started with data structures and algorithms through 500 animated illustrations, code in 14 programming languages, and 3,000 community questions and answers",
+  "endorsement_title": "Endorsements",
+  "endorsements": [
+    [
+      "“An accessible introduction to data structures and algorithms that encourages readers to learn by thinking and doing. Highly recommended for anyone new to algorithms.”",
+      "— Junhui Deng, Professor, Department of Computer Science, Tsinghua University"
+    ],
+    [
+      "“If I had had Hello Algo when I was learning data structures and algorithms, it would have been ten times easier!”",
+      "— Mu Li, Senior Principal Scientist, Amazon"
+    ]
+  ],
+  "features": [
+    {
+      "title": "Animated illustrations",
+      "description": "Clear explanations and a gradual learning curve",
+      "quotes": [
+        "\"A picture is worth a thousand words.\""
+      ],
+      "video": "en_animation",
+      "video_label": "Animation example"
+    },
+    {
+      "title": "Run code with one click",
+      "description": "Code in more than ten programming languages, with execution visualizations",
+      "quotes": [
+        "\"Talk is cheap. Show me the code.\""
+      ],
+      "video": "en_running_code",
+      "video_label": "Running code example"
+    },
+    {
+      "title": "Learn together",
+      "description": "Ask questions, join discussions, and learn with fellow readers",
+      "quotes": [
+        "\"Learning by teaching.\""
+      ],
+      "video": "en_comment",
+      "video_label": "Comments example"
+    }
+  ],
+  "people": [
+    {
+      "title": "Author",
+      "description": null,
+      "profiles": [
+        {
+          "href": "https://github.com/krahets",
+          "class": "profile-cell",
+          "asset": "avatar_yudongjin",
+          "alt": "Author: yudongjin",
+          "name": "Yudong Jin (@krahets)",
+          "detail": null
+        }
+      ]
+    },
+    {
+      "title": "Code reviewers",
+      "description": "The developers below worked together on the code in different programming languages. Thank you for your efforts and contributions!",
+      "profiles": [
+        {
+          "href": "https://github.com/coderonion",
+          "class": "profile-cell",
+          "asset": "avatar_coderonion",
+          "alt": "Reviewer: coderonion",
+          "name": "coderonion",
+          "detail": "Zig, Rust"
+        },
+        {
+          "href": "https://github.com/curtishd",
+          "class": "profile-cell",
+          "asset": "avatar_curtishd",
+          "alt": "Reviewer: curtishd",
+          "name": "curtishd",
+          "detail": "Kotlin"
+        },
+        {
+          "href": "https://github.com/Gonglja",
+          "class": "profile-cell",
+          "asset": "avatar_Gonglja",
+          "alt": "Reviewer: Gonglja",
+          "name": "Gonglja",
+          "detail": "C, C++"
+        },
+        {
+          "href": "https://github.com/gvenusleo",
+          "class": "profile-cell",
+          "asset": "avatar_gvenusleo",
+          "alt": "Reviewer: gvenusleo",
+          "name": "gvenusleo",
+          "detail": "Dart"
+        },
+        {
+          "href": "https://github.com/hpstory",
+          "class": "profile-cell",
+          "asset": "avatar_hpstory",
+          "alt": "Reviewer: hpstory",
+          "name": "hpstory",
+          "detail": "C#"
+        },
+        {
+          "href": "https://github.com/justin-tse",
+          "class": "profile-cell",
+          "asset": "avatar_justin-tse",
+          "alt": "Reviewer: justin-tse",
+          "name": "justin-tse",
+          "detail": "JS, TS"
+        },
+        {
+          "href": "https://github.com/khoaxuantu",
+          "class": "profile-cell",
+          "asset": "avatar_khoaxuantu",
+          "alt": "Reviewer: khoaxuantu",
+          "name": "khoaxuantu",
+          "detail": "Ruby"
+        },
+        {
+          "href": "https://github.com/krahets",
+          "class": "profile-cell",
+          "asset": "avatar_krahets",
+          "alt": "Reviewer: krahets",
+          "name": "krahets",
+          "detail": "Python, Java"
+        },
+        {
+          "href": "https://github.com/night-cruise",
+          "class": "profile-cell",
+          "asset": "avatar_night-cruise",
+          "alt": "Reviewer: night-cruise",
+          "name": "night-cruise",
+          "detail": "Rust"
+        },
+        {
+          "href": "https://github.com/nuomi1",
+          "class": "profile-cell",
+          "asset": "avatar_nuomi1",
+          "alt": "Reviewer: nuomi1",
+          "name": "nuomi1",
+          "detail": "Swift"
+        },
+        {
+          "href": "https://github.com/Reanon",
+          "class": "profile-cell",
+          "asset": "avatar_Reanon",
+          "alt": "Reviewer: Reanon",
+          "name": "Reanon",
+          "detail": "Go, C"
+        },
+        {
+          "href": "https://github.com/rongyi",
+          "class": "profile-cell",
+          "asset": "avatar_rongyi",
+          "alt": "Reviewer: rongyi",
+          "name": "rongyi",
+          "detail": "Rust"
+        }
+      ]
+    },
+    {
+      "title": "Contributors",
+      "description": "More than 200 open-source contributors have helped improve this book. Thank you for your time and effort!",
+      "profiles": [],
+      "banner": {
+        "href": "https://github.com/krahets/hello-algo/graphs/contributors",
+        "url": "https://contrib.rocks/image?repo=krahets/hello-algo&max=300&columns=12",
+        "alt": "Contributors",
+        "style": "width: 100%; max-width: 38.5em;"
+      }
+    }
+  ],
+  "reading_notes": []
+}

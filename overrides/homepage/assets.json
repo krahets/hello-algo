@@ -1,0 +1,470 @@
+{
+  "assets": {
+    "ground": {
+      "source": "docs/assets/hero/ground.webp",
+      "width": 881,
+      "height": 380,
+      "kind": "hero",
+      "loading": "visible-layout"
+    },
+    "links": {
+      "source": "docs/assets/hero/links.png",
+      "width": 1562,
+      "height": 1134,
+      "kind": "hero",
+      "loading": "visible-layout"
+    },
+    "astronaut": {
+      "source": "docs/assets/hero/astronaut.webp",
+      "width": 515,
+      "height": 672,
+      "kind": "hero",
+      "loading": "visible-layout"
+    },
+    "chapter_computational_complexity": {
+      "source": "docs/assets/hero/chapter_computational_complexity.png",
+      "width": 113,
+      "height": 178,
+      "kind": "hero",
+      "loading": "visible-layout"
+    },
+    "chapter_array_and_linkedlist": {
+      "source": "docs/assets/hero/chapter_array_and_linkedlist.png",
+      "width": 468,
+      "height": 319,
+      "kind": "hero",
+      "loading": "visible-layout"
+    },
+    "chapter_stack_and_queue": {
+      "source": "docs/assets/hero/chapter_stack_and_queue.png",
+      "width": 204,
+      "height": 204,
+      "kind": "hero",
+      "loading": "visible-layout"
+    },
+    "chapter_hashing": {
+      "source": "docs/assets/hero/chapter_hashing.png",
+      "width": 218,
+      "height": 218,
+      "kind": "hero",
+      "loading": "visible-layout"
+    },
+    "chapter_tree": {
+      "source": "docs/assets/hero/chapter_tree.png",
+      "width": 280,
+      "height": 281,
+      "kind": "hero",
+      "loading": "visible-layout"
+    },
+    "chapter_heap": {
+      "source": "docs/assets/hero/chapter_heap.png",
+      "width": 151,
+      "height": 152,
+      "kind": "hero",
+      "loading": "visible-layout"
+    },
+    "chapter_graph": {
+      "source": "docs/assets/hero/chapter_graph.png",
+      "width": 542,
+      "height": 272,
+      "kind": "hero",
+      "loading": "visible-layout"
+    },
+    "chapter_searching": {
+      "source": "docs/assets/hero/chapter_searching.png",
+      "width": 216,
+      "height": 216,
+      "kind": "hero",
+      "loading": "visible-layout"
+    },
+    "chapter_sorting": {
+      "source": "docs/assets/hero/chapter_sorting.png",
+      "width": 138,
+      "height": 137,
+      "kind": "hero",
+      "loading": "visible-layout"
+    },
+    "chapter_divide_and_conquer": {
+      "source": "docs/assets/hero/chapter_divide_and_conquer.png",
+      "width": 407,
+      "height": 269,
+      "kind": "hero",
+      "loading": "visible-layout"
+    },
+    "chapter_backtracking": {
+      "source": "docs/assets/hero/chapter_backtracking.png",
+      "width": 345,
+      "height": 249,
+      "kind": "hero",
+      "loading": "visible-layout"
+    },
+    "chapter_dynamic_programming": {
+      "source": "docs/assets/hero/chapter_dynamic_programming.png",
+      "width": 267,
+      "height": 268,
+      "kind": "hero",
+      "loading": "visible-layout"
+    },
+    "chapter_greedy": {
+      "source": "docs/assets/hero/chapter_greedy.png",
+      "width": 265,
+      "height": 202,
+      "kind": "hero",
+      "loading": "visible-layout"
+    },
+    "cover_render": {
+      "source": "docs/assets/hero/cover_render.png",
+      "width": 535,
+      "height": 720,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "web_mac_iphone": {
+      "source": "docs/assets/hero/web_mac_iphone.png",
+      "width": 1598,
+      "height": 965,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "pdf_ipad": {
+      "source": "docs/assets/hero/pdf_ipad.png",
+      "width": 812,
+      "height": 960,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "animation": {
+      "source": "docs/index.assets/animation.mp4",
+      "kind": "video",
+      "loading": "near-viewport-static-in-reduced-motion"
+    },
+    "running_code": {
+      "source": "docs/index.assets/running_code.mp4",
+      "kind": "video",
+      "loading": "near-viewport-static-in-reduced-motion"
+    },
+    "comment": {
+      "source": "docs/index.assets/comment.mp4",
+      "kind": "video",
+      "loading": "near-viewport-static-in-reduced-motion"
+    },
+    "avatar_yudongjin": {
+      "source": "docs/assets/avatar/avatar_yudongjin.jpg",
+      "width": 512,
+      "height": 512,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "avatar_coderonion": {
+      "source": "docs/assets/avatar/avatar_coderonion.jpg",
+      "width": 384,
+      "height": 384,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "avatar_curtishd": {
+      "source": "docs/assets/avatar/avatar_curtishd.jpg",
+      "width": 384,
+      "height": 384,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "avatar_Gonglja": {
+      "source": "docs/assets/avatar/avatar_Gonglja.jpg",
+      "width": 384,
+      "height": 384,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "avatar_gvenusleo": {
+      "source": "docs/assets/avatar/avatar_gvenusleo.jpg",
+      "width": 384,
+      "height": 384,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "avatar_hpstory": {
+      "source": "docs/assets/avatar/avatar_hpstory.jpg",
+      "width": 384,
+      "height": 384,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "avatar_justin-tse": {
+      "source": "docs/assets/avatar/avatar_justin-tse.jpg",
+      "width": 384,
+      "height": 384,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "avatar_khoaxuantu": {
+      "source": "docs/assets/avatar/avatar_khoaxuantu.jpg",
+      "width": 384,
+      "height": 384,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "avatar_krahets": {
+      "source": "docs/assets/avatar/avatar_krahets.jpg",
+      "width": 384,
+      "height": 384,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "avatar_night-cruise": {
+      "source": "docs/assets/avatar/avatar_night-cruise.jpg",
+      "width": 384,
+      "height": 384,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "avatar_nuomi1": {
+      "source": "docs/assets/avatar/avatar_nuomi1.jpg",
+      "width": 384,
+      "height": 384,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "avatar_Reanon": {
+      "source": "docs/assets/avatar/avatar_Reanon.jpg",
+      "width": 384,
+      "height": 384,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "avatar_rongyi": {
+      "source": "docs/assets/avatar/avatar_rongyi.jpg",
+      "width": 384,
+      "height": 384,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "avatar_Shyam-Chen": {
+      "source": "docs/assets/avatar/avatar_Shyam-Chen.jpg",
+      "width": 384,
+      "height": 384,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "avatar_Dr-XYZ": {
+      "source": "docs/assets/avatar/avatar_Dr-XYZ.jpg",
+      "width": 384,
+      "height": 384,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "en_animation": {
+      "source": "en/docs/index.assets/animation.mp4",
+      "kind": "video",
+      "loading": "near-viewport-static-in-reduced-motion"
+    },
+    "en_running_code": {
+      "source": "en/docs/index.assets/running_code.mp4",
+      "kind": "video",
+      "loading": "near-viewport-static-in-reduced-motion"
+    },
+    "en_comment": {
+      "source": "en/docs/index.assets/comment.mp4",
+      "kind": "video",
+      "loading": "near-viewport-static-in-reduced-motion"
+    },
+    "avatar_shevkun": {
+      "source": "docs/assets/avatar/avatar_shevkun.jpg",
+      "width": 384,
+      "height": 384,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "avatar_yuyanhuang": {
+      "source": "docs/assets/avatar/avatar_yuyanhuang.jpg",
+      "width": 512,
+      "height": 512,
+      "kind": "image",
+      "loading": "lazy"
+    }
+  },
+  "objects": [
+    {
+      "id": "ground",
+      "style": "position: absolute; width: auto; height: 26.445%; left: 28.211%; top: 54.145%;",
+      "href": null,
+      "label_style": null
+    },
+    {
+      "id": "links",
+      "style": "position: absolute; width: auto; height: 78.751%; left: 10.545%; top: 7.326%;",
+      "href": null,
+      "label_style": null
+    },
+    {
+      "id": "astronaut",
+      "style": "height: 46.673%; left: 35.413%; top: 24.343%;",
+      "href": "chapter_introduction/",
+      "label_style": "left: 52.244%; top: 20.919%;"
+    },
+    {
+      "id": "chapter_computational_complexity",
+      "style": "height: 12.347%; left: 36.267%; top: 37.653%;",
+      "href": "chapter_computational_complexity/",
+      "label_style": "left: 39.244%; top: 33.919%;"
+    },
+    {
+      "id": "chapter_array_and_linkedlist",
+      "style": "height: 22.242%; left: 73.242%; top: 52.481%;",
+      "href": "chapter_array_and_linkedlist/",
+      "label_style": "left: 90.897%; top: 76.259%;"
+    },
+    {
+      "id": "chapter_stack_and_queue",
+      "style": "height: 14.302%; left: 62.646%; top: 77.875%;",
+      "href": "chapter_stack_and_queue/",
+      "label_style": "left: 77.571%; top: 91.25%;"
+    },
+    {
+      "id": "chapter_hashing",
+      "style": "height: 15.266%; left: 63.281%; top: 27.933%;",
+      "href": "chapter_hashing/",
+      "label_style": "left: 68.862%; top: 46.292%;"
+    },
+    {
+      "id": "chapter_tree",
+      "style": "height: 19.615%; left: 80.137%; top: 26.678%;",
+      "href": "chapter_tree/",
+      "label_style": "left: 96.159%; top: 44.8%;"
+    },
+    {
+      "id": "chapter_heap",
+      "style": "height: 10.566%; left: 77.226%; top: 11.559%;",
+      "href": "chapter_heap/",
+      "label_style": "left: 88.103%; top: 15.422%;"
+    },
+    {
+      "id": "chapter_graph",
+      "style": "height: 16.112%; left: 51.854%; top: 5.575%;",
+      "href": "chapter_graph/",
+      "label_style": "left: 71.195%; top: 6.503%;"
+    },
+    {
+      "id": "chapter_searching",
+      "style": "height: 15.149%; left: 18.185%; top: 16.404%;",
+      "href": "chapter_searching/",
+      "label_style": "left: 14.556%; top: 20.876%;"
+    },
+    {
+      "id": "chapter_sorting",
+      "style": "height: 9.574%; left: 25.409%; top: 40.747%;",
+      "href": "chapter_sorting/",
+      "label_style": "left: 28.805%; top: 53.808%;"
+    },
+    {
+      "id": "chapter_divide_and_conquer",
+      "style": "height: 18.681%; left: 32.721%; top: 4.816%;",
+      "href": "chapter_divide_and_conquer/",
+      "label_style": "left: 31.42%; top: 8.679%;"
+    },
+    {
+      "id": "chapter_backtracking",
+      "style": "height: 17.338%; left: 4.875%; top: 32.925%;",
+      "href": "chapter_backtracking/",
+      "label_style": "left: 4.742%; top: 50.113%;"
+    },
+    {
+      "id": "chapter_dynamic_programming",
+      "style": "height: 15.47%; left: 9.406%; top: 57.472%;",
+      "href": "chapter_dynamic_programming/",
+      "label_style": "left: 8.561%; top: 75.351%;"
+    },
+    {
+      "id": "chapter_greedy",
+      "style": "height: 14.127%; left: 23.132%; top: 75.803%;",
+      "href": "chapter_greedy/",
+      "label_style": "left: 21.619%; top: 86.85%;"
+    }
+  ],
+  "textures": {
+    "array_and_linkedlist": {
+      "source": "overrides/javascripts/hero-textures/array_and_linkedlist-albedo.webp",
+      "width": 1024,
+      "height": 512
+    },
+    "backtracking": {
+      "source": "overrides/javascripts/hero-textures/backtracking-albedo.webp",
+      "width": 1024,
+      "height": 512
+    },
+    "divide_and_conquer": {
+      "source": "overrides/javascripts/hero-textures/divide_and_conquer-albedo.webp",
+      "width": 1024,
+      "height": 512
+    },
+    "dynamic_programming": {
+      "source": "overrides/javascripts/hero-textures/dynamic_programming-albedo.webp",
+      "width": 1024,
+      "height": 512
+    },
+    "graph": {
+      "source": "overrides/javascripts/hero-textures/graph-albedo.webp",
+      "width": 1024,
+      "height": 512
+    },
+    "greedy": {
+      "source": "overrides/javascripts/hero-textures/greedy-albedo.webp",
+      "width": 1024,
+      "height": 512
+    },
+    "hashing": {
+      "source": "overrides/javascripts/hero-textures/hashing-albedo.webp",
+      "width": 1024,
+      "height": 512
+    },
+    "heap": {
+      "source": "overrides/javascripts/hero-textures/heap-albedo.webp",
+      "width": 1024,
+      "height": 512
+    },
+    "moon": {
+      "source": "overrides/javascripts/hero-textures/moon-albedo.webp",
+      "width": 1024,
+      "height": 512
+    },
+    "searching": {
+      "source": "overrides/javascripts/hero-textures/searching-albedo.webp",
+      "width": 1024,
+      "height": 512
+    },
+    "sorting": {
+      "source": "overrides/javascripts/hero-textures/sorting-albedo.webp",
+      "width": 1024,
+      "height": 512
+    },
+    "stack_and_queue": {
+      "source": "overrides/javascripts/hero-textures/stack_and_queue-albedo.webp",
+      "width": 1024,
+      "height": 512
+    },
+    "tree": {
+      "source": "overrides/javascripts/hero-textures/tree-albedo.webp",
+      "width": 1024,
+      "height": 512
+    }
+  },
+  "runtime": {
+    "starfield.js": "overrides/javascripts/starfield.js",
+    "hero-planets.js": "overrides/javascripts/hero-planets.js",
+    "hero-surfaces.js": "overrides/javascripts/hero-surfaces.js",
+    "hero-hourglass.js": "overrides/javascripts/hero-hourglass.js",
+    "homepage-media.js": "overrides/javascripts/homepage-media.js",
+    "hero-motion.css": "overrides/stylesheets/hero-motion.css",
+    "vendor/three/three.module.min.js": "overrides/javascripts/vendor/three/three.module.min.js",
+    "vendor/three/LICENSE": "overrides/javascripts/vendor/three/LICENSE",
+    "vendor/three/package.json": "overrides/javascripts/vendor/three/package.json",
+    "vendor/three/three.core.min.js": "overrides/javascripts/vendor/three/three.core.min.js",
+    "hero-paint-seams.js": "overrides/javascripts/hero-paint-seams.js"
+  },
+  "encoding": {
+    "hero_quality": 75,
+    "image_quality": 75,
+    "texture_quality": 75,
+    "poster_quality": 75
+  }
+}
