@@ -7,7 +7,7 @@
   <div class="{{ locale.hero_class }}" data-home-layout="{{ 'list' if locale.list_layout else 'universe' }}">
   {% for object in objects %}
     {% if object.href %}<a href="{{ object.href }}">{% endif %}
-    <img {{ hero_image(object.id, locale.list_layout)|safe }} alt="" style="{{ object.style }}">
+    <img {{ hero_image(object.id)|safe }} alt="" style="{{ object.style }}">
     {% if object.href %}<span style="{{ locale.label_styles[object.id] }}">{{ locale.labels[object.id] }}</span></a>{% endif %}
   {% endfor %}
   </div>
