@@ -462,8 +462,9 @@
     "hero-paint-seams.js": "overrides/javascripts/hero-paint-seams.js"
   },
   "encoding": {
-    "hero_quality": 95,
-    "texture_quality": 90,
-    "poster_quality": 90
+    "hero_quality": 75,
+    "image_quality": 75,
+    "texture_quality": 75,
+    "poster_quality": 75
   }
 }
