@@ -4,7 +4,7 @@
 <noscript><style>[data-home-src], video[data-home-poster], [data-hero-fallback] { display: none; }</style></noscript>
 <section data-md-color-scheme="slate" data-md-color-primary="grey" class="home-div home-universe-bg">
   <div class="starfield"><div class="starfield-origin"></div></div>
-  <div class="{{ locale.hero_class }}" data-home-layout="{{ 'list' if locale.list_layout else 'universe' }}">
+  <div class="{{ locale.hero_class }}" data-home-layout="universe">
   {% for object in objects %}
     {% if object.href %}<a href="{{ object.href }}">{% endif %}
     <img {{ hero_image(object.id)|safe }} alt="" style="{{ object.style }}; aspect-ratio: {{ assets[object.id].width }} / {{ assets[object.id].height }}">
@@ -14,7 +14,7 @@
   </div>
   <div class="heading-div">
     <img style="{{ locale.typing.style }}" src="{{ locale.typing.src }}" alt="{{ locale.typing.alt }}" loading="lazy">
-    <div style="pointer-events: auto;">
+    <div>
       <p style="margin-top: max(-1vh, -2vw); margin-bottom: min(2vh, 3.5vw);">{{ locale.tagline }}</p>
       <a href="{{ locale.start_href }}" class="rounded-button">{{ icons.read() }}<span>{{ locale.start_label }}</span></a>
       <a href="https://github.com/krahets/hello-algo" class="rounded-button">{{ icons.github() }}<span>GitHub</span></a>

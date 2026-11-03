@@ -1,9 +1,8 @@
 {
   "hero_class": "hero-div hero-div--en",
-  "list_layout": true,
   "labels": {
     "astronaut": "Getting to know algorithms",
-    "chapter_computational_complexity": "Complexity",
+    "chapter_computational_complexity": "Complexity analysis",
     "chapter_array_and_linkedlist": "Arrays and linked lists",
     "chapter_stack_and_queue": "Stacks and queues",
     "chapter_hashing": "Hash tables",

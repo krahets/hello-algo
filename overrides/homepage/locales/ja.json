@@ -1,9 +1,8 @@
 {
   "hero_class": "hero-div hero-div--ja",
-  "list_layout": true,
   "labels": {
-    "astronaut": "アルゴリズム入門",
-    "chapter_computational_complexity": "計算量",
+    "astronaut": "アルゴリズムとの出会い",
+    "chapter_computational_complexity": "計算量の解析",
     "chapter_array_and_linkedlist": "配列と連結リスト",
     "chapter_stack_and_queue": "スタックとキュー",
     "chapter_hashing": "ハッシュテーブル",
