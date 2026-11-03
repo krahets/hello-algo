@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/e5c971c8d6831a5e9f627022.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/e5c971c8d6831a5e9f627022.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1919,12 +1919,12 @@
 <li><strong>木構造</strong>：木、ヒープ、ハッシュテーブル。要素間は一対多の関係です。</li>
 <li><strong>ネットワーク構造</strong>：グラフ。要素間は多対多の関係です。</li>
 </ul>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.png" data-dark-src="/assets/figure-svg/figures/24fcee59107eec7cc0ab50a5.json" data-src="/assets/figure-svg/figures/8db034c039bdc23e34a73665.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.svg" data-theme="light" tabindex="-1" type="image/svg+xml">線形データ構造と非線形データ構造</object><object data="/ja/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">線形データ構造と非線形データ構造</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.png" data-dark-src="/assets/figure-svg/figures/d9f2ea2ab44bfdd304239bcf.json" data-src="/assets/figure-svg/figures/a10cc7eedd0fb8d2018d825b.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.svg" data-theme="light" tabindex="-1" type="image/svg+xml">線形データ構造と非線形データ構造</object><object data="/ja/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">線形データ構造と非線形データ構造</object></ha-svg-figure></p>
 <p align="center"> 図 3-1   線形データ構造と非線形データ構造 </p>
 <h2 id="312">3.1.2   物理構造：連続と分散<a class="headerlink" href="#312" title="この見出しへのリンク">¶</a></h2>
 <p><strong>アルゴリズムの実行中、処理対象のデータは主にメモリに保存されます</strong>。図 3-2 はメモリモジュールで、黒いチップのそれぞれにメモリ空間があります。メモリは巨大な Excel の表のように考えられ、各セルに一定量のデータを格納できます。</p>
 <p><strong>システムはメモリアドレスを使って、目的の位置のデータにアクセスします</strong>。図 3-2 のように、各セルには規則に従った番号が割り当てられ、各メモリ領域が一意のアドレスを持ちます。このアドレスにより、プログラムはデータにアクセスできます。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.png" data-dark-src="/assets/figure-svg/figures/8a91f58998f1f9914d1cd658.json" data-src="/assets/figure-svg/figures/d5cc424680cd4e6108204f66.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.svg" data-theme="light" tabindex="-1" type="image/svg+xml">メモリモジュール、メモリ空間、メモリアドレス</object><object data="/ja/chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">メモリモジュール、メモリ空間、メモリアドレス</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.png" data-dark-src="/assets/figure-svg/figures/1a04a7e4bbd558bbd5d28db1.json" data-src="/assets/figure-svg/figures/691751bd2ccb95ff686685be.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.svg" data-theme="light" tabindex="-1" type="image/svg+xml">メモリモジュール、メモリ空間、メモリアドレス</object><object data="/ja/chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">メモリモジュール、メモリ空間、メモリアドレス</object></ha-svg-figure></p>
 <p align="center"> 図 3-2   メモリモジュール、メモリ空間、メモリアドレス </p>
 <div class="admonition tip">
 <p class="admonition-title">ヒント</p>
@@ -1932,7 +1932,7 @@
 </div>
 <p>メモリはすべてのプログラムが利用する資源ですが、ある領域を一つのプログラムが使っていると、通常はほかのプログラムが同時に使うことはできません。<strong>そのため、データ構造とアルゴリズムの設計では、メモリ資源が重要な検討事項です</strong>。たとえば最大使用量がシステムの空きメモリを超えないようにし、大きな連続領域がなければ、分散した領域に格納できるデータ構造を選ぶ必要があります。</p>
 <p>図 3-3 のように、<strong>物理構造は、コンピュータのメモリ内での格納方法を表し</strong>、連続した領域への格納（配列）と、分散した領域への格納（連結リスト）に分けられます。アクセス、更新、追加、削除などの方法を根本から決めるもので、二つの構造は時間効率と空間効率の面で互いを補い合います。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.png" data-dark-src="/assets/figure-svg/figures/a68bffea682debee0af51831.json" data-src="/assets/figure-svg/figures/c2e5c676c2cd65437375c347.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.svg" data-theme="light" tabindex="-1" type="image/svg+xml">連続した領域への格納と分散した領域への格納</object><object data="/ja/chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">連続した領域への格納と分散した領域への格納</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.png" data-dark-src="/assets/figure-svg/figures/3cb2f3740ce6890db5934dd7.json" data-src="/assets/figure-svg/figures/c7c9bd088eb7db91e2e78ec5.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.svg" data-theme="light" tabindex="-1" type="image/svg+xml">連続した領域への格納と分散した領域への格納</object><object data="/ja/chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">連続した領域への格納と分散した領域への格納</object></ha-svg-figure></p>
 <p align="center"> 図 3-3   連続した領域への格納と分散した領域への格納 </p>
 <p><strong>すべてのデータ構造は、配列、連結リスト、またはその組み合わせで実装されます</strong>。たとえばスタックとキューはどちらでも実装でき、ハッシュテーブルでは両方を使うことがあります。</p>
 <ul>
@@ -2065,5 +2065,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -2230,7 +2230,7 @@
 </ul>
 <p>Перемножив эти два значения, можно получить временную сложность построения кучи <span class="arithmatex">\(O(n \log n)\)</span> . <strong>Но эта оценка неточна, потому что мы не учли свойство двоичного дерева: на нижних уровнях узлов гораздо больше, чем на верхних</strong>.</p>
 <p>Далее выполним более точный расчет. Чтобы упростить вычисления, предположим, что дано «идеальное двоичное дерево» высоты <span class="arithmatex">\(h\)</span> с числом узлов <span class="arithmatex">\(n\)</span>. Это предположение не повлияет на корректность результата.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ru/chapter_heap/build_heap.assets/heapify_operations_count.png" data-dark-src="/assets/figure-svg/figures/1240c07f41c538b636a41308.json" data-src="/assets/figure-svg/figures/9d0d1ba6c673d237f3b05c1a.json" style=";--figure-ratio:960.0/540.0"><object data="/ru/chapter_heap/build_heap.assets/heapify_operations_count.svg" data-theme="light" tabindex="-1" type="image/svg+xml">Число узлов на каждом уровне идеального двоичного дерева</object><object data="/ru/chapter_heap/build_heap.assets/heapify_operations_count.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">Число узлов на каждом уровне идеального двоичного дерева</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ru/chapter_heap/build_heap.assets/heapify_operations_count.png" data-dark-src="/assets/figure-svg/figures/c3a060147bb9dcd31cc9333c.json" data-src="/assets/figure-svg/figures/cdf08d70854575111740806b.json" style=";--figure-ratio:960.0/540.0"><object data="/ru/chapter_heap/build_heap.assets/heapify_operations_count.svg" data-theme="light" tabindex="-1" type="image/svg+xml">Число узлов на каждом уровне идеального двоичного дерева</object><object data="/ru/chapter_heap/build_heap.assets/heapify_operations_count.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">Число узлов на каждом уровне идеального двоичного дерева</object></ha-svg-figure></p>
 <p align="center"> Рисунок 8-5   Число узлов на каждом уровне идеального двоичного дерева </p>
 <p>Как показано на рисунке 8-5, максимальное число итераций упорядочивания сверху вниз для некоторого узла равно расстоянию от этого узла до листового узла, а это расстояние как раз и есть высота узла. Поэтому мы можем просуммировать для каждого уровня выражение «число узлов <span class="arithmatex">\(\times\)</span> высота узла» и <strong>получить суммарное число итераций упорядочивания для всех узлов</strong>.</p>
 <div class="arithmatex">\[
@@ -2377,5 +2377,5 @@ T(h) &amp; = 2 \frac{1 - 2^h}{1 - 2} - h \newline
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

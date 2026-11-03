@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/e5c971c8d6831a5e9f627022.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/e5c971c8d6831a5e9f627022.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1928,7 +1928,7 @@
 <p class="admonition-title">問題</p>
 <p><span class="arithmatex">\(n\)</span> 個の品物があり、<span class="arithmatex">\(i\)</span> 番目の品物の重さは <span class="arithmatex">\(wgt[i-1]\)</span>、価値は <span class="arithmatex">\(val[i-1]\)</span> です。容量 <span class="arithmatex">\(cap\)</span> のナップサックに入れる品物を選びます。各品物は 1 回だけ選べますが、<strong>品物の一部だけを選ぶこともでき、その価値は選んだ重さの割合で計算します</strong>。容量の制限内で得られる品物の最大価値を求めてください。例を図 15-3 に示します。</p>
 </div>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.png" data-dark-src="/assets/figure-svg/figures/32bc090fafdfa618c282f310.json" data-src="/assets/figure-svg/figures/320422ec07c7bd31a1d4b04c.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.svg" data-theme="light" tabindex="-1" type="image/svg+xml">分割可能ナップサック問題のデータ例</object><object data="/ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">分割可能ナップサック問題のデータ例</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.png" data-dark-src="/assets/figure-svg/figures/1d650c030a1cf28bc62f81ac.json" data-src="/assets/figure-svg/figures/3e29f00ca5b7d4e8d9e2d528.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.svg" data-theme="light" tabindex="-1" type="image/svg+xml">分割可能ナップサック問題のデータ例</object><object data="/ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">分割可能ナップサック問題のデータ例</object></ha-svg-figure></p>
 <p align="center"> 図 15-3   分割可能ナップサック問題のデータ例 </p>
 <p>分割可能ナップサック問題は、全体として 0-1 ナップサック問題によく似ています。状態は現在の品物 <span class="arithmatex">\(i\)</span> と容量 <span class="arithmatex">\(c\)</span> で表し、容量の制限内で得られる最大価値を求めます。</p>
 <p>違いは、品物の一部だけを選べることです。図 15-4 のように、<strong>品物を自由に分割し、重さの割合に応じて価値を計算できます</strong>。</p>
@@ -1936,7 +1936,7 @@
 <li>品物 <span class="arithmatex">\(i\)</span> の単位重さ当たりの価値は <span class="arithmatex">\(val[i-1] / wgt[i-1]\)</span> で、これを単位価値と呼びます。</li>
 <li>品物 <span class="arithmatex">\(i\)</span> のうち重さ <span class="arithmatex">\(w\)</span> の部分を入れると、ナップサック内の価値は <span class="arithmatex">\(w \times val[i-1] / wgt[i-1]\)</span> 増えます。</li>
 </ol>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png" data-dark-src="/assets/figure-svg/figures/59372230815274bbb79cc7bf.json" data-src="/assets/figure-svg/figures/e17e84d4b3c793fae5f92ca5.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.svg" data-theme="light" tabindex="-1" type="image/svg+xml">品物の単位重さ当たりの価値</object><object data="/ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">品物の単位重さ当たりの価値</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png" data-dark-src="/assets/figure-svg/figures/642ef5c0e516516d5da4077c.json" data-src="/assets/figure-svg/figures/7ab295a0fce8e44447ff980d.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.svg" data-theme="light" tabindex="-1" type="image/svg+xml">品物の単位重さ当たりの価値</object><object data="/ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">品物の単位重さ当たりの価値</object></ha-svg-figure></p>
 <p align="center"> 図 15-4   品物の単位重さ当たりの価値 </p>
 <h3 id="1">1.   貪欲戦略を決める<a class="headerlink" href="#1" title="この見出しへのリンク">¶</a></h3>
 <p>ナップサック内の品物の総価値を最大にすることは、<strong>本質的には単位重さ当たりの価値を最大にすることです</strong>。ここから、図 15-5 の貪欲戦略を導けます。</p>
@@ -1945,7 +1945,7 @@
 <li>すべての品物を順に調べ、<strong>毎回、単位価値が最も高い品物を貪欲に選びます</strong>。</li>
 <li>ナップサックの残り容量が足りなければ、現在の品物の一部を使っていっぱいにします。</li>
 </ol>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png" data-dark-src="/assets/figure-svg/figures/fb7be5d06b66f7d50372b4ee.json" data-src="/assets/figure-svg/figures/ac72ff84927643432ad1385d.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.svg" data-theme="light" tabindex="-1" type="image/svg+xml">分割可能ナップサック問題の貪欲戦略</object><object data="/ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">分割可能ナップサック問題の貪欲戦略</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png" data-dark-src="/assets/figure-svg/figures/58da2eeff92102ec81d7e8f0.json" data-src="/assets/figure-svg/figures/514be84e7eb5eacf5450c7fe.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.svg" data-theme="light" tabindex="-1" type="image/svg+xml">分割可能ナップサック問題の貪欲戦略</object><object data="/ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">分割可能ナップサック問題の貪欲戦略</object></ha-svg-figure></p>
 <p align="center"> 図 15-5   分割可能ナップサック問題の貪欲戦略 </p>
 <h3 id="2">2.   コードの実装<a class="headerlink" href="#2" title="この見出しへのリンク">¶</a></h3>
 <p>品物を単位価値でソートしやすいよう、品物のクラス <code>Item</code> を作ります。貪欲な選択を繰り返し、ナップサックがいっぱいになったらループを抜け、解を返します。</p>
@@ -2432,7 +2432,7 @@
 <p>ここで、ナップサックから任意の品物を単位重さだけ取り出し、同じ重さの品物 <span class="arithmatex">\(x\)</span> に置き換えます。<span class="arithmatex">\(x\)</span> の単位価値が最も高いので、置き換え後の総価値は必ず <code>res</code> より大きくなります。<strong>これは <code>res</code> が最適解であることに矛盾するため、最適解には品物 <span class="arithmatex">\(x\)</span> が含まれていなければなりません</strong>。</p>
 <p>解に含まれるほかの品物についても、同じ矛盾を導けます。つまり、<strong>単位価値の高い品物を選ぶ方が常に有利であり</strong>、貪欲戦略は有効です。</p>
 <p>図 15-6 のように、品物の重さを横軸、単位価値を縦軸とすると、分割可能ナップサック問題は「横軸の区間が限られた中で、囲まれる面積を最大にする問題」に置き換えられます。このたとえから、貪欲戦略が有効な理由を幾何学的に理解できます。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" data-dark-src="/assets/figure-svg/figures/5ecfd95bc9b1b67ba6925e98.json" data-src="/assets/figure-svg/figures/77648b7436232d492912108f.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.svg" data-theme="light" tabindex="-1" type="image/svg+xml">分割可能ナップサック問題の幾何学的表現</object><object data="/ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">分割可能ナップサック問題の幾何学的表現</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" data-dark-src="/assets/figure-svg/figures/1ba955af75a94f9e7ce7e15a.json" data-src="/assets/figure-svg/figures/c7fd1dbc33df931d8c5dfceb.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.svg" data-theme="light" tabindex="-1" type="image/svg+xml">分割可能ナップサック問題の幾何学的表現</object><object data="/ja/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">分割可能ナップサック問題の幾何学的表現</object></ha-svg-figure></p>
 <p align="center"> 図 15-6   分割可能ナップサック問題の幾何学的表現 </p>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
@@ -2555,5 +2555,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

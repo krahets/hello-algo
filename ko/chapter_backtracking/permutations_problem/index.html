@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/abd17f77112eaa7224f372b6.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/abd17f77112eaa7224f372b6.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -2047,7 +2047,7 @@
 <p>백트래킹 관점에서는 <strong>순열을 만드는 과정을 연속된 선택의 결과로 볼 수 있다</strong>. 입력 배열이 <span class="arithmatex">\([1, 2, 3]\)</span>이고 <span class="arithmatex">\(1\)</span>, <span class="arithmatex">\(3\)</span>, <span class="arithmatex">\(2\)</span> 순서로 선택하면 순열 <span class="arithmatex">\([1, 3, 2]\)</span>를 얻는다. 되돌리기는 선택 하나를 취소한 뒤 다른 선택을 계속 시도한다는 뜻이다.</p>
 <p>백트래킹 코드에서 후보 집합 <code>choices</code>는 입력 배열의 모든 원소이고, 상태 <code>state</code>는 지금까지 선택한 원소들이다. 각 원소는 한 번만 선택할 수 있으므로 <strong><code>state</code> 안의 원소는 모두 중복되지 않아야 한다</strong>.</p>
 <p>아래 그림(13-5)과 같이 탐색 과정을 재귀 트리로 펼칠 수 있다. 각 노드는 현재 상태 <code>state</code>를 나타낸다. 루트에서 시작해 세 차례 선택하면 리프에 도달하며, 각 리프 노드는 순열 하나에 대응한다.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_backtracking/permutations_problem.assets/permutations_i.png" data-dark-src="/assets/figure-svg/figures/a15353d86610982c76fc4a0f.json" data-src="/assets/figure-svg/figures/76d873bfedf67ec4194348f9.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_i.svg" data-theme="light" tabindex="-1" type="image/svg+xml">모든 순열의 재귀 트리</object><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_i.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">모든 순열의 재귀 트리</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_backtracking/permutations_problem.assets/permutations_i.png" data-dark-src="/assets/figure-svg/figures/3cb2af9c6f6195acd4dc7d19.json" data-src="/assets/figure-svg/figures/88b8811dd2daec741f77d887.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_i.svg" data-theme="light" tabindex="-1" type="image/svg+xml">모든 순열의 재귀 트리</object><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_i.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">모든 순열의 재귀 트리</object></ha-svg-figure></p>
 <p align="center"> 그림 13-5   모든 순열의 재귀 트리 </p>
 <h3 id="1">1.   중복 선택 가지치기<a class="headerlink" href="#1" title="고유 링크">¶</a></h3>
 <p>각 원소를 한 번만 선택하도록 불리언 배열 <code>selected</code>를 도입하자. <code>selected[i]</code>는 <code>choices[i]</code>를 이미 선택했는지 나타내며, 이를 바탕으로 다음과 같이 가지치기한다.</p>
@@ -2056,7 +2056,7 @@
 <li>선택지 리스트 <code>choices</code>를 순회할 때 이미 선택한 모든 노드를 건너뛰어 가지치기한다.</li>
 </ul>
 <p>아래 그림(13-6)처럼 첫 번째에 1, 두 번째에 3, 세 번째에 2를 선택한다면, 두 번째에서는 원소 1의 가지를, 세 번째에서는 원소 1과 3의 가지를 잘라 내야 한다.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_backtracking/permutations_problem.assets/permutations_i_pruning.png" data-dark-src="/assets/figure-svg/figures/b87b726aa85ce5e0f04eee0a.json" data-src="/assets/figure-svg/figures/3b16e22f391d67d6ea8702a9.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_i_pruning.svg" data-theme="light" tabindex="-1" type="image/svg+xml">모든 순열의 가지치기 예시</object><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_i_pruning.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">모든 순열의 가지치기 예시</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_backtracking/permutations_problem.assets/permutations_i_pruning.png" data-dark-src="/assets/figure-svg/figures/f1fc5c4d6c71591f87e4a21a.json" data-src="/assets/figure-svg/figures/7fba710b58ba02f07fe63356.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_i_pruning.svg" data-theme="light" tabindex="-1" type="image/svg+xml">모든 순열의 가지치기 예시</object><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_i_pruning.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">모든 순열의 가지치기 예시</object></ha-svg-figure></p>
 <p align="center"> 그림 13-6   모든 순열의 가지치기 예시 </p>
 <p>위 그림(13-6)에서 이 가지치기가 탐색 공간의 크기를 <span class="arithmatex">\(O(n^n)\)</span>에서 <span class="arithmatex">\(O(n!)\)</span>로 줄이는 것을 볼 수 있다.</p>
 <h3 id="2">2.   코드 구현<a class="headerlink" href="#2" title="고유 링크">¶</a></h3>
@@ -2534,14 +2534,14 @@
 </div>
 <p>입력 배열이 <span class="arithmatex">\([1, 1, 2]\)</span>라고 하자. 두 원소 <span class="arithmatex">\(1\)</span>을 쉽게 구분하기 위해 두 번째 <span class="arithmatex">\(1\)</span>을 <span class="arithmatex">\(\hat{1}\)</span>로 표시한다.</p>
 <p>아래 그림(13-7)과 같이 앞의 방법으로 만든 순열의 절반은 중복된다.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_backtracking/permutations_problem.assets/permutations_ii.png" data-dark-src="/assets/figure-svg/figures/d806851086e10effed536707.json" data-src="/assets/figure-svg/figures/09e5ddc3a8384c9c1190a9d1.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_ii.svg" data-theme="light" tabindex="-1" type="image/svg+xml">중복된 순열</object><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_ii.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">중복된 순열</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_backtracking/permutations_problem.assets/permutations_ii.png" data-dark-src="/assets/figure-svg/figures/7633ec940e1eac4237127f85.json" data-src="/assets/figure-svg/figures/300e02a59e6a04081a9f0878.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_ii.svg" data-theme="light" tabindex="-1" type="image/svg+xml">중복된 순열</object><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_ii.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">중복된 순열</object></ha-svg-figure></p>
 <p align="center"> 그림 13-7   중복된 순열 </p>
 <p>중복된 순열은 어떻게 제거할까? 가장 직접적으로는 해시 집합을 이용해 결과에서 중복을 제거할 수 있다. 하지만 이 방법은 충분히 간결하지 않다. <strong>중복된 순열을 만드는 탐색 가지는 불필요하므로 미리 알아내어 잘라 내야 하며</strong>, 그러면 알고리즘의 효율을 더 높일 수 있다.</p>
 <h3 id="1_1">1.   같은 값의 원소 가지치기<a class="headerlink" href="#1_1" title="고유 링크">¶</a></h3>
 <p>아래 그림(13-8)에서 첫 번째 선택으로 <span class="arithmatex">\(1\)</span>을 고르든 <span class="arithmatex">\(\hat{1}\)</span>을 고르든 같다. 두 선택 아래에서 만들어지는 모든 순열이 중복되므로 <span class="arithmatex">\(\hat{1}\)</span>을 가지치기해야 한다.</p>
 <p>마찬가지로 첫 번째에 <span class="arithmatex">\(2\)</span>를 선택한 뒤에도 두 번째의 <span class="arithmatex">\(1\)</span>과 <span class="arithmatex">\(\hat{1}\)</span>이 중복 가지를 만들므로 두 번째의 <span class="arithmatex">\(\hat{1}\)</span>도 잘라 내야 한다.</p>
 <p>본질적으로 <strong>한 차례의 선택에서 값이 같은 여러 원소를 한 번만 선택하도록 보장하는 것</strong>이 목표다.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.png" data-dark-src="/assets/figure-svg/figures/1e47e228e653af8dbe9577d1.json" data-src="/assets/figure-svg/figures/f6ee677cc0e52445147b093b.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.svg" data-theme="light" tabindex="-1" type="image/svg+xml">중복된 순열 가지치기</object><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">중복된 순열 가지치기</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.png" data-dark-src="/assets/figure-svg/figures/8b6c415c7742a2431f9ac822.json" data-src="/assets/figure-svg/figures/3c6095d9d97fbee3a2a2612a.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.svg" data-theme="light" tabindex="-1" type="image/svg+xml">중복된 순열 가지치기</object><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">중복된 순열 가지치기</object></ha-svg-figure></p>
 <p align="center"> 그림 13-8   중복된 순열 가지치기 </p>
 <h3 id="2_1">2.   코드 구현<a class="headerlink" href="#2_1" title="고유 링크">¶</a></h3>
 <p>앞 문제의 코드를 바탕으로 매 차례의 선택에서 해시 집합 <code>duplicated</code>를 만들어 이미 시도한 원소를 기록하고 중복 원소를 가지치기한다.</p>
@@ -3047,7 +3047,7 @@
 <li><strong>같은 값의 원소 가지치기</strong>: 매 차례의 선택(호출된 각 <code>backtrack</code> 함수)마다 <code>duplicated</code>가 하나씩 있다. 이번 순회(<code>for</code> 반복문)에서 이미 선택한 원소를 기록하여 같은 값의 원소를 한 번만 선택하게 한다.</li>
 </ul>
 <p>아래 그림(13-9)은 두 가지 가지치기 조건이 적용되는 범위를 보여 준다. 각 트리 노드는 선택 하나를 나타내며, 루트에서 리프까지의 경로에 있는 노드들이 하나의 순열을 이룬다.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.png" data-dark-src="/assets/figure-svg/figures/faaafc95f5a5409e959e5d0b.json" data-src="/assets/figure-svg/figures/41115c6b3a84babe8402fc4e.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.svg" data-theme="light" tabindex="-1" type="image/svg+xml">두 가지 가지치기 조건의 적용 범위</object><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">두 가지 가지치기 조건의 적용 범위</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.png" data-dark-src="/assets/figure-svg/figures/5e783debff38402d926ac69d.json" data-src="/assets/figure-svg/figures/a163872453544a9c4c27c273.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.svg" data-theme="light" tabindex="-1" type="image/svg+xml">두 가지 가지치기 조건의 적용 범위</object><object data="/ko/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">두 가지 가지치기 조건의 적용 범위</object></ha-svg-figure></p>
 <p align="center"> 그림 13-9   두 가지 가지치기 조건의 적용 범위 </p>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
@@ -3170,5 +3170,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/e5c971c8d6831a5e9f627022.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/e5c971c8d6831a5e9f627022.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1927,7 +1927,7 @@
 <p><u>挿入ソート（insertion sort）</u>は単純なソートアルゴリズムで、その仕組みは手作業でトランプを並べる過程によく似ています。</p>
 <p>具体的には、未整列区間から基準となる要素を一つ選び、左側の整列済み区間の要素と順に比較して、正しい位置へ挿入します。</p>
 <p>図 11-6 は配列に要素を挿入する操作の流れです。基準の要素を <code>base</code> とすると、挿入先のインデックスから <code>base</code> までの要素をすべて一つ右へ移動し、挿入先のインデックスに <code>base</code> を代入します。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_sorting/insertion_sort.assets/insertion_operation.png" data-dark-src="/assets/figure-svg/figures/b23ddd290dc524c1a9e242c1.json" data-src="/assets/figure-svg/figures/d9a9ef08c4f9ae2d1e710bf7.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_sorting/insertion_sort.assets/insertion_operation.svg" data-theme="light" tabindex="-1" type="image/svg+xml">一回の挿入操作</object><object data="/ja/chapter_sorting/insertion_sort.assets/insertion_operation.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">一回の挿入操作</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_sorting/insertion_sort.assets/insertion_operation.png" data-dark-src="/assets/figure-svg/figures/01b3407bdf9d26f52013489d.json" data-src="/assets/figure-svg/figures/a8889c913fff5e9571b306b8.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_sorting/insertion_sort.assets/insertion_operation.svg" data-theme="light" tabindex="-1" type="image/svg+xml">一回の挿入操作</object><object data="/ja/chapter_sorting/insertion_sort.assets/insertion_operation.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">一回の挿入操作</object></ha-svg-figure></p>
 <p align="center"> 図 11-6   一回の挿入操作 </p>
 <h2 id="1141">11.4.1   アルゴリズムの流れ<a class="headerlink" href="#1141" title="この見出しへのリンク">¶</a></h2>
 <p>挿入ソート全体の流れを図 11-7 に示します。</p>
@@ -1937,7 +1937,7 @@
 <li>3 番目の要素を <code>base</code> として正しい位置に挿入すると、<strong>先頭の 3 要素が整列済みになります</strong>。</li>
 <li>同様に繰り返し、最後の要素を <code>base</code> として正しい位置に挿入すると、<strong>すべての要素が整列済みになります</strong>。</li>
 </ol>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_sorting/insertion_sort.assets/insertion_sort_overview.png" data-dark-src="/assets/figure-svg/figures/708bf63ba6cd47d8ece616eb.json" data-src="/assets/figure-svg/figures/90dc98d4a35bdcd9af0e648a.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_sorting/insertion_sort.assets/insertion_sort_overview.svg" data-theme="light" tabindex="-1" type="image/svg+xml">挿入ソートの流れ</object><object data="/ja/chapter_sorting/insertion_sort.assets/insertion_sort_overview.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">挿入ソートの流れ</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_sorting/insertion_sort.assets/insertion_sort_overview.png" data-dark-src="/assets/figure-svg/figures/c61f441501ff4fb05e70052e.json" data-src="/assets/figure-svg/figures/3710546853f024ad33351dfb.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_sorting/insertion_sort.assets/insertion_sort_overview.svg" data-theme="light" tabindex="-1" type="image/svg+xml">挿入ソートの流れ</object><object data="/ja/chapter_sorting/insertion_sort.assets/insertion_sort_overview.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">挿入ソートの流れ</object></ha-svg-figure></p>
 <p align="center"> 図 11-7   挿入ソートの流れ </p>
 <p>コード例は次のとおりです。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input id="__tabbed_1_9" name="__tabbed_1" type="radio"/><input id="__tabbed_1_10" name="__tabbed_1" type="radio"/><input id="__tabbed_1_11" name="__tabbed_1" type="radio"/><input id="__tabbed_1_12" name="__tabbed_1" type="radio"/><input id="__tabbed_1_13" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
@@ -2301,5 +2301,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

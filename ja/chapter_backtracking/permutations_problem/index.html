@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/e5c971c8d6831a5e9f627022.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/e5c971c8d6831a5e9f627022.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -2047,7 +2047,7 @@
 <p>バックトラッキングの観点からは、<strong>順列を作る過程を、一連の選択の結果と捉えられます</strong>。入力が <span class="arithmatex">\([1, 2, 3]\)</span> なら、最初に <span class="arithmatex">\(1\)</span>、次に <span class="arithmatex">\(3\)</span>、最後に <span class="arithmatex">\(2\)</span> を選ぶと、順列 <span class="arithmatex">\([1, 3, 2]\)</span> になります。後戻りでは一つの選択を取り消し、ほかの選択肢を試します。</p>
 <p>コード上では、候補集合 <code>choices</code> は入力配列の全要素、状態 <code>state</code> は現在までに選んだ要素です。各要素は一度しか選べないため、<strong><code>state</code> 内の要素は重複してはいけません</strong>。</p>
 <p>図 13-5 のように、探索過程を再帰木として展開でき、各ノードが現在の状態 <code>state</code> を表します。根から 3 回選択すると葉に達し、各葉が一つの順列に対応します。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_backtracking/permutations_problem.assets/permutations_i.png" data-dark-src="/assets/figure-svg/figures/b8bf1bceb55c127180069fbd.json" data-src="/assets/figure-svg/figures/c079571fa974363172f2dc1e.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_i.svg" data-theme="light" tabindex="-1" type="image/svg+xml">順列列挙の再帰木</object><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_i.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">順列列挙の再帰木</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_backtracking/permutations_problem.assets/permutations_i.png" data-dark-src="/assets/figure-svg/figures/37761663586e86f057e54175.json" data-src="/assets/figure-svg/figures/eabc4c08ce70299e7be11e85.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_i.svg" data-theme="light" tabindex="-1" type="image/svg+xml">順列列挙の再帰木</object><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_i.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">順列列挙の再帰木</object></ha-svg-figure></p>
 <p align="center"> 図 13-5   順列列挙の再帰木 </p>
 <h3 id="1">1.   同じ要素を再選択する分岐の枝刈り<a class="headerlink" href="#1" title="この見出しへのリンク">¶</a></h3>
 <p>各要素を一度だけ選ぶため、ブール配列 <code>selected</code> を使います。<code>selected[i]</code> は <code>choices[i]</code> が選択済みかを表し、次のように枝刈りします。</p>
@@ -2056,7 +2056,7 @@
 <li>選択肢 <code>choices</code> を走査するとき、選択済みのノードをすべて飛ばし、枝刈りします。</li>
 </ul>
 <p>図 13-6 のように、1 回目に 1、2 回目に 3、3 回目に 2 を選ぶ場合、2 回目には要素 1 の分岐を、3 回目には要素 1 と 3 の分岐を刈り取ります。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_backtracking/permutations_problem.assets/permutations_i_pruning.png" data-dark-src="/assets/figure-svg/figures/605354440eb0f5755c84bcc8.json" data-src="/assets/figure-svg/figures/04995695876990521250ffba.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_i_pruning.svg" data-theme="light" tabindex="-1" type="image/svg+xml">順列列挙の枝刈りの例</object><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_i_pruning.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">順列列挙の枝刈りの例</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_backtracking/permutations_problem.assets/permutations_i_pruning.png" data-dark-src="/assets/figure-svg/figures/a8957f0a22909ab0adc98408.json" data-src="/assets/figure-svg/figures/b421562f105402b13695b2da.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_i_pruning.svg" data-theme="light" tabindex="-1" type="image/svg+xml">順列列挙の枝刈りの例</object><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_i_pruning.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">順列列挙の枝刈りの例</object></ha-svg-figure></p>
 <p align="center"> 図 13-6   順列列挙の枝刈りの例 </p>
 <p>この枝刈りにより、探索空間の大きさは <span class="arithmatex">\(O(n^n)\)</span> から <span class="arithmatex">\(O(n!)\)</span> に小さくなります。</p>
 <h3 id="2">2.   コードの実装<a class="headerlink" href="#2" title="この見出しへのリンク">¶</a></h3>
@@ -2534,14 +2534,14 @@
 </div>
 <p>入力が <span class="arithmatex">\([1, 1, 2]\)</span> だとします。二つの <span class="arithmatex">\(1\)</span> を区別するため、2 番目の <span class="arithmatex">\(1\)</span> を <span class="arithmatex">\(\hat{1}\)</span> と書きます。</p>
 <p>図 13-7 のように、先ほどの方法で生成した順列の半分は重複しています。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_backtracking/permutations_problem.assets/permutations_ii.png" data-dark-src="/assets/figure-svg/figures/0b84ac741e725bf20d8b8ede.json" data-src="/assets/figure-svg/figures/11376d67519e6dd1e618850f.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_ii.svg" data-theme="light" tabindex="-1" type="image/svg+xml">重複した順列</object><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_ii.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">重複した順列</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_backtracking/permutations_problem.assets/permutations_ii.png" data-dark-src="/assets/figure-svg/figures/32dcf5d19cc0f1084b84e88f.json" data-src="/assets/figure-svg/figures/fd7d8b0d412a3476eb093c4c.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_ii.svg" data-theme="light" tabindex="-1" type="image/svg+xml">重複した順列</object><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_ii.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">重複した順列</object></ha-svg-figure></p>
 <p align="center"> 図 13-7   重複した順列 </p>
 <p>重複を除くには、結果をハッシュ集合に入れる方法がすぐに思い浮かびます。しかし、あまり洗練された方法ではありません。<strong>同じ順列を生成する分岐は不要なので、事前に見分けて枝刈りすべきです</strong>。そうすれば、効率をさらに高められます。</p>
 <h3 id="1_1">1.   同じ値の要素による分岐の枝刈り<a class="headerlink" href="#1_1" title="この見出しへのリンク">¶</a></h3>
 <p>図 13-8 では、1 回目に <span class="arithmatex">\(1\)</span> を選ぶ場合と <span class="arithmatex">\(\hat{1}\)</span> を選ぶ場合は同等で、その下でできるすべての順列が重複します。したがって、<span class="arithmatex">\(\hat{1}\)</span> の分岐を枝刈りします。</p>
 <p>同様に、1 回目に <span class="arithmatex">\(2\)</span> を選んだ場合も、2 回目の <span class="arithmatex">\(1\)</span> と <span class="arithmatex">\(\hat{1}\)</span> は重複する分岐を作るため、2 回目の <span class="arithmatex">\(\hat{1}\)</span> を枝刈りします。</p>
 <p>本質的な目標は、<strong>ある回の選択において、同じ値を持つ複数の要素を一度だけ選ぶようにすること</strong>です。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.png" data-dark-src="/assets/figure-svg/figures/ffd8d48f576992598a5c277c.json" data-src="/assets/figure-svg/figures/6b9ab5f9291ea47df377030e.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.svg" data-theme="light" tabindex="-1" type="image/svg+xml">重複する順列の枝刈り</object><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">重複する順列の枝刈り</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.png" data-dark-src="/assets/figure-svg/figures/b81d50c4643601e8dc63e8fb.json" data-src="/assets/figure-svg/figures/3fb29ffa9768e462ebf740c9.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.svg" data-theme="light" tabindex="-1" type="image/svg+xml">重複する順列の枝刈り</object><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">重複する順列の枝刈り</object></ha-svg-figure></p>
 <p align="center"> 図 13-8   重複する順列の枝刈り </p>
 <h3 id="2_1">2.   コードの実装<a class="headerlink" href="#2_1" title="この見出しへのリンク">¶</a></h3>
 <p>前の問題のコードをもとに、各回の選択でハッシュ集合 <code>duplicated</code> を作ります。その回にすでに試した要素を記録し、重複する要素を枝刈りします。</p>
@@ -3047,7 +3047,7 @@
 <li><strong>同じ値の要素による分岐を防ぐ枝刈り</strong>：各回の選択（各 <code>backtrack</code> 呼び出し）が、それぞれ <code>duplicated</code> を持ちます。その回の走査（<code>for</code> ループ）ですでに選んだ要素を記録し、同じ値を一度だけ選ぶようにします。</li>
 </ul>
 <p>図 13-9 に、二つの枝刈り条件の作用範囲を示します。木の各ノードは一つの選択を表し、根から葉までの経路上のノードが一つの順列を構成していることに注意してください。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.png" data-dark-src="/assets/figure-svg/figures/d74e5ca10b84437c06491942.json" data-src="/assets/figure-svg/figures/4947da2c827c407cb52ffee4.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.svg" data-theme="light" tabindex="-1" type="image/svg+xml">二つの枝刈り条件の作用範囲</object><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">二つの枝刈り条件の作用範囲</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.png" data-dark-src="/assets/figure-svg/figures/4fb10088a52b02d5e63b9cdc.json" data-src="/assets/figure-svg/figures/2599e16d8b890a5f56391fb5.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.svg" data-theme="light" tabindex="-1" type="image/svg+xml">二つの枝刈り条件の作用範囲</object><object data="/ja/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">二つの枝刈り条件の作用範囲</object></ha-svg-figure></p>
 <p align="center"> 図 13-9   二つの枝刈り条件の作用範囲 </p>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
@@ -3170,5 +3170,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/2cd6b8e017161275ab3e7ced.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/2cd6b8e017161275ab3e7ced.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1925,7 +1925,7 @@
 <li><strong>二補數</strong>：正數的二補數與其原碼相同，負數的二補數是在其一補數的基礎上加 <span class="arithmatex">\(1\)</span> 。</li>
 </ul>
 <p>圖 3-4 展示了原碼、一補數和二補數之間的轉換方法。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_data_structure/number_encoding.assets/1s_2s_complement.png" data-dark-src="/assets/figure-svg/figures/5a2e6917222b8056a1757319.json" data-src="/assets/figure-svg/figures/c0f5090288f21462adf04aff.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_data_structure/number_encoding.assets/1s_2s_complement.svg" data-theme="light" tabindex="-1" type="image/svg+xml">原碼、一補數與二補數之間的相互轉換</object><object data="/zh-hant/chapter_data_structure/number_encoding.assets/1s_2s_complement.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">原碼、一補數與二補數之間的相互轉換</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_data_structure/number_encoding.assets/1s_2s_complement.png" data-dark-src="/assets/figure-svg/figures/2eb51a574bc66552e7ac0d09.json" data-src="/assets/figure-svg/figures/b0e70589a995305a67e43674.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_data_structure/number_encoding.assets/1s_2s_complement.svg" data-theme="light" tabindex="-1" type="image/svg+xml">原碼、一補數與二補數之間的相互轉換</object><object data="/zh-hant/chapter_data_structure/number_encoding.assets/1s_2s_complement.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">原碼、一補數與二補數之間的相互轉換</object></ha-svg-figure></p>
 <p align="center"> 圖 3-4   原碼、一補數與二補數之間的相互轉換 </p>
 <p><u>原碼（sign-magnitude）</u>雖然最直觀，但存在一些侷限性。一方面，<strong>負數的原碼不能直接用於運算</strong>。例如在原碼下計算 <span class="arithmatex">\(1 + (-2)\)</span> ，得到的結果是 <span class="arithmatex">\(-3\)</span> ，這顯然是不對的。</p>
 <div class="arithmatex">\[
@@ -2006,7 +2006,7 @@ b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 (1 + \mathrm{N}) = &amp; (1 + \sum_{i=1}^{23} b_{23-i} 2^{-i}) \subset [1, 2 - 2^{-23}]
 \end{aligned}
 \]</div>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_data_structure/number_encoding.assets/ieee_754_float.png" data-dark-src="/assets/figure-svg/figures/d0f113a65490e7f24a7cf594.json" data-src="/assets/figure-svg/figures/20d64e932d96673568f51696.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_data_structure/number_encoding.assets/ieee_754_float.svg" data-theme="light" tabindex="-1" type="image/svg+xml">IEEE 754 標準下的 float 的計算示例</object><object data="/zh-hant/chapter_data_structure/number_encoding.assets/ieee_754_float.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">IEEE 754 標準下的 float 的計算示例</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_data_structure/number_encoding.assets/ieee_754_float.png" data-dark-src="/assets/figure-svg/figures/5f3e7bae43ba1b4c168db6e1.json" data-src="/assets/figure-svg/figures/a4c2d1a963c5d2bb1734765e.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_data_structure/number_encoding.assets/ieee_754_float.svg" data-theme="light" tabindex="-1" type="image/svg+xml">IEEE 754 標準下的 float 的計算示例</object><object data="/zh-hant/chapter_data_structure/number_encoding.assets/ieee_754_float.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">IEEE 754 標準下的 float 的計算示例</object></ha-svg-figure></p>
 <p align="center"> 圖 3-5   IEEE 754 標準下的 float 的計算示例 </p>
 <p>觀察圖 3-5 ，給定一個示例資料 <span class="arithmatex">\(\mathrm{S} = 0\)</span> ， <span class="arithmatex">\(\mathrm{E} = 124\)</span> ，<span class="arithmatex">\(\mathrm{N} = 2^{-2} + 2^{-3} = 0.375\)</span> ，則有：</p>
 <div class="arithmatex">\[
@@ -2171,5 +2171,5 @@ b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

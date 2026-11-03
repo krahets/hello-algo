@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/2cd6b8e017161275ab3e7ced.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/2cd6b8e017161275ab3e7ced.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1934,7 +1934,7 @@
 <p class="admonition-title">Question</p>
 <p>給定 <span class="arithmatex">\(n\)</span> 個物品，第 <span class="arithmatex">\(i\)</span> 個物品的重量為 <span class="arithmatex">\(wgt[i-1]\)</span>、價值為 <span class="arithmatex">\(val[i-1]\)</span> ，和一個容量為 <span class="arithmatex">\(cap\)</span> 的背包。每個物品只能選擇一次，<strong>但可以選擇物品的一部分，價值根據選擇的重量比例計算</strong>，問在限定背包容量下背包中物品的最大價值。示例如圖 15-3 所示。</p>
 </div>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.png" data-dark-src="/assets/figure-svg/figures/2e4b3499f58796ad0eafdb94.json" data-src="/assets/figure-svg/figures/25ad205bc6f472555716100b.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.svg" data-theme="light" tabindex="-1" type="image/svg+xml">分數背包問題的示例資料</object><object data="/zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">分數背包問題的示例資料</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.png" data-dark-src="/assets/figure-svg/figures/5914c6ee4d91cb59d262247e.json" data-src="/assets/figure-svg/figures/5a623d38433f37ed2a6346f4.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.svg" data-theme="light" tabindex="-1" type="image/svg+xml">分數背包問題的示例資料</object><object data="/zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">分數背包問題的示例資料</object></ha-svg-figure></p>
 <p align="center"> 圖 15-3   分數背包問題的示例資料 </p>
 <p>分數背包問題和 0-1 背包問題整體上非常相似，狀態包含當前物品 <span class="arithmatex">\(i\)</span> 和容量 <span class="arithmatex">\(c\)</span> ，目標是求限定背包容量下的最大價值。</p>
 <p>不同點在於，本題允許只選擇物品的一部分。如圖 15-4 所示，<strong>我們可以對物品任意地進行切分，並按照重量比例來計算相應價值</strong>。</p>
@@ -1942,7 +1942,7 @@
 <li>對於物品 <span class="arithmatex">\(i\)</span> ，它在單位重量下的價值為 <span class="arithmatex">\(val[i-1] / wgt[i-1]\)</span> ，簡稱單位價值。</li>
 <li>假設放入一部分物品 <span class="arithmatex">\(i\)</span> ，重量為 <span class="arithmatex">\(w\)</span> ，則背包增加的價值為 <span class="arithmatex">\(w \times val[i-1] / wgt[i-1]\)</span> 。</li>
 </ol>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png" data-dark-src="/assets/figure-svg/figures/6131356ebeeec2779eb86b71.json" data-src="/assets/figure-svg/figures/f03816e271847d60d322799a.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.svg" data-theme="light" tabindex="-1" type="image/svg+xml">物品在單位重量下的價值</object><object data="/zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">物品在單位重量下的價值</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png" data-dark-src="/assets/figure-svg/figures/9ead6f15b078cdd17c1cacd3.json" data-src="/assets/figure-svg/figures/2290bc447e29dd535b612e19.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.svg" data-theme="light" tabindex="-1" type="image/svg+xml">物品在單位重量下的價值</object><object data="/zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">物品在單位重量下的價值</object></ha-svg-figure></p>
 <p align="center"> 圖 15-4   物品在單位重量下的價值 </p>
 <h3 id="1">1.   貪婪策略確定<a class="headerlink" href="#1" title="Permanent link">¶</a></h3>
 <p>最大化背包內物品總價值，<strong>本質上是最大化單位重量下的物品價值</strong>。由此便可推理出圖 15-5 所示的貪婪策略。</p>
@@ -1951,7 +1951,7 @@
 <li>走訪所有物品，<strong>每輪貪婪地選擇單位價值最高的物品</strong>。</li>
 <li>若剩餘背包容量不足，則使用當前物品的一部分填滿背包。</li>
 </ol>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png" data-dark-src="/assets/figure-svg/figures/a46349d3c0c25cd176fbe248.json" data-src="/assets/figure-svg/figures/e57b0990eb1f4c9333ecd053.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.svg" data-theme="light" tabindex="-1" type="image/svg+xml">分數背包問題的貪婪策略</object><object data="/zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">分數背包問題的貪婪策略</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png" data-dark-src="/assets/figure-svg/figures/d4ecd4d562df4f35a7f4c05f.json" data-src="/assets/figure-svg/figures/bbefcb16bf5c4b8f00188548.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.svg" data-theme="light" tabindex="-1" type="image/svg+xml">分數背包問題的貪婪策略</object><object data="/zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">分數背包問題的貪婪策略</object></ha-svg-figure></p>
 <p align="center"> 圖 15-5   分數背包問題的貪婪策略 </p>
 <h3 id="2">2.   程式碼實現<a class="headerlink" href="#2" title="Permanent link">¶</a></h3>
 <p>我們建立了一個物品類別 <code>Item</code> ，以便將物品按照單位價值進行排序。迴圈進行貪婪選擇，當背包已滿時跳出並返回解：</p>
@@ -2438,7 +2438,7 @@
 <p>現在從背包中拿出單位重量的任意物品，並替換為單位重量的物品 <span class="arithmatex">\(x\)</span> 。由於物品 <span class="arithmatex">\(x\)</span> 的單位價值最高，因此替換後的總價值一定大於 <code>res</code> 。<strong>這與 <code>res</code> 是最優解矛盾，說明最優解中必須包含物品 <span class="arithmatex">\(x\)</span></strong> 。</p>
 <p>對於該解中的其他物品，我們也可以構建出上述矛盾。總而言之，<strong>單位價值更大的物品總是更優選擇</strong>，這說明貪婪策略是有效的。</p>
 <p>如圖 15-6 所示，如果將物品重量和物品單位價值分別看作一張二維圖表的橫軸和縱軸，則分數背包問題可轉化為“求在有限橫軸區間下圍成的最大面積”。這個類比可以幫助我們從幾何角度理解貪婪策略的有效性。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" data-dark-src="/assets/figure-svg/figures/fed8910fc4fda26339a29abb.json" data-src="/assets/figure-svg/figures/4e520b6a71f1ba21655dfa23.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.svg" data-theme="light" tabindex="-1" type="image/svg+xml">分數背包問題的幾何表示</object><object data="/zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">分數背包問題的幾何表示</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" data-dark-src="/assets/figure-svg/figures/2db062097546f4a6e4cdf0f8.json" data-src="/assets/figure-svg/figures/9c28c9ed5ca1f87490b428f3.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.svg" data-theme="light" tabindex="-1" type="image/svg+xml">分數背包問題的幾何表示</object><object data="/zh-hant/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">分數背包問題的幾何表示</object></ha-svg-figure></p>
 <p align="center"> 圖 15-6   分數背包問題的幾何表示 </p>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
@@ -2561,5 +2561,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -2081,7 +2081,7 @@
 <p>从回溯算法的角度看，<strong>我们可以把生成排列的过程想象成一系列选择的结果</strong>。假设输入数组为 <span class="arithmatex">\([1, 2, 3]\)</span> ，如果我们先选择 <span class="arithmatex">\(1\)</span> ，再选择 <span class="arithmatex">\(3\)</span> ，最后选择 <span class="arithmatex">\(2\)</span> ，则获得排列 <span class="arithmatex">\([1, 3, 2]\)</span> 。回退表示撤销一个选择，之后继续尝试其他选择。</p>
 <p>从回溯代码的角度看，候选集合 <code>choices</code> 是输入数组中的所有元素，状态 <code>state</code> 是直至目前已被选择的元素。请注意，每个元素只允许被选择一次，<strong>因此 <code>state</code> 中的所有元素都应该是唯一的</strong>。</p>
 <p>如图 13-5 所示，我们可以将搜索过程展开成一棵递归树，树中的每个节点代表当前状态 <code>state</code> 。从根节点开始，经过三轮选择后到达叶节点，每个叶节点都对应一个排列。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_backtracking/permutations_problem.assets/permutations_i.png" data-dark-src="/assets/figure-svg/figures/b8d21e72a56f4b6ad0d76df8.json" data-src="/assets/figure-svg/figures/a05e337f94e064d49c733715.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_backtracking/permutations_problem.assets/permutations_i.svg" data-theme="light" tabindex="-1" type="image/svg+xml">全排列的递归树</object><object data="/chapter_backtracking/permutations_problem.assets/permutations_i.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">全排列的递归树</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_backtracking/permutations_problem.assets/permutations_i.png" data-dark-src="/assets/figure-svg/figures/88d218b2a9622655ecbf6d1a.json" data-src="/assets/figure-svg/figures/5eb9788f944381c672023615.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_backtracking/permutations_problem.assets/permutations_i.svg" data-theme="light" tabindex="-1" type="image/svg+xml">全排列的递归树</object><object data="/chapter_backtracking/permutations_problem.assets/permutations_i.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">全排列的递归树</object></ha-svg-figure></p>
 <p align="center"> 图 13-5   全排列的递归树 </p>
 <h3 id="1">1.   重复选择剪枝<a class="headerlink" href="#1" title="Permanent link">¶</a></h3>
 <p>为了实现每个元素只被选择一次，我们考虑引入一个布尔型数组 <code>selected</code> ，其中 <code>selected[i]</code> 表示 <code>choices[i]</code> 是否已被选择，并基于它实现以下剪枝操作。</p>
@@ -2090,7 +2090,7 @@
 <li>遍历选择列表 <code>choices</code> 时，跳过所有已被选择的节点，即剪枝。</li>
 </ul>
 <p>如图 13-6 所示，假设我们第一轮选择 1 ，第二轮选择 3 ，第三轮选择 2 ，则需要在第二轮剪掉元素 1 的分支，在第三轮剪掉元素 1 和元素 3 的分支。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_backtracking/permutations_problem.assets/permutations_i_pruning.png" data-dark-src="/assets/figure-svg/figures/bd6d17ec67c4a2e8c44cc769.json" data-src="/assets/figure-svg/figures/89c5102365fa72f9a916535a.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_backtracking/permutations_problem.assets/permutations_i_pruning.svg" data-theme="light" tabindex="-1" type="image/svg+xml">全排列剪枝示例</object><object data="/chapter_backtracking/permutations_problem.assets/permutations_i_pruning.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">全排列剪枝示例</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_backtracking/permutations_problem.assets/permutations_i_pruning.png" data-dark-src="/assets/figure-svg/figures/5ee39be34bd171b0c003ac19.json" data-src="/assets/figure-svg/figures/d8441de685fdbf27d6d38e32.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_backtracking/permutations_problem.assets/permutations_i_pruning.svg" data-theme="light" tabindex="-1" type="image/svg+xml">全排列剪枝示例</object><object data="/chapter_backtracking/permutations_problem.assets/permutations_i_pruning.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">全排列剪枝示例</object></ha-svg-figure></p>
 <p align="center"> 图 13-6   全排列剪枝示例 </p>
 <p>观察图 13-6 发现，该剪枝操作将搜索空间大小从 <span class="arithmatex">\(O(n^n)\)</span> 减小至 <span class="arithmatex">\(O(n!)\)</span> 。</p>
 <h3 id="2">2.   代码实现<a class="headerlink" href="#2" title="Permanent link">¶</a></h3>
@@ -2568,14 +2568,14 @@
 </div>
 <p>假设输入数组为 <span class="arithmatex">\([1, 1, 2]\)</span> 。为了方便区分两个重复元素 <span class="arithmatex">\(1\)</span> ，我们将第二个 <span class="arithmatex">\(1\)</span> 记为 <span class="arithmatex">\(\hat{1}\)</span> 。</p>
 <p>如图 13-7 所示，上述方法生成的排列有一半是重复的。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_backtracking/permutations_problem.assets/permutations_ii.png" data-dark-src="/assets/figure-svg/figures/cb7c5dcaeb1ebb6bfe1bb7b5.json" data-src="/assets/figure-svg/figures/648d934594b0575a68f7f64c.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_backtracking/permutations_problem.assets/permutations_ii.svg" data-theme="light" tabindex="-1" type="image/svg+xml">重复排列</object><object data="/chapter_backtracking/permutations_problem.assets/permutations_ii.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">重复排列</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_backtracking/permutations_problem.assets/permutations_ii.png" data-dark-src="/assets/figure-svg/figures/2fff432744ca8541bf029ad2.json" data-src="/assets/figure-svg/figures/fd103764caaa0e740565fb7e.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_backtracking/permutations_problem.assets/permutations_ii.svg" data-theme="light" tabindex="-1" type="image/svg+xml">重复排列</object><object data="/chapter_backtracking/permutations_problem.assets/permutations_ii.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">重复排列</object></ha-svg-figure></p>
 <p align="center"> 图 13-7   重复排列 </p>
 <p>那么如何去除重复的排列呢？最直接地，考虑借助一个哈希集合，直接对排列结果进行去重。然而这样做不够优雅，<strong>因为生成重复排列的搜索分支没有必要，应当提前识别并剪枝</strong>，这样可以进一步提升算法效率。</p>
 <h3 id="1_1">1.   相等元素剪枝<a class="headerlink" href="#1_1" title="Permanent link">¶</a></h3>
 <p>观察图 13-8 ，在第一轮中，选择 <span class="arithmatex">\(1\)</span> 或选择 <span class="arithmatex">\(\hat{1}\)</span> 是等价的，在这两个选择之下生成的所有排列都是重复的。因此应该把 <span class="arithmatex">\(\hat{1}\)</span> 剪枝。</p>
 <p>同理，在第一轮选择 <span class="arithmatex">\(2\)</span> 之后，第二轮选择中的 <span class="arithmatex">\(1\)</span> 和 <span class="arithmatex">\(\hat{1}\)</span> 也会产生重复分支，因此也应将第二轮的 <span class="arithmatex">\(\hat{1}\)</span> 剪枝。</p>
 <p>从本质上看，<strong>我们的目标是在某一轮选择中，保证多个相等的元素仅被选择一次</strong>。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.png" data-dark-src="/assets/figure-svg/figures/6df168dc7d43c0955d65532a.json" data-src="/assets/figure-svg/figures/8ac7355a6fa181530406970d.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.svg" data-theme="light" tabindex="-1" type="image/svg+xml">重复排列剪枝</object><object data="/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">重复排列剪枝</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.png" data-dark-src="/assets/figure-svg/figures/106dfcabd52534b86c100d34.json" data-src="/assets/figure-svg/figures/a35379ca40bbb1e10172ffe9.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.svg" data-theme="light" tabindex="-1" type="image/svg+xml">重复排列剪枝</object><object data="/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">重复排列剪枝</object></ha-svg-figure></p>
 <p align="center"> 图 13-8   重复排列剪枝 </p>
 <h3 id="2_1">2.   代码实现<a class="headerlink" href="#2_1" title="Permanent link">¶</a></h3>
 <p>在上一题的代码的基础上，我们考虑在每一轮选择中开启一个哈希集合 <code>duplicated</code> ，用于记录该轮中已经尝试过的元素，并将重复元素剪枝：</p>
@@ -3081,7 +3081,7 @@
 <li><strong>相等元素剪枝</strong>：每轮选择（每个调用的 <code>backtrack</code> 函数）都包含一个 <code>duplicated</code> 。它记录的是在本轮遍历（<code>for</code> 循环）中哪些元素已被选择过，其作用是保证相等元素只被选择一次。</li>
 </ul>
 <p>图 13-9 展示了两个剪枝条件的生效范围。注意，树中的每个节点代表一个选择，从根节点到叶节点的路径上的各个节点构成一个排列。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.png" data-dark-src="/assets/figure-svg/figures/3c84d0fb73efc01d0df682a1.json" data-src="/assets/figure-svg/figures/fe6604de510f0c3584122c87.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.svg" data-theme="light" tabindex="-1" type="image/svg+xml">两种剪枝条件的作用范围</object><object data="/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">两种剪枝条件的作用范围</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.png" data-dark-src="/assets/figure-svg/figures/6f94280d93f1b14be0d27abd.json" data-src="/assets/figure-svg/figures/d86766a7f78b256a452b0d9e.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.svg" data-theme="light" tabindex="-1" type="image/svg+xml">两种剪枝条件的作用范围</object><object data="/chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">两种剪枝条件的作用范围</object></ha-svg-figure></p>
 <p align="center"> 图 13-9   两种剪枝条件的作用范围 </p>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
@@ -3204,5 +3204,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

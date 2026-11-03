@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1953,12 +1953,12 @@
 <li><strong>树形结构</strong>：树、堆、哈希表，元素之间是一对多的关系。</li>
 <li><strong>网状结构</strong>：图，元素之间是多对多的关系。</li>
 </ul>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.png" data-dark-src="/assets/figure-svg/figures/1205f749df6e19c61b81f038.json" data-src="/assets/figure-svg/figures/134a92d27a6ac04479472d27.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.svg" data-theme="light" tabindex="-1" type="image/svg+xml">线性数据结构与非线性数据结构</object><object data="/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">线性数据结构与非线性数据结构</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.png" data-dark-src="/assets/figure-svg/figures/8194f515246488dedd038f12.json" data-src="/assets/figure-svg/figures/c457af7f9f7850955dbf6e11.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.svg" data-theme="light" tabindex="-1" type="image/svg+xml">线性数据结构与非线性数据结构</object><object data="/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">线性数据结构与非线性数据结构</object></ha-svg-figure></p>
 <p align="center"> 图 3-1   线性数据结构与非线性数据结构 </p>
 <h2 id="312">3.1.2   物理结构：连续与分散<a class="headerlink" href="#312" title="Permanent link">¶</a></h2>
 <p><strong>当算法程序运行时，正在处理的数据主要存储在内存中</strong>。图 3-2 展示了一个计算机内存条，其中每个黑色方块都包含一块内存空间。我们可以将内存想象成一个巨大的 Excel 表格，其中每个单元格都可以存储一定大小的数据。</p>
 <p><strong>系统通过内存地址来访问目标位置的数据</strong>。如图 3-2 所示，计算机根据特定规则为表格中的每个单元格分配编号，确保每个内存空间都有唯一的内存地址。有了这些地址，程序便可以访问内存中的数据。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.png" data-dark-src="/assets/figure-svg/figures/349bfc30405bc796a91b99e3.json" data-src="/assets/figure-svg/figures/1f5c0e3ef34ca7521c7c3170.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.svg" data-theme="light" tabindex="-1" type="image/svg+xml">内存条、内存空间、内存地址</object><object data="/chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">内存条、内存空间、内存地址</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.png" data-dark-src="/assets/figure-svg/figures/48add42e25bb56bee3382468.json" data-src="/assets/figure-svg/figures/4f3083d943d718f0b1f4291e.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.svg" data-theme="light" tabindex="-1" type="image/svg+xml">内存条、内存空间、内存地址</object><object data="/chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">内存条、内存空间、内存地址</object></ha-svg-figure></p>
 <p align="center"> 图 3-2   内存条、内存空间、内存地址 </p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1966,7 +1966,7 @@
 </div>
 <p>内存是所有程序的共享资源，当某块内存被某个程序占用时，则通常无法被其他程序同时使用了。<strong>因此在数据结构与算法的设计中，内存资源是一个重要的考虑因素</strong>。比如，算法所占用的内存峰值不应超过系统剩余空闲内存；如果缺少连续大块的内存空间，那么所选用的数据结构必须能够存储在分散的内存空间内。</p>
 <p>如图 3-3 所示，<strong>物理结构反映了数据在计算机内存中的存储方式</strong>，可分为连续空间存储（数组）和分散空间存储（链表）。物理结构从底层决定了数据的访问、更新、增删等操作方法，两种物理结构在时间效率和空间效率方面呈现出互补的特点。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.png" data-dark-src="/assets/figure-svg/figures/39860eb6d5f4fc4f18dc6232.json" data-src="/assets/figure-svg/figures/96a9a0ea9fdd432f7016477a.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.svg" data-theme="light" tabindex="-1" type="image/svg+xml">连续空间存储与分散空间存储</object><object data="/chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">连续空间存储与分散空间存储</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.png" data-dark-src="/assets/figure-svg/figures/97a60753fa503cf88a10109a.json" data-src="/assets/figure-svg/figures/a565fa860a9a2e6d69e9f97c.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.svg" data-theme="light" tabindex="-1" type="image/svg+xml">连续空间存储与分散空间存储</object><object data="/chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">连续空间存储与分散空间存储</object></ha-svg-figure></p>
 <p align="center"> 图 3-3   连续空间存储与分散空间存储 </p>
 <p>值得说明的是，<strong>所有数据结构都是基于数组、链表或二者的组合实现的</strong>。例如，栈和队列既可以使用数组实现，也可以使用链表实现；而哈希表的实现可能同时包含数组和链表。</p>
 <ul>
@@ -2099,5 +2099,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

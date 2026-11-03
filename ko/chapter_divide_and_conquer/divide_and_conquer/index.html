@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/abd17f77112eaa7224f372b6.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/abd17f77112eaa7224f372b6.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1978,7 +1978,7 @@
 <li><strong>분할</strong>: 원래 배열(원래 문제)을 두 부분 배열(부분 문제)로 재귀적으로 나누고, 부분 배열에 원소가 하나만 남으면(가장 작은 부분 문제) 멈춘다.</li>
 <li><strong>정복</strong>: 정렬된 부분 배열(부분 문제의 해)을 아래에서 위로 합쳐 정렬된 원래 배열(원래 문제의 해)을 얻는다.</li>
 </ol>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.png" data-dark-src="/assets/figure-svg/figures/5114aa01fe6dd9959be79459.json" data-src="/assets/figure-svg/figures/67b008dde989b8bd6300b21e.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.svg" data-theme="light" tabindex="-1" type="image/svg+xml">병합 정렬의 분할 정복 전략</object><object data="/ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">병합 정렬의 분할 정복 전략</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.png" data-dark-src="/assets/figure-svg/figures/71ca14d029b498a513ead153.json" data-src="/assets/figure-svg/figures/6f188019652b79826432301e.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.svg" data-theme="light" tabindex="-1" type="image/svg+xml">병합 정렬의 분할 정복 전략</object><object data="/ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">병합 정렬의 분할 정복 전략</object></ha-svg-figure></p>
 <p align="center"> 그림 12-1   병합 정렬의 분할 정복 전략 </p>
 <h2 id="1211">12.1.1   분할 정복 문제를 판단하는 방법<a class="headerlink" href="#1211" title="고유 링크">¶</a></h2>
 <p>문제가 분할 정복에 적합한지는 보통 다음 기준으로 판단할 수 있다.</p>
@@ -2001,7 +2001,7 @@
 <div class="arithmatex">\[
 O(n + (\frac{n}{2})^2 \times 2 + n) = O(\frac{n^2}{2} + 2n)
 \]</div>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.png" data-dark-src="/assets/figure-svg/figures/e049bfaabb35f26d1cde8203.json" data-src="/assets/figure-svg/figures/dcbdd75328b69ee185f76719.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.svg" data-theme="light" tabindex="-1" type="image/svg+xml">배열 분할 전후의 버블 정렬</object><object data="/ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">배열 분할 전후의 버블 정렬</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.png" data-dark-src="/assets/figure-svg/figures/38579dc46553523a9160329b.json" data-src="/assets/figure-svg/figures/83da798c80a26daac2f6190e.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.svg" data-theme="light" tabindex="-1" type="image/svg+xml">배열 분할 전후의 버블 정렬</object><object data="/ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">배열 분할 전후의 버블 정렬</object></ha-svg-figure></p>
 <p align="center"> 그림 12-2   배열 분할 전후의 버블 정렬 </p>
 <p>이어서 왼쪽은 분할 전, 오른쪽은 분할 후의 총연산 수를 나타내는 다음 부등식을 계산해 보자.</p>
 <div class="arithmatex">\[
@@ -2018,7 +2018,7 @@ n(n - 4) &amp; &gt; 0
 <p>분할 정복으로 만들어진 부분 문제는 서로 독립적이므로 <strong>보통 병렬로 해결할 수 있다</strong>. 즉, 분할 정복은 알고리즘의 시간 복잡도를 줄일 뿐 아니라 <strong>운영체제의 병렬 최적화에도 유리하다</strong>.</p>
 <p>병렬 최적화는 멀티코어나 다중 프로세서 환경에서 특히 효과적이다. 여러 부분 문제를 동시에 처리하여 계산 자원을 더 충분히 활용하고 전체 실행 시간을 크게 줄일 수 있기 때문이다.</p>
 <p>예를 들어 아래 그림(12-3)의 '버킷 정렬'에서 대규모 데이터를 각 버킷에 고르게 분배하면, 버킷별 정렬 작업을 여러 계산 장치에 나누어 맡긴 뒤 결과를 합칠 수 있다.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" data-dark-src="/assets/figure-svg/figures/995feaddb6ea14459c85d295.json" data-src="/assets/figure-svg/figures/222271457d59cb6ae42a92d2.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.svg" data-theme="light" tabindex="-1" type="image/svg+xml">버킷 정렬의 병렬 계산</object><object data="/ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">버킷 정렬의 병렬 계산</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" data-dark-src="/assets/figure-svg/figures/88a8b5096208532916a173a3.json" data-src="/assets/figure-svg/figures/66568b7c895c3b526dfee684.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.svg" data-theme="light" tabindex="-1" type="image/svg+xml">버킷 정렬의 병렬 계산</object><object data="/ko/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">버킷 정렬의 병렬 계산</object></ha-svg-figure></p>
 <p align="center"> 그림 12-3   버킷 정렬의 병렬 계산 </p>
 <h2 id="1213">12.1.3   분할 정복의 주요 응용<a class="headerlink" href="#1213" title="고유 링크">¶</a></h2>
 <p>분할 정복은 여러 대표적인 알고리즘 문제를 해결할 수 있다.</p>
@@ -2161,5 +2161,5 @@ n(n - 4) &amp; &gt; 0
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

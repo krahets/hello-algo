@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/abd17f77112eaa7224f372b6.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/abd17f77112eaa7224f372b6.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1977,7 +1977,7 @@ G &amp; = \{ V, E \} \newline
 \end{aligned}
 \]</div>
 <p>정점을 노드로, 간선을 노드들을 연결하는 참조(포인터)로 보면 그래프는 연결 리스트를 확장한 자료 구조로 생각할 수 있다. 아래 그림(9-1)과 같이 <strong>선형 관계(연결 리스트)와 분할 정복 관계(트리)에 비해 네트워크 관계(그래프)는 자유도가 높아 더 복잡하다</strong>.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_graph/graph.assets/linkedlist_tree_graph.png" data-dark-src="/assets/figure-svg/figures/5d9c3922dc9b3cd855f81395.json" data-src="/assets/figure-svg/figures/3440304ae9b1728f765b1a78.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_graph/graph.assets/linkedlist_tree_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">연결 리스트, 트리, 그래프 사이의 관계</object><object data="/ko/chapter_graph/graph.assets/linkedlist_tree_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">연결 리스트, 트리, 그래프 사이의 관계</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_graph/graph.assets/linkedlist_tree_graph.png" data-dark-src="/assets/figure-svg/figures/237e60dad4a81bbdf4b83ba6.json" data-src="/assets/figure-svg/figures/bc5e0ca4f3c6f6aee4382b2d.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_graph/graph.assets/linkedlist_tree_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">연결 리스트, 트리, 그래프 사이의 관계</object><object data="/ko/chapter_graph/graph.assets/linkedlist_tree_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">연결 리스트, 트리, 그래프 사이의 관계</object></ha-svg-figure></p>
 <p align="center"> 그림 9-1   연결 리스트, 트리, 그래프 사이의 관계 </p>
 <h2 id="911">9.1.1   그래프의 주요 종류와 용어<a class="headerlink" href="#911" title="고유 링크">¶</a></h2>
 <p>간선에 방향이 있는지에 따라 아래 그림(9-2)과 같이 <u>무방향 그래프(undirected graph)</u>와 <u>방향 그래프(directed graph)</u>로 나뉜다.</p>
@@ -1985,17 +1985,17 @@ G &amp; = \{ V, E \} \newline
 <li>무방향 그래프에서 간선은 두 정점 사이의 '양방향' 연결 관계를 나타낸다. 위챗이나 QQ의 '친구 관계'가 그 예다.</li>
 <li>방향 그래프에서 간선은 방향을 가진다. 즉, <span class="arithmatex">\(A \rightarrow B\)</span>와 <span class="arithmatex">\(A \leftarrow B\)</span> 방향의 간선은 서로 독립적이다. 웨이보나 더우인의 '팔로우'와 '팔로워' 관계가 그 예다.</li>
 </ul>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_graph/graph.assets/directed_graph.png" data-dark-src="/assets/figure-svg/figures/0224476ec9cdbcfda7f1b8a3.json" data-src="/assets/figure-svg/figures/57072166f7352719d72313b4.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_graph/graph.assets/directed_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">방향 그래프와 무방향 그래프</object><object data="/ko/chapter_graph/graph.assets/directed_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">방향 그래프와 무방향 그래프</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_graph/graph.assets/directed_graph.png" data-dark-src="/assets/figure-svg/figures/8ca0f2356283dfdcee51e5f4.json" data-src="/assets/figure-svg/figures/23654f1c7d9714d4857b560b.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_graph/graph.assets/directed_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">방향 그래프와 무방향 그래프</object><object data="/ko/chapter_graph/graph.assets/directed_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">방향 그래프와 무방향 그래프</object></ha-svg-figure></p>
 <p align="center"> 그림 9-2   방향 그래프와 무방향 그래프 </p>
 <p>모든 정점이 연결되어 있는지에 따라 아래 그림(9-3)과 같이 <u>연결 그래프(connected graph)</u>와 <u>비연결 그래프(disconnected graph)</u>로 나뉜다.</p>
 <ul>
 <li>연결 그래프에서는 한 정점에서 출발하여 다른 모든 정점에 도달할 수 있다.</li>
 <li>비연결 그래프에서는 한 정점에서 출발했을 때 도달할 수 없는 정점이 하나 이상 존재한다.</li>
 </ul>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_graph/graph.assets/connected_graph.png" data-dark-src="/assets/figure-svg/figures/0dd8a62e114cf794d39012a0.json" data-src="/assets/figure-svg/figures/ddac4cc0b5397158dfc525ad.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_graph/graph.assets/connected_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">연결 그래프와 비연결 그래프</object><object data="/ko/chapter_graph/graph.assets/connected_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">연결 그래프와 비연결 그래프</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_graph/graph.assets/connected_graph.png" data-dark-src="/assets/figure-svg/figures/51e1511b1bc36bb9de0a5e3d.json" data-src="/assets/figure-svg/figures/bd296e026ab39485f343703d.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_graph/graph.assets/connected_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">연결 그래프와 비연결 그래프</object><object data="/ko/chapter_graph/graph.assets/connected_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">연결 그래프와 비연결 그래프</object></ha-svg-figure></p>
 <p align="center"> 그림 9-3   연결 그래프와 비연결 그래프 </p>
 <p>간선에 '가중치' 변수를 추가하면 아래 그림(9-4)과 같은 <u>가중 그래프(weighted graph)</u>를 얻는다. 예를 들어 『왕자영요』 같은 모바일 게임에서는 함께 게임한 시간을 바탕으로 플레이어 간의 '친밀도'를 계산한다. 이러한 친밀도 네트워크는 가중 그래프로 표현할 수 있다.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_graph/graph.assets/weighted_graph.png" data-dark-src="/assets/figure-svg/figures/b31b1a6dade84739f5c09a98.json" data-src="/assets/figure-svg/figures/72406a222890e9657e4a1621.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_graph/graph.assets/weighted_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">가중 그래프와 비가중 그래프</object><object data="/ko/chapter_graph/graph.assets/weighted_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">가중 그래프와 비가중 그래프</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_graph/graph.assets/weighted_graph.png" data-dark-src="/assets/figure-svg/figures/ed6d503813da099493ceb8f9.json" data-src="/assets/figure-svg/figures/8f21f3a1036d5c76a0c7c5f8.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_graph/graph.assets/weighted_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">가중 그래프와 비가중 그래프</object><object data="/ko/chapter_graph/graph.assets/weighted_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">가중 그래프와 비가중 그래프</object></ha-svg-figure></p>
 <p align="center"> 그림 9-4   가중 그래프와 비가중 그래프 </p>
 <p>그래프 자료 구조에서 자주 사용하는 용어는 다음과 같다.</p>
 <ul>
@@ -2008,7 +2008,7 @@ G &amp; = \{ V, E \} \newline
 <h3 id="1">1.   인접 행렬<a class="headerlink" href="#1" title="고유 링크">¶</a></h3>
 <p>그래프의 정점 수를 <span class="arithmatex">\(n\)</span>이라고 하자. <u>인접 행렬(adjacency matrix)</u>은 <span class="arithmatex">\(n \times n\)</span> 크기의 행렬로 그래프를 표현한다. 각 행(열)은 정점 하나를, 행렬의 원소는 간선을 나타내며, <span class="arithmatex">\(1\)</span> 또는 <span class="arithmatex">\(0\)</span>으로 두 정점 사이에 간선이 있는지 표시한다.</p>
 <p>아래 그림(9-5)과 같이 인접 행렬을 <span class="arithmatex">\(M\)</span>, 정점 리스트를 <span class="arithmatex">\(V\)</span>라고 하면, 행렬 원소 <span class="arithmatex">\(M[i, j] = 1\)</span>은 정점 <span class="arithmatex">\(V[i]\)</span>와 정점 <span class="arithmatex">\(V[j]\)</span> 사이에 간선이 있음을 뜻한다. 반대로 <span class="arithmatex">\(M[i, j] = 0\)</span>은 두 정점 사이에 간선이 없음을 뜻한다.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_graph/graph.assets/adjacency_matrix.png" data-dark-src="/assets/figure-svg/figures/bcd44f1505101062ecc939f7.json" data-src="/assets/figure-svg/figures/82f5e6bf7dd48fc00124dd26.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_graph/graph.assets/adjacency_matrix.svg" data-theme="light" tabindex="-1" type="image/svg+xml">그래프의 인접 행렬 표현</object><object data="/ko/chapter_graph/graph.assets/adjacency_matrix.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">그래프의 인접 행렬 표현</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_graph/graph.assets/adjacency_matrix.png" data-dark-src="/assets/figure-svg/figures/3a36cde290680d61dd963e31.json" data-src="/assets/figure-svg/figures/0823d086c329a993dc4a43e8.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_graph/graph.assets/adjacency_matrix.svg" data-theme="light" tabindex="-1" type="image/svg+xml">그래프의 인접 행렬 표현</object><object data="/ko/chapter_graph/graph.assets/adjacency_matrix.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">그래프의 인접 행렬 표현</object></ha-svg-figure></p>
 <p align="center"> 그림 9-5   그래프의 인접 행렬 표현 </p>
 <p>인접 행렬에는 다음 성질이 있다.</p>
 <ul>
@@ -2019,7 +2019,7 @@ G &amp; = \{ V, E \} \newline
 <p>인접 행렬로 그래프를 표현하면 행렬 원소에 직접 접근하여 간선을 얻을 수 있다. 따라서 추가, 삭제, 조회, 수정 연산이 매우 효율적이며 시간 복잡도는 모두 <span class="arithmatex">\(O(1)\)</span>이다. 하지만 행렬의 공간 복잡도는 <span class="arithmatex">\(O(n^2)\)</span>이므로 메모리를 많이 차지한다.</p>
 <h3 id="2">2.   인접 리스트<a class="headerlink" href="#2" title="고유 링크">¶</a></h3>
 <p><u>인접 리스트(adjacency list)</u>는 <span class="arithmatex">\(n\)</span> 개의 연결 리스트로 그래프를 표현하며, 연결 리스트의 노드는 정점을 나타낸다. <span class="arithmatex">\(i\)</span> 번째 연결 리스트는 정점 <span class="arithmatex">\(i\)</span>에 대응하고, 해당 정점에 인접한 모든 정점(간선으로 연결된 정점)을 저장한다. 아래 그림(9-6)은 인접 리스트로 그래프를 저장한 예다.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_graph/graph.assets/adjacency_list.png" data-dark-src="/assets/figure-svg/figures/f858f07fce1419f318e6934e.json" data-src="/assets/figure-svg/figures/a19430ed2b59f0f36941d539.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_graph/graph.assets/adjacency_list.svg" data-theme="light" tabindex="-1" type="image/svg+xml">그래프의 인접 리스트 표현</object><object data="/ko/chapter_graph/graph.assets/adjacency_list.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">그래프의 인접 리스트 표현</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_graph/graph.assets/adjacency_list.png" data-dark-src="/assets/figure-svg/figures/194268e441b4636cb6c47405.json" data-src="/assets/figure-svg/figures/c96cb0780cd7924aed9c4105.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_graph/graph.assets/adjacency_list.svg" data-theme="light" tabindex="-1" type="image/svg+xml">그래프의 인접 리스트 표현</object><object data="/ko/chapter_graph/graph.assets/adjacency_list.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">그래프의 인접 리스트 표현</object></ha-svg-figure></p>
 <p align="center"> 그림 9-6   그래프의 인접 리스트 표현 </p>
 <p>인접 리스트는 실제로 존재하는 간선만 저장한다. 전체 간선 수는 보통 <span class="arithmatex">\(n^2\)</span>보다 훨씬 작으므로 공간을 더 절약할 수 있다. 하지만 간선을 찾으려면 연결 리스트를 순회해야 하므로 시간 효율은 인접 행렬보다 낮다.</p>
 <p>위 그림(9-6)을 보면 <strong>인접 리스트의 구조는 해시 테이블의 '체이닝'과 매우 비슷하므로, 비슷한 방법으로 효율을 높일 수 있다</strong>. 예를 들어 연결 리스트가 길면 AVL 트리나 레드-블랙 트리로 바꾸어 시간 복잡도를 <span class="arithmatex">\(O(n)\)</span>에서 <span class="arithmatex">\(O(\log n)\)</span>으로 개선할 수 있다. 연결 리스트를 해시 테이블로 바꾸면 시간 복잡도를 <span class="arithmatex">\(O(1)\)</span>로 줄일 수도 있다.</p>
@@ -2179,5 +2179,5 @@ G &amp; = \{ V, E \} \newline
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

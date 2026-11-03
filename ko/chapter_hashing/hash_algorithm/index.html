@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/abd17f77112eaa7224f372b6.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/abd17f77112eaa7224f372b6.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1944,7 +1944,7 @@
 <h1 id="63">6.3   해시 알고리즘<a class="headerlink" href="#63" title="고유 링크">¶</a></h1>
 <p>앞의 두 절에서는 해시 테이블의 작동 원리와 해시 충돌 처리 방법을 알아보았다. 하지만 개방 주소법이든 체이닝이든 <strong>충돌이 발생해도 해시 테이블이 정상적으로 작동하게 할 뿐, 충돌 발생 자체를 줄이지는 못한다</strong>.</p>
 <p>충돌이 너무 자주 발생하면 성능이 급격히 나빠진다. 아래 그림(6-8)의 체이닝 해시 테이블에서 이상적인 경우는 키-값 쌍이 각 버킷에 고르게 분포하여 최고의 조회 효율을 얻는 것이다. 최악의 경우에는 모든 키-값 쌍이 같은 버킷에 들어가 시간 복잡도가 <span class="arithmatex">\(O(n)\)</span>으로 나빠진다.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.png" data-dark-src="/assets/figure-svg/figures/06e2b1b0d09086c0ace3277f.json" data-src="/assets/figure-svg/figures/a6c237e9d491f48cb7e92a08.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.svg" data-theme="light" tabindex="-1" type="image/svg+xml">해시 충돌의 최선과 최악의 경우</object><object data="/ko/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">해시 충돌의 최선과 최악의 경우</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.png" data-dark-src="/assets/figure-svg/figures/c2f0c3a83339e986b42cc42d.json" data-src="/assets/figure-svg/figures/9c435953623a4b62c7020553.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.svg" data-theme="light" tabindex="-1" type="image/svg+xml">해시 충돌의 최선과 최악의 경우</object><object data="/ko/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">해시 충돌의 최선과 최악의 경우</object></ha-svg-figure></p>
 <p align="center"> 그림 6-8   해시 충돌의 최선과 최악의 경우 </p>
 <p><strong>키-값 쌍의 분포는 해시 함수가 결정한다</strong>. 해시 함수는 먼저 해시값을 계산하고 배열 길이로 나눈 나머지를 구한다.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nv">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hash<span class="o">(</span>key<span class="o">)</span><span class="w"> </span>%<span class="w"> </span>capacity
@@ -3036,5 +3036,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

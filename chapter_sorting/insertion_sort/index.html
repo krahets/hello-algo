@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1961,7 +1961,7 @@
 <p><u>插入排序（insertion sort）</u>是一种简单的排序算法，它的工作原理与手动整理一副牌的过程非常相似。</p>
 <p>具体来说，我们在未排序区间选择一个基准元素，将该元素与其左侧已排序区间的元素逐一比较大小，并将该元素插入到正确的位置。</p>
 <p>图 11-6 展示了数组插入元素的操作流程。设基准元素为 <code>base</code> ，我们需要将从目标索引到 <code>base</code> 之间的所有元素向右移动一位，然后将 <code>base</code> 赋值给目标索引。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_sorting/insertion_sort.assets/insertion_operation.png" data-dark-src="/assets/figure-svg/figures/13a3ab7b91cadaf8e05edf7c.json" data-src="/assets/figure-svg/figures/a58dbbcae73eb7b88c073c03.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_sorting/insertion_sort.assets/insertion_operation.svg" data-theme="light" tabindex="-1" type="image/svg+xml">单次插入操作</object><object data="/chapter_sorting/insertion_sort.assets/insertion_operation.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">单次插入操作</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_sorting/insertion_sort.assets/insertion_operation.png" data-dark-src="/assets/figure-svg/figures/1b5fdd52079f00c02e45b521.json" data-src="/assets/figure-svg/figures/9ae291b36f8c919b55dd859f.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_sorting/insertion_sort.assets/insertion_operation.svg" data-theme="light" tabindex="-1" type="image/svg+xml">单次插入操作</object><object data="/chapter_sorting/insertion_sort.assets/insertion_operation.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">单次插入操作</object></ha-svg-figure></p>
 <p align="center"> 图 11-6   单次插入操作 </p>
 <h2 id="1141">11.4.1   算法流程<a class="headerlink" href="#1141" title="Permanent link">¶</a></h2>
 <p>插入排序的整体流程如图 11-7 所示。</p>
@@ -1971,7 +1971,7 @@
 <li>选取第 3 个元素作为 <code>base</code> ，将其插入到正确位置后，<strong>数组的前 3 个元素已排序</strong>。</li>
 <li>以此类推，在最后一轮中，选取最后一个元素作为 <code>base</code> ，将其插入到正确位置后，<strong>所有元素均已排序</strong>。</li>
 </ol>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_sorting/insertion_sort.assets/insertion_sort_overview.png" data-dark-src="/assets/figure-svg/figures/c6042afe4a88705ae18b39f6.json" data-src="/assets/figure-svg/figures/11243c67b0c91cf94b4d5ba8.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_sorting/insertion_sort.assets/insertion_sort_overview.svg" data-theme="light" tabindex="-1" type="image/svg+xml">插入排序流程</object><object data="/chapter_sorting/insertion_sort.assets/insertion_sort_overview.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">插入排序流程</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_sorting/insertion_sort.assets/insertion_sort_overview.png" data-dark-src="/assets/figure-svg/figures/b0ded90b8847adea366a60ee.json" data-src="/assets/figure-svg/figures/122b31b6aeb53f42d120b4f8.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_sorting/insertion_sort.assets/insertion_sort_overview.svg" data-theme="light" tabindex="-1" type="image/svg+xml">插入排序流程</object><object data="/chapter_sorting/insertion_sort.assets/insertion_sort_overview.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">插入排序流程</object></ha-svg-figure></p>
 <p align="center"> 图 11-7   插入排序流程 </p>
 <p>示例代码如下：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input id="__tabbed_1_9" name="__tabbed_1" type="radio"/><input id="__tabbed_1_10" name="__tabbed_1" type="radio"/><input id="__tabbed_1_11" name="__tabbed_1" type="radio"/><input id="__tabbed_1_12" name="__tabbed_1" type="radio"/><input id="__tabbed_1_13" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
@@ -2335,5 +2335,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

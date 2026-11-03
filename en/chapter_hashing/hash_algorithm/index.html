@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1950,7 +1950,7 @@
 <h1 id="63-hash-algorithms">6.3   Hash algorithms<a class="headerlink" href="#63-hash-algorithms" title="Permanent link">¶</a></h1>
 <p>The previous two sections explained how hash tables work and how collisions are resolved. Whether we use open addressing or separate chaining, <strong>these techniques keep the table working when collisions occur, but do not reduce how often collisions happen</strong>.</p>
 <p>Frequent collisions can severely degrade performance. In the separate-chaining table shown below, the ideal case distributes pairs evenly among buckets for the best lookup efficiency. In the worst case, all pairs occupy the same bucket, degrading the time complexity to <span class="arithmatex">\(O(n)\)</span>.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="en/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.png" data-dark-src="/assets/figure-svg/figures/602b3dca1c7623d3781892f3.json" data-src="/assets/figure-svg/figures/8c1c8c806ce8cb0986486d26.json" style=";--figure-ratio:960.0/540.0"><object data="/en/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.svg" data-theme="light" tabindex="-1" type="image/svg+xml">Best and worst cases for hash collisions</object><object data="/en/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">Best and worst cases for hash collisions</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="en/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.png" data-dark-src="/assets/figure-svg/figures/1c042a764328a0e2a3146fde.json" data-src="/assets/figure-svg/figures/c0e3e4d6caf2c8cfdfe62298.json" style=";--figure-ratio:960.0/540.0"><object data="/en/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.svg" data-theme="light" tabindex="-1" type="image/svg+xml">Best and worst cases for hash collisions</object><object data="/en/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">Best and worst cases for hash collisions</object></ha-svg-figure></p>
 <p align="center"> Figure 6-8   Best and worst cases for hash collisions </p>
 <p><strong>The hash function determines how key-value pairs are distributed</strong>. Recall its two steps: calculate a hash value, then take it modulo the array length:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nv">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hash<span class="o">(</span>key<span class="o">)</span><span class="w"> </span>%<span class="w"> </span>capacity
@@ -3042,5 +3042,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

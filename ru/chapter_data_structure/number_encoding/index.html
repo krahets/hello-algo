@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1925,7 +1925,7 @@
 <li><strong>Дополнительный код</strong>: для положительного числа дополнительный код совпадает с прямым. Для отрицательного числа он получается добавлением <span class="arithmatex">\(1\)</span> к его обратному коду.</li>
 </ul>
 <p>На рисунке 3-4 показаны способы преобразования между прямым, обратным и дополнительным кодами.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ru/chapter_data_structure/number_encoding.assets/1s_2s_complement.png" data-dark-src="/assets/figure-svg/figures/e7baccade8425b21a08db4a3.json" data-src="/assets/figure-svg/figures/ac6d15aeda8c91752a62742c.json" style=";--figure-ratio:960.0/540.0"><object data="/ru/chapter_data_structure/number_encoding.assets/1s_2s_complement.svg" data-theme="light" tabindex="-1" type="image/svg+xml">Преобразования между прямым, обратным и дополнительным кодами</object><object data="/ru/chapter_data_structure/number_encoding.assets/1s_2s_complement.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">Преобразования между прямым, обратным и дополнительным кодами</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ru/chapter_data_structure/number_encoding.assets/1s_2s_complement.png" data-dark-src="/assets/figure-svg/figures/41d9cf0903d3012c053cdb45.json" data-src="/assets/figure-svg/figures/bc00eb5de968268d49ef638a.json" style=";--figure-ratio:960.0/540.0"><object data="/ru/chapter_data_structure/number_encoding.assets/1s_2s_complement.svg" data-theme="light" tabindex="-1" type="image/svg+xml">Преобразования между прямым, обратным и дополнительным кодами</object><object data="/ru/chapter_data_structure/number_encoding.assets/1s_2s_complement.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">Преобразования между прямым, обратным и дополнительным кодами</object></ha-svg-figure></p>
 <p align="center"> Рисунок 3-4   Преобразования между прямым, обратным и дополнительным кодами </p>
 <p><u>Прямой код (sign-magnitude)</u>, хотя и является самым наглядным, имеет определенные ограничения. С одной стороны, <strong>прямой код отрицательных чисел нельзя напрямую использовать в вычислениях</strong>. Например, при вычислении <span class="arithmatex">\(1 + (-2)\)</span> в прямом коде результатом будет <span class="arithmatex">\(-3\)</span> , что, очевидно, неверно.</p>
 <div class="arithmatex">\[
@@ -2006,7 +2006,7 @@ b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 (1 + \mathrm{N}) = &amp; (1 + \sum_{i=1}^{23} b_{23-i} 2^{-i}) \subset [1, 2 - 2^{-23}]
 \end{aligned}
 \]</div>
-<p><ha-svg-figure class="animation-figure" data-book-key="ru/chapter_data_structure/number_encoding.assets/ieee_754_float.png" data-dark-src="/assets/figure-svg/figures/12b368eb8028756e035617af.json" data-src="/assets/figure-svg/figures/2b44e4067289e6c3f23ad37d.json" style=";--figure-ratio:960.0/540.0"><object data="/ru/chapter_data_structure/number_encoding.assets/ieee_754_float.svg" data-theme="light" tabindex="-1" type="image/svg+xml">Пример вычисления float по стандарту IEEE 754</object><object data="/ru/chapter_data_structure/number_encoding.assets/ieee_754_float.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">Пример вычисления float по стандарту IEEE 754</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ru/chapter_data_structure/number_encoding.assets/ieee_754_float.png" data-dark-src="/assets/figure-svg/figures/99805c9ea90cdea550e16bb1.json" data-src="/assets/figure-svg/figures/f2f2f3e43785210b607f502e.json" style=";--figure-ratio:960.0/540.0"><object data="/ru/chapter_data_structure/number_encoding.assets/ieee_754_float.svg" data-theme="light" tabindex="-1" type="image/svg+xml">Пример вычисления float по стандарту IEEE 754</object><object data="/ru/chapter_data_structure/number_encoding.assets/ieee_754_float.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">Пример вычисления float по стандарту IEEE 754</object></ha-svg-figure></p>
 <p align="center"> Рисунок 3-5   Пример вычисления float по стандарту IEEE 754 </p>
 <p>Как видно на рисунке 3-5, если взять пример <span class="arithmatex">\(\mathrm{S} = 0\)</span> , <span class="arithmatex">\(\mathrm{E} = 124\)</span> , <span class="arithmatex">\(\mathrm{N} = 2^{-2} + 2^{-3} = 0.375\)</span> , то получим:</p>
 <div class="arithmatex">\[
@@ -2171,5 +2171,5 @@ b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

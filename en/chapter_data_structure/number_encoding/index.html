@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1925,7 +1925,7 @@
 <li><strong>Two's complement</strong>: A positive number again has the same representation as sign-magnitude. For a negative number, add <span class="arithmatex">\(1\)</span> to its one's complement.</li>
 </ul>
 <p>Figure 3-4 shows how to convert among these representations.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="en/chapter_data_structure/number_encoding.assets/1s_2s_complement.png" data-dark-src="/assets/figure-svg/figures/397fe5cfa5176f8ca8b4bb68.json" data-src="/assets/figure-svg/figures/6d523802abf476ca70d02eb5.json" style=";--figure-ratio:960.0/540.0"><object data="/en/chapter_data_structure/number_encoding.assets/1s_2s_complement.svg" data-theme="light" tabindex="-1" type="image/svg+xml">Converting between sign-magnitude, one's complement, and two's complement</object><object data="/en/chapter_data_structure/number_encoding.assets/1s_2s_complement.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">Converting between sign-magnitude, one's complement, and two's complement</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="en/chapter_data_structure/number_encoding.assets/1s_2s_complement.png" data-dark-src="/assets/figure-svg/figures/98801e8e5cb03cae20115983.json" data-src="/assets/figure-svg/figures/dd4b9a4dcae05977bb4b6e51.json" style=";--figure-ratio:960.0/540.0"><object data="/en/chapter_data_structure/number_encoding.assets/1s_2s_complement.svg" data-theme="light" tabindex="-1" type="image/svg+xml">Converting between sign-magnitude, one's complement, and two's complement</object><object data="/en/chapter_data_structure/number_encoding.assets/1s_2s_complement.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">Converting between sign-magnitude, one's complement, and two's complement</object></ha-svg-figure></p>
 <p align="center"> Figure 3-4   Converting between sign-magnitude, one's complement, and two's complement </p>
 <p>Although <u>sign-magnitude</u> is intuitive, it has limitations. First, <strong>negative sign-magnitude values cannot be used directly in ordinary binary arithmetic</strong>. For example, directly adding <span class="arithmatex">\(1 + (-2)\)</span> in this representation gives <span class="arithmatex">\(-3\)</span>, which is clearly wrong.</p>
 <div class="arithmatex">\[
@@ -2006,7 +2006,7 @@ b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 (1 + \mathrm{N}) = &amp; (1 + \sum_{i=1}^{23} b_{23-i} 2^{-i}) \subset [1, 2 - 2^{-23}]
 \end{aligned}
 \]</div>
-<p><ha-svg-figure class="animation-figure" data-book-key="en/chapter_data_structure/number_encoding.assets/ieee_754_float.png" data-dark-src="/assets/figure-svg/figures/55e086e91a4c8c7e114c26fc.json" data-src="/assets/figure-svg/figures/07baca03484e687b4e855bdf.json" style=";--figure-ratio:960.0/540.0"><object data="/en/chapter_data_structure/number_encoding.assets/ieee_754_float.svg" data-theme="light" tabindex="-1" type="image/svg+xml">Example of an IEEE 754 float calculation</object><object data="/en/chapter_data_structure/number_encoding.assets/ieee_754_float.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">Example of an IEEE 754 float calculation</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="en/chapter_data_structure/number_encoding.assets/ieee_754_float.png" data-dark-src="/assets/figure-svg/figures/a6e0e9fba706ed40e99b3bb2.json" data-src="/assets/figure-svg/figures/950abea682674cbde9ec1917.json" style=";--figure-ratio:960.0/540.0"><object data="/en/chapter_data_structure/number_encoding.assets/ieee_754_float.svg" data-theme="light" tabindex="-1" type="image/svg+xml">Example of an IEEE 754 float calculation</object><object data="/en/chapter_data_structure/number_encoding.assets/ieee_754_float.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">Example of an IEEE 754 float calculation</object></ha-svg-figure></p>
 <p align="center"> Figure 3-5   Example of an IEEE 754 float calculation </p>
 <p>In Figure 3-5, <span class="arithmatex">\(\mathrm{S} = 0\)</span>, <span class="arithmatex">\(\mathrm{E} = 124\)</span>, and <span class="arithmatex">\(\mathrm{N} = 2^{-2} + 2^{-3} = 0.375\)</span>, giving:</p>
 <div class="arithmatex">\[
@@ -2171,5 +2171,5 @@ b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

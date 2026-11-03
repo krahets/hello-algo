@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/abd17f77112eaa7224f372b6.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/abd17f77112eaa7224f372b6.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1928,7 +1928,7 @@
 <p class="admonition-title">문제</p>
 <p>물건 <span class="arithmatex">\(n\)</span> 개와 용량이 <span class="arithmatex">\(cap\)</span>인 배낭이 주어진다. <span class="arithmatex">\(i\)</span> 번째 물건의 무게는 <span class="arithmatex">\(wgt[i-1]\)</span>, 가치는 <span class="arithmatex">\(val[i-1]\)</span>이다. 각 물건은 한 번만 선택할 수 있지만, <strong>일부만 선택할 수 있으며 가치는 선택한 무게의 비율에 따라 계산한다</strong>. 용량 제한 안에서 배낭에 담을 수 있는 최대 가치를 구하라. 예시는 아래 그림(15-3)과 같다.</p>
 </div>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.png" data-dark-src="/assets/figure-svg/figures/c277ded4cb701f575376d84c.json" data-src="/assets/figure-svg/figures/cd4820250793aff5b034d89f.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.svg" data-theme="light" tabindex="-1" type="image/svg+xml">분할 가능한 배낭 문제 예시 데이터</object><object data="/ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">분할 가능한 배낭 문제 예시 데이터</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.png" data-dark-src="/assets/figure-svg/figures/75a4f5e7ce11f95111470130.json" data-src="/assets/figure-svg/figures/eaff5ff541c7ca20b5395ab9.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.svg" data-theme="light" tabindex="-1" type="image/svg+xml">분할 가능한 배낭 문제 예시 데이터</object><object data="/ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">분할 가능한 배낭 문제 예시 데이터</object></ha-svg-figure></p>
 <p align="center"> 그림 15-3   분할 가능한 배낭 문제 예시 데이터 </p>
 <p>분할 가능한 배낭 문제는 전체적으로 0-1 배낭 문제와 매우 비슷하다. 상태는 현재 물건 <span class="arithmatex">\(i\)</span>와 용량 <span class="arithmatex">\(c\)</span>를 포함하며, 목표는 용량 제한 안에서 최대 가치를 구하는 것이다.</p>
 <p>차이점은 물건의 일부만 선택할 수 있다는 점이다. 아래 그림(15-4)과 같이 <strong>물건을 원하는 대로 나누고 무게 비율에 따라 그 가치를 계산할 수 있다</strong>.</p>
@@ -1936,7 +1936,7 @@
 <li>물건 <span class="arithmatex">\(i\)</span>의 단위 무게당 가치는 <span class="arithmatex">\(val[i-1] / wgt[i-1]\)</span>이며, 줄여서 단위 가치라고 한다.</li>
 <li>물건 <span class="arithmatex">\(i\)</span>의 일부를 무게 <span class="arithmatex">\(w\)</span>만큼 넣으면 배낭의 가치는 <span class="arithmatex">\(w \times val[i-1] / wgt[i-1]\)</span>만큼 늘어난다.</li>
 </ol>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png" data-dark-src="/assets/figure-svg/figures/497504e6953e42789a478079.json" data-src="/assets/figure-svg/figures/2a76124d754a286e378e228d.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.svg" data-theme="light" tabindex="-1" type="image/svg+xml">물건의 단위 무게당 가치</object><object data="/ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">물건의 단위 무게당 가치</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png" data-dark-src="/assets/figure-svg/figures/0090a8fdec20e62fe04130c4.json" data-src="/assets/figure-svg/figures/69a95e189978038f8ae4193a.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.svg" data-theme="light" tabindex="-1" type="image/svg+xml">물건의 단위 무게당 가치</object><object data="/ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">물건의 단위 무게당 가치</object></ha-svg-figure></p>
 <p align="center"> 그림 15-4   물건의 단위 무게당 가치 </p>
 <h3 id="1">1.   탐욕 전략 결정<a class="headerlink" href="#1" title="고유 링크">¶</a></h3>
 <p>배낭 안의 총가치를 최대화하는 것은 <strong>본질적으로 단위 무게당 물건 가치를 최대화하는 것</strong>이다. 여기서 아래 그림(15-5)의 탐욕 전략을 도출할 수 있다.</p>
@@ -1945,7 +1945,7 @@
 <li>모든 물건을 순회하며 <strong>매번 단위 가치가 가장 높은 물건을 탐욕적으로 선택한다</strong>.</li>
 <li>남은 용량이 부족하면 현재 물건의 일부로 배낭을 가득 채운다.</li>
 </ol>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png" data-dark-src="/assets/figure-svg/figures/0077b70ebc59081f4df81977.json" data-src="/assets/figure-svg/figures/a585ba8fc77b867ec409cf69.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.svg" data-theme="light" tabindex="-1" type="image/svg+xml">분할 가능한 배낭 문제의 탐욕 전략</object><object data="/ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">분할 가능한 배낭 문제의 탐욕 전략</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png" data-dark-src="/assets/figure-svg/figures/7a0af29e47c1115ab144a6ea.json" data-src="/assets/figure-svg/figures/2a15a5b3c1b4ef5534042f9d.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.svg" data-theme="light" tabindex="-1" type="image/svg+xml">분할 가능한 배낭 문제의 탐욕 전략</object><object data="/ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">분할 가능한 배낭 문제의 탐욕 전략</object></ha-svg-figure></p>
 <p align="center"> 그림 15-5   분할 가능한 배낭 문제의 탐욕 전략 </p>
 <h3 id="2">2.   코드 구현<a class="headerlink" href="#2" title="고유 링크">¶</a></h3>
 <p>단위 가치순으로 정렬하기 쉽도록 물건 클래스 <code>Item</code>을 만든다. 탐욕적 선택을 반복하다가 배낭이 가득 차면 반복문을 빠져나와 해를 반환한다.</p>
@@ -2432,7 +2432,7 @@
 <p>배낭에서 임의의 물건을 단위 무게만큼 꺼내고 같은 무게의 물건 <span class="arithmatex">\(x\)</span>로 바꾼다. <span class="arithmatex">\(x\)</span>의 단위 가치가 가장 높으므로 바꾼 뒤의 총가치는 반드시 <code>res</code>보다 커진다. <strong>이는 <code>res</code>가 최적해라는 가정에 모순이므로 최적해에는 물건 <span class="arithmatex">\(x\)</span>가 포함되어야 한다</strong>.</p>
 <p>그 해의 다른 물건에도 같은 모순을 구성할 수 있다. 즉, <strong>단위 가치가 더 높은 물건이 항상 더 좋은 선택</strong>이며, 탐욕 전략이 유효함을 알 수 있다.</p>
 <p>아래 그림(15-6)과 같이 물건 무게를 가로축, 단위 가치를 세로축으로 보면, 분할 가능한 배낭 문제는 '제한된 가로축 구간에서 최대 넓이를 구하는' 문제로 바뀐다. 이 비유는 탐욕 전략의 유효성을 기하학적으로 이해하는 데 도움이 된다.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" data-dark-src="/assets/figure-svg/figures/f0ff0b94b379ea5063703368.json" data-src="/assets/figure-svg/figures/f580ea165774dfcc8618c9cc.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.svg" data-theme="light" tabindex="-1" type="image/svg+xml">분할 가능한 배낭 문제의 기하학적 표현</object><object data="/ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">분할 가능한 배낭 문제의 기하학적 표현</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" data-dark-src="/assets/figure-svg/figures/bf6c2a09a38e085d8250aab9.json" data-src="/assets/figure-svg/figures/c7bbe7c3fc0df1ae2c8b4f2c.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.svg" data-theme="light" tabindex="-1" type="image/svg+xml">분할 가능한 배낭 문제의 기하학적 표현</object><object data="/ko/chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">분할 가능한 배낭 문제의 기하학적 표현</object></ha-svg-figure></p>
 <p align="center"> 그림 15-6   분할 가능한 배낭 문제의 기하학적 표현 </p>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
@@ -2555,5 +2555,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

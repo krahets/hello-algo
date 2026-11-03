@@ -1,0 +1,297 @@
+/* Shared by the Zensical and legacy landing pages. */
+:root {
+  --home-universe-bg: #171717;
+}
+
+/* Keep the landing header and static/animated scene on the same opaque surface. */
+.md-header.md-header--landing {
+  background-color: var(--home-universe-bg);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.home-div.home-universe-bg {
+  --hero-starfield-bg-color: var(--home-universe-bg);
+  --hero-map-height: min(84svh, 75vw);
+  background-color: var(--home-universe-bg);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: min(100svh, 120vw);
+  margin-top: -2.4rem;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Restore the static illustration's scale and centered composition in every language. */
+.home-div.home-universe-bg > .hero-div {
+  flex: none;
+  width: min(112svh, 100%);
+  height: var(--hero-map-height);
+  margin: -2.4rem auto 0;
+  font-size: max(9px, min(1.8svh, 2.5vw));
+}
+
+.home-div.home-universe-bg > :is(.hero-div--en, .hero-div--ja, .hero-div--ru, .hero-div--ko) {
+  font-size: max(9px, min(1.5svh, 2vw));
+}
+
+/* The title occupies the illustration's lower central negative space, as in the static page. */
+.home-div.home-universe-bg > .heading-div {
+  position: absolute;
+  left: 50%;
+  bottom: min(2svh, 3vw);
+  transform: translateX(-50%);
+  padding: 0;
+}
+
+@media screen and (max-width: 60em) {
+  .home-div.home-universe-bg {
+    /* Keep the upper labels below the header on very small/short viewports. */
+    min-height: calc(var(--hero-map-height) + 8rem);
+  }
+  .home-div.home-universe-bg > .hero-div { margin-top: -4rem; }
+}
+
+.home-universe-bg .heading-div .rounded-button { pointer-events: auto; }
+
+/* Preserve the map on phones and short windows; translations grow downward. */
+@media (max-width: 600px), (max-height: 600px) {
+  .home-div.home-universe-bg {
+    display: block;
+    height: auto;
+    min-height: min(100svh, 120vw);
+    padding-top: max(2rem, calc((min(100svh, 120vw) - var(--hero-map-height) - 4rem) / 2));
+  }
+  .home-div.home-universe-bg > .hero-div { margin: 0 auto; }
+  .home-div.home-universe-bg > .heading-div {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    margin-top: -2rem;
+    padding-bottom: max(1.5rem, min(2svh, 3vw));
+  }
+}
+@media (max-width: 600px) {
+  .home-universe-bg.hero-universe .hero-motion-toggle { bottom: .25rem; }
+  .home-universe-bg .heading-div p {
+    font-size: clamp(12px, 3.5vw, 16px);
+    padding-inline: 12px;
+  }
+}
+
+.hero-universe .starfield {
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--home-universe-bg) 72px, transparent 200px),
+    radial-gradient(ellipse at 25% 30%, rgba(85, 174, 166, 0.055), transparent 55%),
+    radial-gradient(ellipse at 80% 60%, rgba(130, 144, 187, 0.045), transparent 50%);
+}
+
+.hero-universe .hero-stars {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Drift is independent of hover; selection never changes an object's size. */
+.hero-universe .hero-div > a > img,
+.hero-universe .hero-div > a > span {
+  translate: var(--hero-x, 0px) var(--hero-y, 0px);
+}
+
+.hero-universe .hero-div > a > img {
+  rotate: var(--hero-angle, 0deg);
+  transition: transform 240ms ease, filter 240ms ease;
+}
+
+.hero-universe .hero-ground,
+.hero-universe .hero-links {
+  translate: var(--hero-ground-x, 0px) var(--hero-ground-y, 0px);
+  pointer-events: none;
+}
+
+.hero-universe .hero-links {
+  opacity: .72;
+  transition: filter 300ms ease;
+}
+
+.hero-universe .hero-network-active > .hero-links {
+  filter: brightness(1.16) drop-shadow(0 0 2px rgba(126, 207, 196, 0.22));
+}
+
+.hero-universe .hero-div > a.hero-selected > img {
+  transform: none;
+  filter: brightness(1.04) drop-shadow(0 0 3px rgba(147, 213, 204, 0.18));
+}
+
+.hero-universe .hero-div > a.hero-selected > span {
+  color: var(--md-typeset-btn-color);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* The positioned children, rather than the zero-size inline anchor, show focus. */
+.hero-universe .hero-div > a:focus-visible {
+  outline: none;
+}
+
+.hero-universe .hero-div > a:focus-visible > span {
+  outline: 2px solid var(--md-typeset-btn-color);
+  outline-offset: 5px;
+  border-radius: 2px;
+}
+
+.hero-universe .hero-motion-toggle {
+  position: absolute;
+  bottom: 0.65rem;
+  right: 0.65rem;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 11px;
+  border: 1px solid rgba(197, 216, 213, 0.25);
+  border-radius: 50%;
+  background: rgba(30, 30, 30, 0.7);
+  color: #bbceca;
+  cursor: pointer;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+
+.hero-universe .hero-motion-toggle:hover,
+.hero-universe .hero-motion-toggle:focus-visible {
+  color: #e1f3ef;
+  border-color: var(--md-typeset-btn-color);
+  outline: 2px solid var(--md-typeset-btn-color);
+  outline-offset: 3px;
+}
+
+.hero-motion-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-motion-toggle .hero-play-icon,
+.hero-motion-toggle[data-paused="true"] .hero-pause-icon,
+.hero-universe .hero-motion-toggle[hidden] {
+  display: none;
+}
+
+.hero-motion-toggle[data-paused="true"] .hero-play-icon {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-universe .hero-div > a > img,
+  .hero-universe .hero-div > a > span,
+  .hero-universe .hero-ground,
+  .hero-universe .hero-links {
+    translate: none;
+    rotate: none;
+    transition: none;
+  }
+
+  .hero-universe .hero-div > a:hover > img,
+  .hero-universe .hero-div > a.hero-selected > img {
+    transform: none;
+  }
+}
+
+/* Chapter labels stay clickable above neighbouring transparent image hit boxes. */
+.hero-div > a > span { z-index: 1; }
+
+/* Metadata-only boxes reserve layout and native hit targets without downloading fallback art. */
+.hero-div > a > noscript > img { width: auto; position: absolute; }
+.hero-div img[data-hero-fallback]:not([src]) { opacity: 0 !important; }
+
+.hero-universe .hero-div > a > img.hero-replaced {
+  opacity: 0;
+}
+
+.hero-universe .hero-objects-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero-universe .hero-objects-canvas[hidden] {
+  display: none;
+}
+
+/* Original art is a complete fallback; labels and hit areas remain native HTML. */
+.hero-universe .hero-div > img.hero-replaced { opacity: 0; }
+
+.hero-universe > .hero-objects-canvas { z-index: 0; }
+
+/* Immediate preference response also covers an already-paused animation clock. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-universe .hero-objects-canvas,
+  .hero-universe .hero-motion-toggle { display: none; }
+  .hero-universe .hero-div img.hero-replaced { opacity: 1; }
+  .hero-three-active .hero-stars { visibility: visible; }
+}
+
+/* Long localized labels need space beside the new volumetric silhouettes. */
+.hero-three-active .hero-div--en > a[href$="chapter_greedy/"] > span {
+  margin-left: -4%;
+}
+.hero-three-active :is(.hero-div--en, .hero-div--ja) > a[href$="chapter_stack_and_queue/"] > span {
+  margin-left: 4%;
+}
+
+/* Restore the animated, hand-drawn glass from the accepted motion study. */
+.hero-universe .hero-div > a > .hero-hourglass {
+  position: absolute;
+  width: auto;
+  aspect-ratio: 113 / 178;
+  overflow: visible;
+  pointer-events: none;
+  translate: var(--hero-x, 0px) var(--hero-y, 0px);
+  rotate: var(--hero-angle, 0deg);
+  transition: transform 240ms ease, filter 240ms ease;
+}
+.hero-universe .hero-div > a.hero-selected > .hero-hourglass {
+  transform: none;
+  filter: brightness(1.04) drop-shadow(0 0 3px rgba(147, 213, 204, 0.18));
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-universe .hero-hourglass { display: none !important; }
+}
+
+/* Override legacy :hover scaling, including the still-visible original hit targets. */
+.hero-universe .hero-div > a:hover > img { transform: none; filter: none; }
+.hero-universe .hero-div > a.hero-selected > img { filter: brightness(1.04); }
+
+/* Intrinsic dimensions reserve space without overriding responsive media height. */
+.home-div .profile-img { height: auto; }
+.home-div video.intro-image { height: auto; }
+
+/* Keep the full chapter title centered above the hourglass on compact maps. */
+@media (max-width: 600px), (max-height: 600px) {
+  .hero-div > a[href="chapter_computational_complexity/"] > span {
+    width: 22%;
+    max-width: 12ch;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+}
+
+@media (max-width: 600px), (max-height: 600px) {
+  .hero-div:is(.hero-div--ja, .hero-div--ru) > a[href="chapter_sorting/"] > span {
+    margin-top: 3%;
+  }
+}

@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1997,7 +1997,7 @@
 <p>在计算机中，所有数据都是以二进制数的形式存储的，字符 <code>char</code> 也不例外。为了表示字符，我们需要建立一套“字符集”，规定每个字符和二进制数之间的一一对应关系。有了字符集之后，计算机就可以通过查表完成二进制数到字符的转换。</p>
 <h2 id="341-ascii">3.4.1   ASCII 字符集<a class="headerlink" href="#341-ascii" title="Permanent link">¶</a></h2>
 <p><u>ASCII 码</u>是最早出现的字符集，其全称为 American Standard Code for Information Interchange（美国标准信息交换代码）。它使用 7 位二进制数（一个字节的低 7 位）表示一个字符，最多能够表示 128 个不同的字符。如图 3-6 所示，ASCII 码包括英文字母的大小写、数字 0 ~ 9、一些标点符号，以及一些控制字符（如换行符和制表符）。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_data_structure/character_encoding.assets/ascii_table.png" data-dark-src="/assets/figure-svg/figures/06e1794b2c202372e478099e.json" data-src="/assets/figure-svg/figures/6846eaadd773970c5ee2b523.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_data_structure/character_encoding.assets/ascii_table.svg" data-theme="light" tabindex="-1" type="image/svg+xml">ASCII 码</object><object data="/chapter_data_structure/character_encoding.assets/ascii_table.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">ASCII 码</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_data_structure/character_encoding.assets/ascii_table.png" data-dark-src="/assets/figure-svg/figures/5237183f7963ac7363ec0ff1.json" data-src="/assets/figure-svg/figures/7368e72335e65278ee895885.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_data_structure/character_encoding.assets/ascii_table.svg" data-theme="light" tabindex="-1" type="image/svg+xml">ASCII 码</object><object data="/chapter_data_structure/character_encoding.assets/ascii_table.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">ASCII 码</object></ha-svg-figure></p>
 <p align="center"> 图 3-6   ASCII 码 </p>
 <p>然而，<strong>ASCII 码仅能够表示英文</strong>。随着计算机的全球化，诞生了一种能够表示更多语言的 <u>EASCII</u> 字符集。它在 ASCII 的 7 位基础上扩展到 8 位，能够表示 256 个不同的字符。</p>
 <p>在世界范围内，陆续出现了一批适用于不同地区的 EASCII 字符集。这些字符集的前 128 个字符统一为 ASCII 码，后 128 个字符定义不同，以适应不同语言的需求。</p>
@@ -2010,7 +2010,7 @@
 <p><u>Unicode</u> 的中文名称为“统一码”，理论上能容纳 100 多万个字符。它致力于将全球范围内的字符纳入统一的字符集之中，提供一种通用的字符集来处理和显示各种语言文字，减少因为编码标准不同而产生的乱码问题。自 1991 年发布以来，Unicode 不断扩充新的语言与字符。截至 2022 年 9 月，Unicode 已经包含 149186 个字符，包括各种语言的字符、符号甚至表情符号等。</p>
 <p>Unicode 作为一种通用字符集，本质上是给每个字符分配唯一的“码点”（字符编号），其取值范围为 U+0000 至 U+10FFFF，构成了统一的字符编号空间。然而，<strong>Unicode 并没有规定在计算机中如何存储这些字符码点</strong>。我们不禁会问：当多种长度的 Unicode 码点同时出现在一个文本中时，系统如何解析字符？例如给定一个长度为 2 字节的编码，系统如何确认它是一个 2 字节的字符还是两个 1 字节的字符？</p>
 <p>对于以上问题，<strong>一种直接的解决方案是将所有字符存储为等长的编码</strong>。如图 3-7 所示，“Hello”中的每个字符占用 1 字节，“算法”中的每个字符占用 2 字节。我们可以通过高位填 0 将“Hello 算法”中的所有字符都编码为 2 字节长度。这样系统就可以每隔 2 字节解析一个字符，恢复这个短语的内容了。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_data_structure/character_encoding.assets/unicode_hello_algo.png" data-dark-src="/assets/figure-svg/figures/f9821cffca5171173e03f05e.json" data-src="/assets/figure-svg/figures/5de71c39c1fbc4c34a4acc2a.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_data_structure/character_encoding.assets/unicode_hello_algo.svg" data-theme="light" tabindex="-1" type="image/svg+xml">Unicode 编码示例</object><object data="/chapter_data_structure/character_encoding.assets/unicode_hello_algo.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">Unicode 编码示例</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_data_structure/character_encoding.assets/unicode_hello_algo.png" data-dark-src="/assets/figure-svg/figures/0a2537e33cc996cdbcd728ae.json" data-src="/assets/figure-svg/figures/0045c1ae0068690a47a20314.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_data_structure/character_encoding.assets/unicode_hello_algo.svg" data-theme="light" tabindex="-1" type="image/svg+xml">Unicode 编码示例</object><object data="/chapter_data_structure/character_encoding.assets/unicode_hello_algo.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">Unicode 编码示例</object></ha-svg-figure></p>
 <p align="center"> 图 3-7   Unicode 编码示例 </p>
 <p>然而 ASCII 码已经向我们证明，编码英文只需 1 字节。若采用上述方案，英文文本占用空间的大小将会是 ASCII 编码下的两倍，非常浪费内存空间。因此，我们需要一种更加高效的 Unicode 编码方法。</p>
 <h2 id="344-utf-8">3.4.4   UTF-8 编码<a class="headerlink" href="#344-utf-8" title="Permanent link">¶</a></h2>
@@ -2023,7 +2023,7 @@
 <p>图 3-8 展示了“Hello算法”对应的 UTF-8 编码。观察发现，由于最高 <span class="arithmatex">\(n\)</span> 位都设置为 <span class="arithmatex">\(1\)</span> ，因此系统可以通过读取最高位 <span class="arithmatex">\(1\)</span> 的个数来解析出字符的长度为 <span class="arithmatex">\(n\)</span> 。</p>
 <p>但为什么要将其余所有字节的高 2 位都设置为 <span class="arithmatex">\(10\)</span> 呢？实际上，这个 <span class="arithmatex">\(10\)</span> 能够起到校验符的作用。假设系统从一个错误的字节开始解析文本，字节头部的 <span class="arithmatex">\(10\)</span> 能够帮助系统快速判断出异常。</p>
 <p>之所以将 <span class="arithmatex">\(10\)</span> 当作校验符，是因为在 UTF-8 编码规则下，不可能有字符的最高两位是 <span class="arithmatex">\(10\)</span> 。这个结论可以用反证法来证明：假设一个字符的最高两位是 <span class="arithmatex">\(10\)</span> ，说明该字符的长度为 <span class="arithmatex">\(1\)</span> ，对应 ASCII 码。而 ASCII 码的最高位应该是 <span class="arithmatex">\(0\)</span> ，与假设矛盾。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_data_structure/character_encoding.assets/utf-8_hello_algo.png" data-dark-src="/assets/figure-svg/figures/b88c5f43ba55443be5dd6c49.json" data-src="/assets/figure-svg/figures/7c6d3f9bc7e49503529b305c.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_data_structure/character_encoding.assets/utf-8_hello_algo.svg" data-theme="light" tabindex="-1" type="image/svg+xml">UTF-8 编码示例</object><object data="/chapter_data_structure/character_encoding.assets/utf-8_hello_algo.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">UTF-8 编码示例</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_data_structure/character_encoding.assets/utf-8_hello_algo.png" data-dark-src="/assets/figure-svg/figures/6629ed05c637e0d03f5b8b2a.json" data-src="/assets/figure-svg/figures/ffd816d5026cb73cae526c75.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_data_structure/character_encoding.assets/utf-8_hello_algo.svg" data-theme="light" tabindex="-1" type="image/svg+xml">UTF-8 编码示例</object><object data="/chapter_data_structure/character_encoding.assets/utf-8_hello_algo.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">UTF-8 编码示例</object></ha-svg-figure></p>
 <p align="center"> 图 3-8   UTF-8 编码示例 </p>
 <p>除了 UTF-8 之外，常见的编码方式还包括以下两种。</p>
 <ul>
@@ -2174,5 +2174,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

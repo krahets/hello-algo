@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/e5c971c8d6831a5e9f627022.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/e5c971c8d6831a5e9f627022.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1977,7 +1977,7 @@ G &amp; = \{ V, E \} \newline
 \end{aligned}
 \]</div>
 <p>頂点をノード、辺をノード同士をつなぐ参照（ポインタ）と考えると、グラフは連結リストを拡張したデータ構造として捉えられます。図 9-1 のように、<strong>線形の関係（連結リスト）や分割統治の関係（木）よりも、ネットワークの関係（グラフ）は自由度が高く</strong>、その分複雑になります。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_graph/graph.assets/linkedlist_tree_graph.png" data-dark-src="/assets/figure-svg/figures/bd6c93296c87aca1cdd19610.json" data-src="/assets/figure-svg/figures/34a25fe9c855c083a39033c3.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_graph/graph.assets/linkedlist_tree_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">連結リスト、木、グラフの関係</object><object data="/ja/chapter_graph/graph.assets/linkedlist_tree_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">連結リスト、木、グラフの関係</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_graph/graph.assets/linkedlist_tree_graph.png" data-dark-src="/assets/figure-svg/figures/4fff76a9a7265c683a71413d.json" data-src="/assets/figure-svg/figures/101625bd0d9e471743211850.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_graph/graph.assets/linkedlist_tree_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">連結リスト、木、グラフの関係</object><object data="/ja/chapter_graph/graph.assets/linkedlist_tree_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">連結リスト、木、グラフの関係</object></ha-svg-figure></p>
 <p align="center"> 図 9-1   連結リスト、木、グラフの関係 </p>
 <h2 id="911">9.1.1   グラフの主な種類と用語<a class="headerlink" href="#911" title="この見出しへのリンク">¶</a></h2>
 <p>辺に向きがあるかどうかによって、図 9-2 のように<u>無向グラフ（undirected graph）</u>と<u>有向グラフ（directed graph）</u>に分けられます。</p>
@@ -1985,17 +1985,17 @@ G &amp; = \{ V, E \} \newline
 <li>無向グラフの辺は、2 頂点間の「双方向」のつながりを表します。WeChat や QQ の「友達関係」がその例です。</li>
 <li>有向グラフの辺には向きがあります。つまり、<span class="arithmatex">\(A \rightarrow B\)</span> と <span class="arithmatex">\(A \leftarrow B\)</span> の二つの向きの辺は互いに独立しています。Weibo や Douyin の「フォローする」「フォローされる」という関係がその例です。</li>
 </ul>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_graph/graph.assets/directed_graph.png" data-dark-src="/assets/figure-svg/figures/73c611a5e2ed281558846937.json" data-src="/assets/figure-svg/figures/1428dcb00d400ac5691610f8.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_graph/graph.assets/directed_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">有向グラフと無向グラフ</object><object data="/ja/chapter_graph/graph.assets/directed_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">有向グラフと無向グラフ</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_graph/graph.assets/directed_graph.png" data-dark-src="/assets/figure-svg/figures/ed7ff3f724b70890855d71d6.json" data-src="/assets/figure-svg/figures/5c00e33d1e9e7c1ddadf08bc.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_graph/graph.assets/directed_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">有向グラフと無向グラフ</object><object data="/ja/chapter_graph/graph.assets/directed_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">有向グラフと無向グラフ</object></ha-svg-figure></p>
 <p align="center"> 図 9-2   有向グラフと無向グラフ </p>
 <p>すべての頂点がつながっているかどうかによって、図 9-3 のように<u>連結グラフ（connected graph）</u>と<u>非連結グラフ（disconnected graph）</u>に分けられます。</p>
 <ul>
 <li>連結グラフでは、ある頂点から出発して、ほかのどの頂点にも到達できます。</li>
 <li>非連結グラフでは、ある頂点から出発したとき、到達できない頂点が少なくとも一つあります。</li>
 </ul>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_graph/graph.assets/connected_graph.png" data-dark-src="/assets/figure-svg/figures/103a85ab8c813ce20bfe524e.json" data-src="/assets/figure-svg/figures/efc056371d87eab94a63a4d2.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_graph/graph.assets/connected_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">連結グラフと非連結グラフ</object><object data="/ja/chapter_graph/graph.assets/connected_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">連結グラフと非連結グラフ</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_graph/graph.assets/connected_graph.png" data-dark-src="/assets/figure-svg/figures/6eccf302284b493de241c283.json" data-src="/assets/figure-svg/figures/254be13a59966cf736066ffc.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_graph/graph.assets/connected_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">連結グラフと非連結グラフ</object><object data="/ja/chapter_graph/graph.assets/connected_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">連結グラフと非連結グラフ</object></ha-svg-figure></p>
 <p align="center"> 図 9-3   連結グラフと非連結グラフ </p>
 <p>辺に「重み」という変数を加えると、図 9-4 の<u>重み付きグラフ（weighted graph）</u>になります。たとえば『王者荣耀』などのモバイルゲームでは、一緒に遊んだ時間からプレイヤー間の「親密度」を計算します。この親密度のネットワークは、重み付きグラフで表せます。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_graph/graph.assets/weighted_graph.png" data-dark-src="/assets/figure-svg/figures/76a3975429b7b4e49b891369.json" data-src="/assets/figure-svg/figures/5b74055ab97a78a61136cfd8.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_graph/graph.assets/weighted_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">重み付きグラフと重みなしグラフ</object><object data="/ja/chapter_graph/graph.assets/weighted_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">重み付きグラフと重みなしグラフ</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_graph/graph.assets/weighted_graph.png" data-dark-src="/assets/figure-svg/figures/e9d19f2fd72ee4c0ad0c5219.json" data-src="/assets/figure-svg/figures/bf6ba30ed9cde3d45bb8dce4.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_graph/graph.assets/weighted_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">重み付きグラフと重みなしグラフ</object><object data="/ja/chapter_graph/graph.assets/weighted_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">重み付きグラフと重みなしグラフ</object></ha-svg-figure></p>
 <p align="center"> 図 9-4   重み付きグラフと重みなしグラフ </p>
 <p>グラフでは、次の用語をよく使います。</p>
 <ul>
@@ -2008,7 +2008,7 @@ G &amp; = \{ V, E \} \newline
 <h3 id="1">1.   隣接行列<a class="headerlink" href="#1" title="この見出しへのリンク">¶</a></h3>
 <p>グラフの頂点数を <span class="arithmatex">\(n\)</span> とします。<u>隣接行列（adjacency matrix）</u>は、<span class="arithmatex">\(n \times n\)</span> の行列でグラフを表します。各行（列）が一つの頂点に対応し、行列の要素が辺を表します。2 頂点間に辺があるかどうかを <span class="arithmatex">\(1\)</span> または <span class="arithmatex">\(0\)</span> で示します。</p>
 <p>図 9-5 のように、隣接行列を <span class="arithmatex">\(M\)</span>、頂点のリストを <span class="arithmatex">\(V\)</span> とすると、行列の要素 <span class="arithmatex">\(M[i, j] = 1\)</span> は頂点 <span class="arithmatex">\(V[i]\)</span> から頂点 <span class="arithmatex">\(V[j]\)</span> への辺があることを表し、<span class="arithmatex">\(M[i, j] = 0\)</span> は辺がないことを表します。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_graph/graph.assets/adjacency_matrix.png" data-dark-src="/assets/figure-svg/figures/214da3d13f978ff96fbe48fb.json" data-src="/assets/figure-svg/figures/4bc19ba88193d49100035a4f.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_graph/graph.assets/adjacency_matrix.svg" data-theme="light" tabindex="-1" type="image/svg+xml">隣接行列によるグラフの表現</object><object data="/ja/chapter_graph/graph.assets/adjacency_matrix.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">隣接行列によるグラフの表現</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_graph/graph.assets/adjacency_matrix.png" data-dark-src="/assets/figure-svg/figures/e591572085bc7bd5ee88b1a4.json" data-src="/assets/figure-svg/figures/578f2f1c77cb0f9cc56986f2.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_graph/graph.assets/adjacency_matrix.svg" data-theme="light" tabindex="-1" type="image/svg+xml">隣接行列によるグラフの表現</object><object data="/ja/chapter_graph/graph.assets/adjacency_matrix.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">隣接行列によるグラフの表現</object></ha-svg-figure></p>
 <p align="center"> 図 9-5   隣接行列によるグラフの表現 </p>
 <p>隣接行列には、次の特徴があります。</p>
 <ul>
@@ -2019,7 +2019,7 @@ G &amp; = \{ V, E \} \newline
 <p>隣接行列でグラフを表すと、行列の要素に直接アクセスして辺を取得できるため、辺の追加・削除・検索・更新は効率が高く、時間計算量はいずれも <span class="arithmatex">\(O(1)\)</span> です。ただし、行列の空間計算量は <span class="arithmatex">\(O(n^2)\)</span> で、メモリを多く使います。</p>
 <h3 id="2">2.   隣接リスト<a class="headerlink" href="#2" title="この見出しへのリンク">¶</a></h3>
 <p><u>隣接リスト（adjacency list）</u>は、<span class="arithmatex">\(n\)</span> 個の連結リストでグラフを表し、連結リストのノードが頂点を表します。<span class="arithmatex">\(i\)</span> 番目の連結リストは頂点 <span class="arithmatex">\(i\)</span> に対応し、その頂点に隣接するすべての頂点（その頂点につながる頂点）を格納します。図 9-6 に、隣接リストで格納したグラフの例を示します。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_graph/graph.assets/adjacency_list.png" data-dark-src="/assets/figure-svg/figures/85b66c8dba6754c94f150aa3.json" data-src="/assets/figure-svg/figures/49eda141e41b926773bafb1f.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_graph/graph.assets/adjacency_list.svg" data-theme="light" tabindex="-1" type="image/svg+xml">隣接リストによるグラフの表現</object><object data="/ja/chapter_graph/graph.assets/adjacency_list.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">隣接リストによるグラフの表現</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_graph/graph.assets/adjacency_list.png" data-dark-src="/assets/figure-svg/figures/bc8fa6eacd6e2d8a5a7e095f.json" data-src="/assets/figure-svg/figures/0ba7e52bad0fb6cdb7dfc8b4.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_graph/graph.assets/adjacency_list.svg" data-theme="light" tabindex="-1" type="image/svg+xml">隣接リストによるグラフの表現</object><object data="/ja/chapter_graph/graph.assets/adjacency_list.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">隣接リストによるグラフの表現</object></ha-svg-figure></p>
 <p align="center"> 図 9-6   隣接リストによるグラフの表現 </p>
 <p>隣接リストは実際に存在する辺だけを保存します。通常、辺の総数は <span class="arithmatex">\(n^2\)</span> よりはるかに少ないため、空間を節約できます。ただし、辺を探すには連結リストを走査する必要があり、時間効率は隣接行列より低くなります。</p>
 <p>図 9-6 を見ると、<strong>隣接リストの構造はハッシュテーブルの「チェイン法」によく似ているため、同じような方法で効率を改善できます</strong>。たとえば、連結リストが長い場合は AVL 木や赤黒木に変換し、時間計算量を <span class="arithmatex">\(O(n)\)</span> から <span class="arithmatex">\(O(\log n)\)</span> に改善できます。ハッシュテーブルに変換すれば、時間計算量を <span class="arithmatex">\(O(1)\)</span> にできます。</p>
@@ -2179,5 +2179,5 @@ G &amp; = \{ V, E \} \newline
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/e5c971c8d6831a5e9f627022.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/e5c971c8d6831a5e9f627022.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1978,7 +1978,7 @@
 <li><strong>分割</strong>：元の配列（元の問題）を二つの部分配列（部分問題）に再帰的に分割し、部分配列の要素が一つ（最小の部分問題）になるまで続けます。</li>
 <li><strong>統合</strong>：ソート済みの部分配列（部分問題の解）を下から上へと統合し、元の配列をソートした結果（元の問題の解）を得ます。</li>
 </ol>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.png" data-dark-src="/assets/figure-svg/figures/1e4216a5f1c064da2067e9b4.json" data-src="/assets/figure-svg/figures/fa1d0d98134884496b64b6f0.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.svg" data-theme="light" tabindex="-1" type="image/svg+xml">マージソートの分割統治戦略</object><object data="/ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">マージソートの分割統治戦略</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.png" data-dark-src="/assets/figure-svg/figures/8d72bb0390e2a025e940441c.json" data-src="/assets/figure-svg/figures/ece24685778255b3bbb9e54c.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.svg" data-theme="light" tabindex="-1" type="image/svg+xml">マージソートの分割統治戦略</object><object data="/ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">マージソートの分割統治戦略</object></ha-svg-figure></p>
 <p align="center"> 図 12-1   マージソートの分割統治戦略 </p>
 <h2 id="1211">12.1.1   分割統治で解ける問題の見分け方<a class="headerlink" href="#1211" title="この見出しへのリンク">¶</a></h2>
 <p>ある問題が分割統治に適しているかどうかは、通常、次の点を基準に判断できます。</p>
@@ -2001,7 +2001,7 @@
 <div class="arithmatex">\[
 O(n + (\frac{n}{2})^2 \times 2 + n) = O(\frac{n^2}{2} + 2n)
 \]</div>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.png" data-dark-src="/assets/figure-svg/figures/68c0aa97d02440f795a0abbc.json" data-src="/assets/figure-svg/figures/af2c8e879e6e062d06ffa348.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.svg" data-theme="light" tabindex="-1" type="image/svg+xml">配列を分割する前と後のバブルソート</object><object data="/ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">配列を分割する前と後のバブルソート</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.png" data-dark-src="/assets/figure-svg/figures/751fb2e6d717d90a2486ce3e.json" data-src="/assets/figure-svg/figures/825c8b5e9aaa0705ce78c3d0.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.svg" data-theme="light" tabindex="-1" type="image/svg+xml">配列を分割する前と後のバブルソート</object><object data="/ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">配列を分割する前と後のバブルソート</object></ha-svg-figure></p>
 <p align="center"> 図 12-2   配列を分割する前と後のバブルソート </p>
 <p>次の不等式を計算してみます。左辺と右辺はそれぞれ、分割前と分割後の総操作回数です。</p>
 <div class="arithmatex">\[
@@ -2018,7 +2018,7 @@ n(n - 4) &amp; &gt; 0
 <p>分割統治でできる部分問題は互いに独立しているため、<strong>通常は並列に解けます</strong>。つまり、分割統治はアルゴリズムの時間計算量を減らすだけでなく、<strong>OS による並列化にも適しています</strong>。</p>
 <p>並列化は、複数のコアやプロセッサを持つ環境で特に効果を発揮します。システムが複数の部分問題を同時に処理し、計算資源をより十分に利用できるため、全体の実行時間を大幅に短縮できます。</p>
 <p>たとえば図 12-3 の「バケットソート」では、大量のデータを各バケットに均等に分配します。各バケットのソートをそれぞれの計算ユニットに割り当て、完了後に結果を統合できます。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" data-dark-src="/assets/figure-svg/figures/bf29040ffee1b633ce8c5598.json" data-src="/assets/figure-svg/figures/921931c782dbb535e138608b.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.svg" data-theme="light" tabindex="-1" type="image/svg+xml">バケットソートの並列計算</object><object data="/ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">バケットソートの並列計算</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" data-dark-src="/assets/figure-svg/figures/9f5fa6738f699cd6c1459710.json" data-src="/assets/figure-svg/figures/aa154b3bddbace0ee07c002a.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.svg" data-theme="light" tabindex="-1" type="image/svg+xml">バケットソートの並列計算</object><object data="/ja/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">バケットソートの並列計算</object></ha-svg-figure></p>
 <p align="center"> 図 12-3   バケットソートの並列計算 </p>
 <h2 id="1213">12.1.3   分割統治の主な用途<a class="headerlink" href="#1213" title="この見出しへのリンク">¶</a></h2>
 <p>分割統治は、多くの古典的なアルゴリズムの問題を解くために使えます。</p>
@@ -2161,5 +2161,5 @@ n(n - 4) &amp; &gt; 0
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

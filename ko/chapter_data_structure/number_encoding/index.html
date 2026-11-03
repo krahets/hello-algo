@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/abd17f77112eaa7224f372b6.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/abd17f77112eaa7224f372b6.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1919,7 +1919,7 @@
 <li><strong>2의 보수</strong>: 양수의 2의 보수는 부호와 크기 표현과 같다. 음수의 2의 보수는 1의 보수에 <span class="arithmatex">\(1\)</span>을 더한 것이다.</li>
 </ul>
 <p>아래 그림(3-4)은 부호와 크기, 1의 보수, 2의 보수를 서로 변환하는 방법을 보여 준다.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_data_structure/number_encoding.assets/1s_2s_complement.png" data-dark-src="/assets/figure-svg/figures/dd9c7bdc37bea57ffc8e3209.json" data-src="/assets/figure-svg/figures/6d69915ef34db9f0e540d1cb.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_data_structure/number_encoding.assets/1s_2s_complement.svg" data-theme="light" tabindex="-1" type="image/svg+xml">부호와 크기, 1의 보수, 2의 보수의 상호 변환</object><object data="/ko/chapter_data_structure/number_encoding.assets/1s_2s_complement.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">부호와 크기, 1의 보수, 2의 보수의 상호 변환</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_data_structure/number_encoding.assets/1s_2s_complement.png" data-dark-src="/assets/figure-svg/figures/a491952c882b211b477fbe5c.json" data-src="/assets/figure-svg/figures/014f46b940638e29f73aabc4.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_data_structure/number_encoding.assets/1s_2s_complement.svg" data-theme="light" tabindex="-1" type="image/svg+xml">부호와 크기, 1의 보수, 2의 보수의 상호 변환</object><object data="/ko/chapter_data_structure/number_encoding.assets/1s_2s_complement.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">부호와 크기, 1의 보수, 2의 보수의 상호 변환</object></ha-svg-figure></p>
 <p align="center"> 그림 3-4   부호와 크기, 1의 보수, 2의 보수의 상호 변환 </p>
 <p><u>부호와 크기(sign-magnitude)</u> 표현은 가장 직관적이지만 한계가 있다. 우선 <strong>음수의 부호와 크기 표현은 연산에 그대로 사용할 수 없다</strong>. 예를 들어 이 표현으로 <span class="arithmatex">\(1 + (-2)\)</span>를 계산하면 결과가 <span class="arithmatex">\(-3\)</span>이 되어 명백히 틀린다.</p>
 <div class="arithmatex">\[
@@ -2000,7 +2000,7 @@ b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 (1 + \mathrm{N}) = &amp; (1 + \sum_{i=1}^{23} b_{23-i} 2^{-i}) \subset [1, 2 - 2^{-23}]
 \end{aligned}
 \]</div>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_data_structure/number_encoding.assets/ieee_754_float.png" data-dark-src="/assets/figure-svg/figures/890d55fe0d11593f5ff30c12.json" data-src="/assets/figure-svg/figures/f475767f87140b7b1b9a3c48.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_data_structure/number_encoding.assets/ieee_754_float.svg" data-theme="light" tabindex="-1" type="image/svg+xml">IEEE 754 표준에 따른 float 계산 예</object><object data="/ko/chapter_data_structure/number_encoding.assets/ieee_754_float.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">IEEE 754 표준에 따른 float 계산 예</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_data_structure/number_encoding.assets/ieee_754_float.png" data-dark-src="/assets/figure-svg/figures/fc19d36582d8045695d7bac9.json" data-src="/assets/figure-svg/figures/832f4ff32a4d0d38e02f8452.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_data_structure/number_encoding.assets/ieee_754_float.svg" data-theme="light" tabindex="-1" type="image/svg+xml">IEEE 754 표준에 따른 float 계산 예</object><object data="/ko/chapter_data_structure/number_encoding.assets/ieee_754_float.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">IEEE 754 표준에 따른 float 계산 예</object></ha-svg-figure></p>
 <p align="center"> 그림 3-5   IEEE 754 표준에 따른 float 계산 예 </p>
 <p>위 그림(3-5)에서 예로 든 데이터가 <span class="arithmatex">\(\mathrm{S} = 0\)</span>, <span class="arithmatex">\(\mathrm{E} = 124\)</span>, <span class="arithmatex">\(\mathrm{N} = 2^{-2} + 2^{-3} = 0.375\)</span>이면 다음과 같다.</p>
 <div class="arithmatex">\[
@@ -2165,5 +2165,5 @@ b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

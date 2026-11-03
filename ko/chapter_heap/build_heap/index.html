@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/abd17f77112eaa7224f372b6.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/abd17f77112eaa7224f372b6.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -2224,7 +2224,7 @@
 </ul>
 <p>위의 두 값을 곱하면 힙 구성 과정의 시간 복잡도가 <span class="arithmatex">\(O(n \log n)\)</span>이 된다. <strong>하지만 이 추정은 정확하지 않다. 이진 트리에서는 아래쪽 노드의 수가 위쪽 노드보다 훨씬 많다는 성질을 고려하지 않았기 때문이다</strong>.</p>
 <p>이제 더 정확하게 계산해 보자. 계산을 간단히 하기 위해 노드 수가 <span class="arithmatex">\(n\)</span>이고 높이가 <span class="arithmatex">\(h\)</span>인 '포화 이진 트리'가 주어졌다고 가정한다. 이 가정은 계산 결과의 정확성에 영향을 주지 않는다.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_heap/build_heap.assets/heapify_operations_count.png" data-dark-src="/assets/figure-svg/figures/5e8a5a14fcbed188e1c64668.json" data-src="/assets/figure-svg/figures/30d489792cd99bb10a93f381.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_heap/build_heap.assets/heapify_operations_count.svg" data-theme="light" tabindex="-1" type="image/svg+xml">포화 이진 트리의 레벨별 노드 수</object><object data="/ko/chapter_heap/build_heap.assets/heapify_operations_count.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">포화 이진 트리의 레벨별 노드 수</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_heap/build_heap.assets/heapify_operations_count.png" data-dark-src="/assets/figure-svg/figures/23915c0b301590aaef8cfe81.json" data-src="/assets/figure-svg/figures/ccc73d6819cc61334ecad41f.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_heap/build_heap.assets/heapify_operations_count.svg" data-theme="light" tabindex="-1" type="image/svg+xml">포화 이진 트리의 레벨별 노드 수</object><object data="/ko/chapter_heap/build_heap.assets/heapify_operations_count.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">포화 이진 트리의 레벨별 노드 수</object></ha-svg-figure></p>
 <p align="center"> 그림 8-5   포화 이진 트리의 레벨별 노드 수 </p>
 <p>위 그림(8-5)에서 노드를 '위에서 아래로 재정렬'하는 최대 반복 횟수는 그 노드에서 리프 노드까지의 거리와 같으며, 이 거리는 바로 '노드의 높이'다. 따라서 각 레벨의 '노드 수 <span class="arithmatex">\(\times\)</span> 노드 높이'를 더하면 <strong>모든 노드에 대한 힙 재정렬의 총반복 횟수</strong>를 구할 수 있다.</p>
 <div class="arithmatex">\[
@@ -2371,5 +2371,5 @@ T(h) &amp; = 2 \frac{1 - 2^h}{1 - 2} - h \newline
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

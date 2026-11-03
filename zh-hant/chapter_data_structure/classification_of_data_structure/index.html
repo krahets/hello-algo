@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/2cd6b8e017161275ab3e7ced.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/2cd6b8e017161275ab3e7ced.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1925,12 +1925,12 @@
 <li><strong>樹形結構</strong>：樹、堆積、雜湊表，元素之間是一對多的關係。</li>
 <li><strong>網狀結構</strong>：圖，元素之間是多對多的關係。</li>
 </ul>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.png" data-dark-src="/assets/figure-svg/figures/fe6329d31d2e61e834e7d536.json" data-src="/assets/figure-svg/figures/46cc155e12782d3aa3e943dc.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.svg" data-theme="light" tabindex="-1" type="image/svg+xml">線性資料結構與非線性資料結構</object><object data="/zh-hant/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">線性資料結構與非線性資料結構</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.png" data-dark-src="/assets/figure-svg/figures/dfae9105cd165b07ea323475.json" data-src="/assets/figure-svg/figures/144567bbcbf790e6e4e0b1a7.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.svg" data-theme="light" tabindex="-1" type="image/svg+xml">線性資料結構與非線性資料結構</object><object data="/zh-hant/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">線性資料結構與非線性資料結構</object></ha-svg-figure></p>
 <p align="center"> 圖 3-1   線性資料結構與非線性資料結構 </p>
 <h2 id="312">3.1.2   物理結構：連續與分散<a class="headerlink" href="#312" title="Permanent link">¶</a></h2>
 <p><strong>當演算法程式執行時，正在處理的資料主要儲存在記憶體中</strong>。圖 3-2 展示了一個計算機記憶體條，其中每個黑色方塊都包含一塊記憶體空間。我們可以將記憶體想象成一個巨大的 Excel 表格，其中每個單元格都可以儲存一定大小的資料。</p>
 <p><strong>系統透過記憶體位址來訪問目標位置的資料</strong>。如圖 3-2 所示，計算機根據特定規則為表格中的每個單元格分配編號，確保每個記憶體空間都有唯一的記憶體位址。有了這些位址，程式便可以訪問記憶體中的資料。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.png" data-dark-src="/assets/figure-svg/figures/6303a1edbe9de2a980b0f71c.json" data-src="/assets/figure-svg/figures/3f726ff8fca6f4de045570d5.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.svg" data-theme="light" tabindex="-1" type="image/svg+xml">記憶體條、記憶體空間、記憶體位址</object><object data="/zh-hant/chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">記憶體條、記憶體空間、記憶體位址</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.png" data-dark-src="/assets/figure-svg/figures/b23983dc0262327fe9bccd12.json" data-src="/assets/figure-svg/figures/71f1c5b873c045cedbcf9c41.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.svg" data-theme="light" tabindex="-1" type="image/svg+xml">記憶體條、記憶體空間、記憶體位址</object><object data="/zh-hant/chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">記憶體條、記憶體空間、記憶體位址</object></ha-svg-figure></p>
 <p align="center"> 圖 3-2   記憶體條、記憶體空間、記憶體位址 </p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1938,7 +1938,7 @@
 </div>
 <p>記憶體是所有程式的共享資源，當某塊記憶體被某個程式佔用時，則通常無法被其他程式同時使用了。<strong>因此在資料結構與演算法的設計中，記憶體資源是一個重要的考慮因素</strong>。比如，演算法所佔用的記憶體峰值不應超過系統剩餘空閒記憶體；如果缺少連續大塊的記憶體空間，那麼所選用的資料結構必須能夠儲存在分散的記憶體空間內。</p>
 <p>如圖 3-3 所示，<strong>物理結構反映了資料在計算機記憶體中的儲存方式</strong>，可分為連續空間儲存（陣列）和分散空間儲存（鏈結串列）。物理結構從底層決定了資料的訪問、更新、增刪等操作方法，兩種物理結構在時間效率和空間效率方面呈現出互補的特點。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.png" data-dark-src="/assets/figure-svg/figures/362c0a2fd631131f68142926.json" data-src="/assets/figure-svg/figures/0f714f41e0fba7c9618b734e.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.svg" data-theme="light" tabindex="-1" type="image/svg+xml">連續空間儲存與分散空間儲存</object><object data="/zh-hant/chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">連續空間儲存與分散空間儲存</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.png" data-dark-src="/assets/figure-svg/figures/4c5831fa7806070573b9849f.json" data-src="/assets/figure-svg/figures/1fbb37667e4fafb3aaeebc48.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.svg" data-theme="light" tabindex="-1" type="image/svg+xml">連續空間儲存與分散空間儲存</object><object data="/zh-hant/chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">連續空間儲存與分散空間儲存</object></ha-svg-figure></p>
 <p align="center"> 圖 3-3   連續空間儲存與分散空間儲存 </p>
 <p>值得說明的是，<strong>所有資料結構都是基於陣列、鏈結串列或二者的組合實現的</strong>。例如，堆疊和佇列既可以使用陣列實現，也可以使用鏈結串列實現；而雜湊表的實現可能同時包含陣列和鏈結串列。</p>
 <ul>
@@ -2071,5 +2071,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

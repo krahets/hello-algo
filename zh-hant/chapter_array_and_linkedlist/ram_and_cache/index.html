@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/2cd6b8e017161275ab3e7ced.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/2cd6b8e017161275ab3e7ced.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1984,7 +1984,7 @@
 <li><strong>硬碟難以被記憶體取代</strong>。首先，記憶體中的資料在斷電後會丟失，因此它不適合長期儲存資料；其次，記憶體的成本是硬碟的幾十倍，這使得它難以在消費者市場普及。</li>
 <li><strong>快取的大容量和高速度難以兼得</strong>。隨著 L1、L2、L3 快取的容量逐步增大，其物理尺寸會變大，與 CPU 核心之間的物理距離會變遠，從而導致資料傳輸時間增加，元素訪問延遲變高。在當前技術下，多層級的快取結構是容量、速度和成本之間的最佳平衡點。</li>
 </ul>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.png" data-dark-src="/assets/figure-svg/figures/fd1a5a8312ba647626d3288d.json" data-src="/assets/figure-svg/figures/f95d72e2923887e452a11b79.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.svg" data-theme="light" tabindex="-1" type="image/svg+xml">計算機儲存系統</object><object data="/zh-hant/chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">計算機儲存系統</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.png" data-dark-src="/assets/figure-svg/figures/0f221d736b1038688116c22d.json" data-src="/assets/figure-svg/figures/6c08902762f8d02f3d584b04.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.svg" data-theme="light" tabindex="-1" type="image/svg+xml">計算機儲存系統</object><object data="/zh-hant/chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">計算機儲存系統</object></ha-svg-figure></p>
 <p align="center"> 圖 4-9   計算機儲存系統 </p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1992,7 +1992,7 @@
 </div>
 <p>總的來說，<strong>硬碟用於長期儲存大量資料，記憶體用於臨時儲存程式執行中正在處理的資料，而快取則用於儲存經常訪問的資料和指令</strong>，以提高程式執行效率。三者共同協作，確保計算機系統高效執行。</p>
 <p>如圖 4-10 所示，在程式執行時，資料會從硬碟中被讀取到記憶體中，供 CPU 計算使用。快取可以看作 CPU 的一部分，<strong>它透過智慧地從記憶體載入資料</strong>，給 CPU 提供高速的資料讀取，從而顯著提升程式的執行效率，減少對較慢的記憶體的依賴。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices.png" data-dark-src="/assets/figure-svg/figures/317a8adab7f04055a1e298d6.json" data-src="/assets/figure-svg/figures/784eb096f923f9f0a62edd43.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices.svg" data-theme="light" tabindex="-1" type="image/svg+xml">硬碟、記憶體和快取之間的資料流通</object><object data="/zh-hant/chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">硬碟、記憶體和快取之間的資料流通</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices.png" data-dark-src="/assets/figure-svg/figures/c44c029ba3700cf70159d289.json" data-src="/assets/figure-svg/figures/3feccec566375f24c06b308c.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices.svg" data-theme="light" tabindex="-1" type="image/svg+xml">硬碟、記憶體和快取之間的資料流通</object><object data="/zh-hant/chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">硬碟、記憶體和快取之間的資料流通</object></ha-svg-figure></p>
 <p align="center"> 圖 4-10   硬碟、記憶體和快取之間的資料流通 </p>
 <h2 id="442">4.4.2   資料結構的記憶體效率<a class="headerlink" href="#442" title="Permanent link">¶</a></h2>
 <p>在記憶體空間利用方面，陣列和鏈結串列各自具有優勢和侷限性。</p>
@@ -2142,5 +2142,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

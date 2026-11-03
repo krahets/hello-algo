@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/2cd6b8e017161275ab3e7ced.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/2cd6b8e017161275ab3e7ced.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1950,7 +1950,7 @@
 <h1 id="63">6.3   雜湊演算法<a class="headerlink" href="#63" title="Permanent link">¶</a></h1>
 <p>前兩節介紹了雜湊表的工作原理和雜湊衝突的處理方法。然而無論是開放定址還是鏈式位址，<strong>它們只能保證雜湊表可以在發生衝突時正常工作，而無法減少雜湊衝突的發生</strong>。</p>
 <p>如果雜湊衝突過於頻繁，雜湊表的效能則會急劇劣化。如圖 6-8 所示，對於鏈式位址雜湊表，理想情況下鍵值對均勻分佈在各個桶中，達到最佳查詢效率；最差情況下所有鍵值對都儲存到同一個桶中，時間複雜度退化至 <span class="arithmatex">\(O(n)\)</span> 。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.png" data-dark-src="/assets/figure-svg/figures/33b8e1e87843bec818851741.json" data-src="/assets/figure-svg/figures/6f89a8103b8d9ab64e92dc5d.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.svg" data-theme="light" tabindex="-1" type="image/svg+xml">雜湊衝突的最佳情況與最差情況</object><object data="/zh-hant/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">雜湊衝突的最佳情況與最差情況</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.png" data-dark-src="/assets/figure-svg/figures/4764a1a1365af4862e5ebef7.json" data-src="/assets/figure-svg/figures/d3608b54e28c316404a29996.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.svg" data-theme="light" tabindex="-1" type="image/svg+xml">雜湊衝突的最佳情況與最差情況</object><object data="/zh-hant/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">雜湊衝突的最佳情況與最差情況</object></ha-svg-figure></p>
 <p align="center"> 圖 6-8   雜湊衝突的最佳情況與最差情況 </p>
 <p><strong>鍵值對的分佈情況由雜湊函式決定</strong>。回憶雜湊函式的計算步驟，先計算雜湊值，再對陣列長度取模：</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nv">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hash<span class="o">(</span>key<span class="o">)</span><span class="w"> </span>%<span class="w"> </span>capacity
@@ -3042,5 +3042,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

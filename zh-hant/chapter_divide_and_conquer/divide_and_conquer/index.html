@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/2cd6b8e017161275ab3e7ced.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/2cd6b8e017161275ab3e7ced.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1984,7 +1984,7 @@
 <li><strong>分</strong>：遞迴地將原陣列（原問題）劃分為兩個子陣列（子問題），直到子陣列只剩一個元素（最小子問題）。</li>
 <li><strong>治</strong>：從底至頂地將有序的子陣列（子問題的解）進行合併，從而得到有序的原陣列（原問題的解）。</li>
 </ol>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.png" data-dark-src="/assets/figure-svg/figures/cb4c9b0161ebd53dbdb1a431.json" data-src="/assets/figure-svg/figures/420f509fc50c12e4e3deb543.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.svg" data-theme="light" tabindex="-1" type="image/svg+xml">合併排序的分治策略</object><object data="/zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">合併排序的分治策略</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.png" data-dark-src="/assets/figure-svg/figures/3a173e88885fb29c7075447a.json" data-src="/assets/figure-svg/figures/cacfda7c470dff57beaababa.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.svg" data-theme="light" tabindex="-1" type="image/svg+xml">合併排序的分治策略</object><object data="/zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">合併排序的分治策略</object></ha-svg-figure></p>
 <p align="center"> 圖 12-1   合併排序的分治策略 </p>
 <h2 id="1211">12.1.1   如何判斷分治問題<a class="headerlink" href="#1211" title="Permanent link">¶</a></h2>
 <p>一個問題是否適合使用分治解決，通常可以參考以下幾個判斷依據。</p>
@@ -2007,7 +2007,7 @@
 <div class="arithmatex">\[
 O(n + (\frac{n}{2})^2 \times 2 + n) = O(\frac{n^2}{2} + 2n)
 \]</div>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.png" data-dark-src="/assets/figure-svg/figures/49f21185db4dcf441e7c7726.json" data-src="/assets/figure-svg/figures/2b2ea2a5ddaa363f82f449db.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.svg" data-theme="light" tabindex="-1" type="image/svg+xml">劃分陣列前後的泡沫排序</object><object data="/zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">劃分陣列前後的泡沫排序</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.png" data-dark-src="/assets/figure-svg/figures/7e0daee29fcff4e2f0944298.json" data-src="/assets/figure-svg/figures/b39a6b0b625de9ddaebf4ad1.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.svg" data-theme="light" tabindex="-1" type="image/svg+xml">劃分陣列前後的泡沫排序</object><object data="/zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">劃分陣列前後的泡沫排序</object></ha-svg-figure></p>
 <p align="center"> 圖 12-2   劃分陣列前後的泡沫排序 </p>
 <p>接下來，我們計算以下不等式，其左邊和右邊分別為劃分前和劃分後的操作總數：</p>
 <div class="arithmatex">\[
@@ -2024,7 +2024,7 @@ n(n - 4) &amp; &gt; 0
 <p>我們知道，分治生成的子問題是相互獨立的，<strong>因此通常可以並行解決</strong>。也就是說，分治不僅可以降低演算法的時間複雜度，<strong>還有利於作業系統的並行最佳化</strong>。</p>
 <p>並行最佳化在多核或多處理器的環境中尤其有效，因為系統可以同時處理多個子問題，更加充分地利用計算資源，從而顯著減少總體的執行時間。</p>
 <p>比如在圖 12-3 所示的“桶排序”中，我們將海量的資料平均分配到各個桶中，則可將所有桶的排序任務分散到各個計算單元，完成後再合併結果。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" data-dark-src="/assets/figure-svg/figures/0c2582f82bf856da1f1eb4fe.json" data-src="/assets/figure-svg/figures/a521e7831ec96c453331edbe.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.svg" data-theme="light" tabindex="-1" type="image/svg+xml">桶排序的平行計算</object><object data="/zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">桶排序的平行計算</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" data-dark-src="/assets/figure-svg/figures/41576b11236979235c7bbdf5.json" data-src="/assets/figure-svg/figures/c2eb77d1b4e37be9b71c9c97.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.svg" data-theme="light" tabindex="-1" type="image/svg+xml">桶排序的平行計算</object><object data="/zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">桶排序的平行計算</object></ha-svg-figure></p>
 <p align="center"> 圖 12-3   桶排序的平行計算 </p>
 <h2 id="1213">12.1.3   分治常見應用<a class="headerlink" href="#1213" title="Permanent link">¶</a></h2>
 <p>一方面，分治可以用來解決許多經典演算法問題。</p>
@@ -2167,5 +2167,5 @@ n(n - 4) &amp; &gt; 0
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

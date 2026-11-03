@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/2cd6b8e017161275ab3e7ced.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/2cd6b8e017161275ab3e7ced.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -2001,7 +2001,7 @@
 <p>雜湊表的結構改良方法主要包括“鏈式位址”和“開放定址”。</p>
 <h2 id="621">6.2.1   鏈式位址<a class="headerlink" href="#621" title="Permanent link">¶</a></h2>
 <p>在原始雜湊表中，每個桶僅能儲存一個鍵值對。<u>鏈式位址（separate chaining）</u>將單個元素轉換為鏈結串列，將鍵值對作為鏈結串列節點，將所有發生衝突的鍵值對都儲存在同一鏈結串列中。圖 6-5 展示了一個鏈式位址雜湊表的例子。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_hashing/hash_collision.assets/hash_table_chaining.png" data-dark-src="/assets/figure-svg/figures/4f382d74fe0374509bdcb04b.json" data-src="/assets/figure-svg/figures/91b629bf2184e3d4800106b6.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_hashing/hash_collision.assets/hash_table_chaining.svg" data-theme="light" tabindex="-1" type="image/svg+xml">鏈式位址雜湊表</object><object data="/zh-hant/chapter_hashing/hash_collision.assets/hash_table_chaining.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">鏈式位址雜湊表</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_hashing/hash_collision.assets/hash_table_chaining.png" data-dark-src="/assets/figure-svg/figures/0b4e78b296942420783a28fa.json" data-src="/assets/figure-svg/figures/cd43c271291ba0bec2d5d753.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_hashing/hash_collision.assets/hash_table_chaining.svg" data-theme="light" tabindex="-1" type="image/svg+xml">鏈式位址雜湊表</object><object data="/zh-hant/chapter_hashing/hash_collision.assets/hash_table_chaining.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">鏈式位址雜湊表</object></ha-svg-figure></p>
 <p align="center"> 圖 6-5   鏈式位址雜湊表 </p>
 <p>基於鏈式位址實現的雜湊表的操作方法發生了以下變化。</p>
 <ul>
@@ -3493,11 +3493,11 @@
 <li><strong>查詢元素</strong>：若發現雜湊衝突，則使用相同步長向後進行線性走訪，直到找到對應元素，返回 <code>value</code> 即可；如果遇到空桶，說明目標元素不在雜湊表中，返回 <code>None</code> 。</li>
 </ul>
 <p>圖 6-6 展示了開放定址（線性探查）雜湊表的鍵值對分佈。根據此雜湊函式，最後兩位相同的 <code>key</code> 都會被對映到相同的桶。而透過線性探查，它們被依次儲存在該桶以及之下的桶中。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_hashing/hash_collision.assets/hash_table_linear_probing.png" data-dark-src="/assets/figure-svg/figures/65e11f694e0765c31e58e184.json" data-src="/assets/figure-svg/figures/a00054f227d5448685060549.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_hashing/hash_collision.assets/hash_table_linear_probing.svg" data-theme="light" tabindex="-1" type="image/svg+xml">開放定址（線性探查）雜湊表的鍵值對分佈</object><object data="/zh-hant/chapter_hashing/hash_collision.assets/hash_table_linear_probing.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">開放定址（線性探查）雜湊表的鍵值對分佈</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_hashing/hash_collision.assets/hash_table_linear_probing.png" data-dark-src="/assets/figure-svg/figures/9f5e52100fcd13f7c6390066.json" data-src="/assets/figure-svg/figures/7686f72da4c5c155c68be345.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_hashing/hash_collision.assets/hash_table_linear_probing.svg" data-theme="light" tabindex="-1" type="image/svg+xml">開放定址（線性探查）雜湊表的鍵值對分佈</object><object data="/zh-hant/chapter_hashing/hash_collision.assets/hash_table_linear_probing.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">開放定址（線性探查）雜湊表的鍵值對分佈</object></ha-svg-figure></p>
 <p align="center"> 圖 6-6   開放定址（線性探查）雜湊表的鍵值對分佈 </p>
 <p>然而，<strong>線性探查容易產生“聚集現象”</strong>。具體來說，陣列中連續被佔用的位置越長，這些連續位置發生雜湊衝突的可能性越大，從而進一步促使該位置的聚堆積生長，形成惡性迴圈，最終導致增刪查改操作效率劣化。</p>
 <p>值得注意的是，<strong>我們不能在開放定址雜湊表中直接刪除元素</strong>。這是因為刪除元素會在陣列內產生一個空桶 <code>None</code> ，而當查詢元素時，線性探查到該空桶就會返回，因此在該空桶之下的元素都無法再被訪問到，程式可能誤判這些元素不存在，如圖 6-7 所示。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion.png" data-dark-src="/assets/figure-svg/figures/cb04724f3d2a360529cf43e8.json" data-src="/assets/figure-svg/figures/779d6fcdaafd9b7695a219a9.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion.svg" data-theme="light" tabindex="-1" type="image/svg+xml">在開放定址中刪除元素導致的查詢問題</object><object data="/zh-hant/chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">在開放定址中刪除元素導致的查詢問題</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion.png" data-dark-src="/assets/figure-svg/figures/94ece52b94a89f19fe8506d3.json" data-src="/assets/figure-svg/figures/8021d30aa6e6ca90d61a9d1e.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion.svg" data-theme="light" tabindex="-1" type="image/svg+xml">在開放定址中刪除元素導致的查詢問題</object><object data="/zh-hant/chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">在開放定址中刪除元素導致的查詢問題</object></ha-svg-figure></p>
 <p align="center"> 圖 6-7   在開放定址中刪除元素導致的查詢問題 </p>
 <p>為了解決該問題，我們可以採用<u>懶刪除（lazy deletion）</u>機制：它不直接從雜湊表中移除元素，<strong>而是利用一個常數 <code>TOMBSTONE</code> 來標記這個桶</strong>。在該機制下，<code>None</code> 和 <code>TOMBSTONE</code> 都代表空桶，都可以放置鍵值對。但不同的是，線性探查到 <code>TOMBSTONE</code> 時應該繼續走訪，因為其之下可能還存在鍵值對。</p>
 <p>然而，<strong>懶刪除可能會加速雜湊表的效能退化</strong>。這是因為每次刪除操作都會產生一個刪除標記，隨著 <code>TOMBSTONE</code> 的增加，搜尋時間也會增加，因為線性探查可能需要跳過多個 <code>TOMBSTONE</code> 才能找到目標元素。</p>
@@ -5355,5 +5355,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/2cd6b8e017161275ab3e7ced.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/2cd6b8e017161275ab3e7ced.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -2230,7 +2230,7 @@
 </ul>
 <p>將上述兩者相乘，可得到建堆積過程的時間複雜度為 <span class="arithmatex">\(O(n \log n)\)</span> 。<strong>但這個估算結果並不準確，因為我們沒有考慮到二元樹底層節點數量遠多於頂層節點的性質</strong>。</p>
 <p>接下來我們來進行更為準確的計算。為了降低計算難度，假設給定一個節點數量為 <span class="arithmatex">\(n\)</span> 、高度為 <span class="arithmatex">\(h\)</span> 的“完美二元樹”，該假設不會影響計算結果的正確性。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_heap/build_heap.assets/heapify_operations_count.png" data-dark-src="/assets/figure-svg/figures/3d5faeb95c14f5e2e6b888e1.json" data-src="/assets/figure-svg/figures/9fa8e0589fcf23fc8104e41d.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_heap/build_heap.assets/heapify_operations_count.svg" data-theme="light" tabindex="-1" type="image/svg+xml">完美二元樹的各層節點數量</object><object data="/zh-hant/chapter_heap/build_heap.assets/heapify_operations_count.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">完美二元樹的各層節點數量</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_heap/build_heap.assets/heapify_operations_count.png" data-dark-src="/assets/figure-svg/figures/8760faedb63f9d224a6df0e1.json" data-src="/assets/figure-svg/figures/0a9c926693bef406f328567d.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_heap/build_heap.assets/heapify_operations_count.svg" data-theme="light" tabindex="-1" type="image/svg+xml">完美二元樹的各層節點數量</object><object data="/zh-hant/chapter_heap/build_heap.assets/heapify_operations_count.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">完美二元樹的各層節點數量</object></ha-svg-figure></p>
 <p align="center"> 圖 8-5   完美二元樹的各層節點數量 </p>
 <p>如圖 8-5 所示，節點“從頂至底堆積化”的最大迭代次數等於該節點到葉節點的距離，而該距離正是“節點高度”。因此，我們可以對各層的“節點數量 <span class="arithmatex">\(\times\)</span> 節點高度”求和，<strong>得到所有節點的堆積化迭代次數的總和</strong>。</p>
 <div class="arithmatex">\[
@@ -2377,5 +2377,5 @@ T(h) &amp; = 2 \frac{1 - 2^h}{1 - 2} - h \newline
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

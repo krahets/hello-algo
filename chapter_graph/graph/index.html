@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/5632068fdac847e7b03f598e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -2011,7 +2011,7 @@ G &amp; = \{ V, E \} \newline
 \end{aligned}
 \]</div>
 <p>如果将顶点看作节点，将边看作连接各个节点的引用（指针），我们就可以将图看作一种从链表拓展而来的数据结构。如图 9-1 所示，<strong>相较于线性关系（链表）和分治关系（树），网络关系（图）的自由度更高</strong>，因而更为复杂。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_graph/graph.assets/linkedlist_tree_graph.png" data-dark-src="/assets/figure-svg/figures/802e1de78892d4dd5bcf8a02.json" data-src="/assets/figure-svg/figures/524e97243a0eac22cdbfe195.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_graph/graph.assets/linkedlist_tree_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">链表、树、图之间的关系</object><object data="/chapter_graph/graph.assets/linkedlist_tree_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">链表、树、图之间的关系</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_graph/graph.assets/linkedlist_tree_graph.png" data-dark-src="/assets/figure-svg/figures/8f50a0558624645579cfb888.json" data-src="/assets/figure-svg/figures/74cce891b065304421ebad93.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_graph/graph.assets/linkedlist_tree_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">链表、树、图之间的关系</object><object data="/chapter_graph/graph.assets/linkedlist_tree_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">链表、树、图之间的关系</object></ha-svg-figure></p>
 <p align="center"> 图 9-1   链表、树、图之间的关系 </p>
 <h2 id="911">9.1.1   图的常见类型与术语<a class="headerlink" href="#911" title="Permanent link">¶</a></h2>
 <p>根据边是否具有方向，可分为<u>无向图（undirected graph）</u>和<u>有向图（directed graph）</u>，如图 9-2 所示。</p>
@@ -2019,17 +2019,17 @@ G &amp; = \{ V, E \} \newline
 <li>在无向图中，边表示两顶点之间的“双向”连接关系，例如微信或 QQ 中的“好友关系”。</li>
 <li>在有向图中，边具有方向性，即 <span class="arithmatex">\(A \rightarrow B\)</span> 和 <span class="arithmatex">\(A \leftarrow B\)</span> 两个方向的边是相互独立的，例如微博或抖音上的“关注”与“被关注”关系。</li>
 </ul>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_graph/graph.assets/directed_graph.png" data-dark-src="/assets/figure-svg/figures/2ca5188593b1ada96f87df61.json" data-src="/assets/figure-svg/figures/2168390f57d0c45b14f89ff8.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_graph/graph.assets/directed_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">有向图与无向图</object><object data="/chapter_graph/graph.assets/directed_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">有向图与无向图</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_graph/graph.assets/directed_graph.png" data-dark-src="/assets/figure-svg/figures/5ce2fefc94eb2e9ee758c04b.json" data-src="/assets/figure-svg/figures/ee3aa58a456f8969580a700e.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_graph/graph.assets/directed_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">有向图与无向图</object><object data="/chapter_graph/graph.assets/directed_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">有向图与无向图</object></ha-svg-figure></p>
 <p align="center"> 图 9-2   有向图与无向图 </p>
 <p>根据所有顶点是否连通，可分为<u>连通图（connected graph）</u>和<u>非连通图（disconnected graph）</u>，如图 9-3 所示。</p>
 <ul>
 <li>对于连通图，从某个顶点出发，可以到达其余任意顶点。</li>
 <li>对于非连通图，从某个顶点出发，至少有一个顶点无法到达。</li>
 </ul>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_graph/graph.assets/connected_graph.png" data-dark-src="/assets/figure-svg/figures/8cf96f39d8e4807ca6a23d37.json" data-src="/assets/figure-svg/figures/92fd4b42765e9c2776f60398.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_graph/graph.assets/connected_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">连通图与非连通图</object><object data="/chapter_graph/graph.assets/connected_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">连通图与非连通图</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_graph/graph.assets/connected_graph.png" data-dark-src="/assets/figure-svg/figures/0ac6bbbd24cfe92ff0a8e759.json" data-src="/assets/figure-svg/figures/785d0ed0fd8dd733808f6a8b.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_graph/graph.assets/connected_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">连通图与非连通图</object><object data="/chapter_graph/graph.assets/connected_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">连通图与非连通图</object></ha-svg-figure></p>
 <p align="center"> 图 9-3   连通图与非连通图 </p>
 <p>我们还可以为边添加“权重”变量，从而得到如图 9-4 所示的<u>有权图（weighted graph）</u>。例如在《王者荣耀》等手游中，系统会根据共同游戏时间来计算玩家之间的“亲密度”，这种亲密度网络就可以用有权图来表示。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_graph/graph.assets/weighted_graph.png" data-dark-src="/assets/figure-svg/figures/f4e9a3bbed4fad45587c8961.json" data-src="/assets/figure-svg/figures/7d7a35569f8eaaa6e748c762.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_graph/graph.assets/weighted_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">有权图与无权图</object><object data="/chapter_graph/graph.assets/weighted_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">有权图与无权图</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_graph/graph.assets/weighted_graph.png" data-dark-src="/assets/figure-svg/figures/4db5b2d5cfc97c4497cced21.json" data-src="/assets/figure-svg/figures/24e3bdb99fafed0b35e85e46.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_graph/graph.assets/weighted_graph.svg" data-theme="light" tabindex="-1" type="image/svg+xml">有权图与无权图</object><object data="/chapter_graph/graph.assets/weighted_graph.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">有权图与无权图</object></ha-svg-figure></p>
 <p align="center"> 图 9-4   有权图与无权图 </p>
 <p>图数据结构包含以下常用术语。</p>
 <ul>
@@ -2042,7 +2042,7 @@ G &amp; = \{ V, E \} \newline
 <h3 id="1">1.   邻接矩阵<a class="headerlink" href="#1" title="Permanent link">¶</a></h3>
 <p>设图的顶点数量为 <span class="arithmatex">\(n\)</span> ，<u>邻接矩阵（adjacency matrix）</u>使用一个 <span class="arithmatex">\(n \times n\)</span> 大小的矩阵来表示图，每一行（列）代表一个顶点，矩阵元素代表边，用 <span class="arithmatex">\(1\)</span> 或 <span class="arithmatex">\(0\)</span> 表示两个顶点之间是否存在边。</p>
 <p>如图 9-5 所示，设邻接矩阵为 <span class="arithmatex">\(M\)</span>、顶点列表为 <span class="arithmatex">\(V\)</span> ，那么矩阵元素 <span class="arithmatex">\(M[i, j] = 1\)</span> 表示顶点 <span class="arithmatex">\(V[i]\)</span> 到顶点 <span class="arithmatex">\(V[j]\)</span> 之间存在边，反之 <span class="arithmatex">\(M[i, j] = 0\)</span> 表示两顶点之间无边。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_graph/graph.assets/adjacency_matrix.png" data-dark-src="/assets/figure-svg/figures/2e467c7a67af2576ae93b460.json" data-src="/assets/figure-svg/figures/96a1cdbfd03fb0e7f1157685.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_graph/graph.assets/adjacency_matrix.svg" data-theme="light" tabindex="-1" type="image/svg+xml">图的邻接矩阵表示</object><object data="/chapter_graph/graph.assets/adjacency_matrix.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">图的邻接矩阵表示</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_graph/graph.assets/adjacency_matrix.png" data-dark-src="/assets/figure-svg/figures/ab281fce0f48c7bc60412e9c.json" data-src="/assets/figure-svg/figures/9da70de4c18dc5990d55ba41.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_graph/graph.assets/adjacency_matrix.svg" data-theme="light" tabindex="-1" type="image/svg+xml">图的邻接矩阵表示</object><object data="/chapter_graph/graph.assets/adjacency_matrix.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">图的邻接矩阵表示</object></ha-svg-figure></p>
 <p align="center"> 图 9-5   图的邻接矩阵表示 </p>
 <p>邻接矩阵具有以下特性。</p>
 <ul>
@@ -2053,7 +2053,7 @@ G &amp; = \{ V, E \} \newline
 <p>使用邻接矩阵表示图时，我们可以直接访问矩阵元素以获取边，因此增删查改操作的效率很高，时间复杂度均为 <span class="arithmatex">\(O(1)\)</span> 。然而，矩阵的空间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> ，内存占用较多。</p>
 <h3 id="2">2.   邻接表<a class="headerlink" href="#2" title="Permanent link">¶</a></h3>
 <p><u>邻接表（adjacency list）</u>使用 <span class="arithmatex">\(n\)</span> 个链表来表示图，链表节点表示顶点。第 <span class="arithmatex">\(i\)</span> 个链表对应顶点 <span class="arithmatex">\(i\)</span> ，其中存储了该顶点的所有邻接顶点（与该顶点相连的顶点）。图 9-6 展示了一个使用邻接表存储的图的示例。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_graph/graph.assets/adjacency_list.png" data-dark-src="/assets/figure-svg/figures/04061602e599dc9c2b9bc5d4.json" data-src="/assets/figure-svg/figures/f0902fb64e9eca6e6affaf0a.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_graph/graph.assets/adjacency_list.svg" data-theme="light" tabindex="-1" type="image/svg+xml">图的邻接表表示</object><object data="/chapter_graph/graph.assets/adjacency_list.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">图的邻接表表示</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="chapter_graph/graph.assets/adjacency_list.png" data-dark-src="/assets/figure-svg/figures/2026acdea10cc8ef40afd176.json" data-src="/assets/figure-svg/figures/e19671e8a83f38bcb9561186.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_graph/graph.assets/adjacency_list.svg" data-theme="light" tabindex="-1" type="image/svg+xml">图的邻接表表示</object><object data="/chapter_graph/graph.assets/adjacency_list.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">图的邻接表表示</object></ha-svg-figure></p>
 <p align="center"> 图 9-6   图的邻接表表示 </p>
 <p>邻接表仅存储实际存在的边，而边的总数通常远小于 <span class="arithmatex">\(n^2\)</span> ，因此它更加节省空间。然而，在邻接表中需要通过遍历链表来查找边，因此其时间效率不如邻接矩阵。</p>
 <p>观察图 9-6 ，<strong>邻接表结构与哈希表中的“链式地址”非常相似，因此我们也可以采用类似的方法来优化效率</strong>。比如当链表较长时，可以将链表转化为 AVL 树或红黑树，从而将时间效率从 <span class="arithmatex">\(O(n)\)</span> 优化至 <span class="arithmatex">\(O(\log n)\)</span> ；还可以把链表转换为哈希表，从而将时间复杂度降至 <span class="arithmatex">\(O(1)\)</span> 。</p>
@@ -2213,5 +2213,5 @@ G &amp; = \{ V, E \} \newline
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/e5c971c8d6831a5e9f627022.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/e5c971c8d6831a5e9f627022.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1944,7 +1944,7 @@
 <h1 id="63">6.3   ハッシュアルゴリズム<a class="headerlink" href="#63" title="この見出しへのリンク">¶</a></h1>
 <p>前の二節では、ハッシュテーブルの仕組みと衝突への対処方法を紹介しました。ただし、オープンアドレス法もチェイン法も、<strong>衝突時に正しく動作することを保証するだけで、衝突の発生自体を減らすことはできません</strong>。</p>
 <p>衝突が頻繁すぎると、性能は急激に悪化します。図 6-8 のチェイン法では、理想的にはペアが各バケットへ均等に分布し、最高の照会効率を得られます。最悪の場合はすべて同じバケットに入り、時間計算量が <span class="arithmatex">\(O(n)\)</span> に悪化します。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.png" data-dark-src="/assets/figure-svg/figures/b8f78e60fa462fc36986eee8.json" data-src="/assets/figure-svg/figures/f68981c1d8635b27821c5848.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.svg" data-theme="light" tabindex="-1" type="image/svg+xml">ハッシュ衝突の最良と最悪の場合</object><object data="/ja/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">ハッシュ衝突の最良と最悪の場合</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.png" data-dark-src="/assets/figure-svg/figures/cc5f0be6d544aa5604b77728.json" data-src="/assets/figure-svg/figures/9af046b87e6e403c6a84db8d.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.svg" data-theme="light" tabindex="-1" type="image/svg+xml">ハッシュ衝突の最良と最悪の場合</object><object data="/ja/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">ハッシュ衝突の最良と最悪の場合</object></ha-svg-figure></p>
 <p align="center"> 図 6-8   ハッシュ衝突の最良と最悪の場合 </p>
 <p><strong>ペアの分布を決めるのはハッシュ関数です</strong>。計算手順を思い出すと、まずハッシュ値を求め、配列の長さで剰余を取ります。</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nv">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hash<span class="o">(</span>key<span class="o">)</span><span class="w"> </span>%<span class="w"> </span>capacity
@@ -3036,5 +3036,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

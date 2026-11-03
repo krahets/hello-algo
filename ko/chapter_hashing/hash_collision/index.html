@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/abd17f77112eaa7224f372b6.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/abd17f77112eaa7224f372b6.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1995,7 +1995,7 @@
 <p>해시 테이블의 구조를 개선하는 대표적인 방법은 ‘체이닝’과 ‘개방 주소법’이다.</p>
 <h2 id="621">6.2.1   체이닝<a class="headerlink" href="#621" title="고유 링크">¶</a></h2>
 <p>기본 해시 테이블에서는 버킷 하나에 키-값 쌍 하나만 저장할 수 있다. <u>체이닝(separate chaining)</u>은 단일 원소를 연결 리스트로 바꾸고, 키-값 쌍을 노드로 삼아 충돌한 키-값 쌍을 모두 같은 연결 리스트에 저장한다. 아래 그림(6-5)은 체이닝 해시 테이블의 예다.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_hashing/hash_collision.assets/hash_table_chaining.png" data-dark-src="/assets/figure-svg/figures/f3d95c754364a3e1b1ffb66e.json" data-src="/assets/figure-svg/figures/3035735c9a81fb8279307e20.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_hashing/hash_collision.assets/hash_table_chaining.svg" data-theme="light" tabindex="-1" type="image/svg+xml">체이닝 해시 테이블</object><object data="/ko/chapter_hashing/hash_collision.assets/hash_table_chaining.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">체이닝 해시 테이블</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_hashing/hash_collision.assets/hash_table_chaining.png" data-dark-src="/assets/figure-svg/figures/78957dfcc2bb76b971df8dde.json" data-src="/assets/figure-svg/figures/f08ffd08a7ccda238792bf56.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_hashing/hash_collision.assets/hash_table_chaining.svg" data-theme="light" tabindex="-1" type="image/svg+xml">체이닝 해시 테이블</object><object data="/ko/chapter_hashing/hash_collision.assets/hash_table_chaining.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">체이닝 해시 테이블</object></ha-svg-figure></p>
 <p align="center"> 그림 6-5   체이닝 해시 테이블 </p>
 <p>체이닝 해시 테이블에서는 연산 방식이 다음과 같이 바뀐다.</p>
 <ul>
@@ -3487,11 +3487,11 @@
 <li><strong>원소 탐색</strong>: 해시 충돌이 있으면 같은 간격으로 뒤를 순회하다가 해당 원소를 찾으면 <code>value</code>를 반환한다. 빈 버킷을 만나면 목표 원소가 없다는 뜻이므로 <code>None</code>을 반환한다.</li>
 </ul>
 <p>아래 그림(6-6)은 개방 주소법(선형 탐사) 해시 테이블의 키-값 쌍 분포를 보여 준다. 이 해시 함수에서는 마지막 두 자리가 같은 <code>key</code>가 모두 같은 버킷에 매핑된다. 선형 탐사를 통해 이들은 해당 버킷과 그 뒤의 버킷에 차례로 저장된다.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_hashing/hash_collision.assets/hash_table_linear_probing.png" data-dark-src="/assets/figure-svg/figures/acf595ab4906164feaf8d47d.json" data-src="/assets/figure-svg/figures/92f6ed6fea4512e592ad76df.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_hashing/hash_collision.assets/hash_table_linear_probing.svg" data-theme="light" tabindex="-1" type="image/svg+xml">개방 주소법(선형 탐사) 해시 테이블의 키-값 쌍 분포</object><object data="/ko/chapter_hashing/hash_collision.assets/hash_table_linear_probing.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">개방 주소법(선형 탐사) 해시 테이블의 키-값 쌍 분포</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_hashing/hash_collision.assets/hash_table_linear_probing.png" data-dark-src="/assets/figure-svg/figures/d0962da1c80d561092f69d59.json" data-src="/assets/figure-svg/figures/57e3ff85f0398139f2898f4a.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_hashing/hash_collision.assets/hash_table_linear_probing.svg" data-theme="light" tabindex="-1" type="image/svg+xml">개방 주소법(선형 탐사) 해시 테이블의 키-값 쌍 분포</object><object data="/ko/chapter_hashing/hash_collision.assets/hash_table_linear_probing.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">개방 주소법(선형 탐사) 해시 테이블의 키-값 쌍 분포</object></ha-svg-figure></p>
 <p align="center"> 그림 6-6   개방 주소법(선형 탐사) 해시 테이블의 키-값 쌍 분포 </p>
 <p>하지만 <strong>선형 탐사에서는 ‘군집 현상’이 쉽게 발생한다</strong>. 배열에서 연속으로 채워진 구간이 길수록 그 구간에서 충돌할 가능성도 커진다. 그 결과 군집이 더욱 커지는 악순환이 생기고, 결국 삽입, 삭제, 탐색, 갱신의 효율이 낮아진다.</p>
 <p><strong>개방 주소법 해시 테이블에서는 원소를 곧바로 삭제하면 안 된다</strong>는 점에 주의하자. 삭제하면 배열에 빈 버킷 <code>None</code>이 생긴다. 조회 중 선형 탐사가 이 버킷에 도달하면 바로 반환하므로 그 뒤의 원소에 접근할 수 없게 된다. 아래 그림(6-7)과 같이 프로그램이 그 원소들을 존재하지 않는다고 잘못 판단할 수 있다.</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion.png" data-dark-src="/assets/figure-svg/figures/de46477b9684de489c10fded.json" data-src="/assets/figure-svg/figures/b5ac902a02da484ff05457a6.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion.svg" data-theme="light" tabindex="-1" type="image/svg+xml">개방 주소법에서 원소 삭제로 발생하는 조회 문제</object><object data="/ko/chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">개방 주소법에서 원소 삭제로 발생하는 조회 문제</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ko/chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion.png" data-dark-src="/assets/figure-svg/figures/03942d47e4fab20fd2615320.json" data-src="/assets/figure-svg/figures/a56c30c19ccbdf6e4498997d.json" style=";--figure-ratio:960.0/540.0"><object data="/ko/chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion.svg" data-theme="light" tabindex="-1" type="image/svg+xml">개방 주소법에서 원소 삭제로 발생하는 조회 문제</object><object data="/ko/chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">개방 주소법에서 원소 삭제로 발생하는 조회 문제</object></ha-svg-figure></p>
 <p align="center"> 그림 6-7   개방 주소법에서 원소 삭제로 발생하는 조회 문제 </p>
 <p>이 문제는 <u>지연 삭제(lazy deletion)</u>로 해결할 수 있다. 원소를 해시 테이블에서 곧바로 제거하지 않고 <strong>상수 <code>TOMBSTONE</code>으로 해당 버킷을 표시한다</strong>. <code>None</code>과 <code>TOMBSTONE</code>은 모두 빈 버킷을 나타내며 새 키-값 쌍을 넣을 수 있다. 하지만 <code>TOMBSTONE</code>을 만나면 그 뒤에도 키-값 쌍이 있을 수 있으므로 탐사를 계속해야 한다.</p>
 <p>그러나 <strong>지연 삭제는 해시 테이블의 성능 저하를 가속할 수 있다</strong>. 삭제할 때마다 삭제 표시가 생기므로 <code>TOMBSTONE</code>이 늘어날수록 탐색 시간도 길어진다. 목표 원소를 찾기 위해 여러 <code>TOMBSTONE</code>을 건너뛰어야 할 수 있기 때문이다.</p>
@@ -5349,5 +5349,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>

@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/e5c971c8d6831a5e9f627022.css" rel="stylesheet"/><link href="/assets/figure-svg/css/320d37a71f8e9962e76c8fc3.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/e5c971c8d6831a5e9f627022.css" rel="stylesheet"/><link href="/assets/figure-svg/css/c053e5d2507ba0f764c3d1cf.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -2224,7 +2224,7 @@
 </ul>
 <p>両者を掛けると、構築の時間計算量は <span class="arithmatex">\(O(n \log n)\)</span> となります。<strong>ただし、この見積もりは正確ではありません。木の下の層には上の層よりはるかに多くのノードがあることを考慮していないためです</strong>。</p>
 <p>より正確に計算しましょう。計算を簡単にするため、ノード数 <span class="arithmatex">\(n\)</span>、高さ <span class="arithmatex">\(h\)</span> のパーフェクト二分木を仮定します。この仮定は結果の正しさに影響しません。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_heap/build_heap.assets/heapify_operations_count.png" data-dark-src="/assets/figure-svg/figures/3510a562c17179618bd8b800.json" data-src="/assets/figure-svg/figures/6d15d1c811c459d05ea8ac0a.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_heap/build_heap.assets/heapify_operations_count.svg" data-theme="light" tabindex="-1" type="image/svg+xml">パーフェクト二分木の各層のノード数</object><object data="/ja/chapter_heap/build_heap.assets/heapify_operations_count.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">パーフェクト二分木の各層のノード数</object></ha-svg-figure></p>
+<p><ha-svg-figure class="animation-figure" data-book-key="ja/chapter_heap/build_heap.assets/heapify_operations_count.png" data-dark-src="/assets/figure-svg/figures/cb203ad3f7bc8339dcfe4f1c.json" data-src="/assets/figure-svg/figures/3d85985484d7013e272d9282.json" style=";--figure-ratio:960.0/540.0"><object data="/ja/chapter_heap/build_heap.assets/heapify_operations_count.svg" data-theme="light" tabindex="-1" type="image/svg+xml">パーフェクト二分木の各層のノード数</object><object data="/ja/chapter_heap/build_heap.assets/heapify_operations_count.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">パーフェクト二分木の各層のノード数</object></ha-svg-figure></p>
 <p align="center"> 図 8-5   パーフェクト二分木の各層のノード数 </p>
 <p>図 8-5 のように、上から下へヒープ化するときの最大反復回数は、そのノードから葉までの距離、つまりノードの高さです。各層の「ノード数 <span class="arithmatex">\(\times\)</span> ノードの高さ」を足せば、<strong>すべてのノードのヒープ化の反復回数の合計</strong>が得られます。</p>
 <div class="arithmatex">\[
@@ -2371,5 +2371,5 @@ T(h) &amp; = 2 \frac{1 - 2^h}{1 - 2} - h \newline
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/d706a8d4337d8499273c0243.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/855fb5bb73c22cf5c2cea474.js"></script></body>
 </html>
