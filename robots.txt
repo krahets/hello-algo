@@ -1,0 +1,6 @@
+Sitemap: https://www.hello-algo.com/en/sitemap.xml
+Sitemap: https://www.hello-algo.com/ja/sitemap.xml
+Sitemap: https://www.hello-algo.com/ko/sitemap.xml
+Sitemap: https://www.hello-algo.com/ru/sitemap.xml
+Sitemap: https://www.hello-algo.com/sitemap.xml
+Sitemap: https://www.hello-algo.com/zh-hant/sitemap.xml

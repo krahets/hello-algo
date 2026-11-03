@@ -1,0 +1,21 @@
+ha-svg-figure{display:block;position:relative;width:100%;max-width:100%;aspect-ratio:var(--figure-ratio,16/9);margin:0 auto;background:#fff;overflow:hidden;color-scheme:light}
+ha-svg-figure > object{display:block;position:absolute;inset:0;width:100%;height:100%;border:0}
+ha-svg-figure > object[data-theme="dark"],
+body[data-md-color-scheme="slate"] ha-svg-figure > object[data-theme="light"]:has(+ object[data-theme="dark"]){visibility:hidden}
+body[data-md-color-scheme="slate"] ha-svg-figure > object[data-theme="dark"]{visibility:visible}
+@media print{ha-svg-figure{break-inside:avoid}}
+[data-figure-sequence][aria-busy="true"] .animation-controls{opacity:.55}
+
+body[data-md-color-scheme="slate"]{--ha-figure-background:#171717}
+body[data-md-color-scheme="slate"] ha-svg-figure{background:#171717;color-scheme:dark}
+.ha-algorithm-animation .animation-canvas>svg{display:block;width:100%;height:auto}
+.ha-algorithm-animation .animation-controls{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+.ha-algorithm-animation button,.ha-algorithm-animation select{font:inherit;color:inherit;border:1px solid var(--md-default-fg-color--lighter);border-radius:6px;padding:.25rem .5rem;cursor:pointer}
+.ha-algorithm-animation input[type="range"]{width:100%;margin:.6rem 0}
+.ha-algorithm-animation .animation-player{margin:1rem 0}
+
+/* Theme-adapted SVG already contains its intended background and palette. */
+[data-md-color-scheme="slate"] .md-typeset svg[data-appearance],
+[data-md-color-scheme="slate"] .ha-algorithm-animation .animation-canvas > svg {
+  filter: none;
+}

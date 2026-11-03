@@ -1,122 +1,2053 @@
 {
-    "trailingSlash": true,
-    "headers": [
+  "trailingSlash": true,
+  "headers": [
+    {
+      "source": "/assets/home/(.+)",
+      "headers": [
         {
-            "source": "/assets/home/(.+)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=31536000, immutable"
-                }
-            ]
-        },
-        {
-            "source": "(/en|/zh-hant|/ja|/ru|/ko)?/",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=0, must-revalidate"
-                }
-            ]
-        },
-        {
-            "source": "(/en|/zh-hant|/ja|/ru|/ko)?/assets/javascripts/bundle.(.+).min.js",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=2592000, immutable"
-                }
-            ]
-        },
-        {
-            "source": "(/en|/zh-hant|/ja|/ru|/ko)?/assets/javascripts/workers/search.(.+).min.js",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=2592000, immutable"
-                }
-            ]
-        },
-        {
-            "source": "(/en|/zh-hant|/ja|/ru|/ko)?/assets/stylesheets/(.+).css",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=2592000, immutable"
-                }
-            ]
-        },
-        {
-            "source": "(/en|/zh-hant|/ja|/ru|/ko)?/javascripts/mathjax.js",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=2592000, immutable"
-                }
-            ]
-        },
-        {
-            "source": "(/en|/zh-hant|/ja|/ru|/ko)?/assets/images/(.+).(svg|png)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=2592000, immutable"
-                }
-            ]
-        },
-        {
-            "source": "(/en|/zh-hant|/ja|/ru|/ko)?/stylesheets/extra.css",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=2592000, immutable"
-                }
-            ]
-        },
-        {
-            "source": "(/en|/zh-hant|/ja|/ru|/ko)?/search.json",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=2592000, immutable"
-                }
-            ]
-        },
-        {
-            "source": "(/en|/zh-hant|/ja|/ru|/ko)?/chapter_(.+)/(.+)\\.assets/(.+)\\.(png|jpg|svg|gif|webp|ico)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=2592000, immutable"
-                }
-            ]
-        },
-        {
-            "source": "(/en|/zh-hant|/ja|/ru|/ko)?/(.+)\\.assets/(.+)\\.(png|jpg|svg|gif|webp|ico)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=2592000, immutable"
-                }
-            ]
-        },
-        {
-            "source": "(/en|/zh-hant|/ja|/ru|/ko)?/assets/(hero|covers|avatar)/(.+)\\.(png|jpg|svg|gif|webp|ico)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=2592000, immutable"
-                }
-            ]
-        },
-        {
-            "source": "/auth",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=31536000, immutable"
-                }
-            ]
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
-    ]
+      ]
+    },
+    {
+      "source": "(/en|/zh-hant|/ja|/ru|/ko)?/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "(/en|/zh-hant|/ja|/ru|/ko)?/assets/javascripts/bundle.(.+).min.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "(/en|/zh-hant|/ja|/ru|/ko)?/assets/javascripts/workers/search.(.+).min.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "(/en|/zh-hant|/ja|/ru|/ko)?/assets/stylesheets/(.+).css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "(/en|/zh-hant|/ja|/ru|/ko)?/javascripts/mathjax.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "(/en|/zh-hant|/ja|/ru|/ko)?/assets/images/(.+).(svg|png)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "(/en|/zh-hant|/ja|/ru|/ko)?/stylesheets/extra.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "(/en|/zh-hant|/ja|/ru|/ko)?/search.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "(/en|/zh-hant|/ja|/ru|/ko)?/chapter_(.+)/(.+)\\.assets/(.+)\\.(png|jpg|svg|gif|webp|ico)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "(/en|/zh-hant|/ja|/ru|/ko)?/(.+)\\.assets/(.+)\\.(png|jpg|svg|gif|webp|ico)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "(/en|/zh-hant|/ja|/ru|/ko)?/assets/(hero|covers|avatar)/(.+)\\.(png|jpg|svg|gif|webp|ico)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/auth",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/:path(.*\\.assets/.*\\.svg)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/chapter_array_and_linkedlist/array\\.assets/:figure(array_definition|array_insert_element|array_memory_location_calculation|array_remove_element)\\.png",
+      "destination": "/chapter_array_and_linkedlist/array.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_array_and_linkedlist/linked_list\\.assets/:figure(linkedlist_common_types|linkedlist_definition|linkedlist_insert_node|linkedlist_remove_node)\\.png",
+      "destination": "/chapter_array_and_linkedlist/linked_list.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_array_and_linkedlist/ram_and_cache\\.assets/:figure(computer_storage_devices|storage_pyramid)\\.png",
+      "destination": "/chapter_array_and_linkedlist/ram_and_cache.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_backtracking/backtracking_algorithm\\.assets/:figure(backtrack_remove_return_or_not|preorder_find_constrained_paths|preorder_find_nodes|preorder_find_paths_step1|preorder_find_paths_step10|preorder_find_paths_step11|preorder_find_paths_step2|preorder_find_paths_step3|preorder_find_paths_step4|preorder_find_paths_step5|preorder_find_paths_step6|preorder_find_paths_step7|preorder_find_paths_step8|preorder_find_paths_step9)\\.png",
+      "destination": "/chapter_backtracking/backtracking_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_backtracking/n_queens_problem\\.assets/:figure(n_queens_cols_diagonals|n_queens_constraints|n_queens_placing|solution_4_queens)\\.png",
+      "destination": "/chapter_backtracking/n_queens_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_backtracking/permutations_problem\\.assets/:figure(permutations_i|permutations_i_pruning|permutations_ii|permutations_ii_pruning|permutations_ii_pruning_summary)\\.png",
+      "destination": "/chapter_backtracking/permutations_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_backtracking/subset_sum_problem\\.assets/:figure(subset_sum_i|subset_sum_i_naive|subset_sum_i_pruning|subset_sum_ii|subset_sum_ii_repeat)\\.png",
+      "destination": "/chapter_backtracking/subset_sum_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_computational_complexity/iteration_and_recursion\\.assets/:figure(iteration|nested_iteration|recursion_sum|recursion_sum_depth|recursion_tree|tail_recursion_sum)\\.png",
+      "destination": "/chapter_computational_complexity/iteration_and_recursion.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_computational_complexity/space_complexity\\.assets/:figure(space_complexity_common_types|space_complexity_exponential|space_complexity_recursive_linear|space_complexity_recursive_quadratic|space_types)\\.png",
+      "destination": "/chapter_computational_complexity/space_complexity.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_computational_complexity/time_complexity\\.assets/:figure(asymptotic_upper_bound|time_complexity_common_types|time_complexity_constant_linear_quadratic|time_complexity_exponential|time_complexity_factorial|time_complexity_logarithmic|time_complexity_logarithmic_linear|time_complexity_simple_example)\\.png",
+      "destination": "/chapter_computational_complexity/time_complexity.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_data_structure/character_encoding\\.assets/:figure(ascii_table|unicode_hello_algo|utf\\-8_hello_algo)\\.png",
+      "destination": "/chapter_data_structure/character_encoding.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_data_structure/classification_of_data_structure\\.assets/:figure(classification_logic_structure|classification_phisical_structure|computer_memory_location)\\.png",
+      "destination": "/chapter_data_structure/classification_of_data_structure.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_data_structure/number_encoding\\.assets/:figure(1s_2s_complement|ieee_754_float)\\.png",
+      "destination": "/chapter_data_structure/number_encoding.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_divide_and_conquer/binary_search_recur\\.assets/:figure(binary_search_recur)\\.png",
+      "destination": "/chapter_divide_and_conquer/binary_search_recur.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_divide_and_conquer/build_binary_tree_problem\\.assets/:figure(build_tree_division_pointers|build_tree_example|build_tree_preorder_inorder_division|built_tree_overall|built_tree_step1|built_tree_step2|built_tree_step3|built_tree_step4|built_tree_step5|built_tree_step6|built_tree_step7|built_tree_step8|built_tree_step9)\\.png",
+      "destination": "/chapter_divide_and_conquer/build_binary_tree_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_divide_and_conquer/divide_and_conquer\\.assets/:figure(divide_and_conquer_bubble_sort|divide_and_conquer_merge_sort|divide_and_conquer_parallel_computing)\\.png",
+      "destination": "/chapter_divide_and_conquer/divide_and_conquer.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_divide_and_conquer/hanota_problem\\.assets/:figure(hanota_divide_and_conquer|hanota_example|hanota_f1_step1|hanota_f1_step2|hanota_f2_step1|hanota_f2_step2|hanota_f2_step3|hanota_f2_step4|hanota_f3_step1|hanota_f3_step2|hanota_f3_step3|hanota_f3_step4|hanota_recursive_tree)\\.png",
+      "destination": "/chapter_divide_and_conquer/hanota_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_dynamic_programming/dp_problem_features\\.assets/:figure(climbing_stairs_constraint_example|climbing_stairs_constraint_state_transfer|min_cost_cs_dp|min_cost_cs_example)\\.png",
+      "destination": "/chapter_dynamic_programming/dp_problem_features.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_dynamic_programming/dp_solution_pipeline\\.assets/:figure(min_path_sum_dfs|min_path_sum_dfs_mem|min_path_sum_dp_step1|min_path_sum_dp_step10|min_path_sum_dp_step11|min_path_sum_dp_step12|min_path_sum_dp_step2|min_path_sum_dp_step3|min_path_sum_dp_step4|min_path_sum_dp_step5|min_path_sum_dp_step6|min_path_sum_dp_step7|min_path_sum_dp_step8|min_path_sum_dp_step9|min_path_sum_example|min_path_sum_solution_initial_state|min_path_sum_solution_state_definition|min_path_sum_solution_state_transition)\\.png",
+      "destination": "/chapter_dynamic_programming/dp_solution_pipeline.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_dynamic_programming/edit_distance_problem\\.assets/:figure(edit_distance_decision_tree|edit_distance_dp_step1|edit_distance_dp_step10|edit_distance_dp_step11|edit_distance_dp_step12|edit_distance_dp_step13|edit_distance_dp_step14|edit_distance_dp_step15|edit_distance_dp_step2|edit_distance_dp_step3|edit_distance_dp_step4|edit_distance_dp_step5|edit_distance_dp_step6|edit_distance_dp_step7|edit_distance_dp_step8|edit_distance_dp_step9|edit_distance_example|edit_distance_state_transfer)\\.png",
+      "destination": "/chapter_dynamic_programming/edit_distance_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_dynamic_programming/intro_to_dynamic_programming\\.assets/:figure(climbing_stairs_dfs_memo_tree|climbing_stairs_dfs_tree|climbing_stairs_dp|climbing_stairs_example|climbing_stairs_state_transfer)\\.png",
+      "destination": "/chapter_dynamic_programming/intro_to_dynamic_programming.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_dynamic_programming/knapsack_problem\\.assets/:figure(knapsack_dfs|knapsack_dfs_mem|knapsack_dp_comp_step1|knapsack_dp_comp_step2|knapsack_dp_comp_step3|knapsack_dp_comp_step4|knapsack_dp_comp_step5|knapsack_dp_comp_step6|knapsack_dp_step1|knapsack_dp_step10|knapsack_dp_step11|knapsack_dp_step12|knapsack_dp_step13|knapsack_dp_step14|knapsack_dp_step2|knapsack_dp_step3|knapsack_dp_step4|knapsack_dp_step5|knapsack_dp_step6|knapsack_dp_step7|knapsack_dp_step8|knapsack_dp_step9|knapsack_example)\\.png",
+      "destination": "/chapter_dynamic_programming/knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_dynamic_programming/unbounded_knapsack_problem\\.assets/:figure(coin_change_dp_step1|coin_change_dp_step10|coin_change_dp_step11|coin_change_dp_step12|coin_change_dp_step13|coin_change_dp_step14|coin_change_dp_step15|coin_change_dp_step2|coin_change_dp_step3|coin_change_dp_step4|coin_change_dp_step5|coin_change_dp_step6|coin_change_dp_step7|coin_change_dp_step8|coin_change_dp_step9|coin_change_example|coin_change_ii_example|unbounded_knapsack_dp_comp_step1|unbounded_knapsack_dp_comp_step2|unbounded_knapsack_dp_comp_step3|unbounded_knapsack_dp_comp_step4|unbounded_knapsack_dp_comp_step5|unbounded_knapsack_dp_comp_step6|unbounded_knapsack_example)\\.png",
+      "destination": "/chapter_dynamic_programming/unbounded_knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_graph/graph\\.assets/:figure(adjacency_list|adjacency_matrix|connected_graph|directed_graph|linkedlist_tree_graph|weighted_graph)\\.png",
+      "destination": "/chapter_graph/graph.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_graph/graph_operations\\.assets/:figure(adjacency_list_step1_initialization|adjacency_list_step2_add_edge|adjacency_list_step3_remove_edge|adjacency_list_step4_add_vertex|adjacency_list_step5_remove_vertex|adjacency_matrix_step1_initialization|adjacency_matrix_step2_add_edge|adjacency_matrix_step3_remove_edge|adjacency_matrix_step4_add_vertex|adjacency_matrix_step5_remove_vertex)\\.png",
+      "destination": "/chapter_graph/graph_operations.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_graph/graph_traversal\\.assets/:figure(graph_bfs|graph_bfs_step1|graph_bfs_step10|graph_bfs_step11|graph_bfs_step2|graph_bfs_step3|graph_bfs_step4|graph_bfs_step5|graph_bfs_step6|graph_bfs_step7|graph_bfs_step8|graph_bfs_step9|graph_dfs|graph_dfs_step1|graph_dfs_step10|graph_dfs_step11|graph_dfs_step2|graph_dfs_step3|graph_dfs_step4|graph_dfs_step5|graph_dfs_step6|graph_dfs_step7|graph_dfs_step8|graph_dfs_step9)\\.png",
+      "destination": "/chapter_graph/graph_traversal.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_greedy/fractional_knapsack_problem\\.assets/:figure(fractional_knapsack_area_chart|fractional_knapsack_example|fractional_knapsack_greedy_strategy|fractional_knapsack_unit_value)\\.png",
+      "destination": "/chapter_greedy/fractional_knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_greedy/greedy_algorithm\\.assets/:figure(coin_change_greedy_strategy|coin_change_greedy_vs_dp)\\.png",
+      "destination": "/chapter_greedy/greedy_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_greedy/max_capacity_problem\\.assets/:figure(max_capacity_example|max_capacity_greedy_step1|max_capacity_greedy_step2|max_capacity_greedy_step3|max_capacity_greedy_step4|max_capacity_greedy_step5|max_capacity_greedy_step6|max_capacity_greedy_step7|max_capacity_greedy_step8|max_capacity_greedy_step9|max_capacity_initial_state|max_capacity_moving_long_board|max_capacity_moving_short_board|max_capacity_skipped_states)\\.png",
+      "destination": "/chapter_greedy/max_capacity_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_greedy/max_product_cutting_problem\\.assets/:figure(max_product_cutting_definition|max_product_cutting_greedy_calculation|max_product_cutting_greedy_infer1|max_product_cutting_greedy_infer2)\\.png",
+      "destination": "/chapter_greedy/max_product_cutting_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_hashing/hash_algorithm\\.assets/:figure(hash_collision_best_worst_condition)\\.png",
+      "destination": "/chapter_hashing/hash_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_hashing/hash_collision\\.assets/:figure(hash_table_chaining|hash_table_linear_probing|hash_table_open_addressing_deletion)\\.png",
+      "destination": "/chapter_hashing/hash_collision.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_hashing/hash_map\\.assets/:figure(hash_collision|hash_function|hash_table_lookup|hash_table_reshash)\\.png",
+      "destination": "/chapter_hashing/hash_map.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_heap/build_heap\\.assets/:figure(heapify_operations_count)\\.png",
+      "destination": "/chapter_heap/build_heap.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_heap/heap\\.assets/:figure(heap_pop_step1|heap_pop_step10|heap_pop_step2|heap_pop_step3|heap_pop_step4|heap_pop_step5|heap_pop_step6|heap_pop_step7|heap_pop_step8|heap_pop_step9|heap_push_step1|heap_push_step2|heap_push_step3|heap_push_step4|heap_push_step5|heap_push_step6|heap_push_step7|heap_push_step8|heap_push_step9|min_heap_and_max_heap|representation_of_heap)\\.png",
+      "destination": "/chapter_heap/heap.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_heap/top_k\\.assets/:figure(top_k_heap_step1|top_k_heap_step2|top_k_heap_step3|top_k_heap_step4|top_k_heap_step5|top_k_heap_step6|top_k_heap_step7|top_k_heap_step8|top_k_heap_step9|top_k_sorting|top_k_traversal)\\.png",
+      "destination": "/chapter_heap/top_k.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_introduction/algorithms_are_everywhere\\.assets/:figure(binary_search_dictionary_step1|binary_search_dictionary_step2|binary_search_dictionary_step3|binary_search_dictionary_step4|binary_search_dictionary_step5|greedy_change|playing_cards_sorting)\\.png",
+      "destination": "/chapter_introduction/algorithms_are_everywhere.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_introduction/what_is_dsa\\.assets/:figure(relationship_between_data_structure_and_algorithm)\\.png",
+      "destination": "/chapter_introduction/what_is_dsa.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_preface/about_the_book\\.assets/:figure(hello_algo_mindmap)\\.png",
+      "destination": "/chapter_preface/about_the_book.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_preface/suggestions\\.assets/:figure(code_md_to_repo|learning_route)\\.png",
+      "destination": "/chapter_preface/suggestions.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_searching/binary_search\\.assets/:figure(binary_search_example|binary_search_ranges|binary_search_step1|binary_search_step2|binary_search_step3|binary_search_step4|binary_search_step5|binary_search_step6|binary_search_step7)\\.png",
+      "destination": "/chapter_searching/binary_search.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_searching/binary_search_edge\\.assets/:figure(binary_search_edge_by_element|binary_search_right_edge_by_left_edge)\\.png",
+      "destination": "/chapter_searching/binary_search_edge.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_searching/binary_search_insertion\\.assets/:figure(binary_search_insertion_example|binary_search_insertion_naive|binary_search_insertion_step1|binary_search_insertion_step2|binary_search_insertion_step3|binary_search_insertion_step4|binary_search_insertion_step5|binary_search_insertion_step6|binary_search_insertion_step7|binary_search_insertion_step8)\\.png",
+      "destination": "/chapter_searching/binary_search_insertion.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_searching/replace_linear_by_hashing\\.assets/:figure(two_sum_brute_force|two_sum_hashtable_step1|two_sum_hashtable_step2|two_sum_hashtable_step3)\\.png",
+      "destination": "/chapter_searching/replace_linear_by_hashing.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_searching/searching_algorithm_revisited\\.assets/:figure(searching_algorithms)\\.png",
+      "destination": "/chapter_searching/searching_algorithm_revisited.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_sorting/bubble_sort\\.assets/:figure(bubble_operation_step1|bubble_operation_step2|bubble_operation_step3|bubble_operation_step4|bubble_operation_step5|bubble_operation_step6|bubble_operation_step7|bubble_sort_overview)\\.png",
+      "destination": "/chapter_sorting/bubble_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_sorting/bucket_sort\\.assets/:figure(bucket_sort_overview|scatter_in_buckets_distribution|scatter_in_buckets_recursively)\\.png",
+      "destination": "/chapter_sorting/bucket_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_sorting/counting_sort\\.assets/:figure(counting_sort_overview|counting_sort_step1|counting_sort_step2|counting_sort_step3|counting_sort_step4|counting_sort_step5|counting_sort_step6|counting_sort_step7|counting_sort_step8)\\.png",
+      "destination": "/chapter_sorting/counting_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_sorting/heap_sort\\.assets/:figure(heap_sort_step1|heap_sort_step10|heap_sort_step11|heap_sort_step12|heap_sort_step2|heap_sort_step3|heap_sort_step4|heap_sort_step5|heap_sort_step6|heap_sort_step7|heap_sort_step8|heap_sort_step9)\\.png",
+      "destination": "/chapter_sorting/heap_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_sorting/insertion_sort\\.assets/:figure(insertion_operation|insertion_sort_overview)\\.png",
+      "destination": "/chapter_sorting/insertion_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_sorting/merge_sort\\.assets/:figure(merge_sort_overview|merge_sort_step1|merge_sort_step10|merge_sort_step2|merge_sort_step3|merge_sort_step4|merge_sort_step5|merge_sort_step6|merge_sort_step7|merge_sort_step8|merge_sort_step9)\\.png",
+      "destination": "/chapter_sorting/merge_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_sorting/quick_sort\\.assets/:figure(pivot_division_step1|pivot_division_step2|pivot_division_step3|pivot_division_step4|pivot_division_step5|pivot_division_step6|pivot_division_step7|pivot_division_step8|pivot_division_step9|quick_sort_overview)\\.png",
+      "destination": "/chapter_sorting/quick_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_sorting/radix_sort\\.assets/:figure(radix_sort_overview)\\.png",
+      "destination": "/chapter_sorting/radix_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_sorting/selection_sort\\.assets/:figure(selection_sort_instability|selection_sort_step1|selection_sort_step10|selection_sort_step11|selection_sort_step2|selection_sort_step3|selection_sort_step4|selection_sort_step5|selection_sort_step6|selection_sort_step7|selection_sort_step8|selection_sort_step9)\\.png",
+      "destination": "/chapter_sorting/selection_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_sorting/sorting_algorithm\\.assets/:figure(sorting_examples)\\.png",
+      "destination": "/chapter_sorting/sorting_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_sorting/summary\\.assets/:figure(sorting_algorithms_comparison)\\.png",
+      "destination": "/chapter_sorting/summary.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_stack_and_queue/deque\\.assets/:figure(array_deque_step1|array_deque_step2_push_last|array_deque_step3_push_first|array_deque_step4_pop_last|array_deque_step5_pop_first|deque_operations|linkedlist_deque_step1|linkedlist_deque_step2_push_last|linkedlist_deque_step3_push_first|linkedlist_deque_step4_pop_last|linkedlist_deque_step5_pop_first)\\.png",
+      "destination": "/chapter_stack_and_queue/deque.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_stack_and_queue/queue\\.assets/:figure(array_queue_step1|array_queue_step2_push|array_queue_step3_pop|linkedlist_queue_step1|linkedlist_queue_step2_push|linkedlist_queue_step3_pop|queue_operations)\\.png",
+      "destination": "/chapter_stack_and_queue/queue.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_stack_and_queue/stack\\.assets/:figure(array_stack_step1|array_stack_step2_push|array_stack_step3_pop|linkedlist_stack_step1|linkedlist_stack_step2_push|linkedlist_stack_step3_pop|stack_operations)\\.png",
+      "destination": "/chapter_stack_and_queue/stack.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_tree/array_representation_of_tree\\.assets/:figure(array_representation_binary_tree|array_representation_complete_binary_tree|array_representation_with_empty|array_representation_without_empty)\\.png",
+      "destination": "/chapter_tree/array_representation_of_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_tree/avl_tree\\.assets/:figure(avltree_degradation_from_inserting_node|avltree_degradation_from_removing_node|avltree_left_right_rotate|avltree_left_rotate|avltree_left_rotate_with_grandchild|avltree_right_left_rotate|avltree_right_rotate_step1|avltree_right_rotate_step2|avltree_right_rotate_step3|avltree_right_rotate_step4|avltree_right_rotate_with_grandchild|avltree_rotation_cases)\\.png",
+      "destination": "/chapter_tree/avl_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_tree/binary_search_tree\\.assets/:figure(binary_search_tree|bst_degradation|bst_inorder_traversal|bst_insert|bst_remove_case1|bst_remove_case2|bst_remove_case3_step1|bst_remove_case3_step2|bst_remove_case3_step3|bst_remove_case3_step4|bst_search_step1|bst_search_step2|bst_search_step3|bst_search_step4)\\.png",
+      "destination": "/chapter_tree/binary_search_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_tree/binary_tree\\.assets/:figure(balanced_binary_tree|binary_tree_add_remove|binary_tree_best_worst_cases|binary_tree_definition|binary_tree_terminology|complete_binary_tree|full_binary_tree|perfect_binary_tree)\\.png",
+      "destination": "/chapter_tree/binary_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/chapter_tree/binary_tree_traversal\\.assets/:figure(binary_tree_bfs|binary_tree_dfs|preorder_step1|preorder_step10|preorder_step11|preorder_step2|preorder_step3|preorder_step4|preorder_step5|preorder_step6|preorder_step7|preorder_step8|preorder_step9)\\.png",
+      "destination": "/chapter_tree/binary_tree_traversal.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_array_and_linkedlist/array\\.assets/:figure(array_definition|array_insert_element|array_memory_location_calculation|array_remove_element)\\.png",
+      "destination": "/en/chapter_array_and_linkedlist/array.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_array_and_linkedlist/linked_list\\.assets/:figure(linkedlist_common_types|linkedlist_definition|linkedlist_insert_node|linkedlist_remove_node)\\.png",
+      "destination": "/en/chapter_array_and_linkedlist/linked_list.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_array_and_linkedlist/ram_and_cache\\.assets/:figure(computer_storage_devices|storage_pyramid)\\.png",
+      "destination": "/en/chapter_array_and_linkedlist/ram_and_cache.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_backtracking/backtracking_algorithm\\.assets/:figure(backtrack_remove_return_or_not|preorder_find_constrained_paths|preorder_find_nodes|preorder_find_paths_step1|preorder_find_paths_step10|preorder_find_paths_step11|preorder_find_paths_step2|preorder_find_paths_step3|preorder_find_paths_step4|preorder_find_paths_step5|preorder_find_paths_step6|preorder_find_paths_step7|preorder_find_paths_step8|preorder_find_paths_step9)\\.png",
+      "destination": "/en/chapter_backtracking/backtracking_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_backtracking/n_queens_problem\\.assets/:figure(n_queens_cols_diagonals|n_queens_constraints|n_queens_placing|solution_4_queens)\\.png",
+      "destination": "/en/chapter_backtracking/n_queens_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_backtracking/permutations_problem\\.assets/:figure(permutations_i|permutations_i_pruning|permutations_ii|permutations_ii_pruning|permutations_ii_pruning_summary)\\.png",
+      "destination": "/en/chapter_backtracking/permutations_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_backtracking/subset_sum_problem\\.assets/:figure(subset_sum_i|subset_sum_i_naive|subset_sum_i_pruning|subset_sum_ii|subset_sum_ii_repeat)\\.png",
+      "destination": "/en/chapter_backtracking/subset_sum_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_computational_complexity/iteration_and_recursion\\.assets/:figure(iteration|nested_iteration|recursion_sum|recursion_sum_depth|recursion_tree|tail_recursion_sum)\\.png",
+      "destination": "/en/chapter_computational_complexity/iteration_and_recursion.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_computational_complexity/space_complexity\\.assets/:figure(space_complexity_common_types|space_complexity_exponential|space_complexity_recursive_linear|space_complexity_recursive_quadratic|space_types)\\.png",
+      "destination": "/en/chapter_computational_complexity/space_complexity.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_computational_complexity/time_complexity\\.assets/:figure(asymptotic_upper_bound|time_complexity_common_types|time_complexity_constant_linear_quadratic|time_complexity_exponential|time_complexity_factorial|time_complexity_logarithmic|time_complexity_logarithmic_linear|time_complexity_simple_example)\\.png",
+      "destination": "/en/chapter_computational_complexity/time_complexity.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_data_structure/character_encoding\\.assets/:figure(ascii_table|unicode_hello_algo|utf\\-8_hello_algo)\\.png",
+      "destination": "/en/chapter_data_structure/character_encoding.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_data_structure/classification_of_data_structure\\.assets/:figure(classification_logic_structure|classification_phisical_structure|computer_memory_location)\\.png",
+      "destination": "/en/chapter_data_structure/classification_of_data_structure.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_data_structure/number_encoding\\.assets/:figure(1s_2s_complement|ieee_754_float)\\.png",
+      "destination": "/en/chapter_data_structure/number_encoding.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_divide_and_conquer/binary_search_recur\\.assets/:figure(binary_search_recur)\\.png",
+      "destination": "/en/chapter_divide_and_conquer/binary_search_recur.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_divide_and_conquer/build_binary_tree_problem\\.assets/:figure(build_tree_division_pointers|build_tree_example|build_tree_preorder_inorder_division|built_tree_overall|built_tree_step1|built_tree_step2|built_tree_step3|built_tree_step4|built_tree_step5|built_tree_step6|built_tree_step7|built_tree_step8|built_tree_step9)\\.png",
+      "destination": "/en/chapter_divide_and_conquer/build_binary_tree_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_divide_and_conquer/divide_and_conquer\\.assets/:figure(divide_and_conquer_bubble_sort|divide_and_conquer_merge_sort|divide_and_conquer_parallel_computing)\\.png",
+      "destination": "/en/chapter_divide_and_conquer/divide_and_conquer.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_divide_and_conquer/hanota_problem\\.assets/:figure(hanota_divide_and_conquer|hanota_example|hanota_f1_step1|hanota_f1_step2|hanota_f2_step1|hanota_f2_step2|hanota_f2_step3|hanota_f2_step4|hanota_f3_step1|hanota_f3_step2|hanota_f3_step3|hanota_f3_step4|hanota_recursive_tree)\\.png",
+      "destination": "/en/chapter_divide_and_conquer/hanota_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_dynamic_programming/dp_problem_features\\.assets/:figure(climbing_stairs_constraint_example|climbing_stairs_constraint_state_transfer|min_cost_cs_dp|min_cost_cs_example)\\.png",
+      "destination": "/en/chapter_dynamic_programming/dp_problem_features.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_dynamic_programming/dp_solution_pipeline\\.assets/:figure(min_path_sum_dfs|min_path_sum_dfs_mem|min_path_sum_dp_step1|min_path_sum_dp_step10|min_path_sum_dp_step11|min_path_sum_dp_step12|min_path_sum_dp_step2|min_path_sum_dp_step3|min_path_sum_dp_step4|min_path_sum_dp_step5|min_path_sum_dp_step6|min_path_sum_dp_step7|min_path_sum_dp_step8|min_path_sum_dp_step9|min_path_sum_example|min_path_sum_solution_initial_state|min_path_sum_solution_state_definition|min_path_sum_solution_state_transition)\\.png",
+      "destination": "/en/chapter_dynamic_programming/dp_solution_pipeline.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_dynamic_programming/edit_distance_problem\\.assets/:figure(edit_distance_decision_tree|edit_distance_dp_step1|edit_distance_dp_step10|edit_distance_dp_step11|edit_distance_dp_step12|edit_distance_dp_step13|edit_distance_dp_step14|edit_distance_dp_step15|edit_distance_dp_step2|edit_distance_dp_step3|edit_distance_dp_step4|edit_distance_dp_step5|edit_distance_dp_step6|edit_distance_dp_step7|edit_distance_dp_step8|edit_distance_dp_step9|edit_distance_example|edit_distance_state_transfer)\\.png",
+      "destination": "/en/chapter_dynamic_programming/edit_distance_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_dynamic_programming/intro_to_dynamic_programming\\.assets/:figure(climbing_stairs_dfs_memo_tree|climbing_stairs_dfs_tree|climbing_stairs_dp|climbing_stairs_example|climbing_stairs_state_transfer)\\.png",
+      "destination": "/en/chapter_dynamic_programming/intro_to_dynamic_programming.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_dynamic_programming/knapsack_problem\\.assets/:figure(knapsack_dfs|knapsack_dfs_mem|knapsack_dp_comp_step1|knapsack_dp_comp_step2|knapsack_dp_comp_step3|knapsack_dp_comp_step4|knapsack_dp_comp_step5|knapsack_dp_comp_step6|knapsack_dp_step1|knapsack_dp_step10|knapsack_dp_step11|knapsack_dp_step12|knapsack_dp_step13|knapsack_dp_step14|knapsack_dp_step2|knapsack_dp_step3|knapsack_dp_step4|knapsack_dp_step5|knapsack_dp_step6|knapsack_dp_step7|knapsack_dp_step8|knapsack_dp_step9|knapsack_example)\\.png",
+      "destination": "/en/chapter_dynamic_programming/knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_dynamic_programming/unbounded_knapsack_problem\\.assets/:figure(coin_change_dp_step1|coin_change_dp_step10|coin_change_dp_step11|coin_change_dp_step12|coin_change_dp_step13|coin_change_dp_step14|coin_change_dp_step15|coin_change_dp_step2|coin_change_dp_step3|coin_change_dp_step4|coin_change_dp_step5|coin_change_dp_step6|coin_change_dp_step7|coin_change_dp_step8|coin_change_dp_step9|coin_change_example|coin_change_ii_example|unbounded_knapsack_dp_comp_step1|unbounded_knapsack_dp_comp_step2|unbounded_knapsack_dp_comp_step3|unbounded_knapsack_dp_comp_step4|unbounded_knapsack_dp_comp_step5|unbounded_knapsack_dp_comp_step6|unbounded_knapsack_example)\\.png",
+      "destination": "/en/chapter_dynamic_programming/unbounded_knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_graph/graph\\.assets/:figure(adjacency_list|adjacency_matrix|connected_graph|directed_graph|linkedlist_tree_graph|weighted_graph)\\.png",
+      "destination": "/en/chapter_graph/graph.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_graph/graph_operations\\.assets/:figure(adjacency_list_step1_initialization|adjacency_list_step2_add_edge|adjacency_list_step3_remove_edge|adjacency_list_step4_add_vertex|adjacency_list_step5_remove_vertex|adjacency_matrix_step1_initialization|adjacency_matrix_step2_add_edge|adjacency_matrix_step3_remove_edge|adjacency_matrix_step4_add_vertex|adjacency_matrix_step5_remove_vertex)\\.png",
+      "destination": "/en/chapter_graph/graph_operations.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_graph/graph_traversal\\.assets/:figure(graph_bfs|graph_bfs_step1|graph_bfs_step10|graph_bfs_step11|graph_bfs_step2|graph_bfs_step3|graph_bfs_step4|graph_bfs_step5|graph_bfs_step6|graph_bfs_step7|graph_bfs_step8|graph_bfs_step9|graph_dfs|graph_dfs_step1|graph_dfs_step10|graph_dfs_step11|graph_dfs_step2|graph_dfs_step3|graph_dfs_step4|graph_dfs_step5|graph_dfs_step6|graph_dfs_step7|graph_dfs_step8|graph_dfs_step9)\\.png",
+      "destination": "/en/chapter_graph/graph_traversal.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_greedy/fractional_knapsack_problem\\.assets/:figure(fractional_knapsack_area_chart|fractional_knapsack_example|fractional_knapsack_greedy_strategy|fractional_knapsack_unit_value)\\.png",
+      "destination": "/en/chapter_greedy/fractional_knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_greedy/greedy_algorithm\\.assets/:figure(coin_change_greedy_strategy|coin_change_greedy_vs_dp)\\.png",
+      "destination": "/en/chapter_greedy/greedy_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_greedy/max_capacity_problem\\.assets/:figure(max_capacity_example|max_capacity_greedy_step1|max_capacity_greedy_step2|max_capacity_greedy_step3|max_capacity_greedy_step4|max_capacity_greedy_step5|max_capacity_greedy_step6|max_capacity_greedy_step7|max_capacity_greedy_step8|max_capacity_greedy_step9|max_capacity_initial_state|max_capacity_moving_long_board|max_capacity_moving_short_board|max_capacity_skipped_states)\\.png",
+      "destination": "/en/chapter_greedy/max_capacity_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_greedy/max_product_cutting_problem\\.assets/:figure(max_product_cutting_definition|max_product_cutting_greedy_calculation|max_product_cutting_greedy_infer1|max_product_cutting_greedy_infer2)\\.png",
+      "destination": "/en/chapter_greedy/max_product_cutting_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_hashing/hash_algorithm\\.assets/:figure(hash_collision_best_worst_condition)\\.png",
+      "destination": "/en/chapter_hashing/hash_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_hashing/hash_collision\\.assets/:figure(hash_table_chaining|hash_table_linear_probing|hash_table_open_addressing_deletion)\\.png",
+      "destination": "/en/chapter_hashing/hash_collision.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_hashing/hash_map\\.assets/:figure(hash_collision|hash_function|hash_table_lookup|hash_table_reshash)\\.png",
+      "destination": "/en/chapter_hashing/hash_map.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_heap/build_heap\\.assets/:figure(heapify_operations_count)\\.png",
+      "destination": "/en/chapter_heap/build_heap.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_heap/heap\\.assets/:figure(heap_pop_step1|heap_pop_step10|heap_pop_step2|heap_pop_step3|heap_pop_step4|heap_pop_step5|heap_pop_step6|heap_pop_step7|heap_pop_step8|heap_pop_step9|heap_push_step1|heap_push_step2|heap_push_step3|heap_push_step4|heap_push_step5|heap_push_step6|heap_push_step7|heap_push_step8|heap_push_step9|min_heap_and_max_heap|representation_of_heap)\\.png",
+      "destination": "/en/chapter_heap/heap.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_heap/top_k\\.assets/:figure(top_k_heap_step1|top_k_heap_step2|top_k_heap_step3|top_k_heap_step4|top_k_heap_step5|top_k_heap_step6|top_k_heap_step7|top_k_heap_step8|top_k_heap_step9|top_k_sorting|top_k_traversal)\\.png",
+      "destination": "/en/chapter_heap/top_k.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_introduction/algorithms_are_everywhere\\.assets/:figure(binary_search_dictionary_step1|binary_search_dictionary_step2|binary_search_dictionary_step3|binary_search_dictionary_step4|binary_search_dictionary_step5|greedy_change|playing_cards_sorting)\\.png",
+      "destination": "/en/chapter_introduction/algorithms_are_everywhere.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_introduction/what_is_dsa\\.assets/:figure(relationship_between_data_structure_and_algorithm)\\.png",
+      "destination": "/en/chapter_introduction/what_is_dsa.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_preface/about_the_book\\.assets/:figure(hello_algo_mindmap)\\.png",
+      "destination": "/en/chapter_preface/about_the_book.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_preface/suggestions\\.assets/:figure(code_md_to_repo|learning_route)\\.png",
+      "destination": "/en/chapter_preface/suggestions.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_searching/binary_search\\.assets/:figure(binary_search_example|binary_search_ranges|binary_search_step1|binary_search_step2|binary_search_step3|binary_search_step4|binary_search_step5|binary_search_step6|binary_search_step7)\\.png",
+      "destination": "/en/chapter_searching/binary_search.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_searching/binary_search_edge\\.assets/:figure(binary_search_edge_by_element|binary_search_right_edge_by_left_edge)\\.png",
+      "destination": "/en/chapter_searching/binary_search_edge.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_searching/binary_search_insertion\\.assets/:figure(binary_search_insertion_example|binary_search_insertion_naive|binary_search_insertion_step1|binary_search_insertion_step2|binary_search_insertion_step3|binary_search_insertion_step4|binary_search_insertion_step5|binary_search_insertion_step6|binary_search_insertion_step7|binary_search_insertion_step8)\\.png",
+      "destination": "/en/chapter_searching/binary_search_insertion.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_searching/replace_linear_by_hashing\\.assets/:figure(two_sum_brute_force|two_sum_hashtable_step1|two_sum_hashtable_step2|two_sum_hashtable_step3)\\.png",
+      "destination": "/en/chapter_searching/replace_linear_by_hashing.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_searching/searching_algorithm_revisited\\.assets/:figure(searching_algorithms)\\.png",
+      "destination": "/en/chapter_searching/searching_algorithm_revisited.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_sorting/bubble_sort\\.assets/:figure(bubble_operation_step1|bubble_operation_step2|bubble_operation_step3|bubble_operation_step4|bubble_operation_step5|bubble_operation_step6|bubble_operation_step7|bubble_sort_overview)\\.png",
+      "destination": "/en/chapter_sorting/bubble_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_sorting/bucket_sort\\.assets/:figure(bucket_sort_overview|scatter_in_buckets_distribution|scatter_in_buckets_recursively)\\.png",
+      "destination": "/en/chapter_sorting/bucket_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_sorting/counting_sort\\.assets/:figure(counting_sort_overview|counting_sort_step1|counting_sort_step2|counting_sort_step3|counting_sort_step4|counting_sort_step5|counting_sort_step6|counting_sort_step7|counting_sort_step8)\\.png",
+      "destination": "/en/chapter_sorting/counting_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_sorting/heap_sort\\.assets/:figure(heap_sort_step1|heap_sort_step10|heap_sort_step11|heap_sort_step12|heap_sort_step2|heap_sort_step3|heap_sort_step4|heap_sort_step5|heap_sort_step6|heap_sort_step7|heap_sort_step8|heap_sort_step9)\\.png",
+      "destination": "/en/chapter_sorting/heap_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_sorting/insertion_sort\\.assets/:figure(insertion_operation|insertion_sort_overview)\\.png",
+      "destination": "/en/chapter_sorting/insertion_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_sorting/merge_sort\\.assets/:figure(merge_sort_overview|merge_sort_step1|merge_sort_step10|merge_sort_step2|merge_sort_step3|merge_sort_step4|merge_sort_step5|merge_sort_step6|merge_sort_step7|merge_sort_step8|merge_sort_step9)\\.png",
+      "destination": "/en/chapter_sorting/merge_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_sorting/quick_sort\\.assets/:figure(pivot_division_step1|pivot_division_step2|pivot_division_step3|pivot_division_step4|pivot_division_step5|pivot_division_step6|pivot_division_step7|pivot_division_step8|pivot_division_step9|quick_sort_overview)\\.png",
+      "destination": "/en/chapter_sorting/quick_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_sorting/radix_sort\\.assets/:figure(radix_sort_overview)\\.png",
+      "destination": "/en/chapter_sorting/radix_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_sorting/selection_sort\\.assets/:figure(selection_sort_instability|selection_sort_step1|selection_sort_step10|selection_sort_step11|selection_sort_step2|selection_sort_step3|selection_sort_step4|selection_sort_step5|selection_sort_step6|selection_sort_step7|selection_sort_step8|selection_sort_step9)\\.png",
+      "destination": "/en/chapter_sorting/selection_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_sorting/sorting_algorithm\\.assets/:figure(sorting_examples)\\.png",
+      "destination": "/en/chapter_sorting/sorting_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_sorting/summary\\.assets/:figure(sorting_algorithms_comparison)\\.png",
+      "destination": "/en/chapter_sorting/summary.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_stack_and_queue/deque\\.assets/:figure(array_deque_step1|array_deque_step2_push_last|array_deque_step3_push_first|array_deque_step4_pop_last|array_deque_step5_pop_first|deque_operations|linkedlist_deque_step1|linkedlist_deque_step2_push_last|linkedlist_deque_step3_push_first|linkedlist_deque_step4_pop_last|linkedlist_deque_step5_pop_first)\\.png",
+      "destination": "/en/chapter_stack_and_queue/deque.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_stack_and_queue/queue\\.assets/:figure(array_queue_step1|array_queue_step2_push|array_queue_step3_pop|linkedlist_queue_step1|linkedlist_queue_step2_push|linkedlist_queue_step3_pop|queue_operations)\\.png",
+      "destination": "/en/chapter_stack_and_queue/queue.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_stack_and_queue/stack\\.assets/:figure(array_stack_step1|array_stack_step2_push|array_stack_step3_pop|linkedlist_stack_step1|linkedlist_stack_step2_push|linkedlist_stack_step3_pop|stack_operations)\\.png",
+      "destination": "/en/chapter_stack_and_queue/stack.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_tree/array_representation_of_tree\\.assets/:figure(array_representation_binary_tree|array_representation_complete_binary_tree|array_representation_with_empty|array_representation_without_empty)\\.png",
+      "destination": "/en/chapter_tree/array_representation_of_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_tree/avl_tree\\.assets/:figure(avltree_degradation_from_inserting_node|avltree_degradation_from_removing_node|avltree_left_right_rotate|avltree_left_rotate|avltree_left_rotate_with_grandchild|avltree_right_left_rotate|avltree_right_rotate_step1|avltree_right_rotate_step2|avltree_right_rotate_step3|avltree_right_rotate_step4|avltree_right_rotate_with_grandchild|avltree_rotation_cases)\\.png",
+      "destination": "/en/chapter_tree/avl_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_tree/binary_search_tree\\.assets/:figure(binary_search_tree|bst_degradation|bst_inorder_traversal|bst_insert|bst_remove_case1|bst_remove_case2|bst_remove_case3_step1|bst_remove_case3_step2|bst_remove_case3_step3|bst_remove_case3_step4|bst_search_step1|bst_search_step2|bst_search_step3|bst_search_step4)\\.png",
+      "destination": "/en/chapter_tree/binary_search_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_tree/binary_tree\\.assets/:figure(balanced_binary_tree|binary_tree_add_remove|binary_tree_best_worst_cases|binary_tree_definition|binary_tree_terminology|complete_binary_tree|full_binary_tree|perfect_binary_tree)\\.png",
+      "destination": "/en/chapter_tree/binary_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/chapter_tree/binary_tree_traversal\\.assets/:figure(binary_tree_bfs|binary_tree_dfs|preorder_step1|preorder_step10|preorder_step11|preorder_step2|preorder_step3|preorder_step4|preorder_step5|preorder_step6|preorder_step7|preorder_step8|preorder_step9)\\.png",
+      "destination": "/en/chapter_tree/binary_tree_traversal.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_array_and_linkedlist/array\\.assets/:figure(array_definition|array_insert_element|array_memory_location_calculation|array_remove_element)\\.png",
+      "destination": "/ja/chapter_array_and_linkedlist/array.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_array_and_linkedlist/linked_list\\.assets/:figure(linkedlist_common_types|linkedlist_definition|linkedlist_insert_node|linkedlist_remove_node)\\.png",
+      "destination": "/ja/chapter_array_and_linkedlist/linked_list.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_array_and_linkedlist/ram_and_cache\\.assets/:figure(computer_storage_devices|storage_pyramid)\\.png",
+      "destination": "/ja/chapter_array_and_linkedlist/ram_and_cache.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_backtracking/backtracking_algorithm\\.assets/:figure(backtrack_remove_return_or_not|preorder_find_constrained_paths|preorder_find_nodes|preorder_find_paths_step1|preorder_find_paths_step10|preorder_find_paths_step11|preorder_find_paths_step2|preorder_find_paths_step3|preorder_find_paths_step4|preorder_find_paths_step5|preorder_find_paths_step6|preorder_find_paths_step7|preorder_find_paths_step8|preorder_find_paths_step9)\\.png",
+      "destination": "/ja/chapter_backtracking/backtracking_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_backtracking/n_queens_problem\\.assets/:figure(n_queens_cols_diagonals|n_queens_constraints|n_queens_placing|solution_4_queens)\\.png",
+      "destination": "/ja/chapter_backtracking/n_queens_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_backtracking/permutations_problem\\.assets/:figure(permutations_i|permutations_i_pruning|permutations_ii|permutations_ii_pruning|permutations_ii_pruning_summary)\\.png",
+      "destination": "/ja/chapter_backtracking/permutations_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_backtracking/subset_sum_problem\\.assets/:figure(subset_sum_i|subset_sum_i_naive|subset_sum_i_pruning|subset_sum_ii|subset_sum_ii_repeat)\\.png",
+      "destination": "/ja/chapter_backtracking/subset_sum_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_computational_complexity/iteration_and_recursion\\.assets/:figure(iteration|nested_iteration|recursion_sum|recursion_sum_depth|recursion_tree|tail_recursion_sum)\\.png",
+      "destination": "/ja/chapter_computational_complexity/iteration_and_recursion.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_computational_complexity/space_complexity\\.assets/:figure(space_complexity_common_types|space_complexity_exponential|space_complexity_recursive_linear|space_complexity_recursive_quadratic|space_types)\\.png",
+      "destination": "/ja/chapter_computational_complexity/space_complexity.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_computational_complexity/time_complexity\\.assets/:figure(asymptotic_upper_bound|time_complexity_common_types|time_complexity_constant_linear_quadratic|time_complexity_exponential|time_complexity_factorial|time_complexity_logarithmic|time_complexity_logarithmic_linear|time_complexity_simple_example)\\.png",
+      "destination": "/ja/chapter_computational_complexity/time_complexity.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_data_structure/character_encoding\\.assets/:figure(ascii_table|unicode_hello_algo|utf\\-8_hello_algo)\\.png",
+      "destination": "/ja/chapter_data_structure/character_encoding.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_data_structure/classification_of_data_structure\\.assets/:figure(classification_logic_structure|classification_phisical_structure|computer_memory_location)\\.png",
+      "destination": "/ja/chapter_data_structure/classification_of_data_structure.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_data_structure/number_encoding\\.assets/:figure(1s_2s_complement|ieee_754_float)\\.png",
+      "destination": "/ja/chapter_data_structure/number_encoding.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_divide_and_conquer/binary_search_recur\\.assets/:figure(binary_search_recur)\\.png",
+      "destination": "/ja/chapter_divide_and_conquer/binary_search_recur.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_divide_and_conquer/build_binary_tree_problem\\.assets/:figure(build_tree_division_pointers|build_tree_example|build_tree_preorder_inorder_division|built_tree_overall|built_tree_step1|built_tree_step2|built_tree_step3|built_tree_step4|built_tree_step5|built_tree_step6|built_tree_step7|built_tree_step8|built_tree_step9)\\.png",
+      "destination": "/ja/chapter_divide_and_conquer/build_binary_tree_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_divide_and_conquer/divide_and_conquer\\.assets/:figure(divide_and_conquer_bubble_sort|divide_and_conquer_merge_sort|divide_and_conquer_parallel_computing)\\.png",
+      "destination": "/ja/chapter_divide_and_conquer/divide_and_conquer.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_divide_and_conquer/hanota_problem\\.assets/:figure(hanota_divide_and_conquer|hanota_example|hanota_f1_step1|hanota_f1_step2|hanota_f2_step1|hanota_f2_step2|hanota_f2_step3|hanota_f2_step4|hanota_f3_step1|hanota_f3_step2|hanota_f3_step3|hanota_f3_step4|hanota_recursive_tree)\\.png",
+      "destination": "/ja/chapter_divide_and_conquer/hanota_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_dynamic_programming/dp_problem_features\\.assets/:figure(climbing_stairs_constraint_example|climbing_stairs_constraint_state_transfer|min_cost_cs_dp|min_cost_cs_example)\\.png",
+      "destination": "/ja/chapter_dynamic_programming/dp_problem_features.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_dynamic_programming/dp_solution_pipeline\\.assets/:figure(min_path_sum_dfs|min_path_sum_dfs_mem|min_path_sum_dp_step1|min_path_sum_dp_step10|min_path_sum_dp_step11|min_path_sum_dp_step12|min_path_sum_dp_step2|min_path_sum_dp_step3|min_path_sum_dp_step4|min_path_sum_dp_step5|min_path_sum_dp_step6|min_path_sum_dp_step7|min_path_sum_dp_step8|min_path_sum_dp_step9|min_path_sum_example|min_path_sum_solution_initial_state|min_path_sum_solution_state_definition|min_path_sum_solution_state_transition)\\.png",
+      "destination": "/ja/chapter_dynamic_programming/dp_solution_pipeline.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_dynamic_programming/edit_distance_problem\\.assets/:figure(edit_distance_decision_tree|edit_distance_dp_step1|edit_distance_dp_step10|edit_distance_dp_step11|edit_distance_dp_step12|edit_distance_dp_step13|edit_distance_dp_step14|edit_distance_dp_step15|edit_distance_dp_step2|edit_distance_dp_step3|edit_distance_dp_step4|edit_distance_dp_step5|edit_distance_dp_step6|edit_distance_dp_step7|edit_distance_dp_step8|edit_distance_dp_step9|edit_distance_example|edit_distance_state_transfer)\\.png",
+      "destination": "/ja/chapter_dynamic_programming/edit_distance_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_dynamic_programming/intro_to_dynamic_programming\\.assets/:figure(climbing_stairs_dfs_memo_tree|climbing_stairs_dfs_tree|climbing_stairs_dp|climbing_stairs_example|climbing_stairs_state_transfer)\\.png",
+      "destination": "/ja/chapter_dynamic_programming/intro_to_dynamic_programming.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_dynamic_programming/knapsack_problem\\.assets/:figure(knapsack_dfs|knapsack_dfs_mem|knapsack_dp_comp_step1|knapsack_dp_comp_step2|knapsack_dp_comp_step3|knapsack_dp_comp_step4|knapsack_dp_comp_step5|knapsack_dp_comp_step6|knapsack_dp_step1|knapsack_dp_step10|knapsack_dp_step11|knapsack_dp_step12|knapsack_dp_step13|knapsack_dp_step14|knapsack_dp_step2|knapsack_dp_step3|knapsack_dp_step4|knapsack_dp_step5|knapsack_dp_step6|knapsack_dp_step7|knapsack_dp_step8|knapsack_dp_step9|knapsack_example)\\.png",
+      "destination": "/ja/chapter_dynamic_programming/knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_dynamic_programming/unbounded_knapsack_problem\\.assets/:figure(coin_change_dp_step1|coin_change_dp_step10|coin_change_dp_step11|coin_change_dp_step12|coin_change_dp_step13|coin_change_dp_step14|coin_change_dp_step15|coin_change_dp_step2|coin_change_dp_step3|coin_change_dp_step4|coin_change_dp_step5|coin_change_dp_step6|coin_change_dp_step7|coin_change_dp_step8|coin_change_dp_step9|coin_change_example|coin_change_ii_example|unbounded_knapsack_dp_comp_step1|unbounded_knapsack_dp_comp_step2|unbounded_knapsack_dp_comp_step3|unbounded_knapsack_dp_comp_step4|unbounded_knapsack_dp_comp_step5|unbounded_knapsack_dp_comp_step6|unbounded_knapsack_example)\\.png",
+      "destination": "/ja/chapter_dynamic_programming/unbounded_knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_graph/graph\\.assets/:figure(adjacency_list|adjacency_matrix|connected_graph|directed_graph|linkedlist_tree_graph|weighted_graph)\\.png",
+      "destination": "/ja/chapter_graph/graph.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_graph/graph_operations\\.assets/:figure(adjacency_list_step1_initialization|adjacency_list_step2_add_edge|adjacency_list_step3_remove_edge|adjacency_list_step4_add_vertex|adjacency_list_step5_remove_vertex|adjacency_matrix_step1_initialization|adjacency_matrix_step2_add_edge|adjacency_matrix_step3_remove_edge|adjacency_matrix_step4_add_vertex|adjacency_matrix_step5_remove_vertex)\\.png",
+      "destination": "/ja/chapter_graph/graph_operations.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_graph/graph_traversal\\.assets/:figure(graph_bfs|graph_bfs_step1|graph_bfs_step10|graph_bfs_step11|graph_bfs_step2|graph_bfs_step3|graph_bfs_step4|graph_bfs_step5|graph_bfs_step6|graph_bfs_step7|graph_bfs_step8|graph_bfs_step9|graph_dfs|graph_dfs_step1|graph_dfs_step10|graph_dfs_step11|graph_dfs_step2|graph_dfs_step3|graph_dfs_step4|graph_dfs_step5|graph_dfs_step6|graph_dfs_step7|graph_dfs_step8|graph_dfs_step9)\\.png",
+      "destination": "/ja/chapter_graph/graph_traversal.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_greedy/fractional_knapsack_problem\\.assets/:figure(fractional_knapsack_area_chart|fractional_knapsack_example|fractional_knapsack_greedy_strategy|fractional_knapsack_unit_value)\\.png",
+      "destination": "/ja/chapter_greedy/fractional_knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_greedy/greedy_algorithm\\.assets/:figure(coin_change_greedy_strategy|coin_change_greedy_vs_dp)\\.png",
+      "destination": "/ja/chapter_greedy/greedy_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_greedy/max_capacity_problem\\.assets/:figure(max_capacity_example|max_capacity_greedy_step1|max_capacity_greedy_step2|max_capacity_greedy_step3|max_capacity_greedy_step4|max_capacity_greedy_step5|max_capacity_greedy_step6|max_capacity_greedy_step7|max_capacity_greedy_step8|max_capacity_greedy_step9|max_capacity_initial_state|max_capacity_moving_long_board|max_capacity_moving_short_board|max_capacity_skipped_states)\\.png",
+      "destination": "/ja/chapter_greedy/max_capacity_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_greedy/max_product_cutting_problem\\.assets/:figure(max_product_cutting_definition|max_product_cutting_greedy_calculation|max_product_cutting_greedy_infer1|max_product_cutting_greedy_infer2)\\.png",
+      "destination": "/ja/chapter_greedy/max_product_cutting_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_hashing/hash_algorithm\\.assets/:figure(hash_collision_best_worst_condition)\\.png",
+      "destination": "/ja/chapter_hashing/hash_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_hashing/hash_collision\\.assets/:figure(hash_table_chaining|hash_table_linear_probing|hash_table_open_addressing_deletion)\\.png",
+      "destination": "/ja/chapter_hashing/hash_collision.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_hashing/hash_map\\.assets/:figure(hash_collision|hash_function|hash_table_lookup|hash_table_reshash)\\.png",
+      "destination": "/ja/chapter_hashing/hash_map.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_heap/build_heap\\.assets/:figure(heapify_operations_count)\\.png",
+      "destination": "/ja/chapter_heap/build_heap.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_heap/heap\\.assets/:figure(heap_pop_step1|heap_pop_step10|heap_pop_step2|heap_pop_step3|heap_pop_step4|heap_pop_step5|heap_pop_step6|heap_pop_step7|heap_pop_step8|heap_pop_step9|heap_push_step1|heap_push_step2|heap_push_step3|heap_push_step4|heap_push_step5|heap_push_step6|heap_push_step7|heap_push_step8|heap_push_step9|min_heap_and_max_heap|representation_of_heap)\\.png",
+      "destination": "/ja/chapter_heap/heap.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_heap/top_k\\.assets/:figure(top_k_heap_step1|top_k_heap_step2|top_k_heap_step3|top_k_heap_step4|top_k_heap_step5|top_k_heap_step6|top_k_heap_step7|top_k_heap_step8|top_k_heap_step9|top_k_sorting|top_k_traversal)\\.png",
+      "destination": "/ja/chapter_heap/top_k.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_introduction/algorithms_are_everywhere\\.assets/:figure(binary_search_dictionary_step1|binary_search_dictionary_step2|binary_search_dictionary_step3|binary_search_dictionary_step4|binary_search_dictionary_step5|greedy_change|playing_cards_sorting)\\.png",
+      "destination": "/ja/chapter_introduction/algorithms_are_everywhere.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_introduction/what_is_dsa\\.assets/:figure(relationship_between_data_structure_and_algorithm)\\.png",
+      "destination": "/ja/chapter_introduction/what_is_dsa.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_preface/about_the_book\\.assets/:figure(hello_algo_mindmap)\\.png",
+      "destination": "/ja/chapter_preface/about_the_book.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_preface/suggestions\\.assets/:figure(code_md_to_repo|learning_route)\\.png",
+      "destination": "/ja/chapter_preface/suggestions.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_searching/binary_search\\.assets/:figure(binary_search_example|binary_search_ranges|binary_search_step1|binary_search_step2|binary_search_step3|binary_search_step4|binary_search_step5|binary_search_step6|binary_search_step7)\\.png",
+      "destination": "/ja/chapter_searching/binary_search.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_searching/binary_search_edge\\.assets/:figure(binary_search_edge_by_element|binary_search_right_edge_by_left_edge)\\.png",
+      "destination": "/ja/chapter_searching/binary_search_edge.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_searching/binary_search_insertion\\.assets/:figure(binary_search_insertion_example|binary_search_insertion_naive|binary_search_insertion_step1|binary_search_insertion_step2|binary_search_insertion_step3|binary_search_insertion_step4|binary_search_insertion_step5|binary_search_insertion_step6|binary_search_insertion_step7|binary_search_insertion_step8)\\.png",
+      "destination": "/ja/chapter_searching/binary_search_insertion.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_searching/replace_linear_by_hashing\\.assets/:figure(two_sum_brute_force|two_sum_hashtable_step1|two_sum_hashtable_step2|two_sum_hashtable_step3)\\.png",
+      "destination": "/ja/chapter_searching/replace_linear_by_hashing.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_searching/searching_algorithm_revisited\\.assets/:figure(searching_algorithms)\\.png",
+      "destination": "/ja/chapter_searching/searching_algorithm_revisited.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_sorting/bubble_sort\\.assets/:figure(bubble_operation_step1|bubble_operation_step2|bubble_operation_step3|bubble_operation_step4|bubble_operation_step5|bubble_operation_step6|bubble_operation_step7|bubble_sort_overview)\\.png",
+      "destination": "/ja/chapter_sorting/bubble_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_sorting/bucket_sort\\.assets/:figure(bucket_sort_overview|scatter_in_buckets_distribution|scatter_in_buckets_recursively)\\.png",
+      "destination": "/ja/chapter_sorting/bucket_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_sorting/counting_sort\\.assets/:figure(counting_sort_overview|counting_sort_step1|counting_sort_step2|counting_sort_step3|counting_sort_step4|counting_sort_step5|counting_sort_step6|counting_sort_step7|counting_sort_step8)\\.png",
+      "destination": "/ja/chapter_sorting/counting_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_sorting/heap_sort\\.assets/:figure(heap_sort_step1|heap_sort_step10|heap_sort_step11|heap_sort_step12|heap_sort_step2|heap_sort_step3|heap_sort_step4|heap_sort_step5|heap_sort_step6|heap_sort_step7|heap_sort_step8|heap_sort_step9)\\.png",
+      "destination": "/ja/chapter_sorting/heap_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_sorting/insertion_sort\\.assets/:figure(insertion_operation|insertion_sort_overview)\\.png",
+      "destination": "/ja/chapter_sorting/insertion_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_sorting/merge_sort\\.assets/:figure(merge_sort_overview|merge_sort_step1|merge_sort_step10|merge_sort_step2|merge_sort_step3|merge_sort_step4|merge_sort_step5|merge_sort_step6|merge_sort_step7|merge_sort_step8|merge_sort_step9)\\.png",
+      "destination": "/ja/chapter_sorting/merge_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_sorting/quick_sort\\.assets/:figure(pivot_division_step1|pivot_division_step2|pivot_division_step3|pivot_division_step4|pivot_division_step5|pivot_division_step6|pivot_division_step7|pivot_division_step8|pivot_division_step9|quick_sort_overview)\\.png",
+      "destination": "/ja/chapter_sorting/quick_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_sorting/radix_sort\\.assets/:figure(radix_sort_overview)\\.png",
+      "destination": "/ja/chapter_sorting/radix_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_sorting/selection_sort\\.assets/:figure(selection_sort_instability|selection_sort_step1|selection_sort_step10|selection_sort_step11|selection_sort_step2|selection_sort_step3|selection_sort_step4|selection_sort_step5|selection_sort_step6|selection_sort_step7|selection_sort_step8|selection_sort_step9)\\.png",
+      "destination": "/ja/chapter_sorting/selection_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_sorting/sorting_algorithm\\.assets/:figure(sorting_examples)\\.png",
+      "destination": "/ja/chapter_sorting/sorting_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_sorting/summary\\.assets/:figure(sorting_algorithms_comparison)\\.png",
+      "destination": "/ja/chapter_sorting/summary.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_stack_and_queue/deque\\.assets/:figure(array_deque_step1|array_deque_step2_push_last|array_deque_step3_push_first|array_deque_step4_pop_last|array_deque_step5_pop_first|deque_operations|linkedlist_deque_step1|linkedlist_deque_step2_push_last|linkedlist_deque_step3_push_first|linkedlist_deque_step4_pop_last|linkedlist_deque_step5_pop_first)\\.png",
+      "destination": "/ja/chapter_stack_and_queue/deque.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_stack_and_queue/queue\\.assets/:figure(array_queue_step1|array_queue_step2_push|array_queue_step3_pop|linkedlist_queue_step1|linkedlist_queue_step2_push|linkedlist_queue_step3_pop|queue_operations)\\.png",
+      "destination": "/ja/chapter_stack_and_queue/queue.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_stack_and_queue/stack\\.assets/:figure(array_stack_step1|array_stack_step2_push|array_stack_step3_pop|linkedlist_stack_step1|linkedlist_stack_step2_push|linkedlist_stack_step3_pop|stack_operations)\\.png",
+      "destination": "/ja/chapter_stack_and_queue/stack.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_tree/array_representation_of_tree\\.assets/:figure(array_representation_binary_tree|array_representation_complete_binary_tree|array_representation_with_empty|array_representation_without_empty)\\.png",
+      "destination": "/ja/chapter_tree/array_representation_of_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_tree/avl_tree\\.assets/:figure(avltree_degradation_from_inserting_node|avltree_degradation_from_removing_node|avltree_left_right_rotate|avltree_left_rotate|avltree_left_rotate_with_grandchild|avltree_right_left_rotate|avltree_right_rotate_step1|avltree_right_rotate_step2|avltree_right_rotate_step3|avltree_right_rotate_step4|avltree_right_rotate_with_grandchild|avltree_rotation_cases)\\.png",
+      "destination": "/ja/chapter_tree/avl_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_tree/binary_search_tree\\.assets/:figure(binary_search_tree|bst_degradation|bst_inorder_traversal|bst_insert|bst_remove_case1|bst_remove_case2|bst_remove_case3_step1|bst_remove_case3_step2|bst_remove_case3_step3|bst_remove_case3_step4|bst_search_step1|bst_search_step2|bst_search_step3|bst_search_step4)\\.png",
+      "destination": "/ja/chapter_tree/binary_search_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_tree/binary_tree\\.assets/:figure(balanced_binary_tree|binary_tree_add_remove|binary_tree_best_worst_cases|binary_tree_definition|binary_tree_terminology|complete_binary_tree|full_binary_tree|perfect_binary_tree)\\.png",
+      "destination": "/ja/chapter_tree/binary_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ja/chapter_tree/binary_tree_traversal\\.assets/:figure(binary_tree_bfs|binary_tree_dfs|preorder_step1|preorder_step10|preorder_step11|preorder_step2|preorder_step3|preorder_step4|preorder_step5|preorder_step6|preorder_step7|preorder_step8|preorder_step9)\\.png",
+      "destination": "/ja/chapter_tree/binary_tree_traversal.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_array_and_linkedlist/array\\.assets/:figure(array_definition|array_insert_element|array_memory_location_calculation|array_remove_element)\\.png",
+      "destination": "/ko/chapter_array_and_linkedlist/array.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_array_and_linkedlist/linked_list\\.assets/:figure(linkedlist_common_types|linkedlist_definition|linkedlist_insert_node|linkedlist_remove_node)\\.png",
+      "destination": "/ko/chapter_array_and_linkedlist/linked_list.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_array_and_linkedlist/ram_and_cache\\.assets/:figure(computer_storage_devices|storage_pyramid)\\.png",
+      "destination": "/ko/chapter_array_and_linkedlist/ram_and_cache.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_backtracking/backtracking_algorithm\\.assets/:figure(backtrack_remove_return_or_not|preorder_find_constrained_paths|preorder_find_nodes|preorder_find_paths_step1|preorder_find_paths_step10|preorder_find_paths_step11|preorder_find_paths_step2|preorder_find_paths_step3|preorder_find_paths_step4|preorder_find_paths_step5|preorder_find_paths_step6|preorder_find_paths_step7|preorder_find_paths_step8|preorder_find_paths_step9)\\.png",
+      "destination": "/ko/chapter_backtracking/backtracking_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_backtracking/n_queens_problem\\.assets/:figure(n_queens_cols_diagonals|n_queens_constraints|n_queens_placing|solution_4_queens)\\.png",
+      "destination": "/ko/chapter_backtracking/n_queens_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_backtracking/permutations_problem\\.assets/:figure(permutations_i|permutations_i_pruning|permutations_ii|permutations_ii_pruning|permutations_ii_pruning_summary)\\.png",
+      "destination": "/ko/chapter_backtracking/permutations_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_backtracking/subset_sum_problem\\.assets/:figure(subset_sum_i|subset_sum_i_naive|subset_sum_i_pruning|subset_sum_ii|subset_sum_ii_repeat)\\.png",
+      "destination": "/ko/chapter_backtracking/subset_sum_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_computational_complexity/iteration_and_recursion\\.assets/:figure(iteration|nested_iteration|recursion_sum|recursion_sum_depth|recursion_tree|tail_recursion_sum)\\.png",
+      "destination": "/ko/chapter_computational_complexity/iteration_and_recursion.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_computational_complexity/space_complexity\\.assets/:figure(space_complexity_common_types|space_complexity_exponential|space_complexity_recursive_linear|space_complexity_recursive_quadratic|space_types)\\.png",
+      "destination": "/ko/chapter_computational_complexity/space_complexity.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_computational_complexity/time_complexity\\.assets/:figure(asymptotic_upper_bound|time_complexity_common_types|time_complexity_constant_linear_quadratic|time_complexity_exponential|time_complexity_factorial|time_complexity_logarithmic|time_complexity_logarithmic_linear|time_complexity_simple_example)\\.png",
+      "destination": "/ko/chapter_computational_complexity/time_complexity.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_data_structure/character_encoding\\.assets/:figure(ascii_table|unicode_hello_algo|utf\\-8_hello_algo)\\.png",
+      "destination": "/ko/chapter_data_structure/character_encoding.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_data_structure/classification_of_data_structure\\.assets/:figure(classification_logic_structure|classification_phisical_structure|computer_memory_location)\\.png",
+      "destination": "/ko/chapter_data_structure/classification_of_data_structure.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_data_structure/number_encoding\\.assets/:figure(1s_2s_complement|ieee_754_float)\\.png",
+      "destination": "/ko/chapter_data_structure/number_encoding.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_divide_and_conquer/binary_search_recur\\.assets/:figure(binary_search_recur)\\.png",
+      "destination": "/ko/chapter_divide_and_conquer/binary_search_recur.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_divide_and_conquer/build_binary_tree_problem\\.assets/:figure(build_tree_division_pointers|build_tree_example|build_tree_preorder_inorder_division|built_tree_overall|built_tree_step1|built_tree_step2|built_tree_step3|built_tree_step4|built_tree_step5|built_tree_step6|built_tree_step7|built_tree_step8|built_tree_step9)\\.png",
+      "destination": "/ko/chapter_divide_and_conquer/build_binary_tree_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_divide_and_conquer/divide_and_conquer\\.assets/:figure(divide_and_conquer_bubble_sort|divide_and_conquer_merge_sort|divide_and_conquer_parallel_computing)\\.png",
+      "destination": "/ko/chapter_divide_and_conquer/divide_and_conquer.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_divide_and_conquer/hanota_problem\\.assets/:figure(hanota_divide_and_conquer|hanota_example|hanota_f1_step1|hanota_f1_step2|hanota_f2_step1|hanota_f2_step2|hanota_f2_step3|hanota_f2_step4|hanota_f3_step1|hanota_f3_step2|hanota_f3_step3|hanota_f3_step4|hanota_recursive_tree)\\.png",
+      "destination": "/ko/chapter_divide_and_conquer/hanota_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_dynamic_programming/dp_problem_features\\.assets/:figure(climbing_stairs_constraint_example|climbing_stairs_constraint_state_transfer|min_cost_cs_dp|min_cost_cs_example)\\.png",
+      "destination": "/ko/chapter_dynamic_programming/dp_problem_features.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_dynamic_programming/dp_solution_pipeline\\.assets/:figure(min_path_sum_dfs|min_path_sum_dfs_mem|min_path_sum_dp_step1|min_path_sum_dp_step10|min_path_sum_dp_step11|min_path_sum_dp_step12|min_path_sum_dp_step2|min_path_sum_dp_step3|min_path_sum_dp_step4|min_path_sum_dp_step5|min_path_sum_dp_step6|min_path_sum_dp_step7|min_path_sum_dp_step8|min_path_sum_dp_step9|min_path_sum_example|min_path_sum_solution_initial_state|min_path_sum_solution_state_definition|min_path_sum_solution_state_transition)\\.png",
+      "destination": "/ko/chapter_dynamic_programming/dp_solution_pipeline.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_dynamic_programming/edit_distance_problem\\.assets/:figure(edit_distance_decision_tree|edit_distance_dp_step1|edit_distance_dp_step10|edit_distance_dp_step11|edit_distance_dp_step12|edit_distance_dp_step13|edit_distance_dp_step14|edit_distance_dp_step15|edit_distance_dp_step2|edit_distance_dp_step3|edit_distance_dp_step4|edit_distance_dp_step5|edit_distance_dp_step6|edit_distance_dp_step7|edit_distance_dp_step8|edit_distance_dp_step9|edit_distance_example|edit_distance_state_transfer)\\.png",
+      "destination": "/ko/chapter_dynamic_programming/edit_distance_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_dynamic_programming/intro_to_dynamic_programming\\.assets/:figure(climbing_stairs_dfs_memo_tree|climbing_stairs_dfs_tree|climbing_stairs_dp|climbing_stairs_example|climbing_stairs_state_transfer)\\.png",
+      "destination": "/ko/chapter_dynamic_programming/intro_to_dynamic_programming.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_dynamic_programming/knapsack_problem\\.assets/:figure(knapsack_dfs|knapsack_dfs_mem|knapsack_dp_comp_step1|knapsack_dp_comp_step2|knapsack_dp_comp_step3|knapsack_dp_comp_step4|knapsack_dp_comp_step5|knapsack_dp_comp_step6|knapsack_dp_step1|knapsack_dp_step10|knapsack_dp_step11|knapsack_dp_step12|knapsack_dp_step13|knapsack_dp_step14|knapsack_dp_step2|knapsack_dp_step3|knapsack_dp_step4|knapsack_dp_step5|knapsack_dp_step6|knapsack_dp_step7|knapsack_dp_step8|knapsack_dp_step9|knapsack_example)\\.png",
+      "destination": "/ko/chapter_dynamic_programming/knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_dynamic_programming/unbounded_knapsack_problem\\.assets/:figure(coin_change_dp_step1|coin_change_dp_step10|coin_change_dp_step11|coin_change_dp_step12|coin_change_dp_step13|coin_change_dp_step14|coin_change_dp_step15|coin_change_dp_step2|coin_change_dp_step3|coin_change_dp_step4|coin_change_dp_step5|coin_change_dp_step6|coin_change_dp_step7|coin_change_dp_step8|coin_change_dp_step9|coin_change_example|coin_change_ii_example|unbounded_knapsack_dp_comp_step1|unbounded_knapsack_dp_comp_step2|unbounded_knapsack_dp_comp_step3|unbounded_knapsack_dp_comp_step4|unbounded_knapsack_dp_comp_step5|unbounded_knapsack_dp_comp_step6|unbounded_knapsack_example)\\.png",
+      "destination": "/ko/chapter_dynamic_programming/unbounded_knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_graph/graph\\.assets/:figure(adjacency_list|adjacency_matrix|connected_graph|directed_graph|linkedlist_tree_graph|weighted_graph)\\.png",
+      "destination": "/ko/chapter_graph/graph.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_graph/graph_operations\\.assets/:figure(adjacency_list_step1_initialization|adjacency_list_step2_add_edge|adjacency_list_step3_remove_edge|adjacency_list_step4_add_vertex|adjacency_list_step5_remove_vertex|adjacency_matrix_step1_initialization|adjacency_matrix_step2_add_edge|adjacency_matrix_step3_remove_edge|adjacency_matrix_step4_add_vertex|adjacency_matrix_step5_remove_vertex)\\.png",
+      "destination": "/ko/chapter_graph/graph_operations.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_graph/graph_traversal\\.assets/:figure(graph_bfs|graph_bfs_step1|graph_bfs_step10|graph_bfs_step11|graph_bfs_step2|graph_bfs_step3|graph_bfs_step4|graph_bfs_step5|graph_bfs_step6|graph_bfs_step7|graph_bfs_step8|graph_bfs_step9|graph_dfs|graph_dfs_step1|graph_dfs_step10|graph_dfs_step11|graph_dfs_step2|graph_dfs_step3|graph_dfs_step4|graph_dfs_step5|graph_dfs_step6|graph_dfs_step7|graph_dfs_step8|graph_dfs_step9)\\.png",
+      "destination": "/ko/chapter_graph/graph_traversal.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_greedy/fractional_knapsack_problem\\.assets/:figure(fractional_knapsack_area_chart|fractional_knapsack_example|fractional_knapsack_greedy_strategy|fractional_knapsack_unit_value)\\.png",
+      "destination": "/ko/chapter_greedy/fractional_knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_greedy/greedy_algorithm\\.assets/:figure(coin_change_greedy_strategy|coin_change_greedy_vs_dp)\\.png",
+      "destination": "/ko/chapter_greedy/greedy_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_greedy/max_capacity_problem\\.assets/:figure(max_capacity_example|max_capacity_greedy_step1|max_capacity_greedy_step2|max_capacity_greedy_step3|max_capacity_greedy_step4|max_capacity_greedy_step5|max_capacity_greedy_step6|max_capacity_greedy_step7|max_capacity_greedy_step8|max_capacity_greedy_step9|max_capacity_initial_state|max_capacity_moving_long_board|max_capacity_moving_short_board|max_capacity_skipped_states)\\.png",
+      "destination": "/ko/chapter_greedy/max_capacity_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_greedy/max_product_cutting_problem\\.assets/:figure(max_product_cutting_definition|max_product_cutting_greedy_calculation|max_product_cutting_greedy_infer1|max_product_cutting_greedy_infer2)\\.png",
+      "destination": "/ko/chapter_greedy/max_product_cutting_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_hashing/hash_algorithm\\.assets/:figure(hash_collision_best_worst_condition)\\.png",
+      "destination": "/ko/chapter_hashing/hash_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_hashing/hash_collision\\.assets/:figure(hash_table_chaining|hash_table_linear_probing|hash_table_open_addressing_deletion)\\.png",
+      "destination": "/ko/chapter_hashing/hash_collision.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_hashing/hash_map\\.assets/:figure(hash_collision|hash_function|hash_table_lookup|hash_table_reshash)\\.png",
+      "destination": "/ko/chapter_hashing/hash_map.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_heap/build_heap\\.assets/:figure(heapify_operations_count)\\.png",
+      "destination": "/ko/chapter_heap/build_heap.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_heap/heap\\.assets/:figure(heap_pop_step1|heap_pop_step10|heap_pop_step2|heap_pop_step3|heap_pop_step4|heap_pop_step5|heap_pop_step6|heap_pop_step7|heap_pop_step8|heap_pop_step9|heap_push_step1|heap_push_step2|heap_push_step3|heap_push_step4|heap_push_step5|heap_push_step6|heap_push_step7|heap_push_step8|heap_push_step9|min_heap_and_max_heap|representation_of_heap)\\.png",
+      "destination": "/ko/chapter_heap/heap.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_heap/top_k\\.assets/:figure(top_k_heap_step1|top_k_heap_step2|top_k_heap_step3|top_k_heap_step4|top_k_heap_step5|top_k_heap_step6|top_k_heap_step7|top_k_heap_step8|top_k_heap_step9|top_k_sorting|top_k_traversal)\\.png",
+      "destination": "/ko/chapter_heap/top_k.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_introduction/algorithms_are_everywhere\\.assets/:figure(binary_search_dictionary_step1|binary_search_dictionary_step2|binary_search_dictionary_step3|binary_search_dictionary_step4|binary_search_dictionary_step5|greedy_change|playing_cards_sorting)\\.png",
+      "destination": "/ko/chapter_introduction/algorithms_are_everywhere.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_introduction/what_is_dsa\\.assets/:figure(relationship_between_data_structure_and_algorithm)\\.png",
+      "destination": "/ko/chapter_introduction/what_is_dsa.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_preface/about_the_book\\.assets/:figure(hello_algo_mindmap)\\.png",
+      "destination": "/ko/chapter_preface/about_the_book.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_preface/suggestions\\.assets/:figure(code_md_to_repo|learning_route)\\.png",
+      "destination": "/ko/chapter_preface/suggestions.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_searching/binary_search\\.assets/:figure(binary_search_example|binary_search_ranges|binary_search_step1|binary_search_step2|binary_search_step3|binary_search_step4|binary_search_step5|binary_search_step6|binary_search_step7)\\.png",
+      "destination": "/ko/chapter_searching/binary_search.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_searching/binary_search_edge\\.assets/:figure(binary_search_edge_by_element|binary_search_right_edge_by_left_edge)\\.png",
+      "destination": "/ko/chapter_searching/binary_search_edge.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_searching/binary_search_insertion\\.assets/:figure(binary_search_insertion_example|binary_search_insertion_naive|binary_search_insertion_step1|binary_search_insertion_step2|binary_search_insertion_step3|binary_search_insertion_step4|binary_search_insertion_step5|binary_search_insertion_step6|binary_search_insertion_step7|binary_search_insertion_step8)\\.png",
+      "destination": "/ko/chapter_searching/binary_search_insertion.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_searching/replace_linear_by_hashing\\.assets/:figure(two_sum_brute_force|two_sum_hashtable_step1|two_sum_hashtable_step2|two_sum_hashtable_step3)\\.png",
+      "destination": "/ko/chapter_searching/replace_linear_by_hashing.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_searching/searching_algorithm_revisited\\.assets/:figure(searching_algorithms)\\.png",
+      "destination": "/ko/chapter_searching/searching_algorithm_revisited.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_sorting/bubble_sort\\.assets/:figure(bubble_operation_step1|bubble_operation_step2|bubble_operation_step3|bubble_operation_step4|bubble_operation_step5|bubble_operation_step6|bubble_operation_step7|bubble_sort_overview)\\.png",
+      "destination": "/ko/chapter_sorting/bubble_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_sorting/bucket_sort\\.assets/:figure(bucket_sort_overview|scatter_in_buckets_distribution|scatter_in_buckets_recursively)\\.png",
+      "destination": "/ko/chapter_sorting/bucket_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_sorting/counting_sort\\.assets/:figure(counting_sort_overview|counting_sort_step1|counting_sort_step2|counting_sort_step3|counting_sort_step4|counting_sort_step5|counting_sort_step6|counting_sort_step7|counting_sort_step8)\\.png",
+      "destination": "/ko/chapter_sorting/counting_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_sorting/heap_sort\\.assets/:figure(heap_sort_step1|heap_sort_step10|heap_sort_step11|heap_sort_step12|heap_sort_step2|heap_sort_step3|heap_sort_step4|heap_sort_step5|heap_sort_step6|heap_sort_step7|heap_sort_step8|heap_sort_step9)\\.png",
+      "destination": "/ko/chapter_sorting/heap_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_sorting/insertion_sort\\.assets/:figure(insertion_operation|insertion_sort_overview)\\.png",
+      "destination": "/ko/chapter_sorting/insertion_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_sorting/merge_sort\\.assets/:figure(merge_sort_overview|merge_sort_step1|merge_sort_step10|merge_sort_step2|merge_sort_step3|merge_sort_step4|merge_sort_step5|merge_sort_step6|merge_sort_step7|merge_sort_step8|merge_sort_step9)\\.png",
+      "destination": "/ko/chapter_sorting/merge_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_sorting/quick_sort\\.assets/:figure(pivot_division_step1|pivot_division_step2|pivot_division_step3|pivot_division_step4|pivot_division_step5|pivot_division_step6|pivot_division_step7|pivot_division_step8|pivot_division_step9|quick_sort_overview)\\.png",
+      "destination": "/ko/chapter_sorting/quick_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_sorting/radix_sort\\.assets/:figure(radix_sort_overview)\\.png",
+      "destination": "/ko/chapter_sorting/radix_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_sorting/selection_sort\\.assets/:figure(selection_sort_instability|selection_sort_step1|selection_sort_step10|selection_sort_step11|selection_sort_step2|selection_sort_step3|selection_sort_step4|selection_sort_step5|selection_sort_step6|selection_sort_step7|selection_sort_step8|selection_sort_step9)\\.png",
+      "destination": "/ko/chapter_sorting/selection_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_sorting/sorting_algorithm\\.assets/:figure(sorting_examples)\\.png",
+      "destination": "/ko/chapter_sorting/sorting_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_sorting/summary\\.assets/:figure(sorting_algorithms_comparison)\\.png",
+      "destination": "/ko/chapter_sorting/summary.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_stack_and_queue/deque\\.assets/:figure(array_deque_step1|array_deque_step2_push_last|array_deque_step3_push_first|array_deque_step4_pop_last|array_deque_step5_pop_first|deque_operations|linkedlist_deque_step1|linkedlist_deque_step2_push_last|linkedlist_deque_step3_push_first|linkedlist_deque_step4_pop_last|linkedlist_deque_step5_pop_first)\\.png",
+      "destination": "/ko/chapter_stack_and_queue/deque.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_stack_and_queue/queue\\.assets/:figure(array_queue_step1|array_queue_step2_push|array_queue_step3_pop|linkedlist_queue_step1|linkedlist_queue_step2_push|linkedlist_queue_step3_pop|queue_operations)\\.png",
+      "destination": "/ko/chapter_stack_and_queue/queue.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_stack_and_queue/stack\\.assets/:figure(array_stack_step1|array_stack_step2_push|array_stack_step3_pop|linkedlist_stack_step1|linkedlist_stack_step2_push|linkedlist_stack_step3_pop|stack_operations)\\.png",
+      "destination": "/ko/chapter_stack_and_queue/stack.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_tree/array_representation_of_tree\\.assets/:figure(array_representation_binary_tree|array_representation_complete_binary_tree|array_representation_with_empty|array_representation_without_empty)\\.png",
+      "destination": "/ko/chapter_tree/array_representation_of_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_tree/avl_tree\\.assets/:figure(avltree_degradation_from_inserting_node|avltree_degradation_from_removing_node|avltree_left_right_rotate|avltree_left_rotate|avltree_left_rotate_with_grandchild|avltree_right_left_rotate|avltree_right_rotate_step1|avltree_right_rotate_step2|avltree_right_rotate_step3|avltree_right_rotate_step4|avltree_right_rotate_with_grandchild|avltree_rotation_cases)\\.png",
+      "destination": "/ko/chapter_tree/avl_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_tree/binary_search_tree\\.assets/:figure(binary_search_tree|bst_degradation|bst_inorder_traversal|bst_insert|bst_remove_case1|bst_remove_case2|bst_remove_case3_step1|bst_remove_case3_step2|bst_remove_case3_step3|bst_remove_case3_step4|bst_search_step1|bst_search_step2|bst_search_step3|bst_search_step4)\\.png",
+      "destination": "/ko/chapter_tree/binary_search_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_tree/binary_tree\\.assets/:figure(balanced_binary_tree|binary_tree_add_remove|binary_tree_best_worst_cases|binary_tree_definition|binary_tree_terminology|complete_binary_tree|full_binary_tree|perfect_binary_tree)\\.png",
+      "destination": "/ko/chapter_tree/binary_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/chapter_tree/binary_tree_traversal\\.assets/:figure(binary_tree_bfs|binary_tree_dfs|preorder_step1|preorder_step10|preorder_step11|preorder_step2|preorder_step3|preorder_step4|preorder_step5|preorder_step6|preorder_step7|preorder_step8|preorder_step9)\\.png",
+      "destination": "/ko/chapter_tree/binary_tree_traversal.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_array_and_linkedlist/array\\.assets/:figure(array_definition|array_insert_element|array_memory_location_calculation|array_remove_element)\\.png",
+      "destination": "/ru/chapter_array_and_linkedlist/array.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_array_and_linkedlist/linked_list\\.assets/:figure(linkedlist_common_types|linkedlist_definition|linkedlist_insert_node|linkedlist_remove_node)\\.png",
+      "destination": "/ru/chapter_array_and_linkedlist/linked_list.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_array_and_linkedlist/ram_and_cache\\.assets/:figure(computer_storage_devices|storage_pyramid)\\.png",
+      "destination": "/ru/chapter_array_and_linkedlist/ram_and_cache.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_backtracking/backtracking_algorithm\\.assets/:figure(backtrack_remove_return_or_not|preorder_find_constrained_paths|preorder_find_nodes|preorder_find_paths_step1|preorder_find_paths_step10|preorder_find_paths_step11|preorder_find_paths_step2|preorder_find_paths_step3|preorder_find_paths_step4|preorder_find_paths_step5|preorder_find_paths_step6|preorder_find_paths_step7|preorder_find_paths_step8|preorder_find_paths_step9)\\.png",
+      "destination": "/ru/chapter_backtracking/backtracking_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_backtracking/n_queens_problem\\.assets/:figure(n_queens_cols_diagonals|n_queens_constraints|n_queens_placing|solution_4_queens)\\.png",
+      "destination": "/ru/chapter_backtracking/n_queens_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_backtracking/permutations_problem\\.assets/:figure(permutations_i|permutations_i_pruning|permutations_ii|permutations_ii_pruning|permutations_ii_pruning_summary)\\.png",
+      "destination": "/ru/chapter_backtracking/permutations_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_backtracking/subset_sum_problem\\.assets/:figure(subset_sum_i|subset_sum_i_naive|subset_sum_i_pruning|subset_sum_ii|subset_sum_ii_repeat)\\.png",
+      "destination": "/ru/chapter_backtracking/subset_sum_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_computational_complexity/iteration_and_recursion\\.assets/:figure(iteration|nested_iteration|recursion_sum|recursion_sum_depth|recursion_tree|tail_recursion_sum)\\.png",
+      "destination": "/ru/chapter_computational_complexity/iteration_and_recursion.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_computational_complexity/space_complexity\\.assets/:figure(space_complexity_common_types|space_complexity_exponential|space_complexity_recursive_linear|space_complexity_recursive_quadratic|space_types)\\.png",
+      "destination": "/ru/chapter_computational_complexity/space_complexity.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_computational_complexity/time_complexity\\.assets/:figure(asymptotic_upper_bound|time_complexity_common_types|time_complexity_constant_linear_quadratic|time_complexity_exponential|time_complexity_factorial|time_complexity_logarithmic|time_complexity_logarithmic_linear|time_complexity_simple_example)\\.png",
+      "destination": "/ru/chapter_computational_complexity/time_complexity.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_data_structure/character_encoding\\.assets/:figure(ascii_table|unicode_hello_algo|utf\\-8_hello_algo)\\.png",
+      "destination": "/ru/chapter_data_structure/character_encoding.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_data_structure/classification_of_data_structure\\.assets/:figure(classification_logic_structure|classification_phisical_structure|computer_memory_location)\\.png",
+      "destination": "/ru/chapter_data_structure/classification_of_data_structure.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_data_structure/number_encoding\\.assets/:figure(1s_2s_complement|ieee_754_float)\\.png",
+      "destination": "/ru/chapter_data_structure/number_encoding.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_divide_and_conquer/binary_search_recur\\.assets/:figure(binary_search_recur)\\.png",
+      "destination": "/ru/chapter_divide_and_conquer/binary_search_recur.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_divide_and_conquer/build_binary_tree_problem\\.assets/:figure(build_tree_division_pointers|build_tree_example|build_tree_preorder_inorder_division|built_tree_overall|built_tree_step1|built_tree_step2|built_tree_step3|built_tree_step4|built_tree_step5|built_tree_step6|built_tree_step7|built_tree_step8|built_tree_step9)\\.png",
+      "destination": "/ru/chapter_divide_and_conquer/build_binary_tree_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_divide_and_conquer/divide_and_conquer\\.assets/:figure(divide_and_conquer_bubble_sort|divide_and_conquer_merge_sort|divide_and_conquer_parallel_computing)\\.png",
+      "destination": "/ru/chapter_divide_and_conquer/divide_and_conquer.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_divide_and_conquer/hanota_problem\\.assets/:figure(hanota_divide_and_conquer|hanota_example|hanota_f1_step1|hanota_f1_step2|hanota_f2_step1|hanota_f2_step2|hanota_f2_step3|hanota_f2_step4|hanota_f3_step1|hanota_f3_step2|hanota_f3_step3|hanota_f3_step4|hanota_recursive_tree)\\.png",
+      "destination": "/ru/chapter_divide_and_conquer/hanota_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_dynamic_programming/dp_problem_features\\.assets/:figure(climbing_stairs_constraint_example|climbing_stairs_constraint_state_transfer|min_cost_cs_dp|min_cost_cs_example)\\.png",
+      "destination": "/ru/chapter_dynamic_programming/dp_problem_features.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_dynamic_programming/dp_solution_pipeline\\.assets/:figure(min_path_sum_dfs|min_path_sum_dfs_mem|min_path_sum_dp_step1|min_path_sum_dp_step10|min_path_sum_dp_step11|min_path_sum_dp_step12|min_path_sum_dp_step2|min_path_sum_dp_step3|min_path_sum_dp_step4|min_path_sum_dp_step5|min_path_sum_dp_step6|min_path_sum_dp_step7|min_path_sum_dp_step8|min_path_sum_dp_step9|min_path_sum_example|min_path_sum_solution_initial_state|min_path_sum_solution_state_definition|min_path_sum_solution_state_transition)\\.png",
+      "destination": "/ru/chapter_dynamic_programming/dp_solution_pipeline.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_dynamic_programming/edit_distance_problem\\.assets/:figure(edit_distance_decision_tree|edit_distance_dp_step1|edit_distance_dp_step10|edit_distance_dp_step11|edit_distance_dp_step12|edit_distance_dp_step13|edit_distance_dp_step14|edit_distance_dp_step15|edit_distance_dp_step2|edit_distance_dp_step3|edit_distance_dp_step4|edit_distance_dp_step5|edit_distance_dp_step6|edit_distance_dp_step7|edit_distance_dp_step8|edit_distance_dp_step9|edit_distance_example|edit_distance_state_transfer)\\.png",
+      "destination": "/ru/chapter_dynamic_programming/edit_distance_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_dynamic_programming/intro_to_dynamic_programming\\.assets/:figure(climbing_stairs_dfs_memo_tree|climbing_stairs_dfs_tree|climbing_stairs_dp|climbing_stairs_example|climbing_stairs_state_transfer)\\.png",
+      "destination": "/ru/chapter_dynamic_programming/intro_to_dynamic_programming.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_dynamic_programming/knapsack_problem\\.assets/:figure(knapsack_dfs|knapsack_dfs_mem|knapsack_dp_comp_step1|knapsack_dp_comp_step2|knapsack_dp_comp_step3|knapsack_dp_comp_step4|knapsack_dp_comp_step5|knapsack_dp_comp_step6|knapsack_dp_step1|knapsack_dp_step10|knapsack_dp_step11|knapsack_dp_step12|knapsack_dp_step13|knapsack_dp_step14|knapsack_dp_step2|knapsack_dp_step3|knapsack_dp_step4|knapsack_dp_step5|knapsack_dp_step6|knapsack_dp_step7|knapsack_dp_step8|knapsack_dp_step9|knapsack_example)\\.png",
+      "destination": "/ru/chapter_dynamic_programming/knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_dynamic_programming/unbounded_knapsack_problem\\.assets/:figure(coin_change_dp_step1|coin_change_dp_step10|coin_change_dp_step11|coin_change_dp_step12|coin_change_dp_step13|coin_change_dp_step14|coin_change_dp_step15|coin_change_dp_step2|coin_change_dp_step3|coin_change_dp_step4|coin_change_dp_step5|coin_change_dp_step6|coin_change_dp_step7|coin_change_dp_step8|coin_change_dp_step9|coin_change_example|coin_change_ii_example|unbounded_knapsack_dp_comp_step1|unbounded_knapsack_dp_comp_step2|unbounded_knapsack_dp_comp_step3|unbounded_knapsack_dp_comp_step4|unbounded_knapsack_dp_comp_step5|unbounded_knapsack_dp_comp_step6|unbounded_knapsack_example)\\.png",
+      "destination": "/ru/chapter_dynamic_programming/unbounded_knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_graph/graph\\.assets/:figure(adjacency_list|adjacency_matrix|connected_graph|directed_graph|linkedlist_tree_graph|weighted_graph)\\.png",
+      "destination": "/ru/chapter_graph/graph.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_graph/graph_operations\\.assets/:figure(adjacency_list_step1_initialization|adjacency_list_step2_add_edge|adjacency_list_step3_remove_edge|adjacency_list_step4_add_vertex|adjacency_list_step5_remove_vertex|adjacency_matrix_step1_initialization|adjacency_matrix_step2_add_edge|adjacency_matrix_step3_remove_edge|adjacency_matrix_step4_add_vertex|adjacency_matrix_step5_remove_vertex)\\.png",
+      "destination": "/ru/chapter_graph/graph_operations.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_graph/graph_traversal\\.assets/:figure(graph_bfs|graph_bfs_step1|graph_bfs_step10|graph_bfs_step11|graph_bfs_step2|graph_bfs_step3|graph_bfs_step4|graph_bfs_step5|graph_bfs_step6|graph_bfs_step7|graph_bfs_step8|graph_bfs_step9|graph_dfs|graph_dfs_step1|graph_dfs_step10|graph_dfs_step11|graph_dfs_step2|graph_dfs_step3|graph_dfs_step4|graph_dfs_step5|graph_dfs_step6|graph_dfs_step7|graph_dfs_step8|graph_dfs_step9)\\.png",
+      "destination": "/ru/chapter_graph/graph_traversal.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_greedy/fractional_knapsack_problem\\.assets/:figure(fractional_knapsack_area_chart|fractional_knapsack_example|fractional_knapsack_greedy_strategy|fractional_knapsack_unit_value)\\.png",
+      "destination": "/ru/chapter_greedy/fractional_knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_greedy/greedy_algorithm\\.assets/:figure(coin_change_greedy_strategy|coin_change_greedy_vs_dp)\\.png",
+      "destination": "/ru/chapter_greedy/greedy_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_greedy/max_capacity_problem\\.assets/:figure(max_capacity_example|max_capacity_greedy_step1|max_capacity_greedy_step2|max_capacity_greedy_step3|max_capacity_greedy_step4|max_capacity_greedy_step5|max_capacity_greedy_step6|max_capacity_greedy_step7|max_capacity_greedy_step8|max_capacity_greedy_step9|max_capacity_initial_state|max_capacity_moving_long_board|max_capacity_moving_short_board|max_capacity_skipped_states)\\.png",
+      "destination": "/ru/chapter_greedy/max_capacity_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_greedy/max_product_cutting_problem\\.assets/:figure(max_product_cutting_definition|max_product_cutting_greedy_calculation|max_product_cutting_greedy_infer1|max_product_cutting_greedy_infer2)\\.png",
+      "destination": "/ru/chapter_greedy/max_product_cutting_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_hashing/hash_algorithm\\.assets/:figure(hash_collision_best_worst_condition)\\.png",
+      "destination": "/ru/chapter_hashing/hash_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_hashing/hash_collision\\.assets/:figure(hash_table_chaining|hash_table_linear_probing|hash_table_open_addressing_deletion)\\.png",
+      "destination": "/ru/chapter_hashing/hash_collision.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_hashing/hash_map\\.assets/:figure(hash_collision|hash_function|hash_table_lookup|hash_table_reshash)\\.png",
+      "destination": "/ru/chapter_hashing/hash_map.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_heap/build_heap\\.assets/:figure(heapify_operations_count)\\.png",
+      "destination": "/ru/chapter_heap/build_heap.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_heap/heap\\.assets/:figure(heap_pop_step1|heap_pop_step10|heap_pop_step2|heap_pop_step3|heap_pop_step4|heap_pop_step5|heap_pop_step6|heap_pop_step7|heap_pop_step8|heap_pop_step9|heap_push_step1|heap_push_step2|heap_push_step3|heap_push_step4|heap_push_step5|heap_push_step6|heap_push_step7|heap_push_step8|heap_push_step9|min_heap_and_max_heap|representation_of_heap)\\.png",
+      "destination": "/ru/chapter_heap/heap.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_heap/top_k\\.assets/:figure(top_k_heap_step1|top_k_heap_step2|top_k_heap_step3|top_k_heap_step4|top_k_heap_step5|top_k_heap_step6|top_k_heap_step7|top_k_heap_step8|top_k_heap_step9|top_k_sorting|top_k_traversal)\\.png",
+      "destination": "/ru/chapter_heap/top_k.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_introduction/algorithms_are_everywhere\\.assets/:figure(binary_search_dictionary_step1|binary_search_dictionary_step2|binary_search_dictionary_step3|binary_search_dictionary_step4|binary_search_dictionary_step5|greedy_change|playing_cards_sorting)\\.png",
+      "destination": "/ru/chapter_introduction/algorithms_are_everywhere.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_introduction/what_is_dsa\\.assets/:figure(relationship_between_data_structure_and_algorithm)\\.png",
+      "destination": "/ru/chapter_introduction/what_is_dsa.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_preface/about_the_book\\.assets/:figure(hello_algo_mindmap)\\.png",
+      "destination": "/ru/chapter_preface/about_the_book.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_preface/suggestions\\.assets/:figure(code_md_to_repo|learning_route)\\.png",
+      "destination": "/ru/chapter_preface/suggestions.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_searching/binary_search\\.assets/:figure(binary_search_example|binary_search_ranges|binary_search_step1|binary_search_step2|binary_search_step3|binary_search_step4|binary_search_step5|binary_search_step6|binary_search_step7)\\.png",
+      "destination": "/ru/chapter_searching/binary_search.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_searching/binary_search_edge\\.assets/:figure(binary_search_edge_by_element|binary_search_right_edge_by_left_edge)\\.png",
+      "destination": "/ru/chapter_searching/binary_search_edge.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_searching/binary_search_insertion\\.assets/:figure(binary_search_insertion_example|binary_search_insertion_naive|binary_search_insertion_step1|binary_search_insertion_step2|binary_search_insertion_step3|binary_search_insertion_step4|binary_search_insertion_step5|binary_search_insertion_step6|binary_search_insertion_step7|binary_search_insertion_step8)\\.png",
+      "destination": "/ru/chapter_searching/binary_search_insertion.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_searching/replace_linear_by_hashing\\.assets/:figure(two_sum_brute_force|two_sum_hashtable_step1|two_sum_hashtable_step2|two_sum_hashtable_step3)\\.png",
+      "destination": "/ru/chapter_searching/replace_linear_by_hashing.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_searching/searching_algorithm_revisited\\.assets/:figure(searching_algorithms)\\.png",
+      "destination": "/ru/chapter_searching/searching_algorithm_revisited.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_sorting/bubble_sort\\.assets/:figure(bubble_operation_step1|bubble_operation_step2|bubble_operation_step3|bubble_operation_step4|bubble_operation_step5|bubble_operation_step6|bubble_operation_step7|bubble_sort_overview)\\.png",
+      "destination": "/ru/chapter_sorting/bubble_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_sorting/bucket_sort\\.assets/:figure(bucket_sort_overview|scatter_in_buckets_distribution|scatter_in_buckets_recursively)\\.png",
+      "destination": "/ru/chapter_sorting/bucket_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_sorting/counting_sort\\.assets/:figure(counting_sort_overview|counting_sort_step1|counting_sort_step2|counting_sort_step3|counting_sort_step4|counting_sort_step5|counting_sort_step6|counting_sort_step7|counting_sort_step8)\\.png",
+      "destination": "/ru/chapter_sorting/counting_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_sorting/heap_sort\\.assets/:figure(heap_sort_step1|heap_sort_step10|heap_sort_step11|heap_sort_step12|heap_sort_step2|heap_sort_step3|heap_sort_step4|heap_sort_step5|heap_sort_step6|heap_sort_step7|heap_sort_step8|heap_sort_step9)\\.png",
+      "destination": "/ru/chapter_sorting/heap_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_sorting/insertion_sort\\.assets/:figure(insertion_operation|insertion_sort_overview)\\.png",
+      "destination": "/ru/chapter_sorting/insertion_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_sorting/merge_sort\\.assets/:figure(merge_sort_overview|merge_sort_step1|merge_sort_step10|merge_sort_step2|merge_sort_step3|merge_sort_step4|merge_sort_step5|merge_sort_step6|merge_sort_step7|merge_sort_step8|merge_sort_step9)\\.png",
+      "destination": "/ru/chapter_sorting/merge_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_sorting/quick_sort\\.assets/:figure(pivot_division_step1|pivot_division_step2|pivot_division_step3|pivot_division_step4|pivot_division_step5|pivot_division_step6|pivot_division_step7|pivot_division_step8|pivot_division_step9|quick_sort_overview)\\.png",
+      "destination": "/ru/chapter_sorting/quick_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_sorting/radix_sort\\.assets/:figure(radix_sort_overview)\\.png",
+      "destination": "/ru/chapter_sorting/radix_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_sorting/selection_sort\\.assets/:figure(selection_sort_instability|selection_sort_step1|selection_sort_step10|selection_sort_step11|selection_sort_step2|selection_sort_step3|selection_sort_step4|selection_sort_step5|selection_sort_step6|selection_sort_step7|selection_sort_step8|selection_sort_step9)\\.png",
+      "destination": "/ru/chapter_sorting/selection_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_sorting/sorting_algorithm\\.assets/:figure(sorting_examples)\\.png",
+      "destination": "/ru/chapter_sorting/sorting_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_sorting/summary\\.assets/:figure(sorting_algorithms_comparison)\\.png",
+      "destination": "/ru/chapter_sorting/summary.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_stack_and_queue/deque\\.assets/:figure(array_deque_step1|array_deque_step2_push_last|array_deque_step3_push_first|array_deque_step4_pop_last|array_deque_step5_pop_first|deque_operations|linkedlist_deque_step1|linkedlist_deque_step2_push_last|linkedlist_deque_step3_push_first|linkedlist_deque_step4_pop_last|linkedlist_deque_step5_pop_first)\\.png",
+      "destination": "/ru/chapter_stack_and_queue/deque.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_stack_and_queue/queue\\.assets/:figure(array_queue_step1|array_queue_step2_push|array_queue_step3_pop|linkedlist_queue_step1|linkedlist_queue_step2_push|linkedlist_queue_step3_pop|queue_operations)\\.png",
+      "destination": "/ru/chapter_stack_and_queue/queue.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_stack_and_queue/stack\\.assets/:figure(array_stack_step1|array_stack_step2_push|array_stack_step3_pop|linkedlist_stack_step1|linkedlist_stack_step2_push|linkedlist_stack_step3_pop|stack_operations)\\.png",
+      "destination": "/ru/chapter_stack_and_queue/stack.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_tree/array_representation_of_tree\\.assets/:figure(array_representation_binary_tree|array_representation_complete_binary_tree|array_representation_with_empty|array_representation_without_empty)\\.png",
+      "destination": "/ru/chapter_tree/array_representation_of_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_tree/avl_tree\\.assets/:figure(avltree_degradation_from_inserting_node|avltree_degradation_from_removing_node|avltree_left_right_rotate|avltree_left_rotate|avltree_left_rotate_with_grandchild|avltree_right_left_rotate|avltree_right_rotate_step1|avltree_right_rotate_step2|avltree_right_rotate_step3|avltree_right_rotate_step4|avltree_right_rotate_with_grandchild|avltree_rotation_cases)\\.png",
+      "destination": "/ru/chapter_tree/avl_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_tree/binary_search_tree\\.assets/:figure(binary_search_tree|bst_degradation|bst_inorder_traversal|bst_insert|bst_remove_case1|bst_remove_case2|bst_remove_case3_step1|bst_remove_case3_step2|bst_remove_case3_step3|bst_remove_case3_step4|bst_search_step1|bst_search_step2|bst_search_step3|bst_search_step4)\\.png",
+      "destination": "/ru/chapter_tree/binary_search_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_tree/binary_tree\\.assets/:figure(balanced_binary_tree|binary_tree_add_remove|binary_tree_best_worst_cases|binary_tree_definition|binary_tree_terminology|complete_binary_tree|full_binary_tree|perfect_binary_tree)\\.png",
+      "destination": "/ru/chapter_tree/binary_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/chapter_tree/binary_tree_traversal\\.assets/:figure(binary_tree_bfs|binary_tree_dfs|preorder_step1|preorder_step10|preorder_step11|preorder_step2|preorder_step3|preorder_step4|preorder_step5|preorder_step6|preorder_step7|preorder_step8|preorder_step9)\\.png",
+      "destination": "/ru/chapter_tree/binary_tree_traversal.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_array_and_linkedlist/array\\.assets/:figure(array_definition|array_insert_element|array_memory_location_calculation|array_remove_element)\\.png",
+      "destination": "/zh-hant/chapter_array_and_linkedlist/array.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_array_and_linkedlist/linked_list\\.assets/:figure(linkedlist_common_types|linkedlist_definition|linkedlist_insert_node|linkedlist_remove_node)\\.png",
+      "destination": "/zh-hant/chapter_array_and_linkedlist/linked_list.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_array_and_linkedlist/ram_and_cache\\.assets/:figure(computer_storage_devices|storage_pyramid)\\.png",
+      "destination": "/zh-hant/chapter_array_and_linkedlist/ram_and_cache.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_backtracking/backtracking_algorithm\\.assets/:figure(backtrack_remove_return_or_not|preorder_find_constrained_paths|preorder_find_nodes|preorder_find_paths_step1|preorder_find_paths_step10|preorder_find_paths_step11|preorder_find_paths_step2|preorder_find_paths_step3|preorder_find_paths_step4|preorder_find_paths_step5|preorder_find_paths_step6|preorder_find_paths_step7|preorder_find_paths_step8|preorder_find_paths_step9)\\.png",
+      "destination": "/zh-hant/chapter_backtracking/backtracking_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_backtracking/n_queens_problem\\.assets/:figure(n_queens_cols_diagonals|n_queens_constraints|n_queens_placing|solution_4_queens)\\.png",
+      "destination": "/zh-hant/chapter_backtracking/n_queens_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_backtracking/permutations_problem\\.assets/:figure(permutations_i|permutations_i_pruning|permutations_ii|permutations_ii_pruning|permutations_ii_pruning_summary)\\.png",
+      "destination": "/zh-hant/chapter_backtracking/permutations_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_backtracking/subset_sum_problem\\.assets/:figure(subset_sum_i|subset_sum_i_naive|subset_sum_i_pruning|subset_sum_ii|subset_sum_ii_repeat)\\.png",
+      "destination": "/zh-hant/chapter_backtracking/subset_sum_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_computational_complexity/iteration_and_recursion\\.assets/:figure(iteration|nested_iteration|recursion_sum|recursion_sum_depth|recursion_tree|tail_recursion_sum)\\.png",
+      "destination": "/zh-hant/chapter_computational_complexity/iteration_and_recursion.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_computational_complexity/space_complexity\\.assets/:figure(space_complexity_common_types|space_complexity_exponential|space_complexity_recursive_linear|space_complexity_recursive_quadratic|space_types)\\.png",
+      "destination": "/zh-hant/chapter_computational_complexity/space_complexity.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_computational_complexity/time_complexity\\.assets/:figure(asymptotic_upper_bound|time_complexity_common_types|time_complexity_constant_linear_quadratic|time_complexity_exponential|time_complexity_factorial|time_complexity_logarithmic|time_complexity_logarithmic_linear|time_complexity_simple_example)\\.png",
+      "destination": "/zh-hant/chapter_computational_complexity/time_complexity.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_data_structure/character_encoding\\.assets/:figure(ascii_table|unicode_hello_algo|utf\\-8_hello_algo)\\.png",
+      "destination": "/zh-hant/chapter_data_structure/character_encoding.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_data_structure/classification_of_data_structure\\.assets/:figure(classification_logic_structure|classification_phisical_structure|computer_memory_location)\\.png",
+      "destination": "/zh-hant/chapter_data_structure/classification_of_data_structure.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_data_structure/number_encoding\\.assets/:figure(1s_2s_complement|ieee_754_float)\\.png",
+      "destination": "/zh-hant/chapter_data_structure/number_encoding.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_divide_and_conquer/binary_search_recur\\.assets/:figure(binary_search_recur)\\.png",
+      "destination": "/zh-hant/chapter_divide_and_conquer/binary_search_recur.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_divide_and_conquer/build_binary_tree_problem\\.assets/:figure(build_tree_division_pointers|build_tree_example|build_tree_preorder_inorder_division|built_tree_overall|built_tree_step1|built_tree_step2|built_tree_step3|built_tree_step4|built_tree_step5|built_tree_step6|built_tree_step7|built_tree_step8|built_tree_step9)\\.png",
+      "destination": "/zh-hant/chapter_divide_and_conquer/build_binary_tree_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_divide_and_conquer/divide_and_conquer\\.assets/:figure(divide_and_conquer_bubble_sort|divide_and_conquer_merge_sort|divide_and_conquer_parallel_computing)\\.png",
+      "destination": "/zh-hant/chapter_divide_and_conquer/divide_and_conquer.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_divide_and_conquer/hanota_problem\\.assets/:figure(hanota_divide_and_conquer|hanota_example|hanota_f1_step1|hanota_f1_step2|hanota_f2_step1|hanota_f2_step2|hanota_f2_step3|hanota_f2_step4|hanota_f3_step1|hanota_f3_step2|hanota_f3_step3|hanota_f3_step4|hanota_recursive_tree)\\.png",
+      "destination": "/zh-hant/chapter_divide_and_conquer/hanota_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_dynamic_programming/dp_problem_features\\.assets/:figure(climbing_stairs_constraint_example|climbing_stairs_constraint_state_transfer|min_cost_cs_dp|min_cost_cs_example)\\.png",
+      "destination": "/zh-hant/chapter_dynamic_programming/dp_problem_features.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_dynamic_programming/dp_solution_pipeline\\.assets/:figure(min_path_sum_dfs|min_path_sum_dfs_mem|min_path_sum_dp_step1|min_path_sum_dp_step10|min_path_sum_dp_step11|min_path_sum_dp_step12|min_path_sum_dp_step2|min_path_sum_dp_step3|min_path_sum_dp_step4|min_path_sum_dp_step5|min_path_sum_dp_step6|min_path_sum_dp_step7|min_path_sum_dp_step8|min_path_sum_dp_step9|min_path_sum_example|min_path_sum_solution_initial_state|min_path_sum_solution_state_definition|min_path_sum_solution_state_transition)\\.png",
+      "destination": "/zh-hant/chapter_dynamic_programming/dp_solution_pipeline.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_dynamic_programming/edit_distance_problem\\.assets/:figure(edit_distance_decision_tree|edit_distance_dp_step1|edit_distance_dp_step10|edit_distance_dp_step11|edit_distance_dp_step12|edit_distance_dp_step13|edit_distance_dp_step14|edit_distance_dp_step15|edit_distance_dp_step2|edit_distance_dp_step3|edit_distance_dp_step4|edit_distance_dp_step5|edit_distance_dp_step6|edit_distance_dp_step7|edit_distance_dp_step8|edit_distance_dp_step9|edit_distance_example|edit_distance_state_transfer)\\.png",
+      "destination": "/zh-hant/chapter_dynamic_programming/edit_distance_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_dynamic_programming/intro_to_dynamic_programming\\.assets/:figure(climbing_stairs_dfs_memo_tree|climbing_stairs_dfs_tree|climbing_stairs_dp|climbing_stairs_example|climbing_stairs_state_transfer)\\.png",
+      "destination": "/zh-hant/chapter_dynamic_programming/intro_to_dynamic_programming.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_dynamic_programming/knapsack_problem\\.assets/:figure(knapsack_dfs|knapsack_dfs_mem|knapsack_dp_comp_step1|knapsack_dp_comp_step2|knapsack_dp_comp_step3|knapsack_dp_comp_step4|knapsack_dp_comp_step5|knapsack_dp_comp_step6|knapsack_dp_step1|knapsack_dp_step10|knapsack_dp_step11|knapsack_dp_step12|knapsack_dp_step13|knapsack_dp_step14|knapsack_dp_step2|knapsack_dp_step3|knapsack_dp_step4|knapsack_dp_step5|knapsack_dp_step6|knapsack_dp_step7|knapsack_dp_step8|knapsack_dp_step9|knapsack_example)\\.png",
+      "destination": "/zh-hant/chapter_dynamic_programming/knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_dynamic_programming/unbounded_knapsack_problem\\.assets/:figure(coin_change_dp_step1|coin_change_dp_step10|coin_change_dp_step11|coin_change_dp_step12|coin_change_dp_step13|coin_change_dp_step14|coin_change_dp_step15|coin_change_dp_step2|coin_change_dp_step3|coin_change_dp_step4|coin_change_dp_step5|coin_change_dp_step6|coin_change_dp_step7|coin_change_dp_step8|coin_change_dp_step9|coin_change_example|coin_change_ii_example|unbounded_knapsack_dp_comp_step1|unbounded_knapsack_dp_comp_step2|unbounded_knapsack_dp_comp_step3|unbounded_knapsack_dp_comp_step4|unbounded_knapsack_dp_comp_step5|unbounded_knapsack_dp_comp_step6|unbounded_knapsack_example)\\.png",
+      "destination": "/zh-hant/chapter_dynamic_programming/unbounded_knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_graph/graph\\.assets/:figure(adjacency_list|adjacency_matrix|connected_graph|directed_graph|linkedlist_tree_graph|weighted_graph)\\.png",
+      "destination": "/zh-hant/chapter_graph/graph.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_graph/graph_operations\\.assets/:figure(adjacency_list_step1_initialization|adjacency_list_step2_add_edge|adjacency_list_step3_remove_edge|adjacency_list_step4_add_vertex|adjacency_list_step5_remove_vertex|adjacency_matrix_step1_initialization|adjacency_matrix_step2_add_edge|adjacency_matrix_step3_remove_edge|adjacency_matrix_step4_add_vertex|adjacency_matrix_step5_remove_vertex)\\.png",
+      "destination": "/zh-hant/chapter_graph/graph_operations.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_graph/graph_traversal\\.assets/:figure(graph_bfs|graph_bfs_step1|graph_bfs_step10|graph_bfs_step11|graph_bfs_step2|graph_bfs_step3|graph_bfs_step4|graph_bfs_step5|graph_bfs_step6|graph_bfs_step7|graph_bfs_step8|graph_bfs_step9|graph_dfs|graph_dfs_step1|graph_dfs_step10|graph_dfs_step11|graph_dfs_step2|graph_dfs_step3|graph_dfs_step4|graph_dfs_step5|graph_dfs_step6|graph_dfs_step7|graph_dfs_step8|graph_dfs_step9)\\.png",
+      "destination": "/zh-hant/chapter_graph/graph_traversal.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_greedy/fractional_knapsack_problem\\.assets/:figure(fractional_knapsack_area_chart|fractional_knapsack_example|fractional_knapsack_greedy_strategy|fractional_knapsack_unit_value)\\.png",
+      "destination": "/zh-hant/chapter_greedy/fractional_knapsack_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_greedy/greedy_algorithm\\.assets/:figure(coin_change_greedy_strategy|coin_change_greedy_vs_dp)\\.png",
+      "destination": "/zh-hant/chapter_greedy/greedy_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_greedy/max_capacity_problem\\.assets/:figure(max_capacity_example|max_capacity_greedy_step1|max_capacity_greedy_step2|max_capacity_greedy_step3|max_capacity_greedy_step4|max_capacity_greedy_step5|max_capacity_greedy_step6|max_capacity_greedy_step7|max_capacity_greedy_step8|max_capacity_greedy_step9|max_capacity_initial_state|max_capacity_moving_long_board|max_capacity_moving_short_board|max_capacity_skipped_states)\\.png",
+      "destination": "/zh-hant/chapter_greedy/max_capacity_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_greedy/max_product_cutting_problem\\.assets/:figure(max_product_cutting_definition|max_product_cutting_greedy_calculation|max_product_cutting_greedy_infer1|max_product_cutting_greedy_infer2)\\.png",
+      "destination": "/zh-hant/chapter_greedy/max_product_cutting_problem.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_hashing/hash_algorithm\\.assets/:figure(hash_collision_best_worst_condition)\\.png",
+      "destination": "/zh-hant/chapter_hashing/hash_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_hashing/hash_collision\\.assets/:figure(hash_table_chaining|hash_table_linear_probing|hash_table_open_addressing_deletion)\\.png",
+      "destination": "/zh-hant/chapter_hashing/hash_collision.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_hashing/hash_map\\.assets/:figure(hash_collision|hash_function|hash_table_lookup|hash_table_reshash)\\.png",
+      "destination": "/zh-hant/chapter_hashing/hash_map.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_heap/build_heap\\.assets/:figure(heapify_operations_count)\\.png",
+      "destination": "/zh-hant/chapter_heap/build_heap.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_heap/heap\\.assets/:figure(heap_pop_step1|heap_pop_step10|heap_pop_step2|heap_pop_step3|heap_pop_step4|heap_pop_step5|heap_pop_step6|heap_pop_step7|heap_pop_step8|heap_pop_step9|heap_push_step1|heap_push_step2|heap_push_step3|heap_push_step4|heap_push_step5|heap_push_step6|heap_push_step7|heap_push_step8|heap_push_step9|min_heap_and_max_heap|representation_of_heap)\\.png",
+      "destination": "/zh-hant/chapter_heap/heap.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_heap/top_k\\.assets/:figure(top_k_heap_step1|top_k_heap_step2|top_k_heap_step3|top_k_heap_step4|top_k_heap_step5|top_k_heap_step6|top_k_heap_step7|top_k_heap_step8|top_k_heap_step9|top_k_sorting|top_k_traversal)\\.png",
+      "destination": "/zh-hant/chapter_heap/top_k.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_introduction/algorithms_are_everywhere\\.assets/:figure(binary_search_dictionary_step1|binary_search_dictionary_step2|binary_search_dictionary_step3|binary_search_dictionary_step4|binary_search_dictionary_step5|greedy_change|playing_cards_sorting)\\.png",
+      "destination": "/zh-hant/chapter_introduction/algorithms_are_everywhere.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_introduction/what_is_dsa\\.assets/:figure(relationship_between_data_structure_and_algorithm)\\.png",
+      "destination": "/zh-hant/chapter_introduction/what_is_dsa.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_preface/about_the_book\\.assets/:figure(hello_algo_mindmap)\\.png",
+      "destination": "/zh-hant/chapter_preface/about_the_book.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_preface/suggestions\\.assets/:figure(code_md_to_repo|learning_route)\\.png",
+      "destination": "/zh-hant/chapter_preface/suggestions.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_searching/binary_search\\.assets/:figure(binary_search_example|binary_search_ranges|binary_search_step1|binary_search_step2|binary_search_step3|binary_search_step4|binary_search_step5|binary_search_step6|binary_search_step7)\\.png",
+      "destination": "/zh-hant/chapter_searching/binary_search.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_searching/binary_search_edge\\.assets/:figure(binary_search_edge_by_element|binary_search_right_edge_by_left_edge)\\.png",
+      "destination": "/zh-hant/chapter_searching/binary_search_edge.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_searching/binary_search_insertion\\.assets/:figure(binary_search_insertion_example|binary_search_insertion_naive|binary_search_insertion_step1|binary_search_insertion_step2|binary_search_insertion_step3|binary_search_insertion_step4|binary_search_insertion_step5|binary_search_insertion_step6|binary_search_insertion_step7|binary_search_insertion_step8)\\.png",
+      "destination": "/zh-hant/chapter_searching/binary_search_insertion.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_searching/replace_linear_by_hashing\\.assets/:figure(two_sum_brute_force|two_sum_hashtable_step1|two_sum_hashtable_step2|two_sum_hashtable_step3)\\.png",
+      "destination": "/zh-hant/chapter_searching/replace_linear_by_hashing.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_searching/searching_algorithm_revisited\\.assets/:figure(searching_algorithms)\\.png",
+      "destination": "/zh-hant/chapter_searching/searching_algorithm_revisited.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_sorting/bubble_sort\\.assets/:figure(bubble_operation_step1|bubble_operation_step2|bubble_operation_step3|bubble_operation_step4|bubble_operation_step5|bubble_operation_step6|bubble_operation_step7|bubble_sort_overview)\\.png",
+      "destination": "/zh-hant/chapter_sorting/bubble_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_sorting/bucket_sort\\.assets/:figure(bucket_sort_overview|scatter_in_buckets_distribution|scatter_in_buckets_recursively)\\.png",
+      "destination": "/zh-hant/chapter_sorting/bucket_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_sorting/counting_sort\\.assets/:figure(counting_sort_overview|counting_sort_step1|counting_sort_step2|counting_sort_step3|counting_sort_step4|counting_sort_step5|counting_sort_step6|counting_sort_step7|counting_sort_step8)\\.png",
+      "destination": "/zh-hant/chapter_sorting/counting_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_sorting/heap_sort\\.assets/:figure(heap_sort_step1|heap_sort_step10|heap_sort_step11|heap_sort_step12|heap_sort_step2|heap_sort_step3|heap_sort_step4|heap_sort_step5|heap_sort_step6|heap_sort_step7|heap_sort_step8|heap_sort_step9)\\.png",
+      "destination": "/zh-hant/chapter_sorting/heap_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_sorting/insertion_sort\\.assets/:figure(insertion_operation|insertion_sort_overview)\\.png",
+      "destination": "/zh-hant/chapter_sorting/insertion_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_sorting/merge_sort\\.assets/:figure(merge_sort_overview|merge_sort_step1|merge_sort_step10|merge_sort_step2|merge_sort_step3|merge_sort_step4|merge_sort_step5|merge_sort_step6|merge_sort_step7|merge_sort_step8|merge_sort_step9)\\.png",
+      "destination": "/zh-hant/chapter_sorting/merge_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_sorting/quick_sort\\.assets/:figure(pivot_division_step1|pivot_division_step2|pivot_division_step3|pivot_division_step4|pivot_division_step5|pivot_division_step6|pivot_division_step7|pivot_division_step8|pivot_division_step9|quick_sort_overview)\\.png",
+      "destination": "/zh-hant/chapter_sorting/quick_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_sorting/radix_sort\\.assets/:figure(radix_sort_overview)\\.png",
+      "destination": "/zh-hant/chapter_sorting/radix_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_sorting/selection_sort\\.assets/:figure(selection_sort_instability|selection_sort_step1|selection_sort_step10|selection_sort_step11|selection_sort_step2|selection_sort_step3|selection_sort_step4|selection_sort_step5|selection_sort_step6|selection_sort_step7|selection_sort_step8|selection_sort_step9)\\.png",
+      "destination": "/zh-hant/chapter_sorting/selection_sort.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_sorting/sorting_algorithm\\.assets/:figure(sorting_examples)\\.png",
+      "destination": "/zh-hant/chapter_sorting/sorting_algorithm.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_sorting/summary\\.assets/:figure(sorting_algorithms_comparison)\\.png",
+      "destination": "/zh-hant/chapter_sorting/summary.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_stack_and_queue/deque\\.assets/:figure(array_deque_step1|array_deque_step2_push_last|array_deque_step3_push_first|array_deque_step4_pop_last|array_deque_step5_pop_first|deque_operations|linkedlist_deque_step1|linkedlist_deque_step2_push_last|linkedlist_deque_step3_push_first|linkedlist_deque_step4_pop_last|linkedlist_deque_step5_pop_first)\\.png",
+      "destination": "/zh-hant/chapter_stack_and_queue/deque.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_stack_and_queue/queue\\.assets/:figure(array_queue_step1|array_queue_step2_push|array_queue_step3_pop|linkedlist_queue_step1|linkedlist_queue_step2_push|linkedlist_queue_step3_pop|queue_operations)\\.png",
+      "destination": "/zh-hant/chapter_stack_and_queue/queue.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_stack_and_queue/stack\\.assets/:figure(array_stack_step1|array_stack_step2_push|array_stack_step3_pop|linkedlist_stack_step1|linkedlist_stack_step2_push|linkedlist_stack_step3_pop|stack_operations)\\.png",
+      "destination": "/zh-hant/chapter_stack_and_queue/stack.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_tree/array_representation_of_tree\\.assets/:figure(array_representation_binary_tree|array_representation_complete_binary_tree|array_representation_with_empty|array_representation_without_empty)\\.png",
+      "destination": "/zh-hant/chapter_tree/array_representation_of_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_tree/avl_tree\\.assets/:figure(avltree_degradation_from_inserting_node|avltree_degradation_from_removing_node|avltree_left_right_rotate|avltree_left_rotate|avltree_left_rotate_with_grandchild|avltree_right_left_rotate|avltree_right_rotate_step1|avltree_right_rotate_step2|avltree_right_rotate_step3|avltree_right_rotate_step4|avltree_right_rotate_with_grandchild|avltree_rotation_cases)\\.png",
+      "destination": "/zh-hant/chapter_tree/avl_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_tree/binary_search_tree\\.assets/:figure(binary_search_tree|bst_degradation|bst_inorder_traversal|bst_insert|bst_remove_case1|bst_remove_case2|bst_remove_case3_step1|bst_remove_case3_step2|bst_remove_case3_step3|bst_remove_case3_step4|bst_search_step1|bst_search_step2|bst_search_step3|bst_search_step4)\\.png",
+      "destination": "/zh-hant/chapter_tree/binary_search_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_tree/binary_tree\\.assets/:figure(balanced_binary_tree|binary_tree_add_remove|binary_tree_best_worst_cases|binary_tree_definition|binary_tree_terminology|complete_binary_tree|full_binary_tree|perfect_binary_tree)\\.png",
+      "destination": "/zh-hant/chapter_tree/binary_tree.assets/:figure.svg",
+      "statusCode": 301
+    },
+    {
+      "source": "/zh-hant/chapter_tree/binary_tree_traversal\\.assets/:figure(binary_tree_bfs|binary_tree_dfs|preorder_step1|preorder_step10|preorder_step11|preorder_step2|preorder_step3|preorder_step4|preorder_step5|preorder_step6|preorder_step7|preorder_step8|preorder_step9)\\.png",
+      "destination": "/zh-hant/chapter_tree/binary_tree_traversal.assets/:figure.svg",
+      "statusCode": 301
+    }
+  ]
 }

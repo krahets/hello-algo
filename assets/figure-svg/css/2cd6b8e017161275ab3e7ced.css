@@ -1,0 +1,6 @@
+@import url("63775834ec7b9703be1dc368.css");
+@font-face{font-family:"Book inter";src:url("../fonts/bff0f2e92cf937b8f279fdcc.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Book noto-sans-tc";src:url("../fonts/d67bba05650fa8f0c3cfdcf8.woff2") format("woff2");font-weight:100 900;font-display:swap}
+body{--md-text-font:"Book inter";--md-code-font:"HelloAlgo JetBrains Mono";--md-text-font-family:"Book inter","Book noto-sans-tc",sans-serif;--md-code-font-family:"HelloAlgo JetBrains Mono","Book noto-sans-tc",monospace;font-family:var(--md-text-font-family)}
+button,input,select,textarea{font-family:inherit}code,kbd,pre,samp,.highlight{font-family:var(--md-code-font-family)}
+.md-typeset :is(b,strong){font-weight:600}

@@ -1,0 +1,4 @@
+@font-face{font-family:"HelloAlgo JetBrains Mono";src:url("../fonts/a9cb1cd82332b23a47e3a123.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:"HelloAlgo JetBrains Mono";src:url("../fonts/918edad542a1da608fd2ba8d.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap;}
+@font-face{font-family:"HelloAlgo JetBrains Mono";src:url("../fonts/c503cc5ec5f8b2c7666b7ecd.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap;}
+body{--md-code-font:"HelloAlgo JetBrains Mono";--md-code-font-family:var(--md-code-font),var(--md-text-font),monospace}.md-typeset code,.md-typeset pre{font-variant-ligatures:none}
