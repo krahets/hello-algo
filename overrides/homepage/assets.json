@@ -136,17 +136,17 @@
     "animation": {
       "source": "docs/index.assets/animation.mp4",
       "kind": "video",
-      "loading": "near-viewport-manual-in-reduced-motion"
+      "loading": "near-viewport-static-in-reduced-motion"
     },
     "running_code": {
       "source": "docs/index.assets/running_code.mp4",
       "kind": "video",
-      "loading": "near-viewport-manual-in-reduced-motion"
+      "loading": "near-viewport-static-in-reduced-motion"
     },
     "comment": {
       "source": "docs/index.assets/comment.mp4",
       "kind": "video",
-      "loading": "near-viewport-manual-in-reduced-motion"
+      "loading": "near-viewport-static-in-reduced-motion"
     },
     "avatar_yudongjin": {
       "source": "docs/assets/avatar/avatar_yudongjin.jpg",
@@ -253,34 +253,20 @@
       "kind": "image",
       "loading": "lazy"
     },
-    "en_web_mac_iphone": {
-      "source": "en/docs/assets/hero/web_mac_iphone.png",
-      "width": 1600,
-      "height": 1000,
-      "kind": "image",
-      "loading": "lazy"
-    },
-    "en_pdf_ipad": {
-      "source": "en/docs/assets/hero/pdf_ipad.png",
-      "width": 850,
-      "height": 1100,
-      "kind": "image",
-      "loading": "lazy"
-    },
     "en_animation": {
       "source": "en/docs/index.assets/animation.mp4",
       "kind": "video",
-      "loading": "near-viewport-manual-in-reduced-motion"
+      "loading": "near-viewport-static-in-reduced-motion"
     },
     "en_running_code": {
       "source": "en/docs/index.assets/running_code.mp4",
       "kind": "video",
-      "loading": "near-viewport-manual-in-reduced-motion"
+      "loading": "near-viewport-static-in-reduced-motion"
     },
     "en_comment": {
       "source": "en/docs/index.assets/comment.mp4",
       "kind": "video",
-      "loading": "near-viewport-manual-in-reduced-motion"
+      "loading": "near-viewport-static-in-reduced-motion"
     },
     "avatar_shevkun": {
       "source": "docs/assets/avatar/avatar_shevkun.jpg",

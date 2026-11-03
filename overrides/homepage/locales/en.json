@@ -43,9 +43,9 @@
   "start_href": "chapter_hello_algo/",
   "reading": [
     {
-      "asset": "en_web_mac_iphone",
+      "asset": "web_mac_iphone",
       "href": "chapter_hello_algo/",
-      "alt": "The English web edition",
+      "alt": "Web reading on a computer and phone",
       "label": "Read online",
       "image_style": "height: 66.31%;",
       "spacers": [
@@ -54,9 +54,9 @@
       ]
     },
     {
-      "asset": "en_pdf_ipad",
+      "asset": "pdf_ipad",
       "href": "https://github.com/krahets/hello-algo/releases",
-      "alt": "Cover of the published English PDF, version 1.3.0",
+      "alt": "PDF reading on a tablet",
       "label": "Download PDF/EPUB",
       "image_style": "height: 75%;",
       "spacers": []

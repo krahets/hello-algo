@@ -58,7 +58,7 @@
   {% for feature in locale.features %}
     <div class="intro-container">
       {% if loop.index0 != 1 %}{{ feature_text(feature, loop.index0) }}{% endif %}
-      <video class="intro-image" style="aspect-ratio: {{ assets[feature.video].width }} / {{ assets[feature.video].height }}" data-home-video="{{ asset_url(feature.video) }}" poster="{{ poster_url(feature.video) }}" preload="none" loop muted playsinline controls aria-label="{{ feature.video_label }}" width="{{ assets[feature.video].width }}" height="{{ assets[feature.video].height }}"></video>
+      <video class="intro-image" style="aspect-ratio: {{ assets[feature.video].width }} / {{ assets[feature.video].height }}" data-home-video="{{ asset_url(feature.video) }}" poster="{{ poster_url(feature.video) }}" preload="none" loop muted playsinline aria-label="{{ feature.video_label }}" width="{{ assets[feature.video].width }}" height="{{ assets[feature.video].height }}"></video>
       <noscript><a href="{{ asset_url(feature.video) }}">{{ feature.title }}</a></noscript>
       {% if loop.index0 == 1 %}{{ feature_text(feature, loop.index0) }}{% endif %}
     </div>

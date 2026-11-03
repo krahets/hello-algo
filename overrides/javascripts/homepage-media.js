@@ -16,13 +16,6 @@
       else { load(video); video.play().catch(() => {}); }
     }
   }
-  for (const video of videos) {
-    // Loading on pointerdown lets the native play control handle the same gesture.
-    video.addEventListener('pointerdown', () => load(video));
-    video.addEventListener('keydown', event => {
-      if(event.key===' ' || event.key==='Enter') load(video);
-    });
-  }
   function start() {
     observer?.disconnect();
     if (!('IntersectionObserver' in window)) return;
