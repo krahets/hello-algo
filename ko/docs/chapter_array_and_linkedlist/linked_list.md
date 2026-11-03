@@ -6,7 +6,7 @@
 
 이러한 설계 덕분에 각 노드는 메모리 곳곳에 분산되어 저장될 수 있으며, 메모리 주소가 연속적일 필요가 없다.
 
-![연결 리스트의 정의와 저장 방식](linked_list.assets/linkedlist_definition.png)
+![연결 리스트의 정의와 저장 방식](linked_list.assets/linkedlist_definition.svg)
 
 위 그림에서 연결 리스트를 구성하는 단위는 <u>노드(node)</u> 객체다. 각 노드는 노드의 ‘값’과 다음 노드를 가리키는 ‘참조’라는 두 데이터를 포함한다.
 
@@ -425,7 +425,7 @@
 
 반면 배열의 원소 삽입은 시간 복잡도가 $O(n)$이므로 데이터가 많을 때 효율이 낮다.
 
-![연결 리스트에 노드를 삽입하는 예](linked_list.assets/linkedlist_insert_node.png)
+![연결 리스트에 노드를 삽입하는 예](linked_list.assets/linkedlist_insert_node.svg)
 
 ```src
 [file]{linked_list}-[class]{}-[func]{insert}
@@ -437,7 +437,7 @@
 
 삭제 후에도 노드 `P`는 여전히 `n1`을 가리키지만, 연결 리스트를 순회해서는 더 이상 `P`에 접근할 수 없다. 따라서 `P`는 이미 이 연결 리스트에 속하지 않는다.
 
-![연결 리스트의 노드 삭제](linked_list.assets/linkedlist_remove_node.png)
+![연결 리스트의 노드 삭제](linked_list.assets/linkedlist_remove_node.svg)
 
 ```src
 [file]{linked_list}-[class]{}-[func]{remove}
@@ -680,7 +680,7 @@
     end
     ```
 
-![대표적인 연결 리스트 종류](linked_list.assets/linkedlist_common_types.png)
+![대표적인 연결 리스트 종류](linked_list.assets/linkedlist_common_types.svg)
 
 ## 연결 리스트의 대표적인 활용
 

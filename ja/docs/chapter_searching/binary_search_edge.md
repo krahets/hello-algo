@@ -31,7 +31,7 @@
 
 下図のように、探索後のポインタ $i$ は最も左の `target + 1`（存在する場合）を指し、$j$ は最も右の `target` を指します。**そのため、$j$ を返せばよいのです**。
 
-![右の境界の探索を左の境界の探索に置き換える](binary_search_edge.assets/binary_search_right_edge_by_left_edge.png)
+![右の境界の探索を左の境界の探索に置き換える](binary_search_edge.assets/binary_search_right_edge_by_left_edge.svg)
 
 返される挿入位置は $i$ なので、そこから $1$ を引いて $j$ を得る必要があります。
 
@@ -48,7 +48,7 @@
 - 最も左の `target` を探す場合：`target - 0.5` の探索に置き換え、ポインタ $i$ を返します。
 - 最も右の `target` を探す場合：`target + 0.5` の探索に置き換え、ポインタ $j$ を返します。
 
-![境界の探索を要素の探索に置き換える](binary_search_edge.assets/binary_search_edge_by_element.png)
+![境界の探索を要素の探索に置き換える](binary_search_edge.assets/binary_search_edge_by_element.svg)
 
 コードは省略しますが、次の二点に注意してください。
 

@@ -490,7 +490,7 @@ $$
 - 알고리즘 `B`의 출력 연산은 $n$번 반복되므로, $n$이 커짐에 따라 실행 시간이 선형으로 증가한다. 이런 알고리즘의 시간 복잡도를 ‘선형 시간’이라고 한다.
 - 알고리즘 `C`의 출력 연산은 $1000000$번 반복된다. 실행 시간은 길지만 입력 데이터 크기 $n$과는 무관하다. 따라서 `C`의 시간 복잡도는 `A`와 같은 ‘상수 시간’이다.
 
-![알고리즘 A, B, C의 시간 증가 추세](time_complexity.assets/time_complexity_simple_example.png)
+![알고리즘 A, B, C의 시간 증가 추세](time_complexity.assets/time_complexity_simple_example.svg)
 
 알고리즘의 실행 시간을 직접 계산하는 방식과 비교하면 시간 복잡도 분석에는 어떤 특징이 있을까?
 
@@ -701,7 +701,7 @@ $T(n)$은 일차 함수이므로 실행 시간이 선형으로 증가한다. 따
 
 아래 그림과 같이 점근적 상한을 계산한다는 것은 함수 $f(n)$을 찾는 것이다. 이 함수는 $n$이 무한대로 향할 때 $T(n)$과 $f(n)$의 증가 차수가 같고 상수 계수 $c$만큼만 차이가 나도록 해야 한다.
 
-![함수의 점근적 상한](time_complexity.assets/asymptotic_upper_bound.png)
+![함수의 점근적 상한](time_complexity.assets/asymptotic_upper_bound.svg)
 
 ## 계산 방법
 
@@ -997,7 +997,7 @@ $$
 \end{aligned}
 $$
 
-![대표적인 시간 복잡도 유형](time_complexity.assets/time_complexity_common_types.png)
+![대표적인 시간 복잡도 유형](time_complexity.assets/time_complexity_common_types.svg)
 
 ### 상수 시간 $O(1)$
 
@@ -1035,7 +1035,7 @@ $$
 
 아래 그림은 상수 시간, 선형 시간, 제곱 시간의 세 가지 시간 복잡도를 비교한다.
 
-![상수 시간, 선형 시간, 제곱 시간의 시간 복잡도](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
+![상수 시간, 선형 시간, 제곱 시간의 시간 복잡도](time_complexity.assets/time_complexity_constant_linear_quadratic.svg)
 
 버블 정렬을 예로 들면, 바깥쪽 반복문은 $n - 1$번 실행되고 안쪽 반복문은 $n-1$, $n-2$, $\dots$, $2$, $1$번, 평균 $n / 2$번 실행된다. 따라서 시간 복잡도는 $O((n - 1) n / 2) = O(n^2)$이다.
 
@@ -1053,7 +1053,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{exponential}
 ```
 
-![지수 시간 복잡도](time_complexity.assets/time_complexity_exponential.png)
+![지수 시간 복잡도](time_complexity.assets/time_complexity_exponential.svg)
 
 실제 알고리즘에서 지수 시간은 재귀 함수에 자주 나타난다. 예를 들어 다음 코드는 재귀적으로 둘로 나뉘며, $n$번 나뉜 뒤 멈춘다.
 
@@ -1073,7 +1073,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{logarithmic}
 ```
 
-![로그 시간 복잡도](time_complexity.assets/time_complexity_logarithmic.png)
+![로그 시간 복잡도](time_complexity.assets/time_complexity_logarithmic.svg)
 
 지수 시간처럼 로그 시간도 재귀 함수에 자주 나타난다. 다음 코드는 높이가 $\log_2 n$인 재귀 트리를 만든다.
 
@@ -1103,7 +1103,7 @@ $$
 
 아래 그림은 선형 로그 시간이 만들어지는 방식을 보여 준다. 이진 트리의 각 층에서 수행하는 전체 연산 횟수는 $n$이고, 층수는 $\log_2 n + 1$이므로 시간 복잡도는 $O(n \log n)$이다.
 
-![선형 로그 시간 복잡도](time_complexity.assets/time_complexity_logarithmic_linear.png)
+![선형 로그 시간 복잡도](time_complexity.assets/time_complexity_logarithmic_linear.svg)
 
 퀵 정렬, 병합 정렬, 힙 정렬 등 널리 쓰이는 정렬 알고리즘의 시간 복잡도는 보통 $O(n \log n)$이다.
 
@@ -1121,7 +1121,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{factorial_recur}
 ```
 
-![팩토리얼 시간 복잡도](time_complexity.assets/time_complexity_factorial.png)
+![팩토리얼 시간 복잡도](time_complexity.assets/time_complexity_factorial.svg)
 
 $n \geq 4$이면 항상 $n! > 2^n$이므로 팩토리얼 시간은 지수 시간보다 더 빠르게 증가한다. 따라서 $n$이 클 때는 이 역시 감당하기 어렵다.
 

@@ -14,7 +14,7 @@
 [file]{preorder_traversal_i_compact}-[class]{}-[func]{pre_order}
 ```
 
-![Поиск узлов при прямом обходе](backtracking_algorithm.assets/preorder_find_nodes.png)
+![Поиск узлов при прямом обходе](backtracking_algorithm.assets/preorder_find_nodes.svg)
 
 ## Попытка и откат
 
@@ -39,37 +39,37 @@
 Если посмотреть на процесс, изображенный на рисунке ниже, **то попытку и откат можно понимать как «движение вперед» и «отмену»**: это два взаимно противоположных действия.
 
 === "<1>"
-    ![Попытка и откат](backtracking_algorithm.assets/preorder_find_paths_step1.png)
+    ![Попытка и откат](backtracking_algorithm.assets/preorder_find_paths_step1.svg)
 
 === "<2>"
-    ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.png)
+    ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.svg)
 
 === "<3>"
-    ![preorder_find_paths_step3](backtracking_algorithm.assets/preorder_find_paths_step3.png)
+    ![preorder_find_paths_step3](backtracking_algorithm.assets/preorder_find_paths_step3.svg)
 
 === "<4>"
-    ![preorder_find_paths_step4](backtracking_algorithm.assets/preorder_find_paths_step4.png)
+    ![preorder_find_paths_step4](backtracking_algorithm.assets/preorder_find_paths_step4.svg)
 
 === "<5>"
-    ![preorder_find_paths_step5](backtracking_algorithm.assets/preorder_find_paths_step5.png)
+    ![preorder_find_paths_step5](backtracking_algorithm.assets/preorder_find_paths_step5.svg)
 
 === "<6>"
-    ![preorder_find_paths_step6](backtracking_algorithm.assets/preorder_find_paths_step6.png)
+    ![preorder_find_paths_step6](backtracking_algorithm.assets/preorder_find_paths_step6.svg)
 
 === "<7>"
-    ![preorder_find_paths_step7](backtracking_algorithm.assets/preorder_find_paths_step7.png)
+    ![preorder_find_paths_step7](backtracking_algorithm.assets/preorder_find_paths_step7.svg)
 
 === "<8>"
-    ![preorder_find_paths_step8](backtracking_algorithm.assets/preorder_find_paths_step8.png)
+    ![preorder_find_paths_step8](backtracking_algorithm.assets/preorder_find_paths_step8.svg)
 
 === "<9>"
-    ![preorder_find_paths_step9](backtracking_algorithm.assets/preorder_find_paths_step9.png)
+    ![preorder_find_paths_step9](backtracking_algorithm.assets/preorder_find_paths_step9.svg)
 
 === "<10>"
-    ![preorder_find_paths_step10](backtracking_algorithm.assets/preorder_find_paths_step10.png)
+    ![preorder_find_paths_step10](backtracking_algorithm.assets/preorder_find_paths_step10.svg)
 
 === "<11>"
-    ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.png)
+    ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.svg)
 
 ## Обрезка
 
@@ -87,7 +87,7 @@
 
 Термин «обрезка» очень нагляден. Как показано на рисунке ниже, во время поиска **мы отсекаем ветви, не удовлетворяющие ограничениям** , тем самым избегая множества бессмысленных попыток и повышая эффективность поиска.
 
-![Обрезка по условиям задачи](backtracking_algorithm.assets/preorder_find_constrained_paths.png)
+![Обрезка по условиям задачи](backtracking_algorithm.assets/preorder_find_constrained_paths.svg)
 
 ## Каркас кода
 
@@ -437,7 +437,7 @@
 
 Согласно условию задачи, после нахождения узла со значением $7$ мы должны продолжать поиск, **поэтому оператор `return` после записи решения нужно удалить**. На рисунке ниже сравниваются процессы поиска в случаях, когда `return` сохраняется и когда он удаляется.
 
-![Сравнение поиска при сохранении и удалении return](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
+![Сравнение поиска при сохранении и удалении return](backtracking_algorithm.assets/backtrack_remove_return_or_not.svg)
 
 По сравнению с реализацией на основе прямого обхода, версия на основе общего каркаса поиска с возвратом выглядит более громоздкой, но при этом обладает лучшей универсальностью. На практике **многие задачи поиска с возвратом можно решать в рамках этого каркаса**. Для этого нужно лишь определить `state` и `choices` под конкретную задачу и реализовать соответствующие методы каркаса.
 

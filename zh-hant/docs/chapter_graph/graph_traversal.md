@@ -8,7 +8,7 @@
 
 **廣度優先走訪是一種由近及遠的走訪方式，從某個節點出發，始終優先訪問距離最近的頂點，並一層層向外擴張**。如下圖所示，從左上角頂點出發，首先走訪該頂點的所有鄰接頂點，然後走訪下一個頂點的所有鄰接頂點，以此類推，直至所有頂點訪問完畢。
 
-![圖的廣度優先走訪](graph_traversal.assets/graph_bfs.png)
+![圖的廣度優先走訪](graph_traversal.assets/graph_bfs.svg)
 
 ### 演算法實現
 
@@ -31,37 +31,37 @@ BFS 通常藉助佇列來實現，程式碼如下所示。佇列具有“先入�
 程式碼相對抽象，建議對照下圖來加深理解。
 
 === "<1>"
-    ![圖的廣度優先走訪步驟](graph_traversal.assets/graph_bfs_step1.png)
+    ![圖的廣度優先走訪步驟](graph_traversal.assets/graph_bfs_step1.svg)
 
 === "<2>"
-    ![graph_bfs_step2](graph_traversal.assets/graph_bfs_step2.png)
+    ![graph_bfs_step2](graph_traversal.assets/graph_bfs_step2.svg)
 
 === "<3>"
-    ![graph_bfs_step3](graph_traversal.assets/graph_bfs_step3.png)
+    ![graph_bfs_step3](graph_traversal.assets/graph_bfs_step3.svg)
 
 === "<4>"
-    ![graph_bfs_step4](graph_traversal.assets/graph_bfs_step4.png)
+    ![graph_bfs_step4](graph_traversal.assets/graph_bfs_step4.svg)
 
 === "<5>"
-    ![graph_bfs_step5](graph_traversal.assets/graph_bfs_step5.png)
+    ![graph_bfs_step5](graph_traversal.assets/graph_bfs_step5.svg)
 
 === "<6>"
-    ![graph_bfs_step6](graph_traversal.assets/graph_bfs_step6.png)
+    ![graph_bfs_step6](graph_traversal.assets/graph_bfs_step6.svg)
 
 === "<7>"
-    ![graph_bfs_step7](graph_traversal.assets/graph_bfs_step7.png)
+    ![graph_bfs_step7](graph_traversal.assets/graph_bfs_step7.svg)
 
 === "<8>"
-    ![graph_bfs_step8](graph_traversal.assets/graph_bfs_step8.png)
+    ![graph_bfs_step8](graph_traversal.assets/graph_bfs_step8.svg)
 
 === "<9>"
-    ![graph_bfs_step9](graph_traversal.assets/graph_bfs_step9.png)
+    ![graph_bfs_step9](graph_traversal.assets/graph_bfs_step9.svg)
 
 === "<10>"
-    ![graph_bfs_step10](graph_traversal.assets/graph_bfs_step10.png)
+    ![graph_bfs_step10](graph_traversal.assets/graph_bfs_step10.svg)
 
 === "<11>"
-    ![graph_bfs_step11](graph_traversal.assets/graph_bfs_step11.png)
+    ![graph_bfs_step11](graph_traversal.assets/graph_bfs_step11.svg)
 
 !!! question "廣度優先走訪的序列是否唯一？"
 
@@ -77,7 +77,7 @@ BFS 通常藉助佇列來實現，程式碼如下所示。佇列具有“先入�
 
 **深度優先走訪是一種優先走到底、無路可走再回頭的走訪方式**。如下圖所示，從左上角頂點出發，訪問當前頂點的某個鄰接頂點，直到走到盡頭時返回，再繼續走到盡頭並返回，以此類推，直至所有頂點走訪完成。
 
-![圖的深度優先走訪](graph_traversal.assets/graph_dfs.png)
+![圖的深度優先走訪](graph_traversal.assets/graph_dfs.svg)
 
 ### 演算法實現
 
@@ -95,37 +95,37 @@ BFS 通常藉助佇列來實現，程式碼如下所示。佇列具有“先入�
 為了加深理解，建議將下圖與程式碼結合起來，在腦中模擬（或者用筆畫下來）整個 DFS 過程，包括每個遞迴方法何時開啟、何時返回。
 
 === "<1>"
-    ![圖的深度優先走訪步驟](graph_traversal.assets/graph_dfs_step1.png)
+    ![圖的深度優先走訪步驟](graph_traversal.assets/graph_dfs_step1.svg)
 
 === "<2>"
-    ![graph_dfs_step2](graph_traversal.assets/graph_dfs_step2.png)
+    ![graph_dfs_step2](graph_traversal.assets/graph_dfs_step2.svg)
 
 === "<3>"
-    ![graph_dfs_step3](graph_traversal.assets/graph_dfs_step3.png)
+    ![graph_dfs_step3](graph_traversal.assets/graph_dfs_step3.svg)
 
 === "<4>"
-    ![graph_dfs_step4](graph_traversal.assets/graph_dfs_step4.png)
+    ![graph_dfs_step4](graph_traversal.assets/graph_dfs_step4.svg)
 
 === "<5>"
-    ![graph_dfs_step5](graph_traversal.assets/graph_dfs_step5.png)
+    ![graph_dfs_step5](graph_traversal.assets/graph_dfs_step5.svg)
 
 === "<6>"
-    ![graph_dfs_step6](graph_traversal.assets/graph_dfs_step6.png)
+    ![graph_dfs_step6](graph_traversal.assets/graph_dfs_step6.svg)
 
 === "<7>"
-    ![graph_dfs_step7](graph_traversal.assets/graph_dfs_step7.png)
+    ![graph_dfs_step7](graph_traversal.assets/graph_dfs_step7.svg)
 
 === "<8>"
-    ![graph_dfs_step8](graph_traversal.assets/graph_dfs_step8.png)
+    ![graph_dfs_step8](graph_traversal.assets/graph_dfs_step8.svg)
 
 === "<9>"
-    ![graph_dfs_step9](graph_traversal.assets/graph_dfs_step9.png)
+    ![graph_dfs_step9](graph_traversal.assets/graph_dfs_step9.svg)
 
 === "<10>"
-    ![graph_dfs_step10](graph_traversal.assets/graph_dfs_step10.png)
+    ![graph_dfs_step10](graph_traversal.assets/graph_dfs_step10.svg)
 
 === "<11>"
-    ![graph_dfs_step11](graph_traversal.assets/graph_dfs_step11.png)
+    ![graph_dfs_step11](graph_traversal.assets/graph_dfs_step11.svg)
 
 !!! question "深度優先走訪的序列是否唯一？"
 

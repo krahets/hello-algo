@@ -205,7 +205,7 @@
 
 **이진 트리에서 리프 노드를 제외한 모든 노드에는 자식 노드와 비어 있지 않은 서브트리가 있다**. 아래 그림에서 '노드 2'를 부모로 보면 왼쪽과 오른쪽 자식은 각각 '노드 4', '노드 5'다. 왼쪽 서브트리는 '노드 4와 그 아래 노드들이 이루는 트리', 오른쪽 서브트리는 '노드 5와 그 아래 노드들이 이루는 트리'다.
 
-![부모 노드, 자식 노드, 서브트리](binary_tree.assets/binary_tree_definition.png)
+![부모 노드, 자식 노드, 서브트리](binary_tree.assets/binary_tree_definition.svg)
 
 ## 이진 트리의 주요 용어
 
@@ -220,7 +220,7 @@
 - 노드의 <u>깊이(depth)</u>: 루트에서 해당 노드까지 거치는 간선 수다.
 - 노드의 <u>높이(height)</u>: 해당 노드에서 가장 먼 리프와 해당 노드 사이에 있는 간선 수다.
 
-![이진 트리의 주요 용어](binary_tree.assets/binary_tree_terminology.png)
+![이진 트리의 주요 용어](binary_tree.assets/binary_tree_terminology.svg)
 
 !!! tip "참고"
 
@@ -457,7 +457,7 @@
 
 연결 리스트와 마찬가지로 이진 트리에서도 포인터를 수정하여 노드를 삽입하고 삭제할 수 있다. 아래 그림은 그 예다.
 
-![이진 트리의 노드 삽입과 삭제](binary_tree.assets/binary_tree_add_remove.png)
+![이진 트리의 노드 삽입과 삭제](binary_tree.assets/binary_tree_add_remove.svg)
 
 === "Python"
 
@@ -633,25 +633,25 @@
 
     중국어권에서는 포화 이진 트리를 흔히 <u>满二叉树</u>라고 부른다.
 
-![포화 이진 트리](binary_tree.assets/perfect_binary_tree.png)
+![포화 이진 트리](binary_tree.assets/perfect_binary_tree.svg)
 
 ### 완전 이진 트리
 
 아래 그림의 <u>완전 이진 트리(complete binary tree)</u>는 맨 아래 레벨만 가득 차 있지 않아도 되며, 그 레벨의 노드는 왼쪽부터 오른쪽으로 빈틈없이 채워져야 한다. 포화 이진 트리도 완전 이진 트리다.
 
-![완전 이진 트리](binary_tree.assets/complete_binary_tree.png)
+![완전 이진 트리](binary_tree.assets/complete_binary_tree.svg)
 
 ### 정 이진 트리
 
 아래 그림의 <u>정 이진 트리(full binary tree)</u>는 리프를 제외한 모든 노드가 자식 노드를 두 개씩 가진다.
 
-![정 이진 트리](binary_tree.assets/full_binary_tree.png)
+![정 이진 트리](binary_tree.assets/full_binary_tree.svg)
 
 ### 균형 이진 트리
 
 아래 그림의 <u>균형 이진 트리(balanced binary tree)</u>는 모든 노드에서 왼쪽과 오른쪽 서브트리의 높이 차의 절댓값이 1을 넘지 않는다.
 
-![균형 이진 트리](binary_tree.assets/balanced_binary_tree.png)
+![균형 이진 트리](binary_tree.assets/balanced_binary_tree.svg)
 
 ## 이진 트리의 퇴화
 
@@ -660,7 +660,7 @@
 - 포화 이진 트리는 이상적인 경우로, 이진 트리의 '분할 정복' 이점을 충분히 발휘할 수 있다.
 - 연결 리스트는 다른 극단으로, 모든 연산이 선형 연산이 되어 시간 복잡도가 $O(n)$으로 저하된다.
 
-![이진 트리의 최선 구조와 최악 구조](binary_tree.assets/binary_tree_best_worst_cases.png)
+![이진 트리의 최선 구조와 최악 구조](binary_tree.assets/binary_tree_best_worst_cases.svg)
 
 아래 표와 같이 최선 및 최악 구조에서 이진 트리의 리프 수, 전체 노드 수, 높이 등이 최댓값이나 최솟값에 도달한다.
 

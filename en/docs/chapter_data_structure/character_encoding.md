@@ -6,7 +6,7 @@ All computer data is stored as binary numbers, including characters of type `cha
 
 <u>ASCII</u>, short for American Standard Code for Information Interchange, was the earliest character set. It uses 7 bits (the lower 7 bits of a byte) per character, allowing up to 128 characters. As shown in the figure below, ASCII includes uppercase and lowercase English letters, digits 0 ~ 9, punctuation, and control characters such as newlines and tabs.
 
-![ASCII codes](character_encoding.assets/ascii_table.png)
+![ASCII codes](character_encoding.assets/ascii_table.svg)
 
 However, **ASCII can represent only English text**. As computers spread worldwide, <u>EASCII</u> character sets emerged to support more languages. Extending ASCII from 7 bits to 8 allowed 256 distinct characters.
 
@@ -30,7 +30,7 @@ As a universal character set, Unicode assigns each character a unique code point
 
 **One straightforward solution is to store every character in a fixed-width encoding**. In the figure below, each character in "Hello" occupies 1 byte, while each in "算法" occupies 2 bytes. Padding the high bits with zeros lets us encode every character in "Hello 算法" with 2 bytes. The system can then read one character every 2 bytes to recover the phrase.
 
-![Example of Unicode encoding](character_encoding.assets/unicode_hello_algo.png)
+![Example of Unicode encoding](character_encoding.assets/unicode_hello_algo.svg)
 
 ASCII has already shown that English text needs only 1 byte per character. This scheme would double its storage compared with ASCII, wasting memory. We therefore need a more efficient Unicode encoding.
 
@@ -49,7 +49,7 @@ Why do all remaining bytes begin with $10$? This $10$ acts as a check marker. If
 
 The prefix $10$ works as a marker because no character's first byte can begin with $10$ under UTF-8's rules. To see this by contradiction, suppose it did begin with $10$. The single leading one would imply a length of $1$ byte, corresponding to ASCII, but an ASCII byte must begin with $0$, a contradiction.
 
-![Example of UTF-8 encoding](character_encoding.assets/utf-8_hello_algo.png)
+![Example of UTF-8 encoding](character_encoding.assets/utf-8_hello_algo.svg)
 
 Two other common encodings are:
 

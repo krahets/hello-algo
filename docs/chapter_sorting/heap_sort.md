@@ -25,40 +25,40 @@
     实际上，元素出堆操作中也包含第 `2.` 步和第 `3.` 步，只是多了一个弹出元素的步骤。
 
 === "<1>"
-    ![堆排序步骤](heap_sort.assets/heap_sort_step1.png)
+    ![堆排序步骤](heap_sort.assets/heap_sort_step1.svg)
 
 === "<2>"
-    ![heap_sort_step2](heap_sort.assets/heap_sort_step2.png)
+    ![heap_sort_step2](heap_sort.assets/heap_sort_step2.svg)
 
 === "<3>"
-    ![heap_sort_step3](heap_sort.assets/heap_sort_step3.png)
+    ![heap_sort_step3](heap_sort.assets/heap_sort_step3.svg)
 
 === "<4>"
-    ![heap_sort_step4](heap_sort.assets/heap_sort_step4.png)
+    ![heap_sort_step4](heap_sort.assets/heap_sort_step4.svg)
 
 === "<5>"
-    ![heap_sort_step5](heap_sort.assets/heap_sort_step5.png)
+    ![heap_sort_step5](heap_sort.assets/heap_sort_step5.svg)
 
 === "<6>"
-    ![heap_sort_step6](heap_sort.assets/heap_sort_step6.png)
+    ![heap_sort_step6](heap_sort.assets/heap_sort_step6.svg)
 
 === "<7>"
-    ![heap_sort_step7](heap_sort.assets/heap_sort_step7.png)
+    ![heap_sort_step7](heap_sort.assets/heap_sort_step7.svg)
 
 === "<8>"
-    ![heap_sort_step8](heap_sort.assets/heap_sort_step8.png)
+    ![heap_sort_step8](heap_sort.assets/heap_sort_step8.svg)
 
 === "<9>"
-    ![heap_sort_step9](heap_sort.assets/heap_sort_step9.png)
+    ![heap_sort_step9](heap_sort.assets/heap_sort_step9.svg)
 
 === "<10>"
-    ![heap_sort_step10](heap_sort.assets/heap_sort_step10.png)
+    ![heap_sort_step10](heap_sort.assets/heap_sort_step10.svg)
 
 === "<11>"
-    ![heap_sort_step11](heap_sort.assets/heap_sort_step11.png)
+    ![heap_sort_step11](heap_sort.assets/heap_sort_step11.svg)
 
 === "<12>"
-    ![heap_sort_step12](heap_sort.assets/heap_sort_step12.png)
+    ![heap_sort_step12](heap_sort.assets/heap_sort_step12.svg)
 
 在代码实现中，我们使用了与“堆”章节相同的从顶至底堆化 `sift_down()` 函数。值得注意的是，由于堆的长度会随着提取最大元素而减小，因此我们需要给 `sift_down()` 函数添加一个长度参数 $n$ ，用于指定堆的当前有效长度。代码如下所示：
 

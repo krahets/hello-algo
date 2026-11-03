@@ -4,7 +4,7 @@
 
     Даны прямой обход `preorder` и симметричный обход `inorder` некоторого двоичного дерева. Постройте по ним двоичное дерево и верните его корневой узел. Предполагается, что в дереве нет узлов с одинаковыми значениями (как показано на рисунке ниже).
 
-![Пример данных для построения двоичного дерева](build_binary_tree_problem.assets/build_tree_example.png)
+![Пример данных для построения двоичного дерева](build_binary_tree_problem.assets/build_tree_example.svg)
 
 ### Проверка, является ли это задачей «разделяй и властвуй»
 
@@ -29,7 +29,7 @@
 2. Найти индекс корневого узла 3 в `inorder`. Используя этот индекс, можно разбить `inorder` на `[ 9 | 3 | 1 2 7 ]` .
 3. По результату разбиения `inorder` нетрудно определить, что число узлов в левом и правом поддеревьях равно 1 и 3 соответственно, а значит, `preorder` можно разбить как `[ 3 | 9 | 2 1 7 ]` .
 
-![Разбиение поддеревьев в прямом и симметричном обходах](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png)
+![Разбиение поддеревьев в прямом и симметричном обходах](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.svg)
 
 ### Описание интервалов поддеревьев через переменные
 
@@ -51,7 +51,7 @@
 
 Стоит отметить, что $(m-l)$ в индексе корневого узла правого поддерева означает число узлов в левом поддереве. Лучше всего понять это выражение, сопоставив его с тем, что показано на рисунке ниже.
 
-![Представление индексных интервалов корня и поддеревьев](build_binary_tree_problem.assets/build_tree_division_pointers.png)
+![Представление индексных интервалов корня и поддеревьев](build_binary_tree_problem.assets/build_tree_division_pointers.svg)
 
 ### Реализация кода
 
@@ -64,35 +64,35 @@
 На рисунке ниже показан рекурсивный процесс построения двоичного дерева: каждый узел создается в фазе «спуска», а каждое ребро (ссылка) формируется в фазе «подъема».
 
 === "<1>"
-    ![Рекурсивный процесс построения двоичного дерева](build_binary_tree_problem.assets/built_tree_step1.png)
+    ![Рекурсивный процесс построения двоичного дерева](build_binary_tree_problem.assets/built_tree_step1.svg)
 
 === "<2>"
-    ![built_tree_step2](build_binary_tree_problem.assets/built_tree_step2.png)
+    ![built_tree_step2](build_binary_tree_problem.assets/built_tree_step2.svg)
 
 === "<3>"
-    ![built_tree_step3](build_binary_tree_problem.assets/built_tree_step3.png)
+    ![built_tree_step3](build_binary_tree_problem.assets/built_tree_step3.svg)
 
 === "<4>"
-    ![built_tree_step4](build_binary_tree_problem.assets/built_tree_step4.png)
+    ![built_tree_step4](build_binary_tree_problem.assets/built_tree_step4.svg)
 
 === "<5>"
-    ![built_tree_step5](build_binary_tree_problem.assets/built_tree_step5.png)
+    ![built_tree_step5](build_binary_tree_problem.assets/built_tree_step5.svg)
 
 === "<6>"
-    ![built_tree_step6](build_binary_tree_problem.assets/built_tree_step6.png)
+    ![built_tree_step6](build_binary_tree_problem.assets/built_tree_step6.svg)
 
 === "<7>"
-    ![built_tree_step7](build_binary_tree_problem.assets/built_tree_step7.png)
+    ![built_tree_step7](build_binary_tree_problem.assets/built_tree_step7.svg)
 
 === "<8>"
-    ![built_tree_step8](build_binary_tree_problem.assets/built_tree_step8.png)
+    ![built_tree_step8](build_binary_tree_problem.assets/built_tree_step8.svg)
 
 === "<9>"
-    ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.png)
+    ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.svg)
 
 Результаты разбиения `preorder` и `inorder` внутри каждого рекурсивного вызова показаны на рисунке ниже.
 
-![Результаты разбиения в каждом рекурсивном вызове](build_binary_tree_problem.assets/built_tree_overall.png)
+![Результаты разбиения в каждом рекурсивном вызове](build_binary_tree_problem.assets/built_tree_overall.svg)
 
 Пусть число узлов дерева равно $n$. Инициализация каждого узла (то есть выполнение одного рекурсивного вызова `dfs()` ) занимает $O(1)$ времени. **Следовательно, общая временная сложность равна $O(n)$** .
 

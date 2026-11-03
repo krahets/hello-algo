@@ -4,7 +4,7 @@ A <u>queue</u> is a linear data structure that follows a first-in, first-out rul
 
 As shown below, the two ends are called the “front” and the “rear.” Adding an element at the rear is called “enqueueing,” and removing an element from the front is called “dequeueing.”
 
-![The first-in, first-out rule of a queue](queue.assets/queue_operations.png)
+![The first-in, first-out rule of a queue](queue.assets/queue_operations.svg)
 
 ## Common queue operations
 
@@ -369,13 +369,13 @@ A queue needs a data structure that allows insertion at one end and deletion at 
 As shown below, treat the linked list's head and tail as the queue's front and rear. Nodes may be added only at the rear and removed only from the front.
 
 === "<1>"
-    ![Enqueue and dequeue in a linked-list queue](queue.assets/linkedlist_queue_step1.png)
+    ![Enqueue and dequeue in a linked-list queue](queue.assets/linkedlist_queue_step1.svg)
 
 === "<2>"
-    ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.png)
+    ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.svg)
 
 === "<3>"
-    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.png)
+    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.svg)
 
 Here is an implementation using a linked list:
 
@@ -397,13 +397,13 @@ With this design, **the occupied interval is `[front, rear - 1]`**. Operations w
 Both operations require only a constant amount of work and take $O(1)$ time.
 
 === "<1>"
-    ![Enqueue and dequeue in an array-based queue](queue.assets/array_queue_step1.png)
+    ![Enqueue and dequeue in an array-based queue](queue.assets/array_queue_step1.svg)
 
 === "<2>"
-    ![array_queue_push](queue.assets/array_queue_step2_push.png)
+    ![array_queue_push](queue.assets/array_queue_step2_push.svg)
 
 === "<3>"
-    ![array_queue_pop](queue.assets/array_queue_step3_pop.png)
+    ![array_queue_pop](queue.assets/array_queue_step3_pop.svg)
 
 There is a problem: repeated enqueueing and dequeueing move both `front` and `rear` to the right, **and they cannot continue once they reach the end of the array**. To solve this, treat the array as circular, with its end connected to its beginning.
 

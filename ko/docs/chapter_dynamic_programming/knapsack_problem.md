@@ -10,7 +10,7 @@
 
 아래 그림에서 물건 번호 $i$는 $1$부터, 배열 인덱스는 $0$부터 시작하므로 물건 $i$의 무게와 가치는 각각 $wgt[i-1]$, $val[i-1]$이다.
 
-![0-1 배낭 문제 예시 데이터](knapsack_problem.assets/knapsack_example.png)
+![0-1 배낭 문제 예시 데이터](knapsack_problem.assets/knapsack_example.svg)
 
 0-1 배낭 문제는 $n$ 차례의 결정으로 이루어진 과정으로 볼 수 있다. 각 물건에는 넣지 않기와 넣기라는 두 결정이 있으므로 의사 결정 트리 모형을 만족한다.
 
@@ -64,7 +64,7 @@ $$
 
 재귀 트리에는 $dp[1, 10]$ 같은 중복 부분 문제가 있음을 쉽게 알 수 있다. 물건이 많고 용량이 크며, 특히 무게가 같은 물건이 많을수록 중복 부분 문제의 수가 크게 늘어난다.
 
-![0-1 배낭 문제의 완전 탐색 재귀 트리](knapsack_problem.assets/knapsack_dfs.png)
+![0-1 배낭 문제의 완전 탐색 재귀 트리](knapsack_problem.assets/knapsack_dfs.svg)
 
 ### 방법 2: 메모이제이션을 이용한 탐색
 
@@ -78,7 +78,7 @@ $$
 
 아래 그림은 메모이제이션을 이용한 탐색에서 잘라 낸 가지들을 보여 준다.
 
-![0-1 배낭 문제의 메모이제이션 탐색 재귀 트리](knapsack_problem.assets/knapsack_dfs_mem.png)
+![0-1 배낭 문제의 메모이제이션 탐색 재귀 트리](knapsack_problem.assets/knapsack_dfs_mem.svg)
 
 ### 방법 3: 동적 계획법
 
@@ -91,46 +91,46 @@ $$
 아래 그림과 같이 시간 복잡도와 공간 복잡도는 모두 배열 `dp`의 크기인 $O(n \times cap)$이다.
 
 === "<1>"
-    ![0-1 배낭 문제의 동적 계획법 과정](knapsack_problem.assets/knapsack_dp_step1.png)
+    ![0-1 배낭 문제의 동적 계획법 과정](knapsack_problem.assets/knapsack_dp_step1.svg)
 
 === "<2>"
-    ![0-1 배낭 동적 계획법 2단계](knapsack_problem.assets/knapsack_dp_step2.png)
+    ![0-1 배낭 동적 계획법 2단계](knapsack_problem.assets/knapsack_dp_step2.svg)
 
 === "<3>"
-    ![0-1 배낭 동적 계획법 3단계](knapsack_problem.assets/knapsack_dp_step3.png)
+    ![0-1 배낭 동적 계획법 3단계](knapsack_problem.assets/knapsack_dp_step3.svg)
 
 === "<4>"
-    ![0-1 배낭 동적 계획법 4단계](knapsack_problem.assets/knapsack_dp_step4.png)
+    ![0-1 배낭 동적 계획법 4단계](knapsack_problem.assets/knapsack_dp_step4.svg)
 
 === "<5>"
-    ![0-1 배낭 동적 계획법 5단계](knapsack_problem.assets/knapsack_dp_step5.png)
+    ![0-1 배낭 동적 계획법 5단계](knapsack_problem.assets/knapsack_dp_step5.svg)
 
 === "<6>"
-    ![0-1 배낭 동적 계획법 6단계](knapsack_problem.assets/knapsack_dp_step6.png)
+    ![0-1 배낭 동적 계획법 6단계](knapsack_problem.assets/knapsack_dp_step6.svg)
 
 === "<7>"
-    ![0-1 배낭 동적 계획법 7단계](knapsack_problem.assets/knapsack_dp_step7.png)
+    ![0-1 배낭 동적 계획법 7단계](knapsack_problem.assets/knapsack_dp_step7.svg)
 
 === "<8>"
-    ![0-1 배낭 동적 계획법 8단계](knapsack_problem.assets/knapsack_dp_step8.png)
+    ![0-1 배낭 동적 계획법 8단계](knapsack_problem.assets/knapsack_dp_step8.svg)
 
 === "<9>"
-    ![0-1 배낭 동적 계획법 9단계](knapsack_problem.assets/knapsack_dp_step9.png)
+    ![0-1 배낭 동적 계획법 9단계](knapsack_problem.assets/knapsack_dp_step9.svg)
 
 === "<10>"
-    ![0-1 배낭 동적 계획법 10단계](knapsack_problem.assets/knapsack_dp_step10.png)
+    ![0-1 배낭 동적 계획법 10단계](knapsack_problem.assets/knapsack_dp_step10.svg)
 
 === "<11>"
-    ![0-1 배낭 동적 계획법 11단계](knapsack_problem.assets/knapsack_dp_step11.png)
+    ![0-1 배낭 동적 계획법 11단계](knapsack_problem.assets/knapsack_dp_step11.svg)
 
 === "<12>"
-    ![0-1 배낭 동적 계획법 12단계](knapsack_problem.assets/knapsack_dp_step12.png)
+    ![0-1 배낭 동적 계획법 12단계](knapsack_problem.assets/knapsack_dp_step12.svg)
 
 === "<13>"
-    ![0-1 배낭 동적 계획법 13단계](knapsack_problem.assets/knapsack_dp_step13.png)
+    ![0-1 배낭 동적 계획법 13단계](knapsack_problem.assets/knapsack_dp_step13.svg)
 
 === "<14>"
-    ![0-1 배낭 동적 계획법 14단계](knapsack_problem.assets/knapsack_dp_step14.png)
+    ![0-1 배낭 동적 계획법 14단계](knapsack_problem.assets/knapsack_dp_step14.svg)
 
 ### 공간 최적화
 
@@ -144,22 +144,22 @@ $$
 아래 그림은 배열 하나로 $i = 1$ 행에서 $i = 2$ 행으로 바꾸는 과정이다. 정방향과 역방향 순회의 차이를 생각해 보자.
 
 === "<1>"
-    ![공간 최적화 후 0-1 배낭의 동적 계획법 과정](knapsack_problem.assets/knapsack_dp_comp_step1.png)
+    ![공간 최적화 후 0-1 배낭의 동적 계획법 과정](knapsack_problem.assets/knapsack_dp_comp_step1.svg)
 
 === "<2>"
-    ![공간 최적화된 0-1 배낭 2단계](knapsack_problem.assets/knapsack_dp_comp_step2.png)
+    ![공간 최적화된 0-1 배낭 2단계](knapsack_problem.assets/knapsack_dp_comp_step2.svg)
 
 === "<3>"
-    ![공간 최적화된 0-1 배낭 3단계](knapsack_problem.assets/knapsack_dp_comp_step3.png)
+    ![공간 최적화된 0-1 배낭 3단계](knapsack_problem.assets/knapsack_dp_comp_step3.svg)
 
 === "<4>"
-    ![공간 최적화된 0-1 배낭 4단계](knapsack_problem.assets/knapsack_dp_comp_step4.png)
+    ![공간 최적화된 0-1 배낭 4단계](knapsack_problem.assets/knapsack_dp_comp_step4.svg)
 
 === "<5>"
-    ![공간 최적화된 0-1 배낭 5단계](knapsack_problem.assets/knapsack_dp_comp_step5.png)
+    ![공간 최적화된 0-1 배낭 5단계](knapsack_problem.assets/knapsack_dp_comp_step5.svg)
 
 === "<6>"
-    ![공간 최적화된 0-1 배낭 6단계](knapsack_problem.assets/knapsack_dp_comp_step6.png)
+    ![공간 최적화된 0-1 배낭 6단계](knapsack_problem.assets/knapsack_dp_comp_step6.svg)
 
 구현에서는 배열 `dp`의 첫 번째 차원 $i$를 없애고 안쪽 반복문을 역방향 순회로 바꾸기만 하면 된다.
 

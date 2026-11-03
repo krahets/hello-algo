@@ -16,7 +16,7 @@ Nonlinear data structures can be divided further into tree and network structure
 - **Tree structures**: Trees, heaps, and hash tables, with one-to-many relationships.
 - **Network structures**: Graphs, with many-to-many relationships.
 
-![Linear and nonlinear data structures](classification_of_data_structure.assets/classification_logic_structure.png)
+![Linear and nonlinear data structures](classification_of_data_structure.assets/classification_logic_structure.svg)
 
 ## Physical structure: contiguous and scattered storage
 
@@ -24,7 +24,7 @@ Nonlinear data structures can be divided further into tree and network structure
 
 **The system uses memory addresses to access data at particular locations**. As shown in the figure below, the computer assigns each cell a number according to specific rules, giving every memory location a unique address. Programs use these addresses to access data.
 
-![Memory module, storage space, and memory addresses](classification_of_data_structure.assets/computer_memory_location.png)
+![Memory module, storage space, and memory addresses](classification_of_data_structure.assets/computer_memory_location.svg)
 
 !!! tip
 
@@ -34,7 +34,7 @@ Memory is a resource used by all programs. When a program occupies a region of m
 
 As shown in the figure below, **physical structure describes how data is stored in computer memory**: either contiguously (arrays) or in scattered locations (linked lists). It determines how data can be accessed, updated, inserted, and deleted. The two storage forms have complementary strengths in time and space efficiency.
 
-![Contiguous and scattered storage](classification_of_data_structure.assets/classification_phisical_structure.png)
+![Contiguous and scattered storage](classification_of_data_structure.assets/classification_phisical_structure.svg)
 
 **All data structures are implemented using arrays, linked lists, or a combination of the two**. For example, stacks and queues can use either arrays or linked lists, while hash tables may use both.
 

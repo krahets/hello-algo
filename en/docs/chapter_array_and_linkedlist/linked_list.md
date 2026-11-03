@@ -6,7 +6,7 @@ A <u>linked list</u> is a linear data structure whose elements are node objects 
 
 This design lets nodes occupy scattered memory locations; their addresses need not be contiguous.
 
-![Linked list definition and storage layout](linked_list.assets/linkedlist_definition.png)
+![Linked list definition and storage layout](linked_list.assets/linkedlist_definition.svg)
 
 As shown above, the basic unit of a linked list is a <u>node</u> object. Each node holds a value and a reference to the next node.
 
@@ -425,7 +425,7 @@ Inserting a node is straightforward. As shown in the figure below, inserting a n
 
 In contrast, inserting an array element takes $O(n)$ time and is slower for large datasets.
 
-![Inserting a node into a linked list](linked_list.assets/linkedlist_insert_node.png)
+![Inserting a node into a linked list](linked_list.assets/linkedlist_insert_node.svg)
 
 ```src
 [file]{linked_list}-[class]{}-[func]{insert}
@@ -437,7 +437,7 @@ Removing a node is also straightforward: as shown in the figure below, **only on
 
 Although `P` still points to `n1` after removal, traversing the list can no longer reach `P`. It therefore no longer belongs to the list.
 
-![Removing a linked list node](linked_list.assets/linkedlist_remove_node.png)
+![Removing a linked list node](linked_list.assets/linkedlist_remove_node.svg)
 
 ```src
 [file]{linked_list}-[class]{}-[func]{remove}
@@ -680,7 +680,7 @@ The figure below shows three common types.
     end
     ```
 
-![Common types of linked lists](linked_list.assets/linkedlist_common_types.png)
+![Common types of linked lists](linked_list.assets/linkedlist_common_types.svg)
 
 ## Typical applications of linked lists
 

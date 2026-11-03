@@ -18,7 +18,7 @@
 
 아래 그림과 같이 $1$, $2$, $3$ 번째 칸의 비용이 각각 $1$, $10$, $1$이면 바닥에서 $3$ 번째 칸까지 오르는 최소 비용은 $2$다.
 
-![3번째 칸까지 오르는 최소 비용](dp_problem_features.assets/min_cost_cs_example.png)
+![3번째 칸까지 오르는 최소 비용](dp_problem_features.assets/min_cost_cs_example.svg)
 
 $i$ 번째 칸까지 오르는 데 지불한 누적 비용을 $dp[i]$라고 하자. $i$ 번째 칸에는 $i - 1$ 번째 또는 $i - 2$ 번째 칸에서만 올 수 있으므로 $dp[i]$는 $dp[i - 1] + cost[i]$ 또는 $dp[i - 2] + cost[i]$다. 비용을 최소화하려면 둘 중 작은 값을 선택해야 한다.
 
@@ -40,7 +40,7 @@ $$
 
 아래 그림은 위 코드의 동적 계획법 과정이다.
 
-![계단 오르기 최소 비용의 동적 계획법 과정](dp_problem_features.assets/min_cost_cs_dp.png)
+![계단 오르기 최소 비용의 동적 계획법 과정](dp_problem_features.assets/min_cost_cs_dp.svg)
 
 이 문제도 공간을 최적화하여 1차원을 0차원으로 압축하고, 공간 복잡도를 $O(n)$에서 $O(1)$로 줄일 수 있다.
 
@@ -62,7 +62,7 @@ $$
 
 아래 그림에서는 $3$ 번째 칸까지 오르는 유효한 방법이 $2$ 가지만 남는다. $1$ 칸씩 세 번 연속 오르는 방법은 제약 조건을 만족하지 않아 제외된다.
 
-![제약이 있을 때 3번째 칸까지 오르는 방법 수](dp_problem_features.assets/climbing_stairs_constraint_example.png)
+![제약이 있을 때 3번째 칸까지 오르는 방법 수](dp_problem_features.assets/climbing_stairs_constraint_example.svg)
 
 이 문제에서 직전에 $1$ 칸 올라왔다면 다음에는 반드시 $2$ 칸 올라야 한다. 즉, **다음 선택은 현재 상태(현재 칸 번호)만으로 정해지지 않고 이전 상태(직전에 있던 칸 번호)에도 의존한다**.
 
@@ -82,7 +82,7 @@ dp[i, 2] = dp[i-2, 1] + dp[i-2, 2]
 \end{cases}
 $$
 
-![제약을 고려한 점화 관계](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.png)
+![제약을 고려한 점화 관계](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.svg)
 
 마지막으로 $dp[n, 1] + dp[n, 2]$를 반환하면 된다. 두 값의 합은 $n$ 번째 칸까지 오르는 전체 방법 수다.
 

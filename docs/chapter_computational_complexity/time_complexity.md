@@ -490,7 +490,7 @@ $$
 - 算法 `B` 中的打印操作需要循环 $n$ 次，算法运行时间随着 $n$ 增大呈线性增长。此算法的时间复杂度被称为“线性阶”。
 - 算法 `C` 中的打印操作需要循环 $1000000$ 次，虽然运行时间很长，但它与输入数据大小 $n$ 无关。因此 `C` 的时间复杂度和 `A` 相同，仍为“常数阶”。
 
-![算法 A、B 和 C 的时间增长趋势](time_complexity.assets/time_complexity_simple_example.png)
+![算法 A、B 和 C 的时间增长趋势](time_complexity.assets/time_complexity_simple_example.svg)
 
 相较于直接统计算法的运行时间，时间复杂度分析有哪些特点呢？
 
@@ -701,7 +701,7 @@ $T(n)$ 是一次函数，说明其运行时间的增长趋势是线性的，因�
 
 如下图所示，计算渐近上界就是寻找一个函数 $f(n)$ ，使得当 $n$ 趋向于无穷大时，$T(n)$ 和 $f(n)$ 处于相同的增长级别，仅相差一个常数系数 $c$。
 
-![函数的渐近上界](time_complexity.assets/asymptotic_upper_bound.png)
+![函数的渐近上界](time_complexity.assets/asymptotic_upper_bound.svg)
 
 ## 推算方法
 
@@ -997,7 +997,7 @@ $$
 \end{aligned}
 $$
 
-![常见的时间复杂度类型](time_complexity.assets/time_complexity_common_types.png)
+![常见的时间复杂度类型](time_complexity.assets/time_complexity_common_types.svg)
 
 ### 常数阶 $O(1)$
 
@@ -1035,7 +1035,7 @@ $$
 
 下图对比了常数阶、线性阶和平方阶三种时间复杂度。
 
-![常数阶、线性阶和平方阶的时间复杂度](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
+![常数阶、线性阶和平方阶的时间复杂度](time_complexity.assets/time_complexity_constant_linear_quadratic.svg)
 
 以冒泡排序为例，外层循环执行 $n - 1$ 次，内层循环执行 $n-1$、$n-2$、$\dots$、$2$、$1$ 次，平均为 $n / 2$ 次，因此时间复杂度为 $O((n - 1) n / 2) = O(n^2)$ ：
 
@@ -1053,7 +1053,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{exponential}
 ```
 
-![指数阶的时间复杂度](time_complexity.assets/time_complexity_exponential.png)
+![指数阶的时间复杂度](time_complexity.assets/time_complexity_exponential.svg)
 
 在实际算法中，指数阶常出现于递归函数中。例如在以下代码中，其递归地一分为二，经过 $n$ 次分裂后停止：
 
@@ -1073,7 +1073,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{logarithmic}
 ```
 
-![对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic.png)
+![对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic.svg)
 
 与指数阶类似，对数阶也常出现于递归函数中。以下代码形成了一棵高度为 $\log_2 n$ 的递归树：
 
@@ -1103,7 +1103,7 @@ $$
 
 下图展示了线性对数阶的生成方式。二叉树的每一层的操作总数都为 $n$ ，树共有 $\log_2 n + 1$ 层，因此时间复杂度为 $O(n \log n)$ 。
 
-![线性对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic_linear.png)
+![线性对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic_linear.svg)
 
 主流排序算法的时间复杂度通常为 $O(n \log n)$ ，例如快速排序、归并排序、堆排序等。
 
@@ -1121,7 +1121,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{factorial_recur}
 ```
 
-![阶乘阶的时间复杂度](time_complexity.assets/time_complexity_factorial.png)
+![阶乘阶的时间复杂度](time_complexity.assets/time_complexity_factorial.svg)
 
 请注意，因为当 $n \geq 4$ 时恒有 $n! > 2^n$ ，所以阶乘阶比指数阶增长得更快，在 $n$ 较大时也是不可接受的。
 

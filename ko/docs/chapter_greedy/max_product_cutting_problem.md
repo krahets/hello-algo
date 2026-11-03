@@ -4,7 +4,7 @@
 
     양의 정수 $n$을 두 개 이상의 양의 정수의 합으로 나누었을 때, 나눈 정수들의 곱이 최대 얼마가 되는지 구하라. 아래 그림을 참고하자.
 
-![정수 분할의 최대 곱 문제 정의](max_product_cutting_problem.assets/max_product_cutting_definition.png)
+![정수 분할의 최대 곱 문제 정의](max_product_cutting_problem.assets/max_product_cutting_definition.svg)
 
 $n$을 $m$ 개의 정수 인수로 나누고 $i$ 번째 인수를 $n_i$라고 하면 다음과 같다.
 
@@ -36,7 +36,7 @@ $$
 
 **탐욕 전략 1**: 분할에 $\geq 4$인 인수가 있으면 계속 나누어야 한다. 최종 분할에는 $1$, $2$, $3$만 있어야 한다.
 
-![분할로 커지는 곱](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png)
+![분할로 커지는 곱](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.svg)
 
 이제 어느 인수가 가장 좋은지 생각해 보자. $1$, $2$, $3$ 중 $1$이 가장 나쁘다는 것은 분명하다. $1 \times (n-1) < n$이 항상 성립하므로 $1$을 나누어 내면 오히려 곱이 줄어들기 때문이다.
 
@@ -44,7 +44,7 @@ $$
 
 **탐욕 전략 2**: 분할에는 $2$가 많아도 두 개만 있어야 한다. $2$ 세 개는 언제나 $3$ 두 개로 바꾸어 더 큰 곱을 얻을 수 있기 때문이다.
 
-![최적인 분할 인수](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png)
+![최적인 분할 인수](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.svg)
 
 위 내용을 종합하면 다음 탐욕 전략을 얻는다.
 
@@ -67,7 +67,7 @@ $$
 [file]{max_product_cutting}-[class]{}-[func]{max_product_cutting}
 ```
 
-![정수 분할 최대 곱의 계산 방법](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png)
+![정수 분할 최대 곱의 계산 방법](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.svg)
 
 **시간 복잡도는 프로그래밍 언어의 거듭제곱 구현 방식에 달려 있다**. Python에서 자주 쓰는 거듭제곱 계산 방법은 세 가지다.
 

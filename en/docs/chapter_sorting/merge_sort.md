@@ -5,7 +5,7 @@
 1. **Division**: recursively split the array at its midpoint, turning the problem of sorting a long array into problems of sorting shorter arrays.
 2. **Merging**: stop dividing when a subarray has length 1, then repeatedly merge two shorter sorted arrays into one longer sorted array until the process is complete.
 
-![The division and merging phases of merge sort](merge_sort.assets/merge_sort_overview.png)
+![The division and merging phases of merge sort](merge_sort.assets/merge_sort_overview.svg)
 
 ## Algorithm steps
 
@@ -17,34 +17,34 @@ As shown below, the division phase works from the top down, recursively splittin
 The merging phase works from the bottom up, combining the left and right subarrays into a sorted array. Merging begins with subarrays of length 1, so every subarray involved in this phase is already sorted.
 
 === "<1>"
-    ![Steps of merge sort](merge_sort.assets/merge_sort_step1.png)
+    ![Steps of merge sort](merge_sort.assets/merge_sort_step1.svg)
 
 === "<2>"
-    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.png)
+    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.svg)
 
 === "<3>"
-    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.png)
+    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.svg)
 
 === "<4>"
-    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.png)
+    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.svg)
 
 === "<5>"
-    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.png)
+    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.svg)
 
 === "<6>"
-    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.png)
+    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.svg)
 
 === "<7>"
-    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.png)
+    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.svg)
 
 === "<8>"
-    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.png)
+    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.svg)
 
 === "<9>"
-    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.png)
+    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.svg)
 
 === "<10>"
-    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.png)
+    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.svg)
 
 Merge sort follows the same recursive order as a postorder traversal of a binary tree.
 

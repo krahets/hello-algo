@@ -5,7 +5,7 @@
 1. **划分阶段**：通过递归不断地将数组从中点处分开，将长数组的排序问题转换为短数组的排序问题。
 2. **合并阶段**：当子数组长度为 1 时终止划分，开始合并，持续地将左右两个较短的有序数组合并为一个较长的有序数组，直至结束。
 
-![归并排序的划分与合并阶段](merge_sort.assets/merge_sort_overview.png)
+![归并排序的划分与合并阶段](merge_sort.assets/merge_sort_overview.svg)
 
 ## 算法流程
 
@@ -17,34 +17,34 @@
 “合并阶段”从底至顶地将左子数组和右子数组合并为一个有序数组。需要注意的是，从长度为 1 的子数组开始合并，合并阶段中的每个子数组都是有序的。
 
 === "<1>"
-    ![归并排序步骤](merge_sort.assets/merge_sort_step1.png)
+    ![归并排序步骤](merge_sort.assets/merge_sort_step1.svg)
 
 === "<2>"
-    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.png)
+    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.svg)
 
 === "<3>"
-    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.png)
+    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.svg)
 
 === "<4>"
-    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.png)
+    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.svg)
 
 === "<5>"
-    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.png)
+    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.svg)
 
 === "<6>"
-    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.png)
+    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.svg)
 
 === "<7>"
-    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.png)
+    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.svg)
 
 === "<8>"
-    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.png)
+    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.svg)
 
 === "<9>"
-    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.png)
+    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.svg)
 
 === "<10>"
-    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.png)
+    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.svg)
 
 观察发现，归并排序与二叉树后序遍历的递归顺序是一致的。
 

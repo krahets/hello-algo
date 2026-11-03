@@ -12,7 +12,7 @@
 - 總的來說，我們希望找到一種排序演算法，具有高效率、穩定、原地以及自適應性等優點。然而，正如其他資料結構和演算法一樣，沒有一種排序演算法能夠同時滿足所有這些條件。在實際應用中，我們需要根據資料的特性來選擇合適的排序演算法。
 - 下圖對比了主流排序演算法的效率、穩定性、就地性和自適應性等。
 
-![排序演算法對比](summary.assets/sorting_algorithms_comparison.png)
+![排序演算法對比](summary.assets/sorting_algorithms_comparison.svg)
 
 ### Q & A
 

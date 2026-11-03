@@ -11,37 +11,37 @@
 5. 残った一つの要素は必ず最大要素なので、ソートは不要です。これで配列全体のソートが完了します。
 
 === "<1>"
-    ![選択ソートの手順](selection_sort.assets/selection_sort_step1.png)
+    ![選択ソートの手順](selection_sort.assets/selection_sort_step1.svg)
 
 === "<2>"
-    ![選択ソートの手順 2](selection_sort.assets/selection_sort_step2.png)
+    ![選択ソートの手順 2](selection_sort.assets/selection_sort_step2.svg)
 
 === "<3>"
-    ![選択ソートの手順 3](selection_sort.assets/selection_sort_step3.png)
+    ![選択ソートの手順 3](selection_sort.assets/selection_sort_step3.svg)
 
 === "<4>"
-    ![選択ソートの手順 4](selection_sort.assets/selection_sort_step4.png)
+    ![選択ソートの手順 4](selection_sort.assets/selection_sort_step4.svg)
 
 === "<5>"
-    ![選択ソートの手順 5](selection_sort.assets/selection_sort_step5.png)
+    ![選択ソートの手順 5](selection_sort.assets/selection_sort_step5.svg)
 
 === "<6>"
-    ![選択ソートの手順 6](selection_sort.assets/selection_sort_step6.png)
+    ![選択ソートの手順 6](selection_sort.assets/selection_sort_step6.svg)
 
 === "<7>"
-    ![選択ソートの手順 7](selection_sort.assets/selection_sort_step7.png)
+    ![選択ソートの手順 7](selection_sort.assets/selection_sort_step7.svg)
 
 === "<8>"
-    ![選択ソートの手順 8](selection_sort.assets/selection_sort_step8.png)
+    ![選択ソートの手順 8](selection_sort.assets/selection_sort_step8.svg)
 
 === "<9>"
-    ![選択ソートの手順 9](selection_sort.assets/selection_sort_step9.png)
+    ![選択ソートの手順 9](selection_sort.assets/selection_sort_step9.svg)
 
 === "<10>"
-    ![選択ソートの手順 10](selection_sort.assets/selection_sort_step10.png)
+    ![選択ソートの手順 10](selection_sort.assets/selection_sort_step10.svg)
 
 === "<11>"
-    ![選択ソートの手順 11](selection_sort.assets/selection_sort_step11.png)
+    ![選択ソートの手順 11](selection_sort.assets/selection_sort_step11.svg)
 
 コードでは、未整列区間の最小要素を記録するために $k$ を使います。
 
@@ -55,4 +55,4 @@
 - **空間計算量は $O(1)$、インプレースソート**：ポインタ $i$ と $j$ は定数サイズの追加領域を使います。
 - **不安定ソート**：下図のように、要素 `nums[i]` が等しい要素の右側に移され、両者の相対的な順序が変わる可能性があります。
 
-![選択ソートが不安定になる例](selection_sort.assets/selection_sort_instability.png)
+![選択ソートが不安定になる例](selection_sort.assets/selection_sort_instability.svg)

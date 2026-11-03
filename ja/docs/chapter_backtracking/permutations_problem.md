@@ -24,7 +24,7 @@
 
 下図のように、探索過程を再帰木として展開でき、各ノードが現在の状態 `state` を表します。根から 3 回選択すると葉に達し、各葉が一つの順列に対応します。
 
-![順列列挙の再帰木](permutations_problem.assets/permutations_i.png)
+![順列列挙の再帰木](permutations_problem.assets/permutations_i.svg)
 
 ### 同じ要素を再選択する分岐の枝刈り
 
@@ -35,7 +35,7 @@
 
 下図のように、1 回目に 1、2 回目に 3、3 回目に 2 を選ぶ場合、2 回目には要素 1 の分岐を、3 回目には要素 1 と 3 の分岐を刈り取ります。
 
-![順列列挙の枝刈りの例](permutations_problem.assets/permutations_i_pruning.png)
+![順列列挙の枝刈りの例](permutations_problem.assets/permutations_i_pruning.svg)
 
 この枝刈りにより、探索空間の大きさは $O(n^n)$ から $O(n!)$ に小さくなります。
 
@@ -57,7 +57,7 @@
 
 下図のように、先ほどの方法で生成した順列の半分は重複しています。
 
-![重複した順列](permutations_problem.assets/permutations_ii.png)
+![重複した順列](permutations_problem.assets/permutations_ii.svg)
 
 重複を除くには、結果をハッシュ集合に入れる方法がすぐに思い浮かびます。しかし、あまり洗練された方法ではありません。**同じ順列を生成する分岐は不要なので、事前に見分けて枝刈りすべきです**。そうすれば、効率をさらに高められます。
 
@@ -69,7 +69,7 @@
 
 本質的な目標は、**ある回の選択において、同じ値を持つ複数の要素を一度だけ選ぶようにすること**です。
 
-![重複する順列の枝刈り](permutations_problem.assets/permutations_ii_pruning.png)
+![重複する順列の枝刈り](permutations_problem.assets/permutations_ii_pruning.svg)
 
 ### コードの実装
 
@@ -92,4 +92,4 @@
 
 下図に、二つの枝刈り条件の作用範囲を示します。木の各ノードは一つの選択を表し、根から葉までの経路上のノードが一つの順列を構成していることに注意してください。
 
-![二つの枝刈り条件の作用範囲](permutations_problem.assets/permutations_ii_pruning_summary.png)
+![二つの枝刈り条件の作用範囲](permutations_problem.assets/permutations_ii_pruning_summary.svg)

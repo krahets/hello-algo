@@ -6,7 +6,7 @@
 
 链表的设计使得各个节点可以分散存储在内存各处，它们的内存地址无须连续。
 
-![链表定义与存储方式](linked_list.assets/linkedlist_definition.png)
+![链表定义与存储方式](linked_list.assets/linkedlist_definition.svg)
 
 观察上图，链表的组成单位是<u>节点（node）</u>对象。每个节点都包含两项数据：节点的“值”和指向下一节点的“引用”。
 
@@ -425,7 +425,7 @@
 
 相比之下，在数组中插入元素的时间复杂度为 $O(n)$ ，在大数据量下的效率较低。
 
-![链表插入节点示例](linked_list.assets/linkedlist_insert_node.png)
+![链表插入节点示例](linked_list.assets/linkedlist_insert_node.svg)
 
 ```src
 [file]{linked_list}-[class]{}-[func]{insert}
@@ -437,7 +437,7 @@
 
 请注意，尽管在删除操作完成后节点 `P` 仍然指向 `n1` ，但实际上遍历此链表已经无法访问到 `P` ，这意味着 `P` 已经不再属于该链表了。
 
-![链表删除节点](linked_list.assets/linkedlist_remove_node.png)
+![链表删除节点](linked_list.assets/linkedlist_remove_node.svg)
 
 ```src
 [file]{linked_list}-[class]{}-[func]{remove}
@@ -680,7 +680,7 @@
     end
     ```
 
-![常见链表种类](linked_list.assets/linkedlist_common_types.png)
+![常见链表种类](linked_list.assets/linkedlist_common_types.svg)
 
 ## 链表典型应用
 

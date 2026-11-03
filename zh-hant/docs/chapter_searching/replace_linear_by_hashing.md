@@ -10,7 +10,7 @@
 
 考慮直接走訪所有可能的組合。如下圖所示，我們開啟一個兩層迴圈，在每輪中判斷兩個整數的和是否為 `target` ，若是，則返回它們的索引。
 
-![線性查詢求解兩數之和](replace_linear_by_hashing.assets/two_sum_brute_force.png)
+![線性查詢求解兩數之和](replace_linear_by_hashing.assets/two_sum_brute_force.svg)
 
 程式碼如下所示：
 
@@ -28,13 +28,13 @@
 2. 將鍵值對 `nums[i]` 和索引 `i` 新增進雜湊表。
 
 === "<1>"
-    ![輔助雜湊表求解兩數之和](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png)
+    ![輔助雜湊表求解兩數之和](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg)
 
 === "<2>"
-    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.png)
+    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg)
 
 === "<3>"
-    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.png)
+    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg)
 
 實現程式碼如下所示，僅需單層迴圈即可：
 

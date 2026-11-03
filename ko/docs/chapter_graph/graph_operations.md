@@ -12,19 +12,19 @@
 - **초기화**: 정점 $n$ 개를 전달받아 길이가 $n$인 정점 리스트 `vertices`를 초기화하는 데 $O(n)$ 시간이 걸린다. $n \times n$ 크기의 인접 행렬 `adjMat`을 초기화하는 데는 $O(n^2)$ 시간이 걸린다.
 
 === "<1>"
-    ![인접 행렬의 초기화, 간선 추가와 삭제, 정점 추가와 삭제](graph_operations.assets/adjacency_matrix_step1_initialization.png)
+    ![인접 행렬의 초기화, 간선 추가와 삭제, 정점 추가와 삭제](graph_operations.assets/adjacency_matrix_step1_initialization.svg)
 
 === "<2>"
-    ![인접 행렬에 간선 추가](graph_operations.assets/adjacency_matrix_step2_add_edge.png)
+    ![인접 행렬에 간선 추가](graph_operations.assets/adjacency_matrix_step2_add_edge.svg)
 
 === "<3>"
-    ![인접 행렬에서 간선 삭제](graph_operations.assets/adjacency_matrix_step3_remove_edge.png)
+    ![인접 행렬에서 간선 삭제](graph_operations.assets/adjacency_matrix_step3_remove_edge.svg)
 
 === "<4>"
-    ![인접 행렬에 정점 추가](graph_operations.assets/adjacency_matrix_step4_add_vertex.png)
+    ![인접 행렬에 정점 추가](graph_operations.assets/adjacency_matrix_step4_add_vertex.svg)
 
 === "<5>"
-    ![인접 행렬에서 정점 삭제](graph_operations.assets/adjacency_matrix_step5_remove_vertex.png)
+    ![인접 행렬에서 정점 삭제](graph_operations.assets/adjacency_matrix_step5_remove_vertex.svg)
 
 다음은 인접 행렬로 그래프를 표현한 구현 코드다.
 
@@ -43,19 +43,19 @@
 - **초기화**: 인접 리스트에 정점 $n$ 개와 간선 $2m$ 개를 만든다. $O(n + m)$ 시간이 걸린다.
 
 === "<1>"
-    ![인접 리스트의 초기화, 간선 추가와 삭제, 정점 추가와 삭제](graph_operations.assets/adjacency_list_step1_initialization.png)
+    ![인접 리스트의 초기화, 간선 추가와 삭제, 정점 추가와 삭제](graph_operations.assets/adjacency_list_step1_initialization.svg)
 
 === "<2>"
-    ![인접 리스트에 간선 추가](graph_operations.assets/adjacency_list_step2_add_edge.png)
+    ![인접 리스트에 간선 추가](graph_operations.assets/adjacency_list_step2_add_edge.svg)
 
 === "<3>"
-    ![인접 리스트에서 간선 삭제](graph_operations.assets/adjacency_list_step3_remove_edge.png)
+    ![인접 리스트에서 간선 삭제](graph_operations.assets/adjacency_list_step3_remove_edge.svg)
 
 === "<4>"
-    ![인접 리스트에 정점 추가](graph_operations.assets/adjacency_list_step4_add_vertex.png)
+    ![인접 리스트에 정점 추가](graph_operations.assets/adjacency_list_step4_add_vertex.svg)
 
 === "<5>"
-    ![인접 리스트에서 정점 삭제](graph_operations.assets/adjacency_list_step5_remove_vertex.png)
+    ![인접 리스트에서 정점 삭제](graph_operations.assets/adjacency_list_step5_remove_vertex.svg)
 
 다음은 인접 리스트의 구현 코드다. 위 그림과 비교하면 실제 코드에는 다음 차이가 있다.
 

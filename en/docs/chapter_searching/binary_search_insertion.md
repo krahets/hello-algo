@@ -8,7 +8,7 @@ Binary search can do more than find a target element. It also solves many variat
 
     Given a sorted array `nums` of length $n$ with no duplicate elements and a value `target`, insert `target` into `nums` while preserving its order. If `target` is already present, insert the new value to its left. Return the index of the newly inserted `target`, as illustrated below.
 
-![Example data for finding an insertion point](binary_search_insertion.assets/binary_search_insertion_example.png)
+![Example data for finding an insertion point](binary_search_insertion.assets/binary_search_insertion_example.svg)
 
 To reuse the binary search code from the previous section, we need to answer two questions.
 
@@ -39,7 +39,7 @@ The target must be inserted as far left as possible, **so we need the index of t
 1. Run binary search to find the index of any `target`, denoted by $k$.
 2. Starting at index $k$, scan leftward and return when the leftmost `target` is reached.
 
-![Finding the insertion point among duplicates with a linear scan](binary_search_insertion.assets/binary_search_insertion_naive.png)
+![Finding the insertion point among duplicates with a linear scan](binary_search_insertion.assets/binary_search_insertion_naive.svg)
 
 Although this works, it includes a linear search and therefore takes $O(n)$ time. It is inefficient when the array contains many occurrences of `target`.
 
@@ -51,28 +51,28 @@ Now consider extending binary search itself. As shown below, the overall process
 When the loop finishes, $i$ points to the leftmost `target`, and $j$ points to the rightmost element smaller than `target`. **Index $i$ is therefore the insertion point**.
 
 === "<1>"
-    ![Steps for finding an insertion point among duplicates](binary_search_insertion.assets/binary_search_insertion_step1.png)
+    ![Steps for finding an insertion point among duplicates](binary_search_insertion.assets/binary_search_insertion_step1.svg)
 
 === "<2>"
-    ![binary_search_insertion_step2](binary_search_insertion.assets/binary_search_insertion_step2.png)
+    ![binary_search_insertion_step2](binary_search_insertion.assets/binary_search_insertion_step2.svg)
 
 === "<3>"
-    ![binary_search_insertion_step3](binary_search_insertion.assets/binary_search_insertion_step3.png)
+    ![binary_search_insertion_step3](binary_search_insertion.assets/binary_search_insertion_step3.svg)
 
 === "<4>"
-    ![binary_search_insertion_step4](binary_search_insertion.assets/binary_search_insertion_step4.png)
+    ![binary_search_insertion_step4](binary_search_insertion.assets/binary_search_insertion_step4.svg)
 
 === "<5>"
-    ![binary_search_insertion_step5](binary_search_insertion.assets/binary_search_insertion_step5.png)
+    ![binary_search_insertion_step5](binary_search_insertion.assets/binary_search_insertion_step5.svg)
 
 === "<6>"
-    ![binary_search_insertion_step6](binary_search_insertion.assets/binary_search_insertion_step6.png)
+    ![binary_search_insertion_step6](binary_search_insertion.assets/binary_search_insertion_step6.svg)
 
 === "<7>"
-    ![binary_search_insertion_step7](binary_search_insertion.assets/binary_search_insertion_step7.png)
+    ![binary_search_insertion_step7](binary_search_insertion.assets/binary_search_insertion_step7.svg)
 
 === "<8>"
-    ![binary_search_insertion_step8](binary_search_insertion.assets/binary_search_insertion_step8.png)
+    ![binary_search_insertion_step8](binary_search_insertion.assets/binary_search_insertion_step8.svg)
 
 In the code below, the branches for `nums[m] > target` and `nums[m] == target` perform the same operation, so they can be combined.
 

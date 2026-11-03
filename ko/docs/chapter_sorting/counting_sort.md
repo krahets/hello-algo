@@ -10,7 +10,7 @@
 2. **`counter`를 이용하여 `nums`에서 각 수가 나타나는 횟수를 센다**. `counter[num]`은 수 `num`의 등장 횟수다. 세는 방법은 간단하다. `nums`를 순회하면서 현재 수를 `num`이라고 할 때 `counter[num]`을 $1$씩 늘리면 된다.
 3. **`counter`의 인덱스는 본래 순서대로 배열되어 있으므로, 모든 수가 이미 정렬된 셈이다**. 이어서 `counter`를 순회하며 각 수의 등장 횟수만큼 작은 수부터 큰 수 순서로 `nums`에 채우면 된다.
 
-![계수 정렬 과정](counting_sort.assets/counting_sort_overview.png)
+![계수 정렬 과정](counting_sort.assets/counting_sort_overview.svg)
 
 코드는 다음과 같다.
 
@@ -40,28 +40,28 @@ $$
 순회를 마치면 배열 `res`에 정렬된 결과가 들어 있다. 마지막으로 `res`를 원래 배열 `nums`에 덮어쓰면 된다. 아래 그림은 계수 정렬의 전체 과정을 보여 준다.
 
 === "<1>"
-    ![계수 정렬 단계](counting_sort.assets/counting_sort_step1.png)
+    ![계수 정렬 단계](counting_sort.assets/counting_sort_step1.svg)
 
 === "<2>"
-    ![계수 정렬 2단계](counting_sort.assets/counting_sort_step2.png)
+    ![계수 정렬 2단계](counting_sort.assets/counting_sort_step2.svg)
 
 === "<3>"
-    ![계수 정렬 3단계](counting_sort.assets/counting_sort_step3.png)
+    ![계수 정렬 3단계](counting_sort.assets/counting_sort_step3.svg)
 
 === "<4>"
-    ![계수 정렬 4단계](counting_sort.assets/counting_sort_step4.png)
+    ![계수 정렬 4단계](counting_sort.assets/counting_sort_step4.svg)
 
 === "<5>"
-    ![계수 정렬 5단계](counting_sort.assets/counting_sort_step5.png)
+    ![계수 정렬 5단계](counting_sort.assets/counting_sort_step5.svg)
 
 === "<6>"
-    ![계수 정렬 6단계](counting_sort.assets/counting_sort_step6.png)
+    ![계수 정렬 6단계](counting_sort.assets/counting_sort_step6.svg)
 
 === "<7>"
-    ![계수 정렬 7단계](counting_sort.assets/counting_sort_step7.png)
+    ![계수 정렬 7단계](counting_sort.assets/counting_sort_step7.svg)
 
 === "<8>"
-    ![계수 정렬 8단계](counting_sort.assets/counting_sort_step8.png)
+    ![계수 정렬 8단계](counting_sort.assets/counting_sort_step8.svg)
 
 계수 정렬의 구현 코드는 다음과 같다.
 

@@ -23,7 +23,7 @@ We can picture computer storage as the pyramid in the figure below. Nearer the t
 - **RAM cannot readily replace disk storage**. It loses data when power is removed, making it unsuitable for long-term storage. It also costs tens of times more than disk storage, making such a replacement impractical for consumers.
 - **Cache capacity and speed are difficult to maximize together**. From L1 to L2 to L3, increasing capacity means greater physical size and distance from the CPU core, increasing transfer time and access latency. With current technology, a multilevel cache offers the best balance of capacity, speed, and cost.
 
-![Computer storage hierarchy](ram_and_cache.assets/storage_pyramid.png)
+![Computer storage hierarchy](ram_and_cache.assets/storage_pyramid.svg)
 
 !!! tip
 
@@ -33,7 +33,7 @@ In general, **disks store large amounts of data long term, RAM temporarily holds
 
 As shown in the figure below, a running program reads data from disk into RAM for the CPU to process. The cache can be viewed as part of the CPU: **it intelligently loads data from RAM** and provides faster access, improving execution speed and reducing dependence on slower memory.
 
-![Data flow between disk, RAM, and cache](ram_and_cache.assets/computer_storage_devices.png)
+![Data flow between disk, RAM, and cache](ram_and_cache.assets/computer_storage_devices.svg)
 
 ## Memory efficiency of data structures
 

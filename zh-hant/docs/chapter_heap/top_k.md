@@ -12,7 +12,7 @@
 
 此方法只適用於 $k \ll n$ 的情況，因為當 $k$ 與 $n$ 比較接近時，其時間複雜度趨向於 $O(n^2)$ ，非常耗時。
 
-![走訪尋找最大的 k 個元素](top_k.assets/top_k_traversal.png)
+![走訪尋找最大的 k 個元素](top_k.assets/top_k_traversal.svg)
 
 !!! tip
 
@@ -24,7 +24,7 @@
 
 顯然，該方法“超額”完成任務了，因為我們只需找出最大的 $k$ 個元素即可，而不需要排序其他元素。
 
-![排序尋找最大的 k 個元素](top_k.assets/top_k_sorting.png)
+![排序尋找最大的 k 個元素](top_k.assets/top_k_sorting.svg)
 
 ## 方法三：堆積
 
@@ -36,31 +36,31 @@
 4. 走訪完成後，堆積中儲存的就是最大的 $k$ 個元素。
 
 === "<1>"
-    ![基於堆積尋找最大的 k 個元素](top_k.assets/top_k_heap_step1.png)
+    ![基於堆積尋找最大的 k 個元素](top_k.assets/top_k_heap_step1.svg)
 
 === "<2>"
-    ![top_k_heap_step2](top_k.assets/top_k_heap_step2.png)
+    ![top_k_heap_step2](top_k.assets/top_k_heap_step2.svg)
 
 === "<3>"
-    ![top_k_heap_step3](top_k.assets/top_k_heap_step3.png)
+    ![top_k_heap_step3](top_k.assets/top_k_heap_step3.svg)
 
 === "<4>"
-    ![top_k_heap_step4](top_k.assets/top_k_heap_step4.png)
+    ![top_k_heap_step4](top_k.assets/top_k_heap_step4.svg)
 
 === "<5>"
-    ![top_k_heap_step5](top_k.assets/top_k_heap_step5.png)
+    ![top_k_heap_step5](top_k.assets/top_k_heap_step5.svg)
 
 === "<6>"
-    ![top_k_heap_step6](top_k.assets/top_k_heap_step6.png)
+    ![top_k_heap_step6](top_k.assets/top_k_heap_step6.svg)
 
 === "<7>"
-    ![top_k_heap_step7](top_k.assets/top_k_heap_step7.png)
+    ![top_k_heap_step7](top_k.assets/top_k_heap_step7.svg)
 
 === "<8>"
-    ![top_k_heap_step8](top_k.assets/top_k_heap_step8.png)
+    ![top_k_heap_step8](top_k.assets/top_k_heap_step8.svg)
 
 === "<9>"
-    ![top_k_heap_step9](top_k.assets/top_k_heap_step9.png)
+    ![top_k_heap_step9](top_k.assets/top_k_heap_step9.svg)
 
 示例程式碼如下：
 

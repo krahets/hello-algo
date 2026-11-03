@@ -6,11 +6,11 @@
 
 下図のように、$n = 4$ の場合は二つの解があります。バックトラッキングの観点では、$n \times n$ の盤面の $n^2$ 個のマスが、すべての選択肢 `choices` です。クイーンを一つずつ置くたびに盤面が変わり、その時々の盤面が状態 `state` になります。
 
-![4 クイーン問題の解](n_queens_problem.assets/solution_4_queens.png)
+![4 クイーン問題の解](n_queens_problem.assets/solution_4_queens.svg)
 
 下図に、三つの制約条件を示します。**同じ行、同じ列、同じ対角線上に複数のクイーンを置いてはいけません**。対角線には、主対角線方向 `\` と副対角線方向 `/` の 2 種類があることに注意してください。
 
-![n クイーン問題の制約条件](n_queens_problem.assets/n_queens_constraints.png)
+![n クイーン問題の制約条件](n_queens_problem.assets/n_queens_constraints.svg)
 
 ### 行ごとに配置する戦略
 
@@ -20,7 +20,7 @@
 
 下図に、4 クイーン問題で行ごとに配置する過程を示します。図の大きさの都合で、先頭行の探索分岐は一つだけを展開し、列と対角線の制約を満たさない配置は枝刈りしています。
 
-![行ごとに配置する戦略](n_queens_problem.assets/n_queens_placing.png)
+![行ごとに配置する戦略](n_queens_problem.assets/n_queens_placing.svg)
 
 本質的には、**行ごとの配置も枝刈りとして働き**、同じ行に複数のクイーンを置くすべての探索分岐を避けています。
 
@@ -38,7 +38,7 @@
 
 同様に、**副対角線方向の線上では、すべてのマスの $row + col$ が一定です**。配列 `diags2` を使って、この方向の制約も扱えます。
 
-![列と対角線の制約の処理](n_queens_problem.assets/n_queens_cols_diagonals.png)
+![列と対角線の制約の処理](n_queens_problem.assets/n_queens_cols_diagonals.svg)
 
 ### コードの実装
 

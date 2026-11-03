@@ -10,7 +10,7 @@
 
 아래 그림과 같이 $3$ 칸짜리 계단의 맨 위에 오르는 방법은 총 $3$ 가지다.
 
-![3번째 칸까지 오르는 방법 수](intro_to_dynamic_programming.assets/climbing_stairs_example.png)
+![3번째 칸까지 오르는 방법 수](intro_to_dynamic_programming.assets/climbing_stairs_example.svg)
 
 이 문제는 방법의 수를 구하는 것이므로 **백트래킹으로 모든 가능성을 열거할 수 있다**. 계단 오르기를 여러 차례의 선택 과정으로 생각해 보자. 바닥에서 출발하여 매번 $1$ 칸 또는 $2$ 칸을 고른다. 맨 위에 도착할 때마다 방법 수를 $1$ 늘리고, 맨 위를 넘어가면 가지치기한다. 코드는 다음과 같다.
 
@@ -38,7 +38,7 @@ $$
 
 이는 계단 오르기 문제의 부분 문제들 사이에 점화 관계가 있으며, **부분 문제의 해로 원래 문제의 해를 구성할 수 있다는 뜻**이다. 아래 그림이 이 점화 관계를 보여 준다.
 
-![방법 수의 점화 관계](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png)
+![방법 수의 점화 관계](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.svg)
 
 점화식으로 완전 탐색 풀이를 얻을 수 있다. $dp[n]$에서 출발해 **큰 문제 하나를 더 작은 두 문제의 합으로 재귀적으로 나누고**, 가장 작은 부분 문제 $dp[1]$과 $dp[2]$에 도달하면 반환한다. 이들의 해는 $dp[1] = 1$, $dp[2] = 2$로 이미 알려져 있다. 즉, $1$, $2$ 번째 칸에 오르는 방법은 각각 $1$, $2$ 가지다.
 
@@ -50,7 +50,7 @@ $$
 
 아래 그림은 완전 탐색으로 만들어지는 재귀 트리다. 문제 $dp[n]$의 재귀 트리 깊이는 $n$이고 시간 복잡도는 $O(2^n)$이다. 지수적 증가는 폭발적이므로 비교적 큰 $n$을 입력하면 매우 오래 기다려야 한다.
 
-![계단 오르기의 재귀 트리](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png)
+![계단 오르기의 재귀 트리](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.svg)
 
 위 그림에서 **지수 시간 복잡도는 '중복 부분 문제' 때문에 생긴다**. 예를 들어 $dp[9]$는 $dp[8]$과 $dp[7]$로, $dp[8]$은 $dp[7]$과 $dp[6]$으로 나뉘므로 두 경우 모두 부분 문제 $dp[7]$을 포함한다.
 
@@ -71,7 +71,7 @@ $$
 
 아래 그림과 같이 **메모이제이션을 적용하면 모든 중복 부분 문제를 한 번만 계산하므로 시간 복잡도가 $O(n)$으로 개선된다**. 이는 매우 큰 발전이다.
 
-![메모이제이션을 이용한 탐색의 재귀 트리](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png)
+![메모이제이션을 이용한 탐색의 재귀 트리](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.svg)
 
 ## 방법 3: 동적 계획법
 
@@ -87,7 +87,7 @@ $$
 
 아래 그림은 위 코드의 실행 과정을 보여 준다.
 
-![계단 오르기의 동적 계획법 과정](intro_to_dynamic_programming.assets/climbing_stairs_dp.png)
+![계단 오르기의 동적 계획법 과정](intro_to_dynamic_programming.assets/climbing_stairs_dp.svg)
 
 백트래킹과 마찬가지로 동적 계획법도 '상태'로 문제 해결의 특정 단계를 나타낸다. 각 상태는 부분 문제 하나와 그에 해당하는 국소 최적해에 대응한다. 예를 들어 계단 오르기 문제의 상태는 현재 위치한 계단의 칸 번호 $i$로 정의한다.
 

@@ -6,7 +6,7 @@
 
 下図のように、積み重ねた要素の上端を「スタックの先頭」、下端を「底」と呼びます。先頭に要素を追加する操作を「プッシュ」、先頭要素を削除する操作を「ポップ」と呼びます。
 
-![スタックの先入れ後出しの規則](stack.assets/stack_operations.png)
+![スタックの先入れ後出しの規則](stack.assets/stack_operations.svg)
 
 ## スタックの主な操作
 
@@ -366,13 +366,13 @@
 下図のように、プッシュではリストの先頭へ要素を挿入するだけです。この方法を「先頭挿入」と呼びます。ポップでは、先頭ノードをリストから削除するだけです。
 
 === "<1>"
-    ![連結リストによるスタックのプッシュとポップ](stack.assets/linkedlist_stack_step1.png)
+    ![連結リストによるスタックのプッシュとポップ](stack.assets/linkedlist_stack_step1.svg)
 
 === "<2>"
-    ![連結リストによるスタック：要素の挿入](stack.assets/linkedlist_stack_step2_push.png)
+    ![連結リストによるスタック：要素の挿入](stack.assets/linkedlist_stack_step2_push.svg)
 
 === "<3>"
-    ![連結リストによるスタック：要素の取り出し](stack.assets/linkedlist_stack_step3_pop.png)
+    ![連結リストによるスタック：要素の取り出し](stack.assets/linkedlist_stack_step3_pop.svg)
 
 連結リストによる実装例を示します。
 
@@ -385,13 +385,13 @@
 配列を使う場合、配列の末尾をスタックの先頭にできます。下図のように、プッシュとポップは配列末尾への追加と削除に対応し、どちらも時間計算量は $O(1)$ です。
 
 === "<1>"
-    ![配列によるスタックのプッシュとポップ](stack.assets/array_stack_step1.png)
+    ![配列によるスタックのプッシュとポップ](stack.assets/array_stack_step1.svg)
 
 === "<2>"
-    ![配列によるスタック：要素の挿入](stack.assets/array_stack_step2_push.png)
+    ![配列によるスタック：要素の挿入](stack.assets/array_stack_step2_push.svg)
 
 === "<3>"
-    ![配列によるスタック：要素の取り出し](stack.assets/array_stack_step3_pop.png)
+    ![配列によるスタック：要素の取り出し](stack.assets/array_stack_step3_pop.svg)
 
 プッシュする要素が増え続ける可能性があるため、動的配列を使うと、容量拡張を自分で処理せずに済みます。コード例を示します。
 

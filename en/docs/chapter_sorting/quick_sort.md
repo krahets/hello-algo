@@ -9,31 +9,31 @@ Its core operation is “partitioning”: choose an array element as the “pivo
 3. Repeat step `2.` until `i` and `j` meet. Finally, swap the pivot into the boundary between the two subarrays.
 
 === "<1>"
-    ![Steps of partitioning](quick_sort.assets/pivot_division_step1.png)
+    ![Steps of partitioning](quick_sort.assets/pivot_division_step1.svg)
 
 === "<2>"
-    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.png)
+    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.svg)
 
 === "<3>"
-    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.png)
+    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.svg)
 
 === "<4>"
-    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.png)
+    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.svg)
 
 === "<5>"
-    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.png)
+    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.svg)
 
 === "<6>"
-    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.png)
+    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.svg)
 
 === "<7>"
-    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.png)
+    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.svg)
 
 === "<8>"
-    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.png)
+    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.svg)
 
 === "<9>"
-    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.png)
+    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.svg)
 
 After partitioning, the original array has three parts: the left subarray, the pivot, and the right subarray. Every element in the left subarray is $\leq$ the pivot, which is $\leq$ every element in the right subarray. We now need only sort the two subarrays.
 
@@ -53,7 +53,7 @@ The overall quick sort process is shown below.
 2. Recursively partition the left and right subarrays.
 3. Continue until each subarray has length 1, completing the sort.
 
-![The quick sort process](quick_sort.assets/quick_sort_overview.png)
+![The quick sort process](quick_sort.assets/quick_sort_overview.svg)
 
 ```src
 [file]{quick_sort}-[class]{quick_sort}-[func]{quick_sort}

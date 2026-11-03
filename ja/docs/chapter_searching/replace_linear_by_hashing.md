@@ -10,7 +10,7 @@
 
 すべての組み合わせを直接調べることを考えます。下図のように二重ループを使い、各反復で二つの整数の和が `target` かどうかを判定し、そうであればインデックスを返します。
 
-![線形探索で二数の和を求める](replace_linear_by_hashing.assets/two_sum_brute_force.png)
+![線形探索で二数の和を求める](replace_linear_by_hashing.assets/two_sum_brute_force.svg)
 
 コードは次のとおりです。
 
@@ -28,13 +28,13 @@
 2. `nums[i]` とインデックス `i` のペアをハッシュテーブルに追加します。
 
 === "<1>"
-    ![補助ハッシュテーブルで二数の和を求める](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png)
+    ![補助ハッシュテーブルで二数の和を求める](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg)
 
 === "<2>"
-    ![ハッシュテーブルによる二数の和の探索の手順 2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.png)
+    ![ハッシュテーブルによる二数の和の探索の手順 2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg)
 
 === "<3>"
-    ![ハッシュテーブルによる二数の和の探索の手順 3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.png)
+    ![ハッシュテーブルによる二数の和の探索の手順 3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg)
 
 実装は次のとおりで、一重のループだけで済みます。
 

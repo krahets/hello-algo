@@ -10,7 +10,7 @@
 
 层序遍历本质上属于<u>广度优先遍历（breadth-first traversal）</u>，也称<u>广度优先搜索（breadth-first search, BFS）</u>，它体现了一种“一圈一圈向外扩展”的逐层遍历方式。
 
-![二叉树的层序遍历](binary_tree_traversal.assets/binary_tree_bfs.png)
+![二叉树的层序遍历](binary_tree_traversal.assets/binary_tree_bfs.svg)
 
 ### 代码实现
 
@@ -31,7 +31,7 @@
 
 下图展示了对二叉树进行深度优先遍历的工作原理。**深度优先遍历就像是绕着整棵二叉树的外围“走”一圈**，在每个节点都会遇到三个位置，分别对应前序遍历、中序遍历和后序遍历。
 
-![二叉搜索树的前序、中序、后序遍历](binary_tree_traversal.assets/binary_tree_dfs.png)
+![二叉搜索树的前序、中序、后序遍历](binary_tree_traversal.assets/binary_tree_dfs.svg)
 
 ### 代码实现
 
@@ -51,37 +51,37 @@
 2. “归”表示函数返回，代表当前节点已经访问完毕。
 
 === "<1>"
-    ![前序遍历的递归过程](binary_tree_traversal.assets/preorder_step1.png)
+    ![前序遍历的递归过程](binary_tree_traversal.assets/preorder_step1.svg)
 
 === "<2>"
-    ![preorder_step2](binary_tree_traversal.assets/preorder_step2.png)
+    ![preorder_step2](binary_tree_traversal.assets/preorder_step2.svg)
 
 === "<3>"
-    ![preorder_step3](binary_tree_traversal.assets/preorder_step3.png)
+    ![preorder_step3](binary_tree_traversal.assets/preorder_step3.svg)
 
 === "<4>"
-    ![preorder_step4](binary_tree_traversal.assets/preorder_step4.png)
+    ![preorder_step4](binary_tree_traversal.assets/preorder_step4.svg)
 
 === "<5>"
-    ![preorder_step5](binary_tree_traversal.assets/preorder_step5.png)
+    ![preorder_step5](binary_tree_traversal.assets/preorder_step5.svg)
 
 === "<6>"
-    ![preorder_step6](binary_tree_traversal.assets/preorder_step6.png)
+    ![preorder_step6](binary_tree_traversal.assets/preorder_step6.svg)
 
 === "<7>"
-    ![preorder_step7](binary_tree_traversal.assets/preorder_step7.png)
+    ![preorder_step7](binary_tree_traversal.assets/preorder_step7.svg)
 
 === "<8>"
-    ![preorder_step8](binary_tree_traversal.assets/preorder_step8.png)
+    ![preorder_step8](binary_tree_traversal.assets/preorder_step8.svg)
 
 === "<9>"
-    ![preorder_step9](binary_tree_traversal.assets/preorder_step9.png)
+    ![preorder_step9](binary_tree_traversal.assets/preorder_step9.svg)
 
 === "<10>"
-    ![preorder_step10](binary_tree_traversal.assets/preorder_step10.png)
+    ![preorder_step10](binary_tree_traversal.assets/preorder_step10.svg)
 
 === "<11>"
-    ![preorder_step11](binary_tree_traversal.assets/preorder_step11.png)
+    ![preorder_step11](binary_tree_traversal.assets/preorder_step11.svg)
 
 ### 复杂度分析
 

@@ -4,7 +4,7 @@
 
 如果哈希冲突过于频繁，哈希表的性能则会急剧劣化。如下图所示，对于链式地址哈希表，理想情况下键值对均匀分布在各个桶中，达到最佳查询效率；最差情况下所有键值对都存储到同一个桶中，时间复杂度退化至 $O(n)$ 。
 
-![哈希冲突的最佳情况与最差情况](hash_algorithm.assets/hash_collision_best_worst_condition.png)
+![哈希冲突的最佳情况与最差情况](hash_algorithm.assets/hash_collision_best_worst_condition.svg)
 
 **键值对的分布情况由哈希函数决定**。回忆哈希函数的计算步骤，先计算哈希值，再对数组长度取模：
 

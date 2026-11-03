@@ -9,31 +9,31 @@
 3. `i`와 `j`가 만날 때까지 `2.` 단계를 반복한다. 마지막으로 피벗을 두 부분 배열의 경계로 옮긴다.
 
 === "<1>"
-    ![센티널 분할 단계](quick_sort.assets/pivot_division_step1.png)
+    ![센티널 분할 단계](quick_sort.assets/pivot_division_step1.svg)
 
 === "<2>"
-    ![센티널 분할 2단계](quick_sort.assets/pivot_division_step2.png)
+    ![센티널 분할 2단계](quick_sort.assets/pivot_division_step2.svg)
 
 === "<3>"
-    ![센티널 분할 3단계](quick_sort.assets/pivot_division_step3.png)
+    ![센티널 분할 3단계](quick_sort.assets/pivot_division_step3.svg)
 
 === "<4>"
-    ![센티널 분할 4단계](quick_sort.assets/pivot_division_step4.png)
+    ![센티널 분할 4단계](quick_sort.assets/pivot_division_step4.svg)
 
 === "<5>"
-    ![센티널 분할 5단계](quick_sort.assets/pivot_division_step5.png)
+    ![센티널 분할 5단계](quick_sort.assets/pivot_division_step5.svg)
 
 === "<6>"
-    ![센티널 분할 6단계](quick_sort.assets/pivot_division_step6.png)
+    ![센티널 분할 6단계](quick_sort.assets/pivot_division_step6.svg)
 
 === "<7>"
-    ![센티널 분할 7단계](quick_sort.assets/pivot_division_step7.png)
+    ![센티널 분할 7단계](quick_sort.assets/pivot_division_step7.svg)
 
 === "<8>"
-    ![센티널 분할 8단계](quick_sort.assets/pivot_division_step8.png)
+    ![센티널 분할 8단계](quick_sort.assets/pivot_division_step8.svg)
 
 === "<9>"
-    ![센티널 분할 9단계](quick_sort.assets/pivot_division_step9.png)
+    ![센티널 분할 9단계](quick_sort.assets/pivot_division_step9.svg)
 
 분할을 마치면 원래 배열은 왼쪽 부분 배열, 피벗, 오른쪽 부분 배열의 세 부분으로 나뉘며, '왼쪽 부분 배열의 모든 원소 $\leq$ 피벗 $\leq$ 오른쪽 부분 배열의 모든 원소'를 만족한다. 따라서 이후에는 두 부분 배열만 정렬하면 된다.
 
@@ -53,7 +53,7 @@
 2. 이어서 왼쪽 부분 배열과 오른쪽 부분 배열에 각각 '센티널 분할'을 재귀적으로 수행한다.
 3. 부분 배열의 길이가 1이 될 때까지 재귀를 계속하면 배열 전체의 정렬이 완료된다.
 
-![퀵 정렬 과정](quick_sort.assets/quick_sort_overview.png)
+![퀵 정렬 과정](quick_sort.assets/quick_sort_overview.svg)
 
 ```src
 [file]{quick_sort}-[class]{quick_sort}-[func]{quick_sort}

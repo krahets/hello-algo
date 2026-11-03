@@ -36,7 +36,7 @@
 
 아래 그림은 배열에서 원소 $6$을 이진 탐색하는 분할 정복 과정을 보여 준다.
 
-![이진 탐색의 분할 정복 과정](binary_search_recur.assets/binary_search_recur.png)
+![이진 탐색의 분할 정복 과정](binary_search_recur.assets/binary_search_recur.svg)
 
 구현 코드에서는 문제 $f(i, j)$를 푸는 재귀 함수 `dfs()`를 정의한다.
 

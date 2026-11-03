@@ -12,7 +12,7 @@ $$
 
 如果將頂點看作節點，將邊看作連線各個節點的引用（指標），我們就可以將圖看作一種從鏈結串列拓展而來的資料結構。如下圖所示，**相較於線性關係（鏈結串列）和分治關係（樹），網路關係（圖）的自由度更高**，因而更為複雜。
 
-![鏈結串列、樹、圖之間的關係](graph.assets/linkedlist_tree_graph.png)
+![鏈結串列、樹、圖之間的關係](graph.assets/linkedlist_tree_graph.svg)
 
 ## 圖的常見型別與術語
 
@@ -21,18 +21,18 @@ $$
 - 在無向圖中，邊表示兩頂點之間的“雙向”連線關係，例如微信或 QQ 中的“好友關係”。
 - 在有向圖中，邊具有方向性，即 $A \rightarrow B$ 和 $A \leftarrow B$ 兩個方向的邊是相互獨立的，例如微博或抖音上的“關注”與“被關注”關係。
 
-![有向圖與無向圖](graph.assets/directed_graph.png)
+![有向圖與無向圖](graph.assets/directed_graph.svg)
 
 根據所有頂點是否連通，可分為<u>連通圖（connected graph）</u>和<u>非連通圖（disconnected graph）</u>，如下圖所示。
 
 - 對於連通圖，從某個頂點出發，可以到達其餘任意頂點。
 - 對於非連通圖，從某個頂點出發，至少有一個頂點無法到達。
 
-![連通圖與非連通圖](graph.assets/connected_graph.png)
+![連通圖與非連通圖](graph.assets/connected_graph.svg)
 
 我們還可以為邊新增“權重”變數，從而得到如下圖所示的<u>有權圖（weighted graph）</u>。例如在《王者榮耀》等手遊中，系統會根據共同遊戲時間來計算玩家之間的“親密度”，這種親密度網路就可以用有權圖來表示。
 
-![有權圖與無權圖](graph.assets/weighted_graph.png)
+![有權圖與無權圖](graph.assets/weighted_graph.svg)
 
 圖資料結構包含以下常用術語。
 
@@ -50,7 +50,7 @@ $$
 
 如下圖所示，設鄰接矩陣為 $M$、頂點串列為 $V$ ，那麼矩陣元素 $M[i, j] = 1$ 表示頂點 $V[i]$ 到頂點 $V[j]$ 之間存在邊，反之 $M[i, j] = 0$ 表示兩頂點之間無邊。
 
-![圖的鄰接矩陣表示](graph.assets/adjacency_matrix.png)
+![圖的鄰接矩陣表示](graph.assets/adjacency_matrix.svg)
 
 鄰接矩陣具有以下特性。
 
@@ -64,7 +64,7 @@ $$
 
 <u>鄰接表（adjacency list）</u>使用 $n$ 個鏈結串列來表示圖，鏈結串列節點表示頂點。第 $i$ 個鏈結串列對應頂點 $i$ ，其中儲存了該頂點的所有鄰接頂點（與該頂點相連的頂點）。下圖展示了一個使用鄰接表儲存的圖的示例。
 
-![圖的鄰接表表示](graph.assets/adjacency_list.png)
+![圖的鄰接表表示](graph.assets/adjacency_list.svg)
 
 鄰接表僅儲存實際存在的邊，而邊的總數通常遠小於 $n^2$ ，因此它更加節省空間。然而，在鄰接表中需要透過走訪鏈結串列來查詢邊，因此其時間效率不如鄰接矩陣。
 

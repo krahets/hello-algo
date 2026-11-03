@@ -10,7 +10,7 @@
 2. **借助 `counter` 统计 `nums` 中各数字的出现次数**，其中 `counter[num]` 对应数字 `num` 的出现次数。统计方法很简单，只需遍历 `nums`（设当前数字为 `num`），每轮将 `counter[num]` 增加 $1$ 即可。
 3. **由于 `counter` 的各个索引天然有序，因此相当于所有数字已经排序好了**。接下来，我们遍历 `counter` ，根据各数字出现次数从小到大的顺序填入 `nums` 即可。
 
-![计数排序流程](counting_sort.assets/counting_sort_overview.png)
+![计数排序流程](counting_sort.assets/counting_sort_overview.svg)
 
 代码如下所示：
 
@@ -40,28 +40,28 @@ $$
 遍历完成后，数组 `res` 中就是排序好的结果，最后使用 `res` 覆盖原数组 `nums` 即可。下图展示了完整的计数排序流程。
 
 === "<1>"
-    ![计数排序步骤](counting_sort.assets/counting_sort_step1.png)
+    ![计数排序步骤](counting_sort.assets/counting_sort_step1.svg)
 
 === "<2>"
-    ![counting_sort_step2](counting_sort.assets/counting_sort_step2.png)
+    ![counting_sort_step2](counting_sort.assets/counting_sort_step2.svg)
 
 === "<3>"
-    ![counting_sort_step3](counting_sort.assets/counting_sort_step3.png)
+    ![counting_sort_step3](counting_sort.assets/counting_sort_step3.svg)
 
 === "<4>"
-    ![counting_sort_step4](counting_sort.assets/counting_sort_step4.png)
+    ![counting_sort_step4](counting_sort.assets/counting_sort_step4.svg)
 
 === "<5>"
-    ![counting_sort_step5](counting_sort.assets/counting_sort_step5.png)
+    ![counting_sort_step5](counting_sort.assets/counting_sort_step5.svg)
 
 === "<6>"
-    ![counting_sort_step6](counting_sort.assets/counting_sort_step6.png)
+    ![counting_sort_step6](counting_sort.assets/counting_sort_step6.svg)
 
 === "<7>"
-    ![counting_sort_step7](counting_sort.assets/counting_sort_step7.png)
+    ![counting_sort_step7](counting_sort.assets/counting_sort_step7.svg)
 
 === "<8>"
-    ![counting_sort_step8](counting_sort.assets/counting_sort_step8.png)
+    ![counting_sort_step8](counting_sort.assets/counting_sort_step8.svg)
 
 计数排序的实现代码如下所示：
 

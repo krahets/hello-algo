@@ -6,11 +6,11 @@
 
 如下圖所示，當 $n = 4$ 時，共可以找到兩個解。從回溯演算法的角度看，$n \times n$ 大小的棋盤共有 $n^2$ 個格子，給出了所有的選擇 `choices` 。在逐個放置皇后的過程中，棋盤狀態在不斷地變化，每個時刻的棋盤就是狀態 `state` 。
 
-![4 皇后問題的解](n_queens_problem.assets/solution_4_queens.png)
+![4 皇后問題的解](n_queens_problem.assets/solution_4_queens.svg)
 
 下圖展示了本題的三個約束條件：**多個皇后不能在同一行、同一列、同一條對角線上**。值得注意的是，對角線分為主對角線 `\` 和次對角線 `/` 兩種。
 
-![n 皇后問題的約束條件](n_queens_problem.assets/n_queens_constraints.png)
+![n 皇后問題的約束條件](n_queens_problem.assets/n_queens_constraints.svg)
 
 ### 逐行放置策略
 
@@ -20,7 +20,7 @@
 
 下圖所示為 4 皇后問題的逐行放置過程。受畫幅限制，下圖僅展開了第一行的其中一個搜尋分支，並且將不滿足列約束和對角線約束的方案都進行了剪枝。
 
-![逐行放置策略](n_queens_problem.assets/n_queens_placing.png)
+![逐行放置策略](n_queens_problem.assets/n_queens_placing.svg)
 
 從本質上看，**逐行放置策略起到了剪枝的作用**，它避免了同一行出現多個皇后的所有搜尋分支。
 
@@ -38,7 +38,7 @@
 
 同理，**次對角線上的所有格子的 $row + col$ 是恆定值**。我們同樣也可以藉助陣列 `diags2` 來處理次對角線約束。
 
-![處理列約束和對角線約束](n_queens_problem.assets/n_queens_cols_diagonals.png)
+![處理列約束和對角線約束](n_queens_problem.assets/n_queens_cols_diagonals.svg)
 
 ### 程式碼實現
 

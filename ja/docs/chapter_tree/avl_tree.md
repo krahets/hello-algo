@@ -4,11 +4,11 @@
 
 下図の二分探索木は、二回の削除だけで連結リストに退化します。
 
-![ノードの削除による AVL 木の退化](avl_tree.assets/avltree_degradation_from_removing_node.png)
+![ノードの削除による AVL 木の退化](avl_tree.assets/avltree_degradation_from_removing_node.svg)
 
 また、下図のパーフェクト二分木に二つのノードを挿入すると、木が大きく左へ偏り、探索の時間計算量も悪化します。
 
-![ノードの挿入による AVL 木の退化](avl_tree.assets/avltree_degradation_from_inserting_node.png)
+![ノードの挿入による AVL 木の退化](avl_tree.assets/avltree_degradation_from_inserting_node.svg)
 
 1962 年、G. M. Adelson-Velsky と E. M. Landis は論文「An algorithm for the organization of information」で<u>AVL 木</u>を提案しました。論文では、追加や削除を続けても退化せず、各操作の時間計算量を $O(\log n)$ に保つ一連の操作を詳しく述べています。つまり、追加、削除、照会、更新が頻繁な場面でも、常に効率的に操作できるため、高い実用性があります。
 
@@ -257,20 +257,20 @@ AVL 木の特徴は「回転」です。通りがけ順の列を変えずに、�
 下図では、ノードの下の数値が平衡係数です。下から上へ見ると、最初の不均衡なノードは「ノード 3」です。そこを根とする部分木に注目し、そのノードを `node`、左の子を `child` として右回転します。すると、二分探索木の性質を保ったまま、部分木が平衡に戻ります。
 
 === "<1>"
-    ![右回転の手順](avl_tree.assets/avltree_right_rotate_step1.png)
+    ![右回転の手順](avl_tree.assets/avltree_right_rotate_step1.svg)
 
 === "<2>"
-    ![AVL 木の右回転の手順 2](avl_tree.assets/avltree_right_rotate_step2.png)
+    ![AVL 木の右回転の手順 2](avl_tree.assets/avltree_right_rotate_step2.svg)
 
 === "<3>"
-    ![AVL 木の右回転の手順 3](avl_tree.assets/avltree_right_rotate_step3.png)
+    ![AVL 木の右回転の手順 3](avl_tree.assets/avltree_right_rotate_step3.svg)
 
 === "<4>"
-    ![AVL 木の右回転の手順 4](avl_tree.assets/avltree_right_rotate_step4.png)
+    ![AVL 木の右回転の手順 4](avl_tree.assets/avltree_right_rotate_step4.svg)
 
 下図のように、`child` に右の子 `grand_child` がある場合は、それを `node` の左の子にする手順を追加します。
 
-![grand_child がある場合の右回転](avl_tree.assets/avltree_right_rotate_with_grandchild.png)
+![grand_child がある場合の右回転](avl_tree.assets/avltree_right_rotate_with_grandchild.svg)
 
 「右へ回転する」は見た目の表現であり、実際にはノードのポインタを変更して実現します。コードは次のとおりです。
 
@@ -282,11 +282,11 @@ AVL 木の特徴は「回転」です。通りがけ順の列を変えずに、�
 
 これに対し、先ほどの不均衡な木を鏡に映した形では、下図の左回転が必要です。
 
-![左回転](avl_tree.assets/avltree_left_rotate.png)
+![左回転](avl_tree.assets/avltree_left_rotate.svg)
 
 同様に、下図のように `child` に左の子 `grand_child` がある場合は、それを `node` の右の子にする手順を追加します。
 
-![grand_child がある場合の左回転](avl_tree.assets/avltree_left_rotate_with_grandchild.png)
+![grand_child がある場合の左回転](avl_tree.assets/avltree_left_rotate_with_grandchild.svg)
 
 **右回転と左回転は論理的に鏡映対称で、対処する不均衡の形も対称です**。この対称性から、右回転のコードの `left` をすべて `right` に、`right` をすべて `left` に置き換えると、左回転のコードになります。
 
@@ -298,19 +298,19 @@ AVL 木の特徴は「回転」です。通りがけ順の列を変えずに、�
 
 下図の不均衡なノード 3 は、左回転か右回転の一方だけでは平衡に戻りません。まず `child` を左回転し、次に `node` を右回転する必要があります。
 
-![左回転してから右回転](avl_tree.assets/avltree_left_right_rotate.png)
+![左回転してから右回転](avl_tree.assets/avltree_left_right_rotate.svg)
 
 ### 右回転してから左回転
 
 下図のように、先ほどの木を鏡に映した形では、まず `child` を右回転し、次に `node` を左回転します。
 
-![右回転してから左回転](avl_tree.assets/avltree_right_left_rotate.png)
+![右回転してから左回転](avl_tree.assets/avltree_right_left_rotate.svg)
 
 ### 回転の選択
 
 下図の四つの不均衡は、これまでの例にそれぞれ対応します。必要な操作は順に、右回転、左回転してから右回転、右回転してから左回転、左回転です。
 
-![AVL 木の四つの回転の場合](avl_tree.assets/avltree_rotation_cases.png)
+![AVL 木の四つの回転の場合](avl_tree.assets/avltree_rotation_cases.svg)
 
 下表のように、不均衡なノードの平衡係数と、高い側の子の平衡係数の符号から、上図のどの場合かを判定します。
 

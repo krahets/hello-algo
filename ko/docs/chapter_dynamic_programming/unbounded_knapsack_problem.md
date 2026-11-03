@@ -8,7 +8,7 @@
 
     물건 $n$ 개와 용량이 $cap$인 배낭이 주어진다. $i$ 번째 물건의 무게는 $wgt[i-1]$, 가치는 $val[i-1]$이다. **각 물건을 반복해서 선택할 수 있을 때**, 용량 제한 안에 담을 수 있는 최대 가치를 구하라. 예시는 아래 그림과 같다.
 
-![무한 배낭 문제 예시 데이터](unbounded_knapsack_problem.assets/unbounded_knapsack_example.png)
+![무한 배낭 문제 예시 데이터](unbounded_knapsack_problem.assets/unbounded_knapsack_example.svg)
 
 ### 동적 계획법 접근
 
@@ -43,22 +43,22 @@ $$
 이는 0-1 배낭의 순회 순서와 정반대다. 아래 그림으로 차이를 이해해 보자.
 
 === "<1>"
-    ![공간 최적화 후 무한 배낭의 동적 계획법 과정](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png)
+    ![공간 최적화 후 무한 배낭의 동적 계획법 과정](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.svg)
 
 === "<2>"
-    ![공간 최적화된 무한 배낭 2단계](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.png)
+    ![공간 최적화된 무한 배낭 2단계](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.svg)
 
 === "<3>"
-    ![공간 최적화된 무한 배낭 3단계](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.png)
+    ![공간 최적화된 무한 배낭 3단계](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.svg)
 
 === "<4>"
-    ![공간 최적화된 무한 배낭 4단계](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.png)
+    ![공간 최적화된 무한 배낭 4단계](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.svg)
 
 === "<5>"
-    ![공간 최적화된 무한 배낭 5단계](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.png)
+    ![공간 최적화된 무한 배낭 5단계](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.svg)
 
 === "<6>"
-    ![공간 최적화된 무한 배낭 6단계](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.png)
+    ![공간 최적화된 무한 배낭 6단계](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.svg)
 
 구현은 간단하다. 배열 `dp`의 첫 번째 차원을 없애면 된다.
 
@@ -74,7 +74,7 @@ $$
 
     동전 $n$ 종류가 주어지며 $i$ 번째 동전의 액면가는 $coins[i - 1]$이고 목표 금액은 $amt$다. **각 종류의 동전을 반복해서 선택할 수 있을 때**, 목표 금액을 만드는 최소 동전 수를 구하라. 목표 금액을 만들 수 없으면 $-1$을 반환하라. 예시는 아래 그림과 같다.
 
-![동전 교환 문제 예시 데이터](unbounded_knapsack_problem.assets/coin_change_example.png)
+![동전 교환 문제 예시 데이터](unbounded_knapsack_problem.assets/coin_change_example.svg)
 
 ### 동적 계획법 접근
 
@@ -120,49 +120,49 @@ $$
 아래 그림의 동전 교환 동적 계획법 과정은 무한 배낭 문제와 매우 비슷하다.
 
 === "<1>"
-    ![동전 교환 문제의 동적 계획법 과정](unbounded_knapsack_problem.assets/coin_change_dp_step1.png)
+    ![동전 교환 문제의 동적 계획법 과정](unbounded_knapsack_problem.assets/coin_change_dp_step1.svg)
 
 === "<2>"
-    ![동전 교환 동적 계획법 2단계](unbounded_knapsack_problem.assets/coin_change_dp_step2.png)
+    ![동전 교환 동적 계획법 2단계](unbounded_knapsack_problem.assets/coin_change_dp_step2.svg)
 
 === "<3>"
-    ![동전 교환 동적 계획법 3단계](unbounded_knapsack_problem.assets/coin_change_dp_step3.png)
+    ![동전 교환 동적 계획법 3단계](unbounded_knapsack_problem.assets/coin_change_dp_step3.svg)
 
 === "<4>"
-    ![동전 교환 동적 계획법 4단계](unbounded_knapsack_problem.assets/coin_change_dp_step4.png)
+    ![동전 교환 동적 계획법 4단계](unbounded_knapsack_problem.assets/coin_change_dp_step4.svg)
 
 === "<5>"
-    ![동전 교환 동적 계획법 5단계](unbounded_knapsack_problem.assets/coin_change_dp_step5.png)
+    ![동전 교환 동적 계획법 5단계](unbounded_knapsack_problem.assets/coin_change_dp_step5.svg)
 
 === "<6>"
-    ![동전 교환 동적 계획법 6단계](unbounded_knapsack_problem.assets/coin_change_dp_step6.png)
+    ![동전 교환 동적 계획법 6단계](unbounded_knapsack_problem.assets/coin_change_dp_step6.svg)
 
 === "<7>"
-    ![동전 교환 동적 계획법 7단계](unbounded_knapsack_problem.assets/coin_change_dp_step7.png)
+    ![동전 교환 동적 계획법 7단계](unbounded_knapsack_problem.assets/coin_change_dp_step7.svg)
 
 === "<8>"
-    ![동전 교환 동적 계획법 8단계](unbounded_knapsack_problem.assets/coin_change_dp_step8.png)
+    ![동전 교환 동적 계획법 8단계](unbounded_knapsack_problem.assets/coin_change_dp_step8.svg)
 
 === "<9>"
-    ![동전 교환 동적 계획법 9단계](unbounded_knapsack_problem.assets/coin_change_dp_step9.png)
+    ![동전 교환 동적 계획법 9단계](unbounded_knapsack_problem.assets/coin_change_dp_step9.svg)
 
 === "<10>"
-    ![동전 교환 동적 계획법 10단계](unbounded_knapsack_problem.assets/coin_change_dp_step10.png)
+    ![동전 교환 동적 계획법 10단계](unbounded_knapsack_problem.assets/coin_change_dp_step10.svg)
 
 === "<11>"
-    ![동전 교환 동적 계획법 11단계](unbounded_knapsack_problem.assets/coin_change_dp_step11.png)
+    ![동전 교환 동적 계획법 11단계](unbounded_knapsack_problem.assets/coin_change_dp_step11.svg)
 
 === "<12>"
-    ![동전 교환 동적 계획법 12단계](unbounded_knapsack_problem.assets/coin_change_dp_step12.png)
+    ![동전 교환 동적 계획법 12단계](unbounded_knapsack_problem.assets/coin_change_dp_step12.svg)
 
 === "<13>"
-    ![동전 교환 동적 계획법 13단계](unbounded_knapsack_problem.assets/coin_change_dp_step13.png)
+    ![동전 교환 동적 계획법 13단계](unbounded_knapsack_problem.assets/coin_change_dp_step13.svg)
 
 === "<14>"
-    ![동전 교환 동적 계획법 14단계](unbounded_knapsack_problem.assets/coin_change_dp_step14.png)
+    ![동전 교환 동적 계획법 14단계](unbounded_knapsack_problem.assets/coin_change_dp_step14.svg)
 
 === "<15>"
-    ![동전 교환 동적 계획법 15단계](unbounded_knapsack_problem.assets/coin_change_dp_step15.png)
+    ![동전 교환 동적 계획법 15단계](unbounded_knapsack_problem.assets/coin_change_dp_step15.svg)
 
 ### 공간 최적화
 
@@ -178,7 +178,7 @@ $$
 
     동전 $n$ 종류가 주어지며 $i$ 번째 동전의 액면가는 $coins[i - 1]$이고 목표 금액은 $amt$다. 각 종류의 동전을 반복해서 선택할 수 있을 때, **목표 금액을 만드는 동전 조합 수를 구하라**. 예시는 아래 그림과 같다.
 
-![동전 교환 문제 II 예시 데이터](unbounded_knapsack_problem.assets/coin_change_ii_example.png)
+![동전 교환 문제 II 예시 데이터](unbounded_knapsack_problem.assets/coin_change_ii_example.svg)
 
 ### 동적 계획법 접근
 

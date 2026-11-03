@@ -12,7 +12,7 @@ As shown below, scan the array $k$ times, selecting the $1$st, $2$nd, $\dots$, a
 
 This method is suitable only when $k \ll n$. As $k$ approaches $n$, its time complexity approaches $O(n^2)$, making it very slow.
 
-![Finding the largest k elements by repeated scans](top_k.assets/top_k_traversal.png)
+![Finding the largest k elements by repeated scans](top_k.assets/top_k_traversal.svg)
 
 !!! tip
 
@@ -24,7 +24,7 @@ As shown below, sort `nums` and return its rightmost $k$ elements. This takes $O
 
 This method does more work than necessary: we need only the largest $k$ elements, not a sorted order for all the others.
 
-![Finding the largest k elements by sorting](top_k.assets/top_k_sorting.png)
+![Finding the largest k elements by sorting](top_k.assets/top_k_sorting.svg)
 
 ## Method 3: A heap
 
@@ -36,31 +36,31 @@ A heap solves the top-k problem more efficiently, following the steps below.
 4. After the traversal, the heap contains the largest $k$ elements.
 
 === "<1>"
-    ![Finding the largest k elements with a heap](top_k.assets/top_k_heap_step1.png)
+    ![Finding the largest k elements with a heap](top_k.assets/top_k_heap_step1.svg)
 
 === "<2>"
-    ![top_k_heap_step2](top_k.assets/top_k_heap_step2.png)
+    ![top_k_heap_step2](top_k.assets/top_k_heap_step2.svg)
 
 === "<3>"
-    ![top_k_heap_step3](top_k.assets/top_k_heap_step3.png)
+    ![top_k_heap_step3](top_k.assets/top_k_heap_step3.svg)
 
 === "<4>"
-    ![top_k_heap_step4](top_k.assets/top_k_heap_step4.png)
+    ![top_k_heap_step4](top_k.assets/top_k_heap_step4.svg)
 
 === "<5>"
-    ![top_k_heap_step5](top_k.assets/top_k_heap_step5.png)
+    ![top_k_heap_step5](top_k.assets/top_k_heap_step5.svg)
 
 === "<6>"
-    ![top_k_heap_step6](top_k.assets/top_k_heap_step6.png)
+    ![top_k_heap_step6](top_k.assets/top_k_heap_step6.svg)
 
 === "<7>"
-    ![top_k_heap_step7](top_k.assets/top_k_heap_step7.png)
+    ![top_k_heap_step7](top_k.assets/top_k_heap_step7.svg)
 
 === "<8>"
-    ![top_k_heap_step8](top_k.assets/top_k_heap_step8.png)
+    ![top_k_heap_step8](top_k.assets/top_k_heap_step8.svg)
 
 === "<9>"
-    ![top_k_heap_step9](top_k.assets/top_k_heap_step9.png)
+    ![top_k_heap_step9](top_k.assets/top_k_heap_step9.svg)
 
 An implementation follows:
 

@@ -4,7 +4,7 @@
 
 衝突が頻繁すぎると、性能は急激に悪化します。下図のチェイン法では、理想的にはペアが各バケットへ均等に分布し、最高の照会効率を得られます。最悪の場合はすべて同じバケットに入り、時間計算量が $O(n)$ に悪化します。
 
-![ハッシュ衝突の最良と最悪の場合](hash_algorithm.assets/hash_collision_best_worst_condition.png)
+![ハッシュ衝突の最良と最悪の場合](hash_algorithm.assets/hash_collision_best_worst_condition.svg)
 
 **ペアの分布を決めるのはハッシュ関数です**。計算手順を思い出すと、まずハッシュ値を求め、配列の長さで剰余を取ります。
 

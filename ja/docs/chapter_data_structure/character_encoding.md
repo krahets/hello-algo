@@ -6,7 +6,7 @@
 
 <u>ASCII コード</u>は最初期の文字集合で、正式名称は American Standard Code for Information Interchange（情報交換用米国標準コード）です。7 ビットの二進数（1 バイトの下位 7 ビット）で 1 文字を表し、最大 128 種類の文字を表現できます。下図のように、ASCII コードには英字の大文字と小文字、数字の 0 ～ 9、一部の句読点や記号、改行やタブなどの制御文字が含まれています。
 
-![ASCII コード](character_encoding.assets/ascii_table.png)
+![ASCII コード](character_encoding.assets/ascii_table.svg)
 
 しかし、**ASCII コードで表せるのは英語だけです**。コンピュータの利用が世界に広がるにつれて、より多くの言語を表現できる <u>EASCII</u> 文字集合が生まれました。ASCII の 7 ビットを 8 ビットに拡張したもので、256 種類の文字を表現できます。
 
@@ -30,7 +30,7 @@
 
 この問題に対する**直接的な解決策は、すべての文字を同じ長さの符号で保存することです**。下図では、「Hello」の各文字は 1 バイト、「算法」の各文字は 2 バイトを占めています。上位ビットを 0 で埋めれば、「Hello 算法」のすべての文字を 2 バイトの長さに符号化できます。これにより、システムは 2 バイトごとに 1 文字を読み取り、元の語句を復元できます。
 
-![Unicode の符号化例](character_encoding.assets/unicode_hello_algo.png)
+![Unicode の符号化例](character_encoding.assets/unicode_hello_algo.svg)
 
 しかし、ASCII コードからわかるように、英語の符号化に必要なのは 1 バイトだけです。上記の方式では、英語のテキストが占める容量は ASCII の場合の 2 倍となり、多くのメモリを無駄にします。そのため、より効率的な Unicode の符号化方式が必要です。
 
@@ -49,7 +49,7 @@ UTF-8 の符号化規則は複雑ではなく、次の二つの場合に分か�
 
 $10$ を検査用の印にできるのは、UTF-8 の符号化規則では、文字の先頭の 2 ビットが $10$ になることはないからです。これは背理法で証明できます。ある文字の先頭の 2 ビットが $10$ だと仮定すると、その文字の長さは $1$ バイトであり、ASCII コードに対応することになります。しかし、ASCII コードの最上位ビットは $0$ であるはずなので、仮定と矛盾します。
 
-![UTF-8 の符号化例](character_encoding.assets/utf-8_hello_algo.png)
+![UTF-8 の符号化例](character_encoding.assets/utf-8_hello_algo.svg)
 
 UTF-8 のほかにも、次の二つの符号化方式がよく使われます。
 

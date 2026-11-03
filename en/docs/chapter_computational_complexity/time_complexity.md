@@ -490,7 +490,7 @@ The figure below shows their time complexities.
 - Algorithm `B` prints $n$ times. Its runtime grows linearly with $n$, so it has linear time complexity.
 - Algorithm `C` prints $1000000$ times. It may take a long time, but that time is independent of input size $n$. Its complexity is therefore constant, like `A`.
 
-![Runtime growth of algorithms A, B, and C](time_complexity.assets/time_complexity_simple_example.png)
+![Runtime growth of algorithms A, B, and C](time_complexity.assets/time_complexity_simple_example.svg)
 
 How does time complexity analysis differ from calculating runtime directly?
 
@@ -701,7 +701,7 @@ Time complexity analysis essentially finds an asymptotic upper bound on the oper
 
 As shown in the figure below, we seek a function $f(n)$ such that, as $n$ tends to infinity, $T(n)$ and $f(n)$ have the same order of growth, differing only by a constant factor $c$.
 
-![Asymptotic upper bound of a function](time_complexity.assets/asymptotic_upper_bound.png)
+![Asymptotic upper bound of a function](time_complexity.assets/asymptotic_upper_bound.svg)
 
 ## How to derive time complexity
 
@@ -997,7 +997,7 @@ $$
 \end{aligned}
 $$
 
-![Common time complexity classes](time_complexity.assets/time_complexity_common_types.png)
+![Common time complexity classes](time_complexity.assets/time_complexity_common_types.svg)
 
 ### Constant time $O(1)$
 
@@ -1035,7 +1035,7 @@ A quadratic operation count grows with the square of input size $n$. It commonly
 
 The figure below compares constant, linear, and quadratic time complexity.
 
-![Constant, linear, and quadratic time complexity](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
+![Constant, linear, and quadratic time complexity](time_complexity.assets/time_complexity_constant_linear_quadratic.svg)
 
 In bubble sort, for example, the outer loop runs $n - 1$ times, while the inner loop runs $n-1$, $n-2$, $\dots$, $2$, and $1$ times, averaging $n / 2$. The resulting complexity is $O((n - 1) n / 2) = O(n^2)$:
 
@@ -1053,7 +1053,7 @@ The figure and code below simulate cell division in $O(2^n)$ time. The input $n$
 [file]{time_complexity}-[class]{}-[func]{exponential}
 ```
 
-![Exponential time complexity](time_complexity.assets/time_complexity_exponential.png)
+![Exponential time complexity](time_complexity.assets/time_complexity_exponential.svg)
 
 Exponential time often appears in recursive algorithms. The following function branches into two calls at each level, stopping after $n$ levels:
 
@@ -1073,7 +1073,7 @@ The figure and code below simulate repeated halving, taking $O(\log_2 n)$ time, 
 [file]{time_complexity}-[class]{}-[func]{logarithmic}
 ```
 
-![Logarithmic time complexity](time_complexity.assets/time_complexity_logarithmic.png)
+![Logarithmic time complexity](time_complexity.assets/time_complexity_logarithmic.svg)
 
 Like exponential growth, logarithmic growth often occurs in recursion. The following code produces a recursion tree of height $\log_2 n$:
 
@@ -1103,7 +1103,7 @@ Linearithmic time often appears when one level of a nested process takes $O(\log
 
 The figure below shows how linearithmic growth arises. Each level of the binary tree performs $n$ operations, and there are $\log_2 n + 1$ levels, giving $O(n \log n)$ time.
 
-![Linearithmic time complexity](time_complexity.assets/time_complexity_logarithmic_linear.png)
+![Linearithmic time complexity](time_complexity.assets/time_complexity_logarithmic_linear.svg)
 
 Common sorting algorithms, including quick sort, merge sort, and heap sort, typically take $O(n \log n)$ time.
 
@@ -1121,7 +1121,7 @@ Algorithms with factorial time complexity are usually implemented recursively. A
 [file]{time_complexity}-[class]{}-[func]{factorial_recur}
 ```
 
-![Factorial time complexity](time_complexity.assets/time_complexity_factorial.png)
+![Factorial time complexity](time_complexity.assets/time_complexity_factorial.svg)
 
 Since $n! > 2^n$ whenever $n \geq 4$, factorial growth is faster than exponential growth and is also unacceptable for large $n$.
 

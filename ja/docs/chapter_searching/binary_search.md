@@ -6,7 +6,7 @@
 
     長さ $n$ の配列 `nums` が与えられます。要素は昇順に並び、重複しません。要素 `target` を探し、そのインデックスを返してください。配列にその要素が含まれない場合は $-1$ を返します。例を下図に示します。
 
-![二分探索の入力例](binary_search.assets/binary_search_example.png)
+![二分探索の入力例](binary_search.assets/binary_search_example.svg)
 
 下図のように、まずポインタ $i = 0$ と $j = n - 1$ を初期化し、配列の先頭要素と末尾要素をそれぞれ指すようにします。これらは探索区間 $[0, n - 1]$ を表します。角括弧は閉区間を表し、境界値そのものを含むことに注意してください。
 
@@ -21,25 +21,25 @@
 配列に目的の要素が含まれない場合、探索区間は最終的に空になります。このときは $-1$ を返します。
 
 === "<1>"
-    ![二分探索の流れ](binary_search.assets/binary_search_step1.png)
+    ![二分探索の流れ](binary_search.assets/binary_search_step1.svg)
 
 === "<2>"
-    ![二分探索の手順 2](binary_search.assets/binary_search_step2.png)
+    ![二分探索の手順 2](binary_search.assets/binary_search_step2.svg)
 
 === "<3>"
-    ![二分探索の手順 3](binary_search.assets/binary_search_step3.png)
+    ![二分探索の手順 3](binary_search.assets/binary_search_step3.svg)
 
 === "<4>"
-    ![二分探索の手順 4](binary_search.assets/binary_search_step4.png)
+    ![二分探索の手順 4](binary_search.assets/binary_search_step4.svg)
 
 === "<5>"
-    ![二分探索の手順 5](binary_search.assets/binary_search_step5.png)
+    ![二分探索の手順 5](binary_search.assets/binary_search_step5.svg)
 
 === "<6>"
-    ![二分探索の手順 6](binary_search.assets/binary_search_step6.png)
+    ![二分探索の手順 6](binary_search.assets/binary_search_step6.svg)
 
 === "<7>"
-    ![二分探索の手順 7](binary_search.assets/binary_search_step7.png)
+    ![二分探索の手順 7](binary_search.assets/binary_search_step7.svg)
 
 $i$ と $j$ はともに `int` 型なので、**$i + j$ が `int` 型の値の範囲を超える可能性がある**ことに注意してください。大きな値によるオーバーフローを避けるため、通常は $m = \lfloor {i + (j - i) / 2} \rfloor$ という式で中点を計算します。
 
@@ -67,7 +67,7 @@ $i$ と $j$ はともに `int` 型なので、**$i + j$ が `int` 型の値の�
 
 両端を含む閉区間では、左右の境界がどちらも含まれるため、ポインタ $i$ と $j$ で区間を縮める操作も対称になります。そのほうが間違いにくいため、**一般には両端を含む閉区間で書くことを勧めます**。
 
-![二つの区間の定義](binary_search.assets/binary_search_ranges.png)
+![二つの区間の定義](binary_search.assets/binary_search_ranges.svg)
 
 ## 長所と制約
 

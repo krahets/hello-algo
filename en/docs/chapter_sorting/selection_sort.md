@@ -11,37 +11,37 @@ For an array of length $n$, the algorithm proceeds as shown below.
 5. The remaining element must be the largest and needs no sorting. The array is now sorted.
 
 === "<1>"
-    ![Steps of selection sort](selection_sort.assets/selection_sort_step1.png)
+    ![Steps of selection sort](selection_sort.assets/selection_sort_step1.svg)
 
 === "<2>"
-    ![selection_sort_step2](selection_sort.assets/selection_sort_step2.png)
+    ![selection_sort_step2](selection_sort.assets/selection_sort_step2.svg)
 
 === "<3>"
-    ![selection_sort_step3](selection_sort.assets/selection_sort_step3.png)
+    ![selection_sort_step3](selection_sort.assets/selection_sort_step3.svg)
 
 === "<4>"
-    ![selection_sort_step4](selection_sort.assets/selection_sort_step4.png)
+    ![selection_sort_step4](selection_sort.assets/selection_sort_step4.svg)
 
 === "<5>"
-    ![selection_sort_step5](selection_sort.assets/selection_sort_step5.png)
+    ![selection_sort_step5](selection_sort.assets/selection_sort_step5.svg)
 
 === "<6>"
-    ![selection_sort_step6](selection_sort.assets/selection_sort_step6.png)
+    ![selection_sort_step6](selection_sort.assets/selection_sort_step6.svg)
 
 === "<7>"
-    ![selection_sort_step7](selection_sort.assets/selection_sort_step7.png)
+    ![selection_sort_step7](selection_sort.assets/selection_sort_step7.svg)
 
 === "<8>"
-    ![selection_sort_step8](selection_sort.assets/selection_sort_step8.png)
+    ![selection_sort_step8](selection_sort.assets/selection_sort_step8.svg)
 
 === "<9>"
-    ![selection_sort_step9](selection_sort.assets/selection_sort_step9.png)
+    ![selection_sort_step9](selection_sort.assets/selection_sort_step9.svg)
 
 === "<10>"
-    ![selection_sort_step10](selection_sort.assets/selection_sort_step10.png)
+    ![selection_sort_step10](selection_sort.assets/selection_sort_step10.svg)
 
 === "<11>"
-    ![selection_sort_step11](selection_sort.assets/selection_sort_step11.png)
+    ![selection_sort_step11](selection_sort.assets/selection_sort_step11.svg)
 
 In the code, $k$ tracks the smallest element in the unsorted section:
 
@@ -55,4 +55,4 @@ In the code, $k$ tracks the smallest element in the unsorted section:
 - **Space complexity: $O(1)$; in-place**. Pointers $i$ and $j$ use constant extra space.
 - **Not stable**. As shown below, `nums[i]` may be swapped to the right of an equal element, changing their relative order.
 
-![An example showing that selection sort is not stable](selection_sort.assets/selection_sort_instability.png)
+![An example showing that selection sort is not stable](selection_sort.assets/selection_sort_instability.svg)

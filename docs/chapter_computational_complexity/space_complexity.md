@@ -20,7 +20,7 @@
 
 在分析一段程序的空间复杂度时，**我们通常统计暂存数据、栈帧空间和输出数据三部分**，如下图所示。
 
-![算法使用的相关空间](space_complexity.assets/space_types.png)
+![算法使用的相关空间](space_complexity.assets/space_types.svg)
 
 相关代码如下：
 
@@ -811,7 +811,7 @@ $$
 \end{aligned}
 $$
 
-![常见的空间复杂度类型](space_complexity.assets/space_complexity_common_types.png)
+![常见的空间复杂度类型](space_complexity.assets/space_complexity_common_types.svg)
 
 ### 常数阶 $O(1)$
 
@@ -837,7 +837,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{linear_recur}
 ```
 
-![递归函数产生的线性阶空间复杂度](space_complexity.assets/space_complexity_recursive_linear.png)
+![递归函数产生的线性阶空间复杂度](space_complexity.assets/space_complexity_recursive_linear.svg)
 
 ### 平方阶 $O(n^2)$
 
@@ -853,7 +853,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{quadratic_recur}
 ```
 
-![递归函数产生的平方阶空间复杂度](space_complexity.assets/space_complexity_recursive_quadratic.png)
+![递归函数产生的平方阶空间复杂度](space_complexity.assets/space_complexity_recursive_quadratic.svg)
 
 ### 指数阶 $O(2^n)$
 
@@ -863,7 +863,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{build_tree}
 ```
 
-![满二叉树产生的指数阶空间复杂度](space_complexity.assets/space_complexity_exponential.png)
+![满二叉树产生的指数阶空间复杂度](space_complexity.assets/space_complexity_exponential.svg)
 
 ### 对数阶 $O(\log n)$
 

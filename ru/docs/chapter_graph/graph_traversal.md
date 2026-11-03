@@ -8,7 +8,7 @@
 
 **Обход в ширину - это способ обхода от ближнего к дальнему, при котором начиная с некоторого узла сначала посещают ближайшие вершины, а затем слой за слоем расширяются наружу**. Как показано на рисунке ниже, начиная с вершины в левом верхнем углу, мы сначала обходим все смежные вершины этой вершины, затем все смежные вершины следующей вершины и так далее, пока не будут посещены все вершины.
 
-![Обход графа в ширину](graph_traversal.assets/graph_bfs.png)
+![Обход графа в ширину](graph_traversal.assets/graph_bfs.svg)
 
 ### Реализация алгоритма
 
@@ -31,37 +31,37 @@ BFS обычно реализуется с помощью очереди, код
 Код сравнительно абстрактен, поэтому для лучшего понимания рекомендуется сопоставлять его с тем, что показано на рисунке ниже.
 
 === "<1>"
-    ![Шаги обхода графа в ширину](graph_traversal.assets/graph_bfs_step1.png)
+    ![Шаги обхода графа в ширину](graph_traversal.assets/graph_bfs_step1.svg)
 
 === "<2>"
-    ![graph_bfs_step2](graph_traversal.assets/graph_bfs_step2.png)
+    ![graph_bfs_step2](graph_traversal.assets/graph_bfs_step2.svg)
 
 === "<3>"
-    ![graph_bfs_step3](graph_traversal.assets/graph_bfs_step3.png)
+    ![graph_bfs_step3](graph_traversal.assets/graph_bfs_step3.svg)
 
 === "<4>"
-    ![graph_bfs_step4](graph_traversal.assets/graph_bfs_step4.png)
+    ![graph_bfs_step4](graph_traversal.assets/graph_bfs_step4.svg)
 
 === "<5>"
-    ![graph_bfs_step5](graph_traversal.assets/graph_bfs_step5.png)
+    ![graph_bfs_step5](graph_traversal.assets/graph_bfs_step5.svg)
 
 === "<6>"
-    ![graph_bfs_step6](graph_traversal.assets/graph_bfs_step6.png)
+    ![graph_bfs_step6](graph_traversal.assets/graph_bfs_step6.svg)
 
 === "<7>"
-    ![graph_bfs_step7](graph_traversal.assets/graph_bfs_step7.png)
+    ![graph_bfs_step7](graph_traversal.assets/graph_bfs_step7.svg)
 
 === "<8>"
-    ![graph_bfs_step8](graph_traversal.assets/graph_bfs_step8.png)
+    ![graph_bfs_step8](graph_traversal.assets/graph_bfs_step8.svg)
 
 === "<9>"
-    ![graph_bfs_step9](graph_traversal.assets/graph_bfs_step9.png)
+    ![graph_bfs_step9](graph_traversal.assets/graph_bfs_step9.svg)
 
 === "<10>"
-    ![graph_bfs_step10](graph_traversal.assets/graph_bfs_step10.png)
+    ![graph_bfs_step10](graph_traversal.assets/graph_bfs_step10.svg)
 
 === "<11>"
-    ![graph_bfs_step11](graph_traversal.assets/graph_bfs_step11.png)
+    ![graph_bfs_step11](graph_traversal.assets/graph_bfs_step11.svg)
 
 !!! question "Является ли последовательность обхода в ширину единственной?"
 
@@ -77,7 +77,7 @@ BFS обычно реализуется с помощью очереди, код
 
 **Обход в глубину - это способ обхода, при котором сначала идут до самого конца, а когда дальше идти нельзя, возвращаются назад**. Как показано на рисунке ниже, начиная с вершины в левом верхнем углу, мы выбираем некоторую смежную вершину текущей вершины, идем до упора, затем возвращаемся назад, снова идем до упора и так далее, пока не будут посещены все вершины.
 
-![Обход графа в глубину](graph_traversal.assets/graph_dfs.png)
+![Обход графа в глубину](graph_traversal.assets/graph_dfs.svg)
 
 ### Реализация алгоритма
 
@@ -95,37 +95,37 @@ BFS обычно реализуется с помощью очереди, код
 Чтобы лучше понять алгоритм, рекомендуется сопоставить код с тем, что показано на рисунке ниже, и мысленно проследить весь процесс DFS, включая моменты запуска и возврата каждого рекурсивного вызова.
 
 === "<1>"
-    ![Шаги обхода графа в глубину](graph_traversal.assets/graph_dfs_step1.png)
+    ![Шаги обхода графа в глубину](graph_traversal.assets/graph_dfs_step1.svg)
 
 === "<2>"
-    ![graph_dfs_step2](graph_traversal.assets/graph_dfs_step2.png)
+    ![graph_dfs_step2](graph_traversal.assets/graph_dfs_step2.svg)
 
 === "<3>"
-    ![graph_dfs_step3](graph_traversal.assets/graph_dfs_step3.png)
+    ![graph_dfs_step3](graph_traversal.assets/graph_dfs_step3.svg)
 
 === "<4>"
-    ![graph_dfs_step4](graph_traversal.assets/graph_dfs_step4.png)
+    ![graph_dfs_step4](graph_traversal.assets/graph_dfs_step4.svg)
 
 === "<5>"
-    ![graph_dfs_step5](graph_traversal.assets/graph_dfs_step5.png)
+    ![graph_dfs_step5](graph_traversal.assets/graph_dfs_step5.svg)
 
 === "<6>"
-    ![graph_dfs_step6](graph_traversal.assets/graph_dfs_step6.png)
+    ![graph_dfs_step6](graph_traversal.assets/graph_dfs_step6.svg)
 
 === "<7>"
-    ![graph_dfs_step7](graph_traversal.assets/graph_dfs_step7.png)
+    ![graph_dfs_step7](graph_traversal.assets/graph_dfs_step7.svg)
 
 === "<8>"
-    ![graph_dfs_step8](graph_traversal.assets/graph_dfs_step8.png)
+    ![graph_dfs_step8](graph_traversal.assets/graph_dfs_step8.svg)
 
 === "<9>"
-    ![graph_dfs_step9](graph_traversal.assets/graph_dfs_step9.png)
+    ![graph_dfs_step9](graph_traversal.assets/graph_dfs_step9.svg)
 
 === "<10>"
-    ![graph_dfs_step10](graph_traversal.assets/graph_dfs_step10.png)
+    ![graph_dfs_step10](graph_traversal.assets/graph_dfs_step10.svg)
 
 === "<11>"
-    ![graph_dfs_step11](graph_traversal.assets/graph_dfs_step11.png)
+    ![graph_dfs_step11](graph_traversal.assets/graph_dfs_step11.svg)
 
 !!! question "Является ли последовательность обхода в глубину единственной?"
 

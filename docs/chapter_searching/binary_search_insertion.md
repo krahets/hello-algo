@@ -8,7 +8,7 @@
 
     给定一个长度为 $n$ 的有序数组 `nums` 和一个元素 `target` ，数组不存在重复元素。现将 `target` 插入数组 `nums` 中，并保持其有序性。若数组中已存在元素 `target` ，则插入到其左方。请返回插入后 `target` 在数组中的索引。示例如下图所示。
 
-![二分查找插入点示例数据](binary_search_insertion.assets/binary_search_insertion_example.png)
+![二分查找插入点示例数据](binary_search_insertion.assets/binary_search_insertion_example.svg)
 
 如果想复用上一节的二分查找代码，则需要回答以下两个问题。
 
@@ -39,7 +39,7 @@
 1. 执行二分查找，得到任意一个 `target` 的索引，记为 $k$ 。
 2. 从索引 $k$ 开始，向左进行线性遍历，当找到最左边的 `target` 时返回。
 
-![线性查找重复元素的插入点](binary_search_insertion.assets/binary_search_insertion_naive.png)
+![线性查找重复元素的插入点](binary_search_insertion.assets/binary_search_insertion_naive.svg)
 
 此方法虽然可用，但其包含线性查找，因此时间复杂度为 $O(n)$ 。当数组中存在很多重复的 `target` 时，该方法效率很低。
 
@@ -51,28 +51,28 @@
 循环完成后，$i$ 指向最左边的 `target` ，$j$ 指向最右一个小于 `target` 的元素，**因此索引 $i$ 就是插入点**。
 
 === "<1>"
-    ![二分查找重复元素的插入点的步骤](binary_search_insertion.assets/binary_search_insertion_step1.png)
+    ![二分查找重复元素的插入点的步骤](binary_search_insertion.assets/binary_search_insertion_step1.svg)
 
 === "<2>"
-    ![binary_search_insertion_step2](binary_search_insertion.assets/binary_search_insertion_step2.png)
+    ![binary_search_insertion_step2](binary_search_insertion.assets/binary_search_insertion_step2.svg)
 
 === "<3>"
-    ![binary_search_insertion_step3](binary_search_insertion.assets/binary_search_insertion_step3.png)
+    ![binary_search_insertion_step3](binary_search_insertion.assets/binary_search_insertion_step3.svg)
 
 === "<4>"
-    ![binary_search_insertion_step4](binary_search_insertion.assets/binary_search_insertion_step4.png)
+    ![binary_search_insertion_step4](binary_search_insertion.assets/binary_search_insertion_step4.svg)
 
 === "<5>"
-    ![binary_search_insertion_step5](binary_search_insertion.assets/binary_search_insertion_step5.png)
+    ![binary_search_insertion_step5](binary_search_insertion.assets/binary_search_insertion_step5.svg)
 
 === "<6>"
-    ![binary_search_insertion_step6](binary_search_insertion.assets/binary_search_insertion_step6.png)
+    ![binary_search_insertion_step6](binary_search_insertion.assets/binary_search_insertion_step6.svg)
 
 === "<7>"
-    ![binary_search_insertion_step7](binary_search_insertion.assets/binary_search_insertion_step7.png)
+    ![binary_search_insertion_step7](binary_search_insertion.assets/binary_search_insertion_step7.svg)
 
 === "<8>"
-    ![binary_search_insertion_step8](binary_search_insertion.assets/binary_search_insertion_step8.png)
+    ![binary_search_insertion_step8](binary_search_insertion.assets/binary_search_insertion_step8.svg)
 
 观察以下代码，判断分支 `nums[m] > target` 和 `nums[m] == target` 的操作相同，因此两者可以合并。
 

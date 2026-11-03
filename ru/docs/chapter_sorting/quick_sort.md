@@ -9,31 +9,31 @@
 3. Повторять шаг `2.` , пока указатели `i` и `j` не встретятся, а затем обменять опорный элемент с элементом на границе двух подмассивов.
 
 === "<1>"
-    ![Шаги разделения с опорным элементом](quick_sort.assets/pivot_division_step1.png)
+    ![Шаги разделения с опорным элементом](quick_sort.assets/pivot_division_step1.svg)
 
 === "<2>"
-    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.png)
+    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.svg)
 
 === "<3>"
-    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.png)
+    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.svg)
 
 === "<4>"
-    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.png)
+    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.svg)
 
 === "<5>"
-    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.png)
+    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.svg)
 
 === "<6>"
-    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.png)
+    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.svg)
 
 === "<7>"
-    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.png)
+    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.svg)
 
 === "<8>"
-    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.png)
+    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.svg)
 
 === "<9>"
-    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.png)
+    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.svg)
 
 После завершения разделения исходный массив разбивается на три части: левый подмассив, опорный элемент и правый подмассив. При этом выполняется условие «любой элемент левого подмассива $\leq$ опорный элемент $\leq$ любой элемент правого подмассива». Следовательно, далее нам нужно лишь отсортировать эти два подмассива.
 
@@ -53,7 +53,7 @@
 2. Затем рекурсивно выполнить «разделение с опорным элементом» для левого и правого подмассивов.
 3. Продолжать рекурсию до тех пор, пока длина подмассива не станет равной 1. После этого сортировка всего массива будет завершена.
 
-![Процесс быстрой сортировки](quick_sort.assets/quick_sort_overview.png)
+![Процесс быстрой сортировки](quick_sort.assets/quick_sort_overview.svg)
 
 ```src
 [file]{quick_sort}-[class]{quick_sort}-[func]{quick_sort}

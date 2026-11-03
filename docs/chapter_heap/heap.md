@@ -5,7 +5,7 @@
 - <u>小顶堆（min heap）</u>：任意节点的值 $\leq$ 其子节点的值。
 - <u>大顶堆（max heap）</u>：任意节点的值 $\geq$ 其子节点的值。
 
-![小顶堆与大顶堆](heap.assets/min_heap_and_max_heap.png)
+![小顶堆与大顶堆](heap.assets/min_heap_and_max_heap.svg)
 
 堆作为完全二叉树的一个特例，具有以下特性。
 
@@ -424,7 +424,7 @@
 
 如下图所示，给定索引 $i$ ，其左子节点的索引为 $2i + 1$ ，右子节点的索引为 $2i + 2$ ，父节点的索引为 $(i - 1) / 2$（向下整除）。当索引越界时，表示空节点或节点不存在。
 
-![堆的表示与存储](heap.assets/representation_of_heap.png)
+![堆的表示与存储](heap.assets/representation_of_heap.svg)
 
 我们可以将索引映射公式封装成函数，方便后续使用：
 
@@ -447,31 +447,31 @@
 考虑从入堆节点开始，**从底至顶执行堆化**。如下图所示，我们比较插入节点与其父节点的值，如果插入节点更大，则将它们交换。然后继续执行此操作，从底至顶修复堆中的各个节点，直至越过根节点或遇到无须交换的节点时结束。
 
 === "<1>"
-    ![元素入堆步骤](heap.assets/heap_push_step1.png)
+    ![元素入堆步骤](heap.assets/heap_push_step1.svg)
 
 === "<2>"
-    ![heap_push_step2](heap.assets/heap_push_step2.png)
+    ![heap_push_step2](heap.assets/heap_push_step2.svg)
 
 === "<3>"
-    ![heap_push_step3](heap.assets/heap_push_step3.png)
+    ![heap_push_step3](heap.assets/heap_push_step3.svg)
 
 === "<4>"
-    ![heap_push_step4](heap.assets/heap_push_step4.png)
+    ![heap_push_step4](heap.assets/heap_push_step4.svg)
 
 === "<5>"
-    ![heap_push_step5](heap.assets/heap_push_step5.png)
+    ![heap_push_step5](heap.assets/heap_push_step5.svg)
 
 === "<6>"
-    ![heap_push_step6](heap.assets/heap_push_step6.png)
+    ![heap_push_step6](heap.assets/heap_push_step6.svg)
 
 === "<7>"
-    ![heap_push_step7](heap.assets/heap_push_step7.png)
+    ![heap_push_step7](heap.assets/heap_push_step7.svg)
 
 === "<8>"
-    ![heap_push_step8](heap.assets/heap_push_step8.png)
+    ![heap_push_step8](heap.assets/heap_push_step8.svg)
 
 === "<9>"
-    ![heap_push_step9](heap.assets/heap_push_step9.png)
+    ![heap_push_step9](heap.assets/heap_push_step9.svg)
 
 设节点总数为 $n$ ，则树的高度为 $O(\log n)$ 。由此可知，堆化操作的循环轮数最多为 $O(\log n)$ ，**元素入堆操作的时间复杂度为 $O(\log n)$** 。代码如下所示：
 
@@ -490,34 +490,34 @@
 如下图所示，**“从顶至底堆化”的操作方向与“从底至顶堆化”相反**，我们将根节点的值与其两个子节点的值进行比较，将最大的子节点与根节点交换。然后循环执行此操作，直到越过叶节点或遇到无须交换的节点时结束。
 
 === "<1>"
-    ![堆顶元素出堆步骤](heap.assets/heap_pop_step1.png)
+    ![堆顶元素出堆步骤](heap.assets/heap_pop_step1.svg)
 
 === "<2>"
-    ![heap_pop_step2](heap.assets/heap_pop_step2.png)
+    ![heap_pop_step2](heap.assets/heap_pop_step2.svg)
 
 === "<3>"
-    ![heap_pop_step3](heap.assets/heap_pop_step3.png)
+    ![heap_pop_step3](heap.assets/heap_pop_step3.svg)
 
 === "<4>"
-    ![heap_pop_step4](heap.assets/heap_pop_step4.png)
+    ![heap_pop_step4](heap.assets/heap_pop_step4.svg)
 
 === "<5>"
-    ![heap_pop_step5](heap.assets/heap_pop_step5.png)
+    ![heap_pop_step5](heap.assets/heap_pop_step5.svg)
 
 === "<6>"
-    ![heap_pop_step6](heap.assets/heap_pop_step6.png)
+    ![heap_pop_step6](heap.assets/heap_pop_step6.svg)
 
 === "<7>"
-    ![heap_pop_step7](heap.assets/heap_pop_step7.png)
+    ![heap_pop_step7](heap.assets/heap_pop_step7.svg)
 
 === "<8>"
-    ![heap_pop_step8](heap.assets/heap_pop_step8.png)
+    ![heap_pop_step8](heap.assets/heap_pop_step8.svg)
 
 === "<9>"
-    ![heap_pop_step9](heap.assets/heap_pop_step9.png)
+    ![heap_pop_step9](heap.assets/heap_pop_step9.svg)
 
 === "<10>"
-    ![heap_pop_step10](heap.assets/heap_pop_step10.png)
+    ![heap_pop_step10](heap.assets/heap_pop_step10.svg)
 
 与元素入堆操作相似，堆顶元素出堆操作的时间复杂度也为 $O(\log n)$ 。代码如下所示：
 

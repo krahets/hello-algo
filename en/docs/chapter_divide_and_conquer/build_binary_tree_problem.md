@@ -4,7 +4,7 @@
 
     Given a binary tree's preorder traversal `preorder` and inorder traversal `inorder`, reconstruct the tree and return its root node. Assume that all node values are distinct, as shown in the figure below.
 
-![Example input for reconstructing a binary tree](build_binary_tree_problem.assets/build_tree_example.png)
+![Example input for reconstructing a binary tree](build_binary_tree_problem.assets/build_tree_example.svg)
 
 ### Identifying a divide-and-conquer problem
 
@@ -29,7 +29,7 @@ Using the example above, we can divide the traversals with the steps shown in th
 2. Find the index of root value 3 in `inorder`, then use it to divide `inorder` into `[ 9 | 3 | 1 2 7 ]`.
 3. This division of `inorder` tells us that the left and right subtrees have 1 and 3 nodes, respectively, allowing us to divide `preorder` into `[ 3 | 9 | 2 1 7 ]`.
 
-![Separating subtrees in preorder and inorder traversals](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png)
+![Separating subtrees in preorder and inorder traversals](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.svg)
 
 ### Describing subtree intervals with variables
 
@@ -51,7 +51,7 @@ As shown in the table below, these variables describe the root index in `preorde
 
 The term $(m-l)$ in the right subtree's root index is the number of nodes in the left subtree. The figure below helps illustrate this.
 
-![Index intervals for the root and the left and right subtrees](build_binary_tree_problem.assets/build_tree_division_pointers.png)
+![Index intervals for the root and the left and right subtrees](build_binary_tree_problem.assets/build_tree_division_pointers.svg)
 
 ### Code implementation
 
@@ -64,35 +64,35 @@ To find $m$ efficiently, we use a hash table `hmap` mapping each element of `ino
 The figure below shows the recursive reconstruction process. Nodes are created during recursive descent, while edges (references) are established as the recursive calls return.
 
 === "<1>"
-    ![Recursive process for building a binary tree](build_binary_tree_problem.assets/built_tree_step1.png)
+    ![Recursive process for building a binary tree](build_binary_tree_problem.assets/built_tree_step1.svg)
 
 === "<2>"
-    ![built_tree_step2](build_binary_tree_problem.assets/built_tree_step2.png)
+    ![built_tree_step2](build_binary_tree_problem.assets/built_tree_step2.svg)
 
 === "<3>"
-    ![built_tree_step3](build_binary_tree_problem.assets/built_tree_step3.png)
+    ![built_tree_step3](build_binary_tree_problem.assets/built_tree_step3.svg)
 
 === "<4>"
-    ![built_tree_step4](build_binary_tree_problem.assets/built_tree_step4.png)
+    ![built_tree_step4](build_binary_tree_problem.assets/built_tree_step4.svg)
 
 === "<5>"
-    ![built_tree_step5](build_binary_tree_problem.assets/built_tree_step5.png)
+    ![built_tree_step5](build_binary_tree_problem.assets/built_tree_step5.svg)
 
 === "<6>"
-    ![built_tree_step6](build_binary_tree_problem.assets/built_tree_step6.png)
+    ![built_tree_step6](build_binary_tree_problem.assets/built_tree_step6.svg)
 
 === "<7>"
-    ![built_tree_step7](build_binary_tree_problem.assets/built_tree_step7.png)
+    ![built_tree_step7](build_binary_tree_problem.assets/built_tree_step7.svg)
 
 === "<8>"
-    ![built_tree_step8](build_binary_tree_problem.assets/built_tree_step8.png)
+    ![built_tree_step8](build_binary_tree_problem.assets/built_tree_step8.svg)
 
 === "<9>"
-    ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.png)
+    ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.svg)
 
 The figure below shows how `preorder` and `inorder` are divided in each recursive call.
 
-![Division within each recursive call](build_binary_tree_problem.assets/built_tree_overall.png)
+![Division within each recursive call](build_binary_tree_problem.assets/built_tree_overall.svg)
 
 For a tree with $n$ nodes, initializing each node (executing one call to `dfs()`) takes $O(1)$ time. **The overall time complexity is therefore $O(n)$**.
 

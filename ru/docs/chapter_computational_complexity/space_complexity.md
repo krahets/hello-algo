@@ -20,7 +20,7 @@
 
 При анализе пространственной сложности программы **обычно учитываются временные данные, пространство стека и выходные данные**, как показано на рисунке ниже.
 
-![Пространство, используемое алгоритмом](space_complexity.assets/space_types.png)
+![Пространство, используемое алгоритмом](space_complexity.assets/space_types.svg)
 
 Ниже приведен соответствующий код:
 
@@ -811,7 +811,7 @@ $$
 \end{aligned}
 $$
 
-![Распространенные типы пространственной сложности](space_complexity.assets/space_complexity_common_types.png)
+![Распространенные типы пространственной сложности](space_complexity.assets/space_complexity_common_types.svg)
 
 ### Постоянная сложность $O(1)$
 
@@ -837,7 +837,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{linear_recur}
 ```
 
-![Линейная пространственная сложность, порождаемая рекурсивной функцией](space_complexity.assets/space_complexity_recursive_linear.png)
+![Линейная пространственная сложность, порождаемая рекурсивной функцией](space_complexity.assets/space_complexity_recursive_linear.svg)
 
 ### Квадратичная сложность $O(n^2)$
 
@@ -853,7 +853,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{quadratic_recur}
 ```
 
-![Квадратичная пространственная сложность, порождаемая рекурсивной функцией](space_complexity.assets/space_complexity_recursive_quadratic.png)
+![Квадратичная пространственная сложность, порождаемая рекурсивной функцией](space_complexity.assets/space_complexity_recursive_quadratic.svg)
 
 ### Экспоненциальная сложность $O(2^n)$
 
@@ -863,7 +863,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{build_tree}
 ```
 
-![Экспоненциальная пространственная сложность, порождаемая полным бинарным деревом](space_complexity.assets/space_complexity_exponential.png)
+![Экспоненциальная пространственная сложность, порождаемая полным бинарным деревом](space_complexity.assets/space_complexity_exponential.svg)
 
 ### Логарифмическая сложность $O(\log n)$
 

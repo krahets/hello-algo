@@ -5,7 +5,7 @@
 - <u>最小ヒープ（min heap）</u>：任意のノードの値が、その子の値以下（$\leq$）です。
 - <u>最大ヒープ（max heap）</u>：任意のノードの値が、その子の値以上（$\geq$）です。
 
-![最小ヒープと最大ヒープ](heap.assets/min_heap_and_max_heap.png)
+![最小ヒープと最大ヒープ](heap.assets/min_heap_and_max_heap.svg)
 
 ヒープは完全二分木の特殊な場合なので、次の特徴を持ちます。
 
@@ -424,7 +424,7 @@
 
 下図のように、インデックス $i$ の左の子は $2i + 1$、右の子は $2i + 2$、親は $(i - 1) / 2$（切り捨ての整数除算）です。インデックスが範囲外なら、空のノード、またはノードが存在しないことを表します。
 
-![ヒープの表現と格納](heap.assets/representation_of_heap.png)
+![ヒープの表現と格納](heap.assets/representation_of_heap.svg)
 
 この対応式を関数にまとめておくと、後で使いやすくなります。
 
@@ -447,31 +447,31 @@
 挿入したノードから、**下から上へヒープ化します**。下図のように、挿入したノードと親の値を比較し、挿入したノードのほうが大きければ交換します。同じ操作を繰り返して下から上へ修復し、根を越えるか、交換が不要なノードに達したら終了します。
 
 === "<1>"
-    ![ヒープへの挿入の手順](heap.assets/heap_push_step1.png)
+    ![ヒープへの挿入の手順](heap.assets/heap_push_step1.svg)
 
 === "<2>"
-    ![ヒープへの挿入の手順 2](heap.assets/heap_push_step2.png)
+    ![ヒープへの挿入の手順 2](heap.assets/heap_push_step2.svg)
 
 === "<3>"
-    ![ヒープへの挿入の手順 3](heap.assets/heap_push_step3.png)
+    ![ヒープへの挿入の手順 3](heap.assets/heap_push_step3.svg)
 
 === "<4>"
-    ![ヒープへの挿入の手順 4](heap.assets/heap_push_step4.png)
+    ![ヒープへの挿入の手順 4](heap.assets/heap_push_step4.svg)
 
 === "<5>"
-    ![ヒープへの挿入の手順 5](heap.assets/heap_push_step5.png)
+    ![ヒープへの挿入の手順 5](heap.assets/heap_push_step5.svg)
 
 === "<6>"
-    ![ヒープへの挿入の手順 6](heap.assets/heap_push_step6.png)
+    ![ヒープへの挿入の手順 6](heap.assets/heap_push_step6.svg)
 
 === "<7>"
-    ![ヒープへの挿入の手順 7](heap.assets/heap_push_step7.png)
+    ![ヒープへの挿入の手順 7](heap.assets/heap_push_step7.svg)
 
 === "<8>"
-    ![ヒープへの挿入の手順 8](heap.assets/heap_push_step8.png)
+    ![ヒープへの挿入の手順 8](heap.assets/heap_push_step8.svg)
 
 === "<9>"
-    ![ヒープへの挿入の手順 9](heap.assets/heap_push_step9.png)
+    ![ヒープへの挿入の手順 9](heap.assets/heap_push_step9.svg)
 
 ノード総数を $n$ とすると、木の高さは $O(\log n)$ です。したがって、ヒープ化の反復は最大 $O(\log n)$ 回で、**挿入の時間計算量は $O(\log n)$** です。コードは次のとおりです。
 
@@ -490,34 +490,34 @@
 下図のように、**上から下へのヒープ化は、下から上へのヒープ化とは逆方向の操作です**。根の値と二つの子の値を比較し、最大の子と根を交換します。これを繰り返し、葉を越えるか交換が不要なノードに達したら終了します。
 
 === "<1>"
-    ![ヒープの先頭要素を取り出す手順](heap.assets/heap_pop_step1.png)
+    ![ヒープの先頭要素を取り出す手順](heap.assets/heap_pop_step1.svg)
 
 === "<2>"
-    ![ヒープからの取り出しの手順 2](heap.assets/heap_pop_step2.png)
+    ![ヒープからの取り出しの手順 2](heap.assets/heap_pop_step2.svg)
 
 === "<3>"
-    ![ヒープからの取り出しの手順 3](heap.assets/heap_pop_step3.png)
+    ![ヒープからの取り出しの手順 3](heap.assets/heap_pop_step3.svg)
 
 === "<4>"
-    ![ヒープからの取り出しの手順 4](heap.assets/heap_pop_step4.png)
+    ![ヒープからの取り出しの手順 4](heap.assets/heap_pop_step4.svg)
 
 === "<5>"
-    ![ヒープからの取り出しの手順 5](heap.assets/heap_pop_step5.png)
+    ![ヒープからの取り出しの手順 5](heap.assets/heap_pop_step5.svg)
 
 === "<6>"
-    ![ヒープからの取り出しの手順 6](heap.assets/heap_pop_step6.png)
+    ![ヒープからの取り出しの手順 6](heap.assets/heap_pop_step6.svg)
 
 === "<7>"
-    ![ヒープからの取り出しの手順 7](heap.assets/heap_pop_step7.png)
+    ![ヒープからの取り出しの手順 7](heap.assets/heap_pop_step7.svg)
 
 === "<8>"
-    ![ヒープからの取り出しの手順 8](heap.assets/heap_pop_step8.png)
+    ![ヒープからの取り出しの手順 8](heap.assets/heap_pop_step8.svg)
 
 === "<9>"
-    ![ヒープからの取り出しの手順 9](heap.assets/heap_pop_step9.png)
+    ![ヒープからの取り出しの手順 9](heap.assets/heap_pop_step9.svg)
 
 === "<10>"
-    ![ヒープからの取り出しの手順 10](heap.assets/heap_pop_step10.png)
+    ![ヒープからの取り出しの手順 10](heap.assets/heap_pop_step10.svg)
 
 挿入と同様に、先頭要素の取り出しの時間計算量も $O(\log n)$ です。コードは次のとおりです。
 

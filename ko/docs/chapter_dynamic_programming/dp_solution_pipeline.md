@@ -37,7 +37,7 @@
 
 아래 그림의 격자에서는 최소 경로 합이 $13$이다.
 
-![최소 경로 합 예시 데이터](dp_solution_pipeline.assets/min_path_sum_example.png)
+![최소 경로 합 예시 데이터](dp_solution_pipeline.assets/min_path_sum_example.svg)
 
 **1단계: 매 차례의 결정을 생각하고 상태를 정의하여 $dp$ 테이블을 얻는다**
 
@@ -47,7 +47,7 @@
 
 이로써 아래 그림처럼 입력 격자 $grid$와 크기가 같은 2차원 $dp$ 행렬을 얻는다.
 
-![상태 정의와 dp 테이블](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.png)
+![상태 정의와 dp 테이블](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.svg)
 
 !!! note "참고"
 
@@ -65,7 +65,7 @@ $$
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 $$
 
-![최적 부분 구조와 상태 전이 식](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.png)
+![최적 부분 구조와 상태 전이 식](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.svg)
 
 !!! note "참고"
 
@@ -79,7 +79,7 @@ $$
 
 아래 그림과 같이 각 칸은 왼쪽 칸과 위쪽 칸에서 전이되므로, 바깥 반복문은 행을, 안쪽 반복문은 열을 순회한다.
 
-![경계 조건과 상태 전이 순서](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.png)
+![경계 조건과 상태 전이 순서](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.svg)
 
 !!! note "참고"
 
@@ -108,7 +108,7 @@ $$
 
 중복 부분 문제가 생기는 근본적인 이유는 **왼쪽 위에서 어떤 칸에 도달하는 경로가 여러 개 있기 때문**이다.
 
-![완전 탐색의 재귀 트리](dp_solution_pipeline.assets/min_path_sum_dfs.png)
+![완전 탐색의 재귀 트리](dp_solution_pipeline.assets/min_path_sum_dfs.svg)
 
 각 상태에는 아래와 오른쪽이라는 두 선택이 있고, 왼쪽 위에서 오른쪽 아래까지는 총 $m + n - 2$ 번 이동해야 한다. 따라서 최악의 시간 복잡도는 $O(2^{m + n})$이며, $n$과 $m$은 각각 격자의 행 수와 열 수다. 이 계산은 경계 근처의 상황을 고려하지 않았다. 격자 경계에서는 선택이 하나뿐이므로 실제 경로 수는 이보다 적다.
 
@@ -122,7 +122,7 @@ $$
 
 아래 그림과 같이 메모이제이션을 도입하면 모든 부분 문제의 해를 한 번만 계산한다. 따라서 시간 복잡도는 전체 상태 수, 즉 격자 크기인 $O(nm)$에 의해 결정된다.
 
-![메모이제이션을 이용한 탐색의 재귀 트리](dp_solution_pipeline.assets/min_path_sum_dfs_mem.png)
+![메모이제이션을 이용한 탐색의 재귀 트리](dp_solution_pipeline.assets/min_path_sum_dfs_mem.svg)
 
 ### 방법 3: 동적 계획법
 
@@ -137,40 +137,40 @@ $$
 배열 `dp`의 크기는 $n \times m$이므로 **공간 복잡도는 $O(nm)$이다**.
 
 === "<1>"
-    ![최소 경로 합의 동적 계획법 과정](dp_solution_pipeline.assets/min_path_sum_dp_step1.png)
+    ![최소 경로 합의 동적 계획법 과정](dp_solution_pipeline.assets/min_path_sum_dp_step1.svg)
 
 === "<2>"
-    ![최소 경로 합 동적 계획법 2단계](dp_solution_pipeline.assets/min_path_sum_dp_step2.png)
+    ![최소 경로 합 동적 계획법 2단계](dp_solution_pipeline.assets/min_path_sum_dp_step2.svg)
 
 === "<3>"
-    ![최소 경로 합 동적 계획법 3단계](dp_solution_pipeline.assets/min_path_sum_dp_step3.png)
+    ![최소 경로 합 동적 계획법 3단계](dp_solution_pipeline.assets/min_path_sum_dp_step3.svg)
 
 === "<4>"
-    ![최소 경로 합 동적 계획법 4단계](dp_solution_pipeline.assets/min_path_sum_dp_step4.png)
+    ![최소 경로 합 동적 계획법 4단계](dp_solution_pipeline.assets/min_path_sum_dp_step4.svg)
 
 === "<5>"
-    ![최소 경로 합 동적 계획법 5단계](dp_solution_pipeline.assets/min_path_sum_dp_step5.png)
+    ![최소 경로 합 동적 계획법 5단계](dp_solution_pipeline.assets/min_path_sum_dp_step5.svg)
 
 === "<6>"
-    ![최소 경로 합 동적 계획법 6단계](dp_solution_pipeline.assets/min_path_sum_dp_step6.png)
+    ![최소 경로 합 동적 계획법 6단계](dp_solution_pipeline.assets/min_path_sum_dp_step6.svg)
 
 === "<7>"
-    ![최소 경로 합 동적 계획법 7단계](dp_solution_pipeline.assets/min_path_sum_dp_step7.png)
+    ![최소 경로 합 동적 계획법 7단계](dp_solution_pipeline.assets/min_path_sum_dp_step7.svg)
 
 === "<8>"
-    ![최소 경로 합 동적 계획법 8단계](dp_solution_pipeline.assets/min_path_sum_dp_step8.png)
+    ![최소 경로 합 동적 계획법 8단계](dp_solution_pipeline.assets/min_path_sum_dp_step8.svg)
 
 === "<9>"
-    ![최소 경로 합 동적 계획법 9단계](dp_solution_pipeline.assets/min_path_sum_dp_step9.png)
+    ![최소 경로 합 동적 계획법 9단계](dp_solution_pipeline.assets/min_path_sum_dp_step9.svg)
 
 === "<10>"
-    ![최소 경로 합 동적 계획법 10단계](dp_solution_pipeline.assets/min_path_sum_dp_step10.png)
+    ![최소 경로 합 동적 계획법 10단계](dp_solution_pipeline.assets/min_path_sum_dp_step10.svg)
 
 === "<11>"
-    ![최소 경로 합 동적 계획법 11단계](dp_solution_pipeline.assets/min_path_sum_dp_step11.png)
+    ![최소 경로 합 동적 계획법 11단계](dp_solution_pipeline.assets/min_path_sum_dp_step11.svg)
 
 === "<12>"
-    ![최소 경로 합 동적 계획법 12단계](dp_solution_pipeline.assets/min_path_sum_dp_step12.png)
+    ![최소 경로 합 동적 계획법 12단계](dp_solution_pipeline.assets/min_path_sum_dp_step12.svg)
 
 ### 공간 최적화
 

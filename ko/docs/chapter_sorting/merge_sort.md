@@ -5,7 +5,7 @@
 1. **분할 단계**: 재귀적으로 배열을 계속 중간에서 나누어, 긴 배열을 정렬하는 문제를 짧은 배열을 정렬하는 문제로 바꾼다.
 2. **병합 단계**: 부분 배열의 길이가 1이 되면 분할을 멈추고 병합을 시작한다. 정렬된 짧은 왼쪽 배열과 오른쪽 배열을 하나의 더 긴 정렬된 배열로 계속 합치며, 끝날 때까지 반복한다.
 
-![병합 정렬의 분할 단계와 병합 단계](merge_sort.assets/merge_sort_overview.png)
+![병합 정렬의 분할 단계와 병합 단계](merge_sort.assets/merge_sort_overview.svg)
 
 ## 알고리즘 과정
 
@@ -17,34 +17,34 @@
 '병합 단계'에서는 아래에서 위로 왼쪽 부분 배열과 오른쪽 부분 배열을 하나의 정렬된 배열로 합친다. 길이가 1인 부분 배열부터 병합하므로, 병합 단계의 각 부분 배열은 이미 정렬되어 있다.
 
 === "<1>"
-    ![병합 정렬 단계](merge_sort.assets/merge_sort_step1.png)
+    ![병합 정렬 단계](merge_sort.assets/merge_sort_step1.svg)
 
 === "<2>"
-    ![병합 정렬 2단계](merge_sort.assets/merge_sort_step2.png)
+    ![병합 정렬 2단계](merge_sort.assets/merge_sort_step2.svg)
 
 === "<3>"
-    ![병합 정렬 3단계](merge_sort.assets/merge_sort_step3.png)
+    ![병합 정렬 3단계](merge_sort.assets/merge_sort_step3.svg)
 
 === "<4>"
-    ![병합 정렬 4단계](merge_sort.assets/merge_sort_step4.png)
+    ![병합 정렬 4단계](merge_sort.assets/merge_sort_step4.svg)
 
 === "<5>"
-    ![병합 정렬 5단계](merge_sort.assets/merge_sort_step5.png)
+    ![병합 정렬 5단계](merge_sort.assets/merge_sort_step5.svg)
 
 === "<6>"
-    ![병합 정렬 6단계](merge_sort.assets/merge_sort_step6.png)
+    ![병합 정렬 6단계](merge_sort.assets/merge_sort_step6.svg)
 
 === "<7>"
-    ![병합 정렬 7단계](merge_sort.assets/merge_sort_step7.png)
+    ![병합 정렬 7단계](merge_sort.assets/merge_sort_step7.svg)
 
 === "<8>"
-    ![병합 정렬 8단계](merge_sort.assets/merge_sort_step8.png)
+    ![병합 정렬 8단계](merge_sort.assets/merge_sort_step8.svg)
 
 === "<9>"
-    ![병합 정렬 9단계](merge_sort.assets/merge_sort_step9.png)
+    ![병합 정렬 9단계](merge_sort.assets/merge_sort_step9.svg)
 
 === "<10>"
-    ![병합 정렬 10단계](merge_sort.assets/merge_sort_step10.png)
+    ![병합 정렬 10단계](merge_sort.assets/merge_sort_step10.svg)
 
 병합 정렬의 재귀 순서는 이진 트리의 후위 순회와 같다는 것을 알 수 있다.
 

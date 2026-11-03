@@ -6,7 +6,7 @@
 
 <u>ASCII 碼</u>是最早出現的字元集，其全稱為 American Standard Code for Information Interchange（美國標準資訊交換程式碼）。它使用 7 位二進位制數（一個位元組的低 7 位）表示一個字元，最多能夠表示 128 個不同的字元。如下圖所示，ASCII 碼包括英文字母的大小寫、數字 0 ~ 9、一些標點符號，以及一些控制字元（如換行符和製表符）。
 
-![ASCII 碼](character_encoding.assets/ascii_table.png)
+![ASCII 碼](character_encoding.assets/ascii_table.svg)
 
 然而，**ASCII 碼僅能夠表示英文**。隨著計算機的全球化，誕生了一種能夠表示更多語言的 <u>EASCII</u> 字元集。它在 ASCII 的 7 位基礎上擴展到 8 位，能夠表示 256 個不同的字元。
 
@@ -30,7 +30,7 @@ Unicode 作為一種通用字元集，本質上是給每個字元分配唯一的
 
 對於以上問題，**一種直接的解決方案是將所有字元儲存為等長的編碼**。如下圖所示，“Hello”中的每個字元佔用 1 位元組，“演算法”中的每個字元佔用 2 位元組。我們可以透過高位填 0 將“Hello 演算法”中的所有字元都編碼為 2 位元組長度。這樣系統就可以每隔 2 位元組解析一個字元，恢復這個短語的內容了。
 
-![Unicode 編碼示例](character_encoding.assets/unicode_hello_algo.png)
+![Unicode 編碼示例](character_encoding.assets/unicode_hello_algo.svg)
 
 然而 ASCII 碼已經向我們證明，編碼英文只需 1 位元組。若採用上述方案，英文文字佔用空間的大小將會是 ASCII 編碼下的兩倍，非常浪費記憶體空間。因此，我們需要一種更加高效的 Unicode 編碼方法。
 
@@ -49,7 +49,7 @@ UTF-8 的編碼規則並不複雜，分為以下兩種情況。
 
 之所以將 $10$ 當作校驗符，是因為在 UTF-8 編碼規則下，不可能有字元的最高兩位是 $10$ 。這個結論可以用反證法來證明：假設一個字元的最高兩位是 $10$ ，說明該字元的長度為 $1$ ，對應 ASCII 碼。而 ASCII 碼的最高位應該是 $0$ ，與假設矛盾。
 
-![UTF-8 編碼示例](character_encoding.assets/utf-8_hello_algo.png)
+![UTF-8 編碼示例](character_encoding.assets/utf-8_hello_algo.svg)
 
 除了 UTF-8 之外，常見的編碼方式還包括以下兩種。
 

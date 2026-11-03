@@ -4,7 +4,7 @@
 
 아래 그림과 같이 학생 $n$명에게 각각 ‘이름’과 ‘학번’이라는 두 데이터가 있다고 하자. ‘학번을 입력하면 해당 이름을 반환하는’ 조회 기능을 구현하려면 그림의 해시 테이블을 사용할 수 있다.
 
-![해시 테이블의 추상적 표현](hash_map.assets/hash_table_lookup.png)
+![해시 테이블의 추상적 표현](hash_map.assets/hash_table_lookup.svg)
 
 해시 테이블 외에 배열과 연결 리스트로도 조회 기능을 구현할 수 있다. 효율 비교는 아래 표와 같다.
 
@@ -557,7 +557,7 @@ index = hash(key) % capacity
 
 배열 길이가 `capacity = 100`이고 해시 알고리즘이 `hash(key) = key`이면, 해시 함수는 `key % 100`이다. 아래 그림은 학번을 `key`, 이름을 `value`로 삼아 해시 함수의 작동 원리를 보여 준다.
 
-![해시 함수의 작동 원리](hash_map.assets/hash_function.png)
+![해시 함수의 작동 원리](hash_map.assets/hash_function.svg)
 
 다음 코드는 간단한 해시 테이블을 구현한다. `key`와 `value`를 `Pair` 클래스로 묶어 키-값 쌍을 표현한다.
 
@@ -578,13 +578,13 @@ index = hash(key) % capacity
 
 아래 그림에서 두 학번이 같은 이름을 가리키는데, 이는 명백히 잘못되었다. 이처럼 여러 입력이 같은 출력에 대응하는 현상을 <u>해시 충돌(hash collision)</u>이라고 한다.
 
-![해시 충돌의 예](hash_map.assets/hash_collision.png)
+![해시 충돌의 예](hash_map.assets/hash_collision.svg)
 
 해시 테이블의 용량 $n$이 커질수록 여러 `key`가 같은 버킷에 들어갈 확률은 낮아지고 충돌도 줄어든다. 따라서 **해시 테이블의 용량을 늘려 해시 충돌을 줄일 수 있다**.
 
 아래 그림에서 확장 전에는 키-값 쌍 `(136, A)`와 `(236, D)`가 충돌하지만 확장 후에는 충돌이 사라진다.
 
-![해시 테이블의 용량 확장](hash_map.assets/hash_table_reshash.png)
+![해시 테이블의 용량 확장](hash_map.assets/hash_table_reshash.svg)
 
 배열 확장과 마찬가지로 해시 테이블을 확장하려면 모든 키-값 쌍을 기존 테이블에서 새 테이블로 옮겨야 하므로 시간이 많이 든다. 또한 용량 `capacity`가 바뀌므로 해시 함수로 모든 키-값 쌍의 저장 위치를 다시 계산해야 하며, 이는 확장 비용을 더욱 늘린다. 따라서 프로그래밍 언어는 보통 충분히 큰 용량을 미리 확보하여 잦은 확장을 방지한다.
 

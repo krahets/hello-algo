@@ -20,7 +20,7 @@
 
 在分析一段程式的空間複雜度時，**我們通常統計暫存資料、堆疊幀空間和輸出資料三部分**，如下圖所示。
 
-![演算法使用的相關空間](space_complexity.assets/space_types.png)
+![演算法使用的相關空間](space_complexity.assets/space_types.svg)
 
 相關程式碼如下：
 
@@ -811,7 +811,7 @@ $$
 \end{aligned}
 $$
 
-![常見的空間複雜度型別](space_complexity.assets/space_complexity_common_types.png)
+![常見的空間複雜度型別](space_complexity.assets/space_complexity_common_types.svg)
 
 ### 常數階 $O(1)$
 
@@ -837,7 +837,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{linear_recur}
 ```
 
-![遞迴函式產生的線性階空間複雜度](space_complexity.assets/space_complexity_recursive_linear.png)
+![遞迴函式產生的線性階空間複雜度](space_complexity.assets/space_complexity_recursive_linear.svg)
 
 ### 平方階 $O(n^2)$
 
@@ -853,7 +853,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{quadratic_recur}
 ```
 
-![遞迴函式產生的平方階空間複雜度](space_complexity.assets/space_complexity_recursive_quadratic.png)
+![遞迴函式產生的平方階空間複雜度](space_complexity.assets/space_complexity_recursive_quadratic.svg)
 
 ### 指數階 $O(2^n)$
 
@@ -863,7 +863,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{build_tree}
 ```
 
-![滿二元樹產生的指數階空間複雜度](space_complexity.assets/space_complexity_exponential.png)
+![滿二元樹產生的指數階空間複雜度](space_complexity.assets/space_complexity_exponential.svg)
 
 ### 對數階 $O(\log n)$
 

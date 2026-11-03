@@ -10,7 +10,7 @@ We will start with a classic example, give a brute-force backtracking solution, 
 
 As shown in the figure below, a staircase with $3$ steps has $3$ possible ways to reach the top.
 
-![Number of ways to reach step 3](intro_to_dynamic_programming.assets/climbing_stairs_example.png)
+![Number of ways to reach step 3](intro_to_dynamic_programming.assets/climbing_stairs_example.svg)
 
 The goal is to count solutions, so **we can use backtracking to enumerate every possibility**. View climbing as a sequence of choices: starting from the ground, choose to climb $1$ or $2$ steps each time. Add $1$ to the count whenever we reach the top, and prune any branch that goes beyond it. The code is as follows:
 
@@ -38,7 +38,7 @@ $$
 
 Thus, the subproblems are linked by a recurrence: **the solution to the original problem can be constructed from subproblem solutions**. The figure below illustrates this relationship.
 
-![Recurrence for the number of ways](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png)
+![Recurrence for the number of ways](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.svg)
 
 The recurrence gives a brute-force search solution. Starting at $dp[n]$, **recursively express a larger problem as the sum of two smaller ones** until reaching $dp[1]$ or $dp[2]$. Their solutions are known: $dp[1] = 1$ and $dp[2] = 2$, meaning steps $1$ and $2$ can be reached in $1$ and $2$ ways, respectively.
 
@@ -50,7 +50,7 @@ Like the standard backtracking code, the following code performs depth-first sea
 
 The figure below shows the recursion tree for brute-force search. For $dp[n]$, its depth is $n$, and the time complexity is $O(2^n)$. Exponential growth is explosive, so a relatively large $n$ leads to a very long wait.
 
-![Recursion tree for climbing stairs](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png)
+![Recursion tree for climbing stairs](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.svg)
 
 As the figure above shows, **overlapping subproblems cause the exponential time complexity**. For example, $dp[9]$ splits into $dp[8]$ and $dp[7]$, while $dp[8]$ splits into $dp[7]$ and $dp[6]$. Both contain $dp[7]$.
 
@@ -71,7 +71,7 @@ The code is as follows:
 
 As shown in the figure below, **memoization makes every overlapping subproblem require only one computation, reducing the time complexity to $O(n)$**: a major improvement.
 
-![Recursion tree for memoized search](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png)
+![Recursion tree for memoized search](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.svg)
 
 ## Method 3: Dynamic programming
 
@@ -87,7 +87,7 @@ Because this dynamic programming process does not backtrack, it needs only itera
 
 The figure below traces the code's execution.
 
-![Dynamic programming for climbing stairs](intro_to_dynamic_programming.assets/climbing_stairs_dp.png)
+![Dynamic programming for climbing stairs](intro_to_dynamic_programming.assets/climbing_stairs_dp.svg)
 
 Like backtracking, dynamic programming uses states to represent stages of solving a problem. Each state corresponds to a subproblem and its locally optimal solution. For climbing stairs, the state is the current step number $i$.
 

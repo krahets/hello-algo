@@ -5,7 +5,7 @@
 - <u>Минимальная куча (min heap)</u>: значение любого узла $\leq$ значения его дочерних узлов.
 - <u>Максимальная куча (max heap)</u>: значение любого узла $\geq$ значения его дочерних узлов.
 
-![Минимальная куча и максимальная куча](heap.assets/min_heap_and_max_heap.png)
+![Минимальная куча и максимальная куча](heap.assets/min_heap_and_max_heap.svg)
 
 Куча, являясь частным случаем полного двоичного дерева, обладает следующими свойствами.
 
@@ -424,7 +424,7 @@
 
 Как показано на рисунке ниже, для заданного индекса $i$ индекс левого дочернего узла равен $2i + 1$ , правого дочернего узла - $2i + 2$ , а родительского узла - $(i - 1) / 2$ с округлением вниз. Если индекс выходит за допустимые границы, это означает пустой узел или отсутствие узла.
 
-![Представление и хранение кучи](heap.assets/representation_of_heap.png)
+![Представление и хранение кучи](heap.assets/representation_of_heap.svg)
 
 Мы можем инкапсулировать формулы отображения индексов в функции, чтобы потом было удобнее ими пользоваться:
 
@@ -447,31 +447,31 @@
 Рассмотрим ситуацию, когда упорядочивание выполняется **снизу вверх**, начиная от только что вставленного узла. Как показано на рисунке ниже, мы сравниваем значение вставленного узла со значением его родителя. Если вставленный узел больше, то меняем их местами. Затем продолжаем выполнять ту же операцию и последовательно восстанавливать корректность всех узлов по пути снизу вверх, пока не выйдем за корень или не встретим узел, для которого обмен не требуется.
 
 === "<1>"
-    ![Шаги добавления элемента в кучу](heap.assets/heap_push_step1.png)
+    ![Шаги добавления элемента в кучу](heap.assets/heap_push_step1.svg)
 
 === "<2>"
-    ![heap_push_step2](heap.assets/heap_push_step2.png)
+    ![heap_push_step2](heap.assets/heap_push_step2.svg)
 
 === "<3>"
-    ![heap_push_step3](heap.assets/heap_push_step3.png)
+    ![heap_push_step3](heap.assets/heap_push_step3.svg)
 
 === "<4>"
-    ![heap_push_step4](heap.assets/heap_push_step4.png)
+    ![heap_push_step4](heap.assets/heap_push_step4.svg)
 
 === "<5>"
-    ![heap_push_step5](heap.assets/heap_push_step5.png)
+    ![heap_push_step5](heap.assets/heap_push_step5.svg)
 
 === "<6>"
-    ![heap_push_step6](heap.assets/heap_push_step6.png)
+    ![heap_push_step6](heap.assets/heap_push_step6.svg)
 
 === "<7>"
-    ![heap_push_step7](heap.assets/heap_push_step7.png)
+    ![heap_push_step7](heap.assets/heap_push_step7.svg)
 
 === "<8>"
-    ![heap_push_step8](heap.assets/heap_push_step8.png)
+    ![heap_push_step8](heap.assets/heap_push_step8.svg)
 
 === "<9>"
-    ![heap_push_step9](heap.assets/heap_push_step9.png)
+    ![heap_push_step9](heap.assets/heap_push_step9.svg)
 
 Пусть общее число узлов равно $n$ , тогда высота дерева равна $O(\log n)$ . Следовательно, максимальное число итераций операции упорядочивания кучи тоже не превышает $O(\log n)$ . Отсюда **временная сложность добавления элемента в кучу равна $O(\log n)$** . Код приведен ниже:
 
@@ -490,34 +490,34 @@
 Как показано на рисунке ниже, **направление операции упорядочивания кучи сверху вниз противоположно операции упорядочивания кучи снизу вверх**. Мы сравниваем значение корневого узла со значениями двух дочерних узлов, выбираем больший дочерний узел и меняем его местами с корневым узлом. Затем циклически повторяем ту же операцию, пока не выйдем за листовой узел или не встретим узел, который уже не требует обмена.
 
 === "<1>"
-    ![Шаги извлечения элемента с вершины кучи](heap.assets/heap_pop_step1.png)
+    ![Шаги извлечения элемента с вершины кучи](heap.assets/heap_pop_step1.svg)
 
 === "<2>"
-    ![heap_pop_step2](heap.assets/heap_pop_step2.png)
+    ![heap_pop_step2](heap.assets/heap_pop_step2.svg)
 
 === "<3>"
-    ![heap_pop_step3](heap.assets/heap_pop_step3.png)
+    ![heap_pop_step3](heap.assets/heap_pop_step3.svg)
 
 === "<4>"
-    ![heap_pop_step4](heap.assets/heap_pop_step4.png)
+    ![heap_pop_step4](heap.assets/heap_pop_step4.svg)
 
 === "<5>"
-    ![heap_pop_step5](heap.assets/heap_pop_step5.png)
+    ![heap_pop_step5](heap.assets/heap_pop_step5.svg)
 
 === "<6>"
-    ![heap_pop_step6](heap.assets/heap_pop_step6.png)
+    ![heap_pop_step6](heap.assets/heap_pop_step6.svg)
 
 === "<7>"
-    ![heap_pop_step7](heap.assets/heap_pop_step7.png)
+    ![heap_pop_step7](heap.assets/heap_pop_step7.svg)
 
 === "<8>"
-    ![heap_pop_step8](heap.assets/heap_pop_step8.png)
+    ![heap_pop_step8](heap.assets/heap_pop_step8.svg)
 
 === "<9>"
-    ![heap_pop_step9](heap.assets/heap_pop_step9.png)
+    ![heap_pop_step9](heap.assets/heap_pop_step9.svg)
 
 === "<10>"
-    ![heap_pop_step10](heap.assets/heap_pop_step10.png)
+    ![heap_pop_step10](heap.assets/heap_pop_step10.svg)
 
 Как и операция добавления в кучу, операция извлечения элемента с вершины кучи также имеет временную сложность $O(\log n)$ . Код приведен ниже:
 

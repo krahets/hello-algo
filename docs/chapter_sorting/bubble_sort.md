@@ -5,25 +5,25 @@
 如下图所示，冒泡过程可以利用元素交换操作来模拟：从数组最左端开始向右遍历，依次比较相邻元素大小，如果“左元素 > 右元素”就交换二者。遍历完成后，最大的元素会被移动到数组的最右端。
 
 === "<1>"
-    ![利用元素交换操作模拟冒泡](bubble_sort.assets/bubble_operation_step1.png)
+    ![利用元素交换操作模拟冒泡](bubble_sort.assets/bubble_operation_step1.svg)
 
 === "<2>"
-    ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.png)
+    ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.svg)
 
 === "<3>"
-    ![bubble_operation_step3](bubble_sort.assets/bubble_operation_step3.png)
+    ![bubble_operation_step3](bubble_sort.assets/bubble_operation_step3.svg)
 
 === "<4>"
-    ![bubble_operation_step4](bubble_sort.assets/bubble_operation_step4.png)
+    ![bubble_operation_step4](bubble_sort.assets/bubble_operation_step4.svg)
 
 === "<5>"
-    ![bubble_operation_step5](bubble_sort.assets/bubble_operation_step5.png)
+    ![bubble_operation_step5](bubble_sort.assets/bubble_operation_step5.svg)
 
 === "<6>"
-    ![bubble_operation_step6](bubble_sort.assets/bubble_operation_step6.png)
+    ![bubble_operation_step6](bubble_sort.assets/bubble_operation_step6.svg)
 
 === "<7>"
-    ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.png)
+    ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.svg)
 
 ## 算法流程
 
@@ -34,7 +34,7 @@
 3. 以此类推，经过 $n - 1$ 轮“冒泡”后，**前 $n - 1$ 大的元素都被交换至正确位置**。
 4. 仅剩的一个元素必定是最小元素，无须排序，因此数组排序完成。
 
-![冒泡排序流程](bubble_sort.assets/bubble_sort_overview.png)
+![冒泡排序流程](bubble_sort.assets/bubble_sort_overview.svg)
 
 示例代码如下：
 

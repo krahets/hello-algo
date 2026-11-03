@@ -2,7 +2,7 @@
 
 В обычной очереди мы можем удалять элементы только из головы и добавлять их только в хвост. Как показано на рисунке ниже, <u>двусторонняя очередь (double-ended queue)</u> обеспечивает большую гибкость и позволяет выполнять добавление и удаление элементов как с головы, так и с хвоста.
 
-![Операции двусторонней очереди](deque.assets/deque_operations.png)
+![Операции двусторонней очереди](deque.assets/deque_operations.svg)
 
 ## Основные операции с двусторонней очередью
 
@@ -400,19 +400,19 @@
 Как показано на рисунке ниже, мы рассматриваем головной и хвостовой узлы двусвязного списка как голову и хвост двусторонней очереди и одновременно реализуем функции добавления и удаления узлов с обеих сторон.
 
 === "<1>"
-    ![Операции enqueue и dequeue для двусторонней очереди на связном списке](deque.assets/linkedlist_deque_step1.png)
+    ![Операции enqueue и dequeue для двусторонней очереди на связном списке](deque.assets/linkedlist_deque_step1.svg)
 
 === "<2>"
-    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.png)
+    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.svg)
 
 === "<3>"
-    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.png)
+    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.svg)
 
 === "<4>"
-    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.png)
+    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.svg)
 
 === "<5>"
-    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.png)
+    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.svg)
 
 Код реализации приведен ниже:
 
@@ -425,19 +425,19 @@
 Как показано на рисунке ниже, аналогично реализации обычной очереди на массиве мы также можем использовать кольцевой массив для реализации двусторонней очереди.
 
 === "<1>"
-    ![Операции enqueue и dequeue для двусторонней очереди на массиве](deque.assets/array_deque_step1.png)
+    ![Операции enqueue и dequeue для двусторонней очереди на массиве](deque.assets/array_deque_step1.svg)
 
 === "<2>"
-    ![array_deque_push_last](deque.assets/array_deque_step2_push_last.png)
+    ![array_deque_push_last](deque.assets/array_deque_step2_push_last.svg)
 
 === "<3>"
-    ![array_deque_push_first](deque.assets/array_deque_step3_push_first.png)
+    ![array_deque_push_first](deque.assets/array_deque_step3_push_first.svg)
 
 === "<4>"
-    ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.png)
+    ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.svg)
 
 === "<5>"
-    ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.png)
+    ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.svg)
 
 На основе реализации обычной очереди нужно лишь добавить методы добавления в голову очереди и удаления из хвоста:
 

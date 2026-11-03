@@ -10,7 +10,7 @@ In algorithm problems, **we often reduce time complexity by replacing linear sea
 
 Consider examining every possible pair directly. As shown below, use two nested loops and check whether the two integers sum to `target` each time. If they do, return their indices.
 
-![Solving two sum with linear search](replace_linear_by_hashing.assets/two_sum_brute_force.png)
+![Solving two sum with linear search](replace_linear_by_hashing.assets/two_sum_brute_force.svg)
 
 The code is as follows:
 
@@ -28,13 +28,13 @@ Now use a hash table whose keys are array elements and whose values are their in
 2. Add the key-value pair consisting of `nums[i]` and index `i` to the hash table.
 
 === "<1>"
-    ![Solving two sum with an auxiliary hash table](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png)
+    ![Solving two sum with an auxiliary hash table](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg)
 
 === "<2>"
-    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.png)
+    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg)
 
 === "<3>"
-    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.png)
+    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg)
 
 The implementation below requires only one loop:
 

@@ -25,7 +25,7 @@
 
 탐색 과정에서는 선택 순서를 구분하지만 부분 집합에서는 구분하지 않기 때문이다. 아래 그림에서 $4$ 다음 $5$를 고르는 것과 $5$ 다음 $4$를 고르는 것은 서로 다른 가지이지만 같은 부분 집합에 대응한다.
 
-![부분 집합 탐색과 범위 초과 가지치기](subset_sum_problem.assets/subset_sum_i_naive.png)
+![부분 집합 탐색과 범위 초과 가지치기](subset_sum_problem.assets/subset_sum_i_naive.svg)
 
 중복 부분 집합을 제거하는 **직접적인 방법은 결과 리스트에서 중복을 제거하는 것**이다. 하지만 다음 두 이유로 매우 비효율적이다.
 
@@ -45,7 +45,7 @@
 2. 첫 두 차례에 $4$와 $5$를 선택하여 부분 집합 $[4, 5, \dots]$를 만든다.
 3. 첫 번째에 $5$를 선택한다면 **두 번째에서는 $3$과 $4$를 건너뛰어야 한다**. $[5, 3, \dots]$와 $[5, 4, \dots]$는 `1.` 단계와 `2.` 단계의 부분 집합과 완전히 중복되기 때문이다.
 
-![선택 순서의 차이로 생기는 중복 부분 집합](subset_sum_problem.assets/subset_sum_i_pruning.png)
+![선택 순서의 차이로 생기는 중복 부분 집합](subset_sum_problem.assets/subset_sum_i_pruning.svg)
 
 정리하면 입력 배열이 $[x_1, x_2, \dots, x_n]$일 때 선택 순서 $[x_{i_1}, x_{i_2}, \dots, x_{i_m}]$는 $i_1 \leq i_2 \leq \dots \leq i_m$을 만족해야 한다. **이 조건을 만족하지 않는 선택 순서는 중복을 만들므로 가지치기해야 한다**.
 
@@ -64,7 +64,7 @@
 
 아래 그림은 배열 $[3, 4, 5]$와 목표 원소 $9$를 위 코드에 넣었을 때의 전체 백트래킹 과정이다.
 
-![부분 집합 합 I의 백트래킹 과정](subset_sum_problem.assets/subset_sum_i.png)
+![부분 집합 합 I의 백트래킹 과정](subset_sum_problem.assets/subset_sum_i.svg)
 
 ## 중복 원소가 있는 경우
 
@@ -76,7 +76,7 @@
 
 **중복의 원인은 값이 같은 원소를 한 차례의 선택에서 여러 번 고르기 때문이다**. 아래 그림에서 첫 차례의 세 선택지 중 두 개가 $4$여서 중복된 두 탐색 가지가 만들어지고, 같은 부분 집합을 출력한다. 마찬가지로 두 번째 차례의 두 $4$도 중복을 만든다.
 
-![같은 값의 원소로 생기는 중복 부분 집합](subset_sum_problem.assets/subset_sum_ii_repeat.png)
+![같은 값의 원소로 생기는 중복 부분 집합](subset_sum_problem.assets/subset_sum_ii_repeat.svg)
 
 ### 같은 값의 원소 가지치기
 
@@ -92,4 +92,4 @@
 
 아래 그림은 배열 $[4, 4, 5]$와 목표 원소 $9$의 백트래킹 과정으로, 네 가지 가지치기를 포함한다. 그림과 코드 주석을 함께 보면서 전체 탐색 과정과 각 가지치기가 어떻게 작동하는지 이해해 보자.
 
-![부분 집합 합 II의 백트래킹 과정](subset_sum_problem.assets/subset_sum_ii.png)
+![부분 집합 합 II의 백트래킹 과정](subset_sum_problem.assets/subset_sum_ii.svg)

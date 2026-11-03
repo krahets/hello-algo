@@ -12,7 +12,7 @@
 
 Этот метод подходит только для случая $k \ll n$ , потому что когда $k$ приближается к $n$ , его временная сложность стремится к $O(n^2)$ , а это уже очень затратно.
 
-![Поиск наибольших k элементов через обход](top_k.assets/top_k_traversal.png)
+![Поиск наибольших k элементов через обход](top_k.assets/top_k_traversal.svg)
 
 !!! tip
 
@@ -24,7 +24,7 @@
 
 Очевидно, что этот способ делает слишком много, потому что нам нужно только найти наибольшие $k$ элементов, а сортировать остальные элементы совсем не обязательно.
 
-![Поиск наибольших k элементов через сортировку](top_k.assets/top_k_sorting.png)
+![Поиск наибольших k элементов через сортировку](top_k.assets/top_k_sorting.svg)
 
 ## Метод 3: куча
 
@@ -36,31 +36,31 @@
 4. После завершения обхода в куче будут храниться как раз наибольшие $k$ элементов.
 
 === "<1>"
-    ![Поиск наибольших k элементов с помощью кучи](top_k.assets/top_k_heap_step1.png)
+    ![Поиск наибольших k элементов с помощью кучи](top_k.assets/top_k_heap_step1.svg)
 
 === "<2>"
-    ![top_k_heap_step2](top_k.assets/top_k_heap_step2.png)
+    ![top_k_heap_step2](top_k.assets/top_k_heap_step2.svg)
 
 === "<3>"
-    ![top_k_heap_step3](top_k.assets/top_k_heap_step3.png)
+    ![top_k_heap_step3](top_k.assets/top_k_heap_step3.svg)
 
 === "<4>"
-    ![top_k_heap_step4](top_k.assets/top_k_heap_step4.png)
+    ![top_k_heap_step4](top_k.assets/top_k_heap_step4.svg)
 
 === "<5>"
-    ![top_k_heap_step5](top_k.assets/top_k_heap_step5.png)
+    ![top_k_heap_step5](top_k.assets/top_k_heap_step5.svg)
 
 === "<6>"
-    ![top_k_heap_step6](top_k.assets/top_k_heap_step6.png)
+    ![top_k_heap_step6](top_k.assets/top_k_heap_step6.svg)
 
 === "<7>"
-    ![top_k_heap_step7](top_k.assets/top_k_heap_step7.png)
+    ![top_k_heap_step7](top_k.assets/top_k_heap_step7.svg)
 
 === "<8>"
-    ![top_k_heap_step8](top_k.assets/top_k_heap_step8.png)
+    ![top_k_heap_step8](top_k.assets/top_k_heap_step8.svg)
 
 === "<9>"
-    ![top_k_heap_step9](top_k.assets/top_k_heap_step9.png)
+    ![top_k_heap_step9](top_k.assets/top_k_heap_step9.svg)
 
 Пример кода приведен ниже:
 

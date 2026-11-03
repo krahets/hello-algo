@@ -4,7 +4,7 @@
 
 如下图所示，我们将队列头部称为“队首”，尾部称为“队尾”，将把元素加入队尾的操作称为“入队”，删除队首元素的操作称为“出队”。
 
-![队列的先入先出规则](queue.assets/queue_operations.png)
+![队列的先入先出规则](queue.assets/queue_operations.svg)
 
 ## 队列常用操作
 
@@ -369,13 +369,13 @@
 如下图所示，我们可以将链表的“头节点”和“尾节点”分别视为“队首”和“队尾”，规定队尾仅可添加节点，队首仅可删除节点。
 
 === "<1>"
-    ![基于链表实现队列的入队出队操作](queue.assets/linkedlist_queue_step1.png)
+    ![基于链表实现队列的入队出队操作](queue.assets/linkedlist_queue_step1.svg)
 
 === "<2>"
-    ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.png)
+    ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.svg)
 
 === "<3>"
-    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.png)
+    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.svg)
 
 以下是用链表实现队列的代码：
 
@@ -397,13 +397,13 @@
 可以看到，入队和出队操作都只需进行一次操作，时间复杂度均为 $O(1)$ 。
 
 === "<1>"
-    ![基于数组实现队列的入队出队操作](queue.assets/array_queue_step1.png)
+    ![基于数组实现队列的入队出队操作](queue.assets/array_queue_step1.svg)
 
 === "<2>"
-    ![array_queue_push](queue.assets/array_queue_step2_push.png)
+    ![array_queue_push](queue.assets/array_queue_step2_push.svg)
 
 === "<3>"
-    ![array_queue_pop](queue.assets/array_queue_step3_pop.png)
+    ![array_queue_pop](queue.assets/array_queue_step3_pop.svg)
 
 你可能会发现一个问题：在不断进行入队和出队的过程中，`front` 和 `rear` 都在向右移动，**当它们到达数组尾部时就无法继续移动了**。为了解决此问题，我们可以将数组视为首尾相接的“环形数组”。
 

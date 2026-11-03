@@ -24,7 +24,7 @@
 
 아래 그림과 같이 탐색 과정을 재귀 트리로 펼칠 수 있다. 각 노드는 현재 상태 `state`를 나타낸다. 루트에서 시작해 세 차례 선택하면 리프에 도달하며, 각 리프 노드는 순열 하나에 대응한다.
 
-![모든 순열의 재귀 트리](permutations_problem.assets/permutations_i.png)
+![모든 순열의 재귀 트리](permutations_problem.assets/permutations_i.svg)
 
 ### 중복 선택 가지치기
 
@@ -35,7 +35,7 @@
 
 아래 그림처럼 첫 번째에 1, 두 번째에 3, 세 번째에 2를 선택한다면, 두 번째에서는 원소 1의 가지를, 세 번째에서는 원소 1과 3의 가지를 잘라 내야 한다.
 
-![모든 순열의 가지치기 예시](permutations_problem.assets/permutations_i_pruning.png)
+![모든 순열의 가지치기 예시](permutations_problem.assets/permutations_i_pruning.svg)
 
 위 그림에서 이 가지치기가 탐색 공간의 크기를 $O(n^n)$에서 $O(n!)$로 줄이는 것을 볼 수 있다.
 
@@ -57,7 +57,7 @@
 
 아래 그림과 같이 앞의 방법으로 만든 순열의 절반은 중복된다.
 
-![중복된 순열](permutations_problem.assets/permutations_ii.png)
+![중복된 순열](permutations_problem.assets/permutations_ii.svg)
 
 중복된 순열은 어떻게 제거할까? 가장 직접적으로는 해시 집합을 이용해 결과에서 중복을 제거할 수 있다. 하지만 이 방법은 충분히 간결하지 않다. **중복된 순열을 만드는 탐색 가지는 불필요하므로 미리 알아내어 잘라 내야 하며**, 그러면 알고리즘의 효율을 더 높일 수 있다.
 
@@ -69,7 +69,7 @@
 
 본질적으로 **한 차례의 선택에서 값이 같은 여러 원소를 한 번만 선택하도록 보장하는 것**이 목표다.
 
-![중복된 순열 가지치기](permutations_problem.assets/permutations_ii_pruning.png)
+![중복된 순열 가지치기](permutations_problem.assets/permutations_ii_pruning.svg)
 
 ### 코드 구현
 
@@ -92,4 +92,4 @@
 
 아래 그림은 두 가지 가지치기 조건이 적용되는 범위를 보여 준다. 각 트리 노드는 선택 하나를 나타내며, 루트에서 리프까지의 경로에 있는 노드들이 하나의 순열을 이룬다.
 
-![두 가지 가지치기 조건의 적용 범위](permutations_problem.assets/permutations_ii_pruning_summary.png)
+![두 가지 가지치기 조건의 적용 범위](permutations_problem.assets/permutations_ii_pruning_summary.svg)

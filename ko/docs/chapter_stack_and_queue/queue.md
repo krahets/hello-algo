@@ -4,7 +4,7 @@
 
 아래 그림과 같이 큐의 앞쪽을 ‘큐의 맨 앞’, 뒤쪽을 ‘큐의 맨 뒤’라고 한다. 맨 뒤에 원소를 추가하는 연산을 ‘큐에 삽입하기’, 맨 앞 원소를 삭제하는 연산을 ‘큐에서 꺼내기’라고 한다.
 
-![큐의 선입선출 규칙](queue.assets/queue_operations.png)
+![큐의 선입선출 규칙](queue.assets/queue_operations.svg)
 
 ## 큐의 기본 연산
 
@@ -369,13 +369,13 @@
 아래 그림과 같이 연결 리스트의 ‘머리 노드’와 ‘꼬리 노드’를 각각 ‘큐의 맨 앞’과 ‘큐의 맨 뒤’로 볼 수 있다. 맨 뒤에서는 노드 추가만, 맨 앞에서는 노드 삭제만 허용한다.
 
 === "<1>"
-    ![연결 리스트 기반 큐의 삽입과 꺼내기](queue.assets/linkedlist_queue_step1.png)
+    ![연결 리스트 기반 큐의 삽입과 꺼내기](queue.assets/linkedlist_queue_step1.svg)
 
 === "<2>"
-    ![연결 리스트 기반 큐에 원소 삽입](queue.assets/linkedlist_queue_step2_push.png)
+    ![연결 리스트 기반 큐에 원소 삽입](queue.assets/linkedlist_queue_step2_push.svg)
 
 === "<3>"
-    ![연결 리스트 기반 큐에서 원소 꺼내기](queue.assets/linkedlist_queue_step3_pop.png)
+    ![연결 리스트 기반 큐에서 원소 꺼내기](queue.assets/linkedlist_queue_step3_pop.svg)
 
 연결 리스트로 큐를 구현한 코드는 다음과 같다.
 
@@ -397,13 +397,13 @@
 두 연산 모두 한 번의 처리만 필요하므로 시간 복잡도는 $O(1)$이다.
 
 === "<1>"
-    ![배열 기반 큐의 삽입과 꺼내기](queue.assets/array_queue_step1.png)
+    ![배열 기반 큐의 삽입과 꺼내기](queue.assets/array_queue_step1.svg)
 
 === "<2>"
-    ![배열 기반 큐에 원소 삽입](queue.assets/array_queue_step2_push.png)
+    ![배열 기반 큐에 원소 삽입](queue.assets/array_queue_step2_push.svg)
 
 === "<3>"
-    ![배열 기반 큐에서 원소 꺼내기](queue.assets/array_queue_step3_pop.png)
+    ![배열 기반 큐에서 원소 꺼내기](queue.assets/array_queue_step3_pop.svg)
 
 여기에는 한 가지 문제가 있다. 삽입과 꺼내기를 반복하면 `front`와 `rear`가 계속 오른쪽으로 이동하다가 **배열의 끝에 도달하면 더 이상 움직일 수 없다**. 이를 해결하려면 배열을 앞뒤가 이어진 ‘원형 배열’로 볼 수 있다.
 

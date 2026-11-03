@@ -20,7 +20,7 @@
 
 프로그램의 공간 복잡도를 분석할 때는 아래 그림과 같이 **보통 임시 데이터, 스택 프레임 공간, 출력 데이터의 세 부분을 계산한다**.
 
-![알고리즘이 사용하는 공간](space_complexity.assets/space_types.png)
+![알고리즘이 사용하는 공간](space_complexity.assets/space_types.svg)
 
 관련 코드는 다음과 같다.
 
@@ -811,7 +811,7 @@ $$
 \end{aligned}
 $$
 
-![대표적인 공간 복잡도 유형](space_complexity.assets/space_complexity_common_types.png)
+![대표적인 공간 복잡도 유형](space_complexity.assets/space_complexity_common_types.svg)
 
 ### 상수 공간 $O(1)$
 
@@ -837,7 +837,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{linear_recur}
 ```
 
-![재귀 함수에서 발생하는 선형 공간 복잡도](space_complexity.assets/space_complexity_recursive_linear.png)
+![재귀 함수에서 발생하는 선형 공간 복잡도](space_complexity.assets/space_complexity_recursive_linear.svg)
 
 ### 제곱 공간 $O(n^2)$
 
@@ -853,7 +853,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{quadratic_recur}
 ```
 
-![재귀 함수에서 발생하는 제곱 공간 복잡도](space_complexity.assets/space_complexity_recursive_quadratic.png)
+![재귀 함수에서 발생하는 제곱 공간 복잡도](space_complexity.assets/space_complexity_recursive_quadratic.svg)
 
 ### 지수 공간 $O(2^n)$
 
@@ -863,7 +863,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{build_tree}
 ```
 
-![포화 이진 트리에서 발생하는 지수 공간 복잡도](space_complexity.assets/space_complexity_exponential.png)
+![포화 이진 트리에서 발생하는 지수 공간 복잡도](space_complexity.assets/space_complexity_exponential.svg)
 
 ### 로그 공간 $O(\log n)$
 
