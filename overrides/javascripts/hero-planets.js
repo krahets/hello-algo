@@ -17,27 +17,12 @@ export function createPlanets(map, items, onRestore) {
     renderer.domElement.hidden=show;hero.classList.toggle('hero-three-active',!show);
     targets.forEach(({item})=>item.image.classList.toggle('hero-replaced',!show));
   };
-  const paintWidth = target => {
-    const h=Number(target.item.image.dataset.sourceHeight || target.item.image.naturalHeight);
-    const diameter=target.circle ? 2*target.circle[2]/h : 1;
-    return target.item.image.offsetHeight*diameter*Math.min(devicePixelRatio||1,2)*Math.PI;
-  };
   function resize(){
     width=map.clientWidth;height=map.clientHeight;
     renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
     renderer.setSize(Math.max(width,1),Math.max(height,1),false);
     camera.left=-width/2;camera.right=width/2;camera.top=height/2;camera.bottom=-height/2;camera.updateProjectionMatrix();
     for(const target of targets){const i=target.item.image;target.rect={x:i.offsetLeft,y:i.offsetTop,width:i.offsetWidth,height:i.offsetHeight};
-      if(ready && target.paintMap?.small && paintWidth(target)>512 && !target.upgrading){
-        target.upgrading=true;
-        loadPlanetPaint(target,1024).then(paint=>{
-          if(disposed){disposePlanetPaint(paint);return;}
-          const previous=target.paintMap;target.paintMap=paint;
-          target.material.uniforms.paintMap.value=paint.surface;
-          if(target.moon)target.moon.material.uniforms.paintMap.value=paint.moon;
-          disposePlanetPaint(previous);onRestore();
-        }).catch(()=>{}).finally(()=>{target.upgrading=false;});
-      }
     }
   }
   function render(time,enabled,pointer={x:0,y:0}){
@@ -61,7 +46,7 @@ export function createPlanets(map, items, onRestore) {
   const onRestored=()=>{lost=false;resize();onRestore();};
   renderer.domElement.addEventListener('webglcontextlost',onLost);renderer.domElement.addEventListener('webglcontextrestored',onRestored);
   showOriginal(true);resize();
-  const readyPromise=Promise.allSettled(targets.map(async t=>{await t.item.image.decode();const map=await loadPlanetPaint(t, paintWidth(t));if(disposed){disposePlanetPaint(map);return;}t.paintMap=map;})).then(results=>{
+  const readyPromise=Promise.allSettled(targets.map(async t=>{await t.item.image.decode();const map=await loadPlanetPaint(t);if(disposed){disposePlanetPaint(map);return;}t.paintMap=map;})).then(results=>{
     const failure=results.find(r=>r.status==='rejected');if(failure)throw failure.reason;
     if(disposed)return;
     for(const target of targets){Object.assign(target,createPlanet(target.item.image,target,target.paintMap));scene.add(target.root);}

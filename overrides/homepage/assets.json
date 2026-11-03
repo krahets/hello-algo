@@ -460,5 +460,10 @@
     "vendor/three/package.json": "overrides/javascripts/vendor/three/package.json",
     "vendor/three/three.core.min.js": "overrides/javascripts/vendor/three/three.core.min.js",
     "hero-paint-seams.js": "overrides/javascripts/hero-paint-seams.js"
+  },
+  "encoding": {
+    "hero_quality": 95,
+    "texture_quality": 90,
+    "poster_quality": 90
   }
 }

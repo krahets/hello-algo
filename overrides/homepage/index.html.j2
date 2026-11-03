@@ -1,6 +1,7 @@
 {% import 'icons.html.j2' as icons %}
 <!-- Generated from the shared homepage template and locale configuration. -->
 <link rel="stylesheet" href="{{ runtime('hero-motion.css') }}">
+<noscript><style>[data-home-src], video[data-home-poster] { display: none; }</style></noscript>
 <section data-md-color-scheme="slate" data-md-color-primary="grey" class="home-div home-universe-bg" style="height: min(100vh, 120vw); position: relative; margin-top:-2.4rem; padding: 0; overflow: hidden;">
   <div class="starfield"><div class="starfield-origin"></div></div>
   <div class="{{ locale.hero_class }}" data-home-layout="{{ 'list' if locale.list_layout else 'universe' }}">
@@ -26,7 +27,8 @@
     {% for card in locale.reading %}
       <div class="media-block"><a href="{{ card.href }}">
         {% if card.spacers %}<div style="{{ card.spacers[0] }}"></div>{% endif %}
-        <img class="device-on-hover" style="{{ card.image_style }}" {{ image(card.asset)|safe }} alt="{{ card.alt }}" loading="lazy">
+        <img class="device-on-hover" style="{{ card.image_style }}" {{ image(card.asset, true)|safe }} alt="{{ card.alt }}" decoding="async">
+        <noscript><img class="device-on-hover" style="{{ card.image_style }}" {{ image(card.asset)|safe }} alt="{{ card.alt }}" loading="lazy"></noscript>
         {% if card.spacers|length > 1 %}<div style="{{ card.spacers[1] }}"></div>{% endif %}
         <div class="text-button"><span>{{ card.label }}</span>{{ icons.chevron() }}</div>
       </a></div>
@@ -58,8 +60,8 @@
   {% for feature in locale.features %}
     <div class="intro-container">
       {% if loop.index0 != 1 %}{{ feature_text(feature, loop.index0) }}{% endif %}
-      <video class="intro-image" style="aspect-ratio: {{ assets[feature.video].width }} / {{ assets[feature.video].height }}" data-home-video="{{ asset_url(feature.video) }}" poster="{{ poster_url(feature.video) }}" preload="none" loop muted playsinline aria-label="{{ feature.video_label }}" width="{{ assets[feature.video].width }}" height="{{ assets[feature.video].height }}"></video>
-      <noscript><a href="{{ asset_url(feature.video) }}">{{ feature.title }}</a></noscript>
+      <video class="intro-image" style="aspect-ratio: {{ assets[feature.video].width }} / {{ assets[feature.video].height }}" data-home-video="{{ asset_url(feature.video) }}" data-home-poster="{{ poster_url(feature.video) }}" preload="none" loop muted playsinline aria-label="{{ feature.video_label }}" width="{{ assets[feature.video].width }}" height="{{ assets[feature.video].height }}"></video>
+      <noscript><a href="{{ asset_url(feature.video) }}"><img class="intro-image" src="{{ poster_url(feature.video) }}" width="{{ assets[feature.video].width }}" height="{{ assets[feature.video].height }}" alt="{{ feature.video_label }}">{{ feature.title }}</a></noscript>
       {% if loop.index0 == 1 %}{{ feature_text(feature, loop.index0) }}{% endif %}
     </div>
   {% endfor %}

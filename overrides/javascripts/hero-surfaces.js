@@ -33,11 +33,10 @@ async function loadMap(file) {
   return map;
 }
 
-export async function loadPlanetPaint(definition, pixelWidth=1024) {
-  const small=pixelWidth<=512 && !!textureCatalog[definition.name].small;
-  const surface=await loadMap(textureCatalog[definition.name][small?'small':'full']);
+export async function loadPlanetPaint(definition) {
+  const surface=await loadMap(textureCatalog[definition.name].full);
   try {
-    return {surface,small,moon:definition.moon?await loadMap(textureCatalog.moon[small && textureCatalog.moon.small?'small':'full']):null};
+    return {surface,moon:definition.moon?await loadMap(textureCatalog.moon.full):null};
   } catch(error) {surface.dispose();throw error;}
 }
 
