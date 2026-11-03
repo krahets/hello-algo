@@ -16,7 +16,7 @@ comments: true
 
 이 방법은 $k \ll n$인 경우에만 적합하다. $k$가 $n$에 가까워지면 시간 복잡도가 $O(n^2)$에 가까워져 매우 오래 걸리기 때문이다.
 
-![순회로 가장 큰 k개의 원소 찾기](top_k.assets/top_k_traversal.png){ class="animation-figure" }
+![순회로 가장 큰 k개의 원소 찾기](top_k.assets/top_k_traversal.svg){ class="animation-figure" }
 
 <p align="center"> 그림 8-6 &nbsp; 순회로 가장 큰 k개의 원소 찾기 </p>
 
@@ -30,7 +30,7 @@ comments: true
 
 이 방법은 필요한 것보다 더 많은 일을 한다. 가장 큰 $k$ 개 원소만 찾으면 되며, 나머지 원소를 정렬할 필요는 없기 때문이다.
 
-![정렬로 가장 큰 k개의 원소 찾기](top_k.assets/top_k_sorting.png){ class="animation-figure" }
+![정렬로 가장 큰 k개의 원소 찾기](top_k.assets/top_k_sorting.svg){ class="animation-figure" }
 
 <p align="center"> 그림 8-7 &nbsp; 정렬로 가장 큰 k개의 원소 찾기 </p>
 
@@ -44,31 +44,31 @@ comments: true
 4. 순회를 마치면 힙에 남은 원소가 가장 큰 $k$ 개 원소다.
 
 === "<1>"
-    ![힙으로 가장 큰 k개의 원소 찾기](top_k.assets/top_k_heap_step1.png){ class="animation-figure" }
+    ![힙으로 가장 큰 k개의 원소 찾기](top_k.assets/top_k_heap_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![힙으로 Top-k 찾기 2단계](top_k.assets/top_k_heap_step2.png){ class="animation-figure" }
+    ![힙으로 Top-k 찾기 2단계](top_k.assets/top_k_heap_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![힙으로 Top-k 찾기 3단계](top_k.assets/top_k_heap_step3.png){ class="animation-figure" }
+    ![힙으로 Top-k 찾기 3단계](top_k.assets/top_k_heap_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![힙으로 Top-k 찾기 4단계](top_k.assets/top_k_heap_step4.png){ class="animation-figure" }
+    ![힙으로 Top-k 찾기 4단계](top_k.assets/top_k_heap_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![힙으로 Top-k 찾기 5단계](top_k.assets/top_k_heap_step5.png){ class="animation-figure" }
+    ![힙으로 Top-k 찾기 5단계](top_k.assets/top_k_heap_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![힙으로 Top-k 찾기 6단계](top_k.assets/top_k_heap_step6.png){ class="animation-figure" }
+    ![힙으로 Top-k 찾기 6단계](top_k.assets/top_k_heap_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![힙으로 Top-k 찾기 7단계](top_k.assets/top_k_heap_step7.png){ class="animation-figure" }
+    ![힙으로 Top-k 찾기 7단계](top_k.assets/top_k_heap_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![힙으로 Top-k 찾기 8단계](top_k.assets/top_k_heap_step8.png){ class="animation-figure" }
+    ![힙으로 Top-k 찾기 8단계](top_k.assets/top_k_heap_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![힙으로 Top-k 찾기 9단계](top_k.assets/top_k_heap_step9.png){ class="animation-figure" }
+    ![힙으로 Top-k 찾기 9단계](top_k.assets/top_k_heap_step9.svg){ class="animation-figure" }
 
 <p align="center"> 그림 8-8 &nbsp; 힙으로 가장 큰 k개의 원소 찾기 </p>
 

@@ -222,7 +222,7 @@ git clone https://github.com/krahets/hello-algo.git
 
 **手順三：ソースコードを実行します**。図 0-5 のように、上部にファイル名があるコードブロックは、リポジトリの `ja/codes` フォルダ内に対応するソースファイルがあります。ワンクリックで実行できるので、不要なデバッグに時間を取られず、学習内容に集中できます。
 
-![コードブロックと対応するソースファイル](suggestions.assets/code_md_to_repo.png){ class="animation-figure" }
+![コードブロックと対応するソースファイル](suggestions.assets/code_md_to_repo.svg){ class="animation-figure" }
 
 <p align="center"> 図 0-5 &nbsp; コードブロックと対応するソースファイル </p>
 
@@ -252,6 +252,6 @@ git clone https://github.com/krahets/hello-algo.git
 
 図 0-8 のように、本書は主に「段階一」を扱い、段階二と段階三の学習をより効率よく進めるための支援を目指しています。
 
-![アルゴリズムの学習の道筋](suggestions.assets/learning_route.png){ class="animation-figure" }
+![アルゴリズムの学習の道筋](suggestions.assets/learning_route.svg){ class="animation-figure" }
 
 <p align="center"> 図 0-8 &nbsp; アルゴリズムの学習の道筋 </p>

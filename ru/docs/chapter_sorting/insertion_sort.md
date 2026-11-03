@@ -10,7 +10,7 @@ comments: true
 
 На рисунке 11-6 показан процесс вставки элемента в массив. Пусть опорный элемент обозначен как `base`. Нам нужно сдвинуть все элементы от целевого индекса до `base` на одну позицию вправо, а затем записать `base` в целевой индекс.
 
-![Одна операция вставки](insertion_sort.assets/insertion_operation.png){ class="animation-figure" }
+![Одна операция вставки](insertion_sort.assets/insertion_operation.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 11-6 &nbsp; Одна операция вставки </p>
 
@@ -23,7 +23,7 @@ comments: true
 3. Выбрать третий элемент как `base`. После вставки в правильную позицию **первые три элемента массива окажутся отсортированными**.
 4. Продолжать по аналогии. В последнем раунде в качестве `base` берется последний элемент, и после его вставки **все элементы массива будут отсортированы**.
 
-![Процесс сортировки вставками](insertion_sort.assets/insertion_sort_overview.png){ class="animation-figure" }
+![Процесс сортировки вставками](insertion_sort.assets/insertion_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 11-7 &nbsp; Процесс сортировки вставками </p>
 

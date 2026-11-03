@@ -20,7 +20,7 @@ Nonlinear data structures can be divided further into tree and network structure
 - **Tree structures**: Trees, heaps, and hash tables, with one-to-many relationships.
 - **Network structures**: Graphs, with many-to-many relationships.
 
-![Linear and nonlinear data structures](classification_of_data_structure.assets/classification_logic_structure.png){ class="animation-figure" }
+![Linear and nonlinear data structures](classification_of_data_structure.assets/classification_logic_structure.svg){ class="animation-figure" }
 
 <p align="center"> Figure 3-1 &nbsp; Linear and nonlinear data structures </p>
 
@@ -30,7 +30,7 @@ Nonlinear data structures can be divided further into tree and network structure
 
 **The system uses memory addresses to access data at particular locations**. As shown in Figure 3-2, the computer assigns each cell a number according to specific rules, giving every memory location a unique address. Programs use these addresses to access data.
 
-![Memory module, storage space, and memory addresses](classification_of_data_structure.assets/computer_memory_location.png){ class="animation-figure" }
+![Memory module, storage space, and memory addresses](classification_of_data_structure.assets/computer_memory_location.svg){ class="animation-figure" }
 
 <p align="center"> Figure 3-2 &nbsp; Memory module, storage space, and memory addresses </p>
 
@@ -42,7 +42,7 @@ Memory is a resource used by all programs. When a program occupies a region of m
 
 As shown in Figure 3-3, **physical structure describes how data is stored in computer memory**: either contiguously (arrays) or in scattered locations (linked lists). It determines how data can be accessed, updated, inserted, and deleted. The two storage forms have complementary strengths in time and space efficiency.
 
-![Contiguous and scattered storage](classification_of_data_structure.assets/classification_phisical_structure.png){ class="animation-figure" }
+![Contiguous and scattered storage](classification_of_data_structure.assets/classification_phisical_structure.svg){ class="animation-figure" }
 
 <p align="center"> Figure 3-3 &nbsp; Contiguous and scattered storage </p>
 

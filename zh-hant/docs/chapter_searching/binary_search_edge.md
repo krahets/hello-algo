@@ -241,7 +241,7 @@ comments: true
 
 如圖 10-7 所示，查詢完成後，指標 $i$ 指向最左一個 `target + 1`（如果存在），而 $j$ 指向最右一個 `target` ，**因此返回 $j$ 即可**。
 
-![將查詢右邊界轉化為查詢左邊界](binary_search_edge.assets/binary_search_right_edge_by_left_edge.png){ class="animation-figure" }
+![將查詢右邊界轉化為查詢左邊界](binary_search_edge.assets/binary_search_right_edge_by_left_edge.svg){ class="animation-figure" }
 
 <p align="center"> 圖 10-7 &nbsp; 將查詢右邊界轉化為查詢左邊界 </p>
 
@@ -493,7 +493,7 @@ comments: true
 - 查詢最左一個 `target` ：可以轉化為查詢 `target - 0.5` ，並返回指標 $i$ 。
 - 查詢最右一個 `target` ：可以轉化為查詢 `target + 0.5` ，並返回指標 $j$ 。
 
-![將查詢邊界轉化為查詢元素](binary_search_edge.assets/binary_search_edge_by_element.png){ class="animation-figure" }
+![將查詢邊界轉化為查詢元素](binary_search_edge.assets/binary_search_edge_by_element.svg){ class="animation-figure" }
 
 <p align="center"> 圖 10-8 &nbsp; 將查詢邊界轉化為查詢元素 </p>
 

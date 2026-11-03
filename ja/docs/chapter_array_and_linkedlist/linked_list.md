@@ -10,7 +10,7 @@ comments: true
 
 この設計により、各ノードをメモリの各所に分散して格納でき、メモリアドレスが連続している必要はありません。
 
-![連結リストの定義と格納方法](linked_list.assets/linkedlist_definition.png){ class="animation-figure" }
+![連結リストの定義と格納方法](linked_list.assets/linkedlist_definition.svg){ class="animation-figure" }
 
 <p align="center"> 図 4-5 &nbsp; 連結リストの定義と格納方法 </p>
 
@@ -432,7 +432,7 @@ comments: true
 
 対して、配列への要素の挿入は時間計算量が $O(n)$ であり、データ量が大きいと非効率になります。
 
-![連結リストへのノードの挿入例](linked_list.assets/linkedlist_insert_node.png){ class="animation-figure" }
+![連結リストへのノードの挿入例](linked_list.assets/linkedlist_insert_node.svg){ class="animation-figure" }
 
 <p align="center"> 図 4-6 &nbsp; 連結リストへのノードの挿入例 </p>
 
@@ -591,7 +591,7 @@ comments: true
 
 削除後もノード `P` は `n1` を指していますが、この連結リストを走査しても `P` には到達できなくなることに注意してください。つまり、`P` はもはやこの連結リストに属していません。
 
-![連結リストからのノードの削除](linked_list.assets/linkedlist_remove_node.png){ class="animation-figure" }
+![連結リストからのノードの削除](linked_list.assets/linkedlist_remove_node.svg){ class="animation-figure" }
 
 <p align="center"> 図 4-7 &nbsp; 連結リストからのノードの削除 </p>
 
@@ -1443,7 +1443,7 @@ comments: true
     end
     ```
 
-![連結リストの主な種類](linked_list.assets/linkedlist_common_types.png){ class="animation-figure" }
+![連結リストの主な種類](linked_list.assets/linkedlist_common_types.svg){ class="animation-figure" }
 
 <p align="center"> 図 4-8 &nbsp; 連結リストの主な種類 </p>
 

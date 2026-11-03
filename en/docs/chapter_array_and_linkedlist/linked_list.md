@@ -10,7 +10,7 @@ A <u>linked list</u> is a linear data structure whose elements are node objects 
 
 This design lets nodes occupy scattered memory locations; their addresses need not be contiguous.
 
-![Linked list definition and storage layout](linked_list.assets/linkedlist_definition.png){ class="animation-figure" }
+![Linked list definition and storage layout](linked_list.assets/linkedlist_definition.svg){ class="animation-figure" }
 
 <p align="center"> Figure 4-5 &nbsp; Linked list definition and storage layout </p>
 
@@ -432,7 +432,7 @@ Inserting a node is straightforward. As shown in Figure 4-6, inserting a new nod
 
 In contrast, inserting an array element takes $O(n)$ time and is slower for large datasets.
 
-![Inserting a node into a linked list](linked_list.assets/linkedlist_insert_node.png){ class="animation-figure" }
+![Inserting a node into a linked list](linked_list.assets/linkedlist_insert_node.svg){ class="animation-figure" }
 
 <p align="center"> Figure 4-6 &nbsp; Inserting a node into a linked list </p>
 
@@ -591,7 +591,7 @@ Removing a node is also straightforward: as shown in Figure 4-7, **only one refe
 
 Although `P` still points to `n1` after removal, traversing the list can no longer reach `P`. It therefore no longer belongs to the list.
 
-![Removing a linked list node](linked_list.assets/linkedlist_remove_node.png){ class="animation-figure" }
+![Removing a linked list node](linked_list.assets/linkedlist_remove_node.svg){ class="animation-figure" }
 
 <p align="center"> Figure 4-7 &nbsp; Removing a linked list node </p>
 
@@ -1443,7 +1443,7 @@ Figure 4-8 shows three common types.
     end
     ```
 
-![Common types of linked lists](linked_list.assets/linkedlist_common_types.png){ class="animation-figure" }
+![Common types of linked lists](linked_list.assets/linkedlist_common_types.svg){ class="animation-figure" }
 
 <p align="center"> Figure 4-8 &nbsp; Common types of linked lists </p>
 

@@ -8,7 +8,7 @@ comments: true
 
 如图 5-4 所示，我们将队列头部称为“队首”，尾部称为“队尾”，将把元素加入队尾的操作称为“入队”，删除队首元素的操作称为“出队”。
 
-![队列的先入先出规则](queue.assets/queue_operations.png){ class="animation-figure" }
+![队列的先入先出规则](queue.assets/queue_operations.svg){ class="animation-figure" }
 
 <p align="center"> 图 5-4 &nbsp; 队列的先入先出规则 </p>
 
@@ -380,13 +380,13 @@ comments: true
 如图 5-5 所示，我们可以将链表的“头节点”和“尾节点”分别视为“队首”和“队尾”，规定队尾仅可添加节点，队首仅可删除节点。
 
 === "<1>"
-    ![基于链表实现队列的入队出队操作](queue.assets/linkedlist_queue_step1.png){ class="animation-figure" }
+    ![基于链表实现队列的入队出队操作](queue.assets/linkedlist_queue_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.png){ class="animation-figure" }
+    ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.png){ class="animation-figure" }
+    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> 图 5-5 &nbsp; 基于链表实现队列的入队出队操作 </p>
 
@@ -1330,13 +1330,13 @@ comments: true
 可以看到，入队和出队操作都只需进行一次操作，时间复杂度均为 $O(1)$ 。
 
 === "<1>"
-    ![基于数组实现队列的入队出队操作](queue.assets/array_queue_step1.png){ class="animation-figure" }
+    ![基于数组实现队列的入队出队操作](queue.assets/array_queue_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![array_queue_push](queue.assets/array_queue_step2_push.png){ class="animation-figure" }
+    ![array_queue_push](queue.assets/array_queue_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![array_queue_pop](queue.assets/array_queue_step3_pop.png){ class="animation-figure" }
+    ![array_queue_pop](queue.assets/array_queue_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> 图 5-6 &nbsp; 基于数组实现队列的入队出队操作 </p>
 

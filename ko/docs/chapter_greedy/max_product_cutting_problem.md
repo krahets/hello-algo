@@ -8,7 +8,7 @@ comments: true
 
     양의 정수 $n$을 두 개 이상의 양의 정수의 합으로 나누었을 때, 나눈 정수들의 곱이 최대 얼마가 되는지 구하라. 아래 그림(15-13)을 참고하자.
 
-![정수 분할의 최대 곱 문제 정의](max_product_cutting_problem.assets/max_product_cutting_definition.png){ class="animation-figure" }
+![정수 분할의 최대 곱 문제 정의](max_product_cutting_problem.assets/max_product_cutting_definition.svg){ class="animation-figure" }
 
 <p align="center"> 그림 15-13 &nbsp; 정수 분할의 최대 곱 문제 정의 </p>
 
@@ -42,7 +42,7 @@ $$
 
 **탐욕 전략 1**: 분할에 $\geq 4$인 인수가 있으면 계속 나누어야 한다. 최종 분할에는 $1$, $2$, $3$만 있어야 한다.
 
-![분할로 커지는 곱](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png){ class="animation-figure" }
+![분할로 커지는 곱](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.svg){ class="animation-figure" }
 
 <p align="center"> 그림 15-14 &nbsp; 분할로 커지는 곱 </p>
 
@@ -52,7 +52,7 @@ $$
 
 **탐욕 전략 2**: 분할에는 $2$가 많아도 두 개만 있어야 한다. $2$ 세 개는 언제나 $3$ 두 개로 바꾸어 더 큰 곱을 얻을 수 있기 때문이다.
 
-![최적인 분할 인수](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png){ class="animation-figure" }
+![최적인 분할 인수](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.svg){ class="animation-figure" }
 
 <p align="center"> 그림 15-15 &nbsp; 최적인 분할 인수 </p>
 
@@ -391,7 +391,7 @@ $$
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="코드 시각화" src="https://pythontutor.com/iframe-embed.html#code=import%20math%0A%0Adef%20max_product_cutting%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%EB%B6%84%ED%95%A0%20%ED%9B%84%EC%9D%98%20%EC%B5%9C%EB%8C%80%20%EA%B3%B1%3A%20%ED%83%90%EC%9A%95%22%22%22%0A%20%20%20%20%23%20n%20%3C%3D%203%EC%9D%B4%EB%A9%B4%20%EB%B0%98%EB%93%9C%EC%8B%9C%201%20%ED%95%98%EB%82%98%EA%B0%80%20%EB%82%98%EC%98%A4%EB%8F%84%EB%A1%9D%20%EB%B6%84%ED%95%A0%ED%95%B4%EC%95%BC%20%ED%95%9C%EB%8B%A4%0A%20%20%20%20if%20n%20%3C%3D%203%3A%0A%20%20%20%20%20%20%20%20return%201%20%2A%20%28n%20-%201%29%0A%20%20%20%20%23%20%ED%83%90%EC%9A%95%EC%A0%81%EC%9C%BC%EB%A1%9C%203%EC%9D%84%20%EB%96%BC%EC%96%B4%20%EB%82%B8%EB%8B%A4.%20a%EB%8A%94%203%EC%9D%98%20%EA%B0%9C%EC%88%98%EC%9D%B4%EA%B3%A0%20b%EB%8A%94%20%EB%82%98%EB%A8%B8%EC%A7%80%EC%9D%B4%EB%8B%A4%0A%20%20%20%20a,%20b%20%3D%20n%20//%203,%20n%20%25%203%0A%20%20%20%20if%20b%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%23%20%EB%82%98%EB%A8%B8%EC%A7%80%EA%B0%80%201%EC%9D%B4%EB%A9%B4%201%20%2A%203%20%ED%95%9C%20%EC%8C%8D%EC%9D%84%202%20%2A%202%EB%A1%9C%20%EB%B0%94%EA%BE%BC%EB%8B%A4%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%20-%201%29%29%20%2A%202%20%2A%202%0A%20%20%20%20if%20b%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20%23%20%EB%82%98%EB%A8%B8%EC%A7%80%EA%B0%80%202%EC%9D%B4%EB%A9%B4%20%EB%B3%84%EB%8F%84%EB%A1%9C%20%EC%B2%98%EB%A6%AC%ED%95%98%EC%A7%80%20%EC%95%8A%EB%8A%94%EB%8B%A4%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%29%29%20%2A%202%0A%20%20%20%20%23%20%EB%82%98%EB%A8%B8%EC%A7%80%EA%B0%80%200%EC%9D%B4%EB%A9%B4%20%EB%B3%84%EB%8F%84%EB%A1%9C%20%EC%B2%98%EB%A6%AC%ED%95%98%EC%A7%80%20%EC%95%8A%EB%8A%94%EB%8B%A4%0A%20%20%20%20return%20int%28math.pow%283,%20a%29%29%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2058%0A%0A%20%20%20%20%23%20%ED%83%90%EC%9A%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%0A%20%20%20%20res%20%3D%20max_product_cutting%28n%29%0A%20%20%20%20print%28f%22%EB%B6%84%ED%95%A0%20%ED%9B%84%EC%9D%98%20%EC%B5%9C%EB%8C%80%20%EA%B3%B1%EC%9D%80%20%7Bres%7D%EC%9D%B4%EB%8B%A4%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
     <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20math%0A%0Adef%20max_product_cutting%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%EB%B6%84%ED%95%A0%20%ED%9B%84%EC%9D%98%20%EC%B5%9C%EB%8C%80%20%EA%B3%B1%3A%20%ED%83%90%EC%9A%95%22%22%22%0A%20%20%20%20%23%20n%20%3C%3D%203%EC%9D%B4%EB%A9%B4%20%EB%B0%98%EB%93%9C%EC%8B%9C%201%20%ED%95%98%EB%82%98%EA%B0%80%20%EB%82%98%EC%98%A4%EB%8F%84%EB%A1%9D%20%EB%B6%84%ED%95%A0%ED%95%B4%EC%95%BC%20%ED%95%9C%EB%8B%A4%0A%20%20%20%20if%20n%20%3C%3D%203%3A%0A%20%20%20%20%20%20%20%20return%201%20%2A%20%28n%20-%201%29%0A%20%20%20%20%23%20%ED%83%90%EC%9A%95%EC%A0%81%EC%9C%BC%EB%A1%9C%203%EC%9D%84%20%EB%96%BC%EC%96%B4%20%EB%82%B8%EB%8B%A4.%20a%EB%8A%94%203%EC%9D%98%20%EA%B0%9C%EC%88%98%EC%9D%B4%EA%B3%A0%20b%EB%8A%94%20%EB%82%98%EB%A8%B8%EC%A7%80%EC%9D%B4%EB%8B%A4%0A%20%20%20%20a,%20b%20%3D%20n%20//%203,%20n%20%25%203%0A%20%20%20%20if%20b%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%23%20%EB%82%98%EB%A8%B8%EC%A7%80%EA%B0%80%201%EC%9D%B4%EB%A9%B4%201%20%2A%203%20%ED%95%9C%20%EC%8C%8D%EC%9D%84%202%20%2A%202%EB%A1%9C%20%EB%B0%94%EA%BE%BC%EB%8B%A4%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%20-%201%29%29%20%2A%202%20%2A%202%0A%20%20%20%20if%20b%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20%23%20%EB%82%98%EB%A8%B8%EC%A7%80%EA%B0%80%202%EC%9D%B4%EB%A9%B4%20%EB%B3%84%EB%8F%84%EB%A1%9C%20%EC%B2%98%EB%A6%AC%ED%95%98%EC%A7%80%20%EC%95%8A%EB%8A%94%EB%8B%A4%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%29%29%20%2A%202%0A%20%20%20%20%23%20%EB%82%98%EB%A8%B8%EC%A7%80%EA%B0%80%200%EC%9D%B4%EB%A9%B4%20%EB%B3%84%EB%8F%84%EB%A1%9C%20%EC%B2%98%EB%A6%AC%ED%95%98%EC%A7%80%20%EC%95%8A%EB%8A%94%EB%8B%A4%0A%20%20%20%20return%20int%28math.pow%283,%20a%29%29%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2058%0A%0A%20%20%20%20%23%20%ED%83%90%EC%9A%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%0A%20%20%20%20res%20%3D%20max_product_cutting%28n%29%0A%20%20%20%20print%28f%22%EB%B6%84%ED%95%A0%20%ED%9B%84%EC%9D%98%20%EC%B5%9C%EB%8C%80%20%EA%B3%B1%EC%9D%80%20%7Bres%7D%EC%9D%B4%EB%8B%A4%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">전체 화면 ></a></div>
 
-![정수 분할 최대 곱의 계산 방법](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png){ class="animation-figure" }
+![정수 분할 최대 곱의 계산 방법](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.svg){ class="animation-figure" }
 
 <p align="center"> 그림 15-16 &nbsp; 정수 분할 최대 곱의 계산 방법 </p>
 

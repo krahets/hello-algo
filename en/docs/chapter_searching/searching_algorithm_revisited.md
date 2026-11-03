@@ -44,7 +44,7 @@ However, **they often require preprocessing the data**. Binary search requires s
 
 Given a dataset of size $n$, we can find a target using linear search, binary search, tree search, hash lookup, and other methods. Figure 10-11 illustrates how these methods work.
 
-![Different search strategies](searching_algorithm_revisited.assets/searching_algorithms.png){ class="animation-figure" }
+![Different search strategies](searching_algorithm_revisited.assets/searching_algorithms.svg){ class="animation-figure" }
 
 <p align="center"> Figure 10-11 &nbsp; Different search strategies </p>
 

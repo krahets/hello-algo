@@ -44,7 +44,7 @@ comments: true
 
 Для поиска целевого элемента в наборе данных размера $n$ можно использовать линейный поиск, двоичный поиск, поиск в дереве, хеш-поиск и другие методы. Принципы работы этих методов показаны на рисунке 10-11.
 
-![Различные стратегии поиска](searching_algorithm_revisited.assets/searching_algorithms.png){ class="animation-figure" }
+![Различные стратегии поиска](searching_algorithm_revisited.assets/searching_algorithms.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 10-11 &nbsp; Различные стратегии поиска </p>
 

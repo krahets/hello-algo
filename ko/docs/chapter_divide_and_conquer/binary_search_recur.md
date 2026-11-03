@@ -40,7 +40,7 @@ comments: true
 
 아래 그림(12-4)은 배열에서 원소 $6$을 이진 탐색하는 분할 정복 과정을 보여 준다.
 
-![이진 탐색의 분할 정복 과정](binary_search_recur.assets/binary_search_recur.png){ class="animation-figure" }
+![이진 탐색의 분할 정복 과정](binary_search_recur.assets/binary_search_recur.svg){ class="animation-figure" }
 
 <p align="center"> 그림 12-4 &nbsp; 이진 탐색의 분할 정복 과정 </p>
 

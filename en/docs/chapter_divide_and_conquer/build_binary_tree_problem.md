@@ -8,7 +8,7 @@ comments: true
 
     Given a binary tree's preorder traversal `preorder` and inorder traversal `inorder`, reconstruct the tree and return its root node. Assume that all node values are distinct, as shown in Figure 12-5.
 
-![Example input for reconstructing a binary tree](build_binary_tree_problem.assets/build_tree_example.png){ class="animation-figure" }
+![Example input for reconstructing a binary tree](build_binary_tree_problem.assets/build_tree_example.svg){ class="animation-figure" }
 
 <p align="center"> Figure 12-5 &nbsp; Example input for reconstructing a binary tree </p>
 
@@ -35,7 +35,7 @@ Using the example above, we can divide the traversals with the steps shown in Fi
 2. Find the index of root value 3 in `inorder`, then use it to divide `inorder` into `[ 9 | 3 | 1 2 7 ]`.
 3. This division of `inorder` tells us that the left and right subtrees have 1 and 3 nodes, respectively, allowing us to divide `preorder` into `[ 3 | 9 | 2 1 7 ]`.
 
-![Separating subtrees in preorder and inorder traversals](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png){ class="animation-figure" }
+![Separating subtrees in preorder and inorder traversals](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.svg){ class="animation-figure" }
 
 <p align="center"> Figure 12-6 &nbsp; Separating subtrees in preorder and inorder traversals </p>
 
@@ -63,7 +63,7 @@ As shown in Table 12-1, these variables describe the root index in `preorder` an
 
 The term $(m-l)$ in the right subtree's root index is the number of nodes in the left subtree. Figure 12-7 helps illustrate this.
 
-![Index intervals for the root and the left and right subtrees](build_binary_tree_problem.assets/build_tree_division_pointers.png){ class="animation-figure" }
+![Index intervals for the root and the left and right subtrees](build_binary_tree_problem.assets/build_tree_division_pointers.svg){ class="animation-figure" }
 
 <p align="center"> Figure 12-7 &nbsp; Index intervals for the root and the left and right subtrees </p>
 
@@ -520,37 +520,37 @@ To find $m$ efficiently, we use a hash table `hmap` mapping each element of `ino
 Figure 12-8 shows the recursive reconstruction process. Nodes are created during recursive descent, while edges (references) are established as the recursive calls return.
 
 === "<1>"
-    ![Recursive process for building a binary tree](build_binary_tree_problem.assets/built_tree_step1.png){ class="animation-figure" }
+    ![Recursive process for building a binary tree](build_binary_tree_problem.assets/built_tree_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![built_tree_step2](build_binary_tree_problem.assets/built_tree_step2.png){ class="animation-figure" }
+    ![built_tree_step2](build_binary_tree_problem.assets/built_tree_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![built_tree_step3](build_binary_tree_problem.assets/built_tree_step3.png){ class="animation-figure" }
+    ![built_tree_step3](build_binary_tree_problem.assets/built_tree_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![built_tree_step4](build_binary_tree_problem.assets/built_tree_step4.png){ class="animation-figure" }
+    ![built_tree_step4](build_binary_tree_problem.assets/built_tree_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![built_tree_step5](build_binary_tree_problem.assets/built_tree_step5.png){ class="animation-figure" }
+    ![built_tree_step5](build_binary_tree_problem.assets/built_tree_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![built_tree_step6](build_binary_tree_problem.assets/built_tree_step6.png){ class="animation-figure" }
+    ![built_tree_step6](build_binary_tree_problem.assets/built_tree_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![built_tree_step7](build_binary_tree_problem.assets/built_tree_step7.png){ class="animation-figure" }
+    ![built_tree_step7](build_binary_tree_problem.assets/built_tree_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![built_tree_step8](build_binary_tree_problem.assets/built_tree_step8.png){ class="animation-figure" }
+    ![built_tree_step8](build_binary_tree_problem.assets/built_tree_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.png){ class="animation-figure" }
+    ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.svg){ class="animation-figure" }
 
 <p align="center"> Figure 12-8 &nbsp; Recursive process for building a binary tree </p>
 
 Figure 12-9 shows how `preorder` and `inorder` are divided in each recursive call.
 
-![Division within each recursive call](build_binary_tree_problem.assets/built_tree_overall.png){ class="animation-figure" }
+![Division within each recursive call](build_binary_tree_problem.assets/built_tree_overall.svg){ class="animation-figure" }
 
 <p align="center"> Figure 12-9 &nbsp; Division within each recursive call </p>
 

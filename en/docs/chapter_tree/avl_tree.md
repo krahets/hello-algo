@@ -8,13 +8,13 @@ The binary-search-tree section explained that repeated insertions and deletions 
 
 In the example below, just two deletions turn the binary search tree into a linked list.
 
-![An AVL-tree example degenerating after deletions](avl_tree.assets/avltree_degradation_from_removing_node.png){ class="animation-figure" }
+![An AVL-tree example degenerating after deletions](avl_tree.assets/avltree_degradation_from_removing_node.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-24 &nbsp; An AVL-tree example degenerating after deletions </p>
 
 Likewise, inserting two nodes into the perfect binary tree below makes it heavily skewed to the left, degrading lookup performance.
 
-![An AVL-tree example degenerating after insertions](avl_tree.assets/avltree_degradation_from_inserting_node.png){ class="animation-figure" }
+![An AVL-tree example degenerating after insertions](avl_tree.assets/avltree_degradation_from_inserting_node.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-25 &nbsp; An AVL-tree example degenerating after insertions </p>
 
@@ -661,22 +661,22 @@ A node whose balance factor has absolute value $> 1$ is “unbalanced.” Depend
 In Figure 7-26, balance factors appear beneath the nodes. Viewed from the bottom up, node 3 is the first unbalanced node. Focus on the subtree rooted there, naming its root `node` and its left child `child`. A right rotation restores balance while preserving the binary-search-tree property.
 
 === "<1>"
-    ![Steps of a right rotation](avl_tree.assets/avltree_right_rotate_step1.png){ class="animation-figure" }
+    ![Steps of a right rotation](avl_tree.assets/avltree_right_rotate_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![avltree_right_rotate_step2](avl_tree.assets/avltree_right_rotate_step2.png){ class="animation-figure" }
+    ![avltree_right_rotate_step2](avl_tree.assets/avltree_right_rotate_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![avltree_right_rotate_step3](avl_tree.assets/avltree_right_rotate_step3.png){ class="animation-figure" }
+    ![avltree_right_rotate_step3](avl_tree.assets/avltree_right_rotate_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.png){ class="animation-figure" }
+    ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-26 &nbsp; Steps of a right rotation </p>
 
 If `child` has a right child, denoted by `grand_child`, add one step to the rotation: make `grand_child` the left child of `node`, as shown below.
 
-![A right rotation with grand_child](avl_tree.assets/avltree_right_rotate_with_grandchild.png){ class="animation-figure" }
+![A right rotation with grand_child](avl_tree.assets/avltree_right_rotate_with_grandchild.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-27 &nbsp; A right rotation with grand_child </p>
 
@@ -925,13 +925,13 @@ If `child` has a right child, denoted by `grand_child`, add one step to the rota
 
 For the mirror image of the unbalanced tree above, perform a left rotation, as shown below.
 
-![A left rotation](avl_tree.assets/avltree_left_rotate.png){ class="animation-figure" }
+![A left rotation](avl_tree.assets/avltree_left_rotate.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-28 &nbsp; A left rotation </p>
 
 Similarly, if `child` has a left child, denoted by `grand_child`, make it the right child of `node` during the rotation.
 
-![A left rotation with grand_child](avl_tree.assets/avltree_left_rotate_with_grandchild.png){ class="animation-figure" }
+![A left rotation with grand_child](avl_tree.assets/avltree_left_rotate_with_grandchild.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-29 &nbsp; A left rotation with grand_child </p>
 
@@ -1180,7 +1180,7 @@ Similarly, if `child` has a left child, denoted by `grand_child`, make it the ri
 
 For unbalanced node 3 below, neither a left nor a right rotation alone restores balance. First rotate `child` to the left, then rotate `node` to the right.
 
-![A left-then-right rotation](avl_tree.assets/avltree_left_right_rotate.png){ class="animation-figure" }
+![A left-then-right rotation](avl_tree.assets/avltree_left_right_rotate.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-30 &nbsp; A left-then-right rotation </p>
 
@@ -1188,7 +1188,7 @@ For unbalanced node 3 below, neither a left nor a right rotation alone restores 
 
 For the mirror-image case below, first rotate `child` to the right, then rotate `node` to the left.
 
-![A right-then-left rotation](avl_tree.assets/avltree_right_left_rotate.png){ class="animation-figure" }
+![A right-then-left rotation](avl_tree.assets/avltree_right_left_rotate.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-31 &nbsp; A right-then-left rotation </p>
 
@@ -1196,7 +1196,7 @@ For the mirror-image case below, first rotate `child` to the right, then rotate 
 
 The four cases below correspond to the examples above and require, respectively, right, left-then-right, right-then-left, and left rotations.
 
-![The four AVL rotation cases](avl_tree.assets/avltree_rotation_cases.png){ class="animation-figure" }
+![The four AVL rotation cases](avl_tree.assets/avltree_rotation_cases.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-32 &nbsp; The four AVL rotation cases </p>
 

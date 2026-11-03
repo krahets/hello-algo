@@ -8,7 +8,7 @@ A <u>queue</u> is a linear data structure that follows a first-in, first-out rul
 
 As shown below, the two ends are called the “front” and the “rear.” Adding an element at the rear is called “enqueueing,” and removing an element from the front is called “dequeueing.”
 
-![The first-in, first-out rule of a queue](queue.assets/queue_operations.png){ class="animation-figure" }
+![The first-in, first-out rule of a queue](queue.assets/queue_operations.svg){ class="animation-figure" }
 
 <p align="center"> Figure 5-4 &nbsp; The first-in, first-out rule of a queue </p>
 
@@ -380,13 +380,13 @@ A queue needs a data structure that allows insertion at one end and deletion at 
 As shown below, treat the linked list's head and tail as the queue's front and rear. Nodes may be added only at the rear and removed only from the front.
 
 === "<1>"
-    ![Enqueue and dequeue in a linked-list queue](queue.assets/linkedlist_queue_step1.png){ class="animation-figure" }
+    ![Enqueue and dequeue in a linked-list queue](queue.assets/linkedlist_queue_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.png){ class="animation-figure" }
+    ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.png){ class="animation-figure" }
+    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> Figure 5-5 &nbsp; Enqueue and dequeue in a linked-list queue </p>
 
@@ -1330,13 +1330,13 @@ With this design, **the occupied interval is `[front, rear - 1]`**. Operations w
 Both operations require only a constant amount of work and take $O(1)$ time.
 
 === "<1>"
-    ![Enqueue and dequeue in an array-based queue](queue.assets/array_queue_step1.png){ class="animation-figure" }
+    ![Enqueue and dequeue in an array-based queue](queue.assets/array_queue_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![array_queue_push](queue.assets/array_queue_step2_push.png){ class="animation-figure" }
+    ![array_queue_push](queue.assets/array_queue_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![array_queue_pop](queue.assets/array_queue_step3_pop.png){ class="animation-figure" }
+    ![array_queue_pop](queue.assets/array_queue_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> Figure 5-6 &nbsp; Enqueue and dequeue in an array-based queue </p>
 

@@ -8,7 +8,7 @@ comments: true
 
     이진 트리의 전위 순회 `preorder`와 중위 순회 `inorder`가 주어진다. 이를 이용해 이진 트리를 구성하고 루트 노드를 반환하라. 트리에는 값이 중복되는 노드가 없다고 가정한다(아래 그림(12-5) 참고).
 
-![이진 트리 구성 예시 데이터](build_binary_tree_problem.assets/build_tree_example.png){ class="animation-figure" }
+![이진 트리 구성 예시 데이터](build_binary_tree_problem.assets/build_tree_example.svg){ class="animation-figure" }
 
 <p align="center"> 그림 12-5 &nbsp; 이진 트리 구성 예시 데이터 </p>
 
@@ -35,7 +35,7 @@ comments: true
 2. `inorder`에서 루트 노드 3의 인덱스를 찾아 이를 기준으로 `inorder`를 `[ 9 | 3 | 1 2 7 ]`로 나눈다.
 3. `inorder`의 분할 결과로 왼쪽 서브트리의 노드 수는 1, 오른쪽은 3임을 알 수 있다. 따라서 `preorder`를 `[ 3 | 9 | 2 1 7 ]`로 나눌 수 있다.
 
-![전위 순회와 중위 순회에서 서브트리 나누기](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png){ class="animation-figure" }
+![전위 순회와 중위 순회에서 서브트리 나누기](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.svg){ class="animation-figure" }
 
 <p align="center"> 그림 12-6 &nbsp; 전위 순회와 중위 순회에서 서브트리 나누기 </p>
 
@@ -63,7 +63,7 @@ comments: true
 
 오른쪽 서브트리의 루트 인덱스에 있는 $(m-l)$은 '왼쪽 서브트리의 노드 수'를 뜻한다. 아래 그림(12-7)과 함께 이해해 보자.
 
-![루트 노드와 양쪽 서브트리의 인덱스 구간 표현](build_binary_tree_problem.assets/build_tree_division_pointers.png){ class="animation-figure" }
+![루트 노드와 양쪽 서브트리의 인덱스 구간 표현](build_binary_tree_problem.assets/build_tree_division_pointers.svg){ class="animation-figure" }
 
 <p align="center"> 그림 12-7 &nbsp; 루트 노드와 양쪽 서브트리의 인덱스 구간 표현 </p>
 
@@ -520,37 +520,37 @@ $m$을 더 효율적으로 조회하기 위해 해시 테이블 `hmap`에 배열
 아래 그림(12-8)은 이진 트리 구성의 재귀 과정을 보여 준다. 각 노드는 아래로 '호출'하는 과정에서 만들어지고, 간선(참조)은 위로 '반환'하는 과정에서 만들어진다.
 
 === "<1>"
-    ![이진 트리 구성의 재귀 과정](build_binary_tree_problem.assets/built_tree_step1.png){ class="animation-figure" }
+    ![이진 트리 구성의 재귀 과정](build_binary_tree_problem.assets/built_tree_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![이진 트리 구성 2단계](build_binary_tree_problem.assets/built_tree_step2.png){ class="animation-figure" }
+    ![이진 트리 구성 2단계](build_binary_tree_problem.assets/built_tree_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![이진 트리 구성 3단계](build_binary_tree_problem.assets/built_tree_step3.png){ class="animation-figure" }
+    ![이진 트리 구성 3단계](build_binary_tree_problem.assets/built_tree_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![이진 트리 구성 4단계](build_binary_tree_problem.assets/built_tree_step4.png){ class="animation-figure" }
+    ![이진 트리 구성 4단계](build_binary_tree_problem.assets/built_tree_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![이진 트리 구성 5단계](build_binary_tree_problem.assets/built_tree_step5.png){ class="animation-figure" }
+    ![이진 트리 구성 5단계](build_binary_tree_problem.assets/built_tree_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![이진 트리 구성 6단계](build_binary_tree_problem.assets/built_tree_step6.png){ class="animation-figure" }
+    ![이진 트리 구성 6단계](build_binary_tree_problem.assets/built_tree_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![이진 트리 구성 7단계](build_binary_tree_problem.assets/built_tree_step7.png){ class="animation-figure" }
+    ![이진 트리 구성 7단계](build_binary_tree_problem.assets/built_tree_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![이진 트리 구성 8단계](build_binary_tree_problem.assets/built_tree_step8.png){ class="animation-figure" }
+    ![이진 트리 구성 8단계](build_binary_tree_problem.assets/built_tree_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![이진 트리 구성 9단계](build_binary_tree_problem.assets/built_tree_step9.png){ class="animation-figure" }
+    ![이진 트리 구성 9단계](build_binary_tree_problem.assets/built_tree_step9.svg){ class="animation-figure" }
 
 <p align="center"> 그림 12-8 &nbsp; 이진 트리 구성의 재귀 과정 </p>
 
 각 재귀 함수에서 전위 순회 `preorder`와 중위 순회 `inorder`를 나눈 결과는 아래 그림(12-9)과 같다.
 
-![각 재귀 함수의 분할 결과](build_binary_tree_problem.assets/built_tree_overall.png){ class="animation-figure" }
+![각 재귀 함수의 분할 결과](build_binary_tree_problem.assets/built_tree_overall.svg){ class="animation-figure" }
 
 <p align="center"> 그림 12-9 &nbsp; 각 재귀 함수의 분할 결과 </p>
 

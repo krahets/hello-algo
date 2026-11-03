@@ -12,7 +12,7 @@ comments: true
     
     용량이 최대가 되도록 두 칸막이를 골라 최대 용량을 반환하라. 예시는 아래 그림(15-7)과 같다.
 
-![최대 용량 문제 예시 데이터](max_capacity_problem.assets/max_capacity_example.png){ class="animation-figure" }
+![최대 용량 문제 예시 데이터](max_capacity_problem.assets/max_capacity_example.svg){ class="animation-figure" }
 
 <p align="center"> 그림 15-7 &nbsp; 최대 용량 문제 예시 데이터 </p>
 
@@ -30,7 +30,7 @@ $$
 
 더 효율적인 풀이도 있다. 아래 그림(15-8)처럼 인덱스 $i < j$이고 높이 $ht[i] < ht[j]$인 상태 $[i, j]$를 고르자. 즉, $i$는 낮은 칸막이, $j$는 높은 칸막이다.
 
-![초기 상태](max_capacity_problem.assets/max_capacity_initial_state.png){ class="animation-figure" }
+![초기 상태](max_capacity_problem.assets/max_capacity_initial_state.svg){ class="animation-figure" }
 
 <p align="center"> 그림 15-8 &nbsp; 초기 상태 </p>
 
@@ -38,13 +38,13 @@ $$
 
 $j$를 옮기면 너비 $j-i$는 확실히 줄어든다. 높이는 낮은 칸막이로 결정되므로 그대로이거나($i$가 계속 더 낮음), 더 낮아질 수만 있다(이동한 $j$가 더 낮아짐).
 
-![높은 칸막이를 안쪽으로 옮긴 상태](max_capacity_problem.assets/max_capacity_moving_long_board.png){ class="animation-figure" }
+![높은 칸막이를 안쪽으로 옮긴 상태](max_capacity_problem.assets/max_capacity_moving_long_board.svg){ class="animation-figure" }
 
 <p align="center"> 그림 15-9 &nbsp; 높은 칸막이를 안쪽으로 옮긴 상태 </p>
 
 반대로 생각하면 **낮은 칸막이 $i$를 안쪽으로 옮겨야만 용량이 커질 가능성이 있다**. 너비는 반드시 줄지만 **높이는 커질 수도 있기 때문이다**(이동한 $i$가 더 높을 수 있다). 아래 그림(15-10)에서는 낮은 칸막이를 옮긴 뒤 넓이가 커진다.
 
-![낮은 칸막이를 안쪽으로 옮긴 상태](max_capacity_problem.assets/max_capacity_moving_short_board.png){ class="animation-figure" }
+![낮은 칸막이를 안쪽으로 옮긴 상태](max_capacity_problem.assets/max_capacity_moving_short_board.svg){ class="animation-figure" }
 
 <p align="center"> 그림 15-10 &nbsp; 낮은 칸막이를 안쪽으로 옮긴 상태 </p>
 
@@ -58,31 +58,31 @@ $j$를 옮기면 너비 $j-i$는 확실히 줄어든다. 높이는 낮은 칸막
 4. $i$와 $j$가 만날 때까지 `2.` 단계와 `3.` 단계를 반복한다.
 
 === "<1>"
-    ![최대 용량 문제의 탐욕 과정](max_capacity_problem.assets/max_capacity_greedy_step1.png){ class="animation-figure" }
+    ![최대 용량 문제의 탐욕 과정](max_capacity_problem.assets/max_capacity_greedy_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![최대 용량 탐욕 과정 2단계](max_capacity_problem.assets/max_capacity_greedy_step2.png){ class="animation-figure" }
+    ![최대 용량 탐욕 과정 2단계](max_capacity_problem.assets/max_capacity_greedy_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![최대 용량 탐욕 과정 3단계](max_capacity_problem.assets/max_capacity_greedy_step3.png){ class="animation-figure" }
+    ![최대 용량 탐욕 과정 3단계](max_capacity_problem.assets/max_capacity_greedy_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![최대 용량 탐욕 과정 4단계](max_capacity_problem.assets/max_capacity_greedy_step4.png){ class="animation-figure" }
+    ![최대 용량 탐욕 과정 4단계](max_capacity_problem.assets/max_capacity_greedy_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![최대 용량 탐욕 과정 5단계](max_capacity_problem.assets/max_capacity_greedy_step5.png){ class="animation-figure" }
+    ![최대 용량 탐욕 과정 5단계](max_capacity_problem.assets/max_capacity_greedy_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![최대 용량 탐욕 과정 6단계](max_capacity_problem.assets/max_capacity_greedy_step6.png){ class="animation-figure" }
+    ![최대 용량 탐욕 과정 6단계](max_capacity_problem.assets/max_capacity_greedy_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![최대 용량 탐욕 과정 7단계](max_capacity_problem.assets/max_capacity_greedy_step7.png){ class="animation-figure" }
+    ![최대 용량 탐욕 과정 7단계](max_capacity_problem.assets/max_capacity_greedy_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![최대 용량 탐욕 과정 8단계](max_capacity_problem.assets/max_capacity_greedy_step8.png){ class="animation-figure" }
+    ![최대 용량 탐욕 과정 8단계](max_capacity_problem.assets/max_capacity_greedy_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![최대 용량 탐욕 과정 9단계](max_capacity_problem.assets/max_capacity_greedy_step9.png){ class="animation-figure" }
+    ![최대 용량 탐욕 과정 9단계](max_capacity_problem.assets/max_capacity_greedy_step9.svg){ class="animation-figure" }
 
 <p align="center"> 그림 15-11 &nbsp; 최대 용량 문제의 탐욕 과정 </p>
 
@@ -436,7 +436,7 @@ $$
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 $$
 
-![낮은 칸막이를 옮겨 건너뛴 상태들](max_capacity_problem.assets/max_capacity_skipped_states.png){ class="animation-figure" }
+![낮은 칸막이를 옮겨 건너뛴 상태들](max_capacity_problem.assets/max_capacity_skipped_states.svg){ class="animation-figure" }
 
 <p align="center"> 그림 15-12 &nbsp; 낮은 칸막이를 옮겨 건너뛴 상태들 </p>
 

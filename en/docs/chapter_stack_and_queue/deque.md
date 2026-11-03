@@ -6,7 +6,7 @@ comments: true
 
 A queue allows removal only at the front and insertion only at the rear. As shown below, a <u>double-ended queue</u>, or deque, is more flexible: elements can be added or removed at either end.
 
-![Deque operations](deque.assets/deque_operations.png){ class="animation-figure" }
+![Deque operations](deque.assets/deque_operations.svg){ class="animation-figure" }
 
 <p align="center"> Figure 5-7 &nbsp; Deque operations </p>
 
@@ -411,19 +411,19 @@ A deque supports both insertion and removal at both ends. It therefore needs the
 As shown below, treat the list's head and tail as the deque's front and rear, and support adding and removing nodes at both ends.
 
 === "<1>"
-    ![Insertion and removal in a linked-list deque](deque.assets/linkedlist_deque_step1.png){ class="animation-figure" }
+    ![Insertion and removal in a linked-list deque](deque.assets/linkedlist_deque_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.png){ class="animation-figure" }
+    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.svg){ class="animation-figure" }
 
 === "<3>"
-    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.png){ class="animation-figure" }
+    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.svg){ class="animation-figure" }
 
 === "<4>"
-    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.png){ class="animation-figure" }
+    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.svg){ class="animation-figure" }
 
 === "<5>"
-    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.png){ class="animation-figure" }
+    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.svg){ class="animation-figure" }
 
 <p align="center"> Figure 5-8 &nbsp; Insertion and removal in a linked-list deque </p>
 
@@ -2199,19 +2199,19 @@ The implementation is as follows:
 As with an array-based queue, we can use a circular array to implement a deque, as shown below.
 
 === "<1>"
-    ![Insertion and removal in an array-based deque](deque.assets/array_deque_step1.png){ class="animation-figure" }
+    ![Insertion and removal in an array-based deque](deque.assets/array_deque_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![array_deque_push_last](deque.assets/array_deque_step2_push_last.png){ class="animation-figure" }
+    ![array_deque_push_last](deque.assets/array_deque_step2_push_last.svg){ class="animation-figure" }
 
 === "<3>"
-    ![array_deque_push_first](deque.assets/array_deque_step3_push_first.png){ class="animation-figure" }
+    ![array_deque_push_first](deque.assets/array_deque_step3_push_first.svg){ class="animation-figure" }
 
 === "<4>"
-    ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.png){ class="animation-figure" }
+    ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.svg){ class="animation-figure" }
 
 === "<5>"
-    ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.png){ class="animation-figure" }
+    ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.svg){ class="animation-figure" }
 
 <p align="center"> Figure 5-9 &nbsp; Insertion and removal in an array-based deque </p>
 

@@ -15,19 +15,19 @@ comments: true
 3. Продолжайте повторять шаги `1.` и `2.` , пока не найдете страницу, где первой буквой слов будет $r$.
 
 === "<1>"
-    ![Этапы поиска в словаре](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png){ class="animation-figure" }
+    ![Этапы поиска в словаре](algorithms_are_everywhere.assets/binary_search_dictionary_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png){ class="animation-figure" }
+    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png){ class="animation-figure" }
+    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png){ class="animation-figure" }
+    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png){ class="animation-figure" }
+    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 1-1 &nbsp; Этапы поиска в словаре </p>
 
@@ -39,7 +39,7 @@ comments: true
 2. Из неупорядоченной части извлеките одну карту и вставьте ее в правильное место в упорядоченной части. После этого две самые левые карты станут упорядоченными.
 3. Повторяйте шаг `2.` , каждый раз перемещая одну карту из неупорядоченной части в упорядоченную, пока все карты не станут упорядоченными.
 
-![Этапы упорядочивания карт](algorithms_are_everywhere.assets/playing_cards_sorting.png){ class="animation-figure" }
+![Этапы упорядочивания карт](algorithms_are_everywhere.assets/playing_cards_sorting.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 1-2 &nbsp; Этапы упорядочивания карт </p>
 
@@ -53,7 +53,7 @@ comments: true
 4. Взять самую крупную из оставшихся купюр в $1$ руб. Остаток составит $1 - 1 = 0$ руб.
 5. Завершить выдачу сдачи, схема: $20 + 10 + 1 = 31$ руб.
 
-![Этапы выдачи сдачи](algorithms_are_everywhere.assets/greedy_change.png){ class="animation-figure" }
+![Этапы выдачи сдачи](algorithms_are_everywhere.assets/greedy_change.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 1-3 &nbsp; Этапы выдачи сдачи </p>
 

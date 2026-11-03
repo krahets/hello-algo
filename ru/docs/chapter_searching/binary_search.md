@@ -10,7 +10,7 @@ comments: true
 
     Дан массив `nums` длины $n$, элементы которого расположены в порядке возрастания и не повторяются. Найдите и верните индекс элемента `target` в этом массиве. Если массив не содержит этого элемента, верните $-1$ . Пример показан на рисунке 10-1.
 
-![Пример данных для двоичного поиска](binary_search.assets/binary_search_example.png){ class="animation-figure" }
+![Пример данных для двоичного поиска](binary_search.assets/binary_search_example.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 10-1 &nbsp; Пример данных для двоичного поиска </p>
 
@@ -27,25 +27,25 @@ comments: true
 Если массив не содержит целевой элемент, область поиска в итоге сузится до пустого интервала. В этом случае возвращается $-1$ .
 
 === "<1>"
-    ![Процесс двоичного поиска](binary_search.assets/binary_search_step1.png){ class="animation-figure" }
+    ![Процесс двоичного поиска](binary_search.assets/binary_search_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![binary_search_step2](binary_search.assets/binary_search_step2.png){ class="animation-figure" }
+    ![binary_search_step2](binary_search.assets/binary_search_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![binary_search_step3](binary_search.assets/binary_search_step3.png){ class="animation-figure" }
+    ![binary_search_step3](binary_search.assets/binary_search_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![binary_search_step4](binary_search.assets/binary_search_step4.png){ class="animation-figure" }
+    ![binary_search_step4](binary_search.assets/binary_search_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![binary_search_step5](binary_search.assets/binary_search_step5.png){ class="animation-figure" }
+    ![binary_search_step5](binary_search.assets/binary_search_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![binary_search_step6](binary_search.assets/binary_search_step6.png){ class="animation-figure" }
+    ![binary_search_step6](binary_search.assets/binary_search_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![binary_search_step7](binary_search.assets/binary_search_step7.png){ class="animation-figure" }
+    ![binary_search_step7](binary_search.assets/binary_search_step7.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 10-2 &nbsp; Процесс двоичного поиска </p>
 
@@ -695,7 +695,7 @@ comments: true
 
 Поскольку в записи «замкнутый интервал» обе границы являются закрытыми, операции сужения интервала при помощи указателей $i$ и $j$ тоже получаются симметричными. Из-за этого в таком варианте сложнее допустить ошибку, **поэтому обычно рекомендуется использовать именно запись «замкнутый интервал»**.
 
-![Два определения интервалов](binary_search.assets/binary_search_ranges.png){ class="animation-figure" }
+![Два определения интервалов](binary_search.assets/binary_search_ranges.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 10-3 &nbsp; Два определения интервалов </p>
 

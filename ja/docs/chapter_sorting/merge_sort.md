@@ -9,7 +9,7 @@ comments: true
 1. **分割の段階**：再帰的に配列を中点で分け続け、長い配列のソート問題を短い配列のソート問題へ変換します。
 2. **結合の段階**：部分配列の長さが 1 になったら分割を終了して結合を始めます。左右の短い整列済み配列を一つの長い整列済み配列へ結合し、最後まで続けます。
 
-![マージソートの分割と結合の段階](merge_sort.assets/merge_sort_overview.png){ class="animation-figure" }
+![マージソートの分割と結合の段階](merge_sort.assets/merge_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> 図 11-10 &nbsp; マージソートの分割と結合の段階 </p>
 
@@ -23,34 +23,34 @@ comments: true
 結合の段階では、下から上へ左右の部分配列を一つの整列済み配列に結合します。長さ 1 の部分配列から結合を始めるので、この段階の各部分配列はすべて整列済みであることに注意してください。
 
 === "<1>"
-    ![マージソートの手順](merge_sort.assets/merge_sort_step1.png){ class="animation-figure" }
+    ![マージソートの手順](merge_sort.assets/merge_sort_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![マージソートの手順 2](merge_sort.assets/merge_sort_step2.png){ class="animation-figure" }
+    ![マージソートの手順 2](merge_sort.assets/merge_sort_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![マージソートの手順 3](merge_sort.assets/merge_sort_step3.png){ class="animation-figure" }
+    ![マージソートの手順 3](merge_sort.assets/merge_sort_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![マージソートの手順 4](merge_sort.assets/merge_sort_step4.png){ class="animation-figure" }
+    ![マージソートの手順 4](merge_sort.assets/merge_sort_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![マージソートの手順 5](merge_sort.assets/merge_sort_step5.png){ class="animation-figure" }
+    ![マージソートの手順 5](merge_sort.assets/merge_sort_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![マージソートの手順 6](merge_sort.assets/merge_sort_step6.png){ class="animation-figure" }
+    ![マージソートの手順 6](merge_sort.assets/merge_sort_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![マージソートの手順 7](merge_sort.assets/merge_sort_step7.png){ class="animation-figure" }
+    ![マージソートの手順 7](merge_sort.assets/merge_sort_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![マージソートの手順 8](merge_sort.assets/merge_sort_step8.png){ class="animation-figure" }
+    ![マージソートの手順 8](merge_sort.assets/merge_sort_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![マージソートの手順 9](merge_sort.assets/merge_sort_step9.png){ class="animation-figure" }
+    ![マージソートの手順 9](merge_sort.assets/merge_sort_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![マージソートの手順 10](merge_sort.assets/merge_sort_step10.png){ class="animation-figure" }
+    ![マージソートの手順 10](merge_sort.assets/merge_sort_step10.svg){ class="animation-figure" }
 
 <p align="center"> 図 11-11 &nbsp; マージソートの手順 </p>
 

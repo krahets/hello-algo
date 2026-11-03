@@ -14,7 +14,7 @@ Start with a simple example: an array `nums` of length $n$ containing nonnegativ
 2. **Use `counter` to count occurrences of each number in `nums`**. Here, `counter[num]` is the number of occurrences of `num`. Simply traverse `nums` and increment `counter[num]` by $1$ for each current value `num`.
 3. **Because the indices of `counter` are inherently ordered, the numbers are effectively already sorted**. Traverse `counter` and write each number into `nums` in ascending order, repeating it according to its count.
 
-![The counting sort process](counting_sort.assets/counting_sort_overview.png){ class="animation-figure" }
+![The counting sort process](counting_sort.assets/counting_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> Figure 11-16 &nbsp; The counting sort process </p>
 
@@ -388,28 +388,28 @@ $$
 After the traversal, `res` contains the sorted result. Finally, copy `res` over the original array `nums`. Figure 11-17 shows the complete process.
 
 === "<1>"
-    ![Steps of counting sort](counting_sort.assets/counting_sort_step1.png){ class="animation-figure" }
+    ![Steps of counting sort](counting_sort.assets/counting_sort_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![counting_sort_step2](counting_sort.assets/counting_sort_step2.png){ class="animation-figure" }
+    ![counting_sort_step2](counting_sort.assets/counting_sort_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![counting_sort_step3](counting_sort.assets/counting_sort_step3.png){ class="animation-figure" }
+    ![counting_sort_step3](counting_sort.assets/counting_sort_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![counting_sort_step4](counting_sort.assets/counting_sort_step4.png){ class="animation-figure" }
+    ![counting_sort_step4](counting_sort.assets/counting_sort_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![counting_sort_step5](counting_sort.assets/counting_sort_step5.png){ class="animation-figure" }
+    ![counting_sort_step5](counting_sort.assets/counting_sort_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![counting_sort_step6](counting_sort.assets/counting_sort_step6.png){ class="animation-figure" }
+    ![counting_sort_step6](counting_sort.assets/counting_sort_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![counting_sort_step7](counting_sort.assets/counting_sort_step7.png){ class="animation-figure" }
+    ![counting_sort_step7](counting_sort.assets/counting_sort_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![counting_sort_step8](counting_sort.assets/counting_sort_step8.png){ class="animation-figure" }
+    ![counting_sort_step8](counting_sort.assets/counting_sort_step8.svg){ class="animation-figure" }
 
 <p align="center"> Figure 11-17 &nbsp; Steps of counting sort </p>
 

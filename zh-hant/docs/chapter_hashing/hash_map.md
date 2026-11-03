@@ -8,7 +8,7 @@ comments: true
 
 如圖 6-1 所示，給定 $n$ 個學生，每個學生都有“姓名”和“學號”兩項資料。假如我們希望實現“輸入一個學號，返回對應的姓名”的查詢功能，則可以採用圖 6-1 所示的雜湊表來實現。
 
-![雜湊表的抽象表示](hash_map.assets/hash_table_lookup.png){ class="animation-figure" }
+![雜湊表的抽象表示](hash_map.assets/hash_table_lookup.svg){ class="animation-figure" }
 
 <p align="center"> 圖 6-1 &nbsp; 雜湊表的抽象表示 </p>
 
@@ -569,7 +569,7 @@ index = hash(key) % capacity
 
 設陣列長度 `capacity = 100`、雜湊演算法 `hash(key) = key` ，易得雜湊函式為 `key % 100` 。圖 6-2 以 `key` 學號和 `value` 姓名為例，展示了雜湊函式的工作原理。
 
-![雜湊函式工作原理](hash_map.assets/hash_function.png){ class="animation-figure" }
+![雜湊函式工作原理](hash_map.assets/hash_function.svg){ class="animation-figure" }
 
 <p align="center"> 圖 6-2 &nbsp; 雜湊函式工作原理 </p>
 
@@ -1771,7 +1771,7 @@ index = hash(key) % capacity
 
 如圖 6-3 所示，兩個學號指向了同一個姓名，這顯然是不對的。我們將這種多個輸入對應同一輸出的情況稱為<u>雜湊衝突（hash collision）</u>。
 
-![雜湊衝突示例](hash_map.assets/hash_collision.png){ class="animation-figure" }
+![雜湊衝突示例](hash_map.assets/hash_collision.svg){ class="animation-figure" }
 
 <p align="center"> 圖 6-3 &nbsp; 雜湊衝突示例 </p>
 
@@ -1779,7 +1779,7 @@ index = hash(key) % capacity
 
 如圖 6-4 所示，擴容前鍵值對 `(136, A)` 和 `(236, D)` 發生衝突，擴容後衝突消失。
 
-![雜湊表擴容](hash_map.assets/hash_table_reshash.png){ class="animation-figure" }
+![雜湊表擴容](hash_map.assets/hash_table_reshash.svg){ class="animation-figure" }
 
 <p align="center"> 圖 6-4 &nbsp; 雜湊表擴容 </p>
 

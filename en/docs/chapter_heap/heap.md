@@ -9,7 +9,7 @@ A <u>heap</u> is a complete binary tree that satisfies a particular ordering con
 - <u>Min heap</u>: every node's value is $\leq$ the values of its children.
 - <u>Max heap</u>: every node's value is $\geq$ the values of its children.
 
-![A min heap and a max heap](heap.assets/min_heap_and_max_heap.png){ class="animation-figure" }
+![A min heap and a max heap](heap.assets/min_heap_and_max_heap.svg){ class="animation-figure" }
 
 <p align="center"> Figure 8-1 &nbsp; A min heap and a max heap </p>
 
@@ -435,7 +435,7 @@ In an array representation, elements store node values and indices identify posi
 
 As shown below, a node at index $i$ has its left child at $2i + 1$, its right child at $2i + 2$, and its parent at $(i - 1) / 2$, rounded down. An out-of-bounds index represents a missing node.
 
-![Representing and storing a heap](heap.assets/representation_of_heap.png){ class="animation-figure" }
+![Representing and storing a heap](heap.assets/representation_of_heap.svg){ class="animation-figure" }
 
 <p align="center"> Figure 8-2 &nbsp; Representing and storing a heap </p>
 
@@ -818,31 +818,31 @@ To insert `val`, first append it at the end of the heap. Since it may be larger 
 Start at the inserted node and **sift upward**. As shown below, compare it with its parent and swap them if the inserted value is larger. Repeat upward until the root is reached or no swap is needed.
 
 === "<1>"
-    ![Steps for inserting into a heap](heap.assets/heap_push_step1.png){ class="animation-figure" }
+    ![Steps for inserting into a heap](heap.assets/heap_push_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![heap_push_step2](heap.assets/heap_push_step2.png){ class="animation-figure" }
+    ![heap_push_step2](heap.assets/heap_push_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![heap_push_step3](heap.assets/heap_push_step3.png){ class="animation-figure" }
+    ![heap_push_step3](heap.assets/heap_push_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![heap_push_step4](heap.assets/heap_push_step4.png){ class="animation-figure" }
+    ![heap_push_step4](heap.assets/heap_push_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![heap_push_step5](heap.assets/heap_push_step5.png){ class="animation-figure" }
+    ![heap_push_step5](heap.assets/heap_push_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![heap_push_step6](heap.assets/heap_push_step6.png){ class="animation-figure" }
+    ![heap_push_step6](heap.assets/heap_push_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![heap_push_step7](heap.assets/heap_push_step7.png){ class="animation-figure" }
+    ![heap_push_step7](heap.assets/heap_push_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![heap_push_step8](heap.assets/heap_push_step8.png){ class="animation-figure" }
+    ![heap_push_step8](heap.assets/heap_push_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![heap_push_step9](heap.assets/heap_push_step9.png){ class="animation-figure" }
+    ![heap_push_step9](heap.assets/heap_push_step9.svg){ class="animation-figure" }
 
 <p align="center"> Figure 8-3 &nbsp; Steps for inserting into a heap </p>
 
@@ -1227,34 +1227,34 @@ The root is the first element of the list. Removing it directly would change eve
 As shown below, **sifting down proceeds in the opposite direction from sifting up**. Compare the root with its two children and swap it with the larger child when needed. Continue downward until a leaf is reached or no swap is necessary.
 
 === "<1>"
-    ![Steps for removing the root of a heap](heap.assets/heap_pop_step1.png){ class="animation-figure" }
+    ![Steps for removing the root of a heap](heap.assets/heap_pop_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![heap_pop_step2](heap.assets/heap_pop_step2.png){ class="animation-figure" }
+    ![heap_pop_step2](heap.assets/heap_pop_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![heap_pop_step3](heap.assets/heap_pop_step3.png){ class="animation-figure" }
+    ![heap_pop_step3](heap.assets/heap_pop_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![heap_pop_step4](heap.assets/heap_pop_step4.png){ class="animation-figure" }
+    ![heap_pop_step4](heap.assets/heap_pop_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![heap_pop_step5](heap.assets/heap_pop_step5.png){ class="animation-figure" }
+    ![heap_pop_step5](heap.assets/heap_pop_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![heap_pop_step6](heap.assets/heap_pop_step6.png){ class="animation-figure" }
+    ![heap_pop_step6](heap.assets/heap_pop_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![heap_pop_step7](heap.assets/heap_pop_step7.png){ class="animation-figure" }
+    ![heap_pop_step7](heap.assets/heap_pop_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![heap_pop_step8](heap.assets/heap_pop_step8.png){ class="animation-figure" }
+    ![heap_pop_step8](heap.assets/heap_pop_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![heap_pop_step9](heap.assets/heap_pop_step9.png){ class="animation-figure" }
+    ![heap_pop_step9](heap.assets/heap_pop_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![heap_pop_step10](heap.assets/heap_pop_step10.png){ class="animation-figure" }
+    ![heap_pop_step10](heap.assets/heap_pop_step10.svg){ class="animation-figure" }
 
 <p align="center"> Figure 8-4 &nbsp; Steps for removing the root of a heap </p>
 

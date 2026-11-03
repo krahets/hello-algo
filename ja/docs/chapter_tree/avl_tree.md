@@ -8,13 +8,13 @@ comments: true
 
 図 7-24 の二分探索木は、二回の削除だけで連結リストに退化します。
 
-![ノードの削除による AVL 木の退化](avl_tree.assets/avltree_degradation_from_removing_node.png){ class="animation-figure" }
+![ノードの削除による AVL 木の退化](avl_tree.assets/avltree_degradation_from_removing_node.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-24 &nbsp; ノードの削除による AVL 木の退化 </p>
 
 また、図 7-25 のパーフェクト二分木に二つのノードを挿入すると、木が大きく左へ偏り、探索の時間計算量も悪化します。
 
-![ノードの挿入による AVL 木の退化](avl_tree.assets/avltree_degradation_from_inserting_node.png){ class="animation-figure" }
+![ノードの挿入による AVL 木の退化](avl_tree.assets/avltree_degradation_from_inserting_node.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-25 &nbsp; ノードの挿入による AVL 木の退化 </p>
 
@@ -661,22 +661,22 @@ AVL 木の特徴は「回転」です。通りがけ順の列を変えずに、�
 図 7-26 では、ノードの下の数値が平衡係数です。下から上へ見ると、最初の不均衡なノードは「ノード 3」です。そこを根とする部分木に注目し、そのノードを `node`、左の子を `child` として右回転します。すると、二分探索木の性質を保ったまま、部分木が平衡に戻ります。
 
 === "<1>"
-    ![右回転の手順](avl_tree.assets/avltree_right_rotate_step1.png){ class="animation-figure" }
+    ![右回転の手順](avl_tree.assets/avltree_right_rotate_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![AVL 木の右回転の手順 2](avl_tree.assets/avltree_right_rotate_step2.png){ class="animation-figure" }
+    ![AVL 木の右回転の手順 2](avl_tree.assets/avltree_right_rotate_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![AVL 木の右回転の手順 3](avl_tree.assets/avltree_right_rotate_step3.png){ class="animation-figure" }
+    ![AVL 木の右回転の手順 3](avl_tree.assets/avltree_right_rotate_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![AVL 木の右回転の手順 4](avl_tree.assets/avltree_right_rotate_step4.png){ class="animation-figure" }
+    ![AVL 木の右回転の手順 4](avl_tree.assets/avltree_right_rotate_step4.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-26 &nbsp; 右回転の手順 </p>
 
 図 7-27 のように、`child` に右の子 `grand_child` がある場合は、それを `node` の左の子にする手順を追加します。
 
-![grand_child がある場合の右回転](avl_tree.assets/avltree_right_rotate_with_grandchild.png){ class="animation-figure" }
+![grand_child がある場合の右回転](avl_tree.assets/avltree_right_rotate_with_grandchild.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-27 &nbsp; grand_child がある場合の右回転 </p>
 
@@ -925,13 +925,13 @@ AVL 木の特徴は「回転」です。通りがけ順の列を変えずに、�
 
 これに対し、先ほどの不均衡な木を鏡に映した形では、図 7-28 の左回転が必要です。
 
-![左回転](avl_tree.assets/avltree_left_rotate.png){ class="animation-figure" }
+![左回転](avl_tree.assets/avltree_left_rotate.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-28 &nbsp; 左回転 </p>
 
 同様に、図 7-29 のように `child` に左の子 `grand_child` がある場合は、それを `node` の右の子にする手順を追加します。
 
-![grand_child がある場合の左回転](avl_tree.assets/avltree_left_rotate_with_grandchild.png){ class="animation-figure" }
+![grand_child がある場合の左回転](avl_tree.assets/avltree_left_rotate_with_grandchild.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-29 &nbsp; grand_child がある場合の左回転 </p>
 
@@ -1180,7 +1180,7 @@ AVL 木の特徴は「回転」です。通りがけ順の列を変えずに、�
 
 図 7-30 の不均衡なノード 3 は、左回転か右回転の一方だけでは平衡に戻りません。まず `child` を左回転し、次に `node` を右回転する必要があります。
 
-![左回転してから右回転](avl_tree.assets/avltree_left_right_rotate.png){ class="animation-figure" }
+![左回転してから右回転](avl_tree.assets/avltree_left_right_rotate.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-30 &nbsp; 左回転してから右回転 </p>
 
@@ -1188,7 +1188,7 @@ AVL 木の特徴は「回転」です。通りがけ順の列を変えずに、�
 
 図 7-31 のように、先ほどの木を鏡に映した形では、まず `child` を右回転し、次に `node` を左回転します。
 
-![右回転してから左回転](avl_tree.assets/avltree_right_left_rotate.png){ class="animation-figure" }
+![右回転してから左回転](avl_tree.assets/avltree_right_left_rotate.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-31 &nbsp; 右回転してから左回転 </p>
 
@@ -1196,7 +1196,7 @@ AVL 木の特徴は「回転」です。通りがけ順の列を変えずに、�
 
 図 7-32 の四つの不均衡は、これまでの例にそれぞれ対応します。必要な操作は順に、右回転、左回転してから右回転、右回転してから左回転、左回転です。
 
-![AVL 木の四つの回転の場合](avl_tree.assets/avltree_rotation_cases.png){ class="animation-figure" }
+![AVL 木の四つの回転の場合](avl_tree.assets/avltree_rotation_cases.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-32 &nbsp; AVL 木の四つの回転の場合 </p>
 

@@ -20,7 +20,7 @@ comments: true
 
 圖 3-4 展示了原碼、一補數和二補數之間的轉換方法。
 
-![原碼、一補數與二補數之間的相互轉換](number_encoding.assets/1s_2s_complement.png){ class="animation-figure" }
+![原碼、一補數與二補數之間的相互轉換](number_encoding.assets/1s_2s_complement.svg){ class="animation-figure" }
 
 <p align="center"> 圖 3-4 &nbsp; 原碼、一補數與二補數之間的相互轉換 </p>
 
@@ -129,7 +129,7 @@ $$
 \end{aligned}
 $$
 
-![IEEE 754 標準下的 float 的計算示例](number_encoding.assets/ieee_754_float.png){ class="animation-figure" }
+![IEEE 754 標準下的 float 的計算示例](number_encoding.assets/ieee_754_float.svg){ class="animation-figure" }
 
 <p align="center"> 圖 3-5 &nbsp; IEEE 754 標準下的 float 的計算示例 </p>
 

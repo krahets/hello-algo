@@ -8,13 +8,13 @@ comments: true
 
 아래 그림(7-24)의 이진 탐색 트리는 노드를 두 번 삭제하면 연결 리스트로 퇴화한다.
 
-![노드 삭제 후 퇴화한 AVL 트리](avl_tree.assets/avltree_degradation_from_removing_node.png){ class="animation-figure" }
+![노드 삭제 후 퇴화한 AVL 트리](avl_tree.assets/avltree_degradation_from_removing_node.svg){ class="animation-figure" }
 
 <p align="center"> 그림 7-24 &nbsp; 노드 삭제 후 퇴화한 AVL 트리 </p>
 
 또한 아래 그림(7-25)의 포화 이진 트리에 노드 두 개를 삽입하면 왼쪽으로 심하게 기울어 탐색의 시간 복잡도도 저하된다.
 
-![노드 삽입 후 퇴화한 AVL 트리](avl_tree.assets/avltree_degradation_from_inserting_node.png){ class="animation-figure" }
+![노드 삽입 후 퇴화한 AVL 트리](avl_tree.assets/avltree_degradation_from_inserting_node.svg){ class="animation-figure" }
 
 <p align="center"> 그림 7-25 &nbsp; 노드 삽입 후 퇴화한 AVL 트리 </p>
 
@@ -661,22 +661,22 @@ AVL 트리의 특징은 '회전' 연산이다. 이진 트리의 중위 순회 �
 아래 그림(7-26)에서 노드 아래의 수는 균형 인수다. 아래에서 위로 볼 때 첫 불균형 노드는 '노드 3'이다. 이 노드를 루트로 하는 서브트리에 주목하여 불균형 노드를 `node`, 왼쪽 자식을 `child`라고 하고 '오른쪽 회전'을 수행한다. 회전 후 서브트리는 균형을 되찾으며 이진 탐색 트리의 성질도 유지한다.
 
 === "<1>"
-    ![오른쪽 회전 단계](avl_tree.assets/avltree_right_rotate_step1.png){ class="animation-figure" }
+    ![오른쪽 회전 단계](avl_tree.assets/avltree_right_rotate_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![오른쪽 회전 2단계](avl_tree.assets/avltree_right_rotate_step2.png){ class="animation-figure" }
+    ![오른쪽 회전 2단계](avl_tree.assets/avltree_right_rotate_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![오른쪽 회전 3단계](avl_tree.assets/avltree_right_rotate_step3.png){ class="animation-figure" }
+    ![오른쪽 회전 3단계](avl_tree.assets/avltree_right_rotate_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![오른쪽 회전 4단계](avl_tree.assets/avltree_right_rotate_step4.png){ class="animation-figure" }
+    ![오른쪽 회전 4단계](avl_tree.assets/avltree_right_rotate_step4.svg){ class="animation-figure" }
 
 <p align="center"> 그림 7-26 &nbsp; 오른쪽 회전 단계 </p>
 
 아래 그림(7-27)처럼 `child`에 오른쪽 자식 `grand_child`가 있으면, 오른쪽 회전 중 `grand_child`를 `node`의 왼쪽 자식으로 연결하는 단계를 추가해야 한다.
 
-![grand_child가 있는 오른쪽 회전](avl_tree.assets/avltree_right_rotate_with_grandchild.png){ class="animation-figure" }
+![grand_child가 있는 오른쪽 회전](avl_tree.assets/avltree_right_rotate_with_grandchild.svg){ class="animation-figure" }
 
 <p align="center"> 그림 7-27 &nbsp; grand_child가 있는 오른쪽 회전 </p>
 
@@ -925,13 +925,13 @@ AVL 트리의 특징은 '회전' 연산이다. 이진 트리의 중위 순회 �
 
 앞의 불균형 이진 트리를 '거울에 비춘' 경우에는 아래 그림(7-28)과 같이 '왼쪽 회전'이 필요하다.
 
-![왼쪽 회전](avl_tree.assets/avltree_left_rotate.png){ class="animation-figure" }
+![왼쪽 회전](avl_tree.assets/avltree_left_rotate.svg){ class="animation-figure" }
 
 <p align="center"> 그림 7-28 &nbsp; 왼쪽 회전 </p>
 
 마찬가지로 아래 그림(7-29)처럼 `child`에 왼쪽 자식 `grand_child`가 있으면, 왼쪽 회전 중 `grand_child`를 `node`의 오른쪽 자식으로 연결하는 단계를 추가해야 한다.
 
-![grand_child가 있는 왼쪽 회전](avl_tree.assets/avltree_left_rotate_with_grandchild.png){ class="animation-figure" }
+![grand_child가 있는 왼쪽 회전](avl_tree.assets/avltree_left_rotate_with_grandchild.svg){ class="animation-figure" }
 
 <p align="center"> 그림 7-29 &nbsp; grand_child가 있는 왼쪽 회전 </p>
 
@@ -1180,7 +1180,7 @@ AVL 트리의 특징은 '회전' 연산이다. 이진 트리의 중위 순회 �
 
 아래 그림(7-30)의 불균형 노드 3은 왼쪽 회전이나 오른쪽 회전 한 번만으로 균형을 회복할 수 없다. 먼저 `child`를 '왼쪽 회전'한 뒤 `node`를 '오른쪽 회전'해야 한다.
 
-![왼쪽 회전 후 오른쪽 회전](avl_tree.assets/avltree_left_right_rotate.png){ class="animation-figure" }
+![왼쪽 회전 후 오른쪽 회전](avl_tree.assets/avltree_left_right_rotate.svg){ class="animation-figure" }
 
 <p align="center"> 그림 7-30 &nbsp; 왼쪽 회전 후 오른쪽 회전 </p>
 
@@ -1188,7 +1188,7 @@ AVL 트리의 특징은 '회전' 연산이다. 이진 트리의 중위 순회 �
 
 아래 그림(7-31)처럼 앞 상황의 거울 대칭인 경우에는 먼저 `child`를 '오른쪽 회전'한 뒤 `node`를 '왼쪽 회전'해야 한다.
 
-![오른쪽 회전 후 왼쪽 회전](avl_tree.assets/avltree_right_left_rotate.png){ class="animation-figure" }
+![오른쪽 회전 후 왼쪽 회전](avl_tree.assets/avltree_right_left_rotate.svg){ class="animation-figure" }
 
 <p align="center"> 그림 7-31 &nbsp; 오른쪽 회전 후 왼쪽 회전 </p>
 
@@ -1196,7 +1196,7 @@ AVL 트리의 특징은 '회전' 연산이다. 이진 트리의 중위 순회 �
 
 아래 그림(7-32)의 네 불균형 상황은 앞의 예시들과 각각 대응한다. 순서대로 오른쪽 회전, 왼쪽 후 오른쪽 회전, 오른쪽 후 왼쪽 회전, 왼쪽 회전이 필요하다.
 
-![AVL 트리의 네 가지 회전 상황](avl_tree.assets/avltree_rotation_cases.png){ class="animation-figure" }
+![AVL 트리의 네 가지 회전 상황](avl_tree.assets/avltree_rotation_cases.svg){ class="animation-figure" }
 
 <p align="center"> 그림 7-32 &nbsp; AVL 트리의 네 가지 회전 상황 </p>
 

@@ -15,37 +15,37 @@ comments: true
 5. 仅剩的一个元素必定是最大元素，无须排序，因此数组排序完成。
 
 === "<1>"
-    ![选择排序步骤](selection_sort.assets/selection_sort_step1.png){ class="animation-figure" }
+    ![选择排序步骤](selection_sort.assets/selection_sort_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![selection_sort_step2](selection_sort.assets/selection_sort_step2.png){ class="animation-figure" }
+    ![selection_sort_step2](selection_sort.assets/selection_sort_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![selection_sort_step3](selection_sort.assets/selection_sort_step3.png){ class="animation-figure" }
+    ![selection_sort_step3](selection_sort.assets/selection_sort_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![selection_sort_step4](selection_sort.assets/selection_sort_step4.png){ class="animation-figure" }
+    ![selection_sort_step4](selection_sort.assets/selection_sort_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![selection_sort_step5](selection_sort.assets/selection_sort_step5.png){ class="animation-figure" }
+    ![selection_sort_step5](selection_sort.assets/selection_sort_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![selection_sort_step6](selection_sort.assets/selection_sort_step6.png){ class="animation-figure" }
+    ![selection_sort_step6](selection_sort.assets/selection_sort_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![selection_sort_step7](selection_sort.assets/selection_sort_step7.png){ class="animation-figure" }
+    ![selection_sort_step7](selection_sort.assets/selection_sort_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![selection_sort_step8](selection_sort.assets/selection_sort_step8.png){ class="animation-figure" }
+    ![selection_sort_step8](selection_sort.assets/selection_sort_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![selection_sort_step9](selection_sort.assets/selection_sort_step9.png){ class="animation-figure" }
+    ![selection_sort_step9](selection_sort.assets/selection_sort_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![selection_sort_step10](selection_sort.assets/selection_sort_step10.png){ class="animation-figure" }
+    ![selection_sort_step10](selection_sort.assets/selection_sort_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![selection_sort_step11](selection_sort.assets/selection_sort_step11.png){ class="animation-figure" }
+    ![selection_sort_step11](selection_sort.assets/selection_sort_step11.svg){ class="animation-figure" }
 
 <p align="center"> 图 11-2 &nbsp; 选择排序步骤 </p>
 
@@ -335,6 +335,6 @@ comments: true
 - **空间复杂度为 $O(1)$、原地排序**：指针 $i$ 和 $j$ 使用常数大小的额外空间。
 - **非稳定排序**：如图 11-3 所示，元素 `nums[i]` 有可能被交换至与其相等的元素的右边，导致两者的相对顺序发生改变。
 
-![选择排序非稳定示例](selection_sort.assets/selection_sort_instability.png){ class="animation-figure" }
+![选择排序非稳定示例](selection_sort.assets/selection_sort_instability.svg){ class="animation-figure" }
 
 <p align="center"> 图 11-3 &nbsp; 选择排序非稳定示例 </p>

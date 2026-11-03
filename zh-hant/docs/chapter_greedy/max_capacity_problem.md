@@ -12,7 +12,7 @@ comments: true
     
     請在陣列中選擇兩個隔板，使得組成的容器的容量最大，返回最大容量。示例如圖 15-7 所示。
 
-![最大容量問題的示例資料](max_capacity_problem.assets/max_capacity_example.png){ class="animation-figure" }
+![最大容量問題的示例資料](max_capacity_problem.assets/max_capacity_example.svg){ class="animation-figure" }
 
 <p align="center"> 圖 15-7 &nbsp; 最大容量問題的示例資料 </p>
 
@@ -30,7 +30,7 @@ $$
 
 這道題還有更高效率的解法。如圖 15-8 所示，現選取一個狀態 $[i, j]$ ，其滿足索引 $i < j$ 且高度 $ht[i] < ht[j]$ ，即 $i$ 為短板、$j$ 為長板。
 
-![初始狀態](max_capacity_problem.assets/max_capacity_initial_state.png){ class="animation-figure" }
+![初始狀態](max_capacity_problem.assets/max_capacity_initial_state.svg){ class="animation-figure" }
 
 <p align="center"> 圖 15-8 &nbsp; 初始狀態 </p>
 
@@ -38,13 +38,13 @@ $$
 
 這是因為在移動長板 $j$ 後，寬度 $j-i$ 肯定變小；而高度由短板決定，因此高度只可能不變（ $i$ 仍為短板）或變小（移動後的 $j$ 成為短板）。
 
-![向內移動長板後的狀態](max_capacity_problem.assets/max_capacity_moving_long_board.png){ class="animation-figure" }
+![向內移動長板後的狀態](max_capacity_problem.assets/max_capacity_moving_long_board.svg){ class="animation-figure" }
 
 <p align="center"> 圖 15-9 &nbsp; 向內移動長板後的狀態 </p>
 
 反向思考，**我們只有向內收縮短板 $i$ ，才有可能使容量變大**。因為雖然寬度一定變小，**但高度可能會變大**（移動後的短板 $i$ 可能會變長）。例如在圖 15-10 中，移動短板後面積變大。
 
-![向內移動短板後的狀態](max_capacity_problem.assets/max_capacity_moving_short_board.png){ class="animation-figure" }
+![向內移動短板後的狀態](max_capacity_problem.assets/max_capacity_moving_short_board.svg){ class="animation-figure" }
 
 <p align="center"> 圖 15-10 &nbsp; 向內移動短板後的狀態 </p>
 
@@ -58,31 +58,31 @@ $$
 4. 迴圈執行第 `2.` 步和第 `3.` 步，直至 $i$ 和 $j$ 相遇時結束。
 
 === "<1>"
-    ![最大容量問題的貪婪過程](max_capacity_problem.assets/max_capacity_greedy_step1.png){ class="animation-figure" }
+    ![最大容量問題的貪婪過程](max_capacity_problem.assets/max_capacity_greedy_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.png){ class="animation-figure" }
+    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.png){ class="animation-figure" }
+    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.png){ class="animation-figure" }
+    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.png){ class="animation-figure" }
+    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.png){ class="animation-figure" }
+    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.png){ class="animation-figure" }
+    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.png){ class="animation-figure" }
+    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.png){ class="animation-figure" }
+    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.svg){ class="animation-figure" }
 
 <p align="center"> 圖 15-11 &nbsp; 最大容量問題的貪婪過程 </p>
 
@@ -436,7 +436,7 @@ $$
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 $$
 
-![移動短板導致被跳過的狀態](max_capacity_problem.assets/max_capacity_skipped_states.png){ class="animation-figure" }
+![移動短板導致被跳過的狀態](max_capacity_problem.assets/max_capacity_skipped_states.svg){ class="animation-figure" }
 
 <p align="center"> 圖 15-12 &nbsp; 移動短板導致被跳過的狀態 </p>
 

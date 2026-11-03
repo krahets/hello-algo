@@ -222,7 +222,7 @@ git clone https://github.com/krahets/hello-algo.git
 
 **第三步：运行源代码**。如图 0-5 所示，对于顶部标有文件名称的代码块，我们可以在仓库的 `codes` 文件夹内找到对应的源代码文件。源代码文件可一键运行，将帮助你节省不必要的调试时间，让你能够专注于学习内容。
 
-![代码块与对应的源代码文件](suggestions.assets/code_md_to_repo.png){ class="animation-figure" }
+![代码块与对应的源代码文件](suggestions.assets/code_md_to_repo.svg){ class="animation-figure" }
 
 <p align="center"> 图 0-5 &nbsp; 代码块与对应的源代码文件 </p>
 
@@ -252,6 +252,6 @@ git clone https://github.com/krahets/hello-algo.git
 
 如图 0-8 所示，本书内容主要涵盖“阶段一”，旨在帮助你更高效地展开阶段二和阶段三的学习。
 
-![算法学习路线](suggestions.assets/learning_route.png){ class="animation-figure" }
+![算法学习路线](suggestions.assets/learning_route.svg){ class="animation-figure" }
 
 <p align="center"> 图 0-8 &nbsp; 算法学习路线 </p>

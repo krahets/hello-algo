@@ -10,7 +10,7 @@ comments: true
 
 Как показано на рисунке 5-1, верхнюю часть стопки элементов мы называем вершиной стека, а нижнюю - основанием стека. Операция добавления элемента на вершину называется `push`, а операция удаления верхнего элемента - `pop`.
 
-![Правило LIFO для стека](stack.assets/stack_operations.png){ class="animation-figure" }
+![Правило LIFO для стека](stack.assets/stack_operations.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 5-1 &nbsp; Правило LIFO для стека </p>
 
@@ -377,13 +377,13 @@ comments: true
 Как показано на рисунке 5-2, для операции `push` достаточно вставить элемент в голову связного списка. Такой способ вставки называется вставкой в голову. Для операции `pop` достаточно удалить головной узел из списка.
 
 === "<1>"
-    ![Операции push и pop в реализации стека на связном списке](stack.assets/linkedlist_stack_step1.png){ class="animation-figure" }
+    ![Операции push и pop в реализации стека на связном списке](stack.assets/linkedlist_stack_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.png){ class="animation-figure" }
+    ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.png){ class="animation-figure" }
+    ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 5-2 &nbsp; Операции push и pop в реализации стека на связном списке </p>
 
@@ -1170,13 +1170,13 @@ comments: true
 Если реализовывать стек на основе массива, то хвост массива можно рассматривать как вершину стека. Как показано на рисунке 5-3, операции `push` и `pop` соответствуют добавлению элемента в конец массива и удалению элемента из конца, обе имеют временную сложность $O(1)$ .
 
 === "<1>"
-    ![Операции push и pop в реализации стека на массиве](stack.assets/array_stack_step1.png){ class="animation-figure" }
+    ![Операции push и pop в реализации стека на массиве](stack.assets/array_stack_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![array_stack_push](stack.assets/array_stack_step2_push.png){ class="animation-figure" }
+    ![array_stack_push](stack.assets/array_stack_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![array_stack_pop](stack.assets/array_stack_step3_pop.png){ class="animation-figure" }
+    ![array_stack_pop](stack.assets/array_stack_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 5-3 &nbsp; Операции push и pop в реализации стека на массиве </p>
 

@@ -241,7 +241,7 @@ comments: true
 
 아래 그림(10-7)과 같이 탐색이 끝나면 포인터 $i$는 가장 왼쪽 `target + 1`(존재한다면)을 가리키고, $j$는 가장 오른쪽 `target`을 가리킨다. **따라서 $j$를 반환하면 된다**.
 
-![오른쪽 경계 찾기를 왼쪽 경계 찾기로 변환](binary_search_edge.assets/binary_search_right_edge_by_left_edge.png){ class="animation-figure" }
+![오른쪽 경계 찾기를 왼쪽 경계 찾기로 변환](binary_search_edge.assets/binary_search_right_edge_by_left_edge.svg){ class="animation-figure" }
 
 <p align="center"> 그림 10-7 &nbsp; 오른쪽 경계 찾기를 왼쪽 경계 찾기로 변환 </p>
 
@@ -493,7 +493,7 @@ comments: true
 - 가장 왼쪽 `target` 찾기: `target - 0.5`를 탐색하고 포인터 $i$를 반환하는 것으로 바꿀 수 있다.
 - 가장 오른쪽 `target` 찾기: `target + 0.5`를 탐색하고 포인터 $j$를 반환하는 것으로 바꿀 수 있다.
 
-![경계 찾기를 원소 찾기로 변환](binary_search_edge.assets/binary_search_edge_by_element.png){ class="animation-figure" }
+![경계 찾기를 원소 찾기로 변환](binary_search_edge.assets/binary_search_edge_by_element.svg){ class="animation-figure" }
 
 <p align="center"> 그림 10-8 &nbsp; 경계 찾기를 원소 찾기로 변환 </p>
 

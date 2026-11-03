@@ -209,7 +209,7 @@ Each node has two references or pointers, one to its <u>left child</u> and one t
 
 **Every non-leaf node has children and at least one nonempty subtree**. In Figure 7-1, if node 2 is the parent, its left and right children are nodes 4 and 5. Its left subtree consists of node 4 and everything below it, and its right subtree consists of node 5 and everything below it.
 
-![Parents, children, and subtrees](binary_tree.assets/binary_tree_definition.png){ class="animation-figure" }
+![Parents, children, and subtrees](binary_tree.assets/binary_tree_definition.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-1 &nbsp; Parents, children, and subtrees </p>
 
@@ -226,7 +226,7 @@ Figure 7-2 illustrates common binary-tree terminology.
 - A node's <u>depth</u>: the number of edges from the root to that node.
 - A node's <u>height</u>: the number of edges from that node to its farthest leaf.
 
-![Common binary-tree terminology](binary_tree.assets/binary_tree_terminology.png){ class="animation-figure" }
+![Common binary-tree terminology](binary_tree.assets/binary_tree_terminology.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-2 &nbsp; Common binary-tree terminology </p>
 
@@ -466,7 +466,7 @@ As with a linked list, first create the nodes, then connect them with references
 
 As with linked lists, insertion and deletion can be implemented by changing pointers. An example is shown below.
 
-![Inserting and deleting a binary-tree node](binary_tree.assets/binary_tree_add_remove.png){ class="animation-figure" }
+![Inserting and deleting a binary-tree node](binary_tree.assets/binary_tree_add_remove.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-3 &nbsp; Inserting and deleting a binary-tree node </p>
 
@@ -645,7 +645,7 @@ In a <u>perfect binary tree</u>, every level is completely filled, as shown belo
 
     In Chinese-language resources, a perfect binary tree is often called <u>满二叉树</u>.
 
-![A perfect binary tree](binary_tree.assets/perfect_binary_tree.png){ class="animation-figure" }
+![A perfect binary tree](binary_tree.assets/perfect_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-4 &nbsp; A perfect binary tree </p>
 
@@ -653,7 +653,7 @@ In a <u>perfect binary tree</u>, every level is completely filled, as shown belo
 
 Only the lowest level of a <u>complete binary tree</u> may be incomplete, and its nodes must fill that level consecutively from left to right, as shown below. Every perfect binary tree is also complete.
 
-![A complete binary tree](binary_tree.assets/complete_binary_tree.png){ class="animation-figure" }
+![A complete binary tree](binary_tree.assets/complete_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-5 &nbsp; A complete binary tree </p>
 
@@ -661,7 +661,7 @@ Only the lowest level of a <u>complete binary tree</u> may be incomplete, and it
 
 In a <u>full binary tree</u>, every node other than a leaf has exactly two children, as shown below.
 
-![A full binary tree](binary_tree.assets/full_binary_tree.png){ class="animation-figure" }
+![A full binary tree](binary_tree.assets/full_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-6 &nbsp; A full binary tree </p>
 
@@ -669,7 +669,7 @@ In a <u>full binary tree</u>, every node other than a leaf has exactly two child
 
 In a <u>balanced binary tree</u>, the heights of the left and right subtrees of every node differ by at most 1, as shown below.
 
-![A balanced binary tree](binary_tree.assets/balanced_binary_tree.png){ class="animation-figure" }
+![A balanced binary tree](binary_tree.assets/balanced_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-7 &nbsp; A balanced binary tree </p>
 
@@ -680,7 +680,7 @@ Figure 7-8 shows ideal and degenerate tree structures. When every level is full,
 - A perfect binary tree is the ideal case, making full use of divide and conquer.
 - A linked list is the opposite extreme: operations become linear, with time complexity degrading to $O(n)$.
 
-![Best and worst binary-tree structures](binary_tree.assets/binary_tree_best_worst_cases.png){ class="animation-figure" }
+![Best and worst binary-tree structures](binary_tree.assets/binary_tree_best_worst_cases.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-8 &nbsp; Best and worst binary-tree structures </p>
 

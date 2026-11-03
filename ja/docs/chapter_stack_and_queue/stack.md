@@ -10,7 +10,7 @@ comments: true
 
 図 5-1 のように、積み重ねた要素の上端を「スタックの先頭」、下端を「底」と呼びます。先頭に要素を追加する操作を「プッシュ」、先頭要素を削除する操作を「ポップ」と呼びます。
 
-![スタックの先入れ後出しの規則](stack.assets/stack_operations.png){ class="animation-figure" }
+![スタックの先入れ後出しの規則](stack.assets/stack_operations.svg){ class="animation-figure" }
 
 <p align="center"> 図 5-1 &nbsp; スタックの先入れ後出しの規則 </p>
 
@@ -377,13 +377,13 @@ comments: true
 図 5-2 のように、プッシュではリストの先頭へ要素を挿入するだけです。この方法を「先頭挿入」と呼びます。ポップでは、先頭ノードをリストから削除するだけです。
 
 === "<1>"
-    ![連結リストによるスタックのプッシュとポップ](stack.assets/linkedlist_stack_step1.png){ class="animation-figure" }
+    ![連結リストによるスタックのプッシュとポップ](stack.assets/linkedlist_stack_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![連結リストによるスタック：要素の挿入](stack.assets/linkedlist_stack_step2_push.png){ class="animation-figure" }
+    ![連結リストによるスタック：要素の挿入](stack.assets/linkedlist_stack_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![連結リストによるスタック：要素の取り出し](stack.assets/linkedlist_stack_step3_pop.png){ class="animation-figure" }
+    ![連結リストによるスタック：要素の取り出し](stack.assets/linkedlist_stack_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> 図 5-2 &nbsp; 連結リストによるスタックのプッシュとポップ </p>
 
@@ -1170,13 +1170,13 @@ comments: true
 配列を使う場合、配列の末尾をスタックの先頭にできます。図 5-3 のように、プッシュとポップは配列末尾への追加と削除に対応し、どちらも時間計算量は $O(1)$ です。
 
 === "<1>"
-    ![配列によるスタックのプッシュとポップ](stack.assets/array_stack_step1.png){ class="animation-figure" }
+    ![配列によるスタックのプッシュとポップ](stack.assets/array_stack_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![配列によるスタック：要素の挿入](stack.assets/array_stack_step2_push.png){ class="animation-figure" }
+    ![配列によるスタック：要素の挿入](stack.assets/array_stack_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![配列によるスタック：要素の取り出し](stack.assets/array_stack_step3_pop.png){ class="animation-figure" }
+    ![配列によるスタック：要素の取り出し](stack.assets/array_stack_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> 図 5-3 &nbsp; 配列によるスタックのプッシュとポップ </p>
 

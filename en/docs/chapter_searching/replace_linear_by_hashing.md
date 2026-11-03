@@ -14,7 +14,7 @@ In algorithm problems, **we often reduce time complexity by replacing linear sea
 
 Consider examining every possible pair directly. As shown below, use two nested loops and check whether the two integers sum to `target` each time. If they do, return their indices.
 
-![Solving two sum with linear search](replace_linear_by_hashing.assets/two_sum_brute_force.png){ class="animation-figure" }
+![Solving two sum with linear search](replace_linear_by_hashing.assets/two_sum_brute_force.svg){ class="animation-figure" }
 
 <p align="center"> Figure 10-9 &nbsp; Solving two sum with linear search </p>
 
@@ -256,13 +256,13 @@ Now use a hash table whose keys are array elements and whose values are their in
 2. Add the key-value pair consisting of `nums[i]` and index `i` to the hash table.
 
 === "<1>"
-    ![Solving two sum with an auxiliary hash table](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png){ class="animation-figure" }
+    ![Solving two sum with an auxiliary hash table](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.png){ class="animation-figure" }
+    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.png){ class="animation-figure" }
+    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg){ class="animation-figure" }
 
 <p align="center"> Figure 10-10 &nbsp; Solving two sum with an auxiliary hash table </p>
 

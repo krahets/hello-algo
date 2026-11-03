@@ -14,7 +14,7 @@ As shown below, <u>level-order traversal</u> visits the tree level by level from
 
 Level-order traversal is a form of <u>breadth-first traversal</u>, also called <u>breadth-first search (BFS)</u>. It explores outward one layer at a time.
 
-![Level-order traversal of a binary tree](binary_tree_traversal.assets/binary_tree_bfs.png){ class="animation-figure" }
+![Level-order traversal of a binary tree](binary_tree_traversal.assets/binary_tree_bfs.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-9 &nbsp; Level-order traversal of a binary tree </p>
 
@@ -350,7 +350,7 @@ Preorder, inorder, and postorder traversal are forms of <u>depth-first traversal
 
 Figure 7-10 illustrates depth-first traversal. **Imagine walking once around the outside of the entire binary tree**. At each node, you encounter three positions corresponding to preorder, inorder, and postorder visits.
 
-![Preorder, inorder, and postorder traversal of a binary search tree](binary_tree_traversal.assets/binary_tree_dfs.png){ class="animation-figure" }
+![Preorder, inorder, and postorder traversal of a binary search tree](binary_tree_traversal.assets/binary_tree_dfs.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-10 &nbsp; Preorder, inorder, and postorder traversal of a binary search tree </p>
 
@@ -834,37 +834,37 @@ Figure 7-11 shows the recursive process for preorder traversal, with two opposin
 2. Returning ends a function call, indicating that the current node has been fully processed.
 
 === "<1>"
-    ![The recursive process of preorder traversal](binary_tree_traversal.assets/preorder_step1.png){ class="animation-figure" }
+    ![The recursive process of preorder traversal](binary_tree_traversal.assets/preorder_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![preorder_step2](binary_tree_traversal.assets/preorder_step2.png){ class="animation-figure" }
+    ![preorder_step2](binary_tree_traversal.assets/preorder_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![preorder_step3](binary_tree_traversal.assets/preorder_step3.png){ class="animation-figure" }
+    ![preorder_step3](binary_tree_traversal.assets/preorder_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![preorder_step4](binary_tree_traversal.assets/preorder_step4.png){ class="animation-figure" }
+    ![preorder_step4](binary_tree_traversal.assets/preorder_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![preorder_step5](binary_tree_traversal.assets/preorder_step5.png){ class="animation-figure" }
+    ![preorder_step5](binary_tree_traversal.assets/preorder_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![preorder_step6](binary_tree_traversal.assets/preorder_step6.png){ class="animation-figure" }
+    ![preorder_step6](binary_tree_traversal.assets/preorder_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![preorder_step7](binary_tree_traversal.assets/preorder_step7.png){ class="animation-figure" }
+    ![preorder_step7](binary_tree_traversal.assets/preorder_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![preorder_step8](binary_tree_traversal.assets/preorder_step8.png){ class="animation-figure" }
+    ![preorder_step8](binary_tree_traversal.assets/preorder_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![preorder_step9](binary_tree_traversal.assets/preorder_step9.png){ class="animation-figure" }
+    ![preorder_step9](binary_tree_traversal.assets/preorder_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![preorder_step10](binary_tree_traversal.assets/preorder_step10.png){ class="animation-figure" }
+    ![preorder_step10](binary_tree_traversal.assets/preorder_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![preorder_step11](binary_tree_traversal.assets/preorder_step11.png){ class="animation-figure" }
+    ![preorder_step11](binary_tree_traversal.assets/preorder_step11.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-11 &nbsp; The recursive process of preorder traversal </p>
 

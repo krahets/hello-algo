@@ -8,7 +8,7 @@ comments: true
 
 如圖 5-4 所示，我們將佇列頭部稱為“佇列首”，尾部稱為“佇列尾”，將把元素加入列尾的操作稱為“入列”，刪除佇列首元素的操作稱為“出列”。
 
-![佇列的先入先出規則](queue.assets/queue_operations.png){ class="animation-figure" }
+![佇列的先入先出規則](queue.assets/queue_operations.svg){ class="animation-figure" }
 
 <p align="center"> 圖 5-4 &nbsp; 佇列的先入先出規則 </p>
 
@@ -380,13 +380,13 @@ comments: true
 如圖 5-5 所示，我們可以將鏈結串列的“頭節點”和“尾節點”分別視為“佇列首”和“佇列尾”，規定佇列尾僅可新增節點，佇列首僅可刪除節點。
 
 === "<1>"
-    ![基於鏈結串列實現佇列的入列出列操作](queue.assets/linkedlist_queue_step1.png){ class="animation-figure" }
+    ![基於鏈結串列實現佇列的入列出列操作](queue.assets/linkedlist_queue_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.png){ class="animation-figure" }
+    ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.png){ class="animation-figure" }
+    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> 圖 5-5 &nbsp; 基於鏈結串列實現佇列的入列出列操作 </p>
 
@@ -1330,13 +1330,13 @@ comments: true
 可以看到，入列和出列操作都只需進行一次操作，時間複雜度均為 $O(1)$ 。
 
 === "<1>"
-    ![基於陣列實現佇列的入列出列操作](queue.assets/array_queue_step1.png){ class="animation-figure" }
+    ![基於陣列實現佇列的入列出列操作](queue.assets/array_queue_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![array_queue_push](queue.assets/array_queue_step2_push.png){ class="animation-figure" }
+    ![array_queue_push](queue.assets/array_queue_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![array_queue_pop](queue.assets/array_queue_step3_pop.png){ class="animation-figure" }
+    ![array_queue_pop](queue.assets/array_queue_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> 圖 5-6 &nbsp; 基於陣列實現佇列的入列出列操作 </p>
 

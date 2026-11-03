@@ -9,7 +9,7 @@ comments: true
 - <u>Минимальная куча (min heap)</u>: значение любого узла $\leq$ значения его дочерних узлов.
 - <u>Максимальная куча (max heap)</u>: значение любого узла $\geq$ значения его дочерних узлов.
 
-![Минимальная куча и максимальная куча](heap.assets/min_heap_and_max_heap.png){ class="animation-figure" }
+![Минимальная куча и максимальная куча](heap.assets/min_heap_and_max_heap.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 8-1 &nbsp; Минимальная куча и максимальная куча </p>
 
@@ -435,7 +435,7 @@ comments: true
 
 Как показано на рисунке 8-2, для заданного индекса $i$ индекс левого дочернего узла равен $2i + 1$ , правого дочернего узла - $2i + 2$ , а родительского узла - $(i - 1) / 2$ с округлением вниз. Если индекс выходит за допустимые границы, это означает пустой узел или отсутствие узла.
 
-![Представление и хранение кучи](heap.assets/representation_of_heap.png){ class="animation-figure" }
+![Представление и хранение кучи](heap.assets/representation_of_heap.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 8-2 &nbsp; Представление и хранение кучи </p>
 
@@ -818,31 +818,31 @@ comments: true
 Рассмотрим ситуацию, когда упорядочивание выполняется **снизу вверх**, начиная от только что вставленного узла. Как показано на рисунке 8-3, мы сравниваем значение вставленного узла со значением его родителя. Если вставленный узел больше, то меняем их местами. Затем продолжаем выполнять ту же операцию и последовательно восстанавливать корректность всех узлов по пути снизу вверх, пока не выйдем за корень или не встретим узел, для которого обмен не требуется.
 
 === "<1>"
-    ![Шаги добавления элемента в кучу](heap.assets/heap_push_step1.png){ class="animation-figure" }
+    ![Шаги добавления элемента в кучу](heap.assets/heap_push_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![heap_push_step2](heap.assets/heap_push_step2.png){ class="animation-figure" }
+    ![heap_push_step2](heap.assets/heap_push_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![heap_push_step3](heap.assets/heap_push_step3.png){ class="animation-figure" }
+    ![heap_push_step3](heap.assets/heap_push_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![heap_push_step4](heap.assets/heap_push_step4.png){ class="animation-figure" }
+    ![heap_push_step4](heap.assets/heap_push_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![heap_push_step5](heap.assets/heap_push_step5.png){ class="animation-figure" }
+    ![heap_push_step5](heap.assets/heap_push_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![heap_push_step6](heap.assets/heap_push_step6.png){ class="animation-figure" }
+    ![heap_push_step6](heap.assets/heap_push_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![heap_push_step7](heap.assets/heap_push_step7.png){ class="animation-figure" }
+    ![heap_push_step7](heap.assets/heap_push_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![heap_push_step8](heap.assets/heap_push_step8.png){ class="animation-figure" }
+    ![heap_push_step8](heap.assets/heap_push_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![heap_push_step9](heap.assets/heap_push_step9.png){ class="animation-figure" }
+    ![heap_push_step9](heap.assets/heap_push_step9.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 8-3 &nbsp; Шаги добавления элемента в кучу </p>
 
@@ -1227,34 +1227,34 @@ comments: true
 Как показано на рисунке 8-4, **направление операции упорядочивания кучи сверху вниз противоположно операции упорядочивания кучи снизу вверх**. Мы сравниваем значение корневого узла со значениями двух дочерних узлов, выбираем больший дочерний узел и меняем его местами с корневым узлом. Затем циклически повторяем ту же операцию, пока не выйдем за листовой узел или не встретим узел, который уже не требует обмена.
 
 === "<1>"
-    ![Шаги извлечения элемента с вершины кучи](heap.assets/heap_pop_step1.png){ class="animation-figure" }
+    ![Шаги извлечения элемента с вершины кучи](heap.assets/heap_pop_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![heap_pop_step2](heap.assets/heap_pop_step2.png){ class="animation-figure" }
+    ![heap_pop_step2](heap.assets/heap_pop_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![heap_pop_step3](heap.assets/heap_pop_step3.png){ class="animation-figure" }
+    ![heap_pop_step3](heap.assets/heap_pop_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![heap_pop_step4](heap.assets/heap_pop_step4.png){ class="animation-figure" }
+    ![heap_pop_step4](heap.assets/heap_pop_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![heap_pop_step5](heap.assets/heap_pop_step5.png){ class="animation-figure" }
+    ![heap_pop_step5](heap.assets/heap_pop_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![heap_pop_step6](heap.assets/heap_pop_step6.png){ class="animation-figure" }
+    ![heap_pop_step6](heap.assets/heap_pop_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![heap_pop_step7](heap.assets/heap_pop_step7.png){ class="animation-figure" }
+    ![heap_pop_step7](heap.assets/heap_pop_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![heap_pop_step8](heap.assets/heap_pop_step8.png){ class="animation-figure" }
+    ![heap_pop_step8](heap.assets/heap_pop_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![heap_pop_step9](heap.assets/heap_pop_step9.png){ class="animation-figure" }
+    ![heap_pop_step9](heap.assets/heap_pop_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![heap_pop_step10](heap.assets/heap_pop_step10.png){ class="animation-figure" }
+    ![heap_pop_step10](heap.assets/heap_pop_step10.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 8-4 &nbsp; Шаги извлечения элемента с вершины кучи </p>
 

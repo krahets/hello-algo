@@ -44,7 +44,7 @@ comments: true
 
 給定大小為 $n$ 的一組資料，我們可以使用線性搜尋、二分搜尋、樹查詢、雜湊查詢等多種方法從中搜索目標元素。各個方法的工作原理如圖 10-11 所示。
 
-![多種搜尋策略](searching_algorithm_revisited.assets/searching_algorithms.png){ class="animation-figure" }
+![多種搜尋策略](searching_algorithm_revisited.assets/searching_algorithms.svg){ class="animation-figure" }
 
 <p align="center"> 圖 10-11 &nbsp; 多種搜尋策略 </p>
 

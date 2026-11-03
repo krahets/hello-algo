@@ -14,7 +14,7 @@ comments: true
 
 가능한 모든 조합을 직접 순회해 보자. 아래 그림(10-9)과 같이 이중 반복문을 사용하여 매번 두 정수의 합이 `target`인지 확인하고, 맞으면 두 인덱스를 반환한다.
 
-![선형 탐색으로 두 수의 합 구하기](replace_linear_by_hashing.assets/two_sum_brute_force.png){ class="animation-figure" }
+![선형 탐색으로 두 수의 합 구하기](replace_linear_by_hashing.assets/two_sum_brute_force.svg){ class="animation-figure" }
 
 <p align="center"> 그림 10-9 &nbsp; 선형 탐색으로 두 수의 합 구하기 </p>
 
@@ -256,13 +256,13 @@ comments: true
 2. `nums[i]`와 인덱스 `i`로 이루어진 키-값 쌍을 해시 테이블에 추가한다.
 
 === "<1>"
-    ![보조 해시 테이블로 두 수의 합 구하기](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png){ class="animation-figure" }
+    ![보조 해시 테이블로 두 수의 합 구하기](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![해시 테이블로 두 수의 합 구하기 2단계](replace_linear_by_hashing.assets/two_sum_hashtable_step2.png){ class="animation-figure" }
+    ![해시 테이블로 두 수의 합 구하기 2단계](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![해시 테이블로 두 수의 합 구하기 3단계](replace_linear_by_hashing.assets/two_sum_hashtable_step3.png){ class="animation-figure" }
+    ![해시 테이블로 두 수의 합 구하기 3단계](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg){ class="animation-figure" }
 
 <p align="center"> 그림 10-10 &nbsp; 보조 해시 테이블로 두 수의 합 구하기 </p>
 

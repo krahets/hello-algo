@@ -9,7 +9,7 @@ comments: true
 1. **Division**: recursively split the array at its midpoint, turning the problem of sorting a long array into problems of sorting shorter arrays.
 2. **Merging**: stop dividing when a subarray has length 1, then repeatedly merge two shorter sorted arrays into one longer sorted array until the process is complete.
 
-![The division and merging phases of merge sort](merge_sort.assets/merge_sort_overview.png){ class="animation-figure" }
+![The division and merging phases of merge sort](merge_sort.assets/merge_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> Figure 11-10 &nbsp; The division and merging phases of merge sort </p>
 
@@ -23,34 +23,34 @@ As shown below, the division phase works from the top down, recursively splittin
 The merging phase works from the bottom up, combining the left and right subarrays into a sorted array. Merging begins with subarrays of length 1, so every subarray involved in this phase is already sorted.
 
 === "<1>"
-    ![Steps of merge sort](merge_sort.assets/merge_sort_step1.png){ class="animation-figure" }
+    ![Steps of merge sort](merge_sort.assets/merge_sort_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.png){ class="animation-figure" }
+    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.png){ class="animation-figure" }
+    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.png){ class="animation-figure" }
+    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.png){ class="animation-figure" }
+    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.png){ class="animation-figure" }
+    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.png){ class="animation-figure" }
+    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.png){ class="animation-figure" }
+    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.png){ class="animation-figure" }
+    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.png){ class="animation-figure" }
+    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.svg){ class="animation-figure" }
 
 <p align="center"> Figure 11-11 &nbsp; Steps of merge sort </p>
 

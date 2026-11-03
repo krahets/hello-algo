@@ -41,7 +41,7 @@ To make these steps concrete, we will use the classic minimum path sum problem.
 
 In the example shown in Figure 14-10, the minimum path sum is $13$.
 
-![Example input for minimum path sum](dp_solution_pipeline.assets/min_path_sum_example.png){ class="animation-figure" }
+![Example input for minimum path sum](dp_solution_pipeline.assets/min_path_sum_example.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-10 &nbsp; Example input for minimum path sum </p>
 
@@ -53,7 +53,7 @@ State $[i, j]$ corresponds to the subproblem of finding the minimum path sum fro
 
 This gives the two-dimensional $dp$ matrix shown in Figure 14-11, with the same dimensions as the input $grid$.
 
-![State definition and dp table](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.png){ class="animation-figure" }
+![State definition and dp table](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-11 &nbsp; State definition and dp table </p>
 
@@ -73,7 +73,7 @@ $$
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 $$
 
-![Optimal substructure and state transition equation](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.png){ class="animation-figure" }
+![Optimal substructure and state transition equation](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-12 &nbsp; Optimal substructure and state transition equation </p>
 
@@ -89,7 +89,7 @@ A state in the first row can only come from its left, and a state in the first c
 
 As shown in Figure 14-13, each cell depends on the cells to its left and above. We therefore traverse the matrix with an outer loop over rows and an inner loop over columns.
 
-![Boundary conditions and evaluation order](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.png){ class="animation-figure" }
+![Boundary conditions and evaluation order](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-13 &nbsp; Boundary conditions and evaluation order </p>
 
@@ -392,7 +392,7 @@ Figure 14-14 shows the recursion tree rooted at $dp[2, 1]$. It includes overlapp
 
 The underlying reason for overlapping subproblems is that **multiple paths can reach the same cell from the top-left corner**.
 
-![Recursion tree for brute-force search](dp_solution_pipeline.assets/min_path_sum_dfs.png){ class="animation-figure" }
+![Recursion tree for brute-force search](dp_solution_pipeline.assets/min_path_sum_dfs.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-14 &nbsp; Recursion tree for brute-force search </p>
 
@@ -749,7 +749,7 @@ Introduce a memoization table `mem` with the same dimensions as `grid` to store 
 
 As shown in Figure 14-15, memoization ensures that every subproblem is solved only once. The time complexity is therefore determined by the number of states, the grid size $O(nm)$.
 
-![Recursion tree for memoized search](dp_solution_pipeline.assets/min_path_sum_dfs_mem.png){ class="animation-figure" }
+![Recursion tree for memoized search](dp_solution_pipeline.assets/min_path_sum_dfs_mem.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-15 &nbsp; Recursion tree for memoized search </p>
 
@@ -1127,40 +1127,40 @@ Figure 14-16 shows the state transitions for minimum path sum. They visit the en
 The array `dp` has dimensions $n \times m$, **so the space complexity is $O(nm)$**.
 
 === "<1>"
-    ![Dynamic programming for minimum path sum](dp_solution_pipeline.assets/min_path_sum_dp_step1.png){ class="animation-figure" }
+    ![Dynamic programming for minimum path sum](dp_solution_pipeline.assets/min_path_sum_dp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![min_path_sum_dp_step2](dp_solution_pipeline.assets/min_path_sum_dp_step2.png){ class="animation-figure" }
+    ![min_path_sum_dp_step2](dp_solution_pipeline.assets/min_path_sum_dp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![min_path_sum_dp_step3](dp_solution_pipeline.assets/min_path_sum_dp_step3.png){ class="animation-figure" }
+    ![min_path_sum_dp_step3](dp_solution_pipeline.assets/min_path_sum_dp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![min_path_sum_dp_step4](dp_solution_pipeline.assets/min_path_sum_dp_step4.png){ class="animation-figure" }
+    ![min_path_sum_dp_step4](dp_solution_pipeline.assets/min_path_sum_dp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![min_path_sum_dp_step5](dp_solution_pipeline.assets/min_path_sum_dp_step5.png){ class="animation-figure" }
+    ![min_path_sum_dp_step5](dp_solution_pipeline.assets/min_path_sum_dp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![min_path_sum_dp_step6](dp_solution_pipeline.assets/min_path_sum_dp_step6.png){ class="animation-figure" }
+    ![min_path_sum_dp_step6](dp_solution_pipeline.assets/min_path_sum_dp_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![min_path_sum_dp_step7](dp_solution_pipeline.assets/min_path_sum_dp_step7.png){ class="animation-figure" }
+    ![min_path_sum_dp_step7](dp_solution_pipeline.assets/min_path_sum_dp_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![min_path_sum_dp_step8](dp_solution_pipeline.assets/min_path_sum_dp_step8.png){ class="animation-figure" }
+    ![min_path_sum_dp_step8](dp_solution_pipeline.assets/min_path_sum_dp_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![min_path_sum_dp_step9](dp_solution_pipeline.assets/min_path_sum_dp_step9.png){ class="animation-figure" }
+    ![min_path_sum_dp_step9](dp_solution_pipeline.assets/min_path_sum_dp_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![min_path_sum_dp_step10](dp_solution_pipeline.assets/min_path_sum_dp_step10.png){ class="animation-figure" }
+    ![min_path_sum_dp_step10](dp_solution_pipeline.assets/min_path_sum_dp_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![min_path_sum_dp_step11](dp_solution_pipeline.assets/min_path_sum_dp_step11.png){ class="animation-figure" }
+    ![min_path_sum_dp_step11](dp_solution_pipeline.assets/min_path_sum_dp_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.png){ class="animation-figure" }
+    ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-16 &nbsp; Dynamic programming for minimum path sum </p>
 

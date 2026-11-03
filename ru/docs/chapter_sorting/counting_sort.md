@@ -14,7 +14,7 @@ comments: true
 2. **С помощью `counter` подсчитать, сколько раз каждое число встречается в `nums`**. При этом `counter[num]` хранит число вхождений значения `num` . Делается это просто: достаточно пройти по `nums` (пусть текущее число равно `num` ) и на каждом шаге увеличить `counter[num]` на $1$ .
 3. **Поскольку индексы массива `counter` изначально упорядочены, можно считать, что все числа уже отсортированы**. Далее остается пройти по `counter` и в соответствии с числом вхождений записать значения обратно в `nums` в порядке возрастания.
 
-![Процесс сортировки подсчетом](counting_sort.assets/counting_sort_overview.png){ class="animation-figure" }
+![Процесс сортировки подсчетом](counting_sort.assets/counting_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 11-16 &nbsp; Процесс сортировки подсчетом </p>
 
@@ -388,28 +388,28 @@ $$
 После завершения прохода массив `res` будет содержать отсортированный результат. Остается только переписать `res` обратно в `nums` . Полный процесс сортировки подсчетом показан на рисунке 11-17.
 
 === "<1>"
-    ![Шаги сортировки подсчетом](counting_sort.assets/counting_sort_step1.png){ class="animation-figure" }
+    ![Шаги сортировки подсчетом](counting_sort.assets/counting_sort_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![counting_sort_step2](counting_sort.assets/counting_sort_step2.png){ class="animation-figure" }
+    ![counting_sort_step2](counting_sort.assets/counting_sort_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![counting_sort_step3](counting_sort.assets/counting_sort_step3.png){ class="animation-figure" }
+    ![counting_sort_step3](counting_sort.assets/counting_sort_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![counting_sort_step4](counting_sort.assets/counting_sort_step4.png){ class="animation-figure" }
+    ![counting_sort_step4](counting_sort.assets/counting_sort_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![counting_sort_step5](counting_sort.assets/counting_sort_step5.png){ class="animation-figure" }
+    ![counting_sort_step5](counting_sort.assets/counting_sort_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![counting_sort_step6](counting_sort.assets/counting_sort_step6.png){ class="animation-figure" }
+    ![counting_sort_step6](counting_sort.assets/counting_sort_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![counting_sort_step7](counting_sort.assets/counting_sort_step7.png){ class="animation-figure" }
+    ![counting_sort_step7](counting_sort.assets/counting_sort_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![counting_sort_step8](counting_sort.assets/counting_sort_step8.png){ class="animation-figure" }
+    ![counting_sort_step8](counting_sort.assets/counting_sort_step8.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 11-17 &nbsp; Шаги сортировки подсчетом </p>
 

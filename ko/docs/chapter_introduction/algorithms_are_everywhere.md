@@ -15,19 +15,19 @@ comments: true
 3. 병음의 첫 글자가 $r$인 페이지를 찾을 때까지 단계 `1.`과 단계 `2.`를 반복한다.
 
 === "<1>"
-    ![사전에서 단어를 찾는 단계](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png){ class="animation-figure" }
+    ![사전에서 단어를 찾는 단계](algorithms_are_everywhere.assets/binary_search_dictionary_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![사전에서 단어 찾기: 2단계](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png){ class="animation-figure" }
+    ![사전에서 단어 찾기: 2단계](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![사전에서 단어 찾기: 3단계](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png){ class="animation-figure" }
+    ![사전에서 단어 찾기: 3단계](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![사전에서 단어 찾기: 4단계](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png){ class="animation-figure" }
+    ![사전에서 단어 찾기: 4단계](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![사전에서 단어 찾기: 5단계](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png){ class="animation-figure" }
+    ![사전에서 단어 찾기: 5단계](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg){ class="animation-figure" }
 
 <p align="center"> 그림 1-1 &nbsp; 사전에서 단어를 찾는 단계 </p>
 
@@ -39,7 +39,7 @@ comments: true
 2. 정렬되지 않은 부분에서 카드 한 장을 꺼내 정렬된 부분의 올바른 위치에 끼워 넣는다. 그러면 맨 왼쪽 카드 2장이 정렬된 상태가 된다.
 3. 단계 `2.`를 반복하여 매번 정렬되지 않은 부분의 카드 한 장을 정렬된 부분에 끼워 넣는다. 모든 카드가 정렬될 때까지 계속한다.
 
-![카드를 정렬하는 단계](algorithms_are_everywhere.assets/playing_cards_sorting.png){ class="animation-figure" }
+![카드를 정렬하는 단계](algorithms_are_everywhere.assets/playing_cards_sorting.svg){ class="animation-figure" }
 
 <p align="center"> 그림 1-2 &nbsp; 카드를 정렬하는 단계 </p>
 
@@ -53,7 +53,7 @@ comments: true
 4. 남은 선택지 중 가장 큰 $1$위안을 꺼내면 $1 - 1 = 0$위안이 남는다.
 5. 거스름돈을 모두 주었다. 그 구성은 $20 + 10 + 1 = 31$위안이다.
 
-![거스름돈을 주는 과정](algorithms_are_everywhere.assets/greedy_change.png){ class="animation-figure" }
+![거스름돈을 주는 과정](algorithms_are_everywhere.assets/greedy_change.svg){ class="animation-figure" }
 
 <p align="center"> 그림 1-3 &nbsp; 거스름돈을 주는 과정 </p>
 

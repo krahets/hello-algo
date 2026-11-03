@@ -14,7 +14,7 @@ comments: true
 
 すべての組み合わせを直接調べることを考えます。図 10-9 のように二重ループを使い、各反復で二つの整数の和が `target` かどうかを判定し、そうであればインデックスを返します。
 
-![線形探索で二数の和を求める](replace_linear_by_hashing.assets/two_sum_brute_force.png){ class="animation-figure" }
+![線形探索で二数の和を求める](replace_linear_by_hashing.assets/two_sum_brute_force.svg){ class="animation-figure" }
 
 <p align="center"> 図 10-9 &nbsp; 線形探索で二数の和を求める </p>
 
@@ -256,13 +256,13 @@ comments: true
 2. `nums[i]` とインデックス `i` のペアをハッシュテーブルに追加します。
 
 === "<1>"
-    ![補助ハッシュテーブルで二数の和を求める](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png){ class="animation-figure" }
+    ![補助ハッシュテーブルで二数の和を求める](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![ハッシュテーブルによる二数の和の探索の手順 2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.png){ class="animation-figure" }
+    ![ハッシュテーブルによる二数の和の探索の手順 2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![ハッシュテーブルによる二数の和の探索の手順 3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.png){ class="animation-figure" }
+    ![ハッシュテーブルによる二数の和の探索の手順 3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg){ class="animation-figure" }
 
 <p align="center"> 図 10-10 &nbsp; 補助ハッシュテーブルで二数の和を求める </p>
 

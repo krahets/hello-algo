@@ -14,7 +14,7 @@ comments: true
 
 図 14-27 のように、`kitten` を `sitting` に変換するには、置換 2 回と挿入 1 回の計 3 回が必要です。`hello` を `algo` に変換するには、置換 2 回と削除 1 回の計 3 回が必要です。
 
-![編集距離のデータ例](edit_distance_problem.assets/edit_distance_example.png){ class="animation-figure" }
+![編集距離のデータ例](edit_distance_problem.assets/edit_distance_example.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-27 &nbsp; 編集距離のデータ例 </p>
 
@@ -24,7 +24,7 @@ comments: true
 
 決定木の観点では、この問題の目標はノード `hello` とノード `algo` の間の最短経路を求めることです。
 
-![決定木モデルによる編集距離問題の表現](edit_distance_problem.assets/edit_distance_decision_tree.png){ class="animation-figure" }
+![決定木モデルによる編集距離問題の表現](edit_distance_problem.assets/edit_distance_decision_tree.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-28 &nbsp; 決定木モデルによる編集距離問題の表現 </p>
 
@@ -53,7 +53,7 @@ comments: true
 2. $s[i-1]$ を削除すると、残る部分問題は $dp[i-1, j]$ です。
 3. $s[i-1]$ を $t[j-1]$ に置換すると、残る部分問題は $dp[i-1, j-1]$ です。
 
-![編集距離の状態遷移](edit_distance_problem.assets/edit_distance_state_transfer.png){ class="animation-figure" }
+![編集距離の状態遷移](edit_distance_problem.assets/edit_distance_state_transfer.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-29 &nbsp; 編集距離の状態遷移 </p>
 
@@ -485,49 +485,49 @@ $$
 図 14-30 のように、編集距離問題の状態遷移はナップサック問題によく似ており、どちらも二次元の表を埋める過程と捉えられます。
 
 === "<1>"
-    ![編集距離を動的計画法で求める流れ](edit_distance_problem.assets/edit_distance_dp_step1.png){ class="animation-figure" }
+    ![編集距離を動的計画法で求める流れ](edit_distance_problem.assets/edit_distance_dp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![編集距離を動的計画法で求める流れ：手順 2](edit_distance_problem.assets/edit_distance_dp_step2.png){ class="animation-figure" }
+    ![編集距離を動的計画法で求める流れ：手順 2](edit_distance_problem.assets/edit_distance_dp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![編集距離を動的計画法で求める流れ：手順 3](edit_distance_problem.assets/edit_distance_dp_step3.png){ class="animation-figure" }
+    ![編集距離を動的計画法で求める流れ：手順 3](edit_distance_problem.assets/edit_distance_dp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![編集距離を動的計画法で求める流れ：手順 4](edit_distance_problem.assets/edit_distance_dp_step4.png){ class="animation-figure" }
+    ![編集距離を動的計画法で求める流れ：手順 4](edit_distance_problem.assets/edit_distance_dp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![編集距離を動的計画法で求める流れ：手順 5](edit_distance_problem.assets/edit_distance_dp_step5.png){ class="animation-figure" }
+    ![編集距離を動的計画法で求める流れ：手順 5](edit_distance_problem.assets/edit_distance_dp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![編集距離を動的計画法で求める流れ：手順 6](edit_distance_problem.assets/edit_distance_dp_step6.png){ class="animation-figure" }
+    ![編集距離を動的計画法で求める流れ：手順 6](edit_distance_problem.assets/edit_distance_dp_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![編集距離を動的計画法で求める流れ：手順 7](edit_distance_problem.assets/edit_distance_dp_step7.png){ class="animation-figure" }
+    ![編集距離を動的計画法で求める流れ：手順 7](edit_distance_problem.assets/edit_distance_dp_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![編集距離を動的計画法で求める流れ：手順 8](edit_distance_problem.assets/edit_distance_dp_step8.png){ class="animation-figure" }
+    ![編集距離を動的計画法で求める流れ：手順 8](edit_distance_problem.assets/edit_distance_dp_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![編集距離を動的計画法で求める流れ：手順 9](edit_distance_problem.assets/edit_distance_dp_step9.png){ class="animation-figure" }
+    ![編集距離を動的計画法で求める流れ：手順 9](edit_distance_problem.assets/edit_distance_dp_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![編集距離を動的計画法で求める流れ：手順 10](edit_distance_problem.assets/edit_distance_dp_step10.png){ class="animation-figure" }
+    ![編集距離を動的計画法で求める流れ：手順 10](edit_distance_problem.assets/edit_distance_dp_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![編集距離を動的計画法で求める流れ：手順 11](edit_distance_problem.assets/edit_distance_dp_step11.png){ class="animation-figure" }
+    ![編集距離を動的計画法で求める流れ：手順 11](edit_distance_problem.assets/edit_distance_dp_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![編集距離を動的計画法で求める流れ：手順 12](edit_distance_problem.assets/edit_distance_dp_step12.png){ class="animation-figure" }
+    ![編集距離を動的計画法で求める流れ：手順 12](edit_distance_problem.assets/edit_distance_dp_step12.svg){ class="animation-figure" }
 
 === "<13>"
-    ![編集距離を動的計画法で求める流れ：手順 13](edit_distance_problem.assets/edit_distance_dp_step13.png){ class="animation-figure" }
+    ![編集距離を動的計画法で求める流れ：手順 13](edit_distance_problem.assets/edit_distance_dp_step13.svg){ class="animation-figure" }
 
 === "<14>"
-    ![編集距離を動的計画法で求める流れ：手順 14](edit_distance_problem.assets/edit_distance_dp_step14.png){ class="animation-figure" }
+    ![編集距離を動的計画法で求める流れ：手順 14](edit_distance_problem.assets/edit_distance_dp_step14.svg){ class="animation-figure" }
 
 === "<15>"
-    ![編集距離を動的計画法で求める流れ：手順 15](edit_distance_problem.assets/edit_distance_dp_step15.png){ class="animation-figure" }
+    ![編集距離を動的計画法で求める流れ：手順 15](edit_distance_problem.assets/edit_distance_dp_step15.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-30 &nbsp; 編集距離を動的計画法で求める流れ </p>
 

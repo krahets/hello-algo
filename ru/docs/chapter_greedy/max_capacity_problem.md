@@ -12,7 +12,7 @@ comments: true
 
     Требуется выбрать две перегородки так, чтобы образованный ими контейнер имел максимальную вместимость. Пример показан на рисунке 15-7.
 
-![Пример данных для задачи о максимальной вместимости](max_capacity_problem.assets/max_capacity_example.png){ class="animation-figure" }
+![Пример данных для задачи о максимальной вместимости](max_capacity_problem.assets/max_capacity_example.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 15-7 &nbsp; Пример данных для задачи о максимальной вместимости </p>
 
@@ -30,7 +30,7 @@ $$
 
 У этой задачи есть и более эффективное решение. Как показано на рисунке 15-8, рассмотрим состояние $[i, j]$, где индексы удовлетворяют $i < j$, а высоты - условию $ht[i] < ht[j]$, то есть $i$ - короткая перегородка, а $j$ - длинная.
 
-![Начальное состояние](max_capacity_problem.assets/max_capacity_initial_state.png){ class="animation-figure" }
+![Начальное состояние](max_capacity_problem.assets/max_capacity_initial_state.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 15-8 &nbsp; Начальное состояние </p>
 
@@ -38,13 +38,13 @@ $$
 
 Причина в том, что после смещения длинной перегородки $j$ ширина $j-i$ обязательно станет меньше, а высота определяется короткой перегородкой, поэтому высота либо останется прежней (если $i$ останется короткой перегородкой), либо уменьшится (если сдвинутая $j$ станет короткой перегородкой).
 
-![Состояние после перемещения длинной перегородки внутрь](max_capacity_problem.assets/max_capacity_moving_long_board.png){ class="animation-figure" }
+![Состояние после перемещения длинной перегородки внутрь](max_capacity_problem.assets/max_capacity_moving_long_board.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 15-9 &nbsp; Состояние после перемещения длинной перегородки внутрь </p>
 
 Рассуждая в обратную сторону, **только сдвигая короткую перегородку $i$ внутрь, мы можем получить шанс увеличить вместимость**. Хотя ширина при этом обязательно уменьшится, **высота может возрасти** (если после перемещения короткая перегородка $i$ станет выше). Например, на рисунке 15-10 после перемещения короткой перегородки площадь увеличивается.
 
-![Состояние после перемещения короткой перегородки внутрь](max_capacity_problem.assets/max_capacity_moving_short_board.png){ class="animation-figure" }
+![Состояние после перемещения короткой перегородки внутрь](max_capacity_problem.assets/max_capacity_moving_short_board.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 15-10 &nbsp; Состояние после перемещения короткой перегородки внутрь </p>
 
@@ -58,31 +58,31 @@ $$
 4. Повторять шаги `2.` и `3.` до тех пор, пока $i$ и $j$ не встретятся.
 
 === "<1>"
-    ![Жадный процесс решения задачи о максимальной вместимости](max_capacity_problem.assets/max_capacity_greedy_step1.png){ class="animation-figure" }
+    ![Жадный процесс решения задачи о максимальной вместимости](max_capacity_problem.assets/max_capacity_greedy_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.png){ class="animation-figure" }
+    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.png){ class="animation-figure" }
+    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.png){ class="animation-figure" }
+    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.png){ class="animation-figure" }
+    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.png){ class="animation-figure" }
+    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.png){ class="animation-figure" }
+    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.png){ class="animation-figure" }
+    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.png){ class="animation-figure" }
+    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 15-11 &nbsp; Жадный процесс решения задачи о максимальной вместимости </p>
 
@@ -436,7 +436,7 @@ $$
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 $$
 
-![Состояния, пропущенные из-за смещения короткой перегородки](max_capacity_problem.assets/max_capacity_skipped_states.png){ class="animation-figure" }
+![Состояния, пропущенные из-за смещения короткой перегородки](max_capacity_problem.assets/max_capacity_skipped_states.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 15-12 &nbsp; Состояния, пропущенные из-за смещения короткой перегородки </p>
 

@@ -10,7 +10,7 @@ comments: true
 
 아래 그림(11-6)은 배열에 원소를 삽입하는 과정을 보여 준다. 기준 원소를 `base`라고 하면 목표 인덱스부터 `base` 사이의 모든 원소를 오른쪽으로 한 칸씩 이동한 뒤, 목표 인덱스에 `base`를 대입한다.
 
-![한 번의 삽입 연산](insertion_sort.assets/insertion_operation.png){ class="animation-figure" }
+![한 번의 삽입 연산](insertion_sort.assets/insertion_operation.svg){ class="animation-figure" }
 
 <p align="center"> 그림 11-6 &nbsp; 한 번의 삽입 연산 </p>
 
@@ -23,7 +23,7 @@ comments: true
 3. 세 번째 원소를 `base`로 골라 올바른 위치에 삽입하면 **배열의 앞 3개 원소가 정렬된다**.
 4. 같은 과정을 반복한다. 마지막 회에서 마지막 원소를 `base`로 골라 올바른 위치에 삽입하면 **모든 원소가 정렬된다**.
 
-![삽입 정렬 과정](insertion_sort.assets/insertion_sort_overview.png){ class="animation-figure" }
+![삽입 정렬 과정](insertion_sort.assets/insertion_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> 그림 11-7 &nbsp; 삽입 정렬 과정 </p>
 

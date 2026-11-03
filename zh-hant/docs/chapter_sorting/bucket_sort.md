@@ -16,7 +16,7 @@ comments: true
 2. 對每個桶分別執行排序（這裡採用程式語言的內建排序函式）。
 3. 按照桶從小到大的順序合併結果。
 
-![桶排序演算法流程](bucket_sort.assets/bucket_sort_overview.png){ class="animation-figure" }
+![桶排序演算法流程](bucket_sort.assets/bucket_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> 圖 11-13 &nbsp; 桶排序演算法流程 </p>
 
@@ -458,7 +458,7 @@ comments: true
 
 如圖 11-14 所示，這種方法本質上是建立一棵遞迴樹，目標是讓葉節點的值儘可能平均。當然，不一定要每輪將資料劃分為 3 個桶，具體劃分方式可根據資料特點靈活選擇。
 
-![遞迴劃分桶](bucket_sort.assets/scatter_in_buckets_recursively.png){ class="animation-figure" }
+![遞迴劃分桶](bucket_sort.assets/scatter_in_buckets_recursively.svg){ class="animation-figure" }
 
 <p align="center"> 圖 11-14 &nbsp; 遞迴劃分桶 </p>
 
@@ -466,6 +466,6 @@ comments: true
 
 如圖 11-15 所示，我們假設商品價格服從正態分佈，這樣就可以合理地設定價格區間，從而將商品平均分配到各個桶中。
 
-![根據機率分佈劃分桶](bucket_sort.assets/scatter_in_buckets_distribution.png){ class="animation-figure" }
+![根據機率分佈劃分桶](bucket_sort.assets/scatter_in_buckets_distribution.svg){ class="animation-figure" }
 
 <p align="center"> 圖 11-15 &nbsp; 根據機率分佈劃分桶 </p>

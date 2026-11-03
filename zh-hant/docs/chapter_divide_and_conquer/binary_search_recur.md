@@ -40,7 +40,7 @@ comments: true
 
 圖 12-4 展示了在陣列中二分搜尋元素 $6$ 的分治過程。
 
-![二分搜尋的分治過程](binary_search_recur.assets/binary_search_recur.png){ class="animation-figure" }
+![二分搜尋的分治過程](binary_search_recur.assets/binary_search_recur.svg){ class="animation-figure" }
 
 <p align="center"> 圖 12-4 &nbsp; 二分搜尋的分治過程 </p>
 

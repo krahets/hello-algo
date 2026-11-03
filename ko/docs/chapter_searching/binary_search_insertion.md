@@ -12,7 +12,7 @@ comments: true
 
     중복 원소가 없는 길이 $n$의 정렬된 배열 `nums`와 원소 `target`이 주어진다. 정렬 상태를 유지하면서 `target`을 배열 `nums`에 삽입하려고 한다. 이미 `target`이 있으면 그 왼쪽에 삽입한다. 삽입 후 `target`의 배열 인덱스를 반환하라. 예시는 아래 그림(10-4)과 같다.
 
-![이진 탐색으로 삽입 위치를 찾는 예시 데이터](binary_search_insertion.assets/binary_search_insertion_example.png){ class="animation-figure" }
+![이진 탐색으로 삽입 위치를 찾는 예시 데이터](binary_search_insertion.assets/binary_search_insertion_example.svg){ class="animation-figure" }
 
 <p align="center"> 그림 10-4 &nbsp; 이진 탐색으로 삽입 위치를 찾는 예시 데이터 </p>
 
@@ -333,7 +333,7 @@ comments: true
 1. 이진 탐색으로 임의의 `target`의 인덱스를 구하고 이를 $k$라고 한다.
 2. 인덱스 $k$부터 왼쪽으로 선형 순회하여 가장 왼쪽 `target`을 찾으면 반환한다.
 
-![선형 탐색으로 중복 원소의 삽입 위치 찾기](binary_search_insertion.assets/binary_search_insertion_naive.png){ class="animation-figure" }
+![선형 탐색으로 중복 원소의 삽입 위치 찾기](binary_search_insertion.assets/binary_search_insertion_naive.svg){ class="animation-figure" }
 
 <p align="center"> 그림 10-5 &nbsp; 선형 탐색으로 중복 원소의 삽입 위치 찾기 </p>
 
@@ -347,28 +347,28 @@ comments: true
 반복이 끝나면 $i$는 가장 왼쪽 `target`을, $j$는 `target`보다 작은 가장 오른쪽 원소를 가리킨다. **따라서 인덱스 $i$가 삽입 위치다**.
 
 === "<1>"
-    ![이진 탐색으로 중복 원소의 삽입 위치를 찾는 단계](binary_search_insertion.assets/binary_search_insertion_step1.png){ class="animation-figure" }
+    ![이진 탐색으로 중복 원소의 삽입 위치를 찾는 단계](binary_search_insertion.assets/binary_search_insertion_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![삽입 위치 이진 탐색 2단계](binary_search_insertion.assets/binary_search_insertion_step2.png){ class="animation-figure" }
+    ![삽입 위치 이진 탐색 2단계](binary_search_insertion.assets/binary_search_insertion_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![삽입 위치 이진 탐색 3단계](binary_search_insertion.assets/binary_search_insertion_step3.png){ class="animation-figure" }
+    ![삽입 위치 이진 탐색 3단계](binary_search_insertion.assets/binary_search_insertion_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![삽입 위치 이진 탐색 4단계](binary_search_insertion.assets/binary_search_insertion_step4.png){ class="animation-figure" }
+    ![삽입 위치 이진 탐색 4단계](binary_search_insertion.assets/binary_search_insertion_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![삽입 위치 이진 탐색 5단계](binary_search_insertion.assets/binary_search_insertion_step5.png){ class="animation-figure" }
+    ![삽입 위치 이진 탐색 5단계](binary_search_insertion.assets/binary_search_insertion_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![삽입 위치 이진 탐색 6단계](binary_search_insertion.assets/binary_search_insertion_step6.png){ class="animation-figure" }
+    ![삽입 위치 이진 탐색 6단계](binary_search_insertion.assets/binary_search_insertion_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![삽입 위치 이진 탐색 7단계](binary_search_insertion.assets/binary_search_insertion_step7.png){ class="animation-figure" }
+    ![삽입 위치 이진 탐색 7단계](binary_search_insertion.assets/binary_search_insertion_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![삽입 위치 이진 탐색 8단계](binary_search_insertion.assets/binary_search_insertion_step8.png){ class="animation-figure" }
+    ![삽입 위치 이진 탐색 8단계](binary_search_insertion.assets/binary_search_insertion_step8.svg){ class="animation-figure" }
 
 <p align="center"> 그림 10-6 &nbsp; 이진 탐색으로 중복 원소의 삽입 위치를 찾는 단계 </p>
 

@@ -40,7 +40,7 @@ comments: true
 
 На рисунке 12-4 показан процесс применения стратегии «разделяй и властвуй» для поиска элемента $6$ в массиве.
 
-![Процесс двоичного поиска в стиле разделяй и властвуй](binary_search_recur.assets/binary_search_recur.png){ class="animation-figure" }
+![Процесс двоичного поиска в стиле разделяй и властвуй](binary_search_recur.assets/binary_search_recur.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 12-4 &nbsp; Процесс двоичного поиска в стиле разделяй и властвуй </p>
 

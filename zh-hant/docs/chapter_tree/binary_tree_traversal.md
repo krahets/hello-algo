@@ -14,7 +14,7 @@ comments: true
 
 層序走訪本質上屬於<u>廣度優先走訪（breadth-first traversal）</u>，也稱<u>廣度優先搜尋（breadth-first search, BFS）</u>，它體現了一種“一圈一圈向外擴展”的逐層走訪方式。
 
-![二元樹的層序走訪](binary_tree_traversal.assets/binary_tree_bfs.png){ class="animation-figure" }
+![二元樹的層序走訪](binary_tree_traversal.assets/binary_tree_bfs.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-9 &nbsp; 二元樹的層序走訪 </p>
 
@@ -350,7 +350,7 @@ comments: true
 
 圖 7-10 展示了對二元樹進行深度優先走訪的工作原理。**深度優先走訪就像是繞著整棵二元樹的外圍“走”一圈**，在每個節點都會遇到三個位置，分別對應前序走訪、中序走訪和後序走訪。
 
-![二元搜尋樹的前序、中序、後序走訪](binary_tree_traversal.assets/binary_tree_dfs.png){ class="animation-figure" }
+![二元搜尋樹的前序、中序、後序走訪](binary_tree_traversal.assets/binary_tree_dfs.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-10 &nbsp; 二元搜尋樹的前序、中序、後序走訪 </p>
 
@@ -834,37 +834,37 @@ comments: true
 2. “迴”表示函式返回，代表當前節點已經訪問完畢。
 
 === "<1>"
-    ![前序走訪的遞迴過程](binary_tree_traversal.assets/preorder_step1.png){ class="animation-figure" }
+    ![前序走訪的遞迴過程](binary_tree_traversal.assets/preorder_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![preorder_step2](binary_tree_traversal.assets/preorder_step2.png){ class="animation-figure" }
+    ![preorder_step2](binary_tree_traversal.assets/preorder_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![preorder_step3](binary_tree_traversal.assets/preorder_step3.png){ class="animation-figure" }
+    ![preorder_step3](binary_tree_traversal.assets/preorder_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![preorder_step4](binary_tree_traversal.assets/preorder_step4.png){ class="animation-figure" }
+    ![preorder_step4](binary_tree_traversal.assets/preorder_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![preorder_step5](binary_tree_traversal.assets/preorder_step5.png){ class="animation-figure" }
+    ![preorder_step5](binary_tree_traversal.assets/preorder_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![preorder_step6](binary_tree_traversal.assets/preorder_step6.png){ class="animation-figure" }
+    ![preorder_step6](binary_tree_traversal.assets/preorder_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![preorder_step7](binary_tree_traversal.assets/preorder_step7.png){ class="animation-figure" }
+    ![preorder_step7](binary_tree_traversal.assets/preorder_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![preorder_step8](binary_tree_traversal.assets/preorder_step8.png){ class="animation-figure" }
+    ![preorder_step8](binary_tree_traversal.assets/preorder_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![preorder_step9](binary_tree_traversal.assets/preorder_step9.png){ class="animation-figure" }
+    ![preorder_step9](binary_tree_traversal.assets/preorder_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![preorder_step10](binary_tree_traversal.assets/preorder_step10.png){ class="animation-figure" }
+    ![preorder_step10](binary_tree_traversal.assets/preorder_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![preorder_step11](binary_tree_traversal.assets/preorder_step11.png){ class="animation-figure" }
+    ![preorder_step11](binary_tree_traversal.assets/preorder_step11.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-11 &nbsp; 前序走訪的遞迴過程 </p>
 

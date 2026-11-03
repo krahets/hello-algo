@@ -209,7 +209,7 @@ comments: true
 
 **在二元樹中，除葉節點外，其他所有節點都包含子節點和非空子樹**。如圖 7-1 所示，如果將“節點 2”視為父節點，則其左子節點和右子節點分別是“節點 4”和“節點 5”，左子樹是“節點 4 及其以下節點形成的樹”，右子樹是“節點 5 及其以下節點形成的樹”。
 
-![父節點、子節點、子樹](binary_tree.assets/binary_tree_definition.png){ class="animation-figure" }
+![父節點、子節點、子樹](binary_tree.assets/binary_tree_definition.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-1 &nbsp; 父節點、子節點、子樹 </p>
 
@@ -226,7 +226,7 @@ comments: true
 - 節點的<u>深度（depth）</u>：從根節點到該節點所經過的邊的數量。
 - 節點的<u>高度（height）</u>：從距離該節點最遠的葉節點到該節點所經過的邊的數量。
 
-![二元樹的常用術語](binary_tree.assets/binary_tree_terminology.png){ class="animation-figure" }
+![二元樹的常用術語](binary_tree.assets/binary_tree_terminology.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-2 &nbsp; 二元樹的常用術語 </p>
 
@@ -466,7 +466,7 @@ comments: true
 
 與鏈結串列類似，在二元樹中插入與刪除節點可以透過修改指標來實現。圖 7-3 給出了一個示例。
 
-![在二元樹中插入與刪除節點](binary_tree.assets/binary_tree_add_remove.png){ class="animation-figure" }
+![在二元樹中插入與刪除節點](binary_tree.assets/binary_tree_add_remove.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-3 &nbsp; 在二元樹中插入與刪除節點 </p>
 
@@ -645,7 +645,7 @@ comments: true
 
     請注意，在中文社群中，完美二元樹常被稱為<u>滿二元樹</u>。
 
-![完美二元樹](binary_tree.assets/perfect_binary_tree.png){ class="animation-figure" }
+![完美二元樹](binary_tree.assets/perfect_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-4 &nbsp; 完美二元樹 </p>
 
@@ -653,7 +653,7 @@ comments: true
 
 如圖 7-5 所示，<u>完全二元樹（complete binary tree）</u>僅允許最底層的節點不完全填滿，且最底層的節點必須從左至右依次連續填充。請注意，完美二元樹也是一棵完全二元樹。
 
-![完全二元樹](binary_tree.assets/complete_binary_tree.png){ class="animation-figure" }
+![完全二元樹](binary_tree.assets/complete_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-5 &nbsp; 完全二元樹 </p>
 
@@ -661,7 +661,7 @@ comments: true
 
 如圖 7-6 所示，<u>完滿二元樹（full binary tree）</u>除了葉節點之外，其餘所有節點都有兩個子節點。
 
-![完滿二元樹](binary_tree.assets/full_binary_tree.png){ class="animation-figure" }
+![完滿二元樹](binary_tree.assets/full_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-6 &nbsp; 完滿二元樹 </p>
 
@@ -669,7 +669,7 @@ comments: true
 
 如圖 7-7 所示，<u>平衡二元樹（balanced binary tree）</u>中任意節點的左子樹和右子樹的高度之差的絕對值不超過 1 。
 
-![平衡二元樹](binary_tree.assets/balanced_binary_tree.png){ class="animation-figure" }
+![平衡二元樹](binary_tree.assets/balanced_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-7 &nbsp; 平衡二元樹 </p>
 
@@ -680,7 +680,7 @@ comments: true
 - 完美二元樹是理想情況，可以充分發揮二元樹“分治”的優勢。
 - 鏈結串列則是另一個極端，各項操作都變為線性操作，時間複雜度退化至 $O(n)$ 。
 
-![二元樹的最佳結構與最差結構](binary_tree.assets/binary_tree_best_worst_cases.png){ class="animation-figure" }
+![二元樹的最佳結構與最差結構](binary_tree.assets/binary_tree_best_worst_cases.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-8 &nbsp; 二元樹的最佳結構與最差結構 </p>
 

@@ -8,7 +8,7 @@ comments: true
 
 Как показано на рисунке 5-4, начало очереди называется головой очереди, а конец - хвостом очереди. Операцию добавления элемента в хвост называют `enqueue`, а операцию удаления элемента из головы - `dequeue`.
 
-![Правило FIFO для очереди](queue.assets/queue_operations.png){ class="animation-figure" }
+![Правило FIFO для очереди](queue.assets/queue_operations.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 5-4 &nbsp; Правило FIFO для очереди </p>
 
@@ -380,13 +380,13 @@ comments: true
 Как показано на рисунке 5-5, мы можем рассматривать головной узел и хвостовой узел связного списка как голову очереди и хвост очереди соответственно, договорившись, что добавлять узлы можно только в хвост, а удалять - только из головы.
 
 === "<1>"
-    ![Операции enqueue и dequeue в реализации очереди на связном списке](queue.assets/linkedlist_queue_step1.png){ class="animation-figure" }
+    ![Операции enqueue и dequeue в реализации очереди на связном списке](queue.assets/linkedlist_queue_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.png){ class="animation-figure" }
+    ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.png){ class="animation-figure" }
+    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 5-5 &nbsp; Операции enqueue и dequeue в реализации очереди на связном списке </p>
 
@@ -1330,13 +1330,13 @@ comments: true
 Можно увидеть, что и `enqueue` , и `dequeue` требуют всего одной операции, а значит обе имеют временную сложность $O(1)$ .
 
 === "<1>"
-    ![Операции enqueue и dequeue в реализации очереди на массиве](queue.assets/array_queue_step1.png){ class="animation-figure" }
+    ![Операции enqueue и dequeue в реализации очереди на массиве](queue.assets/array_queue_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![array_queue_push](queue.assets/array_queue_step2_push.png){ class="animation-figure" }
+    ![array_queue_push](queue.assets/array_queue_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![array_queue_pop](queue.assets/array_queue_step3_pop.png){ class="animation-figure" }
+    ![array_queue_pop](queue.assets/array_queue_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 5-6 &nbsp; Операции enqueue и dequeue в реализации очереди на массиве </p>
 

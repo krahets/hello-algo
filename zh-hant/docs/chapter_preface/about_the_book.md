@@ -30,7 +30,7 @@ comments: true
 - **資料結構**：基本資料型別和資料結構的分類方法。陣列、鏈結串列、堆疊、佇列、雜湊表、樹、堆積、圖等資料結構的定義、優缺點、常用操作、常見型別、典型應用、實現方法等。
 - **演算法**：搜尋、排序、分治、回溯、動態規劃、貪婪等演算法的定義、優缺點、效率、應用場景、解題步驟和示例問題等。
 
-![本書主要內容](about_the_book.assets/hello_algo_mindmap.png){ class="animation-figure" }
+![本書主要內容](about_the_book.assets/hello_algo_mindmap.svg){ class="animation-figure" }
 
 <p align="center"> 圖 0-1 &nbsp; 本書主要內容 </p>
 

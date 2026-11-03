@@ -338,7 +338,7 @@ Multiplying these gives a time complexity of $O(n \log n)$. **However, this esti
 
 For a more accurate calculation, assume a perfect binary tree with $n$ nodes and height $h$. This simplifies the calculation without affecting the validity of the result.
 
-![Number of nodes at each level of a perfect binary tree](build_heap.assets/heapify_operations_count.png){ class="animation-figure" }
+![Number of nodes at each level of a perfect binary tree](build_heap.assets/heapify_operations_count.svg){ class="animation-figure" }
 
 <p align="center"> Figure 8-5 &nbsp; Number of nodes at each level of a perfect binary tree </p>
 

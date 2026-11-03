@@ -6,7 +6,7 @@ comments: true
 
 在队列中，我们仅能删除头部元素或在尾部添加元素。如图 5-7 所示，<u>双向队列（double-ended queue）</u>提供了更高的灵活性，允许在头部和尾部执行元素的添加或删除操作。
 
-![双向队列的操作](deque.assets/deque_operations.png){ class="animation-figure" }
+![双向队列的操作](deque.assets/deque_operations.svg){ class="animation-figure" }
 
 <p align="center"> 图 5-7 &nbsp; 双向队列的操作 </p>
 
@@ -411,19 +411,19 @@ comments: true
 如图 5-8 所示，我们将双向链表的头节点和尾节点视为双向队列的队首和队尾，同时实现在两端添加和删除节点的功能。
 
 === "<1>"
-    ![基于链表实现双向队列的入队出队操作](deque.assets/linkedlist_deque_step1.png){ class="animation-figure" }
+    ![基于链表实现双向队列的入队出队操作](deque.assets/linkedlist_deque_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.png){ class="animation-figure" }
+    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.svg){ class="animation-figure" }
 
 === "<3>"
-    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.png){ class="animation-figure" }
+    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.svg){ class="animation-figure" }
 
 === "<4>"
-    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.png){ class="animation-figure" }
+    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.svg){ class="animation-figure" }
 
 === "<5>"
-    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.png){ class="animation-figure" }
+    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.svg){ class="animation-figure" }
 
 <p align="center"> 图 5-8 &nbsp; 基于链表实现双向队列的入队出队操作 </p>
 
@@ -2199,19 +2199,19 @@ comments: true
 如图 5-9 所示，与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。
 
 === "<1>"
-    ![基于数组实现双向队列的入队出队操作](deque.assets/array_deque_step1.png){ class="animation-figure" }
+    ![基于数组实现双向队列的入队出队操作](deque.assets/array_deque_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![array_deque_push_last](deque.assets/array_deque_step2_push_last.png){ class="animation-figure" }
+    ![array_deque_push_last](deque.assets/array_deque_step2_push_last.svg){ class="animation-figure" }
 
 === "<3>"
-    ![array_deque_push_first](deque.assets/array_deque_step3_push_first.png){ class="animation-figure" }
+    ![array_deque_push_first](deque.assets/array_deque_step3_push_first.svg){ class="animation-figure" }
 
 === "<4>"
-    ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.png){ class="animation-figure" }
+    ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.svg){ class="animation-figure" }
 
 === "<5>"
-    ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.png){ class="animation-figure" }
+    ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.svg){ class="animation-figure" }
 
 <p align="center"> 图 5-9 &nbsp; 基于数组实现双向队列的入队出队操作 </p>
 

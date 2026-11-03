@@ -6,7 +6,7 @@ comments: true
 
 В обычной очереди мы можем удалять элементы только из головы и добавлять их только в хвост. Как показано на рисунке 5-7, <u>двусторонняя очередь (double-ended queue)</u> обеспечивает большую гибкость и позволяет выполнять добавление и удаление элементов как с головы, так и с хвоста.
 
-![Операции двусторонней очереди](deque.assets/deque_operations.png){ class="animation-figure" }
+![Операции двусторонней очереди](deque.assets/deque_operations.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 5-7 &nbsp; Операции двусторонней очереди </p>
 
@@ -411,19 +411,19 @@ comments: true
 Как показано на рисунке 5-8, мы рассматриваем головной и хвостовой узлы двусвязного списка как голову и хвост двусторонней очереди и одновременно реализуем функции добавления и удаления узлов с обеих сторон.
 
 === "<1>"
-    ![Операции enqueue и dequeue для двусторонней очереди на связном списке](deque.assets/linkedlist_deque_step1.png){ class="animation-figure" }
+    ![Операции enqueue и dequeue для двусторонней очереди на связном списке](deque.assets/linkedlist_deque_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.png){ class="animation-figure" }
+    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.svg){ class="animation-figure" }
 
 === "<3>"
-    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.png){ class="animation-figure" }
+    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.svg){ class="animation-figure" }
 
 === "<4>"
-    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.png){ class="animation-figure" }
+    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.svg){ class="animation-figure" }
 
 === "<5>"
-    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.png){ class="animation-figure" }
+    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 5-8 &nbsp; Операции enqueue и dequeue для двусторонней очереди на связном списке </p>
 
@@ -2199,19 +2199,19 @@ comments: true
 Как показано на рисунке 5-9, аналогично реализации обычной очереди на массиве мы также можем использовать кольцевой массив для реализации двусторонней очереди.
 
 === "<1>"
-    ![Операции enqueue и dequeue для двусторонней очереди на массиве](deque.assets/array_deque_step1.png){ class="animation-figure" }
+    ![Операции enqueue и dequeue для двусторонней очереди на массиве](deque.assets/array_deque_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![array_deque_push_last](deque.assets/array_deque_step2_push_last.png){ class="animation-figure" }
+    ![array_deque_push_last](deque.assets/array_deque_step2_push_last.svg){ class="animation-figure" }
 
 === "<3>"
-    ![array_deque_push_first](deque.assets/array_deque_step3_push_first.png){ class="animation-figure" }
+    ![array_deque_push_first](deque.assets/array_deque_step3_push_first.svg){ class="animation-figure" }
 
 === "<4>"
-    ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.png){ class="animation-figure" }
+    ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.svg){ class="animation-figure" }
 
 === "<5>"
-    ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.png){ class="animation-figure" }
+    ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 5-9 &nbsp; Операции enqueue и dequeue для двусторонней очереди на массиве </p>
 

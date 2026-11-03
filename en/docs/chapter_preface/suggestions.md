@@ -222,7 +222,7 @@ Alternatively, click “Download ZIP” in the location shown below to download 
 
 **Step 3: Run the source code**. As shown below, when a code block has a filename at the top, you can find the corresponding source file in the repository's `en/codes` folder. These files can be run with one click, saving unnecessary debugging time so you can focus on learning.
 
-![A code block labeled with its source filename](suggestions.assets/code_md_to_repo.png){ class="animation-figure" }
+![A code block labeled with its source filename](suggestions.assets/code_md_to_repo.svg){ class="animation-figure" }
 
 <p align="center"> Figure 0-5 &nbsp; A code block labeled with its source filename </p>
 
@@ -252,6 +252,6 @@ Broadly speaking, learning data structures and algorithms can be divided into th
 
 As Figure 0-8 shows, this book mainly covers “Stage 1,” helping you approach Stages 2 and 3 more efficiently.
 
-![A learning path for algorithms](suggestions.assets/learning_route.png){ class="animation-figure" }
+![A learning path for algorithms](suggestions.assets/learning_route.svg){ class="animation-figure" }
 
 <p align="center"> Figure 0-8 &nbsp; A learning path for algorithms </p>

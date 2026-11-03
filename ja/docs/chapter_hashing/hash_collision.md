@@ -17,7 +17,7 @@ comments: true
 
 元のハッシュテーブルでは、各バケットに一つのペアしか格納できません。<u>チェイン法（separate chaining）</u>では、単一の要素を連結リストに置き換え、キーと値のペアをノードとして、衝突したペアをすべて同じリストに格納します。図 6-5 にその例を示します。
 
-![チェイン法のハッシュテーブル](hash_collision.assets/hash_table_chaining.png){ class="animation-figure" }
+![チェイン法のハッシュテーブル](hash_collision.assets/hash_table_chaining.svg){ class="animation-figure" }
 
 <p align="center"> 図 6-5 &nbsp; チェイン法のハッシュテーブル </p>
 
@@ -1539,7 +1539,7 @@ comments: true
 
 図 6-6 は、オープンアドレス法（線形探索法）におけるペアの分布です。このハッシュ関数では、下二桁が等しい `key` は同じバケットに写されます。線形探索によって、そのバケットと後続のバケットへ順に格納されます。
 
-![オープンアドレス法（線形探索法）でのキーと値のペアの分布](hash_collision.assets/hash_table_linear_probing.png){ class="animation-figure" }
+![オープンアドレス法（線形探索法）でのキーと値のペアの分布](hash_collision.assets/hash_table_linear_probing.svg){ class="animation-figure" }
 
 <p align="center"> 図 6-6 &nbsp; オープンアドレス法（線形探索法）でのキーと値のペアの分布 </p>
 
@@ -1547,7 +1547,7 @@ comments: true
 
 **オープンアドレス法では、要素を直接削除できないことにも注意が必要です**。削除すると配列内に空のバケット `None` ができ、照会時の線形探索はそこで終了してしまいます。その先の要素に到達できなくなり、存在しないと誤判定する可能性があります。図 6-7 に示します。
 
-![オープンアドレス法で削除すると起きる照会の問題](hash_collision.assets/hash_table_open_addressing_deletion.png){ class="animation-figure" }
+![オープンアドレス法で削除すると起きる照会の問題](hash_collision.assets/hash_table_open_addressing_deletion.svg){ class="animation-figure" }
 
 <p align="center"> 図 6-7 &nbsp; オープンアドレス法で削除すると起きる照会の問題 </p>
 

@@ -12,7 +12,7 @@ comments: true
 
     給定一個長度為 $n$ 的有序陣列 `nums` 和一個元素 `target` ，陣列不存在重複元素。現將 `target` 插入陣列 `nums` 中，並保持其有序性。若陣列中已存在元素 `target` ，則插入到其左方。請返回插入後 `target` 在陣列中的索引。示例如圖 10-4 所示。
 
-![二分搜尋插入點示例資料](binary_search_insertion.assets/binary_search_insertion_example.png){ class="animation-figure" }
+![二分搜尋插入點示例資料](binary_search_insertion.assets/binary_search_insertion_example.svg){ class="animation-figure" }
 
 <p align="center"> 圖 10-4 &nbsp; 二分搜尋插入點示例資料 </p>
 
@@ -333,7 +333,7 @@ comments: true
 1. 執行二分搜尋，得到任意一個 `target` 的索引，記為 $k$ 。
 2. 從索引 $k$ 開始，向左進行線性走訪，當找到最左邊的 `target` 時返回。
 
-![線性查詢重複元素的插入點](binary_search_insertion.assets/binary_search_insertion_naive.png){ class="animation-figure" }
+![線性查詢重複元素的插入點](binary_search_insertion.assets/binary_search_insertion_naive.svg){ class="animation-figure" }
 
 <p align="center"> 圖 10-5 &nbsp; 線性查詢重複元素的插入點 </p>
 
@@ -347,28 +347,28 @@ comments: true
 迴圈完成後，$i$ 指向最左邊的 `target` ，$j$ 指向最右一個小於 `target` 的元素，**因此索引 $i$ 就是插入點**。
 
 === "<1>"
-    ![二分搜尋重複元素的插入點的步驟](binary_search_insertion.assets/binary_search_insertion_step1.png){ class="animation-figure" }
+    ![二分搜尋重複元素的插入點的步驟](binary_search_insertion.assets/binary_search_insertion_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![binary_search_insertion_step2](binary_search_insertion.assets/binary_search_insertion_step2.png){ class="animation-figure" }
+    ![binary_search_insertion_step2](binary_search_insertion.assets/binary_search_insertion_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![binary_search_insertion_step3](binary_search_insertion.assets/binary_search_insertion_step3.png){ class="animation-figure" }
+    ![binary_search_insertion_step3](binary_search_insertion.assets/binary_search_insertion_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![binary_search_insertion_step4](binary_search_insertion.assets/binary_search_insertion_step4.png){ class="animation-figure" }
+    ![binary_search_insertion_step4](binary_search_insertion.assets/binary_search_insertion_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![binary_search_insertion_step5](binary_search_insertion.assets/binary_search_insertion_step5.png){ class="animation-figure" }
+    ![binary_search_insertion_step5](binary_search_insertion.assets/binary_search_insertion_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![binary_search_insertion_step6](binary_search_insertion.assets/binary_search_insertion_step6.png){ class="animation-figure" }
+    ![binary_search_insertion_step6](binary_search_insertion.assets/binary_search_insertion_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![binary_search_insertion_step7](binary_search_insertion.assets/binary_search_insertion_step7.png){ class="animation-figure" }
+    ![binary_search_insertion_step7](binary_search_insertion.assets/binary_search_insertion_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![binary_search_insertion_step8](binary_search_insertion.assets/binary_search_insertion_step8.png){ class="animation-figure" }
+    ![binary_search_insertion_step8](binary_search_insertion.assets/binary_search_insertion_step8.svg){ class="animation-figure" }
 
 <p align="center"> 圖 10-6 &nbsp; 二分搜尋重複元素的插入點的步驟 </p>
 

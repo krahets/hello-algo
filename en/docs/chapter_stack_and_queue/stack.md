@@ -10,7 +10,7 @@ Think of a stack of plates on a table. If we can move only one plate at a time, 
 
 As shown below, the upper end is the “top” of the stack and the lower end is the “bottom.” Adding an element to the top is called “pushing,” and removing the top element is called “popping.”
 
-![The last-in, first-out rule of a stack](stack.assets/stack_operations.png){ class="animation-figure" }
+![The last-in, first-out rule of a stack](stack.assets/stack_operations.svg){ class="animation-figure" }
 
 <p align="center"> Figure 5-1 &nbsp; The last-in, first-out rule of a stack </p>
 
@@ -377,13 +377,13 @@ When implementing a stack with a linked list, treat the head as the top and the 
 As shown below, pushing simply inserts a node at the head, an operation called “head insertion.” Popping removes the head node.
 
 === "<1>"
-    ![Push and pop in a linked-list stack](stack.assets/linkedlist_stack_step1.png){ class="animation-figure" }
+    ![Push and pop in a linked-list stack](stack.assets/linkedlist_stack_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.png){ class="animation-figure" }
+    ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.png){ class="animation-figure" }
+    ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> Figure 5-2 &nbsp; Push and pop in a linked-list stack </p>
 
@@ -1170,13 +1170,13 @@ Here is an implementation using a linked list:
 For an array-based stack, use the end of the array as the top. As shown below, pushing and popping correspond to adding and removing the last element, both taking $O(1)$ time.
 
 === "<1>"
-    ![Push and pop in an array-based stack](stack.assets/array_stack_step1.png){ class="animation-figure" }
+    ![Push and pop in an array-based stack](stack.assets/array_stack_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![array_stack_push](stack.assets/array_stack_step2_push.png){ class="animation-figure" }
+    ![array_stack_push](stack.assets/array_stack_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![array_stack_pop](stack.assets/array_stack_step3_pop.png){ class="animation-figure" }
+    ![array_stack_pop](stack.assets/array_stack_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> Figure 5-3 &nbsp; Push and pop in an array-based stack </p>
 

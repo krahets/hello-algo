@@ -15,37 +15,37 @@ comments: true
 5. 残った一つの要素は必ず最大要素なので、ソートは不要です。これで配列全体のソートが完了します。
 
 === "<1>"
-    ![選択ソートの手順](selection_sort.assets/selection_sort_step1.png){ class="animation-figure" }
+    ![選択ソートの手順](selection_sort.assets/selection_sort_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![選択ソートの手順 2](selection_sort.assets/selection_sort_step2.png){ class="animation-figure" }
+    ![選択ソートの手順 2](selection_sort.assets/selection_sort_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![選択ソートの手順 3](selection_sort.assets/selection_sort_step3.png){ class="animation-figure" }
+    ![選択ソートの手順 3](selection_sort.assets/selection_sort_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![選択ソートの手順 4](selection_sort.assets/selection_sort_step4.png){ class="animation-figure" }
+    ![選択ソートの手順 4](selection_sort.assets/selection_sort_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![選択ソートの手順 5](selection_sort.assets/selection_sort_step5.png){ class="animation-figure" }
+    ![選択ソートの手順 5](selection_sort.assets/selection_sort_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![選択ソートの手順 6](selection_sort.assets/selection_sort_step6.png){ class="animation-figure" }
+    ![選択ソートの手順 6](selection_sort.assets/selection_sort_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![選択ソートの手順 7](selection_sort.assets/selection_sort_step7.png){ class="animation-figure" }
+    ![選択ソートの手順 7](selection_sort.assets/selection_sort_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![選択ソートの手順 8](selection_sort.assets/selection_sort_step8.png){ class="animation-figure" }
+    ![選択ソートの手順 8](selection_sort.assets/selection_sort_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![選択ソートの手順 9](selection_sort.assets/selection_sort_step9.png){ class="animation-figure" }
+    ![選択ソートの手順 9](selection_sort.assets/selection_sort_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![選択ソートの手順 10](selection_sort.assets/selection_sort_step10.png){ class="animation-figure" }
+    ![選択ソートの手順 10](selection_sort.assets/selection_sort_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![選択ソートの手順 11](selection_sort.assets/selection_sort_step11.png){ class="animation-figure" }
+    ![選択ソートの手順 11](selection_sort.assets/selection_sort_step11.svg){ class="animation-figure" }
 
 <p align="center"> 図 11-2 &nbsp; 選択ソートの手順 </p>
 
@@ -335,6 +335,6 @@ comments: true
 - **空間計算量は $O(1)$、インプレースソート**：ポインタ $i$ と $j$ は定数サイズの追加領域を使います。
 - **不安定ソート**：図 11-3 のように、要素 `nums[i]` が等しい要素の右側に移され、両者の相対的な順序が変わる可能性があります。
 
-![選択ソートが不安定になる例](selection_sort.assets/selection_sort_instability.png){ class="animation-figure" }
+![選択ソートが不安定になる例](selection_sort.assets/selection_sort_instability.svg){ class="animation-figure" }
 
 <p align="center"> 図 11-3 &nbsp; 選択ソートが不安定になる例 </p>

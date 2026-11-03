@@ -8,7 +8,7 @@ comments: true
 
     $n$ 個の品物があり、$i$ 番目の品物の重さは $wgt[i-1]$、価値は $val[i-1]$ です。容量 $cap$ のナップサックに入れる品物を選びます。各品物は 1 回だけ選べますが、**品物の一部だけを選ぶこともでき、その価値は選んだ重さの割合で計算します**。容量の制限内で得られる品物の最大価値を求めてください。例を図 15-3 に示します。
 
-![分割可能ナップサック問題のデータ例](fractional_knapsack_problem.assets/fractional_knapsack_example.png){ class="animation-figure" }
+![分割可能ナップサック問題のデータ例](fractional_knapsack_problem.assets/fractional_knapsack_example.svg){ class="animation-figure" }
 
 <p align="center"> 図 15-3 &nbsp; 分割可能ナップサック問題のデータ例 </p>
 
@@ -19,7 +19,7 @@ comments: true
 1. 品物 $i$ の単位重さ当たりの価値は $val[i-1] / wgt[i-1]$ で、これを単位価値と呼びます。
 2. 品物 $i$ のうち重さ $w$ の部分を入れると、ナップサック内の価値は $w \times val[i-1] / wgt[i-1]$ 増えます。
 
-![品物の単位重さ当たりの価値](fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png){ class="animation-figure" }
+![品物の単位重さ当たりの価値](fractional_knapsack_problem.assets/fractional_knapsack_unit_value.svg){ class="animation-figure" }
 
 <p align="center"> 図 15-4 &nbsp; 品物の単位重さ当たりの価値 </p>
 
@@ -31,7 +31,7 @@ comments: true
 2. すべての品物を順に調べ、**毎回、単位価値が最も高い品物を貪欲に選びます**。
 3. ナップサックの残り容量が足りなければ、現在の品物の一部を使っていっぱいにします。
 
-![分割可能ナップサック問題の貪欲戦略](fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png){ class="animation-figure" }
+![分割可能ナップサック問題の貪欲戦略](fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.svg){ class="animation-figure" }
 
 <p align="center"> 図 15-5 &nbsp; 分割可能ナップサック問題の貪欲戦略 </p>
 
@@ -552,6 +552,6 @@ comments: true
 
 図 15-6 のように、品物の重さを横軸、単位価値を縦軸とすると、分割可能ナップサック問題は「横軸の区間が限られた中で、囲まれる面積を最大にする問題」に置き換えられます。このたとえから、貪欲戦略が有効な理由を幾何学的に理解できます。
 
-![分割可能ナップサック問題の幾何学的表現](fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png){ class="animation-figure" }
+![分割可能ナップサック問題の幾何学的表現](fractional_knapsack_problem.assets/fractional_knapsack_area_chart.svg){ class="animation-figure" }
 
 <p align="center"> 図 15-6 &nbsp; 分割可能ナップサック問題の幾何学的表現 </p>

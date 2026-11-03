@@ -13,31 +13,31 @@ comments: true
 3. `i`와 `j`가 만날 때까지 `2.` 단계를 반복한다. 마지막으로 피벗을 두 부분 배열의 경계로 옮긴다.
 
 === "<1>"
-    ![센티널 분할 단계](quick_sort.assets/pivot_division_step1.png){ class="animation-figure" }
+    ![센티널 분할 단계](quick_sort.assets/pivot_division_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![센티널 분할 2단계](quick_sort.assets/pivot_division_step2.png){ class="animation-figure" }
+    ![센티널 분할 2단계](quick_sort.assets/pivot_division_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![센티널 분할 3단계](quick_sort.assets/pivot_division_step3.png){ class="animation-figure" }
+    ![센티널 분할 3단계](quick_sort.assets/pivot_division_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![센티널 분할 4단계](quick_sort.assets/pivot_division_step4.png){ class="animation-figure" }
+    ![센티널 분할 4단계](quick_sort.assets/pivot_division_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![센티널 분할 5단계](quick_sort.assets/pivot_division_step5.png){ class="animation-figure" }
+    ![센티널 분할 5단계](quick_sort.assets/pivot_division_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![센티널 분할 6단계](quick_sort.assets/pivot_division_step6.png){ class="animation-figure" }
+    ![센티널 분할 6단계](quick_sort.assets/pivot_division_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![센티널 분할 7단계](quick_sort.assets/pivot_division_step7.png){ class="animation-figure" }
+    ![센티널 분할 7단계](quick_sort.assets/pivot_division_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![센티널 분할 8단계](quick_sort.assets/pivot_division_step8.png){ class="animation-figure" }
+    ![센티널 분할 8단계](quick_sort.assets/pivot_division_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![센티널 분할 9단계](quick_sort.assets/pivot_division_step9.png){ class="animation-figure" }
+    ![센티널 분할 9단계](quick_sort.assets/pivot_division_step9.svg){ class="animation-figure" }
 
 <p align="center"> 그림 11-8 &nbsp; 센티널 분할 단계 </p>
 
@@ -379,7 +379,7 @@ comments: true
 2. 이어서 왼쪽 부분 배열과 오른쪽 부분 배열에 각각 '센티널 분할'을 재귀적으로 수행한다.
 3. 부분 배열의 길이가 1이 될 때까지 재귀를 계속하면 배열 전체의 정렬이 완료된다.
 
-![퀵 정렬 과정](quick_sort.assets/quick_sort_overview.png){ class="animation-figure" }
+![퀵 정렬 과정](quick_sort.assets/quick_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> 그림 11-9 &nbsp; 퀵 정렬 과정 </p>
 

@@ -9,7 +9,7 @@ comments: true
 1. 對於根節點，左子樹中所有節點的值 $<$ 根節點的值 $<$ 右子樹中所有節點的值。
 2. 任意節點的左、右子樹也是二元搜尋樹，即同樣滿足條件 `1.` 。
 
-![二元搜尋樹](binary_search_tree.assets/binary_search_tree.png){ class="animation-figure" }
+![二元搜尋樹](binary_search_tree.assets/binary_search_tree.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-16 &nbsp; 二元搜尋樹 </p>
 
@@ -26,16 +26,16 @@ comments: true
 - 若 `cur.val = num` ，說明找到目標節點，跳出迴圈並返回該節點。
 
 === "<1>"
-    ![二元搜尋樹查詢節點示例](binary_search_tree.assets/bst_search_step1.png){ class="animation-figure" }
+    ![二元搜尋樹查詢節點示例](binary_search_tree.assets/bst_search_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![bst_search_step2](binary_search_tree.assets/bst_search_step2.png){ class="animation-figure" }
+    ![bst_search_step2](binary_search_tree.assets/bst_search_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![bst_search_step3](binary_search_tree.assets/bst_search_step3.png){ class="animation-figure" }
+    ![bst_search_step3](binary_search_tree.assets/bst_search_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![bst_search_step4](binary_search_tree.assets/bst_search_step4.png){ class="animation-figure" }
+    ![bst_search_step4](binary_search_tree.assets/bst_search_step4.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-17 &nbsp; 二元搜尋樹查詢節點示例 </p>
 
@@ -350,7 +350,7 @@ comments: true
 1. **查詢插入位置**：與查詢操作相似，從根節點出發，根據當前節點值和 `num` 的大小關係迴圈向下搜尋，直到越過葉節點（走訪至 `None` ）時跳出迴圈。
 2. **在該位置插入節點**：初始化節點 `num` ，將該節點置於 `None` 的位置。
 
-![在二元搜尋樹中插入節點](binary_search_tree.assets/bst_insert.png){ class="animation-figure" }
+![在二元搜尋樹中插入節點](binary_search_tree.assets/bst_insert.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-18 &nbsp; 在二元搜尋樹中插入節點 </p>
 
@@ -815,13 +815,13 @@ comments: true
 
 如圖 7-19 所示，當待刪除節點的度為 $0$ 時，表示該節點是葉節點，可以直接刪除。
 
-![在二元搜尋樹中刪除節點（度為 0 ）](binary_search_tree.assets/bst_remove_case1.png){ class="animation-figure" }
+![在二元搜尋樹中刪除節點（度為 0 ）](binary_search_tree.assets/bst_remove_case1.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-19 &nbsp; 在二元搜尋樹中刪除節點（度為 0 ） </p>
 
 如圖 7-20 所示，當待刪除節點的度為 $1$ 時，將待刪除節點替換為其子節點即可。
 
-![在二元搜尋樹中刪除節點（度為 1 ）](binary_search_tree.assets/bst_remove_case2.png){ class="animation-figure" }
+![在二元搜尋樹中刪除節點（度為 1 ）](binary_search_tree.assets/bst_remove_case2.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-20 &nbsp; 在二元搜尋樹中刪除節點（度為 1 ） </p>
 
@@ -833,16 +833,16 @@ comments: true
 2. 用 `tmp` 的值覆蓋待刪除節點的值，並在樹中遞迴刪除節點 `tmp` 。
 
 === "<1>"
-    ![在二元搜尋樹中刪除節點（度為 2 ）](binary_search_tree.assets/bst_remove_case3_step1.png){ class="animation-figure" }
+    ![在二元搜尋樹中刪除節點（度為 2 ）](binary_search_tree.assets/bst_remove_case3_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![bst_remove_case3_step2](binary_search_tree.assets/bst_remove_case3_step2.png){ class="animation-figure" }
+    ![bst_remove_case3_step2](binary_search_tree.assets/bst_remove_case3_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![bst_remove_case3_step3](binary_search_tree.assets/bst_remove_case3_step3.png){ class="animation-figure" }
+    ![bst_remove_case3_step3](binary_search_tree.assets/bst_remove_case3_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![bst_remove_case3_step4](binary_search_tree.assets/bst_remove_case3_step4.png){ class="animation-figure" }
+    ![bst_remove_case3_step4](binary_search_tree.assets/bst_remove_case3_step4.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-21 &nbsp; 在二元搜尋樹中刪除節點（度為 2 ） </p>
 
@@ -1601,7 +1601,7 @@ comments: true
 
 利用中序走訪升序的性質，我們在二元搜尋樹中獲取有序資料僅需 $O(n)$ 時間，無須進行額外的排序操作，非常高效。
 
-![二元搜尋樹的中序走訪序列](binary_search_tree.assets/bst_inorder_traversal.png){ class="animation-figure" }
+![二元搜尋樹的中序走訪序列](binary_search_tree.assets/bst_inorder_traversal.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-22 &nbsp; 二元搜尋樹的中序走訪序列 </p>
 
@@ -1625,7 +1625,7 @@ comments: true
 
 然而，如果我們在二元搜尋樹中不斷地插入和刪除節點，可能導致二元樹退化為圖 7-23 所示的鏈結串列，這時各種操作的時間複雜度也會退化為 $O(n)$ 。
 
-![二元搜尋樹退化](binary_search_tree.assets/bst_degradation.png){ class="animation-figure" }
+![二元搜尋樹退化](binary_search_tree.assets/bst_degradation.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-23 &nbsp; 二元搜尋樹退化 </p>
 

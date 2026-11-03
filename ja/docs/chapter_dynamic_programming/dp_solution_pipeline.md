@@ -41,7 +41,7 @@ comments: true
 
 図 14-10 のグリッドでは、経路和の最小値は $13$ です。
 
-![経路和の最小化問題のデータ例](dp_solution_pipeline.assets/min_path_sum_example.png){ class="animation-figure" }
+![経路和の最小化問題のデータ例](dp_solution_pipeline.assets/min_path_sum_example.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-10 &nbsp; 経路和の最小化問題のデータ例 </p>
 
@@ -53,7 +53,7 @@ comments: true
 
 これで、図 14-11 の二次元の $dp$ 行列が得られます。大きさは入力グリッド $grid$ と同じです。
 
-![状態の定義と dp テーブル](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.png){ class="animation-figure" }
+![状態の定義と dp テーブル](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-11 &nbsp; 状態の定義と dp テーブル </p>
 
@@ -73,7 +73,7 @@ $$
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 $$
 
-![最適部分構造と状態遷移式](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.png){ class="animation-figure" }
+![最適部分構造と状態遷移式](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-12 &nbsp; 最適部分構造と状態遷移式 </p>
 
@@ -89,7 +89,7 @@ $$
 
 図 14-13 のように、各マスは左と上のマスから遷移するため、ループで行列を走査します。外側のループで行を、内側のループで列を走査します。
 
-![境界条件と状態遷移の順序](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.png){ class="animation-figure" }
+![境界条件と状態遷移の順序](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-13 &nbsp; 境界条件と状態遷移の順序 </p>
 
@@ -392,7 +392,7 @@ $$
 
 部分問題が重複する本質的な理由は、**左上からあるマスに到達する経路が複数あること**です。
 
-![全探索の再帰木](dp_solution_pipeline.assets/min_path_sum_dfs.png){ class="animation-figure" }
+![全探索の再帰木](dp_solution_pipeline.assets/min_path_sum_dfs.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-14 &nbsp; 全探索の再帰木 </p>
 
@@ -749,7 +749,7 @@ $$
 
 図 14-15 のように、メモ化すると各部分問題の解を 1 回だけ計算すれば済みます。そのため、時間計算量は状態の総数、すなわちグリッドの大きさ $O(nm)$ になります。
 
-![メモ化探索の再帰木](dp_solution_pipeline.assets/min_path_sum_dfs_mem.png){ class="animation-figure" }
+![メモ化探索の再帰木](dp_solution_pipeline.assets/min_path_sum_dfs_mem.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-15 &nbsp; メモ化探索の再帰木 </p>
 
@@ -1127,40 +1127,40 @@ $$
 配列 `dp` の大きさは $n \times m$ なので、**空間計算量は $O(nm)$ です**。
 
 === "<1>"
-    ![経路和の最小化を動的計画法で解く流れ](dp_solution_pipeline.assets/min_path_sum_dp_step1.png){ class="animation-figure" }
+    ![経路和の最小化を動的計画法で解く流れ](dp_solution_pipeline.assets/min_path_sum_dp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 2](dp_solution_pipeline.assets/min_path_sum_dp_step2.png){ class="animation-figure" }
+    ![経路和の最小化を動的計画法で解く流れ：手順 2](dp_solution_pipeline.assets/min_path_sum_dp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 3](dp_solution_pipeline.assets/min_path_sum_dp_step3.png){ class="animation-figure" }
+    ![経路和の最小化を動的計画法で解く流れ：手順 3](dp_solution_pipeline.assets/min_path_sum_dp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 4](dp_solution_pipeline.assets/min_path_sum_dp_step4.png){ class="animation-figure" }
+    ![経路和の最小化を動的計画法で解く流れ：手順 4](dp_solution_pipeline.assets/min_path_sum_dp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 5](dp_solution_pipeline.assets/min_path_sum_dp_step5.png){ class="animation-figure" }
+    ![経路和の最小化を動的計画法で解く流れ：手順 5](dp_solution_pipeline.assets/min_path_sum_dp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 6](dp_solution_pipeline.assets/min_path_sum_dp_step6.png){ class="animation-figure" }
+    ![経路和の最小化を動的計画法で解く流れ：手順 6](dp_solution_pipeline.assets/min_path_sum_dp_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 7](dp_solution_pipeline.assets/min_path_sum_dp_step7.png){ class="animation-figure" }
+    ![経路和の最小化を動的計画法で解く流れ：手順 7](dp_solution_pipeline.assets/min_path_sum_dp_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 8](dp_solution_pipeline.assets/min_path_sum_dp_step8.png){ class="animation-figure" }
+    ![経路和の最小化を動的計画法で解く流れ：手順 8](dp_solution_pipeline.assets/min_path_sum_dp_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 9](dp_solution_pipeline.assets/min_path_sum_dp_step9.png){ class="animation-figure" }
+    ![経路和の最小化を動的計画法で解く流れ：手順 9](dp_solution_pipeline.assets/min_path_sum_dp_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 10](dp_solution_pipeline.assets/min_path_sum_dp_step10.png){ class="animation-figure" }
+    ![経路和の最小化を動的計画法で解く流れ：手順 10](dp_solution_pipeline.assets/min_path_sum_dp_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 11](dp_solution_pipeline.assets/min_path_sum_dp_step11.png){ class="animation-figure" }
+    ![経路和の最小化を動的計画法で解く流れ：手順 11](dp_solution_pipeline.assets/min_path_sum_dp_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 12](dp_solution_pipeline.assets/min_path_sum_dp_step12.png){ class="animation-figure" }
+    ![経路和の最小化を動的計画法で解く流れ：手順 12](dp_solution_pipeline.assets/min_path_sum_dp_step12.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-16 &nbsp; 経路和の最小化を動的計画法で解く流れ </p>
 

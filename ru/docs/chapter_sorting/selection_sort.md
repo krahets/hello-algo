@@ -15,37 +15,37 @@ comments: true
 5. Оставшийся элемент обязательно является максимальным, сортировать его не нужно, поэтому массив считается отсортированным.
 
 === "<1>"
-    ![Шаги сортировки выбором](selection_sort.assets/selection_sort_step1.png){ class="animation-figure" }
+    ![Шаги сортировки выбором](selection_sort.assets/selection_sort_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![selection_sort_step2](selection_sort.assets/selection_sort_step2.png){ class="animation-figure" }
+    ![selection_sort_step2](selection_sort.assets/selection_sort_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![selection_sort_step3](selection_sort.assets/selection_sort_step3.png){ class="animation-figure" }
+    ![selection_sort_step3](selection_sort.assets/selection_sort_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![selection_sort_step4](selection_sort.assets/selection_sort_step4.png){ class="animation-figure" }
+    ![selection_sort_step4](selection_sort.assets/selection_sort_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![selection_sort_step5](selection_sort.assets/selection_sort_step5.png){ class="animation-figure" }
+    ![selection_sort_step5](selection_sort.assets/selection_sort_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![selection_sort_step6](selection_sort.assets/selection_sort_step6.png){ class="animation-figure" }
+    ![selection_sort_step6](selection_sort.assets/selection_sort_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![selection_sort_step7](selection_sort.assets/selection_sort_step7.png){ class="animation-figure" }
+    ![selection_sort_step7](selection_sort.assets/selection_sort_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![selection_sort_step8](selection_sort.assets/selection_sort_step8.png){ class="animation-figure" }
+    ![selection_sort_step8](selection_sort.assets/selection_sort_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![selection_sort_step9](selection_sort.assets/selection_sort_step9.png){ class="animation-figure" }
+    ![selection_sort_step9](selection_sort.assets/selection_sort_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![selection_sort_step10](selection_sort.assets/selection_sort_step10.png){ class="animation-figure" }
+    ![selection_sort_step10](selection_sort.assets/selection_sort_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![selection_sort_step11](selection_sort.assets/selection_sort_step11.png){ class="animation-figure" }
+    ![selection_sort_step11](selection_sort.assets/selection_sort_step11.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 11-2 &nbsp; Шаги сортировки выбором </p>
 
@@ -335,6 +335,6 @@ comments: true
 - **Пространственная сложность равна $O(1)$, сортировка выполняется на месте**: указатели $i$ и $j$ используют константный объем дополнительной памяти.
 - **Нестабильная сортировка**: как показано на рисунке 11-3, элемент `nums[i]` может быть переставлен вправо от другого равного ему элемента, из-за чего их относительный порядок изменится.
 
-![Пример нестабильности сортировки выбором](selection_sort.assets/selection_sort_instability.png){ class="animation-figure" }
+![Пример нестабильности сортировки выбором](selection_sort.assets/selection_sort_instability.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 11-3 &nbsp; Пример нестабильности сортировки выбором </p>

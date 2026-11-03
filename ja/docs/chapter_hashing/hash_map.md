@@ -8,7 +8,7 @@ comments: true
 
 図 6-1 のように、$n$ 人の学生がおり、それぞれに名前と学籍番号があるとします。「学籍番号を入力すると対応する名前を返す」機能は、図のハッシュテーブルで実現できます。
 
-![ハッシュテーブルの抽象的な表現](hash_map.assets/hash_table_lookup.png){ class="animation-figure" }
+![ハッシュテーブルの抽象的な表現](hash_map.assets/hash_table_lookup.svg){ class="animation-figure" }
 
 <p align="center"> 図 6-1 &nbsp; ハッシュテーブルの抽象的な表現 </p>
 
@@ -569,7 +569,7 @@ index = hash(key) % capacity
 
 配列の長さを `capacity = 100`、ハッシュアルゴリズムを `hash(key) = key` とすると、ハッシュ関数は `key % 100` です。図 6-2 では、学籍番号を `key`、名前を `value` として、その仕組みを示しています。
 
-![ハッシュ関数の仕組み](hash_map.assets/hash_function.png){ class="animation-figure" }
+![ハッシュ関数の仕組み](hash_map.assets/hash_function.svg){ class="animation-figure" }
 
 <p align="center"> 図 6-2 &nbsp; ハッシュ関数の仕組み </p>
 
@@ -1771,7 +1771,7 @@ index = hash(key) % capacity
 
 図 6-3 では、二つの学籍番号が同じ名前を指しており、明らかに正しくありません。このように、複数の入力が同じ出力に対応することを<u>ハッシュ衝突（hash collision）</u>と呼びます。
 
-![ハッシュ衝突の例](hash_map.assets/hash_collision.png){ class="animation-figure" }
+![ハッシュ衝突の例](hash_map.assets/hash_collision.svg){ class="animation-figure" }
 
 <p align="center"> 図 6-3 &nbsp; ハッシュ衝突の例 </p>
 
@@ -1779,7 +1779,7 @@ index = hash(key) % capacity
 
 図 6-4 では、拡張前にペア `(136, A)` と `(236, D)` が衝突していますが、拡張後には解消しています。
 
-![ハッシュテーブルの容量拡張](hash_map.assets/hash_table_reshash.png){ class="animation-figure" }
+![ハッシュテーブルの容量拡張](hash_map.assets/hash_table_reshash.svg){ class="animation-figure" }
 
 <p align="center"> 図 6-4 &nbsp; ハッシュテーブルの容量拡張 </p>
 

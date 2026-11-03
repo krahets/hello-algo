@@ -30,7 +30,7 @@ Figure 0-1 shows the book's main topics.
 - **Data structures**: Basic data types and ways to classify data structures; definitions, strengths, weaknesses, common operations, variants, typical applications, and implementations of arrays, linked lists, stacks, queues, hash tables, trees, heaps, graphs, and more.
 - **Algorithms**: Definitions, strengths, weaknesses, efficiency, applications, solution steps, and example problems for searching, sorting, divide and conquer, backtracking, dynamic programming, greedy algorithms, and more.
 
-![The book's main topics](about_the_book.assets/hello_algo_mindmap.png){ class="animation-figure" }
+![The book's main topics](about_the_book.assets/hello_algo_mindmap.svg){ class="animation-figure" }
 
 <p align="center"> Figure 0-1 &nbsp; The book's main topics </p>
 

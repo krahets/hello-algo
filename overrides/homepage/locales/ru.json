@@ -1,25 +1,24 @@
 {
   "hero_class": "hero-div hero-div--ru",
-  "list_layout": true,
   "labels": {
-    "astronaut": "Первое знакомство с алгоритмами",
-    "chapter_computational_complexity": "Сложность",
+    "astronaut": "Введение в алгоритмы",
+    "chapter_computational_complexity": "Анализ сложности",
     "chapter_array_and_linkedlist": "Массивы и списки",
-    "chapter_stack_and_queue": "Стеки и очереди",
+    "chapter_stack_and_queue": "Стек и очередь",
     "chapter_hashing": "Хеш-таблицы",
     "chapter_tree": "Деревья",
-    "chapter_heap": "Кучи",
+    "chapter_heap": "Куча",
     "chapter_graph": "Графы",
     "chapter_searching": "Поиск",
     "chapter_sorting": "Сортировка",
     "chapter_divide_and_conquer": "Разделяй и властвуй",
     "chapter_backtracking": "Поиск с возвратом",
     "chapter_dynamic_programming": "Динамическое программирование",
-    "chapter_greedy": "Жадные алгоритмы"
+    "chapter_greedy": "Жадность"
   },
   "label_styles": {
-    "astronaut": "left: 49.244%; top: 22.2%;",
-    "chapter_computational_complexity": "left: 34.244%; top: 33.919%;",
+    "astronaut": "left: 52.244%; top: 20.919%;",
+    "chapter_computational_complexity": "left: 39.244%; top: 33.919%;",
     "chapter_array_and_linkedlist": "left: 83.897%; top: 76.259%;",
     "chapter_stack_and_queue": "left: 77.571%; top: 91.25%;",
     "chapter_hashing": "left: 68.862%; top: 46.292%;",
@@ -31,7 +30,7 @@
     "chapter_divide_and_conquer": "left: 28.42%; top: 8.679%;",
     "chapter_backtracking": "left: 4.742%; top: 50.113%;",
     "chapter_dynamic_programming": "left: 6.561%; top: 75.351%;",
-    "chapter_greedy": "left: 20.619%; top: 86.85%;"
+    "chapter_greedy": "left: 21.619%; top: 86.85%;"
   },
   "typing": {
     "style": "height: min(9vh, 12vw);",

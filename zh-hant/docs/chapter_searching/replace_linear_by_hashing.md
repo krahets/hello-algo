@@ -14,7 +14,7 @@ comments: true
 
 考慮直接走訪所有可能的組合。如圖 10-9 所示，我們開啟一個兩層迴圈，在每輪中判斷兩個整數的和是否為 `target` ，若是，則返回它們的索引。
 
-![線性查詢求解兩數之和](replace_linear_by_hashing.assets/two_sum_brute_force.png){ class="animation-figure" }
+![線性查詢求解兩數之和](replace_linear_by_hashing.assets/two_sum_brute_force.svg){ class="animation-figure" }
 
 <p align="center"> 圖 10-9 &nbsp; 線性查詢求解兩數之和 </p>
 
@@ -256,13 +256,13 @@ comments: true
 2. 將鍵值對 `nums[i]` 和索引 `i` 新增進雜湊表。
 
 === "<1>"
-    ![輔助雜湊表求解兩數之和](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png){ class="animation-figure" }
+    ![輔助雜湊表求解兩數之和](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.png){ class="animation-figure" }
+    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.png){ class="animation-figure" }
+    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg){ class="animation-figure" }
 
 <p align="center"> 圖 10-10 &nbsp; 輔助雜湊表求解兩數之和 </p>
 

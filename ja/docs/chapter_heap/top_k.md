@@ -16,7 +16,7 @@ comments: true
 
 この方法は $k \ll n$ の場合にしか適していません。$k$ が $n$ に近づくと、時間計算量は $O(n^2)$ に近づき、非常に時間がかかるためです。
 
-![走査して大きいほうから k 個を探す](top_k.assets/top_k_traversal.png){ class="animation-figure" }
+![走査して大きいほうから k 個を探す](top_k.assets/top_k_traversal.svg){ class="animation-figure" }
 
 <p align="center"> 図 8-6 &nbsp; 走査して大きいほうから k 個を探す </p>
 
@@ -30,7 +30,7 @@ comments: true
 
 ただし、この方法は必要以上の処理をしています。大きいほうから $k$ 個を求めるだけでよく、ほかの要素のソートは不要だからです。
 
-![ソートして大きいほうから k 個を探す](top_k.assets/top_k_sorting.png){ class="animation-figure" }
+![ソートして大きいほうから k 個を探す](top_k.assets/top_k_sorting.svg){ class="animation-figure" }
 
 <p align="center"> 図 8-7 &nbsp; ソートして大きいほうから k 個を探す </p>
 
@@ -44,31 +44,31 @@ comments: true
 4. 走査が終わると、ヒープには大きいほうから $k$ 個の要素が残ります。
 
 === "<1>"
-    ![ヒープで大きいほうから k 個を探す](top_k.assets/top_k_heap_step1.png){ class="animation-figure" }
+    ![ヒープで大きいほうから k 個を探す](top_k.assets/top_k_heap_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![ヒープを使った top-k 問題の解法の手順 2](top_k.assets/top_k_heap_step2.png){ class="animation-figure" }
+    ![ヒープを使った top-k 問題の解法の手順 2](top_k.assets/top_k_heap_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![ヒープを使った top-k 問題の解法の手順 3](top_k.assets/top_k_heap_step3.png){ class="animation-figure" }
+    ![ヒープを使った top-k 問題の解法の手順 3](top_k.assets/top_k_heap_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![ヒープを使った top-k 問題の解法の手順 4](top_k.assets/top_k_heap_step4.png){ class="animation-figure" }
+    ![ヒープを使った top-k 問題の解法の手順 4](top_k.assets/top_k_heap_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![ヒープを使った top-k 問題の解法の手順 5](top_k.assets/top_k_heap_step5.png){ class="animation-figure" }
+    ![ヒープを使った top-k 問題の解法の手順 5](top_k.assets/top_k_heap_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![ヒープを使った top-k 問題の解法の手順 6](top_k.assets/top_k_heap_step6.png){ class="animation-figure" }
+    ![ヒープを使った top-k 問題の解法の手順 6](top_k.assets/top_k_heap_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![ヒープを使った top-k 問題の解法の手順 7](top_k.assets/top_k_heap_step7.png){ class="animation-figure" }
+    ![ヒープを使った top-k 問題の解法の手順 7](top_k.assets/top_k_heap_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![ヒープを使った top-k 問題の解法の手順 8](top_k.assets/top_k_heap_step8.png){ class="animation-figure" }
+    ![ヒープを使った top-k 問題の解法の手順 8](top_k.assets/top_k_heap_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![ヒープを使った top-k 問題の解法の手順 9](top_k.assets/top_k_heap_step9.png){ class="animation-figure" }
+    ![ヒープを使った top-k 問題の解法の手順 9](top_k.assets/top_k_heap_step9.svg){ class="animation-figure" }
 
 <p align="center"> 図 8-8 &nbsp; ヒープで大きいほうから k 個を探す </p>
 

@@ -14,7 +14,7 @@ comments: true
 
 레벨 순서 순회의 특성에서 부모와 자식 인덱스 사이의 '매핑 공식'을 도출할 수 있다. **노드의 인덱스가 $i$이면 왼쪽 자식의 인덱스는 $2i + 1$, 오른쪽 자식의 인덱스는 $2i + 2$다**. 아래 그림(7-12)은 노드 인덱스 사이의 매핑 관계를 보여 준다.
 
-![포화 이진 트리의 배열 표현](array_representation_of_tree.assets/array_representation_binary_tree.png){ class="animation-figure" }
+![포화 이진 트리의 배열 표현](array_representation_of_tree.assets/array_representation_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 그림 7-12 &nbsp; 포화 이진 트리의 배열 표현 </p>
 
@@ -26,7 +26,7 @@ comments: true
 
 아래 그림(7-13)처럼 포화 이진 트리가 아니면 앞의 배열 표현 방법은 더 이상 유효하지 않다.
 
-![하나의 레벨 순서 순회 결과에 대응하는 여러 이진 트리](array_representation_of_tree.assets/array_representation_without_empty.png){ class="animation-figure" }
+![하나의 레벨 순서 순회 결과에 대응하는 여러 이진 트리](array_representation_of_tree.assets/array_representation_without_empty.svg){ class="animation-figure" }
 
 <p align="center"> 그림 7-13 &nbsp; 하나의 레벨 순서 순회 결과에 대응하는 여러 이진 트리 </p>
 
@@ -136,7 +136,7 @@ comments: true
     tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
-![임의의 이진 트리의 배열 표현](array_representation_of_tree.assets/array_representation_with_empty.png){ class="animation-figure" }
+![임의의 이진 트리의 배열 표현](array_representation_of_tree.assets/array_representation_with_empty.svg){ class="animation-figure" }
 
 <p align="center"> 그림 7-14 &nbsp; 임의의 이진 트리의 배열 표현 </p>
 
@@ -144,7 +144,7 @@ comments: true
 
 따라서 완전 이진 트리를 배열로 표현할 때는 모든 `None`의 저장을 생략할 수 있어 매우 편리하다. 아래 그림(7-15)은 그 예다.
 
-![완전 이진 트리의 배열 표현](array_representation_of_tree.assets/array_representation_complete_binary_tree.png){ class="animation-figure" }
+![완전 이진 트리의 배열 표현](array_representation_of_tree.assets/array_representation_complete_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 그림 7-15 &nbsp; 완전 이진 트리의 배열 표현 </p>
 

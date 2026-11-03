@@ -10,7 +10,7 @@ comments: true
 
     给定一个长度为 $n$ 的数组 `nums` ，元素按从小到大的顺序排列且不重复。请查找并返回元素 `target` 在该数组中的索引。若数组不包含该元素，则返回 $-1$ 。示例如图 10-1 所示。
 
-![二分查找示例数据](binary_search.assets/binary_search_example.png){ class="animation-figure" }
+![二分查找示例数据](binary_search.assets/binary_search_example.svg){ class="animation-figure" }
 
 <p align="center"> 图 10-1 &nbsp; 二分查找示例数据 </p>
 
@@ -27,25 +27,25 @@ comments: true
 若数组不包含目标元素，搜索区间最终会缩小为空。此时返回 $-1$ 。
 
 === "<1>"
-    ![二分查找流程](binary_search.assets/binary_search_step1.png){ class="animation-figure" }
+    ![二分查找流程](binary_search.assets/binary_search_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![binary_search_step2](binary_search.assets/binary_search_step2.png){ class="animation-figure" }
+    ![binary_search_step2](binary_search.assets/binary_search_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![binary_search_step3](binary_search.assets/binary_search_step3.png){ class="animation-figure" }
+    ![binary_search_step3](binary_search.assets/binary_search_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![binary_search_step4](binary_search.assets/binary_search_step4.png){ class="animation-figure" }
+    ![binary_search_step4](binary_search.assets/binary_search_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![binary_search_step5](binary_search.assets/binary_search_step5.png){ class="animation-figure" }
+    ![binary_search_step5](binary_search.assets/binary_search_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![binary_search_step6](binary_search.assets/binary_search_step6.png){ class="animation-figure" }
+    ![binary_search_step6](binary_search.assets/binary_search_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![binary_search_step7](binary_search.assets/binary_search_step7.png){ class="animation-figure" }
+    ![binary_search_step7](binary_search.assets/binary_search_step7.svg){ class="animation-figure" }
 
 <p align="center"> 图 10-2 &nbsp; 二分查找流程 </p>
 
@@ -695,7 +695,7 @@ comments: true
 
 由于“双闭区间”表示中的左右边界都被定义为闭区间，因此通过指针 $i$ 和指针 $j$ 缩小区间的操作也是对称的。这样更不容易出错，**因此一般建议采用“双闭区间”的写法**。
 
-![两种区间定义](binary_search.assets/binary_search_ranges.png){ class="animation-figure" }
+![两种区间定义](binary_search.assets/binary_search_ranges.svg){ class="animation-figure" }
 
 <p align="center"> 图 10-3 &nbsp; 两种区间定义 </p>
 

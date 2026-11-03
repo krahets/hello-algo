@@ -33,7 +33,7 @@ comments: true
 - アルゴリズムはデータ構造に生命を吹き込みます。データ構造自体は情報を格納するだけですが、アルゴリズムと組み合わせると特定の問題を解けます。
 - 通常、一つのアルゴリズムは異なるデータ構造で実装できますが、実行効率には大きな差が生じる場合があります。適切なデータ構造の選択が鍵となります。
 
-![データ構造とアルゴリズムの関係](what_is_dsa.assets/relationship_between_data_structure_and_algorithm.png){ class="animation-figure" }
+![データ構造とアルゴリズムの関係](what_is_dsa.assets/relationship_between_data_structure_and_algorithm.svg){ class="animation-figure" }
 
 <p align="center"> 図 1-4 &nbsp; データ構造とアルゴリズムの関係 </p>
 

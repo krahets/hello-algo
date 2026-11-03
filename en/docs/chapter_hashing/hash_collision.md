@@ -17,7 +17,7 @@ The main structural approaches are “separate chaining” and “open addressin
 
 In the original hash table, each bucket holds only one key-value pair. <u>Separate chaining</u> replaces this single element with a linked list. Each pair becomes a node, and all colliding pairs are stored in the same list. An example is shown below.
 
-![A hash table using separate chaining](hash_collision.assets/hash_table_chaining.png){ class="animation-figure" }
+![A hash table using separate chaining](hash_collision.assets/hash_table_chaining.svg){ class="animation-figure" }
 
 <p align="center"> Figure 6-5 &nbsp; A hash table using separate chaining </p>
 
@@ -1539,7 +1539,7 @@ Linear probing searches with a fixed step size. Its operations differ from those
 
 Figure 6-6 shows key-value pairs in an open-addressing table using linear probing. With this hash function, keys sharing the same last two digits map to the same bucket. Linear probing stores them successively in that bucket and the following buckets.
 
-![Distribution of key-value pairs with linear probing](hash_collision.assets/hash_table_linear_probing.png){ class="animation-figure" }
+![Distribution of key-value pairs with linear probing](hash_collision.assets/hash_table_linear_probing.svg){ class="animation-figure" }
 
 <p align="center"> Figure 6-6 &nbsp; Distribution of key-value pairs with linear probing </p>
 
@@ -1547,7 +1547,7 @@ However, **linear probing is prone to clustering**. The longer a run of occupied
 
 **We cannot simply delete an element from an open-addressing table**. Deletion would leave an empty bucket, `None`. A lookup stops when linear probing reaches such a bucket, making later elements in the probe sequence inaccessible and potentially reporting them as absent, as shown below.
 
-![Lookup problems caused by deletion in open addressing](hash_collision.assets/hash_table_open_addressing_deletion.png){ class="animation-figure" }
+![Lookup problems caused by deletion in open addressing](hash_collision.assets/hash_table_open_addressing_deletion.svg){ class="animation-figure" }
 
 <p align="center"> Figure 6-7 &nbsp; Lookup problems caused by deletion in open addressing </p>
 

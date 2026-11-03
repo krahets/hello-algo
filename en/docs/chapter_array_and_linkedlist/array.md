@@ -6,7 +6,7 @@ comments: true
 
 An <u>array</u> is a linear data structure that stores elements of the same type in contiguous memory. An element's position in the array is its <u>index</u>. Figure 4-1 shows the main concepts and storage layout.
 
-![Array definition and storage layout](array.assets/array_definition.png){ class="animation-figure" }
+![Array definition and storage layout](array.assets/array_definition.svg){ class="animation-figure" }
 
 <p align="center"> Figure 4-1 &nbsp; Array definition and storage layout </p>
 
@@ -141,7 +141,7 @@ We can initialize an array with or without explicit values. When values are not 
 
 Because array elements occupy contiguous memory, their addresses are easy to calculate. Given the array's address (the address of its first element) and an index, the formula in Figure 4-2 gives the element's address, allowing direct access.
 
-![Calculating an array element's memory address](array.assets/array_memory_location_calculation.png){ class="animation-figure" }
+![Calculating an array element's memory address](array.assets/array_memory_location_calculation.svg){ class="animation-figure" }
 
 <p align="center"> Figure 4-2 &nbsp; Calculating an array element's memory address </p>
 
@@ -327,7 +327,7 @@ Array access is very efficient: any element can be accessed directly in $O(1)$ t
 
 Array elements sit next to one another, with no room between them for more data. As shown in Figure 4-3, inserting into the middle requires shifting every element at or after the insertion point one position toward the end, then assigning the new element at the desired index.
 
-![Inserting an element into an array](array.assets/array_insert_element.png){ class="animation-figure" }
+![Inserting an element into an array](array.assets/array_insert_element.svg){ class="animation-figure" }
 
 <p align="center"> Figure 4-3 &nbsp; Inserting an element into an array </p>
 
@@ -523,7 +523,7 @@ Because an array's length is fixed, inserting an element causes the last element
 
 Similarly, as shown in Figure 4-4, removing the element at index $i$ requires shifting every element after $i$ one position toward the beginning.
 
-![Removing an element from an array](array.assets/array_remove_element.png){ class="animation-figure" }
+![Removing an element from an array](array.assets/array_remove_element.svg){ class="animation-figure" }
 
 <p align="center"> Figure 4-4 &nbsp; Removing an element from an array </p>
 

@@ -29,40 +29,40 @@ comments: true
     힙에서 원소를 꺼내는 연산에도 `2.` 단계와 `3.` 단계가 포함되며, 실제로 원소를 꺼내는 단계가 하나 더 있을 뿐이다.
 
 === "<1>"
-    ![힙 정렬 단계](heap_sort.assets/heap_sort_step1.png){ class="animation-figure" }
+    ![힙 정렬 단계](heap_sort.assets/heap_sort_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![힙 정렬 2단계](heap_sort.assets/heap_sort_step2.png){ class="animation-figure" }
+    ![힙 정렬 2단계](heap_sort.assets/heap_sort_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![힙 정렬 3단계](heap_sort.assets/heap_sort_step3.png){ class="animation-figure" }
+    ![힙 정렬 3단계](heap_sort.assets/heap_sort_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![힙 정렬 4단계](heap_sort.assets/heap_sort_step4.png){ class="animation-figure" }
+    ![힙 정렬 4단계](heap_sort.assets/heap_sort_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![힙 정렬 5단계](heap_sort.assets/heap_sort_step5.png){ class="animation-figure" }
+    ![힙 정렬 5단계](heap_sort.assets/heap_sort_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![힙 정렬 6단계](heap_sort.assets/heap_sort_step6.png){ class="animation-figure" }
+    ![힙 정렬 6단계](heap_sort.assets/heap_sort_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![힙 정렬 7단계](heap_sort.assets/heap_sort_step7.png){ class="animation-figure" }
+    ![힙 정렬 7단계](heap_sort.assets/heap_sort_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![힙 정렬 8단계](heap_sort.assets/heap_sort_step8.png){ class="animation-figure" }
+    ![힙 정렬 8단계](heap_sort.assets/heap_sort_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![힙 정렬 9단계](heap_sort.assets/heap_sort_step9.png){ class="animation-figure" }
+    ![힙 정렬 9단계](heap_sort.assets/heap_sort_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![힙 정렬 10단계](heap_sort.assets/heap_sort_step10.png){ class="animation-figure" }
+    ![힙 정렬 10단계](heap_sort.assets/heap_sort_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![힙 정렬 11단계](heap_sort.assets/heap_sort_step11.png){ class="animation-figure" }
+    ![힙 정렬 11단계](heap_sort.assets/heap_sort_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![힙 정렬 12단계](heap_sort.assets/heap_sort_step12.png){ class="animation-figure" }
+    ![힙 정렬 12단계](heap_sort.assets/heap_sort_step12.svg){ class="animation-figure" }
 
 <p align="center"> 그림 11-12 &nbsp; 힙 정렬 단계 </p>
 

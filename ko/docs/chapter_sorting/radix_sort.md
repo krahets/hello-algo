@@ -16,7 +16,7 @@ comments: true
 2. 학번의 $k$ 번째 자리를 기준으로 '계수 정렬'을 수행한다. 완료하면 데이터는 $k$ 번째 자리의 값에 따라 오름차순으로 정렬된다.
 3. $k$를 $1$ 늘리고 `2.` 단계로 돌아가 반복한다. 모든 자리를 정렬하면 종료한다.
 
-![기수 정렬 알고리즘 과정](radix_sort.assets/radix_sort_overview.png){ class="animation-figure" }
+![기수 정렬 알고리즘 과정](radix_sort.assets/radix_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> 그림 11-18 &nbsp; 기수 정렬 알고리즘 과정 </p>
 

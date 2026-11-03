@@ -8,7 +8,7 @@ comments: true
 
     Given a positive integer $n$, split it into a sum of at least two positive integers. What is the largest possible product of those integers? The problem is illustrated in Figure 15-13.
 
-![Definition of the maximum product cutting problem](max_product_cutting_problem.assets/max_product_cutting_definition.png){ class="animation-figure" }
+![Definition of the maximum product cutting problem](max_product_cutting_problem.assets/max_product_cutting_definition.svg){ class="animation-figure" }
 
 <p align="center"> Figure 15-13 &nbsp; Definition of the maximum product cutting problem </p>
 
@@ -42,7 +42,7 @@ As shown in Figure 15-14, when $n \geq 4$, splitting off a $2$ increases the pro
 
 **Greedy strategy 1**: If a factor $\geq 4$ appears in a split, divide it further. The final split should contain only the factors $1$, $2$, and $3$.
 
-![Splitting increases the product](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png){ class="animation-figure" }
+![Splitting increases the product](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.svg){ class="animation-figure" }
 
 <p align="center"> Figure 15-14 &nbsp; Splitting increases the product </p>
 
@@ -52,7 +52,7 @@ As shown in Figure 15-15, when $n = 6$, we have $3 \times 3 > 2 \times 2 \times 
 
 **Greedy strategy 2**: A split should contain at most two factors of $2$, because three $2$s can always be replaced with two $3$s to obtain a larger product.
 
-![Optimal factors](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png){ class="animation-figure" }
+![Optimal factors](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.svg){ class="animation-figure" }
 
 <p align="center"> Figure 15-15 &nbsp; Optimal factors </p>
 
@@ -391,7 +391,7 @@ For the boundary cases $n \leq 3$, we must split off a $1$, giving a product of 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=import%20math%0A%0Adef%20max_product_cutting%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Maximum%20product%20after%20splitting%3A%20greedy%20algorithm%22%22%22%0A%20%20%20%20%23%20When%20n%20%3C%3D%203,%20one%20part%20must%20be%201%0A%20%20%20%20if%20n%20%3C%3D%203%3A%0A%20%20%20%20%20%20%20%20return%201%20%2A%20%28n%20-%201%29%0A%20%20%20%20%23%20Greedily%20split%20off%20parts%20of%20size%203%3B%20a%20is%20the%20number%20of%203s%20and%20b%20is%20the%20remainder%0A%20%20%20%20a,%20b%20%3D%20n%20//%203,%20n%20%25%203%0A%20%20%20%20if%20b%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%23%20When%20the%20remainder%20is%201,%20replace%20one%20pair%201%20%2A%203%20with%202%20%2A%202%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%20-%201%29%29%20%2A%202%20%2A%202%0A%20%20%20%20if%20b%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20%23%20When%20the%20remainder%20is%202,%20no%20adjustment%20is%20needed%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%29%29%20%2A%202%0A%20%20%20%20%23%20When%20the%20remainder%20is%200,%20no%20adjustment%20is%20needed%0A%20%20%20%20return%20int%28math.pow%283,%20a%29%29%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2058%0A%0A%20%20%20%20%23%20Greedy%20algorithm%0A%20%20%20%20res%20%3D%20max_product_cutting%28n%29%0A%20%20%20%20print%28f%22Maximum%20product%20after%20splitting%3A%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
     <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20math%0A%0Adef%20max_product_cutting%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Maximum%20product%20after%20splitting%3A%20greedy%20algorithm%22%22%22%0A%20%20%20%20%23%20When%20n%20%3C%3D%203,%20one%20part%20must%20be%201%0A%20%20%20%20if%20n%20%3C%3D%203%3A%0A%20%20%20%20%20%20%20%20return%201%20%2A%20%28n%20-%201%29%0A%20%20%20%20%23%20Greedily%20split%20off%20parts%20of%20size%203%3B%20a%20is%20the%20number%20of%203s%20and%20b%20is%20the%20remainder%0A%20%20%20%20a,%20b%20%3D%20n%20//%203,%20n%20%25%203%0A%20%20%20%20if%20b%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%23%20When%20the%20remainder%20is%201,%20replace%20one%20pair%201%20%2A%203%20with%202%20%2A%202%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%20-%201%29%29%20%2A%202%20%2A%202%0A%20%20%20%20if%20b%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20%23%20When%20the%20remainder%20is%202,%20no%20adjustment%20is%20needed%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%29%29%20%2A%202%0A%20%20%20%20%23%20When%20the%20remainder%20is%200,%20no%20adjustment%20is%20needed%0A%20%20%20%20return%20int%28math.pow%283,%20a%29%29%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2058%0A%0A%20%20%20%20%23%20Greedy%20algorithm%0A%20%20%20%20res%20%3D%20max_product_cutting%28n%29%0A%20%20%20%20print%28f%22Maximum%20product%20after%20splitting%3A%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-![Calculating the maximum product](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png){ class="animation-figure" }
+![Calculating the maximum product](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.svg){ class="animation-figure" }
 
 <p align="center"> Figure 15-16 &nbsp; Calculating the maximum product </p>
 

@@ -9,7 +9,7 @@ comments: true
 1. **劃分階段**：透過遞迴不斷地將陣列從中點處分開，將長陣列的排序問題轉換為短陣列的排序問題。
 2. **合併階段**：當子陣列長度為 1 時終止劃分，開始合併，持續地將左右兩個較短的有序陣列合併為一個較長的有序陣列，直至結束。
 
-![合併排序的劃分與合併階段](merge_sort.assets/merge_sort_overview.png){ class="animation-figure" }
+![合併排序的劃分與合併階段](merge_sort.assets/merge_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> 圖 11-10 &nbsp; 合併排序的劃分與合併階段 </p>
 
@@ -23,34 +23,34 @@ comments: true
 “合併階段”從底至頂地將左子陣列和右子陣列合併為一個有序陣列。需要注意的是，從長度為 1 的子陣列開始合併，合併階段中的每個子陣列都是有序的。
 
 === "<1>"
-    ![合併排序步驟](merge_sort.assets/merge_sort_step1.png){ class="animation-figure" }
+    ![合併排序步驟](merge_sort.assets/merge_sort_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.png){ class="animation-figure" }
+    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.png){ class="animation-figure" }
+    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.png){ class="animation-figure" }
+    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.png){ class="animation-figure" }
+    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.png){ class="animation-figure" }
+    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.png){ class="animation-figure" }
+    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.png){ class="animation-figure" }
+    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.png){ class="animation-figure" }
+    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.png){ class="animation-figure" }
+    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.svg){ class="animation-figure" }
 
 <p align="center"> 圖 11-11 &nbsp; 合併排序步驟 </p>
 

@@ -494,7 +494,7 @@ Figure 2-7 shows their time complexities.
 - Algorithm `B` prints $n$ times. Its runtime grows linearly with $n$, so it has linear time complexity.
 - Algorithm `C` prints $1000000$ times. It may take a long time, but that time is independent of input size $n$. Its complexity is therefore constant, like `A`.
 
-![Runtime growth of algorithms A, B, and C](time_complexity.assets/time_complexity_simple_example.png){ class="animation-figure" }
+![Runtime growth of algorithms A, B, and C](time_complexity.assets/time_complexity_simple_example.svg){ class="animation-figure" }
 
 <p align="center"> Figure 2-7 &nbsp; Runtime growth of algorithms A, B, and C </p>
 
@@ -707,7 +707,7 @@ Time complexity analysis essentially finds an asymptotic upper bound on the oper
 
 As shown in Figure 2-8, we seek a function $f(n)$ such that, as $n$ tends to infinity, $T(n)$ and $f(n)$ have the same order of growth, differing only by a constant factor $c$.
 
-![Asymptotic upper bound of a function](time_complexity.assets/asymptotic_upper_bound.png){ class="animation-figure" }
+![Asymptotic upper bound of a function](time_complexity.assets/asymptotic_upper_bound.svg){ class="animation-figure" }
 
 <p align="center"> Figure 2-8 &nbsp; Asymptotic upper bound of a function </p>
 
@@ -1009,7 +1009,7 @@ $$
 \end{aligned}
 $$
 
-![Common time complexity classes](time_complexity.assets/time_complexity_common_types.png){ class="animation-figure" }
+![Common time complexity classes](time_complexity.assets/time_complexity_common_types.svg){ class="animation-figure" }
 
 <p align="center"> Figure 2-9 &nbsp; Common time complexity classes </p>
 
@@ -1772,7 +1772,7 @@ A quadratic operation count grows with the square of input size $n$. It commonly
 
 Figure 2-10 compares constant, linear, and quadratic time complexity.
 
-![Constant, linear, and quadratic time complexity](time_complexity.assets/time_complexity_constant_linear_quadratic.png){ class="animation-figure" }
+![Constant, linear, and quadratic time complexity](time_complexity.assets/time_complexity_constant_linear_quadratic.svg){ class="animation-figure" }
 
 <p align="center"> Figure 2-10 &nbsp; Constant, linear, and quadratic time complexity </p>
 
@@ -2328,7 +2328,7 @@ The figure and code below simulate cell division in $O(2^n)$ time. The input $n$
     <div style="height: 531px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20exponential%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Exponential%20complexity%20%28iterative%20implementation%29%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20base%20%3D%201%0A%20%20%20%20%23%20Each%20cell%20divides%20into%20two%20per%20round,%20giving%20the%20sequence%201,%202,%204,%208,%20...,%202%5E%28n-1%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20_%20in%20range%28base%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%20%20%20%20base%20%2A%3D%202%0A%20%20%20%20%23%20count%20%3D%201%20%2B%202%20%2B%204%20%2B%208%20%2B%20..%20%2B%202%5E%28n-1%29%20%3D%202%5En%20-%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exponential%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20exponential%20complexity%20%28iterative%20implementation%29%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
     <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20exponential%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Exponential%20complexity%20%28iterative%20implementation%29%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20base%20%3D%201%0A%20%20%20%20%23%20Each%20cell%20divides%20into%20two%20per%20round,%20giving%20the%20sequence%201,%202,%204,%208,%20...,%202%5E%28n-1%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20_%20in%20range%28base%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%20%20%20%20base%20%2A%3D%202%0A%20%20%20%20%23%20count%20%3D%201%20%2B%202%20%2B%204%20%2B%208%20%2B%20..%20%2B%202%5E%28n-1%29%20%3D%202%5En%20-%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exponential%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20exponential%20complexity%20%28iterative%20implementation%29%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-![Exponential time complexity](time_complexity.assets/time_complexity_exponential.png){ class="animation-figure" }
+![Exponential time complexity](time_complexity.assets/time_complexity_exponential.svg){ class="animation-figure" }
 
 <p align="center"> Figure 2-11 &nbsp; Exponential time complexity </p>
 
@@ -2677,7 +2677,7 @@ The figure and code below simulate repeated halving, taking $O(\log_2 n)$ time, 
     <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Logarithmic%20complexity%20%28iterative%20implementation%29%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20logarithmic%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20logarithmic%20complexity%20%28iterative%20implementation%29%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
     <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Logarithmic%20complexity%20%28iterative%20implementation%29%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20logarithmic%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20logarithmic%20complexity%20%28iterative%20implementation%29%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-![Logarithmic time complexity](time_complexity.assets/time_complexity_logarithmic.png){ class="animation-figure" }
+![Logarithmic time complexity](time_complexity.assets/time_complexity_logarithmic.svg){ class="animation-figure" }
 
 <p align="center"> Figure 2-12 &nbsp; Logarithmic time complexity </p>
 
@@ -3044,7 +3044,7 @@ Linearithmic time often appears when one level of a nested process takes $O(\log
 
 Figure 2-13 shows how linearithmic growth arises. Each level of the binary tree performs $n$ operations, and there are $\log_2 n + 1$ levels, giving $O(n \log n)$ time.
 
-![Linearithmic time complexity](time_complexity.assets/time_complexity_logarithmic_linear.png){ class="animation-figure" }
+![Linearithmic time complexity](time_complexity.assets/time_complexity_logarithmic_linear.svg){ class="animation-figure" }
 
 <p align="center"> Figure 2-13 &nbsp; Linearithmic time complexity </p>
 
@@ -3268,7 +3268,7 @@ Algorithms with factorial time complexity are usually implemented recursively. A
     <div style="height: 495px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20factorial_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Factorial%20complexity%20%28recursive%20implementation%29%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20Split%20one%20problem%20into%20n%20subproblems%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20factorial_recur%28n%20-%201%29%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20factorial_recur%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20factorial%20complexity%20%28recursive%20implementation%29%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
     <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20factorial_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Factorial%20complexity%20%28recursive%20implementation%29%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20Split%20one%20problem%20into%20n%20subproblems%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20factorial_recur%28n%20-%201%29%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%20%20%20%20print%28%22Input%20size%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20factorial_recur%28n%29%0A%20%20%20%20print%28%22Operation%20count%20for%20factorial%20complexity%20%28recursive%20implementation%29%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-![Factorial time complexity](time_complexity.assets/time_complexity_factorial.png){ class="animation-figure" }
+![Factorial time complexity](time_complexity.assets/time_complexity_factorial.svg){ class="animation-figure" }
 
 <p align="center"> Figure 2-14 &nbsp; Factorial time complexity </p>
 

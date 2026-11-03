@@ -40,7 +40,7 @@ Starting with the original problem $f(0, n-1)$, perform binary search as follows
 
 Figure 12-4 shows the divide-and-conquer process for finding $6$ in an array using binary search.
 
-![Divide-and-conquer process for binary search](binary_search_recur.assets/binary_search_recur.png){ class="animation-figure" }
+![Divide-and-conquer process for binary search](binary_search_recur.assets/binary_search_recur.svg){ class="animation-figure" }
 
 <p align="center"> Figure 12-4 &nbsp; Divide-and-conquer process for binary search </p>
 

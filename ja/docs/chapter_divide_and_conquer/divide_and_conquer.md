@@ -14,7 +14,7 @@ comments: true
 1. **分割**：元の配列（元の問題）を二つの部分配列（部分問題）に再帰的に分割し、部分配列の要素が一つ（最小の部分問題）になるまで続けます。
 2. **統合**：ソート済みの部分配列（部分問題の解）を下から上へと統合し、元の配列をソートした結果（元の問題の解）を得ます。
 
-![マージソートの分割統治戦略](divide_and_conquer.assets/divide_and_conquer_merge_sort.png){ class="animation-figure" }
+![マージソートの分割統治戦略](divide_and_conquer.assets/divide_and_conquer_merge_sort.svg){ class="animation-figure" }
 
 <p align="center"> 図 12-1 &nbsp; マージソートの分割統治戦略 </p>
 
@@ -46,7 +46,7 @@ $$
 O(n + (\frac{n}{2})^2 \times 2 + n) = O(\frac{n^2}{2} + 2n)
 $$
 
-![配列を分割する前と後のバブルソート](divide_and_conquer.assets/divide_and_conquer_bubble_sort.png){ class="animation-figure" }
+![配列を分割する前と後のバブルソート](divide_and_conquer.assets/divide_and_conquer_bubble_sort.svg){ class="animation-figure" }
 
 <p align="center"> 図 12-2 &nbsp; 配列を分割する前と後のバブルソート </p>
 
@@ -74,7 +74,7 @@ $$
 
 たとえば図 12-3 の「バケットソート」では、大量のデータを各バケットに均等に分配します。各バケットのソートをそれぞれの計算ユニットに割り当て、完了後に結果を統合できます。
 
-![バケットソートの並列計算](divide_and_conquer.assets/divide_and_conquer_parallel_computing.png){ class="animation-figure" }
+![バケットソートの並列計算](divide_and_conquer.assets/divide_and_conquer_parallel_computing.svg){ class="animation-figure" }
 
 <p align="center"> 図 12-3 &nbsp; バケットソートの並列計算 </p>
 

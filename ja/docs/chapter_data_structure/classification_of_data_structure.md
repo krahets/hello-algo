@@ -20,7 +20,7 @@ comments: true
 - **木構造**：木、ヒープ、ハッシュテーブル。要素間は一対多の関係です。
 - **ネットワーク構造**：グラフ。要素間は多対多の関係です。
 
-![線形データ構造と非線形データ構造](classification_of_data_structure.assets/classification_logic_structure.png){ class="animation-figure" }
+![線形データ構造と非線形データ構造](classification_of_data_structure.assets/classification_logic_structure.svg){ class="animation-figure" }
 
 <p align="center"> 図 3-1 &nbsp; 線形データ構造と非線形データ構造 </p>
 
@@ -30,7 +30,7 @@ comments: true
 
 **システムはメモリアドレスを使って、目的の位置のデータにアクセスします**。図 3-2 のように、各セルには規則に従った番号が割り当てられ、各メモリ領域が一意のアドレスを持ちます。このアドレスにより、プログラムはデータにアクセスできます。
 
-![メモリモジュール、メモリ空間、メモリアドレス](classification_of_data_structure.assets/computer_memory_location.png){ class="animation-figure" }
+![メモリモジュール、メモリ空間、メモリアドレス](classification_of_data_structure.assets/computer_memory_location.svg){ class="animation-figure" }
 
 <p align="center"> 図 3-2 &nbsp; メモリモジュール、メモリ空間、メモリアドレス </p>
 
@@ -42,7 +42,7 @@ comments: true
 
 図 3-3 のように、**物理構造は、コンピュータのメモリ内での格納方法を表し**、連続した領域への格納（配列）と、分散した領域への格納（連結リスト）に分けられます。アクセス、更新、追加、削除などの方法を根本から決めるもので、二つの構造は時間効率と空間効率の面で互いを補い合います。
 
-![連続した領域への格納と分散した領域への格納](classification_of_data_structure.assets/classification_phisical_structure.png){ class="animation-figure" }
+![連続した領域への格納と分散した領域への格納](classification_of_data_structure.assets/classification_phisical_structure.svg){ class="animation-figure" }
 
 <p align="center"> 図 3-3 &nbsp; 連続した領域への格納と分散した領域への格納 </p>
 

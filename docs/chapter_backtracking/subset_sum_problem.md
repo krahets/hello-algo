@@ -510,7 +510,7 @@ comments: true
 
 这是因为搜索过程是区分选择顺序的，然而子集不区分选择顺序。如图 13-10 所示，先选 $4$ 后选 $5$ 与先选 $5$ 后选 $4$ 是不同的分支，但对应同一个子集。
 
-![子集搜索与越界剪枝](subset_sum_problem.assets/subset_sum_i_naive.png){ class="animation-figure" }
+![子集搜索与越界剪枝](subset_sum_problem.assets/subset_sum_i_naive.svg){ class="animation-figure" }
 
 <p align="center"> 图 13-10 &nbsp; 子集搜索与越界剪枝 </p>
 
@@ -532,7 +532,7 @@ comments: true
 2. 前两轮选择 $4$ 和 $5$ ，生成子集 $[4, 5, \dots]$ 。
 3. 若第一轮选择 $5$ ，**则第二轮应该跳过 $3$ 和 $4$** ，因为子集 $[5, 3, \dots]$ 和 $[5, 4, \dots]$ 与第 `1.` 步和第 `2.` 步中描述的子集完全重复。
 
-![不同选择顺序导致的重复子集](subset_sum_problem.assets/subset_sum_i_pruning.png){ class="animation-figure" }
+![不同选择顺序导致的重复子集](subset_sum_problem.assets/subset_sum_i_pruning.svg){ class="animation-figure" }
 
 <p align="center"> 图 13-11 &nbsp; 不同选择顺序导致的重复子集 </p>
 
@@ -1069,7 +1069,7 @@ comments: true
 
 图 13-12 所示为将数组 $[3, 4, 5]$ 和目标元素 $9$ 输入以上代码后的整体回溯过程。
 
-![子集和 I 回溯过程](subset_sum_problem.assets/subset_sum_i.png){ class="animation-figure" }
+![子集和 I 回溯过程](subset_sum_problem.assets/subset_sum_i.svg){ class="animation-figure" }
 
 <p align="center"> 图 13-12 &nbsp; 子集和 I 回溯过程 </p>
 
@@ -1083,7 +1083,7 @@ comments: true
 
 **造成这种重复的原因是相等元素在某轮中被多次选择**。在图 13-13 中，第一轮共有三个选择，其中两个都为 $4$ ，会产生两个重复的搜索分支，从而输出重复子集；同理，第二轮的两个 $4$ 也会产生重复子集。
 
-![相等元素导致的重复子集](subset_sum_problem.assets/subset_sum_ii_repeat.png){ class="animation-figure" }
+![相等元素导致的重复子集](subset_sum_problem.assets/subset_sum_ii_repeat.svg){ class="animation-figure" }
 
 <p align="center"> 图 13-13 &nbsp; 相等元素导致的重复子集 </p>
 
@@ -1680,6 +1680,6 @@ comments: true
 
 图 13-14 展示了数组 $[4, 4, 5]$ 和目标元素 $9$ 的回溯过程，共包含四种剪枝操作。请你将图示与代码注释相结合，理解整个搜索过程，以及每种剪枝操作是如何工作的。
 
-![子集和 II 回溯过程](subset_sum_problem.assets/subset_sum_ii.png){ class="animation-figure" }
+![子集和 II 回溯过程](subset_sum_problem.assets/subset_sum_ii.svg){ class="animation-figure" }
 
 <p align="center"> 图 13-14 &nbsp; 子集和 II 回溯过程 </p>

@@ -22,7 +22,7 @@ comments: true
 
 図 14-6 のように、$1$、$2$、$3$ 段目のコストがそれぞれ $1$、$10$、$1$ なら、地面から $3$ 段目まで上る最小コストは $2$ です。
 
-![3 段目まで上る最小コスト](dp_problem_features.assets/min_cost_cs_example.png){ class="animation-figure" }
+![3 段目まで上る最小コスト](dp_problem_features.assets/min_cost_cs_example.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-6 &nbsp; 3 段目まで上る最小コスト </p>
 
@@ -325,7 +325,7 @@ $$
 
 図 14-7 に、上のコードによる動的計画法の流れを示します。
 
-![最小コストで階段を上る動的計画法の流れ](dp_problem_features.assets/min_cost_cs_dp.png){ class="animation-figure" }
+![最小コストで階段を上る動的計画法の流れ](dp_problem_features.assets/min_cost_cs_dp.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-7 &nbsp; 最小コストで階段を上る動的計画法の流れ </p>
 
@@ -600,7 +600,7 @@ $$
 
 図 14-8 のように、$3$ 段目まで上る有効な方法は $2$ 通りだけになります。$1$ 段ずつ 3 回続けて上る方法は制約を満たさないため、除外されます。
 
-![制約付きで 3 段目まで上る方法の数](dp_problem_features.assets/climbing_stairs_constraint_example.png){ class="animation-figure" }
+![制約付きで 3 段目まで上る方法の数](dp_problem_features.assets/climbing_stairs_constraint_example.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-8 &nbsp; 制約付きで 3 段目まで上る方法の数 </p>
 
@@ -622,7 +622,7 @@ dp[i, 2] = dp[i-2, 1] + dp[i-2, 2]
 \end{cases}
 $$
 
-![制約を考慮した漸化式](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.png){ class="animation-figure" }
+![制約を考慮した漸化式](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-9 &nbsp; 制約を考慮した漸化式 </p>
 

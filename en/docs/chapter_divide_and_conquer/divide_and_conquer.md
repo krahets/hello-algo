@@ -14,7 +14,7 @@ As shown in Figure 12-1, merge sort is a classic application of divide and conqu
 1. **Divide**: Recursively split the original array (the original problem) into two subarrays (subproblems) until each subarray contains just one element (the smallest subproblem).
 2. **Conquer**: Merge the sorted subarrays (subproblem solutions) from the bottom up to obtain the sorted original array (the solution to the original problem).
 
-![Divide-and-conquer strategy in merge sort](divide_and_conquer.assets/divide_and_conquer_merge_sort.png){ class="animation-figure" }
+![Divide-and-conquer strategy in merge sort](divide_and_conquer.assets/divide_and_conquer_merge_sort.svg){ class="animation-figure" }
 
 <p align="center"> Figure 12-1 &nbsp; Divide-and-conquer strategy in merge sort </p>
 
@@ -46,7 +46,7 @@ $$
 O(n + (\frac{n}{2})^2 \times 2 + n) = O(\frac{n^2}{2} + 2n)
 $$
 
-![Bubble sort before and after dividing the array](divide_and_conquer.assets/divide_and_conquer_bubble_sort.png){ class="animation-figure" }
+![Bubble sort before and after dividing the array](divide_and_conquer.assets/divide_and_conquer_bubble_sort.svg){ class="animation-figure" }
 
 <p align="center"> Figure 12-2 &nbsp; Bubble sort before and after dividing the array </p>
 
@@ -74,7 +74,7 @@ Parallelization is especially effective on multicore or multiprocessor systems. 
 
 For example, in the bucket sort shown in Figure 12-3, a large dataset is evenly distributed among buckets. The sorting tasks for different buckets can then be assigned to different computing units, and their results combined afterward.
 
-![Parallel computation in bucket sort](divide_and_conquer.assets/divide_and_conquer_parallel_computing.png){ class="animation-figure" }
+![Parallel computation in bucket sort](divide_and_conquer.assets/divide_and_conquer_parallel_computing.svg){ class="animation-figure" }
 
 <p align="center"> Figure 12-3 &nbsp; Parallel computation in bucket sort </p>
 

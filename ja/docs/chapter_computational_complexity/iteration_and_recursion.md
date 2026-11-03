@@ -205,7 +205,7 @@ comments: true
 
 図 2-1 に、この合計を求める関数のフローチャートを示します。
 
-![合計を求める関数のフローチャート](iteration_and_recursion.assets/iteration.png){ class="animation-figure" }
+![合計を求める関数のフローチャート](iteration_and_recursion.assets/iteration.svg){ class="animation-figure" }
 
 <p align="center"> 図 2-1 &nbsp; 合計を求める関数のフローチャート </p>
 
@@ -915,7 +915,7 @@ comments: true
 
 図 2-2 に、この入れ子のループのフローチャートを示します。
 
-![入れ子のループのフローチャート](iteration_and_recursion.assets/nested_iteration.png){ class="animation-figure" }
+![入れ子のループのフローチャート](iteration_and_recursion.assets/nested_iteration.svg){ class="animation-figure" }
 
 <p align="center"> 図 2-2 &nbsp; 入れ子のループのフローチャート </p>
 
@@ -1138,7 +1138,7 @@ comments: true
 
 図 2-3 に、この関数の再帰の流れを示します。
 
-![合計を求める関数の再帰の流れ](iteration_and_recursion.assets/recursion_sum.png){ class="animation-figure" }
+![合計を求める関数の再帰の流れ](iteration_and_recursion.assets/recursion_sum.svg){ class="animation-figure" }
 
 <p align="center"> 図 2-3 &nbsp; 合計を求める関数の再帰の流れ </p>
 
@@ -1161,7 +1161,7 @@ comments: true
 
 図 2-4 のように、終了条件に到達する直前には、まだ戻っていない再帰関数が $n$ 個あり、**再帰の深さは $n$ です**。
 
-![再帰呼び出しの深さ](iteration_and_recursion.assets/recursion_sum_depth.png){ class="animation-figure" }
+![再帰呼び出しの深さ](iteration_and_recursion.assets/recursion_sum_depth.svg){ class="animation-figure" }
 
 <p align="center"> 図 2-4 &nbsp; 再帰呼び出しの深さ </p>
 
@@ -1354,7 +1354,7 @@ $1 + 2 + \dots + n$ の計算では、結果の変数 `res` を関数の引数�
 - **通常の再帰**：戻る段階で加算し、各呼び出しから戻った後に 1 回ずつ加算します。
 - **末尾再帰**：呼び出しを進める段階で加算し、戻る段階では順に戻るだけです。
 
-![末尾再帰の流れ](iteration_and_recursion.assets/tail_recursion_sum.png){ class="animation-figure" }
+![末尾再帰の流れ](iteration_and_recursion.assets/tail_recursion_sum.svg){ class="animation-figure" }
 
 <p align="center"> 図 2-5 &nbsp; 末尾再帰の流れ </p>
 
@@ -1577,7 +1577,7 @@ $1 + 2 + \dots + n$ の計算では、結果の変数 `res` を関数の引数�
 
 このコードでは、関数内で再帰呼び出しを 2 回行い、**一つの呼び出しから二つの分岐が生じます**。図 2-6 のように呼び出しを繰り返すと、最終的に $n$ 層の<u>再帰木（recursion tree）</u>ができます。
 
-![フィボナッチ数列の再帰木](iteration_and_recursion.assets/recursion_tree.png){ class="animation-figure" }
+![フィボナッチ数列の再帰木](iteration_and_recursion.assets/recursion_tree.svg){ class="animation-figure" }
 
 <p align="center"> 図 2-6 &nbsp; フィボナッチ数列の再帰木 </p>
 

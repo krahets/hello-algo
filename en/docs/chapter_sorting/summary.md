@@ -16,7 +16,7 @@ comments: true
 - Ideally, a sorting algorithm would be efficient, stable, in-place, and adaptive. As with other data structures and algorithms, however, no single sorting algorithm meets all these requirements. In practice, choose one according to the data's properties.
 - Figure 11-19 compares common sorting algorithms in efficiency, stability, in-place operation, and adaptiveness.
 
-![Comparison of sorting algorithms](summary.assets/sorting_algorithms_comparison.png){ class="animation-figure" }
+![Comparison of sorting algorithms](summary.assets/sorting_algorithms_comparison.svg){ class="animation-figure" }
 
 <p align="center"> Figure 11-19 &nbsp; Comparison of sorting algorithms </p>
 

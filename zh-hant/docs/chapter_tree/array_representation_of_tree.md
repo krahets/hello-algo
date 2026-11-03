@@ -14,7 +14,7 @@ comments: true
 
 根據層序走訪的特性，我們可以推導出父節點索引與子節點索引之間的“對映公式”：**若某節點的索引為 $i$ ，則該節點的左子節點索引為 $2i + 1$ ，右子節點索引為 $2i + 2$** 。圖 7-12 展示了各個節點索引之間的對映關係。
 
-![完美二元樹的陣列表示](array_representation_of_tree.assets/array_representation_binary_tree.png){ class="animation-figure" }
+![完美二元樹的陣列表示](array_representation_of_tree.assets/array_representation_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-12 &nbsp; 完美二元樹的陣列表示 </p>
 
@@ -26,7 +26,7 @@ comments: true
 
 如圖 7-13 所示，給定一棵非完美二元樹，上述陣列表示方法已經失效。
 
-![層序走訪序列對應多種二元樹可能性](array_representation_of_tree.assets/array_representation_without_empty.png){ class="animation-figure" }
+![層序走訪序列對應多種二元樹可能性](array_representation_of_tree.assets/array_representation_without_empty.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-13 &nbsp; 層序走訪序列對應多種二元樹可能性 </p>
 
@@ -136,7 +136,7 @@ comments: true
     tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
-![任意型別二元樹的陣列表示](array_representation_of_tree.assets/array_representation_with_empty.png){ class="animation-figure" }
+![任意型別二元樹的陣列表示](array_representation_of_tree.assets/array_representation_with_empty.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-14 &nbsp; 任意型別二元樹的陣列表示 </p>
 
@@ -144,7 +144,7 @@ comments: true
 
 這意味著使用陣列表示完全二元樹時，可以省略儲存所有 `None` ，非常方便。圖 7-15 給出了一個例子。
 
-![完全二元樹的陣列表示](array_representation_of_tree.assets/array_representation_complete_binary_tree.png){ class="animation-figure" }
+![完全二元樹的陣列表示](array_representation_of_tree.assets/array_representation_complete_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 圖 7-15 &nbsp; 完全二元樹的陣列表示 </p>
 

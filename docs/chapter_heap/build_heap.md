@@ -338,7 +338,7 @@ comments: true
 
 接下来我们来进行更为准确的计算。为了降低计算难度，假设给定一个节点数量为 $n$ 、高度为 $h$ 的“完美二叉树”，该假设不会影响计算结果的正确性。
 
-![完美二叉树的各层节点数量](build_heap.assets/heapify_operations_count.png){ class="animation-figure" }
+![完美二叉树的各层节点数量](build_heap.assets/heapify_operations_count.svg){ class="animation-figure" }
 
 <p align="center"> 图 8-5 &nbsp; 完美二叉树的各层节点数量 </p>
 

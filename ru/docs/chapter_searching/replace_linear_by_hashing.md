@@ -14,7 +14,7 @@ comments: true
 
 Рассмотрим прямой перебор всех возможных комбинаций. Как показано на рисунке 10-9, мы запускаем два вложенных цикла и на каждом шаге проверяем, равна ли сумма двух целых чисел `target`. Если да, то возвращаем их индексы.
 
-![Линейный поиск для нахождения двух чисел, сумма которых равна заданному значению](replace_linear_by_hashing.assets/two_sum_brute_force.png){ class="animation-figure" }
+![Линейный поиск для нахождения двух чисел, сумма которых равна заданному значению](replace_linear_by_hashing.assets/two_sum_brute_force.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 10-9 &nbsp; Линейный поиск для нахождения двух чисел, сумма которых равна заданному значению </p>
 
@@ -256,13 +256,13 @@ comments: true
 2. Добавить в хеш-таблицу пару из ключа `nums[i]` и индекса `i` .
 
 === "<1>"
-    ![Использование вспомогательной хеш-таблицы для нахождения двух чисел, сумма которых равна заданному значению](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png){ class="animation-figure" }
+    ![Использование вспомогательной хеш-таблицы для нахождения двух чисел, сумма которых равна заданному значению](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.png){ class="animation-figure" }
+    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.png){ class="animation-figure" }
+    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 10-10 &nbsp; Использование вспомогательной хеш-таблицы для нахождения двух чисел, сумма которых равна заданному значению </p>
 

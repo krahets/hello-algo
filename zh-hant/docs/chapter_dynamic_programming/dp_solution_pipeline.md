@@ -41,7 +41,7 @@ comments: true
 
 圖 14-10 展示了一個例子，給定網格的最小路徑和為 $13$ 。
 
-![最小路徑和示例資料](dp_solution_pipeline.assets/min_path_sum_example.png){ class="animation-figure" }
+![最小路徑和示例資料](dp_solution_pipeline.assets/min_path_sum_example.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-10 &nbsp; 最小路徑和示例資料 </p>
 
@@ -53,7 +53,7 @@ comments: true
 
 至此，我們就得到了圖 14-11 所示的二維 $dp$ 矩陣，其尺寸與輸入網格 $grid$ 相同。
 
-![狀態定義與 dp 表](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.png){ class="animation-figure" }
+![狀態定義與 dp 表](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-11 &nbsp; 狀態定義與 dp 表 </p>
 
@@ -73,7 +73,7 @@ $$
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 $$
 
-![最優子結構與狀態轉移方程](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.png){ class="animation-figure" }
+![最優子結構與狀態轉移方程](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-12 &nbsp; 最優子結構與狀態轉移方程 </p>
 
@@ -89,7 +89,7 @@ $$
 
 如圖 14-13 所示，由於每個格子是由其左方格子和上方格子轉移而來，因此我們使用迴圈來走訪矩陣，外迴圈走訪各行，內迴圈走訪各列。
 
-![邊界條件與狀態轉移順序](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.png){ class="animation-figure" }
+![邊界條件與狀態轉移順序](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-13 &nbsp; 邊界條件與狀態轉移順序 </p>
 
@@ -392,7 +392,7 @@ $$
 
 從本質上看，造成重疊子問題的原因為：**存在多條路徑可以從左上角到達某一單元格**。
 
-![暴力搜尋遞迴樹](dp_solution_pipeline.assets/min_path_sum_dfs.png){ class="animation-figure" }
+![暴力搜尋遞迴樹](dp_solution_pipeline.assets/min_path_sum_dfs.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-14 &nbsp; 暴力搜尋遞迴樹 </p>
 
@@ -749,7 +749,7 @@ $$
 
 如圖 14-15 所示，在引入記憶化後，所有子問題的解只需計算一次，因此時間複雜度取決於狀態總數，即網格尺寸 $O(nm)$ 。
 
-![記憶化搜尋遞迴樹](dp_solution_pipeline.assets/min_path_sum_dfs_mem.png){ class="animation-figure" }
+![記憶化搜尋遞迴樹](dp_solution_pipeline.assets/min_path_sum_dfs_mem.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-15 &nbsp; 記憶化搜尋遞迴樹 </p>
 
@@ -1127,40 +1127,40 @@ $$
 陣列 `dp` 大小為 $n \times m$ ，**因此空間複雜度為 $O(nm)$** 。
 
 === "<1>"
-    ![最小路徑和的動態規劃過程](dp_solution_pipeline.assets/min_path_sum_dp_step1.png){ class="animation-figure" }
+    ![最小路徑和的動態規劃過程](dp_solution_pipeline.assets/min_path_sum_dp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![min_path_sum_dp_step2](dp_solution_pipeline.assets/min_path_sum_dp_step2.png){ class="animation-figure" }
+    ![min_path_sum_dp_step2](dp_solution_pipeline.assets/min_path_sum_dp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![min_path_sum_dp_step3](dp_solution_pipeline.assets/min_path_sum_dp_step3.png){ class="animation-figure" }
+    ![min_path_sum_dp_step3](dp_solution_pipeline.assets/min_path_sum_dp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![min_path_sum_dp_step4](dp_solution_pipeline.assets/min_path_sum_dp_step4.png){ class="animation-figure" }
+    ![min_path_sum_dp_step4](dp_solution_pipeline.assets/min_path_sum_dp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![min_path_sum_dp_step5](dp_solution_pipeline.assets/min_path_sum_dp_step5.png){ class="animation-figure" }
+    ![min_path_sum_dp_step5](dp_solution_pipeline.assets/min_path_sum_dp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![min_path_sum_dp_step6](dp_solution_pipeline.assets/min_path_sum_dp_step6.png){ class="animation-figure" }
+    ![min_path_sum_dp_step6](dp_solution_pipeline.assets/min_path_sum_dp_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![min_path_sum_dp_step7](dp_solution_pipeline.assets/min_path_sum_dp_step7.png){ class="animation-figure" }
+    ![min_path_sum_dp_step7](dp_solution_pipeline.assets/min_path_sum_dp_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![min_path_sum_dp_step8](dp_solution_pipeline.assets/min_path_sum_dp_step8.png){ class="animation-figure" }
+    ![min_path_sum_dp_step8](dp_solution_pipeline.assets/min_path_sum_dp_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![min_path_sum_dp_step9](dp_solution_pipeline.assets/min_path_sum_dp_step9.png){ class="animation-figure" }
+    ![min_path_sum_dp_step9](dp_solution_pipeline.assets/min_path_sum_dp_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![min_path_sum_dp_step10](dp_solution_pipeline.assets/min_path_sum_dp_step10.png){ class="animation-figure" }
+    ![min_path_sum_dp_step10](dp_solution_pipeline.assets/min_path_sum_dp_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![min_path_sum_dp_step11](dp_solution_pipeline.assets/min_path_sum_dp_step11.png){ class="animation-figure" }
+    ![min_path_sum_dp_step11](dp_solution_pipeline.assets/min_path_sum_dp_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.png){ class="animation-figure" }
+    ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-16 &nbsp; 最小路徑和的動態規劃過程 </p>
 

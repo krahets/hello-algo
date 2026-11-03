@@ -12,7 +12,7 @@ comments: true
 
     長さ $n$ の整列済み配列 `nums` と要素 `target` が与えられます。配列内に重複する要素はありません。整列状態を保ちながら、`target` を配列 `nums` に挿入します。すでに `target` が存在する場合は、その左側に挿入します。挿入後の `target` のインデックスを返してください。例を図 10-4 に示します。
 
-![二分探索で挿入位置を探す入力例](binary_search_insertion.assets/binary_search_insertion_example.png){ class="animation-figure" }
+![二分探索で挿入位置を探す入力例](binary_search_insertion.assets/binary_search_insertion_example.svg){ class="animation-figure" }
 
 <p align="center"> 図 10-4 &nbsp; 二分探索で挿入位置を探す入力例 </p>
 
@@ -333,7 +333,7 @@ comments: true
 1. 二分探索でいずれかの `target` のインデックスを求め、$k$ とします。
 2. インデックス $k$ から左へ線形に走査し、最も左の `target` が見つかったら返します。
 
-![線形探索で重複する要素の挿入位置を探す](binary_search_insertion.assets/binary_search_insertion_naive.png){ class="animation-figure" }
+![線形探索で重複する要素の挿入位置を探す](binary_search_insertion.assets/binary_search_insertion_naive.svg){ class="animation-figure" }
 
 <p align="center"> 図 10-5 &nbsp; 線形探索で重複する要素の挿入位置を探す </p>
 
@@ -347,28 +347,28 @@ comments: true
 ループが終わると、$i$ は最も左の `target` を、$j$ は `target` より小さい最も右の要素を指します。**したがって、インデックス $i$ が挿入位置です**。
 
 === "<1>"
-    ![二分探索で重複する要素の挿入位置を探す手順](binary_search_insertion.assets/binary_search_insertion_step1.png){ class="animation-figure" }
+    ![二分探索で重複する要素の挿入位置を探す手順](binary_search_insertion.assets/binary_search_insertion_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![二分探索による挿入位置の探索の手順 2](binary_search_insertion.assets/binary_search_insertion_step2.png){ class="animation-figure" }
+    ![二分探索による挿入位置の探索の手順 2](binary_search_insertion.assets/binary_search_insertion_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![二分探索による挿入位置の探索の手順 3](binary_search_insertion.assets/binary_search_insertion_step3.png){ class="animation-figure" }
+    ![二分探索による挿入位置の探索の手順 3](binary_search_insertion.assets/binary_search_insertion_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![二分探索による挿入位置の探索の手順 4](binary_search_insertion.assets/binary_search_insertion_step4.png){ class="animation-figure" }
+    ![二分探索による挿入位置の探索の手順 4](binary_search_insertion.assets/binary_search_insertion_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![二分探索による挿入位置の探索の手順 5](binary_search_insertion.assets/binary_search_insertion_step5.png){ class="animation-figure" }
+    ![二分探索による挿入位置の探索の手順 5](binary_search_insertion.assets/binary_search_insertion_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![二分探索による挿入位置の探索の手順 6](binary_search_insertion.assets/binary_search_insertion_step6.png){ class="animation-figure" }
+    ![二分探索による挿入位置の探索の手順 6](binary_search_insertion.assets/binary_search_insertion_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![二分探索による挿入位置の探索の手順 7](binary_search_insertion.assets/binary_search_insertion_step7.png){ class="animation-figure" }
+    ![二分探索による挿入位置の探索の手順 7](binary_search_insertion.assets/binary_search_insertion_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![二分探索による挿入位置の探索の手順 8](binary_search_insertion.assets/binary_search_insertion_step8.png){ class="animation-figure" }
+    ![二分探索による挿入位置の探索の手順 8](binary_search_insertion.assets/binary_search_insertion_step8.svg){ class="animation-figure" }
 
 <p align="center"> 図 10-6 &nbsp; 二分探索で重複する要素の挿入位置を探す手順 </p>
 

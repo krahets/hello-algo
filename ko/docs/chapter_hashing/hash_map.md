@@ -8,7 +8,7 @@ comments: true
 
 아래 그림(6-1)과 같이 학생 $n$명에게 각각 ‘이름’과 ‘학번’이라는 두 데이터가 있다고 하자. ‘학번을 입력하면 해당 이름을 반환하는’ 조회 기능을 구현하려면 그림의 해시 테이블을 사용할 수 있다.
 
-![해시 테이블의 추상적 표현](hash_map.assets/hash_table_lookup.png){ class="animation-figure" }
+![해시 테이블의 추상적 표현](hash_map.assets/hash_table_lookup.svg){ class="animation-figure" }
 
 <p align="center"> 그림 6-1 &nbsp; 해시 테이블의 추상적 표현 </p>
 
@@ -569,7 +569,7 @@ index = hash(key) % capacity
 
 배열 길이가 `capacity = 100`이고 해시 알고리즘이 `hash(key) = key`이면, 해시 함수는 `key % 100`이다. 아래 그림(6-2)은 학번을 `key`, 이름을 `value`로 삼아 해시 함수의 작동 원리를 보여 준다.
 
-![해시 함수의 작동 원리](hash_map.assets/hash_function.png){ class="animation-figure" }
+![해시 함수의 작동 원리](hash_map.assets/hash_function.svg){ class="animation-figure" }
 
 <p align="center"> 그림 6-2 &nbsp; 해시 함수의 작동 원리 </p>
 
@@ -1771,7 +1771,7 @@ index = hash(key) % capacity
 
 아래 그림(6-3)에서 두 학번이 같은 이름을 가리키는데, 이는 명백히 잘못되었다. 이처럼 여러 입력이 같은 출력에 대응하는 현상을 <u>해시 충돌(hash collision)</u>이라고 한다.
 
-![해시 충돌의 예](hash_map.assets/hash_collision.png){ class="animation-figure" }
+![해시 충돌의 예](hash_map.assets/hash_collision.svg){ class="animation-figure" }
 
 <p align="center"> 그림 6-3 &nbsp; 해시 충돌의 예 </p>
 
@@ -1779,7 +1779,7 @@ index = hash(key) % capacity
 
 아래 그림(6-4)에서 확장 전에는 키-값 쌍 `(136, A)`와 `(236, D)`가 충돌하지만 확장 후에는 충돌이 사라진다.
 
-![해시 테이블의 용량 확장](hash_map.assets/hash_table_reshash.png){ class="animation-figure" }
+![해시 테이블의 용량 확장](hash_map.assets/hash_table_reshash.svg){ class="animation-figure" }
 
 <p align="center"> 그림 6-4 &nbsp; 해시 테이블의 용량 확장 </p>
 

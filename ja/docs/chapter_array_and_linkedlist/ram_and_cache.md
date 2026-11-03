@@ -31,7 +31,7 @@ comments: true
 - **ハードディスクをメモリで置き換えるのは困難です**。まず、メモリのデータは電源を切ると失われるため、長期保存には適していません。また、メモリのコストはハードディスクの数十倍であり、一般消費者向けに普及させるのが難しくなります。
 - **キャッシュの大容量化と高速化は両立が困難です**。L1、L2、L3 とキャッシュの容量が増えるにつれて物理的なサイズも大きくなり、CPU コアからの物理的な距離が遠くなります。その結果、データ転送にかかる時間が増え、要素へのアクセスの遅延も大きくなります。現在の技術では、キャッシュを階層化する構造が、容量、速度、コストの最もよいバランスを実現しています。
 
-![コンピュータの記憶システム](ram_and_cache.assets/storage_pyramid.png){ class="animation-figure" }
+![コンピュータの記憶システム](ram_and_cache.assets/storage_pyramid.svg){ class="animation-figure" }
 
 <p align="center"> 図 4-9 &nbsp; コンピュータの記憶システム </p>
 
@@ -43,7 +43,7 @@ comments: true
 
 図 4-10 のように、プログラムの実行時にはデータがハードディスクからメモリへ読み込まれ、CPU の計算に使われます。キャッシュは CPU の一部と考えることができます。**メモリから適切にデータを読み込むことで**、CPU に高速なデータ読み出しを提供し、プログラムの実行効率を大きく高め、比較的遅いメモリへの依存を減らします。
 
-![ハードディスク、メモリ、キャッシュ間のデータの流れ](ram_and_cache.assets/computer_storage_devices.png){ class="animation-figure" }
+![ハードディスク、メモリ、キャッシュ間のデータの流れ](ram_and_cache.assets/computer_storage_devices.svg){ class="animation-figure" }
 
 <p align="center"> 図 4-10 &nbsp; ハードディスク、メモリ、キャッシュ間のデータの流れ </p>
 

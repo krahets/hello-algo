@@ -16,7 +16,7 @@ $$
 
 정점을 노드로, 간선을 노드들을 연결하는 참조(포인터)로 보면 그래프는 연결 리스트를 확장한 자료 구조로 생각할 수 있다. 아래 그림(9-1)과 같이 **선형 관계(연결 리스트)와 분할 정복 관계(트리)에 비해 네트워크 관계(그래프)는 자유도가 높아 더 복잡하다**.
 
-![연결 리스트, 트리, 그래프 사이의 관계](graph.assets/linkedlist_tree_graph.png){ class="animation-figure" }
+![연결 리스트, 트리, 그래프 사이의 관계](graph.assets/linkedlist_tree_graph.svg){ class="animation-figure" }
 
 <p align="center"> 그림 9-1 &nbsp; 연결 리스트, 트리, 그래프 사이의 관계 </p>
 
@@ -27,7 +27,7 @@ $$
 - 무방향 그래프에서 간선은 두 정점 사이의 '양방향' 연결 관계를 나타낸다. 위챗이나 QQ의 '친구 관계'가 그 예다.
 - 방향 그래프에서 간선은 방향을 가진다. 즉, $A \rightarrow B$와 $A \leftarrow B$ 방향의 간선은 서로 독립적이다. 웨이보나 더우인의 '팔로우'와 '팔로워' 관계가 그 예다.
 
-![방향 그래프와 무방향 그래프](graph.assets/directed_graph.png){ class="animation-figure" }
+![방향 그래프와 무방향 그래프](graph.assets/directed_graph.svg){ class="animation-figure" }
 
 <p align="center"> 그림 9-2 &nbsp; 방향 그래프와 무방향 그래프 </p>
 
@@ -36,13 +36,13 @@ $$
 - 연결 그래프에서는 한 정점에서 출발하여 다른 모든 정점에 도달할 수 있다.
 - 비연결 그래프에서는 한 정점에서 출발했을 때 도달할 수 없는 정점이 하나 이상 존재한다.
 
-![연결 그래프와 비연결 그래프](graph.assets/connected_graph.png){ class="animation-figure" }
+![연결 그래프와 비연결 그래프](graph.assets/connected_graph.svg){ class="animation-figure" }
 
 <p align="center"> 그림 9-3 &nbsp; 연결 그래프와 비연결 그래프 </p>
 
 간선에 '가중치' 변수를 추가하면 아래 그림(9-4)과 같은 <u>가중 그래프(weighted graph)</u>를 얻는다. 예를 들어 『왕자영요』 같은 모바일 게임에서는 함께 게임한 시간을 바탕으로 플레이어 간의 '친밀도'를 계산한다. 이러한 친밀도 네트워크는 가중 그래프로 표현할 수 있다.
 
-![가중 그래프와 비가중 그래프](graph.assets/weighted_graph.png){ class="animation-figure" }
+![가중 그래프와 비가중 그래프](graph.assets/weighted_graph.svg){ class="animation-figure" }
 
 <p align="center"> 그림 9-4 &nbsp; 가중 그래프와 비가중 그래프 </p>
 
@@ -62,7 +62,7 @@ $$
 
 아래 그림(9-5)과 같이 인접 행렬을 $M$, 정점 리스트를 $V$라고 하면, 행렬 원소 $M[i, j] = 1$은 정점 $V[i]$와 정점 $V[j]$ 사이에 간선이 있음을 뜻한다. 반대로 $M[i, j] = 0$은 두 정점 사이에 간선이 없음을 뜻한다.
 
-![그래프의 인접 행렬 표현](graph.assets/adjacency_matrix.png){ class="animation-figure" }
+![그래프의 인접 행렬 표현](graph.assets/adjacency_matrix.svg){ class="animation-figure" }
 
 <p align="center"> 그림 9-5 &nbsp; 그래프의 인접 행렬 표현 </p>
 
@@ -78,7 +78,7 @@ $$
 
 <u>인접 리스트(adjacency list)</u>는 $n$ 개의 연결 리스트로 그래프를 표현하며, 연결 리스트의 노드는 정점을 나타낸다. $i$ 번째 연결 리스트는 정점 $i$에 대응하고, 해당 정점에 인접한 모든 정점(간선으로 연결된 정점)을 저장한다. 아래 그림(9-6)은 인접 리스트로 그래프를 저장한 예다.
 
-![그래프의 인접 리스트 표현](graph.assets/adjacency_list.png){ class="animation-figure" }
+![그래프의 인접 리스트 표현](graph.assets/adjacency_list.svg){ class="animation-figure" }
 
 <p align="center"> 그림 9-6 &nbsp; 그래프의 인접 리스트 표현 </p>
 

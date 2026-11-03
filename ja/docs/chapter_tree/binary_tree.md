@@ -209,7 +209,7 @@ comments: true
 
 **二分木では、葉以外のすべてのノードが、子ノードと空でない部分木を持ちます**。図 7-1 で「ノード 2」を親とすると、左右の子は「ノード 4」と「ノード 5」です。左部分木はノード 4 とその下のノードが作る木、右部分木はノード 5 とその下のノードが作る木です。
 
-![親ノード、子ノード、部分木](binary_tree.assets/binary_tree_definition.png){ class="animation-figure" }
+![親ノード、子ノード、部分木](binary_tree.assets/binary_tree_definition.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-1 &nbsp; 親ノード、子ノード、部分木 </p>
 
@@ -226,7 +226,7 @@ comments: true
 - ノードの<u>深さ（depth）</u>：根からそのノードまでに通る辺の数です。
 - ノードの<u>高さ（height）</u>：そのノードから最も遠い葉と、そのノードとの間にある辺の数です。
 
-![二分木の主な用語](binary_tree.assets/binary_tree_terminology.png){ class="animation-figure" }
+![二分木の主な用語](binary_tree.assets/binary_tree_terminology.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-2 &nbsp; 二分木の主な用語 </p>
 
@@ -466,7 +466,7 @@ comments: true
 
 連結リストと同様に、ポインタを変更してノードを挿入・削除できます。図 7-3 に例を示します。
 
-![二分木でのノードの挿入と削除](binary_tree.assets/binary_tree_add_remove.png){ class="animation-figure" }
+![二分木でのノードの挿入と削除](binary_tree.assets/binary_tree_add_remove.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-3 &nbsp; 二分木でのノードの挿入と削除 </p>
 
@@ -645,7 +645,7 @@ comments: true
 
     中国語圏では、パーフェクト二分木は<u>「满二叉树」</u>ともよく呼ばれます。
 
-![パーフェクト二分木](binary_tree.assets/perfect_binary_tree.png){ class="animation-figure" }
+![パーフェクト二分木](binary_tree.assets/perfect_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-4 &nbsp; パーフェクト二分木 </p>
 
@@ -653,7 +653,7 @@ comments: true
 
 図 7-5 の<u>完全二分木（complete binary tree）</u>では、最下層だけが完全に埋まっていなくてもよく、その層のノードは左から右へ連続して埋まっている必要があります。パーフェクト二分木も、完全二分木の一種です。
 
-![完全二分木](binary_tree.assets/complete_binary_tree.png){ class="animation-figure" }
+![完全二分木](binary_tree.assets/complete_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-5 &nbsp; 完全二分木 </p>
 
@@ -661,7 +661,7 @@ comments: true
 
 図 7-6 の<u>全二分木（full binary tree）</u>では、葉以外のすべてのノードが二つの子を持ちます。
 
-![全二分木](binary_tree.assets/full_binary_tree.png){ class="animation-figure" }
+![全二分木](binary_tree.assets/full_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-6 &nbsp; 全二分木 </p>
 
@@ -669,7 +669,7 @@ comments: true
 
 図 7-7 の<u>平衡二分木（balanced binary tree）</u>では、どのノードでも左右の部分木の高さの差の絶対値が 1 以下です。
 
-![平衡二分木](binary_tree.assets/balanced_binary_tree.png){ class="animation-figure" }
+![平衡二分木](binary_tree.assets/balanced_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-7 &nbsp; 平衡二分木 </p>
 
@@ -680,7 +680,7 @@ comments: true
 - パーフェクト二分木は理想的な場合で、分割統治の利点を十分に発揮できます。
 - 連結リストはもう一方の極端な場合で、各操作が線形になり、時間計算量は $O(n)$ に悪化します。
 
-![二分木の最良と最悪の構造](binary_tree.assets/binary_tree_best_worst_cases.png){ class="animation-figure" }
+![二分木の最良と最悪の構造](binary_tree.assets/binary_tree_best_worst_cases.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-8 &nbsp; 二分木の最良と最悪の構造 </p>
 

@@ -16,7 +16,7 @@ comments: true
 
 Этот метод подходит только для случая $k \ll n$ , потому что когда $k$ приближается к $n$ , его временная сложность стремится к $O(n^2)$ , а это уже очень затратно.
 
-![Поиск наибольших k элементов через обход](top_k.assets/top_k_traversal.png){ class="animation-figure" }
+![Поиск наибольших k элементов через обход](top_k.assets/top_k_traversal.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 8-6 &nbsp; Поиск наибольших k элементов через обход </p>
 
@@ -30,7 +30,7 @@ comments: true
 
 Очевидно, что этот способ делает слишком много, потому что нам нужно только найти наибольшие $k$ элементов, а сортировать остальные элементы совсем не обязательно.
 
-![Поиск наибольших k элементов через сортировку](top_k.assets/top_k_sorting.png){ class="animation-figure" }
+![Поиск наибольших k элементов через сортировку](top_k.assets/top_k_sorting.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 8-7 &nbsp; Поиск наибольших k элементов через сортировку </p>
 
@@ -44,31 +44,31 @@ comments: true
 4. После завершения обхода в куче будут храниться как раз наибольшие $k$ элементов.
 
 === "<1>"
-    ![Поиск наибольших k элементов с помощью кучи](top_k.assets/top_k_heap_step1.png){ class="animation-figure" }
+    ![Поиск наибольших k элементов с помощью кучи](top_k.assets/top_k_heap_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![top_k_heap_step2](top_k.assets/top_k_heap_step2.png){ class="animation-figure" }
+    ![top_k_heap_step2](top_k.assets/top_k_heap_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![top_k_heap_step3](top_k.assets/top_k_heap_step3.png){ class="animation-figure" }
+    ![top_k_heap_step3](top_k.assets/top_k_heap_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![top_k_heap_step4](top_k.assets/top_k_heap_step4.png){ class="animation-figure" }
+    ![top_k_heap_step4](top_k.assets/top_k_heap_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![top_k_heap_step5](top_k.assets/top_k_heap_step5.png){ class="animation-figure" }
+    ![top_k_heap_step5](top_k.assets/top_k_heap_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![top_k_heap_step6](top_k.assets/top_k_heap_step6.png){ class="animation-figure" }
+    ![top_k_heap_step6](top_k.assets/top_k_heap_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![top_k_heap_step7](top_k.assets/top_k_heap_step7.png){ class="animation-figure" }
+    ![top_k_heap_step7](top_k.assets/top_k_heap_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![top_k_heap_step8](top_k.assets/top_k_heap_step8.png){ class="animation-figure" }
+    ![top_k_heap_step8](top_k.assets/top_k_heap_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![top_k_heap_step9](top_k.assets/top_k_heap_step9.png){ class="animation-figure" }
+    ![top_k_heap_step9](top_k.assets/top_k_heap_step9.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 8-8 &nbsp; Поиск наибольших k элементов с помощью кучи </p>
 

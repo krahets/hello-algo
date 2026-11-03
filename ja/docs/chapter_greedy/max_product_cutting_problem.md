@@ -8,7 +8,7 @@ comments: true
 
     正の整数 $n$ を、少なくとも二つの正の整数の和に分けます。分割後のすべての整数の積の最大値を求めてください。図 15-13 に例を示します。
 
-![整数を分割して積を最大にする問題の定義](max_product_cutting_problem.assets/max_product_cutting_definition.png){ class="animation-figure" }
+![整数を分割して積を最大にする問題の定義](max_product_cutting_problem.assets/max_product_cutting_definition.svg){ class="animation-figure" }
 
 <p align="center"> 図 15-13 &nbsp; 整数を分割して積を最大にする問題の定義 </p>
 
@@ -42,7 +42,7 @@ $$
 
 **貪欲戦略 1**：分割結果に $\geq 4$ の因数が含まれるなら、それをさらに分割します。最終的に残る因数は、$1$、$2$、$3$ の 3 種類だけにします。
 
-![分割によって積が大きくなる](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png){ class="animation-figure" }
+![分割によって積が大きくなる](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.svg){ class="animation-figure" }
 
 <p align="center"> 図 15-14 &nbsp; 分割によって積が大きくなる </p>
 
@@ -52,7 +52,7 @@ $$
 
 **貪欲戦略 2**：分割結果の $2$ は、多くても二つにします。三つの $2$ は常に二つの $3$ に置き換えられ、その方が積が大きくなるためです。
 
-![最適な分割の因数](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png){ class="animation-figure" }
+![最適な分割の因数](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.svg){ class="animation-figure" }
 
 <p align="center"> 図 15-15 &nbsp; 最適な分割の因数 </p>
 
@@ -391,7 +391,7 @@ $$
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=import%20math%0A%0Adef%20max_product_cutting%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%88%86%E5%89%B2%E5%BE%8C%E3%81%AE%E7%A9%8D%E3%81%AE%E6%9C%80%E5%A4%A7%E5%8C%96%EF%BC%9A%E8%B2%AA%E6%AC%B2%E6%B3%95%22%22%22%0A%20%20%20%20%23%20n%20%3C%3D%203%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E5%BF%85%E3%81%9A%201%20%E3%82%92%201%20%E3%81%A4%E5%88%87%E3%82%8A%E5%87%BA%E3%81%99%E5%BF%85%E8%A6%81%E3%81%8C%E3%81%82%E3%82%8B%0A%20%20%20%20if%20n%20%3C%3D%203%3A%0A%20%20%20%20%20%20%20%20return%201%20%2A%20%28n%20-%201%29%0A%20%20%20%20%23%20%E8%B2%AA%E6%AC%B2%E3%81%AB%203%20%E3%82%92%E5%88%87%E3%82%8A%E5%87%BA%E3%81%99%E3%80%82a%20%E3%81%AF%203%20%E3%81%AE%E5%80%8B%E6%95%B0%E3%80%81b%20%E3%81%AF%E4%BD%99%E3%82%8A%0A%20%20%20%20a,%20b%20%3D%20n%20//%203,%20n%20%25%203%0A%20%20%20%20if%20b%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%201%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%811%20%2A%203%20%E3%81%AE%E7%B5%84%E3%82%92%202%20%2A%202%20%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%20-%201%29%29%20%2A%202%20%2A%202%0A%20%20%20%20if%20b%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%202%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E4%BD%95%E3%82%82%E3%81%97%E3%81%AA%E3%81%84%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%29%29%20%2A%202%0A%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%200%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E4%BD%95%E3%82%82%E3%81%97%E3%81%AA%E3%81%84%0A%20%20%20%20return%20int%28math.pow%283,%20a%29%29%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2058%0A%0A%20%20%20%20%23%20%E8%B2%AA%E6%AC%B2%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0%0A%20%20%20%20res%20%3D%20max_product_cutting%28n%29%0A%20%20%20%20print%28f%22%E5%88%86%E5%89%B2%E5%BE%8C%E3%81%AE%E7%A9%8D%E3%81%AE%E6%9C%80%E5%A4%A7%E5%80%A4%E3%81%AF%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
     <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20math%0A%0Adef%20max_product_cutting%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%88%86%E5%89%B2%E5%BE%8C%E3%81%AE%E7%A9%8D%E3%81%AE%E6%9C%80%E5%A4%A7%E5%8C%96%EF%BC%9A%E8%B2%AA%E6%AC%B2%E6%B3%95%22%22%22%0A%20%20%20%20%23%20n%20%3C%3D%203%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E5%BF%85%E3%81%9A%201%20%E3%82%92%201%20%E3%81%A4%E5%88%87%E3%82%8A%E5%87%BA%E3%81%99%E5%BF%85%E8%A6%81%E3%81%8C%E3%81%82%E3%82%8B%0A%20%20%20%20if%20n%20%3C%3D%203%3A%0A%20%20%20%20%20%20%20%20return%201%20%2A%20%28n%20-%201%29%0A%20%20%20%20%23%20%E8%B2%AA%E6%AC%B2%E3%81%AB%203%20%E3%82%92%E5%88%87%E3%82%8A%E5%87%BA%E3%81%99%E3%80%82a%20%E3%81%AF%203%20%E3%81%AE%E5%80%8B%E6%95%B0%E3%80%81b%20%E3%81%AF%E4%BD%99%E3%82%8A%0A%20%20%20%20a,%20b%20%3D%20n%20//%203,%20n%20%25%203%0A%20%20%20%20if%20b%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%201%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%811%20%2A%203%20%E3%81%AE%E7%B5%84%E3%82%92%202%20%2A%202%20%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%20-%201%29%29%20%2A%202%20%2A%202%0A%20%20%20%20if%20b%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%202%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E4%BD%95%E3%82%82%E3%81%97%E3%81%AA%E3%81%84%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%29%29%20%2A%202%0A%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%200%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E4%BD%95%E3%82%82%E3%81%97%E3%81%AA%E3%81%84%0A%20%20%20%20return%20int%28math.pow%283,%20a%29%29%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2058%0A%0A%20%20%20%20%23%20%E8%B2%AA%E6%AC%B2%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0%0A%20%20%20%20res%20%3D%20max_product_cutting%28n%29%0A%20%20%20%20print%28f%22%E5%88%86%E5%89%B2%E5%BE%8C%E3%81%AE%E7%A9%8D%E3%81%AE%E6%9C%80%E5%A4%A7%E5%80%A4%E3%81%AF%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-![分割後の最大の積の計算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png){ class="animation-figure" }
+![分割後の最大の積の計算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.svg){ class="animation-figure" }
 
 <p align="center"> 図 15-16 &nbsp; 分割後の最大の積の計算方法 </p>
 

@@ -32,7 +32,7 @@ comments: true
 
 아래 그림(13-5)과 같이 탐색 과정을 재귀 트리로 펼칠 수 있다. 각 노드는 현재 상태 `state`를 나타낸다. 루트에서 시작해 세 차례 선택하면 리프에 도달하며, 각 리프 노드는 순열 하나에 대응한다.
 
-![모든 순열의 재귀 트리](permutations_problem.assets/permutations_i.png){ class="animation-figure" }
+![모든 순열의 재귀 트리](permutations_problem.assets/permutations_i.svg){ class="animation-figure" }
 
 <p align="center"> 그림 13-5 &nbsp; 모든 순열의 재귀 트리 </p>
 
@@ -45,7 +45,7 @@ comments: true
 
 아래 그림(13-6)처럼 첫 번째에 1, 두 번째에 3, 세 번째에 2를 선택한다면, 두 번째에서는 원소 1의 가지를, 세 번째에서는 원소 1과 3의 가지를 잘라 내야 한다.
 
-![모든 순열의 가지치기 예시](permutations_problem.assets/permutations_i_pruning.png){ class="animation-figure" }
+![모든 순열의 가지치기 예시](permutations_problem.assets/permutations_i_pruning.svg){ class="animation-figure" }
 
 <p align="center"> 그림 13-6 &nbsp; 모든 순열의 가지치기 예시 </p>
 
@@ -553,7 +553,7 @@ comments: true
 
 아래 그림(13-7)과 같이 앞의 방법으로 만든 순열의 절반은 중복된다.
 
-![중복된 순열](permutations_problem.assets/permutations_ii.png){ class="animation-figure" }
+![중복된 순열](permutations_problem.assets/permutations_ii.svg){ class="animation-figure" }
 
 <p align="center"> 그림 13-7 &nbsp; 중복된 순열 </p>
 
@@ -567,7 +567,7 @@ comments: true
 
 본질적으로 **한 차례의 선택에서 값이 같은 여러 원소를 한 번만 선택하도록 보장하는 것**이 목표다.
 
-![중복된 순열 가지치기](permutations_problem.assets/permutations_ii_pruning.png){ class="animation-figure" }
+![중복된 순열 가지치기](permutations_problem.assets/permutations_ii_pruning.svg){ class="animation-figure" }
 
 <p align="center"> 그림 13-8 &nbsp; 중복된 순열 가지치기 </p>
 
@@ -1103,6 +1103,6 @@ comments: true
 
 아래 그림(13-9)은 두 가지 가지치기 조건이 적용되는 범위를 보여 준다. 각 트리 노드는 선택 하나를 나타내며, 루트에서 리프까지의 경로에 있는 노드들이 하나의 순열을 이룬다.
 
-![두 가지 가지치기 조건의 적용 범위](permutations_problem.assets/permutations_ii_pruning_summary.png){ class="animation-figure" }
+![두 가지 가지치기 조건의 적용 범위](permutations_problem.assets/permutations_ii_pruning_summary.svg){ class="animation-figure" }
 
 <p align="center"> 그림 13-9 &nbsp; 두 가지 가지치기 조건의 적용 범위 </p>

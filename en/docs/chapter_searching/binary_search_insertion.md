@@ -12,7 +12,7 @@ Binary search can do more than find a target element. It also solves many variat
 
     Given a sorted array `nums` of length $n$ with no duplicate elements and a value `target`, insert `target` into `nums` while preserving its order. If `target` is already present, insert the new value to its left. Return the index of the newly inserted `target`, as illustrated below.
 
-![Example data for finding an insertion point](binary_search_insertion.assets/binary_search_insertion_example.png){ class="animation-figure" }
+![Example data for finding an insertion point](binary_search_insertion.assets/binary_search_insertion_example.svg){ class="animation-figure" }
 
 <p align="center"> Figure 10-4 &nbsp; Example data for finding an insertion point </p>
 
@@ -333,7 +333,7 @@ The target must be inserted as far left as possible, **so we need the index of t
 1. Run binary search to find the index of any `target`, denoted by $k$.
 2. Starting at index $k$, scan leftward and return when the leftmost `target` is reached.
 
-![Finding the insertion point among duplicates with a linear scan](binary_search_insertion.assets/binary_search_insertion_naive.png){ class="animation-figure" }
+![Finding the insertion point among duplicates with a linear scan](binary_search_insertion.assets/binary_search_insertion_naive.svg){ class="animation-figure" }
 
 <p align="center"> Figure 10-5 &nbsp; Finding the insertion point among duplicates with a linear scan </p>
 
@@ -347,28 +347,28 @@ Now consider extending binary search itself. As shown below, the overall process
 When the loop finishes, $i$ points to the leftmost `target`, and $j$ points to the rightmost element smaller than `target`. **Index $i$ is therefore the insertion point**.
 
 === "<1>"
-    ![Steps for finding an insertion point among duplicates](binary_search_insertion.assets/binary_search_insertion_step1.png){ class="animation-figure" }
+    ![Steps for finding an insertion point among duplicates](binary_search_insertion.assets/binary_search_insertion_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![binary_search_insertion_step2](binary_search_insertion.assets/binary_search_insertion_step2.png){ class="animation-figure" }
+    ![binary_search_insertion_step2](binary_search_insertion.assets/binary_search_insertion_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![binary_search_insertion_step3](binary_search_insertion.assets/binary_search_insertion_step3.png){ class="animation-figure" }
+    ![binary_search_insertion_step3](binary_search_insertion.assets/binary_search_insertion_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![binary_search_insertion_step4](binary_search_insertion.assets/binary_search_insertion_step4.png){ class="animation-figure" }
+    ![binary_search_insertion_step4](binary_search_insertion.assets/binary_search_insertion_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![binary_search_insertion_step5](binary_search_insertion.assets/binary_search_insertion_step5.png){ class="animation-figure" }
+    ![binary_search_insertion_step5](binary_search_insertion.assets/binary_search_insertion_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![binary_search_insertion_step6](binary_search_insertion.assets/binary_search_insertion_step6.png){ class="animation-figure" }
+    ![binary_search_insertion_step6](binary_search_insertion.assets/binary_search_insertion_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![binary_search_insertion_step7](binary_search_insertion.assets/binary_search_insertion_step7.png){ class="animation-figure" }
+    ![binary_search_insertion_step7](binary_search_insertion.assets/binary_search_insertion_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![binary_search_insertion_step8](binary_search_insertion.assets/binary_search_insertion_step8.png){ class="animation-figure" }
+    ![binary_search_insertion_step8](binary_search_insertion.assets/binary_search_insertion_step8.svg){ class="animation-figure" }
 
 <p align="center"> Figure 10-6 &nbsp; Steps for finding an insertion point among duplicates </p>
 

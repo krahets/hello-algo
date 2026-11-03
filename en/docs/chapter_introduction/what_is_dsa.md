@@ -33,7 +33,7 @@ As Figure 1-4 shows, data structures and algorithms are closely intertwined in t
 - Algorithms bring data structures to life. A data structure by itself only stores information; it must be combined with an algorithm to solve a specific problem.
 - An algorithm can often be implemented using different data structures, but its efficiency may vary greatly. Choosing the right data structure is crucial.
 
-![The relationship between data structures and algorithms](what_is_dsa.assets/relationship_between_data_structure_and_algorithm.png){ class="animation-figure" }
+![The relationship between data structures and algorithms](what_is_dsa.assets/relationship_between_data_structure_and_algorithm.svg){ class="animation-figure" }
 
 <p align="center"> Figure 1-4 &nbsp; The relationship between data structures and algorithms </p>
 

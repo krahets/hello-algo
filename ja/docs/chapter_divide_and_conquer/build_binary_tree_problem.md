@@ -8,7 +8,7 @@ comments: true
 
     二分木の行きがけ順走査 `preorder` と通りがけ順走査 `inorder` が与えられます。これらから二分木を構築し、根ノードを返してください。二分木には同じ値を持つノードがないものとします（図 12-5 参照）。
 
-![二分木の構築に使うデータの例](build_binary_tree_problem.assets/build_tree_example.png){ class="animation-figure" }
+![二分木の構築に使うデータの例](build_binary_tree_problem.assets/build_tree_example.svg){ class="animation-figure" }
 
 <p align="center"> 図 12-5 &nbsp; 二分木の構築に使うデータの例 </p>
 
@@ -35,7 +35,7 @@ comments: true
 2. 根ノード 3 の `inorder` 内のインデックスを探します。そのインデックスを使うと、`inorder` を `[ 9 | 3 | 1 2 7 ]` に分割できます。
 3. `inorder` の分割結果から、左部分木と右部分木のノード数がそれぞれ 1 と 3 であることがわかります。そのため、`preorder` を `[ 3 | 9 | 2 1 7 ]` に分割できます。
 
-![行きがけ順走査と通りがけ順走査で部分木を分割する](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png){ class="animation-figure" }
+![行きがけ順走査と通りがけ順走査で部分木を分割する](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.svg){ class="animation-figure" }
 
 <p align="center"> 図 12-6 &nbsp; 行きがけ順走査と通りがけ順走査で部分木を分割する </p>
 
@@ -63,7 +63,7 @@ comments: true
 
 右部分木の根ノードのインデックスに含まれる $(m-l)$ は、「左部分木のノード数」を表すことに注意してください。図 12-7 とあわせて考えると理解しやすくなります。
 
-![根ノードと左右の部分木のインデックス区間](build_binary_tree_problem.assets/build_tree_division_pointers.png){ class="animation-figure" }
+![根ノードと左右の部分木のインデックス区間](build_binary_tree_problem.assets/build_tree_division_pointers.svg){ class="animation-figure" }
 
 <p align="center"> 図 12-7 &nbsp; 根ノードと左右の部分木のインデックス区間 </p>
 
@@ -520,37 +520,37 @@ $m$ を効率よく調べられるよう、ハッシュテーブル `hmap` に�
 図 12-8 に、二分木を構築する再帰の流れを示します。各ノードは再帰呼び出しを下に進める過程で作られ、各辺（参照）は上に戻る過程で作られます。
 
 === "<1>"
-    ![二分木を構築する再帰の流れ](build_binary_tree_problem.assets/built_tree_step1.png){ class="animation-figure" }
+    ![二分木を構築する再帰の流れ](build_binary_tree_problem.assets/built_tree_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![二分木の構築：手順 2](build_binary_tree_problem.assets/built_tree_step2.png){ class="animation-figure" }
+    ![二分木の構築：手順 2](build_binary_tree_problem.assets/built_tree_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![二分木の構築：手順 3](build_binary_tree_problem.assets/built_tree_step3.png){ class="animation-figure" }
+    ![二分木の構築：手順 3](build_binary_tree_problem.assets/built_tree_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![二分木の構築：手順 4](build_binary_tree_problem.assets/built_tree_step4.png){ class="animation-figure" }
+    ![二分木の構築：手順 4](build_binary_tree_problem.assets/built_tree_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![二分木の構築：手順 5](build_binary_tree_problem.assets/built_tree_step5.png){ class="animation-figure" }
+    ![二分木の構築：手順 5](build_binary_tree_problem.assets/built_tree_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![二分木の構築：手順 6](build_binary_tree_problem.assets/built_tree_step6.png){ class="animation-figure" }
+    ![二分木の構築：手順 6](build_binary_tree_problem.assets/built_tree_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![二分木の構築：手順 7](build_binary_tree_problem.assets/built_tree_step7.png){ class="animation-figure" }
+    ![二分木の構築：手順 7](build_binary_tree_problem.assets/built_tree_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![二分木の構築：手順 8](build_binary_tree_problem.assets/built_tree_step8.png){ class="animation-figure" }
+    ![二分木の構築：手順 8](build_binary_tree_problem.assets/built_tree_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![二分木の構築：手順 9](build_binary_tree_problem.assets/built_tree_step9.png){ class="animation-figure" }
+    ![二分木の構築：手順 9](build_binary_tree_problem.assets/built_tree_step9.svg){ class="animation-figure" }
 
 <p align="center"> 図 12-8 &nbsp; 二分木を構築する再帰の流れ </p>
 
 各再帰関数内での行きがけ順走査 `preorder` と通りがけ順走査 `inorder` の分割結果を図 12-9 に示します。
 
-![各再帰関数内での分割結果](build_binary_tree_problem.assets/built_tree_overall.png){ class="animation-figure" }
+![各再帰関数内での分割結果](build_binary_tree_problem.assets/built_tree_overall.svg){ class="animation-figure" }
 
 <p align="center"> 図 12-9 &nbsp; 各再帰関数内での分割結果 </p>
 

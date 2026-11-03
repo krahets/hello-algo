@@ -338,7 +338,7 @@ comments: true
 
 接下來我們來進行更為準確的計算。為了降低計算難度，假設給定一個節點數量為 $n$ 、高度為 $h$ 的“完美二元樹”，該假設不會影響計算結果的正確性。
 
-![完美二元樹的各層節點數量](build_heap.assets/heapify_operations_count.png){ class="animation-figure" }
+![完美二元樹的各層節點數量](build_heap.assets/heapify_operations_count.svg){ class="animation-figure" }
 
 <p align="center"> 圖 8-5 &nbsp; 完美二元樹的各層節點數量 </p>
 

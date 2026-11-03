@@ -14,7 +14,7 @@ comments: true
 
 これは本質的に<u>幅優先走査（breadth-first traversal）</u>であり、<u>幅優先探索（breadth-first search, BFS）</u>とも呼びます。一周ずつ外へ広がるように、層ごとに走査する方法です。
 
-![二分木のレベル順走査](binary_tree_traversal.assets/binary_tree_bfs.png){ class="animation-figure" }
+![二分木のレベル順走査](binary_tree_traversal.assets/binary_tree_bfs.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-9 &nbsp; 二分木のレベル順走査 </p>
 
@@ -350,7 +350,7 @@ comments: true
 
 図 7-10 は二分木の深さ優先走査の仕組みです。**木全体の外周を一周歩くようなものです**。各ノードで三つの位置を通り、それぞれが行きがけ順、通りがけ順、帰りがけ順に対応します。
 
-![二分探索木の行きがけ順・通りがけ順・帰りがけ順走査](binary_tree_traversal.assets/binary_tree_dfs.png){ class="animation-figure" }
+![二分探索木の行きがけ順・通りがけ順・帰りがけ順走査](binary_tree_traversal.assets/binary_tree_dfs.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-10 &nbsp; 二分探索木の行きがけ順・通りがけ順・帰りがけ順走査 </p>
 
@@ -834,37 +834,37 @@ comments: true
 2. 「戻り」は関数から戻ることで、現在のノードの訪問が終わったことを表します。
 
 === "<1>"
-    ![行きがけ順走査の再帰過程](binary_tree_traversal.assets/preorder_step1.png){ class="animation-figure" }
+    ![行きがけ順走査の再帰過程](binary_tree_traversal.assets/preorder_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![行きがけ順走査の手順 2](binary_tree_traversal.assets/preorder_step2.png){ class="animation-figure" }
+    ![行きがけ順走査の手順 2](binary_tree_traversal.assets/preorder_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![行きがけ順走査の手順 3](binary_tree_traversal.assets/preorder_step3.png){ class="animation-figure" }
+    ![行きがけ順走査の手順 3](binary_tree_traversal.assets/preorder_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![行きがけ順走査の手順 4](binary_tree_traversal.assets/preorder_step4.png){ class="animation-figure" }
+    ![行きがけ順走査の手順 4](binary_tree_traversal.assets/preorder_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![行きがけ順走査の手順 5](binary_tree_traversal.assets/preorder_step5.png){ class="animation-figure" }
+    ![行きがけ順走査の手順 5](binary_tree_traversal.assets/preorder_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![行きがけ順走査の手順 6](binary_tree_traversal.assets/preorder_step6.png){ class="animation-figure" }
+    ![行きがけ順走査の手順 6](binary_tree_traversal.assets/preorder_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![行きがけ順走査の手順 7](binary_tree_traversal.assets/preorder_step7.png){ class="animation-figure" }
+    ![行きがけ順走査の手順 7](binary_tree_traversal.assets/preorder_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![行きがけ順走査の手順 8](binary_tree_traversal.assets/preorder_step8.png){ class="animation-figure" }
+    ![行きがけ順走査の手順 8](binary_tree_traversal.assets/preorder_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![行きがけ順走査の手順 9](binary_tree_traversal.assets/preorder_step9.png){ class="animation-figure" }
+    ![行きがけ順走査の手順 9](binary_tree_traversal.assets/preorder_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![行きがけ順走査の手順 10](binary_tree_traversal.assets/preorder_step10.png){ class="animation-figure" }
+    ![行きがけ順走査の手順 10](binary_tree_traversal.assets/preorder_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![行きがけ順走査の手順 11](binary_tree_traversal.assets/preorder_step11.png){ class="animation-figure" }
+    ![行きがけ順走査の手順 11](binary_tree_traversal.assets/preorder_step11.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-11 &nbsp; 行きがけ順走査の再帰過程 </p>
 

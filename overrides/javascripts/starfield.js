@@ -20,7 +20,6 @@
 
     const reduced = matchMedia("(prefers-reduced-motion: reduce)");
     const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
-    const mobile = matchMedia("(max-width: 900px)");
     const listeners = [];
     const on = (target, type, fn) => {
       target.addEventListener(type, fn);
@@ -74,12 +73,11 @@
     try { paused = sessionStorage.getItem("hello-algo:hero-paused") === "true"; } catch (_) { /* Storage is optional. */ }
 
     const staticMotion = () => reduced.matches || paused;
-    const listLayout = () => mobile.matches && ["hero-div--en", "hero-div--ru", "hero-div--ja"].some(name => map.classList.contains(name));
     const canRun = () => !destroyed && visible && !suspended && !document.hidden && !staticMotion();
     const wrap = (n, size) => ((n % size) + size) % size;
 
     function renderObjects() {
-      const enabled = !reduced.matches && !listLayout();
+      const enabled = !reduced.matches;
       if (!enabled) items.forEach(item => restoreImage(item.image));
       if (planets) {
         try { planets.render(time, enabled, pointer); }
@@ -94,7 +92,7 @@
     }
 
     function loadObjects() {
-      if (objectsRequested || destroyed || !visible || reduced.matches || listLayout()) return;
+      if (objectsRequested || destroyed || !visible || reduced.matches) return;
       objectsRequested = true;
       const planetReady = import(new URL("hero-planets.js", moduleBase).href).then(module => {
         if (destroyed) return;
@@ -144,7 +142,7 @@
       const mix = 1 - Math.exp(-dt * 5);
       pointer.x += (target.x - pointer.x) * mix;
       pointer.y += (target.y - pointer.y) * mix;
-      const still = staticMotion() || listLayout();
+      const still = staticMotion();
       const central = item => item.astronaut || item.image.dataset.heroAsset === 'chapter_computational_complexity';
       const centralSelected = items.some(item => central(item) && (item.anchor === hovered || item.anchor === focused));
       for (const item of items) {
@@ -239,7 +237,7 @@
         speed: 0.35 + random() * 0.45,
         color: ["#d0dedc", "#c5d2e8", "#e3d5bf"][i % 3],
       }));
-      if (!paused || reduced.matches || listLayout()) moveIllustrations(0);
+      if (!paused || reduced.matches) moveIllustrations(0);
       drawStars();
       planets?.resize();
       renderObjects();
@@ -251,7 +249,6 @@
       for (const item of items) {
         if (!item.label) continue;
         item.label.style.marginLeft = item.originalLabelMargin;
-        if (listLayout()) continue;
         const bounds = item.label.getBoundingClientRect();
         const nudge = Math.max(left - bounds.left, Math.min(0, right - bounds.right));
         const base = parseFloat(getComputedStyle(item.label).marginLeft) || 0;
@@ -291,7 +288,6 @@
     });
     on(reduced, "change", updatePlayback);
     on(finePointer, "change", () => { target = { x: 0, y: 0 }; resize(); });
-    on(mobile, "change", resize);
     on(document, "visibilitychange", updatePlayback);
     on(window, "pagehide", () => { suspended = true; updatePlayback(); });
     on(window, "pageshow", () => { suspended = false; updatePlayback(); });
@@ -302,7 +298,7 @@
     const intersectionObserver = new IntersectionObserver(entries => {
       visible = entries[0].isIntersecting;
       updatePlayback();
-      if (!objectsRequested && (!visible || reduced.matches || listLayout())) settleReady();
+      if (!objectsRequested && (!visible || reduced.matches)) settleReady();
     });
     intersectionObserver.observe(hero);
 

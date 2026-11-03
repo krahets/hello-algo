@@ -16,7 +16,7 @@ For the student IDs, number the least significant digit as $1$ and the most sign
 2. Apply counting sort to the $k$th digit of each student ID. The data is now sorted in ascending order by its $k$th digit.
 3. Increase the digit position $k$ by $1$ and return to step `2.`. Continue until all digit positions have been processed.
 
-![The radix sort process](radix_sort.assets/radix_sort_overview.png){ class="animation-figure" }
+![The radix sort process](radix_sort.assets/radix_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> Figure 11-18 &nbsp; The radix sort process </p>
 

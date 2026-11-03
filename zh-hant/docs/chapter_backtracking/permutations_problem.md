@@ -32,7 +32,7 @@ comments: true
 
 如圖 13-5 所示，我們可以將搜尋過程展開成一棵遞迴樹，樹中的每個節點代表當前狀態 `state` 。從根節點開始，經過三輪選擇後到達葉節點，每個葉節點都對應一個排列。
 
-![全排列的遞迴樹](permutations_problem.assets/permutations_i.png){ class="animation-figure" }
+![全排列的遞迴樹](permutations_problem.assets/permutations_i.svg){ class="animation-figure" }
 
 <p align="center"> 圖 13-5 &nbsp; 全排列的遞迴樹 </p>
 
@@ -45,7 +45,7 @@ comments: true
 
 如圖 13-6 所示，假設我們第一輪選擇 1 ，第二輪選擇 3 ，第三輪選擇 2 ，則需要在第二輪剪掉元素 1 的分支，在第三輪剪掉元素 1 和元素 3 的分支。
 
-![全排列剪枝示例](permutations_problem.assets/permutations_i_pruning.png){ class="animation-figure" }
+![全排列剪枝示例](permutations_problem.assets/permutations_i_pruning.svg){ class="animation-figure" }
 
 <p align="center"> 圖 13-6 &nbsp; 全排列剪枝示例 </p>
 
@@ -553,7 +553,7 @@ comments: true
 
 如圖 13-7 所示，上述方法生成的排列有一半是重複的。
 
-![重複排列](permutations_problem.assets/permutations_ii.png){ class="animation-figure" }
+![重複排列](permutations_problem.assets/permutations_ii.svg){ class="animation-figure" }
 
 <p align="center"> 圖 13-7 &nbsp; 重複排列 </p>
 
@@ -567,7 +567,7 @@ comments: true
 
 從本質上看，**我們的目標是在某一輪選擇中，保證多個相等的元素僅被選擇一次**。
 
-![重複排列剪枝](permutations_problem.assets/permutations_ii_pruning.png){ class="animation-figure" }
+![重複排列剪枝](permutations_problem.assets/permutations_ii_pruning.svg){ class="animation-figure" }
 
 <p align="center"> 圖 13-8 &nbsp; 重複排列剪枝 </p>
 
@@ -1103,6 +1103,6 @@ comments: true
 
 圖 13-9 展示了兩個剪枝條件的生效範圍。注意，樹中的每個節點代表一個選擇，從根節點到葉節點的路徑上的各個節點構成一個排列。
 
-![兩種剪枝條件的作用範圍](permutations_problem.assets/permutations_ii_pruning_summary.png){ class="animation-figure" }
+![兩種剪枝條件的作用範圍](permutations_problem.assets/permutations_ii_pruning_summary.svg){ class="animation-figure" }
 
 <p align="center"> 圖 13-9 &nbsp; 兩種剪枝條件的作用範圍 </p>

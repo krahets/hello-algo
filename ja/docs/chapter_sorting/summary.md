@@ -16,7 +16,7 @@ comments: true
 - 理想的には、高効率、安定、インプレース、適応性などの利点を備えたソートが望まれます。しかし、ほかのデータ構造やアルゴリズムと同じく、すべてを満たす方法はありません。実際には、データの特徴に応じて選ぶ必要があります。
 - 図 11-19 で、主なソートアルゴリズムの効率、安定性、インプレース性、適応性などを比較します。
 
-![ソートアルゴリズムの比較](summary.assets/sorting_algorithms_comparison.png){ class="animation-figure" }
+![ソートアルゴリズムの比較](summary.assets/sorting_algorithms_comparison.svg){ class="animation-figure" }
 
 <p align="center"> 図 11-19 &nbsp; ソートアルゴリズムの比較 </p>
 

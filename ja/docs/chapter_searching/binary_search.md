@@ -10,7 +10,7 @@ comments: true
 
     長さ $n$ の配列 `nums` が与えられます。要素は昇順に並び、重複しません。要素 `target` を探し、そのインデックスを返してください。配列にその要素が含まれない場合は $-1$ を返します。例を図 10-1 に示します。
 
-![二分探索の入力例](binary_search.assets/binary_search_example.png){ class="animation-figure" }
+![二分探索の入力例](binary_search.assets/binary_search_example.svg){ class="animation-figure" }
 
 <p align="center"> 図 10-1 &nbsp; 二分探索の入力例 </p>
 
@@ -27,25 +27,25 @@ comments: true
 配列に目的の要素が含まれない場合、探索区間は最終的に空になります。このときは $-1$ を返します。
 
 === "<1>"
-    ![二分探索の流れ](binary_search.assets/binary_search_step1.png){ class="animation-figure" }
+    ![二分探索の流れ](binary_search.assets/binary_search_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![二分探索の手順 2](binary_search.assets/binary_search_step2.png){ class="animation-figure" }
+    ![二分探索の手順 2](binary_search.assets/binary_search_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![二分探索の手順 3](binary_search.assets/binary_search_step3.png){ class="animation-figure" }
+    ![二分探索の手順 3](binary_search.assets/binary_search_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![二分探索の手順 4](binary_search.assets/binary_search_step4.png){ class="animation-figure" }
+    ![二分探索の手順 4](binary_search.assets/binary_search_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![二分探索の手順 5](binary_search.assets/binary_search_step5.png){ class="animation-figure" }
+    ![二分探索の手順 5](binary_search.assets/binary_search_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![二分探索の手順 6](binary_search.assets/binary_search_step6.png){ class="animation-figure" }
+    ![二分探索の手順 6](binary_search.assets/binary_search_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![二分探索の手順 7](binary_search.assets/binary_search_step7.png){ class="animation-figure" }
+    ![二分探索の手順 7](binary_search.assets/binary_search_step7.svg){ class="animation-figure" }
 
 <p align="center"> 図 10-2 &nbsp; 二分探索の流れ </p>
 
@@ -695,7 +695,7 @@ $i$ と $j$ はともに `int` 型なので、**$i + j$ が `int` 型の値の�
 
 両端を含む閉区間では、左右の境界がどちらも含まれるため、ポインタ $i$ と $j$ で区間を縮める操作も対称になります。そのほうが間違いにくいため、**一般には両端を含む閉区間で書くことを勧めます**。
 
-![二つの区間の定義](binary_search.assets/binary_search_ranges.png){ class="animation-figure" }
+![二つの区間の定義](binary_search.assets/binary_search_ranges.svg){ class="animation-figure" }
 
 <p align="center"> 図 10-3 &nbsp; 二つの区間の定義 </p>
 

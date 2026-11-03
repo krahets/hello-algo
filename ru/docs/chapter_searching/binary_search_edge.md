@@ -241,7 +241,7 @@ comments: true
 
 Как показано на рисунке 10-7, после завершения поиска указатель $i$ указывает на самый левый `target + 1` (если он существует), а указатель $j$ указывает на самый правый `target` , **поэтому достаточно вернуть $j$**.
 
-![Преобразование поиска правой границы в поиск левой границы](binary_search_edge.assets/binary_search_right_edge_by_left_edge.png){ class="animation-figure" }
+![Преобразование поиска правой границы в поиск левой границы](binary_search_edge.assets/binary_search_right_edge_by_left_edge.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 10-7 &nbsp; Преобразование поиска правой границы в поиск левой границы </p>
 
@@ -493,7 +493,7 @@ comments: true
 - Поиск самого левого `target` : можно преобразовать в поиск `target - 0.5` и вернуть указатель $i$ .
 - Поиск самого правого `target` : можно преобразовать в поиск `target + 0.5` и вернуть указатель $j$ .
 
-![Преобразование поиска границ в поиск элемента](binary_search_edge.assets/binary_search_edge_by_element.png){ class="animation-figure" }
+![Преобразование поиска границ в поиск элемента](binary_search_edge.assets/binary_search_edge_by_element.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 10-8 &nbsp; Преобразование поиска границ в поиск элемента </p>
 

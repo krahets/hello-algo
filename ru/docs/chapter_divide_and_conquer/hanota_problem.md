@@ -14,7 +14,7 @@ comments: true
     2. За один раз можно перемещать только один диск.
     3. Меньший диск всегда должен лежать на большем.
 
-![Пример задачи о Ханойской башне](hanota_problem.assets/hanota_example.png){ class="animation-figure" }
+![Пример задачи о Ханойской башне](hanota_problem.assets/hanota_example.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 12-10 &nbsp; Пример задачи о Ханойской башне </p>
 
@@ -25,10 +25,10 @@ comments: true
 Как показано на рисунке 12-11, для задачи $f(1)$ , то есть когда имеется только один диск, достаточно просто переместить его напрямую со стержня `A` на стержень `C` .
 
 === "<1>"
-    ![Решение задачи размера 1](hanota_problem.assets/hanota_f1_step1.png){ class="animation-figure" }
+    ![Решение задачи размера 1](hanota_problem.assets/hanota_f1_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.png){ class="animation-figure" }
+    ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 12-11 &nbsp; Решение задачи размера 1 </p>
 
@@ -39,16 +39,16 @@ comments: true
 3. Наконец, переместить маленький диск с `B` на `C` .
 
 === "<1>"
-    ![Решение задачи размера 2](hanota_problem.assets/hanota_f2_step1.png){ class="animation-figure" }
+    ![Решение задачи размера 2](hanota_problem.assets/hanota_f2_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![hanota_f2_step2](hanota_problem.assets/hanota_f2_step2.png){ class="animation-figure" }
+    ![hanota_f2_step2](hanota_problem.assets/hanota_f2_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![hanota_f2_step3](hanota_problem.assets/hanota_f2_step3.png){ class="animation-figure" }
+    ![hanota_f2_step3](hanota_problem.assets/hanota_f2_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![hanota_f2_step4](hanota_problem.assets/hanota_f2_step4.png){ class="animation-figure" }
+    ![hanota_f2_step4](hanota_problem.assets/hanota_f2_step4.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 12-12 &nbsp; Решение задачи размера 2 </p>
 
@@ -65,16 +65,16 @@ comments: true
 3. Сделать `C` целевым стержнем, а `A` буферным, и переместить два диска с `B` на `C` .
 
 === "<1>"
-    ![Решение задачи размера 3](hanota_problem.assets/hanota_f3_step1.png){ class="animation-figure" }
+    ![Решение задачи размера 3](hanota_problem.assets/hanota_f3_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![hanota_f3_step2](hanota_problem.assets/hanota_f3_step2.png){ class="animation-figure" }
+    ![hanota_f3_step2](hanota_problem.assets/hanota_f3_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![hanota_f3_step3](hanota_problem.assets/hanota_f3_step3.png){ class="animation-figure" }
+    ![hanota_f3_step3](hanota_problem.assets/hanota_f3_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![hanota_f3_step4](hanota_problem.assets/hanota_f3_step4.png){ class="animation-figure" }
+    ![hanota_f3_step4](hanota_problem.assets/hanota_f3_step4.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 12-13 &nbsp; Решение задачи размера 3 </p>
 
@@ -88,7 +88,7 @@ comments: true
 
 Для двух подзадач $f(n-1)$ **можно применять тот же способ рекурсивного разбиения**, пока не будет достигнута наименьшая подзадача $f(1)$ . А решение для $f(1)$ уже известно и требует всего одного перемещения.
 
-![Стратегия разделяй и властвуй для решения задачи о Ханойской башне](hanota_problem.assets/hanota_divide_and_conquer.png){ class="animation-figure" }
+![Стратегия разделяй и властвуй для решения задачи о Ханойской башне](hanota_problem.assets/hanota_divide_and_conquer.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 12-14 &nbsp; Стратегия разделяй и властвуй для решения задачи о Ханойской башне </p>
 
@@ -549,7 +549,7 @@ comments: true
 
 Как показано на рисунке 12-15, задача о Ханойской башне формирует дерево рекурсии высоты $n$ , в котором каждый узел представляет подзадачу и соответствует одному открытому вызову `dfs()`. **Поэтому временная сложность равна $O(2^n)$ , а пространственная сложность равна $O(n)$** .
 
-![Дерево рекурсии задачи о Ханойской башне](hanota_problem.assets/hanota_recursive_tree.png){ class="animation-figure" }
+![Дерево рекурсии задачи о Ханойской башне](hanota_problem.assets/hanota_recursive_tree.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 12-15 &nbsp; Дерево рекурсии задачи о Ханойской башне </p>
 

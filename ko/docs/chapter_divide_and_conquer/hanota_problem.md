@@ -14,7 +14,7 @@ comments: true
     2. 한 번에 원판 하나만 옮길 수 있다.
     3. 작은 원판은 항상 큰 원판 위에 있어야 한다.
 
-![하노이의 탑 문제 예시](hanota_problem.assets/hanota_example.png){ class="animation-figure" }
+![하노이의 탑 문제 예시](hanota_problem.assets/hanota_example.svg){ class="animation-figure" }
 
 <p align="center"> 그림 12-10 &nbsp; 하노이의 탑 문제 예시 </p>
 
@@ -25,10 +25,10 @@ comments: true
 아래 그림(12-11)과 같이 $f(1)$, 즉 원판이 하나뿐이면 `A`에서 `C`로 바로 옮기면 된다.
 
 === "<1>"
-    ![크기 1인 문제의 해](hanota_problem.assets/hanota_f1_step1.png){ class="animation-figure" }
+    ![크기 1인 문제의 해](hanota_problem.assets/hanota_f1_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![원판 1개 이동 2단계](hanota_problem.assets/hanota_f1_step2.png){ class="animation-figure" }
+    ![원판 1개 이동 2단계](hanota_problem.assets/hanota_f1_step2.svg){ class="animation-figure" }
 
 <p align="center"> 그림 12-11 &nbsp; 크기 1인 문제의 해 </p>
 
@@ -39,16 +39,16 @@ comments: true
 3. 작은 원판을 `B`에서 `C`로 옮긴다.
 
 === "<1>"
-    ![크기 2인 문제의 해](hanota_problem.assets/hanota_f2_step1.png){ class="animation-figure" }
+    ![크기 2인 문제의 해](hanota_problem.assets/hanota_f2_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![원판 2개 이동 2단계](hanota_problem.assets/hanota_f2_step2.png){ class="animation-figure" }
+    ![원판 2개 이동 2단계](hanota_problem.assets/hanota_f2_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![원판 2개 이동 3단계](hanota_problem.assets/hanota_f2_step3.png){ class="animation-figure" }
+    ![원판 2개 이동 3단계](hanota_problem.assets/hanota_f2_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![원판 2개 이동 4단계](hanota_problem.assets/hanota_f2_step4.png){ class="animation-figure" }
+    ![원판 2개 이동 4단계](hanota_problem.assets/hanota_f2_step4.svg){ class="animation-figure" }
 
 <p align="center"> 그림 12-12 &nbsp; 크기 2인 문제의 해 </p>
 
@@ -65,16 +65,16 @@ $f(1)$과 $f(2)$의 해를 이미 알고 있으므로 분할 정복의 관점에
 3. `C`를 목표 기둥, `A`를 보조 기둥으로 삼아 원판 두 개를 `B`에서 `C`로 옮긴다.
 
 === "<1>"
-    ![크기 3인 문제의 해](hanota_problem.assets/hanota_f3_step1.png){ class="animation-figure" }
+    ![크기 3인 문제의 해](hanota_problem.assets/hanota_f3_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![원판 3개 이동 2단계](hanota_problem.assets/hanota_f3_step2.png){ class="animation-figure" }
+    ![원판 3개 이동 2단계](hanota_problem.assets/hanota_f3_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![원판 3개 이동 3단계](hanota_problem.assets/hanota_f3_step3.png){ class="animation-figure" }
+    ![원판 3개 이동 3단계](hanota_problem.assets/hanota_f3_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![원판 3개 이동 4단계](hanota_problem.assets/hanota_f3_step4.png){ class="animation-figure" }
+    ![원판 3개 이동 4단계](hanota_problem.assets/hanota_f3_step4.svg){ class="animation-figure" }
 
 <p align="center"> 그림 12-13 &nbsp; 크기 3인 문제의 해 </p>
 
@@ -88,7 +88,7 @@ $f(1)$과 $f(2)$의 해를 이미 알고 있으므로 분할 정복의 관점에
 
 두 부분 문제 $f(n-1)$도 **같은 방식으로 재귀적으로 나눌 수 있으며**, 가장 작은 부분 문제 $f(1)$에 도달하면 멈춘다. $f(1)$의 해는 이미 알고 있고, 한 번만 옮기면 된다.
 
-![하노이의 탑을 푸는 분할 정복 전략](hanota_problem.assets/hanota_divide_and_conquer.png){ class="animation-figure" }
+![하노이의 탑을 푸는 분할 정복 전략](hanota_problem.assets/hanota_divide_and_conquer.svg){ class="animation-figure" }
 
 <p align="center"> 그림 12-14 &nbsp; 하노이의 탑을 푸는 분할 정복 전략 </p>
 
@@ -549,7 +549,7 @@ $f(1)$과 $f(2)$의 해를 이미 알고 있으므로 분할 정복의 관점에
 
 아래 그림(12-15)과 같이 하노이의 탑 문제는 높이가 $n$인 재귀 트리를 이룬다. 각 노드는 부분 문제 하나를 나타내며 호출된 `dfs()` 함수 하나에 대응한다. **따라서 시간 복잡도는 $O(2^n)$, 공간 복잡도는 $O(n)$이다**.
 
-![하노이의 탑 문제의 재귀 트리](hanota_problem.assets/hanota_recursive_tree.png){ class="animation-figure" }
+![하노이의 탑 문제의 재귀 트리](hanota_problem.assets/hanota_recursive_tree.svg){ class="animation-figure" }
 
 <p align="center"> 그림 12-15 &nbsp; 하노이의 탑 문제의 재귀 트리 </p>
 

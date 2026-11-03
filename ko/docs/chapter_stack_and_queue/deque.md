@@ -6,7 +6,7 @@ comments: true
 
 큐에서는 맨 앞 원소를 삭제하거나 맨 뒤에 원소를 추가하는 것만 가능하다. 아래 그림(5-7)의 <u>덱(double-ended queue)</u>은 앞뒤 양쪽에서 원소를 추가하고 삭제할 수 있어 더 유연하다.
 
-![덱의 연산](deque.assets/deque_operations.png){ class="animation-figure" }
+![덱의 연산](deque.assets/deque_operations.svg){ class="animation-figure" }
 
 <p align="center"> 그림 5-7 &nbsp; 덱의 연산 </p>
 
@@ -411,19 +411,19 @@ comments: true
 아래 그림(5-8)과 같이 이중 연결 리스트의 머리 노드와 꼬리 노드를 덱의 맨 앞과 맨 뒤로 보고, 양 끝에서 노드를 추가하고 삭제하는 기능을 구현한다.
 
 === "<1>"
-    ![연결 리스트 기반 덱의 삽입과 꺼내기](deque.assets/linkedlist_deque_step1.png){ class="animation-figure" }
+    ![연결 리스트 기반 덱의 삽입과 꺼내기](deque.assets/linkedlist_deque_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![연결 리스트 기반 덱의 맨 뒤에 삽입](deque.assets/linkedlist_deque_step2_push_last.png){ class="animation-figure" }
+    ![연결 리스트 기반 덱의 맨 뒤에 삽입](deque.assets/linkedlist_deque_step2_push_last.svg){ class="animation-figure" }
 
 === "<3>"
-    ![연결 리스트 기반 덱의 맨 앞에 삽입](deque.assets/linkedlist_deque_step3_push_first.png){ class="animation-figure" }
+    ![연결 리스트 기반 덱의 맨 앞에 삽입](deque.assets/linkedlist_deque_step3_push_first.svg){ class="animation-figure" }
 
 === "<4>"
-    ![연결 리스트 기반 덱의 맨 뒤에서 꺼내기](deque.assets/linkedlist_deque_step4_pop_last.png){ class="animation-figure" }
+    ![연결 리스트 기반 덱의 맨 뒤에서 꺼내기](deque.assets/linkedlist_deque_step4_pop_last.svg){ class="animation-figure" }
 
 === "<5>"
-    ![연결 리스트 기반 덱의 맨 앞에서 꺼내기](deque.assets/linkedlist_deque_step5_pop_first.png){ class="animation-figure" }
+    ![연결 리스트 기반 덱의 맨 앞에서 꺼내기](deque.assets/linkedlist_deque_step5_pop_first.svg){ class="animation-figure" }
 
 <p align="center"> 그림 5-8 &nbsp; 연결 리스트 기반 덱의 삽입과 꺼내기 </p>
 
@@ -2199,19 +2199,19 @@ comments: true
 아래 그림(5-9)과 같이 배열 기반 큐와 마찬가지로 원형 배열을 사용하여 덱을 구현할 수 있다.
 
 === "<1>"
-    ![배열 기반 덱의 삽입과 꺼내기](deque.assets/array_deque_step1.png){ class="animation-figure" }
+    ![배열 기반 덱의 삽입과 꺼내기](deque.assets/array_deque_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![배열 기반 덱의 맨 뒤에 삽입](deque.assets/array_deque_step2_push_last.png){ class="animation-figure" }
+    ![배열 기반 덱의 맨 뒤에 삽입](deque.assets/array_deque_step2_push_last.svg){ class="animation-figure" }
 
 === "<3>"
-    ![배열 기반 덱의 맨 앞에 삽입](deque.assets/array_deque_step3_push_first.png){ class="animation-figure" }
+    ![배열 기반 덱의 맨 앞에 삽입](deque.assets/array_deque_step3_push_first.svg){ class="animation-figure" }
 
 === "<4>"
-    ![배열 기반 덱의 맨 뒤에서 꺼내기](deque.assets/array_deque_step4_pop_last.png){ class="animation-figure" }
+    ![배열 기반 덱의 맨 뒤에서 꺼내기](deque.assets/array_deque_step4_pop_last.svg){ class="animation-figure" }
 
 === "<5>"
-    ![배열 기반 덱의 맨 앞에서 꺼내기](deque.assets/array_deque_step5_pop_first.png){ class="animation-figure" }
+    ![배열 기반 덱의 맨 앞에서 꺼내기](deque.assets/array_deque_step5_pop_first.svg){ class="animation-figure" }
 
 <p align="center"> 그림 5-9 &nbsp; 배열 기반 덱의 삽입과 꺼내기 </p>
 

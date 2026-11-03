@@ -12,7 +12,7 @@ comments: true
 
 **幅優先走査は、あるノードから始め、距離の近い頂点から優先して訪問し、層ごとに外側へ広がっていく走査方法です**。図 9-9 のように、左上の頂点から始めて、その頂点に隣接するすべての頂点を訪問します。続いて次の頂点に隣接するすべての頂点を訪問し、これをすべての頂点に到達するまで繰り返します。
 
-![グラフの幅優先走査](graph_traversal.assets/graph_bfs.png){ class="animation-figure" }
+![グラフの幅優先走査](graph_traversal.assets/graph_bfs.svg){ class="animation-figure" }
 
 <p align="center"> 図 9-9 &nbsp; グラフの幅優先走査 </p>
 
@@ -483,37 +483,37 @@ BFS は通常、次のコードのようにキューで実装します。キュ�
 コードだけでは抽象的なので、図 9-10 と照らし合わせると理解が深まります。
 
 === "<1>"
-    ![グラフの幅優先走査の手順](graph_traversal.assets/graph_bfs_step1.png){ class="animation-figure" }
+    ![グラフの幅優先走査の手順](graph_traversal.assets/graph_bfs_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![グラフの幅優先走査：手順 2](graph_traversal.assets/graph_bfs_step2.png){ class="animation-figure" }
+    ![グラフの幅優先走査：手順 2](graph_traversal.assets/graph_bfs_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![グラフの幅優先走査：手順 3](graph_traversal.assets/graph_bfs_step3.png){ class="animation-figure" }
+    ![グラフの幅優先走査：手順 3](graph_traversal.assets/graph_bfs_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![グラフの幅優先走査：手順 4](graph_traversal.assets/graph_bfs_step4.png){ class="animation-figure" }
+    ![グラフの幅優先走査：手順 4](graph_traversal.assets/graph_bfs_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![グラフの幅優先走査：手順 5](graph_traversal.assets/graph_bfs_step5.png){ class="animation-figure" }
+    ![グラフの幅優先走査：手順 5](graph_traversal.assets/graph_bfs_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![グラフの幅優先走査：手順 6](graph_traversal.assets/graph_bfs_step6.png){ class="animation-figure" }
+    ![グラフの幅優先走査：手順 6](graph_traversal.assets/graph_bfs_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![グラフの幅優先走査：手順 7](graph_traversal.assets/graph_bfs_step7.png){ class="animation-figure" }
+    ![グラフの幅優先走査：手順 7](graph_traversal.assets/graph_bfs_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![グラフの幅優先走査：手順 8](graph_traversal.assets/graph_bfs_step8.png){ class="animation-figure" }
+    ![グラフの幅優先走査：手順 8](graph_traversal.assets/graph_bfs_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![グラフの幅優先走査：手順 9](graph_traversal.assets/graph_bfs_step9.png){ class="animation-figure" }
+    ![グラフの幅優先走査：手順 9](graph_traversal.assets/graph_bfs_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![グラフの幅優先走査：手順 10](graph_traversal.assets/graph_bfs_step10.png){ class="animation-figure" }
+    ![グラフの幅優先走査：手順 10](graph_traversal.assets/graph_bfs_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![グラフの幅優先走査：手順 11](graph_traversal.assets/graph_bfs_step11.png){ class="animation-figure" }
+    ![グラフの幅優先走査：手順 11](graph_traversal.assets/graph_bfs_step11.svg){ class="animation-figure" }
 
 <p align="center"> 図 9-10 &nbsp; グラフの幅優先走査の手順 </p>
 
@@ -531,7 +531,7 @@ BFS は通常、次のコードのようにキューで実装します。キュ�
 
 **深さ優先走査は、まず進めるところまで進み、行き止まりになったら引き返す走査方法です**。図 9-11 のように、左上の頂点から出発し、現在の頂点に隣接する頂点の一つを訪問して、行き止まりまで進んだら戻ります。別の方向でも同じように進んで戻る操作を繰り返し、すべての頂点を走査します。
 
-![グラフの深さ優先走査](graph_traversal.assets/graph_dfs.png){ class="animation-figure" }
+![グラフの深さ優先走査](graph_traversal.assets/graph_dfs.svg){ class="animation-figure" }
 
 <p align="center"> 図 9-11 &nbsp; グラフの深さ優先走査 </p>
 
@@ -948,37 +948,37 @@ BFS は通常、次のコードのようにキューで実装します。キュ�
 理解を深めるため、図 9-12 とコードを照らし合わせ、各再帰メソッドがいつ呼ばれ、いつ戻るかを含めた DFS 全体の流れを、頭の中でたどるか、紙に描いてみてください。
 
 === "<1>"
-    ![グラフの深さ優先走査の手順](graph_traversal.assets/graph_dfs_step1.png){ class="animation-figure" }
+    ![グラフの深さ優先走査の手順](graph_traversal.assets/graph_dfs_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![グラフの深さ優先走査：手順 2](graph_traversal.assets/graph_dfs_step2.png){ class="animation-figure" }
+    ![グラフの深さ優先走査：手順 2](graph_traversal.assets/graph_dfs_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![グラフの深さ優先走査：手順 3](graph_traversal.assets/graph_dfs_step3.png){ class="animation-figure" }
+    ![グラフの深さ優先走査：手順 3](graph_traversal.assets/graph_dfs_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![グラフの深さ優先走査：手順 4](graph_traversal.assets/graph_dfs_step4.png){ class="animation-figure" }
+    ![グラフの深さ優先走査：手順 4](graph_traversal.assets/graph_dfs_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![グラフの深さ優先走査：手順 5](graph_traversal.assets/graph_dfs_step5.png){ class="animation-figure" }
+    ![グラフの深さ優先走査：手順 5](graph_traversal.assets/graph_dfs_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![グラフの深さ優先走査：手順 6](graph_traversal.assets/graph_dfs_step6.png){ class="animation-figure" }
+    ![グラフの深さ優先走査：手順 6](graph_traversal.assets/graph_dfs_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![グラフの深さ優先走査：手順 7](graph_traversal.assets/graph_dfs_step7.png){ class="animation-figure" }
+    ![グラフの深さ優先走査：手順 7](graph_traversal.assets/graph_dfs_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![グラフの深さ優先走査：手順 8](graph_traversal.assets/graph_dfs_step8.png){ class="animation-figure" }
+    ![グラフの深さ優先走査：手順 8](graph_traversal.assets/graph_dfs_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![グラフの深さ優先走査：手順 9](graph_traversal.assets/graph_dfs_step9.png){ class="animation-figure" }
+    ![グラフの深さ優先走査：手順 9](graph_traversal.assets/graph_dfs_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![グラフの深さ優先走査：手順 10](graph_traversal.assets/graph_dfs_step10.png){ class="animation-figure" }
+    ![グラフの深さ優先走査：手順 10](graph_traversal.assets/graph_dfs_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![グラフの深さ優先走査：手順 11](graph_traversal.assets/graph_dfs_step11.png){ class="animation-figure" }
+    ![グラフの深さ優先走査：手順 11](graph_traversal.assets/graph_dfs_step11.svg){ class="animation-figure" }
 
 <p align="center"> 図 9-12 &nbsp; グラフの深さ優先走査の手順 </p>
 

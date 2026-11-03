@@ -20,7 +20,7 @@ comments: true
 
 아래 그림(3-4)은 부호와 크기, 1의 보수, 2의 보수를 서로 변환하는 방법을 보여 준다.
 
-![부호와 크기, 1의 보수, 2의 보수의 상호 변환](number_encoding.assets/1s_2s_complement.png){ class="animation-figure" }
+![부호와 크기, 1의 보수, 2의 보수의 상호 변환](number_encoding.assets/1s_2s_complement.svg){ class="animation-figure" }
 
 <p align="center"> 그림 3-4 &nbsp; 부호와 크기, 1의 보수, 2의 보수의 상호 변환 </p>
 
@@ -129,7 +129,7 @@ $$
 \end{aligned}
 $$
 
-![IEEE 754 표준에 따른 float 계산 예](number_encoding.assets/ieee_754_float.png){ class="animation-figure" }
+![IEEE 754 표준에 따른 float 계산 예](number_encoding.assets/ieee_754_float.svg){ class="animation-figure" }
 
 <p align="center"> 그림 3-5 &nbsp; IEEE 754 표준에 따른 float 계산 예 </p>
 

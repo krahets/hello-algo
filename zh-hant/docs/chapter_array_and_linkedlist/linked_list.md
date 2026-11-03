@@ -10,7 +10,7 @@ comments: true
 
 鏈結串列的設計使得各個節點可以分散儲存在記憶體各處，它們的記憶體位址無須連續。
 
-![鏈結串列定義與儲存方式](linked_list.assets/linkedlist_definition.png){ class="animation-figure" }
+![鏈結串列定義與儲存方式](linked_list.assets/linkedlist_definition.svg){ class="animation-figure" }
 
 <p align="center"> 圖 4-5 &nbsp; 鏈結串列定義與儲存方式 </p>
 
@@ -432,7 +432,7 @@ comments: true
 
 相比之下，在陣列中插入元素的時間複雜度為 $O(n)$ ，在大資料量下的效率較低。
 
-![鏈結串列插入節點示例](linked_list.assets/linkedlist_insert_node.png){ class="animation-figure" }
+![鏈結串列插入節點示例](linked_list.assets/linkedlist_insert_node.svg){ class="animation-figure" }
 
 <p align="center"> 圖 4-6 &nbsp; 鏈結串列插入節點示例 </p>
 
@@ -591,7 +591,7 @@ comments: true
 
 請注意，儘管在刪除操作完成後節點 `P` 仍然指向 `n1` ，但實際上走訪此鏈結串列已經無法訪問到 `P` ，這意味著 `P` 已經不再屬於該鏈結串列了。
 
-![鏈結串列刪除節點](linked_list.assets/linkedlist_remove_node.png){ class="animation-figure" }
+![鏈結串列刪除節點](linked_list.assets/linkedlist_remove_node.svg){ class="animation-figure" }
 
 <p align="center"> 圖 4-7 &nbsp; 鏈結串列刪除節點 </p>
 
@@ -1443,7 +1443,7 @@ comments: true
     end
     ```
 
-![常見鏈結串列種類](linked_list.assets/linkedlist_common_types.png){ class="animation-figure" }
+![常見鏈結串列種類](linked_list.assets/linkedlist_common_types.svg){ class="animation-figure" }
 
 <p align="center"> 圖 4-8 &nbsp; 常見鏈結串列種類 </p>
 

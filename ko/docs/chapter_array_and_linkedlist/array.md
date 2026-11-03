@@ -6,7 +6,7 @@ comments: true
 
 <u>배열(array)</u>은 같은 자료형의 원소를 연속된 메모리 공간에 저장하는 선형 자료 구조다. 배열에서 원소가 있는 위치를 해당 원소의 <u>인덱스(index)</u>라고 한다. 아래 그림(4-1)은 배열의 주요 개념과 저장 방식을 보여 준다.
 
-![배열의 정의와 저장 방식](array.assets/array_definition.png){ class="animation-figure" }
+![배열의 정의와 저장 방식](array.assets/array_definition.svg){ class="animation-figure" }
 
 <p align="center"> 그림 4-1 &nbsp; 배열의 정의와 저장 방식 </p>
 
@@ -141,7 +141,7 @@ comments: true
 
 배열 원소는 연속된 메모리 공간에 저장되므로 메모리 주소를 매우 쉽게 계산할 수 있다. 배열의 메모리 주소(첫 원소의 메모리 주소)와 원소의 인덱스가 주어지면, 아래 그림(4-2)의 식으로 해당 원소의 메모리 주소를 구하여 직접 접근할 수 있다.
 
-![배열 원소의 메모리 주소 계산](array.assets/array_memory_location_calculation.png){ class="animation-figure" }
+![배열 원소의 메모리 주소 계산](array.assets/array_memory_location_calculation.svg){ class="animation-figure" }
 
 <p align="center"> 그림 4-2 &nbsp; 배열 원소의 메모리 주소 계산 </p>
 
@@ -327,7 +327,7 @@ comments: true
 
 배열 원소는 메모리에서 ‘빈틈없이 붙어 있어’ 사이에 다른 데이터를 넣을 공간이 없다. 아래 그림(4-3)과 같이 배열 중간에 원소를 삽입하려면 해당 위치 이후의 모든 원소를 한 칸씩 뒤로 옮긴 다음, 그 인덱스에 새 원소를 대입해야 한다.
 
-![배열에 원소를 삽입하는 예](array.assets/array_insert_element.png){ class="animation-figure" }
+![배열에 원소를 삽입하는 예](array.assets/array_insert_element.svg){ class="animation-figure" }
 
 <p align="center"> 그림 4-3 &nbsp; 배열에 원소를 삽입하는 예 </p>
 
@@ -523,7 +523,7 @@ comments: true
 
 마찬가지로 아래 그림(4-4)과 같이 인덱스 $i$의 원소를 삭제하려면 인덱스 $i$ 뒤의 원소를 모두 한 칸씩 앞으로 옮겨야 한다.
 
-![배열에서 원소를 삭제하는 예](array.assets/array_remove_element.png){ class="animation-figure" }
+![배열에서 원소를 삭제하는 예](array.assets/array_remove_element.svg){ class="animation-figure" }
 
 <p align="center"> 그림 4-4 &nbsp; 배열에서 원소를 삭제하는 예 </p>
 

@@ -14,7 +14,7 @@ comments: true
 
 Как показано на рисунке 14-1, для лестницы из $3$ ступеней существует $3$ способа добраться до вершины.
 
-![Число способов подняться на 3-ю ступень](intro_to_dynamic_programming.assets/climbing_stairs_example.png){ class="animation-figure" }
+![Число способов подняться на 3-ю ступень](intro_to_dynamic_programming.assets/climbing_stairs_example.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-1 &nbsp; Число способов подняться на 3-ю ступень </p>
 
@@ -445,7 +445,7 @@ $$
 
 Это означает, что в задаче о подъеме по лестнице между подзадачами существует рекуррентная зависимость, и **решение исходной задачи может быть построено на основе решений подзадач**. Эта связь показана на рисунке 14-2.
 
-![Рекуррентная связь числа способов](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png){ class="animation-figure" }
+![Рекуррентная связь числа способов](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-2 &nbsp; Рекуррентная связь числа способов </p>
 
@@ -702,7 +702,7 @@ $$
 
 На рисунке 14-3 показано дерево рекурсии, возникающее при полном переборе. Для задачи $dp[n]$ глубина дерева рекурсии равна $n$ , а временная сложность равна $O(2^n)$ . Экспоненциальный рост взрывообразен: если подать на вход достаточно большое значение $n$ , ожидание станет очень долгим.
 
-![Дерево рекурсии для подъема по лестнице](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png){ class="animation-figure" }
+![Дерево рекурсии для подъема по лестнице](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-3 &nbsp; Дерево рекурсии для подъема по лестнице </p>
 
@@ -1069,7 +1069,7 @@ $$
 
 Как показано на рисунке 14-4, **после введения мемоизации каждая перекрывающаяся подзадача вычисляется только один раз, и временная сложность оптимизируется до $O(n)$** . Это огромный скачок в эффективности.
 
-![Дерево рекурсии для поиска с мемоизацией](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png){ class="animation-figure" }
+![Дерево рекурсии для поиска с мемоизацией](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-4 &nbsp; Дерево рекурсии для поиска с мемоизацией </p>
 
@@ -1345,7 +1345,7 @@ $$
 
 На рисунке 14-5 смоделирован процесс выполнения этого кода.
 
-![Процесс динамического программирования для подъема по лестнице](intro_to_dynamic_programming.assets/climbing_stairs_dp.png){ class="animation-figure" }
+![Процесс динамического программирования для подъема по лестнице](intro_to_dynamic_programming.assets/climbing_stairs_dp.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-5 &nbsp; Процесс динамического программирования для подъема по лестнице </p>
 

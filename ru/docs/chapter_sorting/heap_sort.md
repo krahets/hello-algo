@@ -29,40 +29,40 @@ comments: true
     На самом деле операция извлечения из кучи тоже включает шаг `2.` и шаг `3.` , только дополнительно содержит действие по удалению элемента.
 
 === "<1>"
-    ![Шаги пирамидальной сортировки](heap_sort.assets/heap_sort_step1.png){ class="animation-figure" }
+    ![Шаги пирамидальной сортировки](heap_sort.assets/heap_sort_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![heap_sort_step2](heap_sort.assets/heap_sort_step2.png){ class="animation-figure" }
+    ![heap_sort_step2](heap_sort.assets/heap_sort_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![heap_sort_step3](heap_sort.assets/heap_sort_step3.png){ class="animation-figure" }
+    ![heap_sort_step3](heap_sort.assets/heap_sort_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![heap_sort_step4](heap_sort.assets/heap_sort_step4.png){ class="animation-figure" }
+    ![heap_sort_step4](heap_sort.assets/heap_sort_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![heap_sort_step5](heap_sort.assets/heap_sort_step5.png){ class="animation-figure" }
+    ![heap_sort_step5](heap_sort.assets/heap_sort_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![heap_sort_step6](heap_sort.assets/heap_sort_step6.png){ class="animation-figure" }
+    ![heap_sort_step6](heap_sort.assets/heap_sort_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![heap_sort_step7](heap_sort.assets/heap_sort_step7.png){ class="animation-figure" }
+    ![heap_sort_step7](heap_sort.assets/heap_sort_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![heap_sort_step8](heap_sort.assets/heap_sort_step8.png){ class="animation-figure" }
+    ![heap_sort_step8](heap_sort.assets/heap_sort_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![heap_sort_step9](heap_sort.assets/heap_sort_step9.png){ class="animation-figure" }
+    ![heap_sort_step9](heap_sort.assets/heap_sort_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![heap_sort_step10](heap_sort.assets/heap_sort_step10.png){ class="animation-figure" }
+    ![heap_sort_step10](heap_sort.assets/heap_sort_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![heap_sort_step11](heap_sort.assets/heap_sort_step11.png){ class="animation-figure" }
+    ![heap_sort_step11](heap_sort.assets/heap_sort_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![heap_sort_step12](heap_sort.assets/heap_sort_step12.png){ class="animation-figure" }
+    ![heap_sort_step12](heap_sort.assets/heap_sort_step12.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 11-12 &nbsp; Шаги пирамидальной сортировки </p>
 

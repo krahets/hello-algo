@@ -33,7 +33,7 @@ comments: true
 - 演算法為資料結構注入生命力。資料結構本身僅儲存資料資訊，結合演算法才能解決特定問題。
 - 演算法通常可以基於不同的資料結構實現，但執行效率可能相差很大，選擇合適的資料結構是關鍵。
 
-![資料結構與演算法的關係](what_is_dsa.assets/relationship_between_data_structure_and_algorithm.png){ class="animation-figure" }
+![資料結構與演算法的關係](what_is_dsa.assets/relationship_between_data_structure_and_algorithm.svg){ class="animation-figure" }
 
 <p align="center"> 圖 1-4 &nbsp; 資料結構與演算法的關係 </p>
 

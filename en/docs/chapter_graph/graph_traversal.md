@@ -12,7 +12,7 @@ Both graphs and trees use search algorithms for traversal. Graph traversal can l
 
 **Breadth-first traversal visits vertices from near to far. Starting from a vertex, it always visits the nearest vertices first and expands outward layer by layer**. In Figure 9-9, we start at the top-left vertex and visit all its adjacent vertices, then visit all the adjacent vertices of the next vertex, and so on until every vertex has been visited.
 
-![Breadth-first traversal of a graph](graph_traversal.assets/graph_bfs.png){ class="animation-figure" }
+![Breadth-first traversal of a graph](graph_traversal.assets/graph_bfs.svg){ class="animation-figure" }
 
 <p align="center"> Figure 9-9 &nbsp; Breadth-first traversal of a graph </p>
 
@@ -483,37 +483,37 @@ To avoid visiting a vertex more than once, we use a hash set `visited` to track 
 The code is fairly abstract; compare it with Figure 9-10 to build your understanding.
 
 === "<1>"
-    ![Steps in breadth-first traversal of a graph](graph_traversal.assets/graph_bfs_step1.png){ class="animation-figure" }
+    ![Steps in breadth-first traversal of a graph](graph_traversal.assets/graph_bfs_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![graph_bfs_step2](graph_traversal.assets/graph_bfs_step2.png){ class="animation-figure" }
+    ![graph_bfs_step2](graph_traversal.assets/graph_bfs_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![graph_bfs_step3](graph_traversal.assets/graph_bfs_step3.png){ class="animation-figure" }
+    ![graph_bfs_step3](graph_traversal.assets/graph_bfs_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![graph_bfs_step4](graph_traversal.assets/graph_bfs_step4.png){ class="animation-figure" }
+    ![graph_bfs_step4](graph_traversal.assets/graph_bfs_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![graph_bfs_step5](graph_traversal.assets/graph_bfs_step5.png){ class="animation-figure" }
+    ![graph_bfs_step5](graph_traversal.assets/graph_bfs_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![graph_bfs_step6](graph_traversal.assets/graph_bfs_step6.png){ class="animation-figure" }
+    ![graph_bfs_step6](graph_traversal.assets/graph_bfs_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![graph_bfs_step7](graph_traversal.assets/graph_bfs_step7.png){ class="animation-figure" }
+    ![graph_bfs_step7](graph_traversal.assets/graph_bfs_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![graph_bfs_step8](graph_traversal.assets/graph_bfs_step8.png){ class="animation-figure" }
+    ![graph_bfs_step8](graph_traversal.assets/graph_bfs_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![graph_bfs_step9](graph_traversal.assets/graph_bfs_step9.png){ class="animation-figure" }
+    ![graph_bfs_step9](graph_traversal.assets/graph_bfs_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![graph_bfs_step10](graph_traversal.assets/graph_bfs_step10.png){ class="animation-figure" }
+    ![graph_bfs_step10](graph_traversal.assets/graph_bfs_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![graph_bfs_step11](graph_traversal.assets/graph_bfs_step11.png){ class="animation-figure" }
+    ![graph_bfs_step11](graph_traversal.assets/graph_bfs_step11.svg){ class="animation-figure" }
 
 <p align="center"> Figure 9-10 &nbsp; Steps in breadth-first traversal of a graph </p>
 
@@ -531,7 +531,7 @@ The code is fairly abstract; compare it with Figure 9-10 to build your understan
 
 **Depth-first traversal follows a path as far as possible and returns when it can go no farther**. In Figure 9-11, we start at the top-left vertex and move to an adjacent vertex of the current vertex, continuing until we reach a dead end. We then return and explore another path as far as possible, repeating this process until every vertex has been visited.
 
-![Depth-first traversal of a graph](graph_traversal.assets/graph_dfs.png){ class="animation-figure" }
+![Depth-first traversal of a graph](graph_traversal.assets/graph_dfs.svg){ class="animation-figure" }
 
 <p align="center"> Figure 9-11 &nbsp; Depth-first traversal of a graph </p>
 
@@ -948,37 +948,37 @@ Figure 9-12 shows the steps of depth-first traversal.
 To deepen your understanding, follow Figure 9-12 alongside the code and mentally simulate (or draw on paper) the entire DFS process, including when each recursive call begins and returns.
 
 === "<1>"
-    ![Steps in depth-first traversal of a graph](graph_traversal.assets/graph_dfs_step1.png){ class="animation-figure" }
+    ![Steps in depth-first traversal of a graph](graph_traversal.assets/graph_dfs_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![graph_dfs_step2](graph_traversal.assets/graph_dfs_step2.png){ class="animation-figure" }
+    ![graph_dfs_step2](graph_traversal.assets/graph_dfs_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![graph_dfs_step3](graph_traversal.assets/graph_dfs_step3.png){ class="animation-figure" }
+    ![graph_dfs_step3](graph_traversal.assets/graph_dfs_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![graph_dfs_step4](graph_traversal.assets/graph_dfs_step4.png){ class="animation-figure" }
+    ![graph_dfs_step4](graph_traversal.assets/graph_dfs_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![graph_dfs_step5](graph_traversal.assets/graph_dfs_step5.png){ class="animation-figure" }
+    ![graph_dfs_step5](graph_traversal.assets/graph_dfs_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![graph_dfs_step6](graph_traversal.assets/graph_dfs_step6.png){ class="animation-figure" }
+    ![graph_dfs_step6](graph_traversal.assets/graph_dfs_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![graph_dfs_step7](graph_traversal.assets/graph_dfs_step7.png){ class="animation-figure" }
+    ![graph_dfs_step7](graph_traversal.assets/graph_dfs_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![graph_dfs_step8](graph_traversal.assets/graph_dfs_step8.png){ class="animation-figure" }
+    ![graph_dfs_step8](graph_traversal.assets/graph_dfs_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![graph_dfs_step9](graph_traversal.assets/graph_dfs_step9.png){ class="animation-figure" }
+    ![graph_dfs_step9](graph_traversal.assets/graph_dfs_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![graph_dfs_step10](graph_traversal.assets/graph_dfs_step10.png){ class="animation-figure" }
+    ![graph_dfs_step10](graph_traversal.assets/graph_dfs_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![graph_dfs_step11](graph_traversal.assets/graph_dfs_step11.png){ class="animation-figure" }
+    ![graph_dfs_step11](graph_traversal.assets/graph_dfs_step11.svg){ class="animation-figure" }
 
 <p align="center"> Figure 9-12 &nbsp; Steps in depth-first traversal of a graph </p>
 

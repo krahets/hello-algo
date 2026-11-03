@@ -12,7 +12,7 @@ comments: true
 
     Даны $n$ предметов. Вес $i$-го предмета равен $wgt[i-1]$ , стоимость равна $val[i-1]$ . Также дан рюкзак вместимости $cap$ . **Каждый предмет можно выбирать многократно**. Найдите максимальную суммарную стоимость, которую можно поместить в рюкзак при заданной вместимости. Пример показан на рисунке 14-22.
 
-![Пример данных для задачи о полном рюкзаке](unbounded_knapsack_problem.assets/unbounded_knapsack_example.png){ class="animation-figure" }
+![Пример данных для задачи о полном рюкзаке](unbounded_knapsack_problem.assets/unbounded_knapsack_example.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-22 &nbsp; Пример данных для задачи о полном рюкзаке </p>
 
@@ -383,22 +383,22 @@ $$
 Этот порядок обхода как раз противоположен задаче о рюкзаке 0-1. Эту разницу удобно понять, рассмотрев то, что показано на рисунке 14-23.
 
 === "<1>"
-    ![Процесс динамического программирования после оптимизации памяти для полного рюкзака](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png){ class="animation-figure" }
+    ![Процесс динамического программирования после оптимизации памяти для полного рюкзака](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![unbounded_knapsack_dp_comp_step2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.png){ class="animation-figure" }
+    ![unbounded_knapsack_dp_comp_step2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![unbounded_knapsack_dp_comp_step3](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.png){ class="animation-figure" }
+    ![unbounded_knapsack_dp_comp_step3](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![unbounded_knapsack_dp_comp_step4](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.png){ class="animation-figure" }
+    ![unbounded_knapsack_dp_comp_step4](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![unbounded_knapsack_dp_comp_step5](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.png){ class="animation-figure" }
+    ![unbounded_knapsack_dp_comp_step5](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![unbounded_knapsack_dp_comp_step6](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.png){ class="animation-figure" }
+    ![unbounded_knapsack_dp_comp_step6](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-23 &nbsp; Процесс динамического программирования после оптимизации памяти для полного рюкзака </p>
 
@@ -758,7 +758,7 @@ $$
 
     Даны $n$ видов монет, номинал монеты $i$ равен $coins[i - 1]$ , а целевая сумма равна $amt$ . **Монеты каждого вида можно брать многократно**. Требуется найти минимальное число монет, которыми можно набрать целевую сумму. Если набрать сумму невозможно, верните $-1$ . Пример показан на рисунке 14-24.
 
-![Пример данных для задачи о размене монет](unbounded_knapsack_problem.assets/coin_change_example.png){ class="animation-figure" }
+![Пример данных для задачи о размене монет](unbounded_knapsack_problem.assets/coin_change_example.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-24 &nbsp; Пример данных для задачи о размене монет </p>
 
@@ -1200,49 +1200,49 @@ $$
 Как показано на рисунке 14-25, процесс динамического программирования для задачи о размене монет очень похож на задачу о полном рюкзаке.
 
 === "<1>"
-    ![Процесс динамического программирования для задачи о размене монет](unbounded_knapsack_problem.assets/coin_change_dp_step1.png){ class="animation-figure" }
+    ![Процесс динамического программирования для задачи о размене монет](unbounded_knapsack_problem.assets/coin_change_dp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![coin_change_dp_step2](unbounded_knapsack_problem.assets/coin_change_dp_step2.png){ class="animation-figure" }
+    ![coin_change_dp_step2](unbounded_knapsack_problem.assets/coin_change_dp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![coin_change_dp_step3](unbounded_knapsack_problem.assets/coin_change_dp_step3.png){ class="animation-figure" }
+    ![coin_change_dp_step3](unbounded_knapsack_problem.assets/coin_change_dp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![coin_change_dp_step4](unbounded_knapsack_problem.assets/coin_change_dp_step4.png){ class="animation-figure" }
+    ![coin_change_dp_step4](unbounded_knapsack_problem.assets/coin_change_dp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![coin_change_dp_step5](unbounded_knapsack_problem.assets/coin_change_dp_step5.png){ class="animation-figure" }
+    ![coin_change_dp_step5](unbounded_knapsack_problem.assets/coin_change_dp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![coin_change_dp_step6](unbounded_knapsack_problem.assets/coin_change_dp_step6.png){ class="animation-figure" }
+    ![coin_change_dp_step6](unbounded_knapsack_problem.assets/coin_change_dp_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![coin_change_dp_step7](unbounded_knapsack_problem.assets/coin_change_dp_step7.png){ class="animation-figure" }
+    ![coin_change_dp_step7](unbounded_knapsack_problem.assets/coin_change_dp_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![coin_change_dp_step8](unbounded_knapsack_problem.assets/coin_change_dp_step8.png){ class="animation-figure" }
+    ![coin_change_dp_step8](unbounded_knapsack_problem.assets/coin_change_dp_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![coin_change_dp_step9](unbounded_knapsack_problem.assets/coin_change_dp_step9.png){ class="animation-figure" }
+    ![coin_change_dp_step9](unbounded_knapsack_problem.assets/coin_change_dp_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![coin_change_dp_step10](unbounded_knapsack_problem.assets/coin_change_dp_step10.png){ class="animation-figure" }
+    ![coin_change_dp_step10](unbounded_knapsack_problem.assets/coin_change_dp_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![coin_change_dp_step11](unbounded_knapsack_problem.assets/coin_change_dp_step11.png){ class="animation-figure" }
+    ![coin_change_dp_step11](unbounded_knapsack_problem.assets/coin_change_dp_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![coin_change_dp_step12](unbounded_knapsack_problem.assets/coin_change_dp_step12.png){ class="animation-figure" }
+    ![coin_change_dp_step12](unbounded_knapsack_problem.assets/coin_change_dp_step12.svg){ class="animation-figure" }
 
 === "<13>"
-    ![coin_change_dp_step13](unbounded_knapsack_problem.assets/coin_change_dp_step13.png){ class="animation-figure" }
+    ![coin_change_dp_step13](unbounded_knapsack_problem.assets/coin_change_dp_step13.svg){ class="animation-figure" }
 
 === "<14>"
-    ![coin_change_dp_step14](unbounded_knapsack_problem.assets/coin_change_dp_step14.png){ class="animation-figure" }
+    ![coin_change_dp_step14](unbounded_knapsack_problem.assets/coin_change_dp_step14.svg){ class="animation-figure" }
 
 === "<15>"
-    ![coin_change_dp_step15](unbounded_knapsack_problem.assets/coin_change_dp_step15.png){ class="animation-figure" }
+    ![coin_change_dp_step15](unbounded_knapsack_problem.assets/coin_change_dp_step15.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-25 &nbsp; Процесс динамического программирования для задачи о размене монет </p>
 
@@ -1618,7 +1618,7 @@ $$
 
     Даны $n$ видов монет, номинал монеты $i$ равен $coins[i - 1]$ , а целевая сумма равна $amt$ . Монеты каждого вида можно брать многократно. **Найдите число различных комбинаций монет, которыми можно набрать целевую сумму**. Пример показан на рисунке 14-26.
 
-![Пример данных для задачи о размене монет II](unbounded_knapsack_problem.assets/coin_change_ii_example.png){ class="animation-figure" }
+![Пример данных для задачи о размене монет II](unbounded_knapsack_problem.assets/coin_change_ii_example.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-26 &nbsp; Пример данных для задачи о размене монет II </p>
 

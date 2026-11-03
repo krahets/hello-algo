@@ -9,7 +9,7 @@ comments: true
 1. 根について、左の部分木のすべての値 $<$ 根の値 $<$ 右の部分木のすべての値が成り立ちます。
 2. どのノードの左右の部分木も二分探索木であり、同じく条件 `1.` を満たします。
 
-![二分探索木](binary_search_tree.assets/binary_search_tree.png){ class="animation-figure" }
+![二分探索木](binary_search_tree.assets/binary_search_tree.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-16 &nbsp; 二分探索木 </p>
 
@@ -26,16 +26,16 @@ comments: true
 - `cur.val = num` なら、見つかったのでループを抜け、そのノードを返します。
 
 === "<1>"
-    ![二分探索木でノードを探す例](binary_search_tree.assets/bst_search_step1.png){ class="animation-figure" }
+    ![二分探索木でノードを探す例](binary_search_tree.assets/bst_search_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![二分探索木での探索の手順 2](binary_search_tree.assets/bst_search_step2.png){ class="animation-figure" }
+    ![二分探索木での探索の手順 2](binary_search_tree.assets/bst_search_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![二分探索木での探索の手順 3](binary_search_tree.assets/bst_search_step3.png){ class="animation-figure" }
+    ![二分探索木での探索の手順 3](binary_search_tree.assets/bst_search_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![二分探索木での探索の手順 4](binary_search_tree.assets/bst_search_step4.png){ class="animation-figure" }
+    ![二分探索木での探索の手順 4](binary_search_tree.assets/bst_search_step4.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-17 &nbsp; 二分探索木でノードを探す例 </p>
 
@@ -350,7 +350,7 @@ comments: true
 1. **挿入位置を探す**：探索と同じく根から出発し、現在の値と `num` を比較しながら下へ進みます。葉を越えて `None` に達したらループを抜けます。
 2. **その位置に挿入する**：値 `num` のノードを初期化し、`None` の位置へ置きます。
 
-![二分探索木へのノードの挿入](binary_search_tree.assets/bst_insert.png){ class="animation-figure" }
+![二分探索木へのノードの挿入](binary_search_tree.assets/bst_insert.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-18 &nbsp; 二分探索木へのノードの挿入 </p>
 
@@ -815,13 +815,13 @@ comments: true
 
 図 7-19 のように、削除するノードの次数が $0$ なら葉なので、直接削除できます。
 
-![二分探索木のノードの削除（次数 0）](binary_search_tree.assets/bst_remove_case1.png){ class="animation-figure" }
+![二分探索木のノードの削除（次数 0）](binary_search_tree.assets/bst_remove_case1.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-19 &nbsp; 二分探索木のノードの削除（次数 0） </p>
 
 図 7-20 のように、次数が $1$ なら、そのノードを子に置き換えれば済みます。
 
-![二分探索木のノードの削除（次数 1）](binary_search_tree.assets/bst_remove_case2.png){ class="animation-figure" }
+![二分探索木のノードの削除（次数 1）](binary_search_tree.assets/bst_remove_case2.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-20 &nbsp; 二分探索木のノードの削除（次数 1） </p>
 
@@ -833,16 +833,16 @@ comments: true
 2. 削除するノードの値を `tmp` の値で上書きし、木から `tmp` を再帰的に削除します。
 
 === "<1>"
-    ![二分探索木のノードの削除（次数 2）](binary_search_tree.assets/bst_remove_case3_step1.png){ class="animation-figure" }
+    ![二分探索木のノードの削除（次数 2）](binary_search_tree.assets/bst_remove_case3_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![次数 2 のノードの削除の手順 2](binary_search_tree.assets/bst_remove_case3_step2.png){ class="animation-figure" }
+    ![次数 2 のノードの削除の手順 2](binary_search_tree.assets/bst_remove_case3_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![次数 2 のノードの削除の手順 3](binary_search_tree.assets/bst_remove_case3_step3.png){ class="animation-figure" }
+    ![次数 2 のノードの削除の手順 3](binary_search_tree.assets/bst_remove_case3_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![次数 2 のノードの削除の手順 4](binary_search_tree.assets/bst_remove_case3_step4.png){ class="animation-figure" }
+    ![次数 2 のノードの削除の手順 4](binary_search_tree.assets/bst_remove_case3_step4.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-21 &nbsp; 二分探索木のノードの削除（次数 2） </p>
 
@@ -1601,7 +1601,7 @@ comments: true
 
 この性質を利用すれば、追加のソートなしに $O(n)$ 時間で整列済みのデータを取得でき、非常に効率的です。
 
-![二分探索木の通りがけ順走査の列](binary_search_tree.assets/bst_inorder_traversal.png){ class="animation-figure" }
+![二分探索木の通りがけ順走査の列](binary_search_tree.assets/bst_inorder_traversal.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-22 &nbsp; 二分探索木の通りがけ順走査の列 </p>
 
@@ -1625,7 +1625,7 @@ comments: true
 
 ただし、挿入と削除を続けると、図 7-23 のように連結リストへ退化する可能性があります。その場合、各操作の時間計算量も $O(n)$ に悪化します。
 
-![二分探索木の退化](binary_search_tree.assets/bst_degradation.png){ class="animation-figure" }
+![二分探索木の退化](binary_search_tree.assets/bst_degradation.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-23 &nbsp; 二分探索木の退化 </p>
 

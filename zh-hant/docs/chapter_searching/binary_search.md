@@ -10,7 +10,7 @@ comments: true
 
     給定一個長度為 $n$ 的陣列 `nums` ，元素按從小到大的順序排列且不重複。請查詢並返回元素 `target` 在該陣列中的索引。若陣列不包含該元素，則返回 $-1$ 。示例如圖 10-1 所示。
 
-![二分搜尋示例資料](binary_search.assets/binary_search_example.png){ class="animation-figure" }
+![二分搜尋示例資料](binary_search.assets/binary_search_example.svg){ class="animation-figure" }
 
 <p align="center"> 圖 10-1 &nbsp; 二分搜尋示例資料 </p>
 
@@ -27,25 +27,25 @@ comments: true
 若陣列不包含目標元素，搜尋區間最終會縮小為空。此時返回 $-1$ 。
 
 === "<1>"
-    ![二分搜尋流程](binary_search.assets/binary_search_step1.png){ class="animation-figure" }
+    ![二分搜尋流程](binary_search.assets/binary_search_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![binary_search_step2](binary_search.assets/binary_search_step2.png){ class="animation-figure" }
+    ![binary_search_step2](binary_search.assets/binary_search_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![binary_search_step3](binary_search.assets/binary_search_step3.png){ class="animation-figure" }
+    ![binary_search_step3](binary_search.assets/binary_search_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![binary_search_step4](binary_search.assets/binary_search_step4.png){ class="animation-figure" }
+    ![binary_search_step4](binary_search.assets/binary_search_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![binary_search_step5](binary_search.assets/binary_search_step5.png){ class="animation-figure" }
+    ![binary_search_step5](binary_search.assets/binary_search_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![binary_search_step6](binary_search.assets/binary_search_step6.png){ class="animation-figure" }
+    ![binary_search_step6](binary_search.assets/binary_search_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![binary_search_step7](binary_search.assets/binary_search_step7.png){ class="animation-figure" }
+    ![binary_search_step7](binary_search.assets/binary_search_step7.svg){ class="animation-figure" }
 
 <p align="center"> 圖 10-2 &nbsp; 二分搜尋流程 </p>
 
@@ -695,7 +695,7 @@ comments: true
 
 由於“雙閉區間”表示中的左右邊界都被定義為閉區間，因此透過指標 $i$ 和指標 $j$ 縮小區間的操作也是對稱的。這樣更不容易出錯，**因此一般建議採用“雙閉區間”的寫法**。
 
-![兩種區間定義](binary_search.assets/binary_search_ranges.png){ class="animation-figure" }
+![兩種區間定義](binary_search.assets/binary_search_ranges.svg){ class="animation-figure" }
 
 <p align="center"> 圖 10-3 &nbsp; 兩種區間定義 </p>
 

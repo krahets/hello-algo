@@ -14,7 +14,7 @@ comments: true
     2. 每次只能移動一個圓盤。
     3. 小圓盤必須時刻位於大圓盤之上。
 
-![河內塔問題示例](hanota_problem.assets/hanota_example.png){ class="animation-figure" }
+![河內塔問題示例](hanota_problem.assets/hanota_example.svg){ class="animation-figure" }
 
 <p align="center"> 圖 12-10 &nbsp; 河內塔問題示例 </p>
 
@@ -25,10 +25,10 @@ comments: true
 如圖 12-11 所示，對於問題 $f(1)$ ，即當只有一個圓盤時，我們將它直接從 `A` 移動至 `C` 即可。
 
 === "<1>"
-    ![規模為 1 的問題的解](hanota_problem.assets/hanota_f1_step1.png){ class="animation-figure" }
+    ![規模為 1 的問題的解](hanota_problem.assets/hanota_f1_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.png){ class="animation-figure" }
+    ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.svg){ class="animation-figure" }
 
 <p align="center"> 圖 12-11 &nbsp; 規模為 1 的問題的解 </p>
 
@@ -39,16 +39,16 @@ comments: true
 3. 最後將小圓盤從 `B` 移至 `C` 。
 
 === "<1>"
-    ![規模為 2 的問題的解](hanota_problem.assets/hanota_f2_step1.png){ class="animation-figure" }
+    ![規模為 2 的問題的解](hanota_problem.assets/hanota_f2_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![hanota_f2_step2](hanota_problem.assets/hanota_f2_step2.png){ class="animation-figure" }
+    ![hanota_f2_step2](hanota_problem.assets/hanota_f2_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![hanota_f2_step3](hanota_problem.assets/hanota_f2_step3.png){ class="animation-figure" }
+    ![hanota_f2_step3](hanota_problem.assets/hanota_f2_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![hanota_f2_step4](hanota_problem.assets/hanota_f2_step4.png){ class="animation-figure" }
+    ![hanota_f2_step4](hanota_problem.assets/hanota_f2_step4.svg){ class="animation-figure" }
 
 <p align="center"> 圖 12-12 &nbsp; 規模為 2 的問題的解 </p>
 
@@ -65,16 +65,16 @@ comments: true
 3. 令 `C` 為目標柱、`A` 為緩衝柱，將兩個圓盤從 `B` 移至 `C` 。
 
 === "<1>"
-    ![規模為 3 的問題的解](hanota_problem.assets/hanota_f3_step1.png){ class="animation-figure" }
+    ![規模為 3 的問題的解](hanota_problem.assets/hanota_f3_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![hanota_f3_step2](hanota_problem.assets/hanota_f3_step2.png){ class="animation-figure" }
+    ![hanota_f3_step2](hanota_problem.assets/hanota_f3_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![hanota_f3_step3](hanota_problem.assets/hanota_f3_step3.png){ class="animation-figure" }
+    ![hanota_f3_step3](hanota_problem.assets/hanota_f3_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![hanota_f3_step4](hanota_problem.assets/hanota_f3_step4.png){ class="animation-figure" }
+    ![hanota_f3_step4](hanota_problem.assets/hanota_f3_step4.svg){ class="animation-figure" }
 
 <p align="center"> 圖 12-13 &nbsp; 規模為 3 的問題的解 </p>
 
@@ -88,7 +88,7 @@ comments: true
 
 對於這兩個子問題 $f(n-1)$ ，**可以透過相同的方式進行遞迴劃分**，直至達到最小子問題 $f(1)$ 。而 $f(1)$ 的解是已知的，只需一次移動操作即可。
 
-![解決河內塔問題的分治策略](hanota_problem.assets/hanota_divide_and_conquer.png){ class="animation-figure" }
+![解決河內塔問題的分治策略](hanota_problem.assets/hanota_divide_and_conquer.svg){ class="animation-figure" }
 
 <p align="center"> 圖 12-14 &nbsp; 解決河內塔問題的分治策略 </p>
 
@@ -549,7 +549,7 @@ comments: true
 
 如圖 12-15 所示，河內塔問題形成一棵高度為 $n$ 的遞迴樹，每個節點代表一個子問題，對應一個開啟的 `dfs()` 函式，**因此時間複雜度為 $O(2^n)$ ，空間複雜度為 $O(n)$** 。
 
-![河內塔問題的遞迴樹](hanota_problem.assets/hanota_recursive_tree.png){ class="animation-figure" }
+![河內塔問題的遞迴樹](hanota_problem.assets/hanota_recursive_tree.svg){ class="animation-figure" }
 
 <p align="center"> 圖 12-15 &nbsp; 河內塔問題的遞迴樹 </p>
 

@@ -10,7 +10,7 @@ comments: true
 
 如图 5-1 所示，我们把堆叠元素的顶部称为“栈顶”，底部称为“栈底”。将把元素添加到栈顶的操作叫作“入栈”，删除栈顶元素的操作叫作“出栈”。
 
-![栈的先入后出规则](stack.assets/stack_operations.png){ class="animation-figure" }
+![栈的先入后出规则](stack.assets/stack_operations.svg){ class="animation-figure" }
 
 <p align="center"> 图 5-1 &nbsp; 栈的先入后出规则 </p>
 
@@ -377,13 +377,13 @@ comments: true
 如图 5-2 所示，对于入栈操作，我们只需将元素插入链表头部，这种节点插入方法被称为“头插法”。而对于出栈操作，只需将头节点从链表中删除即可。
 
 === "<1>"
-    ![基于链表实现栈的入栈出栈操作](stack.assets/linkedlist_stack_step1.png){ class="animation-figure" }
+    ![基于链表实现栈的入栈出栈操作](stack.assets/linkedlist_stack_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.png){ class="animation-figure" }
+    ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.png){ class="animation-figure" }
+    ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> 图 5-2 &nbsp; 基于链表实现栈的入栈出栈操作 </p>
 
@@ -1170,13 +1170,13 @@ comments: true
 使用数组实现栈时，我们可以将数组的尾部作为栈顶。如图 5-3 所示，入栈与出栈操作分别对应在数组尾部添加元素与删除元素，时间复杂度都为 $O(1)$ 。
 
 === "<1>"
-    ![基于数组实现栈的入栈出栈操作](stack.assets/array_stack_step1.png){ class="animation-figure" }
+    ![基于数组实现栈的入栈出栈操作](stack.assets/array_stack_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![array_stack_push](stack.assets/array_stack_step2_push.png){ class="animation-figure" }
+    ![array_stack_push](stack.assets/array_stack_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![array_stack_pop](stack.assets/array_stack_step3_pop.png){ class="animation-figure" }
+    ![array_stack_pop](stack.assets/array_stack_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> 图 5-3 &nbsp; 基于数组实现栈的入栈出栈操作 </p>
 

@@ -22,7 +22,7 @@ Let's modify the climbing stairs problem slightly to illustrate optimal substruc
 
 As shown in Figure 14-6, if steps $1$, $2$, and $3$ cost $1$, $10$, and $1$, respectively, the minimum cost of reaching step $3$ from the ground is $2$.
 
-![Minimum cost of reaching step 3](dp_problem_features.assets/min_cost_cs_example.png){ class="animation-figure" }
+![Minimum cost of reaching step 3](dp_problem_features.assets/min_cost_cs_example.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-6 &nbsp; Minimum cost of reaching step 3 </p>
 
@@ -325,7 +325,7 @@ The state transition equation, together with the initial states $dp[1] = cost[1]
 
 Figure 14-7 illustrates this dynamic programming process.
 
-![Dynamic programming for the minimum climbing cost](dp_problem_features.assets/min_cost_cs_dp.png){ class="animation-figure" }
+![Dynamic programming for the minimum climbing cost](dp_problem_features.assets/min_cost_cs_dp.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-7 &nbsp; Dynamic programming for the minimum climbing cost </p>
 
@@ -600,7 +600,7 @@ Adding a constraint changes the situation.
 
 As shown in Figure 14-8, only $2$ ways remain to reach step $3$: taking $1$ step three times in a row violates the constraint and is discarded.
 
-![Number of ways to reach step 3 with the constraint](dp_problem_features.assets/climbing_stairs_constraint_example.png){ class="animation-figure" }
+![Number of ways to reach step 3 with the constraint](dp_problem_features.assets/climbing_stairs_constraint_example.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-8 &nbsp; Number of ways to reach step 3 with the constraint </p>
 
@@ -622,7 +622,7 @@ dp[i, 2] = dp[i-2, 1] + dp[i-2, 2]
 \end{cases}
 $$
 
-![Recurrence with the constraint](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.png){ class="animation-figure" }
+![Recurrence with the constraint](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-9 &nbsp; Recurrence with the constraint </p>
 

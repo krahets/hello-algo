@@ -9,25 +9,25 @@ comments: true
 Как показано на рисунке 11-4, процесс «всплытия» можно смоделировать через операцию обмена элементов: начиная от левого края массива и двигаясь вправо, мы последовательно сравниваем соседние элементы и, если «левый элемент > правый элемент», меняем их местами. После завершения прохода максимальный элемент будет перемещен в самый правый конец массива.
 
 === "<1>"
-    ![Моделирование пузырька через обмен элементов](bubble_sort.assets/bubble_operation_step1.png){ class="animation-figure" }
+    ![Моделирование пузырька через обмен элементов](bubble_sort.assets/bubble_operation_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.png){ class="animation-figure" }
+    ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![bubble_operation_step3](bubble_sort.assets/bubble_operation_step3.png){ class="animation-figure" }
+    ![bubble_operation_step3](bubble_sort.assets/bubble_operation_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![bubble_operation_step4](bubble_sort.assets/bubble_operation_step4.png){ class="animation-figure" }
+    ![bubble_operation_step4](bubble_sort.assets/bubble_operation_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![bubble_operation_step5](bubble_sort.assets/bubble_operation_step5.png){ class="animation-figure" }
+    ![bubble_operation_step5](bubble_sort.assets/bubble_operation_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![bubble_operation_step6](bubble_sort.assets/bubble_operation_step6.png){ class="animation-figure" }
+    ![bubble_operation_step6](bubble_sort.assets/bubble_operation_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.png){ class="animation-figure" }
+    ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 11-4 &nbsp; Моделирование пузырька через обмен элементов </p>
 
@@ -40,7 +40,7 @@ comments: true
 3. Продолжать по аналогии. После $n - 1$ раундов «всплытия» **первые $n - 1$ по величине элементы окажутся на правильных позициях**.
 4. Оставшийся единственный элемент обязательно является минимальным, сортировать его уже не нужно, поэтому сортировка завершена.
 
-![Процесс сортировки пузырьком](bubble_sort.assets/bubble_sort_overview.png){ class="animation-figure" }
+![Процесс сортировки пузырьком](bubble_sort.assets/bubble_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 11-5 &nbsp; Процесс сортировки пузырьком </p>
 

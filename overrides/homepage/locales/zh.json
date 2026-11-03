@@ -1,9 +1,8 @@
 {
   "hero_class": "hero-div",
-  "list_layout": false,
   "labels": {
     "astronaut": "初识算法",
-    "chapter_computational_complexity": "复杂度",
+    "chapter_computational_complexity": "复杂度分析",
     "chapter_array_and_linkedlist": "数组与链表",
     "chapter_stack_and_queue": "栈与队列",
     "chapter_hashing": "哈希表",

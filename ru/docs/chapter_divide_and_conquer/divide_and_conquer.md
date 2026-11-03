@@ -14,7 +14,7 @@ comments: true
 1. **Разделение**: рекурсивно разделить исходный массив (исходную задачу) на два подмассива (подзадачи), пока в подмассиве не останется только один элемент (наименьшая подзадача).
 2. **Объединение**: снизу вверх объединять упорядоченные подмассивы (решения подзадач), чтобы получить упорядоченный исходный массив (решение исходной задачи).
 
-![Стратегия разделяй и властвуй в сортировке слиянием](divide_and_conquer.assets/divide_and_conquer_merge_sort.png){ class="animation-figure" }
+![Стратегия разделяй и властвуй в сортировке слиянием](divide_and_conquer.assets/divide_and_conquer_merge_sort.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 12-1 &nbsp; Стратегия разделяй и властвуй в сортировке слиянием </p>
 
@@ -46,7 +46,7 @@ $$
 O(n + (\frac{n}{2})^2 \times 2 + n) = O(\frac{n^2}{2} + 2n)
 $$
 
-![Сортировка пузырьком до и после разбиения массива](divide_and_conquer.assets/divide_and_conquer_bubble_sort.png){ class="animation-figure" }
+![Сортировка пузырьком до и после разбиения массива](divide_and_conquer.assets/divide_and_conquer_bubble_sort.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 12-2 &nbsp; Сортировка пузырьком до и после разбиения массива </p>
 
@@ -74,7 +74,7 @@ $$
 
 Например, в «блочной сортировке», показанной на рисунке 12-3, большой объем данных равномерно распределяется по блокам. Тогда сортировку каждого блока можно поручить отдельным вычислительным единицам, а после завершения просто объединить результаты.
 
-![Параллельные вычисления в блочной сортировке](divide_and_conquer.assets/divide_and_conquer_parallel_computing.png){ class="animation-figure" }
+![Параллельные вычисления в блочной сортировке](divide_and_conquer.assets/divide_and_conquer_parallel_computing.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 12-3 &nbsp; Параллельные вычисления в блочной сортировке </p>
 

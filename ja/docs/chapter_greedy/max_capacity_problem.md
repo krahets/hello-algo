@@ -12,7 +12,7 @@ comments: true
     
     容器の容量が最大になるように 2 枚の仕切り板を選び、最大容量を返してください。例を図 15-7 に示します。
 
-![最大容量問題のデータ例](max_capacity_problem.assets/max_capacity_example.png){ class="animation-figure" }
+![最大容量問題のデータ例](max_capacity_problem.assets/max_capacity_example.svg){ class="animation-figure" }
 
 <p align="center"> 図 15-7 &nbsp; 最大容量問題のデータ例 </p>
 
@@ -30,7 +30,7 @@ $$
 
 この問題には、さらに効率的な解法があります。図 15-8 のように、$i < j$ かつ $ht[i] < ht[j]$ を満たす状態 $[i, j]$ を選びます。つまり、$i$ が低い板、$j$ が高い板です。
 
-![初期状態](max_capacity_problem.assets/max_capacity_initial_state.png){ class="animation-figure" }
+![初期状態](max_capacity_problem.assets/max_capacity_initial_state.svg){ class="animation-figure" }
 
 <p align="center"> 図 15-8 &nbsp; 初期状態 </p>
 
@@ -38,13 +38,13 @@ $$
 
 板 $j$ を動かすと、幅 $j-i$ は必ず小さくなります。一方、高さは低い方の板で決まるため、変わらない（$i$ が引き続き低い方）か、小さくなる（移動後の $j$ が低い方になる）かのどちらかです。
 
-![高い方の板を内側に動かした状態](max_capacity_problem.assets/max_capacity_moving_long_board.png){ class="animation-figure" }
+![高い方の板を内側に動かした状態](max_capacity_problem.assets/max_capacity_moving_long_board.svg){ class="animation-figure" }
 
 <p align="center"> 図 15-9 &nbsp; 高い方の板を内側に動かした状態 </p>
 
 逆に考えると、**容量が大きくなる可能性があるのは、低い方の板 $i$ を内側に動かす場合だけです**。幅は必ず小さくなりますが、**高さは大きくなる可能性がある**からです（移動先の板 $i$ がより高いことがあります）。たとえば図 15-10 では、低い方の板を動かすと面積が大きくなります。
 
-![低い方の板を内側に動かした状態](max_capacity_problem.assets/max_capacity_moving_short_board.png){ class="animation-figure" }
+![低い方の板を内側に動かした状態](max_capacity_problem.assets/max_capacity_moving_short_board.svg){ class="animation-figure" }
 
 <p align="center"> 図 15-10 &nbsp; 低い方の板を内側に動かした状態 </p>
 
@@ -58,31 +58,31 @@ $$
 4. 手順 `2.` と `3.` を繰り返し、$i$ と $j$ が出会ったら終了します。
 
 === "<1>"
-    ![最大容量問題を貪欲に解く流れ](max_capacity_problem.assets/max_capacity_greedy_step1.png){ class="animation-figure" }
+    ![最大容量問題を貪欲に解く流れ](max_capacity_problem.assets/max_capacity_greedy_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![最大容量問題を貪欲に解く流れ：手順 2](max_capacity_problem.assets/max_capacity_greedy_step2.png){ class="animation-figure" }
+    ![最大容量問題を貪欲に解く流れ：手順 2](max_capacity_problem.assets/max_capacity_greedy_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![最大容量問題を貪欲に解く流れ：手順 3](max_capacity_problem.assets/max_capacity_greedy_step3.png){ class="animation-figure" }
+    ![最大容量問題を貪欲に解く流れ：手順 3](max_capacity_problem.assets/max_capacity_greedy_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![最大容量問題を貪欲に解く流れ：手順 4](max_capacity_problem.assets/max_capacity_greedy_step4.png){ class="animation-figure" }
+    ![最大容量問題を貪欲に解く流れ：手順 4](max_capacity_problem.assets/max_capacity_greedy_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![最大容量問題を貪欲に解く流れ：手順 5](max_capacity_problem.assets/max_capacity_greedy_step5.png){ class="animation-figure" }
+    ![最大容量問題を貪欲に解く流れ：手順 5](max_capacity_problem.assets/max_capacity_greedy_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![最大容量問題を貪欲に解く流れ：手順 6](max_capacity_problem.assets/max_capacity_greedy_step6.png){ class="animation-figure" }
+    ![最大容量問題を貪欲に解く流れ：手順 6](max_capacity_problem.assets/max_capacity_greedy_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![最大容量問題を貪欲に解く流れ：手順 7](max_capacity_problem.assets/max_capacity_greedy_step7.png){ class="animation-figure" }
+    ![最大容量問題を貪欲に解く流れ：手順 7](max_capacity_problem.assets/max_capacity_greedy_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![最大容量問題を貪欲に解く流れ：手順 8](max_capacity_problem.assets/max_capacity_greedy_step8.png){ class="animation-figure" }
+    ![最大容量問題を貪欲に解く流れ：手順 8](max_capacity_problem.assets/max_capacity_greedy_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![最大容量問題を貪欲に解く流れ：手順 9](max_capacity_problem.assets/max_capacity_greedy_step9.png){ class="animation-figure" }
+    ![最大容量問題を貪欲に解く流れ：手順 9](max_capacity_problem.assets/max_capacity_greedy_step9.svg){ class="animation-figure" }
 
 <p align="center"> 図 15-11 &nbsp; 最大容量問題を貪欲に解く流れ </p>
 
@@ -436,7 +436,7 @@ $$
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 $$
 
-![低い方の板を動かすことで飛ばされる状態](max_capacity_problem.assets/max_capacity_skipped_states.png){ class="animation-figure" }
+![低い方の板を動かすことで飛ばされる状態](max_capacity_problem.assets/max_capacity_skipped_states.svg){ class="animation-figure" }
 
 <p align="center"> 図 15-12 &nbsp; 低い方の板を動かすことで飛ばされる状態 </p>
 

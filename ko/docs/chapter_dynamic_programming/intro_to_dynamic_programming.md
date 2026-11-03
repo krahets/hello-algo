@@ -14,7 +14,7 @@ comments: true
 
 아래 그림(14-1)과 같이 $3$ 칸짜리 계단의 맨 위에 오르는 방법은 총 $3$ 가지다.
 
-![3번째 칸까지 오르는 방법 수](intro_to_dynamic_programming.assets/climbing_stairs_example.png){ class="animation-figure" }
+![3번째 칸까지 오르는 방법 수](intro_to_dynamic_programming.assets/climbing_stairs_example.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-1 &nbsp; 3번째 칸까지 오르는 방법 수 </p>
 
@@ -445,7 +445,7 @@ $$
 
 이는 계단 오르기 문제의 부분 문제들 사이에 점화 관계가 있으며, **부분 문제의 해로 원래 문제의 해를 구성할 수 있다는 뜻**이다. 아래 그림(14-2)이 이 점화 관계를 보여 준다.
 
-![방법 수의 점화 관계](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png){ class="animation-figure" }
+![방법 수의 점화 관계](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-2 &nbsp; 방법 수의 점화 관계 </p>
 
@@ -702,7 +702,7 @@ $$
 
 아래 그림(14-3)은 완전 탐색으로 만들어지는 재귀 트리다. 문제 $dp[n]$의 재귀 트리 깊이는 $n$이고 시간 복잡도는 $O(2^n)$이다. 지수적 증가는 폭발적이므로 비교적 큰 $n$을 입력하면 매우 오래 기다려야 한다.
 
-![계단 오르기의 재귀 트리](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png){ class="animation-figure" }
+![계단 오르기의 재귀 트리](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-3 &nbsp; 계단 오르기의 재귀 트리 </p>
 
@@ -1069,7 +1069,7 @@ $$
 
 아래 그림(14-4)과 같이 **메모이제이션을 적용하면 모든 중복 부분 문제를 한 번만 계산하므로 시간 복잡도가 $O(n)$으로 개선된다**. 이는 매우 큰 발전이다.
 
-![메모이제이션을 이용한 탐색의 재귀 트리](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png){ class="animation-figure" }
+![메모이제이션을 이용한 탐색의 재귀 트리](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-4 &nbsp; 메모이제이션을 이용한 탐색의 재귀 트리 </p>
 
@@ -1345,7 +1345,7 @@ $$
 
 아래 그림(14-5)은 위 코드의 실행 과정을 보여 준다.
 
-![계단 오르기의 동적 계획법 과정](intro_to_dynamic_programming.assets/climbing_stairs_dp.png){ class="animation-figure" }
+![계단 오르기의 동적 계획법 과정](intro_to_dynamic_programming.assets/climbing_stairs_dp.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-5 &nbsp; 계단 오르기의 동적 계획법 과정 </p>
 

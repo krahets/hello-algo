@@ -8,7 +8,7 @@ comments: true
 
 Как показано на рисунке 6-1, пусть есть $n$ студентов, и у каждого из них есть два поля данных: имя и номер студенческого билета. Если мы хотим реализовать запрос вида «ввести номер студенческого билета и вернуть соответствующее имя», то для этого можно воспользоваться хеш-таблицей, изображенной на рисунке 6-1.
 
-![Абстрактное представление хеш-таблицы](hash_map.assets/hash_table_lookup.png){ class="animation-figure" }
+![Абстрактное представление хеш-таблицы](hash_map.assets/hash_table_lookup.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 6-1 &nbsp; Абстрактное представление хеш-таблицы </p>
 
@@ -569,7 +569,7 @@ index = hash(key) % capacity
 
 Пусть длина массива `capacity = 100` , а хеш-алгоритм `hash(key) = key` . Тогда легко получить хеш-функцию `key % 100` . На рисунке 6-2 на примере `key` «номер студенческого билета» и `value` «имя» показан принцип работы хеш-функции.
 
-![Принцип работы хеш-функции](hash_map.assets/hash_function.png){ class="animation-figure" }
+![Принцип работы хеш-функции](hash_map.assets/hash_function.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 6-2 &nbsp; Принцип работы хеш-функции </p>
 
@@ -1771,7 +1771,7 @@ index = hash(key) % capacity
 
 Как показано на рисунке 6-3, два номера указывают на одно и то же имя, что, очевидно, неверно. Такую ситуацию, когда нескольким входам соответствует один и тот же выход, называют <u>хеш-коллизией (hash collision)</u>.
 
-![Пример хеш-коллизии](hash_map.assets/hash_collision.png){ class="animation-figure" }
+![Пример хеш-коллизии](hash_map.assets/hash_collision.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 6-3 &nbsp; Пример хеш-коллизии </p>
 
@@ -1779,7 +1779,7 @@ index = hash(key) % capacity
 
 Как показано на рисунке 6-4, до расширения пары ключ-значение `(136, A)` и `(236, D)` конфликтовали, а после расширения коллизия исчезла.
 
-![Расширение хеш-таблицы](hash_map.assets/hash_table_reshash.png){ class="animation-figure" }
+![Расширение хеш-таблицы](hash_map.assets/hash_table_reshash.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 6-4 &nbsp; Расширение хеш-таблицы </p>
 

@@ -8,7 +8,7 @@ comments: true
 
 충돌이 너무 자주 발생하면 성능이 급격히 나빠진다. 아래 그림(6-8)의 체이닝 해시 테이블에서 이상적인 경우는 키-값 쌍이 각 버킷에 고르게 분포하여 최고의 조회 효율을 얻는 것이다. 최악의 경우에는 모든 키-값 쌍이 같은 버킷에 들어가 시간 복잡도가 $O(n)$으로 나빠진다.
 
-![해시 충돌의 최선과 최악의 경우](hash_algorithm.assets/hash_collision_best_worst_condition.png){ class="animation-figure" }
+![해시 충돌의 최선과 최악의 경우](hash_algorithm.assets/hash_collision_best_worst_condition.svg){ class="animation-figure" }
 
 <p align="center"> 그림 6-8 &nbsp; 해시 충돌의 최선과 최악의 경우 </p>
 

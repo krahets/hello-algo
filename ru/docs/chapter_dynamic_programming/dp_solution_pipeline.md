@@ -41,7 +41,7 @@ comments: true
 
 На рисунке 14-10 показан пример, в котором минимальная сумма пути равна $13$ .
 
-![Пример данных для задачи о минимальной сумме пути](dp_solution_pipeline.assets/min_path_sum_example.png){ class="animation-figure" }
+![Пример данных для задачи о минимальной сумме пути](dp_solution_pipeline.assets/min_path_sum_example.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-10 &nbsp; Пример данных для задачи о минимальной сумме пути </p>
 
@@ -53,7 +53,7 @@ comments: true
 
 На этом этапе мы получаем двумерную матрицу $dp$ , показанную на рисунке 14-11, размер которой совпадает с размером входной сетки `grid` .
 
-![Определение состояния и таблицы dp](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.png){ class="animation-figure" }
+![Определение состояния и таблицы dp](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-11 &nbsp; Определение состояния и таблицы dp </p>
 
@@ -73,7 +73,7 @@ $$
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 $$
 
-![Оптимальная подструктура и уравнение перехода состояния](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.png){ class="animation-figure" }
+![Оптимальная подструктура и уравнение перехода состояния](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-12 &nbsp; Оптимальная подструктура и уравнение перехода состояния </p>
 
@@ -89,7 +89,7 @@ $$
 
 Как показано на рисунке 14-13, поскольку каждая клетка получается из клетки слева и клетки сверху, мы можем проходить матрицу циклами: внешний цикл по строкам, внутренний - по столбцам.
 
-![Граничные условия и порядок перехода состояний](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.png){ class="animation-figure" }
+![Граничные условия и порядок перехода состояний](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-13 &nbsp; Граничные условия и порядок перехода состояний </p>
 
@@ -392,7 +392,7 @@ $$
 
 По своей сути причина появления перекрывающихся подзадач такова: **существует много разных путей от левого верхнего угла до одной и той же клетки**.
 
-![Дерево рекурсии полного перебора](dp_solution_pipeline.assets/min_path_sum_dfs.png){ class="animation-figure" }
+![Дерево рекурсии полного перебора](dp_solution_pipeline.assets/min_path_sum_dfs.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-14 &nbsp; Дерево рекурсии полного перебора </p>
 
@@ -749,7 +749,7 @@ $$
 
 Как показано на рисунке 14-15, после добавления мемоизации решение каждой подзадачи вычисляется только один раз, поэтому временная сложность определяется общим числом состояний, то есть равна $O(nm)$ .
 
-![Дерево рекурсии для поиска с мемоизацией](dp_solution_pipeline.assets/min_path_sum_dfs_mem.png){ class="animation-figure" }
+![Дерево рекурсии для поиска с мемоизацией](dp_solution_pipeline.assets/min_path_sum_dfs_mem.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-15 &nbsp; Дерево рекурсии для поиска с мемоизацией </p>
 
@@ -1127,40 +1127,40 @@ $$
 Размер массива `dp` равен $n \times m$ , **поэтому пространственная сложность равна $O(nm)$** .
 
 === "<1>"
-    ![Процесс динамического программирования для минимальной суммы пути](dp_solution_pipeline.assets/min_path_sum_dp_step1.png){ class="animation-figure" }
+    ![Процесс динамического программирования для минимальной суммы пути](dp_solution_pipeline.assets/min_path_sum_dp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![min_path_sum_dp_step2](dp_solution_pipeline.assets/min_path_sum_dp_step2.png){ class="animation-figure" }
+    ![min_path_sum_dp_step2](dp_solution_pipeline.assets/min_path_sum_dp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![min_path_sum_dp_step3](dp_solution_pipeline.assets/min_path_sum_dp_step3.png){ class="animation-figure" }
+    ![min_path_sum_dp_step3](dp_solution_pipeline.assets/min_path_sum_dp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![min_path_sum_dp_step4](dp_solution_pipeline.assets/min_path_sum_dp_step4.png){ class="animation-figure" }
+    ![min_path_sum_dp_step4](dp_solution_pipeline.assets/min_path_sum_dp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![min_path_sum_dp_step5](dp_solution_pipeline.assets/min_path_sum_dp_step5.png){ class="animation-figure" }
+    ![min_path_sum_dp_step5](dp_solution_pipeline.assets/min_path_sum_dp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![min_path_sum_dp_step6](dp_solution_pipeline.assets/min_path_sum_dp_step6.png){ class="animation-figure" }
+    ![min_path_sum_dp_step6](dp_solution_pipeline.assets/min_path_sum_dp_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![min_path_sum_dp_step7](dp_solution_pipeline.assets/min_path_sum_dp_step7.png){ class="animation-figure" }
+    ![min_path_sum_dp_step7](dp_solution_pipeline.assets/min_path_sum_dp_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![min_path_sum_dp_step8](dp_solution_pipeline.assets/min_path_sum_dp_step8.png){ class="animation-figure" }
+    ![min_path_sum_dp_step8](dp_solution_pipeline.assets/min_path_sum_dp_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![min_path_sum_dp_step9](dp_solution_pipeline.assets/min_path_sum_dp_step9.png){ class="animation-figure" }
+    ![min_path_sum_dp_step9](dp_solution_pipeline.assets/min_path_sum_dp_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![min_path_sum_dp_step10](dp_solution_pipeline.assets/min_path_sum_dp_step10.png){ class="animation-figure" }
+    ![min_path_sum_dp_step10](dp_solution_pipeline.assets/min_path_sum_dp_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![min_path_sum_dp_step11](dp_solution_pipeline.assets/min_path_sum_dp_step11.png){ class="animation-figure" }
+    ![min_path_sum_dp_step11](dp_solution_pipeline.assets/min_path_sum_dp_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.png){ class="animation-figure" }
+    ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-16 &nbsp; Процесс динамического программирования для минимальной суммы пути </p>
 

@@ -14,7 +14,7 @@ comments: true
 
 Из свойств обхода по уровням можно вывести формулу соответствия между индексом родителя и индексами дочерних узлов: **если индекс некоторого узла равен $i$ , то индекс его левого дочернего узла равен $2i + 1$ , а правого - $2i + 2$** . На рисунке 7-12 показано соответствие между индексами разных узлов.
 
-![Представление идеального двоичного дерева массивом](array_representation_of_tree.assets/array_representation_binary_tree.png){ class="animation-figure" }
+![Представление идеального двоичного дерева массивом](array_representation_of_tree.assets/array_representation_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-12 &nbsp; Представление идеального двоичного дерева массивом </p>
 
@@ -26,7 +26,7 @@ comments: true
 
 Как показано на рисунке 7-13, для неполной двоичной структуры описанный выше способ представления массивом уже перестает работать.
 
-![Одной последовательности обхода по уровням соответствуют разные двоичные структуры](array_representation_of_tree.assets/array_representation_without_empty.png){ class="animation-figure" }
+![Одной последовательности обхода по уровням соответствуют разные двоичные структуры](array_representation_of_tree.assets/array_representation_without_empty.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-13 &nbsp; Одной последовательности обхода по уровням соответствуют разные двоичные структуры </p>
 
@@ -136,7 +136,7 @@ comments: true
     tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
-![Представление произвольного двоичного дерева массивом](array_representation_of_tree.assets/array_representation_with_empty.png){ class="animation-figure" }
+![Представление произвольного двоичного дерева массивом](array_representation_of_tree.assets/array_representation_with_empty.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-14 &nbsp; Представление произвольного двоичного дерева массивом </p>
 
@@ -144,7 +144,7 @@ comments: true
 
 Это означает, что при представлении полного двоичного дерева массивом можно не хранить все `None` , что очень удобно. На рисунке 7-15 приведен пример.
 
-![Представление полного двоичного дерева массивом](array_representation_of_tree.assets/array_representation_complete_binary_tree.png){ class="animation-figure" }
+![Представление полного двоичного дерева массивом](array_representation_of_tree.assets/array_representation_complete_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-15 &nbsp; Представление полного двоичного дерева массивом </p>
 

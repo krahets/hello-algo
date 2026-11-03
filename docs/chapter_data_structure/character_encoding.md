@@ -10,7 +10,7 @@ comments: true
 
 <u>ASCII 码</u>是最早出现的字符集，其全称为 American Standard Code for Information Interchange（美国标准信息交换代码）。它使用 7 位二进制数（一个字节的低 7 位）表示一个字符，最多能够表示 128 个不同的字符。如图 3-6 所示，ASCII 码包括英文字母的大小写、数字 0 ~ 9、一些标点符号，以及一些控制字符（如换行符和制表符）。
 
-![ASCII 码](character_encoding.assets/ascii_table.png){ class="animation-figure" }
+![ASCII 码](character_encoding.assets/ascii_table.svg){ class="animation-figure" }
 
 <p align="center"> 图 3-6 &nbsp; ASCII 码 </p>
 
@@ -36,7 +36,7 @@ Unicode 作为一种通用字符集，本质上是给每个字符分配唯一的
 
 对于以上问题，**一种直接的解决方案是将所有字符存储为等长的编码**。如图 3-7 所示，“Hello”中的每个字符占用 1 字节，“算法”中的每个字符占用 2 字节。我们可以通过高位填 0 将“Hello 算法”中的所有字符都编码为 2 字节长度。这样系统就可以每隔 2 字节解析一个字符，恢复这个短语的内容了。
 
-![Unicode 编码示例](character_encoding.assets/unicode_hello_algo.png){ class="animation-figure" }
+![Unicode 编码示例](character_encoding.assets/unicode_hello_algo.svg){ class="animation-figure" }
 
 <p align="center"> 图 3-7 &nbsp; Unicode 编码示例 </p>
 
@@ -57,7 +57,7 @@ UTF-8 的编码规则并不复杂，分为以下两种情况。
 
 之所以将 $10$ 当作校验符，是因为在 UTF-8 编码规则下，不可能有字符的最高两位是 $10$ 。这个结论可以用反证法来证明：假设一个字符的最高两位是 $10$ ，说明该字符的长度为 $1$ ，对应 ASCII 码。而 ASCII 码的最高位应该是 $0$ ，与假设矛盾。
 
-![UTF-8 编码示例](character_encoding.assets/utf-8_hello_algo.png){ class="animation-figure" }
+![UTF-8 编码示例](character_encoding.assets/utf-8_hello_algo.svg){ class="animation-figure" }
 
 <p align="center"> 图 3-8 &nbsp; UTF-8 编码示例 </p>
 

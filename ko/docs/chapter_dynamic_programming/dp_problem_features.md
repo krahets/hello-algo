@@ -22,7 +22,7 @@ comments: true
 
 아래 그림(14-6)과 같이 $1$, $2$, $3$ 번째 칸의 비용이 각각 $1$, $10$, $1$이면 바닥에서 $3$ 번째 칸까지 오르는 최소 비용은 $2$다.
 
-![3번째 칸까지 오르는 최소 비용](dp_problem_features.assets/min_cost_cs_example.png){ class="animation-figure" }
+![3번째 칸까지 오르는 최소 비용](dp_problem_features.assets/min_cost_cs_example.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-6 &nbsp; 3번째 칸까지 오르는 최소 비용 </p>
 
@@ -325,7 +325,7 @@ $$
 
 아래 그림(14-7)은 위 코드의 동적 계획법 과정이다.
 
-![계단 오르기 최소 비용의 동적 계획법 과정](dp_problem_features.assets/min_cost_cs_dp.png){ class="animation-figure" }
+![계단 오르기 최소 비용의 동적 계획법 과정](dp_problem_features.assets/min_cost_cs_dp.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-7 &nbsp; 계단 오르기 최소 비용의 동적 계획법 과정 </p>
 
@@ -600,7 +600,7 @@ $$
 
 아래 그림(14-8)에서는 $3$ 번째 칸까지 오르는 유효한 방법이 $2$ 가지만 남는다. $1$ 칸씩 세 번 연속 오르는 방법은 제약 조건을 만족하지 않아 제외된다.
 
-![제약이 있을 때 3번째 칸까지 오르는 방법 수](dp_problem_features.assets/climbing_stairs_constraint_example.png){ class="animation-figure" }
+![제약이 있을 때 3번째 칸까지 오르는 방법 수](dp_problem_features.assets/climbing_stairs_constraint_example.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-8 &nbsp; 제약이 있을 때 3번째 칸까지 오르는 방법 수 </p>
 
@@ -622,7 +622,7 @@ dp[i, 2] = dp[i-2, 1] + dp[i-2, 2]
 \end{cases}
 $$
 
-![제약을 고려한 점화 관계](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.png){ class="animation-figure" }
+![제약을 고려한 점화 관계](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-9 &nbsp; 제약을 고려한 점화 관계 </p>
 

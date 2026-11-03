@@ -9,7 +9,7 @@ comments: true
 1. **Этап разделения**: массив рекурсивно делится пополам, и задача сортировки длинного массива превращается в задачи сортировки более коротких массивов.
 2. **Этап слияния**: когда длина подмассива становится равной 1, разделение завершается и начинается слияние. Два коротких упорядоченных массива непрерывно объединяются в один более длинный упорядоченный массив, пока процесс не завершится.
 
-![Этапы разделения и слияния в сортировке слиянием](merge_sort.assets/merge_sort_overview.png){ class="animation-figure" }
+![Этапы разделения и слияния в сортировке слиянием](merge_sort.assets/merge_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 11-10 &nbsp; Этапы разделения и слияния в сортировке слиянием </p>
 
@@ -23,34 +23,34 @@ comments: true
 Этап «слияния» снизу вверх объединяет левый и правый подмассивы в один упорядоченный массив. Следует заметить, что начиная с подмассивов длины 1, каждый подмассив в фазе слияния уже является упорядоченным.
 
 === "<1>"
-    ![Шаги сортировки слиянием](merge_sort.assets/merge_sort_step1.png){ class="animation-figure" }
+    ![Шаги сортировки слиянием](merge_sort.assets/merge_sort_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.png){ class="animation-figure" }
+    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.png){ class="animation-figure" }
+    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.png){ class="animation-figure" }
+    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.png){ class="animation-figure" }
+    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.png){ class="animation-figure" }
+    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.png){ class="animation-figure" }
+    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.png){ class="animation-figure" }
+    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.png){ class="animation-figure" }
+    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.png){ class="animation-figure" }
+    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 11-11 &nbsp; Шаги сортировки слиянием </p>
 

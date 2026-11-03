@@ -14,7 +14,7 @@ comments: true
 2. **`counter` を使って、`nums` 内の各数値の出現回数を数えます**。`counter[num]` は数値 `num` の出現回数です。数え方は簡単で、`nums` を走査し、現在の数値を `num` として、毎回 `counter[num]` を $1$ 増やすだけです。
 3. **`counter` のインデックスはもともと順に並んでいるので、すべての数値がすでにソートされたのと同じです**。あとは `counter` を走査し、各数値の出現回数に従って、小さい順に `nums` へ書き込めば完了です。
 
-![カウントソートの流れ](counting_sort.assets/counting_sort_overview.png){ class="animation-figure" }
+![カウントソートの流れ](counting_sort.assets/counting_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> 図 11-16 &nbsp; カウントソートの流れ </p>
 
@@ -388,28 +388,28 @@ $$
 走査が終わると、配列 `res` がソート済みの結果になります。最後に `res` で元の配列 `nums` を上書きします。図 11-17 にカウントソートの全手順を示します。
 
 === "<1>"
-    ![カウントソートの手順](counting_sort.assets/counting_sort_step1.png){ class="animation-figure" }
+    ![カウントソートの手順](counting_sort.assets/counting_sort_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![カウントソートの手順 2](counting_sort.assets/counting_sort_step2.png){ class="animation-figure" }
+    ![カウントソートの手順 2](counting_sort.assets/counting_sort_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![カウントソートの手順 3](counting_sort.assets/counting_sort_step3.png){ class="animation-figure" }
+    ![カウントソートの手順 3](counting_sort.assets/counting_sort_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![カウントソートの手順 4](counting_sort.assets/counting_sort_step4.png){ class="animation-figure" }
+    ![カウントソートの手順 4](counting_sort.assets/counting_sort_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![カウントソートの手順 5](counting_sort.assets/counting_sort_step5.png){ class="animation-figure" }
+    ![カウントソートの手順 5](counting_sort.assets/counting_sort_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![カウントソートの手順 6](counting_sort.assets/counting_sort_step6.png){ class="animation-figure" }
+    ![カウントソートの手順 6](counting_sort.assets/counting_sort_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![カウントソートの手順 7](counting_sort.assets/counting_sort_step7.png){ class="animation-figure" }
+    ![カウントソートの手順 7](counting_sort.assets/counting_sort_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![カウントソートの手順 8](counting_sort.assets/counting_sort_step8.png){ class="animation-figure" }
+    ![カウントソートの手順 8](counting_sort.assets/counting_sort_step8.svg){ class="animation-figure" }
 
 <p align="center"> 図 11-17 &nbsp; カウントソートの手順 </p>
 

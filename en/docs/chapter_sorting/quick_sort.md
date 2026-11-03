@@ -13,31 +13,31 @@ Its core operation is “partitioning”: choose an array element as the “pivo
 3. Repeat step `2.` until `i` and `j` meet. Finally, swap the pivot into the boundary between the two subarrays.
 
 === "<1>"
-    ![Steps of partitioning](quick_sort.assets/pivot_division_step1.png){ class="animation-figure" }
+    ![Steps of partitioning](quick_sort.assets/pivot_division_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.png){ class="animation-figure" }
+    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.png){ class="animation-figure" }
+    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.png){ class="animation-figure" }
+    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.png){ class="animation-figure" }
+    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.png){ class="animation-figure" }
+    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.png){ class="animation-figure" }
+    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.png){ class="animation-figure" }
+    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.png){ class="animation-figure" }
+    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.svg){ class="animation-figure" }
 
 <p align="center"> Figure 11-8 &nbsp; Steps of partitioning </p>
 
@@ -379,7 +379,7 @@ The overall quick sort process is shown below.
 2. Recursively partition the left and right subarrays.
 3. Continue until each subarray has length 1, completing the sort.
 
-![The quick sort process](quick_sort.assets/quick_sort_overview.png){ class="animation-figure" }
+![The quick sort process](quick_sort.assets/quick_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> Figure 11-9 &nbsp; The quick sort process </p>
 

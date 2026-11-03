@@ -338,7 +338,7 @@ comments: true
 
 より正確に計算しましょう。計算を簡単にするため、ノード数 $n$、高さ $h$ のパーフェクト二分木を仮定します。この仮定は結果の正しさに影響しません。
 
-![パーフェクト二分木の各層のノード数](build_heap.assets/heapify_operations_count.png){ class="animation-figure" }
+![パーフェクト二分木の各層のノード数](build_heap.assets/heapify_operations_count.svg){ class="animation-figure" }
 
 <p align="center"> 図 8-5 &nbsp; パーフェクト二分木の各層のノード数 </p>
 

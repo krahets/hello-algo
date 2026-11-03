@@ -16,7 +16,7 @@ comments: true
 2. 学籍番号の第 $k$ 桁についてカウントソートします。これで、第 $k$ 桁の昇順にデータが並びます。
 3. $k$ を $1$ 増やして手順 `2.` に戻り、すべての桁をソートするまで繰り返します。
 
-![基数ソートの流れ](radix_sort.assets/radix_sort_overview.png){ class="animation-figure" }
+![基数ソートの流れ](radix_sort.assets/radix_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> 図 11-18 &nbsp; 基数ソートの流れ </p>
 

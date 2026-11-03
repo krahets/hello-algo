@@ -22,7 +22,7 @@ comments: true
 
 如圖 14-6 所示，若第 $1$、$2$、$3$ 階的代價分別為 $1$、$10$、$1$ ，則從地面爬到第 $3$ 階的最小代價為 $2$ 。
 
-![爬到第 3 階的最小代價](dp_problem_features.assets/min_cost_cs_example.png){ class="animation-figure" }
+![爬到第 3 階的最小代價](dp_problem_features.assets/min_cost_cs_example.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-6 &nbsp; 爬到第 3 階的最小代價 </p>
 
@@ -325,7 +325,7 @@ $$
 
 圖 14-7 展示了以上程式碼的動態規劃過程。
 
-![爬樓梯最小代價的動態規劃過程](dp_problem_features.assets/min_cost_cs_dp.png){ class="animation-figure" }
+![爬樓梯最小代價的動態規劃過程](dp_problem_features.assets/min_cost_cs_dp.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-7 &nbsp; 爬樓梯最小代價的動態規劃過程 </p>
 
@@ -600,7 +600,7 @@ $$
 
 如圖 14-8 所示，爬上第 $3$ 階僅剩 $2$ 種可行方案，其中連續三次跳 $1$ 階的方案不滿足約束條件，因此被捨棄。
 
-![帶約束爬到第 3 階的方案數量](dp_problem_features.assets/climbing_stairs_constraint_example.png){ class="animation-figure" }
+![帶約束爬到第 3 階的方案數量](dp_problem_features.assets/climbing_stairs_constraint_example.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-8 &nbsp; 帶約束爬到第 3 階的方案數量 </p>
 
@@ -622,7 +622,7 @@ dp[i, 2] = dp[i-2, 1] + dp[i-2, 2]
 \end{cases}
 $$
 
-![考慮約束下的遞推關係](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.png){ class="animation-figure" }
+![考慮約束下的遞推關係](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-9 &nbsp; 考慮約束下的遞推關係 </p>
 

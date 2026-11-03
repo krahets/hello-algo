@@ -6,7 +6,7 @@ comments: true
 
 <u>陣列（array）</u>是一種線性資料結構，其將相同型別的元素儲存在連續的記憶體空間中。我們將元素在陣列中的位置稱為該元素的<u>索引（index）</u>。圖 4-1 展示了陣列的主要概念和儲存方式。
 
-![陣列定義與儲存方式](array.assets/array_definition.png){ class="animation-figure" }
+![陣列定義與儲存方式](array.assets/array_definition.svg){ class="animation-figure" }
 
 <p align="center"> 圖 4-1 &nbsp; 陣列定義與儲存方式 </p>
 
@@ -141,7 +141,7 @@ comments: true
 
 陣列元素被儲存在連續的記憶體空間中，這意味著計算陣列元素的記憶體位址非常容易。給定陣列記憶體位址（首元素記憶體位址）和某個元素的索引，我們可以使用圖 4-2 所示的公式計算得到該元素的記憶體位址，從而直接訪問該元素。
 
-![陣列元素的記憶體位址計算](array.assets/array_memory_location_calculation.png){ class="animation-figure" }
+![陣列元素的記憶體位址計算](array.assets/array_memory_location_calculation.svg){ class="animation-figure" }
 
 <p align="center"> 圖 4-2 &nbsp; 陣列元素的記憶體位址計算 </p>
 
@@ -327,7 +327,7 @@ comments: true
 
 陣列元素在記憶體中是“緊挨著的”，它們之間沒有空間再存放任何資料。如圖 4-3 所示，如果想在陣列中間插入一個元素，則需要將該元素之後的所有元素都向後移動一位，之後再把元素賦值給該索引。
 
-![陣列插入元素示例](array.assets/array_insert_element.png){ class="animation-figure" }
+![陣列插入元素示例](array.assets/array_insert_element.svg){ class="animation-figure" }
 
 <p align="center"> 圖 4-3 &nbsp; 陣列插入元素示例 </p>
 
@@ -523,7 +523,7 @@ comments: true
 
 同理，如圖 4-4 所示，若想刪除索引 $i$ 處的元素，則需要把索引 $i$ 之後的元素都向前移動一位。
 
-![陣列刪除元素示例](array.assets/array_remove_element.png){ class="animation-figure" }
+![陣列刪除元素示例](array.assets/array_remove_element.svg){ class="animation-figure" }
 
 <p align="center"> 圖 4-4 &nbsp; 陣列刪除元素示例 </p>
 

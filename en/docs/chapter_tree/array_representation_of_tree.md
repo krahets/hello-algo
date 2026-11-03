@@ -14,7 +14,7 @@ Start with a simple case. Store every node of a perfect binary tree in an array 
 
 Level-order traversal gives us a mapping between parent and child indices: **if a node has index $i$, its left child has index $2i + 1$ and its right child has index $2i + 2$**. Figure 7-12 illustrates this relationship.
 
-![Array representation of a perfect binary tree](array_representation_of_tree.assets/array_representation_binary_tree.png){ class="animation-figure" }
+![Array representation of a perfect binary tree](array_representation_of_tree.assets/array_representation_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-12 &nbsp; Array representation of a perfect binary tree </p>
 
@@ -26,7 +26,7 @@ A perfect binary tree is a special case. Other binary trees often contain many m
 
 As shown below, the array representation above no longer works for a non-perfect binary tree.
 
-![Multiple binary trees can share a level-order sequence](array_representation_of_tree.assets/array_representation_without_empty.png){ class="animation-figure" }
+![Multiple binary trees can share a level-order sequence](array_representation_of_tree.assets/array_representation_without_empty.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-13 &nbsp; Multiple binary trees can share a level-order sequence </p>
 
@@ -136,7 +136,7 @@ To solve this, **include every `None` position explicitly in the level-order seq
     tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
-![Array representation of an arbitrary binary tree](array_representation_of_tree.assets/array_representation_with_empty.png){ class="animation-figure" }
+![Array representation of an arbitrary binary tree](array_representation_of_tree.assets/array_representation_with_empty.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-14 &nbsp; Array representation of an arbitrary binary tree </p>
 
@@ -144,7 +144,7 @@ To solve this, **include every `None` position explicitly in the level-order seq
 
 We can therefore omit all `None` entries when storing a complete binary tree in an array. An example is shown below.
 
-![Array representation of a complete binary tree](array_representation_of_tree.assets/array_representation_complete_binary_tree.png){ class="animation-figure" }
+![Array representation of a complete binary tree](array_representation_of_tree.assets/array_representation_complete_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> Figure 7-15 &nbsp; Array representation of a complete binary tree </p>
 

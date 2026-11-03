@@ -41,7 +41,7 @@ comments: true
 
 아래 그림(14-10)의 격자에서는 최소 경로 합이 $13$이다.
 
-![최소 경로 합 예시 데이터](dp_solution_pipeline.assets/min_path_sum_example.png){ class="animation-figure" }
+![최소 경로 합 예시 데이터](dp_solution_pipeline.assets/min_path_sum_example.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-10 &nbsp; 최소 경로 합 예시 데이터 </p>
 
@@ -53,7 +53,7 @@ comments: true
 
 이로써 아래 그림(14-11)처럼 입력 격자 $grid$와 크기가 같은 2차원 $dp$ 행렬을 얻는다.
 
-![상태 정의와 dp 테이블](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.png){ class="animation-figure" }
+![상태 정의와 dp 테이블](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-11 &nbsp; 상태 정의와 dp 테이블 </p>
 
@@ -73,7 +73,7 @@ $$
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 $$
 
-![최적 부분 구조와 상태 전이 식](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.png){ class="animation-figure" }
+![최적 부분 구조와 상태 전이 식](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-12 &nbsp; 최적 부분 구조와 상태 전이 식 </p>
 
@@ -89,7 +89,7 @@ $$
 
 아래 그림(14-13)과 같이 각 칸은 왼쪽 칸과 위쪽 칸에서 전이되므로, 바깥 반복문은 행을, 안쪽 반복문은 열을 순회한다.
 
-![경계 조건과 상태 전이 순서](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.png){ class="animation-figure" }
+![경계 조건과 상태 전이 순서](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-13 &nbsp; 경계 조건과 상태 전이 순서 </p>
 
@@ -392,7 +392,7 @@ $$
 
 중복 부분 문제가 생기는 근본적인 이유는 **왼쪽 위에서 어떤 칸에 도달하는 경로가 여러 개 있기 때문**이다.
 
-![완전 탐색의 재귀 트리](dp_solution_pipeline.assets/min_path_sum_dfs.png){ class="animation-figure" }
+![완전 탐색의 재귀 트리](dp_solution_pipeline.assets/min_path_sum_dfs.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-14 &nbsp; 완전 탐색의 재귀 트리 </p>
 
@@ -749,7 +749,7 @@ $$
 
 아래 그림(14-15)과 같이 메모이제이션을 도입하면 모든 부분 문제의 해를 한 번만 계산한다. 따라서 시간 복잡도는 전체 상태 수, 즉 격자 크기인 $O(nm)$에 의해 결정된다.
 
-![메모이제이션을 이용한 탐색의 재귀 트리](dp_solution_pipeline.assets/min_path_sum_dfs_mem.png){ class="animation-figure" }
+![메모이제이션을 이용한 탐색의 재귀 트리](dp_solution_pipeline.assets/min_path_sum_dfs_mem.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-15 &nbsp; 메모이제이션을 이용한 탐색의 재귀 트리 </p>
 
@@ -1127,40 +1127,40 @@ $$
 배열 `dp`의 크기는 $n \times m$이므로 **공간 복잡도는 $O(nm)$이다**.
 
 === "<1>"
-    ![최소 경로 합의 동적 계획법 과정](dp_solution_pipeline.assets/min_path_sum_dp_step1.png){ class="animation-figure" }
+    ![최소 경로 합의 동적 계획법 과정](dp_solution_pipeline.assets/min_path_sum_dp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![최소 경로 합 동적 계획법 2단계](dp_solution_pipeline.assets/min_path_sum_dp_step2.png){ class="animation-figure" }
+    ![최소 경로 합 동적 계획법 2단계](dp_solution_pipeline.assets/min_path_sum_dp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![최소 경로 합 동적 계획법 3단계](dp_solution_pipeline.assets/min_path_sum_dp_step3.png){ class="animation-figure" }
+    ![최소 경로 합 동적 계획법 3단계](dp_solution_pipeline.assets/min_path_sum_dp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![최소 경로 합 동적 계획법 4단계](dp_solution_pipeline.assets/min_path_sum_dp_step4.png){ class="animation-figure" }
+    ![최소 경로 합 동적 계획법 4단계](dp_solution_pipeline.assets/min_path_sum_dp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![최소 경로 합 동적 계획법 5단계](dp_solution_pipeline.assets/min_path_sum_dp_step5.png){ class="animation-figure" }
+    ![최소 경로 합 동적 계획법 5단계](dp_solution_pipeline.assets/min_path_sum_dp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![최소 경로 합 동적 계획법 6단계](dp_solution_pipeline.assets/min_path_sum_dp_step6.png){ class="animation-figure" }
+    ![최소 경로 합 동적 계획법 6단계](dp_solution_pipeline.assets/min_path_sum_dp_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![최소 경로 합 동적 계획법 7단계](dp_solution_pipeline.assets/min_path_sum_dp_step7.png){ class="animation-figure" }
+    ![최소 경로 합 동적 계획법 7단계](dp_solution_pipeline.assets/min_path_sum_dp_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![최소 경로 합 동적 계획법 8단계](dp_solution_pipeline.assets/min_path_sum_dp_step8.png){ class="animation-figure" }
+    ![최소 경로 합 동적 계획법 8단계](dp_solution_pipeline.assets/min_path_sum_dp_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![최소 경로 합 동적 계획법 9단계](dp_solution_pipeline.assets/min_path_sum_dp_step9.png){ class="animation-figure" }
+    ![최소 경로 합 동적 계획법 9단계](dp_solution_pipeline.assets/min_path_sum_dp_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![최소 경로 합 동적 계획법 10단계](dp_solution_pipeline.assets/min_path_sum_dp_step10.png){ class="animation-figure" }
+    ![최소 경로 합 동적 계획법 10단계](dp_solution_pipeline.assets/min_path_sum_dp_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![최소 경로 합 동적 계획법 11단계](dp_solution_pipeline.assets/min_path_sum_dp_step11.png){ class="animation-figure" }
+    ![최소 경로 합 동적 계획법 11단계](dp_solution_pipeline.assets/min_path_sum_dp_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![최소 경로 합 동적 계획법 12단계](dp_solution_pipeline.assets/min_path_sum_dp_step12.png){ class="animation-figure" }
+    ![최소 경로 합 동적 계획법 12단계](dp_solution_pipeline.assets/min_path_sum_dp_step12.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-16 &nbsp; 최소 경로 합의 동적 계획법 과정 </p>
 

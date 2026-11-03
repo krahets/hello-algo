@@ -6,7 +6,7 @@ comments: true
 
 <u>配列（array）</u>は、同じ型の要素を連続したメモリ領域に格納する線形データ構造です。配列内での要素の位置を、その要素の<u>インデックス（index）</u>と呼びます。図 4-1 に、配列の主な概念と格納方法を示します。
 
-![配列の定義と格納方法](array.assets/array_definition.png){ class="animation-figure" }
+![配列の定義と格納方法](array.assets/array_definition.svg){ class="animation-figure" }
 
 <p align="center"> 図 4-1 &nbsp; 配列の定義と格納方法 </p>
 
@@ -141,7 +141,7 @@ comments: true
 
 配列の要素は連続したメモリ領域に格納されるため、各要素のメモリアドレスは簡単に計算できます。配列のメモリアドレス（先頭要素のメモリアドレス）と要素のインデックスがわかれば、図 4-2 の式でその要素のメモリアドレスを求め、直接アクセスできます。
 
-![配列要素のメモリアドレスの計算](array.assets/array_memory_location_calculation.png){ class="animation-figure" }
+![配列要素のメモリアドレスの計算](array.assets/array_memory_location_calculation.svg){ class="animation-figure" }
 
 <p align="center"> 図 4-2 &nbsp; 配列要素のメモリアドレスの計算 </p>
 
@@ -327,7 +327,7 @@ comments: true
 
 配列の要素はメモリ内で「隙間なく並んで」おり、その間にほかのデータを入れる余地はありません。図 4-3 のように、配列の途中に要素を挿入するには、その位置以降の要素をすべて一つ後ろへずらしてから、そのインデックスに要素を代入します。
 
-![配列への要素の挿入例](array.assets/array_insert_element.png){ class="animation-figure" }
+![配列への要素の挿入例](array.assets/array_insert_element.svg){ class="animation-figure" }
 
 <p align="center"> 図 4-3 &nbsp; 配列への要素の挿入例 </p>
 
@@ -523,7 +523,7 @@ comments: true
 
 同様に、図 4-4 のようにインデックス $i$ の要素を削除するには、インデックス $i$ より後ろにある要素をすべて一つ前へずらします。
 
-![配列からの要素の削除例](array.assets/array_remove_element.png){ class="animation-figure" }
+![配列からの要素の削除例](array.assets/array_remove_element.svg){ class="animation-figure" }
 
 <p align="center"> 図 4-4 &nbsp; 配列からの要素の削除例 </p>
 

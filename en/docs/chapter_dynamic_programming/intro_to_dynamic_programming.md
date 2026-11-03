@@ -14,7 +14,7 @@ We will start with a classic example, give a brute-force backtracking solution, 
 
 As shown in Figure 14-1, a staircase with $3$ steps has $3$ possible ways to reach the top.
 
-![Number of ways to reach step 3](intro_to_dynamic_programming.assets/climbing_stairs_example.png){ class="animation-figure" }
+![Number of ways to reach step 3](intro_to_dynamic_programming.assets/climbing_stairs_example.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-1 &nbsp; Number of ways to reach step 3 </p>
 
@@ -445,7 +445,7 @@ $$
 
 Thus, the subproblems are linked by a recurrence: **the solution to the original problem can be constructed from subproblem solutions**. Figure 14-2 illustrates this relationship.
 
-![Recurrence for the number of ways](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png){ class="animation-figure" }
+![Recurrence for the number of ways](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-2 &nbsp; Recurrence for the number of ways </p>
 
@@ -702,7 +702,7 @@ Like the standard backtracking code, the following code performs depth-first sea
 
 Figure 14-3 shows the recursion tree for brute-force search. For $dp[n]$, its depth is $n$, and the time complexity is $O(2^n)$. Exponential growth is explosive, so a relatively large $n$ leads to a very long wait.
 
-![Recursion tree for climbing stairs](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png){ class="animation-figure" }
+![Recursion tree for climbing stairs](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-3 &nbsp; Recursion tree for climbing stairs </p>
 
@@ -1069,7 +1069,7 @@ The code is as follows:
 
 As shown in Figure 14-4, **memoization makes every overlapping subproblem require only one computation, reducing the time complexity to $O(n)$**: a major improvement.
 
-![Recursion tree for memoized search](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png){ class="animation-figure" }
+![Recursion tree for memoized search](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-4 &nbsp; Recursion tree for memoized search </p>
 
@@ -1345,7 +1345,7 @@ Because this dynamic programming process does not backtrack, it needs only itera
 
 Figure 14-5 traces the code's execution.
 
-![Dynamic programming for climbing stairs](intro_to_dynamic_programming.assets/climbing_stairs_dp.png){ class="animation-figure" }
+![Dynamic programming for climbing stairs](intro_to_dynamic_programming.assets/climbing_stairs_dp.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-5 &nbsp; Dynamic programming for climbing stairs </p>
 

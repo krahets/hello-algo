@@ -14,7 +14,7 @@ comments: true
 
 図 14-17 のように、品物の番号 $i$ は $1$ から始まり、配列のインデックスは $0$ から始まるので、品物 $i$ の重さと価値は $wgt[i-1]$ と $val[i-1]$ に対応します。
 
-![0-1 ナップサック問題のデータ例](knapsack_problem.assets/knapsack_example.png){ class="animation-figure" }
+![0-1 ナップサック問題のデータ例](knapsack_problem.assets/knapsack_example.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-17 &nbsp; 0-1 ナップサック問題のデータ例 </p>
 
@@ -347,7 +347,7 @@ $$
 
 再帰木には、$dp[1, 10]$ などの重複した部分問題があります。品物が多く、容量が大きく、特に同じ重さの品物が多いと、重複する部分問題の数は大幅に増えます。
 
-![0-1 ナップサック問題の全探索の再帰木](knapsack_problem.assets/knapsack_dfs.png){ class="animation-figure" }
+![0-1 ナップサック問題の全探索の再帰木](knapsack_problem.assets/knapsack_dfs.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-18 &nbsp; 0-1 ナップサック問題の全探索の再帰木 </p>
 
@@ -713,7 +713,7 @@ $$
 
 図 14-19 に、メモ化探索で枝刈りされる探索分岐を示します。
 
-![0-1 ナップサック問題のメモ化探索の再帰木](knapsack_problem.assets/knapsack_dfs_mem.png){ class="animation-figure" }
+![0-1 ナップサック問題のメモ化探索の再帰木](knapsack_problem.assets/knapsack_dfs_mem.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-19 &nbsp; 0-1 ナップサック問題のメモ化探索の再帰木 </p>
 
@@ -1065,46 +1065,46 @@ $$
 図 14-20 のように、時間計算量と空間計算量は、どちらも配列 `dp` の大きさで決まり、$O(n \times cap)$ です。
 
 === "<1>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ](knapsack_problem.assets/knapsack_dp_step1.png){ class="animation-figure" }
+    ![0-1 ナップサック問題を動的計画法で解く流れ](knapsack_problem.assets/knapsack_dp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 2](knapsack_problem.assets/knapsack_dp_step2.png){ class="animation-figure" }
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 2](knapsack_problem.assets/knapsack_dp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 3](knapsack_problem.assets/knapsack_dp_step3.png){ class="animation-figure" }
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 3](knapsack_problem.assets/knapsack_dp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 4](knapsack_problem.assets/knapsack_dp_step4.png){ class="animation-figure" }
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 4](knapsack_problem.assets/knapsack_dp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 5](knapsack_problem.assets/knapsack_dp_step5.png){ class="animation-figure" }
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 5](knapsack_problem.assets/knapsack_dp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 6](knapsack_problem.assets/knapsack_dp_step6.png){ class="animation-figure" }
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 6](knapsack_problem.assets/knapsack_dp_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 7](knapsack_problem.assets/knapsack_dp_step7.png){ class="animation-figure" }
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 7](knapsack_problem.assets/knapsack_dp_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 8](knapsack_problem.assets/knapsack_dp_step8.png){ class="animation-figure" }
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 8](knapsack_problem.assets/knapsack_dp_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 9](knapsack_problem.assets/knapsack_dp_step9.png){ class="animation-figure" }
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 9](knapsack_problem.assets/knapsack_dp_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 10](knapsack_problem.assets/knapsack_dp_step10.png){ class="animation-figure" }
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 10](knapsack_problem.assets/knapsack_dp_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 11](knapsack_problem.assets/knapsack_dp_step11.png){ class="animation-figure" }
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 11](knapsack_problem.assets/knapsack_dp_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 12](knapsack_problem.assets/knapsack_dp_step12.png){ class="animation-figure" }
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 12](knapsack_problem.assets/knapsack_dp_step12.svg){ class="animation-figure" }
 
 === "<13>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 13](knapsack_problem.assets/knapsack_dp_step13.png){ class="animation-figure" }
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 13](knapsack_problem.assets/knapsack_dp_step13.svg){ class="animation-figure" }
 
 === "<14>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 14](knapsack_problem.assets/knapsack_dp_step14.png){ class="animation-figure" }
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 14](knapsack_problem.assets/knapsack_dp_step14.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-20 &nbsp; 0-1 ナップサック問題を動的計画法で解く流れ </p>
 
@@ -1120,22 +1120,22 @@ $$
 図 14-21 に、配列一つで $i = 1$ 行目から $i = 2$ 行目へ移る過程を示します。順方向と逆方向の違いを考えてみてください。
 
 === "<1>"
-    ![空間最適化後の 0-1 ナップサック問題の動的計画法](knapsack_problem.assets/knapsack_dp_comp_step1.png){ class="animation-figure" }
+    ![空間最適化後の 0-1 ナップサック問題の動的計画法](knapsack_problem.assets/knapsack_dp_comp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 2](knapsack_problem.assets/knapsack_dp_comp_step2.png){ class="animation-figure" }
+    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 2](knapsack_problem.assets/knapsack_dp_comp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 3](knapsack_problem.assets/knapsack_dp_comp_step3.png){ class="animation-figure" }
+    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 3](knapsack_problem.assets/knapsack_dp_comp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 4](knapsack_problem.assets/knapsack_dp_comp_step4.png){ class="animation-figure" }
+    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 4](knapsack_problem.assets/knapsack_dp_comp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 5](knapsack_problem.assets/knapsack_dp_comp_step5.png){ class="animation-figure" }
+    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 5](knapsack_problem.assets/knapsack_dp_comp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 6](knapsack_problem.assets/knapsack_dp_comp_step6.png){ class="animation-figure" }
+    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 6](knapsack_problem.assets/knapsack_dp_comp_step6.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-21 &nbsp; 空間最適化後の 0-1 ナップサック問題の動的計画法 </p>
 

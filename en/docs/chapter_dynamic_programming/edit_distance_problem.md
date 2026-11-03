@@ -14,7 +14,7 @@ Edit distance, also called Levenshtein distance, is the minimum number of edits 
 
 As shown in Figure 14-27, transforming `kitten` into `sitting` takes 3 edits: 2 replacements and 1 insertion. Transforming `hello` into `algo` also takes 3 edits: 2 replacements and 1 deletion.
 
-![Examples of edit distance](edit_distance_problem.assets/edit_distance_example.png){ class="animation-figure" }
+![Examples of edit distance](edit_distance_problem.assets/edit_distance_example.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-27 &nbsp; Examples of edit distance </p>
 
@@ -24,7 +24,7 @@ As shown in Figure 14-28, without restrictions on the edits, each node can have 
 
 From the decision tree perspective, the goal is to find the shortest path between nodes `hello` and `algo`.
 
-![Edit distance as a decision tree](edit_distance_problem.assets/edit_distance_decision_tree.png){ class="animation-figure" }
+![Edit distance as a decision tree](edit_distance_problem.assets/edit_distance_decision_tree.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-28 &nbsp; Edit distance as a decision tree </p>
 
@@ -53,7 +53,7 @@ For subproblem $dp[i, j]$, the final characters are $s[i-1]$ and $t[j-1]$. The t
 2. Delete $s[i-1]$, leaving subproblem $dp[i-1, j]$.
 3. Replace $s[i-1]$ with $t[j-1]$, leaving subproblem $dp[i-1, j-1]$.
 
-![State transitions for edit distance](edit_distance_problem.assets/edit_distance_state_transfer.png){ class="animation-figure" }
+![State transitions for edit distance](edit_distance_problem.assets/edit_distance_state_transfer.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-29 &nbsp; State transitions for edit distance </p>
 
@@ -485,49 +485,49 @@ The solution $dp[i, j]$ depends on entries to its left, above, and upper left, s
 As shown in Figure 14-30, the state transition process resembles that of the knapsack problem: both fill a two-dimensional grid.
 
 === "<1>"
-    ![Dynamic programming for edit distance](edit_distance_problem.assets/edit_distance_dp_step1.png){ class="animation-figure" }
+    ![Dynamic programming for edit distance](edit_distance_problem.assets/edit_distance_dp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.png){ class="animation-figure" }
+    ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![edit_distance_dp_step3](edit_distance_problem.assets/edit_distance_dp_step3.png){ class="animation-figure" }
+    ![edit_distance_dp_step3](edit_distance_problem.assets/edit_distance_dp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![edit_distance_dp_step4](edit_distance_problem.assets/edit_distance_dp_step4.png){ class="animation-figure" }
+    ![edit_distance_dp_step4](edit_distance_problem.assets/edit_distance_dp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![edit_distance_dp_step5](edit_distance_problem.assets/edit_distance_dp_step5.png){ class="animation-figure" }
+    ![edit_distance_dp_step5](edit_distance_problem.assets/edit_distance_dp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![edit_distance_dp_step6](edit_distance_problem.assets/edit_distance_dp_step6.png){ class="animation-figure" }
+    ![edit_distance_dp_step6](edit_distance_problem.assets/edit_distance_dp_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![edit_distance_dp_step7](edit_distance_problem.assets/edit_distance_dp_step7.png){ class="animation-figure" }
+    ![edit_distance_dp_step7](edit_distance_problem.assets/edit_distance_dp_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![edit_distance_dp_step8](edit_distance_problem.assets/edit_distance_dp_step8.png){ class="animation-figure" }
+    ![edit_distance_dp_step8](edit_distance_problem.assets/edit_distance_dp_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![edit_distance_dp_step9](edit_distance_problem.assets/edit_distance_dp_step9.png){ class="animation-figure" }
+    ![edit_distance_dp_step9](edit_distance_problem.assets/edit_distance_dp_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![edit_distance_dp_step10](edit_distance_problem.assets/edit_distance_dp_step10.png){ class="animation-figure" }
+    ![edit_distance_dp_step10](edit_distance_problem.assets/edit_distance_dp_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![edit_distance_dp_step11](edit_distance_problem.assets/edit_distance_dp_step11.png){ class="animation-figure" }
+    ![edit_distance_dp_step11](edit_distance_problem.assets/edit_distance_dp_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![edit_distance_dp_step12](edit_distance_problem.assets/edit_distance_dp_step12.png){ class="animation-figure" }
+    ![edit_distance_dp_step12](edit_distance_problem.assets/edit_distance_dp_step12.svg){ class="animation-figure" }
 
 === "<13>"
-    ![edit_distance_dp_step13](edit_distance_problem.assets/edit_distance_dp_step13.png){ class="animation-figure" }
+    ![edit_distance_dp_step13](edit_distance_problem.assets/edit_distance_dp_step13.svg){ class="animation-figure" }
 
 === "<14>"
-    ![edit_distance_dp_step14](edit_distance_problem.assets/edit_distance_dp_step14.png){ class="animation-figure" }
+    ![edit_distance_dp_step14](edit_distance_problem.assets/edit_distance_dp_step14.svg){ class="animation-figure" }
 
 === "<15>"
-    ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.png){ class="animation-figure" }
+    ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.svg){ class="animation-figure" }
 
 <p align="center"> Figure 14-30 &nbsp; Dynamic programming for edit distance </p>
 

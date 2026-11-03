@@ -241,7 +241,7 @@ comments: true
 
 図 10-7 のように、探索後のポインタ $i$ は最も左の `target + 1`（存在する場合）を指し、$j$ は最も右の `target` を指します。**そのため、$j$ を返せばよいのです**。
 
-![右の境界の探索を左の境界の探索に置き換える](binary_search_edge.assets/binary_search_right_edge_by_left_edge.png){ class="animation-figure" }
+![右の境界の探索を左の境界の探索に置き換える](binary_search_edge.assets/binary_search_right_edge_by_left_edge.svg){ class="animation-figure" }
 
 <p align="center"> 図 10-7 &nbsp; 右の境界の探索を左の境界の探索に置き換える </p>
 
@@ -493,7 +493,7 @@ comments: true
 - 最も左の `target` を探す場合：`target - 0.5` の探索に置き換え、ポインタ $i$ を返します。
 - 最も右の `target` を探す場合：`target + 0.5` の探索に置き換え、ポインタ $j$ を返します。
 
-![境界の探索を要素の探索に置き換える](binary_search_edge.assets/binary_search_edge_by_element.png){ class="animation-figure" }
+![境界の探索を要素の探索に置き換える](binary_search_edge.assets/binary_search_edge_by_element.svg){ class="animation-figure" }
 
 <p align="center"> 図 10-8 &nbsp; 境界の探索を要素の探索に置き換える </p>
 

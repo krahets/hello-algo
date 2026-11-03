@@ -237,7 +237,7 @@ comments: true
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="코드 시각화" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%EC%99%BC%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%EC%98%A4%EB%A5%B8%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A5%BC%20%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%EB%A1%9C%20%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94%3A%20%EC%9E%AC%EA%B7%80%22%22%22%0A%20%20%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%EA%B0%80%20%EB%B0%B0%EC%97%B4%20%EA%B8%B8%EC%9D%B4%EB%A5%BC%20%EB%B2%97%EC%96%B4%EB%82%98%EA%B1%B0%EB%82%98%20%ED%95%B4%EB%8B%B9%20%EC%9B%90%EC%86%8C%EA%B0%80%20None%EC%9D%B4%EB%A9%B4%20None%EC%9D%84%20%EB%B0%98%ED%99%98%ED%95%9C%EB%8B%A4%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20%ED%98%84%EC%9E%AC%20%EB%85%B8%EB%93%9C%EB%A5%BC%20%EC%83%9D%EC%84%B1%ED%95%9C%EB%8B%A4%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20%EC%99%BC%EC%AA%BD%EA%B3%BC%20%EC%98%A4%EB%A5%B8%EC%AA%BD%20%EC%84%9C%EB%B8%8C%ED%8A%B8%EB%A6%AC%EB%A5%BC%20%EC%9E%AC%EA%B7%80%EC%A0%81%EC%9C%BC%EB%A1%9C%20%EA%B5%AC%EC%84%B1%ED%95%9C%EB%8B%A4%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A5%BC%20%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%EB%A1%9C%20%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%EC%A0%84%EC%9C%84%20%EC%88%9C%ED%9A%8C%3A%20%EC%98%88%EC%A0%9C%201%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20%ED%95%B4%EB%A5%BC%20%EA%B8%B0%EB%A1%9D%ED%95%9C%EB%8B%A4%0A%20%20%20%20%20%20%20%20res.append%28root%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20%EC%A0%84%EC%9C%84%20%EC%88%9C%ED%9A%8C%0A%20%20%20%20res%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5Cn%EA%B0%92%EC%9D%B4%207%EC%9D%B8%20%EB%AA%A8%EB%93%A0%20%EB%85%B8%EB%93%9C%20%EC%B6%9C%EB%A0%A5%22%29%0A%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20res%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
     <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%EC%99%BC%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%EC%98%A4%EB%A5%B8%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A5%BC%20%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%EB%A1%9C%20%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94%3A%20%EC%9E%AC%EA%B7%80%22%22%22%0A%20%20%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%EA%B0%80%20%EB%B0%B0%EC%97%B4%20%EA%B8%B8%EC%9D%B4%EB%A5%BC%20%EB%B2%97%EC%96%B4%EB%82%98%EA%B1%B0%EB%82%98%20%ED%95%B4%EB%8B%B9%20%EC%9B%90%EC%86%8C%EA%B0%80%20None%EC%9D%B4%EB%A9%B4%20None%EC%9D%84%20%EB%B0%98%ED%99%98%ED%95%9C%EB%8B%A4%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20%ED%98%84%EC%9E%AC%20%EB%85%B8%EB%93%9C%EB%A5%BC%20%EC%83%9D%EC%84%B1%ED%95%9C%EB%8B%A4%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20%EC%99%BC%EC%AA%BD%EA%B3%BC%20%EC%98%A4%EB%A5%B8%EC%AA%BD%20%EC%84%9C%EB%B8%8C%ED%8A%B8%EB%A6%AC%EB%A5%BC%20%EC%9E%AC%EA%B7%80%EC%A0%81%EC%9C%BC%EB%A1%9C%20%EA%B5%AC%EC%84%B1%ED%95%9C%EB%8B%A4%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A5%BC%20%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%EB%A1%9C%20%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%EC%A0%84%EC%9C%84%20%EC%88%9C%ED%9A%8C%3A%20%EC%98%88%EC%A0%9C%201%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20%ED%95%B4%EB%A5%BC%20%EA%B8%B0%EB%A1%9D%ED%95%9C%EB%8B%A4%0A%20%20%20%20%20%20%20%20res.append%28root%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20%EC%A0%84%EC%9C%84%20%EC%88%9C%ED%9A%8C%0A%20%20%20%20res%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5Cn%EA%B0%92%EC%9D%B4%207%EC%9D%B8%20%EB%AA%A8%EB%93%A0%20%EB%85%B8%EB%93%9C%20%EC%B6%9C%EB%A0%A5%22%29%0A%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20res%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">전체 화면 ></a></div>
 
-![전위 순회로 노드 탐색](backtracking_algorithm.assets/preorder_find_nodes.png){ class="animation-figure" }
+![전위 순회로 노드 탐색](backtracking_algorithm.assets/preorder_find_nodes.svg){ class="animation-figure" }
 
 <p align="center"> 그림 13-1 &nbsp; 전위 순회로 노드 탐색 </p>
 
@@ -553,37 +553,37 @@ comments: true
 아래 그림(13-2)의 과정을 보면 **시도와 되돌리기를 각각 '전진'과 '취소'로 이해할 수 있으며**, 두 연산은 서로 반대 방향이다.
 
 === "<1>"
-    ![시도와 되돌리기](backtracking_algorithm.assets/preorder_find_paths_step1.png){ class="animation-figure" }
+    ![시도와 되돌리기](backtracking_algorithm.assets/preorder_find_paths_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![경로 탐색 2단계](backtracking_algorithm.assets/preorder_find_paths_step2.png){ class="animation-figure" }
+    ![경로 탐색 2단계](backtracking_algorithm.assets/preorder_find_paths_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![경로 탐색 3단계](backtracking_algorithm.assets/preorder_find_paths_step3.png){ class="animation-figure" }
+    ![경로 탐색 3단계](backtracking_algorithm.assets/preorder_find_paths_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![경로 탐색 4단계](backtracking_algorithm.assets/preorder_find_paths_step4.png){ class="animation-figure" }
+    ![경로 탐색 4단계](backtracking_algorithm.assets/preorder_find_paths_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![경로 탐색 5단계](backtracking_algorithm.assets/preorder_find_paths_step5.png){ class="animation-figure" }
+    ![경로 탐색 5단계](backtracking_algorithm.assets/preorder_find_paths_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![경로 탐색 6단계](backtracking_algorithm.assets/preorder_find_paths_step6.png){ class="animation-figure" }
+    ![경로 탐색 6단계](backtracking_algorithm.assets/preorder_find_paths_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![경로 탐색 7단계](backtracking_algorithm.assets/preorder_find_paths_step7.png){ class="animation-figure" }
+    ![경로 탐색 7단계](backtracking_algorithm.assets/preorder_find_paths_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![경로 탐색 8단계](backtracking_algorithm.assets/preorder_find_paths_step8.png){ class="animation-figure" }
+    ![경로 탐색 8단계](backtracking_algorithm.assets/preorder_find_paths_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![경로 탐색 9단계](backtracking_algorithm.assets/preorder_find_paths_step9.png){ class="animation-figure" }
+    ![경로 탐색 9단계](backtracking_algorithm.assets/preorder_find_paths_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![경로 탐색 10단계](backtracking_algorithm.assets/preorder_find_paths_step10.png){ class="animation-figure" }
+    ![경로 탐색 10단계](backtracking_algorithm.assets/preorder_find_paths_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![경로 탐색 11단계](backtracking_algorithm.assets/preorder_find_paths_step11.png){ class="animation-figure" }
+    ![경로 탐색 11단계](backtracking_algorithm.assets/preorder_find_paths_step11.svg){ class="animation-figure" }
 
 <p align="center"> 그림 13-2 &nbsp; 시도와 되돌리기 </p>
 
@@ -904,7 +904,7 @@ comments: true
 
 '가지치기'는 매우 직관적인 이름이다. 아래 그림(13-3)과 같이 탐색 중 **제약 조건을 만족하지 않는 탐색 가지를 '잘라 내어'** 의미 없는 시도를 많이 피하고 탐색 효율을 높인다.
 
-![제약 조건에 따른 가지치기](backtracking_algorithm.assets/preorder_find_constrained_paths.png){ class="animation-figure" }
+![제약 조건에 따른 가지치기](backtracking_algorithm.assets/preorder_find_constrained_paths.svg){ class="animation-figure" }
 
 <p align="center"> 그림 13-3 &nbsp; 제약 조건에 따른 가지치기 </p>
 
@@ -1931,7 +1931,7 @@ comments: true
 
 문제의 요구에 따르면 값이 $7$인 노드를 찾은 뒤에도 탐색을 계속해야 한다. **따라서 해를 기록한 뒤의 `return` 문을 삭제해야 한다**. 아래 그림(13-4)은 `return` 문을 유지하거나 삭제했을 때의 탐색 과정을 비교한다.
 
-![return 유지 여부에 따른 탐색 과정 비교](backtracking_algorithm.assets/backtrack_remove_return_or_not.png){ class="animation-figure" }
+![return 유지 여부에 따른 탐색 과정 비교](backtracking_algorithm.assets/backtrack_remove_return_or_not.svg){ class="animation-figure" }
 
 <p align="center"> 그림 13-4 &nbsp; return 유지 여부에 따른 탐색 과정 비교 </p>
 

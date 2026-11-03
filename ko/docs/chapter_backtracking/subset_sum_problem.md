@@ -510,7 +510,7 @@ comments: true
 
 탐색 과정에서는 선택 순서를 구분하지만 부분 집합에서는 구분하지 않기 때문이다. 아래 그림(13-10)에서 $4$ 다음 $5$를 고르는 것과 $5$ 다음 $4$를 고르는 것은 서로 다른 가지이지만 같은 부분 집합에 대응한다.
 
-![부분 집합 탐색과 범위 초과 가지치기](subset_sum_problem.assets/subset_sum_i_naive.png){ class="animation-figure" }
+![부분 집합 탐색과 범위 초과 가지치기](subset_sum_problem.assets/subset_sum_i_naive.svg){ class="animation-figure" }
 
 <p align="center"> 그림 13-10 &nbsp; 부분 집합 탐색과 범위 초과 가지치기 </p>
 
@@ -532,7 +532,7 @@ comments: true
 2. 첫 두 차례에 $4$와 $5$를 선택하여 부분 집합 $[4, 5, \dots]$를 만든다.
 3. 첫 번째에 $5$를 선택한다면 **두 번째에서는 $3$과 $4$를 건너뛰어야 한다**. $[5, 3, \dots]$와 $[5, 4, \dots]$는 `1.` 단계와 `2.` 단계의 부분 집합과 완전히 중복되기 때문이다.
 
-![선택 순서의 차이로 생기는 중복 부분 집합](subset_sum_problem.assets/subset_sum_i_pruning.png){ class="animation-figure" }
+![선택 순서의 차이로 생기는 중복 부분 집합](subset_sum_problem.assets/subset_sum_i_pruning.svg){ class="animation-figure" }
 
 <p align="center"> 그림 13-11 &nbsp; 선택 순서의 차이로 생기는 중복 부분 집합 </p>
 
@@ -1069,7 +1069,7 @@ comments: true
 
 아래 그림(13-12)은 배열 $[3, 4, 5]$와 목표 원소 $9$를 위 코드에 넣었을 때의 전체 백트래킹 과정이다.
 
-![부분 집합 합 I의 백트래킹 과정](subset_sum_problem.assets/subset_sum_i.png){ class="animation-figure" }
+![부분 집합 합 I의 백트래킹 과정](subset_sum_problem.assets/subset_sum_i.svg){ class="animation-figure" }
 
 <p align="center"> 그림 13-12 &nbsp; 부분 집합 합 I의 백트래킹 과정 </p>
 
@@ -1083,7 +1083,7 @@ comments: true
 
 **중복의 원인은 값이 같은 원소를 한 차례의 선택에서 여러 번 고르기 때문이다**. 아래 그림(13-13)에서 첫 차례의 세 선택지 중 두 개가 $4$여서 중복된 두 탐색 가지가 만들어지고, 같은 부분 집합을 출력한다. 마찬가지로 두 번째 차례의 두 $4$도 중복을 만든다.
 
-![같은 값의 원소로 생기는 중복 부분 집합](subset_sum_problem.assets/subset_sum_ii_repeat.png){ class="animation-figure" }
+![같은 값의 원소로 생기는 중복 부분 집합](subset_sum_problem.assets/subset_sum_ii_repeat.svg){ class="animation-figure" }
 
 <p align="center"> 그림 13-13 &nbsp; 같은 값의 원소로 생기는 중복 부분 집합 </p>
 
@@ -1680,6 +1680,6 @@ comments: true
 
 아래 그림(13-14)은 배열 $[4, 4, 5]$와 목표 원소 $9$의 백트래킹 과정으로, 네 가지 가지치기를 포함한다. 그림과 코드 주석을 함께 보면서 전체 탐색 과정과 각 가지치기가 어떻게 작동하는지 이해해 보자.
 
-![부분 집합 합 II의 백트래킹 과정](subset_sum_problem.assets/subset_sum_ii.png){ class="animation-figure" }
+![부분 집합 합 II의 백트래킹 과정](subset_sum_problem.assets/subset_sum_ii.svg){ class="animation-figure" }
 
 <p align="center"> 그림 13-14 &nbsp; 부분 집합 합 II의 백트래킹 과정 </p>

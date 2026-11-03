@@ -9,7 +9,7 @@ comments: true
 - <u>最小ヒープ（min heap）</u>：任意のノードの値が、その子の値以下（$\leq$）です。
 - <u>最大ヒープ（max heap）</u>：任意のノードの値が、その子の値以上（$\geq$）です。
 
-![最小ヒープと最大ヒープ](heap.assets/min_heap_and_max_heap.png){ class="animation-figure" }
+![最小ヒープと最大ヒープ](heap.assets/min_heap_and_max_heap.svg){ class="animation-figure" }
 
 <p align="center"> 図 8-1 &nbsp; 最小ヒープと最大ヒープ </p>
 
@@ -435,7 +435,7 @@ comments: true
 
 図 8-2 のように、インデックス $i$ の左の子は $2i + 1$、右の子は $2i + 2$、親は $(i - 1) / 2$（切り捨ての整数除算）です。インデックスが範囲外なら、空のノード、またはノードが存在しないことを表します。
 
-![ヒープの表現と格納](heap.assets/representation_of_heap.png){ class="animation-figure" }
+![ヒープの表現と格納](heap.assets/representation_of_heap.svg){ class="animation-figure" }
 
 <p align="center"> 図 8-2 &nbsp; ヒープの表現と格納 </p>
 
@@ -818,31 +818,31 @@ comments: true
 挿入したノードから、**下から上へヒープ化します**。図 8-3 のように、挿入したノードと親の値を比較し、挿入したノードのほうが大きければ交換します。同じ操作を繰り返して下から上へ修復し、根を越えるか、交換が不要なノードに達したら終了します。
 
 === "<1>"
-    ![ヒープへの挿入の手順](heap.assets/heap_push_step1.png){ class="animation-figure" }
+    ![ヒープへの挿入の手順](heap.assets/heap_push_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![ヒープへの挿入の手順 2](heap.assets/heap_push_step2.png){ class="animation-figure" }
+    ![ヒープへの挿入の手順 2](heap.assets/heap_push_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![ヒープへの挿入の手順 3](heap.assets/heap_push_step3.png){ class="animation-figure" }
+    ![ヒープへの挿入の手順 3](heap.assets/heap_push_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![ヒープへの挿入の手順 4](heap.assets/heap_push_step4.png){ class="animation-figure" }
+    ![ヒープへの挿入の手順 4](heap.assets/heap_push_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![ヒープへの挿入の手順 5](heap.assets/heap_push_step5.png){ class="animation-figure" }
+    ![ヒープへの挿入の手順 5](heap.assets/heap_push_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![ヒープへの挿入の手順 6](heap.assets/heap_push_step6.png){ class="animation-figure" }
+    ![ヒープへの挿入の手順 6](heap.assets/heap_push_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![ヒープへの挿入の手順 7](heap.assets/heap_push_step7.png){ class="animation-figure" }
+    ![ヒープへの挿入の手順 7](heap.assets/heap_push_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![ヒープへの挿入の手順 8](heap.assets/heap_push_step8.png){ class="animation-figure" }
+    ![ヒープへの挿入の手順 8](heap.assets/heap_push_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![ヒープへの挿入の手順 9](heap.assets/heap_push_step9.png){ class="animation-figure" }
+    ![ヒープへの挿入の手順 9](heap.assets/heap_push_step9.svg){ class="animation-figure" }
 
 <p align="center"> 図 8-3 &nbsp; ヒープへの挿入の手順 </p>
 
@@ -1227,34 +1227,34 @@ comments: true
 図 8-4 のように、**上から下へのヒープ化は、下から上へのヒープ化とは逆方向の操作です**。根の値と二つの子の値を比較し、最大の子と根を交換します。これを繰り返し、葉を越えるか交換が不要なノードに達したら終了します。
 
 === "<1>"
-    ![ヒープの先頭要素を取り出す手順](heap.assets/heap_pop_step1.png){ class="animation-figure" }
+    ![ヒープの先頭要素を取り出す手順](heap.assets/heap_pop_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![ヒープからの取り出しの手順 2](heap.assets/heap_pop_step2.png){ class="animation-figure" }
+    ![ヒープからの取り出しの手順 2](heap.assets/heap_pop_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![ヒープからの取り出しの手順 3](heap.assets/heap_pop_step3.png){ class="animation-figure" }
+    ![ヒープからの取り出しの手順 3](heap.assets/heap_pop_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![ヒープからの取り出しの手順 4](heap.assets/heap_pop_step4.png){ class="animation-figure" }
+    ![ヒープからの取り出しの手順 4](heap.assets/heap_pop_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![ヒープからの取り出しの手順 5](heap.assets/heap_pop_step5.png){ class="animation-figure" }
+    ![ヒープからの取り出しの手順 5](heap.assets/heap_pop_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![ヒープからの取り出しの手順 6](heap.assets/heap_pop_step6.png){ class="animation-figure" }
+    ![ヒープからの取り出しの手順 6](heap.assets/heap_pop_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![ヒープからの取り出しの手順 7](heap.assets/heap_pop_step7.png){ class="animation-figure" }
+    ![ヒープからの取り出しの手順 7](heap.assets/heap_pop_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![ヒープからの取り出しの手順 8](heap.assets/heap_pop_step8.png){ class="animation-figure" }
+    ![ヒープからの取り出しの手順 8](heap.assets/heap_pop_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![ヒープからの取り出しの手順 9](heap.assets/heap_pop_step9.png){ class="animation-figure" }
+    ![ヒープからの取り出しの手順 9](heap.assets/heap_pop_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![ヒープからの取り出しの手順 10](heap.assets/heap_pop_step10.png){ class="animation-figure" }
+    ![ヒープからの取り出しの手順 10](heap.assets/heap_pop_step10.svg){ class="animation-figure" }
 
 <p align="center"> 図 8-4 &nbsp; ヒープの先頭要素を取り出す手順 </p>
 

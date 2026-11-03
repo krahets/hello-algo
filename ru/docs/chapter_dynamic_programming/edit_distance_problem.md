@@ -14,7 +14,7 @@ comments: true
 
 Как показано на рисунке 14-27, для преобразования `kitten` в `sitting` требуется 3 шага редактирования: 2 операции замены и 1 операция вставки. Для преобразования `hello` в `algo` также требуется 3 шага: 2 замены и 1 удаление.
 
-![Пример данных для задачи о расстоянии редактирования](edit_distance_problem.assets/edit_distance_example.png){ class="animation-figure" }
+![Пример данных для задачи о расстоянии редактирования](edit_distance_problem.assets/edit_distance_example.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-27 &nbsp; Пример данных для задачи о расстоянии редактирования </p>
 
@@ -24,7 +24,7 @@ comments: true
 
 С точки зрения дерева решений цель этой задачи - найти кратчайший путь между узлом `hello` и узлом `algo` .
 
-![Представление задачи о расстоянии редактирования через дерево решений](edit_distance_problem.assets/edit_distance_decision_tree.png){ class="animation-figure" }
+![Представление задачи о расстоянии редактирования через дерево решений](edit_distance_problem.assets/edit_distance_decision_tree.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-28 &nbsp; Представление задачи о расстоянии редактирования через дерево решений </p>
 
@@ -53,7 +53,7 @@ comments: true
 2. Удалить $s[i-1]$. Тогда остается подзадача $dp[i-1, j]$ .
 3. Заменить $s[i-1]$ на $t[j-1]$. Тогда остается подзадача $dp[i-1, j-1]$ .
 
-![Переходы состояния в задаче о расстоянии редактирования](edit_distance_problem.assets/edit_distance_state_transfer.png){ class="animation-figure" }
+![Переходы состояния в задаче о расстоянии редактирования](edit_distance_problem.assets/edit_distance_state_transfer.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-29 &nbsp; Переходы состояния в задаче о расстоянии редактирования </p>
 
@@ -485,49 +485,49 @@ $$
 Как показано на рисунке 14-30, процесс переходов состояния в задаче о расстоянии редактирования очень похож на задачи о рюкзаке: и там и здесь его можно рассматривать как заполнение двумерной сетки.
 
 === "<1>"
-    ![Процесс динамического программирования для расстояния редактирования](edit_distance_problem.assets/edit_distance_dp_step1.png){ class="animation-figure" }
+    ![Процесс динамического программирования для расстояния редактирования](edit_distance_problem.assets/edit_distance_dp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.png){ class="animation-figure" }
+    ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![edit_distance_dp_step3](edit_distance_problem.assets/edit_distance_dp_step3.png){ class="animation-figure" }
+    ![edit_distance_dp_step3](edit_distance_problem.assets/edit_distance_dp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![edit_distance_dp_step4](edit_distance_problem.assets/edit_distance_dp_step4.png){ class="animation-figure" }
+    ![edit_distance_dp_step4](edit_distance_problem.assets/edit_distance_dp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![edit_distance_dp_step5](edit_distance_problem.assets/edit_distance_dp_step5.png){ class="animation-figure" }
+    ![edit_distance_dp_step5](edit_distance_problem.assets/edit_distance_dp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![edit_distance_dp_step6](edit_distance_problem.assets/edit_distance_dp_step6.png){ class="animation-figure" }
+    ![edit_distance_dp_step6](edit_distance_problem.assets/edit_distance_dp_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![edit_distance_dp_step7](edit_distance_problem.assets/edit_distance_dp_step7.png){ class="animation-figure" }
+    ![edit_distance_dp_step7](edit_distance_problem.assets/edit_distance_dp_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![edit_distance_dp_step8](edit_distance_problem.assets/edit_distance_dp_step8.png){ class="animation-figure" }
+    ![edit_distance_dp_step8](edit_distance_problem.assets/edit_distance_dp_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![edit_distance_dp_step9](edit_distance_problem.assets/edit_distance_dp_step9.png){ class="animation-figure" }
+    ![edit_distance_dp_step9](edit_distance_problem.assets/edit_distance_dp_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![edit_distance_dp_step10](edit_distance_problem.assets/edit_distance_dp_step10.png){ class="animation-figure" }
+    ![edit_distance_dp_step10](edit_distance_problem.assets/edit_distance_dp_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![edit_distance_dp_step11](edit_distance_problem.assets/edit_distance_dp_step11.png){ class="animation-figure" }
+    ![edit_distance_dp_step11](edit_distance_problem.assets/edit_distance_dp_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![edit_distance_dp_step12](edit_distance_problem.assets/edit_distance_dp_step12.png){ class="animation-figure" }
+    ![edit_distance_dp_step12](edit_distance_problem.assets/edit_distance_dp_step12.svg){ class="animation-figure" }
 
 === "<13>"
-    ![edit_distance_dp_step13](edit_distance_problem.assets/edit_distance_dp_step13.png){ class="animation-figure" }
+    ![edit_distance_dp_step13](edit_distance_problem.assets/edit_distance_dp_step13.svg){ class="animation-figure" }
 
 === "<14>"
-    ![edit_distance_dp_step14](edit_distance_problem.assets/edit_distance_dp_step14.png){ class="animation-figure" }
+    ![edit_distance_dp_step14](edit_distance_problem.assets/edit_distance_dp_step14.svg){ class="animation-figure" }
 
 === "<15>"
-    ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.png){ class="animation-figure" }
+    ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-30 &nbsp; Процесс динамического программирования для расстояния редактирования </p>
 

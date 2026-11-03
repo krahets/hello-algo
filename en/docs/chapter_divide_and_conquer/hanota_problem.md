@@ -14,7 +14,7 @@ In merge sort and binary tree reconstruction, we divided the original problem in
     2. Only one disk may be moved at a time.
     3. A smaller disk must always be above a larger disk.
 
-![Example of the Tower of Hanoi](hanota_problem.assets/hanota_example.png){ class="animation-figure" }
+![Example of the Tower of Hanoi](hanota_problem.assets/hanota_example.svg){ class="animation-figure" }
 
 <p align="center"> Figure 12-10 &nbsp; Example of the Tower of Hanoi </p>
 
@@ -25,10 +25,10 @@ In merge sort and binary tree reconstruction, we divided the original problem in
 For $f(1)$, with just one disk, simply move it directly from `A` to `C`, as shown in Figure 12-11.
 
 === "<1>"
-    ![Solution for a problem of size 1](hanota_problem.assets/hanota_f1_step1.png){ class="animation-figure" }
+    ![Solution for a problem of size 1](hanota_problem.assets/hanota_f1_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.png){ class="animation-figure" }
+    ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.svg){ class="animation-figure" }
 
 <p align="center"> Figure 12-11 &nbsp; Solution for a problem of size 1 </p>
 
@@ -39,16 +39,16 @@ For $f(2)$, with two disks, **we need to use `B` because the smaller disk must r
 3. Move the smaller disk from `B` to `C`.
 
 === "<1>"
-    ![Solution for a problem of size 2](hanota_problem.assets/hanota_f2_step1.png){ class="animation-figure" }
+    ![Solution for a problem of size 2](hanota_problem.assets/hanota_f2_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![hanota_f2_step2](hanota_problem.assets/hanota_f2_step2.png){ class="animation-figure" }
+    ![hanota_f2_step2](hanota_problem.assets/hanota_f2_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![hanota_f2_step3](hanota_problem.assets/hanota_f2_step3.png){ class="animation-figure" }
+    ![hanota_f2_step3](hanota_problem.assets/hanota_f2_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![hanota_f2_step4](hanota_problem.assets/hanota_f2_step4.png){ class="animation-figure" }
+    ![hanota_f2_step4](hanota_problem.assets/hanota_f2_step4.svg){ class="animation-figure" }
 
 <p align="center"> Figure 12-12 &nbsp; Solution for a problem of size 2 </p>
 
@@ -65,16 +65,16 @@ Since we know how to solve $f(1)$ and $f(2)$, we can use divide and conquer: **t
 3. Use `C` as the destination and `A` as the auxiliary rod to move two disks from `B` to `C`.
 
 === "<1>"
-    ![Solution for a problem of size 3](hanota_problem.assets/hanota_f3_step1.png){ class="animation-figure" }
+    ![Solution for a problem of size 3](hanota_problem.assets/hanota_f3_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![hanota_f3_step2](hanota_problem.assets/hanota_f3_step2.png){ class="animation-figure" }
+    ![hanota_f3_step2](hanota_problem.assets/hanota_f3_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![hanota_f3_step3](hanota_problem.assets/hanota_f3_step3.png){ class="animation-figure" }
+    ![hanota_f3_step3](hanota_problem.assets/hanota_f3_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![hanota_f3_step4](hanota_problem.assets/hanota_f3_step4.png){ class="animation-figure" }
+    ![hanota_f3_step4](hanota_problem.assets/hanota_f3_step4.svg){ class="animation-figure" }
 
 <p align="center"> Figure 12-13 &nbsp; Solution for a problem of size 3 </p>
 
@@ -88,7 +88,7 @@ We can now state the divide-and-conquer strategy for the Tower of Hanoi, illustr
 
 Each of the two $f(n-1)$ subproblems **can be divided recursively in the same way** until we reach the smallest subproblem, $f(1)$. The solution to $f(1)$ is a single move.
 
-![Divide-and-conquer strategy for the Tower of Hanoi](hanota_problem.assets/hanota_divide_and_conquer.png){ class="animation-figure" }
+![Divide-and-conquer strategy for the Tower of Hanoi](hanota_problem.assets/hanota_divide_and_conquer.svg){ class="animation-figure" }
 
 <p align="center"> Figure 12-14 &nbsp; Divide-and-conquer strategy for the Tower of Hanoi </p>
 
@@ -549,7 +549,7 @@ We define a recursive function `dfs(i, src, buf, tar)` that moves the top $i$ di
 
 As shown in Figure 12-15, the Tower of Hanoi forms a recursion tree of height $n$. Each node represents a subproblem and corresponds to a call to `dfs()`. **The time complexity is therefore $O(2^n)$, and the space complexity is $O(n)$**.
 
-![Recursion tree for the Tower of Hanoi](hanota_problem.assets/hanota_recursive_tree.png){ class="animation-figure" }
+![Recursion tree for the Tower of Hanoi](hanota_problem.assets/hanota_recursive_tree.svg){ class="animation-figure" }
 
 <p align="center"> Figure 12-15 &nbsp; Recursion tree for the Tower of Hanoi </p>
 

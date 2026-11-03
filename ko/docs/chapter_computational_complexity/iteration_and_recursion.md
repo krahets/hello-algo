@@ -205,7 +205,7 @@ comments: true
 
 아래 그림(2-1)은 이 합계 함수의 순서도다.
 
-![합계 함수의 순서도](iteration_and_recursion.assets/iteration.png){ class="animation-figure" }
+![합계 함수의 순서도](iteration_and_recursion.assets/iteration.svg){ class="animation-figure" }
 
 <p align="center"> 그림 2-1 &nbsp; 합계 함수의 순서도 </p>
 
@@ -915,7 +915,7 @@ comments: true
 
 아래 그림(2-2)은 이 중첩 반복문의 순서도다.
 
-![중첩 반복문의 순서도](iteration_and_recursion.assets/nested_iteration.png){ class="animation-figure" }
+![중첩 반복문의 순서도](iteration_and_recursion.assets/nested_iteration.svg){ class="animation-figure" }
 
 <p align="center"> 그림 2-2 &nbsp; 중첩 반복문의 순서도 </p>
 
@@ -1138,7 +1138,7 @@ comments: true
 
 아래 그림(2-3)은 이 함수의 재귀 과정을 보여 준다.
 
-![합계 함수의 재귀 과정](iteration_and_recursion.assets/recursion_sum.png){ class="animation-figure" }
+![합계 함수의 재귀 과정](iteration_and_recursion.assets/recursion_sum.svg){ class="animation-figure" }
 
 <p align="center"> 그림 2-3 &nbsp; 합계 함수의 재귀 과정 </p>
 
@@ -1161,7 +1161,7 @@ comments: true
 
 아래 그림(2-4)과 같이 종료 조건에 도달하기 전에는 아직 반환되지 않은 재귀 함수가 $n$개 동시에 존재하므로, **재귀 깊이는 $n$이다**.
 
-![재귀 호출 깊이](iteration_and_recursion.assets/recursion_sum_depth.png){ class="animation-figure" }
+![재귀 호출 깊이](iteration_and_recursion.assets/recursion_sum_depth.svg){ class="animation-figure" }
 
 <p align="center"> 그림 2-4 &nbsp; 재귀 호출 깊이 </p>
 
@@ -1354,7 +1354,7 @@ $1 + 2 + \dots + n$을 계산하는 예에서 결과 변수 `res`를 함수 매�
 - **일반 재귀**: ‘돌아오기’ 과정에서 합을 구한다. 각 단계가 반환된 뒤에 덧셈을 한 번씩 수행한다.
 - **꼬리 재귀**: ‘내려가기’ 과정에서 합을 구한다. ‘돌아오기’ 과정에서는 단계별로 반환만 하면 된다.
 
-![꼬리 재귀 과정](iteration_and_recursion.assets/tail_recursion_sum.png){ class="animation-figure" }
+![꼬리 재귀 과정](iteration_and_recursion.assets/tail_recursion_sum.svg){ class="animation-figure" }
 
 <p align="center"> 그림 2-5 &nbsp; 꼬리 재귀 과정 </p>
 
@@ -1577,7 +1577,7 @@ $1 + 2 + \dots + n$을 계산하는 예에서 결과 변수 `res`를 함수 매�
 
 위 코드는 함수 안에서 두 번의 재귀 호출을 수행한다. **이는 하나의 호출에서 두 개의 호출 분기가 생긴다는 뜻이다**. 아래 그림(2-6)과 같이 재귀 호출을 계속하면 최종적으로 $n$개 층으로 이루어진 <u>재귀 트리(recursion tree)</u>가 만들어진다.
 
-![피보나치 수열의 재귀 트리](iteration_and_recursion.assets/recursion_tree.png){ class="animation-figure" }
+![피보나치 수열의 재귀 트리](iteration_and_recursion.assets/recursion_tree.svg){ class="animation-figure" }
 
 <p align="center"> 그림 2-6 &nbsp; 피보나치 수열의 재귀 트리 </p>
 

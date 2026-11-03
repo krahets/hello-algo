@@ -15,19 +15,19 @@ comments: true
 3. 不斷重複步驟 `1.` 和步驟 `2.` ，直至找到拼音首字母為 $r$ 的頁碼為止。
 
 === "<1>"
-    ![查字典步驟](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png){ class="animation-figure" }
+    ![查字典步驟](algorithms_are_everywhere.assets/binary_search_dictionary_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png){ class="animation-figure" }
+    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png){ class="animation-figure" }
+    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png){ class="animation-figure" }
+    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png){ class="animation-figure" }
+    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg){ class="animation-figure" }
 
 <p align="center"> 圖 1-1 &nbsp; 查字典步驟 </p>
 
@@ -39,7 +39,7 @@ comments: true
 2. 在無序部分抽出一張撲克牌，插入至有序部分的正確位置；完成後最左 2 張撲克已經有序。
 3. 不斷迴圈步驟 `2.` ，每一輪將一張撲克牌從無序部分插入至有序部分，直至所有撲克牌都有序。
 
-![撲克排序步驟](algorithms_are_everywhere.assets/playing_cards_sorting.png){ class="animation-figure" }
+![撲克排序步驟](algorithms_are_everywhere.assets/playing_cards_sorting.svg){ class="animation-figure" }
 
 <p align="center"> 圖 1-2 &nbsp; 撲克排序步驟 </p>
 
@@ -53,7 +53,7 @@ comments: true
 4. 從剩餘可選項中拿出最大的 $1$ 元，剩餘 $1 - 1 = 0$ 元。
 5. 完成找零，方案為 $20 + 10 + 1 = 31$ 元。
 
-![貨幣找零過程](algorithms_are_everywhere.assets/greedy_change.png){ class="animation-figure" }
+![貨幣找零過程](algorithms_are_everywhere.assets/greedy_change.svg){ class="animation-figure" }
 
 <p align="center"> 圖 1-3 &nbsp; 貨幣找零過程 </p>
 

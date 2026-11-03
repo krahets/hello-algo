@@ -16,7 +16,7 @@ $$
 
 If we think of vertices as nodes and edges as references (pointers) connecting those nodes, a graph can be viewed as an extension of a linked list. As Figure 9-1 shows, **network relationships (graphs) allow more freedom than linear relationships (linked lists) or divide-and-conquer relationships (trees)**, making them more complex.
 
-![Relationships between linked lists, trees, and graphs](graph.assets/linkedlist_tree_graph.png){ class="animation-figure" }
+![Relationships between linked lists, trees, and graphs](graph.assets/linkedlist_tree_graph.svg){ class="animation-figure" }
 
 <p align="center"> Figure 9-1 &nbsp; Relationships between linked lists, trees, and graphs </p>
 
@@ -27,7 +27,7 @@ Depending on whether their edges have a direction, graphs are classified as <u>u
 - In an undirected graph, an edge represents a two-way connection between two vertices, such as a friendship on WeChat or QQ.
 - In a directed graph, edges have a direction: the edges $A \rightarrow B$ and $A \leftarrow B$ are independent of each other. Examples include following and being followed on Weibo or Douyin.
 
-![Directed and undirected graphs](graph.assets/directed_graph.png){ class="animation-figure" }
+![Directed and undirected graphs](graph.assets/directed_graph.svg){ class="animation-figure" }
 
 <p align="center"> Figure 9-2 &nbsp; Directed and undirected graphs </p>
 
@@ -36,13 +36,13 @@ Depending on whether all vertices are connected, graphs are classified as <u>con
 - In a connected graph, every other vertex can be reached from any starting vertex.
 - In a disconnected graph, at least one vertex cannot be reached from a given starting vertex.
 
-![Connected and disconnected graphs](graph.assets/connected_graph.png){ class="animation-figure" }
+![Connected and disconnected graphs](graph.assets/connected_graph.svg){ class="animation-figure" }
 
 <p align="center"> Figure 9-3 &nbsp; Connected and disconnected graphs </p>
 
 We can also assign a weight to each edge to obtain a <u>weighted graph</u>, as shown in Figure 9-4. For example, mobile games such as Honor of Kings calculate an affinity score between players based on the time they spend playing together. A weighted graph can represent this network of affinities.
 
-![Weighted and unweighted graphs](graph.assets/weighted_graph.png){ class="animation-figure" }
+![Weighted and unweighted graphs](graph.assets/weighted_graph.svg){ class="animation-figure" }
 
 <p align="center"> Figure 9-4 &nbsp; Weighted and unweighted graphs </p>
 
@@ -62,7 +62,7 @@ For a graph with $n$ vertices, an <u>adjacency matrix</u> represents the graph u
 
 As shown in Figure 9-5, let $M$ be the adjacency matrix and $V$ the vertex list. The entry $M[i, j] = 1$ means that an edge connects vertices $V[i]$ and $V[j]$, whereas $M[i, j] = 0$ means that no edge connects them.
 
-![Representing a graph with an adjacency matrix](graph.assets/adjacency_matrix.png){ class="animation-figure" }
+![Representing a graph with an adjacency matrix](graph.assets/adjacency_matrix.svg){ class="animation-figure" }
 
 <p align="center"> Figure 9-5 &nbsp; Representing a graph with an adjacency matrix </p>
 
@@ -78,7 +78,7 @@ With an adjacency matrix, we can access a matrix entry directly to retrieve an e
 
 An <u>adjacency list</u> represents a graph using $n$ linked lists whose nodes represent vertices. The $i$-th linked list corresponds to vertex $i$ and stores all of its adjacent vertices (the vertices connected to it). Figure 9-6 shows an example of a graph stored as an adjacency list.
 
-![Representing a graph with an adjacency list](graph.assets/adjacency_list.png){ class="animation-figure" }
+![Representing a graph with an adjacency list](graph.assets/adjacency_list.svg){ class="animation-figure" }
 
 <p align="center"> Figure 9-6 &nbsp; Representing a graph with an adjacency list </p>
 

@@ -14,7 +14,7 @@ comments: true
 
 図 14-1 のように、$3$ 段の階段を上る方法は $3$ 通りあります。
 
-![3 段目まで上る方法の数](intro_to_dynamic_programming.assets/climbing_stairs_example.png){ class="animation-figure" }
+![3 段目まで上る方法の数](intro_to_dynamic_programming.assets/climbing_stairs_example.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-1 &nbsp; 3 段目まで上る方法の数 </p>
 
@@ -445,7 +445,7 @@ $$
 
 つまり、階段を上る問題では部分問題の間に漸化式があり、**部分問題の解から元の問題の解を組み立てられます**。図 14-2 に、この関係を示します。
 
-![方法の数の漸化式](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png){ class="animation-figure" }
+![方法の数の漸化式](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-2 &nbsp; 方法の数の漸化式 </p>
 
@@ -702,7 +702,7 @@ $$
 
 図 14-3 に、全探索でできる再帰木を示します。問題 $dp[n]$ の再帰木の深さは $n$ で、時間計算量は $O(2^n)$ です。指数のオーダーは爆発的に増えるため、大きな $n$ を入力すると、長時間待つことになります。
 
-![階段を上る問題の再帰木](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png){ class="animation-figure" }
+![階段を上る問題の再帰木](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-3 &nbsp; 階段を上る問題の再帰木 </p>
 
@@ -1069,7 +1069,7 @@ $$
 
 図 14-4 のように、**メモ化すると、重複する部分問題はすべて 1 回の計算で済み、時間計算量は $O(n)$ に改善されます**。これは大きな進歩です。
 
-![メモ化探索の再帰木](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png){ class="animation-figure" }
+![メモ化探索の再帰木](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-4 &nbsp; メモ化探索の再帰木 </p>
 
@@ -1345,7 +1345,7 @@ $$
 
 図 14-5 に、上のコードの実行過程を示します。
 
-![階段を上る問題を動的計画法で解く流れ](intro_to_dynamic_programming.assets/climbing_stairs_dp.png){ class="animation-figure" }
+![階段を上る問題を動的計画法で解く流れ](intro_to_dynamic_programming.assets/climbing_stairs_dp.svg){ class="animation-figure" }
 
 <p align="center"> 図 14-5 &nbsp; 階段を上る問題を動的計画法で解く流れ </p>
 

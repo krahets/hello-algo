@@ -14,7 +14,7 @@ comments: true
 
 如圖 14-27 所示，將 `kitten` 轉換為 `sitting` 需要編輯 3 步，包括 2 次替換操作與 1 次新增操作；將 `hello` 轉換為 `algo` 需要 3 步，包括 2 次替換操作和 1 次刪除操作。
 
-![編輯距離的示例資料](edit_distance_problem.assets/edit_distance_example.png){ class="animation-figure" }
+![編輯距離的示例資料](edit_distance_problem.assets/edit_distance_example.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-27 &nbsp; 編輯距離的示例資料 </p>
 
@@ -24,7 +24,7 @@ comments: true
 
 從決策樹的角度看，本題的目標是求解節點 `hello` 和節點 `algo` 之間的最短路徑。
 
-![基於決策樹模型表示編輯距離問題](edit_distance_problem.assets/edit_distance_decision_tree.png){ class="animation-figure" }
+![基於決策樹模型表示編輯距離問題](edit_distance_problem.assets/edit_distance_decision_tree.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-28 &nbsp; 基於決策樹模型表示編輯距離問題 </p>
 
@@ -53,7 +53,7 @@ comments: true
 2. 刪除 $s[i-1]$ ，則剩餘子問題 $dp[i-1, j]$ 。
 3. 將 $s[i-1]$ 替換為 $t[j-1]$ ，則剩餘子問題 $dp[i-1, j-1]$ 。
 
-![編輯距離的狀態轉移](edit_distance_problem.assets/edit_distance_state_transfer.png){ class="animation-figure" }
+![編輯距離的狀態轉移](edit_distance_problem.assets/edit_distance_state_transfer.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-29 &nbsp; 編輯距離的狀態轉移 </p>
 
@@ -485,49 +485,49 @@ $$
 如圖 14-30 所示，編輯距離問題的狀態轉移過程與背包問題非常類似，都可以看作填寫一個二維網格的過程。
 
 === "<1>"
-    ![編輯距離的動態規劃過程](edit_distance_problem.assets/edit_distance_dp_step1.png){ class="animation-figure" }
+    ![編輯距離的動態規劃過程](edit_distance_problem.assets/edit_distance_dp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.png){ class="animation-figure" }
+    ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![edit_distance_dp_step3](edit_distance_problem.assets/edit_distance_dp_step3.png){ class="animation-figure" }
+    ![edit_distance_dp_step3](edit_distance_problem.assets/edit_distance_dp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![edit_distance_dp_step4](edit_distance_problem.assets/edit_distance_dp_step4.png){ class="animation-figure" }
+    ![edit_distance_dp_step4](edit_distance_problem.assets/edit_distance_dp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![edit_distance_dp_step5](edit_distance_problem.assets/edit_distance_dp_step5.png){ class="animation-figure" }
+    ![edit_distance_dp_step5](edit_distance_problem.assets/edit_distance_dp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![edit_distance_dp_step6](edit_distance_problem.assets/edit_distance_dp_step6.png){ class="animation-figure" }
+    ![edit_distance_dp_step6](edit_distance_problem.assets/edit_distance_dp_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![edit_distance_dp_step7](edit_distance_problem.assets/edit_distance_dp_step7.png){ class="animation-figure" }
+    ![edit_distance_dp_step7](edit_distance_problem.assets/edit_distance_dp_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![edit_distance_dp_step8](edit_distance_problem.assets/edit_distance_dp_step8.png){ class="animation-figure" }
+    ![edit_distance_dp_step8](edit_distance_problem.assets/edit_distance_dp_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![edit_distance_dp_step9](edit_distance_problem.assets/edit_distance_dp_step9.png){ class="animation-figure" }
+    ![edit_distance_dp_step9](edit_distance_problem.assets/edit_distance_dp_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![edit_distance_dp_step10](edit_distance_problem.assets/edit_distance_dp_step10.png){ class="animation-figure" }
+    ![edit_distance_dp_step10](edit_distance_problem.assets/edit_distance_dp_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![edit_distance_dp_step11](edit_distance_problem.assets/edit_distance_dp_step11.png){ class="animation-figure" }
+    ![edit_distance_dp_step11](edit_distance_problem.assets/edit_distance_dp_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![edit_distance_dp_step12](edit_distance_problem.assets/edit_distance_dp_step12.png){ class="animation-figure" }
+    ![edit_distance_dp_step12](edit_distance_problem.assets/edit_distance_dp_step12.svg){ class="animation-figure" }
 
 === "<13>"
-    ![edit_distance_dp_step13](edit_distance_problem.assets/edit_distance_dp_step13.png){ class="animation-figure" }
+    ![edit_distance_dp_step13](edit_distance_problem.assets/edit_distance_dp_step13.svg){ class="animation-figure" }
 
 === "<14>"
-    ![edit_distance_dp_step14](edit_distance_problem.assets/edit_distance_dp_step14.png){ class="animation-figure" }
+    ![edit_distance_dp_step14](edit_distance_problem.assets/edit_distance_dp_step14.svg){ class="animation-figure" }
 
 === "<15>"
-    ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.png){ class="animation-figure" }
+    ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-30 &nbsp; 編輯距離的動態規劃過程 </p>
 

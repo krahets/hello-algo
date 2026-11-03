@@ -8,7 +8,7 @@ A <u>hash table</u>, also called a <u>hash map</u>, supports efficient lookup by
 
 Suppose we have $n$ students, each with a name and a student ID. To support the query “given a student ID, return the corresponding name,” use the hash table shown below.
 
-![An abstract view of hash-table lookup](hash_map.assets/hash_table_lookup.png){ class="animation-figure" }
+![An abstract view of hash-table lookup](hash_map.assets/hash_table_lookup.svg){ class="animation-figure" }
 
 <p align="center"> Figure 6-1 &nbsp; An abstract view of hash-table lookup </p>
 
@@ -569,7 +569,7 @@ Use `index` to access the bucket and retrieve `value`.
 
 If `capacity = 100` and `hash(key) = key`, the resulting hash function is `key % 100`. Figure 6-2 illustrates it with student IDs as keys and names as values.
 
-![How a hash function works](hash_map.assets/hash_function.png){ class="animation-figure" }
+![How a hash function works](hash_map.assets/hash_function.svg){ class="animation-figure" }
 
 <p align="center"> Figure 6-2 &nbsp; How a hash function works </p>
 
@@ -1771,7 +1771,7 @@ For the function above, keys with the same last two digits produce the same outp
 
 As shown below, both IDs point to the same name, which is clearly incorrect. This situation, where different inputs produce the same output, is called a <u>hash collision</u>.
 
-![An example of a hash collision](hash_map.assets/hash_collision.png){ class="animation-figure" }
+![An example of a hash collision](hash_map.assets/hash_collision.svg){ class="animation-figure" }
 
 <p align="center"> Figure 6-3 &nbsp; An example of a hash collision </p>
 
@@ -1779,7 +1779,7 @@ A larger table capacity $n$ makes it less likely that several keys share a bucke
 
 In the example below, `(136, A)` and `(236, D)` collide before expansion but no longer collide afterward.
 
-![Expanding a hash table](hash_map.assets/hash_table_reshash.png){ class="animation-figure" }
+![Expanding a hash table](hash_map.assets/hash_table_reshash.svg){ class="animation-figure" }
 
 <p align="center"> Figure 6-4 &nbsp; Expanding a hash table </p>
 

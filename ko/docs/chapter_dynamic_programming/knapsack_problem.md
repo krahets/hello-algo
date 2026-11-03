@@ -14,7 +14,7 @@ comments: true
 
 아래 그림(14-17)에서 물건 번호 $i$는 $1$부터, 배열 인덱스는 $0$부터 시작하므로 물건 $i$의 무게와 가치는 각각 $wgt[i-1]$, $val[i-1]$이다.
 
-![0-1 배낭 문제 예시 데이터](knapsack_problem.assets/knapsack_example.png){ class="animation-figure" }
+![0-1 배낭 문제 예시 데이터](knapsack_problem.assets/knapsack_example.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-17 &nbsp; 0-1 배낭 문제 예시 데이터 </p>
 
@@ -347,7 +347,7 @@ $$
 
 재귀 트리에는 $dp[1, 10]$ 같은 중복 부분 문제가 있음을 쉽게 알 수 있다. 물건이 많고 용량이 크며, 특히 무게가 같은 물건이 많을수록 중복 부분 문제의 수가 크게 늘어난다.
 
-![0-1 배낭 문제의 완전 탐색 재귀 트리](knapsack_problem.assets/knapsack_dfs.png){ class="animation-figure" }
+![0-1 배낭 문제의 완전 탐색 재귀 트리](knapsack_problem.assets/knapsack_dfs.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-18 &nbsp; 0-1 배낭 문제의 완전 탐색 재귀 트리 </p>
 
@@ -713,7 +713,7 @@ $$
 
 아래 그림(14-19)은 메모이제이션을 이용한 탐색에서 잘라 낸 가지들을 보여 준다.
 
-![0-1 배낭 문제의 메모이제이션 탐색 재귀 트리](knapsack_problem.assets/knapsack_dfs_mem.png){ class="animation-figure" }
+![0-1 배낭 문제의 메모이제이션 탐색 재귀 트리](knapsack_problem.assets/knapsack_dfs_mem.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-19 &nbsp; 0-1 배낭 문제의 메모이제이션 탐색 재귀 트리 </p>
 
@@ -1065,46 +1065,46 @@ $$
 아래 그림(14-20)과 같이 시간 복잡도와 공간 복잡도는 모두 배열 `dp`의 크기인 $O(n \times cap)$이다.
 
 === "<1>"
-    ![0-1 배낭 문제의 동적 계획법 과정](knapsack_problem.assets/knapsack_dp_step1.png){ class="animation-figure" }
+    ![0-1 배낭 문제의 동적 계획법 과정](knapsack_problem.assets/knapsack_dp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![0-1 배낭 동적 계획법 2단계](knapsack_problem.assets/knapsack_dp_step2.png){ class="animation-figure" }
+    ![0-1 배낭 동적 계획법 2단계](knapsack_problem.assets/knapsack_dp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![0-1 배낭 동적 계획법 3단계](knapsack_problem.assets/knapsack_dp_step3.png){ class="animation-figure" }
+    ![0-1 배낭 동적 계획법 3단계](knapsack_problem.assets/knapsack_dp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![0-1 배낭 동적 계획법 4단계](knapsack_problem.assets/knapsack_dp_step4.png){ class="animation-figure" }
+    ![0-1 배낭 동적 계획법 4단계](knapsack_problem.assets/knapsack_dp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![0-1 배낭 동적 계획법 5단계](knapsack_problem.assets/knapsack_dp_step5.png){ class="animation-figure" }
+    ![0-1 배낭 동적 계획법 5단계](knapsack_problem.assets/knapsack_dp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![0-1 배낭 동적 계획법 6단계](knapsack_problem.assets/knapsack_dp_step6.png){ class="animation-figure" }
+    ![0-1 배낭 동적 계획법 6단계](knapsack_problem.assets/knapsack_dp_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![0-1 배낭 동적 계획법 7단계](knapsack_problem.assets/knapsack_dp_step7.png){ class="animation-figure" }
+    ![0-1 배낭 동적 계획법 7단계](knapsack_problem.assets/knapsack_dp_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![0-1 배낭 동적 계획법 8단계](knapsack_problem.assets/knapsack_dp_step8.png){ class="animation-figure" }
+    ![0-1 배낭 동적 계획법 8단계](knapsack_problem.assets/knapsack_dp_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![0-1 배낭 동적 계획법 9단계](knapsack_problem.assets/knapsack_dp_step9.png){ class="animation-figure" }
+    ![0-1 배낭 동적 계획법 9단계](knapsack_problem.assets/knapsack_dp_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![0-1 배낭 동적 계획법 10단계](knapsack_problem.assets/knapsack_dp_step10.png){ class="animation-figure" }
+    ![0-1 배낭 동적 계획법 10단계](knapsack_problem.assets/knapsack_dp_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![0-1 배낭 동적 계획법 11단계](knapsack_problem.assets/knapsack_dp_step11.png){ class="animation-figure" }
+    ![0-1 배낭 동적 계획법 11단계](knapsack_problem.assets/knapsack_dp_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![0-1 배낭 동적 계획법 12단계](knapsack_problem.assets/knapsack_dp_step12.png){ class="animation-figure" }
+    ![0-1 배낭 동적 계획법 12단계](knapsack_problem.assets/knapsack_dp_step12.svg){ class="animation-figure" }
 
 === "<13>"
-    ![0-1 배낭 동적 계획법 13단계](knapsack_problem.assets/knapsack_dp_step13.png){ class="animation-figure" }
+    ![0-1 배낭 동적 계획법 13단계](knapsack_problem.assets/knapsack_dp_step13.svg){ class="animation-figure" }
 
 === "<14>"
-    ![0-1 배낭 동적 계획법 14단계](knapsack_problem.assets/knapsack_dp_step14.png){ class="animation-figure" }
+    ![0-1 배낭 동적 계획법 14단계](knapsack_problem.assets/knapsack_dp_step14.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-20 &nbsp; 0-1 배낭 문제의 동적 계획법 과정 </p>
 
@@ -1120,22 +1120,22 @@ $$
 아래 그림(14-21)은 배열 하나로 $i = 1$ 행에서 $i = 2$ 행으로 바꾸는 과정이다. 정방향과 역방향 순회의 차이를 생각해 보자.
 
 === "<1>"
-    ![공간 최적화 후 0-1 배낭의 동적 계획법 과정](knapsack_problem.assets/knapsack_dp_comp_step1.png){ class="animation-figure" }
+    ![공간 최적화 후 0-1 배낭의 동적 계획법 과정](knapsack_problem.assets/knapsack_dp_comp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![공간 최적화된 0-1 배낭 2단계](knapsack_problem.assets/knapsack_dp_comp_step2.png){ class="animation-figure" }
+    ![공간 최적화된 0-1 배낭 2단계](knapsack_problem.assets/knapsack_dp_comp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![공간 최적화된 0-1 배낭 3단계](knapsack_problem.assets/knapsack_dp_comp_step3.png){ class="animation-figure" }
+    ![공간 최적화된 0-1 배낭 3단계](knapsack_problem.assets/knapsack_dp_comp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![공간 최적화된 0-1 배낭 4단계](knapsack_problem.assets/knapsack_dp_comp_step4.png){ class="animation-figure" }
+    ![공간 최적화된 0-1 배낭 4단계](knapsack_problem.assets/knapsack_dp_comp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![공간 최적화된 0-1 배낭 5단계](knapsack_problem.assets/knapsack_dp_comp_step5.png){ class="animation-figure" }
+    ![공간 최적화된 0-1 배낭 5단계](knapsack_problem.assets/knapsack_dp_comp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![공간 최적화된 0-1 배낭 6단계](knapsack_problem.assets/knapsack_dp_comp_step6.png){ class="animation-figure" }
+    ![공간 최적화된 0-1 배낭 6단계](knapsack_problem.assets/knapsack_dp_comp_step6.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-21 &nbsp; 공간 최적화 후 0-1 배낭의 동적 계획법 과정 </p>
 

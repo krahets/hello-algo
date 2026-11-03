@@ -10,7 +10,7 @@ comments: true
 
 圖 11-6 展示了陣列插入元素的操作流程。設基準元素為 `base` ，我們需要將從目標索引到 `base` 之間的所有元素向右移動一位，然後將 `base` 賦值給目標索引。
 
-![單次插入操作](insertion_sort.assets/insertion_operation.png){ class="animation-figure" }
+![單次插入操作](insertion_sort.assets/insertion_operation.svg){ class="animation-figure" }
 
 <p align="center"> 圖 11-6 &nbsp; 單次插入操作 </p>
 
@@ -23,7 +23,7 @@ comments: true
 3. 選取第 3 個元素作為 `base` ，將其插入到正確位置後，**陣列的前 3 個元素已排序**。
 4. 以此類推，在最後一輪中，選取最後一個元素作為 `base` ，將其插入到正確位置後，**所有元素均已排序**。
 
-![插入排序流程](insertion_sort.assets/insertion_sort_overview.png){ class="animation-figure" }
+![插入排序流程](insertion_sort.assets/insertion_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> 圖 11-7 &nbsp; 插入排序流程 </p>
 

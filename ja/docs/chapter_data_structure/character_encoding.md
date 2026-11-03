@@ -10,7 +10,7 @@ comments: true
 
 <u>ASCII コード</u>は最初期の文字集合で、正式名称は American Standard Code for Information Interchange（情報交換用米国標準コード）です。7 ビットの二進数（1 バイトの下位 7 ビット）で 1 文字を表し、最大 128 種類の文字を表現できます。図 3-6 のように、ASCII コードには英字の大文字と小文字、数字の 0 ～ 9、一部の句読点や記号、改行やタブなどの制御文字が含まれています。
 
-![ASCII コード](character_encoding.assets/ascii_table.png){ class="animation-figure" }
+![ASCII コード](character_encoding.assets/ascii_table.svg){ class="animation-figure" }
 
 <p align="center"> 図 3-6 &nbsp; ASCII コード </p>
 
@@ -36,7 +36,7 @@ comments: true
 
 この問題に対する**直接的な解決策は、すべての文字を同じ長さの符号で保存することです**。図 3-7 では、「Hello」の各文字は 1 バイト、「算法」の各文字は 2 バイトを占めています。上位ビットを 0 で埋めれば、「Hello 算法」のすべての文字を 2 バイトの長さに符号化できます。これにより、システムは 2 バイトごとに 1 文字を読み取り、元の語句を復元できます。
 
-![Unicode の符号化例](character_encoding.assets/unicode_hello_algo.png){ class="animation-figure" }
+![Unicode の符号化例](character_encoding.assets/unicode_hello_algo.svg){ class="animation-figure" }
 
 <p align="center"> 図 3-7 &nbsp; Unicode の符号化例 </p>
 
@@ -57,7 +57,7 @@ UTF-8 の符号化規則は複雑ではなく、次の二つの場合に分か�
 
 $10$ を検査用の印にできるのは、UTF-8 の符号化規則では、文字の先頭の 2 ビットが $10$ になることはないからです。これは背理法で証明できます。ある文字の先頭の 2 ビットが $10$ だと仮定すると、その文字の長さは $1$ バイトであり、ASCII コードに対応することになります。しかし、ASCII コードの最上位ビットは $0$ であるはずなので、仮定と矛盾します。
 
-![UTF-8 の符号化例](character_encoding.assets/utf-8_hello_algo.png){ class="animation-figure" }
+![UTF-8 の符号化例](character_encoding.assets/utf-8_hello_algo.svg){ class="animation-figure" }
 
 <p align="center"> 図 3-8 &nbsp; UTF-8 の符号化例 </p>
 

@@ -14,7 +14,7 @@ comments: true
 
 레벨 순서 순회는 본질적으로 <u>너비 우선 순회(breadth-first traversal)</u>, 즉 <u>너비 우선 탐색(breadth-first search, BFS)</u>에 속한다. '한 겹씩 바깥으로 확장'하는 층별 순회 방식이다.
 
-![이진 트리의 레벨 순서 순회](binary_tree_traversal.assets/binary_tree_bfs.png){ class="animation-figure" }
+![이진 트리의 레벨 순서 순회](binary_tree_traversal.assets/binary_tree_bfs.svg){ class="animation-figure" }
 
 <p align="center"> 그림 7-9 &nbsp; 이진 트리의 레벨 순서 순회 </p>
 
@@ -350,7 +350,7 @@ comments: true
 
 아래 그림(7-10)은 이진 트리의 깊이 우선 순회 원리를 보여 준다. **깊이 우선 순회는 트리 전체의 바깥을 한 바퀴 '도는' 것과 같다**. 각 노드에서 세 위치를 만나며, 각각 전위, 중위, 후위 순회에 대응한다.
 
-![이진 탐색 트리의 전위, 중위, 후위 순회](binary_tree_traversal.assets/binary_tree_dfs.png){ class="animation-figure" }
+![이진 탐색 트리의 전위, 중위, 후위 순회](binary_tree_traversal.assets/binary_tree_dfs.svg){ class="animation-figure" }
 
 <p align="center"> 그림 7-10 &nbsp; 이진 탐색 트리의 전위, 중위, 후위 순회 </p>
 
@@ -834,37 +834,37 @@ comments: true
 2. '반환'은 함수가 돌아오는 것으로, 현재 노드의 방문이 끝났음을 뜻한다.
 
 === "<1>"
-    ![전위 순회의 재귀 과정](binary_tree_traversal.assets/preorder_step1.png){ class="animation-figure" }
+    ![전위 순회의 재귀 과정](binary_tree_traversal.assets/preorder_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![전위 순회 2단계](binary_tree_traversal.assets/preorder_step2.png){ class="animation-figure" }
+    ![전위 순회 2단계](binary_tree_traversal.assets/preorder_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![전위 순회 3단계](binary_tree_traversal.assets/preorder_step3.png){ class="animation-figure" }
+    ![전위 순회 3단계](binary_tree_traversal.assets/preorder_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![전위 순회 4단계](binary_tree_traversal.assets/preorder_step4.png){ class="animation-figure" }
+    ![전위 순회 4단계](binary_tree_traversal.assets/preorder_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![전위 순회 5단계](binary_tree_traversal.assets/preorder_step5.png){ class="animation-figure" }
+    ![전위 순회 5단계](binary_tree_traversal.assets/preorder_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![전위 순회 6단계](binary_tree_traversal.assets/preorder_step6.png){ class="animation-figure" }
+    ![전위 순회 6단계](binary_tree_traversal.assets/preorder_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![전위 순회 7단계](binary_tree_traversal.assets/preorder_step7.png){ class="animation-figure" }
+    ![전위 순회 7단계](binary_tree_traversal.assets/preorder_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![전위 순회 8단계](binary_tree_traversal.assets/preorder_step8.png){ class="animation-figure" }
+    ![전위 순회 8단계](binary_tree_traversal.assets/preorder_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![전위 순회 9단계](binary_tree_traversal.assets/preorder_step9.png){ class="animation-figure" }
+    ![전위 순회 9단계](binary_tree_traversal.assets/preorder_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![전위 순회 10단계](binary_tree_traversal.assets/preorder_step10.png){ class="animation-figure" }
+    ![전위 순회 10단계](binary_tree_traversal.assets/preorder_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![전위 순회 11단계](binary_tree_traversal.assets/preorder_step11.png){ class="animation-figure" }
+    ![전위 순회 11단계](binary_tree_traversal.assets/preorder_step11.svg){ class="animation-figure" }
 
 <p align="center"> 그림 7-11 &nbsp; 전위 순회의 재귀 과정 </p>
 

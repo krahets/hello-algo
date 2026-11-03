@@ -8,7 +8,7 @@ comments: true
 
     Дано $n$ предметов. Вес предмета $i$ равен $wgt[i-1]$, ценность равна $val[i-1]$, также дан рюкзак вместимостью $cap$. Каждый предмет можно выбрать только один раз, **но разрешается взять лишь часть предмета, а ценность вычисляется пропорционально взятому весу**. Требуется найти максимальную ценность предметов в рюкзаке при ограниченной вместимости. Пример показан на рисунке 15-3.
 
-![Пример данных для задачи о дробном рюкзаке](fractional_knapsack_problem.assets/fractional_knapsack_example.png){ class="animation-figure" }
+![Пример данных для задачи о дробном рюкзаке](fractional_knapsack_problem.assets/fractional_knapsack_example.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 15-3 &nbsp; Пример данных для задачи о дробном рюкзаке </p>
 
@@ -19,7 +19,7 @@ comments: true
 1. Для предмета $i$ его ценность на единицу веса равна $val[i-1] / wgt[i-1]$, сокращенно - удельная ценность.
 2. Если взять часть предмета $i$ весом $w$, то ценность рюкзака увеличится на $w \times val[i-1] / wgt[i-1]$.
 
-![Ценность предмета на единицу веса](fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png){ class="animation-figure" }
+![Ценность предмета на единицу веса](fractional_knapsack_problem.assets/fractional_knapsack_unit_value.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 15-4 &nbsp; Ценность предмета на единицу веса </p>
 
@@ -31,7 +31,7 @@ comments: true
 2. Перебирать все предметы и **на каждом шаге жадно выбирать предмет с наибольшей удельной ценностью**.
 3. Если оставшейся вместимости рюкзака недостаточно, взять часть текущего предмета, чтобы заполнить рюкзак.
 
-![Жадная стратегия для задачи о дробном рюкзаке](fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png){ class="animation-figure" }
+![Жадная стратегия для задачи о дробном рюкзаке](fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 15-5 &nbsp; Жадная стратегия для задачи о дробном рюкзаке </p>
 
@@ -552,6 +552,6 @@ comments: true
 
 Как показано на рисунке 15-6, если рассматривать вес предметов и их удельную ценность как горизонтальную и вертикальную оси двумерной диаграммы, то задачу о дробном рюкзаке можно интерпретировать как «поиск максимальной площади, ограниченной конечным отрезком по горизонтали». Эта аналогия помогает понять корректность жадной стратегии с геометрической точки зрения.
 
-![Геометрическая интерпретация задачи о дробном рюкзаке](fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png){ class="animation-figure" }
+![Геометрическая интерпретация задачи о дробном рюкзаке](fractional_knapsack_problem.assets/fractional_knapsack_area_chart.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 15-6 &nbsp; Геометрическая интерпретация задачи о дробном рюкзаке </p>

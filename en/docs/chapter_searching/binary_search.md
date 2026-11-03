@@ -10,7 +10,7 @@ comments: true
 
     Given an array `nums` of length $n$, with distinct elements arranged in ascending order, find and return the index of `target`. If the array does not contain this element, return $-1$. An example is shown below.
 
-![Example data for binary search](binary_search.assets/binary_search_example.png){ class="animation-figure" }
+![Example data for binary search](binary_search.assets/binary_search_example.svg){ class="animation-figure" }
 
 <p align="center"> Figure 10-1 &nbsp; Example data for binary search </p>
 
@@ -27,25 +27,25 @@ Next, repeat the following two steps.
 If the array does not contain the target, the search interval eventually becomes empty. Return $-1$ in this case.
 
 === "<1>"
-    ![The binary search process](binary_search.assets/binary_search_step1.png){ class="animation-figure" }
+    ![The binary search process](binary_search.assets/binary_search_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![binary_search_step2](binary_search.assets/binary_search_step2.png){ class="animation-figure" }
+    ![binary_search_step2](binary_search.assets/binary_search_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![binary_search_step3](binary_search.assets/binary_search_step3.png){ class="animation-figure" }
+    ![binary_search_step3](binary_search.assets/binary_search_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![binary_search_step4](binary_search.assets/binary_search_step4.png){ class="animation-figure" }
+    ![binary_search_step4](binary_search.assets/binary_search_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![binary_search_step5](binary_search.assets/binary_search_step5.png){ class="animation-figure" }
+    ![binary_search_step5](binary_search.assets/binary_search_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![binary_search_step6](binary_search.assets/binary_search_step6.png){ class="animation-figure" }
+    ![binary_search_step6](binary_search.assets/binary_search_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![binary_search_step7](binary_search.assets/binary_search_step7.png){ class="animation-figure" }
+    ![binary_search_step7](binary_search.assets/binary_search_step7.svg){ class="animation-figure" }
 
 <p align="center"> Figure 10-2 &nbsp; The binary search process </p>
 
@@ -695,7 +695,7 @@ As shown below, the two interval representations require different initializatio
 
 Since a closed interval includes both endpoints, the operations that narrow the interval through pointers $i$ and $j$ are symmetric. This makes mistakes less likely, **so we generally recommend the closed-interval version**.
 
-![Two ways to define the interval](binary_search.assets/binary_search_ranges.png){ class="animation-figure" }
+![Two ways to define the interval](binary_search.assets/binary_search_ranges.svg){ class="animation-figure" }
 
 <p align="center"> Figure 10-3 &nbsp; Two ways to define the interval </p>
 

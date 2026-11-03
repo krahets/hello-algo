@@ -1,9 +1,8 @@
 {
   "hero_class": "hero-div hero-div--ko",
-  "list_layout": false,
   "labels": {
     "astronaut": "알고리즘과의 첫 만남",
-    "chapter_computational_complexity": "복잡도",
+    "chapter_computational_complexity": "복잡도 분석",
     "chapter_array_and_linkedlist": "배열과 연결 리스트",
     "chapter_stack_and_queue": "스택과 큐",
     "chapter_hashing": "해시 테이블",

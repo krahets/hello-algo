@@ -14,7 +14,7 @@ comments: true
 
 如圖 14-1 所示，對於一個 $3$ 階樓梯，共有 $3$ 種方案可以爬到樓頂。
 
-![爬到第 3 階的方案數量](intro_to_dynamic_programming.assets/climbing_stairs_example.png){ class="animation-figure" }
+![爬到第 3 階的方案數量](intro_to_dynamic_programming.assets/climbing_stairs_example.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-1 &nbsp; 爬到第 3 階的方案數量 </p>
 
@@ -445,7 +445,7 @@ $$
 
 這意味著在爬樓梯問題中，各個子問題之間存在遞推關係，**原問題的解可以由子問題的解構建得來**。圖 14-2 展示了該遞推關係。
 
-![方案數量遞推關係](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png){ class="animation-figure" }
+![方案數量遞推關係](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-2 &nbsp; 方案數量遞推關係 </p>
 
@@ -702,7 +702,7 @@ $$
 
 圖 14-3 展示了暴力搜尋形成的遞迴樹。對於問題 $dp[n]$ ，其遞迴樹的深度為 $n$ ，時間複雜度為 $O(2^n)$ 。指數階屬於爆炸式增長，如果我們輸入一個比較大的 $n$ ，則會陷入漫長的等待之中。
 
-![爬樓梯對應遞迴樹](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png){ class="animation-figure" }
+![爬樓梯對應遞迴樹](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-3 &nbsp; 爬樓梯對應遞迴樹 </p>
 
@@ -1069,7 +1069,7 @@ $$
 
 觀察圖 14-4 ，**經過記憶化處理後，所有重疊子問題都只需計算一次，時間複雜度最佳化至 $O(n)$** ，這是一個巨大的飛躍。
 
-![記憶化搜尋對應遞迴樹](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png){ class="animation-figure" }
+![記憶化搜尋對應遞迴樹](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-4 &nbsp; 記憶化搜尋對應遞迴樹 </p>
 
@@ -1345,7 +1345,7 @@ $$
 
 圖 14-5 模擬了以上程式碼的執行過程。
 
-![爬樓梯的動態規劃過程](intro_to_dynamic_programming.assets/climbing_stairs_dp.png){ class="animation-figure" }
+![爬樓梯的動態規劃過程](intro_to_dynamic_programming.assets/climbing_stairs_dp.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-5 &nbsp; 爬樓梯的動態規劃過程 </p>
 

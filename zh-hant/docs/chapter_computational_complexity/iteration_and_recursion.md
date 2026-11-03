@@ -205,7 +205,7 @@ comments: true
 
 圖 2-1 是該求和函式的流程框圖。
 
-![求和函式的流程框圖](iteration_and_recursion.assets/iteration.png){ class="animation-figure" }
+![求和函式的流程框圖](iteration_and_recursion.assets/iteration.svg){ class="animation-figure" }
 
 <p align="center"> 圖 2-1 &nbsp; 求和函式的流程框圖 </p>
 
@@ -915,7 +915,7 @@ comments: true
 
 圖 2-2 是該巢狀迴圈的流程框圖。
 
-![巢狀迴圈的流程框圖](iteration_and_recursion.assets/nested_iteration.png){ class="animation-figure" }
+![巢狀迴圈的流程框圖](iteration_and_recursion.assets/nested_iteration.svg){ class="animation-figure" }
 
 <p align="center"> 圖 2-2 &nbsp; 巢狀迴圈的流程框圖 </p>
 
@@ -1138,7 +1138,7 @@ comments: true
 
 圖 2-3 展示了該函式的遞迴過程。
 
-![求和函式的遞迴過程](iteration_and_recursion.assets/recursion_sum.png){ class="animation-figure" }
+![求和函式的遞迴過程](iteration_and_recursion.assets/recursion_sum.svg){ class="animation-figure" }
 
 <p align="center"> 圖 2-3 &nbsp; 求和函式的遞迴過程 </p>
 
@@ -1161,7 +1161,7 @@ comments: true
 
 如圖 2-4 所示，在觸發終止條件前，同時存在 $n$ 個未返回的遞迴函式，**遞迴深度為 $n$** 。
 
-![遞迴呼叫深度](iteration_and_recursion.assets/recursion_sum_depth.png){ class="animation-figure" }
+![遞迴呼叫深度](iteration_and_recursion.assets/recursion_sum_depth.svg){ class="animation-figure" }
 
 <p align="center"> 圖 2-4 &nbsp; 遞迴呼叫深度 </p>
 
@@ -1354,7 +1354,7 @@ comments: true
 - **普通遞迴**：求和操作是在“迴”的過程中執行的，每層返回後都要再執行一次求和操作。
 - **尾遞迴**：求和操作是在“遞”的過程中執行的，“迴”的過程只需層層返回。
 
-![尾遞迴過程](iteration_and_recursion.assets/tail_recursion_sum.png){ class="animation-figure" }
+![尾遞迴過程](iteration_and_recursion.assets/tail_recursion_sum.svg){ class="animation-figure" }
 
 <p align="center"> 圖 2-5 &nbsp; 尾遞迴過程 </p>
 
@@ -1577,7 +1577,7 @@ comments: true
 
 觀察以上程式碼，我們在函式內遞迴呼叫了兩個函式，**這意味著從一個呼叫產生了兩個呼叫分支**。如圖 2-6 所示，這樣不斷遞迴呼叫下去，最終將產生一棵層數為 $n$ 的<u>遞迴樹（recursion tree）</u>。
 
-![費波那契數列的遞迴樹](iteration_and_recursion.assets/recursion_tree.png){ class="animation-figure" }
+![費波那契數列的遞迴樹](iteration_and_recursion.assets/recursion_tree.svg){ class="animation-figure" }
 
 <p align="center"> 圖 2-6 &nbsp; 費波那契數列的遞迴樹 </p>
 

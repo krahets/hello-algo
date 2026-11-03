@@ -16,7 +16,7 @@ comments: true
 
 此方法只適用於 $k \ll n$ 的情況，因為當 $k$ 與 $n$ 比較接近時，其時間複雜度趨向於 $O(n^2)$ ，非常耗時。
 
-![走訪尋找最大的 k 個元素](top_k.assets/top_k_traversal.png){ class="animation-figure" }
+![走訪尋找最大的 k 個元素](top_k.assets/top_k_traversal.svg){ class="animation-figure" }
 
 <p align="center"> 圖 8-6 &nbsp; 走訪尋找最大的 k 個元素 </p>
 
@@ -30,7 +30,7 @@ comments: true
 
 顯然，該方法“超額”完成任務了，因為我們只需找出最大的 $k$ 個元素即可，而不需要排序其他元素。
 
-![排序尋找最大的 k 個元素](top_k.assets/top_k_sorting.png){ class="animation-figure" }
+![排序尋找最大的 k 個元素](top_k.assets/top_k_sorting.svg){ class="animation-figure" }
 
 <p align="center"> 圖 8-7 &nbsp; 排序尋找最大的 k 個元素 </p>
 
@@ -44,31 +44,31 @@ comments: true
 4. 走訪完成後，堆積中儲存的就是最大的 $k$ 個元素。
 
 === "<1>"
-    ![基於堆積尋找最大的 k 個元素](top_k.assets/top_k_heap_step1.png){ class="animation-figure" }
+    ![基於堆積尋找最大的 k 個元素](top_k.assets/top_k_heap_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![top_k_heap_step2](top_k.assets/top_k_heap_step2.png){ class="animation-figure" }
+    ![top_k_heap_step2](top_k.assets/top_k_heap_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![top_k_heap_step3](top_k.assets/top_k_heap_step3.png){ class="animation-figure" }
+    ![top_k_heap_step3](top_k.assets/top_k_heap_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![top_k_heap_step4](top_k.assets/top_k_heap_step4.png){ class="animation-figure" }
+    ![top_k_heap_step4](top_k.assets/top_k_heap_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![top_k_heap_step5](top_k.assets/top_k_heap_step5.png){ class="animation-figure" }
+    ![top_k_heap_step5](top_k.assets/top_k_heap_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![top_k_heap_step6](top_k.assets/top_k_heap_step6.png){ class="animation-figure" }
+    ![top_k_heap_step6](top_k.assets/top_k_heap_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![top_k_heap_step7](top_k.assets/top_k_heap_step7.png){ class="animation-figure" }
+    ![top_k_heap_step7](top_k.assets/top_k_heap_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![top_k_heap_step8](top_k.assets/top_k_heap_step8.png){ class="animation-figure" }
+    ![top_k_heap_step8](top_k.assets/top_k_heap_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![top_k_heap_step9](top_k.assets/top_k_heap_step9.png){ class="animation-figure" }
+    ![top_k_heap_step9](top_k.assets/top_k_heap_step9.svg){ class="animation-figure" }
 
 <p align="center"> 圖 8-8 &nbsp; 基於堆積尋找最大的 k 個元素 </p>
 

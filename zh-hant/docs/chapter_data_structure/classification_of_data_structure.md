@@ -20,7 +20,7 @@ comments: true
 - **樹形結構**：樹、堆積、雜湊表，元素之間是一對多的關係。
 - **網狀結構**：圖，元素之間是多對多的關係。
 
-![線性資料結構與非線性資料結構](classification_of_data_structure.assets/classification_logic_structure.png){ class="animation-figure" }
+![線性資料結構與非線性資料結構](classification_of_data_structure.assets/classification_logic_structure.svg){ class="animation-figure" }
 
 <p align="center"> 圖 3-1 &nbsp; 線性資料結構與非線性資料結構 </p>
 
@@ -30,7 +30,7 @@ comments: true
 
 **系統透過記憶體位址來訪問目標位置的資料**。如圖 3-2 所示，計算機根據特定規則為表格中的每個單元格分配編號，確保每個記憶體空間都有唯一的記憶體位址。有了這些位址，程式便可以訪問記憶體中的資料。
 
-![記憶體條、記憶體空間、記憶體位址](classification_of_data_structure.assets/computer_memory_location.png){ class="animation-figure" }
+![記憶體條、記憶體空間、記憶體位址](classification_of_data_structure.assets/computer_memory_location.svg){ class="animation-figure" }
 
 <p align="center"> 圖 3-2 &nbsp; 記憶體條、記憶體空間、記憶體位址 </p>
 
@@ -42,7 +42,7 @@ comments: true
 
 如圖 3-3 所示，**物理結構反映了資料在計算機記憶體中的儲存方式**，可分為連續空間儲存（陣列）和分散空間儲存（鏈結串列）。物理結構從底層決定了資料的訪問、更新、增刪等操作方法，兩種物理結構在時間效率和空間效率方面呈現出互補的特點。
 
-![連續空間儲存與分散空間儲存](classification_of_data_structure.assets/classification_phisical_structure.png){ class="animation-figure" }
+![連續空間儲存與分散空間儲存](classification_of_data_structure.assets/classification_phisical_structure.svg){ class="animation-figure" }
 
 <p align="center"> 圖 3-3 &nbsp; 連續空間儲存與分散空間儲存 </p>
 

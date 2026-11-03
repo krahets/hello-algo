@@ -22,7 +22,7 @@ comments: true
 
 Как показано на рисунке 14-6, если цены для ступеней $1$ , $2$ и $3$ равны соответственно $1$ , $10$ и $1$ , то минимальная стоимость подъема с земли на третью ступень равна $2$ .
 
-![Минимальная стоимость подъема на 3-ю ступень](dp_problem_features.assets/min_cost_cs_example.png){ class="animation-figure" }
+![Минимальная стоимость подъема на 3-ю ступень](dp_problem_features.assets/min_cost_cs_example.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-6 &nbsp; Минимальная стоимость подъема на 3-ю ступень </p>
 
@@ -325,7 +325,7 @@ $$
 
 На рисунке 14-7 показан процесс динамического программирования для этой задачи.
 
-![Процесс динамического программирования для минимальной стоимости подъема](dp_problem_features.assets/min_cost_cs_dp.png){ class="animation-figure" }
+![Процесс динамического программирования для минимальной стоимости подъема](dp_problem_features.assets/min_cost_cs_dp.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-7 &nbsp; Процесс динамического программирования для минимальной стоимости подъема </p>
 
@@ -600,7 +600,7 @@ $$
 
 Как показано на рисунке 14-8, на третью ступень теперь существует только $2$ допустимых способа добраться: вариант с тремя последовательными прыжками на $1$ не удовлетворяет ограничению и потому отбрасывается.
 
-![Число способов подняться на 3-ю ступень при наличии ограничения](dp_problem_features.assets/climbing_stairs_constraint_example.png){ class="animation-figure" }
+![Число способов подняться на 3-ю ступень при наличии ограничения](dp_problem_features.assets/climbing_stairs_constraint_example.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-8 &nbsp; Число способов подняться на 3-ю ступень при наличии ограничения </p>
 
@@ -622,7 +622,7 @@ dp[i, 2] = dp[i-2, 1] + dp[i-2, 2]
 \end{cases}
 $$
 
-![Рекуррентная связь с учетом ограничения](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.png){ class="animation-figure" }
+![Рекуррентная связь с учетом ограничения](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-9 &nbsp; Рекуррентная связь с учетом ограничения </p>
 

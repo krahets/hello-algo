@@ -209,7 +209,7 @@ comments: true
 
 **Узлы, не имеющие дочерних узлов, называют листьями, а все остальные узлы содержат дочерние узлы и непустые поддеревья**. Как показано на рисунке 7-1, если рассматривать «узел 2» как родительский, то его левым и правым дочерними узлами будут «узел 4» и «узел 5». Левое поддерево - это «узел 4 и дерево ниже него», а правое поддерево - это «узел 5 и дерево ниже него».
 
-![Родительский узел, дочерние узлы и поддеревья](binary_tree.assets/binary_tree_definition.png){ class="animation-figure" }
+![Родительский узел, дочерние узлы и поддеревья](binary_tree.assets/binary_tree_definition.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-1 &nbsp; Родительский узел, дочерние узлы и поддеревья </p>
 
@@ -226,7 +226,7 @@ comments: true
 - <u>Глубина (depth)</u> узла: число ребер от корневого узла до данного узла.
 - <u>Высота (height)</u> узла: число ребер от самого удаленного листового узла до данного узла.
 
-![Распространенные термины двоичного дерева](binary_tree.assets/binary_tree_terminology.png){ class="animation-figure" }
+![Распространенные термины двоичного дерева](binary_tree.assets/binary_tree_terminology.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-2 &nbsp; Распространенные термины двоичного дерева </p>
 
@@ -466,7 +466,7 @@ comments: true
 
 Как и в связном списке, вставка и удаление узлов в двоичном дереве могут выполняться через изменение указателей. На рисунке 7-3 приведен пример.
 
-![Вставка и удаление узлов в двоичном дереве](binary_tree.assets/binary_tree_add_remove.png){ class="animation-figure" }
+![Вставка и удаление узлов в двоичном дереве](binary_tree.assets/binary_tree_add_remove.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-3 &nbsp; Вставка и удаление узлов в двоичном дереве </p>
 
@@ -645,7 +645,7 @@ comments: true
 
     В китайскоязычном сообществе идеальное двоичное дерево часто называют <u>полностью заполненным двоичным деревом</u>.
 
-![Идеальное двоичное дерево](binary_tree.assets/perfect_binary_tree.png){ class="animation-figure" }
+![Идеальное двоичное дерево](binary_tree.assets/perfect_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-4 &nbsp; Идеальное двоичное дерево </p>
 
@@ -653,7 +653,7 @@ comments: true
 
 Как показано на рисунке 7-5, <u>полное двоичное дерево (complete binary tree)</u> допускает неполное заполнение только на самом нижнем уровне, причем узлы этого уровня должны непрерывно заполняться слева направо. Стоит отметить, что идеальное двоичное дерево тоже является полным двоичным деревом.
 
-![Полное двоичное дерево](binary_tree.assets/complete_binary_tree.png){ class="animation-figure" }
+![Полное двоичное дерево](binary_tree.assets/complete_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-5 &nbsp; Полное двоичное дерево </p>
 
@@ -661,7 +661,7 @@ comments: true
 
 Как показано на рисунке 7-6, <u>строгое двоичное дерево (full binary tree)</u> имеет у всех нелистовых узлов ровно двух дочерних узлов.
 
-![Строгое двоичное дерево](binary_tree.assets/full_binary_tree.png){ class="animation-figure" }
+![Строгое двоичное дерево](binary_tree.assets/full_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-6 &nbsp; Строгое двоичное дерево </p>
 
@@ -669,7 +669,7 @@ comments: true
 
 Как показано на рисунке 7-7, в <u>сбалансированном двоичном дереве (balanced binary tree)</u> для любого узла абсолютное значение разности высот левого и правого поддеревьев не превышает 1 .
 
-![Сбалансированное двоичное дерево](binary_tree.assets/balanced_binary_tree.png){ class="animation-figure" }
+![Сбалансированное двоичное дерево](binary_tree.assets/balanced_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-7 &nbsp; Сбалансированное двоичное дерево </p>
 
@@ -680,7 +680,7 @@ comments: true
 - Идеальное двоичное дерево соответствует лучшему случаю и позволяет в полной мере раскрыть преимущества подхода «разделяй и властвуй».
 - Связный список представляет противоположную крайность: все операции становятся линейными, а временная сложность деградирует до $O(n)$ .
 
-![Лучший и худший случаи структуры двоичного дерева](binary_tree.assets/binary_tree_best_worst_cases.png){ class="animation-figure" }
+![Лучший и худший случаи структуры двоичного дерева](binary_tree.assets/binary_tree_best_worst_cases.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-8 &nbsp; Лучший и худший случаи структуры двоичного дерева </p>
 

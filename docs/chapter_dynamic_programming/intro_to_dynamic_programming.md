@@ -14,7 +14,7 @@ comments: true
 
 如图 14-1 所示，对于一个 $3$ 阶楼梯，共有 $3$ 种方案可以爬到楼顶。
 
-![爬到第 3 阶的方案数量](intro_to_dynamic_programming.assets/climbing_stairs_example.png){ class="animation-figure" }
+![爬到第 3 阶的方案数量](intro_to_dynamic_programming.assets/climbing_stairs_example.svg){ class="animation-figure" }
 
 <p align="center"> 图 14-1 &nbsp; 爬到第 3 阶的方案数量 </p>
 
@@ -445,7 +445,7 @@ $$
 
 这意味着在爬楼梯问题中，各个子问题之间存在递推关系，**原问题的解可以由子问题的解构建得来**。图 14-2 展示了该递推关系。
 
-![方案数量递推关系](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png){ class="animation-figure" }
+![方案数量递推关系](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.svg){ class="animation-figure" }
 
 <p align="center"> 图 14-2 &nbsp; 方案数量递推关系 </p>
 
@@ -702,7 +702,7 @@ $$
 
 图 14-3 展示了暴力搜索形成的递归树。对于问题 $dp[n]$ ，其递归树的深度为 $n$ ，时间复杂度为 $O(2^n)$ 。指数阶属于爆炸式增长，如果我们输入一个比较大的 $n$ ，则会陷入漫长的等待之中。
 
-![爬楼梯对应递归树](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png){ class="animation-figure" }
+![爬楼梯对应递归树](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.svg){ class="animation-figure" }
 
 <p align="center"> 图 14-3 &nbsp; 爬楼梯对应递归树 </p>
 
@@ -1069,7 +1069,7 @@ $$
 
 观察图 14-4 ，**经过记忆化处理后，所有重叠子问题都只需计算一次，时间复杂度优化至 $O(n)$** ，这是一个巨大的飞跃。
 
-![记忆化搜索对应递归树](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png){ class="animation-figure" }
+![记忆化搜索对应递归树](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.svg){ class="animation-figure" }
 
 <p align="center"> 图 14-4 &nbsp; 记忆化搜索对应递归树 </p>
 
@@ -1345,7 +1345,7 @@ $$
 
 图 14-5 模拟了以上代码的执行过程。
 
-![爬楼梯的动态规划过程](intro_to_dynamic_programming.assets/climbing_stairs_dp.png){ class="animation-figure" }
+![爬楼梯的动态规划过程](intro_to_dynamic_programming.assets/climbing_stairs_dp.svg){ class="animation-figure" }
 
 <p align="center"> 图 14-5 &nbsp; 爬楼梯的动态规划过程 </p>
 

@@ -29,40 +29,40 @@ comments: true
     実は、ヒープから要素を取り出す操作にも手順 `2.` と `3.` が含まれています。違いは、要素を取り除く手順が追加されるだけです。
 
 === "<1>"
-    ![ヒープソートの手順](heap_sort.assets/heap_sort_step1.png){ class="animation-figure" }
+    ![ヒープソートの手順](heap_sort.assets/heap_sort_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![ヒープソートの手順 2](heap_sort.assets/heap_sort_step2.png){ class="animation-figure" }
+    ![ヒープソートの手順 2](heap_sort.assets/heap_sort_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![ヒープソートの手順 3](heap_sort.assets/heap_sort_step3.png){ class="animation-figure" }
+    ![ヒープソートの手順 3](heap_sort.assets/heap_sort_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![ヒープソートの手順 4](heap_sort.assets/heap_sort_step4.png){ class="animation-figure" }
+    ![ヒープソートの手順 4](heap_sort.assets/heap_sort_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![ヒープソートの手順 5](heap_sort.assets/heap_sort_step5.png){ class="animation-figure" }
+    ![ヒープソートの手順 5](heap_sort.assets/heap_sort_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![ヒープソートの手順 6](heap_sort.assets/heap_sort_step6.png){ class="animation-figure" }
+    ![ヒープソートの手順 6](heap_sort.assets/heap_sort_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![ヒープソートの手順 7](heap_sort.assets/heap_sort_step7.png){ class="animation-figure" }
+    ![ヒープソートの手順 7](heap_sort.assets/heap_sort_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![ヒープソートの手順 8](heap_sort.assets/heap_sort_step8.png){ class="animation-figure" }
+    ![ヒープソートの手順 8](heap_sort.assets/heap_sort_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![ヒープソートの手順 9](heap_sort.assets/heap_sort_step9.png){ class="animation-figure" }
+    ![ヒープソートの手順 9](heap_sort.assets/heap_sort_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![ヒープソートの手順 10](heap_sort.assets/heap_sort_step10.png){ class="animation-figure" }
+    ![ヒープソートの手順 10](heap_sort.assets/heap_sort_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![ヒープソートの手順 11](heap_sort.assets/heap_sort_step11.png){ class="animation-figure" }
+    ![ヒープソートの手順 11](heap_sort.assets/heap_sort_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![ヒープソートの手順 12](heap_sort.assets/heap_sort_step12.png){ class="animation-figure" }
+    ![ヒープソートの手順 12](heap_sort.assets/heap_sort_step12.svg){ class="animation-figure" }
 
 <p align="center"> 図 11-12 &nbsp; ヒープソートの手順 </p>
 

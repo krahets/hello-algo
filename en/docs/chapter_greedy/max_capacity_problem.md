@@ -12,7 +12,7 @@ comments: true
     
     Choose two walls from the array to maximize the container's capacity, and return that maximum capacity. An example is shown in Figure 15-7.
 
-![Example input for the maximum capacity problem](max_capacity_problem.assets/max_capacity_example.png){ class="animation-figure" }
+![Example input for the maximum capacity problem](max_capacity_problem.assets/max_capacity_example.svg){ class="animation-figure" }
 
 <p align="center"> Figure 15-7 &nbsp; Example input for the maximum capacity problem </p>
 
@@ -30,7 +30,7 @@ For an array of length $n$, there are $C_n^2 = \frac{n(n - 1)}{2}$ pairs of wall
 
 A more efficient solution is possible. Consider the state $[i, j]$ in Figure 15-8, where $i < j$ and $ht[i] < ht[j]$: wall $i$ is shorter and wall $j$ is taller.
 
-![Initial state](max_capacity_problem.assets/max_capacity_initial_state.png){ class="animation-figure" }
+![Initial state](max_capacity_problem.assets/max_capacity_initial_state.svg){ class="animation-figure" }
 
 <p align="center"> Figure 15-8 &nbsp; Initial state </p>
 
@@ -38,13 +38,13 @@ As shown in Figure 15-9, **moving the taller wall $j$ inward toward the shorter 
 
 Moving wall $j$ inward always reduces the width $j-i$. Since the shorter wall determines the height, the height can only stay the same (if $i$ remains shorter) or decrease (if the new wall $j$ is shorter).
 
-![State after moving the taller wall inward](max_capacity_problem.assets/max_capacity_moving_long_board.png){ class="animation-figure" }
+![State after moving the taller wall inward](max_capacity_problem.assets/max_capacity_moving_long_board.svg){ class="animation-figure" }
 
 <p align="center"> Figure 15-9 &nbsp; State after moving the taller wall inward </p>
 
 Conversely, **only moving the shorter wall $i$ inward can potentially increase the capacity**. Although the width must decrease, **the height may increase** if the new wall $i$ is taller. Figure 15-10 shows an example where moving the shorter wall increases the area.
 
-![State after moving the shorter wall inward](max_capacity_problem.assets/max_capacity_moving_short_board.png){ class="animation-figure" }
+![State after moving the shorter wall inward](max_capacity_problem.assets/max_capacity_moving_short_board.svg){ class="animation-figure" }
 
 <p align="center"> Figure 15-10 &nbsp; State after moving the shorter wall inward </p>
 
@@ -58,31 +58,31 @@ Figure 15-11 illustrates the greedy process.
 4. Repeat steps `2.` and `3.` until $i$ and $j$ meet.
 
 === "<1>"
-    ![Greedy steps for the maximum capacity problem](max_capacity_problem.assets/max_capacity_greedy_step1.png){ class="animation-figure" }
+    ![Greedy steps for the maximum capacity problem](max_capacity_problem.assets/max_capacity_greedy_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.png){ class="animation-figure" }
+    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.png){ class="animation-figure" }
+    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.png){ class="animation-figure" }
+    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.png){ class="animation-figure" }
+    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.png){ class="animation-figure" }
+    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.png){ class="animation-figure" }
+    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.png){ class="animation-figure" }
+    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.png){ class="animation-figure" }
+    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.svg){ class="animation-figure" }
 
 <p align="center"> Figure 15-11 &nbsp; Greedy steps for the maximum capacity problem </p>
 
@@ -436,7 +436,7 @@ $$
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 $$
 
-![States skipped by moving the shorter wall](max_capacity_problem.assets/max_capacity_skipped_states.png){ class="animation-figure" }
+![States skipped by moving the shorter wall](max_capacity_problem.assets/max_capacity_skipped_states.svg){ class="animation-figure" }
 
 <p align="center"> Figure 15-12 &nbsp; States skipped by moving the shorter wall </p>
 

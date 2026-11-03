@@ -8,7 +8,7 @@ comments: true
 
     給定一棵二元樹的前序走訪 `preorder` 和中序走訪 `inorder` ，請從中構建二元樹，返回二元樹的根節點。假設二元樹中沒有值重複的節點（如圖 12-5 所示）。
 
-![構建二元樹的示例資料](build_binary_tree_problem.assets/build_tree_example.png){ class="animation-figure" }
+![構建二元樹的示例資料](build_binary_tree_problem.assets/build_tree_example.svg){ class="animation-figure" }
 
 <p align="center"> 圖 12-5 &nbsp; 構建二元樹的示例資料 </p>
 
@@ -35,7 +35,7 @@ comments: true
 2. 查詢根節點 3 在 `inorder` 中的索引，利用該索引可將 `inorder` 劃分為 `[ 9 | 3 | 1 2 7 ]` 。
 3. 根據 `inorder` 的劃分結果，易得左子樹和右子樹的節點數量分別為 1 和 3 ，從而可將 `preorder` 劃分為 `[ 3 | 9 | 2 1 7 ]` 。
 
-![在前序走訪和中序走訪中劃分子樹](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png){ class="animation-figure" }
+![在前序走訪和中序走訪中劃分子樹](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.svg){ class="animation-figure" }
 
 <p align="center"> 圖 12-6 &nbsp; 在前序走訪和中序走訪中劃分子樹 </p>
 
@@ -63,7 +63,7 @@ comments: true
 
 請注意，右子樹根節點索引中的 $(m-l)$ 的含義是“左子樹的節點數量”，建議結合圖 12-7 理解。
 
-![根節點和左右子樹的索引區間表示](build_binary_tree_problem.assets/build_tree_division_pointers.png){ class="animation-figure" }
+![根節點和左右子樹的索引區間表示](build_binary_tree_problem.assets/build_tree_division_pointers.svg){ class="animation-figure" }
 
 <p align="center"> 圖 12-7 &nbsp; 根節點和左右子樹的索引區間表示 </p>
 
@@ -520,37 +520,37 @@ comments: true
 圖 12-8 展示了構建二元樹的遞迴過程，各個節點是在向下“遞”的過程中建立的，而各條邊（引用）是在向上“迴”的過程中建立的。
 
 === "<1>"
-    ![構建二元樹的遞迴過程](build_binary_tree_problem.assets/built_tree_step1.png){ class="animation-figure" }
+    ![構建二元樹的遞迴過程](build_binary_tree_problem.assets/built_tree_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![built_tree_step2](build_binary_tree_problem.assets/built_tree_step2.png){ class="animation-figure" }
+    ![built_tree_step2](build_binary_tree_problem.assets/built_tree_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![built_tree_step3](build_binary_tree_problem.assets/built_tree_step3.png){ class="animation-figure" }
+    ![built_tree_step3](build_binary_tree_problem.assets/built_tree_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![built_tree_step4](build_binary_tree_problem.assets/built_tree_step4.png){ class="animation-figure" }
+    ![built_tree_step4](build_binary_tree_problem.assets/built_tree_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![built_tree_step5](build_binary_tree_problem.assets/built_tree_step5.png){ class="animation-figure" }
+    ![built_tree_step5](build_binary_tree_problem.assets/built_tree_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![built_tree_step6](build_binary_tree_problem.assets/built_tree_step6.png){ class="animation-figure" }
+    ![built_tree_step6](build_binary_tree_problem.assets/built_tree_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![built_tree_step7](build_binary_tree_problem.assets/built_tree_step7.png){ class="animation-figure" }
+    ![built_tree_step7](build_binary_tree_problem.assets/built_tree_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![built_tree_step8](build_binary_tree_problem.assets/built_tree_step8.png){ class="animation-figure" }
+    ![built_tree_step8](build_binary_tree_problem.assets/built_tree_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.png){ class="animation-figure" }
+    ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.svg){ class="animation-figure" }
 
 <p align="center"> 圖 12-8 &nbsp; 構建二元樹的遞迴過程 </p>
 
 每個遞迴函式內的前序走訪 `preorder` 和中序走訪 `inorder` 的劃分結果如圖 12-9 所示。
 
-![每個遞迴函式中的劃分結果](build_binary_tree_problem.assets/built_tree_overall.png){ class="animation-figure" }
+![每個遞迴函式中的劃分結果](build_binary_tree_problem.assets/built_tree_overall.svg){ class="animation-figure" }
 
 <p align="center"> 圖 12-9 &nbsp; 每個遞迴函式中的劃分結果 </p>
 

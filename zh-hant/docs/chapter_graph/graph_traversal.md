@@ -12,7 +12,7 @@ comments: true
 
 **廣度優先走訪是一種由近及遠的走訪方式，從某個節點出發，始終優先訪問距離最近的頂點，並一層層向外擴張**。如圖 9-9 所示，從左上角頂點出發，首先走訪該頂點的所有鄰接頂點，然後走訪下一個頂點的所有鄰接頂點，以此類推，直至所有頂點訪問完畢。
 
-![圖的廣度優先走訪](graph_traversal.assets/graph_bfs.png){ class="animation-figure" }
+![圖的廣度優先走訪](graph_traversal.assets/graph_bfs.svg){ class="animation-figure" }
 
 <p align="center"> 圖 9-9 &nbsp; 圖的廣度優先走訪 </p>
 
@@ -483,37 +483,37 @@ BFS 通常藉助佇列來實現，程式碼如下所示。佇列具有“先入�
 程式碼相對抽象，建議對照圖 9-10 來加深理解。
 
 === "<1>"
-    ![圖的廣度優先走訪步驟](graph_traversal.assets/graph_bfs_step1.png){ class="animation-figure" }
+    ![圖的廣度優先走訪步驟](graph_traversal.assets/graph_bfs_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![graph_bfs_step2](graph_traversal.assets/graph_bfs_step2.png){ class="animation-figure" }
+    ![graph_bfs_step2](graph_traversal.assets/graph_bfs_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![graph_bfs_step3](graph_traversal.assets/graph_bfs_step3.png){ class="animation-figure" }
+    ![graph_bfs_step3](graph_traversal.assets/graph_bfs_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![graph_bfs_step4](graph_traversal.assets/graph_bfs_step4.png){ class="animation-figure" }
+    ![graph_bfs_step4](graph_traversal.assets/graph_bfs_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![graph_bfs_step5](graph_traversal.assets/graph_bfs_step5.png){ class="animation-figure" }
+    ![graph_bfs_step5](graph_traversal.assets/graph_bfs_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![graph_bfs_step6](graph_traversal.assets/graph_bfs_step6.png){ class="animation-figure" }
+    ![graph_bfs_step6](graph_traversal.assets/graph_bfs_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![graph_bfs_step7](graph_traversal.assets/graph_bfs_step7.png){ class="animation-figure" }
+    ![graph_bfs_step7](graph_traversal.assets/graph_bfs_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![graph_bfs_step8](graph_traversal.assets/graph_bfs_step8.png){ class="animation-figure" }
+    ![graph_bfs_step8](graph_traversal.assets/graph_bfs_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![graph_bfs_step9](graph_traversal.assets/graph_bfs_step9.png){ class="animation-figure" }
+    ![graph_bfs_step9](graph_traversal.assets/graph_bfs_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![graph_bfs_step10](graph_traversal.assets/graph_bfs_step10.png){ class="animation-figure" }
+    ![graph_bfs_step10](graph_traversal.assets/graph_bfs_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![graph_bfs_step11](graph_traversal.assets/graph_bfs_step11.png){ class="animation-figure" }
+    ![graph_bfs_step11](graph_traversal.assets/graph_bfs_step11.svg){ class="animation-figure" }
 
 <p align="center"> 圖 9-10 &nbsp; 圖的廣度優先走訪步驟 </p>
 
@@ -531,7 +531,7 @@ BFS 通常藉助佇列來實現，程式碼如下所示。佇列具有“先入�
 
 **深度優先走訪是一種優先走到底、無路可走再回頭的走訪方式**。如圖 9-11 所示，從左上角頂點出發，訪問當前頂點的某個鄰接頂點，直到走到盡頭時返回，再繼續走到盡頭並返回，以此類推，直至所有頂點走訪完成。
 
-![圖的深度優先走訪](graph_traversal.assets/graph_dfs.png){ class="animation-figure" }
+![圖的深度優先走訪](graph_traversal.assets/graph_dfs.svg){ class="animation-figure" }
 
 <p align="center"> 圖 9-11 &nbsp; 圖的深度優先走訪 </p>
 
@@ -948,37 +948,37 @@ BFS 通常藉助佇列來實現，程式碼如下所示。佇列具有“先入�
 為了加深理解，建議將圖 9-12 與程式碼結合起來，在腦中模擬（或者用筆畫下來）整個 DFS 過程，包括每個遞迴方法何時開啟、何時返回。
 
 === "<1>"
-    ![圖的深度優先走訪步驟](graph_traversal.assets/graph_dfs_step1.png){ class="animation-figure" }
+    ![圖的深度優先走訪步驟](graph_traversal.assets/graph_dfs_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![graph_dfs_step2](graph_traversal.assets/graph_dfs_step2.png){ class="animation-figure" }
+    ![graph_dfs_step2](graph_traversal.assets/graph_dfs_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![graph_dfs_step3](graph_traversal.assets/graph_dfs_step3.png){ class="animation-figure" }
+    ![graph_dfs_step3](graph_traversal.assets/graph_dfs_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![graph_dfs_step4](graph_traversal.assets/graph_dfs_step4.png){ class="animation-figure" }
+    ![graph_dfs_step4](graph_traversal.assets/graph_dfs_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![graph_dfs_step5](graph_traversal.assets/graph_dfs_step5.png){ class="animation-figure" }
+    ![graph_dfs_step5](graph_traversal.assets/graph_dfs_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![graph_dfs_step6](graph_traversal.assets/graph_dfs_step6.png){ class="animation-figure" }
+    ![graph_dfs_step6](graph_traversal.assets/graph_dfs_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![graph_dfs_step7](graph_traversal.assets/graph_dfs_step7.png){ class="animation-figure" }
+    ![graph_dfs_step7](graph_traversal.assets/graph_dfs_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![graph_dfs_step8](graph_traversal.assets/graph_dfs_step8.png){ class="animation-figure" }
+    ![graph_dfs_step8](graph_traversal.assets/graph_dfs_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![graph_dfs_step9](graph_traversal.assets/graph_dfs_step9.png){ class="animation-figure" }
+    ![graph_dfs_step9](graph_traversal.assets/graph_dfs_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![graph_dfs_step10](graph_traversal.assets/graph_dfs_step10.png){ class="animation-figure" }
+    ![graph_dfs_step10](graph_traversal.assets/graph_dfs_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![graph_dfs_step11](graph_traversal.assets/graph_dfs_step11.png){ class="animation-figure" }
+    ![graph_dfs_step11](graph_traversal.assets/graph_dfs_step11.svg){ class="animation-figure" }
 
 <p align="center"> 圖 9-12 &nbsp; 圖的深度優先走訪步驟 </p>
 

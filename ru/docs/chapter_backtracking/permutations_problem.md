@@ -32,7 +32,7 @@ comments: true
 
 Как показано на рисунке 13-5, процесс поиска можно развернуть в дерево рекурсии, где каждый узел представляет текущее состояние `state` . Начиная от корня, после трех раундов выбора мы попадаем в листья, и каждый лист соответствует одной перестановке.
 
-![Дерево рекурсии для перестановок](permutations_problem.assets/permutations_i.png){ class="animation-figure" }
+![Дерево рекурсии для перестановок](permutations_problem.assets/permutations_i.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 13-5 &nbsp; Дерево рекурсии для перестановок </p>
 
@@ -45,7 +45,7 @@ comments: true
 
 Как показано на рисунке 13-6, если в первом раунде мы выберем 1 , во втором - 3 , а в третьем - 2 , то во втором раунде нужно отсечь ветвь элемента 1 , а в третьем - ветви элементов 1 и 3 .
 
-![Пример обрезки в задаче о перестановках](permutations_problem.assets/permutations_i_pruning.png){ class="animation-figure" }
+![Пример обрезки в задаче о перестановках](permutations_problem.assets/permutations_i_pruning.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 13-6 &nbsp; Пример обрезки в задаче о перестановках </p>
 
@@ -553,7 +553,7 @@ comments: true
 
 Как показано на рисунке 13-7, описанный выше метод создаст результат, половина которого окажется дублирующейся.
 
-![Повторяющиеся перестановки](permutations_problem.assets/permutations_ii.png){ class="animation-figure" }
+![Повторяющиеся перестановки](permutations_problem.assets/permutations_ii.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 13-7 &nbsp; Повторяющиеся перестановки </p>
 
@@ -567,7 +567,7 @@ comments: true
 
 Иначе говоря, **наша цель заключается в том, чтобы на каждом раунде выбора каждый из нескольких равных элементов выбирался только один раз**.
 
-![Обрезка повторяющихся перестановок](permutations_problem.assets/permutations_ii_pruning.png){ class="animation-figure" }
+![Обрезка повторяющихся перестановок](permutations_problem.assets/permutations_ii_pruning.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 13-8 &nbsp; Обрезка повторяющихся перестановок </p>
 
@@ -1103,6 +1103,6 @@ comments: true
 
 На рисунке 13-9 показана область действия двух условий обрезки. Помните, что каждый узел дерева соответствует одному выбору, а путь от корня до листа образует одну перестановку.
 
-![Область действия двух условий обрезки](permutations_problem.assets/permutations_ii_pruning_summary.png){ class="animation-figure" }
+![Область действия двух условий обрезки](permutations_problem.assets/permutations_ii_pruning_summary.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 13-9 &nbsp; Область действия двух условий обрезки </p>

@@ -20,7 +20,7 @@ comments: true
 
 図 3-4 に、三つの表現の変換方法を示します。
 
-![符号絶対値表現、1 の補数表現、2 の補数表現の相互変換](number_encoding.assets/1s_2s_complement.png){ class="animation-figure" }
+![符号絶対値表現、1 の補数表現、2 の補数表現の相互変換](number_encoding.assets/1s_2s_complement.svg){ class="animation-figure" }
 
 <p align="center"> 図 3-4 &nbsp; 符号絶対値表現、1 の補数表現、2 の補数表現の相互変換 </p>
 
@@ -129,7 +129,7 @@ $$
 \end{aligned}
 $$
 
-![IEEE 754 に従った float の計算例](number_encoding.assets/ieee_754_float.png){ class="animation-figure" }
+![IEEE 754 に従った float の計算例](number_encoding.assets/ieee_754_float.svg){ class="animation-figure" }
 
 <p align="center"> 図 3-5 &nbsp; IEEE 754 に従った float の計算例 </p>
 

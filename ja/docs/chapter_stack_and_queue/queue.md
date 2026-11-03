@@ -8,7 +8,7 @@ comments: true
 
 図 5-4 のように、前側を「先頭」、後ろ側を「末尾」と呼びます。末尾に要素を加える操作を「エンキュー」、先頭要素を削除する操作を「デキュー」と呼びます。
 
-![キューの先入れ先出しの規則](queue.assets/queue_operations.png){ class="animation-figure" }
+![キューの先入れ先出しの規則](queue.assets/queue_operations.svg){ class="animation-figure" }
 
 <p align="center"> 図 5-4 &nbsp; キューの先入れ先出しの規則 </p>
 
@@ -380,13 +380,13 @@ comments: true
 図 5-5 のように、連結リストの先頭ノードと末尾ノードを、キューの先頭と末尾に対応させます。末尾では追加だけ、先頭では削除だけを行います。
 
 === "<1>"
-    ![連結リストによるキューのエンキューとデキュー](queue.assets/linkedlist_queue_step1.png){ class="animation-figure" }
+    ![連結リストによるキューのエンキューとデキュー](queue.assets/linkedlist_queue_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![連結リストによるキュー：要素の挿入](queue.assets/linkedlist_queue_step2_push.png){ class="animation-figure" }
+    ![連結リストによるキュー：要素の挿入](queue.assets/linkedlist_queue_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![連結リストによるキュー：要素の取り出し](queue.assets/linkedlist_queue_step3_pop.png){ class="animation-figure" }
+    ![連結リストによるキュー：要素の取り出し](queue.assets/linkedlist_queue_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> 図 5-5 &nbsp; 連結リストによるキューのエンキューとデキュー </p>
 
@@ -1330,13 +1330,13 @@ comments: true
 どちらも一度の操作で済み、時間計算量はともに $O(1)$ です。
 
 === "<1>"
-    ![配列によるキューのエンキューとデキュー](queue.assets/array_queue_step1.png){ class="animation-figure" }
+    ![配列によるキューのエンキューとデキュー](queue.assets/array_queue_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![配列によるキュー：要素の挿入](queue.assets/array_queue_step2_push.png){ class="animation-figure" }
+    ![配列によるキュー：要素の挿入](queue.assets/array_queue_step2_push.svg){ class="animation-figure" }
 
 === "<3>"
-    ![配列によるキュー：要素の取り出し](queue.assets/array_queue_step3_pop.png){ class="animation-figure" }
+    ![配列によるキュー：要素の取り出し](queue.assets/array_queue_step3_pop.svg){ class="animation-figure" }
 
 <p align="center"> 図 5-6 &nbsp; 配列によるキューのエンキューとデキュー </p>
 

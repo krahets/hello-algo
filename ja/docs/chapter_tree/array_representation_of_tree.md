@@ -14,7 +14,7 @@ comments: true
 
 レベル順走査の特徴から、親と子のインデックスの対応式を導けます。**ノードのインデックスが $i$ なら、左の子は $2i + 1$、右の子は $2i + 2$ です**。図 7-12 に対応関係を示します。
 
-![パーフェクト二分木の配列表現](array_representation_of_tree.assets/array_representation_binary_tree.png){ class="animation-figure" }
+![パーフェクト二分木の配列表現](array_representation_of_tree.assets/array_representation_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-12 &nbsp; パーフェクト二分木の配列表現 </p>
 
@@ -26,7 +26,7 @@ comments: true
 
 図 7-13 のように、パーフェクト二分木でない木には、上の配列表現をそのまま使えません。
 
-![同じレベル順の列に対応する複数の二分木](array_representation_of_tree.assets/array_representation_without_empty.png){ class="animation-figure" }
+![同じレベル順の列に対応する複数の二分木](array_representation_of_tree.assets/array_representation_without_empty.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-13 &nbsp; 同じレベル順の列に対応する複数の二分木 </p>
 
@@ -136,7 +136,7 @@ comments: true
     tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
-![任意の二分木の配列表現](array_representation_of_tree.assets/array_representation_with_empty.png){ class="animation-figure" }
+![任意の二分木の配列表現](array_representation_of_tree.assets/array_representation_with_empty.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-14 &nbsp; 任意の二分木の配列表現 </p>
 
@@ -144,7 +144,7 @@ comments: true
 
 つまり、完全二分木を配列で表す場合は、`None` の格納をすべて省けるので便利です。図 7-15 に例を示します。
 
-![完全二分木の配列表現](array_representation_of_tree.assets/array_representation_complete_binary_tree.png){ class="animation-figure" }
+![完全二分木の配列表現](array_representation_of_tree.assets/array_representation_complete_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-15 &nbsp; 完全二分木の配列表現 </p>
 

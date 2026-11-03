@@ -14,7 +14,7 @@ comments: true
 
 아래 그림(14-27)과 같이 `kitten`을 `sitting`으로 바꾸려면 교체 2회와 추가 1회로 총 3회 편집해야 한다. `hello`를 `algo`로 바꾸려면 교체 2회와 삭제 1회로 총 3회가 필요하다.
 
-![편집 거리 예시 데이터](edit_distance_problem.assets/edit_distance_example.png){ class="animation-figure" }
+![편집 거리 예시 데이터](edit_distance_problem.assets/edit_distance_example.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-27 &nbsp; 편집 거리 예시 데이터 </p>
 
@@ -24,7 +24,7 @@ comments: true
 
 의사 결정 트리의 관점에서 이 문제의 목표는 노드 `hello`와 노드 `algo` 사이의 최단 경로를 구하는 것이다.
 
-![의사 결정 트리로 표현한 편집 거리 문제](edit_distance_problem.assets/edit_distance_decision_tree.png){ class="animation-figure" }
+![의사 결정 트리로 표현한 편집 거리 문제](edit_distance_problem.assets/edit_distance_decision_tree.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-28 &nbsp; 의사 결정 트리로 표현한 편집 거리 문제 </p>
 
@@ -53,7 +53,7 @@ comments: true
 2. $s[i-1]$을 삭제하면 부분 문제 $dp[i-1, j]$가 남는다.
 3. $s[i-1]$을 $t[j-1]$로 바꾸면 부분 문제 $dp[i-1, j-1]$이 남는다.
 
-![편집 거리의 상태 전이](edit_distance_problem.assets/edit_distance_state_transfer.png){ class="animation-figure" }
+![편집 거리의 상태 전이](edit_distance_problem.assets/edit_distance_state_transfer.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-29 &nbsp; 편집 거리의 상태 전이 </p>
 
@@ -485,49 +485,49 @@ $$
 아래 그림(14-30)과 같이 편집 거리의 상태 전이는 배낭 문제와 매우 비슷하며, 모두 2차원 격자를 채우는 과정으로 볼 수 있다.
 
 === "<1>"
-    ![편집 거리의 동적 계획법 과정](edit_distance_problem.assets/edit_distance_dp_step1.png){ class="animation-figure" }
+    ![편집 거리의 동적 계획법 과정](edit_distance_problem.assets/edit_distance_dp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![편집 거리 동적 계획법 2단계](edit_distance_problem.assets/edit_distance_dp_step2.png){ class="animation-figure" }
+    ![편집 거리 동적 계획법 2단계](edit_distance_problem.assets/edit_distance_dp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![편집 거리 동적 계획법 3단계](edit_distance_problem.assets/edit_distance_dp_step3.png){ class="animation-figure" }
+    ![편집 거리 동적 계획법 3단계](edit_distance_problem.assets/edit_distance_dp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![편집 거리 동적 계획법 4단계](edit_distance_problem.assets/edit_distance_dp_step4.png){ class="animation-figure" }
+    ![편집 거리 동적 계획법 4단계](edit_distance_problem.assets/edit_distance_dp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![편집 거리 동적 계획법 5단계](edit_distance_problem.assets/edit_distance_dp_step5.png){ class="animation-figure" }
+    ![편집 거리 동적 계획법 5단계](edit_distance_problem.assets/edit_distance_dp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![편집 거리 동적 계획법 6단계](edit_distance_problem.assets/edit_distance_dp_step6.png){ class="animation-figure" }
+    ![편집 거리 동적 계획법 6단계](edit_distance_problem.assets/edit_distance_dp_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![편집 거리 동적 계획법 7단계](edit_distance_problem.assets/edit_distance_dp_step7.png){ class="animation-figure" }
+    ![편집 거리 동적 계획법 7단계](edit_distance_problem.assets/edit_distance_dp_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![편집 거리 동적 계획법 8단계](edit_distance_problem.assets/edit_distance_dp_step8.png){ class="animation-figure" }
+    ![편집 거리 동적 계획법 8단계](edit_distance_problem.assets/edit_distance_dp_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![편집 거리 동적 계획법 9단계](edit_distance_problem.assets/edit_distance_dp_step9.png){ class="animation-figure" }
+    ![편집 거리 동적 계획법 9단계](edit_distance_problem.assets/edit_distance_dp_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![편집 거리 동적 계획법 10단계](edit_distance_problem.assets/edit_distance_dp_step10.png){ class="animation-figure" }
+    ![편집 거리 동적 계획법 10단계](edit_distance_problem.assets/edit_distance_dp_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![편집 거리 동적 계획법 11단계](edit_distance_problem.assets/edit_distance_dp_step11.png){ class="animation-figure" }
+    ![편집 거리 동적 계획법 11단계](edit_distance_problem.assets/edit_distance_dp_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![편집 거리 동적 계획법 12단계](edit_distance_problem.assets/edit_distance_dp_step12.png){ class="animation-figure" }
+    ![편집 거리 동적 계획법 12단계](edit_distance_problem.assets/edit_distance_dp_step12.svg){ class="animation-figure" }
 
 === "<13>"
-    ![편집 거리 동적 계획법 13단계](edit_distance_problem.assets/edit_distance_dp_step13.png){ class="animation-figure" }
+    ![편집 거리 동적 계획법 13단계](edit_distance_problem.assets/edit_distance_dp_step13.svg){ class="animation-figure" }
 
 === "<14>"
-    ![편집 거리 동적 계획법 14단계](edit_distance_problem.assets/edit_distance_dp_step14.png){ class="animation-figure" }
+    ![편집 거리 동적 계획법 14단계](edit_distance_problem.assets/edit_distance_dp_step14.svg){ class="animation-figure" }
 
 === "<15>"
-    ![편집 거리 동적 계획법 15단계](edit_distance_problem.assets/edit_distance_dp_step15.png){ class="animation-figure" }
+    ![편집 거리 동적 계획법 15단계](edit_distance_problem.assets/edit_distance_dp_step15.svg){ class="animation-figure" }
 
 <p align="center"> 그림 14-30 &nbsp; 편집 거리의 동적 계획법 과정 </p>
 

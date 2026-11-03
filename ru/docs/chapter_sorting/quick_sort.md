@@ -13,31 +13,31 @@ comments: true
 3. Повторять шаг `2.` , пока указатели `i` и `j` не встретятся, а затем обменять опорный элемент с элементом на границе двух подмассивов.
 
 === "<1>"
-    ![Шаги разделения с опорным элементом](quick_sort.assets/pivot_division_step1.png){ class="animation-figure" }
+    ![Шаги разделения с опорным элементом](quick_sort.assets/pivot_division_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.png){ class="animation-figure" }
+    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.png){ class="animation-figure" }
+    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.png){ class="animation-figure" }
+    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.png){ class="animation-figure" }
+    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.png){ class="animation-figure" }
+    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.png){ class="animation-figure" }
+    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.png){ class="animation-figure" }
+    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.png){ class="animation-figure" }
+    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 11-8 &nbsp; Шаги разделения с опорным элементом </p>
 
@@ -379,7 +379,7 @@ comments: true
 2. Затем рекурсивно выполнить «разделение с опорным элементом» для левого и правого подмассивов.
 3. Продолжать рекурсию до тех пор, пока длина подмассива не станет равной 1. После этого сортировка всего массива будет завершена.
 
-![Процесс быстрой сортировки](quick_sort.assets/quick_sort_overview.png){ class="animation-figure" }
+![Процесс быстрой сортировки](quick_sort.assets/quick_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 11-9 &nbsp; Процесс быстрой сортировки </p>
 

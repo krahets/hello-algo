@@ -12,7 +12,7 @@ comments: true
 
     給定 $n$ 個物品，第 $i$ 個物品的重量為 $wgt[i-1]$、價值為 $val[i-1]$ ，和一個容量為 $cap$ 的背包。**每個物品可以重複選取**，問在限定背包容量下能放入物品的最大價值。示例如圖 14-22 所示。
 
-![完全背包問題的示例資料](unbounded_knapsack_problem.assets/unbounded_knapsack_example.png){ class="animation-figure" }
+![完全背包問題的示例資料](unbounded_knapsack_problem.assets/unbounded_knapsack_example.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-22 &nbsp; 完全背包問題的示例資料 </p>
 
@@ -383,22 +383,22 @@ $$
 這個走訪順序與 0-1 背包正好相反。請藉助圖 14-23 來理解兩者的區別。
 
 === "<1>"
-    ![完全背包問題在空間最佳化後的動態規劃過程](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png){ class="animation-figure" }
+    ![完全背包問題在空間最佳化後的動態規劃過程](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![unbounded_knapsack_dp_comp_step2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.png){ class="animation-figure" }
+    ![unbounded_knapsack_dp_comp_step2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![unbounded_knapsack_dp_comp_step3](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.png){ class="animation-figure" }
+    ![unbounded_knapsack_dp_comp_step3](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![unbounded_knapsack_dp_comp_step4](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.png){ class="animation-figure" }
+    ![unbounded_knapsack_dp_comp_step4](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![unbounded_knapsack_dp_comp_step5](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.png){ class="animation-figure" }
+    ![unbounded_knapsack_dp_comp_step5](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![unbounded_knapsack_dp_comp_step6](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.png){ class="animation-figure" }
+    ![unbounded_knapsack_dp_comp_step6](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-23 &nbsp; 完全背包問題在空間最佳化後的動態規劃過程 </p>
 
@@ -758,7 +758,7 @@ $$
 
     給定 $n$ 種硬幣，第 $i$ 種硬幣的面值為 $coins[i - 1]$ ，目標金額為 $amt$ ，**每種硬幣可以重複選取**，問能夠湊出目標金額的最少硬幣數量。如果無法湊出目標金額，則返回 $-1$ 。示例如圖 14-24 所示。
 
-![零錢兌換問題的示例資料](unbounded_knapsack_problem.assets/coin_change_example.png){ class="animation-figure" }
+![零錢兌換問題的示例資料](unbounded_knapsack_problem.assets/coin_change_example.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-24 &nbsp; 零錢兌換問題的示例資料 </p>
 
@@ -1200,49 +1200,49 @@ $$
 圖 14-25 展示了零錢兌換的動態規劃過程，和完全背包問題非常相似。
 
 === "<1>"
-    ![零錢兌換問題的動態規劃過程](unbounded_knapsack_problem.assets/coin_change_dp_step1.png){ class="animation-figure" }
+    ![零錢兌換問題的動態規劃過程](unbounded_knapsack_problem.assets/coin_change_dp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![coin_change_dp_step2](unbounded_knapsack_problem.assets/coin_change_dp_step2.png){ class="animation-figure" }
+    ![coin_change_dp_step2](unbounded_knapsack_problem.assets/coin_change_dp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![coin_change_dp_step3](unbounded_knapsack_problem.assets/coin_change_dp_step3.png){ class="animation-figure" }
+    ![coin_change_dp_step3](unbounded_knapsack_problem.assets/coin_change_dp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![coin_change_dp_step4](unbounded_knapsack_problem.assets/coin_change_dp_step4.png){ class="animation-figure" }
+    ![coin_change_dp_step4](unbounded_knapsack_problem.assets/coin_change_dp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![coin_change_dp_step5](unbounded_knapsack_problem.assets/coin_change_dp_step5.png){ class="animation-figure" }
+    ![coin_change_dp_step5](unbounded_knapsack_problem.assets/coin_change_dp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![coin_change_dp_step6](unbounded_knapsack_problem.assets/coin_change_dp_step6.png){ class="animation-figure" }
+    ![coin_change_dp_step6](unbounded_knapsack_problem.assets/coin_change_dp_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![coin_change_dp_step7](unbounded_knapsack_problem.assets/coin_change_dp_step7.png){ class="animation-figure" }
+    ![coin_change_dp_step7](unbounded_knapsack_problem.assets/coin_change_dp_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![coin_change_dp_step8](unbounded_knapsack_problem.assets/coin_change_dp_step8.png){ class="animation-figure" }
+    ![coin_change_dp_step8](unbounded_knapsack_problem.assets/coin_change_dp_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![coin_change_dp_step9](unbounded_knapsack_problem.assets/coin_change_dp_step9.png){ class="animation-figure" }
+    ![coin_change_dp_step9](unbounded_knapsack_problem.assets/coin_change_dp_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![coin_change_dp_step10](unbounded_knapsack_problem.assets/coin_change_dp_step10.png){ class="animation-figure" }
+    ![coin_change_dp_step10](unbounded_knapsack_problem.assets/coin_change_dp_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![coin_change_dp_step11](unbounded_knapsack_problem.assets/coin_change_dp_step11.png){ class="animation-figure" }
+    ![coin_change_dp_step11](unbounded_knapsack_problem.assets/coin_change_dp_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![coin_change_dp_step12](unbounded_knapsack_problem.assets/coin_change_dp_step12.png){ class="animation-figure" }
+    ![coin_change_dp_step12](unbounded_knapsack_problem.assets/coin_change_dp_step12.svg){ class="animation-figure" }
 
 === "<13>"
-    ![coin_change_dp_step13](unbounded_knapsack_problem.assets/coin_change_dp_step13.png){ class="animation-figure" }
+    ![coin_change_dp_step13](unbounded_knapsack_problem.assets/coin_change_dp_step13.svg){ class="animation-figure" }
 
 === "<14>"
-    ![coin_change_dp_step14](unbounded_knapsack_problem.assets/coin_change_dp_step14.png){ class="animation-figure" }
+    ![coin_change_dp_step14](unbounded_knapsack_problem.assets/coin_change_dp_step14.svg){ class="animation-figure" }
 
 === "<15>"
-    ![coin_change_dp_step15](unbounded_knapsack_problem.assets/coin_change_dp_step15.png){ class="animation-figure" }
+    ![coin_change_dp_step15](unbounded_knapsack_problem.assets/coin_change_dp_step15.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-25 &nbsp; 零錢兌換問題的動態規劃過程 </p>
 
@@ -1618,7 +1618,7 @@ $$
 
     給定 $n$ 種硬幣，第 $i$ 種硬幣的面值為 $coins[i - 1]$ ，目標金額為 $amt$ ，每種硬幣可以重複選取，**問湊出目標金額的硬幣組合數量**。示例如圖 14-26 所示。
 
-![零錢兌換問題 II 的示例資料](unbounded_knapsack_problem.assets/coin_change_ii_example.png){ class="animation-figure" }
+![零錢兌換問題 II 的示例資料](unbounded_knapsack_problem.assets/coin_change_ii_example.svg){ class="animation-figure" }
 
 <p align="center"> 圖 14-26 &nbsp; 零錢兌換問題 II 的示例資料 </p>
 

@@ -209,7 +209,7 @@ comments: true
 
 **在二叉树中，除叶节点外，其他所有节点都包含子节点和非空子树**。如图 7-1 所示，如果将“节点 2”视为父节点，则其左子节点和右子节点分别是“节点 4”和“节点 5”，左子树是“节点 4 及其以下节点形成的树”，右子树是“节点 5 及其以下节点形成的树”。
 
-![父节点、子节点、子树](binary_tree.assets/binary_tree_definition.png){ class="animation-figure" }
+![父节点、子节点、子树](binary_tree.assets/binary_tree_definition.svg){ class="animation-figure" }
 
 <p align="center"> 图 7-1 &nbsp; 父节点、子节点、子树 </p>
 
@@ -226,7 +226,7 @@ comments: true
 - 节点的<u>深度（depth）</u>：从根节点到该节点所经过的边的数量。
 - 节点的<u>高度（height）</u>：从距离该节点最远的叶节点到该节点所经过的边的数量。
 
-![二叉树的常用术语](binary_tree.assets/binary_tree_terminology.png){ class="animation-figure" }
+![二叉树的常用术语](binary_tree.assets/binary_tree_terminology.svg){ class="animation-figure" }
 
 <p align="center"> 图 7-2 &nbsp; 二叉树的常用术语 </p>
 
@@ -466,7 +466,7 @@ comments: true
 
 与链表类似，在二叉树中插入与删除节点可以通过修改指针来实现。图 7-3 给出了一个示例。
 
-![在二叉树中插入与删除节点](binary_tree.assets/binary_tree_add_remove.png){ class="animation-figure" }
+![在二叉树中插入与删除节点](binary_tree.assets/binary_tree_add_remove.svg){ class="animation-figure" }
 
 <p align="center"> 图 7-3 &nbsp; 在二叉树中插入与删除节点 </p>
 
@@ -645,7 +645,7 @@ comments: true
 
     请注意，在中文社区中，完美二叉树常被称为<u>满二叉树</u>。
 
-![完美二叉树](binary_tree.assets/perfect_binary_tree.png){ class="animation-figure" }
+![完美二叉树](binary_tree.assets/perfect_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 图 7-4 &nbsp; 完美二叉树 </p>
 
@@ -653,7 +653,7 @@ comments: true
 
 如图 7-5 所示，<u>完全二叉树（complete binary tree）</u>仅允许最底层的节点不完全填满，且最底层的节点必须从左至右依次连续填充。请注意，完美二叉树也是一棵完全二叉树。
 
-![完全二叉树](binary_tree.assets/complete_binary_tree.png){ class="animation-figure" }
+![完全二叉树](binary_tree.assets/complete_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 图 7-5 &nbsp; 完全二叉树 </p>
 
@@ -661,7 +661,7 @@ comments: true
 
 如图 7-6 所示，<u>完满二叉树（full binary tree）</u>除了叶节点之外，其余所有节点都有两个子节点。
 
-![完满二叉树](binary_tree.assets/full_binary_tree.png){ class="animation-figure" }
+![完满二叉树](binary_tree.assets/full_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 图 7-6 &nbsp; 完满二叉树 </p>
 
@@ -669,7 +669,7 @@ comments: true
 
 如图 7-7 所示，<u>平衡二叉树（balanced binary tree）</u>中任意节点的左子树和右子树的高度之差的绝对值不超过 1 。
 
-![平衡二叉树](binary_tree.assets/balanced_binary_tree.png){ class="animation-figure" }
+![平衡二叉树](binary_tree.assets/balanced_binary_tree.svg){ class="animation-figure" }
 
 <p align="center"> 图 7-7 &nbsp; 平衡二叉树 </p>
 
@@ -680,7 +680,7 @@ comments: true
 - 完美二叉树是理想情况，可以充分发挥二叉树“分治”的优势。
 - 链表则是另一个极端，各项操作都变为线性操作，时间复杂度退化至 $O(n)$ 。
 
-![二叉树的最佳结构与最差结构](binary_tree.assets/binary_tree_best_worst_cases.png){ class="animation-figure" }
+![二叉树的最佳结构与最差结构](binary_tree.assets/binary_tree_best_worst_cases.svg){ class="animation-figure" }
 
 <p align="center"> 图 7-8 &nbsp; 二叉树的最佳结构与最差结构 </p>
 

@@ -12,7 +12,7 @@ comments: true
 
     Дан упорядоченный массив `nums` длины $n$ и элемент `target` , причем в массиве нет повторяющихся элементов. Нужно вставить `target` в массив `nums` , сохранив порядок. Если элемент `target` уже присутствует в массиве, вставьте его слева от него. Верните индекс, который будет иметь `target` после вставки. Пример показан на рисунке 10-4.
 
-![Пример данных для двоичного поиска точки вставки](binary_search_insertion.assets/binary_search_insertion_example.png){ class="animation-figure" }
+![Пример данных для двоичного поиска точки вставки](binary_search_insertion.assets/binary_search_insertion_example.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 10-4 &nbsp; Пример данных для двоичного поиска точки вставки </p>
 
@@ -333,7 +333,7 @@ comments: true
 1. Выполнить двоичный поиск и получить индекс любого элемента `target` , обозначив его как $k$ .
 2. Начиная с индекса $k$ , линейно двигаться влево и вернуть результат, когда будет найден самый левый `target` .
 
-![Линейный поиск точки вставки для повторяющихся элементов](binary_search_insertion.assets/binary_search_insertion_naive.png){ class="animation-figure" }
+![Линейный поиск точки вставки для повторяющихся элементов](binary_search_insertion.assets/binary_search_insertion_naive.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 10-5 &nbsp; Линейный поиск точки вставки для повторяющихся элементов </p>
 
@@ -347,28 +347,28 @@ comments: true
 После завершения цикла указатель $i$ будет указывать на самый левый `target` , а указатель $j$ - на самый правый элемент, меньший `target` , **поэтому индекс $i$ и является точкой вставки**.
 
 === "<1>"
-    ![Этапы двоичного поиска точки вставки для повторяющихся элементов](binary_search_insertion.assets/binary_search_insertion_step1.png){ class="animation-figure" }
+    ![Этапы двоичного поиска точки вставки для повторяющихся элементов](binary_search_insertion.assets/binary_search_insertion_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![binary_search_insertion_step2](binary_search_insertion.assets/binary_search_insertion_step2.png){ class="animation-figure" }
+    ![binary_search_insertion_step2](binary_search_insertion.assets/binary_search_insertion_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![binary_search_insertion_step3](binary_search_insertion.assets/binary_search_insertion_step3.png){ class="animation-figure" }
+    ![binary_search_insertion_step3](binary_search_insertion.assets/binary_search_insertion_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![binary_search_insertion_step4](binary_search_insertion.assets/binary_search_insertion_step4.png){ class="animation-figure" }
+    ![binary_search_insertion_step4](binary_search_insertion.assets/binary_search_insertion_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![binary_search_insertion_step5](binary_search_insertion.assets/binary_search_insertion_step5.png){ class="animation-figure" }
+    ![binary_search_insertion_step5](binary_search_insertion.assets/binary_search_insertion_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![binary_search_insertion_step6](binary_search_insertion.assets/binary_search_insertion_step6.png){ class="animation-figure" }
+    ![binary_search_insertion_step6](binary_search_insertion.assets/binary_search_insertion_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![binary_search_insertion_step7](binary_search_insertion.assets/binary_search_insertion_step7.png){ class="animation-figure" }
+    ![binary_search_insertion_step7](binary_search_insertion.assets/binary_search_insertion_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![binary_search_insertion_step8](binary_search_insertion.assets/binary_search_insertion_step8.png){ class="animation-figure" }
+    ![binary_search_insertion_step8](binary_search_insertion.assets/binary_search_insertion_step8.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 10-6 &nbsp; Этапы двоичного поиска точки вставки для повторяющихся элементов </p>
 

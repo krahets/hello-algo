@@ -20,7 +20,7 @@ comments: true
 
 На рисунке 3-4 показаны способы преобразования между прямым, обратным и дополнительным кодами.
 
-![Преобразования между прямым, обратным и дополнительным кодами](number_encoding.assets/1s_2s_complement.png){ class="animation-figure" }
+![Преобразования между прямым, обратным и дополнительным кодами](number_encoding.assets/1s_2s_complement.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 3-4 &nbsp; Преобразования между прямым, обратным и дополнительным кодами </p>
 
@@ -129,7 +129,7 @@ $$
 \end{aligned}
 $$
 
-![Пример вычисления float по стандарту IEEE 754](number_encoding.assets/ieee_754_float.png){ class="animation-figure" }
+![Пример вычисления float по стандарту IEEE 754](number_encoding.assets/ieee_754_float.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 3-5 &nbsp; Пример вычисления float по стандарту IEEE 754 </p>
 

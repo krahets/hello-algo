@@ -13,31 +13,31 @@ comments: true
 3. 手順 `2.` を繰り返し、`i` と `j` が出会ったら停止します。最後に、ピボットを二つの部分配列の境目へ交換して移します。
 
 === "<1>"
-    ![番兵を用いた分割の手順](quick_sort.assets/pivot_division_step1.png){ class="animation-figure" }
+    ![番兵を用いた分割の手順](quick_sort.assets/pivot_division_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![番兵を用いた分割の手順 2](quick_sort.assets/pivot_division_step2.png){ class="animation-figure" }
+    ![番兵を用いた分割の手順 2](quick_sort.assets/pivot_division_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![番兵を用いた分割の手順 3](quick_sort.assets/pivot_division_step3.png){ class="animation-figure" }
+    ![番兵を用いた分割の手順 3](quick_sort.assets/pivot_division_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![番兵を用いた分割の手順 4](quick_sort.assets/pivot_division_step4.png){ class="animation-figure" }
+    ![番兵を用いた分割の手順 4](quick_sort.assets/pivot_division_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![番兵を用いた分割の手順 5](quick_sort.assets/pivot_division_step5.png){ class="animation-figure" }
+    ![番兵を用いた分割の手順 5](quick_sort.assets/pivot_division_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![番兵を用いた分割の手順 6](quick_sort.assets/pivot_division_step6.png){ class="animation-figure" }
+    ![番兵を用いた分割の手順 6](quick_sort.assets/pivot_division_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![番兵を用いた分割の手順 7](quick_sort.assets/pivot_division_step7.png){ class="animation-figure" }
+    ![番兵を用いた分割の手順 7](quick_sort.assets/pivot_division_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![番兵を用いた分割の手順 8](quick_sort.assets/pivot_division_step8.png){ class="animation-figure" }
+    ![番兵を用いた分割の手順 8](quick_sort.assets/pivot_division_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![番兵を用いた分割の手順 9](quick_sort.assets/pivot_division_step9.png){ class="animation-figure" }
+    ![番兵を用いた分割の手順 9](quick_sort.assets/pivot_division_step9.svg){ class="animation-figure" }
 
 <p align="center"> 図 11-8 &nbsp; 番兵を用いた分割の手順 </p>
 
@@ -379,7 +379,7 @@ comments: true
 2. 続いて、左右それぞれの部分配列に対して、再帰的に同じ分割を行います。
 3. 部分配列の長さが 1 になるまで再帰を続けると、配列全体のソートが完了します。
 
-![クイックソートの流れ](quick_sort.assets/quick_sort_overview.png){ class="animation-figure" }
+![クイックソートの流れ](quick_sort.assets/quick_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> 図 11-9 &nbsp; クイックソートの流れ </p>
 

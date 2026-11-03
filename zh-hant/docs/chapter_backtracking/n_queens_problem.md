@@ -10,13 +10,13 @@ comments: true
 
 如圖 13-15 所示，當 $n = 4$ 時，共可以找到兩個解。從回溯演算法的角度看，$n \times n$ 大小的棋盤共有 $n^2$ 個格子，給出了所有的選擇 `choices` 。在逐個放置皇后的過程中，棋盤狀態在不斷地變化，每個時刻的棋盤就是狀態 `state` 。
 
-![4 皇后問題的解](n_queens_problem.assets/solution_4_queens.png){ class="animation-figure" }
+![4 皇后問題的解](n_queens_problem.assets/solution_4_queens.svg){ class="animation-figure" }
 
 <p align="center"> 圖 13-15 &nbsp; 4 皇后問題的解 </p>
 
 圖 13-16 展示了本題的三個約束條件：**多個皇后不能在同一行、同一列、同一條對角線上**。值得注意的是，對角線分為主對角線 `\` 和次對角線 `/` 兩種。
 
-![n 皇后問題的約束條件](n_queens_problem.assets/n_queens_constraints.png){ class="animation-figure" }
+![n 皇后問題的約束條件](n_queens_problem.assets/n_queens_constraints.svg){ class="animation-figure" }
 
 <p align="center"> 圖 13-16 &nbsp; n 皇后問題的約束條件 </p>
 
@@ -28,7 +28,7 @@ comments: true
 
 圖 13-17 所示為 4 皇后問題的逐行放置過程。受畫幅限制，圖 13-17 僅展開了第一行的其中一個搜尋分支，並且將不滿足列約束和對角線約束的方案都進行了剪枝。
 
-![逐行放置策略](n_queens_problem.assets/n_queens_placing.png){ class="animation-figure" }
+![逐行放置策略](n_queens_problem.assets/n_queens_placing.svg){ class="animation-figure" }
 
 <p align="center"> 圖 13-17 &nbsp; 逐行放置策略 </p>
 
@@ -48,7 +48,7 @@ comments: true
 
 同理，**次對角線上的所有格子的 $row + col$ 是恆定值**。我們同樣也可以藉助陣列 `diags2` 來處理次對角線約束。
 
-![處理列約束和對角線約束](n_queens_problem.assets/n_queens_cols_diagonals.png){ class="animation-figure" }
+![處理列約束和對角線約束](n_queens_problem.assets/n_queens_cols_diagonals.svg){ class="animation-figure" }
 
 <p align="center"> 圖 13-18 &nbsp; 處理列約束和對角線約束 </p>
 

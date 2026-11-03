@@ -338,7 +338,7 @@ comments: true
 
 이제 더 정확하게 계산해 보자. 계산을 간단히 하기 위해 노드 수가 $n$이고 높이가 $h$인 '포화 이진 트리'가 주어졌다고 가정한다. 이 가정은 계산 결과의 정확성에 영향을 주지 않는다.
 
-![포화 이진 트리의 레벨별 노드 수](build_heap.assets/heapify_operations_count.png){ class="animation-figure" }
+![포화 이진 트리의 레벨별 노드 수](build_heap.assets/heapify_operations_count.svg){ class="animation-figure" }
 
 <p align="center"> 그림 8-5 &nbsp; 포화 이진 트리의 레벨별 노드 수 </p>
 

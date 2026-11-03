@@ -15,19 +15,19 @@ Before we formally explore algorithms, here is an interesting fact: **you have a
 3. Repeat steps `1.` and `2.` until you find the pages whose pinyin entries begin with $r$.
 
 === "<1>"
-    ![Steps for looking up a word in a dictionary](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png){ class="animation-figure" }
+    ![Steps for looking up a word in a dictionary](algorithms_are_everywhere.assets/binary_search_dictionary_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png){ class="animation-figure" }
+    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png){ class="animation-figure" }
+    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png){ class="animation-figure" }
+    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png){ class="animation-figure" }
+    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg){ class="animation-figure" }
 
 <p align="center"> Figure 1-1 &nbsp; Steps for looking up a word in a dictionary </p>
 
@@ -39,7 +39,7 @@ This dictionary skill, learned in elementary school, is actually the well-known 
 2. Take a card from the unsorted section and insert it into the correct position in the sorted section. The two leftmost cards are now sorted.
 3. Repeat step `2.`, inserting one card from the unsorted section into the sorted section each round, until all the cards are sorted.
 
-![Steps for sorting playing cards](algorithms_are_everywhere.assets/playing_cards_sorting.png){ class="animation-figure" }
+![Steps for sorting playing cards](algorithms_are_everywhere.assets/playing_cards_sorting.svg){ class="animation-figure" }
 
 <p align="center"> Figure 1-2 &nbsp; Steps for sorting playing cards </p>
 
@@ -53,7 +53,7 @@ This method of arranging playing cards is essentially “insertion sort,” an a
 4. Take the largest denomination that fits the remaining amount, $1$ yuan, leaving $1 - 1 = 0$ yuan.
 5. The change is complete: $20 + 10 + 1 = 31$ yuan.
 
-![The process of making change](algorithms_are_everywhere.assets/greedy_change.png){ class="animation-figure" }
+![The process of making change](algorithms_are_everywhere.assets/greedy_change.svg){ class="animation-figure" }
 
 <p align="center"> Figure 1-3 &nbsp; The process of making change </p>
 

@@ -205,7 +205,7 @@ The following function uses a `for` loop to compute $1 + 2 + \dots + n$, storing
 
 Figure 2-1 is a flowchart of this summation function.
 
-![Flowchart of the summation function](iteration_and_recursion.assets/iteration.png){ class="animation-figure" }
+![Flowchart of the summation function](iteration_and_recursion.assets/iteration.svg){ class="animation-figure" }
 
 <p align="center"> Figure 2-1 &nbsp; Flowchart of the summation function </p>
 
@@ -915,7 +915,7 @@ We can place one loop inside another, as in the following `for`-loop example:
 
 Figure 2-2 shows the nested loop's flowchart.
 
-![Flowchart of nested loops](iteration_and_recursion.assets/nested_iteration.png){ class="animation-figure" }
+![Flowchart of nested loops](iteration_and_recursion.assets/nested_iteration.svg){ class="animation-figure" }
 
 <p align="center"> Figure 2-2 &nbsp; Flowchart of nested loops </p>
 
@@ -1138,7 +1138,7 @@ In the following code, calling `recur(n)` computes $1 + 2 + \dots + n$:
 
 Figure 2-3 illustrates the recursive process.
 
-![Recursive process of the summation function](iteration_and_recursion.assets/recursion_sum.png){ class="animation-figure" }
+![Recursive process of the summation function](iteration_and_recursion.assets/recursion_sum.svg){ class="animation-figure" }
 
 <p align="center"> Figure 2-3 &nbsp; Recursive process of the summation function </p>
 
@@ -1161,7 +1161,7 @@ Each time a recursive function calls itself, the system allocates memory for the
 
 As shown in Figure 2-4, before the base case is reached, $n$ recursive calls remain active at once: **the recursion depth is $n$**.
 
-![Depth of recursive calls](iteration_and_recursion.assets/recursion_sum_depth.png){ class="animation-figure" }
+![Depth of recursive calls](iteration_and_recursion.assets/recursion_sum_depth.svg){ class="animation-figure" }
 
 <p align="center"> Figure 2-4 &nbsp; Depth of recursive calls </p>
 
@@ -1354,7 +1354,7 @@ Figure 2-5 illustrates tail recursion. Ordinary and tail recursion perform their
 - **Ordinary recursion**: Addition occurs during the return phase, after each deeper call returns.
 - **Tail recursion**: Addition occurs during descent; the return phase simply returns through the levels.
 
-![Tail-recursive summation](iteration_and_recursion.assets/tail_recursion_sum.png){ class="animation-figure" }
+![Tail-recursive summation](iteration_and_recursion.assets/tail_recursion_sum.svg){ class="animation-figure" }
 
 <p align="center"> Figure 2-5 &nbsp; Tail-recursive summation </p>
 
@@ -1577,7 +1577,7 @@ Use the recurrence for recursive calls and the first two numbers as base cases. 
 
 The function makes two recursive calls, **so each call creates two branches**. Continuing this process produces a <u>recursion tree</u> with $n$ levels, as shown in Figure 2-6.
 
-![Recursion tree for the Fibonacci sequence](iteration_and_recursion.assets/recursion_tree.png){ class="animation-figure" }
+![Recursion tree for the Fibonacci sequence](iteration_and_recursion.assets/recursion_tree.svg){ class="animation-figure" }
 
 <p align="center"> Figure 2-6 &nbsp; Recursion tree for the Fibonacci sequence </p>
 

@@ -13,31 +13,31 @@ comments: true
 3. 迴圈執行步驟 `2.` ，直到 `i` 和 `j` 相遇時停止，最後將基準數交換至兩個子陣列的分界線。
 
 === "<1>"
-    ![哨兵劃分步驟](quick_sort.assets/pivot_division_step1.png){ class="animation-figure" }
+    ![哨兵劃分步驟](quick_sort.assets/pivot_division_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.png){ class="animation-figure" }
+    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.png){ class="animation-figure" }
+    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.png){ class="animation-figure" }
+    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.png){ class="animation-figure" }
+    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.png){ class="animation-figure" }
+    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.png){ class="animation-figure" }
+    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.png){ class="animation-figure" }
+    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.png){ class="animation-figure" }
+    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.svg){ class="animation-figure" }
 
 <p align="center"> 圖 11-8 &nbsp; 哨兵劃分步驟 </p>
 
@@ -379,7 +379,7 @@ comments: true
 2. 然後，對左子陣列和右子陣列分別遞迴執行“哨兵劃分”。
 3. 持續遞迴，直至子陣列長度為 1 時終止，從而完成整個陣列的排序。
 
-![快速排序流程](quick_sort.assets/quick_sort_overview.png){ class="animation-figure" }
+![快速排序流程](quick_sort.assets/quick_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> 圖 11-9 &nbsp; 快速排序流程 </p>
 

@@ -9,7 +9,7 @@ comments: true
 - <u>小頂堆積（min heap）</u>：任意節點的值 $\leq$ 其子節點的值。
 - <u>大頂堆積（max heap）</u>：任意節點的值 $\geq$ 其子節點的值。
 
-![小頂堆積與大頂堆積](heap.assets/min_heap_and_max_heap.png){ class="animation-figure" }
+![小頂堆積與大頂堆積](heap.assets/min_heap_and_max_heap.svg){ class="animation-figure" }
 
 <p align="center"> 圖 8-1 &nbsp; 小頂堆積與大頂堆積 </p>
 
@@ -435,7 +435,7 @@ comments: true
 
 如圖 8-2 所示，給定索引 $i$ ，其左子節點的索引為 $2i + 1$ ，右子節點的索引為 $2i + 2$ ，父節點的索引為 $(i - 1) / 2$（向下整除）。當索引越界時，表示空節點或節點不存在。
 
-![堆積的表示與儲存](heap.assets/representation_of_heap.png){ class="animation-figure" }
+![堆積的表示與儲存](heap.assets/representation_of_heap.svg){ class="animation-figure" }
 
 <p align="center"> 圖 8-2 &nbsp; 堆積的表示與儲存 </p>
 
@@ -818,31 +818,31 @@ comments: true
 考慮從入堆積節點開始，**從底至頂執行堆積化**。如圖 8-3 所示，我們比較插入節點與其父節點的值，如果插入節點更大，則將它們交換。然後繼續執行此操作，從底至頂修復堆積中的各個節點，直至越過根節點或遇到無須交換的節點時結束。
 
 === "<1>"
-    ![元素入堆積步驟](heap.assets/heap_push_step1.png){ class="animation-figure" }
+    ![元素入堆積步驟](heap.assets/heap_push_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![heap_push_step2](heap.assets/heap_push_step2.png){ class="animation-figure" }
+    ![heap_push_step2](heap.assets/heap_push_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![heap_push_step3](heap.assets/heap_push_step3.png){ class="animation-figure" }
+    ![heap_push_step3](heap.assets/heap_push_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![heap_push_step4](heap.assets/heap_push_step4.png){ class="animation-figure" }
+    ![heap_push_step4](heap.assets/heap_push_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![heap_push_step5](heap.assets/heap_push_step5.png){ class="animation-figure" }
+    ![heap_push_step5](heap.assets/heap_push_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![heap_push_step6](heap.assets/heap_push_step6.png){ class="animation-figure" }
+    ![heap_push_step6](heap.assets/heap_push_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![heap_push_step7](heap.assets/heap_push_step7.png){ class="animation-figure" }
+    ![heap_push_step7](heap.assets/heap_push_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![heap_push_step8](heap.assets/heap_push_step8.png){ class="animation-figure" }
+    ![heap_push_step8](heap.assets/heap_push_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![heap_push_step9](heap.assets/heap_push_step9.png){ class="animation-figure" }
+    ![heap_push_step9](heap.assets/heap_push_step9.svg){ class="animation-figure" }
 
 <p align="center"> 圖 8-3 &nbsp; 元素入堆積步驟 </p>
 
@@ -1227,34 +1227,34 @@ comments: true
 如圖 8-4 所示，**“從頂至底堆積化”的操作方向與“從底至頂堆積化”相反**，我們將根節點的值與其兩個子節點的值進行比較，將最大的子節點與根節點交換。然後迴圈執行此操作，直到越過葉節點或遇到無須交換的節點時結束。
 
 === "<1>"
-    ![堆積頂元素出堆積步驟](heap.assets/heap_pop_step1.png){ class="animation-figure" }
+    ![堆積頂元素出堆積步驟](heap.assets/heap_pop_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![heap_pop_step2](heap.assets/heap_pop_step2.png){ class="animation-figure" }
+    ![heap_pop_step2](heap.assets/heap_pop_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![heap_pop_step3](heap.assets/heap_pop_step3.png){ class="animation-figure" }
+    ![heap_pop_step3](heap.assets/heap_pop_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![heap_pop_step4](heap.assets/heap_pop_step4.png){ class="animation-figure" }
+    ![heap_pop_step4](heap.assets/heap_pop_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![heap_pop_step5](heap.assets/heap_pop_step5.png){ class="animation-figure" }
+    ![heap_pop_step5](heap.assets/heap_pop_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![heap_pop_step6](heap.assets/heap_pop_step6.png){ class="animation-figure" }
+    ![heap_pop_step6](heap.assets/heap_pop_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![heap_pop_step7](heap.assets/heap_pop_step7.png){ class="animation-figure" }
+    ![heap_pop_step7](heap.assets/heap_pop_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![heap_pop_step8](heap.assets/heap_pop_step8.png){ class="animation-figure" }
+    ![heap_pop_step8](heap.assets/heap_pop_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![heap_pop_step9](heap.assets/heap_pop_step9.png){ class="animation-figure" }
+    ![heap_pop_step9](heap.assets/heap_pop_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![heap_pop_step10](heap.assets/heap_pop_step10.png){ class="animation-figure" }
+    ![heap_pop_step10](heap.assets/heap_pop_step10.svg){ class="animation-figure" }
 
 <p align="center"> 圖 8-4 &nbsp; 堆積頂元素出堆積步驟 </p>
 

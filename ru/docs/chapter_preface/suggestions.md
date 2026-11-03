@@ -222,7 +222,7 @@ git clone https://github.com/krahets/hello-algo.git
 
 **Шаг 3: запуск исходного кода**. Как показано на рисунке 0-5, для блоков кода, у которых сверху указано имя файла, соответствующий исходный файл можно найти в папке `codes` репозитория. Исходные файлы запускаются одним нажатием, что помогает не тратить лишнее время на отладку и сосредоточиться на изучении материала.
 
-![Блоки кода и соответствующие исходные файлы](suggestions.assets/code_md_to_repo.png){ class="animation-figure" }
+![Блоки кода и соответствующие исходные файлы](suggestions.assets/code_md_to_repo.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 0-5 &nbsp; Блоки кода и соответствующие исходные файлы </p>
 
@@ -252,6 +252,6 @@ git clone https://github.com/krahets/hello-algo.git
 
 Как показано на рисунке 0-8, содержание этой книги в основном охватывает «этап 1» и призвано помочь вам более эффективно перейти к обучению на этапах 2 и 3.
 
-![Дорожная карта изучения алгоритмов](suggestions.assets/learning_route.png){ class="animation-figure" }
+![Дорожная карта изучения алгоритмов](suggestions.assets/learning_route.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 0-8 &nbsp; Дорожная карта изучения алгоритмов </p>

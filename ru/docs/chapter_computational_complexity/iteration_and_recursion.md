@@ -205,7 +205,7 @@ comments: true
 
 На рисунке 2-1 представлена блок-схема этой функции суммирования.
 
-![Блок-схема функции суммирования](iteration_and_recursion.assets/iteration.png){ class="animation-figure" }
+![Блок-схема функции суммирования](iteration_and_recursion.assets/iteration.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 2-1 &nbsp; Блок-схема функции суммирования </p>
 
@@ -929,7 +929,7 @@ comments: true
 
 На рисунке 2-2 приведена блок-схема такого вложенного цикла.
 
-![Блок-схема вложенного цикла](iteration_and_recursion.assets/nested_iteration.png){ class="animation-figure" }
+![Блок-схема вложенного цикла](iteration_and_recursion.assets/nested_iteration.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 2-2 &nbsp; Блок-схема вложенного цикла </p>
 
@@ -1152,7 +1152,7 @@ comments: true
 
 На рисунке 2-3 представлен рекурсивный процесс этой функции.
 
-![Рекурсивный процесс функции суммирования](iteration_and_recursion.assets/recursion_sum.png){ class="animation-figure" }
+![Рекурсивный процесс функции суммирования](iteration_and_recursion.assets/recursion_sum.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 2-3 &nbsp; Рекурсивный процесс функции суммирования </p>
 
@@ -1175,7 +1175,7 @@ comments: true
 
 Как показано на рисунке 2-4, до срабатывания условия завершения одновременно существует $n$ невозвращенных рекурсивных функций, а **глубина рекурсии равна $n$** .
 
-![Глубина рекурсивного вызова](iteration_and_recursion.assets/recursion_sum_depth.png){ class="animation-figure" }
+![Глубина рекурсивного вызова](iteration_and_recursion.assets/recursion_sum_depth.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 2-4 &nbsp; Глубина рекурсивного вызова </p>
 
@@ -1368,7 +1368,7 @@ comments: true
 - **Обычная рекурсия**: операция суммирования выполняется в процессе возврата, после каждого возврата необходимо снова выполнить операцию суммирования.
 - **Хвостовая рекурсия**: операция суммирования выполняется в процессе вызова, а процесс возврата требует только последовательного возврата.
 
-![Процесс хвостовой рекурсии](iteration_and_recursion.assets/tail_recursion_sum.png){ class="animation-figure" }
+![Процесс хвостовой рекурсии](iteration_and_recursion.assets/tail_recursion_sum.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 2-5 &nbsp; Процесс хвостовой рекурсии </p>
 
@@ -1591,7 +1591,7 @@ comments: true
 
 Проанализировав приведенный код, можно заметить, что внутри функции осуществляется рекурсивный вызов двух функций, **то есть из одного вызова образуются два ветвления**. Как показано на рисунке 2-6, при последующем выполнении рекурсивных вызовов в итоге образуется <u>дерево рекурсии (recursion tree)</u> глубиной $n$ .
 
-![Дерево рекурсии последовательности Фибоначчи](iteration_and_recursion.assets/recursion_tree.png){ class="animation-figure" }
+![Дерево рекурсии последовательности Фибоначчи](iteration_and_recursion.assets/recursion_tree.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 2-6 &nbsp; Дерево рекурсии последовательности Фибоначчи </p>
 

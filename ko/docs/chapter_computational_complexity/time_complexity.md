@@ -494,7 +494,7 @@ $$
 - 알고리즘 `B`의 출력 연산은 $n$번 반복되므로, $n$이 커짐에 따라 실행 시간이 선형으로 증가한다. 이런 알고리즘의 시간 복잡도를 ‘선형 시간’이라고 한다.
 - 알고리즘 `C`의 출력 연산은 $1000000$번 반복된다. 실행 시간은 길지만 입력 데이터 크기 $n$과는 무관하다. 따라서 `C`의 시간 복잡도는 `A`와 같은 ‘상수 시간’이다.
 
-![알고리즘 A, B, C의 시간 증가 추세](time_complexity.assets/time_complexity_simple_example.png){ class="animation-figure" }
+![알고리즘 A, B, C의 시간 증가 추세](time_complexity.assets/time_complexity_simple_example.svg){ class="animation-figure" }
 
 <p align="center"> 그림 2-7 &nbsp; 알고리즘 A, B, C의 시간 증가 추세 </p>
 
@@ -707,7 +707,7 @@ $T(n)$은 일차 함수이므로 실행 시간이 선형으로 증가한다. 따
 
 아래 그림(2-8)과 같이 점근적 상한을 계산한다는 것은 함수 $f(n)$을 찾는 것이다. 이 함수는 $n$이 무한대로 향할 때 $T(n)$과 $f(n)$의 증가 차수가 같고 상수 계수 $c$만큼만 차이가 나도록 해야 한다.
 
-![함수의 점근적 상한](time_complexity.assets/asymptotic_upper_bound.png){ class="animation-figure" }
+![함수의 점근적 상한](time_complexity.assets/asymptotic_upper_bound.svg){ class="animation-figure" }
 
 <p align="center"> 그림 2-8 &nbsp; 함수의 점근적 상한 </p>
 
@@ -1009,7 +1009,7 @@ $$
 \end{aligned}
 $$
 
-![대표적인 시간 복잡도 유형](time_complexity.assets/time_complexity_common_types.png){ class="animation-figure" }
+![대표적인 시간 복잡도 유형](time_complexity.assets/time_complexity_common_types.svg){ class="animation-figure" }
 
 <p align="center"> 그림 2-9 &nbsp; 대표적인 시간 복잡도 유형 </p>
 
@@ -1772,7 +1772,7 @@ $$
 
 아래 그림(2-10)은 상수 시간, 선형 시간, 제곱 시간의 세 가지 시간 복잡도를 비교한다.
 
-![상수 시간, 선형 시간, 제곱 시간의 시간 복잡도](time_complexity.assets/time_complexity_constant_linear_quadratic.png){ class="animation-figure" }
+![상수 시간, 선형 시간, 제곱 시간의 시간 복잡도](time_complexity.assets/time_complexity_constant_linear_quadratic.svg){ class="animation-figure" }
 
 <p align="center"> 그림 2-10 &nbsp; 상수 시간, 선형 시간, 제곱 시간의 시간 복잡도 </p>
 
@@ -2328,7 +2328,7 @@ $$
     <div style="height: 531px; width: 100%;"><iframe class="pythontutor-iframe" title="코드 시각화" src="https://pythontutor.com/iframe-embed.html#code=def%20exponential%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%EC%A7%80%EC%88%98%20%EC%B0%A8%EC%88%98%28%EB%B0%98%EB%B3%B5%EB%AC%B8%20%EA%B5%AC%ED%98%84%29%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20base%20%3D%201%0A%20%20%20%20%23%20%EC%84%B8%ED%8F%AC%EA%B0%80%20%EB%A7%A4%EB%B2%88%20%EB%91%98%EB%A1%9C%20%EB%82%98%EB%89%98%EC%96%B4%20%EC%88%98%EC%97%B4%201,%202,%204,%208,%20...,%202%5E%28n-1%29%EC%9D%84%20%EC%9D%B4%EB%A3%AC%EB%8B%A4%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20_%20in%20range%28base%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%20%20%20%20base%20%2A%3D%202%0A%20%20%20%20%23%20count%20%3D%201%20%2B%202%20%2B%204%20%2B%208%20%2B%20..%20%2B%202%5E%28n-1%29%20%3D%202%5En%20-%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%EC%9E%85%EB%A0%A5%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%ED%81%AC%EA%B8%B0%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exponential%28n%29%0A%20%20%20%20print%28%22%EC%A7%80%EC%88%98%20%EC%B0%A8%EC%88%98%28%EB%B0%98%EB%B3%B5%EB%AC%B8%20%EA%B5%AC%ED%98%84%29%EC%9D%98%20%EC%97%B0%EC%82%B0%20%ED%9A%9F%EC%88%98%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
     <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20exponential%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%EC%A7%80%EC%88%98%20%EC%B0%A8%EC%88%98%28%EB%B0%98%EB%B3%B5%EB%AC%B8%20%EA%B5%AC%ED%98%84%29%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20base%20%3D%201%0A%20%20%20%20%23%20%EC%84%B8%ED%8F%AC%EA%B0%80%20%EB%A7%A4%EB%B2%88%20%EB%91%98%EB%A1%9C%20%EB%82%98%EB%89%98%EC%96%B4%20%EC%88%98%EC%97%B4%201,%202,%204,%208,%20...,%202%5E%28n-1%29%EC%9D%84%20%EC%9D%B4%EB%A3%AC%EB%8B%A4%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20_%20in%20range%28base%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%20%20%20%20base%20%2A%3D%202%0A%20%20%20%20%23%20count%20%3D%201%20%2B%202%20%2B%204%20%2B%208%20%2B%20..%20%2B%202%5E%28n-1%29%20%3D%202%5En%20-%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%EC%9E%85%EB%A0%A5%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%ED%81%AC%EA%B8%B0%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exponential%28n%29%0A%20%20%20%20print%28%22%EC%A7%80%EC%88%98%20%EC%B0%A8%EC%88%98%28%EB%B0%98%EB%B3%B5%EB%AC%B8%20%EA%B5%AC%ED%98%84%29%EC%9D%98%20%EC%97%B0%EC%82%B0%20%ED%9A%9F%EC%88%98%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">전체 화면 ></a></div>
 
-![지수 시간 복잡도](time_complexity.assets/time_complexity_exponential.png){ class="animation-figure" }
+![지수 시간 복잡도](time_complexity.assets/time_complexity_exponential.svg){ class="animation-figure" }
 
 <p align="center"> 그림 2-11 &nbsp; 지수 시간 복잡도 </p>
 
@@ -2677,7 +2677,7 @@ $$
     <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="코드 시각화" src="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%EB%A1%9C%EA%B7%B8%20%EC%B0%A8%EC%88%98%28%EB%B0%98%EB%B3%B5%EB%AC%B8%20%EA%B5%AC%ED%98%84%29%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%EC%9E%85%EB%A0%A5%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%ED%81%AC%EA%B8%B0%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20logarithmic%28n%29%0A%20%20%20%20print%28%22%EB%A1%9C%EA%B7%B8%20%EC%B0%A8%EC%88%98%28%EB%B0%98%EB%B3%B5%EB%AC%B8%20%EA%B5%AC%ED%98%84%29%EC%9D%98%20%EC%97%B0%EC%82%B0%20%ED%9A%9F%EC%88%98%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
     <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%EB%A1%9C%EA%B7%B8%20%EC%B0%A8%EC%88%98%28%EB%B0%98%EB%B3%B5%EB%AC%B8%20%EA%B5%AC%ED%98%84%29%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%EC%9E%85%EB%A0%A5%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%ED%81%AC%EA%B8%B0%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20logarithmic%28n%29%0A%20%20%20%20print%28%22%EB%A1%9C%EA%B7%B8%20%EC%B0%A8%EC%88%98%28%EB%B0%98%EB%B3%B5%EB%AC%B8%20%EA%B5%AC%ED%98%84%29%EC%9D%98%20%EC%97%B0%EC%82%B0%20%ED%9A%9F%EC%88%98%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">전체 화면 ></a></div>
 
-![로그 시간 복잡도](time_complexity.assets/time_complexity_logarithmic.png){ class="animation-figure" }
+![로그 시간 복잡도](time_complexity.assets/time_complexity_logarithmic.svg){ class="animation-figure" }
 
 <p align="center"> 그림 2-12 &nbsp; 로그 시간 복잡도 </p>
 
@@ -3044,7 +3044,7 @@ $$
 
 아래 그림(2-13)은 선형 로그 시간이 만들어지는 방식을 보여 준다. 이진 트리의 각 층에서 수행하는 전체 연산 횟수는 $n$이고, 층수는 $\log_2 n + 1$이므로 시간 복잡도는 $O(n \log n)$이다.
 
-![선형 로그 시간 복잡도](time_complexity.assets/time_complexity_logarithmic_linear.png){ class="animation-figure" }
+![선형 로그 시간 복잡도](time_complexity.assets/time_complexity_logarithmic_linear.svg){ class="animation-figure" }
 
 <p align="center"> 그림 2-13 &nbsp; 선형 로그 시간 복잡도 </p>
 
@@ -3268,7 +3268,7 @@ $$
     <div style="height: 495px; width: 100%;"><iframe class="pythontutor-iframe" title="코드 시각화" src="https://pythontutor.com/iframe-embed.html#code=def%20factorial_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%ED%8C%A9%ED%86%A0%EB%A6%AC%EC%96%BC%20%EC%B0%A8%EC%88%98%28%EC%9E%AC%EA%B7%80%20%EA%B5%AC%ED%98%84%29%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%ED%95%98%EB%82%98%EC%97%90%EC%84%9C%20n%EA%B0%9C%EB%A1%9C%20%EB%B6%84%EC%97%B4%ED%95%9C%EB%8B%A4%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20factorial_recur%28n%20-%201%29%0A%20%20%20%20return%20count%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%20%20%20%20print%28%22%EC%9E%85%EB%A0%A5%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%ED%81%AC%EA%B8%B0%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20factorial_recur%28n%29%0A%20%20%20%20print%28%22%ED%8C%A9%ED%86%A0%EB%A6%AC%EC%96%BC%20%EC%B0%A8%EC%88%98%28%EC%9E%AC%EA%B7%80%20%EA%B5%AC%ED%98%84%29%EC%9D%98%20%EC%97%B0%EC%82%B0%20%ED%9A%9F%EC%88%98%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
     <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20factorial_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%ED%8C%A9%ED%86%A0%EB%A6%AC%EC%96%BC%20%EC%B0%A8%EC%88%98%28%EC%9E%AC%EA%B7%80%20%EA%B5%AC%ED%98%84%29%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%ED%95%98%EB%82%98%EC%97%90%EC%84%9C%20n%EA%B0%9C%EB%A1%9C%20%EB%B6%84%EC%97%B4%ED%95%9C%EB%8B%A4%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20factorial_recur%28n%20-%201%29%0A%20%20%20%20return%20count%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%20%20%20%20print%28%22%EC%9E%85%EB%A0%A5%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%ED%81%AC%EA%B8%B0%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20factorial_recur%28n%29%0A%20%20%20%20print%28%22%ED%8C%A9%ED%86%A0%EB%A6%AC%EC%96%BC%20%EC%B0%A8%EC%88%98%28%EC%9E%AC%EA%B7%80%20%EA%B5%AC%ED%98%84%29%EC%9D%98%20%EC%97%B0%EC%82%B0%20%ED%9A%9F%EC%88%98%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">전체 화면 ></a></div>
 
-![팩토리얼 시간 복잡도](time_complexity.assets/time_complexity_factorial.png){ class="animation-figure" }
+![팩토리얼 시간 복잡도](time_complexity.assets/time_complexity_factorial.svg){ class="animation-figure" }
 
 <p align="center"> 그림 2-14 &nbsp; 팩토리얼 시간 복잡도 </p>
 

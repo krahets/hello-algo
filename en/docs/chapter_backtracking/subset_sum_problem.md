@@ -510,7 +510,7 @@ For input array $[3, 4, 5]$ and target $9$, this code returns $[3, 3, 3], [4, 5]
 
 The search distinguishes the order of choices, whereas subsets do not. As shown in Figure 13-10, choosing $4$ then $5$ and choosing $5$ then $4$ follow different branches but produce the same subset.
 
-![Subset search and pruning when the sum exceeds the target](subset_sum_problem.assets/subset_sum_i_naive.png){ class="animation-figure" }
+![Subset search and pruning when the sum exceeds the target](subset_sum_problem.assets/subset_sum_i_naive.svg){ class="animation-figure" }
 
 <p align="center"> Figure 13-10 &nbsp; Subset search and pruning when the sum exceeds the target </p>
 
@@ -532,7 +532,7 @@ At each level of the search, choices are tried from left to right, so branches f
 2. Choosing $4$ and then $5$ generates subsets $[4, 5, \dots]$.
 3. If $5$ is chosen first, **skip both $3$ and $4$ in the second round**, because $[5, 3, \dots]$ and $[5, 4, \dots]$ duplicate the subsets described in steps `1.` and `2.`.
 
-![Duplicate subsets caused by different choice orders](subset_sum_problem.assets/subset_sum_i_pruning.png){ class="animation-figure" }
+![Duplicate subsets caused by different choice orders](subset_sum_problem.assets/subset_sum_i_pruning.svg){ class="animation-figure" }
 
 <p align="center"> Figure 13-11 &nbsp; Duplicate subsets caused by different choice orders </p>
 
@@ -1069,7 +1069,7 @@ We also make two further improvements.
 
 Figure 13-12 shows the complete backtracking process for input $[3, 4, 5]$ and target $9$.
 
-![Backtracking for subset sum I](subset_sum_problem.assets/subset_sum_i.png){ class="animation-figure" }
+![Backtracking for subset sum I](subset_sum_problem.assets/subset_sum_i.svg){ class="animation-figure" }
 
 <p align="center"> Figure 13-12 &nbsp; Backtracking for subset sum I </p>
 
@@ -1083,7 +1083,7 @@ Unlike the previous problem, **the input may contain duplicate elements**, which
 
 **These duplicates occur because equal elements are tried more than once in a single round**. In Figure 13-13, the first round has three choices, two of which are $4$. They generate duplicate branches and therefore duplicate subsets. The two occurrences of $4$ in the second round cause the same problem.
 
-![Duplicate subsets caused by equal elements](subset_sum_problem.assets/subset_sum_ii_repeat.png){ class="animation-figure" }
+![Duplicate subsets caused by equal elements](subset_sum_problem.assets/subset_sum_ii_repeat.svg){ class="animation-figure" }
 
 <p align="center"> Figure 13-13 &nbsp; Duplicate subsets caused by equal elements </p>
 
@@ -1680,6 +1680,6 @@ In addition, **each array element may be chosen only once**. Fortunately, `start
 
 Figure 13-14 shows backtracking for array $[4, 4, 5]$ and target $9$, including four types of pruning. Follow the illustration alongside the code comments to understand the full search and how each pruning rule works.
 
-![Backtracking for subset sum II](subset_sum_problem.assets/subset_sum_ii.png){ class="animation-figure" }
+![Backtracking for subset sum II](subset_sum_problem.assets/subset_sum_ii.svg){ class="animation-figure" }
 
 <p align="center"> Figure 13-14 &nbsp; Backtracking for subset sum II </p>

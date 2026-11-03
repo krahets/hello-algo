@@ -20,7 +20,7 @@ First, **integers are stored in two's complement form**. Before explaining why, 
 
 Figure 3-4 shows how to convert among these representations.
 
-![Converting between sign-magnitude, one's complement, and two's complement](number_encoding.assets/1s_2s_complement.png){ class="animation-figure" }
+![Converting between sign-magnitude, one's complement, and two's complement](number_encoding.assets/1s_2s_complement.svg){ class="animation-figure" }
 
 <p align="center"> Figure 3-4 &nbsp; Converting between sign-magnitude, one's complement, and two's complement </p>
 
@@ -129,7 +129,7 @@ $$
 \end{aligned}
 $$
 
-![Example of an IEEE 754 float calculation](number_encoding.assets/ieee_754_float.png){ class="animation-figure" }
+![Example of an IEEE 754 float calculation](number_encoding.assets/ieee_754_float.svg){ class="animation-figure" }
 
 <p align="center"> Figure 3-5 &nbsp; Example of an IEEE 754 float calculation </p>
 

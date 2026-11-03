@@ -8,13 +8,13 @@ comments: true
 
 Как показано на рисунке 7-24, после двух операций удаления узлов это двоичное дерево поиска вырождается в связный список.
 
-![Деградация AVL-дерева после удаления узлов](avl_tree.assets/avltree_degradation_from_removing_node.png){ class="animation-figure" }
+![Деградация AVL-дерева после удаления узлов](avl_tree.assets/avltree_degradation_from_removing_node.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-24 &nbsp; Деградация AVL-дерева после удаления узлов </p>
 
 Другой пример: если в идеальное двоичное дерево, показанное на рисунке 7-25, вставить два узла, то дерево сильно наклонится влево, а временная сложность поиска тоже ухудшится.
 
-![Деградация AVL-дерева после вставки узлов](avl_tree.assets/avltree_degradation_from_inserting_node.png){ class="animation-figure" }
+![Деградация AVL-дерева после вставки узлов](avl_tree.assets/avltree_degradation_from_inserting_node.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-25 &nbsp; Деградация AVL-дерева после вставки узлов </p>
 
@@ -661,22 +661,22 @@ AVL-дерево одновременно является и двоичным �
 Как показано на рисунке 7-26, под узлом указан его баланс-фактор. Если двигаться снизу вверх, то первым разбалансированным узлом в двоичном дереве будет «узел 3». Рассмотрим поддерево с этим узлом в качестве корня, обозначим данный узел как `node` , его левого дочернего узла как `child` и выполним «правое вращение». После завершения правого вращения поддерево снова станет сбалансированным и при этом сохранит свойство двоичного дерева поиска.
 
 === "<1>"
-    ![Шаги правого вращения](avl_tree.assets/avltree_right_rotate_step1.png){ class="animation-figure" }
+    ![Шаги правого вращения](avl_tree.assets/avltree_right_rotate_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![avltree_right_rotate_step2](avl_tree.assets/avltree_right_rotate_step2.png){ class="animation-figure" }
+    ![avltree_right_rotate_step2](avl_tree.assets/avltree_right_rotate_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![avltree_right_rotate_step3](avl_tree.assets/avltree_right_rotate_step3.png){ class="animation-figure" }
+    ![avltree_right_rotate_step3](avl_tree.assets/avltree_right_rotate_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.png){ class="animation-figure" }
+    ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-26 &nbsp; Шаги правого вращения </p>
 
 Как показано на рисунке 7-27, когда у узла `child` есть правый дочерний узел, который мы обозначим как `grand_child` , в правое вращение нужно добавить еще один шаг: сделать `grand_child` левым дочерним узлом `node` .
 
-![Правое вращение при наличии grand_child](avl_tree.assets/avltree_right_rotate_with_grandchild.png){ class="animation-figure" }
+![Правое вращение при наличии grand_child](avl_tree.assets/avltree_right_rotate_with_grandchild.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-27 &nbsp; Правое вращение при наличии grand_child </p>
 
@@ -925,13 +925,13 @@ AVL-дерево одновременно является и двоичным �
 
 Соответственно, если рассмотреть «зеркальную» версию приведенного выше разбалансированного двоичного дерева, то понадобится выполнить «левое вращение», показанное на рисунке 7-28.
 
-![Левое вращение](avl_tree.assets/avltree_left_rotate.png){ class="animation-figure" }
+![Левое вращение](avl_tree.assets/avltree_left_rotate.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-28 &nbsp; Левое вращение </p>
 
 Аналогичная ситуация показана на рисунке 7-29. Если у узла `child` есть левый дочерний узел, который обозначим как `grand_child` , то в левое вращение также требуется добавить шаг: сделать `grand_child` правым дочерним узлом `node` .
 
-![Левое вращение при наличии grand_child](avl_tree.assets/avltree_left_rotate_with_grandchild.png){ class="animation-figure" }
+![Левое вращение при наличии grand_child](avl_tree.assets/avltree_left_rotate_with_grandchild.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-29 &nbsp; Левое вращение при наличии grand_child </p>
 
@@ -1180,7 +1180,7 @@ AVL-дерево одновременно является и двоичным �
 
 Для разбалансированного узла 3 на рисунке 7-30 ни одно лишь левое вращение, ни одно лишь правое вращение не способны вернуть поддерево в баланс. В этом случае нужно сначала выполнить «левое вращение» для `child` , а затем выполнить «правое вращение» для `node` .
 
-![Сначала левое, затем правое вращение](avl_tree.assets/avltree_left_right_rotate.png){ class="animation-figure" }
+![Сначала левое, затем правое вращение](avl_tree.assets/avltree_left_right_rotate.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-30 &nbsp; Сначала левое, затем правое вращение </p>
 
@@ -1188,7 +1188,7 @@ AVL-дерево одновременно является и двоичным �
 
 Как показано на рисунке 7-31, для зеркальной ситуации предыдущего разбалансированного двоичного дерева нужно сначала выполнить «правое вращение» для `child` , а затем «левое вращение» для `node` .
 
-![Сначала правое, затем левое вращение](avl_tree.assets/avltree_right_left_rotate.png){ class="animation-figure" }
+![Сначала правое, затем левое вращение](avl_tree.assets/avltree_right_left_rotate.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-31 &nbsp; Сначала правое, затем левое вращение </p>
 
@@ -1196,7 +1196,7 @@ AVL-дерево одновременно является и двоичным �
 
 Четыре вида разбаланса, показанные на рисунке 7-32, по одному соответствуют рассмотренным выше случаям. Для них соответственно требуются правое вращение, сначала левое затем правое, сначала правое затем левое и левое вращение.
 
-![Четыре случая вращений AVL-дерева](avl_tree.assets/avltree_rotation_cases.png){ class="animation-figure" }
+![Четыре случая вращений AVL-дерева](avl_tree.assets/avltree_rotation_cases.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-32 &nbsp; Четыре случая вращений AVL-дерева </p>
 

@@ -16,7 +16,7 @@ $$
 
 頂点をノード、辺をノード同士をつなぐ参照（ポインタ）と考えると、グラフは連結リストを拡張したデータ構造として捉えられます。図 9-1 のように、**線形の関係（連結リスト）や分割統治の関係（木）よりも、ネットワークの関係（グラフ）は自由度が高く**、その分複雑になります。
 
-![連結リスト、木、グラフの関係](graph.assets/linkedlist_tree_graph.png){ class="animation-figure" }
+![連結リスト、木、グラフの関係](graph.assets/linkedlist_tree_graph.svg){ class="animation-figure" }
 
 <p align="center"> 図 9-1 &nbsp; 連結リスト、木、グラフの関係 </p>
 
@@ -27,7 +27,7 @@ $$
 - 無向グラフの辺は、2 頂点間の「双方向」のつながりを表します。WeChat や QQ の「友達関係」がその例です。
 - 有向グラフの辺には向きがあります。つまり、$A \rightarrow B$ と $A \leftarrow B$ の二つの向きの辺は互いに独立しています。Weibo や Douyin の「フォローする」「フォローされる」という関係がその例です。
 
-![有向グラフと無向グラフ](graph.assets/directed_graph.png){ class="animation-figure" }
+![有向グラフと無向グラフ](graph.assets/directed_graph.svg){ class="animation-figure" }
 
 <p align="center"> 図 9-2 &nbsp; 有向グラフと無向グラフ </p>
 
@@ -36,13 +36,13 @@ $$
 - 連結グラフでは、ある頂点から出発して、ほかのどの頂点にも到達できます。
 - 非連結グラフでは、ある頂点から出発したとき、到達できない頂点が少なくとも一つあります。
 
-![連結グラフと非連結グラフ](graph.assets/connected_graph.png){ class="animation-figure" }
+![連結グラフと非連結グラフ](graph.assets/connected_graph.svg){ class="animation-figure" }
 
 <p align="center"> 図 9-3 &nbsp; 連結グラフと非連結グラフ </p>
 
 辺に「重み」という変数を加えると、図 9-4 の<u>重み付きグラフ（weighted graph）</u>になります。たとえば『王者荣耀』などのモバイルゲームでは、一緒に遊んだ時間からプレイヤー間の「親密度」を計算します。この親密度のネットワークは、重み付きグラフで表せます。
 
-![重み付きグラフと重みなしグラフ](graph.assets/weighted_graph.png){ class="animation-figure" }
+![重み付きグラフと重みなしグラフ](graph.assets/weighted_graph.svg){ class="animation-figure" }
 
 <p align="center"> 図 9-4 &nbsp; 重み付きグラフと重みなしグラフ </p>
 
@@ -62,7 +62,7 @@ $$
 
 図 9-5 のように、隣接行列を $M$、頂点のリストを $V$ とすると、行列の要素 $M[i, j] = 1$ は頂点 $V[i]$ から頂点 $V[j]$ への辺があることを表し、$M[i, j] = 0$ は辺がないことを表します。
 
-![隣接行列によるグラフの表現](graph.assets/adjacency_matrix.png){ class="animation-figure" }
+![隣接行列によるグラフの表現](graph.assets/adjacency_matrix.svg){ class="animation-figure" }
 
 <p align="center"> 図 9-5 &nbsp; 隣接行列によるグラフの表現 </p>
 
@@ -78,7 +78,7 @@ $$
 
 <u>隣接リスト（adjacency list）</u>は、$n$ 個の連結リストでグラフを表し、連結リストのノードが頂点を表します。$i$ 番目の連結リストは頂点 $i$ に対応し、その頂点に隣接するすべての頂点（その頂点につながる頂点）を格納します。図 9-6 に、隣接リストで格納したグラフの例を示します。
 
-![隣接リストによるグラフの表現](graph.assets/adjacency_list.png){ class="animation-figure" }
+![隣接リストによるグラフの表現](graph.assets/adjacency_list.svg){ class="animation-figure" }
 
 <p align="center"> 図 9-6 &nbsp; 隣接リストによるグラフの表現 </p>
 

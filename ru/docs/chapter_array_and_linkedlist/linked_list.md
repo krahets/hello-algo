@@ -10,7 +10,7 @@ comments: true
 
 Конструкция связного списка позволяет хранить отдельные узлы в разных местах памяти, и их адреса вовсе не обязаны быть последовательными.
 
-![Определение и способ хранения связного списка](linked_list.assets/linkedlist_definition.png){ class="animation-figure" }
+![Определение и способ хранения связного списка](linked_list.assets/linkedlist_definition.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 4-5 &nbsp; Определение и способ хранения связного списка </p>
 
@@ -432,7 +432,7 @@ comments: true
 
 Для сравнения: временная сложность вставки элемента в массив составляет $O(n)$ , и при большом объеме данных это менее эффективно.
 
-![Пример вставки узла в связный список](linked_list.assets/linkedlist_insert_node.png){ class="animation-figure" }
+![Пример вставки узла в связный список](linked_list.assets/linkedlist_insert_node.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 4-6 &nbsp; Пример вставки узла в связный список </p>
 
@@ -591,7 +591,7 @@ comments: true
 
 Стоит отметить, что хотя после завершения операции удаления узел `P` все еще указывает на `n1` , при обходе связного списка до `P` уже нельзя добраться. Это означает, что `P` фактически больше не принадлежит данному списку.
 
-![Удаление узла из связного списка](linked_list.assets/linkedlist_remove_node.png){ class="animation-figure" }
+![Удаление узла из связного списка](linked_list.assets/linkedlist_remove_node.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 4-7 &nbsp; Удаление узла из связного списка </p>
 
@@ -1443,7 +1443,7 @@ comments: true
     end
     ```
 
-![Распространенные типы связных списков](linked_list.assets/linkedlist_common_types.png){ class="animation-figure" }
+![Распространенные типы связных списков](linked_list.assets/linkedlist_common_types.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 4-8 &nbsp; Распространенные типы связных списков </p>
 

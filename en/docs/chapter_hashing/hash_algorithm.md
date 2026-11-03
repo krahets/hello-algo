@@ -8,7 +8,7 @@ The previous two sections explained how hash tables work and how collisions are 
 
 Frequent collisions can severely degrade performance. In the separate-chaining table shown below, the ideal case distributes pairs evenly among buckets for the best lookup efficiency. In the worst case, all pairs occupy the same bucket, degrading the time complexity to $O(n)$.
 
-![Best and worst cases for hash collisions](hash_algorithm.assets/hash_collision_best_worst_condition.png){ class="animation-figure" }
+![Best and worst cases for hash collisions](hash_algorithm.assets/hash_collision_best_worst_condition.svg){ class="animation-figure" }
 
 <p align="center"> Figure 6-8 &nbsp; Best and worst cases for hash collisions </p>
 

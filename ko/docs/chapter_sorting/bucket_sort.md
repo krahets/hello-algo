@@ -16,7 +16,7 @@ comments: true
 2. 각 버킷을 따로 정렬한다(여기서는 프로그래밍 언어의 내장 정렬 함수를 사용한다).
 3. 작은 버킷부터 큰 버킷 순서로 결과를 합친다.
 
-![버킷 정렬 알고리즘 과정](bucket_sort.assets/bucket_sort_overview.png){ class="animation-figure" }
+![버킷 정렬 알고리즘 과정](bucket_sort.assets/bucket_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> 그림 11-13 &nbsp; 버킷 정렬 알고리즘 과정 </p>
 
@@ -458,7 +458,7 @@ comments: true
 
 아래 그림(11-14)과 같이 이 방법은 본질적으로 재귀 트리를 만드는 과정이며, 리프 노드의 값을 가능한 한 고르게 만드는 것이 목표다. 반드시 매번 버킷 3개로 나눌 필요는 없으며, 데이터 특성에 맞추어 분할 방식을 유연하게 선택할 수 있다.
 
-![버킷을 재귀적으로 분할](bucket_sort.assets/scatter_in_buckets_recursively.png){ class="animation-figure" }
+![버킷을 재귀적으로 분할](bucket_sort.assets/scatter_in_buckets_recursively.svg){ class="animation-figure" }
 
 <p align="center"> 그림 11-14 &nbsp; 버킷을 재귀적으로 분할 </p>
 
@@ -466,6 +466,6 @@ comments: true
 
 아래 그림(11-15)에서는 상품 가격이 정규 분포를 따른다고 가정한다. 이를 바탕으로 가격 구간을 적절히 정하면 상품을 각 버킷에 고르게 분배할 수 있다.
 
-![확률 분포에 따른 버킷 분할](bucket_sort.assets/scatter_in_buckets_distribution.png){ class="animation-figure" }
+![확률 분포에 따른 버킷 분할](bucket_sort.assets/scatter_in_buckets_distribution.svg){ class="animation-figure" }
 
 <p align="center"> 그림 11-15 &nbsp; 확률 분포에 따른 버킷 분할 </p>

@@ -6,7 +6,7 @@ comments: true
 
 キューでは、先頭要素の削除と末尾への追加しかできません。図 5-7 の<u>両端キュー（double-ended queue）</u>は、先頭と末尾の両方で追加・削除ができ、より柔軟です。
 
-![両端キューの操作](deque.assets/deque_operations.png){ class="animation-figure" }
+![両端キューの操作](deque.assets/deque_operations.svg){ class="animation-figure" }
 
 <p align="center"> 図 5-7 &nbsp; 両端キューの操作 </p>
 
@@ -411,19 +411,19 @@ comments: true
 図 5-8 のように、双方向連結リストの先頭と末尾を両端キューの先頭と末尾に対応させ、両端でノードを追加・削除できるようにします。
 
 === "<1>"
-    ![連結リストによる両端キューの追加と削除](deque.assets/linkedlist_deque_step1.png){ class="animation-figure" }
+    ![連結リストによる両端キューの追加と削除](deque.assets/linkedlist_deque_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![連結リストによる両端キュー：末尾に追加](deque.assets/linkedlist_deque_step2_push_last.png){ class="animation-figure" }
+    ![連結リストによる両端キュー：末尾に追加](deque.assets/linkedlist_deque_step2_push_last.svg){ class="animation-figure" }
 
 === "<3>"
-    ![連結リストによる両端キュー：先頭に追加](deque.assets/linkedlist_deque_step3_push_first.png){ class="animation-figure" }
+    ![連結リストによる両端キュー：先頭に追加](deque.assets/linkedlist_deque_step3_push_first.svg){ class="animation-figure" }
 
 === "<4>"
-    ![連結リストによる両端キュー：末尾から取り出す](deque.assets/linkedlist_deque_step4_pop_last.png){ class="animation-figure" }
+    ![連結リストによる両端キュー：末尾から取り出す](deque.assets/linkedlist_deque_step4_pop_last.svg){ class="animation-figure" }
 
 === "<5>"
-    ![連結リストによる両端キュー：先頭から取り出す](deque.assets/linkedlist_deque_step5_pop_first.png){ class="animation-figure" }
+    ![連結リストによる両端キュー：先頭から取り出す](deque.assets/linkedlist_deque_step5_pop_first.svg){ class="animation-figure" }
 
 <p align="center"> 図 5-8 &nbsp; 連結リストによる両端キューの追加と削除 </p>
 
@@ -2199,19 +2199,19 @@ comments: true
 図 5-9 のように、配列によるキューと同様、循環配列で両端キューを実装できます。
 
 === "<1>"
-    ![配列による両端キューの追加と削除](deque.assets/array_deque_step1.png){ class="animation-figure" }
+    ![配列による両端キューの追加と削除](deque.assets/array_deque_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![配列による両端キュー：末尾に追加](deque.assets/array_deque_step2_push_last.png){ class="animation-figure" }
+    ![配列による両端キュー：末尾に追加](deque.assets/array_deque_step2_push_last.svg){ class="animation-figure" }
 
 === "<3>"
-    ![配列による両端キュー：先頭に追加](deque.assets/array_deque_step3_push_first.png){ class="animation-figure" }
+    ![配列による両端キュー：先頭に追加](deque.assets/array_deque_step3_push_first.svg){ class="animation-figure" }
 
 === "<4>"
-    ![配列による両端キュー：末尾から取り出す](deque.assets/array_deque_step4_pop_last.png){ class="animation-figure" }
+    ![配列による両端キュー：末尾から取り出す](deque.assets/array_deque_step4_pop_last.svg){ class="animation-figure" }
 
 === "<5>"
-    ![配列による両端キュー：先頭から取り出す](deque.assets/array_deque_step5_pop_first.png){ class="animation-figure" }
+    ![配列による両端キュー：先頭から取り出す](deque.assets/array_deque_step5_pop_first.svg){ class="animation-figure" }
 
 <p align="center"> 図 5-9 &nbsp; 配列による両端キューの追加と削除 </p>
 

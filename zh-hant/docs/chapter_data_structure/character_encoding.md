@@ -10,7 +10,7 @@ comments: true
 
 <u>ASCII 碼</u>是最早出現的字元集，其全稱為 American Standard Code for Information Interchange（美國標準資訊交換程式碼）。它使用 7 位二進位制數（一個位元組的低 7 位）表示一個字元，最多能夠表示 128 個不同的字元。如圖 3-6 所示，ASCII 碼包括英文字母的大小寫、數字 0 ~ 9、一些標點符號，以及一些控制字元（如換行符和製表符）。
 
-![ASCII 碼](character_encoding.assets/ascii_table.png){ class="animation-figure" }
+![ASCII 碼](character_encoding.assets/ascii_table.svg){ class="animation-figure" }
 
 <p align="center"> 圖 3-6 &nbsp; ASCII 碼 </p>
 
@@ -36,7 +36,7 @@ Unicode 作為一種通用字元集，本質上是給每個字元分配唯一的
 
 對於以上問題，**一種直接的解決方案是將所有字元儲存為等長的編碼**。如圖 3-7 所示，“Hello”中的每個字元佔用 1 位元組，“演算法”中的每個字元佔用 2 位元組。我們可以透過高位填 0 將“Hello 演算法”中的所有字元都編碼為 2 位元組長度。這樣系統就可以每隔 2 位元組解析一個字元，恢復這個短語的內容了。
 
-![Unicode 編碼示例](character_encoding.assets/unicode_hello_algo.png){ class="animation-figure" }
+![Unicode 編碼示例](character_encoding.assets/unicode_hello_algo.svg){ class="animation-figure" }
 
 <p align="center"> 圖 3-7 &nbsp; Unicode 編碼示例 </p>
 
@@ -57,7 +57,7 @@ UTF-8 的編碼規則並不複雜，分為以下兩種情況。
 
 之所以將 $10$ 當作校驗符，是因為在 UTF-8 編碼規則下，不可能有字元的最高兩位是 $10$ 。這個結論可以用反證法來證明：假設一個字元的最高兩位是 $10$ ，說明該字元的長度為 $1$ ，對應 ASCII 碼。而 ASCII 碼的最高位應該是 $0$ ，與假設矛盾。
 
-![UTF-8 編碼示例](character_encoding.assets/utf-8_hello_algo.png){ class="animation-figure" }
+![UTF-8 編碼示例](character_encoding.assets/utf-8_hello_algo.svg){ class="animation-figure" }
 
 <p align="center"> 圖 3-8 &nbsp; UTF-8 編碼示例 </p>
 

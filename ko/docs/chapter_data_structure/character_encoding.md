@@ -10,7 +10,7 @@ comments: true
 
 <u>ASCII 코드</u>는 가장 초기에 등장한 문자 집합으로, 정식 명칭은 American Standard Code for Information Interchange(미국 정보 교환 표준 부호)다. 7비트 이진수(한 바이트의 하위 7비트)로 문자 하나를 표현하여 최대 128개의 서로 다른 문자를 나타낸다. 아래 그림(3-6)과 같이 영문 대소문자, 숫자 0 ~ 9, 일부 문장 부호와 제어 문자(줄바꿈, 탭 등)를 포함한다.
 
-![ASCII 코드](character_encoding.assets/ascii_table.png){ class="animation-figure" }
+![ASCII 코드](character_encoding.assets/ascii_table.svg){ class="animation-figure" }
 
 <p align="center"> 그림 3-6 &nbsp; ASCII 코드 </p>
 
@@ -36,7 +36,7 @@ Unicode는 범용 문자 집합으로서 각 문자에 고유한 ‘코드 포�
 
 이 문제의 **직접적인 해결책은 모든 문자를 같은 길이로 인코딩하여 저장하는 것이다**. 아래 그림(3-7)에서 ‘Hello’의 각 문자는 1바이트, ‘算法’의 각 문자는 2바이트를 차지한다. 상위 비트에 0을 채우면 ‘Hello 算法’의 모든 문자를 2바이트 길이로 인코딩할 수 있다. 그러면 시스템이 2바이트마다 문자 하나를 해석하여 원래 문구를 복원할 수 있다.
 
-![Unicode 인코딩 예](character_encoding.assets/unicode_hello_algo.png){ class="animation-figure" }
+![Unicode 인코딩 예](character_encoding.assets/unicode_hello_algo.svg){ class="animation-figure" }
 
 <p align="center"> 그림 3-7 &nbsp; Unicode 인코딩 예 </p>
 
@@ -57,7 +57,7 @@ UTF-8 인코딩 규칙은 복잡하지 않으며, 다음 두 경우로 나뉜다
 
 $10$을 검사 표식으로 쓰는 이유는 UTF-8 규칙상 문자 인코딩의 맨 앞 두 비트가 $10$일 수 없기 때문이다. 이는 귀류법으로 증명할 수 있다. 문자 인코딩의 맨 앞 두 비트가 $10$이라고 가정하면, 길이가 $1$바이트인 ASCII 문자라는 뜻이다. 하지만 ASCII 코드의 최상위 비트는 $0$이어야 하므로 가정과 모순된다.
 
-![UTF-8 인코딩 예](character_encoding.assets/utf-8_hello_algo.png){ class="animation-figure" }
+![UTF-8 인코딩 예](character_encoding.assets/utf-8_hello_algo.svg){ class="animation-figure" }
 
 <p align="center"> 그림 3-8 &nbsp; UTF-8 인코딩 예 </p>
 

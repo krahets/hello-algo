@@ -9,7 +9,7 @@ comments: true
 1. Для корневого узла все значения в левом поддереве меньше значения корневого узла, а все значения в правом поддереве больше значения корневого узла.
 2. Левое и правое поддеревья любого узла также являются двоичными деревьями поиска, то есть тоже удовлетворяют условию `1.` .
 
-![Двоичное дерево поиска](binary_search_tree.assets/binary_search_tree.png){ class="animation-figure" }
+![Двоичное дерево поиска](binary_search_tree.assets/binary_search_tree.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-16 &nbsp; Двоичное дерево поиска </p>
 
@@ -26,16 +26,16 @@ comments: true
 - Если `cur.val = num` , это означает, что целевой узел найден, и мы выходим из цикла, возвращая этот узел.
 
 === "<1>"
-    ![Пример поиска узла в двоичном дереве поиска](binary_search_tree.assets/bst_search_step1.png){ class="animation-figure" }
+    ![Пример поиска узла в двоичном дереве поиска](binary_search_tree.assets/bst_search_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![bst_search_step2](binary_search_tree.assets/bst_search_step2.png){ class="animation-figure" }
+    ![bst_search_step2](binary_search_tree.assets/bst_search_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![bst_search_step3](binary_search_tree.assets/bst_search_step3.png){ class="animation-figure" }
+    ![bst_search_step3](binary_search_tree.assets/bst_search_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![bst_search_step4](binary_search_tree.assets/bst_search_step4.png){ class="animation-figure" }
+    ![bst_search_step4](binary_search_tree.assets/bst_search_step4.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-17 &nbsp; Пример поиска узла в двоичном дереве поиска </p>
 
@@ -350,7 +350,7 @@ comments: true
 1. **Найти позицию для вставки**: как и в операции поиска, начиная от корня, мы циклически спускаемся вниз в зависимости от соотношения между текущим значением узла и `num` , пока не выйдем за листовой узел (то есть не дойдем до `None` ).
 2. **Вставить узел в найденную позицию**: инициализировать узел `num` и поставить его на место этого `None` .
 
-![Вставка узла в двоичное дерево поиска](binary_search_tree.assets/bst_insert.png){ class="animation-figure" }
+![Вставка узла в двоичное дерево поиска](binary_search_tree.assets/bst_insert.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-18 &nbsp; Вставка узла в двоичное дерево поиска </p>
 
@@ -815,13 +815,13 @@ comments: true
 
 Как показано на рисунке 7-19, когда степень удаляемого узла равна $0$ , это значит, что узел является листом и может быть удален напрямую.
 
-![Удаление узла в двоичном дереве поиска (степень 0)](binary_search_tree.assets/bst_remove_case1.png){ class="animation-figure" }
+![Удаление узла в двоичном дереве поиска (степень 0)](binary_search_tree.assets/bst_remove_case1.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-19 &nbsp; Удаление узла в двоичном дереве поиска (степень 0) </p>
 
 Как показано на рисунке 7-20, когда степень удаляемого узла равна $1$ , достаточно заменить удаляемый узел его дочерним узлом.
 
-![Удаление узла в двоичном дереве поиска (степень 1)](binary_search_tree.assets/bst_remove_case2.png){ class="animation-figure" }
+![Удаление узла в двоичном дереве поиска (степень 1)](binary_search_tree.assets/bst_remove_case2.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-20 &nbsp; Удаление узла в двоичном дереве поиска (степень 1) </p>
 
@@ -833,16 +833,16 @@ comments: true
 2. Значением `tmp` перезаписать значение удаляемого узла, а затем рекурсивно удалить узел `tmp` из дерева.
 
 === "<1>"
-    ![Удаление узла в двоичном дереве поиска (степень 2)](binary_search_tree.assets/bst_remove_case3_step1.png){ class="animation-figure" }
+    ![Удаление узла в двоичном дереве поиска (степень 2)](binary_search_tree.assets/bst_remove_case3_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![bst_remove_case3_step2](binary_search_tree.assets/bst_remove_case3_step2.png){ class="animation-figure" }
+    ![bst_remove_case3_step2](binary_search_tree.assets/bst_remove_case3_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![bst_remove_case3_step3](binary_search_tree.assets/bst_remove_case3_step3.png){ class="animation-figure" }
+    ![bst_remove_case3_step3](binary_search_tree.assets/bst_remove_case3_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![bst_remove_case3_step4](binary_search_tree.assets/bst_remove_case3_step4.png){ class="animation-figure" }
+    ![bst_remove_case3_step4](binary_search_tree.assets/bst_remove_case3_step4.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-21 &nbsp; Удаление узла в двоичном дереве поиска (степень 2) </p>
 
@@ -1601,7 +1601,7 @@ comments: true
 
 Используя это свойство возрастающей последовательности симметричного обхода, мы можем получить отсортированные данные из двоичного дерева поиска всего за $O(n)$ времени, без дополнительной сортировки, что очень эффективно.
 
-![Последовательность симметричного обхода двоичного дерева поиска](binary_search_tree.assets/bst_inorder_traversal.png){ class="animation-figure" }
+![Последовательность симметричного обхода двоичного дерева поиска](binary_search_tree.assets/bst_inorder_traversal.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-22 &nbsp; Последовательность симметричного обхода двоичного дерева поиска </p>
 
@@ -1625,7 +1625,7 @@ comments: true
 
 Однако если в двоичное дерево поиска непрерывно вставлять и удалять узлы, оно может выродиться в связный список, как показано на рисунке 7-23. Тогда временная сложность различных операций тоже вырождается до $O(n)$ .
 
-![Деградация двоичного дерева поиска](binary_search_tree.assets/bst_degradation.png){ class="animation-figure" }
+![Деградация двоичного дерева поиска](binary_search_tree.assets/bst_degradation.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-23 &nbsp; Деградация двоичного дерева поиска </p>
 

@@ -15,19 +15,19 @@ comments: true
 3. 手順 `1.` と `2.` を繰り返し、頭文字が $r$ のページを見つけます。
 
 === "<1>"
-    ![辞書を引く手順](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png){ class="animation-figure" }
+    ![辞書を引く手順](algorithms_are_everywhere.assets/binary_search_dictionary_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![二分探索で辞書の漢字を探す手順 2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png){ class="animation-figure" }
+    ![二分探索で辞書の漢字を探す手順 2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![二分探索で辞書の漢字を探す手順 3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png){ class="animation-figure" }
+    ![二分探索で辞書の漢字を探す手順 3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![二分探索で辞書の漢字を探す手順 4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png){ class="animation-figure" }
+    ![二分探索で辞書の漢字を探す手順 4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![二分探索で辞書の漢字を探す手順 5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png){ class="animation-figure" }
+    ![二分探索で辞書の漢字を探す手順 5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg){ class="animation-figure" }
 
 <p align="center"> 図 1-1 &nbsp; 辞書を引く手順 </p>
 
@@ -39,7 +39,7 @@ comments: true
 2. 未整列の部分から 1 枚取り出し、整列済みの部分の正しい位置へ挿入します。これで左の 2 枚が整列済みになります。
 3. 手順 `2.` を繰り返し、毎回 1 枚を未整列の部分から整列済みの部分へ挿入し、すべてが整列済みになるまで続けます。
 
-![トランプを並べる手順](algorithms_are_everywhere.assets/playing_cards_sorting.png){ class="animation-figure" }
+![トランプを並べる手順](algorithms_are_everywhere.assets/playing_cards_sorting.svg){ class="animation-figure" }
 
 <p align="center"> 図 1-2 &nbsp; トランプを並べる手順 </p>
 
@@ -53,7 +53,7 @@ comments: true
 4. 残りの選択肢のうち最大の $1$ 元を取り出すと、残りは $1 - 1 = 0$ 元です。
 5. お釣りがそろいました。内訳は $20 + 10 + 1 = 31$ 元です。
 
-![お釣りを渡す過程](algorithms_are_everywhere.assets/greedy_change.png){ class="animation-figure" }
+![お釣りを渡す過程](algorithms_are_everywhere.assets/greedy_change.svg){ class="animation-figure" }
 
 <p align="center"> 図 1-3 &nbsp; お釣りを渡す過程 </p>
 

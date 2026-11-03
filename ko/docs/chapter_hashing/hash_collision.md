@@ -17,7 +17,7 @@ comments: true
 
 기본 해시 테이블에서는 버킷 하나에 키-값 쌍 하나만 저장할 수 있다. <u>체이닝(separate chaining)</u>은 단일 원소를 연결 리스트로 바꾸고, 키-값 쌍을 노드로 삼아 충돌한 키-값 쌍을 모두 같은 연결 리스트에 저장한다. 아래 그림(6-5)은 체이닝 해시 테이블의 예다.
 
-![체이닝 해시 테이블](hash_collision.assets/hash_table_chaining.png){ class="animation-figure" }
+![체이닝 해시 테이블](hash_collision.assets/hash_table_chaining.svg){ class="animation-figure" }
 
 <p align="center"> 그림 6-5 &nbsp; 체이닝 해시 테이블 </p>
 
@@ -1539,7 +1539,7 @@ comments: true
 
 아래 그림(6-6)은 개방 주소법(선형 탐사) 해시 테이블의 키-값 쌍 분포를 보여 준다. 이 해시 함수에서는 마지막 두 자리가 같은 `key`가 모두 같은 버킷에 매핑된다. 선형 탐사를 통해 이들은 해당 버킷과 그 뒤의 버킷에 차례로 저장된다.
 
-![개방 주소법(선형 탐사) 해시 테이블의 키-값 쌍 분포](hash_collision.assets/hash_table_linear_probing.png){ class="animation-figure" }
+![개방 주소법(선형 탐사) 해시 테이블의 키-값 쌍 분포](hash_collision.assets/hash_table_linear_probing.svg){ class="animation-figure" }
 
 <p align="center"> 그림 6-6 &nbsp; 개방 주소법(선형 탐사) 해시 테이블의 키-값 쌍 분포 </p>
 
@@ -1547,7 +1547,7 @@ comments: true
 
 **개방 주소법 해시 테이블에서는 원소를 곧바로 삭제하면 안 된다**는 점에 주의하자. 삭제하면 배열에 빈 버킷 `None`이 생긴다. 조회 중 선형 탐사가 이 버킷에 도달하면 바로 반환하므로 그 뒤의 원소에 접근할 수 없게 된다. 아래 그림(6-7)과 같이 프로그램이 그 원소들을 존재하지 않는다고 잘못 판단할 수 있다.
 
-![개방 주소법에서 원소 삭제로 발생하는 조회 문제](hash_collision.assets/hash_table_open_addressing_deletion.png){ class="animation-figure" }
+![개방 주소법에서 원소 삭제로 발생하는 조회 문제](hash_collision.assets/hash_table_open_addressing_deletion.svg){ class="animation-figure" }
 
 <p align="center"> 그림 6-7 &nbsp; 개방 주소법에서 원소 삭제로 발생하는 조회 문제 </p>
 

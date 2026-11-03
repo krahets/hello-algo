@@ -14,7 +14,7 @@ comments: true
 
 По своей сути обход по уровням относится к <u>обходу в ширину (breadth-first traversal)</u>, также называемому <u>поиском в ширину (breadth-first search, BFS)</u>. Он отражает идею «расширяться от центра к периферии слой за слоем».
 
-![Обход двоичного дерева по уровням](binary_tree_traversal.assets/binary_tree_bfs.png){ class="animation-figure" }
+![Обход двоичного дерева по уровням](binary_tree_traversal.assets/binary_tree_bfs.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-9 &nbsp; Обход двоичного дерева по уровням </p>
 
@@ -350,7 +350,7 @@ comments: true
 
 На рисунке 7-10 показан принцип работы обхода двоичного дерева в глубину. **Обход в глубину можно представить как обход всей двоичной структуры по внешнему контуру** , и у каждого узла встречаются три позиции, соответствующие прямому, симметричному и обратному обходам.
 
-![Прямой, симметричный и обратный обходы двоичного дерева поиска](binary_tree_traversal.assets/binary_tree_dfs.png){ class="animation-figure" }
+![Прямой, симметричный и обратный обходы двоичного дерева поиска](binary_tree_traversal.assets/binary_tree_dfs.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-10 &nbsp; Прямой, симметричный и обратный обходы двоичного дерева поиска </p>
 
@@ -834,37 +834,37 @@ comments: true
 2. «Возврат» означает завершение вызова функции и возврат назад, то есть текущий узел уже полностью обработан.
 
 === "<1>"
-    ![Рекурсивный процесс прямого обхода](binary_tree_traversal.assets/preorder_step1.png){ class="animation-figure" }
+    ![Рекурсивный процесс прямого обхода](binary_tree_traversal.assets/preorder_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![preorder_step2](binary_tree_traversal.assets/preorder_step2.png){ class="animation-figure" }
+    ![preorder_step2](binary_tree_traversal.assets/preorder_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![preorder_step3](binary_tree_traversal.assets/preorder_step3.png){ class="animation-figure" }
+    ![preorder_step3](binary_tree_traversal.assets/preorder_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![preorder_step4](binary_tree_traversal.assets/preorder_step4.png){ class="animation-figure" }
+    ![preorder_step4](binary_tree_traversal.assets/preorder_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![preorder_step5](binary_tree_traversal.assets/preorder_step5.png){ class="animation-figure" }
+    ![preorder_step5](binary_tree_traversal.assets/preorder_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![preorder_step6](binary_tree_traversal.assets/preorder_step6.png){ class="animation-figure" }
+    ![preorder_step6](binary_tree_traversal.assets/preorder_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![preorder_step7](binary_tree_traversal.assets/preorder_step7.png){ class="animation-figure" }
+    ![preorder_step7](binary_tree_traversal.assets/preorder_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![preorder_step8](binary_tree_traversal.assets/preorder_step8.png){ class="animation-figure" }
+    ![preorder_step8](binary_tree_traversal.assets/preorder_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![preorder_step9](binary_tree_traversal.assets/preorder_step9.png){ class="animation-figure" }
+    ![preorder_step9](binary_tree_traversal.assets/preorder_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![preorder_step10](binary_tree_traversal.assets/preorder_step10.png){ class="animation-figure" }
+    ![preorder_step10](binary_tree_traversal.assets/preorder_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![preorder_step11](binary_tree_traversal.assets/preorder_step11.png){ class="animation-figure" }
+    ![preorder_step11](binary_tree_traversal.assets/preorder_step11.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 7-11 &nbsp; Рекурсивный процесс прямого обхода </p>
 

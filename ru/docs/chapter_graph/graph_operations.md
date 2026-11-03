@@ -16,19 +16,19 @@ comments: true
 - **Инициализация**: передаются $n$ вершин, затем инициализируется список вершин `vertices` длины $n$ , что требует $O(n)$ времени. После этого инициализируется матрица смежности `adjMat` размера $n \times n$ , что требует $O(n^2)$ времени.
 
 === "<1>"
-    ![Инициализация матрицы смежности, добавление и удаление ребер и вершин](graph_operations.assets/adjacency_matrix_step1_initialization.png){ class="animation-figure" }
+    ![Инициализация матрицы смежности, добавление и удаление ребер и вершин](graph_operations.assets/adjacency_matrix_step1_initialization.svg){ class="animation-figure" }
 
 === "<2>"
-    ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_step2_add_edge.png){ class="animation-figure" }
+    ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_step2_add_edge.svg){ class="animation-figure" }
 
 === "<3>"
-    ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_step3_remove_edge.png){ class="animation-figure" }
+    ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_step3_remove_edge.svg){ class="animation-figure" }
 
 === "<4>"
-    ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_step4_add_vertex.png){ class="animation-figure" }
+    ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_step4_add_vertex.svg){ class="animation-figure" }
 
 === "<5>"
-    ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_step5_remove_vertex.png){ class="animation-figure" }
+    ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_step5_remove_vertex.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 9-7 &nbsp; Инициализация матрицы смежности, добавление и удаление ребер и вершин </p>
 
@@ -1222,19 +1222,19 @@ comments: true
 - **Инициализация**: в списке смежности создаются $n$ вершин и $2m$ ребер. Это требует $O(n + m)$ времени.
 
 === "<1>"
-    ![Инициализация списка смежности, добавление и удаление ребер и вершин](graph_operations.assets/adjacency_list_step1_initialization.png){ class="animation-figure" }
+    ![Инициализация списка смежности, добавление и удаление ребер и вершин](graph_operations.assets/adjacency_list_step1_initialization.svg){ class="animation-figure" }
 
 === "<2>"
-    ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_step2_add_edge.png){ class="animation-figure" }
+    ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_step2_add_edge.svg){ class="animation-figure" }
 
 === "<3>"
-    ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_step3_remove_edge.png){ class="animation-figure" }
+    ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_step3_remove_edge.svg){ class="animation-figure" }
 
 === "<4>"
-    ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_step4_add_vertex.png){ class="animation-figure" }
+    ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_step4_add_vertex.svg){ class="animation-figure" }
 
 === "<5>"
-    ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.png){ class="animation-figure" }
+    ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 9-8 &nbsp; Инициализация списка смежности, добавление и удаление ребер и вершин </p>
 

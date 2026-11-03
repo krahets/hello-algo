@@ -9,7 +9,7 @@ comments: true
 - <u>최소 힙(min heap)</u>: 모든 노드의 값이 자식 노드의 값보다 작거나 같다($\leq$).
 - <u>최대 힙(max heap)</u>: 모든 노드의 값이 자식 노드의 값보다 크거나 같다($\geq$).
 
-![최소 힙과 최대 힙](heap.assets/min_heap_and_max_heap.png){ class="animation-figure" }
+![최소 힙과 최대 힙](heap.assets/min_heap_and_max_heap.svg){ class="animation-figure" }
 
 <p align="center"> 그림 8-1 &nbsp; 최소 힙과 최대 힙 </p>
 
@@ -435,7 +435,7 @@ comments: true
 
 아래 그림(8-2)과 같이 인덱스 $i$가 주어지면 왼쪽 자식 노드의 인덱스는 $2i + 1$, 오른쪽 자식 노드의 인덱스는 $2i + 2$, 부모 노드의 인덱스는 $(i - 1) / 2$(내림 정수 나눗셈)이다. 인덱스가 범위를 벗어나면 빈 노드이거나 노드가 존재하지 않는다는 뜻이다.
 
-![힙의 표현과 저장](heap.assets/representation_of_heap.png){ class="animation-figure" }
+![힙의 표현과 저장](heap.assets/representation_of_heap.svg){ class="animation-figure" }
 
 <p align="center"> 그림 8-2 &nbsp; 힙의 표현과 저장 </p>
 
@@ -818,31 +818,31 @@ comments: true
 삽입한 노드부터 **아래에서 위로 힙을 재정렬**해 보자. 아래 그림(8-3)과 같이 삽입한 노드의 값과 부모 노드의 값을 비교하여 삽입한 노드가 더 크면 서로 바꾼다. 이 작업을 반복하여 아래에서 위로 힙의 노드들을 조정하고, 루트 노드를 지나거나 바꿀 필요가 없는 노드를 만나면 종료한다.
 
 === "<1>"
-    ![힙에 원소를 삽입하는 단계](heap.assets/heap_push_step1.png){ class="animation-figure" }
+    ![힙에 원소를 삽입하는 단계](heap.assets/heap_push_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![힙 삽입 2단계](heap.assets/heap_push_step2.png){ class="animation-figure" }
+    ![힙 삽입 2단계](heap.assets/heap_push_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![힙 삽입 3단계](heap.assets/heap_push_step3.png){ class="animation-figure" }
+    ![힙 삽입 3단계](heap.assets/heap_push_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![힙 삽입 4단계](heap.assets/heap_push_step4.png){ class="animation-figure" }
+    ![힙 삽입 4단계](heap.assets/heap_push_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![힙 삽입 5단계](heap.assets/heap_push_step5.png){ class="animation-figure" }
+    ![힙 삽입 5단계](heap.assets/heap_push_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![힙 삽입 6단계](heap.assets/heap_push_step6.png){ class="animation-figure" }
+    ![힙 삽입 6단계](heap.assets/heap_push_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![힙 삽입 7단계](heap.assets/heap_push_step7.png){ class="animation-figure" }
+    ![힙 삽입 7단계](heap.assets/heap_push_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![힙 삽입 8단계](heap.assets/heap_push_step8.png){ class="animation-figure" }
+    ![힙 삽입 8단계](heap.assets/heap_push_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![힙 삽입 9단계](heap.assets/heap_push_step9.png){ class="animation-figure" }
+    ![힙 삽입 9단계](heap.assets/heap_push_step9.svg){ class="animation-figure" }
 
 <p align="center"> 그림 8-3 &nbsp; 힙에 원소를 삽입하는 단계 </p>
 
@@ -1227,34 +1227,34 @@ comments: true
 아래 그림(8-4)과 같이 **'위에서 아래로 힙 재정렬'은 '아래에서 위로 힙 재정렬'과 진행 방향이 반대다**. 루트 노드의 값을 두 자식 노드의 값과 비교하여, 더 큰 값을 가진 자식 노드와 루트 노드를 교환한다. 이 작업을 반복하며 리프 노드를 지나거나 교환할 필요가 없는 노드를 만나면 종료한다.
 
 === "<1>"
-    ![힙의 루트 원소를 꺼내는 단계](heap.assets/heap_pop_step1.png){ class="animation-figure" }
+    ![힙의 루트 원소를 꺼내는 단계](heap.assets/heap_pop_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![힙에서 꺼내기 2단계](heap.assets/heap_pop_step2.png){ class="animation-figure" }
+    ![힙에서 꺼내기 2단계](heap.assets/heap_pop_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![힙에서 꺼내기 3단계](heap.assets/heap_pop_step3.png){ class="animation-figure" }
+    ![힙에서 꺼내기 3단계](heap.assets/heap_pop_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![힙에서 꺼내기 4단계](heap.assets/heap_pop_step4.png){ class="animation-figure" }
+    ![힙에서 꺼내기 4단계](heap.assets/heap_pop_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![힙에서 꺼내기 5단계](heap.assets/heap_pop_step5.png){ class="animation-figure" }
+    ![힙에서 꺼내기 5단계](heap.assets/heap_pop_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![힙에서 꺼내기 6단계](heap.assets/heap_pop_step6.png){ class="animation-figure" }
+    ![힙에서 꺼내기 6단계](heap.assets/heap_pop_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![힙에서 꺼내기 7단계](heap.assets/heap_pop_step7.png){ class="animation-figure" }
+    ![힙에서 꺼내기 7단계](heap.assets/heap_pop_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![힙에서 꺼내기 8단계](heap.assets/heap_pop_step8.png){ class="animation-figure" }
+    ![힙에서 꺼내기 8단계](heap.assets/heap_pop_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![힙에서 꺼내기 9단계](heap.assets/heap_pop_step9.png){ class="animation-figure" }
+    ![힙에서 꺼내기 9단계](heap.assets/heap_pop_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![힙에서 꺼내기 10단계](heap.assets/heap_pop_step10.png){ class="animation-figure" }
+    ![힙에서 꺼내기 10단계](heap.assets/heap_pop_step10.svg){ class="animation-figure" }
 
 <p align="center"> 그림 8-4 &nbsp; 힙의 루트 원소를 꺼내는 단계 </p>
 

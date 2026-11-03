@@ -14,7 +14,7 @@ comments: true
 2. **藉助 `counter` 統計 `nums` 中各數字的出現次數**，其中 `counter[num]` 對應數字 `num` 的出現次數。統計方法很簡單，只需走訪 `nums`（設當前數字為 `num`），每輪將 `counter[num]` 增加 $1$ 即可。
 3. **由於 `counter` 的各個索引天然有序，因此相當於所有數字已經排序好了**。接下來，我們走訪 `counter` ，根據各數字出現次數從小到大的順序填入 `nums` 即可。
 
-![計數排序流程](counting_sort.assets/counting_sort_overview.png){ class="animation-figure" }
+![計數排序流程](counting_sort.assets/counting_sort_overview.svg){ class="animation-figure" }
 
 <p align="center"> 圖 11-16 &nbsp; 計數排序流程 </p>
 
@@ -388,28 +388,28 @@ $$
 走訪完成後，陣列 `res` 中就是排序好的結果，最後使用 `res` 覆蓋原陣列 `nums` 即可。圖 11-17 展示了完整的計數排序流程。
 
 === "<1>"
-    ![計數排序步驟](counting_sort.assets/counting_sort_step1.png){ class="animation-figure" }
+    ![計數排序步驟](counting_sort.assets/counting_sort_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![counting_sort_step2](counting_sort.assets/counting_sort_step2.png){ class="animation-figure" }
+    ![counting_sort_step2](counting_sort.assets/counting_sort_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![counting_sort_step3](counting_sort.assets/counting_sort_step3.png){ class="animation-figure" }
+    ![counting_sort_step3](counting_sort.assets/counting_sort_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![counting_sort_step4](counting_sort.assets/counting_sort_step4.png){ class="animation-figure" }
+    ![counting_sort_step4](counting_sort.assets/counting_sort_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![counting_sort_step5](counting_sort.assets/counting_sort_step5.png){ class="animation-figure" }
+    ![counting_sort_step5](counting_sort.assets/counting_sort_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![counting_sort_step6](counting_sort.assets/counting_sort_step6.png){ class="animation-figure" }
+    ![counting_sort_step6](counting_sort.assets/counting_sort_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![counting_sort_step7](counting_sort.assets/counting_sort_step7.png){ class="animation-figure" }
+    ![counting_sort_step7](counting_sort.assets/counting_sort_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![counting_sort_step8](counting_sort.assets/counting_sort_step8.png){ class="animation-figure" }
+    ![counting_sort_step8](counting_sort.assets/counting_sort_step8.svg){ class="animation-figure" }
 
 <p align="center"> 圖 11-17 &nbsp; 計數排序步驟 </p>
 

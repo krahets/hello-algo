@@ -8,7 +8,7 @@ comments: true
 
     給定一個正整數 $n$ ，將其切分為至少兩個正整數的和，求切分後所有整數的乘積最大是多少，如圖 15-13 所示。
 
-![最大切分乘積的問題定義](max_product_cutting_problem.assets/max_product_cutting_definition.png){ class="animation-figure" }
+![最大切分乘積的問題定義](max_product_cutting_problem.assets/max_product_cutting_definition.svg){ class="animation-figure" }
 
 <p align="center"> 圖 15-13 &nbsp; 最大切分乘積的問題定義 </p>
 
@@ -42,7 +42,7 @@ $$
 
 **貪婪策略一**：如果切分方案中包含 $\geq 4$ 的因子，那麼它就應該被繼續切分。最終的切分方案只應出現 $1$、$2$、$3$ 這三種因子。
 
-![切分導致乘積變大](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png){ class="animation-figure" }
+![切分導致乘積變大](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.svg){ class="animation-figure" }
 
 <p align="center"> 圖 15-14 &nbsp; 切分導致乘積變大 </p>
 
@@ -52,7 +52,7 @@ $$
 
 **貪婪策略二**：在切分方案中，最多隻應存在兩個 $2$ 。因為三個 $2$ 總是可以替換為兩個 $3$ ，從而獲得更大的乘積。
 
-![最優切分因子](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png){ class="animation-figure" }
+![最優切分因子](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.svg){ class="animation-figure" }
 
 <p align="center"> 圖 15-15 &nbsp; 最優切分因子 </p>
 
@@ -391,7 +391,7 @@ $$
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="視覺化執行" src="https://pythontutor.com/iframe-embed.html#code=import%20math%0A%0Adef%20max_product_cutting%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%9C%80%E5%A4%A7%E5%88%87%E5%88%86%E4%B9%98%E7%A9%8D%EF%BC%9A%E8%B2%AA%E5%A9%AA%22%22%22%0A%20%20%20%20%23%20%E7%95%B6%20n%20%3C%3D%203%20%E6%99%82%EF%BC%8C%E5%BF%85%E9%A0%88%E5%88%87%E5%88%86%E5%87%BA%E4%B8%80%E5%80%8B%201%0A%20%20%20%20if%20n%20%3C%3D%203%3A%0A%20%20%20%20%20%20%20%20return%201%20%2A%20%28n%20-%201%29%0A%20%20%20%20%23%20%E8%B2%AA%E5%A9%AA%E5%9C%B0%E5%88%87%E5%88%86%E5%87%BA%203%20%EF%BC%8Ca%20%E7%82%BA%203%20%E7%9A%84%E5%80%8B%E6%95%B8%EF%BC%8Cb%20%E7%82%BA%E9%A4%98%E6%95%B8%0A%20%20%20%20a%2C%20b%20%3D%20n%20//%203%2C%20n%20%25%203%0A%20%20%20%20if%20b%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%23%20%E7%95%B6%E9%A4%98%E6%95%B8%E7%82%BA%201%20%E6%99%82%EF%BC%8C%E5%B0%87%E4%B8%80%E5%B0%8D%201%20%2A%203%20%E8%BD%89%E5%8C%96%E7%82%BA%202%20%2A%202%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283%2C%20a%20-%201%29%29%20%2A%202%20%2A%202%0A%20%20%20%20if%20b%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20%23%20%E7%95%B6%E9%A4%98%E6%95%B8%E7%82%BA%202%20%E6%99%82%EF%BC%8C%E4%B8%8D%E5%81%9A%E8%99%95%E7%90%86%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283%2C%20a%29%29%20%2A%202%0A%20%20%20%20%23%20%E7%95%B6%E9%A4%98%E6%95%B8%E7%82%BA%200%20%E6%99%82%EF%BC%8C%E4%B8%8D%E5%81%9A%E8%99%95%E7%90%86%0A%20%20%20%20return%20int%28math.pow%283%2C%20a%29%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2058%0A%0A%20%20%20%20%23%20%E8%B2%AA%E5%A9%AA%E6%BC%94%E7%AE%97%E6%B3%95%0A%20%20%20%20res%20%3D%20max_product_cutting%28n%29%0A%20%20%20%20print%28f%22%E6%9C%80%E5%A4%A7%E5%88%87%E5%88%86%E4%B9%98%E7%A9%8D%E7%82%BA%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
     <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20math%0A%0Adef%20max_product_cutting%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%9C%80%E5%A4%A7%E5%88%87%E5%88%86%E4%B9%98%E7%A9%8D%EF%BC%9A%E8%B2%AA%E5%A9%AA%22%22%22%0A%20%20%20%20%23%20%E7%95%B6%20n%20%3C%3D%203%20%E6%99%82%EF%BC%8C%E5%BF%85%E9%A0%88%E5%88%87%E5%88%86%E5%87%BA%E4%B8%80%E5%80%8B%201%0A%20%20%20%20if%20n%20%3C%3D%203%3A%0A%20%20%20%20%20%20%20%20return%201%20%2A%20%28n%20-%201%29%0A%20%20%20%20%23%20%E8%B2%AA%E5%A9%AA%E5%9C%B0%E5%88%87%E5%88%86%E5%87%BA%203%20%EF%BC%8Ca%20%E7%82%BA%203%20%E7%9A%84%E5%80%8B%E6%95%B8%EF%BC%8Cb%20%E7%82%BA%E9%A4%98%E6%95%B8%0A%20%20%20%20a%2C%20b%20%3D%20n%20//%203%2C%20n%20%25%203%0A%20%20%20%20if%20b%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%23%20%E7%95%B6%E9%A4%98%E6%95%B8%E7%82%BA%201%20%E6%99%82%EF%BC%8C%E5%B0%87%E4%B8%80%E5%B0%8D%201%20%2A%203%20%E8%BD%89%E5%8C%96%E7%82%BA%202%20%2A%202%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283%2C%20a%20-%201%29%29%20%2A%202%20%2A%202%0A%20%20%20%20if%20b%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20%23%20%E7%95%B6%E9%A4%98%E6%95%B8%E7%82%BA%202%20%E6%99%82%EF%BC%8C%E4%B8%8D%E5%81%9A%E8%99%95%E7%90%86%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283%2C%20a%29%29%20%2A%202%0A%20%20%20%20%23%20%E7%95%B6%E9%A4%98%E6%95%B8%E7%82%BA%200%20%E6%99%82%EF%BC%8C%E4%B8%8D%E5%81%9A%E8%99%95%E7%90%86%0A%20%20%20%20return%20int%28math.pow%283%2C%20a%29%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2058%0A%0A%20%20%20%20%23%20%E8%B2%AA%E5%A9%AA%E6%BC%94%E7%AE%97%E6%B3%95%0A%20%20%20%20res%20%3D%20max_product_cutting%28n%29%0A%20%20%20%20print%28f%22%E6%9C%80%E5%A4%A7%E5%88%87%E5%88%86%E4%B9%98%E7%A9%8D%E7%82%BA%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
 
-![最大切分乘積的計算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png){ class="animation-figure" }
+![最大切分乘積的計算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.svg){ class="animation-figure" }
 
 <p align="center"> 圖 15-16 &nbsp; 最大切分乘積的計算方法 </p>
 

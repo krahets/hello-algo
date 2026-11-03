@@ -14,7 +14,7 @@ comments: true
 
 Как видно на рисунке 14-17, поскольку номер предмета $i$ начинается с $1$ , а индексы массива начинаются с $0$ , предмету $i$ соответствуют вес $wgt[i-1]$ и стоимость $val[i-1]$ .
 
-![Пример данных для задачи о рюкзаке 0-1](knapsack_problem.assets/knapsack_example.png){ class="animation-figure" }
+![Пример данных для задачи о рюкзаке 0-1](knapsack_problem.assets/knapsack_example.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-17 &nbsp; Пример данных для задачи о рюкзаке 0-1 </p>
 
@@ -347,7 +347,7 @@ $$
 
 Посмотрев на дерево рекурсии, легко заметить наличие перекрывающихся подзадач, например $dp[1, 10]$ и подобных. Когда число предметов растет, вместимость рюкзака велика, а особенно когда много предметов с одинаковым весом, количество перекрывающихся подзадач быстро увеличивается.
 
-![Дерево полного перебора для задачи о рюкзаке 0-1](knapsack_problem.assets/knapsack_dfs.png){ class="animation-figure" }
+![Дерево полного перебора для задачи о рюкзаке 0-1](knapsack_problem.assets/knapsack_dfs.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-18 &nbsp; Дерево полного перебора для задачи о рюкзаке 0-1 </p>
 
@@ -713,7 +713,7 @@ $$
 
 На рисунке 14-19 показаны ветви поиска, которые были отсечены благодаря мемоизации.
 
-![Дерево поиска с мемоизацией для задачи о рюкзаке 0-1](knapsack_problem.assets/knapsack_dfs_mem.png){ class="animation-figure" }
+![Дерево поиска с мемоизацией для задачи о рюкзаке 0-1](knapsack_problem.assets/knapsack_dfs_mem.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-19 &nbsp; Дерево поиска с мемоизацией для задачи о рюкзаке 0-1 </p>
 
@@ -1065,46 +1065,46 @@ $$
 Как показано на рисунке 14-20, и временная сложность, и пространственная сложность определяются размером массива `dp` , то есть равны $O(n \times cap)$ .
 
 === "<1>"
-    ![Процесс динамического программирования для задачи о рюкзаке 0-1](knapsack_problem.assets/knapsack_dp_step1.png){ class="animation-figure" }
+    ![Процесс динамического программирования для задачи о рюкзаке 0-1](knapsack_problem.assets/knapsack_dp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![knapsack_dp_step2](knapsack_problem.assets/knapsack_dp_step2.png){ class="animation-figure" }
+    ![knapsack_dp_step2](knapsack_problem.assets/knapsack_dp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![knapsack_dp_step3](knapsack_problem.assets/knapsack_dp_step3.png){ class="animation-figure" }
+    ![knapsack_dp_step3](knapsack_problem.assets/knapsack_dp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![knapsack_dp_step4](knapsack_problem.assets/knapsack_dp_step4.png){ class="animation-figure" }
+    ![knapsack_dp_step4](knapsack_problem.assets/knapsack_dp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![knapsack_dp_step5](knapsack_problem.assets/knapsack_dp_step5.png){ class="animation-figure" }
+    ![knapsack_dp_step5](knapsack_problem.assets/knapsack_dp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![knapsack_dp_step6](knapsack_problem.assets/knapsack_dp_step6.png){ class="animation-figure" }
+    ![knapsack_dp_step6](knapsack_problem.assets/knapsack_dp_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![knapsack_dp_step7](knapsack_problem.assets/knapsack_dp_step7.png){ class="animation-figure" }
+    ![knapsack_dp_step7](knapsack_problem.assets/knapsack_dp_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![knapsack_dp_step8](knapsack_problem.assets/knapsack_dp_step8.png){ class="animation-figure" }
+    ![knapsack_dp_step8](knapsack_problem.assets/knapsack_dp_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![knapsack_dp_step9](knapsack_problem.assets/knapsack_dp_step9.png){ class="animation-figure" }
+    ![knapsack_dp_step9](knapsack_problem.assets/knapsack_dp_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![knapsack_dp_step10](knapsack_problem.assets/knapsack_dp_step10.png){ class="animation-figure" }
+    ![knapsack_dp_step10](knapsack_problem.assets/knapsack_dp_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![knapsack_dp_step11](knapsack_problem.assets/knapsack_dp_step11.png){ class="animation-figure" }
+    ![knapsack_dp_step11](knapsack_problem.assets/knapsack_dp_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![knapsack_dp_step12](knapsack_problem.assets/knapsack_dp_step12.png){ class="animation-figure" }
+    ![knapsack_dp_step12](knapsack_problem.assets/knapsack_dp_step12.svg){ class="animation-figure" }
 
 === "<13>"
-    ![knapsack_dp_step13](knapsack_problem.assets/knapsack_dp_step13.png){ class="animation-figure" }
+    ![knapsack_dp_step13](knapsack_problem.assets/knapsack_dp_step13.svg){ class="animation-figure" }
 
 === "<14>"
-    ![knapsack_dp_step14](knapsack_problem.assets/knapsack_dp_step14.png){ class="animation-figure" }
+    ![knapsack_dp_step14](knapsack_problem.assets/knapsack_dp_step14.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-20 &nbsp; Процесс динамического программирования для задачи о рюкзаке 0-1 </p>
 
@@ -1120,22 +1120,22 @@ $$
 На рисунке 14-21 показан процесс перехода от строки $i = 1$ к строке $i = 2$ при использовании одного массива. С его помощью удобно понять различие между прямым и обратным обходом.
 
 === "<1>"
-    ![Процесс динамического программирования после оптимизации памяти для рюкзака 0-1](knapsack_problem.assets/knapsack_dp_comp_step1.png){ class="animation-figure" }
+    ![Процесс динамического программирования после оптимизации памяти для рюкзака 0-1](knapsack_problem.assets/knapsack_dp_comp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![knapsack_dp_comp_step2](knapsack_problem.assets/knapsack_dp_comp_step2.png){ class="animation-figure" }
+    ![knapsack_dp_comp_step2](knapsack_problem.assets/knapsack_dp_comp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![knapsack_dp_comp_step3](knapsack_problem.assets/knapsack_dp_comp_step3.png){ class="animation-figure" }
+    ![knapsack_dp_comp_step3](knapsack_problem.assets/knapsack_dp_comp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![knapsack_dp_comp_step4](knapsack_problem.assets/knapsack_dp_comp_step4.png){ class="animation-figure" }
+    ![knapsack_dp_comp_step4](knapsack_problem.assets/knapsack_dp_comp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![knapsack_dp_comp_step5](knapsack_problem.assets/knapsack_dp_comp_step5.png){ class="animation-figure" }
+    ![knapsack_dp_comp_step5](knapsack_problem.assets/knapsack_dp_comp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![knapsack_dp_comp_step6](knapsack_problem.assets/knapsack_dp_comp_step6.png){ class="animation-figure" }
+    ![knapsack_dp_comp_step6](knapsack_problem.assets/knapsack_dp_comp_step6.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 14-21 &nbsp; Процесс динамического программирования после оптимизации памяти для рюкзака 0-1 </p>
 
