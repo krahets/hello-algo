@@ -2,22 +2,26 @@
 (() => {
   'use strict';
   if (customElements.get('ha-svg-figure')) return;
-  const {resource, decode, fonts, variants:loadVariants, theme, available} = FigureWeb;
+  const {resource, decode, fonts, theme} = FigureWeb;
   const sequences = new WeakMap();
   function sequence(group) {
     if (sequences.has(group)) return sequences.get(group);
-    let pending = null, intent = null;
+    let pending = null, pendingTheme, intent = null;
     const prepare = () => {
-      if (pending) return pending;
+      if (pending && pendingTheme === theme()) return pending;
+      pendingTheme = theme();
       group.dataset.figureState = 'loading'; group.setAttribute('aria-busy', 'true');
-      pending = Promise.all([...group.querySelectorAll('ha-svg-figure')].map(host => host.prepare()))
+      const work = Promise.all([...group.querySelectorAll('ha-svg-figure')].map(host => host.prepare()))
         .then(results => {
+          if (pending !== work) return false;
+          pending = null;
           group.dataset.figureState = results.every(Boolean) ? 'ready' : 'error';
           group.removeAttribute('aria-busy');
           const target = intent; intent = null;
           if (group.dataset.figureState === 'ready' && target?.isConnected) target.click();
           return results.every(Boolean);
-        }).finally(() => {pending = null;});
+        });
+      pending = work;
       return pending;
     };
     group.addEventListener('click', event => {
@@ -85,13 +89,14 @@
   }
   class BookFigure extends HTMLElement {
     connectedCallback() {
-      this.generation = (this.generation || 0) + 1;
+      this.loads = new Map();
       this.dataset.state = 'pending';
-      this.unsubscribe = FigureWeb.subscribe(() => {
-        if (this.variants) this.showTheme();
-        if (this.variants?.some(v => !available(v))) {this.loading = null; this.prepare();}
-      });
       const group = this.closest('[data-figure-sequence]');
+      this.unsubscribe = FigureWeb.subscribe(() => {
+        if (!this.active) return;
+        if (group) sequence(group)();
+        else this.prepare();
+      });
       if (group) {
         group.dataset.figureState = 'pending'; sequence(group);
       } else {
@@ -104,77 +109,73 @@
       }
     }
     disconnectedCallback() {
-      this.generation++; this.loading = null; this.variants = null;
+      this.active = false; this.loads.clear(); this.current = null;
       this.showStatic();
       this.observer?.disconnect();
       this.unsubscribe?.();
     }
     prepare() {
-      if (!this.loading) this.loading = this.load(this.generation);
-      return this.loading;
+      this.active = true;
+      const url = (theme() && this.dataset.darkSrc) || this.dataset.src;
+      if (this.current?.url === url) return this.current.ready;
+      const request = {url};
+      this.current = request;
+      if (!this.loads.has(url)) {
+        this.showStatic();
+        const loads = this.loads;
+        loads.set(url, this.load(url).catch(error => {loads.delete(url); throw error;}));
+      }
+      request.ready = this.loads.get(url).then(chosen => {
+        if (this.current !== request) return false;
+        const previous = this.shadowRoot?.querySelector('svg');
+        display(this, chosen.svg.cloneNode(true), chosen.reading);
+        previous?.reading?.destroy();
+        this.dataset.state = 'ready';
+        this.dataset.themeState = 'ready';
+        return true;
+      }).catch(error => {
+        if (this.current !== request) return false;
+        this.current = null;
+        this.showStatic();
+        this.dataset.themeState = 'partial';
+        console.warn('Could not enhance book figure', url, error);
+        return true;  // The selected theme's native figure remains usable.
+      }).then(ready => {
+        if (ready) this.dispatchEvent(new CustomEvent('figureready', {bubbles:true}));
+        return ready;
+      });
+      return request.ready;
     }
     showStatic() {
-      this.displayed = null;
       this.shadowRoot?.querySelector('svg')?.reading?.destroy();
       // The native document stays in the light DOM throughout enhancement.
       this.shadowRoot?.replaceChildren(document.createElement('slot'));
       this.dataset.state = 'static';
     }
-    showTheme() {
-      const chosen = this.variants[this.dataset.darkSrc ? theme() : 0];
-      if (!available(chosen)) {this.showStatic(); return;}
-      if (chosen === this.displayed) return;
-      try {
-        const previous = this.shadowRoot?.querySelector('svg');
-        display(this, chosen.svg.cloneNode(true), chosen.reading);
-        previous?.reading?.destroy();
-        this.displayed = chosen;
-        this.dataset.state = 'ready';
-      } catch (error) {
-        this.showStatic();
-        console.warn('Could not enhance book figure', this.dataset.src, error);
+    async load(value) {
+      const url = new URL(value, document.baseURI).href;
+      const model = await resource(url, true);
+      if (model.version !== 1) throw Error('Unknown figure package');
+      const svgURL = new URL(model.svg, url).href;
+      // A cached reading model must only enhance its matching SVG revision.
+      const integrity = model.svg_sha256 ? 'sha256-' + btoa(String.fromCharCode(
+        ...model.svg_sha256.match(/../g).map(pair => parseInt(pair, 16)))) : '';
+      const [source] = await Promise.all([
+        resource(svgURL, false, integrity),
+        fonts(model.fonts),
+      ]);
+      const parsed = new DOMParser().parseFromString(source, 'image/svg+xml');
+      const svg = parsed.documentElement;
+      if (svg.localName !== 'svg' || parsed.querySelector('parsererror, script')) throw Error('Invalid figure SVG');
+      const images = [];
+      for (const node of svg.querySelectorAll('*')) for (const attr of [...node.attributes]) {
+        if (attr.localName === 'href' && !attr.value.startsWith('#')) {
+          attr.value = new URL(attr.value, svgURL).href;
+          if (node.localName === 'image') images.push(decode(attr.value));
+        }
       }
-    }
-    async load(generation) {
-      try {
-        const urls = [this.dataset.src, this.dataset.darkSrc].filter(Boolean);
-        const variants = await loadVariants(urls, async value => {
-          const url = new URL(value, document.baseURI).href;
-          const model = await resource(url, true);
-          if (model.version !== 1) throw Error('Unknown figure package');
-          const svgURL = new URL(model.svg, url).href;
-          // A cached reading model must only enhance its matching SVG revision.
-          const integrity = model.svg_sha256 ? 'sha256-' + btoa(String.fromCharCode(
-            ...model.svg_sha256.match(/../g).map(pair => parseInt(pair, 16)))) : '';
-          const [source] = await Promise.all([
-            resource(svgURL, false, integrity),
-            fonts(model.fonts),
-          ]);
-          const parsed = new DOMParser().parseFromString(source, 'image/svg+xml');
-          const svg = parsed.documentElement;
-          if (svg.localName !== 'svg' || parsed.querySelector('parsererror, script')) throw Error('Invalid figure SVG');
-          const images = [];
-          for (const node of svg.querySelectorAll('*')) for (const attr of [...node.attributes]) {
-            if (attr.localName === 'href' && !attr.value.startsWith('#')) {
-              attr.value = new URL(attr.value, svgURL).href;
-              if (node.localName === 'image') images.push(decode(attr.value));
-            }
-          }
-          await Promise.all([...images, prepareFaces(svg, model.svg_sha256)]);
-          return {svg:document.importNode(svg,true),reading:model.reading};
-        });
-        if (!this.isConnected || this.generation !== generation) return false;
-        this.variants = variants;
-        this.showTheme();
-        this.dataset.themeState = variants.some(v => !available(v)) ? 'partial' : 'ready';
-        this.dispatchEvent(new CustomEvent('figureready', {bubbles:true}));
-        return true;
-      } catch (error) {
-        if (!this.isConnected || this.generation !== generation) return false;
-        this.showStatic();
-        console.warn('Could not enhance book figure', this.dataset.src, error);
-        return true;
-      }
+      await Promise.all([...images, prepareFaces(svg, model.svg_sha256)]);
+      return {svg:document.importNode(svg,true),reading:model.reading};
     }
   }
   customElements.define('ha-svg-figure', BookFigure);
