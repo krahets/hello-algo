@@ -5,7 +5,7 @@ icon: material/table-search
 
 # 第 6 章 &nbsp; 哈希表
 
-![哈希表](../assets/covers/chapter_hashing.jpg){ class="cover-image" }
+![哈希表](../assets/covers/chapter_hashing.svg){ class="cover-image" }
 
 !!! abstract
 

@@ -5,7 +5,7 @@ icon: material/view-list-outline
 
 # 第 4 章 &nbsp; 数组与链表
 
-![数组与链表](../assets/covers/chapter_array_and_linkedlist.jpg){ class="cover-image" }
+![数组与链表](../assets/covers/chapter_array_and_linkedlist.svg){ class="cover-image" }
 
 !!! abstract
 

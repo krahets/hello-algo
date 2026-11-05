@@ -5,7 +5,7 @@ icon: material/book-open-outline
 
 # 제 0 장 &nbsp; 들어가며
 
-![들어가며](../assets/covers/chapter_preface.jpg){ class="cover-image" }
+![들어가며](../assets/covers/chapter_preface.svg){ class="cover-image" }
 
 !!! abstract "이 장을 시작하며"
 

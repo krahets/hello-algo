@@ -5,7 +5,7 @@ icon: material/timer-sand
 
 # Глава 2. &nbsp; Анализ сложности
 
-![Анализ сложности](../assets/covers/chapter_complexity_analysis.jpg){ class="cover-image" }
+![Анализ сложности](../assets/covers/chapter_complexity_analysis.svg){ class="cover-image" }
 
 !!! abstract
 

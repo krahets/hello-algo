@@ -5,7 +5,7 @@ icon: material/sort-ascending
 
 # 제 11 장 &nbsp; 정렬
 
-![정렬](../assets/covers/chapter_sorting.jpg){ class="cover-image" }
+![정렬](../assets/covers/chapter_sorting.svg){ class="cover-image" }
 
 !!! abstract "이 장을 시작하며"
 

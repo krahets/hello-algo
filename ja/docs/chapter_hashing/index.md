@@ -5,7 +5,7 @@ icon: material/table-search
 
 # 第 6 章 &nbsp; ハッシュテーブル
 
-![ハッシュテーブル](../assets/covers/chapter_hashing.jpg){ class="cover-image" }
+![ハッシュテーブル](../assets/covers/chapter_hashing.svg){ class="cover-image" }
 
 !!! abstract "概要"
 

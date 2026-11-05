@@ -5,7 +5,7 @@ icon: material/table-search
 
 # 第 6 章 &nbsp; 雜湊表
 
-![雜湊表](../assets/covers/chapter_hashing.jpg){ class="cover-image" }
+![雜湊表](../assets/covers/chapter_hashing.svg){ class="cover-image" }
 
 !!! abstract
 

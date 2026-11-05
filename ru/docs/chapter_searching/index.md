@@ -5,7 +5,7 @@ icon: material/text-search
 
 # Глава 10. &nbsp; Поиск
 
-![Поиск](../assets/covers/chapter_searching.jpg){ class="cover-image" }
+![Поиск](../assets/covers/chapter_searching.svg){ class="cover-image" }
 
 !!! abstract
 

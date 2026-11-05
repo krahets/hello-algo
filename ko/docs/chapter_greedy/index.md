@@ -5,7 +5,7 @@ icon: material/head-heart-outline
 
 # 제 15 장 &nbsp; 탐욕
 
-![탐욕](../assets/covers/chapter_greedy.jpg){ class="cover-image" }
+![탐욕](../assets/covers/chapter_greedy.svg){ class="cover-image" }
 
 !!! abstract "이 장을 시작하며"
 

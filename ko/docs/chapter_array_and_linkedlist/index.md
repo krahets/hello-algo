@@ -5,7 +5,7 @@ icon: material/view-list-outline
 
 # 제 4 장 &nbsp; 배열과 연결 리스트
 
-![배열과 연결 리스트](../assets/covers/chapter_array_and_linkedlist.jpg){ class="cover-image" }
+![배열과 연결 리스트](../assets/covers/chapter_array_and_linkedlist.svg){ class="cover-image" }
 
 !!! abstract "이 장을 시작하며"
 

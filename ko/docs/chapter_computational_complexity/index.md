@@ -5,7 +5,7 @@ icon: material/timer-sand
 
 # 제 2 장 &nbsp; 복잡도 분석
 
-![복잡도 분석](../assets/covers/chapter_complexity_analysis.jpg){ class="cover-image" }
+![복잡도 분석](../assets/covers/chapter_complexity_analysis.svg){ class="cover-image" }
 
 !!! abstract "이 장을 시작하며"
 

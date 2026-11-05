@@ -5,7 +5,7 @@ icon: material/calculator-variant-outline
 
 # 第 1 章 &nbsp; アルゴリズムとの出会い
 
-![アルゴリズムとの出会い](../assets/covers/chapter_introduction.jpg){ class="cover-image" }
+![アルゴリズムとの出会い](../assets/covers/chapter_introduction.svg){ class="cover-image" }
 
 !!! abstract "概要"
 

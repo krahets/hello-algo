@@ -5,7 +5,7 @@ icon: material/set-split
 
 # Глава 12. &nbsp; Разделяй и властвуй
 
-![Разделяй и властвуй](../assets/covers/chapter_divide_and_conquer.jpg){ class="cover-image" }
+![Разделяй и властвуй](../assets/covers/chapter_divide_and_conquer.svg){ class="cover-image" }
 
 !!! abstract
 

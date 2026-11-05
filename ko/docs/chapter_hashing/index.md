@@ -5,7 +5,7 @@ icon: material/table-search
 
 # 제 6 장 &nbsp; 해시 테이블
 
-![해시 테이블](../assets/covers/chapter_hashing.jpg){ class="cover-image" }
+![해시 테이블](../assets/covers/chapter_hashing.svg){ class="cover-image" }
 
 !!! abstract "이 장을 시작하며"
 

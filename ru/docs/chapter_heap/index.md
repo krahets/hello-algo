@@ -5,7 +5,7 @@ icon: material/family-tree
 
 # Глава 8. &nbsp; Куча
 
-![Куча](../assets/covers/chapter_heap.jpg){ class="cover-image" }
+![Куча](../assets/covers/chapter_heap.svg){ class="cover-image" }
 
 !!! abstract
 

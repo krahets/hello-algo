@@ -5,7 +5,7 @@ icon: material/head-heart-outline
 
 # 第 15 章 &nbsp; 貪欲法
 
-![貪欲法](../assets/covers/chapter_greedy.jpg){ class="cover-image" }
+![貪欲法](../assets/covers/chapter_greedy.svg){ class="cover-image" }
 
 !!! abstract "概要"
 

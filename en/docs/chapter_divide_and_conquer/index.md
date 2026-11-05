@@ -5,7 +5,7 @@ icon: material/set-split
 
 # Chapter 12. &nbsp; Divide and conquer
 
-![Divide and conquer](../assets/covers/chapter_divide_and_conquer.jpg){ class="cover-image" }
+![Divide and conquer](../assets/covers/chapter_divide_and_conquer.svg){ class="cover-image" }
 
 !!! abstract
 

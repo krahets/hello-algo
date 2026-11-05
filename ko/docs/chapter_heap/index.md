@@ -5,7 +5,7 @@ icon: material/family-tree
 
 # 제 8 장 &nbsp; 힙
 
-![힙](../assets/covers/chapter_heap.jpg){ class="cover-image" }
+![힙](../assets/covers/chapter_heap.svg){ class="cover-image" }
 
 !!! abstract "이 장을 시작하며"
 

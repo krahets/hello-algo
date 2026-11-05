@@ -15,7 +15,7 @@ icon: material/rocket-launch-outline
 
 Я хорошо понимаю пределы собственных знаний. Хотя материал этой книги уже довольно долго шлифовался, в нем наверняка все еще осталось немало ошибок, поэтому я искренне прошу преподавателей и читателей указывать на неточности и недоработки.
 
-![Hello Algo](../assets/covers/chapter_hello_algo.jpg){ class=«cover-image» }
+![Hello Algo](../assets/covers/chapter_hello_algo.svg){ class=«cover-image» }
 
 <div style="text-align: center;">
     <h2 style="margin-top: 0.8em; margin-bottom: 0.8em;">Hello, алгоритмы!</h2>

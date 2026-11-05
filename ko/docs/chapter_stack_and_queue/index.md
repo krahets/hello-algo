@@ -5,7 +5,7 @@ icon: material/stack-overflow
 
 # 제 5 장 &nbsp; 스택과 큐
 
-![스택과 큐](../assets/covers/chapter_stack_and_queue.jpg){ class="cover-image" }
+![스택과 큐](../assets/covers/chapter_stack_and_queue.svg){ class="cover-image" }
 
 !!! abstract "이 장을 시작하며"
 

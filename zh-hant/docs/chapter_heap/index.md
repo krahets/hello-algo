@@ -5,7 +5,7 @@ icon: material/family-tree
 
 # 第 8 章 &nbsp; 堆積
 
-![堆積](../assets/covers/chapter_heap.jpg){ class="cover-image" }
+![堆積](../assets/covers/chapter_heap.svg){ class="cover-image" }
 
 !!! abstract
 

@@ -5,7 +5,7 @@ icon: material/table-pivot
 
 # 第 14 章 &nbsp; 動態規劃
 
-![動態規劃](../assets/covers/chapter_dynamic_programming.jpg){ class="cover-image" }
+![動態規劃](../assets/covers/chapter_dynamic_programming.svg){ class="cover-image" }
 
 !!! abstract
 

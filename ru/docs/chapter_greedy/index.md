@@ -5,7 +5,7 @@ icon: material/head-heart-outline
 
 # Глава 15. &nbsp; Жадность
 
-![Жадность](../assets/covers/chapter_greedy.jpg){ class="cover-image" }
+![Жадность](../assets/covers/chapter_greedy.svg){ class="cover-image" }
 
 !!! abstract
 

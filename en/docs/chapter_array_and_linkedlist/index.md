@@ -5,7 +5,7 @@ icon: material/view-list-outline
 
 # Chapter 4. &nbsp; Arrays and linked lists
 
-![Arrays and linked lists](../assets/covers/chapter_array_and_linkedlist.jpg){ class="cover-image" }
+![Arrays and linked lists](../assets/covers/chapter_array_and_linkedlist.svg){ class="cover-image" }
 
 !!! abstract
 

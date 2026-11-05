@@ -5,7 +5,7 @@ icon: material/stack-overflow
 
 # 第 5 章 &nbsp; 栈与队列
 
-![栈与队列](../assets/covers/chapter_stack_and_queue.jpg){ class="cover-image" }
+![栈与队列](../assets/covers/chapter_stack_and_queue.svg){ class="cover-image" }
 
 !!! abstract
 

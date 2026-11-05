@@ -5,7 +5,7 @@ icon: material/table-search
 
 # Chapter 6. &nbsp; Hash tables
 
-![Hash tables](../assets/covers/chapter_hashing.jpg){ class="cover-image" }
+![Hash tables](../assets/covers/chapter_hashing.svg){ class="cover-image" }
 
 !!! abstract
 

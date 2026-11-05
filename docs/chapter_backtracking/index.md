@@ -5,7 +5,7 @@ icon: material/map-marker-path
 
 # 第 13 章 &nbsp; 回溯
 
-![回溯](../assets/covers/chapter_backtracking.jpg){ class="cover-image" }
+![回溯](../assets/covers/chapter_backtracking.svg){ class="cover-image" }
 
 !!! abstract
 

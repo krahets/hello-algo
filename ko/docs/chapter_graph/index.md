@@ -5,7 +5,7 @@ icon: material/graphql
 
 # 제 9 장 &nbsp; 그래프
 
-![그래프](../assets/covers/chapter_graph.jpg){ class="cover-image" }
+![그래프](../assets/covers/chapter_graph.svg){ class="cover-image" }
 
 !!! abstract "이 장을 시작하며"
 

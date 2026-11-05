@@ -5,7 +5,7 @@ icon: material/book-open-outline
 
 # Глава 0. &nbsp; Предисловие
 
-![Предисловие](../assets/covers/chapter_preface.jpg){ class="cover-image" }
+![Предисловие](../assets/covers/chapter_preface.svg){ class="cover-image" }
 
 !!! abstract
 

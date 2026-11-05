@@ -5,7 +5,7 @@ icon: material/shape-outline
 
 # Chapter 3. &nbsp; Data structures
 
-![Data structures](../assets/covers/chapter_data_structure.jpg){ class="cover-image" }
+![Data structures](../assets/covers/chapter_data_structure.svg){ class="cover-image" }
 
 !!! abstract
 

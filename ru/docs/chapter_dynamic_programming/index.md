@@ -5,7 +5,7 @@ icon: material/table-pivot
 
 # Глава 14. &nbsp; Динамическое программирование
 
-![Динамическое программирование](../assets/covers/chapter_dynamic_programming.jpg){ class="cover-image" }
+![Динамическое программирование](../assets/covers/chapter_dynamic_programming.svg){ class="cover-image" }
 
 !!! abstract
 

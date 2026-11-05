@@ -5,7 +5,7 @@ icon: material/table-pivot
 
 # 제 14 장 &nbsp; 동적 계획법
 
-![동적 계획법](../assets/covers/chapter_dynamic_programming.jpg){ class="cover-image" }
+![동적 계획법](../assets/covers/chapter_dynamic_programming.svg){ class="cover-image" }
 
 !!! abstract "이 장을 시작하며"
 

@@ -5,7 +5,7 @@ icon: material/graph-outline
 
 # Chapter 7. &nbsp; Trees
 
-![Trees](../assets/covers/chapter_tree.jpg){ class="cover-image" }
+![Trees](../assets/covers/chapter_tree.svg){ class="cover-image" }
 
 !!! abstract
 

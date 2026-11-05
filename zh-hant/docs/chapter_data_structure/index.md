@@ -5,7 +5,7 @@ icon: material/shape-outline
 
 # 第 3 章 &nbsp; 資料結構
 
-![資料結構](../assets/covers/chapter_data_structure.jpg){ class="cover-image" }
+![資料結構](../assets/covers/chapter_data_structure.svg){ class="cover-image" }
 
 !!! abstract
 

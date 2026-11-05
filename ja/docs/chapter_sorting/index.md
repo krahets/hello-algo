@@ -5,7 +5,7 @@ icon: material/sort-ascending
 
 # 第 11 章 &nbsp; ソート
 
-![ソート](../assets/covers/chapter_sorting.jpg){ class="cover-image" }
+![ソート](../assets/covers/chapter_sorting.svg){ class="cover-image" }
 
 !!! abstract "概要"
 

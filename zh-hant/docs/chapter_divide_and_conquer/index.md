@@ -5,7 +5,7 @@ icon: material/set-split
 
 # 第 12 章 &nbsp; 分治
 
-![分治](../assets/covers/chapter_divide_and_conquer.jpg){ class="cover-image" }
+![分治](../assets/covers/chapter_divide_and_conquer.svg){ class="cover-image" }
 
 !!! abstract
 

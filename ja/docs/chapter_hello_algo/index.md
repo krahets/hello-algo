@@ -15,7 +15,7 @@ icon: material/rocket-launch-outline
 
 自分の学識や力がまだ十分でないことは承知しています。内容はしばらく推敲を重ねてきましたが、なお多くの誤りが残っているはずです。先生方や学習者の皆さんからのご批判、ご指摘をお願いいたします。
 
-![Hello Algo](../assets/covers/chapter_hello_algo.jpg){ class="cover-image" }
+![Hello Algo](../assets/covers/chapter_hello_algo.svg){ class="cover-image" }
 
 <div style="text-align: center;">
     <h2 style="margin-top: 0.8em; margin-bottom: 0.8em;">Hello、アルゴリズム！</h2>

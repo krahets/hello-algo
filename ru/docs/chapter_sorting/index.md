@@ -5,7 +5,7 @@ icon: material/sort-ascending
 
 # Глава 11. &nbsp; Сортировка
 
-![Сортировка](../assets/covers/chapter_sorting.jpg){ class="cover-image" }
+![Сортировка](../assets/covers/chapter_sorting.svg){ class="cover-image" }
 
 !!! abstract
 

@@ -5,7 +5,7 @@ icon: material/calculator-variant-outline
 
 # 제 1 장 &nbsp; 알고리즘과의 첫 만남
 
-![알고리즘과의 첫 만남](../assets/covers/chapter_introduction.jpg){ class="cover-image" }
+![알고리즘과의 첫 만남](../assets/covers/chapter_introduction.svg){ class="cover-image" }
 
 !!! abstract "이 장을 시작하며"
 

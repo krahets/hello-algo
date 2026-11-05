@@ -5,7 +5,7 @@ icon: material/text-search
 
 # 第 10 章 &nbsp; 搜尋
 
-![搜尋](../assets/covers/chapter_searching.jpg){ class="cover-image" }
+![搜尋](../assets/covers/chapter_searching.svg){ class="cover-image" }
 
 !!! abstract
 

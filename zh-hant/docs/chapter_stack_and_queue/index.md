@@ -5,7 +5,7 @@ icon: material/stack-overflow
 
 # 第 5 章 &nbsp; 堆疊與佇列
 
-![堆疊與佇列](../assets/covers/chapter_stack_and_queue.jpg){ class="cover-image" }
+![堆疊與佇列](../assets/covers/chapter_stack_and_queue.svg){ class="cover-image" }
 
 !!! abstract
 

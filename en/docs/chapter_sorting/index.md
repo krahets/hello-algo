@@ -5,7 +5,7 @@ icon: material/sort-ascending
 
 # Chapter 11. &nbsp; Sorting
 
-![Sorting](../assets/covers/chapter_sorting.jpg){ class="cover-image" }
+![Sorting](../assets/covers/chapter_sorting.svg){ class="cover-image" }
 
 !!! abstract
 

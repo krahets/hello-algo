@@ -15,7 +15,7 @@ icon: material/rocket-launch-outline
 
 本人自知学疏才浅，书中内容虽然已经过一段时间的打磨，但一定仍有许多错误，恳请各位老师和同学批评指正。
 
-![Hello 算法](../assets/covers/chapter_hello_algo.jpg){ class="cover-image" }
+![Hello 算法](../assets/covers/chapter_hello_algo.svg){ class="cover-image" }
 
 <div style="text-align: center;">
     <h2 style="margin-top: 0.8em; margin-bottom: 0.8em;">Hello，算法！</h2>

@@ -5,7 +5,7 @@ icon: material/book-open-outline
 
 # 第 0 章 &nbsp; はじめに
 
-![はじめに](../assets/covers/chapter_preface.jpg){ class="cover-image" }
+![はじめに](../assets/covers/chapter_preface.svg){ class="cover-image" }
 
 !!! abstract "概要"
 

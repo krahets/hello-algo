@@ -5,7 +5,7 @@ icon: material/shape-outline
 
 # 제 3 장 &nbsp; 자료 구조
 
-![자료 구조](../assets/covers/chapter_data_structure.jpg){ class="cover-image" }
+![자료 구조](../assets/covers/chapter_data_structure.svg){ class="cover-image" }
 
 !!! abstract "이 장을 시작하며"
 

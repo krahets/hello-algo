@@ -5,7 +5,7 @@ icon: material/set-split
 
 # 제 12 장 &nbsp; 분할 정복
 
-![분할 정복](../assets/covers/chapter_divide_and_conquer.jpg){ class="cover-image" }
+![분할 정복](../assets/covers/chapter_divide_and_conquer.svg){ class="cover-image" }
 
 !!! abstract "이 장을 시작하며"
 

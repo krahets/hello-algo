@@ -5,7 +5,7 @@ icon: material/text-search
 
 # 第 10 章 &nbsp; 探索
 
-![探索](../assets/covers/chapter_searching.jpg){ class="cover-image" }
+![探索](../assets/covers/chapter_searching.svg){ class="cover-image" }
 
 !!! abstract "概要"
 

@@ -5,7 +5,7 @@ icon: material/stack-overflow
 
 # Глава 5. &nbsp; Стек и очередь
 
-![Стек и очередь](../assets/covers/chapter_stack_and_queue.jpg){ class="cover-image" }
+![Стек и очередь](../assets/covers/chapter_stack_and_queue.svg){ class="cover-image" }
 
 !!! abstract
 

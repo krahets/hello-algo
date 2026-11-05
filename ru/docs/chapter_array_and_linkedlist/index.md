@@ -5,7 +5,7 @@ icon: material/view-list-outline
 
 # Глава 4. &nbsp; Массивы и списки
 
-![Массивы и списки](../assets/covers/chapter_array_and_linkedlist.jpg){ class="cover-image" }
+![Массивы и списки](../assets/covers/chapter_array_and_linkedlist.svg){ class="cover-image" }
 
 !!! abstract
 

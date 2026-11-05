@@ -5,7 +5,7 @@ icon: material/head-heart-outline
 
 # Chapter 15. &nbsp; Greedy algorithms
 
-![Greedy algorithms](../assets/covers/chapter_greedy.jpg){ class="cover-image" }
+![Greedy algorithms](../assets/covers/chapter_greedy.svg){ class="cover-image" }
 
 !!! abstract
 

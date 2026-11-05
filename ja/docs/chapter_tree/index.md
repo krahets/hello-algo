@@ -5,7 +5,7 @@ icon: material/graph-outline
 
 # 第 7 章 &nbsp; 木
 
-![木](../assets/covers/chapter_tree.jpg){ class="cover-image" }
+![木](../assets/covers/chapter_tree.svg){ class="cover-image" }
 
 !!! abstract "概要"
 

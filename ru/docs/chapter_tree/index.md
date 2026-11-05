@@ -5,7 +5,7 @@ icon: material/graph-outline
 
 # Глава 7. &nbsp; Деревья
 
-![Деревья](../assets/covers/chapter_tree.jpg){ class="cover-image" }
+![Деревья](../assets/covers/chapter_tree.svg){ class="cover-image" }
 
 !!! abstract
 

@@ -5,7 +5,7 @@ icon: material/book-open-outline
 
 # Chapter 0. &nbsp; Preface
 
-![Preface](../assets/covers/chapter_preface.jpg){ class="cover-image" }
+![Preface](../assets/covers/chapter_preface.svg){ class="cover-image" }
 
 !!! abstract
 

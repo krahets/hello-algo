@@ -5,7 +5,7 @@ icon: material/calculator-variant-outline
 
 # 第 1 章 &nbsp; 初识算法
 
-![初识算法](../assets/covers/chapter_introduction.jpg){ class="cover-image" }
+![初识算法](../assets/covers/chapter_introduction.svg){ class="cover-image" }
 
 !!! abstract
 

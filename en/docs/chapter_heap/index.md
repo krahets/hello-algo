@@ -5,7 +5,7 @@ icon: material/family-tree
 
 # Chapter 8. &nbsp; Heaps
 
-![Heaps](../assets/covers/chapter_heap.jpg){ class="cover-image" }
+![Heaps](../assets/covers/chapter_heap.svg){ class="cover-image" }
 
 !!! abstract
 

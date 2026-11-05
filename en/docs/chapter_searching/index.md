@@ -5,7 +5,7 @@ icon: material/text-search
 
 # Chapter 10. &nbsp; Searching
 
-![Searching](../assets/covers/chapter_searching.jpg){ class="cover-image" }
+![Searching](../assets/covers/chapter_searching.svg){ class="cover-image" }
 
 !!! abstract
 

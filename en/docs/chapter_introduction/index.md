@@ -5,7 +5,7 @@ icon: material/calculator-variant-outline
 
 # Chapter 1. &nbsp; Getting to know algorithms
 
-![Getting to know algorithms](../assets/covers/chapter_introduction.jpg){ class="cover-image" }
+![Getting to know algorithms](../assets/covers/chapter_introduction.svg){ class="cover-image" }
 
 !!! abstract
 

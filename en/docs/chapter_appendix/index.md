@@ -5,7 +5,7 @@ icon: material/help-circle-outline
 
 # Chapter 16. &nbsp; Appendix
 
-![Appendix](../assets/covers/chapter_appendix.jpg){ class="cover-image" }
+![Appendix](../assets/covers/chapter_appendix.svg){ class="cover-image" }
 
 ## Chapter contents
 

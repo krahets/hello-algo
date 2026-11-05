@@ -5,7 +5,7 @@ icon: material/map-marker-path
 
 # Глава 13. &nbsp; Поиск с возвратом
 
-![Поиск с возвратом](../assets/covers/chapter_backtracking.jpg){ class="cover-image" }
+![Поиск с возвратом](../assets/covers/chapter_backtracking.svg){ class="cover-image" }
 
 !!! abstract
 

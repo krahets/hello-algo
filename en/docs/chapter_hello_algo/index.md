@@ -15,7 +15,7 @@ I wholeheartedly agree with Professor Feynman's words: “Knowledge isn't free. 
 
 I am aware of the limits of my knowledge. Although the content has undergone considerable refinement, many errors surely remain. I sincerely welcome corrections and suggestions from teachers and fellow learners.
 
-![Hello Algo](../assets/covers/chapter_hello_algo.jpg){ class="cover-image" }
+![Hello Algo](../assets/covers/chapter_hello_algo.svg){ class="cover-image" }
 
 <div style="text-align: center;">
     <h2 style="margin-top: 0.8em; margin-bottom: 0.8em;">Hello, algorithms!</h2>

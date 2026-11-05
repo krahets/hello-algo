@@ -15,7 +15,7 @@ icon: material/rocket-launch-outline
 
 내 학식과 재능이 부족함을 잘 알고 있다. 책의 내용을 한동안 다듬어 왔지만 여전히 많은 오류가 있을 것이다. 선생님과 학생 여러분의 비판과 지적을 부탁드린다.
 
-![Hello 알고리즘](../assets/covers/chapter_hello_algo.jpg){ class="cover-image" }
+![Hello 알고리즘](../assets/covers/chapter_hello_algo.svg){ class="cover-image" }
 
 <div style="text-align: center;">
     <h2 style="margin-top: 0.8em; margin-bottom: 0.8em;">Hello, 알고리즘!</h2>

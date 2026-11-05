@@ -5,7 +5,7 @@ icon: material/map-marker-path
 
 # 第 13 章 &nbsp; バックトラッキング
 
-![バックトラッキング](../assets/covers/chapter_backtracking.jpg){ class="cover-image" }
+![バックトラッキング](../assets/covers/chapter_backtracking.svg){ class="cover-image" }
 
 !!! abstract "概要"
 

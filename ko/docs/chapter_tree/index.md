@@ -5,7 +5,7 @@ icon: material/graph-outline
 
 # 제 7 장 &nbsp; 트리
 
-![트리](../assets/covers/chapter_tree.jpg){ class="cover-image" }
+![트리](../assets/covers/chapter_tree.svg){ class="cover-image" }
 
 !!! abstract "이 장을 시작하며"
 

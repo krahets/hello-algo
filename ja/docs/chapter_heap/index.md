@@ -5,7 +5,7 @@ icon: material/family-tree
 
 # 第 8 章 &nbsp; ヒープ
 
-![ヒープ](../assets/covers/chapter_heap.jpg){ class="cover-image" }
+![ヒープ](../assets/covers/chapter_heap.svg){ class="cover-image" }
 
 !!! abstract "概要"
 

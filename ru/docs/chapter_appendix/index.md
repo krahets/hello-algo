@@ -5,7 +5,7 @@ icon: material/help-circle-outline
 
 # Глава 16. &nbsp; Приложение
 
-![Приложение](../assets/covers/chapter_appendix.jpg){ class="cover-image" }
+![Приложение](../assets/covers/chapter_appendix.svg){ class="cover-image" }
 
 ## Содержание главы
 

@@ -5,7 +5,7 @@ icon: material/calculator-variant-outline
 
 # Глава 1. &nbsp; Введение в алгоритмы
 
-![Введение в алгоритмы](../assets/covers/chapter_introduction.jpg){ class="cover-image" }
+![Введение в алгоритмы](../assets/covers/chapter_introduction.svg){ class="cover-image" }
 
 !!! abstract
 

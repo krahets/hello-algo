@@ -5,7 +5,7 @@ icon: material/shape-outline
 
 # Глава 3. &nbsp; Структуры данных
 
-![Структуры данных](../assets/covers/chapter_data_structure.jpg){ class="cover-image" }
+![Структуры данных](../assets/covers/chapter_data_structure.svg){ class="cover-image" }
 
 !!! abstract
 

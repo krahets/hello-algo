@@ -5,7 +5,7 @@ icon: material/table-pivot
 
 # 第 14 章 &nbsp; 動的計画法
 
-![動的計画法](../assets/covers/chapter_dynamic_programming.jpg){ class="cover-image" }
+![動的計画法](../assets/covers/chapter_dynamic_programming.svg){ class="cover-image" }
 
 !!! abstract "概要"
 

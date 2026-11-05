@@ -5,7 +5,7 @@ icon: material/sort-ascending
 
 # 第 11 章 &nbsp; 排序
 
-![排序](../assets/covers/chapter_sorting.jpg){ class="cover-image" }
+![排序](../assets/covers/chapter_sorting.svg){ class="cover-image" }
 
 !!! abstract
 

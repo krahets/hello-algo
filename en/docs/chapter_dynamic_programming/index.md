@@ -5,7 +5,7 @@ icon: material/table-pivot
 
 # Chapter 14. &nbsp; Dynamic programming
 
-![Dynamic programming](../assets/covers/chapter_dynamic_programming.jpg){ class="cover-image" }
+![Dynamic programming](../assets/covers/chapter_dynamic_programming.svg){ class="cover-image" }
 
 !!! abstract
 

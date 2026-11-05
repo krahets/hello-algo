@@ -5,7 +5,7 @@ icon: material/timer-sand
 
 # Chapter 2. &nbsp; Complexity analysis
 
-![Complexity analysis](../assets/covers/chapter_complexity_analysis.jpg){ class="cover-image" }
+![Complexity analysis](../assets/covers/chapter_complexity_analysis.svg){ class="cover-image" }
 
 !!! abstract
 

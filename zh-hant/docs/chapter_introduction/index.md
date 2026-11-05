@@ -5,7 +5,7 @@ icon: material/calculator-variant-outline
 
 # 第 1 章 &nbsp; 初識演算法
 
-![初識演算法](../assets/covers/chapter_introduction.jpg){ class="cover-image" }
+![初識演算法](../assets/covers/chapter_introduction.svg){ class="cover-image" }
 
 !!! abstract
 

@@ -5,7 +5,7 @@ icon: material/table-search
 
 # Глава 6. &nbsp; Хеш-таблицы
 
-![Хеш-таблицы](../assets/covers/chapter_hashing.jpg){ class="cover-image" }
+![Хеш-таблицы](../assets/covers/chapter_hashing.svg){ class="cover-image" }
 
 !!! abstract
 

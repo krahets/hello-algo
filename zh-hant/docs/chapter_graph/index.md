@@ -5,7 +5,7 @@ icon: material/graphql
 
 # 第 9 章 &nbsp; 圖
 
-![圖](../assets/covers/chapter_graph.jpg){ class="cover-image" }
+![圖](../assets/covers/chapter_graph.svg){ class="cover-image" }
 
 !!! abstract
 

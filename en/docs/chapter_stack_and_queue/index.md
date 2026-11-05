@@ -5,7 +5,7 @@ icon: material/stack-overflow
 
 # Chapter 5. &nbsp; Stacks and queues
 
-![Stacks and queues](../assets/covers/chapter_stack_and_queue.jpg){ class="cover-image" }
+![Stacks and queues](../assets/covers/chapter_stack_and_queue.svg){ class="cover-image" }
 
 !!! abstract
 

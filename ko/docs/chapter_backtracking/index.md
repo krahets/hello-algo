@@ -5,7 +5,7 @@ icon: material/map-marker-path
 
 # 제 13 장 &nbsp; 백트래킹
 
-![백트래킹](../assets/covers/chapter_backtracking.jpg){ class="cover-image" }
+![백트래킹](../assets/covers/chapter_backtracking.svg){ class="cover-image" }
 
 !!! abstract "이 장을 시작하며"
 

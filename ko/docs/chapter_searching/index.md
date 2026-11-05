@@ -5,7 +5,7 @@ icon: material/text-search
 
 # 제 10 장 &nbsp; 탐색
 
-![탐색](../assets/covers/chapter_searching.jpg){ class="cover-image" }
+![탐색](../assets/covers/chapter_searching.svg){ class="cover-image" }
 
 !!! abstract "이 장을 시작하며"
 

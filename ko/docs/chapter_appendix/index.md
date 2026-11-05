@@ -5,7 +5,7 @@ icon: material/help-circle-outline
 
 # 제 16 장 &nbsp; 부록
 
-![부록](../assets/covers/chapter_appendix.jpg){ class="cover-image" }
+![부록](../assets/covers/chapter_appendix.svg){ class="cover-image" }
 
 ## 이 장의 내용
 

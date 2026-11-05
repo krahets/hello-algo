@@ -5,7 +5,7 @@ icon: material/timer-sand
 
 # 第 2 章 &nbsp; 複雜度分析
 
-![複雜度分析](../assets/covers/chapter_complexity_analysis.jpg){ class="cover-image" }
+![複雜度分析](../assets/covers/chapter_complexity_analysis.svg){ class="cover-image" }
 
 !!! abstract
 

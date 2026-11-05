@@ -5,7 +5,7 @@ icon: material/view-list-outline
 
 # 第 4 章 &nbsp; 陣列與鏈結串列
 
-![陣列與鏈結串列](../assets/covers/chapter_array_and_linkedlist.jpg){ class="cover-image" }
+![陣列與鏈結串列](../assets/covers/chapter_array_and_linkedlist.svg){ class="cover-image" }
 
 !!! abstract
 

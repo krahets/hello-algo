@@ -5,7 +5,7 @@ icon: material/view-list-outline
 
 # 第 4 章 &nbsp; 配列と連結リスト
 
-![配列と連結リスト](../assets/covers/chapter_array_and_linkedlist.jpg){ class="cover-image" }
+![配列と連結リスト](../assets/covers/chapter_array_and_linkedlist.svg){ class="cover-image" }
 
 !!! abstract "概要"
 

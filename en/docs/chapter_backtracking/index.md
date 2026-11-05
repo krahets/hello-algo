@@ -5,7 +5,7 @@ icon: material/map-marker-path
 
 # Chapter 13. &nbsp; Backtracking
 
-![Backtracking](../assets/covers/chapter_backtracking.jpg){ class="cover-image" }
+![Backtracking](../assets/covers/chapter_backtracking.svg){ class="cover-image" }
 
 !!! abstract
 

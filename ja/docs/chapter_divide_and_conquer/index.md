@@ -5,7 +5,7 @@ icon: material/set-split
 
 # 第 12 章 &nbsp; 分割統治
 
-![分割統治](../assets/covers/chapter_divide_and_conquer.jpg){ class="cover-image" }
+![分割統治](../assets/covers/chapter_divide_and_conquer.svg){ class="cover-image" }
 
 !!! abstract "概要"
 

@@ -5,7 +5,7 @@ icon: material/help-circle-outline
 
 # 第 16 章 &nbsp; 附錄
 
-![附錄](../assets/covers/chapter_appendix.jpg){ class="cover-image" }
+![附錄](../assets/covers/chapter_appendix.svg){ class="cover-image" }
 
 ## 本章內容
 

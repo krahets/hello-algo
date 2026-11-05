@@ -5,7 +5,7 @@ icon: material/graphql
 
 # Chapter 9. &nbsp; Graphs
 
-![Graphs](../assets/covers/chapter_graph.jpg){ class="cover-image" }
+![Graphs](../assets/covers/chapter_graph.svg){ class="cover-image" }
 
 !!! abstract
 
