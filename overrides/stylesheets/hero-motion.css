@@ -265,7 +265,7 @@
 .hero-universe .hero-div > a.hero-selected > img { filter: brightness(1.04); }
 
 /* Intrinsic dimensions reserve space without overriding responsive media height. */
-.home-div .profile-img { height: auto; }
+.home-div .profile-img { height: auto; aspect-ratio: 1; display: inline-block; overflow: hidden; }
 .home-div video.intro-image { height: auto; }
 
 /* Keep the full chapter title centered above the hourglass on compact maps. */
