@@ -112,10 +112,15 @@ void removeItem(BinarySearchTree *bst, int num) {
         // Когда число дочерних узлов = 0 / 1, child = nullptr / этот дочерний узел
         TreeNode *child = cur->left != NULL ? cur->left : cur->right;
         // Удалить узел cur
-        if (pre->left == cur) {
-            pre->left = child;
+        if (cur != bst->root) {
+            if (pre->left == cur) {
+                pre->left = child;
+            } else {
+                pre->right = child;
+            }
         } else {
-            pre->right = child;
+            // Если удаляемый узел является корнем, заново назначить корневой узел
+            bst->root = child;
         }
         // Освободить память
         free(cur);
