@@ -39,9 +39,7 @@
       angle: 0,
     })).filter(item => item.image);
     const ground = map.querySelector(':scope > img[data-hero-asset="ground"]');
-    const links = map.querySelector(':scope > img[data-hero-asset="links"]');
     ground?.classList.add("hero-ground");
-    links?.classList.add("hero-links");
     hero.classList.add("hero-universe");
 
     const canvas = document.createElement("canvas");
@@ -119,21 +117,25 @@
       if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
       for (const star of stars) {
-        const drift = time * star.depth * 0.7;
-        const x = wrap(star.x * width + drift + pointer.x * star.depth * 10, width + 16) - 8;
-        const y = wrap(star.y * height + Math.sin(time * 0.08 + star.phase) * 2 + pointer.y * star.depth * 7, height + 16) - 8;
-        const twinkle = 0.78 + Math.sin(time * star.speed + star.phase) * 0.22;
+        const drift = time * star.depth * 0.35;
+        const x = wrap(star.x * width + drift + pointer.x * star.depth * 10 + 8, width + 16) - 8;
+        const y = wrap(star.y * height + Math.sin(time * 0.08 + star.phase) * star.depth * 2 + pointer.y * star.depth * 7 + 8, height + 16) - 8;
+        const twinkle = 1 - star.breath * (0.5 + 0.5 * Math.sin(time * star.speed + star.phase));
         ctx.globalAlpha = star.opacity * twinkle;
+        // Only the few near stars get a tight, soft halo; the core stays sharp.
+        if (star.layer === 2) {
+          const radius = star.radius * 2.2;
+          const halo = ctx.createRadialGradient(x, y, 0, x, y, radius);
+          halo.addColorStop(0, star.color + "24");
+          halo.addColorStop(0.45, star.color + "0c");
+          halo.addColorStop(1, star.color + "00");
+          ctx.fillStyle = halo;
+          ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
+        }
         ctx.fillStyle = star.color;
         ctx.beginPath();
         ctx.arc(x, y, star.radius, 0, Math.PI * 2);
         ctx.fill();
-        if (star.radius > 1.2) {
-          ctx.globalAlpha *= 0.12;
-          ctx.beginPath();
-          ctx.arc(x, y, star.radius * 3, 0, Math.PI * 2);
-          ctx.fill();
-        }
       }
       ctx.globalAlpha = 1;
     }
@@ -221,7 +223,7 @@
       width = Math.max(container.clientWidth, 1);
       height = Math.max(container.clientHeight, 1);
       scale = Math.min(1, map.clientWidth / 1000);
-      const dpr = Math.min(window.devicePixelRatio || 1, finePointer.matches ? 1.5 : 1);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.round(width * dpr);
       canvas.height = Math.round(height * dpr);
       ctx?.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -229,14 +231,41 @@
       let seed = 73;
       const random = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
       const count = Math.min(finePointer.matches ? 300 : 130, Math.max(65, Math.round(width * height / 4200)));
-      stars = Array.from({ length: count }, (_, i) => ({
-        x: random(), y: random(), phase: random() * Math.PI * 2,
-        depth: [0.25, 0.6, 1][i % 3],
-        radius: (0.4 + random() * 0.55) * [0.7, 1, 1.5][i % 3],
-        opacity: 0.2 + random() * 0.45,
-        speed: 0.35 + random() * 0.45,
-        color: ["#d0dedc", "#c5d2e8", "#e3d5bf"][i % 3],
-      }));
+      // Loose off-centre clusters alternate with open sky. Keep the same
+      // seeded sequence across viewports, and leave the central artwork quiet.
+      const clusters = [[.12,.32,.10,.14],[.86,.23,.11,.10],[.82,.76,.11,.12],[.24,.79,.12,.10]];
+      const colors = [
+        ["#a4b9bf", "#aabbd0", "#c2bcac"],
+        ["#bdd4d7", "#b7cbe3", "#d6cdb7"],
+        ["#e0edec", "#d7e6fa", "#e9dfc5"],
+      ];
+      // Add about 30% more distant pinpoints while preserving all existing
+      // mid/near stars and their positions; concentrate the additions loosely.
+      const extraFar = Math.round(count * .72 * .30);
+      stars = Array.from({ length: count + extraFar }, (_, index) => {
+        const extra = index >= count;
+        let x = random(), y = random();
+        if (random() < (extra ? .65 : .38)) {
+          const [cx,cy,sx,sy] = clusters[Math.floor(random() * clusters.length)];
+          const radius = Math.sqrt(-2 * Math.log(Math.max(random(), .0001)));
+          const angle = random() * Math.PI * 2;
+          x = wrap(cx + Math.cos(angle) * radius * sx, 1);
+          y = wrap(cy + Math.sin(angle) * radius * sy, 1);
+        }
+        const choice = random(), layer = extra || choice < .72 ? 0 : choice < .945 ? 1 : 2;
+        const central = Math.exp(-(((x-.5)/.24)**2 + ((y-.46)/.31)**2));
+        const title = Math.exp(-(((x-.5)/.22)**2 + ((y-.86)/.12)**2));
+        const quiet = 1 - .35 * central - .25 * title;
+        return {
+          x, y, layer, phase: random() * Math.PI * 2,
+          depth: [.14,.44,.86][layer] + random() * .10,
+          radius: [.34,.57,1.0][layer] + random() * [.22,.30,.28][layer],
+          opacity: ([.30,.30,.56][layer] + random() * [.20,.20,.17][layer]) * quiet,
+          breath: [.05,.10,.14][layer],
+          speed: .12 + random() * .16,
+          color: colors[layer][Math.floor(random() * 3)],
+        };
+      });
       if (!paused || reduced.matches) moveIllustrations(0);
       drawStars();
       planets?.resize();
@@ -260,7 +289,6 @@
     function updateSelection() {
       const selected = focused || hovered;
       for (const item of items) item.anchor.classList.toggle("hero-selected", item.anchor === selected);
-      map.classList.toggle("hero-network-active", Boolean(selected));
       if (!canRun()) renderObjects();
     }
 
@@ -314,11 +342,9 @@
       canvas.remove();
       toggle.remove();
       hero.classList.remove("hero-universe", "hero-motion-paused");
-      map.classList.remove("hero-network-active");
       map.style.removeProperty("--hero-ground-x");
       map.style.removeProperty("--hero-ground-y");
       ground?.classList.remove("hero-ground");
-      links?.classList.remove("hero-links");
       for (const { anchor, label, originalLabelMargin } of items) {
         if (label) label.style.marginLeft = originalLabelMargin;
         anchor.classList.remove("hero-selected");

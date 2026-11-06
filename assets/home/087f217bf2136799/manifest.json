@@ -1,5 +1,5 @@
 {
-  "version": "50aa7b2c8191c024",
+  "version": "087f217bf2136799",
   "assets": {
     "ground": {
       "width": 881,
@@ -7,13 +7,6 @@
       "loading": "visible-layout",
       "kind": "hero",
       "path": "../shared/images/567306c070a6a7e2/ground.webp"
-    },
-    "links": {
-      "width": 1562,
-      "height": 1134,
-      "loading": "visible-layout",
-      "kind": "hero",
-      "path": "../shared/images/3e50f38a325c1cb5/links.webp"
     },
     "astronaut": {
       "width": 515,
@@ -298,12 +291,6 @@
       "label_style": null
     },
     {
-      "id": "links",
-      "style": "position: absolute; width: auto; height: 78.751%; left: 10.545%; top: 7.326%;",
-      "href": null,
-      "label_style": null
-    },
-    {
       "id": "astronaut",
       "style": "height: 46.673%; left: 35.413%; top: 24.343%;",
       "href": "chapter_introduction/",
@@ -410,7 +397,6 @@
     "shared/images/2ce6caaac951c40b/chapter_greedy.webp",
     "shared/images/2fb425426d1f8d86/chapter_computational_complexity.webp",
     "shared/images/325eedad7e336423/en_animation-poster.webp",
-    "shared/images/3e50f38a325c1cb5/links.webp",
     "shared/images/464e2d351b9263ec/avatar_gvenusleo.webp",
     "shared/images/567306c070a6a7e2/ground.webp",
     "shared/images/5b64cf7672ec5ec6/web_mac_iphone.webp",
