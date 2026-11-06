@@ -70,7 +70,7 @@
     left: auto;
     bottom: auto;
     transform: none;
-    margin-top: -2rem;
+    margin-top: 0;
     padding-bottom: max(1.5rem, min(2svh, 3vw));
   }
 }
