@@ -36,7 +36,9 @@ class HashMapOpenAddressing:
         index = self.hash_func(key)
         first_tombstone = -1
         # Probe linearly until an empty bucket is reached
-        while self.buckets[index] is not None:
+        for _ in range(self.capacity):
+            if self.buckets[index] is None:
+                break
             # If key is found, return its bucket index
             if self.buckets[index].key == key:
                 # If a tombstone was encountered earlier, move the key-value pair to that index
