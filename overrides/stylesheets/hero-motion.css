@@ -70,7 +70,7 @@
     left: auto;
     bottom: auto;
     transform: none;
-    margin-top: -2rem;
+    margin-top: 0;
     padding-bottom: max(1.5rem, min(2svh, 3vw));
   }
 }
@@ -265,7 +265,7 @@
 .hero-universe .hero-div > a.hero-selected > img { filter: brightness(1.04); }
 
 /* Intrinsic dimensions reserve space without overriding responsive media height. */
-.home-div .profile-img { height: auto; }
+.home-div .profile-img { height: auto; aspect-ratio: 1; display: inline-block; overflow: hidden; }
 .home-div video.intro-image { height: auto; }
 
 /* Keep the full chapter title centered above the hourglass on compact maps. */
@@ -283,5 +283,15 @@
 @media (max-width: 600px), (max-height: 600px) {
   .hero-div:is(.hero-div--ja, .hero-div--ru) > a[href="chapter_sorting/"] > span {
     margin-top: 3%;
+  }
+}
+
+/* Keep the two lower labels beside their planets, clear of long taglines. */
+@media (min-width: 601px) and (min-height: 601px) {
+  .home-div.home-universe-bg > .hero-div > a[href$="chapter_stack_and_queue/"] > span {
+    margin-top: -6%;
+  }
+  .home-div.home-universe-bg > .hero-div > a[href$="chapter_greedy/"] > span {
+    margin-top: -2%;
   }
 }
