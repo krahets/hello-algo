@@ -448,7 +448,7 @@ $$
 
     ```kotlin title=""
     // 演算法 A 的時間複雜度：常數階
-    fun algoritm_A(n: Int) {
+    fun algorithm_A(n: Int) {
         println(0)
     }
     // 演算法 B 的時間複雜度：線性階
