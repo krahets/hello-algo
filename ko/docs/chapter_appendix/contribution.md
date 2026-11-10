@@ -31,17 +31,3 @@
 3. 로컬에서 내용을 작성하고 충분히 테스트하여 코드가 올바른지 검증한다.
 4. 로컬 변경 사항을 커밋한 뒤 원격 저장소로 푸시한다.
 5. 저장소 웹페이지를 새로 고침하고 ‘Create pull request’ 버튼을 눌러 풀 리퀘스트를 만든다.
-
-### Docker 배포
-
-`hello-algo` 루트 디렉터리에서 다음 Docker 명령을 실행하면 `http://localhost:8000/ko/`에서 한국어판을 열 수 있다.
-
-```shell
-docker-compose up -d
-```
-
-다음 명령으로 배포를 제거할 수 있다.
-
-```shell
-docker-compose down
-```
