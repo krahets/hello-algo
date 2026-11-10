@@ -36,7 +36,8 @@ class HashMapOpenAddressing {
     int index = hashFunc(key);
     int firstTombstone = -1;
     // Probe linearly until an empty bucket is reached
-    while (_buckets[index] != null) {
+    for (int i = 0; i < _capacity; i++) {
+      if (_buckets[index] == null) break;
       // If key is found, return its bucket index
       if (_buckets[index]!.key == key) {
         // If a tombstone was encountered earlier, move the key-value pair to that index
