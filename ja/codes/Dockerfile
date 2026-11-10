@@ -25,7 +25,7 @@ RUN for LANG in $LANGS; do \
                 apt-get install -y dotnet-sdk-8.0 ;; \
             # その他の言語...
             *) \
-                echo "警告：$LANG のインストール手順がありません" ;; \
+                echo "エラー：$LANG のインストール手順がありません" >&2; exit 1 ;; \
         esac \
     done
 
