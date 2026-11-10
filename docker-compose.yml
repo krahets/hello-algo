@@ -1,8 +1,0 @@
-version: '3'
-services:
-  hello-algo:
-    build: .
-    image: hello-algo
-    container_name: hello-algo
-    ports:
-      - "8000:8000"
