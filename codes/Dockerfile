@@ -25,7 +25,7 @@ RUN for LANG in $LANGS; do \
                 apt-get install -y dotnet-sdk-8.0 ;; \
             # More languages...
             *) \
-                echo "Warning: No installation workflow for $LANG" ;; \
+                echo "Error: No installation workflow for $LANG" >&2; exit 1 ;; \
         esac \
     done
 

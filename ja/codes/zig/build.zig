@@ -16,13 +16,6 @@ pub fn build(b: *std.Build) void {
     const chapters = [_][]const u8{
         "chapter_computational_complexity",
         "chapter_array_and_linkedlist",
-        "chapter_stack_and_queue",
-        "chapter_hashing",
-        "chapter_tree",
-        "chapter_heap",
-        "chapter_searching",
-        "chapter_sorting",
-        "chapter_dynamic_programming",
     };
 
     const test_step = b.step("test", "ユニットテストを実行する");
@@ -41,14 +34,13 @@ fn buildChapterExeModules(
     test_filters: []const []const u8,
 ) void {
     for (chapter_dirs) |chapter_dir_name| {
-        const chapter_dir_path = std.fs.path.join(b.allocator, &[_][]const u8{chapter_dir_name}) catch continue;
-        var chapter_dir = std.fs.cwd().openDir(chapter_dir_path, .{ .iterate = true }) catch continue;
+        var chapter_dir = std.fs.cwd().openDir(chapter_dir_name, .{ .iterate = true }) catch |err| @panic(@errorName(err));
         defer chapter_dir.close();
 
         var it = chapter_dir.iterate();
-        while (it.next() catch continue) |chapter_dir_entry| {
+        while (it.next() catch |err| @panic(@errorName(err))) |chapter_dir_entry| {
             if (chapter_dir_entry.kind != .file or !std.mem.endsWith(u8, chapter_dir_entry.name, ".zig")) continue;
-            const exe_mod = buildExeModuleFromChapterDirEntry(b, target, optimize, chapter_dir_name, chapter_dir_entry) catch continue;
+            const exe_mod = buildExeModuleFromChapterDirEntry(b, target, optimize, chapter_dir_name, chapter_dir_entry) catch |err| @panic(@errorName(err));
             addTestStepToExeModule(b, test_step, exe_mod, test_filters);
         }
     }
@@ -63,30 +55,6 @@ fn buildExeModuleFromChapterDirEntry(
 ) !*std.Build.Module {
     const zig_file_path = try std.fs.path.join(b.allocator, &[_][]const u8{ chapter_dir_name, chapter_dir_entry.name });
     const zig_file_name = chapter_dir_entry.name[0 .. chapter_dir_entry.name.len - 4]; // xxx.zig から Zig のファイル名を抽出する
-
-    // ここでは一時的に配列と連結リストの章だけを追加し、後で修正が完了したらすべてを有効にする
-    const new_algo_names = [_][]const u8{
-        "array",
-        "linked_list",
-        "list",
-        "my_list",
-        "iteration",
-        "recursion",
-        "space_complexity",
-        "time_complexity",
-        "worst_best_time_complexity",
-    };
-    var can_run = false;
-    for (new_algo_names) |name| {
-        if (std.mem.eql(u8, zig_file_name, name)) {
-            can_run = true;
-        }
-    }
-    if (!can_run) {
-        return error.CanNotRunUseOldZigCodes;
-    }
-
-    // std.debug.print("現在実行している Zig ファイル名 = {s}\n", .{zig_file_name});
 
     const exe_mod = b.createModule(.{
         .root_source_file = b.path(zig_file_path),
