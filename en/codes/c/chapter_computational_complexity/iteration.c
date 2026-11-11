@@ -46,7 +46,7 @@ int whileLoopII(int n) {
 char *nestedForLoop(int n) {
     // There are n * n points; each "(i, j), " takes at most 6+10*2 characters, plus space for the final null character \0
     int size = n * n * 26 + 1;
-    char *res = malloc(size * sizeof(char));
+    char *res = calloc(size, sizeof(char));
     // Loop over i = 1, 2, ..., n-1, n
     for (int i = 1; i <= n; i++) {
         // Loop over j = 1, 2, ..., n-1, n
