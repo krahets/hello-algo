@@ -46,7 +46,7 @@ int whileLoopII(int n) {
 char *nestedForLoop(int n) {
     // n * n — это число соответствующих точек, а максимальная длина строки "(i, j), " равна 6+10*2, плюс дополнительное место для завершающего нулевого символа \0
     int size = n * n * 26 + 1;
-    char *res = malloc(size * sizeof(char));
+    char *res = calloc(size, sizeof(char));
     // Цикл по i = 1, 2, ..., n-1, n
     for (int i = 1; i <= n; i++) {
         // Цикл по j = 1, 2, ..., n-1, n

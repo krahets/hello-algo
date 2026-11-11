@@ -46,7 +46,7 @@ int whileLoopII(int n) {
 char *nestedForLoop(int n) {
     // n * n は点の個数であり、文字列 "(i, j), " の長さは最大 6+10*2 である。さらに末尾のヌル文字 \0 のための領域を加える
     int size = n * n * 26 + 1;
-    char *res = malloc(size * sizeof(char));
+    char *res = calloc(size, sizeof(char));
     // i = 1, 2, ..., n-1, n のループ
     for (int i = 1; i <= n; i++) {
         // j = 1, 2, ..., n-1, n のループ

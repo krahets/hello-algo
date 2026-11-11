@@ -46,7 +46,7 @@ int whileLoopII(int n) {
 char *nestedForLoop(int n) {
     // n * n 为对应点数量，"(i, j), " 对应字符串长最大为 6+10*2，加上最后一个空字符 \0 的额外空间
     int size = n * n * 26 + 1;
-    char *res = malloc(size * sizeof(char));
+    char *res = calloc(size, sizeof(char));
     // 循环 i = 1, 2, ..., n-1, n
     for (int i = 1; i <= n; i++) {
         // 循环 j = 1, 2, ..., n-1, n
