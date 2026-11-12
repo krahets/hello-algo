@@ -448,7 +448,7 @@ To make this abstract idea concrete, consider three algorithms, `A`, `B`, and `C
 
     ```kotlin title=""
     // Algorithm A: constant time complexity
-    fun algoritm_A(n: Int) {
+    fun algorithm_A(n: Int) {
         println(0)
     }
     // Algorithm B: linear time complexity
