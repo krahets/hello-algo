@@ -25,15 +25,19 @@ void main() {
   print("\nИнициализация двоичного дерева\n");
   printTree(n1);
 
+  // [region]{insert_node}
   /* Вставка и удаление узлов */
   TreeNode p = TreeNode(0);
-  // Вставить узел p между n1 -> n2
+  // Вставить узел P между n1 -> n2
   n1.left = p;
   p.left = n2;
+  // [endregion]{insert_node}
   print("\nПосле вставки узла P\n");
   printTree(n1);
+  // [region]{remove_node}
   // Удалить узел P
   n1.left = n2;
+  // [endregion]{remove_node}
   print("\nПосле удаления узла P\n");
   printTree(n1);
 }

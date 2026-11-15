@@ -77,10 +77,12 @@ end
 
 ### 実行用コード ###
 if __FILE__ == $0
+  # [region]{init_array}
   # 配列を初期化する
   arr = Array.new(5, 0)
-  puts "配列 arr = #{arr}"
   nums = [1, 3, 2, 5, 4]
+  # [endregion]{init_array}
+  puts "配列 arr = #{arr}"
   puts "配列 nums = #{nums}"
 
   # ランダムアクセス

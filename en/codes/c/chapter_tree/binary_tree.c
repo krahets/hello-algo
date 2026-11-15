@@ -25,18 +25,21 @@ int main() {
     printf("Initialize the binary tree\n");
     printTree(n1);
 
+    // [region]{insert_node}
     /* Insert and remove nodes */
     TreeNode *P = newTreeNode(0);
     // Insert node P between n1 and n2 in n1 -> n2
     n1->left = P;
     P->left = n2;
+    // [endregion]{insert_node}
     printf("After inserting node P:\n");
     printTree(n1);
-
+    // [region]{remove_node}
     // Remove node P
     n1->left = n2;
     // Free memory
     free(P);
+    // [endregion]{remove_node}
     printf("After removing node P:\n");
     printTree(n1);
 

@@ -26,15 +26,19 @@ if __FILE__ == $0
   puts "\nInitialize the binary tree\n\n"
   print_tree(n1)
 
+  # [region]{insert_node}
   # Insert and remove nodes
   _p = TreeNode.new(0)
   # Insert node _p between n1 and n2
   n1.left = _p
   _p.left = n2
+  # [endregion]{insert_node}
   puts "\nAfter inserting node _p\n\n"
   print_tree(n1)
+  # [region]{remove_node}
   # Remove a node
   n1.left = n2
+  # [endregion]{remove_node}
   puts "\nAfter removing node _p\n\n"
   print_tree(n1)
 end

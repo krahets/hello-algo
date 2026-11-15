@@ -71,10 +71,12 @@ fun find(nums: IntArray, target: Int): Int {
 
 /* Driver code */
 fun main() {
+    // [region]{init_array}
     /* Initialize the array */
-    val arr = IntArray(5)
-    println("Array arr = ${arr.contentToString()}")
+    val arr = IntArray(5) // { 0, 0, 0, 0, 0 }
     var nums = intArrayOf(1, 3, 2, 5, 4)
+    // [endregion]{init_array}
+    println("Array arr = ${arr.contentToString()}")
     println("Array nums = ${nums.contentToString()}")
 
     /* Random access */

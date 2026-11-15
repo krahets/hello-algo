@@ -30,14 +30,18 @@ if __name__ == "__main__":
     print("\n二分木を初期化する\n")
     print_tree(n1)
 
+    # [region]{insert_node}
     # ノードの挿入と削除
     P = TreeNode(0)
     # n1 -> n2 の間にノード P を挿入する
     n1.left = P
     P.left = n2
+    # [endregion]{insert_node}
     print("\nノード P の挿入後\n")
     print_tree(n1)
-    # ノードを削除する
+    # [region]{remove_node}
+    # ノード P を削除する
     n1.left = n2
+    # [endregion]{remove_node}
     print("\nノード P の削除後\n")
     print_tree(n1)

@@ -25,18 +25,21 @@ int main() {
     printf("Инициализация двоичного дерева\n");
     printTree(n1);
 
+    // [region]{insert_node}
     /* Вставка и удаление узлов */
     TreeNode *P = newTreeNode(0);
     // Вставить узел P между n1 -> n2
     n1->left = P;
     P->left = n2;
+    // [endregion]{insert_node}
     printf("После вставки узла P\n");
     printTree(n1);
-
+    // [region]{remove_node}
     // Удалить узел P
     n1->left = n2;
     // Освободить память
     free(P);
+    // [endregion]{remove_node}
     printf("После удаления узла P\n");
     printTree(n1);
 

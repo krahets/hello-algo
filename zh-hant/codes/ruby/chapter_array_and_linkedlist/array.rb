@@ -77,10 +77,12 @@ end
 
 ### Driver Code ###
 if __FILE__ == $0
+  # [region]{init_array}
   # 初始化陣列
   arr = Array.new(5, 0)
-  puts "陣列 arr = #{arr}"
   nums = [1, 3, 2, 5, 4]
+  # [endregion]{init_array}
+  puts "陣列 arr = #{arr}"
   puts "陣列 nums = #{nums}"
 
   # 隨機訪問

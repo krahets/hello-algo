@@ -69,10 +69,12 @@ function find(nums: number[], target: number): number {
 }
 
 /* Driver code */
+// [region]{init_array}
 /* Initialize the array */
 const arr: number[] = new Array(5).fill(0);
-console.log('Array arr =', arr);
 let nums: number[] = [1, 3, 2, 5, 4];
+// [endregion]{init_array}
+console.log('Array arr =', arr);
 console.log('Array nums =', nums);
 
 /* Random access */

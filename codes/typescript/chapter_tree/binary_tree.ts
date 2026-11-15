@@ -24,15 +24,19 @@ n2.right = n5;
 console.log('\n初始化二叉树\n');
 printTree(n1);
 
+// [region]{insert_node}
 /* 插入与删除节点 */
 const P = new TreeNode(0);
 // 在 n1 -> n2 中间插入节点 P
 n1.left = P;
 P.left = n2;
+// [endregion]{insert_node}
 console.log('\n插入节点 P 后\n');
 printTree(n1);
+// [region]{remove_node}
 // 删除节点 P
 n1.left = n2;
+// [endregion]{remove_node}
 console.log('\n删除节点 P 后\n');
 printTree(n1);
 

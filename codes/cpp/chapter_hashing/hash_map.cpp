@@ -8,9 +8,12 @@
 
 /* Driver Code */
 int main() {
+    // [region]{init_hash_map}
     /* 初始化哈希表 */
     unordered_map<int, string> map;
+    // [endregion]{init_hash_map}
 
+    // [region]{add_pairs}
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     map[12836] = "小哈";
@@ -18,17 +21,22 @@ int main() {
     map[16750] = "小算";
     map[13276] = "小法";
     map[10583] = "小鸭";
+    // [endregion]{add_pairs}
     cout << "\n添加完成后，哈希表为\nKey -> Value" << endl;
     printHashMap(map);
 
+    // [region]{get_value}
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     string name = map[15937];
+    // [endregion]{get_value}
     cout << "\n输入学号 15937 ，查询到姓名 " << name << endl;
 
+    // [region]{remove_pair}
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.erase(10583);
+    // [endregion]{remove_pair}
     cout << "\n删除 10583 后，哈希表为\nKey -> Value" << endl;
     printHashMap(map);
 

@@ -75,10 +75,12 @@ func find(nums: [Int], target: Int) -> Int {
 enum _Array {
     /* Driver Code */
     static func main() {
+        // [region]{init_array}
         /* Инициализация массива */
-        let arr = Array(repeating: 0, count: 5)
-        print("Массив arr = \(arr)")
+        let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
         var nums = [1, 3, 2, 5, 4]
+        // [endregion]{init_array}
+        print("Массив arr = \(arr)")
         print("Массив nums = \(nums)")
 
         /* Случайный доступ */

@@ -1,222 +1,132 @@
 <!-- [snippet]{deque_operations} -->
 ```python title="deque.py"
-from collections import deque
+[file]{deque}-[region]{import_deque}
 
-# Инициализация двусторонней очереди
-deq: deque[int] = deque()
+[file]{deque}-[region]{init_deque}
 
-# Поместить элементы в очередь
-deq.append(2)      # Добавить в хвост
-deq.append(5)
-deq.append(4)
-deq.appendleft(3)  # Добавить в голову
-deq.appendleft(1)
+[file]{deque}-[region]{push}
 
-# Просмотреть элементы
-front: int = deq[0]  # Элемент в голове
-rear: int = deq[-1]  # Элемент в хвосте
+[file]{deque}-[region]{peek_first}
+[file]{deque}-[region]{peek_last}
 
-# Извлечь элементы из очереди
-pop_front: int = deq.popleft()  # Извлечь элемент из головы
-pop_rear: int = deq.pop()       # Извлечь элемент из хвоста
+[file]{deque}-[region]{pop_first}
+[file]{deque}-[region]{pop_last}
 
-# Получить длину двусторонней очереди
-size: int = len(deq)
+[file]{deque}-[region]{size}
 
-# Проверить, пуста ли двусторонняя очередь
-is_empty: bool = len(deq) == 0
+[file]{deque}-[region]{is_empty}
 ```
 
 ```cpp title="deque.cpp"
-/* Инициализация двусторонней очереди */
-deque<int> deque;
+[file]{deque}-[region]{init_deque}
 
-/* Поместить элементы в очередь */
-deque.push_back(2);   // Добавить в хвост
-deque.push_back(5);
-deque.push_back(4);
-deque.push_front(3);  // Добавить в голову
-deque.push_front(1);
+[file]{deque}-[region]{push}
 
-/* Просмотреть элементы */
-int front = deque.front(); // Элемент в голове
-int back = deque.back();   // Элемент в хвосте
+[file]{deque}-[region]{peek_first}
+[file]{deque}-[region]{peek_last}
 
-/* Извлечь элементы из очереди */
-deque.pop_front();  // Извлечь элемент из головы
-deque.pop_back();   // Извлечь элемент из хвоста
+[file]{deque}-[region]{pop_first}
+[file]{deque}-[region]{pop_last}
 
-/* Получить длину двусторонней очереди */
-int size = deque.size();
+[file]{deque}-[region]{size}
 
-/* Проверить, пуста ли двусторонняя очередь */
-bool empty = deque.empty();
+[file]{deque}-[region]{is_empty}
 ```
 
 ```java title="deque.java"
-/* Инициализация двусторонней очереди */
-Deque<Integer> deque = new LinkedList<>();
+[file]{deque}-[region]{init_deque}
 
-/* Поместить элементы в очередь */
-deque.offerLast(2);   // Добавить в хвост
-deque.offerLast(5);
-deque.offerLast(4);
-deque.offerFirst(3);  // Добавить в голову
-deque.offerFirst(1);
+[file]{deque}-[region]{push}
 
-/* Просмотреть элементы */
-int peekFirst = deque.peekFirst();  // Элемент в голове
-int peekLast = deque.peekLast();    // Элемент в хвосте
+[file]{deque}-[region]{peek_first}
+[file]{deque}-[region]{peek_last}
 
-/* Извлечь элементы из очереди */
-int popFirst = deque.pollFirst();  // Извлечь элемент из головы
-int popLast = deque.pollLast();    // Извлечь элемент из хвоста
+[file]{deque}-[region]{pop_first}
+[file]{deque}-[region]{pop_last}
 
-/* Получить длину двусторонней очереди */
-int size = deque.size();
+[file]{deque}-[region]{size}
 
-/* Проверить, пуста ли двусторонняя очередь */
-boolean isEmpty = deque.isEmpty();
+[file]{deque}-[region]{is_empty}
 ```
 
 ```csharp title="deque.cs"
-/* Инициализация двусторонней очереди */
-// В C# двустороннюю очередь обычно моделируют через связный список LinkedList
-LinkedList<int> deque = new();
+[file]{deque}-[region]{init_deque}
 
-/* Поместить элементы в очередь */
-deque.AddLast(2);   // Добавить в хвост
-deque.AddLast(5);
-deque.AddLast(4);
-deque.AddFirst(3);  // Добавить в голову
-deque.AddFirst(1);
+[file]{deque}-[region]{push}
 
-/* Просмотреть элементы */
-int peekFirst = deque.First.Value;  // Элемент в голове
-int peekLast = deque.Last.Value;    // Элемент в хвосте
+[file]{deque}-[region]{peek_first}
+[file]{deque}-[region]{peek_last}
 
-/* Извлечь элементы из очереди */
-deque.RemoveFirst();  // Извлечь элемент из головы
-deque.RemoveLast();   // Извлечь элемент из хвоста
+[file]{deque}-[region]{pop_first}
+[file]{deque}-[region]{pop_last}
 
-/* Получить длину двусторонней очереди */
-int size = deque.Count;
+[file]{deque}-[region]{size}
 
-/* Проверить, пуста ли двусторонняя очередь */
-bool isEmpty = deque.Count == 0;
+[file]{deque}-[region]{is_empty}
 ```
 
 ```go title="deque_test.go"
-/* Инициализация двусторонней очереди */
-// В Go list обычно используется как двусторонняя очередь
-deque := list.New()
+[file]{deque_test}-[region]{init_deque}
 
-/* Поместить элементы в очередь */
-deque.PushBack(2)      // Добавить в хвост
-deque.PushBack(5)
-deque.PushBack(4)
-deque.PushFront(3)     // Добавить в голову
-deque.PushFront(1)
+[file]{deque_test}-[region]{push}
 
-/* Просмотреть элементы */
-front := deque.Front() // Элемент в голове
-rear := deque.Back()   // Элемент в хвосте
+[file]{deque_test}-[region]{peek_first}
+[file]{deque_test}-[region]{peek_last}
 
-/* Извлечь элементы из очереди */
-deque.Remove(front)    // Извлечь элемент из головы
-deque.Remove(rear)     // Извлечь элемент из хвоста
+[file]{deque_test}-[region]{pop_first}
+[file]{deque_test}-[region]{pop_last}
 
-/* Получить длину двусторонней очереди */
-size := deque.Len()
+[file]{deque_test}-[region]{size}
 
-/* Проверить, пуста ли двусторонняя очередь */
-isEmpty := deque.Len() == 0
+[file]{deque_test}-[region]{is_empty}
 ```
 
 ```swift title="deque.swift"
-/* Инициализация двусторонней очереди */
-// В Swift нет встроенного класса двусторонней очереди, поэтому можно использовать Array как двустороннюю очередь
-var deque: [Int] = []
+[file]{deque}-[region]{init_deque}
 
-/* Поместить элементы в очередь */
-deque.append(2) // Добавить в хвост
-deque.append(5)
-deque.append(4)
-deque.insert(3, at: 0) // Добавить в голову
-deque.insert(1, at: 0)
+[file]{deque}-[region]{push}
 
-/* Просмотреть элементы */
-let peekFirst = deque.first! // Элемент в голове
-let peekLast = deque.last! // Элемент в хвосте
+[file]{deque}-[region]{peek_first}
+[file]{deque}-[region]{peek_last}
 
-/* Извлечь элементы из очереди */
-// При моделировании через Array сложность popFirst равна O(n)
-let popFirst = deque.removeFirst() // Извлечь элемент из головы
-let popLast = deque.removeLast() // Извлечь элемент из хвоста
+[file]{deque}-[region]{pop_first}
+[file]{deque}-[region]{pop_last}
 
-/* Получить длину двусторонней очереди */
-let size = deque.count
+[file]{deque}-[region]{size}
 
-/* Проверить, пуста ли двусторонняя очередь */
-let isEmpty = deque.isEmpty
+[file]{deque}-[region]{is_empty}
 ```
 
 ```javascript title="deque.js"
-/* Инициализация двусторонней очереди */
-// В JavaScript нет встроенной двусторонней очереди, поэтому можно использовать Array как двустороннюю очередь
-const deque = [];
+[file]{deque}-[region]{init_deque}
 
-/* Поместить элементы в очередь */
-deque.push(2);
-deque.push(5);
-deque.push(4);
-// Обратите внимание: поскольку это массив, метод unshift() имеет сложность O(n)
-deque.unshift(3);
-deque.unshift(1);
+[file]{deque}-[region]{push}
 
-/* Просмотреть элементы */
-const peekFirst = deque[0];
-const peekLast = deque[deque.length - 1];
+[file]{deque}-[region]{peek_first}
+[file]{deque}-[region]{peek_last}
 
-/* Извлечь элементы из очереди */
-// Обратите внимание: поскольку это массив, метод shift() имеет сложность O(n)
-const popFront = deque.shift();
-const popBack = deque.pop();
+[file]{deque}-[region]{pop_first}
+[file]{deque}-[region]{pop_last}
 
-/* Получить длину двусторонней очереди */
-const size = deque.length;
+[file]{deque}-[region]{size}
 
-/* Проверить, пуста ли двусторонняя очередь */
-const isEmpty = size === 0;
+[file]{deque}-[region]{is_empty}
 ```
 
 ```typescript title="deque.ts"
-/* Инициализация двусторонней очереди */
-// В TypeScript нет встроенной двусторонней очереди, поэтому можно использовать Array как двустороннюю очередь
-const deque: number[] = [];
+[file]{deque}-[region]{init_deque}
 
-/* Поместить элементы в очередь */
-deque.push(2);
-deque.push(5);
-deque.push(4);
-// Обратите внимание: поскольку это массив, метод unshift() имеет сложность O(n)
-deque.unshift(3);
-deque.unshift(1);
+[file]{deque}-[region]{push}
 
-/* Просмотреть элементы */
-const peekFirst: number = deque[0];
-const peekLast: number = deque[deque.length - 1];
+[file]{deque}-[region]{peek_first}
+[file]{deque}-[region]{peek_last}
 
-/* Извлечь элементы из очереди */
-// Обратите внимание: поскольку это массив, метод shift() имеет сложность O(n)
-const popFront: number = deque.shift() as number;
-const popBack: number = deque.pop() as number;
+[file]{deque}-[region]{pop_first}
+[file]{deque}-[region]{pop_last}
 
-/* Получить длину двусторонней очереди */
-const size: number = deque.length;
+[file]{deque}-[region]{size}
 
-/* Проверить, пуста ли двусторонняя очередь */
-const isEmpty: boolean = size === 0;
+[file]{deque}-[region]{is_empty}
 ```
 
 ```dart title="deque.dart"
@@ -247,33 +157,19 @@ bool isEmpty = deque.isEmpty;
 ```
 
 ```rust title="deque.rs"
-/* Инициализация двусторонней очереди */
-let mut deque: VecDeque<u32> = VecDeque::new();
+[file]{deque}-[region]{init_deque}
 
-/* Поместить элементы в очередь */
-deque.push_back(2);  // Добавить в хвост
-deque.push_back(5);
-deque.push_back(4);
-deque.push_front(3); // Добавить в голову
-deque.push_front(1);
+[file]{deque}-[region]{push}
 
-/* Просмотреть элементы */
-if let Some(front) = deque.front() { // Элемент в голове
-}
-if let Some(rear) = deque.back() {   // Элемент в хвосте
-}
+[file]{deque}-[region]{peek_first}
+[file]{deque}-[region]{peek_last}
 
-/* Извлечь элементы из очереди */
-if let Some(pop_front) = deque.pop_front() { // Извлечь элемент из головы
-}
-if let Some(pop_rear) = deque.pop_back() {   // Извлечь элемент из хвоста
-}
+[file]{deque}-[region]{pop_first}
+[file]{deque}-[region]{pop_last}
 
-/* Получить длину двусторонней очереди */
-let size = deque.len();
+[file]{deque}-[region]{size}
 
-/* Проверить, пуста ли двусторонняя очередь */
-let is_empty = deque.is_empty();
+[file]{deque}-[region]{is_empty}
 ```
 
 ```c title="deque.c"
@@ -281,58 +177,35 @@ let is_empty = deque.is_empty();
 ```
 
 ```kotlin title="deque.kt"
-/* Инициализация двусторонней очереди */
-val deque = LinkedList<Int>()
+[file]{deque}-[region]{init_deque}
 
-/* Поместить элементы в очередь */
-deque.offerLast(2)  // Добавить в хвост
-deque.offerLast(5)
-deque.offerLast(4)
-deque.offerFirst(3) // Добавить в голову
-deque.offerFirst(1)
+[file]{deque}-[region]{push}
 
-/* Просмотреть элементы */
-val peekFirst = deque.peekFirst() // Элемент в голове
-val peekLast = deque.peekLast()   // Элемент в хвосте
+[file]{deque}-[region]{peek_first}
+[file]{deque}-[region]{peek_last}
 
-/* Извлечь элементы из очереди */
-val popFirst = deque.pollFirst() // Извлечь элемент из головы
-val popLast = deque.pollLast()   // Извлечь элемент из хвоста
+[file]{deque}-[region]{pop_first}
+[file]{deque}-[region]{pop_last}
 
-/* Получить длину двусторонней очереди */
-val size = deque.size
+[file]{deque}-[region]{size}
 
-/* Проверить, пуста ли двусторонняя очередь */
-val isEmpty = deque.isEmpty()
+[file]{deque}-[region]{is_empty}
 ```
 
 ```ruby title="deque.rb"
-# Инициализация двусторонней очереди
-# В Ruby нет встроенной двусторонней очереди, поэтому можно использовать Array как двустороннюю очередь
-deque = []
+[file]{deque}-[region]{init_deque}
 
-# Поместить элементы в очередь
-deque << 2
-deque << 5
-deque << 4
-# Обратите внимание: поскольку это массив, метод Array#unshift имеет сложность O(n)
-deque.unshift(3)
-deque.unshift(1)
+[file]{deque}-[region]{push}
 
-# Просмотреть элементы
-peek_first = deque.first
-peek_last = deque.last
+[file]{deque}-[region]{peek_first}
+[file]{deque}-[region]{peek_last}
 
-# Извлечь элементы из очереди
-# Обратите внимание: поскольку это массив, метод Array#shift имеет сложность O(n)
-pop_front = deque.shift
-pop_back = deque.pop
+[file]{deque}-[region]{pop_first}
+[file]{deque}-[region]{pop_last}
 
-# Получить длину двусторонней очереди
-size = deque.length
+[file]{deque}-[region]{size}
 
-# Проверить, пуста ли двусторонняя очередь
-is_empty = size.zero?
+[file]{deque}-[region]{is_empty}
 ```
 
 <!-- [tutor]{deque_operations_tutor} -->

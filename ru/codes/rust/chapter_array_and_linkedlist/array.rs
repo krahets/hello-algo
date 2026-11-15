@@ -71,15 +71,17 @@ fn find(nums: &[i32], target: i32) -> Option<usize> {
 
 /* Driver Code */
 fn main() {
+    // [region]{init_array}
     /* Инициализация массива */
-    let arr: [i32; 5] = [0; 5];
-    print!("Массив arr = ");
-    print_util::print_array(&arr);
+    let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
     // В Rust при указании длины ([i32; 5]) получается массив, а без указания длины (&[i32]) — срез
     // Так как массивы в Rust имеют длину, определяемую на этапе компиляции, для задания длины можно использовать только константы
     // Vector обычно используется в Rust как тип динамического массива
     // Для удобства реализации метода расширения extend() ниже vector рассматривается как массив (array)
     let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+    // [endregion]{init_array}
+    print!("Массив arr = ");
+    print_util::print_array(&arr);
     print!("\nМассив nums = ");
     print_util::print_array(&nums);
 

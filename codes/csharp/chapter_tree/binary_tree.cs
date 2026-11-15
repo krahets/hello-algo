@@ -26,15 +26,19 @@ public class binary_tree {
         Console.WriteLine("\n初始化二叉树\n");
         PrintUtil.PrintTree(n1);
 
+        // [region]{insert_node}
         /* 插入与删除节点 */
         TreeNode P = new(0);
         // 在 n1 -> n2 中间插入节点 P
         n1.left = P;
         P.left = n2;
+        // [endregion]{insert_node}
         Console.WriteLine("\n插入节点 P 后\n");
         PrintUtil.PrintTree(n1);
+        // [region]{remove_node}
         // 删除节点 P
         n1.left = n2;
+        // [endregion]{remove_node}
         Console.WriteLine("\n删除节点 P 后\n");
         PrintUtil.PrintTree(n1);
     }

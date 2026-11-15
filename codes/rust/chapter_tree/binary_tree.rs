@@ -25,16 +25,20 @@ fn main() {
     println!("\n初始化二叉树\n");
     print_util::print_tree(&n1);
 
+    // [region]{insert_node}
     // 插入节点与删除节点
     let p = TreeNode::new(0);
     // 在 n1 -> n2 中间插入节点 P
     p.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().left = Some(Rc::clone(&p));
+    // [endregion]{insert_node}
     println!("\n插入节点 P 后\n");
     print_util::print_tree(&n1);
+    // [region]{remove_node}
     // 删除节点 P
     drop(p);
     n1.borrow_mut().left = Some(Rc::clone(&n2));
+    // [endregion]{remove_node}
     println!("\n删除节点 P 后\n");
     print_util::print_tree(&n1);
 }
