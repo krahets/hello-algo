@@ -25,16 +25,20 @@ fn main() {
     println!("\nInitialize the binary tree\n");
     print_util::print_tree(&n1);
 
+    // [region]{insert_node}
     // Insert and remove nodes
     let p = TreeNode::new(0);
     // Insert node p between n1 and n2 in n1 -> n2
     p.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().left = Some(Rc::clone(&p));
+    // [endregion]{insert_node}
     println!("\nAfter inserting node p:\n");
     print_util::print_tree(&n1);
+    // [region]{remove_node}
     // Remove node p
     drop(p);
     n1.borrow_mut().left = Some(Rc::clone(&n2));
+    // [endregion]{remove_node}
     println!("\nAfter removing node p:\n");
     print_util::print_tree(&n1);
 }

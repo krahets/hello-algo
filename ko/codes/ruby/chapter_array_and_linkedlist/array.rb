@@ -77,10 +77,12 @@ end
 
 ### 실행 코드 ###
 if __FILE__ == $0
+  # [region]{init_array}
   # 배열 초기화
   arr = Array.new(5, 0)
-  puts "배열 arr = #{arr}"
   nums = [1, 3, 2, 5, 4]
+  # [endregion]{init_array}
+  puts "배열 arr = #{arr}"
   puts "배열 nums = #{nums}"
 
   # 임의 접근

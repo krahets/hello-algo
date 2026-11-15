@@ -24,15 +24,19 @@ n2.right = n5;
 console.log('\nInitialize the binary tree\n');
 printTree(n1);
 
+// [region]{insert_node}
 /* Insert and remove nodes */
 const P = new TreeNode(0);
 // Insert node P between n1 and n2 in n1 -> n2
 n1.left = P;
 P.left = n2;
+// [endregion]{insert_node}
 console.log('\nAfter inserting node P:\n');
 printTree(n1);
+// [region]{remove_node}
 // Remove node P
 n1.left = n2;
+// [endregion]{remove_node}
 console.log('\nAfter removing node P:\n');
 printTree(n1);
 

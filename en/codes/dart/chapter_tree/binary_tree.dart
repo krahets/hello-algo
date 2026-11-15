@@ -25,15 +25,19 @@ void main() {
   print("\nInitialize the binary tree\n");
   printTree(n1);
 
+  // [region]{insert_node}
   /* Insert and remove nodes */
   TreeNode p = TreeNode(0);
-  // Insert node p between n1 and n2
+  // Insert node P between n1 and n2 in n1 -> n2
   n1.left = p;
   p.left = n2;
+  // [endregion]{insert_node}
   print("\nAfter inserting node p:\n");
   printTree(n1);
+  // [region]{remove_node}
   // Remove node p
   n1.left = n2;
+  // [endregion]{remove_node}
   print("\nAfter removing node p:\n");
   printTree(n1);
 }

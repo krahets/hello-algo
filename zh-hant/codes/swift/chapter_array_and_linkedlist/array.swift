@@ -75,10 +75,12 @@ func find(nums: [Int], target: Int) -> Int {
 enum _Array {
     /* Driver Code */
     static func main() {
+        // [region]{init_array}
         /* 初始化陣列 */
-        let arr = Array(repeating: 0, count: 5)
-        print("陣列 arr = \(arr)")
+        let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
         var nums = [1, 3, 2, 5, 4]
+        // [endregion]{init_array}
+        print("陣列 arr = \(arr)")
         print("陣列 nums = \(nums)")
 
         /* 隨機訪問 */

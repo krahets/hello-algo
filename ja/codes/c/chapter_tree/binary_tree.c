@@ -25,18 +25,21 @@ int main() {
     printf("二分木を初期化する\n");
     printTree(n1);
 
+    // [region]{insert_node}
     /* ノードの挿入と削除 */
     TreeNode *P = newTreeNode(0);
     // n1 -> n2 の間にノード P を挿入する
     n1->left = P;
     P->left = n2;
+    // [endregion]{insert_node}
     printf("ノード P の挿入後\n");
     printTree(n1);
-
+    // [region]{remove_node}
     // ノード P を削除する
     n1->left = n2;
     // メモリを解放する
     free(P);
+    // [endregion]{remove_node}
     printf("ノード P の削除後\n");
     printTree(n1);
 

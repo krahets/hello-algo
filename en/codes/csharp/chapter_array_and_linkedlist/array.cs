@@ -75,10 +75,12 @@ public class array {
 
     [Test]
     public void Test() {
+        // [region]{init_array}
         // Initialize the array
-        int[] arr = new int[5];
-        Console.WriteLine("Array arr = " + ToString(arr));
+        int[] arr = new int[5]; // [ 0, 0, 0, 0, 0 ]
         int[] nums = [1, 3, 2, 5, 4];
+        // [endregion]{init_array}
+        Console.WriteLine("Array arr = " + ToString(arr));
         Console.WriteLine("Array nums = " + ToString(nums));
 
         // Random access

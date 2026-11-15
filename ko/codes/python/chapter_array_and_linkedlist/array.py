@@ -70,10 +70,12 @@ def find(nums: list[int], target: int) -> int:
 
 """실행 코드"""
 if __name__ == "__main__":
+    # [region]{init_array}
     # 배열 초기화
-    arr = [0] * 5
+    arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
+    nums: list[int] = [1, 3, 2, 5, 4]
+    # [endregion]{init_array}
     print("배열 arr =", arr)
-    nums = [1, 3, 2, 5, 4]
     print("배열 nums =", nums)
 
     # 임의 접근

@@ -71,15 +71,17 @@ fn find(nums: &[i32], target: i32) -> Option<usize> {
 
 /* Driver code */
 fn main() {
+    // [region]{init_array}
     /* Initialize the array */
-    let arr: [i32; 5] = [0; 5];
-    print!("Array arr = ");
-    print_util::print_array(&arr);
+    let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
     // In Rust, [i32; 5] is an array type with a fixed length, whereas &[i32] is a reference to a slice
     // Rust array lengths are determined at compile time, so their lengths must be constant expressions
     // Vec is the type normally used for dynamic arrays in Rust
     // To simplify the extend() method, the following examples use a vector to represent an array
     let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+    // [endregion]{init_array}
+    print!("Array arr = ");
+    print_util::print_array(&arr);
     print!("\nArray nums = ");
     print_util::print_array(&nums);
 

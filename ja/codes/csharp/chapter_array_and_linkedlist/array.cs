@@ -75,10 +75,12 @@ public class array {
 
     [Test]
     public void Test() {
+        // [region]{init_array}
         // 配列を初期化する
-        int[] arr = new int[5];
-        Console.WriteLine("配列 arr = " + ToString(arr));
+        int[] arr = new int[5]; // [ 0, 0, 0, 0, 0 ]
         int[] nums = [1, 3, 2, 5, 4];
+        // [endregion]{init_array}
+        Console.WriteLine("配列 arr = " + ToString(arr));
         Console.WriteLine("配列 nums = " + ToString(nums));
 
         // ランダムアクセス

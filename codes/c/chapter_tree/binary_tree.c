@@ -25,18 +25,21 @@ int main() {
     printf("初始化二叉树\n");
     printTree(n1);
 
+    // [region]{insert_node}
     /* 插入与删除节点 */
     TreeNode *P = newTreeNode(0);
     // 在 n1 -> n2 中间插入节点 P
     n1->left = P;
     P->left = n2;
+    // [endregion]{insert_node}
     printf("插入节点 P 后\n");
     printTree(n1);
-
+    // [region]{remove_node}
     // 删除节点 P
     n1->left = n2;
     // 释放内存
     free(P);
+    // [endregion]{remove_node}
     printf("删除节点 P 后\n");
     printTree(n1);
 

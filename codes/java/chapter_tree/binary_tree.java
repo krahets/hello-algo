@@ -27,15 +27,19 @@ public class binary_tree {
         System.out.println("\n初始化二叉树\n");
         PrintUtil.printTree(n1);
 
+        // [region]{insert_node}
         /* 插入与删除节点 */
         TreeNode P = new TreeNode(0);
         // 在 n1 -> n2 中间插入节点 P
         n1.left = P;
         P.left = n2;
+        // [endregion]{insert_node}
         System.out.println("\n插入节点 P 后\n");
         PrintUtil.printTree(n1);
+        // [region]{remove_node}
         // 删除节点 P
         n1.left = n2;
+        // [endregion]{remove_node}
         System.out.println("\n删除节点 P 后\n");
         PrintUtil.printTree(n1);
     }

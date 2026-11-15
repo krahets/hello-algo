@@ -1,8 +1,6 @@
 <!-- [snippet]{init_array} -->
 ```python title="array.py"
-# Инициализация массива
-arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
-nums: list[int] = [1, 3, 2, 5, 4]
+[file]{array}-[region]{init_array}
 ```
 
 ```cpp title="array.cpp"
@@ -16,77 +14,47 @@ int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
 ```
 
 ```java title="array.java"
-/* Инициализация массива */
-int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
-int[] nums = { 1, 3, 2, 5, 4 };
+[file]{array}-[region]{init_array}
 ```
 
 ```csharp title="array.cs"
-/* Инициализация массива */
-int[] arr = new int[5]; // [ 0, 0, 0, 0, 0 ]
-int[] nums = [1, 3, 2, 5, 4];
+[file]{array}-[region]{init_array}
 ```
 
 ```go title="array.go"
-/* Инициализация массива */
-var arr [5]int
-// В Go указание длины ([5]int) создает массив, а отсутствие длины ([]int) - срез
-// Поскольку длина массива в Go определяется на этапе компиляции, для задания длины можно использовать только константы
-// Чтобы упростить реализацию метода extend(), ниже будем рассматривать срезы (Slice) как массивы (Array)
-nums := []int{1, 3, 2, 5, 4}
+[file]{array_test}-[region]{init_array}
 ```
 
 ```swift title="array.swift"
-/* Инициализация массива */
-let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
-let nums = [1, 3, 2, 5, 4]
+[file]{array}-[region]{init_array}
 ```
 
 ```javascript title="array.js"
-/* Инициализация массива */
-var arr = new Array(5).fill(0);
-var nums = [1, 3, 2, 5, 4];
+[file]{array}-[region]{init_array}
 ```
 
 ```typescript title="array.ts"
-/* Инициализация массива */
-let arr: number[] = new Array(5).fill(0);
-let nums: number[] = [1, 3, 2, 5, 4];
+[file]{array}-[region]{init_array}
 ```
 
 ```dart title="array.dart"
-/* Инициализация массива */
-List<int> arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
-List<int> nums = [1, 3, 2, 5, 4];
+[file]{array}-[region]{init_array}
 ```
 
 ```rust title="array.rs"
-/* Инициализация массива */
-let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
-let slice: &[i32] = &[0; 5];
-// В Rust указание длины ([i32; 5]) создает массив, а отсутствие длины (&[i32]) - срез
-// Поскольку длина массива в Rust определяется на этапе компиляции, для задания длины можно использовать только константы
-// Vector в Rust обычно используется как динамический массив
-// Чтобы упростить реализацию метода extend(), ниже будем рассматривать vector как массив (array)
-let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+[file]{array}-[region]{init_array}
 ```
 
 ```c title="array.c"
-/* Инициализация массива */
-int arr[5] = { 0 }; // { 0, 0, 0, 0, 0 }
-int nums[5] = { 1, 3, 2, 5, 4 };
+[file]{array}-[region]{init_array}
 ```
 
 ```kotlin title="array.kt"
-/* Инициализация массива */
-var arr = IntArray(5) // { 0, 0, 0, 0, 0 }
-var nums = intArrayOf(1, 3, 2, 5, 4)
+[file]{array}-[region]{init_array}
 ```
 
 ```ruby title="array.rb"
-# Инициализация массива
-arr = Array.new(5, 0)
-nums = [1, 3, 2, 5, 4]
+[file]{array}-[region]{init_array}
 ```
 
 <!-- [tutor]{init_array_tutor} -->

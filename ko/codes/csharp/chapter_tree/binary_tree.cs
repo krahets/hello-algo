@@ -26,15 +26,19 @@ public class binary_tree {
         Console.WriteLine("\n이진 트리 초기화\n");
         PrintUtil.PrintTree(n1);
 
+        // [region]{insert_node}
         /* 노드 삽입과 삭제 */
         TreeNode P = new(0);
         // n1 -> n2 사이에 노드 P를 삽입한다
         n1.left = P;
         P.left = n2;
+        // [endregion]{insert_node}
         Console.WriteLine("\n노드 P를 삽입한 후\n");
         PrintUtil.PrintTree(n1);
+        // [region]{remove_node}
         // 노드 P를 삭제한다
         n1.left = n2;
+        // [endregion]{remove_node}
         Console.WriteLine("\n노드 P를 삭제한 후\n");
         PrintUtil.PrintTree(n1);
     }

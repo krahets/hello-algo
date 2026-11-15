@@ -25,16 +25,20 @@ fn main() {
     println!("\n初始化二元樹\n");
     print_util::print_tree(&n1);
 
+    // [region]{insert_node}
     // 插入節點與刪除節點
     let p = TreeNode::new(0);
     // 在 n1 -> n2 中間插入節點 P
     p.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().left = Some(Rc::clone(&p));
+    // [endregion]{insert_node}
     println!("\n插入節點 P 後\n");
     print_util::print_tree(&n1);
+    // [region]{remove_node}
     // 刪除節點 P
     drop(p);
     n1.borrow_mut().left = Some(Rc::clone(&n2));
+    // [endregion]{remove_node}
     println!("\n刪除節點 P 後\n");
     print_util::print_tree(&n1);
 }

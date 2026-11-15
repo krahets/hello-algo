@@ -25,16 +25,20 @@ fn main() {
     println!("\n이진 트리 초기화\n");
     print_util::print_tree(&n1);
 
+    // [region]{insert_node}
     // 노드 삽입과 삭제
     let p = TreeNode::new(0);
     // n1 -> n2 사이에 노드 P를 삽입한다
     p.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().left = Some(Rc::clone(&p));
+    // [endregion]{insert_node}
     println!("\n노드 P를 삽입한 후\n");
     print_util::print_tree(&n1);
+    // [region]{remove_node}
     // 노드 P를 삭제한다
     drop(p);
     n1.borrow_mut().left = Some(Rc::clone(&n2));
+    // [endregion]{remove_node}
     println!("\n노드 P를 삭제한 후\n");
     print_util::print_tree(&n1);
 }

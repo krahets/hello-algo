@@ -74,7 +74,7 @@ if __FILE__ == $0
   # 初始化佇列
   queue = LinkedListQueue.new
 
-  # 元素如隊
+  # 元素入列
   queue.push(1)
   queue.push(3)
   queue.push(2)

@@ -75,10 +75,12 @@ func find(nums: [Int], target: Int) -> Int {
 enum _Array {
     /* 実行用コード */
     static func main() {
+        // [region]{init_array}
         /* 配列を初期化する */
-        let arr = Array(repeating: 0, count: 5)
-        print("配列 arr = \(arr)")
+        let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
         var nums = [1, 3, 2, 5, 4]
+        // [endregion]{init_array}
+        print("配列 arr = \(arr)")
         print("配列 nums = \(nums)")
 
         /* ランダムアクセス */

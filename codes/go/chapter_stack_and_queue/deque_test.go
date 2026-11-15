@@ -13,39 +13,55 @@ import (
 )
 
 func TestDeque(t *testing.T) {
+	// [region]{init_deque}
 	/* 初始化双向队列 */
 	// 在 Go 中，将 list 作为双向队列使用
 	deque := list.New()
+	// [endregion]{init_deque}
 
+	// [region]{push}
 	/* 元素入队 */
-	deque.PushBack(2)
+	deque.PushBack(2) // 添加至队尾
 	deque.PushBack(5)
 	deque.PushBack(4)
-	deque.PushFront(3)
+	deque.PushFront(3) // 添加至队首
 	deque.PushFront(1)
+	// [endregion]{push}
 	fmt.Print("双向队列 deque = ")
 	PrintList(deque)
 
+	// [region]{peek_first}
 	/* 访问元素 */
-	front := deque.Front()
+	front := deque.Front() // 队首元素
+	// [endregion]{peek_first}
 	fmt.Println("队首元素 front =", front.Value)
-	rear := deque.Back()
+	// [region]{peek_last}
+	rear := deque.Back() // 队尾元素
+	// [endregion]{peek_last}
 	fmt.Println("队尾元素 rear =", rear.Value)
 
+	// [region]{pop_first}
 	/* 元素出队 */
-	deque.Remove(front)
+	deque.Remove(front) // 队首元素出队
+	// [endregion]{pop_first}
 	fmt.Print("队首出队元素 front = ", front.Value, "，队首出队后 deque = ")
 	PrintList(deque)
-	deque.Remove(rear)
+	// [region]{pop_last}
+	deque.Remove(rear) // 队尾元素出队
+	// [endregion]{pop_last}
 	fmt.Print("队尾出队元素 rear = ", rear.Value, "，队尾出队后 deque = ")
 	PrintList(deque)
 
+	// [region]{size}
 	/* 获取双向队列的长度 */
 	size := deque.Len()
+	// [endregion]{size}
 	fmt.Println("双向队列长度 size =", size)
 
+	// [region]{is_empty}
 	/* 判断双向队列是否为空 */
 	isEmpty := deque.Len() == 0
+	// [endregion]{is_empty}
 	fmt.Println("双向队列是否为空 =", isEmpty)
 }
 
