@@ -7,6 +7,7 @@
 const { TreeNode } = require('../modules/TreeNode');
 const { printTree } = require('../modules/PrintUtil');
 
+// [region]{init_binary_tree}
 /* Инициализация двоичного дерева */
 // Инициализация узла
 let n1 = new TreeNode(1),
@@ -19,17 +20,22 @@ n1.left = n2;
 n1.right = n3;
 n2.left = n4;
 n2.right = n5;
+// [endregion]{init_binary_tree}
 console.log('\nИнициализация двоичного дерева\n');
 printTree(n1);
 
+// [region]{insert_node}
 /* Вставка и удаление узлов */
 const P = new TreeNode(0);
 // Вставить узел P между n1 -> n2
 n1.left = P;
 P.left = n2;
+// [endregion]{insert_node}
 console.log('\nПосле вставки узла P\n');
 printTree(n1);
+// [region]{remove_node}
 // Удалить узел P
 n1.left = n2;
+// [endregion]{remove_node}
 console.log('\nПосле удаления узла P\n');
 printTree(n1);

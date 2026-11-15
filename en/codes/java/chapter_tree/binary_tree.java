@@ -10,6 +10,7 @@ import utils.*;
 
 public class binary_tree {
     public static void main(String[] args) {
+        // [region]{init_binary_tree}
         /* Initialize the binary tree */
         // Initialize the nodes
         TreeNode n1 = new TreeNode(1);
@@ -22,18 +23,23 @@ public class binary_tree {
         n1.right = n3;
         n2.left = n4;
         n2.right = n5;
+        // [endregion]{init_binary_tree}
         System.out.println("\nInitialize the binary tree\n");
         PrintUtil.printTree(n1);
 
+        // [region]{insert_node}
         /* Insert and remove nodes */
         TreeNode P = new TreeNode(0);
         // Insert node P between n1 and n2 in n1 -> n2
         n1.left = P;
         P.left = n2;
+        // [endregion]{insert_node}
         System.out.println("\nAfter inserting node P:\n");
         PrintUtil.printTree(n1);
+        // [region]{remove_node}
         // Remove node P
         n1.left = n2;
+        // [endregion]{remove_node}
         System.out.println("\nAfter removing node P:\n");
         PrintUtil.printTree(n1);
     }

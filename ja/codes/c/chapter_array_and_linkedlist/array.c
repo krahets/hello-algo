@@ -73,13 +73,14 @@ int main() {
     /* 乱数のシードを初期化する（実行は 1 回だけでよい） */
     srand((unsigned)time(NULL));
 
+    // [region]{init_array}
     /* 配列を初期化する */
+    int arr[5] = {0}; // { 0, 0, 0, 0, 0 }
+    int nums[] = {1, 3, 2, 5, 4};
+    // [endregion]{init_array}
     int size = 5;
-    int arr[5];
     printf("配列 arr = ");
     printArray(arr, size);
-
-    int nums[] = {1, 3, 2, 5, 4};
     printf("配列 nums = ");
     printArray(nums, size);
 

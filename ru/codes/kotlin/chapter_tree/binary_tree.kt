@@ -11,6 +11,7 @@ import utils.printTree
 
 /* Driver Code */
 fun main() {
+    // [region]{init_binary_tree}
     /* Инициализация двоичного дерева */
     // Инициализация узла
     val n1 = TreeNode(1)
@@ -23,18 +24,23 @@ fun main() {
     n1.right = n3
     n2.left = n4
     n2.right = n5
+    // [endregion]{init_binary_tree}
     println("\nИнициализация двоичного дерева\n")
     printTree(n1)
 
+    // [region]{insert_node}
     /* Вставка и удаление узлов */
     val P = TreeNode(0)
     // Вставить узел P между n1 -> n2
     n1.left = P
     P.left = n2
+    // [endregion]{insert_node}
     println("\nПосле вставки узла P\n")
     printTree(n1)
+    // [region]{remove_node}
     // Удалить узел P
     n1.left = n2
+    // [endregion]{remove_node}
     println("\nПосле удаления узла P\n")
     printTree(n1)
 }

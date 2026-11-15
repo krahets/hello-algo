@@ -7,6 +7,7 @@
 import { TreeNode } from '../modules/TreeNode';
 import { printTree } from '../modules/PrintUtil';
 
+// [region]{init_binary_tree}
 /* 이진 트리 초기화 */
 // 노드 초기화
 let n1 = new TreeNode(1),
@@ -19,18 +20,23 @@ n1.left = n2;
 n1.right = n3;
 n2.left = n4;
 n2.right = n5;
+// [endregion]{init_binary_tree}
 console.log('\n이진 트리 초기화\n');
 printTree(n1);
 
+// [region]{insert_node}
 /* 노드 삽입과 삭제 */
 const P = new TreeNode(0);
 // n1 -> n2 사이에 노드 P를 삽입한다
 n1.left = P;
 P.left = n2;
+// [endregion]{insert_node}
 console.log('\n노드 P를 삽입한 후\n');
 printTree(n1);
+// [region]{remove_node}
 // 노드 P를 삭제한다
 n1.left = n2;
+// [endregion]{remove_node}
 console.log('\n노드 P를 삭제한 후\n');
 printTree(n1);
 

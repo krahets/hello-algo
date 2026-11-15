@@ -71,15 +71,17 @@ fn find(nums: &[i32], target: i32) -> Option<usize> {
 
 /* Driver Code */
 fn main() {
+    // [region]{init_array}
     /* 初始化陣列 */
-    let arr: [i32; 5] = [0; 5];
-    print!("陣列 arr = ");
-    print_util::print_array(&arr);
+    let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
     // 在 Rust 中，指定長度時（[i32; 5]）為陣列，不指定長度時（&[i32]）為切片
     // 由於 Rust 的陣列被設計為在編譯期確定長度，因此只能使用常數來指定長度
     // Vector 是 Rust 一般情況下用作動態陣列的型別
     // 為了方便實現擴容 extend() 方法，以下將 vector 看作陣列（array）
     let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+    // [endregion]{init_array}
+    print!("陣列 arr = ");
+    print_util::print_array(&arr);
     print!("\n陣列 nums = ");
     print_util::print_array(&nums);
 

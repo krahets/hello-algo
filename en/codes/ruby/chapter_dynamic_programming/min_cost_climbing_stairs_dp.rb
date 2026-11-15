@@ -17,7 +17,7 @@ def min_cost_climbing_stairs_dp(cost)
   dp[n]
 end
 
-# Minimum cost to climb stairs: space-optimized dynamic programming
+### Minimum cost to climb stairs: space-optimized dynamic programming ###
 def min_cost_climbing_stairs_dp_comp(cost)
   n = cost.length - 1
   return cost[n] if n == 1 || n == 2

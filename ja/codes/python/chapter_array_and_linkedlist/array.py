@@ -70,10 +70,12 @@ def find(nums: list[int], target: int) -> int:
 
 """実行用コード"""
 if __name__ == "__main__":
+    # [region]{init_array}
     # 配列を初期化する
-    arr = [0] * 5
+    arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
+    nums: list[int] = [1, 3, 2, 5, 4]
+    # [endregion]{init_array}
     print("配列 arr =", arr)
-    nums = [1, 3, 2, 5, 4]
     print("配列 nums =", nums)
 
     # ランダムアクセス

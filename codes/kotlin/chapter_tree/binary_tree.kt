@@ -11,6 +11,7 @@ import utils.printTree
 
 /* Driver Code */
 fun main() {
+    // [region]{init_binary_tree}
     /* 初始化二叉树 */
     // 初始化节点
     val n1 = TreeNode(1)
@@ -23,18 +24,23 @@ fun main() {
     n1.right = n3
     n2.left = n4
     n2.right = n5
+    // [endregion]{init_binary_tree}
     println("\n初始化二叉树\n")
     printTree(n1)
 
+    // [region]{insert_node}
     /* 插入与删除节点 */
     val P = TreeNode(0)
     // 在 n1 -> n2 中间插入节点 P
     n1.left = P
     P.left = n2
+    // [endregion]{insert_node}
     println("\n插入节点 P 后\n")
     printTree(n1)
+    // [region]{remove_node}
     // 删除节点 P
     n1.left = n2
+    // [endregion]{remove_node}
     println("\n删除节点 P 后\n")
     printTree(n1)
 }

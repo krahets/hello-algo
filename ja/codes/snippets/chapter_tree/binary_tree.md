@@ -1,0 +1,298 @@
+<!-- [snippet]{tree_node_class} -->
+```python title=""
+class TreeNode:
+    """二分木のノードクラス"""
+    def __init__(self, val: int):
+        self.val: int = val                # ノードの値
+        self.left: TreeNode | None = None  # 左の子への参照
+        self.right: TreeNode | None = None # 右の子への参照
+```
+
+```cpp title=""
+/* 二分木のノード構造体 */
+struct TreeNode {
+    int val;          // ノードの値
+    TreeNode *left;   // 左の子へのポインタ
+    TreeNode *right;  // 右の子へのポインタ
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+};
+```
+
+```java title=""
+/* 二分木のノードクラス */
+class TreeNode {
+    int val;         // ノードの値
+    TreeNode left;   // 左の子への参照
+    TreeNode right;  // 右の子への参照
+    TreeNode(int x) { val = x; }
+}
+```
+
+```csharp title=""
+/* 二分木のノードクラス */
+class TreeNode(int? x) {
+    public int? val = x;    // ノードの値
+    public TreeNode? left;  // 左の子への参照
+    public TreeNode? right; // 右の子への参照
+}
+```
+
+```go title=""
+/* 二分木のノード構造体 */
+type TreeNode struct {
+    Val   int
+    Left  *TreeNode
+    Right *TreeNode
+}
+/* コンストラクタ */
+func NewTreeNode(v int) *TreeNode {
+    return &TreeNode{
+        Left:  nil, // 左の子へのポインタ
+        Right: nil, // 右の子へのポインタ
+        Val:   v,   // ノードの値
+    }
+}
+```
+
+```swift title=""
+/* 二分木のノードクラス */
+class TreeNode {
+    var val: Int // ノードの値
+    var left: TreeNode? // 左の子への参照
+    var right: TreeNode? // 右の子への参照
+
+    init(x: Int) {
+        val = x
+    }
+}
+```
+
+```javascript title=""
+/* 二分木のノードクラス */
+class TreeNode {
+    val; // ノードの値
+    left; // 左の子へのポインタ
+    right; // 右の子へのポインタ
+    constructor(val, left, right) {
+        this.val = val === undefined ? 0 : val;
+        this.left = left === undefined ? null : left;
+        this.right = right === undefined ? null : right;
+    }
+}
+```
+
+```typescript title=""
+/* 二分木のノードクラス */
+class TreeNode {
+    val: number;
+    left: TreeNode | null;
+    right: TreeNode | null;
+
+    constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+        this.val = val === undefined ? 0 : val; // ノードの値
+        this.left = left === undefined ? null : left; // 左の子への参照
+        this.right = right === undefined ? null : right; // 右の子への参照
+    }
+}
+```
+
+```dart title=""
+/* 二分木のノードクラス */
+class TreeNode {
+  int val;         // ノードの値
+  TreeNode? left;  // 左の子への参照
+  TreeNode? right; // 右の子への参照
+  TreeNode(this.val, [this.left, this.right]);
+}
+```
+
+```rust title=""
+use std::rc::Rc;
+use std::cell::RefCell;
+
+/* 二分木のノード構造体 */
+struct TreeNode {
+    val: i32,                               // ノードの値
+    left: Option<Rc<RefCell<TreeNode>>>,    // 左の子への参照
+    right: Option<Rc<RefCell<TreeNode>>>,   // 右の子への参照
+}
+
+impl TreeNode {
+    /* コンストラクタ */
+    fn new(val: i32) -> Rc<RefCell<Self>> {
+        Rc::new(RefCell::new(Self {
+            val,
+            left: None,
+            right: None
+        }))
+    }
+}
+```
+
+```c title=""
+/* 二分木のノード構造体 */
+typedef struct TreeNode {
+    int val;                // ノードの値
+    int height;             // ノードの高さ
+    struct TreeNode *left;  // 左の子へのポインタ
+    struct TreeNode *right; // 右の子へのポインタ
+} TreeNode;
+
+/* コンストラクタ */
+TreeNode *newTreeNode(int val) {
+    TreeNode *node;
+
+    node = (TreeNode *)malloc(sizeof(TreeNode));
+    node->val = val;
+    node->height = 0;
+    node->left = NULL;
+    node->right = NULL;
+    return node;
+}
+```
+
+```kotlin title=""
+/* 二分木のノードクラス */
+class TreeNode(val _val: Int) {  // ノードの値
+    var left: TreeNode? = null   // 左の子への参照
+    var right: TreeNode? = null  // 右の子への参照
+}
+```
+
+```ruby title=""
+### 二分木のノードクラス ###
+class TreeNode
+  attr_accessor :val    # ノードの値
+  attr_accessor :left   # 左の子への参照
+  attr_accessor :right  # 右の子への参照
+
+  def initialize(val)
+    @val = val
+  end
+end
+```
+
+<!-- [snippet]{init_binary_tree} -->
+```python title="binary_tree.py"
+[file]{binary_tree}-[region]{init_binary_tree}
+```
+
+```cpp title="binary_tree.cpp"
+[file]{binary_tree}-[region]{init_binary_tree}
+```
+
+```java title="binary_tree.java"
+[file]{binary_tree}-[region]{init_binary_tree}
+```
+
+```csharp title="binary_tree.cs"
+[file]{binary_tree}-[region]{init_binary_tree}
+```
+
+```go title="binary_tree.go"
+[file]{binary_tree_test}-[region]{init_binary_tree}
+```
+
+```swift title="binary_tree.swift"
+[file]{binary_tree}-[region]{init_binary_tree}
+```
+
+```javascript title="binary_tree.js"
+[file]{binary_tree}-[region]{init_binary_tree}
+```
+
+```typescript title="binary_tree.ts"
+[file]{binary_tree}-[region]{init_binary_tree}
+```
+
+```dart title="binary_tree.dart"
+[file]{binary_tree}-[region]{init_binary_tree}
+```
+
+```rust title="binary_tree.rs"
+[file]{binary_tree}-[region]{init_binary_tree}
+```
+
+```c title="binary_tree.c"
+[file]{binary_tree}-[region]{init_binary_tree}
+```
+
+```kotlin title="binary_tree.kt"
+[file]{binary_tree}-[region]{init_binary_tree}
+```
+
+```ruby title="binary_tree.rb"
+[file]{binary_tree}-[region]{init_binary_tree}
+```
+
+<!-- [tutor]{init_binary_tree_tutor} -->
+https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__(self%2C%20val%3A%20int)%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E3%81%AE%E5%AD%90%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%E5%8F%B3%E3%81%AE%E5%AD%90%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20n1%20%3D%20TreeNode(val%3D1)%0A%20%20%20%20n2%20%3D%20TreeNode(val%3D2)%0A%20%20%20%20n3%20%3D%20TreeNode(val%3D3)%0A%20%20%20%20n4%20%3D%20TreeNode(val%3D4)%0A%20%20%20%20n5%20%3D%20TreeNode(val%3D5)%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%EF%BC%88%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%EF%BC%89%E3%82%92%E3%81%A4%E3%81%AA%E3%81%90%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+
+<!-- [snippet]{insert_remove_node} -->
+```python title="binary_tree.py"
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
+```
+
+```cpp title="binary_tree.cpp"
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
+```
+
+```java title="binary_tree.java"
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
+```
+
+```csharp title="binary_tree.cs"
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
+```
+
+```go title="binary_tree.go"
+[file]{binary_tree_test}-[region]{insert_node}
+[file]{binary_tree_test}-[region]{remove_node}
+```
+
+```swift title="binary_tree.swift"
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
+```
+
+```javascript title="binary_tree.js"
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
+```
+
+```typescript title="binary_tree.ts"
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
+```
+
+```dart title="binary_tree.dart"
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
+```
+
+```rust title="binary_tree.rs"
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
+```
+
+```c title="binary_tree.c"
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
+```
+
+```kotlin title="binary_tree.kt"
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
+```
+
+```ruby title="binary_tree.rb"
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
+```
+
+<!-- [tutor]{insert_remove_node_tutor} -->
+https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__(self%2C%20val%3A%20int)%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E3%81%AE%E5%AD%90%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%E5%8F%B3%E3%81%AE%E5%AD%90%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20n1%20%3D%20TreeNode(val%3D1)%0A%20%20%20%20n2%20%3D%20TreeNode(val%3D2)%0A%20%20%20%20n3%20%3D%20TreeNode(val%3D3)%0A%20%20%20%20n4%20%3D%20TreeNode(val%3D4)%0A%20%20%20%20n5%20%3D%20TreeNode(val%3D5)%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%EF%BC%88%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%EF%BC%89%E3%82%92%E3%81%A4%E3%81%AA%E3%81%90%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E6%8C%BF%E5%85%A5%E3%81%A8%E5%89%8A%E9%99%A4%0A%20%20%20%20p%20%3D%20TreeNode(0)%0A%20%20%20%20%23%20n1%20-%3E%20n2%20%E3%81%AE%E9%96%93%E3%81%AB%E3%83%8E%E3%83%BC%E3%83%89%20P%20%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20n1.left%20%3D%20p%0A%20%20%20%20p.left%20%3D%20n2%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20P%20%E3%82%92%E5%89%8A%E9%99%A4%0A%20%20%20%20n1.left%20%3D%20n2&cumulative=false&curInstr=37&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false

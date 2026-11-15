@@ -13,35 +13,47 @@ import (
 )
 
 func TestQueue(t *testing.T) {
+	// [region]{init_queue}
 	/* Инициализация очереди */
 	// В Go list используется как очередь
 	queue := list.New()
+	// [endregion]{init_queue}
 
+	// [region]{push}
 	/* Добавление элемента в очередь */
 	queue.PushBack(1)
 	queue.PushBack(3)
 	queue.PushBack(2)
 	queue.PushBack(5)
 	queue.PushBack(4)
+	// [endregion]{push}
 	fmt.Print("Очередь queue = ")
 	PrintList(queue)
 
+	// [region]{peek}
 	/* Доступ к элементу в начале очереди */
 	peek := queue.Front()
+	// [endregion]{peek}
 	fmt.Println("Первый элемент peek =", peek.Value)
 
+	// [region]{pop}
 	/* Извлечение элемента из очереди */
 	pop := queue.Front()
 	queue.Remove(pop)
+	// [endregion]{pop}
 	fmt.Print("Извлеченный элемент pop = ", pop.Value, ", queue после извлечения = ")
 	PrintList(queue)
 
+	// [region]{size}
 	/* Получение длины очереди */
 	size := queue.Len()
+	// [endregion]{size}
 	fmt.Println("Длина очереди size =", size)
 
+	// [region]{is_empty}
 	/* Проверка, пуста ли очередь */
 	isEmpty := queue.Len() == 0
+	// [endregion]{is_empty}
 	fmt.Println("Пуста ли очередь =", isEmpty)
 }
 

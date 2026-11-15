@@ -10,6 +10,7 @@ import utils.*;
 
 public class binary_tree {
     public static void main(String[] args) {
+        // [region]{init_binary_tree}
         /* 初始化二元樹 */
         // 初始化節點
         TreeNode n1 = new TreeNode(1);
@@ -22,18 +23,23 @@ public class binary_tree {
         n1.right = n3;
         n2.left = n4;
         n2.right = n5;
+        // [endregion]{init_binary_tree}
         System.out.println("\n初始化二元樹\n");
         PrintUtil.printTree(n1);
 
+        // [region]{insert_node}
         /* 插入與刪除節點 */
         TreeNode P = new TreeNode(0);
         // 在 n1 -> n2 中間插入節點 P
         n1.left = P;
         P.left = n2;
+        // [endregion]{insert_node}
         System.out.println("\n插入節點 P 後\n");
         PrintUtil.printTree(n1);
+        // [region]{remove_node}
         // 刪除節點 P
         n1.left = n2;
+        // [endregion]{remove_node}
         System.out.println("\n刪除節點 P 後\n");
         PrintUtil.printTree(n1);
     }

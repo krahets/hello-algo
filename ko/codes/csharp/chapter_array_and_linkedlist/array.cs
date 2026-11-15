@@ -75,10 +75,12 @@ public class array {
 
     [Test]
     public void Test() {
+        // [region]{init_array}
         // 배열 초기화
-        int[] arr = new int[5];
-        Console.WriteLine("배열 arr = " + ToString(arr));
+        int[] arr = new int[5]; // [ 0, 0, 0, 0, 0 ]
         int[] nums = [1, 3, 2, 5, 4];
+        // [endregion]{init_array}
+        Console.WriteLine("배열 arr = " + ToString(arr));
         Console.WriteLine("배열 nums = " + ToString(nums));
 
         // 임의 접근

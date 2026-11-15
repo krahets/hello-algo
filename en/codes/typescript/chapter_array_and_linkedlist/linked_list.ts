@@ -50,7 +50,8 @@ function find(head: ListNode | null, target: number): number {
 }
 
 /* Driver code */
-/* Initialize the linked list */
+// [region]{init_linked_list}
+/* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
 // Initialize the individual nodes
 const n0 = new ListNode(1);
 const n1 = new ListNode(3);
@@ -62,6 +63,7 @@ n0.next = n1;
 n1.next = n2;
 n2.next = n3;
 n3.next = n4;
+// [endregion]{init_linked_list}
 console.log('The initialized linked list is');
 printLinkedList(n0);
 

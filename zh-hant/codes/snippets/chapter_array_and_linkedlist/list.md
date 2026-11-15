@@ -1,0 +1,483 @@
+<!-- [snippet]{init_list} -->
+```python title="list.py"
+# 初始化串列
+# 無初始值
+nums1: list[int] = []
+# 有初始值
+nums: list[int] = [1, 3, 2, 5, 4]
+```
+
+```cpp title="list.cpp"
+/* 初始化串列 */
+// 需注意，C++ 中 vector 即是本文描述的 nums
+// 無初始值
+vector<int> nums1;
+// 有初始值
+vector<int> nums = { 1, 3, 2, 5, 4 };
+```
+
+```java title="list.java"
+/* 初始化串列 */
+// 無初始值
+List<Integer> nums1 = new ArrayList<>();
+// 有初始值（注意陣列的元素型別需為 int[] 的包裝類別 Integer[]）
+Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
+List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
+```
+
+```csharp title="list.cs"
+/* 初始化串列 */
+// 無初始值
+List<int> nums1 = [];
+// 有初始值
+int[] numbers = [1, 3, 2, 5, 4];
+List<int> nums = [.. numbers];
+```
+
+```go title="list_test.go"
+/* 初始化串列 */
+// 無初始值
+nums1 := []int{}
+// 有初始值
+nums := []int{1, 3, 2, 5, 4}
+```
+
+```swift title="list.swift"
+/* 初始化串列 */
+// 無初始值
+let nums1: [Int] = []
+// 有初始值
+var nums = [1, 3, 2, 5, 4]
+```
+
+```javascript title="list.js"
+/* 初始化串列 */
+// 無初始值
+const nums1 = [];
+// 有初始值
+const nums = [1, 3, 2, 5, 4];
+```
+
+```typescript title="list.ts"
+/* 初始化串列 */
+// 無初始值
+const nums1: number[] = [];
+// 有初始值
+const nums: number[] = [1, 3, 2, 5, 4];
+```
+
+```dart title="list.dart"
+/* 初始化串列 */
+// 無初始值
+List<int> nums1 = [];
+// 有初始值
+List<int> nums = [1, 3, 2, 5, 4];
+```
+
+```rust title="list.rs"
+/* 初始化串列 */
+// 無初始值
+let nums1: Vec<i32> = Vec::new();
+// 有初始值
+let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+```
+
+```c title="list.c"
+// C 未提供內建動態陣列
+```
+
+```kotlin title="list.kt"
+/* 初始化串列 */
+// 無初始值
+var nums1 = listOf<Int>()
+// 有初始值
+var numbers = arrayOf(1, 3, 2, 5, 4)
+var nums = numbers.toMutableList()
+```
+
+```ruby title="list.rb"
+# 初始化串列
+# 無初始值
+nums1 = []
+# 有初始值
+nums = [1, 3, 2, 5, 4]
+```
+
+<!-- [tutor]{init_list_tutor} -->
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20%23%20%E7%84%A1%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+
+<!-- [snippet]{access_element} -->
+```python title="list.py"
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
+```
+
+```cpp title="list.cpp"
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
+```
+
+```java title="list.java"
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
+```
+
+```csharp title="list.cs"
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
+```
+
+```go title="list_test.go"
+[file]{list_test}-[region]{access_element}
+
+[file]{list_test}-[region]{update_element}
+```
+
+```swift title="list.swift"
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
+```
+
+```javascript title="list.js"
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
+```
+
+```typescript title="list.ts"
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
+```
+
+```dart title="list.dart"
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
+```
+
+```rust title="list.rs"
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
+```
+
+```c title="list.c"
+// C 未提供內建動態陣列
+```
+
+```kotlin title="list.kt"
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
+```
+
+```ruby title="list.rb"
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
+```
+
+<!-- [tutor]{access_element_tutor} -->
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%E8%A8%AA%E5%95%8F%E5%85%83%E7%B4%A0%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%E8%A8%AA%E5%95%8F%E7%B4%A2%E5%BC%95%201%20%E8%99%95%E7%9A%84%E5%85%83%E7%B4%A0%0A%0A%20%20%20%20%23%20%E6%9B%B4%E6%96%B0%E5%85%83%E7%B4%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E5%B0%87%E7%B4%A2%E5%BC%95%201%20%E8%99%95%E7%9A%84%E5%85%83%E7%B4%A0%E6%9B%B4%E6%96%B0%E7%82%BA%200&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+
+<!-- [snippet]{insert_remove_element} -->
+```python title="list.py"
+[file]{list}-[region]{clear_list}
+
+[file]{list}-[region]{append_element}
+
+[file]{list}-[region]{insert_element}
+
+[file]{list}-[region]{remove_element}
+```
+
+```cpp title="list.cpp"
+[file]{list}-[region]{clear_list}
+
+[file]{list}-[region]{append_element}
+
+[file]{list}-[region]{insert_element}
+
+[file]{list}-[region]{remove_element}
+```
+
+```java title="list.java"
+[file]{list}-[region]{clear_list}
+
+[file]{list}-[region]{append_element}
+
+[file]{list}-[region]{insert_element}
+
+[file]{list}-[region]{remove_element}
+```
+
+```csharp title="list.cs"
+[file]{list}-[region]{clear_list}
+
+[file]{list}-[region]{append_element}
+
+[file]{list}-[region]{insert_element}
+
+[file]{list}-[region]{remove_element}
+```
+
+```go title="list_test.go"
+[file]{list_test}-[region]{clear_list}
+
+[file]{list_test}-[region]{append_element}
+
+[file]{list_test}-[region]{insert_element}
+
+[file]{list_test}-[region]{remove_element}
+```
+
+```swift title="list.swift"
+[file]{list}-[region]{clear_list}
+
+[file]{list}-[region]{append_element}
+
+[file]{list}-[region]{insert_element}
+
+[file]{list}-[region]{remove_element}
+```
+
+```javascript title="list.js"
+[file]{list}-[region]{clear_list}
+
+[file]{list}-[region]{append_element}
+
+[file]{list}-[region]{insert_element}
+
+[file]{list}-[region]{remove_element}
+```
+
+```typescript title="list.ts"
+[file]{list}-[region]{clear_list}
+
+[file]{list}-[region]{append_element}
+
+[file]{list}-[region]{insert_element}
+
+[file]{list}-[region]{remove_element}
+```
+
+```dart title="list.dart"
+[file]{list}-[region]{clear_list}
+
+[file]{list}-[region]{append_element}
+
+[file]{list}-[region]{insert_element}
+
+[file]{list}-[region]{remove_element}
+```
+
+```rust title="list.rs"
+[file]{list}-[region]{clear_list}
+
+[file]{list}-[region]{append_element}
+
+[file]{list}-[region]{insert_element}
+
+[file]{list}-[region]{remove_element}
+```
+
+```c title="list.c"
+// C 未提供內建動態陣列
+```
+
+```kotlin title="list.kt"
+[file]{list}-[region]{clear_list}
+
+[file]{list}-[region]{append_element}
+
+[file]{list}-[region]{insert_element}
+
+[file]{list}-[region]{remove_element}
+```
+
+```ruby title="list.rb"
+[file]{list}-[region]{clear_list}
+
+[file]{list}-[region]{append_element}
+
+[file]{list}-[region]{insert_element}
+
+[file]{list}-[region]{remove_element}
+```
+
+<!-- [tutor]{insert_remove_element_tutor} -->
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B8%85%E7%A9%BA%E4%B8%B2%E5%88%97%0A%20%20%20%20nums.clear%28%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%9C%A8%E5%B0%BE%E9%83%A8%E6%96%B0%E5%A2%9E%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.append%281%29%0A%20%20%20%20nums.append%283%29%0A%20%20%20%20nums.append%282%29%0A%20%20%20%20nums.append%285%29%0A%20%20%20%20nums.append%284%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%9C%A8%E4%B8%AD%E9%96%93%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.insert%283%2C%206%29%20%20%23%20%E5%9C%A8%E7%B4%A2%E5%BC%95%203%20%E8%99%95%E6%8F%92%E5%85%A5%E6%95%B8%E5%AD%97%206%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.pop%283%29%20%20%20%20%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E7%B4%A2%E5%BC%95%203%20%E8%99%95%E7%9A%84%E5%85%83%E7%B4%A0&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+
+<!-- [snippet]{iterate_list} -->
+```python title="list.py"
+[file]{list}-[region]{iterate_list}
+```
+
+```cpp title="list.cpp"
+[file]{list}-[region]{iterate_list}
+```
+
+```java title="list.java"
+[file]{list}-[region]{iterate_list}
+```
+
+```csharp title="list.cs"
+[file]{list}-[region]{iterate_list}
+```
+
+```go title="list_test.go"
+[file]{list_test}-[region]{iterate_list}
+```
+
+```swift title="list.swift"
+[file]{list}-[region]{iterate_list}
+```
+
+```javascript title="list.js"
+[file]{list}-[region]{iterate_list}
+```
+
+```typescript title="list.ts"
+[file]{list}-[region]{iterate_list}
+```
+
+```dart title="list.dart"
+[file]{list}-[region]{iterate_list}
+```
+
+```rust title="list.rs"
+[file]{list}-[region]{iterate_list}
+```
+
+```c title="list.c"
+// C 未提供內建動態陣列
+```
+
+```kotlin title="list.kt"
+[file]{list}-[region]{iterate_list}
+```
+
+```ruby title="list.rb"
+[file]{list}-[region]{iterate_list}
+```
+
+<!-- [tutor]{iterate_list_tutor} -->
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%80%8F%E9%81%8E%E7%B4%A2%E5%BC%95%E8%B5%B0%E8%A8%AA%E4%B8%B2%E5%88%97%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20%E7%9B%B4%E6%8E%A5%E8%B5%B0%E8%A8%AA%E4%B8%B2%E5%88%97%E5%85%83%E7%B4%A0%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+
+<!-- [snippet]{concat_list} -->
+```python title="list.py"
+[file]{list}-[region]{concat_list}
+```
+
+```cpp title="list.cpp"
+[file]{list}-[region]{concat_list}
+```
+
+```java title="list.java"
+[file]{list}-[region]{concat_list}
+```
+
+```csharp title="list.cs"
+[file]{list}-[region]{concat_list}
+```
+
+```go title="list_test.go"
+[file]{list_test}-[region]{concat_list}
+```
+
+```swift title="list.swift"
+[file]{list}-[region]{concat_list}
+```
+
+```javascript title="list.js"
+[file]{list}-[region]{concat_list}
+```
+
+```typescript title="list.ts"
+[file]{list}-[region]{concat_list}
+```
+
+```dart title="list.dart"
+[file]{list}-[region]{concat_list}
+```
+
+```rust title="list.rs"
+[file]{list}-[region]{concat_list}
+```
+
+```c title="list.c"
+// C 未提供內建動態陣列
+```
+
+```kotlin title="list.kt"
+[file]{list}-[region]{concat_list}
+```
+
+```ruby title="list.rb"
+[file]{list}-[region]{concat_list}
+```
+
+<!-- [tutor]{concat_list_tutor} -->
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%8B%BC%E6%8E%A5%E5%85%A9%E5%80%8B%E4%B8%B2%E5%88%97%0A%20%20%20%20nums1%20%3D%20%5B6%2C%208%2C%207%2C%2010%2C%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20%E5%B0%87%E4%B8%B2%E5%88%97%20nums1%20%E6%8B%BC%E6%8E%A5%E5%88%B0%20nums%20%E4%B9%8B%E5%BE%8C&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+
+<!-- [snippet]{sort_list} -->
+```python title="list.py"
+[file]{list}-[region]{sort_list}
+```
+
+```cpp title="list.cpp"
+[file]{list}-[region]{sort_list}
+```
+
+```java title="list.java"
+[file]{list}-[region]{sort_list}
+```
+
+```csharp title="list.cs"
+[file]{list}-[region]{sort_list}
+```
+
+```go title="list_test.go"
+[file]{list_test}-[region]{sort_list}
+```
+
+```swift title="list.swift"
+[file]{list}-[region]{sort_list}
+```
+
+```javascript title="list.js"
+[file]{list}-[region]{sort_list}
+```
+
+```typescript title="list.ts"
+[file]{list}-[region]{sort_list}
+```
+
+```dart title="list.dart"
+[file]{list}-[region]{sort_list}
+```
+
+```rust title="list.rs"
+[file]{list}-[region]{sort_list}
+```
+
+```c title="list.c"
+// C 未提供內建動態陣列
+```
+
+```kotlin title="list.kt"
+[file]{list}-[region]{sort_list}
+```
+
+```ruby title="list.rb"
+[file]{list}-[region]{sort_list}
+```
+
+<!-- [tutor]{sort_list_tutor} -->
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%8E%92%E5%BA%8F%E4%B8%B2%E5%88%97%0A%20%20%20%20nums.sort%28%29%20%20%23%20%E6%8E%92%E5%BA%8F%E5%BE%8C%EF%BC%8C%E4%B8%B2%E5%88%97%E5%85%83%E7%B4%A0%E5%BE%9E%E5%B0%8F%E5%88%B0%E5%A4%A7%E6%8E%92%E5%88%97&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false

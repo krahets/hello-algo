@@ -75,10 +75,12 @@ public class array {
 
     [Test]
     public void Test() {
+        // [region]{init_array}
         // Инициализация массива
-        int[] arr = new int[5];
-        Console.WriteLine("Массив arr = " + ToString(arr));
+        int[] arr = new int[5]; // [ 0, 0, 0, 0, 0 ]
         int[] nums = [1, 3, 2, 5, 4];
+        // [endregion]{init_array}
+        Console.WriteLine("Массив arr = " + ToString(arr));
         Console.WriteLine("Массив nums = " + ToString(nums));
 
         // Случайный доступ

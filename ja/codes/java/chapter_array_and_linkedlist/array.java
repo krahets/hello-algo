@@ -73,10 +73,12 @@ public class array {
 
     /* 実行用コード */
     public static void main(String[] args) {
+        // [region]{init_array}
         /* 配列を初期化する */
-        int[] arr = new int[5];
-        System.out.println("配列 arr = " + Arrays.toString(arr));
+        int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
         int[] nums = { 1, 3, 2, 5, 4 };
+        // [endregion]{init_array}
+        System.out.println("配列 arr = " + Arrays.toString(arr));
         System.out.println("配列 nums = " + Arrays.toString(nums));
 
         /* ランダムアクセス */
