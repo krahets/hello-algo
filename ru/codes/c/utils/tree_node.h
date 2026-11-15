@@ -15,6 +15,7 @@ extern "C" {
 
 #define MAX_NODE_SIZE 5000
 
+// [region]{tree_node}
 /* Структура узла двоичного дерева */
 typedef struct TreeNode {
     int val;                // Значение узла
@@ -34,6 +35,7 @@ TreeNode *newTreeNode(int val) {
     node->right = NULL;
     return node;
 }
+// [endregion]{tree_node}
 
 // Правила кодирования сериализации см.:
 // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/

@@ -4,6 +4,7 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
+// [region]{tree_node}
 /* 이진 트리 노드 클래스 */
 class TreeNode {
   int val; // 노드 값
@@ -14,6 +15,7 @@ class TreeNode {
   /* 생성자 */
   TreeNode(this.val, [this.height = 0, this.left, this.right]);
 }
+// [endregion]{tree_node}
 
 /* 리스트를 이진 트리로 역직렬화: 재귀 */
 TreeNode? listToTreeDFS(List<int?> arr, int i) {

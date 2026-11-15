@@ -4,6 +4,7 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
+// [region]{tree_node}
 /* Узел двоичного дерева */
 class TreeNode {
     val; // Значение узла
@@ -17,6 +18,7 @@ class TreeNode {
         this.height = height === undefined ? 0 : height;
     }
 }
+// [endregion]{tree_node}
 
 /* Десериализовать массив в двоичное дерево */
 function arrToTree(arr, i = 0) {

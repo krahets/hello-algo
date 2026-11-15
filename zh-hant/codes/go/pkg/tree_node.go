@@ -4,6 +4,7 @@
 
 package pkg
 
+// [region]{tree_node}
 // TreeNode 二元樹節點
 type TreeNode struct {
 	Val    any       // 節點值
@@ -21,6 +22,8 @@ func NewTreeNode(v any) *TreeNode {
 		Right:  nil,
 	}
 }
+
+// [endregion]{tree_node}
 
 // 序列化編碼規則請參考：
 // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/

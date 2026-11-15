@@ -6,14 +6,16 @@
 
 package utils
 
+// [region]{tree_node}
 /* 二元樹節點類別 */
 /* 建構子 */
 class TreeNode(
     var _val: Int // 節點值
 ) {
-    var height: Int = 0 // 節點高度
-    var left: TreeNode? = null // 左子節點引用
+    var height: Int = 0         // 節點高度
+    var left: TreeNode? = null  // 左子節點引用
     var right: TreeNode? = null // 右子節點引用
+// [endregion]{tree_node}
 
     // 序列化編碼規則請參考：
     // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
@@ -66,4 +68,6 @@ class TreeNode(
             return res
         }
     }
+// [region]{tree_node_end}
 }
+// [endregion]{tree_node_end}

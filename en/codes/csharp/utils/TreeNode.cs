@@ -6,12 +6,14 @@
 
 namespace hello_algo.utils;
 
+// [region]{tree_node}
 /* Binary tree node class */
 public class TreeNode(int? x) {
     public int? val = x;    // Node value
     public int height;      // Node height
     public TreeNode? left;  // Reference to the left child
     public TreeNode? right; // Reference to the right child
+// [endregion]{tree_node}
 
     // For the serialization rules, see:
     // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
@@ -64,4 +66,6 @@ public class TreeNode(int? x) {
         TreeToListDFS(root, 0, res);
         return res;
     }
+// [region]{tree_node_end}
 }
+// [endregion]{tree_node_end}

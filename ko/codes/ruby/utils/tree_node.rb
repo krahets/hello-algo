@@ -4,6 +4,7 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
+# [region]{tree_node}
 ### 이진 트리 노드 클래스 ###
 class TreeNode
   attr_accessor :val    # 노드 값
@@ -16,6 +17,7 @@ class TreeNode
     @height = 0
   end
 end
+# [endregion]{tree_node}
 
 ### 리스트를 이진 트리로 역직렬화: 재귀 ###
 def arr_to_tree_dfs(arr, i)

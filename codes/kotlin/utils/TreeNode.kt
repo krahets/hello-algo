@@ -6,14 +6,16 @@
 
 package utils
 
+// [region]{tree_node}
 /* 二叉树节点类 */
 /* 构造方法 */
 class TreeNode(
     var _val: Int // 节点值
 ) {
-    var height: Int = 0 // 节点高度
-    var left: TreeNode? = null // 左子节点引用
+    var height: Int = 0         // 节点高度
+    var left: TreeNode? = null  // 左子节点引用
     var right: TreeNode? = null // 右子节点引用
+// [endregion]{tree_node}
 
     // 序列化编码规则请参考：
     // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
@@ -66,4 +68,6 @@ class TreeNode(
             return res
         }
     }
+// [region]{tree_node_end}
 }
+// [endregion]{tree_node_end}

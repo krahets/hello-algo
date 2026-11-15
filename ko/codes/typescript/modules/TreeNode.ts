@@ -4,6 +4,7 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
+// [region]{tree_node}
 /* 이진 트리 노드 */
 class TreeNode {
     val: number; // 노드 값
@@ -22,6 +23,7 @@ class TreeNode {
         this.right = right === undefined ? null : right;
     }
 }
+// [endregion]{tree_node}
 
 /* 배열을 역직렬화하여 이진 트리로 변환한다 */
 function arrToTree(arr: (number | null)[], i: number = 0): TreeNode | null {

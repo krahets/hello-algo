@@ -7,6 +7,7 @@ Author: krahets (krahets@163.com)
 from collections import deque
 
 
+# [region]{tree_node}
 class TreeNode:
     """二元樹節點類別"""
 
@@ -15,6 +16,7 @@ class TreeNode:
         self.height: int = 0  # 節點高度
         self.left: TreeNode | None = None  # 左子節點引用
         self.right: TreeNode | None = None  # 右子節點引用
+# [endregion]{tree_node}
 
     # 序列化編碼規則請參考：
     # https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
