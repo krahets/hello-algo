@@ -26,82 +26,100 @@ AVL 木は二分探索木であると同時に平衡二分木でもあり、両�
 
 ### 1. &nbsp; ノードの高さ
 
-AVL 木の操作ではノードの高さが必要なので、ノードクラスに変数 `height` を追加します。
+AVL 木の操作ではノードの高さが必要なので、ノードクラスに変数 `height` を追加します。本書のソースコードでは全章が同じ二分木のノードクラスを共有しており、このクラスにはすでに `height` が含まれています。
 
 === "Python"
 
     ```python title=""
     class TreeNode:
-        """AVL 木のノードクラス"""
-        def __init__(self, val: int):
-            self.val: int = val                 # ノードの値
-            self.height: int = 0                # ノードの高さ
-            self.left: TreeNode | None = None   # 左の子への参照
-            self.right: TreeNode | None = None  # 右の子への参照
+        """二分木のノードクラス"""
+
+        def __init__(self, val: int = 0):
+            self.val: int = val  # ノードの値
+            self.height: int = 0  # ノードの高さ
+            self.left: TreeNode | None = None  # 左の子ノードへの参照
+            self.right: TreeNode | None = None  # 右の子ノードへの参照
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* AVL 木のノードクラス */
+    /* 二分木のノードの構造体 */
     struct TreeNode {
-        int val{};          // ノードの値
-        int height = 0;     // ノードの高さ
-        TreeNode *left{};   // 左の子
-        TreeNode *right{};  // 右の子
+        int val{};         // ノードの値
+        int height = 0;    // ノードの高さ
+        TreeNode *parent{};
+        TreeNode *left{};  // 左の子ノードへのポインタ
+        TreeNode *right{}; // 右の子ノードへのポインタ
         TreeNode() = default;
-        explicit TreeNode(int x) : val(x){}
+        explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {
+        }
     };
     ```
 
 === "Java"
 
     ```java title=""
-    /* AVL 木のノードクラス */
-    class TreeNode {
+    /* 二分木のノードクラス */
+    public class TreeNode {
         public int val;        // ノードの値
         public int height;     // ノードの高さ
-        public TreeNode left;  // 左の子
-        public TreeNode right; // 右の子
-        public TreeNode(int x) { val = x; }
+        public TreeNode left;  // 左の子ノードへの参照
+        public TreeNode right; // 右の子ノードへの参照
+
+        /* コンストラクタ */
+        public TreeNode(int x) {
+            val = x;
+        }
     }
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* AVL 木のノードクラス */
-    class TreeNode(int? x) {
+    /* 二分木のノードクラス */
+    public class TreeNode(int? x) {
         public int? val = x;    // ノードの値
         public int height;      // ノードの高さ
-        public TreeNode? left;  // 左の子への参照
-        public TreeNode? right; // 右の子への参照
+        public TreeNode? left;  // 左の子ノードへの参照
+        public TreeNode? right; // 右の子ノードへの参照
     }
     ```
 
 === "Go"
 
     ```go title=""
-    /* AVL 木のノード構造体 */
+    // TreeNode は二分木のノード
     type TreeNode struct {
-        Val    int       // ノードの値
+        Val    any       // ノードの値
         Height int       // ノードの高さ
-        Left   *TreeNode // 左の子への参照
-        Right  *TreeNode // 右の子への参照
+        Left   *TreeNode // 左の子ノードへの参照
+        Right  *TreeNode // 右の子ノードへの参照
+    }
+
+    // NewTreeNode は二分木のノードのコンストラクタ
+    func NewTreeNode(v any) *TreeNode {
+        return &TreeNode{
+            Val:    v,
+            Height: 0,
+            Left:   nil,
+            Right:  nil,
+        }
     }
     ```
 
 === "Swift"
 
     ```swift title=""
-    /* AVL 木のノードクラス */
-    class TreeNode {
-        var val: Int // ノードの値
-        var height: Int // ノードの高さ
-        var left: TreeNode? // 左の子
-        var right: TreeNode? // 右の子
+    /* 二分木のノードクラス */
+    public class TreeNode {
+        public var val: Int         // ノードの値
+        public var height: Int      // ノードの高さ
+        public var left: TreeNode?  // 左の子ノードへの参照
+        public var right: TreeNode? // 右の子ノードへの参照
 
-        init(x: Int) {
+        /* コンストラクタ */
+        public init(x: Int) {
             val = x
             height = 0
         }
@@ -111,17 +129,17 @@ AVL 木の操作ではノードの高さが必要なので、ノードクラス�
 === "JS"
 
     ```javascript title=""
-    /* AVL 木のノードクラス */
+    /* 二分木のノード */
     class TreeNode {
         val; // ノードの値
-        height; //ノードの高さ
-        left; // 左の子へのポインタ
-        right; // 右の子へのポインタ
+        left; // 左の子ノードへのポインタ
+        right; // 右の子ノードへのポインタ
+        height; // ノードの高さ
         constructor(val, left, right, height) {
             this.val = val === undefined ? 0 : val;
-            this.height = height === undefined ? 0 : height;
             this.left = left === undefined ? null : left;
             this.right = right === undefined ? null : right;
+            this.height = height === undefined ? 0 : height;
         }
     }
     ```
@@ -129,13 +147,18 @@ AVL 木の操作ではノードの高さが必要なので、ノードクラス�
 === "TS"
 
     ```typescript title=""
-    /* AVL 木のノードクラス */
+    /* 二分木のノード */
     class TreeNode {
-        val: number;            // ノードの値
-        height: number;         // ノードの高さ
-        left: TreeNode | null;  // 左の子へのポインタ
-        right: TreeNode | null; // 右の子へのポインタ
-        constructor(val?: number, height?: number, left?: TreeNode | null, right?: TreeNode | null) {
+        val: number; // ノードの値
+        height: number; // ノードの高さ
+        left: TreeNode | null; // 左の子ノードへのポインタ
+        right: TreeNode | null; // 右の子ノードへのポインタ
+        constructor(
+            val?: number,
+            height?: number,
+            left?: TreeNode | null,
+            right?: TreeNode | null
+        ) {
             this.val = val === undefined ? 0 : val;
             this.height = height === undefined ? 0 : height;
             this.left = left === undefined ? null : left;
@@ -147,12 +170,14 @@ AVL 木の操作ではノードの高さが必要なので、ノードクラス�
 === "Dart"
 
     ```dart title=""
-    /* AVL 木のノードクラス */
+    /* 二分木のノードクラス */
     class TreeNode {
-      int val;         // ノードの値
-      int height;      // ノードの高さ
-      TreeNode? left;  // 左の子
-      TreeNode? right; // 右の子
+      int val; // ノードの値
+      int height; // ノードの高さ
+      TreeNode? left; // 左の子ノードへの参照
+      TreeNode? right; // 右の子ノードへの参照
+
+      /* コンストラクタ */
       TreeNode(this.val, [this.height = 0, this.left, this.right]);
     }
     ```
@@ -160,25 +185,28 @@ AVL 木の操作ではノードの高さが必要なので、ノードクラス�
 === "Rust"
 
     ```rust title=""
-    use std::rc::Rc;
     use std::cell::RefCell;
+    use std::rc::Rc;
 
-    /* AVL 木のノード構造体 */
-    struct TreeNode {
-        val: i32,                               // ノードの値
-        height: i32,                            // ノードの高さ
-        left: Option<Rc<RefCell<TreeNode>>>,    // 左の子
-        right: Option<Rc<RefCell<TreeNode>>>,   // 右の子
+    /* 二分木のノードの型 */
+    #[derive(Debug)]
+    pub struct TreeNode {
+        pub val: i32,                               // ノードの値
+        pub height: i32,                            // ノードの高さ
+        pub parent: Option<Rc<RefCell<TreeNode>>>,
+        pub left: Option<Rc<RefCell<TreeNode>>>,    // 左の子ノードへのポインタ
+        pub right: Option<Rc<RefCell<TreeNode>>>,   // 右の子ノードへのポインタ
     }
 
     impl TreeNode {
         /* コンストラクタ */
-        fn new(val: i32) -> Rc<RefCell<Self>> {
+        pub fn new(val: i32) -> Rc<RefCell<Self>> {
             Rc::new(RefCell::new(Self {
                 val,
                 height: 0,
+                parent: None,
                 left: None,
-                right: None
+                right: None,
             }))
         }
     }
@@ -187,12 +215,12 @@ AVL 木の操作ではノードの高さが必要なので、ノードクラス�
 === "C"
 
     ```c title=""
-    /* AVL 木のノード構造体 */
+    /* 二分木のノードの構造体 */
     typedef struct TreeNode {
-        int val;
-        int height;
-        struct TreeNode *left;
-        struct TreeNode *right;
+        int val;                // ノードの値
+        int height;             // ノードの高さ
+        struct TreeNode *left;  // 左の子ノードへのポインタ
+        struct TreeNode *right; // 右の子ノードへのポインタ
     } TreeNode;
 
     /* コンストラクタ */
@@ -211,25 +239,28 @@ AVL 木の操作ではノードの高さが必要なので、ノードクラス�
 === "Kotlin"
 
     ```kotlin title=""
-    /* AVL 木のノードクラス */
-    class TreeNode(val _val: Int) {  // ノードの値
-        var height: Int = 0          // ノードの高さ
-        var left: TreeNode? = null   // 左の子
-        var right: TreeNode? = null  // 右の子
+    /* 二分木のノードクラス */
+    /* コンストラクタ */
+    class TreeNode(
+        var _val: Int // ノードの値
+    ) {
+        var height: Int = 0         // ノードの高さ
+        var left: TreeNode? = null  // 左の子ノードへの参照
+        var right: TreeNode? = null // 右の子ノードへの参照
     }
     ```
 
 === "Ruby"
 
     ```ruby title=""
-    ### AVL 木のノードクラス ###
+    ### 二分木のノードクラス ###
     class TreeNode
       attr_accessor :val    # ノードの値
       attr_accessor :height # ノードの高さ
-      attr_accessor :left   # 左の子への参照
-      attr_accessor :right  # 右の子への参照
+      attr_accessor :left   # 左の子ノードへの参照
+      attr_accessor :right  # 右の子ノードへの参照
 
-      def initialize(val)
+      def initialize(val=0)
         @val = val
         @height = 0
       end

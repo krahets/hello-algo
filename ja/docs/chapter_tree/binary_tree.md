@@ -159,12 +159,12 @@ comments: true
 === "C"
 
     ```c title=""
-    /* 二分木のノード構造体 */
+    /* 二分木のノードの構造体 */
     typedef struct TreeNode {
         int val;                // ノードの値
         int height;             // ノードの高さ
-        struct TreeNode *left;  // 左の子へのポインタ
-        struct TreeNode *right; // 右の子へのポインタ
+        struct TreeNode *left;  // 左の子ノードへのポインタ
+        struct TreeNode *right; // 右の子ノードへのポインタ
     } TreeNode;
 
     /* コンストラクタ */

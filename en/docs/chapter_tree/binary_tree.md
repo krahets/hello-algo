@@ -159,12 +159,12 @@ A <u>binary tree</u> is a nonlinear data structure representing relationships be
 === "C"
 
     ```c title=""
-    /* Binary tree node struct */
+    /* Binary tree node structure */
     typedef struct TreeNode {
         int val;                // Node value
         int height;             // Node height
-        struct TreeNode *left;  // Left child pointer
-        struct TreeNode *right; // Right child pointer
+        struct TreeNode *left;  // Pointer to the left child
+        struct TreeNode *right; // Pointer to the right child
     } TreeNode;
 
     /* Constructor */

@@ -26,52 +26,59 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 
 ### 1. &nbsp; 節點高度
 
-由於 AVL 樹的相關操作需要獲取節點高度，因此我們需要為節點類別新增 `height` 變數：
+由於 AVL 樹的相關操作需要獲取節點高度，因此我們需要為節點類別新增 `height` 變數。本書各章的原始碼共用同一個二元樹節點類別，它已經包含該變數：
 
 === "Python"
 
     ```python title=""
     class TreeNode:
-        """AVL 樹節點類別"""
-        def __init__(self, val: int):
-            self.val: int = val                 # 節點值
-            self.height: int = 0                # 節點高度
-            self.left: TreeNode | None = None   # 左子節點引用
+        """二元樹節點類別"""
+
+        def __init__(self, val: int = 0):
+            self.val: int = val  # 節點值
+            self.height: int = 0  # 節點高度
+            self.left: TreeNode | None = None  # 左子節點引用
             self.right: TreeNode | None = None  # 右子節點引用
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* AVL 樹節點類別 */
+    /* 二元樹節點結構體 */
     struct TreeNode {
-        int val{};          // 節點值
-        int height = 0;     // 節點高度
-        TreeNode *left{};   // 左子節點
-        TreeNode *right{};  // 右子節點
+        int val{};         // 節點值
+        int height = 0;    // 節點高度
+        TreeNode *parent{};
+        TreeNode *left{};  // 左子節點指標
+        TreeNode *right{}; // 右子節點指標
         TreeNode() = default;
-        explicit TreeNode(int x) : val(x){}
+        explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {
+        }
     };
     ```
 
 === "Java"
 
     ```java title=""
-    /* AVL 樹節點類別 */
-    class TreeNode {
+    /* 二元樹節點類別 */
+    public class TreeNode {
         public int val;        // 節點值
         public int height;     // 節點高度
-        public TreeNode left;  // 左子節點
-        public TreeNode right; // 右子節點
-        public TreeNode(int x) { val = x; }
+        public TreeNode left;  // 左子節點引用
+        public TreeNode right; // 右子節點引用
+
+        /* 建構子 */
+        public TreeNode(int x) {
+            val = x;
+        }
     }
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* AVL 樹節點類別 */
-    class TreeNode(int? x) {
+    /* 二元樹節點類別 */
+    public class TreeNode(int? x) {
         public int? val = x;    // 節點值
         public int height;      // 節點高度
         public TreeNode? left;  // 左子節點引用
@@ -82,26 +89,37 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 === "Go"
 
     ```go title=""
-    /* AVL 樹節點結構體 */
+    // TreeNode 二元樹節點
     type TreeNode struct {
-        Val    int       // 節點值
+        Val    any       // 節點值
         Height int       // 節點高度
         Left   *TreeNode // 左子節點引用
         Right  *TreeNode // 右子節點引用
+    }
+
+    // NewTreeNode 二元樹節點建構子
+    func NewTreeNode(v any) *TreeNode {
+        return &TreeNode{
+            Val:    v,
+            Height: 0,
+            Left:   nil,
+            Right:  nil,
+        }
     }
     ```
 
 === "Swift"
 
     ```swift title=""
-    /* AVL 樹節點類別 */
-    class TreeNode {
-        var val: Int // 節點值
-        var height: Int // 節點高度
-        var left: TreeNode? // 左子節點
-        var right: TreeNode? // 右子節點
+    /* 二元樹節點類別 */
+    public class TreeNode {
+        public var val: Int         // 節點值
+        public var height: Int      // 節點高度
+        public var left: TreeNode?  // 左子節點引用
+        public var right: TreeNode? // 右子節點引用
 
-        init(x: Int) {
+        /* 建構子 */
+        public init(x: Int) {
             val = x
             height = 0
         }
@@ -111,17 +129,17 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 === "JS"
 
     ```javascript title=""
-    /* AVL 樹節點類別 */
+    /* 二元樹節點 */
     class TreeNode {
         val; // 節點值
-        height; //節點高度
         left; // 左子節點指標
         right; // 右子節點指標
+        height; // 節點高度
         constructor(val, left, right, height) {
             this.val = val === undefined ? 0 : val;
-            this.height = height === undefined ? 0 : height;
             this.left = left === undefined ? null : left;
             this.right = right === undefined ? null : right;
+            this.height = height === undefined ? 0 : height;
         }
     }
     ```
@@ -129,13 +147,18 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 === "TS"
 
     ```typescript title=""
-    /* AVL 樹節點類別 */
+    /* 二元樹節點 */
     class TreeNode {
-        val: number;            // 節點值
-        height: number;         // 節點高度
-        left: TreeNode | null;  // 左子節點指標
+        val: number; // 節點值
+        height: number; // 節點高度
+        left: TreeNode | null; // 左子節點指標
         right: TreeNode | null; // 右子節點指標
-        constructor(val?: number, height?: number, left?: TreeNode | null, right?: TreeNode | null) {
+        constructor(
+            val?: number,
+            height?: number,
+            left?: TreeNode | null,
+            right?: TreeNode | null
+        ) {
             this.val = val === undefined ? 0 : val;
             this.height = height === undefined ? 0 : height;
             this.left = left === undefined ? null : left;
@@ -147,12 +170,14 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 === "Dart"
 
     ```dart title=""
-    /* AVL 樹節點類別 */
+    /* 二元樹節點類別 */
     class TreeNode {
-      int val;         // 節點值
-      int height;      // 節點高度
-      TreeNode? left;  // 左子節點
-      TreeNode? right; // 右子節點
+      int val; // 節點值
+      int height; // 節點高度
+      TreeNode? left; // 左子節點引用
+      TreeNode? right; // 右子節點引用
+
+      /* 建構子 */
       TreeNode(this.val, [this.height = 0, this.left, this.right]);
     }
     ```
@@ -160,25 +185,28 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 === "Rust"
 
     ```rust title=""
-    use std::rc::Rc;
     use std::cell::RefCell;
+    use std::rc::Rc;
 
-    /* AVL 樹節點結構體 */
-    struct TreeNode {
-        val: i32,                               // 節點值
-        height: i32,                            // 節點高度
-        left: Option<Rc<RefCell<TreeNode>>>,    // 左子節點
-        right: Option<Rc<RefCell<TreeNode>>>,   // 右子節點
+    /* 二元樹節點型別 */
+    #[derive(Debug)]
+    pub struct TreeNode {
+        pub val: i32,                               // 節點值
+        pub height: i32,                            // 節點高度
+        pub parent: Option<Rc<RefCell<TreeNode>>>,
+        pub left: Option<Rc<RefCell<TreeNode>>>,    // 左子節點指標
+        pub right: Option<Rc<RefCell<TreeNode>>>,   // 右子節點指標
     }
 
     impl TreeNode {
         /* 建構子 */
-        fn new(val: i32) -> Rc<RefCell<Self>> {
+        pub fn new(val: i32) -> Rc<RefCell<Self>> {
             Rc::new(RefCell::new(Self {
                 val,
                 height: 0,
+                parent: None,
                 left: None,
-                right: None
+                right: None,
             }))
         }
     }
@@ -187,12 +215,12 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 === "C"
 
     ```c title=""
-    /* AVL 樹節點結構體 */
+    /* 二元樹節點結構體 */
     typedef struct TreeNode {
-        int val;
-        int height;
-        struct TreeNode *left;
-        struct TreeNode *right;
+        int val;                // 節點值
+        int height;             // 節點高度
+        struct TreeNode *left;  // 左子節點指標
+        struct TreeNode *right; // 右子節點指標
     } TreeNode;
 
     /* 建構子 */
@@ -211,25 +239,28 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 === "Kotlin"
 
     ```kotlin title=""
-    /* AVL 樹節點類別 */
-    class TreeNode(val _val: Int) {  // 節點值
-        var height: Int = 0          // 節點高度
-        var left: TreeNode? = null   // 左子節點
-        var right: TreeNode? = null  // 右子節點
+    /* 二元樹節點類別 */
+    /* 建構子 */
+    class TreeNode(
+        var _val: Int // 節點值
+    ) {
+        var height: Int = 0         // 節點高度
+        var left: TreeNode? = null  // 左子節點引用
+        var right: TreeNode? = null // 右子節點引用
     }
     ```
 
 === "Ruby"
 
     ```ruby title=""
-    ### AVL 樹節點類別 ###
+    ### 二元樹節點類別 ###
     class TreeNode
       attr_accessor :val    # 節點值
       attr_accessor :height # 節點高度
       attr_accessor :left   # 左子節點引用
       attr_accessor :right  # 右子節點引用
 
-      def initialize(val)
+      def initialize(val=0)
         @val = val
         @height = 0
       end

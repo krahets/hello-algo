@@ -163,8 +163,8 @@ comments: true
     typedef struct TreeNode {
         int val;                // Значение узла
         int height;             // Высота узла
-        struct TreeNode *left;  // Указатель на левого дочернего узла
-        struct TreeNode *right; // Указатель на правого дочернего узла
+        struct TreeNode *left;  // Указатель на левый дочерний узел
+        struct TreeNode *right; // Указатель на правый дочерний узел
     } TreeNode;
 
     /* Конструктор */

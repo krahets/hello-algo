@@ -26,82 +26,100 @@ AVL-дерево одновременно является и двоичным �
 
 ### 1. &nbsp; Высота узла
 
-Поскольку операции AVL-дерева требуют получать высоту узла, нам нужно добавить в класс узла переменную `height` :
+Поскольку операции AVL-дерева требуют получать высоту узла, нам нужно добавить в класс узла переменную `height`. Во всех главах исходного кода книги используется один и тот же класс узла двоичного дерева, и он уже содержит эту переменную:
 
 === "Python"
 
     ```python title=""
     class TreeNode:
-        """Класс узла AVL-дерева"""
-        def __init__(self, val: int):
-            self.val: int = val                 # Значение узла
-            self.height: int = 0                # Высота узла
-            self.left: TreeNode | None = None   # Ссылка на левого дочернего узла
-            self.right: TreeNode | None = None  # Ссылка на правого дочернего узла
+        """Класс узла двоичного дерева"""
+
+        def __init__(self, val: int = 0):
+            self.val: int = val  # Значение узла
+            self.height: int = 0  # Высота узла
+            self.left: TreeNode | None = None  # Ссылка на левый дочерний узел
+            self.right: TreeNode | None = None  # Ссылка на правый дочерний узел
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* Класс узла AVL-дерева */
+    /* Структура узла двоичного дерева */
     struct TreeNode {
-        int val{};          // Значение узла
-        int height = 0;     // Высота узла
-        TreeNode *left{};   // Левый дочерний узел
-        TreeNode *right{};  // Правый дочерний узел
+        int val{};         // Значение узла
+        int height = 0;    // Высота узла
+        TreeNode *parent{};
+        TreeNode *left{};  // Указатель на левый дочерний узел
+        TreeNode *right{}; // Указатель на правый дочерний узел
         TreeNode() = default;
-        explicit TreeNode(int x) : val(x){}
+        explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {
+        }
     };
     ```
 
 === "Java"
 
     ```java title=""
-    /* Класс узла AVL-дерева */
-    class TreeNode {
+    /* Класс узла двоичного дерева */
+    public class TreeNode {
         public int val;        // Значение узла
         public int height;     // Высота узла
-        public TreeNode left;  // Левый дочерний узел
-        public TreeNode right; // Правый дочерний узел
-        public TreeNode(int x) { val = x; }
+        public TreeNode left;  // Ссылка на левый дочерний узел
+        public TreeNode right; // Ссылка на правый дочерний узел
+
+        /* Конструктор */
+        public TreeNode(int x) {
+            val = x;
+        }
     }
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* Класс узла AVL-дерева */
-    class TreeNode(int? x) {
+    /* Класс узла двоичного дерева */
+    public class TreeNode(int? x) {
         public int? val = x;    // Значение узла
         public int height;      // Высота узла
-        public TreeNode? left;  // Ссылка на левого дочернего узла
-        public TreeNode? right; // Ссылка на правого дочернего узла
+        public TreeNode? left;  // Ссылка на левый дочерний узел
+        public TreeNode? right; // Ссылка на правый дочерний узел
     }
     ```
 
 === "Go"
 
     ```go title=""
-    /* Структура узла AVL-дерева */
+    // TreeNode: узел двоичного дерева
     type TreeNode struct {
-        Val    int       // Значение узла
+        Val    any       // Значение узла
         Height int       // Высота узла
-        Left   *TreeNode // Ссылка на левого дочернего узла
-        Right  *TreeNode // Ссылка на правого дочернего узла
+        Left   *TreeNode // Ссылка на левый дочерний узел
+        Right  *TreeNode // Ссылка на правый дочерний узел
+    }
+
+    // NewTreeNode: конструктор узла двоичного дерева
+    func NewTreeNode(v any) *TreeNode {
+        return &TreeNode{
+            Val:    v,
+            Height: 0,
+            Left:   nil,
+            Right:  nil,
+        }
     }
     ```
 
 === "Swift"
 
     ```swift title=""
-    /* Класс узла AVL-дерева */
-    class TreeNode {
-        var val: Int // Значение узла
-        var height: Int // Высота узла
-        var left: TreeNode? // Левый дочерний узел
-        var right: TreeNode? // Правый дочерний узел
+    /* Класс узла двоичного дерева */
+    public class TreeNode {
+        public var val: Int         // Значение узла
+        public var height: Int      // Высота узла
+        public var left: TreeNode?  // Ссылка на левый дочерний узел
+        public var right: TreeNode? // Ссылка на правый дочерний узел
 
-        init(x: Int) {
+        /* Конструктор */
+        public init(x: Int) {
             val = x
             height = 0
         }
@@ -111,17 +129,17 @@ AVL-дерево одновременно является и двоичным �
 === "JS"
 
     ```javascript title=""
-    /* Класс узла AVL-дерева */
+    /* Узел двоичного дерева */
     class TreeNode {
         val; // Значение узла
+        left; // Указатель на левый дочерний узел
+        right; // Указатель на правый дочерний узел
         height; // Высота узла
-        left; // Указатель на левого дочернего узла
-        right; // Указатель на правого дочернего узла
         constructor(val, left, right, height) {
             this.val = val === undefined ? 0 : val;
-            this.height = height === undefined ? 0 : height;
             this.left = left === undefined ? null : left;
             this.right = right === undefined ? null : right;
+            this.height = height === undefined ? 0 : height;
         }
     }
     ```
@@ -129,13 +147,18 @@ AVL-дерево одновременно является и двоичным �
 === "TS"
 
     ```typescript title=""
-    /* Класс узла AVL-дерева */
+    /* Узел двоичного дерева */
     class TreeNode {
-        val: number;            // Значение узла
-        height: number;         // Высота узла
-        left: TreeNode | null;  // Указатель на левого дочернего узла
-        right: TreeNode | null; // Указатель на правого дочернего узла
-        constructor(val?: number, height?: number, left?: TreeNode | null, right?: TreeNode | null) {
+        val: number; // Значение узла
+        height: number; // Высота узла
+        left: TreeNode | null; // Указатель на левый дочерний узел
+        right: TreeNode | null; // Указатель на правый дочерний узел
+        constructor(
+            val?: number,
+            height?: number,
+            left?: TreeNode | null,
+            right?: TreeNode | null
+        ) {
             this.val = val === undefined ? 0 : val;
             this.height = height === undefined ? 0 : height;
             this.left = left === undefined ? null : left;
@@ -147,12 +170,14 @@ AVL-дерево одновременно является и двоичным �
 === "Dart"
 
     ```dart title=""
-    /* Класс узла AVL-дерева */
+    /* Класс узла двоичного дерева */
     class TreeNode {
-      int val;         // Значение узла
-      int height;      // Высота узла
-      TreeNode? left;  // Левый дочерний узел
-      TreeNode? right; // Правый дочерний узел
+      int val; // Значение узла
+      int height; // Высота узла
+      TreeNode? left; // Ссылка на левый дочерний узел
+      TreeNode? right; // Ссылка на правый дочерний узел
+
+      /* Конструктор */
       TreeNode(this.val, [this.height = 0, this.left, this.right]);
     }
     ```
@@ -160,25 +185,28 @@ AVL-дерево одновременно является и двоичным �
 === "Rust"
 
     ```rust title=""
-    use std::rc::Rc;
     use std::cell::RefCell;
+    use std::rc::Rc;
 
-    /* Структура узла AVL-дерева */
-    struct TreeNode {
-        val: i32,                               // Значение узла
-        height: i32,                            // Высота узла
-        left: Option<Rc<RefCell<TreeNode>>>,    // Левый дочерний узел
-        right: Option<Rc<RefCell<TreeNode>>>,   // Правый дочерний узел
+    /* Тип узла двоичного дерева */
+    #[derive(Debug)]
+    pub struct TreeNode {
+        pub val: i32,                               // Значение узла
+        pub height: i32,                            // Высота узла
+        pub parent: Option<Rc<RefCell<TreeNode>>>,
+        pub left: Option<Rc<RefCell<TreeNode>>>,    // Указатель на левый дочерний узел
+        pub right: Option<Rc<RefCell<TreeNode>>>,   // Указатель на правый дочерний узел
     }
 
     impl TreeNode {
         /* Конструктор */
-        fn new(val: i32) -> Rc<RefCell<Self>> {
+        pub fn new(val: i32) -> Rc<RefCell<Self>> {
             Rc::new(RefCell::new(Self {
                 val,
                 height: 0,
+                parent: None,
                 left: None,
-                right: None
+                right: None,
             }))
         }
     }
@@ -187,12 +215,12 @@ AVL-дерево одновременно является и двоичным �
 === "C"
 
     ```c title=""
-    /* Структура узла AVL-дерева */
+    /* Структура узла двоичного дерева */
     typedef struct TreeNode {
-        int val;
-        int height;
-        struct TreeNode *left;
-        struct TreeNode *right;
+        int val;                // Значение узла
+        int height;             // Высота узла
+        struct TreeNode *left;  // Указатель на левый дочерний узел
+        struct TreeNode *right; // Указатель на правый дочерний узел
     } TreeNode;
 
     /* Конструктор */
@@ -211,25 +239,28 @@ AVL-дерево одновременно является и двоичным �
 === "Kotlin"
 
     ```kotlin title=""
-    /* Класс узла AVL-дерева */
-    class TreeNode(val _val: Int) {  // Значение узла
-        var height: Int = 0          // Высота узла
-        var left: TreeNode? = null   // Левый дочерний узел
-        var right: TreeNode? = null  // Правый дочерний узел
+    /* Класс узла двоичного дерева */
+    /* Конструктор */
+    class TreeNode(
+        var _val: Int // Значение узла
+    ) {
+        var height: Int = 0         // Высота узла
+        var left: TreeNode? = null  // Ссылка на левый дочерний узел
+        var right: TreeNode? = null // Ссылка на правый дочерний узел
     }
     ```
 
 === "Ruby"
 
     ```ruby title=""
-    ### Класс узла AVL-дерева ###
+    ### Класс узла двоичного дерева ###
     class TreeNode
       attr_accessor :val    # Значение узла
       attr_accessor :height # Высота узла
-      attr_accessor :left   # Ссылка на левого дочернего узла
-      attr_accessor :right  # Ссылка на правого дочернего узла
+      attr_accessor :left   # Ссылка на левый дочерний узел
+      attr_accessor :right  # Ссылка на правый дочерний узел
 
-      def initialize(val)
+      def initialize(val=0)
         @val = val
         @height = 0
       end

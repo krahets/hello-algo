@@ -26,52 +26,59 @@ AVL 트리는 이진 탐색 트리이면서 균형 이진 트리다. 두 종류�
 
 ### 1. &nbsp; 노드 높이
 
-AVL 트리 연산에는 노드 높이가 필요하므로 노드 클래스에 `height` 변수를 추가해야 한다.
+AVL 트리 연산에는 노드 높이가 필요하므로 노드 클래스에 `height` 변수를 추가해야 한다. 이 책의 소스 코드는 모든 장이 같은 이진 트리 노드 클래스를 공유하며, 이 클래스에는 이미 `height` 변수가 포함되어 있다.
 
 === "Python"
 
     ```python title=""
     class TreeNode:
-        """AVL 트리 노드 클래스"""
-        def __init__(self, val: int):
-            self.val: int = val                 # 노드 값
-            self.height: int = 0                # 노드 높이
-            self.left: TreeNode | None = None   # 왼쪽 자식 노드 참조
+        """이진 트리 노드 클래스"""
+
+        def __init__(self, val: int = 0):
+            self.val: int = val  # 노드 값
+            self.height: int = 0  # 노드 높이
+            self.left: TreeNode | None = None  # 왼쪽 자식 노드 참조
             self.right: TreeNode | None = None  # 오른쪽 자식 노드 참조
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* AVL 트리 노드 클래스 */
+    /* 이진 트리 노드 구조체 */
     struct TreeNode {
-        int val{};          // 노드 값
-        int height = 0;     // 노드 높이
-        TreeNode *left{};   // 왼쪽 자식 노드
-        TreeNode *right{};  // 오른쪽 자식 노드
+        int val{};         // 노드 값
+        int height = 0;    // 노드 높이
+        TreeNode *parent{};
+        TreeNode *left{};  // 왼쪽 자식 노드 포인터
+        TreeNode *right{}; // 오른쪽 자식 노드 포인터
         TreeNode() = default;
-        explicit TreeNode(int x) : val(x){}
+        explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {
+        }
     };
     ```
 
 === "Java"
 
     ```java title=""
-    /* AVL 트리 노드 클래스 */
-    class TreeNode {
+    /* 이진 트리 노드 클래스 */
+    public class TreeNode {
         public int val;        // 노드 값
         public int height;     // 노드 높이
-        public TreeNode left;  // 왼쪽 자식 노드
-        public TreeNode right; // 오른쪽 자식 노드
-        public TreeNode(int x) { val = x; }
+        public TreeNode left;  // 왼쪽 자식 노드 참조
+        public TreeNode right; // 오른쪽 자식 노드 참조
+
+        /* 생성자 */
+        public TreeNode(int x) {
+            val = x;
+        }
     }
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* AVL 트리 노드 클래스 */
-    class TreeNode(int? x) {
+    /* 이진 트리 노드 클래스 */
+    public class TreeNode(int? x) {
         public int? val = x;    // 노드 값
         public int height;      // 노드 높이
         public TreeNode? left;  // 왼쪽 자식 노드 참조
@@ -82,26 +89,37 @@ AVL 트리 연산에는 노드 높이가 필요하므로 노드 클래스에 `he
 === "Go"
 
     ```go title=""
-    /* AVL 트리 노드 구조체 */
+    // TreeNode: 이진 트리 노드
     type TreeNode struct {
-        Val    int       // 노드 값
+        Val    any       // 노드 값
         Height int       // 노드 높이
         Left   *TreeNode // 왼쪽 자식 노드 참조
         Right  *TreeNode // 오른쪽 자식 노드 참조
+    }
+
+    // NewTreeNode: 이진 트리 노드 생성자
+    func NewTreeNode(v any) *TreeNode {
+        return &TreeNode{
+            Val:    v,
+            Height: 0,
+            Left:   nil,
+            Right:  nil,
+        }
     }
     ```
 
 === "Swift"
 
     ```swift title=""
-    /* AVL 트리 노드 클래스 */
-    class TreeNode {
-        var val: Int // 노드 값
-        var height: Int // 노드 높이
-        var left: TreeNode? // 왼쪽 자식 노드
-        var right: TreeNode? // 오른쪽 자식 노드
+    /* 이진 트리 노드 클래스 */
+    public class TreeNode {
+        public var val: Int         // 노드 값
+        public var height: Int      // 노드 높이
+        public var left: TreeNode?  // 왼쪽 자식 노드 참조
+        public var right: TreeNode? // 오른쪽 자식 노드 참조
 
-        init(x: Int) {
+        /* 생성자 */
+        public init(x: Int) {
             val = x
             height = 0
         }
@@ -111,17 +129,17 @@ AVL 트리 연산에는 노드 높이가 필요하므로 노드 클래스에 `he
 === "JS"
 
     ```javascript title=""
-    /* AVL 트리 노드 클래스 */
+    /* 이진 트리 노드 */
     class TreeNode {
         val; // 노드 값
-        height; //노드 높이
         left; // 왼쪽 자식 노드 포인터
         right; // 오른쪽 자식 노드 포인터
+        height; // 노드 높이
         constructor(val, left, right, height) {
             this.val = val === undefined ? 0 : val;
-            this.height = height === undefined ? 0 : height;
             this.left = left === undefined ? null : left;
             this.right = right === undefined ? null : right;
+            this.height = height === undefined ? 0 : height;
         }
     }
     ```
@@ -129,13 +147,18 @@ AVL 트리 연산에는 노드 높이가 필요하므로 노드 클래스에 `he
 === "TS"
 
     ```typescript title=""
-    /* AVL 트리 노드 클래스 */
+    /* 이진 트리 노드 */
     class TreeNode {
-        val: number;            // 노드 값
-        height: number;         // 노드 높이
-        left: TreeNode | null;  // 왼쪽 자식 노드 포인터
+        val: number; // 노드 값
+        height: number; // 노드 높이
+        left: TreeNode | null; // 왼쪽 자식 노드 포인터
         right: TreeNode | null; // 오른쪽 자식 노드 포인터
-        constructor(val?: number, height?: number, left?: TreeNode | null, right?: TreeNode | null) {
+        constructor(
+            val?: number,
+            height?: number,
+            left?: TreeNode | null,
+            right?: TreeNode | null
+        ) {
             this.val = val === undefined ? 0 : val;
             this.height = height === undefined ? 0 : height;
             this.left = left === undefined ? null : left;
@@ -147,12 +170,14 @@ AVL 트리 연산에는 노드 높이가 필요하므로 노드 클래스에 `he
 === "Dart"
 
     ```dart title=""
-    /* AVL 트리 노드 클래스 */
+    /* 이진 트리 노드 클래스 */
     class TreeNode {
-      int val;         // 노드 값
-      int height;      // 노드 높이
-      TreeNode? left;  // 왼쪽 자식 노드
-      TreeNode? right; // 오른쪽 자식 노드
+      int val; // 노드 값
+      int height; // 노드 높이
+      TreeNode? left; // 왼쪽 자식 노드 참조
+      TreeNode? right; // 오른쪽 자식 노드 참조
+
+      /* 생성자 */
       TreeNode(this.val, [this.height = 0, this.left, this.right]);
     }
     ```
@@ -160,25 +185,28 @@ AVL 트리 연산에는 노드 높이가 필요하므로 노드 클래스에 `he
 === "Rust"
 
     ```rust title=""
-    use std::rc::Rc;
     use std::cell::RefCell;
+    use std::rc::Rc;
 
-    /* AVL 트리 노드 구조체 */
-    struct TreeNode {
-        val: i32,                               // 노드 값
-        height: i32,                            // 노드 높이
-        left: Option<Rc<RefCell<TreeNode>>>,    // 왼쪽 자식 노드
-        right: Option<Rc<RefCell<TreeNode>>>,   // 오른쪽 자식 노드
+    /* 이진 트리 노드 자료형 */
+    #[derive(Debug)]
+    pub struct TreeNode {
+        pub val: i32,                               // 노드 값
+        pub height: i32,                            // 노드 높이
+        pub parent: Option<Rc<RefCell<TreeNode>>>,
+        pub left: Option<Rc<RefCell<TreeNode>>>,    // 왼쪽 자식 노드 포인터
+        pub right: Option<Rc<RefCell<TreeNode>>>,   // 오른쪽 자식 노드 포인터
     }
 
     impl TreeNode {
         /* 생성자 */
-        fn new(val: i32) -> Rc<RefCell<Self>> {
+        pub fn new(val: i32) -> Rc<RefCell<Self>> {
             Rc::new(RefCell::new(Self {
                 val,
                 height: 0,
+                parent: None,
                 left: None,
-                right: None
+                right: None,
             }))
         }
     }
@@ -187,12 +215,12 @@ AVL 트리 연산에는 노드 높이가 필요하므로 노드 클래스에 `he
 === "C"
 
     ```c title=""
-    /* AVL 트리 노드 구조체 */
+    /* 이진 트리 노드 구조체 */
     typedef struct TreeNode {
-        int val;
-        int height;
-        struct TreeNode *left;
-        struct TreeNode *right;
+        int val;                // 노드 값
+        int height;             // 노드 높이
+        struct TreeNode *left;  // 왼쪽 자식 노드 포인터
+        struct TreeNode *right; // 오른쪽 자식 노드 포인터
     } TreeNode;
 
     /* 생성자 */
@@ -211,25 +239,28 @@ AVL 트리 연산에는 노드 높이가 필요하므로 노드 클래스에 `he
 === "Kotlin"
 
     ```kotlin title=""
-    /* AVL 트리 노드 클래스 */
-    class TreeNode(val _val: Int) {  // 노드 값
-        var height: Int = 0          // 노드 높이
-        var left: TreeNode? = null   // 왼쪽 자식 노드
-        var right: TreeNode? = null  // 오른쪽 자식 노드
+    /* 이진 트리 노드 클래스 */
+    /* 생성자 */
+    class TreeNode(
+        var _val: Int // 노드 값
+    ) {
+        var height: Int = 0         // 노드 높이
+        var left: TreeNode? = null  // 왼쪽 자식 노드 참조
+        var right: TreeNode? = null // 오른쪽 자식 노드 참조
     }
     ```
 
 === "Ruby"
 
     ```ruby title=""
-    ### AVL 트리 노드 클래스 ###
+    ### 이진 트리 노드 클래스 ###
     class TreeNode
       attr_accessor :val    # 노드 값
       attr_accessor :height # 노드 높이
       attr_accessor :left   # 왼쪽 자식 노드 참조
       attr_accessor :right  # 오른쪽 자식 노드 참조
 
-      def initialize(val)
+      def initialize(val=0)
         @val = val
         @height = 0
       end
