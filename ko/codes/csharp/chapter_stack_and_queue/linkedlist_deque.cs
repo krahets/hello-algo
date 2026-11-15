@@ -6,12 +6,14 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
+// [region]{doubly_list_node}
 /* 이중 연결 리스트 노드 */
 public class ListNode(int val) {
-    public int val = val;       // 노드 값
+    public int val = val;         // 노드 값
     public ListNode? next = null; // 다음 노드 참조
     public ListNode? prev = null; // 이전 노드 참조
 }
+// [endregion]{doubly_list_node}
 
 /* 이중 연결 리스트로 구현한 덱 */
 public class LinkedListDeque {

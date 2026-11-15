@@ -6,6 +6,7 @@
 
 #include "../utils/common.h"
 
+// [region]{doubly_list_node}
 /* 双向链表节点 */
 typedef struct DoublyListNode {
     int val;                     // 节点值
@@ -21,6 +22,7 @@ DoublyListNode *newDoublyListNode(int num) {
     new->prev = NULL;
     return new;
 }
+// [endregion]{doubly_list_node}
 
 /* 析构函数 */
 void delDoublyListNode(DoublyListNode *node) {

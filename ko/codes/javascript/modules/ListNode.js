@@ -4,6 +4,7 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
+// [region]{list_node}
 /* 연결 리스트 노드 */
 class ListNode {
     val; // 노드 값
@@ -13,6 +14,7 @@ class ListNode {
         this.next = next === undefined ? null : next;
     }
 }
+// [endregion]{list_node}
 
 /* 리스트를 연결 리스트로 역직렬화 */
 function arrToLinkedList(arr) {

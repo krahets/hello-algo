@@ -6,9 +6,12 @@
 
 use hello_algo_rust::include::print_util;
 
+// [region]{import}
 use std::cell::RefCell;
 use std::rc::Rc;
+// [endregion]{import}
 
+// [region]{doubly_list_node}
 /* 双方向連結リストのノード */
 pub struct ListNode<T> {
     pub val: T,                                 // ノードの値
@@ -25,6 +28,7 @@ impl<T> ListNode<T> {
         }))
     }
 }
+// [endregion]{doubly_list_node}
 
 /* 双方向連結リストで実装した両端キュー */
 #[allow(dead_code)]

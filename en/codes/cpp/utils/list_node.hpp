@@ -11,13 +11,15 @@
 
 using namespace std;
 
+// [region]{list_node}
 /* Linked list node */
 struct ListNode {
-    int val;
-    ListNode *next;
+    int val;        // Node value
+    ListNode *next; // Pointer to the next node
     ListNode(int x) : val(x), next(nullptr) {
     }
 };
+// [endregion]{list_node}
 
 /* Deserialize a list into a linked list */
 ListNode *vecToLinkedList(vector<int> list) {

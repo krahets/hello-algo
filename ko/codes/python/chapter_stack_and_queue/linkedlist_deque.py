@@ -5,14 +5,16 @@ Author: krahets (krahets@163.com)
 """
 
 
+# [region]{doubly_list_node}
 class ListNode:
     """이중 연결 리스트 노드"""
 
     def __init__(self, val: int):
         """생성자"""
-        self.val: int = val
+        self.val: int = val  # 노드 값
         self.next: ListNode | None = None  # 다음 노드 참조
         self.prev: ListNode | None = None  # 이전 노드 참조
+# [endregion]{doubly_list_node}
 
 
 class LinkedListDeque:

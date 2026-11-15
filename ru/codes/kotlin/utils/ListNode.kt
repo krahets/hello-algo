@@ -6,9 +6,11 @@
 
 package utils
 
+// [region]{list_node}
 /* Узел связного списка */
 class ListNode(var _val: Int) {
-    var next: ListNode? = null
+    var next: ListNode? = null // Ссылка на следующий узел
+// [endregion]{list_node}
 
     companion object {
         /* Десериализовать список в связный список */
@@ -22,4 +24,6 @@ class ListNode(var _val: Int) {
             return dum.next
         }
     }
+// [region]{list_node_end}
 }
+// [endregion]{list_node_end}

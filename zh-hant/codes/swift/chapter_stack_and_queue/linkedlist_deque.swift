@@ -4,6 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
+// [region]{doubly_list_node}
 /* 雙向鏈結串列節點 */
 class ListNode {
     var val: Int // 節點值
@@ -14,6 +15,7 @@ class ListNode {
         self.val = val
     }
 }
+// [endregion]{doubly_list_node}
 
 /* 基於雙向鏈結串列實現的雙向佇列 */
 class LinkedListDeque {

@@ -4,6 +4,7 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
+// [region]{list_node}
 /* 連結リストのノード */
 class ListNode {
     val; // ノードの値
@@ -13,6 +14,7 @@ class ListNode {
         this.next = next === undefined ? null : next;
     }
 }
+// [endregion]{list_node}
 
 /* リストをデシリアライズして連結リストにする */
 function arrToLinkedList(arr) {

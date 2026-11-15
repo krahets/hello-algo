@@ -1,52 +1,24 @@
 <!-- [snippet]{list_node_class} -->
 ```python title=""
-class ListNode:
-    """鏈結串列節點類別"""
-    def __init__(self, val: int):
-        self.val: int = val               # 節點值
-        self.next: ListNode | None = None # 指向下一節點的引用
+[file]{modules/list_node}-[region]{list_node}
 ```
 
 ```cpp title=""
-/* 鏈結串列節點結構體 */
-struct ListNode {
-    int val;         // 節點值
-    ListNode *next;  // 指向下一節點的指標
-    ListNode(int x) : val(x), next(nullptr) {}  // 建構子
-};
+[file]{utils/list_node.hpp}-[region]{list_node}
 ```
 
 ```java title=""
-/* 鏈結串列節點類別 */
-class ListNode {
-    int val;        // 節點值
-    ListNode next;  // 指向下一節點的引用
-    ListNode(int x) { val = x; }  // 建構子
-}
+[file]{utils/ListNode}-[region]{list_node}
+[file]{utils/ListNode}-[region]{list_node_end}
 ```
 
 ```csharp title=""
-/* 鏈結串列節點類別 */
-class ListNode(int x) {  //建構子
-    public int val = x;     // 節點值
-    public ListNode? next;  // 指向下一節點的引用
-}
+[file]{utils/ListNode}-[region]{list_node}
+[file]{utils/ListNode}-[region]{list_node_end}
 ```
 
 ```go title=""
-/* 鏈結串列節點結構體 */
-type ListNode struct {
-    Val  int       // 節點值
-    Next *ListNode // 指向下一節點的指標
-}
-
-// NewListNode 建構子，建立一個新的鏈結串列
-func NewListNode(val int) *ListNode {
-    return &ListNode{
-        Val:  val,
-        Next: nil,
-    }
-}
+[file]{pkg/list_node}-[region]{list_node}
 ```
 
 ```swift title=""
@@ -62,84 +34,36 @@ class ListNode {
 ```
 
 ```javascript title=""
-/* 鏈結串列節點類別 */
-class ListNode {
-    constructor(val, next) {
-        this.val = (val === undefined ? 0 : val);       // 節點值
-        this.next = (next === undefined ? null : next); // 指向下一節點的引用
-    }
-}
+[file]{modules/ListNode}-[region]{list_node}
 ```
 
 ```typescript title=""
-/* 鏈結串列節點類別 */
-class ListNode {
-    val: number;
-    next: ListNode | null;
-    constructor(val?: number, next?: ListNode | null) {
-        this.val = val === undefined ? 0 : val;        // 節點值
-        this.next = next === undefined ? null : next;  // 指向下一節點的引用
-    }
-}
+[file]{modules/ListNode}-[region]{list_node}
 ```
 
 ```dart title=""
-/* 鏈結串列節點類別 */
-class ListNode {
-  int val; // 節點值
-  ListNode? next; // 指向下一節點的引用
-  ListNode(this.val, [this.next]); // 建構子
-}
+[file]{utils/list_node}-[region]{list_node}
 ```
 
 ```rust title=""
-use std::rc::Rc;
-use std::cell::RefCell;
-/* 鏈結串列節點類別 */
-#[derive(Debug)]
-struct ListNode {
-    val: i32, // 節點值
-    next: Option<Rc<RefCell<ListNode>>>, // 指向下一節點的指標
-}
+[file]{src/include/list_node}-[region]{import_cell}
+[file]{src/include/list_node}-[region]{import_rc}
+
+[file]{src/include/list_node}-[region]{list_node}
+[file]{src/include/list_node}-[region]{list_node_end}
 ```
 
 ```c title=""
-/* 鏈結串列節點結構體 */
-typedef struct ListNode {
-    int val;               // 節點值
-    struct ListNode *next; // 指向下一節點的指標
-} ListNode;
-
-/* 建構子 */
-ListNode *newListNode(int val) {
-    ListNode *node;
-    node = (ListNode *) malloc(sizeof(ListNode));
-    node->val = val;
-    node->next = NULL;
-    return node;
-}
+[file]{utils/list_node.h}-[region]{list_node}
 ```
 
 ```kotlin title=""
-/* 鏈結串列節點類別 */
-// 建構子
-class ListNode(x: Int) {
-    val _val: Int = x          // 節點值
-    var next: ListNode? = null // 指向下一個節點的引用
-}
+[file]{utils/ListNode}-[region]{list_node}
+[file]{utils/ListNode}-[region]{list_node_end}
 ```
 
 ```ruby title=""
-# 鏈結串列節點類別
-class ListNode
-  attr_accessor :val  # 節點值
-  attr_accessor :next # 指向下一節點的引用
-
-  def initialize(val=0, next_node=nil)
-    @val = val
-    @next = next_node
-  end
-end
+[file]{utils/list_node}-[region]{list_node}
 ```
 
 <!-- [snippet]{init_linked_list} -->
@@ -200,41 +124,19 @@ https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%2
 
 <!-- [snippet]{doubly_list_node_class} -->
 ```python title=""
-class ListNode:
-    """雙向鏈結串列節點類別"""
-    def __init__(self, val: int):
-        self.val: int = val                # 節點值
-        self.next: ListNode | None = None  # 指向後繼節點的引用
-        self.prev: ListNode | None = None  # 指向前驅節點的引用
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```cpp title=""
-/* 雙向鏈結串列節點結構體 */
-struct ListNode {
-    int val;         // 節點值
-    ListNode *next;  // 指向後繼節點的指標
-    ListNode *prev;  // 指向前驅節點的指標
-    ListNode(int x) : val(x), next(nullptr), prev(nullptr) {}  // 建構子
-};
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```java title=""
-/* 雙向鏈結串列節點類別 */
-class ListNode {
-    int val;        // 節點值
-    ListNode next;  // 指向後繼節點的引用
-    ListNode prev;  // 指向前驅節點的引用
-    ListNode(int x) { val = x; }  // 建構子
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```csharp title=""
-/* 雙向鏈結串列節點類別 */
-class ListNode(int x) {  // 建構子
-    public int val = x;     // 節點值
-    public ListNode? next;  // 指向後繼節點的引用
-    public ListNode? prev;  // 指向前驅節點的引用
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```go title=""
@@ -256,117 +158,35 @@ func NewDoublyListNode(val int) *DoublyListNode {
 ```
 
 ```swift title=""
-/* 雙向鏈結串列節點類別 */
-class ListNode {
-    var val: Int // 節點值
-    var next: ListNode? // 指向後繼節點的引用
-    var prev: ListNode? // 指向前驅節點的引用
-
-    init(x: Int) { // 建構子
-        val = x
-    }
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```javascript title=""
-/* 雙向鏈結串列節點類別 */
-class ListNode {
-    constructor(val, next, prev) {
-        this.val = val  ===  undefined ? 0 : val;        // 節點值
-        this.next = next  ===  undefined ? null : next;  // 指向後繼節點的引用
-        this.prev = prev  ===  undefined ? null : prev;  // 指向前驅節點的引用
-    }
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```typescript title=""
-/* 雙向鏈結串列節點類別 */
-class ListNode {
-    val: number;
-    next: ListNode | null;
-    prev: ListNode | null;
-    constructor(val?: number, next?: ListNode | null, prev?: ListNode | null) {
-        this.val = val  ===  undefined ? 0 : val;        // 節點值
-        this.next = next  ===  undefined ? null : next;  // 指向後繼節點的引用
-        this.prev = prev  ===  undefined ? null : prev;  // 指向前驅節點的引用
-    }
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```dart title=""
-/* 雙向鏈結串列節點類別 */
-class ListNode {
-    int val;        // 節點值
-    ListNode? next;  // 指向後繼節點的引用
-    ListNode? prev;  // 指向前驅節點的引用
-    ListNode(this.val, [this.next, this.prev]);  // 建構子
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```rust title=""
-use std::rc::Rc;
-use std::cell::RefCell;
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{import}
 
-/* 雙向鏈結串列節點型別 */
-#[derive(Debug)]
-struct ListNode {
-    val: i32, // 節點值
-    next: Option<Rc<RefCell<ListNode>>>, // 指向後繼節點的指標
-    prev: Option<Rc<RefCell<ListNode>>>, // 指向前驅節點的指標
-}
-
-/* 建構子 */
-impl ListNode {
-    fn new(val: i32) -> Self {
-        ListNode {
-            val,
-            next: None,
-            prev: None,
-        }
-    }
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```c title=""
-/* 雙向鏈結串列節點結構體 */
-typedef struct ListNode {
-    int val;               // 節點值
-    struct ListNode *next; // 指向後繼節點的指標
-    struct ListNode *prev; // 指向前驅節點的指標
-} ListNode;
-
-/* 建構子 */
-ListNode *newListNode(int val) {
-    ListNode *node;
-    node = (ListNode *) malloc(sizeof(ListNode));
-    node->val = val;
-    node->next = NULL;
-    node->prev = NULL;
-    return node;
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```kotlin title=""
-/* 雙向鏈結串列節點類別 */
-// 建構子
-class ListNode(x: Int) {
-    val _val: Int = x           // 節點值
-    var next: ListNode? = null  // 指向後繼節點的引用
-    var prev: ListNode? = null  // 指向前驅節點的引用
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```ruby title=""
-# 雙向鏈結串列節點類別
-class ListNode
-  attr_accessor :val    # 節點值
-  attr_accessor :next   # 指向後繼節點的引用
-  attr_accessor :prev   # 指向前驅節點的引用
-
-  def initialize(val=0, next_node=nil, prev_node=nil)
-    @val = val
-    @next = next_node
-    @prev = prev_node
-  end
-end
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
