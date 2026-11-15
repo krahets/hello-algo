@@ -1,52 +1,24 @@
 <!-- [snippet]{list_node_class} -->
 ```python title=""
-class ListNode:
-    """Класс узла связного списка"""
-    def __init__(self, val: int):
-        self.val: int = val               # Значение узла
-        self.next: ListNode | None = None # Ссылка на следующий узел
+[file]{modules/list_node}-[region]{list_node}
 ```
 
 ```cpp title=""
-/* Структура узла связного списка */
-struct ListNode {
-    int val;         // Значение узла
-    ListNode *next;  // Указатель на следующий узел
-    ListNode(int x) : val(x), next(nullptr) {}  // Конструктор
-};
+[file]{utils/list_node.hpp}-[region]{list_node}
 ```
 
 ```java title=""
-/* Класс узла связного списка */
-class ListNode {
-    int val;        // Значение узла
-    ListNode next;  // Ссылка на следующий узел
-    ListNode(int x) { val = x; }  // Конструктор
-}
+[file]{utils/ListNode}-[region]{list_node}
+[file]{utils/ListNode}-[region]{list_node_end}
 ```
 
 ```csharp title=""
-/* Класс узла связного списка */
-class ListNode(int x) {  // Конструктор
-    public int val = x;     // Значение узла
-    public ListNode? next;  // Ссылка на следующий узел
-}
+[file]{utils/ListNode}-[region]{list_node}
+[file]{utils/ListNode}-[region]{list_node_end}
 ```
 
 ```go title=""
-/* Структура узла связного списка */
-type ListNode struct {
-    Val  int       // Значение узла
-    Next *ListNode // Указатель на следующий узел
-}
-
-// NewListNode — функция-конструктор, создающая новый связный список.
-func NewListNode(val int) *ListNode {
-    return &ListNode{
-        Val:  val,
-        Next: nil,
-    }
-}
+[file]{pkg/list_node}-[region]{list_node}
 ```
 
 ```swift title=""
@@ -62,84 +34,36 @@ class ListNode {
 ```
 
 ```javascript title=""
-/* Класс узла связного списка */
-class ListNode {
-    constructor(val, next) {
-        this.val = (val === undefined ? 0 : val);       // Значение узла
-        this.next = (next === undefined ? null : next); // Ссылка на следующий узел
-    }
-}
+[file]{modules/ListNode}-[region]{list_node}
 ```
 
 ```typescript title=""
-/* Класс узла связного списка */
-class ListNode {
-    val: number;
-    next: ListNode | null;
-    constructor(val?: number, next?: ListNode | null) {
-        this.val = val === undefined ? 0 : val;        // Значение узла
-        this.next = next === undefined ? null : next;  // Ссылка на следующий узел
-    }
-}
+[file]{modules/ListNode}-[region]{list_node}
 ```
 
 ```dart title=""
-/* Класс узла связного списка */
-class ListNode {
-  int val; // Значение узла
-  ListNode? next; // Ссылка на следующий узел
-  ListNode(this.val, [this.next]); // Конструктор
-}
+[file]{utils/list_node}-[region]{list_node}
 ```
 
 ```rust title=""
-use std::rc::Rc;
-use std::cell::RefCell;
-/* Класс узла связного списка */
-#[derive(Debug)]
-struct ListNode {
-    val: i32, // Значение узла
-    next: Option<Rc<RefCell<ListNode>>>, // Указатель на следующий узел
-}
+[file]{src/include/list_node}-[region]{import_cell}
+[file]{src/include/list_node}-[region]{import_rc}
+
+[file]{src/include/list_node}-[region]{list_node}
+[file]{src/include/list_node}-[region]{list_node_end}
 ```
 
 ```c title=""
-/* Структура узла связного списка */
-typedef struct ListNode {
-    int val;               // Значение узла
-    struct ListNode *next; // Указатель на следующий узел
-} ListNode;
-
-/* Конструктор */
-ListNode *newListNode(int val) {
-    ListNode *node;
-    node = (ListNode *) malloc(sizeof(ListNode));
-    node->val = val;
-    node->next = NULL;
-    return node;
-}
+[file]{utils/list_node.h}-[region]{list_node}
 ```
 
 ```kotlin title=""
-/* Класс узла связного списка */
-// Конструктор
-class ListNode(x: Int) {
-    val _val: Int = x          // Значение узла
-    var next: ListNode? = null // Ссылка на следующий узел
-}
+[file]{utils/ListNode}-[region]{list_node}
+[file]{utils/ListNode}-[region]{list_node_end}
 ```
 
 ```ruby title=""
-# Класс узла связного списка
-class ListNode
-  attr_accessor :val  # Значение узла
-  attr_accessor :next # Ссылка на следующий узел
-
-  def initialize(val=0, next_node=nil)
-    @val = val
-    @next = next_node
-  end
-end
+[file]{utils/list_node}-[region]{list_node}
 ```
 
 <!-- [snippet]{init_linked_list} -->
@@ -200,41 +124,19 @@ https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%2
 
 <!-- [snippet]{doubly_list_node_class} -->
 ```python title=""
-class ListNode:
-    """Класс узла двусвязного списка"""
-    def __init__(self, val: int):
-        self.val: int = val                # Значение узла
-        self.next: ListNode | None = None  # Ссылка на следующий узел
-        self.prev: ListNode | None = None  # Ссылка на предыдущий узел
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```cpp title=""
-/* Структура узла двусвязного списка */
-struct ListNode {
-    int val;         // Значение узла
-    ListNode *next;  // Указатель на следующий узел
-    ListNode *prev;  // Указатель на предыдущий узел
-    ListNode(int x) : val(x), next(nullptr), prev(nullptr) {}  // Конструктор
-};
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```java title=""
-/* Класс узла двусвязного списка */
-class ListNode {
-    int val;        // Значение узла
-    ListNode next;  // Ссылка на следующий узел
-    ListNode prev;  // Ссылка на предыдущий узел
-    ListNode(int x) { val = x; }  // Конструктор
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```csharp title=""
-/* Класс узла двусвязного списка */
-class ListNode(int x) {  // Конструктор
-    public int val = x;     // Значение узла
-    public ListNode? next;  // Ссылка на следующий узел
-    public ListNode? prev;  // Ссылка на предыдущий узел
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```go title=""
@@ -256,117 +158,35 @@ func NewDoublyListNode(val int) *DoublyListNode {
 ```
 
 ```swift title=""
-/* Класс узла двусвязного списка */
-class ListNode {
-    var val: Int // Значение узла
-    var next: ListNode? // Ссылка на следующий узел
-    var prev: ListNode? // Ссылка на предыдущий узел
-
-    init(x: Int) { // Конструктор
-        val = x
-    }
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```javascript title=""
-/* Класс узла двусвязного списка */
-class ListNode {
-    constructor(val, next, prev) {
-        this.val = val  ===  undefined ? 0 : val;        // Значение узла
-        this.next = next  ===  undefined ? null : next;  // Ссылка на следующий узел
-        this.prev = prev  ===  undefined ? null : prev;  // Ссылка на предыдущий узел
-    }
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```typescript title=""
-/* Класс узла двусвязного списка */
-class ListNode {
-    val: number;
-    next: ListNode | null;
-    prev: ListNode | null;
-    constructor(val?: number, next?: ListNode | null, prev?: ListNode | null) {
-        this.val = val  ===  undefined ? 0 : val;        // Значение узла
-        this.next = next  ===  undefined ? null : next;  // Ссылка на следующий узел
-        this.prev = prev  ===  undefined ? null : prev;  // Ссылка на предыдущий узел
-    }
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```dart title=""
-/* Класс узла двусвязного списка */
-class ListNode {
-    int val;        // Значение узла
-    ListNode? next;  // Ссылка на следующий узел
-    ListNode? prev;  // Ссылка на предыдущий узел
-    ListNode(this.val, [this.next, this.prev]);  // Конструктор
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```rust title=""
-use std::rc::Rc;
-use std::cell::RefCell;
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{import}
 
-/* Тип узла двусвязного списка */
-#[derive(Debug)]
-struct ListNode {
-    val: i32, // Значение узла
-    next: Option<Rc<RefCell<ListNode>>>, // Указатель на следующий узел
-    prev: Option<Rc<RefCell<ListNode>>>, // Указатель на предыдущий узел
-}
-
-/* Конструктор */
-impl ListNode {
-    fn new(val: i32) -> Self {
-        ListNode {
-            val,
-            next: None,
-            prev: None,
-        }
-    }
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```c title=""
-/* Структура узла двусвязного списка */
-typedef struct ListNode {
-    int val;               // Значение узла
-    struct ListNode *next; // Указатель на следующий узел
-    struct ListNode *prev; // Указатель на предыдущий узел
-} ListNode;
-
-/* Конструктор */
-ListNode *newListNode(int val) {
-    ListNode *node;
-    node = (ListNode *) malloc(sizeof(ListNode));
-    node->val = val;
-    node->next = NULL;
-    node->prev = NULL;
-    return node;
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```kotlin title=""
-/* Класс узла двусвязного списка */
-// Конструктор
-class ListNode(x: Int) {
-    val _val: Int = x           // Значение узла
-    var next: ListNode? = null  // Ссылка на следующий узел
-    var prev: ListNode? = null  // Ссылка на предыдущий узел
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```ruby title=""
-# Класс узла двусвязного списка
-class ListNode
-  attr_accessor :val    # Значение узла
-  attr_accessor :next   # Ссылка на следующий узел
-  attr_accessor :prev   # Ссылка на предыдущий узел
-
-  def initialize(val=0, next_node=nil, prev_node=nil)
-    @val = val
-    @next = next_node
-    @prev = prev_node
-  end
-end
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```

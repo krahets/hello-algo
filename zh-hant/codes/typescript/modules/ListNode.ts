@@ -4,15 +4,17 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
+// [region]{list_node}
 /* 鏈結串列節點 */
 class ListNode {
-    val: number;
-    next: ListNode | null;
+    val: number; // 節點值
+    next: ListNode | null; // 指向下一節點的引用
     constructor(val?: number, next?: ListNode | null) {
         this.val = val === undefined ? 0 : val;
         this.next = next === undefined ? null : next;
     }
 }
+// [endregion]{list_node}
 
 /* 將陣列反序列化為鏈結串列 */
 function arrToLinkedList(arr: number[]): ListNode | null {

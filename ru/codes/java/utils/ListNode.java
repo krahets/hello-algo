@@ -6,14 +6,16 @@
 
 package utils;
 
+// [region]{list_node}
 /* Узел связного списка */
 public class ListNode {
-    public int val;
-    public ListNode next;
+    public int val;       // Значение узла
+    public ListNode next; // Ссылка на следующий узел
 
     public ListNode(int x) {
         val = x;
     }
+// [endregion]{list_node}
 
     /* Десериализовать список в связный список */
     public static ListNode arrToLinkedList(int[] arr) {
@@ -25,4 +27,6 @@ public class ListNode {
         }
         return dum.next;
     }
+// [region]{list_node_end}
 }
+// [endregion]{list_node_end}

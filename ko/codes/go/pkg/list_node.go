@@ -4,19 +4,22 @@
 
 package pkg
 
+// [region]{list_node}
 // ListNode: 연결 리스트 노드
 type ListNode struct {
-	Next *ListNode
-	Val  int
+	Val  int       // 노드 값
+	Next *ListNode // 다음 노드 포인터
 }
 
 // NewListNode: 연결 리스트 노드 생성자
 func NewListNode(v int) *ListNode {
 	return &ListNode{
-		Next: nil,
 		Val:  v,
+		Next: nil,
 	}
 }
+
+// [endregion]{list_node}
 
 // ArrayToLinkedList: 배열을 역직렬화하여 연결 리스트로 만든다
 func ArrayToLinkedList(arr []int) *ListNode {

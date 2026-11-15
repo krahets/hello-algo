@@ -4,10 +4,11 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
+// [region]{doubly_list_node}
 /* 이중 연결 리스트 노드 */
 class ListNode {
-    prev: ListNode; // 이전 노드 참조(포인터)
-    next: ListNode; // 다음 노드 참조(포인터)
+    prev: ListNode | null; // 이전 노드 참조(포인터)
+    next: ListNode | null; // 다음 노드 참조(포인터)
     val: number; // 노드 값
 
     constructor(val: number) {
@@ -16,6 +17,7 @@ class ListNode {
         this.prev = null;
     }
 }
+// [endregion]{doubly_list_node}
 
 /* 이중 연결 리스트로 구현한 덱 */
 class LinkedListDeque {

@@ -4,13 +4,15 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
+// [region]{list_node}
 /* 連結リストのノード */
 class ListNode {
-  int val;
-  ListNode? next;
+  int val; // ノードの値
+  ListNode? next; // 次のノードへの参照
 
-  ListNode(this.val, [this.next]);
+  ListNode(this.val, [this.next]); // コンストラクタ
 }
+// [endregion]{list_node}
 
 /* リストをデシリアライズして連結リストにする */
 ListNode? listToLinkedList(List<int> list) {

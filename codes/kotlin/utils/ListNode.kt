@@ -6,9 +6,11 @@
 
 package utils
 
+// [region]{list_node}
 /* 链表节点 */
 class ListNode(var _val: Int) {
-    var next: ListNode? = null
+    var next: ListNode? = null // 指向下一节点的引用
+// [endregion]{list_node}
 
     companion object {
         /* 将列表反序列化为链表 */
@@ -22,4 +24,6 @@ class ListNode(var _val: Int) {
             return dum.next
         }
     }
+// [region]{list_node_end}
 }
+// [endregion]{list_node_end}

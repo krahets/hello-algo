@@ -9,58 +9,74 @@ package chapter_heap
 import utils.printHeap
 import java.util.*
 
-fun testPush(heap: Queue<Int>, _val: Int) {
-    heap.offer(_val) // ヒープに要素を挿入する
-    print("\n要素 $_val をヒープに挿入した後\n")
-    printHeap(heap)
-}
-
-fun testPop(heap: Queue<Int>) {
-    val _val = heap.poll() // ヒープの先頭要素を取り出す
-    print("\nヒープの先頭要素 $_val を取り出した後\n")
-    printHeap(heap)
-}
-
 /* 実行用コード */
 fun main() {
+    // [region]{init}
     /* ヒープを初期化する */
     // 最小ヒープを初期化する
     var minHeap = PriorityQueue<Int>()
-
     // 最大ヒープを初期化する（ラムダ式で Comparator を変更すればよい）
     val maxHeap = PriorityQueue { a: Int, b: Int -> b - a }
+    // [endregion]{init}
 
     println("\n以下のテストケースは最大ヒープを対象とする")
 
+    // [region]{push}
     /* ヒープに要素を挿入する */
-    testPush(maxHeap, 1)
-    testPush(maxHeap, 3)
-    testPush(maxHeap, 2)
-    testPush(maxHeap, 5)
-    testPush(maxHeap, 4)
+    maxHeap.offer(1)
+    maxHeap.offer(3)
+    maxHeap.offer(2)
+    maxHeap.offer(5)
+    maxHeap.offer(4)
+    // [endregion]{push}
+    printHeap(maxHeap)
 
+    // [region]{peek}
     /* ヒープの先頭要素を取得する */
-    val peek = maxHeap.peek()
+    var peek = maxHeap.peek() // 5
+    // [endregion]{peek}
     print("\nヒープの先頭要素は $peek\n")
 
+    // [region]{pop_1}
     /* ヒープの先頭要素を取り出す */
-    testPop(maxHeap)
-    testPop(maxHeap)
-    testPop(maxHeap)
-    testPop(maxHeap)
-    testPop(maxHeap)
+    // 取り出した要素は降順の列を形成する
+    peek = maxHeap.poll() // 5
+    // [endregion]{pop_1}
+    println(peek)
+    // [region]{pop_2}
+    peek = maxHeap.poll() // 4
+    // [endregion]{pop_2}
+    println(peek)
+    // [region]{pop_3}
+    peek = maxHeap.poll() // 3
+    // [endregion]{pop_3}
+    println(peek)
+    // [region]{pop_4}
+    peek = maxHeap.poll() // 2
+    // [endregion]{pop_4}
+    println(peek)
+    // [region]{pop_5}
+    peek = maxHeap.poll() // 1
+    // [endregion]{pop_5}
+    println(peek)
 
+    // [region]{size}
     /* ヒープのサイズを取得する */
     val size = maxHeap.size
+    // [endregion]{size}
     print("\nヒープの要素数は $size\n")
 
+    // [region]{is_empty}
     /* ヒープが空か判定 */
     val isEmpty = maxHeap.isEmpty()
+    // [endregion]{is_empty}
     print("\nヒープは空か $isEmpty\n")
 
+    // [region]{heapify}
     /* リストを入力してヒープを構築する */
     // 時間計算量は O(n) であり、O(nlogn) ではない
     minHeap = PriorityQueue(mutableListOf<Int?>(1, 3, 2, 5, 4))
+    // [endregion]{heapify}
     println("\nリストを入力して最小ヒープを構築した後")
     printHeap(minHeap)
 }

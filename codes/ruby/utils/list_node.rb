@@ -4,6 +4,7 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
+# [region]{list_node}
 ### 链表节点类 ###
 class ListNode
   attr_accessor :val  # 节点值
@@ -14,6 +15,7 @@ class ListNode
     @next = next_node
   end
 end
+# [endregion]{list_node}
 
 ### 将列表反序列化为链表 ###
 def arr_to_linked_list(arr)

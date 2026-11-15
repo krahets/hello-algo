@@ -8,9 +8,10 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
+// [region]{doubly_list_node}
 /* 双方向連結リストのノード */
 class ListNode {
-    int val; // ノードの値
+    int val;       // ノードの値
     ListNode next; // 後続ノードへの参照
     ListNode prev; // 前のノードへの参照
 
@@ -19,6 +20,7 @@ class ListNode {
         prev = next = null;
     }
 }
+// [endregion]{doubly_list_node}
 
 /* 双方向連結リストで実装した両端キュー */
 class LinkedListDeque {

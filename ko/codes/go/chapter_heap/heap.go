@@ -4,6 +4,7 @@
 
 package chapter_heap
 
+// [region]{int_heap}
 // Go에서는 heap.Interface를 구현하여 정수 최대 힙을 만들 수 있다
 // heap.Interface를 구현하려면 sort.Interface도 구현해야 한다
 type intHeap []any
@@ -43,3 +44,5 @@ func (h *intHeap) Swap(i, j int) {
 func (h *intHeap) Top() any {
 	return (*h)[0]
 }
+
+// [endregion]{int_heap}

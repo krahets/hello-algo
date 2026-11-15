@@ -11,6 +11,7 @@
 extern "C" {
 #endif
 
+// [region]{list_node}
 /* 連結リストのノードの構造体 */
 typedef struct ListNode {
     int val;               // ノードの値
@@ -25,6 +26,7 @@ ListNode *newListNode(int val) {
     node->next = NULL;
     return node;
 }
+// [endregion]{list_node}
 
 /* 配列をデシリアライズして連結リストにする */
 ListNode *arrToLinkedList(const int *arr, size_t size) {
