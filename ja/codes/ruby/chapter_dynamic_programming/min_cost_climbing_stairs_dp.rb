@@ -17,7 +17,7 @@ def min_cost_climbing_stairs_dp(cost)
   dp[n]
 end
 
-# 階段を上る最小コスト：空間を最適化した動的計画法
+### 階段を上る最小コスト：空間を最適化した動的計画法 ###
 def min_cost_climbing_stairs_dp_comp(cost)
   n = cost.length - 1
   return cost[n] if n == 1 || n == 2

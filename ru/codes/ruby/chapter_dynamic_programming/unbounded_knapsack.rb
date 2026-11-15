@@ -24,7 +24,7 @@ def unbounded_knapsack_dp(wgt, val, cap)
   dp[n][cap]
 end
 
-# ## Полный рюкзак: динамическое программирование с оптимизацией памяти ##3
+### Полный рюкзак: динамическое программирование с оптимизацией памяти ###
 def unbounded_knapsack_dp_comp(wgt, val, cap)
   n = wgt.length
   # Инициализация таблицы dp
