@@ -55,7 +55,7 @@
   },
   "dependencies": {
     "markdown": {
-      "chapter_tree/binary_tree.md": "aa0c4627b731fa3f16786d3a6f4533fd415e5bea256a9a8f84d6c858ec3596af"
+      "chapter_tree/binary_tree.md": "ae2eaab951aa4bdfeba7d1cf6b47892b44351703c62da823977b45cbceb86c49"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -63,8 +63,13 @@
     }
   },
   "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-dependency-verification",
-    "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
-    "factual_review_preserved": true
+    "run_id": "figure-reading-20261116/upstream-revert-verification",
+    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
+    "factual_review_preserved": true,
+    "previous": {
+      "run_id": "figure-reading-20261116/upstream-dependency-verification",
+      "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
+      "factual_review_preserved": true
+    }
   }
 }

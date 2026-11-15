@@ -43,7 +43,7 @@
   ],
   "dependencies": {
     "markdown": {
-      "chapter_stack_and_queue/queue.md": "cb1ff8bb871a0d8d9007ef3e9b538d5be19426c4e7aff1d02c865c8eec0dbb60"
+      "chapter_stack_and_queue/queue.md": "896475dcba151b44c34df568e54b1283f5e81225c0c665c1a49b58a058ec3d60"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -112,5 +112,10 @@
     "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
     "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
     "content_sha256": "b1dc157e2d57490feadf1c7a70aa4560f752ebc02bae322ee89f96ec14b5faf9"
+  },
+  "dependency_compatibility": {
+    "run_id": "figure-reading-20261116/upstream-revert-verification",
+    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
+    "factual_review_preserved": true
   }
 }

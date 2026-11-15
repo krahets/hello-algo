@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "markdown": {
-      "chapter_stack_and_queue/stack.md": "da8168eeb67b931c0e9c09301bda55b1c68a9f272be1e712d4db61c350340c75"
+      "chapter_stack_and_queue/stack.md": "3ba63b881e29fee2cfff650e7dd695f0936e1a6ff078ebdb369583c9bc022859"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -198,5 +198,10 @@
     "verification_manifest_sha256": "4f1336dab5a55decb8eb34d4152a8a0006c4cd2d7ca264d5af16346db2f27e51",
     "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
     "content_sha256": "6316defa72a00cecc5bfa65cd1d1707cd12c389e7b0e6d6a9053b76da563e32d"
+  },
+  "dependency_compatibility": {
+    "run_id": "figure-reading-20261116/upstream-revert-verification",
+    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
+    "factual_review_preserved": true
   }
 }

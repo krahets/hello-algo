@@ -89,7 +89,7 @@
   },
   "dependencies": {
     "markdown": {
-      "chapter_heap/heap.md": "66d20f45c014eb6c91082c40fae367ed0feb162ac111c186b0c737a03b9f6297"
+      "chapter_heap/heap.md": "00d9805c2a89016f30a5c9c5434c2fd3911f8b56b7fb8cdec0a862e0c4be92e9"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -97,13 +97,18 @@
     }
   },
   "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-final-verification",
-    "evidence_sha256": "5066997c87052863d107b696247ff6f5b15d8cf6dbf1e000a7d7a2e1f3696cd4",
+    "run_id": "figure-reading-20261116/upstream-revert-verification",
+    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
     "factual_review_preserved": true,
     "previous": {
-      "run_id": "figure-reading-20261116/upstream-dependency-verification",
-      "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
-      "factual_review_preserved": true
+      "run_id": "figure-reading-20261116/upstream-final-verification",
+      "evidence_sha256": "5066997c87052863d107b696247ff6f5b15d8cf6dbf1e000a7d7a2e1f3696cd4",
+      "factual_review_preserved": true,
+      "previous": {
+        "run_id": "figure-reading-20261116/upstream-dependency-verification",
+        "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
+        "factual_review_preserved": true
+      }
     }
   }
 }

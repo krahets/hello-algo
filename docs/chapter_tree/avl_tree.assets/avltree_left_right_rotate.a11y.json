@@ -27,7 +27,7 @@
   ],
   "dependencies": {
     "markdown": {
-      "chapter_tree/avl_tree.md": "e264b3ce5fe69884072c4785589533b123cbed6c6e9e1bac0ddbe3aefc0c68f6"
+      "chapter_tree/avl_tree.md": "f4a27fbca67b22b8b3a041218f1088ab85a9f2a32e374060046152e6e01440a5"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -149,8 +149,13 @@
     "content_sha256": "d30035e780cf041cb2700616c50290aa471b6466a26f2890062f08e3e9199c80"
   },
   "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-final-verification",
-    "evidence_sha256": "5066997c87052863d107b696247ff6f5b15d8cf6dbf1e000a7d7a2e1f3696cd4",
-    "factual_review_preserved": true
+    "run_id": "figure-reading-20261116/upstream-revert-verification",
+    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
+    "factual_review_preserved": true,
+    "previous": {
+      "run_id": "figure-reading-20261116/upstream-final-verification",
+      "evidence_sha256": "5066997c87052863d107b696247ff6f5b15d8cf6dbf1e000a7d7a2e1f3696cd4",
+      "factual_review_preserved": true
+    }
   }
 }

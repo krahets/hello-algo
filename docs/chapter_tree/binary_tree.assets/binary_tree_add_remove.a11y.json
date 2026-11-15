@@ -21,7 +21,7 @@
   ],
   "dependencies": {
     "markdown": {
-      "chapter_tree/binary_tree.md": "aa0c4627b731fa3f16786d3a6f4533fd415e5bea256a9a8f84d6c858ec3596af"
+      "chapter_tree/binary_tree.md": "ae2eaab951aa4bdfeba7d1cf6b47892b44351703c62da823977b45cbceb86c49"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -137,5 +137,10 @@
     "verification_manifest_sha256": "0b7adebd41a0487a5327cd972cfda8603502aa45f7655844680e218e6e933867",
     "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
     "content_sha256": "5b02ed1728628ed35b81b7b955eb54fccf2a48a7e982861c3dda387d58db5ee1"
+  },
+  "dependency_compatibility": {
+    "run_id": "figure-reading-20261116/upstream-revert-verification",
+    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
+    "factual_review_preserved": true
   }
 }

@@ -21,7 +21,7 @@
   ],
   "dependencies": {
     "markdown": {
-      "chapter_array_and_linkedlist/array.md": "5c69c06953e50010e346a81f85a219363d2dff4990214cfddc2c67b866704fd3"
+      "chapter_array_and_linkedlist/array.md": "b552efb1674ec7ace53cef69704ced587bc0f66bf9c861380e4105d944147d3e"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -97,5 +97,10 @@
     "verification_manifest_sha256": "e599534ecd2e93955445689d4327ace02a7ae7841b59245afcbd61129c11708b",
     "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
     "content_sha256": "8aed1d49ed2942dd798f5cfd97128507358572ad214b7d86cb84bfb44ff04b70"
+  },
+  "dependency_compatibility": {
+    "run_id": "figure-reading-20261116/upstream-revert-verification",
+    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
+    "factual_review_preserved": true
   }
 }

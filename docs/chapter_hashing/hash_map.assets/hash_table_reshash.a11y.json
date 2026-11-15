@@ -61,7 +61,7 @@
   ],
   "dependencies": {
     "markdown": {
-      "chapter_hashing/hash_map.md": "1afb3ecd77e99e9a09d5617db30663ebfe006ae26598d18a5d589894033f20e9"
+      "chapter_hashing/hash_map.md": "811c668682eed15b11f5c0c9a4f62574d741212e7bdf7078b8826c4d13933d12"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -171,5 +171,10 @@
     "verification_manifest_sha256": "4f1336dab5a55decb8eb34d4152a8a0006c4cd2d7ca264d5af16346db2f27e51",
     "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
     "content_sha256": "44b06214336b4f0435e26b143fb7bba00c74bc4a903e2d790c0c3529d6aa154d"
+  },
+  "dependency_compatibility": {
+    "run_id": "figure-reading-20261116/upstream-revert-verification",
+    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
+    "factual_review_preserved": true
   }
 }
