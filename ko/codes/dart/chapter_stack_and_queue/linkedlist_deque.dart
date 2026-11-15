@@ -4,6 +4,7 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
+// [region]{doubly_list_node}
 /* 이중 연결 리스트 노드 */
 class ListNode {
   int val; // 노드 값
@@ -12,6 +13,7 @@ class ListNode {
 
   ListNode(this.val, {this.next, this.prev});
 }
+// [endregion]{doubly_list_node}
 
 /* 이중 연결 리스트로 구현한 덱 */
 class LinkedListDeque {

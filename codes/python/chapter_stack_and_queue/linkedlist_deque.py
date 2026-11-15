@@ -5,14 +5,16 @@ Author: krahets (krahets@163.com)
 """
 
 
+# [region]{doubly_list_node}
 class ListNode:
     """双向链表节点"""
 
     def __init__(self, val: int):
         """构造方法"""
-        self.val: int = val
+        self.val: int = val  # 节点值
         self.next: ListNode | None = None  # 后继节点引用
         self.prev: ListNode | None = None  # 前驱节点引用
+# [endregion]{doubly_list_node}
 
 
 class LinkedListDeque:

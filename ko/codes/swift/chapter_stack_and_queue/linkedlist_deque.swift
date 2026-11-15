@@ -4,6 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
+// [region]{doubly_list_node}
 /* 이중 연결 리스트 노드 */
 class ListNode {
     var val: Int // 노드 값
@@ -14,6 +15,7 @@ class ListNode {
         self.val = val
     }
 }
+// [endregion]{doubly_list_node}
 
 /* 이중 연결 리스트로 구현한 덱 */
 class LinkedListDeque {

@@ -11,13 +11,15 @@
 
 using namespace std;
 
+// [region]{list_node}
 /* 链表节点 */
 struct ListNode {
-    int val;
-    ListNode *next;
+    int val;        // 节点值
+    ListNode *next; // 后继节点指针
     ListNode(int x) : val(x), next(nullptr) {
     }
 };
+// [endregion]{list_node}
 
 /* 将列表反序列化为链表 */
 ListNode *vecToLinkedList(vector<int> list) {

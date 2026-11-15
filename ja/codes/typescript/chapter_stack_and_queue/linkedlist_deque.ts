@@ -4,10 +4,11 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
+// [region]{doubly_list_node}
 /* 双方向連結リストのノード */
 class ListNode {
-    prev: ListNode; // 前のノードへの参照（ポインタ）
-    next: ListNode; // 後続ノードへの参照（ポインタ）
+    prev: ListNode | null; // 前のノードへの参照（ポインタ）
+    next: ListNode | null; // 後続ノードへの参照（ポインタ）
     val: number; // ノードの値
 
     constructor(val: number) {
@@ -16,6 +17,7 @@ class ListNode {
         this.prev = null;
     }
 }
+// [endregion]{doubly_list_node}
 
 /* 双方向連結リストで実装した両端キュー */
 class LinkedListDeque {

@@ -4,6 +4,7 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
+// [region]{tree_node}
 /* Класс узла двоичного дерева */
 class TreeNode {
   int val; // Значение узла
@@ -14,6 +15,7 @@ class TreeNode {
   /* Конструктор */
   TreeNode(this.val, [this.height = 0, this.left, this.right]);
 }
+// [endregion]{tree_node}
 
 /* Десериализовать список в двоичное дерево: рекурсия */
 TreeNode? listToTreeDFS(List<int?> arr, int i) {

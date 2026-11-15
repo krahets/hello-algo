@@ -130,25 +130,7 @@ impl TreeNode {
 ```
 
 ```c title=""
-/* 二叉树节点结构体 */
-typedef struct TreeNode {
-    int val;                // 节点值
-    int height;             // 节点高度
-    struct TreeNode *left;  // 左子节点指针
-    struct TreeNode *right; // 右子节点指针
-} TreeNode;
-
-/* 构造函数 */
-TreeNode *newTreeNode(int val) {
-    TreeNode *node;
-
-    node = (TreeNode *)malloc(sizeof(TreeNode));
-    node->val = val;
-    node->height = 0;
-    node->left = NULL;
-    node->right = NULL;
-    return node;
-}
+[file]{utils/tree_node.h}-[region]{tree_node}
 ```
 
 ```kotlin title=""

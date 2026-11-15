@@ -4,15 +4,17 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
+// [region]{list_node}
 /* Linked list node */
 class ListNode {
-    val: number;
-    next: ListNode | null;
+    val: number; // Node value
+    next: ListNode | null; // Reference to the next node
     constructor(val?: number, next?: ListNode | null) {
         this.val = val === undefined ? 0 : val;
         this.next = next === undefined ? null : next;
     }
 }
+// [endregion]{list_node}
 
 /* Deserialize an array into a linked list */
 function arrToLinkedList(arr: number[]): ListNode | null {

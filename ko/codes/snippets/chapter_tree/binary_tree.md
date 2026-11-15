@@ -130,25 +130,7 @@ impl TreeNode {
 ```
 
 ```c title=""
-/* 이진 트리 노드 구조체 */
-typedef struct TreeNode {
-    int val;                // 노드 값
-    int height;             // 노드 높이
-    struct TreeNode *left;  // 왼쪽 자식 노드 포인터
-    struct TreeNode *right; // 오른쪽 자식 노드 포인터
-} TreeNode;
-
-/* 생성자 */
-TreeNode *newTreeNode(int val) {
-    TreeNode *node;
-
-    node = (TreeNode *)malloc(sizeof(TreeNode));
-    node->val = val;
-    node->height = 0;
-    node->left = NULL;
-    node->right = NULL;
-    return node;
-}
+[file]{utils/tree_node.h}-[region]{tree_node}
 ```
 
 ```kotlin title=""

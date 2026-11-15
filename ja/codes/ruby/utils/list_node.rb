@@ -4,6 +4,7 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
+# [region]{list_node}
 ### 連結リストのノードクラス ###
 class ListNode
   attr_accessor :val  # ノードの値
@@ -14,6 +15,7 @@ class ListNode
     @next = next_node
   end
 end
+# [endregion]{list_node}
 
 ### リストをデシリアライズして連結リストにする ###
 def arr_to_linked_list(arr)

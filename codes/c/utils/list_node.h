@@ -11,6 +11,7 @@
 extern "C" {
 #endif
 
+// [region]{list_node}
 /* 链表节点结构体 */
 typedef struct ListNode {
     int val;               // 节点值
@@ -25,6 +26,7 @@ ListNode *newListNode(int val) {
     node->next = NULL;
     return node;
 }
+// [endregion]{list_node}
 
 /* 将数组反序列化为链表 */
 ListNode *arrToLinkedList(const int *arr, size_t size) {

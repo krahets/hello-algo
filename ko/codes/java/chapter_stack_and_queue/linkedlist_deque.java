@@ -8,9 +8,10 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
+// [region]{doubly_list_node}
 /* 이중 연결 리스트 노드 */
 class ListNode {
-    int val; // 노드 값
+    int val;       // 노드 값
     ListNode next; // 다음 노드 참조
     ListNode prev; // 이전 노드 참조
 
@@ -19,6 +20,7 @@ class ListNode {
         prev = next = null;
     }
 }
+// [endregion]{doubly_list_node}
 
 /* 이중 연결 리스트로 구현한 덱 */
 class LinkedListDeque {

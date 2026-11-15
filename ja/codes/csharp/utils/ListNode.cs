@@ -4,10 +4,12 @@
 
 namespace hello_algo.utils;
 
+// [region]{list_node}
 /* 連結リストのノード */
 public class ListNode(int x) {
-    public int val = x;
-    public ListNode? next;
+    public int val = x;    // ノードの値
+    public ListNode? next; // 次のノードへの参照
+// [endregion]{list_node}
 
     /* 配列をデシリアライズして連結リストにする */
     public static ListNode? ArrToLinkedList(int[] arr) {
@@ -29,4 +31,6 @@ public class ListNode(int x) {
         }
         return string.Join("->", list);
     }
+// [region]{list_node_end}
 }
+// [endregion]{list_node_end}

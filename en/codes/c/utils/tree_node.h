@@ -15,6 +15,7 @@ extern "C" {
 
 #define MAX_NODE_SIZE 5000
 
+// [region]{tree_node}
 /* Binary tree node structure */
 typedef struct TreeNode {
     int val;                // Node value
@@ -34,6 +35,7 @@ TreeNode *newTreeNode(int val) {
     node->right = NULL;
     return node;
 }
+// [endregion]{tree_node}
 
 // For the serialization rules, see:
 // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/

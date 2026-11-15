@@ -4,12 +4,13 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
+// [region]{tree_node}
 /* 二分木のノード */
 class TreeNode {
     val; // ノードの値
     left; // 左の子ノードへのポインタ
     right; // 右の子ノードへのポインタ
-    height; //ノードの高さ
+    height; // ノードの高さ
     constructor(val, left, right, height) {
         this.val = val === undefined ? 0 : val;
         this.left = left === undefined ? null : left;
@@ -17,6 +18,7 @@ class TreeNode {
         this.height = height === undefined ? 0 : height;
     }
 }
+// [endregion]{tree_node}
 
 /* 配列をデシリアライズして二分木にする */
 function arrToTree(arr, i = 0) {
