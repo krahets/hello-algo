@@ -250,7 +250,7 @@ comments: true
     n3 = TreeNode(val=3)
     n4 = TreeNode(val=4)
     n5 = TreeNode(val=5)
-    # 노드 사이의 참조(포인터) 연결
+    # 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -262,12 +262,12 @@ comments: true
     ```cpp title="binary_tree.cpp"
     /* 이진 트리 초기화 */
     // 노드 초기화
-    TreeNode* n1 = new TreeNode(1);
-    TreeNode* n2 = new TreeNode(2);
-    TreeNode* n3 = new TreeNode(3);
-    TreeNode* n4 = new TreeNode(4);
-    TreeNode* n5 = new TreeNode(5);
-    // 노드 사이의 참조(포인터) 연결
+    TreeNode *n1 = new TreeNode(1);
+    TreeNode *n2 = new TreeNode(2);
+    TreeNode *n3 = new TreeNode(3);
+    TreeNode *n4 = new TreeNode(4);
+    TreeNode *n5 = new TreeNode(5);
+    // 노드 사이의 참조(포인터)를 설정한다
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -277,13 +277,14 @@ comments: true
 === "Java"
 
     ```java title="binary_tree.java"
+    /* 이진 트리 초기화 */
     // 노드 초기화
     TreeNode n1 = new TreeNode(1);
     TreeNode n2 = new TreeNode(2);
     TreeNode n3 = new TreeNode(3);
     TreeNode n4 = new TreeNode(4);
     TreeNode n5 = new TreeNode(5);
-    // 노드 사이의 참조(포인터) 연결
+    // 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -300,7 +301,7 @@ comments: true
     TreeNode n3 = new(3);
     TreeNode n4 = new(4);
     TreeNode n5 = new(5);
-    // 노드 사이의 참조(포인터) 연결
+    // 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -317,7 +318,7 @@ comments: true
     n3 := NewTreeNode(3)
     n4 := NewTreeNode(4)
     n5 := NewTreeNode(5)
-    // 노드 사이의 참조(포인터) 연결
+    // 노드 사이의 참조(포인터)를 설정한다
     n1.Left = n2
     n1.Right = n3
     n2.Left = n4
@@ -327,13 +328,14 @@ comments: true
 === "Swift"
 
     ```swift title="binary_tree.swift"
+    /* 이진 트리 초기화 */
     // 노드 초기화
     let n1 = TreeNode(x: 1)
     let n2 = TreeNode(x: 2)
     let n3 = TreeNode(x: 3)
     let n4 = TreeNode(x: 4)
     let n5 = TreeNode(x: 5)
-    // 노드 사이의 참조(포인터) 연결
+    // 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -350,7 +352,7 @@ comments: true
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // 노드 사이의 참조(포인터) 연결
+    // 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -367,7 +369,7 @@ comments: true
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // 노드 사이의 참조(포인터) 연결
+    // 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -379,12 +381,12 @@ comments: true
     ```dart title="binary_tree.dart"
     /* 이진 트리 초기화 */
     // 노드 초기화
-    TreeNode n1 = new TreeNode(1);
-    TreeNode n2 = new TreeNode(2);
-    TreeNode n3 = new TreeNode(3);
-    TreeNode n4 = new TreeNode(4);
-    TreeNode n5 = new TreeNode(5);
-    // 노드 사이의 참조(포인터) 연결
+    TreeNode n1 = TreeNode(1);
+    TreeNode n2 = TreeNode(2);
+    TreeNode n3 = TreeNode(3);
+    TreeNode n4 = TreeNode(4);
+    TreeNode n5 = TreeNode(5);
+    // 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -394,17 +396,18 @@ comments: true
 === "Rust"
 
     ```rust title="binary_tree.rs"
+    /* 이진 트리 초기화 */
     // 노드 초기화
     let n1 = TreeNode::new(1);
     let n2 = TreeNode::new(2);
     let n3 = TreeNode::new(3);
     let n4 = TreeNode::new(4);
     let n5 = TreeNode::new(5);
-    // 노드 사이의 참조(포인터) 연결
-    n1.borrow_mut().left = Some(n2.clone());
-    n1.borrow_mut().right = Some(n3);
-    n2.borrow_mut().left = Some(n4);
-    n2.borrow_mut().right = Some(n5);
+    // 노드 사이의 참조(포인터)를 설정한다
+    n1.borrow_mut().left = Some(Rc::clone(&n2));
+    n1.borrow_mut().right = Some(Rc::clone(&n3));
+    n2.borrow_mut().left = Some(Rc::clone(&n4));
+    n2.borrow_mut().right = Some(Rc::clone(&n5));
     ```
 
 === "C"
@@ -417,7 +420,7 @@ comments: true
     TreeNode *n3 = newTreeNode(3);
     TreeNode *n4 = newTreeNode(4);
     TreeNode *n5 = newTreeNode(5);
-    // 노드 사이의 참조(포인터) 연결
+    // 노드 사이의 참조(포인터)를 설정한다
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -427,13 +430,14 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
+    /* 이진 트리 초기화 */
     // 노드 초기화
     val n1 = TreeNode(1)
     val n2 = TreeNode(2)
     val n3 = TreeNode(3)
     val n4 = TreeNode(4)
     val n5 = TreeNode(5)
-    // 노드 사이의 참조(포인터) 연결
+    // 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -450,7 +454,7 @@ comments: true
     n3 = TreeNode.new(3)
     n4 = TreeNode.new(4)
     n5 = TreeNode.new(5)
-    # 노드 사이의 참조(포인터) 연결
+    # 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2
     n1.right = n3
     n2.left = n4

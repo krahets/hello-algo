@@ -35,11 +35,11 @@ We can usually use a language's built-in stack class. If no dedicated class is p
 === "Python"
 
     ```python title="stack.py"
-    # Initialize a stack
-    # Python has no built-in stack class; use a list as a stack
+    # Initialize the stack
+    # Python has no built-in stack class; a list can be used as a stack
     stack: list[int] = []
 
-    # Push elements
+    # Push elements onto the stack
     stack.append(1)
     stack.append(3)
     stack.append(2)
@@ -49,23 +49,23 @@ We can usually use a language's built-in stack class. If no dedicated class is p
     # Access the top element
     peek: int = stack[-1]
 
-    # Pop an element
+    # Pop an element from the stack
     pop: int = stack.pop()
 
     # Get the stack size
     size: int = len(stack)
 
-    # Check whether the stack is empty
+    # Check whether it is empty
     is_empty: bool = len(stack) == 0
     ```
 
 === "C++"
 
     ```cpp title="stack.cpp"
-    /* Initialize a stack */
+    /* Initialize the stack */
     stack<int> stack;
 
-    /* Push elements */
+    /* Push elements onto the stack */
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -75,23 +75,23 @@ We can usually use a language's built-in stack class. If no dedicated class is p
     /* Access the top element */
     int top = stack.top();
 
-    /* Pop an element */
+    /* Pop an element from the stack */
     stack.pop(); // No return value
 
     /* Get the stack size */
     int size = stack.size();
 
-    /* Check whether the stack is empty */
+    /* Check whether it is empty */
     bool empty = stack.empty();
     ```
 
 === "Java"
 
     ```java title="stack.java"
-    /* Initialize a stack */
+    /* Initialize the stack */
     Stack<Integer> stack = new Stack<>();
 
-    /* Push elements */
+    /* Push elements onto the stack */
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -101,50 +101,51 @@ We can usually use a language's built-in stack class. If no dedicated class is p
     /* Access the top element */
     int peek = stack.peek();
 
-    /* Pop an element */
+    /* Pop an element from the stack */
     int pop = stack.pop();
 
     /* Get the stack size */
     int size = stack.size();
 
-    /* Check whether the stack is empty */
+    /* Check whether it is empty */
     boolean isEmpty = stack.isEmpty();
     ```
 
 === "C#"
 
     ```csharp title="stack.cs"
-    /* Initialize a stack */
+    /* Initialize the stack */
     Stack<int> stack = new();
 
-    /* Push elements */
+    /* Push elements onto the stack */
     stack.Push(1);
     stack.Push(3);
     stack.Push(2);
     stack.Push(5);
     stack.Push(4);
+    // Note that stack.ToArray() returns elements in reverse insertion order, with the stack top at index 0
 
     /* Access the top element */
     int peek = stack.Peek();
 
-    /* Pop an element */
+    /* Pop an element from the stack */
     int pop = stack.Pop();
 
     /* Get the stack size */
     int size = stack.Count;
 
-    /* Check whether the stack is empty */
+    /* Check whether it is empty */
     bool isEmpty = stack.Count == 0;
     ```
 
 === "Go"
 
     ```go title="stack_test.go"
-    /* Initialize a stack */
-    // In Go, a slice is recommended for use as a stack
+    /* Initialize the stack */
+    // In Go, a slice is the recommended way to implement a stack
     var stack []int
 
-    /* Push elements */
+    /* Push elements onto the stack */
     stack = append(stack, 1)
     stack = append(stack, 3)
     stack = append(stack, 2)
@@ -154,25 +155,25 @@ We can usually use a language's built-in stack class. If no dedicated class is p
     /* Access the top element */
     peek := stack[len(stack)-1]
 
-    /* Pop an element */
+    /* Pop an element from the stack */
     pop := stack[len(stack)-1]
     stack = stack[:len(stack)-1]
 
     /* Get the stack size */
     size := len(stack)
 
-    /* Check whether the stack is empty */
+    /* Check whether it is empty */
     isEmpty := len(stack) == 0
     ```
 
 === "Swift"
 
     ```swift title="stack.swift"
-    /* Initialize a stack */
-    // Swift has no built-in stack class; use an Array as a stack
+    /* Initialize the stack */
+    // The Swift standard library has no built-in stack class; Array can be used as a stack
     var stack: [Int] = []
 
-    /* Push elements */
+    /* Push elements onto the stack */
     stack.append(1)
     stack.append(3)
     stack.append(2)
@@ -182,51 +183,24 @@ We can usually use a language's built-in stack class. If no dedicated class is p
     /* Access the top element */
     let peek = stack.last!
 
-    /* Pop an element */
+    /* Pop an element from the stack */
     let pop = stack.removeLast()
 
     /* Get the stack size */
     let size = stack.count
 
-    /* Check whether the stack is empty */
+    /* Check whether it is empty */
     let isEmpty = stack.isEmpty
     ```
 
 === "JS"
 
     ```javascript title="stack.js"
-    /* Initialize a stack */
-    // JavaScript has no built-in stack class; use an Array as a stack
+    /* Initialize the stack */
+    // JavaScript has no built-in stack class; an Array can be used as a stack
     const stack = [];
 
-    /* Push elements */
-    stack.push(1);
-    stack.push(3);
-    stack.push(2);
-    stack.push(5);
-    stack.push(4);
-
-    /* Access the top element */
-    const peek = stack[stack.length-1];
-
-    /* Pop an element */
-    const pop = stack.pop();
-
-    /* Get the stack size */
-    const size = stack.length;
-
-    /* Check whether the stack is empty */
-    const is_empty = stack.length === 0;
-    ```
-
-=== "TS"
-
-    ```typescript title="stack.ts"
-    /* Initialize a stack */
-    // TypeScript has no built-in stack class; use an Array as a stack
-    const stack: number[] = [];
-
-    /* Push elements */
+    /* Push elements onto the stack */
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -236,24 +210,51 @@ We can usually use a language's built-in stack class. If no dedicated class is p
     /* Access the top element */
     const peek = stack[stack.length - 1];
 
-    /* Pop an element */
+    /* Pop an element from the stack */
     const pop = stack.pop();
 
     /* Get the stack size */
     const size = stack.length;
 
-    /* Check whether the stack is empty */
-    const is_empty = stack.length === 0;
+    /* Check whether it is empty */
+    const isEmpty = stack.length === 0;
+    ```
+
+=== "TS"
+
+    ```typescript title="stack.ts"
+    /* Initialize the stack */
+    // TypeScript has no built-in stack class; an Array can be used as a stack
+    const stack: number[] = [];
+
+    /* Push elements onto the stack */
+    stack.push(1);
+    stack.push(3);
+    stack.push(2);
+    stack.push(5);
+    stack.push(4);
+
+    /* Access the top element */
+    const peek = stack[stack.length - 1];
+
+    /* Pop an element from the stack */
+    const pop = stack.pop();
+
+    /* Get the stack size */
+    const size = stack.length;
+
+    /* Check whether it is empty */
+    const isEmpty = stack.length === 0;
     ```
 
 === "Dart"
 
     ```dart title="stack.dart"
-    /* Initialize a stack */
-    // Dart has no built-in stack class; use a List as a stack
-    List<int> stack = [];
+    /* Initialize the stack */
+    // Dart has no built-in stack class; a List can be used as a stack
+    final List<int> stack = [];
 
-    /* Push elements */
+    /* Push elements onto the stack */
     stack.add(1);
     stack.add(3);
     stack.add(2);
@@ -261,16 +262,16 @@ We can usually use a language's built-in stack class. If no dedicated class is p
     stack.add(4);
 
     /* Access the top element */
-    int peek = stack.last;
+    final int peek = stack.last;
 
-    /* Pop an element */
-    int pop = stack.removeLast();
+    /* Pop an element from the stack */
+    final int pop = stack.removeLast();
 
     /* Get the stack size */
-    int size = stack.length;
+    final int size = stack.length;
 
-    /* Check whether the stack is empty */
-    bool isEmpty = stack.isEmpty;
+    /* Check whether it is empty */
+    final bool isEmpty = stack.isEmpty;
     ```
 
 === "Rust"
@@ -309,10 +310,10 @@ We can usually use a language's built-in stack class. If no dedicated class is p
 === "Kotlin"
 
     ```kotlin title="stack.kt"
-    /* Initialize a stack */
+    /* Initialize the stack */
     val stack = Stack<Int>()
 
-    /* Push elements */
+    /* Push elements onto the stack */
     stack.push(1)
     stack.push(3)
     stack.push(2)
@@ -322,24 +323,24 @@ We can usually use a language's built-in stack class. If no dedicated class is p
     /* Access the top element */
     val peek = stack.peek()
 
-    /* Pop an element */
+    /* Pop an element from the stack */
     val pop = stack.pop()
 
     /* Get the stack size */
     val size = stack.size
 
-    /* Check whether the stack is empty */
+    /* Check whether it is empty */
     val isEmpty = stack.isEmpty()
     ```
 
 === "Ruby"
 
     ```ruby title="stack.rb"
-    # Initialize a stack
+    # Initialize the stack
     # Ruby has no built-in stack class; use an Array as a stack
     stack = []
 
-    # Push elements
+    # Push elements onto the stack
     stack << 1
     stack << 3
     stack << 2
@@ -349,13 +350,13 @@ We can usually use a language's built-in stack class. If no dedicated class is p
     # Access the top element
     peek = stack.last
 
-    # Pop an element
+    # Pop an element from the stack
     pop = stack.pop
 
     # Get the stack size
     size = stack.length
 
-    # Check whether the stack is empty
+    # Check whether it is empty
     is_empty = stack.empty?
     ```
 

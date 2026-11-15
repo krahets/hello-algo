@@ -201,13 +201,13 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```python title="linked_list.py"
     # Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
-    # Initialize the nodes
+    # Initialize the individual nodes
     n0 = ListNode(1)
     n1 = ListNode(3)
     n2 = ListNode(2)
     n3 = ListNode(5)
     n4 = ListNode(4)
-    # Link the nodes with references
+    # Set up references between the nodes
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -218,13 +218,13 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```cpp title="linked_list.cpp"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the nodes
-    ListNode* n0 = new ListNode(1);
-    ListNode* n1 = new ListNode(3);
-    ListNode* n2 = new ListNode(2);
-    ListNode* n3 = new ListNode(5);
-    ListNode* n4 = new ListNode(4);
-    // Link the nodes with references
+    // Initialize the individual nodes
+    ListNode *n0 = new ListNode(1);
+    ListNode *n1 = new ListNode(3);
+    ListNode *n2 = new ListNode(2);
+    ListNode *n3 = new ListNode(5);
+    ListNode *n4 = new ListNode(4);
+    // Set up references between the nodes
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
@@ -235,13 +235,13 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```java title="linked_list.java"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the nodes
+    // Initialize the individual nodes
     ListNode n0 = new ListNode(1);
     ListNode n1 = new ListNode(3);
     ListNode n2 = new ListNode(2);
     ListNode n3 = new ListNode(5);
     ListNode n4 = new ListNode(4);
-    // Link the nodes with references
+    // Set up references between the nodes
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -251,14 +251,14 @@ Building a linked list takes two steps: initialize the node objects, then connec
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the nodes
+    // Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
+    // Initialize the individual nodes
     ListNode n0 = new(1);
     ListNode n1 = new(3);
     ListNode n2 = new(2);
     ListNode n3 = new(5);
     ListNode n4 = new(4);
-    // Link the nodes with references
+    // Set up references between the nodes
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -269,13 +269,14 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```go title="linked_list.go"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the nodes
+    // Initialize the individual nodes
     n0 := NewListNode(1)
     n1 := NewListNode(3)
     n2 := NewListNode(2)
     n3 := NewListNode(5)
     n4 := NewListNode(4)
-    // Link the nodes with references
+
+    // Set up references between the nodes
     n0.Next = n1
     n1.Next = n2
     n2.Next = n3
@@ -286,13 +287,13 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```swift title="linked_list.swift"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the nodes
+    // Initialize the individual nodes
     let n0 = ListNode(x: 1)
     let n1 = ListNode(x: 3)
     let n2 = ListNode(x: 2)
     let n3 = ListNode(x: 5)
     let n4 = ListNode(x: 4)
-    // Link the nodes with references
+    // Set up references between the nodes
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -303,13 +304,13 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```javascript title="linked_list.js"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the nodes
+    // Initialize the individual nodes
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
     const n2 = new ListNode(2);
     const n3 = new ListNode(5);
     const n4 = new ListNode(4);
-    // Link the nodes with references
+    // Set up references between the nodes
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -320,13 +321,13 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```typescript title="linked_list.ts"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the nodes
+    // Initialize the individual nodes
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
     const n2 = new ListNode(2);
     const n3 = new ListNode(5);
     const n4 = new ListNode(4);
-    // Link the nodes with references
+    // Set up references between the nodes
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -336,14 +337,14 @@ Building a linked list takes two steps: initialize the node objects, then connec
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the nodes
+    // Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
+    // Initialize the individual nodes
     ListNode n0 = ListNode(1);
     ListNode n1 = ListNode(3);
     ListNode n2 = ListNode(2);
     ListNode n3 = ListNode(5);
     ListNode n4 = ListNode(4);
-    // Link the nodes with references
+    // Set up references between the nodes
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -354,14 +355,14 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```rust title="linked_list.rs"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the nodes
-    let n0 = Rc::new(RefCell::new(ListNode { val: 1, next: None }));
-    let n1 = Rc::new(RefCell::new(ListNode { val: 3, next: None }));
-    let n2 = Rc::new(RefCell::new(ListNode { val: 2, next: None }));
-    let n3 = Rc::new(RefCell::new(ListNode { val: 5, next: None }));
-    let n4 = Rc::new(RefCell::new(ListNode { val: 4, next: None }));
+    // Initialize the individual nodes
+    let n0 = ListNode::new(1);
+    let n1 = ListNode::new(3);
+    let n2 = ListNode::new(2);
+    let n3 = ListNode::new(5);
+    let n4 = ListNode::new(4);
 
-    // Link the nodes with references
+    // Set up references between the nodes
     n0.borrow_mut().next = Some(n1.clone());
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
@@ -372,13 +373,13 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```c title="linked_list.c"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the nodes
-    ListNode* n0 = newListNode(1);
-    ListNode* n1 = newListNode(3);
-    ListNode* n2 = newListNode(2);
-    ListNode* n3 = newListNode(5);
-    ListNode* n4 = newListNode(4);
-    // Link the nodes with references
+    // Initialize the individual nodes
+    ListNode *n0 = newListNode(1);
+    ListNode *n1 = newListNode(3);
+    ListNode *n2 = newListNode(2);
+    ListNode *n3 = newListNode(5);
+    ListNode *n4 = newListNode(4);
+    // Set up references between the nodes
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
@@ -389,30 +390,31 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```kotlin title="linked_list.kt"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the nodes
+    // Initialize the individual nodes
     val n0 = ListNode(1)
     val n1 = ListNode(3)
     val n2 = ListNode(2)
     val n3 = ListNode(5)
     val n4 = ListNode(4)
-    // Link the nodes with references
-    n0.next = n1;
-    n1.next = n2;
-    n2.next = n3;
-    n3.next = n4;
+
+    // Set up references between the nodes
+    n0.next = n1
+    n1.next = n2
+    n2.next = n3
+    n3.next = n4
     ```
 
 === "Ruby"
 
     ```ruby title="linked_list.rb"
     # Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
-    # Initialize the nodes
+    # Initialize the individual nodes
     n0 = ListNode.new(1)
     n1 = ListNode.new(3)
     n2 = ListNode.new(2)
     n3 = ListNode.new(5)
     n4 = ListNode.new(4)
-    # Link the nodes with references
+    # Set up references between the nodes
     n0.next = n1
     n1.next = n2
     n2.next = n3

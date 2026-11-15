@@ -262,11 +262,11 @@ comments: true
     ```cpp title="binary_tree.cpp"
     /* 初始化二元樹 */
     // 初始化節點
-    TreeNode* n1 = new TreeNode(1);
-    TreeNode* n2 = new TreeNode(2);
-    TreeNode* n3 = new TreeNode(3);
-    TreeNode* n4 = new TreeNode(4);
-    TreeNode* n5 = new TreeNode(5);
+    TreeNode *n1 = new TreeNode(1);
+    TreeNode *n2 = new TreeNode(2);
+    TreeNode *n3 = new TreeNode(3);
+    TreeNode *n4 = new TreeNode(4);
+    TreeNode *n5 = new TreeNode(5);
     // 構建節點之間的引用（指標）
     n1->left = n2;
     n1->right = n3;
@@ -277,6 +277,7 @@ comments: true
 === "Java"
 
     ```java title="binary_tree.java"
+    /* 初始化二元樹 */
     // 初始化節點
     TreeNode n1 = new TreeNode(1);
     TreeNode n2 = new TreeNode(2);
@@ -327,6 +328,7 @@ comments: true
 === "Swift"
 
     ```swift title="binary_tree.swift"
+    /* 初始化二元樹 */
     // 初始化節點
     let n1 = TreeNode(x: 1)
     let n2 = TreeNode(x: 2)
@@ -379,11 +381,11 @@ comments: true
     ```dart title="binary_tree.dart"
     /* 初始化二元樹 */
     // 初始化節點
-    TreeNode n1 = new TreeNode(1);
-    TreeNode n2 = new TreeNode(2);
-    TreeNode n3 = new TreeNode(3);
-    TreeNode n4 = new TreeNode(4);
-    TreeNode n5 = new TreeNode(5);
+    TreeNode n1 = TreeNode(1);
+    TreeNode n2 = TreeNode(2);
+    TreeNode n3 = TreeNode(3);
+    TreeNode n4 = TreeNode(4);
+    TreeNode n5 = TreeNode(5);
     // 構建節點之間的引用（指標）
     n1.left = n2;
     n1.right = n3;
@@ -394,6 +396,7 @@ comments: true
 === "Rust"
 
     ```rust title="binary_tree.rs"
+    /* 初始化二元樹 */
     // 初始化節點
     let n1 = TreeNode::new(1);
     let n2 = TreeNode::new(2);
@@ -401,10 +404,10 @@ comments: true
     let n4 = TreeNode::new(4);
     let n5 = TreeNode::new(5);
     // 構建節點之間的引用（指標）
-    n1.borrow_mut().left = Some(n2.clone());
-    n1.borrow_mut().right = Some(n3);
-    n2.borrow_mut().left = Some(n4);
-    n2.borrow_mut().right = Some(n5);
+    n1.borrow_mut().left = Some(Rc::clone(&n2));
+    n1.borrow_mut().right = Some(Rc::clone(&n3));
+    n2.borrow_mut().left = Some(Rc::clone(&n4));
+    n2.borrow_mut().right = Some(Rc::clone(&n5));
     ```
 
 === "C"
@@ -427,6 +430,7 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
+    /* 初始化二元樹 */
     // 初始化節點
     val n1 = TreeNode(1)
     val n2 = TreeNode(2)

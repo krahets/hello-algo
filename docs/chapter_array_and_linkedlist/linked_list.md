@@ -219,11 +219,11 @@ comments: true
     ```cpp title="linked_list.cpp"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
     // 初始化各个节点
-    ListNode* n0 = new ListNode(1);
-    ListNode* n1 = new ListNode(3);
-    ListNode* n2 = new ListNode(2);
-    ListNode* n3 = new ListNode(5);
-    ListNode* n4 = new ListNode(4);
+    ListNode *n0 = new ListNode(1);
+    ListNode *n1 = new ListNode(3);
+    ListNode *n2 = new ListNode(2);
+    ListNode *n3 = new ListNode(5);
+    ListNode *n4 = new ListNode(4);
     // 构建节点之间的引用
     n0->next = n1;
     n1->next = n2;
@@ -251,7 +251,7 @@ comments: true
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    // 初始化链表 1 -> 3 -> 2 -> 5 -> 4
     // 初始化各个节点
     ListNode n0 = new(1);
     ListNode n1 = new(3);
@@ -275,6 +275,7 @@ comments: true
     n2 := NewListNode(2)
     n3 := NewListNode(5)
     n4 := NewListNode(4)
+
     // 构建节点之间的引用
     n0.Next = n1
     n1.Next = n2
@@ -336,7 +337,7 @@ comments: true
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    // 初始化链表 1 -> 3 -> 2 -> 5 -> 4
     // 初始化各个节点
     ListNode n0 = ListNode(1);
     ListNode n1 = ListNode(3);
@@ -355,11 +356,11 @@ comments: true
     ```rust title="linked_list.rs"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
     // 初始化各个节点
-    let n0 = Rc::new(RefCell::new(ListNode { val: 1, next: None }));
-    let n1 = Rc::new(RefCell::new(ListNode { val: 3, next: None }));
-    let n2 = Rc::new(RefCell::new(ListNode { val: 2, next: None }));
-    let n3 = Rc::new(RefCell::new(ListNode { val: 5, next: None }));
-    let n4 = Rc::new(RefCell::new(ListNode { val: 4, next: None }));
+    let n0 = ListNode::new(1);
+    let n1 = ListNode::new(3);
+    let n2 = ListNode::new(2);
+    let n3 = ListNode::new(5);
+    let n4 = ListNode::new(4);
 
     // 构建节点之间的引用
     n0.borrow_mut().next = Some(n1.clone());
@@ -373,11 +374,11 @@ comments: true
     ```c title="linked_list.c"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
     // 初始化各个节点
-    ListNode* n0 = newListNode(1);
-    ListNode* n1 = newListNode(3);
-    ListNode* n2 = newListNode(2);
-    ListNode* n3 = newListNode(5);
-    ListNode* n4 = newListNode(4);
+    ListNode *n0 = newListNode(1);
+    ListNode *n1 = newListNode(3);
+    ListNode *n2 = newListNode(2);
+    ListNode *n3 = newListNode(5);
+    ListNode *n4 = newListNode(4);
     // 构建节点之间的引用
     n0->next = n1;
     n1->next = n2;
@@ -395,11 +396,12 @@ comments: true
     val n2 = ListNode(2)
     val n3 = ListNode(5)
     val n4 = ListNode(4)
+
     // 构建节点之间的引用
-    n0.next = n1;
-    n1.next = n2;
-    n2.next = n3;
-    n3.next = n4;
+    n0.next = n1
+    n1.next = n2
+    n2.next = n3
+    n3.next = n4
     ```
 
 === "Ruby"

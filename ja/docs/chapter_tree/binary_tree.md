@@ -243,14 +243,14 @@ comments: true
 === "Python"
 
     ```python title="binary_tree.py"
-    # 二分木を初期化
-    # ノードを初期化
+    # 二分木を初期化する
+    # ノードを初期化する
     n1 = TreeNode(val=1)
     n2 = TreeNode(val=2)
     n3 = TreeNode(val=3)
     n4 = TreeNode(val=4)
     n5 = TreeNode(val=5)
-    # ノード間の参照（ポインタ）をつなぐ
+    # ノード間の参照（ポインタ）を設定する
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -260,14 +260,14 @@ comments: true
 === "C++"
 
     ```cpp title="binary_tree.cpp"
-    /* 二分木を初期化 */
-    // ノードを初期化
-    TreeNode* n1 = new TreeNode(1);
-    TreeNode* n2 = new TreeNode(2);
-    TreeNode* n3 = new TreeNode(3);
-    TreeNode* n4 = new TreeNode(4);
-    TreeNode* n5 = new TreeNode(5);
-    // ノード間の参照（ポインタ）をつなぐ
+    /* 二分木を初期化する */
+    // ノードを初期化する
+    TreeNode *n1 = new TreeNode(1);
+    TreeNode *n2 = new TreeNode(2);
+    TreeNode *n3 = new TreeNode(3);
+    TreeNode *n4 = new TreeNode(4);
+    TreeNode *n5 = new TreeNode(5);
+    // ノード間の参照（ポインタ）を設定する
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -277,13 +277,14 @@ comments: true
 === "Java"
 
     ```java title="binary_tree.java"
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     TreeNode n1 = new TreeNode(1);
     TreeNode n2 = new TreeNode(2);
     TreeNode n3 = new TreeNode(3);
     TreeNode n4 = new TreeNode(4);
     TreeNode n5 = new TreeNode(5);
-    // ノード間の参照（ポインタ）をつなぐ
+    // ノード間の参照（ポインタ）を設定する
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -293,14 +294,14 @@ comments: true
 === "C#"
 
     ```csharp title="binary_tree.cs"
-    /* 二分木を初期化 */
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     TreeNode n1 = new(1);
     TreeNode n2 = new(2);
     TreeNode n3 = new(3);
     TreeNode n4 = new(4);
     TreeNode n5 = new(5);
-    // ノード間の参照（ポインタ）をつなぐ
+    // ノード間の参照（ポインタ）を設定する
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -310,14 +311,14 @@ comments: true
 === "Go"
 
     ```go title="binary_tree.go"
-    /* 二分木を初期化 */
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     n1 := NewTreeNode(1)
     n2 := NewTreeNode(2)
     n3 := NewTreeNode(3)
     n4 := NewTreeNode(4)
     n5 := NewTreeNode(5)
-    // ノード間の参照（ポインタ）をつなぐ
+    // ノード間の参照（ポインタ）を設定する
     n1.Left = n2
     n1.Right = n3
     n2.Left = n4
@@ -327,13 +328,14 @@ comments: true
 === "Swift"
 
     ```swift title="binary_tree.swift"
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     let n1 = TreeNode(x: 1)
     let n2 = TreeNode(x: 2)
     let n3 = TreeNode(x: 3)
     let n4 = TreeNode(x: 4)
     let n5 = TreeNode(x: 5)
-    // ノード間の参照（ポインタ）をつなぐ
+    // ノード間の参照（ポインタ）を設定する
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -343,14 +345,14 @@ comments: true
 === "JS"
 
     ```javascript title="binary_tree.js"
-    /* 二分木を初期化 */
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     let n1 = new TreeNode(1),
         n2 = new TreeNode(2),
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // ノード間の参照（ポインタ）をつなぐ
+    // ノード間の参照（ポインタ）を設定する
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -360,14 +362,14 @@ comments: true
 === "TS"
 
     ```typescript title="binary_tree.ts"
-    /* 二分木を初期化 */
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     let n1 = new TreeNode(1),
         n2 = new TreeNode(2),
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // ノード間の参照（ポインタ）をつなぐ
+    // ノード間の参照（ポインタ）を設定する
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -377,14 +379,14 @@ comments: true
 === "Dart"
 
     ```dart title="binary_tree.dart"
-    /* 二分木を初期化 */
-    // ノードを初期化
-    TreeNode n1 = new TreeNode(1);
-    TreeNode n2 = new TreeNode(2);
-    TreeNode n3 = new TreeNode(3);
-    TreeNode n4 = new TreeNode(4);
-    TreeNode n5 = new TreeNode(5);
-    // ノード間の参照（ポインタ）をつなぐ
+    /* 二分木を初期化する */
+    // ノードを初期化する
+    TreeNode n1 = TreeNode(1);
+    TreeNode n2 = TreeNode(2);
+    TreeNode n3 = TreeNode(3);
+    TreeNode n4 = TreeNode(4);
+    TreeNode n5 = TreeNode(5);
+    // ノード間の参照（ポインタ）を設定する
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -394,30 +396,31 @@ comments: true
 === "Rust"
 
     ```rust title="binary_tree.rs"
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     let n1 = TreeNode::new(1);
     let n2 = TreeNode::new(2);
     let n3 = TreeNode::new(3);
     let n4 = TreeNode::new(4);
     let n5 = TreeNode::new(5);
-    // ノード間の参照（ポインタ）をつなぐ
-    n1.borrow_mut().left = Some(n2.clone());
-    n1.borrow_mut().right = Some(n3);
-    n2.borrow_mut().left = Some(n4);
-    n2.borrow_mut().right = Some(n5);
+    // ノード間の参照（ポインタ）を設定する
+    n1.borrow_mut().left = Some(Rc::clone(&n2));
+    n1.borrow_mut().right = Some(Rc::clone(&n3));
+    n2.borrow_mut().left = Some(Rc::clone(&n4));
+    n2.borrow_mut().right = Some(Rc::clone(&n5));
     ```
 
 === "C"
 
     ```c title="binary_tree.c"
-    /* 二分木を初期化 */
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     TreeNode *n1 = newTreeNode(1);
     TreeNode *n2 = newTreeNode(2);
     TreeNode *n3 = newTreeNode(3);
     TreeNode *n4 = newTreeNode(4);
     TreeNode *n5 = newTreeNode(5);
-    // ノード間の参照（ポインタ）をつなぐ
+    // ノード間の参照（ポインタ）を設定する
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -427,13 +430,14 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     val n1 = TreeNode(1)
     val n2 = TreeNode(2)
     val n3 = TreeNode(3)
     val n4 = TreeNode(4)
     val n5 = TreeNode(5)
-    // ノード間の参照（ポインタ）をつなぐ
+    // ノード間の参照（ポインタ）を設定する
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -443,14 +447,14 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_tree.rb"
-    # 二分木を初期化
-    # ノードを初期化
+    # 二分木を初期化する
+    # ノードを初期化する
     n1 = TreeNode.new(1)
     n2 = TreeNode.new(2)
     n3 = TreeNode.new(3)
     n4 = TreeNode.new(4)
     n5 = TreeNode.new(5)
-    # ノード間の参照（ポインタ）をつなぐ
+    # ノード間の参照（ポインタ）を設定する
     n1.left = n2
     n1.right = n3
     n2.left = n4

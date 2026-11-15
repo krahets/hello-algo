@@ -163,100 +163,101 @@ comments: true
 === "Python"
 
     ```python title="list.py"
-    # 要素にアクセス
-    num: int = nums[1]  # インデックス 1 の要素にアクセス
+    # 要素にアクセスする
+    x: int = nums[1]  # インデックス 1 の要素にアクセスする
 
-    # 要素を更新
-    nums[1] = 0    # インデックス 1 の要素を 0 に更新
+    # 要素を更新する
+    nums[1] = 0  # インデックス 1 の要素を 0 に更新する
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
-    /* 要素にアクセス */
-    int num = nums[1];  // インデックス 1 の要素にアクセス
+    /* 要素にアクセスする */
+    int num = nums[1]; // インデックス 1 の要素にアクセスする
 
-    /* 要素を更新 */
-    nums[1] = 0;  // インデックス 1 の要素を 0 に更新
+    /* 要素を更新する */
+    nums[1] = 0; // インデックス 1 の要素を 0 に更新する
     ```
 
 === "Java"
 
     ```java title="list.java"
-    /* 要素にアクセス */
-    int num = nums.get(1);  // インデックス 1 の要素にアクセス
+    /* 要素にアクセスする */
+    int num = nums.get(1); // インデックス 1 の要素にアクセスする
 
-    /* 要素を更新 */
-    nums.set(1, 0);  // インデックス 1 の要素を 0 に更新
+    /* 要素を更新する */
+    nums.set(1, 0); // インデックス 1 の要素を 0 に更新する
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
-    /* 要素にアクセス */
-    int num = nums[1];  // インデックス 1 の要素にアクセス
+    /* 要素にアクセスする */
+    int num = nums[1]; // インデックス 1 の要素にアクセスする
 
-    /* 要素を更新 */
-    nums[1] = 0;  // インデックス 1 の要素を 0 に更新
+    /* 要素を更新する */
+    nums[1] = 0; // インデックス 1 の要素を 0 に更新する
     ```
 
 === "Go"
 
     ```go title="list_test.go"
-    /* 要素にアクセス */
-    num := nums[1]  // インデックス 1 の要素にアクセス
+    /* 要素にアクセスする */
+    num := nums[1] // インデックス 1 の要素にアクセスする
 
-    /* 要素を更新 */
-    nums[1] = 0     // インデックス 1 の要素を 0 に更新
+    /* 要素を更新する */
+    nums[1] = 0 // インデックス 1 の要素を 0 に更新する
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
-    /* 要素にアクセス */
-    let num = nums[1] // インデックス 1 の要素にアクセス
+    /* 要素にアクセスする */
+    let num = nums[1] // インデックス 1 の要素にアクセスする
 
-    /* 要素を更新 */
-    nums[1] = 0 // インデックス 1 の要素を 0 に更新
+    /* 要素を更新する */
+    nums[1] = 0 // インデックス 1 の要素を 0 に更新する
     ```
 
 === "JS"
 
     ```javascript title="list.js"
-    /* 要素にアクセス */
-    const num = nums[1];  // インデックス 1 の要素にアクセス
+    /* 要素にアクセスする */
+    const num = nums[1]; // インデックス 1 の要素にアクセスする
 
-    /* 要素を更新 */
-    nums[1] = 0;  // インデックス 1 の要素を 0 に更新
+    /* 要素を更新する */
+    nums[1] = 0; // インデックス 1 の要素を 0 に更新する
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
-    /* 要素にアクセス */
-    const num: number = nums[1];  // インデックス 1 の要素にアクセス
+    /* 要素にアクセスする */
+    const num: number = nums[1]; // インデックス 1 の要素にアクセスする
 
-    /* 要素を更新 */
-    nums[1] = 0;  // インデックス 1 の要素を 0 に更新
+    /* 要素を更新する */
+    nums[1] = 0; // インデックス 1 の要素を 0 に更新する
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
-    /* 要素にアクセス */
-    int num = nums[1];  // インデックス 1 の要素にアクセス
+    /* 要素にアクセスする */
+    int _num = nums[1]; // インデックス 1 の要素にアクセスする
 
-    /* 要素を更新 */
-    nums[1] = 0;  // インデックス 1 の要素を 0 に更新
+    /* 要素を更新する */
+    nums[1] = 0; // インデックス 1 の要素を 0 に更新する
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* 要素にアクセス */
-    let num: i32 = nums[1];  // インデックス 1 の要素にアクセス
-    /* 要素を更新 */
-    nums[1] = 0;             // インデックス 1 の要素を 0 に更新
+    // 要素にアクセスする
+    let num = nums[1]; // インデックス 1 の要素にアクセスする
+
+    // 要素を更新する
+    nums[1] = 0; // インデックス 1 の要素を 0 に更新する
     ```
 
 === "C"
@@ -268,19 +269,21 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="list.kt"
-    /* 要素にアクセス */
-    val num = nums[1]       // インデックス 1 の要素にアクセス
-    /* 要素を更新 */
-    nums[1] = 0             // インデックス 1 の要素を 0 に更新
+    /* 要素にアクセスする */
+    val num = nums[1] // インデックス 1 の要素にアクセスする
+
+    /* 要素を更新する */
+    nums[1] = 0 // インデックス 1 の要素を 0 に更新する
     ```
 
 === "Ruby"
 
     ```ruby title="list.rb"
-    # 要素にアクセス
-    num = nums[1] # インデックス 1 の要素にアクセス
-    # 要素を更新
-    nums[1] = 0 # インデックス 1 の要素を 0 に更新
+    # 要素にアクセスする
+    num = nums[1] # インデックス 1 の要素にアクセスする
+
+    # 要素を更新する
+    nums[1] = 0 # インデックス 1 の要素を 0 に更新する
     ```
 
 ??? pythontutor "実行の可視化"
@@ -298,18 +301,18 @@ comments: true
     # リストを空にする
     nums.clear()
 
-    # 末尾に要素を追加
+    # 末尾に要素を追加する
     nums.append(1)
     nums.append(3)
     nums.append(2)
     nums.append(5)
     nums.append(4)
 
-    # 途中に要素を挿入
-    nums.insert(3, 6)  # インデックス 3 に数値 6 を挿入
+    # 途中に要素を挿入する
+    nums.insert(3, 6)  # インデックス 3 に数値 6 を挿入する
 
-    # 要素を削除
-    nums.pop(3)        # インデックス 3 の要素を削除
+    # 要素を削除する
+    nums.pop(3)  # インデックス 3 の要素を削除する
     ```
 
 === "C++"
@@ -318,18 +321,18 @@ comments: true
     /* リストを空にする */
     nums.clear();
 
-    /* 末尾に要素を追加 */
+    /* 末尾に要素を追加する */
     nums.push_back(1);
     nums.push_back(3);
     nums.push_back(2);
     nums.push_back(5);
     nums.push_back(4);
 
-    /* 途中に要素を挿入 */
-    nums.insert(nums.begin() + 3, 6);  // インデックス 3 に数値 6 を挿入
+    /* 途中に要素を挿入する */
+    nums.insert(nums.begin() + 3, 6); // インデックス 3 に数値 6 を挿入する
 
-    /* 要素を削除 */
-    nums.erase(nums.begin() + 3);      // インデックス 3 の要素を削除
+    /* 要素を削除する */
+    nums.erase(nums.begin() + 3); // インデックス 3 の要素を削除する
     ```
 
 === "Java"
@@ -338,18 +341,18 @@ comments: true
     /* リストを空にする */
     nums.clear();
 
-    /* 末尾に要素を追加 */
+    /* 末尾に要素を追加する */
     nums.add(1);
     nums.add(3);
     nums.add(2);
     nums.add(5);
     nums.add(4);
 
-    /* 途中に要素を挿入 */
-    nums.add(3, 6);  // インデックス 3 に数値 6 を挿入
+    /* 途中に要素を挿入する */
+    nums.add(3, 6); // インデックス 3 に数値 6 を挿入する
 
-    /* 要素を削除 */
-    nums.remove(3);  // インデックス 3 の要素を削除
+    /* 要素を削除する */
+    nums.remove(3); // インデックス 3 の要素を削除する
     ```
 
 === "C#"
@@ -358,18 +361,18 @@ comments: true
     /* リストを空にする */
     nums.Clear();
 
-    /* 末尾に要素を追加 */
+    /* 末尾に要素を追加する */
     nums.Add(1);
     nums.Add(3);
     nums.Add(2);
     nums.Add(5);
     nums.Add(4);
 
-    /* 途中に要素を挿入 */
-    nums.Insert(3, 6);  // インデックス 3 に数値 6 を挿入
+    /* 途中に要素を挿入する */
+    nums.Insert(3, 6); // インデックス 3 に数値 6 を挿入する
 
-    /* 要素を削除 */
-    nums.RemoveAt(3);  // インデックス 3 の要素を削除
+    /* 要素を削除する */
+    nums.RemoveAt(3); // インデックス 3 の要素を削除する
     ```
 
 === "Go"
@@ -378,18 +381,18 @@ comments: true
     /* リストを空にする */
     nums = nil
 
-    /* 末尾に要素を追加 */
+    /* 末尾に要素を追加する */
     nums = append(nums, 1)
     nums = append(nums, 3)
     nums = append(nums, 2)
     nums = append(nums, 5)
     nums = append(nums, 4)
 
-    /* 途中に要素を挿入 */
-    nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // インデックス 3 に数値 6 を挿入
+    /* 途中に要素を挿入する */
+    nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // インデックス 3 に数値 6 を挿入する
 
-    /* 要素を削除 */
-    nums = append(nums[:3], nums[4:]...) // インデックス 3 の要素を削除
+    /* 要素を削除する */
+    nums = append(nums[:3], nums[4:]...) // インデックス 3 の要素を削除する
     ```
 
 === "Swift"
@@ -398,18 +401,18 @@ comments: true
     /* リストを空にする */
     nums.removeAll()
 
-    /* 末尾に要素を追加 */
+    /* 末尾に要素を追加する */
     nums.append(1)
     nums.append(3)
     nums.append(2)
     nums.append(5)
     nums.append(4)
 
-    /* 途中に要素を挿入 */
-    nums.insert(6, at: 3) // インデックス 3 に数値 6 を挿入
+    /* 途中に要素を挿入する */
+    nums.insert(6, at: 3) // インデックス 3 に数値 6 を挿入する
 
-    /* 要素を削除 */
-    nums.remove(at: 3) // インデックス 3 の要素を削除
+    /* 要素を削除する */
+    nums.remove(at: 3) // インデックス 3 の要素を削除する
     ```
 
 === "JS"
@@ -418,18 +421,18 @@ comments: true
     /* リストを空にする */
     nums.length = 0;
 
-    /* 末尾に要素を追加 */
+    /* 末尾に要素を追加する */
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* 途中に要素を挿入 */
-    nums.splice(3, 0, 6); // インデックス 3 に数値 6 を挿入
+    /* 途中に要素を挿入する */
+    nums.splice(3, 0, 6); // インデックス 3 に数値 6 を挿入する
 
-    /* 要素を削除 */
-    nums.splice(3, 1);  // インデックス 3 の要素を削除
+    /* 要素を削除する */
+    nums.splice(3, 1); // インデックス 3 の要素を削除する
     ```
 
 === "TS"
@@ -438,18 +441,18 @@ comments: true
     /* リストを空にする */
     nums.length = 0;
 
-    /* 末尾に要素を追加 */
+    /* 末尾に要素を追加する */
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* 途中に要素を挿入 */
-    nums.splice(3, 0, 6); // インデックス 3 に数値 6 を挿入
+    /* 途中に要素を挿入する */
+    nums.splice(3, 0, 6); // インデックス 3 に数値 6 を挿入する
 
-    /* 要素を削除 */
-    nums.splice(3, 1);  // インデックス 3 の要素を削除
+    /* 要素を削除する */
+    nums.splice(3, 1); // インデックス 3 の要素を削除する
     ```
 
 === "Dart"
@@ -458,38 +461,38 @@ comments: true
     /* リストを空にする */
     nums.clear();
 
-    /* 末尾に要素を追加 */
+    /* 末尾に要素を追加する */
     nums.add(1);
     nums.add(3);
     nums.add(2);
     nums.add(5);
     nums.add(4);
 
-    /* 途中に要素を挿入 */
-    nums.insert(3, 6); // インデックス 3 に数値 6 を挿入
+    /* 途中に要素を挿入する */
+    nums.insert(3, 6); // インデックス 3 に数値 6 を挿入する
 
-    /* 要素を削除 */
-    nums.removeAt(3); // インデックス 3 の要素を削除
+    /* 要素を削除する */
+    nums.removeAt(3); // インデックス 3 の要素を削除する
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* リストを空にする */
+    // リストを空にする
     nums.clear();
 
-    /* 末尾に要素を追加 */
+    // 末尾に要素を追加する
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* 途中に要素を挿入 */
-    nums.insert(3, 6);  // インデックス 3 に数値 6 を挿入
+    // 途中に要素を挿入する
+    nums.insert(3, 6); // インデックス 3 に数値 6 を挿入する
 
-    /* 要素を削除 */
-    nums.remove(3);    // インデックス 3 の要素を削除
+    // 要素を削除する
+    nums.remove(3); // インデックス 3 の要素を削除する
     ```
 
 === "C"
@@ -502,20 +505,20 @@ comments: true
 
     ```kotlin title="list.kt"
     /* リストを空にする */
-    nums.clear();
+    nums.clear()
 
-    /* 末尾に要素を追加 */
-    nums.add(1);
-    nums.add(3);
-    nums.add(2);
-    nums.add(5);
-    nums.add(4);
+    /* 末尾に要素を追加する */
+    nums.add(1)
+    nums.add(3)
+    nums.add(2)
+    nums.add(5)
+    nums.add(4)
 
-    /* 途中に要素を挿入 */
-    nums.add(3, 6);    // インデックス 3 に数値 6 を挿入
+    /* 途中に要素を挿入する */
+    nums.add(3, 6) // インデックス 3 に数値 6 を挿入する
 
-    /* 要素を削除 */
-    nums.removeAt(3);  // インデックス 3 の要素を削除
+    /* 要素を削除する */
+    nums.removeAt(3) // インデックス 3 の要素を削除する
     ```
 
 === "Ruby"
@@ -524,18 +527,18 @@ comments: true
     # リストを空にする
     nums.clear
 
-    # 末尾に要素を追加
+    # 末尾に要素を追加する
     nums << 1
     nums << 3
     nums << 2
     nums << 5
     nums << 4
 
-    # 途中に要素を挿入
-    nums.insert(3, 6) # インデックス 3 に数値 6 を挿入
+    # 途中に要素を挿入する
+    nums.insert(3, 6) # インデックス 3 に数値 6 を挿入する
 
-    # 要素を削除
-    nums.delete_at(3) # インデックス 3 の要素を削除
+    # 要素を削除する
+    nums.delete_at(3) # インデックス 3 の要素を削除する
     ```
 
 ??? pythontutor "実行の可視化"
@@ -550,12 +553,12 @@ comments: true
 === "Python"
 
     ```python title="list.py"
-    # インデックスを使ってリストを走査
+    # インデックスを使ってリストを走査する
     count = 0
     for i in range(len(nums)):
         count += nums[i]
 
-    # リストの要素を直接走査
+    # リストの要素を直接走査する
     for num in nums:
         count += num
     ```
@@ -563,143 +566,143 @@ comments: true
 === "C++"
 
     ```cpp title="list.cpp"
-    /* インデックスを使ってリストを走査 */
+    /* インデックスを使ってリストを走査する */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
         count += nums[i];
     }
 
-    /* リストの要素を直接走査 */
+    /* リストの要素を直接走査する */
     count = 0;
-    for (int num : nums) {
-        count += num;
+    for (int x : nums) {
+        count += x;
     }
     ```
 
 === "Java"
 
     ```java title="list.java"
-    /* インデックスを使ってリストを走査 */
+    /* インデックスを使ってリストを走査する */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
         count += nums.get(i);
     }
 
-    /* リストの要素を直接走査 */
-    for (int num : nums) {
-        count += num;
+    /* リストの要素を直接走査する */
+    for (int x : nums) {
+        count += x;
     }
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
-    /* インデックスを使ってリストを走査 */
+    /* インデックスを使ってリストを走査する */
     int count = 0;
     for (int i = 0; i < nums.Count; i++) {
         count += nums[i];
     }
 
-    /* リストの要素を直接走査 */
+    /* リストの要素を直接走査する */
     count = 0;
-    foreach (int num in nums) {
-        count += num;
+    foreach (int x in nums) {
+        count += x;
     }
     ```
 
 === "Go"
 
     ```go title="list_test.go"
-    /* インデックスを使ってリストを走査 */
+    /* インデックスを使ってリストを走査する */
     count := 0
     for i := 0; i < len(nums); i++ {
         count += nums[i]
     }
 
-    /* リストの要素を直接走査 */
+    /* リストの要素を直接走査する */
     count = 0
-    for _, num := range nums {
-        count += num
+    for _, x := range nums {
+        count += x
     }
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
-    /* インデックスを使ってリストを走査 */
+    /* インデックスを使ってリストを走査する */
     var count = 0
     for i in nums.indices {
         count += nums[i]
     }
 
-    /* リストの要素を直接走査 */
+    /* リストの要素を直接走査する */
     count = 0
-    for num in nums {
-        count += num
+    for x in nums {
+        count += x
     }
     ```
 
 === "JS"
 
     ```javascript title="list.js"
-    /* インデックスを使ってリストを走査 */
+    /* インデックスを使ってリストを走査する */
     let count = 0;
     for (let i = 0; i < nums.length; i++) {
         count += nums[i];
     }
 
-    /* リストの要素を直接走査 */
+    /* リストの要素を直接走査する */
     count = 0;
-    for (const num of nums) {
-        count += num;
+    for (const x of nums) {
+        count += x;
     }
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
-    /* インデックスを使ってリストを走査 */
+    /* インデックスを使ってリストを走査する */
     let count = 0;
     for (let i = 0; i < nums.length; i++) {
         count += nums[i];
     }
 
-    /* リストの要素を直接走査 */
+    /* リストの要素を直接走査する */
     count = 0;
-    for (const num of nums) {
-        count += num;
+    for (const x of nums) {
+        count += x;
     }
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
-    /* インデックスを使ってリストを走査 */
+    /* インデックスを使ってリストを走査する */
     int count = 0;
     for (var i = 0; i < nums.length; i++) {
-        count += nums[i];
+      count += nums[i];
     }
 
-    /* リストの要素を直接走査 */
+    /* リストの要素を直接走査する */
     count = 0;
-    for (var num in nums) {
-        count += num;
+    for (var x in nums) {
+      count += x;
     }
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    // インデックスを使ってリストを走査
+    // インデックスを使ってリストを走査する
     let mut _count = 0;
     for i in 0..nums.len() {
         _count += nums[i];
     }
 
-    // リストの要素を直接走査
+    // リストの要素を直接走査する
     _count = 0;
-    for num in &nums {
-        _count += num;
+    for x in &nums {
+        _count += x;
     }
     ```
 
@@ -712,31 +715,31 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="list.kt"
-    /* インデックスを使ってリストを走査 */
+    /* インデックスを使ってリストを走査する */
     var count = 0
     for (i in nums.indices) {
         count += nums[i]
     }
 
-    /* リストの要素を直接走査 */
-    for (num in nums) {
-        count += num
+    /* リストの要素を直接走査する */
+    for (j in nums) {
+        count += j
     }
     ```
 
 === "Ruby"
 
     ```ruby title="list.rb"
-    # インデックスを使ってリストを走査
+    # インデックスを使ってリストを走査する
     count = 0
     for i in 0...nums.length
-        count += nums[i]
+      count += nums[i]
     end
 
-    # リストの要素を直接走査
+    # リストの要素を直接走査する
     count = 0
-    for num in nums
-        count += num
+    nums.each do |x|
+      count += x
     end
     ```
 
@@ -752,82 +755,82 @@ comments: true
 === "Python"
 
     ```python title="list.py"
-    # 二つのリストを連結
-    nums1: list[int] = [6, 8, 7, 10, 9]
-    nums += nums1  # リスト nums1 を nums の後ろに連結
+    # 2 つのリストを連結する
+    nums1 = [6, 8, 7, 10, 9]
+    nums += nums1  # リスト nums の後ろに nums1 を連結する
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
-    /* 二つのリストを連結 */
-    vector<int> nums1 = { 6, 8, 7, 10, 9 };
-    // リスト nums1 を nums の後ろに連結
+    /* 2 つのリストを連結する */
+    vector<int> nums1 = {6, 8, 7, 10, 9};
+    // リスト nums の後ろに nums1 を連結する
     nums.insert(nums.end(), nums1.begin(), nums1.end());
     ```
 
 === "Java"
 
     ```java title="list.java"
-    /* 二つのリストを連結 */
+    /* 2 つのリストを連結する */
     List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
-    nums.addAll(nums1);  // リスト nums1 を nums の後ろに連結
+    nums.addAll(nums1); // リスト nums の後ろに nums1 を連結する
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
-    /* 二つのリストを連結 */
+    /* 2 つのリストを連結する */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.AddRange(nums1);  // リスト nums1 を nums の後ろに連結
+    nums.AddRange(nums1); // リスト nums の後ろに nums1 を連結する
     ```
 
 === "Go"
 
     ```go title="list_test.go"
-    /* 二つのリストを連結 */
+    /* 2 つのリストを連結する */
     nums1 := []int{6, 8, 7, 10, 9}
-    nums = append(nums, nums1...)  // リスト nums1 を nums の後ろに連結
+    nums = append(nums, nums1...) // リスト nums の後ろに nums1 を連結する
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
-    /* 二つのリストを連結 */
+    /* 2 つのリストを連結する */
     let nums1 = [6, 8, 7, 10, 9]
-    nums.append(contentsOf: nums1) // リスト nums1 を nums の後ろに連結
+    nums.append(contentsOf: nums1) // リスト nums の後ろに nums1 を連結する
     ```
 
 === "JS"
 
     ```javascript title="list.js"
-    /* 二つのリストを連結 */
+    /* 2 つのリストを連結する */
     const nums1 = [6, 8, 7, 10, 9];
-    nums.push(...nums1);  // リスト nums1 を nums の後ろに連結
+    nums.push(...nums1); // リスト nums の後ろに nums1 を連結する
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
-    /* 二つのリストを連結 */
+    /* 2 つのリストを連結する */
     const nums1: number[] = [6, 8, 7, 10, 9];
-    nums.push(...nums1);  // リスト nums1 を nums の後ろに連結
+    nums.push(...nums1); // リスト nums の後ろに nums1 を連結する
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
-    /* 二つのリストを連結 */
+    /* 2 つのリストを連結する */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.addAll(nums1);  // リスト nums1 を nums の後ろに連結
+    nums.addAll(nums1); // リスト nums の後ろに nums1 を連結する
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* 二つのリストを連結 */
-    let nums1: Vec<i32> = vec![6, 8, 7, 10, 9];
-    nums.extend(nums1);
+    // 2 つのリストを連結する
+    let mut nums1 = vec![6, 8, 7, 10, 9];
+    nums.append(&mut nums1); // append（ムーブ）後、nums1 は空になる！
     ```
 
 === "C"
@@ -839,15 +842,15 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="list.kt"
-    /* 二つのリストを連結 */
-    val nums1 = intArrayOf(6, 8, 7, 10, 9).toMutableList()
-    nums.addAll(nums1)  // リスト nums1 を nums の後ろに連結
+    /* 2 つのリストを連結する*/
+    val nums1 = mutableListOf(6, 8, 7, 10, 9)
+    nums.addAll(nums1) // リスト nums の後ろに nums1 を連結する
     ```
 
 === "Ruby"
 
     ```ruby title="list.rb"
-    # 二つのリストを連結
+    # 2 つのリストを連結する
     nums1 = [6, 8, 7, 10, 9]
     nums += nums1
     ```
@@ -864,70 +867,70 @@ comments: true
 === "Python"
 
     ```python title="list.py"
-    # リストをソート
+    # リストをソートする
     nums.sort()  # ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
-    /* リストをソート */
-    sort(nums.begin(), nums.end());  // ソート後、リストの要素は昇順に並ぶ
+    /* リストをソートする */
+    sort(nums.begin(), nums.end()); // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "Java"
 
     ```java title="list.java"
-    /* リストをソート */
-    Collections.sort(nums);  // ソート後、リストの要素は昇順に並ぶ
+    /* リストをソートする */
+    Collections.sort(nums); // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
-    /* リストをソート */
+    /* リストをソートする */
     nums.Sort(); // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "Go"
 
     ```go title="list_test.go"
-    /* リストをソート */
-    sort.Ints(nums)  // ソート後、リストの要素は昇順に並ぶ
+    /* リストをソートする */
+    sort.Ints(nums) // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
-    /* リストをソート */
+    /* リストをソートする */
     nums.sort() // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "JS"
 
     ```javascript title="list.js"
-    /* リストをソート */
-    nums.sort((a, b) => a - b);  // ソート後、リストの要素は昇順に並ぶ
+    /* リストをソートする */
+    nums.sort((a, b) => a - b); // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
-    /* リストをソート */
-    nums.sort((a, b) => a - b);  // ソート後、リストの要素は昇順に並ぶ
+    /* リストをソートする */
+    nums.sort((a, b) => a - b); // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
-    /* リストをソート */
+    /* リストをソートする */
     nums.sort(); // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* リストをソート */
+    // リストをソートする
     nums.sort(); // ソート後、リストの要素は昇順に並ぶ
     ```
 
@@ -940,14 +943,14 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="list.kt"
-    /* リストをソート */
+    /* リストをソートする */
     nums.sort() // ソート後、リストの要素は昇順に並ぶ
     ```
 
 === "Ruby"
 
     ```ruby title="list.rb"
-    # リストをソート
+    # リストをソートする
     nums = nums.sort { |a, b| a <=> b } # ソート後、リストの要素は昇順に並ぶ
     ```
 

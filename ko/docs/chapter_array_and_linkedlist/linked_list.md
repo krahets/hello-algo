@@ -201,13 +201,13 @@ comments: true
 
     ```python title="linked_list.py"
     # 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화
-    # 각 노드 초기화
+    # 각 노드를 초기화한다
     n0 = ListNode(1)
     n1 = ListNode(3)
     n2 = ListNode(2)
     n3 = ListNode(5)
     n4 = ListNode(4)
-    # 노드 사이의 참조 설정
+    # 노드 사이의 참조를 설정한다
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -218,13 +218,13 @@ comments: true
 
     ```cpp title="linked_list.cpp"
     /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-    // 각 노드 초기화
-    ListNode* n0 = new ListNode(1);
-    ListNode* n1 = new ListNode(3);
-    ListNode* n2 = new ListNode(2);
-    ListNode* n3 = new ListNode(5);
-    ListNode* n4 = new ListNode(4);
-    // 노드 사이의 참조 설정
+    // 각 노드를 초기화한다
+    ListNode *n0 = new ListNode(1);
+    ListNode *n1 = new ListNode(3);
+    ListNode *n2 = new ListNode(2);
+    ListNode *n3 = new ListNode(5);
+    ListNode *n4 = new ListNode(4);
+    // 노드 사이의 참조를 설정한다
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
@@ -235,13 +235,13 @@ comments: true
 
     ```java title="linked_list.java"
     /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-    // 각 노드 초기화
+    // 각 노드를 초기화한다
     ListNode n0 = new ListNode(1);
     ListNode n1 = new ListNode(3);
     ListNode n2 = new ListNode(2);
     ListNode n3 = new ListNode(5);
     ListNode n4 = new ListNode(4);
-    // 노드 사이의 참조 설정
+    // 노드 사이의 참조를 설정한다
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -251,14 +251,14 @@ comments: true
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-    // 각 노드 초기화
+    // 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화
+    // 각 노드를 초기화한다
     ListNode n0 = new(1);
     ListNode n1 = new(3);
     ListNode n2 = new(2);
     ListNode n3 = new(5);
     ListNode n4 = new(4);
-    // 노드 사이의 참조 설정
+    // 노드 사이의 참조를 설정한다
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -269,13 +269,14 @@ comments: true
 
     ```go title="linked_list.go"
     /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-    // 각 노드 초기화
+    // 각 노드를 초기화한다
     n0 := NewListNode(1)
     n1 := NewListNode(3)
     n2 := NewListNode(2)
     n3 := NewListNode(5)
     n4 := NewListNode(4)
-    // 노드 사이의 참조 설정
+
+    // 노드 사이의 참조를 설정한다
     n0.Next = n1
     n1.Next = n2
     n2.Next = n3
@@ -286,13 +287,13 @@ comments: true
 
     ```swift title="linked_list.swift"
     /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-    // 각 노드 초기화
+    // 각 노드를 초기화한다
     let n0 = ListNode(x: 1)
     let n1 = ListNode(x: 3)
     let n2 = ListNode(x: 2)
     let n3 = ListNode(x: 5)
     let n4 = ListNode(x: 4)
-    // 노드 사이의 참조 설정
+    // 노드 사이의 참조를 설정한다
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -303,13 +304,13 @@ comments: true
 
     ```javascript title="linked_list.js"
     /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-    // 각 노드 초기화
+    // 각 노드를 초기화한다
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
     const n2 = new ListNode(2);
     const n3 = new ListNode(5);
     const n4 = new ListNode(4);
-    // 노드 사이의 참조 설정
+    // 노드 사이의 참조를 설정한다
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -320,13 +321,13 @@ comments: true
 
     ```typescript title="linked_list.ts"
     /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-    // 각 노드 초기화
+    // 각 노드를 초기화한다
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
     const n2 = new ListNode(2);
     const n3 = new ListNode(5);
     const n4 = new ListNode(4);
-    // 노드 사이의 참조 설정
+    // 노드 사이의 참조를 설정한다
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -336,14 +337,14 @@ comments: true
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-    // 각 노드 초기화
+    // 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화
+    // 각 노드를 초기화한다
     ListNode n0 = ListNode(1);
     ListNode n1 = ListNode(3);
     ListNode n2 = ListNode(2);
     ListNode n3 = ListNode(5);
     ListNode n4 = ListNode(4);
-    // 노드 사이의 참조 설정
+    // 노드 사이의 참조를 설정한다
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -354,14 +355,14 @@ comments: true
 
     ```rust title="linked_list.rs"
     /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-    // 각 노드 초기화
-    let n0 = Rc::new(RefCell::new(ListNode { val: 1, next: None }));
-    let n1 = Rc::new(RefCell::new(ListNode { val: 3, next: None }));
-    let n2 = Rc::new(RefCell::new(ListNode { val: 2, next: None }));
-    let n3 = Rc::new(RefCell::new(ListNode { val: 5, next: None }));
-    let n4 = Rc::new(RefCell::new(ListNode { val: 4, next: None }));
+    // 각 노드를 초기화한다
+    let n0 = ListNode::new(1);
+    let n1 = ListNode::new(3);
+    let n2 = ListNode::new(2);
+    let n3 = ListNode::new(5);
+    let n4 = ListNode::new(4);
 
-    // 노드 사이의 참조 설정
+    // 노드 사이의 참조를 설정한다
     n0.borrow_mut().next = Some(n1.clone());
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
@@ -372,13 +373,13 @@ comments: true
 
     ```c title="linked_list.c"
     /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-    // 각 노드 초기화
-    ListNode* n0 = newListNode(1);
-    ListNode* n1 = newListNode(3);
-    ListNode* n2 = newListNode(2);
-    ListNode* n3 = newListNode(5);
-    ListNode* n4 = newListNode(4);
-    // 노드 사이의 참조 설정
+    // 각 노드를 초기화한다
+    ListNode *n0 = newListNode(1);
+    ListNode *n1 = newListNode(3);
+    ListNode *n2 = newListNode(2);
+    ListNode *n3 = newListNode(5);
+    ListNode *n4 = newListNode(4);
+    // 노드 사이의 참조를 설정한다
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
@@ -389,30 +390,31 @@ comments: true
 
     ```kotlin title="linked_list.kt"
     /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-    // 각 노드 초기화
+    // 각 노드를 초기화한다
     val n0 = ListNode(1)
     val n1 = ListNode(3)
     val n2 = ListNode(2)
     val n3 = ListNode(5)
     val n4 = ListNode(4)
-    // 노드 사이의 참조 설정
-    n0.next = n1;
-    n1.next = n2;
-    n2.next = n3;
-    n3.next = n4;
+
+    // 노드 사이의 참조를 설정한다
+    n0.next = n1
+    n1.next = n2
+    n2.next = n3
+    n3.next = n4
     ```
 
 === "Ruby"
 
     ```ruby title="linked_list.rb"
     # 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화
-    # 각 노드 초기화
+    # 각 노드를 초기화한다
     n0 = ListNode.new(1)
     n1 = ListNode.new(3)
     n2 = ListNode.new(2)
     n3 = ListNode.new(5)
     n4 = ListNode.new(4)
-    # 노드 사이의 참조 설정
+    # 노드 사이의 참조를 설정한다
     n0.next = n1
     n1.next = n2
     n2.next = n3
