@@ -28,8 +28,8 @@ class ListNode {
 ```csharp title=""
 /* Linked list node class */
 class ListNode(int x) {  // Constructor
-    int val = x;         // Node value
-    ListNode? next;      // Reference to the next node
+    public int val = x;     // Node value
+    public ListNode? next;  // Reference to the next node
 }
 ```
 
@@ -264,7 +264,7 @@ n3.next = n4;
 ```
 
 ```dart title="linked_list.dart"
-/* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */\
+/* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
 // Initialize the nodes
 ListNode n0 = ListNode(1);
 ListNode n1 = ListNode(3);
@@ -375,9 +375,9 @@ class ListNode {
 ```csharp title=""
 /* Doubly linked list node class */
 class ListNode(int x) {  // Constructor
-    int val = x;    // Node value
-    ListNode next;  // Reference to the successor
-    ListNode prev;  // Reference to the predecessor
+    public int val = x;     // Node value
+    public ListNode? next;  // Reference to the successor
+    public ListNode? prev;  // Reference to the predecessor
 }
 ```
 

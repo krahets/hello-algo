@@ -1,6 +1,6 @@
 <!-- [snippet]{backtrack_framework} -->
 ```python title=""
-def backtrack(state: State, choices: list[choice], res: list[state]):
+def backtrack(state: State, choices: list[Choice], res: list[State]):
     """Backtracking template"""
     # Check whether the state is a solution
     if is_solution(state):
@@ -30,7 +30,7 @@ void backtrack(State *state, vector<Choice *> &choices, vector<State *> &res) {
         return;
     }
     // Try every choice
-    for (Choice choice : choices) {
+    for (Choice *choice : choices) {
         // Prune: check whether the choice is valid
         if (isValid(state, choice)) {
             // Try: make the choice and update the state
@@ -189,7 +189,7 @@ function backtrack(state: State, choices: Choice[], res: State[]): void {
 
 ```dart title=""
 /* Backtracking template */
-void backtrack(State state, List<Choice>, List<State> res) {
+void backtrack(State state, List<Choice> choices, List<State> res) {
   // Check whether the state is a solution
   if (isSolution(state)) {
     // Record the solution

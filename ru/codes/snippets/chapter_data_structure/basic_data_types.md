@@ -96,7 +96,7 @@ val bools = BooleanArray(5)
 
 ```ruby title=""
 # Списки Ruby могут свободно хранить различные базовые типы данных и ссылки на объекты
-data = [0, 0.0, 'a', false, ListNode(0)]
+data = [0, 0.0, 'a', false, ListNode.new(0)]
 ```
 
 <!-- [tutor]{basic_type_arrays_tutor} -->

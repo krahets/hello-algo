@@ -71,7 +71,7 @@ bool isEmpty = maxHeap.empty();
 
 /* 리스트를 입력받아 힙 구성 */
 vector<int> input{1, 3, 2, 5, 4};
-priority_queue<int, vector<int>, greater<int>> minHeap(input.begin(), input.end());
+minHeap = priority_queue<int, vector<int>, greater<int>>(input.begin(), input.end());
 ```
 
 ```java title="heap.java"

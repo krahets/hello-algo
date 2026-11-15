@@ -28,8 +28,8 @@ class ListNode {
 ```csharp title=""
 /* Класс узла связного списка */
 class ListNode(int x) {  // Конструктор
-    int val = x;         // Значение узла
-    ListNode? next;      // Ссылка на следующий узел
+    public int val = x;     // Значение узла
+    public ListNode? next;  // Ссылка на следующий узел
 }
 ```
 
@@ -264,7 +264,7 @@ n3.next = n4;
 ```
 
 ```dart title="linked_list.dart"
-/* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */\
+/* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
 // Инициализация каждого узла
 ListNode n0 = ListNode(1);
 ListNode n1 = ListNode(3);
@@ -375,9 +375,9 @@ class ListNode {
 ```csharp title=""
 /* Класс узла двусвязного списка */
 class ListNode(int x) {  // Конструктор
-    int val = x;    // Значение узла
-    ListNode next;  // Ссылка на следующий узел
-    ListNode prev;  // Ссылка на предыдущий узел
+    public int val = x;     // Значение узла
+    public ListNode? next;  // Ссылка на следующий узел
+    public ListNode? prev;  // Ссылка на предыдущий узел
 }
 ```
 

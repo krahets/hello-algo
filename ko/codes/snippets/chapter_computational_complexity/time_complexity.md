@@ -774,10 +774,10 @@ def algorithm(n)
     a = 1       # +0(요령 1)
     a = a + n   # +0(요령 1)
     # +n(요령 2)
-    (0...(5 * n + 1)).each do { puts 0 }
+    (0...(5 * n + 1)).each { puts 0 }
     # +n*n(요령 3)
     (0...(2 * n)).each do
-        (0...(n + 1)).each do { puts 0 }
+        (0...(n + 1)).each { puts 0 }
     end
 end
 ```

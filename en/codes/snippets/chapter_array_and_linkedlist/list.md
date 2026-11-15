@@ -79,7 +79,7 @@ List<int> nums = [1, 3, 2, 5, 4];
 // Without initial values
 let nums1: Vec<i32> = Vec::new();
 // With initial values
-let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
 ```
 
 ```c title="list.c"
@@ -404,10 +404,10 @@ nums.add(5);
 nums.add(4);
 
 /* Insert an element in the middle */
-nums.add(3, 6);  // Insert 6 at index 3
+nums.add(3, 6);    // Insert 6 at index 3
 
 /* Remove an element */
-nums.remove(3);  // Remove the element at index 3
+nums.removeAt(3);  // Remove the element at index 3
 ```
 
 ```ruby title="list.rb"

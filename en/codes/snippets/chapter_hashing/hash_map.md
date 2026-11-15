@@ -184,7 +184,7 @@ map[10583] = "小鸭";
 
 /* Lookup */
 // Look up key in the hash table to obtain value
-String name = map[15937];
+String? name = map[15937];
 
 /* Deletion */
 // Remove a key-value pair (key, value) from the hash table
@@ -202,7 +202,7 @@ let mut map: HashMap<i32, String> = HashMap::new();
 map.insert(12836, "小哈".to_string());
 map.insert(15937, "小啰".to_string());
 map.insert(16750, "小算".to_string());
-map.insert(13279, "小法".to_string());
+map.insert(13276, "小法".to_string());
 map.insert(10583, "小鸭".to_string());
 
 /* Lookup */

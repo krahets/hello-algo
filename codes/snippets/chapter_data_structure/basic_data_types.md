@@ -96,7 +96,7 @@ val bools = BooleanArray(5)
 
 ```ruby title=""
 # Ruby 的列表可以自由存储各种基本数据类型和对象引用
-data = [0, 0.0, 'a', false, ListNode(0)]
+data = [0, 0.0, 'a', false, ListNode.new(0)]
 ```
 
 <!-- [tutor]{basic_type_arrays_tutor} -->
