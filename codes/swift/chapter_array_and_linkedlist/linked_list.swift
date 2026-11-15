@@ -54,7 +54,8 @@ func find(head: ListNode, target: Int) -> Int {
 enum LinkedList {
     /* Driver Code */
     static func main() {
-        /* 初始化链表 */
+        // [region]{init_linked_list}
+        /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
         // 初始化各个节点
         let n0 = ListNode(x: 1)
         let n1 = ListNode(x: 3)
@@ -66,6 +67,7 @@ enum LinkedList {
         n1.next = n2
         n2.next = n3
         n3.next = n4
+        // [endregion]{init_linked_list}
         print("初始化的链表为")
         PrintUtil.printLinkedList(head: n0)
 

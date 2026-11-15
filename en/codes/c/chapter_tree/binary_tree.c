@@ -8,6 +8,7 @@
 
 /* Driver code */
 int main() {
+    // [region]{init_binary_tree}
     /* Initialize the binary tree */
     // Initialize the nodes
     TreeNode *n1 = newTreeNode(1);
@@ -20,6 +21,7 @@ int main() {
     n1->right = n3;
     n2->left = n4;
     n2->right = n5;
+    // [endregion]{init_binary_tree}
     printf("Initialize the binary tree\n");
     printTree(n1);
 

@@ -13,6 +13,7 @@ from modules import TreeNode, print_tree
 
 """実行用コード"""
 if __name__ == "__main__":
+    # [region]{init_binary_tree}
     # 二分木を初期化する
     # ノードを初期化する
     n1 = TreeNode(val=1)
@@ -25,6 +26,7 @@ if __name__ == "__main__":
     n1.right = n3
     n2.left = n4
     n2.right = n5
+    # [endregion]{init_binary_tree}
     print("\n二分木を初期化する\n")
     print_tree(n1)
 

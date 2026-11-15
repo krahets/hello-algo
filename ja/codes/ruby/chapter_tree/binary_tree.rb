@@ -9,6 +9,7 @@ require_relative '../utils/print_util'
 
 ### 実行用コード ###
 if __FILE__ == $0
+  # [region]{init_binary_tree}
   # 二分木を初期化する
   # ノードを初期化する
   n1 = TreeNode.new(1)
@@ -21,6 +22,7 @@ if __FILE__ == $0
   n1.right = n3
   n2.left = n4
   n2.right = n5
+  # [endregion]{init_binary_tree}
   puts "\n二分木を初期化する\n\n"
   print_tree(n1)
 

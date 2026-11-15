@@ -10,6 +10,7 @@ import utils.*;
 
 public class binary_tree {
     public static void main(String[] args) {
+        // [region]{init_binary_tree}
         /* 二分木を初期化する */
         // ノードを初期化する
         TreeNode n1 = new TreeNode(1);
@@ -22,6 +23,7 @@ public class binary_tree {
         n1.right = n3;
         n2.left = n4;
         n2.right = n5;
+        // [endregion]{init_binary_tree}
         System.out.println("\n二分木を初期化する\n");
         PrintUtil.printTree(n1);
 

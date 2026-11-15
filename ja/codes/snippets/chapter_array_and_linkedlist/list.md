@@ -108,82 +108,63 @@ https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3
 
 <!-- [snippet]{access_element} -->
 ```python title="list.py"
-# 要素にアクセス
-num: int = nums[1]  # インデックス 1 の要素にアクセス
+[file]{list}-[region]{access_element}
 
-# 要素を更新
-nums[1] = 0    # インデックス 1 の要素を 0 に更新
+[file]{list}-[region]{update_element}
 ```
 
 ```cpp title="list.cpp"
-/* 要素にアクセス */
-int num = nums[1];  // インデックス 1 の要素にアクセス
+[file]{list}-[region]{access_element}
 
-/* 要素を更新 */
-nums[1] = 0;  // インデックス 1 の要素を 0 に更新
+[file]{list}-[region]{update_element}
 ```
 
 ```java title="list.java"
-/* 要素にアクセス */
-int num = nums.get(1);  // インデックス 1 の要素にアクセス
+[file]{list}-[region]{access_element}
 
-/* 要素を更新 */
-nums.set(1, 0);  // インデックス 1 の要素を 0 に更新
+[file]{list}-[region]{update_element}
 ```
 
 ```csharp title="list.cs"
-/* 要素にアクセス */
-int num = nums[1];  // インデックス 1 の要素にアクセス
+[file]{list}-[region]{access_element}
 
-/* 要素を更新 */
-nums[1] = 0;  // インデックス 1 の要素を 0 に更新
+[file]{list}-[region]{update_element}
 ```
 
 ```go title="list_test.go"
-/* 要素にアクセス */
-num := nums[1]  // インデックス 1 の要素にアクセス
+[file]{list_test}-[region]{access_element}
 
-/* 要素を更新 */
-nums[1] = 0     // インデックス 1 の要素を 0 に更新
+[file]{list_test}-[region]{update_element}
 ```
 
 ```swift title="list.swift"
-/* 要素にアクセス */
-let num = nums[1] // インデックス 1 の要素にアクセス
+[file]{list}-[region]{access_element}
 
-/* 要素を更新 */
-nums[1] = 0 // インデックス 1 の要素を 0 に更新
+[file]{list}-[region]{update_element}
 ```
 
 ```javascript title="list.js"
-/* 要素にアクセス */
-const num = nums[1];  // インデックス 1 の要素にアクセス
+[file]{list}-[region]{access_element}
 
-/* 要素を更新 */
-nums[1] = 0;  // インデックス 1 の要素を 0 に更新
+[file]{list}-[region]{update_element}
 ```
 
 ```typescript title="list.ts"
-/* 要素にアクセス */
-const num: number = nums[1];  // インデックス 1 の要素にアクセス
+[file]{list}-[region]{access_element}
 
-/* 要素を更新 */
-nums[1] = 0;  // インデックス 1 の要素を 0 に更新
+[file]{list}-[region]{update_element}
 ```
 
 ```dart title="list.dart"
-/* 要素にアクセス */
-int num = nums[1];  // インデックス 1 の要素にアクセス
+[file]{list}-[region]{access_element}
 
-/* 要素を更新 */
-nums[1] = 0;  // インデックス 1 の要素を 0 に更新
+[file]{list}-[region]{update_element}
 ```
 
 ```rust title="list.rs"
-/* 要素にアクセス */
-let num: i32 = nums[1];  // インデックス 1 の要素にアクセス
-/* 要素を更新 */
-nums[1] = 0;             // インデックス 1 の要素を 0 に更新
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
 ```
 
 ```c title="list.c"
@@ -191,17 +172,15 @@ nums[1] = 0;             // インデックス 1 の要素を 0 に更新
 ```
 
 ```kotlin title="list.kt"
-/* 要素にアクセス */
-val num = nums[1]       // インデックス 1 の要素にアクセス
-/* 要素を更新 */
-nums[1] = 0             // インデックス 1 の要素を 0 に更新
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
 ```
 
 ```ruby title="list.rb"
-# 要素にアクセス
-num = nums[1] # インデックス 1 の要素にアクセス
-# 要素を更新
-nums[1] = 0 # インデックス 1 の要素を 0 に更新
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
 ```
 
 <!-- [tutor]{access_element_tutor} -->
@@ -209,183 +188,103 @@ https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3
 
 <!-- [snippet]{insert_remove_element} -->
 ```python title="list.py"
-# リストを空にする
-nums.clear()
+[file]{list}-[region]{clear_list}
 
-# 末尾に要素を追加
-nums.append(1)
-nums.append(3)
-nums.append(2)
-nums.append(5)
-nums.append(4)
+[file]{list}-[region]{append_element}
 
-# 途中に要素を挿入
-nums.insert(3, 6)  # インデックス 3 に数値 6 を挿入
+[file]{list}-[region]{insert_element}
 
-# 要素を削除
-nums.pop(3)        # インデックス 3 の要素を削除
+[file]{list}-[region]{remove_element}
 ```
 
 ```cpp title="list.cpp"
-/* リストを空にする */
-nums.clear();
+[file]{list}-[region]{clear_list}
 
-/* 末尾に要素を追加 */
-nums.push_back(1);
-nums.push_back(3);
-nums.push_back(2);
-nums.push_back(5);
-nums.push_back(4);
+[file]{list}-[region]{append_element}
 
-/* 途中に要素を挿入 */
-nums.insert(nums.begin() + 3, 6);  // インデックス 3 に数値 6 を挿入
+[file]{list}-[region]{insert_element}
 
-/* 要素を削除 */
-nums.erase(nums.begin() + 3);      // インデックス 3 の要素を削除
+[file]{list}-[region]{remove_element}
 ```
 
 ```java title="list.java"
-/* リストを空にする */
-nums.clear();
+[file]{list}-[region]{clear_list}
 
-/* 末尾に要素を追加 */
-nums.add(1);
-nums.add(3);
-nums.add(2);
-nums.add(5);
-nums.add(4);
+[file]{list}-[region]{append_element}
 
-/* 途中に要素を挿入 */
-nums.add(3, 6);  // インデックス 3 に数値 6 を挿入
+[file]{list}-[region]{insert_element}
 
-/* 要素を削除 */
-nums.remove(3);  // インデックス 3 の要素を削除
+[file]{list}-[region]{remove_element}
 ```
 
 ```csharp title="list.cs"
-/* リストを空にする */
-nums.Clear();
+[file]{list}-[region]{clear_list}
 
-/* 末尾に要素を追加 */
-nums.Add(1);
-nums.Add(3);
-nums.Add(2);
-nums.Add(5);
-nums.Add(4);
+[file]{list}-[region]{append_element}
 
-/* 途中に要素を挿入 */
-nums.Insert(3, 6);  // インデックス 3 に数値 6 を挿入
+[file]{list}-[region]{insert_element}
 
-/* 要素を削除 */
-nums.RemoveAt(3);  // インデックス 3 の要素を削除
+[file]{list}-[region]{remove_element}
 ```
 
 ```go title="list_test.go"
-/* リストを空にする */
-nums = nil
+[file]{list_test}-[region]{clear_list}
 
-/* 末尾に要素を追加 */
-nums = append(nums, 1)
-nums = append(nums, 3)
-nums = append(nums, 2)
-nums = append(nums, 5)
-nums = append(nums, 4)
+[file]{list_test}-[region]{append_element}
 
-/* 途中に要素を挿入 */
-nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // インデックス 3 に数値 6 を挿入
+[file]{list_test}-[region]{insert_element}
 
-/* 要素を削除 */
-nums = append(nums[:3], nums[4:]...) // インデックス 3 の要素を削除
+[file]{list_test}-[region]{remove_element}
 ```
 
 ```swift title="list.swift"
-/* リストを空にする */
-nums.removeAll()
+[file]{list}-[region]{clear_list}
 
-/* 末尾に要素を追加 */
-nums.append(1)
-nums.append(3)
-nums.append(2)
-nums.append(5)
-nums.append(4)
+[file]{list}-[region]{append_element}
 
-/* 途中に要素を挿入 */
-nums.insert(6, at: 3) // インデックス 3 に数値 6 を挿入
+[file]{list}-[region]{insert_element}
 
-/* 要素を削除 */
-nums.remove(at: 3) // インデックス 3 の要素を削除
+[file]{list}-[region]{remove_element}
 ```
 
 ```javascript title="list.js"
-/* リストを空にする */
-nums.length = 0;
+[file]{list}-[region]{clear_list}
 
-/* 末尾に要素を追加 */
-nums.push(1);
-nums.push(3);
-nums.push(2);
-nums.push(5);
-nums.push(4);
+[file]{list}-[region]{append_element}
 
-/* 途中に要素を挿入 */
-nums.splice(3, 0, 6); // インデックス 3 に数値 6 を挿入
+[file]{list}-[region]{insert_element}
 
-/* 要素を削除 */
-nums.splice(3, 1);  // インデックス 3 の要素を削除
+[file]{list}-[region]{remove_element}
 ```
 
 ```typescript title="list.ts"
-/* リストを空にする */
-nums.length = 0;
+[file]{list}-[region]{clear_list}
 
-/* 末尾に要素を追加 */
-nums.push(1);
-nums.push(3);
-nums.push(2);
-nums.push(5);
-nums.push(4);
+[file]{list}-[region]{append_element}
 
-/* 途中に要素を挿入 */
-nums.splice(3, 0, 6); // インデックス 3 に数値 6 を挿入
+[file]{list}-[region]{insert_element}
 
-/* 要素を削除 */
-nums.splice(3, 1);  // インデックス 3 の要素を削除
+[file]{list}-[region]{remove_element}
 ```
 
 ```dart title="list.dart"
-/* リストを空にする */
-nums.clear();
+[file]{list}-[region]{clear_list}
 
-/* 末尾に要素を追加 */
-nums.add(1);
-nums.add(3);
-nums.add(2);
-nums.add(5);
-nums.add(4);
+[file]{list}-[region]{append_element}
 
-/* 途中に要素を挿入 */
-nums.insert(3, 6); // インデックス 3 に数値 6 を挿入
+[file]{list}-[region]{insert_element}
 
-/* 要素を削除 */
-nums.removeAt(3); // インデックス 3 の要素を削除
+[file]{list}-[region]{remove_element}
 ```
 
 ```rust title="list.rs"
-/* リストを空にする */
-nums.clear();
+[file]{list}-[region]{clear_list}
 
-/* 末尾に要素を追加 */
-nums.push(1);
-nums.push(3);
-nums.push(2);
-nums.push(5);
-nums.push(4);
+[file]{list}-[region]{append_element}
 
-/* 途中に要素を挿入 */
-nums.insert(3, 6);  // インデックス 3 に数値 6 を挿入
+[file]{list}-[region]{insert_element}
 
-/* 要素を削除 */
-nums.remove(3);    // インデックス 3 の要素を削除
+[file]{list}-[region]{remove_element}
 ```
 
 ```c title="list.c"
@@ -393,39 +292,23 @@ nums.remove(3);    // インデックス 3 の要素を削除
 ```
 
 ```kotlin title="list.kt"
-/* リストを空にする */
-nums.clear();
+[file]{list}-[region]{clear_list}
 
-/* 末尾に要素を追加 */
-nums.add(1);
-nums.add(3);
-nums.add(2);
-nums.add(5);
-nums.add(4);
+[file]{list}-[region]{append_element}
 
-/* 途中に要素を挿入 */
-nums.add(3, 6);    // インデックス 3 に数値 6 を挿入
+[file]{list}-[region]{insert_element}
 
-/* 要素を削除 */
-nums.removeAt(3);  // インデックス 3 の要素を削除
+[file]{list}-[region]{remove_element}
 ```
 
 ```ruby title="list.rb"
-# リストを空にする
-nums.clear
+[file]{list}-[region]{clear_list}
 
-# 末尾に要素を追加
-nums << 1
-nums << 3
-nums << 2
-nums << 5
-nums << 4
+[file]{list}-[region]{append_element}
 
-# 途中に要素を挿入
-nums.insert(3, 6) # インデックス 3 に数値 6 を挿入
+[file]{list}-[region]{insert_element}
 
-# 要素を削除
-nums.delete_at(3) # インデックス 3 の要素を削除
+[file]{list}-[region]{remove_element}
 ```
 
 <!-- [tutor]{insert_remove_element_tutor} -->
@@ -433,139 +316,43 @@ https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3
 
 <!-- [snippet]{iterate_list} -->
 ```python title="list.py"
-# インデックスを使ってリストを走査
-count = 0
-for i in range(len(nums)):
-    count += nums[i]
-
-# リストの要素を直接走査
-for num in nums:
-    count += num
+[file]{list}-[region]{iterate_list}
 ```
 
 ```cpp title="list.cpp"
-/* インデックスを使ってリストを走査 */
-int count = 0;
-for (int i = 0; i < nums.size(); i++) {
-    count += nums[i];
-}
-
-/* リストの要素を直接走査 */
-count = 0;
-for (int num : nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```java title="list.java"
-/* インデックスを使ってリストを走査 */
-int count = 0;
-for (int i = 0; i < nums.size(); i++) {
-    count += nums.get(i);
-}
-
-/* リストの要素を直接走査 */
-for (int num : nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```csharp title="list.cs"
-/* インデックスを使ってリストを走査 */
-int count = 0;
-for (int i = 0; i < nums.Count; i++) {
-    count += nums[i];
-}
-
-/* リストの要素を直接走査 */
-count = 0;
-foreach (int num in nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```go title="list_test.go"
-/* インデックスを使ってリストを走査 */
-count := 0
-for i := 0; i < len(nums); i++ {
-    count += nums[i]
-}
-
-/* リストの要素を直接走査 */
-count = 0
-for _, num := range nums {
-    count += num
-}
+[file]{list_test}-[region]{iterate_list}
 ```
 
 ```swift title="list.swift"
-/* インデックスを使ってリストを走査 */
-var count = 0
-for i in nums.indices {
-    count += nums[i]
-}
-
-/* リストの要素を直接走査 */
-count = 0
-for num in nums {
-    count += num
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```javascript title="list.js"
-/* インデックスを使ってリストを走査 */
-let count = 0;
-for (let i = 0; i < nums.length; i++) {
-    count += nums[i];
-}
-
-/* リストの要素を直接走査 */
-count = 0;
-for (const num of nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```typescript title="list.ts"
-/* インデックスを使ってリストを走査 */
-let count = 0;
-for (let i = 0; i < nums.length; i++) {
-    count += nums[i];
-}
-
-/* リストの要素を直接走査 */
-count = 0;
-for (const num of nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```dart title="list.dart"
-/* インデックスを使ってリストを走査 */
-int count = 0;
-for (var i = 0; i < nums.length; i++) {
-    count += nums[i];
-}
-
-/* リストの要素を直接走査 */
-count = 0;
-for (var num in nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```rust title="list.rs"
-// インデックスを使ってリストを走査
-let mut _count = 0;
-for i in 0..nums.len() {
-    _count += nums[i];
-}
-
-// リストの要素を直接走査
-_count = 0;
-for num in &nums {
-    _count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```c title="list.c"
@@ -573,30 +360,11 @@ for num in &nums {
 ```
 
 ```kotlin title="list.kt"
-/* インデックスを使ってリストを走査 */
-var count = 0
-for (i in nums.indices) {
-    count += nums[i]
-}
-
-/* リストの要素を直接走査 */
-for (num in nums) {
-    count += num
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```ruby title="list.rb"
-# インデックスを使ってリストを走査
-count = 0
-for i in 0...nums.length
-    count += nums[i]
-end
-
-# リストの要素を直接走査
-count = 0
-for num in nums
-    count += num
-end
+[file]{list}-[region]{iterate_list}
 ```
 
 <!-- [tutor]{iterate_list_tutor} -->
@@ -604,64 +372,43 @@ https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3
 
 <!-- [snippet]{concat_list} -->
 ```python title="list.py"
-# 二つのリストを連結
-nums1: list[int] = [6, 8, 7, 10, 9]
-nums += nums1  # リスト nums1 を nums の後ろに連結
+[file]{list}-[region]{concat_list}
 ```
 
 ```cpp title="list.cpp"
-/* 二つのリストを連結 */
-vector<int> nums1 = { 6, 8, 7, 10, 9 };
-// リスト nums1 を nums の後ろに連結
-nums.insert(nums.end(), nums1.begin(), nums1.end());
+[file]{list}-[region]{concat_list}
 ```
 
 ```java title="list.java"
-/* 二つのリストを連結 */
-List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
-nums.addAll(nums1);  // リスト nums1 を nums の後ろに連結
+[file]{list}-[region]{concat_list}
 ```
 
 ```csharp title="list.cs"
-/* 二つのリストを連結 */
-List<int> nums1 = [6, 8, 7, 10, 9];
-nums.AddRange(nums1);  // リスト nums1 を nums の後ろに連結
+[file]{list}-[region]{concat_list}
 ```
 
 ```go title="list_test.go"
-/* 二つのリストを連結 */
-nums1 := []int{6, 8, 7, 10, 9}
-nums = append(nums, nums1...)  // リスト nums1 を nums の後ろに連結
+[file]{list_test}-[region]{concat_list}
 ```
 
 ```swift title="list.swift"
-/* 二つのリストを連結 */
-let nums1 = [6, 8, 7, 10, 9]
-nums.append(contentsOf: nums1) // リスト nums1 を nums の後ろに連結
+[file]{list}-[region]{concat_list}
 ```
 
 ```javascript title="list.js"
-/* 二つのリストを連結 */
-const nums1 = [6, 8, 7, 10, 9];
-nums.push(...nums1);  // リスト nums1 を nums の後ろに連結
+[file]{list}-[region]{concat_list}
 ```
 
 ```typescript title="list.ts"
-/* 二つのリストを連結 */
-const nums1: number[] = [6, 8, 7, 10, 9];
-nums.push(...nums1);  // リスト nums1 を nums の後ろに連結
+[file]{list}-[region]{concat_list}
 ```
 
 ```dart title="list.dart"
-/* 二つのリストを連結 */
-List<int> nums1 = [6, 8, 7, 10, 9];
-nums.addAll(nums1);  // リスト nums1 を nums の後ろに連結
+[file]{list}-[region]{concat_list}
 ```
 
 ```rust title="list.rs"
-/* 二つのリストを連結 */
-let nums1: Vec<i32> = vec![6, 8, 7, 10, 9];
-nums.extend(nums1);
+[file]{list}-[region]{concat_list}
 ```
 
 ```c title="list.c"
@@ -669,15 +416,11 @@ nums.extend(nums1);
 ```
 
 ```kotlin title="list.kt"
-/* 二つのリストを連結 */
-val nums1 = intArrayOf(6, 8, 7, 10, 9).toMutableList()
-nums.addAll(nums1)  // リスト nums1 を nums の後ろに連結
+[file]{list}-[region]{concat_list}
 ```
 
 ```ruby title="list.rb"
-# 二つのリストを連結
-nums1 = [6, 8, 7, 10, 9]
-nums += nums1
+[file]{list}-[region]{concat_list}
 ```
 
 <!-- [tutor]{concat_list_tutor} -->
@@ -685,53 +428,43 @@ https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3
 
 <!-- [snippet]{sort_list} -->
 ```python title="list.py"
-# リストをソート
-nums.sort()  # ソート後、リストの要素は昇順に並ぶ
+[file]{list}-[region]{sort_list}
 ```
 
 ```cpp title="list.cpp"
-/* リストをソート */
-sort(nums.begin(), nums.end());  // ソート後、リストの要素は昇順に並ぶ
+[file]{list}-[region]{sort_list}
 ```
 
 ```java title="list.java"
-/* リストをソート */
-Collections.sort(nums);  // ソート後、リストの要素は昇順に並ぶ
+[file]{list}-[region]{sort_list}
 ```
 
 ```csharp title="list.cs"
-/* リストをソート */
-nums.Sort(); // ソート後、リストの要素は昇順に並ぶ
+[file]{list}-[region]{sort_list}
 ```
 
 ```go title="list_test.go"
-/* リストをソート */
-sort.Ints(nums)  // ソート後、リストの要素は昇順に並ぶ
+[file]{list_test}-[region]{sort_list}
 ```
 
 ```swift title="list.swift"
-/* リストをソート */
-nums.sort() // ソート後、リストの要素は昇順に並ぶ
+[file]{list}-[region]{sort_list}
 ```
 
 ```javascript title="list.js"
-/* リストをソート */
-nums.sort((a, b) => a - b);  // ソート後、リストの要素は昇順に並ぶ
+[file]{list}-[region]{sort_list}
 ```
 
 ```typescript title="list.ts"
-/* リストをソート */
-nums.sort((a, b) => a - b);  // ソート後、リストの要素は昇順に並ぶ
+[file]{list}-[region]{sort_list}
 ```
 
 ```dart title="list.dart"
-/* リストをソート */
-nums.sort(); // ソート後、リストの要素は昇順に並ぶ
+[file]{list}-[region]{sort_list}
 ```
 
 ```rust title="list.rs"
-/* リストをソート */
-nums.sort(); // ソート後、リストの要素は昇順に並ぶ
+[file]{list}-[region]{sort_list}
 ```
 
 ```c title="list.c"
@@ -739,13 +472,11 @@ nums.sort(); // ソート後、リストの要素は昇順に並ぶ
 ```
 
 ```kotlin title="list.kt"
-/* リストをソート */
-nums.sort() // ソート後、リストの要素は昇順に並ぶ
+[file]{list}-[region]{sort_list}
 ```
 
 ```ruby title="list.rb"
-# リストをソート
-nums = nums.sort { |a, b| a <=> b } # ソート後、リストの要素は昇順に並ぶ
+[file]{list}-[region]{sort_list}
 ```
 
 <!-- [tutor]{sort_list_tutor} -->

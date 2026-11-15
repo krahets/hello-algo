@@ -8,6 +8,7 @@ use hello_algo_rust::include::{print_util, TreeNode};
 
 /* Driver Code */
 fn main() {
+    // [region]{init_binary_tree}
     /* 初始化二叉树 */
     // 初始化节点
     let n1 = TreeNode::new(1);
@@ -20,6 +21,7 @@ fn main() {
     n1.borrow_mut().right = Some(Rc::clone(&n3));
     n2.borrow_mut().left = Some(Rc::clone(&n4));
     n2.borrow_mut().right = Some(Rc::clone(&n5));
+    // [endregion]{init_binary_tree}
     println!("\n初始化二叉树\n");
     print_util::print_tree(&n1);
 

@@ -108,82 +108,63 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{access_element} -->
 ```python title="list.py"
-# 访问元素
-num: int = nums[1]  # 访问索引 1 处的元素
+[file]{list}-[region]{access_element}
 
-# 更新元素
-nums[1] = 0    # 将索引 1 处的元素更新为 0
+[file]{list}-[region]{update_element}
 ```
 
 ```cpp title="list.cpp"
-/* 访问元素 */
-int num = nums[1];  // 访问索引 1 处的元素
+[file]{list}-[region]{access_element}
 
-/* 更新元素 */
-nums[1] = 0;  // 将索引 1 处的元素更新为 0
+[file]{list}-[region]{update_element}
 ```
 
 ```java title="list.java"
-/* 访问元素 */
-int num = nums.get(1);  // 访问索引 1 处的元素
+[file]{list}-[region]{access_element}
 
-/* 更新元素 */
-nums.set(1, 0);  // 将索引 1 处的元素更新为 0
+[file]{list}-[region]{update_element}
 ```
 
 ```csharp title="list.cs"
-/* 访问元素 */
-int num = nums[1];  // 访问索引 1 处的元素
+[file]{list}-[region]{access_element}
 
-/* 更新元素 */
-nums[1] = 0;  // 将索引 1 处的元素更新为 0
+[file]{list}-[region]{update_element}
 ```
 
 ```go title="list_test.go"
-/* 访问元素 */
-num := nums[1]  // 访问索引 1 处的元素
+[file]{list_test}-[region]{access_element}
 
-/* 更新元素 */
-nums[1] = 0     // 将索引 1 处的元素更新为 0
+[file]{list_test}-[region]{update_element}
 ```
 
 ```swift title="list.swift"
-/* 访问元素 */
-let num = nums[1] // 访问索引 1 处的元素
+[file]{list}-[region]{access_element}
 
-/* 更新元素 */
-nums[1] = 0 // 将索引 1 处的元素更新为 0
+[file]{list}-[region]{update_element}
 ```
 
 ```javascript title="list.js"
-/* 访问元素 */
-const num = nums[1];  // 访问索引 1 处的元素
+[file]{list}-[region]{access_element}
 
-/* 更新元素 */
-nums[1] = 0;  // 将索引 1 处的元素更新为 0
+[file]{list}-[region]{update_element}
 ```
 
 ```typescript title="list.ts"
-/* 访问元素 */
-const num: number = nums[1];  // 访问索引 1 处的元素
+[file]{list}-[region]{access_element}
 
-/* 更新元素 */
-nums[1] = 0;  // 将索引 1 处的元素更新为 0
+[file]{list}-[region]{update_element}
 ```
 
 ```dart title="list.dart"
-/* 访问元素 */
-int num = nums[1];  // 访问索引 1 处的元素
+[file]{list}-[region]{access_element}
 
-/* 更新元素 */
-nums[1] = 0;  // 将索引 1 处的元素更新为 0
+[file]{list}-[region]{update_element}
 ```
 
 ```rust title="list.rs"
-/* 访问元素 */
-let num: i32 = nums[1];  // 访问索引 1 处的元素
-/* 更新元素 */
-nums[1] = 0;             // 将索引 1 处的元素更新为 0
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
 ```
 
 ```c title="list.c"
@@ -191,17 +172,15 @@ nums[1] = 0;             // 将索引 1 处的元素更新为 0
 ```
 
 ```kotlin title="list.kt"
-/* 访问元素 */
-val num = nums[1]       // 访问索引 1 处的元素
-/* 更新元素 */
-nums[1] = 0             // 将索引 1 处的元素更新为 0
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
 ```
 
 ```ruby title="list.rb"
-# 访问元素
-num = nums[1] # 访问索引 1 处的元素
-# 更新元素
-nums[1] = 0 # 将索引 1 处的元素更新为 0
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
 ```
 
 <!-- [tutor]{access_element_tutor} -->
@@ -209,183 +188,103 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{insert_remove_element} -->
 ```python title="list.py"
-# 清空列表
-nums.clear()
+[file]{list}-[region]{clear_list}
 
-# 在尾部添加元素
-nums.append(1)
-nums.append(3)
-nums.append(2)
-nums.append(5)
-nums.append(4)
+[file]{list}-[region]{append_element}
 
-# 在中间插入元素
-nums.insert(3, 6)  # 在索引 3 处插入数字 6
+[file]{list}-[region]{insert_element}
 
-# 删除元素
-nums.pop(3)        # 删除索引 3 处的元素
+[file]{list}-[region]{remove_element}
 ```
 
 ```cpp title="list.cpp"
-/* 清空列表 */
-nums.clear();
+[file]{list}-[region]{clear_list}
 
-/* 在尾部添加元素 */
-nums.push_back(1);
-nums.push_back(3);
-nums.push_back(2);
-nums.push_back(5);
-nums.push_back(4);
+[file]{list}-[region]{append_element}
 
-/* 在中间插入元素 */
-nums.insert(nums.begin() + 3, 6);  // 在索引 3 处插入数字 6
+[file]{list}-[region]{insert_element}
 
-/* 删除元素 */
-nums.erase(nums.begin() + 3);      // 删除索引 3 处的元素
+[file]{list}-[region]{remove_element}
 ```
 
 ```java title="list.java"
-/* 清空列表 */
-nums.clear();
+[file]{list}-[region]{clear_list}
 
-/* 在尾部添加元素 */
-nums.add(1);
-nums.add(3);
-nums.add(2);
-nums.add(5);
-nums.add(4);
+[file]{list}-[region]{append_element}
 
-/* 在中间插入元素 */
-nums.add(3, 6);  // 在索引 3 处插入数字 6
+[file]{list}-[region]{insert_element}
 
-/* 删除元素 */
-nums.remove(3);  // 删除索引 3 处的元素
+[file]{list}-[region]{remove_element}
 ```
 
 ```csharp title="list.cs"
-/* 清空列表 */
-nums.Clear();
+[file]{list}-[region]{clear_list}
 
-/* 在尾部添加元素 */
-nums.Add(1);
-nums.Add(3);
-nums.Add(2);
-nums.Add(5);
-nums.Add(4);
+[file]{list}-[region]{append_element}
 
-/* 在中间插入元素 */
-nums.Insert(3, 6);  // 在索引 3 处插入数字 6
+[file]{list}-[region]{insert_element}
 
-/* 删除元素 */
-nums.RemoveAt(3);  // 删除索引 3 处的元素
+[file]{list}-[region]{remove_element}
 ```
 
 ```go title="list_test.go"
-/* 清空列表 */
-nums = nil
+[file]{list_test}-[region]{clear_list}
 
-/* 在尾部添加元素 */
-nums = append(nums, 1)
-nums = append(nums, 3)
-nums = append(nums, 2)
-nums = append(nums, 5)
-nums = append(nums, 4)
+[file]{list_test}-[region]{append_element}
 
-/* 在中间插入元素 */
-nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // 在索引 3 处插入数字 6
+[file]{list_test}-[region]{insert_element}
 
-/* 删除元素 */
-nums = append(nums[:3], nums[4:]...) // 删除索引 3 处的元素
+[file]{list_test}-[region]{remove_element}
 ```
 
 ```swift title="list.swift"
-/* 清空列表 */
-nums.removeAll()
+[file]{list}-[region]{clear_list}
 
-/* 在尾部添加元素 */
-nums.append(1)
-nums.append(3)
-nums.append(2)
-nums.append(5)
-nums.append(4)
+[file]{list}-[region]{append_element}
 
-/* 在中间插入元素 */
-nums.insert(6, at: 3) // 在索引 3 处插入数字 6
+[file]{list}-[region]{insert_element}
 
-/* 删除元素 */
-nums.remove(at: 3) // 删除索引 3 处的元素
+[file]{list}-[region]{remove_element}
 ```
 
 ```javascript title="list.js"
-/* 清空列表 */
-nums.length = 0;
+[file]{list}-[region]{clear_list}
 
-/* 在尾部添加元素 */
-nums.push(1);
-nums.push(3);
-nums.push(2);
-nums.push(5);
-nums.push(4);
+[file]{list}-[region]{append_element}
 
-/* 在中间插入元素 */
-nums.splice(3, 0, 6); // 在索引 3 处插入数字 6
+[file]{list}-[region]{insert_element}
 
-/* 删除元素 */
-nums.splice(3, 1);  // 删除索引 3 处的元素
+[file]{list}-[region]{remove_element}
 ```
 
 ```typescript title="list.ts"
-/* 清空列表 */
-nums.length = 0;
+[file]{list}-[region]{clear_list}
 
-/* 在尾部添加元素 */
-nums.push(1);
-nums.push(3);
-nums.push(2);
-nums.push(5);
-nums.push(4);
+[file]{list}-[region]{append_element}
 
-/* 在中间插入元素 */
-nums.splice(3, 0, 6); // 在索引 3 处插入数字 6
+[file]{list}-[region]{insert_element}
 
-/* 删除元素 */
-nums.splice(3, 1);  // 删除索引 3 处的元素
+[file]{list}-[region]{remove_element}
 ```
 
 ```dart title="list.dart"
-/* 清空列表 */
-nums.clear();
+[file]{list}-[region]{clear_list}
 
-/* 在尾部添加元素 */
-nums.add(1);
-nums.add(3);
-nums.add(2);
-nums.add(5);
-nums.add(4);
+[file]{list}-[region]{append_element}
 
-/* 在中间插入元素 */
-nums.insert(3, 6); // 在索引 3 处插入数字 6
+[file]{list}-[region]{insert_element}
 
-/* 删除元素 */
-nums.removeAt(3); // 删除索引 3 处的元素
+[file]{list}-[region]{remove_element}
 ```
 
 ```rust title="list.rs"
-/* 清空列表 */
-nums.clear();
+[file]{list}-[region]{clear_list}
 
-/* 在尾部添加元素 */
-nums.push(1);
-nums.push(3);
-nums.push(2);
-nums.push(5);
-nums.push(4);
+[file]{list}-[region]{append_element}
 
-/* 在中间插入元素 */
-nums.insert(3, 6);  // 在索引 3 处插入数字 6
+[file]{list}-[region]{insert_element}
 
-/* 删除元素 */
-nums.remove(3);    // 删除索引 3 处的元素
+[file]{list}-[region]{remove_element}
 ```
 
 ```c title="list.c"
@@ -393,39 +292,23 @@ nums.remove(3);    // 删除索引 3 处的元素
 ```
 
 ```kotlin title="list.kt"
-/* 清空列表 */
-nums.clear();
+[file]{list}-[region]{clear_list}
 
-/* 在尾部添加元素 */
-nums.add(1);
-nums.add(3);
-nums.add(2);
-nums.add(5);
-nums.add(4);
+[file]{list}-[region]{append_element}
 
-/* 在中间插入元素 */
-nums.add(3, 6);    // 在索引 3 处插入数字 6
+[file]{list}-[region]{insert_element}
 
-/* 删除元素 */
-nums.removeAt(3);  // 删除索引 3 处的元素
+[file]{list}-[region]{remove_element}
 ```
 
 ```ruby title="list.rb"
-# 清空列表
-nums.clear
+[file]{list}-[region]{clear_list}
 
-# 在尾部添加元素
-nums << 1
-nums << 3
-nums << 2
-nums << 5
-nums << 4
+[file]{list}-[region]{append_element}
 
-# 在中间插入元素
-nums.insert(3, 6) # 在索引 3 处插入数字 6
+[file]{list}-[region]{insert_element}
 
-# 删除元素
-nums.delete_at(3) # 删除索引 3 处的元素
+[file]{list}-[region]{remove_element}
 ```
 
 <!-- [tutor]{insert_remove_element_tutor} -->
@@ -433,139 +316,43 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{iterate_list} -->
 ```python title="list.py"
-# 通过索引遍历列表
-count = 0
-for i in range(len(nums)):
-    count += nums[i]
-
-# 直接遍历列表元素
-for num in nums:
-    count += num
+[file]{list}-[region]{iterate_list}
 ```
 
 ```cpp title="list.cpp"
-/* 通过索引遍历列表 */
-int count = 0;
-for (int i = 0; i < nums.size(); i++) {
-    count += nums[i];
-}
-
-/* 直接遍历列表元素 */
-count = 0;
-for (int num : nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```java title="list.java"
-/* 通过索引遍历列表 */
-int count = 0;
-for (int i = 0; i < nums.size(); i++) {
-    count += nums.get(i);
-}
-
-/* 直接遍历列表元素 */
-for (int num : nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```csharp title="list.cs"
-/* 通过索引遍历列表 */
-int count = 0;
-for (int i = 0; i < nums.Count; i++) {
-    count += nums[i];
-}
-
-/* 直接遍历列表元素 */
-count = 0;
-foreach (int num in nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```go title="list_test.go"
-/* 通过索引遍历列表 */
-count := 0
-for i := 0; i < len(nums); i++ {
-    count += nums[i]
-}
-
-/* 直接遍历列表元素 */
-count = 0
-for _, num := range nums {
-    count += num
-}
+[file]{list_test}-[region]{iterate_list}
 ```
 
 ```swift title="list.swift"
-/* 通过索引遍历列表 */
-var count = 0
-for i in nums.indices {
-    count += nums[i]
-}
-
-/* 直接遍历列表元素 */
-count = 0
-for num in nums {
-    count += num
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```javascript title="list.js"
-/* 通过索引遍历列表 */
-let count = 0;
-for (let i = 0; i < nums.length; i++) {
-    count += nums[i];
-}
-
-/* 直接遍历列表元素 */
-count = 0;
-for (const num of nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```typescript title="list.ts"
-/* 通过索引遍历列表 */
-let count = 0;
-for (let i = 0; i < nums.length; i++) {
-    count += nums[i];
-}
-
-/* 直接遍历列表元素 */
-count = 0;
-for (const num of nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```dart title="list.dart"
-/* 通过索引遍历列表 */
-int count = 0;
-for (var i = 0; i < nums.length; i++) {
-    count += nums[i];
-}
-
-/* 直接遍历列表元素 */
-count = 0;
-for (var num in nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```rust title="list.rs"
-// 通过索引遍历列表
-let mut _count = 0;
-for i in 0..nums.len() {
-    _count += nums[i];
-}
-
-// 直接遍历列表元素
-_count = 0;
-for num in &nums {
-    _count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```c title="list.c"
@@ -573,30 +360,11 @@ for num in &nums {
 ```
 
 ```kotlin title="list.kt"
-/* 通过索引遍历列表 */
-var count = 0
-for (i in nums.indices) {
-    count += nums[i]
-}
-
-/* 直接遍历列表元素 */
-for (num in nums) {
-    count += num
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```ruby title="list.rb"
-# 通过索引遍历列表
-count = 0
-for i in 0...nums.length
-    count += nums[i]
-end
-
-# 直接遍历列表元素
-count = 0
-for num in nums
-    count += num
-end
+[file]{list}-[region]{iterate_list}
 ```
 
 <!-- [tutor]{iterate_list_tutor} -->
@@ -604,64 +372,43 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{concat_list} -->
 ```python title="list.py"
-# 拼接两个列表
-nums1: list[int] = [6, 8, 7, 10, 9]
-nums += nums1  # 将列表 nums1 拼接到 nums 之后
+[file]{list}-[region]{concat_list}
 ```
 
 ```cpp title="list.cpp"
-/* 拼接两个列表 */
-vector<int> nums1 = { 6, 8, 7, 10, 9 };
-// 将列表 nums1 拼接到 nums 之后
-nums.insert(nums.end(), nums1.begin(), nums1.end());
+[file]{list}-[region]{concat_list}
 ```
 
 ```java title="list.java"
-/* 拼接两个列表 */
-List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
-nums.addAll(nums1);  // 将列表 nums1 拼接到 nums 之后
+[file]{list}-[region]{concat_list}
 ```
 
 ```csharp title="list.cs"
-/* 拼接两个列表 */
-List<int> nums1 = [6, 8, 7, 10, 9];
-nums.AddRange(nums1);  // 将列表 nums1 拼接到 nums 之后
+[file]{list}-[region]{concat_list}
 ```
 
 ```go title="list_test.go"
-/* 拼接两个列表 */
-nums1 := []int{6, 8, 7, 10, 9}
-nums = append(nums, nums1...)  // 将列表 nums1 拼接到 nums 之后
+[file]{list_test}-[region]{concat_list}
 ```
 
 ```swift title="list.swift"
-/* 拼接两个列表 */
-let nums1 = [6, 8, 7, 10, 9]
-nums.append(contentsOf: nums1) // 将列表 nums1 拼接到 nums 之后
+[file]{list}-[region]{concat_list}
 ```
 
 ```javascript title="list.js"
-/* 拼接两个列表 */
-const nums1 = [6, 8, 7, 10, 9];
-nums.push(...nums1);  // 将列表 nums1 拼接到 nums 之后
+[file]{list}-[region]{concat_list}
 ```
 
 ```typescript title="list.ts"
-/* 拼接两个列表 */
-const nums1: number[] = [6, 8, 7, 10, 9];
-nums.push(...nums1);  // 将列表 nums1 拼接到 nums 之后
+[file]{list}-[region]{concat_list}
 ```
 
 ```dart title="list.dart"
-/* 拼接两个列表 */
-List<int> nums1 = [6, 8, 7, 10, 9];
-nums.addAll(nums1);  // 将列表 nums1 拼接到 nums 之后
+[file]{list}-[region]{concat_list}
 ```
 
 ```rust title="list.rs"
-/* 拼接两个列表 */
-let nums1: Vec<i32> = vec![6, 8, 7, 10, 9];
-nums.extend(nums1);
+[file]{list}-[region]{concat_list}
 ```
 
 ```c title="list.c"
@@ -669,15 +416,11 @@ nums.extend(nums1);
 ```
 
 ```kotlin title="list.kt"
-/* 拼接两个列表 */
-val nums1 = intArrayOf(6, 8, 7, 10, 9).toMutableList()
-nums.addAll(nums1)  // 将列表 nums1 拼接到 nums 之后
+[file]{list}-[region]{concat_list}
 ```
 
 ```ruby title="list.rb"
-# 拼接两个列表
-nums1 = [6, 8, 7, 10, 9]
-nums += nums1
+[file]{list}-[region]{concat_list}
 ```
 
 <!-- [tutor]{concat_list_tutor} -->
@@ -685,53 +428,43 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{sort_list} -->
 ```python title="list.py"
-# 排序列表
-nums.sort()  # 排序后，列表元素从小到大排列
+[file]{list}-[region]{sort_list}
 ```
 
 ```cpp title="list.cpp"
-/* 排序列表 */
-sort(nums.begin(), nums.end());  // 排序后，列表元素从小到大排列
+[file]{list}-[region]{sort_list}
 ```
 
 ```java title="list.java"
-/* 排序列表 */
-Collections.sort(nums);  // 排序后，列表元素从小到大排列
+[file]{list}-[region]{sort_list}
 ```
 
 ```csharp title="list.cs"
-/* 排序列表 */
-nums.Sort(); // 排序后，列表元素从小到大排列
+[file]{list}-[region]{sort_list}
 ```
 
 ```go title="list_test.go"
-/* 排序列表 */
-sort.Ints(nums)  // 排序后，列表元素从小到大排列
+[file]{list_test}-[region]{sort_list}
 ```
 
 ```swift title="list.swift"
-/* 排序列表 */
-nums.sort() // 排序后，列表元素从小到大排列
+[file]{list}-[region]{sort_list}
 ```
 
 ```javascript title="list.js"
-/* 排序列表 */
-nums.sort((a, b) => a - b);  // 排序后，列表元素从小到大排列
+[file]{list}-[region]{sort_list}
 ```
 
 ```typescript title="list.ts"
-/* 排序列表 */
-nums.sort((a, b) => a - b);  // 排序后，列表元素从小到大排列
+[file]{list}-[region]{sort_list}
 ```
 
 ```dart title="list.dart"
-/* 排序列表 */
-nums.sort(); // 排序后，列表元素从小到大排列
+[file]{list}-[region]{sort_list}
 ```
 
 ```rust title="list.rs"
-/* 排序列表 */
-nums.sort(); // 排序后，列表元素从小到大排列
+[file]{list}-[region]{sort_list}
 ```
 
 ```c title="list.c"
@@ -739,13 +472,11 @@ nums.sort(); // 排序后，列表元素从小到大排列
 ```
 
 ```kotlin title="list.kt"
-/* 排序列表 */
-nums.sort() // 排序后，列表元素从小到大排列
+[file]{list}-[region]{sort_list}
 ```
 
 ```ruby title="list.rb"
-# 排序列表
-nums = nums.sort { |a, b| a <=> b } # 排序后，列表元素从小到大排列
+[file]{list}-[region]{sort_list}
 ```
 
 <!-- [tutor]{sort_list_tutor} -->

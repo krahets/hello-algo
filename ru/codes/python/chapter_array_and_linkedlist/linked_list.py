@@ -50,7 +50,8 @@ def find(head: ListNode, target: int) -> int:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализация связного списка
+    # [region]{init_linked_list}
+    # Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4
     # Инициализация всех узлов
     n0 = ListNode(1)
     n1 = ListNode(3)
@@ -62,6 +63,7 @@ if __name__ == "__main__":
     n1.next = n2
     n2.next = n3
     n3.next = n4
+    # [endregion]{init_linked_list}
     print("Исходный связный список")
     print_linked_list(n0)
 

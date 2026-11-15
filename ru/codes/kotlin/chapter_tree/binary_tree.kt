@@ -11,6 +11,7 @@ import utils.printTree
 
 /* Driver Code */
 fun main() {
+    // [region]{init_binary_tree}
     /* Инициализация двоичного дерева */
     // Инициализация узла
     val n1 = TreeNode(1)
@@ -23,6 +24,7 @@ fun main() {
     n1.right = n3
     n2.left = n4
     n2.right = n5
+    // [endregion]{init_binary_tree}
     println("\nИнициализация двоичного дерева\n")
     printTree(n1)
 

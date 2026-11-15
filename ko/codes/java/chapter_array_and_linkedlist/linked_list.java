@@ -50,7 +50,8 @@ public class linked_list {
 
     /* 실행 코드 */
     public static void main(String[] args) {
-        /* 연결 리스트 초기화 */
+        // [region]{init_linked_list}
+        /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
         // 각 노드를 초기화한다
         ListNode n0 = new ListNode(1);
         ListNode n1 = new ListNode(3);
@@ -62,6 +63,7 @@ public class linked_list {
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
+        // [endregion]{init_linked_list}
         System.out.println("초기화한 연결 리스트");
         PrintUtil.printLinkedList(n0);
 

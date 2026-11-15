@@ -12,6 +12,7 @@ import (
 )
 
 func TestBinaryTree(t *testing.T) {
+	// [region]{init_binary_tree}
 	/* 二分木を初期化する */
 	// ノードを初期化する
 	n1 := NewTreeNode(1)
@@ -24,6 +25,7 @@ func TestBinaryTree(t *testing.T) {
 	n1.Right = n3
 	n2.Left = n4
 	n2.Right = n5
+	// [endregion]{init_binary_tree}
 	fmt.Println("二分木を初期化する")
 	PrintTree(n1)
 

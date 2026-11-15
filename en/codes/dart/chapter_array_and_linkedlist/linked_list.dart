@@ -47,7 +47,8 @@ int find(ListNode? head, int target) {
 
 /* Driver code */
 void main() {
-  // Initialize the linked list
+  // [region]{init_linked_list}
+  // Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
   // Initialize the individual nodes
   ListNode n0 = ListNode(1);
   ListNode n1 = ListNode(3);
@@ -59,6 +60,7 @@ void main() {
   n1.next = n2;
   n2.next = n3;
   n3.next = n4;
+  // [endregion]{init_linked_list}
 
   print('The initialized linked list is');
   printLinkedList(n0);

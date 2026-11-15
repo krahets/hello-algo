@@ -11,6 +11,7 @@ import utils.printTree
 
 /* 実行用コード */
 fun main() {
+    // [region]{init_binary_tree}
     /* 二分木を初期化する */
     // ノードを初期化する
     val n1 = TreeNode(1)
@@ -23,6 +24,7 @@ fun main() {
     n1.right = n3
     n2.left = n4
     n2.right = n5
+    // [endregion]{init_binary_tree}
     println("\n二分木を初期化する\n")
     printTree(n1)
 
