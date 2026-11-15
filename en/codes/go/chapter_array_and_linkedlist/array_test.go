@@ -16,13 +16,15 @@ import (
 
 /* Driver code */
 func TestArray(t *testing.T) {
+	// [region]{init_array}
 	/* Initialize the array */
 	var arr [5]int
-	fmt.Println("Array arr =", arr)
 	// In Go, a type with a specified length ([5]int) is an array; without a length ([]int), it is a slice
 	// Go array lengths are determined at compile time, so the length must be a constant
 	// To make the extend() function easier to implement, we treat slices as arrays below
 	nums := []int{1, 3, 2, 5, 4}
+	// [endregion]{init_array}
+	fmt.Println("Array arr =", arr)
 	fmt.Println("Array nums =", nums)
 
 	/* Random access */

@@ -25,16 +25,20 @@ fn main() {
     println!("\n二分木を初期化する\n");
     print_util::print_tree(&n1);
 
+    // [region]{insert_node}
     // ノードの挿入と削除
     let p = TreeNode::new(0);
     // n1 -> n2 の間にノード P を挿入する
     p.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().left = Some(Rc::clone(&p));
+    // [endregion]{insert_node}
     println!("\nノード P の挿入後\n");
     print_util::print_tree(&n1);
+    // [region]{remove_node}
     // ノード P を削除する
     drop(p);
     n1.borrow_mut().left = Some(Rc::clone(&n2));
+    // [endregion]{remove_node}
     println!("\nノード P の削除後\n");
     print_util::print_tree(&n1);
 }

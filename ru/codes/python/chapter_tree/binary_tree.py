@@ -30,14 +30,18 @@ if __name__ == "__main__":
     print("\nИнициализация двоичного дерева\n")
     print_tree(n1)
 
+    # [region]{insert_node}
     # Вставка и удаление узлов
     P = TreeNode(0)
     # Вставить узел P между n1 -> n2
     n1.left = P
     P.left = n2
+    # [endregion]{insert_node}
     print("\nПосле вставки узла P\n")
     print_tree(n1)
-    # Удаление узла
+    # [region]{remove_node}
+    # Удалить узел P
     n1.left = n2
+    # [endregion]{remove_node}
     print("\nПосле удаления узла P\n")
     print_tree(n1)

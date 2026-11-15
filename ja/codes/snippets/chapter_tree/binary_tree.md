@@ -230,133 +230,68 @@ https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%2
 
 <!-- [snippet]{insert_remove_node} -->
 ```python title="binary_tree.py"
-# ノードの挿入と削除
-p = TreeNode(0)
-# n1 -> n2 の間にノード P を挿入
-n1.left = p
-p.left = n2
-# ノード P を削除
-n1.left = n2
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```cpp title="binary_tree.cpp"
-/* ノードの挿入と削除 */
-TreeNode* P = new TreeNode(0);
-// n1 -> n2 の間にノード P を挿入
-n1->left = P;
-P->left = n2;
-// ノード P を削除
-n1->left = n2;
-// メモリを解放
-delete P;
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```java title="binary_tree.java"
-TreeNode P = new TreeNode(0);
-// n1 -> n2 の間にノード P を挿入
-n1.left = P;
-P.left = n2;
-// ノード P を削除
-n1.left = n2;
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```csharp title="binary_tree.cs"
-/* ノードの挿入と削除 */
-TreeNode P = new(0);
-// n1 -> n2 の間にノード P を挿入
-n1.left = P;
-P.left = n2;
-// ノード P を削除
-n1.left = n2;
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```go title="binary_tree.go"
-/* ノードの挿入と削除 */
-// n1 -> n2 の間にノード P を挿入
-p := NewTreeNode(0)
-n1.Left = p
-p.Left = n2
-// ノード P を削除
-n1.Left = n2
+[file]{binary_tree_test}-[region]{insert_node}
+[file]{binary_tree_test}-[region]{remove_node}
 ```
 
 ```swift title="binary_tree.swift"
-let P = TreeNode(x: 0)
-// n1 -> n2 の間にノード P を挿入
-n1.left = P
-P.left = n2
-// ノード P を削除
-n1.left = n2
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```javascript title="binary_tree.js"
-/* ノードの挿入と削除 */
-let P = new TreeNode(0);
-// n1 -> n2 の間にノード P を挿入
-n1.left = P;
-P.left = n2;
-// ノード P を削除
-n1.left = n2;
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```typescript title="binary_tree.ts"
-/* ノードの挿入と削除 */
-const P = new TreeNode(0);
-// n1 -> n2 の間にノード P を挿入
-n1.left = P;
-P.left = n2;
-// ノード P を削除
-n1.left = n2;
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```dart title="binary_tree.dart"
-/* ノードの挿入と削除 */
-TreeNode P = new TreeNode(0);
-// n1 -> n2 の間にノード P を挿入
-n1.left = P;
-P.left = n2;
-// ノード P を削除
-n1.left = n2;
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```rust title="binary_tree.rs"
-let p = TreeNode::new(0);
-// n1 -> n2 の間にノード P を挿入
-n1.borrow_mut().left = Some(p.clone());
-p.borrow_mut().left = Some(n2.clone());
-// ノード p を削除
-n1.borrow_mut().left = Some(n2);
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```c title="binary_tree.c"
-/* ノードの挿入と削除 */
-TreeNode *P = newTreeNode(0);
-// n1 -> n2 の間にノード P を挿入
-n1->left = P;
-P->left = n2;
-// ノード P を削除
-n1->left = n2;
-// メモリを解放
-free(P);
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```kotlin title="binary_tree.kt"
-val P = TreeNode(0)
-// n1 -> n2 の間にノード P を挿入
-n1.left = P
-P.left = n2
-// ノード P を削除
-n1.left = n2
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```ruby title="binary_tree.rb"
-# ノードの挿入と削除
-_p = TreeNode.new(0)
-# n1 -> n2 の間にノード _p を挿入
-n1.left = _p
-_p.left = n2
-# ノードを削除
-n1.left = n2
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 <!-- [tutor]{insert_remove_node_tutor} -->

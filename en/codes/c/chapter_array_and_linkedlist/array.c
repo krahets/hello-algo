@@ -73,13 +73,14 @@ int main() {
     /* Initialize the random seed (only once) */
     srand((unsigned)time(NULL));
 
+    // [region]{init_array}
     /* Initialize the array */
+    int arr[5] = {0}; // { 0, 0, 0, 0, 0 }
+    int nums[] = {1, 3, 2, 5, 4};
+    // [endregion]{init_array}
     int size = 5;
-    int arr[5];
     printf("Array arr = ");
     printArray(arr, size);
-
-    int nums[] = {1, 3, 2, 5, 4};
     printf("Array nums = ");
     printArray(nums, size);
 

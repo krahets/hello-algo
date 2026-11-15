@@ -28,15 +28,19 @@ fun main() {
     println("\n初始化二元樹\n")
     printTree(n1)
 
+    // [region]{insert_node}
     /* 插入與刪除節點 */
     val P = TreeNode(0)
     // 在 n1 -> n2 中間插入節點 P
     n1.left = P
     P.left = n2
+    // [endregion]{insert_node}
     println("\n插入節點 P 後\n")
     printTree(n1)
+    // [region]{remove_node}
     // 刪除節點 P
     n1.left = n2
+    // [endregion]{remove_node}
     println("\n刪除節點 P 後\n")
     printTree(n1)
 }

@@ -25,16 +25,20 @@ int main() {
     cout << endl << "初始化二元樹\n" << endl;
     printTree(n1);
 
+    // [region]{insert_node}
     /* 插入與刪除節點 */
     TreeNode *P = new TreeNode(0);
     // 在 n1 -> n2 中間插入節點 P
     n1->left = P;
     P->left = n2;
+    // [endregion]{insert_node}
     cout << endl << "插入節點 P 後\n" << endl;
     printTree(n1);
+    // [region]{remove_node}
     // 刪除節點 P
     n1->left = n2;
     delete P; // 釋放記憶體
+    // [endregion]{remove_node}
     cout << endl << "刪除節點 P 後\n" << endl;
     printTree(n1);
 

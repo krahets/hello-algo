@@ -26,15 +26,19 @@ if __FILE__ == $0
   puts "\nИнициализация двоичного дерева\n\n"
   print_tree(n1)
 
+  # [region]{insert_node}
   # Вставка и удаление узлов
   _p = TreeNode.new(0)
   # Вставить узел _p между n1 -> n2
   n1.left = _p
   _p.left = n2
+  # [endregion]{insert_node}
   puts "\nПосле вставки узла _p\n\n"
   print_tree(n1)
+  # [region]{remove_node}
   # Удаление узла
   n1.left = n2
+  # [endregion]{remove_node}
   puts "\nПосле удаления узла _p\n\n"
   print_tree(n1)
 end

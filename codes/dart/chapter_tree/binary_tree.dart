@@ -25,15 +25,19 @@ void main() {
   print("\n初始化二叉树\n");
   printTree(n1);
 
+  // [region]{insert_node}
   /* 插入与删除节点 */
   TreeNode p = TreeNode(0);
-  // 在 n1 -> n2 中间插入节点 p
+  // 在 n1 -> n2 中间插入节点 P
   n1.left = p;
   p.left = n2;
+  // [endregion]{insert_node}
   print("\n插入节点 P 后\n");
   printTree(n1);
+  // [region]{remove_node}
   // 删除节点 P
   n1.left = n2;
+  // [endregion]{remove_node}
   print("\n删除节点 P 后\n");
   printTree(n1);
 }

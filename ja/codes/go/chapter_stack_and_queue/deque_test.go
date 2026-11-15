@@ -13,39 +13,55 @@ import (
 )
 
 func TestDeque(t *testing.T) {
+	// [region]{init_deque}
 	/* 両端キューを初期化する */
 	// Go では list を両端キューとして使う
 	deque := list.New()
+	// [endregion]{init_deque}
 
+	// [region]{push}
 	/* 要素をエンキューする */
-	deque.PushBack(2)
+	deque.PushBack(2) // キューの末尾に追加する
 	deque.PushBack(5)
 	deque.PushBack(4)
-	deque.PushFront(3)
+	deque.PushFront(3) // キューの先頭に追加する
 	deque.PushFront(1)
+	// [endregion]{push}
 	fmt.Print("両端キュー deque = ")
 	PrintList(deque)
 
+	// [region]{peek_first}
 	/* 要素にアクセスする */
-	front := deque.Front()
+	front := deque.Front() // キューの先頭要素
+	// [endregion]{peek_first}
 	fmt.Println("キューの先頭要素 front =", front.Value)
-	rear := deque.Back()
+	// [region]{peek_last}
+	rear := deque.Back() // キューの末尾要素
+	// [endregion]{peek_last}
 	fmt.Println("キューの末尾要素 rear =", rear.Value)
 
+	// [region]{pop_first}
 	/* 要素をデキューする */
-	deque.Remove(front)
+	deque.Remove(front) // キューの先頭要素をデキューする
+	// [endregion]{pop_first}
 	fmt.Print("先頭からデキューした要素 front = ", front.Value, "、先頭からデキューした後 deque = ")
 	PrintList(deque)
-	deque.Remove(rear)
+	// [region]{pop_last}
+	deque.Remove(rear) // キューの末尾要素をデキューする
+	// [endregion]{pop_last}
 	fmt.Print("末尾からデキューした要素 rear = ", rear.Value, "、末尾からデキューした後 deque = ")
 	PrintList(deque)
 
+	// [region]{size}
 	/* 両端キューの長さを取得する */
 	size := deque.Len()
+	// [endregion]{size}
 	fmt.Println("両端キューの長さ size =", size)
 
+	// [region]{is_empty}
 	/* 両端キューが空かどうかを判定する */
 	isEmpty := deque.Len() == 0
+	// [endregion]{is_empty}
 	fmt.Println("両端キューは空か =", isEmpty)
 }
 

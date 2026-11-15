@@ -25,16 +25,20 @@ fn main() {
     println!("\nИнициализация двоичного дерева\n");
     print_util::print_tree(&n1);
 
+    // [region]{insert_node}
     // Вставка и удаление узлов
     let p = TreeNode::new(0);
     // Вставить узел P между n1 -> n2
     p.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().left = Some(Rc::clone(&p));
+    // [endregion]{insert_node}
     println!("\nПосле вставки узла P\n");
     print_util::print_tree(&n1);
+    // [region]{remove_node}
     // Удалить узел P
     drop(p);
     n1.borrow_mut().left = Some(Rc::clone(&n2));
+    // [endregion]{remove_node}
     println!("\nПосле удаления узла P\n");
     print_util::print_tree(&n1);
 }

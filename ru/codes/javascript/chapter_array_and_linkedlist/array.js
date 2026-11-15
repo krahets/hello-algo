@@ -67,10 +67,12 @@ function find(nums, target) {
 }
 
 /* Driver Code */
+// [region]{init_array}
 /* Инициализация массива */
 const arr = new Array(5).fill(0);
-console.log('Массив arr =', arr);
 let nums = [1, 3, 2, 5, 4];
+// [endregion]{init_array}
+console.log('Массив arr =', arr);
 console.log('Массив nums =', nums);
 
 /* Случайный доступ */

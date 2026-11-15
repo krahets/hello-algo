@@ -26,15 +26,19 @@ public class binary_tree {
         Console.WriteLine("\nInitialize the binary tree\n");
         PrintUtil.PrintTree(n1);
 
+        // [region]{insert_node}
         /* Insert and remove nodes */
         TreeNode P = new(0);
         // Insert node P between n1 and n2 in n1 -> n2
         n1.left = P;
         P.left = n2;
+        // [endregion]{insert_node}
         Console.WriteLine("\nAfter inserting node P:\n");
         PrintUtil.PrintTree(n1);
+        // [region]{remove_node}
         // Remove node P
         n1.left = n2;
+        // [endregion]{remove_node}
         Console.WriteLine("\nAfter removing node P:\n");
         PrintUtil.PrintTree(n1);
     }

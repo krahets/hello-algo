@@ -25,16 +25,20 @@ int main() {
     cout << endl << "二分木を初期化する\n" << endl;
     printTree(n1);
 
+    // [region]{insert_node}
     /* ノードの挿入と削除 */
     TreeNode *P = new TreeNode(0);
     // n1 -> n2 の間にノード P を挿入する
     n1->left = P;
     P->left = n2;
+    // [endregion]{insert_node}
     cout << endl << "ノード P の挿入後\n" << endl;
     printTree(n1);
+    // [region]{remove_node}
     // ノード P を削除する
     n1->left = n2;
     delete P; // メモリを解放する
+    // [endregion]{remove_node}
     cout << endl << "ノード P の削除後\n" << endl;
     printTree(n1);
 

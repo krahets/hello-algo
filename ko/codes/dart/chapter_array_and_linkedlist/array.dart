@@ -74,10 +74,12 @@ int find(List<int> nums, int target) {
 
 /* 실행 코드 */
 void main() {
+  // [region]{init_array}
   /* 배열 초기화 */
-  var arr = List.filled(5, 0);
-  print('배열 arr = $arr');
+  var arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
   List<int> nums = [1, 3, 2, 5, 4];
+  // [endregion]{init_array}
+  print('배열 arr = $arr');
   print('배열 nums = $nums');
 
   /* 임의 접근 */

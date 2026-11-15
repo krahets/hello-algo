@@ -230,133 +230,68 @@ https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%2
 
 <!-- [snippet]{insert_remove_node} -->
 ```python title="binary_tree.py"
-# Insert and delete a node
-p = TreeNode(0)
-# Insert node P between n1 and n2
-n1.left = p
-p.left = n2
-# Delete node P
-n1.left = n2
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```cpp title="binary_tree.cpp"
-/* Insert and delete a node */
-TreeNode* P = new TreeNode(0);
-// Insert node P between n1 and n2
-n1->left = P;
-P->left = n2;
-// Delete node P
-n1->left = n2;
-// Free the memory
-delete P;
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```java title="binary_tree.java"
-TreeNode P = new TreeNode(0);
-// Insert node P between n1 and n2
-n1.left = P;
-P.left = n2;
-// Delete node P
-n1.left = n2;
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```csharp title="binary_tree.cs"
-/* Insert and delete a node */
-TreeNode P = new(0);
-// Insert node P between n1 and n2
-n1.left = P;
-P.left = n2;
-// Delete node P
-n1.left = n2;
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```go title="binary_tree.go"
-/* Insert and delete a node */
-// Insert node P between n1 and n2
-p := NewTreeNode(0)
-n1.Left = p
-p.Left = n2
-// Delete node P
-n1.Left = n2
+[file]{binary_tree_test}-[region]{insert_node}
+[file]{binary_tree_test}-[region]{remove_node}
 ```
 
 ```swift title="binary_tree.swift"
-let P = TreeNode(x: 0)
-// Insert node P between n1 and n2
-n1.left = P
-P.left = n2
-// Delete node P
-n1.left = n2
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```javascript title="binary_tree.js"
-/* Insert and delete a node */
-let P = new TreeNode(0);
-// Insert node P between n1 and n2
-n1.left = P;
-P.left = n2;
-// Delete node P
-n1.left = n2;
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```typescript title="binary_tree.ts"
-/* Insert and delete a node */
-const P = new TreeNode(0);
-// Insert node P between n1 and n2
-n1.left = P;
-P.left = n2;
-// Delete node P
-n1.left = n2;
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```dart title="binary_tree.dart"
-/* Insert and delete a node */
-TreeNode P = new TreeNode(0);
-// Insert node P between n1 and n2
-n1.left = P;
-P.left = n2;
-// Delete node P
-n1.left = n2;
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```rust title="binary_tree.rs"
-let p = TreeNode::new(0);
-// Insert node P between n1 and n2
-n1.borrow_mut().left = Some(p.clone());
-p.borrow_mut().left = Some(n2.clone());
-// Delete node p
-n1.borrow_mut().left = Some(n2);
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```c title="binary_tree.c"
-/* Insert and delete a node */
-TreeNode *P = newTreeNode(0);
-// Insert node P between n1 and n2
-n1->left = P;
-P->left = n2;
-// Delete node P
-n1->left = n2;
-// Free the memory
-free(P);
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```kotlin title="binary_tree.kt"
-val P = TreeNode(0)
-// Insert node P between n1 and n2
-n1.left = P
-P.left = n2
-// Delete node P
-n1.left = n2
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 ```ruby title="binary_tree.rb"
-# Insert and delete a node
-_p = TreeNode.new(0)
-# Insert node _p between n1 and n2
-n1.left = _p
-_p.left = n2
-# Delete the node
-n1.left = n2
+[file]{binary_tree}-[region]{insert_node}
+[file]{binary_tree}-[region]{remove_node}
 ```
 
 <!-- [tutor]{insert_remove_node_tutor} -->

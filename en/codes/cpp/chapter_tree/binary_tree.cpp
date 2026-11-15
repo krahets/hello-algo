@@ -25,16 +25,20 @@ int main() {
     cout << endl << "Initialize the binary tree\n" << endl;
     printTree(n1);
 
+    // [region]{insert_node}
     /* Insert and remove nodes */
     TreeNode *P = new TreeNode(0);
     // Insert node P between n1 and n2 in n1 -> n2
     n1->left = P;
     P->left = n2;
+    // [endregion]{insert_node}
     cout << endl << "After inserting node P:\n" << endl;
     printTree(n1);
+    // [region]{remove_node}
     // Remove node P
     n1->left = n2;
     delete P; // Free memory
+    // [endregion]{remove_node}
     cout << endl << "After removing node P:\n" << endl;
     printTree(n1);
 

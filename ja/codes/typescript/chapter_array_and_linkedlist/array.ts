@@ -69,10 +69,12 @@ function find(nums: number[], target: number): number {
 }
 
 /* 実行用コード */
+// [region]{init_array}
 /* 配列を初期化する */
 const arr: number[] = new Array(5).fill(0);
-console.log('配列 arr =', arr);
 let nums: number[] = [1, 3, 2, 5, 4];
+// [endregion]{init_array}
+console.log('配列 arr =', arr);
 console.log('配列 nums =', nums);
 
 /* ランダムアクセス */

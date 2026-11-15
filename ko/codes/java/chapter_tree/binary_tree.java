@@ -27,15 +27,19 @@ public class binary_tree {
         System.out.println("\n이진 트리 초기화\n");
         PrintUtil.printTree(n1);
 
+        // [region]{insert_node}
         /* 노드 삽입과 삭제 */
         TreeNode P = new TreeNode(0);
         // n1 -> n2 사이에 노드 P를 삽입한다
         n1.left = P;
         P.left = n2;
+        // [endregion]{insert_node}
         System.out.println("\n노드 P를 삽입한 후\n");
         PrintUtil.printTree(n1);
+        // [region]{remove_node}
         // 노드 P를 삭제한다
         n1.left = n2;
+        // [endregion]{remove_node}
         System.out.println("\n노드 P를 삭제한 후\n");
         PrintUtil.printTree(n1);
     }

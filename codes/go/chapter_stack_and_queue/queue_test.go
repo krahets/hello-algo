@@ -13,35 +13,47 @@ import (
 )
 
 func TestQueue(t *testing.T) {
+	// [region]{init_queue}
 	/* 初始化队列 */
 	// 在 Go 中，将 list 作为队列来使用
 	queue := list.New()
+	// [endregion]{init_queue}
 
+	// [region]{push}
 	/* 元素入队 */
 	queue.PushBack(1)
 	queue.PushBack(3)
 	queue.PushBack(2)
 	queue.PushBack(5)
 	queue.PushBack(4)
+	// [endregion]{push}
 	fmt.Print("队列 queue = ")
 	PrintList(queue)
 
+	// [region]{peek}
 	/* 访问队首元素 */
 	peek := queue.Front()
+	// [endregion]{peek}
 	fmt.Println("队首元素 peek =", peek.Value)
 
+	// [region]{pop}
 	/* 元素出队 */
 	pop := queue.Front()
 	queue.Remove(pop)
+	// [endregion]{pop}
 	fmt.Print("出队元素 pop = ", pop.Value, "，出队后 queue = ")
 	PrintList(queue)
 
+	// [region]{size}
 	/* 获取队列的长度 */
 	size := queue.Len()
+	// [endregion]{size}
 	fmt.Println("队列长度 size =", size)
 
+	// [region]{is_empty}
 	/* 判断队列是否为空 */
 	isEmpty := queue.Len() == 0
+	// [endregion]{is_empty}
 	fmt.Println("队列是否为空 =", isEmpty)
 }
 

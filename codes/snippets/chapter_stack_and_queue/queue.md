@@ -1,231 +1,130 @@
 <!-- [snippet]{queue_operations} -->
 ```python title="queue.py"
-from collections import deque
+[file]{queue}-[region]{import_deque}
 
-# 初始化队列
-# 在 Python 中，我们一般将双向队列类 deque 当作队列使用
-# 虽然 queue.Queue() 是纯正的队列类，但不太好用，因此不推荐
-que: deque[int] = deque()
+[file]{queue}-[region]{init_queue}
 
-# 元素入队
-que.append(1)
-que.append(3)
-que.append(2)
-que.append(5)
-que.append(4)
+[file]{queue}-[region]{push}
 
-# 访问队首元素
-front: int = que[0]
+[file]{queue}-[region]{peek}
 
-# 元素出队
-pop: int = que.popleft()
+[file]{queue}-[region]{pop}
 
-# 获取队列的长度
-size: int = len(que)
+[file]{queue}-[region]{size}
 
-# 判断队列是否为空
-is_empty: bool = len(que) == 0
+[file]{queue}-[region]{is_empty}
 ```
 
 ```cpp title="queue.cpp"
-/* 初始化队列 */
-queue<int> queue;
+[file]{queue}-[region]{init_queue}
 
-/* 元素入队 */
-queue.push(1);
-queue.push(3);
-queue.push(2);
-queue.push(5);
-queue.push(4);
+[file]{queue}-[region]{push}
 
-/* 访问队首元素 */
-int front = queue.front();
+[file]{queue}-[region]{peek}
 
-/* 元素出队 */
-queue.pop();
+[file]{queue}-[region]{pop}
 
-/* 获取队列的长度 */
-int size = queue.size();
+[file]{queue}-[region]{size}
 
-/* 判断队列是否为空 */
-bool empty = queue.empty();
+[file]{queue}-[region]{is_empty}
 ```
 
 ```java title="queue.java"
-/* 初始化队列 */
-Queue<Integer> queue = new LinkedList<>();
+[file]{queue}-[region]{init_queue}
 
-/* 元素入队 */
-queue.offer(1);
-queue.offer(3);
-queue.offer(2);
-queue.offer(5);
-queue.offer(4);
+[file]{queue}-[region]{push}
 
-/* 访问队首元素 */
-int peek = queue.peek();
+[file]{queue}-[region]{peek}
 
-/* 元素出队 */
-int pop = queue.poll();
+[file]{queue}-[region]{pop}
 
-/* 获取队列的长度 */
-int size = queue.size();
+[file]{queue}-[region]{size}
 
-/* 判断队列是否为空 */
-boolean isEmpty = queue.isEmpty();
+[file]{queue}-[region]{is_empty}
 ```
 
 ```csharp title="queue.cs"
-/* 初始化队列 */
-Queue<int> queue = new();
+[file]{queue}-[region]{init_queue}
 
-/* 元素入队 */
-queue.Enqueue(1);
-queue.Enqueue(3);
-queue.Enqueue(2);
-queue.Enqueue(5);
-queue.Enqueue(4);
+[file]{queue}-[region]{push}
 
-/* 访问队首元素 */
-int peek = queue.Peek();
+[file]{queue}-[region]{peek}
 
-/* 元素出队 */
-int pop = queue.Dequeue();
+[file]{queue}-[region]{pop}
 
-/* 获取队列的长度 */
-int size = queue.Count;
+[file]{queue}-[region]{size}
 
-/* 判断队列是否为空 */
-bool isEmpty = queue.Count == 0;
+[file]{queue}-[region]{is_empty}
 ```
 
 ```go title="queue_test.go"
-/* 初始化队列 */
-// 在 Go 中，将 list 作为队列来使用
-queue := list.New()
+[file]{queue_test}-[region]{init_queue}
 
-/* 元素入队 */
-queue.PushBack(1)
-queue.PushBack(3)
-queue.PushBack(2)
-queue.PushBack(5)
-queue.PushBack(4)
+[file]{queue_test}-[region]{push}
 
-/* 访问队首元素 */
-peek := queue.Front()
+[file]{queue_test}-[region]{peek}
 
-/* 元素出队 */
-pop := queue.Front()
-queue.Remove(pop)
+[file]{queue_test}-[region]{pop}
 
-/* 获取队列的长度 */
-size := queue.Len()
+[file]{queue_test}-[region]{size}
 
-/* 判断队列是否为空 */
-isEmpty := queue.Len() == 0
+[file]{queue_test}-[region]{is_empty}
 ```
 
 ```swift title="queue.swift"
-/* 初始化队列 */
-// Swift 没有内置的队列类，可以把 Array 当作队列来使用
-var queue: [Int] = []
+[file]{queue}-[region]{init_queue}
 
-/* 元素入队 */
-queue.append(1)
-queue.append(3)
-queue.append(2)
-queue.append(5)
-queue.append(4)
+[file]{queue}-[region]{push}
 
-/* 访问队首元素 */
-let peek = queue.first!
+[file]{queue}-[region]{peek}
 
-/* 元素出队 */
-// 由于是数组，因此 removeFirst 的复杂度为 O(n)
-let pop = queue.removeFirst()
+[file]{queue}-[region]{pop}
 
-/* 获取队列的长度 */
-let size = queue.count
+[file]{queue}-[region]{size}
 
-/* 判断队列是否为空 */
-let isEmpty = queue.isEmpty
+[file]{queue}-[region]{is_empty}
 ```
 
 ```javascript title="queue.js"
-/* 初始化队列 */
-// JavaScript 没有内置的队列，可以把 Array 当作队列来使用
-const queue = [];
+[file]{queue}-[region]{init_queue}
 
-/* 元素入队 */
-queue.push(1);
-queue.push(3);
-queue.push(2);
-queue.push(5);
-queue.push(4);
+[file]{queue}-[region]{push}
 
-/* 访问队首元素 */
-const peek = queue[0];
+[file]{queue}-[region]{peek}
 
-/* 元素出队 */
-// 底层是数组，因此 shift() 方法的时间复杂度为 O(n)
-const pop = queue.shift();
+[file]{queue}-[region]{pop}
 
-/* 获取队列的长度 */
-const size = queue.length;
+[file]{queue}-[region]{size}
 
-/* 判断队列是否为空 */
-const empty = queue.length === 0;
+[file]{queue}-[region]{is_empty}
 ```
 
 ```typescript title="queue.ts"
-/* 初始化队列 */
-// TypeScript 没有内置的队列，可以把 Array 当作队列来使用
-const queue: number[] = [];
+[file]{queue}-[region]{init_queue}
 
-/* 元素入队 */
-queue.push(1);
-queue.push(3);
-queue.push(2);
-queue.push(5);
-queue.push(4);
+[file]{queue}-[region]{push}
 
-/* 访问队首元素 */
-const peek = queue[0];
+[file]{queue}-[region]{peek}
 
-/* 元素出队 */
-// 底层是数组，因此 shift() 方法的时间复杂度为 O(n)
-const pop = queue.shift();
+[file]{queue}-[region]{pop}
 
-/* 获取队列的长度 */
-const size = queue.length;
+[file]{queue}-[region]{size}
 
-/* 判断队列是否为空 */
-const empty = queue.length === 0;
+[file]{queue}-[region]{is_empty}
 ```
 
 ```dart title="queue.dart"
-/* 初始化队列 */
-// 在 Dart 中，队列类 Queue 是双向队列，也可作为队列使用
-Queue<int> queue = Queue();
+[file]{queue}-[region]{init_queue}
 
-/* 元素入队 */
-queue.add(1);
-queue.add(3);
-queue.add(2);
-queue.add(5);
-queue.add(4);
+[file]{queue}-[region]{push}
 
-/* 访问队首元素 */
-int peek = queue.first;
+[file]{queue}-[region]{peek}
 
-/* 元素出队 */
-int pop = queue.removeFirst();
+[file]{queue}-[region]{pop}
 
-/* 获取队列的长度 */
-int size = queue.length;
+[file]{queue}-[region]{size}
 
-/* 判断队列是否为空 */
-bool isEmpty = queue.isEmpty;
+[file]{queue}-[region]{is_empty}
 ```
 
 ```rust title="queue.rs"
@@ -260,53 +159,31 @@ let is_empty = deque.is_empty();
 ```
 
 ```kotlin title="queue.kt"
-/* 初始化队列 */
-val queue = LinkedList<Int>()
+[file]{queue}-[region]{init_queue}
 
-/* 元素入队 */
-queue.offer(1)
-queue.offer(3)
-queue.offer(2)
-queue.offer(5)
-queue.offer(4)
+[file]{queue}-[region]{push}
 
-/* 访问队首元素 */
-val peek = queue.peek()
+[file]{queue}-[region]{peek}
 
-/* 元素出队 */
-val pop = queue.poll()
+[file]{queue}-[region]{pop}
 
-/* 获取队列的长度 */
-val size = queue.size
+[file]{queue}-[region]{size}
 
-/* 判断队列是否为空 */
-val isEmpty = queue.isEmpty()
+[file]{queue}-[region]{is_empty}
 ```
 
 ```ruby title="queue.rb"
-# 初始化队列
-# Ruby 内置的队列（Thread::Queue) 没有 peek 和遍历方法，可以把 Array 当作队列来使用
-queue = []
+[file]{queue}-[region]{init_queue}
 
-# 元素入队
-queue.push(1)
-queue.push(3)
-queue.push(2)
-queue.push(5)
-queue.push(4)
+[file]{queue}-[region]{push}
 
-# 访问队列元素
-peek = queue.first
+[file]{queue}-[region]{peek}
 
-# 元素出队
-# 清注意，由于是数组，Array#shift 方法时间复杂度为 O(n)
-pop = queue.shift
+[file]{queue}-[region]{pop}
 
-# 获取队列的长度
-size = queue.length
+[file]{queue}-[region]{size}
 
-# 判断队列是否为空
-is_empty = queue.empty?
+[file]{queue}-[region]{is_empty}
 ```
 
 <!-- [tutor]{queue_operations_tutor} -->

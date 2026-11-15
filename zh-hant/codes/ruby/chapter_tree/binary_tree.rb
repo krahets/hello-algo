@@ -26,15 +26,19 @@ if __FILE__ == $0
   puts "\n初始化二元樹\n\n"
   print_tree(n1)
 
+  # [region]{insert_node}
   # 插入與刪除節點
   _p = TreeNode.new(0)
   # 在 n1 -> n2 中間插入節點 _p
   n1.left = _p
   _p.left = n2
+  # [endregion]{insert_node}
   puts "\n插入節點 _p 後\n\n"
   print_tree(n1)
+  # [region]{remove_node}
   # 刪除節點
   n1.left = n2
+  # [endregion]{remove_node}
   puts "\n刪除節點 _p 後\n\n"
   print_tree(n1)
 end

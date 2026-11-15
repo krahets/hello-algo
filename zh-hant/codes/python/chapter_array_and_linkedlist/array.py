@@ -70,10 +70,12 @@ def find(nums: list[int], target: int) -> int:
 
 """Driver Code"""
 if __name__ == "__main__":
+    # [region]{init_array}
     # 初始化陣列
-    arr = [0] * 5
+    arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
+    nums: list[int] = [1, 3, 2, 5, 4]
+    # [endregion]{init_array}
     print("陣列 arr =", arr)
-    nums = [1, 3, 2, 5, 4]
     print("陣列 nums =", nums)
 
     # 隨機訪問

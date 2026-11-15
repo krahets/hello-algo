@@ -74,10 +74,12 @@ int find(List<int> nums, int target) {
 
 /* Driver Code */
 void main() {
+  // [region]{init_array}
   /* 初始化陣列 */
-  var arr = List.filled(5, 0);
-  print('陣列 arr = $arr');
+  var arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
   List<int> nums = [1, 3, 2, 5, 4];
+  // [endregion]{init_array}
+  print('陣列 arr = $arr');
   print('陣列 nums = $nums');
 
   /* 隨機訪問 */

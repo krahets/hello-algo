@@ -73,13 +73,14 @@ int main() {
     /* 난수 시드 초기화(한 번만 실행하면 된다) */
     srand((unsigned)time(NULL));
 
+    // [region]{init_array}
     /* 배열 초기화 */
+    int arr[5] = {0}; // { 0, 0, 0, 0, 0 }
+    int nums[] = {1, 3, 2, 5, 4};
+    // [endregion]{init_array}
     int size = 5;
-    int arr[5];
     printf("배열 arr = ");
     printArray(arr, size);
-
-    int nums[] = {1, 3, 2, 5, 4};
     printf("배열 nums = ");
     printArray(nums, size);
 
