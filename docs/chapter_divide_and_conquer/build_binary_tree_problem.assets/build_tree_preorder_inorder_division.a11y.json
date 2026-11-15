@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_preorder_inorder_division",
+  "title": "用中序位置切分左右子树，再切分前序",
+  "summary": "前序首项 3 定根，中序分出左子树 [9] 与右子树 [1,2,7]，再按节点数切分前序。",
+  "context": [
+    "输入为前序遍历 preorder = [3, 9, 2, 1, 7] 与中序遍历 inorder = [9, 3, 1, 2, 7]，所有节点值互不重复。"
+  ],
+  "description": [
+    "第一步：从右上角前序遍历的首元素确定当前树的根节点为 3（青色高亮），并在下方中序遍历中查找到 3 的位置。由此将中序遍历切分为三段：左侧蓝色区间 [9]、中间青色根节点 3、右侧紫色区间 [1, 2, 7]，直接得出“左子树有 1 个节点”“右子树有 3 个节点”。",
+    "第二步：利用从中序遍历得出的左右子树节点数量，回头切分前序遍历：在青色根节点 3 之后，先取 1 个元素 [9] 作为左子树的前序序列（蓝色），再将其余 3 个元素 [2, 1, 7] 作为右子树的前序序列（紫色）。注意右子树的前序段 [2, 1, 7] 与中序段 [1, 2, 7] 包含相同的三个节点，但排列次序不同。",
+    "画面左侧的二叉树同步以同色背景标出这三个部分：青色根节点为 3，蓝色左子树为单节点 9，紫色右子树是以 2 为根、1 和 7 为左右子节点的子树（其中 9、1、7 均为叶节点）。"
+  ],
+  "result": "通过“前序首元素定根 → 中序定左右子树节点数 → 按节点数切分前序”三步，原问题被拆解为左子树（前序 [9]、中序 [9]）和右子树（前序 [2, 1, 7]、中序 [1, 2, 7]）两个独立的递归子问题。",
+  "frames": [
+    {
+      "id": "source-314",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png",
+      "title": "用中序位置切分左右子树，再切分前序",
+      "explanation": "先由前序首元素 3 在中序中的位置算得左子树有 1 个节点、右子树有 3 个节点，再据此将前序剩余部分切分为左子树 [9] 与右子树 [2, 1, 7]。",
+      "state": "前序 preorder = [3, 9, 2, 1, 7]，中序 inorder = [9, 3, 1, 2, 7]，节点值互不重复。当前根节点为 3；中序划分为 [9] | 3 | [1, 2, 7]，得出左子树有 1 个节点、右子树有 3 个节点；前序随之划分为 3 | [9] | [2, 1, 7]。左侧树中根节点为 3，左子节点为 9，右子节点为 2，2 的左右子节点分别为 1 和 7，9、1、7 为叶节点。",
+      "key_state": "根为 3；左子树 1 个节点 [9]，右子树 3 个节点（前序 [2, 1, 7]、中序 [1, 2, 7]）。",
+      "announcement": "展示如何由根节点 3 在中序遍历中的位置确定左右子树大小，并同步切分前序遍历。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-16",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "f4742f42c44015f6e6c4b05a0af25fe8427ee5f0ac0fc1a4fd73a20a279c50dc",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "5e763dfd4e2b736b9a5010f6bdd3e33ef9402bdbd494a2a8c3346a1893135dc9",
+        "output_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb",
+        "output_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0",
+        "output_sha256": "b8fa9f331b33db33433309a29e9fe3834178d140c262ec7bc27dee6b669a5cd5"
+      }
+    ],
+    "evidence_sha256": "a355fc71eefa70eb8f989661b8a016ead02f198bb0747865902f358b13b089ae"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_divide_and_conquer/build_binary_tree_problem.md": "15c1f80907cb390b2dece48fa770f0441b86b7b89fb20b34edba6aca89263817"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png": "85878fb9e543b894ecf5f60b9a8732f82aac1eb038f3f542e46d4185e3a5cd25"
+    }
+  }
+}

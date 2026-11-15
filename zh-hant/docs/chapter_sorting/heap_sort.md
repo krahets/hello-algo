@@ -28,37 +28,37 @@
     ![堆積排序步驟](heap_sort.assets/heap_sort_step1.svg)
 
 === "<2>"
-    ![heap_sort_step2](heap_sort.assets/heap_sort_step2.svg)
+    ![原地堆積排序：把最大值逐個放入陣列右端，第 2 步，共 12 步：將堆積頂 5 交換到陣列末尾](heap_sort.assets/heap_sort_step2.svg)
 
 === "<3>"
-    ![heap_sort_step3](heap_sort.assets/heap_sort_step3.svg)
+    ![原地堆積排序：把最大值逐個放入陣列右端，第 3 步，共 12 步：從頂至底堆積化，修復五元素大頂堆積](heap_sort.assets/heap_sort_step3.svg)
 
 === "<4>"
-    ![heap_sort_step4](heap_sort.assets/heap_sort_step4.svg)
+    ![原地堆積排序：把最大值逐個放入陣列右端，第 4 步，共 12 步：將堆積頂 4 交換到索引 4](heap_sort.assets/heap_sort_step4.svg)
 
 === "<5>"
-    ![heap_sort_step5](heap_sort.assets/heap_sort_step5.svg)
+    ![原地堆積排序：把最大值逐個放入陣列右端，第 5 步，共 12 步：從頂至底堆積化，修復四元素大頂堆積](heap_sort.assets/heap_sort_step5.svg)
 
 === "<6>"
-    ![heap_sort_step6](heap_sort.assets/heap_sort_step6.svg)
+    ![原地堆積排序：把最大值逐個放入陣列右端，第 6 步，共 12 步：將堆積頂 3 交換到索引 3](heap_sort.assets/heap_sort_step6.svg)
 
 === "<7>"
-    ![heap_sort_step7](heap_sort.assets/heap_sort_step7.svg)
+    ![原地堆積排序：把最大值逐個放入陣列右端，第 7 步，共 12 步：從頂至底堆積化，修復三元素大頂堆積](heap_sort.assets/heap_sort_step7.svg)
 
 === "<8>"
-    ![heap_sort_step8](heap_sort.assets/heap_sort_step8.svg)
+    ![原地堆積排序：把最大值逐個放入陣列右端，第 8 步，共 12 步：將堆積頂 2 交換到索引 2](heap_sort.assets/heap_sort_step8.svg)
 
 === "<9>"
-    ![heap_sort_step9](heap_sort.assets/heap_sort_step9.svg)
+    ![原地堆積排序：把最大值逐個放入陣列右端，第 9 步，共 12 步：兩個 1 相等，堆積化檢查無需交換](heap_sort.assets/heap_sort_step9.svg)
 
 === "<10>"
-    ![heap_sort_step10](heap_sort.assets/heap_sort_step10.svg)
+    ![原地堆積排序：把最大值逐個放入陣列右端，第 10 步，共 12 步：執行最後一次堆積頂與有效堆積尾交換](heap_sort.assets/heap_sort_step10.svg)
 
 === "<11>"
-    ![heap_sort_step11](heap_sort.assets/heap_sort_step11.svg)
+    ![原地堆積排序：把最大值逐個放入陣列右端，第 11 步，共 12 步：單節點有效堆積無需下沉修復](heap_sort.assets/heap_sort_step11.svg)
 
 === "<12>"
-    ![heap_sort_step12](heap_sort.assets/heap_sort_step12.svg)
+    ![原地堆積排序：把最大值逐個放入陣列右端，第 12 步，共 12 步：剩餘單元素自然就位，排序完成](heap_sort.assets/heap_sort_step12.svg)
 
 在程式碼實現中，我們使用了與“堆積”章節相同的從頂至底堆積化 `sift_down()` 函式。值得注意的是，由於堆積的長度會隨著提取最大元素而減小，因此我們需要給 `sift_down()` 函式新增一個長度參數 $n$ ，用於指定堆積的當前有效長度。程式碼如下所示：
 

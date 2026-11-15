@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_tree/binary_tree.assets/binary_tree_terminology",
+  "title": "二叉树的根、叶、深度与高度",
+  "summary": "以一棵四层二叉树为例，展示根节点、叶节点，以及节点 2 的深度 1、高度 2 和整棵树的高度 3。",
+  "context": [],
+  "description": [
+    "图中是一棵四层二叉树，绿色圆圈内为节点值，灰色箭头从父节点指向左、右子节点。顶层的 1 是根节点；1 的左、右子节点是 2、3；2 的左、右子节点是 4、5；3 的左、右子节点是 6、7；4 的左、右子节点是 8、9；6 只有左子节点 12；7 的左、右子节点是 14、15。",
+    "每条有向连线代表一条边。顶部的“根节点”标注指向最上方没有父节点的 1；底部的“叶节点”通过六条引线指向 8、9、5、12、14、15。这六个节点都没有子节点，其中 5 位于第 3 层，其余五个位于第 4 层，说明叶节点不必处在同一层。",
+    "两侧标尺按经过的边数度量深度与高度：左侧上方标尺从根 1 量到节点 2，经过 1 条边，标明“节点 2 深度 = 1”；左侧下方标尺从节点 2 量到其最远叶节点 8、9，经过 2 条边，标明“节点 2 高度 = 2”。右侧长标尺从根 1 量到底层最远叶节点，经过 3 条边，标明“二叉树高度 = 3”。"
+  ],
+  "result": "本图以经过的边数定义深度和高度：节点 2 的深度为 1、高度为 2，四层二叉树的高度为 3 而非 4。",
+  "frames": [
+    {
+      "id": "source-90",
+      "book_path": "chapter_tree/binary_tree.assets/binary_tree_terminology.png",
+      "title": "二叉树的根、叶、深度与高度",
+      "explanation": "左侧上下两段标尺以水平虚线对齐各层，分别标出节点 2 从根向下计算的深度 1，以及从节点 2 到最远叶节点 8、9 的高度 2；右侧贯通顶层与底层的标尺标出整棵二叉树的高度 3。",
+      "state": "四层二叉树的根节点为 1；父子连接依次为 1 的左、右子节点 2、3，2 的左、右子节点 4、5，3 的左、右子节点 6、7，4 的左、右子节点 8、9，6 的左子节点 12，7 的左、右子节点 14、15；叶节点为 5、8、9、12、14、15。左侧标出节点 2 的深度为 1、高度为 2，右侧标出二叉树高度为 3。",
+      "key_state": "根节点 1，叶节点 5、8、9、12、14、15；节点 2 深度 1、高度 2，树高 3。",
+      "announcement": "展示二叉树的根节点 1、六个叶节点，以及按边数计算的节点 2 深度 1、高度 2 和树高 3。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-06",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "dcdd3aa44f757c7fc049206dabf7620d730913c2ed5d2abcc2bf2e300600f195",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a7d27ac86970762b98a3afc622b5a802549e6b6254c666e3efdf60f34ede65b5",
+        "output_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4",
+        "output_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900",
+        "output_sha256": "30bb25c69fe95554ab48370f707653e1ddeb4b287f83cb44cf33dc013e44b87b"
+      }
+    ],
+    "evidence_sha256": "bbb898a17ec7d0f8023ba3e028e19e1cebb4eba7c5059fe86305e5491e6f3b3b"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_tree/binary_tree.md": "ae2eaab951aa4bdfeba7d1cf6b47892b44351703c62da823977b45cbceb86c49"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_tree/binary_tree.assets/binary_tree_terminology.png": "87d64482eec6e40038052c0f976916a0ebeedbdef38a3b1fc89622c789fda409"
+    }
+  }
+}

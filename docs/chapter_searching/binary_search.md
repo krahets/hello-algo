@@ -24,22 +24,22 @@
     ![二分查找流程](binary_search.assets/binary_search_step1.svg)
 
 === "<2>"
-    ![binary_search_step2](binary_search.assets/binary_search_step2.svg)
+    ![二分查找：逐步缩小搜索区间，第 2 步，共 7 步：计算首个中点](binary_search.assets/binary_search_step2.svg)
 
 === "<3>"
-    ![binary_search_step3](binary_search.assets/binary_search_step3.svg)
+    ![二分查找：逐步缩小搜索区间，第 3 步，共 7 步：排除中点及其右侧](binary_search.assets/binary_search_step3.svg)
 
 === "<4>"
-    ![binary_search_step4](binary_search.assets/binary_search_step4.svg)
+    ![二分查找：逐步缩小搜索区间，第 4 步，共 7 步：计算新区间的中点](binary_search.assets/binary_search_step4.svg)
 
 === "<5>"
-    ![binary_search_step5](binary_search.assets/binary_search_step5.svg)
+    ![二分查找：逐步缩小搜索区间，第 5 步，共 7 步：排除中点及其左侧](binary_search.assets/binary_search_step5.svg)
 
 === "<6>"
-    ![binary_search_step6](binary_search.assets/binary_search_step6.svg)
+    ![二分查找：逐步缩小搜索区间，第 6 步，共 7 步：中点与左边界重合](binary_search.assets/binary_search_step6.svg)
 
 === "<7>"
-    ![binary_search_step7](binary_search.assets/binary_search_step7.svg)
+    ![二分查找：逐步缩小搜索区间，第 7 步，共 7 步：找到目标并返回索引](binary_search.assets/binary_search_step7.svg)
 
 值得注意的是，由于 $i$ 和 $j$ 都是 `int` 类型，**因此 $i + j$ 可能会超出 `int` 类型的取值范围**。为了避免大数越界，我们通常采用公式 $m = \lfloor {i + (j - i) / 2} \rfloor$ 来计算中点。
 

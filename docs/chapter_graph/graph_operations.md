@@ -15,16 +15,16 @@
     ![邻接矩阵的初始化、增删边、增删顶点](graph_operations.assets/adjacency_matrix_step1_initialization.svg)
 
 === "<2>"
-    ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_step2_add_edge.svg)
+    ![基于邻接矩阵的图操作：增删边、增删顶点与索引重排，第 2 步，共 5 步：第 2 步：添加无向边 1—2](graph_operations.assets/adjacency_matrix_step2_add_edge.svg)
 
 === "<3>"
-    ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_step3_remove_edge.svg)
+    ![基于邻接矩阵的图操作：增删边、增删顶点与索引重排，第 3 步，共 5 步：第 3 步：删除无向边 1—3](graph_operations.assets/adjacency_matrix_step3_remove_edge.svg)
 
 === "<4>"
-    ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_step4_add_vertex.svg)
+    ![基于邻接矩阵的图操作：增删边、增删顶点与索引重排，第 4 步，共 5 步：第 4 步：添加孤立顶点 6](graph_operations.assets/adjacency_matrix_step4_add_vertex.svg)
 
 === "<5>"
-    ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_step5_remove_vertex.svg)
+    ![基于邻接矩阵的图操作：增删边、增删顶点与索引重排，第 5 步，共 5 步：第 5 步：删除顶点 3 及对应的索引 1 的行与列](graph_operations.assets/adjacency_matrix_step5_remove_vertex.svg)
 
 以下是基于邻接矩阵表示图的实现代码：
 
@@ -46,16 +46,16 @@
     ![邻接表的初始化、增删边、增删顶点](graph_operations.assets/adjacency_list_step1_initialization.svg)
 
 === "<2>"
-    ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_step2_add_edge.svg)
+    ![基于邻接表的图操作：增删无向边与增删顶点，第 2 步，共 5 步：第 2 步：添加无向边 1—2](graph_operations.assets/adjacency_list_step2_add_edge.svg)
 
 === "<3>"
-    ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_step3_remove_edge.svg)
+    ![基于邻接表的图操作：增删无向边与增删顶点，第 3 步，共 5 步：第 3 步：删除无向边 1—3](graph_operations.assets/adjacency_list_step3_remove_edge.svg)
 
 === "<4>"
-    ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_step4_add_vertex.svg)
+    ![基于邻接表的图操作：增删无向边与增删顶点，第 4 步，共 5 步：第 4 步：添加孤立顶点 6](graph_operations.assets/adjacency_list_step4_add_vertex.svg)
 
 === "<5>"
-    ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.svg)
+    ![基于邻接表的图操作：增删无向边与增删顶点，第 5 步，共 5 步：第 5 步：删除顶点 3 及所有关联邻接项](graph_operations.assets/adjacency_list_step5_remove_vertex.svg)
 
 以下是邻接表的代码实现。对比上图，实际代码有以下不同。
 

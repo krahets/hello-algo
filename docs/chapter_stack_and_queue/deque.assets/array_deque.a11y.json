@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_stack_and_queue/deque.assets/array_deque",
+  "title": "基于循环数组实现双向队列的入队与出队",
+  "summary": "通过队首索引 front 与队列长度 size 维护循环数组中的有效区间，依次完成队尾入队 4、队首入队 1、队尾出队 4 与队首出队 1。",
+  "context": [
+    "每幅图左侧为对外呈现的竖直双向队列，中央标注“底层实现是循环数组，对外表现为双向队列”，右侧为竖直绘制的循环数组局部槽位（上下两端带有省略号“…”和灰色虚线空槽），并在右侧旁注当前“队列长度 size”。",
+    "与循环数组队列相同，实现中显式维护队首索引 front 和队列长度 size，队尾写入位置 rear 通过 (front + size) % capacity 动态计算（图中简记为 rear = front + size）。图中未标出具体数值下标或数组总容量，阅读时关注 front 箭头与 size 数值的相对变化即可。"
+  ],
+  "description": [
+    "在循环数组中，队尾入队只需在 rear 处写入元素并将 size 加 1；队首入队则先将 front 逆向移动一格（即 (front - 1 + capacity) % capacity），在新 front 处写入元素并将 size 加 1。对应地，队尾出队只需将 size 减 1；队首出队则将 front 正向移动一格并将 size 减 1。",
+    "整个过程中，中间已有的元素 3、2、5 始终保持原槽位不动。出队后变回灰色虚线框的槽位表示该位置已不再属于有效队列。有效槽位为 (front + i) % capacity，其中 i 从 0 到 size - 1；本图未画出跨越数组边界的情形。虚线空槽不表示代码将原值清零。"
+  ],
+  "result": "经历四次首尾操作后，front 重新指向元素 3，size 恢复为 3，有效队列回到 [3, 2, 5]。借由 front 的双向循环移动与 size 计数，四种首尾操作的时间复杂度均为 O(1)。",
+  "frames": [
+    {
+      "id": "source-76",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step1.png",
+      "title": "初始循环数组状态",
+      "explanation": "初始状态下，队列有效元素从上到下为 [3, 2, 5]，右侧标注“队列长度 size = 3”。顶部说明框给出三个核心约定：“front 指向队列首元素”、“rear 指向队列尾元素 + 1”、“rear = front + size”。因此图中橙色 front 箭头指向首元素 3，而 rear 箭头指向尾元素 5 下方的第一个灰色虚线空槽，标出下一次队尾入队的写入位置。",
+      "state": "Step 1：左侧双向队列为 [3, 2, 5]；右侧循环数组中连续存放绿色元素 3、2、5，两端各有灰色虚线空槽与省略号。front 箭头指向元素 3，rear 箭头指向 5 下方的虚线空槽，右侧标注“队列长度 size = 3”，顶部框标注“front 指向队列首元素 / rear 指向队列尾元素 + 1 / rear = front + size”。",
+      "key_state": "有效队列 [3, 2, 5]，front 指向 3，size = 3，rear 指向 5 下方的空槽。",
+      "announcement": "初始化循环数组双向队列 [3, 2, 5]，front 指向首元素 3，size 为 3，rear 指向尾部空槽。"
+    },
+    {
+      "id": "source-77",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step2_push_last.png",
+      "title": "队尾入队 push_last(4)",
+      "explanation": "调用 push_last(4) 在队尾添加元素 4。顶部说明框列出三步流程：“1. 计算尾指针 rear；2. 将元素添加至 rear 处；3. 将 size 自增 1”。程序先用入队前的 front + size（即 3 的位置向下偏移 3 格）算出 rear 位于 5 下方的空槽，将蓝绿色元素 4 写入该槽位，再将 size 从 3 更新为 4。图中 rear 箭头仍停留在元素 4 的槽位以直观展示第 2 步的写入位置；若按更新后的 size = 4 重新计算，新的尾后位置将下移到 4 下方的虚线空槽。",
+      "state": "Step 2：左侧标注“队尾入队 push_last(4)”，队列变为 [3, 2, 5, 4]；右侧循环数组中 5 下方的槽位写入蓝绿色元素 4，front 箭头仍指向 3，rear 箭头指向刚写入的 4，右侧标注“队列长度 size = 4”，顶部框列出三步操作说明。",
+      "key_state": "队尾写入 4 后为 [3, 2, 5, 4]，front 指向 3，size 增至 4，rear 标在本次写入的 4 处。",
+      "announcement": "执行 push_last(4)，在 rear 指向的尾部空槽写入 4，size 自增为 4。"
+    },
+    {
+      "id": "source-78",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step3_push_first.png",
+      "title": "队首入队 push_first(1)",
+      "explanation": "调用 push_first(1) 在队首添加元素 1。顶部说明框列出三步流程：“1. 将 front 自减 1；2. 将元素添加至 front 处；3. 将 size 自增 1”。front 指针从元素 3 向上（逆向）移动一格到前一个空槽，将橙色元素 1 写入该新 front 槽位，随后将 size 从 4 更新为 5。原有的 3、2、5、4 均留在原槽位未动。",
+      "state": "Step 3：左侧标注“队首入队 push_first(1)”，队列变为 [1, 3, 2, 5, 4]；右侧循环数组中 3 上方的槽位写入橙色元素 1，front 箭头上移指向 1，右侧标注“队列长度 size = 5”，顶部框列出 front 自减 1、写入元素、size 自增 1 三步说明。",
+      "key_state": "front 上移一格并写入 1，有效队列为 [1, 3, 2, 5, 4]，size 增至 5。",
+      "announcement": "执行 push_first(1)，front 自减 1 后在首部空槽写入 1，size 自增为 5。"
+    },
+    {
+      "id": "source-79",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step4_pop_last.png",
+      "title": "队尾出队 pop_last()",
+      "explanation": "调用 pop_last() 从队尾移除元素 4。顶部说明框列出操作：“1. 将 size 自减 1”。因为有效区间由 front 和 size 共同决定，front 保持指向首元素 1 不变，只需将 size 从 5 减为 4，原本位于第 5 格的蓝绿色元素 4 就自然移出有效区间（图中将其还原为灰色虚线空槽），新的队尾元素变回 5。",
+      "state": "Step 4：左侧标注“队尾出队 pop_last()”，队列变为 [1, 3, 2, 5]；右侧循环数组中 5 下方原本存放 4 的槽位变回灰色虚线空槽，front 箭头仍指向橙色元素 1，右侧标注“队列长度 size = 4”，顶部框标注“1. 将 size 自减 1”。",
+      "key_state": "队尾移出 4 后为 [1, 3, 2, 5]，front 仍指向 1，size 减至 4。",
+      "announcement": "执行 pop_last()，将 size 从 5 自减为 4，尾部元素 4 退出有效区间。"
+    },
+    {
+      "id": "source-80",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step5_pop_first.png",
+      "title": "队首出队 pop_first()",
+      "explanation": "调用 pop_first() 从队首移除元素 1。顶部说明框列出两步流程：“1. 将 front 自增 1；2. 将 size 自减 1”。front 指针从顶部槽位向下（正向）移动一格，重新指向元素 3，同时将 size 从 4 减为 3。原本存放橙色 1 的槽位退出有效区间并画回灰色虚线空槽，队列恢复为初始状态 [3, 2, 5]。",
+      "state": "Step 5：左侧标注“队首出队 pop_first()”，队列恢复为 [3, 2, 5]；右侧循环数组中 3 上方原本存放 1 的槽位变回灰色虚线空槽，front 箭头下移指向元素 3，右侧标注“队列长度 size = 3”，顶部框标注“1. 将 front 自增 1；2. 将 size 自减 1”。",
+      "key_state": "front 下移指向 3，size 减至 3，有效队列恢复为 [3, 2, 5]。",
+      "announcement": "执行 pop_first()，front 自增 1 重新指向 3，size 自减为 3，回到初始状态。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-05",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "ecc2baa98f28132027bc4dfa0d51ab8bbf6ada6b0f70b5ea7716063f6db8abda",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "bbf6fc89ced3325538a22d1eecebd98ac2a54cd576eb8bfe0b2aad472b2340bc",
+        "output_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108",
+        "output_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281",
+        "output_sha256": "ffb27a99b86ace98bde8e54084f42f6a1c59f19a353deb9a55c4ee96d96e99be"
+      }
+    ],
+    "evidence_sha256": "954be79d16a2deb5e3a0108cd78415c4c9fef13373e1a16fbca5a1e1d388bf98"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_stack_and_queue/deque.md": "fee908eaea444525f8a1fe3f8f541cc0de02efc01305d5c051dae665ba10887e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_stack_and_queue/deque.assets/array_deque_step1.png": "8951d4f312d3a8abc62ad9b65e0715062398f2c8eef1abedb222a312f1959434",
+      "chapter_stack_and_queue/deque.assets/array_deque_step2_push_last.png": "6be4127452442a742d85056ba443cdfbaddda3e9dafbdbc353609e6faf4b2c88",
+      "chapter_stack_and_queue/deque.assets/array_deque_step3_push_first.png": "15db37e73d05de983249efccf8eb6b02a20da03fcc763ba76b3323f56a8c2076",
+      "chapter_stack_and_queue/deque.assets/array_deque_step4_pop_last.png": "5a88efb5d51264213bfd9248db1b483f0ca182d609678969e499d84c23cead72",
+      "chapter_stack_and_queue/deque.assets/array_deque_step5_pop_first.png": "bdea9c183ab8f5bd1a0ac8644cd7265790c40838e9bb7b03ad26bb3b2da7710c"
+    }
+  },
+  "animations": {
+    "array-deque": {
+      "kind": "source-frames",
+      "model_sha256": "2fb7052b5ded3b397f74875f934d1dc810876a31d6a06be09b21638752250dcd",
+      "source_content_sha256": "ecc2baa98f28132027bc4dfa0d51ab8bbf6ada6b0f70b5ea7716063f6db8abda",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-76"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-77"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-78"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-79"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-80"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "3273f15b6e284656a502d6396aa0691c74885858db02b3af2b7dc916aff07158",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

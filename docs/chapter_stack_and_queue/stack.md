@@ -369,10 +369,10 @@
     ![基于链表实现栈的入栈出栈操作](stack.assets/linkedlist_stack_step1.svg)
 
 === "<2>"
-    ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.svg)
+    ![基于链表实现栈的入栈与出栈，第 2 步，共 3 步：步骤 2：入栈 push(4)，将节点 4 添加至链表头部](stack.assets/linkedlist_stack_step2_push.svg)
 
 === "<3>"
-    ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.svg)
+    ![基于链表实现栈的入栈与出栈，第 3 步，共 3 步：步骤 3：出栈 pop()，删除链表头节点 4](stack.assets/linkedlist_stack_step3_pop.svg)
 
 以下是基于链表实现栈的示例代码：
 
@@ -388,10 +388,10 @@
     ![基于数组实现栈的入栈出栈操作](stack.assets/array_stack_step1.svg)
 
 === "<2>"
-    ![array_stack_push](stack.assets/array_stack_step2_push.svg)
+    ![基于数组实现栈的入栈与出栈，第 2 步，共 3 步：步骤 2：入栈 push(4)，将元素 4 添加至数组尾部](stack.assets/array_stack_step2_push.svg)
 
 === "<3>"
-    ![array_stack_pop](stack.assets/array_stack_step3_pop.svg)
+    ![基于数组实现栈的入栈与出栈，第 3 步，共 3 步：步骤 3：出栈 pop()，删除数组尾元素 4](stack.assets/array_stack_step3_pop.svg)
 
 由于入栈的元素可能会源源不断地增加，因此我们可以使用动态数组，这样就无须自行处理数组扩容问题。以下为示例代码：
 

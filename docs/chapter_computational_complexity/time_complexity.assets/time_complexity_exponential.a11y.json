@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_computational_complexity/time_complexity.assets/time_complexity_exponential",
+  "title": "每层一分为二的递归树",
+  "summary": "递归树从根节点开始每往下一层节点数翻倍，共 n 层的节点总数为 2⁰ + 2¹ + … + 2ⁿ⁻¹ = 2ⁿ - 1，对应指数阶时间复杂度 O(2ⁿ)。",
+  "context": [
+    "每个绿色圆角小方块代表 1 个递归调用节点（即 1 个计算操作）。树顶标题为“递归树 每层一分为二”，右侧列标题为“各层的节点数量”；根节点计为第 1 层，右侧大括号标明整棵递归树共 n 层。"
+  ],
+  "description": [
+    "从上到下，第 1 层画出 1 个根节点，右侧标注 2⁰（即 1）；该节点向下分出 2 个箭头，指向第 2 层的 2 个节点，右侧标注 2¹（即 2）；第 2 层每个节点再各分出 2 个箭头，指向第 3 层的 4 个节点，右侧标注 2²（即 4）。",
+    "第 3 层下方用 8 个向下箭头和省略号表示中间继续按一分为二规律展开的各层；最底层（第 n 层）并排画出 8 个带省略号间隔的绿色节点，右侧标注 2ⁿ⁻¹（即 2 的 n - 1 次方）。底部说明框列出公式：计算操作总数（即递归树的节点总数）为 2⁰ + 2¹ + 2² + … + 2ⁿ⁻¹ = 2ⁿ - 1，右侧箭头指向结论“时间复杂度 指数阶 O(2ⁿ)”。"
+  ],
+  "result": "每增加一层递归，新增的操作数量就翻一倍；包含根层在内的 n 层节点总数按 2ⁿ - 1 呈指数级增长，忽略常数项后时间复杂度为指数阶 O(2ⁿ)。",
+  "frames": [
+    {
+      "id": "source-29",
+      "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_exponential.png",
+      "title": "每层一分为二的递归树",
+      "explanation": "统计整个过程的计算操作总数，需要将全部 n 层的节点数按等比数列求和：1 + 2 + 4 + … + 2ⁿ⁻¹ = 2ⁿ - 1。注意区分两种计数口径：正文中“1 个细胞分裂 n 轮后变为 2ⁿ 个细胞”指的是经过 n 次分裂后的末态数量；而本图与代码中的参数 n 表示包含起始根层在内的总层数（共分裂 n - 1 轮），末层节点数为 2ⁿ⁻¹，全树累计节点总数为 2ⁿ - 1。",
+      "state": "递归树共 n 层，每个非末层节点向下分出 2 个子节点。第 1 至 3 层分别画出 1、2、4 个节点，右侧依次标注 2⁰、2¹、2²；中间层用省略号略去；第 n 层右侧标注 2ⁿ⁻¹。底部公式给出节点总数 2⁰ + 2¹ + 2² + … + 2ⁿ⁻¹ = 2ⁿ - 1，时间复杂度为指数阶 O(2ⁿ)。",
+      "key_state": "共 n 层，各层节点数依次为 2⁰（1）、2¹（2）、2²（4）、…、2ⁿ⁻¹，全树合计 2ⁿ - 1 个节点，属指数阶 O(2ⁿ)。",
+      "announcement": "展示每层一分为二的 n 层递归树，累加各层节点数得到 2ⁿ - 1 与指数阶 O(2ⁿ)。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-02",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "74b09d3164b4f84c083709a8b29349ab7f1fc9b4834c5352e8396a19f83803d4",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "2418f4f89bf15820de1b9f866e20459174d1357741c9215565d8a6fadd9ef34c",
+        "output_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae",
+        "output_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4",
+        "output_sha256": "62b51949e795658a5a6779b7e616f31ed019742d5859071a77cc3801abe0d6d7"
+      }
+    ],
+    "evidence_sha256": "45d0d7027b523659e72b602edeb9f0d969e31b4ab937e3e24decd1d342fb1eff"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_computational_complexity/time_complexity.md": "af3c429bc5b2acecc2a8389cd5934d6a6790f9c1bc0970d8955af2b471c0888b"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_computational_complexity/time_complexity.assets/time_complexity_exponential.png": "6ab907237c145cdf6726d10e40ef85230b86b415e2f164d506e4e7e61e682e84"
+    }
+  }
+}

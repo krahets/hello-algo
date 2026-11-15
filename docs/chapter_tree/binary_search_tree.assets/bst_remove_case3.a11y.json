@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_tree/binary_search_tree.assets/bst_remove_case3",
+  "title": "在二叉搜索树中删除双子节点 4（度为 2）",
+  "summary": "删除有两个子节点的节点 4 时，先在右子树中找到中序后继叶节点 5（nex），递归删除原位置的 5，再将值 5 赋给 cur。",
+  "context": [
+    "二叉搜索树中，任意节点的左子树所有节点值小于该节点值，右子树所有节点值大于该节点值。连线箭头从父节点指向子节点。",
+    "初始四层二叉搜索树中包含节点 3 至 15：根 8 的左子节点为 4；4 的左、右子节点为 3、6；6 的左、右子节点为 5、7（3、5、7 为叶节点）；根 8 的右子节点 12 下接 10（含叶节点 9、11）和 14（含叶节点 13、15）。",
+    "图顶部标题为“在二叉搜索树中删除节点 4”。指针 cur 指向待删除的目标节点，指针 nex 指向 cur 在中序遍历中的后继节点（即 cur 右子树中的最小节点）。"
+  ],
+  "description": [],
+  "result": "通过先递归删除右子树中的后继叶节点 5（使 6.left 变为空）、再用后继值 5 覆盖 cur 的原值 4，完成删除。cur 与父节点 8、左子节点 3、右子节点 6 的连接保持不变；树中不再有值 4，只保留一份值 5。",
+  "frames": [
+    {
+      "id": "source-124",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step1.png",
+      "title": "查找待删除的双子节点 cur = 4",
+      "explanation": "Step 1 右侧高亮“1. 查找待删除节点 cur”。从根 8 沿左分支找到节点 4，令实心蓝色的 cur 指向 4。由于节点 4 同时拥有左子节点 3 和右子节点 6，无法直接断开，需要用后继节点替换。",
+      "state": "待删除目标为 4。树中根 8 的左子节点为 4（cur，实心蓝色），4 的左、右子节点为 3、6，6 的左、右子节点为 5、7；8 的右子节点 12 下接 10（9、11）与 14（13、15）。右侧高亮步骤“1. 查找待删除节点 cur”。",
+      "key_state": "cur 指向待删除节点 4，该节点拥有左子节点 3 和右子节点 6（子节点数量 = 2）。",
+      "announcement": "从根 8 向左找到待删除的双子节点 cur = 4。"
+    },
+    {
+      "id": "source-125",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step2.png",
+      "title": "查找 cur 在中序遍历的后继节点 nex = 5",
+      "explanation": "Step 2 右侧注明“∵ 节点 cur 的子节点数量 = 2，2. 删除节点 cur 分为三步”，并高亮“（1）查找 cur 在中序遍历的后继节点 nex”。从 cur（4）进入右子节点 6，再沿左分支到底，找到右子树最小节点 5，令蓝紫色的 nex 指向 5。",
+      "state": "待删除目标为 4。树中根 8→4、12，4→3、6，6→5、7，12→10、14（10→9、11，14→13、15）。cur 指向实心蓝色的节点 4，从 4 经右子节点 6 到其左叶节点 5 的路径以浅蓝箭头标出，nex 指向蓝紫色的叶节点 5。右侧高亮“（1）查找 cur 在中序遍历的后继节点 nex”。",
+      "key_state": "cur = 节点 4；沿右子树最左路径 4→6→5 找到中序后继叶节点 nex = 5。",
+      "announcement": "在节点 4 的右子树中沿 6 向左找到最小后继节点 nex = 5。"
+    },
+    {
+      "id": "source-126",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step3.png",
+      "title": "在二叉树中递归删除后继节点 nex",
+      "explanation": "Step 3 右侧高亮“（2）在二叉树中递归删除节点 nex”。由于后继节点 5 是叶节点，直接将父节点 6 的左子节点设为空（图中画作蓝色虚线空圆），并暂存后继值 5；注意此时上方 cur 节点圆圈内显示的值仍为 4。",
+      "state": "待删除目标为 4。树中根 8→4、12，4→3、6，节点 6 左下方的原后继节点 5 已被移除（变为蓝色虚线空圆），6 仅剩右子节点 7；8 的右子树 12→10、14（10→9、11，14→13、15）不变；上方实心蓝色的 cur 节点此时仍显示数值 4。右侧高亮“（2）在二叉树中递归删除节点 nex”。",
+      "key_state": "已从节点 6 左侧递归删去后继叶节点 5（6.left 为空）；此时 cur 的显示值仍为 4。",
+      "announcement": "递归删除节点 6 左下方的后继叶节点 5，此时 cur 仍显示为 4。"
+    },
+    {
+      "id": "source-127",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step4.png",
+      "title": "将后继节点 nex 的值 5 赋给节点 cur",
+      "explanation": "Step 4 右侧高亮“（3）将节点 nex 值赋给节点 cur”。把保存的后继值 5 写入 cur 节点，使原节点 4 变为蓝紫色的节点 5；它的父节点 8、左子节点 3 和右子节点 6（仅带右子节点 7）的连接关系全部保持不变。",
+      "state": "删除节点 4 完成。根 8 的左子节点 cur 已变为蓝紫色的节点 5，其左、右子节点仍为 3、6；节点 6 的左子节点为蓝色虚线空圆、右子节点为 7；根 8 的右子树 12（含 10、14、9、11、13、15）不变。右侧高亮“（3）将节点 nex 值赋给节点 cur”。",
+      "key_state": "将后继值 5 赋给 cur，原节点 4 的位置变为 5，6.left 保持为空，删除完成。",
+      "announcement": "将后继值 5 赋给 cur 覆盖原值 4，完成双子节点删除。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-07",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "6c6542ac53e18efee310ef307fd3ad0ed5a82f40a1d9b7cd72f61aba83096ddf",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "f429a2d9034d7690b6bd4a3f0822b11a77350c2330baf8a66141d1f7a9ef4841",
+        "output_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91",
+        "output_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6",
+        "output_sha256": "449ce85fb338c455e6cedde1bf55ab20b1b0f532a5408dfa0443a6fbe9815c6b"
+      }
+    ],
+    "evidence_sha256": "459b7ad9cb6322b1bab7e28efa1badcfd4813182718f9028c5dbe5d4d10dbb4c"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_tree/binary_search_tree.md": "bf4428ef944ea3dc4040d389ab63b4f52575e5b0990caac71413a4f04cf9d1e4"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_tree/binary_search_tree.assets/bst_remove_case3_step1.png": "c9adf925c0cfcfd53d2863f56b209cfed92f91ce4f84aeddb8884aee94723cd3",
+      "chapter_tree/binary_search_tree.assets/bst_remove_case3_step2.png": "73923dde3d8c6e210a758d235b6e0f689487ce8605564be2518fb7e9bb99d1c3",
+      "chapter_tree/binary_search_tree.assets/bst_remove_case3_step3.png": "3ee2d2827c15d9297063abe5b47acf095f6eeaf7eb50fc2199efcdff038659b3",
+      "chapter_tree/binary_search_tree.assets/bst_remove_case3_step4.png": "a5d6856eadf037e226bffb28b6800116df6d198f3e45e822a6ba06aa32208950"
+    }
+  },
+  "animations": {
+    "bst-delete-two-children": {
+      "kind": "source-frames",
+      "model_sha256": "9f70aad2aaa955fff5af9729de4da933666e91f28ddea6d19a56d0816f982608",
+      "source_content_sha256": "6c6542ac53e18efee310ef307fd3ad0ed5a82f40a1d9b7cd72f61aba83096ddf",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-124"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-125"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-126"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-127"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "f4835fbcc76bbab934b1b8fc2f3f91cbdc8836c8d80a3799819d8ce0f007ac98",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

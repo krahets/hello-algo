@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_divide_and_conquer/hanota_problem.assets/hanota_f1",
+  "title": "一个圆盘的汉诺塔（f(1)）",
+  "summary": "将柱 A 上的唯一圆盘直接移到目标柱 C，一次单盘移动即完成。",
+  "context": [
+    "图中从左到右共有三根柱子 A、B、C，目标是把柱 A 上的圆盘移动到柱 C。移动规则为每次只能移动柱顶的一个圆盘，且大盘不能压在小盘之上；下文柱上圆盘均按从下到上的顺序表述。",
+    "规模 f(1) 表示只需迁移一个圆盘，代表汉诺塔递归分解的基本情况。"
+  ],
+  "description": [
+    "本组用绿色圆角矩形表示唯一圆盘，两帧分别展示移动前的初始状态与直接移入柱 C 后的完成状态。"
+  ],
+  "result": "柱 A 和柱 B 为空，柱 C 上有唯一绿色圆盘；两帧分别对应移动前后的状态，实际仅执行一次单盘移动。",
+  "frames": [
+    {
+      "id": "source-329",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f1_step1.png",
+      "title": "唯一圆盘位于柱 A",
+      "explanation": "柱 A 上只有一个绿色圆盘，上方没有其他圆盘阻挡，也不存在大小顺序冲突，因此可以直接从柱 A 移往目标柱 C，无需借助缓冲柱 B。",
+      "state": "A=[绿色圆盘]，B=[]，C=[]；问题规模 f(1) 处于初始状态，尚未执行移动。",
+      "key_state": "柱 A 有一只圆盘，柱 B 和柱 C 为空。",
+      "announcement": "展示单个圆盘位于柱 A 的初始状态。"
+    },
+    {
+      "id": "source-330",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f1_step2.png",
+      "title": "把圆盘从柱 A 直接移到柱 C",
+      "explanation": "直接取出柱 A 顶部的唯一绿色圆盘并放到空的柱 C 上，一次移动即完成任务。",
+      "state": "A=[]，B=[]，C=[绿色圆盘]；已完成从 A 到 C 的唯一一次移动。",
+      "key_state": "圆盘已到达柱 C，柱 A 和柱 B 为空。",
+      "announcement": "将唯一圆盘从柱 A 直接移到柱 C。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-17",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "d0ebe0dd64f0f0b0927e6db7cac46059c0521c275b56eadc9a601091855f1875",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "9481355a76d6c2868fbc0dd1da3fce835e92627213718a59a80d559350e023af",
+        "output_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f",
+        "output_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc",
+        "output_sha256": "1ba5b92e7d3bb734d4bc41b061ddb3c528638a049805a4bbcfc38825c0c76c88"
+      }
+    ],
+    "evidence_sha256": "6ad10597e7712f6ddf95ae500fcc50f0289bc7d0786a40fa5117c27866048681"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_divide_and_conquer/hanota_problem.md": "fe9fd8bc5e3971914c01d472b05d0c15d4d3b57218bae244613f3acb4a02e17e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_divide_and_conquer/hanota_problem.assets/hanota_f1_step1.png": "c50bfe251ab0e4350cc5ea41baa717250dbb936d03e8b8269cf0c1fbe925a7ee",
+      "chapter_divide_and_conquer/hanota_problem.assets/hanota_f1_step2.png": "9f6548b592f87f0767eb253c65f68f835de931732fe9cf874cd17f1828aeff92"
+    }
+  },
+  "animations": {
+    "hanota-f1": {
+      "kind": "source-frames",
+      "model_sha256": "0af83e89d3a96981876f304b29a219380e8196e34c70e02dd547a8b1f249db01",
+      "source_content_sha256": "d0ebe0dd64f0f0b0927e6db7cac46059c0521c275b56eadc9a601091855f1875",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-329"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-330"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "60c52d3238acf6b3db6d4e1645672cb9422905f9cd31384485585b4fa1eb99f5",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

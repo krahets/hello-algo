@@ -77,46 +77,46 @@ $$
     ![编辑距离的动态规划过程](edit_distance_problem.assets/edit_distance_dp_step1.svg)
 
 === "<2>"
-    ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.svg)
+    ![编辑距离：完整动态规划，第 2 步，共 15 步：第 2 步：初始化首行与首列空串边界](edit_distance_problem.assets/edit_distance_dp_step2.svg)
 
 === "<3>"
-    ![edit_distance_dp_step3](edit_distance_problem.assets/edit_distance_dp_step3.svg)
+    ![编辑距离：完整动态规划，第 3 步，共 15 步：第 3 步：计算 dp\[1, 1\]（b 对 p），最少 1 步](edit_distance_problem.assets/edit_distance_dp_step3.svg)
 
 === "<4>"
-    ![edit_distance_dp_step4](edit_distance_problem.assets/edit_distance_dp_step4.svg)
+    ![编辑距离：完整动态规划，第 4 步，共 15 步：第 4 步：计算 dp\[1, 2\]（b 对 pa），最少 2 步](edit_distance_problem.assets/edit_distance_dp_step4.svg)
 
 === "<5>"
-    ![edit_distance_dp_step5](edit_distance_problem.assets/edit_distance_dp_step5.svg)
+    ![编辑距离：完整动态规划，第 5 步，共 15 步：第 5 步：计算 dp\[1, 3\]（b 对 pac），最少 3 步](edit_distance_problem.assets/edit_distance_dp_step5.svg)
 
 === "<6>"
-    ![edit_distance_dp_step6](edit_distance_problem.assets/edit_distance_dp_step6.svg)
+    ![编辑距离：完整动态规划，第 6 步，共 15 步：第 6 步：计算 dp\[1, 4\]（b 对 pack），最少 4 步](edit_distance_problem.assets/edit_distance_dp_step6.svg)
 
 === "<7>"
-    ![edit_distance_dp_step7](edit_distance_problem.assets/edit_distance_dp_step7.svg)
+    ![编辑距离：完整动态规划，第 7 步，共 15 步：第 7 步：计算 dp\[2, 1\]（ba 对 p），最少 2 步](edit_distance_problem.assets/edit_distance_dp_step7.svg)
 
 === "<8>"
-    ![edit_distance_dp_step8](edit_distance_problem.assets/edit_distance_dp_step8.svg)
+    ![编辑距离：完整动态规划，第 8 步，共 15 步：第 8 步：计算 dp\[2, 2\]（ba 对 pa），尾字符相同直接复制 1](edit_distance_problem.assets/edit_distance_dp_step8.svg)
 
 === "<9>"
-    ![edit_distance_dp_step9](edit_distance_problem.assets/edit_distance_dp_step9.svg)
+    ![编辑距离：完整动态规划，第 9 步，共 15 步：第 9 步：计算 dp\[2, 3\]（ba 对 pac），最少 2 步](edit_distance_problem.assets/edit_distance_dp_step9.svg)
 
 === "<10>"
-    ![edit_distance_dp_step10](edit_distance_problem.assets/edit_distance_dp_step10.svg)
+    ![编辑距离：完整动态规划，第 10 步，共 15 步：第 10 步：计算 dp\[2, 4\]（ba 对 pack），最少 3 步](edit_distance_problem.assets/edit_distance_dp_step10.svg)
 
 === "<11>"
-    ![edit_distance_dp_step11](edit_distance_problem.assets/edit_distance_dp_step11.svg)
+    ![编辑距离：完整动态规划，第 11 步，共 15 步：第 11 步：计算 dp\[3, 1\]（bag 对 p），最少 3 步](edit_distance_problem.assets/edit_distance_dp_step11.svg)
 
 === "<12>"
-    ![edit_distance_dp_step12](edit_distance_problem.assets/edit_distance_dp_step12.svg)
+    ![编辑距离：完整动态规划，第 12 步，共 15 步：第 12 步：计算 dp\[3, 2\]（bag 对 pa），最少 2 步](edit_distance_problem.assets/edit_distance_dp_step12.svg)
 
 === "<13>"
-    ![edit_distance_dp_step13](edit_distance_problem.assets/edit_distance_dp_step13.svg)
+    ![编辑距离：完整动态规划，第 13 步，共 15 步：第 13 步：计算 dp\[3, 3\]（bag 对 pac），最少 2 步](edit_distance_problem.assets/edit_distance_dp_step13.svg)
 
 === "<14>"
-    ![edit_distance_dp_step14](edit_distance_problem.assets/edit_distance_dp_step14.svg)
+    ![编辑距离：完整动态规划，第 14 步，共 15 步：第 14 步：计算 dp\[3, 4\]（bag 对 pack），最少 3 步](edit_distance_problem.assets/edit_distance_dp_step14.svg)
 
 === "<15>"
-    ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.svg)
+    ![编辑距离：完整动态规划，第 15 步，共 15 步：第 15 步：返回最少编辑步数 3](edit_distance_problem.assets/edit_distance_dp_step15.svg)
 
 ### 空间优化
 

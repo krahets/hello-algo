@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_computational_complexity/iteration_and_recursion.assets/iteration",
+  "title": "迭代的流程图",
+  "summary": "展示单层 for 循环的迭代执行流程：从“开始”进入“循环”框，先执行“初始化 i = 1”，再反复判断条件“i ≤ n”，条件为“真”时依次执行“任务”与“更新 i += 1”并回到判断，条件为“假”时跳出循环到达“结束”。",
+  "context": [
+    "正文介绍“迭代”（iteration）控制结构，并以从 1 到 n 求和的 for 循环为例，说明循环如何在满足条件时按固定步长重复执行同一段任务代码。本例设 n 为正整数，图上的“任务”在正文求和程序中对应将当前 i 加入累计和，初始累计和为 0。"
+  ],
+  "description": [
+    "画面是一张自上而下展开的流程图。顶部灰色圆角矩形节点“开始”向下指向一个淡蓝色圆角大框，大框左上角标有“循环”；框内包含顶部的矩形“初始化 i = 1”、中部的蓝色菱形条件判断“i ≤ n”、底部的绿色矩形“任务”以及左侧的矩形“更新 i += 1”；蓝色“循环”框正下方为灰色圆角矩形节点“结束”。"
+  ],
+  "result": "在单层循环中，变量 i 从 1 开始递增，只要满足 i ≤ n 就会循环执行“任务”并自增 1，共重复执行 n 轮；当 i 增至 n + 1 使条件 i ≤ n 为“假”时，流程立即跳出循环并结束。",
+  "frames": [
+    {
+      "id": "source-19",
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/iteration.png",
+      "title": "迭代的流程图",
+      "explanation": "流程从顶部“开始”节点进入蓝色“循环”区域，首先执行一次“初始化 i = 1”，随后进入菱形判断节点“i ≤ n”。若判断结果为“真”，沿向下箭头执行绿色“任务”节点，完成后经左方折线箭头执行“更新 i += 1”，再向上返回菱形节点“i ≤ n”进行下一轮判断；若判断结果为“假”，则沿右侧箭头离开“循环”框，直达“结束”节点。",
+      "state": "流程图由“开始”进入蓝色“循环”框：先经“初始化 i = 1”到菱形判断“i ≤ n”；“真”分支向下指向“任务”，再向左经“更新 i += 1”折返至“i ≤ n”形成闭环；“假”分支向右折下，从循环框下方离开后指向“结束”。",
+      "key_state": "单层循环流程：初始化 i = 1 后判断 i ≤ n，为真则执行任务并更新 i += 1 循环，为假则退出至结束。",
+      "announcement": "从开始进入循环，初始化 i = 1 后检查 i ≤ n：条件为真时反复执行任务并更新 i += 1，条件为假时跳出循环到达结束。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-01",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "81df781f9f9c0eca527c885308f61709d8aab1677424945427e7cca520a3fb18",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "431741d9738e417e17d2b6e1ded2465a8b4b113efdfecac9156ffc919692f129",
+        "output_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4",
+        "output_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0",
+        "output_sha256": "10e9faf80624dffe5daec10997eafa110b0fa676bf753184a205a3604fd651d9"
+      }
+    ],
+    "evidence_sha256": "ef94661da660ccf8ffe36e7213507ecb5fe1fad850478d55981ecebce88583b7",
+    "schema_normalization": "Wrap context/description strings in paragraph arrays; prose unchanged."
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_computational_complexity/iteration_and_recursion.md": "636363df79954464f16ea4774d97dc8304c0e190c8dc0b9ba1ce617a2372df5c"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_computational_complexity/iteration_and_recursion.assets/iteration.png": "010042875a5389814aef8e50a77aaf405e0b9ddbd2de957d23d8175cda051940"
+    }
+  }
+}

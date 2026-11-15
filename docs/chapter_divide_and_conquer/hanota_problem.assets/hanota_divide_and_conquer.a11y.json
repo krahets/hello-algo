@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_divide_and_conquer/hanota_problem.assets/hanota_divide_and_conquer",
+  "title": "汉诺塔分治：先搬小盘，再搬最大盘，再搬回小盘",
+  "summary": "将 n 盘从 A 移至 C，按序拆为 n−1 盘 A→B、最大盘 A→C、n−1 盘 B→C 三个子问题。",
+  "context": [
+    "原问题记为 f(n)，表示将 n 个按上小下大叠放的圆盘从起始柱 A 移至目标柱 C；本图以五张圆盘为例图解一般分治策略（不同于上一张概览图的六张圆盘）。移动过程同样要求每次只从柱顶移动一张盘，且小盘时刻位于大盘之上。",
+    "在顶层问题中，A 为起始柱、B 为缓冲柱、C 为目标柱；当递归进入子问题时，三根柱子所承担的起始、缓冲、目标角色会相应轮换。"
+  ],
+  "description": [
+    "右侧第一阶段“子问题 f(n-1)：将 n-1 个圆盘从 A 移动至 B”：以 C 为缓冲柱、B 为目标柱，先将柱 A 顶部的 n-1 张（图中为四张）小圆盘移到柱 B 上叠好，使柱 A 仅剩底部最大的一张圆盘，柱 C 为空。只有先移开上方所有小盘，底部最大盘才能合法移出。",
+    "右侧第二阶段“子问题 f(1)：将剩余 1 个圆盘从 A 移动至 C”：将柱 A 上仅剩的最大圆盘直接移到空柱 C 底部；此时柱 B 上的四张小圆盘保持不动，柱 A 变空。",
+    "右侧第三阶段“子问题 f(n-1)：将 n-1 个圆盘从 B 移动至 C”：以已空的柱 A 为缓冲柱、C 为目标柱，将柱 B 上的 n-1 张（四张）小圆盘移到柱 C 的最大圆盘之上。完成后全部五张圆盘按序叠在柱 C，柱 A、B 为空。",
+    "右侧各阶段图中的虚线圆盘轮廓标示本阶段移动前的原有位置，实色圆盘标示本阶段完成后的新位置，并非多出了一套圆盘。首尾两个 f(n-1) 子问题在实际执行时仍需继续按同样方式递归拆解为单盘移动，不能一次性搬动四张小盘。"
+  ],
+  "result": "三个子问题必须严格按自上而下的先后顺序执行，由此得到单盘移动次数的递推关系 T(n) = 2T(n−1) + 1；首尾两个 f(n−1) 子问题虽然规模相同，但起始柱、缓冲柱与目标柱的角色不同。",
+  "frames": [
+    {
+      "id": "source-327",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_divide_and_conquer.png",
+      "title": "汉诺塔分治：先搬小盘，再搬最大盘，再搬回小盘",
+      "explanation": "左侧原问题 f(n) 通过三条分支对应右侧自上而下依次执行的三个子问题：先将 n−1 个小盘从 A 移至 B，再将剩余 1 个最大盘从 A 移至 C，最后将 n−1 个小盘从 B 移至 C。",
+      "state": "左侧原问题 f(n) 以五张圆盘示意将 n 盘从 A 移至 C。右侧按序展示三个阶段：第一阶段 f(n-1) 将四张小盘从 A 移至 B（A 留最大盘、B 有四小盘、C 空）；第二阶段 f(1) 将剩余 1 张最大盘从 A 移至 C（A 空、B 有四小盘、C 有最大盘）；第三阶段 f(n-1) 将四张小盘从 B 移至 C（A、B 空，C 上五盘按序叠好）。",
+      "key_state": "三步顺序：n−1 盘 A→B，剩余 1 盘 A→C，n−1 盘 B→C。",
+      "announcement": "展示解决汉诺塔问题 f(n) 的三阶段分治拆解顺序。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-16",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "1a7521de039db89c0bd6e254c5a32a2987405c09839624851e924542d97f6565",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "5e763dfd4e2b736b9a5010f6bdd3e33ef9402bdbd494a2a8c3346a1893135dc9",
+        "output_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb",
+        "output_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0",
+        "output_sha256": "b8fa9f331b33db33433309a29e9fe3834178d140c262ec7bc27dee6b669a5cd5"
+      }
+    ],
+    "evidence_sha256": "a355fc71eefa70eb8f989661b8a016ead02f198bb0747865902f358b13b089ae"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_divide_and_conquer/hanota_problem.md": "fe9fd8bc5e3971914c01d472b05d0c15d4d3b57218bae244613f3acb4a02e17e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_divide_and_conquer/hanota_problem.assets/hanota_divide_and_conquer.png": "897267e9dcefeac20b71b36705fdbee5bb897854e161d71321b0d21dccb93324"
+    }
+  }
+}

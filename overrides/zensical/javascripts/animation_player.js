@@ -147,6 +147,13 @@
     return { button, srOnly, icon, iconPath };
   };
 
+  // Linked content tabs issue synthetic clicks in other figures. Only the
+  // sequence receiving the reader's own interaction may announce that change.
+  let interactionSet = null;
+  for (const type of ["click", "keydown"]) document.addEventListener(type, event => {
+    if (event.isTrusted) interactionSet = event.target.closest?.(".tabbed-set") || null;
+  }, true);
+
   const initAnimationSet = (tabbedSet) => {
     if (initializedSets.has(tabbedSet) || !isAnimationSet(tabbedSet)) {
       return;
@@ -176,7 +183,11 @@
     });
     const pageIndicator = document.createElement("span");
     pageIndicator.className = "animation-controls__page";
-    pageIndicator.setAttribute("aria-live", "polite");
+    pageIndicator.setAttribute("aria-live", "off");
+    const announcement = document.createElement("span");
+    announcement.className = "animation-controls__sr-only";
+    announcement.setAttribute("aria-live", "polite");
+    announcement.setAttribute("aria-atomic", "true");
 
     const nextButton = createIconButton({
       className: "animation-controls__next",
@@ -185,8 +196,26 @@
     });
 
     nav.append(prevButton, pageIndicator, nextButton);
-    controls.append(playButton, nav);
+    controls.append(playButton, nav, announcement);
     tabbedContent.insertAdjacentElement("afterend", controls);
+
+    let annotation = null, currentState = null, announcementFrame = null;
+    if (tabbedSet.hasAttribute("data-figure-a11y-version")) {
+      try {
+        if (tabbedSet.dataset.figureA11yVersion !== "1") throw Error("Unsupported version");
+        annotation = JSON.parse(document.getElementById(tabbedSet.dataset.figureA11yRef).textContent);
+        currentState = document.getElementById(annotation.state_id);
+        if (annotation.version !== 1 || annotation.steps.length !== inputs.length || !currentState ||
+            !annotation.steps.every(step => [step.id, step.state, step.key_state, step.announcement]
+              .every(value => typeof value === "string" && value.trim()))) throw Error("Invalid annotation data");
+        currentState.hidden = false;
+      } catch (error) {
+        if (currentState) currentState.hidden = true;
+        annotation = null;
+        tabbedSet.dataset.figureA11yError = "invalid-data";
+        console.error("Could not initialize figure annotation", error);
+      }
+    }
 
     const state = {
       inputs,
@@ -208,6 +237,21 @@
 
     const updatePageIndicator = () => {
       pageIndicator.textContent = `${state.currentIndex + 1} / ${inputs.length}`;
+      if (annotation) currentState.textContent = annotation.steps[state.currentIndex].state;
+    };
+
+    const announce = (previous) => {
+      if (announcementFrame !== null) cancelAnimationFrame(announcementFrame);
+      announcement.textContent = "";
+      announcementFrame = requestAnimationFrame(() => {
+        announcementFrame = null;
+        const index = state.currentIndex;
+        const prefix = /^zh/i.test(document.documentElement.lang)
+          ? `第 ${index + 1} 步，共 ${inputs.length} 步。` : `${index + 1} / ${inputs.length}. `;
+        const step = annotation?.steps[index];
+        announcement.textContent = prefix + (step ?
+          (index === previous + 1 ? step.announcement : step.key_state) : "");
+      });
     };
 
     const stop = () => {
@@ -227,13 +271,15 @@
       state.currentIndex = getCheckedIndex(inputs);
     };
 
-    const moveTo = (index) => {
+    const moveTo = (index, manual = false) => {
+      const previous = state.currentIndex;
       state.currentIndex = setCheckedIndex(inputs, index);
       updatePageIndicator();
+      if (manual) announce(previous);
     };
 
-    const step = (delta) => {
-      moveTo(state.currentIndex + delta);
+    const step = (delta, manual = false) => {
+      moveTo(state.currentIndex + delta, manual);
     };
 
     const start = () => {
@@ -241,6 +287,9 @@
         return;
       }
       state.isPlaying = true;
+      if (announcementFrame !== null) cancelAnimationFrame(announcementFrame);
+      announcementFrame = null;
+      announcement.textContent = "";
       updatePlayButton();
       state.timeoutId = window.setTimeout(() => {
         step(1);
@@ -261,25 +310,34 @@
     });
 
     prevButton.addEventListener("click", () => {
+      stop();
       syncCurrentIndex();
-      step(-1);
+      step(-1, true);
     });
 
     nextButton.addEventListener("click", () => {
+      stop();
       syncCurrentIndex();
-      step(1);
+      step(1, true);
     });
 
     inputs.forEach((input, index) => {
       input.addEventListener("change", () => {
         if (input.checked) {
+          stop();
+          const previous = state.currentIndex;
           state.currentIndex = index;
           updatePageIndicator();
+          if (interactionSet === tabbedSet) {
+            interactionSet = null;
+            announce(previous);
+          }
         }
       });
     });
 
     controllers.add(stop);
+    tabbedSet.addEventListener("figureinteractionpending", stop);
     updatePlayButton();
     updatePageIndicator();
   };

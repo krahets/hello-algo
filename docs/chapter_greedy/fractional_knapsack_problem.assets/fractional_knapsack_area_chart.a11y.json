@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart",
+  "title": "分数背包问题的几何表示",
+  "summary": "以横轴表示物品重量、纵轴表示单位价值，将五件物品画成按高度降序紧邻排列的矩形；容量 50 截出的最大总面积即最大总价值 277.5。",
+  "context": [
+    "由于“价值 = 重量 × 单位价值”，若将物品重量作为横轴宽度、单位价值作为纵轴高度，则每件物品所贡献的价值恰好等于对应矩形的面积，分数背包问题即可转化为“在有限横轴区间长度 cap = 50 内围成最大面积”。"
+  ],
+  "description": [
+    "画面是一个二维直角坐标系：横轴标注“物品重量”，纵轴标注“物品单位价值”。五个矩形按高度从高到低自左向右紧挨着排列，依次对应香蕉、菠萝、苹果、葡萄和西瓜；横轴下方用一条灰色双向水平尺度标出从原点出发、总长度为 50 的“背包容量”，其右端点位于菠萝矩形的横向范围内，表示只取该物品的一部分。"
+  ],
+  "result": "从左端依次截取最高的矩形，能使宽度 50 区间内围成的面积处处最高：完整覆盖香蕉矩形（面积 20 × 6 = 120）与菠萝矩形前四分之三宽度（面积 30 × 5.25 = 157.5），总面积 277.5 直观印证了贪心策略的几何最优性。",
+  "frames": [
+    {
+      "id": "source-464",
+      "book_path": "chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png",
+      "title": "分数背包问题的几何表示",
+      "explanation": "五个紧邻矩形自左向右的（宽度即重量，高度即单位价值）依次为：香蕉（宽 20，高 6）、菠萝（宽 40，高 5.25）、苹果（宽 10，高 5）、葡萄（宽 30，高 5）、西瓜（宽 50，高 4.8）。横轴下方长度 50 的背包容量区间从左端开始，完整包含第 1 个香蕉矩形的宽度 20，并向右延伸 30 个单位停在第 2 个菠萝矩形内部（选取其左侧四分之三宽度，剩余宽 10 及后续三个矩形未进入容量区间；图中菠萝矩形整体为浅蓝色，没有另用深橙色标出所取部分）。",
+      "state": "二维坐标系横轴为物品重量、纵轴为物品单位价值；五个矩形从左到右宽为 [20, 40, 10, 30, 50]、高为 [6, 5.25, 5, 5, 4.8]。下方长度 50 的背包容量区间覆盖第 1 个矩形全部宽度 20（高 6）与第 2 个矩形前 30 宽度（高 5.25），围成面积 20 × 6 + 30 × 5.25 = 277.5。",
+      "key_state": "矩形按高度 [6, 5.25, 5, 5, 4.8] 降序排列；容量 50 覆盖宽 20 的香蕉和宽 30 的菠萝。",
+      "announcement": "展示分数背包几何面积图：按单位价值高度从左到右排列矩形，容量 50 截得最大面积 277.5。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "五件物品数据及由重量价值计算的单位价值",
+      "headers": [
+        "编号与图标",
+        "重量",
+        "价值",
+        "单位价值"
+      ],
+      "rows": [
+        [
+          "1（苹果）",
+          "10",
+          "50",
+          "5"
+        ],
+        [
+          "2（香蕉）",
+          "20",
+          "120",
+          "6"
+        ],
+        [
+          "3（葡萄）",
+          "30",
+          "150",
+          "5"
+        ],
+        [
+          "4（菠萝）",
+          "40",
+          "210",
+          "5.25"
+        ],
+        [
+          "5（西瓜）",
+          "50",
+          "240",
+          "4.8"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-23",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "e192906ce299bdec5700ee2a92626125bff7f01e49e2408966114562ca538663",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "65ed4701387683dd63f9752fe8b0082f9d369d4e3aa764d1d7da3ca514d30dbe",
+        "output_sha256": "4ebebbc05478b00c6f876ea5cbaa9078823129963728aa248fd3a3c2cb7c35fa"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "4ebebbc05478b00c6f876ea5cbaa9078823129963728aa248fd3a3c2cb7c35fa",
+        "output_sha256": "c726cb1e9a48ecde596b2fa06c86f121a4e999d76885ea20a856bb028acd90e2"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "c726cb1e9a48ecde596b2fa06c86f121a4e999d76885ea20a856bb028acd90e2",
+        "output_sha256": "e1e1cb976bc14f564bd765f9e4e7faf06571d50a98cb8f9a91ea36cdac3993ad"
+      }
+    ],
+    "evidence_sha256": "34444c50d6df82ed6b43160a49929ee9fc81523aa89772b10af874af3efcc040"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_greedy/fractional_knapsack_problem.md": "513596ffc307774414133d24fc1f1e5029dc1fe23165b6d769f634b98423c990"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png": "c2bad9a8ac31bbba6b4bf43840a5d970d64624d7f6c5d070c4a8094631d399d6"
+    }
+  }
+}

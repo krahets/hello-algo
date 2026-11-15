@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_heap/heap.assets/heap_push",
+  "title": "大顶堆元素入堆：追加节点 7 并从底至顶堆化（Sift Up）",
+  "summary": "将新元素 7 追加到数组末尾（索引 12），沿父节点路径依次与索引 5 的 5、索引 2 的 6 交换，比较根节点 9 后停止上浮。",
+  "context": [
+    "初始大顶堆包含 12 个元素，按层序存为数组 [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]，索引从 0 到 11；右上角标题标明本次操作为“节点 7 入堆”。注意初始堆的索引 4 处已有一个值为 7 的节点，本次入堆并上浮的是新追加的另一个 7。",
+    "每步画面上方为“二叉树表示”，下方为同一堆的“数组表示”，两者通过双向箭头对应并同步更新。为准确区分堆中重复出现的 7、6、2，说明中使用从 0 开始的数组索引：索引 i 的父节点索引为 (i−1)/2（向下整除），左、右子节点索引分别为 2i+1 和 2i+2。",
+    "初始 12 个节点的树形位置为：第 1 层根节点为索引 0 的 9；第 2 层为索引 1 的 8、索引 2 的 6；第 3 层从左到右为索引 3 的 6、索引 4 的 7、索引 5 的 5、索引 6 的 2；第 4 层从左到右为索引 7 的 1、索引 8 的 4、索引 9 的 3、索引 10 的 6、索引 11 的 2。"
+  ],
+  "description": [
+    "元素入堆分两阶段执行：首先将新节点 7 添加至堆底（数组末尾索引 12，即索引 5 节点 5 的右子节点），保持完全二叉树形态；随后从底至顶执行堆化（Sift Up），沿当前节点到根节点的路径逐层与父节点比较——若当前节点值大于父节点值则交换两者，直至父节点值大于或等于当前节点值（或到达根节点）时停止。图中实心蓝色节点 7 始终代表本次新入堆的元素，带蓝色描边的绿色节点则代表当前与之比较或刚完成交换的父节点。"
+  ],
+  "result": "入堆完成后，大顶堆共有 13 个元素，层序数组更新为 [9, 8, 7, 6, 7, 6, 2, 1, 4, 3, 6, 2, 5]。新插入的 7 从索引 12 经索引 5 上浮至索引 2（共交换两次），原有的索引 4 节点 7 未发生移动，堆顶仍为 9。",
+  "frames": [
+    {
+      "id": "source-143",
+      "book_path": "chapter_heap/heap.assets/heap_push_step1.png",
+      "title": "第 1 步：准备将节点 7 入堆",
+      "explanation": "初始大顶堆包含 12 个元素，满足任意父节点值不小于子节点值。图右侧标出“节点 7 入堆”，蓝色节点 7 尚未加入树或底层数组中；原堆索引 4 处虽已有一个绿色的 7，但并非本次待插入的新节点。",
+      "state": "数组为 [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]，索引从 0 到 11。树按数组层序排列，索引 i 的左、右孩子在 2i+1、2i+2，超出数组范围则不存在。待插入的新节点 7 仍在堆外；当前堆顶为索引 0 的 9，已有的另一个 7 位于索引 4。",
+      "key_state": "初始 12 个元素的大顶堆；新节点 7 尚未入堆。",
+      "announcement": "准备将另一个值为 7 的新节点插入 12 元素大顶堆。"
+    },
+    {
+      "id": "source-144",
+      "book_path": "chapter_heap/heap.assets/heap_push_step2.png",
+      "title": "第 2 步：将节点 7 添加至堆底",
+      "explanation": "执行“1. 将节点 7 添加至堆底”：新节点 7 追加到数组末尾的索引 12，在树中成为索引 5（值为 5）的右子节点，而索引 11（值为 2）仍是索引 5 的左子节点。此时完全二叉树形态保持不变，但新节点 7 大于其父节点 5，需要向上堆化修复。",
+      "state": "数组为 [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2, 7]，索引从 0 到 12。树按数组层序排列，索引 i 的左、右孩子在 2i+1、2i+2，超出数组范围则不存在。新节点 7 已追加至堆底索引 12，其父节点为索引 5 的 5，尚未开始比较和交换。",
+      "key_state": "新节点 7 追加至索引 12，父节点为索引 5 的 5。",
+      "announcement": "将新节点 7 添加到堆底索引 12，成为节点 5 的右子节点。"
+    },
+    {
+      "id": "source-145",
+      "book_path": "chapter_heap/heap.assets/heap_push_step3.png",
+      "title": "第 3 步：比较新节点 7 与父节点 5",
+      "explanation": "进入“2. 从底至顶进行堆化（Sift Up）”，用蓝色区域高亮索引 12 的新节点 7 与其父节点索引 5 的 5。由于子节点 7 大于父节点 5，违反大顶堆父节点不小于子节点的性质，下一步需要交换两者（图中文字写作“∵ 节点 5 ≤ 节点 7”，此处两值实际为严格不等 5 < 7）。本步仅做比较，数组顺序尚未改变。",
+      "state": "数组为 [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2, 7]，索引从 0 到 12。树按数组层序排列，索引 i 的左、右孩子在 2i+1、2i+2，超出数组范围则不存在。当前正在比较索引 12 的新节点 7 与父节点索引 5 的 5，判定 7 更大，尚未执行交换。",
+      "key_state": "比较索引 12 的 7 与父节点索引 5 的 5；7 > 5，准备交换。",
+      "announcement": "比较新节点 7 与父节点 5，因 7 大于 5，确定需要向上交换。"
+    },
+    {
+      "id": "source-146",
+      "book_path": "chapter_heap/heap.assets/heap_push_step4.png",
+      "title": "第 4 步：交换节点 7 与父节点 5",
+      "explanation": "根据比较结果执行“∴ 交换两节点”：树与数组中同步交换索引 12 与索引 5 的值，新节点 7 上浮至索引 5，原父节点 5 下移至索引 12。此时索引 5 的左、右子节点分别为索引 11 的 2 和索引 12 的 5，局部满足大顶堆性质，但还需继续向上与索引 5 的父节点（索引 2 的 6）比较。",
+      "state": "数组为 [9, 8, 6, 6, 7, 7, 2, 1, 4, 3, 6, 2, 5]，索引从 0 到 12。树按数组层序排列，索引 i 的左、右孩子在 2i+1、2i+2，超出数组范围则不存在。已完成索引 12 与 5 的交换：新节点 7 现位于索引 5，值 5 移至索引 12；下一轮待比较的父节点为索引 2 的 6。",
+      "key_state": "交换索引 12 与 5：新节点 7 上浮至索引 5，节点 5 下移至索引 12。",
+      "announcement": "交换节点 7 与节点 5，新节点 7 上浮到索引 5。"
+    },
+    {
+      "id": "source-147",
+      "book_path": "chapter_heap/heap.assets/heap_push_step5.png",
+      "title": "第 5 步：比较新节点 7 与上一层父节点 6",
+      "explanation": "继续向上堆化，高亮比较索引 5 的新节点 7 与其父节点索引 2 的 6（即根节点 9 的右子节点，而非索引 3 或索引 10 的另外两个 6）。由于 7 > 6（图中写作“∵ 节点 6 ≤ 节点 7”），仍违反大顶堆条件，下一步需继续交换；本步数组尚未改变。",
+      "state": "数组为 [9, 8, 6, 6, 7, 7, 2, 1, 4, 3, 6, 2, 5]，索引从 0 到 12。树按数组层序排列，索引 i 的左、右孩子在 2i+1、2i+2，超出数组范围则不存在。当前正在比较索引 5 的新节点 7 与父节点索引 2 的 6，判定 7 更大；第一次交换已完成，第二次交换尚未执行。",
+      "key_state": "比较索引 5 的 7 与父节点索引 2 的 6；7 > 6，准备再次交换。",
+      "announcement": "继续比较索引 5 的新节点 7 与父节点索引 2 的 6，因 7 更大，需再次上浮。"
+    },
+    {
+      "id": "source-148",
+      "book_path": "chapter_heap/heap.assets/heap_push_step6.png",
+      "title": "第 6 步：交换节点 7 与父节点 6",
+      "explanation": "执行第二次“∴ 交换两节点”：树与数组中同步交换索引 5 与索引 2 的值，新节点 7 上浮至索引 2（成为根节点 9 的右子节点），节点 6 下移至索引 5。此时索引 2 的左、右子节点分别为索引 5 的 6 和索引 6 的 2，索引 5 的左、右子节点仍为索引 11 的 2 和索引 12 的 5。",
+      "state": "数组为 [9, 8, 7, 6, 7, 6, 2, 1, 4, 3, 6, 2, 5]，索引从 0 到 12。树按数组层序排列，索引 i 的左、右孩子在 2i+1、2i+2，超出数组范围则不存在。已完成第二次交换：新节点 7 现位于索引 2，节点 6 移至索引 5，节点 5 位于索引 12；下一轮待比较的父节点为根索引 0 的 9。",
+      "key_state": "交换索引 5 与 2：新节点 7 上浮至索引 2，节点 6 下移至索引 5。",
+      "announcement": "交换节点 7 与节点 6，新节点 7 上浮到索引 2，成为根节点的右子节点。"
+    },
+    {
+      "id": "source-149",
+      "book_path": "chapter_heap/heap.assets/heap_push_step7.png",
+      "title": "第 7 步：比较新节点 7 与根节点 9",
+      "explanation": "继续向上高亮比较索引 2 的新节点 7 与其父节点——索引 0 的根节点 9。图中标出“∵ 节点 9 > 节点 7”：父节点值 9 已经大于子节点值 7，满足大顶堆性质，无须再向上交换。数组保持与第 6 步相同。",
+      "state": "数组为 [9, 8, 7, 6, 7, 6, 2, 1, 4, 3, 6, 2, 5]，索引从 0 到 12。树按数组层序排列，索引 i 的左、右孩子在 2i+1、2i+2，超出数组范围则不存在。新节点 7 位于索引 2，当前正在与根索引 0 的 9 比较；由于 9 > 7，父子关系已满足大顶堆条件。",
+      "key_state": "比较索引 2 的 7 与根节点索引 0 的 9；9 > 7，已满足堆序。",
+      "announcement": "比较新节点 7 与根节点 9，确认父节点 9 更大。"
+    },
+    {
+      "id": "source-150",
+      "book_path": "chapter_heap/heap.assets/heap_push_step8.png",
+      "title": "第 8 步：不执行交换，停止上浮",
+      "explanation": "依据“∵ 节点 9 > 节点 7”，得出“∴ 不执行交换”，从底至顶的堆化循环就此终止。根节点 9 保持在索引 0，新节点 7 定位于索引 2（上浮路径 12 → 5 → 2 由浅灰底色标出），原索引 4 的另一个 7 全程未受影响。",
+      "state": "数组为 [9, 8, 7, 6, 7, 6, 2, 1, 4, 3, 6, 2, 5]，索引从 0 到 12。树按数组层序排列，索引 i 的左、右孩子在 2i+1、2i+2，超出数组范围则不存在。因 9 > 7 不执行交换，上浮停止：根索引 0 仍为 9，新节点 7 停在索引 2，原有的另一个 7 仍在索引 4，全程共交换两次。",
+      "key_state": "不执行交换，上浮停止；根 9 不变，新节点 7 停留在索引 2。",
+      "announcement": "因根节点 9 大于 7，不执行交换，新节点 7 留在索引 2 并结束上浮。"
+    },
+    {
+      "id": "source-151",
+      "book_path": "chapter_heap/heap.assets/heap_push_step9.png",
+      "title": "第 9 步：堆化完成，大顶堆性质恢复",
+      "explanation": "移除所有比较与路径高亮，图右侧总结“堆化完成后，大顶堆的性质得到修复”。此时树与数组中的全部 13 个元素均变回常规绿色，每个父节点的值都不小于其子节点的值，节点 7 入堆操作完成。",
+      "state": "数组为 [9, 8, 7, 6, 7, 6, 2, 1, 4, 3, 6, 2, 5]，索引从 0 到 12。树按数组层序排列，索引 i 的左、右孩子在 2i+1、2i+2，超出数组范围则不存在。入堆与堆化全部完成，共 13 个元素：堆顶为索引 0 的 9，新插入的 7 位于索引 2，全部父子关系均满足大顶堆条件。",
+      "key_state": "入堆完成：13 个元素的大顶堆已恢复，堆顶为 9，新节点 7 位于索引 2。",
+      "announcement": "堆化完成，13 个元素的大顶堆恢复完毕。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-08",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "92eceded9d0e35de01f4fa07abbf79eaa786810c8030dc75a5f0e0f98e208d5f",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a506b3ecafaef6d8fc62ef26dae68447d18629fc5e16ddd8ae926171452d6745",
+        "output_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d",
+        "output_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896",
+        "output_sha256": "8aa1f4dfa1fd2a8bc10a20ded596eaae033faa43bbf57cbc5c462af6f3455359"
+      }
+    ],
+    "evidence_sha256": "14a36adc867aa49a98d8a9d37d2a3aade7c41c8d611abaa2b4d84cd7b471e986"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_heap/heap.md": "4eac94cc73c58f010fd8439bd21e4f441eff794de3d6d06a143a0f45dc44ec3e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_heap/heap.assets/heap_push_step1.png": "84f199ced78a1064ac79856d922e4c845a63e943a18d966b2a3d75169e142214",
+      "chapter_heap/heap.assets/heap_push_step2.png": "3eb778e18d727fb539c4f3de970ad83e0e85747732c8eb84ab2bbd5dac25ff2f",
+      "chapter_heap/heap.assets/heap_push_step3.png": "3a01a803aebcaa9a5d2913826172be0be9ef02886469dc27b4ca93a0578e821e",
+      "chapter_heap/heap.assets/heap_push_step4.png": "0e7afa93c35bc99b50727731218600e5485c2cdbfd6ab96fb8a083b09c79693c",
+      "chapter_heap/heap.assets/heap_push_step5.png": "664cc4c037ba37fc68570ff8ccbd2ec9e6ade49ce288c200cf95d79cbbbca612",
+      "chapter_heap/heap.assets/heap_push_step6.png": "51b12057b941e82f4e2ecfabec991b5fdef4f44d5e99bef67c6f1f8b8a74ffb1",
+      "chapter_heap/heap.assets/heap_push_step7.png": "dd9fbc39984f68ec11e783e7db1c30d7c38b10dcacc5b3ea1ecf829256549974",
+      "chapter_heap/heap.assets/heap_push_step8.png": "736c46dbc94e58ec4d1e225360ca894897309d740381bea24cae996f2d1d646d",
+      "chapter_heap/heap.assets/heap_push_step9.png": "bbee92d205cc9c0423d6dee29db2248888507fa2c38807b99c7bca1fc86f61d9"
+    }
+  },
+  "animations": {
+    "heap-push": {
+      "kind": "source-frames",
+      "model_sha256": "7405d8e7bdc4ac19d02cd5a9672e74696bd920ae623d3b8739c5efb86ac37d8f",
+      "source_content_sha256": "92eceded9d0e35de01f4fa07abbf79eaa786810c8030dc75a5f0e0f98e208d5f",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-143"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-144"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-145"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-146"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-147"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-148"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-149"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-150"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-151"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "4ac69765f923fa0f47d9cf5e13172cc1b339ea976153422bfd9a545c0b4511d5",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

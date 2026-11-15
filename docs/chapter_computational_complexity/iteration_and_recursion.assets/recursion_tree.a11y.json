@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_computational_complexity/iteration_and_recursion.assets/recursion_tree",
+  "title": "斐波那契数列的递归树",
+  "summary": "以二叉树结构展示斐波那契数列 f(n) = f(n-1) + f(n-2) 的“一分为二”递归调用关系：从根节点 f(n) 向下展开 4 层共 1、2、4、8 个调用节点，并在第 5 层以 16 个省略号“…”表示继续分支直至终止条件。",
+  "context": [
+    "正文以斐波那契数列说明递归的“一分为二”：设第 n 项为 f(n)，基本情况为 f(1) = 0、f(2) = 1；当 n 大于 2 时，f(n) = f(n-1) + f(n-2)。一次非终止调用会产生两个子调用，层层展开形成递归树。"
+  ],
+  "description": [
+    "画面是一棵自上而下逐层分裂的绿色节点二叉树。每个节点由两条向下分叉的实线箭头指向其左右两个子调用节点：第 1 层为单个根节点，第 2 层为 2 个节点，第 3 层为 4 个节点，第 4 层为 8 个节点；第 4 层每个节点下方还各发出两条分叉箭头，指向第 5 层共 16 个代表后续深层递归的省略号“…”。"
+  ],
+  "result": "图中展示的前四层尚未触及基本情况，节点数依次为 1、2、4、8；继续展开后，各分支在到达 f(1) 或 f(2) 时停止，并非所有层都一直翻倍。树中同名节点代表分别发生的重复调用，如 f(n-2)、f(n-3)、f(n-4)，这些重复计算使朴素递归的调用规模随 n 呈指数级增长。",
+  "frames": [
+    {
+      "id": "source-24",
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/recursion_tree.png",
+      "title": "斐波那契数列的递归树",
+      "explanation": "递归树从第 1 层根节点 f(n) 开始向下逐层一分为二：第 2 层分裂为左子节点 f(n-1) 和右子节点 f(n-2) 共 2 个节点；第 3 层由 f(n-1) 分裂出 f(n-2)、f(n-3)，由 f(n-2) 分裂出 f(n-3)、f(n-4)，从左到右共 4 个节点；第 4 层继续分裂，从左到右依次为 f(n-3)、f(n-4)、f(n-4)、f(n-5)、f(n-4)、f(n-5)、f(n-5)、f(n-6) 共 8 个节点；第 4 层每个节点下方再各引出两条向下箭头指向“…”（共 16 个“…”），表示后续调用被省略；根据正文，继续递归后各分支会在 f(1) 或 f(2) 处终止，这两个基本情况没有在图中直接画出。",
+      "state": "四层二叉树自上而下展开：第 1 层为 f(n)；第 2 层为 f(n-1)、f(n-2)；第 3 层为 f(n-2)、f(n-3)、f(n-3)、f(n-4)；第 4 层为 f(n-3)、f(n-4)、f(n-4)、f(n-5)、f(n-4)、f(n-5)、f(n-5)、f(n-6)；第 4 层 8 个节点下方各分叉出两个箭头指向第 5 层共 16 个“…”。",
+      "key_state": "斐波那契递归树：从 f(n) 按 f(k-1) 与 f(k-2) 逐层一分为二，前四层节点数依次为 1、2、4、8 并向第 5 层“…”继续展开。",
+      "announcement": "根节点 f(n) 按 f(n-1) 和 f(n-2) 逐层一分为二，前四层依次展开为 1、2、4、8 个调用节点，再向第 5 层 16 个省略号分支继续递归。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-01",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "ba485ff6222da8f0c20da4ad93431d53bd6fc22925b95f060da127e37384f7fd",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "431741d9738e417e17d2b6e1ded2465a8b4b113efdfecac9156ffc919692f129",
+        "output_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4",
+        "output_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0",
+        "output_sha256": "10e9faf80624dffe5daec10997eafa110b0fa676bf753184a205a3604fd651d9"
+      }
+    ],
+    "evidence_sha256": "ef94661da660ccf8ffe36e7213507ecb5fe1fad850478d55981ecebce88583b7",
+    "schema_normalization": "Wrap context/description strings in paragraph arrays; prose unchanged."
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_computational_complexity/iteration_and_recursion.md": "636363df79954464f16ea4774d97dc8304c0e190c8dc0b9ba1ce617a2372df5c"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_computational_complexity/iteration_and_recursion.assets/recursion_tree.png": "b40a66e3c05ce8b9c804025ac270acbac0b4bc9589daf9ff8d1c112bf724db41"
+    }
+  }
+}

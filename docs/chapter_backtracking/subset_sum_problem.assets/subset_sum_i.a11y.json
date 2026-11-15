@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_backtracking/subset_sum_problem.assets/subset_sum_i",
+  "title": "子集和 I：余额归零与顺序剪枝",
+  "summary": "从目标 9 开始逐层做减法，结合越界剪枝与顺序剪枝，只输出唯一组合 [3, 3, 3] 和 [4, 5]。",
+  "context": [
+    "已排序候选数组为 choices=[3, 4, 5]，元素可重复选取，初始目标 target=9。与前图累加元素和不同，本图改为从 target 开始做减法，圆节点内的数字表示剩余 target，减到 0 时即找到合法子集。"
+  ],
+  "description": [
+    "根圆节点为 9，边上标注 -3、-4、-5，减至 0 的圆节点呈绿色并标出结果子集。右上角图例区分两类剪枝：红色剪刀为“剪枝一：元素和不能超过 target”（即剩余值小于 0），黑色剪刀为“剪枝二：避免生成重复子集”（即不回头选更早索引）。",
+    "图把不可行的候选分支画出以解释剪枝原因；代码并不会逐一递归进入这些分支。由于候选已排序，一旦某个允许候选大于剩余 target，代码直接 break，连同后面更大的候选一并跳过。"
+  ],
+  "result": "两种剪枝配合后，搜索树仅输出 [3, 3, 3] 与 [4, 5] 两个不重复解；递归向下一轮传递当前索引 i，兼顾了元素复用与顺序去重。",
+  "frames": [
+    {
+      "id": "source-360",
+      "book_path": "chapter_backtracking/subset_sum_problem.assets/subset_sum_i.png",
+      "title": "子集和 I：余额归零与顺序剪枝",
+      "explanation": "从根节点 9 分别减 3、4、5，第一轮得到剩余值 6、5、4。在 6 下继续减 3、4、5 得到 3、2、1：其中 3 再减 3 到达绿色 0，输出 [3, 3, 3]，而减 4、减 5 因小于 0 被红剪刀剪去；2（前缀 [3, 4]）下的 -3 被黑剪刀剪去，-4、-5 被红剪刀剪去；1（前缀 [3, 5]）下的 -3、-4 被黑剪刀剪去，-5 被红剪刀剪去。在第一轮的 5（前缀 [4]）下，-3 被黑剪刀剪去，-4 得到 1；该节点的后续没有在图中展开，按规则已无可行候选，-5 到达绿色 0 并输出 [4, 5]。在第一轮的 4（前缀 [5]）下，-3、-4 被黑剪刀剪去，-5 因小于 0 被红剪刀剪去。",
+      "state": "根为 9；第一轮为 6、5、4。6 下展开出 3、2、1，仅 3 经 -3 到达绿色 0（[3, 3, 3]），其余第三轮分支全部被红或黑剪刀剪去；5 下 -3 被黑剪刀剪去，-4 到 1 后未继续展开，-5 到绿色 0（[4, 5]）；4 下 -3、-4 被黑剪刀剪去，-5 被红剪刀剪去。",
+      "key_state": "剩余值路径 9→6→3→0 与 9→5→0 成功归零，输出 [3, 3, 3] 和 [4, 5]。",
+      "announcement": "从 9 依次减去不递减索引的候选值，剪掉负余额与倒序分支，得到 [3, 3, 3] 和 [4, 5]。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-18",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "82c88d5ec43c975425687d00835a77e68499fe7563dcb1110985ba970fb14e4d",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "4d905ea19e7b4a83ea36041a9c7f9d8d8c1f3b06c72a654e2a9e539750effd5d",
+        "output_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90",
+        "output_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad",
+        "output_sha256": "5ee2b110fd9b935a096ccaacf3e3b27d88bb1cb4918d9a5b6bd2b5a75c56edf0"
+      }
+    ],
+    "evidence_sha256": "5559c3ad6bd5d378f79de2a5c7f96ac680c007486f684e00a24a2512ab4de485"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_backtracking/subset_sum_problem.md": "071de898ede315a542cb99a3734fdd4bc42f447fe76e35d4251abc7c6ad4bfa1"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_backtracking/subset_sum_problem.assets/subset_sum_i.png": "90f1eeb1bbe5258a5bcbcf4c86df224dd36dfae3ef18827941bda85a644192b8"
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_tree/array_representation_of_tree.assets/array_representation_with_empty",
+  "title": "显式保留空位的任意二叉树数组表示",
+  "summary": "在层序遍历序列中显式保留中间所有空位，使 15 个数组位置唯一对应这棵含 10 个节点的非完美二叉树。",
+  "context": [
+    "数组索引从 0 开始；索引 i 的左子节点位置为 2i + 1，右子节点位置为 2i + 2。图中的空位（代码中常记作 None 或 null）代表该处不存在节点，不等同于数值 0。"
+  ],
+  "description": [
+    "上方二叉树共有 10 个实心绿色节点：根为 1，其左、右子节点为 2、3；2 只有左子节点 4；3 的左、右子节点为 6、7；4 的左、右子节点为 8、9；6 只有左子节点 12；7 只有右子节点 15；8、9、12、15 为叶节点。",
+    "每个圆圈内是节点值，圆圈正下方的灰色小字是对应的数组索引。凡是缺失子节点的位置，树中都画成灰色虚线空圆，下方数组对应格也画成浅灰虚线方格并标注“空位”：索引 4、9、10、12、13 共五个位置为空，其中索引 9、10 预留的是索引 4 这一空节点在下一层的左、右子节点位置。",
+    "树与下方数组之间以双向箭头相连，左侧灰色提示框写明“该序列（数组）可唯一地表示此二叉树”。例如节点 6 位于索引 5，其左子节点 12 位于索引 11，右子节点索引 12 为空位；因为中间的空位全部保留，后续节点的父子索引关系不再错位。"
+  ],
+  "result": "通过在层序数组中显式保留全部中间空位，15 个数组位置能够无歧义地唯一还原图中 10 个节点的树形连接。",
+  "frames": [
+    {
+      "id": "source-112",
+      "book_path": "chapter_tree/array_representation_of_tree.assets/array_representation_with_empty.png",
+      "title": "显式保留空位使层序数组唯一表示二叉树",
+      "explanation": "树中把缺失节点的位置画作虚线空圆，下方层序数组在索引 4、9、10、12、13 处同步保留五个空位格，从而恢复树与数组的一一对应关系。",
+      "state": "上方二叉树按完美二叉树的 15 个位置编号 0 至 14 排布，下方层序遍历序列数组依次为 [1, 2, 3, 4, 空, 6, 7, 8, 9, 空, 空, 12, 空, 空, 15]，其中索引 4、9、10、12、13 为虚线空位。实心节点的有向边为 1→2、1→3、2→4、3→6、3→7、4→8、4→9、6→12、7→15。",
+      "key_state": "索引 0 至 14 共 15 个位置中保留索引 4、9、10、12、13 五个空位，唯一表示 10 个节点。",
+      "announcement": "在层序数组中显式保留索引 4、9、10、12、13 五个空位，唯一表示非完美二叉树。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "数组索引与节点值",
+      "headers": [
+        "索引",
+        "节点值或空位"
+      ],
+      "rows": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "2"
+        ],
+        [
+          "2",
+          "3"
+        ],
+        [
+          "3",
+          "4"
+        ],
+        [
+          "4",
+          "空"
+        ],
+        [
+          "5",
+          "6"
+        ],
+        [
+          "6",
+          "7"
+        ],
+        [
+          "7",
+          "8"
+        ],
+        [
+          "8",
+          "9"
+        ],
+        [
+          "9",
+          "空"
+        ],
+        [
+          "10",
+          "空"
+        ],
+        [
+          "11",
+          "12"
+        ],
+        [
+          "12",
+          "空"
+        ],
+        [
+          "13",
+          "空"
+        ],
+        [
+          "14",
+          "15"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-07",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "0b3bc5f8fe947aa7307a0f40de01c22301b3cc103ca84e6dc9b5b3b35dfcb9a3",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "f429a2d9034d7690b6bd4a3f0822b11a77350c2330baf8a66141d1f7a9ef4841",
+        "output_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91",
+        "output_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6",
+        "output_sha256": "449ce85fb338c455e6cedde1bf55ab20b1b0f532a5408dfa0443a6fbe9815c6b"
+      }
+    ],
+    "evidence_sha256": "459b7ad9cb6322b1bab7e28efa1badcfd4813182718f9028c5dbe5d4d10dbb4c"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_tree/array_representation_of_tree.md": "cd4a08a4c01fdd9039b2c9cafa2632b965147084ddf3ff241600c2c803acc30e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_tree/array_representation_of_tree.assets/array_representation_with_empty.png": "76071cfb767ce9c54c22bfe2712d583ad79874ae783e1795d0b72ac8a319c7a1"
+    }
+  }
+}

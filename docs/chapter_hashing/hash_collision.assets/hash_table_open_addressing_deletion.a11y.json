@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion",
+  "title": "开放寻址中直接删除元素会截断后续线性探测",
+  "summary": "在步长为 1 的线性探测表中，若把索引 77 处的 (876, I) 直接置为 None，会导致排在它下方的同簇冲突元素 (276, E)、(676, T)、(776, X) 无法被查找到。",
+  "context": [
+    "本图直接承接上一幅线性探测图：上方 00、01、02 桶保持不变，下方从加粗索引 76 开始原本连续存放着哈希值同为 76 的五个键值对 (076, H)、(876, I)、(276, E)、(676, T)、(776, X)。"
+  ],
+  "description": [
+    "左侧说明框用细线指向索引 77，标注：“删除元素 (876, I) 之后，就无法查询到它之下的元素了”。数组中索引 77 的槽位已变成醒目的橙色空桶“None”，而排在它下方的 (276, E)、(676, T)、(776, X) 三个键值对全部变成浅灰色（见下表）。",
+    "变灰并非表示这三个元素也被删除，而是代表它们虽仍在数组中，却陷入“不可达”状态：当查询 276、676 或 776 时，程序从起始桶 76 出发向后线性探测，在索引 77 处遇到 None 便会误以为“后续从未存放过冲突元素”而提前终止搜索，从而漏掉真正存放在 78 及更后方的目标。"
+  ],
+  "tables": [
+    {
+      "caption": "删除后的可见存放位置",
+      "headers": [
+        "桶或位置",
+        "删除后的内容"
+      ],
+      "rows": [
+        [
+          "00",
+          "(200,A)"
+        ],
+        [
+          "01",
+          "(500,D)"
+        ],
+        [
+          "02",
+          "(300,Y)"
+        ],
+        [
+          "76",
+          "(076,H)"
+        ],
+        [
+          "77",
+          "None，原为 (876,I)"
+        ],
+        [
+          "78",
+          "(276,E)，仍在桶中"
+        ],
+        [
+          "78 之后，具体索引未标",
+          "(676,T)，仍在后方"
+        ],
+        [
+          "更后方，具体索引未标",
+          "(776,X)，仍在后方"
+        ]
+      ]
+    }
+  ],
+  "result": "在图示遇到 None 即停止的线性探测规则下，不能只把中间槽直接置为 None 而不修复探测关系。正文给出的一种办法是懒删除：将删除槽位改为墓碑标记 TOMBSTONE，使查找能跨过该槽位继续搜索；本图尚未展示这一步修复。",
+  "frames": [
+    {
+      "id": "source-87",
+      "book_path": "chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion.png",
+      "title": "索引 77 置为 None 导致下方三个同簇元素无法查到",
+      "explanation": "索引 77 原本存放哈希值为 76 的第二个冲突元素 (876, I)。将其直接删除并置为橙色 None 后，从索引 76 开始的连续探测链在 77 处断裂：此后若查询同属 76 号起始桶的 276、676 或 776，探测到 77 号桶看到 None 就会立即判定查找失败并返回，导致下方灰色的 (276, E)、(676, T)、(776, X) 无法被访问。",
+      "state": "左侧说明框指向索引 77，标注“删除元素 (876, I) 之后，就无法查询到它之下的元素了”。右侧数组中，上方 00、01、02 仍为彩色 (200, A)、(500, D)、(300, Y)；下方 76 号桶仍为彩色 (076, H)，77 号桶变为橙色“None”，其下的 78 号桶 (276, E) 及后方的 (676, T)、(776, X) 均呈灰色。",
+      "key_state": "索引 77 删除 (876, I) 变为 None，截断了从 76 出发的探测链，下方 (276, E)、(676, T)、(776, X) 变灰不可达。",
+      "announcement": "展示在开放寻址表中将 77 号桶的 (876, I) 直接删为 None 后，截断下方三个冲突元素查询路径的问题。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-05",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "d256689820343acd08aafd4a03619b2ace69eaf52f19cb0169d9ba557407a962",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "bbf6fc89ced3325538a22d1eecebd98ac2a54cd576eb8bfe0b2aad472b2340bc",
+        "output_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108",
+        "output_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281",
+        "output_sha256": "ffb27a99b86ace98bde8e54084f42f6a1c59f19a353deb9a55c4ee96d96e99be"
+      }
+    ],
+    "evidence_sha256": "954be79d16a2deb5e3a0108cd78415c4c9fef13373e1a16fbca5a1e1d388bf98"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_hashing/hash_collision.md": "dc5b268b8f8f34a19580b61c3406d958921f07914428b455cc91bd449d76868f"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion.png": "d74693a3602c5742b4465b27952feb8089c3851c32449b9552b417260da90304"
+    }
+  }
+}

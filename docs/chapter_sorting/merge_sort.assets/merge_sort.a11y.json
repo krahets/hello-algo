@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_sorting/merge_sort.assets/merge_sort",
+  "title": "四元素归并排序的递归执行顺序",
+  "summary": "先将左半 [7,3] 排成 [3,7]，再处理右半 [2,6]，最后合并为 [2,3,6,7]。",
+  "context": [
+    "本步骤组的完整输入是四元素数组 [7, 3, 2, 6]（不同于上一张概览图与示例主程序中的八元素输入）。归并排序每次按中点切分，严格遵循二叉树后序遍历般的递归顺序：先递归处理左子数组，再递归处理右子数组，待左右两个有序子数组都返回后才执行合并。"
+  ],
+  "description": [
+    "画面随实际调用时序逐步增加递归划分分支与回溯合并结果，各层数组元素均为绿色方块。画面上方保留的祖先节点（如顶层的 [7, 3, 2, 6]）用于展示递归调用树与数据依赖历史，并不代表底层数组在同一时刻并存多份未合并副本；中部水平虚线标示单元素子数组“触发递归终止条件”。",
+    "长度为 1 的单元素子数组不再向下划分。回溯合并时，每次比较左右两个有序子数组当前最左侧的未取元素，将较小值依次写入合并结果，并在一侧耗尽后追加另一侧的剩余元素。"
+  ],
+  "result": "左半部分先完成划分与合并得到 [3, 7]，右半部分随后完成划分与合并得到 [2, 6]；顶层最后依次取出 2、3、6、7，合成最终有序数组 [2, 3, 6, 7]。本组十帧展示的是递归展开与回溯合并的完整调用轨迹，而非十次元素大小比较。",
+  "frames": [
+    {
+      "id": "source-274",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step1.png",
+      "title": "开始处理四元素输入 [7, 3, 2, 6]",
+      "explanation": "顶层调用接收完整输入数组 [7, 3, 2, 6]。由于子数组长度大于 1，需要从中点将其切分为左半部分 [7, 3] 和右半部分 [2, 6]；本帧处于顶层入口，尚未展开下层递归分支。",
+      "state": "本组输入为 [7, 3, 2, 6]。画面顶部仅显示初始问题 [7, 3, 2, 6]，尚未展开任何递归子问题或回溯合并结果。",
+      "key_state": "顶层问题 [7, 3, 2, 6]；尚未向下划分。",
+      "announcement": "开始对四元素数组 [7, 3, 2, 6] 执行归并排序。"
+    },
+    {
+      "id": "source-275",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step2.png",
+      "title": "递归进入左半子数组 [7, 3]",
+      "explanation": "从中点切分后，优先递归进入左子问题 [7, 3]，而顶层的右半部分 [2, 6] 暂未展开。由于 [7, 3] 仍包含两个元素，还需要继续向下一层二分。",
+      "state": "本组输入为 [7, 3, 2, 6]。已展开左侧递归调用链 [7, 3, 2, 6] → [7, 3]；顶层右半尚未展开，尚无合并结果。",
+      "key_state": "递归进入左子问题 [7, 3]。",
+      "announcement": "优先递归划分左半子数组 [7, 3]。"
+    },
+    {
+      "id": "source-276",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step3.png",
+      "title": "左分支划分至单元素 [7] 并触发终止条件",
+      "explanation": "将 [7, 3] 从中点继续切分，先递归进入其左侧的单元素子数组 [7]。因为 [7] 只有一个元素，到达中部虚线标出的递归终止条件并直接返回，无需再划分或比较。",
+      "state": "本组输入为 [7, 3, 2, 6]。调用链已展开至 [7, 3, 2, 6] → [7, 3] → [7]；单元素 [7] 触发递归终止条件，同层的 [3] 与顶层右半 [2, 6] 尚未展开。",
+      "key_state": "单元素 [7] 触发递归终止条件。",
+      "announcement": "左分支到达单元素 [7]，触发终止条件停止向下划分。"
+    },
+    {
+      "id": "source-277",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step4.png",
+      "title": "展开左半的右侧单元素 [3]",
+      "explanation": "左侧单元素 [7] 返回后，递归处理 [7, 3] 的右侧单元素子数组 [3]。它同样只有一个元素，立即触发终止条件返回；至此 [7, 3] 的左右两个单元素子结果均已就绪，可以开始回溯合并。",
+      "state": "本组输入为 [7, 3, 2, 6]。左子问题 [7, 3] 已完整拆分为单元素 [7] 和 [3]，二者均达到递归终止条件；下方尚未生成合并结果 [3, 7]，顶层右半尚未展开。",
+      "key_state": "单元素 [7] 与 [3] 均已就绪，等待回溯合并。",
+      "announcement": "单元素 [3] 也触发终止条件返回，准备合并左半部分。"
+    },
+    {
+      "id": "source-278",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step5.png",
+      "title": "回溯合并左半部分，得到有序子数组 [3, 7]",
+      "explanation": "在回溯合并阶段比较两个单元素 [7] 与 [3]，先取出较小的 3，再追加剩余的 7，合并为绿色有序子数组 [3, 7]。图中的交叉连线标示 3 和 7 在合并后交换了先后次序。",
+      "state": "本组输入为 [7, 3, 2, 6]。左侧分支已显示 [7, 3] 拆分为 [7]、[3] 并回溯合并为绿色有序结果 [3, 7]；顶层右半 [2, 6] 仍未展开。",
+      "key_state": "左半部分已合并为有序的 [3, 7]；右半部分待处理。",
+      "announcement": "将单元素 [7] 和 [3] 回溯合并为有序子数组 [3, 7]。"
+    },
+    {
+      "id": "source-279",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step6.png",
+      "title": "左半完成后递归进入右半子数组 [2, 6]",
+      "explanation": "左子问题返回有序结果 [3, 7] 后，顶层调用开始递归进入右子问题 [2, 6]。尽管 2 和 6 本身恰好呈升序，归并排序仍按统一的分治规则对包含两个元素的 [2, 6] 继续二分。",
+      "state": "本组输入为 [7, 3, 2, 6]。顶层左侧分支已完成并保留合并结果 [3, 7]；顶层右侧分支刚展开子问题 [2, 6]，尚未拆分为单元素。",
+      "key_state": "保留左半有序结果 [3, 7]，递归进入右子问题 [2, 6]。",
+      "announcement": "左半部分合并完毕，转入右半子数组 [2, 6] 递归划分。"
+    },
+    {
+      "id": "source-280",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step7.png",
+      "title": "展开右半的左侧单元素 [2]",
+      "explanation": "对右子问题 [2, 6] 从中点切分，先递归进入其左侧的单元素子数组 [2]。由于长度为 1，[2] 触发递归终止条件并直接返回；左侧已排好序的 [3, 7] 保持在原位等待最终合并。",
+      "state": "本组输入为 [7, 3, 2, 6]。左半合并结果为 [3, 7]；右半分支 [2, 6] 已展开出左侧单元素 [2] 并触发终止条件，单元素 [6] 与右半合并结果尚未出现。",
+      "key_state": "右分支到达单元素 [2]；左半结果 [3, 7] 保持就绪。",
+      "announcement": "右半分支先划分到单元素 [2]，触发终止条件。"
+    },
+    {
+      "id": "source-281",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step8.png",
+      "title": "展开右半的右侧单元素 [6]",
+      "explanation": "单元素 [2] 返回后，递归处理 [2, 6] 的右侧单元素子数组 [6]。它同样直接触发终止条件返回，至此右半部分的两个有序单元素 [2] 和 [6] 也全部准备就绪。",
+      "state": "本组输入为 [7, 3, 2, 6]。左半结果 [3, 7] 已就绪；右半 [2, 6] 已拆分为单元素 [2] 和 [6] 且均触发终止条件，尚未显示右侧合并结果。",
+      "key_state": "右半单元素 [2] 与 [6] 均已就绪，等待合并。",
+      "announcement": "单元素 [6] 触发终止条件返回，准备合并右半部分。"
+    },
+    {
+      "id": "source-282",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step9.png",
+      "title": "回溯合并右半部分，得到有序子数组 [2, 6]",
+      "explanation": "比较单元素 [2] 与 [6]，先取出较小的 2，再追加剩余的 6，合并为绿色有序子数组 [2, 6]。虽然元素相对次序未变，但本次回溯合并已执行完毕；此时顶层所需的左右两个有序子数组 [3, 7] 与 [2, 6] 均已就绪。",
+      "state": "本组输入为 [7, 3, 2, 6]。左侧分支已合并为 [3, 7]，右侧分支已合并为 [2, 6]；左右两个有序半区都已就绪，顶层最终合并尚未执行。",
+      "key_state": "左右两个有序子数组 [3, 7] 与 [2, 6] 均已就绪。",
+      "announcement": "将 [2] 与 [6] 合并为有序子数组 [2, 6]，准备执行顶层合并。"
+    },
+    {
+      "id": "source-283",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step10.png",
+      "title": "顶层合并两个有序半区，完成排序",
+      "explanation": "最后将左半有序子数组 [3, 7] 与右半有序子数组 [2, 6] 合并：先比较各自首元素 3 与 2，取出较小的 2；再比较 3 与 6，取出 3；接着比较 7 与 6，取出 6；右半耗尽后将左半剩余的 7 追加到末尾，得到最终升序数组 [2, 3, 6, 7]，顶层调用结束。",
+      "state": "本组输入为 [7, 3, 2, 6]。画面完整显示全部递归划分与回溯合并层级：左半 [7, 3] 拆为 [7]、[3] 后合并为 [3, 7]；右半 [2, 6] 拆为 [2]、[6] 后合并为 [2, 6]；底部将 [3, 7] 与 [2, 6] 合并为最终有序数组 [2, 3, 6, 7]。",
+      "key_state": "归并排序结束，最终有序数组为 [2, 3, 6, 7]。",
+      "announcement": "合并有序半区 [3, 7] 与 [2, 6]，完成排序得到 [2, 3, 6, 7]。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-14",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "90791445bc1b3b10450309046770babde4de1e2ff97c9615e1e23ea4a8364409",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "5a295e0014841cec0889d2840ee040ebc8853eb18a5f4d3f163be63d370bcf0c",
+        "output_sha256": "38d311270875eda0fd1344de8bbf9953970b36165a561e801c6ad84ddd22e151"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "38d311270875eda0fd1344de8bbf9953970b36165a561e801c6ad84ddd22e151",
+        "output_sha256": "15591434bbe06f1db87189a430baf4e7f2ad07c9089bd936b1e261343fd43bcd"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "15591434bbe06f1db87189a430baf4e7f2ad07c9089bd936b1e261343fd43bcd",
+        "output_sha256": "196da5f0ad7e42156abcebaa84871e13248a54fc58c94d5ca483e8a24d062fcf"
+      }
+    ],
+    "evidence_sha256": "b9e6dc66cedeb987a0eb47092436d4b3d4cae71ad872be82504a7df2fe3288a3"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_sorting/merge_sort.md": "05f97e41952513869bd782db9bfc190e44286d9cb30a530c83827d32ee9e4d1a"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_sorting/merge_sort.assets/merge_sort_step1.png": "9931804e7d09d933b9d13113bb079b24f721bb4672fe24ad58f0fc4b99326068",
+      "chapter_sorting/merge_sort.assets/merge_sort_step2.png": "9a7384f0f9b3fbff03b4509c51bdc8b98510d22444b2927b0b467fa87d8e39dc",
+      "chapter_sorting/merge_sort.assets/merge_sort_step3.png": "d855048e08d1dd100e4ffc2165c62cbf8ba5272998ab4ac9fe3a230e77840f04",
+      "chapter_sorting/merge_sort.assets/merge_sort_step4.png": "e31b1217fd573f35e07277cc6fa4125be6813ce8ba95de39da7855744eba91ef",
+      "chapter_sorting/merge_sort.assets/merge_sort_step5.png": "18f265ea33b6ee22b6592934daf0df62e244dfa65faad6f1a60951f04cb1d4ec",
+      "chapter_sorting/merge_sort.assets/merge_sort_step6.png": "8c19277f6e062974cc44690ab4d27fc552af81e156a05a3fedc426afea804b47",
+      "chapter_sorting/merge_sort.assets/merge_sort_step7.png": "304e2761634bf6cdd0850510bd040d3fbcbbe51442ae203010deab8c22675b13",
+      "chapter_sorting/merge_sort.assets/merge_sort_step8.png": "8539a372bcc8015532205fd12b083a2d7ca8161a89b817d3e0695b13d99a1f08",
+      "chapter_sorting/merge_sort.assets/merge_sort_step9.png": "057068c732ba18f68feb7da578eaecd4d4f145aa946b4690e635ffad0088fd31",
+      "chapter_sorting/merge_sort.assets/merge_sort_step10.png": "7076c79da181500137a55327054e1fd3b41c248def35f8b27921ea17fa6f9fe1"
+    }
+  },
+  "animations": {
+    "merge-sort": {
+      "kind": "source-frames",
+      "model_sha256": "77a7acaf7665944496b3c609ca2f76c5695773c1a255bc9f946f1d5ed409f738",
+      "source_content_sha256": "90791445bc1b3b10450309046770babde4de1e2ff97c9615e1e23ea4a8364409",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-274"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-275"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-276"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-277"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-278"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-279"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-280"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-281"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-282"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-283"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "f4550d21ebb30b65fb3cfacdc5890ed539368b00a9839852c777ff7995c5118a",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

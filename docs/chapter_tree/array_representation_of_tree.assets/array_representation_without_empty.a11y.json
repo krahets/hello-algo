@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_tree/array_representation_of_tree.assets/array_representation_without_empty",
+  "title": "省略中间空位后层序序列无法唯一表示原树",
+  "summary": "当非完美二叉树中间存在缺失子节点时，仅保留 10 个非空节点的层序数组 [1, 2, 3, 4, 6, 7, 8, 9, 12, 15] 会令数组下标与树中位置索引错位。",
+  "context": [
+    "上方四层非完美二叉树共 10 个节点：根节点 1 的左、右子节点为 2、3；2 只有左子节点 4（无右子节点）；3 的左、右子节点为 6、7；4 的左、右子节点为 8、9；6 只有左子节点 12（无右子节点）；7 只有右子节点 15（无左子节点）。8、9、12、15 为叶节点。"
+  ],
+  "description": [
+    "树中每个节点正下方的灰色数字是它在完美二叉树中的理论位置编号：节点 1、2、3、4、6、7、8、9、12、15 下方依次标着 0、1、2、3、5、6、7、8、11、14。由于树中间缺少了编号 4、9、10、12、13 处的节点，这些位置编号并不连续。",
+    "图下方将现有节点直接按层序压紧为 10 个元素的数组 [1, 2, 3, 4, 6, 7, 8, 9, 12, 15]，上方对应的“数组索引”则是连续的 0 至 9。中间的灰色提示框明确指出：“该序列（数组）无法唯一地表示此二叉树”。",
+    "由于层序遍历序列省略了中间的空位（None），从第 5 个节点（值 6）开始，它在树中的位置编号（5、6、7、8、11、14）与压紧后的数组索引（4、5、6、7、8、9）完全错开。例如节点 2 位于数组索引 1，若套用 2i+2 会把数组索引 4 处的值 6 误判为 2 的右子节点，而实际上 2 没有右子节点、6 是节点 3 的左子节点；节点 12 在树中的位置编号本为 11，压紧后却落在了数组索引 8。"
+  ],
+  "result": "图中这种中间存在缺失子节点的树，若从层序序列中删除空位，就会丢失空位的数量与分布，导致同一序列可对应多种不同树形，2i+1 与 2i+2 映射公式随之失效。完全二叉树的空位仅位于层序末尾，可省略这些末尾空位；不能把本图结论扩大为所有非完美二叉树都必须保留空位。",
+  "frames": [
+    {
+      "id": "source-111",
+      "book_path": "chapter_tree/array_representation_of_tree.assets/array_representation_without_empty.png",
+      "title": "省略中间空位后层序序列无法唯一表示原树",
+      "explanation": "上方树中 10 个节点的理论位置编号为不连续的 0、1、2、3、5、6、7、8、11、14，而下方压紧后的层序数组下标却是连续的 0 至 9，直观说明省略空位会导致索引错位、无法唯一还原树结构。",
+      "state": "上方二叉树含 10 个节点：根 1（位置编号 0）连左 2（编号 1）、右 3（编号 2）；2 仅连左 4（编号 3）；3 连左 6（编号 5）、右 7（编号 6）；4 连左 8（编号 7）、右 9（编号 8）；6 仅连左 12（编号 11）；7 仅连右 15（编号 14）。中部标有“该序列（数组）无法唯一地表示此二叉树”，下方层序遍历序列数组在连续索引 0 至 9 处存放 [1, 2, 3, 4, 6, 7, 8, 9, 12, 15]。",
+      "key_state": "树中节点位置编号为 0、1、2、3、5、6、7、8、11、14，而压紧数组下标为 0 至 9，丢失空位后无法唯一表示该树。",
+      "announcement": "展示省略中间空位后，层序数组 [1, 2, 3, 4, 6, 7, 8, 9, 12, 15] 的连续下标 0 至 9 与树中位置编号发生错位。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-06",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "1d2e31f523eb42a22c59eea32dabdb37a6b25f8c66d0aa9580390bdd4f432af9",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a7d27ac86970762b98a3afc622b5a802549e6b6254c666e3efdf60f34ede65b5",
+        "output_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4",
+        "output_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900",
+        "output_sha256": "30bb25c69fe95554ab48370f707653e1ddeb4b287f83cb44cf33dc013e44b87b"
+      }
+    ],
+    "evidence_sha256": "bbb898a17ec7d0f8023ba3e028e19e1cebb4eba7c5059fe86305e5491e6f3b3b"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_tree/array_representation_of_tree.md": "cd4a08a4c01fdd9039b2c9cafa2632b965147084ddf3ff241600c2c803acc30e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_tree/array_representation_of_tree.assets/array_representation_without_empty.png": "f361dc6f2571fc85e20f3a967bbc2ed32be2a615edd496b25654070ad8b8b61b"
+    }
+  }
+}

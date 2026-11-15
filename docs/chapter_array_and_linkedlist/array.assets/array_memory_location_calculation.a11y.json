@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_array_and_linkedlist/array.assets/array_memory_location_calculation",
+  "title": "由首地址和索引计算数组元素地址",
+  "summary": "在数组 [1, 3, 2, 5, 4] 中，利用“元素内存地址 = 数组内存地址 + 元素长度 × 元素索引”，由首地址 000、元素长度 4 和目标索引 3 直接算出索引 3 处（元素值 5）的内存地址为 012。",
+  "context": [
+    "图上方列出长度为 5 的数组及其索引和内存地址，下方给出数组随机访问的地址计算公式与求索引 3 处元素地址的代入算式。"
+  ],
+  "description": [
+    "上方三行对齐排列：第一行“数组”为五个绿色单元格 1、3、2、5、4；第二行“元素索引”依次为 0、1、2、3、4；第三行“内存地址”依次为 00、04、08、12、16；第四行标注“元素长度 = 4”。一道浅灰色竖向高亮条同时框住第 4 列的元素值 5、元素索引 3 和内存地址 12。",
+    "中部灰色圆角框写出通用公式：“元素内存地址 = 数组内存地址 + 元素长度 × 元素索引”，其中“数组内存地址”正下方注明“（首元素地址）”，“元素长度 × 元素索引”正下方用水平大括号注明“（地址偏移量）”。",
+    "底部说明框写出具体计算：“示例：求数组索引 3 处的元素的内存地址”，下方算式按相同配色对应写出“012 = 000 + 4 × 3”。"
+  ],
+  "result": "由于数组元素在内存中连续存储且每个元素长度固定，索引本质上就是相对于首元素的步长偏移量（首元素偏移量为 0，故索引从 0 开始）；计算机只需一次乘法和一次加法即可在 O(1) 时间内算出任意索引处的内存地址。",
+  "frames": [
+    {
+      "id": "source-47",
+      "book_path": "chapter_array_and_linkedlist/array.assets/array_memory_location_calculation.png",
+      "title": "由首地址和索引计算数组元素地址",
+      "explanation": "竖向高亮条清晰标示了本次访问的目标：我们要访问的是“索引 3”位置上的第 4 个元素（其存放的元素值是 5，切勿混淆为寻找值为 3 的元素）。已知首元素（索引 0）的内存地址为 000（即上方简写的 00），每个元素占用的长度为 4，从索引 0 跨到索引 3 共跨越 3 个元素，地址偏移量为 4 × 3 = 12，加上首地址 000 即得到目标内存地址 012（对应上方简写的 12）。",
+      "state": "上方对齐展示“数组”[1, 3, 2, 5, 4]、“元素索引”[0, 1, 2, 3, 4]、“内存地址”[00, 04, 08, 12, 16] 及“元素长度 = 4”，竖向高亮条框住第 4 列的数组元素 5、元素索引 3 与内存地址 12。中部公式为“元素内存地址 = 数组内存地址（首元素地址） + 元素长度 × 元素索引（地址偏移量）”；底部示例标注“求数组索引 3 处的元素的内存地址：012 = 000 + 4 × 3”。",
+      "key_state": "目标为索引 3（存放元素值 5），元素长度为 4；内存地址 = 首地址 000 + 偏移量 4 × 3 = 012（即地址 12）。",
+      "announcement": "展示数组元素内存地址的 O(1) 计算公式，并以首地址 000、元素长度 4、索引 3 计算出元素 5 的地址 012。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-03",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "889c059255865c342ce76ecd4dbc4cc1454c93defea36a79c80e8796c024c03f",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "cbe99e77444e0462f57c192b0088094f9fd6936e24f6cfd18181de4a48ba8083",
+        "output_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c",
+        "output_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6",
+        "output_sha256": "bdf21f24ca6a88ed6060d24186ac933357dde4feee3a257546cffd56c2bd6867"
+      }
+    ],
+    "evidence_sha256": "ec6ba9da7d2fe9290ce303592b8440b918ec83702cd9d0e6bbdc1e50d87c89d8"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_array_and_linkedlist/array.md": "b552efb1674ec7ace53cef69704ced587bc0f66bf9c861380e4105d944147d3e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_array_and_linkedlist/array.assets/array_memory_location_calculation.png": "2d8f125f3567fbfd2af560d31690f6e986827427c2ffbc3dc45dd19e1fecf0cf"
+    }
+  }
+}

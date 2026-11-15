@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_divide_and_conquer/hanota_problem.assets/hanota_f3",
+  "title": "把三盘汉诺塔分解为两个两盘子问题与一次大盘移动",
+  "summary": "先将顶部两盘迁到 B，再把最大盘移到 C，最后把两盘从 B 迁到 C；三个阶段共含七次单盘移动。",
+  "context": [
+    "图中从左到右为三根柱子 A、B、C，目标是把柱 A 上的三个圆盘移到柱 C。每次只能移动柱顶的一个圆盘，且大盘不能压在小盘之上；下文柱上圆盘均按从下到上的顺序表述。",
+    "三只圆盘从大到小依次为绿色大盘、蓝色中盘、橙色小盘，初始全部叠在柱 A。青色实线轮廓将上方的中盘与小盘圈作一个规模为 f(2) 的递归子问题。",
+    "将两盘看作整体只是分治递归的抽象表示，并不代表物理上同时端起两个圆盘；两个 f(2) 子问题各自需要展开为三次合法的单盘移动，加上中间最大盘的一次移动，共执行七次单盘移动。"
+  ],
+  "description": [
+    "四帧依次展示初始划分状态以及三个子阶段的完成终点，未逐帧展开 f(2) 子问题内部的三次单盘移动细节。"
+  ],
+  "result": "经过七次单盘移动后，柱 C 从下到上依次为大盘、中盘、小盘，柱 A 和柱 B 为空；四帧展示起点与三个阶段终点。",
+  "frames": [
+    {
+      "id": "source-335",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step1.png",
+      "title": "在柱 A 上圈出顶部两盘子问题",
+      "explanation": "要移动最下面的绿色大盘，必须先把柱 A 顶部的蓝色中盘和橙色小盘移开。把这两只圆盘整体迁往柱 B 时，柱 B 是该 f(2) 子问题的目标柱，柱 C 充当缓冲柱。",
+      "state": "A=[大盘, 中盘, 小盘]，B=[]，C=[]；中盘和小盘被青色实线轮廓圈为一个规模为 2 的子问题，尚未开始移动。",
+      "key_state": "三盘均在柱 A；先规划把顶部两盘迁往柱 B。",
+      "announcement": "将柱 A 顶部的两只圆盘视作规模为 2 的子问题。"
+    },
+    {
+      "id": "source-336",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step2.png",
+      "title": "第一阶段：把顶部两盘从柱 A 迁到柱 B",
+      "explanation": "本帧展示第一个 f(2) 子问题完成后的结果：中盘和小盘已按大下小上叠在柱 B，柱 A 只剩底层绿色大盘。该阶段实际由小盘 A→C、中盘 A→B、小盘 C→B 三次单盘移动组成，图中直接给出阶段终点。",
+      "state": "A=[大盘]，B=[中盘, 小盘]，C=[]；第一个 f(2) 子问题完成，累计已执行三次单盘移动。",
+      "key_state": "顶部两盘已迁至柱 B，柱 A 只剩大盘。",
+      "announcement": "借助柱 C 将柱 A 顶部的两只圆盘迁到柱 B。"
+    },
+    {
+      "id": "source-337",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step3.png",
+      "title": "第二阶段：把唯一剩下的大盘从柱 A 移到柱 C",
+      "explanation": "两只较小圆盘暂存在柱 B 后，柱 A 上的绿色大盘露出且目标柱 C 为空，直接将绿色大盘从柱 A 移到柱 C。",
+      "state": "A=[]，B=[中盘, 小盘]，C=[大盘]；完成最大盘从 A 到 C 的移动，累计已执行四次单盘移动。",
+      "key_state": "大盘已到柱 C，中盘和小盘仍在柱 B。",
+      "announcement": "将柱 A 剩余的最大盘直接移到柱 C。"
+    },
+    {
+      "id": "source-338",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step4.png",
+      "title": "第三阶段：把柱 B 上的两盘迁到柱 C",
+      "explanation": "第二个 f(2) 子问题以柱 B 为源柱、柱 A 为缓冲柱、柱 C 为目标柱，内部展开为小盘 B→A、中盘 B→C、小盘 A→C 三次单盘移动，最终将两盘叠放到柱 C 的大盘之上。",
+      "state": "A=[]，B=[]，C=[大盘, 中盘, 小盘]；第二个 f(2) 子问题完成，累计执行七次单盘移动，三盘迁移结束。",
+      "key_state": "三只圆盘全部按大下小上叠在柱 C。",
+      "announcement": "借助柱 A 将柱 B 上的两只圆盘迁到柱 C，完成三盘迁移。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-17",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "8015c9962cc27307c108739e49ccbf66254bd261df09932d201b3ba1c6fe58b1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "9481355a76d6c2868fbc0dd1da3fce835e92627213718a59a80d559350e023af",
+        "output_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f",
+        "output_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc",
+        "output_sha256": "1ba5b92e7d3bb734d4bc41b061ddb3c528638a049805a4bbcfc38825c0c76c88"
+      }
+    ],
+    "evidence_sha256": "6ad10597e7712f6ddf95ae500fcc50f0289bc7d0786a40fa5117c27866048681"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_divide_and_conquer/hanota_problem.md": "fe9fd8bc5e3971914c01d472b05d0c15d4d3b57218bae244613f3acb4a02e17e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step1.png": "fdaa3470ade30bee341b56ec9bd6a106ff8fe89a1069c1196b381d74a516b583",
+      "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step2.png": "a7338923971cf4d4826820dfbd283ab2ab0e774deb5b0c49b789df1001d140e4",
+      "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step3.png": "fbbbdb34ec1e56ccc13a114fabee3dba4fc69fbb234ef35385e4826d56f015e8",
+      "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step4.png": "16be5aeaf268d6ce5fe11cfb9b1e43e66fc1a3204b27e59ab6ad0583ce951744"
+    }
+  },
+  "animations": {
+    "hanota-f3": {
+      "kind": "source-frames",
+      "model_sha256": "e129e1663a381499055a35bab977e097017a0c0c581234656bf39a0b405debd9",
+      "source_content_sha256": "8015c9962cc27307c108739e49ccbf66254bd261df09932d201b3ba1c6fe58b1",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-335"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-336"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-337"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-338"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "291795f475b41569710ee950e1f630371d4d328b68b445cd01949fb22e156265",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_linear",
+  "title": "线性递归的调用栈空间",
+  "summary": "递归函数 linear_recur 从参数 n 逐层递减调用到 1，在触底返回前同时保留 n 层未返回的调用栈帧，占用线性阶 O(n) 空间。",
+  "context": [
+    "画面分为左右两列流程：中间偏左列标题为“向下‘递’”，展示函数逐层向下的递归调用链；右侧列标题为“向上‘归’”，展示触底后自下而上的逐层返回过程。"
+  ],
+  "description": [
+    "在“向下‘递’”一列中，灰色圆角方框自上而下依次为 linear_recur(n)、linear_recur(n-1)、省略号、linear_recur(2) 和 linear_recur(1)，各框之间由向下的箭头连接。左侧大括号覆盖整条调用链，标注“递归深度 n”。",
+    "在最底层的 linear_recur(1) 右侧，一条水平向右的箭头指向底部“return 0”，箭头上方标注“触发递归终止条件”。随后在“向上‘归’”一列中，四个“return 0”（中间含省略号）由向上的箭头依次串联直至顶层。底部说明框写出：“函数递归调用的深度为 n，共使用 O(n) 的栈帧空间”，右侧箭头指向“空间复杂度 线性阶 O(n)”。"
+  ],
+  "result": "空间复杂度以运行过程中的峰值内存为准：虽然单次调用结束后栈帧会被释放，但深度为 n 的单链递归在到达终止条件前会同时积压 n 个未返回的栈帧，因此栈帧空间复杂度为线性阶 O(n)。",
+  "frames": [
+    {
+      "id": "source-35",
+      "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_linear.png",
+      "title": "线性递归的调用栈空间",
+      "explanation": "每次调用 linear_recur 时，系统都会在调用栈顶新建一个栈帧来保存当前层上下文。由于外层调用必须等待内层调用返回后才能结束，当执行到最底层的 linear_recur(1) 时，从 n 到 1 的全部 n 层栈帧同时驻留在内存中；直到触发终止条件并沿右侧向上逐层返回（图中以各层的 return 0 统一标记返回动作），这些栈帧才依次出栈释放。",
+      "state": "左侧大括号标注“递归深度 n”。中间“向下‘递’”列由向下箭头依次连接 linear_recur(n)、linear_recur(n-1)、省略号、linear_recur(2)、linear_recur(1)；底层向右箭头标注“触发递归终止条件”，指向右侧“向上‘归’”列底部的 return 0，再由向上箭头串联各层 return 0 回到顶层。底部说明框标注：函数递归调用的深度为 n，共使用 O(n) 的栈帧空间，空间复杂度为线性阶 O(n)。",
+      "key_state": "递归调用从 n 深入到 1，峰值时刻同时保留 n 层未返回栈帧，空间复杂度为线性阶 O(n)。",
+      "announcement": "展示 linear_recur 向下递归累积 n 层调用栈帧、触底后再自下而上逐层返回的过程。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-02",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "b542c9080a93bed419b42c5504eb8e189c1b13dc72bd8fecf9f02afab7c66dfb",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "2418f4f89bf15820de1b9f866e20459174d1357741c9215565d8a6fadd9ef34c",
+        "output_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae",
+        "output_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4",
+        "output_sha256": "62b51949e795658a5a6779b7e616f31ed019742d5859071a77cc3801abe0d6d7"
+      }
+    ],
+    "evidence_sha256": "45d0d7027b523659e72b602edeb9f0d969e31b4ab937e3e24decd1d342fb1eff"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_computational_complexity/space_complexity.md": "abad8985c68bd7c4f69a006f641f5420c4d4f10c0ee5d797be445ac649512690"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_linear.png": "31f3fdae9adc8885f905ac51320702ae41e6c06029e4fc4b55e117f8513b17a6"
+    }
+  }
+}

@@ -372,10 +372,10 @@
     ![基於鏈結串列實現佇列的入列出列操作](queue.assets/linkedlist_queue_step1.svg)
 
 === "<2>"
-    ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.svg)
+    ![基於鏈結串列實現佇列的入列與出列，第 2 步，共 3 步：步驟 2：入列 push(4)，將節點 4 新增至鏈結串列尾部](queue.assets/linkedlist_queue_step2_push.svg)
 
 === "<3>"
-    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.svg)
+    ![基於鏈結串列實現佇列的入列與出列，第 3 步，共 3 步：步驟 3：出列 pop()，刪除鏈結串列頭節點 1](queue.assets/linkedlist_queue_step3_pop.svg)
 
 以下是用鏈結串列實現佇列的程式碼：
 
@@ -400,10 +400,10 @@
     ![基於陣列實現佇列的入列出列操作](queue.assets/array_queue_step1.svg)
 
 === "<2>"
-    ![array_queue_push](queue.assets/array_queue_step2_push.svg)
+    ![基於陣列實現佇列的入列與出列，第 2 步，共 3 步：步驟 2：入列 push(4)，寫入 rear 位置並將 size 自增 1](queue.assets/array_queue_step2_push.svg)
 
 === "<3>"
-    ![array_queue_pop](queue.assets/array_queue_step3_pop.svg)
+    ![基於陣列實現佇列的入列與出列，第 3 步，共 3 步：步驟 3：出列 pop()，將 front 自增 1 並將 size 自減 1](queue.assets/array_queue_step3_pop.svg)
 
 你可能會發現一個問題：在不斷進行入列和出列的過程中，`front` 和 `rear` 都在向右移動，**當它們到達陣列尾部時就無法繼續移動了**。為了解決此問題，我們可以將陣列視為首尾相接的“環形陣列”。
 

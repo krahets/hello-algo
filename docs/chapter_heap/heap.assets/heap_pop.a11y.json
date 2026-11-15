@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_heap/heap.assets/heap_pop",
+  "title": "大顶堆堆顶元素出堆：首尾交换后从顶至底堆化（Sift Down）",
+  "summary": "先交换堆顶 9 与堆底 5，弹出末尾的 9，再让新根 5 依次与较大子节点 8、7、6 交换下沉，恢复大顶堆性质。",
+  "context": [
+    "初始大顶堆包含 13 个元素，按层序存为数组 [9, 8, 7, 6, 7, 6, 2, 1, 4, 3, 6, 2, 5]。根节点（索引 0）为全堆最大值 9，最右叶节点（索引 12）为堆底元素 5。大顶堆要求任意父节点的值不小于其子节点的值。",
+    "底层数组按完全二叉树的层序排列，索引从 0 开始；给定索引 i，其左、右子节点索引分别为 2i + 1 和 2i + 2，计算结果越界表示对应子节点不存在。",
+    "每步画面上方的“二叉树表示”与下方的“数组表示”对应同一个堆，树中两节点交换时，数组中对应索引的元素同步交换。由于堆中存在重复数值 6、7、2，以下结合从 0 开始的数组索引加以区分。"
+  ],
+  "description": [
+    "若直接删除数组首元素（堆顶），会导致后续所有元素索引整体前移，改变其余节点原有的父子关系。因此出堆操作分为三步：第一步先将堆顶元素与堆底元素交换；第二步直接弹出数组末尾的当前堆底元素（即原堆顶最大值），使剩余节点仍构成完全二叉树；第三步从根节点开始执行“从顶至底堆化（Sift Down）”，每轮将当前节点与左、右子节点三者中的最大值比较，若子节点更大则与最大的子节点交换，直至当前节点已不小于子节点或抵达叶节点为止。"
+  ],
+  "result": "出堆操作返回原堆顶最大值 9。剩余 12 个元素的层序数组恢复为 [8, 7, 7, 6, 6, 6, 2, 1, 4, 3, 5, 2]，新堆顶为 8。元素 5 从根索引 0 依次经索引 1、4 下沉至叶节点索引 10，共执行三次向下交换后重新满足大顶堆条件。",
+  "frames": [
+    {
+      "id": "source-152",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step1.png",
+      "title": "第 1 步：标出待出堆的堆顶 9 与堆底 5",
+      "explanation": "初始 13 元素大顶堆满足父节点值不小于子节点值。图中用蓝色标出位于根（数组索引 0）的“堆顶元素” 9，用紫蓝色标出位于最右叶节点（数组索引 12）的“堆底元素” 5，准备先行交换这两个位置。",
+      "state": "层序数组为 [9, 8, 7, 6, 7, 6, 2, 1, 4, 3, 6, 2, 5]，共 13 个元素。数组按树的层序排列，索引从 0 开始；索引 i 的左、右孩子位置分别为 2i + 1、2i + 2，越界表示孩子不存在。当前堆顶为索引 0 的 9，堆底为索引 12 的 5，尚未执行交换。",
+      "key_state": "初始 13 个元素；准备交换索引 0 的堆顶 9 与索引 12 的堆底 5。",
+      "announcement": "准备弹出堆顶元素 9，标出索引 0 的堆顶 9 与索引 12 的堆底 5。"
+    },
+    {
+      "id": "source-153",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step2.png",
+      "title": "第 2 步：将堆顶元素 9 与堆底元素 5 交换",
+      "explanation": "执行“1. 将堆顶元素与堆底元素交换”：交换数组索引 0 与索引 12 的值，使 5 移至根节点，原堆顶 9 移至堆底（数组首尾上下的双向弧线标示此次交换），其余元素位置不变。注意本步仅完成首尾交换，9 仍在数组中尚未删除，且根 5 小于子节点，大顶堆性质暂时被破坏。",
+      "state": "层序数组为 [5, 8, 7, 6, 7, 6, 2, 1, 4, 3, 6, 2, 9]，共 13 个元素。数组按树的层序排列，索引从 0 开始；索引 i 的左、右孩子位置分别为 2i + 1、2i + 2，越界表示孩子不存在。当前根节点（索引 0）为 5，末尾堆底（索引 12）为 9；9 尚未从数组中移除。",
+      "key_state": "首尾交换完成：根索引 0 为 5，末尾索引 12 为 9（尚未删除）。",
+      "announcement": "交换堆顶 9 与堆底 5，使原堆顶 9 移至数组末尾索引 12。"
+    },
+    {
+      "id": "source-154",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step3.png",
+      "title": "第 3 步：弹出当前堆底的原堆顶元素 9",
+      "explanation": "执行“2. 弹出当前的堆底元素”：将位于数组末尾索引 12 的 9 删除并作为出堆结果保存，数组长度从 13 缩减为 12。树中索引 5（值为 6）原本接在右侧的子节点 9 被移除，只保留左子节点 2。接下来需要从根节点 5 开始向下堆化。",
+      "state": "层序数组为 [5, 8, 7, 6, 7, 6, 2, 1, 4, 3, 6, 2]，共 12 个元素。数组按树的层序排列，索引从 0 开始；索引 i 的左、右孩子位置分别为 2i + 1、2i + 2，越界表示孩子不存在。原堆顶 9 已从末尾弹出；当前根节点为索引 0 的 5，准备从顶至底堆化。",
+      "key_state": "末尾的 9 已弹出；剩余 12 个元素，根节点为索引 0 的 5。",
+      "announcement": "从数组末尾删除原堆顶 9，准备从根节点 5 开始向下修复堆。"
+    },
+    {
+      "id": "source-155",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step4.png",
+      "title": "第 4 步：比较根节点 5 与左、右子节点 8、7",
+      "explanation": "进入“3. 从顶至底进行堆化（Sift Down）”，比较根索引 0 的 5、左子节点索引 1 的 8 与右子节点索引 2 的 7。图右侧标出“∵ 在节点 5, 8, 7 中，节点 8 最大”，因此下一步应将 5 与较大的左子节点 8 交换；本步仅做比较，数组尚未改变。",
+      "state": "层序数组为 [5, 8, 7, 6, 7, 6, 2, 1, 4, 3, 6, 2]，共 12 个元素。数组按树的层序排列，索引从 0 开始；索引 i 的左、右孩子位置分别为 2i + 1、2i + 2，越界表示孩子不存在。当前下沉节点为索引 0 的 5，正在比较索引 0、1、2 的值 5、8、7，判定左子节点索引 1 的 8 最大。",
+      "key_state": "比较索引 0 的 5 与子节点 8、7；左子节点索引 1 的 8 最大，准备交换。",
+      "announcement": "比较根节点 5 与两个子节点 8、7，确定左子节点 8 最大。"
+    },
+    {
+      "id": "source-156",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step5.png",
+      "title": "第 5 步：交换节点 5 与左子节点 8",
+      "explanation": "执行“∴ 交换节点 5 与节点 8”：交换数组索引 0 与索引 1 的值，节点 8 升为新的堆顶，节点 5 下沉至索引 1（根的左子节点）。此时索引 1 的左、右子节点分别为索引 3 的 6 和索引 4 的 7，仍需继续向下比较。",
+      "state": "层序数组为 [8, 5, 7, 6, 7, 6, 2, 1, 4, 3, 6, 2]，共 12 个元素。数组按树的层序排列，索引从 0 开始；索引 i 的左、右孩子位置分别为 2i + 1、2i + 2，越界表示孩子不存在。堆顶已变为索引 0 的 8；下沉元素 5 现位于索引 1，其左、右子节点为索引 3 的 6 和索引 4 的 7。",
+      "key_state": "交换索引 0 与 1：新堆顶为 8，节点 5 下沉至索引 1。",
+      "announcement": "交换节点 5 与节点 8，8 成为新堆顶，5 下沉到索引 1。"
+    },
+    {
+      "id": "source-157",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step6.png",
+      "title": "第 6 步：比较索引 1 的 5 与子节点 6、7",
+      "explanation": "继续在索引 1 处比较节点 5 与其左子节点索引 3 的 6、右子节点索引 4 的 7。图右侧标出“∵ 在节点 5, 6, 7 中，节点 7 最大”，因此下一步应与右子节点（索引 4 的 7，而非根右侧索引 2 的另一个 7）交换；本步数组尚未改变。",
+      "state": "层序数组为 [8, 5, 7, 6, 7, 6, 2, 1, 4, 3, 6, 2]，共 12 个元素。数组按树的层序排列，索引从 0 开始；索引 i 的左、右孩子位置分别为 2i + 1、2i + 2，越界表示孩子不存在。当前正在比较索引 1 的 5 与其子节点索引 3 的 6、索引 4 的 7，选中最大的右子节点索引 4 的 7。",
+      "key_state": "比较索引 1 的 5 与子节点 6、7；右子节点索引 4 的 7 最大，准备交换。",
+      "announcement": "比较索引 1 的 5 与子节点 6、7，确定右子节点索引 4 的 7 最大。"
+    },
+    {
+      "id": "source-158",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step7.png",
+      "title": "第 7 步：交换节点 5 与索引 4 的子节点 7",
+      "explanation": "执行“∴ 交换节点 5 与节点 7”：交换数组索引 1 与索引 4 的值，索引 4 的 7 上移至索引 1（成为根 8 的左子节点），节点 5 下沉至索引 4。此时索引 4 的左、右子节点分别为索引 9 的 3 和索引 10 的 6。",
+      "state": "层序数组为 [8, 7, 7, 6, 5, 6, 2, 1, 4, 3, 6, 2]，共 12 个元素。数组按树的层序排列，索引从 0 开始；索引 i 的左、右孩子位置分别为 2i + 1、2i + 2，越界表示孩子不存在。节点 5 已下沉至索引 4，其左、右子节点分别为索引 9 的 3 和索引 10 的 6。",
+      "key_state": "交换索引 1 与 4：节点 5 下沉至索引 4，下一层子节点为 3 和 6。",
+      "announcement": "交换节点 5 与索引 4 的 7，节点 5 继续下沉到索引 4。"
+    },
+    {
+      "id": "source-159",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step8.png",
+      "title": "第 8 步：比较索引 4 的 5 与子节点 3、6",
+      "explanation": "继续在索引 4 处比较节点 5 与其左子节点索引 9 的 3、右子节点索引 10 的 6。图右侧标出“∵ 在节点 5, 3, 6 中，节点 6 最大”，因此下一步应与右子节点索引 10 的 6 交换；本步数组尚未改变。",
+      "state": "层序数组为 [8, 7, 7, 6, 5, 6, 2, 1, 4, 3, 6, 2]，共 12 个元素。数组按树的层序排列，索引从 0 开始；索引 i 的左、右孩子位置分别为 2i + 1、2i + 2，越界表示孩子不存在。当前正在比较索引 4 的 5 与其子节点索引 9 的 3、索引 10 的 6，选中最大的右子节点索引 10 的 6。",
+      "key_state": "比较索引 4 的 5 与子节点 3、6；右子节点索引 10 的 6 最大，准备交换。",
+      "announcement": "比较索引 4 的 5 与子节点 3、6，确定右子节点索引 10 的 6 最大。"
+    },
+    {
+      "id": "source-160",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step9.png",
+      "title": "第 9 步：交换节点 5 与索引 10 的 6，抵达叶节点",
+      "explanation": "执行“∴ 交换节点 5 与节点 6”：交换数组索引 4 与索引 10 的值，节点 6 上移至索引 4，节点 5 下沉至索引 10。由于索引 10 已是叶节点（左、右子节点索引越界），无须再向下比较，三次下沉交换全部完成。",
+      "state": "层序数组为 [8, 7, 7, 6, 6, 6, 2, 1, 4, 3, 5, 2]，共 12 个元素。数组按树的层序排列，索引从 0 开始；索引 i 的左、右孩子位置分别为 2i + 1、2i + 2，越界表示孩子不存在。节点 5 已下沉至叶节点索引 10，索引 4 的值变为 6（左、右接索引 9 的 3 和索引 10 的 5），三次向下交换完成。",
+      "key_state": "交换索引 4 与 10：节点 5 抵达叶节点索引 10，下沉结束。",
+      "announcement": "交换节点 5 与节点 6，节点 5 到达叶节点索引 10 并停止下沉。"
+    },
+    {
+      "id": "source-161",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step10.png",
+      "title": "第 10 步：堆化完成，大顶堆性质恢复",
+      "explanation": "移除比较与路径高亮，图右侧总结“堆化完成后，大顶堆的性质得到修复”。剩余 12 个节点全部恢复常规绿色，任意父节点的值均不小于其子节点的值，新堆顶为 8，整个出堆操作返回最初弹出的 9。",
+      "state": "层序数组为 [8, 7, 7, 6, 6, 6, 2, 1, 4, 3, 5, 2]，共 12 个元素。数组按树的层序排列，索引从 0 开始；索引 i 的左、右孩子位置分别为 2i + 1、2i + 2，越界表示孩子不存在。堆化修复全部完成，当前堆顶为 8，原堆顶 9 已出堆返回。",
+      "key_state": "12 元素大顶堆恢复完毕：新堆顶为 8，元素 5 位于索引 10，出堆返回 9。",
+      "announcement": "堆化完成，12 个元素的大顶堆性质恢复，返回原堆顶 9。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-09",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "7ed564cdf371853e308948362588c551e87d8aa57735088274cc6034688ae889",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6a40f26ee895ee83a07f70253df5c42ddcc5439ccb9b1aa5b4bf84b03d787459",
+        "output_sha256": "597bc506488fb474d3ce449c9ac8398eafa43a8ff6f5224787848d0c38571845"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "597bc506488fb474d3ce449c9ac8398eafa43a8ff6f5224787848d0c38571845",
+        "output_sha256": "813eae9284eec030711eafb5a54bfb61222ecf3949e7ce2525b4ee18c7cca9b8"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "813eae9284eec030711eafb5a54bfb61222ecf3949e7ce2525b4ee18c7cca9b8",
+        "output_sha256": "e350bdba6fc3bc2aac820c06fd5d96268d4c7714cba12295fee0dff1f61e67b5"
+      }
+    ],
+    "evidence_sha256": "716c2185fb25821fe2cbff260b776e4910309785e7fc22f3fd23194b2e50701e"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_heap/heap.md": "4eac94cc73c58f010fd8439bd21e4f441eff794de3d6d06a143a0f45dc44ec3e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_heap/heap.assets/heap_pop_step1.png": "3eae9b757953a0964d116343fa57f0706e061dda5d154157dfa231f4719372c5",
+      "chapter_heap/heap.assets/heap_pop_step2.png": "abfeeed150c9c5d9d2a118c64255628f34fa44243964547aac73cccf9120cbd0",
+      "chapter_heap/heap.assets/heap_pop_step3.png": "303de6c5935a145ca8899b113a8fbb909c5f3219ef54c30739ffc311f4d84b84",
+      "chapter_heap/heap.assets/heap_pop_step4.png": "b33266361212cd415d1288d0f9ee90cbc9270e33b5dfb348951407df16539a76",
+      "chapter_heap/heap.assets/heap_pop_step5.png": "761949e9d435c72c101dcdd97bd00abc1eea87be1d52c702dbe1b66fc9ed1436",
+      "chapter_heap/heap.assets/heap_pop_step6.png": "30eec7d3825929a6c6aef0d927daaaeb6d449d43bfec52ccef93fd35ae270407",
+      "chapter_heap/heap.assets/heap_pop_step7.png": "4670601cfc84eebb41cfc7490e74dd8f234d0afdd27b5d6e641fb12ee125fb65",
+      "chapter_heap/heap.assets/heap_pop_step8.png": "6632154cd23414b31284e6fde0625ac30a5e840406acf5fdab03589f476decf0",
+      "chapter_heap/heap.assets/heap_pop_step9.png": "e1ddbbaad3b2e435439d235afe07be95175fa3a769a0a8724bb7d3a24aff7a61",
+      "chapter_heap/heap.assets/heap_pop_step10.png": "afe0117d937c208d46e3661bfda3f788bbb05745692799fec866d4e2982a5ecd"
+    }
+  },
+  "animations": {
+    "heap-pop": {
+      "kind": "source-frames",
+      "model_sha256": "d1cb739d5175860db69eca7951e1420dfa3a2350a627ee11d949ccccb3ddb7eb",
+      "source_content_sha256": "7ed564cdf371853e308948362588c551e87d8aa57735088274cc6034688ae889",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-152"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-153"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-154"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-155"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-156"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-157"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-158"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-159"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-160"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-161"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "6b3ed7ce64005a5e9224a620780f36b4e3ff14e676be2ade3071aed143815b37",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

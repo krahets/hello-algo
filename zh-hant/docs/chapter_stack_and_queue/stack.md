@@ -369,10 +369,10 @@
     ![基於鏈結串列實現堆疊的入堆疊出堆疊操作](stack.assets/linkedlist_stack_step1.svg)
 
 === "<2>"
-    ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.svg)
+    ![基於鏈結串列實現堆疊的入堆疊與出堆疊，第 2 步，共 3 步：步驟 2：入堆疊 push(4)，將節點 4 新增至鏈結串列頭部](stack.assets/linkedlist_stack_step2_push.svg)
 
 === "<3>"
-    ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.svg)
+    ![基於鏈結串列實現堆疊的入堆疊與出堆疊，第 3 步，共 3 步：步驟 3：出堆疊 pop()，刪除鏈結串列頭節點 4](stack.assets/linkedlist_stack_step3_pop.svg)
 
 以下是基於鏈結串列實現堆疊的示例程式碼：
 
@@ -388,10 +388,10 @@
     ![基於陣列實現堆疊的入堆疊出堆疊操作](stack.assets/array_stack_step1.svg)
 
 === "<2>"
-    ![array_stack_push](stack.assets/array_stack_step2_push.svg)
+    ![基於陣列實現堆疊的入堆疊與出堆疊，第 2 步，共 3 步：步驟 2：入堆疊 push(4)，將元素 4 新增至陣列尾部](stack.assets/array_stack_step2_push.svg)
 
 === "<3>"
-    ![array_stack_pop](stack.assets/array_stack_step3_pop.svg)
+    ![基於陣列實現堆疊的入堆疊與出堆疊，第 3 步，共 3 步：步驟 3：出堆疊 pop()，刪除陣列尾元素 4](stack.assets/array_stack_step3_pop.svg)
 
 由於入堆疊的元素可能會源源不斷地增加，因此我們可以使用動態陣列，這樣就無須自行處理陣列擴容問題。以下為示例程式碼：
 

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_computational_complexity/time_complexity.assets/time_complexity_constant_linear_quadratic",
+  "title": "一次操作、单层循环与双层循环",
+  "summary": "同一个基础计算操作在无循环、单层循环 n 次、双层嵌套各循环 n 次的结构下，分别执行 1 次、n 次和 n² 次，对应常数阶 O(1)、线性阶 O(n) 和平方阶 O(n²)。",
+  "context": [
+    "底部图例说明：每个绿色圆角小方块代表 1 个基础计算操作。画面自左向右并排展示三种控制结构，直观对比循环层数增加对总操作次数的影响。"
+  ],
+  "description": [
+    "左图没有循环框，仅画出 1 个绿色小方块，上方标注“1 次”，下方标注“时间复杂度 常数阶 O(1)”。",
+    "中图用蓝色圆角方框包围 1 个绿色小方块，框内配有环绕小方块的蓝色回转箭头并标注“循环 n 次”，下方标注“时间复杂度 线性阶 O(n)”。",
+    "右图在中图的蓝色“循环 n 次”方框外，再套一层橙色圆角方框；橙色回转箭头环绕整个蓝色内层循环框，上方同样标注“循环 n 次”，下方标注“时间复杂度 平方阶 O(n²)”。"
+  ],
+  "result": "分析循环结构的时间复杂度时，单层循环的操作次数随循环规模线性增长，而在本图每轮内层循环次数均固定的条件下，双层嵌套循环的总操作次数等于外层循环次数与内层循环次数之积。",
+  "frames": [
+    {
+      "id": "source-28",
+      "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_constant_linear_quadratic.png",
+      "title": "一次操作、单层循环与双层循环",
+      "explanation": "图中的嵌套方框表示重复执行的范围，而非逐个画出每次执行的方块：中图的一层循环把单个计算操作重复 n 次；右图的外层橙色循环每迭代 1 次，内层蓝色循环都要完整执行 n 次，因此最内侧的计算操作总共执行 n × n = n² 次，而不是把两层次数相加成 n + n。",
+      "state": "从左到右并排三组结构，绿色小方块代表 1 个计算操作：左侧单个方块标注“1 次”，对应常数阶 O(1)；中间蓝色框包含方块与回转箭头，标注“循环 n 次”，对应线性阶 O(n)；右侧橙色框标注“循环 n 次”，其内部嵌套完整的蓝色“循环 n 次”方框，对应平方阶 O(n²)。",
+      "key_state": "操作次数从左到右依次为 1 次、n 次、n × n = n² 次，对应常数阶 O(1)、线性阶 O(n)、平方阶 O(n²)。",
+      "announcement": "并排对比单次操作、单层循环 n 次与双层嵌套各循环 n 次，展示操作次数从 1 到 n 再到 n² 的变化。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-02",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "1758e7edf36c15acc1e740c29c59d6a7095cdd7d2fe0a240adf04cc597ca685f",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "2418f4f89bf15820de1b9f866e20459174d1357741c9215565d8a6fadd9ef34c",
+        "output_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae",
+        "output_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4",
+        "output_sha256": "62b51949e795658a5a6779b7e616f31ed019742d5859071a77cc3801abe0d6d7"
+      }
+    ],
+    "evidence_sha256": "45d0d7027b523659e72b602edeb9f0d969e31b4ab937e3e24decd1d342fb1eff"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_computational_complexity/time_complexity.md": "af3c429bc5b2acecc2a8389cd5934d6a6790f9c1bc0970d8955af2b471c0888b"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_computational_complexity/time_complexity.assets/time_complexity_constant_linear_quadratic.png": "0a2bb434ba76d12ad69c3094a72f9284e8bdc0e890bd4c101632204d277bc0a8"
+    }
+  }
+}

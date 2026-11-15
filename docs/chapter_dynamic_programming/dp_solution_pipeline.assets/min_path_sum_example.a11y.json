@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_example",
+  "title": "四乘四网格的最小路径和",
+  "summary": "在 4×4 代价网格中从左上角只向右或向下走到右下角，绿色最优路径的七格总和为 13。",
+  "context": [
+    "给定一个 4×4 的非负整数网格 grid，每个单元格的数值代表经过该格所需支付的代价。从左上角起点 [0, 0] 出发，每次只能向右或向下移动一格，直至到达右下角终点 [3, 3]，起点和终点的数值均计入路径总和（行列索引从 0 开始）。"
+  ],
+  "description": [
+    "左侧展示完整的 4×4 输入网格，并在左上角标注“起点”、右下角标注“终点”；中央向右箭头指向右侧同一个 4×4 网格，其中一条从左上到右下的七格折线路径以绿色高亮，图下方标注“最小路径和为 13，对应最佳方案为 1→2→2→3→2→1→2”。"
+  ],
+  "result": "该 4×4 网格的最小路径和为 13，对应绿色高亮路径所经过的七个单元格代价之和。",
+  "frames": [
+    {
+      "id": "source-376",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_example.png",
+      "title": "四乘四网格的最小路径和",
+      "explanation": "如表中所示，网格四行数值依次为 [1, 3, 1, 5]、[2, 2, 4, 2]、[5, 3, 2, 1]、[4, 3, 5, 2]。右侧绿色最优路径从起点 [0, 0]（值为 1）出发，先向下到 [1, 0]（值为 2），再向右到 [1, 1]（值为 2），接着向下到 [2, 1]（值为 3），随后连续两次向右经过 [2, 2]（值为 2）和 [2, 3]（值为 1），最后向下到达终点 [3, 3]（值为 2），沿途代价相加为 1+2+2+3+2+1+2=13。",
+      "state": "左右两个 4×4 网格的四行均为 [1, 3, 1, 5]、[2, 2, 4, 2]、[5, 3, 2, 1]、[4, 3, 5, 2]；左图指明左上角 [0, 0] 为起点、右下角 [3, 3] 为终点，右图将路径 [0, 0]→[1, 0]→[1, 1]→[2, 1]→[2, 2]→[2, 3]→[3, 3] 涂绿，底部注明“最小路径和为 13，对应最佳方案为 1→2→2→3→2→1→2”。",
+      "key_state": "绿色最优路径经过 1→2→2→3→2→1→2，最小路径和为 13。",
+      "announcement": "从左上角沿下、右、下、右、右、下的绿色路线到达右下角，累加七格代价得到最小路径和 13。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "图中的完整grid（行列索引从0开始）",
+      "headers": [
+        "行索引",
+        "列0",
+        "列1",
+        "列2",
+        "列3"
+      ],
+      "rows": [
+        [
+          "0",
+          "1",
+          "3",
+          "1",
+          "5"
+        ],
+        [
+          "1",
+          "2",
+          "2",
+          "4",
+          "2"
+        ],
+        [
+          "2",
+          "5",
+          "3",
+          "2",
+          "1"
+        ],
+        [
+          "3",
+          "4",
+          "3",
+          "5",
+          "2"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-19",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "8d0a90d8a94085f4fd67a41ca8883e9d0837424c75aade44c6f22ebcf5bf30ea",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "dcea2ce4eb56814df492beb0353b69ca48748a38ea8c5b34963d8ce99d7a20df",
+        "output_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c",
+        "output_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f",
+        "output_sha256": "1603107bf51a94e045d71a5f3540a9b6e58f184da52d98978a06e9e10e5ca484"
+      }
+    ],
+    "evidence_sha256": "830dfd6d376fed2c39b7c0da47ad3af42913a4655f9fdeea3b18ab9df35addbc"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_dynamic_programming/dp_solution_pipeline.md": "537de6dd1fe553954f17ebd407172e073f79aac62888596d7c8e67a6a8e12517"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_example.png": "e81be0319cb78b5e55cc78781762544ec90e3b8c4ce60cdd8bb9cfd5e7176927"
+    }
+  }
+}

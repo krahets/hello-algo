@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_sorting/selection_sort.assets/selection_sort",
+  "title": "选择排序：五轮未排序区间最小值选择与首元素交换",
+  "summary": "每轮在未排序区间中选出最小元素 nums[k] 并与区间首元素 nums[i] 交换，经五轮将 [4, 1, 3, 1, 5, 2] 排为 [1, 1, 2, 3, 4, 5]。",
+  "context": [
+    "待排序数组为 nums = [4, 1, 3, 1, 5, 2]，共 6 个元素，索引从 0 到 5，目标是按非递减顺序完成排序。",
+    "每轮由指针 i 指向当前“未排序区间”的首个元素，由指针 k 记录从该未排序区间中选出的最小元素索引。左侧灰色方格表示已排好序的前缀，上方花括号标出当前“未排序区间”；选定 k 后，将最小元素 nums[k] 与区间首元素 nums[i] 交换，使已排序前缀向右扩展一位。"
+  ],
+  "description": [
+    "本组共十一幅画面：前十幅按五轮选择展开，每轮包含两步——第一步“遍历未排序区间，选择最小元素 nums[k]”（直接展示本轮内循环扫描完成后的指针 k，不逐格展开内循环比较过程），第二步“交换最小元素 nums[k] 和未排序区间的首个元素 nums[i]”（展示交换完成后的数组状态，并用数组上、下方的交换弧线标出刚完成交换的两个位置）；第十一幅展示仅剩末尾一个元素时无需再排、排序完成的状态。"
+  ],
+  "result": "五轮选择与交换依次将索引 0 至 4 固定为 1、1、2、3、4，末尾索引 5 仅剩的最大元素 5 自然就位，最终得到有序数组 [1, 1, 2, 3, 4, 5]，无需执行第六轮。",
+  "frames": [
+    {
+      "id": "source-241",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step1.png",
+      "title": "第 1 轮（选择）：在未排序区间 [0, 5] 中选中最小元素 1（k = 1）",
+      "explanation": "进入“第 1 轮选择：遍历未排序区间，选择最小元素 nums[k]”：当前未排序区间为 [0, 5]，区间首位指针 i = 0 指向元素 4；扫描该区间选出最小元素 1（数组中索引 1 和 3 均为 1，选中靠左的 k = 1）。本步仅定位 i 与 k，尚未执行交换。",
+      "state": "数组 nums = [4, 1, 3, 1, 5, 2]；i = 0，指向值 4；k = 1，指向最小值 1。尚无已完成的前缀。未排序区间为 [0, 5]。",
+      "key_state": "第 1 轮选择：区间 [0, 5] 首元素 i = 0（值 4），最小元素 k = 1（值 1）。",
+      "announcement": "第 1 轮在未排序区间 [0, 5] 中选中索引 k = 1 的最小元素 1。"
+    },
+    {
+      "id": "source-242",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step2.png",
+      "title": "第 1 轮（交换）：交换索引 0 的 4 与索引 1 的 1",
+      "explanation": "执行“交换最小元素 nums[k] 和未排序区间的首个元素 nums[i]”：交换索引 0 与索引 1 的元素，使最小值 1 就位到索引 0（变为灰色已排序前缀 [1]），原首元素 4 移至索引 1，未排序区间缩减为 [1, 5]。",
+      "state": "数组 nums = [1, 4, 3, 1, 5, 2]。本轮交换的位置为 0 和 1，交换已经完成；图中不再显示 i、k 指针文字。已确定前缀为索引 0 至 0，值为 [1]；剩余区间为 [1, 5]，值为 [4, 3, 1, 5, 2]。",
+      "key_state": "第 1 轮交换完成：索引 0 与 1 互换，已排序前缀为 [1]。",
+      "announcement": "交换索引 0 的 4 与索引 1 的 1，将最小元素 1 固定在索引 0。"
+    },
+    {
+      "id": "source-243",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step3.png",
+      "title": "第 2 轮（选择）：在未排序区间 [1, 5] 中选中最小元素 1（k = 3）",
+      "explanation": "进入“第 2 轮选择：遍历未排序区间，选择最小元素 nums[k]”：当前未排序区间为 [1, 5]，区间首位指针 i = 1 指向元素 4，扫描选出区间内的最小元素 nums[3] = 1（指针 k = 3），准备交换索引 1 与 3。",
+      "state": "数组 nums = [1, 4, 3, 1, 5, 2]；i = 1，指向值 4；k = 3，指向最小值 1。已确定前缀为索引 0 至 0，值为 [1]。未排序区间为 [1, 5]。",
+      "key_state": "第 2 轮选择：区间 [1, 5] 首元素 i = 1（值 4），最小元素 k = 3（值 1）。",
+      "announcement": "第 2 轮在未排序区间 [1, 5] 中选中索引 k = 3 的最小元素 1。"
+    },
+    {
+      "id": "source-244",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step4.png",
+      "title": "第 2 轮（交换）：交换索引 1 的 4 与索引 3 的 1",
+      "explanation": "执行“交换最小元素 nums[k] 和未排序区间的首个元素 nums[i]”：交换索引 1 与索引 3 的元素，第二个 1 就位到索引 1，元素 4 移至索引 3。灰色已排序前缀扩展为 [1, 1]，未排序区间缩减为 [2, 5]。",
+      "state": "数组 nums = [1, 1, 3, 4, 5, 2]。本轮交换的位置为 1 和 3，交换已经完成；图中不再显示 i、k 指针文字。已确定前缀为索引 0 至 1，值为 [1, 1]；剩余区间为 [2, 5]，值为 [3, 4, 5, 2]。",
+      "key_state": "第 2 轮交换完成：索引 1 与 3 互换，已排序前缀扩展为 [1, 1]。",
+      "announcement": "交换索引 1 的 4 与索引 3 的 1，将第二个 1 固定在索引 1。"
+    },
+    {
+      "id": "source-245",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step5.png",
+      "title": "第 3 轮（选择）：在未排序区间 [2, 5] 中选中最小元素 2（k = 5）",
+      "explanation": "进入“第 3 轮选择：遍历未排序区间，选择最小元素 nums[k]”：当前未排序区间为 [2, 5]，区间首位指针 i = 2 指向元素 3，扫描选出末尾索引 k = 5 的最小元素 2，准备交换索引 2 与 5。",
+      "state": "数组 nums = [1, 1, 3, 4, 5, 2]；i = 2，指向值 3；k = 5，指向最小值 2。已确定前缀为索引 0 至 1，值为 [1, 1]。未排序区间为 [2, 5]。",
+      "key_state": "第 3 轮选择：区间 [2, 5] 首元素 i = 2（值 3），最小元素 k = 5（值 2）。",
+      "announcement": "第 3 轮在未排序区间 [2, 5] 中选中索引 k = 5 的最小元素 2。"
+    },
+    {
+      "id": "source-246",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step6.png",
+      "title": "第 3 轮（交换）：交换索引 2 的 3 与索引 5 的 2",
+      "explanation": "执行“交换最小元素 nums[k] 和未排序区间的首个元素 nums[i]”：交换索引 2 与索引 5 的元素，使最小值 2 就位到索引 2，元素 3 移至末尾索引 5。灰色已排序前缀扩展为 [1, 1, 2]，未排序区间缩减为 [3, 5]。",
+      "state": "数组 nums = [1, 1, 2, 4, 5, 3]。本轮交换的位置为 2 和 5，交换已经完成；图中不再显示 i、k 指针文字。已确定前缀为索引 0 至 2，值为 [1, 1, 2]；剩余区间为 [3, 5]，值为 [4, 5, 3]。",
+      "key_state": "第 3 轮交换完成：索引 2 与 5 互换，已排序前缀扩展为 [1, 1, 2]。",
+      "announcement": "交换索引 2 的 3 与索引 5 的 2，将元素 2 固定在索引 2。"
+    },
+    {
+      "id": "source-247",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step7.png",
+      "title": "第 4 轮（选择）：在未排序区间 [3, 5] 中选中最小元素 3（k = 5）",
+      "explanation": "进入“第 4 轮选择：遍历未排序区间，选择最小元素 nums[k]”：当前未排序区间为 [3, 5]，区间首位指针 i = 3 指向元素 4，扫描选出末尾索引 k = 5 的最小元素 3，准备交换索引 3 与 5。",
+      "state": "数组 nums = [1, 1, 2, 4, 5, 3]；i = 3，指向值 4；k = 5，指向最小值 3。已确定前缀为索引 0 至 2，值为 [1, 1, 2]。未排序区间为 [3, 5]。",
+      "key_state": "第 4 轮选择：区间 [3, 5] 首元素 i = 3（值 4），最小元素 k = 5（值 3）。",
+      "announcement": "第 4 轮在未排序区间 [3, 5] 中选中索引 k = 5 的最小元素 3。"
+    },
+    {
+      "id": "source-248",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step8.png",
+      "title": "第 4 轮（交换）：交换索引 3 的 4 与索引 5 的 3",
+      "explanation": "执行“交换最小元素 nums[k] 和未排序区间的首个元素 nums[i]”：交换索引 3 与索引 5 的元素，使最小值 3 就位到索引 3，元素 4 移至末尾索引 5。灰色已排序前缀扩展为 [1, 1, 2, 3]，未排序区间缩减为 [4, 5]。",
+      "state": "数组 nums = [1, 1, 2, 3, 5, 4]。本轮交换的位置为 3 和 5，交换已经完成；图中不再显示 i、k 指针文字。已确定前缀为索引 0 至 3，值为 [1, 1, 2, 3]；剩余区间为 [4, 5]，值为 [5, 4]。",
+      "key_state": "第 4 轮交换完成：索引 3 与 5 互换，已排序前缀扩展为 [1, 1, 2, 3]。",
+      "announcement": "交换索引 3 的 4 与索引 5 的 3，将元素 3 固定在索引 3。"
+    },
+    {
+      "id": "source-249",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step9.png",
+      "title": "第 5 轮（选择）：在未排序区间 [4, 5] 中选中最小元素 4（k = 5）",
+      "explanation": "进入“第 5 轮选择：遍历未排序区间，选择最小元素 nums[k]”：当前未排序区间为 [4, 5]，区间首位指针 i = 4 指向元素 5，扫描选出末尾索引 k = 5 的最小元素 4，准备交换索引 4 与 5。",
+      "state": "数组 nums = [1, 1, 2, 3, 5, 4]；i = 4，指向值 5；k = 5，指向最小值 4。已确定前缀为索引 0 至 3，值为 [1, 1, 2, 3]。未排序区间为 [4, 5]。",
+      "key_state": "第 5 轮选择：区间 [4, 5] 首元素 i = 4（值 5），最小元素 k = 5（值 4）。",
+      "announcement": "第 5 轮在未排序区间 [4, 5] 中选中索引 k = 5 的最小元素 4。"
+    },
+    {
+      "id": "source-250",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step10.png",
+      "title": "第 5 轮（交换）：交换索引 4 的 5 与索引 5 的 4",
+      "explanation": "执行“交换最小元素 nums[k] 和未排序区间的首个元素 nums[i]”：交换索引 4 与索引 5 的元素，使最小值 4 就位到索引 4，元素 5 移至末尾索引 5。灰色已排序前缀扩展为 [1, 1, 2, 3, 4]，未排序区间仅剩 [5, 5]。",
+      "state": "数组 nums = [1, 1, 2, 3, 4, 5]。本轮交换的位置为 4 和 5，交换已经完成；图中不再显示 i、k 指针文字。已确定前缀为索引 0 至 4，值为 [1, 1, 2, 3, 4]；剩余区间为 [5, 5]，值为 [5]。",
+      "key_state": "第 5 轮交换完成：索引 4 与 5 互换，已排序前缀扩展为 [1, 1, 2, 3, 4]。",
+      "announcement": "交换索引 4 的 5 与索引 5 的 4，将元素 4 固定在索引 4。"
+    },
+    {
+      "id": "source-251",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step11.png",
+      "title": "完成排序：剩余末尾一个元素 5 无须再排",
+      "explanation": "图下方总结“完成排序（剩余一个元素无须排序）”。经过前五轮选择与交换，前五个最小元素 [1, 1, 2, 3, 4] 均已就位，未排序区间 [5, 5] 内仅剩的绿色元素 5 必然是全数组最大值，已处于正确位置，整趟选择排序完成。",
+      "state": "nums = [1, 1, 2, 3, 4, 5]。索引 0 至 4 灰色显示已完成；索引 5 的值 5 仍单独标在剩余区间 [5, 5]，但不需要额外操作。i、k 均不显示，排序已结束。",
+      "key_state": "五轮完成，剩余末尾元素 5 自然就位，最终有序数组为 [1, 1, 2, 3, 4, 5]。",
+      "announcement": "未排序区间仅剩最后一个元素 5，无须再选，选择排序完成。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-13",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "600d4d91556e939c5d54f91ac78dba4a6b8d48265f056475233f0f7c5f13fbcd",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "fe21fe5895e8cee2e2e3a67895fc2f90845797eb80e4d3029abb622acb8c69ca",
+        "output_sha256": "e76738af6195383d55b3d5cf222c5292111b131b087688bd961b59976f9e86c4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "e76738af6195383d55b3d5cf222c5292111b131b087688bd961b59976f9e86c4",
+        "output_sha256": "f880fd5c3c304dc74442a88388bca71f75e2e9a9b73b36958173a7c9a6da6512"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "f880fd5c3c304dc74442a88388bca71f75e2e9a9b73b36958173a7c9a6da6512",
+        "output_sha256": "3200bb035dfaa2051a3155f46d8687d968b6937e0d3057fb8e1b10d44b8ce29b"
+      }
+    ],
+    "evidence_sha256": "b3670eb867494fc0017c300c888f3d50ee8fa22f3dbc7e492a305cf3fd040dc2"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_sorting/selection_sort.md": "f23ec73cdb7d702c0461b948120175ddccb20c69574a84e24cca02844ac24ee8"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_sorting/selection_sort.assets/selection_sort_step1.png": "88a77792c25c09a8ebab6bace027cda51eb1757eaf2edf1cafba8a46b1c7ed64",
+      "chapter_sorting/selection_sort.assets/selection_sort_step2.png": "9a4e1ac9b5dadfef9381eee0f722e66050c2ad6fdc89585235e3e4e40209af2c",
+      "chapter_sorting/selection_sort.assets/selection_sort_step3.png": "3ee1caf0f70ca7b2ac003cbf92847be0e18d143916ba1c9280e7deff3ccffc26",
+      "chapter_sorting/selection_sort.assets/selection_sort_step4.png": "ad1e10930ac4606641bb06057811a6c2ba503295f8df13e9c3a7b73e666d3eed",
+      "chapter_sorting/selection_sort.assets/selection_sort_step5.png": "b0b1c4d4adb82b0932baf135794e0df70bfb6ccbfc252b2c103ceca5fe2ea10b",
+      "chapter_sorting/selection_sort.assets/selection_sort_step6.png": "5c13ba0892c963aca72c4a45d427d2fe06a5fe53b2bad79907f5e6723ad521f8",
+      "chapter_sorting/selection_sort.assets/selection_sort_step7.png": "bc0727996e8f3b3d7122477bfd580d0482f58efb5d6d88a379a86d881c733f06",
+      "chapter_sorting/selection_sort.assets/selection_sort_step8.png": "fbf88f4cef7b9223cd24488afc7f850920cbfd017f4ff3768517215471820518",
+      "chapter_sorting/selection_sort.assets/selection_sort_step9.png": "94faa912aac82ce84d5365032a07bcb104c7ff7cb76cb870699bc955345e5008",
+      "chapter_sorting/selection_sort.assets/selection_sort_step10.png": "e8c1aa7b9cf4199a29957b15b2d0a217d4bf2984a6d4208c593f7ec0e07f12ae",
+      "chapter_sorting/selection_sort.assets/selection_sort_step11.png": "ad2f294f386881785886211f0ea0ca4d34cf9719329d31c6f402303682c75eb1"
+    }
+  },
+  "animations": {
+    "selection-sort": {
+      "kind": "source-frames",
+      "model_sha256": "bf69269024398b0ad73b3bb622f9e9bd68b83a54637954c08404332e590eb082",
+      "source_content_sha256": "600d4d91556e939c5d54f91ac78dba4a6b8d48265f056475233f0f7c5f13fbcd",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-241"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-242"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-243"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-244"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-245"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-246"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-247"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-248"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-249"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-250"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-251"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "eb25dc3a01a7f269aec80ab82f19a35afed85c020ac04652b5e207e96766969c",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

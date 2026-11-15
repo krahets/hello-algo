@@ -39,28 +39,28 @@
     ![基于堆寻找最大的 k 个元素](top_k.assets/top_k_heap_step1.svg)
 
 === "<2>"
-    ![top_k_heap_step2](top_k.assets/top_k_heap_step2.svg)
+    ![方法三（堆）：基于容量为 k 的小顶堆寻找最大的 k 个元素，第 2 步，共 9 步：第 2 步：将第 2 个元素 7 入堆](top_k.assets/top_k_heap_step2.svg)
 
 === "<3>"
-    ![top_k_heap_step3](top_k.assets/top_k_heap_step3.svg)
+    ![方法三（堆）：基于容量为 k 的小顶堆寻找最大的 k 个元素，第 3 步，共 9 步：第 3 步：将第 3 个元素 6 入堆，填满前 k 个元素](top_k.assets/top_k_heap_step3.svg)
 
 === "<4>"
-    ![top_k_heap_step4](top_k.assets/top_k_heap_step4.svg)
+    ![方法三（堆）：基于容量为 k 的小顶堆寻找最大的 k 个元素，第 4 步，共 9 步：第 4 步：判断第 4 个元素 3 大于堆顶 1](top_k.assets/top_k_heap_step4.svg)
 
 === "<5>"
-    ![top_k_heap_step5](top_k.assets/top_k_heap_step5.svg)
+    ![方法三（堆）：基于容量为 k 的小顶堆寻找最大的 k 个元素，第 5 步，共 9 步：第 5 步：将旧堆顶 1 出堆](top_k.assets/top_k_heap_step5.svg)
 
 === "<6>"
-    ![top_k_heap_step6](top_k.assets/top_k_heap_step6.svg)
+    ![方法三（堆）：基于容量为 k 的小顶堆寻找最大的 k 个元素，第 6 步，共 9 步：第 6 步：将当前元素 3 入堆，成为新堆顶](top_k.assets/top_k_heap_step6.svg)
 
 === "<7>"
-    ![top_k_heap_step7](top_k.assets/top_k_heap_step7.svg)
+    ![方法三（堆）：基于容量为 k 的小顶堆寻找最大的 k 个元素，第 7 步，共 9 步：第 7 步：判断第 5 个元素 2 小于或等于堆顶 3](top_k.assets/top_k_heap_step7.svg)
 
 === "<8>"
-    ![top_k_heap_step8](top_k.assets/top_k_heap_step8.svg)
+    ![方法三（堆）：基于容量为 k 的小顶堆寻找最大的 k 个元素，第 8 步，共 9 步：第 8 步：跳过元素 2](top_k.assets/top_k_heap_step8.svg)
 
 === "<9>"
-    ![top_k_heap_step9](top_k.assets/top_k_heap_step9.svg)
+    ![方法三（堆）：基于容量为 k 的小顶堆寻找最大的 k 个元素，第 9 步，共 9 步：第 9 步：遍历完成，返回小顶堆 heap](top_k.assets/top_k_heap_step9.svg)
 
 示例代码如下：
 

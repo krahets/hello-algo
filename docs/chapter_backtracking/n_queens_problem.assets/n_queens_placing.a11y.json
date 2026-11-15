@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_backtracking/n_queens_problem.assets/n_queens_placing",
+  "title": "逐行尝试与剪去冲突棋盘",
+  "summary": "以第一行放第 2 列的分支为例，逐行剪去列与对角线冲突的候选，确定完整解 [2, 4, 1, 3]。",
+  "context": [
+    "由于每行恰好只能放置一枚皇后，回溯算法采取从第 1 行到第 4 行逐行放置的策略，直接避免同行冲突；每一层只需依次尝试该行的第 1 至第 4 列，并剪去与已放皇后发生同列或对角线冲突的分支。以下行列编号均从 1 开始。"
+  ],
+  "description": [
+    "四层小棋盘自上而下分别对应“放置第 1 行”至“放置第 4 行”，每层横向列出当前行从第 1 列到第 4 列的四个候选棋盘。合法棋盘及本轮新放入的皇后用绿色高亮；发生冲突而被剪枝的棋盘呈灰色，并用红色点线连接一对相互冲突的皇后。第一行第 1、第 3、第 4 列下方标注“（省略）”，仅展开第 2 列的搜索子树。"
+  ],
+  "result": "图中展开的第一行第 2 列分支最终唯一通向合法解 [2, 4, 1, 3]；其余三个首行分支仅因篇幅标注省略（其中第一行第 3 列分支对应另一个合法解 [3, 1, 4, 2]），不能误认为整个问题只有一个解。",
+  "frames": [
+    {
+      "id": "source-365",
+      "book_path": "chapter_backtracking/n_queens_problem.assets/n_queens_placing.png",
+      "title": "逐行尝试与剪去冲突棋盘",
+      "explanation": "第一层尝试第 1 行的第 1 至第 4 列，图中沿第 2 列即 (1, 2) 向下展开。第二层放置第 2 行：第 1 列 (2, 1) 与 (1, 2) 次对角线冲突，第 2 列 (2, 2) 与 (1, 2) 同列冲突，第 3 列 (2, 3) 与 (1, 2) 主对角线冲突，三者均变灰并标出红点线；仅第 4 列 (2, 4) 合法保留。第三层在 (1, 2)、(2, 4) 基础上放置第 3 行：仅第 1 列 (3, 1) 合法保留；第 2 列与 (1, 2) 同列冲突，第 3 列与 (2, 4) 次对角线冲突，第 4 列与 (2, 4) 同列冲突。第四层在 (1, 2)、(2, 4)、(3, 1) 基础上放置第 4 行：第 1 列与 (3, 1) 同列冲突，第 2 列与 (3, 1) 主对角线冲突，第 4 列与 (2, 4) 同列冲突；仅第 3 列 (4, 3) 合法保留，至此四行全部放满。",
+      "state": "四层棋盘树中：第一层第 1、3、4 列标“（省略）”，仅第 2 列 (1, 2) 向下展开；第二层仅第 4 列 (2, 4) 为绿色合法盘，第 1、2、3 列灰化并连红点线；第三层仅第 1 列 (3, 1) 为绿色合法盘，第 2、3、4 列灰化；第四层仅第 3 列 (4, 3) 为绿色合法盘，第 1、2、4 列灰化，最终四枚皇后位于 (1, 2)、(2, 4)、(3, 1)、(4, 3)。",
+      "key_state": "展开首行第 2 列分支，逐行保留第 2、4、1、3 列，其余冲突棋盘被剪枝。",
+      "announcement": "固定第 1 行第 2 列后，逐行排除同列与对角线冲突，依次选定第 4、第 1、第 3 列，完成四皇后摆放。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-18",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "6d1cd3e727026c5703e90e2620da9211d0d99b18b12ca82f09cfaea0320635a9",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "4d905ea19e7b4a83ea36041a9c7f9d8d8c1f3b06c72a654e2a9e539750effd5d",
+        "output_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90",
+        "output_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad",
+        "output_sha256": "5ee2b110fd9b935a096ccaacf3e3b27d88bb1cb4918d9a5b6bd2b5a75c56edf0"
+      }
+    ],
+    "evidence_sha256": "5559c3ad6bd5d378f79de2a5c7f96ac680c007486f684e00a24a2512ab4de485"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_backtracking/n_queens_problem.md": "0703bbfa9c27095e7d378f2dcdd026d8c6e15ca0e068ae50aefaf9d94cbc07aa"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_backtracking/n_queens_problem.assets/n_queens_placing.png": "f6f0d7fb8ebe4be14e4bd098e844c77fed32b0d76925c257d6a8ea9ecd2d61ee"
+    }
+  }
+}

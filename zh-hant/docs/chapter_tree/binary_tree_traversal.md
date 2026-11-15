@@ -54,34 +54,34 @@
     ![前序走訪的遞迴過程](binary_tree_traversal.assets/preorder_step1.svg)
 
 === "<2>"
-    ![preorder_step2](binary_tree_traversal.assets/preorder_step2.svg)
+    ![前序走訪的遞推與回溯過程，第 2 步，共 11 步：Step 2：從 1 遞推到左子節點 2](binary_tree_traversal.assets/preorder_step2.svg)
 
 === "<3>"
-    ![preorder_step3](binary_tree_traversal.assets/preorder_step3.svg)
+    ![前序走訪的遞推與回溯過程，第 3 步，共 11 步：Step 3：從 2 遞推到葉節點 4](binary_tree_traversal.assets/preorder_step3.svg)
 
 === "<4>"
-    ![preorder_step4](binary_tree_traversal.assets/preorder_step4.svg)
+    ![前序走訪的遞推與回溯過程，第 4 步，共 11 步：Step 4：從葉節點 4 回溯到節點 2](binary_tree_traversal.assets/preorder_step4.svg)
 
 === "<5>"
-    ![preorder_step5](binary_tree_traversal.assets/preorder_step5.svg)
+    ![前序走訪的遞推與回溯過程，第 5 步，共 11 步：Step 5：從 2 遞推到右子節點 5](binary_tree_traversal.assets/preorder_step5.svg)
 
 === "<6>"
-    ![preorder_step6](binary_tree_traversal.assets/preorder_step6.svg)
+    ![前序走訪的遞推與回溯過程，第 6 步，共 11 步：Step 6：從 5 經 2 回溯到根節點 1](binary_tree_traversal.assets/preorder_step6.svg)
 
 === "<7>"
-    ![preorder_step7](binary_tree_traversal.assets/preorder_step7.svg)
+    ![前序走訪的遞推與回溯過程，第 7 步，共 11 步：Step 7：從根 1 遞推到右子節點 3](binary_tree_traversal.assets/preorder_step7.svg)
 
 === "<8>"
-    ![preorder_step8](binary_tree_traversal.assets/preorder_step8.svg)
+    ![前序走訪的遞推與回溯過程，第 8 步，共 11 步：Step 8：從 3 遞推到左子節點 6](binary_tree_traversal.assets/preorder_step8.svg)
 
 === "<9>"
-    ![preorder_step9](binary_tree_traversal.assets/preorder_step9.svg)
+    ![前序走訪的遞推與回溯過程，第 9 步，共 11 步：Step 9：從葉節點 6 回溯到節點 3](binary_tree_traversal.assets/preorder_step9.svg)
 
 === "<10>"
-    ![preorder_step10](binary_tree_traversal.assets/preorder_step10.svg)
+    ![前序走訪的遞推與回溯過程，第 10 步，共 11 步：Step 10：從 3 遞推到右子節點 7](binary_tree_traversal.assets/preorder_step10.svg)
 
 === "<11>"
-    ![preorder_step11](binary_tree_traversal.assets/preorder_step11.svg)
+    ![前序走訪的遞推與回溯過程，第 11 步，共 11 步：Step 11：從 7 經 3、1 回溯返回，走訪結束](binary_tree_traversal.assets/preorder_step11.svg)
 
 ### 複雜度分析
 

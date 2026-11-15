@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_divide_and_conquer/hanota_problem.assets/hanota_example",
+  "title": "汉诺塔问题示例：将六张圆盘从 A 移至 C",
+  "summary": "初始状态下六张圆盘按上小下大叠在柱 A，目标是借助柱 B 将它们全部移至柱 C 并保持原有顺序。",
+  "context": [
+    "汉诺塔移动规则要求：每次只能移动一张圆盘，且只能从一根柱子的顶部拿出、放入另一根柱子的顶部；在移动全过程中，小圆盘必须时刻位于大圆盘之上。"
+  ],
+  "description": [
+    "画面上半部分展示起始状态：三根柱子从左到右依次标记为 A、B、C，柱 A 上从上到下按从小到大的顺序叠放着六张不同颜色的圆盘，柱 B 与柱 C 均为空。",
+    "画面下半部分展示目标状态：柱 A 与柱 B 变为空柱，全部六张圆盘已移至最右侧的柱 C 上，且依然保持最小盘在顶、最大盘在底的原有顺序。中间向下的箭头“将所有圆盘从 A 移动至 C”概括整个问题的总体任务，并非表示可以一次性搬移整叠圆盘。"
+  ],
+  "result": "要完成从柱 A 到柱 C 的六盘转移，必须通过一系列符合规则的单盘移动逐步实现；本图仅定义起始状态与目标状态，未展开中间移动步骤。",
+  "frames": [
+    {
+      "id": "source-326",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_example.png",
+      "title": "汉诺塔问题示例：将六张圆盘从 A 移至 C",
+      "explanation": "上下两幅柱阵对比给出了六盘汉诺塔问题的起始配置（六盘全在 A）与目标配置（六盘全在 C 且保持上小下大次序）。",
+      "state": "起始状态：柱 A 上按上小下大叠放六张圆盘，柱 B、C 为空。目标状态：柱 A、B 为空，柱 C 上按上小下大叠放同样的六张圆盘；图中未展示中间过渡步骤。",
+      "key_state": "六张圆盘从柱 A 移至柱 C，借助柱 B 且全程保持小盘在大盘之上。",
+      "announcement": "展示六盘汉诺塔问题从柱 A 移至柱 C 的起始状态与目标状态。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-16",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "05a57f6cf8b04fc3db39cbfc2fd7a21cc15b3a43c7fdc4428b809974082a7840",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "5e763dfd4e2b736b9a5010f6bdd3e33ef9402bdbd494a2a8c3346a1893135dc9",
+        "output_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb",
+        "output_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0",
+        "output_sha256": "b8fa9f331b33db33433309a29e9fe3834178d140c262ec7bc27dee6b669a5cd5"
+      }
+    ],
+    "evidence_sha256": "a355fc71eefa70eb8f989661b8a016ead02f198bb0747865902f358b13b089ae"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_divide_and_conquer/hanota_problem.md": "fe9fd8bc5e3971914c01d472b05d0c15d4d3b57218bae244613f3acb4a02e17e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_divide_and_conquer/hanota_problem.assets/hanota_example.png": "48e1f4384ddfcab0d5ac14b23abad47fbaadb34db8646a17c02bf1577aceeede"
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_dynamic_programming/knapsack_problem.assets/knapsack_dfs_mem",
+  "title": "0-1 背包的记忆化搜索",
+  "summary": "右分支再次遇到 dp[1, 10] 时直接读取缓存记录返回，并与超重剪枝区分开来。",
+  "context": [
+    "0-1 背包中每件物品最多选择一次。本图使用 3 物品、容量 cap=30 示例：重量依次为 10、20、20，价值依次为 60、110、120（见表）。dp[i, c] 表示前 i 件物品在可用容量 c 下的最大价值；图中表头写 wgt[i]、val[i]（i 从 1 到 3），正文代码用下标 i-1 访问数组。",
+    "当当前物品装得下时，比较不选它的 dp[i-1, c] 与选它的 dp[i-1, c-wgt[i-1]]+val[i-1]，取较大值；装不下时只取不选分支。无物品或容量为 0 时返回 0。图中的负容量节点仅示意被排除的选择，代码在递归前判断超重，不实际调用负容量状态。"
+  ],
+  "description": [
+    "三轮决策依次对应物品 3、物品 2、物品 1。根 dp[3, 30] 分为 dp[2, 30] 与 dp[2, 10]；左侧 dp[2, 30] 分为 dp[1, 30]（继续展开为叶节点 dp[0, 30]、dp[0, 20]）与橙框 dp[1, 10]（继续展开为叶节点 dp[0, 10]、dp[0, 0]）。",
+    "右侧 dp[2, 10] 的两个分支均为带剪刀的灰色实线箭头且不再展开子节点：“否”分支指向灰色橙框 dp[1, 10]，旁注“剪枝：找到记录”；“是”分支指向灰色 dp[1, -10]，旁注“剪枝：物品重量 > 背包容量”。"
+  ],
+  "result": "通过记忆化缓存，第二处 dp[1, 10] 无需再次展开两个叶节点，图中 i=0 的基例叶节点由 6 个减少为 4 个，另有一个命中缓存、直接返回有效值的 dp[1, 10] 节点；按图中输入推算，最大价值仍为选物品 1 和 3 所得的 180。",
+  "frames": [
+    {
+      "id": "source-396",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dfs_mem.png",
+      "title": "0-1 背包的记忆化搜索",
+      "explanation": "左子树首次求解 dp[1, 10] 时，1 号物品重 10、价值 60，可装入剩余容量 10，算出 dp[1, 10]=60 并存入记忆化表。随后右子树在 dp[2, 10] 下选择不放物品 2、再次请求 dp[1, 10] 时，触发“剪枝：找到记录”，直接读出缓存值 60 返回给上层参与最大值计算；而旁边的 dp[1, -10] 则是因为物品 2 重量 20 超过剩余容量 10，触发“剪枝：物品重量 > 背包容量”而被排除。这两类剪枝虽然都停止继续向下展开，但缓存命中提供的是合法子问题的有效返回值，超重剪枝则是不可行的非法选择（注：缓存值 60 与最终最优值 180 由图中输入推导，画面未直接标出返回值数字）。",
+      "state": "根 dp[3, 30] 分为 dp[2, 30] 与 dp[2, 10]；左侧 dp[2, 30] 下的 dp[1, 30] 展开为 dp[0, 30]、dp[0, 20]，橙框 dp[1, 10] 展开为 dp[0, 10]、dp[0, 0]，共四个 i=0 的基例叶节点；右侧 dp[2, 10] 下的灰色橙框 dp[1, 10] 标“剪枝：找到记录”并停止展开，灰色 dp[1, -10] 标“剪枝：物品重量 > 背包容量”。底部列出 1 号苹果 (重量 10, 价值 60)、2 号西瓜 (20, 110)、3 号菠萝 (20, 120)，cap=30。",
+      "key_state": "右侧 dp[1, 10] 命中缓存直接返回，右侧 dp[1, -10] 因物品超重被排除。",
+      "announcement": "第二次访问 dp[1, 10] 时直接复用缓存结果，省去重复子树展开，同时排除超重分支。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "递归树使用的三件物品；容量 30",
+      "headers": [
+        "编号",
+        "图示物品",
+        "重量",
+        "价值"
+      ],
+      "rows": [
+        [
+          "1",
+          "苹果",
+          "10",
+          "60"
+        ],
+        [
+          "2",
+          "西瓜",
+          "20",
+          "110"
+        ],
+        [
+          "3",
+          "菠萝",
+          "20",
+          "120"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-20",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "52890158892a6d06a4351672613e2c5597c762c350b22cc9d28ff802145604af",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "41d0fd45a22945a5a7184d107047c8717cca6d0cb964ceb1ffcffefcf35d71c0",
+        "output_sha256": "6f28ad46a843e550964bfad54893774457a3ec29abb9f8165dd6262f050b2101"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "6f28ad46a843e550964bfad54893774457a3ec29abb9f8165dd6262f050b2101",
+        "output_sha256": "8f0f618cc8d84fe521a7436cfd71d04bdc65b259bdf6282d1f693e3bfbd5cadc"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "8f0f618cc8d84fe521a7436cfd71d04bdc65b259bdf6282d1f693e3bfbd5cadc",
+        "output_sha256": "b529f2a5259e393cbd6adce01e5f42a44a8d6813ef624f4cd36fcf49308a3adf"
+      }
+    ],
+    "evidence_sha256": "54a5deb01ddc36c133e5452c5496383065ebdb84ec70c16f4d6436a9bcb17a67"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_dynamic_programming/knapsack_problem.md": "737c2956ff98e7b0f2127ba26566ece3d167e7022d593ba82e273a2f5e98e493"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dfs_mem.png": "7474cc22f9e6b9f589eb52fb9e21d2ddd08455f601edb3197e943d918485e281"
+    }
+  }
+}

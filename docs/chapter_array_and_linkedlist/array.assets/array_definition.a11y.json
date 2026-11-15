@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_array_and_linkedlist/array.assets/array_definition",
+  "title": "数组的元素、索引与连续存储",
+  "summary": "展示长度为 5 的数组 [1, 3, 2, 5, 4]：左侧对齐列出元素值、从 0 开始的索引 0 至 4 以及等间距的内存地址 00 至 16，右侧展示这五个元素在内存网格中的连续存放。",
+  "context": [
+    "画面左、右两部分由居中的灰色双向箭头连接：左侧展示数组的“元素（element）”、“数组（array）”、“索引（index）”和“内存地址（memory location）”四个核心概念，右侧展示该数组在二维内存网格中的物理落位。"
+  ],
+  "description": [
+    "左侧第一行标签为“数组 array”，绿色外框内紧邻排列五个绿色单元格，元素值依次为 1、3、2、5、4；首格 1 的正上方由竖线引出标签“元素 element”。第二行标签为“索引 index”，在五个元素正下方依次对齐标注 0、1、2、3、4。第三行标签为“内存地址 memory location”，在各索引正下方依次对齐标注 00、04、08、12、16。",
+    "右侧顶部标题为“存储数组的内存空间是连续的”，下方是一个 5 行 8 列的内存网格：第 2 行左起前五个连续单元格涂为绿色，依次存放 1、3、2、5、4，其余单元格均为浅灰色。右下方图例注明：浅灰色格为“可用内存空间”，绿色格为“划分给数组的内存空间”。"
+  ],
+  "result": "数组将相同类型的元素存放在连续的内存空间中：每个元素占用相同字节数（本例为 4），因此各元素的起始内存地址按固定步长递增，并可通过从 0 开始的索引唯一标识。",
+  "frames": [
+    {
+      "id": "source-46",
+      "book_path": "chapter_array_and_linkedlist/array.assets/array_definition.png",
+      "title": "数组的元素、索引与连续存储",
+      "explanation": "读图时需明确区分每一列的三个数值维度——“元素值”、“索引”与“内存地址”：索引 0 存放元素值 1（地址 00），索引 1 存放元素值 3（地址 04），索引 2 存放元素值 2（地址 08），索引 3 存放元素值 5（地址 12），索引 4 存放元素值 4（地址 16）。相邻元素的起始地址固定相差 4，体现了同类型元素在连续内存中整齐排布的特性（地址中的前导 0 仅为对齐位数的图示写法，不表示编程语言中的八进制字面量）。",
+      "state": "左侧自上而下对齐三行：“数组 array”包含五个绿色格 1、3、2、5、4（首格 1 上方标注“元素 element”）；“索引 index”依次为 0、1、2、3、4；“内存地址 memory location”依次为 00、04、08、12、16。中间经双向箭头连至右侧 5 行 8 列内存网格（标题“存储数组的内存空间是连续的”），第 2 行前 5 个连续绿色格存放 1、3、2、5、4，其余浅灰色格为可用内存空间。",
+      "key_state": "数组元素依次为 [1, 3, 2, 5, 4]，对应索引 [0, 1, 2, 3, 4]，对应连续内存地址 [00, 04, 08, 12, 16]。",
+      "announcement": "展示数组 [1, 3, 2, 5, 4] 的元素、索引 0 至 4、起始内存地址 00 至 16 以及在内存网格中的连续存储方式。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-03",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "bcd9b85150fc680015708210f262795672e39216807162819a748d130a8b73a5",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "cbe99e77444e0462f57c192b0088094f9fd6936e24f6cfd18181de4a48ba8083",
+        "output_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c",
+        "output_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6",
+        "output_sha256": "bdf21f24ca6a88ed6060d24186ac933357dde4feee3a257546cffd56c2bd6867"
+      }
+    ],
+    "evidence_sha256": "ec6ba9da7d2fe9290ce303592b8440b918ec83702cd9d0e6bbdc1e50d87c89d8"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_array_and_linkedlist/array.md": "b552efb1674ec7ace53cef69704ced587bc0f66bf9c861380e4105d944147d3e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_array_and_linkedlist/array.assets/array_definition.png": "8c326eabf01ba23369b87edd45ff19814c31b1fc21e8747f3169b1bfd5c6337a"
+    }
+  }
+}

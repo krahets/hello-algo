@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_graph/graph.assets/adjacency_matrix",
+  "title": "图的邻接矩阵表示：五顶点无向图与对称矩阵",
+  "summary": "顶点列表按 1、3、2、5、4 排列；七条无向边在 5×5 邻接矩阵中各对应两个关于主对角线对称的 1。",
+  "context": [
+    "左侧无向图包含五个顶点 1、2、3、4、5，以及七条无向边 1—3、1—5、3—2、2—5、2—4、5—4、1—2。中间竖列给出“顶点列表” V = [1, 3, 2, 5, 4]，对应从上到下、从左到右的矩阵“索引”为 0 至 4；注意顶点本身的值与它在列表中的索引位置并不相同。"
+  ],
+  "description": [
+    "右侧 5×5 邻接矩阵 M 的行与列都按顶点列表 V = [1, 3, 2, 5, 4] 的顺序对齐：M[i,j] = 1 表示顶点 V[i] 与顶点 V[j] 之间有边相连，M[i,j] = 0 表示二者之间无边。完整矩阵数值见附表。",
+    "画面用三种底色高亮展示了三条无向边与矩阵元素的成对映射：青绿色边 1—2（索引 0 与 2）对应 M[0,2] = 1 和 M[2,0] = 1；蓝色边 3—2（索引 1 与 2）对应 M[1,2] = 1 和 M[2,1] = 1；紫蓝色边 5—4（索引 3 与 4）对应 M[3,4] = 1 和 M[4,3] = 1。",
+    "由于无向图的边在两个方向上完全等价，整张邻接矩阵关于图中虚线标出的“主对角线”对称。简单无向图中不存在顶点连向自身的自环，因此主对角线上的五个元素全为 0。"
+  ],
+  "result": "五个顶点构成 5×5 邻接矩阵，七条无向边在主对角线两侧对称产生 14 个值为 1 的矩阵元素，主对角线元素全为 0。",
+  "frames": [
+    {
+      "id": "source-177",
+      "book_path": "chapter_graph/graph.assets/adjacency_matrix.png",
+      "title": "用 5×5 邻接矩阵表示五顶点无向图",
+      "explanation": "左图的三条彩色边 1—2、3—2、5—4 与右图同色高亮的三对矩阵元素一一对应，直观说明每条无向边都在邻接矩阵中占据关于主对角线对称的两个位置。",
+      "state": "顶点列表为 [1, 3, 2, 5, 4]，索引从 0 到 4。无向边为 1—3、1—5、3—2、2—5、2—4、5—4、1—2。邻接矩阵按上述索引顺序逐行为 [[0, 1, 1, 1, 0], [1, 0, 1, 0, 0], [1, 1, 0, 1, 1], [1, 0, 1, 0, 1], [0, 0, 1, 1, 0]]；1 表示有边，0 表示无边。",
+      "key_state": "顶点列表顺序 [1, 3, 2, 5, 4]（索引 0 至 4）；矩阵关于主对角线对称，对角线全为 0。",
+      "announcement": "展示五顶点无向图与 5×5 对称邻接矩阵的对应关系。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "图中邻接矩阵",
+      "headers": [
+        "行：索引／顶点",
+        "列 0／顶点 1",
+        "列 1／顶点 3",
+        "列 2／顶点 2",
+        "列 3／顶点 5",
+        "列 4／顶点 4"
+      ],
+      "rows": [
+        [
+          "0／1",
+          "0",
+          "1",
+          "1",
+          "1",
+          "0"
+        ],
+        [
+          "1／3",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "2／2",
+          "1",
+          "1",
+          "0",
+          "1",
+          "1"
+        ],
+        [
+          "3／5",
+          "1",
+          "0",
+          "1",
+          "0",
+          "1"
+        ],
+        [
+          "4／4",
+          "0",
+          "0",
+          "1",
+          "1",
+          "0"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-10",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "85f842b90463be0ba6cb9f391d9d6e5810d32ff11d53209b97a4e74b0ad7cd35",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "0a95d252e48e43c16659e492cf8623a551ef350ac8d91dc20d297cc101c008ca",
+        "output_sha256": "96677b3baeeee3a660179fb75c59edf392351f4a32ed729fbf9826ff62555fa1"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "96677b3baeeee3a660179fb75c59edf392351f4a32ed729fbf9826ff62555fa1",
+        "output_sha256": "96e4e954b067f42297be1f02858f8032bb9b56507aecf8ed5416abd8ab6f32a7"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "96e4e954b067f42297be1f02858f8032bb9b56507aecf8ed5416abd8ab6f32a7",
+        "output_sha256": "1154934782b3b07507932936dafa228955a9704a4678d05752aeee750675a4bd"
+      }
+    ],
+    "evidence_sha256": "5f572b4ac1ec3f8418e4fb4744742d5db14ec1beef1f1614cf180827804552f8"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_graph/graph.md": "98f39b2bdde041f34560d72f6c75810cdb2adbd3dadd03861faff1fd500fabc4"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_graph/graph.assets/adjacency_matrix.png": "37c274b3345fc45386c8d0b7a89af35a5e69ff6ab0afe8d048503bb49fb57648"
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_tree/binary_search_tree.assets/bst_search",
+  "title": "在二叉搜索树中查找节点 7",
+  "summary": "从根节点 8 出发，将 cur 的节点值依次与目标值 7 比较，沿 8→4→6→7 逐步缩小查找范围，最终在第四步找到节点 7。",
+  "context": [
+    "二叉搜索树中，任意节点的左子树所有节点值小于该节点值，右子树所有节点值大于该节点值。连线箭头从父节点指向子节点。",
+    "四层完美二叉搜索树含节点 1 至 15：根为 8，左、右子节点为 4、12；4 的左、右子节点为 2、6；12 的左、右子节点为 10、14；2 的子节点为 1、3，6 的子节点为 5、7，10 的子节点为 9、11，14 的子节点为 13、15。",
+    "图顶部标题为“在二叉搜索树中查找节点 7”。指针 cur 指向当前正被检查的节点（以实心蓝色高亮），已经走过的查找路径用蓝色箭头与蓝色节点外环标出。"
+  ],
+  "description": [],
+  "result": "指针 cur 沿路径 8 → 4 → 6 → 7 依次比较四个节点，在第四步命中目标值 7 并返回该节点；查找过程不修改树的任何连接。",
+  "frames": [
+    {
+      "id": "source-118",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step1.png",
+      "title": "从根节点 8 开始查找",
+      "explanation": "Step 1 将指针 cur 初始化在根节点 8（实心蓝色高亮）。将目标值 7 与当前节点值 8 比较：因为 7 < 8，目标必在左子树中，下一步应移向左下方的左子节点 4。",
+      "state": "查找目标为 7。四层二叉搜索树含节点 1 至 15（根 8→4、12，4→2、6，12→10、14，2→1、3，6→5、7，10→9、11，14→13、15）。当前 cur 指向实心蓝色的根节点 8，已走路径为 8。",
+      "key_state": "cur 指向根节点 8；因目标 7 < 8，准备转向左子节点 4。",
+      "announcement": "开始查找 7，初始化 cur 指向根节点 8。"
+    },
+    {
+      "id": "source-119",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step2.png",
+      "title": "7 小于 8，向左转向节点 4",
+      "explanation": "Step 2 因 7 < 8，执行 cur = cur.left，指针沿蓝色箭头从 8 移至左子节点 4。再将目标值 7 与当前节点值 4 比较：因为 7 > 4，下一步应转向 4 的右子树。",
+      "state": "查找目标为 7。四层二叉搜索树含节点 1 至 15（根 8→4、12，4→2、6，12→10、14，2→1、3，6→5、7，10→9、11，14→13、15）。当前 cur 指向实心蓝色的节点 4，蓝色查找路径为 8→4。",
+      "key_state": "cur 指向节点 4（路径 8→4）；因目标 7 > 4，准备转向右子节点 6。",
+      "announcement": "因 7 小于 8，cur 从 8 移至左子节点 4。"
+    },
+    {
+      "id": "source-120",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step3.png",
+      "title": "7 大于 4，向右转向节点 6",
+      "explanation": "Step 3 因 7 > 4，执行 cur = cur.right，指针沿蓝色箭头从 4 移至右子节点 6。再将目标值 7 与当前节点值 6 比较：因为 7 > 6，下一步继续转向 6 的右子节点。",
+      "state": "查找目标为 7。四层二叉搜索树含节点 1 至 15（根 8→4、12，4→2、6，12→10、14，2→1、3，6→5、7，10→9、11，14→13、15）。当前 cur 指向实心蓝色的节点 6，蓝色查找路径为 8→4→6。",
+      "key_state": "cur 指向节点 6（路径 8→4→6）；因目标 7 > 6，准备转向右子节点 7。",
+      "announcement": "因 7 大于 4，cur 从 4 移至右子节点 6。"
+    },
+    {
+      "id": "source-121",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step4.png",
+      "title": "7 大于 6，到达叶节点 7 并查找成功",
+      "explanation": "Step 4 因 7 > 6，执行 cur = cur.right，指针沿蓝色箭头从 6 移至右子节点 7。此时 cur 的节点值等于目标值 7，查找命中，跳出循环并返回节点 7。",
+      "state": "查找目标为 7。四层二叉搜索树含节点 1 至 15（根 8→4、12，4→2、6，12→10、14，2→1、3，6→5、7，10→9、11，14→13、15）。当前 cur 指向实心蓝色的叶节点 7，蓝色查找路径为 8→4→6→7，查找成功。",
+      "key_state": "cur 指向目标节点 7（路径 8→4→6→7），查找成功。",
+      "announcement": "因 7 大于 6，cur 从 6 移至右子节点 7，命中目标并查找成功。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-07",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "46bec8e07e3c7af2e4c3d5de161a8b3b847a84629c7878cb09145e8edb012c21",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "f429a2d9034d7690b6bd4a3f0822b11a77350c2330baf8a66141d1f7a9ef4841",
+        "output_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91",
+        "output_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6",
+        "output_sha256": "449ce85fb338c455e6cedde1bf55ab20b1b0f532a5408dfa0443a6fbe9815c6b"
+      }
+    ],
+    "evidence_sha256": "459b7ad9cb6322b1bab7e28efa1badcfd4813182718f9028c5dbe5d4d10dbb4c"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_tree/binary_search_tree.md": "bf4428ef944ea3dc4040d389ab63b4f52575e5b0990caac71413a4f04cf9d1e4"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_tree/binary_search_tree.assets/bst_search_step1.png": "6e4a0c4388ffd9a9363051e7d467484ecd216e7c61b360ad7d747f7dead7b9ad",
+      "chapter_tree/binary_search_tree.assets/bst_search_step2.png": "dbf44a68e62559fd35d08b2acf2e2d0d1750c1bda80a87cd27c4682bbb30e998",
+      "chapter_tree/binary_search_tree.assets/bst_search_step3.png": "2ec8d086b047eed331adf5dbdffa0a986acbca0a0aca8346fbd8cffbdbc9c026",
+      "chapter_tree/binary_search_tree.assets/bst_search_step4.png": "b0cfff7c38beacc154f39e9a51313ac09edbe101072fccc87d6db08140cb3e16"
+    }
+  },
+  "animations": {
+    "bst-search": {
+      "kind": "source-frames",
+      "model_sha256": "324555b82b8c22fac17219824a809076cdbe91074560e081788c6253289d2a02",
+      "source_content_sha256": "46bec8e07e3c7af2e4c3d5de161a8b3b847a84629c7878cb09145e8edb012c21",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-118"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-119"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-120"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-121"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "c1c8dac812e21fe9f5677b088669a17a1ae38bc694e20db0b531f7413860a316",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

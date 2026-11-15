@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_division_pointers",
+  "title": "用 i、l、m、r 表示构树递归的索引区间",
+  "summary": "左子树根的前序索引为 i+1，右子树根的前序索引为 i+1+(m−l)，其中 m−l 为左子树节点数。",
+  "context": [
+    "输入为前序遍历 preorder = [3, 9, 2, 1, 7] 与中序遍历 inorder = [9, 3, 1, 2, 7]，节点值互不重复。",
+    "数组索引从 0 开始：i 表示当前子树根节点在 preorder 中的索引；[l, r] 表示当前子树在 inorder 中的闭区间；m 表示当前子树根节点在 inorder 中的索引。注意 m 是通过根的值在 inorder（或哈希表）中查表得到的索引，并非区间 [l, r] 的几何中点。"
+  ],
+  "description": [
+    "画面以整棵树的顶层调用为例标出各指针位置：当前根节点 3 在前序中的索引为 i = 0，整棵树在中序中的闭区间为 [l, r] = [0, 4]，根节点 3 在中序中的索引为 m = 1，因此左子树的节点数量为 m − l = 1。",
+    "由此可直接推导出左右子树的递归参数（通用公式见附表）：左子树根节点紧跟在当前根之后，其前序索引为 i + 1 = 1（对应元素 9），中序闭区间为 [l, m − 1] = [0, 0]；右子树根节点需跳过当前根和全部 m − l 个左子树节点，其前序索引为 i + 1 + (m − l) = 2（对应元素 2），中序闭区间为 [m + 1, r] = [2, 4]（对应 [1, 2, 7]）。",
+    "递归过程中只需传递前序根索引与中序闭区间端点，当遇到 l > r 的空区间时直接返回空子树。画面左侧同步展示对应的五节点树：根节点 3 的左子节点为 9、右子节点为 2，2 的左右子节点分别为 1 和 7。"
+  ],
+  "result": "借助指针变量 i、l、m、r 的代数关系，每次递归调用仅需传递整数索引即可精确界定左右子树，无需切片复制子数组。",
+  "frames": [
+    {
+      "id": "source-315",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_division_pointers.png",
+      "title": "用 i、l、m、r 表示构树递归的索引区间",
+      "explanation": "在前序遍历中定位右子树根节点时，必须从当前根索引 i 出发跳过当前根（+1）以及左子树的全部节点（m − l），因此右子树根的前序索引为 i + 1 + (m − l)。",
+      "state": "前序 preorder = [3, 9, 2, 1, 7]，中序 inorder = [9, 3, 1, 2, 7]，节点值互不重复。顶层调用中的索引变量为 i = 0、l = 0、m = 1、r = 4；左子树根前序索引为 i + 1 = 1（值 9），中序区间为 [0, 0]；右子树根前序索引为 i + 1 + (m − l) = 2（值 2），中序区间为 [2, 4]。左侧树根节点为 3，左子节点为 9，右子节点为 2，2 的左右子节点为 1、7，其中 9、1、7 为叶节点。",
+      "key_state": "i = 0，l = 0，m = 1，r = 4；左根前序索引为 1，右根前序索引为 2。",
+      "announcement": "展示用指针变量 i、l、m、r 计算左右子树前序根索引与中序闭区间的方法。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "递归参数的通式与本例",
+      "headers": [
+        "子问题",
+        "前序根索引",
+        "中序闭区间",
+        "本例"
+      ],
+      "rows": [
+        [
+          "当前树",
+          "i",
+          "[l,r]",
+          "i=0，区间[0,4]，根3"
+        ],
+        [
+          "左子树",
+          "i+1",
+          "[l,m−1]",
+          "i=1，区间[0,0]，根9"
+        ],
+        [
+          "右子树",
+          "i+1+(m−l)",
+          "[m+1,r]",
+          "i=2，区间[2,4]，根2"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-16",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "3e01d7f74eb33aebfe18c2265739eabf37a049434003c5bad380972ffdcdcfee",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "5e763dfd4e2b736b9a5010f6bdd3e33ef9402bdbd494a2a8c3346a1893135dc9",
+        "output_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb",
+        "output_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0",
+        "output_sha256": "b8fa9f331b33db33433309a29e9fe3834178d140c262ec7bc27dee6b669a5cd5"
+      }
+    ],
+    "evidence_sha256": "a355fc71eefa70eb8f989661b8a016ead02f198bb0747865902f358b13b089ae"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_divide_and_conquer/build_binary_tree_problem.md": "15c1f80907cb390b2dece48fa770f0441b86b7b89fb20b34edba6aca89263817"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_division_pointers.png": "11326e68b14d8cd2ea61373150edec358ce83bbdc9670c541b48ac2b55719a3f"
+    }
+  }
+}

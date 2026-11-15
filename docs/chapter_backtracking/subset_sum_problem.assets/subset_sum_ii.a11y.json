@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_backtracking/subset_sum_problem.assets/subset_sum_ii",
+  "title": "子集和 II 的四种剪枝",
+  "summary": "对 [4, 4̂, 5] 求和为 9 的子集，综合运用四种剪枝条件后只保留唯一解 [4, 5]。",
+  "context": [
+    "输入数组已按数值排序为 choices=[4, 4̂, 5]，目标 target=9，4̂ 的数值仍为 4。每个数组索引在同一个子集中最多只能使用一次，圆节点内的数字表示做减法后的剩余 target。"
+  ],
+  "description": [
+    "递归树的右侧及下方排列四个图例框，分别对应四色剪刀：红色“剪枝一：元素和不能超过 target”、蓝色“剪枝二：避免生成重复子集”、紫色“剪枝三：不允许重复选择数组元素”、青色“剪枝四：在同一轮中相等元素只能被选择一次”。灰色边与灰色节点表示被剪除的分支。"
+  ],
+  "result": "四种剪枝共同作用后，唯一到达剩余值 0 的路径是 [4, 5]。同轮去重剪掉了根处的 4̂ 分支，但并不妨碍在第一轮选 4 后、第二轮再合法选用不同索引的 4̂（只是 [4, 4̂] 后续无法凑出 9）。",
+  "frames": [
+    {
+      "id": "source-362",
+      "book_path": "chapter_backtracking/subset_sum_problem.assets/subset_sum_ii.png",
+      "title": "子集和 II 的四种剪枝",
+      "explanation": "从根节点 9 出发，第一轮选 -4 得到剩余值 5；同轮的 -4̂ 因与 -4 数值相等，被青色剪刀（剪枝四）剪去；选 -5 则得到剩余值 4。第二轮在 5（已选第一个 4）下：再选同一个 -4 被紫色剪刀（剪枝三）剪去；选不同索引的 -4̂ 是合法的，得到剩余值 1；选 -5 则到达绿色节点 0，输出子集 [4, 5]。接着在剩余值 1（前缀 [4, 4̂]）的第三轮中：回头选第一个 -4 被蓝色剪刀（剪枝二）剪去，重用第二个 -4̂ 被紫色剪刀（剪枝三）剪去，选 -5 则因超过剩余值 1 被红色剪刀（剪枝一）剪去。而在第一轮剩余值 4（已选 5）的第二轮中：回头选 -4、-4̂ 均被蓝色剪刀（剪枝二）剪去，重用同一个 -5 被紫色剪刀（剪枝三）剪去。正文代码通过递归传入 start=i+1 同时实现剪枝二和剪枝三，并通过 i>start 且相邻元素相等的判断实现剪枝四。",
+      "state": "根为 9，第一轮保留 -4 到 5、-5 到 4，中间 -4̂ 被青色剪刀四剪去。5 下：-4 被紫色剪刀三剪去，-4̂ 到 1，-5 到绿色 0（输出 [4, 5]）；1 下的 -4、-4̂、-5 依次被蓝二、紫三、红一剪去。4 下的 -4、-4̂ 被蓝二剪去，-5 被紫三剪去。",
+      "key_state": "四种剪枝筛除越界、倒序、同索引重用和同轮相等值，仅留 9→5→0 输出 [4, 5]。",
+      "announcement": "同轮剪去根处的 4̂，结合索引前进与越界剪枝，最终只保留 9 减 4 再减 5 的唯一组合 [4, 5]。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "四种剪枝的含义",
+      "headers": [
+        "图例",
+        "排除情形"
+      ],
+      "rows": [
+        [
+          "剪枝一（红）",
+          "选入后元素和超过9，即剩余 target 为负"
+        ],
+        [
+          "剪枝二（蓝）",
+          "回到较早索引，产生不同顺序的重复组合"
+        ],
+        [
+          "剪枝三（紫）",
+          "再次使用已选的同一个数组索引"
+        ],
+        [
+          "剪枝四（青）",
+          "同一轮再次尝试数值相同的候选"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-18",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "af39aad09ceaf24f3c4b5be74bc467f20f99ed7f44f6b8b0e3edb229c8ffab4f",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "4d905ea19e7b4a83ea36041a9c7f9d8d8c1f3b06c72a654e2a9e539750effd5d",
+        "output_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90",
+        "output_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad",
+        "output_sha256": "5ee2b110fd9b935a096ccaacf3e3b27d88bb1cb4918d9a5b6bd2b5a75c56edf0"
+      }
+    ],
+    "evidence_sha256": "5559c3ad6bd5d378f79de2a5c7f96ac680c007486f684e00a24a2512ab4de485"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_backtracking/subset_sum_problem.md": "071de898ede315a542cb99a3734fdd4bc42f447fe76e35d4251abc7c6ad4bfa1"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_backtracking/subset_sum_problem.assets/subset_sum_ii.png": "1542632366b5252c1a612a70005c116feee9ddc5ddfa7913e7b645acf2b8c652"
+    }
+  }
+}

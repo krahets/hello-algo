@@ -54,25 +54,25 @@
     ![二分搜尋重複元素的插入點的步驟](binary_search_insertion.assets/binary_search_insertion_step1.svg)
 
 === "<2>"
-    ![binary_search_insertion_step2](binary_search_insertion.assets/binary_search_insertion_step2.svg)
+    ![二分搜尋重複元素的插入點：遇到相等值繼續向左收縮，定位首個 6，第 2 步，共 8 步：第 2 步：第一輪計算中點 m = 4（值為 6）](binary_search_insertion.assets/binary_search_insertion_step2.svg)
 
 === "<3>"
-    ![binary_search_insertion_step3](binary_search_insertion.assets/binary_search_insertion_step3.svg)
+    ![二分搜尋重複元素的插入點：遇到相等值繼續向左收縮，定位首個 6，第 3 步，共 8 步：第 3 步：nums\[4\] == 6，執行 j = m − 1 = 3 向左收縮](binary_search_insertion.assets/binary_search_insertion_step3.svg)
 
 === "<4>"
-    ![binary_search_insertion_step4](binary_search_insertion.assets/binary_search_insertion_step4.svg)
+    ![二分搜尋重複元素的插入點：遇到相等值繼續向左收縮，定位首個 6，第 4 步，共 8 步：第 4 步：第二輪計算中點 m = 1（值為 3）](binary_search_insertion.assets/binary_search_insertion_step4.svg)
 
 === "<5>"
-    ![binary_search_insertion_step5](binary_search_insertion.assets/binary_search_insertion_step5.svg)
+    ![二分搜尋重複元素的插入點：遇到相等值繼續向左收縮，定位首個 6，第 5 步，共 8 步：第 5 步：nums\[1\] < 6，執行 i = m + 1 = 2 向右收縮](binary_search_insertion.assets/binary_search_insertion_step5.svg)
 
 === "<6>"
-    ![binary_search_insertion_step6](binary_search_insertion.assets/binary_search_insertion_step6.svg)
+    ![二分搜尋重複元素的插入點：遇到相等值繼續向左收縮，定位首個 6，第 6 步，共 8 步：第 6 步：第三輪計算中點 m = 2（與左邊界 i 重合）](binary_search_insertion.assets/binary_search_insertion_step6.svg)
 
 === "<7>"
-    ![binary_search_insertion_step7](binary_search_insertion.assets/binary_search_insertion_step7.svg)
+    ![二分搜尋重複元素的插入點：遇到相等值繼續向左收縮，定位首個 6，第 7 步，共 8 步：第 7 步：nums\[2\] == 6，執行 j = m − 1 = 1 使區間為空](binary_search_insertion.assets/binary_search_insertion_step7.svg)
 
 === "<8>"
-    ![binary_search_insertion_step8](binary_search_insertion.assets/binary_search_insertion_step8.svg)
+    ![二分搜尋重複元素的插入點：遇到相等值繼續向左收縮，定位首個 6，第 8 步，共 8 步：第 8 步：跳出二分迴圈，返回最左插入點索引 i = 2](binary_search_insertion.assets/binary_search_insertion_step8.svg)
 
 觀察以下程式碼，判斷分支 `nums[m] > target` 和 `nums[m] == target` 的操作相同，因此兩者可以合併。
 

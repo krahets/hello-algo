@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_tree/binary_tree.assets/balanced_binary_tree",
+  "title": "平衡二叉树：任意节点的左右子树高度差不超过 1",
+  "summary": "八个节点旁分别标出左右子树高度差 d，所有节点的 d 均在 −1、0、1 之间，满足 |d| ≤ 1。",
+  "context": [
+    "右侧说明框给出定义：“设节点的 左子树高度 – 右子树高度 = d，则平衡二叉树中所有节点都满足 |d| ≤ 1。”按边数计高度时，叶节点高度为 0，空子树高度记为 −1；这里的 d 表示左右子树高度差，不是节点的度。"
+  ],
+  "description": [
+    "左侧是一棵四层共 8 个无数值标签节点的二叉树：第一层根节点有左、右两个子节点；第二层左节点只有左子节点（位于第三层的叶节点）；第二层右节点有左、右两个子节点（位于第三层），其中左节点又分出第四层的两个叶节点，右节点本身是叶节点。",
+    "每个节点旁都标有高度差 d：第一层根节点的左子树比右子树低一层，故标为 d = −1；第二层左节点只有左叶节点而无右子树，标为 d = 1；第二层右节点的左子树比右叶节点高一层，也标为 d = 1。",
+    "第三层中间那个带两个叶节点的内部节点，左右子树高度同为 0，标为 d = 0；其余四个叶节点（第三层两个、第四层两个）左右均为空子树，也都标为 d = 0。全树 8 个节点的 |d| 都不超过 1。"
+  ],
+  "result": "判断平衡二叉树必须核验树中的每一个节点，所有节点的左右子树高度差绝对值都至多为 1。",
+  "frames": [
+    {
+      "id": "source-95",
+      "book_path": "chapter_tree/binary_tree.assets/balanced_binary_tree.png",
+      "title": "平衡二叉树：任意节点的左右子树高度差不超过 1",
+      "explanation": "图中根节点标 d = −1，根的左、右子节点均标 d = 1，第三层中间内部节点与全部四个叶节点（共五个节点）均标 d = 0，直观呈现每个节点都满足 |d| ≤ 1。",
+      "state": "四层无数值标签的二叉树共 8 个节点：根（d = −1）有左子节点（d = 1）和右子节点（d = 1）；根的左子节点仅有左叶节点（d = 0）；根的右子节点有左子节点（d = 0，下挂两个 d = 0 的叶节点）和右叶节点（d = 0）。全部 8 个节点均满足 |d| ≤ 1。",
+      "key_state": "共 8 个节点：根节点 d = −1，第二层两个节点 d = 1，其余五个节点 d = 0，均满足 |d| ≤ 1。",
+      "announcement": "展示所有节点的左右子树高度差绝对值都不超过 1 的八节点平衡二叉树。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-06",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "65cf4e71c22c85e49724359d7f4d8a23a4012d7b52e51fff34789bd0e4b0c644",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a7d27ac86970762b98a3afc622b5a802549e6b6254c666e3efdf60f34ede65b5",
+        "output_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4",
+        "output_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900",
+        "output_sha256": "30bb25c69fe95554ab48370f707653e1ddeb4b287f83cb44cf33dc013e44b87b"
+      }
+    ],
+    "evidence_sha256": "bbb898a17ec7d0f8023ba3e028e19e1cebb4eba7c5059fe86305e5491e6f3b3b"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_tree/binary_tree.md": "ae2eaab951aa4bdfeba7d1cf6b47892b44351703c62da823977b45cbceb86c49"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_tree/binary_tree.assets/balanced_binary_tree.png": "89a0793e55884673bcd122b71ef137a3d01f9d4cec925d8c7aabea483b791d9c"
+    }
+  }
+}

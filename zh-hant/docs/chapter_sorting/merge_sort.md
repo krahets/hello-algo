@@ -20,31 +20,31 @@
     ![合併排序步驟](merge_sort.assets/merge_sort_step1.svg)
 
 === "<2>"
-    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.svg)
+    ![四元素合併排序的遞迴執行順序，第 2 步，共 10 步：遞迴進入左半子陣列 \[7, 3\]](merge_sort.assets/merge_sort_step2.svg)
 
 === "<3>"
-    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.svg)
+    ![四元素合併排序的遞迴執行順序，第 3 步，共 10 步：左分支劃分至單元素 \[7\] 並觸發終止條件](merge_sort.assets/merge_sort_step3.svg)
 
 === "<4>"
-    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.svg)
+    ![四元素合併排序的遞迴執行順序，第 4 步，共 10 步：展開左半的右側單元素 \[3\]](merge_sort.assets/merge_sort_step4.svg)
 
 === "<5>"
-    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.svg)
+    ![四元素合併排序的遞迴執行順序，第 5 步，共 10 步：回溯合併左半部分，得到有序子陣列 \[3, 7\]](merge_sort.assets/merge_sort_step5.svg)
 
 === "<6>"
-    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.svg)
+    ![四元素合併排序的遞迴執行順序，第 6 步，共 10 步：左半完成後遞迴進入右半子陣列 \[2, 6\]](merge_sort.assets/merge_sort_step6.svg)
 
 === "<7>"
-    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.svg)
+    ![四元素合併排序的遞迴執行順序，第 7 步，共 10 步：展開右半的左側單元素 \[2\]](merge_sort.assets/merge_sort_step7.svg)
 
 === "<8>"
-    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.svg)
+    ![四元素合併排序的遞迴執行順序，第 8 步，共 10 步：展開右半的右側單元素 \[6\]](merge_sort.assets/merge_sort_step8.svg)
 
 === "<9>"
-    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.svg)
+    ![四元素合併排序的遞迴執行順序，第 9 步，共 10 步：回溯合併右半部分，得到有序子陣列 \[2, 6\]](merge_sort.assets/merge_sort_step9.svg)
 
 === "<10>"
-    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.svg)
+    ![四元素合併排序的遞迴執行順序，第 10 步，共 10 步：頂層合併兩個有序半區，完成排序](merge_sort.assets/merge_sort_step10.svg)
 
 觀察發現，合併排序與二元樹後序走訪的遞迴順序是一致的。
 

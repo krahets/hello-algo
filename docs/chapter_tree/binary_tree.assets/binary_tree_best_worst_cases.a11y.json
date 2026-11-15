@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_tree/binary_tree.assets/binary_tree_best_worst_cases",
+  "title": "二叉树的最佳结构与链状退化结构",
+  "summary": "同样由节点 1 至 7 组成：左侧完美二叉树有 3 层、高度为 2；右侧单侧退化为链表，有 7 层、高度为 6。",
+  "context": [
+    "左右两棵二叉树都由值为 1 至 7 的 7 个节点构成，用来对比相同节点总数下的最佳结构与最差退化结构。"
+  ],
+  "description": [
+    "左图下方标注“理想结构：完美二叉树”。根节点为 1；1 的左、右子节点为 2、3；2 的左、右子节点为 4、5；3 的左、右子节点为 6、7；底层 4、5、6、7 都是叶节点。整棵树共 3 层，从根 1 到任意叶节点只经过 2 条边，高度为 2。",
+    "右图下方标注“退化结构：链表”。7 个节点全部偏向左侧，沿左子节点指针依次串成 1 → 2 → 3 → 4 → 5 → 6 → 7，所有节点的右子节点均为空。整棵树拉长为 7 层，从根 1 到唯一叶节点 7 需要经过 6 条边，高度达到 6。"
+  ],
+  "result": "当每层填满成完美二叉树时，树高最小，可发挥分治优势；当节点全部偏向一侧退化为链表时，树高达到最大，按路径操作退化为线性时间。",
+  "frames": [
+    {
+      "id": "source-96",
+      "book_path": "chapter_tree/binary_tree.assets/binary_tree_best_worst_cases.png",
+      "title": "二叉树的最佳结构与链状退化结构",
+      "explanation": "左图将节点 1 至 7 均匀分叉为 3 层完美二叉树（高度 2），右图将节点 1 至 7 沿左指针串成 7 层单链（高度 6），直观对比分治理想形态与线性退化形态。",
+      "state": "左图“理想结构（完美二叉树）”：根 1 的左、右子节点为 2、3，2 的左、右子节点为 4、5，3 的左、右子节点为 6、7，共 3 层、4 个叶节点、高度为 2。右图“退化结构（链表）”：节点沿左子节点依次连接为 1 → 2 → 3 → 4 → 5 → 6 → 7，共 7 层、唯一叶节点为 7、高度为 6。",
+      "key_state": "同为节点 1 至 7：左图 3 层完美二叉树（高度 2），右图 7 层左斜链表（高度 6）。",
+      "announcement": "对比由节点 1 至 7 构成的 3 层完美二叉树与 7 层链状退化结构。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-06",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "dc26bca4cf6034ee55889079178f6e933596f3daae300a7cdbf21ea6ca8fed4d",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a7d27ac86970762b98a3afc622b5a802549e6b6254c666e3efdf60f34ede65b5",
+        "output_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4",
+        "output_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900",
+        "output_sha256": "30bb25c69fe95554ab48370f707653e1ddeb4b287f83cb44cf33dc013e44b87b"
+      }
+    ],
+    "evidence_sha256": "bbb898a17ec7d0f8023ba3e028e19e1cebb4eba7c5059fe86305e5491e6f3b3b"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_tree/binary_tree.md": "ae2eaab951aa4bdfeba7d1cf6b47892b44351703c62da823977b45cbceb86c49"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_tree/binary_tree.assets/binary_tree_best_worst_cases.png": "c178d025fbc60fd9d35a96d3423775e59c99164ae287ce00f04c35847d85bd36"
+    }
+  }
+}

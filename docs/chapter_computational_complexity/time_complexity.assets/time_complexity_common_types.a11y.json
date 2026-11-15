@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_computational_complexity/time_complexity.assets/time_complexity_common_types",
+  "title": "五种常见时间复杂度的增长趋势",
+  "summary": "对比常数阶、对数阶、线性阶、平方阶和指数阶五条曲线：随输入规模 n 增大，不同复杂度阶数的操作数量增长差距急剧拉开。",
+  "context": [],
+  "description": [
+    "坐标图横轴表示输入数据大小 n，刻度从 1 到 14；纵轴表示计算操作数量 T(n)。图中通过五条示意曲线对比不同时间复杂度的渐近增长趋势，而非报告某段具体程序的精确执行次数。",
+    "五条曲线按不同颜色区分：绿色常数阶 O(1) 为水平直线，操作数量不随 n 变化；青色对数阶 O(log n) 随 n 增大而缓步上升，斜率逐渐减小、走势趋于平缓；蓝色线性阶 O(n) 以恒定斜率呈直线稳定上升；橙色平方阶 O(n²) 呈向上弯曲趋势，增长速度不断加快；红色指数阶 O(2ⁿ) 在前段贴近底部、变化平缓，进入后段则陡峭攀升。"
+  ],
+  "result": "图中五种常见时间复杂度的增长速度由慢到快依次为：常数阶 O(1)、对数阶 O(log n)、线性阶 O(n)、平方阶 O(n²)、指数阶 O(2ⁿ)。时间复杂度的阶数越低，当输入规模充分增大时，操作数量的增长越平缓，算法渐近效率越优。",
+  "frames": [
+    {
+      "id": "source-27",
+      "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_common_types.png",
+      "title": "五种常见时间复杂度的增长趋势",
+      "explanation": "图右侧配有向上的箭头，标注“从低至高、从优至差”。在输入规模接近 14 的右侧末端，五条曲线由下到上依次为常数阶 O(1)、对数阶 O(log n)、线性阶 O(n)、平方阶 O(n²) 和指数阶 O(2ⁿ)，体现大规模输入下的增长快慢排序；前段示意曲线的交点仅用于展示趋势，不能当作复杂度优劣切换的精确规模阈值。",
+      "state": "坐标图横轴为输入数据大小 n，刻度为 1 至 14；纵轴为计算操作数量 T(n)。图中包含五条渐近增长示意曲线，右侧末端由下到上依次标注常数阶 O(1)、对数阶 O(log n)、线性阶 O(n)、平方阶 O(n²) 和指数阶 O(2ⁿ)，并配有向上箭头注明“从低至高、从优至差”。",
+      "key_state": "五条曲线由低到高：常数阶 O(1)、对数阶 O(log n)、线性阶 O(n)、平方阶 O(n²)、指数阶 O(2ⁿ)。",
+      "announcement": "展示五种常见时间复杂度随输入规模 n 增大的增长趋势对比图。"
+    }
+  ],
+  "dependencies": {
+    "markdown": {
+      "chapter_computational_complexity/time_complexity.md": "af3c429bc5b2acecc2a8389cd5934d6a6790f9c1bc0970d8955af2b471c0888b"
+    },
+    "scenes": {
+      "chapter_computational_complexity/time_complexity.assets/time_complexity_common_types.png": "93e0c5c4fb055de9366e9abadd6e8602abd61d14f8ed6d9f81fa1a8c340ec562"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7"
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "ee6635c07347b9956e7dc30f7255d700f4acf976e23c37ffc78496a4bf86272f",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "d6744bd33ebe996945232b607e69fead7f79db477d4e9be3e721bb590f977cf7",
+        "output_sha256": "3a54872682cd76f5129277b6ce598e18e54b343f00a5717b25341459e06c1679"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "3a54872682cd76f5129277b6ce598e18e54b343f00a5717b25341459e06c1679",
+        "output_sha256": "4c004dd46aa6d213c1300b923415022961ab9b7d8ea12038c75578bb37c6d71b"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "4c004dd46aa6d213c1300b923415022961ab9b7d8ea12038c75578bb37c6d71b",
+        "output_sha256": "0b88c8eaf9a50ce51fd7f5a87df7a7f1a69bf1b2e9ccc8719e8375f1b3ed7f54"
+      }
+    ],
+    "evidence_sha256": "6dfc8d5a29c1f922045ad2da9cf53b29889c55bf6b52f40ba50b608da9ecea2c"
+  }
+}

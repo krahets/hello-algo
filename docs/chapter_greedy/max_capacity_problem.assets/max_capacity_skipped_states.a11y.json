@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_greedy/max_capacity_problem.assets/max_capacity_skipped_states",
+  "title": "移动短板导致被跳过的状态",
+  "summary": "当双指针从 cap[0, 7] 向内移动左短板至 cap[1, 7] 时，相当于一次性跳过了仍以索引 0 为左边界、右边界为 6 至 1 的六个更窄容器状态。",
+  "context": [
+    "在高度数组 ht = [3, 8, 5, 2, 7, 7, 3, 4] 的初始状态 [0, 7] 下，左板 i = 0（高 3）为短板，右板 j = 7（高 4）为长板，容量为 21。本图从状态空间剪枝的角度解释：为何贪心算法将短板 i 从 0 移到 1 后，无需再回头检验左端固定为 0 的其余组合。",
+    "容量按 cap[i, j] = min(ht[i], ht[j]) × (j - i) 计算，水高取两端板高较小者，宽度为索引差。"
+  ],
+  "description": [
+    "画面分为上下两部分：上半部分左侧为初始状态 cap[0, 7]，经向右的灰色实心箭头“移动短板”指向右侧的 cap[1, 7]；下半部分以红色“跳过的状态”文字与横向括线统领 6 个缩略容器图，分两行三列排列：第一行为 cap[0, 6]、cap[0, 5]、cap[0, 4]，第二行为 cap[0, 3]、cap[0, 2]、cap[0, 1]。"
+  ],
+  "result": "被跳过的这 6 个状态全部以原来的短板 i = 0（高度 3）作为左壁，等同于固定左短板而把右壁从 6 依次向内移到 1；由于它们的宽度均小于 7 且水位高度不可能超过左短板高度 3，其容量必然全部小于 cap[0, 7] = 21，因此跳过它们绝不会漏掉全局最优解。",
+  "frames": [
+    {
+      "id": "source-469",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_skipped_states.png",
+      "title": "移动短板导致被跳过的状态",
+      "explanation": "当左指针从 i = 0 右移到 i = 1（即从 cap[0, 7] 转移到 cap[1, 7]）后，算法不再遍历左端点仍为 0、右端点取 1 至 6 的 6 个状态：cap[0, 6]、cap[0, 5]、cap[0, 4]、cap[0, 3]、cap[0, 2] 和 cap[0, 1]。在这 6 个状态中，左壁高度恒为 ht[0] = 3，因此容器有效水高至多为 3，而底宽依次缩减为 6、5、4、3、2、1（结合数组高度可算出它们的容量依次仅为 18、15、12、6、6、3），全都严格小于已记录的 cap[0, 7] = 21，故可安全剪枝跳过。",
+      "state": "上排展示状态转移 cap[0, 7] → cap[1, 7]（移动短板）；下方红色括线所列列出被跳过的 6 个状态：cap[0, 6]、cap[0, 5]、cap[0, 4]、cap[0, 3]、cap[0, 2]、cap[0, 1]（均以高度 3 的索引 0 为左板，对应容量依次为 18、15、12、6、6、3，均小于 21）。",
+      "key_state": "从 cap[0, 7] 移至 cap[1, 7] 会跳过 cap[0, 6] 至 cap[0, 1] 共 6 个必小于 21 的状态。",
+      "announcement": "展示移动短板的安全剪枝原理：从 cap[0, 7] 移到 cap[1, 7] 所跳过的 6 个状态容量均不可能超过 21。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-24",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "0af70acc577c6f86a70e7405e26042d4b9889caa251c9040b7b36dd11f151c92",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "d40a34ce09d07aa5f2a8281d168d7daa9ee113c09b575f1200eb0409b245f89e",
+        "output_sha256": "8a1430b08cfa12d5586c31c993b51fdeb8d3c6412ce6de6939643e8766084ea6"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "8a1430b08cfa12d5586c31c993b51fdeb8d3c6412ce6de6939643e8766084ea6",
+        "output_sha256": "f7f806b44c8d2d3a360bd07d285786f4c9b9881b94cb30acb729899f1a072fce"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "f7f806b44c8d2d3a360bd07d285786f4c9b9881b94cb30acb729899f1a072fce",
+        "output_sha256": "5eee136dd6bac5250047fed5bcee9c46c066cf9325b373b0a35bafc641e9f011"
+      }
+    ],
+    "evidence_sha256": "76b6078358083e454d25f857a790e71339d6048171500ff10b161508d80ce246"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_greedy/max_capacity_problem.md": "57cba2a20a6c77854063b78633f7c318045e5b7347079f4c9930dad1abc93367"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_greedy/max_capacity_problem.assets/max_capacity_skipped_states.png": "ca0060239793c1e86df15f615c90b6280acbd50ad751bcb594009356ea16ca81"
+    }
+  }
+}

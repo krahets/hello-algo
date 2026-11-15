@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_heap/build_heap.assets/heapify_operations_count",
+  "title": "完美二叉树的各层节点数量与堆化最大迭代次数",
+  "summary": "高度为 h 的完美二叉树中，从根层到叶节点层，单层节点数按 2^0, 2^1, …, 2^h 翻倍，而节点高度（最多下沉层数）按 h, h−1, …, 0 递减。",
+  "context": [
+    "为精确推算自下而上遍历堆化建堆的时间复杂度，图中以高度为 h 的完美二叉树作为分析模型。节点高度定义为该节点到叶节点的边数（图底部特别注明“请注意，叶节点高度为 0”），根节点高度为 h；每个非叶节点执行“从顶至底堆化”的最大迭代次数恰好等于该节点的高度。"
+  ],
+  "description": [
+    "图左侧画出完美二叉树前四层的分支结构（单层节点数依次为 2^0、2^1、2^2、2^3），下方用一排竖直省略号表示中间省略的各层，并非固定只有四层。图右侧分两列给出每一层的“节点高度（即堆化最大迭代次数）”与“单层节点数量”，完整对应关系见数据表。",
+    "在第 d 层（深度 d 从 0 到 h），单层节点数量为 2^d，而每个节点的高度（最多下沉层数）为 h−d，因此该层所有节点最多贡献 2^d × (h−d) 次下沉：顶层根节点虽可能下沉 h 层，但只有 2^0 = 1 个；越靠近底部的层节点数成倍增加，但每个节点最多只需下沉 1 层（倒数第二层，2^(h−1) 个节点）或 0 层（叶节点层，2^h 个节点，无须堆化）。",
+    "结合正文推导，将各层最大堆化次数相加可得总上界 T(h) = 2^0×h + 2^1×(h−1) + 2^2×(h−2) + 2^3×(h−3) + … + 2^(h−1)×1（叶节点层为 2^h×0），利用错位相减法化简得 T(h) = 2^(h+1) − h − 2。这是最坏情况下的累计下沉次数上界，并非任意输入都会达到该次数。"
+  ],
+  "result": "由于高度为 h 的完美二叉树总节点数 n = 2^(h+1) − 1，所有节点堆化迭代次数总和 T(h) = 2^(h+1) − h − 2 属于 O(2^h) = O(n)，从而证明自下而上建堆的时间复杂度为 O(n)。",
+  "frames": [
+    {
+      "id": "source-142",
+      "book_path": "chapter_heap/build_heap.assets/heapify_operations_count.png",
+      "title": "完美二叉树的各层节点数量与堆化最大迭代次数",
+      "explanation": "图将完美二叉树每一层的“节点高度（即堆化最大迭代次数）”与“单层节点数量”逐层对齐：从根层的高度 h、数量 2^0，依次到深度 1 的 h−1 与 2^1、深度 2 的 h−2 与 2^2、深度 3 的 h−3 与 2^3，经省略号后到倒数第二层的高度 1、数量 2^(h−1)，以及叶节点层的高度 0、数量 2^h，直观说明数量最多的底层节点下沉距离最短。",
+      "state": "高度为 h 的完美二叉树各层从上到下依次标注为：根层高度 h、单层节点数 2^0；第 2 层高度 h−1、节点数 2^1；第 3 层高度 h−2、节点数 2^2；第 4 层高度 h−3、节点数 2^3；中间层以省略号表示；倒数第二层高度 1、节点数 2^(h−1)；叶节点层高度 0、节点数 2^h。",
+      "key_state": "深度 d 层的单层节点数为 2^d，节点高度（最大堆化迭代次数）为 h−d；叶节点高度为 0、数量为 2^h。",
+      "announcement": "展示高度为 h 的完美二叉树中各层节点高度与单层节点数量的对应关系。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "节点高度与单层节点数的对应关系",
+      "headers": [
+        "位置",
+        "节点高度／最多下沉层数",
+        "单层节点数"
+      ],
+      "rows": [
+        [
+          "根层",
+          "h",
+          "2^0"
+        ],
+        [
+          "深度 1",
+          "h−1",
+          "2^1"
+        ],
+        [
+          "深度 2",
+          "h−2",
+          "2^2"
+        ],
+        [
+          "深度 3",
+          "h−3",
+          "2^3"
+        ],
+        [
+          "中间各层",
+          "…",
+          "…"
+        ],
+        [
+          "倒数第二层",
+          "1",
+          "2^(h−1)"
+        ],
+        [
+          "叶节点层",
+          "0",
+          "2^h"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-08",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "84d98f8e95c6bb351e4279334ef464a9b159c334b08417d4379ca414434be496",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a506b3ecafaef6d8fc62ef26dae68447d18629fc5e16ddd8ae926171452d6745",
+        "output_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d",
+        "output_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896",
+        "output_sha256": "8aa1f4dfa1fd2a8bc10a20ded596eaae033faa43bbf57cbc5c462af6f3455359"
+      }
+    ],
+    "evidence_sha256": "14a36adc867aa49a98d8a9d37d2a3aade7c41c8d611abaa2b4d84cd7b471e986"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_heap/build_heap.md": "4b98d23f317ffc7fabb46c6572d9e3fbfee7fa16601c054b25d315d8bdf96852"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_heap/build_heap.assets/heapify_operations_count.png": "487b5500942fa7b5bb1164b1f28f264c6d0c84c7bbe2fb800a200c7a709bda35"
+    }
+  }
+}

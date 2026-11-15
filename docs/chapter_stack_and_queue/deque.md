@@ -403,16 +403,16 @@
     ![基于链表实现双向队列的入队出队操作](deque.assets/linkedlist_deque_step1.svg)
 
 === "<2>"
-    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.svg)
+    ![基于双向链表实现双向队列的入队与出队，第 2 步，共 5 步：队尾入队 push_last(4)](deque.assets/linkedlist_deque_step2_push_last.svg)
 
 === "<3>"
-    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.svg)
+    ![基于双向链表实现双向队列的入队与出队，第 3 步，共 5 步：队首入队 push_first(1)](deque.assets/linkedlist_deque_step3_push_first.svg)
 
 === "<4>"
-    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.svg)
+    ![基于双向链表实现双向队列的入队与出队，第 4 步，共 5 步：队尾出队 pop_last()](deque.assets/linkedlist_deque_step4_pop_last.svg)
 
 === "<5>"
-    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.svg)
+    ![基于双向链表实现双向队列的入队与出队，第 5 步，共 5 步：队首出队 pop_first()](deque.assets/linkedlist_deque_step5_pop_first.svg)
 
 实现代码如下所示：
 
@@ -428,16 +428,16 @@
     ![基于数组实现双向队列的入队出队操作](deque.assets/array_deque_step1.svg)
 
 === "<2>"
-    ![array_deque_push_last](deque.assets/array_deque_step2_push_last.svg)
+    ![基于循环数组实现双向队列的入队与出队，第 2 步，共 5 步：队尾入队 push_last(4)](deque.assets/array_deque_step2_push_last.svg)
 
 === "<3>"
-    ![array_deque_push_first](deque.assets/array_deque_step3_push_first.svg)
+    ![基于循环数组实现双向队列的入队与出队，第 3 步，共 5 步：队首入队 push_first(1)](deque.assets/array_deque_step3_push_first.svg)
 
 === "<4>"
-    ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.svg)
+    ![基于循环数组实现双向队列的入队与出队，第 4 步，共 5 步：队尾出队 pop_last()](deque.assets/array_deque_step4_pop_last.svg)
 
 === "<5>"
-    ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.svg)
+    ![基于循环数组实现双向队列的入队与出队，第 5 步，共 5 步：队首出队 pop_first()](deque.assets/array_deque_step5_pop_first.svg)
 
 在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法：
 

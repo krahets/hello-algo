@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp",
+  "title": "0-1 背包单行压缩：倒序处理第二件物品",
+  "summary": "从仅考虑苹果的单行状态 [0, 5, 5, 5, 5] 出发，按容量 4 到 1 倒序处理第 2 件物品菠萝，得到前两件物品的解 [0, 5, 11, 16, 16]。",
+  "context": [
+    "候选物品同样为三件：1 号苹果（重量 1、价值 5）、2 号菠萝（重量 2、价值 11）、3 号西瓜（重量 3、价值 15），背包容量 cap = 4，每件最多选一次。",
+    "本组 6 个步骤帧仅截取空间优化后从第 i = 1 行过渡到第 i = 2 行的局部一轮更新过程：起始单行数组 dp 按容量 0 至 4 保存仅考虑苹果时的结果 [0, 5, 5, 5, 5]，本轮只处理重量 2、价值 11 的菠萝，第 3 件物品西瓜尚未参与本组演示。"
+  ],
+  "description": [
+    "空间优化将二维表压缩为长度为 5 的一维数组 dp。更新容量 c 时，当前格原值 dp[c] 对应不选菠萝的上一轮结果，而左方 dp[c - 2] + 11 对应选入菠萝的候选值。内循环必须按容量从大到小（c = 4, 3, 2, 1）倒序遍历，才能保证读取的较小容量位置 dp[c - 2] 仍保存着上一轮 i = 1 的旧状态；若正序遍历，较小容量的值会被提前覆盖为含菠萝的新状态，导致后续大容量计算时把同一件菠萝重复计入两次。",
+    "画面上半部分保留 4 × 5 的二维对照表（其中第 3 行始终为淡色未计算占位 0），下半部分展示实际使用的单行数组 dp：蓝色格代表尚未被本轮覆盖的 i = 1 旧状态，绿色格代表本轮已按 i = 2 更新完成的新状态，箭头与“+ 11”标示当前步的状态转移来源。"
+  ],
+  "result": "完成第 i = 2 行的倒序遍历后，单行数组更新为 dp = [0, 5, 11, 16, 16]，代表仅考虑前两件物品（苹果与菠萝）在容量 0 至 4 下的最大价值，其中容量 4 的最优值为 16。需注意这只是处理完第 2 件物品后的局部一轮结果，并非三件物品完整问题的最终最优解 20（第 3 件西瓜留待下一轮 i = 3 继续倒序更新）。",
+  "frames": [
+    {
+      "id": "source-411",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step1.png",
+      "title": "第 1 步：遍历 i = 2 前，单行保存 i = 1 的解",
+      "explanation": "在开始遍历第 i = 2 行（菠萝）之前，下方单行数组 dp 中存储的是上一轮仅考虑第 1 件物品苹果（重量 1、价值 5）时的全部解 [0, 5, 5, 5, 5]。注意此处并非全零初始状态；上方二维对照表中第 1 行为 [0, 5, 5, 5, 5]，第 2、3 行的正容量格仍为淡色占位 0。",
+      "state": "三件物品为苹果（1, 5）、菠萝（2, 11）、西瓜（3, 15），背包容量 4，每件最多选一次。当前处于第 i = 2 轮开始前，下方单行数组按容量 0 至 4 为 dp = [0, 5, 5, 5, 5]，其中容量 1 至 4 全部为蓝色标注的 i = 1 旧状态；上方二维对照表第 2、3 行正容量格均为待计算的淡色占位 0。",
+      "key_state": "i = 2 轮开始前：单行 dp = [0, 5, 5, 5, 5]，保存 i = 1 的全部旧状态。",
+      "announcement": "第 1 步：准备处理第 2 件物品菠萝，单行数组 dp 当前保存第 1 轮结果 [0, 5, 5, 5, 5]。"
+    },
+    {
+      "id": "source-412",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step2.png",
+      "title": "第 2 步：倒序先更新容量 c = 4，写入 16",
+      "explanation": "从最大容量 c = 4 开始倒序更新：不选菠萝时保留原值 dp[4] = 5；选入菠萝（重量 2、价值 11）时读取左侧尚未更新的旧状态 dp[2] = 5，加 11 得到 16。取 max(5, 16) = 16 覆盖写入绿色格 dp[4] = 16。此时容量 2 仍保持上一轮旧值 5，避免了菠萝被重复选取。",
+      "state": "三件物品为苹果（1, 5）、菠萝（2, 11）、西瓜（3, 15），背包容量 4，每件最多选一次。单行数组按容量 0 至 4 当前为 dp = [0, 5, 5, 5, 16]：容量 4 已更新为 i = 2 的绿色新状态 16（由原 dp[4] = 5 与旧 dp[2] + 11 = 16 转移而来）；容量 1 至 3 仍为蓝色的 i = 1 旧状态 5，容量 0 为边界 0。上方对照表第 2 行仅 c = 4 填入 16，第 3 行未计算。",
+      "key_state": "i = 2，c = 4：读取旧 dp[2] = 5 加 11，将 dp[4] 更新为 16。",
+      "announcement": "第 2 步：倒序先算容量 4，利用未覆盖的旧状态 dp[2] = 5 加 11，将 dp[4] 更新为 16。"
+    },
+    {
+      "id": "source-413",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step3.png",
+      "title": "第 3 步：倒序更新容量 c = 3，写入 16",
+      "explanation": "向左倒序处理容量 c = 3：不选菠萝时为原值 dp[3] = 5；选入菠萝时读取左侧尚未更新的旧状态 dp[1] = 5，加 11 得到 16。取 max(5, 16) = 16 写入 dp[3] = 16。此时容量 3 和 4 已成为本轮新状态，容量 1 和 2 仍保留上一轮旧值。",
+      "state": "三件物品为苹果（1, 5）、菠萝（2, 11）、西瓜（3, 15），背包容量 4，每件最多选一次。单行数组按容量 0 至 4 当前为 dp = [0, 5, 5, 16, 16]：容量 3、4 已更新为 i = 2 的绿色新状态 16（当前步读取旧 dp[1] = 5 加 11 更新 dp[3]）；容量 1、2 仍为蓝色的 i = 1 旧状态 5，容量 0 为边界 0。上方对照表第 2 行 c = 3、4 为 16，其余未算格为占位 0。",
+      "key_state": "i = 2，c = 3：读取旧 dp[1] = 5 加 11，将 dp[3] 更新为 16；dp = [0, 5, 5, 16, 16]。",
+      "announcement": "第 3 步：倒序处理容量 3，读取旧状态 dp[1] = 5 加 11，将 dp[3] 更新为 16。"
+    },
+    {
+      "id": "source-414",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step4.png",
+      "title": "第 4 步：倒序更新容量 c = 2，写入 11",
+      "explanation": "继续倒序处理容量 c = 2：不选菠萝时为原值 dp[2] = 5；选入菠萝时读取边界状态 dp[0] = 0，加 11 得到 11。取 max(5, 11) = 11 将 dp[2] 更新为 11。正因为倒序到这里才覆盖 dp[2]，第 2 步计算容量 4 时才得以安全读取旧值 dp[2] = 5，而不是覆盖后的 11。",
+      "state": "三件物品为苹果（1, 5）、菠萝（2, 11）、西瓜（3, 15），背包容量 4，每件最多选一次。单行数组按容量 0 至 4 当前为 dp = [0, 5, 11, 16, 16]：容量 2、3、4 已更新为 i = 2 的绿色新状态 11、16、16（当前步由 dp[0] = 0 加 11 更新 dp[2]）；容量 1 仍为蓝色的 i = 1 旧状态 5，容量 0 为边界 0。上方对照表第 2 行 c = 2..4 已算出 11、16、16。",
+      "key_state": "i = 2，c = 2：由 dp[0] + 11 将 dp[2] 更新为 11；dp = [0, 5, 11, 16, 16]。",
+      "announcement": "第 4 步：倒序处理容量 2，选入一件菠萝，将 dp[2] 更新为 11。"
+    },
+    {
+      "id": "source-415",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step5.png",
+      "title": "第 5 步：倒序处理容量 c = 1，装不下菠萝保持 5",
+      "explanation": "倒序推进到容量 c = 1：由于菠萝重量 2 大于容量 1，无法放入背包，因此 dp[1] 直接保持原值 5，并由蓝色旧状态转为绿色本轮已处理状态；容量 0 始终为边界 0。",
+      "state": "三件物品为苹果（1, 5）、菠萝（2, 11）、西瓜（3, 15），背包容量 4，每件最多选一次。单行数组按容量 0 至 4 当前为 dp = [0, 5, 11, 16, 16]：容量 1 至 4 均已标记为 i = 2 的绿色已处理状态（数值依次为 5、11、16、16），容量 0 为边界 0。上方对照表第 2 行已完整算出 [0, 5, 11, 16, 16]，第 3 行仍为淡色占位 0。",
+      "key_state": "i = 2，c = 1：菠萝重量 2 超过容量 1，dp[1] 保持 5。",
+      "announcement": "第 5 步：容量 1 装不下重量 2 的菠萝，dp[1] 保持原值 5。"
+    },
+    {
+      "id": "source-416",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step6.png",
+      "title": "第 6 步：完成 i = 2 轮遍历，单行保存前两件物品的解",
+      "explanation": "第 i = 2 行的倒序遍历全部结束，单行数组 dp = [0, 5, 11, 16, 16] 完整保存了仅考虑前两件物品（苹果与菠萝）时容量 0 至 4 的最优解。图中将容量 0 至 4 统一标为蓝色，准备作为下一轮处理第 3 件物品西瓜（i = 3）时的旧状态；本帧未再修改数值，也尚未处理西瓜，因此末尾的 16 只是前两件物品的局部结果而非三件物品的最终答案 20。",
+      "state": "三件物品为苹果（1, 5）、菠萝（2, 11）、西瓜（3, 15），背包容量 4，每件最多选一次。第 i = 2 轮更新完成，下方单行数组按容量 0 至 4 为 dp = [0, 5, 11, 16, 16]，全部代表前两件物品在各容量下的最优价值；第 3 件物品西瓜尚未处理，上方二维对照表第 3 行正容量格仍为淡色未计算占位 0。",
+      "key_state": "i = 2 轮完成：单行 dp = [0, 5, 11, 16, 16] 代表前两件物品的解，西瓜尚未处理。",
+      "announcement": "第 6 步：第 2 件物品倒序更新完成，单行数组 dp = [0, 5, 11, 16, 16] 成为前两件物品的全部解。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "本组物品数据",
+      "headers": [
+        "物品编号i",
+        "物品",
+        "重量wgt[i−1]",
+        "价值val[i−1]"
+      ],
+      "rows": [
+        [
+          "1",
+          "苹果",
+          "1",
+          "5"
+        ],
+        [
+          "2",
+          "菠萝",
+          "2",
+          "11"
+        ],
+        [
+          "3",
+          "西瓜",
+          "3",
+          "15"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-21",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "fc69cd69a849b287d5da105e3cb212b669a8a0a1d1ff1ee46797ab60a1dde352",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "fca1b10d82b2bf3a473b3ca804ec8f07a85284dd0c633433f6b0ef5ee3e35f3d",
+        "output_sha256": "b25a7f68f67e62c2673e5c6ac9cbd299af58c2b8d46a771d4046ce486a40bbe1"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "b25a7f68f67e62c2673e5c6ac9cbd299af58c2b8d46a771d4046ce486a40bbe1",
+        "output_sha256": "cac992d752f1e0aab38d9a5eac953cdc7d02275c75e9e15abfae29d475d4f13f"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "cac992d752f1e0aab38d9a5eac953cdc7d02275c75e9e15abfae29d475d4f13f",
+        "output_sha256": "f0bae88e06ac0b63e0949b87ce2887105c4993f5a552cba6ba5aa6e6a19f2de0"
+      }
+    ],
+    "evidence_sha256": "ec0f840f1c8093d0ed00ce99ceff4472db2872db3ce1fde8525e9cac2392153f"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_dynamic_programming/knapsack_problem.md": "737c2956ff98e7b0f2127ba26566ece3d167e7022d593ba82e273a2f5e98e493"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step1.png": "c46f71a8d9292ca5f4d8fc86c3070a441a126bc1ca5b9d17aaa3701b8873d26b",
+      "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step2.png": "d6a99884e241c03f50bf23bdb4c1f065607061f49cb1b42652ce6b8d35080f31",
+      "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step3.png": "bfa979f8a466984f34a56e09030914cbe8e512f3ddc4254623fc7aa0435692e1",
+      "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step4.png": "972a8c31e2fc77a98d2721507af158fe6ac4e179804b1f69b8eb754e0b0c6352",
+      "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step5.png": "7a4602d06a749f13d3a4a50b49cb6810cf5c0a07e85f9880c0380d4197abe8cb",
+      "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step6.png": "b7955af7572dd38a2fb9f4a36f3c7f1470e14b8a104430f1fc56fd36ec8a14ba"
+    }
+  },
+  "animations": {
+    "knapsack-compressed-row": {
+      "kind": "source-frames",
+      "model_sha256": "5225a788a35f1def3cf760904cac5f333ea15f0710a5e05dfea9895a3806525a",
+      "source_content_sha256": "fc69cd69a849b287d5da105e3cb212b669a8a0a1d1ff1ee46797ab60a1dde352",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-411"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-412"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-413"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-414"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-415"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-416"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "a7090a77c28a20effeb87d69981c0db9f5d9f0680083f3c8d6cac67cda7df23f",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

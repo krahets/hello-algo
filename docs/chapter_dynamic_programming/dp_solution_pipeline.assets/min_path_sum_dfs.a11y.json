@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dfs",
+  "title": "最小路径和的重复递归",
+  "summary": "从目标 dp[2, 1] 向前回溯上方与左方前驱时，子问题 dp[1, 0] 的子树被重复展开两次。",
+  "context": [
+    "在非负数字网格中从 [0, 0] 出发只能向右或向下移动，dp[i, j] 表示到达第 i 行、第 j 列的最小路径和（索引从 0 开始）。本图以 dp[2, 1] 为根节点展示自顶向下的暴力搜索递归树，不给出具体网格权重；注意递归是反向查找“上一行”与“上一列”前驱，方向与实际行走时的向下、向右相反。",
+    "有效内部状态取两个前驱返回值的较小值，再加当前格代价：dp[i, j]=min(dp[i-1, j], dp[i, j-1])+grid[i, j]。起点返回 grid[0, 0]，负索引返回正无穷。"
+  ],
+  "description": [
+    "顶部根节点 dp[2, 1] 为绿色；紫色箭头表示递归求解“上一行” dp[i-1, j]，蓝色箭头表示递归求解“上一列” dp[i, j-1]。根节点 dp[2, 1] 拆分为 dp[1, 1] 和 dp[2, 0]；左子树 dp[1, 1] 拆分为 dp[0, 1] 和dp[1, 0]，右子树 dp[2, 0] 拆分为另一处dp[1, 0] 和灰色越界节点 dp[2, -1]；下一层中 dp[0, 1] 拆分为灰色越界节点 dp[-1, 1] 和叶节点 dp[0, 0]，两处 dp[1, 0] 各自拆分为叶节点 dp[0, 0] 和灰色越界节点 dp[1, -1]。两处 dp[1, 0] 按各自入边分为蓝色和紫色，并无橙框；三个 dp[0, 0] 从左到右为蓝色、紫色、紫色。",
+    "所有带负索引的灰色节点均由带剪刀的虚线连接，对应右上角图例“剪枝：索引越界”。下方附有一个 4×4 符号 dp 表，将树中涉及的六个有效状态涂色，并在右侧说明“重叠子问题来源：dp[i+1, j] 和 dp[i, j+1] 都依赖 dp[i, j]”。"
+  ],
+  "result": "由于一个状态会同时作为下方格和右方格的前驱，暴力递归存在大量重叠子问题，仅求 dp[2, 1] 就把 dp[1, 0] 重复展开了两次。",
+  "frames": [
+    {
+      "id": "source-380",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dfs.png",
+      "title": "最小路径和的重复递归",
+      "explanation": "从 dp[2, 1] 出发，既可以先向上到 dp[1, 1] 再向左到 dp[1, 0]，也可以先向左到 dp[2, 0] 再向上到 dp[1, 0]，两条路径交汇于同一个子问题 dp[1, 0]，导致 dp[1, 0] 被展开两次，起点 dp[0, 0] 作为叶节点出现了三次。按照正文代码，当行或列索引小于 0 触发越界剪枝时返回正无穷，使其不会在 min 比较中被选中；到达起点 [0, 0] 时则返回 grid[0][0]。",
+      "state": "递归树根为 dp[2, 1]，第 2 层为 dp[1, 1]、dp[2, 0]；第 3 层为 dp[0, 1]、两处dp[1, 0] 及越界灰节点 dp[2, -1]；第 4 层包含三个有效基例叶 dp[0, 0]（从左到右为蓝、紫、紫色） 以及越界灰节点 dp[-1, 1] 和两处 dp[1, -1]。下方 4×4 符号表高亮 dp[0, 0]、dp[0, 1]、dp[1, 0]、dp[1, 1]、dp[2, 0]、dp[2, 1] 六格。",
+      "key_state": "子问题 dp[1, 0] 在左右子树中重复展开两次，起点 dp[0, 0] 出现三次。",
+      "announcement": "从 dp[2, 1] 分别经上方和左方回溯时，两条路径都会求到 dp[1, 0] 并重复展开其子树。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-20",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "d6a11699ffb67d06b224143f334fcbc378e35adb529525c684c83f36fa3bd9aa",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "41d0fd45a22945a5a7184d107047c8717cca6d0cb964ceb1ffcffefcf35d71c0",
+        "output_sha256": "6f28ad46a843e550964bfad54893774457a3ec29abb9f8165dd6262f050b2101"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "6f28ad46a843e550964bfad54893774457a3ec29abb9f8165dd6262f050b2101",
+        "output_sha256": "8f0f618cc8d84fe521a7436cfd71d04bdc65b259bdf6282d1f693e3bfbd5cadc"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "8f0f618cc8d84fe521a7436cfd71d04bdc65b259bdf6282d1f693e3bfbd5cadc",
+        "output_sha256": "b529f2a5259e393cbd6adce01e5f42a44a8d6813ef624f4cd36fcf49308a3adf"
+      }
+    ],
+    "evidence_sha256": "54a5deb01ddc36c133e5452c5496383065ebdb84ec70c16f4d6436a9bcb17a67"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_dynamic_programming/dp_solution_pipeline.md": "537de6dd1fe553954f17ebd407172e073f79aac62888596d7c8e67a6a8e12517"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dfs.png": "8d93b37eeb6bf24ecdf648f9020645dd546ade715840b3985b4af0614b485189"
+    }
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths",
+  "title": "在前序遍历中尝试与回退以记录所有到达 7 的路径",
+  "summary": "进入节点时将其追加到 path，退出时从 path 弹出；两次命中 7 分别复制保存 [1, 7] 与 [1, 3, 7]，结束时 path 恢复为空。",
+  "context": [
+    "二叉树共七个节点：根节点为 1，其左、右子节点分别为 7 和 3；左侧节点 7 的左、右子节点为 4 和 5；节点 3 的左、右子节点为 6 和另一个 7；节点 4、5、6 与右侧 7 均为叶节点。",
+    "本组对应不带剪枝约束的例题，目标是找出从根节点到所有值为 7 节点的路径（允许经过节点 3），按根、左、右的前序顺序执行深度优先搜索。",
+    "状态列表 path 实时维护从根节点到当前访问节点的活跃路径，结果列表 res 保存每次命中节点 7 时 path 的副本。每次向前“尝试”进入节点时将其追加到 path 末尾；每次“回退”离开节点前将其从 path 末尾弹出，以恢复进入该节点前的路径状态。图中以节点值简写 path 和 res，配套代码实际保存节点对象及节点对象列表的副本；两个值为 7 的节点仍是不同对象。"
+  ],
+  "description": [
+    "每帧在树的右侧显示 path 与 res 的当前列表值；树中用蓝色边框与蓝色连线高亮当前 path 上的节点与边，绿色虚线沿深度优先遍历轨迹同时表示递归推进和回退，右侧“尝试”或“回退”的灰色底色指出当前阶段。"
+  ],
+  "result": "遍历结束时 res = [[1, 7], [1, 3, 7]]，path = []。由于向 res 添加的是命中时刻 path 的拷贝副本，后续回退弹出 path 中的节点不会影响已保存的解。",
+  "frames": [
+    {
+      "id": "source-342",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step1.png",
+      "title": "尝试进入根节点 1",
+      "explanation": "从根节点 1 开始搜索，执行尝试操作将 1 追加进 path。因节点值 1 不是目标 7，结果列表 res 保持为空。",
+      "state": "二叉树：根 1 的左、右子节点为 7 和 3，左侧 7 的子节点为 4 和 5，3 的子节点为 6 和右侧 7。当前位于根节点 1，path=[1]，res=[]。",
+      "key_state": "当前在根 1，path=[1]，res=[]。",
+      "announcement": "进入根节点 1，将 1 加入 path。"
+    },
+    {
+      "id": "source-343",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step2.png",
+      "title": "进入左子节点 7 并记录第一条路径",
+      "explanation": "递归进入根的左子节点 7，path 更新为 [1, 7]。当前节点值等于 7，复制当前 path 并加入 res，随后仍需继续搜索该节点的左、右子树。",
+      "state": "二叉树：根 1 的左、右子节点为 7 和 3，左侧 7 的子节点为 4 和 5，3 的子节点为 6 和右侧 7。当前位于根的左子节点 7，path=[1, 7]，res=[[1, 7]]；第一条目标路径已保存。",
+      "key_state": "命中左侧 7，path=[1, 7]，res=[[1, 7]]。",
+      "announcement": "访问左侧节点 7，将路径副本 [1, 7] 加入 res。"
+    },
+    {
+      "id": "source-344",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step3.png",
+      "title": "继续向下尝试左子节点 4",
+      "explanation": "从左侧节点 7 继续递归进入其左子节点 4，将 4 追加进 path 得到 [1, 7, 4]。节点 4 不是目标 7，res 不变。",
+      "state": "二叉树：根 1 的左、右子节点为 7 和 3，左侧 7 的子节点为 4 和 5，3 的子节点为 6 和右侧 7。当前位于叶节点 4，path=[1, 7, 4]，res=[[1, 7]]。",
+      "key_state": "当前在叶节点 4，path=[1, 7, 4]，res=[[1, 7]]。",
+      "announcement": "进入左子节点 4，path 更新为 [1, 7, 4]。"
+    },
+    {
+      "id": "source-345",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step4.png",
+      "title": "从节点 4 回退到父节点 7",
+      "explanation": "叶节点 4 的左右子树均为空，访问结束后执行回退：从 path 末尾弹出 4 并返回父节点 7，使当前路径恢复为 [1, 7]。",
+      "state": "二叉树：根 1 的左、右子节点为 7 和 3，左侧 7 的子节点为 4 和 5，3 的子节点为 6 和右侧 7。已从节点 4 回退至左侧节点 7，path=[1, 7]，res=[[1, 7]]；准备访问右兄弟节点 5。",
+      "key_state": "弹出 4 回到左侧 7，path 恢复为 [1, 7]。",
+      "announcement": "从节点 4 回退并弹出 4，path 恢复为 [1, 7]。"
+    },
+    {
+      "id": "source-346",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step5.png",
+      "title": "尝试进入右兄弟节点 5",
+      "explanation": "从左侧节点 7 递归进入其右子节点 5，将 5 追加进 path 得到 [1, 7, 5]。由于上一步已弹出 4，兄弟节点 4 不会残留在通往 5 的路径中。",
+      "state": "二叉树：根 1 的左、右子节点为 7 和 3，左侧 7 的子节点为 4 和 5，3 的子节点为 6 和右侧 7。当前位于叶节点 5，path=[1, 7, 5]，res=[[1, 7]]。",
+      "key_state": "当前在叶节点 5，path=[1, 7, 5]，res=[[1, 7]]。",
+      "announcement": "进入右子节点 5，path 更新为 [1, 7, 5]。"
+    },
+    {
+      "id": "source-347",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step6.png",
+      "title": "连续回退完成左子树并回到根 1",
+      "explanation": "叶节点 5 访问完毕后先弹出 5 回到左侧节点 7；此时左侧节点 7 的整棵子树均已遍历完毕，继续回退并弹出 7 回到根节点 1。本帧合并展示这两次连续回退，path 恢复为 [1]。",
+      "state": "二叉树：根 1 的左、右子节点为 7 和 3，左侧 7 的子节点为 4 和 5，3 的子节点为 6 和右侧 7。已连续退出节点 5 与左侧节点 7 回到根节点 1，path=[1]，res=[[1, 7]]；左子树全部完成。",
+      "key_state": "连续弹出 5 和左侧 7 回到根 1，path=[1]。",
+      "announcement": "连续退出节点 5 和左侧节点 7，path 恢复为 [1]。"
+    },
+    {
+      "id": "source-348",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step7.png",
+      "title": "尝试进入根的右子节点 3",
+      "explanation": "从根节点 1 递归进入右子节点 3，将 3 追加进 path 得到 [1, 3]。本例没有禁止经过 3 的剪枝条件，因此继续探索其子树。",
+      "state": "二叉树：根 1 的左、右子节点为 7 和 3，左侧 7 的子节点为 4 和 5，3 的子节点为 6 和右侧 7。当前位于右子节点 3，path=[1, 3]，res=[[1, 7]]。",
+      "key_state": "当前在节点 3，path=[1, 3]，res=[[1, 7]]。",
+      "announcement": "进入根的右子节点 3，path 更新为 [1, 3]。"
+    },
+    {
+      "id": "source-349",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step8.png",
+      "title": "尝试进入节点 3 的左子节点 6",
+      "explanation": "从节点 3 递归进入其左子节点 6，将 6 追加进 path 得到 [1, 3, 6]。节点 6 不是目标 7，res 保持不变。",
+      "state": "二叉树：根 1 的左、右子节点为 7 和 3，左侧 7 的子节点为 4 和 5，3 的子节点为 6 和右侧 7。当前位于叶节点 6，path=[1, 3, 6]，res=[[1, 7]]。",
+      "key_state": "当前在叶节点 6，path=[1, 3, 6]，res=[[1, 7]]。",
+      "announcement": "进入左子节点 6，path 更新为 [1, 3, 6]。"
+    },
+    {
+      "id": "source-350",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step9.png",
+      "title": "从节点 6 回退到父节点 3",
+      "explanation": "叶节点 6 访问完毕，执行回退从 path 末尾弹出 6 并返回父节点 3，使 path 恢复为 [1, 3]，以便接着访问节点 3 的右子节点。",
+      "state": "二叉树：根 1 的左、右子节点为 7 和 3，左侧 7 的子节点为 4 和 5，3 的子节点为 6 和右侧 7。已从节点 6 回退至父节点 3，path=[1, 3]，res=[[1, 7]]。",
+      "key_state": "弹出 6 回到节点 3，path 恢复为 [1, 3]。",
+      "announcement": "从节点 6 回退并弹出 6，path 恢复为 [1, 3]。"
+    },
+    {
+      "id": "source-351",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step10.png",
+      "title": "进入右侧节点 7 并记录第二条路径",
+      "explanation": "从节点 3 递归进入其右子节点 7，将 7 追加进 path 得到 [1, 3, 7]。命中第二个值为 7 的节点，复制当前 path 加入 res，使 res 更新为 [[1, 7], [1, 3, 7]]。",
+      "state": "二叉树：根 1 的左、右子节点为 7 和 3，左侧 7 的子节点为 4 和 5，3 的子节点为 6 和右侧 7。当前位于右侧叶节点 7，path=[1, 3, 7]，res=[[1, 7], [1, 3, 7]]；两条目标路径均已记录。",
+      "key_state": "命中右侧 7，path=[1, 3, 7]，res=[[1, 7], [1, 3, 7]]。",
+      "announcement": "访问右侧节点 7，将第二条路径 [1, 3, 7] 加入 res。"
+    },
+    {
+      "id": "source-352",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step11.png",
+      "title": "逐层回退直至 path 清空",
+      "explanation": "右侧叶节点 7 访问结束后依次回退弹出 7、父节点 3 和根节点 1。本帧合并展示这三次收尾回退，path 最终恢复为空列表 []，而 res 中保存的两份路径副本完好保留。",
+      "state": "二叉树：根 1 的左、右子节点为 7 和 3，左侧 7 的子节点为 4 和 5，3 的子节点为 6 和右侧 7。整棵树递归遍历全部返回，path=[]，res=[[1, 7], [1, 3, 7]]。",
+      "key_state": "全部回退完成，path=[]，res=[[1, 7], [1, 3, 7]]。",
+      "announcement": "依次退出右侧 7、节点 3 和根 1，path 清空，搜索完成。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-17",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "3f5dd28aa647ba575f9947f41af73d171efe6b858d068ddd5527b417b551418d",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "9481355a76d6c2868fbc0dd1da3fce835e92627213718a59a80d559350e023af",
+        "output_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f",
+        "output_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc",
+        "output_sha256": "1ba5b92e7d3bb734d4bc41b061ddb3c528638a049805a4bbcfc38825c0c76c88"
+      }
+    ],
+    "evidence_sha256": "6ad10597e7712f6ddf95ae500fcc50f0289bc7d0786a40fa5117c27866048681"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_backtracking/backtracking_algorithm.md": "c87ed13c02116e43ff8e3482b853e67be8baf0b0a734481c069c82c4ec5e7239"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step1.png": "c0729d10d52454896b03c242d2e2fd4c4aaa577d430a631ab1a7de3015d92557",
+      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step2.png": "41a364f0914ca99c3b52c8168b2adfc00f289d08e48e2a3ea647d3e68a27aa65",
+      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step3.png": "08067997438106ec671b1550df766579dd2e58c1143d87a5709267e2d63359ec",
+      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step4.png": "29566f17de5e9f442062353337ebe00b7f994749c62535ff53a84862b6057d2e",
+      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step5.png": "b955bba6d6726f1a8c5870f28533afff41f4c9d7941e3d4c03ada3d6733d2e32",
+      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step6.png": "81c186485566535641ce1e97579da02cd092ebe210d092ae741093bc4442d93d",
+      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step7.png": "b57380d2cf777cd62394da6d599d4230b1b85a589acc0e64708b415e30b63fc7",
+      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step8.png": "c3eaccb8c290a9c55e2368ce18ea65c009dd128b05648a9743afe0dc160808dc",
+      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step9.png": "334c4be8880d82caa8b54a4ef1f4aa606f14f79171f6834e94b89e3add937c47",
+      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step10.png": "9ad2089faa93afa08f2a4c2394e2a0a580f2181bc6ab574030332ded809d5a49",
+      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step11.png": "6741992ee2447202be898dde1ceddeb93d9f466499f0a950817433f35330f2e3"
+    }
+  },
+  "animations": {
+    "preorder-find-paths": {
+      "kind": "source-frames",
+      "model_sha256": "415725b457d904cf332b57cbfbf25e0dcb8dab71e6e475abbfc86956e09ac6ff",
+      "source_content_sha256": "3f5dd28aa647ba575f9947f41af73d171efe6b858d068ddd5527b417b551418d",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-342"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-343"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-344"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-345"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-346"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-347"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-348"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-349"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-350"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-351"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-352"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "777700023ef2f318f1dc3a0ca83a2c32e2a722012ff039ac3ece26d815ecacb6",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

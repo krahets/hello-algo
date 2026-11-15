@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_dynamic_programming/knapsack_problem.assets/knapsack_dfs",
+  "title": "0-1 背包的重复递归",
+  "summary": "在容量 30 的三物品示例中，两条不同选择路径都会进入状态 dp[1, 10] 并重复展开其子树。",
+  "context": [
+    "0-1 背包中每件物品最多选一次。注意本图采用与前图及代码主程序不同的独立 3 物品示例：背包容量 cap=30，3 件物品的重量依次为 10、20、20，价值依次为 60、110、120（见表）。状态 dp[i, c] 表示在前 i 件物品中做选择、剩余可用容量为 c 时的最大价值；图中表头写为 wgt[i]、val[i]（编号 i 从 1 开始），而正文代码访问数组时使用下标 i-1。",
+    "当当前物品装得下时，比较不选它的 dp[i-1, c] 与选它的 dp[i-1, c-wgt[i-1]]+val[i-1]，取较大值；装不下时只取不选分支。无物品或容量为 0 时返回 0。图中的负容量节点仅示意被排除的选择，代码在递归前判断超重，不实际调用负容量状态。"
+  ],
+  "description": [
+    "递归树自上而下分三轮依次决策“是否放入物品 3”、“是否放入物品 2”、“是否放入物品 1”：每步左分支“否”保持容量 c 不变，右分支“是”将容量减去当前物品重量，同时物品编号均减 1。根 dp[3, 30] 经“否”到 dp[2, 30]、经“是”到 dp[2, 10]；第二层中，dp[2, 30] 经“否”到 dp[1, 30]、经“是”到橙框 dp[1, 10]，而 dp[2, 10] 经“否”到另一处橙框 dp[1, 10]、经“是”连向灰色节点 dp[1, -10]（灰色实线箭头配剪刀，旁注“剪枝：物品重量 > 背包容量”）。",
+    "第三层中，左侧 dp[1, 30] 展开为叶节点 dp[0, 30] 和 dp[0, 20]；两处橙框 dp[1, 10] 各自展开为叶节点 dp[0, 10] 和 dp[0, 0]，重复的状态节点均用相同颜色的边框标示。图下方列出本图专用的三件物品表与背包容量 cap=30。"
+  ],
+  "result": "重叠子问题 dp[1, 10] 在两条分支中被重复展开了两次；若按图中数据推算，选入物品 1 和物品 3（重量 10+20=30）可得最大价值 60+120=180（该数值由输入推导，未直接标在节点上）。",
+  "frames": [
+    {
+      "id": "source-395",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dfs.png",
+      "title": "0-1 背包的重复递归",
+      "explanation": "从根 dp[3, 30] 出发，“不放物品 3、但放物品 2（重 20）”与“放物品 3（重 20）、但不放物品 2”这两条不同路径，都会使剩余物品数变为 1、剩余容量变为 10，从而进入同一个子问题 dp[1, 10]，并把它的两个子节点 dp[0, 10] 与 dp[0, 0] 重复展开了两次。在右侧 dp[2, 10] 下若再选重 20 的物品 2，剩余容量会变为 -10，图中用灰色 dp[1, -10] 示意“剪枝：物品重量 > 背包容量”；正文代码在递归前先判断物品重量是否超过剩余容量，超重时直接只走“否”分支，不会实际发起负容量调用。当 i=0 或 c=0 时递归返回 0。",
+      "state": "根为 dp[3, 30]，第 2 层为 dp[2, 30]、dp[2, 10]；第 3 层为 dp[1, 30]、两处橙框 dp[1, 10] 以及带剪刀的灰色超重节点 dp[1, -10]；第 4 层共有六个有效叶节点：dp[0, 30]、dp[0, 20] 以及两组重复的 dp[0, 10]、dp[0, 0]。底部表格给出 3 件物品：1 号苹果 (10, 60)、2 号西瓜 (20, 110)、3 号菠萝 (20, 120)，背包容量 cap=30。",
+      "key_state": "两处橙框 dp[1, 10] 重复展开各自的子树；dp[1, -10] 因物品超重被剪枝。",
+      "announcement": "两条不同选法都到达剩余容量 10 的状态 dp[1, 10]，导致相同的子树被重复搜索两次。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "递归树使用的三件物品；容量 30",
+      "headers": [
+        "编号",
+        "图示物品",
+        "重量",
+        "价值"
+      ],
+      "rows": [
+        [
+          "1",
+          "苹果",
+          "10",
+          "60"
+        ],
+        [
+          "2",
+          "西瓜",
+          "20",
+          "110"
+        ],
+        [
+          "3",
+          "菠萝",
+          "20",
+          "120"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-20",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "0508263b8f42a2df404d762d8eb7f0d8ecfcf244c4689f7d6b12342b832aa381",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "41d0fd45a22945a5a7184d107047c8717cca6d0cb964ceb1ffcffefcf35d71c0",
+        "output_sha256": "6f28ad46a843e550964bfad54893774457a3ec29abb9f8165dd6262f050b2101"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "6f28ad46a843e550964bfad54893774457a3ec29abb9f8165dd6262f050b2101",
+        "output_sha256": "8f0f618cc8d84fe521a7436cfd71d04bdc65b259bdf6282d1f693e3bfbd5cadc"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "8f0f618cc8d84fe521a7436cfd71d04bdc65b259bdf6282d1f693e3bfbd5cadc",
+        "output_sha256": "b529f2a5259e393cbd6adce01e5f42a44a8d6813ef624f4cd36fcf49308a3adf"
+      }
+    ],
+    "evidence_sha256": "54a5deb01ddc36c133e5452c5496383065ebdb84ec70c16f4d6436a9bcb17a67"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_dynamic_programming/knapsack_problem.md": "737c2956ff98e7b0f2127ba26566ece3d167e7022d593ba82e273a2f5e98e493"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dfs.png": "c9053568957b1c29e34be15445ead10215b43ad3cad33fd3c2cb1063d4709963"
+    }
+  }
+}

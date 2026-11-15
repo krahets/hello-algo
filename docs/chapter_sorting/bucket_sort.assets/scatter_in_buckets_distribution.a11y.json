@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_sorting/bucket_sort.assets/scatter_in_buckets_distribution",
+  "title": "根据价格分布选择不等宽的桶",
+  "summary": "依据商品价格的概率分布选择六个价格桶，目标是让各桶承接较均衡的数据量。",
+  "context": [
+    "图中横轴为“商品价格”，纵轴为“概率密度”（刻度为 0.0 至 0.4）。灰色钟形曲线用于示意商品价格的概率密度分布，并未给出可精确积分的分布参数。"
+  ],
+  "description": [
+    "概率密度曲线在价格 25 附近达到峰值，并向左右两侧逐渐回落。横轴从左到右依次标出 0、3、10、25、80、200、+∞；注意这些价格刻度并非等距线性排列，图上的水平跨度不代表等差的价格差值。",
+    "竖直虚线将曲线下方区域切分为六个区间，通过大括号对应底部的六个桶：<3、3–10、10–25、25–80、80–200、>200。最右侧 >200 桶无有限上界。图面上峰值附近的分界线较密，但横轴并非线性价格轴，不能据此比较实际价格跨度的宽窄。",
+    "划分分界线的目标是让每个区间下方围成的概率面积（即落入该桶的数据比例）尽量接近，而非追求区间宽度相等。由于图中未标注各区间的具体面积，不能据此断言六个桶的概率严格相等。"
+  ],
+  "result": "当提前获知或近似估计出数据的概率分布时，可按概率密度加密峰值区间的分界线、放宽尾部区间的分界线，从而在分桶阶段直接实现近似平均分配。",
+  "frames": [
+    {
+      "id": "source-298",
+      "book_path": "chapter_sorting/bucket_sort.assets/scatter_in_buckets_distribution.png",
+      "title": "依据概率密度分布设定不等宽桶边界",
+      "explanation": "底部大括号将横轴标出的价格区间映射到六个桶。图中按分布设置 3、10、25、80、200 五个分界点，目标是平衡各桶落入的数据量；图示未提供各桶的精确概率。",
+      "state": "横轴商品价格标出 0、3、10、25、80、200、+∞；纵轴概率密度标出 0.0 至 0.4，钟形曲线峰值位于 25 附近。底部六个桶依次为 <3、3–10、10–25、25–80、80–200、>200。",
+      "key_state": "按 3、10、25、80、200 五个价格分界点划为六个不等宽桶。",
+      "announcement": "展示如何根据商品价格的概率密度分布划分六个不等宽的价格桶。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-15",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "47b9e8069a24f64a25c069018c3b80a9d2b1fcc84dd9bb6529801ada3c02f898",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "527f3607822b7dd874e1221e38d84957024c5ee16b1cac9a646b720d5ceeeb20",
+        "output_sha256": "b332692818930e5bb93b7396fb13f2e0aeeea9f0a957557c917737dc68650cd5"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "b332692818930e5bb93b7396fb13f2e0aeeea9f0a957557c917737dc68650cd5",
+        "output_sha256": "1d3f82b8556de39e8ce2bdf446f95d064e294579d7c86285dfbc362e947edcd4"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "1d3f82b8556de39e8ce2bdf446f95d064e294579d7c86285dfbc362e947edcd4",
+        "output_sha256": "1e0a6d5b3ecf54326d4542c1be61a35d6a86fcc0d8795f2600aee901e62baf54"
+      }
+    ],
+    "evidence_sha256": "eae7ac31efc1870978e21f8d8ff6ae8fec853715ad81b0e511b818ea537501e4"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_sorting/bucket_sort.md": "ca9a62e971bc3b66c937e69bcfcee27297369acc4b5bce7c0f88af2de94f4e6e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_sorting/bucket_sort.assets/scatter_in_buckets_distribution.png": "93f296aa386b34bd6ae2862940e618692e88e7f59ad7c98a177052cd018b955a"
+    }
+  }
+}

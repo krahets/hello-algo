@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_greedy/greedy_algorithm.assets/coin_change_greedy_vs_dp",
+  "title": "贪心算法无法找出最优解的示例",
+  "summary": "通过目标金额 60（面值 1、20、50）和目标金额 98（面值 1、49、50）两组反例，对比贪心局部最优解与动态规划全局最优解的硬币数量差距。",
+  "context": [
+    "在零钱兑换问题中，若硬币面值组合不满足贪心选择性质，每一步盲目选择当前最大面值的贪心策略会过早消耗额度，迫使剩余金额只能用大量面值 1 的硬币填补，从而无法找到全局最少硬币数。"
+  ],
+  "description": [
+    "画面分为上下两行对比两个反例；每行左侧展示“硬币组合”与“目标金额”，中间一栏展示“贪心算法最优方案（局部最优解）”，右侧一栏展示“动态规划最优方案（全局最优解）”。"
+  ],
+  "result": "在金额 60 的反例中，贪心需 11 枚而动态规划仅需 3 枚；在金额 98 的反例中，贪心需 49 枚而动态规划仅需 2 枚。两组反例证明零钱兑换问题不能通用的依赖贪心策略求全局最优解，而应使用动态规划。",
+  "frames": [
+    {
+      "id": "source-460",
+      "book_path": "chapter_greedy/greedy_algorithm.assets/coin_change_greedy_vs_dp.png",
+      "title": "贪心算法无法找出最优解的示例",
+      "explanation": "第一行硬币组合为 [1, 20, 50]、目标金额为 60：贪心算法第一步先选最大面值 50，剩余 10 只能用 10 枚 1 元凑齐（50 + 1 × 10），共需 11 枚硬币；而动态规划找出的全局最优解是 3 枚 20 元（20 × 3），仅需 3 枚。第二行硬币组合为 [1, 49, 50]、目标金额为 98：贪心算法第一步先选 50，剩余 48 只能用 48 枚 1 元凑齐（50 + 1 × 48），共需 49 枚硬币；而动态规划找出的全局最优解是 2 枚 49 元（49 × 2），仅需 2 枚。",
+      "state": "反例一：面值 [1, 20, 50]，目标金额 60，贪心方案为 50 + 1 × 10（共 11 枚），动态规划最优方案为 20 × 3（共 3 枚）。反例二：面值 [1, 49, 50]，目标金额 98，贪心方案为 50 + 1 × 48（共 49 枚），动态规划最优方案为 49 × 2（共 2 枚）。",
+      "key_state": "反例对比：金额 60 贪心 11 枚对最优 3 枚；金额 98 贪心 49 枚对最优 2 枚。",
+      "announcement": "展示两组贪心失效反例：目标 60 时贪心用 11 枚而最优仅 3 枚；目标 98 时贪心用 49 枚而最优仅 2 枚。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "找零方案比较",
+      "headers": [
+        "面值",
+        "目标金额",
+        "贪心方案",
+        "贪心枚数",
+        "最优方案",
+        "最优枚数"
+      ],
+      "rows": [
+        [
+          "1、20、50",
+          "60",
+          "50+1×10",
+          "11",
+          "20×3",
+          "3"
+        ],
+        [
+          "1、49、50",
+          "98",
+          "50+1×48",
+          "49",
+          "49×2",
+          "2"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-23",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "5ea82401b23ef7b295b6184c3d5fcb8c94aa0dd6dbb6f1da38935eee83fff9c7",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "65ed4701387683dd63f9752fe8b0082f9d369d4e3aa764d1d7da3ca514d30dbe",
+        "output_sha256": "4ebebbc05478b00c6f876ea5cbaa9078823129963728aa248fd3a3c2cb7c35fa"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "4ebebbc05478b00c6f876ea5cbaa9078823129963728aa248fd3a3c2cb7c35fa",
+        "output_sha256": "c726cb1e9a48ecde596b2fa06c86f121a4e999d76885ea20a856bb028acd90e2"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "c726cb1e9a48ecde596b2fa06c86f121a4e999d76885ea20a856bb028acd90e2",
+        "output_sha256": "e1e1cb976bc14f564bd765f9e4e7faf06571d50a98cb8f9a91ea36cdac3993ad"
+      }
+    ],
+    "evidence_sha256": "34444c50d6df82ed6b43160a49929ee9fc81523aa89772b10af874af3efcc040"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_greedy/greedy_algorithm.md": "3b0c784fb49ba0b799a32f85e77c830ed20aefd84af3f9d5c5076e6fef3796a1"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_greedy/greedy_algorithm.assets/coin_change_greedy_vs_dp.png": "959e099d3048c99569a5c3cdf03aab65939c86fcc781ad9ef4fe5b9f721c057a"
+    }
+  }
+}

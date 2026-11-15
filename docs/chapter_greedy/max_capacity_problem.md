@@ -49,28 +49,28 @@ $$
     ![最大容量问题的贪心过程](max_capacity_problem.assets/max_capacity_greedy_step1.svg)
 
 === "<2>"
-    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.svg)
+    ![最大容量：双指针贪心，第 2 步，共 9 步：第 2 步：计算状态 \[0, 7\]，cap = 21，res 更新为 21](max_capacity_problem.assets/max_capacity_greedy_step2.svg)
 
 === "<3>"
-    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.svg)
+    ![最大容量：双指针贪心，第 3 步，共 9 步：第 3 步：右移短板 i 至 \[1, 7\]，cap = 24，res 更新为 24](max_capacity_problem.assets/max_capacity_greedy_step3.svg)
 
 === "<4>"
-    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.svg)
+    ![最大容量：双指针贪心，第 4 步，共 9 步：第 4 步：左移短板 j 至 \[1, 6\]，cap = 15，res 保持 24](max_capacity_problem.assets/max_capacity_greedy_step4.svg)
 
 === "<5>"
-    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.svg)
+    ![最大容量：双指针贪心，第 5 步，共 9 步：第 5 步：左移短板 j 至 \[1, 5\]，cap = 28，res 更新为 28](max_capacity_problem.assets/max_capacity_greedy_step5.svg)
 
 === "<6>"
-    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.svg)
+    ![最大容量：双指针贪心，第 6 步，共 9 步：第 6 步：左移短板 j 至 \[1, 4\]，cap = 21，res 保持 28](max_capacity_problem.assets/max_capacity_greedy_step6.svg)
 
 === "<7>"
-    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.svg)
+    ![最大容量：双指针贪心，第 7 步，共 9 步：第 7 步：左移短板 j 至 \[1, 3\]，cap = 4，res 保持 28](max_capacity_problem.assets/max_capacity_greedy_step7.svg)
 
 === "<8>"
-    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.svg)
+    ![最大容量：双指针贪心，第 8 步，共 9 步：第 8 步：左移短板 j 至 \[1, 2\]，cap = 5，res 保持 28](max_capacity_problem.assets/max_capacity_greedy_step8.svg)
 
 === "<9>"
-    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.svg)
+    ![最大容量：双指针贪心，第 9 步，共 9 步：第 9 步：指针 i 与 j 在索引 1 相遇，返回最大容量 28](max_capacity_problem.assets/max_capacity_greedy_step9.svg)
 
 ### 代码实现
 

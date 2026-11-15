@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_quadratic",
+  "title": "递归各层保留数组形成平方空间",
+  "summary": "递归函数 quadratic_recur 在参数从 n 到 1 的 n 个调用层分别创建并保留长度为 n、n - 1、…、2、1 的数组，峰值数组总长度为 n(n + 1)/2，空间复杂度为平方阶 O(n²)。",
+  "context": [
+    "画面自左向右分为三列，顶部标题依次为“数组 nums 长度”、“向下‘递’”和“向上‘归’”。函数在参数为正数的每一层递归中都会初始化一个长度等于当前参数值的局部数组 nums，再发起下一层递归调用。"
+  ],
+  "description": [
+    "中间“向下‘递’”列自上而下由向下箭头连接 quadratic_recur(n)、quadratic_recur(n-1)、省略号、quadratic_recur(2) 和 quadratic_recur(1)；左列“数组 nums 长度”以蓝色字体对应标注 n、n-1、省略号、2、1，并通过带圆点的水平线段与各层调用框相连。最左侧大括号覆盖从 n 到 1 的这 n 层，标注“递归深度 n”。",
+    "在最底层的 quadratic_recur(1) 右侧，水平向右箭头标注“触发递归终止条件”，指向右列底部的“return 0”，随后由向上箭头串联各层“return 0”向上返回。底部说明框写出：“在每个递归函数中都初始化了一个数组，总长度为 1 + 2 + … + (n-1) + n = n(n+1)/2”，右侧箭头指向“空间复杂度 平方阶 O(n²)”。"
+  ],
+  "result": "当递归函数在每一层栈帧内还额外分配了与当前参数成正比的数据结构时，峰值内存需要将该调用链上所有未返回层的局部数据结构一并累加；此处 n 层数组的总长度为 n(n + 1)/2，主导项决定了最差空间复杂度为平方阶 O(n²)。",
+  "frames": [
+    {
+      "id": "source-36",
+      "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_quadratic.png",
+      "title": "递归各层保留数组形成平方空间",
+      "explanation": "在上层函数等待下层递归返回期间，上层创建的数组 nums 始终保留在内存中无法释放。到达递归最深处时，内存中同时存在长度为 n、n - 1、…、2、1 的 n 个数组，按等差数列求和得到总长度 n(n + 1)/2 = (n² + n)/2（图中将末端的终止与返回简化画在参数 1 这一行，准确覆盖了分配数组的全部 n 层；Python 代码还会调用参数 0，在该层直接返回且不分配数组）。因此，峰值空间由平方阶 O(n²) 的数组总长度主导，远大于调用栈本身的 O(n) 栈帧开销。",
+      "state": "最左侧大括号标注“递归深度 n”。左列“数组 nums 长度”依次为 n、n-1、省略号、2、1，分别与中间“向下‘递’”列的 quadratic_recur(n)、quadratic_recur(n-1)、省略号、quadratic_recur(2)、quadratic_recur(1) 横向相连。底层 quadratic_recur(1) 向右箭头标注“触发递归终止条件”，连接右列“向上‘归’”的各层 return 0。底部标注数组总长度公式 1 + 2 + … + (n-1) + n = n(n+1)/2，空间复杂度为平方阶 O(n²)。",
+      "key_state": "参数从 n 到 1 的 n 个调用层同时保留长度为 n、n - 1、…、2、1 的数组，总长度为 n(n + 1)/2，属平方阶 O(n²)。",
+      "announcement": "展示 quadratic_recur 在 n 层递归中分别保留长度为 n 至 1 的数组，累加总长度导出平方阶空间复杂度 O(n²)。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-02",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "e61eeef8822c857d96f6a8dcae4286f1843d7fb5a21b15fc0270af44b7af5061",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "2418f4f89bf15820de1b9f866e20459174d1357741c9215565d8a6fadd9ef34c",
+        "output_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae",
+        "output_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4",
+        "output_sha256": "62b51949e795658a5a6779b7e616f31ed019742d5859071a77cc3801abe0d6d7"
+      }
+    ],
+    "evidence_sha256": "45d0d7027b523659e72b602edeb9f0d969e31b4ab937e3e24decd1d342fb1eff"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_computational_complexity/space_complexity.md": "abad8985c68bd7c4f69a006f641f5420c4d4f10c0ee5d797be445ac649512690"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_quadratic.png": "95eb9267171646cfa3cb9436237f4a80f800fbd9cc675b9196c6a21ec3e50fcf"
+    }
+  }
+}

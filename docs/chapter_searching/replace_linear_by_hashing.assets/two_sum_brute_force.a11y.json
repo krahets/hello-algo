@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force",
+  "title": "线性查找求解两数之和：两层循环枚举不同索引组合",
+  "summary": "对数组 nums = [2, 7, 11, 15] 与 target = 13，枚举不同位置的配对，由 2 + 11 = 13 找到索引组合 [0, 2]。",
+  "context": [
+    "给定整数数组 nums = [2, 7, 11, 15]（索引从 0 到 3）与目标和 target = 13。",
+    "题目要求找出和为 target 的两个不同数组位置并返回它们的索引（同一个位置的元素不能重复使用两次）。暴力解法通过外层索引 i 与内层索引 j（j > i）开启两层循环，逐对检查两数之和。"
+  ],
+  "description": [
+    "画面下方的四行四列矩阵以行头和列头分别列出 2、7、11、15，仅在主对角线右上方的上三角区域填入六个候选和：既排除了主对角线上同一位置与自身相加的情况，也省去了左下角交换相加次序的重复配对。六组候选和见附表。",
+    "矩阵中第 0 行（元素 2）与第 2 列（元素 11）交叉处的单元格 13 用紫蓝色文字标出。按照代码从左到右的枚举顺序，外层固定 i = 0（元素 2）后，内层先算 2 + 7 = 9，紧接着算到 2 + 11 = 13 即命中目标并直接返回 [0, 2]；图中将其余候选和一并画出仅用于展示完整的组合空间，并不代表命中后仍需继续算完后续组合。"
+  ],
+  "result": "命中 2 + 11 = 13，返回索引组合 [0, 2]。两层循环暴力枚举的时间复杂度为 O(n²)，空间复杂度为 O(1)，属于“以时间换空间”的解法。",
+  "frames": [
+    {
+      "id": "source-234",
+      "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force.png",
+      "title": "遍历两数配对的上三角表，定位 2 + 11 = 13",
+      "explanation": "上三角矩阵展示六个不重复位置配对的求和结果，其中元素 2（索引 0）与元素 11（索引 2）交叉处的和为 13（紫蓝色文字），满足 target = 13。",
+      "state": "数组 nums=[2,7,11,15]，索引从 0 到 3，目标和 target=13。上三角候选和为：2+7=9，2+11=13，2+15=17，7+11=18，7+15=22，11+15=26；命中配对 2、11，返回 [0,2]。",
+      "key_state": "命中 2 + 11 = 13，对应返回索引对 [0, 2]。",
+      "announcement": "展示两数之和的上三角枚举表，由 2 + 11 = 13 确定索引 [0, 2]。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "图中六组不同位置的配对",
+      "headers": [
+        "索引对",
+        "元素配对",
+        "和"
+      ],
+      "rows": [
+        [
+          "0、1",
+          "2 + 7",
+          "9"
+        ],
+        [
+          "0、2",
+          "2 + 11",
+          "13，命中目标"
+        ],
+        [
+          "0、3",
+          "2 + 15",
+          "17"
+        ],
+        [
+          "1、2",
+          "7 + 11",
+          "18"
+        ],
+        [
+          "1、3",
+          "7 + 15",
+          "22"
+        ],
+        [
+          "2、3",
+          "11 + 15",
+          "26"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-12",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "245756b5ff6a7aea597892224de731530b05596868819e2ae2dcfb5f3b191647",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "278c7ca0de3699a8282cf733e66a37f776fcb7767e2b72a0c4e17a626b20368a",
+        "output_sha256": "8b942a49ae0132da2ef7bd2cc4974d6e9c21872a530fe97c2a2107a934188825"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "8b942a49ae0132da2ef7bd2cc4974d6e9c21872a530fe97c2a2107a934188825",
+        "output_sha256": "72ded3c108bbc7c458462041ccdbfcaae7e45858b987f9ed1bf31ede788076b3"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "72ded3c108bbc7c458462041ccdbfcaae7e45858b987f9ed1bf31ede788076b3",
+        "output_sha256": "549b9b8f6b53209dc060d3de11ddb4c66cd900a1c8ee112c21eecc35d1b5cd78"
+      }
+    ],
+    "evidence_sha256": "df3186defaada9ff328bd9bc4426561c6e8088c64ef665f5bd45cf638c5621eb"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_searching/replace_linear_by_hashing.md": "e7a672e98770714bf70709ce782bd32b01cc94eba65d25ebf664c72c0162923b"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force.png": "81eeafe36def4a34bfdbe45fb1103739fe7c47d67ecf429a3a228b295e7fbf42"
+    }
+  }
+}

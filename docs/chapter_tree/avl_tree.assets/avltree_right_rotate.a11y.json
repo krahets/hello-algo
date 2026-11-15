@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_tree/avl_tree.assets/avltree_right_rotate",
+  "title": "AVL 树右旋操作与指针重连步骤",
+  "summary": "针对节点 3（平衡因子 2）的左偏失衡子树，以左子节点 1（child）为原点将节点 3（node）向右旋转为 1 的右子节点，再用 1 接替原 3 的位置恢复平衡。",
+  "context": [
+    "初始四层二叉搜索树含五个节点 0、1、3、4、5（注意与上一图的数值不同）：根为 4，左、右子节点为 3、5；3 只有左子节点 1；1 只有左子节点 0；0 和 5 为叶节点。",
+    "第一帧每个节点正下方标出平衡因子（左子树高度减去右子树高度，叶节点高度为 0，空节点高度为 −1）。当平衡因子绝对值大于 1 时即为失衡节点，需从底至顶找到首个失衡节点执行旋转。"
+  ],
+  "description": [],
+  "result": "右旋完成后，根 4 的左、右子节点为 1、5，节点 1 的左、右子节点为 0、3。中序遍历序列保持 0、1、3、4、5 不变，同时以 1 为根的子树与整棵树都重新恢复平衡。",
+  "frames": [
+    {
+      "id": "source-130",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step1.png",
+      "title": "自底向上定位首个失衡节点 3",
+      "explanation": "Step 1 各节点下方标出平衡因子：叶节点 0 和 5 为绿色的 0，节点 1 为绿色的 1，而节点 3 与根节点 4 的平衡因子均为橙色的 2（左偏失衡，两节点均以橙色高亮并标注“失衡节点”）。自底向上看，最先遇到的失衡节点是 3。",
+      "state": "树中根 4 的左、右子节点为 3、5，3 的左子节点为 1，1 的左子节点为 0。各节点下方标有平衡因子：4 为 2，3 为 2，5 为 0，1 为 1，0 为 0；节点 4 和 3 以实心橙色高亮并标为“失衡节点”。",
+      "key_state": "节点 4 和 3 的平衡因子均为 2（失衡），自底向上首个失衡节点为 3，其左子节点 1 的平衡因子为 1。",
+      "announcement": "标出各节点平衡因子，自底向上找到首个平衡因子为 2 的失衡节点 3。"
+    },
+    {
+      "id": "source-131",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step2.png",
+      "title": "聚焦失衡子树，标记 node = 3 与 child = 1",
+      "explanation": "Step 2 右侧说明框写明：“聚焦在失衡的子树上，将根节点记为 node，将左子节点记为 child”。图中将上方的 4、5 及底部的 0 淡化为浅灰色，把失衡子树根节点 3 标为橙色 node，把其左子节点 1 标为蓝色 child（本例中 child 没有右子节点）。",
+      "state": "树连接仍为 4→3、5，3→1，1→0。失衡子树的根节点 3 以实心橙色高亮并标有 node，其左子节点 1 以实心蓝色高亮并标有 child；其余节点 4、5、0 淡化为浅灰色。",
+      "key_state": "聚焦以 3 为根的失衡子树：记橙色节点 3 为 node，蓝色左子节点 1 为 child。",
+      "announcement": "聚焦失衡子树，将失衡根节点 3 记为 node，将其左子节点 1 记为 child。"
+    },
+    {
+      "id": "source-132",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step3.png",
+      "title": "以 child（1）为原点，将 node（3）向右旋转",
+      "explanation": "Step 3 右侧在“‘右旋’操作流程”下高亮“1. 以 child 为原点，将 node 向右旋转”。图中原节点 3 的位置留作浅橙色虚线残影，右侧橙色弧线箭头标明“向右旋转”：实心橙色节点 3（node）旋转到蓝色节点 1（child）的右下方，成为 1 的右子节点，1 的左子节点仍为 0；此时上方浅灰色的父节点 4 尚未画出连向新子树根的实线。",
+      "state": "旋转中间态：蓝色节点 1（child）的左子节点为浅灰色 0、右子节点连向旋至右下方的实心橙色节点 3（node），3 的左子节点已清空；1 上方保留原节点 3 的橙色虚线残影及“向右旋转”弧线箭头；顶部浅灰色节点 4 仅保留连向 5 的右箭头，尚未接回左子树。",
+      "key_state": "以 child（1）为原点将 node（3）右旋为 1 的右子节点（1.left = 0，1.right = 3），尚待接回父节点 4。",
+      "announcement": "以节点 1（child）为原点将节点 3（node）向右旋转，使 3 成为 1 的右子节点。"
+    },
+    {
+      "id": "source-133",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step4.png",
+      "title": "用 child（1）替代原 node（3）位置，子树恢复平衡",
+      "explanation": "Step 4 右侧高亮“2. 用 child 替代以前 node 的位置”，并在下方总结“右旋完成后，该子树重新恢复平衡”。图中父节点 4 的左子节点指针正式连向蓝色节点 1（child），1 左侧标出蓝色“已恢复平衡”：此时 1 的左、右子节点分别为同层的叶节点 0 和 3（node），子树与整棵树均恢复平衡。",
+      "state": "右旋完成：顶部浅灰色根 4 的左子节点连向实心蓝色节点 1（child，旁标“已恢复平衡”），右子节点为浅灰色 5；节点 1 的左子节点为浅灰色叶节点 0，右子节点为实心橙色叶节点 3（node）。",
+      "key_state": "父节点 4 的左指针接回 child（4.left = 1），1 的左、右子节点为 0、3，右旋完成且子树恢复平衡。",
+      "announcement": "将新子树根 1（child）接回父节点 4 的左侧，完成右旋并恢复平衡。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-07",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "ece77710dc89aaae2c72ea3fae6034e320e2eedda128f966fd1cac9a96173032",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "f429a2d9034d7690b6bd4a3f0822b11a77350c2330baf8a66141d1f7a9ef4841",
+        "output_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91",
+        "output_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6",
+        "output_sha256": "449ce85fb338c455e6cedde1bf55ab20b1b0f532a5408dfa0443a6fbe9815c6b"
+      }
+    ],
+    "evidence_sha256": "459b7ad9cb6322b1bab7e28efa1badcfd4813182718f9028c5dbe5d4d10dbb4c"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_tree/avl_tree.md": "f4a27fbca67b22b8b3a041218f1088ab85a9f2a32e374060046152e6e01440a5"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_tree/avl_tree.assets/avltree_right_rotate_step1.png": "2046d601b21f6b036982266c3ac1423cb56ee2a315c8f8b8cb0649371803487e",
+      "chapter_tree/avl_tree.assets/avltree_right_rotate_step2.png": "0a3791d321c81d11257ec8c514eee60cccf59511130fc98e2af14842a4bce3ee",
+      "chapter_tree/avl_tree.assets/avltree_right_rotate_step3.png": "ec8bf0e50886bd4cf72ef3b2551c3cc979fc6d33b718c1c682d69cbaf5308f80",
+      "chapter_tree/avl_tree.assets/avltree_right_rotate_step4.png": "f06c3598531823c8f0b3793742bf9f46e2b557fd1e298626ca5706080f5ab1f2"
+    }
+  },
+  "animations": {
+    "avl-right-rotation": {
+      "kind": "source-frames",
+      "model_sha256": "7b31b3259582e264b0347fd19a48483c7e8af0f3cdd5e23c8c565206aca4cc1a",
+      "source_content_sha256": "ece77710dc89aaae2c72ea3fae6034e320e2eedda128f966fd1cac9a96173032",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-130"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-131"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-132"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-133"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "a12162a038b91b86f32f4039d23f8606a224dbbd3ae98c22eddc2e15cc3e7bc3",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

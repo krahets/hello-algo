@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_state_transfer",
+  "title": "第五阶的方案由第三、四阶相加",
+  "summary": "到达第 5 阶的最后一步只能来自第 3 阶或第 4 阶，因此方案数为 3+5=8。",
+  "context": [
+    "每一步只能上 1 阶或 2 阶，记 dp[n] 为爬到第 n 阶楼梯的方案数，其中初始状态为 dp[1]=1、dp[2]=2。"
+  ],
+  "description": [
+    "楼梯上第 3、第 4、第 5 阶分别用绿色、青色和蓝色突出显示。3 条绿色虚线汇入第 3 阶（标有 dp[3]=3），5 条青色实线汇入第 4 阶（标有 dp[4]=5），随后分别经一条跨 2 阶的绿色虚线和一条跨 1 阶的青色实线汇入第 5 阶；顶部写出 dp[5]=dp[3]+dp[4]=8，底部对照列出阶数 1 至 6 与对应的方案数。"
+  ],
+  "result": "前 6 阶的方案数依次为 1、2、3、5、8、13；图中以第 5 阶为例直观展示了递推关系 dp[i]=dp[i-1]+dp[i-2]。",
+  "frames": [
+    {
+      "id": "source-368",
+      "book_path": "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png",
+      "title": "第五阶的方案由第三、四阶相加",
+      "explanation": "要爬到第 5 阶，最后一步要么是从第 3 阶向上跳 2 阶，要么是从第 4 阶向上跳 1 阶。把到达第 3 阶的 3 种走法各接上一次 2 阶跳跃，就得到 3 种到达第 5 阶的走法；把到达第 4 阶的 5 种走法各接上一次 1 阶跳跃，又得到另外 5 种走法。这两类走法的最后一步落点来源不同，彼此不重不漏，所以 dp[5]=dp[3]+dp[4]=3+5=8。推广到任意第 i 阶（i≥3），都有 dp[i]=dp[i-1]+dp[i-2]。",
+      "state": "第 3 阶标有 dp[3]=3，第 4 阶标有 dp[4]=5，两者分别跨 2 阶和 1 阶汇入第 5 阶，顶部标注 dp[5]=dp[3]+dp[4]=8。底部列出楼梯阶数 n=1、2、3、4、5、6 与方案数 dp[n]=1、2、3、5、8、13。",
+      "key_state": "dp[5] 由第 3 阶的 3 种与第 4 阶的 5 种相加得到 8。",
+      "announcement": "将到达第 3 阶的 3 种方案与到达第 4 阶的 5 种方案相加，得到爬上第 5 阶的 8 种方案。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "图中阶数与方案数",
+      "headers": [
+        "阶数",
+        "方案数"
+      ],
+      "rows": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "2",
+          "2"
+        ],
+        [
+          "3",
+          "3"
+        ],
+        [
+          "4",
+          "5"
+        ],
+        [
+          "5",
+          "8"
+        ],
+        [
+          "6",
+          "13"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-19",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "f890164c17ad875f06e69554007aaa2766c16378093f49b597612bd083150d9b",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "dcea2ce4eb56814df492beb0353b69ca48748a38ea8c5b34963d8ce99d7a20df",
+        "output_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c",
+        "output_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f",
+        "output_sha256": "1603107bf51a94e045d71a5f3540a9b6e58f184da52d98978a06e9e10e5ca484"
+      }
+    ],
+    "evidence_sha256": "830dfd6d376fed2c39b7c0da47ad3af42913a4655f9fdeea3b18ab9df35addbc"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_dynamic_programming/intro_to_dynamic_programming.md": "0995a3cd45b316e145efd517bc64d6d48a880cc2e2ad626a0bc24d063262a59f"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png": "26834aea5fa1342f1defe3873970e1a834b7c5bbf1d31b1e42fa1f62847e1dcb"
+    }
+  }
+}

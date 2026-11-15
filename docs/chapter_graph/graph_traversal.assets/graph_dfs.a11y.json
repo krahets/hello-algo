@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_graph/graph_traversal.assets/graph_dfs",
+  "title": "图的深度优先遍历（DFS）：优先走到底、无路可走再回溯",
+  "summary": "从顶点 0 出发沿 0→1→2→5 递归深入，在 5 处先访问 4 再访问 6，连续回溯到 0 后访问 3，得到序列 [0, 1, 2, 5, 4, 6, 3]。",
+  "context": [
+    "待遍历的无向图包含七个顶点 0 至 6，以及六条无向边 0—1、0—3、1—2、2—5、4—5、5—6。",
+    "深度优先遍历从顶点 0 开始：每到达一个顶点，先将其记入“遍历序列 res”与“哈希集合 visited”，再依次检查其邻接顶点，遇到尚未访问的邻居就开启新一层递归深入；当某顶点的所有邻居都已访问时，当前递归方法返回并回溯到上一层调用顶点。哈希集合 visited 用于去重，防止沿无向边来回死循环，其横向排列仅展示集合成员，不代表集合具有顺序。",
+    "图中灰色实线表示原图的无向边；蓝色直虚线箭头代表“递推阶段”（开启递归访问新顶点），橙色曲虚线箭头代表“回溯阶段”（方法返回上一层顶点）。虚线旁括号内的编号 (1) 至 (14) 依次记录十四个递推与回溯事件，并非访问了 14 个不同顶点。"
+  ],
+  "description": [
+    "本组包含十一张分步图（source-202 至 source-212）与末尾一张静态总览图（source-201，kind 为 overview）。总览图用于汇总同一趟深度优先遍历的完整递推与回溯轨迹，不属于第十一步之后的额外算法操作。具体遍历序列取决于每个顶点处检查邻居的先后顺序：图中在顶点 0 处先走邻居 1、后走邻居 3，在顶点 5 处先走邻居 4、后走邻居 6。"
+  ],
+  "result": "七个顶点均在首次到达时记录一次，最终遍历序列为 res = [0, 1, 2, 5, 4, 6, 3]，visited 包含 0 至 6 全部七个顶点。当所有递归调用逐层返回至起点 0 并结束后，整趟深度优先遍历完成；回溯阶段仅恢复上层调用位置，不会向 res 重复追加顶点。",
+  "frames": [
+    {
+      "id": "source-202",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step1.png",
+      "title": "第一步：递推访问起点 0",
+      "explanation": "进入“递推阶段：访问顶点 0”：起始调用沿编号 (1) 的蓝色直虚线进入顶点 0，将 0 加入遍历序列 res 和哈希集合 visited，准备检查顶点 0 的邻接顶点。",
+      "state": "无向图有顶点 0 至 6，六条边为 0—1、0—3、1—2、2—5、4—5、5—6。res = [0]；visited = {0}。当前在顶点 0，已进入的递归路径为 0。",
+      "key_state": "当前在起点 0；res = [0]，visited = {0}。",
+      "announcement": "开启起始递归调用，访问起点 0 并记入 res 与 visited。"
+    },
+    {
+      "id": "source-203",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step2.png",
+      "title": "第二步：从顶点 0 递归深入顶点 1",
+      "explanation": "进入“递推阶段：遍历顶点 0 的邻接顶点，递归访问顶点 1”：在 0 的两个邻居 1、3 中先选尚未访问的 1，沿编号 (2) 的蓝色直虚线递归进入顶点 1，将 1 加入 res 和 visited；另一个邻居 3 留待当前深入分支回溯到 0 后再访问。",
+      "state": "无向图有顶点 0 至 6，六条边为 0—1、0—3、1—2、2—5、4—5、5—6。res = [0, 1]；visited = {0, 1}。当前在 1，递归路径为 0→1；0 的分支 3 尚未访问。",
+      "key_state": "从 0 深入到 1；res = [0, 1]。",
+      "announcement": "从顶点 0 沿事件 (2) 递归访问未访问邻居 1。"
+    },
+    {
+      "id": "source-204",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step3.png",
+      "title": "第三步：从顶点 1 递归深入顶点 2",
+      "explanation": "进入“递推阶段：遍历顶点 1 的邻接顶点，递归访问顶点 2”：顶点 1 的邻居 0 已在 visited 中故跳过，继续沿编号 (3) 的蓝色直虚线递归访问未访问的邻居 2，将 2 加入 res 和 visited。",
+      "state": "无向图有顶点 0 至 6，六条边为 0—1、0—3、1—2、2—5、4—5、5—6。res = [0, 1, 2]；visited = {0, 1, 2}。当前在 2，递归路径为 0→1→2。",
+      "key_state": "从 1 深入到 2；res = [0, 1, 2]。",
+      "announcement": "跳过已访问的 0，从顶点 1 沿事件 (3) 递归深入到顶点 2。"
+    },
+    {
+      "id": "source-205",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step4.png",
+      "title": "第四步：从顶点 2 递归深入顶点 5",
+      "explanation": "进入“递推阶段：遍历顶点 2 的邻接顶点，递归访问顶点 5”：顶点 2 的邻居 1 已访问，遂沿编号 (4) 的蓝色直虚线递归访问未访问的邻居 5，将 5 追加到 res 并记入 visited。",
+      "state": "无向图有顶点 0 至 6，六条边为 0—1、0—3、1—2、2—5、4—5、5—6。res = [0, 1, 2, 5]；visited = {0, 1, 2, 5}。当前在 5，递归路径为 0→1→2→5。",
+      "key_state": "从 2 深入到 5；res = [0, 1, 2, 5]。",
+      "announcement": "从顶点 2 沿事件 (4) 递归深入访问顶点 5。"
+    },
+    {
+      "id": "source-206",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step5.png",
+      "title": "第五步：从顶点 5 先深入分支顶点 4",
+      "explanation": "进入“递推阶段：遍历顶点 5 的邻接顶点，递归访问顶点 4”：顶点 5 的邻居 2 已访问，在剩余两个未访问邻居 4、6 中先选 4，沿编号 (5) 的蓝色直虚线递归进入顶点 4，将 4 加入 res 和 visited。",
+      "state": "无向图有顶点 0 至 6，六条边为 0—1、0—3、1—2、2—5、4—5、5—6。res = [0, 1, 2, 5, 4]；visited = {0, 1, 2, 4, 5}。当前在 4，递归路径为 0→1→2→5→4；顶点 3、6 尚未访问。",
+      "key_state": "从 5 深入到 4；res = [0, 1, 2, 5, 4]。",
+      "announcement": "从顶点 5 沿事件 (5) 递归访问分支顶点 4。"
+    },
+    {
+      "id": "source-207",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step6.png",
+      "title": "第六步：顶点 4 无路可走，回溯至顶点 5",
+      "explanation": "进入“回溯阶段：顶点 4 的所有邻接顶点都已访问，因此该方法返回，回溯至顶点 5”：顶点 4 的唯一邻居 5 已在 visited 中，没有新顶点可继续深入，访问 4 的递归方法遂沿编号 (6) 的橙色曲虚线返回顶点 5；res 与 visited 保持不变。",
+      "state": "无向图有顶点 0 至 6，六条边为 0—1、0—3、1—2、2—5、4—5、5—6。res = [0, 1, 2, 5, 4]；visited = {0, 1, 2, 4, 5}。当前已回到 5，递归路径为 0→1→2→5；访问 4 的调用已结束，6 尚未访问。",
+      "key_state": "从 4 回溯到 5；res 仍为 [0, 1, 2, 5, 4]。",
+      "announcement": "顶点 4 无未访问邻居，沿事件 (6) 回溯至顶点 5。"
+    },
+    {
+      "id": "source-208",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step7.png",
+      "title": "第七步：从顶点 5 继续深入分支顶点 6",
+      "explanation": "进入“递推阶段：遍历顶点 5 的邻接顶点，递归访问顶点 6”：回到顶点 5 后继续检查剩余邻居，沿编号 (7) 的蓝色直虚线向下递归访问尚未访问的顶点 6，将 6 追加到 res 并记入 visited。",
+      "state": "无向图有顶点 0 至 6，六条边为 0—1、0—3、1—2、2—5、4—5、5—6。res = [0, 1, 2, 5, 4, 6]；visited = {0, 1, 2, 4, 5, 6}。当前在 6，递归路径为 0→1→2→5→6；4 的分支已完成，只有 3 尚未访问。",
+      "key_state": "从 5 深入到 6；res = [0, 1, 2, 5, 4, 6]。",
+      "announcement": "从顶点 5 沿事件 (7) 递归访问另一个未访问邻居 6。"
+    },
+    {
+      "id": "source-209",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step8.png",
+      "title": "第八步：顶点 6 无路可走，回溯至顶点 5",
+      "explanation": "进入“回溯阶段：顶点 6 的所有邻接顶点都已访问，因此该方法返回，回溯至顶点 5”：顶点 6 仅与已访问的 5 相连，没有新邻居可探索，访问 6 的递归调用沿编号 (8) 的橙色曲虚线返回顶点 5；res 与 visited 不变。",
+      "state": "无向图有顶点 0 至 6，六条边为 0—1、0—3、1—2、2—5、4—5、5—6。res = [0, 1, 2, 5, 4, 6]；visited = {0, 1, 2, 4, 5, 6}。当前回到 5，递归路径为 0→1→2→5；5 的邻居 2、4、6 均已访问。",
+      "key_state": "从 6 回溯到 5；res 仍为 [0, 1, 2, 5, 4, 6]。",
+      "announcement": "顶点 6 无未访问邻居，沿事件 (8) 回溯至顶点 5。"
+    },
+    {
+      "id": "source-210",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step9.png",
+      "title": "第九步：从顶点 5 经 2、1 连续回溯至起点 0",
+      "explanation": "画面提示“以此类推…最终回溯至顶点 0”：此时顶点 5 的三个邻居 2、4、6 均已访问，方法沿编号 (9) 的橙色曲虚线返回顶点 2；顶点 2 的邻居也已全部访问，继续沿编号 (10) 返回顶点 1；顶点 1 同样无未访问邻居，再沿编号 (11) 返回起点 0。本步合并展示了 5→2→1→0 三次递归返回，res 与 visited 均不改变。",
+      "state": "无向图有顶点 0 至 6，六条边为 0—1、0—3、1—2、2—5、4—5、5—6。res = [0, 1, 2, 5, 4, 6]；visited = {0, 1, 2, 4, 5, 6}。当前已回到 0；访问 5、2、1 的调用均结束。尚未访问的唯一顶点是 0 的邻居 3。",
+      "key_state": "经事件 (9)、(10)、(11) 连续回溯到起点 0；仅剩顶点 3 未访问。",
+      "announcement": "从顶点 5 经 2、1 连续三次返回，回溯到起点 0。"
+    },
+    {
+      "id": "source-211",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step10.png",
+      "title": "第十步：从起点 0 递归访问剩余邻居 3",
+      "explanation": "进入“递推阶段：遍历顶点 0 的邻接顶点，递归访问顶点 3”：回到起点 0 后，邻居 1 所在分支已全部探索完毕，继续沿编号 (12) 的蓝色直虚线递归访问未访问的邻居 3，将 3 追加到 res 并记入 visited。至此全部七个顶点都已记录完毕。",
+      "state": "无向图有顶点 0 至 6，六条边为 0—1、0—3、1—2、2—5、4—5、5—6。res = [0, 1, 2, 5, 4, 6, 3]；visited = {0, 1, 2, 3, 4, 5, 6}。当前在 3，递归路径为 0→3；所有顶点已访问，但本帧尚未完成最后的方法返回。",
+      "key_state": "从 0 深入到最后一个未访问顶点 3；res = [0, 1, 2, 5, 4, 6, 3]。",
+      "announcement": "从起点 0 沿事件 (12) 递归访问最后一个未访问顶点 3。"
+    },
+    {
+      "id": "source-212",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step11.png",
+      "title": "第十一步：从顶点 3 回溯至 0，起始方法返回并结束遍历",
+      "explanation": "进入“回溯阶段：顶点 3 的所有邻接顶点都已访问，因此该方法返回，回溯至顶点 0；顶点 0 方法也返回，即完成遍历”：顶点 3 的唯一邻居 0 已访问，调用沿编号 (13) 的橙色曲虚线返回 0；随后顶点 0 的所有邻居也已处理完毕，最外层起始调用沿编号 (14) 的橙色曲虚线返回，整趟深度优先遍历结束。",
+      "state": "无向图有顶点 0 至 6，六条边为 0—1、0—3、1—2、2—5、4—5、5—6。res = [0, 1, 2, 5, 4, 6, 3]；visited = {0, 1, 2, 3, 4, 5, 6}。访问 3 的调用已返回 0，起始调用也已返回；遍历结束，图中 0 保留橙色返回标记。",
+      "key_state": "经事件 (13)、(14) 全部递归调用返回；最终 res = [0, 1, 2, 5, 4, 6, 3]。",
+      "announcement": "从顶点 3 回溯至 0 并结束起始调用，深度优先遍历完成。"
+    },
+    {
+      "id": "source-201",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs.png",
+      "title": "图的深度优先遍历（DFS）总览：递推与回溯完整轨迹",
+      "explanation": "这是整趟深度优先遍历的静态总览图（不代表额外算法步骤）：将编号 (1) 至 (14) 的蓝色直虚线（递推）与橙色曲虚线（回溯）叠加在同一张图上，展示以顶点 0 为起始“走到头才返回，再走到头才返回”的完整过程。遍历序列只按首次到达顶点的顺序记录为 0, 1, 2, 5, 4, 6, 3，回溯途中再次经过的顶点不会重复记入序列。",
+      "state": "无向图有顶点 0 至 6，六条边为 0—1、0—3、1—2、2—5、4—5、5—6。完整遍历序列为 [0, 1, 2, 5, 4, 6, 3]。蓝色直虚线标出递归进入，橙色曲虚线标出回溯，事件编号共 14 个。这是静态总览，不是第十二次算法操作。",
+      "key_state": "DFS 总览：首次访问序列 [0, 1, 2, 5, 4, 6, 3]，含 14 个递推与回溯事件。",
+      "announcement": "展示深度优先遍历总览图，汇总完整的递归进入与回溯路线。",
+      "kind": "overview"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-11",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "5c8c0904f2397ef939d77f8431f5977b3c994f412a176a9ea4c84d8d3425f70e",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "3206c254e0370086a13ff2dc3fac20039392415745b2219372e157eeb538a33f",
+        "output_sha256": "dd9bf68b62344daf8bc8e96623047978d0e19cc619fd66d876e9de1554000277"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "dd9bf68b62344daf8bc8e96623047978d0e19cc619fd66d876e9de1554000277",
+        "output_sha256": "4f0d4fbb2186a7affd40a35e337bce4a948aba21bd793bbcbf59d1b9b8ac75df"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "4f0d4fbb2186a7affd40a35e337bce4a948aba21bd793bbcbf59d1b9b8ac75df",
+        "output_sha256": "a5f19149a68ddebc468f9458a1b65a7a416af49f2324c4cc2f70f730d44ac163"
+      }
+    ],
+    "evidence_sha256": "36e78ab514241f595a2ea03d76dbb5a6499bcabe3070142fed1c2b7ad3fe7c96"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_graph/graph_traversal.md": "fa3ab9940f042b1fd040d6ac6f4ac9eae5d277afb166e19c27770dddc3ece286"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_graph/graph_traversal.assets/graph_dfs_step1.png": "c930a3f09961949f2f782b6316f126f6bf2d89aaa13afd72b842d4ab37687023",
+      "chapter_graph/graph_traversal.assets/graph_dfs_step2.png": "856c6c989a8957efb555adfc8538c799eb2e211a7086dc5304666ec533cb7804",
+      "chapter_graph/graph_traversal.assets/graph_dfs_step3.png": "b0b2c76f8269d5469421a8a8c6eb456221af893f969fe12fc39ed42251057452",
+      "chapter_graph/graph_traversal.assets/graph_dfs_step4.png": "beb5182fd0107559d62cacc31bd7af48b0253453f2a9bd979e357b05c02aa079",
+      "chapter_graph/graph_traversal.assets/graph_dfs_step5.png": "ebad85305f7cf4055f3ba56a258c97639c17a7a615a1bb90f7916eaf21d4d4d0",
+      "chapter_graph/graph_traversal.assets/graph_dfs_step6.png": "28325165f3210ede3bda068b0c916d69a5bcd4d0fd96838e4f145bfdcc5a19da",
+      "chapter_graph/graph_traversal.assets/graph_dfs_step7.png": "5fd72a6193c7097a1ced27ae779ae55a0dbde29d86b3914a423f9f2e70acc2a6",
+      "chapter_graph/graph_traversal.assets/graph_dfs_step8.png": "5343765990408eb6f81be9d8fe8a28e23680538fbb76aaba4c9c1d5e45cdf296",
+      "chapter_graph/graph_traversal.assets/graph_dfs_step9.png": "606cdf9f85dcc33974d20b431d95e7881ac287ae736d26bff3bc9b818144f07a",
+      "chapter_graph/graph_traversal.assets/graph_dfs_step10.png": "aae3bad87aaa09595d7b476974b670e5a26ea1f82039db403e5a47f3e8c4bfb8",
+      "chapter_graph/graph_traversal.assets/graph_dfs_step11.png": "eb6f67984b21703e1bfc0e948795ba43322c84e4f76cb04e1bcf2d21fb555487",
+      "chapter_graph/graph_traversal.assets/graph_dfs.png": "80e3f4d45160925ab9e6b5864f184da6ef01c5b95f89cb49a848bf1e44d3ac6a"
+    }
+  },
+  "animations": {
+    "graph-dfs": {
+      "kind": "source-frames",
+      "model_sha256": "a010192135e7510e91af8f93d14633ee017216f3411968f8c60f0490387cea67",
+      "source_content_sha256": "5c8c0904f2397ef939d77f8431f5977b3c994f412a176a9ea4c84d8d3425f70e",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-202"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-203"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-204"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-205"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-206"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-207"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-208"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-209"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-210"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-211"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-212"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "0e52fbd8d6a21ad454899fbfa53fd45852bb2289eedd2f9014d7fa0ec224a5e1",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

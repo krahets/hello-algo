@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_computational_complexity/iteration_and_recursion.assets/tail_recursion_sum",
+  "title": "尾递归求和过程",
+  "summary": "展示带累加结果参数的尾递归函数 recur(n, res) 求和过程：左侧“向下‘递’”从 recur(n, 0) 逐层累加至 recur(0, n + … + 5 + 4 + 3 + 2 + 1)，触发终止条件后，右侧“向上‘归’”各层直接原样返回最终结果而无需额外加法。",
+  "context": [
+    "正文为了说明如何避免普通递归在“归”阶段逐层滞留计算的开销，引入“尾递归”（tail recursion）：通过新增一个累加器参数 res，把每一步的加法运算提前到“递”阶段完成，使递归调用成为函数返回前的最后一步操作。图中用 recur(n, res) 表示该双参数函数，初始 n 为非负整数，res 为 0。"
+  ],
+  "description": [
+    "画面采用左列“向下‘递’”与右列“向上‘归’”的双列对照布局。左列灰底圆角框由向下箭头串联，调用式有两个参数：第一个参数是当前待累加的数，第二个参数是累计和，参数表达式均用绿色文字突出。底部“触发递归终止条件”文字位于转向右列的箭头上方；右列画出 7 行完全相同的 return 语句，由 6 支竖直向上的箭头串联，不再有代表返回时相加的大括号。左列省略号所对应的右列位置也写出了完整返回式；7 行是图上的展示行数，并不代表任意 n 都只有 7 层调用。"
+  ],
+  "result": "尾递归在向下递推到 recur(0, n + … + 5 + 4 + 3 + 2 + 1) 时便已算出完整总和，向上返回阶段不再执行任何加法运算；支持尾递归优化的编译器或解释器可据此复用栈帧，将空间复杂度从 O(n) 降至 O(1)。若未实施尾递归优化，调用栈空间仍为 O(n)。",
+  "frames": [
+    {
+      "id": "source-23",
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/tail_recursion_sum.png",
+      "title": "尾递归求和过程",
+      "explanation": "左列“向下‘递’”从顶层 recur(n，0) 开始，每向下调用一层就把当前第一个参数累加进第二个参数中：依次经过 recur(n-1，n)、省略号“…”、recur(3，n + … + 5 + 4)、recur(2，n + … + 5 + 4 + 3)、recur(1，n + … + 5 + 4 + 3 + 2)，直至底部的 recur(0，n + … + 5 + 4 + 3 + 2 + 1)。此时底部触发递归终止条件，转向右列“向上‘归’”：最底层直接执行 return n + … + 5 + 4 + 3 + 2 + 1，且上方每一层都原封不动地执行同一句 return n + … + 5 + 4 + 3 + 2 + 1，把已完成的总和一路直传回顶层。",
+      "state": "左列“向下‘递’”自上而下连接 recur(n，0)、recur(n-1，n)、…、recur(3，n + … + 5 + 4)、recur(2，n + … + 5 + 4 + 3)、recur(1，n + … + 5 + 4 + 3 + 2) 至 recur(0，n + … + 5 + 4 + 3 + 2 + 1)；底部经“触发递归终止条件”指向右列“向上‘归’”，右列自下而上展示的 7 行均为相同的 return n + … + 5 + 4 + 3 + 2 + 1 并由 6 支向上箭头串联。",
+      "key_state": "尾递归求和：在向下递推至 recur(0, ...) 的过程中同步完成累加，向上返回阶段各层直接原样返回总和。",
+      "announcement": "从 recur(n，0) 向下递推时同步把当前数值累加进第二参数，到达 recur(0，n + … + 1) 触发终止条件后，向上各层无需再做加法，直接原样返回最终总和。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-01",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "9a6d78ac118624c778d682095f3eddff283b26768ba99a70ab5150891ae6292d",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "431741d9738e417e17d2b6e1ded2465a8b4b113efdfecac9156ffc919692f129",
+        "output_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4",
+        "output_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0",
+        "output_sha256": "10e9faf80624dffe5daec10997eafa110b0fa676bf753184a205a3604fd651d9"
+      }
+    ],
+    "evidence_sha256": "ef94661da660ccf8ffe36e7213507ecb5fe1fad850478d55981ecebce88583b7",
+    "schema_normalization": "Wrap context/description strings in paragraph arrays; prose unchanged."
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_computational_complexity/iteration_and_recursion.md": "636363df79954464f16ea4774d97dc8304c0e190c8dc0b9ba1ce617a2372df5c"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_computational_complexity/iteration_and_recursion.assets/tail_recursion_sum.png": "5f2b9fb4dea576ec90ea4c780fbd105869bf256e21a459e30f25497fcb5f5502"
+    }
+  }
+}

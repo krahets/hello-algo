@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_introduction/algorithms_are_everywhere.assets/playing_cards_sorting",
+  "title": "整理扑克牌的插入排序过程",
+  "summary": "以整理手中的红桃扑克牌 4、2、A、5、3 为例，展示每次将未排序部分的一张牌按点数大小插入左侧已排序扇形中的完整过程，最终得到从小到大的有序牌序 A、2、3、4、5。",
+  "context": [
+    "正文以打牌时理牌的日常操作为例说明插入排序思想：要将手中顺序打乱的一组扑克牌按从小到大的顺序排好，可以将手牌划分为左侧“已排序”和右侧“未排序”两部分，每次从未排序部分取出一张牌，插入到左侧已排序部分的合适位置。"
+  ],
+  "description": [
+    "画面按顺时针 U 形路径展示 6 个理牌状态，上排自左向右、右侧向下转折、下排自右向左由 5 支箭头依次串联。每张牌都是白底红桃花色，点数与红桃图案用颜色区分：4 为绿色、2 为橙色、A 的点数为橙红色且红桃为红色、5 为青色、3 为蓝色。初始牌组位于浅红色“未排序”区，最终牌组位于浅绿色“已排序”区；中间 4 个状态均将左侧“已排序”牌扇与右侧“未排序”牌扇分开摆放，并标有对应文字。本例按 A 小于 2 的顺序排列。"
+  ],
+  "result": "经过逐张抽取并按大小插入适当位置后，原本杂乱的未排序手牌 [4, 2, A, 5, 3] 全部并入已排序区间，最终形成按点数升序排列的 [A, 2, 3, 4, 5]。",
+  "frames": [
+    {
+      "id": "source-15",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/playing_cards_sorting.png",
+      "title": "整理扑克牌的插入排序过程",
+      "explanation": "顺着图中的顺时针 U 形箭头方向，左上角第 1 组为标注“未排序”的五张初始手牌 [4, 2, A, 5, 3]。中上第 2 组先将最左侧的 [4] 划为“已排序”，其余四张 [2, A, 5, 3] 划为“未排序”；随后每次从未排序牌扇的最右端取出一张牌，按点数插入左侧已排序牌扇的合适位置：右上第 3 组将 3 插入 4 前面，形成已排序 [3, 4] 与未排序 [2, A, 5]；右下第 4 组将 5 插入 4 后面，形成已排序 [3, 4, 5] 与未排序 [2, A]；中下第 5 组将 A 插入最前面，形成已排序 [A, 3, 4, 5] 与未排序 [2]；左下第 6 组将最后一张 2 插入 A 与 3 之间，得到全部已排序的 [A, 2, 3, 4, 5]。",
+      "state": "画面沿两排三列的顺时针 U 形箭头展示 6 个理牌状态：从左上角“未排序”[4, 2, A, 5, 3] 出发，经中上“已排序”[4] 与“未排序”[2, A, 5, 3]、右上 [3, 4] 与 [2, A, 5]、右下 [3, 4, 5] 与 [2, A]、中下 [A, 3, 4, 5] 与 [2]，最终到达左下角“已排序”[A, 2, 3, 4, 5]；中间每组的左侧均为已排序区，右侧均为未排序区。",
+      "key_state": "扑克牌理牌：初始 [4, 2, A, 5, 3]，先分出有序的 4，再依次插入 3、5、A、2，最终排成 [A, 2, 3, 4, 5]。",
+      "announcement": "从初始乱序手牌 4、2、A、5、3 出发，先将 4 划为已排序，再从未排序区依次取出 3、5、A、2 插入有序区的对应位置，最终排成 A、2、3、4、5。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-01",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "ffddc2c94c6a4f1c204a645cfc8169dfee0004389bf2790783edfc4d5bc32232",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "431741d9738e417e17d2b6e1ded2465a8b4b113efdfecac9156ffc919692f129",
+        "output_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4",
+        "output_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0",
+        "output_sha256": "10e9faf80624dffe5daec10997eafa110b0fa676bf753184a205a3604fd651d9"
+      }
+    ],
+    "evidence_sha256": "ef94661da660ccf8ffe36e7213507ecb5fe1fad850478d55981ecebce88583b7",
+    "schema_normalization": "Wrap context/description strings in paragraph arrays; prose unchanged."
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_introduction/algorithms_are_everywhere.md": "51fecdd34af1e8a2382350d0b0fba14d37bc05b3326fa9f78e50668f7d533c9c"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_introduction/algorithms_are_everywhere.assets/playing_cards_sorting.png": "7629fa4e292a063ed3768a73bfc555f750ccaef27d293746461bc793c706a94a"
+    }
+  },
+  "animations": {
+    "playing-cards-sorting": {
+      "kind": "prose",
+      "model_sha256": "b0d3d55682601fb46bcc17a56278cd99147b39dc28e9b7a51dbfcf3cb0dd380a",
+      "prose": {
+        "schema_version": 1,
+        "status": "confirmed",
+        "locale": "zh-hans",
+        "story_id": "playing-cards-sorting",
+        "group_id": "group:chapter_introduction/algorithms_are_everywhere.assets/playing_cards_sorting",
+        "title": "整理扑克牌：先划定单张有序牌，再逐张插入已排序区",
+        "summary": "对五张扑克牌 [4, 2, A, 5, 3] 先将 4 划入已排序区，再依次取出 3、5、A、2 插入有序位置，最终排成 [A, 2, 3, 4, 5]。",
+        "context": [
+          "手中共有五张红桃扑克牌，点数分别为 A、2、3、4、5，排序时将 A 视为最小点数 1。初始时五张牌全部位于粉色“未排序”区域内，扇形牌面按左上角可见角标从左到右依次为 [4, 2, A, 5, 3]。",
+          "理牌目标是按点数从小到大排成升序：左侧浅绿色背景面板表示“已排序”区，右侧浅粉色背景面板表示“未排序”区。扇形握牌使相邻牌面部分重叠，但每张牌的左上角点数角标始终清晰可见，没有任何牌被删除。"
+        ],
+        "description": [
+          "动画完整保留源图的六个离散阶段：第一阶段五张牌全部未排序；第二阶段先将最左侧的 4 单独划入已排序区；第三至第六阶段每次从未排序区取出一张牌（按 3、5、A、2 的先后顺序），直接插入已排序区的恰当位置。",
+          "随着各阶段推进，左侧已排序区的牌面依次扩展为 [4] → [3, 4] → [3, 4, 5] → [A, 3, 4, 5] → [A, 2, 3, 4, 5]，右侧未排序区则相应缩减直至为空。",
+          "每个阶段直接呈现该张牌插入完成后的扇形结果，未拆解插入时的逐张比较或临时移动动作。"
+        ],
+        "result": "六个阶段结束后，五张扑克牌全部进入绿色“已排序”区，按点数从小到大排为 [A, 2, 3, 4, 5]，未排序区为空。",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "阶段一：五张牌全部位于未排序区",
+            "explanation": "初始时画面仅有一个粉色“未排序”面板，五张扑克牌按扇形展开，从左到右的角标顺序依次为 4、2、A、5、3，尚未划分出已排序区域。",
+            "state": "已排序区为空（0 张）；粉色“未排序”区共有 5 张牌，按可见角标从左到右依次为 [4, 2, A, 5, 3]。",
+            "key_state": "初始状态：已排序 0 张，未排序 5 张为 [4, 2, A, 5, 3]。",
+            "announcement": "显示初始五张未排序的扑克牌 [4, 2, A, 5, 3]。"
+          },
+          {
+            "id": "step-2",
+            "title": "阶段二：将点数 4 划入已排序区",
+            "explanation": "将最左侧的扑克牌 4 移入左侧新建的绿色“已排序”面板中，单张牌自身天然有序；右侧粉色“未排序”面板保留其余四张牌 2、A、5、3。",
+            "state": "绿色“已排序”区有 1 张牌 [4]；粉色“未排序”区有 4 张牌，按角标从左到右依次为 [2, A, 5, 3]。",
+            "key_state": "已排序 1 张为 [4]，未排序 4 张为 [2, A, 5, 3]。",
+            "announcement": "将扑克牌 4 划入已排序区，未排序区剩余 [2, A, 5, 3]。"
+          },
+          {
+            "id": "step-3",
+            "title": "阶段三：取出 3 插入 4 的前面",
+            "explanation": "从右侧未排序区取出末尾的扑克牌 3，因为点数 3 小于 4，将它插到已排序区 4 的左侧，使已排序区变为 [3, 4]；右侧未排序区剩余三张牌 [2, A, 5]。",
+            "state": "绿色“已排序”区有 2 张牌，从左到右为 [3, 4]；粉色“未排序”区有 3 张牌，从左到右为 [2, A, 5]。",
+            "key_state": "插入 3 后，已排序 2 张为 [3, 4]，未排序 3 张为 [2, A, 5]。",
+            "announcement": "取出 3 插入 4 前面，已排序区变为 [3, 4]。"
+          },
+          {
+            "id": "step-4",
+            "title": "阶段四：取出 5 插入已排序区末尾",
+            "explanation": "从未排序区取出扑克牌 5，因为点数 5 大于已排好的 3 和 4，将它插在 4 的右侧，使已排序区扩展为 [3, 4, 5]；右侧未排序区剩余两张牌 [2, A]。",
+            "state": "绿色“已排序”区有 3 张牌，从左到右为 [3, 4, 5]；粉色“未排序”区有 2 张牌，从左到右为 [2, A]。",
+            "key_state": "插入 5 后，已排序 3 张为 [3, 4, 5]，未排序 2 张为 [2, A]。",
+            "announcement": "取出 5 插入 4 后面，已排序区扩展为 [3, 4, 5]。"
+          },
+          {
+            "id": "step-5",
+            "title": "阶段五：取出 A 插入 3 的前面",
+            "explanation": "从未排序区取出扑克牌 A（按点数 1 计算），因为它小于 3、4、5，将它插入已排序区最左端，形成 [A, 3, 4, 5]；右侧未排序区仅剩最后一张牌 [2]。",
+            "state": "绿色“已排序”区有 4 张牌，从左到右为 [A, 3, 4, 5]；粉色“未排序”区有 1 张牌 [2]。",
+            "key_state": "插入 A 后，已排序 4 张为 [A, 3, 4, 5]，未排序仅剩 1 张 [2]。",
+            "announcement": "取出 A 插入最前端 3 的前面，已排序区扩展为 [A, 3, 4, 5]。"
+          },
+          {
+            "id": "step-6",
+            "title": "阶段六：取出 2 插入 A 与 3 之间，理牌完成",
+            "explanation": "取出未排序区最后一张牌 2，因其点数大于 A（1）且小于 3，将它插入 A 与 3 之间。此时粉色未排序面板消失，画面仅保留绿色“已排序”面板，五张牌按 [A, 2, 3, 4, 5] 整齐排列。",
+            "state": "绿色“已排序”区包含全部 5 张牌，从左到右依次为 [A, 2, 3, 4, 5]；未排序区为空（0 张，粉色面板已移除）。",
+            "key_state": "全部 5 张牌整理完成，已排序区为 [A, 2, 3, 4, 5]，未排序 0 张。",
+            "announcement": "将最后一张 2 插入 A 与 3 之间，五张牌全部排好为 [A, 2, 3, 4, 5]。"
+          }
+        ],
+        "review": {
+          "status": "confirmed",
+          "run_id": "figure-accessibility-20261114/animations/batch-06",
+          "content_sha256": "fe51e9335dbe664a4338737ca926a079b906a13f238ba1bb9f307953bce64a9d",
+          "stages": [
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "573bef5e1f3bd2339bf2922fea5671f3407de70015eba5e79193e712325b7cce",
+              "output_sha256": "fc88c86c63013081aa9577a6aa371699d3a9638bd1b9a07f2272d96777c317ce"
+            },
+            {
+              "requested_model": "gemini-4-argon",
+              "actual_model": null,
+              "model_confirmation": "provider_not_reported",
+              "input_sha256": "fc88c86c63013081aa9577a6aa371699d3a9638bd1b9a07f2272d96777c317ce",
+              "output_sha256": "c9b902bb36717ffca80d7e1da094dc1b53cfca79f0df7c9850bd9a32e117f813"
+            },
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "c9b902bb36717ffca80d7e1da094dc1b53cfca79f0df7c9850bd9a32e117f813",
+              "output_sha256": "ec8386d90996b055ae0783158fc951e187cf5e9329f035d3b456b264de058238"
+            }
+          ],
+          "evidence_sha256": "665c2ef53b44ebc71a0bb1d14ff3a083733918e422c5e647141e69e9e1c227a5"
+        }
+      }
+    }
+  }
+}

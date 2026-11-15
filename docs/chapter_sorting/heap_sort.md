@@ -28,37 +28,37 @@
     ![堆排序步骤](heap_sort.assets/heap_sort_step1.svg)
 
 === "<2>"
-    ![heap_sort_step2](heap_sort.assets/heap_sort_step2.svg)
+    ![原地堆排序：把最大值逐个放入数组右端，第 2 步，共 12 步：将堆顶 5 交换到数组末尾](heap_sort.assets/heap_sort_step2.svg)
 
 === "<3>"
-    ![heap_sort_step3](heap_sort.assets/heap_sort_step3.svg)
+    ![原地堆排序：把最大值逐个放入数组右端，第 3 步，共 12 步：从顶至底堆化，修复五元素大顶堆](heap_sort.assets/heap_sort_step3.svg)
 
 === "<4>"
-    ![heap_sort_step4](heap_sort.assets/heap_sort_step4.svg)
+    ![原地堆排序：把最大值逐个放入数组右端，第 4 步，共 12 步：将堆顶 4 交换到索引 4](heap_sort.assets/heap_sort_step4.svg)
 
 === "<5>"
-    ![heap_sort_step5](heap_sort.assets/heap_sort_step5.svg)
+    ![原地堆排序：把最大值逐个放入数组右端，第 5 步，共 12 步：从顶至底堆化，修复四元素大顶堆](heap_sort.assets/heap_sort_step5.svg)
 
 === "<6>"
-    ![heap_sort_step6](heap_sort.assets/heap_sort_step6.svg)
+    ![原地堆排序：把最大值逐个放入数组右端，第 6 步，共 12 步：将堆顶 3 交换到索引 3](heap_sort.assets/heap_sort_step6.svg)
 
 === "<7>"
-    ![heap_sort_step7](heap_sort.assets/heap_sort_step7.svg)
+    ![原地堆排序：把最大值逐个放入数组右端，第 7 步，共 12 步：从顶至底堆化，修复三元素大顶堆](heap_sort.assets/heap_sort_step7.svg)
 
 === "<8>"
-    ![heap_sort_step8](heap_sort.assets/heap_sort_step8.svg)
+    ![原地堆排序：把最大值逐个放入数组右端，第 8 步，共 12 步：将堆顶 2 交换到索引 2](heap_sort.assets/heap_sort_step8.svg)
 
 === "<9>"
-    ![heap_sort_step9](heap_sort.assets/heap_sort_step9.svg)
+    ![原地堆排序：把最大值逐个放入数组右端，第 9 步，共 12 步：两个 1 相等，堆化检查无需交换](heap_sort.assets/heap_sort_step9.svg)
 
 === "<10>"
-    ![heap_sort_step10](heap_sort.assets/heap_sort_step10.svg)
+    ![原地堆排序：把最大值逐个放入数组右端，第 10 步，共 12 步：执行最后一次堆顶与有效堆尾交换](heap_sort.assets/heap_sort_step10.svg)
 
 === "<11>"
-    ![heap_sort_step11](heap_sort.assets/heap_sort_step11.svg)
+    ![原地堆排序：把最大值逐个放入数组右端，第 11 步，共 12 步：单节点有效堆无需下沉修复](heap_sort.assets/heap_sort_step11.svg)
 
 === "<12>"
-    ![heap_sort_step12](heap_sort.assets/heap_sort_step12.svg)
+    ![原地堆排序：把最大值逐个放入数组右端，第 12 步，共 12 步：剩余单元素自然就位，排序完成](heap_sort.assets/heap_sort_step12.svg)
 
 在代码实现中，我们使用了与“堆”章节相同的从顶至底堆化 `sift_down()` 函数。值得注意的是，由于堆的长度会随着提取最大元素而减小，因此我们需要给 `sift_down()` 函数添加一个长度参数 $n$ ，用于指定堆的当前有效长度。代码如下所示：
 

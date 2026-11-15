@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_heap/heap.assets/min_heap_and_max_heap",
+  "title": "小顶堆与大顶堆的结构与大小关系",
+  "summary": "两棵树均为 12 节点的完全二叉树：小顶堆满足任意节点值 ≤ 子节点值，大顶堆满足任意节点值 ≥ 子节点值。",
+  "context": [
+    "左右两棵树均包含 12 个节点，第 1 至 3 层全部填满，第 4 层从左到右连续占用前 5 个位置。结合数据表中各层从左到右的节点值与完全二叉树的层序位置，即可唯一还原全部父子连接。"
+  ],
+  "description": [
+    "左侧为小顶堆（min heap）：第 1 层根节点（堆顶）为 1，第 2 层左、右子节点为 3 和 2；节点 3 的左、右子节点为 6 和 4，节点 2 的左、右子节点为 2 和 6。第 3 层从左到右四个节点（6、4、2、6）中，首个节点 6 的左、右子节点为 8 和 7，节点 4 的左、右子节点为 9 和 6，节点 2 只有左子节点 5（最右叶节点，即堆底），最右侧的节点 6 为叶节点。",
+    "右侧为大顶堆（max heap）：第 1 层根节点（堆顶）为 9，第 2 层左、右子节点为 8 和 6；节点 8 的左、右子节点为 6 和 7，节点 6 的左、右子节点为 5 和 2。第 3 层从左到右四个节点（6、7、5、2）中，首个节点 6 的左、右子节点为 1 和 4，节点 7 的左、右子节点为 3 和 6，节点 5 只有左子节点 2（堆底），最右侧的节点 2 为叶节点。",
+    "如图下方文字所示，小顶堆是完全二叉树且任意节点的值 ≤ 其子节点的值，大顶堆则是完全二叉树且任意节点的值 ≥ 其子节点的值。堆中允许存在相等元素（例如左树第 2 层的 2 与其左子节点 2 相等），并且堆只约束父子之间的大小关系，不要求同一层从左到右有序或左子节点小于右子节点。"
+  ],
+  "result": "小顶堆的堆顶 1 是全堆最小值，大顶堆的堆顶 9 是全堆最大值；堆同时具备完全二叉树的紧凑结构与父子间的单向序关系。",
+  "frames": [
+    {
+      "id": "source-140",
+      "book_path": "chapter_heap/heap.assets/min_heap_and_max_heap.png",
+      "title": "小顶堆与大顶堆的结构与大小关系",
+      "explanation": "图左右并列对比小顶堆（min heap）与大顶堆（max heap）：两棵树具有完全相同的 12 节点完全二叉树形态（前 3 层满，第 4 层靠左排满 5 个节点），区别在于父子大小约束相反——左树每个父节点值 ≤ 子节点值，故根节点 1 最小；右树每个父节点值 ≥ 子节点值，故根节点 9 最大。",
+      "state": "两棵树均为 12 节点的完全二叉树。左侧小顶堆按层序从上到下、从左到右依次为 [1, 3, 2, 6, 4, 2, 6, 8, 7, 9, 6, 5]，满足任意节点值 ≤ 子节点值；右侧大顶堆按层序依次为 [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]，满足任意节点值 ≥ 子节点值。",
+      "key_state": "左侧小顶堆堆顶为最小值 1，右侧大顶堆堆顶为最大值 9；两者均为 12 节点完全二叉树。",
+      "announcement": "并列对比小顶堆与大顶堆的完全二叉树形态及相反的父子大小约束。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "两棵堆各层从左到右的节点值",
+      "headers": [
+        "层",
+        "小顶堆",
+        "大顶堆"
+      ],
+      "rows": [
+        [
+          "1",
+          "1",
+          "9"
+        ],
+        [
+          "2",
+          "3、2",
+          "8、6"
+        ],
+        [
+          "3",
+          "6、4、2、6",
+          "6、7、5、2"
+        ],
+        [
+          "4",
+          "8、7、9、6、5",
+          "1、4、3、6、2"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-08",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "af404d796846a8eeaf9967f5bd42c9032fd113c09b3e40047ece9f8357194e60",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a506b3ecafaef6d8fc62ef26dae68447d18629fc5e16ddd8ae926171452d6745",
+        "output_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d",
+        "output_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896",
+        "output_sha256": "8aa1f4dfa1fd2a8bc10a20ded596eaae033faa43bbf57cbc5c462af6f3455359"
+      }
+    ],
+    "evidence_sha256": "14a36adc867aa49a98d8a9d37d2a3aade7c41c8d611abaa2b4d84cd7b471e986"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_heap/heap.md": "4eac94cc73c58f010fd8439bd21e4f441eff794de3d6d06a143a0f45dc44ec3e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_heap/heap.assets/min_heap_and_max_heap.png": "87c1418d29515a4d06426cd9d048c76d1b9d36cddc5ee757713ca06ae57d4d4d"
+    }
+  }
+}

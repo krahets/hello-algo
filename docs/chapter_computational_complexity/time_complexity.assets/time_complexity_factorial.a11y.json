@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_computational_complexity/time_complexity.assets/time_complexity_factorial",
+  "title": "全排列的逐层选择与阶乘增长",
+  "summary": "生成 n 个不重复元素的全排列时，各层分支数从 n 依次递减到 1，第 n 层共产生 n! 个完整排列叶节点，按图中每个递归节点仅做常数工作的计数模型，对应阶乘阶时间复杂度 O(n!)。",
+  "context": [
+    "图对应全排列的递归展开过程：最上方居中的单个灰色小方块代表尚未做出任何选择的起始根节点；往下每一层代表为排列的下一个位置挑选一个尚未使用的元素。",
+    "画面左列标题为“各层的分裂数量”，右列标题为“各层的节点数量”；右侧大括号标注“共 n 层”，范围覆盖根节点下方的 n 个选择层（不含最顶部的起始根节点）。"
+  ],
+  "description": [
+    "从顶部起始节点向下，第 1 个虚线框层分裂出 n 个灰色节点（中间用省略号表示其余分支），左列分裂数量标注 n，右列节点数量标注 n。第 2 个虚线框层中，上一层的每个节点各分裂出 n - 1 个子节点，左列标注 n - 1，右列标注 n(n - 1)。第 3 个虚线框层中，每个节点再各分裂出 n - 2 个子节点，左列标注 n - 2，右列标注 n(n - 1)(n - 2)。",
+    "第 4 个虚线框层用省略号表示中间继续递减的各层；最底层（第 n 层）的左列分裂数量标注 1，框内画出绿色的叶节点方块，右列节点数量标注 n!。底部说明框写出：全排列的方案数（即最底层的节点数量）为 n × (n - 1) × (n - 2) × … × 2 × 1 = n!，右侧箭头指向“时间复杂度 阶乘阶 O(n!)”。"
+  ],
+  "result": "随着元素个数 n 增大，全排列方案数按 n! 呈阶乘级急剧增长；当 n ≥ 4 时恒有 n! > 2ⁿ，阶乘阶 O(n!) 比指数阶 O(2ⁿ) 的增长还要快得多。",
+  "frames": [
+    {
+      "id": "source-32",
+      "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_factorial.png",
+      "title": "全排列的逐层选择与阶乘增长",
+      "explanation": "在第 1 层有 n 种选择，第 2 层对每种已选前缀各有 n - 1 种剩余选择，依此类推，到第 n 层只剩最后 1 个可选元素并停止分裂。将各层分裂数量连乘得到的 n × (n - 1) × (n - 2) × … × 2 × 1 = n!，准确对应最底层的绿色叶节点数量（即全部排列方案数，也等于代码 factorial_recur 累加返回的基例计数），而非把树中所有中间层节点也加在一起的总节点数。",
+      "state": "树顶为 1 个未选择的起始灰色节点，其下用虚线框标出 n 层选择过程：第 1 层分裂数量为 n、节点数量为 n；第 2 层分裂数量为 n - 1、节点数量为 n(n - 1)；第 3 层分裂数量为 n - 2、节点数量为 n(n - 1)(n - 2)；中间层省略；第 n 层分裂数量为 1、绿色叶节点数量为 n!。底部标注全排列方案数 n × (n - 1) × (n - 2) × … × 2 × 1 = n!，时间复杂度为阶乘阶 O(n!)。",
+      "key_state": "共 n 层选择，各层分裂数从 n 递减至 1，最底层叶节点（全排列方案）数量为 n!，属阶乘阶 O(n!)。",
+      "announcement": "展示各层分裂数从 n 递减到 1 的全排列递归树，最底层产生 n! 个叶节点，导出阶乘阶 O(n!)。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-02",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "0ce905bd38410118216d08e03157f44c349bdf8f1c3b698a2d249d4f63d4e5b4",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "2418f4f89bf15820de1b9f866e20459174d1357741c9215565d8a6fadd9ef34c",
+        "output_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae",
+        "output_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4",
+        "output_sha256": "62b51949e795658a5a6779b7e616f31ed019742d5859071a77cc3801abe0d6d7"
+      }
+    ],
+    "evidence_sha256": "45d0d7027b523659e72b602edeb9f0d969e31b4ab937e3e24decd1d342fb1eff"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_computational_complexity/time_complexity.md": "af3c429bc5b2acecc2a8389cd5934d6a6790f9c1bc0970d8955af2b471c0888b"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_computational_complexity/time_complexity.assets/time_complexity_factorial.png": "be42d18e4c17932e036d616c2459c27473b6006bc25723d96f5f3c0ee1a30746"
+    }
+  }
+}

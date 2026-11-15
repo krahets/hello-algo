@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_stack_and_queue/deque.assets/linkedlist_deque",
+  "title": "基于双向链表实现双向队列的入队与出队",
+  "summary": "以双向链表的头节点作为队首、尾节点作为队尾，从 [3, 2, 5] 出发依次执行队尾入队 4、队首入队 1、队尾出队 4 和队首出队 1。",
+  "context": [
+    "每幅图左侧展示对外呈现的竖直双向队列（上为队首、下为队尾），中央标注“底层实现是双向链表，对外表现为双向队列”，右侧展示底层的竖直双向链表。",
+    "与普通队列使用的单向链表不同，双向链表的每个节点都同时维护前驱（prev）和后继（next）两个引用，图中用相邻节点之间一上一下的双向箭头表示。初始队列为 [3, 2, 5]，对应链表头节点为 3、尾节点为 5。"
+  ],
+  "description": [
+    "由于双向链表能够直接访问任一节点的前驱与后继，无论是在链表头部（队首）还是链表尾部（队尾）插入或删除节点，都只需修改头尾指针及相邻节点的双向引用，时间复杂度均为 O(1)，中间已有节点无须搬移。",
+    "五帧画面完整演示了一轮连续操作：Step 1 展示初始状态 [3, 2, 5]；Step 2 调用 push_last(4) 在链表尾部追加节点 4；Step 3 调用 push_first(1) 在链表头部插入节点 1；Step 4 调用 pop_last() 删除尾节点 4；Step 5 调用 pop_first() 删除头节点 1，最终恢复为初始状态 [3, 2, 5]。"
+  ],
+  "result": "经历队尾入队 4、队首入队 1、队尾出队 4、队首出队 1 后，双向链表恢复为 3 ⇄ 2 ⇄ 5，头节点为 3、尾节点为 5，验证了双向链表对双端 O(1) 增删的天然支持。",
+  "frames": [
+    {
+      "id": "source-71",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step1.png",
+      "title": "初始双向链表状态",
+      "explanation": "初始状态下，左侧双向队列包含 3、2、5 三个绿色元素，并在队首和队尾两侧标出四个入队、出队箭头；右侧双向链表从上到下依次连接节点 3、2、5，相邻节点之间画有双向箭头，头节点指针指向顶部节点 3，尾节点指针指向底部节点 5。",
+      "state": "Step 1：左侧双向队列从队首到队尾为 [3, 2, 5]；右侧双向链表为 3 ⇄ 2 ⇄ 5，头节点为 3，尾节点为 5。",
+      "key_state": "初始队列 [3, 2, 5]；链表头节点为 3，尾节点为 5。",
+      "announcement": "初始化基于双向链表的双向队列 [3, 2, 5]，头节点为 3，尾节点为 5。"
+    },
+    {
+      "id": "source-72",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step2_push_last.png",
+      "title": "队尾入队 push_last(4)",
+      "explanation": "调用 push_last(4) 在队尾添加元素 4。右侧双向链表将蓝绿色新节点 4 添加至原尾节点 5 的下方，建立 5 与 4 之间的双向引用（5 的 next 指向 4、4 的 prev 指向 5），并将“尾节点”标记从 5 移至 4；头节点仍保持为 3。",
+      "state": "Step 2：左侧标注“队尾入队 push_last(4)”，队列变为 [3, 2, 5, 4]；右侧标注“将节点 4 添加至链表尾部”，双向链表变为 3 ⇄ 2 ⇄ 5 ⇄ 4，头节点为 3，尾节点更新为蓝绿色节点 4。",
+      "key_state": "队尾入队 4 后为 [3, 2, 5, 4]；头节点为 3，新尾节点为 4。",
+      "announcement": "执行 push_last(4)，将节点 4 双向连接到链表尾部，尾节点更新为 4。"
+    },
+    {
+      "id": "source-73",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step3_push_first.png",
+      "title": "队首入队 push_first(1)",
+      "explanation": "调用 push_first(1) 在队首添加元素 1。右侧双向链表将橙色新节点 1 添加至原头节点 3 的上方，建立 1 与 3 之间的双向引用（1 的 next 指向 3、3 的 prev 指向 1），并将“头节点”标记从 3 移至 1；尾节点仍为 4。",
+      "state": "Step 3：左侧标注“队首入队 push_first(1)”，队列变为 [1, 3, 2, 5, 4]；右侧标注“将节点 1 添加至链表头部”，双向链表变为 1 ⇄ 3 ⇄ 2 ⇄ 5 ⇄ 4，头节点更新为橙色节点 1，尾节点仍为蓝绿色节点 4。",
+      "key_state": "队首入队 1 后为 [1, 3, 2, 5, 4]；新头节点为 1，尾节点为 4。",
+      "announcement": "执行 push_first(1)，将节点 1 双向连接到链表头部，头节点更新为 1。"
+    },
+    {
+      "id": "source-74",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step4_pop_last.png",
+      "title": "队尾出队 pop_last()",
+      "explanation": "调用 pop_last() 从队尾移除元素 4。右侧双向链表借助尾节点 4 的前驱引用直接找到节点 5，将“尾节点”标记退回节点 5，并切断 5 与 4 之间的连接。之所以能在 O(1) 时间内完成队尾出队，正是因为双向链表保存了指向前驱节点的引用。",
+      "state": "Step 4：左侧标注“队尾出队 pop_last()”，队列变为 [1, 3, 2, 5]；右侧标注“删除尾节点”，原尾节点 4 已被移除，双向链表变为 1 ⇄ 3 ⇄ 2 ⇄ 5，头节点仍为橙色节点 1，尾节点恢复为节点 5。",
+      "key_state": "队尾出队 4 后为 [1, 3, 2, 5]；头节点为 1，尾节点恢复为 5。",
+      "announcement": "执行 pop_last() 删除尾节点 4，尾节点指针回退到前驱节点 5。"
+    },
+    {
+      "id": "source-75",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step5_pop_first.png",
+      "title": "队首出队 pop_first()",
+      "explanation": "调用 pop_first() 从队首移除元素 1。右侧双向链表将“头节点”标记后移至节点 3，并切断节点 3 与原头节点 1 之间的双向引用，链表与队列均回到最初的 [3, 2, 5]。",
+      "state": "Step 5：左侧标注“队首出队 pop_first()”，队列恢复为 [3, 2, 5]；右侧标注“删除头节点”，原头节点 1 已被移除，双向链表恢复为 3 ⇄ 2 ⇄ 5，头节点为 3，尾节点为 5。",
+      "key_state": "队首出队 1 后恢复为 [3, 2, 5]；头节点恢复为 3，尾节点为 5。",
+      "announcement": "执行 pop_first() 删除头节点 1，头节点指针后移到节点 3，回到初始状态。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-05",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "c09221e40efce22db69cdbc44e7d79795ce6ecde9016327de462118727c03ebf",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "bbf6fc89ced3325538a22d1eecebd98ac2a54cd576eb8bfe0b2aad472b2340bc",
+        "output_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108",
+        "output_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281",
+        "output_sha256": "ffb27a99b86ace98bde8e54084f42f6a1c59f19a353deb9a55c4ee96d96e99be"
+      }
+    ],
+    "evidence_sha256": "954be79d16a2deb5e3a0108cd78415c4c9fef13373e1a16fbca5a1e1d388bf98"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_stack_and_queue/deque.md": "fee908eaea444525f8a1fe3f8f541cc0de02efc01305d5c051dae665ba10887e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_stack_and_queue/deque.assets/linkedlist_deque_step1.png": "42a58cbe0c617cdeeba7955dcc7cdfb416eab77b764f64606023b743bfbce367",
+      "chapter_stack_and_queue/deque.assets/linkedlist_deque_step2_push_last.png": "b37666b17bf43b64d645a8487a3fca698d2571db86d22abdebc23abf07f379ea",
+      "chapter_stack_and_queue/deque.assets/linkedlist_deque_step3_push_first.png": "aba7636d53fea714131c77e1432b9343e2d8b51b34d9f1ba96b08f4ad94fb983",
+      "chapter_stack_and_queue/deque.assets/linkedlist_deque_step4_pop_last.png": "a871a4457452e16a8192fd2e62f959a8ee6ed7e92fadbf09cd1270a6449bdd47",
+      "chapter_stack_and_queue/deque.assets/linkedlist_deque_step5_pop_first.png": "9f41e48c2cae06d1c832fa5dd082fc9be4b7dfe697798b45c5f01908a44da591"
+    }
+  },
+  "animations": {
+    "linkedlist-deque": {
+      "kind": "source-frames",
+      "model_sha256": "0db3df69974502580d80613a7643e3aac691f4179d4e50bad3a82eaf608c302c",
+      "source_content_sha256": "c09221e40efce22db69cdbc44e7d79795ce6ecde9016327de462118727c03ebf",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-71"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-72"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-73"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-74"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-75"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "8f00cdcf5240f01becffaee4d22f7b5afce7c6b6c294a33e4dae17a842098b6b",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

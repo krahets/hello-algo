@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_hashing/hash_map.assets/hash_table_reshash",
+  "title": "哈希表扩容与重新散列化解冲突",
+  "summary": "将哈希表容量从 100 扩容 2 倍至 200，哈希函数随之变为 key % 200，原本在 36 号桶冲突的 136 与 236 被重新散列到 136 号桶和 36 号桶。",
+  "context": [
+    "画面左右并列对比扩容前后的同一个哈希表，中央以向右粗箭头标注“哈希表扩容 2 倍”。",
+    "左侧顶部灰色框标注“哈希表容量 = 100，哈希函数 key % 100”；右侧顶部灰色框标注“哈希表容量 = 200，哈希函数 key % 200”。"
+  ],
+  "description": [
+    "扩容前（左侧），键 136 和 236 对 100 取余均得 36，因此 36 号桶内放着 (136, “A”)，桶外右侧并排画着 (236, “D”)，两者上方由粉红色标签标出“哈希冲突”；此外 50 号桶存放 (550, “B”)，83 号桶存放 (783, “C”)。",
+    "扩容 2 倍后（右侧），取余模数变为 200，所有键值对都必须按 key % 200 重新计算桶索引（见下表）：236 % 200 = 36 留在 36 号桶，而 136 % 200 = 136 迁入 136 号桶，原先的冲突随之消除；与此同时，550 % 200 = 150 迁入 150 号桶，783 % 200 = 183 迁入 183 号桶。"
+  ],
+  "tables": [
+    {
+      "caption": "四个键值对的重新散列",
+      "headers": [
+        "键",
+        "值",
+        "容量 100 时的桶",
+        "容量 200 时的桶"
+      ],
+      "rows": [
+        [
+          "136",
+          "A",
+          "36",
+          "136"
+        ],
+        [
+          "236",
+          "D",
+          "36（与 136 冲突）",
+          "36"
+        ],
+        [
+          "550",
+          "B",
+          "50",
+          "150"
+        ],
+        [
+          "783",
+          "C",
+          "83",
+          "183"
+        ]
+      ]
+    }
+  ],
+  "result": "哈希表扩容会改变哈希函数的模数，必须将旧表中的全部键值对通过哈希函数重新计算索引并迁移到新桶数组，从而降低负载因子并缓解哈希冲突。",
+  "frames": [
+    {
+      "id": "source-84",
+      "book_path": "chapter_hashing/hash_map.assets/hash_table_reshash.png",
+      "title": "容量从 100 扩容至 200 后的重新散列",
+      "explanation": "左侧容量为 100 时，136 % 100 与 236 % 100 都等于 36，导致 (136, “A”) 与 (236, “D”) 在索引 36 处发生哈希冲突。经过“哈希表扩容 2 倍”变为右侧容量 200 后，哈希函数更新为 key % 200：(236, “D”) 留在索引 36，(136, “A”) 移至索引 136，(550, “B”) 从索引 50 移至 150，(783, “C”) 从索引 83 移至 183，四个元素各自独占一桶。",
+      "state": "左侧（哈希表容量 = 100，哈希函数 key % 100）：索引 36 处有桶内的 (136, “A”) 与桶外的 (236, “D”) 并共同指向粉红色“哈希冲突”标签，索引 50 为 (550, “B”)，索引 83 为 (783, “C”)。中央向右箭头标注“哈希表扩容 2 倍”。右侧（哈希表容量 = 200，哈希函数 key % 200）：按索引从上到下依次为 36:(236, “D”)、136:(136, “A”)、150:(550, “B”)、183:(783, “C”)。",
+      "key_state": "扩容前 136 与 236 均在桶 36 冲突；扩容至 200 后，236 在桶 36、136 在桶 136、550 在桶 150、783 在桶 183。",
+      "announcement": "展示哈希表容量翻倍至 200 后，通过 key % 200 重新散列四个键值对并消除 136 与 236 冲突的过程。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-05",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "ebb6650eddf81b2df0884c60da5b4f3312b14a40dd6915621e69edb356cf1384",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "bbf6fc89ced3325538a22d1eecebd98ac2a54cd576eb8bfe0b2aad472b2340bc",
+        "output_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108",
+        "output_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281",
+        "output_sha256": "ffb27a99b86ace98bde8e54084f42f6a1c59f19a353deb9a55c4ee96d96e99be"
+      }
+    ],
+    "evidence_sha256": "954be79d16a2deb5e3a0108cd78415c4c9fef13373e1a16fbca5a1e1d388bf98"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_hashing/hash_map.md": "c3958aefdad1c1246c11d2029bf493fc83cdd4306e4aea7a0da033333c6626cb"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_hashing/hash_map.assets/hash_table_reshash.png": "8e471b13129dddbf7b7a94b47664e058d970c51b79c7776c9430f6da837c1646"
+    }
+  },
+  "animations": {
+    "hash-table-rehash": {
+      "kind": "prose",
+      "model_sha256": "148124bab0b2e0eb1fa7204bba3c6b4fdc7f98ca7250696860117f39a3317162",
+      "prose": {
+        "schema_version": 1,
+        "status": "confirmed",
+        "locale": "zh-hans",
+        "story_id": "hash-table-rehash",
+        "group_id": "group:chapter_hashing/hash_map.assets/hash_table_reshash",
+        "title": "哈希表扩容与重散列：容量翻倍后重新计算桶索引",
+        "summary": "将哈希表容量从 100 扩大为 200 并改按 key % 200 重新映射四个键值对，使原本同在桶 36 的 136 与 236 分入不同桶中。",
+        "context": [
+          "哈希表采用取模哈希函数 index = key % capacity（百分号 % 表示求余数），桶的“索引”从 0 开始编号。表中存有四个键值对：(136, \"A\")、(236, \"D\")、(550, \"B\") 和 (783, \"C\")。",
+          "当两个不同的键 key 计算出相同的桶索引时，即发生“哈希冲突”。图中仅列出存有元素的桶行，其余未展开的空桶区间以纵向省略号“…”代表。"
+        ],
+        "description": [
+          "动画包含扩容前（哈希表容量 = 100）和扩容后（哈希表容量 = 200）两个状态；在桶索引标记右侧，绿色方格显示键 key，青色方格显示对应的值 value。",
+          "当容量从 100 扩大到 200 时，所有已存键值对都必须按新的模数 200 重新计算桶索引，并按新索引放入新表（桶索引也可能保持不变，如 236 仍对应 36），而各键与值的配对关系保持不变。本动画直接对比扩容前后的散列分布结果，未指定逐个元素的迁移先后顺序，也未指定某种具体的冲突存储结构（如链式地址或开放寻址）。"
+        ],
+        "result": "扩容至 200 后，四个键值对分别映射到桶 36：(236, \"D\")、桶 136：(136, \"A\")、桶 150：(550, \"B\") 和桶 183：(783, \"C\")，原先在桶 36 发生的冲突在此例中得以消除。",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "扩容前（容量 100）：键 136 与 236 同映射到桶 36 发生冲突",
+            "explanation": "顶部标注“哈希表容量 = 100，哈希函数 key % 100”。计算余数可得 136 % 100 = 36、236 % 100 = 36，两个不同的键指向同一个桶 36：图中在索引 36 处放置 (136, \"A\")，并将 (236, \"D\") 并列画在其右侧，用粉红色标签“哈希冲突”同时指向两者（右侧并列仅用于标示冲突，并非代表另一个独立桶号）。其余两项分别由 550 % 100 = 50 放入桶 50：(550, \"B\")，由 783 % 100 = 83 放入桶 83：(783, \"C\")。",
+            "state": "顶部显示“哈希表容量 = 100，哈希函数 key % 100”；可见桶索引自上而下为 36、50、83（其余区间为省略号“…”）；桶 36 处有 (136, \"A\") 与右侧并列的 (236, \"D\")，上方粉框标注“哈希冲突”；桶 50 为 (550, \"B\")；桶 83 为 (783, \"C\")。",
+            "key_state": "容量 100（key % 100）：136 与 236 均映射到桶 36 发生哈希冲突，550 在桶 50，783 在桶 83。",
+            "announcement": "显示容量 100 时的散列分布，键 136 与 236 在桶 36 处发生哈希冲突。"
+          },
+          {
+            "id": "step-2",
+            "title": "扩容后（容量 200）：按 key % 200 重新散列，本例冲突消除",
+            "explanation": "顶部更新为“哈希表容量 = 200，哈希函数 key % 200”。按新模数 200 重新取余后，236 % 200 = 36 留在桶 36：(236, \"D\")，而 136 % 200 = 136 迁入桶 136：(136, \"A\")，原本冲突的两项分入不同桶中；同时 550 % 200 = 150 迁入桶 150：(550, \"B\")，783 % 200 = 183 迁入桶 183：(783, \"C\")。",
+            "state": "顶部显示“哈希表容量 = 200，哈希函数 key % 200”；可见桶索引自上而下依次为 36、136、150、183（其余区间为省略号“…”）；桶 36 为 (236, \"D\")，桶 136 为 (136, \"A\")，桶 150 为 (550, \"B\")，桶 183 为 (783, \"C\")，无哈希冲突标注。",
+            "key_state": "容量 200（key % 200）：四个键值对分别位于桶 36（236）、桶 136（136）、桶 150（550）、桶 183（783），冲突消除。",
+            "announcement": "容量翻倍至 200 并按 key % 200 重新散列，136 与 236 分入桶 136 和桶 36，冲突消除。"
+          }
+        ],
+        "review": {
+          "status": "confirmed",
+          "run_id": "figure-accessibility-20261114/animations/batch-06",
+          "content_sha256": "080b6de9982f8189fbcf011771fac5e71ec93b7e47710c6ae86e4ca5bc7357c4",
+          "stages": [
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "573bef5e1f3bd2339bf2922fea5671f3407de70015eba5e79193e712325b7cce",
+              "output_sha256": "fc88c86c63013081aa9577a6aa371699d3a9638bd1b9a07f2272d96777c317ce"
+            },
+            {
+              "requested_model": "gemini-4-argon",
+              "actual_model": null,
+              "model_confirmation": "provider_not_reported",
+              "input_sha256": "fc88c86c63013081aa9577a6aa371699d3a9638bd1b9a07f2272d96777c317ce",
+              "output_sha256": "c9b902bb36717ffca80d7e1da094dc1b53cfca79f0df7c9850bd9a32e117f813"
+            },
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "c9b902bb36717ffca80d7e1da094dc1b53cfca79f0df7c9850bd9a32e117f813",
+              "output_sha256": "ec8386d90996b055ae0783158fc951e187cf5e9329f035d3b456b264de058238"
+            }
+          ],
+          "evidence_sha256": "665c2ef53b44ebc71a0bb1d14ff3a083733918e422c5e647141e69e9e1c227a5"
+        }
+      }
+    }
+  }
+}

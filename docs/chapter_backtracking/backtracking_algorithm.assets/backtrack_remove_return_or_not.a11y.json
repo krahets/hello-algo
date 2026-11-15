@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_backtracking/backtracking_algorithm.assets/backtrack_remove_return_or_not",
+  "title": "保留与删除记录解后 return 的搜索过程对比",
+  "summary": "保留记录解后的 return 会漏掉左侧 7 下方的深层 7；删除该 return 继续向下搜索，才能找齐两条合法路径。",
+  "context": [
+    "本图使用的二叉树共有八个节点：根节点为 1，左、右子节点为 7 和 3；左侧节点 7 的左、右子节点为 4 和 5，且节点 4 下方还有一个左子节点 7；节点 3 的左、右子节点为 6 和 7。最深处的 7 以及 5、6、右侧 7 为叶节点。",
+    "与前面七节点的例题图不同，这张对比图专门在节点 4 下方增加了一个左子节点 7，用来演示当目标节点的后代中仍存在目标节点时，记录解之后是否继续递归的差异。问题同样要求寻找根节点到 7 且不含 3 的路径，左右两图都在节点 3 处执行剪枝。配套 Python 示例初始化的是七节点树，没有这个新增的深层 7；本图的第二条合法路径按图示八节点树解释。"
+  ],
+  "description": [
+    "左图展示“保留 return（记录解后返回，不再继续搜索）”：访问根的左子节点 7 并记录路径 [1, 7] 后立即从该分支返回，下方虚化的节点 4、5 以及 4 的左子节点 7 都不会被访问，从而漏掉深层合法路径 [1, 7, 4, 7]。",
+    "右图展示“删除 return（记录解后不返回，继续搜索）”：在左侧节点 7 记录路径 [1, 7] 后继续递归访问节点 4、4 的左子节点 7 以及节点 5，成功找到第二条合法路径 [1, 7, 4, 7]。",
+    "两图的右分支都在红色节点 3 处剪枝跳过 6 和右侧 7。这里删除的只是“记录解之后立即停止当前分支”的那条提前 return，并非删除剪枝条件或函数末尾正常的回退返回。"
+  ],
+  "result": "在这棵八节点树上，保留记录解后的提前 return 只能找到 [[1, 7]]；删除该提前 return 后可完整找到 [[1, 7], [1, 7, 4, 7]]。",
+  "frames": [
+    {
+      "id": "source-341",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/backtrack_remove_return_or_not.png",
+      "title": "对比记录解后立即停止分支与继续深入后代",
+      "explanation": "左右两棵八节点树结构完全相同，唯一区别是命中浅层节点 7 后是否继续向下搜索。右图删去记录解后的提前 return，得以深入节点 4 及其左子节点 7 找到第二个解，同时节点 3 处的红色剪枝保持不变。",
+      "state": "八节点树：根 1 的左、右子节点为 7 和 3；左侧 7 的左、右子节点为 4 和 5，且 4 有左子节点 7；3 的左、右子节点为 6 和右侧 7。左图在浅层 7 记录后停止深入，仅得 [[1, 7]]；右图继续搜索 4 及其左子节点 7，得到 [[1, 7], [1, 7, 4, 7]]。两图均在节点 3 处剪枝。",
+      "key_state": "保留提前 return 仅得一条路径；删除后得两条路径，节点 3 剪枝仍生效。",
+      "announcement": "对比记录解后提前返回与继续搜索后代的遍历范围和结果差异。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-17",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "4485380fedd0fbbdb5b0b3b0e2dfa3d96ba179f0136269f6cb6f971190b50b75",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "9481355a76d6c2868fbc0dd1da3fce835e92627213718a59a80d559350e023af",
+        "output_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f",
+        "output_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc",
+        "output_sha256": "1ba5b92e7d3bb734d4bc41b061ddb3c528638a049805a4bbcfc38825c0c76c88"
+      }
+    ],
+    "evidence_sha256": "6ad10597e7712f6ddf95ae500fcc50f0289bc7d0786a40fa5117c27866048681"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_backtracking/backtracking_algorithm.md": "c87ed13c02116e43ff8e3482b853e67be8baf0b0a734481c069c82c4ec5e7239"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_backtracking/backtracking_algorithm.assets/backtrack_remove_return_or_not.png": "7e09f61851cfe654a61ad98aebdf8d831a5062628efc721aa664b9287ec533f8"
+    }
+  }
+}

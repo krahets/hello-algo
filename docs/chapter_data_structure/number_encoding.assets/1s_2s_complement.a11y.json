@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_data_structure/number_encoding.assets/1s_2s_complement",
+  "title": "用八位编码比较原码、反码和补码",
+  "summary": "以八位二进制对比 +0、+5、-0 和 -28 的原码、反码与补码：正数三码完全相等，负数通过“除符号位外按位取反”得到反码、再“加 1”得到补码，使 +0 与 -0 的补码统一为 0000 0000。",
+  "context": [
+    "画面以居中的灰色标签列（自上而下依次为“数字”、“原码”、“反码”、“补码”，行间配双向竖直箭头）为中轴，左侧列出非负数 +0 和 +5，右侧列出负数 -0 和 -28。所有二进制编码均为 8 位（1 字节），按每 4 位一组书写，最高位（最左位）用于区分符号；原码与反码中可分别表示 +0、-0，补码则只保留全零这一种零表示。"
+  ],
+  "description": [
+    "中轴左侧：+0 的原码、反码、补码均为 0000 0000；+5 的原码、反码、补码均为 0000 0101。左下方标注“正数的原码、反码、补码相等”。",
+    "中轴右侧：-0 的原码为 1000 0000，反码为 1111 1111，补码为 0000 0000；-28 的原码为 1001 1100，反码为 1110 0011，补码为 1110 0100。在右侧原码与反码之间，每个数的后 7 位（数值位）各画有 7 条竖直细线，配合右侧说明框“除符号位外，对其余所有位取反”；在反码与补码之间，每个数的最低位画有 1 条竖直细线，配合右侧说明框“在反码的基础上加 1”。右下方标注“负数的原码、反码、补码需要转换”。"
+  ],
+  "result": "补码机制同时解决了原码/反码的痛点：一方面将 +0 与 -0 的补码合并为唯一的 0000 0000，消除了正负零歧义；另一方面使计算机可以用同一套加法硬件电路直接处理正负整数的加减运算。",
+  "frames": [
+    {
+      "id": "source-41",
+      "book_path": "chapter_data_structure/number_encoding.assets/1s_2s_complement.png",
+      "title": "用八位编码比较原码、反码和补码",
+      "explanation": "观察右侧两个负数的转换细节：对于 -28，最高位符号位 1 保持不变，低 7 位 001 1100（十进制 28）逐位取反变为 110 0011，得到反码 1110 0011，末位加 1 后向倒数第 3 位进位，得到补码 1110 0100。对于 -0，原码 1000 0000 保留符号位 1 并对低 7 位取反得到反码 1111 1111；再加 1 时变为 9 位的 1 0000 0000，由于单字节仅保留低 8 位，溢出到第 9 位的进位 1 被舍弃，补码变为 0000 0000，与 +0 完全一致。",
+      "state": "8 位编码对比表，中轴自上而下为“数字”、“原码”、“反码”、“补码”。左侧正数：+0 三码均为 0000 0000，+5 三码均为 0000 0101，下方标注“正数的原码、反码、补码相等”。右侧负数：-0 的原码为 1000 0000、反码为 1111 1111、补码为 0000 0000；-28 的原码为 1001 1100、反码为 1110 0011、补码为 1110 0100。右侧原码到反码的低 7 位画竖线并标注“除符号位外，对其余所有位取反”，反码到补码的最低位画竖线并标注“在反码的基础上加 1”，下方标注“负数的原码、反码、补码需要转换”。",
+      "key_state": "+0 与 +5 的三码不变（0000 0000 与 0000 0101）；-0 依次为 1000 0000、1111 1111、0000 0000；-28 依次为 1001 1100、1110 0011、1110 0100。",
+      "announcement": "展示 +0、+5、-0、-28 的八位原码、反码与补码对照表，演示负数取反加 1 的转换规则。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-03",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "ddae677219b34ddddecd33e36e5fd9a6427d08976160d623f856ff4db616db50",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "cbe99e77444e0462f57c192b0088094f9fd6936e24f6cfd18181de4a48ba8083",
+        "output_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c",
+        "output_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6",
+        "output_sha256": "bdf21f24ca6a88ed6060d24186ac933357dde4feee3a257546cffd56c2bd6867"
+      }
+    ],
+    "evidence_sha256": "ec6ba9da7d2fe9290ce303592b8440b918ec83702cd9d0e6bbdc1e50d87c89d8"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_data_structure/number_encoding.md": "1a31a391ea20f0f8e4ce952082125434b9705d38a21c8152377b08c9508b451a"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_data_structure/number_encoding.assets/1s_2s_complement.png": "65fe9ceb77e52a1158e8e0416e1facac7556bfc23712c55dc7739029408a8863"
+    }
+  }
+}

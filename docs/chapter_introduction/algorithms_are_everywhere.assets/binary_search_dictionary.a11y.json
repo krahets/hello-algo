@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary",
+  "title": "查字典的二分查找过程",
+  "summary": "以在拼音字典中查找首字母为 r 的字为例，分 5 步演示二分查找：每次翻到当前剩余范围的大约一半页码处，依次查看 m、t、p 并排除一半无关区间，最终在第 5 步翻到 r 完成查找。",
+  "context": [
+    "正文以日常查字典为例说明“算法无处不在”：由于字典词条已按拼音字母 a 到 z 的顺序排列，查找首字母为 r 的字时无需从头逐页翻阅，而是可以每次翻开当前范围的中间页码，通过比较字母先后顺序折半缩小查找区间，这正是二分查找算法的核心思想。"
+  ],
+  "description": [
+    "图组包含 5 个连续步骤帧，每帧横向排列 a 到 z 共 26 个字母块：绿色块代表当前仍在查找范围内的普通字母，青色块突出显示目标字母 r，浅灰色块代表已被排除的范围。第 1 帧上方标注“字典按照拼音字母表的顺序排列”及向右箭头，下方说明查找目标；第 2 至第 5 帧在字母条下方用向上指针标出当前翻开的“一半页码处”，并以说明框给出操作与判断依据。每帧左下角标明 Step 1 至 Step 5。"
+  ],
+  "result": "借助每次取中间页码并排除一半区间的折半策略，原本包含 26 个字母的查找范围经过 m、t、p 三次比较后缩减至 q、r、s，并在第 4 次翻页时直接命中目标字母 r。",
+  "frames": [
+    {
+      "id": "source-10",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step1.png",
+      "title": "第 1 步：明确查字典目标与初始范围",
+      "explanation": "初始状态下尚未翻开字典，顶部 a 到 z 共 26 个字母块全部处于待查找状态，其中目标字母 r 以青色高亮标出，其余 25 个字母为绿色；下方说明框给出本次任务：“查字典目标：找到任意一个拼音首字母为 r 的字”。",
+      "state": "a 到 z 共 26 个字母按拼音顺序横向排列且全部处于有效查找范围，目标字母 r 为青色高亮，其余字母为绿色；下方标注“查字典目标：找到任意一个拼音首字母为 r 的字”。",
+      "key_state": "第 1 步初始状态：待查找范围为全部字母 a 到 z，目标是找到首字母为 r 的字。",
+      "announcement": "明确查字典目标为找到拼音首字母为 r 的字，初始查找范围覆盖按顺序排列的 a 到 z 全部 26 个字母。"
+    },
+    {
+      "id": "source-11",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step2.png",
+      "title": "第 2 步：翻到中间字母 m，排除前半部分",
+      "explanation": "第一次翻开全书大约一半页码处，指针“一半页码处”指向字母 m。由于目标字母 r 在字母表中排在 m 后边，前半部分的 a 到 m 被整体排除并变为浅灰色，剩余待查找范围缩小为后半部分的 n 到 z。",
+      "state": "“一半页码处”指针指向字母 m；前半部分字母 a 到 m 已变为浅灰色表示排除，后半部分字母 n 到 z 保持彩色有效状态（其中 r 为青色）。",
+      "key_state": "第 2 步：一半页码处翻到 m，因 r 在 m 后边，排除 a 到 m，剩余范围为 n 到 z。",
+      "announcement": "翻开字典一半页码处看到首字母 m；因为 r 在 m 后边，排除前半部分 a 到 m，查找范围缩小为 n 到 z。"
+    },
+    {
+      "id": "source-12",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step3.png",
+      "title": "第 3 步：翻到剩余部分中间字母 t，排除后半部分",
+      "explanation": "在剩余的 n 到 z 区间内，继续翻开其中间位置，指针“一半页码处”指向字母 t。由于目标字母 r 排在 t 前边，t 及其右侧直到 z 的字母 被排除并变为浅灰色，剩余待查找范围进一步缩小为 n 到 s。",
+      "state": "“一半页码处”指针移至字母 t；左侧 a 到 m 与右侧 t 到 z 均为浅灰色已排除状态，仅中间区间的字母 n 到 s 保持彩色有效状态（其中 r 为青色）。",
+      "key_state": "第 3 步：剩余部分一半页码处翻到 t，因 r 在 t 前边，排除 t 到 z，剩余范围为 n 到 s。",
+      "announcement": "翻开剩余部分一半页码处看到首字母 t；因为 r 在 t 前边，排除后半部分 t 到 z，查找范围缩小为 n 到 s。"
+    },
+    {
+      "id": "source-13",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step4.png",
+      "title": "第 4 步：翻到剩余部分中间字母 p，再排除前半部分",
+      "explanation": "在剩余的 n 到 s 区间内，再次翻开一半页码处，指针“一半页码处”指向字母 p。由于目标字母 r 排在 p 后边，该区间前半部分的 n 到 p 被排除并变为浅灰色，此时有效查找范围仅剩 q、r、s 三个字母。",
+      "state": "“一半页码处”指针指向字母 p；左侧 a 到 p 与右侧 t 到 z 均为浅灰色已排除状态，仅剩 q、r、s 三个字母保持彩色有效状态（q、s 为绿色，r 为青色）。",
+      "key_state": "第 4 步：剩余部分一半页码处翻到 p，因 r 在 p 后边，排除 n 到 p，剩余范围仅剩 q、r、s。",
+      "announcement": "翻开剩余部分一半页码处看到首字母 p；因为 r 在 p 后边，排除前半部分 n 到 p，查找范围仅剩 q、r、s。"
+    },
+    {
+      "id": "source-14",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step5.png",
+      "title": "第 5 步：翻到中间字母 r，完成查找",
+      "explanation": "在仅剩的 q、r、s 区间内翻开一半页码处，指针“一半页码处”直接指向青色目标字母 r（两侧邻近的 q、s 仍保持彩色以标示本次折半前的剩余区间），成功找到首字母为 r 的字，查找任务完成。",
+      "state": "“一半页码处”指针指向青色目标字母 r；当前有效区间为彩色的 q、r、s，其余字母 a 到 p 与 t 到 z 均为浅灰色已排除状态，底部标注已找到首字母为 r 的字、完成任务。",
+      "key_state": "第 5 步完成查找：在剩余区间 q、r、s 的一半页码处翻到目标字母 r。",
+      "announcement": "翻开剩余区间 q、r、s 的一半页码处，直接命中目标首字母 r，查字典任务完成。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-01",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "a3210f1519de5c013bf219bc9220ccd6c20b07c567712ce82521d68ca9b1d0f8",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "431741d9738e417e17d2b6e1ded2465a8b4b113efdfecac9156ffc919692f129",
+        "output_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4",
+        "output_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0",
+        "output_sha256": "10e9faf80624dffe5daec10997eafa110b0fa676bf753184a205a3604fd651d9"
+      }
+    ],
+    "evidence_sha256": "ef94661da660ccf8ffe36e7213507ecb5fe1fad850478d55981ecebce88583b7",
+    "schema_normalization": "Wrap context/description strings in paragraph arrays; prose unchanged."
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_introduction/algorithms_are_everywhere.md": "51fecdd34af1e8a2382350d0b0fba14d37bc05b3326fa9f78e50668f7d533c9c"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step1.png": "207f2eacd8eaab22fa270ebe035f56c134f214c54b99fc8f190d0ae25ccfb5b2",
+      "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step2.png": "2742d355636c5296ec95b556be6c3690a4d7997528d62e047bd52764aca12792",
+      "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step3.png": "a3fd89446965f2bc28642694c2ec5d4400b497db0122499e16b1a2033c520c86",
+      "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step4.png": "70db191972ec25494edada7c5fc7e5c685d477a6b3bc0c9a0d3624a9c045920e",
+      "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step5.png": "521fd97d67a33de744783997f0e554831bc537972c98119ecb66502d5a670afb"
+    }
+  },
+  "animations": {
+    "dictionary-search": {
+      "kind": "source-frames",
+      "model_sha256": "6f28775380607d360eecd124133bda8299a36a30679854a6b8040e088dfe0a5f",
+      "source_content_sha256": "a3210f1519de5c013bf219bc9220ccd6c20b07c567712ce82521d68ca9b1d0f8",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-10"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-11"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-12"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-13"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-14"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "d66bce061bae886851aa044348786a1d905a2385270ec70f647d96e34b70fa4a",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

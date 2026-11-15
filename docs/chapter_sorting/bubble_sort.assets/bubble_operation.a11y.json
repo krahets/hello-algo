@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_sorting/bubble_sort.assets/bubble_operation",
+  "title": "冒泡排序单轮操作：从左至右连续比较与交换相邻元素",
+  "summary": "对 [4, 1, 3, 1, 5, 2] 从左向右依次比较五对相邻“泡泡”，执行四次交换、一次保持不变，将最大元素 5 浮到最右端索引 5。",
+  "context": [
+    "输入数组为 nums = [4, 1, 3, 1, 5, 2]，索引从 0 到 5。单轮冒泡从最左端开始向右遍历，每次比较相邻两个元素：若“左边元素 > 右边元素”则交换二者，若“左边元素 ≤ 右边元素”则维持不变。",
+    "画面将数组元素形象地画成一排圆球“泡泡”，元素数值越大则泡泡体积越大；数组左端对应“水底”，右端对应“水面”。每步用浅绿色方框圈出当前比较的相邻位置对，浅框内位于泡泡上、下方的交换弧线表示该对刚刚完成了交换。"
+  ],
+  "description": [
+    "七幅分步画面完整演示第一轮冒泡：第 1 步将六个数组方格映射为六个大小成正比的泡泡；第 2 至第 6 步依次检查索引 (0, 1)、(1, 2)、(2, 3)、(3, 4)、(4, 5) 五对相邻位置（其中第 2、3、4、6 步展示已完成相邻交换后的结果，第 5 步因 4 ≤ 5 维持原位不交换）；第 7 步展示最大泡泡 5 到达右端“水面”就位，剩余左侧前 n − 1 = 5 个元素留待后续轮次继续冒泡。"
+  ],
+  "result": "经过五次相邻比较与四次相邻交换，全数组最大元素 5 被移动到最右端索引 5 并固定就位；左侧剩余区间 [0, 4] 变为 [1, 3, 1, 4, 2]，尚待后续轮次继续排序。",
+  "frames": [
+    {
+      "id": "source-253",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step1.png",
+      "title": "第 1 步：将数组 nums 想象成一排大小成正比的“泡泡”",
+      "explanation": "图中说明“将数组 nums 想象成一排‘泡泡’，元素大小与泡泡体积成正比”：下方一维数组 [4, 1, 3, 1, 5, 2] 与上方六个圆球一一对应，尚未开始相邻比较。",
+      "state": "当前 nums = [4, 1, 3, 1, 5, 2]，索引从 0 到 5。没有当前比较对；全部六个元素尚待本轮扫描。",
+      "key_state": "初始状态：nums = [4, 1, 3, 1, 5, 2]，六个泡泡按原顺序排列。",
+      "announcement": "将六个待排序元素 [4, 1, 3, 1, 5, 2] 表示为六个泡泡，准备从左向右比较。"
+    },
+    {
+      "id": "source-254",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step2.png",
+      "title": "第 2 步：比较索引 0、1（4 > 1），交换 4 与 1",
+      "explanation": "检查第一对相邻位置（索引 0 与 1）：原左元素 4 大于右元素 1，满足“∵ 左边元素 > 右边元素 ∴ 交换这两个元素”。画面展示交换完成后的状态 [1, 4, 3, 1, 5, 2]，元素 4 向右移动一位至索引 1。",
+      "state": "当前 nums = [1, 4, 3, 1, 5, 2]，索引从 0 到 5。已处理索引 0、1；浅框中的当前值为 [1, 4]，曲箭头标明已完成交换。",
+      "key_state": "索引 0、1 交换完成：4 与 1 互换，数组变为 [1, 4, 3, 1, 5, 2]。",
+      "announcement": "索引 0 的 4 大于索引 1 的 1，交换二者后 4 移至索引 1。"
+    },
+    {
+      "id": "source-255",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step3.png",
+      "title": "第 3 步：比较索引 1、2（4 > 3），交换 4 与 3",
+      "explanation": "向右推进到第二对相邻位置（索引 1 与 2）：原左元素 4 大于右元素 3，执行交换后浅绿框内变为 [3, 4]，元素 4 继续向右移动至索引 2，数组变为 [1, 3, 4, 1, 5, 2]。",
+      "state": "当前 nums = [1, 3, 4, 1, 5, 2]，索引从 0 到 5。已处理索引 1、2；浅框当前值为 [3, 4]。",
+      "key_state": "索引 1、2 交换完成：4 与 3 互换，数组变为 [1, 3, 4, 1, 5, 2]。",
+      "announcement": "索引 1 的 4 大于索引 2 的 3，交换二者后 4 移至索引 2。"
+    },
+    {
+      "id": "source-256",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step4.png",
+      "title": "第 4 步：比较索引 2、3（4 > 1），交换 4 与第二个 1",
+      "explanation": "检查第三对相邻位置（索引 2 与 3）：原左元素 4 大于右元素 1（数组中的第二个 1），执行交换后浅绿框内变为 [1, 4]，元素 4 右移至索引 3，数组变为 [1, 3, 1, 4, 5, 2]。",
+      "state": "当前 nums = [1, 3, 1, 4, 5, 2]，索引从 0 到 5。已处理索引 2、3；浅框当前值为 [1, 4]。",
+      "key_state": "索引 2、3 交换完成：4 与第二个 1 互换，数组变为 [1, 3, 1, 4, 5, 2]。",
+      "announcement": "索引 2 的 4 大于索引 3 的 1，交换二者后 4 移至索引 3。"
+    },
+    {
+      "id": "source-257",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step5.png",
+      "title": "第 5 步：比较索引 3、4（4 ≤ 5），维持不变",
+      "explanation": "检查第四对相邻位置（索引 3 与 4）：左元素 4 小于等于右元素 5，符合“∵ 左边元素 ≤ 右边元素 ∴ 维持不变”。浅框内无交换弧线，数组保持 [1, 3, 1, 4, 5, 2]，改由更大的元素 5 继续向右参比。",
+      "state": "当前 nums = [1, 3, 1, 4, 5, 2]，索引从 0 到 5。当前比较索引 3、4，值为 4、5；未发生交换，浅框没有交换弧线。",
+      "key_state": "索引 3、4 的 4 ≤ 5，不发生交换，数组保持 [1, 3, 1, 4, 5, 2]。",
+      "announcement": "索引 3 的 4 小于等于索引 4 的 5，维持原位不交换。"
+    },
+    {
+      "id": "source-258",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step6.png",
+      "title": "第 6 步：比较索引 4、5（5 > 2），交换 5 与 2",
+      "explanation": "检查最后一对相邻位置（索引 4 与 5）：原左元素 5 大于右元素 2，执行交换后浅绿框内变为 [2, 5]，最大元素 5 移至数组最右端索引 5，数组变为 [1, 3, 1, 4, 2, 5]。",
+      "state": "当前 nums = [1, 3, 1, 4, 2, 5]，索引从 0 到 5。已处理索引 4、5；浅框当前值为 [2, 5]，最大值 5 已到末尾。",
+      "key_state": "索引 4、5 交换完成：5 与 2 互换，最大值 5 到达末尾索引 5。",
+      "announcement": "索引 4 的 5 大于索引 5 的 2，交换二者后最大元素 5 移至最右端。"
+    },
+    {
+      "id": "source-259",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step7.png",
+      "title": "第 7 步：最大泡泡 5 浮出“水面”就位，仅剩 n − 1 个元素待排",
+      "explanation": "图下方总结“遍历完成后，最大的泡泡浮出水面，仅剩 n − 1 个元素未排序”：最右端索引 5 的最大泡泡 5 位于竖直标线标出的“水面”右侧并变为灰色（已固定最终位置），下方花括号标出左侧“水底”方向剩余的前 n − 1 = 5 个未排序元素 [1, 3, 1, 4, 2]。",
+      "state": "当前 nums = [1, 3, 1, 4, 2, 5]，索引从 0 到 5。索引 5 的值 5 已确定最终位置；未排序区间为 [0, 4]，值为 [1, 3, 1, 4, 2]。本轮已结束。",
+      "key_state": "本轮冒泡完成：最大值 5 在索引 5 就位，剩余未排序区间 [0, 4] 为 [1, 3, 1, 4, 2]。",
+      "announcement": "第一轮冒泡结束，最大元素 5 在最右端就位，剩余前五个元素待排序。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-13",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "dcdc4b9dcc6e32eaea9e4eae28f7aca6e932822f812f91d567f1efa37addde7e",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "fe21fe5895e8cee2e2e3a67895fc2f90845797eb80e4d3029abb622acb8c69ca",
+        "output_sha256": "e76738af6195383d55b3d5cf222c5292111b131b087688bd961b59976f9e86c4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "e76738af6195383d55b3d5cf222c5292111b131b087688bd961b59976f9e86c4",
+        "output_sha256": "f880fd5c3c304dc74442a88388bca71f75e2e9a9b73b36958173a7c9a6da6512"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "f880fd5c3c304dc74442a88388bca71f75e2e9a9b73b36958173a7c9a6da6512",
+        "output_sha256": "3200bb035dfaa2051a3155f46d8687d968b6937e0d3057fb8e1b10d44b8ce29b"
+      }
+    ],
+    "evidence_sha256": "b3670eb867494fc0017c300c888f3d50ee8fa22f3dbc7e492a305cf3fd040dc2"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_sorting/bubble_sort.md": "82b7c98b09e79c9c21fe3a69f95521bb0cbeea5938db344d6154f6c32de24733"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_sorting/bubble_sort.assets/bubble_operation_step1.png": "a0c66c771405920e2250f62f096079ddacb21ea331936cfff4342a73b1c0097f",
+      "chapter_sorting/bubble_sort.assets/bubble_operation_step2.png": "b8040c9e48a151b612f54b19d4364beed19b35bb5d4b6432692b755ed58a54d3",
+      "chapter_sorting/bubble_sort.assets/bubble_operation_step3.png": "ebb7614b25d44e176bfcbd1a7ad63365788a66c3178aab87200c7e6033ca1dab",
+      "chapter_sorting/bubble_sort.assets/bubble_operation_step4.png": "618e43d4dba947ee235451da0687d1128401b0929cfa9f562d6f90f87f0ea4be",
+      "chapter_sorting/bubble_sort.assets/bubble_operation_step5.png": "1246cf62bb851d9eade9fa4bceaf4eeca9a2bcd1623b6a8f49c8bde7053203db",
+      "chapter_sorting/bubble_sort.assets/bubble_operation_step6.png": "9ae190985f3ac973ab58649ceab65a7d969d02d0d5d9e585172e791e909df293",
+      "chapter_sorting/bubble_sort.assets/bubble_operation_step7.png": "dad194605f2a65413850f0203e114bd36185ad31de77265af19292498877b7de"
+    }
+  },
+  "animations": {
+    "bubble-pass": {
+      "kind": "source-frames",
+      "model_sha256": "c59f4204f8a84f37c2042fb692e3a77aff249bcbf35a80eb3b5a867835cf19b2",
+      "source_content_sha256": "dcdc4b9dcc6e32eaea9e4eae28f7aca6e932822f812f91d567f1efa37addde7e",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-253"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-254"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-255"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-256"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-257"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-258"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-259"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "8b13b9eb22696018dfd7f1f14f9ca6b6874a6def62dbffa93360441d421e24cf",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

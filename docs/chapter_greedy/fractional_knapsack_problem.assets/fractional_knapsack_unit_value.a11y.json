@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value",
+  "title": "物品在单位重量下的价值",
+  "summary": "在物品表格右侧新增“单位价值”列（val[i-1] / wgt[i-1]），并给出选取部分重量 w 时背包增加价值的按比例计算公式。",
+  "context": [
+    "由于分数背包允许对物品任意切分，衡量一件物品性价比的核心指标不再是整件总价值，而是它在单位重量下的价值（简称单位价值）。5 件物品的重量仍为 10、20、30、40、50，价值仍为 50、120、150、210、240。"
+  ],
+  "description": [
+    "画面左侧为四列表格，在前三列（编号 i、重量 wgt[i-1]、价值 val[i-1]）右侧新增了第 4 列“单位价值 val[i-1] / wgt[i-1]”；画面右侧给出按所取重量 w 计算背包内增加价值的代数关系式。"
+  ],
+  "result": "通过单位价值可以直接比较各物品每占用 1 单位背包容量所带来的收益：2 号香蕉最高（6），4 号菠萝次之（5.25），1 号苹果与 3 号葡萄并列第三（5），5 号西瓜最低（4.8）。",
+  "frames": [
+    {
+      "id": "source-462",
+      "book_path": "chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png",
+      "title": "物品在单位重量下的价值",
+      "explanation": "左侧表格逐行用价值除以重量算出 5 件物品的单位价值：1 号苹果 50 / 10 = 5，2 号香蕉 120 / 20 = 6，3 号葡萄 150 / 30 = 5，4 号菠萝 210 / 40 = 5.25，5 号西瓜 240 / 50 = 4.8。右侧公式表明：若从第 i 件物品中切取重量 w 放入背包，则“背包内的增加价值 = 当前物品选取重量 w × 当前物品单位价值 (val[i-1] / wgt[i-1])”。",
+      "state": "5 件物品的（重量, 价值, 单位价值）依次为：1 号苹果（10, 50, 5）、2 号香蕉（20, 120, 6）、3 号葡萄（30, 150, 5）、4 号菠萝（40, 210, 5.25）、5 号西瓜（50, 240, 4.8）；右侧列出公式：选取重量 w × 单位价值 val[i-1]/wgt[i-1] = 背包内的增加价值。",
+      "key_state": "五件物品单位价值依次为 [5, 6, 5, 5.25, 4.8]；增加价值 = 选取重量 w × 单位价值。",
+      "announcement": "展示各物品单位价值计算表及部分选取时的价值公式 w × (val[i-1] / wgt[i-1])。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "五件物品数据及由重量价值计算的单位价值",
+      "headers": [
+        "编号与图标",
+        "重量",
+        "价值",
+        "单位价值"
+      ],
+      "rows": [
+        [
+          "1（苹果）",
+          "10",
+          "50",
+          "5"
+        ],
+        [
+          "2（香蕉）",
+          "20",
+          "120",
+          "6"
+        ],
+        [
+          "3（葡萄）",
+          "30",
+          "150",
+          "5"
+        ],
+        [
+          "4（菠萝）",
+          "40",
+          "210",
+          "5.25"
+        ],
+        [
+          "5（西瓜）",
+          "50",
+          "240",
+          "4.8"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-23",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "01b54bc5f4524fd5925679fa84dc84204607bca5bbd0ec448c8c3258c50e35f4",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "65ed4701387683dd63f9752fe8b0082f9d369d4e3aa764d1d7da3ca514d30dbe",
+        "output_sha256": "4ebebbc05478b00c6f876ea5cbaa9078823129963728aa248fd3a3c2cb7c35fa"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "4ebebbc05478b00c6f876ea5cbaa9078823129963728aa248fd3a3c2cb7c35fa",
+        "output_sha256": "c726cb1e9a48ecde596b2fa06c86f121a4e999d76885ea20a856bb028acd90e2"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "c726cb1e9a48ecde596b2fa06c86f121a4e999d76885ea20a856bb028acd90e2",
+        "output_sha256": "e1e1cb976bc14f564bd765f9e4e7faf06571d50a98cb8f9a91ea36cdac3993ad"
+      }
+    ],
+    "evidence_sha256": "34444c50d6df82ed6b43160a49929ee9fc81523aa89772b10af874af3efcc040"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_greedy/fractional_knapsack_problem.md": "513596ffc307774414133d24fc1f1e5029dc1fe23165b6d769f634b98423c990"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png": "f3b6eeeb3a471d954ee6e8092d3547f9af8f340bbd888e4f97c458fde4232a21"
+    }
+  }
+}

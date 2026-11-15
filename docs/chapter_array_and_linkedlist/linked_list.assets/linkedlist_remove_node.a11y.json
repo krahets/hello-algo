@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_array_and_linkedlist/linked_list.assets/linkedlist_remove_node",
+  "title": "从链表中删除节点",
+  "summary": "执行 n0.next = n1 让节点 1 直接指向节点 3，绕过中间节点 P（值 0），使 P 不再能从链表访问到。",
+  "context": [
+    "图左侧标明“示例：在链表中删除节点 P”，右侧上下对比删除前后的连接变化。删除前，上方链表依次为 n0（值 1）→ P（值 0）→ n1（值 3）→ …，蓝色节点 P 位于 n0 和 n1 之间。"
+  ],
+  "description": [
+    "执行 n0.next = n1（即令 n0 指向 n1）后，下方 n0（值 1）的实线箭头直接连向 n1（值 3），主链变为 1 → 3 → …。被绕过的节点 P（值 0）变为灰色虚线圆，它指向 n1 的箭头也变为灰色虚线。",
+    "正如底部图注所写：“删除完成后，虽然 P 仍然指向 n1，但遍历链表已经无法访问到 P，由此我们认为节点 P 已被删除。”图中只展示修改前驱指针将 P 从主链断开，未涉及清空 P.next 或回收内存的操作。"
+  ],
+  "result": "在链表中删除节点只需修改前驱节点的一个引用（指针），时间复杂度为 O(1)，其余节点无须移动。",
+  "frames": [
+    {
+      "id": "source-52",
+      "book_path": "chapter_array_and_linkedlist/linked_list.assets/linkedlist_remove_node.png",
+      "title": "从链表中删除节点",
+      "explanation": "上方初始链表为 n0（值 1）→ P（值 0）→ n1（值 3）→ …，目标是删除中间节点 P。执行 n0.next = n1（即令 n0 指向 n1）后，下方 n0 直接指向 n1，主链变为 1 → 3 → …。此时 P 退化为灰色虚线节点，虽然仍保留指向 n1 的虚线箭头，但从链表头部沿 next 遍历已无法访问到 P，因此认为节点 P 已被删除。",
+      "state": "单图上下对比删除节点 P（值 0）前后：上方为 n0（1）→ P（0）→ n1（3）→ …；执行 n0.next = n1 后，下方主链为 n0（1）→ n1（3）→ …，灰色虚线节点 P 虽仍虚线指向 n1，但已无法从链表遍历访问。",
+      "key_state": "执行 n0.next = n1 绕过 P（0），主链变为 1 → 3 → …；P 虽仍指向 n1 但已不可达。",
+      "announcement": "令节点 1 的 next 直接指向节点 3，绕过中间节点 0，即可将节点 0 从链表中删除。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-04",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "63deb7c962eac860c4482b59f9916d8f966916ef82ff4b830adcd28275fb859d",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "010659120695514881c0d1ee814ac67faa1e50957300a7e781f1c3edf7858059",
+        "output_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de",
+        "output_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8",
+        "output_sha256": "d48eb4dd56235f9a9b2f2d5c8f67899492c9f6b15567237d35161c31596306cb"
+      }
+    ],
+    "evidence_sha256": "178794e8fd357c692f91d245ae613b37aa02834865c6124afd4cd91ea892de0d"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_array_and_linkedlist/linked_list.md": "759693f1f9372ed67bcda1a55aa41fa22037940c1ca76a2aa1975ab45d1da341"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_array_and_linkedlist/linked_list.assets/linkedlist_remove_node.png": "2008156a6458f37b95144a838b186773276465741d76be2ebb1e237ec36fc0d8"
+    }
+  },
+  "animations": {
+    "linkedlist-remove": {
+      "kind": "prose",
+      "model_sha256": "dd39a47ac43e93d7445dc224cdf3950b2814dc9584eea4b015e2d7edf54c14a0",
+      "prose": {
+        "schema_version": 1,
+        "status": "confirmed",
+        "locale": "zh-hans",
+        "story_id": "linkedlist-remove",
+        "group_id": "group:chapter_array_and_linkedlist/linked_list.assets/linkedlist_remove_node",
+        "title": "链表删除节点：前驱绕过目标节点，原 next 引用仍保留",
+        "summary": "将 n0.next 从 P 改为 n1，使节点 P 从链表不可达，同时保留 P.next 指向 n1。",
+        "context": [
+          "删除前的链表局部依次为 n0 → P → n1 → …，其中 n0 值为 1，待删除节点 P 值为 0，后继节点 n1 值为 3，n1 右侧箭头与省略号表示后续未展开的链表。任务是从以 n0 为起点的链表中删除节点 P。"
+        ],
+        "description": [
+          "在单向链表中删除节点 P，只需执行 n0.next = n1，让前驱节点 n0 直接指向 P 的后继节点 n1。修改后，从 n0 出发沿 next 遍历会直接跳到 n1，不再经过 P。",
+          "删除后的状态中，节点 P 以及从 P 指向 n1 的箭头均以灰色虚线保留，表明 P.next 并没有被清空为 null，画面也未展示内存释放；这里的“删除”是指节点 P 已无法从链表入口 n0 遍历访问。"
+        ],
+        "result": "修改引用后，从 n0 可达的链表局部变为 n0 → n1 → …（值序列 1 → 3 → …）；节点 P 从链表不可达，但仍保留 P.next = n1 的指向。",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "删除前：n0 → P → n1 依次相连",
+            "explanation": "画面左侧标注“示例：在链表中删除节点 P”。当前 n0（值为 1）指向 P（值为 0），P 指向 n1（值为 3），n1 继续指向右侧省略号；从 n0 出发沿 next 可以依次访问到 n0、P 和 n1。",
+            "state": "节点 n0 值为 1，n0.next 指向 P；节点 P 值为 0，P.next 指向 n1；节点 n1 值为 3，继续指向后续省略部分；n0、P、n1 均从 n0 可达。",
+            "key_state": "删除前链表为 n0 → P → n1，P 从 n0 可达。",
+            "announcement": "显示删除前的链表 n0 → P → n1，准备删除节点 P。"
+          },
+          {
+            "id": "step-2",
+            "title": "执行 n0.next = n1，绕过节点 P",
+            "explanation": "画面标注“n0.next = n1，即令 n0 指向 n1”，下方说明“删除完成后，虽然 P 仍然指向 n1，但遍历链表已经无法访问到 P，由此我们认为节点 P 已被删除”。此时实线箭头直接由 n0 指向 n1；下方的节点 P 与 P → n1 箭头变为灰色虚线，表示 P.next 依然指向 n1，只是从 n0 出发已无法访问到 P。",
+            "state": "节点 n0 值为 1，n0.next 直接指向 n1；节点 n1 值为 3，后续连接不变；节点 P 值为 0，其 P.next 仍指向 n1，但 P 已变为灰色虚线且不再从 n0 可达。",
+            "key_state": "已执行 n0.next = n1，链表变为 n0 → n1；P 不可达但仍指向 n1。",
+            "announcement": "令 n0.next 直接指向 n1，节点 P 从链表中不可达，完成删除。"
+          }
+        ],
+        "review": {
+          "status": "confirmed",
+          "run_id": "figure-accessibility-20261114/animations/batch-01",
+          "content_sha256": "d211e097ec7e2bc6bfbb5c3b9a3c2892f31993ae30d0d7ee772bf3eebe3650fe",
+          "stages": [
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "b6174850feed92b51c3d512a1a38c62aaf02c614ff07640008831c8726ce0a64",
+              "output_sha256": "dd7f9f098b8c6e77ff0f0fabc4879e20180eac76e44e8ba253820d46c888cef7"
+            },
+            {
+              "requested_model": "gemini-4-argon",
+              "actual_model": null,
+              "model_confirmation": "provider_not_reported",
+              "input_sha256": "dd7f9f098b8c6e77ff0f0fabc4879e20180eac76e44e8ba253820d46c888cef7",
+              "output_sha256": "00dbf3ad9071e0a78f3f320067484cdbea304d50e0c1faae49ed41c17350f825"
+            },
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "00dbf3ad9071e0a78f3f320067484cdbea304d50e0c1faae49ed41c17350f825",
+              "output_sha256": "b52ab18dd9c1db9a93bc5c3e340b21d0414a0d86594f1d061ffd5191a1c5f993"
+            }
+          ],
+          "evidence_sha256": "f629e6bda011b65c2484338a3ba90bd400522d0d30bc8a435a852c5403cbb741"
+        }
+      }
+    }
+  }
+}

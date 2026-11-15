@@ -8,22 +8,22 @@
     ![利用元素交換操作模擬冒泡](bubble_sort.assets/bubble_operation_step1.svg)
 
 === "<2>"
-    ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.svg)
+    ![泡沫排序單輪操作：從左至右連續比較與交換相鄰元素，第 2 步，共 7 步：第 2 步：比較索引 0、1（4 > 1），交換 4 與 1](bubble_sort.assets/bubble_operation_step2.svg)
 
 === "<3>"
-    ![bubble_operation_step3](bubble_sort.assets/bubble_operation_step3.svg)
+    ![泡沫排序單輪操作：從左至右連續比較與交換相鄰元素，第 3 步，共 7 步：第 3 步：比較索引 1、2（4 > 3），交換 4 與 3](bubble_sort.assets/bubble_operation_step3.svg)
 
 === "<4>"
-    ![bubble_operation_step4](bubble_sort.assets/bubble_operation_step4.svg)
+    ![泡沫排序單輪操作：從左至右連續比較與交換相鄰元素，第 4 步，共 7 步：第 4 步：比較索引 2、3（4 > 1），交換 4 與第二個 1](bubble_sort.assets/bubble_operation_step4.svg)
 
 === "<5>"
-    ![bubble_operation_step5](bubble_sort.assets/bubble_operation_step5.svg)
+    ![泡沫排序單輪操作：從左至右連續比較與交換相鄰元素，第 5 步，共 7 步：第 5 步：比較索引 3、4（4 ≤ 5），維持不變](bubble_sort.assets/bubble_operation_step5.svg)
 
 === "<6>"
-    ![bubble_operation_step6](bubble_sort.assets/bubble_operation_step6.svg)
+    ![泡沫排序單輪操作：從左至右連續比較與交換相鄰元素，第 6 步，共 7 步：第 6 步：比較索引 4、5（5 > 2），交換 5 與 2](bubble_sort.assets/bubble_operation_step6.svg)
 
 === "<7>"
-    ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.svg)
+    ![泡沫排序單輪操作：從左至右連續比較與交換相鄰元素，第 7 步，共 7 步：第 7 步：最大泡泡 5 浮出“水面”就位，僅剩 n − 1 個元素待排](bubble_sort.assets/bubble_operation_step7.svg)
 
 ## 演算法流程
 

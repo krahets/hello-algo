@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_searching/binary_search_insertion.assets/binary_search_insertion_example",
+  "title": "二分查找插入点示例：将新元素 target = 6 插入原有 6 的左侧",
+  "summary": "在有序数组中定位索引 2 作为插入点，把新值 6 插在原有 6 的前面，使数组保持非递减有序。",
+  "context": [
+    "初始有序数组为 nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，待插入目标元素为 target = 6。题目约定插入后保持数组有序；若数组中已存在与 target 相等的元素，则将新元素插入到相等元素的左方。"
+  ],
+  "description": [
+    "画面上行展示原始数组 nums，在元素 3（索引 1）与原有元素 6（索引 2）之间的缝隙下方标出向上的“插入点”箭头，提示“则 target 的插入点索引为 2”。",
+    "经中间向下的“插入 target”粗箭头过渡后，下行展示插入完成后的 11 元素数组 [1, 3, 6, 6, 8, 12, 15, 23, 26, 31, 35]：青色高亮的 6 是新插入的元素，占据索引 2；原有的绿色 6 及其右侧所有元素整体向右平移一位，原有 6 的索引变为 3。"
+  ],
+  "result": "当数组中包含 target = 6 时，插入点索引即为原有 6 所在的索引 2；新元素插入后取代索引 2，原有 6 右移至索引 3，整列数组保持非递减顺序。",
+  "frames": [
+    {
+      "id": "source-222",
+      "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_example.png",
+      "title": "确定 target = 6 的插入点索引 2 并完成插入",
+      "explanation": "上行标出位于 3 与原有 6 之间的插入点，下行展示新元素 6（青色）插入后占据索引 2、原有 6 及后续元素整体右移一位的结果。",
+      "state": "插入前 nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]；插入 target = 6 后为 [1, 3, 6, 6, 8, 12, 15, 23, 26, 31, 35]。新 6 的索引为 2，原有 6 的索引为 3。",
+      "key_state": "target = 6 的插入点索引为 2；插入后新 6 在索引 2，原有 6 右移至索引 3。",
+      "announcement": "展示在有序数组中将新元素 6 插入到原有 6 的左侧（索引 2）。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-11",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "1f54f7e561aaf8c39e6210db83029eab4411f0769ccc1df3ce62ae07e6b2020b",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "3206c254e0370086a13ff2dc3fac20039392415745b2219372e157eeb538a33f",
+        "output_sha256": "dd9bf68b62344daf8bc8e96623047978d0e19cc619fd66d876e9de1554000277"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "dd9bf68b62344daf8bc8e96623047978d0e19cc619fd66d876e9de1554000277",
+        "output_sha256": "4f0d4fbb2186a7affd40a35e337bce4a948aba21bd793bbcbf59d1b9b8ac75df"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "4f0d4fbb2186a7affd40a35e337bce4a948aba21bd793bbcbf59d1b9b8ac75df",
+        "output_sha256": "a5f19149a68ddebc468f9458a1b65a7a416af49f2324c4cc2f70f730d44ac163"
+      }
+    ],
+    "evidence_sha256": "36e78ab514241f595a2ea03d76dbb5a6499bcabe3070142fed1c2b7ad3fe7c96"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_searching/binary_search_insertion.md": "9d86ebcc2847400e0104b773fcde0809d4665e4156fe42281b74b7535571b496"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_searching/binary_search_insertion.assets/binary_search_insertion_example.png": "5fde5107a4a7d7673616ea69447674d5f66702229e87d4bdcc51b44cd1fa9d35"
+    }
+  }
+}

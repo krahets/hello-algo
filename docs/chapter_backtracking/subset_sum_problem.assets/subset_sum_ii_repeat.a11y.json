@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_backtracking/subset_sum_problem.assets/subset_sum_ii_repeat",
+  "title": "相等候选造成新的组合重复",
+  "summary": "候选数组中两个值为 4 的元素，会在同一轮选择中产生内容相同的重复子集分支。",
+  "context": [
+    "图中候选数组为 choices=[4, 4̂, 5]，其中 4̂ 表示第二个值为 4 的数组元素。子集和 II 要求每个数组索引最多使用一次且解集不包含重复子集；本图先展示沿用旧选择方式时因相等元素引发的重复现象，尚未施加完整的索引不重用约束。"
+  ],
+  "description": [
+    "两层局部搜索树从空状态出发，第一轮展开 +4、+4̂、+5 三个分支；第二轮仅在第一个 [4, …] 下继续展开 +4、+4̂、+5。两条灰色弯线分别连接第一轮的 [4, …] 与 [4̂, …]、第二轮的 [4, 4, …] 与 [4, 4̂, …]，并标注“重复子集”。"
+  ],
+  "result": "要解决子集和 II 的重复问题，既要禁止同一索引在一条路径中被重复选取，又要限制同一轮中相等数值的候选只尝试一次；而不同索引的两个 4 仍允许在不同轮次先后入选。",
+  "frames": [
+    {
+      "id": "source-361",
+      "book_path": "chapter_backtracking/subset_sum_problem.assets/subset_sum_ii_repeat.png",
+      "title": "相等候选造成新的组合重复",
+      "explanation": "第一轮分别选取第一个 4 和第二个 4̂ 时，虽然它们来自不同数组索引，但生成的子集前缀在数值上都是 [4, …]，继续搜索会产生完全重复的子集。第二轮在第一个 [4, …] 下若按旧方式继续选 +4 和 +4̂，所得 [4, 4, …] 与 [4, 4̂, …] 同样被标为重复子集；需要注意，其中 [4, 4, …] 还重复使用了第一个 4 的同一个索引，这在每个元素仅限用一次的子集和 II 中本身就是非法分支。",
+      "state": "顶部 choices=[4, 4̂, 5]；第一轮节点为 [4, …]、[4̂, …] 和未写前缀的 +5 分支，其中 [4, …] 与 [4̂, …] 由灰色弧线连为“重复子集”。第二轮仅在 [4, …] 下展开 [4, 4, …]、[4, 4̂, …] 和 +5 分支，前两者也由灰色弧线连为“重复子集”。",
+      "key_state": "同轮选取 4 与 4̂ 产生重复子集；图中 [4, 4, …] 还包含旧策略的同索引重用。",
+      "announcement": "同一轮分别展开两个值为 4 的元素会产生重复子集，需要同时加入同轮去重与索引前进约束。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-18",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "90c4c1bca0128b86d60f4ead1a9b8180074148f7c0963dc5f11d6adf69116534",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "4d905ea19e7b4a83ea36041a9c7f9d8d8c1f3b06c72a654e2a9e539750effd5d",
+        "output_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90",
+        "output_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad",
+        "output_sha256": "5ee2b110fd9b935a096ccaacf3e3b27d88bb1cb4918d9a5b6bd2b5a75c56edf0"
+      }
+    ],
+    "evidence_sha256": "5559c3ad6bd5d378f79de2a5c7f96ac680c007486f684e00a24a2512ab4de485"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_backtracking/subset_sum_problem.md": "071de898ede315a542cb99a3734fdd4bc42f447fe76e35d4251abc7c6ad4bfa1"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_backtracking/subset_sum_problem.assets/subset_sum_ii_repeat.png": "dbd7d68e2fa958442ddf799590e4111ca1bd24e69d901921b5191a80ab44e447"
+    }
+  }
+}

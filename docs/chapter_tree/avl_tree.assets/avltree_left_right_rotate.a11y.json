@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_tree/avl_tree.assets/avltree_left_right_rotate",
+  "title": "AVL 先左旋后右旋：先左旋子节点 1，再右旋失衡节点 3",
+  "summary": "针对先向左再向右弯折的路径 3 → 1 → 2，先对 child（1）执行左旋，再对 node（3）执行右旋，使 2 成为局部新根。",
+  "context": [
+    "外层根节点为 4，右子节点为 5，左子节点为失衡节点 3；节点 3 只有左子节点 1，节点 1 只有右子节点 2。图中将失衡节点 3 记为 node，其左子节点 1 记为 child。"
+  ],
+  "description": [
+    "第一步对 child（节点 1）执行左旋：节点 2 上升为这棵小子树的根，节点 1 降为 2 的左子节点，节点 3 的左子节点随之变为 2。如中间子图所示，原本弯折的路径被拉直为连续向左倾斜的路径 3 → 2 → 1。",
+    "第二步对原失衡节点 node（节点 3）执行右旋：节点 2 继续上升为局部子树的根，节点 3 降为 2 的右子节点，节点 1 保持为 2 的左子节点。外层父节点 4 的左子节点更新为 2，右子节点 5 保持不变。",
+    "对于这种“左-右”弯折形态，若直接对节点 3 做单次右旋，仍会留下新的失衡；只有先通过左旋把局部形态转化为“左-左”同向倾斜，再执行右旋，才能让节点 1、2、3 均匀分布在两侧。"
+  ],
+  "result": "双旋完成后，外层根 4 的左、右子节点分别为 2 和 5，节点 2 的左、右子节点分别为 1 和 3；局部子树恢复平衡，整棵树的中序遍历序列保持为 [1, 2, 3, 4, 5]。",
+  "frames": [
+    {
+      "id": "source-137",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_left_right_rotate.png",
+      "title": "AVL 先左旋后右旋：先左旋子节点 1，再右旋失衡节点 3",
+      "explanation": "图分三阶段展示“先左旋后右旋”：两次旋转针对的对象不同，第一步先对左子节点 child（节点 1）执行左旋，把 3 → 1 → 2 拉直为 3 → 2 → 1；第二步再对失衡节点 node（节点 3）执行右旋，使节点 2 升为局部新根、左右分别接 1 和 3。",
+      "state": "初始状态：外层根 4 左接 3、右接 5；3 左接 1；1 右接 2（node=3，child=1）。中间状态（对 1 左旋后）：4 左接 3、右接 5；3 左接 2；2 左接 1。最终状态（对 3 右旋后）：4 左接 2、右接 5；2 左接 1、右接 3。",
+      "key_state": "先对节点 1 左旋，再对节点 3 右旋；外层根 4 的左子树新根变为 2，左、右接 1 和 3。",
+      "announcement": "展示先左旋后右旋：将弯折路径 3、1、2 调整为以 2 为根的平衡子树。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-08",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "fea0856e2390cbe89676dc9dd48425a025bf41f9ab4268c7816af801920aa1d4",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a506b3ecafaef6d8fc62ef26dae68447d18629fc5e16ddd8ae926171452d6745",
+        "output_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d",
+        "output_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896",
+        "output_sha256": "8aa1f4dfa1fd2a8bc10a20ded596eaae033faa43bbf57cbc5c462af6f3455359"
+      }
+    ],
+    "evidence_sha256": "14a36adc867aa49a98d8a9d37d2a3aade7c41c8d611abaa2b4d84cd7b471e986"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_tree/avl_tree.md": "f4a27fbca67b22b8b3a041218f1088ab85a9f2a32e374060046152e6e01440a5"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_tree/avl_tree.assets/avltree_left_right_rotate.png": "3a0721984807f6bdc8b2ad5d1b860409ebc66978609f4a5876d1c6193f869cb3"
+    }
+  },
+  "animations": {
+    "avl-left-right": {
+      "kind": "prose",
+      "model_sha256": "6397cc86d385d76967343a131e59deacc44c984a3be5076aabcaec3d9fc5bca1",
+      "prose": {
+        "schema_version": 1,
+        "status": "confirmed",
+        "locale": "zh-hans",
+        "story_id": "avl-left-right",
+        "group_id": "group:chapter_tree/avl_tree.assets/avltree_left_right_rotate",
+        "title": "AVL 树先左旋后右旋：修复左子树的右倾折线失衡",
+        "summary": "针对节点 3 的“左—右”折线形失衡，先对左子节点 1 执行左旋拉直路径，再对失衡节点 3 执行右旋，使节点 2 成为新子树根。",
+        "context": [
+          "当失衡节点 node 的左子树更高，但左子节点 child 自身的优势分支却在右侧时，单次右旋无法消除失衡，需要采用“先对 child 左旋、再对 node 右旋”的双旋操作来恢复平衡。",
+          "初始整树根为 4，左子节点为 3、右子节点为 5；节点 3 的左子节点为 1，节点 1 的右子节点为 2。指针 node 指向失衡节点 3，指针 child 指向其左子节点 1，局部构成 3→1→2 的折线结构。"
+        ],
+        "description": [
+          "动画分三步展现双旋全过程：第一步识别 3→1→2 的“左—右”折线形失衡；第二步先在局部对 child（节点 1）执行左旋，将绿色孙节点 2 提升为 3 的左子节点，把折线转化为单纯左倾链 3→2→1；第三步再对 node（节点 3）执行右旋，使节点 2 成为子树新根。",
+          "整个过程中根节点 4 与右子节点 5 保持不动，双旋重连左子树内部的父子指针，并将根节点 4 的左子指针接到新子树根 2，不改变五个节点的中序排列。"
+        ],
+        "result": "经过先左旋后右旋，根节点 4 的左子节点更新为 2、右子节点仍为 5；节点 2 的左子节点为 1、右子节点为 3。中序序列保持 [1, 2, 3, 4, 5]，局部子树恢复平衡。",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "识别左—右折线失衡，准备对 child 节点 1 左旋",
+            "explanation": "指针 node 指向橙色失衡节点 3（平衡因子为 2），指针 child 指向蓝色左子节点 1（平衡因子为 -1，仅有绿色右子节点 2）。因为失衡方向一左一右呈折线，子树右侧标注“对 child 执行左旋”，先调整子节点 1 与孙节点 2 的上下关系。",
+            "state": "当前根节点 4 的左子节点为 3、右子节点为 5；节点 3 的左子节点为 1（无右子节点）；节点 1 的右子节点为 2（无左子节点）；节点 2 和 5 为叶节点。node 指向 3（标注“失衡节点”），child 指向 1，右侧提示“对 child 执行左旋”。",
+            "key_state": "节点 3 呈 3→1→2 折线失衡，node=3、child=1，准备先对 child（节点 1）左旋。",
+            "announcement": "定位节点 3 的左—右折线失衡，准备先对左子节点 1 执行左旋。"
+          },
+          {
+            "id": "step-2",
+            "title": "完成子节点 1 左旋，准备对失衡节点 3 右旋",
+            "explanation": "对节点 1 执行左旋后，绿色节点 2 上移成为节点 3 的左子节点，蓝色节点 1 降为节点 2 的左子节点。此时根节点 4 左侧转化为同一方向的左倾链 3→2→1，画面提示更新为“对 node 执行右旋”。",
+            "state": "当前根节点 4 的左子节点仍为 3、右子节点仍为 5；节点 3 的左子节点已变为 2，节点 2 的左子节点为 1；节点 1 和 5 为叶节点。子树右侧标注“对 node 执行右旋”，弧形箭头指向节点 3 的右旋方向。",
+            "key_state": "首次左旋完成，折线已拉直为左倾链 3→2→1，下一步对节点 3 右旋。",
+            "announcement": "节点 1 左旋完成，节点 2 升为 3 的左子节点，准备对节点 3 执行右旋。"
+          },
+          {
+            "id": "step-3",
+            "title": "对节点 3 右旋，由节点 2 接替子树根",
+            "explanation": "对节点 3 执行右旋后，绿色节点 2 接替 3 成为父节点 4 的左子节点，橙色节点 3 转到节点 2 的右下方成为其右子节点，节点 1 保持为节点 2 的左子节点。节点 2 左上方标注“已恢复平衡”，双旋调整全部完成。",
+            "state": "当前根节点 4 的左子节点为 2、右子节点为 5；节点 2 的左子节点为 1、右子节点为 3；节点 1、3、5 均为叶节点。节点 2 旁标注“已恢复平衡”。",
+            "key_state": "节点 3 右旋完成，节点 2 成为 4 的左子树根，左、右子节点分别为 1 和 3。",
+            "announcement": "对节点 3 执行右旋，节点 2 接替子树根，整树恢复平衡。"
+          }
+        ],
+        "review": {
+          "status": "confirmed",
+          "run_id": "figure-accessibility-20261114/animations/batch-04",
+          "content_sha256": "099f400359c4a7908898c7eda74b142876ca0b7d192361a1d5607e228565c1ed",
+          "stages": [
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "3d203796b035f2623e7ddf18bb2c7a0f0c058fc7f964675d759c908c73ef8844",
+              "output_sha256": "a22db3de96270cfb4966b9f857b0e1383de76231a69a2d5640b5487d990a340b"
+            },
+            {
+              "requested_model": "gemini-4-argon",
+              "actual_model": null,
+              "model_confirmation": "provider_not_reported",
+              "input_sha256": "a22db3de96270cfb4966b9f857b0e1383de76231a69a2d5640b5487d990a340b",
+              "output_sha256": "8128dda216fc899534e667fb069d5737da393f7f8c106cb457cbdb19312dd6ec"
+            },
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "8128dda216fc899534e667fb069d5737da393f7f8c106cb457cbdb19312dd6ec",
+              "output_sha256": "89169e45f10a96071739b88711eb916d9b2ab592c4e7e73b726e4c01dbfb9147"
+            }
+          ],
+          "evidence_sha256": "bd4849b5d6683e29047020eb4a084c7194e2dc2e612e6dc976448466ebe20803"
+        }
+      }
+    }
+  }
+}

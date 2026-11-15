@@ -31,10 +31,10 @@
     ![辅助哈希表求解两数之和](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg)
 
 === "<2>"
-    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg)
+    ![辅助哈希表求解两数之和：单层循环先查补数再存当前元素，第 2 步，共 3 步：第 2 步：i = 1 访问元素 7，补数 6 不在 map 中，存入 7 → 1](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg)
 
 === "<3>"
-    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg)
+    ![辅助哈希表求解两数之和：单层循环先查补数再存当前元素，第 3 步，共 3 步：第 3 步：i = 2 访问元素 11，在 map 中查到补数 2，返回 \[0, 2\]](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg)
 
 实现代码如下所示，仅需单层循环即可：
 

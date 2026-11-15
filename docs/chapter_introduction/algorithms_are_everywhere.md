@@ -14,16 +14,16 @@
     ![查字典步骤](algorithms_are_everywhere.assets/binary_search_dictionary_step1.svg)
 
 === "<2>"
-    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg)
+    ![查字典的二分查找过程，第 2 步，共 5 步：第 2 步：翻到中间字母 m，排除前半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg)
 
 === "<3>"
-    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg)
+    ![查字典的二分查找过程，第 3 步，共 5 步：第 3 步：翻到剩余部分中间字母 t，排除后半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg)
 
 === "<4>"
-    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg)
+    ![查字典的二分查找过程，第 4 步，共 5 步：第 4 步：翻到剩余部分中间字母 p，再排除前半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg)
 
 === "<5>"
-    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg)
+    ![查字典的二分查找过程，第 5 步，共 5 步：第 5 步：翻到中间字母 r，完成查找](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg)
 
 查字典这个小学生必备技能，实际上就是著名的“二分查找”算法。从数据结构的角度，我们可以把字典视为一个已排序的“数组”；从算法的角度，我们可以将上述查字典的一系列操作看作“二分查找”。
 

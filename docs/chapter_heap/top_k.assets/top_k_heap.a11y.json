@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_heap/top_k.assets/top_k_heap",
+  "title": "方法三（堆）：基于容量为 k 的小顶堆寻找最大的 k 个元素",
+  "summary": "先将前 k = 3 个元素 1、7、6 依次入小顶堆，再用更大的 3 替换堆顶 1，跳过较小的 2，最终返回 heap = [3, 7, 6]。",
+  "context": [
+    "给定无序数组 nums = [1, 7, 6, 3, 2] 和参数 k = 3，任务是找出其中最大的三个元素。",
+    "左侧绿色指针 i 指向当前遍历到的数组元素（索引从 0 开始）；右侧灰色面板同时给出小顶堆的“二叉树表示”与层序“数组表示” heap。在小顶堆中，任意父节点的值不大于子节点的值，因此“堆顶”（根节点，即 heap[0]）始终是当前堆内所有候选元素的最小值。",
+    "算法分两阶段：第一阶段（1. 将前 k 个元素入堆）先把前 3 个元素依次加入小顶堆；第二阶段（2. 从第 k+1 个元素开始判断）将当前元素与堆顶比较——若当前元素大于堆顶元素，说明当前元素比堆内最小的候选值更大，遂将堆顶出堆并将当前元素入堆；若当前元素小于或等于堆顶元素，则直接跳过。"
+  ],
+  "description": [
+    "利用小顶堆维护已遍历元素中最大的 k 个候选值：堆顶作为“准入门槛”，只需 O(1) 时间即可判断新元素是否有资格替换当前最小候选，每次入堆或出堆调整仅需 O(log k) 时间。"
+  ],
+  "result": "遍历完成后直接返回小顶堆数组 heap = [3, 7, 6]，即原数组中最大的三个元素（堆数组仅满足小顶堆父子关系，左、右子节点 7 和 6 无须按升序排列）。堆容量不超过 k，空间复杂度为 O(k)，总时间复杂度为 O(n log k)。",
+  "frames": [
+    {
+      "id": "source-164",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step1.png",
+      "title": "第 1 步：将第 1 个元素 1 入堆",
+      "explanation": "执行“1. 将前 k 个元素入堆”：指针 i 指向索引 0 的元素 1，将其加入初始为空的小顶堆。此时堆中只有根节点 1，它既是堆顶，也是数组 heap = [1] 的唯一元素。",
+      "state": "输入 nums = [1, 7, 6, 3, 2]，k = 3，任务是找出其中最大的三个元素。指针 i 指向索引 0 的值 1；右侧小顶堆 heap = [1]，树中只有堆顶根节点 1，当前堆大小为 1。",
+      "key_state": "i = 0（值 1）；1 入堆，heap = [1]。",
+      "announcement": "读取第 1 个元素 1 并加入空的小顶堆，heap 为 [1]。"
+    },
+    {
+      "id": "source-165",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step2.png",
+      "title": "第 2 步：将第 2 个元素 7 入堆",
+      "explanation": "指针 i 移至索引 1 的元素 7，继续执行“1. 将前 k 个元素入堆”。7 加入小顶堆成为堆顶 1 的左子节点；由于父节点 1 小于子节点 7，已满足小顶堆性质，无须交换，数组为 heap = [1, 7]。",
+      "state": "输入 nums = [1, 7, 6, 3, 2]，k = 3，任务是找出其中最大的三个元素。指针 i 指向索引 1 的值 7；右侧小顶堆 heap = [1, 7]，堆顶为 1，左子节点为 7，当前堆大小为 2。",
+      "key_state": "i = 1（值 7）；7 入堆成为 1 的左子节点，heap = [1, 7]。",
+      "announcement": "读取第 2 个元素 7 入堆，作为堆顶 1 的左子节点。"
+    },
+    {
+      "id": "source-166",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step3.png",
+      "title": "第 3 步：将第 3 个元素 6 入堆，填满前 k 个元素",
+      "explanation": "指针 i 移至索引 2 的元素 6，将 6 加入小顶堆成为堆顶 1 的右子节点。由于 1 < 6，同样无须上浮交换，heap = [1, 7, 6]。至此，前 k = 3 个元素全部入堆，堆顶 1 是这三个初始候选中的最小值。",
+      "state": "输入 nums = [1, 7, 6, 3, 2]，k = 3，任务是找出其中最大的三个元素。指针 i 指向索引 2 的值 6；右侧小顶堆 heap = [1, 7, 6]，堆顶为 1，左、右子节点分别为 7 和 6，前 k = 3 个元素已入堆完毕。",
+      "key_state": "i = 2（值 6）；前 k = 3 个元素入堆完成，heap = [1, 7, 6]，堆顶为 1。",
+      "announcement": "读取第 3 个元素 6 入堆，前三个元素初始化完成，堆顶为最小值 1。"
+    },
+    {
+      "id": "source-167",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step4.png",
+      "title": "第 4 步：判断第 4 个元素 3 大于堆顶 1",
+      "explanation": "进入“2. 从第 k+1 个元素开始判断”：指针 i 移至索引 3（即第 4 个元素）的值 3，与当前堆顶 1 比较。图左侧标出“∵ 当前元素 > 堆顶元素”（3 > 1），说明 1 不再属于已遍历元素的最大三者，需要淘汰 1 并换入 3；本步仅完成比较，堆尚未改动。",
+      "state": "输入 nums = [1, 7, 6, 3, 2]，k = 3，任务是找出其中最大的三个元素。指针 i 指向索引 3 的值 3；右侧小顶堆仍为 heap = [1, 7, 6]（堆顶为 1，左、右子节点为 7、6）。当前判定 3 > 堆顶 1，准备先弹出堆顶 1。",
+      "key_state": "i = 3（值 3）；判定当前元素 3 > 堆顶 1，准备替换。",
+      "announcement": "读取第 4 个元素 3，比较发现 3 大于堆顶 1，决定淘汰堆顶 1。"
+    },
+    {
+      "id": "source-168",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step5.png",
+      "title": "第 5 步：将旧堆顶 1 出堆",
+      "explanation": "执行“∴ 将堆顶元素出堆”：将堆中最小的 1 弹出，剩余两个元素经小顶堆调整后，6 成为新的堆顶、7 为其左子节点，数组暂变为 heap = [6, 7]。指针 i 仍停在索引 3 的元素 3 下方，等待下一步将 3 入堆。",
+      "state": "输入 nums = [1, 7, 6, 3, 2]，k = 3，任务是找出其中最大的三个元素。指针 i 仍指向索引 3 的值 3；旧堆顶 1 已出堆，当前元素 3 尚未入堆，右侧小顶堆暂时只有两个元素 heap = [6, 7]（堆顶为 6，左子节点为 7）。",
+      "key_state": "i = 3（值 3）；旧堆顶 1 已弹出，heap 暂为 [6, 7]，待加入 3。",
+      "announcement": "将旧堆顶 1 出堆，小顶堆暂时剩下 [6, 7]。"
+    },
+    {
+      "id": "source-169",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step6.png",
+      "title": "第 6 步：将当前元素 3 入堆，成为新堆顶",
+      "explanation": "紧接上一步执行“将当前元素入堆”：把索引 3 的元素 3 加入小顶堆并完成上浮调整。因为 3 小于 6 和 7，3 上浮成为新的堆顶，左、右子节点分别为 7 和 6，数组更新为 heap = [3, 7, 6]，保存了前 4 个元素中最大的 3 个值。",
+      "state": "输入 nums = [1, 7, 6, 3, 2]，k = 3，任务是找出其中最大的三个元素。指针 i 指向索引 3 的值 3；3 已入堆并上浮为新堆顶，右侧小顶堆恢复为三个元素 heap = [3, 7, 6]（堆顶为 3，左、右子节点为 7、6）。",
+      "key_state": "i = 3（值 3）；3 入堆成为新堆顶，heap = [3, 7, 6]。",
+      "announcement": "将当前元素 3 入堆并上浮为新堆顶，堆更新为 [3, 7, 6]。"
+    },
+    {
+      "id": "source-170",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step7.png",
+      "title": "第 7 步：判断第 5 个元素 2 小于或等于堆顶 3",
+      "explanation": "指针 i 移至最后一个位置（索引 4）的元素 2，与当前堆顶 3 比较。图左侧标出“∵ 当前元素 ≤ 堆顶元素”（2 ≤ 3）：由于 2 连堆内最小的候选值 3 都未能超过，不可能属于最大的三个元素，小顶堆保持不变。",
+      "state": "输入 nums = [1, 7, 6, 3, 2]，k = 3，任务是找出其中最大的三个元素。指针 i 指向索引 4 的值 2；右侧小顶堆仍为 heap = [3, 7, 6]（堆顶为 3，左、右子节点为 7、6）。当前判定 2 ≤ 堆顶 3。",
+      "key_state": "i = 4（值 2）；判定当前元素 2 ≤ 堆顶 3，准备跳过。",
+      "announcement": "读取最后一个元素 2，比较发现 2 小于堆顶 3。"
+    },
+    {
+      "id": "source-171",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step8.png",
+      "title": "第 8 步：跳过元素 2",
+      "explanation": "根据“∵ 当前元素 ≤ 堆顶元素”，执行“∴ 跳过”：不对小顶堆做任何出堆或入堆操作。指针 i 仍位于索引 4 的元素 2 下方，右侧小顶堆保持为 heap = [3, 7, 6]。",
+      "state": "输入 nums = [1, 7, 6, 3, 2]，k = 3，任务是找出其中最大的三个元素。指针 i 指向索引 4 的值 2；本轮执行跳过，全部五个输入元素已检查完毕，右侧小顶堆保持 heap = [3, 7, 6]（堆顶为 3，左、右子节点为 7、6）。",
+      "key_state": "i = 4（值 2）；跳过 2，小顶堆保持 heap = [3, 7, 6]。",
+      "announcement": "直接跳过元素 2，小顶堆保持 [3, 7, 6] 不变。"
+    },
+    {
+      "id": "source-172",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step9.png",
+      "title": "第 9 步：遍历完成，返回小顶堆 heap",
+      "explanation": "数组遍历结束，移除指针 i 与判断步骤框，图左侧给出结论“遍历完成，返回 heap 即可”。右侧小顶堆 heap = [3, 7, 6] 保存的正是原数组中最大的 k = 3 个元素。",
+      "state": "输入 nums = [1, 7, 6, 3, 2]，k = 3，任务是找出其中最大的三个元素。遍历已全部结束（不再显示指针 i）；右侧小顶堆为 heap = [3, 7, 6]（堆顶为 3，左、右子节点为 7、6），直接将该堆数组作为结果返回。",
+      "key_state": "遍历完成，返回小顶堆 heap = [3, 7, 6]，即最大的三个元素。",
+      "announcement": "遍历完成，直接返回保存最大三个元素的小顶堆 [3, 7, 6]。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-09",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "5c884e577eea30089fb882afbc9ec1fe35fa5b9da2b778a0cee782260a5fa53e",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6a40f26ee895ee83a07f70253df5c42ddcc5439ccb9b1aa5b4bf84b03d787459",
+        "output_sha256": "597bc506488fb474d3ce449c9ac8398eafa43a8ff6f5224787848d0c38571845"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "597bc506488fb474d3ce449c9ac8398eafa43a8ff6f5224787848d0c38571845",
+        "output_sha256": "813eae9284eec030711eafb5a54bfb61222ecf3949e7ce2525b4ee18c7cca9b8"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "813eae9284eec030711eafb5a54bfb61222ecf3949e7ce2525b4ee18c7cca9b8",
+        "output_sha256": "e350bdba6fc3bc2aac820c06fd5d96268d4c7714cba12295fee0dff1f61e67b5"
+      }
+    ],
+    "evidence_sha256": "716c2185fb25821fe2cbff260b776e4910309785e7fc22f3fd23194b2e50701e"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_heap/top_k.md": "a8005aca6e86e06249e0855a2d7a6f0cea0bf63ec49ab4b4192d1bbd26ee80df"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_heap/top_k.assets/top_k_heap_step1.png": "a8b28591474660d822f66c35f0f8b52d730f79b142a8aca548af571be9c4fe9f",
+      "chapter_heap/top_k.assets/top_k_heap_step2.png": "dfb7e7b4492cc34b263a4b2ee9197e9f971e6673083b7e89a1288d0c52c26347",
+      "chapter_heap/top_k.assets/top_k_heap_step3.png": "b29fd7c3c1f973d22084d5a1c40c142987fa6c101df3a561104457183d0da8ad",
+      "chapter_heap/top_k.assets/top_k_heap_step4.png": "712a09bd6e751e00465d369b0b33ca4422d8c54dc79d1d309f3b9708c2374da7",
+      "chapter_heap/top_k.assets/top_k_heap_step5.png": "d5ce96947f05132c83256d4dbb5795964c86b7fb0c4a0f03ab725c113099a631",
+      "chapter_heap/top_k.assets/top_k_heap_step6.png": "a1128efa46eab89ddf88c1ab848f45691e5f657585f2df501513327f33eac0ed",
+      "chapter_heap/top_k.assets/top_k_heap_step7.png": "67233c9823426cf7ed35ab3aaad5e1cec6f2141e64ffb751f27f2b911e09702d",
+      "chapter_heap/top_k.assets/top_k_heap_step8.png": "671dfee032d1b0dfdae5de06d6074d3b40b397279d7fb973948fda5aad853c6a",
+      "chapter_heap/top_k.assets/top_k_heap_step9.png": "61d3d263f778fdc8282d7f8f264558b500e09d8cb6065236ec8fe3ec53c642db"
+    }
+  },
+  "animations": {
+    "top-k-heap": {
+      "kind": "source-frames",
+      "model_sha256": "d74febeb179442502ca2903ff1072ef2e61d5e83d3d59b86de3d77e775305cab",
+      "source_content_sha256": "5c884e577eea30089fb882afbc9ec1fe35fa5b9da2b778a0cee782260a5fa53e",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-164"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-165"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-166"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-167"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-168"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-169"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-170"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-171"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-172"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "8eee53b464b51621b12594199f21c1a5af6676a4bd24f4e25ac211fd235ab19d",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

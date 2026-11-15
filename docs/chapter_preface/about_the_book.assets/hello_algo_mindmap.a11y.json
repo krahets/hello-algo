@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_preface/about_the_book.assets/hello_algo_mindmap",
+  "title": "本书主要内容",
+  "summary": "以思维导图形式全景展示《Hello 算法》围绕“数据结构”“复杂度分析”和“算法”三大核心板块构建的 16 个一级章节分支与下属知识点。",
+  "context": [
+    "这张全书知识图谱位于前言“关于本书”章节，旨在为读者提供全书内容结构的鸟瞰导航。图中三大核心板块并列展开，曲线代表主题与知识点的层级归属关系，而非强制唯一的线性阅读顺序。"
+  ],
+  "description": [
+    "全图由三棵独立的彩色树状导图及左下角书名标志组成：左侧为“数据结构”主题树（含 7 个一级分支），右上方为“复杂度分析”主题树（含 3 个一级分支），右下方为“算法”主题树（含 6 个一级分支）；左下角展示 Hello 算法图标、副标题“动画图解、一键运行的数据结构与算法教程”以及开源仓库地址 https://github.com/krahets/hello-algo。",
+    "左侧“数据结构”主题下设 7 个一级分支：1. 数据结构（逻辑结构、物理结构；基本数据类型、数字编码、字符编码）；2. 数组与链表（连续存储与分散存储方式、操作方法与优缺点对比、基于动态数组实现列表、计算机内存与缓存）；3. 栈与队列（先入后出栈、先入先出队列、双向队列、基于数组与链表实现栈和队列）；4. 哈希表（工作原理与基于数组实现、哈希冲突与链式地址和开放寻址、哈希算法用途与设计目标）；5. 树（完美/完全/完满/平衡二叉树、链表与数组表示对比、层序/前序/中序/后序遍历、二叉搜索树、AVL 树）；6. 堆（小顶堆/大顶堆/优先队列、基于数组实现堆与建堆操作、Top-k 问题）；7. 图（有向图/连通图/有权图、邻接表与邻接矩阵表示对比、广度优先遍历与深度优先遍历）。",
+    "右上方“复杂度分析”主题下设 3 个一级分支：1. 迭代与递归（for 循环/while 循环/嵌套循环、递归调用栈/尾递归/递归树、迭代与递归对比）；2. 时间复杂度（函数渐近上界、推算方法与常见类型、最差/最佳/平均时间复杂度）；3. 空间复杂度（推算方法与常见类型、权衡时间与空间）。",
+    "右下方“算法”主题下设 6 个一级分支：1. 搜索（暴力搜索：线性搜索、广度与深度优先搜索；高效搜索：二分查找、哈希查找、树查找；搜索算法的选取）；2. 排序（评价维度：就地性、稳定性、自适应性、是否基于比较；按图中末端文字所列分类依次为“遍历”下的选择排序、冒泡排序、插入排序，“分治”下的快速排序、归并排序、堆排序，以及“非比较”下的桶排序、计数排序、基数排序）；3. 分治（问题特性与判断方法；例题：二分、构建树、汉诺塔）；4. 回溯（问题特性与框架代码；例题：全排列、子集和、n 皇后）；5. 动态规划（暴力搜索、记忆化递归、递推；重叠子问题、最优子结构、无后效性；问题判断方法与求解步骤；例题：0-1 背包、完全背包、编辑距离）；6. 贪心（问题特性与解题步骤；例题：分数背包、最大容量、最大切分乘积）。"
+  ],
+  "result": "读者可借助该导图的“数据结构（7 支）—复杂度分析（3 支）—算法（6 支）”树状索引，快速定位相关章节的核心概念、底层实现与典型例题。",
+  "frames": [
+    {
+      "id": "document-chapter_preface/about_the_book.assets/hello_algo_mindmap.png",
+      "book_path": "chapter_preface/about_the_book.assets/hello_algo_mindmap.png",
+      "title": "本书主要内容",
+      "explanation": "思维导图从三大根节点向外逐级辐射：左侧“数据结构”从底层编码与数组链表出发，逐步扩展到栈、队列、哈希表、树、堆和图；右上“复杂度分析”涵盖迭代递归机制及时间、空间复杂度的推算与权衡；右下“算法”串联搜索与排序两大基础模块，以及分治、回溯、动态规划、贪心四大算法范式及其配套经典例题（其中排序分支按图面结构分为遍历、分治、非比较三组，堆排序在图中归于分治组下）。",
+      "state": "全书思维导图包含三大根节点与 16 个一级分支：左侧“数据结构”（数据结构、数组与链表、栈与队列、哈希表、树、堆、图）；右上“复杂度分析”（迭代与递归、时间复杂度、空间复杂度）；右下“算法”（搜索、排序、分治、回溯、动态规划、贪心）；左下角标有 Hello 算法标志与仓库地址 https://github.com/krahets/hello-algo。",
+      "key_state": "全书知识图谱：数据结构（7 分支）、复杂度分析（3 分支）、算法（6 分支），共 16 个一级知识模块。",
+      "announcement": "展示《Hello 算法》全书内容思维导图，涵盖数据结构、复杂度分析与算法三大板块共 16 个章节分支。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-24",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "50d76e310f1ab72ccebce183a0617435ed5789bc763d79146e787592414a81d3",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "d40a34ce09d07aa5f2a8281d168d7daa9ee113c09b575f1200eb0409b245f89e",
+        "output_sha256": "8a1430b08cfa12d5586c31c993b51fdeb8d3c6412ce6de6939643e8766084ea6"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "8a1430b08cfa12d5586c31c993b51fdeb8d3c6412ce6de6939643e8766084ea6",
+        "output_sha256": "f7f806b44c8d2d3a360bd07d285786f4c9b9881b94cb30acb729899f1a072fce"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "f7f806b44c8d2d3a360bd07d285786f4c9b9881b94cb30acb729899f1a072fce",
+        "output_sha256": "5eee136dd6bac5250047fed5bcee9c46c066cf9325b373b0a35bafc641e9f011"
+      }
+    ],
+    "evidence_sha256": "76b6078358083e454d25f857a790e71339d6048171500ff10b161508d80ce246"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_preface/about_the_book.md": "7e4800504fa593f66d556393142da2c71ccd86e898e171a7f40b2f68e2894575"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_preface/about_the_book.assets/hello_algo_mindmap.png": "1ea586253cf99fdb577dcec4dc04087e770ce41771a2c6765d4503087252ece5"
+    }
+  }
+}

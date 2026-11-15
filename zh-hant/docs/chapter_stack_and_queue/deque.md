@@ -403,16 +403,16 @@
     ![基於鏈結串列實現雙向佇列的入列出列操作](deque.assets/linkedlist_deque_step1.svg)
 
 === "<2>"
-    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.svg)
+    ![基於雙向鏈結串列實現雙向佇列的入列與出列，第 2 步，共 5 步：佇列尾入列 push_last(4)](deque.assets/linkedlist_deque_step2_push_last.svg)
 
 === "<3>"
-    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.svg)
+    ![基於雙向鏈結串列實現雙向佇列的入列與出列，第 3 步，共 5 步：佇列首入列 push_first(1)](deque.assets/linkedlist_deque_step3_push_first.svg)
 
 === "<4>"
-    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.svg)
+    ![基於雙向鏈結串列實現雙向佇列的入列與出列，第 4 步，共 5 步：佇列尾出列 pop_last()](deque.assets/linkedlist_deque_step4_pop_last.svg)
 
 === "<5>"
-    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.svg)
+    ![基於雙向鏈結串列實現雙向佇列的入列與出列，第 5 步，共 5 步：佇列首出列 pop_first()](deque.assets/linkedlist_deque_step5_pop_first.svg)
 
 實現程式碼如下所示：
 
@@ -428,16 +428,16 @@
     ![基於陣列實現雙向佇列的入列出列操作](deque.assets/array_deque_step1.svg)
 
 === "<2>"
-    ![array_deque_push_last](deque.assets/array_deque_step2_push_last.svg)
+    ![基於迴圈陣列實現雙向佇列的入列與出列，第 2 步，共 5 步：佇列尾入列 push_last(4)](deque.assets/array_deque_step2_push_last.svg)
 
 === "<3>"
-    ![array_deque_push_first](deque.assets/array_deque_step3_push_first.svg)
+    ![基於迴圈陣列實現雙向佇列的入列與出列，第 3 步，共 5 步：佇列首入列 push_first(1)](deque.assets/array_deque_step3_push_first.svg)
 
 === "<4>"
-    ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.svg)
+    ![基於迴圈陣列實現雙向佇列的入列與出列，第 4 步，共 5 步：佇列尾出列 pop_last()](deque.assets/array_deque_step4_pop_last.svg)
 
 === "<5>"
-    ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.svg)
+    ![基於迴圈陣列實現雙向佇列的入列與出列，第 5 步，共 5 步：佇列首出列 pop_first()](deque.assets/array_deque_step5_pop_first.svg)
 
 在佇列的實現基礎上，僅需增加“佇列首入列”和“佇列尾出列”的方法：
 

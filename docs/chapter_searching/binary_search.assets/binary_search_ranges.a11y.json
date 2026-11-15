@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_searching/binary_search.assets/binary_search_ranges",
+  "title": "二分查找的两种区间定义：双闭区间 [i, j] 与左闭右开区间 [i, j)",
+  "summary": "右边界指针 j 是否包含在搜索区间内，直接决定 j 的初始值、循环终止条件以及向左收缩时的赋值方式。",
+  "context": [
+    "示意升序数组包含 n = 10 个元素，索引为 0 至 9；指针 i、j 分别标识当前搜索区间的左、右边界，m 表示当前折半中点索引。图中柱高仅示意元素单调递增，未标注具体元素数值。"
+  ],
+  "description": [
+    "左半幅展示“双闭区间 [i, j]”（左右边界都包含自身）：初始化指针为 i = 0, j = n - 1（即 j = 9，指向最后一根柱子）；当 i = j 时区间内仍含一个待查元素，直到 i > j 时搜索区间才为空。",
+    "右半幅展示“左闭右开区间 [i, j)”（左边界包含自身、右边界不包含自身）：初始化指针为 i = 0, j = n（即 j = 10，指向数组最右端外侧的排除位置）；当 i = j 时区间已经为空，因此循环终止条件为 i ≥ j。",
+    "在缩小区间操作上：若中点值小于目标，两种写法都已排除 m 及其左侧，左边界均更新为 i = m + 1；若中点值大于目标，双闭区间需将右边界设为包含在内的 j = m − 1，而左闭右开区间由于本身不包含右端点 j，需将右边界设为 j = m。完整对照见附表。"
+  ],
+  "result": "双闭区间 [i, j] 与左闭右开区间 [i, j) 都能正确实现二分查找，但初始化指针、循环终止条件与缩小区间操作必须严格配套使用；双闭区间左右收缩对称（i = m + 1 与 j = m − 1），通常更不易出错。",
+  "frames": [
+    {
+      "id": "source-221",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_ranges.png",
+      "title": "对比双闭区间 [i, j] 与左闭右开区间 [i, j) 的边界约定",
+      "explanation": "左右两图的蓝色虚线框都恰好框住索引 0 至 9 的十个元素，但左图双闭区间的右指针 j 指向索引 9（包含该位置），右图左闭右开区间的右指针 j 指向越界的索引 10（排除该位置），下方四行文字逐项列出由此决定的算法规则差异。",
+      "state": "数组有十个位置，索引 0 至 9。左图 [i, j]：i = 0，j = 9；终止 i > j，收缩时 i = m + 1 或 j = m − 1。右图 [i, j)：i = 0，j = 10；终止 i ≥ j，收缩时 i = m + 1 或 j = m。",
+      "key_state": "双闭区间 [0, 9]（终止 i > j，左收 j = m − 1）对比左闭右开 [0, 10)（终止 i ≥ j，左收 j = m）。",
+      "announcement": "对比双闭区间与左闭右开区间在初始化、终止条件和缩小区间上的区别。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "两种区间写法的对应规则",
+      "headers": [
+        "项目",
+        "双闭区间 [i, j]",
+        "左闭右开区间 [i, j)"
+      ],
+      "rows": [
+        [
+          "初始化",
+          "i = 0，j = n − 1",
+          "i = 0，j = n"
+        ],
+        [
+          "循环终止",
+          "i > j",
+          "i ≥ j"
+        ],
+        [
+          "中间值小于目标",
+          "i = m + 1",
+          "i = m + 1"
+        ],
+        [
+          "中间值大于目标",
+          "j = m − 1",
+          "j = m"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-11",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "6622d8d5c1e1e0a4439c3361db7951571fbe7e1cea3ebad069c1c6146bf2490d",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "3206c254e0370086a13ff2dc3fac20039392415745b2219372e157eeb538a33f",
+        "output_sha256": "dd9bf68b62344daf8bc8e96623047978d0e19cc619fd66d876e9de1554000277"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "dd9bf68b62344daf8bc8e96623047978d0e19cc619fd66d876e9de1554000277",
+        "output_sha256": "4f0d4fbb2186a7affd40a35e337bce4a948aba21bd793bbcbf59d1b9b8ac75df"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "4f0d4fbb2186a7affd40a35e337bce4a948aba21bd793bbcbf59d1b9b8ac75df",
+        "output_sha256": "a5f19149a68ddebc468f9458a1b65a7a416af49f2324c4cc2f70f730d44ac163"
+      }
+    ],
+    "evidence_sha256": "36e78ab514241f595a2ea03d76dbb5a6499bcabe3070142fed1c2b7ad3fe7c96"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_searching/binary_search.md": "a734fc597b716931cf132436b8c4deaa76801f67a7dc4c2f8fdac5bb6cedb01d"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_searching/binary_search.assets/binary_search_ranges.png": "ded5d542e5257d2aa487232fbc701cae4020e180a0cf41c05e0d9978d563b2a3"
+    }
+  }
+}

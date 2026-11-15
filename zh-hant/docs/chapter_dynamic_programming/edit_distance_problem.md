@@ -77,46 +77,46 @@ $$
     ![編輯距離的動態規劃過程](edit_distance_problem.assets/edit_distance_dp_step1.svg)
 
 === "<2>"
-    ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.svg)
+    ![編輯距離：完整動態規劃，第 2 步，共 15 步：第 2 步：初始化首行與首列空串邊界](edit_distance_problem.assets/edit_distance_dp_step2.svg)
 
 === "<3>"
-    ![edit_distance_dp_step3](edit_distance_problem.assets/edit_distance_dp_step3.svg)
+    ![編輯距離：完整動態規劃，第 3 步，共 15 步：第 3 步：計算 dp\[1, 1\]（b 對 p），最少 1 步](edit_distance_problem.assets/edit_distance_dp_step3.svg)
 
 === "<4>"
-    ![edit_distance_dp_step4](edit_distance_problem.assets/edit_distance_dp_step4.svg)
+    ![編輯距離：完整動態規劃，第 4 步，共 15 步：第 4 步：計算 dp\[1, 2\]（b 對 pa），最少 2 步](edit_distance_problem.assets/edit_distance_dp_step4.svg)
 
 === "<5>"
-    ![edit_distance_dp_step5](edit_distance_problem.assets/edit_distance_dp_step5.svg)
+    ![編輯距離：完整動態規劃，第 5 步，共 15 步：第 5 步：計算 dp\[1, 3\]（b 對 pac），最少 3 步](edit_distance_problem.assets/edit_distance_dp_step5.svg)
 
 === "<6>"
-    ![edit_distance_dp_step6](edit_distance_problem.assets/edit_distance_dp_step6.svg)
+    ![編輯距離：完整動態規劃，第 6 步，共 15 步：第 6 步：計算 dp\[1, 4\]（b 對 pack），最少 4 步](edit_distance_problem.assets/edit_distance_dp_step6.svg)
 
 === "<7>"
-    ![edit_distance_dp_step7](edit_distance_problem.assets/edit_distance_dp_step7.svg)
+    ![編輯距離：完整動態規劃，第 7 步，共 15 步：第 7 步：計算 dp\[2, 1\]（ba 對 p），最少 2 步](edit_distance_problem.assets/edit_distance_dp_step7.svg)
 
 === "<8>"
-    ![edit_distance_dp_step8](edit_distance_problem.assets/edit_distance_dp_step8.svg)
+    ![編輯距離：完整動態規劃，第 8 步，共 15 步：第 8 步：計算 dp\[2, 2\]（ba 對 pa），尾字元相同直接複製 1](edit_distance_problem.assets/edit_distance_dp_step8.svg)
 
 === "<9>"
-    ![edit_distance_dp_step9](edit_distance_problem.assets/edit_distance_dp_step9.svg)
+    ![編輯距離：完整動態規劃，第 9 步，共 15 步：第 9 步：計算 dp\[2, 3\]（ba 對 pac），最少 2 步](edit_distance_problem.assets/edit_distance_dp_step9.svg)
 
 === "<10>"
-    ![edit_distance_dp_step10](edit_distance_problem.assets/edit_distance_dp_step10.svg)
+    ![編輯距離：完整動態規劃，第 10 步，共 15 步：第 10 步：計算 dp\[2, 4\]（ba 對 pack），最少 3 步](edit_distance_problem.assets/edit_distance_dp_step10.svg)
 
 === "<11>"
-    ![edit_distance_dp_step11](edit_distance_problem.assets/edit_distance_dp_step11.svg)
+    ![編輯距離：完整動態規劃，第 11 步，共 15 步：第 11 步：計算 dp\[3, 1\]（bag 對 p），最少 3 步](edit_distance_problem.assets/edit_distance_dp_step11.svg)
 
 === "<12>"
-    ![edit_distance_dp_step12](edit_distance_problem.assets/edit_distance_dp_step12.svg)
+    ![編輯距離：完整動態規劃，第 12 步，共 15 步：第 12 步：計算 dp\[3, 2\]（bag 對 pa），最少 2 步](edit_distance_problem.assets/edit_distance_dp_step12.svg)
 
 === "<13>"
-    ![edit_distance_dp_step13](edit_distance_problem.assets/edit_distance_dp_step13.svg)
+    ![編輯距離：完整動態規劃，第 13 步，共 15 步：第 13 步：計算 dp\[3, 3\]（bag 對 pac），最少 2 步](edit_distance_problem.assets/edit_distance_dp_step13.svg)
 
 === "<14>"
-    ![edit_distance_dp_step14](edit_distance_problem.assets/edit_distance_dp_step14.svg)
+    ![編輯距離：完整動態規劃，第 14 步，共 15 步：第 14 步：計算 dp\[3, 4\]（bag 對 pack），最少 3 步](edit_distance_problem.assets/edit_distance_dp_step14.svg)
 
 === "<15>"
-    ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.svg)
+    ![編輯距離：完整動態規劃，第 15 步，共 15 步：第 15 步：返回最少編輯步數 3](edit_distance_problem.assets/edit_distance_dp_step15.svg)
 
 ### 空間最佳化
 

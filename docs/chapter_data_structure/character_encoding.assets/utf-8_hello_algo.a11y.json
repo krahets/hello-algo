@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_data_structure/character_encoding.assets/utf-8_hello_algo",
+  "title": "Hello算法 的 UTF-8 字节编码",
+  "summary": "在 UTF-8 变长编码下，“Hello”五个英文字母各占 1 字节（最高位为 0），“算”与“法”两个汉字各占 3 字节（首字节前缀 1110、后两字节前缀 10），七个字符共占 11 字节。",
+  "context": [
+    "画面自左向右分为“字符”、“Unicode”和“UTF-8”三列，自上而下依次排列无空格的七个字符“Hello算法”，展示如何从 16 位 Unicode 码点转换为可变长度的 UTF-8 字节序列。"
+  ],
+  "description": [
+    "前五行英文字符 H、e、l、l、o 在中间“Unicode”列仍显示带灰色高字节 00000000 的 16 位形式，而在右侧“UTF-8”列均只占 1 个字节（8 位），最高位以青色粗体标出 0，其余 7 位与 ASCII 码完全一致：H 为 01001000，e 为 01100101，两个 l 均为 01101100，o 为 01101111。",
+    "第 6 行“算”的 Unicode 码点为 01111011 10010111，右侧 UTF-8 编码占 3 个字节：11100111 10101110 10010111（十六进制 E7 AE 97）。第 7 行“法”的 Unicode 码点为 01101100 11010101，右侧 UTF-8 编码占 3 个字节：11100110 10110011 10010101（十六进制 E6 B3 95）。",
+    "在两个汉字的 UTF-8 编码中，首字节开头的 1110 以绿色粗体高亮，第 2、3 字节开头的 10 以蓝色粗体高亮。底部两个说明框用大括号和引线指向“法”字的这三个前缀：左框标注“将最高 3 位设置为 1 代表字符长度为 3 字节”，右框标注“将其余字节的高 2 位设置为 10”。"
+  ],
+  "result": "UTF-8 通过字节头部前缀标识字符长度与后续字节边界，既向下兼容 1 字节的 ASCII 英文字符，又支持多字节的中文及全球字符；本例“Hello算法”共占用 5 × 1 + 2 × 3 = 11 字节。",
+  "frames": [
+    {
+      "id": "source-45",
+      "book_path": "chapter_data_structure/character_encoding.assets/utf-8_hello_algo.png",
+      "title": "Hello算法 的 UTF-8 字节编码",
+      "explanation": "对比中间“Unicode”列与右侧“UTF-8”列可以看出三字节汉字的填充过程：三字节 UTF-8 模板为 1110xxxx 10xxxxxx 10xxxxxx，扣除首字节的 4 位前缀 1110 以及后两个字节各自的 2 位续字节标识前缀 10 后，恰好剩下 4 + 6 + 6 = 16 个数据位，用来按顺序填入汉字的 16 位 Unicode 码点。例如“算”的 16 位码点 01111011 10010111 拆成 4 位、6 位、6 位即 0111、101110、010111，填入模板后便得到 11100111 10101110 10010111；“法”的 01101100 11010101 拆成 0110、110011、010101，填入模板后便得到 11100110 10110011 10010101。",
+      "state": "三列七行对照图（字符、Unicode、UTF-8）：H、e、l、l、o 的 UTF-8 均为单字节（最高位标青色 0），依次为 01001000、01100101、01101100、01101100、01101111；“算”（Unicode 为 01111011 10010111）的 UTF-8 为三字节 11100111 10101110 10010111；“法”（Unicode 为 01101100 11010101）的 UTF-8 为三字节 11100110 10110011 10010101。两个汉字首字节前缀 1110 为绿色，第 2、3 字节前缀 10 为蓝色，底部两框分别注明“将最高 3 位设置为 1 代表字符长度为 3 字节”与“将其余字节的高 2 位设置为 10”。",
+      "key_state": "Hello 各占 1 字节（01001000、01100101、01101100、01101100、01101111）；“算”占 3 字节（11100111 10101110 10010111），“法”占 3 字节（11100110 10110011 10010101）。",
+      "announcement": "展示“Hello算法”从 Unicode 码点到 UTF-8 变长字节序列的编码对照，突出单字节 0 前缀与三字节 1110、10 前缀规则。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-03",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "e99f232152ae64b809363d025f6ed98ec0891012f99f2f58e10a8b075142d36f",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "cbe99e77444e0462f57c192b0088094f9fd6936e24f6cfd18181de4a48ba8083",
+        "output_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c",
+        "output_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6",
+        "output_sha256": "bdf21f24ca6a88ed6060d24186ac933357dde4feee3a257546cffd56c2bd6867"
+      }
+    ],
+    "evidence_sha256": "ec6ba9da7d2fe9290ce303592b8440b918ec83702cd9d0e6bbdc1e50d87c89d8"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_data_structure/character_encoding.md": "507b61114c28a3b956809aa4135816175d839e2e9dbd24e92a39f26464d6ae9c"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_data_structure/character_encoding.assets/utf-8_hello_algo.png": "796914a9fa70fb74217bed1e4760ce99cfbc6e447575ef0f82a638b115c8ce1d"
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_array_and_linkedlist/array.assets/array_insert_element",
+  "title": "在固定长度数组的索引 1 插入 3",
+  "summary": "在容量为 5、含 4 个有效元素的数组 [1, 2, 5, 4, 0] 的索引 1 处插入元素 3：先从右向左依次执行三次后移赋值腾出索引 1，再将 3 写入索引 1，得到 [1, 3, 2, 5, 4]，原末尾无效元素 0 被覆盖丢失。",
+  "context": [
+    "画面左侧标题为“示例 在数组索引 1 处插入元素 3”；右侧自上而下用五排长度为 5 的数组（索引 0 至 4）及向下粗箭头，单图完整展示从初始状态、三步倒序后移到最终写入新元素的全过程。"
+  ],
+  "description": [
+    "第 1 排（初始状态）：前四格为绿色有效元素 1、2、5、4，第 5 格（索引 4）为浅灰色虚线框的 0；右侧注释说明“数组中有效元素数量 = 4，即末尾元素 0 无意义”。第 2 至第 4 排左侧由一道大括号统括，标注“将元素依次向后移动一位”：",
+    "第 2 排：执行下方代码框的 nums[4] = nums[3]，弯曲箭头从索引 3 指向索引 4，将元素 4 向右复制到末尾覆盖 0，数组内容变为 [1, 2, 5, 4, 4]（后两格的 4 加粗显示）。第 3 排：执行 nums[3] = nums[2]，弯曲箭头从索引 2 指向索引 3，将元素 5 向右复制，数组变为 [1, 2, 5, 5, 4]（索引 2、3 的 5 加粗）。第 4 排：执行 nums[2] = nums[1]，弯曲箭头从索引 1 指向索引 2，将元素 2 向右复制，数组变为 [1, 2, 2, 5, 4]（索引 1、2 的 2 加粗）。",
+    "第 5 排（完成插入）：左侧单独画出一个青色方块 3，弯曲箭头从该方块指向数组的索引 1，下方代码框标注 nums[1] = 3；数组最终变为 [1, 3, 2, 5, 4]（索引 1 为青色格 3，其余为绿色格），右侧注释说明“插入元素后，初始的末尾元素 0 丢失”。"
+  ],
+  "result": "本图的原地插入通过倒序后移再写入完成，五个存储槽位保持不变，有效元素数量从 4 增至 5；被覆盖的是原末尾无效值 0，四个原有有效元素全部保留。中间插入的平均时间复杂度为 O(n)。若五个槽位原本全部有效，仍按这段定长覆盖算法插入就会丢失末尾有效元素，需要另行扩容或拒绝插入。",
+  "frames": [
+    {
+      "id": "source-48",
+      "book_path": "chapter_array_and_linkedlist/array.assets/array_insert_element.png",
+      "title": "在固定长度数组的索引 1 插入 3",
+      "explanation": "为什么要从右向左倒序执行 nums[4] = nums[3]、nums[3] = nums[2]、nums[2] = nums[1]，而不是从索引 1 开始向右移动？因为如果先执行 nums[2] = nums[1]，索引 2 原本存放的 5 就会被 2 覆盖丢失，导致后续位置全部变成 2。倒序后移每次只覆盖右侧已经备份过（或最末尾无意义）的位置，从而完好保留了 2、5、4 三个原有有效元素，最后安全地将 3 写入腾出的索引 1。",
+      "state": "左侧标注“示例 在数组索引 1 处插入元素 3”，右侧自上而下展示五排 5 格数组：第 1 排为 [1, 2, 5, 4, 0]（末格 0 为灰色虚线框，右注“数组中有效元素数量 = 4 即末尾元素 0 无意义”）；第 2 排执行 nums[4] = nums[3] 得 [1, 2, 5, 4, 4]；第 3 排执行 nums[3] = nums[2] 得 [1, 2, 5, 5, 4]；第 4 排执行 nums[2] = nums[1] 得 [1, 2, 2, 5, 4]（第 2 至 4 排左括“将元素依次向后移动一位”）；第 5 排将青色方块 3 写入索引 1（执行 nums[1] = 3）得 [1, 3, 2, 5, 4]，右注“插入元素后，初始的末尾元素 0 丢失”。",
+      "key_state": "五排数组依次为：初始 [1, 2, 5, 4, 0]，经三次倒序后移依次变为 [1, 2, 5, 4, 4]、[1, 2, 5, 5, 4]、[1, 2, 2, 5, 4]，最后写入 nums[1] = 3 得到 [1, 3, 2, 5, 4]。",
+      "announcement": "演示在定长数组 [1, 2, 5, 4, 0] 的索引 1 处插入元素 3：先从右向左依次后移 4、5、2，再将 3 赋值给索引 1。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-03",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "b15423795620e4aa3fc85decdaf2a4f427a912d58f8731210489dfe13d066183",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "cbe99e77444e0462f57c192b0088094f9fd6936e24f6cfd18181de4a48ba8083",
+        "output_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c",
+        "output_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6",
+        "output_sha256": "bdf21f24ca6a88ed6060d24186ac933357dde4feee3a257546cffd56c2bd6867"
+      }
+    ],
+    "evidence_sha256": "ec6ba9da7d2fe9290ce303592b8440b918ec83702cd9d0e6bbdc1e50d87c89d8"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_array_and_linkedlist/array.md": "b552efb1674ec7ace53cef69704ced587bc0f66bf9c861380e4105d944147d3e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_array_and_linkedlist/array.assets/array_insert_element.png": "24a81e43264ebf663bb855172d229531f9be42c97a3bdee95053ae705c065bf9"
+    }
+  },
+  "animations": {
+    "flow-array-insert": {
+      "kind": "prose",
+      "model_sha256": "ab3b1a5ea378375cea091fb7257fd4f70ab7e1b32c7b9c15948a28d247e045e5",
+      "prose": {
+        "schema_version": 1,
+        "status": "confirmed",
+        "locale": "zh-hans",
+        "story_id": "flow-array-insert",
+        "group_id": "group:chapter_array_and_linkedlist/array.assets/array_insert_element",
+        "title": "数组插入：从右向左依次后移，再写入新元素",
+        "summary": "在五个槽位的数组中将 3 插入索引 1，使有效序列由 [1, 2, 5, 4] 变为 [1, 3, 2, 5, 4]。",
+        "context": [
+          "数组 nums 的固定容量为 5，索引从 0 到 4。初始存储内容为 [1, 2, 5, 4, 0]，其中前 4 项 [1, 2, 5, 4] 为有效元素，有效长度为 4，末尾索引 4 处的 0 位于有效序列之外、无实际意义。本例的目标是在索引 1 处插入新元素 3，并保持原有有效元素的相对顺序。"
+        ],
+        "description": [
+          "动画始终在同一排五个固定槽位上展示数组存储的变化。为给索引 1 腾出位置且不覆盖尚未备份的有效值，算法从原有效序列最右端的索引 3 开始，自右向左依次执行 nums[4] = nums[3]、nums[3] = nums[2]、nums[2] = nums[1]，最后执行 nums[1] = 3。",
+          "每一步后移都通过赋值复制完成：赋值只更新右侧目标槽位的值，不会清空左侧源槽位，因此中间状态会先后出现两个 4、两个 5、两个 2。这些重复数字是复制留下的中间存储状态，并非额外新增的有效元素，也不是同一个元素实体在物理槽位间平移。",
+          "当新元素 3 写入索引 1 后，数组有效长度由 4 增加到 5，初始末尾槽位中无意义的 0 被覆盖丢失，原有四个有效元素 1、2、5、4 全部保留。"
+        ],
+        "result": "插入完成后，数组存储内容与有效序列均为 [1, 3, 2, 5, 4]，容量为 5，有效长度增至 5。",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "明确插入位置与初始有效长度",
+            "explanation": "画面展示容量为 5 的初始数组，左侧标注“示例：在数组索引 1 处插入元素 3”，右侧说明“数组中有效元素数量 = 4，即末尾元素 0 无意义”。当前索引 0 至 3 依次存放有效值 1、2、5、4，索引 4 的灰色虚线槽存放无意义的 0；要在索引 1 写入 3，需先将索引 1 至 3 的元素依次向右复制一位。",
+            "state": "数组容量为 5，当前存储为 [1, 2, 5, 4, 0]，有效长度为 4，有效序列为 [1, 2, 5, 4]，末尾索引 4 的 0 无意义；目标是在索引 1 处插入元素 3。",
+            "key_state": "初始有效序列 [1, 2, 5, 4]，待在索引 1 插入 3。",
+            "announcement": "显示初始数组 [1, 2, 5, 4, 0]，准备在索引 1 插入 3。"
+          },
+          {
+            "id": "step-2",
+            "title": "将索引 3 的 4 复制到索引 4",
+            "explanation": "画面提示“将元素依次向后移动一位”，下方弯箭头从索引 3 指向索引 4，标注赋值语句 nums[4] = nums[3]。索引 3 的末尾有效值 4 被复制到索引 4，覆盖原本无意义的 0；由于赋值不清空源槽位，索引 3 和索引 4 此时都存放 4。先备份最右端的 4，下一步才能安全覆盖索引 3。",
+            "state": "数组容量为 5，当前存储为 [1, 2, 5, 4, 4]；插入过程尚未完成，记录的有效长度仍为 4，已执行 nums[4] = nums[3]。",
+            "key_state": "执行 nums[4] = nums[3]，存储变为 [1, 2, 5, 4, 4]。",
+            "announcement": "将索引 3 的 4 复制到索引 4。"
+          },
+          {
+            "id": "step-3",
+            "title": "将索引 2 的 5 复制到索引 3",
+            "explanation": "弯箭头从索引 2 指向索引 3，执行 nums[3] = nums[2]。索引 2 的值 5 复制到索引 3，覆盖原值 4；因为原值 4 已在上一步保存到索引 4，本次覆盖不会丢失数据。此时索引 2 与索引 3 均为 5。",
+            "state": "数组容量为 5，当前存储为 [1, 2, 5, 5, 4]，记录的有效长度仍为 4；索引 3 已更新为 5，索引 4 保留 4。",
+            "key_state": "执行 nums[3] = nums[2]，存储变为 [1, 2, 5, 5, 4]。",
+            "announcement": "将索引 2 的 5 复制到索引 3。"
+          },
+          {
+            "id": "step-4",
+            "title": "将索引 1 的 2 复制到索引 2",
+            "explanation": "弯箭头从索引 1 指向索引 2，执行 nums[2] = nums[1]，把插入位置原有的 2 复制到索引 2。至此，原索引 1、2、3 处的三个有效元素 2、5、4 已全部向右复制一格到索引 2、3、4，索引 1 的旧值可以安全被新元素覆盖。",
+            "state": "数组容量为 5，当前存储为 [1, 2, 2, 5, 4]，记录的有效长度仍为 4；原有效值 2、5、4 已依次保存在索引 2 至 4，索引 1 已腾出可写位置。",
+            "key_state": "执行 nums[2] = nums[1]，后移完成，存储为 [1, 2, 2, 5, 4]。",
+            "announcement": "将索引 1 的 2 复制到索引 2，完成向后复制。"
+          },
+          {
+            "id": "step-5",
+            "title": "在索引 1 写入 3，完成插入",
+            "explanation": "左侧独立数字 3 经箭头指向索引 1，下方标注 nums[1] = 3，右侧说明“插入元素后，初始的末尾元素 0 丢失”。新值 3 写入索引 1 后，有效长度从 4 增加到 5，五个槽位全部成为有效元素，有效序列更新为 [1, 3, 2, 5, 4]。",
+            "state": "数组容量为 5，当前存储与有效序列均为 [1, 3, 2, 5, 4]，有效长度为 5，新元素 3 位于索引 1。",
+            "key_state": "写入 nums[1] = 3，有效序列变为 [1, 3, 2, 5, 4]，有效长度 5。",
+            "announcement": "在索引 1 写入 3，插入完成，有效长度变为 5。"
+          }
+        ],
+        "review": {
+          "status": "confirmed",
+          "run_id": "figure-accessibility-20261114/animations/batch-01",
+          "content_sha256": "bf249c8d0cc359de5fbd368dce60f84d1a8750fe7b48f02064c41c7b8a55927e",
+          "stages": [
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "b6174850feed92b51c3d512a1a38c62aaf02c614ff07640008831c8726ce0a64",
+              "output_sha256": "dd7f9f098b8c6e77ff0f0fabc4879e20180eac76e44e8ba253820d46c888cef7"
+            },
+            {
+              "requested_model": "gemini-4-argon",
+              "actual_model": null,
+              "model_confirmation": "provider_not_reported",
+              "input_sha256": "dd7f9f098b8c6e77ff0f0fabc4879e20180eac76e44e8ba253820d46c888cef7",
+              "output_sha256": "00dbf3ad9071e0a78f3f320067484cdbea304d50e0c1faae49ed41c17350f825"
+            },
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "00dbf3ad9071e0a78f3f320067484cdbea304d50e0c1faae49ed41c17350f825",
+              "output_sha256": "b52ab18dd9c1db9a93bc5c3e340b21d0414a0d86594f1d061ffd5191a1c5f993"
+            }
+          ],
+          "evidence_sha256": "f629e6bda011b65c2484338a3ba90bd400522d0d30bc8a435a852c5403cbb741"
+        }
+      }
+    }
+  }
+}

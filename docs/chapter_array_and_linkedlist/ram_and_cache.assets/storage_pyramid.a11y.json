@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid",
+  "title": "计算机存储系统的金字塔层级",
+  "summary": "从顶到底依次为 CPU 内的 L1、L2、L3 缓存，以及内存（RAM）和硬盘（HDD/SSD），体现速度与容量、成本的权衡。",
+  "context": [
+    "中央金字塔从上到下由窄变宽，共分五层：前三层为 L1 Cache、L2 Cache、L3 Cache，左侧归类为“缓存”，上方由绿色边框归入“CPU”内部；第四层为 RAM，左侧标为“内存”；最底层为 HDD/SSD，左侧标为“硬盘”。"
+  ],
+  "description": [
+    "金字塔右侧有两条方向相反的纵向箭头：向上箭头旁标“速度、价格”，表示越靠近顶端的存储层级，访问速度越快、单位容量价格越高；向下箭头旁标“容量、持久性”，表示越靠近底端的存储层级，容量越大，且到底层硬盘（HDD/SSD）具备断电后长期保存数据的持久性（缓存与内存属于易失性存储，断电后数据会丢失）。"
+  ],
+  "result": "多层级存储结构在高速低容量的缓存、中等速度与容量的内存、大容量可持久化的硬盘之间取得速度、容量与成本的平衡。",
+  "frames": [
+    {
+      "id": "source-54",
+      "book_path": "chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.png",
+      "title": "计算机存储系统的金字塔层级",
+      "explanation": "金字塔从顶到底由窄变宽分为五层：位于 CPU 绿色框内的 L1 Cache、L2 Cache、L3 Cache（左侧统称“缓存”），其下的 RAM（“内存”），以及最底层的 HDD/SSD（“硬盘”）。右侧向上箭头标“速度、价格”，说明越往上访问越快、单位容量成本越高；向下箭头标“容量、持久性”，说明越往下容量越大，且底层硬盘能够在断电后持久保存数据，而上方的缓存和内存断电后数据会丢失。",
+      "state": "五层存储金字塔从上到下依次是：CPU 内的缓存（L1 Cache、L2 Cache、L3 Cache）、内存（RAM）、硬盘（HDD/SSD）。右侧向上箭头指向更高的速度与价格，向下箭头指向更大的容量与底层硬盘的断电持久性。",
+      "key_state": "存储金字塔自上而下为 CPU 缓存（L1/L2/L3）、内存（RAM）、硬盘（HDD/SSD）；向上速度更快、价格更高，向下容量更大且硬盘可持久保存。",
+      "announcement": "计算机存储系统呈金字塔结构：从顶部的 L1、L2、L3 缓存到内存再到硬盘，速度与单价自下而上递增，容量自上而下递增。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-04",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "e47ec606e9477f2755d1c802b946b52f3f65316847c4a9776e520bf83dbcf74c",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "010659120695514881c0d1ee814ac67faa1e50957300a7e781f1c3edf7858059",
+        "output_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de",
+        "output_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8",
+        "output_sha256": "d48eb4dd56235f9a9b2f2d5c8f67899492c9f6b15567237d35161c31596306cb"
+      }
+    ],
+    "evidence_sha256": "178794e8fd357c692f91d245ae613b37aa02834865c6124afd4cd91ea892de0d"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_array_and_linkedlist/ram_and_cache.md": "015f4c1e7157dcdf021d6530e3d7f249995acaa07acf7a31ca8a099ff5bdfa1f"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.png": "5b6ddb034e17daf5189d8bbb5efa704cd3db9ca8d47ec3e0c6df98f48a42eace"
+    }
+  }
+}

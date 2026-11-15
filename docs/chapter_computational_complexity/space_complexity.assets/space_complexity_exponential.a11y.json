@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_computational_complexity/space_complexity.assets/space_complexity_exponential",
+  "title": "存储 n 层满二叉树所需的空间",
+  "summary": "构建并保存一棵 n 层满二叉树时，各层节点数从 2⁰ 翻倍至 2ⁿ⁻¹，内存中同时保留全部 2ⁿ - 1 个节点，对应指数阶空间复杂度 O(2ⁿ)。",
+  "context": [
+    "图对应递归构建满二叉树（build_tree）完成后在内存中保存的树结构：每个带双层边框的绿色圆圈代表 1 个树节点对象（占用固定大小的内存空间），有向箭头从父节点指向左、右子节点。右侧列标题为“各层的节点总数”，大括号标明整棵树“共 n 层”。"
+  ],
+  "description": [
+    "从上到下，第 1 层画出 1 个绿色根节点，右侧标注 2⁰（即 1）；根节点向左下、右下各伸出 1 条箭头，指向第 2 层的 2 个节点，右侧标注 2¹（即 2）；第 2 层每个节点再各伸出 2 条箭头，指向第 3 层的 4 个节点，右侧标注 2²（即 4）。",
+    "第 3 层的 4 个节点下方共伸出 8 条向下箭头指向省略号，表示树继续按满二叉树规律向下展开直至第 n 层；右列在省略号下方标注第 n 层的节点总数 2ⁿ⁻¹（即 2 的 n - 1 次方）。底部说明框写出：“所有节点数量 2⁰ + 2¹ + 2² + … + 2ⁿ⁻¹ = 2ⁿ - 1”，右侧箭头指向“空间复杂度 指数阶 O(2ⁿ)”。"
+  ],
+  "result": "当算法需要在内存中完整保存一棵层数为 n 的满二叉树时，所有新创建的节点对象都不会随递归返回而销毁；节点总数 2ⁿ - 1 决定了其占用的存储空间呈指数级增长，空间复杂度为指数阶 O(2ⁿ)。",
+  "frames": [
+    {
+      "id": "source-37",
+      "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_exponential.png",
+      "title": "存储 n 层满二叉树所需的空间",
+      "explanation": "注意区分“递归调用栈深度”与“持久化的树节点总数”：构建这棵 n 层满二叉树时，单条从根到叶路径上的递归调用栈深度虽然只有 O(n)，但每次调用创建的树节点都会通过左右指针挂载到树上并长期保留。因此峰值内存必须统计整棵树同时存在的所有节点：将第 1 层至第 n 层的节点数相加得到 1 + 2 + 4 + … + 2ⁿ⁻¹ = 2ⁿ - 1，每个节点占用常数空间，总空间复杂度即为指数阶 O(2ⁿ)。",
+      "state": "满二叉树共 n 层，父节点通过箭头指向左、右子节点。第 1 至 3 层分别画出 1、2、4 个绿色圆形节点，右列“各层的节点总数”依次标注 2⁰、2¹、2²；其下用箭头与省略号表示中间层，最底层标注 2ⁿ⁻¹，右侧大括号标注“共 n 层”。底部标注所有节点数量 2⁰ + 2¹ + 2² + … + 2ⁿ⁻¹ = 2ⁿ - 1，空间复杂度为指数阶 O(2ⁿ)。",
+      "key_state": "n 层满二叉树各层节点数依次为 2⁰（1）、2¹（2）、2²（4）、…、2ⁿ⁻¹，共保留 2ⁿ - 1 个节点，属指数阶空间复杂度 O(2ⁿ)。",
+      "announcement": "展示 n 层满二叉树的节点展开结构，汇总全部 2ⁿ - 1 个持久化节点得到指数阶空间复杂度 O(2ⁿ)。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-02",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "2cd99ed757c493fff50e5529bd4e4c237857a3781456d281a665ef8e24d51f03",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "2418f4f89bf15820de1b9f866e20459174d1357741c9215565d8a6fadd9ef34c",
+        "output_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae",
+        "output_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4",
+        "output_sha256": "62b51949e795658a5a6779b7e616f31ed019742d5859071a77cc3801abe0d6d7"
+      }
+    ],
+    "evidence_sha256": "45d0d7027b523659e72b602edeb9f0d969e31b4ab937e3e24decd1d342fb1eff"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_computational_complexity/space_complexity.md": "abad8985c68bd7c4f69a006f641f5420c4d4f10c0ee5d797be445ac649512690"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_computational_complexity/space_complexity.assets/space_complexity_exponential.png": "6db9e1a339ab27a5a1eb7ab4e397ad5aa5d468c369797779a78f5fc82481c117"
+    }
+  }
+}

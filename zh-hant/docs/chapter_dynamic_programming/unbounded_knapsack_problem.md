@@ -46,19 +46,19 @@ $$
     ![完全背包問題在空間最佳化後的動態規劃過程](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.svg)
 
 === "<2>"
-    ![unbounded_knapsack_dp_comp_step2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.svg)
+    ![完全背包：正序更新單行陣列，第 2 步，共 6 步：第 2 步：正序先處理容量 c = 1，裝不下菠蘿保持 5](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.svg)
 
 === "<3>"
-    ![unbounded_knapsack_dp_comp_step3](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.svg)
+    ![完全背包：正序更新單行陣列，第 3 步，共 6 步：第 3 步：正序更新容量 c = 2，選入菠蘿更新為 11](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.svg)
 
 === "<4>"
-    ![unbounded_knapsack_dp_comp_step4](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.svg)
+    ![完全背包：正序更新單行陣列，第 4 步，共 6 步：第 4 步：正序更新容量 c = 3，蘋果加菠蘿更新為 16](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.svg)
 
 === "<5>"
-    ![unbounded_knapsack_dp_comp_step5](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.svg)
+    ![完全背包：正序更新單行陣列，第 5 步，共 6 步：第 5 步：正序更新容量 c = 4，重複選菠蘿更新為 22](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.svg)
 
 === "<6>"
-    ![unbounded_knapsack_dp_comp_step6](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.svg)
+    ![完全背包：正序更新單行陣列，第 6 步，共 6 步：第 6 步：完成 i = 2 輪走訪，單行儲存前兩種物品的解](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.svg)
 
 程式碼實現比較簡單，僅需將陣列 `dp` 的第一維刪除：
 
@@ -123,46 +123,46 @@ $$
     ![零錢兌換問題的動態規劃過程](unbounded_knapsack_problem.assets/coin_change_dp_step1.svg)
 
 === "<2>"
-    ![coin_change_dp_step2](unbounded_knapsack_problem.assets/coin_change_dp_step2.svg)
+    ![零錢兌換：逐格求金額 4 的最少硬幣枚數，第 2 步，共 15 步：第 2 步：將首行正金額設為 MAX = 5，首列保持 0](unbounded_knapsack_problem.assets/coin_change_dp_step2.svg)
 
 === "<3>"
-    ![coin_change_dp_step3](unbounded_knapsack_problem.assets/coin_change_dp_step3.svg)
+    ![零錢兌換：逐格求金額 4 的最少硬幣枚數，第 3 步，共 15 步：第 3 步：計算 dp\[1, 1\]（面值 1、金額 1），最少 1 枚](unbounded_knapsack_problem.assets/coin_change_dp_step3.svg)
 
 === "<4>"
-    ![coin_change_dp_step4](unbounded_knapsack_problem.assets/coin_change_dp_step4.svg)
+    ![零錢兌換：逐格求金額 4 的最少硬幣枚數，第 4 步，共 15 步：第 4 步：計算 dp\[1, 2\]（面值 1、金額 2），最少 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step4.svg)
 
 === "<5>"
-    ![coin_change_dp_step5](unbounded_knapsack_problem.assets/coin_change_dp_step5.svg)
+    ![零錢兌換：逐格求金額 4 的最少硬幣枚數，第 5 步，共 15 步：第 5 步：計算 dp\[1, 3\]（面值 1、金額 3），最少 3 枚](unbounded_knapsack_problem.assets/coin_change_dp_step5.svg)
 
 === "<6>"
-    ![coin_change_dp_step6](unbounded_knapsack_problem.assets/coin_change_dp_step6.svg)
+    ![零錢兌換：逐格求金額 4 的最少硬幣枚數，第 6 步，共 15 步：第 6 步：計算 dp\[1, 4\]（面值 1、金額 4），最少 4 枚](unbounded_knapsack_problem.assets/coin_change_dp_step6.svg)
 
 === "<7>"
-    ![coin_change_dp_step7](unbounded_knapsack_problem.assets/coin_change_dp_step7.svg)
+    ![零錢兌換：逐格求金額 4 的最少硬幣枚數，第 7 步，共 15 步：第 7 步：計算 dp\[2, 1\]（面值 2、金額 1），裝不下面值 2 保持 1 枚](unbounded_knapsack_problem.assets/coin_change_dp_step7.svg)
 
 === "<8>"
-    ![coin_change_dp_step8](unbounded_knapsack_problem.assets/coin_change_dp_step8.svg)
+    ![零錢兌換：逐格求金額 4 的最少硬幣枚數，第 8 步，共 15 步：第 8 步：計算 dp\[2, 2\]（面值 2、金額 2），選 1 枚 2 元更新為 1](unbounded_knapsack_problem.assets/coin_change_dp_step8.svg)
 
 === "<9>"
-    ![coin_change_dp_step9](unbounded_knapsack_problem.assets/coin_change_dp_step9.svg)
+    ![零錢兌換：逐格求金額 4 的最少硬幣枚數，第 9 步，共 15 步：第 9 步：計算 dp\[2, 3\]（面值 2、金額 3），更新為最少 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step9.svg)
 
 === "<10>"
-    ![coin_change_dp_step10](unbounded_knapsack_problem.assets/coin_change_dp_step10.svg)
+    ![零錢兌換：逐格求金額 4 的最少硬幣枚數，第 10 步，共 15 步：第 10 步：計算 dp\[2, 4\]（面值 2、金額 4），兩枚 2 元更新為 2](unbounded_knapsack_problem.assets/coin_change_dp_step10.svg)
 
 === "<11>"
-    ![coin_change_dp_step11](unbounded_knapsack_problem.assets/coin_change_dp_step11.svg)
+    ![零錢兌換：逐格求金額 4 的最少硬幣枚數，第 11 步，共 15 步：第 11 步：計算 dp\[3, 1\]（面值 5、金額 1），面值過大保持 1 枚](unbounded_knapsack_problem.assets/coin_change_dp_step11.svg)
 
 === "<12>"
-    ![coin_change_dp_step12](unbounded_knapsack_problem.assets/coin_change_dp_step12.svg)
+    ![零錢兌換：逐格求金額 4 的最少硬幣枚數，第 12 步，共 15 步：第 12 步：計算 dp\[3, 2\]（面值 5、金額 2），面值過大保持 1 枚](unbounded_knapsack_problem.assets/coin_change_dp_step12.svg)
 
 === "<13>"
-    ![coin_change_dp_step13](unbounded_knapsack_problem.assets/coin_change_dp_step13.svg)
+    ![零錢兌換：逐格求金額 4 的最少硬幣枚數，第 13 步，共 15 步：第 13 步：計算 dp\[3, 3\]（面值 5、金額 3），面值過大保持 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step13.svg)
 
 === "<14>"
-    ![coin_change_dp_step14](unbounded_knapsack_problem.assets/coin_change_dp_step14.svg)
+    ![零錢兌換：逐格求金額 4 的最少硬幣枚數，第 14 步，共 15 步：第 14 步：計算 dp\[3, 4\]（面值 5、金額 4），面值過大保持 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step14.svg)
 
 === "<15>"
-    ![coin_change_dp_step15](unbounded_knapsack_problem.assets/coin_change_dp_step15.svg)
+    ![零錢兌換：逐格求金額 4 的最少硬幣枚數，第 15 步，共 15 步：第 15 步：讀取右下角 dp\[3, 4\]，返回最少硬幣數量 2](unbounded_knapsack_problem.assets/coin_change_dp_step15.svg)
 
 ### 空間最佳化
 

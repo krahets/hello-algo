@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_backtracking/permutations_problem.assets/permutations_ii_pruning",
+  "title": "同轮剪掉相等元素分支",
+  "summary": "在同一轮选择中对值为 1 的候选只尝试一次，提前剪去重复的搜索子树。",
+  "context": [
+    "输入仍为 choices=[1, 1̂, 2]，1̂ 仅作为第二个 1 的身份标记。算法需要禁止同一轮重复尝试相等数值，同时仍允许在不同轮次分别选用这两个索引，以拼出包含两个 1 的合法排列。"
+  ],
+  "description": [
+    "三层选择树保留了第一轮选 1 和选 2 的主分支。第一轮选 1̂ 的中间分支，以及第一轮选 2 后第二轮选 1̂ 的分支均呈淡灰色，并在虚线箭头上标出红色剪刀与“剪枝：两个重复的 1 只应被选择一次”。"
+  ],
+  "result": "通过在同轮跳过相等候选，搜索树直接留下 [1, 1, 2]、[1, 2, 1]、[2, 1, 1] 三种唯一排列，无需生成全部六个叶节点后再去重。",
+  "frames": [
+    {
+      "id": "source-356",
+      "book_path": "chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.png",
+      "title": "同轮剪掉相等元素分支",
+      "explanation": "在根节点的第一轮选择中，先尝试第一个 1，随后遇到数值相等的 1̂ 时直接剪枝跳过，接着正常尝试 2。进入左分支 [1] 后，第二轮尚未尝试过值为 1 的元素，因此可以合法选用未使用的 1̂ 或 2，并在第三轮补齐最后一个元素，得到 [1, 1̂, 2] 与 [1, 2, 1̂]。进入右分支 [2] 后，第二轮先尝试 1，再将同轮相等的 1̂ 剪枝，最后在第三轮填入剩余的 1̂，得到 [2, 1, 1̂]。正文代码通过在每轮递归调用内部新建哈希集合 duplicated 来记录本轮已尝试过的数值。",
+      "state": "顶部 choices=[1, 1̂, 2]；第一轮的 [1̂] 分支与第二轮在 [2] 下的 [2, 1̂] 分支均变为灰色并标红剪刀剪枝。保留的三条完整路径依次到达叶节点 [1, 1̂, 2]、[1, 2, 1̂] 和 [2, 1, 1̂]。",
+      "key_state": "同轮内跳过第二个 1，不同轮次仍可先后选用 1 和 1̂。",
+      "announcement": "在第一轮和前缀 [2] 后的第二轮中各剪去重复的 1̂ 分支，直接保留三种不重复排列。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-18",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "e865abfbf4406da1c6b1c08a43b7da073b04bcc2a3e2202b9a3032c7bafbcdd4",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "4d905ea19e7b4a83ea36041a9c7f9d8d8c1f3b06c72a654e2a9e539750effd5d",
+        "output_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90",
+        "output_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad",
+        "output_sha256": "5ee2b110fd9b935a096ccaacf3e3b27d88bb1cb4918d9a5b6bd2b5a75c56edf0"
+      }
+    ],
+    "evidence_sha256": "5559c3ad6bd5d378f79de2a5c7f96ac680c007486f684e00a24a2512ab4de485"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_backtracking/permutations_problem.md": "3a98624cb60210ec070f3e3a5e1a72593e80be9ded7190c57aa89ceda20034df"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.png": "dfcc661e4872f4f8cb4684cb8432120bb02eb614fa7b922c90278106718d3760"
+    }
+  }
+}

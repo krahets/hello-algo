@@ -31,10 +31,10 @@
     ![輔助雜湊表求解兩數之和](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg)
 
 === "<2>"
-    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg)
+    ![輔助雜湊表求解兩數之和：單層迴圈先查補數再存當前元素，第 2 步，共 3 步：第 2 步：i = 1 訪問元素 7，補數 6 不在 map 中，存入 7 → 1](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg)
 
 === "<3>"
-    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg)
+    ![輔助雜湊表求解兩數之和：單層迴圈先查補數再存當前元素，第 3 步，共 3 步：第 3 步：i = 2 訪問元素 11，在 map 中查到補數 2，返回 \[0, 2\]](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg)
 
 實現程式碼如下所示，僅需單層迴圈即可：
 

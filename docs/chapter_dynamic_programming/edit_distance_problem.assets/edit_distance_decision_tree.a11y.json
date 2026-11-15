@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_decision_tree",
+  "title": "编辑决策树：从 hello 到 algo 的一条三步路径",
+  "summary": "将字符串视为树节点、单次编辑操作视为边，沿左侧展开分支展示 hello → helgo → halgo → algo 的三步转换路径，其余分支以省略号表示。",
+  "context": [
+    "在决策树模型下，每个节点代表一个字符串状态，从节点发出的每条有向边代表一轮决策（一次插入、删除或替换操作）。求解字符串 s = hello 到 t = algo 的编辑距离，等价于在这棵决策树中寻找从根节点 hello 到目标节点 algo 的最短路径。"
+  ],
+  "description": [
+    "画面自上而下展开左侧一条包含 4 个字符串节点、3 条有向边的具体路径：顶层根节点 s = hello 经“将 l 替换为 g”（把两个 l 中的后一个替换为 g）到达第 2 层节点 helgo；再经“将 e 替换为 a”到达第 3 层节点 halgo；最后经“删除 h”（删除首字母 h）到达底层目标节点 t = algo。",
+    "在前三层的每个展开节点（hello、helgo、halgo）右侧，还各画出 3 条指向省略号“…”的分支箭头，表示在不限制操作的情况下每个字符串都可以派生出许多其他编辑选择；这些省略分支并未写出具体字符串，本图旨在直观说明决策树最短路径视角，而非穷举整棵搜索树。"
+  ],
+  "result": "图中展开的决策树路径通过 3 条边（3 次编辑操作）从根节点 hello 抵达目标节点 algo，对应正文给出的最少编辑步数 3。",
+  "frames": [
+    {
+      "id": "source-442",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_decision_tree.png",
+      "title": "沿决策树三条编辑边从 hello 到达 algo",
+      "explanation": "从根节点 s = hello 出发，沿左侧展开路径依次执行三步决策：第 1 步将后一个 l 替换为 g 得到 helgo，第 2 步将 e 替换为 a 得到 halgo，第 3 步删除首字母 h 得到目标串 t = algo；各节点右侧通向省略号的分支代表其余未展开的编辑选择。",
+      "state": "决策树左侧展开 4 个节点：s = hello → helgo → halgo → t = algo，连接边依次标注“将 l 替换为 g”（后一个 l）、“将 e 替换为 a”和“删除 h”；前 3 个节点右侧各有 3 条指向“…”的省略分支。",
+      "key_state": "决策树展开路径：hello → helgo → halgo → algo，共 3 条编辑边。",
+      "announcement": "展示编辑距离决策树：沿 hello → helgo → halgo → algo 三步路径抵达目标串，其余分支以省略号表示。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "展开路径上的编辑",
+      "headers": [
+        "边",
+        "操作",
+        "得到的字符串"
+      ],
+      "rows": [
+        [
+          "hello→helgo",
+          "后一个l替换为g",
+          "helgo"
+        ],
+        [
+          "helgo→halgo",
+          "e替换为a",
+          "halgo"
+        ],
+        [
+          "halgo→algo",
+          "删除开头h",
+          "algo"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-22",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "e31b00b0ece83793b3891021e411291222d09c6a113393356b271692bfc62231",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "355bb0a076e0c4a50506f944ec79d9a6370d2b0116db530af832856399b3485f",
+        "output_sha256": "599916a14e949b12438a8611b3d61d624eb76ebbe8824f46cd645944bc7bd6aa"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "599916a14e949b12438a8611b3d61d624eb76ebbe8824f46cd645944bc7bd6aa",
+        "output_sha256": "3afc9f8a0fdc112cc4ef5c720bc3adf71e9218da3eb7b26361dcf108ad5ae149"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "3afc9f8a0fdc112cc4ef5c720bc3adf71e9218da3eb7b26361dcf108ad5ae149",
+        "output_sha256": "6db2e4eff0a7643db4ac5f1c8ad3c9522a1a422b7048c605b10c5f576f7d028d"
+      }
+    ],
+    "evidence_sha256": "cb891d8e2b5e544988c1d1367b6de97883710871a6a6ba0cf5a7e132cd7345cd"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_dynamic_programming/edit_distance_problem.md": "643a62f62b2090294e2b8f8889bb1e9975cdbb62e41dd1c7cb3c25a11343c11f"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_decision_tree.png": "5347508e70f3e39544e718803199745de8b1f02644007dedc2b182aa0eb965c7"
+    }
+  }
+}

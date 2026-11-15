@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_computational_complexity/iteration_and_recursion.assets/nested_iteration",
+  "title": "嵌套循环的流程图",
+  "summary": "展示双层嵌套循环的执行流程：外循环控制 i 从 1 到 n，每当 i ≤ n 为真时进入内循环；内循环控制 j 从 1 到 n 反复执行“任务”并更新 j += 1，内循环条件 j ≤ n 为假时触发外循环更新 i += 1，直至 i ≤ n 为假时结束。",
+  "context": [
+    "正文在单层 for 循环的基础上引入双层嵌套循环，说明当一个循环结构内部再嵌套另一个循环时，内外两层循环变量如何配合控制任务的重复执行次数。本例设 n 为正整数。"
+  ],
+  "description": [
+    "画面在“开始”与“结束”之间绘制了两层嵌套的圆角容器框：外层紫蓝色大框标注“外循环”，包含顶部的初始化“i = 1”、菱形判断“i ≤ n”以及右侧的更新“i += 1”；内层蓝色框标注“内循环”，嵌套在“i ≤ n”的“真”分支下方，包含初始化“j = 1”、菱形判断“j ≤ n”、绿色“任务”节点以及左侧的更新“j += 1”。"
+  ],
+  "result": "外循环每推进一次 i，内循环都会将 j 从 1 到 n 完整遍历一轮；因此当内外循环规模均为 n 时，最内层的“任务”总共会被执行 n × n（即 n²）次。",
+  "frames": [
+    {
+      "id": "source-20",
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/nested_iteration.png",
+      "title": "嵌套循环的流程图",
+      "explanation": "流程从“开始”进入“外循环”框，先置“i = 1”并判断“i ≤ n”。若“i ≤ n”为“真”，向下进入“内循环”框：每次进入都先将 j 重置为 1并判断“j ≤ n”；当“j ≤ n”为“真”时，向下执行“任务”，再经左侧“j += 1”回到“j ≤ n”反复循环。一旦内循环的“j ≤ n”变为“假”，流程沿右侧箭头跳出内循环，执行外循环右侧的“i += 1”并回到“i ≤ n”开始下一轮外循环；当外循环的“i ≤ n”也变为“假”时，流程沿左侧箭头跳出外循环到达“结束”。",
+      "state": "“开始”进入“外循环”框（含 i = 1、判断 i ≤ n、右侧更新 i += 1）：i ≤ n 的“假”分支向左穿出外框至“结束”，“真”分支向下进入嵌套的“内循环”框（含 j = 1、判断 j ≤ n、底部“任务”、左侧更新 j += 1）；j ≤ n 的“真”分支经“任务”与“j += 1”闭环，“假”分支向右穿出内循环连向外循环的“i += 1”。",
+      "key_state": "双层嵌套循环：i ≤ n 为真时进入内循环执行 j = 1..n 的任务，j ≤ n 为假时更新 i += 1，i ≤ n 为假时结束。",
+      "announcement": "外循环在 i ≤ n 为真时进入内循环，内循环在 j ≤ n 为真时反复执行任务并更新 j += 1；内循环结束后更新外层 i += 1，直至 i ≤ n 为假时结束。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-01",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "708d0d959730ebeee556d81fa8eb2eeea4b67566eccfc02e0365fe2ffe9b9ea5",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "431741d9738e417e17d2b6e1ded2465a8b4b113efdfecac9156ffc919692f129",
+        "output_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4",
+        "output_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0",
+        "output_sha256": "10e9faf80624dffe5daec10997eafa110b0fa676bf753184a205a3604fd651d9"
+      }
+    ],
+    "evidence_sha256": "ef94661da660ccf8ffe36e7213507ecb5fe1fad850478d55981ecebce88583b7",
+    "schema_normalization": "Wrap context/description strings in paragraph arrays; prose unchanged."
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_computational_complexity/iteration_and_recursion.md": "636363df79954464f16ea4774d97dc8304c0e190c8dc0b9ba1ce617a2372df5c"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_computational_complexity/iteration_and_recursion.assets/nested_iteration.png": "8dfbe74d7801568054f899f4341c2ccab3c61815e0e2191e5e2f955c426b9e19"
+    }
+  }
+}

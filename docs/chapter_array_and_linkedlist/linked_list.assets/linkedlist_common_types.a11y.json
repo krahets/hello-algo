@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_array_and_linkedlist/linked_list.assets/linkedlist_common_types",
+  "title": "三种常见链表类型",
+  "summary": "以同一组节点 1、3、2、5、4 对比单向链表、环形链表和双向链表的连接方式。",
+  "context": [
+    "画面从上到下分三行对比三种常见链表结构，每一行都包含按相同顺序排列的五个节点 1、3、2、5、4，区别仅在于节点间及首尾两端的引用连接方式。"
+  ],
+  "description": [
+    "上方为“单向链表（singly linked list）”：节点依次为 1 → 3 → 2 → 5 → 4 → None。每对相邻节点之间只有一条向右的后继箭头，尾节点 4 指向空值 None，只能从头到尾单向遍历。",
+    "中间为“环形链表（circular linked list）”：节点同样依次为 1 → 3 → 2 → 5 → 4，但尾节点 4 的箭头不再指向 None，而是经下方折线回到首个节点 1，形成首尾相接的闭环。在环形链表中，任意节点都可视作头节点。",
+    "下方为“双向链表（doubly linked list）”：表示为 None ← 1 ⇄ 3 ⇄ 2 ⇄ 5 ⇄ 4 → None。每对相邻节点之间都有向右（next，指向后继）和向左（prev，指向前驱）两条方向相反的箭头，头节点 1 的前驱指向左侧 None，尾节点 4 的后继指向右侧 None，支持向前和向后双向遍历。"
+  ],
+  "result": "单向链表单向连接至 None，环形链表首尾相接成环，双向链表同时维护前驱与后继引用以支持双向遍历。",
+  "frames": [
+    {
+      "id": "source-53",
+      "book_path": "chapter_array_and_linkedlist/linked_list.assets/linkedlist_common_types.png",
+      "title": "三种常见链表类型",
+      "explanation": "图从上到下用节点 1、3、2、5、4 对比三种链表：上方单向链表为 1 → 3 → 2 → 5 → 4 → None，仅含向后的单向箭头，尾节点指向 None；中间环形链表为 1 → 3 → 2 → 5 → 4，并由尾节点 4 的折线箭头连回节点 1，实现首尾相接；下方双向链表为 None ← 1 ⇄ 3 ⇄ 2 ⇄ 5 ⇄ 4 → None，相邻节点间同时具有向前和向后的双向箭头，头节点 1 的前驱与尾节点 4 的后继均指向 None。",
+      "state": "图由上到下并列展示三种链表，节点值均为 1、3、2、5、4：单向链表单向连至末尾 None；环形链表由尾节点 4 连回首节点 1；双向链表在每对相邻节点间画有双向箭头，且首尾外侧分别指向左右两个 None。",
+      "key_state": "节点均为 1、3、2、5、4：单向链表末尾指向 None，环形链表由 4 连回 1，双向链表双向互连且两端指向 None。",
+      "announcement": "对比单向、环形和双向三种链表：均包含节点 1、3、2、5、4，区别在于尾节点是否连回头部以及节点间是否双向连接。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-04",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "7d83758afd873d1ab8b2a15fa63623f5898aa70137f1349af1376ab3f62973c4",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "010659120695514881c0d1ee814ac67faa1e50957300a7e781f1c3edf7858059",
+        "output_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de",
+        "output_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8",
+        "output_sha256": "d48eb4dd56235f9a9b2f2d5c8f67899492c9f6b15567237d35161c31596306cb"
+      }
+    ],
+    "evidence_sha256": "178794e8fd357c692f91d245ae613b37aa02834865c6124afd4cd91ea892de0d"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_array_and_linkedlist/linked_list.md": "759693f1f9372ed67bcda1a55aa41fa22037940c1ca76a2aa1975ab45d1da341"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_array_and_linkedlist/linked_list.assets/linkedlist_common_types.png": "f823c8563bff753285fe6ff1c9b143a7938944f47d1a0313b2a3d8902dd1afe6"
+    }
+  }
+}

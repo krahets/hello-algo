@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_dynamic_programming/dp_problem_features.assets/climbing_stairs_constraint_state_transfer",
+  "title": "用上一步步长扩展动态规划状态",
+  "summary": "将最后一步跳了 1 阶还是 2 阶纳入二维状态 dp[i, j]，即可在转移时排除连续两次跳 1 阶。",
+  "context": [
+    "每步可上 1 阶或 2 阶，但不能连续两轮跳 1 阶。由于当前能否跳 1 阶取决于上一轮的步长，需要将状态扩展为二维 dp[i, j]，表示爬到第 i 阶且上一轮跳了 j 阶（j 取 1 或 2）的方案数。"
+  ],
+  "description": [
+    "图中在最高一阶标出两个目标状态：青色 dp[i, 1] 与蓝色 dp[i, 2]；在前一阶标出青色 dp[i-1, 2] 与灰色 dp[i-1, 1]；在前两阶标出蓝色 dp[i-2, 1] 与蓝色 dp[i-2, 2]。从 dp[i-1, 2] 有一条青色实线跨 1 阶指向 dp[i, 1]，而从灰色 dp[i-1, 1] 引出的灰色点线旁注明“不能连续两轮跳 1 阶，因此该项被舍去”；从 dp[i-2, 1] 和 dp[i-2, 2] 各有一条蓝色实线跨 2 阶汇入 dp[i, 2]。"
+  ],
+  "result": "扩展状态后问题重新满足无后效性，状态转移方程为 dp[i, 1]=dp[i-1, 2] 与 dp[i, 2]=dp[i-2, 1]+dp[i-2, 2]，爬到第 n 阶的总方案数为 dp[n, 1]+dp[n, 2]。",
+  "frames": [
+    {
+      "id": "source-375",
+      "book_path": "chapter_dynamic_programming/dp_problem_features.assets/climbing_stairs_constraint_state_transfer.png",
+      "title": "用上一步步长扩展动态规划状态",
+      "explanation": "分析到达第 i 阶的两类状态：第一类是最后一步跳 1 阶到达 dp[i, 1]，此时上一步位于第 i-1 阶，且再上一步决不能也是 1 阶，因此只能从 dp[i-1, 2] 转移而来，即 dp[i, 1]=dp[i-1, 2]，而 dp[i-1, 1] 因会导致连续两轮跳 1 阶被舍去；第二类是最后一步跳 2 阶到达 dp[i, 2]，此时上一步位于第 i-2 阶，无论前一步是跳 1 阶还是跳 2 阶都不违背约束，因此 dp[i, 2]=dp[i-2, 1]+dp[i-2, 2]。结合表中给出的正文代码第 1、第 2 阶初始状态即可顺序递推。",
+      "state": "目标阶并列青色 dp[i, 1] 和蓝色 dp[i, 2]：dp[i, 1] 仅接收来自前一阶青色 dp[i-1, 2] 的青色弧线，前一阶灰色 dp[i-1, 1] 的灰色点线被标注“不能连续两轮跳 1 阶，因此该项被舍去”；dp[i, 2] 同时接收来自前两阶蓝色 dp[i-2, 1] 与蓝色 dp[i-2, 2] 的两条蓝色弧线。",
+      "key_state": "dp[i, 1]=dp[i-1, 2]（舍去 dp[i-1, 1]）；dp[i, 2]=dp[i-2, 1]+dp[i-2, 2]。",
+      "announcement": "用第二维记录上一步步长：跳 1 阶只能承接上一步跳 2 阶的状态，跳 2 阶则可承接前两阶的两种状态。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "正文代码的初始状态（补充递推边界）",
+      "headers": [
+        "阶数i",
+        "dp[i,1]",
+        "dp[i,2]"
+      ],
+      "rows": [
+        [
+          "1",
+          "1",
+          "0"
+        ],
+        [
+          "2",
+          "0",
+          "1"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-19",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "8dbed03ff21bc07369cbadb9e28d0b2e23417ec513743757be5c16544e9676d4",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "dcea2ce4eb56814df492beb0353b69ca48748a38ea8c5b34963d8ce99d7a20df",
+        "output_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c",
+        "output_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f",
+        "output_sha256": "1603107bf51a94e045d71a5f3540a9b6e58f184da52d98978a06e9e10e5ca484"
+      }
+    ],
+    "evidence_sha256": "830dfd6d376fed2c39b7c0da47ad3af42913a4655f9fdeea3b18ab9df35addbc"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_dynamic_programming/dp_problem_features.md": "eecbb71388b87f9cc9593b41c54ad0b3ccbdea2949f298a3a43632cd93e2436a"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_dynamic_programming/dp_problem_features.assets/climbing_stairs_constraint_state_transfer.png": "47c5e93c5e7906633eb8f9c7c217336a396f2a3a417691a607223037d71bfb88"
+    }
+  }
+}

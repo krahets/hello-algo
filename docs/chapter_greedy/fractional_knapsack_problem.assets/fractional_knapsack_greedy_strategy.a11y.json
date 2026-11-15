@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy",
+  "title": "分数背包问题的贪心策略",
+  "summary": "将五件物品按单位价值从高到低重排为香蕉（6）、菠萝（5.25）、苹果（5）、葡萄（5）、西瓜（4.8），确立优先选取高单位价值物品的贪心次序。",
+  "context": [
+    "最大化限定容量下的背包总价值，本质上是让每一单位背包容量尽可能装入单位价值最高的物品。因此，分数背包的贪心策略需要先对所有候选物品按单位价值降序排序。"
+  ],
+  "description": [
+    "画面中央表格展示重排后的 5 件物品数据，最后一列列出“单位价值”；表格右侧有一条自下而上的灰色实线箭头，旁注“根据单位价值从高到低排序”以及“贪心策略：优先选择单位价值更高的物品”。"
+  ],
+  "result": "按排定的优先级 [2 号香蕉, 4 号菠萝, 1 号苹果, 3 号葡萄, 5 号西瓜] 依次贪心装包：在容量 50 的实例中，先全取排名第一的香蕉（重 20），再取排名第二的菠萝的一部分（重 30）填满剩余容量，即可直接求得全局最大价值 277.5。",
+  "frames": [
+    {
+      "id": "source-463",
+      "book_path": "chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png",
+      "title": "分数背包问题的贪心策略",
+      "explanation": "经过按单位价值降序排序，表格自上而下的物品顺序由原编号 1、2、3、4、5 变为 2 号香蕉（重 20、价值 120、单位价值 6）、4 号菠萝（重 40、价值 210、单位价值 5.25）、1 号苹果（重 10、价值 50、单位价值 5）、3 号葡萄（重 30、价值 150、单位价值 5）、5 号西瓜（重 50、价值 240、单位价值 4.8）。遍历时每轮优先拿取当前单位价值最高的物品，若剩余容量不足以装下整件，则切取一部分将背包填满。",
+      "state": "表格按单位价值从高到低排列为：2 号香蕉（6）、4 号菠萝（5.25）、1 号苹果（5）、3 号葡萄（5）、5 号西瓜（4.8）；右侧向上箭头标明“根据单位价值从高到低排序，优先选择单位价值更高的物品”。",
+      "key_state": "按单位价值降序重排：编号 [2, 4, 1, 3, 5]，对应单位价值 [6, 5.25, 5, 5, 4.8]。",
+      "announcement": "展示分数背包贪心策略：按单位价值从高到低排序，优先选取香蕉（6）与菠萝（5.25）。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "按单位价值降序排列",
+      "headers": [
+        "编号与图标",
+        "重量",
+        "价值",
+        "单位价值"
+      ],
+      "rows": [
+        [
+          "2（香蕉）",
+          "20",
+          "120",
+          "6"
+        ],
+        [
+          "4（菠萝）",
+          "40",
+          "210",
+          "5.25"
+        ],
+        [
+          "1（苹果）",
+          "10",
+          "50",
+          "5"
+        ],
+        [
+          "3（葡萄）",
+          "30",
+          "150",
+          "5"
+        ],
+        [
+          "5（西瓜）",
+          "50",
+          "240",
+          "4.8"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-23",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "f7f82a68e48c7c0902d7328a0c3eae51fcb60ac243c04b9570259569f8a392ff",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "65ed4701387683dd63f9752fe8b0082f9d369d4e3aa764d1d7da3ca514d30dbe",
+        "output_sha256": "4ebebbc05478b00c6f876ea5cbaa9078823129963728aa248fd3a3c2cb7c35fa"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "4ebebbc05478b00c6f876ea5cbaa9078823129963728aa248fd3a3c2cb7c35fa",
+        "output_sha256": "c726cb1e9a48ecde596b2fa06c86f121a4e999d76885ea20a856bb028acd90e2"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "c726cb1e9a48ecde596b2fa06c86f121a4e999d76885ea20a856bb028acd90e2",
+        "output_sha256": "e1e1cb976bc14f564bd765f9e4e7faf06571d50a98cb8f9a91ea36cdac3993ad"
+      }
+    ],
+    "evidence_sha256": "34444c50d6df82ed6b43160a49929ee9fc81523aa89772b10af874af3efcc040"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_greedy/fractional_knapsack_problem.md": "513596ffc307774414133d24fc1f1e5029dc1fe23165b6d769f634b98423c990"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png": "b87b745d64d18f32025368760e8b25a31b95cc443074f571c878b54863a505a6"
+    }
+  }
+}

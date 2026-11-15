@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_greedy/max_capacity_problem.assets/max_capacity_greedy",
+  "title": "最大容量：双指针贪心",
+  "summary": "双指针从数组两端 [0, 7] 出发，每轮计算当前容器容量并更新历史最大值 res，随后向内移动短板指针，直至两指针在索引 1 相遇并返回最大容量 28。",
+  "context": [
+    "给定高度数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]（索引 0 至 7），容器容量为 cap[i, j] = min(ht[i], ht[j]) × (j - i)。",
+    "双指针贪心算法初始化左指针 i = 0、右指针 j = 7、最大容量记录 res = 0。当 i < j 时循环执行：先计算当前容量 cap 并用 res = max(res, cap) 更新全局最大值，然后比较左右两板高度，将较短一侧的指针向内移动一格，直到 i 与 j 相遇时跳出循环。"
+  ],
+  "description": [
+    "图组共 9 步：选中隔板上方以青绿色标签 i 和蓝色标签 j 标出左右指针位置，选中隔板以对应颜色突出；第 2 至 8 步两板间的当前容器以浅蓝色区域填充，图下方给出当前轮的 cap 计算式与已知最大值 res 的更新式。",
+    "第 1 步初始化指针；第 2 至 8 步依次考察 [0, 7]、[1, 7]、[1, 6]、[1, 5]、[1, 4]、[1, 3]、[1, 2] 共 7 个容器状态（第 2 步后因左板 3 < 4 故右移 i 至 1；此后左板 ht[1] = 8 始终高于右侧各板，故连续左移 j）；第 9 步两指针在索引 1 相遇并结束。"
+  ],
+  "result": "双指针在线性时间内遍历了 7 个候选状态，在第 5 步（i = 1, j = 5，板高 8 和 7，宽 4）取得全局最大容量 28，并在两指针于索引 1 相遇时返回 res = 28。",
+  "frames": [
+    {
+      "id": "source-470",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step1.png",
+      "title": "第 1 步：初始化左右指针 i = 0、j = 7，res = 0",
+      "explanation": "初始化左指针 i = 0（指向左端高度 3 的隔板）、右指针 j = 7（指向右端高度 4 的隔板），并将容量最大值初始化为 res = 0。此时尚未开始第一轮盛水容量计算。",
+      "state": "高度数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]（索引 0..7）；当前左指针 i = 0（高 3）、右指针 j = 7（高 4），已知最大容量 res = 0，图中尚未绘制浅蓝盛水区。",
+      "key_state": "初始化：i = 0，j = 7，res = 0。",
+      "announcement": "第 1 步：初始化双指针分列数组两端 i = 0、j = 7，最大容量 res = 0。"
+    },
+    {
+      "id": "source-471",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step2.png",
+      "title": "第 2 步：计算状态 [0, 7]，cap = 21，res 更新为 21",
+      "explanation": "第 1 轮考察两端状态 [0, 7]：左板高 ht[0] = 3，右板高 ht[7] = 4，宽度为 7 - 0 = 7，当前容量 cap = min(3, 4) × 7 = 21；最大容量更新为 res = max(0, 21) = 21。由于左板 3 短于右板 4，下一步将左端短板指针 i 向右移动。",
+      "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；当前指针 i = 0（高 3，短板）、j = 7（高 4），容器宽 7、水高 3，当前容量 cap = 21，已知最大值更新为 res = max(0, 21) = 21。",
+      "key_state": "状态 [0, 7]：cap = 21，res = 21；左板高 3 为短板。",
+      "announcement": "第 2 步：计算 [0, 7] 容量得 cap = 21，最大值 res 更新为 21。"
+    },
+    {
+      "id": "source-472",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step3.png",
+      "title": "第 3 步：右移短板 i 至 [1, 7]，cap = 24，res 更新为 24",
+      "explanation": "因上一轮左板更短，左指针 i 从 0 右移至 1，形成状态 [1, 7]：左板高 ht[1] = 8，右板高 ht[7] = 4，宽度为 7 - 1 = 6，当前容量 cap = min(8, 4) × 6 = 24；最大容量更新为 res = max(21, 24) = 24。此时右板 4 短于左板 8，下一步改为左移右指针 j。",
+      "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；当前指针 i = 1（高 8）、j = 7（高 4，短板），容器宽 6、水高 4，当前容量 cap = 24，已知最大值更新为 res = max(21, 24) = 24。",
+      "key_state": "状态 [1, 7]：cap = 24，res = 24；右板高 4 变为短板。",
+      "announcement": "第 3 步：左短板右移至 i = 1，计算 [1, 7] 容量得 cap = 24，最大值 res 更新为 24。"
+    },
+    {
+      "id": "source-473",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step4.png",
+      "title": "第 4 步：左移短板 j 至 [1, 6]，cap = 15，res 保持 24",
+      "explanation": "因上一轮右板高 4 短于左板高 8，右指针 j 从 7 左移至 6，形成状态 [1, 6]：左板高 8，右板高 ht[6] = 3，宽度为 6 - 1 = 5，当前容量 cap = min(8, 3) × 5 = 15；与历史最大值比较，res = max(24, 15) = 24 保持不变。",
+      "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；当前指针 i = 1（高 8）、j = 6（高 3，短板），容器宽 5、水高 3，当前容量 cap = 15，已知最大值 res = max(24, 15) = 24。",
+      "key_state": "状态 [1, 6]：cap = 15，res 保持 24；右板高 3 为短板。",
+      "announcement": "第 4 步：右短板左移至 j = 6，计算 [1, 6] 容量得 cap = 15，最大值 res 保持 24。"
+    },
+    {
+      "id": "source-474",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step5.png",
+      "title": "第 5 步：左移短板 j 至 [1, 5]，cap = 28，res 更新为 28",
+      "explanation": "因上一轮右板高 3 短于左板高 8，右指针 j 从 6 左移至 5，形成状态 [1, 5]：左板高 8，右板高 ht[5] = 7，宽度为 5 - 1 = 4，当前容量 cap = min(8, 7) × 4 = 28；历史最大值更新为 res = max(24, 28) = 28。",
+      "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；当前指针 i = 1（高 8）、j = 5（高 7，短板），容器宽 4、水高 7，当前容量 cap = 28，已知最大值更新为 res = max(24, 28) = 28。",
+      "key_state": "状态 [1, 5]：cap = 28，res 更新为 28；右板高 7 仍短于左板 8。",
+      "announcement": "第 5 步：右短板左移至 j = 5，计算 [1, 5] 容量得 cap = 28，最大值 res 更新为 28。"
+    },
+    {
+      "id": "source-475",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step6.png",
+      "title": "第 6 步：左移短板 j 至 [1, 4]，cap = 21，res 保持 28",
+      "explanation": "因上一轮右板高 7 短于左板高 8，右指针 j 从 5 左移至 4，形成状态 [1, 4]：左板高 8，右板高 ht[4] = 7，宽度为 4 - 1 = 3，当前容量 cap = min(8, 7) × 3 = 21；历史最大值 res = max(28, 21) = 28 保持不变。",
+      "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；当前指针 i = 1（高 8）、j = 4（高 7，短板），容器宽 3、水高 7，当前容量 cap = 21，已知最大值 res = max(28, 21) = 28。",
+      "key_state": "状态 [1, 4]：cap = 21，res 保持 28；右板高 7 为短板。",
+      "announcement": "第 6 步：右短板左移至 j = 4，计算 [1, 4] 容量得 cap = 21，最大值 res 保持 28。"
+    },
+    {
+      "id": "source-476",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step7.png",
+      "title": "第 7 步：左移短板 j 至 [1, 3]，cap = 4，res 保持 28",
+      "explanation": "因上一轮右板高 7 短于左板高 8，右指针 j 从 4 左移至 3，形成状态 [1, 3]：左板高 8，右板高 ht[3] = 2，宽度为 3 - 1 = 2，当前容量 cap = min(8, 2) × 2 = 4；历史最大值 res = max(28, 4) = 28 保持不变。",
+      "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；当前指针 i = 1（高 8）、j = 3（高 2，短板），容器宽 2、水高 2，当前容量 cap = 4，已知最大值 res = max(28, 4) = 28。",
+      "key_state": "状态 [1, 3]：cap = 4，res 保持 28；右板高 2 为短板。",
+      "announcement": "第 7 步：右短板左移至 j = 3，计算 [1, 3] 容量得 cap = 4，最大值 res 保持 28。"
+    },
+    {
+      "id": "source-477",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step8.png",
+      "title": "第 8 步：左移短板 j 至 [1, 2]，cap = 5，res 保持 28",
+      "explanation": "因上一轮右板高 2 短于左板高 8，右指针 j 从 3 左移至 2，形成状态 [1, 2]：左板高 8，右板高 ht[2] = 5，宽度为 2 - 1 = 1，当前容量 cap = min(8, 5) × 1 = 5；历史最大值 res = max(28, 5) = 28 保持不变。",
+      "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；当前指针 i = 1（高 8）、j = 2（高 5，短板），容器宽 1、水高 5，当前容量 cap = 5，已知最大值 res = max(28, 5) = 28。",
+      "key_state": "状态 [1, 2]：cap = 5，res 保持 28；右板高 5 为短板。",
+      "announcement": "第 8 步：右短板左移至 j = 2，计算 [1, 2] 容量得 cap = 5，最大值 res 保持 28。"
+    },
+    {
+      "id": "source-478",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step9.png",
+      "title": "第 9 步：指针 i 与 j 在索引 1 相遇，返回最大容量 28",
+      "explanation": "上一轮右板高 5 仍短于左板高 8，因此右指针 j 从 2 继续左移一格到达索引 1，与左指针 i 重合（图中 i、j 双色标签合并在索引 1 的隔板上方；注意横轴数字 2 保留蓝色字体仅为上一帧的样式残留，并非指针仍在索引 2）。此时循环条件 i < j 不再成立，跳出贪心循环并返回最大容量 res = 28。",
+      "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；左右指针在 i = 1、j = 1 处相遇（索引 1 的隔板上方同时标注 i 与 j；横轴刻度 2 的蓝色字色仅为残留着色而非指针位置），循环终止，返回全局最大容量 res = 28。",
+      "key_state": "i = j = 1 两指针相遇，跳出贪心循环，返回最大容量 res = 28。",
+      "announcement": "第 9 步：右指针左移至索引 1 与左指针相遇，跳出循环并返回最大容量 28。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "逐轮计算与最大值",
+      "headers": [
+        "i",
+        "j",
+        "左板高",
+        "右板高",
+        "当前容量 cap",
+        "已知最大值 res"
+      ],
+      "rows": [
+        [
+          "0",
+          "7",
+          "3",
+          "4",
+          "21",
+          "21"
+        ],
+        [
+          "1",
+          "7",
+          "8",
+          "4",
+          "24",
+          "24"
+        ],
+        [
+          "1",
+          "6",
+          "8",
+          "3",
+          "15",
+          "24"
+        ],
+        [
+          "1",
+          "5",
+          "8",
+          "7",
+          "28",
+          "28"
+        ],
+        [
+          "1",
+          "4",
+          "8",
+          "7",
+          "21",
+          "28"
+        ],
+        [
+          "1",
+          "3",
+          "8",
+          "2",
+          "4",
+          "28"
+        ],
+        [
+          "1",
+          "2",
+          "8",
+          "5",
+          "5",
+          "28"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-24",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "eb8d1d634d09f59d2d3ac857507a2ec2abf05605b383fb5cacbe9d78c50c2350",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "d40a34ce09d07aa5f2a8281d168d7daa9ee113c09b575f1200eb0409b245f89e",
+        "output_sha256": "8a1430b08cfa12d5586c31c993b51fdeb8d3c6412ce6de6939643e8766084ea6"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "8a1430b08cfa12d5586c31c993b51fdeb8d3c6412ce6de6939643e8766084ea6",
+        "output_sha256": "f7f806b44c8d2d3a360bd07d285786f4c9b9881b94cb30acb729899f1a072fce"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "f7f806b44c8d2d3a360bd07d285786f4c9b9881b94cb30acb729899f1a072fce",
+        "output_sha256": "5eee136dd6bac5250047fed5bcee9c46c066cf9325b373b0a35bafc641e9f011"
+      }
+    ],
+    "evidence_sha256": "76b6078358083e454d25f857a790e71339d6048171500ff10b161508d80ce246"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_greedy/max_capacity_problem.md": "57cba2a20a6c77854063b78633f7c318045e5b7347079f4c9930dad1abc93367"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step1.png": "2051c5c9a2e688aaeaf88f5f3748abce194a656caca1a232f4f2b73b765d06f7",
+      "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step2.png": "ce06ef1d17e987763b704d98934e93cd4e61e746d43d10affdf9bc4a0b9eac6e",
+      "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step3.png": "407aa3ff3eee5364c4883b1961e90312805da93b20dbcc4509d6d71c2e0ed7c3",
+      "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step4.png": "56d2ab2aaeb7604a585075ce8cfbac94b245ea140dd27e6a116ea44185819c82",
+      "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step5.png": "93c1d68192ba678689888887c9c95c0cac7b6132af1101c6d65c6ca840093875",
+      "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step6.png": "20e21441347e7767ba154ec7218306a7a51a3ee96a768b1a5dcfb27b28c82db3",
+      "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step7.png": "09b7d20f8e014228e2d1a26d016a7ad2a053055eedb7406d0086b20c18395a86",
+      "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step8.png": "9e943cf8152619a4ed07f5dcddac7d3b60e4ba3e2271848c7289529884c145f9",
+      "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step9.png": "7454ef8148b86d174d6abb6a24cd07d8f815ced5d0c13da35ccc6d7370ff3768"
+    }
+  },
+  "animations": {
+    "max-capacity-greedy": {
+      "kind": "source-frames",
+      "model_sha256": "c17946c0703566600aa17aa921fc47fd982cf80ccdfa11736c679f1f60b41f2f",
+      "source_content_sha256": "eb8d1d634d09f59d2d3ac857507a2ec2abf05605b383fb5cacbe9d78c50c2350",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-470"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-471"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-472"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-473"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-474"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-475"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-476"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-477"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-478"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "99febcad75ff7811dbb127569eb1febc88b9d28cf9e52c6f27f67b5d97064b68",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

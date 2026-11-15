@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition",
+  "title": "链式地址哈希表的最佳分布与最差退化对比",
+  "summary": "对比六个键值对 (k₁, s₁) 至 (k₆, s₆) 在链式地址哈希表中的两种极端分布：均匀分散到各桶时查询时间复杂度为 O(1)，全部冲突集中到单个桶时退化为 O(n)。",
+  "context": [
+    "画面左上方总标题为“链式地址哈希表”，上下并列两个浅绿色面板，分别展示同一批六个键值对 (k₁, s₁) 至 (k₆, s₆) 的最佳情况与最差情况。",
+    "每个面板左侧的浅蓝色竖栏表示桶数组（包含每个非空桶链表的头节点及代表其余桶的省略号“…”），右侧通过水平箭头表示桶内连接的单向链表节点。"
+  ],
+  "description": [
+    "上方面板展示“最佳情况：键值对平均分布在各个桶中，时间复杂度 O(1)”。六个键值对均匀分散在三个已画出的桶中：第一个桶连接 (k₁, s₁) → (k₂, s₂)，第二个桶连接 (k₃, s₃) → (k₄, s₄)，第三个桶连接 (k₅, s₅) → (k₆, s₆)。每个桶的链表长度都很短（仅 2 个节点），定位到桶后只需常数次比较即可完成查找。当数据规模增长时，O(1) 查询还需要维持适当的负载因子，使平均链长保持常数量级；仅有分布均匀并不足以无条件保证这一复杂度。",
+    "下方面板展示“最差情况：键值对全部分布在单个桶中，时间复杂度 O(n)”。六个键值对的哈希值全部相同，统统落入第一个桶并串成一条长达 6 个节点的单向链表：(k₁, s₁) → (k₂, s₂) → (k₃, s₃) → (k₄, s₄) → (k₅, s₅) → (k₆, s₆)，而下方其余桶全空（以省略号表示）。此时哈希表彻底退化为单向链表，查找末尾元素需要遍历全部 n 个节点。"
+  ],
+  "result": "哈希算法的设计目标正是让键值分布尽量接近上图所示的均匀状态（O(1) 查询），避免出现下图所示所有键扎堆落入同一桶的 O(n) 退化。",
+  "frames": [
+    {
+      "id": "source-88",
+      "book_path": "chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.png",
+      "title": "六个键值对的均匀分布 O(1) 与单桶退化 O(n)",
+      "explanation": "对比两图可见，同样存放 (k₁, s₁) 到 (k₆, s₆) 六个键值对：上图将它们平均分配到三个桶，每条链表只有 2 个节点，例如查找 k₆ 只需在第三个桶内检查 k₅ 和 k₆ 两项，查询时间复杂度为 O(1)；下图则把六个键值对全部挤进第一个桶，查找 k₆ 必须从 k₁ 一路顺着链表遍历 6 个节点到链尾，当数据规模为 n 时时间复杂度退化为 O(n)。",
+      "state": "左上角标题为“链式地址哈希表”。上方面板标注“最佳情况：键值对平均分布在各个桶中 / 时间复杂度 O(1)”，左侧桶数组画出三行，分别为 (k₁, s₁) → (k₂, s₂)、(k₃, s₃) → (k₄, s₄)、(k₅, s₅) → (k₆, s₆)。下方面板标注“最差情况：键值对全部分布在单个桶中 / 时间复杂度 O(n)”，仅第一行桶串起全部六项 (k₁, s₁) → (k₂, s₂) → (k₃, s₃) → (k₄, s₄) → (k₅, s₅) → (k₆, s₆)，下方桶为空并标有省略号。",
+      "key_state": "最佳情况：三桶各含 2 个节点，查询 O(1)；最差情况：单桶串连全部 6 个节点，查询退化为 O(n)。",
+      "announcement": "对比链式地址哈希表中键值对平均分布（O(1)）与全部挤入单桶（O(n)）的两种极端情况。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-05",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "a016dee2b20d2a9b30c8bd901bcf98a20b858316a4aca28e60e2b774057531fc",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "bbf6fc89ced3325538a22d1eecebd98ac2a54cd576eb8bfe0b2aad472b2340bc",
+        "output_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108",
+        "output_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281",
+        "output_sha256": "ffb27a99b86ace98bde8e54084f42f6a1c59f19a353deb9a55c4ee96d96e99be"
+      }
+    ],
+    "evidence_sha256": "954be79d16a2deb5e3a0108cd78415c4c9fef13373e1a16fbca5a1e1d388bf98"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_hashing/hash_algorithm.md": "0fedd389584c23b37b527a84328eed11e1d79ef85d41869ab5c5b0ce0a56db40"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.png": "73b47026c7c7ee70b279039b555a7b152e5dca68a5d09d5f4ec356f5255b8b7e"
+    }
+  }
+}

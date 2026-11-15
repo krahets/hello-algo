@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_stack_and_queue/stack.assets/stack_operations",
+  "title": "栈的入栈与出栈（先入后出）",
+  "summary": "初始自底向上为 [1, 3, 2] 的栈，依次执行 push(5)、push(4)、pop()、pop()，后入栈的 4 和 5 先后从栈顶弹出。",
+  "context": [
+    "图从左到右展示五个竖直的栈容器，底部封闭标为“栈底”，顶部开口标为“栈顶”，入栈（向下箭头）和出栈（向上箭头）都在栈顶进行。以下序列均按从栈底到栈顶的顺序书写。第 1 列为初始状态，栈内元素为 [1, 3, 2]，栈底为 1，栈顶为 2。"
+  ],
+  "description": [
+    "第 2 列执行“入栈 push(5)”：元素 5 从上方灰色虚线框进入栈顶，栈变为 [1, 3, 2, 5]，栈顶为 5。第 3 列执行“入栈 push(4)”：元素 4 从上方灰色虚线框进入栈顶，栈变为 [1, 3, 2, 5, 4]，栈顶变为 4。",
+    "第 4 列执行第一次“出栈 pop()”：栈顶元素 4 向上移出栈外（原栈顶位置留有灰色虚线框 4 表示移出前的位置），栈内剩余 [1, 3, 2, 5]，栈顶回到 5。第 5 列执行第二次“出栈 pop()”：栈顶元素 5 向上移出栈外（原位置同样标为灰色虚线框 5），栈恢复为 [1, 3, 2]，栈顶回到 2。"
+  ],
+  "result": "所有入栈和出栈都在栈顶完成；后压入的 4 先于 5 弹出，直观体现栈“先入后出”的规则。",
+  "frames": [
+    {
+      "id": "source-56",
+      "book_path": "chapter_stack_and_queue/stack.assets/stack_operations.png",
+      "title": "栈的入栈与出栈（先入后出）",
+      "explanation": "图从左到右展示栈的五个状态，底部为栈底、顶部开口为栈顶，元素均从栈顶入栈或出栈（以下按栈底到栈顶排列）。第 1 列初始栈为 [1, 3, 2]；第 2 列执行 push(5) 后变为 [1, 3, 2, 5]；第 3 列执行 push(4) 后变为 [1, 3, 2, 5, 4]；第 4 列执行 pop() 弹出栈顶 4，剩下 [1, 3, 2, 5]；第 5 列再次执行 pop() 弹出栈顶 5，恢复为 [1, 3, 2]。图中灰色虚线框仅标示元素移动前的位置，不计入操作后的栈。",
+      "state": "单图从左到右包含五个栈状态（按栈底到栈顶排列）：初始 [1, 3, 2] → push(5) 后 [1, 3, 2, 5] → push(4) 后 [1, 3, 2, 5, 4] → pop() 弹出 4 后 [1, 3, 2, 5] → pop() 弹出 5 后 [1, 3, 2]。",
+      "key_state": "栈自底向上初始为 [1, 3, 2]，依次 push(5)、push(4) 得 [1, 3, 2, 5, 4]，再两次 pop() 依次弹出 4、5 回到 [1, 3, 2]。",
+      "announcement": "栈从初始 [1, 3, 2] 依次压入 5 和 4，再从栈顶依次弹出 4 和 5，体现先入后出规则。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-04",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "c037c95ad94326ef909f221cc6ba63554cfd591cf09782a38eff282f3b3b0986",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "010659120695514881c0d1ee814ac67faa1e50957300a7e781f1c3edf7858059",
+        "output_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de",
+        "output_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8",
+        "output_sha256": "d48eb4dd56235f9a9b2f2d5c8f67899492c9f6b15567237d35161c31596306cb"
+      }
+    ],
+    "evidence_sha256": "178794e8fd357c692f91d245ae613b37aa02834865c6124afd4cd91ea892de0d"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_stack_and_queue/stack.md": "3ba63b881e29fee2cfff650e7dd695f0936e1a6ff078ebdb369583c9bc022859"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_stack_and_queue/stack.assets/stack_operations.png": "25d0c3e5acf313f267307a434018c8dad5ab29ad08b85173f0646c75ef0c909b"
+    }
+  },
+  "animations": {
+    "stack-operations": {
+      "kind": "prose",
+      "model_sha256": "1c8d1949fc34dc9061967e5247ba3a61daffc1ef266e14e37713c30a07ec0431",
+      "prose": {
+        "schema_version": 1,
+        "status": "confirmed",
+        "locale": "zh-hans",
+        "story_id": "stack-operations",
+        "group_id": "group:chapter_stack_and_queue/stack.assets/stack_operations",
+        "title": "栈操作：栈顶两次入栈与两次出栈",
+        "summary": "从底到顶为 [1, 3, 2] 的栈依次压入 5、4，再依次弹出 4、5，恢复为 [1, 3, 2]。",
+        "context": [
+          "栈是一种遵循“后进先出”原则的线性数据结构，所有入栈与出栈操作都只在栈顶一端进行。图中竖直容器底部封闭为栈底、顶部开口为栈顶；注解中的栈序列一律按从栈底到栈顶的顺序书写。"
+        ],
+        "description": [
+          "动画分五步依次展示初始栈、执行 push(5)、执行 push(4)、第一次执行 pop() 以及第二次执行 pop()。向下的箭头表示新元素从顶部开口压入栈顶，向上的箭头表示将当前栈顶元素弹出并返回。",
+          "画面中的实心方块表示元素当前所在位置：入栈后位于容器内，出栈后位于容器上方表示本次返回值；浅色虚线方块仅用于标示同一元素在本次操作前的旧位置（入栈前在容器外上方、出栈前在原栈顶槽位），并不代表栈内存在重复元素。"
+        ],
+        "result": "经过两次入栈与两次出栈后，栈内元素从栈底到栈顶恢复为 [1, 3, 2]；两次 pop() 依次返回后入栈的 4 和先入栈的 5，体现后进先出顺序。",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "初始栈 [1, 3, 2]，栈顶为 2",
+            "explanation": "画面展示标题“栈 stack”。竖直容器内自下而上依次存放 1、3、2，底部标注“栈底”，顶部元素 2 旁标注“栈顶”，容器开口上方标有向下的“入栈”箭头与向上的“出栈”箭头。",
+            "state": "当前栈从栈底到栈顶依次为 [1, 3, 2]，共 3 个元素，栈底为 1，栈顶为 2；本步无出栈返回值。",
+            "key_state": "初始栈 [1, 3, 2]，栈顶为 2。",
+            "announcement": "显示初始栈 [1, 3, 2]，栈顶元素为 2。"
+          },
+          {
+            "id": "step-2",
+            "title": "执行 push(5)，5 成为新栈顶",
+            "explanation": "上方标注“入栈 push(5)”，元素 5 沿向下箭头从顶部开口压入，落在原栈顶 2 的上方并成为新的栈顶；容器外上方的浅色虚线 5 仅指示入栈前的来源位置。原有的 1、3、2 保持相对顺序不变。",
+            "state": "当前栈从栈底到栈顶依次为 [1, 3, 2, 5]，共 4 个元素，栈底为 1，栈顶为 5；本步无出栈返回值。",
+            "key_state": "push(5) 后栈为 [1, 3, 2, 5]，栈顶为 5。",
+            "announcement": "执行 push(5)，5 入栈成为栈顶，栈变为 [1, 3, 2, 5]。"
+          },
+          {
+            "id": "step-3",
+            "title": "执行 push(4)，4 成为新栈顶",
+            "explanation": "上方标注“入栈 push(4)”，元素 4 沿向下箭头压入到 5 的上方，成为新的栈顶；容器外上方的浅色虚线 4 指示其入栈前的来源位置。此时栈内共有 5 个元素。",
+            "state": "当前栈从栈底到栈顶依次为 [1, 3, 2, 5, 4]，共 5 个元素，栈底为 1，栈顶为 4；本步无出栈返回值。",
+            "key_state": "push(4) 后栈为 [1, 3, 2, 5, 4]，栈顶为 4。",
+            "announcement": "执行 push(4)，4 入栈成为栈顶，栈变为 [1, 3, 2, 5, 4]。"
+          },
+          {
+            "id": "step-4",
+            "title": "执行 pop()，弹出并返回栈顶 4",
+            "explanation": "上方标注“出栈 pop()”，最后入栈的栈顶元素 4 最先沿向上箭头弹出，作为本次返回值显示在容器上方；容器内原栈顶位置的浅色虚线 4 只是旧位置残影，已不属于栈内元素。下方的 5 重新成为栈顶。",
+            "state": "当前栈从栈底到栈顶依次为 [1, 3, 2, 5]，共 4 个元素，栈底为 1，栈顶为 5；本次 pop() 返回 4，4 已不在栈中。",
+            "key_state": "pop() 返回 4，栈剩余 [1, 3, 2, 5]，栈顶为 5。",
+            "announcement": "执行 pop() 弹出并返回 4，栈剩余 [1, 3, 2, 5]。"
+          },
+          {
+            "id": "step-5",
+            "title": "再次执行 pop()，弹出并返回栈顶 5",
+            "explanation": "上方继续标注“出栈 pop()”，当前栈顶元素 5 沿向上箭头弹出并显示在容器上方作为本次返回值；容器内原位置的浅色虚线 5 为旧位置残影，不属于栈内元素。元素 2 恢复为栈顶。",
+            "state": "当前栈从栈底到栈顶依次为 [1, 3, 2]，共 3 个元素，栈底为 1，栈顶为 2；本次 pop() 返回 5（前一次已返回 4）。",
+            "key_state": "pop() 返回 5，栈恢复为 [1, 3, 2]，栈顶为 2。",
+            "announcement": "再次执行 pop() 弹出并返回 5，栈恢复为 [1, 3, 2]。"
+          }
+        ],
+        "review": {
+          "status": "confirmed",
+          "run_id": "figure-accessibility-20261114/animations/batch-02",
+          "content_sha256": "1469d416c8ab216e22183a9fd459e3021780a6132bee3ec179c62f7357fa267e",
+          "stages": [
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "4d13f1301ba3734719aea73335d2d384fca7b4f65812bce845d84076149bc1b7",
+              "output_sha256": "b1d5d394047175cc689fca6198b1942ee353e2158ae12b2b05edf71fa3952503"
+            },
+            {
+              "requested_model": "gemini-4-argon",
+              "actual_model": null,
+              "model_confirmation": "provider_not_reported",
+              "input_sha256": "b1d5d394047175cc689fca6198b1942ee353e2158ae12b2b05edf71fa3952503",
+              "output_sha256": "b3795c3a3799e1c0ee7a28b95029b0e10278ee5727b6f9868a5a135e5f187403"
+            },
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "b3795c3a3799e1c0ee7a28b95029b0e10278ee5727b6f9868a5a135e5f187403",
+              "output_sha256": "112a1db1238c2b663c27321978bce0241eebaf5d6fdeac067f9bbeda5c675d22"
+            }
+          ],
+          "evidence_sha256": "aa6ba7b54ada7ba151f97f6b9bd3b49fc4723bd6cae50b0be26e0f9b73fccfd8"
+        }
+      }
+    }
+  }
+}

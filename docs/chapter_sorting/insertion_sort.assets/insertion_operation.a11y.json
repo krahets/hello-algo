@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_sorting/insertion_sort.assets/insertion_operation",
+  "title": "插入排序的单次插入操作：暂存 base、向右复制平移与赋给目标索引",
+  "summary": "在 [1, 1, 2, 4, 5, 3] 中先暂存 base = 3，再依次执行 nums[5] = nums[4] 与 nums[4] = nums[3] 将 5、4 右移，最后执行 nums[3] = base 完成插入。",
+  "context": [
+    "输入数组为 nums = [1, 1, 2, 4, 5, 3]（索引 0 至 5），其中左侧前五个元素 [1, 1, 2, 4, 5] 已排好序，任务是“将元素 3 插入到 nums 已排序区间的正确位置”（即元素 2 与 4 之间的索引 3）。"
+  ],
+  "description": [
+    "画面自上而下分四行展示插入操作的内部细节：首先将索引 5 的待插入元素 3“暂存”到独立变量 base 中，防止后续右移覆盖时丢失。",
+    "接着进入“先将元素依次向后移动一位”阶段：从右向左比较已排序区间的元素与 base = 3，因 nums[4] = 5 > 3，先执行赋值 nums[5] = nums[4]，把 5 向右复制到索引 5，数组变为 [1, 1, 2, 4, 5, 5]；再因 nums[3] = 4 > 3，执行赋值 nums[4] = nums[3]，把 4 向右复制到索引 4，数组变为 [1, 1, 2, 4, 4, 5]。注意这里采用的是单向复制赋值而非两两交换，因此在写回 base 之前，数组中会短暂出现两个 5 或两个 4。",
+    "继续向左比较时，nums[2] = 2 不大于 base = 3，停止右移。最后进入“再将元素赋给目标索引”阶段：执行 nums[3] = base，将暂存的 3 写入腾出的目标索引 3，得到 [1, 1, 2, 3, 4, 5]。"
+  ],
+  "result": "通过 1 次暂存（base = 3）、2 次向右复制赋值（nums[5] = nums[4]、nums[4] = nums[3]）与 1 次写回（nums[3] = base），将末尾的 3 准确插入到索引 3，使整列六个元素恢复为升序数组 [1, 1, 2, 3, 4, 5]。",
+  "frames": [
+    {
+      "id": "source-261",
+      "book_path": "chapter_sorting/insertion_sort.assets/insertion_operation.png",
+      "title": "暂存 base = 3，依次右移 5 和 4，再将 base 写入索引 3",
+      "explanation": "右侧大弧线展示先将索引 5 的 3 暂存至 base、最后由 nums[3] = base 写回索引 3；中间两步通过 nums[5] = nums[4] 与 nums[4] = nums[3] 将大于 3 的元素 5、4 依次向右复制一位。",
+      "state": "初始 [1, 1, 2, 4, 5, 3]，base = 3。执行 nums[5] = nums[4] 后为 [1, 1, 2, 4, 5, 5]；执行 nums[4] = nums[3] 后为 [1, 1, 2, 4, 4, 5]；执行 nums[3] = base 后为 [1, 1, 2, 3, 4, 5]。",
+      "key_state": "暂存 base = 3；经 nums[5] = nums[4] 与 nums[4] = nums[3] 右移 5、4 后，执行 nums[3] = base 得 [1, 1, 2, 3, 4, 5]。",
+      "announcement": "展示单次插入操作：暂存 3 为 base，将 5 和 4 依次向右复制一位，再把 base 赋给索引 3。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-13",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "dc44f37a40e013b812be0c8ed4e910a1ff85b9439b1c1a2992cb9b052525a044",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "fe21fe5895e8cee2e2e3a67895fc2f90845797eb80e4d3029abb622acb8c69ca",
+        "output_sha256": "e76738af6195383d55b3d5cf222c5292111b131b087688bd961b59976f9e86c4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "e76738af6195383d55b3d5cf222c5292111b131b087688bd961b59976f9e86c4",
+        "output_sha256": "f880fd5c3c304dc74442a88388bca71f75e2e9a9b73b36958173a7c9a6da6512"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "f880fd5c3c304dc74442a88388bca71f75e2e9a9b73b36958173a7c9a6da6512",
+        "output_sha256": "3200bb035dfaa2051a3155f46d8687d968b6937e0d3057fb8e1b10d44b8ce29b"
+      }
+    ],
+    "evidence_sha256": "b3670eb867494fc0017c300c888f3d50ee8fa22f3dbc7e492a305cf3fd040dc2"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_sorting/insertion_sort.md": "414d57774dcd848fefac13dbc8b0027a5d88956bb76631fad8a4de2a7cb964af"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_sorting/insertion_sort.assets/insertion_operation.png": "c71473d6d374e671f5bac46c21fbf9c206c61867e7e045f847dd5dd832c62c66"
+    }
+  },
+  "animations": {
+    "insertion-operation": {
+      "kind": "prose",
+      "model_sha256": "fa36226746822c16ffafc3c91a3793bc0854e6eb198bf7fc468b548bd95b6692",
+      "prose": {
+        "schema_version": 1,
+        "status": "confirmed",
+        "locale": "zh-hans",
+        "story_id": "insertion-operation",
+        "group_id": "group:chapter_sorting/insertion_sort.assets/insertion_operation",
+        "title": "单次插入操作分解：暂存 base = 3、逐格右移大元素并写回",
+        "summary": "在 [1, 1, 2, 4, 5, 3] 中先将末尾的 3 暂存到 base，依次把 5 和 4 向右复制一格，最后将 base 写回索引 3。",
+        "context": [
+          "本动画拆解单轮插入排序的底层赋值过程：输入数组为 nums = [1, 1, 2, 4, 5, 3]，其中前五个元素 [1, 1, 2, 4, 5]（索引 0 至 4）已经有序，需要将末尾索引 5 的元素 3 插入到有序前缀中 2 与 4 之间的索引 3 处。",
+          "画面分为左右两个区域：左侧始终保留初始数组 [1, 1, 2, 4, 5, 3] 及插入目标箭头，作为固定的任务对照快照，不随步骤改写；右侧浅灰底面板展示每一步的当前数组存储状态与暂存变量 base。画面中的“暂存 base”是变量标签，没有单独画出存放 3 的方格；base = 3 的数值由输入、暂存操作与算法语义确定。"
+        ],
+        "description": [
+          "单次插入并非让 3 与左邻元素逐次两两交换，而是采用“先暂存、再向右复制覆盖、最后写回”的步进方式：第一步先把 nums[5] 的 3 存入变量 base；第二步执行 nums[5] = nums[4] 把 5 复制到索引 5；第三步执行 nums[4] = nums[3] 把 4 复制到索引 4。",
+          "在第二步和第三步的后移过程中，右侧当前数组里会先后短暂出现两个 5（[1, 1, 2, 4, 5, 5]）和两个 4（[1, 1, 2, 4, 4, 5]），待插入的 3 则安全保留在变量 base 中（图中只显示变量标签）；第四步遇到不大于 3 的 nums[2] = 2 时停止后移，执行 nums[3] = base 将 3 写回目标索引 3。"
+        ],
+        "result": "四步操作完成后，右侧当前数组变为有序的 [1, 1, 2, 3, 4, 5]，变量 base 仍保留数值 3，左侧固定任务快照仍显示初始的 [1, 1, 2, 4, 5, 3]。",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "第一步：将末尾索引 5 的元素 3 暂存至变量 base",
+            "explanation": "右侧面板第一行将 nums[5] 的青色元素 3 提取并暂存到右侧变量 base 中，当前数组本身仍为 [1, 1, 2, 4, 5, 3]。提前备份到 base 可以防止后续将 5 向右复制进索引 5 时把原有的 3 覆盖丢失。",
+            "state": "右侧当前数组为 [1, 1, 2, 4, 5, 3]；暂存变量 base = 3（图中以实线将索引 5 的青色 3 与“暂存 base”标签相连，并未另画数值方格）；面板左侧大括号提示“先将元素依次向后移动一位”；画面最左侧固定快照保持 [1, 1, 2, 4, 5, 3]，提示“将元素 3 插入到 nums 已排序区间的正确位置”（目标为索引 3）。",
+            "key_state": "已将索引 5 的 3 备份至 base = 3，右侧当前数组仍为 [1, 1, 2, 4, 5, 3]。",
+            "announcement": "将末尾元素 3 暂存到变量 base，准备向右移动大于 3 的元素。"
+          },
+          {
+            "id": "step-2",
+            "title": "第二步：执行 nums[5] = nums[4]，将元素 5 向右复制一格",
+            "explanation": "比较索引 4 的元素 5 与 base = 3，因为 5 大于 3，执行赋值 nums[5] = nums[4]，将索引 4 的 5 复制到索引 5 覆盖原来的槽位。此时右侧当前数组变为 [1, 1, 2, 4, 5, 5]，索引 4 和索引 5 暂时都存放 5，而待插入的 3 由变量 base 单独保存。",
+            "state": "右侧当前数组为 [1, 1, 2, 4, 5, 5]（索引 4、5 均为 5）；暂存变量 base = 3；当前赋值标注为 nums[5] = nums[4]（弧线箭头从索引 4 指向索引 5）；最左侧固定输入快照仍为 [1, 1, 2, 4, 5, 3]。",
+            "key_state": "执行 nums[5] = nums[4] 后，当前数组为 [1, 1, 2, 4, 5, 5]（出现两个 5），3 保存在 base 中。",
+            "announcement": "执行 nums[5] = nums[4] 将 5 复制到索引 5，当前数组变为 [1, 1, 2, 4, 5, 5]。"
+          },
+          {
+            "id": "step-3",
+            "title": "第三步：执行 nums[4] = nums[3]，将元素 4 向右复制一格",
+            "explanation": "继续向左比较索引 3 的元素 4 与 base = 3，因为 4 仍大于 3，执行赋值 nums[4] = nums[3]，将索引 3 的 4 复制到索引 4。此时右侧当前数组变为 [1, 1, 2, 4, 4, 5]，索引 3 和索引 4 暂时都为 4；再向左看，索引 2 的元素 2 不大于 3，后移阶段到此结束。",
+            "state": "右侧当前数组为 [1, 1, 2, 4, 4, 5]（索引 3、4 均为 4，索引 5 为 5）；暂存变量 base = 3；当前赋值标注为 nums[4] = nums[3]（弧线箭头从索引 3 指向索引 4）；最左侧固定输入快照仍为 [1, 1, 2, 4, 5, 3]。",
+            "key_state": "执行 nums[4] = nums[3] 后，当前数组为 [1, 1, 2, 4, 4, 5]（出现两个 4），索引 3 的旧值 4 待被 base 覆盖。",
+            "announcement": "执行 nums[4] = nums[3] 将 4 复制到索引 4，当前数组变为 [1, 1, 2, 4, 4, 5]。"
+          },
+          {
+            "id": "step-4",
+            "title": "第四步：执行 nums[3] = base，将 3 写回目标索引 3",
+            "explanation": "由于索引 2 的元素 2 小于或等于 base = 3，停止向右复制，进入下方大括号标注的“再将元素赋给目标索引”阶段：执行 nums[3] = base，长弧线箭头从 base 指回索引 3，把暂存的 3 写入索引 3，右侧当前数组变为完整有序的 [1, 1, 2, 3, 4, 5]。",
+            "state": "右侧当前数组为 [1, 1, 2, 3, 4, 5]（索引 3 为青色 3）；暂存变量 base 仍保存 3，画面只保留“暂存 base”标签；当前赋值标注为 nums[3] = base（长弧线箭头从 base 指向索引 3），面板左侧标注“再将元素赋给目标索引”；最左侧固定输入快照仍保持 [1, 1, 2, 4, 5, 3]。",
+            "key_state": "执行 nums[3] = base 将 3 写回索引 3，右侧当前数组完成插入，变为 [1, 1, 2, 3, 4, 5]。",
+            "announcement": "执行 nums[3] = base 将 3 写回索引 3，得到有序数组 [1, 1, 2, 3, 4, 5]。"
+          }
+        ],
+        "review": {
+          "status": "confirmed",
+          "run_id": "figure-accessibility-20261114/animations/batch-05",
+          "content_sha256": "4f22b9321618dc7e2be66ed16c82272de10a4bddd79ceb365bae98ade7ca205e",
+          "stages": [
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "7978a0637acb1dedbfe6113896b39798d988c0fb65de71a870e0ea81c27829ba",
+              "output_sha256": "bc4e8ae418a6e5821d8be02eed0ea2f57e285edad16421f527f32c6f8466c223"
+            },
+            {
+              "requested_model": "gemini-4-argon",
+              "actual_model": null,
+              "model_confirmation": "provider_not_reported",
+              "input_sha256": "bc4e8ae418a6e5821d8be02eed0ea2f57e285edad16421f527f32c6f8466c223",
+              "output_sha256": "441479076d2f78a3fdb3f6f9f5c693a16321eb479f3c0c4a4897be3dbc9cd18c"
+            },
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "441479076d2f78a3fdb3f6f9f5c693a16321eb479f3c0c4a4897be3dbc9cd18c",
+              "output_sha256": "84c2f47271786cb20a88b2c78cc2942ef5704bdd0184b6b39729f6a25e4cb957"
+            }
+          ],
+          "evidence_sha256": "4577149d6c4d8d77374c9169aa049697d0fb1997abc6ced3188ea0955798f7da"
+        }
+      }
+    }
+  }
+}

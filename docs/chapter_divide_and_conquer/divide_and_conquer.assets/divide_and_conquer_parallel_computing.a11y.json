@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing",
+  "title": "桶排序的并行计算结构",
+  "summary": "将无序数据分配到六个桶中，交由六个计算单元并行排序，再按序汇集为有序数据。",
+  "context": [
+    "这是一张展示分治并行化的结构示意图，未指定具体数组元素、桶边界数值或运行耗时。画面自上而下依次排列顶部的“无序数据”、中间的六个“桶”与六个“计算单元”，以及底部的“有序数据”。"
+  ],
+  "description": [
+    "顶部的无序数据沿六条向下分支箭头分配到六个桶中；每个桶各通过一条竖直虚线对应下方的计算单元，表示六个桶的内部排序任务彼此独立、互不依赖，可分发给不同计算单元同时并行处理。",
+    "六个计算单元完成各自桶内排序后，输出箭头汇总到底部的有序数据。在按数值范围有序划分的桶排序中，各计算单元排好本桶数据后，还需按桶的范围先后顺序依次收集，才能拼出全局有序结果。",
+    "本图旨在说明分治产生的独立子问题有利于多核或多处理器并行加速，并未展示各桶的数据量分布或通信合并开销，因此不能由图中画出六个计算单元直接推断运行速度必定提升六倍。"
+  ],
+  "result": "分治策略将原排序问题拆解为互不重叠的多个桶内排序子问题，使多个计算单元得以并行执行，最后再合并各子问题的解。",
+  "frames": [
+    {
+      "id": "source-311",
+      "book_path": "chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.png",
+      "title": "桶排序的并行计算结构",
+      "explanation": "六条“无序数据分桶 → 计算单元独立排序 → 汇总为有序数据”的并行支路，展示了如何将互不依赖的分治子问题映射到多计算单元同时求解。",
+      "state": "顶部“无序数据”经六条分支进入六个“桶”，每个桶通过竖直虚线绑定一个“计算单元”，六个计算单元的输出箭头共同汇入底部“有序数据”；图中不含具体数值或计时数据。",
+      "key_state": "六个桶分别由六个计算单元并行处理，输出汇集为有序数据。",
+      "announcement": "展示将桶排序的六个独立桶分配给六个计算单元并行处理再合并结果的结构。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-16",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "f14557ddbbbcd6ce493cbb01ff8644f43db4d893322a8242bbc27acec35f4755",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "5e763dfd4e2b736b9a5010f6bdd3e33ef9402bdbd494a2a8c3346a1893135dc9",
+        "output_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb",
+        "output_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0",
+        "output_sha256": "b8fa9f331b33db33433309a29e9fe3834178d140c262ec7bc27dee6b669a5cd5"
+      }
+    ],
+    "evidence_sha256": "a355fc71eefa70eb8f989661b8a016ead02f198bb0747865902f358b13b089ae"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_divide_and_conquer/divide_and_conquer.md": "433813a12d09fb5bfb85695af5b249a0ad58dc0fb87a5a4ab7786f39c49853cf"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.png": "fd1c95b1dff2d9a2a965284738afe8116ab07ca4efc460ef9a1ef25732ca3699"
+    }
+  }
+}

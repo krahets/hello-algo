@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_tree/binary_tree.assets/complete_binary_tree",
+  "title": "完全二叉树：末层从左到右连续填充",
+  "summary": "前三层全部填满，第四层从左起连续占满五个位置，仅最右侧三个位置留空。",
+  "context": [],
+  "description": [
+    "左侧四层无数值标签的二叉树中，前三层全部填满，分别有 1、2、4 个节点。第三层从左往右数：第一、第二个节点各有左、右两个子节点；第三个节点只有左子节点；第四个节点没有子节点。因此第四层共有五个节点，连续占据最左侧的五个位置。",
+    "右侧标出“完全二叉树”与英文“complete binary tree”。树底部有一条指向左侧的长箭头，配合灰色说明框“最底层节点靠左填充，其他层节点全被填满”，强调末层节点必须紧靠左侧连续排列，中间不能出现空缺。"
+  ],
+  "result": "图中二叉树高度为 3，共有 12 个节点，符合完全二叉树定义；因第四层右侧仍有三个空位未填满，它不是完美二叉树。",
+  "frames": [
+    {
+      "id": "source-93",
+      "book_path": "chapter_tree/binary_tree.assets/complete_binary_tree.png",
+      "title": "完全二叉树：末层从左到右连续填充",
+      "explanation": "前三层依次填满 1、2、4 个节点，第四层从左到右连续排列五个节点且中间无空位，底部向左的箭头标明最底层靠左连续填充。",
+      "state": "四层无数值标签的二叉树，高度为 3，共 12 个节点：第一至三层分别有 1、2、4 个节点且全部填满；第三层前两个节点各有两个子节点，第三个节点仅有左子节点，第四个节点无子节点，使第四层最左侧连续排布五个叶节点，右侧三个位置为空。",
+      "key_state": "前三层分别有 1、2、4 个节点，第四层靠左连续排列五个节点，共 12 个节点。",
+      "announcement": "展示前三层全满、第四层靠左连续填充五个节点的完全二叉树。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-06",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "9207cfaa73b120e3d625461a1adc7aefb5e1575c096579899777fa61a336f829",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a7d27ac86970762b98a3afc622b5a802549e6b6254c666e3efdf60f34ede65b5",
+        "output_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4",
+        "output_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900",
+        "output_sha256": "30bb25c69fe95554ab48370f707653e1ddeb4b287f83cb44cf33dc013e44b87b"
+      }
+    ],
+    "evidence_sha256": "bbb898a17ec7d0f8023ba3e028e19e1cebb4eba7c5059fe86305e5491e6f3b3b"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_tree/binary_tree.md": "ae2eaab951aa4bdfeba7d1cf6b47892b44351703c62da823977b45cbceb86c49"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_tree/binary_tree.assets/complete_binary_tree.png": "d5cfc5fb42a82bd446974777faeb4233602add130d19c90cf8ce1e9958cb29cc"
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_backtracking/n_queens_problem.assets/solution_4_queens",
+  "title": "四皇后的两个摆放方案",
+  "summary": "并排展示 4×4 棋盘上四皇后问题的全部两种合法摆放方案。",
+  "context": [
+    "4 皇后问题要求在 4×4 国际象棋棋盘上放置 4 个皇后，使得任意两个皇后都不能处于同一行、同一列或同一条对角线上。为便于定位，以下按行从上到下、列从左到右均从 1 开始编号。"
+  ],
+  "description": [
+    "画面左右并排两个 4×4 棋盘，浅灰与浅绿方格交替排列，皇后以绿色棋子图标表示。原图不带数字坐标标签，表中的行列编号是为准确指明棋子位置而约定的行列序号。"
+  ],
+  "result": "4 皇后问题共有图中所示的两个解，左棋盘各行皇后的列号依次为 [2, 4, 1, 3]，右棋盘依次为 [3, 1, 4, 2]，两个解互为左右镜像。",
+  "frames": [
+    {
+      "id": "source-363",
+      "book_path": "chapter_backtracking/n_queens_problem.assets/solution_4_queens.png",
+      "title": "四皇后的两个摆放方案",
+      "explanation": "左棋盘第 1 至第 4 行的皇后分别放在第 2、第 4、第 1、第 3 列；右棋盘第 1 至第 4 行的皇后分别放在第 3、第 1、第 4、第 2 列。两个棋盘都满足每行一枚、每列一枚，且任意两枚皇后的行号之差绝对值都不等于列号之差绝对值，因而也不在同一主对角线或次对角线上。",
+      "state": "两个 4×4 棋盘并列：按从 1 开始的（行, 列）坐标，左棋盘四枚绿色皇后位于 (1, 2)、(2, 4)、(3, 1)、(4, 3)；右棋盘四枚绿色皇后位于 (1, 3)、(2, 1)、(3, 4)、(4, 2)，其余方格为空。",
+      "key_state": "两个合法解的逐行列号分别为 [2, 4, 1, 3] 和 [3, 1, 4, 2]。",
+      "announcement": "按逐行列号 2、4、1、3 或 3、1、4、2 摆放四枚皇后，得到四皇后问题的两个合法解。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "从上到下各行皇后所在列（编号从1开始）",
+      "headers": [
+        "行",
+        "左棋盘列",
+        "右棋盘列"
+      ],
+      "rows": [
+        [
+          "1",
+          "2",
+          "3"
+        ],
+        [
+          "2",
+          "4",
+          "1"
+        ],
+        [
+          "3",
+          "1",
+          "4"
+        ],
+        [
+          "4",
+          "3",
+          "2"
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-18",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "f9b98e0f68c3f8632bd43fd659cdc9a8f61b001cc15ec3d72b3418149ff22a57",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "4d905ea19e7b4a83ea36041a9c7f9d8d8c1f3b06c72a654e2a9e539750effd5d",
+        "output_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90",
+        "output_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad",
+        "output_sha256": "5ee2b110fd9b935a096ccaacf3e3b27d88bb1cb4918d9a5b6bd2b5a75c56edf0"
+      }
+    ],
+    "evidence_sha256": "5559c3ad6bd5d378f79de2a5c7f96ac680c007486f684e00a24a2512ab4de485"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_backtracking/n_queens_problem.md": "0703bbfa9c27095e7d378f2dcdd026d8c6e15ca0e068ae50aefaf9d94cbc07aa"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_backtracking/n_queens_problem.assets/solution_4_queens.png": "5bd79a0d0f6c5330ec52638f1157bfad933451141ad63937746ac497cb51d9dc"
+    }
+  }
+}

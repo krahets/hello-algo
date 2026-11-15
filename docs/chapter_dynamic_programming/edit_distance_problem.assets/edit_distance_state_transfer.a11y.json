@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_state_transfer",
+  "title": "编辑距离的状态转移",
+  "summary": "以将 book 转换为 code 为例，展示两字符串尾部字符不同（k 与 e）时，通过添加、删除、替换分解出的三条子问题转移分支。",
+  "context": [
+    "记状态 dp[i, j] 表示将源字符串 s 的前 i 个字符转换为目标字符串 t 的前 j 个字符所需的最少编辑步数，每次添加、删除或替换操作的代价均为 1。本图以 s = book、t = code 为例，重点剖析两字符串当前尾部字符 s[i-1] = k 与 t[j-1] = e 不相同时的状态转移来源。"
+  ],
+  "description": [
+    "画面左侧列出当前状态 dp[i, j] 对应的源串 s = book（尾字符 k 仍为绿色方格）与目标串 t = code（尾字符 e 仍为青色方格），向右发散出上、中、下三条有向箭头，分别对应三种候选编辑操作及缩小规模后的剩余子问题：",
+    "在右侧三个子问题框中，已经被匹配抵消或删除的尾部字符以浅灰色淡化显示，表示它们不再计入剩余待匹配的前缀范围；带有彩色底框的前缀部分则直观标示出归约后的子问题维度（分别为 dp[i, j-1]、dp[i-1, j] 与 dp[i-1, j-1]）。"
+  ],
+  "result": "当尾部字符 s[i-1] 与 t[j-1] 不同时，当前最少编辑步数等于三种操作对应子问题的最小值再加上本次编辑代价 1，即 dp[i, j] = min(dp[i, j-1], dp[i-1, j], dp[i-1, j-1]) + 1。注意本图仅用于推导单步状态转移方程，并未计算 book 到 code 的最终编辑距离数值。",
+  "frames": [
+    {
+      "id": "source-443",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_state_transfer.png",
+      "title": "编辑距离的状态转移",
+      "explanation": "从左侧 s = book、t = code（对应 dp[i, j]）出发分为三条转移支路：上路“在尾部添加 e”将 book 变为 booke，末尾 e 与 code 的末尾 e 匹配抵消（均变灰），剩余待匹配前缀为 book 对 cod，归约为子问题 dp[i, j-1]；中路“删除 k”将 book 末尾的 k 删去（k 变灰），剩余前缀为 boo 对完整的 code，归约为子问题 dp[i-1, j]；下路“将 k 替换为 e”把 book 变为 booe，末尾 e 与 code 的 e 匹配抵消（均变灰），剩余前缀为 boo 对 cod，归约为子问题 dp[i-1, j-1]。",
+      "state": "左侧当前状态 dp[i, j] 对应 s = book、t = code（尾字符 k ≠ e）；右侧三条分支依次为：1. 在尾部添加 e → 归约为 dp[i, j-1]（有效前缀 book 对 cod，末尾 e 变灰）；2. 删除 k → 归约为 dp[i-1, j]（有效前缀 boo 对 code，末尾 k 变灰）；3. 将 k 替换为 e → 归约为 dp[i-1, j-1]（有效前缀 boo 对 cod，末尾 e 变灰）。",
+      "key_state": "尾字符 k 与 e 不同时，添加、删除、替换分别归约为 dp[i, j-1]、dp[i-1, j] 和 dp[i-1, j-1]。",
+      "announcement": "展示编辑距离状态转移：对 book 的尾字符 k 执行添加 e、删除 k 或替换为 e，分别归约到三个更小前缀子问题。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-23",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "a552d2fb0839f9f1e54be979ee9a99d45f4e9601fc05aa95f3e0b98e2cf95156",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "65ed4701387683dd63f9752fe8b0082f9d369d4e3aa764d1d7da3ca514d30dbe",
+        "output_sha256": "4ebebbc05478b00c6f876ea5cbaa9078823129963728aa248fd3a3c2cb7c35fa"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "4ebebbc05478b00c6f876ea5cbaa9078823129963728aa248fd3a3c2cb7c35fa",
+        "output_sha256": "c726cb1e9a48ecde596b2fa06c86f121a4e999d76885ea20a856bb028acd90e2"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "c726cb1e9a48ecde596b2fa06c86f121a4e999d76885ea20a856bb028acd90e2",
+        "output_sha256": "e1e1cb976bc14f564bd765f9e4e7faf06571d50a98cb8f9a91ea36cdac3993ad"
+      }
+    ],
+    "evidence_sha256": "34444c50d6df82ed6b43160a49929ee9fc81523aa89772b10af874af3efcc040"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_dynamic_programming/edit_distance_problem.md": "643a62f62b2090294e2b8f8889bb1e9975cdbb62e41dd1c7cb3c25a11343c11f"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_state_transfer.png": "53a5ce12205106b465f947fb03a83b0080fbab4edc1039b9421f17ad0a36e4f1"
+    }
+  }
+}

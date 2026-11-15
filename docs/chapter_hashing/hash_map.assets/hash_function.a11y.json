@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_hashing/hash_map.assets/hash_function",
+  "title": "哈希函数将输入 key 映射为桶数组索引",
+  "summary": "以哈希函数 key % 100 将学号转换为容量 100 的数组桶索引，演示 13276、12836、16750 三条查询路径如何分别定位到 76、36、50 号桶并取出姓名。",
+  "context": [
+    "画面从左到右分为四个部分：“输入 key”列、“哈希函数 key % 100”计算框、“索引”与“数组（每个桶内保存一个键值对）”列，以及最右侧的“输出 value”列。",
+    "底层数组容量为 100，哈希函数定义为 index = key % 100，即直接截取五位学号的后两位数字作为数组桶索引。"
+  ],
+  "description": [
+    "数组列共画出 5 个非空哈希桶（见表 1），其余位置用省略号“…”略去。左侧“输入 key”列从上到下给出三个待查询学号：橙色 13276、蓝色 12836、绿色 16750（见表 2）。",
+    "由于左侧输入学号未按后两位从小到大排列，而中间数组按桶索引 36、37、50、76、83 升序排列，三条彩色查询曲线在穿过“哈希函数 key % 100”时发生了视觉交叉：顶部橙色 13276 映射到下方索引 76 并输出底部橙色“小法”；中部蓝色 12836 映射到上方索引 36 并输出顶部蓝色“小哈”；底部绿色 16750 映射到中部索引 50 并输出中部绿色“小算”。"
+  ],
+  "tables": [
+    {
+      "caption": "数组中已展示的桶",
+      "headers": [
+        "桶索引",
+        "学号 key",
+        "姓名 value"
+      ],
+      "rows": [
+        [
+          "36",
+          "12836",
+          "小哈"
+        ],
+        [
+          "37",
+          "15937",
+          "小啰"
+        ],
+        [
+          "50",
+          "16750",
+          "小算"
+        ],
+        [
+          "76",
+          "13276",
+          "小法"
+        ],
+        [
+          "83",
+          "10583",
+          "小鸭"
+        ]
+      ]
+    },
+    {
+      "caption": "图中突出显示的查询路径",
+      "headers": [
+        "输入学号",
+        "取余结果",
+        "输出姓名"
+      ],
+      "rows": [
+        [
+          "13276",
+          "76",
+          "小法"
+        ],
+        [
+          "12836",
+          "36",
+          "小哈"
+        ],
+        [
+          "16750",
+          "50",
+          "小算"
+        ]
+      ]
+    }
+  ],
+  "result": "哈希函数在输入 key 与底层数组桶索引之间架起确定性桥梁：先由 key % 100 算出桶索引，再直接访问该桶取出对应的 value。",
+  "frames": [
+    {
+      "id": "source-82",
+      "book_path": "chapter_hashing/hash_map.assets/hash_function.png",
+      "title": "通过 key % 100 定位桶索引的三条查询路径",
+      "explanation": "三条同色有向曲线完整展示了哈希查找的两步过程：橙色路径输入 13276，计算 13276 % 100 = 76，定位到 76 号桶 (13276, “小法”) 并输出“小法”；蓝色路径输入 12836，计算 12836 % 100 = 36，定位到 36 号桶 (12836, “小哈”) 并输出“小哈”；绿色路径输入 16750，计算 16750 % 100 = 50，定位到 50 号桶 (16750, “小算”) 并输出“小算”。数组中一并画出的 37 号桶 (15937, “小啰”) 和 83 号桶 (10583, “小鸭”) 未参与本次三条查询。",
+      "state": "左侧“输入 key”从上到下为橙色 13276、蓝色 12836、绿色 16750；中间蓝色框标注“哈希函数 key % 100”；“数组”列按索引从上到下展示 36:(12836, “小哈”)、37:(15937, “小啰”)、50:(16750, “小算”)、76:(13276, “小法”)、83:(10583, “小鸭”)，底部注明“（每个桶内保存一个键值对）”；右侧“输出 value”从上到下依次为蓝色“小哈”、绿色“小算”、橙色“小法”。",
+      "key_state": "13276 % 100 = 76 → 小法；12836 % 100 = 36 → 小哈；16750 % 100 = 50 → 小算。",
+      "announcement": "展示哈希函数 key % 100 将三个输入学号分别映射到 76、36、50 号桶并输出姓名的过程。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-05",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "48f908164234e030b08c087c52876f6e6c683857d7d3800a93e68a290bbdecb5",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "bbf6fc89ced3325538a22d1eecebd98ac2a54cd576eb8bfe0b2aad472b2340bc",
+        "output_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108",
+        "output_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281",
+        "output_sha256": "ffb27a99b86ace98bde8e54084f42f6a1c59f19a353deb9a55c4ee96d96e99be"
+      }
+    ],
+    "evidence_sha256": "954be79d16a2deb5e3a0108cd78415c4c9fef13373e1a16fbca5a1e1d388bf98"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_hashing/hash_map.md": "c3958aefdad1c1246c11d2029bf493fc83cdd4306e4aea7a0da033333c6626cb"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_hashing/hash_map.assets/hash_function.png": "61a55edc36bebfada46941fdd9c39002ad244cea91774b3be4d0ae0d76211f82"
+    }
+  }
+}

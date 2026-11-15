@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_backtracking/permutations_problem.assets/permutations_i",
+  "title": "无相等元素全排列的递归选择树",
+  "summary": "从空状态出发，每轮从 [1, 2, 3] 中选一个未使用的元素追加到 state，经三轮选择在叶节点生成 6 个全排列。",
+  "context": [
+    "输入候选集合 choices = [1, 2, 3]，三个元素互不相同，且每个元素在同一个排列中只能被选择一次。根节点状态 state 为三个空白槽位，表示尚未填入任何元素。"
+  ],
+  "description": [
+    "第一轮选择从根节点的空状态分出 3 个分支，依次填入 1、2、3，得到前缀状态 [1]、[2]、[3]（其余未填槽位留空）。",
+    "第二轮选择在每个前缀后追加一个尚未使用的元素：[1] 分出 [1, 2] 和 [1, 3]；[2] 分出 [2, 1] 和 [2, 3]；[3] 分出 [3, 1] 和 [3, 2]。",
+    "第三轮选择将唯一剩余的可用元素填入最后一个槽位，底层 6 个叶节点从左到右依次为 [1, 2, 3]、[1, 3, 2]、[2, 1, 3]、[2, 3, 1]、[3, 1, 2]、[3, 2, 1]。实际回溯执行时通过尝试与回退在各分支间切换，图中将所有选择分支静态展开为一棵递归树。"
+  ],
+  "result": "第一、二、三轮每个节点的可选分支数依次为 3、2、1，共生成 3 × 2 × 1 = 6 个叶节点，每个叶节点对应 [1, 2, 3] 的一种完整全排列。",
+  "frames": [
+    {
+      "id": "source-353",
+      "book_path": "chapter_backtracking/permutations_problem.assets/permutations_i.png",
+      "title": "三轮不重复选择展开的全排列递归树",
+      "explanation": "每条从根到叶的路径都依次选完 1、2、3 三个互不相同的元素，内部节点表示部分填好的排列前缀 state，底层六个叶节点即为全部六种排列。",
+      "state": "候选列表 choices=[1, 2, 3]；根状态为空；第一轮分支为 [1]、[2]、[3]；第二轮分支为 [1, 2]、[1, 3]、[2, 1]、[2, 3]、[3, 1]、[3, 2]；第三轮叶节点为 [1, 2, 3]、[1, 3, 2]、[2, 1, 3]、[2, 3, 1]、[3, 1, 2]、[3, 2, 1]，共六个全排列。",
+      "key_state": "三轮选择得到六个叶节点，每个叶节点对应一种全排列。",
+      "announcement": "展示候选集合 [1, 2, 3] 经三轮选择生成六种全排列的递归树。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-17",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "51f835728c25f0e82729f42fae433c292cb4aa5d0ca64223935290037f54b02f",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "9481355a76d6c2868fbc0dd1da3fce835e92627213718a59a80d559350e023af",
+        "output_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f",
+        "output_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc",
+        "output_sha256": "1ba5b92e7d3bb734d4bc41b061ddb3c528638a049805a4bbcfc38825c0c76c88"
+      }
+    ],
+    "evidence_sha256": "6ad10597e7712f6ddf95ae500fcc50f0289bc7d0786a40fa5117c27866048681"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_backtracking/permutations_problem.md": "3a98624cb60210ec070f3e3a5e1a72593e80be9ded7190c57aa89ceda20034df"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_backtracking/permutations_problem.assets/permutations_i.png": "f7a6e684839e089f3d5805351a22ec572205fb1984a5d0e285e73e3b4536d959"
+    }
+  }
+}

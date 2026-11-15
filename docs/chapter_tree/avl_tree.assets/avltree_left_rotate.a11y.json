@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_tree/avl_tree.assets/avltree_left_rotate",
+  "title": "AVL 左旋：将右子节点 5 提升为子树根",
+  "summary": "对失衡节点 4 执行左旋，将向右倾斜的链 4 → 5 → 6 调整为以 5 为根、左接 4 且右接 6 的平衡子树。",
+  "context": [
+    "整棵树的外层根节点为 1，左子节点为 0，右子节点为 4；节点 4 只有右子节点 5，节点 5 只有右子节点 6。图中将失衡节点 4 记为 node，其右子节点 5 记为 child。"
+  ],
+  "description": [
+    "图从左到右展示旋转前、向左旋转过程与旋转后的状态。节点 4 的左子树为空，右侧连续向下延伸两层（4 → 5 → 6），左右高度差超过 1。对以 4 为根的子树执行左旋时，以 child（节点 5）为原点将 node（节点 4）向左下方旋转：节点 5 上升为子树新根，节点 4 成为 5 的左子节点，节点 6 保持为 5 的右子节点。",
+    "由于旋转前节点 5 没有左子节点，旋转后节点 4 的右子节点即为空。同时，外层父节点 1 的右子节点引用从原来的 4 更新为新子树根 5，左子节点 0 保持不变。中间子图的浅色虚线圆圈标示节点 4 旋转前的原位置。"
+  ],
+  "result": "左旋完成后，外层根 1 的左、右子节点分别为 0 和 5；节点 5 的左、右子节点分别为 4 和 6。右侧子树恢复平衡，整棵树的中序遍历序列仍为 [0, 1, 4, 5, 6]。",
+  "frames": [
+    {
+      "id": "source-135",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_left_rotate.png",
+      "title": "AVL 左旋：将右子节点 5 提升为子树根",
+      "explanation": "图从左到右展示对失衡节点 4（node）执行左旋的过程：将右子节点 5（child）提升为局部子树的新根，原本向右连续延伸的两层路径 4 → 5 → 6 变为以 5 为根、左右分别接 4 和 6 的结构，使该子树高度降低一层并恢复平衡。",
+      "state": "旋转前：外层根 1 左接 0、右接 4；4 右接 5；5 右接 6。旋转后：外层根 1 左接 0、右接 5；5 左接 4、右接 6，其中 0、4、6 均为叶节点。图中标注 node=4，child=5。",
+      "key_state": "对节点 4 左旋：外层根 1 的右子节点改为 5，5 的左、右子节点分别为 4 和 6。",
+      "announcement": "展示左旋操作：将右偏链 4、5、6 调整为以 5 为根的平衡子树。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-08",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "877bd04b1a2efa85eb2b2175f9798b2b9eafff59aa6ce2e07e9e8b2f1fad5702",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a506b3ecafaef6d8fc62ef26dae68447d18629fc5e16ddd8ae926171452d6745",
+        "output_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d",
+        "output_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896",
+        "output_sha256": "8aa1f4dfa1fd2a8bc10a20ded596eaae033faa43bbf57cbc5c462af6f3455359"
+      }
+    ],
+    "evidence_sha256": "14a36adc867aa49a98d8a9d37d2a3aade7c41c8d611abaa2b4d84cd7b471e986"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_tree/avl_tree.md": "f4a27fbca67b22b8b3a041218f1088ab85a9f2a32e374060046152e6e01440a5"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_tree/avl_tree.assets/avltree_left_rotate.png": "2d1d9199379a1f8ca202f1cf4c33ab33736c113299277d53aa40b4747343bbac"
+    }
+  },
+  "animations": {
+    "avl-left-rotation": {
+      "kind": "prose",
+      "model_sha256": "99af7ed84cdc9923baafdc4c78b56560bde8f06b4f5cae04ca772fd246aab2cd",
+      "prose": {
+        "schema_version": 1,
+        "status": "confirmed",
+        "locale": "zh-hans",
+        "story_id": "avl-left-rotation",
+        "group_id": "group:chapter_tree/avl_tree.assets/avltree_left_rotate",
+        "title": "AVL 树左旋：以右子节点接替失衡子树根",
+        "summary": "对右倾失衡的节点 4 执行左旋，令右子节点 5 接替子树根并接回父节点 1 右侧，使局部子树恢复平衡。",
+        "context": [
+          "AVL 树要求任意节点的左右子树高度差（平衡因子）绝对值不超过 1。本例失衡节点的平衡因子为 -2，且右子节点的平衡因子为 -1，符合单次左旋条件，可通过左旋调整父子引用以降低子树高度，同时保持二叉搜索树的中序遍历次序与各节点数值不变。",
+          "初始整棵树以节点 1 为根，其左子节点为 0、右子节点为 4；节点 4 没有左子节点，右子节点为 5；节点 5 也只有右子节点 6。图中指针 node 指向失衡节点 4，指针 child 指向其右子节点 5。"
+        ],
+        "description": [
+          "动画按源图自左向右的三个阶段展开：先标出以 4 为根的右倾失衡链 4→5→6，再展示节点 4 向左下旋转到节点 5 左侧的过渡画面，最后将新的子树根 5 上移并接回父节点 1 的右下方。",
+          "在第二步过渡画面中，节点 4 的原位置保留了一枚浅橙色虚线残影及指向 5 的虚线边，仅用于对照旋转前的起点，并非树中新增了第二个值为 4 的节点；同时，父节点 1 到新子树根 5 的实线连接要到第三步整理位置后才正式画出。"
+        ],
+        "result": "左旋完成后，根节点 1 的左子节点仍为 0、右子节点更新为 5；节点 5 的左子节点为 4、右子节点为 6。五个节点全部保留，中序序列仍为 [0, 1, 4, 5, 6]，子树恢复平衡。",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "定位右倾失衡节点 4 与右子节点 5",
+            "explanation": "指针 node 指向橙色节点 4，旁边标注“失衡节点”；指针 child 指向蓝色右子节点 5。节点 4 的左子树为空（高度记为 -1），右侧沿 4→5→6 连续延伸两层（右子树高度为 1），平衡因子为 -2，需要以右子节点 5 为支点对节点 4 执行左旋。",
+            "state": "当前整树根为 1，实线连接为 1 的左子节点 0、右子节点 4，4 的右子节点 5，以及 5 的右子节点 6；节点 0 和 6 为叶节点，其余未画出的分支均为空。指针 node 指向 4（标注“失衡节点”），指针 child 指向 5。",
+            "key_state": "节点 4 右倾失衡（平衡因子 -2），node 指向 4，child 指向右子节点 5。",
+            "announcement": "定位失衡节点 4 及其右子节点 5，准备执行左旋。"
+          },
+          {
+            "id": "step-2",
+            "title": "将节点 4 向左旋转为节点 5 的左子节点",
+            "explanation": "画面出现“向左旋转”提示与弧形箭头，橙色实心节点 4 绕蓝色节点 5 向左下旋转，成为 5 的左子节点；节点 5 的右子节点仍为 6。原位置留下的浅色虚线节点 4 与虚线边只是移动前的残影，而父节点 1 通往新子树根 5 的实线在此过渡画面中尚未连接。",
+            "state": "当前可见实线连接分为两部分：上方根节点 1 连接左子节点 0，下方局部子树根 5 连接左子节点 4 与右子节点 6；父节点 1 与节点 5 之间暂无实线相连。节点 4 原位置保留浅色虚线残影并带一条指向 5 的虚线，树中实际仍只有 0、1、4、5、6 五个节点。",
+            "key_state": "节点 4 已转至节点 5 的左下方成为其左子节点，原位置保留残影，待接回父节点 1。",
+            "announcement": "节点 4 左旋成为 5 的左子节点，原位置保留虚线残影。"
+          },
+          {
+            "id": "step-3",
+            "title": "新子树根 5 接回父节点 1 并恢复平衡",
+            "explanation": "清除原位置残影后，蓝色节点 5 上移至原子树根位置并接回父节点 1 的右侧，其左、右子节点分别为 4 和 6。节点 5 右上方标注“已恢复平衡”，局部子树高度降低一层，且依然满足左小右大的二叉搜索树次序。",
+            "state": "当前整树根为 1，左子节点为 0、右子节点为 5；节点 5 的左子节点为 4、右子节点为 6；节点 0、4、6 均为叶节点。过渡残影已移除，节点 5 旁标注“已恢复平衡”。",
+            "key_state": "新子树根 5 已接回父节点 1 右侧，左、右子节点分别为 4 和 6，子树恢复平衡。",
+            "announcement": "节点 5 接替子树根并接回父节点 1 右侧，左旋完成。"
+          }
+        ],
+        "review": {
+          "status": "confirmed",
+          "run_id": "figure-accessibility-20261114/animations/batch-04",
+          "content_sha256": "fdbc0c9022671900384e6d2a62b7585d6bd53d2989573212347a8701f202b6d6",
+          "stages": [
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "3d203796b035f2623e7ddf18bb2c7a0f0c058fc7f964675d759c908c73ef8844",
+              "output_sha256": "a22db3de96270cfb4966b9f857b0e1383de76231a69a2d5640b5487d990a340b"
+            },
+            {
+              "requested_model": "gemini-4-argon",
+              "actual_model": null,
+              "model_confirmation": "provider_not_reported",
+              "input_sha256": "a22db3de96270cfb4966b9f857b0e1383de76231a69a2d5640b5487d990a340b",
+              "output_sha256": "8128dda216fc899534e667fb069d5737da393f7f8c106cb457cbdb19312dd6ec"
+            },
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "8128dda216fc899534e667fb069d5737da393f7f8c106cb457cbdb19312dd6ec",
+              "output_sha256": "89169e45f10a96071739b88711eb916d9b2ab592c4e7e73b726e4c01dbfb9147"
+            }
+          ],
+          "evidence_sha256": "bd4849b5d6683e29047020eb4a084c7194e2dc2e612e6dc976448466ebe20803"
+        }
+      }
+    }
+  }
+}

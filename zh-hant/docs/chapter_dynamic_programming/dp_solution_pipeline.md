@@ -140,37 +140,37 @@ $$
     ![最小路徑和的動態規劃過程](dp_solution_pipeline.assets/min_path_sum_dp_step1.svg)
 
 === "<2>"
-    ![min_path_sum_dp_step2](dp_solution_pipeline.assets/min_path_sum_dp_step2.svg)
+    ![最小路徑和的逐格動態規劃，第 2 步，共 12 步：第 2 步：初始化首行與首列](dp_solution_pipeline.assets/min_path_sum_dp_step2.svg)
 
 === "<3>"
-    ![min_path_sum_dp_step3](dp_solution_pipeline.assets/min_path_sum_dp_step3.svg)
+    ![最小路徑和的逐格動態規劃，第 3 步，共 12 步：第 3 步：計算狀態 dp\[1, 1\]](dp_solution_pipeline.assets/min_path_sum_dp_step3.svg)
 
 === "<4>"
-    ![min_path_sum_dp_step4](dp_solution_pipeline.assets/min_path_sum_dp_step4.svg)
+    ![最小路徑和的逐格動態規劃，第 4 步，共 12 步：第 4 步：計算狀態 dp\[1, 2\]](dp_solution_pipeline.assets/min_path_sum_dp_step4.svg)
 
 === "<5>"
-    ![min_path_sum_dp_step5](dp_solution_pipeline.assets/min_path_sum_dp_step5.svg)
+    ![最小路徑和的逐格動態規劃，第 5 步，共 12 步：第 5 步：計算狀態 dp\[1, 3\]](dp_solution_pipeline.assets/min_path_sum_dp_step5.svg)
 
 === "<6>"
-    ![min_path_sum_dp_step6](dp_solution_pipeline.assets/min_path_sum_dp_step6.svg)
+    ![最小路徑和的逐格動態規劃，第 6 步，共 12 步：第 6 步：計算狀態 dp\[2, 1\]](dp_solution_pipeline.assets/min_path_sum_dp_step6.svg)
 
 === "<7>"
-    ![min_path_sum_dp_step7](dp_solution_pipeline.assets/min_path_sum_dp_step7.svg)
+    ![最小路徑和的逐格動態規劃，第 7 步，共 12 步：第 7 步：計算狀態 dp\[2, 2\]](dp_solution_pipeline.assets/min_path_sum_dp_step7.svg)
 
 === "<8>"
-    ![min_path_sum_dp_step8](dp_solution_pipeline.assets/min_path_sum_dp_step8.svg)
+    ![最小路徑和的逐格動態規劃，第 8 步，共 12 步：第 8 步：計算狀態 dp\[2, 3\]](dp_solution_pipeline.assets/min_path_sum_dp_step8.svg)
 
 === "<9>"
-    ![min_path_sum_dp_step9](dp_solution_pipeline.assets/min_path_sum_dp_step9.svg)
+    ![最小路徑和的逐格動態規劃，第 9 步，共 12 步：第 9 步：計算狀態 dp\[3, 1\]](dp_solution_pipeline.assets/min_path_sum_dp_step9.svg)
 
 === "<10>"
-    ![min_path_sum_dp_step10](dp_solution_pipeline.assets/min_path_sum_dp_step10.svg)
+    ![最小路徑和的逐格動態規劃，第 10 步，共 12 步：第 10 步：計算狀態 dp\[3, 2\]](dp_solution_pipeline.assets/min_path_sum_dp_step10.svg)
 
 === "<11>"
-    ![min_path_sum_dp_step11](dp_solution_pipeline.assets/min_path_sum_dp_step11.svg)
+    ![最小路徑和的逐格動態規劃，第 11 步，共 12 步：第 11 步：計算終點狀態 dp\[3, 3\]](dp_solution_pipeline.assets/min_path_sum_dp_step11.svg)
 
 === "<12>"
-    ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.svg)
+    ![最小路徑和的逐格動態規劃，第 12 步，共 12 步：第 12 步：返回最小路徑和](dp_solution_pipeline.assets/min_path_sum_dp_step12.svg)
 
 ### 空間最佳化
 

@@ -450,28 +450,28 @@
     ![元素入堆積步驟](heap.assets/heap_push_step1.svg)
 
 === "<2>"
-    ![heap_push_step2](heap.assets/heap_push_step2.svg)
+    ![大頂堆積元素入堆積：追加節點 7 並從底至頂堆積化（Sift Up），第 2 步，共 9 步：第 2 步：將節點 7 新增至堆積底](heap.assets/heap_push_step2.svg)
 
 === "<3>"
-    ![heap_push_step3](heap.assets/heap_push_step3.svg)
+    ![大頂堆積元素入堆積：追加節點 7 並從底至頂堆積化（Sift Up），第 3 步，共 9 步：第 3 步：比較新節點 7 與父節點 5](heap.assets/heap_push_step3.svg)
 
 === "<4>"
-    ![heap_push_step4](heap.assets/heap_push_step4.svg)
+    ![大頂堆積元素入堆積：追加節點 7 並從底至頂堆積化（Sift Up），第 4 步，共 9 步：第 4 步：交換節點 7 與父節點 5](heap.assets/heap_push_step4.svg)
 
 === "<5>"
-    ![heap_push_step5](heap.assets/heap_push_step5.svg)
+    ![大頂堆積元素入堆積：追加節點 7 並從底至頂堆積化（Sift Up），第 5 步，共 9 步：第 5 步：比較新節點 7 與上一層父節點 6](heap.assets/heap_push_step5.svg)
 
 === "<6>"
-    ![heap_push_step6](heap.assets/heap_push_step6.svg)
+    ![大頂堆積元素入堆積：追加節點 7 並從底至頂堆積化（Sift Up），第 6 步，共 9 步：第 6 步：交換節點 7 與父節點 6](heap.assets/heap_push_step6.svg)
 
 === "<7>"
-    ![heap_push_step7](heap.assets/heap_push_step7.svg)
+    ![大頂堆積元素入堆積：追加節點 7 並從底至頂堆積化（Sift Up），第 7 步，共 9 步：第 7 步：比較新節點 7 與根節點 9](heap.assets/heap_push_step7.svg)
 
 === "<8>"
-    ![heap_push_step8](heap.assets/heap_push_step8.svg)
+    ![大頂堆積元素入堆積：追加節點 7 並從底至頂堆積化（Sift Up），第 8 步，共 9 步：第 8 步：不執行交換，停止上浮](heap.assets/heap_push_step8.svg)
 
 === "<9>"
-    ![heap_push_step9](heap.assets/heap_push_step9.svg)
+    ![大頂堆積元素入堆積：追加節點 7 並從底至頂堆積化（Sift Up），第 9 步，共 9 步：第 9 步：堆積化完成，大頂堆積性質恢復](heap.assets/heap_push_step9.svg)
 
 設節點總數為 $n$ ，則樹的高度為 $O(\log n)$ 。由此可知，堆積化操作的迴圈輪數最多為 $O(\log n)$ ，**元素入堆積操作的時間複雜度為 $O(\log n)$** 。程式碼如下所示：
 
@@ -493,31 +493,31 @@
     ![堆積頂元素出堆積步驟](heap.assets/heap_pop_step1.svg)
 
 === "<2>"
-    ![heap_pop_step2](heap.assets/heap_pop_step2.svg)
+    ![大頂堆積堆積頂元素出堆積：首尾交換後從頂至底堆積化（Sift Down），第 2 步，共 10 步：第 2 步：將堆積頂元素 9 與堆積底元素 5 交換](heap.assets/heap_pop_step2.svg)
 
 === "<3>"
-    ![heap_pop_step3](heap.assets/heap_pop_step3.svg)
+    ![大頂堆積堆積頂元素出堆積：首尾交換後從頂至底堆積化（Sift Down），第 3 步，共 10 步：第 3 步：彈出當前堆積底的原堆積頂元素 9](heap.assets/heap_pop_step3.svg)
 
 === "<4>"
-    ![heap_pop_step4](heap.assets/heap_pop_step4.svg)
+    ![大頂堆積堆積頂元素出堆積：首尾交換後從頂至底堆積化（Sift Down），第 4 步，共 10 步：第 4 步：比較根節點 5 與左、右子節點 8、7](heap.assets/heap_pop_step4.svg)
 
 === "<5>"
-    ![heap_pop_step5](heap.assets/heap_pop_step5.svg)
+    ![大頂堆積堆積頂元素出堆積：首尾交換後從頂至底堆積化（Sift Down），第 5 步，共 10 步：第 5 步：交換節點 5 與左子節點 8](heap.assets/heap_pop_step5.svg)
 
 === "<6>"
-    ![heap_pop_step6](heap.assets/heap_pop_step6.svg)
+    ![大頂堆積堆積頂元素出堆積：首尾交換後從頂至底堆積化（Sift Down），第 6 步，共 10 步：第 6 步：比較索引 1 的 5 與子節點 6、7](heap.assets/heap_pop_step6.svg)
 
 === "<7>"
-    ![heap_pop_step7](heap.assets/heap_pop_step7.svg)
+    ![大頂堆積堆積頂元素出堆積：首尾交換後從頂至底堆積化（Sift Down），第 7 步，共 10 步：第 7 步：交換節點 5 與索引 4 的子節點 7](heap.assets/heap_pop_step7.svg)
 
 === "<8>"
-    ![heap_pop_step8](heap.assets/heap_pop_step8.svg)
+    ![大頂堆積堆積頂元素出堆積：首尾交換後從頂至底堆積化（Sift Down），第 8 步，共 10 步：第 8 步：比較索引 4 的 5 與子節點 3、6](heap.assets/heap_pop_step8.svg)
 
 === "<9>"
-    ![heap_pop_step9](heap.assets/heap_pop_step9.svg)
+    ![大頂堆積堆積頂元素出堆積：首尾交換後從頂至底堆積化（Sift Down），第 9 步，共 10 步：第 9 步：交換節點 5 與索引 10 的 6，抵達葉節點](heap.assets/heap_pop_step9.svg)
 
 === "<10>"
-    ![heap_pop_step10](heap.assets/heap_pop_step10.svg)
+    ![大頂堆積堆積頂元素出堆積：首尾交換後從頂至底堆積化（Sift Down），第 10 步，共 10 步：第 10 步：堆積化完成，大頂堆積性質恢復](heap.assets/heap_pop_step10.svg)
 
 與元素入堆積操作相似，堆積頂元素出堆積操作的時間複雜度也為 $O(\log n)$ 。程式碼如下所示：
 

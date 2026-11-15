@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_backtracking/n_queens_problem.assets/n_queens_constraints",
+  "title": "皇后不能同行、同列或同对角线",
+  "summary": "左图展示单枚皇后在行、列与两条对角线上的攻击范围，右图展示同时满足全部约束的四皇后解。",
+  "context": [
+    "国际象棋中的皇后可以沿水平行、竖直列以及两个方向的斜对角线攻击任意距离上的棋子。以下按行从上到下、列从左到右均从 1 开始编号。"
+  ],
+  "description": [
+    "左侧 4×4 棋盘在 (2, 2) 放置一枚绿色皇后，用橙色横带标注“不能在同一行”、蓝色竖带标注“不能在同一列”、左上至右下的青色斜带标注“不能在同一主对角线上”、左下至右上的紫色斜带标注“不能在同一次对角线上”，受攻击的 11 个方格均标有 x。右侧 4×4 棋盘标注“解需要满足所有约束条件”，用橙、蓝、青、紫四色皇后及各自延伸的虚线展示一个互不攻击的完整解。"
+  ],
+  "result": "合法摆放必须同时满足同行、同列、同主对角线和同次对角线四项限制；按行逐枚放置虽能自然规避同行冲突，但仍需检查列与两条对角线。",
+  "frames": [
+    {
+      "id": "source-364",
+      "book_path": "chapter_backtracking/n_queens_problem.assets/n_queens_constraints.png",
+      "title": "皇后不能同行、同列或同对角线",
+      "explanation": "左图中位于 (2, 2) 的皇后：同行禁止 (2, 1)、(2, 3)、(2, 4) 三格；同列禁止 (1, 2)、(3, 2)、(4, 2) 三格；主对角线（左上到右下）禁止 (1, 1)、(3, 3)、(4, 4) 三格；次对角线（左下到右上）禁止 (1, 3)、(3, 1) 两格，共封锁 11 个位置。右图中四枚皇后依次位于 (1, 2)、(2, 4)、(3, 1)、(4, 3)，由各自引出的行、列与对角线虚线均未穿过任何其他皇后。",
+      "state": "左棋盘在 (2, 2) 有一枚绿色皇后，其所在第 2 行、第 2 列及主、次对角线上的其余 11 个格子带四色高亮条带并标有 x；右棋盘在 (1, 2)、(2, 4)、(3, 1)、(4, 3) 各有一枚彩色皇后，各自的四向虚线互不穿过其他皇后。",
+      "key_state": "左图展示 (2, 2) 皇后的四向攻击范围，右图列序列 [2, 4, 1, 3] 满足全部约束。",
+      "announcement": "排除同行、同列及主次对角线上的受攻击格后，右侧四枚皇后在全部方向上互不冲突。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-18",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "f4dd5662e9969747a27439860369099c5a16ca0af1ba9f68c0e7573542b5ac41",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "4d905ea19e7b4a83ea36041a9c7f9d8d8c1f3b06c72a654e2a9e539750effd5d",
+        "output_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90",
+        "output_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad",
+        "output_sha256": "5ee2b110fd9b935a096ccaacf3e3b27d88bb1cb4918d9a5b6bd2b5a75c56edf0"
+      }
+    ],
+    "evidence_sha256": "5559c3ad6bd5d378f79de2a5c7f96ac680c007486f684e00a24a2512ab4de485"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_backtracking/n_queens_problem.md": "0703bbfa9c27095e7d378f2dcdd026d8c6e15ca0e068ae50aefaf9d94cbc07aa"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_backtracking/n_queens_problem.assets/n_queens_constraints.png": "ff4ee5e01888fdb5f84c3848739789fb9ac51d11ee16db67895537275c1c7143"
+    }
+  }
+}

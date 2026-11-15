@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_introduction/algorithms_are_everywhere.assets/greedy_change",
+  "title": "找零钱的贪心算法过程",
+  "summary": "展示对 31 元进行找零的贪心过程：在 20、10、5、1 元四种面额中，每一步优先选取不超过当前剩余金额的最大面额，依次减去 20、10、1 元直至待找零金额归零，共使用 3 张纸币。",
+  "context": [
+    "正文以货币找零为例引出贪心算法：购买 69 元的商品并支付 100 元后，需要找回 31 元。图中可选面额为 20、10、5、1 元，做法是在每一步都优先挑选不超过剩余金额的最大面额。"
+  ],
+  "description": [
+    "画面顶部的“目标金额”一行以 4 个灰底框和 3 支向右箭头展示剩余金额变化，数字均为绿色。其下“选定货币”一行依次标出 -20、-10、-1；再下方是对应三次选择的三列纸币，每列从上到下均列出 20、10、5、1 元。当步选中的纸币用彩色突出，其余为浅灰色；两条向右下方的虚线箭头依次连接第一列的 20 元、第二列的 10 元和第三列的 1 元。"
+  ],
+  "result": "三次选择得到 20 + 10 + 1 = 31 元，共 3 张纸币，剩余金额为 0。本例体现了每步选取当前可用最大面额的贪心策略。",
+  "frames": [
+    {
+      "id": "source-16",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/greedy_change.png",
+      "title": "找零钱的贪心算法过程",
+      "explanation": "顶层从待找零金额 31 开始向右推进：第 1 步选中不超过 31 的最大面额 20 元（蓝紫色高亮），计算 31 - 20 得到 11；第 2 步选中不超过 11 的最大面额 10 元（橙色高亮），计算 11 - 10 得到 1；第 3 步选中面额 1 元（青色高亮），计算 1 - 1 得到 0。下方的虚线箭头串联这三次选择；5 元在三列中均未选中。",
+      "state": "顶部“目标金额”一行由向右箭头串联 31、11、1、0；下方“选定货币”一行依次标出 -20、-10、-1。三列候选纸币均按 20、10、5、1 元自上而下排列，依次高亮第一列的 20 元、第二列的 10 元和第三列的 1 元，其余纸币为浅灰色，两条向右下方的虚线箭头将三张选中纸币串联。",
+      "key_state": "贪心找零 31 元：依次选最大可行面额 20、10、1 元，剩余金额由 31 经 11、1 归零，共用 3 张纸币。",
+      "announcement": "从 31 元出发，每步选择不超过剩余金额的最大面额，依次减去 20、10、1 元，剩余金额经 11、1 变为 0，完成找零。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-01",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "63165c98957139b92a0879ecfa32344189b38c64a60f6720aa77efe350d47e44",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "431741d9738e417e17d2b6e1ded2465a8b4b113efdfecac9156ffc919692f129",
+        "output_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4",
+        "output_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0",
+        "output_sha256": "10e9faf80624dffe5daec10997eafa110b0fa676bf753184a205a3604fd651d9"
+      }
+    ],
+    "evidence_sha256": "ef94661da660ccf8ffe36e7213507ecb5fe1fad850478d55981ecebce88583b7",
+    "schema_normalization": "Wrap context/description strings in paragraph arrays; prose unchanged."
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_introduction/algorithms_are_everywhere.md": "51fecdd34af1e8a2382350d0b0fba14d37bc05b3326fa9f78e50668f7d533c9c"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_introduction/algorithms_are_everywhere.assets/greedy_change.png": "4efb3acf267218da898c6f1fdb09596ae8de6cbc0996561aeca86e08b432c776"
+    }
+  },
+  "animations": {
+    "greedy-banknotes": {
+      "kind": "prose",
+      "model_sha256": "b3ed8859bf217826cc888d9b222608d6baf08b794e966f540856f85a4e29c562",
+      "prose": {
+        "schema_version": 1,
+        "status": "confirmed",
+        "locale": "zh-hans",
+        "story_id": "greedy-banknotes",
+        "group_id": "group:chapter_introduction/algorithms_are_everywhere.assets/greedy_change",
+        "title": "31 元纸币找零：每步贪心选取不超过当前余额的最大面额",
+        "summary": "针对目标金额 31 元与四种纸币面额 [20, 10, 5, 1]，依次选取 20 元、10 元、1 元，使余额经 31 → 11 → 1 → 0 归零。",
+        "context": [
+          "初始待找零的目标金额为 31 元，可选用的四种纸币面额从上到下依次为 20 元（TWENTY）、10 元（TEN）、5 元（FIVE）和 1 元（ONE）。贪心找零策略是在每一步都选取不超过当前剩余金额的最大可用面额，再从剩余金额中扣除该面额。",
+          "画面上方第一行“目标金额”显示当前尚未找完的剩余金额；第二行“选定货币”显示本步即将扣除的金额（如 -20、-10、-1），下方纸币列同步以彩色高亮本步选中的那一张纸币。"
+        ],
+        "description": [
+          "前三个状态分别对应三次选币决策：每个状态展示的“目标金额”（31、11、1）是扣除本步“选定货币”（-20、-10、-1）之前的当前余额，本步高亮选中的纸币在扣减后会产生下一状态的余额。",
+          "第四个状态为找零结束画面：此时“目标金额”已减为 0，“选定货币”一栏右侧留空，下方的四种纸币列也随之隐去（终点画面并未把已选出的三张纸币并排陈列出来，累计使用的 [20, 10, 1] 共三张纸币由前三步依次选出）。"
+        ],
+        "result": "经过三步选择，依次使用 20 元、10 元、1 元纸币各一张（5 元纸币未使用），共 3 张纸币凑满 20 + 10 + 1 = 31 元，剩余金额归零。",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "剩余金额 31 元：选定最大可用面额 20 元",
+            "explanation": "当前“目标金额”为 31。在 [20, 10, 5, 1] 四种纸币中，不超过 31 的最大面额是 20，因此下方 20 元纸币以紫蓝色高亮（其余 10、5、1 元为浅灰色），“选定货币”栏显示“- 20”，准备从 31 中扣除 20。",
+            "state": "初始目标金额为 31；当前“目标金额”显示 31；已扣除纸币为 []；“选定货币”显示“- 20”；下方纸币列从上到下为 [20, 10, 5, 1]，其中 20 元紫蓝色高亮（本步即将扣除，尚未从 31 中减去），10、5、1 元为灰色。",
+            "key_state": "当前剩余金额 31，本步选定 20 元纸币（显示 -20），累计已扣除 []。",
+            "announcement": "当前余额 31 元，选定不超过 31 的最大面额 20 元纸币。"
+          },
+          {
+            "id": "step-2",
+            "title": "剩余金额 11 元：选定最大可用面额 10 元",
+            "explanation": "扣除上一张 20 元后，当前“目标金额”更新为 31 - 20 = 11。此时 20 元已大于余额 11，不超过 11 的最大面额是 10 元，因此下方 10 元纸币以橙色高亮，“选定货币”栏显示“- 10”，准备从 11 中扣除 10。",
+            "state": "初始目标金额为 31；当前“目标金额”显示 11；此前已使用纸币 [20]（合计 20）；“选定货币”显示“- 10”；下方纸币列 [20, 10, 5, 1] 中 10 元橙色高亮（本步即将扣除），20、5、1 元为灰色。",
+            "key_state": "已扣除 20 元，当前剩余金额 11，本步选定 10 元纸币（显示 -10）。",
+            "announcement": "扣除 20 元后剩余 11 元，选定当前最大可用面额 10 元纸币。"
+          },
+          {
+            "id": "step-3",
+            "title": "剩余金额 1 元：选定唯一可用面额 1 元",
+            "explanation": "再扣除 10 元后，当前“目标金额”更新为 11 - 10 = 1。此时 20、10、5 元均超过余额 1，只能选择 1 元纸币，因此最下方的 1 元纸币以青色高亮，“选定货币”栏显示“- 1”，准备扣除最后 1 元。",
+            "state": "初始目标金额为 31；当前“目标金额”显示 1；此前已使用纸币 [20, 10]（合计 30）；“选定货币”显示“- 1”；下方纸币列 [20, 10, 5, 1] 中 1 元青色高亮（本步即将扣除），20、10、5 元为灰色。",
+            "key_state": "已扣除 [20, 10] 共 30 元，当前剩余金额 1，本步选定 1 元纸币（显示 -1）。",
+            "announcement": "扣除 10 元后剩余 1 元，选定 1 元纸币。"
+          },
+          {
+            "id": "step-4",
+            "title": "剩余金额 0 元：完成 31 元找零",
+            "explanation": "扣除最后一张 1 元纸币后，“目标金额”变为 1 - 1 = 0。由于已无须继续找零，“选定货币”右侧数值与下方纸币列一并隐去，全过程累计选出 20、10、1 元共三张纸币。",
+            "state": "初始目标金额为 31；当前“目标金额”显示 0；“选定货币”栏无待扣数值，下方纸币列已隐去；前三步累计使用纸币 [20, 10, 1]，合计 31 元（共 3 张），找零完成。",
+            "key_state": "剩余金额归零（0），累计使用 [20, 10, 1] 共 3 张纸币完成 31 元找零。",
+            "announcement": "扣除最后 1 元后余额归零，以 20、10、1 元三张纸币完成 31 元找零。"
+          }
+        ],
+        "review": {
+          "status": "confirmed",
+          "run_id": "figure-accessibility-20261114/animations/batch-06",
+          "content_sha256": "4c5162e5deb2128ca1ec2981f480224c33b3aba1026dcef27dafe89f8409ca20",
+          "stages": [
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "573bef5e1f3bd2339bf2922fea5671f3407de70015eba5e79193e712325b7cce",
+              "output_sha256": "fc88c86c63013081aa9577a6aa371699d3a9638bd1b9a07f2272d96777c317ce"
+            },
+            {
+              "requested_model": "gemini-4-argon",
+              "actual_model": null,
+              "model_confirmation": "provider_not_reported",
+              "input_sha256": "fc88c86c63013081aa9577a6aa371699d3a9638bd1b9a07f2272d96777c317ce",
+              "output_sha256": "c9b902bb36717ffca80d7e1da094dc1b53cfca79f0df7c9850bd9a32e117f813"
+            },
+            {
+              "requested_model": "gpt-6-astra",
+              "actual_model": "gpt-6-astra",
+              "model_confirmation": "native_runtime",
+              "input_sha256": "c9b902bb36717ffca80d7e1da094dc1b53cfca79f0df7c9850bd9a32e117f813",
+              "output_sha256": "ec8386d90996b055ae0783158fc951e187cf5e9329f035d3b456b264de058238"
+            }
+          ],
+          "evidence_sha256": "665c2ef53b44ebc71a0bb1d14ff3a083733918e422c5e647141e69e9e1c227a5"
+        }
+      }
+    }
+  }
+}

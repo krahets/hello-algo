@@ -12,28 +12,28 @@
     ![哨兵劃分步驟](quick_sort.assets/pivot_division_step1.svg)
 
 === "<2>"
-    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.svg)
+    ![以 2 為基準的一次哨兵劃分，第 2 步，共 9 步：指標 j 從右向左找到小於基準數的 0](quick_sort.assets/pivot_division_step2.svg)
 
 === "<3>"
-    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.svg)
+    ![以 2 為基準的一次哨兵劃分，第 3 步，共 9 步：指標 i 從左向右找到大於基準數的 4](quick_sort.assets/pivot_division_step3.svg)
 
 === "<4>"
-    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.svg)
+    ![以 2 為基準的一次哨兵劃分，第 4 步，共 9 步：交換元素 4 與 0](quick_sort.assets/pivot_division_step4.svg)
 
 === "<5>"
-    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.svg)
+    ![以 2 為基準的一次哨兵劃分，第 5 步，共 9 步：指標 j 繼續向左找到小於基準數的 1](quick_sort.assets/pivot_division_step5.svg)
 
 === "<6>"
-    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.svg)
+    ![以 2 為基準的一次哨兵劃分，第 6 步，共 9 步：指標 i 右移並與指標 j 相遇](quick_sort.assets/pivot_division_step6.svg)
 
 === "<7>"
-    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.svg)
+    ![以 2 為基準的一次哨兵劃分，第 7 步，共 9 步：相遇位置的自交換不改變陣列](quick_sort.assets/pivot_division_step7.svg)
 
 === "<8>"
-    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.svg)
+    ![以 2 為基準的一次哨兵劃分，第 8 步，共 9 步：將基準數 2 交換到分界索引 2](quick_sort.assets/pivot_division_step8.svg)
 
 === "<9>"
-    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.svg)
+    ![以 2 為基準的一次哨兵劃分，第 9 步，共 9 步：完成一次劃分，保留左右子陣列子問題](quick_sort.assets/pivot_division_step9.svg)
 
 哨兵劃分完成後，原陣列被劃分成三部分：左子陣列、基準數、右子陣列，且滿足“左子陣列任意元素 $\leq$ 基準數 $\leq$ 右子陣列任意元素”。因此，我們接下來只需對這兩個子陣列進行排序。
 

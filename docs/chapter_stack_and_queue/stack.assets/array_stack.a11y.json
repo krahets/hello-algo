@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_stack_and_queue/stack.assets/array_stack",
+  "title": "基于数组实现栈的入栈与出栈",
+  "summary": "将数组尾部作为栈顶、首部作为栈底：在数组尾部追加 4 完成入栈，删除数组尾元素 4 完成出栈。",
+  "context": [
+    "每帧左侧展示对外表现的栈（上为栈顶、下为栈底），右侧展示底层竖直绘制的数组（下方为“首元素”，上方有效末端为“尾元素”，更上方灰色虚线格和竖排省略号表示“数组剩余空位”），中间标注“底层实现是数组，对外表现为栈”。"
+  ],
+  "description": [
+    "数组从首元素到尾元素的顺序与栈从栈底到栈顶的顺序一致。下面三帧依次展示初始状态（[1, 3, 2, 5]）、执行 push(4) 在数组尾部添加元素，以及执行 pop() 删除数组尾元素。"
+  ],
+  "result": "基于数组实现栈时，入栈和出栈分别对应在数组尾部追加和删除元素，未触发扩容时时间复杂度均为 O(1)，已有元素无须搬移。",
+  "frames": [
+    {
+      "id": "source-60",
+      "book_path": "chapter_stack_and_queue/stack.assets/array_stack_step1.png",
+      "title": "步骤 1：初始状态，数组尾元素 5 对应栈顶",
+      "explanation": "初始时，左侧栈从栈底到栈顶依次为 [1, 3, 2, 5]。右侧数组有效元素自下而上（从首元素到尾元素）同样为 [1, 3, 2, 5]：底部首元素 1 对应栈底，顶部尾元素 5 对应栈顶；5 上方画有两个灰色虚线空位和省略号，括注为“数组剩余空位”。",
+      "state": "当前为数组栈的初始状态（Step 1）：左侧栈从栈底到栈顶与右侧数组从首元素到尾元素均为 [1, 3, 2, 5]，共 4 个有效元素。首元素和栈底为 1，尾元素和栈顶为 5，尾元素上方留有数组剩余空位。",
+      "key_state": "初始有效数组（首到尾）[1, 3, 2, 5]；首元素 1 为栈底，尾元素 5 为栈顶，上方有剩余空位。",
+      "announcement": "步骤 1：初始数组包含 4 个有效元素 [1, 3, 2, 5]，尾元素 5 对应栈顶。"
+    },
+    {
+      "id": "source-61",
+      "book_path": "chapter_stack_and_queue/stack.assets/array_stack_step2_push.png",
+      "title": "步骤 2：入栈 push(4)，将元素 4 添加至数组尾部",
+      "explanation": "左侧标注“入栈 push(4)”，右侧标注“将元素 4 添加至数组尾部”。青色元素 4 写入原尾元素 5 上方的第一个空位，“尾元素”标记随之上移到 4。此时有效数组从首到尾变为 [1, 3, 2, 5, 4]，左侧栈从栈底到栈顶也变为 [1, 3, 2, 5, 4]，栈顶更新为 4。",
+      "state": "当前为执行 push(4) 后的数组栈（Step 2）：左侧栈从栈底到栈顶与右侧有效数组从首元素到尾元素均为 [1, 3, 2, 5, 4]，共 5 个有效元素。首元素和栈底为 1，尾元素和栈顶更新为青色元素 4，4 上方仍有剩余空位。",
+      "key_state": "push(4) 后：有效数组（首到尾）[1, 3, 2, 5, 4]；尾元素与栈顶更新为 4。",
+      "announcement": "步骤 2：执行 push(4)，将 4 写入数组尾部空位，尾元素和栈顶变为 4。"
+    },
+    {
+      "id": "source-62",
+      "book_path": "chapter_stack_and_queue/stack.assets/array_stack_step3_pop.png",
+      "title": "步骤 3：出栈 pop()，删除数组尾元素 4",
+      "explanation": "左侧标注“出栈 pop()”，右侧标注“删除数组尾元素”。移除上一步追加在数组尾部的元素 4，原来 4 所在的单元格恢复为灰色虚线空位，“尾元素”标记下移回 5。有效数组与栈从底到顶均恢复为 [1, 3, 2, 5]，栈顶回到 5。",
+      "state": "当前为执行 pop() 后的数组栈（Step 3）：原尾元素 4 已被删除，其单元格恢复为空位；左侧栈从栈底到栈顶与右侧有效数组从首元素到尾元素均恢复为 [1, 3, 2, 5]，共 4 个有效元素。首元素和栈底为 1，尾元素和栈顶恢复为 5。",
+      "key_state": "pop() 删除尾元素 4 后：有效数组（首到尾）[1, 3, 2, 5]；尾元素与栈顶恢复为 5。",
+      "announcement": "步骤 3：执行 pop() 删除数组尾元素 4，尾元素和栈顶恢复为 5。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-04",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "c8c15a04e4c59327df10ccda848ffef45d3d22496ca27ddb483a7e20dee7d28e",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "010659120695514881c0d1ee814ac67faa1e50957300a7e781f1c3edf7858059",
+        "output_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de",
+        "output_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8",
+        "output_sha256": "d48eb4dd56235f9a9b2f2d5c8f67899492c9f6b15567237d35161c31596306cb"
+      }
+    ],
+    "evidence_sha256": "178794e8fd357c692f91d245ae613b37aa02834865c6124afd4cd91ea892de0d"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_stack_and_queue/stack.md": "3ba63b881e29fee2cfff650e7dd695f0936e1a6ff078ebdb369583c9bc022859"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_stack_and_queue/stack.assets/array_stack_step1.png": "ed46765585490ed507dc4f344fd5e479750047ed4540b4781864c4f10c3980f7",
+      "chapter_stack_and_queue/stack.assets/array_stack_step2_push.png": "2e69e135e9d50a1a0b33af44e5201e931471cca3f61411d78e92c5834d3a68b0",
+      "chapter_stack_and_queue/stack.assets/array_stack_step3_pop.png": "d5124f52663967ea31ff484e385824b7ec47e48487cbb132bbec7120de278eee"
+    }
+  },
+  "animations": {
+    "array-stack": {
+      "kind": "source-frames",
+      "model_sha256": "93c7c16531e96dc9a6e4b5aaf33655b2a77426d007fdc433a334474e3536955a",
+      "source_content_sha256": "c8c15a04e4c59327df10ccda848ffef45d3d22496ca27ddb483a7e20dee7d28e",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-60"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-61"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-62"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "034ec10a1421b99e25fb1072dd6d6612b42dd383dfdeab634f0f912564d97bfd",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

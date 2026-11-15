@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_tree/array_representation_of_tree.assets/array_representation_binary_tree",
+  "title": "完美二叉树的数组表示与索引映射",
+  "summary": "将四层完美二叉树的节点值 1 至 15 按层序存入索引 0 至 14 的数组，任意节点索引 i 的左、右子节点索引分别为 2i+1 与 2i+2。",
+  "context": [
+    "上方四层完美二叉树的根节点为 1；第 2 层为 1 的左、右子节点 2、3；第 3 层依次为 2 的左、右子节点 4、5 和 3 的左、右子节点 6、7；第 4 层依次为 4 的子节点 8、9，5 的子节点 10、11，6 的子节点 12、13，以及 7 的子节点 14、15。"
+  ],
+  "description": [
+    "树中每个绿色圆圈内是“节点”值（1 至 15），圆圈正下方的灰色数字是“节点索引”（0 至 14）。图下方通过双向箭头标注“使用数组表示二叉树”：上方一行灰色数字列出节点索引 0 至 14，下方一行绿色方格列出对应的“层序遍历序列”[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]，每个节点的索引恰好等于其节点值减 1。",
+    "右侧浅绿框给出父子索引的“映射关系”：若“当前节点索引：i”，则“左子节点索引：2i+1”，“右子节点索引：2i+2”。例如根节点 1 的索引 i = 0，其左、右子节点 2、3 的索引分别为 1 和 2；节点 6 的索引 i = 5，其左、右子节点 12、13 的索引分别为 2×5+1 = 11 和 2×5+2 = 12。",
+    "该映射公式作用于数组索引 i 而非节点值本身。因为完美二叉树每一层都填满、数组中间没有任何空缺，索引计算式可以直接替代链表节点中的左、右子节点指针。 计算所得索引仍须小于数组长度；本图索引 7 至 14 的节点都是叶节点，其子节点索引越界，表示没有对应子节点。"
+  ],
+  "result": "完美二叉树按层序存入数组后无空位，任意节点的左、右子节点位置都可由当前索引 i 通过 2i+1 与 2i+2 直接算出。 计算结果若超出索引 0 至 14，则该方向没有子节点。",
+  "frames": [
+    {
+      "id": "source-110",
+      "book_path": "chapter_tree/array_representation_of_tree.assets/array_representation_binary_tree.png",
+      "title": "完美二叉树的数组表示与索引映射",
+      "explanation": "上方树中每个节点同时标出节点值（1 至 15）与节点索引（0 至 14），下方层序遍历数组按索引 0 至 14 依次存放 1 至 15，右侧框内标出从索引 i 到左子节点 2i+1、右子节点 2i+2 的映射关系。",
+      "state": "四层完美二叉树包含节点 1 至 15，各节点下方标有索引 0 至 14（1 对应 0，2、3 对应 1、2，4 至 7 对应 3 至 6，8 至 15 对应 7 至 14）。下方层序遍历序列数组在索引 0 至 14 处依次存放 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]；右侧映射关系标明当前节点索引 i 的左子节点索引为 2i+1、右子节点索引为 2i+2。",
+      "key_state": "节点值 1 至 15 对应数组索引 0 至 14；索引 i 的左、右子节点索引为 2i+1、2i+2。",
+      "announcement": "展示四层完美二叉树（节点 1 至 15、索引 0 至 14）与层序数组的对应关系及 2i+1、2i+2 索引公式。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-06",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "5d17b99698be035a1a409e221f12a2361e724c221525eaaef2440c8850d02e86",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a7d27ac86970762b98a3afc622b5a802549e6b6254c666e3efdf60f34ede65b5",
+        "output_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4",
+        "output_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900",
+        "output_sha256": "30bb25c69fe95554ab48370f707653e1ddeb4b287f83cb44cf33dc013e44b87b"
+      }
+    ],
+    "evidence_sha256": "bbb898a17ec7d0f8023ba3e028e19e1cebb4eba7c5059fe86305e5491e6f3b3b"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_tree/array_representation_of_tree.md": "cd4a08a4c01fdd9039b2c9cafa2632b965147084ddf3ff241600c2c803acc30e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_tree/array_representation_of_tree.assets/array_representation_binary_tree.png": "3a85a25056cb1819e7066418eaec7d5f792789842d01a8385f2dfeaea88ca396"
+    }
+  }
+}

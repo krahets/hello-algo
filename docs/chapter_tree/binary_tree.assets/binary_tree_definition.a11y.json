@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_tree/binary_tree.assets/binary_tree_definition",
+  "title": "二叉树的基本结构：父节点、左右子节点与左右子树",
+  "summary": "以一棵 4 层 15 节点的满二叉树为例，围绕根节点 1 标出父节点、左子节点 2、右子节点 3，以及由 2 和 3 各自率领全部后代构成的左子树与右子树。",
+  "context": [
+    "画面左上方标注“二叉树 binary tree”。图中画出一棵共 4 层、15 个绿色圆形节点的二叉树，节点按从上到下、从左到右依次编号为 1 至 15，父子之间用斜向下的有向箭头连接。",
+    "图中的关系标签以顶部的根节点 1 作为参照基准：节点 1 正上方标注“父节点”，其左下方的节点 2 标注“左子节点”，右下方的节点 3 标注“右子节点”。（注：正文叙述时曾以节点 2 作为例子说明它的左右子节点 4、5 及对应子树，而本图直观标出的是根节点 1 的左右子节点 2、3 及对应子树，两者遵循完全相同的相对定义。）"
+  ],
+  "description": [
+    "节点 1 的两个直接后继是左子节点 2 和右子节点 3；而“左子树”与“右子树”则涵盖对应子节点及其下方的全部后代节点：图中左侧浅橙色圆角框标为“左子树”，以节点 2 为根，包含 2、4、5、8、9、10、11 共 7 个节点；右侧浅蓝色圆角框标为“右子树”，以节点 3 为根，包含 3、6、7、12、13、14、15 共 7 个节点。",
+    "整棵树所有非叶节点的左右子节点对应关系完整列于下表。最底层第 4 层的节点 8 至 15 没有引出任何向下箭头，均为叶节点。"
+  ],
+  "tables": [
+    {
+      "caption": "图中全部非叶节点的左右子节点",
+      "headers": [
+        "父节点",
+        "左子节点",
+        "右子节点"
+      ],
+      "rows": [
+        [
+          "1",
+          "2",
+          "3"
+        ],
+        [
+          "2",
+          "4",
+          "5"
+        ],
+        [
+          "3",
+          "6",
+          "7"
+        ],
+        [
+          "4",
+          "8",
+          "9"
+        ],
+        [
+          "5",
+          "10",
+          "11"
+        ],
+        [
+          "6",
+          "12",
+          "13"
+        ],
+        [
+          "7",
+          "14",
+          "15"
+        ]
+      ]
+    }
+  ],
+  "result": "在二叉树中，“父节点”、“左子节点”和“右子节点”描述相邻两层节点间的直接连接，而“左子树”和“右子树”则是以左、右子节点为根的两棵完整子二叉树；这些称谓都是相对于当前选定的父节点而言的。",
+  "frames": [
+    {
+      "id": "source-89",
+      "book_path": "chapter_tree/binary_tree.assets/binary_tree_definition.png",
+      "title": "以节点 1 为父节点的左右子节点与左右子树范围",
+      "explanation": "从顶部标注为“父节点”的节点 1 出发，向左下箭头到达标注为“左子节点”的节点 2，向右下箭头到达标注为“右子节点”的节点 3。以节点 2 为根向下延伸出的浅橙色框构成节点 1 的“左子树”（含第 2 层节点 2、第 3 层节点 4 和 5、第 4 层叶节点 8 至 11）；以节点 3 为根向下延伸出的浅蓝色框构成节点 1 的“右子树”（含第 2 层节点 3、第 3 层节点 6 和 7、第 4 层叶节点 12 至 15）。若改以节点 2 为参照父节点，则它的左子节点为 4、右子节点为 5，左子树为 {4, 8, 9}，右子树为 {5, 10, 11}。",
+      "state": "左上角标题为“二叉树 binary tree”。第 1 层根节点 1 上方标注“父节点”；第 2 层节点 2 上方标注“左子节点”，节点 3 上方标注“右子节点”。左侧浅橙色框标注“左子树”，内含 2 及其子节点 4、5，以及 4 的子节点 8、9 和 5 的子节点 10、11；右侧浅蓝色框标注“右子树”，内含 3 及其子节点 6、7，以及 6 的子节点 12、13 和 7 的子节点 14、15。",
+      "key_state": "父节点 1 的左子节点为 2、右子节点为 3；左子树含 {2, 4, 5, 8..11} 七节点，右子树含 {3, 6, 7, 12..15} 七节点。",
+      "announcement": "展示 15 节点二叉树中父节点 1、左子节点 2、右子节点 3，以及左右各自包含 7 个节点的左子树与右子树。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-05",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "401f7832c13b069e60090f23fcfaadb79bd49cfc23fb5b99d7bc65eda456c1f1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "bbf6fc89ced3325538a22d1eecebd98ac2a54cd576eb8bfe0b2aad472b2340bc",
+        "output_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108",
+        "output_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281",
+        "output_sha256": "ffb27a99b86ace98bde8e54084f42f6a1c59f19a353deb9a55c4ee96d96e99be"
+      }
+    ],
+    "evidence_sha256": "954be79d16a2deb5e3a0108cd78415c4c9fef13373e1a16fbca5a1e1d388bf98"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_tree/binary_tree.md": "ae2eaab951aa4bdfeba7d1cf6b47892b44351703c62da823977b45cbceb86c49"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_tree/binary_tree.assets/binary_tree_definition.png": "15cb9e725d4fba051d569153c5711b7c553d2ad080ded0293f60b45a96d595d8"
+    }
+  }
+}

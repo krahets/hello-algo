@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_tree/binary_tree.assets/perfect_binary_tree",
+  "title": "完美二叉树：每一层都完全填满",
+  "summary": "四层二叉树的节点数从上到下依次为 1、2、4、8，所有层全部填满，共 15 个节点。",
+  "context": [],
+  "description": [
+    "左侧是一棵四层无数值标签的二叉树：第一层有 1 个根节点；第二层有 2 个节点；第三层有 4 个节点；第四层有 8 个叶节点。树下方的灰色说明框写着“所有层的节点都被填满”。",
+    "图中每个非叶节点都同时拥有左、右两个子节点，全部 8 个叶节点都整齐排列在最底部的第四层。右侧标题标出“完美二叉树”、英文“perfect binary tree”，并注明“（也被称为满二叉树）”。"
+  ],
+  "result": "这棵四层完美二叉树按边数计算的高度为 3，共有 15 个节点；一般地，高度为 h 的完美二叉树共有 2^(h+1) − 1 个节点。",
+  "frames": [
+    {
+      "id": "source-92",
+      "book_path": "chapter_tree/binary_tree.assets/perfect_binary_tree.png",
+      "title": "完美二叉树：每一层都完全填满",
+      "explanation": "从第一层到第四层每层节点数依次翻倍为 1、2、4、8，没有任何空缺位置，展示“所有层的节点都被填满”的完美二叉树（满二叉树）形态。",
+      "state": "四层无数值标签的二叉树，第一至四层节点数依次为 1、2、4、8，共 15 个节点、高度为 3；前三层每个节点都有左、右两个子节点，第四层 8 个节点全为叶节点。",
+      "key_state": "四层节点数依次为 1、2、4、8，全部填满，共 15 个节点。",
+      "announcement": "展示四层全部填满、共有 15 个节点的完美二叉树（满二叉树）。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-06",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "e198e92ada78efa16fc24610f34a173705e2996a2e083718cce2403797a808b7",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a7d27ac86970762b98a3afc622b5a802549e6b6254c666e3efdf60f34ede65b5",
+        "output_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4",
+        "output_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900",
+        "output_sha256": "30bb25c69fe95554ab48370f707653e1ddeb4b287f83cb44cf33dc013e44b87b"
+      }
+    ],
+    "evidence_sha256": "bbb898a17ec7d0f8023ba3e028e19e1cebb4eba7c5059fe86305e5491e6f3b3b"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_tree/binary_tree.md": "ae2eaab951aa4bdfeba7d1cf6b47892b44351703c62da823977b45cbceb86c49"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_tree/binary_tree.assets/perfect_binary_tree.png": "2a78df34b6092ca599c98861956c7ceaefd51b76af6f55c9dc6a70f0b335ac17"
+    }
+  }
+}

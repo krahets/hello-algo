@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_data_structure/classification_of_data_structure.assets/computer_memory_location",
+  "title": "通过内存地址找到存储的数据",
+  "summary": "将计算机内存条上的存储空间类比为按十六进制行号与列号编址的二维网格：访问地址 0x0012 得到数据 1，访问地址 0x0024 得到数据 2。",
+  "context": [
+    "画面左侧为一根绿色计算机内存条的实物图，其上排列着 8 块黑色内存芯片；两条灰色引线从自上而下第 2 块芯片向右拉开，指向右侧放大的内存空间示意网格。"
+  ],
+  "description": [
+    "右侧网格展示 5 行 8 列的圆角方格，右侧的横向省略号和底部的竖向省略号表示内存向行列两个方向继续延伸。网格顶部列标从左到右依次为 00、01、02、03、04、05、06、07；左侧行标自上而下依次为十六进制起始地址 0x0000、0x0010、0x0020、0x0030、0x0040。",
+    "网格下方图例说明：浅灰色格子代表“可用内存空间”，深灰色格子代表“已用内存空间”。网格中有两个深灰色已用格子：一个位于行 0x0010、列 02，格内标有白色数字 1；另一个位于行 0x0020、列 04，格内标有白色数字 2。右下角在向下箭头后写出两条访问结果：“访问内存地址 0x0012 ，得到数据 1”与“访问内存地址 0x0024 ，得到数据 2”。"
+  ],
+  "result": "计算机为每个内存单元分配唯一的内存地址，程序通过指定地址（如 0x0012 和 0x0024）直接定位并读取目标数据。",
+  "frames": [
+    {
+      "id": "source-39",
+      "book_path": "chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.png",
+      "title": "通过内存地址找到存储的数据",
+      "explanation": "图中把内存空间类比为一张电子表格，每个单元格的完整十六进制地址由“行起始地址 + 列偏移量”合成：行 0x0010 与列 02 交叉处的地址为 0x0012，存有数据 1；行 0x0020 与列 04 交叉处的地址为 0x0024，存有数据 2。这一表格类比用于直观说明“按唯一地址寻址”的概念，不代表真实内存芯片底层的物理电路或虚拟内存管理细节。",
+      "state": "左侧内存条芯片通过引线指向右侧 5 行 8 列内存网格（行标 0x0000 至 0x0040，列标 00 至 07，右、下两侧均有省略号）。浅灰色格为可用内存空间，深灰色格为已用内存空间：行 0x0010、列 02（地址 0x0012）的深灰色格存有 1；行 0x0020、列 04（地址 0x0024）的深灰色格存有 2。底部标注访问 0x0012 得到数据 1、访问 0x0024 得到数据 2。",
+      "key_state": "行 0x0010 与列 02 对应地址 0x0012，存储数据 1；行 0x0020 与列 04 对应地址 0x0024，存储数据 2。",
+      "announcement": "展示从内存条芯片到二维地址网格的映射，演示通过十六进制地址 0x0012 和 0x0024 读取数据 1 和 2。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-03",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "eae1cf1ecb767bf51da24667bdd5ff31011ab8097e2f9810f59e151f67ae4963",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "cbe99e77444e0462f57c192b0088094f9fd6936e24f6cfd18181de4a48ba8083",
+        "output_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c",
+        "output_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6",
+        "output_sha256": "bdf21f24ca6a88ed6060d24186ac933357dde4feee3a257546cffd56c2bd6867"
+      }
+    ],
+    "evidence_sha256": "ec6ba9da7d2fe9290ce303592b8440b918ec83702cd9d0e6bbdc1e50d87c89d8"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_data_structure/classification_of_data_structure.md": "a61ec86982bb7395e7f0257668a661739cc098c5d2aac268a23df1036243f7aa"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.png": "a63e6c62bb842a6ed5a9b77f6c0158a01cb66d1a422e01604448038b6e660be9"
+    }
+  }
+}

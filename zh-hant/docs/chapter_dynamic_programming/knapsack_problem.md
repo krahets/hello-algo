@@ -94,43 +94,43 @@ $$
     ![0-1 背包問題的動態規劃過程](knapsack_problem.assets/knapsack_dp_step1.svg)
 
 === "<2>"
-    ![knapsack_dp_step2](knapsack_problem.assets/knapsack_dp_step2.svg)
+    ![0-1 背包：逐格求最大可選價值，第 2 步，共 14 步：第 2 步：計算 dp\[1, 1\]，最大價值為 5](knapsack_problem.assets/knapsack_dp_step2.svg)
 
 === "<3>"
-    ![knapsack_dp_step3](knapsack_problem.assets/knapsack_dp_step3.svg)
+    ![0-1 背包：逐格求最大可選價值，第 3 步，共 14 步：第 3 步：計算 dp\[1, 2\]，最大價值為 5](knapsack_problem.assets/knapsack_dp_step3.svg)
 
 === "<4>"
-    ![knapsack_dp_step4](knapsack_problem.assets/knapsack_dp_step4.svg)
+    ![0-1 背包：逐格求最大可選價值，第 4 步，共 14 步：第 4 步：計算 dp\[1, 3\]，最大價值為 5](knapsack_problem.assets/knapsack_dp_step4.svg)
 
 === "<5>"
-    ![knapsack_dp_step5](knapsack_problem.assets/knapsack_dp_step5.svg)
+    ![0-1 背包：逐格求最大可選價值，第 5 步，共 14 步：第 5 步：計算 dp\[1, 4\]，最大價值為 5](knapsack_problem.assets/knapsack_dp_step5.svg)
 
 === "<6>"
-    ![knapsack_dp_step6](knapsack_problem.assets/knapsack_dp_step6.svg)
+    ![0-1 背包：逐格求最大可選價值，第 6 步，共 14 步：第 6 步：計算 dp\[2, 1\]，裝不下菠蘿保持 5](knapsack_problem.assets/knapsack_dp_step6.svg)
 
 === "<7>"
-    ![knapsack_dp_step7](knapsack_problem.assets/knapsack_dp_step7.svg)
+    ![0-1 背包：逐格求最大可選價值，第 7 步，共 14 步：第 7 步：計算 dp\[2, 2\]，選入菠蘿更新為 11](knapsack_problem.assets/knapsack_dp_step7.svg)
 
 === "<8>"
-    ![knapsack_dp_step8](knapsack_problem.assets/knapsack_dp_step8.svg)
+    ![0-1 背包：逐格求最大可選價值，第 8 步，共 14 步：第 8 步：計算 dp\[2, 3\]，蘋果加菠蘿更新為 16](knapsack_problem.assets/knapsack_dp_step8.svg)
 
 === "<9>"
-    ![knapsack_dp_step9](knapsack_problem.assets/knapsack_dp_step9.svg)
+    ![0-1 背包：逐格求最大可選價值，第 9 步，共 14 步：第 9 步：計算 dp\[2, 4\]，最大價值為 16](knapsack_problem.assets/knapsack_dp_step9.svg)
 
 === "<10>"
-    ![knapsack_dp_step10](knapsack_problem.assets/knapsack_dp_step10.svg)
+    ![0-1 背包：逐格求最大可選價值，第 10 步，共 14 步：第 10 步：計算 dp\[3, 1\]，裝不下西瓜保持 5](knapsack_problem.assets/knapsack_dp_step10.svg)
 
 === "<11>"
-    ![knapsack_dp_step11](knapsack_problem.assets/knapsack_dp_step11.svg)
+    ![0-1 背包：逐格求最大可選價值，第 11 步，共 14 步：第 11 步：計算 dp\[3, 2\]，裝不下西瓜保持 11](knapsack_problem.assets/knapsack_dp_step11.svg)
 
 === "<12>"
-    ![knapsack_dp_step12](knapsack_problem.assets/knapsack_dp_step12.svg)
+    ![0-1 背包：逐格求最大可選價值，第 12 步，共 14 步：第 12 步：計算 dp\[3, 3\]，不選西瓜保留 16](knapsack_problem.assets/knapsack_dp_step12.svg)
 
 === "<13>"
-    ![knapsack_dp_step13](knapsack_problem.assets/knapsack_dp_step13.svg)
+    ![0-1 背包：逐格求最大可選價值，第 13 步，共 14 步：第 13 步：計算 dp\[3, 4\]，蘋果加西瓜更新為 20](knapsack_problem.assets/knapsack_dp_step13.svg)
 
 === "<14>"
-    ![knapsack_dp_step14](knapsack_problem.assets/knapsack_dp_step14.svg)
+    ![0-1 背包：逐格求最大可選價值，第 14 步，共 14 步：第 14 步：返回容量 4 的最大價值 20](knapsack_problem.assets/knapsack_dp_step14.svg)
 
 ### 空間最佳化
 
@@ -147,19 +147,19 @@ $$
     ![0-1 背包的空間最佳化後的動態規劃過程](knapsack_problem.assets/knapsack_dp_comp_step1.svg)
 
 === "<2>"
-    ![knapsack_dp_comp_step2](knapsack_problem.assets/knapsack_dp_comp_step2.svg)
+    ![0-1 背包單行壓縮：倒序處理第二件物品，第 2 步，共 6 步：第 2 步：倒序先更新容量 c = 4，寫入 16](knapsack_problem.assets/knapsack_dp_comp_step2.svg)
 
 === "<3>"
-    ![knapsack_dp_comp_step3](knapsack_problem.assets/knapsack_dp_comp_step3.svg)
+    ![0-1 背包單行壓縮：倒序處理第二件物品，第 3 步，共 6 步：第 3 步：倒序更新容量 c = 3，寫入 16](knapsack_problem.assets/knapsack_dp_comp_step3.svg)
 
 === "<4>"
-    ![knapsack_dp_comp_step4](knapsack_problem.assets/knapsack_dp_comp_step4.svg)
+    ![0-1 背包單行壓縮：倒序處理第二件物品，第 4 步，共 6 步：第 4 步：倒序更新容量 c = 2，寫入 11](knapsack_problem.assets/knapsack_dp_comp_step4.svg)
 
 === "<5>"
-    ![knapsack_dp_comp_step5](knapsack_problem.assets/knapsack_dp_comp_step5.svg)
+    ![0-1 背包單行壓縮：倒序處理第二件物品，第 5 步，共 6 步：第 5 步：倒序處理容量 c = 1，裝不下菠蘿保持 5](knapsack_problem.assets/knapsack_dp_comp_step5.svg)
 
 === "<6>"
-    ![knapsack_dp_comp_step6](knapsack_problem.assets/knapsack_dp_comp_step6.svg)
+    ![0-1 背包單行壓縮：倒序處理第二件物品，第 6 步，共 6 步：第 6 步：完成 i = 2 輪走訪，單行儲存前兩件物品的解](knapsack_problem.assets/knapsack_dp_comp_step6.svg)
 
 在程式碼實現中，我們僅需將陣列 `dp` 的第一維 $i$ 直接刪除，並且把內迴圈更改為倒序走訪即可：
 

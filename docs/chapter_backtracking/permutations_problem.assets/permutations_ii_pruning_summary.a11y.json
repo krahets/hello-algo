@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary",
+  "title": "两种排列剪枝分别限制索引与数值",
+  "summary": "黑剪刀防止同一路径重复使用同一索引，红剪刀防止同一轮重复尝试相等数值。",
+  "context": [
+    "输入为 [1, 1̂, 2]，其中 1 与 1̂ 索引不同但数值相同。布尔数组 selected 沿当前递归路径记录已使用的索引；集合 duplicated 在每一轮选择中独立创建，记录当前轮已经尝试过的元素数值。"
+  ],
+  "description": [
+    "图中每个圆角方块仅代表当前轮选中的单个候选元素，从根到叶串起的路径构成完整排列。灰色节点与虚线表示被剪掉的选择，右下角图例将黑色剪刀标为“剪枝条件一”、红色剪刀标为“剪枝条件二”，底部列出最终输出的三条排列。"
+  ],
+  "result": "两种剪枝条件各司其职、不可互相替代：条件一保证每个索引在一条路径中只用一次，条件二保证同一轮不因相等数值产生重复分支，最终输出 [1, 1̂, 2]、[1, 2, 1̂]、[2, 1, 1̂]。",
+  "frames": [
+    {
+      "id": "source-357",
+      "book_path": "chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.png",
+      "title": "两种排列剪枝分别限制索引与数值",
+      "explanation": "第一轮在根处先选 1，用红色剪刀（剪枝条件二）剪去同轮数值相等的 1̂，并保留 2。第二轮在 1 下，用黑色剪刀（剪枝条件一）剪去已使用过的同一个 1，保留未使用的 1̂ 和 2；在 2 下，先选 1，用红色剪刀剪去同轮相等的 1̂，并用黑色剪刀剪去已使用过的 2。第三轮在每条保留分支下，都用两把黑色剪刀剪去前两轮已用过的两个索引，各自只留下唯一未用的元素，依次输出 [1, 1̂, 2]、[1, 2, 1̂] 和 [2, 1, 1̂]。",
+      "state": "第一轮保留 1 和 2，红剪刀剪去 1̂；第二轮在 1 下黑剪刀剪去 1、保留 1̂ 和 2，在 2 下保留 1、红剪刀剪去 1̂、黑剪刀剪去 2；第三轮各分支均用两把黑剪刀剪去已用元素，底部输出排列为 [1, 1̂, 2]、[1, 2, 1̂]、[2, 1, 1̂]。",
+      "key_state": "黑剪刀剪去同路径已用索引，红剪刀剪去同轮相等数值。",
+      "announcement": "结合路径内的索引去重与同轮内的相等值去重，筛选出三条不重复排列。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-18",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "f1385811658b555f1d0df93408c9541ed80bd30b8308369200b1e097add1f27c",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "4d905ea19e7b4a83ea36041a9c7f9d8d8c1f3b06c72a654e2a9e539750effd5d",
+        "output_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90",
+        "output_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad",
+        "output_sha256": "5ee2b110fd9b935a096ccaacf3e3b27d88bb1cb4918d9a5b6bd2b5a75c56edf0"
+      }
+    ],
+    "evidence_sha256": "5559c3ad6bd5d378f79de2a5c7f96ac680c007486f684e00a24a2512ab4de485"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_backtracking/permutations_problem.md": "3a98624cb60210ec070f3e3a5e1a72593e80be9ded7190c57aa89ceda20034df"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.png": "2175338fec950581a94296382d9a751e64fd745f5cc967822221747f9593a043"
+    }
+  }
+}

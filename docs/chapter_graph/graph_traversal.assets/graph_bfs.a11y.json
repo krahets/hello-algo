@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_graph/graph_traversal.assets/graph_bfs",
+  "title": "图的广度优先遍历（BFS）：借助队列由近及远逐层扩张",
+  "summary": "从左上角起点 0 出发，利用先进先出队列 que 与哈希集合 visited 逐层扩展九顶点网格图，得到遍历序列 0、1、3、2、4、6、5、7、8。",
+  "context": [
+    "待遍历的无向图由九个顶点按三行三列网格排列：上行为 0、1、2，中行为 3、4、5，下行为 6、7、8。仅在水平或竖直相邻的顶点之间连接无向边：0—1、1—2、3—4、4—5、6—7、7—8、0—3、3—6、1—4、4—7、2—5、5—8，共十二条边，没有对角连线。",
+    "遍历从左上角顶点 0 开始。右侧展示三个核心容器：“遍历序列 res”按出队顺序记录最终结果；“哈希集合 visited”记录所有已被发现并入队过的顶点；“队列 que”按从左（队首，标有“出队”）到右（队尾，标有“入队”）维护待处理的顶点。注意顶点在入队时就立即加入 visited，从而防止同一个未出队顶点被多条边重复加入队列。"
+  ],
+  "description": [
+    "循环每轮从 que 队首弹出一个顶点（图中以蓝色外圈高亮），将其追加到 res，再检查它的所有邻接顶点：凡是尚未出现在 visited 中的邻居，依次从队尾加入 que 并同步记入 visited。图内文字“2. 将该顶点的所有邻接顶点执行入队 que 并加入 visited”须结合 visited 去重条件理解，已在 visited 中的邻居直接跳过。",
+    "左侧图中此前已出队处理完毕的顶点变为灰色，当前出队顶点仍为绿色并带蓝色外圈；仅已发现但尚未出队的顶点也仍为绿色；队列槽位左侧的空白格表示此前队首元素出队后留下的位置，并非空元素；哈希集合 visited 横向排列仅用于可视化展示集合成员，本身无先后顺序。",
+    "本组末尾附带一张静态概览图 source-189（kind 为 overview），用于总结整套广度优先遍历的层序扩张路径，不属于第十一步之后的额外算法步骤。"
+  ],
+  "result": "当队列 que 清空时遍历结束，返回序列 [0, 1, 3, 2, 4, 6, 5, 7, 8]。按到起点 0 的最少边数（距离）划分，访问顺序严格呈现由近及远的五层：{0}、{1, 3}、{2, 4, 6}、{5, 7}、{8}；同一距离层内部的先后次序取决于邻接顶点的遍历顺序。",
+  "frames": [
+    {
+      "id": "source-190",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step1.png",
+      "title": "第一步：初始化 res、que 与 visited",
+      "explanation": "执行“初始化 res, que, visited”：将起始顶点 0 加入队列 que，并立即将 0 记入哈希集合 visited；此时遍历序列 res 为空，尚未有顶点出队。",
+      "state": "九个顶点按三行三列排列：上行为 0、1、2，中行为 3、4、5，下行为 6、7、8。只在水平或竖直相邻位置间连无向边：0—1、1—2、3—4、4—5、6—7、7—8、0—3、3—6、1—4、4—7、2—5、5—8；没有对角边。尚未出队。res=[]；que=[0]，按队首到队尾排列；visited 的成员为 {0}。",
+      "key_state": "初始化：res=[]，que=[0]，visited={0}。",
+      "announcement": "初始化容器：起点 0 入队并记入 visited，遍历序列 res 为空。"
+    },
+    {
+      "id": "source-191",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step2.png",
+      "title": "第二步：顶点 0 出队，邻接顶点 1、3 入队",
+      "explanation": "队首顶点 0 出队并加入遍历序列 res。检查 0 的邻接顶点 1 和 3，二者均不在 visited 中，因此依次将 [1, 3] 加入队尾 que 并同步记入 visited。",
+      "state": "九个顶点按三行三列排列：上行为 0、1、2，中行为 3、4、5，下行为 6、7、8。只在水平或竖直相邻位置间连无向边：0—1、1—2、3—4、4—5、6—7、7—8、0—3、3—6、1—4、4—7、2—5、5—8；没有对角边。本轮处理顶点 0。res=[0]；que=[1, 3]，按队首到队尾排列；visited 的成员为 {0, 1, 3}。",
+      "key_state": "顶点 0 出队；que=[1, 3]；res=[0]。",
+      "announcement": "顶点 0 出队记入 res，未访问邻居 1、3 入队并记入 visited。"
+    },
+    {
+      "id": "source-192",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step3.png",
+      "title": "第三步：顶点 1 出队，邻接顶点 2、4 入队",
+      "explanation": "队首顶点 1 出队并追加到 res。在 1 的三个邻接顶点 0、2、4 中，0 已在 visited 中故跳过，未访问的 [2, 4] 依次加入 que 队尾并记入 visited。",
+      "state": "九个顶点按三行三列排列：上行为 0、1、2，中行为 3、4、5，下行为 6、7、8。只在水平或竖直相邻位置间连无向边：0—1、1—2、3—4、4—5、6—7、7—8、0—3、3—6、1—4、4—7、2—5、5—8；没有对角边。本轮处理顶点 1。res=[0, 1]；que=[3, 2, 4]，按队首到队尾排列；visited 的成员为 {0, 1, 3, 2, 4}。",
+      "key_state": "顶点 1 出队；que=[3, 2, 4]；res=[0, 1]。",
+      "announcement": "顶点 1 出队记入 res，未访问邻居 2、4 入队。"
+    },
+    {
+      "id": "source-193",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step4.png",
+      "title": "第四步：顶点 3 出队，邻接顶点 6 入队",
+      "explanation": "队首顶点 3 出队并追加到 res。在 3 的邻接顶点 0、4、6 中，0 和 4 都已在 visited 中（其中 4 在上一步已由顶点 1 发现并入队，虽尚未出队也不能重复入队），因此只有新邻居 [6] 加入 que 队尾并记入 visited。",
+      "state": "九个顶点按三行三列排列：上行为 0、1、2，中行为 3、4、5，下行为 6、7、8。只在水平或竖直相邻位置间连无向边：0—1、1—2、3—4、4—5、6—7、7—8、0—3、3—6、1—4、4—7、2—5、5—8；没有对角边。本轮处理顶点 3。res=[0, 1, 3]；que=[2, 4, 6]，按队首到队尾排列；visited 的成员为 {0, 1, 3, 2, 4, 6}。",
+      "key_state": "顶点 3 出队；que=[2, 4, 6]；res=[0, 1, 3]。",
+      "announcement": "顶点 3 出队记入 res，跳过已在队列中的 4，仅将新邻居 6 入队。"
+    },
+    {
+      "id": "source-194",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step5.png",
+      "title": "第五步：顶点 2 出队，邻接顶点 5 入队",
+      "explanation": "队首顶点 2 出队并追加到 res。在 2 的邻接顶点 1、5 中，1 已在 visited 中，未访问的新邻居 [5] 加入 que 队尾并记入 visited。",
+      "state": "九个顶点按三行三列排列：上行为 0、1、2，中行为 3、4、5，下行为 6、7、8。只在水平或竖直相邻位置间连无向边：0—1、1—2、3—4、4—5、6—7、7—8、0—3、3—6、1—4、4—7、2—5、5—8；没有对角边。本轮处理顶点 2。res=[0, 1, 3, 2]；que=[4, 6, 5]，按队首到队尾排列；visited 的成员为 {0, 1, 3, 2, 4, 6, 5}。",
+      "key_state": "顶点 2 出队；que=[4, 6, 5]；res=[0, 1, 3, 2]。",
+      "announcement": "顶点 2 出队记入 res，未访问邻居 5 入队。"
+    },
+    {
+      "id": "source-195",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step6.png",
+      "title": "第六步：顶点 4 出队，邻接顶点 7 入队",
+      "explanation": "队首顶点 4 出队并追加到 res。在 4 的四个邻接顶点 1、3、5、7 中，1、3、5 均已在 visited 中（其中 5 仍在队列中等待出队），只有尚未发现的 [7] 加入 que 队尾并记入 visited。",
+      "state": "九个顶点按三行三列排列：上行为 0、1、2，中行为 3、4、5，下行为 6、7、8。只在水平或竖直相邻位置间连无向边：0—1、1—2、3—4、4—5、6—7、7—8、0—3、3—6、1—4、4—7、2—5、5—8；没有对角边。本轮处理顶点 4。res=[0, 1, 3, 2, 4]；que=[6, 5, 7]，按队首到队尾排列；visited 的成员为 {0, 1, 3, 2, 4, 6, 5, 7}。",
+      "key_state": "顶点 4 出队；que=[6, 5, 7]；res=[0, 1, 3, 2, 4]。",
+      "announcement": "顶点 4 出队记入 res，未访问邻居 7 入队。"
+    },
+    {
+      "id": "source-196",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step7.png",
+      "title": "第七步：顶点 6 出队，无新邻居入队",
+      "explanation": "队首顶点 6 出队并追加到 res。它的两个邻接顶点 3 和 7 都已在 visited 中（7 已在上一步由顶点 4 发现并入队），因此本轮没有新顶点入队。",
+      "state": "九个顶点按三行三列排列：上行为 0、1、2，中行为 3、4、5，下行为 6、7、8。只在水平或竖直相邻位置间连无向边：0—1、1—2、3—4、4—5、6—7、7—8、0—3、3—6、1—4、4—7、2—5、5—8；没有对角边。本轮处理顶点 6。res=[0, 1, 3, 2, 4, 6]；que=[5, 7]，按队首到队尾排列；visited 的成员为 {0, 1, 3, 2, 4, 6, 5, 7}。",
+      "key_state": "顶点 6 出队；que=[5, 7]；res=[0, 1, 3, 2, 4, 6]。",
+      "announcement": "顶点 6 出队记入 res，其邻居均已访问，无新顶点入队。"
+    },
+    {
+      "id": "source-197",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step8.png",
+      "title": "第八步：顶点 5 出队，最后一个顶点 8 入队",
+      "explanation": "队首顶点 5 出队并追加到 res。在 5 的邻接顶点 2、4、8 中，2 和 4 已在 visited 中，尚未发现的右下角顶点 [8] 加入 que 队尾并记入 visited。至此全部九个顶点均已进入 visited。",
+      "state": "九个顶点按三行三列排列：上行为 0、1、2，中行为 3、4、5，下行为 6、7、8。只在水平或竖直相邻位置间连无向边：0—1、1—2、3—4、4—5、6—7、7—8、0—3、3—6、1—4、4—7、2—5、5—8；没有对角边。本轮处理顶点 5。res=[0, 1, 3, 2, 4, 6, 5]；que=[7, 8]，按队首到队尾排列；visited 的成员为 {0, 1, 3, 2, 4, 6, 5, 7, 8}。",
+      "key_state": "顶点 5 出队；que=[7, 8]；res=[0, 1, 3, 2, 4, 6, 5]。",
+      "announcement": "顶点 5 出队记入 res，右下角顶点 8 入队。"
+    },
+    {
+      "id": "source-198",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step9.png",
+      "title": "第九步：顶点 7 出队，无新邻居入队",
+      "explanation": "队首顶点 7 出队并追加到 res。它的邻接顶点 4、6、8 均已在 visited 中（其中 8 已在队列中等待出队），因此没有新顶点入队，队列中仅剩队首元素 8。",
+      "state": "九个顶点按三行三列排列：上行为 0、1、2，中行为 3、4、5，下行为 6、7、8。只在水平或竖直相邻位置间连无向边：0—1、1—2、3—4、4—5、6—7、7—8、0—3、3—6、1—4、4—7、2—5、5—8；没有对角边。本轮处理顶点 7。res=[0, 1, 3, 2, 4, 6, 5, 7]；que=[8]，按队首到队尾排列；visited 的成员为 {0, 1, 3, 2, 4, 6, 5, 7, 8}。",
+      "key_state": "顶点 7 出队；que=[8]；res=[0, 1, 3, 2, 4, 6, 5, 7]。",
+      "announcement": "顶点 7 出队记入 res，队列中仅剩顶点 8。"
+    },
+    {
+      "id": "source-199",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step10.png",
+      "title": "第十步：顶点 8 出队，队列清空",
+      "explanation": "队首仅剩的顶点 8 出队并追加到 res。它的邻接顶点 5、7 都已在 visited 中，没有新邻居入队，队列 que 至此变为空。",
+      "state": "九个顶点按三行三列排列：上行为 0、1、2，中行为 3、4、5，下行为 6、7、8。只在水平或竖直相邻位置间连无向边：0—1、1—2、3—4、4—5、6—7、7—8、0—3、3—6、1—4、4—7、2—5、5—8；没有对角边。本轮处理顶点 8。res=[0, 1, 3, 2, 4, 6, 5, 7, 8]；que=[]，按队首到队尾排列；visited 的成员为 {0, 1, 3, 2, 4, 6, 5, 7, 8}。",
+      "key_state": "顶点 8 出队；que=[]；res=[0, 1, 3, 2, 4, 6, 5, 7, 8]。",
+      "announcement": "最后一个顶点 8 出队记入 res，队列 que 变为空。"
+    },
+    {
+      "id": "source-200",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step11.png",
+      "title": "第十一步：队列为空，返回完整遍历序列",
+      "explanation": "图下方标出“∵ 队列 que 为空，∴ 方法返回，完成遍历”。九个顶点已全部出队，循环终止并返回最终遍历序列 res = [0, 1, 3, 2, 4, 6, 5, 7, 8]。",
+      "state": "九个顶点按三行三列排列：上行为 0、1、2，中行为 3、4、5，下行为 6、7、8。只在水平或竖直相邻位置间连无向边：0—1、1—2、3—4、4—5、6—7、7—8、0—3、3—6、1—4、4—7、2—5、5—8；没有对角边。遍历已结束，没有当前出队顶点。res=[0, 1, 3, 2, 4, 6, 5, 7, 8]；que=[]，按队首到队尾排列；visited 的成员为 {0, 1, 3, 2, 4, 6, 5, 7, 8}。",
+      "key_state": "遍历结束：que=[]，返回 res=[0, 1, 3, 2, 4, 6, 5, 7, 8]。",
+      "announcement": "队列 que 为空，广度优先遍历完成并返回结果。"
+    },
+    {
+      "id": "source-189",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs.png",
+      "title": "图的广度优先遍历（BFS）概览：按距离层由近及远扩张",
+      "explanation": "这是整套广度优先遍历的静态总览图（不代表额外算法步骤）：以左上角顶点 0 为起始，按到起点的最少边数由近及远逐层访问距离为 1 的 1、3，距离为 2 的 2、4、6，距离为 3 的 5、7，以及距离为 4 的 8。图中的蓝色虚线箭头串联起遍历次序 0, 1, 3, 2, 4, 6, 5, 7, 8，仅表示访问先后，并非原图中的边（例如对角方向的 1 到 3、6 到 5 在原图中并不直接相连）。",
+      "state": "九个顶点按三行三列排列：上行为 0、1、2，中行为 3、4、5，下行为 6、7、8。只在水平或竖直相邻位置间连无向边：0—1、1—2、3—4、4—5、6—7、7—8、0—3、3—6、1—4、4—7、2—5、5—8；没有对角边。这是遍历概览图，未绘制 que 或 visited 容器。完整结果为 [0, 1, 3, 2, 4, 6, 5, 7, 8]；距离层分别为 {0}、{1, 3}、{2, 4, 6}、{5, 7}、{8}。",
+      "key_state": "BFS 概览：按距离层 {0}、{1, 3}、{2, 4, 6}、{5, 7}、{8} 依次访问。",
+      "announcement": "展示广度优先遍历总览图，总结按距离层由近及远的完整访问序列。",
+      "kind": "overview"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-10",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "0f6dd418c37a75208e02dea18b6efcaae70abf88eac2168b908187b5e3574756",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "0a95d252e48e43c16659e492cf8623a551ef350ac8d91dc20d297cc101c008ca",
+        "output_sha256": "96677b3baeeee3a660179fb75c59edf392351f4a32ed729fbf9826ff62555fa1"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "96677b3baeeee3a660179fb75c59edf392351f4a32ed729fbf9826ff62555fa1",
+        "output_sha256": "96e4e954b067f42297be1f02858f8032bb9b56507aecf8ed5416abd8ab6f32a7"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "96e4e954b067f42297be1f02858f8032bb9b56507aecf8ed5416abd8ab6f32a7",
+        "output_sha256": "1154934782b3b07507932936dafa228955a9704a4678d05752aeee750675a4bd"
+      }
+    ],
+    "evidence_sha256": "5f572b4ac1ec3f8418e4fb4744742d5db14ec1beef1f1614cf180827804552f8"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_graph/graph_traversal.md": "fa3ab9940f042b1fd040d6ac6f4ac9eae5d277afb166e19c27770dddc3ece286"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_graph/graph_traversal.assets/graph_bfs_step1.png": "0d539e64e37315789f835ac5a037f1cedcb887aedfb9d80a9b45b425d142d0e9",
+      "chapter_graph/graph_traversal.assets/graph_bfs_step2.png": "8adac1aef19848deb5571adea5beef396b9d18b498e5cdfa7d3429ab919fdafc",
+      "chapter_graph/graph_traversal.assets/graph_bfs_step3.png": "3d25c8ada5c50c2cfc0d487906e315b732c84963712b61dc11fe1feeaadffc84",
+      "chapter_graph/graph_traversal.assets/graph_bfs_step4.png": "e67c39cb3030ad978f9b6ab346e0a536f6a0ac4fb2b333a1e81777abec9df975",
+      "chapter_graph/graph_traversal.assets/graph_bfs_step5.png": "03b613981a08afae201660e11d3e6d415ad461c3922710809ae40af8b07151b5",
+      "chapter_graph/graph_traversal.assets/graph_bfs_step6.png": "25045688ee93e34ae92e28a82bdd723a23293e3146cc5e3e7d830cd505ed8ab6",
+      "chapter_graph/graph_traversal.assets/graph_bfs_step7.png": "b1c3d6449827a2ff0ecaf85a9ca01e66d5b9b6d246dfb9ed842653c3ab29169d",
+      "chapter_graph/graph_traversal.assets/graph_bfs_step8.png": "41312518a3615981f360b4606cbaaaa494fac0717bc29fabe18408c282513d36",
+      "chapter_graph/graph_traversal.assets/graph_bfs_step9.png": "c14b4e00dffca7f410512815f30812964519c75b7221a138d2de0de0d519eb31",
+      "chapter_graph/graph_traversal.assets/graph_bfs_step10.png": "967fe80b07a77ef93014fa39cffaf824f4ddaf8d6b2aece114657094119ce9d9",
+      "chapter_graph/graph_traversal.assets/graph_bfs_step11.png": "d4c2d4495bb250dd1d4931b78b85a6fc68c206af2fe4d71b0f473149d54da2fe",
+      "chapter_graph/graph_traversal.assets/graph_bfs.png": "e920e48826b0d18c2b76e4d8f26f65068e447b72aa3c7db52425e2e017f2faee"
+    }
+  },
+  "animations": {
+    "graph-bfs": {
+      "kind": "source-frames",
+      "model_sha256": "6db0b51facdd0ebb7bb631c28bf4faa7c1f450f5bb8c2a2ddcfe401db943a215",
+      "source_content_sha256": "0f6dd418c37a75208e02dea18b6efcaae70abf88eac2168b908187b5e3574756",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-190"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-191"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-192"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-193"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-194"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-195"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-196"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-197"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-198"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-199"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-200"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "eb6657439dc1285f377810d313e31efaa3ff933fa5dd0c0c2fbd0a58eee9374c",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

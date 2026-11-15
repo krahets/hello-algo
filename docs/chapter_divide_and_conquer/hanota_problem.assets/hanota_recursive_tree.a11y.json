@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_divide_and_conquer/hanota_problem.assets/hanota_recursive_tree",
+  "title": "汉诺塔递归树：两个较小任务加一次单盘移动",
+  "summary": "每个 f(n) 拆分为左 f(n−1)、中 f(1)、右 f(n−1)，逐层展开至单盘移动 f(1)，总时间呈指数增长。",
+  "context": [
+    "节点 f(k) 表示移动 k 张圆盘的子问题规模。每个规模大于 1 的问题都拆解为：先移走上方 k−1 张盘、再移动底部 1 张最大盘、最后将 k−1 张盘移到目标柱。图中节点仅标注问题规模，未标出各子问题不同的起始柱、缓冲柱和目标柱。"
+  ],
+  "description": [
+    "递归树顶部为原问题 f(n)，向下一层从左到右分出三个子节点：f(n−1)、f(1)、f(n−1)。其中左右两个绿色节点 f(n−1) 各自再向下分出 f(n−2)、f(1)、f(n−2)，而中间的青色节点 f(1) 已是只需一次单盘移动的最小子问题，不再向下拆分。",
+    "图中绿色方框代表仍需继续递归拆解的子问题，青色方框代表直接执行单盘移动的基例 f(1)。中间层以省略号“…”概括，底层全部归结为青色节点 f(1)；注意本图是任意规模 n 的结构示意，不能直接清点图上画出的青色框个数当作某个具体 n 的总移动次数。",
+    "按递推关系 T(1) = 1、T(n) = 2T(n−1) + 1 展开，单盘移动总次数为 2^n − 1，因此时间复杂度为 O(2^n)；而同一时刻处于活动状态的递归调用链最长沿 f(n) → f(n−1) → … → f(1) 深入 n 层，因此栈帧空间复杂度为 O(n)。",
+    "还需注意，图中每一层中间画出的青色节点 f(1) 代表概念上的单盘移动子任务；在配套代码实现中，这一步直接调用 move 函数移动圆盘，并未额外发起一次 dfs(1) 递归调用，因此本图展示的是问题分解树而非逐条函数调用的精确栈追踪。"
+  ],
+  "result": "由于每次分解都会产生两个规模仅减 1 的子问题，汉诺塔的递归树节点总数以 O(2^n) 指数级增长，但递归栈深度始终保持为线性的 O(n)。",
+  "frames": [
+    {
+      "id": "source-328",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_recursive_tree.png",
+      "title": "汉诺塔递归树：两个较小任务加一次单盘移动",
+      "explanation": "每一层非基本子问题都向下分裂出左右两个规模减 1 的子问题和中间一次单盘移动 f(1)，直观展现 O(2^n) 时间复杂度与 O(n) 递归深度的来源。",
+      "state": "顶部节点 f(n) 分为左 f(n−1)、中 f(1)、右 f(n−1)；左右两个 f(n−1) 各自再分为 f(n−2)、f(1)、f(n−2)，经省略号层后到达底部的 f(1)。绿色节点表示复合子问题，青色节点表示单盘子问题 f(1)；总移动次数为 2^n − 1，最长调用链为 n 层。",
+      "key_state": "递推式 T(n) = 2T(n−1) + 1；总移动 2^n − 1 次，时间 O(2^n)，栈深 O(n)。",
+      "announcement": "展示汉诺塔问题将 f(n) 逐层分解为两个较小子问题与一次单盘移动 f(1) 的递归树。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-16",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "de71524c03b97cba5c31e4913a6ae0e66605f548d75cfe31cff9fcc5237da7c0",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "5e763dfd4e2b736b9a5010f6bdd3e33ef9402bdbd494a2a8c3346a1893135dc9",
+        "output_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb",
+        "output_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0",
+        "output_sha256": "b8fa9f331b33db33433309a29e9fe3834178d140c262ec7bc27dee6b669a5cd5"
+      }
+    ],
+    "evidence_sha256": "a355fc71eefa70eb8f989661b8a016ead02f198bb0747865902f358b13b089ae"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_divide_and_conquer/hanota_problem.md": "fe9fd8bc5e3971914c01d472b05d0c15d4d3b57218bae244613f3acb4a02e17e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_divide_and_conquer/hanota_problem.assets/hanota_recursive_tree.png": "e8e9476716557eb25d146debd09fd1045c467fe8fda2adbda069b0a52637a837"
+    }
+  }
+}

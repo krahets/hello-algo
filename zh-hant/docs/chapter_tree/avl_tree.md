@@ -260,13 +260,13 @@ AVL 樹的特點在於“旋轉”操作，它能夠在不影響二元樹的中�
     ![右旋操作步驟](avl_tree.assets/avltree_right_rotate_step1.svg)
 
 === "<2>"
-    ![avltree_right_rotate_step2](avl_tree.assets/avltree_right_rotate_step2.svg)
+    ![AVL 樹右旋操作與指標重連步驟，第 2 步，共 4 步：聚焦失衡子樹，標記 node = 3 與 child = 1](avl_tree.assets/avltree_right_rotate_step2.svg)
 
 === "<3>"
-    ![avltree_right_rotate_step3](avl_tree.assets/avltree_right_rotate_step3.svg)
+    ![AVL 樹右旋操作與指標重連步驟，第 3 步，共 4 步：以 child（1）為原點，將 node（3）向右旋轉](avl_tree.assets/avltree_right_rotate_step3.svg)
 
 === "<4>"
-    ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.svg)
+    ![AVL 樹右旋操作與指標重連步驟，第 4 步，共 4 步：用 child（1）替代原 node（3）位置，子樹恢復平衡](avl_tree.assets/avltree_right_rotate_step4.svg)
 
 如下圖所示，當節點 `child` 有右子節點（記為 `grand_child` ）時，需要在右旋中新增一步：將 `grand_child` 作為 `node` 的左子節點。
 

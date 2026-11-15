@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_stack_and_queue/queue.assets/linkedlist_queue",
+  "title": "基于链表实现队列的入队与出队",
+  "summary": "将链表头节点作为队首、尾节点作为队尾：在链表尾部追加 4 完成入队，删除链表头节点 1 完成出队。",
+  "context": [
+    "每帧左侧展示对外表现的队列（上为队首、下为队尾），右侧展示底层竖直绘制的单向链表（上为头节点、下为尾节点，箭头向下指向 next），中间标注“底层实现是链表，对外表现为队列”。"
+  ],
+  "description": [
+    "链表从头节点到尾节点的顺序与队列从队首到队尾的顺序完全一致，规定仅在链表尾部添加节点（入队）、仅在链表头部删除节点（出队）。下面三帧依次展示初始状态（[1, 3, 2, 5]）、执行 push(4) 入队和执行 pop() 出队。"
+  ],
+  "result": "基于链表实现队列时，尾节点入队与头节点出队均只需修改局部引用，时间复杂度均为 O(1)；本例最终队列为 [3, 2, 5, 4]。",
+  "frames": [
+    {
+      "id": "source-64",
+      "book_path": "chapter_stack_and_queue/queue.assets/linkedlist_queue_step1.png",
+      "title": "步骤 1：初始状态，头节点 1 为队首，尾节点 5 为队尾",
+      "explanation": "初始时，左侧队列从队首（上）到队尾（下）依次为 [1, 3, 2, 5]，队首旁标有向上的出队箭头，队尾旁标有向上的入队箭头。右侧单向链表从上到下依次为 1 → 3 → 2 → 5，头节点 1 对应队首，尾节点 5 对应队尾。",
+      "state": "当前为链表队列的初始状态（Step 1）：左侧队列从队首到队尾为 [1, 3, 2, 5]，共 4 个元素；右侧单向链表从头节点到尾节点为 1 → 3 → 2 → 5。头节点和队首均为 1，尾节点和队尾均为 5。",
+      "key_state": "初始队列（队首到队尾）[1, 3, 2, 5]；链表（头到尾）1 → 3 → 2 → 5，头节点 1 为队首，尾节点 5 为队尾。",
+      "announcement": "步骤 1：初始队列包含 4 个元素 [1, 3, 2, 5]，链表头节点 1 为队首，尾节点 5 为队尾。"
+    },
+    {
+      "id": "source-65",
+      "book_path": "chapter_stack_and_queue/queue.assets/linkedlist_queue_step2_push.png",
+      "title": "步骤 2：入队 push(4)，将节点 4 添加至链表尾部",
+      "explanation": "左侧标注“入队 push(4)”，右侧标注“将节点 4 添加至链表尾部”。青色新节点 4 接在原尾节点 5 的下方，并使“尾节点”标记下移到 4。此时右侧链表从头到尾变为 1 → 3 → 2 → 5 → 4，左侧队列从队首到队尾变为 [1, 3, 2, 5, 4]，头节点与队首仍为 1，尾节点与队尾更新为 4。",
+      "state": "当前为执行 push(4) 后的链表队列（Step 2）：左侧队列从队首到队尾为 [1, 3, 2, 5, 4]，共 5 个元素；右侧链表从头节点到尾节点为 1 → 3 → 2 → 5 → 4。头节点和队首仍为 1，尾节点和队尾更新为青色节点 4。",
+      "key_state": "push(4) 后：队列 [1, 3, 2, 5, 4]；链表 1 → 3 → 2 → 5 → 4，队首仍为 1，新尾节点 4 为队尾。",
+      "announcement": "步骤 2：执行 push(4)，将节点 4 接到链表尾部，尾节点和队尾更新为 4。"
+    },
+    {
+      "id": "source-66",
+      "book_path": "chapter_stack_and_queue/queue.assets/linkedlist_queue_step3_pop.png",
+      "title": "步骤 3：出队 pop()，删除链表头节点 1",
+      "explanation": "左侧标注“出队 pop()”，右侧标注“删除头节点”。移除原头节点 1，“头节点”标记下移到其后继节点 3。此时右侧链表变为 3 → 2 → 5 → 4，左侧队列从队首到队尾变为 [3, 2, 5, 4]，新队首为 3，尾节点和队尾仍为青色节点 4。",
+      "state": "当前为执行 pop() 后的链表队列（Step 3）：原头节点 1 已删除，左侧队列从队首到队尾为 [3, 2, 5, 4]，共 4 个元素；右侧链表从头节点到尾节点为 3 → 2 → 5 → 4。头节点和队首更新为 3，尾节点和队尾仍为 4。",
+      "key_state": "pop() 删除头节点 1 后：队列 [3, 2, 5, 4]；链表 3 → 2 → 5 → 4，头节点 3 为新队首，尾节点仍为 4。",
+      "announcement": "步骤 3：执行 pop() 删除链表头节点 1，头节点和队首变为 3，队列剩下 [3, 2, 5, 4]。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-04",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "c645661894b6623eac7c7e12057e7bdb502a475512469e872b9a5840e56ace0a",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "010659120695514881c0d1ee814ac67faa1e50957300a7e781f1c3edf7858059",
+        "output_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de",
+        "output_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8",
+        "output_sha256": "d48eb4dd56235f9a9b2f2d5c8f67899492c9f6b15567237d35161c31596306cb"
+      }
+    ],
+    "evidence_sha256": "178794e8fd357c692f91d245ae613b37aa02834865c6124afd4cd91ea892de0d"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_stack_and_queue/queue.md": "896475dcba151b44c34df568e54b1283f5e81225c0c665c1a49b58a058ec3d60"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_stack_and_queue/queue.assets/linkedlist_queue_step1.png": "53fa503b53989ff2790baa6ccde438d99728aafddccf6dd921f9eda9a41f6e96",
+      "chapter_stack_and_queue/queue.assets/linkedlist_queue_step2_push.png": "1a419a0ec02ce072dba01c2a576b90a2c8e00705ee28e38d831614dd70b26e3f",
+      "chapter_stack_and_queue/queue.assets/linkedlist_queue_step3_pop.png": "a726f4f847fa2480624d69c59340b21a14ac0bffa2f42b064fd0e3368c5c3e98"
+    }
+  },
+  "animations": {
+    "linkedlist-queue": {
+      "kind": "source-frames",
+      "model_sha256": "405b0cf945777641b760519be6a71493768894340eaaef69357cd4d431faff10",
+      "source_content_sha256": "c645661894b6623eac7c7e12057e7bdb502a475512469e872b9a5840e56ace0a",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-64"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-65"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-66"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "eee1d03050e3c2e306ec4965144f952d9ca680d68d41e6289dcd3f2fcdd89373",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

@@ -54,25 +54,25 @@
     ![二分查找重复元素的插入点的步骤](binary_search_insertion.assets/binary_search_insertion_step1.svg)
 
 === "<2>"
-    ![binary_search_insertion_step2](binary_search_insertion.assets/binary_search_insertion_step2.svg)
+    ![二分查找重复元素的插入点：遇到相等值继续向左收缩，定位首个 6，第 2 步，共 8 步：第 2 步：第一轮计算中点 m = 4（值为 6）](binary_search_insertion.assets/binary_search_insertion_step2.svg)
 
 === "<3>"
-    ![binary_search_insertion_step3](binary_search_insertion.assets/binary_search_insertion_step3.svg)
+    ![二分查找重复元素的插入点：遇到相等值继续向左收缩，定位首个 6，第 3 步，共 8 步：第 3 步：nums\[4\] == 6，执行 j = m − 1 = 3 向左收缩](binary_search_insertion.assets/binary_search_insertion_step3.svg)
 
 === "<4>"
-    ![binary_search_insertion_step4](binary_search_insertion.assets/binary_search_insertion_step4.svg)
+    ![二分查找重复元素的插入点：遇到相等值继续向左收缩，定位首个 6，第 4 步，共 8 步：第 4 步：第二轮计算中点 m = 1（值为 3）](binary_search_insertion.assets/binary_search_insertion_step4.svg)
 
 === "<5>"
-    ![binary_search_insertion_step5](binary_search_insertion.assets/binary_search_insertion_step5.svg)
+    ![二分查找重复元素的插入点：遇到相等值继续向左收缩，定位首个 6，第 5 步，共 8 步：第 5 步：nums\[1\] < 6，执行 i = m + 1 = 2 向右收缩](binary_search_insertion.assets/binary_search_insertion_step5.svg)
 
 === "<6>"
-    ![binary_search_insertion_step6](binary_search_insertion.assets/binary_search_insertion_step6.svg)
+    ![二分查找重复元素的插入点：遇到相等值继续向左收缩，定位首个 6，第 6 步，共 8 步：第 6 步：第三轮计算中点 m = 2（与左边界 i 重合）](binary_search_insertion.assets/binary_search_insertion_step6.svg)
 
 === "<7>"
-    ![binary_search_insertion_step7](binary_search_insertion.assets/binary_search_insertion_step7.svg)
+    ![二分查找重复元素的插入点：遇到相等值继续向左收缩，定位首个 6，第 7 步，共 8 步：第 7 步：nums\[2\] == 6，执行 j = m − 1 = 1 使区间为空](binary_search_insertion.assets/binary_search_insertion_step7.svg)
 
 === "<8>"
-    ![binary_search_insertion_step8](binary_search_insertion.assets/binary_search_insertion_step8.svg)
+    ![二分查找重复元素的插入点：遇到相等值继续向左收缩，定位首个 6，第 8 步，共 8 步：第 8 步：跳出二分循环，返回最左插入点索引 i = 2](binary_search_insertion.assets/binary_search_insertion_step8.svg)
 
 观察以下代码，判断分支 `nums[m] > target` 和 `nums[m] == target` 的操作相同，因此两者可以合并。
 

@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_tree/binary_tree_traversal.assets/preorder",
+  "title": "前序遍历的递推与回溯过程",
+  "summary": "用 11 个步骤展示前序遍历的“递”与“归”：在首次到达各节点左侧橙点时依次记录 1、2、4、5、3、6、7，向上回溯时不重复记录。",
+  "context": [
+    "示例二叉树共三层：根节点为 1；1 的左、右子节点为 2、3；2 的左、右子节点为 4、5；3 的左、右子节点为 6、7；4、5、6、7 均为叶节点。",
+    "前序遍历按照“根 → 左子树 → 右子树”的优先级递归执行：每次向下进入一个非空节点（“递：向下递推”），立即在该节点左侧橙点处将其值记入遍历序列；当子调用处理完毕向上返回（“归：向上回溯”）经过底部浅蓝点或右侧浅紫点时，不再记录节点值。"
+  ],
+  "description": [
+    "左侧树图中，青色虚线箭头标示截至当前步骤走过的递归轨迹；每个节点左侧为橙点（前序访问点），底部与右侧为淡化的浅蓝点与浅紫点。右侧上方并列“递：向下递推”和“归：向上回溯”两个状态标签，灰色底框高亮当前所处的阶段；下方“前序遍历（在橙点处访问节点）”实时列出已记录的序列，本步新加入的数字与当前访问节点的圆环均用橙色高亮。全组 11 个步骤由 7 次向下递推访问和 4 次向上回溯组成。"
+  ],
+  "result": "前序遍历最终输出序列为 [1, 2, 4, 5, 3, 6, 7]。第 10 步已访问完最后一个节点 7，第 11 步完成从叶节点 7 经 3、1 的全部函数返回，回溯阶段不会改变遍历结果。",
+  "frames": [
+    {
+      "id": "source-99",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step1.png",
+      "title": "Step 1：递推访问根节点 1",
+      "explanation": "右侧高亮“递：向下递推”。青色虚线箭头从根 1 左上方进入其左侧橙点，节点 1 外圈呈橙色高亮，将 1 记入右侧前序遍历序列。接下来准备递归进入 1 的左子节点 2。",
+      "state": "三层二叉树根为 1，子节点为 2、3，叶节点为 4、5、6、7。当前处于 Step 1，“递：向下递推”高亮；青色虚线箭头指向根节点 1 左侧橙点，节点 1 带橙色高亮环；前序遍历序列为 [1]（1 为橙色），2、4、5、3、6、7 尚未访问。",
+      "key_state": "Step 1（递）：当前访问节点 1；前序序列 [1]。",
+      "announcement": "开始前序遍历，向下递推进入根节点 1，记录 1。"
+    },
+    {
+      "id": "source-100",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step2.png",
+      "title": "Step 2：从 1 递推到左子节点 2",
+      "explanation": "右侧保持高亮“递：向下递推”。青色虚线沿 1 的左分支向下延伸到节点 2 左侧橙点，节点 2 外圈呈橙色高亮，前序遍历序列末尾新增橙色的 2。随后继续向左深入 2 的左子节点 4。",
+      "state": "三层二叉树根为 1，子节点为 2、3，叶节点为 4、5、6、7。当前处于 Step 2，“递：向下递推”高亮；青色虚线从 1 延伸至节点 2 左侧橙点，节点 2 带橙色高亮环；前序遍历序列为 [1, 2]（2 为橙色），4、5、3、6、7 尚未访问。",
+      "key_state": "Step 2（递）：当前访问节点 2；前序序列 [1, 2]。",
+      "announcement": "沿左分支递推进入节点 2，将 2 加入前序序列。"
+    },
+    {
+      "id": "source-101",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step3.png",
+      "title": "Step 3：从 2 递推到叶节点 4",
+      "explanation": "右侧保持高亮“递：向下递推”。青色虚线继续沿左分支延伸到叶节点 4 左侧橙点，节点 4 外圈呈橙色高亮，序列末尾新增橙色的 4。因 4 是叶节点，其左、右空子调用将立即返回。",
+      "state": "三层二叉树根为 1，子节点为 2、3，叶节点为 4、5、6、7。当前处于 Step 3，“递：向下递推”高亮；青色虚线沿 1 → 2 → 4 到达叶节点 4 左侧橙点，节点 4 带橙色高亮环；前序遍历序列为 [1, 2, 4]（4 为橙色），5、3、6、7 尚未访问。",
+      "key_state": "Step 3（递）：当前访问叶节点 4；前序序列 [1, 2, 4]。",
+      "announcement": "继续向左递推进入叶节点 4，将 4 加入前序序列。"
+    },
+    {
+      "id": "source-102",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step4.png",
+      "title": "Step 4：从叶节点 4 回溯到节点 2",
+      "explanation": "叶节点 4 处理完毕，右侧切换高亮“归：向上回溯”。青色虚线绕过节点 4 的底部与右侧，向上返回到父节点 2 底部的浅蓝点，表示 2 的左子树已访问完成、准备进入其右子节点 5；回溯过程不新增序列元素。",
+      "state": "三层二叉树根为 1，子节点为 2、3，叶节点为 4、5、6、7。当前处于 Step 4，“归：向上回溯”高亮；青色虚线绕过叶节点 4 返回到节点 2 底部浅蓝点，无节点带橙色外环；前序遍历序列保持为 [1, 2, 4]，5、3、6、7 尚未访问。",
+      "key_state": "Step 4（归）：从 4 回溯到节点 2 底部，准备访问右子节点 5；序列仍为 [1, 2, 4]。",
+      "announcement": "从叶节点 4 向上回溯到节点 2，序列保持 [1, 2, 4] 不变。"
+    },
+    {
+      "id": "source-103",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step5.png",
+      "title": "Step 5：从 2 递推到右子节点 5",
+      "explanation": "右侧切换高亮“递：向下递推”。青色虚线从节点 2 底部转向右下方，到达右子节点 5 左侧橙点，叶节点 5 外圈呈橙色高亮，序列末尾新增橙色的 5。至此根 1 左子树中的全部节点均已记录。",
+      "state": "三层二叉树根为 1，子节点为 2、3，叶节点为 4、5、6、7。当前处于 Step 5，“递：向下递推”高亮；青色虚线从节点 2 底部延伸至叶节点 5 左侧橙点，节点 5 带橙色高亮环；前序遍历序列为 [1, 2, 4, 5]（5 为橙色），右子树 3、6、7 尚未访问。",
+      "key_state": "Step 5（递）：当前访问叶节点 5；前序序列 [1, 2, 4, 5]。",
+      "announcement": "从节点 2 向右递推进入叶节点 5，将 5 加入前序序列。"
+    },
+    {
+      "id": "source-104",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step6.png",
+      "title": "Step 6：从 5 经 2 回溯到根节点 1",
+      "explanation": "右侧切换高亮“归：向上回溯”。叶节点 5 的调用返回到 2，此时以 2 为根的左子树全部完成，调用继续向上返回到根节点 1。图中将这两级返回合并展示，青色虚线绕过 5 和 2 的右侧到达根 1 底部浅蓝点，序列保持不变。",
+      "state": "三层二叉树根为 1，子节点为 2、3，叶节点为 4、5、6、7。当前处于 Step 6，“归：向上回溯”高亮；青色虚线绕过叶节点 5 与节点 2 的右侧，向上返回到根节点 1 底部浅蓝点，无节点带橙色外环；左子树全部完成，前序遍历序列保持 [1, 2, 4, 5]，右子树 3、6、7 尚未访问。",
+      "key_state": "Step 6（归）：左子树完成，从 5 经 2 回溯到根 1 底部；序列仍为 [1, 2, 4, 5]。",
+      "announcement": "从叶节点 5 经节点 2 向上回溯到根节点 1，左子树遍历完成，序列不变。"
+    },
+    {
+      "id": "source-105",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step7.png",
+      "title": "Step 7：从根 1 递推到右子节点 3",
+      "explanation": "右侧切换高亮“递：向下递推”。根 1 的左子树处理完毕后，青色虚线从根 1 底部转向右下方，进入右子节点 3 左侧橙点；节点 3 外圈呈橙色高亮，序列末尾新增橙色的 3。接着将按同样规则先访问 3 的左子节点 6。",
+      "state": "三层二叉树根为 1，子节点为 2、3，叶节点为 4、5、6、7。当前处于 Step 7，“递：向下递推”高亮；青色虚线从根 1 底部延伸至右子节点 3 左侧橙点，节点 3 带橙色高亮环；前序遍历序列为 [1, 2, 4, 5, 3]（3 为橙色），6、7 尚未访问。",
+      "key_state": "Step 7（递）：当前访问节点 3；前序序列 [1, 2, 4, 5, 3]。",
+      "announcement": "从根 1 向右递推进入节点 3，将 3 加入前序序列。"
+    },
+    {
+      "id": "source-106",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step8.png",
+      "title": "Step 8：从 3 递推到左子节点 6",
+      "explanation": "右侧保持高亮“递：向下递推”。青色虚线沿节点 3 的左分支向下到达叶节点 6 左侧橙点，节点 6 外圈呈橙色高亮，序列末尾新增橙色的 6。因 6 是叶节点，下一步将回溯到节点 3。",
+      "state": "三层二叉树根为 1，子节点为 2、3，叶节点为 4、5、6、7。当前处于 Step 8，“递：向下递推”高亮；青色虚线从 3 延伸至叶节点 6 左侧橙点，节点 6 带橙色高亮环；前序遍历序列为 [1, 2, 4, 5, 3, 6]（6 为橙色），仅剩节点 7 尚未访问。",
+      "key_state": "Step 8（递）：当前访问叶节点 6；前序序列 [1, 2, 4, 5, 3, 6]。",
+      "announcement": "沿节点 3 的左分支递推进入叶节点 6，将 6 加入前序序列。"
+    },
+    {
+      "id": "source-107",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step9.png",
+      "title": "Step 9：从叶节点 6 回溯到节点 3",
+      "explanation": "叶节点 6 处理完毕，右侧切换高亮“归：向上回溯”。青色虚线绕过节点 6 的底部与右侧，向上返回到节点 3 底部的浅蓝点，准备进入最后一个右子节点 7；序列不发生改变。",
+      "state": "三层二叉树根为 1，子节点为 2、3，叶节点为 4、5、6、7。当前处于 Step 9，“归：向上回溯”高亮；青色虚线绕过叶节点 6 返回到节点 3 底部浅蓝点，无节点带橙色外环；前序遍历序列保持 [1, 2, 4, 5, 3, 6]，仅剩节点 7 尚未访问。",
+      "key_state": "Step 9（归）：从 6 回溯到节点 3 底部，准备访问 7；序列仍为 [1, 2, 4, 5, 3, 6]。",
+      "announcement": "从叶节点 6 向上回溯到节点 3，序列保持 [1, 2, 4, 5, 3, 6] 不变。"
+    },
+    {
+      "id": "source-108",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step10.png",
+      "title": "Step 10：从 3 递推到右子节点 7",
+      "explanation": "右侧切换高亮“递：向下递推”。青色虚线从节点 3 底部转向右下方，到达最后一个叶节点 7 左侧橙点，节点 7 外圈呈橙色高亮，序列末尾新增橙色的 7。至此全部 7 个节点都已记入序列，只待递归调用逐层返回。",
+      "state": "三层二叉树根为 1，子节点为 2、3，叶节点为 4、5、6、7。当前处于 Step 10，“递：向下递推”高亮；青色虚线从 3 延伸至叶节点 7 左侧橙点，节点 7 带橙色高亮环；前序遍历序列为 [1, 2, 4, 5, 3, 6, 7]（7 为橙色），所有节点均已记录。",
+      "key_state": "Step 10（递）：当前访问叶节点 7；全部节点已记录为 [1, 2, 4, 5, 3, 6, 7]。",
+      "announcement": "向右递推进入最后一个叶节点 7，将 7 加入序列，得到完整的 [1, 2, 4, 5, 3, 6, 7]。"
+    },
+    {
+      "id": "source-109",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step11.png",
+      "title": "Step 11：从 7 经 3、1 回溯返回，遍历结束",
+      "explanation": "右侧切换高亮“归：向上回溯”。青色虚线绕过叶节点 7 的底部和右侧，依次沿节点 3 与根节点 1 的右侧向上回溯，最终在根 1 右上方指向外部，表示各级递归调用全部返回；完整前序序列定格为 1, 2, 4, 5, 3, 6, 7。",
+      "state": "三层二叉树根为 1，子节点为 2、3，叶节点为 4、5、6、7。当前处于 Step 11，“归：向上回溯”高亮；青色虚线绕完叶节点 7、节点 3 和根节点 1 的右侧后从根右上方离开，无节点带橙色外环；前序遍历结束，最终序列为 [1, 2, 4, 5, 3, 6, 7]。",
+      "key_state": "Step 11（归）：全部递归调用回溯完毕，前序遍历最终结果为 [1, 2, 4, 5, 3, 6, 7]。",
+      "announcement": "从叶节点 7 经 3、1 完成全部回溯返回，前序遍历结束，最终序列为 [1, 2, 4, 5, 3, 6, 7]。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-06",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "b18eb1973702331a23b01a5ec53923d6f8ff7f235add89e88baf8c88e7a8cfe7",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a7d27ac86970762b98a3afc622b5a802549e6b6254c666e3efdf60f34ede65b5",
+        "output_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4",
+        "output_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900",
+        "output_sha256": "30bb25c69fe95554ab48370f707653e1ddeb4b287f83cb44cf33dc013e44b87b"
+      }
+    ],
+    "evidence_sha256": "bbb898a17ec7d0f8023ba3e028e19e1cebb4eba7c5059fe86305e5491e6f3b3b"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_tree/binary_tree_traversal.md": "d19ef208720dc46eac8a9110693de9baa8d57d477be75b8914359fd766dacadb"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_tree/binary_tree_traversal.assets/preorder_step1.png": "f86c76299246ffaeaa4136ad57386d64a7d84c1dd0d726476f5b62dc431243c5",
+      "chapter_tree/binary_tree_traversal.assets/preorder_step2.png": "5d74e653f20c303be3a02d6ea3e152223d4e0cb39721bfced5133b5e5e867087",
+      "chapter_tree/binary_tree_traversal.assets/preorder_step3.png": "9e11a94967c48b4bd3a560dc614f6c5c4cb93abc4188faa9a627b4f35263649e",
+      "chapter_tree/binary_tree_traversal.assets/preorder_step4.png": "506a27445bc12e71a3c61524da01a8061747da9ef573fd850b35b4e8901963ad",
+      "chapter_tree/binary_tree_traversal.assets/preorder_step5.png": "c71ce51dfcae51a6cec7d778d2a334689b6225f8d6cf9f723c9ff171b5502665",
+      "chapter_tree/binary_tree_traversal.assets/preorder_step6.png": "0052fb19daf94809dcf31cdc9ad25e52aa24fb9a3a338cd7dd19303611216a92",
+      "chapter_tree/binary_tree_traversal.assets/preorder_step7.png": "5a7a04cb450661948dfb82fee8f48dde8811f362730b831a4f08d1e3ddf8d493",
+      "chapter_tree/binary_tree_traversal.assets/preorder_step8.png": "40ff2474ef7e1348e0cd78930c0c8e191702a65e9e19e2c4c41db71eabe8e793",
+      "chapter_tree/binary_tree_traversal.assets/preorder_step9.png": "14143e88098dd996308d634e4dc7bc6f3c7d3e7982fb7594b78d405b85aea5d3",
+      "chapter_tree/binary_tree_traversal.assets/preorder_step10.png": "4f2e6a1f9fe01729a90311dd068ed2ba888ebc9807e1723445ad19a4ec080b86",
+      "chapter_tree/binary_tree_traversal.assets/preorder_step11.png": "c35091a5da85a18589ba8f48603904f04e1d383d1fe17877897d431683bae6a5"
+    }
+  },
+  "animations": {
+    "preorder-traversal": {
+      "kind": "source-frames",
+      "model_sha256": "371c2df8693cf5449e0abf85c9f8a30139f0aea628b5380c10e194ad0ccced05",
+      "source_content_sha256": "b18eb1973702331a23b01a5ec53923d6f8ff7f235add89e88baf8c88e7a8cfe7",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-99"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-100"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-101"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-102"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-103"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-104"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-105"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-106"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-107"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-108"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-109"
+        }
+      ],
+      "review": {
+        "status": "confirmed",
+        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "method": "exact-source-scene-and-bindings",
+        "binding_sha256": "b914ab8543efa9e244df1f7eccd285e0c2933d3948b11f23c8ba02f489021a11",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+      }
+    }
+  }
+}

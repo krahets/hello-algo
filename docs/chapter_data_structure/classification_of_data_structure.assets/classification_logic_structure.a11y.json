@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure",
+  "title": "线性结构、树形结构与网状结构",
+  "summary": "按元素间的逻辑关系对比常见数据结构：左侧用数组、链表、栈和队列展示一对一的线性顺序关系，右侧用树、图和堆展示一对多的层次关系或多对多的网络关系，底部单独展示键值映射的哈希表。",
+  "context": [
+    "画面分为左、右两栏及底部居中区域：左栏标题为“线性数据结构”，依次展示数组（array）、链表（linked list）、栈（stack）和队列（queue）；右栏标题为“非线性数据结构”，依次展示树（tree）、图（graph）和堆（heap）；底部居中跨越两栏展示哈希表（hash table）。"
+  ],
+  "description": [
+    "左栏四种线性结构均使用相同的五个元素 1、3、2、5、4：数组将 1、3、2、5、4 从左到右紧邻排在同一个连续外框内；链表用带向右箭头的圆圈节点依次从 1 指向 3、2、5、4；栈画成左端开口、右端封闭的水平容器，入栈（push）向右箭头与出栈（pop）向左箭头均位于左端开口处；队列画成两端开口的水平通道，入队（push）向左箭头位于右端入口，出队（pop）向左箭头位于左端出口。",
+    "右栏上方，“树”是一棵三层满二叉树，共 7 个绿色圆圈节点，有向边均从父节点指向左、右子节点：根节点 1 指向 2 和 3，节点 2 指向 4 和 5，节点 3 指向 6 和 7。右栏中间，“图”包含编号 1 至 5 的 5 个节点，由 7 条不带箭头的无向边连接，分别为 (1, 2)、(1, 3)、(2, 3)、(2, 4)、(2, 5)、(3, 5) 和 (4, 5)。右栏下方，“堆”也画成三层二叉树，共 5 个节点：根节点 1 指向左子节点 3 和右子节点 2，节点 3 再指向左子节点 5 和右子节点 4。",
+    "底部居中的“哈希表”外加绿色方括号，上排标签 key 列出三个键 a、b、c，各通过向下的箭头指向下排标签 value 中对应的值 1、2、3。"
+  ],
+  "result": "逻辑结构揭示数据元素之间的组织关系：线性结构（数组、链表、栈、队列）体现一对一的前后次序，树形结构（树、堆）体现一对多的父子层级，网状结构（图）体现多对多的任意连接，而哈希表体现键到值的映射并可综合线性与非线性结构实现。",
+  "frames": [
+    {
+      "id": "source-38",
+      "book_path": "chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.png",
+      "title": "线性结构、树形结构与网状结构",
+      "explanation": "左栏四种结构中，元素均呈单一线性序列，区别在于操作受限方式：栈限制在同一端（图中左端）进出，队列限制在一端（右端）进入、另一端（左端）取出。右栏中，树与堆的每个父节点可向下派生多个子节点；图的每个顶点可与任意数量的顶点相连（如节点 2 同时连接 1、3、4、5 四个节点）。哈希表放在两栏交界处，呼应正文中其底层实现既包含线性数组/链表、也可结合树形结构的特点。",
+      "state": "左栏“线性数据结构”包含数组、链表、栈、队列，元素依次为 1、3、2、5、4：数组紧邻排列，链表由向右箭头依次连接，栈在左端同时标出 push 与 pop，队列在右端标 push、左端标 pop。右栏“非线性数据结构”包含：树（根 1 指向 2 和 3，2 指向 4 和 5，3 指向 6 和 7）、图（节点 1 至 5，含无向边 1-2、1-3、2-3、2-4、2-5、3-5、4-5）、堆（根 1 指向 3 和 2，3 指向 5 和 4）。底部“哈希表”中键 a、b、c 分别向下指向值 1、2、3。",
+      "key_state": "左栏数组、链表、栈、队列按 1、3、2、5、4 线性排列；右栏树与堆呈父子分层，图含 5 个节点与 7 条无向边；底部哈希表将键 a、b、c 映射到值 1、2、3。",
+      "announcement": "对比线性数据结构（数组、链表、栈、队列）、非线性数据结构（树、图、堆）与底部哈希表的逻辑组织关系。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-03",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "9db5cfb2a3b6822b0afbcbbf28b0441e970f3c52050e69bc91945686a3df9b26",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "cbe99e77444e0462f57c192b0088094f9fd6936e24f6cfd18181de4a48ba8083",
+        "output_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c",
+        "output_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6",
+        "output_sha256": "bdf21f24ca6a88ed6060d24186ac933357dde4feee3a257546cffd56c2bd6867"
+      }
+    ],
+    "evidence_sha256": "ec6ba9da7d2fe9290ce303592b8440b918ec83702cd9d0e6bbdc1e50d87c89d8"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_data_structure/classification_of_data_structure.md": "a61ec86982bb7395e7f0257668a661739cc098c5d2aac268a23df1036243f7aa"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.png": "941c683489ff5b7813905e0f2eca610ee389f33eb879686edc079393c67bf0f7"
+    }
+  }
+}

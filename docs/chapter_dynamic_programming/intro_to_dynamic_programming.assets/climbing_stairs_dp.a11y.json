@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dp",
+  "title": "从初始状态迭代计算爬楼梯方案数",
+  "summary": "从初始状态 dp[1]=1、dp[2]=2 出发，每次将相邻前两项相加，自左向右迭代推算至 dp[9]。",
+  "context": [
+    "爬楼梯每步可上 1 阶或 2 阶，dp[i] 表示爬到第 i 阶的方案数。本图展示自底向上的动态规划填表过程，无需借助递归调用栈。"
+  ],
+  "description": [
+    "九个绿色圆角方块从左到右依次标为 dp[1] 至 dp[9]。每两个相邻前驱状态由大括号括住，经带有加号“+”的弧形箭头指向紧邻的下一个状态，弧形箭头在方块上下两侧交替排列以免重叠；图下方列出初始状态、状态转移方程与终止说明。"
+  ],
+  "result": "自底向上迭代时每个状态只计算一次，到达目标状态即终止；按图中初始值与方程推算，目标 dp[9] 对应的方案数为 55。",
+  "frames": [
+    {
+      "id": "source-371",
+      "book_path": "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dp.png",
+      "title": "从初始状态迭代计算爬楼梯方案数",
+      "explanation": "首先设定初始状态 dp[1]=1、dp[2]=2。接着按状态转移方程 dp[n]=dp[n-1]+dp[n-2] 从左向右顺序递推：由 dp[1] 和 dp[2] 相加得到 dp[3]，再由 dp[2] 和 dp[3] 相加得到 dp[4]，如此依次求得 dp[5]、dp[6]、dp[7]、dp[8]，最后由 dp[7] 和 dp[8] 相加得到目标状态 dp[9]。图中绿色方块内仅标注状态名 dp[1] 至 dp[9]，若代入初始值计算，dp[3] 至 dp[9] 的数值依次为 3、5、8、13、21、34、55。",
+      "state": "画面横向排列 dp[1] 至 dp[9] 九个绿色方块，上方和下方共有 7 组大括号配加号弧形箭头，依次将 (dp[1], dp[2]) 指向 dp[3]、直至将 (dp[7], dp[8]) 指向 dp[9]。下方文字注明“初始状态：dp[1] = 1, dp[2] = 2”、“状态转移方程：dp[n] = dp[n-1] + dp[n-2]”以及“从初始状态开始，进行状态转移，到达目标状态时终止”。",
+      "key_state": "从 dp[1]=1、dp[2]=2 出发，按 dp[n]=dp[n-1]+dp[n-2] 顺序递推至 dp[9]。",
+      "announcement": "从初始值 1 和 2 开始，依次把前两个状态相加推算下一个状态，直至求出目标状态 dp[9]。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-19",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "f61b4ed2b1778c0e8ac4a35f09e6c33c1569495126819eb5cea9ba385219591c",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "dcea2ce4eb56814df492beb0353b69ca48748a38ea8c5b34963d8ce99d7a20df",
+        "output_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c",
+        "output_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f",
+        "output_sha256": "1603107bf51a94e045d71a5f3540a9b6e58f184da52d98978a06e9e10e5ca484"
+      }
+    ],
+    "evidence_sha256": "830dfd6d376fed2c39b7c0da47ad3af42913a4655f9fdeea3b18ab9df35addbc"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_dynamic_programming/intro_to_dynamic_programming.md": "0995a3cd45b316e145efd517bc64d6d48a880cc2e2ad626a0bc24d063262a59f"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dp.png": "6e15aa4824a94f14bd38babc7ec6c605d688371a1f739e60b30c321b598518f7"
+    }
+  }
+}

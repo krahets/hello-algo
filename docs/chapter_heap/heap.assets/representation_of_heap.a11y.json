@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_heap/heap.assets/representation_of_heap",
+  "title": "堆的逻辑结构与底层数组存储：用索引映射实现节点指针",
+  "summary": "12 节点大顶堆按层序存为数组 [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]；对索引 i=4（值 7），父节点在 (i−1)/2=1，左、右子节点在 2i+1=9 和 2i+2=10。",
+  "context": [
+    "图上方标注：左侧为“堆的逻辑结构（‘堆’是一棵‘完全二叉树’）”，右侧为“堆的物理结构（底层存储，使用‘数组’表示‘完全二叉树’）”。数组按层序存放 12 个元素 [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]，索引从 0 到 11。"
+  ],
+  "description": [
+    "左侧完全二叉树在每个节点圆圈下方标出对应的数组索引：根节点值 9（索引 0）的左、右子节点为值 8（索引 1）和值 6（索引 2）；索引 1 的左、右子节点为索引 3（值 6）和索引 4（值 7）；索引 2 的左、右子节点为索引 5（值 5）和索引 6（值 2）；索引 3 的左、右子节点为索引 7（值 1）和索引 8（值 4）；索引 4 的左、右子节点为索引 9（值 3）和索引 10（值 6）；索引 5 只有左子节点索引 11（值 2）。",
+    "右侧数组展示了“通过索引映射实现节点指针”的公式：给定节点索引 i，其父节点索引为 ⌊(i−1)/2⌋（向下整除），左子节点索引为 2i+1，右子节点索引为 2i+2。图中以青色高亮索引 i=4（值为 7）的节点：指向橙色高亮父节点的灰色箭头对应父节点索引 ⌊(4−1)/2⌋ = 1（值为 8），向右的两条箭头分别对应蓝色左子节点索引 2×4+1 = 9（值为 3）与紫蓝色右子节点索引 2×4+2 = 10（值为 6）。树与数组中的同色高亮一一对应。",
+    "当计算出的子节点索引超出数组长度范围时，表示该子节点不存在；根节点（索引 0）没有父节点。借助紧凑的完全二叉树层序排列，数值相等的不同节点（如多个 6 和 2）也能由各自的唯一索引准确区分。"
+  ],
+  "result": "完全二叉树无需额外存储左右指针字段，直接利用数组下标算术映射即可在 O(1) 时间内定位任意节点的父节点与左、右子节点。",
+  "frames": [
+    {
+      "id": "source-141",
+      "book_path": "chapter_heap/heap.assets/representation_of_heap.png",
+      "title": "堆的逻辑结构与底层数组存储：用索引映射实现节点指针",
+      "explanation": "图左右对照同一大顶堆的完全二叉树表示与数组表示（索引 0 至 11），并以索引 i=4（值 7）为中心演示索引映射：父节点位于橙色高亮的索引 ⌊(i−1)/2⌋ = 1（值 8），左子节点位于蓝色高亮的索引 2i+1 = 9（值 3），右子节点位于紫蓝色高亮的索引 2i+2 = 10（值 6）。",
+      "state": "数组索引 0 至 11 依次存储元素 [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]，左侧完全二叉树按相同层序排列并标注索引 0 至 11。当前选中节点为 i=4（值 7）；其父节点为索引 1（值 8），左子节点为索引 9（值 3），右子节点为索引 10（值 6）。",
+      "key_state": "选中节点 i=4（值 7）：父节点索引 ⌊(i−1)/2⌋=1（值 8），左、右子节点索引 2i+1=9（值 3）、2i+2=10（值 6）。",
+      "announcement": "展示大顶堆的完全二叉树与数组对应关系，以及索引 i=4 的父子位置映射公式。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-08",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "9ede8350f01016249bf6597f3fa947ac90697e5e75684dd6f95151472c48360b",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a506b3ecafaef6d8fc62ef26dae68447d18629fc5e16ddd8ae926171452d6745",
+        "output_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d",
+        "output_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896",
+        "output_sha256": "8aa1f4dfa1fd2a8bc10a20ded596eaae033faa43bbf57cbc5c462af6f3455359"
+      }
+    ],
+    "evidence_sha256": "14a36adc867aa49a98d8a9d37d2a3aade7c41c8d611abaa2b4d84cd7b471e986"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_heap/heap.md": "4eac94cc73c58f010fd8439bd21e4f441eff794de3d6d06a143a0f45dc44ec3e"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_heap/heap.assets/representation_of_heap.png": "5d174bf00a7dad01095fc3ef46cc29c13b0cbddc70e0a760805a0e564293a1df"
+    }
+  }
+}

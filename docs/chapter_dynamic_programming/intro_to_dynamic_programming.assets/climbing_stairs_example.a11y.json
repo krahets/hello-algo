@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "locale": "zh-hans",
+  "group_id": "group:chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_example",
+  "title": "爬到第三阶的三种方案",
+  "summary": "每次可上 1 阶或 2 阶，从地面 0 爬到第 3 阶共有三种不同的走法。",
+  "context": [
+    "设地面起点编号为 0，每一步可以选择向上爬 1 阶或 2 阶，目标是恰好爬上第 3 阶楼梯。"
+  ],
+  "description": [
+    "图中楼梯轮廓从 0 画到第 6 阶，其中目标第 3 阶的踏面以绿色高亮。楼梯上方用青色实线、蓝色点线和橙色虚线画出三条从 0 到 3 的跳跃弧线，图下方文字依次列出这三种方案经过的台阶编号。"
+  ],
+  "result": "爬上第 3 阶共有 3 种方案；每步跨 1 阶与跨 2 阶的先后顺序不同（如先 2 后 1 与先 1 后 2），经过的台阶序列不同，计为不同方案。",
+  "frames": [
+    {
+      "id": "source-367",
+      "book_path": "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_example.png",
+      "title": "爬到第三阶的三种方案",
+      "explanation": "青色实线方案按台阶编号 0→1→2→3 前进，即连续三次各上 1 阶；蓝色点线方案按 0→2→3 前进，即先上 2 阶到第 2 阶、再上 1 阶到第 3 阶；橙色虚线方案按 0→1→3 前进，即先上 1 阶到第 1 阶、再上 2 阶到第 3 阶。三条路线都从地面 0 出发并恰好停在绿色高亮的第 3 阶。",
+      "state": "楼梯阶数 n 从左到右标为 0 至 6，第 3 阶为绿色目标阶；上方三条弧线轨迹与下方文字一一对应，分别为青色 0→1→2→3、蓝色 0→2→3、橙色 0→1→3，标注“爬上第 3 阶楼梯共有 3 种方案”。",
+      "key_state": "目标第 3 阶，三条路径为 0→1→2→3、0→2→3、0→1→3。",
+      "announcement": "从地面 0 出发，按三次 1 阶、先 2 阶再 1 阶或先 1 阶再 2 阶前进，共有 3 种方案到达第 3 阶。"
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-accessibility-20261114/batch-19",
+    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
+    "content_sha256": "daea9a53662770a091de71ec2d076a9422ece559e0397508d953765ced65af6c",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "dcea2ce4eb56814df492beb0353b69ca48748a38ea8c5b34963d8ce99d7a20df",
+        "output_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c",
+        "output_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f",
+        "output_sha256": "1603107bf51a94e045d71a5f3540a9b6e58f184da52d98978a06e9e10e5ca484"
+      }
+    ],
+    "evidence_sha256": "830dfd6d376fed2c39b7c0da47ad3af42913a4655f9fdeea3b18ab9df35addbc"
+  },
+  "dependencies": {
+    "markdown": {
+      "chapter_dynamic_programming/intro_to_dynamic_programming.md": "0995a3cd45b316e145efd517bc64d6d48a880cc2e2ad626a0bc24d063262a59f"
+    },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
+    "scenes": {
+      "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_example.png": "5fc99c33de79b12a7278aec5c411f84a565ecbc339a7339af554d7d0246620d7"
+    }
+  }
+}
