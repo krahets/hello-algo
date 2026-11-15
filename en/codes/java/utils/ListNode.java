@@ -6,16 +6,14 @@
 
 package utils;
 
-// [region]{list_node}
 /* Linked list node */
 public class ListNode {
-    public int val;       // Node value
-    public ListNode next; // Reference to the next node
+    public int val;
+    public ListNode next;
 
     public ListNode(int x) {
         val = x;
     }
-// [endregion]{list_node}
 
     /* Deserialize an array into a linked list */
     public static ListNode arrToLinkedList(int[] arr) {
@@ -27,6 +25,4 @@ public class ListNode {
         }
         return dum.next;
     }
-// [region]{list_node_end}
 }
-// [endregion]{list_node_end}

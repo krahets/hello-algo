@@ -1,102 +1,217 @@
 <!-- [snippet]{hash_map_operations} -->
 ```python title="hash_map.py"
-[file]{hash_map}-[region]{init_hash_map}
+# 初始化雜湊表
+hmap: dict = {}
 
-[file]{hash_map}-[region]{add_pairs}
+# 新增操作
+# 在雜湊表中新增鍵值對 (key, value)
+hmap[12836] = "小哈"
+hmap[15937] = "小囉"
+hmap[16750] = "小算"
+hmap[13276] = "小法"
+hmap[10583] = "小鴨"
 
-[file]{hash_map}-[region]{get_value}
+# 查詢操作
+# 向雜湊表中輸入鍵 key ，得到值 value
+name: str = hmap[15937]
 
-[file]{hash_map}-[region]{remove_pair}
+# 刪除操作
+# 在雜湊表中刪除鍵值對 (key, value)
+hmap.pop(10583)
 ```
 
 ```cpp title="hash_map.cpp"
-[file]{hash_map}-[region]{init_hash_map}
+/* 初始化雜湊表 */
+unordered_map<int, string> map;
 
-[file]{hash_map}-[region]{add_pairs}
+/* 新增操作 */
+// 在雜湊表中新增鍵值對 (key, value)
+map[12836] = "小哈";
+map[15937] = "小囉";
+map[16750] = "小算";
+map[13276] = "小法";
+map[10583] = "小鴨";
 
-[file]{hash_map}-[region]{get_value}
+/* 查詢操作 */
+// 向雜湊表中輸入鍵 key ，得到值 value
+string name = map[15937];
 
-[file]{hash_map}-[region]{remove_pair}
+/* 刪除操作 */
+// 在雜湊表中刪除鍵值對 (key, value)
+map.erase(10583);
 ```
 
 ```java title="hash_map.java"
-[file]{hash_map}-[region]{init_hash_map}
+/* 初始化雜湊表 */
+Map<Integer, String> map = new HashMap<>();
 
-[file]{hash_map}-[region]{add_pairs}
+/* 新增操作 */
+// 在雜湊表中新增鍵值對 (key, value)
+map.put(12836, "小哈");
+map.put(15937, "小囉");
+map.put(16750, "小算");
+map.put(13276, "小法");
+map.put(10583, "小鴨");
 
-[file]{hash_map}-[region]{get_value}
+/* 查詢操作 */
+// 向雜湊表中輸入鍵 key ，得到值 value
+String name = map.get(15937);
 
-[file]{hash_map}-[region]{remove_pair}
+/* 刪除操作 */
+// 在雜湊表中刪除鍵值對 (key, value)
+map.remove(10583);
 ```
 
 ```csharp title="hash_map.cs"
-[file]{hash_map}-[region]{init_hash_map}
+/* 初始化雜湊表 */
+Dictionary<int, string> map = new() {
+    /* 新增操作 */
+    // 在雜湊表中新增鍵值對 (key, value)
+    { 12836, "小哈" },
+    { 15937, "小囉" },
+    { 16750, "小算" },
+    { 13276, "小法" },
+    { 10583, "小鴨" }
+};
 
-[file]{hash_map}-[region]{get_value}
+/* 查詢操作 */
+// 向雜湊表中輸入鍵 key ，得到值 value
+string name = map[15937];
 
-[file]{hash_map}-[region]{remove_pair}
+/* 刪除操作 */
+// 在雜湊表中刪除鍵值對 (key, value)
+map.Remove(10583);
 ```
 
 ```go title="hash_map_test.go"
-[file]{hash_map_test}-[region]{init_hash_map}
+/* 初始化雜湊表 */
+hmap := make(map[int]string)
 
-[file]{hash_map_test}-[region]{add_pairs}
+/* 新增操作 */
+// 在雜湊表中新增鍵值對 (key, value)
+hmap[12836] = "小哈"
+hmap[15937] = "小囉"
+hmap[16750] = "小算"
+hmap[13276] = "小法"
+hmap[10583] = "小鴨"
 
-[file]{hash_map_test}-[region]{get_value}
+/* 查詢操作 */
+// 向雜湊表中輸入鍵 key ，得到值 value
+name := hmap[15937]
 
-[file]{hash_map_test}-[region]{remove_pair}
+/* 刪除操作 */
+// 在雜湊表中刪除鍵值對 (key, value)
+delete(hmap, 10583)
 ```
 
 ```swift title="hash_map.swift"
-[file]{hash_map}-[region]{init_hash_map}
+/* 初始化雜湊表 */
+var map: [Int: String] = [:]
 
-[file]{hash_map}-[region]{add_pairs}
+/* 新增操作 */
+// 在雜湊表中新增鍵值對 (key, value)
+map[12836] = "小哈"
+map[15937] = "小囉"
+map[16750] = "小算"
+map[13276] = "小法"
+map[10583] = "小鴨"
 
-[file]{hash_map}-[region]{get_value}
+/* 查詢操作 */
+// 向雜湊表中輸入鍵 key ，得到值 value
+let name = map[15937]!
 
-[file]{hash_map}-[region]{remove_pair}
+/* 刪除操作 */
+// 在雜湊表中刪除鍵值對 (key, value)
+map.removeValue(forKey: 10583)
 ```
 
 ```javascript title="hash_map.js"
-[file]{hash_map}-[region]{init_hash_map}
+/* 初始化雜湊表 */
+const map = new Map();
+/* 新增操作 */
+// 在雜湊表中新增鍵值對 (key, value)
+map.set(12836, '小哈');
+map.set(15937, '小囉');
+map.set(16750, '小算');
+map.set(13276, '小法');
+map.set(10583, '小鴨');
 
-[file]{hash_map}-[region]{add_pairs}
+/* 查詢操作 */
+// 向雜湊表中輸入鍵 key ，得到值 value
+let name = map.get(15937);
 
-[file]{hash_map}-[region]{get_value}
-
-[file]{hash_map}-[region]{remove_pair}
+/* 刪除操作 */
+// 在雜湊表中刪除鍵值對 (key, value)
+map.delete(10583);
 ```
 
 ```typescript title="hash_map.ts"
-[file]{hash_map}-[region]{init_hash_map}
+/* 初始化雜湊表 */
+const map = new Map<number, string>();
+/* 新增操作 */
+// 在雜湊表中新增鍵值對 (key, value)
+map.set(12836, '小哈');
+map.set(15937, '小囉');
+map.set(16750, '小算');
+map.set(13276, '小法');
+map.set(10583, '小鴨');
+console.info('\n新增完成後，雜湊表為\nKey -> Value');
+console.info(map);
 
-[file]{hash_map}-[region]{add_pairs}
+/* 查詢操作 */
+// 向雜湊表中輸入鍵 key ，得到值 value
+let name = map.get(15937);
+console.info('\n輸入學號 15937 ，查詢到姓名 ' + name);
 
-[file]{hash_map}-[region]{get_value}
-
-[file]{hash_map}-[region]{remove_pair}
+/* 刪除操作 */
+// 在雜湊表中刪除鍵值對 (key, value)
+map.delete(10583);
+console.info('\n刪除 10583 後，雜湊表為\nKey -> Value');
+console.info(map);
 ```
 
 ```dart title="hash_map.dart"
-[file]{hash_map}-[region]{init_hash_map}
+/* 初始化雜湊表 */
+Map<int, String> map = {};
 
-[file]{hash_map}-[region]{add_pairs}
+/* 新增操作 */
+// 在雜湊表中新增鍵值對 (key, value)
+map[12836] = "小哈";
+map[15937] = "小囉";
+map[16750] = "小算";
+map[13276] = "小法";
+map[10583] = "小鴨";
 
-[file]{hash_map}-[region]{get_value}
+/* 查詢操作 */
+// 向雜湊表中輸入鍵 key ，得到值 value
+String? name = map[15937];
 
-[file]{hash_map}-[region]{remove_pair}
+/* 刪除操作 */
+// 在雜湊表中刪除鍵值對 (key, value)
+map.remove(10583);
 ```
 
 ```rust title="hash_map.rs"
-[file]{hash_map}-[region]{import_hash_map}
+use std::collections::HashMap;
 
-[file]{hash_map}-[region]{init_hash_map}
+/* 初始化雜湊表 */
+let mut map: HashMap<i32, String> = HashMap::new();
 
-[file]{hash_map}-[region]{add_pairs}
+/* 新增操作 */
+// 在雜湊表中新增鍵值對 (key, value)
+map.insert(12836, "小哈".to_string());
+map.insert(15937, "小囉".to_string());
+map.insert(16750, "小算".to_string());
+map.insert(13276, "小法".to_string());
+map.insert(10583, "小鴨".to_string());
 
-[file]{hash_map}-[region]{get_value}
+/* 查詢操作 */
+// 向雜湊表中輸入鍵 key ，得到值 value
+let _name: Option<&String> = map.get(&15937);
 
-[file]{hash_map}-[region]{remove_pair}
+/* 刪除操作 */
+// 在雜湊表中刪除鍵值對 (key, value)
+let _removed_value: Option<String> = map.remove(&10583);
 ```
 
 ```c title="hash_map.c"
@@ -104,23 +219,45 @@
 ```
 
 ```kotlin title="hash_map.kt"
-[file]{hash_map}-[region]{init_hash_map}
+/* 初始化雜湊表 */
+val map = HashMap<Int,String>()
 
-[file]{hash_map}-[region]{add_pairs}
+/* 新增操作 */
+// 在雜湊表中新增鍵值對 (key, value)
+map[12836] = "小哈"
+map[15937] = "小囉"
+map[16750] = "小算"
+map[13276] = "小法"
+map[10583] = "小鴨"
 
-[file]{hash_map}-[region]{get_value}
+/* 查詢操作 */
+// 向雜湊表中輸入鍵 key ，得到值 value
+val name = map[15937]
 
-[file]{hash_map}-[region]{remove_pair}
+/* 刪除操作 */
+// 在雜湊表中刪除鍵值對 (key, value)
+map.remove(10583)
 ```
 
 ```ruby title="hash_map.rb"
-[file]{hash_map}-[region]{init_hash_map}
+# 初始化雜湊表
+hmap = {}
 
-[file]{hash_map}-[region]{add_pairs}
+# 新增操作
+# 在雜湊表中新增鍵值對 (key, value)
+hmap[12836] = "小哈"
+hmap[15937] = "小囉"
+hmap[16750] = "小算"
+hmap[13276] = "小法"
+hmap[10583] = "小鴨"
 
-[file]{hash_map}-[region]{get_value}
+# 查詢操作
+# 向雜湊表中輸入鍵 key ，得到值 value
+name = hmap[15937]
 
-[file]{hash_map}-[region]{remove_pair}
+# 刪除操作
+# 在雜湊表中刪除鍵值對 (key, value)
+hmap.delete(10583)
 ```
 
 <!-- [tutor]{hash_map_operations_tutor} -->
@@ -128,11 +265,16 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{hash_map_traversal} -->
 ```python title="hash_map.py"
-[file]{hash_map}-[region]{iterate_pairs}
-
-[file]{hash_map}-[region]{iterate_keys}
-
-[file]{hash_map}-[region]{iterate_values}
+# 走訪雜湊表
+# 走訪鍵值對 key->value
+for key, value in hmap.items():
+    print(key, "->", value)
+# 單獨走訪鍵 key
+for key in hmap.keys():
+    print(key)
+# 單獨走訪值 value
+for value in hmap.values():
+    print(value)
 ```
 
 ```cpp title="hash_map.cpp"
@@ -148,67 +290,135 @@ for (auto iter = map.begin(); iter != map.end(); iter++) {
 ```
 
 ```java title="hash_map.java"
-[file]{hash_map}-[region]{iterate_pairs}
-
-[file]{hash_map}-[region]{iterate_keys}
-
-[file]{hash_map}-[region]{iterate_values}
+/* 走訪雜湊表 */
+// 走訪鍵值對 key->value
+for (Map.Entry <Integer, String> kv: map.entrySet()) {
+    System.out.println(kv.getKey() + " -> " + kv.getValue());
+}
+// 單獨走訪鍵 key
+for (int key: map.keySet()) {
+    System.out.println(key);
+}
+// 單獨走訪值 value
+for (String val: map.values()) {
+    System.out.println(val);
+}
 ```
 
 ```csharp title="hash_map.cs"
-[file]{hash_map}-[region]{iterate_pairs}
-
-[file]{hash_map}-[region]{iterate_keys}
-
-[file]{hash_map}-[region]{iterate_values}
+/* 走訪雜湊表 */
+// 走訪鍵值對 Key->Value
+foreach (var kv in map) {
+    Console.WriteLine(kv.Key + " -> " + kv.Value);
+}
+// 單獨走訪鍵 key
+foreach (int key in map.Keys) {
+    Console.WriteLine(key);
+}
+// 單獨走訪值 value
+foreach (string val in map.Values) {
+    Console.WriteLine(val);
+}
 ```
 
 ```go title="hash_map_test.go"
-[file]{hash_map_test}-[region]{iterate_pairs}
-
-[file]{hash_map_test}-[region]{iterate_keys}
-
-[file]{hash_map_test}-[region]{iterate_values}
+/* 走訪雜湊表 */
+// 走訪鍵值對 key->value
+for key, value := range hmap {
+    fmt.Println(key, "->", value)
+}
+// 單獨走訪鍵 key
+for key := range hmap {
+    fmt.Println(key)
+}
+// 單獨走訪值 value
+for _, value := range hmap {
+    fmt.Println(value)
+}
 ```
 
 ```swift title="hash_map.swift"
-[file]{hash_map}-[region]{iterate_pairs}
-
-[file]{hash_map}-[region]{iterate_keys}
-
-[file]{hash_map}-[region]{iterate_values}
+/* 走訪雜湊表 */
+// 走訪鍵值對 Key->Value
+for (key, value) in map {
+    print("\(key) -> \(value)")
+}
+// 單獨走訪鍵 Key
+for key in map.keys {
+    print(key)
+}
+// 單獨走訪值 Value
+for value in map.values {
+    print(value)
+}
 ```
 
 ```javascript title="hash_map.js"
-[file]{hash_map}-[region]{iterate_pairs}
-
-[file]{hash_map}-[region]{iterate_keys}
-
-[file]{hash_map}-[region]{iterate_values}
+/* 走訪雜湊表 */
+console.info('\n走訪鍵值對 Key->Value');
+for (const [k, v] of map.entries()) {
+    console.info(k + ' -> ' + v);
+}
+console.info('\n單獨走訪鍵 Key');
+for (const k of map.keys()) {
+    console.info(k);
+}
+console.info('\n單獨走訪值 Value');
+for (const v of map.values()) {
+    console.info(v);
+}
 ```
 
 ```typescript title="hash_map.ts"
-[file]{hash_map}-[region]{iterate_pairs}
-
-[file]{hash_map}-[region]{iterate_keys}
-
-[file]{hash_map}-[region]{iterate_values}
+/* 走訪雜湊表 */
+console.info('\n走訪鍵值對 Key->Value');
+for (const [k, v] of map.entries()) {
+    console.info(k + ' -> ' + v);
+}
+console.info('\n單獨走訪鍵 Key');
+for (const k of map.keys()) {
+    console.info(k);
+}
+console.info('\n單獨走訪值 Value');
+for (const v of map.values()) {
+    console.info(v);
+}
 ```
 
 ```dart title="hash_map.dart"
-[file]{hash_map}-[region]{iterate_pairs}
+/* 走訪雜湊表 */
+// 走訪鍵值對 Key->Value
+map.forEach((key, value) {
+  print('$key -> $value');
+});
 
-[file]{hash_map}-[region]{iterate_keys}
+// 單獨走訪鍵 Key
+map.keys.forEach((key) {
+  print(key);
+});
 
-[file]{hash_map}-[region]{iterate_values}
+// 單獨走訪值 Value
+map.values.forEach((value) {
+  print(value);
+});
 ```
 
 ```rust title="hash_map.rs"
-[file]{hash_map}-[region]{iterate_pairs}
+/* 走訪雜湊表 */
+// 走訪鍵值對 Key->Value
+for (key, value) in &map {
+    println!("{key} -> {value}");
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// 單獨走訪鍵 Key
+for key in map.keys() {
+    println!("{key}");
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// 單獨走訪值 Value
+for value in map.values() {
+    println!("{value}");
+}
 ```
 
 ```c title="hash_map.c"
@@ -216,19 +426,31 @@ for (auto iter = map.begin(); iter != map.end(); iter++) {
 ```
 
 ```kotlin title="hash_map.kt"
-[file]{hash_map}-[region]{iterate_pairs}
-
-[file]{hash_map}-[region]{iterate_keys}
-
-[file]{hash_map}-[region]{iterate_values}
+/* 走訪雜湊表 */
+// 走訪鍵值對 key->value
+for ((key, value) in map) {
+    println("$key -> $value")
+}
+// 單獨走訪鍵 key
+for (key in map.keys) {
+    println(key)
+}
+// 單獨走訪值 value
+for (_val in map.values) {
+    println(_val)
+}
 ```
 
 ```ruby title="hash_map.rb"
-[file]{hash_map}-[region]{iterate_pairs}
+# 走訪雜湊表
+# 走訪鍵值對 key->value
+hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 
-[file]{hash_map}-[region]{iterate_keys}
+# 單獨走訪鍵 key
+hmap.keys.each { |key| puts key }
 
-[file]{hash_map}-[region]{iterate_values}
+# 單獨走訪值 value
+hmap.values.each { |val| puts val }
 ```
 
 <!-- [tutor]{hash_map_traversal_tutor} -->

@@ -7,7 +7,6 @@ Author: krahets (krahets@163.com)
 from collections import deque
 
 
-# [region]{tree_node}
 class TreeNode:
     """Binary tree node class"""
 
@@ -16,7 +15,6 @@ class TreeNode:
         self.height: int = 0  # Node height
         self.left: TreeNode | None = None  # Reference to the left child
         self.right: TreeNode | None = None  # Reference to the right child
-# [endregion]{tree_node}
 
     # For the serialization rules, see:
     # https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/

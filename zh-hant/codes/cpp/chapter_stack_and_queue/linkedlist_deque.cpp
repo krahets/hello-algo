@@ -6,7 +6,6 @@
 
 #include "../utils/common.hpp"
 
-// [region]{doubly_list_node}
 /* 雙向鏈結串列節點 */
 struct DoublyListNode {
     int val;              // 節點值
@@ -15,7 +14,6 @@ struct DoublyListNode {
     DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
     }
 };
-// [endregion]{doubly_list_node}
 
 /* 基於雙向鏈結串列實現的雙向佇列 */
 class LinkedListDeque {

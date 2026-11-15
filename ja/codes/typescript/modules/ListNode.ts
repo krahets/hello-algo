@@ -4,17 +4,15 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-// [region]{list_node}
 /* 連結リストのノード */
 class ListNode {
-    val: number; // ノードの値
-    next: ListNode | null; // 次のノードへの参照
+    val: number;
+    next: ListNode | null;
     constructor(val?: number, next?: ListNode | null) {
         this.val = val === undefined ? 0 : val;
         this.next = next === undefined ? null : next;
     }
 }
-// [endregion]{list_node}
 
 /* 配列をデシリアライズして連結リストにする */
 function arrToLinkedList(arr: number[]): ListNode | null {

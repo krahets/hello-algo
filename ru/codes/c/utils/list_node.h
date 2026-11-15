@@ -11,7 +11,6 @@
 extern "C" {
 #endif
 
-// [region]{list_node}
 /* Структура узла связного списка */
 typedef struct ListNode {
     int val;               // Значение узла
@@ -26,7 +25,6 @@ ListNode *newListNode(int val) {
     node->next = NULL;
     return node;
 }
-// [endregion]{list_node}
 
 /* Десериализовать массив в связный список */
 ListNode *arrToLinkedList(const int *arr, size_t size) {

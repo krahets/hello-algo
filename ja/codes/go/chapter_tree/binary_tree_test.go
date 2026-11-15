@@ -12,7 +12,6 @@ import (
 )
 
 func TestBinaryTree(t *testing.T) {
-	// [region]{init_binary_tree}
 	/* 二分木を初期化する */
 	// ノードを初期化する
 	n1 := NewTreeNode(1)
@@ -25,23 +24,18 @@ func TestBinaryTree(t *testing.T) {
 	n1.Right = n3
 	n2.Left = n4
 	n2.Right = n5
-	// [endregion]{init_binary_tree}
 	fmt.Println("二分木を初期化する")
 	PrintTree(n1)
 
-	// [region]{insert_node}
 	/* ノードの挿入と削除 */
-	// n1 -> n2 の間にノード P を挿入する
+	// ノードを挿入する
 	p := NewTreeNode(0)
 	n1.Left = p
 	p.Left = n2
-	// [endregion]{insert_node}
 	fmt.Println("ノード P の挿入後")
 	PrintTree(n1)
-	// [region]{remove_node}
-	// ノード P を削除する
+	// ノードを削除する
 	n1.Left = n2
-	// [endregion]{remove_node}
 	fmt.Println("ノード P の削除後")
 	PrintTree(n1)
 }

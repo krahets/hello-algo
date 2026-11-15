@@ -13,12 +13,9 @@ import (
 )
 
 func TestHashMap(t *testing.T) {
-	// [region]{init_hash_map}
 	/* Инициализация хеш-таблицы */
 	hmap := make(map[int]string)
-	// [endregion]{init_hash_map}
 
-	// [region]{add_pairs}
 	/* Операция добавления */
 	// Добавить пару (key, value) в хеш-таблицу
 	hmap[12836] = "Сяо Ха"
@@ -26,49 +23,36 @@ func TestHashMap(t *testing.T) {
 	hmap[16750] = "Сяо Суань"
 	hmap[13276] = "Сяо Фа"
 	hmap[10583] = "Сяо Я"
-	// [endregion]{add_pairs}
 	fmt.Println("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение")
 	PrintMap(hmap)
 
-	// [region]{get_value}
 	/* Операция поиска */
 	// Ввести в хеш-таблицу ключ key и получить значение value
 	name := hmap[15937]
-	// [endregion]{get_value}
 	fmt.Println("\nДля номера 15937 найдено имя", name)
 
-	// [region]{remove_pair}
 	/* Операция удаления */
 	// Удалить пару (key, value) из хеш-таблицы
 	delete(hmap, 10583)
-	// [endregion]{remove_pair}
 	fmt.Println("\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение")
 	PrintMap(hmap)
 
-	fmt.Println("\nОтдельный обход пар ключ-значение")
-	// [region]{iterate_pairs}
 	/* Обход хеш-таблицы */
-	// Обход пар ключ-значение key->value
+	// Перебрать пары ключ-значение key->value
+	fmt.Println("\nОтдельный обход пар ключ-значение")
 	for key, value := range hmap {
 		fmt.Println(key, "->", value)
 	}
-	// [endregion]{iterate_pairs}
-
+	// Отдельно обходить ключи key
 	fmt.Println("\nОтдельный обход ключей")
-	// [region]{iterate_keys}
-	// Обход только ключей key
 	for key := range hmap {
 		fmt.Println(key)
 	}
-	// [endregion]{iterate_keys}
-
+	// Отдельно обходить значения value
 	fmt.Println("\nОтдельный обход значений")
-	// [region]{iterate_values}
-	// Обход только значений value
 	for _, value := range hmap {
 		fmt.Println(value)
 	}
-	// [endregion]{iterate_values}
 }
 
 func TestSimpleHash(t *testing.T) {

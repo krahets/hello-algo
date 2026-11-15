@@ -7,7 +7,6 @@ Author: krahets (krahets@163.com)
 from collections import deque
 
 
-# [region]{tree_node}
 class TreeNode:
     """이진 트리 노드 클래스"""
 
@@ -16,7 +15,6 @@ class TreeNode:
         self.height: int = 0  # 노드 높이
         self.left: TreeNode | None = None  # 왼쪽 자식 노드 참조
         self.right: TreeNode | None = None  # 오른쪽 자식 노드 참조
-# [endregion]{tree_node}
 
     # 직렬화 인코딩 규칙은 다음을 참고한다:
     # https://www.hello-algo.com/ko/chapter_tree/array_representation_of_tree/

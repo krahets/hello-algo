@@ -75,12 +75,10 @@ func find(nums: [Int], target: Int) -> Int {
 enum _Array {
     /* Driver code */
     static func main() {
-        // [region]{init_array}
         /* Initialize the array */
-        let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
-        var nums = [1, 3, 2, 5, 4]
-        // [endregion]{init_array}
+        let arr = Array(repeating: 0, count: 5)
         print("Array arr = \(arr)")
+        var nums = [1, 3, 2, 5, 4]
         print("Array nums = \(nums)")
 
         /* Random access */

@@ -4,22 +4,19 @@
 
 package pkg
 
-// [region]{list_node}
 // ListNode は連結リストのノード
 type ListNode struct {
-	Val  int       // ノードの値
-	Next *ListNode // 後続ノードへのポインタ
+	Next *ListNode
+	Val  int
 }
 
 // NewListNode は連結リストのノードのコンストラクタ
 func NewListNode(v int) *ListNode {
 	return &ListNode{
-		Val:  v,
 		Next: nil,
+		Val:  v,
 	}
 }
-
-// [endregion]{list_node}
 
 // ArrayToLinkedList は配列をデシリアライズして連結リストにする
 func ArrayToLinkedList(arr []int) *ListNode {

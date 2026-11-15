@@ -8,7 +8,6 @@
 
 /* Driver Code */
 int main() {
-    // [region]{init_binary_tree}
     /* 初始化二元樹 */
     // 初始化節點
     TreeNode *n1 = newTreeNode(1);
@@ -21,25 +20,21 @@ int main() {
     n1->right = n3;
     n2->left = n4;
     n2->right = n5;
-    // [endregion]{init_binary_tree}
     printf("初始化二元樹\n");
     printTree(n1);
 
-    // [region]{insert_node}
     /* 插入與刪除節點 */
     TreeNode *P = newTreeNode(0);
     // 在 n1 -> n2 中間插入節點 P
     n1->left = P;
     P->left = n2;
-    // [endregion]{insert_node}
     printf("插入節點 P 後\n");
     printTree(n1);
-    // [region]{remove_node}
+
     // 刪除節點 P
     n1->left = n2;
     // 釋放記憶體
     free(P);
-    // [endregion]{remove_node}
     printf("刪除節點 P 後\n");
     printTree(n1);
 

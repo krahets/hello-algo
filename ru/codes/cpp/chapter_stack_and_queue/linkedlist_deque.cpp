@@ -6,7 +6,6 @@
 
 #include "../utils/common.hpp"
 
-// [region]{doubly_list_node}
 /* Узел двусвязного списка */
 struct DoublyListNode {
     int val;              // Значение узла
@@ -15,7 +14,6 @@ struct DoublyListNode {
     DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
     }
 };
-// [endregion]{doubly_list_node}
 
 /* Двусторонняя очередь на основе двусвязного списка */
 class LinkedListDeque {

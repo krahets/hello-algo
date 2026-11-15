@@ -50,8 +50,7 @@ public class linked_list {
 
     /* Driver Code */
     public static void main(String[] args) {
-        // [region]{init_linked_list}
-        /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
+        /* Инициализация связного списка */
         // Инициализация всех узлов
         ListNode n0 = new ListNode(1);
         ListNode n1 = new ListNode(3);
@@ -63,7 +62,6 @@ public class linked_list {
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
-        // [endregion]{init_linked_list}
         System.out.println("Исходный связный список");
         PrintUtil.printLinkedList(n0);
 

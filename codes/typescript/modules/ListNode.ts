@@ -4,17 +4,15 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-// [region]{list_node}
 /* 链表节点 */
 class ListNode {
-    val: number; // 节点值
-    next: ListNode | null; // 指向下一节点的引用
+    val: number;
+    next: ListNode | null;
     constructor(val?: number, next?: ListNode | null) {
         this.val = val === undefined ? 0 : val;
         this.next = next === undefined ? null : next;
     }
 }
-// [endregion]{list_node}
 
 /* 将数组反序列化为链表 */
 function arrToLinkedList(arr: number[]): ListNode | null {

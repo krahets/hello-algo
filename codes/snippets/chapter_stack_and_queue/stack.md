@@ -1,128 +1,225 @@
 <!-- [snippet]{stack_operations} -->
 ```python title="stack.py"
-[file]{stack}-[region]{init_stack}
+# 初始化栈
+# Python 没有内置的栈类，可以把 list 当作栈来使用
+stack: list[int] = []
 
-[file]{stack}-[region]{push}
+# 元素入栈
+stack.append(1)
+stack.append(3)
+stack.append(2)
+stack.append(5)
+stack.append(4)
 
-[file]{stack}-[region]{peek}
+# 访问栈顶元素
+peek: int = stack[-1]
 
-[file]{stack}-[region]{pop}
+# 元素出栈
+pop: int = stack.pop()
 
-[file]{stack}-[region]{size}
+# 获取栈的长度
+size: int = len(stack)
 
-[file]{stack}-[region]{is_empty}
+# 判断是否为空
+is_empty: bool = len(stack) == 0
 ```
 
 ```cpp title="stack.cpp"
-[file]{stack}-[region]{init_stack}
+/* 初始化栈 */
+stack<int> stack;
 
-[file]{stack}-[region]{push}
+/* 元素入栈 */
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+/* 访问栈顶元素 */
+int top = stack.top();
 
-[file]{stack}-[region]{pop}
+/* 元素出栈 */
+stack.pop(); // 无返回值
 
-[file]{stack}-[region]{size}
+/* 获取栈的长度 */
+int size = stack.size();
 
-[file]{stack}-[region]{is_empty}
+/* 判断是否为空 */
+bool empty = stack.empty();
 ```
 
 ```java title="stack.java"
-[file]{stack}-[region]{init_stack}
+/* 初始化栈 */
+Stack<Integer> stack = new Stack<>();
 
-[file]{stack}-[region]{push}
+/* 元素入栈 */
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+/* 访问栈顶元素 */
+int peek = stack.peek();
 
-[file]{stack}-[region]{pop}
+/* 元素出栈 */
+int pop = stack.pop();
 
-[file]{stack}-[region]{size}
+/* 获取栈的长度 */
+int size = stack.size();
 
-[file]{stack}-[region]{is_empty}
+/* 判断是否为空 */
+boolean isEmpty = stack.isEmpty();
 ```
 
 ```csharp title="stack.cs"
-[file]{stack}-[region]{init_stack}
+/* 初始化栈 */
+Stack<int> stack = new();
 
-[file]{stack}-[region]{push}
+/* 元素入栈 */
+stack.Push(1);
+stack.Push(3);
+stack.Push(2);
+stack.Push(5);
+stack.Push(4);
 
-[file]{stack}-[region]{peek}
+/* 访问栈顶元素 */
+int peek = stack.Peek();
 
-[file]{stack}-[region]{pop}
+/* 元素出栈 */
+int pop = stack.Pop();
 
-[file]{stack}-[region]{size}
+/* 获取栈的长度 */
+int size = stack.Count;
 
-[file]{stack}-[region]{is_empty}
+/* 判断是否为空 */
+bool isEmpty = stack.Count == 0;
 ```
 
 ```go title="stack_test.go"
-[file]{stack_test}-[region]{init_stack}
+/* 初始化栈 */
+// 在 Go 中，推荐将 Slice 当作栈来使用
+var stack []int
 
-[file]{stack_test}-[region]{push}
+/* 元素入栈 */
+stack = append(stack, 1)
+stack = append(stack, 3)
+stack = append(stack, 2)
+stack = append(stack, 5)
+stack = append(stack, 4)
 
-[file]{stack_test}-[region]{peek}
+/* 访问栈顶元素 */
+peek := stack[len(stack)-1]
 
-[file]{stack_test}-[region]{pop}
+/* 元素出栈 */
+pop := stack[len(stack)-1]
+stack = stack[:len(stack)-1]
 
-[file]{stack_test}-[region]{size}
+/* 获取栈的长度 */
+size := len(stack)
 
-[file]{stack_test}-[region]{is_empty}
+/* 判断是否为空 */
+isEmpty := len(stack) == 0
 ```
 
 ```swift title="stack.swift"
-[file]{stack}-[region]{init_stack}
+/* 初始化栈 */
+// Swift 没有内置的栈类，可以把 Array 当作栈来使用
+var stack: [Int] = []
 
-[file]{stack}-[region]{push}
+/* 元素入栈 */
+stack.append(1)
+stack.append(3)
+stack.append(2)
+stack.append(5)
+stack.append(4)
 
-[file]{stack}-[region]{peek}
+/* 访问栈顶元素 */
+let peek = stack.last!
 
-[file]{stack}-[region]{pop}
+/* 元素出栈 */
+let pop = stack.removeLast()
 
-[file]{stack}-[region]{size}
+/* 获取栈的长度 */
+let size = stack.count
 
-[file]{stack}-[region]{is_empty}
+/* 判断是否为空 */
+let isEmpty = stack.isEmpty
 ```
 
 ```javascript title="stack.js"
-[file]{stack}-[region]{init_stack}
+/* 初始化栈 */
+// JavaScript 没有内置的栈类，可以把 Array 当作栈来使用
+const stack = [];
 
-[file]{stack}-[region]{push}
+/* 元素入栈 */
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+/* 访问栈顶元素 */
+const peek = stack[stack.length-1];
 
-[file]{stack}-[region]{pop}
+/* 元素出栈 */
+const pop = stack.pop();
 
-[file]{stack}-[region]{size}
+/* 获取栈的长度 */
+const size = stack.length;
 
-[file]{stack}-[region]{is_empty}
+/* 判断是否为空 */
+const is_empty = stack.length === 0;
 ```
 
 ```typescript title="stack.ts"
-[file]{stack}-[region]{init_stack}
+/* 初始化栈 */
+// TypeScript 没有内置的栈类，可以把 Array 当作栈来使用
+const stack: number[] = [];
 
-[file]{stack}-[region]{push}
+/* 元素入栈 */
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+/* 访问栈顶元素 */
+const peek = stack[stack.length - 1];
 
-[file]{stack}-[region]{pop}
+/* 元素出栈 */
+const pop = stack.pop();
 
-[file]{stack}-[region]{size}
+/* 获取栈的长度 */
+const size = stack.length;
 
-[file]{stack}-[region]{is_empty}
+/* 判断是否为空 */
+const is_empty = stack.length === 0;
 ```
 
 ```dart title="stack.dart"
-[file]{stack}-[region]{init_stack}
+/* 初始化栈 */
+// Dart 没有内置的栈类，可以把 List 当作栈来使用
+List<int> stack = [];
 
-[file]{stack}-[region]{push}
+/* 元素入栈 */
+stack.add(1);
+stack.add(3);
+stack.add(2);
+stack.add(5);
+stack.add(4);
 
-[file]{stack}-[region]{peek}
+/* 访问栈顶元素 */
+int peek = stack.last;
 
-[file]{stack}-[region]{pop}
+/* 元素出栈 */
+int pop = stack.removeLast();
 
-[file]{stack}-[region]{size}
+/* 获取栈的长度 */
+int size = stack.length;
 
-[file]{stack}-[region]{is_empty}
+/* 判断是否为空 */
+bool isEmpty = stack.isEmpty;
 ```
 
 ```rust title="stack.rs"
@@ -155,31 +252,52 @@ let is_empty = stack.is_empty();
 ```
 
 ```kotlin title="stack.kt"
-[file]{stack}-[region]{init_stack}
+/* 初始化栈 */
+val stack = Stack<Int>()
 
-[file]{stack}-[region]{push}
+/* 元素入栈 */
+stack.push(1)
+stack.push(3)
+stack.push(2)
+stack.push(5)
+stack.push(4)
 
-[file]{stack}-[region]{peek}
+/* 访问栈顶元素 */
+val peek = stack.peek()
 
-[file]{stack}-[region]{pop}
+/* 元素出栈 */
+val pop = stack.pop()
 
-[file]{stack}-[region]{size}
+/* 获取栈的长度 */
+val size = stack.size
 
-[file]{stack}-[region]{is_empty}
+/* 判断是否为空 */
+val isEmpty = stack.isEmpty()
 ```
 
 ```ruby title="stack.rb"
-[file]{stack}-[region]{init_stack}
+# 初始化栈
+# Ruby 没有内置的栈类，可以把 Array 当作栈来使用
+stack = []
 
-[file]{stack}-[region]{push}
+# 元素入栈
+stack << 1
+stack << 3
+stack << 2
+stack << 5
+stack << 4
 
-[file]{stack}-[region]{peek}
+# 访问栈顶元素
+peek = stack.last
 
-[file]{stack}-[region]{pop}
+# 元素出栈
+pop = stack.pop
 
-[file]{stack}-[region]{size}
+# 获取栈的长度
+size = stack.length
 
-[file]{stack}-[region]{is_empty}
+# 判断是否为空
+is_empty = stack.empty?
 ```
 
 <!-- [tutor]{stack_operations_tutor} -->

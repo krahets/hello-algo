@@ -4,10 +4,9 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# [region]{doubly_list_node}
 ### 双方向連結リストのノード
 class ListNode
-  attr_accessor :val  # ノードの値
+  attr_accessor :val
   attr_accessor :next # 後続ノードへの参照
   attr_accessor :prev # 前のノードへの参照
 
@@ -16,7 +15,6 @@ class ListNode
     @val = val
   end
 end
-# [endregion]{doubly_list_node}
 
 ### 双方向連結リストで実装した両端キュー ###
 class LinkedListDeque

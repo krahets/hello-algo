@@ -6,7 +6,6 @@
 
 #include "../utils/common.h"
 
-// [region]{doubly_list_node}
 /* Doubly linked list node */
 typedef struct DoublyListNode {
     int val;                     // Node value
@@ -22,7 +21,6 @@ DoublyListNode *newDoublyListNode(int num) {
     new->prev = NULL;
     return new;
 }
-// [endregion]{doubly_list_node}
 
 /* Destructor */
 void delDoublyListNode(DoublyListNode *node) {

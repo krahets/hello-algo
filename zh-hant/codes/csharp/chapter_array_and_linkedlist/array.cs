@@ -75,12 +75,10 @@ public class array {
 
     [Test]
     public void Test() {
-        // [region]{init_array}
         // 初始化陣列
-        int[] arr = new int[5]; // [ 0, 0, 0, 0, 0 ]
-        int[] nums = [1, 3, 2, 5, 4];
-        // [endregion]{init_array}
+        int[] arr = new int[5];
         Console.WriteLine("陣列 arr = " + ToString(arr));
+        int[] nums = [1, 3, 2, 5, 4];
         Console.WriteLine("陣列 nums = " + ToString(nums));
 
         // 隨機訪問

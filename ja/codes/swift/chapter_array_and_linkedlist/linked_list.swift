@@ -54,8 +54,7 @@ func find(head: ListNode, target: Int) -> Int {
 enum LinkedList {
     /* 実行用コード */
     static func main() {
-        // [region]{init_linked_list}
-        /* 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化する */
+        /* 連結リストを初期化する */
         // 各ノードを初期化する
         let n0 = ListNode(x: 1)
         let n1 = ListNode(x: 3)
@@ -67,7 +66,6 @@ enum LinkedList {
         n1.next = n2
         n2.next = n3
         n3.next = n4
-        // [endregion]{init_linked_list}
         print("初期化した連結リスト")
         PrintUtil.printLinkedList(head: n0)
 

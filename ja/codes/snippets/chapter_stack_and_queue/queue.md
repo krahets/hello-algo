@@ -1,130 +1,231 @@
 <!-- [snippet]{queue_operations} -->
 ```python title="queue.py"
-[file]{queue}-[region]{import_deque}
+from collections import deque
 
-[file]{queue}-[region]{init_queue}
+# キューを初期化
+# Python では通常、両端キュークラス deque をキューとして使う
+# queue.Queue() は本来のキュークラスだが、使いにくいため推奨しない
+que: deque[int] = deque()
 
-[file]{queue}-[region]{push}
+# 要素をエンキュー
+que.append(1)
+que.append(3)
+que.append(2)
+que.append(5)
+que.append(4)
 
-[file]{queue}-[region]{peek}
+# 先頭要素にアクセス
+front: int = que[0]
 
-[file]{queue}-[region]{pop}
+# 要素をデキュー
+pop: int = que.popleft()
 
-[file]{queue}-[region]{size}
+# キューの長さを取得
+size: int = len(que)
 
-[file]{queue}-[region]{is_empty}
+# キューが空かどうかを判定
+is_empty: bool = len(que) == 0
 ```
 
 ```cpp title="queue.cpp"
-[file]{queue}-[region]{init_queue}
+/* キューを初期化 */
+queue<int> queue;
 
-[file]{queue}-[region]{push}
+/* 要素をエンキュー */
+queue.push(1);
+queue.push(3);
+queue.push(2);
+queue.push(5);
+queue.push(4);
 
-[file]{queue}-[region]{peek}
+/* 先頭要素にアクセス */
+int front = queue.front();
 
-[file]{queue}-[region]{pop}
+/* 要素をデキュー */
+queue.pop();
 
-[file]{queue}-[region]{size}
+/* キューの長さを取得 */
+int size = queue.size();
 
-[file]{queue}-[region]{is_empty}
+/* キューが空かどうかを判定 */
+bool empty = queue.empty();
 ```
 
 ```java title="queue.java"
-[file]{queue}-[region]{init_queue}
+/* キューを初期化 */
+Queue<Integer> queue = new LinkedList<>();
 
-[file]{queue}-[region]{push}
+/* 要素をエンキュー */
+queue.offer(1);
+queue.offer(3);
+queue.offer(2);
+queue.offer(5);
+queue.offer(4);
 
-[file]{queue}-[region]{peek}
+/* 先頭要素にアクセス */
+int peek = queue.peek();
 
-[file]{queue}-[region]{pop}
+/* 要素をデキュー */
+int pop = queue.poll();
 
-[file]{queue}-[region]{size}
+/* キューの長さを取得 */
+int size = queue.size();
 
-[file]{queue}-[region]{is_empty}
+/* キューが空かどうかを判定 */
+boolean isEmpty = queue.isEmpty();
 ```
 
 ```csharp title="queue.cs"
-[file]{queue}-[region]{init_queue}
+/* キューを初期化 */
+Queue<int> queue = new();
 
-[file]{queue}-[region]{push}
+/* 要素をエンキュー */
+queue.Enqueue(1);
+queue.Enqueue(3);
+queue.Enqueue(2);
+queue.Enqueue(5);
+queue.Enqueue(4);
 
-[file]{queue}-[region]{peek}
+/* 先頭要素にアクセス */
+int peek = queue.Peek();
 
-[file]{queue}-[region]{pop}
+/* 要素をデキュー */
+int pop = queue.Dequeue();
 
-[file]{queue}-[region]{size}
+/* キューの長さを取得 */
+int size = queue.Count;
 
-[file]{queue}-[region]{is_empty}
+/* キューが空かどうかを判定 */
+bool isEmpty = queue.Count == 0;
 ```
 
 ```go title="queue_test.go"
-[file]{queue_test}-[region]{init_queue}
+/* キューを初期化 */
+// Go では list をキューとして使う
+queue := list.New()
 
-[file]{queue_test}-[region]{push}
+/* 要素をエンキュー */
+queue.PushBack(1)
+queue.PushBack(3)
+queue.PushBack(2)
+queue.PushBack(5)
+queue.PushBack(4)
 
-[file]{queue_test}-[region]{peek}
+/* 先頭要素にアクセス */
+peek := queue.Front()
 
-[file]{queue_test}-[region]{pop}
+/* 要素をデキュー */
+pop := queue.Front()
+queue.Remove(pop)
 
-[file]{queue_test}-[region]{size}
+/* キューの長さを取得 */
+size := queue.Len()
 
-[file]{queue_test}-[region]{is_empty}
+/* キューが空かどうかを判定 */
+isEmpty := queue.Len() == 0
 ```
 
 ```swift title="queue.swift"
-[file]{queue}-[region]{init_queue}
+/* キューを初期化 */
+// Swift には組み込みのキュークラスがないため、Array をキューとして使える
+var queue: [Int] = []
 
-[file]{queue}-[region]{push}
+/* 要素をエンキュー */
+queue.append(1)
+queue.append(3)
+queue.append(2)
+queue.append(5)
+queue.append(4)
 
-[file]{queue}-[region]{peek}
+/* 先頭要素にアクセス */
+let peek = queue.first!
 
-[file]{queue}-[region]{pop}
+/* 要素をデキュー */
+// 配列なので removeFirst の計算量は O(n)
+let pop = queue.removeFirst()
 
-[file]{queue}-[region]{size}
+/* キューの長さを取得 */
+let size = queue.count
 
-[file]{queue}-[region]{is_empty}
+/* キューが空かどうかを判定 */
+let isEmpty = queue.isEmpty
 ```
 
 ```javascript title="queue.js"
-[file]{queue}-[region]{init_queue}
+/* キューを初期化 */
+// JavaScript には組み込みのキューがないため、Array をキューとして使える
+const queue = [];
 
-[file]{queue}-[region]{push}
+/* 要素をエンキュー */
+queue.push(1);
+queue.push(3);
+queue.push(2);
+queue.push(5);
+queue.push(4);
 
-[file]{queue}-[region]{peek}
+/* 先頭要素にアクセス */
+const peek = queue[0];
 
-[file]{queue}-[region]{pop}
+/* 要素をデキュー */
+// 内部が配列なので shift() の時間計算量は O(n)
+const pop = queue.shift();
 
-[file]{queue}-[region]{size}
+/* キューの長さを取得 */
+const size = queue.length;
 
-[file]{queue}-[region]{is_empty}
+/* キューが空かどうかを判定 */
+const empty = queue.length === 0;
 ```
 
 ```typescript title="queue.ts"
-[file]{queue}-[region]{init_queue}
+/* キューを初期化 */
+// TypeScript には組み込みのキューがないため、Array をキューとして使える
+const queue: number[] = [];
 
-[file]{queue}-[region]{push}
+/* 要素をエンキュー */
+queue.push(1);
+queue.push(3);
+queue.push(2);
+queue.push(5);
+queue.push(4);
 
-[file]{queue}-[region]{peek}
+/* 先頭要素にアクセス */
+const peek = queue[0];
 
-[file]{queue}-[region]{pop}
+/* 要素をデキュー */
+// 内部が配列なので shift() の時間計算量は O(n)
+const pop = queue.shift();
 
-[file]{queue}-[region]{size}
+/* キューの長さを取得 */
+const size = queue.length;
 
-[file]{queue}-[region]{is_empty}
+/* キューが空かどうかを判定 */
+const empty = queue.length === 0;
 ```
 
 ```dart title="queue.dart"
-[file]{queue}-[region]{init_queue}
+/* キューを初期化 */
+// Dart の Queue は両端キューであり、通常のキューとしても使える
+Queue<int> queue = Queue();
 
-[file]{queue}-[region]{push}
+/* 要素をエンキュー */
+queue.add(1);
+queue.add(3);
+queue.add(2);
+queue.add(5);
+queue.add(4);
 
-[file]{queue}-[region]{peek}
+/* 先頭要素にアクセス */
+int peek = queue.first;
 
-[file]{queue}-[region]{pop}
+/* 要素をデキュー */
+int pop = queue.removeFirst();
 
-[file]{queue}-[region]{size}
+/* キューの長さを取得 */
+int size = queue.length;
 
-[file]{queue}-[region]{is_empty}
+/* キューが空かどうかを判定 */
+bool isEmpty = queue.isEmpty;
 ```
 
 ```rust title="queue.rs"
@@ -159,31 +260,53 @@ let is_empty = deque.is_empty();
 ```
 
 ```kotlin title="queue.kt"
-[file]{queue}-[region]{init_queue}
+/* キューを初期化 */
+val queue = LinkedList<Int>()
 
-[file]{queue}-[region]{push}
+/* 要素をエンキュー */
+queue.offer(1)
+queue.offer(3)
+queue.offer(2)
+queue.offer(5)
+queue.offer(4)
 
-[file]{queue}-[region]{peek}
+/* 先頭要素にアクセス */
+val peek = queue.peek()
 
-[file]{queue}-[region]{pop}
+/* 要素をデキュー */
+val pop = queue.poll()
 
-[file]{queue}-[region]{size}
+/* キューの長さを取得 */
+val size = queue.size
 
-[file]{queue}-[region]{is_empty}
+/* キューが空かどうかを判定 */
+val isEmpty = queue.isEmpty()
 ```
 
 ```ruby title="queue.rb"
-[file]{queue}-[region]{init_queue}
+# キューを初期化
+# Ruby の組み込みキュー（Thread::Queue）には peek や走査のメソッドがないため、Array をキューとして使える
+queue = []
 
-[file]{queue}-[region]{push}
+# 要素をエンキュー
+queue.push(1)
+queue.push(3)
+queue.push(2)
+queue.push(5)
+queue.push(4)
 
-[file]{queue}-[region]{peek}
+# キューの要素にアクセス
+peek = queue.first
 
-[file]{queue}-[region]{pop}
+# 要素をデキュー
+# 配列なので Array#shift の時間計算量は O(n) であることに注意
+pop = queue.shift
 
-[file]{queue}-[region]{size}
+# キューの長さを取得
+size = queue.length
 
-[file]{queue}-[region]{is_empty}
+# キューが空かどうかを判定
+is_empty = queue.empty?
 ```
 
 <!-- [tutor]{queue_operations_tutor} -->

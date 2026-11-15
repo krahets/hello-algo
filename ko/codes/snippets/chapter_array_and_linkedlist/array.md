@@ -1,6 +1,8 @@
 <!-- [snippet]{init_array} -->
 ```python title="array.py"
-[file]{array}-[region]{init_array}
+# 배열 초기화
+arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
+nums: list[int] = [1, 3, 2, 5, 4]
 ```
 
 ```cpp title="array.cpp"
@@ -14,47 +16,77 @@ int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
 ```
 
 ```java title="array.java"
-[file]{array}-[region]{init_array}
+/* 배열 초기화 */
+int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
+int[] nums = { 1, 3, 2, 5, 4 };
 ```
 
 ```csharp title="array.cs"
-[file]{array}-[region]{init_array}
+/* 배열 초기화 */
+int[] arr = new int[5]; // [ 0, 0, 0, 0, 0 ]
+int[] nums = [1, 3, 2, 5, 4];
 ```
 
 ```go title="array.go"
-[file]{array_test}-[region]{init_array}
+/* 배열 초기화 */
+var arr [5]int
+// Go에서 길이를 지정하면([5]int) 배열이고, 지정하지 않으면([]int) 슬라이스다
+// Go 배열의 길이는 컴파일 시 결정되도록 설계되었으므로 상수로만 길이를 지정할 수 있다
+// 용량 확장 메서드 extend()를 쉽게 구현하기 위해 아래에서는 슬라이스(Slice)를 배열(Array)로 간주한다
+nums := []int{1, 3, 2, 5, 4}
 ```
 
 ```swift title="array.swift"
-[file]{array}-[region]{init_array}
+/* 배열 초기화 */
+let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
+let nums = [1, 3, 2, 5, 4]
 ```
 
 ```javascript title="array.js"
-[file]{array}-[region]{init_array}
+/* 배열 초기화 */
+var arr = new Array(5).fill(0);
+var nums = [1, 3, 2, 5, 4];
 ```
 
 ```typescript title="array.ts"
-[file]{array}-[region]{init_array}
+/* 배열 초기화 */
+let arr: number[] = new Array(5).fill(0);
+let nums: number[] = [1, 3, 2, 5, 4];
 ```
 
 ```dart title="array.dart"
-[file]{array}-[region]{init_array}
+/* 배열 초기화 */
+List<int> arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
+List<int> nums = [1, 3, 2, 5, 4];
 ```
 
 ```rust title="array.rs"
-[file]{array}-[region]{init_array}
+/* 배열 초기화 */
+let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
+let slice: &[i32] = &[0; 5];
+// Rust에서 길이를 지정하면([i32; 5]) 배열이고, 지정하지 않으면(&[i32]) 슬라이스다
+// Rust 배열의 길이는 컴파일 시 결정되도록 설계되었으므로 상수로만 길이를 지정할 수 있다
+// Vector는 Rust에서 일반적으로 동적 배열로 사용하는 자료형이다
+// 용량 확장 메서드 extend()를 쉽게 구현하기 위해 아래에서는 vector를 배열(array)로 간주한다
+let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
 ```
 
 ```c title="array.c"
-[file]{array}-[region]{init_array}
+/* 배열 초기화 */
+int arr[5] = { 0 }; // { 0, 0, 0, 0, 0 }
+int nums[5] = { 1, 3, 2, 5, 4 };
 ```
 
 ```kotlin title="array.kt"
-[file]{array}-[region]{init_array}
+/* 배열 초기화 */
+var arr = IntArray(5) // { 0, 0, 0, 0, 0 }
+var nums = intArrayOf(1, 3, 2, 5, 4)
 ```
 
 ```ruby title="array.rb"
-[file]{array}-[region]{init_array}
+# 배열 초기화
+arr = Array.new(5, 0)
+nums = [1, 3, 2, 5, 4]
 ```
 
 <!-- [tutor]{init_array_tutor} -->

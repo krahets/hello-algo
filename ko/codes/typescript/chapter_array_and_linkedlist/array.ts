@@ -69,12 +69,10 @@ function find(nums: number[], target: number): number {
 }
 
 /* 실행 코드 */
-// [region]{init_array}
 /* 배열 초기화 */
 const arr: number[] = new Array(5).fill(0);
-let nums: number[] = [1, 3, 2, 5, 4];
-// [endregion]{init_array}
 console.log('배열 arr =', arr);
+let nums: number[] = [1, 3, 2, 5, 4];
 console.log('배열 nums =', nums);
 
 /* 임의 접근 */

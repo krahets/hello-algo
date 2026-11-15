@@ -13,47 +13,35 @@ import (
 )
 
 func TestQueue(t *testing.T) {
-	// [region]{init_queue}
 	/* Initialize the queue */
 	// In Go, use list as a queue
 	queue := list.New()
-	// [endregion]{init_queue}
 
-	// [region]{push}
 	/* Enqueue elements */
 	queue.PushBack(1)
 	queue.PushBack(3)
 	queue.PushBack(2)
 	queue.PushBack(5)
 	queue.PushBack(4)
-	// [endregion]{push}
 	fmt.Print("Queue queue = ")
 	PrintList(queue)
 
-	// [region]{peek}
 	/* Access the front element */
 	peek := queue.Front()
-	// [endregion]{peek}
 	fmt.Println("Front element peek =", peek.Value)
 
-	// [region]{pop}
 	/* Dequeue an element */
 	pop := queue.Front()
 	queue.Remove(pop)
-	// [endregion]{pop}
 	fmt.Print("Dequeued element pop = ", pop.Value, ", after dequeuing, queue = ")
 	PrintList(queue)
 
-	// [region]{size}
 	/* Get the queue size */
 	size := queue.Len()
-	// [endregion]{size}
 	fmt.Println("Queue size =", size)
 
-	// [region]{is_empty}
 	/* Check whether the queue is empty */
 	isEmpty := queue.Len() == 0
-	// [endregion]{is_empty}
 	fmt.Println("Is the queue empty =", isEmpty)
 }
 

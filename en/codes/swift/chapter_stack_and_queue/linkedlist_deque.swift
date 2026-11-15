@@ -4,7 +4,6 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-// [region]{doubly_list_node}
 /* Doubly linked list node */
 class ListNode {
     var val: Int // Node value
@@ -15,7 +14,6 @@ class ListNode {
         self.val = val
     }
 }
-// [endregion]{doubly_list_node}
 
 /* Deque implemented with a doubly linked list */
 class LinkedListDeque {

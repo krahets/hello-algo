@@ -15,7 +15,6 @@ extern "C" {
 
 #define MAX_NODE_SIZE 5000
 
-// [region]{tree_node}
 /* 이진 트리 노드 구조체 */
 typedef struct TreeNode {
     int val;                // 노드 값
@@ -35,7 +34,6 @@ TreeNode *newTreeNode(int val) {
     node->right = NULL;
     return node;
 }
-// [endregion]{tree_node}
 
 // 직렬화 인코딩 규칙은 다음을 참고한다:
 // https://www.hello-algo.com/ko/chapter_tree/array_representation_of_tree/

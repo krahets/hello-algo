@@ -71,12 +71,10 @@ fun find(nums: IntArray, target: Int): Int {
 
 /* Driver Code */
 fun main() {
-    // [region]{init_array}
     /* Инициализация массива */
-    val arr = IntArray(5) // { 0, 0, 0, 0, 0 }
-    var nums = intArrayOf(1, 3, 2, 5, 4)
-    // [endregion]{init_array}
+    val arr = IntArray(5)
     println("Массив arr = ${arr.contentToString()}")
+    var nums = intArrayOf(1, 3, 2, 5, 4)
     println("Массив nums = ${nums.contentToString()}")
 
     /* Случайный доступ */

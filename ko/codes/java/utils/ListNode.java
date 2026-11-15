@@ -6,16 +6,14 @@
 
 package utils;
 
-// [region]{list_node}
 /* 연결 리스트 노드 */
 public class ListNode {
-    public int val;       // 노드 값
-    public ListNode next; // 다음 노드를 가리키는 참조
+    public int val;
+    public ListNode next;
 
     public ListNode(int x) {
         val = x;
     }
-// [endregion]{list_node}
 
     /* 리스트를 연결 리스트로 역직렬화 */
     public static ListNode arrToLinkedList(int[] arr) {
@@ -27,6 +25,4 @@ public class ListNode {
         }
         return dum.next;
     }
-// [region]{list_node_end}
 }
-// [endregion]{list_node_end}

@@ -1,130 +1,231 @@
 <!-- [snippet]{queue_operations} -->
 ```python title="queue.py"
-[file]{queue}-[region]{import_deque}
+from collections import deque
 
-[file]{queue}-[region]{init_queue}
+# Инициализация очереди
+# В Python обычно используют двустороннюю очередь deque как обычную очередь
+# Хотя queue.Queue() является "чистой" очередью, она не слишком удобна, поэтому ее не рекомендуют
+que: deque[int] = deque()
 
-[file]{queue}-[region]{push}
+# Поместить элементы в очередь
+que.append(1)
+que.append(3)
+que.append(2)
+que.append(5)
+que.append(4)
 
-[file]{queue}-[region]{peek}
+# Просмотреть элемент в голове очереди
+front: int = que[0]
 
-[file]{queue}-[region]{pop}
+# Извлечь элемент из очереди
+pop: int = que.popleft()
 
-[file]{queue}-[region]{size}
+# Получить длину очереди
+size: int = len(que)
 
-[file]{queue}-[region]{is_empty}
+# Проверить, пуста ли очередь
+is_empty: bool = len(que) == 0
 ```
 
 ```cpp title="queue.cpp"
-[file]{queue}-[region]{init_queue}
+/* Инициализация очереди */
+queue<int> queue;
 
-[file]{queue}-[region]{push}
+/* Поместить элементы в очередь */
+queue.push(1);
+queue.push(3);
+queue.push(2);
+queue.push(5);
+queue.push(4);
 
-[file]{queue}-[region]{peek}
+/* Просмотреть элемент в голове очереди */
+int front = queue.front();
 
-[file]{queue}-[region]{pop}
+/* Извлечь элемент из очереди */
+queue.pop();
 
-[file]{queue}-[region]{size}
+/* Получить длину очереди */
+int size = queue.size();
 
-[file]{queue}-[region]{is_empty}
+/* Проверить, пуста ли очередь */
+bool empty = queue.empty();
 ```
 
 ```java title="queue.java"
-[file]{queue}-[region]{init_queue}
+/* Инициализация очереди */
+Queue<Integer> queue = new LinkedList<>();
 
-[file]{queue}-[region]{push}
+/* Поместить элементы в очередь */
+queue.offer(1);
+queue.offer(3);
+queue.offer(2);
+queue.offer(5);
+queue.offer(4);
 
-[file]{queue}-[region]{peek}
+/* Просмотреть элемент в голове очереди */
+int peek = queue.peek();
 
-[file]{queue}-[region]{pop}
+/* Извлечь элемент из очереди */
+int pop = queue.poll();
 
-[file]{queue}-[region]{size}
+/* Получить длину очереди */
+int size = queue.size();
 
-[file]{queue}-[region]{is_empty}
+/* Проверить, пуста ли очередь */
+boolean isEmpty = queue.isEmpty();
 ```
 
 ```csharp title="queue.cs"
-[file]{queue}-[region]{init_queue}
+/* Инициализация очереди */
+Queue<int> queue = new();
 
-[file]{queue}-[region]{push}
+/* Поместить элементы в очередь */
+queue.Enqueue(1);
+queue.Enqueue(3);
+queue.Enqueue(2);
+queue.Enqueue(5);
+queue.Enqueue(4);
 
-[file]{queue}-[region]{peek}
+/* Просмотреть элемент в голове очереди */
+int peek = queue.Peek();
 
-[file]{queue}-[region]{pop}
+/* Извлечь элемент из очереди */
+int pop = queue.Dequeue();
 
-[file]{queue}-[region]{size}
+/* Получить длину очереди */
+int size = queue.Count;
 
-[file]{queue}-[region]{is_empty}
+/* Проверить, пуста ли очередь */
+bool isEmpty = queue.Count == 0;
 ```
 
 ```go title="queue_test.go"
-[file]{queue_test}-[region]{init_queue}
+/* Инициализация очереди */
+// В Go очередь обычно реализуют через list
+queue := list.New()
 
-[file]{queue_test}-[region]{push}
+/* Поместить элементы в очередь */
+queue.PushBack(1)
+queue.PushBack(3)
+queue.PushBack(2)
+queue.PushBack(5)
+queue.PushBack(4)
 
-[file]{queue_test}-[region]{peek}
+/* Просмотреть элемент в голове очереди */
+peek := queue.Front()
 
-[file]{queue_test}-[region]{pop}
+/* Извлечь элемент из очереди */
+pop := queue.Front()
+queue.Remove(pop)
 
-[file]{queue_test}-[region]{size}
+/* Получить длину очереди */
+size := queue.Len()
 
-[file]{queue_test}-[region]{is_empty}
+/* Проверить, пуста ли очередь */
+isEmpty := queue.Len() == 0
 ```
 
 ```swift title="queue.swift"
-[file]{queue}-[region]{init_queue}
+/* Инициализация очереди */
+// В Swift нет встроенного класса очереди, поэтому можно использовать Array как очередь
+var queue: [Int] = []
 
-[file]{queue}-[region]{push}
+/* Поместить элементы в очередь */
+queue.append(1)
+queue.append(3)
+queue.append(2)
+queue.append(5)
+queue.append(4)
 
-[file]{queue}-[region]{peek}
+/* Просмотреть элемент в голове очереди */
+let peek = queue.first!
 
-[file]{queue}-[region]{pop}
+/* Извлечь элемент из очереди */
+// Поскольку в основе лежит массив, removeFirst имеет сложность O(n)
+let pop = queue.removeFirst()
 
-[file]{queue}-[region]{size}
+/* Получить длину очереди */
+let size = queue.count
 
-[file]{queue}-[region]{is_empty}
+/* Проверить, пуста ли очередь */
+let isEmpty = queue.isEmpty
 ```
 
 ```javascript title="queue.js"
-[file]{queue}-[region]{init_queue}
+/* Инициализация очереди */
+// В JavaScript нет встроенной очереди, поэтому можно использовать Array как очередь
+const queue = [];
 
-[file]{queue}-[region]{push}
+/* Поместить элементы в очередь */
+queue.push(1);
+queue.push(3);
+queue.push(2);
+queue.push(5);
+queue.push(4);
 
-[file]{queue}-[region]{peek}
+/* Просмотреть элемент в голове очереди */
+const peek = queue[0];
 
-[file]{queue}-[region]{pop}
+/* Извлечь элемент из очереди */
+// В основе лежит массив, поэтому shift() имеет сложность O(n)
+const pop = queue.shift();
 
-[file]{queue}-[region]{size}
+/* Получить длину очереди */
+const size = queue.length;
 
-[file]{queue}-[region]{is_empty}
+/* Проверить, пуста ли очередь */
+const empty = queue.length === 0;
 ```
 
 ```typescript title="queue.ts"
-[file]{queue}-[region]{init_queue}
+/* Инициализация очереди */
+// В TypeScript нет встроенной очереди, поэтому можно использовать Array как очередь
+const queue: number[] = [];
 
-[file]{queue}-[region]{push}
+/* Поместить элементы в очередь */
+queue.push(1);
+queue.push(3);
+queue.push(2);
+queue.push(5);
+queue.push(4);
 
-[file]{queue}-[region]{peek}
+/* Просмотреть элемент в голове очереди */
+const peek = queue[0];
 
-[file]{queue}-[region]{pop}
+/* Извлечь элемент из очереди */
+// В основе лежит массив, поэтому shift() имеет сложность O(n)
+const pop = queue.shift();
 
-[file]{queue}-[region]{size}
+/* Получить длину очереди */
+const size = queue.length;
 
-[file]{queue}-[region]{is_empty}
+/* Проверить, пуста ли очередь */
+const empty = queue.length === 0;
 ```
 
 ```dart title="queue.dart"
-[file]{queue}-[region]{init_queue}
+/* Инициализация очереди */
+// В Dart класс Queue является двусторонней очередью и может использоваться как обычная очередь
+Queue<int> queue = Queue();
 
-[file]{queue}-[region]{push}
+/* Поместить элементы в очередь */
+queue.add(1);
+queue.add(3);
+queue.add(2);
+queue.add(5);
+queue.add(4);
 
-[file]{queue}-[region]{peek}
+/* Просмотреть элемент в голове очереди */
+int peek = queue.first;
 
-[file]{queue}-[region]{pop}
+/* Извлечь элемент из очереди */
+int pop = queue.removeFirst();
 
-[file]{queue}-[region]{size}
+/* Получить длину очереди */
+int size = queue.length;
 
-[file]{queue}-[region]{is_empty}
+/* Проверить, пуста ли очередь */
+bool isEmpty = queue.isEmpty;
 ```
 
 ```rust title="queue.rs"
@@ -159,31 +260,53 @@ let is_empty = deque.is_empty();
 ```
 
 ```kotlin title="queue.kt"
-[file]{queue}-[region]{init_queue}
+/* Инициализация очереди */
+val queue = LinkedList<Int>()
 
-[file]{queue}-[region]{push}
+/* Поместить элементы в очередь */
+queue.offer(1)
+queue.offer(3)
+queue.offer(2)
+queue.offer(5)
+queue.offer(4)
 
-[file]{queue}-[region]{peek}
+/* Просмотреть элемент в голове очереди */
+val peek = queue.peek()
 
-[file]{queue}-[region]{pop}
+/* Извлечь элемент из очереди */
+val pop = queue.poll()
 
-[file]{queue}-[region]{size}
+/* Получить длину очереди */
+val size = queue.size
 
-[file]{queue}-[region]{is_empty}
+/* Проверить, пуста ли очередь */
+val isEmpty = queue.isEmpty()
 ```
 
 ```ruby title="queue.rb"
-[file]{queue}-[region]{init_queue}
+# Инициализация очереди
+# Встроенная очередь в Ruby (Thread::Queue) не имеет методов peek и traverse, поэтому можно использовать Array как очередь
+queue = []
 
-[file]{queue}-[region]{push}
+# Поместить элементы в очередь
+queue.push(1)
+queue.push(3)
+queue.push(2)
+queue.push(5)
+queue.push(4)
 
-[file]{queue}-[region]{peek}
+# Просмотреть элемент очереди
+peek = queue.first
 
-[file]{queue}-[region]{pop}
+# Извлечь элемент из очереди
+# Обратите внимание: поскольку это массив, метод Array#shift имеет сложность O(n)
+pop = queue.shift
 
-[file]{queue}-[region]{size}
+# Получить длину очереди
+size = queue.length
 
-[file]{queue}-[region]{is_empty}
+# Проверить, пуста ли очередь
+is_empty = queue.empty?
 ```
 
 <!-- [tutor]{queue_operations_tutor} -->

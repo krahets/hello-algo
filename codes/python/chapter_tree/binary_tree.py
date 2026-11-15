@@ -13,7 +13,6 @@ from modules import TreeNode, print_tree
 
 """Driver Code"""
 if __name__ == "__main__":
-    # [region]{init_binary_tree}
     # 初始化二叉树
     # 初始化节点
     n1 = TreeNode(val=1)
@@ -26,22 +25,17 @@ if __name__ == "__main__":
     n1.right = n3
     n2.left = n4
     n2.right = n5
-    # [endregion]{init_binary_tree}
     print("\n初始化二叉树\n")
     print_tree(n1)
 
-    # [region]{insert_node}
     # 插入与删除节点
     P = TreeNode(0)
     # 在 n1 -> n2 中间插入节点 P
     n1.left = P
     P.left = n2
-    # [endregion]{insert_node}
     print("\n插入节点 P 后\n")
     print_tree(n1)
-    # [region]{remove_node}
-    # 删除节点 P
+    # 删除节点
     n1.left = n2
-    # [endregion]{remove_node}
     print("\n删除节点 P 后\n")
     print_tree(n1)

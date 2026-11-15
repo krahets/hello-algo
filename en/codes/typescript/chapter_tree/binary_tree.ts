@@ -7,7 +7,6 @@
 import { TreeNode } from '../modules/TreeNode';
 import { printTree } from '../modules/PrintUtil';
 
-// [region]{init_binary_tree}
 /* Initialize the binary tree */
 // Initialize the nodes
 let n1 = new TreeNode(1),
@@ -20,23 +19,18 @@ n1.left = n2;
 n1.right = n3;
 n2.left = n4;
 n2.right = n5;
-// [endregion]{init_binary_tree}
 console.log('\nInitialize the binary tree\n');
 printTree(n1);
 
-// [region]{insert_node}
 /* Insert and remove nodes */
 const P = new TreeNode(0);
 // Insert node P between n1 and n2 in n1 -> n2
 n1.left = P;
 P.left = n2;
-// [endregion]{insert_node}
 console.log('\nAfter inserting node P:\n');
 printTree(n1);
-// [region]{remove_node}
 // Remove node P
 n1.left = n2;
-// [endregion]{remove_node}
 console.log('\nAfter removing node P:\n');
 printTree(n1);
 

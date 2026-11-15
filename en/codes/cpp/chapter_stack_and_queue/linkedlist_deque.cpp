@@ -6,7 +6,6 @@
 
 #include "../utils/common.hpp"
 
-// [region]{doubly_list_node}
 /* Doubly linked list node */
 struct DoublyListNode {
     int val;              // Node value
@@ -15,7 +14,6 @@ struct DoublyListNode {
     DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
     }
 };
-// [endregion]{doubly_list_node}
 
 /* Deque implemented with a doubly linked list */
 class LinkedListDeque {

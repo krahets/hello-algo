@@ -50,8 +50,7 @@ int find(ListNode *head, int target) {
 
 /* 실행 코드 */
 int main() {
-    // [region]{init_linked_list}
-    /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
+    /* 연결 리스트 초기화 */
     // 각 노드를 초기화한다
     ListNode *n0 = newListNode(1);
     ListNode *n1 = newListNode(3);
@@ -63,7 +62,6 @@ int main() {
     n1->next = n2;
     n2->next = n3;
     n3->next = n4;
-    // [endregion]{init_linked_list}
     printf("초기화한 연결 리스트\r\n");
     printLinkedList(n0);
 

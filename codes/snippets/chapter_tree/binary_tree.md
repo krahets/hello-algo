@@ -130,7 +130,25 @@ impl TreeNode {
 ```
 
 ```c title=""
-[file]{utils/tree_node.h}-[region]{tree_node}
+/* 二叉树节点结构体 */
+typedef struct TreeNode {
+    int val;                // 节点值
+    int height;             // 节点高度
+    struct TreeNode *left;  // 左子节点指针
+    struct TreeNode *right; // 右子节点指针
+} TreeNode;
+
+/* 构造函数 */
+TreeNode *newTreeNode(int val) {
+    TreeNode *node;
+
+    node = (TreeNode *)malloc(sizeof(TreeNode));
+    node->val = val;
+    node->height = 0;
+    node->left = NULL;
+    node->right = NULL;
+    return node;
+}
 ```
 
 ```kotlin title=""
@@ -156,55 +174,194 @@ end
 
 <!-- [snippet]{init_binary_tree} -->
 ```python title="binary_tree.py"
-[file]{binary_tree}-[region]{init_binary_tree}
+# 初始化二叉树
+# 初始化节点
+n1 = TreeNode(val=1)
+n2 = TreeNode(val=2)
+n3 = TreeNode(val=3)
+n4 = TreeNode(val=4)
+n5 = TreeNode(val=5)
+# 构建节点之间的引用（指针）
+n1.left = n2
+n1.right = n3
+n2.left = n4
+n2.right = n5
 ```
 
 ```cpp title="binary_tree.cpp"
-[file]{binary_tree}-[region]{init_binary_tree}
+/* 初始化二叉树 */
+// 初始化节点
+TreeNode* n1 = new TreeNode(1);
+TreeNode* n2 = new TreeNode(2);
+TreeNode* n3 = new TreeNode(3);
+TreeNode* n4 = new TreeNode(4);
+TreeNode* n5 = new TreeNode(5);
+// 构建节点之间的引用（指针）
+n1->left = n2;
+n1->right = n3;
+n2->left = n4;
+n2->right = n5;
 ```
 
 ```java title="binary_tree.java"
-[file]{binary_tree}-[region]{init_binary_tree}
+// 初始化节点
+TreeNode n1 = new TreeNode(1);
+TreeNode n2 = new TreeNode(2);
+TreeNode n3 = new TreeNode(3);
+TreeNode n4 = new TreeNode(4);
+TreeNode n5 = new TreeNode(5);
+// 构建节点之间的引用（指针）
+n1.left = n2;
+n1.right = n3;
+n2.left = n4;
+n2.right = n5;
 ```
 
 ```csharp title="binary_tree.cs"
-[file]{binary_tree}-[region]{init_binary_tree}
+/* 初始化二叉树 */
+// 初始化节点
+TreeNode n1 = new(1);
+TreeNode n2 = new(2);
+TreeNode n3 = new(3);
+TreeNode n4 = new(4);
+TreeNode n5 = new(5);
+// 构建节点之间的引用（指针）
+n1.left = n2;
+n1.right = n3;
+n2.left = n4;
+n2.right = n5;
 ```
 
 ```go title="binary_tree.go"
-[file]{binary_tree_test}-[region]{init_binary_tree}
+/* 初始化二叉树 */
+// 初始化节点
+n1 := NewTreeNode(1)
+n2 := NewTreeNode(2)
+n3 := NewTreeNode(3)
+n4 := NewTreeNode(4)
+n5 := NewTreeNode(5)
+// 构建节点之间的引用（指针）
+n1.Left = n2
+n1.Right = n3
+n2.Left = n4
+n2.Right = n5
 ```
 
 ```swift title="binary_tree.swift"
-[file]{binary_tree}-[region]{init_binary_tree}
+// 初始化节点
+let n1 = TreeNode(x: 1)
+let n2 = TreeNode(x: 2)
+let n3 = TreeNode(x: 3)
+let n4 = TreeNode(x: 4)
+let n5 = TreeNode(x: 5)
+// 构建节点之间的引用（指针）
+n1.left = n2
+n1.right = n3
+n2.left = n4
+n2.right = n5
 ```
 
 ```javascript title="binary_tree.js"
-[file]{binary_tree}-[region]{init_binary_tree}
+/* 初始化二叉树 */
+// 初始化节点
+let n1 = new TreeNode(1),
+    n2 = new TreeNode(2),
+    n3 = new TreeNode(3),
+    n4 = new TreeNode(4),
+    n5 = new TreeNode(5);
+// 构建节点之间的引用（指针）
+n1.left = n2;
+n1.right = n3;
+n2.left = n4;
+n2.right = n5;
 ```
 
 ```typescript title="binary_tree.ts"
-[file]{binary_tree}-[region]{init_binary_tree}
+/* 初始化二叉树 */
+// 初始化节点
+let n1 = new TreeNode(1),
+    n2 = new TreeNode(2),
+    n3 = new TreeNode(3),
+    n4 = new TreeNode(4),
+    n5 = new TreeNode(5);
+// 构建节点之间的引用（指针）
+n1.left = n2;
+n1.right = n3;
+n2.left = n4;
+n2.right = n5;
 ```
 
 ```dart title="binary_tree.dart"
-[file]{binary_tree}-[region]{init_binary_tree}
+/* 初始化二叉树 */
+// 初始化节点
+TreeNode n1 = new TreeNode(1);
+TreeNode n2 = new TreeNode(2);
+TreeNode n3 = new TreeNode(3);
+TreeNode n4 = new TreeNode(4);
+TreeNode n5 = new TreeNode(5);
+// 构建节点之间的引用（指针）
+n1.left = n2;
+n1.right = n3;
+n2.left = n4;
+n2.right = n5;
 ```
 
 ```rust title="binary_tree.rs"
-[file]{binary_tree}-[region]{init_binary_tree}
+// 初始化节点
+let n1 = TreeNode::new(1);
+let n2 = TreeNode::new(2);
+let n3 = TreeNode::new(3);
+let n4 = TreeNode::new(4);
+let n5 = TreeNode::new(5);
+// 构建节点之间的引用（指针）
+n1.borrow_mut().left = Some(n2.clone());
+n1.borrow_mut().right = Some(n3);
+n2.borrow_mut().left = Some(n4);
+n2.borrow_mut().right = Some(n5);
 ```
 
 ```c title="binary_tree.c"
-[file]{binary_tree}-[region]{init_binary_tree}
+/* 初始化二叉树 */
+// 初始化节点
+TreeNode *n1 = newTreeNode(1);
+TreeNode *n2 = newTreeNode(2);
+TreeNode *n3 = newTreeNode(3);
+TreeNode *n4 = newTreeNode(4);
+TreeNode *n5 = newTreeNode(5);
+// 构建节点之间的引用（指针）
+n1->left = n2;
+n1->right = n3;
+n2->left = n4;
+n2->right = n5;
 ```
 
 ```kotlin title="binary_tree.kt"
-[file]{binary_tree}-[region]{init_binary_tree}
+// 初始化节点
+val n1 = TreeNode(1)
+val n2 = TreeNode(2)
+val n3 = TreeNode(3)
+val n4 = TreeNode(4)
+val n5 = TreeNode(5)
+// 构建节点之间的引用（指针）
+n1.left = n2
+n1.right = n3
+n2.left = n4
+n2.right = n5
 ```
 
 ```ruby title="binary_tree.rb"
-[file]{binary_tree}-[region]{init_binary_tree}
+# 初始化二叉树
+# 初始化节点
+n1 = TreeNode.new(1)
+n2 = TreeNode.new(2)
+n3 = TreeNode.new(3)
+n4 = TreeNode.new(4)
+n5 = TreeNode.new(5)
+# 构建节点之间的引用（指针）
+n1.left = n2
+n1.right = n3
+n2.left = n4
+n2.right = n5
 ```
 
 <!-- [tutor]{init_binary_tree_tutor} -->
@@ -212,68 +369,133 @@ https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%2
 
 <!-- [snippet]{insert_remove_node} -->
 ```python title="binary_tree.py"
-[file]{binary_tree}-[region]{insert_node}
-[file]{binary_tree}-[region]{remove_node}
+# 插入与删除节点
+p = TreeNode(0)
+# 在 n1 -> n2 中间插入节点 P
+n1.left = p
+p.left = n2
+# 删除节点 P
+n1.left = n2
 ```
 
 ```cpp title="binary_tree.cpp"
-[file]{binary_tree}-[region]{insert_node}
-[file]{binary_tree}-[region]{remove_node}
+/* 插入与删除节点 */
+TreeNode* P = new TreeNode(0);
+// 在 n1 -> n2 中间插入节点 P
+n1->left = P;
+P->left = n2;
+// 删除节点 P
+n1->left = n2;
+// 释放内存
+delete P;
 ```
 
 ```java title="binary_tree.java"
-[file]{binary_tree}-[region]{insert_node}
-[file]{binary_tree}-[region]{remove_node}
+TreeNode P = new TreeNode(0);
+// 在 n1 -> n2 中间插入节点 P
+n1.left = P;
+P.left = n2;
+// 删除节点 P
+n1.left = n2;
 ```
 
 ```csharp title="binary_tree.cs"
-[file]{binary_tree}-[region]{insert_node}
-[file]{binary_tree}-[region]{remove_node}
+/* 插入与删除节点 */
+TreeNode P = new(0);
+// 在 n1 -> n2 中间插入节点 P
+n1.left = P;
+P.left = n2;
+// 删除节点 P
+n1.left = n2;
 ```
 
 ```go title="binary_tree.go"
-[file]{binary_tree_test}-[region]{insert_node}
-[file]{binary_tree_test}-[region]{remove_node}
+/* 插入与删除节点 */
+// 在 n1 -> n2 中间插入节点 P
+p := NewTreeNode(0)
+n1.Left = p
+p.Left = n2
+// 删除节点 P
+n1.Left = n2
 ```
 
 ```swift title="binary_tree.swift"
-[file]{binary_tree}-[region]{insert_node}
-[file]{binary_tree}-[region]{remove_node}
+let P = TreeNode(x: 0)
+// 在 n1 -> n2 中间插入节点 P
+n1.left = P
+P.left = n2
+// 删除节点 P
+n1.left = n2
 ```
 
 ```javascript title="binary_tree.js"
-[file]{binary_tree}-[region]{insert_node}
-[file]{binary_tree}-[region]{remove_node}
+/* 插入与删除节点 */
+let P = new TreeNode(0);
+// 在 n1 -> n2 中间插入节点 P
+n1.left = P;
+P.left = n2;
+// 删除节点 P
+n1.left = n2;
 ```
 
 ```typescript title="binary_tree.ts"
-[file]{binary_tree}-[region]{insert_node}
-[file]{binary_tree}-[region]{remove_node}
+/* 插入与删除节点 */
+const P = new TreeNode(0);
+// 在 n1 -> n2 中间插入节点 P
+n1.left = P;
+P.left = n2;
+// 删除节点 P
+n1.left = n2;
 ```
 
 ```dart title="binary_tree.dart"
-[file]{binary_tree}-[region]{insert_node}
-[file]{binary_tree}-[region]{remove_node}
+/* 插入与删除节点 */
+TreeNode P = new TreeNode(0);
+// 在 n1 -> n2 中间插入节点 P
+n1.left = P;
+P.left = n2;
+// 删除节点 P
+n1.left = n2;
 ```
 
 ```rust title="binary_tree.rs"
-[file]{binary_tree}-[region]{insert_node}
-[file]{binary_tree}-[region]{remove_node}
+let p = TreeNode::new(0);
+// 在 n1 -> n2 中间插入节点 P
+n1.borrow_mut().left = Some(p.clone());
+p.borrow_mut().left = Some(n2.clone());
+// 删除节点 p
+n1.borrow_mut().left = Some(n2);
 ```
 
 ```c title="binary_tree.c"
-[file]{binary_tree}-[region]{insert_node}
-[file]{binary_tree}-[region]{remove_node}
+/* 插入与删除节点 */
+TreeNode *P = newTreeNode(0);
+// 在 n1 -> n2 中间插入节点 P
+n1->left = P;
+P->left = n2;
+// 删除节点 P
+n1->left = n2;
+// 释放内存
+free(P);
 ```
 
 ```kotlin title="binary_tree.kt"
-[file]{binary_tree}-[region]{insert_node}
-[file]{binary_tree}-[region]{remove_node}
+val P = TreeNode(0)
+// 在 n1 -> n2 中间插入节点 P
+n1.left = P
+P.left = n2
+// 删除节点 P
+n1.left = n2
 ```
 
 ```ruby title="binary_tree.rb"
-[file]{binary_tree}-[region]{insert_node}
-[file]{binary_tree}-[region]{remove_node}
+# 插入与删除节点
+_p = TreeNode.new(0)
+# 在 n1 -> n2 中间插入节点 _p
+n1.left = _p
+_p.left = n2
+# 删除节点
+n1.left = n2
 ```
 
 <!-- [tutor]{insert_remove_node_tutor} -->

@@ -5,43 +5,31 @@
  */
 
 /* Driver Code */
-// [region]{init_stack}
 /* Инициализация стека */
 // В JavaScript нет встроенного класса стека, поэтому Array можно использовать как стек
 const stack = [];
-// [endregion]{init_stack}
 
-// [region]{push}
 /* Помещение элемента в стек */
 stack.push(1);
 stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
-// [endregion]{push}
 console.log('Стек stack =', stack);
 
-// [region]{peek}
 /* Доступ к верхнему элементу стека */
 const peek = stack[stack.length - 1];
-// [endregion]{peek}
 console.log('Верхний элемент peek =', peek);
 
-// [region]{pop}
 /* Извлечение элемента из стека */
 const pop = stack.pop();
-// [endregion]{pop}
 console.log('Извлеченный элемент pop =', pop);
 console.log('stack после извлечения =', stack);
 
-// [region]{size}
 /* Получение длины стека */
 const size = stack.length;
-// [endregion]{size}
 console.log('Длина стека size =', size);
 
-// [region]{is_empty}
 /* Проверка на пустоту */
 const isEmpty = stack.length === 0;
-// [endregion]{is_empty}
 console.log('Пуст ли стек =', isEmpty);

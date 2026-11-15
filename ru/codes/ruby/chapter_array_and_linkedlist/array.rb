@@ -77,12 +77,10 @@ end
 
 ### Driver Code ###
 if __FILE__ == $0
-  # [region]{init_array}
   # Инициализация массива
   arr = Array.new(5, 0)
-  nums = [1, 3, 2, 5, 4]
-  # [endregion]{init_array}
   puts "Массив arr = #{arr}"
+  nums = [1, 3, 2, 5, 4]
   puts "Массив nums = #{nums}"
 
   # Случайный доступ

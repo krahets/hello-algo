@@ -4,12 +4,10 @@
 
 namespace hello_algo.utils;
 
-// [region]{list_node}
 /* Linked list node */
 public class ListNode(int x) {
-    public int val = x;    // Node value
-    public ListNode? next; // Reference to the next node
-// [endregion]{list_node}
+    public int val = x;
+    public ListNode? next;
 
     /* Deserialize an array into a linked list */
     public static ListNode? ArrToLinkedList(int[] arr) {
@@ -31,6 +29,4 @@ public class ListNode(int x) {
         }
         return string.Join("->", list);
     }
-// [region]{list_node_end}
 }
-// [endregion]{list_node_end}

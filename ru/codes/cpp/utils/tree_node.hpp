@@ -11,19 +11,17 @@
 
 using namespace std;
 
-// [region]{tree_node}
 /* Структура узла двоичного дерева */
 struct TreeNode {
-    int val{};         // Значение узла
-    int height = 0;    // Высота узла
+    int val{};
+    int height = 0;
     TreeNode *parent{};
-    TreeNode *left{};  // Указатель на левый дочерний узел
-    TreeNode *right{}; // Указатель на правый дочерний узел
+    TreeNode *left{};
+    TreeNode *right{};
     TreeNode() = default;
     explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {
     }
 };
-// [endregion]{tree_node}
 
 // Правила кодирования сериализации см.:
 // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/

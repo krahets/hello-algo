@@ -8,10 +8,9 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-// [region]{doubly_list_node}
 /* 雙向鏈結串列節點 */
 class ListNode {
-    int val;       // 節點值
+    int val; // 節點值
     ListNode next; // 後繼節點引用
     ListNode prev; // 前驅節點引用
 
@@ -20,7 +19,6 @@ class ListNode {
         prev = next = null;
     }
 }
-// [endregion]{doubly_list_node}
 
 /* 基於雙向鏈結串列實現的雙向佇列 */
 class LinkedListDeque {

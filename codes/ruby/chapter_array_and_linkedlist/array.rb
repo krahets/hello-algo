@@ -77,12 +77,10 @@ end
 
 ### Driver Code ###
 if __FILE__ == $0
-  # [region]{init_array}
   # 初始化数组
   arr = Array.new(5, 0)
-  nums = [1, 3, 2, 5, 4]
-  # [endregion]{init_array}
   puts "数组 arr = #{arr}"
+  nums = [1, 3, 2, 5, 4]
   puts "数组 nums = #{nums}"
 
   # 随机访问

@@ -4,7 +4,6 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# [region]{list_node}
 ### Linked list node class ###
 class ListNode
   attr_accessor :val  # Node value
@@ -15,7 +14,6 @@ class ListNode
     @next = next_node
   end
 end
-# [endregion]{list_node}
 
 ### Deserialize a list into a linked list ###
 def arr_to_linked_list(arr)
