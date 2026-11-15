@@ -11,17 +11,19 @@
 
 using namespace std;
 
+// [region]{tree_node}
 /* Binary tree node structure */
 struct TreeNode {
-    int val{};
-    int height = 0;
+    int val{};         // Node value
+    int height = 0;    // Node height
     TreeNode *parent{};
-    TreeNode *left{};
-    TreeNode *right{};
+    TreeNode *left{};  // Pointer to the left child
+    TreeNode *right{}; // Pointer to the right child
     TreeNode() = default;
     explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {
     }
 };
+// [endregion]{tree_node}
 
 // For the serialization rules, see:
 // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/

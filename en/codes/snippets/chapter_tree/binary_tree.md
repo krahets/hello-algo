@@ -130,25 +130,7 @@ impl TreeNode {
 ```
 
 ```c title=""
-/* Binary tree node struct */
-typedef struct TreeNode {
-    int val;                // Node value
-    int height;             // Node height
-    struct TreeNode *left;  // Left child pointer
-    struct TreeNode *right; // Right child pointer
-} TreeNode;
-
-/* Constructor */
-TreeNode *newTreeNode(int val) {
-    TreeNode *node;
-
-    node = (TreeNode *)malloc(sizeof(TreeNode));
-    node->val = val;
-    node->height = 0;
-    node->left = NULL;
-    node->right = NULL;
-    return node;
-}
+[file]{utils/tree_node.h}-[region]{tree_node}
 ```
 
 ```kotlin title=""

@@ -8,17 +8,19 @@ package utils;
 
 import java.util.*;
 
+// [region]{tree_node}
 /* 二分木のノードクラス */
 public class TreeNode {
-    public int val; // ノードの値
-    public int height; // ノードの高さ
-    public TreeNode left; // 左の子ノードへの参照
+    public int val;        // ノードの値
+    public int height;     // ノードの高さ
+    public TreeNode left;  // 左の子ノードへの参照
     public TreeNode right; // 右の子ノードへの参照
 
     /* コンストラクタ */
     public TreeNode(int x) {
         val = x;
     }
+// [endregion]{tree_node}
 
     // シリアライズの符号化規則は次を参照：
     // https://www.hello-algo.com/ja/chapter_tree/array_representation_of_tree/
@@ -70,4 +72,6 @@ public class TreeNode {
         treeToListDFS(root, 0, res);
         return res;
     }
+// [region]{tree_node_end}
 }
+// [endregion]{tree_node_end}
