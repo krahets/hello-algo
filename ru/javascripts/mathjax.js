@@ -15,4 +15,4 @@ window.MathJax = {
 document$.subscribe(() => {
   MathJax.typesetPromise();
 });
-/*! update cache: 20261115201249 */
+/*! update cache: 20261115211509 */
