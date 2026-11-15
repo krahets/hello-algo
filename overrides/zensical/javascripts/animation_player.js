@@ -1,4 +1,29 @@
 (() => {
+  const validStateTables = tables => tables === undefined || (Array.isArray(tables) && tables.every(table =>
+    typeof table.caption === "string" && Array.isArray(table.headers) && table.headers.length > 0 &&
+    table.headers.every(value => typeof value === "string") && Array.isArray(table.rows) &&
+    table.rows.every(row => Array.isArray(row) && row.length === table.headers.length && row.every(value => typeof value === "string")) &&
+    (table.row_header === undefined || (Number.isInteger(table.row_header) && table.row_header >= 0 && table.row_header < table.headers.length))));
+  const appendStateTables = (parent, tables = []) => {
+    for (const data of tables) {
+      const table = document.createElement("table"), caption = document.createElement("caption");
+      caption.textContent = data.caption; table.append(caption);
+      const head = document.createElement("thead"), header = document.createElement("tr");
+      for (const title of data.headers) {const cell = document.createElement("th");cell.scope = "col";cell.textContent = title;header.append(cell);}
+      head.append(header);table.append(head);
+      const body = document.createElement("tbody");
+      for (const values of data.rows) {
+        const row = document.createElement("tr");
+        values.forEach((value, index) => {const cell = document.createElement(index === data.row_header ? "th" : "td");
+          if (index === data.row_header) cell.scope = "row";cell.textContent = value;row.append(cell);});
+        body.append(row);
+      }
+      table.append(body);
+      const scroll = document.createElement("div");scroll.className = "figure-table-scroll";scroll.tabIndex = 0;
+      scroll.setAttribute("role", "group");scroll.setAttribute("aria-label", data.caption);
+      scroll.append(table);parent.append(scroll);
+    }
+  };
   const ANIMATION_LABEL_PATTERN = /^<\d+>$/;
   const AUTO_SLIDE_INITIAL_DELAY_MS = 1000;
   const AUTO_SLIDE_INTERVAL_MS = 1500;
@@ -202,12 +227,12 @@
     let annotation = null, currentState = null, announcementFrame = null;
     if (tabbedSet.hasAttribute("data-figure-a11y-version")) {
       try {
-        if (tabbedSet.dataset.figureA11yVersion !== "1") throw Error("Unsupported version");
+        if (!["1", "2"].includes(tabbedSet.dataset.figureA11yVersion)) throw Error("Unsupported version");
         annotation = JSON.parse(document.getElementById(tabbedSet.dataset.figureA11yRef).textContent);
         currentState = document.getElementById(annotation.state_id);
-        if (annotation.version !== 1 || annotation.steps.length !== inputs.length || !currentState ||
+        if (![1, 2].includes(annotation.version) || annotation.steps.length !== inputs.length || !currentState ||
             !annotation.steps.every(step => [step.id, step.state, step.key_state, step.announcement]
-              .every(value => typeof value === "string" && value.trim()))) throw Error("Invalid annotation data");
+              .every(value => typeof value === "string" && value.trim()) && validStateTables(step.state_tables))) throw Error("Invalid annotation data");
         currentState.hidden = false;
       } catch (error) {
         if (currentState) currentState.hidden = true;
@@ -235,9 +260,26 @@
       playControl.iconPath.setAttribute("d", state.isPlaying ? FA_PAUSE_PATH : FA_PLAY_PATH);
     };
 
+    const setText = (node, value) => {
+      if (node.textContent !== value) node.textContent = value;
+    };
+    let snapshotKey = null;
     const updatePageIndicator = () => {
-      pageIndicator.textContent = `${state.currentIndex + 1} / ${inputs.length}`;
-      if (annotation) currentState.textContent = annotation.steps[state.currentIndex].state;
+      // Visual progress can move; the reader's snapshot stays still until pause.
+      pageIndicator.setAttribute("aria-hidden", state.isPlaying ? "true" : "false");
+      setText(pageIndicator, `${state.currentIndex + 1} / ${inputs.length}`);
+      if (annotation) {
+        const key = state.isPlaying ? "playing" : annotation.steps[state.currentIndex].id;
+        if (snapshotKey !== key) {
+          snapshotKey = key;
+          const paragraph = document.createElement("p");
+          paragraph.textContent = state.isPlaying
+            ? (annotation.locale === "zh-hant" ? "正在播放；暫停後顯示目前步驟狀態。" : "正在播放；暂停后显示当前步骤状态。")
+            : annotation.steps[state.currentIndex].state;
+          currentState.replaceChildren(paragraph);
+          if (!state.isPlaying) appendStateTables(currentState, annotation.steps[state.currentIndex].state_tables);
+        }
+      }
     };
 
     const announce = (previous) => {
@@ -265,6 +307,7 @@
       }
       state.isPlaying = false;
       updatePlayButton();
+      updatePageIndicator();
     };
 
     const syncCurrentIndex = () => {
@@ -291,6 +334,7 @@
       announcementFrame = null;
       announcement.textContent = "";
       updatePlayButton();
+      updatePageIndicator();
       state.timeoutId = window.setTimeout(() => {
         step(1);
         state.timeoutId = null;
@@ -337,6 +381,9 @@
     });
 
     controllers.add(stop);
+    tabbedSet.addEventListener("focusin", event => {
+      if (state.isPlaying && event.target !== playButton) stop();
+    });
     tabbedSet.addEventListener("figureinteractionpending", stop);
     updatePlayButton();
     updatePageIndicator();
