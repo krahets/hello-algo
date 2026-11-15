@@ -24,7 +24,7 @@ def unbounded_knapsack_dp(wgt, val, cap)
   dp[n][cap]
 end
 
-### 完全背包：空間最佳化後的動態規劃 ##3
+### 完全背包：空間最佳化後的動態規劃 ###
 def unbounded_knapsack_dp_comp(wgt, val, cap)
   n = wgt.length
   # 初始化 dp 表

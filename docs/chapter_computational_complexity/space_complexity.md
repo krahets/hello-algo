@@ -80,13 +80,13 @@
         Node next;
         Node(int x) { val = x; }
     }
-    
+
     /* 函数 */
     int function() {
         // 执行某些操作...
         return 0;
     }
-    
+
     int algorithm(int n) {        // 输入数据
         final int a = 0;          // 暂存数据（常量）
         int b = 0;                // 暂存数据（变量）
@@ -133,7 +133,7 @@
     func newNode(val int) *node {
         return &node{val: val}
     }
-    
+
     /* 函数 */
     func function() int {
         // 执行某些操作...
@@ -263,7 +263,7 @@
     ```rust title=""
     use std::rc::Rc;
     use std::cell::RefCell;
-    
+
     /* 结构体 */
     struct Node {
         val: i32,
@@ -611,14 +611,14 @@
         // 执行某些操作
         return 0
     }
-    
+
     /* 循环的空间复杂度为 O(1) */
     func loop(n int) {
         for i := 0; i < n; i++ {
             function()
         }
     }
-    
+
     /* 递归的空间复杂度为 O(n) */
     func recur(n int) {
         if n == 1 {

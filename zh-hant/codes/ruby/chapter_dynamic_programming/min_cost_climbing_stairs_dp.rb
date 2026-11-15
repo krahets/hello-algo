@@ -17,7 +17,7 @@ def min_cost_climbing_stairs_dp(cost)
   dp[n]
 end
 
-# 爬樓梯最小代價：空間最佳化後的動態規劃
+### 爬樓梯最小代價：空間最佳化後的動態規劃 ###
 def min_cost_climbing_stairs_dp_comp(cost)
   n = cost.length - 1
   return cost[n] if n == 1 || n == 2

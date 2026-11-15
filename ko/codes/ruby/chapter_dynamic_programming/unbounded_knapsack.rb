@@ -24,7 +24,7 @@ def unbounded_knapsack_dp(wgt, val, cap)
   dp[n][cap]
 end
 
-### 무한 배낭: 공간을 최적화한 동적 계획법 ##3
+### 무한 배낭: 공간을 최적화한 동적 계획법 ###
 def unbounded_knapsack_dp_comp(wgt, val, cap)
   n = wgt.length
   # dp 테이블을 초기화한다

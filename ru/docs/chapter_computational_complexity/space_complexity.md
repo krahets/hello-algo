@@ -80,13 +80,13 @@
         Node next;
         Node(int x) { val = x; }
     }
-    
+
     /* Функция */
     int function() {
         // Выполнить некоторые операции...
         return 0;
     }
-    
+
     int algorithm(int n) {        // Входные данные
         final int a = 0;          // Временные данные (константа)
         int b = 0;                // Временные данные (переменная)
@@ -133,7 +133,7 @@
     func newNode(val int) *node {
         return &node{val: val}
     }
-    
+
     /* Функция */
     func function() int {
         // Выполнить некоторые операции...
@@ -263,7 +263,7 @@
     ```rust title=""
     use std::rc::Rc;
     use std::cell::RefCell;
-    
+
     /* Структура */
     struct Node {
         val: i32,
@@ -611,14 +611,14 @@
         // Выполнить некоторые операции
         return 0
     }
-    
+
     /* Пространственная сложность цикла равна O(1) */
     func loop(n int) {
         for i := 0; i < n; i++ {
             function()
         }
     }
-    
+
     /* Пространственная сложность рекурсии равна O(n) */
     func recur(n int) {
         if n == 1 {
