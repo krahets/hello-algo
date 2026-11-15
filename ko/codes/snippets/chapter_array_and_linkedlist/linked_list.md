@@ -28,8 +28,8 @@ class ListNode {
 ```csharp title=""
 /* 연결 리스트 노드 클래스 */
 class ListNode(int x) {  //생성자
-    int val = x;         // 노드 값
-    ListNode? next;      // 다음 노드를 가리키는 참조
+    public int val = x;     // 노드 값
+    public ListNode? next;  // 다음 노드를 가리키는 참조
 }
 ```
 
@@ -264,7 +264,7 @@ n3.next = n4;
 ```
 
 ```dart title="linked_list.dart"
-/* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */\
+/* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
 // 각 노드 초기화
 ListNode n0 = ListNode(1);
 ListNode n1 = ListNode(3);
@@ -375,9 +375,9 @@ class ListNode {
 ```csharp title=""
 /* 이중 연결 리스트 노드 클래스 */
 class ListNode(int x) {  // 생성자
-    int val = x;    // 노드 값
-    ListNode next;  // 후속 노드를 가리키는 참조
-    ListNode prev;  // 선행 노드를 가리키는 참조
+    public int val = x;     // 노드 값
+    public ListNode? next;  // 후속 노드를 가리키는 참조
+    public ListNode? prev;  // 선행 노드를 가리키는 참조
 }
 ```
 

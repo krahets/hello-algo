@@ -79,7 +79,7 @@ List<int> nums = [1, 3, 2, 5, 4];
 // 无初始值
 let nums1: Vec<i32> = Vec::new();
 // 有初始值
-let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
 ```
 
 ```c title="list.c"
@@ -404,10 +404,10 @@ nums.add(5);
 nums.add(4);
 
 /* 在中间插入元素 */
-nums.add(3, 6);  // 在索引 3 处插入数字 6
+nums.add(3, 6);    // 在索引 3 处插入数字 6
 
 /* 删除元素 */
-nums.remove(3);  // 删除索引 3 处的元素
+nums.removeAt(3);  // 删除索引 3 处的元素
 ```
 
 ```ruby title="list.rb"

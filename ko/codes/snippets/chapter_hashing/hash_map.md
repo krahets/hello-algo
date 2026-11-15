@@ -184,7 +184,7 @@ map[10583] = "小鸭";
 
 /* 조회 연산 */
 // 해시 테이블에 키 key를 입력하여 값 value를 얻음
-String name = map[15937];
+String? name = map[15937];
 
 /* 삭제 연산 */
 // 해시 테이블에서 키-값 쌍 (key, value) 삭제
@@ -202,7 +202,7 @@ let mut map: HashMap<i32, String> = HashMap::new();
 map.insert(12836, "小哈".to_string());
 map.insert(15937, "小啰".to_string());
 map.insert(16750, "小算".to_string());
-map.insert(13279, "小法".to_string());
+map.insert(13276, "小法".to_string());
 map.insert(10583, "小鸭".to_string());
 
 /* 조회 연산 */

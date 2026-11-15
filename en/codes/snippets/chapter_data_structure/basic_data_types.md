@@ -96,7 +96,7 @@ val bools = BooleanArray(5)
 
 ```ruby title=""
 # Ruby arrays can hold different basic data types and object references
-data = [0, 0.0, 'a', false, ListNode(0)]
+data = [0, 0.0, 'a', false, ListNode.new(0)]
 ```
 
 <!-- [tutor]{basic_type_arrays_tutor} -->

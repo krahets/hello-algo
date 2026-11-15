@@ -774,10 +774,10 @@ def algorithm(n)
     a = 1       # +0（工夫 1）
     a = a + n   # +0（工夫 1）
     # +n（工夫 2）
-    (0...(5 * n + 1)).each do { puts 0 }
+    (0...(5 * n + 1)).each { puts 0 }
     # +n*n（工夫 3）
     (0...(2 * n)).each do
-        (0...(n + 1)).each do { puts 0 }
+        (0...(n + 1)).each { puts 0 }
     end
 end
 ```

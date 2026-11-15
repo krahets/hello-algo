@@ -79,7 +79,7 @@ List<int> nums = [1, 3, 2, 5, 4];
 // 초깃값 없음
 let nums1: Vec<i32> = Vec::new();
 // 초깃값 지정
-let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
 ```
 
 ```c title="list.c"
@@ -404,10 +404,10 @@ nums.add(5);
 nums.add(4);
 
 /* 중간에 원소 삽입 */
-nums.add(3, 6);  // 인덱스 3에 숫자 6 삽입
+nums.add(3, 6);    // 인덱스 3에 숫자 6 삽입
 
 /* 원소 삭제 */
-nums.remove(3);  // 인덱스 3의 원소 삭제
+nums.removeAt(3);  // 인덱스 3의 원소 삭제
 ```
 
 ```ruby title="list.rb"
