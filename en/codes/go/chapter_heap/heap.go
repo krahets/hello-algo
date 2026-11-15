@@ -4,7 +4,6 @@
 
 package chapter_heap
 
-// [region]{int_heap}
 // In Go, implement heap.Interface to build an integer max heap
 // Implementing heap.Interface also requires implementing sort.Interface
 type intHeap []any
@@ -44,5 +43,3 @@ func (h *intHeap) Swap(i, j int) {
 func (h *intHeap) Top() any {
 	return (*h)[0]
 }
-
-// [endregion]{int_heap}

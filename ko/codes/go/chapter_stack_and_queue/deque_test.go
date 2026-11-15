@@ -13,55 +13,39 @@ import (
 )
 
 func TestDeque(t *testing.T) {
-	// [region]{init_deque}
 	/* 덱 초기화 */
 	// Go에서는 list를 덱으로 사용한다
 	deque := list.New()
-	// [endregion]{init_deque}
 
-	// [region]{push}
 	/* 큐에 원소 삽입 */
-	deque.PushBack(2) // 맨 뒤에 추가한다
+	deque.PushBack(2)
 	deque.PushBack(5)
 	deque.PushBack(4)
-	deque.PushFront(3) // 맨 앞에 추가한다
+	deque.PushFront(3)
 	deque.PushFront(1)
-	// [endregion]{push}
 	fmt.Print("덱 deque = ")
 	PrintList(deque)
 
-	// [region]{peek_first}
 	/* 원소 접근 */
-	front := deque.Front() // 맨 앞 원소
-	// [endregion]{peek_first}
+	front := deque.Front()
 	fmt.Println("맨 앞 원소 front =", front.Value)
-	// [region]{peek_last}
-	rear := deque.Back() // 맨 뒤 원소
-	// [endregion]{peek_last}
+	rear := deque.Back()
 	fmt.Println("맨 뒤 원소 rear =", rear.Value)
 
-	// [region]{pop_first}
 	/* 큐에서 원소 꺼내기 */
-	deque.Remove(front) // 맨 앞 원소를 꺼낸다
-	// [endregion]{pop_first}
+	deque.Remove(front)
 	fmt.Print("맨 앞에서 꺼낸 원소 front = ", front.Value, ", 맨 앞에서 꺼낸 후 deque = ")
 	PrintList(deque)
-	// [region]{pop_last}
-	deque.Remove(rear) // 맨 뒤 원소를 꺼낸다
-	// [endregion]{pop_last}
+	deque.Remove(rear)
 	fmt.Print("맨 뒤에서 꺼낸 원소 rear = ", rear.Value, ", 맨 뒤에서 꺼낸 후 deque = ")
 	PrintList(deque)
 
-	// [region]{size}
 	/* 덱의 길이 반환 */
 	size := deque.Len()
-	// [endregion]{size}
 	fmt.Println("덱 길이 size =", size)
 
-	// [region]{is_empty}
 	/* 덱이 비어 있는지 판단 */
 	isEmpty := deque.Len() == 0
-	// [endregion]{is_empty}
 	fmt.Println("덱이 비어 있는가 =", isEmpty)
 }
 

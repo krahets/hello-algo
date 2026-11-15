@@ -74,12 +74,10 @@ int find(List<int> nums, int target) {
 
 /* 実行用コード */
 void main() {
-  // [region]{init_array}
   /* 配列を初期化する */
-  var arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
-  List<int> nums = [1, 3, 2, 5, 4];
-  // [endregion]{init_array}
+  var arr = List.filled(5, 0);
   print('配列 arr = $arr');
+  List<int> nums = [1, 3, 2, 5, 4];
   print('配列 nums = $nums');
 
   /* ランダムアクセス */

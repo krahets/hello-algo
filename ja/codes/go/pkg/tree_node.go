@@ -4,7 +4,6 @@
 
 package pkg
 
-// [region]{tree_node}
 // TreeNode は二分木のノード
 type TreeNode struct {
 	Val    any       // ノードの値
@@ -22,8 +21,6 @@ func NewTreeNode(v any) *TreeNode {
 		Right:  nil,
 	}
 }
-
-// [endregion]{tree_node}
 
 // シリアライズの符号化規則は次を参照：
 // https://www.hello-algo.com/ja/chapter_tree/array_representation_of_tree/

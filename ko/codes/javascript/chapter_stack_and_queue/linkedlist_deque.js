@@ -4,7 +4,6 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-// [region]{doubly_list_node}
 /* 이중 연결 리스트 노드 */
 class ListNode {
     prev; // 이전 노드 참조(포인터)
@@ -17,7 +16,6 @@ class ListNode {
         this.prev = null;
     }
 }
-// [endregion]{doubly_list_node}
 
 /* 이중 연결 리스트로 구현한 덱 */
 class LinkedListDeque {

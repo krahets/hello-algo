@@ -7,7 +7,6 @@ Author: krahets (krahets@163.com)
 from collections import deque
 
 
-# [region]{tree_node}
 class TreeNode:
     """二叉树节点类"""
 
@@ -16,7 +15,6 @@ class TreeNode:
         self.height: int = 0  # 节点高度
         self.left: TreeNode | None = None  # 左子节点引用
         self.right: TreeNode | None = None  # 右子节点引用
-# [endregion]{tree_node}
 
     # 序列化编码规则请参考：
     # https://www.hello-algo.com/chapter_tree/array_representation_of_tree/

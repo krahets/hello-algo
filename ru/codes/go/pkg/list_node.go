@@ -4,22 +4,19 @@
 
 package pkg
 
-// [region]{list_node}
 // ListNode: узел связного списка
 type ListNode struct {
-	Val  int       // Значение узла
-	Next *ListNode // Указатель на узел-преемник
+	Next *ListNode
+	Val  int
 }
 
 // NewListNode: конструктор узла связного списка
 func NewListNode(v int) *ListNode {
 	return &ListNode{
-		Val:  v,
 		Next: nil,
+		Val:  v,
 	}
 }
-
-// [endregion]{list_node}
 
 // ArrayToLinkedList десериализует массив в связный список
 func ArrayToLinkedList(arr []int) *ListNode {

@@ -6,11 +6,9 @@
 
 package utils
 
-// [region]{list_node}
 /* Linked list node */
 class ListNode(var _val: Int) {
-    var next: ListNode? = null // Reference to the next node
-// [endregion]{list_node}
+    var next: ListNode? = null
 
     companion object {
         /* Deserialize an array into a linked list */
@@ -24,6 +22,4 @@ class ListNode(var _val: Int) {
             return dum.next
         }
     }
-// [region]{list_node_end}
 }
-// [endregion]{list_node_end}

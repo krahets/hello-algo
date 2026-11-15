@@ -47,9 +47,8 @@ public class linked_list {
 
     [Test]
     public void Test() {
-        // [region]{init_linked_list}
-        // Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
-        // Initialize the individual nodes
+        // Initialize the linked list 
+        // Initialize the individual nodes 
         ListNode n0 = new(1);
         ListNode n1 = new(3);
         ListNode n2 = new(2);
@@ -60,7 +59,6 @@ public class linked_list {
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
-        // [endregion]{init_linked_list}
         Console.WriteLine($"Initialized linked list: {n0}");
 
         // Insert a node 

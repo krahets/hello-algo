@@ -8,7 +8,6 @@
 
 /* 실행 코드 */
 int main() {
-    // [region]{init_binary_tree}
     /* 이진 트리 초기화 */
     // 노드 초기화
     TreeNode *n1 = new TreeNode(1);
@@ -21,24 +20,19 @@ int main() {
     n1->right = n3;
     n2->left = n4;
     n2->right = n5;
-    // [endregion]{init_binary_tree}
     cout << endl << "이진 트리 초기화\n" << endl;
     printTree(n1);
 
-    // [region]{insert_node}
     /* 노드 삽입과 삭제 */
     TreeNode *P = new TreeNode(0);
     // n1 -> n2 사이에 노드 P를 삽입한다
     n1->left = P;
     P->left = n2;
-    // [endregion]{insert_node}
     cout << endl << "노드 P를 삽입한 후\n" << endl;
     printTree(n1);
-    // [region]{remove_node}
     // 노드 P를 삭제한다
     n1->left = n2;
     delete P; // 메모리 해제
-    // [endregion]{remove_node}
     cout << endl << "노드 P를 삭제한 후\n" << endl;
     printTree(n1);
 

@@ -13,55 +13,39 @@ import (
 )
 
 func TestDeque(t *testing.T) {
-	// [region]{init_deque}
 	/* Initialize the deque */
 	// In Go, list can be used as a deque
 	deque := list.New()
-	// [endregion]{init_deque}
 
-	// [region]{push}
 	/* Enqueue elements */
-	deque.PushBack(2) // Add to the rear
+	deque.PushBack(2)
 	deque.PushBack(5)
 	deque.PushBack(4)
-	deque.PushFront(3) // Add to the front
+	deque.PushFront(3)
 	deque.PushFront(1)
-	// [endregion]{push}
 	fmt.Print("Deque deque = ")
 	PrintList(deque)
 
-	// [region]{peek_first}
 	/* Access an element */
-	front := deque.Front() // Front element
-	// [endregion]{peek_first}
+	front := deque.Front()
 	fmt.Println("Front element front =", front.Value)
-	// [region]{peek_last}
-	rear := deque.Back() // Rear element
-	// [endregion]{peek_last}
+	rear := deque.Back()
 	fmt.Println("Rear element rear =", rear.Value)
 
-	// [region]{pop_first}
 	/* Dequeue an element */
-	deque.Remove(front) // Dequeue the front element
-	// [endregion]{pop_first}
+	deque.Remove(front)
 	fmt.Print("Element dequeued from the front, front = ", front.Value, ", after dequeuing from the front, deque = ")
 	PrintList(deque)
-	// [region]{pop_last}
-	deque.Remove(rear) // Dequeue the rear element
-	// [endregion]{pop_last}
+	deque.Remove(rear)
 	fmt.Print("Element dequeued from the rear, rear = ", rear.Value, ", after dequeuing from the rear, deque = ")
 	PrintList(deque)
 
-	// [region]{size}
 	/* Get the deque size */
 	size := deque.Len()
-	// [endregion]{size}
 	fmt.Println("Deque size =", size)
 
-	// [region]{is_empty}
 	/* Check whether the deque is empty */
 	isEmpty := deque.Len() == 0
-	// [endregion]{is_empty}
 	fmt.Println("Is the deque empty =", isEmpty)
 }
 

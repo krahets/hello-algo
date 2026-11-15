@@ -172,9 +172,7 @@ fn main() {
     /* Найти узел */
     let node = bst.search(7);
     println!(
-        "\nНайденный объект узла = {:?}, значение узла = {}",
-        node.clone().unwrap(),
-        node.clone().unwrap().borrow().val
+        "\nНайденный объект узла = {:?}, значение узла = {}",\nnode.clone().unwrap(),\nnode.clone().unwrap().borrow().val
     );
 
     /* Вставка узла */

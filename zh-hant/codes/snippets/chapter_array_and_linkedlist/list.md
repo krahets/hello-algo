@@ -108,63 +108,82 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{access_element} -->
 ```python title="list.py"
-[file]{list}-[region]{access_element}
+# 訪問元素
+num: int = nums[1]  # 訪問索引 1 處的元素
 
-[file]{list}-[region]{update_element}
+# 更新元素
+nums[1] = 0    # 將索引 1 處的元素更新為 0
 ```
 
 ```cpp title="list.cpp"
-[file]{list}-[region]{access_element}
+/* 訪問元素 */
+int num = nums[1];  // 訪問索引 1 處的元素
 
-[file]{list}-[region]{update_element}
+/* 更新元素 */
+nums[1] = 0;  // 將索引 1 處的元素更新為 0
 ```
 
 ```java title="list.java"
-[file]{list}-[region]{access_element}
+/* 訪問元素 */
+int num = nums.get(1);  // 訪問索引 1 處的元素
 
-[file]{list}-[region]{update_element}
+/* 更新元素 */
+nums.set(1, 0);  // 將索引 1 處的元素更新為 0
 ```
 
 ```csharp title="list.cs"
-[file]{list}-[region]{access_element}
+/* 訪問元素 */
+int num = nums[1];  // 訪問索引 1 處的元素
 
-[file]{list}-[region]{update_element}
+/* 更新元素 */
+nums[1] = 0;  // 將索引 1 處的元素更新為 0
 ```
 
 ```go title="list_test.go"
-[file]{list_test}-[region]{access_element}
+/* 訪問元素 */
+num := nums[1]  // 訪問索引 1 處的元素
 
-[file]{list_test}-[region]{update_element}
+/* 更新元素 */
+nums[1] = 0     // 將索引 1 處的元素更新為 0
 ```
 
 ```swift title="list.swift"
-[file]{list}-[region]{access_element}
+/* 訪問元素 */
+let num = nums[1] // 訪問索引 1 處的元素
 
-[file]{list}-[region]{update_element}
+/* 更新元素 */
+nums[1] = 0 // 將索引 1 處的元素更新為 0
 ```
 
 ```javascript title="list.js"
-[file]{list}-[region]{access_element}
+/* 訪問元素 */
+const num = nums[1];  // 訪問索引 1 處的元素
 
-[file]{list}-[region]{update_element}
+/* 更新元素 */
+nums[1] = 0;  // 將索引 1 處的元素更新為 0
 ```
 
 ```typescript title="list.ts"
-[file]{list}-[region]{access_element}
+/* 訪問元素 */
+const num: number = nums[1];  // 訪問索引 1 處的元素
 
-[file]{list}-[region]{update_element}
+/* 更新元素 */
+nums[1] = 0;  // 將索引 1 處的元素更新為 0
 ```
 
 ```dart title="list.dart"
-[file]{list}-[region]{access_element}
+/* 訪問元素 */
+int num = nums[1];  // 訪問索引 1 處的元素
 
-[file]{list}-[region]{update_element}
+/* 更新元素 */
+nums[1] = 0;  // 將索引 1 處的元素更新為 0
 ```
 
 ```rust title="list.rs"
-[file]{list}-[region]{access_element}
-
-[file]{list}-[region]{update_element}
+/* 訪問元素 */
+let num: i32 = nums[1];  // 訪問索引 1 處的元素
+/* 更新元素 */
+nums[1] = 0;             // 將索引 1 處的元素更新為 0
 ```
 
 ```c title="list.c"
@@ -172,15 +191,17 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 ```
 
 ```kotlin title="list.kt"
-[file]{list}-[region]{access_element}
-
-[file]{list}-[region]{update_element}
+/* 訪問元素 */
+val num = nums[1]       // 訪問索引 1 處的元素
+/* 更新元素 */
+nums[1] = 0             // 將索引 1 處的元素更新為 0
 ```
 
 ```ruby title="list.rb"
-[file]{list}-[region]{access_element}
-
-[file]{list}-[region]{update_element}
+# 訪問元素
+num = nums[1] # 訪問索引 1 處的元素
+# 更新元素
+nums[1] = 0 # 將索引 1 處的元素更新為 0
 ```
 
 <!-- [tutor]{access_element_tutor} -->
@@ -188,103 +209,183 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{insert_remove_element} -->
 ```python title="list.py"
-[file]{list}-[region]{clear_list}
+# 清空串列
+nums.clear()
 
-[file]{list}-[region]{append_element}
+# 在尾部新增元素
+nums.append(1)
+nums.append(3)
+nums.append(2)
+nums.append(5)
+nums.append(4)
 
-[file]{list}-[region]{insert_element}
+# 在中間插入元素
+nums.insert(3, 6)  # 在索引 3 處插入數字 6
 
-[file]{list}-[region]{remove_element}
+# 刪除元素
+nums.pop(3)        # 刪除索引 3 處的元素
 ```
 
 ```cpp title="list.cpp"
-[file]{list}-[region]{clear_list}
+/* 清空串列 */
+nums.clear();
 
-[file]{list}-[region]{append_element}
+/* 在尾部新增元素 */
+nums.push_back(1);
+nums.push_back(3);
+nums.push_back(2);
+nums.push_back(5);
+nums.push_back(4);
 
-[file]{list}-[region]{insert_element}
+/* 在中間插入元素 */
+nums.insert(nums.begin() + 3, 6);  // 在索引 3 處插入數字 6
 
-[file]{list}-[region]{remove_element}
+/* 刪除元素 */
+nums.erase(nums.begin() + 3);      // 刪除索引 3 處的元素
 ```
 
 ```java title="list.java"
-[file]{list}-[region]{clear_list}
+/* 清空串列 */
+nums.clear();
 
-[file]{list}-[region]{append_element}
+/* 在尾部新增元素 */
+nums.add(1);
+nums.add(3);
+nums.add(2);
+nums.add(5);
+nums.add(4);
 
-[file]{list}-[region]{insert_element}
+/* 在中間插入元素 */
+nums.add(3, 6);  // 在索引 3 處插入數字 6
 
-[file]{list}-[region]{remove_element}
+/* 刪除元素 */
+nums.remove(3);  // 刪除索引 3 處的元素
 ```
 
 ```csharp title="list.cs"
-[file]{list}-[region]{clear_list}
+/* 清空串列 */
+nums.Clear();
 
-[file]{list}-[region]{append_element}
+/* 在尾部新增元素 */
+nums.Add(1);
+nums.Add(3);
+nums.Add(2);
+nums.Add(5);
+nums.Add(4);
 
-[file]{list}-[region]{insert_element}
+/* 在中間插入元素 */
+nums.Insert(3, 6);  // 在索引 3 處插入數字 6
 
-[file]{list}-[region]{remove_element}
+/* 刪除元素 */
+nums.RemoveAt(3);  // 刪除索引 3 處的元素
 ```
 
 ```go title="list_test.go"
-[file]{list_test}-[region]{clear_list}
+/* 清空串列 */
+nums = nil
 
-[file]{list_test}-[region]{append_element}
+/* 在尾部新增元素 */
+nums = append(nums, 1)
+nums = append(nums, 3)
+nums = append(nums, 2)
+nums = append(nums, 5)
+nums = append(nums, 4)
 
-[file]{list_test}-[region]{insert_element}
+/* 在中間插入元素 */
+nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // 在索引 3 處插入數字 6
 
-[file]{list_test}-[region]{remove_element}
+/* 刪除元素 */
+nums = append(nums[:3], nums[4:]...) // 刪除索引 3 處的元素
 ```
 
 ```swift title="list.swift"
-[file]{list}-[region]{clear_list}
+/* 清空串列 */
+nums.removeAll()
 
-[file]{list}-[region]{append_element}
+/* 在尾部新增元素 */
+nums.append(1)
+nums.append(3)
+nums.append(2)
+nums.append(5)
+nums.append(4)
 
-[file]{list}-[region]{insert_element}
+/* 在中間插入元素 */
+nums.insert(6, at: 3) // 在索引 3 處插入數字 6
 
-[file]{list}-[region]{remove_element}
+/* 刪除元素 */
+nums.remove(at: 3) // 刪除索引 3 處的元素
 ```
 
 ```javascript title="list.js"
-[file]{list}-[region]{clear_list}
+/* 清空串列 */
+nums.length = 0;
 
-[file]{list}-[region]{append_element}
+/* 在尾部新增元素 */
+nums.push(1);
+nums.push(3);
+nums.push(2);
+nums.push(5);
+nums.push(4);
 
-[file]{list}-[region]{insert_element}
+/* 在中間插入元素 */
+nums.splice(3, 0, 6); // 在索引 3 處插入數字 6
 
-[file]{list}-[region]{remove_element}
+/* 刪除元素 */
+nums.splice(3, 1);  // 刪除索引 3 處的元素
 ```
 
 ```typescript title="list.ts"
-[file]{list}-[region]{clear_list}
+/* 清空串列 */
+nums.length = 0;
 
-[file]{list}-[region]{append_element}
+/* 在尾部新增元素 */
+nums.push(1);
+nums.push(3);
+nums.push(2);
+nums.push(5);
+nums.push(4);
 
-[file]{list}-[region]{insert_element}
+/* 在中間插入元素 */
+nums.splice(3, 0, 6); // 在索引 3 處插入數字 6
 
-[file]{list}-[region]{remove_element}
+/* 刪除元素 */
+nums.splice(3, 1);  // 刪除索引 3 處的元素
 ```
 
 ```dart title="list.dart"
-[file]{list}-[region]{clear_list}
+/* 清空串列 */
+nums.clear();
 
-[file]{list}-[region]{append_element}
+/* 在尾部新增元素 */
+nums.add(1);
+nums.add(3);
+nums.add(2);
+nums.add(5);
+nums.add(4);
 
-[file]{list}-[region]{insert_element}
+/* 在中間插入元素 */
+nums.insert(3, 6); // 在索引 3 處插入數字 6
 
-[file]{list}-[region]{remove_element}
+/* 刪除元素 */
+nums.removeAt(3); // 刪除索引 3 處的元素
 ```
 
 ```rust title="list.rs"
-[file]{list}-[region]{clear_list}
+/* 清空串列 */
+nums.clear();
 
-[file]{list}-[region]{append_element}
+/* 在尾部新增元素 */
+nums.push(1);
+nums.push(3);
+nums.push(2);
+nums.push(5);
+nums.push(4);
 
-[file]{list}-[region]{insert_element}
+/* 在中間插入元素 */
+nums.insert(3, 6);  // 在索引 3 處插入數字 6
 
-[file]{list}-[region]{remove_element}
+/* 刪除元素 */
+nums.remove(3);    // 刪除索引 3 處的元素
 ```
 
 ```c title="list.c"
@@ -292,23 +393,39 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 ```
 
 ```kotlin title="list.kt"
-[file]{list}-[region]{clear_list}
+/* 清空串列 */
+nums.clear();
 
-[file]{list}-[region]{append_element}
+/* 在尾部新增元素 */
+nums.add(1);
+nums.add(3);
+nums.add(2);
+nums.add(5);
+nums.add(4);
 
-[file]{list}-[region]{insert_element}
+/* 在中間插入元素 */
+nums.add(3, 6);    // 在索引 3 處插入數字 6
 
-[file]{list}-[region]{remove_element}
+/* 刪除元素 */
+nums.removeAt(3);  // 刪除索引 3 處的元素
 ```
 
 ```ruby title="list.rb"
-[file]{list}-[region]{clear_list}
+# 清空串列
+nums.clear
 
-[file]{list}-[region]{append_element}
+# 在尾部新增元素
+nums << 1
+nums << 3
+nums << 2
+nums << 5
+nums << 4
 
-[file]{list}-[region]{insert_element}
+# 在中間插入元素
+nums.insert(3, 6) # 在索引 3 處插入數字 6
 
-[file]{list}-[region]{remove_element}
+# 刪除元素
+nums.delete_at(3) # 刪除索引 3 處的元素
 ```
 
 <!-- [tutor]{insert_remove_element_tutor} -->
@@ -316,43 +433,139 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{iterate_list} -->
 ```python title="list.py"
-[file]{list}-[region]{iterate_list}
+# 透過索引走訪串列
+count = 0
+for i in range(len(nums)):
+    count += nums[i]
+
+# 直接走訪串列元素
+for num in nums:
+    count += num
 ```
 
 ```cpp title="list.cpp"
-[file]{list}-[region]{iterate_list}
+/* 透過索引走訪串列 */
+int count = 0;
+for (int i = 0; i < nums.size(); i++) {
+    count += nums[i];
+}
+
+/* 直接走訪串列元素 */
+count = 0;
+for (int num : nums) {
+    count += num;
+}
 ```
 
 ```java title="list.java"
-[file]{list}-[region]{iterate_list}
+/* 透過索引走訪串列 */
+int count = 0;
+for (int i = 0; i < nums.size(); i++) {
+    count += nums.get(i);
+}
+
+/* 直接走訪串列元素 */
+for (int num : nums) {
+    count += num;
+}
 ```
 
 ```csharp title="list.cs"
-[file]{list}-[region]{iterate_list}
+/* 透過索引走訪串列 */
+int count = 0;
+for (int i = 0; i < nums.Count; i++) {
+    count += nums[i];
+}
+
+/* 直接走訪串列元素 */
+count = 0;
+foreach (int num in nums) {
+    count += num;
+}
 ```
 
 ```go title="list_test.go"
-[file]{list_test}-[region]{iterate_list}
+/* 透過索引走訪串列 */
+count := 0
+for i := 0; i < len(nums); i++ {
+    count += nums[i]
+}
+
+/* 直接走訪串列元素 */
+count = 0
+for _, num := range nums {
+    count += num
+}
 ```
 
 ```swift title="list.swift"
-[file]{list}-[region]{iterate_list}
+/* 透過索引走訪串列 */
+var count = 0
+for i in nums.indices {
+    count += nums[i]
+}
+
+/* 直接走訪串列元素 */
+count = 0
+for num in nums {
+    count += num
+}
 ```
 
 ```javascript title="list.js"
-[file]{list}-[region]{iterate_list}
+/* 透過索引走訪串列 */
+let count = 0;
+for (let i = 0; i < nums.length; i++) {
+    count += nums[i];
+}
+
+/* 直接走訪串列元素 */
+count = 0;
+for (const num of nums) {
+    count += num;
+}
 ```
 
 ```typescript title="list.ts"
-[file]{list}-[region]{iterate_list}
+/* 透過索引走訪串列 */
+let count = 0;
+for (let i = 0; i < nums.length; i++) {
+    count += nums[i];
+}
+
+/* 直接走訪串列元素 */
+count = 0;
+for (const num of nums) {
+    count += num;
+}
 ```
 
 ```dart title="list.dart"
-[file]{list}-[region]{iterate_list}
+/* 透過索引走訪串列 */
+int count = 0;
+for (var i = 0; i < nums.length; i++) {
+    count += nums[i];
+}
+
+/* 直接走訪串列元素 */
+count = 0;
+for (var num in nums) {
+    count += num;
+}
 ```
 
 ```rust title="list.rs"
-[file]{list}-[region]{iterate_list}
+// 透過索引走訪串列
+let mut _count = 0;
+for i in 0..nums.len() {
+    _count += nums[i];
+}
+
+// 直接走訪串列元素
+_count = 0;
+for num in &nums {
+    _count += num;
+}
 ```
 
 ```c title="list.c"
@@ -360,11 +573,30 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 ```
 
 ```kotlin title="list.kt"
-[file]{list}-[region]{iterate_list}
+/* 透過索引走訪串列 */
+var count = 0
+for (i in nums.indices) {
+    count += nums[i]
+}
+
+/* 直接走訪串列元素 */
+for (num in nums) {
+    count += num
+}
 ```
 
 ```ruby title="list.rb"
-[file]{list}-[region]{iterate_list}
+# 透過索引走訪串列
+count = 0
+for i in 0...nums.length
+    count += nums[i]
+end
+
+# 直接走訪串列元素
+count = 0
+for num in nums
+    count += num
+end
 ```
 
 <!-- [tutor]{iterate_list_tutor} -->
@@ -372,43 +604,64 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{concat_list} -->
 ```python title="list.py"
-[file]{list}-[region]{concat_list}
+# 拼接兩個串列
+nums1: list[int] = [6, 8, 7, 10, 9]
+nums += nums1  # 將串列 nums1 拼接到 nums 之後
 ```
 
 ```cpp title="list.cpp"
-[file]{list}-[region]{concat_list}
+/* 拼接兩個串列 */
+vector<int> nums1 = { 6, 8, 7, 10, 9 };
+// 將串列 nums1 拼接到 nums 之後
+nums.insert(nums.end(), nums1.begin(), nums1.end());
 ```
 
 ```java title="list.java"
-[file]{list}-[region]{concat_list}
+/* 拼接兩個串列 */
+List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
+nums.addAll(nums1);  // 將串列 nums1 拼接到 nums 之後
 ```
 
 ```csharp title="list.cs"
-[file]{list}-[region]{concat_list}
+/* 拼接兩個串列 */
+List<int> nums1 = [6, 8, 7, 10, 9];
+nums.AddRange(nums1);  // 將串列 nums1 拼接到 nums 之後
 ```
 
 ```go title="list_test.go"
-[file]{list_test}-[region]{concat_list}
+/* 拼接兩個串列 */
+nums1 := []int{6, 8, 7, 10, 9}
+nums = append(nums, nums1...)  // 將串列 nums1 拼接到 nums 之後
 ```
 
 ```swift title="list.swift"
-[file]{list}-[region]{concat_list}
+/* 拼接兩個串列 */
+let nums1 = [6, 8, 7, 10, 9]
+nums.append(contentsOf: nums1) // 將串列 nums1 拼接到 nums 之後
 ```
 
 ```javascript title="list.js"
-[file]{list}-[region]{concat_list}
+/* 拼接兩個串列 */
+const nums1 = [6, 8, 7, 10, 9];
+nums.push(...nums1);  // 將串列 nums1 拼接到 nums 之後
 ```
 
 ```typescript title="list.ts"
-[file]{list}-[region]{concat_list}
+/* 拼接兩個串列 */
+const nums1: number[] = [6, 8, 7, 10, 9];
+nums.push(...nums1);  // 將串列 nums1 拼接到 nums 之後
 ```
 
 ```dart title="list.dart"
-[file]{list}-[region]{concat_list}
+/* 拼接兩個串列 */
+List<int> nums1 = [6, 8, 7, 10, 9];
+nums.addAll(nums1);  // 將串列 nums1 拼接到 nums 之後
 ```
 
 ```rust title="list.rs"
-[file]{list}-[region]{concat_list}
+/* 拼接兩個串列 */
+let nums1: Vec<i32> = vec![6, 8, 7, 10, 9];
+nums.extend(nums1);
 ```
 
 ```c title="list.c"
@@ -416,11 +669,15 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 ```
 
 ```kotlin title="list.kt"
-[file]{list}-[region]{concat_list}
+/* 拼接兩個串列 */
+val nums1 = intArrayOf(6, 8, 7, 10, 9).toMutableList()
+nums.addAll(nums1)  // 將串列 nums1 拼接到 nums 之後
 ```
 
 ```ruby title="list.rb"
-[file]{list}-[region]{concat_list}
+# 拼接兩個串列
+nums1 = [6, 8, 7, 10, 9]
+nums += nums1
 ```
 
 <!-- [tutor]{concat_list_tutor} -->
@@ -428,43 +685,53 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{sort_list} -->
 ```python title="list.py"
-[file]{list}-[region]{sort_list}
+# 排序串列
+nums.sort()  # 排序後，串列元素從小到大排列
 ```
 
 ```cpp title="list.cpp"
-[file]{list}-[region]{sort_list}
+/* 排序串列 */
+sort(nums.begin(), nums.end());  // 排序後，串列元素從小到大排列
 ```
 
 ```java title="list.java"
-[file]{list}-[region]{sort_list}
+/* 排序串列 */
+Collections.sort(nums);  // 排序後，串列元素從小到大排列
 ```
 
 ```csharp title="list.cs"
-[file]{list}-[region]{sort_list}
+/* 排序串列 */
+nums.Sort(); // 排序後，串列元素從小到大排列
 ```
 
 ```go title="list_test.go"
-[file]{list_test}-[region]{sort_list}
+/* 排序串列 */
+sort.Ints(nums)  // 排序後，串列元素從小到大排列
 ```
 
 ```swift title="list.swift"
-[file]{list}-[region]{sort_list}
+/* 排序串列 */
+nums.sort() // 排序後，串列元素從小到大排列
 ```
 
 ```javascript title="list.js"
-[file]{list}-[region]{sort_list}
+/* 排序串列 */
+nums.sort((a, b) => a - b);  // 排序後，串列元素從小到大排列
 ```
 
 ```typescript title="list.ts"
-[file]{list}-[region]{sort_list}
+/* 排序串列 */
+nums.sort((a, b) => a - b);  // 排序後，串列元素從小到大排列
 ```
 
 ```dart title="list.dart"
-[file]{list}-[region]{sort_list}
+/* 排序串列 */
+nums.sort(); // 排序後，串列元素從小到大排列
 ```
 
 ```rust title="list.rs"
-[file]{list}-[region]{sort_list}
+/* 排序串列 */
+nums.sort(); // 排序後，串列元素從小到大排列
 ```
 
 ```c title="list.c"
@@ -472,11 +739,13 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 ```
 
 ```kotlin title="list.kt"
-[file]{list}-[region]{sort_list}
+/* 排序串列 */
+nums.sort() // 排序後，串列元素從小到大排列
 ```
 
 ```ruby title="list.rb"
-[file]{list}-[region]{sort_list}
+# 排序串列
+nums = nums.sort { |a, b| a <=> b } # 排序後，串列元素從小到大排列
 ```
 
 <!-- [tutor]{sort_list_tutor} -->

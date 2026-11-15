@@ -4,7 +4,6 @@
 
 package chapter_heap
 
-// [region]{int_heap}
 // Go 语言中可以通过实现 heap.Interface 来构建整数大顶堆
 // 实现 heap.Interface 需要同时实现 sort.Interface
 type intHeap []any
@@ -44,5 +43,3 @@ func (h *intHeap) Swap(i, j int) {
 func (h *intHeap) Top() any {
 	return (*h)[0]
 }
-
-// [endregion]{int_heap}

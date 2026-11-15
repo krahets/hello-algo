@@ -4,7 +4,6 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-// [region]{tree_node}
 /* 二分木のノード */
 class TreeNode {
     val: number; // ノードの値
@@ -23,7 +22,6 @@ class TreeNode {
         this.right = right === undefined ? null : right;
     }
 }
-// [endregion]{tree_node}
 
 /* 配列をデシリアライズして二分木にする */
 function arrToTree(arr: (number | null)[], i: number = 0): TreeNode | null {

@@ -5,16 +5,14 @@ Author: krahets (krahets@163.com)
 """
 
 
-# [region]{doubly_list_node}
 class ListNode:
     """双方向連結リストのノード"""
 
     def __init__(self, val: int):
         """コンストラクタ"""
-        self.val: int = val  # ノードの値
+        self.val: int = val
         self.next: ListNode | None = None  # 後続ノードへの参照
         self.prev: ListNode | None = None  # 前のノードへの参照
-# [endregion]{doubly_list_node}
 
 
 class LinkedListDeque:

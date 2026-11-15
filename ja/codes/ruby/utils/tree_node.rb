@@ -4,7 +4,6 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# [region]{tree_node}
 ### 二分木のノードクラス ###
 class TreeNode
   attr_accessor :val    # ノードの値
@@ -17,7 +16,6 @@ class TreeNode
     @height = 0
   end
 end
-# [endregion]{tree_node}
 
 ### リストをデシリアライズして二分木にする：再帰 ###
 def arr_to_tree_dfs(arr, i)

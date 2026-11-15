@@ -4,12 +4,11 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-// [region]{tree_node}
 /* 二分木のノードクラス */
 public class TreeNode {
-    public var val: Int         // ノードの値
-    public var height: Int      // ノードの高さ
-    public var left: TreeNode?  // 左の子ノードへの参照
+    public var val: Int // ノードの値
+    public var height: Int // ノードの高さ
+    public var left: TreeNode? // 左の子ノードへの参照
     public var right: TreeNode? // 右の子ノードへの参照
 
     /* コンストラクタ */
@@ -17,7 +16,6 @@ public class TreeNode {
         val = x
         height = 0
     }
-// [endregion]{tree_node}
 
     // シリアライズの符号化規則は次を参照：
     // https://www.hello-algo.com/ja/chapter_tree/array_representation_of_tree/
@@ -70,6 +68,4 @@ public class TreeNode {
         treeToListDFS(root: root, i: 0, res: &res)
         return res
     }
-// [region]{tree_node_end}
 }
-// [endregion]{tree_node_end}

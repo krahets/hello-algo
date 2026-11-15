@@ -8,10 +8,9 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-// [region]{doubly_list_node}
 /* Doubly linked list node */
 class ListNode {
-    int val;       // Node value
+    int val; // Node value
     ListNode next; // Reference to the next node
     ListNode prev; // Reference to the previous node
 
@@ -20,7 +19,6 @@ class ListNode {
         prev = next = null;
     }
 }
-// [endregion]{doubly_list_node}
 
 /* Deque implemented with a doubly linked list */
 class LinkedListDeque {

@@ -6,12 +6,9 @@
 
 use hello_algo_rust::include::print_util;
 
-// [region]{import}
 use std::cell::RefCell;
 use std::rc::Rc;
-// [endregion]{import}
 
-// [region]{doubly_list_node}
 /* 이중 연결 리스트 노드 */
 pub struct ListNode<T> {
     pub val: T,                                 // 노드 값
@@ -28,7 +25,6 @@ impl<T> ListNode<T> {
         }))
     }
 }
-// [endregion]{doubly_list_node}
 
 /* 이중 연결 리스트로 구현한 덱 */
 #[allow(dead_code)]

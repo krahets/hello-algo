@@ -54,8 +54,7 @@ func find(head: ListNode, target: Int) -> Int {
 enum LinkedList {
     /* 실행 코드 */
     static func main() {
-        // [region]{init_linked_list}
-        /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
+        /* 연결 리스트 초기화 */
         // 각 노드를 초기화한다
         let n0 = ListNode(x: 1)
         let n1 = ListNode(x: 3)
@@ -67,7 +66,6 @@ enum LinkedList {
         n1.next = n2
         n2.next = n3
         n3.next = n4
-        // [endregion]{init_linked_list}
         print("초기화한 연결 리스트")
         PrintUtil.printLinkedList(head: n0)
 

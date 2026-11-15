@@ -7,7 +7,6 @@ Author: krahets (krahets@163.com)
 from collections import deque
 
 
-# [region]{tree_node}
 class TreeNode:
     """Класс узла двоичного дерева"""
 
@@ -16,7 +15,6 @@ class TreeNode:
         self.height: int = 0  # Высота узла
         self.left: TreeNode | None = None  # Ссылка на левый дочерний узел
         self.right: TreeNode | None = None  # Ссылка на правый дочерний узел
-# [endregion]{tree_node}
 
     # Правила кодирования сериализации см.:
     # https://www.hello-algo.com/chapter_tree/array_representation_of_tree/

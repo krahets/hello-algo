@@ -4,7 +4,6 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-// [region]{tree_node}
 /* 二分木のノードクラス */
 class TreeNode {
   int val; // ノードの値
@@ -15,7 +14,6 @@ class TreeNode {
   /* コンストラクタ */
   TreeNode(this.val, [this.height = 0, this.left, this.right]);
 }
-// [endregion]{tree_node}
 
 /* リストから二分木へデシリアライズ：再帰 */
 TreeNode? listToTreeDFS(List<int?> arr, int i) {

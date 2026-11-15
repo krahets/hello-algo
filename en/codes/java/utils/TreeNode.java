@@ -8,19 +8,17 @@ package utils;
 
 import java.util.*;
 
-// [region]{tree_node}
 /* Binary tree node class */
 public class TreeNode {
-    public int val;        // Node value
-    public int height;     // Node height
-    public TreeNode left;  // Reference to the left child
+    public int val; // Node value
+    public int height; // Node height
+    public TreeNode left; // Reference to the left child
     public TreeNode right; // Reference to the right child
 
     /* Constructor */
     public TreeNode(int x) {
         val = x;
     }
-// [endregion]{tree_node}
 
     // For the serialization rules, see:
     // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
@@ -72,6 +70,4 @@ public class TreeNode {
         treeToListDFS(root, 0, res);
         return res;
     }
-// [region]{tree_node_end}
 }
-// [endregion]{tree_node_end}

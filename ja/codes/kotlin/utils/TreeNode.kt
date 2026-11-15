@@ -6,16 +6,14 @@
 
 package utils
 
-// [region]{tree_node}
 /* 二分木のノードクラス */
 /* コンストラクタ */
 class TreeNode(
     var _val: Int // ノードの値
 ) {
-    var height: Int = 0         // ノードの高さ
-    var left: TreeNode? = null  // 左の子ノードへの参照
+    var height: Int = 0 // ノードの高さ
+    var left: TreeNode? = null // 左の子ノードへの参照
     var right: TreeNode? = null // 右の子ノードへの参照
-// [endregion]{tree_node}
 
     // シリアライズの符号化規則は次を参照：
     // https://www.hello-algo.com/ja/chapter_tree/array_representation_of_tree/
@@ -68,6 +66,4 @@ class TreeNode(
             return res
         }
     }
-// [region]{tree_node_end}
 }
-// [endregion]{tree_node_end}

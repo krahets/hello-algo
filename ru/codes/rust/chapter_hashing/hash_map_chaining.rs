@@ -145,11 +145,7 @@ pub fn main() {
     /* Операция поиска */
     // Ввести в хеш-таблицу ключ key и получить значение value
     println!(
-        "\nПо номеру 13276 найдено имя {}",
-        match map.get(13276) {
-            Some(value) => value,
-            None => "Not a valid Key",
-        }
+        "\nПо номеру 13276 найдено имя {}",\nmatch map.get(13276) {\n    Some(value) => value,\n    None => "Not a valid Key",\n}
     );
 
     /* Операция удаления */

@@ -13,47 +13,35 @@ import (
 )
 
 func TestQueue(t *testing.T) {
-	// [region]{init_queue}
 	/* キューを初期化する */
 	// Go では list をキューとして使う
 	queue := list.New()
-	// [endregion]{init_queue}
 
-	// [region]{push}
 	/* 要素をエンキューする */
 	queue.PushBack(1)
 	queue.PushBack(3)
 	queue.PushBack(2)
 	queue.PushBack(5)
 	queue.PushBack(4)
-	// [endregion]{push}
 	fmt.Print("キュー queue = ")
 	PrintList(queue)
 
-	// [region]{peek}
 	/* キューの先頭要素にアクセス */
 	peek := queue.Front()
-	// [endregion]{peek}
 	fmt.Println("キューの先頭要素 peek =", peek.Value)
 
-	// [region]{pop}
 	/* 要素をデキューする */
 	pop := queue.Front()
 	queue.Remove(pop)
-	// [endregion]{pop}
 	fmt.Print("デキューした要素 pop = ", pop.Value, "、デキュー後 queue = ")
 	PrintList(queue)
 
-	// [region]{size}
 	/* キューの長さを取得 */
 	size := queue.Len()
-	// [endregion]{size}
 	fmt.Println("キューの長さ size =", size)
 
-	// [region]{is_empty}
 	/* キューが空か判定 */
 	isEmpty := queue.Len() == 0
-	// [endregion]{is_empty}
 	fmt.Println("キューは空か =", isEmpty)
 }
 

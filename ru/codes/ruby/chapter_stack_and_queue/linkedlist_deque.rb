@@ -4,10 +4,9 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# [region]{doubly_list_node}
 ### Узел двусвязного списка
 class ListNode
-  attr_accessor :val  # Значение узла
+  attr_accessor :val
   attr_accessor :next # Ссылка на узел-преемник
   attr_accessor :prev # Ссылка на узел-предшественник
 
@@ -16,7 +15,6 @@ class ListNode
     @val = val
   end
 end
-# [endregion]{doubly_list_node}
 
 ### Двусторонняя очередь на основе двусвязного списка ###
 class LinkedListDeque

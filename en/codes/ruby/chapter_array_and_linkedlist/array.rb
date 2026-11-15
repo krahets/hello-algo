@@ -77,12 +77,10 @@ end
 
 ### Driver code ###
 if __FILE__ == $0
-  # [region]{init_array}
   # Initialize the array
   arr = Array.new(5, 0)
-  nums = [1, 3, 2, 5, 4]
-  # [endregion]{init_array}
   puts "Array arr = #{arr}"
+  nums = [1, 3, 2, 5, 4]
   puts "Array nums = #{nums}"
 
   # Random access

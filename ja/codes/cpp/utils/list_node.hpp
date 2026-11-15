@@ -11,15 +11,13 @@
 
 using namespace std;
 
-// [region]{list_node}
 /* 連結リストのノード */
 struct ListNode {
-    int val;        // ノードの値
-    ListNode *next; // 後続ノードへのポインタ
+    int val;
+    ListNode *next;
     ListNode(int x) : val(x), next(nullptr) {
     }
 };
-// [endregion]{list_node}
 
 /* リストをデシリアライズして連結リストにする */
 ListNode *vecToLinkedList(vector<int> list) {

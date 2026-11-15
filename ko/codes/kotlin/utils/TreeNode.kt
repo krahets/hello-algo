@@ -6,16 +6,14 @@
 
 package utils
 
-// [region]{tree_node}
 /* 이진 트리 노드 클래스 */
 /* 생성자 */
 class TreeNode(
     var _val: Int // 노드 값
 ) {
-    var height: Int = 0         // 노드 높이
-    var left: TreeNode? = null  // 왼쪽 자식 노드 참조
+    var height: Int = 0 // 노드 높이
+    var left: TreeNode? = null // 왼쪽 자식 노드 참조
     var right: TreeNode? = null // 오른쪽 자식 노드 참조
-// [endregion]{tree_node}
 
     // 직렬화 인코딩 규칙은 다음을 참고한다:
     // https://www.hello-algo.com/ko/chapter_tree/array_representation_of_tree/
@@ -68,6 +66,4 @@ class TreeNode(
             return res
         }
     }
-// [region]{tree_node_end}
 }
-// [endregion]{tree_node_end}

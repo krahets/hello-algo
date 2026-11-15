@@ -13,47 +13,35 @@ import (
 )
 
 func TestQueue(t *testing.T) {
-	// [region]{init_queue}
 	/* 큐 초기화 */
 	// Go에서는 list를 큐로 사용한다
 	queue := list.New()
-	// [endregion]{init_queue}
 
-	// [region]{push}
 	/* 큐에 원소 삽입 */
 	queue.PushBack(1)
 	queue.PushBack(3)
 	queue.PushBack(2)
 	queue.PushBack(5)
 	queue.PushBack(4)
-	// [endregion]{push}
 	fmt.Print("큐 queue = ")
 	PrintList(queue)
 
-	// [region]{peek}
 	/* 맨 앞 원소 접근 */
 	peek := queue.Front()
-	// [endregion]{peek}
 	fmt.Println("맨 앞 원소 peek =", peek.Value)
 
-	// [region]{pop}
 	/* 큐에서 원소 꺼내기 */
 	pop := queue.Front()
 	queue.Remove(pop)
-	// [endregion]{pop}
 	fmt.Print("큐에서 꺼낸 원소 pop = ", pop.Value, ", 큐에서 꺼낸 후 queue = ")
 	PrintList(queue)
 
-	// [region]{size}
 	/* 큐의 길이 반환 */
 	size := queue.Len()
-	// [endregion]{size}
 	fmt.Println("큐 길이 size =", size)
 
-	// [region]{is_empty}
 	/* 큐가 비어 있는지 판단 */
 	isEmpty := queue.Len() == 0
-	// [endregion]{is_empty}
 	fmt.Println("큐가 비어 있는가 =", isEmpty)
 }
 

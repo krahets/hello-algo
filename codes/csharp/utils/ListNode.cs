@@ -4,12 +4,10 @@
 
 namespace hello_algo.utils;
 
-// [region]{list_node}
 /* 链表节点 */
 public class ListNode(int x) {
-    public int val = x;    // 节点值
-    public ListNode? next; // 指向下一节点的引用
-// [endregion]{list_node}
+    public int val = x;
+    public ListNode? next;
 
     /* 将数组反序列化为链表 */
     public static ListNode? ArrToLinkedList(int[] arr) {
@@ -31,6 +29,4 @@ public class ListNode(int x) {
         }
         return string.Join("->", list);
     }
-// [region]{list_node_end}
 }
-// [endregion]{list_node_end}

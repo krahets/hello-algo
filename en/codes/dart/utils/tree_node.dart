@@ -4,7 +4,6 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-// [region]{tree_node}
 /* Binary tree node class */
 class TreeNode {
   int val; // Node value
@@ -15,7 +14,6 @@ class TreeNode {
   /* Constructor */
   TreeNode(this.val, [this.height = 0, this.left, this.right]);
 }
-// [endregion]{tree_node}
 
 /* Deserialize a list into a binary tree: recursion */
 TreeNode? listToTreeDFS(List<int?> arr, int i) {

@@ -4,7 +4,6 @@
 
 package pkg
 
-// [region]{tree_node}
 // TreeNode: узел двоичного дерева
 type TreeNode struct {
 	Val    any       // Значение узла
@@ -22,8 +21,6 @@ func NewTreeNode(v any) *TreeNode {
 		Right:  nil,
 	}
 }
-
-// [endregion]{tree_node}
 
 // Правила кодирования сериализации см.:
 // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/

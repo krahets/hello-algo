@@ -5,14 +5,12 @@ Author: krahets (krahets@163.com)
 """
 
 
-# [region]{list_node}
 class ListNode:
     """链表节点类"""
 
     def __init__(self, val: int):
         self.val: int = val  # 节点值
-        self.next: ListNode | None = None  # 指向下一节点的引用
-# [endregion]{list_node}
+        self.next: ListNode | None = None  # 后继节点引用
 
 
 def list_to_linked_list(arr: list[int]) -> ListNode | None:

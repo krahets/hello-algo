@@ -11,7 +11,6 @@
 extern "C" {
 #endif
 
-// [region]{list_node}
 /* Linked list node structure */
 typedef struct ListNode {
     int val;               // Node value
@@ -26,7 +25,6 @@ ListNode *newListNode(int val) {
     node->next = NULL;
     return node;
 }
-// [endregion]{list_node}
 
 /* Deserialize an array into a linked list */
 ListNode *arrToLinkedList(const int *arr, size_t size) {

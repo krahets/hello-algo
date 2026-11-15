@@ -49,8 +49,7 @@ int find(ListNode *head, int target) {
 
 /* Driver Code */
 int main() {
-    // [region]{init_linked_list}
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    /* 初始化链表 */
     // 初始化各个节点
     ListNode *n0 = new ListNode(1);
     ListNode *n1 = new ListNode(3);
@@ -62,7 +61,6 @@ int main() {
     n1->next = n2;
     n2->next = n3;
     n3->next = n4;
-    // [endregion]{init_linked_list}
     cout << "初始化的链表为" << endl;
     printLinkedList(n0);
 

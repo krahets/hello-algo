@@ -5,16 +5,14 @@ Author: krahets (krahets@163.com)
 """
 
 
-# [region]{doubly_list_node}
 class ListNode:
     """雙向鏈結串列節點"""
 
     def __init__(self, val: int):
         """建構子"""
-        self.val: int = val  # 節點值
+        self.val: int = val
         self.next: ListNode | None = None  # 後繼節點引用
         self.prev: ListNode | None = None  # 前驅節點引用
-# [endregion]{doubly_list_node}
 
 
 class LinkedListDeque:

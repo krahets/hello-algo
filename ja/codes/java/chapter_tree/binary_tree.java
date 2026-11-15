@@ -10,7 +10,6 @@ import utils.*;
 
 public class binary_tree {
     public static void main(String[] args) {
-        // [region]{init_binary_tree}
         /* 二分木を初期化する */
         // ノードを初期化する
         TreeNode n1 = new TreeNode(1);
@@ -23,23 +22,18 @@ public class binary_tree {
         n1.right = n3;
         n2.left = n4;
         n2.right = n5;
-        // [endregion]{init_binary_tree}
         System.out.println("\n二分木を初期化する\n");
         PrintUtil.printTree(n1);
 
-        // [region]{insert_node}
         /* ノードの挿入と削除 */
         TreeNode P = new TreeNode(0);
         // n1 -> n2 の間にノード P を挿入する
         n1.left = P;
         P.left = n2;
-        // [endregion]{insert_node}
         System.out.println("\nノード P の挿入後\n");
         PrintUtil.printTree(n1);
-        // [region]{remove_node}
         // ノード P を削除する
         n1.left = n2;
-        // [endregion]{remove_node}
         System.out.println("\nノード P の削除後\n");
         PrintUtil.printTree(n1);
     }

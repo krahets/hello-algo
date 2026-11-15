@@ -15,7 +15,6 @@ extern "C" {
 
 #define MAX_NODE_SIZE 5000
 
-// [region]{tree_node}
 /* 二叉树节点结构体 */
 typedef struct TreeNode {
     int val;                // 节点值
@@ -35,7 +34,6 @@ TreeNode *newTreeNode(int val) {
     node->right = NULL;
     return node;
 }
-// [endregion]{tree_node}
 
 // 序列化编码规则请参考：
 // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/

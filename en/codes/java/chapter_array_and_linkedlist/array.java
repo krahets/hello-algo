@@ -73,12 +73,10 @@ public class array {
 
     /* Driver code */
     public static void main(String[] args) {
-        // [region]{init_array}
         /* Initialize the array */
-        int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
-        int[] nums = { 1, 3, 2, 5, 4 };
-        // [endregion]{init_array}
+        int[] arr = new int[5];
         System.out.println("Array arr = " + Arrays.toString(arr));
+        int[] nums = { 1, 3, 2, 5, 4 };
         System.out.println("Array nums = " + Arrays.toString(nums));
 
         /* Random access */

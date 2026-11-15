@@ -52,8 +52,7 @@ fun find(head: ListNode?, target: Int): Int {
 
 /* Driver Code */
 fun main() {
-    // [region]{init_linked_list}
-    /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
+    /* Инициализация связного списка */
     // Инициализация всех узлов
     val n0 = ListNode(1)
     val n1 = ListNode(3)
@@ -66,7 +65,6 @@ fun main() {
     n1.next = n2
     n2.next = n3
     n3.next = n4
-    // [endregion]{init_linked_list}
     println("Исходный связный список")
     printLinkedList(n0)
 

@@ -7,7 +7,6 @@ Author: krahets (krahets@163.com)
 from collections import deque
 
 
-# [region]{tree_node}
 class TreeNode:
     """二分木のノードクラス"""
 
@@ -16,7 +15,6 @@ class TreeNode:
         self.height: int = 0  # ノードの高さ
         self.left: TreeNode | None = None  # 左の子ノードへの参照
         self.right: TreeNode | None = None  # 右の子ノードへの参照
-# [endregion]{tree_node}
 
     # シリアライズの符号化規則は次を参照：
     # https://www.hello-algo.com/ja/chapter_tree/array_representation_of_tree/

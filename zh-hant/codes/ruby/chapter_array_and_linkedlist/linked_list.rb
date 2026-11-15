@@ -49,8 +49,7 @@ end
 
 ### Driver Code ###
 if __FILE__ == $0
-  # [region]{init_linked_list}
-  # 初始化鏈結串列 1 -> 3 -> 2 -> 5 -> 4
+  # 初始化鏈結串列
   # 初始化各個節點
   n0 = ListNode.new(1)
   n1 = ListNode.new(3)
@@ -62,7 +61,6 @@ if __FILE__ == $0
   n1.next = n2
   n2.next = n3
   n3.next = n4
-  # [endregion]{init_linked_list}
   puts "初始化的鏈結串列為"
   print_linked_list(n0)
 
