@@ -130,25 +130,7 @@ impl TreeNode {
 ```
 
 ```c title=""
-/* Структура узла двоичного дерева */
-typedef struct TreeNode {
-    int val;                // Значение узла
-    int height;             // Высота узла
-    struct TreeNode *left;  // Указатель на левого дочернего узла
-    struct TreeNode *right; // Указатель на правого дочернего узла
-} TreeNode;
-
-/* Конструктор */
-TreeNode *newTreeNode(int val) {
-    TreeNode *node;
-
-    node = (TreeNode *)malloc(sizeof(TreeNode));
-    node->val = val;
-    node->height = 0;
-    node->left = NULL;
-    node->right = NULL;
-    return node;
-}
+[file]{utils/tree_node.h}-[region]{tree_node}
 ```
 
 ```kotlin title=""

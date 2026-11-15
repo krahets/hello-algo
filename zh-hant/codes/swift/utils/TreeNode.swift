@@ -4,11 +4,12 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
+// [region]{tree_node}
 /* 二元樹節點類別 */
 public class TreeNode {
-    public var val: Int // 節點值
-    public var height: Int // 節點高度
-    public var left: TreeNode? // 左子節點引用
+    public var val: Int         // 節點值
+    public var height: Int      // 節點高度
+    public var left: TreeNode?  // 左子節點引用
     public var right: TreeNode? // 右子節點引用
 
     /* 建構子 */
@@ -16,6 +17,7 @@ public class TreeNode {
         val = x
         height = 0
     }
+// [endregion]{tree_node}
 
     // 序列化編碼規則請參考：
     // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
@@ -68,4 +70,6 @@ public class TreeNode {
         treeToListDFS(root: root, i: 0, res: &res)
         return res
     }
+// [region]{tree_node_end}
 }
+// [endregion]{tree_node_end}

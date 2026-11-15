@@ -4,6 +4,7 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
+# [region]{tree_node}
 ### Binary tree node class ###
 class TreeNode
   attr_accessor :val    # Node value
@@ -16,6 +17,7 @@ class TreeNode
     @height = 0
   end
 end
+# [endregion]{tree_node}
 
 ### Deserialize a list into a binary tree: recursion ###
 def arr_to_tree_dfs(arr, i)

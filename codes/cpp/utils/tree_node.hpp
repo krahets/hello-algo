@@ -11,17 +11,19 @@
 
 using namespace std;
 
+// [region]{tree_node}
 /* 二叉树节点结构体 */
 struct TreeNode {
-    int val{};
-    int height = 0;
+    int val{};         // 节点值
+    int height = 0;    // 节点高度
     TreeNode *parent{};
-    TreeNode *left{};
-    TreeNode *right{};
+    TreeNode *left{};  // 左子节点指针
+    TreeNode *right{}; // 右子节点指针
     TreeNode() = default;
     explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {
     }
 };
+// [endregion]{tree_node}
 
 // 序列化编码规则请参考：
 // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/

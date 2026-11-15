@@ -4,17 +4,20 @@
  * Author: xBLACKICEx (xBLACKICE@outlook.com), night-cruise (2586447362@qq.com)
  */
 
+// [region]{import}
 use std::cell::RefCell;
 use std::rc::Rc;
+// [endregion]{import}
 
+// [region]{tree_node}
 /* 二分木のノードの型 */
 #[derive(Debug)]
 pub struct TreeNode {
-    pub val: i32,
-    pub height: i32,
+    pub val: i32,                               // ノードの値
+    pub height: i32,                            // ノードの高さ
     pub parent: Option<Rc<RefCell<TreeNode>>>,
-    pub left: Option<Rc<RefCell<TreeNode>>>,
-    pub right: Option<Rc<RefCell<TreeNode>>>,
+    pub left: Option<Rc<RefCell<TreeNode>>>,    // 左の子ノードへのポインタ
+    pub right: Option<Rc<RefCell<TreeNode>>>,   // 右の子ノードへのポインタ
 }
 
 impl TreeNode {
@@ -29,6 +32,7 @@ impl TreeNode {
         }))
     }
 }
+// [endregion]{tree_node}
 
 #[macro_export]
 macro_rules! op_vec {

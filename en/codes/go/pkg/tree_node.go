@@ -4,6 +4,7 @@
 
 package pkg
 
+// [region]{tree_node}
 // TreeNode represents a binary tree node.
 type TreeNode struct {
 	Val    any       // Node value
@@ -21,6 +22,8 @@ func NewTreeNode(v any) *TreeNode {
 		Right:  nil,
 	}
 }
+
+// [endregion]{tree_node}
 
 // For the serialization rules, see:
 // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/

@@ -18,7 +18,7 @@ An AVL tree is both a binary search tree and a balanced binary tree, satisfying 
 
 ### Node height
 
-AVL operations need node heights, so add a `height` variable to the node class:
+AVL operations need node heights, so add a `height` variable to the node class. All chapters of this book's source code share one binary tree node class, which already includes it:
 
 ```snippet
 avl_tree_node

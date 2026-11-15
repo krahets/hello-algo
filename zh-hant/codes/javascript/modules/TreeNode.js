@@ -4,12 +4,13 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
+// [region]{tree_node}
 /* 二元樹節點 */
 class TreeNode {
     val; // 節點值
     left; // 左子節點指標
     right; // 右子節點指標
-    height; //節點高度
+    height; // 節點高度
     constructor(val, left, right, height) {
         this.val = val === undefined ? 0 : val;
         this.left = left === undefined ? null : left;
@@ -17,6 +18,7 @@ class TreeNode {
         this.height = height === undefined ? 0 : height;
     }
 }
+// [endregion]{tree_node}
 
 /* 將陣列反序列化為二元樹 */
 function arrToTree(arr, i = 0) {

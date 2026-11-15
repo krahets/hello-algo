@@ -6,12 +6,14 @@
 
 namespace hello_algo.utils;
 
+// [region]{tree_node}
 /* 二分木のノードクラス */
 public class TreeNode(int? x) {
     public int? val = x;    // ノードの値
     public int height;      // ノードの高さ
     public TreeNode? left;  // 左の子ノードへの参照
     public TreeNode? right; // 右の子ノードへの参照
+// [endregion]{tree_node}
 
     // シリアライズの符号化規則は次を参照：
     // https://www.hello-algo.com/ja/chapter_tree/array_representation_of_tree/
@@ -64,4 +66,6 @@ public class TreeNode(int? x) {
         TreeToListDFS(root, 0, res);
         return res;
     }
+// [region]{tree_node_end}
 }
+// [endregion]{tree_node_end}

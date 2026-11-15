@@ -8,17 +8,19 @@ package utils;
 
 import java.util.*;
 
+// [region]{tree_node}
 /* 二元樹節點類別 */
 public class TreeNode {
-    public int val; // 節點值
-    public int height; // 節點高度
-    public TreeNode left; // 左子節點引用
+    public int val;        // 節點值
+    public int height;     // 節點高度
+    public TreeNode left;  // 左子節點引用
     public TreeNode right; // 右子節點引用
 
     /* 建構子 */
     public TreeNode(int x) {
         val = x;
     }
+// [endregion]{tree_node}
 
     // 序列化編碼規則請參考：
     // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
@@ -70,4 +72,6 @@ public class TreeNode {
         treeToListDFS(root, 0, res);
         return res;
     }
+// [region]{tree_node_end}
 }
+// [endregion]{tree_node_end}
