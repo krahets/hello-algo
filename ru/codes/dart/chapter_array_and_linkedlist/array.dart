@@ -74,12 +74,10 @@ int find(List<int> nums, int target) {
 
 /* Driver Code */
 void main() {
-  // [region]{init_array}
   /* Инициализация массива */
-  var arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
-  List<int> nums = [1, 3, 2, 5, 4];
-  // [endregion]{init_array}
+  var arr = List.filled(5, 0);
   print('Массив arr = $arr');
+  List<int> nums = [1, 3, 2, 5, 4];
   print('Массив nums = $nums');
 
   /* Случайный доступ */

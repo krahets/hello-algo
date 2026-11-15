@@ -4,7 +4,6 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-// [region]{doubly_list_node}
 /* Doubly linked list node */
 class ListNode {
   int val; // Node value
@@ -13,7 +12,6 @@ class ListNode {
 
   ListNode(this.val, {this.next, this.prev});
 }
-// [endregion]{doubly_list_node}
 
 /* Deque implemented with a doubly linked list */
 class LinkedListDeque {

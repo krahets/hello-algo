@@ -10,7 +10,6 @@ import utils
 enum BinaryTree {
     /* Driver code */
     static func main() {
-        // [region]{init_binary_tree}
         /* Initialize the binary tree */
         // Initialize the nodes
         let n1 = TreeNode(x: 1)
@@ -23,23 +22,18 @@ enum BinaryTree {
         n1.right = n3
         n2.left = n4
         n2.right = n5
-        // [endregion]{init_binary_tree}
         print("\nInitialize the binary tree\n")
         PrintUtil.printTree(root: n1)
 
-        // [region]{insert_node}
         /* Insert and remove nodes */
         let P = TreeNode(x: 0)
         // Insert node P between n1 and n2 in n1 -> n2
         n1.left = P
         P.left = n2
-        // [endregion]{insert_node}
         print("\nAfter inserting node P:\n")
         PrintUtil.printTree(root: n1)
-        // [region]{remove_node}
         // Remove node P
         n1.left = n2
-        // [endregion]{remove_node}
         print("\nAfter removing node P:\n")
         PrintUtil.printTree(root: n1)
     }

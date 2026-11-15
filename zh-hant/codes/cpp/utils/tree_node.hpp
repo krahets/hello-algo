@@ -11,19 +11,17 @@
 
 using namespace std;
 
-// [region]{tree_node}
 /* 二元樹節點結構體 */
 struct TreeNode {
-    int val{};         // 節點值
-    int height = 0;    // 節點高度
+    int val{};
+    int height = 0;
     TreeNode *parent{};
-    TreeNode *left{};  // 左子節點指標
-    TreeNode *right{}; // 右子節點指標
+    TreeNode *left{};
+    TreeNode *right{};
     TreeNode() = default;
     explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {
     }
 };
-// [endregion]{tree_node}
 
 // 序列化編碼規則請參考：
 // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/

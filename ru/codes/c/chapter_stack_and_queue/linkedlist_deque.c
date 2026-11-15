@@ -6,7 +6,6 @@
 
 #include "../utils/common.h"
 
-// [region]{doubly_list_node}
 /* Узел двусвязного списка */
 typedef struct DoublyListNode {
     int val;                     // Значение узла
@@ -22,7 +21,6 @@ DoublyListNode *newDoublyListNode(int num) {
     new->prev = NULL;
     return new;
 }
-// [endregion]{doubly_list_node}
 
 /* Деструктор */
 void delDoublyListNode(DoublyListNode *node) {

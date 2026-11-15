@@ -4,7 +4,6 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-// [region]{tree_node}
 /* 二元樹節點 */
 class TreeNode {
     val: number; // 節點值
@@ -23,7 +22,6 @@ class TreeNode {
         this.right = right === undefined ? null : right;
     }
 }
-// [endregion]{tree_node}
 
 /* 將陣列反序列化為二元樹 */
 function arrToTree(arr: (number | null)[], i: number = 0): TreeNode | null {

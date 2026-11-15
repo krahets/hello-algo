@@ -4,17 +4,15 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-// [region]{list_node}
 /* Узел связного списка */
 class ListNode {
-    val: number; // Значение узла
-    next: ListNode | null; // Ссылка на следующий узел
+    val: number;
+    next: ListNode | null;
     constructor(val?: number, next?: ListNode | null) {
         this.val = val === undefined ? 0 : val;
         this.next = next === undefined ? null : next;
     }
 }
-// [endregion]{list_node}
 
 /* Десериализовать массив в связный список */
 function arrToLinkedList(arr: number[]): ListNode | null {

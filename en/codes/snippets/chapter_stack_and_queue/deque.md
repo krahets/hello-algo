@@ -1,132 +1,222 @@
 <!-- [snippet]{deque_operations} -->
 ```python title="deque.py"
-[file]{deque}-[region]{import_deque}
+from collections import deque
 
-[file]{deque}-[region]{init_deque}
+# Initialize a deque
+deq: deque[int] = deque()
 
-[file]{deque}-[region]{push}
+# Enqueue elements
+deq.append(2)      # Add at the rear
+deq.append(5)
+deq.append(4)
+deq.appendleft(3)  # Add at the front
+deq.appendleft(1)
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+# Access elements
+front: int = deq[0]  # Front element
+rear: int = deq[-1]  # Rear element
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+# Dequeue elements
+pop_front: int = deq.popleft()  # Remove the front element
+pop_rear: int = deq.pop()       # Remove the rear element
 
-[file]{deque}-[region]{size}
+# Get the deque size
+size: int = len(deq)
 
-[file]{deque}-[region]{is_empty}
+# Check whether the deque is empty
+is_empty: bool = len(deq) == 0
 ```
 
 ```cpp title="deque.cpp"
-[file]{deque}-[region]{init_deque}
+/* Initialize a deque */
+deque<int> deque;
 
-[file]{deque}-[region]{push}
+/* Enqueue elements */
+deque.push_back(2);   // Add at the rear
+deque.push_back(5);
+deque.push_back(4);
+deque.push_front(3);  // Add at the front
+deque.push_front(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* Access elements */
+int front = deque.front(); // Front element
+int back = deque.back();   // Rear element
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* Dequeue elements */
+deque.pop_front();  // Remove the front element
+deque.pop_back();   // Remove the rear element
 
-[file]{deque}-[region]{size}
+/* Get the deque size */
+int size = deque.size();
 
-[file]{deque}-[region]{is_empty}
+/* Check whether the deque is empty */
+bool empty = deque.empty();
 ```
 
 ```java title="deque.java"
-[file]{deque}-[region]{init_deque}
+/* Initialize a deque */
+Deque<Integer> deque = new LinkedList<>();
 
-[file]{deque}-[region]{push}
+/* Enqueue elements */
+deque.offerLast(2);   // Add at the rear
+deque.offerLast(5);
+deque.offerLast(4);
+deque.offerFirst(3);  // Add at the front
+deque.offerFirst(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* Access elements */
+int peekFirst = deque.peekFirst();  // Front element
+int peekLast = deque.peekLast();    // Rear element
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* Dequeue elements */
+int popFirst = deque.pollFirst();  // Remove the front element
+int popLast = deque.pollLast();    // Remove the rear element
 
-[file]{deque}-[region]{size}
+/* Get the deque size */
+int size = deque.size();
 
-[file]{deque}-[region]{is_empty}
+/* Check whether the deque is empty */
+boolean isEmpty = deque.isEmpty();
 ```
 
 ```csharp title="deque.cs"
-[file]{deque}-[region]{init_deque}
+/* Initialize a deque */
+// In C#, use a LinkedList as a deque
+LinkedList<int> deque = new();
 
-[file]{deque}-[region]{push}
+/* Enqueue elements */
+deque.AddLast(2);   // Add at the rear
+deque.AddLast(5);
+deque.AddLast(4);
+deque.AddFirst(3);  // Add at the front
+deque.AddFirst(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* Access elements */
+int peekFirst = deque.First.Value;  // Front element
+int peekLast = deque.Last.Value;    // Rear element
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* Dequeue elements */
+deque.RemoveFirst();  // Remove the front element
+deque.RemoveLast();   // Remove the rear element
 
-[file]{deque}-[region]{size}
+/* Get the deque size */
+int size = deque.Count;
 
-[file]{deque}-[region]{is_empty}
+/* Check whether the deque is empty */
+bool isEmpty = deque.Count == 0;
 ```
 
 ```go title="deque_test.go"
-[file]{deque_test}-[region]{init_deque}
+/* Initialize a deque */
+// In Go, use a list as a deque
+deque := list.New()
 
-[file]{deque_test}-[region]{push}
+/* Enqueue elements */
+deque.PushBack(2)      // Add at the rear
+deque.PushBack(5)
+deque.PushBack(4)
+deque.PushFront(3)     // Add at the front
+deque.PushFront(1)
 
-[file]{deque_test}-[region]{peek_first}
-[file]{deque_test}-[region]{peek_last}
+/* Access elements */
+front := deque.Front() // Front element
+rear := deque.Back()   // Rear element
 
-[file]{deque_test}-[region]{pop_first}
-[file]{deque_test}-[region]{pop_last}
+/* Dequeue elements */
+deque.Remove(front)    // Remove the front element
+deque.Remove(rear)     // Remove the rear element
 
-[file]{deque_test}-[region]{size}
+/* Get the deque size */
+size := deque.Len()
 
-[file]{deque_test}-[region]{is_empty}
+/* Check whether the deque is empty */
+isEmpty := deque.Len() == 0
 ```
 
 ```swift title="deque.swift"
-[file]{deque}-[region]{init_deque}
+/* Initialize a deque */
+// Swift has no built-in deque class; use an Array as a deque
+var deque: [Int] = []
 
-[file]{deque}-[region]{push}
+/* Enqueue elements */
+deque.append(2) // Add at the rear
+deque.append(5)
+deque.append(4)
+deque.insert(3, at: 0) // Add at the front
+deque.insert(1, at: 0)
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* Access elements */
+let peekFirst = deque.first! // Front element
+let peekLast = deque.last! // Rear element
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* Dequeue elements */
+// When using an Array, popFirst takes O(n) time
+let popFirst = deque.removeFirst() // Remove the front element
+let popLast = deque.removeLast() // Remove the rear element
 
-[file]{deque}-[region]{size}
+/* Get the deque size */
+let size = deque.count
 
-[file]{deque}-[region]{is_empty}
+/* Check whether the deque is empty */
+let isEmpty = deque.isEmpty
 ```
 
 ```javascript title="deque.js"
-[file]{deque}-[region]{init_deque}
+/* Initialize a deque */
+// JavaScript has no built-in deque; use an Array instead
+const deque = [];
 
-[file]{deque}-[region]{push}
+/* Enqueue elements */
+deque.push(2);
+deque.push(5);
+deque.push(4);
+// Note that this is an array, so unshift() takes O(n) time
+deque.unshift(3);
+deque.unshift(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* Access elements */
+const peekFirst = deque[0];
+const peekLast = deque[deque.length - 1];
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* Dequeue elements */
+// Note that this is an array, so shift() takes O(n) time
+const popFront = deque.shift();
+const popBack = deque.pop();
 
-[file]{deque}-[region]{size}
+/* Get the deque size */
+const size = deque.length;
 
-[file]{deque}-[region]{is_empty}
+/* Check whether the deque is empty */
+const isEmpty = size === 0;
 ```
 
 ```typescript title="deque.ts"
-[file]{deque}-[region]{init_deque}
+/* Initialize a deque */
+// TypeScript has no built-in deque; use an Array instead
+const deque: number[] = [];
 
-[file]{deque}-[region]{push}
+/* Enqueue elements */
+deque.push(2);
+deque.push(5);
+deque.push(4);
+// Note that this is an array, so unshift() takes O(n) time
+deque.unshift(3);
+deque.unshift(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* Access elements */
+const peekFirst: number = deque[0];
+const peekLast: number = deque[deque.length - 1];
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* Dequeue elements */
+// Note that this is an array, so shift() takes O(n) time
+const popFront: number = deque.shift() as number;
+const popBack: number = deque.pop() as number;
 
-[file]{deque}-[region]{size}
+/* Get the deque size */
+const size: number = deque.length;
 
-[file]{deque}-[region]{is_empty}
+/* Check whether the deque is empty */
+const isEmpty: boolean = size === 0;
 ```
 
 ```dart title="deque.dart"
@@ -157,19 +247,33 @@ bool isEmpty = deque.isEmpty;
 ```
 
 ```rust title="deque.rs"
-[file]{deque}-[region]{init_deque}
+/* Initialize a deque */
+let mut deque: VecDeque<u32> = VecDeque::new();
 
-[file]{deque}-[region]{push}
+/* Enqueue elements */
+deque.push_back(2);  // Add at the rear
+deque.push_back(5);
+deque.push_back(4);
+deque.push_front(3); // Add at the front
+deque.push_front(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* Access elements */
+if let Some(front) = deque.front() { // Front element
+}
+if let Some(rear) = deque.back() {   // Rear element
+}
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* Dequeue elements */
+if let Some(pop_front) = deque.pop_front() { // Remove the front element
+}
+if let Some(pop_rear) = deque.pop_back() {   // Remove the rear element
+}
 
-[file]{deque}-[region]{size}
+/* Get the deque size */
+let size = deque.len();
 
-[file]{deque}-[region]{is_empty}
+/* Check whether the deque is empty */
+let is_empty = deque.is_empty();
 ```
 
 ```c title="deque.c"
@@ -177,35 +281,58 @@ bool isEmpty = deque.isEmpty;
 ```
 
 ```kotlin title="deque.kt"
-[file]{deque}-[region]{init_deque}
+/* Initialize a deque */
+val deque = LinkedList<Int>()
 
-[file]{deque}-[region]{push}
+/* Enqueue elements */
+deque.offerLast(2)  // Add at the rear
+deque.offerLast(5)
+deque.offerLast(4)
+deque.offerFirst(3) // Add at the front
+deque.offerFirst(1)
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* Access elements */
+val peekFirst = deque.peekFirst() // Front element
+val peekLast = deque.peekLast()   // Rear element
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* Dequeue elements */
+val popFirst = deque.pollFirst() // Remove the front element
+val popLast = deque.pollLast()   // Remove the rear element
 
-[file]{deque}-[region]{size}
+/* Get the deque size */
+val size = deque.size
 
-[file]{deque}-[region]{is_empty}
+/* Check whether the deque is empty */
+val isEmpty = deque.isEmpty()
 ```
 
 ```ruby title="deque.rb"
-[file]{deque}-[region]{init_deque}
+# Initialize a deque
+# Ruby has no built-in deque; use an Array instead
+deque = []
 
-[file]{deque}-[region]{push}
+# Enqueue elements
+deque << 2
+deque << 5
+deque << 4
+# Note that this is an array, so Array#unshift takes O(n) time
+deque.unshift(3)
+deque.unshift(1)
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+# Access elements
+peek_first = deque.first
+peek_last = deque.last
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+# Dequeue elements
+# Note that this is an array, so Array#shift takes O(n) time
+pop_front = deque.shift
+pop_back = deque.pop
 
-[file]{deque}-[region]{size}
+# Get the deque size
+size = deque.length
 
-[file]{deque}-[region]{is_empty}
+# Check whether the deque is empty
+is_empty = size.zero?
 ```
 
 <!-- [tutor]{deque_operations_tutor} -->

@@ -49,8 +49,7 @@ end
 
 ### Driver code ###
 if __FILE__ == $0
-  # [region]{init_linked_list}
-  # Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
+  # Initialize the linked list
   # Initialize the individual nodes
   n0 = ListNode.new(1)
   n1 = ListNode.new(3)
@@ -62,7 +61,6 @@ if __FILE__ == $0
   n1.next = n2
   n2.next = n3
   n3.next = n4
-  # [endregion]{init_linked_list}
   puts "The initialized linked list is"
   print_linked_list(n0)
 

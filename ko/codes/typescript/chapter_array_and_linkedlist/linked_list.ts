@@ -50,8 +50,7 @@ function find(head: ListNode | null, target: number): number {
 }
 
 /* 실행 코드 */
-// [region]{init_linked_list}
-/* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
+/* 연결 리스트 초기화 */
 // 각 노드를 초기화한다
 const n0 = new ListNode(1);
 const n1 = new ListNode(3);
@@ -63,7 +62,6 @@ n0.next = n1;
 n1.next = n2;
 n2.next = n3;
 n3.next = n4;
-// [endregion]{init_linked_list}
 console.log('초기화한 연결 리스트');
 printLinkedList(n0);
 

@@ -7,72 +7,57 @@
 namespace hello_algo.chapter_heap;
 
 public class heap {
+    void TestPush(PriorityQueue<int, int> heap, int val) {
+        heap.Enqueue(val, val); // Добавление элемента в кучу
+        Console.WriteLine($"\nПосле добавления элемента {val} в кучу\n");
+        PrintUtil.PrintHeap(heap);
+    }
+
+    void TestPop(PriorityQueue<int, int> heap) {
+        int val = heap.Dequeue(); // Извлечение элемента с вершины кучи
+        Console.WriteLine($"\nПосле извлечения элемента вершины кучи {val}\n");
+        PrintUtil.PrintHeap(heap);
+    }
+
     [Test]
     public void Test() {
-        // [region]{init}
         /* Инициализация кучи */
         // Инициализация минимальной кучи
         PriorityQueue<int, int> minHeap = new();
         // Инициализировать максимальную кучу (достаточно изменить Comparer с помощью lambda-выражения)
         PriorityQueue<int, int> maxHeap = new(Comparer<int>.Create((x, y) => y.CompareTo(x)));
-        // [endregion]{init}
         Console.WriteLine("Ниже приведен тестовый пример для max-heap");
 
-        // [region]{push}
         /* Добавление элемента в кучу */
-        maxHeap.Enqueue(1, 1);
-        maxHeap.Enqueue(3, 3);
-        maxHeap.Enqueue(2, 2);
-        maxHeap.Enqueue(5, 5);
-        maxHeap.Enqueue(4, 4);
-        // [endregion]{push}
-        PrintUtil.PrintHeap(maxHeap);
+        TestPush(maxHeap, 1);
+        TestPush(maxHeap, 3);
+        TestPush(maxHeap, 2);
+        TestPush(maxHeap, 5);
+        TestPush(maxHeap, 4);
 
-        // [region]{peek}
         /* Получение элемента с вершины кучи */
-        int peek = maxHeap.Peek(); // 5
-        // [endregion]{peek}
+        int peek = maxHeap.Peek();
         Console.WriteLine($"Элемент на вершине кучи = {peek}");
 
-        // [region]{pop_1}
         /* Извлечение элемента с вершины кучи */
         // Элементы, извлеченные из кучи, образуют последовательность от большего к меньшему
-        peek = maxHeap.Dequeue(); // 5
-        // [endregion]{pop_1}
-        Console.WriteLine(peek);
-        // [region]{pop_2}
-        peek = maxHeap.Dequeue(); // 4
-        // [endregion]{pop_2}
-        Console.WriteLine(peek);
-        // [region]{pop_3}
-        peek = maxHeap.Dequeue(); // 3
-        // [endregion]{pop_3}
-        Console.WriteLine(peek);
-        // [region]{pop_4}
-        peek = maxHeap.Dequeue(); // 2
-        // [endregion]{pop_4}
-        Console.WriteLine(peek);
-        // [region]{pop_5}
-        peek = maxHeap.Dequeue(); // 1
-        // [endregion]{pop_5}
-        Console.WriteLine(peek);
+        TestPop(maxHeap);
+        TestPop(maxHeap);
+        TestPop(maxHeap);
+        TestPop(maxHeap);
+        TestPop(maxHeap);
 
-        // [region]{size}
         /* Получение размера кучи */
         int size = maxHeap.Count;
-        // [endregion]{size}
         Console.WriteLine($"Количество элементов в куче = {size}");
 
-        // [region]{is_empty}
         /* Проверка, пуста ли куча */
         bool isEmpty = maxHeap.Count == 0;
-        // [endregion]{is_empty}
         Console.WriteLine($"Пуста ли куча: {isEmpty}");
 
-        // [region]{heapify}
         /* Построить кучу по входному списку */
-        minHeap = new PriorityQueue<int, int>([(1, 1), (3, 3), (2, 2), (5, 5), (4, 4)]);
-        // [endregion]{heapify}
+        var list = new int[] { 1, 3, 2, 5, 4 };
+        minHeap = new PriorityQueue<int, int>(list.Select(x => (x, x)));
         Console.WriteLine("После построения min-heap из входного списка");
         PrintUtil.PrintHeap(minHeap);
     }

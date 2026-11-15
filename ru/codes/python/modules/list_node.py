@@ -5,14 +5,12 @@ Author: krahets (krahets@163.com)
 """
 
 
-# [region]{list_node}
 class ListNode:
     """Класс узла связного списка"""
 
     def __init__(self, val: int):
         self.val: int = val  # Значение узла
-        self.next: ListNode | None = None  # Ссылка на следующий узел
-# [endregion]{list_node}
+        self.next: ListNode | None = None  # Ссылка на узел-преемник
 
 
 def list_to_linked_list(arr: list[int]) -> ListNode | None:

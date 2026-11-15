@@ -4,7 +4,6 @@
 
 package chapter_heap
 
-// [region]{int_heap}
 // Go では heap.Interface を実装して整数の最大ヒープを構築できる
 // heap.Interface の実装には sort.Interface も実装する必要がある
 type intHeap []any
@@ -44,5 +43,3 @@ func (h *intHeap) Swap(i, j int) {
 func (h *intHeap) Top() any {
 	return (*h)[0]
 }
-
-// [endregion]{int_heap}

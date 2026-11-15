@@ -6,14 +6,12 @@
 
 package chapter_stack_and_queue
 
-// [region]{doubly_list_node}
 /* 雙向鏈結串列節點 */
 class ListNode(var _val: Int) {
     // 節點值
     var next: ListNode? = null // 後繼節點引用
     var prev: ListNode? = null // 前驅節點引用
 }
-// [endregion]{doubly_list_node}
 
 /* 基於雙向鏈結串列實現的雙向佇列 */
 class LinkedListDeque {

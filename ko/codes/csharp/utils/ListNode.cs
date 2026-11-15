@@ -4,12 +4,10 @@
 
 namespace hello_algo.utils;
 
-// [region]{list_node}
 /* 연결 리스트 노드 */
 public class ListNode(int x) {
-    public int val = x;    // 노드 값
-    public ListNode? next; // 다음 노드를 가리키는 참조
-// [endregion]{list_node}
+    public int val = x;
+    public ListNode? next;
 
     /* 배열을 역직렬화하여 연결 리스트로 변환한다 */
     public static ListNode? ArrToLinkedList(int[] arr) {
@@ -31,6 +29,4 @@ public class ListNode(int x) {
         }
         return string.Join("->", list);
     }
-// [region]{list_node_end}
 }
-// [endregion]{list_node_end}

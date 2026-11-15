@@ -10,7 +10,6 @@ namespace hello_algo.chapter_hashing;
 public class hash_map {
     [Test]
     public void Test() {
-        // [region]{init_hash_map}
         /* 初始化哈希表 */
         Dictionary<int, string> map = new() {
             /* 添加操作 */
@@ -21,48 +20,32 @@ public class hash_map {
             { 13276, "小法" },
             { 10583, "小鸭" }
         };
-        // [endregion]{init_hash_map}
         Console.WriteLine("\n添加完成后，哈希表为\nKey -> Value");
         PrintUtil.PrintHashMap(map);
 
-        // [region]{get_value}
         /* 查询操作 */
         // 向哈希表中输入键 key ，得到值 value
         string name = map[15937];
-        // [endregion]{get_value}
         Console.WriteLine("\n输入学号 15937 ，查询到姓名 " + name);
 
-        // [region]{remove_pair}
         /* 删除操作 */
         // 在哈希表中删除键值对 (key, value)
         map.Remove(10583);
-        // [endregion]{remove_pair}
         Console.WriteLine("\n删除 10583 后，哈希表为\nKey -> Value");
         PrintUtil.PrintHashMap(map);
 
-        Console.WriteLine("\n遍历键值对 Key->Value");
-        // [region]{iterate_pairs}
         /* 遍历哈希表 */
-        // 遍历键值对 key->value
+        Console.WriteLine("\n遍历键值对 Key->Value");
         foreach (var kv in map) {
             Console.WriteLine(kv.Key + " -> " + kv.Value);
         }
-        // [endregion]{iterate_pairs}
-
         Console.WriteLine("\n单独遍历键 Key");
-        // [region]{iterate_keys}
-        // 单独遍历键 key
         foreach (int key in map.Keys) {
             Console.WriteLine(key);
         }
-        // [endregion]{iterate_keys}
-
         Console.WriteLine("\n单独遍历值 Value");
-        // [region]{iterate_values}
-        // 单独遍历值 value
         foreach (string val in map.Values) {
             Console.WriteLine(val);
         }
-        // [endregion]{iterate_values}
     }
 }

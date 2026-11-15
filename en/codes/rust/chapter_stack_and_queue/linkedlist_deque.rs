@@ -6,12 +6,9 @@
 
 use hello_algo_rust::include::print_util;
 
-// [region]{import}
 use std::cell::RefCell;
 use std::rc::Rc;
-// [endregion]{import}
 
-// [region]{doubly_list_node}
 /* Doubly linked list node */
 pub struct ListNode<T> {
     pub val: T,                                 // Node value
@@ -28,7 +25,6 @@ impl<T> ListNode<T> {
         }))
     }
 }
-// [endregion]{doubly_list_node}
 
 /* Deque implemented with a doubly linked list */
 #[allow(dead_code)]

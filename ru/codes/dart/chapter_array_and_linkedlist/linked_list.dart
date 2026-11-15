@@ -47,8 +47,7 @@ int find(ListNode? head, int target) {
 
 /* Driver Code */
 void main() {
-  // [region]{init_linked_list}
-  // Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4
+  // Инициализация связного списка
   // Инициализация всех узлов
   ListNode n0 = ListNode(1);
   ListNode n1 = ListNode(3);
@@ -60,7 +59,6 @@ void main() {
   n1.next = n2;
   n2.next = n3;
   n3.next = n4;
-  // [endregion]{init_linked_list}
 
   print('Исходный связный список');
   printLinkedList(n0);

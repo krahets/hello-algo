@@ -4,20 +4,17 @@
  * Author: xBLACKICEx (xBLACKICE@outlook.com), night-cruise (2586447362@qq.com)
  */
 
-// [region]{import}
 use std::cell::RefCell;
 use std::rc::Rc;
-// [endregion]{import}
 
-// [region]{tree_node}
 /* 이진 트리 노드 자료형 */
 #[derive(Debug)]
 pub struct TreeNode {
-    pub val: i32,                               // 노드 값
-    pub height: i32,                            // 노드 높이
+    pub val: i32,
+    pub height: i32,
     pub parent: Option<Rc<RefCell<TreeNode>>>,
-    pub left: Option<Rc<RefCell<TreeNode>>>,    // 왼쪽 자식 노드 포인터
-    pub right: Option<Rc<RefCell<TreeNode>>>,   // 오른쪽 자식 노드 포인터
+    pub left: Option<Rc<RefCell<TreeNode>>>,
+    pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
 impl TreeNode {
@@ -32,7 +29,6 @@ impl TreeNode {
         }))
     }
 }
-// [endregion]{tree_node}
 
 #[macro_export]
 macro_rules! op_vec {

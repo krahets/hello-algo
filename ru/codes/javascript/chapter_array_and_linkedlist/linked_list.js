@@ -48,8 +48,7 @@ function find(head, target) {
 }
 
 /* Driver Code */
-// [region]{init_linked_list}
-/* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
+/* Инициализация связного списка */
 // Инициализация всех узлов
 const n0 = new ListNode(1);
 const n1 = new ListNode(3);
@@ -61,7 +60,6 @@ n0.next = n1;
 n1.next = n2;
 n2.next = n3;
 n3.next = n4;
-// [endregion]{init_linked_list}
 console.log('Исходный связный список');
 printLinkedList(n0);
 

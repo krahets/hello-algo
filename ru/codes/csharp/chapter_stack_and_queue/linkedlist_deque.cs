@@ -6,14 +6,12 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
-// [region]{doubly_list_node}
 /* Узел двусвязного списка */
 public class ListNode(int val) {
-    public int val = val;         // Значение узла
+    public int val = val;       // Значение узла
     public ListNode? next = null; // Ссылка на узел-преемник
     public ListNode? prev = null; // Ссылка на узел-предшественник
 }
-// [endregion]{doubly_list_node}
 
 /* Двусторонняя очередь на основе двусвязного списка */
 public class LinkedListDeque {

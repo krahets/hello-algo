@@ -6,16 +6,14 @@
 
 package utils;
 
-// [region]{list_node}
 /* 連結リストのノード */
 public class ListNode {
-    public int val;       // ノードの値
-    public ListNode next; // 次のノードへの参照
+    public int val;
+    public ListNode next;
 
     public ListNode(int x) {
         val = x;
     }
-// [endregion]{list_node}
 
     /* リストをデシリアライズして連結リストにする */
     public static ListNode arrToLinkedList(int[] arr) {
@@ -27,6 +25,4 @@ public class ListNode {
         }
         return dum.next;
     }
-// [region]{list_node_end}
 }
-// [endregion]{list_node_end}

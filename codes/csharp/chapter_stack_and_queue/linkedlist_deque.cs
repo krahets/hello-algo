@@ -6,14 +6,12 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
-// [region]{doubly_list_node}
 /* 双向链表节点 */
 public class ListNode(int val) {
-    public int val = val;         // 节点值
+    public int val = val;       // 节点值
     public ListNode? next = null; // 后继节点引用
     public ListNode? prev = null; // 前驱节点引用
 }
-// [endregion]{doubly_list_node}
 
 /* 基于双向链表实现的双向队列 */
 public class LinkedListDeque {

@@ -50,8 +50,7 @@ def find(head: ListNode, target: int) -> int:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # [region]{init_linked_list}
-    # 初始化链表 1 -> 3 -> 2 -> 5 -> 4
+    # 初始化链表
     # 初始化各个节点
     n0 = ListNode(1)
     n1 = ListNode(3)
@@ -63,7 +62,6 @@ if __name__ == "__main__":
     n1.next = n2
     n2.next = n3
     n3.next = n4
-    # [endregion]{init_linked_list}
     print("初始化的链表为")
     print_linked_list(n0)
 

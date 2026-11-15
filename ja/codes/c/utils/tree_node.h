@@ -15,7 +15,6 @@ extern "C" {
 
 #define MAX_NODE_SIZE 5000
 
-// [region]{tree_node}
 /* 二分木のノードの構造体 */
 typedef struct TreeNode {
     int val;                // ノードの値
@@ -35,7 +34,6 @@ TreeNode *newTreeNode(int val) {
     node->right = NULL;
     return node;
 }
-// [endregion]{tree_node}
 
 // シリアライズの符号化規則は次を参照：
 // https://www.hello-algo.com/ja/chapter_tree/array_representation_of_tree/

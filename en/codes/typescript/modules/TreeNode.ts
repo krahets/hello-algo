@@ -4,7 +4,6 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-// [region]{tree_node}
 /* Binary tree node */
 class TreeNode {
     val: number; // Node value
@@ -23,7 +22,6 @@ class TreeNode {
         this.right = right === undefined ? null : right;
     }
 }
-// [endregion]{tree_node}
 
 /* Deserialize an array into a binary tree */
 function arrToTree(arr: (number | null)[], i: number = 0): TreeNode | null {

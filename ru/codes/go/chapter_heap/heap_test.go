@@ -13,32 +13,42 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-// [region]{test_heap}
+func testPush(h *intHeap, val int) {
+	// Вызвать функции heap.Interface для добавления элемента
+	heap.Push(h, val)
+	fmt.Printf("\nПосле добавления элемента %d в кучу\n", val)
+	PrintHeap(*h)
+}
+
+func testPop(h *intHeap) {
+	// Вызвать функции heap.Interface для удаления элемента
+	val := heap.Pop(h)
+	fmt.Printf("\nПосле извлечения элемента вершины кучи %d\n", val)
+	PrintHeap(*h)
+}
+
 func TestHeap(t *testing.T) {
 	/* Инициализация кучи */
 	// Инициализация максимальной кучи
 	maxHeap := &intHeap{}
 	heap.Init(maxHeap)
 	/* Добавление элемента в кучу */
-	// Вызвать функции heap.Interface для добавления элемента
-	heap.Push(maxHeap, 1)
-	heap.Push(maxHeap, 3)
-	heap.Push(maxHeap, 2)
-	heap.Push(maxHeap, 5)
-	heap.Push(maxHeap, 4)
-	PrintHeap(*maxHeap)
+	testPush(maxHeap, 1)
+	testPush(maxHeap, 3)
+	testPush(maxHeap, 2)
+	testPush(maxHeap, 5)
+	testPush(maxHeap, 4)
 
 	/* Получение элемента с вершины кучи */
 	top := maxHeap.Top()
 	fmt.Printf("Элемент на вершине кучи = %d\n", top)
 
 	/* Извлечение элемента с вершины кучи */
-	// Вызвать функции heap.Interface для удаления элемента
-	fmt.Println(heap.Pop(maxHeap)) // 5
-	fmt.Println(heap.Pop(maxHeap)) // 4
-	fmt.Println(heap.Pop(maxHeap)) // 3
-	fmt.Println(heap.Pop(maxHeap)) // 2
-	fmt.Println(heap.Pop(maxHeap)) // 1
+	testPop(maxHeap)
+	testPop(maxHeap)
+	testPop(maxHeap)
+	testPop(maxHeap)
+	testPop(maxHeap)
 
 	/* Получение размера кучи */
 	size := len(*maxHeap)
@@ -48,8 +58,6 @@ func TestHeap(t *testing.T) {
 	isEmpty := len(*maxHeap) == 0
 	fmt.Printf("Пуста ли куча: %t\n", isEmpty)
 }
-
-// [endregion]{test_heap}
 
 func TestMyHeap(t *testing.T) {
 	/* Инициализация кучи */

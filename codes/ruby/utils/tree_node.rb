@@ -4,7 +4,6 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# [region]{tree_node}
 ### 二叉树节点类 ###
 class TreeNode
   attr_accessor :val    # 节点值
@@ -17,7 +16,6 @@ class TreeNode
     @height = 0
   end
 end
-# [endregion]{tree_node}
 
 ### 将列表反序列化为二叉数树：递归 ###
 def arr_to_tree_dfs(arr, i)

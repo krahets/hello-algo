@@ -16,15 +16,13 @@ import (
 
 /* Driver Code */
 func TestArray(t *testing.T) {
-	// [region]{init_array}
 	/* 初始化数组 */
 	var arr [5]int
+	fmt.Println("数组 arr =", arr)
 	// 在 Go 中，指定长度时（[5]int）为数组，不指定长度时（[]int）为切片
 	// 由于 Go 的数组被设计为在编译期确定长度，因此只能使用常量来指定长度
 	// 为了方便实现扩容 extend() 函数，以下将切片（Slice）看作数组（Array）
 	nums := []int{1, 3, 2, 5, 4}
-	// [endregion]{init_array}
-	fmt.Println("数组 arr =", arr)
 	fmt.Println("数组 nums =", nums)
 
 	/* 随机访问 */

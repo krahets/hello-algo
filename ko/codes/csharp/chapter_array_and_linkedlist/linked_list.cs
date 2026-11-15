@@ -47,9 +47,8 @@ public class linked_list {
 
     [Test]
     public void Test() {
-        // [region]{init_linked_list}
-        // 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화
-        // 각 노드를 초기화한다
+        // 연결 리스트 초기화 
+        // 각 노드를 초기화한다 
         ListNode n0 = new(1);
         ListNode n1 = new(3);
         ListNode n2 = new(2);
@@ -60,7 +59,6 @@ public class linked_list {
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
-        // [endregion]{init_linked_list}
         Console.WriteLine($"초기화한 연결 리스트: {n0}");
 
         // 노드 삽입 
