@@ -36,8 +36,8 @@ comments: true
     from collections import deque
 
     # 큐 초기화
-    # Python에서는 보통 덱 클래스 deque를 큐로 사용한다
-    # queue.Queue()는 전용 큐 클래스이지만 사용이 불편하므로 권하지 않는다
+    # Python에서는 일반적으로 덱 클래스 deque를 큐로 사용한다
+    # queue.Queue()는 전용 큐 클래스이지만 사용하기가 그다지 편리하지 않다
     que: deque[int] = deque()
 
     # 큐에 원소 삽입
@@ -47,16 +47,16 @@ comments: true
     que.append(5)
     que.append(4)
 
-    # 큐의 맨 앞 원소에 접근
+    # 맨 앞 원소 접근
     front: int = que[0]
 
     # 큐에서 원소 꺼내기
     pop: int = que.popleft()
 
-    # 큐 길이 구하기
+    # 큐의 길이 반환
     size: int = len(que)
 
-    # 큐가 비어 있는지 확인
+    # 큐가 비어 있는지 판단
     is_empty: bool = len(que) == 0
     ```
 
@@ -73,16 +73,16 @@ comments: true
     queue.push(5);
     queue.push(4);
 
-    /* 큐의 맨 앞 원소에 접근 */
+    /* 맨 앞 원소 접근 */
     int front = queue.front();
 
     /* 큐에서 원소 꺼내기 */
     queue.pop();
 
-    /* 큐 길이 구하기 */
+    /* 큐의 길이 반환 */
     int size = queue.size();
 
-    /* 큐가 비어 있는지 확인 */
+    /* 큐가 비어 있는지 판단 */
     bool empty = queue.empty();
     ```
 
@@ -99,16 +99,16 @@ comments: true
     queue.offer(5);
     queue.offer(4);
 
-    /* 큐의 맨 앞 원소에 접근 */
+    /* 맨 앞 원소 접근 */
     int peek = queue.peek();
 
     /* 큐에서 원소 꺼내기 */
     int pop = queue.poll();
 
-    /* 큐 길이 구하기 */
+    /* 큐의 길이 반환 */
     int size = queue.size();
 
-    /* 큐가 비어 있는지 확인 */
+    /* 큐가 비어 있는지 판단 */
     boolean isEmpty = queue.isEmpty();
     ```
 
@@ -125,16 +125,16 @@ comments: true
     queue.Enqueue(5);
     queue.Enqueue(4);
 
-    /* 큐의 맨 앞 원소에 접근 */
+    /* 맨 앞 원소 접근 */
     int peek = queue.Peek();
 
     /* 큐에서 원소 꺼내기 */
     int pop = queue.Dequeue();
 
-    /* 큐 길이 구하기 */
+    /* 큐의 길이 반환 */
     int size = queue.Count;
 
-    /* 큐가 비어 있는지 확인 */
+    /* 큐가 비어 있는지 판단 */
     bool isEmpty = queue.Count == 0;
     ```
 
@@ -152,17 +152,17 @@ comments: true
     queue.PushBack(5)
     queue.PushBack(4)
 
-    /* 큐의 맨 앞 원소에 접근 */
+    /* 맨 앞 원소 접근 */
     peek := queue.Front()
 
     /* 큐에서 원소 꺼내기 */
     pop := queue.Front()
     queue.Remove(pop)
 
-    /* 큐 길이 구하기 */
+    /* 큐의 길이 반환 */
     size := queue.Len()
 
-    /* 큐가 비어 있는지 확인 */
+    /* 큐가 비어 있는지 판단 */
     isEmpty := queue.Len() == 0
     ```
 
@@ -180,17 +180,17 @@ comments: true
     queue.append(5)
     queue.append(4)
 
-    /* 큐의 맨 앞 원소에 접근 */
+    /* 맨 앞 원소 접근 */
     let peek = queue.first!
 
     /* 큐에서 원소 꺼내기 */
-    // 배열이므로 removeFirst의 복잡도는 O(n)이다
+    // Array로 구현할 때 pop의 시간 복잡도는 O(n)이다
     let pop = queue.removeFirst()
 
-    /* 큐 길이 구하기 */
+    /* 큐의 길이 반환 */
     let size = queue.count
 
-    /* 큐가 비어 있는지 확인 */
+    /* 큐가 비어 있는지 판단 */
     let isEmpty = queue.isEmpty
     ```
 
@@ -208,18 +208,18 @@ comments: true
     queue.push(5);
     queue.push(4);
 
-    /* 큐의 맨 앞 원소에 접근 */
+    /* 맨 앞 원소 접근 */
     const peek = queue[0];
 
     /* 큐에서 원소 꺼내기 */
-    // 기반이 배열이므로 shift() 메서드의 시간 복잡도는 O(n)이다
+    // 내부 자료 구조가 배열이므로 shift() 메서드의 시간 복잡도는 O(n)이다
     const pop = queue.shift();
 
-    /* 큐 길이 구하기 */
+    /* 큐의 길이 반환 */
     const size = queue.length;
 
-    /* 큐가 비어 있는지 확인 */
-    const empty = queue.length === 0;
+    /* 큐가 비어 있는지 판단 */
+    const isEmpty = queue.length === 0;
     ```
 
 === "TS"
@@ -236,26 +236,26 @@ comments: true
     queue.push(5);
     queue.push(4);
 
-    /* 큐의 맨 앞 원소에 접근 */
+    /* 맨 앞 원소 접근 */
     const peek = queue[0];
 
     /* 큐에서 원소 꺼내기 */
-    // 기반이 배열이므로 shift() 메서드의 시간 복잡도는 O(n)이다
+    // 내부 자료 구조가 배열이므로 shift() 메서드의 시간 복잡도는 O(n)이다
     const pop = queue.shift();
 
-    /* 큐 길이 구하기 */
+    /* 큐의 길이 반환 */
     const size = queue.length;
 
-    /* 큐가 비어 있는지 확인 */
-    const empty = queue.length === 0;
+    /* 큐가 비어 있는지 판단 */
+    const isEmpty = queue.length === 0;
     ```
 
 === "Dart"
 
     ```dart title="queue.dart"
     /* 큐 초기화 */
-    // Dart의 Queue 클래스는 덱이며 일반 큐로도 사용할 수 있다
-    Queue<int> queue = Queue();
+    // Dart에서는 일반적으로 덱 클래스 Queue를 큐로 사용한다
+    final Queue<int> queue = Queue();
 
     /* 큐에 원소 삽입 */
     queue.add(1);
@@ -264,17 +264,17 @@ comments: true
     queue.add(5);
     queue.add(4);
 
-    /* 큐의 맨 앞 원소에 접근 */
-    int peek = queue.first;
+    /* 맨 앞 원소 접근 */
+    final int peek = queue.first;
 
     /* 큐에서 원소 꺼내기 */
-    int pop = queue.removeFirst();
+    final int pop = queue.removeFirst();
 
-    /* 큐 길이 구하기 */
-    int size = queue.length;
+    /* 큐의 길이 반환 */
+    final int size = queue.length;
 
-    /* 큐가 비어 있는지 확인 */
-    bool isEmpty = queue.isEmpty;
+    /* 큐가 비어 있는지 판단 */
+    final bool isEmpty = queue.isEmpty;
     ```
 
 === "Rust"
@@ -325,16 +325,16 @@ comments: true
     queue.offer(5)
     queue.offer(4)
 
-    /* 큐의 맨 앞 원소에 접근 */
+    /* 맨 앞 원소 접근 */
     val peek = queue.peek()
 
     /* 큐에서 원소 꺼내기 */
     val pop = queue.poll()
 
-    /* 큐 길이 구하기 */
+    /* 큐의 길이 반환 */
     val size = queue.size
 
-    /* 큐가 비어 있는지 확인 */
+    /* 큐가 비어 있는지 판단 */
     val isEmpty = queue.isEmpty()
     ```
 
@@ -342,7 +342,7 @@ comments: true
 
     ```ruby title="queue.rb"
     # 큐 초기화
-    # Ruby의 내장 큐(Thread::Queue)에는 peek와 순회 메서드가 없으므로 Array를 큐로 사용할 수 있다
+    # Ruby의 내장 큐(Thread::Queue)에는 peek 메서드와 순회 메서드가 없으므로 Array를 큐로 사용할 수 있다
     queue = []
 
     # 큐에 원소 삽입
@@ -352,17 +352,17 @@ comments: true
     queue.push(5)
     queue.push(4)
 
-    # 큐 원소에 접근
+    # 큐 원소 접근
     peek = queue.first
 
     # 큐에서 원소 꺼내기
-    # 배열이므로 Array#shift 메서드의 시간 복잡도는 O(n)임에 주의
+    # 배열이므로 Array#shift 메서드의 시간 복잡도는 O(n)임에 유의한다
     pop = queue.shift
 
-    # 큐 길이 구하기
+    # 큐의 길이 반환
     size = queue.length
 
-    # 큐가 비어 있는지 확인
+    # 큐가 비어 있는지 판단
     is_empty = queue.empty?
     ```
 

@@ -47,7 +47,7 @@ comments: true
 === "C#"
 
     ```csharp title="array.cs"
-    /* 初始化陣列 */
+    // 初始化陣列
     int[] arr = new int[5]; // [ 0, 0, 0, 0, 0 ]
     int[] nums = [1, 3, 2, 5, 4];
     ```
@@ -59,7 +59,7 @@ comments: true
     var arr [5]int
     // 在 Go 中，指定長度時（[5]int）為陣列，不指定長度時（[]int）為切片
     // 由於 Go 的陣列被設計為在編譯期確定長度，因此只能使用常數來指定長度
-    // 為了方便實現擴容 extend() 方法，以下將切片（Slice）看作陣列（Array）
+    // 為了方便實現擴容 extend() 函式，以下將切片（Slice）看作陣列（Array）
     nums := []int{1, 3, 2, 5, 4}
     ```
 
@@ -68,22 +68,22 @@ comments: true
     ```swift title="array.swift"
     /* 初始化陣列 */
     let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
-    let nums = [1, 3, 2, 5, 4]
+    var nums = [1, 3, 2, 5, 4]
     ```
 
 === "JS"
 
     ```javascript title="array.js"
     /* 初始化陣列 */
-    var arr = new Array(5).fill(0);
-    var nums = [1, 3, 2, 5, 4];
+    const arr = new Array(5).fill(0);
+    let nums = [1, 3, 2, 5, 4];
     ```
 
 === "TS"
 
     ```typescript title="array.ts"
     /* 初始化陣列 */
-    let arr: number[] = new Array(5).fill(0);
+    const arr: number[] = new Array(5).fill(0);
     let nums: number[] = [1, 3, 2, 5, 4];
     ```
 
@@ -91,7 +91,7 @@ comments: true
 
     ```dart title="array.dart"
     /* 初始化陣列 */
-    List<int> arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
+    var arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
     List<int> nums = [1, 3, 2, 5, 4];
     ```
 
@@ -100,7 +100,6 @@ comments: true
     ```rust title="array.rs"
     /* 初始化陣列 */
     let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
-    let slice: &[i32] = &[0; 5];
     // 在 Rust 中，指定長度時（[i32; 5]）為陣列，不指定長度時（&[i32]）為切片
     // 由於 Rust 的陣列被設計為在編譯期確定長度，因此只能使用常數來指定長度
     // Vector 是 Rust 一般情況下用作動態陣列的型別
@@ -112,15 +111,15 @@ comments: true
 
     ```c title="array.c"
     /* 初始化陣列 */
-    int arr[5] = { 0 }; // { 0, 0, 0, 0, 0 }
-    int nums[5] = { 1, 3, 2, 5, 4 };
+    int arr[5] = {0}; // { 0, 0, 0, 0, 0 }
+    int nums[] = {1, 3, 2, 5, 4};
     ```
 
 === "Kotlin"
 
     ```kotlin title="array.kt"
     /* 初始化陣列 */
-    var arr = IntArray(5) // { 0, 0, 0, 0, 0 }
+    val arr = IntArray(5) // { 0, 0, 0, 0, 0 }
     var nums = intArrayOf(1, 3, 2, 5, 4)
     ```
 

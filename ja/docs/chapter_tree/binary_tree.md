@@ -478,11 +478,11 @@ comments: true
 
     ```python title="binary_tree.py"
     # ノードの挿入と削除
-    p = TreeNode(0)
-    # n1 -> n2 の間にノード P を挿入
-    n1.left = p
-    p.left = n2
-    # ノード P を削除
+    P = TreeNode(0)
+    # n1 -> n2 の間にノード P を挿入する
+    n1.left = P
+    P.left = n2
+    # ノード P を削除する
     n1.left = n2
     ```
 
@@ -490,24 +490,24 @@ comments: true
 
     ```cpp title="binary_tree.cpp"
     /* ノードの挿入と削除 */
-    TreeNode* P = new TreeNode(0);
-    // n1 -> n2 の間にノード P を挿入
+    TreeNode *P = new TreeNode(0);
+    // n1 -> n2 の間にノード P を挿入する
     n1->left = P;
     P->left = n2;
-    // ノード P を削除
+    // ノード P を削除する
     n1->left = n2;
-    // メモリを解放
-    delete P;
+    delete P; // メモリを解放する
     ```
 
 === "Java"
 
     ```java title="binary_tree.java"
+    /* ノードの挿入と削除 */
     TreeNode P = new TreeNode(0);
-    // n1 -> n2 の間にノード P を挿入
+    // n1 -> n2 の間にノード P を挿入する
     n1.left = P;
     P.left = n2;
-    // ノード P を削除
+    // ノード P を削除する
     n1.left = n2;
     ```
 
@@ -516,10 +516,10 @@ comments: true
     ```csharp title="binary_tree.cs"
     /* ノードの挿入と削除 */
     TreeNode P = new(0);
-    // n1 -> n2 の間にノード P を挿入
+    // n1 -> n2 の間にノード P を挿入する
     n1.left = P;
     P.left = n2;
-    // ノード P を削除
+    // ノード P を削除する
     n1.left = n2;
     ```
 
@@ -527,22 +527,23 @@ comments: true
 
     ```go title="binary_tree.go"
     /* ノードの挿入と削除 */
-    // n1 -> n2 の間にノード P を挿入
+    // n1 -> n2 の間にノード P を挿入する
     p := NewTreeNode(0)
     n1.Left = p
     p.Left = n2
-    // ノード P を削除
+    // ノード P を削除する
     n1.Left = n2
     ```
 
 === "Swift"
 
     ```swift title="binary_tree.swift"
+    /* ノードの挿入と削除 */
     let P = TreeNode(x: 0)
-    // n1 -> n2 の間にノード P を挿入
+    // n1 -> n2 の間にノード P を挿入する
     n1.left = P
     P.left = n2
-    // ノード P を削除
+    // ノード P を削除する
     n1.left = n2
     ```
 
@@ -550,11 +551,11 @@ comments: true
 
     ```javascript title="binary_tree.js"
     /* ノードの挿入と削除 */
-    let P = new TreeNode(0);
-    // n1 -> n2 の間にノード P を挿入
+    const P = new TreeNode(0);
+    // n1 -> n2 の間にノード P を挿入する
     n1.left = P;
     P.left = n2;
-    // ノード P を削除
+    // ノード P を削除する
     n1.left = n2;
     ```
 
@@ -563,10 +564,10 @@ comments: true
     ```typescript title="binary_tree.ts"
     /* ノードの挿入と削除 */
     const P = new TreeNode(0);
-    // n1 -> n2 の間にノード P を挿入
+    // n1 -> n2 の間にノード P を挿入する
     n1.left = P;
     P.left = n2;
-    // ノード P を削除
+    // ノード P を削除する
     n1.left = n2;
     ```
 
@@ -574,23 +575,25 @@ comments: true
 
     ```dart title="binary_tree.dart"
     /* ノードの挿入と削除 */
-    TreeNode P = new TreeNode(0);
-    // n1 -> n2 の間にノード P を挿入
-    n1.left = P;
-    P.left = n2;
-    // ノード P を削除
+    TreeNode p = TreeNode(0);
+    // n1 -> n2 の間にノード P を挿入する
+    n1.left = p;
+    p.left = n2;
+    // ノード P を削除する
     n1.left = n2;
     ```
 
 === "Rust"
 
     ```rust title="binary_tree.rs"
+    // ノードの挿入と削除
     let p = TreeNode::new(0);
-    // n1 -> n2 の間にノード P を挿入
-    n1.borrow_mut().left = Some(p.clone());
-    p.borrow_mut().left = Some(n2.clone());
-    // ノード p を削除
-    n1.borrow_mut().left = Some(n2);
+    // n1 -> n2 の間にノード P を挿入する
+    p.borrow_mut().left = Some(Rc::clone(&n2));
+    n1.borrow_mut().left = Some(Rc::clone(&p));
+    // ノード P を削除する
+    drop(p);
+    n1.borrow_mut().left = Some(Rc::clone(&n2));
     ```
 
 === "C"
@@ -598,23 +601,24 @@ comments: true
     ```c title="binary_tree.c"
     /* ノードの挿入と削除 */
     TreeNode *P = newTreeNode(0);
-    // n1 -> n2 の間にノード P を挿入
+    // n1 -> n2 の間にノード P を挿入する
     n1->left = P;
     P->left = n2;
-    // ノード P を削除
+    // ノード P を削除する
     n1->left = n2;
-    // メモリを解放
+    // メモリを解放する
     free(P);
     ```
 
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
+    /* ノードの挿入と削除 */
     val P = TreeNode(0)
-    // n1 -> n2 の間にノード P を挿入
+    // n1 -> n2 の間にノード P を挿入する
     n1.left = P
     P.left = n2
-    // ノード P を削除
+    // ノード P を削除する
     n1.left = n2
     ```
 
@@ -623,10 +627,10 @@ comments: true
     ```ruby title="binary_tree.rb"
     # ノードの挿入と削除
     _p = TreeNode.new(0)
-    # n1 -> n2 の間にノード _p を挿入
+    # n1 -> n2 の間にノード _p を挿入する
     n1.left = _p
     _p.left = n2
-    # ノードを削除
+    # ノードを削除する
     n1.left = n2
     ```
 

@@ -478,10 +478,10 @@ comments: true
 
     ```python title="binary_tree.py"
     # Вставка и удаление узлов
-    p = TreeNode(0)
+    P = TreeNode(0)
     # Вставить узел P между n1 -> n2
-    n1.left = p
-    p.left = n2
+    n1.left = P
+    P.left = n2
     # Удалить узел P
     n1.left = n2
     ```
@@ -490,19 +490,19 @@ comments: true
 
     ```cpp title="binary_tree.cpp"
     /* Вставка и удаление узлов */
-    TreeNode* P = new TreeNode(0);
+    TreeNode *P = new TreeNode(0);
     // Вставить узел P между n1 -> n2
     n1->left = P;
     P->left = n2;
     // Удалить узел P
     n1->left = n2;
-    // Освободить память
-    delete P;
+    delete P; // Освободить память
     ```
 
 === "Java"
 
     ```java title="binary_tree.java"
+    /* Вставка и удаление узлов */
     TreeNode P = new TreeNode(0);
     // Вставить узел P между n1 -> n2
     n1.left = P;
@@ -538,6 +538,7 @@ comments: true
 === "Swift"
 
     ```swift title="binary_tree.swift"
+    /* Вставка и удаление узлов */
     let P = TreeNode(x: 0)
     // Вставить узел P между n1 -> n2
     n1.left = P
@@ -550,7 +551,7 @@ comments: true
 
     ```javascript title="binary_tree.js"
     /* Вставка и удаление узлов */
-    let P = new TreeNode(0);
+    const P = new TreeNode(0);
     // Вставить узел P между n1 -> n2
     n1.left = P;
     P.left = n2;
@@ -574,10 +575,10 @@ comments: true
 
     ```dart title="binary_tree.dart"
     /* Вставка и удаление узлов */
-    TreeNode P = new TreeNode(0);
+    TreeNode p = TreeNode(0);
     // Вставить узел P между n1 -> n2
-    n1.left = P;
-    P.left = n2;
+    n1.left = p;
+    p.left = n2;
     // Удалить узел P
     n1.left = n2;
     ```
@@ -585,12 +586,14 @@ comments: true
 === "Rust"
 
     ```rust title="binary_tree.rs"
+    // Вставка и удаление узлов
     let p = TreeNode::new(0);
     // Вставить узел P между n1 -> n2
-    n1.borrow_mut().left = Some(p.clone());
-    p.borrow_mut().left = Some(n2.clone());
-    // Удалить узел p
-    n1.borrow_mut().left = Some(n2);
+    p.borrow_mut().left = Some(Rc::clone(&n2));
+    n1.borrow_mut().left = Some(Rc::clone(&p));
+    // Удалить узел P
+    drop(p);
+    n1.borrow_mut().left = Some(Rc::clone(&n2));
     ```
 
 === "C"
@@ -610,6 +613,7 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
+    /* Вставка и удаление узлов */
     val P = TreeNode(0)
     // Вставить узел P между n1 -> n2
     n1.left = P
@@ -626,7 +630,7 @@ comments: true
     # Вставить узел _p между n1 -> n2
     n1.left = _p
     _p.left = n2
-    # Удалить узел
+    # Удаление узла
     n1.left = n2
     ```
 

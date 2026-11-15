@@ -477,156 +477,160 @@ As with linked lists, insertion and deletion can be implemented by changing poin
 === "Python"
 
     ```python title="binary_tree.py"
-    # Insert and delete a node
-    p = TreeNode(0)
-    # Insert node P between n1 and n2
-    n1.left = p
-    p.left = n2
-    # Delete node P
+    # Insert and remove nodes
+    P = TreeNode(0)
+    # Insert node P between n1 and n2 in n1 -> n2
+    n1.left = P
+    P.left = n2
+    # Remove node P
     n1.left = n2
     ```
 
 === "C++"
 
     ```cpp title="binary_tree.cpp"
-    /* Insert and delete a node */
-    TreeNode* P = new TreeNode(0);
-    // Insert node P between n1 and n2
+    /* Insert and remove nodes */
+    TreeNode *P = new TreeNode(0);
+    // Insert node P between n1 and n2 in n1 -> n2
     n1->left = P;
     P->left = n2;
-    // Delete node P
+    // Remove node P
     n1->left = n2;
-    // Free the memory
-    delete P;
+    delete P; // Free memory
     ```
 
 === "Java"
 
     ```java title="binary_tree.java"
+    /* Insert and remove nodes */
     TreeNode P = new TreeNode(0);
-    // Insert node P between n1 and n2
+    // Insert node P between n1 and n2 in n1 -> n2
     n1.left = P;
     P.left = n2;
-    // Delete node P
+    // Remove node P
     n1.left = n2;
     ```
 
 === "C#"
 
     ```csharp title="binary_tree.cs"
-    /* Insert and delete a node */
+    /* Insert and remove nodes */
     TreeNode P = new(0);
-    // Insert node P between n1 and n2
+    // Insert node P between n1 and n2 in n1 -> n2
     n1.left = P;
     P.left = n2;
-    // Delete node P
+    // Remove node P
     n1.left = n2;
     ```
 
 === "Go"
 
     ```go title="binary_tree.go"
-    /* Insert and delete a node */
-    // Insert node P between n1 and n2
+    /* Insert and remove nodes */
+    // Insert node P between n1 and n2 in n1 -> n2
     p := NewTreeNode(0)
     n1.Left = p
     p.Left = n2
-    // Delete node P
+    // Remove node P
     n1.Left = n2
     ```
 
 === "Swift"
 
     ```swift title="binary_tree.swift"
+    /* Insert and remove nodes */
     let P = TreeNode(x: 0)
-    // Insert node P between n1 and n2
+    // Insert node P between n1 and n2 in n1 -> n2
     n1.left = P
     P.left = n2
-    // Delete node P
+    // Remove node P
     n1.left = n2
     ```
 
 === "JS"
 
     ```javascript title="binary_tree.js"
-    /* Insert and delete a node */
-    let P = new TreeNode(0);
-    // Insert node P between n1 and n2
+    /* Insert and remove nodes */
+    const P = new TreeNode(0);
+    // Insert node P between n1 and n2 in n1 -> n2
     n1.left = P;
     P.left = n2;
-    // Delete node P
+    // Remove node P
     n1.left = n2;
     ```
 
 === "TS"
 
     ```typescript title="binary_tree.ts"
-    /* Insert and delete a node */
+    /* Insert and remove nodes */
     const P = new TreeNode(0);
-    // Insert node P between n1 and n2
+    // Insert node P between n1 and n2 in n1 -> n2
     n1.left = P;
     P.left = n2;
-    // Delete node P
+    // Remove node P
     n1.left = n2;
     ```
 
 === "Dart"
 
     ```dart title="binary_tree.dart"
-    /* Insert and delete a node */
-    TreeNode P = new TreeNode(0);
-    // Insert node P between n1 and n2
-    n1.left = P;
-    P.left = n2;
-    // Delete node P
+    /* Insert and remove nodes */
+    TreeNode p = TreeNode(0);
+    // Insert node P between n1 and n2 in n1 -> n2
+    n1.left = p;
+    p.left = n2;
+    // Remove node p
     n1.left = n2;
     ```
 
 === "Rust"
 
     ```rust title="binary_tree.rs"
+    // Insert and remove nodes
     let p = TreeNode::new(0);
-    // Insert node P between n1 and n2
-    n1.borrow_mut().left = Some(p.clone());
-    p.borrow_mut().left = Some(n2.clone());
-    // Delete node p
-    n1.borrow_mut().left = Some(n2);
+    // Insert node p between n1 and n2 in n1 -> n2
+    p.borrow_mut().left = Some(Rc::clone(&n2));
+    n1.borrow_mut().left = Some(Rc::clone(&p));
+    // Remove node p
+    drop(p);
+    n1.borrow_mut().left = Some(Rc::clone(&n2));
     ```
 
 === "C"
 
     ```c title="binary_tree.c"
-    /* Insert and delete a node */
+    /* Insert and remove nodes */
     TreeNode *P = newTreeNode(0);
-    // Insert node P between n1 and n2
+    // Insert node P between n1 and n2 in n1 -> n2
     n1->left = P;
     P->left = n2;
-    // Delete node P
+    // Remove node P
     n1->left = n2;
-    // Free the memory
+    // Free memory
     free(P);
     ```
 
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
+    /* Insert and remove nodes */
     val P = TreeNode(0)
-    // Insert node P between n1 and n2
+    // Insert node P between n1 and n2 in n1 -> n2
     n1.left = P
     P.left = n2
-    // Delete node P
+    // Remove node P
     n1.left = n2
     ```
 
 === "Ruby"
 
     ```ruby title="binary_tree.rb"
-    # Insert and delete a node
+    # Insert and remove nodes
     _p = TreeNode.new(0)
     # Insert node _p between n1 and n2
     n1.left = _p
     _p.left = n2
-    # Delete the node
+    # Remove a node
     n1.left = n2
     ```
 

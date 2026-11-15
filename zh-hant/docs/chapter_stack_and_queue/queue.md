@@ -36,8 +36,8 @@ comments: true
     from collections import deque
 
     # 初始化佇列
-    # 在 Python 中，我們一般將雙向佇列類別 deque 當作佇列使用
-    # 雖然 queue.Queue() 是純正的佇列類別，但不太好用，因此不推薦
+    # 在 Python 中，我們一般將雙向佇列類別 deque 看作佇列使用
+    # 雖然 queue.Queue() 是純正的佇列類別，但不太好用
     que: deque[int] = deque()
 
     # 元素入列
@@ -184,7 +184,7 @@ comments: true
     let peek = queue.first!
 
     /* 元素出列 */
-    // 由於是陣列，因此 removeFirst 的複雜度為 O(n)
+    // 使用 Array 模擬時 pop 的複雜度為 O(n)
     let pop = queue.removeFirst()
 
     /* 獲取佇列的長度 */
@@ -219,7 +219,7 @@ comments: true
     const size = queue.length;
 
     /* 判斷佇列是否為空 */
-    const empty = queue.length === 0;
+    const isEmpty = queue.length === 0;
     ```
 
 === "TS"
@@ -247,15 +247,15 @@ comments: true
     const size = queue.length;
 
     /* 判斷佇列是否為空 */
-    const empty = queue.length === 0;
+    const isEmpty = queue.length === 0;
     ```
 
 === "Dart"
 
     ```dart title="queue.dart"
     /* 初始化佇列 */
-    // 在 Dart 中，佇列類別 Queue 是雙向佇列，也可作為佇列使用
-    Queue<int> queue = Queue();
+    // 在 Dart 中，一般將雙向佇列類別 Queue 看作佇列使用
+    final Queue<int> queue = Queue();
 
     /* 元素入列 */
     queue.add(1);
@@ -265,16 +265,16 @@ comments: true
     queue.add(4);
 
     /* 訪問佇列首元素 */
-    int peek = queue.first;
+    final int peek = queue.first;
 
     /* 元素出列 */
-    int pop = queue.removeFirst();
+    final int pop = queue.removeFirst();
 
-    /* 獲取佇列的長度 */
-    int size = queue.length;
+    /* 獲取佇列長度 */
+    final int size = queue.length;
 
     /* 判斷佇列是否為空 */
-    bool isEmpty = queue.isEmpty;
+    final bool isEmpty = queue.isEmpty;
     ```
 
 === "Rust"

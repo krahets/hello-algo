@@ -478,10 +478,10 @@ comments: true
 
     ```python title="binary_tree.py"
     # 插入與刪除節點
-    p = TreeNode(0)
+    P = TreeNode(0)
     # 在 n1 -> n2 中間插入節點 P
-    n1.left = p
-    p.left = n2
+    n1.left = P
+    P.left = n2
     # 刪除節點 P
     n1.left = n2
     ```
@@ -490,19 +490,19 @@ comments: true
 
     ```cpp title="binary_tree.cpp"
     /* 插入與刪除節點 */
-    TreeNode* P = new TreeNode(0);
+    TreeNode *P = new TreeNode(0);
     // 在 n1 -> n2 中間插入節點 P
     n1->left = P;
     P->left = n2;
     // 刪除節點 P
     n1->left = n2;
-    // 釋放記憶體
-    delete P;
+    delete P; // 釋放記憶體
     ```
 
 === "Java"
 
     ```java title="binary_tree.java"
+    /* 插入與刪除節點 */
     TreeNode P = new TreeNode(0);
     // 在 n1 -> n2 中間插入節點 P
     n1.left = P;
@@ -538,6 +538,7 @@ comments: true
 === "Swift"
 
     ```swift title="binary_tree.swift"
+    /* 插入與刪除節點 */
     let P = TreeNode(x: 0)
     // 在 n1 -> n2 中間插入節點 P
     n1.left = P
@@ -550,7 +551,7 @@ comments: true
 
     ```javascript title="binary_tree.js"
     /* 插入與刪除節點 */
-    let P = new TreeNode(0);
+    const P = new TreeNode(0);
     // 在 n1 -> n2 中間插入節點 P
     n1.left = P;
     P.left = n2;
@@ -574,10 +575,10 @@ comments: true
 
     ```dart title="binary_tree.dart"
     /* 插入與刪除節點 */
-    TreeNode P = new TreeNode(0);
+    TreeNode p = TreeNode(0);
     // 在 n1 -> n2 中間插入節點 P
-    n1.left = P;
-    P.left = n2;
+    n1.left = p;
+    p.left = n2;
     // 刪除節點 P
     n1.left = n2;
     ```
@@ -585,12 +586,14 @@ comments: true
 === "Rust"
 
     ```rust title="binary_tree.rs"
+    // 插入節點與刪除節點
     let p = TreeNode::new(0);
     // 在 n1 -> n2 中間插入節點 P
-    n1.borrow_mut().left = Some(p.clone());
-    p.borrow_mut().left = Some(n2.clone());
-    // 刪除節點 p
-    n1.borrow_mut().left = Some(n2);
+    p.borrow_mut().left = Some(Rc::clone(&n2));
+    n1.borrow_mut().left = Some(Rc::clone(&p));
+    // 刪除節點 P
+    drop(p);
+    n1.borrow_mut().left = Some(Rc::clone(&n2));
     ```
 
 === "C"
@@ -610,6 +613,7 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
+    /* 插入與刪除節點 */
     val P = TreeNode(0)
     // 在 n1 -> n2 中間插入節點 P
     n1.left = P

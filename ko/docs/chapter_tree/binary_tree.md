@@ -478,11 +478,11 @@ comments: true
 
     ```python title="binary_tree.py"
     # 노드 삽입과 삭제
-    p = TreeNode(0)
-    # n1 -> n2 사이에 노드 P 삽입
-    n1.left = p
-    p.left = n2
-    # 노드 P 삭제
+    P = TreeNode(0)
+    # n1 -> n2 사이에 노드 P를 삽입한다
+    n1.left = P
+    P.left = n2
+    # 노드 P를 삭제한다
     n1.left = n2
     ```
 
@@ -490,24 +490,24 @@ comments: true
 
     ```cpp title="binary_tree.cpp"
     /* 노드 삽입과 삭제 */
-    TreeNode* P = new TreeNode(0);
-    // n1 -> n2 사이에 노드 P 삽입
+    TreeNode *P = new TreeNode(0);
+    // n1 -> n2 사이에 노드 P를 삽입한다
     n1->left = P;
     P->left = n2;
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1->left = n2;
-    // 메모리 해제
-    delete P;
+    delete P; // 메모리 해제
     ```
 
 === "Java"
 
     ```java title="binary_tree.java"
+    /* 노드 삽입과 삭제 */
     TreeNode P = new TreeNode(0);
-    // n1 -> n2 사이에 노드 P 삽입
+    // n1 -> n2 사이에 노드 P를 삽입한다
     n1.left = P;
     P.left = n2;
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1.left = n2;
     ```
 
@@ -516,10 +516,10 @@ comments: true
     ```csharp title="binary_tree.cs"
     /* 노드 삽입과 삭제 */
     TreeNode P = new(0);
-    // n1 -> n2 사이에 노드 P 삽입
+    // n1 -> n2 사이에 노드 P를 삽입한다
     n1.left = P;
     P.left = n2;
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1.left = n2;
     ```
 
@@ -527,22 +527,23 @@ comments: true
 
     ```go title="binary_tree.go"
     /* 노드 삽입과 삭제 */
-    // n1 -> n2 사이에 노드 P 삽입
+    // n1 -> n2 사이에 노드 P를 삽입한다
     p := NewTreeNode(0)
     n1.Left = p
     p.Left = n2
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1.Left = n2
     ```
 
 === "Swift"
 
     ```swift title="binary_tree.swift"
+    /* 노드 삽입과 삭제 */
     let P = TreeNode(x: 0)
-    // n1 -> n2 사이에 노드 P 삽입
+    // n1 -> n2 사이에 노드 P를 삽입한다
     n1.left = P
     P.left = n2
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1.left = n2
     ```
 
@@ -550,11 +551,11 @@ comments: true
 
     ```javascript title="binary_tree.js"
     /* 노드 삽입과 삭제 */
-    let P = new TreeNode(0);
-    // n1 -> n2 사이에 노드 P 삽입
+    const P = new TreeNode(0);
+    // n1 -> n2 사이에 노드 P를 삽입한다
     n1.left = P;
     P.left = n2;
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1.left = n2;
     ```
 
@@ -563,10 +564,10 @@ comments: true
     ```typescript title="binary_tree.ts"
     /* 노드 삽입과 삭제 */
     const P = new TreeNode(0);
-    // n1 -> n2 사이에 노드 P 삽입
+    // n1 -> n2 사이에 노드 P를 삽입한다
     n1.left = P;
     P.left = n2;
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1.left = n2;
     ```
 
@@ -574,23 +575,25 @@ comments: true
 
     ```dart title="binary_tree.dart"
     /* 노드 삽입과 삭제 */
-    TreeNode P = new TreeNode(0);
-    // n1 -> n2 사이에 노드 P 삽입
-    n1.left = P;
-    P.left = n2;
-    // 노드 P 삭제
+    TreeNode p = TreeNode(0);
+    // n1 -> n2 사이에 노드 P를 삽입한다
+    n1.left = p;
+    p.left = n2;
+    // 노드 P를 삭제한다
     n1.left = n2;
     ```
 
 === "Rust"
 
     ```rust title="binary_tree.rs"
+    // 노드 삽입과 삭제
     let p = TreeNode::new(0);
-    // n1 -> n2 사이에 노드 P 삽입
-    n1.borrow_mut().left = Some(p.clone());
-    p.borrow_mut().left = Some(n2.clone());
-    // 노드 p 삭제
-    n1.borrow_mut().left = Some(n2);
+    // n1 -> n2 사이에 노드 P를 삽입한다
+    p.borrow_mut().left = Some(Rc::clone(&n2));
+    n1.borrow_mut().left = Some(Rc::clone(&p));
+    // 노드 P를 삭제한다
+    drop(p);
+    n1.borrow_mut().left = Some(Rc::clone(&n2));
     ```
 
 === "C"
@@ -598,10 +601,10 @@ comments: true
     ```c title="binary_tree.c"
     /* 노드 삽입과 삭제 */
     TreeNode *P = newTreeNode(0);
-    // n1 -> n2 사이에 노드 P 삽입
+    // n1 -> n2 사이에 노드 P를 삽입한다
     n1->left = P;
     P->left = n2;
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1->left = n2;
     // 메모리 해제
     free(P);
@@ -610,11 +613,12 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
+    /* 노드 삽입과 삭제 */
     val P = TreeNode(0)
-    // n1 -> n2 사이에 노드 P 삽입
+    // n1 -> n2 사이에 노드 P를 삽입한다
     n1.left = P
     P.left = n2
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1.left = n2
     ```
 
@@ -623,7 +627,7 @@ comments: true
     ```ruby title="binary_tree.rb"
     # 노드 삽입과 삭제
     _p = TreeNode.new(0)
-    # n1 -> n2 사이에 노드 _p 삽입
+    # n1 -> n2 사이에 노드 _p를 삽입한다
     n1.left = _p
     _p.left = n2
     # 노드 삭제

@@ -36,234 +36,234 @@ comments: true
     ```python title="deque.py"
     from collections import deque
 
-    # 両端キューを初期化
+    # 両端キューを初期化する
     deq: deque[int] = deque()
 
-    # 要素をエンキュー
-    deq.append(2)      # 末尾に追加
+    # 要素をエンキューする
+    deq.append(2)  # キューの末尾に追加する
     deq.append(5)
     deq.append(4)
-    deq.appendleft(3)  # 先頭に追加
+    deq.appendleft(3)  # キューの先頭に追加する
     deq.appendleft(1)
 
-    # 要素にアクセス
-    front: int = deq[0]  # 先頭要素
-    rear: int = deq[-1]  # 末尾要素
+    # 要素にアクセスする
+    front: int = deq[0]  # キューの先頭要素
+    rear: int = deq[-1]  # キューの末尾要素
 
-    # 要素をデキュー
-    pop_front: int = deq.popleft()  # 先頭要素を取り出す
-    pop_rear: int = deq.pop()       # 末尾要素を取り出す
+    # 要素をデキューする
+    pop_front: int = deq.popleft()  # キューの先頭要素をデキューする
+    pop_rear: int = deq.pop()  # キューの末尾要素をデキューする
 
-    # 両端キューの長さを取得
+    # 両端キューの長さを取得する
     size: int = len(deq)
 
-    # 両端キューが空かどうかを判定
+    # 両端キューが空かどうかを判定する
     is_empty: bool = len(deq) == 0
     ```
 
 === "C++"
 
     ```cpp title="deque.cpp"
-    /* 両端キューを初期化 */
+    /* 両端キューを初期化する */
     deque<int> deque;
 
-    /* 要素をエンキュー */
-    deque.push_back(2);   // 末尾に追加
+    /* 要素をエンキューする */
+    deque.push_back(2); // キューの末尾に追加する
     deque.push_back(5);
     deque.push_back(4);
-    deque.push_front(3);  // 先頭に追加
+    deque.push_front(3); // キューの先頭に追加する
     deque.push_front(1);
 
-    /* 要素にアクセス */
-    int front = deque.front(); // 先頭要素
-    int back = deque.back();   // 末尾要素
+    /* 要素にアクセスする */
+    int front = deque.front(); // キューの先頭要素
+    int back = deque.back(); // キューの末尾要素
 
-    /* 要素をデキュー */
-    deque.pop_front();  // 先頭要素を取り出す
-    deque.pop_back();   // 末尾要素を取り出す
+    /* 要素をデキューする */
+    deque.pop_front(); // キューの先頭要素をデキューする
+    deque.pop_back(); // キューの末尾要素をデキューする
 
-    /* 両端キューの長さを取得 */
+    /* 両端キューの長さを取得する */
     int size = deque.size();
 
-    /* 両端キューが空かどうかを判定 */
+    /* 両端キューが空かどうかを判定する */
     bool empty = deque.empty();
     ```
 
 === "Java"
 
     ```java title="deque.java"
-    /* 両端キューを初期化 */
+    /* 両端キューを初期化する */
     Deque<Integer> deque = new LinkedList<>();
 
-    /* 要素をエンキュー */
-    deque.offerLast(2);   // 末尾に追加
+    /* 要素をエンキューする */
+    deque.offerLast(2); // キューの末尾に追加する
     deque.offerLast(5);
     deque.offerLast(4);
-    deque.offerFirst(3);  // 先頭に追加
+    deque.offerFirst(3); // キューの先頭に追加する
     deque.offerFirst(1);
 
-    /* 要素にアクセス */
-    int peekFirst = deque.peekFirst();  // 先頭要素
-    int peekLast = deque.peekLast();    // 末尾要素
+    /* 要素にアクセスする */
+    int peekFirst = deque.peekFirst(); // キューの先頭要素
+    int peekLast = deque.peekLast(); // キューの末尾要素
 
-    /* 要素をデキュー */
-    int popFirst = deque.pollFirst();  // 先頭要素を取り出す
-    int popLast = deque.pollLast();    // 末尾要素を取り出す
+    /* 要素をデキューする */
+    int popFirst = deque.pollFirst(); // キューの先頭要素をデキューする
+    int popLast = deque.pollLast(); // キューの末尾要素をデキューする
 
-    /* 両端キューの長さを取得 */
+    /* 両端キューの長さを取得する */
     int size = deque.size();
 
-    /* 両端キューが空かどうかを判定 */
+    /* 両端キューが空かどうかを判定する */
     boolean isEmpty = deque.isEmpty();
     ```
 
 === "C#"
 
     ```csharp title="deque.cs"
-    /* 両端キューを初期化 */
-    // C# では LinkedList を両端キューとして使う
+    /* 両端キューを初期化する */
+    // C# では、連結リスト LinkedList を両端キューとして使う
     LinkedList<int> deque = new();
 
-    /* 要素をエンキュー */
-    deque.AddLast(2);   // 末尾に追加
+    /* 要素をエンキューする */
+    deque.AddLast(2);   // キューの末尾に追加する
     deque.AddLast(5);
     deque.AddLast(4);
-    deque.AddFirst(3);  // 先頭に追加
+    deque.AddFirst(3);  // キューの先頭に追加する
     deque.AddFirst(1);
 
-    /* 要素にアクセス */
-    int peekFirst = deque.First.Value;  // 先頭要素
-    int peekLast = deque.Last.Value;    // 末尾要素
+    /* 要素にアクセスする */
+    int? peekFirst = deque.First?.Value;  // キューの先頭要素
+    int? peekLast = deque.Last?.Value;    // キューの末尾要素
 
-    /* 要素をデキュー */
-    deque.RemoveFirst();  // 先頭要素を取り出す
-    deque.RemoveLast();   // 末尾要素を取り出す
+    /* 要素をデキューする */
+    deque.RemoveFirst();  // キューの先頭要素をデキューする
+    deque.RemoveLast();   // キューの末尾要素をデキューする
 
-    /* 両端キューの長さを取得 */
+    /* 両端キューの長さを取得する */
     int size = deque.Count;
 
-    /* 両端キューが空かどうかを判定 */
+    /* 両端キューが空かどうかを判定する */
     bool isEmpty = deque.Count == 0;
     ```
 
 === "Go"
 
     ```go title="deque_test.go"
-    /* 両端キューを初期化 */
+    /* 両端キューを初期化する */
     // Go では list を両端キューとして使う
     deque := list.New()
 
-    /* 要素をエンキュー */
-    deque.PushBack(2)      // 末尾に追加
+    /* 要素をエンキューする */
+    deque.PushBack(2) // キューの末尾に追加する
     deque.PushBack(5)
     deque.PushBack(4)
-    deque.PushFront(3)     // 先頭に追加
+    deque.PushFront(3) // キューの先頭に追加する
     deque.PushFront(1)
 
-    /* 要素にアクセス */
-    front := deque.Front() // 先頭要素
-    rear := deque.Back()   // 末尾要素
+    /* 要素にアクセスする */
+    front := deque.Front() // キューの先頭要素
+    rear := deque.Back() // キューの末尾要素
 
-    /* 要素をデキュー */
-    deque.Remove(front)    // 先頭要素を取り出す
-    deque.Remove(rear)     // 末尾要素を取り出す
+    /* 要素をデキューする */
+    deque.Remove(front) // キューの先頭要素をデキューする
+    deque.Remove(rear) // キューの末尾要素をデキューする
 
-    /* 両端キューの長さを取得 */
+    /* 両端キューの長さを取得する */
     size := deque.Len()
 
-    /* 両端キューが空かどうかを判定 */
+    /* 両端キューが空かどうかを判定する */
     isEmpty := deque.Len() == 0
     ```
 
 === "Swift"
 
     ```swift title="deque.swift"
-    /* 両端キューを初期化 */
+    /* 両端キューを初期化する */
     // Swift には組み込みの両端キュークラスがないため、Array を両端キューとして使える
     var deque: [Int] = []
 
-    /* 要素をエンキュー */
-    deque.append(2) // 末尾に追加
+    /* 要素をエンキューする */
+    deque.append(2) // キューの末尾に追加する
     deque.append(5)
     deque.append(4)
-    deque.insert(3, at: 0) // 先頭に追加
+    deque.insert(3, at: 0) // キューの先頭に追加する
     deque.insert(1, at: 0)
 
-    /* 要素にアクセス */
-    let peekFirst = deque.first! // 先頭要素
-    let peekLast = deque.last! // 末尾要素
+    /* 要素にアクセスする */
+    let peekFirst = deque.first! // キューの先頭要素
+    let peekLast = deque.last! // キューの末尾要素
 
-    /* 要素をデキュー */
-    // Array で代用する場合、popFirst の計算量は O(n)
-    let popFirst = deque.removeFirst() // 先頭要素を取り出す
-    let popLast = deque.removeLast() // 末尾要素を取り出す
+    /* 要素をデキューする */
+    // Array で再現する場合、popFirst の計算量は O(n)
+    let popFirst = deque.removeFirst() // キューの先頭要素をデキューする
+    let popLast = deque.removeLast() // キューの末尾要素をデキューする
 
-    /* 両端キューの長さを取得 */
+    /* 両端キューの長さを取得する */
     let size = deque.count
 
-    /* 両端キューが空かどうかを判定 */
+    /* 両端キューが空かどうかを判定する */
     let isEmpty = deque.isEmpty
     ```
 
 === "JS"
 
     ```javascript title="deque.js"
-    /* 両端キューを初期化 */
-    // JavaScript には組み込みの両端キューがないため、Array で代用する必要がある
+    /* 両端キューを初期化する */
+    // JavaScript には組み込みの両端キューがないため、Array を両端キューとして使うしかない
     const deque = [];
 
-    /* 要素をエンキュー */
+    /* 要素をエンキューする */
     deque.push(2);
     deque.push(5);
     deque.push(4);
-    // 配列なので unshift() の時間計算量は O(n) であることに注意
+    // 配列なので unshift() メソッドの時間計算量は O(n) であることに注意
     deque.unshift(3);
     deque.unshift(1);
 
-    /* 要素にアクセス */
+    /* 要素にアクセスする */
     const peekFirst = deque[0];
     const peekLast = deque[deque.length - 1];
 
-    /* 要素をデキュー */
-    // 配列なので shift() の時間計算量は O(n) であることに注意
+    /* 要素をデキューする */
+    // 配列なので shift() メソッドの時間計算量は O(n) であることに注意
     const popFront = deque.shift();
     const popBack = deque.pop();
 
-    /* 両端キューの長さを取得 */
+    /* 両端キューの長さを取得する */
     const size = deque.length;
 
-    /* 両端キューが空かどうかを判定 */
+    /* 両端キューが空かどうかを判定する */
     const isEmpty = size === 0;
     ```
 
 === "TS"
 
     ```typescript title="deque.ts"
-    /* 両端キューを初期化 */
-    // TypeScript には組み込みの両端キューがないため、Array で代用する必要がある
+    /* 両端キューを初期化する */
+    // TypeScript には組み込みの両端キューがないため、Array を両端キューとして使うしかない
     const deque: number[] = [];
 
-    /* 要素をエンキュー */
+    /* 要素をエンキューする */
     deque.push(2);
     deque.push(5);
     deque.push(4);
-    // 配列なので unshift() の時間計算量は O(n) であることに注意
+    // 配列なので unshift() メソッドの時間計算量は O(n) であることに注意
     deque.unshift(3);
     deque.unshift(1);
 
-    /* 要素にアクセス */
+    /* 要素にアクセスする */
     const peekFirst: number = deque[0];
     const peekLast: number = deque[deque.length - 1];
 
-    /* 要素をデキュー */
-    // 配列なので shift() の時間計算量は O(n) であることに注意
+    /* 要素をデキューする */
+    // 配列なので shift() メソッドの時間計算量は O(n) であることに注意
     const popFront: number = deque.shift() as number;
     const popBack: number = deque.pop() as number;
 
-    /* 両端キューの長さを取得 */
+    /* 両端キューの長さを取得する */
     const size: number = deque.length;
 
-    /* 両端キューが空かどうかを判定 */
+    /* 両端キューが空かどうかを判定する */
     const isEmpty: boolean = size === 0;
     ```
 
@@ -299,32 +299,28 @@ comments: true
 === "Rust"
 
     ```rust title="deque.rs"
-    /* 両端キューを初期化 */
-    let mut deque: VecDeque<u32> = VecDeque::new();
+    // 両端キューを初期化する
+    let mut deque: VecDeque<i32> = VecDeque::new();
 
-    /* 要素をエンキュー */
-    deque.push_back(2);  // 末尾に追加
+    /* 要素をエンキューする */
+    deque.push_back(2); // キューの末尾に追加する
     deque.push_back(5);
     deque.push_back(4);
-    deque.push_front(3); // 先頭に追加
+    deque.push_front(3); // キューの先頭に追加する
     deque.push_front(1);
 
-    /* 要素にアクセス */
-    if let Some(front) = deque.front() { // 先頭要素
-    }
-    if let Some(rear) = deque.back() {   // 末尾要素
-    }
+    // 要素にアクセスする
+    let peek_first = deque.front().unwrap(); // キューの先頭要素
+    let peek_last = deque.back().unwrap(); // キューの末尾要素
 
-    /* 要素をデキュー */
-    if let Some(pop_front) = deque.pop_front() { // 先頭要素を取り出す
-    }
-    if let Some(pop_rear) = deque.pop_back() {   // 末尾要素を取り出す
-    }
+    // 要素をデキューする
+    let pop_first = deque.pop_front().unwrap(); // キューの先頭要素をデキューする
+    let pop_last = deque.pop_back().unwrap(); // キューの末尾要素をデキューする
 
-    /* 両端キューの長さを取得 */
+    // 両端キューの長さを取得する
     let size = deque.len();
 
-    /* 両端キューが空かどうかを判定 */
+    // 両端キューが空かどうかを判定する
     let is_empty = deque.is_empty();
     ```
 
@@ -337,59 +333,59 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="deque.kt"
-    /* 両端キューを初期化 */
+    /* 両端キューを初期化する */
     val deque = LinkedList<Int>()
 
-    /* 要素をエンキュー */
-    deque.offerLast(2)  // 末尾に追加
+    /* 要素をエンキューする */
+    deque.offerLast(2) // キューの末尾に追加する
     deque.offerLast(5)
     deque.offerLast(4)
-    deque.offerFirst(3) // 先頭に追加
+    deque.offerFirst(3) // キューの先頭に追加する
     deque.offerFirst(1)
 
-    /* 要素にアクセス */
-    val peekFirst = deque.peekFirst() // 先頭要素
-    val peekLast = deque.peekLast()   // 末尾要素
+    /* 要素にアクセスする */
+    val peekFirst = deque.peekFirst() // キューの先頭要素
+    val peekLast = deque.peekLast() // キューの末尾要素
 
-    /* 要素をデキュー */
-    val popFirst = deque.pollFirst() // 先頭要素を取り出す
-    val popLast = deque.pollLast()   // 末尾要素を取り出す
+    /* 要素をデキューする */
+    val popFirst = deque.pollFirst() // キューの先頭要素をデキューする
+    val popLast = deque.pollLast() // キューの末尾要素をデキューする
 
-    /* 両端キューの長さを取得 */
+    /* 両端キューの長さを取得する */
     val size = deque.size
 
-    /* 両端キューが空かどうかを判定 */
+    /* 両端キューが空かどうかを判定する */
     val isEmpty = deque.isEmpty()
     ```
 
 === "Ruby"
 
     ```ruby title="deque.rb"
-    # 両端キューを初期化
-    # Ruby には組み込みの両端キューがないため、Array で代用する必要がある
+    # 両端キューを初期化する
+    # Ruby には組み込みの両端キューがないため、Array を両端キューとして使うしかない
     deque = []
 
-    # 要素をエンキュー
+    # 要素をエンキューする
     deque << 2
     deque << 5
     deque << 4
-    # 配列なので Array#unshift の時間計算量は O(n) であることに注意
+    # 配列なので Array#unshift メソッドの時間計算量は O(n) であることに注意
     deque.unshift(3)
     deque.unshift(1)
 
-    # 要素にアクセス
+    # 要素にアクセスする
     peek_first = deque.first
     peek_last = deque.last
 
-    # 要素をデキュー
-    # 配列なので Array#shift の時間計算量は O(n) であることに注意
+    # 要素をデキューする
+    # 配列なので Array#shift メソッドの時間計算量は O(n) であることに注意
     pop_front = deque.shift
     pop_back = deque.pop
 
-    # 両端キューの長さを取得
+    # 両端キューの長さを取得する
     size = deque.length
 
-    # 両端キューが空かどうかを判定
+    # 両端キューが空かどうかを判定する
     is_empty = size.zero?
     ```
 
