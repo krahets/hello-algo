@@ -27,7 +27,7 @@
   ],
   "dependencies": {
     "markdown": {
-      "chapter_heap/heap.md": "00d9805c2a89016f30a5c9c5434c2fd3911f8b56b7fb8cdec0a862e0c4be92e9"
+      "chapter_heap/heap.md": "66d20f45c014eb6c91082c40fae367ed0feb162ac111c186b0c737a03b9f6297"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -65,5 +65,10 @@
     "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
     "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
     "content_sha256": "4636b98e1f83018425d5b67c8d278e449aa81b7dd8ba894ed41124f2ce5aa183"
+  },
+  "dependency_compatibility": {
+    "run_id": "figure-reading-20261116/upstream-final-verification",
+    "evidence_sha256": "5066997c87052863d107b696247ff6f5b15d8cf6dbf1e000a7d7a2e1f3696cd4",
+    "factual_review_preserved": true
   }
 }

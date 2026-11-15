@@ -21,7 +21,7 @@
   ],
   "dependencies": {
     "markdown": {
-      "chapter_array_and_linkedlist/linked_list.md": "e7b62fb0d08b9467a2411492429bd6edbf61a7838841aec2a534a0518cb66e05"
+      "chapter_array_and_linkedlist/linked_list.md": "9bfad56b2611cfacb34b5429a23aba4421930662885eb3df1ca0bd5e742762d6"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -131,5 +131,10 @@
     "verification_manifest_sha256": "4f1336dab5a55decb8eb34d4152a8a0006c4cd2d7ca264d5af16346db2f27e51",
     "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
     "content_sha256": "3df1155aa31066548a449674dcf928c01852d50e057a9fe57775ef1b9a31adb6"
+  },
+  "dependency_compatibility": {
+    "run_id": "figure-reading-20261116/upstream-final-verification",
+    "evidence_sha256": "5066997c87052863d107b696247ff6f5b15d8cf6dbf1e000a7d7a2e1f3696cd4",
+    "factual_review_preserved": true
   }
 }

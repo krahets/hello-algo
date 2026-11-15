@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "markdown": {
-      "chapter_array_and_linkedlist/linked_list.md": "e7b62fb0d08b9467a2411492429bd6edbf61a7838841aec2a534a0518cb66e05"
+      "chapter_array_and_linkedlist/linked_list.md": "9bfad56b2611cfacb34b5429a23aba4421930662885eb3df1ca0bd5e742762d6"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -213,5 +213,10 @@
       ]
     },
     "content_sha256": "2ba0e44b0efa39c6788226c8315a7f7b67738a87ddc22e9dd276bb7eca5bb70b"
+  },
+  "dependency_compatibility": {
+    "run_id": "figure-reading-20261116/upstream-final-verification",
+    "evidence_sha256": "5066997c87052863d107b696247ff6f5b15d8cf6dbf1e000a7d7a2e1f3696cd4",
+    "factual_review_preserved": true
   }
 }

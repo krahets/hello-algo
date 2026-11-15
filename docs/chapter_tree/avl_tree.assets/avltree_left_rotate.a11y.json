@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "markdown": {
-      "chapter_tree/avl_tree.md": "f4a27fbca67b22b8b3a041218f1088ab85a9f2a32e374060046152e6e01440a5"
+      "chapter_tree/avl_tree.md": "e264b3ce5fe69884072c4785589533b123cbed6c6e9e1bac0ddbe3aefc0c68f6"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -245,5 +245,10 @@
     "verification_manifest_sha256": "12758dfc53d5615738ec788937b320b70c0ac3d0d3b4ff3dfcbc0cf08da7669a",
     "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
     "content_sha256": "e6a4a3327ba744fa167a025a5cf3857cc6945d78c2deba4e33a92652bcdd341a"
+  },
+  "dependency_compatibility": {
+    "run_id": "figure-reading-20261116/upstream-final-verification",
+    "evidence_sha256": "5066997c87052863d107b696247ff6f5b15d8cf6dbf1e000a7d7a2e1f3696cd4",
+    "factual_review_preserved": true
   }
 }
