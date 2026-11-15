@@ -1,122 +1,302 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_searching/binary_search_insertion.assets/binary_search_insertion",
-  "title": "二分查找重复元素的插入点：遇到相等值继续向左收缩，定位首个 6",
-  "summary": "在含五个 6 的有序数组中，即便中点等于 6 也执行 j = m − 1 继续向左收缩，最终由 i = 2 给出最左插入点。",
+  "title": "二分查找最左插入点",
+  "summary": "在含重复值的有序数组中，遇到 6 仍向左缩小区间，最终返回最左插入索引 2。",
   "context": [
     "给定升序数组 [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]，索引为 0 至 9，查找目标值 target = 6 的插入点。值 6 连续占据索引 2 至 6；题目要求返回新 6 应插入的索引，使它排在所有已有 6 的最左侧（本算法仅计算并返回插入点索引，不在原数组中实际执行插入搬移）。",
     "指针 i、j 表示双闭搜索区间 [i, j] 的左、右边界，中点索引按 m = (i + j) / 2 向下取整计算。当 nums[m] < target 时执行 i = m + 1 向右逼近；当 nums[m] > target 或 nums[m] == target 时均执行 j = m − 1 向左收缩，使指针 j 持续逼近小于 target 的最右元素、指针 i 持续逼近首个大于等于 target 的位置。"
   ],
   "description": [
-    "画面用蓝色虚线框与饱和色柱子标出当前双闭搜索区间 [i, j]，已被排除在区间外的柱子呈半透明浅色。带橙色描边的柱子与橙色指针 m 标示最近一次计算出的中点；当单步画面刚完成 i 或 j 的边界移动、尚未进入下一轮计算时，旧指针 m 会暂时留在新搜索区间之外。"
+    "每轮先计算中点，再移动一个边界。边界刚更新时，图中的 m 仍是上一次的中点，可能留在新区间之外；只有再次计算中点时才更新 m。",
+    "找到等于目标值的元素仍须继续向左查找，才能确定所有重复值之前的位置。整个过程只计算插入索引，原数组不变。"
   ],
   "result": "八幅分步画面对应三轮折半比较：依次检查中点 m = 4（值为 6）、m = 1（值为 3）、m = 2（值为 6）。最终当 i = 2、j = 1 时双闭区间为空，跳出循环并返回 i = 2，即所有重复 6 最左侧的插入位置。",
   "frames": [
     {
       "id": "source-226",
       "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step1.png",
-      "title": "第 1 步：初始化双闭搜索区间 [0, 9]",
-      "explanation": "执行“初始化 i, j 分别指向数组首元素、尾元素，两者表示闭区间 [i, j]”：左指针 i = 0 指向首元素 1，右指针 j = 9 指向尾元素 15，十个元素全部处于蓝色虚线搜索框内，尚未计算中点 m。",
-      "state": "升序数组为 [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]，索引为 0 至 9，目标值为 6。i=0，j=9，搜索区间 [0,9]，尚无中点 m。",
-      "key_state": "初始化 i = 0，j = 9；搜索区间覆盖全部十个元素 [0, 9]。",
-      "announcement": "初始化左右边界指针为索引 0 和索引 9。"
+      "title": "初始化搜索区间",
+      "explanation": "令左边界 i = 0、右边界 j = 9，双闭搜索区间 [0, 9] 覆盖全部 10 个元素。",
+      "state": "初始状态：当前 i = 0，j = 9，双闭搜索区间为 [0, 9]，尚未计算中点 m。目标值 target = 6，十元素升序数组见固定输入表。",
+      "key_state": "初始化搜索区间。",
+      "announcement": "令左边界 i = 0、右边界 j = 9，双闭搜索区间 [0, 9] 覆盖全部 10 个元素。",
+      "state_tables": [
+        {
+          "caption": "当前指针",
+          "headers": [
+            "指针",
+            "索引",
+            "含义"
+          ],
+          "rows": [
+            [
+              "i",
+              "0",
+              "左边界；循环结束时返回它"
+            ],
+            [
+              "j",
+              "9",
+              "右边界"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-227",
       "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step2.png",
-      "title": "第 2 步：第一轮计算中点 m = 4（值为 6）",
-      "explanation": "进入“循环二分查找：1. 计算中点 m = (i + j) / 2”：将 (0 + 9) / 2 向下取整得到 m = 4，对应橙色高亮元素 nums[4] = 6。虽然中点值等于目标 6，但尚无法确认它左边是否还有相等的 6。",
-      "state": "升序数组为 [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]，索引为 0 至 9，目标值为 6。i=0，j=9，m=4，中间值 6，搜索区间仍为 [0,9]。",
-      "key_state": "i = 0，j = 9，计算中点 m = 4（nums[4] = 6）。",
-      "announcement": "计算第一轮中点索引 m = 4，对应元素值为 6。"
+      "title": "计算中点 4",
+      "explanation": "对闭区间 [0, 9] 计算首轮中点 m = (0 + 9) // 2 = 4，中点元素 nums[4] = 6，等于目标值 6。",
+      "state": "第 1 轮取中点：当前 i = 0，j = 9，闭区间为 [0, 9]，本轮中点 m = 4（对应 nums[4] = 6，等于目标值 6）。",
+      "key_state": "计算中点 4。",
+      "announcement": "对闭区间 [0, 9] 计算首轮中点 m = (0 + 9) // 2 = 4，中点元素 nums[4] = 6，等于目标值 6。",
+      "state_tables": [
+        {
+          "caption": "当前指针",
+          "headers": [
+            "指针",
+            "索引",
+            "含义"
+          ],
+          "rows": [
+            [
+              "i",
+              "0",
+              "左边界；循环结束时返回它"
+            ],
+            [
+              "j",
+              "9",
+              "右边界"
+            ],
+            [
+              "m",
+              "4",
+              "本轮中点"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-228",
       "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step3.png",
-      "title": "第 3 步：nums[4] == 6，执行 j = m − 1 = 3 向左收缩",
-      "explanation": "执行“2. ∵ nums[m] == target ∴ 执行 j = m – 1 缩小搜索区间”：因为索引 4 左侧可能还有等于 6 的元素（小于 6 的元素必在区间 [0, 3] 内），所以将右边界更新为 j = 4 − 1 = 3，搜索区间收缩为 [0, 3]。画面中旧指针 m = 4 暂未重算，已处于新搜索框右侧之外。",
-      "state": "升序数组为 [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]，索引为 0 至 9，目标值为 6。i=0，j=3，当前搜索区间 [0,3]，候选值为 [1,3,6,6]；旧 m=4，对应值 6，尚未重算。",
-      "key_state": "中点值等于 6，令 j = 3，搜索区间收缩至 [0, 3]（旧 m = 4）。",
-      "announcement": "中点值等于目标 6，将右边界 j 移至索引 3，继续在左半区查找。"
+      "title": "遇到 6，右边界左移",
+      "explanation": "因 nums[4] = 6 等于目标值 6，为继续排查左侧是否还有 6 以定位最左插入点，仍执行 j = m − 1 将右边界左移至 3；图中旧中点 m = 4 暂未重算，留在新区间 [0, 3] 右侧之外。",
+      "state": "第 1 轮收缩区间后：当前 i = 0，j = 3，闭区间缩为 [0, 3]；图中显示的 m = 4 是尚未重算的上一轮旧中点，位于新区间外。",
+      "key_state": "遇到 6，右边界左移。",
+      "announcement": "因 nums[4] = 6 等于目标值 6，为继续排查左侧是否还有 6 以定位最左插入点，仍执行 j = m − 1 将右边界左移至 3；图中旧中点 m = 4 暂未重算，留在新区间 [0, 3] 右侧之外。",
+      "state_tables": [
+        {
+          "caption": "当前指针",
+          "headers": [
+            "指针",
+            "索引",
+            "含义"
+          ],
+          "rows": [
+            [
+              "i",
+              "0",
+              "左边界；循环结束时返回它"
+            ],
+            [
+              "j",
+              "3",
+              "右边界"
+            ],
+            [
+              "m",
+              "4",
+              "旧中点，尚未重算"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-229",
       "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step4.png",
-      "title": "第 4 步：第二轮计算中点 m = 1（值为 3）",
-      "explanation": "在区间 [0, 3] 内执行“1. 计算中点 m = (i + j) / 2”：将 (0 + 3) / 2 向下取整得到 m = 1，对应带橙色描边的柱子 nums[1] = 3。",
-      "state": "升序数组为 [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]，索引为 0 至 9，目标值为 6。i=0，j=3，m=1，中间值 3，搜索区间 [0,3]。",
-      "key_state": "区间 [0, 3] 内计算中点 m = 1（nums[1] = 3）。",
-      "announcement": "在区间 [0, 3] 中重新计算中点索引 m = 1，对应元素值为 3。"
+      "title": "计算中点 1",
+      "explanation": "对新区间 [0, 3] 重新计算中点 m = (0 + 3) // 2 = 1，中点元素 nums[1] = 3，小于目标值 6。",
+      "state": "第 2 轮取中点：当前 i = 0，j = 3，闭区间为 [0, 3]，重算后本轮中点更新为 m = 1（对应 nums[1] = 3，小于目标值 6）。",
+      "key_state": "计算中点 1。",
+      "announcement": "对新区间 [0, 3] 重新计算中点 m = (0 + 3) // 2 = 1，中点元素 nums[1] = 3，小于目标值 6。",
+      "state_tables": [
+        {
+          "caption": "当前指针",
+          "headers": [
+            "指针",
+            "索引",
+            "含义"
+          ],
+          "rows": [
+            [
+              "i",
+              "0",
+              "左边界；循环结束时返回它"
+            ],
+            [
+              "j",
+              "3",
+              "右边界"
+            ],
+            [
+              "m",
+              "1",
+              "本轮中点"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-230",
       "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step5.png",
-      "title": "第 5 步：nums[1] < 6，执行 i = m + 1 = 2 向右收缩",
-      "explanation": "执行“2. ∵ nums[m] < target ∴ 执行 i = m + 1 缩小搜索区间”：由于 nums[1] = 3 小于目标 6，索引 0 和 1 都不可能是插入点，因此将左边界更新为 i = 1 + 1 = 2，搜索区间收缩为 [2, 3]；旧指针 m = 1 留在新区间左侧之外。",
-      "state": "升序数组为 [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]，索引为 0 至 9，目标值为 6。i=2，j=3，当前搜索区间 [2,3]，两个候选值均为 6；旧 m=1，对应值 3，已在区间外。",
-      "key_state": "中点值 3 小于 6，令 i = 2，搜索区间收缩至 [2, 3]（旧 m = 1）。",
-      "announcement": "中点值 3 小于目标 6，将左边界 i 移至索引 2。"
+      "title": "遇到 3，左边界右移",
+      "explanation": "因 nums[1] = 3 小于目标值 6，最左插入点必在右侧，执行 i = m + 1 将左边界右移至 2；图中旧中点 m = 1 暂未重算，留在新区间 [2, 3] 左侧之外。",
+      "state": "第 2 轮收缩区间后：当前 i = 2，j = 3，闭区间缩为 [2, 3]；图中显示的 m = 1 是尚未重算的上一轮旧中点，位于新区间外。",
+      "key_state": "遇到 3，左边界右移。",
+      "announcement": "因 nums[1] = 3 小于目标值 6，最左插入点必在右侧，执行 i = m + 1 将左边界右移至 2；图中旧中点 m = 1 暂未重算，留在新区间 [2, 3] 左侧之外。",
+      "state_tables": [
+        {
+          "caption": "当前指针",
+          "headers": [
+            "指针",
+            "索引",
+            "含义"
+          ],
+          "rows": [
+            [
+              "i",
+              "2",
+              "左边界；循环结束时返回它"
+            ],
+            [
+              "j",
+              "3",
+              "右边界"
+            ],
+            [
+              "m",
+              "1",
+              "旧中点，尚未重算"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-231",
       "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step6.png",
-      "title": "第 6 步：第三轮计算中点 m = 2（与左边界 i 重合）",
-      "explanation": "在区间 [2, 3] 内执行“1. 计算中点 m = (i + j) / 2”：将 (2 + 3) / 2 向下取整得到 m = 2。此时左指针 i 与中点指针 m 同时指向索引 2 的首个 6，右指针 j 指向索引 3 的第二个 6。",
-      "state": "升序数组为 [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]，索引为 0 至 9，目标值为 6。i=m=2，j=3，搜索区间 [2,3]，中间值为 6。",
-      "key_state": "区间 [2, 3] 内计算中点 m = 2（与 i = 2 重合，nums[2] = 6）。",
-      "announcement": "计算第三轮中点 m = 2，与左边界 i 重合，对应元素值为 6。"
+      "title": "计算中点 2",
+      "explanation": "对区间 [2, 3] 重新计算中点 m = (2 + 3) // 2 = 2，中点元素 nums[2] = 6，再次等于目标值 6。",
+      "state": "第 3 轮取中点：当前 i = 2，j = 3，闭区间为 [2, 3]，重算后本轮中点更新为 m = 2（对应 nums[2] = 6，等于目标值 6）。",
+      "key_state": "计算中点 2。",
+      "announcement": "对区间 [2, 3] 重新计算中点 m = (2 + 3) // 2 = 2，中点元素 nums[2] = 6，再次等于目标值 6。",
+      "state_tables": [
+        {
+          "caption": "当前指针",
+          "headers": [
+            "指针",
+            "索引",
+            "含义"
+          ],
+          "rows": [
+            [
+              "i",
+              "2",
+              "左边界；循环结束时返回它"
+            ],
+            [
+              "j",
+              "3",
+              "右边界"
+            ],
+            [
+              "m",
+              "2",
+              "本轮中点"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-232",
       "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step7.png",
-      "title": "第 7 步：nums[2] == 6，执行 j = m − 1 = 1 使区间为空",
-      "explanation": "执行“2. ∵ nums[m] == target ∴ 执行 j = m – 1 缩小搜索区间”：中点 nums[2] = 6 仍等于目标，继续令 j = 2 − 1 = 1。此时左指针 i = 2 已大于右指针 j = 1，双闭搜索区间为空；画面中 i 指向索引 2 的最左 6，j 指向索引 1 的元素 3。",
-      "state": "升序数组为 [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]，索引为 0 至 9，目标值为 6。i=2，j=1，旧 m=2。i>j，搜索区间为空；i 指向最左的 6，j 指向它左边的 3。",
-      "key_state": "令 j = 1 后出现 i = 2 > j = 1，搜索区间为空，i 停在最左 6。",
-      "announcement": "中点值等于 6，右边界 j 退至索引 1，左右指针交错使区间为空。"
+      "title": "再次遇到 6，区间变空",
+      "explanation": "因 nums[2] = 6 等于目标值 6，继续执行 j = m − 1 得 j = 1；此时 i = 2 大于 j = 1，双闭搜索区间变为空区间，满足循环终止条件。",
+      "state": "第 3 轮收缩区间后：当前 i = 2，j = 1（i > j，双闭区间为空），图中 m = 2 为尚未清除的旧中点，搜索循环即将结束。",
+      "key_state": "再次遇到 6，区间变空。",
+      "announcement": "因 nums[2] = 6 等于目标值 6，继续执行 j = m − 1 得 j = 1；此时 i = 2 大于 j = 1，双闭搜索区间变为空区间，满足循环终止条件。",
+      "state_tables": [
+        {
+          "caption": "当前指针",
+          "headers": [
+            "指针",
+            "索引",
+            "含义"
+          ],
+          "rows": [
+            [
+              "i",
+              "2",
+              "左边界；循环结束时返回它"
+            ],
+            [
+              "j",
+              "1",
+              "右边界"
+            ],
+            [
+              "m",
+              "2",
+              "旧中点，尚未重算"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-233",
       "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step8.png",
-      "title": "第 8 步：跳出二分循环，返回最左插入点索引 i = 2",
-      "explanation": "图下方总结“∵ 不满足循环条件 i ≤ j ∴ 跳出二分循环，返回索引 i”。画面隐去指针 j 与 m，仅保留指向索引 2（首个 6）的指针 i，返回插入点索引 2。",
-      "state": "升序数组为 [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]，索引为 0 至 9，目标值为 6。查找结束，返回索引 2；画面只显示 i=2。原数组仍有十个元素，尚未执行插入；插入位置在原索引 2 的 6 前。",
-      "key_state": "循环结束，返回插入点索引 i = 2（位于所有重复 6 的最左端）。",
-      "announcement": "不满足 i ≤ j，跳出循环并返回最左插入点索引 i = 2。"
+      "title": "返回最左插入索引 2",
+      "explanation": "循环因区间为空而结束，返回左边界索引 i = 2，即新 6 应排在所有已有五个 6 最左侧的位置；本算法只计算并返回插入索引，未对原数组执行实际插入或元素搬移。",
+      "state": "搜索结束：图中仅保留返回指针 i = 2（j、m 不再显示），表示目标值 6 的最左插入点索引为 2；原十元素数组保持不变，未执行实际插入。",
+      "key_state": "返回最左插入索引 2。",
+      "announcement": "循环因区间为空而结束，返回左边界索引 i = 2，即新 6 应排在所有已有五个 6 最左侧的位置；本算法只计算并返回插入索引，未对原数组执行实际插入或元素搬移。",
+      "state_tables": [
+        {
+          "caption": "当前指针",
+          "headers": [
+            "指针",
+            "索引",
+            "含义"
+          ],
+          "rows": [
+            [
+              "i",
+              "2",
+              "左边界；循环结束时返回它"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-12",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "3607d5590b4bc4a0424a9ddc7686edd73dbbd8e83d80249e124b1505cc338556",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "278c7ca0de3699a8282cf733e66a37f776fcb7767e2b72a0c4e17a626b20368a",
-        "output_sha256": "8b942a49ae0132da2ef7bd2cc4974d6e9c21872a530fe97c2a2107a934188825"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "8b942a49ae0132da2ef7bd2cc4974d6e9c21872a530fe97c2a2107a934188825",
-        "output_sha256": "72ded3c108bbc7c458462041ccdbfcaae7e45858b987f9ed1bf31ede788076b3"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "72ded3c108bbc7c458462041ccdbfcaae7e45858b987f9ed1bf31ede788076b3",
-        "output_sha256": "549b9b8f6b53209dc060d3de11ddb4c66cd900a1c8ee112c21eecc35d1b5cd78"
-      }
-    ],
-    "evidence_sha256": "df3186defaada9ff328bd9bc4426561c6e8088c64ef665f5bd45cf638c5621eb"
-  },
   "dependencies": {
     "markdown": {
       "chapter_searching/binary_search_insertion.md": "9d86ebcc2847400e0104b773fcde0809d4665e4156fe42281b74b7535571b496"
@@ -137,7 +317,7 @@
     "binary-search-insertion": {
       "kind": "source-frames",
       "model_sha256": "0c5c0327e7c01149067e3e28eecb4f0a3b10608d90d920aaa26d8d13e3d50ead",
-      "source_content_sha256": "3607d5590b4bc4a0424a9ddc7686edd73dbbd8e83d80249e124b1505cc338556",
+      "source_content_sha256": "99cc329e0f6522821e7ae8a93f128b0b8ba57f534e548dac3af3b1152128d94e",
       "states": [
         {
           "id": "step-1",
@@ -174,11 +354,99 @@
       ],
       "review": {
         "status": "confirmed",
-        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "run_id": "figure-reading-20261116/content/body-09/source-binding",
         "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "f3d05e1adaa7f8e2f3cfc3870345e4c99a3d6e50b1259741ddd6d96e3a9d5c50",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+        "binding_sha256": "262ff470c29344794a986d7eb13f8b0a9b632983accb5a8fc3e9e6217785d389",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
+        "current_text_verification_sha256": "1e3a7dc1ae2930abbf540cf1077d79d7160988b0335d56df4d7ba1027cf2c71b"
       }
     }
+  },
+  "tables": [
+    {
+      "caption": "固定输入：目标值为 6",
+      "headers": [
+        "索引",
+        "值"
+      ],
+      "rows": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "3"
+        ],
+        [
+          "2",
+          "6"
+        ],
+        [
+          "3",
+          "6"
+        ],
+        [
+          "4",
+          "6"
+        ],
+        [
+          "5",
+          "6"
+        ],
+        [
+          "6",
+          "6"
+        ],
+        [
+          "7",
+          "10"
+        ],
+        [
+          "8",
+          "12"
+        ],
+        [
+          "9",
+          "15"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "standalone_tables": [
+    0
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-09",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "dae6154576b1c499a439c03e31e926671c584b7dce0f16d209fae77bbe009b12",
+        "output_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a",
+        "output_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a",
+        "output_sha256": "7bbaf8390a691c973087501bb3fe8442d08ae58a265fa273820dffc7f6fc1879"
+      }
+    ],
+    "evidence_sha256": "1e3a7dc1ae2930abbf540cf1077d79d7160988b0335d56df4d7ba1027cf2c71b",
+    "verification_manifest_sha256": "7edf2d614a976c373dbf24c98d92c9f3ccb0c9d1d78185bba275676c1507c6f9",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "99cc329e0f6522821e7ae8a93f128b0b8ba57f534e548dac3af3b1152128d94e"
   }
 }

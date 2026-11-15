@@ -1,0 +1,30 @@
+<!-- Generated from adjacent .a11y.json; edit the author record, not this file. -->
+<!-- figure-reading-content-sha256: df51667c01c3476bd5994c7b7d3f422e71a2ab65f176803474fea12711774dea -->
+
+# 编辑距离的状态转移
+
+以将 book 转换为 code 为例，展示尾字符 k 与 e 不同时，通过添加、删除、替换分解出的三条剩余前缀子问题。
+
+## 问题与输入
+
+记状态 dp\[i, j\] 表示将源字符串 s 的前 i 个字符转换为目标字符串 t 的前 j 个字符所需的最少编辑步数，每次添加、删除或替换操作的代价均为 1。本图以 s = book、t = code（当前前缀长度 i = 4、j = 4）为例，剖析两字符串当前尾部字符 s\[i-1\] = k 与 t\[j-1\] = e 不相同时的状态转移来源。
+
+## 结构与关系
+
+左侧当前状态 dp\[i, j\] 对应源串前缀 s = "book" 与目标串前缀 t = "code"，两者的尾字符 k 与 e 不同。针对源串末尾，可以分别尝试添加、删除或替换三种编辑操作，每种操作各耗费 1 步，并在抵消已匹配或已删尾字符后留下不同范围的剩余前缀子问题。
+
+对照表并列给出了三条支路的变化：第一，在 book 尾部插入 e 得到 booke，新插入的尾字符 e 与目标串末尾的 e 匹配抵消，因此原源串 book 的全部 i 个字符仍待处理，目标串则只剩前 j-1 个字符 cod，子问题归约为 dp\[i, j-1\]（仅 j 减 1）；第二，删除 book 末尾的 k 得到 boo，源串缩减为前 i-1 个字符 boo，目标串仍为完整的 code，子问题归约为 dp\[i-1, j\]（仅 i 减 1）；第三，将 book 末尾的 k 替换为 e 得到 booe，两串末尾的 e 匹配抵消，剩余前缀变为 boo 对 cod，子问题归约为 dp\[i-1, j-1\]（i 与 j 同时减 1）。
+
+当前状态 dp\[i, j\] 的最少编辑步数，等于上述三个候选子问题最少步数的最小值再加上本次操作的 1 步代价。注意本图仅推导单步状态转移方程，并未计算从 book 到 code 的最终编辑距离数值。
+
+<table><caption>尾字符不同时的三种操作与剩余前缀</caption><thead><tr><th scope="col">操作</th><th scope="col">操作后的源串</th><th scope="col">剩余源前缀</th><th scope="col">剩余目标前缀</th><th scope="col">子状态</th></tr></thead><tbody><tr><th scope="row">插入 e</th><td>booke</td><td>book</td><td>cod</td><td>dp[i,j-1]</td></tr><tr><th scope="row">删除 k</th><td>boo</td><td>boo</td><td>code</td><td>dp[i-1,j]</td></tr><tr><th scope="row">替换 k 为 e</th><td>booe</td><td>boo</td><td>cod</td><td>dp[i-1,j-1]</td></tr></tbody></table>
+
+<a id="source-443"></a>
+
+## 三种编辑操作归约出不同范围的剩余前缀
+
+对源串末尾执行添加 e、删除 k 或将 k 替换为 e 各需 1 步：添加 e 抵消目标尾字符而只令 j 减 1（剩 book 对 cod），删除 k 去掉源尾字符而只令 i 减 1（剩 boo 对 code），替换 k 为 e 同时抵消两串尾字符而令 i、j 均减 1（剩 boo 对 cod）。
+
+## 结果
+
+当尾部字符 s\[i-1\] 与 t\[j-1\] 不同时，状态转移方程为 dp\[i, j\] = min(dp\[i, j-1\], dp\[i-1, j\], dp\[i-1, j-1\]) + 1；本图仅展示三条子问题分支的前缀归约关系，未给出 book 到 code 的最终编辑距离。

@@ -3,8 +3,8 @@
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_example",
-  "title": "零钱兑换：金额 11 最少需要 3 枚硬币",
-  "summary": "使用面值 1、2、5 的硬币（可重复选取）恰好凑出目标金额 11，最优组合为 1 枚 1 元和 2 枚 5 元，最少需要 3 枚硬币。",
+  "title": "零钱兑换的最少硬币数",
+  "summary": "面值为 1、2、5 的硬币均可重复选取，求恰好凑出金额 11 所需的最少硬币枚数。",
   "context": [
     "零钱兑换问题给定 3 种硬币面值 coins = [1, 2, 5]，每种面值的硬币数量无限；本示例的目标金额为 amt = 11（注意与后续零钱兑换 II 示例的目标金额 5、以及动态规划填表图的目标金额 4 区分）。任务是求恰好凑出目标金额 11 所需的最少硬币数量。"
   ],
@@ -17,7 +17,7 @@
     {
       "id": "source-424",
       "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_example.png",
-      "title": "用 1 + 5 + 5 凑出目标金额 11",
+      "title": "金额 11 的最优硬币组合",
       "explanation": "从面值 1、2、5 的三种硬币中，选取 1 枚面值 1 的硬币和 2 枚面值 5 的硬币汇入右侧代表目标金额的钱袋，面值总和为 1 + 5 + 5 = 11，恰好达到目标金额 amt = 11，所用硬币总数最少，共 3 枚。",
       "state": "可选硬币面值为 [1, 2, 5] 且数量不限，目标金额 amt = 11。图中高亮选用面值 1 硬币 1 枚、面值 2 硬币 0 枚、面值 5 硬币 2 枚，最优硬币组合为 1 + 5 + 5 = 11，最少硬币数量为 3。",
       "key_state": "目标金额 11：最优组合为 1 + 5 + 5，最少需要 3 枚硬币。",
@@ -47,36 +47,6 @@
       ]
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-22",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "1052680749ad44cff6a7055ac0aa3c310f9a1c15f4405a6c0914bf1838722be7",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "355bb0a076e0c4a50506f944ec79d9a6370d2b0116db530af832856399b3485f",
-        "output_sha256": "599916a14e949b12438a8611b3d61d624eb76ebbe8824f46cd645944bc7bd6aa"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "599916a14e949b12438a8611b3d61d624eb76ebbe8824f46cd645944bc7bd6aa",
-        "output_sha256": "3afc9f8a0fdc112cc4ef5c720bc3adf71e9218da3eb7b26361dcf108ad5ae149"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3afc9f8a0fdc112cc4ef5c720bc3adf71e9218da3eb7b26361dcf108ad5ae149",
-        "output_sha256": "6db2e4eff0a7643db4ac5f1c8ad3c9522a1a422b7048c605b10c5f576f7d028d"
-      }
-    ],
-    "evidence_sha256": "cb891d8e2b5e544988c1d1367b6de97883710871a6a6ba0cf5a7e132cd7345cd"
-  },
   "dependencies": {
     "markdown": {
       "chapter_dynamic_programming/unbounded_knapsack_problem.md": "9ed61e4005390a061618b042d029fa0a2782621b0b3df7e4049331a5bb80eef5"
@@ -85,5 +55,37 @@
     "scenes": {
       "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_example.png": "8aeb6d9056c5d14f5b846c92f5c0e98f477a2a3833a72abaed84d4e067f309d3"
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/names",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
+        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      }
+    ],
+    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
+    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "10b2f47e6470680108b477637c108b0860bb979fe7161aeacb3f1b8137b00ffb"
   }
 }

@@ -17,6 +17,11 @@
 下图展示了原码、反码和补码之间的转换方法。
 
 ![原码、反码与补码之间的相互转换](number_encoding.assets/1s_2s_complement.svg)
+<!-- figure-reading:start group:chapter_data_structure/number_encoding.assets/1s_2s_complement -->
+
+[八位原码、反码与补码：完整图解](number_encoding.assets/1s_2s_complement.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 <u>原码（sign-magnitude）</u>虽然最直观，但存在一些局限性。一方面，**负数的原码不能直接用于运算**。例如在原码下计算 $1 + (-2)$ ，得到的结果是 $-3$ ，这显然是不对的。
 
@@ -124,6 +129,11 @@ $$
 $$
 
 ![IEEE 754 标准下的 float 的计算示例](number_encoding.assets/ieee_754_float.svg)
+<!-- figure-reading:start group:chapter_data_structure/number_encoding.assets/ieee_754_float -->
+
+[单精度浮点数的位字段：完整图解](number_encoding.assets/ieee_754_float.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 观察上图，给定一个示例数据 $\mathrm{S} = 0$ ， $\mathrm{E} = 124$ ，$\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$ ，则有：
 

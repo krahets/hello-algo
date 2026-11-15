@@ -1,60 +1,29 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dfs_mem",
   "title": "最小路径和的记忆化递归",
-  "summary": "右子树再次遇到 dp[1, 0] 时直接读取缓存结果，不再重复展开其下方的两个子节点。",
+  "summary": "右子树再次遇到 dp[1, 0] 时直接读取缓存返回有效路径和，不再展开子节点，并与越界返回正无穷区分。",
   "context": [
     "在非负数字网格中从 [0, 0] 出发只能向右或向下移动，dp[i, j] 表示到达第 i 行、第 j 列的最小路径和（索引从 0 开始）。本图同样以 dp[2, 1] 为搜索根，展示引入记忆化缓存 mem 后对重叠子问题的剪枝效果，不展示具体网格权重。",
-    "有效内部状态取两个前驱返回值的较小值，再加当前格代价：dp[i, j]=min(dp[i-1, j], dp[i, j-1])+grid[i, j]。起点返回 grid[0, 0]，负索引返回正无穷。"
+    "有效内部状态取两个前驱返回值的较小值，再加当前格代价：dp[i, j] = min(dp[i-1, j], dp[i, j-1]) + grid[i, j]。起点返回 grid[0, 0]，负索引越界时返回正无穷。"
   ],
   "description": [
-    "紫色箭头表示求“上一行”，蓝色箭头表示求“上一列”。根 dp[2, 1] 拆分为左子节点 dp[1, 1] 和右子节点 dp[2, 0]。左子树中，dp[1, 1] 拆分为 dp[0, 1] 与dp[1, 0]；dp[0, 1] 拆分为越界灰节点 dp[-1, 1] 与dp[0, 0]，dp[1, 0] 拆分为dp[0, 0] 与越界灰节点 dp[1, -1]。左侧 dp[1, 0] 为蓝色，两个 dp[0, 0] 从左到右为蓝色、紫色；没有橙框或绿色基例叶。",
-    "右子树中，dp[2, 0] 下方的dp[1, 0] 与 dp[2, -1] 均为灰色且不再向下展开：通向 dp[1, 0] 的虚线带剪刀并标注“剪枝：已有记录”，通向 dp[2, -1] 的虚线带剪刀并标注“剪枝：索引越界”。右侧缓存命中的灰色 dp[1, 0] 带紫色边框。"
+    "从根状态 dp[2, 1] 反向查找“上一行”与“上一列”前驱时，同样有两条调用路线到达同一个子问题 dp[1, 0]：先查上一行到 dp[1, 1] 再查上一列（路线“上→左”），或先查上一列到 dp[2, 0] 再查上一行（路线“左→上”）。",
+    "递归先遍历左子树：首次访问 dp[1, 0]（路线“上→左”）时向下展开求出其最小路径和并写入缓存；随后右子树从 dp[2, 0] 再次请求 dp[1, 0]（路线“左→上”）时触发“剪枝：已有记录”，直接返回缓存结果，不再展开下方的 dp[0, 0] 与 dp[1, -1]。需区分右子树中两处停止展开的语义：dp[1, 0] 命中缓存返回的是有效最小路径和，而右邻 dp[2, -1] 触发“剪枝：索引越界”返回的是正无穷，二者不能混同。",
+    "到达起点 dp[0, 0] 时返回基例值 grid[0, 0]；出现负索引（dp[-1, 1]、dp[1, -1]、dp[2, -1]）时返回正无穷，使不可行的前驱不会被最小值选中。整棵树涉及 4×4 网格中的六种有效状态 [0, 0]、[0, 1]、[1, 0]、[1, 1]、[2, 0]、[2, 1]；由于仅剪去了第二次 dp[1, 0] 的子树，左子树的 dp[0, 1] 与 dp[1, 0] 下方仍保留 2 个起点叶节点 dp[0, 0]。"
   ],
-  "result": "记忆化搜索在首次算出 dp[1, 0] 后将其缓存，第二次访问时直接复用结果，省去了重复子树展开，同时保留了该子问题的有效返回值。",
+  "result": "记忆化搜索在首次算出 dp[1, 0] 后将其缓存，右子树第二次访问时直接复用已求出的有效最小路径和，省去了两个子节点的重复展开，使全树节点由 13 个减少为 11 个。",
   "frames": [
     {
       "id": "source-381",
       "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dfs_mem.png",
-      "title": "最小路径和的记忆化递归",
-      "explanation": "递归先遍历左子树，完整求出 dp[1, 0] 的最小路径和并写入记录。随后遍历右子树计算 dp[2, 0] 时，其上一行前驱再次请求 dp[1, 0]，此时触发“剪枝：已有记录”，直接返回缓存的有效最小路径和参与 dp[2, 0] 的最小值比较；而其上一列前驱 dp[2, -1] 触发“剪枝：索引越界”，按代码返回正无穷。两类剪刀虽然都表示停止向下递归，但前者是复用有效解，后者是排除非法越界位置。此外，左子树中 dp[0, 1] 和 dp[1, 0] 各自仍连向一个叶节点 dp[0, 0]，因此图中仍有两个可见的 dp[0, 0] 叶节点。",
-      "state": "根 dp[2, 1] 分为 dp[1, 1] 和 dp[2, 0]；左侧 dp[1, 1] 展开出 dp[0, 1]（下接灰 dp[-1, 1] 与dp[0, 0]）和dp[1, 0]（下接dp[0, 0] 与灰 dp[1, -1]）；右侧 dp[2, 0] 下接灰色dp[1, 0]（标“剪枝：已有记录”）与灰色 dp[2, -1]（标“剪枝：索引越界”），两者均无子节点。",
-      "key_state": "右侧 dp[1, 0] 因命中缓存停止展开，右侧 dp[2, -1] 因索引越界停止展开。",
-      "announcement": "右子树再次请求 dp[1, 0] 时直接读取缓存返回，省去其下方的重复递归分支。"
+      "title": "命中缓存直接复用 dp[1, 0] 并区分越界剪枝",
+      "explanation": "左子树首次解出 dp[1, 0] 后存入缓存；右子树在 dp[2, 0] 下再次请求 dp[1, 0] 时直接读取缓存的有效路径和参与最小值比较，省去重复子树展开，而同层的 dp[2, -1] 则因列索引越界返回正无穷。",
+      "state": "搜索根为 dp[2, 1]，全部 11 个图示节点及调用路线列于表中：左子树“上→左”的 dp[1, 0] 展开出 dp[0, 0] 与 dp[1, -1]，右子树“左→上”的第二次 dp[1, 0] 标注“剪枝：已有记录”并直接返回缓存值；全树保留 2 个起点叶节点 dp[0, 0] 和 3 个越界节点（dp[-1, 1]、dp[1, -1]、dp[2, -1]），图中未给网格权重或路径和数值。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-20",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "a2334cd47edfbc059d849bfa7c8d361e56c01cb6c7afeb9cee30f4363042bf3f",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "41d0fd45a22945a5a7184d107047c8717cca6d0cb964ceb1ffcffefcf35d71c0",
-        "output_sha256": "6f28ad46a843e550964bfad54893774457a3ec29abb9f8165dd6262f050b2101"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "6f28ad46a843e550964bfad54893774457a3ec29abb9f8165dd6262f050b2101",
-        "output_sha256": "8f0f618cc8d84fe521a7436cfd71d04bdc65b259bdf6282d1f693e3bfbd5cadc"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "8f0f618cc8d84fe521a7436cfd71d04bdc65b259bdf6282d1f693e3bfbd5cadc",
-        "output_sha256": "b529f2a5259e393cbd6adce01e5f42a44a8d6813ef624f4cd36fcf49308a3adf"
-      }
-    ],
-    "evidence_sha256": "54a5deb01ddc36c133e5452c5496383065ebdb84ec70c16f4d6436a9bcb17a67"
-  },
   "dependencies": {
     "markdown": {
       "chapter_dynamic_programming/dp_solution_pipeline.md": "537de6dd1fe553954f17ebd407172e073f79aac62888596d7c8e67a6a8e12517"
@@ -63,5 +32,117 @@
     "scenes": {
       "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dfs_mem.png": "c878b26f4dcdd6343c15b137f46b974a51a3cc6be3a41f903482b4078626e129"
     }
+  },
+  "tables": [
+    {
+      "caption": "完整递归树；路线从根开始，上/左表示查找前驱",
+      "headers": [
+        "调用路线",
+        "状态",
+        "处理或返回",
+        "子节点"
+      ],
+      "rows": [
+        [
+          "根",
+          "dp[2,1]",
+          "取两前驱较小值，加 grid[2,1]",
+          "上：dp[1,1]；左：dp[2,0]"
+        ],
+        [
+          "上",
+          "dp[1,1]",
+          "取两前驱较小值，加 grid[1,1]",
+          "上：dp[0,1]；左：dp[1,0]"
+        ],
+        [
+          "上→上",
+          "dp[0,1]",
+          "取两前驱较小值，加 grid[0,1]",
+          "上：dp[-1,1]；左：dp[0,0]"
+        ],
+        [
+          "上→上→上",
+          "dp[-1,1]",
+          "越界，返回正无穷",
+          "不展开"
+        ],
+        [
+          "上→上→左",
+          "dp[0,0]",
+          "起点，返回 grid[0,0]",
+          "不展开"
+        ],
+        [
+          "上→左",
+          "dp[1,0]",
+          "取两前驱较小值，加 grid[1,0]",
+          "上：dp[0,0]；左：dp[1,-1]"
+        ],
+        [
+          "上→左→上",
+          "dp[0,0]",
+          "起点，返回 grid[0,0]",
+          "不展开"
+        ],
+        [
+          "上→左→左",
+          "dp[1,-1]",
+          "越界，返回正无穷",
+          "不展开"
+        ],
+        [
+          "左",
+          "dp[2,0]",
+          "取两前驱较小值，加 grid[2,0]",
+          "上：dp[1,0]；左：dp[2,-1]"
+        ],
+        [
+          "左→上",
+          "dp[1,0]",
+          "命中缓存，返回已求出的 dp[1,0]",
+          "不展开"
+        ],
+        [
+          "左→左",
+          "dp[2,-1]",
+          "越界，返回正无穷",
+          "不展开"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-13",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "e4a700b8071fbe365ae27803f9f283bca4a7818bf2f6d7aa7f328937e2f07656",
+        "output_sha256": "7ff4a9b30d2750bf0cb8a38569a0042521dd1e7bd570ee2598deb59c3518cdb9"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "7ff4a9b30d2750bf0cb8a38569a0042521dd1e7bd570ee2598deb59c3518cdb9",
+        "output_sha256": "10c029c530bf3e78e221b49555e4dde5ea76c612b137d03102058aae730a104c"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "10c029c530bf3e78e221b49555e4dde5ea76c612b137d03102058aae730a104c",
+        "output_sha256": "2e3821b925cd47ee962c2d6dbab295f1e98ef3b7532066ab3daafdf5b12f2a65"
+      }
+    ],
+    "evidence_sha256": "1fab6509d04a1de07d81050fa1afd22836320773ef6e9ab5f3cf423ebcc44f82",
+    "verification_manifest_sha256": "3eb49e53036fc9695566e2b308e028a29de81205734c9a782c345b0dd884f865",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "4b1a25b0ab00fe9efb431d8e41db5e718cb1967266d4307a8022f31ba425409f"
   }
 }

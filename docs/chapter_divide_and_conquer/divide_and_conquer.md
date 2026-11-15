@@ -11,6 +11,11 @@
 2. **治**：从底至顶地将有序的子数组（子问题的解）进行合并，从而得到有序的原数组（原问题的解）。
 
 ![归并排序的分治策略](divide_and_conquer.assets/divide_and_conquer_merge_sort.svg)
+<!-- figure-reading:start group:chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort -->
+
+[用归并排序理解“分”与“治”：完整图解](divide_and_conquer.assets/divide_and_conquer_merge_sort.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ## 如何判断分治问题
 
@@ -41,6 +46,11 @@ O(n + (\frac{n}{2})^2 \times 2 + n) = O(\frac{n^2}{2} + 2n)
 $$
 
 ![划分数组前后的冒泡排序](divide_and_conquer.assets/divide_and_conquer_bubble_sort.svg)
+<!-- figure-reading:start group:chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort -->
+
+[把一次冒泡排序拆成两个较小排序任务：完整图解](divide_and_conquer.assets/divide_and_conquer_bubble_sort.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 接下来，我们计算以下不等式，其左边和右边分别为划分前和划分后的操作总数：
 
@@ -67,6 +77,11 @@ $$
 比如在下图所示的“桶排序”中，我们将海量的数据平均分配到各个桶中，则可将所有桶的排序任务分散到各个计算单元，完成后再合并结果。
 
 ![桶排序的并行计算](divide_and_conquer.assets/divide_and_conquer_parallel_computing.svg)
+<!-- figure-reading:start group:chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing -->
+
+[桶排序的并行计算结构：完整图解](divide_and_conquer.assets/divide_and_conquer_parallel_computing.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ## 分治常见应用
 

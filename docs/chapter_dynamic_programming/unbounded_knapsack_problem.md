@@ -9,6 +9,11 @@
     给定 $n$ 个物品，第 $i$ 个物品的重量为 $wgt[i-1]$、价值为 $val[i-1]$ ，和一个容量为 $cap$ 的背包。**每个物品可以重复选取**，问在限定背包容量下能放入物品的最大价值。示例如下图所示。
 
 ![完全背包问题的示例数据](unbounded_knapsack_problem.assets/unbounded_knapsack_example.svg)
+<!-- figure-reading:start group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_example -->
+
+[完全背包示例：物品可以重复选择：完整图解](unbounded_knapsack_problem.assets/unbounded_knapsack_example.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 动态规划思路
 
@@ -46,19 +51,24 @@ $$
     ![完全背包问题在空间优化后的动态规划过程](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.svg)
 
 === "<2>"
-    ![完全背包：正序更新单行数组，第 2 步，共 6 步：第 2 步：正序先处理容量 c = 1，装不下菠萝保持 5](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.svg)
+    ![完全背包的单行更新，第 2 步，共 6 步：正序处理容量 c = 1：装不下菠萝，保持 5](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.svg)
 
 === "<3>"
-    ![完全背包：正序更新单行数组，第 3 步，共 6 步：第 3 步：正序更新容量 c = 2，选入菠萝更新为 11](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.svg)
+    ![完全背包的单行更新，第 3 步，共 6 步：正序更新容量 c = 2：选入 1 个菠萝，更新为 11](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.svg)
 
 === "<4>"
-    ![完全背包：正序更新单行数组，第 4 步，共 6 步：第 4 步：正序更新容量 c = 3，苹果加菠萝更新为 16](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.svg)
+    ![完全背包的单行更新，第 4 步，共 6 步：正序更新容量 c = 3：苹果加菠萝，更新为 16](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.svg)
 
 === "<5>"
-    ![完全背包：正序更新单行数组，第 5 步，共 6 步：第 5 步：正序更新容量 c = 4，重复选菠萝更新为 22](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.svg)
+    ![完全背包的单行更新，第 5 步，共 6 步：正序更新容量 c = 4：复用本轮新值，重复选菠萝得 22](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.svg)
 
 === "<6>"
-    ![完全背包：正序更新单行数组，第 6 步，共 6 步：第 6 步：完成 i = 2 轮遍历，单行保存前两种物品的解](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.svg)
+    ![完全背包的单行更新，第 6 步，共 6 步：完成 i = 2 轮遍历：单行保存前两种物品的解](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.svg)
+<!-- figure-reading:start group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp -->
+
+[完全背包的单行更新：完整图解](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 代码实现比较简单，仅需将数组 `dp` 的第一维删除：
 
@@ -75,6 +85,11 @@ $$
     给定 $n$ 种硬币，第 $i$ 种硬币的面值为 $coins[i - 1]$ ，目标金额为 $amt$ ，**每种硬币可以重复选取**，问能够凑出目标金额的最少硬币数量。如果无法凑出目标金额，则返回 $-1$ 。示例如下图所示。
 
 ![零钱兑换问题的示例数据](unbounded_knapsack_problem.assets/coin_change_example.svg)
+<!-- figure-reading:start group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_example -->
+
+[零钱兑换的最少硬币数：完整图解](unbounded_knapsack_problem.assets/coin_change_example.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 动态规划思路
 
@@ -123,46 +138,51 @@ $$
     ![零钱兑换问题的动态规划过程](unbounded_knapsack_problem.assets/coin_change_dp_step1.svg)
 
 === "<2>"
-    ![零钱兑换：逐格求金额 4 的最少硬币枚数，第 2 步，共 15 步：第 2 步：将首行正金额设为 MAX = 5，首列保持 0](unbounded_knapsack_problem.assets/coin_change_dp_step2.svg)
+    ![零钱兑换的动态规划，第 2 步，共 15 步：设置首行正金额为不可达边界 MAX = 5](unbounded_knapsack_problem.assets/coin_change_dp_step2.svg)
 
 === "<3>"
-    ![零钱兑换：逐格求金额 4 的最少硬币枚数，第 3 步，共 15 步：第 3 步：计算 dp\[1, 1\]（面值 1、金额 1），最少 1 枚](unbounded_knapsack_problem.assets/coin_change_dp_step3.svg)
+    ![零钱兑换的动态规划，第 3 步，共 15 步：计算 dp\[1, 1\]（面值 1、金额 1）：最少 1 枚](unbounded_knapsack_problem.assets/coin_change_dp_step3.svg)
 
 === "<4>"
-    ![零钱兑换：逐格求金额 4 的最少硬币枚数，第 4 步，共 15 步：第 4 步：计算 dp\[1, 2\]（面值 1、金额 2），最少 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step4.svg)
+    ![零钱兑换的动态规划，第 4 步，共 15 步：计算 dp\[1, 2\]（面值 1、金额 2）：最少 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step4.svg)
 
 === "<5>"
-    ![零钱兑换：逐格求金额 4 的最少硬币枚数，第 5 步，共 15 步：第 5 步：计算 dp\[1, 3\]（面值 1、金额 3），最少 3 枚](unbounded_knapsack_problem.assets/coin_change_dp_step5.svg)
+    ![零钱兑换的动态规划，第 5 步，共 15 步：计算 dp\[1, 3\]（面值 1、金额 3）：最少 3 枚](unbounded_knapsack_problem.assets/coin_change_dp_step5.svg)
 
 === "<6>"
-    ![零钱兑换：逐格求金额 4 的最少硬币枚数，第 6 步，共 15 步：第 6 步：计算 dp\[1, 4\]（面值 1、金额 4），最少 4 枚](unbounded_knapsack_problem.assets/coin_change_dp_step6.svg)
+    ![零钱兑换的动态规划，第 6 步，共 15 步：计算 dp\[1, 4\]（面值 1、金额 4）：最少 4 枚](unbounded_knapsack_problem.assets/coin_change_dp_step6.svg)
 
 === "<7>"
-    ![零钱兑换：逐格求金额 4 的最少硬币枚数，第 7 步，共 15 步：第 7 步：计算 dp\[2, 1\]（面值 2、金额 1），装不下面值 2 保持 1 枚](unbounded_knapsack_problem.assets/coin_change_dp_step7.svg)
+    ![零钱兑换的动态规划，第 7 步，共 15 步：计算 dp\[2, 1\]（面值 2、金额 1）：面值过大，继承 1 枚](unbounded_knapsack_problem.assets/coin_change_dp_step7.svg)
 
 === "<8>"
-    ![零钱兑换：逐格求金额 4 的最少硬币枚数，第 8 步，共 15 步：第 8 步：计算 dp\[2, 2\]（面值 2、金额 2），选 1 枚 2 元更新为 1](unbounded_knapsack_problem.assets/coin_change_dp_step8.svg)
+    ![零钱兑换的动态规划，第 8 步，共 15 步：计算 dp\[2, 2\]（面值 2、金额 2）：选 1 枚 2 元，更新为 1](unbounded_knapsack_problem.assets/coin_change_dp_step8.svg)
 
 === "<9>"
-    ![零钱兑换：逐格求金额 4 的最少硬币枚数，第 9 步，共 15 步：第 9 步：计算 dp\[2, 3\]（面值 2、金额 3），更新为最少 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step9.svg)
+    ![零钱兑换的动态规划，第 9 步，共 15 步：计算 dp\[2, 3\]（面值 2、金额 3）：1 元加 2 元，更新为 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step9.svg)
 
 === "<10>"
-    ![零钱兑换：逐格求金额 4 的最少硬币枚数，第 10 步，共 15 步：第 10 步：计算 dp\[2, 4\]（面值 2、金额 4），两枚 2 元更新为 2](unbounded_knapsack_problem.assets/coin_change_dp_step10.svg)
+    ![零钱兑换的动态规划，第 10 步，共 15 步：计算 dp\[2, 4\]（面值 2、金额 4）：重复选 2 元，更新为 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step10.svg)
 
 === "<11>"
-    ![零钱兑换：逐格求金额 4 的最少硬币枚数，第 11 步，共 15 步：第 11 步：计算 dp\[3, 1\]（面值 5、金额 1），面值过大保持 1 枚](unbounded_knapsack_problem.assets/coin_change_dp_step11.svg)
+    ![零钱兑换的动态规划，第 11 步，共 15 步：计算 dp\[3, 1\]（面值 5、金额 1）：面值过大，继承 1 枚](unbounded_knapsack_problem.assets/coin_change_dp_step11.svg)
 
 === "<12>"
-    ![零钱兑换：逐格求金额 4 的最少硬币枚数，第 12 步，共 15 步：第 12 步：计算 dp\[3, 2\]（面值 5、金额 2），面值过大保持 1 枚](unbounded_knapsack_problem.assets/coin_change_dp_step12.svg)
+    ![零钱兑换的动态规划，第 12 步，共 15 步：计算 dp\[3, 2\]（面值 5、金额 2）：面值过大，继承 1 枚](unbounded_knapsack_problem.assets/coin_change_dp_step12.svg)
 
 === "<13>"
-    ![零钱兑换：逐格求金额 4 的最少硬币枚数，第 13 步，共 15 步：第 13 步：计算 dp\[3, 3\]（面值 5、金额 3），面值过大保持 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step13.svg)
+    ![零钱兑换的动态规划，第 13 步，共 15 步：计算 dp\[3, 3\]（面值 5、金额 3）：面值过大，继承 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step13.svg)
 
 === "<14>"
-    ![零钱兑换：逐格求金额 4 的最少硬币枚数，第 14 步，共 15 步：第 14 步：计算 dp\[3, 4\]（面值 5、金额 4），面值过大保持 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step14.svg)
+    ![零钱兑换的动态规划，第 14 步，共 15 步：计算 dp\[3, 4\]（面值 5、金额 4）：面值过大，继承 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step14.svg)
 
 === "<15>"
-    ![零钱兑换：逐格求金额 4 的最少硬币枚数，第 15 步，共 15 步：第 15 步：读取右下角 dp\[3, 4\]，返回最少硬币数量 2](unbounded_knapsack_problem.assets/coin_change_dp_step15.svg)
+    ![零钱兑换的动态规划，第 15 步，共 15 步：读取右下角 dp\[3, 4\]，返回最少硬币数 2](unbounded_knapsack_problem.assets/coin_change_dp_step15.svg)
+<!-- figure-reading:start group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp -->
+
+[零钱兑换的动态规划：完整图解](unbounded_knapsack_problem.assets/coin_change_dp.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 空间优化
 
@@ -179,6 +199,11 @@ $$
     给定 $n$ 种硬币，第 $i$ 种硬币的面值为 $coins[i - 1]$ ，目标金额为 $amt$ ，每种硬币可以重复选取，**问凑出目标金额的硬币组合数量**。示例如下图所示。
 
 ![零钱兑换问题 II 的示例数据](unbounded_knapsack_problem.assets/coin_change_ii_example.svg)
+<!-- figure-reading:start group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_ii_example -->
+
+[零钱兑换 II：金额 5 共有 4 种硬币组合：完整图解](unbounded_knapsack_problem.assets/coin_change_ii_example.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 动态规划思路
 

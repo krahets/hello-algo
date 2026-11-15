@@ -1,84 +1,56 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_tree/avl_tree.assets/avltree_right_rotate",
-  "title": "AVL 树右旋操作与指针重连步骤",
-  "summary": "针对节点 3（平衡因子 2）的左偏失衡子树，以左子节点 1（child）为原点将节点 3（node）向右旋转为 1 的右子节点，再用 1 接替原 3 的位置恢复平衡。",
+  "title": "AVL 树右旋",
+  "summary": "对首个失衡节点执行右旋，先重连局部子树的父子指针，再将新子树根接回上层父节点。",
   "context": [
-    "初始四层二叉搜索树含五个节点 0、1、3、4、5（注意与上一图的数值不同）：根为 4，左、右子节点为 3、5；3 只有左子节点 1；1 只有左子节点 0；0 和 5 为叶节点。",
-    "第一帧每个节点正下方标出平衡因子（左子树高度减去右子树高度，叶节点高度为 0，空节点高度为 −1）。当平衡因子绝对值大于 1 时即为失衡节点，需从底至顶找到首个失衡节点执行旋转。"
+    "初始树根为 4，左右子节点为 3、5；3 只有左子节点 1，1 只有左子节点 0；0、5 为叶节点。",
+    "平衡因子定义为左子树高度减右子树高度；高度按边数计，叶节点高度为 0，空子树高度为 −1。自底向上检查时，首个失衡节点是 3，记为 node；其左子节点 1 记为 child。"
   ],
-  "description": [],
-  "result": "右旋完成后，根 4 的左、右子节点为 1、5，节点 1 的左、右子节点为 0、3。中序遍历序列保持 0、1、3、4、5 不变，同时以 1 为根的子树与整棵树都重新恢复平衡。",
+  "description": [
+    "本例中 child（1）的右子树为空，右旋时 node（3）的左指针因而改为空。若一般情形下 child 带有非空右子树 grand_child，实现中会将它改接到 node 的左侧；本组不包含这一非空中间子树。"
+  ],
+  "result": "旋转完成后，根为 4；4 左为 1、右为 5，1 左为 0、右为 3，0、3、5 均为叶节点。局部子树与整棵树均恢复平衡，中序序列仍为 [0, 1, 3, 4, 5]。",
   "frames": [
     {
       "id": "source-130",
       "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step1.png",
-      "title": "自底向上定位首个失衡节点 3",
-      "explanation": "Step 1 各节点下方标出平衡因子：叶节点 0 和 5 为绿色的 0，节点 1 为绿色的 1，而节点 3 与根节点 4 的平衡因子均为橙色的 2（左偏失衡，两节点均以橙色高亮并标注“失衡节点”）。自底向上看，最先遇到的失衡节点是 3。",
-      "state": "树中根 4 的左、右子节点为 3、5，3 的左子节点为 1，1 的左子节点为 0。各节点下方标有平衡因子：4 为 2，3 为 2，5 为 0，1 为 1，0 为 0；节点 4 和 3 以实心橙色高亮并标为“失衡节点”。",
-      "key_state": "节点 4 和 3 的平衡因子均为 2（失衡），自底向上首个失衡节点为 3，其左子节点 1 的平衡因子为 1。",
-      "announcement": "标出各节点平衡因子，自底向上找到首个平衡因子为 2 的失衡节点 3。"
+      "title": "找到首个失衡节点 3",
+      "explanation": "各节点下方标注平衡因子：叶节点 0、5 为 0，节点 1 为 1，节点 3 与根 4 均为 2。沿左分支自底向上检查，首先超出平衡范围的是节点 3，因此优先修复以 3 为根的子树。",
+      "state": "右旋第 1 步（定位失衡节点）：根 4 的左右子节点为 3、5；3 只有左子节点 1，1 只有左子节点 0。各节点平衡因子依次为：0 为 0，1 为 1，3 为 2，4 为 2，5 为 0。",
+      "key_state": "节点 3 与根 4 均失衡（平衡因子为 2）；自底向上首先处理 3。",
+      "announcement": "自底向上检查平衡因子，定位首个失衡节点 3。"
     },
     {
       "id": "source-131",
       "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step2.png",
-      "title": "聚焦失衡子树，标记 node = 3 与 child = 1",
-      "explanation": "Step 2 右侧说明框写明：“聚焦在失衡的子树上，将根节点记为 node，将左子节点记为 child”。图中将上方的 4、5 及底部的 0 淡化为浅灰色，把失衡子树根节点 3 标为橙色 node，把其左子节点 1 标为蓝色 child（本例中 child 没有右子节点）。",
-      "state": "树连接仍为 4→3、5，3→1，1→0。失衡子树的根节点 3 以实心橙色高亮并标有 node，其左子节点 1 以实心蓝色高亮并标有 child；其余节点 4、5、0 淡化为浅灰色。",
-      "key_state": "聚焦以 3 为根的失衡子树：记橙色节点 3 为 node，蓝色左子节点 1 为 child。",
-      "announcement": "聚焦失衡子树，将失衡根节点 3 记为 node，将其左子节点 1 记为 child。"
+      "title": "标记旋转的两个节点",
+      "explanation": "将失衡子树根 3 记为 node，其左子节点 1 记为 child。本例 child 的右子树为空，因此旋转后 node 的左子树也为空。",
+      "state": "右旋第 2 步（标记旋转节点）：根 4 的左右子节点仍为 3、5；node 指向 3，child 指向 1，3.left 为 1，1.left 为 0，1.right 为空，树连接尚未改变。",
+      "key_state": "标记 node = 3，child = 1，child.right 为空。",
+      "announcement": "标记失衡子树根 node = 3 与左子节点 child = 1。"
     },
     {
       "id": "source-132",
       "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step3.png",
-      "title": "以 child（1）为原点，将 node（3）向右旋转",
-      "explanation": "Step 3 右侧在“‘右旋’操作流程”下高亮“1. 以 child 为原点，将 node 向右旋转”。图中原节点 3 的位置留作浅橙色虚线残影，右侧橙色弧线箭头标明“向右旋转”：实心橙色节点 3（node）旋转到蓝色节点 1（child）的右下方，成为 1 的右子节点，1 的左子节点仍为 0；此时上方浅灰色的父节点 4 尚未画出连向新子树根的实线。",
-      "state": "旋转中间态：蓝色节点 1（child）的左子节点为浅灰色 0、右子节点连向旋至右下方的实心橙色节点 3（node），3 的左子节点已清空；1 上方保留原节点 3 的橙色虚线残影及“向右旋转”弧线箭头；顶部浅灰色节点 4 仅保留连向 5 的右箭头，尚未接回左子树。",
-      "key_state": "以 child（1）为原点将 node（3）右旋为 1 的右子节点（1.left = 0，1.right = 3），尚待接回父节点 4。",
-      "announcement": "以节点 1（child）为原点将节点 3（node）向右旋转，使 3 成为 1 的右子节点。"
+      "title": "形成以 1 为根的局部子树",
+      "explanation": "以 child（1）为原点将 node（3）向右旋转：令 child.right 指向 node（3），并把 node.left 改为原 child.right（本例为空），使 1 的左右子节点分别为 0、3。此时局部子树虽已形成，但图中父节点 4 还未接到新根 1，整次旋转尚未完成。",
+      "state": "右旋第 3 步（局部子树已形成、未接回父节点）：局部子树根已是 child（1），1 的左子节点为 0、右子节点为 node（3），0 和 3 为叶节点；但图中父节点 4 仅连着右子节点 5，还未接到新根 1。原 3 位置处的虚线轮廓仅示意旋转前的旧位置。",
+      "key_state": "局部子树已形成（根 1 左 0 右 3），但图中父节点 4 还未接到新根 1。",
+      "announcement": "节点 3 成为 1 的右子节点，局部子树已形成，尚未接回父节点 4。"
     },
     {
       "id": "source-133",
       "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step4.png",
-      "title": "用 child（1）替代原 node（3）位置，子树恢复平衡",
-      "explanation": "Step 4 右侧高亮“2. 用 child 替代以前 node 的位置”，并在下方总结“右旋完成后，该子树重新恢复平衡”。图中父节点 4 的左子节点指针正式连向蓝色节点 1（child），1 左侧标出蓝色“已恢复平衡”：此时 1 的左、右子节点分别为同层的叶节点 0 和 3（node），子树与整棵树均恢复平衡。",
-      "state": "右旋完成：顶部浅灰色根 4 的左子节点连向实心蓝色节点 1（child，旁标“已恢复平衡”），右子节点为浅灰色 5；节点 1 的左子节点为浅灰色叶节点 0，右子节点为实心橙色叶节点 3（node）。",
-      "key_state": "父节点 4 的左指针接回 child（4.left = 1），1 的左、右子节点为 0、3，右旋完成且子树恢复平衡。",
-      "announcement": "将新子树根 1（child）接回父节点 4 的左侧，完成右旋并恢复平衡。"
+      "title": "将新子树根接回父节点",
+      "explanation": "最后用新子树根 child（1）替换原 node（3）在父节点 4 下的位置，最后使 4.left 指向 1，完成整次右旋。该子树高度下降 1，根 4 的左右子树高度差也恢复到 1 以内。",
+      "state": "右旋第 4 步（接回父节点、旋转完成）：根为 4；4 左为 1、右为 5，1 左为 0、右为 3，0、3、5 均为叶节点。全树满足二叉搜索树顺序与 AVL 平衡条件，中序序列为 [0, 1, 3, 4, 5]。",
+      "key_state": "4.left 指向 1（4 左为 1、右为 5，1 左为 0、右为 3），中序 [0, 1, 3, 4, 5]。",
+      "announcement": "令父节点 4 的左指针指向新根 1，完成右旋并恢复整树平衡。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-07",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "ece77710dc89aaae2c72ea3fae6034e320e2eedda128f966fd1cac9a96173032",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "f429a2d9034d7690b6bd4a3f0822b11a77350c2330baf8a66141d1f7a9ef4841",
-        "output_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91",
-        "output_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6",
-        "output_sha256": "449ce85fb338c455e6cedde1bf55ab20b1b0f532a5408dfa0443a6fbe9815c6b"
-      }
-    ],
-    "evidence_sha256": "459b7ad9cb6322b1bab7e28efa1badcfd4813182718f9028c5dbe5d4d10dbb4c"
-  },
   "dependencies": {
     "markdown": {
       "chapter_tree/avl_tree.md": "f4a27fbca67b22b8b3a041218f1088ab85a9f2a32e374060046152e6e01440a5"
@@ -95,7 +67,7 @@
     "avl-right-rotation": {
       "kind": "source-frames",
       "model_sha256": "7b31b3259582e264b0347fd19a48483c7e8af0f3cdd5e23c8c565206aca4cc1a",
-      "source_content_sha256": "ece77710dc89aaae2c72ea3fae6034e320e2eedda128f966fd1cac9a96173032",
+      "source_content_sha256": "5aa220ffec247f6edf13a9e3e1003fc6a8450bf214acabd481d8e805b6a07ac7",
       "states": [
         {
           "id": "step-1",
@@ -116,11 +88,46 @@
       ],
       "review": {
         "status": "confirmed",
-        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "run_id": "figure-reading-20261116/content/body-07/source-binding",
         "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "a12162a038b91b86f32f4039d23f8606a224dbbd3ae98c22eddc2e15cc3e7bc3",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+        "binding_sha256": "262d935a2aaced0efcd229083134eb757023fa9d6650725fdcd3d845b5d8eee7",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
+        "current_text_verification_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198"
       }
     }
+  },
+  "tables": [],
+  "standalone_tables": [],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-07",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "64feb83b4b5a24ec87dc3ad4c035411b8cfda29777f845490023530d7eb2b7e3",
+        "output_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907",
+        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520",
+        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
+      }
+    ],
+    "evidence_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198",
+    "verification_manifest_sha256": "0d1fe15b9202118b7054d0f66377264f92073e4f519f55934a9bddd71d23d42a",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "5aa220ffec247f6edf13a9e3e1003fc6a8450bf214acabd481d8e805b6a07ac7"
   }
 }

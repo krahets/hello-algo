@@ -89,11 +89,16 @@
   },
   "dependencies": {
     "markdown": {
-      "chapter_heap/heap.md": "4eac94cc73c58f010fd8439bd21e4f441eff794de3d6d06a143a0f45dc44ec3e"
+      "chapter_heap/heap.md": "00d9805c2a89016f30a5c9c5434c2fd3911f8b56b7fb8cdec0a862e0c4be92e9"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
       "chapter_heap/heap.assets/min_heap_and_max_heap.png": "87c1418d29515a4d06426cd9d048c76d1b9d36cddc5ee757713ca06ae57d4d4d"
     }
+  },
+  "dependency_compatibility": {
+    "run_id": "figure-reading-20261116/upstream-dependency-verification",
+    "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
+    "factual_review_preserved": true
   }
 }

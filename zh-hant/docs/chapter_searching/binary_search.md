@@ -7,6 +7,11 @@
     給定一個長度為 $n$ 的陣列 `nums` ，元素按從小到大的順序排列且不重複。請查詢並返回元素 `target` 在該陣列中的索引。若陣列不包含該元素，則返回 $-1$ 。示例如下圖所示。
 
 ![二分搜尋示例資料](binary_search.assets/binary_search_example.svg)
+<!-- figure-reading:start group:chapter_searching/binary_search.assets/binary_search_example -->
+
+[二分搜尋示例資料：在十個升序元素中定位 target = 6：完整圖解](binary_search.assets/binary_search_example.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 如下圖所示，我們先初始化指標 $i = 0$ 和 $j = n - 1$ ，分別指向陣列首元素和尾元素，代表搜尋區間 $[0, n - 1]$ 。請注意，中括號表示閉區間，其包含邊界值本身。
 
@@ -24,22 +29,27 @@
     ![二分搜尋流程](binary_search.assets/binary_search_step1.svg)
 
 === "<2>"
-    ![二分搜尋：逐步縮小搜尋區間，第 2 步，共 7 步：計算首箇中點](binary_search.assets/binary_search_step2.svg)
+    ![二分搜尋，第 2 步，共 7 步：計算首箇中點](binary_search.assets/binary_search_step2.svg)
 
 === "<3>"
-    ![二分搜尋：逐步縮小搜尋區間，第 3 步，共 7 步：排除中點及其右側](binary_search.assets/binary_search_step3.svg)
+    ![二分搜尋，第 3 步，共 7 步：排除中點及其右側](binary_search.assets/binary_search_step3.svg)
 
 === "<4>"
-    ![二分搜尋：逐步縮小搜尋區間，第 4 步，共 7 步：計算新區間的中點](binary_search.assets/binary_search_step4.svg)
+    ![二分搜尋，第 4 步，共 7 步：計算新區間的中點](binary_search.assets/binary_search_step4.svg)
 
 === "<5>"
-    ![二分搜尋：逐步縮小搜尋區間，第 5 步，共 7 步：排除中點及其左側](binary_search.assets/binary_search_step5.svg)
+    ![二分搜尋，第 5 步，共 7 步：排除中點及其左側](binary_search.assets/binary_search_step5.svg)
 
 === "<6>"
-    ![二分搜尋：逐步縮小搜尋區間，第 6 步，共 7 步：中點與左邊界重合](binary_search.assets/binary_search_step6.svg)
+    ![二分搜尋，第 6 步，共 7 步：中點與左邊界重合](binary_search.assets/binary_search_step6.svg)
 
 === "<7>"
-    ![二分搜尋：逐步縮小搜尋區間，第 7 步，共 7 步：找到目標並返回索引](binary_search.assets/binary_search_step7.svg)
+    ![二分搜尋，第 7 步，共 7 步：找到目標並返回索引](binary_search.assets/binary_search_step7.svg)
+<!-- figure-reading:start group:chapter_searching/binary_search.assets/binary_search -->
+
+[二分搜尋：完整圖解](binary_search.assets/binary_search.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 值得注意的是，由於 $i$ 和 $j$ 都是 `int` 型別，**因此 $i + j$ 可能會超出 `int` 型別的取值範圍**。為了避免大數越界，我們通常採用公式 $m = \lfloor {i + (j - i) / 2} \rfloor$ 來計算中點。
 
@@ -68,6 +78,11 @@
 由於“雙閉區間”表示中的左右邊界都被定義為閉區間，因此透過指標 $i$ 和指標 $j$ 縮小區間的操作也是對稱的。這樣更不容易出錯，**因此一般建議採用“雙閉區間”的寫法**。
 
 ![兩種區間定義](binary_search.assets/binary_search_ranges.svg)
+<!-- figure-reading:start group:chapter_searching/binary_search.assets/binary_search_ranges -->
+
+[二分搜尋的區間約定：完整圖解](binary_search.assets/binary_search_ranges.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ## 優點與侷限性
 

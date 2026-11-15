@@ -11,6 +11,11 @@
 3. **由於 `counter` 的各個索引天然有序，因此相當於所有數字已經排序好了**。接下來，我們走訪 `counter` ，根據各數字出現次數從小到大的順序填入 `nums` 即可。
 
 ![計數排序流程](counting_sort.assets/counting_sort_overview.svg)
+<!-- figure-reading:start group:chapter_sorting/counting_sort.assets/counting_sort_overview -->
+
+[統計每個整數的次數，再按次數寫回：完整圖解](counting_sort.assets/counting_sort_overview.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 程式碼如下所示：
 
@@ -43,25 +48,30 @@ $$
     ![計數排序步驟](counting_sort.assets/counting_sort_step1.svg)
 
 === "<2>"
-    ![利用前綴和從右向左穩定寫入結果，第 2 步，共 8 步：計算前綴和 prefix，確定各數字的末位索引](counting_sort.assets/counting_sort_step2.svg)
+    ![前綴和計數排序的穩定寫入，第 2 步，共 8 步：累加頻數，準備結果陣列](counting_sort.assets/counting_sort_step2.svg)
 
 === "<3>"
-    ![利用前綴和從右向左穩定寫入結果，第 3 步，共 8 步：倒序讀取原索引 9 的 4，寫入結果索引 9](counting_sort.assets/counting_sort_step3.svg)
+    ![前綴和計數排序的穩定寫入，第 3 步，共 8 步：將末尾的 4 寫入索引 9](counting_sort.assets/counting_sort_step3.svg)
 
 === "<4>"
-    ![利用前綴和從右向左穩定寫入結果，第 4 步，共 8 步：倒序讀取原索引 8 的 2，寫入結果索引 7](counting_sort.assets/counting_sort_step4.svg)
+    ![前綴和計數排序的穩定寫入，第 4 步，共 8 步：將原索引 8 的 2 寫入索引 7](counting_sort.assets/counting_sort_step4.svg)
 
 === "<5>"
-    ![利用前綴和從右向左穩定寫入結果，第 5 步，共 8 步：倒序讀取原索引 7 的 2，寫入結果索引 6](counting_sort.assets/counting_sort_step5.svg)
+    ![前綴和計數排序的穩定寫入，第 5 步，共 8 步：將原索引 7 的 2 寫入索引 6](counting_sort.assets/counting_sort_step5.svg)
 
 === "<6>"
-    ![利用前綴和從右向左穩定寫入結果，第 6 步，共 8 步：倒序讀取原索引 6 的 0，寫入結果索引 2](counting_sort.assets/counting_sort_step6.svg)
+    ![前綴和計數排序的穩定寫入，第 6 步，共 8 步：將原索引 6 的 0 寫入索引 2](counting_sort.assets/counting_sort_step6.svg)
 
 === "<7>"
-    ![利用前綴和從右向左穩定寫入結果，第 7 步，共 8 步：省略其餘走訪過程，直接展示 res 填充完成](counting_sort.assets/counting_sort_step7.svg)
+    ![前綴和計數排序的穩定寫入，第 7 步，共 8 步：完成其餘六次寫入](counting_sort.assets/counting_sort_step7.svg)
 
 === "<8>"
-    ![利用前綴和從右向左穩定寫入結果，第 8 步，共 8 步：用結果陣列 res 覆蓋原陣列 nums](counting_sort.assets/counting_sort_step8.svg)
+    ![前綴和計數排序的穩定寫入，第 8 步，共 8 步：把結果複製回 nums](counting_sort.assets/counting_sort_step8.svg)
+<!-- figure-reading:start group:chapter_sorting/counting_sort.assets/counting_sort -->
+
+[前綴和計數排序的穩定寫入：完整圖解](counting_sort.assets/counting_sort.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 計數排序的實現程式碼如下所示：
 

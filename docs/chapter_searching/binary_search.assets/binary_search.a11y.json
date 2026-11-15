@@ -1,22 +1,22 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_searching/binary_search.assets/binary_search",
-  "title": "二分查找：逐步缩小搜索区间",
-  "summary": "在含 10 个元素的升序数组中查找目标值 6，通过比较中点元素逐步折半缩小闭区间，经三次中点比较后返回索引 2。",
+  "title": "二分查找",
+  "summary": "在升序数组中查找目标值 6，每轮比较中点元素后排除不可能包含目标的一半区间。",
   "context": [
-    "待查找的升序数组为 [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，共 10 个元素，索引从 0 到 9，查找的目标值为 6。",
-    "指针 i 和 j 分别表示当前搜索闭区间 [i, j] 的左、右边界（两端点均包含在搜索范围内）；指针 m 表示区间中点索引，按 (i + j) / 2 向下取整计算。每轮循环先定位中点，再比较中点元素与目标值的大小，从而排除不可能包含目标的一半区间。"
+    "输入为含 10 个互异元素的升序数组 [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，索引为 0 至 9，查找目标值 target = 6；各索引与元素值的对应关系见输入表。",
+    "指针 i、j 分别表示当前搜索闭区间 [i, j] 的左、右边界（两端点均包含在搜索范围内）；m 表示区间中点索引，按 (i + j) / 2 向下取整计算。每轮先计算中点 m，再比较 nums[m] 与目标值。"
   ],
   "description": [],
-  "result": "整个查找过程依次比较了索引 4 的元素 12、索引 1 的元素 3 和索引 2 的元素 6，第三次比较命中目标值 6 并返回索引 2。七步分镜将初始化以及每轮循环中的“计算中点”与“缩小区间”拆开展示，实际只进行了三次元素比较。",
+  "result": "查找过程依次比较了中点元素 12、3、6，第三次比较命中目标，返回索引 2。七个分步画面是将初始化以及每轮循环中的“计算中点”与“缩小区间”拆开展示，实际只进行了三次元素比较。",
   "frames": [
     {
       "id": "source-214",
       "book_path": "chapter_searching/binary_search.assets/binary_search_step1.png",
       "title": "初始化搜索区间",
-      "explanation": "将左边界 i 设为首元素索引 0（对应值 1），右边界 j 设为尾元素索引 9（对应值 35）。此时搜索范围为闭区间 [0, 9]，全部 10 个元素均在待查找范围内，尚未计算中点 m。",
+      "explanation": "令左边界 i = 0、右边界 j = 9，初始搜索闭区间 [0, 9] 覆盖整个数组，尚未计算中点 m。",
       "state": "升序数组为 [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，索引从 0 到 9，目标值为 6。当前左边界 i = 0（对应值 1），右边界 j = 9（对应值 35），搜索闭区间为 [0, 9]，覆盖全部 10 个元素；尚未计算中点 m。",
       "key_state": "i = 0，j = 9；搜索闭区间 [0, 9]，尚无中点 m。",
       "announcement": "初始化左边界 i 为索引 0、右边界 j 为索引 9，搜索整个数组。"
@@ -25,7 +25,7 @@
       "id": "source-215",
       "book_path": "chapter_searching/binary_search.assets/binary_search_step2.png",
       "title": "计算首个中点",
-      "explanation": "进入第一轮二分查找，计算当前闭区间 [0, 9] 的中点 m：将 (0 + 9) / 2 向下取整得到 4。指针 m 指向索引 4 的元素 12，左、右边界仍保持在索引 0 和 9。",
+      "explanation": "在闭区间 [0, 9] 内计算中点 m = (0 + 9) / 2 向下取整得 4，指针 m 指向索引 4 的元素 12。",
       "state": "升序数组为 [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，索引从 0 到 9，目标值为 6。当前搜索闭区间为 [0, 9]，左边界 i = 0，右边界 j = 9；中点 m = 4，指向元素 12。",
       "key_state": "i = 0，j = 9，m = 4；中点值为 12。",
       "announcement": "计算出中点 m 为索引 4，对应值为 12，准备与目标值 6 比较。"
@@ -34,7 +34,7 @@
       "id": "source-216",
       "book_path": "chapter_searching/binary_search.assets/binary_search_step3.png",
       "title": "排除中点及其右侧",
-      "explanation": "中点元素 12 大于目标值 6。由于数组按升序排列，索引 4 及其右侧的元素均大于 6，不可能包含目标。执行 j = m - 1，将右边界 j 移至索引 3（对应值 8），搜索闭区间缩小为 [0, 3]，保留元素 [1, 3, 6, 8]。此时图中指针 m 仍停留在刚比较过的索引 4，位于新搜索区间之外，尚未重新计算。",
+      "explanation": "中点值 12 大于目标 6；因数组按升序排列，索引 4 及其右侧元素均大于 6，不可能是目标。执行 j = m - 1 = 3，将闭区间缩小为 [0, 3]。图中旧中点指针 m 仍停留在刚比较过的索引 4，位于新区间之外，尚未重新计算。",
       "state": "升序数组为 [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，索引从 0 到 9，目标值为 6。当前左边界 i = 0，右边界 j = 3，搜索闭区间为 [0, 3]，区间内元素为 [1, 3, 6, 8]。上一轮的中点指针 m = 4（对应值 12）仍显示在图中，已位于新区间之外。",
       "key_state": "i = 0，j = 3；搜索区间缩为 [0, 3]，旧中点 m = 4 在区间外。",
       "announcement": "中点值 12 大于目标值 6，右边界 j 移至索引 3，保留索引 0 至 3。"
@@ -43,7 +43,7 @@
       "id": "source-217",
       "book_path": "chapter_searching/binary_search.assets/binary_search_step4.png",
       "title": "计算新区间的中点",
-      "explanation": "进入第二轮二分查找，在闭区间 [0, 3] 内重新计算中点 m：将 (0 + 3) / 2 向下取整得到 1。指针 m 移至索引 1，指向元素 3；左、右边界仍为 i = 0 和 j = 3。",
+      "explanation": "在闭区间 [0, 3] 内重新计算中点 m = (0 + 3) / 2 向下取整得 1，指针 m 指向索引 1 的元素 3。",
       "state": "升序数组为 [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，索引从 0 到 9，目标值为 6。当前搜索闭区间为 [0, 3]，区间内元素为 [1, 3, 6, 8]；左边界 i = 0，右边界 j = 3，中点 m = 1，指向元素 3。",
       "key_state": "i = 0，j = 3，m = 1；中点值为 3。",
       "announcement": "在区间 [0, 3] 内重新计算出中点 m 为索引 1，对应值为 3。"
@@ -52,7 +52,7 @@
       "id": "source-218",
       "book_path": "chapter_searching/binary_search.assets/binary_search_step5.png",
       "title": "排除中点及其左侧",
-      "explanation": "中点元素 3 小于目标值 6，说明索引 1 及其左侧的元素均小于 6，可以排除。执行 i = m + 1，将左边界 i 移至索引 2（对应值 6），搜索闭区间缩小为 [2, 3]，仅剩元素 [6, 8]。此时图中指针 m 仍停留在刚比较过的索引 1，位于新搜索区间之外，尚未重新计算。",
+      "explanation": "中点值 3 小于目标 6；因数组按升序排列，索引 1 及其左侧元素均小于 6，不可能是目标。执行 i = m + 1 = 2，将闭区间缩小为 [2, 3]。图中旧中点指针 m 仍停留在刚比较过的索引 1，位于新区间之外，尚未重新计算。",
       "state": "升序数组为 [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，索引从 0 到 9，目标值为 6。当前左边界 i = 2，右边界 j = 3，搜索闭区间为 [2, 3]，区间内元素为 [6, 8]。上一轮的中点指针 m = 1（对应值 3）仍显示在图中，已位于新区间之外。",
       "key_state": "i = 2，j = 3；搜索区间缩为 [2, 3]，剩余 6 和 8，旧中点 m = 1 在区间外。",
       "announcement": "中点值 3 小于目标值 6，左边界 i 移至索引 2，区间内仅剩 6 和 8。"
@@ -61,7 +61,7 @@
       "id": "source-219",
       "book_path": "chapter_searching/binary_search.assets/binary_search_step6.png",
       "title": "中点与左边界重合",
-      "explanation": "进入第三轮二分查找，在闭区间 [2, 3] 内重新计算中点 m：将 (2 + 3) / 2 向下取整得到 2。此时中点 m 与左边界 i 重合在索引 2，共同指向元素 6；右边界 j 仍指向索引 3 的元素 8。",
+      "explanation": "在闭区间 [2, 3] 内重新计算中点 m = (2 + 3) / 2 向下取整得 2，中点 m 与左边界 i 重合于索引 2，对应元素 6。",
       "state": "升序数组为 [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，索引从 0 到 9，目标值为 6。当前搜索闭区间为 [2, 3]，区间内元素为 [6, 8]；左边界 i = 2 与中点 m = 2 重合，共同指向元素 6，右边界 j = 3，指向元素 8。",
       "key_state": "i 与 m 重合于索引 2，j = 3；中点值为 6。",
       "announcement": "重新计算出中点 m 为索引 2，与左边界 i 重合，对应值为 6。"
@@ -70,7 +70,7 @@
       "id": "source-220",
       "book_path": "chapter_searching/binary_search.assets/binary_search_step7.png",
       "title": "找到目标并返回索引",
-      "explanation": "中点元素 6 等于目标值 6，查找成功，返回中点索引 m = 2。最终画面仅保留指向索引 2 的中点指针 m，不再显示边界指针 i、j 与区间虚线框，以突出命中的目标元素 6。",
+      "explanation": "中点元素 6 等于目标值 6，查找命中并返回位置索引 2（而非元素值 6）。最终画面仅保留指向索引 2 的中点指针 m，不再显示边界指针 i、j 与区间虚线框。",
       "state": "升序数组为 [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，索引从 0 到 9，目标值为 6。查找已完成，在索引 2 处命中目标值 6，返回索引 2。图中仅显示中点指针 m = 2，不再显示左、右边界指针 i 和 j。",
       "key_state": "命中目标值 6；仅显示 m = 2，返回索引 2。",
       "announcement": "中点值等于目标值 6，查找成功，返回索引 2。"
@@ -80,6 +80,7 @@
     "markdown": {
       "chapter_searching/binary_search.md": "a734fc597b716931cf132436b8c4deaa76801f67a7dc4c2f8fdac5bb6cedb01d"
     },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
       "chapter_searching/binary_search.assets/binary_search_step1.png": "ceac8423d9ec89c3725b9110e54d2b2f6acd54c0cb5f1d09d5f32d009893c9b6",
       "chapter_searching/binary_search.assets/binary_search_step2.png": "839c836322fca6581dd3f326d8d16c53fa6788014ce1ec7f533c5e6f6c3626c2",
@@ -88,44 +89,13 @@
       "chapter_searching/binary_search.assets/binary_search_step5.png": "52b1544c96d125bd1cb4dcbf18e025c1cb8533af7d358710718ecb503775d1dc",
       "chapter_searching/binary_search.assets/binary_search_step6.png": "a0ed5c2fa9e3881eb8b3f294de333c94f9fc28baaaf204bf74750533c313d133",
       "chapter_searching/binary_search.assets/binary_search_step7.png": "9440024a03d786e3f6a92b95fbe13d810bb26d7da5ccb026534eb8be036323fa"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7"
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "e428918dd8ebb35da670d1c3fd9fe192f842e3e51ed08bb71b23279f7e96b310",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "d6744bd33ebe996945232b607e69fead7f79db477d4e9be3e721bb590f977cf7",
-        "output_sha256": "3a54872682cd76f5129277b6ce598e18e54b343f00a5717b25341459e06c1679"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "3a54872682cd76f5129277b6ce598e18e54b343f00a5717b25341459e06c1679",
-        "output_sha256": "4c004dd46aa6d213c1300b923415022961ab9b7d8ea12038c75578bb37c6d71b"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "4c004dd46aa6d213c1300b923415022961ab9b7d8ea12038c75578bb37c6d71b",
-        "output_sha256": "0b88c8eaf9a50ce51fd7f5a87df7a7f1a69bf1b2e9ccc8719e8375f1b3ed7f54"
-      }
-    ],
-    "evidence_sha256": "6dfc8d5a29c1f922045ad2da9cf53b29889c55bf6b52f40ba50b608da9ecea2c"
+    }
   },
   "animations": {
     "binary-search": {
       "kind": "source-frames",
       "model_sha256": "ac874435aa61cd01d2d1a781b44a47391a858a001547a20adf52fc457873c46b",
-      "source_content_sha256": "e428918dd8ebb35da670d1c3fd9fe192f842e3e51ed08bb71b23279f7e96b310",
+      "source_content_sha256": "a6eb5d9899fb21e29d502e0013a7dcc184c937a93a5f1f5987008db6efa477ec",
       "states": [
         {
           "id": "step-1",
@@ -158,11 +128,119 @@
       ],
       "review": {
         "status": "confirmed",
-        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "run_id": "figure-reading-20261116/pilot/source-binding",
         "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "c80dd8c578fd6b1dd276c8db67a92240720939bd10708550b45eb2501b1630b3",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+        "binding_sha256": "55a42f48b37525b70e8f19d88b8195295e14eec0ba2db18f4cd7288ad506dac1",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
+        "current_text_verification_sha256": "93dfeae91f5b2894480e8953a70cc85c3875bf4e67a4a9451a5cc5b523302adb"
       }
     }
+  },
+  "tables": [
+    {
+      "caption": "升序输入数组",
+      "headers": [
+        "索引",
+        "元素值"
+      ],
+      "rows": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "3"
+        ],
+        [
+          "2",
+          "6"
+        ],
+        [
+          "3",
+          "8"
+        ],
+        [
+          "4",
+          "12"
+        ],
+        [
+          "5",
+          "15"
+        ],
+        [
+          "6",
+          "23"
+        ],
+        [
+          "7",
+          "26"
+        ],
+        [
+          "8",
+          "31"
+        ],
+        [
+          "9",
+          "35"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "standalone_tables": [
+    0
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/pilot",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "76221e551e823df12694a8c35d8cfb4cb1af67dd09a1a07874bc23cd9b5576a8",
+        "output_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
+        "output_sha256": "fd53774fcd5dd948fdcf548f8c1dd5a487be6b67d2fe5a344182d771eff53088"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
+        "output_sha256": "20547b71f26baaac7d942e983c90a3e7f85efeba17283328cf860267d56b5f19"
+      }
+    ],
+    "evidence_sha256": "93dfeae91f5b2894480e8953a70cc85c3875bf4e67a4a9451a5cc5b523302adb",
+    "verification_manifest_sha256": "b2b43bec082e03350f53df92e282dd7d0c9b5e048bf60625572f6fb0895c13b6",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "assembly": {
+      "method": "schema-2; row-header indexes from reviewed table identity; DP state-table patch; independent final review of merged bytes",
+      "merged_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
+      "supplemental_stages": [
+        {
+          "requested_model": "gpt-6-astra",
+          "actual_model": "gpt-6-astra",
+          "model_confirmation": "native_runtime",
+          "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
+          "output_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c"
+        },
+        {
+          "requested_model": "gemini-4-argon",
+          "actual_model": null,
+          "model_confirmation": "provider_not_reported",
+          "input_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c",
+          "output_sha256": "fa2da0296dfbfd49814e3dc3d47e8638096b2bbf8d1524c646d37bede603c095"
+        }
+      ]
+    },
+    "content_sha256": "a6eb5d9899fb21e29d502e0013a7dcc184c937a93a5f1f5987008db6efa477ec"
   }
 }

@@ -56,11 +56,16 @@
   },
   "dependencies": {
     "markdown": {
-      "chapter_computational_complexity/time_complexity.md": "af3c429bc5b2acecc2a8389cd5934d6a6790f9c1bc0970d8955af2b471c0888b"
+      "chapter_computational_complexity/time_complexity.md": "18f2e5296b2d0cd97c34cca8ff29e9e4e96ca43345ee572bf4df899f68b16964"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
       "chapter_computational_complexity/time_complexity.assets/time_complexity_logarithmic.png": "5e798b0a87e7807d08efd00b84da2b3b286da9ddca1f55afac130eb58ac310cd"
     }
+  },
+  "dependency_compatibility": {
+    "run_id": "figure-reading-20261116/upstream-dependency-verification",
+    "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
+    "factual_review_preserved": true
   }
 }

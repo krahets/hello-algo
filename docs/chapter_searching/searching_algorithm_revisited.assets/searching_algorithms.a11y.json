@@ -3,8 +3,8 @@
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_searching/searching_algorithm_revisited.assets/searching_algorithms",
-  "title": "四种搜索策略对比：线性搜索、二分查找、哈希查找与树查找",
-  "summary": "围绕同一目标值 6，对比线性遍历 O(n)、有序数组二分查找 O(log n)、哈希表键值查询 O(1) 与二叉搜索树分支查找 O(log n)。",
+  "title": "四种搜索策略",
+  "summary": "线性搜索逐项扫描，二分查找利用数组有序性，哈希查找与树查找则借助辅助结构；其中哈希查找的 O(1) 为平均复杂度，二叉搜索树在保持平衡时查找复杂度为 O(log n)。",
   "context": [
     "四幅子图均以定位目标数值 6（蓝色高亮）为例，展示不同数据组织方式下的搜索工作原理。图中 n 表示数据量，各子图标题旁标注的复杂度针对单次查找阶段（二分查找所需的预排序、哈希查找的建表以及树查找的建树与平衡维护另有预处理开销）。"
   ],
@@ -19,43 +19,13 @@
     {
       "id": "source-238",
       "book_path": "chapter_searching/searching_algorithm_revisited.assets/searching_algorithms.png",
-      "title": "四种搜索策略定位目标值 6 的原理对比",
+      "title": "四种搜索策略查找目标 6",
       "explanation": "四象限并列对比四种策略：左上在无序数组中从左到右逐格扫描至 6；左下在有序数组中折半缩小区间至 6；右上在哈希表中按键 6 直接映射值 6；右下在二叉搜索树中沿 4 → 7 → 5 → 6 分支检索。",
       "state": "线性数组 [1,5,3,2,4,7,6,9,0,8]，目标 6 在索引 6；二分数组 [0,1,2,3,4,5,6,7,8,9]，目标索引 6；哈希表键和值均依次为 1、5、3、2、4、7、6、9、0、8，选中键 6→值 6。二叉搜索树的根为 4；4 的左、右孩子为 1、7；1 的左、右孩子为 0、2，2 只有右孩子 3；7 的左、右孩子为 5、8，5 只有右孩子 6，8 只有右孩子 9。选中树路径 4→7→5→6。图中标注依次为线性 O(n)、二分 O(log n)、哈希 O(1)、树 O(log n)。",
-      "key_state": "定位目标 6：线性扫描 O(n)、有序二分 O(log n)、哈希映射 O(1)、二叉搜索树路径 4→7→5→6 为 O(log n)。",
+      "key_state": "定位目标 6：线性扫描 O(n)、有序二分 O(log n)、哈希查找平均 O(1)；二叉搜索树本例路径为 4→7→5→6，保持平衡时查找复杂度为 O(log n)。",
       "announcement": "对比线性搜索、二分查找、哈希查找与树查找定位目标值 6 的工作方式。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-12",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "6660da5e7f603920e2c721d571a9cc5871a88278db941557ca1de1b7b99c8de4",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "278c7ca0de3699a8282cf733e66a37f776fcb7767e2b72a0c4e17a626b20368a",
-        "output_sha256": "8b942a49ae0132da2ef7bd2cc4974d6e9c21872a530fe97c2a2107a934188825"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "8b942a49ae0132da2ef7bd2cc4974d6e9c21872a530fe97c2a2107a934188825",
-        "output_sha256": "72ded3c108bbc7c458462041ccdbfcaae7e45858b987f9ed1bf31ede788076b3"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "72ded3c108bbc7c458462041ccdbfcaae7e45858b987f9ed1bf31ede788076b3",
-        "output_sha256": "549b9b8f6b53209dc060d3de11ddb4c66cd900a1c8ee112c21eecc35d1b5cd78"
-      }
-    ],
-    "evidence_sha256": "df3186defaada9ff328bd9bc4426561c6e8088c64ef665f5bd45cf638c5621eb"
-  },
   "dependencies": {
     "markdown": {
       "chapter_searching/searching_algorithm_revisited.md": "540780397d1c474a0fd43bd8a720c0a8d03b5cac89f4545a361557ff34fd4a99"
@@ -64,5 +34,37 @@
     "scenes": {
       "chapter_searching/searching_algorithm_revisited.assets/searching_algorithms.png": "2cc668ba0aa7cee7309bc13b6eccbf7c8a19e93423534e2fbe75ec4e5ee9405b"
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/names",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
+        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      }
+    ],
+    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
+    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "3fe29e7f28ae287e5454628cc5f5eb9f446fdc9a2d0fae659db7808ce701e4ca"
   }
 }

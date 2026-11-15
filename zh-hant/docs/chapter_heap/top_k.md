@@ -13,6 +13,11 @@
 此方法只適用於 $k \ll n$ 的情況，因為當 $k$ 與 $n$ 比較接近時，其時間複雜度趨向於 $O(n^2)$ ，非常耗時。
 
 ![走訪尋找最大的 k 個元素](top_k.assets/top_k_traversal.svg)
+<!-- figure-reading:start group:chapter_heap/top_k.assets/top_k_traversal -->
+
+[走訪選擇 Top-k：完整圖解](top_k.assets/top_k_traversal.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 !!! tip
 
@@ -25,6 +30,11 @@
 顯然，該方法“超額”完成任務了，因為我們只需找出最大的 $k$ 個元素即可，而不需要排序其他元素。
 
 ![排序尋找最大的 k 個元素](top_k.assets/top_k_sorting.svg)
+<!-- figure-reading:start group:chapter_heap/top_k.assets/top_k_sorting -->
+
+[方法二（排序）：先升序排序，再返回最右 k 個元素：完整圖解](top_k.assets/top_k_sorting.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ## 方法三：堆積
 
@@ -39,28 +49,33 @@
     ![基於堆積尋找最大的 k 個元素](top_k.assets/top_k_heap_step1.svg)
 
 === "<2>"
-    ![方法三（堆積）：基於容量為 k 的小頂堆積尋找最大的 k 個元素，第 2 步，共 9 步：第 2 步：將第 2 個元素 7 入堆積](top_k.assets/top_k_heap_step2.svg)
+    ![用小頂堆積尋找 Top-k，第 2 步，共 9 步：將7入堆積](top_k.assets/top_k_heap_step2.svg)
 
 === "<3>"
-    ![方法三（堆積）：基於容量為 k 的小頂堆積尋找最大的 k 個元素，第 3 步，共 9 步：第 3 步：將第 3 個元素 6 入堆積，填滿前 k 個元素](top_k.assets/top_k_heap_step3.svg)
+    ![用小頂堆積尋找 Top-k，第 3 步，共 9 步：將6入堆積，初始候選齊備](top_k.assets/top_k_heap_step3.svg)
 
 === "<4>"
-    ![方法三（堆積）：基於容量為 k 的小頂堆積尋找最大的 k 個元素，第 4 步，共 9 步：第 4 步：判斷第 4 個元素 3 大於堆積頂 1](top_k.assets/top_k_heap_step4.svg)
+    ![用小頂堆積尋找 Top-k，第 4 步，共 9 步：比較當前3與堆積頂1](top_k.assets/top_k_heap_step4.svg)
 
 === "<5>"
-    ![方法三（堆積）：基於容量為 k 的小頂堆積尋找最大的 k 個元素，第 5 步，共 9 步：第 5 步：將舊堆積頂 1 出堆積](top_k.assets/top_k_heap_step5.svg)
+    ![用小頂堆積尋找 Top-k，第 5 步，共 9 步：彈出舊堆積頂1](top_k.assets/top_k_heap_step5.svg)
 
 === "<6>"
-    ![方法三（堆積）：基於容量為 k 的小頂堆積尋找最大的 k 個元素，第 6 步，共 9 步：第 6 步：將當前元素 3 入堆積，成為新堆積頂](top_k.assets/top_k_heap_step6.svg)
+    ![用小頂堆積尋找 Top-k，第 6 步，共 9 步：將3入堆積](top_k.assets/top_k_heap_step6.svg)
 
 === "<7>"
-    ![方法三（堆積）：基於容量為 k 的小頂堆積尋找最大的 k 個元素，第 7 步，共 9 步：第 7 步：判斷第 5 個元素 2 小於或等於堆積頂 3](top_k.assets/top_k_heap_step7.svg)
+    ![用小頂堆積尋找 Top-k，第 7 步，共 9 步：比較當前2與堆積頂3](top_k.assets/top_k_heap_step7.svg)
 
 === "<8>"
-    ![方法三（堆積）：基於容量為 k 的小頂堆積尋找最大的 k 個元素，第 8 步，共 9 步：第 8 步：跳過元素 2](top_k.assets/top_k_heap_step8.svg)
+    ![用小頂堆積尋找 Top-k，第 8 步，共 9 步：跳過2](top_k.assets/top_k_heap_step8.svg)
 
 === "<9>"
-    ![方法三（堆積）：基於容量為 k 的小頂堆積尋找最大的 k 個元素，第 9 步，共 9 步：第 9 步：走訪完成，返回小頂堆積 heap](top_k.assets/top_k_heap_step9.svg)
+    ![用小頂堆積尋找 Top-k，第 9 步，共 9 步：返回三個候選](top_k.assets/top_k_heap_step9.svg)
+<!-- figure-reading:start group:chapter_heap/top_k.assets/top_k_heap -->
+
+[用小頂堆積尋找 Top-k：完整圖解](top_k.assets/top_k_heap.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 示例程式碼如下：
 

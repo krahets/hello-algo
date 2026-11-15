@@ -1,60 +1,26 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_sorting/merge_sort.assets/merge_sort_overview",
-  "title": "归并排序概览：先划分，再合并有序子数组",
-  "summary": "将 [7,3,2,6,0,1,5,4] 逐层二分至单元素，再两两合并得到 [0,1,2,3,4,5,6,7]。",
+  "title": "归并排序的划分与合并",
+  "summary": "先按位置中点将数组递归拆分为单元素子数组，再逐层将相邻有序子数组合并为完整有序数组。",
   "context": [
-    "输入数组为 [7, 3, 2, 6, 0, 1, 5, 4]。归并排序分为“划分阶段”和“合并阶段”：划分阶段只按位置中点将数组不断对半切分，不比较或交换元素大小；当子数组长度为 1 时天然有序，以此作为合并阶段的起点。"
+    "输入数组为 [7, 3, 2, 6, 0, 1, 5, 4]。划分阶段只按位置中点将数组不断对半切分，不按数值大小分组；当子数组长度为 1 时停止划分，因为单元素子数组天然有序。"
   ],
-  "description": [
-    "画面上半部分为划分阶段：原数组先从中点分为 [7, 3, 2, 6] 与 [0, 1, 5, 4]；再各自从中点分为 [7, 3]、[2, 6]、[0, 1]、[5, 4]；最后拆成八个长度为 1 的单元素子数组 [7]、[3]、[2]、[6]、[0]、[1]、[5]、[4]。",
-    "中部水平虚线标出“触发递归终止条件”，即子数组长度为 1 时停止继续划分。画面下半部分为合并阶段：先将相邻单元素两两合并为 [3, 7]、[2, 6]、[0, 1]、[4, 5]；再两两合并为长度为 4 的有序子数组 [2, 3, 6, 7] 与 [0, 1, 4, 5]；最后合并为完整的八元素有序数组 [0, 1, 2, 3, 4, 5, 6, 7]。",
-    "每次合并操作的两个输入子数组都已各自升序排列：算法依次比较左右两侧尚未取出的首元素，将较小者放入结果区间，待某一侧取尽后再直接追加另一侧的剩余元素。下半部分的交叉细箭头用于追踪各个元素进入下一层合并结果的目标位置，并非表示两两原地交换。"
-  ],
-  "result": "经过三层中点划分与三层有序合并后，八个元素按从小到大排成 [0, 1, 2, 3, 4, 5, 6, 7]。本图按递归树层级并列展示数据依赖关系；实际递归调用会按后序遍历顺序，先完整处理完左子树、再处理右子树，最后合并左右结果。",
+  "description": [],
+  "result": "经过三层中点划分与三层有序合并，最终得到升序数组 [0, 1, 2, 3, 4, 5, 6, 7]。图按递归树层级并列展示数据依赖关系；实际后序递归执行时，会先完整处理完左分支、再处理右分支，最后合并左右结果。",
   "frames": [
     {
       "id": "source-273",
       "book_path": "chapter_sorting/merge_sort.assets/merge_sort_overview.png",
-      "title": "归并排序概览：先划分，再合并有序子数组",
-      "explanation": "上半部分的划分阶段自顶向下将长数组对半拆解至单元素基例，下半部分的合并阶段自底向上将成对的短有序子数组归并为更长的有序数组。",
-      "state": "输入为 [7, 3, 2, 6, 0, 1, 5, 4]；划分阶段依次二分为 [7, 3, 2, 6] 与 [0, 1, 5, 4]，再分为 [7, 3]、[2, 6]、[0, 1]、[5, 4]，直至八个单元素触发递归终止条件；合并阶段依次合成为 [3, 7]、[2, 6]、[0, 1]、[4, 5]，再合成为 [2, 3, 6, 7] 与 [0, 1, 4, 5]，最终合并为 [0, 1, 2, 3, 4, 5, 6, 7]。",
-      "key_state": "八元素先二分至单元素，再逐层合并为 [0, 1, 2, 3, 4, 5, 6, 7]。",
-      "announcement": "展示八元素数组归并排序的完整划分层级与回溯合并结果。"
+      "title": "归并排序的划分与合并",
+      "explanation": "上半部分经过三层对半划分，拆解为 8 个单元素子数组（触发递归终止条件）；下半部分自底向上逐层两两归并。每次合并的两个输入子数组都已各自升序排列：算法比较两侧尚未取出的首元素，先将较小者放入结果区间，待一侧取尽后直接追加另一侧的剩余元素，从而保证每次合并的结果依然有序。图中下半部分的交叉箭头用于追踪各元素进入下一层合并结果的目标位置，不表示两两原地交换。",
+      "state": "输入为 [7, 3, 2, 6, 0, 1, 5, 4]。划分为长度 4：[7, 3, 2, 6]；[0, 1, 5, 4]。划分为长度 2：[7, 3]；[2, 6]；[0, 1]；[5, 4]。单元素（触发递归终止条件，停止划分）：[7]；[3]；[2]；[6]；[0]；[1]；[5]；[4]。合并为长度 2：[3, 7]；[2, 6]；[0, 1]；[4, 5]。合并为长度 4：[2, 3, 6, 7]；[0, 1, 4, 5]。合并为长度 8：[0, 1, 2, 3, 4, 5, 6, 7]。",
+      "key_state": "八元素数组先二分至单元素，再逐层有序合并为 [0, 1, 2, 3, 4, 5, 6, 7]。",
+      "announcement": "展示归并排序从三层对半划分到三层有序合并的完整过程。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-14",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "a53ff416c2061818681a9890924f601871d0b562a60b3d6653b2a007e95badf8",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "5a295e0014841cec0889d2840ee040ebc8853eb18a5f4d3f163be63d370bcf0c",
-        "output_sha256": "38d311270875eda0fd1344de8bbf9953970b36165a561e801c6ad84ddd22e151"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "38d311270875eda0fd1344de8bbf9953970b36165a561e801c6ad84ddd22e151",
-        "output_sha256": "15591434bbe06f1db87189a430baf4e7f2ad07c9089bd936b1e261343fd43bcd"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "15591434bbe06f1db87189a430baf4e7f2ad07c9089bd936b1e261343fd43bcd",
-        "output_sha256": "196da5f0ad7e42156abcebaa84871e13248a54fc58c94d5ca483e8a24d062fcf"
-      }
-    ],
-    "evidence_sha256": "b9e6dc66cedeb987a0eb47092436d4b3d4cae71ad872be82504a7df2fe3288a3"
-  },
   "dependencies": {
     "markdown": {
       "chapter_sorting/merge_sort.md": "05f97e41952513869bd782db9bfc190e44286d9cb30a530c83827d32ee9e4d1a"
@@ -63,5 +29,97 @@
     "scenes": {
       "chapter_sorting/merge_sort.assets/merge_sort_overview.png": "edfb65287ff0274c86620af05c4ecbf7d046d407ebeeb918d4674250265363f2"
     }
+  },
+  "tables": [
+    {
+      "caption": "各层的子数组，分号分隔不同子数组",
+      "headers": [
+        "阶段",
+        "子数组"
+      ],
+      "rows": [
+        [
+          "输入",
+          "[7, 3, 2, 6, 0, 1, 5, 4]"
+        ],
+        [
+          "划分为长度4",
+          "[7, 3, 2, 6]；[0, 1, 5, 4]"
+        ],
+        [
+          "划分为长度2",
+          "[7, 3]；[2, 6]；[0, 1]；[5, 4]"
+        ],
+        [
+          "单元素，停止划分",
+          "[7]；[3]；[2]；[6]；[0]；[1]；[5]；[4]"
+        ],
+        [
+          "合并为长度2",
+          "[3, 7]；[2, 6]；[0, 1]；[4, 5]"
+        ],
+        [
+          "合并为长度4",
+          "[2, 3, 6, 7]；[0, 1, 4, 5]"
+        ],
+        [
+          "合并为长度8",
+          "[0, 1, 2, 3, 4, 5, 6, 7]"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/pilot",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "76221e551e823df12694a8c35d8cfb4cb1af67dd09a1a07874bc23cd9b5576a8",
+        "output_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
+        "output_sha256": "fd53774fcd5dd948fdcf548f8c1dd5a487be6b67d2fe5a344182d771eff53088"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
+        "output_sha256": "20547b71f26baaac7d942e983c90a3e7f85efeba17283328cf860267d56b5f19"
+      }
+    ],
+    "evidence_sha256": "93dfeae91f5b2894480e8953a70cc85c3875bf4e67a4a9451a5cc5b523302adb",
+    "verification_manifest_sha256": "b2b43bec082e03350f53df92e282dd7d0c9b5e048bf60625572f6fb0895c13b6",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "assembly": {
+      "method": "schema-2; row-header indexes from reviewed table identity; DP state-table patch; independent final review of merged bytes",
+      "merged_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
+      "supplemental_stages": [
+        {
+          "requested_model": "gpt-6-astra",
+          "actual_model": "gpt-6-astra",
+          "model_confirmation": "native_runtime",
+          "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
+          "output_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c"
+        },
+        {
+          "requested_model": "gemini-4-argon",
+          "actual_model": null,
+          "model_confirmation": "provider_not_reported",
+          "input_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c",
+          "output_sha256": "fa2da0296dfbfd49814e3dc3d47e8638096b2bbf8d1524c646d37bede603c095"
+        }
+      ]
+    },
+    "content_sha256": "60a8478bbed6e7f55e616fad15b44b1f59170bcbe144c01f6a0c37c3a9b9d234"
   }
 }

@@ -59,6 +59,11 @@
 
 === "<12>"
     ![原地堆積排序：把最大值逐個放入陣列右端，第 12 步，共 12 步：剩餘單元素自然就位，排序完成](heap_sort.assets/heap_sort_step12.svg)
+<!-- figure-reading:start group:chapter_sorting/heap_sort.assets/heap_sort -->
+
+[原地堆積排序：把最大值逐個放入陣列右端：完整圖解](heap_sort.assets/heap_sort.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 在程式碼實現中，我們使用了與“堆積”章節相同的從頂至底堆積化 `sift_down()` 函式。值得注意的是，由於堆積的長度會隨著提取最大元素而減小，因此我們需要給 `sift_down()` 函式新增一個長度參數 $n$ ，用於指定堆積的當前有效長度。程式碼如下所示：
 

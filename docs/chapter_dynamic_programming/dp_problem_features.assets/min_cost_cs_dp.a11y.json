@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_dynamic_programming/dp_problem_features.assets/min_cost_cs_dp",
@@ -9,7 +9,8 @@
     "每一步可上 1 阶或 2 阶，cost[i] 表示踏上第 i 阶必须支付的非负代价，地面起点不计费。记 dp[i] 为爬到第 i 阶所需支付的累计最小代价。"
   ],
   "description": [
-    "九个绿色方块 dp[1] 至 dp[9] 从左到右一字排开，每个 dp[i] 方块上方或下方都有一个浅灰色方块 cost[i] 通过竖直箭头汇入。相邻两个前驱状态由大括号括住，经标有“min”的弧形箭头连向目标状态处的加号“+”，与 cost[i] 一同汇入 dp[i]；这种组合结构在上下两侧交替排布，底部写出初始状态与状态转移方程。"
+    "到达第 i 阶的最后一步只能从第 i − 1 阶或第 i − 2 阶走来。无论来自哪个前驱都要支付当前阶代价 cost[i]，因此先比较前驱代价 dp[i − 1]、dp[i − 2] 选择较低累计代价，再加 cost[i]。",
+    "地面不计费，且每阶代价非负，因此可直接跨到第 1 阶或第 2 阶，初始值为 dp[1] = cost[1]、dp[2] = cost[2]。从第 3 阶起依次应用转移方程，直至第 9 阶。"
   ],
   "result": "按序递推至目标阶时，对应的 dp 值即为最小累计代价。本图仅展示通用符号关系，未给出 cost[1] 至 cost[9] 的具体数值。",
   "frames": [
@@ -17,42 +18,10 @@
       "id": "source-373",
       "book_path": "chapter_dynamic_programming/dp_problem_features.assets/min_cost_cs_dp.png",
       "title": "最小代价的状态转移",
-      "explanation": "由于可以从地面直接一步跨上第 1 阶或第 2 阶，且各阶代价非负，初始状态直接设为 dp[1]=cost[1]、dp[2]=cost[2]。对于第 i 阶（i≥3），最后一步只能来自第 i-1 阶或第 i-2 阶，为了使累计代价最小，应先在 dp[i-1] 与 dp[i-2] 中取较小值，再加上踏上当前阶必须支付的 cost[i]，即 dp[i]=min(dp[i-1], dp[i-2])+cost[i]。从 dp[3] 顺序算到 dp[9]，每一步所需的前两个状态值都已就绪。",
-      "state": "横向排列绿色方块 dp[1] 至 dp[9] 及各自相连的浅灰色方块 cost[1] 至 cost[9]；对每个 i=3..9，(dp[i-2], dp[i-1]) 经标有 min 的弧形箭头与 cost[i] 在加号处汇入 dp[i]。底部标注“初始状态：dp[1] = cost[1], dp[2] = cost[2]”和“状态转移方程：dp[i] = min(dp[i-1], dp[i-2]) + cost[i]”。",
-      "key_state": "dp[i] 等于 min(dp[i-1], dp[i-2]) 加上当前阶代价 cost[i]。",
-      "announcement": "每算一阶，先取前两阶累计最小代价的较小值，再加上当前阶的 cost[i]。"
+      "explanation": "先选累计代价更低的前驱，再支付当前阶代价 cost[i]，得到到达本阶的最小代价。",
+      "state": "图中只有 dp[1] 至 dp[9]、cost[1] 至 cost[9] 的符号关系，没有具体代价值。完整依赖见表。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-19",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "ec294d25a1d0f9f101d734c1ff32b2ebf715ea9db36650fd736b2ae754598a7c",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "dcea2ce4eb56814df492beb0353b69ca48748a38ea8c5b34963d8ce99d7a20df",
-        "output_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c",
-        "output_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f",
-        "output_sha256": "1603107bf51a94e045d71a5f3540a9b6e58f184da52d98978a06e9e10e5ca484"
-      }
-    ],
-    "evidence_sha256": "830dfd6d376fed2c39b7c0da47ad3af42913a4655f9fdeea3b18ab9df35addbc"
-  },
   "dependencies": {
     "markdown": {
       "chapter_dynamic_programming/dp_problem_features.md": "eecbb71388b87f9cc9593b41c54ad0b3ccbdea2949f298a3a43632cd93e2436a"
@@ -61,5 +30,105 @@
     "scenes": {
       "chapter_dynamic_programming/dp_problem_features.assets/min_cost_cs_dp.png": "96d39d028e2b4b4f20ad29f84cfc1b3eea9bdf802da13111afe4203b259e1edb"
     }
+  },
+  "tables": [
+    {
+      "caption": "初值与两个前驱的比较",
+      "headers": [
+        "状态",
+        "可用前驱或起点",
+        "本阶付费",
+        "计算式"
+      ],
+      "rows": [
+        [
+          "dp[1]",
+          "地面",
+          "cost[1]",
+          "dp[1] = cost[1]"
+        ],
+        [
+          "dp[2]",
+          "地面直接跨两阶",
+          "cost[2]",
+          "dp[2] = cost[2]"
+        ],
+        [
+          "dp[3]",
+          "dp[2] 或 dp[1]",
+          "cost[3]",
+          "min(dp[2], dp[1]) + cost[3]"
+        ],
+        [
+          "dp[4]",
+          "dp[3] 或 dp[2]",
+          "cost[4]",
+          "min(dp[3], dp[2]) + cost[4]"
+        ],
+        [
+          "dp[5]",
+          "dp[4] 或 dp[3]",
+          "cost[5]",
+          "min(dp[4], dp[3]) + cost[5]"
+        ],
+        [
+          "dp[6]",
+          "dp[5] 或 dp[4]",
+          "cost[6]",
+          "min(dp[5], dp[4]) + cost[6]"
+        ],
+        [
+          "dp[7]",
+          "dp[6] 或 dp[5]",
+          "cost[7]",
+          "min(dp[6], dp[5]) + cost[7]"
+        ],
+        [
+          "dp[8]",
+          "dp[7] 或 dp[6]",
+          "cost[8]",
+          "min(dp[7], dp[6]) + cost[8]"
+        ],
+        [
+          "dp[9]",
+          "dp[8] 或 dp[7]",
+          "cost[9]",
+          "min(dp[8], dp[7]) + cost[9]"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-12",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "2db7b8b0ecd549998fdef4f0b1f30abddd5f422b11a7d32336c10c15ba4135ad",
+        "output_sha256": "2c9c8bbef62d495610441001475851c93659a0b4a44bed6cd9e8183150e44092"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "2c9c8bbef62d495610441001475851c93659a0b4a44bed6cd9e8183150e44092",
+        "output_sha256": "a2ace14bd5018750c19e80363cbad3331032bfa946914771946e57e407668e7a"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a2ace14bd5018750c19e80363cbad3331032bfa946914771946e57e407668e7a",
+        "output_sha256": "c7a7bb6d6515cebec7bbacf4a6095365cb25f8f5dbdc25b8a75d801c27d3cfa7"
+      }
+    ],
+    "evidence_sha256": "5d2e4ec7f377fdb6c214c393e67369ccbad6377559d1dd71998f5b7ecbbcc1d5",
+    "verification_manifest_sha256": "bbc351cd7b91cef62b4c7a18bd298e76111e9a508bd7137d745c92ce2d82153d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "797e204e4d2e161bc61cbbc38a239b4fd365369e2afb5fad3df979168b601a2e"
   }
 }

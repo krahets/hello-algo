@@ -1,60 +1,24 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_tree/avl_tree.assets/avltree_degradation_from_inserting_node",
-  "title": "连续向左插入节点导致二叉搜索树失衡退化",
-  "summary": "在根为 4、左 3 右 5 的完美二叉树中依次插入节点 2 和 1（不执行旋转），树从完美二叉树变为平衡二叉树，再失衡变为左偏的普通二叉树。",
-  "context": [
-    "本图展示未执行 AVL 平衡旋转时，按递减顺序连续插入较小节点所引发的左偏失衡过程。"
-  ],
-  "description": [
-    "图中从左到右排列三棵树，底部依次标注“完美二叉树” →（退化）→ “平衡二叉树” →（退化）→ “普通二叉树”。左图初始状态以 4 为根，左、右子节点分别为 3、5，两层全部填满，是一棵完美二叉树。",
-    "第一步执行“插入节点 2”：由于 2 < 4 且 2 < 3，节点 2 接为 3 的左子节点。中图底部不再填满，从“完美二叉树”变为“平衡二叉树”，但此时每个节点的左右子树高度差仍不超过 1，尚未失衡。",
-    "第二步执行“插入节点 1”：由于 1 依次小于 4、3、2，节点 1 接为 2 的左子节点。右图中根 4 的右子节点仍为 5，左侧路径却拉长为 4 → 3 → 2 → 1，节点 3 与根 4 的左子树比右子树高出 2 层，违反平衡条件而退化为“普通二叉树”。"
-  ],
-  "result": "向二叉搜索树同一侧连续插入节点会不断拉长该侧路径并破坏平衡；AVL 树正是通过在插入后及时旋转来阻止这种退化。",
+  "title": "插入导致搜索树失衡",
+  "summary": "向同一侧连续插入节点会逐层拉长分支高度，使原本平衡的二叉树超出平衡条件。",
+  "context": [],
+  "description": [],
+  "result": "不再完美并不等于已经失衡：插入 2 后节点 4 与 3 的平衡因子都是 1，仍满足平衡条件；再插入 1 后两者的平衡因子才都变为 2，AVL 树会通过旋转维护避免此类退化。",
   "frames": [
     {
       "id": "source-129",
       "book_path": "chapter_tree/avl_tree.assets/avltree_degradation_from_inserting_node.png",
-      "title": "依次插入节点 2 和 1 后左侧路径加深失衡",
-      "explanation": "左图三节点完美二叉树（4、3、5）先“插入节点 2”到 3 的左侧成为中图平衡二叉树，再“插入节点 1”到 2 的左侧成为右图左偏失衡的普通二叉树。",
-      "state": "左图“完美二叉树”：根 4 的左、右子节点为 3、5。经“插入节点 2”变为中图“平衡二叉树”：根 4 的左、右子节点为 3、5，3 的左子节点为 2。再经“插入节点 1”变为右图“普通二叉树”：根 4 的右子节点仍为 5，左侧形成 4→3→2→1 的长链。",
-      "key_state": "完美二叉树（4、3、5）→ 插入 2 后为平衡二叉树 → 插入 1 后形成 4→3→2→1 左偏失衡树。",
-      "announcement": "在三节点完美二叉树左侧连续插入 2 和 1，左侧路径延长至四层并导致失衡。"
+      "title": "插入导致搜索树失衡",
+      "explanation": "初始根 4 的左右子节点为 3、5。插入 2 时，2 小于 4 和 3，接到 3 的左侧；虽然最底层不再填满，4 与 3 的平衡因子都只是 1，仍保持平衡。再插入 1 时，沿 4 → 3 → 2 接到 2 的左侧，此时 3 与 4 的平衡因子都变为 2 而失衡。",
+      "state": "三个状态依次有 3、4、5 个节点，分别标为完美二叉树、仍平衡的二叉树、左偏失衡的普通二叉树。全过程根 4 的右子节点始终是叶节点 5，没有执行旋转。",
+      "key_state": "插入 2 后不再完美但仍平衡（4 与 3 平衡因子均为 1）；再插入 1 后 3 与 4 失衡（均为 2）。",
+      "announcement": "向 3 节点完美二叉树依次插入 2 和 1，第二次插入后节点 3 与 4 失衡。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-07",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "44b13cb8a5018ff1089a4502120ceeb2bcc784a4f0d4fb585cbddb106d5b14c7",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "f429a2d9034d7690b6bd4a3f0822b11a77350c2330baf8a66141d1f7a9ef4841",
-        "output_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91",
-        "output_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6",
-        "output_sha256": "449ce85fb338c455e6cedde1bf55ab20b1b0f532a5408dfa0443a6fbe9815c6b"
-      }
-    ],
-    "evidence_sha256": "459b7ad9cb6322b1bab7e28efa1badcfd4813182718f9028c5dbe5d4d10dbb4c"
-  },
   "dependencies": {
     "markdown": {
       "chapter_tree/avl_tree.md": "f4a27fbca67b22b8b3a041218f1088ab85a9f2a32e374060046152e6e01440a5"
@@ -69,79 +33,109 @@
       "kind": "prose",
       "model_sha256": "7cdbf8b6d49edbab83ae752aa841b70a2a028c148b5304a26125d12039968e4d",
       "prose": {
-        "schema_version": 1,
+        "schema_version": 2,
         "status": "confirmed",
         "locale": "zh-hans",
         "story_id": "bst-degrade-insertion",
         "group_id": "group:chapter_tree/avl_tree.assets/avltree_degradation_from_inserting_node",
-        "title": "二叉搜索树退化（插入节点）：连续向左侧插入导致树失衡",
-        "summary": "在根为 4、左右子为 3 和 5 的树中依次向左插入 2 和 1，使左分支加深并失去平衡。",
+        "title": "插入导致搜索树失衡",
+        "summary": "向同一侧连续插入节点会逐层拉长分支高度，使原本平衡的二叉树超出平衡条件。",
         "context": [
-          "初始树是一棵两层 3 节点的完美二叉树：根节点 4 的左子节点为 3、右子节点为 5，节点 3 和 5 均为叶节点。",
-          "本动画同样展示未引入自平衡旋转时，普通二叉搜索树在连续插入偏小元素后的结构变化。"
+          "从根为 4、左右子节点为 3 和 5 的二叉搜索树开始，依次插入 2、1；本演示不执行平衡旋转。节点高度按边数计，叶节点高度为 0，空子树高度为 −1。"
         ],
-        "description": [
-          "动画分三步展示：第一步为初始 3 节点完美二叉树（底部标注“完美二叉树”）；",
-          "第二步插入节点 2，因 2 < 4 且 2 < 3，节点 2 成为 3 的左子节点，此时各节点左右子树高度差至多为 1，仍满足平衡条件（底部标注“平衡二叉树”）；",
-          "第三步插入节点 1，因 1 < 4、3、2，节点 1 成为 2 的左子节点，左侧形成 4 → 3 → 2 → 1 的四层路径，而根 4 右侧仍保留叶节点 5，导致根 4 与节点 3 的左右子树高度差均达到 2，整棵树失去高度平衡（底部标注“普通二叉树”）。"
-        ],
-        "result": "连续插入 2 和 1 后，虽然根 4 仍保留右子节点 5（整棵树并非单链），但左分支持续加深，使根 4 和节点 3 的左右子树高度差达到 2，树由完美二叉树经平衡二叉树退化为失衡的普通二叉树。",
+        "description": [],
+        "result": "不再完美并不等于已经失衡：插入 2 后节点 4 与 3 的平衡因子都是 1，仍满足平衡条件；再插入 1 后两者的平衡因子才都变为 2，AVL 树会通过旋转维护避免此类退化。",
         "steps": [
           {
             "id": "step-1",
-            "title": "初始状态：3 节点完美二叉树",
-            "explanation": "根节点 4 的左子节点为 3、右子节点为 5，两个叶节点位于同一层，树结构对称且高度平衡，底部图标与文字标注为“完美二叉树”。",
-            "state": "根节点 4 的左子节点为 3、右子节点为 5；3 和 5 均为叶节点。全树共 3 个节点，底部标注“完美二叉树”。",
-            "key_state": "初始 3 节点树（根 4，左 3，右 5），处于完美二叉树状态。",
-            "announcement": "显示根为 4、左右子节点为 3 和 5 的初始完美二叉树。"
+            "title": "初始完美二叉树",
+            "explanation": "3 个节点填满两层，根 4 的左右子树高度相同（均为 0），各节点平衡因子均为 0。",
+            "state": "初始状态：根 4 的左右子节点是叶节点 3、5，共 3 个节点填满两层，既是完美二叉树，也满足平衡条件。",
+            "key_state": "初始 3 节点完美二叉树，各节点平衡因子均为 0。",
+            "announcement": "展示根为 4、左右子节点为 3 和 5 的初始完美二叉树。"
           },
           {
             "id": "step-2",
-            "title": "插入节点 2：接在 3 左侧，仍为平衡二叉树",
-            "explanation": "左侧提示“插入节点 2”。按二叉搜索树规则比较，2 小于 4 且小于 3，因此作为左子节点接在节点 3 下方。此时按正文的边数定义，叶节点高度为 0、空树高度为 -1；根 4 左子树高 1、右子树高 0，节点 3 左子树高 0、右子树高 -1，高度差均不超过 1，底部标注更新为“平衡二叉树”。",
-            "state": "根节点 4 的左子节点为 3、右子节点为 5；节点 3 仅有左子节点 2；节点 2 和 5 为叶节点。全树共 4 个节点，底部标注“平衡二叉树”。",
-            "key_state": "插入 2 作为 3 的左子节点，全树 4 个节点，仍为平衡二叉树。",
-            "announcement": "在节点 3 左侧插入节点 2，树变为 4 节点平衡二叉树。"
+            "title": "插入 2 后仍然平衡",
+            "explanation": "2 小于 4 和 3，接为 3 的左子节点；虽然不再是完美二叉树，但各节点的左右子树高度差至多为 1。",
+            "state": "第一次插入后：根 4 的左右子节点为 3、5；3 仅有左子节点 2，2 和 5 为叶节点。全树共 4 个节点，尚未失衡，4 与 3 的平衡因子都是 1，仍然平衡。",
+            "key_state": "2 接在 3 左侧；4 与 3 的平衡因子都是 1，不再完美但仍平衡。",
+            "announcement": "插入 2 到 3 的左侧，树不再完美但 4 与 3 的平衡因子均为 1，保持平衡。"
           },
           {
             "id": "step-3",
-            "title": "插入节点 1：接在 2 左侧，左分支过深导致失衡",
-            "explanation": "左侧提示“插入节点 1”。1 依次小于 4、3、2，作为左子节点接在节点 2 下方。此时左分支延伸为 4 → 3 → 2 → 1，而根 4 的右子节点仍只有叶节点 5：按叶节点高度为 0、空树高度为 -1 的定义，根 4 的左子树高 2、右子树高 0（高度差 2），节点 3 的左子树高 1、右子树高 -1（高度差 2），树失去平衡，底部标注变为“普通二叉树”。",
-            "state": "根节点 4 的左子节点为 3、右子节点为 5；节点 3 仅有左子节点 2；节点 2 仅有左子节点 1；节点 1 和 5 为叶节点。全树共 5 个节点，底部标注“普通二叉树”。",
-            "key_state": "插入 1 作为 2 的左子节点，根 4 与节点 3 左右高度差达 2，变为普通二叉树。",
-            "announcement": "在节点 2 左侧插入节点 1，左分支加深失衡，树变为普通二叉树。"
+            "title": "插入 1 后出现失衡",
+            "explanation": "1 小于 4、3、2，接在 2 的左侧。此时节点 3 的左子树高度为 1、右子树为空（高度 −1），根 4 的左子树高度为 2、右子树高度为 0，插入 1 后 3 与 4 的平衡因子才都变为 2。",
+            "state": "第二次插入后：1 是 2 的左子节点（左侧形成 4 → 3 → 2 → 1 的连续左连接），4 的右子节点仍为叶节点 5。全树共 5 个节点，节点 3 与根 4 的平衡因子均为 2，树已失衡。",
+            "key_state": "1 是 2 的左子节点，4 的右子节点仍为叶节点 5；3 和 4 平衡因子均变为 2。",
+            "announcement": "插入 1 到 2 的左侧，节点 3 与根 4 的平衡因子都变为 2。"
           }
         ],
         "review": {
           "status": "confirmed",
-          "run_id": "figure-accessibility-20261114/animations/batch-03",
-          "content_sha256": "aaf1106cf89e7a19432d29c9c39deba009150542e5e982b51b25abf1db70eeb1",
+          "run_id": "figure-reading-20261116/content/body-07",
+          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
           "stages": [
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "bd3a7cb9a264af1d3e05ca5f7bce862c2d4638866fb304684cfc41d11c6533df",
-              "output_sha256": "bad87f0122bf4f2f3eb0ea2631ab62006eb93c7c177ffb76e945a851d633d259"
+              "input_sha256": "64feb83b4b5a24ec87dc3ad4c035411b8cfda29777f845490023530d7eb2b7e3",
+              "output_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907"
             },
             {
               "requested_model": "gemini-4-argon",
               "actual_model": null,
               "model_confirmation": "provider_not_reported",
-              "input_sha256": "bad87f0122bf4f2f3eb0ea2631ab62006eb93c7c177ffb76e945a851d633d259",
-              "output_sha256": "7a330163a00031a31d253c80a6b571c560bf2e497b548326c850fc7189128ada"
+              "input_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907",
+              "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
             },
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "7a330163a00031a31d253c80a6b571c560bf2e497b548326c850fc7189128ada",
-              "output_sha256": "4e1ace1c87f311b018401650e9d134466292027987c2b314ab0eca814b8fcc91"
+              "input_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520",
+              "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
             }
           ],
-          "evidence_sha256": "5a5551a9c211cf546ee04e36c78bceea6352908b6b24e1dda459c73faae0164e"
+          "evidence_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198",
+          "verification_manifest_sha256": "0d1fe15b9202118b7054d0f66377264f92073e4f519f55934a9bddd71d23d42a",
+          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+          "content_sha256": "fbace049d995125ebc7bd97978a3f6e06a2b8e914aef20421e40a3484e07c7f9"
         }
       }
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-07",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "64feb83b4b5a24ec87dc3ad4c035411b8cfda29777f845490023530d7eb2b7e3",
+        "output_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907",
+        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520",
+        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
+      }
+    ],
+    "evidence_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198",
+    "verification_manifest_sha256": "0d1fe15b9202118b7054d0f66377264f92073e4f519f55934a9bddd71d23d42a",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "d1b13476ab0613bff5317603435240d107c73bba095ca10d31fd6f128ac88565"
   }
 }

@@ -1,60 +1,26 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_data_structure/character_encoding.assets/utf-8_hello_algo",
-  "title": "Hello算法 的 UTF-8 字节编码",
-  "summary": "在 UTF-8 变长编码下，“Hello”五个英文字母各占 1 字节（最高位为 0），“算”与“法”两个汉字各占 3 字节（首字节前缀 1110、后两字节前缀 10），七个字符共占 11 字节。",
-  "context": [
-    "画面自左向右分为“字符”、“Unicode”和“UTF-8”三列，自上而下依次排列无空格的七个字符“Hello算法”，展示如何从 16 位 Unicode 码点转换为可变长度的 UTF-8 字节序列。"
-  ],
+  "title": "Hello算法 的UTF-8编码",
+  "summary": "用七个字符比较单字节与三字节编码，识别字符起始和续字节。",
+  "context": [],
   "description": [
-    "前五行英文字符 H、e、l、l、o 在中间“Unicode”列仍显示带灰色高字节 00000000 的 16 位形式，而在右侧“UTF-8”列均只占 1 个字节（8 位），最高位以青色粗体标出 0，其余 7 位与 ASCII 码完全一致：H 为 01001000，e 为 01100101，两个 l 均为 01101100，o 为 01101111。",
-    "第 6 行“算”的 Unicode 码点为 01111011 10010111，右侧 UTF-8 编码占 3 个字节：11100111 10101110 10010111（十六进制 E7 AE 97）。第 7 行“法”的 Unicode 码点为 01101100 11010101，右侧 UTF-8 编码占 3 个字节：11100110 10110011 10010101（十六进制 E6 B3 95）。",
-    "在两个汉字的 UTF-8 编码中，首字节开头的 1110 以绿色粗体高亮，第 2、3 字节开头的 10 以蓝色粗体高亮。底部两个说明框用大括号和引线指向“法”字的这三个前缀：左框标注“将最高 3 位设置为 1 代表字符长度为 3 字节”，右框标注“将其余字节的高 2 位设置为 10”。"
+    "三字节首字节以1110开头：三个1后还必须跟0；后两个字节均以10开头。不能只凭“最高三位是1”忽略后续0。"
   ],
-  "result": "UTF-8 通过字节头部前缀标识字符长度与后续字节边界，既向下兼容 1 字节的 ASCII 英文字符，又支持多字节的中文及全球字符；本例“Hello算法”共占用 5 × 1 + 2 × 3 = 11 字节。",
+  "result": "UTF-8前缀区分单字节起始、三字节起始与续字节；本例总字节数为5×1+2×3=11。",
   "frames": [
     {
       "id": "source-45",
       "book_path": "chapter_data_structure/character_encoding.assets/utf-8_hello_algo.png",
-      "title": "Hello算法 的 UTF-8 字节编码",
-      "explanation": "对比中间“Unicode”列与右侧“UTF-8”列可以看出三字节汉字的填充过程：三字节 UTF-8 模板为 1110xxxx 10xxxxxx 10xxxxxx，扣除首字节的 4 位前缀 1110 以及后两个字节各自的 2 位续字节标识前缀 10 后，恰好剩下 4 + 6 + 6 = 16 个数据位，用来按顺序填入汉字的 16 位 Unicode 码点。例如“算”的 16 位码点 01111011 10010111 拆成 4 位、6 位、6 位即 0111、101110、010111，填入模板后便得到 11100111 10101110 10010111；“法”的 01101100 11010101 拆成 0110、110011、010101，填入模板后便得到 11100110 10110011 10010101。",
-      "state": "三列七行对照图（字符、Unicode、UTF-8）：H、e、l、l、o 的 UTF-8 均为单字节（最高位标青色 0），依次为 01001000、01100101、01101100、01101100、01101111；“算”（Unicode 为 01111011 10010111）的 UTF-8 为三字节 11100111 10101110 10010111；“法”（Unicode 为 01101100 11010101）的 UTF-8 为三字节 11100110 10110011 10010101。两个汉字首字节前缀 1110 为绿色，第 2、3 字节前缀 10 为蓝色，底部两框分别注明“将最高 3 位设置为 1 代表字符长度为 3 字节”与“将其余字节的高 2 位设置为 10”。",
-      "key_state": "Hello 各占 1 字节（01001000、01100101、01101100、01101100、01101111）；“算”占 3 字节（11100111 10101110 10010111），“法”占 3 字节（11100110 10110011 10010101）。",
-      "announcement": "展示“Hello算法”从 Unicode 码点到 UTF-8 变长字节序列的编码对照，突出单字节 0 前缀与三字节 1110、10 前缀规则。"
+      "title": "Hello算法 的UTF-8编码",
+      "explanation": "ASCII范围内的英文字符采用单字节模板0xxxxxxx，低7位直接填入码点。“算”与“法”采用三字节模板1110xxxx 10xxxxxx 10xxxxxx，去掉各字节前缀后留下4+6+6=16个数据位：例如“算”的本例16位码点按0111、101110、010111三段填入模板，“法”按0110、110011、010101三段填入模板。",
+      "state": "字符串是无空格的Hello算法，共7个字符、11个UTF-8字节。图将本例7个字符的码点写成16位二进制；这仅针对本例字符范围，并不表示所有Unicode码点都是16位。",
+      "key_state": "Hello五个字符各占1字节，算和法各占3字节，合计11字节。",
+      "announcement": "用七个字符比较单字节与三字节编码，识别字符起始和续字节。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-03",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "e99f232152ae64b809363d025f6ed98ec0891012f99f2f58e10a8b075142d36f",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "cbe99e77444e0462f57c192b0088094f9fd6936e24f6cfd18181de4a48ba8083",
-        "output_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c",
-        "output_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6",
-        "output_sha256": "bdf21f24ca6a88ed6060d24186ac933357dde4feee3a257546cffd56c2bd6867"
-      }
-    ],
-    "evidence_sha256": "ec6ba9da7d2fe9290ce303592b8440b918ec83702cd9d0e6bbdc1e50d87c89d8"
-  },
   "dependencies": {
     "markdown": {
       "chapter_data_structure/character_encoding.md": "507b61114c28a3b956809aa4135816175d839e2e9dbd24e92a39f26464d6ae9c"
@@ -63,5 +29,101 @@
     "scenes": {
       "chapter_data_structure/character_encoding.assets/utf-8_hello_algo.png": "796914a9fa70fb74217bed1e4760ce99cfbc6e447575ef0f82a638b115c8ce1d"
     }
+  },
+  "tables": [
+    {
+      "caption": "逐字符码点与UTF-8字节",
+      "headers": [
+        "位置与字符",
+        "Unicode码点",
+        "图中的16位码点",
+        "UTF-8二进制字节",
+        "字节数"
+      ],
+      "rows": [
+        [
+          "1：H",
+          "U+0048",
+          "00000000 01001000",
+          "01001000",
+          "1"
+        ],
+        [
+          "2：e",
+          "U+0065",
+          "00000000 01100101",
+          "01100101",
+          "1"
+        ],
+        [
+          "3：l",
+          "U+006C",
+          "00000000 01101100",
+          "01101100",
+          "1"
+        ],
+        [
+          "4：l",
+          "U+006C",
+          "00000000 01101100",
+          "01101100",
+          "1"
+        ],
+        [
+          "5：o",
+          "U+006F",
+          "00000000 01101111",
+          "01101111",
+          "1"
+        ],
+        [
+          "6：算",
+          "U+7B97",
+          "01111011 10010111",
+          "11100111 10101110 10010111",
+          "3"
+        ],
+        [
+          "7：法",
+          "U+6CD5",
+          "01101100 11010101",
+          "11100110 10110011 10010101",
+          "3"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-04",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "c385c148a9c87885ad3055fe531ffaace5195ab54db807e336c77cecfb2fe72d",
+        "output_sha256": "67e949ed7bbdb732b3f1c3ba626e257456b862ba2f1a1acabf2d74a9db1a3261"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "67e949ed7bbdb732b3f1c3ba626e257456b862ba2f1a1acabf2d74a9db1a3261",
+        "output_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf",
+        "output_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf"
+      }
+    ],
+    "evidence_sha256": "212e919970bc973e942f94689e035a209af63a724b3924065c0b2a89303d3070",
+    "verification_manifest_sha256": "e599534ecd2e93955445689d4327ace02a7ae7841b59245afcbd61129c11708b",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "f49071a5ae64b85ccb3e75966af02000bfdabadeadceddf3ed755348f695479c"
   }
 }

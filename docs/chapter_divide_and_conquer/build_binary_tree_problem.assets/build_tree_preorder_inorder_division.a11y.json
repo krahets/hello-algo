@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_preorder_inorder_division",
@@ -9,9 +9,9 @@
     "输入为前序遍历 preorder = [3, 9, 2, 1, 7] 与中序遍历 inorder = [9, 3, 1, 2, 7]，所有节点值互不重复。"
   ],
   "description": [
-    "第一步：从右上角前序遍历的首元素确定当前树的根节点为 3（青色高亮），并在下方中序遍历中查找到 3 的位置。由此将中序遍历切分为三段：左侧蓝色区间 [9]、中间青色根节点 3、右侧紫色区间 [1, 2, 7]，直接得出“左子树有 1 个节点”“右子树有 3 个节点”。",
-    "第二步：利用从中序遍历得出的左右子树节点数量，回头切分前序遍历：在青色根节点 3 之后，先取 1 个元素 [9] 作为左子树的前序序列（蓝色），再将其余 3 个元素 [2, 1, 7] 作为右子树的前序序列（紫色）。注意右子树的前序段 [2, 1, 7] 与中序段 [1, 2, 7] 包含相同的三个节点，但排列次序不同。",
-    "画面左侧的二叉树同步以同色背景标出这三个部分：青色根节点为 3，蓝色左子树为单节点 9，紫色右子树是以 2 为根、1 和 7 为左右子节点的子树（其中 9、1、7 均为叶节点）。"
+    "前序先访问根，因此前序首元素 3 就是根。",
+    "在中序中找到 3；它左边只有 [9]，右边是 [1,2,7]，所以左右子树分别有 1 个和 3 个节点。",
+    "据此切分前序：根 3 之后的一个元素 [9] 属于左子树，其余 [2,1,7] 属于右子树。右子树的两种遍历包含相同节点，访问顺序不同。"
   ],
   "result": "通过“前序首元素定根 → 中序定左右子树节点数 → 按节点数切分前序”三步，原问题被拆解为左子树（前序 [9]、中序 [9]）和右子树（前序 [2, 1, 7]、中序 [1, 2, 7]）两个独立的递归子问题。",
   "frames": [
@@ -19,42 +19,10 @@
       "id": "source-314",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png",
       "title": "用中序位置切分左右子树，再切分前序",
-      "explanation": "先由前序首元素 3 在中序中的位置算得左子树有 1 个节点、右子树有 3 个节点，再据此将前序剩余部分切分为左子树 [9] 与右子树 [2, 1, 7]。",
-      "state": "前序 preorder = [3, 9, 2, 1, 7]，中序 inorder = [9, 3, 1, 2, 7]，节点值互不重复。当前根节点为 3；中序划分为 [9] | 3 | [1, 2, 7]，得出左子树有 1 个节点、右子树有 3 个节点；前序随之划分为 3 | [9] | [2, 1, 7]。左侧树中根节点为 3，左子节点为 9，右子节点为 2，2 的左右子节点分别为 1 和 7，9、1、7 为叶节点。",
-      "key_state": "根为 3；左子树 1 个节点 [9]，右子树 3 个节点（前序 [2, 1, 7]、中序 [1, 2, 7]）。",
-      "announcement": "展示如何由根节点 3 在中序遍历中的位置确定左右子树大小，并同步切分前序遍历。"
+      "explanation": "先由前序首元素 3 确定根节点，再根据 3 在中序中的位置统计出左子树含 1 个节点、右子树含 3 个节点，最后按该节点数切分前序序列。",
+      "state": "当前根节点为 3；左子问题含 1 个节点（前序 [9]、中序 [9]），右子问题含 3 个节点（前序 [2, 1, 7]、中序 [1, 2, 7]）。完整子问题对照与树连接见下方两张表。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-16",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "f4742f42c44015f6e6c4b05a0af25fe8427ee5f0ac0fc1a4fd73a20a279c50dc",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "5e763dfd4e2b736b9a5010f6bdd3e33ef9402bdbd494a2a8c3346a1893135dc9",
-        "output_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb",
-        "output_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0",
-        "output_sha256": "b8fa9f331b33db33433309a29e9fe3834178d140c262ec7bc27dee6b669a5cd5"
-      }
-    ],
-    "evidence_sha256": "a355fc71eefa70eb8f989661b8a016ead02f198bb0747865902f358b13b089ae"
-  },
   "dependencies": {
     "markdown": {
       "chapter_divide_and_conquer/build_binary_tree_problem.md": "15c1f80907cb390b2dece48fa770f0441b86b7b89fb20b34edba6aca89263817"
@@ -63,5 +31,105 @@
     "scenes": {
       "chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png": "85878fb9e543b894ecf5f60b9a8732f82aac1eb038f3f542e46d4185e3a5cd25"
     }
+  },
+  "tables": [
+    {
+      "caption": "左右子问题的遍历序列",
+      "headers": [
+        "部分",
+        "节点数",
+        "前序",
+        "中序"
+      ],
+      "rows": [
+        [
+          "根",
+          "1",
+          "[3]",
+          "[3]"
+        ],
+        [
+          "左子树",
+          "1",
+          "[9]",
+          "[9]"
+        ],
+        [
+          "右子树",
+          "3",
+          "[2,1,7]",
+          "[1,2,7]"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "完整树的连接",
+      "headers": [
+        "节点",
+        "左子节点",
+        "右子节点"
+      ],
+      "rows": [
+        [
+          "3",
+          "9",
+          "2"
+        ],
+        [
+          "9",
+          "无",
+          "无"
+        ],
+        [
+          "2",
+          "1",
+          "7"
+        ],
+        [
+          "1",
+          "无",
+          "无"
+        ],
+        [
+          "7",
+          "无",
+          "无"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-10",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "587fb17853deb18aea81c8aaf923dad9d8944f711dd123357454014ee90673ed",
+        "output_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0",
+        "output_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989",
+        "output_sha256": "4409226acfc61414b5ce59f1e3c8cabdf42be0ad2939e4274348c347ae325320"
+      }
+    ],
+    "evidence_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e",
+    "verification_manifest_sha256": "2023927acd22f572c739405dfbb6d4338b32deadbe8db27f2438c77108cc13b9",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "e9331e2dfebbe2c9011c0e50f4517eaf39ca73a4e1355708983e98c75349c179"
   }
 }

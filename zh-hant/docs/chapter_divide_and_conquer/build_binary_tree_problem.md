@@ -5,6 +5,11 @@
     給定一棵二元樹的前序走訪 `preorder` 和中序走訪 `inorder` ，請從中構建二元樹，返回二元樹的根節點。假設二元樹中沒有值重複的節點（如下圖所示）。
 
 ![構建二元樹的示例資料](build_binary_tree_problem.assets/build_tree_example.svg)
+<!-- figure-reading:start group:chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_example -->
+
+[由前序與中序序列重建五節點二元樹：完整圖解](build_binary_tree_problem.assets/build_tree_example.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 判斷是否為分治問題
 
@@ -30,6 +35,11 @@
 3. 根據 `inorder` 的劃分結果，易得左子樹和右子樹的節點數量分別為 1 和 3 ，從而可將 `preorder` 劃分為 `[ 3 | 9 | 2 1 7 ]` 。
 
 ![在前序走訪和中序走訪中劃分子樹](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.svg)
+<!-- figure-reading:start group:chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_preorder_inorder_division -->
+
+[用中序位置切分左右子樹，再切分前序：完整圖解](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 基於變數描述子樹區間
 
@@ -52,6 +62,11 @@
 請注意，右子樹根節點索引中的 $(m-l)$ 的含義是“左子樹的節點數量”，建議結合下圖理解。
 
 ![根節點和左右子樹的索引區間表示](build_binary_tree_problem.assets/build_tree_division_pointers.svg)
+<!-- figure-reading:start group:chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_division_pointers -->
+
+[用 i、l、m、r 表示構樹遞迴的索引區間：完整圖解](build_binary_tree_problem.assets/build_tree_division_pointers.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 程式碼實現
 
@@ -67,32 +82,42 @@
     ![構建二元樹的遞迴過程](build_binary_tree_problem.assets/built_tree_step1.svg)
 
 === "<2>"
-    ![遞迴構樹：向下建立節點，返回時連線子樹，第 2 步，共 9 步：遞迴進入左子問題，建立葉節點 9](build_binary_tree_problem.assets/built_tree_step2.svg)
+    ![遞迴構樹：向下建立節點，返回時連線子樹，第 2 步，共 9 步：建立葉節點 9](build_binary_tree_problem.assets/built_tree_step2.svg)
 
 === "<3>"
-    ![遞迴構樹：向下建立節點，返回時連線子樹，第 3 步，共 9 步：回溯返回節點 9，連線為根 3 的左子節點](build_binary_tree_problem.assets/built_tree_step3.svg)
+    ![遞迴構樹：向下建立節點，返回時連線子樹，第 3 步，共 9 步：連線左子樹 9](build_binary_tree_problem.assets/built_tree_step3.svg)
 
 === "<4>"
-    ![遞迴構樹：向下建立節點，返回時連線子樹，第 4 步，共 9 步：遞迴進入右子問題，建立右子樹根 2](build_binary_tree_problem.assets/built_tree_step4.svg)
+    ![遞迴構樹：向下建立節點，返回時連線子樹，第 4 步，共 9 步：建立右子樹根 2](build_binary_tree_problem.assets/built_tree_step4.svg)
 
 === "<5>"
-    ![遞迴構樹：向下建立節點，返回時連線子樹，第 5 步，共 9 步：遞迴建立節點 2 的左葉節點 1](build_binary_tree_problem.assets/built_tree_step5.svg)
+    ![遞迴構樹：向下建立節點，返回時連線子樹，第 5 步，共 9 步：建立葉節點 1](build_binary_tree_problem.assets/built_tree_step5.svg)
 
 === "<6>"
-    ![遞迴構樹：向下建立節點，返回時連線子樹，第 6 步，共 9 步：回溯返回節點 1，連線為節點 2 的左子節點](build_binary_tree_problem.assets/built_tree_step6.svg)
+    ![遞迴構樹：向下建立節點，返回時連線子樹，第 6 步，共 9 步：連線節點 2 的左子樹](build_binary_tree_problem.assets/built_tree_step6.svg)
 
 === "<7>"
-    ![遞迴構樹：向下建立節點，返回時連線子樹，第 7 步，共 9 步：遞迴建立節點 2 的右葉節點 7](build_binary_tree_problem.assets/built_tree_step7.svg)
+    ![遞迴構樹：向下建立節點，返回時連線子樹，第 7 步，共 9 步：建立葉節點 7](build_binary_tree_problem.assets/built_tree_step7.svg)
 
 === "<8>"
-    ![遞迴構樹：向下建立節點，返回時連線子樹，第 8 步，共 9 步：回溯連線節點 7，完成以 2 為根的右子樹](build_binary_tree_problem.assets/built_tree_step8.svg)
+    ![遞迴構樹：向下建立節點，返回時連線子樹，第 8 步，共 9 步：連線節點 2 的右子樹](build_binary_tree_problem.assets/built_tree_step8.svg)
 
 === "<9>"
-    ![遞迴構樹：向下建立節點，返回時連線子樹，第 9 步，共 9 步：回溯返回子樹根 2，連線完成整棵二元樹](build_binary_tree_problem.assets/built_tree_step9.svg)
+    ![遞迴構樹：向下建立節點，返回時連線子樹，第 9 步，共 9 步：連線完整右子樹](build_binary_tree_problem.assets/built_tree_step9.svg)
+<!-- figure-reading:start group:chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree -->
+
+[遞迴構樹：向下建立節點，返回時連線子樹：完整圖解](build_binary_tree_problem.assets/built_tree.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 每個遞迴函式內的前序走訪 `preorder` 和中序走訪 `inorder` 的劃分結果如下圖所示。
 
 ![每個遞迴函式中的劃分結果](build_binary_tree_problem.assets/built_tree_overall.svg)
+<!-- figure-reading:start group:chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_overall -->
+
+[逐個子問題檢視前序與中序的劃分：完整圖解](build_binary_tree_problem.assets/built_tree_overall.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 設樹的節點數量為 $n$ ，初始化每一個節點（執行一個遞迴函式 `dfs()` ）使用 $O(1)$ 時間。**因此總體時間複雜度為 $O(n)$** 。
 

@@ -1,59 +1,27 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_backtracking/subset_sum_problem.assets/subset_sum_i",
   "title": "子集和 I：余额归零与顺序剪枝",
-  "summary": "从目标 9 开始逐层做减法，结合越界剪枝与顺序剪枝，只输出唯一组合 [3, 3, 3] 和 [4, 5]。",
+  "summary": "从目标 9 起逐层扣减候选，结合 start=i 与越界 break，输出 [3, 3, 3] 和 [4, 5]。",
   "context": [
-    "已排序候选数组为 choices=[3, 4, 5]，元素可重复选取，初始目标 target=9。与前图累加元素和不同，本图改为从 target 开始做减法，圆节点内的数字表示剩余 target，减到 0 时即找到合法子集。"
+    "输入为已升序排列的正整数数组 choices = [3, 4, 5]（索引 0、1、2）与初始目标 target = 9，元素允许重复选取，组合不区分顺序。图中圆节点内的数字表示剩余目标余额（9 减去当前前缀和），减至 0 时即命中合法子集。"
   ],
   "description": [
-    "根圆节点为 9，边上标注 -3、-4、-5，减至 0 的圆节点呈绿色并标出结果子集。右上角图例区分两类剪枝：红色剪刀为“剪枝一：元素和不能超过 target”（即剩余值小于 0），黑色剪刀为“剪枝二：避免生成重复子集”（即不回头选更早索引）。",
-    "图把不可行的候选分支画出以解释剪枝原因；代码并不会逐一递归进入这些分支。由于候选已排序，一旦某个允许候选大于剩余 target，代码直接 break，连同后面更大的候选一并跳过。"
+    "每轮从起始索引 start 起枚举候选 choices[i] 并从余额中减去它；余额归 0 时记录当前组合并返回。向下递归传递 start = i，既允许重复选取当前元素，又跳过更早索引（图中黑剪刀所示的顺序剪枝）。",
+    "由于候选已升序排列，在允许范围 i >= start 内一旦遇到第一个大于当前余额的候选（相减后小于 0），代码直接 break 跳出本轮循环，其后更大的候选一并跳过，不会逐个递归进入图中红剪刀画出的越界分支。"
   ],
-  "result": "两种剪枝配合后，搜索树仅输出 [3, 3, 3] 与 [4, 5] 两个不重复解；递归向下一轮传递当前索引 i，兼顾了元素复用与顺序去重。",
+  "result": "顺序剪枝（start = i）与升序越界剪枝（break）配合后，搜索树仅输出 [3, 3, 3] 与 [4, 5] 两个不重复解。",
   "frames": [
     {
       "id": "source-360",
       "book_path": "chapter_backtracking/subset_sum_problem.assets/subset_sum_i.png",
       "title": "子集和 I：余额归零与顺序剪枝",
-      "explanation": "从根节点 9 分别减 3、4、5，第一轮得到剩余值 6、5、4。在 6 下继续减 3、4、5 得到 3、2、1：其中 3 再减 3 到达绿色 0，输出 [3, 3, 3]，而减 4、减 5 因小于 0 被红剪刀剪去；2（前缀 [3, 4]）下的 -3 被黑剪刀剪去，-4、-5 被红剪刀剪去；1（前缀 [3, 5]）下的 -3、-4 被黑剪刀剪去，-5 被红剪刀剪去。在第一轮的 5（前缀 [4]）下，-3 被黑剪刀剪去，-4 得到 1；该节点的后续没有在图中展开，按规则已无可行候选，-5 到达绿色 0 并输出 [4, 5]。在第一轮的 4（前缀 [5]）下，-3、-4 被黑剪刀剪去，-5 因小于 0 被红剪刀剪去。",
-      "state": "根为 9；第一轮为 6、5、4。6 下展开出 3、2、1，仅 3 经 -3 到达绿色 0（[3, 3, 3]），其余第三轮分支全部被红或黑剪刀剪去；5 下 -3 被黑剪刀剪去，-4 到 1 后未继续展开，-5 到绿色 0（[4, 5]）；4 下 -3、-4 被黑剪刀剪去，-5 被红剪刀剪去。",
-      "key_state": "剩余值路径 9→6→3→0 与 9→5→0 成功归零，输出 [3, 3, 3] 和 [4, 5]。",
-      "announcement": "从 9 依次减去不递减索引的候选值，剪掉负余额与倒序分支，得到 [3, 3, 3] 和 [4, 5]。"
+      "explanation": "同时约束剩余余额与非递减起始索引 start = i，使每种可行组合只生成一次，且遇到首个大于余额的候选即 break。",
+      "state": "图中 10 个非负余额圆节点里，两条归零路径为 9 → 6 → 3 → 0（[3, 3, 3]）与 9 → 5 → 0（[4, 5]）；前缀 [4, 4] 的余额 1 在图中未继续展开下层分支。全部 10 个前缀的余额、图示限制与代码实际 break 后续见表。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-18",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "82c88d5ec43c975425687d00835a77e68499fe7563dcb1110985ba970fb14e4d",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "4d905ea19e7b4a83ea36041a9c7f9d8d8c1f3b06c72a654e2a9e539750effd5d",
-        "output_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90",
-        "output_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad",
-        "output_sha256": "5ee2b110fd9b935a096ccaacf3e3b27d88bb1cb4918d9a5b6bd2b5a75c56edf0"
-      }
-    ],
-    "evidence_sha256": "5559c3ad6bd5d378f79de2a5c7f96ac680c007486f684e00a24a2512ab4de485"
-  },
   "dependencies": {
     "markdown": {
       "chapter_backtracking/subset_sum_problem.md": "071de898ede315a542cb99a3734fdd4bc42f447fe76e35d4251abc7c6ad4bfa1"
@@ -62,5 +30,122 @@
     "scenes": {
       "chapter_backtracking/subset_sum_problem.assets/subset_sum_i.png": "90f1eeb1bbe5258a5bcbcf4c86df224dd36dfae3ef18827941bda85a644192b8"
     }
+  },
+  "tables": [
+    {
+      "caption": "按前缀查询余额与选择限制",
+      "headers": [
+        "当前前缀",
+        "剩余目标",
+        "可继续选择",
+        "图中限制或终止情况",
+        "实际后续"
+      ],
+      "rows": [
+        [
+          "[]",
+          "9",
+          "3、4、5",
+          "无",
+          "选择后余额分别为 6、5、4"
+        ],
+        [
+          "[3]",
+          "6",
+          "3、4、5",
+          "无",
+          "选择后余额分别为 3、2、1"
+        ],
+        [
+          "[3,3]",
+          "3",
+          "3",
+          "4、5 越界",
+          "选 3 到 0；遇 4 时 break"
+        ],
+        [
+          "[3,3,3]",
+          "0",
+          "无",
+          "不再选择",
+          "记录 [3,3,3]"
+        ],
+        [
+          "[3,4]",
+          "2",
+          "无",
+          "3 为更早索引；4、5 越界",
+          "从 4 开始即 break"
+        ],
+        [
+          "[3,5]",
+          "1",
+          "无",
+          "3、4 为更早索引；5 越界",
+          "从 5 开始即 break"
+        ],
+        [
+          "[4]",
+          "5",
+          "4、5",
+          "3 为更早索引",
+          "选 4 到 1；选 5 到 0"
+        ],
+        [
+          "[4,4]",
+          "1",
+          "无",
+          "后续未在图中展开",
+          "按代码规则，从 4 开始即 break"
+        ],
+        [
+          "[4,5]",
+          "0",
+          "无",
+          "不再选择",
+          "记录 [4,5]"
+        ],
+        [
+          "[5]",
+          "4",
+          "无",
+          "3、4 为更早索引；5 越界",
+          "从 5 开始即 break"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-11",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "d2adaf8c87d65cbe0b438e864320dfc08404c9d0b39487d5faa113e15aa8fb32",
+        "output_sha256": "d35014a62c0968cd9b2a7f0186f65947037eb19fb8a4f9782aa88666a7338258"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "d35014a62c0968cd9b2a7f0186f65947037eb19fb8a4f9782aa88666a7338258",
+        "output_sha256": "3085ca38d6cb6449bd6b264a8f7210aac47c65c7d91d355c08cdfcefde4ddae6"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "3085ca38d6cb6449bd6b264a8f7210aac47c65c7d91d355c08cdfcefde4ddae6",
+        "output_sha256": "2f40f2a380e3e00da919d3c1b1684ad05b04d0a4ecc6a066ab61f95d1cbc87c3"
+      }
+    ],
+    "evidence_sha256": "29d4da7d4b0938d995b0aa712d110c1bd15ddd7ea5ac487ef6709e67b925ca83",
+    "verification_manifest_sha256": "097ababf496d022ca02085289b6035a137b25d25d8dccd8891a8640b522a5158",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "33edb279b517f0c84c4f455b97946ea98f89e2ba26431ee4222632d7a413f28f"
   }
 }

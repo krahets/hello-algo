@@ -11,6 +11,11 @@
 层序遍历本质上属于<u>广度优先遍历（breadth-first traversal）</u>，也称<u>广度优先搜索（breadth-first search, BFS）</u>，它体现了一种“一圈一圈向外扩展”的逐层遍历方式。
 
 ![二叉树的层序遍历](binary_tree_traversal.assets/binary_tree_bfs.svg)
+<!-- figure-reading:start group:chapter_tree/binary_tree_traversal.assets/binary_tree_bfs -->
+
+[二叉树的层序遍历：完整图解](binary_tree_traversal.assets/binary_tree_bfs.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 代码实现
 
@@ -32,6 +37,11 @@
 下图展示了对二叉树进行深度优先遍历的工作原理。**深度优先遍历就像是绕着整棵二叉树的外围“走”一圈**，在每个节点都会遇到三个位置，分别对应前序遍历、中序遍历和后序遍历。
 
 ![二叉搜索树的前序、中序、后序遍历](binary_tree_traversal.assets/binary_tree_dfs.svg)
+<!-- figure-reading:start group:chapter_tree/binary_tree_traversal.assets/binary_tree_dfs -->
+
+[二叉树的三种深度优先遍历：完整图解](binary_tree_traversal.assets/binary_tree_dfs.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 代码实现
 
@@ -54,34 +64,39 @@
     ![前序遍历的递归过程](binary_tree_traversal.assets/preorder_step1.svg)
 
 === "<2>"
-    ![前序遍历的递推与回溯过程，第 2 步，共 11 步：Step 2：从 1 递推到左子节点 2](binary_tree_traversal.assets/preorder_step2.svg)
+    ![前序遍历的递归过程，第 2 步，共 11 步：访问左子节点 2](binary_tree_traversal.assets/preorder_step2.svg)
 
 === "<3>"
-    ![前序遍历的递推与回溯过程，第 3 步，共 11 步：Step 3：从 2 递推到叶节点 4](binary_tree_traversal.assets/preorder_step3.svg)
+    ![前序遍历的递归过程，第 3 步，共 11 步：访问叶节点 4](binary_tree_traversal.assets/preorder_step3.svg)
 
 === "<4>"
-    ![前序遍历的递推与回溯过程，第 4 步，共 11 步：Step 4：从叶节点 4 回溯到节点 2](binary_tree_traversal.assets/preorder_step4.svg)
+    ![前序遍历的递归过程，第 4 步，共 11 步：从 4 返回 2](binary_tree_traversal.assets/preorder_step4.svg)
 
 === "<5>"
-    ![前序遍历的递推与回溯过程，第 5 步，共 11 步：Step 5：从 2 递推到右子节点 5](binary_tree_traversal.assets/preorder_step5.svg)
+    ![前序遍历的递归过程，第 5 步，共 11 步：访问叶节点 5](binary_tree_traversal.assets/preorder_step5.svg)
 
 === "<6>"
-    ![前序遍历的递推与回溯过程，第 6 步，共 11 步：Step 6：从 5 经 2 回溯到根节点 1](binary_tree_traversal.assets/preorder_step6.svg)
+    ![前序遍历的递归过程，第 6 步，共 11 步：从 5 经 2 返回 1](binary_tree_traversal.assets/preorder_step6.svg)
 
 === "<7>"
-    ![前序遍历的递推与回溯过程，第 7 步，共 11 步：Step 7：从根 1 递推到右子节点 3](binary_tree_traversal.assets/preorder_step7.svg)
+    ![前序遍历的递归过程，第 7 步，共 11 步：访问右子节点 3](binary_tree_traversal.assets/preorder_step7.svg)
 
 === "<8>"
-    ![前序遍历的递推与回溯过程，第 8 步，共 11 步：Step 8：从 3 递推到左子节点 6](binary_tree_traversal.assets/preorder_step8.svg)
+    ![前序遍历的递归过程，第 8 步，共 11 步：访问叶节点 6](binary_tree_traversal.assets/preorder_step8.svg)
 
 === "<9>"
-    ![前序遍历的递推与回溯过程，第 9 步，共 11 步：Step 9：从叶节点 6 回溯到节点 3](binary_tree_traversal.assets/preorder_step9.svg)
+    ![前序遍历的递归过程，第 9 步，共 11 步：从 6 返回 3](binary_tree_traversal.assets/preorder_step9.svg)
 
 === "<10>"
-    ![前序遍历的递推与回溯过程，第 10 步，共 11 步：Step 10：从 3 递推到右子节点 7](binary_tree_traversal.assets/preorder_step10.svg)
+    ![前序遍历的递归过程，第 10 步，共 11 步：访问叶节点 7](binary_tree_traversal.assets/preorder_step10.svg)
 
 === "<11>"
-    ![前序遍历的递推与回溯过程，第 11 步，共 11 步：Step 11：从 7 经 3、1 回溯返回，遍历结束](binary_tree_traversal.assets/preorder_step11.svg)
+    ![前序遍历的递归过程，第 11 步，共 11 步：完成向上返回](binary_tree_traversal.assets/preorder_step11.svg)
+<!-- figure-reading:start group:chapter_tree/binary_tree_traversal.assets/preorder -->
+
+[前序遍历的递归过程：完整图解](binary_tree_traversal.assets/preorder.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 复杂度分析
 

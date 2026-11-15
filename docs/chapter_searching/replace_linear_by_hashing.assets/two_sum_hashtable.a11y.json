@@ -3,7 +3,7 @@
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable",
-  "title": "辅助哈希表求解两数之和：单层循环先查补数再存当前元素",
+  "title": "哈希表求两数之和",
   "summary": "遍历 nums = [2, 7, 11, 15]，依次将 2:0、7:1 存入哈希表 map；访问 11 时查到补数 2 已在表中，直接返回 [0, 2]。",
   "context": [
     "给定整数数组 nums = [2, 7, 11, 15]（索引从 0 到 3）与目标和 target = 13。",
@@ -17,7 +17,7 @@
     {
       "id": "source-235",
       "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.png",
-      "title": "第 1 步：i = 0 访问元素 2，补数 11 不在 map 中，存入 2 → 0",
+      "title": "未找到补数 11，记录 2",
       "explanation": "指针 i = 0 指向元素 2，图右侧说明“∵ 13 – 2 = 11 不在 map 中 ∴ 将元素 2 添加进 map”。此时初始为空的哈希表写入首条键值对 key = 2、value = 0。",
       "state": "数组 nums=[2,7,11,15]，索引从 0 到 3，目标和 target=13。i=0，当前值 2；已查询补数 11，未命中；map={2:0}。尚未返回答案，下一项为索引 1 的 7。",
       "key_state": "i = 0（值 2）：补数 11 未命中，写入后 map = {2: 0}。",
@@ -26,7 +26,7 @@
     {
       "id": "source-236",
       "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.png",
-      "title": "第 2 步：i = 1 访问元素 7，补数 6 不在 map 中，存入 7 → 1",
+      "title": "未找到补数 6，记录 7",
       "explanation": "指针 i = 1 指向元素 7，图右侧说明“∵ 13 – 7 = 6 不在 map 中 ∴ 将元素 7 添加进 map”。哈希表中此前仅有键 2 而无键 6，因此继续写入键值对 key = 7、value = 1。",
       "state": "数组 nums=[2,7,11,15]，索引从 0 到 3，目标和 target=13。i=1，当前值 7；已查询补数 6，未命中；map={2:0,7:1}。尚未返回答案，下一项为索引 2 的 11。",
       "key_state": "i = 1（值 7）：补数 6 未命中，写入后 map = {2: 0, 7: 1}。",
@@ -35,43 +35,13 @@
     {
       "id": "source-237",
       "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.png",
-      "title": "第 3 步：i = 2 访问元素 11，在 map 中查到补数 2，返回 [0, 2]",
+      "title": "找到补数 2，返回索引",
       "explanation": "指针 i = 2 指向元素 11，图右侧说明“∵ 13 – 11 = 2 在 map 中 ∴ 返回元素组合索引 [0, 2]”。哈希表中键 2 对应的索引 value 为 0，与当前索引 i = 2 组成答案 [0, 2] 直接返回，不再将 11 写入表中。",
       "state": "数组 nums=[2,7,11,15]，索引从 0 到 3，目标和 target=13。i=2，当前值 11；补数 2 已存在，map[2]=0；返回 [0,2]。map 仍为 {2:0,7:1}，未加入 11，15 尚未处理且不再需要处理。",
       "key_state": "i = 2（值 11）：补数 2 在 map 中命中索引 0，直接返回 [0, 2]。",
       "announcement": "访问索引 2 的元素 11，在哈希表中查到补数 2（索引 0），返回 [0, 2]。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-12",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "2ee57334e13f47bfaa23d9858d4540b426bdf78bfe58ec10738ef70b1b1c8b57",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "278c7ca0de3699a8282cf733e66a37f776fcb7767e2b72a0c4e17a626b20368a",
-        "output_sha256": "8b942a49ae0132da2ef7bd2cc4974d6e9c21872a530fe97c2a2107a934188825"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "8b942a49ae0132da2ef7bd2cc4974d6e9c21872a530fe97c2a2107a934188825",
-        "output_sha256": "72ded3c108bbc7c458462041ccdbfcaae7e45858b987f9ed1bf31ede788076b3"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "72ded3c108bbc7c458462041ccdbfcaae7e45858b987f9ed1bf31ede788076b3",
-        "output_sha256": "549b9b8f6b53209dc060d3de11ddb4c66cd900a1c8ee112c21eecc35d1b5cd78"
-      }
-    ],
-    "evidence_sha256": "df3186defaada9ff328bd9bc4426561c6e8088c64ef665f5bd45cf638c5621eb"
-  },
   "dependencies": {
     "markdown": {
       "chapter_searching/replace_linear_by_hashing.md": "e7a672e98770714bf70709ce782bd32b01cc94eba65d25ebf664c72c0162923b"
@@ -87,7 +57,7 @@
     "two-sum-hash": {
       "kind": "source-frames",
       "model_sha256": "fded8a6da17a4171e00e0c69c1557785c10e85a5be89d50788bd5b1ceb5c3095",
-      "source_content_sha256": "2ee57334e13f47bfaa23d9858d4540b426bdf78bfe58ec10738ef70b1b1c8b57",
+      "source_content_sha256": "d2da44b626610b6d34afdd3047d0b55411bde898968020bf45e5cf5f2f13d1d2",
       "states": [
         {
           "id": "step-1",
@@ -104,11 +74,44 @@
       ],
       "review": {
         "status": "confirmed",
-        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "run_id": "figure-reading-20261116/content/names/source-binding",
         "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "de0183f2b4321e257641583deb593a422a187cec9f6405cc9cba03f9451e8bb4",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+        "binding_sha256": "aa773df71daa5689a67f7316e2c70210f9925f5ff56d4a2cc0e32ba7ef29f248",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
+        "current_text_verification_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da"
       }
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/names",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
+        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      }
+    ],
+    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
+    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "d2da44b626610b6d34afdd3047d0b55411bde898968020bf45e5cf5f2f13d1d2"
   }
 }

@@ -1,62 +1,29 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_array_and_linkedlist/linked_list.assets/linkedlist_insert_node",
-  "title": "在链表中插入节点的两次指针修改",
-  "summary": "在节点 n0（值 1）和 n1（值 3）之间插入节点 P（值 0），依次执行 P.next = n1 与 n0.next = P。",
+  "title": "在链表中插入节点",
+  "summary": "在相邻节点 n0 与 n1 之间插入新节点 P，只需依次修改 P.next 与 n0.next 两次引用。",
   "context": [
-    "图左侧标明“示例：在链表节点 n0 和 n1 之间插入节点 P”，右侧从上到下分三段展示指针调整过程。初始时，绿色节点 n0（值为 1）的 next 指向绿色节点 n1（值为 3），n1 后方以省略号表示后续链表；待插入的蓝色节点 P（值为 0）位于两者下方，尚未接入链表。"
+    "前驱节点 n0 的值为 1，后继节点 n1 的值为 3，初始时 n0.next 指向 n1，n1 右侧的省略号表示后续链表；待插入节点 P 的值为 0，初始尚未接入链表。next 表示节点的后继指针（引用）。"
   ],
-  "description": [
-    "第一步执行 P.next = n1，即令 P 指向 n1。此时新节点 P（值 0）的箭头指向 n1（值 3），而 n0 到 n1 的原有箭头仍然保留，n0 和 P 同时指向 n1。",
-    "第二步执行 n0.next = P，即令 n0 指向 P。n0（值 1）原有的后继连接改为指向 P（值 0），链表顺序变为 n0（1）→ P（0）→ n1（3）→ …。图示先接好 P.next 再改动 n0.next，使后续链表通过 P 保持连接；代码也用变量 n1 保存原后继引用。"
-  ],
-  "result": "只需修改两次引用（指针）即可在相邻节点间完成插入，时间复杂度为 O(1)，无须移动后续节点。",
+  "description": [],
+  "result": "插入完成后链表连接为 n0（1）→ P（0）→ n1（3）→ …。各节点的数值及 n1 之后的连接保持不变；在已知前驱节点位置的前提下，两次引用修改的时间复杂度为 O(1)，无须移动后续节点。",
   "frames": [
     {
       "id": "source-51",
       "book_path": "chapter_array_and_linkedlist/linked_list.assets/linkedlist_insert_node.png",
-      "title": "在链表中插入节点的两次指针修改",
-      "explanation": "图从上到下分三步展示在节点 n0（值 1）和 n1（值 3）之间插入节点 P（值 0）。初始时 n0.next 指向 n1，n1 后接省略号表示的后续链表，P 独立在外。第一步执行 P.next = n1，令 P 指向 n1，此时 n0 和 P 都指向 n1。第二步执行 n0.next = P，令 n0 改指 P，链表变为 1 → 0 → 3 → …。先连接 P 的后继 n1、再更新 n0 的后继为 P，能保证后续链表的引用不丢失。",
-      "state": "单图由上到下展示插入节点 P（值 0）的三阶段：初始为 n0（1）→ n1（3）→ …，P 未接入；第一步 P.next = n1 后，n0 与 P 均指向 n1；第二步 n0.next = P 后，链表变为 n0（1）→ P（0）→ n1（3）→ …。",
-      "key_state": "在 n0（1）与 n1（3）间插入 P（0）：先令 P.next = n1，再令 n0.next = P，得到 1 → 0 → 3 → …。",
-      "announcement": "在节点 1 和 3 之间插入节点 0：先让 0 指向 3，再让 1 指向 0，两次指针修改完成插入。"
+      "title": "在链表中插入节点",
+      "explanation": "第一步先执行 P.next = n1，让新节点 P 指向原后继节点 n1；此时 n0.next 与 P.next 都指向 n1，从 n0 出发沿 next 仍直接到达 n1，尚未经过 P。第二步再执行 n0.next = P，将前驱 n0 的后继改为 P，才把 P 正式接入链表。图示先接后继再改前驱，是为了在仅靠 n0 引用原链表时不丢失 n1 的地址；配套代码则先用局部变量 n1 保存 n0.next，两种写法都能保证后续链表不断链。",
+      "state": "节点 n0、P、n1 的值分别为 1、0、3。初始状态 n0.next = n1，P 未接入且未画出 next 指向；第一步执行 P.next = n1 后，n0.next 与 P.next 均指向 n1，从 n0 出发仍不经过 P；第二步执行 n0.next = P 后，连接变为 n0（1）→ P（0）→ n1（3）→ …，n1 之后的链表保持不变。",
+      "key_state": "先执行 P.next = n1，再执行 n0.next = P；链表节点值顺序由 1 → 3 → … 变为 1 → 0 → 3 → …。",
+      "announcement": "先令 P.next 指向后继 n1，再令 n0.next 指向新节点 P，完成链表插入。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-04",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "fa00dfa1ec983c6a1ee46c38195176d96d032f4f8268f95506a096e0f50ea949",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "010659120695514881c0d1ee814ac67faa1e50957300a7e781f1c3edf7858059",
-        "output_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de",
-        "output_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8",
-        "output_sha256": "d48eb4dd56235f9a9b2f2d5c8f67899492c9f6b15567237d35161c31596306cb"
-      }
-    ],
-    "evidence_sha256": "178794e8fd357c692f91d245ae613b37aa02834865c6124afd4cd91ea892de0d"
-  },
   "dependencies": {
     "markdown": {
-      "chapter_array_and_linkedlist/linked_list.md": "759693f1f9372ed67bcda1a55aa41fa22037940c1ca76a2aa1975ab45d1da341"
+      "chapter_array_and_linkedlist/linked_list.md": "e7b62fb0d08b9467a2411492429bd6edbf61a7838841aec2a534a0518cb66e05"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -73,72 +40,178 @@
         "locale": "zh-hans",
         "story_id": "flow-linked-insert",
         "group_id": "group:chapter_array_and_linkedlist/linked_list.assets/linkedlist_insert_node",
-        "title": "链表插入节点：先连后继，再改前驱",
-        "summary": "将值为 0 的节点 P 插入值为 1 的 n0 与值为 3 的 n1 之间，先连后继 n1，再改前驱 n0。",
+        "title": "在链表中插入节点",
+        "summary": "在相邻节点 n0 与 n1 之间插入新节点 P，只需依次修改 P.next 与 n0.next 两次引用。",
         "context": [
-          "链表局部包含两个相邻节点：前驱节点 n0 的值为 1，后继节点 n1 的值为 3，n0.next 指向 n1，n1 右侧的箭头与省略号表示后续链表保持不变。待插入节点 P 的值为 0，初始独立于这条链表之外。"
+          "前驱节点 n0 的值为 1，后继节点 n1 的值为 3，初始时 n0.next 指向 n1，n1 右侧的省略号表示后续链表；待插入节点 P 的值为 0，初始尚未接入链表。next 表示节点的后继指针（引用）。"
         ],
         "description": [
-          "在 n0 与 n1 之间插入节点 P 需要分两步修改引用：第一步先执行 P.next = n1，让新节点 P 指向后继节点 n1；第二步再执行 n0.next = P，把前驱节点 n0 的后继引用改为指向 P。",
-          "整个过程只改变节点之间的 next 引用方向，不改变任何节点的数值，也不影响 n1 之后的链表部分。"
+          "分两步依次修改 P.next 和 n0.next 的指向；整个过程中各节点的数值以及 n1 之后的链表连接均保持不变。"
         ],
-        "result": "插入完成后，链表局部连接变为 n0 → P → n1 → …，对应节点值序列为 1 → 0 → 3 → …。",
+        "result": "插入完成后链表连接为 n0（1）→ P（0）→ n1（3）→ …。各节点的数值及 n1 之后的连接保持不变；在已知前驱节点位置的前提下，两次引用修改的时间复杂度为 O(1)，无须移动后续节点。",
         "steps": [
           {
             "id": "step-1",
-            "title": "初始链表连接与独立节点 P",
-            "explanation": "画面左侧标注“示例：在链表节点 n0 和 n1 之间插入节点 P”。上方链表中 n0（值为 1）通过水平箭头指向 n1（值为 3），n1 继续指向右侧省略号；待插入节点 P（值为 0）独立位于下方，尚未接入链表，图中也未画出 P 的 next 引用。",
-            "state": "节点 n0 值为 1，n0.next 指向 n1；节点 n1 值为 3，继续指向后续省略部分；待插入节点 P 值为 0，独立于链表之外，未显示 next 指向。",
-            "key_state": "初始 n0 → n1，节点 P 独立未接入。",
-            "announcement": "显示初始链表 n0 → n1 与独立待插入节点 P。"
+            "title": "初始连接",
+            "explanation": "初始时 n0.next = n1，待插入节点 P 独立于链表之外，图中未画出 P.next 的初始指向。",
+            "state": "n0（值 1）的 n0.next 指向 n1（值 3），n1 后续连接省略；待插入节点 P（值 0）尚未接入链表，未画出其 next 指向。",
+            "key_state": "初始状态：n0.next = n1，节点 P（值 0）独立在外未接入。",
+            "announcement": "显示初始链表 n0（1）→ n1（3）与待插入节点 P（0）。"
           },
           {
             "id": "step-2",
-            "title": "执行 P.next = n1，先连接后继节点",
-            "explanation": "画面出现标注“P.next = n1，即令 P 指向 n1”，并新增一条从下方节点 P 指向右上角节点 n1 的斜向箭头。此时 n0.next 仍然指向 n1，n0 与 P 两个节点同时指向 n1，从 n0 出发沿 next 仍直接到达 n1，尚未经过 P。",
-            "state": "节点 n0 值为 1，n0.next 指向 n1；节点 P 值为 0，P.next 指向 n1；节点 n1 值为 3，后续连接不变；此时从 n0 遍历仍未经过 P。",
-            "key_state": "已执行 P.next = n1，n0.next 仍指向 n1。",
-            "announcement": "令 P.next 指向 n1，新节点先连上后继节点。"
+            "title": "连接 P 的后继",
+            "explanation": "执行 P.next = n1，使新节点 P 先连上后继节点 n1。此时 n0.next 仍指向 n1，从 n0 出发沿 next 仍直接到达 n1，还不会经过 P。",
+            "state": "n0（值 1）的 n0.next 与 P（值 0）的 P.next 均指向 n1（值 3），n1 后续连接不变；此时从 n0 出发仍直接到 n1，尚未经过 P。",
+            "key_state": "已执行 P.next = n1，且 n0.next 仍指向 n1（两者均指向 n1），从 n0 出发尚未经过 P。",
+            "announcement": "执行 P.next = n1，让新节点 P 先指向后继 n1。"
           },
           {
             "id": "step-3",
-            "title": "执行 n0.next = P，完成节点插入",
-            "explanation": "标注更新为“n0.next = P，即令 n0 指向 P”。原本从 n0 直接指向 n1 的箭头改为从 n0 指向 P，同时保留上一步建立的 P → n1 箭头。至此，从 n0 出发可依次经过 P 到达 n1 及后续节点，插入完成。",
-            "state": "节点 n0 值为 1，n0.next 指向 P；节点 P 值为 0，P.next 指向 n1；节点 n1 值为 3，继续指向后续省略部分；局部链表为 n0 → P → n1 → …。",
-            "key_state": "已执行 n0.next = P，链表变为 n0 → P → n1。",
-            "announcement": "令 n0.next 指向 P，完成节点 P 的插入。"
+            "title": "把 P 接入链表",
+            "explanation": "执行 n0.next = P，同时保留 P.next = n1。现在从 n0 出发会先经过 P，再到达 n1 及后续节点，插入完成。",
+            "state": "n0.next 指向 P，P.next 指向 n1；链表连接变为 n0（1）→ P（0）→ n1（3）→ …，最终节点值顺序为 1 → 0 → 3 → 后续，插入完成。",
+            "key_state": "已执行 n0.next = P 且 P.next = n1；最终链表为 n0（1）→ P（0）→ n1（3）→ …。",
+            "announcement": "执行 n0.next = P，将前驱 n0 指向 P，完成节点插入。"
           }
         ],
         "review": {
           "status": "confirmed",
-          "run_id": "figure-accessibility-20261114/animations/batch-01",
-          "content_sha256": "8d38ad7445727c2fd864b42b061834b4faf0baa944c4467c203e4d5c9b16c219",
+          "run_id": "figure-reading-20261116/pilot",
+          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
           "stages": [
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "b6174850feed92b51c3d512a1a38c62aaf02c614ff07640008831c8726ce0a64",
-              "output_sha256": "dd7f9f098b8c6e77ff0f0fabc4879e20180eac76e44e8ba253820d46c888cef7"
+              "input_sha256": "76221e551e823df12694a8c35d8cfb4cb1af67dd09a1a07874bc23cd9b5576a8",
+              "output_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37"
             },
             {
               "requested_model": "gemini-4-argon",
               "actual_model": null,
               "model_confirmation": "provider_not_reported",
-              "input_sha256": "dd7f9f098b8c6e77ff0f0fabc4879e20180eac76e44e8ba253820d46c888cef7",
-              "output_sha256": "00dbf3ad9071e0a78f3f320067484cdbea304d50e0c1faae49ed41c17350f825"
+              "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
+              "output_sha256": "fd53774fcd5dd948fdcf548f8c1dd5a487be6b67d2fe5a344182d771eff53088"
             },
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "00dbf3ad9071e0a78f3f320067484cdbea304d50e0c1faae49ed41c17350f825",
-              "output_sha256": "b52ab18dd9c1db9a93bc5c3e340b21d0414a0d86594f1d061ffd5191a1c5f993"
+              "input_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
+              "output_sha256": "20547b71f26baaac7d942e983c90a3e7f85efeba17283328cf860267d56b5f19"
             }
           ],
-          "evidence_sha256": "f629e6bda011b65c2484338a3ba90bd400522d0d30bc8a435a852c5403cbb741"
+          "evidence_sha256": "93dfeae91f5b2894480e8953a70cc85c3875bf4e67a4a9451a5cc5b523302adb",
+          "verification_manifest_sha256": "b2b43bec082e03350f53df92e282dd7d0c9b5e048bf60625572f6fb0895c13b6",
+          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+          "assembly": {
+            "method": "schema-2; row-header indexes from reviewed table identity; DP state-table patch; independent final review of merged bytes",
+            "merged_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
+            "supplemental_stages": [
+              {
+                "requested_model": "gpt-6-astra",
+                "actual_model": "gpt-6-astra",
+                "model_confirmation": "native_runtime",
+                "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
+                "output_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c"
+              },
+              {
+                "requested_model": "gemini-4-argon",
+                "actual_model": null,
+                "model_confirmation": "provider_not_reported",
+                "input_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c",
+                "output_sha256": "fa2da0296dfbfd49814e3dc3d47e8638096b2bbf8d1524c646d37bede603c095"
+              }
+            ]
+          },
+          "content_sha256": "f9412f5d6b265a77d56df8a443e74ab50291362753f0445c815c2e44ac6bccdd"
         }
       }
     }
+  },
+  "tables": [
+    {
+      "caption": "插入过程的连接",
+      "headers": [
+        "阶段",
+        "n0.next",
+        "P.next",
+        "从n0出发依次经过"
+      ],
+      "rows": [
+        [
+          "初始",
+          "n1",
+          "未画出指向",
+          "n0 → n1 → …"
+        ],
+        [
+          "连接P的后继",
+          "n1",
+          "n1",
+          "n0 → n1 → …"
+        ],
+        [
+          "完成插入",
+          "P",
+          "n1",
+          "n0 → P → n1 → …"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/pilot",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "76221e551e823df12694a8c35d8cfb4cb1af67dd09a1a07874bc23cd9b5576a8",
+        "output_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
+        "output_sha256": "fd53774fcd5dd948fdcf548f8c1dd5a487be6b67d2fe5a344182d771eff53088"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
+        "output_sha256": "20547b71f26baaac7d942e983c90a3e7f85efeba17283328cf860267d56b5f19"
+      }
+    ],
+    "evidence_sha256": "93dfeae91f5b2894480e8953a70cc85c3875bf4e67a4a9451a5cc5b523302adb",
+    "verification_manifest_sha256": "b2b43bec082e03350f53df92e282dd7d0c9b5e048bf60625572f6fb0895c13b6",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "assembly": {
+      "method": "schema-2; row-header indexes from reviewed table identity; DP state-table patch; independent final review of merged bytes",
+      "merged_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
+      "supplemental_stages": [
+        {
+          "requested_model": "gpt-6-astra",
+          "actual_model": "gpt-6-astra",
+          "model_confirmation": "native_runtime",
+          "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
+          "output_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c"
+        },
+        {
+          "requested_model": "gemini-4-argon",
+          "actual_model": null,
+          "model_confirmation": "provider_not_reported",
+          "input_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c",
+          "output_sha256": "fa2da0296dfbfd49814e3dc3d47e8638096b2bbf8d1524c646d37bede603c095"
+        }
+      ]
+    },
+    "content_sha256": "2ba0e44b0efa39c6788226c8315a7f7b67738a87ddc22e9dd276bb7eca5bb70b"
   }
 }

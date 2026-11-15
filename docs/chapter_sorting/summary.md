@@ -13,6 +13,11 @@
 - 下图对比了主流排序算法的效率、稳定性、就地性和自适应性等。
 
 ![排序算法对比](summary.assets/sorting_algorithms_comparison.svg)
+<!-- figure-reading:start group:chapter_sorting/summary.assets/sorting_algorithms_comparison -->
+
+[排序算法对比：完整图解](summary.assets/sorting_algorithms_comparison.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### Q & A
 

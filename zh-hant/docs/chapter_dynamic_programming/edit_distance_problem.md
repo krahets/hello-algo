@@ -11,6 +11,11 @@
 如下圖所示，將 `kitten` 轉換為 `sitting` 需要編輯 3 步，包括 2 次替換操作與 1 次新增操作；將 `hello` 轉換為 `algo` 需要 3 步，包括 2 次替換操作和 1 次刪除操作。
 
 ![編輯距離的示例資料](edit_distance_problem.assets/edit_distance_example.svg)
+<!-- figure-reading:start group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_example -->
+
+[編輯距離：兩個三步轉換示例：完整圖解](edit_distance_problem.assets/edit_distance_example.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 **編輯距離問題可以很自然地用決策樹模型來解釋**。字串對應樹節點，一輪決策（一次編輯操作）對應樹的一條邊。
 
@@ -19,6 +24,11 @@
 從決策樹的角度看，本題的目標是求解節點 `hello` 和節點 `algo` 之間的最短路徑。
 
 ![基於決策樹模型表示編輯距離問題](edit_distance_problem.assets/edit_distance_decision_tree.svg)
+<!-- figure-reading:start group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_decision_tree -->
+
+[編輯距離的決策樹：完整圖解](edit_distance_problem.assets/edit_distance_decision_tree.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 動態規劃思路
 
@@ -46,6 +56,11 @@
 3. 將 $s[i-1]$ 替換為 $t[j-1]$ ，則剩餘子問題 $dp[i-1, j-1]$ 。
 
 ![編輯距離的狀態轉移](edit_distance_problem.assets/edit_distance_state_transfer.svg)
+<!-- figure-reading:start group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_state_transfer -->
+
+[編輯距離的狀態轉移：完整圖解](edit_distance_problem.assets/edit_distance_state_transfer.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 根據以上分析，可得最優子結構：$dp[i, j]$ 的最少編輯步數等於 $dp[i, j-1]$、$dp[i-1, j]$、$dp[i-1, j-1]$ 三者中的最少編輯步數，再加上本次的編輯步數 $1$ 。對應的狀態轉移方程為：
 
@@ -77,46 +92,51 @@ $$
     ![編輯距離的動態規劃過程](edit_distance_problem.assets/edit_distance_dp_step1.svg)
 
 === "<2>"
-    ![編輯距離：完整動態規劃，第 2 步，共 15 步：第 2 步：初始化首行與首列空串邊界](edit_distance_problem.assets/edit_distance_dp_step2.svg)
+    ![編輯距離的動態規劃，第 2 步，共 15 步：初始化首行與首列空串轉換邊界](edit_distance_problem.assets/edit_distance_dp_step2.svg)
 
 === "<3>"
-    ![編輯距離：完整動態規劃，第 3 步，共 15 步：第 3 步：計算 dp\[1, 1\]（b 對 p），最少 1 步](edit_distance_problem.assets/edit_distance_dp_step3.svg)
+    ![編輯距離的動態規劃，第 3 步，共 15 步：計算 dp\[1, 1\]（源字首 b 轉目標字首 p）：最少 1 步](edit_distance_problem.assets/edit_distance_dp_step3.svg)
 
 === "<4>"
-    ![編輯距離：完整動態規劃，第 4 步，共 15 步：第 4 步：計算 dp\[1, 2\]（b 對 pa），最少 2 步](edit_distance_problem.assets/edit_distance_dp_step4.svg)
+    ![編輯距離的動態規劃，第 4 步，共 15 步：計算 dp\[1, 2\]（源字首 b 轉目標字首 pa）：最少 2 步](edit_distance_problem.assets/edit_distance_dp_step4.svg)
 
 === "<5>"
-    ![編輯距離：完整動態規劃，第 5 步，共 15 步：第 5 步：計算 dp\[1, 3\]（b 對 pac），最少 3 步](edit_distance_problem.assets/edit_distance_dp_step5.svg)
+    ![編輯距離的動態規劃，第 5 步，共 15 步：計算 dp\[1, 3\]（源字首 b 轉目標字首 pac）：最少 3 步](edit_distance_problem.assets/edit_distance_dp_step5.svg)
 
 === "<6>"
-    ![編輯距離：完整動態規劃，第 6 步，共 15 步：第 6 步：計算 dp\[1, 4\]（b 對 pack），最少 4 步](edit_distance_problem.assets/edit_distance_dp_step6.svg)
+    ![編輯距離的動態規劃，第 6 步，共 15 步：計算 dp\[1, 4\]（源字首 b 轉目標串 pack）：最少 4 步](edit_distance_problem.assets/edit_distance_dp_step6.svg)
 
 === "<7>"
-    ![編輯距離：完整動態規劃，第 7 步，共 15 步：第 7 步：計算 dp\[2, 1\]（ba 對 p），最少 2 步](edit_distance_problem.assets/edit_distance_dp_step7.svg)
+    ![編輯距離的動態規劃，第 7 步，共 15 步：計算 dp\[2, 1\]（源字首 ba 轉目標字首 p）：最少 2 步](edit_distance_problem.assets/edit_distance_dp_step7.svg)
 
 === "<8>"
-    ![編輯距離：完整動態規劃，第 8 步，共 15 步：第 8 步：計算 dp\[2, 2\]（ba 對 pa），尾字元相同直接複製 1](edit_distance_problem.assets/edit_distance_dp_step8.svg)
+    ![編輯距離的動態規劃，第 8 步，共 15 步：計算 dp\[2, 2\]（源字首 ba 轉目標字首 pa）：尾字元同為 a，直接取 1](edit_distance_problem.assets/edit_distance_dp_step8.svg)
 
 === "<9>"
-    ![編輯距離：完整動態規劃，第 9 步，共 15 步：第 9 步：計算 dp\[2, 3\]（ba 對 pac），最少 2 步](edit_distance_problem.assets/edit_distance_dp_step9.svg)
+    ![編輯距離的動態規劃，第 9 步，共 15 步：計算 dp\[2, 3\]（源字首 ba 轉目標字首 pac）：最少 2 步](edit_distance_problem.assets/edit_distance_dp_step9.svg)
 
 === "<10>"
-    ![編輯距離：完整動態規劃，第 10 步，共 15 步：第 10 步：計算 dp\[2, 4\]（ba 對 pack），最少 3 步](edit_distance_problem.assets/edit_distance_dp_step10.svg)
+    ![編輯距離的動態規劃，第 10 步，共 15 步：計算 dp\[2, 4\]（源字首 ba 轉目標串 pack）：最少 3 步](edit_distance_problem.assets/edit_distance_dp_step10.svg)
 
 === "<11>"
-    ![編輯距離：完整動態規劃，第 11 步，共 15 步：第 11 步：計算 dp\[3, 1\]（bag 對 p），最少 3 步](edit_distance_problem.assets/edit_distance_dp_step11.svg)
+    ![編輯距離的動態規劃，第 11 步，共 15 步：計算 dp\[3, 1\]（源串 bag 轉目標字首 p）：最少 3 步](edit_distance_problem.assets/edit_distance_dp_step11.svg)
 
 === "<12>"
-    ![編輯距離：完整動態規劃，第 12 步，共 15 步：第 12 步：計算 dp\[3, 2\]（bag 對 pa），最少 2 步](edit_distance_problem.assets/edit_distance_dp_step12.svg)
+    ![編輯距離的動態規劃，第 12 步，共 15 步：計算 dp\[3, 2\]（源串 bag 轉目標字首 pa）：最少 2 步](edit_distance_problem.assets/edit_distance_dp_step12.svg)
 
 === "<13>"
-    ![編輯距離：完整動態規劃，第 13 步，共 15 步：第 13 步：計算 dp\[3, 3\]（bag 對 pac），最少 2 步](edit_distance_problem.assets/edit_distance_dp_step13.svg)
+    ![編輯距離的動態規劃，第 13 步，共 15 步：計算 dp\[3, 3\]（源串 bag 轉目標字首 pac）：最少 2 步](edit_distance_problem.assets/edit_distance_dp_step13.svg)
 
 === "<14>"
-    ![編輯距離：完整動態規劃，第 14 步，共 15 步：第 14 步：計算 dp\[3, 4\]（bag 對 pack），最少 3 步](edit_distance_problem.assets/edit_distance_dp_step14.svg)
+    ![編輯距離的動態規劃，第 14 步，共 15 步：計算 dp\[3, 4\]（源串 bag 轉目標串 pack）：最少 3 步](edit_distance_problem.assets/edit_distance_dp_step14.svg)
 
 === "<15>"
-    ![編輯距離：完整動態規劃，第 15 步，共 15 步：第 15 步：返回最少編輯步數 3](edit_distance_problem.assets/edit_distance_dp_step15.svg)
+    ![編輯距離的動態規劃，第 15 步，共 15 步：讀取右下角 dp\[3, 4\]，返回最少編輯步數 3](edit_distance_problem.assets/edit_distance_dp_step15.svg)
+<!-- figure-reading:start group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp -->
+
+[編輯距離的動態規劃：完整圖解](edit_distance_problem.assets/edit_distance_dp.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 空間最佳化
 

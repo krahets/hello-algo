@@ -1,15 +1,16 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree",
   "title": "暴力爬楼梯搜索的重叠子问题",
-  "summary": "从 dp[9] 自顶向下递归拆分时，相同的子问题会在不同分支中被反复求解。",
+  "summary": "从 dp[9] 自顶向下暴力递归拆分时，相同的子问题不共享结果，会在不同分支中被反复展开求解。",
   "context": [
-    "爬楼梯问题中每步上 1 阶或 2 阶，dp[i] 表示爬到第 i 阶的方案数。暴力搜索直接按递推式 dp[i]=dp[i-1]+dp[i-2] 向下递归分解，直到触及基本情况 dp[1]=1 或 dp[2]=2。"
+    "爬楼梯问题中每步上 1 阶或 2 阶，dp[i] 表示爬到第 i 阶的方案数。暴力搜索直接按递推式 dp[i] = dp[i − 1] + dp[i − 2] 向下递归分解，直到触及基本情况 dp[1] = 1 或 dp[2] = 2。"
   ],
   "description": [
-    "四层有向二叉树从顶部根节点 dp[9] 向下展开，第四层下方连接 16 个省略号表示继续递归。树中相同的状态节点涂以相同颜色：dp[9] 为深灰色、dp[8] 为红色、dp[7] 为橙色、dp[6] 为蓝色、dp[5] 为绿色、dp[4] 为青色、dp[3] 为紫色，直观凸显同一状态在不同分支中的重复出现。"
+    "求 dp[9] 时先求 dp[8] 与 dp[7]；求 dp[8] 又会求 dp[7] 与 dp[6]。暴力树中的两个 dp[7] 不共享一次计算，每次遇到都会各自再次展开求解。",
+    "图中只画到前四层共 15 个状态节点，底部 16 个省略号表示继续递归至基本情况 dp[1] 或 dp[2]。表中次数（如 dp[5] 出现 4 次）只统计已画出的四层，不代表整个递归过程的总次数。"
   ],
   "result": "同一个状态节点在树中出现多次，代表暴力递归对该子问题发起了多次独立的重复计算；底部文字指出重叠子问题导致时间复杂度达到指数阶 O(2^n)。",
   "frames": [
@@ -17,42 +18,10 @@
       "id": "source-369",
       "book_path": "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png",
       "title": "暴力爬楼梯搜索的重叠子问题",
-      "explanation": "第一层根节点为 dp[9]，向下拆分为第二层的 dp[8] 和 dp[7]。第三层从左到右依次拆分为 dp[7]、dp[6]（来自 dp[8]）与 dp[6]、dp[5]（来自 dp[7]）。第四层从左到右共 8 个节点，依次为 dp[6]、dp[5]、dp[5]、dp[4]、dp[5]、dp[4]、dp[4]、dp[3]，随后每个节点再分出两个省略号分支继续向下递归，直至到达 dp[1] 或 dp[2]。仅在前四层中，dp[7] 就出现了 2 次，dp[6] 出现了 3 次，dp[5] 出现了 4 次，dp[4] 出现了 3 次。",
-      "state": "四层递归树：第 1 层为 dp[9]；第 2 层为 dp[8]、dp[7]；第 3 层为 dp[7]、dp[6]、dp[6]、dp[5]；第 4 层为 dp[6]、dp[5]、dp[5]、dp[4]、dp[5]、dp[4]、dp[4]、dp[3]，其下连接 16 个省略号。图底标注“搜索生成的递归树存在大量重叠子问题，导致时间复杂度为指数阶 O(2^n)”。",
-      "key_state": "dp[9] 向下拆分时，dp[7]、dp[6]、dp[5]、dp[4] 等子问题在多条分支重复展开。",
-      "announcement": "从 dp[9] 逐层拆分后，不同分支反复遇到相同的 dp 状态并重复展开，造成指数级计算开销。"
+      "explanation": "重复状态并非共享一个已算出的结果；暴力递归每次遇到它都会各自再次展开求解。",
+      "state": "图示四层共显示 15 个状态节点，其下有 16 个省略分支。各层状态与前四层出现次数见表。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-19",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "e6ddf1f2d1bb153f1d57bdd030daf39fb8b3357b20b8a1e6d6128f668221c57b",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "dcea2ce4eb56814df492beb0353b69ca48748a38ea8c5b34963d8ce99d7a20df",
-        "output_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c",
-        "output_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f",
-        "output_sha256": "1603107bf51a94e045d71a5f3540a9b6e58f184da52d98978a06e9e10e5ca484"
-      }
-    ],
-    "evidence_sha256": "830dfd6d376fed2c39b7c0da47ad3af42913a4655f9fdeea3b18ab9df35addbc"
-  },
   "dependencies": {
     "markdown": {
       "chapter_dynamic_programming/intro_to_dynamic_programming.md": "0995a3cd45b316e145efd517bc64d6d48a880cc2e2ad626a0bc24d063262a59f"
@@ -61,5 +30,119 @@
     "scenes": {
       "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png": "0e268e2e4c891e991b2393556b32bffe01b551d391a59ff69e6599ce2853f5b0"
     }
+  },
+  "tables": [
+    {
+      "caption": "已展示的四层递归状态",
+      "headers": [
+        "层（根为第 1 层）",
+        "状态（从左到右）"
+      ],
+      "rows": [
+        [
+          "1",
+          "dp[9]"
+        ],
+        [
+          "2",
+          "dp[8]、dp[7]"
+        ],
+        [
+          "3",
+          "dp[7]、dp[6]、dp[6]、dp[5]"
+        ],
+        [
+          "4",
+          "dp[6]、dp[5]、dp[5]、dp[4]、dp[5]、dp[4]、dp[4]、dp[3]"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "分解关系与前四层出现次数",
+      "headers": [
+        "状态",
+        "左子问题",
+        "右子问题",
+        "前四层出现次数"
+      ],
+      "rows": [
+        [
+          "dp[9]",
+          "dp[8]",
+          "dp[7]",
+          "1"
+        ],
+        [
+          "dp[8]",
+          "dp[7]",
+          "dp[6]",
+          "1"
+        ],
+        [
+          "dp[7]",
+          "dp[6]",
+          "dp[5]",
+          "2"
+        ],
+        [
+          "dp[6]",
+          "dp[5]",
+          "dp[4]",
+          "3"
+        ],
+        [
+          "dp[5]",
+          "dp[4]",
+          "dp[3]",
+          "4"
+        ],
+        [
+          "dp[4]",
+          "dp[3]",
+          "dp[2]",
+          "3"
+        ],
+        [
+          "dp[3]",
+          "dp[2]",
+          "dp[1]",
+          "1"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-12",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "2db7b8b0ecd549998fdef4f0b1f30abddd5f422b11a7d32336c10c15ba4135ad",
+        "output_sha256": "2c9c8bbef62d495610441001475851c93659a0b4a44bed6cd9e8183150e44092"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "2c9c8bbef62d495610441001475851c93659a0b4a44bed6cd9e8183150e44092",
+        "output_sha256": "a2ace14bd5018750c19e80363cbad3331032bfa946914771946e57e407668e7a"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a2ace14bd5018750c19e80363cbad3331032bfa946914771946e57e407668e7a",
+        "output_sha256": "c7a7bb6d6515cebec7bbacf4a6095365cb25f8f5dbdc25b8a75d801c27d3cfa7"
+      }
+    ],
+    "evidence_sha256": "5d2e4ec7f377fdb6c214c393e67369ccbad6377559d1dd71998f5b7ecbbcc1d5",
+    "verification_manifest_sha256": "bbc351cd7b91cef62b4c7a18bd298e76111e9a508bd7137d745c92ce2d82153d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "05c90913562c41ef92c125aff1dacd885019c14deffbee7906b2871deff847eb"
   }
 }

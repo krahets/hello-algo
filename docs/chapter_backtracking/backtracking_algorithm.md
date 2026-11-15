@@ -15,6 +15,11 @@
 ```
 
 ![在前序遍历中搜索节点](backtracking_algorithm.assets/preorder_find_nodes.svg)
+<!-- figure-reading:start group:chapter_backtracking/backtracking_algorithm.assets/preorder_find_nodes -->
+
+[在前序遍历中搜索并记录所有值为 7 的节点：完整图解](backtracking_algorithm.assets/preorder_find_nodes.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ## 尝试与回退
 
@@ -42,34 +47,39 @@
     ![尝试与回退](backtracking_algorithm.assets/preorder_find_paths_step1.svg)
 
 === "<2>"
-    ![在前序遍历中尝试与回退以记录所有到达 7 的路径，第 2 步，共 11 步：进入左子节点 7 并记录第一条路径](backtracking_algorithm.assets/preorder_find_paths_step2.svg)
+    ![尝试与回退：保存到达 7 的路径，第 2 步，共 11 步：命中左侧 7，保存路径](backtracking_algorithm.assets/preorder_find_paths_step2.svg)
 
 === "<3>"
-    ![在前序遍历中尝试与回退以记录所有到达 7 的路径，第 3 步，共 11 步：继续向下尝试左子节点 4](backtracking_algorithm.assets/preorder_find_paths_step3.svg)
+    ![尝试与回退：保存到达 7 的路径，第 3 步，共 11 步：进入节点 4](backtracking_algorithm.assets/preorder_find_paths_step3.svg)
 
 === "<4>"
-    ![在前序遍历中尝试与回退以记录所有到达 7 的路径，第 4 步，共 11 步：从节点 4 回退到父节点 7](backtracking_algorithm.assets/preorder_find_paths_step4.svg)
+    ![尝试与回退：保存到达 7 的路径，第 4 步，共 11 步：退出 4，回到左侧 7](backtracking_algorithm.assets/preorder_find_paths_step4.svg)
 
 === "<5>"
-    ![在前序遍历中尝试与回退以记录所有到达 7 的路径，第 5 步，共 11 步：尝试进入右兄弟节点 5](backtracking_algorithm.assets/preorder_find_paths_step5.svg)
+    ![尝试与回退：保存到达 7 的路径，第 5 步，共 11 步：进入节点 5](backtracking_algorithm.assets/preorder_find_paths_step5.svg)
 
 === "<6>"
-    ![在前序遍历中尝试与回退以记录所有到达 7 的路径，第 6 步，共 11 步：连续回退完成左子树并回到根 1](backtracking_algorithm.assets/preorder_find_paths_step6.svg)
+    ![尝试与回退：保存到达 7 的路径，第 6 步，共 11 步：退出 5 和左侧 7](backtracking_algorithm.assets/preorder_find_paths_step6.svg)
 
 === "<7>"
-    ![在前序遍历中尝试与回退以记录所有到达 7 的路径，第 7 步，共 11 步：尝试进入根的右子节点 3](backtracking_algorithm.assets/preorder_find_paths_step7.svg)
+    ![尝试与回退：保存到达 7 的路径，第 7 步，共 11 步：进入节点 3](backtracking_algorithm.assets/preorder_find_paths_step7.svg)
 
 === "<8>"
-    ![在前序遍历中尝试与回退以记录所有到达 7 的路径，第 8 步，共 11 步：尝试进入节点 3 的左子节点 6](backtracking_algorithm.assets/preorder_find_paths_step8.svg)
+    ![尝试与回退：保存到达 7 的路径，第 8 步，共 11 步：进入节点 6](backtracking_algorithm.assets/preorder_find_paths_step8.svg)
 
 === "<9>"
-    ![在前序遍历中尝试与回退以记录所有到达 7 的路径，第 9 步，共 11 步：从节点 6 回退到父节点 3](backtracking_algorithm.assets/preorder_find_paths_step9.svg)
+    ![尝试与回退：保存到达 7 的路径，第 9 步，共 11 步：退出 6，回到 3](backtracking_algorithm.assets/preorder_find_paths_step9.svg)
 
 === "<10>"
-    ![在前序遍历中尝试与回退以记录所有到达 7 的路径，第 10 步，共 11 步：进入右侧节点 7 并记录第二条路径](backtracking_algorithm.assets/preorder_find_paths_step10.svg)
+    ![尝试与回退：保存到达 7 的路径，第 10 步，共 11 步：命中右侧 7，保存路径](backtracking_algorithm.assets/preorder_find_paths_step10.svg)
 
 === "<11>"
-    ![在前序遍历中尝试与回退以记录所有到达 7 的路径，第 11 步，共 11 步：逐层回退直至 path 清空](backtracking_algorithm.assets/preorder_find_paths_step11.svg)
+    ![尝试与回退：保存到达 7 的路径，第 11 步，共 11 步：退出右侧 7、3 和根 1](backtracking_algorithm.assets/preorder_find_paths_step11.svg)
+<!-- figure-reading:start group:chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths -->
+
+[尝试与回退：保存到达 7 的路径：完整图解](backtracking_algorithm.assets/preorder_find_paths.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ## 剪枝
 
@@ -88,6 +98,11 @@
 “剪枝”是一个非常形象的名词。如下图所示，在搜索过程中，**我们“剪掉”了不满足约束条件的搜索分支**，避免许多无意义的尝试，从而提高了搜索效率。
 
 ![根据约束条件剪枝](backtracking_algorithm.assets/preorder_find_constrained_paths.svg)
+<!-- figure-reading:start group:chapter_backtracking/backtracking_algorithm.assets/preorder_find_constrained_paths -->
+
+[根据路径不含 3 的约束条件剪枝：完整图解](backtracking_algorithm.assets/preorder_find_constrained_paths.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ## 框架代码
 
@@ -108,6 +123,11 @@ backtrack_framework
 根据题意，我们在找到值为 $7$ 的节点后应该继续搜索，**因此需要将记录解之后的 `return` 语句删除**。下图对比了保留或删除 `return` 语句的搜索过程。
 
 ![保留与删除 return 的搜索过程对比](backtracking_algorithm.assets/backtrack_remove_return_or_not.svg)
+<!-- figure-reading:start group:chapter_backtracking/backtracking_algorithm.assets/backtrack_remove_return_or_not -->
+
+[记录解后是否继续搜索：完整图解](backtracking_algorithm.assets/backtrack_remove_return_or_not.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 相比基于前序遍历的代码实现，基于回溯算法框架的代码实现虽然显得啰唆，但通用性更好。实际上，**许多回溯问题可以在该框架下解决**。我们只需根据具体问题来定义 `state` 和 `choices` ，并实现框架中的各个方法即可。
 

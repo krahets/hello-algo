@@ -5,6 +5,11 @@
 如下图所示，我们将队列头部称为“队首”，尾部称为“队尾”，将把元素加入队尾的操作称为“入队”，删除队首元素的操作称为“出队”。
 
 ![队列的先入先出规则](queue.assets/queue_operations.svg)
+<!-- figure-reading:start group:chapter_stack_and_queue/queue.assets/queue_operations -->
+
+[队列的入出操作：完整图解](queue.assets/queue_operations.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ## 队列常用操作
 
@@ -40,10 +45,15 @@ queue_operations
     ![基于链表实现队列的入队出队操作](queue.assets/linkedlist_queue_step1.svg)
 
 === "<2>"
-    ![基于链表实现队列的入队与出队，第 2 步，共 3 步：步骤 2：入队 push(4)，将节点 4 添加至链表尾部](queue.assets/linkedlist_queue_step2_push.svg)
+    ![基于链表实现队列的入队与出队，第 2 步，共 3 步：在链表尾部入队 4](queue.assets/linkedlist_queue_step2_push.svg)
 
 === "<3>"
-    ![基于链表实现队列的入队与出队，第 3 步，共 3 步：步骤 3：出队 pop()，删除链表头节点 1](queue.assets/linkedlist_queue_step3_pop.svg)
+    ![基于链表实现队列的入队与出队，第 3 步，共 3 步：在链表头部出队 1](queue.assets/linkedlist_queue_step3_pop.svg)
+<!-- figure-reading:start group:chapter_stack_and_queue/queue.assets/linkedlist_queue -->
+
+[基于链表实现队列的入队与出队：完整图解](queue.assets/linkedlist_queue.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 以下是用链表实现队列的代码：
 
@@ -68,10 +78,15 @@ queue_operations
     ![基于数组实现队列的入队出队操作](queue.assets/array_queue_step1.svg)
 
 === "<2>"
-    ![基于数组实现队列的入队与出队，第 2 步，共 3 步：步骤 2：入队 push(4)，写入 rear 位置并将 size 自增 1](queue.assets/array_queue_step2_push.svg)
+    ![基于数组实现队列的入队与出队，第 2 步，共 3 步：在 rear 位置入队 4](queue.assets/array_queue_step2_push.svg)
 
 === "<3>"
-    ![基于数组实现队列的入队与出队，第 3 步，共 3 步：步骤 3：出队 pop()，将 front 自增 1 并将 size 自减 1](queue.assets/array_queue_step3_pop.svg)
+    ![基于数组实现队列的入队与出队，第 3 步，共 3 步：移动 front，队首 1 出队](queue.assets/array_queue_step3_pop.svg)
+<!-- figure-reading:start group:chapter_stack_and_queue/queue.assets/array_queue -->
+
+[基于数组实现队列的入队与出队：完整图解](queue.assets/array_queue.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 你可能会发现一个问题：在不断进行入队和出队的过程中，`front` 和 `rear` 都在向右移动，**当它们到达数组尾部时就无法继续移动了**。为了解决此问题，我们可以将数组视为首尾相接的“环形数组”。
 

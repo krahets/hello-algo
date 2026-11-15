@@ -7,6 +7,11 @@
 如下圖所示，我們把堆積疊元素的頂部稱為“堆疊頂”，底部稱為“堆疊底”。將把元素新增到堆疊頂的操作叫作“入堆疊”，刪除堆疊頂元素的操作叫作“出堆疊”。
 
 ![堆疊的先入後出規則](stack.assets/stack_operations.svg)
+<!-- figure-reading:start group:chapter_stack_and_queue/stack.assets/stack_operations -->
+
+[堆疊的入出操作：完整圖解](stack.assets/stack_operations.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ## 堆疊的常用操作
 
@@ -46,10 +51,15 @@ stack_operations
     ![基於鏈結串列實現堆疊的入堆疊出堆疊操作](stack.assets/linkedlist_stack_step1.svg)
 
 === "<2>"
-    ![基於鏈結串列實現堆疊的入堆疊與出堆疊，第 2 步，共 3 步：步驟 2：入堆疊 push(4)，將節點 4 新增至鏈結串列頭部](stack.assets/linkedlist_stack_step2_push.svg)
+    ![基於鏈結串列實現堆疊的入堆疊與出堆疊，第 2 步，共 3 步：在鏈結串列頭部入堆疊 4](stack.assets/linkedlist_stack_step2_push.svg)
 
 === "<3>"
-    ![基於鏈結串列實現堆疊的入堆疊與出堆疊，第 3 步，共 3 步：步驟 3：出堆疊 pop()，刪除鏈結串列頭節點 4](stack.assets/linkedlist_stack_step3_pop.svg)
+    ![基於鏈結串列實現堆疊的入堆疊與出堆疊，第 3 步，共 3 步：在鏈結串列頭部出堆疊 4](stack.assets/linkedlist_stack_step3_pop.svg)
+<!-- figure-reading:start group:chapter_stack_and_queue/stack.assets/linkedlist_stack -->
+
+[基於鏈結串列實現堆疊的入堆疊與出堆疊：完整圖解](stack.assets/linkedlist_stack.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 以下是基於鏈結串列實現堆疊的示例程式碼：
 
@@ -65,10 +75,15 @@ stack_operations
     ![基於陣列實現堆疊的入堆疊出堆疊操作](stack.assets/array_stack_step1.svg)
 
 === "<2>"
-    ![基於陣列實現堆疊的入堆疊與出堆疊，第 2 步，共 3 步：步驟 2：入堆疊 push(4)，將元素 4 新增至陣列尾部](stack.assets/array_stack_step2_push.svg)
+    ![基於陣列實現堆疊的入堆疊與出堆疊，第 2 步，共 3 步：在陣列尾部入堆疊 4](stack.assets/array_stack_step2_push.svg)
 
 === "<3>"
-    ![基於陣列實現堆疊的入堆疊與出堆疊，第 3 步，共 3 步：步驟 3：出堆疊 pop()，刪除陣列尾元素 4](stack.assets/array_stack_step3_pop.svg)
+    ![基於陣列實現堆疊的入堆疊與出堆疊，第 3 步，共 3 步：在陣列尾部出堆疊 4](stack.assets/array_stack_step3_pop.svg)
+<!-- figure-reading:start group:chapter_stack_and_queue/stack.assets/array_stack -->
+
+[基於陣列實現堆疊的入堆疊與出堆疊：完整圖解](stack.assets/array_stack.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 由於入堆疊的元素可能會源源不斷地增加，因此我們可以使用動態陣列，這樣就無須自行處理陣列擴容問題。以下為示例程式碼：
 

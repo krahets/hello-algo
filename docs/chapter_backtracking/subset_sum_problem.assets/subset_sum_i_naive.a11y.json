@@ -1,58 +1,27 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_backtracking/subset_sum_problem.assets/subset_sum_i_naive",
   "title": "仅按和越界剪枝仍会生成重复组合",
-  "summary": "从元素和 0 出发累加 3、4、5，超过 9 的分支被剪除，但仍会同时输出 [4, 5] 与 [5, 4]。",
+  "summary": "从累计和 0 出发累加 3、4、5，超过 9 的分支被剪除，但仍同时输出重复组合 [4, 5] 与 [5, 4]。",
   "context": [
-    "给定正整数候选数组 choices=[3, 4, 5] 与目标和 target=9，每个元素允许重复选取，且子集（组合）不区分元素顺序。本图展示照搬全排列搜索方式、仅按元素和越界剪枝时的朴素回溯过程。"
+    "给定正整数候选数组 choices = [3, 4, 5] 与目标和 target = 9，允许同一元素重复选取，且结果子集（组合）不区分元素顺序。"
   ],
   "description": [
-    "树中圆形节点内的数字表示当前累计“元素和”，有向边上的蓝、青、紫色小方块分别表示 +3、+4、+5。元素和恰好达到 9 的圆节点呈绿色并标出所得子集；会超过 9 的分支以淡色虚线、红色剪刀及“>9”标记表示，没有继续画出圆形状态节点，对应右上角“越界剪枝：元素和 > 9”。"
+    "圆节点表示当前前缀的累计和（根为 0），每轮从全部候选 3、4、5 中尝试累加：新和超过 9（图中 >9 虚线剪枝，不构成新圆节点）则跳过；恰好等于 9 则记录结果并返回。",
+    "仅检查总和是否超过 9 并未限制选数先后顺序，[4, 5] 与 [5, 4] 都会达到累计和 9 并输出，从而产生重复组合。"
   ],
-  "result": "越界剪枝虽能及时终止和超过 9 的分支，但搜索仍产生 [3, 3, 3]、[4, 5]、[5, 4] 三个结果，其中 [4, 5] 与 [5, 4] 是顺序不同但元素相同的重复组合。",
+  "result": "越界剪枝虽能及时终止累计和超过 9 的分支，但搜索仍输出 [3, 3, 3]、[4, 5]、[5, 4] 三个结果，其中 [4, 5] 与 [5, 4] 是顺序不同但元素相同的重复组合。",
   "frames": [
     {
       "id": "source-358",
       "book_path": "chapter_backtracking/subset_sum_problem.assets/subset_sum_i_naive.png",
       "title": "仅按和越界剪枝仍会生成重复组合",
-      "explanation": "根节点的初始元素和为 0。第一轮分别加 3、4、5，得到元素和 3、4、5。第二轮：在 3 下分别加 3、4、5 得到 6、7、8；在 4 下分别加 3、4、5 得到 7、8、9，其中绿色节点 9 记录子集 [4, 5]；在 5 下加 3 得 8，加 4 得绿色节点 9 并记录子集 [5, 4]，而加 5 因元素和超过 9 被红剪刀剪枝。第三轮：在 6 下加 3 到达绿色节点 9 并记录 [3, 3, 3]，加 4、加 5 均超过 9 被剪；其余所有元素和为 7 或 8 的节点，无论再加 3、4 还是 5 都会超过 9，全部被红剪刀剪枝。",
-      "state": "顶部 choices=[3, 4, 5]、target=9，根圆节点元素和为 0。第一轮圆节点为 3、4、5；第二轮依次为 6/7/8、7/8/绿色 9（输出 [4, 5]）、8/绿色 9（输出 [5, 4]）/>9 标记；第三轮仅 6 下的 +3 到达绿色 9（输出 [3, 3, 3]），其余分支均为带红剪刀的>9 标记 节点。",
-      "key_state": "累计和超过 9 即剪枝，三个成功叶节点为 [3, 3, 3]、[4, 5] 和重复的 [5, 4]。",
-      "announcement": "累计和超过 9 时剪枝停止，搜索得到 [3, 3, 3]、[4, 5] 与顺序重复的 [5, 4]。"
+      "explanation": "越界剪枝及时截断了和大于 9 的分支，但因每轮仍从头枚举全部候选，未能消除反序重复组合。",
+      "state": "搜索树共 13 个实心圆状态节点，成功路径为 [3, 3, 3]、[4, 5]、[5, 4]；全部 13 个前缀的累计和及下一轮 +3、+4、+5 的走向与剪枝见表。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-18",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "92482e261e54a4b738049b7bce2dbf49d0d0bf844fdfbc8a56c3e2372ef759f7",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "4d905ea19e7b4a83ea36041a9c7f9d8d8c1f3b06c72a654e2a9e539750effd5d",
-        "output_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90",
-        "output_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad",
-        "output_sha256": "5ee2b110fd9b935a096ccaacf3e3b27d88bb1cb4918d9a5b6bd2b5a75c56edf0"
-      }
-    ],
-    "evidence_sha256": "5559c3ad6bd5d378f79de2a5c7f96ac680c007486f684e00a24a2512ab4de485"
-  },
   "dependencies": {
     "markdown": {
       "chapter_backtracking/subset_sum_problem.md": "071de898ede315a542cb99a3734fdd4bc42f447fe76e35d4251abc7c6ad4bfa1"
@@ -61,5 +30,115 @@
     "scenes": {
       "chapter_backtracking/subset_sum_problem.assets/subset_sum_i_naive.png": "123c5ff9278a42b57e88cbd4e6d9303f69df6478281a05dc97810dd4bafcb3be"
     }
+  },
+  "tables": [
+    {
+      "caption": "累计和搜索树",
+      "headers": [
+        "当前前缀",
+        "累计和",
+        "下一轮选择或终止原因"
+      ],
+      "rows": [
+        [
+          "[]",
+          "0",
+          "+3→3；+4→4；+5→5"
+        ],
+        [
+          "[3]",
+          "3",
+          "+3→6；+4→7；+5→8"
+        ],
+        [
+          "[4]",
+          "4",
+          "+3→7；+4→8；+5→9，记录 [4,5]"
+        ],
+        [
+          "[5]",
+          "5",
+          "+3→8；+4→9，记录 [5,4]；+5 越界"
+        ],
+        [
+          "[3, 3]",
+          "6",
+          "+3→9，记录 [3,3,3]；+4、+5 越界"
+        ],
+        [
+          "[3, 4]",
+          "7",
+          "+3、+4、+5 全部越界"
+        ],
+        [
+          "[3, 5]",
+          "8",
+          "+3、+4、+5 全部越界"
+        ],
+        [
+          "[4, 3]",
+          "7",
+          "+3、+4、+5 全部越界"
+        ],
+        [
+          "[4, 4]",
+          "8",
+          "+3、+4、+5 全部越界"
+        ],
+        [
+          "[4, 5]",
+          "9",
+          "记录结果并返回"
+        ],
+        [
+          "[5, 3]",
+          "8",
+          "+3、+4、+5 全部越界"
+        ],
+        [
+          "[5, 4]",
+          "9",
+          "记录结果并返回"
+        ],
+        [
+          "[3, 3, 3]",
+          "9",
+          "记录结果并返回"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-11",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "d2adaf8c87d65cbe0b438e864320dfc08404c9d0b39487d5faa113e15aa8fb32",
+        "output_sha256": "d35014a62c0968cd9b2a7f0186f65947037eb19fb8a4f9782aa88666a7338258"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "d35014a62c0968cd9b2a7f0186f65947037eb19fb8a4f9782aa88666a7338258",
+        "output_sha256": "3085ca38d6cb6449bd6b264a8f7210aac47c65c7d91d355c08cdfcefde4ddae6"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "3085ca38d6cb6449bd6b264a8f7210aac47c65c7d91d355c08cdfcefde4ddae6",
+        "output_sha256": "2f40f2a380e3e00da919d3c1b1684ad05b04d0a4ecc6a066ab61f95d1cbc87c3"
+      }
+    ],
+    "evidence_sha256": "29d4da7d4b0938d995b0aa712d110c1bd15ddd7ea5ac487ef6709e67b925ca83",
+    "verification_manifest_sha256": "097ababf496d022ca02085289b6035a137b25d25d8dccd8891a8640b522a5158",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "c81afd4e4d2292cdb30a2df900742cb51d26e8542df057fde45f9684ed7be312"
   }
 }

@@ -9,6 +9,11 @@
 **廣度優先走訪是一種由近及遠的走訪方式，從某個節點出發，始終優先訪問距離最近的頂點，並一層層向外擴張**。如下圖所示，從左上角頂點出發，首先走訪該頂點的所有鄰接頂點，然後走訪下一個頂點的所有鄰接頂點，以此類推，直至所有頂點訪問完畢。
 
 ![圖的廣度優先走訪](graph_traversal.assets/graph_bfs.svg)
+<!-- figure-reading:start group:chapter_graph/graph_traversal.assets/graph_bfs -->
+
+[圖的廣度優先走訪：完整圖解](graph_traversal.assets/graph_bfs.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 演算法實現
 
@@ -34,34 +39,39 @@ BFS 通常藉助佇列來實現，程式碼如下所示。佇列具有“先入�
     ![圖的廣度優先走訪步驟](graph_traversal.assets/graph_bfs_step1.svg)
 
 === "<2>"
-    ![圖的廣度優先走訪（BFS）：藉助佇列由近及遠逐層擴張，第 2 步，共 11 步：第二步：頂點 0 出列，鄰接頂點 1、3 入列](graph_traversal.assets/graph_bfs_step2.svg)
+    ![圖的廣度優先走訪，第 2 步，共 11 步：處理頂點 0](graph_traversal.assets/graph_bfs_step2.svg)
 
 === "<3>"
-    ![圖的廣度優先走訪（BFS）：藉助佇列由近及遠逐層擴張，第 3 步，共 11 步：第三步：頂點 1 出列，鄰接頂點 2、4 入列](graph_traversal.assets/graph_bfs_step3.svg)
+    ![圖的廣度優先走訪，第 3 步，共 11 步：處理頂點 1](graph_traversal.assets/graph_bfs_step3.svg)
 
 === "<4>"
-    ![圖的廣度優先走訪（BFS）：藉助佇列由近及遠逐層擴張，第 4 步，共 11 步：第四步：頂點 3 出列，鄰接頂點 6 入列](graph_traversal.assets/graph_bfs_step4.svg)
+    ![圖的廣度優先走訪，第 4 步，共 11 步：處理頂點 3](graph_traversal.assets/graph_bfs_step4.svg)
 
 === "<5>"
-    ![圖的廣度優先走訪（BFS）：藉助佇列由近及遠逐層擴張，第 5 步，共 11 步：第五步：頂點 2 出列，鄰接頂點 5 入列](graph_traversal.assets/graph_bfs_step5.svg)
+    ![圖的廣度優先走訪，第 5 步，共 11 步：處理頂點 2](graph_traversal.assets/graph_bfs_step5.svg)
 
 === "<6>"
-    ![圖的廣度優先走訪（BFS）：藉助佇列由近及遠逐層擴張，第 6 步，共 11 步：第六步：頂點 4 出列，鄰接頂點 7 入列](graph_traversal.assets/graph_bfs_step6.svg)
+    ![圖的廣度優先走訪，第 6 步，共 11 步：處理頂點 4](graph_traversal.assets/graph_bfs_step6.svg)
 
 === "<7>"
-    ![圖的廣度優先走訪（BFS）：藉助佇列由近及遠逐層擴張，第 7 步，共 11 步：第七步：頂點 6 出列，無新鄰居入列](graph_traversal.assets/graph_bfs_step7.svg)
+    ![圖的廣度優先走訪，第 7 步，共 11 步：處理頂點 6](graph_traversal.assets/graph_bfs_step7.svg)
 
 === "<8>"
-    ![圖的廣度優先走訪（BFS）：藉助佇列由近及遠逐層擴張，第 8 步，共 11 步：第八步：頂點 5 出列，最後一個頂點 8 入列](graph_traversal.assets/graph_bfs_step8.svg)
+    ![圖的廣度優先走訪，第 8 步，共 11 步：處理頂點 5](graph_traversal.assets/graph_bfs_step8.svg)
 
 === "<9>"
-    ![圖的廣度優先走訪（BFS）：藉助佇列由近及遠逐層擴張，第 9 步，共 11 步：第九步：頂點 7 出列，無新鄰居入列](graph_traversal.assets/graph_bfs_step9.svg)
+    ![圖的廣度優先走訪，第 9 步，共 11 步：處理頂點 7](graph_traversal.assets/graph_bfs_step9.svg)
 
 === "<10>"
-    ![圖的廣度優先走訪（BFS）：藉助佇列由近及遠逐層擴張，第 10 步，共 11 步：第十步：頂點 8 出列，佇列清空](graph_traversal.assets/graph_bfs_step10.svg)
+    ![圖的廣度優先走訪，第 10 步，共 11 步：處理頂點 8](graph_traversal.assets/graph_bfs_step10.svg)
 
 === "<11>"
-    ![圖的廣度優先走訪（BFS）：藉助佇列由近及遠逐層擴張，第 11 步，共 11 步：第十一步：佇列為空，返回完整走訪序列](graph_traversal.assets/graph_bfs_step11.svg)
+    ![圖的廣度優先走訪，第 11 步，共 11 步：返回走訪結果](graph_traversal.assets/graph_bfs_step11.svg)
+<!-- figure-reading:start group:chapter_graph/graph_traversal.assets/graph_bfs -->
+
+[圖的廣度優先走訪：完整圖解](graph_traversal.assets/graph_bfs.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 !!! question "廣度優先走訪的序列是否唯一？"
 
@@ -78,6 +88,11 @@ BFS 通常藉助佇列來實現，程式碼如下所示。佇列具有“先入�
 **深度優先走訪是一種優先走到底、無路可走再回頭的走訪方式**。如下圖所示，從左上角頂點出發，訪問當前頂點的某個鄰接頂點，直到走到盡頭時返回，再繼續走到盡頭並返回，以此類推，直至所有頂點走訪完成。
 
 ![圖的深度優先走訪](graph_traversal.assets/graph_dfs.svg)
+<!-- figure-reading:start group:chapter_graph/graph_traversal.assets/graph_dfs -->
+
+[圖的深度優先走訪：完整圖解](graph_traversal.assets/graph_dfs.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 演算法實現
 
@@ -98,34 +113,39 @@ BFS 通常藉助佇列來實現，程式碼如下所示。佇列具有“先入�
     ![圖的深度優先走訪步驟](graph_traversal.assets/graph_dfs_step1.svg)
 
 === "<2>"
-    ![圖的深度優先走訪（DFS）：優先走到底、無路可走再回溯，第 2 步，共 11 步：第二步：從頂點 0 遞迴深入頂點 1](graph_traversal.assets/graph_dfs_step2.svg)
+    ![圖的深度優先走訪，第 2 步，共 11 步：從 0 深入 1](graph_traversal.assets/graph_dfs_step2.svg)
 
 === "<3>"
-    ![圖的深度優先走訪（DFS）：優先走到底、無路可走再回溯，第 3 步，共 11 步：第三步：從頂點 1 遞迴深入頂點 2](graph_traversal.assets/graph_dfs_step3.svg)
+    ![圖的深度優先走訪，第 3 步，共 11 步：從 1 深入 2](graph_traversal.assets/graph_dfs_step3.svg)
 
 === "<4>"
-    ![圖的深度優先走訪（DFS）：優先走到底、無路可走再回溯，第 4 步，共 11 步：第四步：從頂點 2 遞迴深入頂點 5](graph_traversal.assets/graph_dfs_step4.svg)
+    ![圖的深度優先走訪，第 4 步，共 11 步：從 2 深入 5](graph_traversal.assets/graph_dfs_step4.svg)
 
 === "<5>"
-    ![圖的深度優先走訪（DFS）：優先走到底、無路可走再回溯，第 5 步，共 11 步：第五步：從頂點 5 先深入分支頂點 4](graph_traversal.assets/graph_dfs_step5.svg)
+    ![圖的深度優先走訪，第 5 步，共 11 步：從 5 深入 4](graph_traversal.assets/graph_dfs_step5.svg)
 
 === "<6>"
-    ![圖的深度優先走訪（DFS）：優先走到底、無路可走再回溯，第 6 步，共 11 步：第六步：頂點 4 無路可走，回溯至頂點 5](graph_traversal.assets/graph_dfs_step6.svg)
+    ![圖的深度優先走訪，第 6 步，共 11 步：從 4 返回 5](graph_traversal.assets/graph_dfs_step6.svg)
 
 === "<7>"
-    ![圖的深度優先走訪（DFS）：優先走到底、無路可走再回溯，第 7 步，共 11 步：第七步：從頂點 5 繼續深入分支頂點 6](graph_traversal.assets/graph_dfs_step7.svg)
+    ![圖的深度優先走訪，第 7 步，共 11 步：從 5 深入 6](graph_traversal.assets/graph_dfs_step7.svg)
 
 === "<8>"
-    ![圖的深度優先走訪（DFS）：優先走到底、無路可走再回溯，第 8 步，共 11 步：第八步：頂點 6 無路可走，回溯至頂點 5](graph_traversal.assets/graph_dfs_step8.svg)
+    ![圖的深度優先走訪，第 8 步，共 11 步：從 6 返回 5](graph_traversal.assets/graph_dfs_step8.svg)
 
 === "<9>"
-    ![圖的深度優先走訪（DFS）：優先走到底、無路可走再回溯，第 9 步，共 11 步：第九步：從頂點 5 經 2、1 連續回溯至起點 0](graph_traversal.assets/graph_dfs_step9.svg)
+    ![圖的深度優先走訪，第 9 步，共 11 步：連續返回起點 0](graph_traversal.assets/graph_dfs_step9.svg)
 
 === "<10>"
-    ![圖的深度優先走訪（DFS）：優先走到底、無路可走再回溯，第 10 步，共 11 步：第十步：從起點 0 遞迴訪問剩餘鄰居 3](graph_traversal.assets/graph_dfs_step10.svg)
+    ![圖的深度優先走訪，第 10 步，共 11 步：從 0 深入 3](graph_traversal.assets/graph_dfs_step10.svg)
 
 === "<11>"
-    ![圖的深度優先走訪（DFS）：優先走到底、無路可走再回溯，第 11 步，共 11 步：第十一步：從頂點 3 回溯至 0，起始方法返回並結束走訪](graph_traversal.assets/graph_dfs_step11.svg)
+    ![圖的深度優先走訪，第 11 步，共 11 步：結束全部遞迴呼叫](graph_traversal.assets/graph_dfs_step11.svg)
+<!-- figure-reading:start group:chapter_graph/graph_traversal.assets/graph_dfs -->
+
+[圖的深度優先走訪：完整圖解](graph_traversal.assets/graph_dfs.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 !!! question "深度優先走訪的序列是否唯一？"
 

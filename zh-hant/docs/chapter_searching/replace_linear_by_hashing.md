@@ -11,6 +11,11 @@
 考慮直接走訪所有可能的組合。如下圖所示，我們開啟一個兩層迴圈，在每輪中判斷兩個整數的和是否為 `target` ，若是，則返回它們的索引。
 
 ![線性查詢求解兩數之和](replace_linear_by_hashing.assets/two_sum_brute_force.svg)
+<!-- figure-reading:start group:chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force -->
+
+[線性查詢求解兩數之和：兩層迴圈列舉不同索引組合：完整圖解](replace_linear_by_hashing.assets/two_sum_brute_force.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 程式碼如下所示：
 
@@ -31,10 +36,15 @@
     ![輔助雜湊表求解兩數之和](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg)
 
 === "<2>"
-    ![輔助雜湊表求解兩數之和：單層迴圈先查補數再存當前元素，第 2 步，共 3 步：第 2 步：i = 1 訪問元素 7，補數 6 不在 map 中，存入 7 → 1](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg)
+    ![雜湊表求兩數之和，第 2 步，共 3 步：未找到補數 6，記錄 7](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg)
 
 === "<3>"
-    ![輔助雜湊表求解兩數之和：單層迴圈先查補數再存當前元素，第 3 步，共 3 步：第 3 步：i = 2 訪問元素 11，在 map 中查到補數 2，返回 \[0, 2\]](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg)
+    ![雜湊表求兩數之和，第 3 步，共 3 步：找到補數 2，返回索引](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg)
+<!-- figure-reading:start group:chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable -->
+
+[雜湊表求兩數之和：完整圖解](replace_linear_by_hashing.assets/two_sum_hashtable.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 實現程式碼如下所示，僅需單層迴圈即可：
 

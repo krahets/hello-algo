@@ -1,60 +1,24 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_tree/binary_search_tree.assets/bst_remove_case2",
-  "title": "在二叉搜索树中删除单子节点 2（度为 1）",
-  "summary": "找到仅有右子节点 3 的待删除节点 2（度为 1），执行 pre.left = cur.right 让父节点 4 的左指针直接连向节点 3。",
-  "context": [
-    "二叉搜索树中，任意节点的左子树所有节点值小于该节点值，右子树所有节点值大于该节点值。连线箭头从父节点指向子节点。",
-    "初始四层二叉搜索树中包含节点 2 至 15：根 8 的左子节点为 4，4 的左、右子节点为 2、6；节点 2 没有左子节点，只有右子节点 3；6 的左、右子节点为 5、7；根 8 的右子节点 12 下接 10（含子节点 9、11）和 14（含子节点 13、15）。"
-  ],
-  "description": [
-    "图顶部标题为“在二叉搜索树中删除节点 2”。左半图底部标注“1. 查找待删除节点 cur”：沿蓝色路径 8 → 4 → 2 找到节点 2，令 cur 指向实心蓝色的 2，pre 指向蓝紫色的父节点 4；节点 2 唯一的右子节点 3 用实心橙色高亮。中间灰色说明框写明：“∵ 节点 cur 的子节点数量 = 1”。",
-    "右半图底部标注“2. 将 cur 替换为其子节点，执行 pre.left = cur.right”：将父节点 4（pre）的左子节点指针直接指向 cur 的右子节点 3，绕过并移除节点 2。橙色节点 3 随之上升接替原节点 2 的位置，成为节点 4 的左子节点。"
-  ],
-  "result": "删除度为 1 的节点 2 后，其唯一子节点 3 接替成为父节点 4 的左子节点，树中剩余节点 3 至 15 仍满足左小右大的搜索树性质。",
+  "title": "二叉搜索树删除单子节点",
+  "summary": "删除度为 1 的节点时，将父节点指向目标的引用直接改指目标的唯一子节点。",
+  "context": [],
+  "description": [],
+  "result": "删除后剩余值 3 至 15 保持搜索树顺序。此操作替换的是父子引用，节点 3 保留自身身份并接到节点 4 的左侧，并非改写节点 2 的值。",
   "frames": [
     {
       "id": "source-123",
       "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case2.png",
-      "title": "删除度为 1 的节点 2：令 pre.left = cur.right",
-      "explanation": "左半图定位 cur = 2（仅有橙色右子节点 3，子节点数量为 1）与父节点 pre = 4；右半图执行 pre.left = cur.right，用节点 3 直接替换节点 2。",
-      "state": "左半图：树含节点 2 至 15（根 8→4、12，4→2、6，2 仅有橙色右子节点 3，6→5、7，12→10、14，10→9、11，14→13、15），沿 8→4→2 查找到 cur = 2（子节点数量 = 1）、pre = 4。右半图：执行 pre.left = cur.right 后，节点 4（pre）的左子节点直接连向橙色节点 3，4 的右子节点仍为 6（含子节点 5、7），右子树 12（含 10、14、9、11、13、15）不变。",
-      "key_state": "cur = 节点 2（度为 1，右子节点为 3），pre = 节点 4；执行 pre.left = cur.right 后 4.left 变为 3。",
-      "announcement": "找到度为 1 的节点 2，令父节点 4 的左指针直接指向 2 的右子节点 3，完成删除。"
+      "title": "二叉搜索树删除单子节点",
+      "explanation": "删除值 2 时，沿 8 → 4 → 2 找到 cur = 2，父节点 pre = 4。节点 2 左为空、还有右子节点 3，度为 1。不能像删叶节点一样直接把 4.left 设为空，否则会从根断开本应保留的节点 3；应执行 pre.left = cur.right，将 4.left 指向 3。",
+      "state": "初始树根为 8，含值 2 至 15，节点 2 仅有右子节点 3，完整输入连接见数据表。删除后节点 4 的左子节点变为 3、右子节点仍为 6，节点 2 不再属于树，其余连接保留。",
+      "key_state": "cur = 2 仅有唯一子节点 3；令父节点 4 的左引用直接指向 3。",
+      "announcement": "将父节点 4 的左引用绕过节点 2 直接指向其唯一子节点 3。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-07",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "47670a68e0ec06b3722c07462e4b29c08476181347ecc7a9f2e6e1ebcdfe64fb",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "f429a2d9034d7690b6bd4a3f0822b11a77350c2330baf8a66141d1f7a9ef4841",
-        "output_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91",
-        "output_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6",
-        "output_sha256": "449ce85fb338c455e6cedde1bf55ab20b1b0f532a5408dfa0443a6fbe9815c6b"
-      }
-    ],
-    "evidence_sha256": "459b7ad9cb6322b1bab7e28efa1badcfd4813182718f9028c5dbe5d4d10dbb4c"
-  },
   "dependencies": {
     "markdown": {
       "chapter_tree/binary_search_tree.md": "bf4428ef944ea3dc4040d389ab63b4f52575e5b0990caac71413a4f04cf9d1e4"
@@ -69,79 +33,436 @@
       "kind": "prose",
       "model_sha256": "fc509a4ee21c05faaf9fa2b91c832d9cc00ca40fa60b00c7cdb6d1f4168981dd",
       "prose": {
-        "schema_version": 1,
+        "schema_version": 2,
         "status": "confirmed",
         "locale": "zh-hans",
         "story_id": "bst-remove-one-child",
         "group_id": "group:chapter_tree/binary_search_tree.assets/bst_remove_case2",
-        "title": "二叉搜索树删除单子节点：用唯一子节点 3 替换节点 2",
-        "summary": "定位节点 2（父节点 4），确认其仅有子节点 3，再执行 pre.left = cur.right 用 3 替换 2。",
+        "title": "二叉搜索树删除单子节点",
+        "summary": "删除度为 1 的节点时，将父节点指向目标的引用直接改指目标的唯一子节点。",
         "context": [
-          "初始二叉搜索树共 14 个节点：根 8 的左右子节点为 4 和 12；4 的左子节点为 2、右子节点为 6；节点 2 的左子节点为空、右子节点为叶节点 3；6 的左右子节点为 5 和 7；12 的左右子节点为 10（带叶节点 9、11）和 14（带叶节点 13、15）。",
-          "本例的目标是删除值为 2 的节点，并保持其余节点的二叉搜索树有序性质。"
+          "目标是删除根为 8、初始包含值 2 至 15 的二叉搜索树中的单子节点 2；各状态的完整连接见当前树表。"
         ],
-        "description": [
-          "动画分为三个状态：第一状态展示查找完成后的定位结果，蓝色路径 8 → 4 → 2 定位到待删除节点 cur = 2 及其父节点 pre = 4；",
-          "第二状态是独立的条件判断步，树结构与 cur、pre 指针保持不变，底部说明切换为“∵ 节点 cur 的子节点数量 = 1”，指出待删除节点 2 仅有右子节点 3；",
-          "第三状态执行 pre.left = cur.right，让父节点 4 的左指针绕过节点 2 直接连接其唯一子节点 3，使节点 3 提升到原节点 2 的位置。"
-        ],
-        "result": "节点 2 被移除，其唯一子节点 3 成为父节点 4 的左子节点，整棵树继续保持二叉搜索树性质。",
+        "description": [],
+        "result": "删除后剩余值 3 至 15 保持搜索树顺序。此操作替换的是父子引用，节点 3 保留自身身份并接到节点 4 的左侧，并非改写节点 2 的值。",
         "steps": [
           {
             "id": "step-1",
-            "title": "查找待删除节点：定位 cur = 2，pre = 4",
-            "explanation": "画面顶部标题为“在二叉搜索树中删除节点 2”，底部说明“1. 查找待删除节点 cur”。蓝色高亮路径从根 8 向左经 4 到达节点 2，指针 cur 指向待删除节点 2，指针 pre 指向其父节点 4；此时尚未修改树结构。",
-            "state": "树根 8 的左右子节点为 4、12；4 的左子节点为 2、右子节点为 6；2 的左子节点为空、右子节点为叶节点 3；6 的左右子节点为 5、7；12 的左右子节点为 10(9, 11) 和 14(13, 15)。蓝色路径为 8 → 4 → 2，pre 指向 4，cur 指向 2，节点 2 仍在树中。",
-            "key_state": "定位到 cur = 2、pre = 4，尚未执行删除。",
-            "announcement": "沿 8 → 4 → 2 定位到待删除节点 cur = 2 及父节点 pre = 4。"
+            "title": "定位目标 2 与父节点 4",
+            "explanation": "目标 2 小于根 8 且小于 4，连续两次向左查找到 cur = 2，pre 保存父节点 4。",
+            "state": "删除目标为 2：根为 8，查找路径为 8 → 4 → 2。cur 指向 2，pre 指向 4；2 的左子节点为空、右子节点为叶节点 3，目标尚未删除。",
+            "key_state": "cur = 2，pre = 4，子节点 3 仍连接在 2 的右侧。",
+            "announcement": "沿左分支定位到目标节点 2 与父节点 4。",
+            "state_tables": [
+              {
+                "caption": "当前树的节点连接",
+                "headers": [
+                  "节点",
+                  "左子节点",
+                  "右子节点"
+                ],
+                "rows": [
+                  [
+                    "2",
+                    "空",
+                    "3"
+                  ],
+                  [
+                    "3",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "4",
+                    "2",
+                    "6"
+                  ],
+                  [
+                    "5",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "6",
+                    "5",
+                    "7"
+                  ],
+                  [
+                    "7",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "8",
+                    "4",
+                    "12"
+                  ],
+                  [
+                    "9",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "10",
+                    "9",
+                    "11"
+                  ],
+                  [
+                    "11",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "12",
+                    "10",
+                    "14"
+                  ],
+                  [
+                    "13",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "14",
+                    "13",
+                    "15"
+                  ],
+                  [
+                    "15",
+                    "空",
+                    "空"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
           },
           {
             "id": "step-2",
-            "title": "判断子节点数量：确认节点 2 的子节点数量为 1",
-            "explanation": "底部说明切换为“∵ 节点 cur 的子节点数量 = 1”。节点 2 左子为空、右子为 3，只有一个子节点，因此删除时应将其唯一子节点直接交给父节点 4。本步仅展示条件判断，树的节点与连线完全未变。",
-            "state": "树根 8 的左右子节点为 4、12；4 的左子节点为 2、右子节点为 6；2 的左子节点为空、右子节点为叶节点 3；6 的左右子节点为 5、7；12 的左右子节点为 10(9, 11) 和 14(13, 15)。蓝色路径为 8 → 4 → 2，pre 指向 4，cur 指向 2，节点 2 仍在树中。底部显示条件判断结果“节点 cur 的子节点数量 = 1”。",
-            "key_state": "确认 cur = 2 的子节点数量为 1，树连接暂未改变。",
-            "announcement": "确认待删除节点 2 的子节点数量为 1，准备用其子节点替换。"
+            "title": "确认唯一子节点为 3",
+            "explanation": "检查确认目标 2 的度为 1，只有右子节点 3；删除时需把唯一子节点 3 接回父节点 4，才能避免丢失该子树。",
+            "state": "删除目标 2 的条件判定状态：待删除节点 2 的度为 1，唯一子节点为 3；pre 指向父节点 4，4.left 仍指向 2，所有连接尚未改变。",
+            "key_state": "判定时节点 2 的度为 1，唯一子节点为 3；尚未删除。",
+            "announcement": "确认目标节点 2 只有唯一右子节点 3。",
+            "state_tables": [
+              {
+                "caption": "当前树的节点连接",
+                "headers": [
+                  "节点",
+                  "左子节点",
+                  "右子节点"
+                ],
+                "rows": [
+                  [
+                    "2",
+                    "空",
+                    "3"
+                  ],
+                  [
+                    "3",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "4",
+                    "2",
+                    "6"
+                  ],
+                  [
+                    "5",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "6",
+                    "5",
+                    "7"
+                  ],
+                  [
+                    "7",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "8",
+                    "4",
+                    "12"
+                  ],
+                  [
+                    "9",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "10",
+                    "9",
+                    "11"
+                  ],
+                  [
+                    "11",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "12",
+                    "10",
+                    "14"
+                  ],
+                  [
+                    "13",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "14",
+                    "13",
+                    "15"
+                  ],
+                  [
+                    "15",
+                    "空",
+                    "空"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
           },
           {
             "id": "step-3",
-            "title": "执行 pre.left = cur.right，用子节点 3 替换节点 2",
-            "explanation": "底部说明更新为“2. 将 cur 替换为其子节点，执行 pre.left = cur.right”。父节点 4 的左指针直接指向节点 2 原先的右子节点 3，节点 2 从树中移除，节点 3 提升为 4 的左子节点；pre 仍指向 4，删除后的 cur 指针不再显示。",
-            "state": "树根 8 的左右子节点为 4、12；4 的左子节点变为叶节点 3、右子节点为 6；其余子树 6(5, 7)、12(10(9, 11), 14(13, 15)) 保持不变。pre 指向 4，cur 未显示，节点 2 已从树中移除。",
-            "key_state": "已执行 pre.left = cur.right，节点 2 已删除，4 的左子节点变为 3。",
-            "announcement": "执行 pre.left = cur.right，用节点 3 替换节点 2，完成删除。"
+            "title": "将节点 3 接回父节点",
+            "explanation": "执行 pre.left = cur.right，让父节点 4 的左引用直接指向节点 3，绕过并移除目标 2。",
+            "state": "删除单子节点 2 已完成：根为 8，节点 4 的左子节点为叶节点 3、右子节点为 6，其余连接保持不变；树包含值 3 至 15，完整连接见当前树表。",
+            "key_state": "4.left = 3，删除后 4 左为 3、右为 6，节点 2 已从树中摘除。",
+            "announcement": "将唯一子节点 3 接到父节点 4 左侧，完成节点 2 的删除。",
+            "state_tables": [
+              {
+                "caption": "当前树的节点连接",
+                "headers": [
+                  "节点",
+                  "左子节点",
+                  "右子节点"
+                ],
+                "rows": [
+                  [
+                    "3",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "4",
+                    "3",
+                    "6"
+                  ],
+                  [
+                    "5",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "6",
+                    "5",
+                    "7"
+                  ],
+                  [
+                    "7",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "8",
+                    "4",
+                    "12"
+                  ],
+                  [
+                    "9",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "10",
+                    "9",
+                    "11"
+                  ],
+                  [
+                    "11",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "12",
+                    "10",
+                    "14"
+                  ],
+                  [
+                    "13",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "14",
+                    "13",
+                    "15"
+                  ],
+                  [
+                    "15",
+                    "空",
+                    "空"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
           }
         ],
         "review": {
           "status": "confirmed",
-          "run_id": "figure-accessibility-20261114/animations/batch-03",
-          "content_sha256": "8340b91c6d469f295dd30b991449b97a5d41be084d01cc6d91076d17f444868d",
+          "run_id": "figure-reading-20261116/content/body-07",
+          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
           "stages": [
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "bd3a7cb9a264af1d3e05ca5f7bce862c2d4638866fb304684cfc41d11c6533df",
-              "output_sha256": "bad87f0122bf4f2f3eb0ea2631ab62006eb93c7c177ffb76e945a851d633d259"
+              "input_sha256": "64feb83b4b5a24ec87dc3ad4c035411b8cfda29777f845490023530d7eb2b7e3",
+              "output_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907"
             },
             {
               "requested_model": "gemini-4-argon",
               "actual_model": null,
               "model_confirmation": "provider_not_reported",
-              "input_sha256": "bad87f0122bf4f2f3eb0ea2631ab62006eb93c7c177ffb76e945a851d633d259",
-              "output_sha256": "7a330163a00031a31d253c80a6b571c560bf2e497b548326c850fc7189128ada"
+              "input_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907",
+              "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
             },
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "7a330163a00031a31d253c80a6b571c560bf2e497b548326c850fc7189128ada",
-              "output_sha256": "4e1ace1c87f311b018401650e9d134466292027987c2b314ab0eca814b8fcc91"
+              "input_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520",
+              "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
             }
           ],
-          "evidence_sha256": "5a5551a9c211cf546ee04e36c78bceea6352908b6b24e1dda459c73faae0164e"
+          "evidence_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198",
+          "verification_manifest_sha256": "0d1fe15b9202118b7054d0f66377264f92073e4f519f55934a9bddd71d23d42a",
+          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+          "content_sha256": "8c0e3bb35b64d4a2af96ae5e46d449801dabfe4e0c6d57bcb5b56869e6aa88dc"
         }
       }
     }
+  },
+  "tables": [
+    {
+      "caption": "删除单子节点前的连接",
+      "headers": [
+        "节点",
+        "左子节点",
+        "右子节点"
+      ],
+      "rows": [
+        [
+          "2",
+          "空",
+          "3"
+        ],
+        [
+          "3",
+          "空",
+          "空"
+        ],
+        [
+          "4",
+          "2",
+          "6"
+        ],
+        [
+          "5",
+          "空",
+          "空"
+        ],
+        [
+          "6",
+          "5",
+          "7"
+        ],
+        [
+          "7",
+          "空",
+          "空"
+        ],
+        [
+          "8",
+          "4",
+          "12"
+        ],
+        [
+          "9",
+          "空",
+          "空"
+        ],
+        [
+          "10",
+          "9",
+          "11"
+        ],
+        [
+          "11",
+          "空",
+          "空"
+        ],
+        [
+          "12",
+          "10",
+          "14"
+        ],
+        [
+          "13",
+          "空",
+          "空"
+        ],
+        [
+          "14",
+          "13",
+          "15"
+        ],
+        [
+          "15",
+          "空",
+          "空"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-07",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "64feb83b4b5a24ec87dc3ad4c035411b8cfda29777f845490023530d7eb2b7e3",
+        "output_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907",
+        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520",
+        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
+      }
+    ],
+    "evidence_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198",
+    "verification_manifest_sha256": "0d1fe15b9202118b7054d0f66377264f92073e4f519f55934a9bddd71d23d42a",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "80c405fe3ee3ff2a308731b161f469cfb11ba41ef2427b6da47d70d2e18ce68f"
   }
 }

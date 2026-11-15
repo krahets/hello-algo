@@ -1,62 +1,31 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_stack_and_queue/queue.assets/queue_operations",
-  "title": "队列的入队与出队（先入先出）",
-  "summary": "初始从队首到队尾为 [1, 3, 2] 的队列，先在队尾依次 push(5)、push(4)，再从队首依次 pop() 出 1 和 3，最终剩下 [2, 5, 4]。",
+  "title": "队列的入出操作",
+  "summary": "队尾加入、队首取出，体现先入先出。",
   "context": [
-    "图从左到右展示五个竖直的队列通道，两端开口：上方为“队首”，标有向上的“出队”箭头；下方为“队尾”，标有向上的“入队”箭头。以下序列均按从队首（上）到队尾（下）的顺序书写。第 1 列为初始状态，队列为 [1, 3, 2]，队首为 1，队尾为 2。"
+    "所有序列按队首到队尾书写。图中 push 向队尾入队，pop 从队首出队并返回该元素。"
   ],
   "description": [
-    "第 2 列在下方执行“入队 push(5)”：元素 5 从底部灰色虚线框向上进入队尾，队列变为 [1, 3, 2, 5]，队尾变为 5。第 3 列在下方执行“入队 push(4)”：元素 4 从底部灰色虚线框向上进入队尾，队列变为 [1, 3, 2, 5, 4]，队首仍为 1，队尾变为 4。",
-    "第 4 列在上方执行第一次“出队 pop()”：队首元素 1 从顶部向上移出队列（原队首位置留有灰色虚线框 1），队列剩余 [3, 2, 5, 4]，新队首为 3。第 5 列在上方执行第二次“出队 pop()”：当前队首元素 3 从顶部向上移出队列（原位置留有灰色虚线框 3），队列最终剩下 [2, 5, 4]，队首为 2，队尾为 4。"
+    "虚线方块仅示意元素操作前的旧位置，不重复计入当前队列；移出容器外的实心方块表示本次 pop 的返回值。"
   ],
-  "result": "新元素始终从队尾加入，旧元素始终从队首移出；最早在队中的 1 和 3 最先出队，体现队列“先入先出”的规则。",
+  "result": "连续两次出队依次返回最早进入的 1、3，剩余队列为 [2, 5, 4]。",
   "frames": [
     {
       "id": "source-63",
       "book_path": "chapter_stack_and_queue/queue.assets/queue_operations.png",
-      "title": "队列的入队与出队（先入先出）",
-      "explanation": "图从左到右展示队列的五个状态，上方为队首（元素向上出队），下方为队尾（元素从下方入队）。按从队首到队尾排列：第 1 列初始队列为 [1, 3, 2]；第 2 列在队尾执行 push(5) 后变为 [1, 3, 2, 5]；第 3 列在队尾执行 push(4) 后变为 [1, 3, 2, 5, 4]；第 4 列在队首执行 pop() 移出 1，剩下 [3, 2, 5, 4]；第 5 列再次在队首执行 pop() 移出 3，最终剩下 [2, 5, 4]。图中灰色虚线框标示元素入队前或出队前的位置，不属于操作后的有效队列。",
-      "state": "单图从左到右包含五个队列状态（按队首到队尾排列）：初始 [1, 3, 2] → 队尾 push(5) 后 [1, 3, 2, 5] → 队尾 push(4) 后 [1, 3, 2, 5, 4] → 队首 pop() 出 1 后 [3, 2, 5, 4] → 队首 pop() 出 3 后 [2, 5, 4]。",
-      "key_state": "队列（队首到队尾）初始 [1, 3, 2]，经 push(5)、push(4) 得 [1, 3, 2, 5, 4]，再两次 pop() 依次移出队首 1、3，剩下 [2, 5, 4]。",
-      "announcement": "队列从初始 [1, 3, 2] 在队尾依次加入 5 和 4，再从队首依次移出 1 和 3，最终剩下 [2, 5, 4]，体现先入先出规则。"
+      "title": "队列的入出操作",
+      "explanation": "初始队列为 [1, 3, 2]（队首为 1，队尾为 2）。先在队尾依次执行 push(5)、push(4)，新元素排在已有元素之后；再从队首连续执行两次 pop()，最早在队首的 1 和 3 依次出队，体现先入先出。",
+      "state": "按队首到队尾记录，初始为 [1, 3, 2]；经 push(5)、push(4) 变为 [1, 3, 2, 5, 4]，再经两次 pop() 依次返回 1、3，剩余队列为 [2, 5, 4]。",
+      "key_state": "两次出队依次返回 1、3，最终队列为 [2, 5, 4]。",
+      "announcement": "队尾加入、队首取出，体现先入先出。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-04",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "4a17351fd631a6b5bb69f6ce326d20bae7e668b1128c0aa6c3bf8483523550f6",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "010659120695514881c0d1ee814ac67faa1e50957300a7e781f1c3edf7858059",
-        "output_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de",
-        "output_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8",
-        "output_sha256": "d48eb4dd56235f9a9b2f2d5c8f67899492c9f6b15567237d35161c31596306cb"
-      }
-    ],
-    "evidence_sha256": "178794e8fd357c692f91d245ae613b37aa02834865c6124afd4cd91ea892de0d"
-  },
   "dependencies": {
     "markdown": {
-      "chapter_stack_and_queue/queue.md": "896475dcba151b44c34df568e54b1283f5e81225c0c665c1a49b58a058ec3d60"
+      "chapter_stack_and_queue/queue.md": "cb1ff8bb871a0d8d9007ef3e9b538d5be19426c4e7aff1d02c865c8eec0dbb60"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -68,93 +37,166 @@
       "kind": "prose",
       "model_sha256": "0dc93ba46148f4aac2767e982daeea2017db01cff158abeffea00f1c06fea603",
       "prose": {
-        "schema_version": 1,
+        "schema_version": 2,
         "status": "confirmed",
         "locale": "zh-hans",
         "story_id": "flow-queue-operations",
         "group_id": "group:chapter_stack_and_queue/queue.assets/queue_operations",
-        "title": "队列操作：队尾入队与队首出队",
-        "summary": "初始队列 [1, 3, 2] 依次在队尾推入 5、4，再从队首弹出 1、3，最终剩余 [2, 5, 4]。",
+        "title": "队列的入出操作",
+        "summary": "队尾加入、队首取出，体现先入先出。",
         "context": [
-          "队列遵循“先入先出”原则。图中纵向通道上端为队首（出队端）、下端为队尾（入队端）；注解中的队列序列一律按从队首到队尾的顺序书写。push(x) 表示将元素 x 加入队尾，pop() 表示移除并返回当前队首元素。"
+          "所有序列按队首到队尾书写。图中 push 向队尾入队，pop 从队首出队并返回该元素。",
+          "本例初始队列为 [1, 3, 2]。"
         ],
         "description": [
-          "动画分五步展示初始队列、两次入队和两次出队：先在队尾依次加入 5 和 4，再从队首依次弹出最早进入的 1 和 3。",
-          "入队步骤中，容器下方的浅色虚线方块与向上箭头表示待入队元素的来源位置，不重复计入队列长度；出队步骤中，容器上方的绿色实心方块表示本次 pop() 的返回值，容器内原队首位置的浅色虚线方块仅为刚离开元素的旧位置残影，不再属于有效队列成员。"
+          "虚线方块仅示意元素操作前的旧位置，不重复计入当前队列；移出容器外的实心方块表示本次 pop 的返回值。"
         ],
-        "result": "经过两次入队与两次出队后，队列从队首到队尾剩余 [2, 5, 4]，两次 pop() 依次返回 1 和 3。",
+        "result": "连续两次出队依次返回最早进入的 1、3，剩余队列为 [2, 5, 4]。",
         "steps": [
           {
             "id": "step-1",
-            "title": "初始队列 [1, 3, 2]",
-            "explanation": "画面展示标题“队列 queue”。竖直通道内自上而下依次存放 1、3、2，上端标有“队首”和向上的“出队”箭头，下端标有“队尾”和向上的“入队”箭头，表示新元素从底部队尾进入、旧元素从顶部队首离开。",
-            "state": "当前有效队列从队首到队尾为 [1, 3, 2]，长度为 3，队首为 1，队尾为 2；本步无出队返回值。",
-            "key_state": "初始队列 [1, 3, 2]，队首 1、队尾 2。",
-            "announcement": "显示初始队列 [1, 3, 2]，明确队首出队与队尾入队方向。"
+            "title": "初始",
+            "explanation": "初始队列包含 3 个元素，队首为 1，队尾为 2。",
+            "state": "当前队列按队首到队尾为 [1, 3, 2]，共 3 个元素，队首为 1、队尾为 2；无返回值。",
+            "key_state": "当前 [1, 3, 2]，队首 1、队尾 2，无返回值。",
+            "announcement": "初始队列为 [1, 3, 2]，队首 1、队尾 2。"
           },
           {
             "id": "step-2",
-            "title": "执行 push(5)，5 加入队尾",
-            "explanation": "下方标注“入队 push(5)”，元素 5 从底部进入通道并排在原队尾 2 的下方，成为新的队尾；底部浅色虚线 5 仅指示入队前的来源位置，不是第二个 5。",
-            "state": "当前有效队列从队首到队尾为 [1, 3, 2, 5]，长度为 4，队首为 1，队尾为 5；本步无出队返回值。",
-            "key_state": "push(5) 后队列为 [1, 3, 2, 5]，队尾变为 5。",
-            "announcement": "执行 push(5)，5 加入队尾，队列变为 [1, 3, 2, 5]。"
+            "title": "push(5)",
+            "explanation": "将 5 加入队尾，原有元素先后次序不变，5 成为新队尾。",
+            "state": "执行 push(5) 后，当前队列按队首到队尾为 [1, 3, 2, 5]，共 4 个元素，队首为 1、队尾为 5；无返回值。",
+            "key_state": "当前 [1, 3, 2, 5]，队首 1、队尾 5，无返回值。",
+            "announcement": "队尾加入 5，新队尾为 5。"
           },
           {
             "id": "step-3",
-            "title": "执行 push(4)，4 加入队尾",
-            "explanation": "下方标注“入队 push(4)”，元素 4 从底部进入通道并排在 5 的下方，成为新的队尾；底部浅色虚线 4 同样只表示来源位置。此时队列内原有元素的相对次序保持不变。",
-            "state": "当前有效队列从队首到队尾为 [1, 3, 2, 5, 4]，长度为 5，队首为 1，队尾为 4；本步无出队返回值。",
-            "key_state": "push(4) 后队列为 [1, 3, 2, 5, 4]，队尾变为 4。",
-            "announcement": "执行 push(4)，4 加入队尾，队列变为 [1, 3, 2, 5, 4]。"
+            "title": "push(4)",
+            "explanation": "将 4 加入队尾，排在 5 之后成为新队尾。",
+            "state": "执行 push(4) 后，当前队列按队首到队尾为 [1, 3, 2, 5, 4]，共 5 个元素，队首为 1、队尾为 4；无返回值。",
+            "key_state": "当前 [1, 3, 2, 5, 4]，队首 1、队尾 4，无返回值。",
+            "announcement": "队尾加入 4，新队尾为 4。"
           },
           {
             "id": "step-4",
-            "title": "执行 pop()，队首 1 出队并返回",
-            "explanation": "上方标注“出队 pop()”，最早入队的队首元素 1 从顶部离开通道，在容器上方显示为绿色实心方块作为本次返回值。通道内原位置留下的浅色虚线 1 只是旧位置残影，已不属于队列；元素 3 随之成为新的队首。",
-            "state": "当前有效队列从队首到队尾为 [3, 2, 5, 4]，长度为 4，队首为 3，队尾为 4；本次 pop() 返回 1，1 已不在队列中。",
-            "key_state": "pop() 返回 1，有效队列变为 [3, 2, 5, 4]，队首为 3。",
-            "announcement": "执行 pop() 返回队首 1，队列剩余 [3, 2, 5, 4]。"
+            "title": "第一次pop()",
+            "explanation": "移除并返回队首 1，紧随其后的 3 成为新队首。",
+            "state": "第一次执行 pop() 后，当前队列按队首到队尾为 [3, 2, 5, 4]，共 4 个元素，队首为 3、队尾为 4；本次返回 1（已移出队列）。",
+            "key_state": "当前 [3, 2, 5, 4]，队首 3、队尾 4，本次返回 1。",
+            "announcement": "队首取出并返回 1，新队首为 3。"
           },
           {
             "id": "step-5",
-            "title": "再次执行 pop()，新队首 3 出队并返回",
-            "explanation": "上方继续标注“出队 pop()”，当前队首元素 3 从顶部离开并在容器上方显示为本次返回的绿色方块；通道内的浅色虚线 3 为旧位置残影，不属于有效队列。元素 2 成为新的队首。",
-            "state": "当前有效队列从队首到队尾为 [2, 5, 4]，长度为 3，队首为 2，队尾为 4；本次 pop() 返回 3（前一次 pop() 已返回 1）。",
-            "key_state": "pop() 返回 3，有效队列剩余 [2, 5, 4]，队首为 2。",
-            "announcement": "再次执行 pop() 返回 3，队列剩余 [2, 5, 4]。"
+            "title": "第二次pop()",
+            "explanation": "继续移除并返回队首 3，2 成为新队首。",
+            "state": "第二次执行 pop() 后，当前队列按队首到队尾为 [2, 5, 4]，共 3 个元素，队首为 2、队尾为 4；本次返回 3（已移出队列）。",
+            "key_state": "当前 [2, 5, 4]，队首 2、队尾 4，本次返回 3。",
+            "announcement": "队首取出并返回 3，剩余队列为 [2, 5, 4]。"
           }
         ],
         "review": {
           "status": "confirmed",
-          "run_id": "figure-accessibility-20261114/animations/batch-01",
-          "content_sha256": "d8bde603412ecd85bb878cfcc401aa1b8625c5fc82b4abeb0a968592418e6061",
+          "run_id": "figure-reading-20261116/content/body-05",
+          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
           "stages": [
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "b6174850feed92b51c3d512a1a38c62aaf02c614ff07640008831c8726ce0a64",
-              "output_sha256": "dd7f9f098b8c6e77ff0f0fabc4879e20180eac76e44e8ba253820d46c888cef7"
+              "input_sha256": "234a418cc6b3bf836f8a4f22e3e0303a14a7f32d98a0e14f929b7fb95fb92621",
+              "output_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950"
             },
             {
               "requested_model": "gemini-4-argon",
               "actual_model": null,
               "model_confirmation": "provider_not_reported",
-              "input_sha256": "dd7f9f098b8c6e77ff0f0fabc4879e20180eac76e44e8ba253820d46c888cef7",
-              "output_sha256": "00dbf3ad9071e0a78f3f320067484cdbea304d50e0c1faae49ed41c17350f825"
+              "input_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950",
+              "output_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c"
             },
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "00dbf3ad9071e0a78f3f320067484cdbea304d50e0c1faae49ed41c17350f825",
-              "output_sha256": "b52ab18dd9c1db9a93bc5c3e340b21d0414a0d86594f1d061ffd5191a1c5f993"
+              "input_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c",
+              "output_sha256": "91bc65f47e08937ca3298efba2a445071a1e1a44f73d8c57772d1973886936d1"
             }
           ],
-          "evidence_sha256": "f629e6bda011b65c2484338a3ba90bd400522d0d30bc8a435a852c5403cbb741"
+          "evidence_sha256": "5866cf40b0335b4c2cc406559c9e71d261a3d948f430401a1f3949cc4ea5ea1c",
+          "verification_manifest_sha256": "4f1336dab5a55decb8eb34d4152a8a0006c4cd2d7ca264d5af16346db2f27e51",
+          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+          "content_sha256": "b6a05abc55d32706e1be01c2f75ac59cb6bfc19b5f70c3c1d7afc6c89b9fff4b"
         }
       }
     }
+  },
+  "tables": [
+    {
+      "caption": "队列每次操作后的内容",
+      "headers": [
+        "操作",
+        "有效序列（队首到队尾）",
+        "本次返回"
+      ],
+      "rows": [
+        [
+          "初始",
+          "[1, 3, 2]",
+          "无"
+        ],
+        [
+          "push(5)",
+          "[1, 3, 2, 5]",
+          "无"
+        ],
+        [
+          "push(4)",
+          "[1, 3, 2, 5, 4]",
+          "无"
+        ],
+        [
+          "第一次pop()",
+          "[3, 2, 5, 4]",
+          "1"
+        ],
+        [
+          "第二次pop()",
+          "[2, 5, 4]",
+          "3"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-05",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "234a418cc6b3bf836f8a4f22e3e0303a14a7f32d98a0e14f929b7fb95fb92621",
+        "output_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950",
+        "output_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c",
+        "output_sha256": "91bc65f47e08937ca3298efba2a445071a1e1a44f73d8c57772d1973886936d1"
+      }
+    ],
+    "evidence_sha256": "5866cf40b0335b4c2cc406559c9e71d261a3d948f430401a1f3949cc4ea5ea1c",
+    "verification_manifest_sha256": "4f1336dab5a55decb8eb34d4152a8a0006c4cd2d7ca264d5af16346db2f27e51",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "8c0735da9da7c435524958c7ac637bbc4196c400540fe2edca80687fab45b3e1"
   }
 }

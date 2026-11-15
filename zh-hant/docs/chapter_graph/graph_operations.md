@@ -15,16 +15,21 @@
     ![鄰接矩陣的初始化、增刪邊、增刪頂點](graph_operations.assets/adjacency_matrix_step1_initialization.svg)
 
 === "<2>"
-    ![基於鄰接矩陣的圖操作：增刪邊、增刪頂點與索引重排，第 2 步，共 5 步：第 2 步：新增無向邊 1—2](graph_operations.assets/adjacency_matrix_step2_add_edge.svg)
+    ![鄰接矩陣的增刪操作，第 2 步，共 5 步：新增邊 1—2](graph_operations.assets/adjacency_matrix_step2_add_edge.svg)
 
 === "<3>"
-    ![基於鄰接矩陣的圖操作：增刪邊、增刪頂點與索引重排，第 3 步，共 5 步：第 3 步：刪除無向邊 1—3](graph_operations.assets/adjacency_matrix_step3_remove_edge.svg)
+    ![鄰接矩陣的增刪操作，第 3 步，共 5 步：刪除邊 1—3](graph_operations.assets/adjacency_matrix_step3_remove_edge.svg)
 
 === "<4>"
-    ![基於鄰接矩陣的圖操作：增刪邊、增刪頂點與索引重排，第 4 步，共 5 步：第 4 步：新增孤立頂點 6](graph_operations.assets/adjacency_matrix_step4_add_vertex.svg)
+    ![鄰接矩陣的增刪操作，第 4 步，共 5 步：新增孤立頂點 6](graph_operations.assets/adjacency_matrix_step4_add_vertex.svg)
 
 === "<5>"
-    ![基於鄰接矩陣的圖操作：增刪邊、增刪頂點與索引重排，第 5 步，共 5 步：第 5 步：刪除頂點 3 及對應的索引 1 的行與列](graph_operations.assets/adjacency_matrix_step5_remove_vertex.svg)
+    ![鄰接矩陣的增刪操作，第 5 步，共 5 步：刪除頂點 3](graph_operations.assets/adjacency_matrix_step5_remove_vertex.svg)
+<!-- figure-reading:start group:chapter_graph/graph_operations.assets/adjacency_matrix -->
+
+[鄰接矩陣的增刪操作：完整圖解](graph_operations.assets/adjacency_matrix.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 以下是基於鄰接矩陣表示圖的實現程式碼：
 
@@ -46,16 +51,21 @@
     ![鄰接表的初始化、增刪邊、增刪頂點](graph_operations.assets/adjacency_list_step1_initialization.svg)
 
 === "<2>"
-    ![基於鄰接表的圖操作：增刪無向邊與增刪頂點，第 2 步，共 5 步：第 2 步：新增無向邊 1—2](graph_operations.assets/adjacency_list_step2_add_edge.svg)
+    ![鄰接表的增刪操作，第 2 步，共 5 步：新增邊 1—2](graph_operations.assets/adjacency_list_step2_add_edge.svg)
 
 === "<3>"
-    ![基於鄰接表的圖操作：增刪無向邊與增刪頂點，第 3 步，共 5 步：第 3 步：刪除無向邊 1—3](graph_operations.assets/adjacency_list_step3_remove_edge.svg)
+    ![鄰接表的增刪操作，第 3 步，共 5 步：刪除邊 1—3](graph_operations.assets/adjacency_list_step3_remove_edge.svg)
 
 === "<4>"
-    ![基於鄰接表的圖操作：增刪無向邊與增刪頂點，第 4 步，共 5 步：第 4 步：新增孤立頂點 6](graph_operations.assets/adjacency_list_step4_add_vertex.svg)
+    ![鄰接表的增刪操作，第 4 步，共 5 步：新增孤立頂點 6](graph_operations.assets/adjacency_list_step4_add_vertex.svg)
 
 === "<5>"
-    ![基於鄰接表的圖操作：增刪無向邊與增刪頂點，第 5 步，共 5 步：第 5 步：刪除頂點 3 及所有關聯鄰接項](graph_operations.assets/adjacency_list_step5_remove_vertex.svg)
+    ![鄰接表的增刪操作，第 5 步，共 5 步：刪除頂點 3](graph_operations.assets/adjacency_list_step5_remove_vertex.svg)
+<!-- figure-reading:start group:chapter_graph/graph_operations.assets/adjacency_list -->
+
+[鄰接表的增刪操作：完整圖解](graph_operations.assets/adjacency_list.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 以下是鄰接表的程式碼實現。對比上圖，實際程式碼有以下不同。
 

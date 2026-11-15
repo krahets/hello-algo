@@ -3,8 +3,8 @@
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_searching/binary_search_edge.assets/binary_search_right_edge_by_left_edge",
-  "title": "将查找右边界转化为查找左边界：借 target + 1 = 7 的插入点减 1 定位最右 6",
-  "summary": "在整数数组中查找 target + 1 = 7 的插入点得到索引 i = 7（首个大于等于 7 的位置），减 1 即得最右一个 6 的索引 j = 6。",
+  "title": "用插入点查找右边界",
+  "summary": "在有序整数数组中，用 target + 1 的插入点减 1 得到右边界候选索引；返回前须确认索引有效且对应元素等于 target。",
   "context": [
     "有序整数数组为 nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]，目标元素 target = 6；其中索引 2 至 6 为五个连续的 6。画面同时标出查找左边界与查找右边界结束时的两组双指针状态。"
   ],
@@ -18,43 +18,13 @@
     {
       "id": "source-224",
       "book_path": "chapter_searching/binary_search_edge.assets/binary_search_right_edge_by_left_edge.png",
-      "title": "复用左边界插入点查找：将求最右 6 转化为求 7 的插入点减 1",
+      "title": "用插入点查找右边界",
       "explanation": "左侧指针对 (j = 1, i = 2) 夹在元素 3 与首个 6 之间，给出左边界 i = 2；右侧指针对 (j = 6, i = 7) 夹在最右一个 6 与元素 10 之间，说明查找 target + 1 = 7 的插入点 i = 7 后取 j = i − 1 = 6 即可得到 6 的右边界。",
       "state": "nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]，target = 6。左边界查找结束：j = 1（值 3），i = 2（值 6）。对 7 查找插入点结束：j = 6（值 6），i = 7（值 10）；返回右边界 j = 6。",
       "key_state": "最左 6 在 i = 2；查找 7 的插入点得 i = 7，最右 6 在 j = 7 − 1 = 6。",
       "announcement": "展示将查找最右一个 6 转化为查找 7 的左插入点 7 再减 1，得到右边界索引 6。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-11",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "17a969c0523bab18af6163844e1013dabdfb165149e1429a3f17be5c6898133e",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3206c254e0370086a13ff2dc3fac20039392415745b2219372e157eeb538a33f",
-        "output_sha256": "dd9bf68b62344daf8bc8e96623047978d0e19cc619fd66d876e9de1554000277"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "dd9bf68b62344daf8bc8e96623047978d0e19cc619fd66d876e9de1554000277",
-        "output_sha256": "4f0d4fbb2186a7affd40a35e337bce4a948aba21bd793bbcbf59d1b9b8ac75df"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "4f0d4fbb2186a7affd40a35e337bce4a948aba21bd793bbcbf59d1b9b8ac75df",
-        "output_sha256": "a5f19149a68ddebc468f9458a1b65a7a416af49f2324c4cc2f70f730d44ac163"
-      }
-    ],
-    "evidence_sha256": "36e78ab514241f595a2ea03d76dbb5a6499bcabe3070142fed1c2b7ad3fe7c96"
-  },
   "dependencies": {
     "markdown": {
       "chapter_searching/binary_search_edge.md": "e1a860fb407c17f6795c36fec076baf22a1105bfd8c7e700aa590c9cd0730101"
@@ -63,5 +33,37 @@
     "scenes": {
       "chapter_searching/binary_search_edge.assets/binary_search_right_edge_by_left_edge.png": "20b871468f8d09af052a7eb7bfbc354692e9c4ec331dbba13fed9448017a8c45"
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/names",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
+        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      }
+    ],
+    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
+    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "d50617a9db78b7873d6acc005fe5b97323d085c9fecbc5546d118e49f05f756b"
   }
 }

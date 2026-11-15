@@ -16,7 +16,7 @@
     {
       "id": "source-57",
       "book_path": "chapter_stack_and_queue/stack.assets/linkedlist_stack_step1.png",
-      "title": "步骤 1：初始状态，链表头节点 5 对应栈顶",
+      "title": "初始栈：头节点 5 为栈顶",
       "explanation": "初始时，左侧栈从栈底到栈顶依次为 [1, 3, 2, 5]，栈顶开口处标有入栈（向下）和出栈（向上）箭头。右侧单向链表从上到下依次为 5 → 2 → 3 → 1，上方头节点 5 对应栈顶，下方尾节点 1 对应栈底。",
       "state": "当前为链表栈的初始状态（Step 1）：左侧栈从栈底到栈顶为 [1, 3, 2, 5]，共 4 个元素；右侧单向链表从头节点到尾节点为 5 → 2 → 3 → 1。头节点与栈顶均为 5，尾节点与栈底均为 1。",
       "key_state": "初始栈（底到顶）[1, 3, 2, 5]；链表（头到尾）5 → 2 → 3 → 1，头节点 5 为栈顶。",
@@ -25,7 +25,7 @@
     {
       "id": "source-58",
       "book_path": "chapter_stack_and_queue/stack.assets/linkedlist_stack_step2_push.png",
-      "title": "步骤 2：入栈 push(4)，将节点 4 添加至链表头部",
+      "title": "在链表头部入栈 4",
       "explanation": "左侧标注“入栈 push(4)”，右侧标注“将节点 4 添加至链表头部”。青色新节点 4 采用头插法插入在原头节点 5 上方并指向 5，成为新的头节点。此时链表从头到尾变为 4 → 5 → 2 → 3 → 1，左侧栈从栈底到栈顶变为 [1, 3, 2, 5, 4]，栈顶更新为 4。",
       "state": "当前为执行 push(4) 后的链表栈（Step 2）：左侧栈从栈底到栈顶为 [1, 3, 2, 5, 4]，共 5 个元素；右侧链表从头节点到尾节点为 4 → 5 → 2 → 3 → 1。新节点 4 为头节点和栈顶，尾节点和栈底仍为 1。",
       "key_state": "push(4) 后：栈（底到顶）[1, 3, 2, 5, 4]；链表（头到尾）4 → 5 → 2 → 3 → 1，新头节点 4 为栈顶。",
@@ -34,46 +34,16 @@
     {
       "id": "source-59",
       "book_path": "chapter_stack_and_queue/stack.assets/linkedlist_stack_step3_pop.png",
-      "title": "步骤 3：出栈 pop()，删除链表头节点 4",
+      "title": "在链表头部出栈 4",
       "explanation": "左侧标注“出栈 pop()”，右侧标注“删除头节点”。移除上一步位于链表头部的节点 4，使其后继节点 5 重新成为头节点。右侧链表恢复为 5 → 2 → 3 → 1，左侧栈从栈底到栈顶也恢复为 [1, 3, 2, 5]，栈顶回到 5。",
       "state": "当前为执行 pop() 后的链表栈（Step 3）：原头节点 4 已删除，左侧栈从栈底到栈顶恢复为 [1, 3, 2, 5]，共 4 个元素；右侧链表从头节点到尾节点为 5 → 2 → 3 → 1。头节点与栈顶恢复为 5，尾节点与栈底为 1。",
       "key_state": "pop() 删除头节点 4 后：栈（底到顶）[1, 3, 2, 5]；链表（头到尾）5 → 2 → 3 → 1，栈顶恢复为 5。",
       "announcement": "步骤 3：执行 pop() 删除链表头节点 4，头节点与栈顶恢复为 5。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-04",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "f5f8e08e54326ea870fc71ab6eb08cd12086b2575409fe02c9b688789ab35c60",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "010659120695514881c0d1ee814ac67faa1e50957300a7e781f1c3edf7858059",
-        "output_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de",
-        "output_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8",
-        "output_sha256": "d48eb4dd56235f9a9b2f2d5c8f67899492c9f6b15567237d35161c31596306cb"
-      }
-    ],
-    "evidence_sha256": "178794e8fd357c692f91d245ae613b37aa02834865c6124afd4cd91ea892de0d"
-  },
   "dependencies": {
     "markdown": {
-      "chapter_stack_and_queue/stack.md": "3ba63b881e29fee2cfff650e7dd695f0936e1a6ff078ebdb369583c9bc022859"
+      "chapter_stack_and_queue/stack.md": "da8168eeb67b931c0e9c09301bda55b1c68a9f272be1e712d4db61c350340c75"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -86,7 +56,7 @@
     "linkedlist-stack": {
       "kind": "source-frames",
       "model_sha256": "ca23cdf6fdd39b98f583dd63a051c3429e6588fc4d845d158822d25152b30104",
-      "source_content_sha256": "f5f8e08e54326ea870fc71ab6eb08cd12086b2575409fe02c9b688789ab35c60",
+      "source_content_sha256": "23ad267d3b25403d2c83cf2e07a1e728769cf4b240b288bd8dac1bf73d553783",
       "states": [
         {
           "id": "step-1",
@@ -103,11 +73,44 @@
       ],
       "review": {
         "status": "confirmed",
-        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "run_id": "figure-reading-20261116/content/names/source-binding",
         "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "3c5f7db92b5a2208d647af40f0afe3d1c59103adcc5b2a95b080ed4910dd654c",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+        "binding_sha256": "6b35076726b988ce5130cd3e90b480c0f53e4c219ec7eee7173b4dfc237d2a91",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
+        "current_text_verification_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da"
       }
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/names",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
+        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      }
+    ],
+    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
+    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "23ad267d3b25403d2c83cf2e07a1e728769cf4b240b288bd8dac1bf73d553783"
   }
 }

@@ -27,6 +27,11 @@
 - **算法**：搜索、排序、分治、回溯、动态规划、贪心等算法的定义、优缺点、效率、应用场景、解题步骤和示例问题等。
 
 ![本书主要内容](about_the_book.assets/hello_algo_mindmap.svg)
+<!-- figure-reading:start group:chapter_preface/about_the_book.assets/hello_algo_mindmap -->
+
+[全书知识地图：完整图解](about_the_book.assets/hello_algo_mindmap.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ## 致谢
 

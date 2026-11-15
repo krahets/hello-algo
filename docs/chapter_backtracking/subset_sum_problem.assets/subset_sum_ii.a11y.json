@@ -1,26 +1,26 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_backtracking/subset_sum_problem.assets/subset_sum_ii",
   "title": "子集和 II 的四种剪枝",
-  "summary": "对 [4, 4̂, 5] 求和为 9 的子集，综合运用四种剪枝条件后只保留唯一解 [4, 5]。",
+  "summary": "对有序数组 [4, 4̂, 5] 搜索和为 9 的子集，综合四种剪枝条件后只保留唯一解 [4, 5]。",
   "context": [
-    "输入数组已按数值排序为 choices=[4, 4̂, 5]，目标 target=9，4̂ 的数值仍为 4。每个数组索引在同一个子集中最多只能使用一次，圆节点内的数字表示做减法后的剩余 target。"
+    "输入数组已排序为 choices = [4, 4̂, 5]（索引依次为 0、1、2，4̂ 的数值仍为 4，仅区分第二个 4 的身份），目标 target = 9。圆圈内的数字表示减法后的剩余 target（余额）。"
   ],
   "description": [
-    "递归树的右侧及下方排列四个图例框，分别对应四色剪刀：红色“剪枝一：元素和不能超过 target”、蓝色“剪枝二：避免生成重复子集”、紫色“剪枝三：不允许重复选择数组元素”、青色“剪枝四：在同一轮中相等元素只能被选择一次”。灰色边与灰色节点表示被剪除的分支。"
+    "每个索引最多用一次，子集不区分顺序。选中索引 i 后，下一轮从 start = i + 1 开始，同时实现两项规则：既不回头选更早索引（剪枝二），也不重用当前索引（剪枝三）。",
+    "根处跳过第二个 4 是同一轮值去重（剪枝四）；进入 [4] 后是新的一轮（start = 1），另一个 4（4̂）的索引尚未使用，仍可选它。前缀 [4, 4̂] 余额为 1，向后只剩 5；它超过余额（剪枝一），直接结束循环。",
+    "图中四种剪刀对应表一的四类排除情形，代码并不会实际递归进入被剪分支；其中 [4, 4̂] 下再选首个 4 在图中标为反序（剪枝二），它同时也已用过。"
   ],
-  "result": "四种剪枝共同作用后，唯一到达剩余值 0 的路径是 [4, 5]。同轮去重剪掉了根处的 4̂ 分支，但并不妨碍在第一轮选 4 后、第二轮再合法选用不同索引的 4̂（只是 [4, 4̂] 后续无法凑出 9）。",
+  "result": "四种剪枝共同作用后，唯一使剩余 target 归零的路径是 [4, 5]。同轮去重剪掉了根处的 4̂，但不妨碍在前缀 [4] 后的新一轮选用不同索引的 4̂。",
   "frames": [
     {
       "id": "source-362",
       "book_path": "chapter_backtracking/subset_sum_problem.assets/subset_sum_ii.png",
       "title": "子集和 II 的四种剪枝",
-      "explanation": "从根节点 9 出发，第一轮选 -4 得到剩余值 5；同轮的 -4̂ 因与 -4 数值相等，被青色剪刀（剪枝四）剪去；选 -5 则得到剩余值 4。第二轮在 5（已选第一个 4）下：再选同一个 -4 被紫色剪刀（剪枝三）剪去；选不同索引的 -4̂ 是合法的，得到剩余值 1；选 -5 则到达绿色节点 0，输出子集 [4, 5]。接着在剩余值 1（前缀 [4, 4̂]）的第三轮中：回头选第一个 -4 被蓝色剪刀（剪枝二）剪去，重用第二个 -4̂ 被紫色剪刀（剪枝三）剪去，选 -5 则因超过剩余值 1 被红色剪刀（剪枝一）剪去。而在第一轮剩余值 4（已选 5）的第二轮中：回头选 -4、-4̂ 均被蓝色剪刀（剪枝二）剪去，重用同一个 -5 被紫色剪刀（剪枝三）剪去。正文代码通过递归传入 start=i+1 同时实现剪枝二和剪枝三，并通过 i>start 且相邻元素相等的判断实现剪枝四。",
-      "state": "根为 9，第一轮保留 -4 到 5、-5 到 4，中间 -4̂ 被青色剪刀四剪去。5 下：-4 被紫色剪刀三剪去，-4̂ 到 1，-5 到绿色 0（输出 [4, 5]）；1 下的 -4、-4̂、-5 依次被蓝二、紫三、红一剪去。4 下的 -4、-4̂ 被蓝二剪去，-5 被紫三剪去。",
-      "key_state": "四种剪枝筛除越界、倒序、同索引重用和同轮相等值，仅留 9→5→0 输出 [4, 5]。",
-      "announcement": "同轮剪去根处的 4̂，结合索引前进与越界剪枝，最终只保留 9 减 4 再减 5 的唯一组合 [4, 5]。"
+      "explanation": "根处跳过同轮的第二个 4，而前缀 [4] 后开启新一轮，仍可选不同索引的 4̂；唯一成功路径是先选 4 再选 5。",
+      "state": "搜索树展示根余额 9、[4] 后余 5、[5] 后余 4、[4, 4̂] 后余 1 以及 [4, 5] 后余 0。四种剪枝定义与各前缀候选处置见表。"
     }
   ],
   "tables": [
@@ -47,39 +47,88 @@
           "剪枝四（青）",
           "同一轮再次尝试数值相同的候选"
         ]
-      ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "图中各前缀的候选与处置",
+      "headers": [
+        "当前前缀",
+        "剩余目标",
+        "候选",
+        "结果或剪枝原因"
+      ],
+      "rows": [
+        [
+          "[]",
+          "9",
+          "4",
+          "保留，余额 5"
+        ],
+        [
+          "[]",
+          "9",
+          "4̂",
+          "同轮重复值，剪枝四"
+        ],
+        [
+          "[]",
+          "9",
+          "5",
+          "保留，余额 4"
+        ],
+        [
+          "[4]",
+          "5",
+          "4",
+          "重用当前索引，剪枝三"
+        ],
+        [
+          "[4]",
+          "5",
+          "4̂",
+          "不同索引，可选，余额 1"
+        ],
+        [
+          "[4]",
+          "5",
+          "5",
+          "余额 0，记录 [4,5]"
+        ],
+        [
+          "[4,4̂]",
+          "1",
+          "4",
+          "回到更早索引，图示剪枝二"
+        ],
+        [
+          "[4,4̂]",
+          "1",
+          "4̂",
+          "重用当前索引，剪枝三"
+        ],
+        [
+          "[4,4̂]",
+          "1",
+          "5",
+          "超过余额，剪枝一"
+        ],
+        [
+          "[5]",
+          "4",
+          "4、4̂",
+          "回到更早索引，剪枝二"
+        ],
+        [
+          "[5]",
+          "4",
+          "5",
+          "重用当前索引，剪枝三"
+        ]
+      ],
+      "row_header": 0
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-18",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "af39aad09ceaf24f3c4b5be74bc467f20f99ed7f44f6b8b0e3edb229c8ffab4f",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "4d905ea19e7b4a83ea36041a9c7f9d8d8c1f3b06c72a654e2a9e539750effd5d",
-        "output_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90",
-        "output_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad",
-        "output_sha256": "5ee2b110fd9b935a096ccaacf3e3b27d88bb1cb4918d9a5b6bd2b5a75c56edf0"
-      }
-    ],
-    "evidence_sha256": "5559c3ad6bd5d378f79de2a5c7f96ac680c007486f684e00a24a2512ab4de485"
-  },
   "dependencies": {
     "markdown": {
       "chapter_backtracking/subset_sum_problem.md": "071de898ede315a542cb99a3734fdd4bc42f447fe76e35d4251abc7c6ad4bfa1"
@@ -88,5 +137,37 @@
     "scenes": {
       "chapter_backtracking/subset_sum_problem.assets/subset_sum_ii.png": "1542632366b5252c1a612a70005c116feee9ddc5ddfa7913e7b645acf2b8c652"
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-12",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "2db7b8b0ecd549998fdef4f0b1f30abddd5f422b11a7d32336c10c15ba4135ad",
+        "output_sha256": "2c9c8bbef62d495610441001475851c93659a0b4a44bed6cd9e8183150e44092"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "2c9c8bbef62d495610441001475851c93659a0b4a44bed6cd9e8183150e44092",
+        "output_sha256": "a2ace14bd5018750c19e80363cbad3331032bfa946914771946e57e407668e7a"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a2ace14bd5018750c19e80363cbad3331032bfa946914771946e57e407668e7a",
+        "output_sha256": "c7a7bb6d6515cebec7bbacf4a6095365cb25f8f5dbdc25b8a75d801c27d3cfa7"
+      }
+    ],
+    "evidence_sha256": "5d2e4ec7f377fdb6c214c393e67369ccbad6377559d1dd71998f5b7ecbbcc1d5",
+    "verification_manifest_sha256": "bbc351cd7b91cef62b4c7a18bd298e76111e9a508bd7137d745c92ce2d82153d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "bd2fa2a3edc57a1924299e45a1ed95cb43b43f67c8389501212d0276385e3770"
   }
 }

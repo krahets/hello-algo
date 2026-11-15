@@ -1,60 +1,24 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_tree/array_representation_of_tree.assets/array_representation_binary_tree",
-  "title": "完美二叉树的数组表示与索引映射",
-  "summary": "将四层完美二叉树的节点值 1 至 15 按层序存入索引 0 至 14 的数组，任意节点索引 i 的左、右子节点索引分别为 2i+1 与 2i+2。",
-  "context": [
-    "上方四层完美二叉树的根节点为 1；第 2 层为 1 的左、右子节点 2、3；第 3 层依次为 2 的左、右子节点 4、5 和 3 的左、右子节点 6、7；第 4 层依次为 4 的子节点 8、9，5 的子节点 10、11，6 的子节点 12、13，以及 7 的子节点 14、15。"
-  ],
-  "description": [
-    "树中每个绿色圆圈内是“节点”值（1 至 15），圆圈正下方的灰色数字是“节点索引”（0 至 14）。图下方通过双向箭头标注“使用数组表示二叉树”：上方一行灰色数字列出节点索引 0 至 14，下方一行绿色方格列出对应的“层序遍历序列”[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]，每个节点的索引恰好等于其节点值减 1。",
-    "右侧浅绿框给出父子索引的“映射关系”：若“当前节点索引：i”，则“左子节点索引：2i+1”，“右子节点索引：2i+2”。例如根节点 1 的索引 i = 0，其左、右子节点 2、3 的索引分别为 1 和 2；节点 6 的索引 i = 5，其左、右子节点 12、13 的索引分别为 2×5+1 = 11 和 2×5+2 = 12。",
-    "该映射公式作用于数组索引 i 而非节点值本身。因为完美二叉树每一层都填满、数组中间没有任何空缺，索引计算式可以直接替代链表节点中的左、右子节点指针。 计算所得索引仍须小于数组长度；本图索引 7 至 14 的节点都是叶节点，其子节点索引越界，表示没有对应子节点。"
-  ],
-  "result": "完美二叉树按层序存入数组后无空位，任意节点的左、右子节点位置都可由当前索引 i 通过 2i+1 与 2i+2 直接算出。 计算结果若超出索引 0 至 14，则该方向没有子节点。",
+  "title": "完美二叉树的数组表示",
+  "summary": "将完美二叉树按层序存入零基数组，用索引算式 2i+1 与 2i+2 定位左右子节点。",
+  "context": [],
+  "description": [],
+  "result": "索引算式可替代子节点指针，但访问时仍须检查数组边界：本图索引 7 至 14（节点 8 至 15）是叶节点，算出的子位置 15 至 30 全部越界，表示无子节点。",
   "frames": [
     {
       "id": "source-110",
       "book_path": "chapter_tree/array_representation_of_tree.assets/array_representation_binary_tree.png",
-      "title": "完美二叉树的数组表示与索引映射",
-      "explanation": "上方树中每个节点同时标出节点值（1 至 15）与节点索引（0 至 14），下方层序遍历数组按索引 0 至 14 依次存放 1 至 15，右侧框内标出从索引 i 到左子节点 2i+1、右子节点 2i+2 的映射关系。",
-      "state": "四层完美二叉树包含节点 1 至 15，各节点下方标有索引 0 至 14（1 对应 0，2、3 对应 1、2，4 至 7 对应 3 至 6，8 至 15 对应 7 至 14）。下方层序遍历序列数组在索引 0 至 14 处依次存放 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]；右侧映射关系标明当前节点索引 i 的左子节点索引为 2i+1、右子节点索引为 2i+2。",
-      "key_state": "节点值 1 至 15 对应数组索引 0 至 14；索引 i 的左、右子节点索引为 2i+1、2i+2。",
-      "announcement": "展示四层完美二叉树（节点 1 至 15、索引 0 至 14）与层序数组的对应关系及 2i+1、2i+2 索引公式。"
+      "title": "完美二叉树的数组表示",
+      "explanation": "节点按层从左到右存入数组，根在索引 0。若当前节点的数组索引为 i，则左子节点位置为 2i+1，右子节点位置为 2i+2；公式代入的是索引 i 而非节点值。例如节点 6 位于索引 5，其左、右子节点分别在索引 11（值 12）和索引 12（值 13）。",
+      "state": "4 层完美二叉树共 15 个节点，按层序编号为 1 至 15（第 1 层根为 1，第 2 层为 2、3，第 3 层为 4 至 7，第 4 层叶节点为 8 至 15），依次存入索引 0 至 14 的数组。全部节点的索引与左右子节点位置见表。",
+      "key_state": "索引 i 的左右子节点位于 2i+1 与 2i+2；如索引 5（节点 6）对应左子索引 11（值 12）、右子索引 12（值 13）。",
+      "announcement": "展示节点 6（索引 5）通过 2i+1、2i+2 映射到索引 11、12 的左右子节点。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-06",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "5d17b99698be035a1a409e221f12a2361e724c221525eaaef2440c8850d02e86",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a7d27ac86970762b98a3afc622b5a802549e6b6254c666e3efdf60f34ede65b5",
-        "output_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4",
-        "output_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900",
-        "output_sha256": "30bb25c69fe95554ab48370f707653e1ddeb4b287f83cb44cf33dc013e44b87b"
-      }
-    ],
-    "evidence_sha256": "bbb898a17ec7d0f8023ba3e028e19e1cebb4eba7c5059fe86305e5491e6f3b3b"
-  },
   "dependencies": {
     "markdown": {
       "chapter_tree/array_representation_of_tree.md": "cd4a08a4c01fdd9039b2c9cafa2632b965147084ddf3ff241600c2c803acc30e"
@@ -63,5 +27,141 @@
     "scenes": {
       "chapter_tree/array_representation_of_tree.assets/array_representation_binary_tree.png": "3a85a25056cb1819e7066418eaec7d5f792789842d01a8385f2dfeaea88ca396"
     }
+  },
+  "tables": [
+    {
+      "caption": "节点索引与左右子节点位置",
+      "headers": [
+        "当前索引",
+        "节点值",
+        "左子节点：索引和值",
+        "右子节点：索引和值"
+      ],
+      "rows": [
+        [
+          "0",
+          "1",
+          "1：2",
+          "2：3"
+        ],
+        [
+          "1",
+          "2",
+          "3：4",
+          "4：5"
+        ],
+        [
+          "2",
+          "3",
+          "5：6",
+          "6：7"
+        ],
+        [
+          "3",
+          "4",
+          "7：8",
+          "8：9"
+        ],
+        [
+          "4",
+          "5",
+          "9：10",
+          "10：11"
+        ],
+        [
+          "5",
+          "6",
+          "11：12",
+          "12：13"
+        ],
+        [
+          "6",
+          "7",
+          "13：14",
+          "14：15"
+        ],
+        [
+          "7",
+          "8",
+          "15：越界，无子节点",
+          "16：越界，无子节点"
+        ],
+        [
+          "8",
+          "9",
+          "17：越界，无子节点",
+          "18：越界，无子节点"
+        ],
+        [
+          "9",
+          "10",
+          "19：越界，无子节点",
+          "20：越界，无子节点"
+        ],
+        [
+          "10",
+          "11",
+          "21：越界，无子节点",
+          "22：越界，无子节点"
+        ],
+        [
+          "11",
+          "12",
+          "23：越界，无子节点",
+          "24：越界，无子节点"
+        ],
+        [
+          "12",
+          "13",
+          "25：越界，无子节点",
+          "26：越界，无子节点"
+        ],
+        [
+          "13",
+          "14",
+          "27：越界，无子节点",
+          "28：越界，无子节点"
+        ],
+        [
+          "14",
+          "15",
+          "29：越界，无子节点",
+          "30：越界，无子节点"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-06",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "0e605f50a53ec6e3f03d8d322e023b976d2db4808bf108c78d39e01978f007df",
+        "output_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4",
+        "output_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566",
+        "output_sha256": "44416cbb28c97324cacaea4c3e09ba6447fb8d634f9669e0ab1055e4248cc4df"
+      }
+    ],
+    "evidence_sha256": "e12abd969b6243a09b219e54f4a5057f6e2f8de2c83b7c02566b8d9406402b78",
+    "verification_manifest_sha256": "0b7adebd41a0487a5327cd972cfda8603502aa45f7655844680e218e6e933867",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "b3b4c6943b518f5a09dbfba1f2b7e6f4d8b44541fb1ce641fcf200bfdc147dbf"
   }
 }

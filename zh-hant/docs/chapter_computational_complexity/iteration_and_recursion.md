@@ -19,6 +19,11 @@
 下圖是該求和函式的流程框圖。
 
 ![求和函式的流程框圖](iteration_and_recursion.assets/iteration.svg)
+<!-- figure-reading:start group:chapter_computational_complexity/iteration_and_recursion.assets/iteration -->
+
+[單層迴圈：完整圖解](iteration_and_recursion.assets/iteration.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 此求和函式的操作數量與輸入資料大小 $n$ 成正比，或者說成“線性關係”。實際上，**時間複雜度描述的就是這個“線性關係”**。相關內容將會在下一節中詳細介紹。
 
@@ -53,6 +58,11 @@
 下圖是該巢狀迴圈的流程框圖。
 
 ![巢狀迴圈的流程框圖](iteration_and_recursion.assets/nested_iteration.svg)
+<!-- figure-reading:start group:chapter_computational_complexity/iteration_and_recursion.assets/nested_iteration -->
+
+[雙層巢狀迴圈：完整圖解](iteration_and_recursion.assets/nested_iteration.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 在這種情況下，函式的操作數量與 $n^2$ 成正比，或者說演算法執行時間和輸入資料大小 $n$ 成“平方關係”。
 
@@ -80,6 +90,11 @@
 下圖展示了該函式的遞迴過程。
 
 ![求和函式的遞迴過程](iteration_and_recursion.assets/recursion_sum.svg)
+<!-- figure-reading:start group:chapter_computational_complexity/iteration_and_recursion.assets/recursion_sum -->
+
+[普通遞迴求和：完整圖解](iteration_and_recursion.assets/recursion_sum.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 雖然從計算角度看，迭代與遞迴可以得到相同的結果，**但它們代表了兩種完全不同的思考和解決問題的範式**。
 
@@ -101,6 +116,11 @@
 如下圖所示，在觸發終止條件前，同時存在 $n$ 個未返回的遞迴函式，**遞迴深度為 $n$** 。
 
 ![遞迴呼叫深度](iteration_and_recursion.assets/recursion_sum_depth.svg)
+<!-- figure-reading:start group:chapter_computational_complexity/iteration_and_recursion.assets/recursion_sum_depth -->
+
+[遞迴求和的遞迴深度：完整圖解](iteration_and_recursion.assets/recursion_sum_depth.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 在實際中，程式語言允許的遞迴深度通常是有限的，過深的遞迴可能導致堆疊溢位錯誤。
 
@@ -123,6 +143,11 @@
 - **尾遞迴**：求和操作是在“遞”的過程中執行的，“迴”的過程只需層層返回。
 
 ![尾遞迴過程](iteration_and_recursion.assets/tail_recursion_sum.svg)
+<!-- figure-reading:start group:chapter_computational_complexity/iteration_and_recursion.assets/tail_recursion_sum -->
+
+[尾遞迴求和：完整圖解](iteration_and_recursion.assets/tail_recursion_sum.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 !!! tip
 
@@ -150,6 +175,11 @@
 觀察以上程式碼，我們在函式內遞迴呼叫了兩個函式，**這意味著從一個呼叫產生了兩個呼叫分支**。如下圖所示，這樣不斷遞迴呼叫下去，最終將產生一棵層數為 $n$ 的<u>遞迴樹（recursion tree）</u>。
 
 ![費波那契數列的遞迴樹](iteration_and_recursion.assets/recursion_tree.svg)
+<!-- figure-reading:start group:chapter_computational_complexity/iteration_and_recursion.assets/recursion_tree -->
+
+[斐波那契遞迴樹：完整圖解](iteration_and_recursion.assets/recursion_tree.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 從本質上看，遞迴體現了“將問題分解為更小子問題”的思維範式，這種分治策略至關重要。
 

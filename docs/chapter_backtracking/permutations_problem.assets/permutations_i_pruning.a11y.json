@@ -1,58 +1,27 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_backtracking/permutations_problem.assets/permutations_i_pruning",
   "title": "全排列中剪掉已选元素",
-  "summary": "沿 1、3、2 的选择路径，剪去当前排列前缀中已经使用过的元素。",
+  "summary": "沿 1 → 3 → 2 的选择路径，用 selected 剪去当前排列前缀中已使用过的元素索引。",
   "context": [
-    "输入数组为 choices=[1, 2, 3]，无相等元素，每个数组元素在同一个排列中只能使用一次。状态列表 state 保存当前排列前缀，布尔数组 selected 按元素索引记录该元素在当前路径中是否已被使用。"
+    "输入为 choices = [1, 2, 3]（索引 0、1、2），无相等元素，每个元素在同一排列中只能使用一次。state 保存当前排列前缀，布尔数组 selected 按输入索引记录该元素在当前路径中是否已被选用。"
   ],
   "description": [
-    "三层递归树从顶部的三个空槽出发，蓝色方块 1、青色方块 2、紫色方块 3 分别代表三个候选元素。粗灰箭头突出本例完整展开的搜索路径，淡灰分支与省略号表示未展开的其余搜索分支，红色剪刀与虚线箭头表示因重复选用同一元素而被剪枝的分支。"
+    "selected 仅限制当前递归路径内不重复选用同一索引：向下递归时跳过已标记索引，回溯返回时则会撤销该标记，因此选过 1 不会永久禁用 1，它在其他排列分支中仍可再次使用。",
+    "本图只完整展开 1 → 3 → 2 一条路径，剪掉的 [1, 1]、[1, 3, 1]、[1, 3, 3] 均重复使用了当前路径中的已用索引；其余 [2]、[3]、[1, 2] 三条合法分支仅以省略号收起。"
   ],
-  "result": "图中突出路径最终生成排列 [1, 3, 2]。剪枝规则仅禁止同一数组元素在同一条递归路径内重复出现，回溯撤销标记后并不妨碍该元素在其他排列中继续使用。",
+  "result": "图中突出路径最终生成排列 [1, 3, 2]。剪枝仅禁止同一元素在同一条路径中重复出现，回溯撤销标记后不影响其他分支继续选用该元素。",
   "frames": [
     {
       "id": "source-354",
       "book_path": "chapter_backtracking/permutations_problem.assets/permutations_i_pruning.png",
       "title": "全排列中剪掉已选元素",
-      "explanation": "第一轮从空状态出发，合法元素为 1、2、3，本例沿着选 1 的分支进入状态 [1]，其余选 2、选 3 的分支以省略号收起。第二轮剪掉已被选择的元素 1（即灰色状态 [1, 1]），剩余合法元素为 2、3；本例选择 3 进入状态 [1, 3]，而 [1, 2] 分支的后续以省略号收起。第三轮剪掉已被选择的元素 1 和 3（即灰色状态 [1, 3, 1] 与 [1, 3, 3]），剩余合法元素仅为 2，填入后得到完整排列 [1, 3, 2]。当递归向上回退时，需要撤销相应索引在 selected 中的标记，使该元素能够参与其他排列。",
-      "state": "三层选择树中，粗箭头依次连接顶部空状态、第一轮 [1]、第二轮 [1, 3] 与第三轮 [1, 3, 2]。第二轮的 [1, 1] 以及第三轮的 [1, 3, 1]、[1, 3, 3] 为带红剪刀的灰色剪枝节点；第一轮的 [2]、[3] 与第二轮的 [1, 2] 分支后续均以省略号表示。",
-      "key_state": "突出路径 1→3→2；第二轮剪去已选的 1，第三轮剪去已选的 1 和 3。",
-      "announcement": "先选 1，第二轮剪去重复的 1 后选 3，第三轮剪去 1 和 3 后选 2，得到排列 [1, 3, 2]。"
+      "explanation": "沿突出路径依次排除已使用的索引 0（值 1）与索引 2（值 3），第 3 轮只剩索引 1 的元素 2 可填入。",
+      "state": "完整展开路径为 [] → [1] → [1, 3] → [1, 3, 2]；剪除分支为 [1, 1]、[1, 3, 1]、[1, 3, 3]；收起的合法分支为 [2]、[3]、[1, 2]，每轮选择限制见表。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-18",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "6bf8f464ffe41a6a0d4e1f145dea5625cb70c36cc90f551260c603a34d900a73",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "4d905ea19e7b4a83ea36041a9c7f9d8d8c1f3b06c72a654e2a9e539750effd5d",
-        "output_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90",
-        "output_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad",
-        "output_sha256": "5ee2b110fd9b935a096ccaacf3e3b27d88bb1cb4918d9a5b6bd2b5a75c56edf0"
-      }
-    ],
-    "evidence_sha256": "5559c3ad6bd5d378f79de2a5c7f96ac680c007486f684e00a24a2512ab4de485"
-  },
   "dependencies": {
     "markdown": {
       "chapter_backtracking/permutations_problem.md": "3a98624cb60210ec070f3e3a5e1a72593e80be9ded7190c57aa89ceda20034df"
@@ -61,5 +30,91 @@
     "scenes": {
       "chapter_backtracking/permutations_problem.assets/permutations_i_pruning.png": "e1cba074e42f832122834c0738bd81060abbc639367c3b4c04c7f5fb3a63647b"
     }
+  },
+  "tables": [
+    {
+      "caption": "突出路径上的选择限制",
+      "headers": [
+        "当前前缀",
+        "已用索引（对应值）",
+        "仍可选择",
+        "图中继续的选择"
+      ],
+      "rows": [
+        [
+          "[]",
+          "无",
+          "1、2、3",
+          "1"
+        ],
+        [
+          "[1]",
+          "0（值 1）",
+          "2、3",
+          "3"
+        ],
+        [
+          "[1,3]",
+          "0（值 1）、2（值 3）",
+          "2",
+          "2"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "被收起的合法分支",
+      "headers": [
+        "前缀",
+        "图中状态"
+      ],
+      "rows": [
+        [
+          "[2]",
+          "后续未展开"
+        ],
+        [
+          "[3]",
+          "后续未展开"
+        ],
+        [
+          "[1,2]",
+          "后续未展开"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-11",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "d2adaf8c87d65cbe0b438e864320dfc08404c9d0b39487d5faa113e15aa8fb32",
+        "output_sha256": "d35014a62c0968cd9b2a7f0186f65947037eb19fb8a4f9782aa88666a7338258"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "d35014a62c0968cd9b2a7f0186f65947037eb19fb8a4f9782aa88666a7338258",
+        "output_sha256": "3085ca38d6cb6449bd6b264a8f7210aac47c65c7d91d355c08cdfcefde4ddae6"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "3085ca38d6cb6449bd6b264a8f7210aac47c65c7d91d355c08cdfcefde4ddae6",
+        "output_sha256": "2f40f2a380e3e00da919d3c1b1684ad05b04d0a4ecc6a066ab61f95d1cbc87c3"
+      }
+    ],
+    "evidence_sha256": "29d4da7d4b0938d995b0aa712d110c1bd15ddd7ea5ac487ef6709e67b925ca83",
+    "verification_manifest_sha256": "097ababf496d022ca02085289b6035a137b25d25d8dccd8891a8640b522a5158",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "be7b4c318198e3597f1cdb76fde929ed8eed1979cc24b4f52f15a8ac9e0f7152"
   }
 }

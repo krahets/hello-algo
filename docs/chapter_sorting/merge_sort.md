@@ -6,6 +6,11 @@
 2. **合并阶段**：当子数组长度为 1 时终止划分，开始合并，持续地将左右两个较短的有序数组合并为一个较长的有序数组，直至结束。
 
 ![归并排序的划分与合并阶段](merge_sort.assets/merge_sort_overview.svg)
+<!-- figure-reading:start group:chapter_sorting/merge_sort.assets/merge_sort_overview -->
+
+[归并排序的划分与合并：完整图解](merge_sort.assets/merge_sort_overview.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ## 算法流程
 
@@ -20,31 +25,36 @@
     ![归并排序步骤](merge_sort.assets/merge_sort_step1.svg)
 
 === "<2>"
-    ![四元素归并排序的递归执行顺序，第 2 步，共 10 步：递归进入左半子数组 \[7, 3\]](merge_sort.assets/merge_sort_step2.svg)
+    ![四元素归并排序的递归执行顺序，第 2 步，共 10 步：递归处理左半](merge_sort.assets/merge_sort_step2.svg)
 
 === "<3>"
-    ![四元素归并排序的递归执行顺序，第 3 步，共 10 步：左分支划分至单元素 \[7\] 并触发终止条件](merge_sort.assets/merge_sort_step3.svg)
+    ![四元素归并排序的递归执行顺序，第 3 步，共 10 步：左半分出单元素 7](merge_sort.assets/merge_sort_step3.svg)
 
 === "<4>"
-    ![四元素归并排序的递归执行顺序，第 4 步，共 10 步：展开左半的右侧单元素 \[3\]](merge_sort.assets/merge_sort_step4.svg)
+    ![四元素归并排序的递归执行顺序，第 4 步，共 10 步：左半分出单元素 3](merge_sort.assets/merge_sort_step4.svg)
 
 === "<5>"
-    ![四元素归并排序的递归执行顺序，第 5 步，共 10 步：回溯合并左半部分，得到有序子数组 \[3, 7\]](merge_sort.assets/merge_sort_step5.svg)
+    ![四元素归并排序的递归执行顺序，第 5 步，共 10 步：左半合并为 \[3,7\]](merge_sort.assets/merge_sort_step5.svg)
 
 === "<6>"
-    ![四元素归并排序的递归执行顺序，第 6 步，共 10 步：左半完成后递归进入右半子数组 \[2, 6\]](merge_sort.assets/merge_sort_step6.svg)
+    ![四元素归并排序的递归执行顺序，第 6 步，共 10 步：递归处理右半](merge_sort.assets/merge_sort_step6.svg)
 
 === "<7>"
-    ![四元素归并排序的递归执行顺序，第 7 步，共 10 步：展开右半的左侧单元素 \[2\]](merge_sort.assets/merge_sort_step7.svg)
+    ![四元素归并排序的递归执行顺序，第 7 步，共 10 步：右半分出单元素 2](merge_sort.assets/merge_sort_step7.svg)
 
 === "<8>"
-    ![四元素归并排序的递归执行顺序，第 8 步，共 10 步：展开右半的右侧单元素 \[6\]](merge_sort.assets/merge_sort_step8.svg)
+    ![四元素归并排序的递归执行顺序，第 8 步，共 10 步：右半分出单元素 6](merge_sort.assets/merge_sort_step8.svg)
 
 === "<9>"
-    ![四元素归并排序的递归执行顺序，第 9 步，共 10 步：回溯合并右半部分，得到有序子数组 \[2, 6\]](merge_sort.assets/merge_sort_step9.svg)
+    ![四元素归并排序的递归执行顺序，第 9 步，共 10 步：右半合并为 \[2,6\]](merge_sort.assets/merge_sort_step9.svg)
 
 === "<10>"
-    ![四元素归并排序的递归执行顺序，第 10 步，共 10 步：顶层合并两个有序半区，完成排序](merge_sort.assets/merge_sort_step10.svg)
+    ![四元素归并排序的递归执行顺序，第 10 步，共 10 步：合并左右两半](merge_sort.assets/merge_sort_step10.svg)
+<!-- figure-reading:start group:chapter_sorting/merge_sort.assets/merge_sort -->
+
+[四元素归并排序的递归执行顺序：完整图解](merge_sort.assets/merge_sort.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 观察发现，归并排序与二叉树后序遍历的递归顺序是一致的。
 

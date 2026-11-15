@@ -9,6 +9,11 @@
 **广度优先遍历是一种由近及远的遍历方式，从某个节点出发，始终优先访问距离最近的顶点，并一层层向外扩张**。如下图所示，从左上角顶点出发，首先遍历该顶点的所有邻接顶点，然后遍历下一个顶点的所有邻接顶点，以此类推，直至所有顶点访问完毕。
 
 ![图的广度优先遍历](graph_traversal.assets/graph_bfs.svg)
+<!-- figure-reading:start group:chapter_graph/graph_traversal.assets/graph_bfs -->
+
+[图的广度优先遍历：完整图解](graph_traversal.assets/graph_bfs.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 算法实现
 
@@ -34,34 +39,39 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     ![图的广度优先遍历步骤](graph_traversal.assets/graph_bfs_step1.svg)
 
 === "<2>"
-    ![图的广度优先遍历（BFS）：借助队列由近及远逐层扩张，第 2 步，共 11 步：第二步：顶点 0 出队，邻接顶点 1、3 入队](graph_traversal.assets/graph_bfs_step2.svg)
+    ![图的广度优先遍历，第 2 步，共 11 步：处理顶点 0](graph_traversal.assets/graph_bfs_step2.svg)
 
 === "<3>"
-    ![图的广度优先遍历（BFS）：借助队列由近及远逐层扩张，第 3 步，共 11 步：第三步：顶点 1 出队，邻接顶点 2、4 入队](graph_traversal.assets/graph_bfs_step3.svg)
+    ![图的广度优先遍历，第 3 步，共 11 步：处理顶点 1](graph_traversal.assets/graph_bfs_step3.svg)
 
 === "<4>"
-    ![图的广度优先遍历（BFS）：借助队列由近及远逐层扩张，第 4 步，共 11 步：第四步：顶点 3 出队，邻接顶点 6 入队](graph_traversal.assets/graph_bfs_step4.svg)
+    ![图的广度优先遍历，第 4 步，共 11 步：处理顶点 3](graph_traversal.assets/graph_bfs_step4.svg)
 
 === "<5>"
-    ![图的广度优先遍历（BFS）：借助队列由近及远逐层扩张，第 5 步，共 11 步：第五步：顶点 2 出队，邻接顶点 5 入队](graph_traversal.assets/graph_bfs_step5.svg)
+    ![图的广度优先遍历，第 5 步，共 11 步：处理顶点 2](graph_traversal.assets/graph_bfs_step5.svg)
 
 === "<6>"
-    ![图的广度优先遍历（BFS）：借助队列由近及远逐层扩张，第 6 步，共 11 步：第六步：顶点 4 出队，邻接顶点 7 入队](graph_traversal.assets/graph_bfs_step6.svg)
+    ![图的广度优先遍历，第 6 步，共 11 步：处理顶点 4](graph_traversal.assets/graph_bfs_step6.svg)
 
 === "<7>"
-    ![图的广度优先遍历（BFS）：借助队列由近及远逐层扩张，第 7 步，共 11 步：第七步：顶点 6 出队，无新邻居入队](graph_traversal.assets/graph_bfs_step7.svg)
+    ![图的广度优先遍历，第 7 步，共 11 步：处理顶点 6](graph_traversal.assets/graph_bfs_step7.svg)
 
 === "<8>"
-    ![图的广度优先遍历（BFS）：借助队列由近及远逐层扩张，第 8 步，共 11 步：第八步：顶点 5 出队，最后一个顶点 8 入队](graph_traversal.assets/graph_bfs_step8.svg)
+    ![图的广度优先遍历，第 8 步，共 11 步：处理顶点 5](graph_traversal.assets/graph_bfs_step8.svg)
 
 === "<9>"
-    ![图的广度优先遍历（BFS）：借助队列由近及远逐层扩张，第 9 步，共 11 步：第九步：顶点 7 出队，无新邻居入队](graph_traversal.assets/graph_bfs_step9.svg)
+    ![图的广度优先遍历，第 9 步，共 11 步：处理顶点 7](graph_traversal.assets/graph_bfs_step9.svg)
 
 === "<10>"
-    ![图的广度优先遍历（BFS）：借助队列由近及远逐层扩张，第 10 步，共 11 步：第十步：顶点 8 出队，队列清空](graph_traversal.assets/graph_bfs_step10.svg)
+    ![图的广度优先遍历，第 10 步，共 11 步：处理顶点 8](graph_traversal.assets/graph_bfs_step10.svg)
 
 === "<11>"
-    ![图的广度优先遍历（BFS）：借助队列由近及远逐层扩张，第 11 步，共 11 步：第十一步：队列为空，返回完整遍历序列](graph_traversal.assets/graph_bfs_step11.svg)
+    ![图的广度优先遍历，第 11 步，共 11 步：返回遍历结果](graph_traversal.assets/graph_bfs_step11.svg)
+<!-- figure-reading:start group:chapter_graph/graph_traversal.assets/graph_bfs -->
+
+[图的广度优先遍历：完整图解](graph_traversal.assets/graph_bfs.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 !!! question "广度优先遍历的序列是否唯一？"
 
@@ -78,6 +88,11 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 **深度优先遍历是一种优先走到底、无路可走再回头的遍历方式**。如下图所示，从左上角顶点出发，访问当前顶点的某个邻接顶点，直到走到尽头时返回，再继续走到尽头并返回，以此类推，直至所有顶点遍历完成。
 
 ![图的深度优先遍历](graph_traversal.assets/graph_dfs.svg)
+<!-- figure-reading:start group:chapter_graph/graph_traversal.assets/graph_dfs -->
+
+[图的深度优先遍历：完整图解](graph_traversal.assets/graph_dfs.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 算法实现
 
@@ -98,34 +113,39 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     ![图的深度优先遍历步骤](graph_traversal.assets/graph_dfs_step1.svg)
 
 === "<2>"
-    ![图的深度优先遍历（DFS）：优先走到底、无路可走再回溯，第 2 步，共 11 步：第二步：从顶点 0 递归深入顶点 1](graph_traversal.assets/graph_dfs_step2.svg)
+    ![图的深度优先遍历，第 2 步，共 11 步：从 0 深入 1](graph_traversal.assets/graph_dfs_step2.svg)
 
 === "<3>"
-    ![图的深度优先遍历（DFS）：优先走到底、无路可走再回溯，第 3 步，共 11 步：第三步：从顶点 1 递归深入顶点 2](graph_traversal.assets/graph_dfs_step3.svg)
+    ![图的深度优先遍历，第 3 步，共 11 步：从 1 深入 2](graph_traversal.assets/graph_dfs_step3.svg)
 
 === "<4>"
-    ![图的深度优先遍历（DFS）：优先走到底、无路可走再回溯，第 4 步，共 11 步：第四步：从顶点 2 递归深入顶点 5](graph_traversal.assets/graph_dfs_step4.svg)
+    ![图的深度优先遍历，第 4 步，共 11 步：从 2 深入 5](graph_traversal.assets/graph_dfs_step4.svg)
 
 === "<5>"
-    ![图的深度优先遍历（DFS）：优先走到底、无路可走再回溯，第 5 步，共 11 步：第五步：从顶点 5 先深入分支顶点 4](graph_traversal.assets/graph_dfs_step5.svg)
+    ![图的深度优先遍历，第 5 步，共 11 步：从 5 深入 4](graph_traversal.assets/graph_dfs_step5.svg)
 
 === "<6>"
-    ![图的深度优先遍历（DFS）：优先走到底、无路可走再回溯，第 6 步，共 11 步：第六步：顶点 4 无路可走，回溯至顶点 5](graph_traversal.assets/graph_dfs_step6.svg)
+    ![图的深度优先遍历，第 6 步，共 11 步：从 4 返回 5](graph_traversal.assets/graph_dfs_step6.svg)
 
 === "<7>"
-    ![图的深度优先遍历（DFS）：优先走到底、无路可走再回溯，第 7 步，共 11 步：第七步：从顶点 5 继续深入分支顶点 6](graph_traversal.assets/graph_dfs_step7.svg)
+    ![图的深度优先遍历，第 7 步，共 11 步：从 5 深入 6](graph_traversal.assets/graph_dfs_step7.svg)
 
 === "<8>"
-    ![图的深度优先遍历（DFS）：优先走到底、无路可走再回溯，第 8 步，共 11 步：第八步：顶点 6 无路可走，回溯至顶点 5](graph_traversal.assets/graph_dfs_step8.svg)
+    ![图的深度优先遍历，第 8 步，共 11 步：从 6 返回 5](graph_traversal.assets/graph_dfs_step8.svg)
 
 === "<9>"
-    ![图的深度优先遍历（DFS）：优先走到底、无路可走再回溯，第 9 步，共 11 步：第九步：从顶点 5 经 2、1 连续回溯至起点 0](graph_traversal.assets/graph_dfs_step9.svg)
+    ![图的深度优先遍历，第 9 步，共 11 步：连续返回起点 0](graph_traversal.assets/graph_dfs_step9.svg)
 
 === "<10>"
-    ![图的深度优先遍历（DFS）：优先走到底、无路可走再回溯，第 10 步，共 11 步：第十步：从起点 0 递归访问剩余邻居 3](graph_traversal.assets/graph_dfs_step10.svg)
+    ![图的深度优先遍历，第 10 步，共 11 步：从 0 深入 3](graph_traversal.assets/graph_dfs_step10.svg)
 
 === "<11>"
-    ![图的深度优先遍历（DFS）：优先走到底、无路可走再回溯，第 11 步，共 11 步：第十一步：从顶点 3 回溯至 0，起始方法返回并结束遍历](graph_traversal.assets/graph_dfs_step11.svg)
+    ![图的深度优先遍历，第 11 步，共 11 步：结束全部递归调用](graph_traversal.assets/graph_dfs_step11.svg)
+<!-- figure-reading:start group:chapter_graph/graph_traversal.assets/graph_dfs -->
+
+[图的深度优先遍历：完整图解](graph_traversal.assets/graph_dfs.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 !!! question "深度优先遍历的序列是否唯一？"
 

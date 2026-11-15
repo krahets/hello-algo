@@ -3,7 +3,7 @@
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_searching/binary_search_insertion.assets/binary_search_insertion_naive",
-  "title": "含重复元素时线性回退求插入点：先二分命中任意一个 6，再向左扫描到首个 6",
+  "title": "二分命中后向左回退",
   "summary": "普通二分查找先命中索引 k = 4 的 6，随后向左逐格扫描经索引 3 到达索引 2 的最左 6。",
   "context": [
     "有序数组 nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]（索引从 0 开始），查找目标为 target = 6。数组中索引 2 至 6 连续分布着五个重复的 6，插入规则要求将新 6 插入到所有已有 6 的最左方。"
@@ -17,43 +17,13 @@
     {
       "id": "source-223",
       "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_naive.png",
-      "title": "从二分命中的索引 k = 4 向左线性扫描至最左索引 2",
+      "title": "向左扫描至首个 6",
       "explanation": "橙色方格标出普通二分首次命中的索引 k = 4（值为 6），下方两段蓝色弧线箭头表示向左逐格线性检查索引 3、2，最终定位蓝色高亮的最左 6（索引 2）。",
       "state": "nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]；橙色 k 位于索引 4 的 6，向左扫描路径为 4→3→2，蓝色最左目标位于索引 2，索引 1 的值为 3。",
       "key_state": "二分首次命中 k = 4；向左线性扫描 4→3→2，定位最左插入点索引 2。",
       "announcement": "先二分命中索引 4 的 6，再向左线性遍历找到索引 2 的最左 6。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-11",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "3de25732361cb66229c767e7a51d83c9bf667d3fc241fd8692dab20b9e9a5862",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3206c254e0370086a13ff2dc3fac20039392415745b2219372e157eeb538a33f",
-        "output_sha256": "dd9bf68b62344daf8bc8e96623047978d0e19cc619fd66d876e9de1554000277"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "dd9bf68b62344daf8bc8e96623047978d0e19cc619fd66d876e9de1554000277",
-        "output_sha256": "4f0d4fbb2186a7affd40a35e337bce4a948aba21bd793bbcbf59d1b9b8ac75df"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "4f0d4fbb2186a7affd40a35e337bce4a948aba21bd793bbcbf59d1b9b8ac75df",
-        "output_sha256": "a5f19149a68ddebc468f9458a1b65a7a416af49f2324c4cc2f70f730d44ac163"
-      }
-    ],
-    "evidence_sha256": "36e78ab514241f595a2ea03d76dbb5a6499bcabe3070142fed1c2b7ad3fe7c96"
-  },
   "dependencies": {
     "markdown": {
       "chapter_searching/binary_search_insertion.md": "9d86ebcc2847400e0104b773fcde0809d4665e4156fe42281b74b7535571b496"
@@ -62,5 +32,37 @@
     "scenes": {
       "chapter_searching/binary_search_insertion.assets/binary_search_insertion_naive.png": "53ea4f5f31877dc3a985eb49ad009bfdd0bb8b4a0367b03716ffa587081db93b"
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/names",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
+        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      }
+    ],
+    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
+    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "168a338fbc7d4ff7cc53d269205fc7747f58ca9bccd8a12b8deb6b0c8ed1b0a2"
   }
 }

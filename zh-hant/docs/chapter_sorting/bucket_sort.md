@@ -13,6 +13,11 @@
 3. 按照桶從小到大的順序合併結果。
 
 ![桶排序演算法流程](bucket_sort.assets/bucket_sort_overview.svg)
+<!-- figure-reading:start group:chapter_sorting/bucket_sort.assets/bucket_sort_overview -->
+
+[分成五個桶，桶內排序後依次合併：完整圖解](bucket_sort.assets/bucket_sort_overview.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 程式碼如下所示：
 
@@ -37,9 +42,19 @@
 如下圖所示，這種方法本質上是建立一棵遞迴樹，目標是讓葉節點的值儘可能平均。當然，不一定要每輪將資料劃分為 3 個桶，具體劃分方式可根據資料特點靈活選擇。
 
 ![遞迴劃分桶](bucket_sort.assets/scatter_in_buckets_recursively.svg)
+<!-- figure-reading:start group:chapter_sorting/bucket_sort.assets/scatter_in_buckets_recursively -->
+
+[遞迴拆分資料過多的價格桶：完整圖解](bucket_sort.assets/scatter_in_buckets_recursively.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 如果我們提前知道商品價格的機率分佈，**則可以根據資料機率分佈設定每個桶的價格分界線**。值得注意的是，資料分佈並不一定需要特意統計，也可以根據資料特點採用某種機率模型進行近似。
 
 如下圖所示，我們假設商品價格服從正態分佈，這樣就可以合理地設定價格區間，從而將商品平均分配到各個桶中。
 
 ![根據機率分佈劃分桶](bucket_sort.assets/scatter_in_buckets_distribution.svg)
+<!-- figure-reading:start group:chapter_sorting/bucket_sort.assets/scatter_in_buckets_distribution -->
+
+[按價格分佈劃分桶：完整圖解](bucket_sort.assets/scatter_in_buckets_distribution.a11y.markdown)
+
+<!-- figure-reading:end -->

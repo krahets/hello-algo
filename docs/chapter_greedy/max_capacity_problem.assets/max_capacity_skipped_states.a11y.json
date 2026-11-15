@@ -1,59 +1,29 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_greedy/max_capacity_problem.assets/max_capacity_skipped_states",
   "title": "移动短板导致被跳过的状态",
-  "summary": "当双指针从 cap[0, 7] 向内移动左短板至 cap[1, 7] 时，相当于一次性跳过了仍以索引 0 为左边界、右边界为 6 至 1 的六个更窄容器状态。",
+  "summary": "双指针从 cap[0, 7] 向内移动左短板至 cap[1, 7] 时，一次性跳过了仍以索引 0 为左板、右端为 6 至 1 的六个更窄状态。",
   "context": [
-    "在高度数组 ht = [3, 8, 5, 2, 7, 7, 3, 4] 的初始状态 [0, 7] 下，左板 i = 0（高 3）为短板，右板 j = 7（高 4）为长板，容量为 21。本图从状态空间剪枝的角度解释：为何贪心算法将短板 i 从 0 移到 1 后，无需再回头检验左端固定为 0 的其余组合。",
-    "容量按 cap[i, j] = min(ht[i], ht[j]) × (j - i) 计算，水高取两端板高较小者，宽度为索引差。"
+    "在高度数组 ht = [3, 8, 5, 2, 7, 7, 3, 4] 的初始状态 [0, 7] 下，左板 i = 0（高 3）为短板，右板 j = 7（高 4）为长板，初始容量为 3 × 7 = 21。本图从状态空间剪枝角度说明：为何贪心算法记录 21 并将左短板从 i = 0 移到 i = 1 后，无需再检验左端固定为 0 的其余组合。",
+    "容器容量按 cap[i, j] = min(ht[i], ht[j]) × (j - i) 计算，水高取两端板高较小值，宽度为索引差 j - i。"
   ],
   "description": [
-    "画面分为上下两部分：上半部分左侧为初始状态 cap[0, 7]，经向右的灰色实心箭头“移动短板”指向右侧的 cap[1, 7]；下半部分以红色“跳过的状态”文字与横向括线统领 6 个缩略容器图，分两行三列排列：第一行为 cap[0, 6]、cap[0, 5]、cap[0, 4]，第二行为 cap[0, 3]、cap[0, 2]、cap[0, 1]。"
+    "上排展示双指针从初始状态 cap[0, 7]（左板高 3、右板高 4、宽 7，容量 21）执行“移动短板”转移到 cap[1, 7]。算法在移动前已记录当前最大容量 21。",
+    "下排“跳过的状态”列出此次移动绕过的六个状态：cap[0, 6]、cap[0, 5]、cap[0, 4]、cap[0, 3]、cap[0, 2]、cap[0, 1]。这六个状态全部保留高度为 3 的原左短板 i = 0，相当于固定左端 i = 0 而将右端 j 从 6 依次向内移到 1：由于受左短板限制，它们的水高至多为 3，而底宽（6 至 1）全部严格小于 7，因此六个状态的容量必然全部小于已记录的 21，安全剪枝不会漏掉最优解。",
+    "第二张表按图示顺序列出六个跳过状态的水高、宽度与推导容量（依次为 18、15、12、6、6、3）。其中当右端移到索引 3 时，因右板高度 ht[3] = 2 比左板高度 3 更矮，[0, 3] 的水高进一步降为 2（宽度 3，容量 6）；其余五个跳过状态的水高均为 3。注意图面仅标注 cap[i, j] 状态名，具体板高与容量数值由正文示例数组 ht 结合公式推算。"
   ],
-  "result": "被跳过的这 6 个状态全部以原来的短板 i = 0（高度 3）作为左壁，等同于固定左短板而把右壁从 6 依次向内移到 1；由于它们的宽度均小于 7 且水位高度不可能超过左短板高度 3，其容量必然全部小于 cap[0, 7] = 21，因此跳过它们绝不会漏掉全局最优解。",
+  "result": "被跳过的六个状态 cap[0, 6] 至 cap[0, 1] 全部固定左短板 i = 0（高 3），宽度均小于 7 且水高至多为 3，推导容量（18、15、12、6、6、3）全部严格小于已记录的 cap[0, 7] = 21，因此跳过它们不会丢失全局最优解。",
   "frames": [
     {
       "id": "source-469",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_skipped_states.png",
-      "title": "移动短板导致被跳过的状态",
-      "explanation": "当左指针从 i = 0 右移到 i = 1（即从 cap[0, 7] 转移到 cap[1, 7]）后，算法不再遍历左端点仍为 0、右端点取 1 至 6 的 6 个状态：cap[0, 6]、cap[0, 5]、cap[0, 4]、cap[0, 3]、cap[0, 2] 和 cap[0, 1]。在这 6 个状态中，左壁高度恒为 ht[0] = 3，因此容器有效水高至多为 3，而底宽依次缩减为 6、5、4、3、2、1（结合数组高度可算出它们的容量依次仅为 18、15、12、6、6、3），全都严格小于已记录的 cap[0, 7] = 21，故可安全剪枝跳过。",
-      "state": "上排展示状态转移 cap[0, 7] → cap[1, 7]（移动短板）；下方红色括线所列列出被跳过的 6 个状态：cap[0, 6]、cap[0, 5]、cap[0, 4]、cap[0, 3]、cap[0, 2]、cap[0, 1]（均以高度 3 的索引 0 为左板，对应容量依次为 18、15、12、6、6、3，均小于 21）。",
-      "key_state": "从 cap[0, 7] 移至 cap[1, 7] 会跳过 cap[0, 6] 至 cap[0, 1] 共 6 个必小于 21 的状态。",
-      "announcement": "展示移动短板的安全剪枝原理：从 cap[0, 7] 移到 cap[1, 7] 所跳过的 6 个状态容量均不可能超过 21。"
+      "title": "固定左短板 i = 0 的六个更窄容器容量均小于 21",
+      "explanation": "记录 cap[0, 7] = 21 并右移左短板至 i = 1 后，左端仍固定在 i = 0、右端 j 取 6 至 1 的六个状态宽度缩短且水高不超过左短板高度 3，容量必小于 21。",
+      "state": "上排为状态转移 cap[0, 7] → cap[1, 7]（移动短板）；下排按两行三列展示六个跳过状态 cap[0, 6]、cap[0, 5]、cap[0, 4]、cap[0, 3]、cap[0, 2]、cap[0, 1]（全部固定 i = 0）。示例隔板高度数组 ht 及六个跳过状态的推导水高、宽度和容量见表。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-24",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "0af70acc577c6f86a70e7405e26042d4b9889caa251c9040b7b36dd11f151c92",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "d40a34ce09d07aa5f2a8281d168d7daa9ee113c09b575f1200eb0409b245f89e",
-        "output_sha256": "8a1430b08cfa12d5586c31c993b51fdeb8d3c6412ce6de6939643e8766084ea6"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "8a1430b08cfa12d5586c31c993b51fdeb8d3c6412ce6de6939643e8766084ea6",
-        "output_sha256": "f7f806b44c8d2d3a360bd07d285786f4c9b9881b94cb30acb729899f1a072fce"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "f7f806b44c8d2d3a360bd07d285786f4c9b9881b94cb30acb729899f1a072fce",
-        "output_sha256": "5eee136dd6bac5250047fed5bcee9c46c066cf9325b373b0a35bafc641e9f011"
-      }
-    ],
-    "evidence_sha256": "76b6078358083e454d25f857a790e71339d6048171500ff10b161508d80ce246"
-  },
   "dependencies": {
     "markdown": {
       "chapter_greedy/max_capacity_problem.md": "57cba2a20a6c77854063b78633f7c318045e5b7347079f4c9930dad1abc93367"
@@ -62,5 +32,129 @@
     "scenes": {
       "chapter_greedy/max_capacity_problem.assets/max_capacity_skipped_states.png": "ca0060239793c1e86df15f615c90b6280acbd50ad751bcb594009356ea16ca81"
     }
+  },
+  "tables": [
+    {
+      "caption": "输入隔板高度；索引从0开始",
+      "headers": [
+        "索引",
+        "高度"
+      ],
+      "rows": [
+        [
+          "0",
+          "3"
+        ],
+        [
+          "1",
+          "8"
+        ],
+        [
+          "2",
+          "5"
+        ],
+        [
+          "3",
+          "2"
+        ],
+        [
+          "4",
+          "7"
+        ],
+        [
+          "5",
+          "7"
+        ],
+        [
+          "6",
+          "3"
+        ],
+        [
+          "7",
+          "4"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "六个跳过状态；容量由高度数组按公式计算",
+      "headers": [
+        "端点 [i,j]",
+        "水高 min(ht[i],ht[j])",
+        "宽度 j-i",
+        "容量"
+      ],
+      "rows": [
+        [
+          "[0,6]",
+          "3",
+          "6",
+          "18"
+        ],
+        [
+          "[0,5]",
+          "3",
+          "5",
+          "15"
+        ],
+        [
+          "[0,4]",
+          "3",
+          "4",
+          "12"
+        ],
+        [
+          "[0,3]",
+          "2",
+          "3",
+          "6"
+        ],
+        [
+          "[0,2]",
+          "3",
+          "2",
+          "6"
+        ],
+        [
+          "[0,1]",
+          "3",
+          "1",
+          "3"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-14",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a778822d768d21181657ea1d4b0d8f7d7b999d2a54703a94d3288df6e00237d1",
+        "output_sha256": "46a827f70609f33e4ecce24ae2c533ad316813b91887165da0cc1c8a7d5fc020"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "46a827f70609f33e4ecce24ae2c533ad316813b91887165da0cc1c8a7d5fc020",
+        "output_sha256": "2ab5a9cf201301bd9b08384299ca4825616370420e2e31cfdcb51936f207da4b"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "2ab5a9cf201301bd9b08384299ca4825616370420e2e31cfdcb51936f207da4b",
+        "output_sha256": "e5a7916afd67e7d551f7551aefe09c8aa0cd4301ec67e6990737d2634f544604"
+      }
+    ],
+    "evidence_sha256": "b88074bcd47068cf7923c80bbeffb598205d5d08e96b8943618c6b926fa8a8b7",
+    "verification_manifest_sha256": "ea5c1b89e66d7e082c6e8953781c4abe1252d4e071325ec0fd015978249f00cf",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "dd4d697ab4e44dc404371087af95482f3a18f9af53dd237dc54c9f7f8c380e44"
   }
 }

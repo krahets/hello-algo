@@ -16,7 +16,7 @@
     {
       "id": "source-64",
       "book_path": "chapter_stack_and_queue/queue.assets/linkedlist_queue_step1.png",
-      "title": "步骤 1：初始状态，头节点 1 为队首，尾节点 5 为队尾",
+      "title": "初始队列：头出尾入",
       "explanation": "初始时，左侧队列从队首（上）到队尾（下）依次为 [1, 3, 2, 5]，队首旁标有向上的出队箭头，队尾旁标有向上的入队箭头。右侧单向链表从上到下依次为 1 → 3 → 2 → 5，头节点 1 对应队首，尾节点 5 对应队尾。",
       "state": "当前为链表队列的初始状态（Step 1）：左侧队列从队首到队尾为 [1, 3, 2, 5]，共 4 个元素；右侧单向链表从头节点到尾节点为 1 → 3 → 2 → 5。头节点和队首均为 1，尾节点和队尾均为 5。",
       "key_state": "初始队列（队首到队尾）[1, 3, 2, 5]；链表（头到尾）1 → 3 → 2 → 5，头节点 1 为队首，尾节点 5 为队尾。",
@@ -25,7 +25,7 @@
     {
       "id": "source-65",
       "book_path": "chapter_stack_and_queue/queue.assets/linkedlist_queue_step2_push.png",
-      "title": "步骤 2：入队 push(4)，将节点 4 添加至链表尾部",
+      "title": "在链表尾部入队 4",
       "explanation": "左侧标注“入队 push(4)”，右侧标注“将节点 4 添加至链表尾部”。青色新节点 4 接在原尾节点 5 的下方，并使“尾节点”标记下移到 4。此时右侧链表从头到尾变为 1 → 3 → 2 → 5 → 4，左侧队列从队首到队尾变为 [1, 3, 2, 5, 4]，头节点与队首仍为 1，尾节点与队尾更新为 4。",
       "state": "当前为执行 push(4) 后的链表队列（Step 2）：左侧队列从队首到队尾为 [1, 3, 2, 5, 4]，共 5 个元素；右侧链表从头节点到尾节点为 1 → 3 → 2 → 5 → 4。头节点和队首仍为 1，尾节点和队尾更新为青色节点 4。",
       "key_state": "push(4) 后：队列 [1, 3, 2, 5, 4]；链表 1 → 3 → 2 → 5 → 4，队首仍为 1，新尾节点 4 为队尾。",
@@ -34,46 +34,16 @@
     {
       "id": "source-66",
       "book_path": "chapter_stack_and_queue/queue.assets/linkedlist_queue_step3_pop.png",
-      "title": "步骤 3：出队 pop()，删除链表头节点 1",
+      "title": "在链表头部出队 1",
       "explanation": "左侧标注“出队 pop()”，右侧标注“删除头节点”。移除原头节点 1，“头节点”标记下移到其后继节点 3。此时右侧链表变为 3 → 2 → 5 → 4，左侧队列从队首到队尾变为 [3, 2, 5, 4]，新队首为 3，尾节点和队尾仍为青色节点 4。",
       "state": "当前为执行 pop() 后的链表队列（Step 3）：原头节点 1 已删除，左侧队列从队首到队尾为 [3, 2, 5, 4]，共 4 个元素；右侧链表从头节点到尾节点为 3 → 2 → 5 → 4。头节点和队首更新为 3，尾节点和队尾仍为 4。",
       "key_state": "pop() 删除头节点 1 后：队列 [3, 2, 5, 4]；链表 3 → 2 → 5 → 4，头节点 3 为新队首，尾节点仍为 4。",
       "announcement": "步骤 3：执行 pop() 删除链表头节点 1，头节点和队首变为 3，队列剩下 [3, 2, 5, 4]。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-04",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "c645661894b6623eac7c7e12057e7bdb502a475512469e872b9a5840e56ace0a",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "010659120695514881c0d1ee814ac67faa1e50957300a7e781f1c3edf7858059",
-        "output_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de",
-        "output_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8",
-        "output_sha256": "d48eb4dd56235f9a9b2f2d5c8f67899492c9f6b15567237d35161c31596306cb"
-      }
-    ],
-    "evidence_sha256": "178794e8fd357c692f91d245ae613b37aa02834865c6124afd4cd91ea892de0d"
-  },
   "dependencies": {
     "markdown": {
-      "chapter_stack_and_queue/queue.md": "896475dcba151b44c34df568e54b1283f5e81225c0c665c1a49b58a058ec3d60"
+      "chapter_stack_and_queue/queue.md": "cb1ff8bb871a0d8d9007ef3e9b538d5be19426c4e7aff1d02c865c8eec0dbb60"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -86,7 +56,7 @@
     "linkedlist-queue": {
       "kind": "source-frames",
       "model_sha256": "405b0cf945777641b760519be6a71493768894340eaaef69357cd4d431faff10",
-      "source_content_sha256": "c645661894b6623eac7c7e12057e7bdb502a475512469e872b9a5840e56ace0a",
+      "source_content_sha256": "b1dc157e2d57490feadf1c7a70aa4560f752ebc02bae322ee89f96ec14b5faf9",
       "states": [
         {
           "id": "step-1",
@@ -103,11 +73,44 @@
       ],
       "review": {
         "status": "confirmed",
-        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "run_id": "figure-reading-20261116/content/names/source-binding",
         "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "eee1d03050e3c2e306ec4965144f952d9ca680d68d41e6289dcd3f2fcdd89373",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+        "binding_sha256": "a9600b33a5a3ad85034208da09438052f198284f627215c4b2a56ee66f0cc514",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
+        "current_text_verification_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da"
       }
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/names",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
+        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      }
+    ],
+    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
+    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "b1dc157e2d57490feadf1c7a70aa4560f752ebc02bae322ee89f96ec14b5faf9"
   }
 }

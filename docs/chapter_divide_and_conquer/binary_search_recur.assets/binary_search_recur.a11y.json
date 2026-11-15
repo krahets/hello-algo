@@ -1,60 +1,27 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur",
-  "title": "递归二分查找：从 [0,9] 缩到 [2,3]",
+  "title": "递归二分查找",
   "summary": "在十个递增元素中递归查找 6，搜索区间依次由 [0, 9] 缩至 [0, 3]、[2, 3]，最终返回索引 2。",
   "context": [
     "输入有序数组为 [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，索引从 0 到 9，查找目标元素为 6。子问题记号 f(i, j) 表示在双闭区间 [i, j] 内搜索目标，中点索引按 m = (i + j) / 2 向下取整计算。"
   ],
   "description": [
-    "第一行对应顶层问题 f(0, 9)，计算出中点索引 m = 4，对应元素值为 12。由于 12 > 6，目标元素只可能位于左半区间，因此排除索引 4 至 9，向下递归调用 f(0, 3)。",
-    "第二行对应子问题 f(0, 3)，计算出中点索引 m = 1，对应元素值为 3。由于 3 < 6，目标元素只可能位于右半区间，因此排除索引 0 和 1，继续向下递归调用 f(2, 3)。第三行对应子问题 f(2, 3)，有效区间仅剩索引 2 的 6 和索引 3 的 8，计算出中点索引 m = 2，其元素值 6 恰好等于目标，查找命中。",
-    "图中彩色方格表示当前递归区间的候选元素，浅灰色方格表示已被排除但仍留在原数组中的元素。二分查找每层只递归进入一个子区间，且子问题的解无须合并，命中的索引 2 直接作为最终结果返回。"
+    "首次比较中点值 12，大于目标 6，进入左半区间；接着比较中点值 3，小于目标，进入右半区间；第三次在索引 2 命中 6。",
+    "每次只进入一个候选子区间，已排除的位置仍留在原数组中。子问题直接返回找到的索引，无须合并。"
   ],
   "result": "底部文字标出“最终求得元素 6 的索引为 2”。三次递归调用依次比较中点元素 12、3、6，前两次未命中时分别将候选区间由 10 项缩至 4 项、再缩至 2 项，第三次命中后直接返回，原数组内容始终保持不变。",
   "frames": [
     {
       "id": "source-312",
       "book_path": "chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur.png",
-      "title": "递归二分查找：从 [0,9] 缩到 [2,3]",
-      "explanation": "画面自上而下排列 f(0, 9)、f(0, 3)、f(2, 3) 三层递归状态，通过比较中点 m 处的元素与目标 6，逐层折半缩小双闭搜索区间直至命中索引 2。",
-      "state": "有序数组为 [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，查找目标为 6。第一层 f(0, 9)：中点 m = 4（值 12）；第二层 f(0, 3)：中点 m = 1（值 3）；第三层 f(2, 3)：中点 m = 2（值 6），命中目标并返回索引 2。",
-      "key_state": "递归区间依次为 [0, 9] → [0, 3] → [2, 3]，最终返回索引 2。",
-      "announcement": "展示递归二分查找经 [0, 9]、[0, 3]、[2, 3] 三个区间定位元素 6 索引 2 的过程。"
+      "title": "递归二分查找",
+      "explanation": "三次递归调用依次检查中点值 12、3、6。前两次比较排除不含目标的区间，第三次在索引 2 命中目标 6，直接返回索引。",
+      "state": "查找目标为 6，十个递增输入元素始终不变；三次调用的区间、中点与完整输入见下表。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-16",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "45efcec6d6cac84e8e3f042fd064c6e52adb9776e6931257d59df9e2c2be5152",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "5e763dfd4e2b736b9a5010f6bdd3e33ef9402bdbd494a2a8c3346a1893135dc9",
-        "output_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb",
-        "output_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0",
-        "output_sha256": "b8fa9f331b33db33433309a29e9fe3834178d140c262ec7bc27dee6b669a5cd5"
-      }
-    ],
-    "evidence_sha256": "a355fc71eefa70eb8f989661b8a016ead02f198bb0747865902f358b13b089ae"
-  },
   "dependencies": {
     "markdown": {
       "chapter_divide_and_conquer/binary_search_recur.md": "5a76ba9c36f02061089a928ca43e5fc9942711eaab609f98ae040d39c440169e"
@@ -69,78 +36,316 @@
       "kind": "prose",
       "model_sha256": "9617ec4fc91b366259b67282ec5a5eed12da6354a07444c5db309a287fbed575",
       "prose": {
-        "schema_version": 1,
+        "schema_version": 2,
         "status": "confirmed",
         "locale": "zh-hans",
         "story_id": "flow-recursive-search",
         "group_id": "group:chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur",
-        "title": "递归二分查找：按中点比较逐层缩小区间",
-        "summary": "在升序数组中递归查找 6，区间由 [0, 9] 缩至 [0, 3]、[2, 3]，最终返回索引 2。",
+        "title": "递归二分查找",
+        "summary": "在十个递增元素中递归查找 6，搜索区间依次由 [0, 9] 缩至 [0, 3]、[2, 3]，最终返回索引 2。",
         "context": [
-          "待查找的升序数组为 [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，索引为 0 至 9，查找目标为索引 2 处的值 6。",
-          "函数 f(i, j) 表示在闭区间 [i, j] 内执行二分查找。每一轮递归计算向下取整的中点索引 m = ⌊(i + j) / 2⌋，将中点元素 nums[m] 与目标值 6 比较，从而排除不可能包含目标的一半区间。"
+          "输入有序数组为 [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，索引从 0 到 9，查找目标元素为 6。子问题记号 f(i, j) 表示在双闭区间 [i, j] 内搜索目标，中点索引按 m = (i + j) / 2 向下取整计算。"
         ],
         "description": [
-          "动画在同一排十个数组槽位上展示三次递归调用。青色高亮数字 6 标示搜索目标，橙色边框与下方指针 m 标示当前轮的中点位置，变为浅灰色的槽位表示已被排除的区间，数组本身的存储数值始终不变。",
-          "若中点值大于 6，则递归进入左子区间 f(i, m - 1)；若中点值小于 6，则递归进入右子区间 f(m + 1, j)；若中点值等于 6，则直接返回当前中点索引 m。"
+          "首次比较中点值 12，大于目标 6，进入左半区间；接着比较中点值 3，小于目标，进入右半区间；第三次在索引 2 命中 6。",
+          "每次只进入一个候选子区间，已排除的位置仍留在原数组中。子问题直接返回找到的索引，无须合并。"
         ],
-        "result": "第三次调用 f(2, 3) 在中点 m = 2 处命中目标值 6，最终返回索引 2。",
+        "result": "底部文字标出“最终求得元素 6 的索引为 2”。三次递归调用依次比较中点元素 12、3、6，前两次未命中时分别将候选区间由 10 项缩至 4 项、再缩至 2 项，第三次命中后直接返回，原数组内容始终保持不变。",
         "steps": [
           {
             "id": "step-1",
-            "title": "调用 f(0, 9)，比较中点索引 4 的值 12",
-            "explanation": "左侧显示初始递归调用 f(0, 9)，全部索引 0 至 9 均处于有效查找区间。中点指针 m 指向索引 4（m = ⌊(0 + 9) / 2⌋ = 4），对应元素值为 12。由于数组严格递增且 12 > 6，目标值 6 不可能位于索引 4 至 9，下一轮将递归进入左半区间 f(0, 3)。",
-            "state": "数组为 [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，目标值为 6；当前调用为 f(0, 9)，有效区间为 [0, 9]，中点 m = 4，nums[4] = 12 > 6，尚无已排除槽位。",
-            "key_state": "f(0, 9)：中点 m = 4，值 12 > 6，下一步转入 [0, 3]。",
-            "announcement": "调用 f(0, 9)，检查中点索引 4 的值 12。"
+            "title": "检查中点值 12",
+            "explanation": "在初始闭区间 [0, 9] 内计算中点 m = (0 + 9) // 2 = 4，中点值 nums[4] = 12。因为 12 > 6，目标只能在左半部分，排除索引 4 至 9，递归调用 f(0, 3)。",
+            "state": "当前调用为 f(0, 9)，查找目标为 6；中点索引 m = 4，中点值为 12（12 > 6），下一步进入左子区间 f(0, 3)。输入数组见固定有序输入表。",
+            "key_state": "f(0, 9)：中点 m = 4（值 12 > 6），转入左子区间 f(0, 3)。",
+            "announcement": "调用 f(0, 9)，中点值 12 大于目标 6，排除右半部分，递归进入 f(0, 3)。",
+            "state_tables": [
+              {
+                "caption": "当前调用",
+                "headers": [
+                  "调用（闭区间）",
+                  "中点索引 m",
+                  "中点值",
+                  "比较",
+                  "后续"
+                ],
+                "rows": [
+                  [
+                    "f(0,9)",
+                    "4",
+                    "12",
+                    "12 > 6",
+                    "递归调用 f(0,3)"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
           },
           {
             "id": "step-2",
-            "title": "调用 f(0, 3)，比较中点索引 1 的值 3",
-            "explanation": "左侧调用更新为 f(0, 3)，右侧索引 4 至 9 的六个槽位变为浅灰色，表示已排除。当前区间 [0, 3] 的中点指针 m 移至索引 1（m = ⌊(0 + 3) / 2⌋ = 1），对应元素值为 3。由于 3 < 6，索引 0 和 1 也可排除，下一轮递归进入右半子区间 f(2, 3)。",
-            "state": "数组为 [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，目标值为 6；当前调用为 f(0, 3)，有效区间为 [0, 3]，已排除索引 4 至 9；中点 m = 1，nums[1] = 3 < 6。",
-            "key_state": "f(0, 3)：中点 m = 1，值 3 < 6，下一步转入 [2, 3]。",
-            "announcement": "区间缩小到 [0, 3]，检查中点索引 1 的值 3。"
+            "title": "检查中点值 3",
+            "explanation": "在闭区间 [0, 3] 内计算中点 m = (0 + 3) // 2 = 1，中点值 nums[1] = 3。因为 3 < 6，目标只能在右半部分，排除索引 0 和 1，递归调用 f(2, 3)。",
+            "state": "当前调用为 f(0, 3)，查找目标为 6；中点索引 m = 1，中点值为 3（3 < 6），下一步进入右子区间 f(2, 3)。输入数组见固定有序输入表。",
+            "key_state": "f(0, 3)：中点 m = 1（值 3 < 6），转入右子区间 f(2, 3)。",
+            "announcement": "调用 f(0, 3)，中点值 3 小于目标 6，排除左半部分，递归进入 f(2, 3)。",
+            "state_tables": [
+              {
+                "caption": "当前调用",
+                "headers": [
+                  "调用（闭区间）",
+                  "中点索引 m",
+                  "中点值",
+                  "比较",
+                  "后续"
+                ],
+                "rows": [
+                  [
+                    "f(0,3)",
+                    "1",
+                    "3",
+                    "3 < 6",
+                    "递归调用 f(2,3)"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
           },
           {
             "id": "step-3",
-            "title": "调用 f(2, 3)，在中点索引 2 命中目标 6",
-            "explanation": "左侧调用更新为 f(2, 3)，索引 0 至 1 与索引 4 至 9 均为浅灰色，仅剩索引 2 和 3 两个有效槽位。中点指针 m 指向索引 2（m = ⌊(2 + 3) / 2⌋ = 2），对应元素值为 6，恰与目标值相等。下方显示结论“最终求得元素 6 的索引为 2”，查找结束并返回 2。",
-            "state": "数组为 [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，目标值为 6；当前调用为 f(2, 3)，有效区间为 [2, 3]，其余索引已排除；中点 m = 2，nums[2] = 6 命中目标，返回索引 2。",
-            "key_state": "f(2, 3)：中点 m = 2 命中目标 6，返回索引 2。",
-            "announcement": "区间缩小到 [2, 3]，在中点索引 2 找到目标 6，返回索引 2。"
+            "title": "命中目标值 6",
+            "explanation": "在闭区间 [2, 3] 内计算中点 m = (2 + 3) // 2 = 2，中点值 nums[2] = 6，恰与目标值相等，命中目标并直接向上返回索引 2，无须合并操作。",
+            "state": "当前调用为 f(2, 3)，查找目标为 6；中点索引 m = 2，中点值为 6（6 = 6），命中目标并直接返回索引 2。输入数组见固定有序输入表。",
+            "key_state": "f(2, 3)：中点 m = 2（值 6 = 6），命中并返回索引 2。",
+            "announcement": "调用 f(2, 3)，中点索引 2 的值为 6，命中目标，直接返回索引 2。",
+            "state_tables": [
+              {
+                "caption": "当前调用",
+                "headers": [
+                  "调用（闭区间）",
+                  "中点索引 m",
+                  "中点值",
+                  "比较",
+                  "后续"
+                ],
+                "rows": [
+                  [
+                    "f(2,3)",
+                    "2",
+                    "6",
+                    "6 = 6",
+                    "返回索引 2"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          }
+        ],
+        "tables": [
+          {
+            "caption": "固定有序输入",
+            "headers": [
+              "索引",
+              "值"
+            ],
+            "rows": [
+              [
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "3"
+              ],
+              [
+                "2",
+                "6"
+              ],
+              [
+                "3",
+                "8"
+              ],
+              [
+                "4",
+                "12"
+              ],
+              [
+                "5",
+                "15"
+              ],
+              [
+                "6",
+                "23"
+              ],
+              [
+                "7",
+                "26"
+              ],
+              [
+                "8",
+                "31"
+              ],
+              [
+                "9",
+                "35"
+              ]
+            ],
+            "row_header": 0
           }
         ],
         "review": {
           "status": "confirmed",
-          "run_id": "figure-accessibility-20261114/animations/batch-01",
-          "content_sha256": "47365a52fc9df704cb68fad0027f799269ab37e50e5aecf2cf01d2e9b82d3b3d",
+          "run_id": "figure-reading-20261116/content/body-10",
+          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
           "stages": [
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "b6174850feed92b51c3d512a1a38c62aaf02c614ff07640008831c8726ce0a64",
-              "output_sha256": "dd7f9f098b8c6e77ff0f0fabc4879e20180eac76e44e8ba253820d46c888cef7"
+              "input_sha256": "587fb17853deb18aea81c8aaf923dad9d8944f711dd123357454014ee90673ed",
+              "output_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0"
             },
             {
               "requested_model": "gemini-4-argon",
               "actual_model": null,
               "model_confirmation": "provider_not_reported",
-              "input_sha256": "dd7f9f098b8c6e77ff0f0fabc4879e20180eac76e44e8ba253820d46c888cef7",
-              "output_sha256": "00dbf3ad9071e0a78f3f320067484cdbea304d50e0c1faae49ed41c17350f825"
+              "input_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0",
+              "output_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989"
             },
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "00dbf3ad9071e0a78f3f320067484cdbea304d50e0c1faae49ed41c17350f825",
-              "output_sha256": "b52ab18dd9c1db9a93bc5c3e340b21d0414a0d86594f1d061ffd5191a1c5f993"
+              "input_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989",
+              "output_sha256": "4409226acfc61414b5ce59f1e3c8cabdf42be0ad2939e4274348c347ae325320"
             }
           ],
-          "evidence_sha256": "f629e6bda011b65c2484338a3ba90bd400522d0d30bc8a435a852c5403cbb741"
+          "evidence_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e",
+          "verification_manifest_sha256": "2023927acd22f572c739405dfbb6d4338b32deadbe8db27f2438c77108cc13b9",
+          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+          "content_sha256": "2143be0515c5a7876e225e9bdc931890567dfe5dde63162a254191acfffa9510"
         }
       }
     }
+  },
+  "tables": [
+    {
+      "caption": "固定有序输入",
+      "headers": [
+        "索引",
+        "值"
+      ],
+      "rows": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "3"
+        ],
+        [
+          "2",
+          "6"
+        ],
+        [
+          "3",
+          "8"
+        ],
+        [
+          "4",
+          "12"
+        ],
+        [
+          "5",
+          "15"
+        ],
+        [
+          "6",
+          "23"
+        ],
+        [
+          "7",
+          "26"
+        ],
+        [
+          "8",
+          "31"
+        ],
+        [
+          "9",
+          "35"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "三次递归调用",
+      "headers": [
+        "调用（闭区间）",
+        "中点索引 m",
+        "中点值",
+        "比较",
+        "后续"
+      ],
+      "rows": [
+        [
+          "f(0,9)",
+          "4",
+          "12",
+          "12 > 6",
+          "递归调用 f(0,3)"
+        ],
+        [
+          "f(0,3)",
+          "1",
+          "3",
+          "3 < 6",
+          "递归调用 f(2,3)"
+        ],
+        [
+          "f(2,3)",
+          "2",
+          "6",
+          "6 = 6",
+          "返回索引 2"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-10",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "587fb17853deb18aea81c8aaf923dad9d8944f711dd123357454014ee90673ed",
+        "output_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0",
+        "output_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989",
+        "output_sha256": "4409226acfc61414b5ce59f1e3c8cabdf42be0ad2939e4274348c347ae325320"
+      }
+    ],
+    "evidence_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e",
+    "verification_manifest_sha256": "2023927acd22f572c739405dfbb6d4338b32deadbe8db27f2438c77108cc13b9",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "b6e5fab7466215944d61b585cb27a60614a0f2ff1b1a69a3537211d2ff9ce1d6"
   }
 }

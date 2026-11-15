@@ -3,6 +3,11 @@
 在佇列中，我們僅能刪除頭部元素或在尾部新增元素。如下圖所示，<u>雙向佇列（double-ended queue）</u>提供了更高的靈活性，允許在頭部和尾部執行元素的新增或刪除操作。
 
 ![雙向佇列的操作](deque.assets/deque_operations.svg)
+<!-- figure-reading:start group:chapter_stack_and_queue/deque.assets/deque_operations -->
+
+[雙向佇列的首尾操作：完整圖解](deque.assets/deque_operations.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ## 雙向佇列常用操作
 
@@ -45,16 +50,21 @@ deque_operations
     ![基於鏈結串列實現雙向佇列的入列出列操作](deque.assets/linkedlist_deque_step1.svg)
 
 === "<2>"
-    ![基於雙向鏈結串列實現雙向佇列的入列與出列，第 2 步，共 5 步：佇列尾入列 push_last(4)](deque.assets/linkedlist_deque_step2_push_last.svg)
+    ![雙向鏈結串列實現雙向佇列，第 2 步，共 5 步：佇列尾加入4](deque.assets/linkedlist_deque_step2_push_last.svg)
 
 === "<3>"
-    ![基於雙向鏈結串列實現雙向佇列的入列與出列，第 3 步，共 5 步：佇列首入列 push_first(1)](deque.assets/linkedlist_deque_step3_push_first.svg)
+    ![雙向鏈結串列實現雙向佇列，第 3 步，共 5 步：佇列首加入1](deque.assets/linkedlist_deque_step3_push_first.svg)
 
 === "<4>"
-    ![基於雙向鏈結串列實現雙向佇列的入列與出列，第 4 步，共 5 步：佇列尾出列 pop_last()](deque.assets/linkedlist_deque_step4_pop_last.svg)
+    ![雙向鏈結串列實現雙向佇列，第 4 步，共 5 步：佇列尾取出4](deque.assets/linkedlist_deque_step4_pop_last.svg)
 
 === "<5>"
-    ![基於雙向鏈結串列實現雙向佇列的入列與出列，第 5 步，共 5 步：佇列首出列 pop_first()](deque.assets/linkedlist_deque_step5_pop_first.svg)
+    ![雙向鏈結串列實現雙向佇列，第 5 步，共 5 步：佇列首取出1](deque.assets/linkedlist_deque_step5_pop_first.svg)
+<!-- figure-reading:start group:chapter_stack_and_queue/deque.assets/linkedlist_deque -->
+
+[雙向鏈結串列實現雙向佇列：完整圖解](deque.assets/linkedlist_deque.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 實現程式碼如下所示：
 
@@ -70,16 +80,21 @@ deque_operations
     ![基於陣列實現雙向佇列的入列出列操作](deque.assets/array_deque_step1.svg)
 
 === "<2>"
-    ![基於迴圈陣列實現雙向佇列的入列與出列，第 2 步，共 5 步：佇列尾入列 push_last(4)](deque.assets/array_deque_step2_push_last.svg)
+    ![迴圈陣列實現雙向佇列，第 2 步，共 5 步：佇列尾加入4](deque.assets/array_deque_step2_push_last.svg)
 
 === "<3>"
-    ![基於迴圈陣列實現雙向佇列的入列與出列，第 3 步，共 5 步：佇列首入列 push_first(1)](deque.assets/array_deque_step3_push_first.svg)
+    ![迴圈陣列實現雙向佇列，第 3 步，共 5 步：佇列首加入1](deque.assets/array_deque_step3_push_first.svg)
 
 === "<4>"
-    ![基於迴圈陣列實現雙向佇列的入列與出列，第 4 步，共 5 步：佇列尾出列 pop_last()](deque.assets/array_deque_step4_pop_last.svg)
+    ![迴圈陣列實現雙向佇列，第 4 步，共 5 步：佇列尾取出4](deque.assets/array_deque_step4_pop_last.svg)
 
 === "<5>"
-    ![基於迴圈陣列實現雙向佇列的入列與出列，第 5 步，共 5 步：佇列首出列 pop_first()](deque.assets/array_deque_step5_pop_first.svg)
+    ![迴圈陣列實現雙向佇列，第 5 步，共 5 步：佇列首取出1](deque.assets/array_deque_step5_pop_first.svg)
+<!-- figure-reading:start group:chapter_stack_and_queue/deque.assets/array_deque -->
+
+[迴圈陣列實現雙向佇列：完整圖解](deque.assets/array_deque.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 在佇列的實現基礎上，僅需增加“佇列首入列”和“佇列尾出列”的方法：
 

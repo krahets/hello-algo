@@ -14,16 +14,21 @@
     ![查字典步骤](algorithms_are_everywhere.assets/binary_search_dictionary_step1.svg)
 
 === "<2>"
-    ![查字典的二分查找过程，第 2 步，共 5 步：第 2 步：翻到中间字母 m，排除前半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg)
+    ![查字典的二分查找过程，第 2 步，共 5 步：翻到中间字母 m，排除前半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg)
 
 === "<3>"
-    ![查字典的二分查找过程，第 3 步，共 5 步：第 3 步：翻到剩余部分中间字母 t，排除后半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg)
+    ![查字典的二分查找过程，第 3 步，共 5 步：翻到剩余部分中间字母 t，排除后半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg)
 
 === "<4>"
-    ![查字典的二分查找过程，第 4 步，共 5 步：第 4 步：翻到剩余部分中间字母 p，再排除前半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg)
+    ![查字典的二分查找过程，第 4 步，共 5 步：翻到剩余部分中间字母 p，再排除前半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg)
 
 === "<5>"
-    ![查字典的二分查找过程，第 5 步，共 5 步：第 5 步：翻到中间字母 r，完成查找](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg)
+    ![查字典的二分查找过程，第 5 步，共 5 步：翻到中间字母 r，完成查找](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg)
+<!-- figure-reading:start group:chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary -->
+
+[查字典的二分查找过程：完整图解](algorithms_are_everywhere.assets/binary_search_dictionary.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 查字典这个小学生必备技能，实际上就是著名的“二分查找”算法。从数据结构的角度，我们可以把字典视为一个已排序的“数组”；从算法的角度，我们可以将上述查字典的一系列操作看作“二分查找”。
 
@@ -34,6 +39,11 @@
 3. 不断循环步骤 `2.` ，每一轮将一张扑克牌从无序部分插入至有序部分，直至所有扑克牌都有序。
 
 ![扑克排序步骤](algorithms_are_everywhere.assets/playing_cards_sorting.svg)
+<!-- figure-reading:start group:chapter_introduction/algorithms_are_everywhere.assets/playing_cards_sorting -->
+
+[用插入排序整理扑克牌：完整图解](algorithms_are_everywhere.assets/playing_cards_sorting.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 上述整理扑克牌的方法本质上是“插入排序”算法，它在处理小型数据集时非常高效。许多编程语言的排序库函数中都有插入排序的身影。
 
@@ -46,6 +56,11 @@
 5. 完成找零，方案为 $20 + 10 + 1 = 31$ 元。
 
 ![货币找零过程](algorithms_are_everywhere.assets/greedy_change.svg)
+<!-- figure-reading:start group:chapter_introduction/algorithms_are_everywhere.assets/greedy_change -->
+
+[贪心找零：完整图解](algorithms_are_everywhere.assets/greedy_change.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 在以上步骤中，我们每一步都采取当前看来最好的选择（尽可能用大面额的货币），最终得到了可行的找零方案。从数据结构与算法的角度看，这种方法本质上是“贪心”算法。
 

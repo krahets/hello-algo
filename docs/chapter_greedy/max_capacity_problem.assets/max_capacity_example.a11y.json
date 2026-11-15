@@ -3,8 +3,8 @@
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_greedy/max_capacity_problem.assets/max_capacity_example",
-  "title": "最大容量问题的示例数据",
-  "summary": "在高度数组 [3, 8, 5, 2, 7, 7, 3, 4] 中，选取索引 1（高 8）和索引 5（高 7）两根隔板组成容器，获得最大盛水容量 (5 - 1) × 7 = 28。",
+  "title": "两根隔板的最大容量",
+  "summary": "选择两根隔板组成容器，容量由较短隔板的高度与两板间距的乘积决定，目标是找到容量最大的组合。",
   "context": [
     "最大容量问题给定长度为 8 的垂直隔板高度数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]（索引 0 至 7）。任选两根隔板 [i, j] 围成容器时，容器宽度为两板索引之差 j - i，盛水高度由两板中较短的那根决定（即 min(ht[i], ht[j])，中间隔板不会阻挡或缩减该定义下的盛水面积）。"
   ],
@@ -16,43 +16,13 @@
     {
       "id": "source-465",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_example.png",
-      "title": "最大容量问题的示例数据",
+      "title": "两根隔板的最大容量",
       "explanation": "在 8 根隔板 ht = [3, 8, 5, 2, 7, 7, 3, 4] 中，选中索引 1（高度 8）作为左壁、索引 5（高度 7）作为右壁：两板间距宽度为 5 - 1 = 4，盛水高度受较矮的右壁（短板）限制为 min(8, 7) = 7，因此浅蓝色盛水区域的容量达到最大值 (5 - 1) × 7 = 28。",
       "state": "隔板高度数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]（索引 0..7）；高亮选中索引 1（高 8）与索引 5（高 7，标注“短板”），浅蓝色盛水区域宽为 5 - 1 = 4、高为 7，图下方标注“最大容量为 (5 - 1) × 7 = 28”。",
       "key_state": "选中索引 1（高 8）与索引 5（短板高 7），最大容量为 (5 - 1) × 7 = 28。",
       "announcement": "最大容量示例：在数组 [3, 8, 5, 2, 7, 7, 3, 4] 中选索引 1 和 5，得到最大容量 (5 - 1) × 7 = 28。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-23",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "7db44de8532ff2cd3107965a494a1462f090201a730677a7cdffe4283b659ed9",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "65ed4701387683dd63f9752fe8b0082f9d369d4e3aa764d1d7da3ca514d30dbe",
-        "output_sha256": "4ebebbc05478b00c6f876ea5cbaa9078823129963728aa248fd3a3c2cb7c35fa"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "4ebebbc05478b00c6f876ea5cbaa9078823129963728aa248fd3a3c2cb7c35fa",
-        "output_sha256": "c726cb1e9a48ecde596b2fa06c86f121a4e999d76885ea20a856bb028acd90e2"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "c726cb1e9a48ecde596b2fa06c86f121a4e999d76885ea20a856bb028acd90e2",
-        "output_sha256": "e1e1cb976bc14f564bd765f9e4e7faf06571d50a98cb8f9a91ea36cdac3993ad"
-      }
-    ],
-    "evidence_sha256": "34444c50d6df82ed6b43160a49929ee9fc81523aa89772b10af874af3efcc040"
-  },
   "dependencies": {
     "markdown": {
       "chapter_greedy/max_capacity_problem.md": "57cba2a20a6c77854063b78633f7c318045e5b7347079f4c9930dad1abc93367"
@@ -61,5 +31,37 @@
     "scenes": {
       "chapter_greedy/max_capacity_problem.assets/max_capacity_example.png": "5090bb6989e4c413ef3c7836c3ba36cf7b1db1bd17b35c491f6b74f68c521df5"
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/names",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
+        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      }
+    ],
+    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
+    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "6d88e7e19c54f239287faa0d15a12e7d2a2ddd26bb61b3f55d45d2522f2849e3"
   }
 }

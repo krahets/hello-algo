@@ -1,59 +1,26 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_data_structure/number_encoding.assets/ieee_754_float",
-  "title": "从 32 个比特计算一个 float 的值",
-  "summary": "将 32 位 IEEE 754 单精度浮点数拆分为 1 位符号位 S = 0、8 位指数位 E = 124 和 23 位分数位 N = 0.375，代入正规数公式算得十进制值 0.171875。",
-  "context": [
-    "图上方大括号跨越一整排 32 个二进制位格，标注“float 长度为 4 bytes = 32 bit”；位格下方用小箭头标出关键位序号，从最左端的最高位 b₃₁ 到最右端的最低位 b₀。"
-  ],
+  "title": "单精度浮点数的位字段",
+  "summary": "把32位编码拆成符号、指数和分数，算出对应的正规数。",
+  "context": [],
   "description": [
-    "32 个比特按颜色和上方子括号划分为三个字段：最左侧第 1 格（b₃₁）为橙色，标注“符号位 S”，值为 0；紧接着的 8 格（b₃₀ 至 b₂₃）为蓝色，标注“指数位 E”，二进制位依次为 01111100；右侧剩余 23 格（b₂₂ 至 b₀）为绿色，标注“分数位 N”，前三位（b₂₂、b₂₁、b₂₀）依次为 0、1、1，其余后 20 位全为 0。",
-    "左下方汇总各字段十进制值：“对于以上示例，易得 S = 0，E = 124，N = 2⁻² + 2⁻³ = 0.375”。右下方写出 IEEE 754 正规数求值过程：“根据 IEEE 754 标准，该示例对应的数字为 val = (-1)^S × 2^(E-127) × (1 + N) = 1 × 0.125 × 1.375 = 0.171875”。"
+    "指数使表示范围扩大，但不增加有效精度：正规数含隐含1共有24位二进制有效精度，绝对值越大，相邻可表示数通常越稀疏。"
   ],
-  "result": "对于本图这样的正规数，IEEE 754 单精度浮点数利用符号位 S 决定正负、带偏移量 127 的指数位 E 决定 2 的幂次缩放尺度、隐含整数位 1 加分数位 N 决定有效数字，使 32 位 float 能够表示远超 32 位整数的动态范围。范围扩大不等于精度更高：正规数只有 24 位二进制有效精度（含隐含的 1），绝对值越大，相邻可表示数通常越稀疏。指数 E 为 0 或 255 时需按零、次正规数、无穷大或 NaN 的专门规则解释，不能直接套用本图公式。",
+  "result": "正规数（1≤E≤254）公式为(−1)^S×2^(E−127)×(1+N)。当E为0或255时，须改用零、次正规数、无穷大或NaN的专门规则，不能直接套此式。",
   "frames": [
     {
       "id": "source-42",
       "book_path": "chapter_data_structure/number_encoding.assets/ieee_754_float.png",
-      "title": "从 32 个比特计算一个 float 的值",
-      "explanation": "逐项核对图中三个字段的换算：符号位 S = 0，故符号项 (-1)⁰ = 1（正数）；8 位指数位 01111100₂ 换算为十进制是 64 + 32 + 16 + 8 + 4 = 124（处于正规数范围 1 至 254 内），减去偏移常数 127 得到指数 -3，故尺度项为 2⁻³ = 0.125；23 位分数位表示二进制小数点后的权重，第 1 位 b₂₂ 为 0（对应 2⁻¹），第 2 位 b₂₁ 为 1（对应 2⁻² = 0.25），第 3 位 b₂₀ 为 1（对应 2⁻³ = 0.125），相加得 N = 0.375，加上正规数隐含的整数位 1 得到有效数字 1.375。三项相乘 1 × 0.125 × 1.375 即得 0.171875。",
-      "state": "顶部大括号标注“float 长度为 4 bytes = 32 bit”。32 个位格分为三段：橙色符号位 S（b₃₁，1 位）为 0；蓝色指数位 E（b₃₀ 至 b₂₃，8 位）为 01111100；绿色分数位 N（b₂₂ 至 b₀，23 位）为 011 后接 20 个 0。左下方列出 S = 0、E = 124、N = 2⁻² + 2⁻³ = 0.375；右下方列出公式 val = (-1)^S × 2^(E-127) × (1 + N) = 1 × 0.125 × 1.375 = 0.171875。",
-      "key_state": "符号位 S = 0，指数位 E = 01111100₂ = 124，分数位 N = 2⁻² + 2⁻³ = 0.375；代入公式得 1 × 2⁻³ × 1.375 = 0.171875。",
-      "announcement": "拆解 32 位单精度浮点数的符号位、指数位和分数位，逐步演示正规数公式计算出 0.171875 的过程。"
+      "title": "单精度浮点数的位字段",
+      "explanation": "最高位符号S=0，因此符号项为(−1)⁰=+1。中间8位指数E=01111100₂=124（处于正规数范围1至254内），减去偏移127得−3，缩放项为2⁻³=0.125。低23位分数N的前3位为011、后20位为0，表示0×2⁻¹+1×2⁻²+1×2⁻³=0.375；加上正规数隐含的整数位1得到1+N=1.375。三项相乘得1×0.125×1.375=0.171875。",
+      "state": "本例为32位IEEE 754单精度正规数，共4字节：符号位S占1位（0），指数位E占8位（01111100₂=124，属于1≤E≤254的正规数），分数位N占23位（011后跟20个0，即0.375），数值为0.171875。",
+      "key_state": "S=0，E=124，N=0.375，正规数值为0.171875。",
+      "announcement": "把32位编码拆成符号、指数和分数，算出对应的正规数。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-03",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "f70b0f4642678cc43c847fd36cf9201ef0eb6683c32228dc2451821398258f2f",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "cbe99e77444e0462f57c192b0088094f9fd6936e24f6cfd18181de4a48ba8083",
-        "output_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c",
-        "output_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6",
-        "output_sha256": "bdf21f24ca6a88ed6060d24186ac933357dde4feee3a257546cffd56c2bd6867"
-      }
-    ],
-    "evidence_sha256": "ec6ba9da7d2fe9290ce303592b8440b918ec83702cd9d0e6bbdc1e50d87c89d8"
-  },
   "dependencies": {
     "markdown": {
       "chapter_data_structure/number_encoding.md": "1a31a391ea20f0f8e4ce952082125434b9705d38a21c8152377b08c9508b451a"
@@ -62,5 +29,73 @@
     "scenes": {
       "chapter_data_structure/number_encoding.assets/ieee_754_float.png": "97b5d75fd3795ae966d7127ff4aad901932aab3b95f173fb38c46f3d4e2bf789"
     }
+  },
+  "tables": [
+    {
+      "caption": "32位字段及其含义",
+      "headers": [
+        "字段",
+        "位序",
+        "位数",
+        "本例二进制",
+        "解释"
+      ],
+      "rows": [
+        [
+          "符号S",
+          "b₃₁",
+          "1",
+          "0",
+          "正号"
+        ],
+        [
+          "指数E",
+          "b₃₀至b₂₃",
+          "8",
+          "01111100",
+          "存储值124；实际指数124−127=−3"
+        ],
+        [
+          "分数N",
+          "b₂₂至b₀",
+          "23",
+          "01100000000000000000000",
+          "N=2⁻²+2⁻³=0.375；正规数有效数字1+N=1.375"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-04",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "c385c148a9c87885ad3055fe531ffaace5195ab54db807e336c77cecfb2fe72d",
+        "output_sha256": "67e949ed7bbdb732b3f1c3ba626e257456b862ba2f1a1acabf2d74a9db1a3261"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "67e949ed7bbdb732b3f1c3ba626e257456b862ba2f1a1acabf2d74a9db1a3261",
+        "output_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf",
+        "output_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf"
+      }
+    ],
+    "evidence_sha256": "212e919970bc973e942f94689e035a209af63a724b3924065c0b2a89303d3070",
+    "verification_manifest_sha256": "e599534ecd2e93955445689d4327ace02a7ae7841b59245afcbd61129c11708b",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "4cab50e9d346c8d701f168117fd040a740aa8e6e5a3ac7543528c3a3dc644383"
   }
 }

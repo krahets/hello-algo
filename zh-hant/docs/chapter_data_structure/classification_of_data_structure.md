@@ -17,6 +17,11 @@
 - **網狀結構**：圖，元素之間是多對多的關係。
 
 ![線性資料結構與非線性資料結構](classification_of_data_structure.assets/classification_logic_structure.svg)
+<!-- figure-reading:start group:chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure -->
+
+[資料結構的邏輯關係：完整圖解](classification_of_data_structure.assets/classification_logic_structure.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ## 物理結構：連續與分散
 
@@ -25,6 +30,11 @@
 **系統透過記憶體位址來訪問目標位置的資料**。如下圖所示，計算機根據特定規則為表格中的每個單元格分配編號，確保每個記憶體空間都有唯一的記憶體位址。有了這些位址，程式便可以訪問記憶體中的資料。
 
 ![記憶體條、記憶體空間、記憶體位址](classification_of_data_structure.assets/computer_memory_location.svg)
+<!-- figure-reading:start group:chapter_data_structure/classification_of_data_structure.assets/computer_memory_location -->
+
+[用位址訪問記憶體：完整圖解](classification_of_data_structure.assets/computer_memory_location.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 !!! tip
 
@@ -35,6 +45,11 @@
 如下圖所示，**物理結構反映了資料在計算機記憶體中的儲存方式**，可分為連續空間儲存（陣列）和分散空間儲存（鏈結串列）。物理結構從底層決定了資料的訪問、更新、增刪等操作方法，兩種物理結構在時間效率和空間效率方面呈現出互補的特點。
 
 ![連續空間儲存與分散空間儲存](classification_of_data_structure.assets/classification_phisical_structure.svg)
+<!-- figure-reading:start group:chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure -->
+
+[陣列與鏈結串列的儲存佈局：完整圖解](classification_of_data_structure.assets/classification_phisical_structure.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 值得說明的是，**所有資料結構都是基於陣列、鏈結串列或二者的組合實現的**。例如，堆疊和佇列既可以使用陣列實現，也可以使用鏈結串列實現；而雜湊表的實現可能同時包含陣列和鏈結串列。
 

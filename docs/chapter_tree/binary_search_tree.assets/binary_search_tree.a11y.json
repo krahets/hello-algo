@@ -26,10 +26,10 @@
     "markdown": {
       "chapter_tree/binary_search_tree.md": "bf4428ef944ea3dc4040d389ab63b4f52575e5b0990caac71413a4f04cf9d1e4"
     },
+    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
       "chapter_tree/binary_search_tree.assets/binary_search_tree.png": "98d883a5e4a3b0ea40af8c0149255cc026596734dc6f3a7483fd38c5373186a5"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7"
+    }
   },
   "review": {
     "status": "confirmed",

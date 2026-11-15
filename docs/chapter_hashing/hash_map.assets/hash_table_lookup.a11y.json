@@ -3,7 +3,7 @@
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_hashing/hash_map.assets/hash_table_lookup",
-  "title": "哈希表的键值映射与 O(1) 查询",
+  "title": "哈希表的键值映射与查询",
   "summary": "哈希表将五个学号（key）与五个姓名（value）建立一一映射，输入学号在理想情况下可在 O(1) 时间内查出对应姓名。",
   "context": [
     "图中顶部标题为“哈希表 hash table”。中央浅蓝色圆角框内分上下两行展示五组键值对：上行绿色方块为“学号 key”，下行蓝绿色方块为“姓名 value”，每列从学号指向姓名的向下箭头表示键到值的映射关系。"
@@ -56,43 +56,45 @@
       "announcement": "展示哈希表中五个学号 key 到姓名 value 的映射查询，图示理想复杂度为 O(1)。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-05",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "e692ac9655ee18f435e2ea3b65d2bd3ef6d9b8f8d5a5428ac8eec1492964749c",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "bbf6fc89ced3325538a22d1eecebd98ac2a54cd576eb8bfe0b2aad472b2340bc",
-        "output_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108",
-        "output_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281",
-        "output_sha256": "ffb27a99b86ace98bde8e54084f42f6a1c59f19a353deb9a55c4ee96d96e99be"
-      }
-    ],
-    "evidence_sha256": "954be79d16a2deb5e3a0108cd78415c4c9fef13373e1a16fbca5a1e1d388bf98"
-  },
   "dependencies": {
     "markdown": {
-      "chapter_hashing/hash_map.md": "c3958aefdad1c1246c11d2029bf493fc83cdd4306e4aea7a0da033333c6626cb"
+      "chapter_hashing/hash_map.md": "1afb3ecd77e99e9a09d5617db30663ebfe006ae26598d18a5d589894033f20e9"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
       "chapter_hashing/hash_map.assets/hash_table_lookup.png": "22fe860436d9595dbc0ff324ac93e36a3eb4c1b4579a624f3ad8f807b8836eb9"
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/names",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
+        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      }
+    ],
+    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
+    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "cad867e9c36cef3978c5abbb636efd2752ac1c5843856911c1f17ed07f270e13"
   }
 }

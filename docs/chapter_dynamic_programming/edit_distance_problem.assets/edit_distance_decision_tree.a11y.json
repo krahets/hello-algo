@@ -3,8 +3,8 @@
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_decision_tree",
-  "title": "编辑决策树：从 hello 到 algo 的一条三步路径",
-  "summary": "将字符串视为树节点、单次编辑操作视为边，沿左侧展开分支展示 hello → helgo → halgo → algo 的三步转换路径，其余分支以省略号表示。",
+  "title": "编辑距离的决策树",
+  "summary": "将字符串作为节点、单次编辑作为有向边，在决策树中寻找从 hello 到 algo 的最短路径；图中展示一条三步转换路径，其他分支未展开。",
   "context": [
     "在决策树模型下，每个节点代表一个字符串状态，从节点发出的每条有向边代表一轮决策（一次插入、删除或替换操作）。求解字符串 s = hello 到 t = algo 的编辑距离，等价于在这棵决策树中寻找从根节点 hello 到目标节点 algo 的最短路径。"
   ],
@@ -17,7 +17,7 @@
     {
       "id": "source-442",
       "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_decision_tree.png",
-      "title": "沿决策树三条编辑边从 hello 到达 algo",
+      "title": "hello 到 algo 的三步编辑路径",
       "explanation": "从根节点 s = hello 出发，沿左侧展开路径依次执行三步决策：第 1 步将后一个 l 替换为 g 得到 helgo，第 2 步将 e 替换为 a 得到 halgo，第 3 步删除首字母 h 得到目标串 t = algo；各节点右侧通向省略号的分支代表其余未展开的编辑选择。",
       "state": "决策树左侧展开 4 个节点：s = hello → helgo → halgo → t = algo，连接边依次标注“将 l 替换为 g”（后一个 l）、“将 e 替换为 a”和“删除 h”；前 3 个节点右侧各有 3 条指向“…”的省略分支。",
       "key_state": "决策树展开路径：hello → helgo → halgo → algo，共 3 条编辑边。",
@@ -51,36 +51,6 @@
       ]
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-22",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "e31b00b0ece83793b3891021e411291222d09c6a113393356b271692bfc62231",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "355bb0a076e0c4a50506f944ec79d9a6370d2b0116db530af832856399b3485f",
-        "output_sha256": "599916a14e949b12438a8611b3d61d624eb76ebbe8824f46cd645944bc7bd6aa"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "599916a14e949b12438a8611b3d61d624eb76ebbe8824f46cd645944bc7bd6aa",
-        "output_sha256": "3afc9f8a0fdc112cc4ef5c720bc3adf71e9218da3eb7b26361dcf108ad5ae149"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3afc9f8a0fdc112cc4ef5c720bc3adf71e9218da3eb7b26361dcf108ad5ae149",
-        "output_sha256": "6db2e4eff0a7643db4ac5f1c8ad3c9522a1a422b7048c605b10c5f576f7d028d"
-      }
-    ],
-    "evidence_sha256": "cb891d8e2b5e544988c1d1367b6de97883710871a6a6ba0cf5a7e132cd7345cd"
-  },
   "dependencies": {
     "markdown": {
       "chapter_dynamic_programming/edit_distance_problem.md": "643a62f62b2090294e2b8f8889bb1e9975cdbb62e41dd1c7cb3c25a11343c11f"
@@ -89,5 +59,37 @@
     "scenes": {
       "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_decision_tree.png": "5347508e70f3e39544e718803199745de8b1f02644007dedc2b182aa0eb965c7"
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/names",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
+        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      }
+    ],
+    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
+    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "e217e6a1c184e59bbc0c0e4e3a3b3366dffefa4988e62829ea8b2daf9f91f88b"
   }
 }

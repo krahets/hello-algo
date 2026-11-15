@@ -1,58 +1,28 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree",
   "title": "记忆化搜索复用已算出的状态",
-  "summary": "沿左侧主链首次计算并缓存各子问题，右侧再次遇到相同状态时直接读取记录返回。",
+  "summary": "沿左侧主链首次计算并缓存各子问题，右侧再次遇到相同状态时直接读取缓存返回并参与父状态求和。",
   "context": [
-    "仍求解每步上 1 阶或 2 阶的爬楼梯方案数，基本情况为 dp[1]=1、dp[2]=2。记忆化搜索引入数组 mem 记录已算出的非基本状态值，基本情况先直接返回，非基本状态先查记录，仅在未记录时才继续向下展开。"
+    "仍求解每步上 1 阶或 2 阶的爬楼梯方案数，基本情况为 dp[1] = 1、dp[2] = 2。记忆化搜索引入数组 mem 记录已算出的非基本状态值，基本情况先直接返回，非基本状态先查记录，仅在未记录时才继续向下展开。"
   ],
   "description": [
-    "树中绿色节点与实线箭头构成首次计算的递归链：从 dp[9] 沿左侧经 dp[8]、dp[7]、省略号一直到 dp[3]，再由 dp[3] 分出底部的 dp[2] 和 dp[1]。右侧分支上的 dp[7]、dp[6]、dp[5] 及省略号节点呈灰色，连接它们的虚线箭头上标有剪刀，并汇总指向右侧“剪枝：找到记录，直接返回”说明。"
+    "第一次遇到未记录的状态，先递归求出两个子问题的值，相加后存入 mem；再次遇到该状态，就直接读出记录并返回。",
+    "例如求 dp[9] 时先完成左子问题 dp[8]，此过程中已经计算并保存 dp[7]；随后求右子问题（带剪刀的 dp[7]），直接读缓存而不再重复展开，它仍参与 dp[9] 的加法。",
+    "图中剪掉的是重复展开的子树，不是这个子问题的贡献。基本情况 dp[1]、dp[2] 先直接返回已知值 1、2，不需要从 mem 读取。"
   ],
-  "result": "所有重叠子问题只需展开计算一次，记忆化搜索将时间复杂度从指数阶降低为线性阶 O(n)；基本情况 dp[1] 和 dp[2] 仍直接返回已知常数。",
+  "result": "所有重叠子问题只需展开计算一次，缓存命中时仍贡献有效结果，记忆化搜索将时间复杂度从指数阶降低为线性阶 O(n)；基本情况 dp[1] 和 dp[2] 仍直接返回已知常数。",
   "frames": [
     {
       "id": "source-370",
       "book_path": "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png",
       "title": "记忆化搜索复用已算出的状态",
-      "explanation": "递归沿左侧链深入到底部基本情况 dp[2] 和 dp[1]，随后逐层回溯；每一层先取得左子问题的返回值，再求右子问题，最后相加并写入当前状态的 mem。上层节点的右分支需要求解 dp[7]（作为 dp[9] 的右子节点）、dp[6]（作为 dp[8] 的右子节点）或 dp[5]（作为 dp[7] 的右子节点）时，这些状态都已在左子树中计算并记录过，因此直接从 mem 读出结果返回，不再向下展开子树。需要注意，图中的“剪枝：找到记录，直接返回”是复用已算出的有效方案数参与上层加法，绝不是把该分支的贡献当成 0 舍弃。",
-      "state": "左侧绿色实线主链依次为 dp[9]→dp[8]→dp[7]→…→dp[3]，dp[3] 下接绿色叶节点 dp[2] 和 dp[1]；右侧由 dp[9]、dp[8]、dp[7] 及省略号分出的灰色节点 dp[7]、dp[6]、dp[5] 与省略号均带剪刀虚线，右侧标注“剪枝：找到记录，直接返回”，底部标注“记忆化搜索方法的时间复杂度为 O(n)，因为所有重叠子问题只需被计算一次”。",
-      "key_state": "左侧绿色主链首次计算并写入缓存，右侧灰色重复节点命中记录直接返回。",
-      "announcement": "首次算出各子问题后存入缓存，后续分支再次访问同一状态时直接返回记录值，避免重复展开。"
+      "explanation": "先沿左链计算并保存，再复用记录；右侧带剪刀的重复状态直接读缓存，仍返回有效方案数参与求和。",
+      "state": "首次计算主链为 dp[9] → dp[8] → dp[7] → … → dp[3]，dp[3] 依赖基本情况 dp[2]、dp[1]。右侧缓存复用对应见表。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-19",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "bd83d7d80ff8c30c22269de4dc49640b62311d92c0a5e67f06c172b95c7295e6",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "dcea2ce4eb56814df492beb0353b69ca48748a38ea8c5b34963d8ce99d7a20df",
-        "output_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c",
-        "output_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f",
-        "output_sha256": "1603107bf51a94e045d71a5f3540a9b6e58f184da52d98978a06e9e10e5ca484"
-      }
-    ],
-    "evidence_sha256": "830dfd6d376fed2c39b7c0da47ad3af42913a4655f9fdeea3b18ab9df35addbc"
-  },
   "dependencies": {
     "markdown": {
       "chapter_dynamic_programming/intro_to_dynamic_programming.md": "0995a3cd45b316e145efd517bc64d6d48a880cc2e2ad626a0bc24d063262a59f"
@@ -61,5 +31,87 @@
     "scenes": {
       "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png": "af2a9056199e97e35b3ddd758e553de59ed057e2b12350b48e3c6ee8b952ef37"
     }
+  },
+  "tables": [
+    {
+      "caption": "图中明确标出的缓存复用",
+      "headers": [
+        "当前父状态",
+        "先完成的左子问题",
+        "随后读取记录的右子问题"
+      ],
+      "rows": [
+        [
+          "dp[9]",
+          "dp[8]",
+          "dp[7]"
+        ],
+        [
+          "dp[8]",
+          "dp[7]",
+          "dp[6]"
+        ],
+        [
+          "dp[7]",
+          "dp[6]（链中省略）",
+          "dp[5]"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "三种状态的处理",
+      "headers": [
+        "遇到的状态",
+        "处理"
+      ],
+      "rows": [
+        [
+          "dp[1]、dp[2]",
+          "直接返回 1、2"
+        ],
+        [
+          "非基本状态，尚无记录",
+          "递归计算、相加、写入 mem 后返回"
+        ],
+        [
+          "非基本状态，已有记录",
+          "直接返回 mem 中的值，贡献仍参与加法"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-12",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "2db7b8b0ecd549998fdef4f0b1f30abddd5f422b11a7d32336c10c15ba4135ad",
+        "output_sha256": "2c9c8bbef62d495610441001475851c93659a0b4a44bed6cd9e8183150e44092"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "2c9c8bbef62d495610441001475851c93659a0b4a44bed6cd9e8183150e44092",
+        "output_sha256": "a2ace14bd5018750c19e80363cbad3331032bfa946914771946e57e407668e7a"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a2ace14bd5018750c19e80363cbad3331032bfa946914771946e57e407668e7a",
+        "output_sha256": "c7a7bb6d6515cebec7bbacf4a6095365cb25f8f5dbdc25b8a75d801c27d3cfa7"
+      }
+    ],
+    "evidence_sha256": "5d2e4ec7f377fdb6c214c393e67369ccbad6377559d1dd71998f5b7ecbbcc1d5",
+    "verification_manifest_sha256": "bbc351cd7b91cef62b4c7a18bd298e76111e9a508bd7137d745c92ce2d82153d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "2f7e9f999807f2442522c2d19b95fda4a1aac5c3110f24c22ebf5c91b814f3dd"
   }
 }

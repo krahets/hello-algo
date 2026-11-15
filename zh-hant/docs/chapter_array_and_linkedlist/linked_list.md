@@ -7,6 +7,11 @@
 鏈結串列的設計使得各個節點可以分散儲存在記憶體各處，它們的記憶體位址無須連續。
 
 ![鏈結串列定義與儲存方式](linked_list.assets/linkedlist_definition.svg)
+<!-- figure-reading:start group:chapter_array_and_linkedlist/linked_list.assets/linkedlist_definition -->
+
+[鏈結串列的節點與連線：完整圖解](linked_list.assets/linkedlist_definition.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 觀察上圖，鏈結串列的組成單位是<u>節點（node）</u>物件。每個節點都包含兩項資料：節點的“值”和指向下一節點的“引用”。
 
@@ -43,6 +48,11 @@ init_linked_list
 相比之下，在陣列中插入元素的時間複雜度為 $O(n)$ ，在大資料量下的效率較低。
 
 ![鏈結串列插入節點示例](linked_list.assets/linkedlist_insert_node.svg)
+<!-- figure-reading:start group:chapter_array_and_linkedlist/linked_list.assets/linkedlist_insert_node -->
+
+[在鏈結串列中插入節點：完整圖解](linked_list.assets/linkedlist_insert_node.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ```src
 [file]{linked_list}-[class]{}-[func]{insert}
@@ -55,6 +65,11 @@ init_linked_list
 請注意，儘管在刪除操作完成後節點 `P` 仍然指向 `n1` ，但實際上走訪此鏈結串列已經無法訪問到 `P` ，這意味著 `P` 已經不再屬於該鏈結串列了。
 
 ![鏈結串列刪除節點](linked_list.assets/linkedlist_remove_node.svg)
+<!-- figure-reading:start group:chapter_array_and_linkedlist/linked_list.assets/linkedlist_remove_node -->
+
+[鏈結串列刪除節點：完整圖解](linked_list.assets/linkedlist_remove_node.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ```src
 [file]{linked_list}-[class]{}-[func]{remove}
@@ -104,6 +119,11 @@ doubly_list_node_class
 ```
 
 ![常見鏈結串列種類](linked_list.assets/linkedlist_common_types.svg)
+<!-- figure-reading:start group:chapter_array_and_linkedlist/linked_list.assets/linkedlist_common_types -->
+
+[三種常見鏈結串列型別：完整圖解](linked_list.assets/linkedlist_common_types.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ## 鏈結串列典型應用
 

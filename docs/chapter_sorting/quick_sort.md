@@ -34,6 +34,11 @@
 
 === "<9>"
     ![以 2 为基准的一次哨兵划分，第 9 步，共 9 步：完成一次划分，保留左右子数组子问题](quick_sort.assets/pivot_division_step9.svg)
+<!-- figure-reading:start group:chapter_sorting/quick_sort.assets/pivot_division -->
+
+[以 2 为基准的一次哨兵划分：完整图解](quick_sort.assets/pivot_division.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 哨兵划分完成后，原数组被划分成三部分：左子数组、基准数、右子数组，且满足“左子数组任意元素 $\leq$ 基准数 $\leq$ 右子数组任意元素”。因此，我们接下来只需对这两个子数组进行排序。
 
@@ -54,6 +59,11 @@
 3. 持续递归，直至子数组长度为 1 时终止，从而完成整个数组的排序。
 
 ![快速排序流程](quick_sort.assets/quick_sort_overview.svg)
+<!-- figure-reading:start group:chapter_sorting/quick_sort.assets/quick_sort_overview -->
+
+[快速排序递归概览：完整图解](quick_sort.assets/quick_sort_overview.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ```src
 [file]{quick_sort}-[class]{quick_sort}-[func]{quick_sort}

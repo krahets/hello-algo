@@ -1,60 +1,26 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_tree/binary_search_tree.assets/bst_insert",
-  "title": "在二叉搜索树中插入节点 16",
-  "summary": "从根节点 8 出发沿右分支 8→12→14→15 查找到空位 None，再执行 pre.right = 新节点，将 16 接为 15 的右子节点。",
+  "title": "二叉搜索树插入节点",
+  "summary": "沿大小比较向下查找到空引用位置，再由父节点指针 pre 将新叶节点接入树中。",
   "context": [
-    "二叉搜索树中，任意节点的左子树所有节点值小于该节点值，右子树所有节点值大于该节点值。连线箭头从父节点指向子节点。",
-    "初始四层二叉搜索树含节点 1 至 15：根为 8，左、右子节点为 4、12；4 的左、右子节点为 2、6；12 的左、右子节点为 10、14；2 的子节点为 1、3，6 的子节点为 5、7，10 的子节点为 9、11，14 的子节点为 13、15；底层八个节点均为叶节点。"
+    "本书二叉搜索树不存重复值；每个节点的左子树所有值小于该节点值，右子树所有值大于该节点值。"
   ],
-  "description": [
-    "图顶部标题为“在二叉搜索树中插入节点 16”，左右两棵树展示插入的两个阶段。左半图底部标注“1. 查找节点插入位置 cur”：由于待插入值 16 依次大于 8、12、14、15，指针沿最右侧蓝色路径 8 → 12 → 14 → 15 持续向右下移动；越过叶节点 15 后，cur 指向右下方的空位置 None，而父节点指针 pre 停留在蓝紫色的节点 15 处。",
-    "右半图底部标注“2. 在该位置插入节点，执行 pre.right = 节点 16”：在原 None 位置初始化值为 16 的蓝色新节点，并将 pre（节点 15）的右子节点指针指向 16。其余所有节点与连接均保持不变。"
-  ],
-  "result": "借助 pre 记录越过叶节点前的父节点 15，新节点 16 被接为 15 的右子节点，整棵树包含 1 至 16 且继续满足二叉搜索树性质。",
+  "description": [],
+  "result": "插入后树含值 1 至 16，仍满足搜索树大小关系。pre 保存最后一个非空节点 15，才能在 cur 为 None 后把它的右指针接到新节点 16。",
   "frames": [
     {
       "id": "source-117",
       "book_path": "chapter_tree/binary_search_tree.assets/bst_insert.png",
-      "title": "查找插入位置 None 并将新节点 16 接为 15 的右子节点",
-      "explanation": "左半图沿 8→12→14→15 查找至 cur = None，由 pre 记录父节点 15；右半图执行 pre.right = 节点 16，在节点 15 右下方接入新节点 16。",
-      "state": "初始四层二叉搜索树含 1 至 15（根 8→4、12，4→2、6，12→10、14，2→1、3，6→5、7，10→9、11，14→13、15）。左半图：蓝色查找路径经过 8→12→14→15，pre 指向节点 15，cur 指向 15 右下方的 None。右半图：pre 仍指向节点 15，执行 pre.right = 节点 16 后，15 的右子节点连接至新节点 16。",
-      "key_state": "沿 8→12→14→15 查找到 cur = None（pre = 15），执行 pre.right = 16 完成插入。",
-      "announcement": "沿右分支查找到节点 15 的空右子节点位置，将新节点 16 插入为 15 的右子节点。"
+      "title": "二叉搜索树插入节点",
+      "explanation": "插入 16 时，它依次大于 8、12、14、15，沿这四节点向右查找，直到 cur 到达空位置 None，pre 保存最后一个非空节点 15。创建新节点 16 后执行 pre.right = 新节点，将它接为 15 的右子节点。",
+      "state": "输入树包含值 1 至 15，根为 8，完整连接见数据表。查找结束时 pre 指向 15、cur 为 None；插入后新增 15 到 16 的右连接，16 为叶节点，其余原有连接不变。",
+      "key_state": "查找路径为 8 → 12 → 14 → 15 → None；由 pre = 15 将新节点 16 接在 15 右侧。",
+      "announcement": "沿右分支查找到 15 的空右子位置，将新叶节点 16 接为 15 的右子节点。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-07",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "3c581c03f55ee7fc9a5d8a9698b44b1b7d8b2037970dfff1f945f1c1e05e5cec",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "f429a2d9034d7690b6bd4a3f0822b11a77350c2330baf8a66141d1f7a9ef4841",
-        "output_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91",
-        "output_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6",
-        "output_sha256": "449ce85fb338c455e6cedde1bf55ab20b1b0f532a5408dfa0443a6fbe9815c6b"
-      }
-    ],
-    "evidence_sha256": "459b7ad9cb6322b1bab7e28efa1badcfd4813182718f9028c5dbe5d4d10dbb4c"
-  },
   "dependencies": {
     "markdown": {
       "chapter_tree/binary_search_tree.md": "bf4428ef944ea3dc4040d389ab63b4f52575e5b0990caac71413a4f04cf9d1e4"
@@ -69,70 +35,371 @@
       "kind": "prose",
       "model_sha256": "65b5e223258d9793f5ba82c180670a3ff43562578bd6aeef7247669f48783af5",
       "prose": {
-        "schema_version": 1,
+        "schema_version": 2,
         "status": "confirmed",
         "locale": "zh-hans",
         "story_id": "bst-insert",
         "group_id": "group:chapter_tree/binary_search_tree.assets/bst_insert",
-        "title": "二叉搜索树插入：定位到 15 的空右子位置并插入 16",
-        "summary": "沿 8 → 12 → 14 → 15 定位到 15 的空右子位置，再执行 pre.right = 16 插入节点 16。",
+        "title": "二叉搜索树插入节点",
+        "summary": "沿大小比较向下查找到空引用位置，再由父节点指针 pre 将新叶节点接入树中。",
         "context": [
-          "初始二叉搜索树共四层 15 个节点：根节点 8 的左右子节点为 4 和 12；4 的左右子节点为 2 和 6；12 的左右子节点为 10 和 14；2 的左右子节点为 1 和 3，6 的左右子节点为 5 和 7，10 的左右子节点为 9 和 11，14 的左右子节点为 13 和 15；底层 1、3、5、7、9、11、13、15 均为叶节点。",
-          "二叉搜索树中任意节点的左子树所有节点值均小于该节点值，右子树所有节点值均大于该节点值。本例的目标是在树中插入新节点 16。"
+          "本书二叉搜索树不存重复值；每个节点的左子树所有值小于该节点值，右子树所有值大于该节点值。",
+          "目标是向根为 8、包含值 1 至 15 的二叉搜索树插入 16；每个状态的完整节点连接可查阅当前树表。"
         ],
-        "description": [
-          "动画包含两个状态：第一状态直接给出查找完成时的定位结果，由于 16 依次大于 8、12、14、15，蓝色路径沿右分支 8 → 12 → 14 → 15 到达 15 右下方的空位置标记 None，此时 pre 指向父节点 15、cur 指向空位置 None（动画不把路径上的逐次比较拆成额外状态）。",
-          "第二状态在该空位置创建值为 16 的新节点，并执行 pre.right = 16，将 16 作为 15 的右子节点接入树中，其余节点与连线保持不变。"
-        ],
-        "result": "新节点 16 成为节点 15 的右子节点，整棵树依然满足二叉搜索树的大小有序性质。",
+        "description": [],
+        "result": "插入后树含值 1 至 16，仍满足搜索树大小关系。pre 保存最后一个非空节点 15，才能在 cur 为 None 后把它的右指针接到新节点 16。",
         "steps": [
           {
             "id": "step-1",
-            "title": "查找插入位置：停在节点 15 的空右子位置",
-            "explanation": "画面顶部标题为“在二叉搜索树中插入节点 16”，底部说明“1. 查找节点插入位置 cur”。由于待插入值 16 大于沿途的 8、12、14、15，蓝色高亮路径从根 8 一路向右经过 12、14、15，最终到达 15 右侧的空位置标记 None；指针 pre 指向上一节点 15，指针 cur 指向 None，表明此处即为插入位置。",
-            "state": "树根 8 的左右子节点为 4、12；4 的左右子节点为 2、6；12 的左右子节点为 10、14；2、6、10、14 的左右子节点分别为 (1, 3)、(5, 7)、(9, 11)、(13, 15)，底层 8 个节点均为叶节点。蓝色查找路径为 8 → 12 → 14 → 15 → None，pre 指向节点 15，cur 指向 15 右侧的空位置 None，节点 16 尚未插入。",
-            "key_state": "查找结束于 8 → 12 → 14 → 15 → None，pre = 15，cur = None。",
-            "announcement": "显示查找结果：沿右分支定位到节点 15 的空右子位置，pre = 15，cur = None。"
+            "title": "找到空的右子位置",
+            "explanation": "待插入值 16 依次大于路径上的 8、12、14、15，每次比较均向右前进。当 cur 变成 None 时，pre 仍保存最后一个非空节点 15，用来接入新节点。",
+            "state": "向根为 8、含值 1 至 15 的树插入 16：查找路径为 8 → 12 → 14 → 15 → None。当前 pre 指向 15，cur 为 None，新节点 16 尚未加入；各节点连接见当前树表。",
+            "key_state": "pre = 15，cur = None，已定位到 15 的空右子位置。",
+            "announcement": "沿右分支查找到节点 15 的空右子位置，cur 变为 None。",
+            "state_tables": [
+              {
+                "caption": "当前树的节点连接",
+                "headers": [
+                  "节点",
+                  "左子节点",
+                  "右子节点"
+                ],
+                "rows": [
+                  [
+                    "1",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "2",
+                    "1",
+                    "3"
+                  ],
+                  [
+                    "3",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "4",
+                    "2",
+                    "6"
+                  ],
+                  [
+                    "5",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "6",
+                    "5",
+                    "7"
+                  ],
+                  [
+                    "7",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "8",
+                    "4",
+                    "12"
+                  ],
+                  [
+                    "9",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "10",
+                    "9",
+                    "11"
+                  ],
+                  [
+                    "11",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "12",
+                    "10",
+                    "14"
+                  ],
+                  [
+                    "13",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "14",
+                    "13",
+                    "15"
+                  ],
+                  [
+                    "15",
+                    "空",
+                    "空"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
           },
           {
             "id": "step-2",
-            "title": "执行 pre.right = 16，将新节点接入 15 右侧",
-            "explanation": "底部说明更新为“2. 在该位置插入节点 16，执行 pre.right = 16”。原先指向 None 的空位替换为值为 16 的新叶节点，并由 pre 所指的节点 15 通过右子指针连接到 16。因为 16 > 15，接在 15 右侧符合二叉搜索树规则。",
-            "state": "根8的左右孩子为4、12；4的左右孩子为2、6；12的左右孩子为10、14；2的左右孩子为1、3，6为5、7，10为9、11，14为13、15。15的右孩子现在为16，左孩子为空；16为叶节点。1、3、5、7、9、11、13仍为叶；pre指向15。",
-            "key_state": "已执行 pre.right = 16，新节点 16 成为 15 的右子节点。",
-            "announcement": "执行 pre.right = 16，在节点 15 右侧插入新叶节点 16。"
+            "title": "接入新叶节点 16",
+            "explanation": "创建值为 16 的新节点，令 pre.right 指向它；因 16 大于沿途所有祖先节点值，接在 15 右侧后全树继续满足二叉搜索树大小关系。",
+            "state": "向根为 8 的树插入 16 已完成：pre 指向 15，14 的左右子节点为 13、15，15 的左子节点为空、右子节点为新叶节点 16；其余原连接保持不变，完整连接见当前树表。",
+            "key_state": "15.right 指向新叶节点 16，全树包含值 1 至 16。",
+            "announcement": "令父节点 15 的右指针指向新叶节点 16，完成插入。",
+            "state_tables": [
+              {
+                "caption": "当前树的节点连接",
+                "headers": [
+                  "节点",
+                  "左子节点",
+                  "右子节点"
+                ],
+                "rows": [
+                  [
+                    "1",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "2",
+                    "1",
+                    "3"
+                  ],
+                  [
+                    "3",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "4",
+                    "2",
+                    "6"
+                  ],
+                  [
+                    "5",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "6",
+                    "5",
+                    "7"
+                  ],
+                  [
+                    "7",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "8",
+                    "4",
+                    "12"
+                  ],
+                  [
+                    "9",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "10",
+                    "9",
+                    "11"
+                  ],
+                  [
+                    "11",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "12",
+                    "10",
+                    "14"
+                  ],
+                  [
+                    "13",
+                    "空",
+                    "空"
+                  ],
+                  [
+                    "14",
+                    "13",
+                    "15"
+                  ],
+                  [
+                    "15",
+                    "空",
+                    "16"
+                  ],
+                  [
+                    "16",
+                    "空",
+                    "空"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
           }
         ],
         "review": {
           "status": "confirmed",
-          "run_id": "figure-accessibility-20261114/animations/batch-02",
-          "content_sha256": "89cd4af9b7a337b38a99fa38f1b0b44d9c5856c695f02c2e2633fb08078e50f9",
+          "run_id": "figure-reading-20261116/content/body-07",
+          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
           "stages": [
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "4d13f1301ba3734719aea73335d2d384fca7b4f65812bce845d84076149bc1b7",
-              "output_sha256": "b1d5d394047175cc689fca6198b1942ee353e2158ae12b2b05edf71fa3952503"
+              "input_sha256": "64feb83b4b5a24ec87dc3ad4c035411b8cfda29777f845490023530d7eb2b7e3",
+              "output_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907"
             },
             {
               "requested_model": "gemini-4-argon",
               "actual_model": null,
               "model_confirmation": "provider_not_reported",
-              "input_sha256": "b1d5d394047175cc689fca6198b1942ee353e2158ae12b2b05edf71fa3952503",
-              "output_sha256": "b3795c3a3799e1c0ee7a28b95029b0e10278ee5727b6f9868a5a135e5f187403"
+              "input_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907",
+              "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
             },
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "b3795c3a3799e1c0ee7a28b95029b0e10278ee5727b6f9868a5a135e5f187403",
-              "output_sha256": "112a1db1238c2b663c27321978bce0241eebaf5d6fdeac067f9bbeda5c675d22"
+              "input_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520",
+              "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
             }
           ],
-          "evidence_sha256": "aa6ba7b54ada7ba151f97f6b9bd3b49fc4723bd6cae50b0be26e0f9b73fccfd8"
+          "evidence_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198",
+          "verification_manifest_sha256": "0d1fe15b9202118b7054d0f66377264f92073e4f519f55934a9bddd71d23d42a",
+          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+          "content_sha256": "6334a0b8ea5b5bdb58818eb5eb17371ccee189fc2a6ad0562af5c69ac9858d0b"
         }
       }
     }
+  },
+  "tables": [
+    {
+      "caption": "插入前的节点连接",
+      "headers": [
+        "节点",
+        "左子节点",
+        "右子节点"
+      ],
+      "rows": [
+        [
+          "1",
+          "空",
+          "空"
+        ],
+        [
+          "2",
+          "1",
+          "3"
+        ],
+        [
+          "3",
+          "空",
+          "空"
+        ],
+        [
+          "4",
+          "2",
+          "6"
+        ],
+        [
+          "5",
+          "空",
+          "空"
+        ],
+        [
+          "6",
+          "5",
+          "7"
+        ],
+        [
+          "7",
+          "空",
+          "空"
+        ],
+        [
+          "8",
+          "4",
+          "12"
+        ],
+        [
+          "9",
+          "空",
+          "空"
+        ],
+        [
+          "10",
+          "9",
+          "11"
+        ],
+        [
+          "11",
+          "空",
+          "空"
+        ],
+        [
+          "12",
+          "10",
+          "14"
+        ],
+        [
+          "13",
+          "空",
+          "空"
+        ],
+        [
+          "14",
+          "13",
+          "15"
+        ],
+        [
+          "15",
+          "空",
+          "空"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-07",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "64feb83b4b5a24ec87dc3ad4c035411b8cfda29777f845490023530d7eb2b7e3",
+        "output_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907",
+        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520",
+        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
+      }
+    ],
+    "evidence_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198",
+    "verification_manifest_sha256": "0d1fe15b9202118b7054d0f66377264f92073e4f519f55934a9bddd71d23d42a",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "f0f0f68b1adc37f6f1bba051b615dc716eafdb9f698fce1626d6179a9a450444"
   }
 }

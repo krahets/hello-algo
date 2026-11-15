@@ -14,34 +14,39 @@
     ![選擇排序步驟](selection_sort.assets/selection_sort_step1.svg)
 
 === "<2>"
-    ![選擇排序：五輪未排序區間最小值選擇與首元素交換，第 2 步，共 11 步：第 1 輪（交換）：交換索引 0 的 4 與索引 1 的 1](selection_sort.assets/selection_sort_step2.svg)
+    ![選擇排序，第 2 步，共 11 步：交換索引 0 與 1](selection_sort.assets/selection_sort_step2.svg)
 
 === "<3>"
-    ![選擇排序：五輪未排序區間最小值選擇與首元素交換，第 3 步，共 11 步：第 2 輪（選擇）：在未排序區間 \[1, 5\] 中選中最小元素 1（k = 3）](selection_sort.assets/selection_sort_step3.svg)
+    ![選擇排序，第 3 步，共 11 步：選出索引 3 的最小值 1](selection_sort.assets/selection_sort_step3.svg)
 
 === "<4>"
-    ![選擇排序：五輪未排序區間最小值選擇與首元素交換，第 4 步，共 11 步：第 2 輪（交換）：交換索引 1 的 4 與索引 3 的 1](selection_sort.assets/selection_sort_step4.svg)
+    ![選擇排序，第 4 步，共 11 步：交換索引 1 與 3](selection_sort.assets/selection_sort_step4.svg)
 
 === "<5>"
-    ![選擇排序：五輪未排序區間最小值選擇與首元素交換，第 5 步，共 11 步：第 3 輪（選擇）：在未排序區間 \[2, 5\] 中選中最小元素 2（k = 5）](selection_sort.assets/selection_sort_step5.svg)
+    ![選擇排序，第 5 步，共 11 步：選出索引 5 的最小值 2](selection_sort.assets/selection_sort_step5.svg)
 
 === "<6>"
-    ![選擇排序：五輪未排序區間最小值選擇與首元素交換，第 6 步，共 11 步：第 3 輪（交換）：交換索引 2 的 3 與索引 5 的 2](selection_sort.assets/selection_sort_step6.svg)
+    ![選擇排序，第 6 步，共 11 步：交換索引 2 與 5](selection_sort.assets/selection_sort_step6.svg)
 
 === "<7>"
-    ![選擇排序：五輪未排序區間最小值選擇與首元素交換，第 7 步，共 11 步：第 4 輪（選擇）：在未排序區間 \[3, 5\] 中選中最小元素 3（k = 5）](selection_sort.assets/selection_sort_step7.svg)
+    ![選擇排序，第 7 步，共 11 步：選出索引 5 的最小值 3](selection_sort.assets/selection_sort_step7.svg)
 
 === "<8>"
-    ![選擇排序：五輪未排序區間最小值選擇與首元素交換，第 8 步，共 11 步：第 4 輪（交換）：交換索引 3 的 4 與索引 5 的 3](selection_sort.assets/selection_sort_step8.svg)
+    ![選擇排序，第 8 步，共 11 步：交換索引 3 與 5](selection_sort.assets/selection_sort_step8.svg)
 
 === "<9>"
-    ![選擇排序：五輪未排序區間最小值選擇與首元素交換，第 9 步，共 11 步：第 5 輪（選擇）：在未排序區間 \[4, 5\] 中選中最小元素 4（k = 5）](selection_sort.assets/selection_sort_step9.svg)
+    ![選擇排序，第 9 步，共 11 步：選出索引 5 的最小值 4](selection_sort.assets/selection_sort_step9.svg)
 
 === "<10>"
-    ![選擇排序：五輪未排序區間最小值選擇與首元素交換，第 10 步，共 11 步：第 5 輪（交換）：交換索引 4 的 5 與索引 5 的 4](selection_sort.assets/selection_sort_step10.svg)
+    ![選擇排序，第 10 步，共 11 步：交換索引 4 與 5](selection_sort.assets/selection_sort_step10.svg)
 
 === "<11>"
-    ![選擇排序：五輪未排序區間最小值選擇與首元素交換，第 11 步，共 11 步：完成排序：剩餘末尾一個元素 5 無須再排](selection_sort.assets/selection_sort_step11.svg)
+    ![選擇排序，第 11 步，共 11 步：排序完成](selection_sort.assets/selection_sort_step11.svg)
+<!-- figure-reading:start group:chapter_sorting/selection_sort.assets/selection_sort -->
+
+[選擇排序：完整圖解](selection_sort.assets/selection_sort.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 在程式碼中，我們用 $k$ 來記錄未排序區間內的最小元素：
 
@@ -56,3 +61,8 @@
 - **非穩定排序**：如下圖所示，元素 `nums[i]` 有可能被交換至與其相等的元素的右邊，導致兩者的相對順序發生改變。
 
 ![選擇排序非穩定示例](selection_sort.assets/selection_sort_instability.svg)
+<!-- figure-reading:start group:chapter_sorting/selection_sort.assets/selection_sort_instability -->
+
+[選擇排序中的跨位置交換：完整圖解](selection_sort.assets/selection_sort_instability.a11y.markdown)
+
+<!-- figure-reading:end -->

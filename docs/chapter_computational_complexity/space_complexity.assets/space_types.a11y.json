@@ -56,11 +56,16 @@
   },
   "dependencies": {
     "markdown": {
-      "chapter_computational_complexity/space_complexity.md": "abad8985c68bd7c4f69a006f641f5420c4d4f10c0ee5d797be445ac649512690"
+      "chapter_computational_complexity/space_complexity.md": "a65e225f2208745807377b9c6941f0ad3ee68b976521cd3be5b69b482cfb3ec6"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
       "chapter_computational_complexity/space_complexity.assets/space_types.png": "cb00a4c3df4de49aade2640843e9c6ee40cb74a8847388527b51cdba32151515"
     }
+  },
+  "dependency_compatibility": {
+    "run_id": "figure-reading-20261116/upstream-dependency-verification",
+    "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
+    "factual_review_preserved": true
   }
 }

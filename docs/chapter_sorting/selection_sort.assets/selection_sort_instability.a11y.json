@@ -1,60 +1,27 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_sorting/selection_sort.assets/selection_sort_instability",
-  "title": "选择排序的非稳定性示例：第一轮跨位置交换使两个相等的 4 发生中间逆序",
-  "summary": "在 [4, 4, 3, 1, 5, 2] 中，第一轮将首位的青色 4 与索引 3 的最小值 1 交换，使青色 4 跨过索引 1 的紫色 4，直观展示跨位置交换破坏相等元素相对顺序的机制。",
+  "title": "选择排序中的跨位置交换",
+  "summary": "观察首轮跨位置交换如何打乱两个相等元素 4 的相对次序，并区分单轮中间状态与完整排序的最终稳定性。",
   "context": [
-    "输入数组为 [4, 4, 3, 1, 5, 2]，索引从 0 开始。为清晰追踪两个相等元素 4 的身份，下文将初始位于索引 0 的青色 4 记作 4A，将初始位于索引 1 的紫色 4 记作 4B（A、B 仅为辅助区分身份的文字说明标签，并非画面中的字符）。",
-    "稳定排序要求排序完成后，相等元素仍保持它们在输入中的相对先后次序。"
+    "初始数组为 [4A, 4B, 3, 1, 5, 2]，索引从 0 到 5。其中 4A 表示初始位于索引 0 的蓝色 4，4B 表示初始位于索引 1 的紫色 4；字母 A、B 仅为说明中区分两个相等元素身份的辅助标记，原图方块内均印数字 4。",
+    "选择排序每一轮在未排序区间中找出最小元素，与该区间的首个元素直接交换。排序算法的稳定性，则是按全部轮次结束后的最终输出中相等元素是否保持初始先后次序来判定的。"
   ],
-  "description": [
-    "画面上行展示初始状态 [4A, 4B, 3, 1, 5, 2]，此时青色 4A 排在紫色 4B 左侧。执行第一轮选择时，未排序区间的最小元素为索引 3 的 1，算法将首元素 nums[0] = 4A 与 nums[3] = 1 直接跨位置交换。",
-    "画面下行展示第一轮交换后的中间状态 [1, 4B, 3, 4A, 5, 2]：最小值 1 进入索引 0 的灰色已排序位置，而原首元素 4A 被直接换到索引 3，跨过了仍留在索引 1 的 4B，导致“完成第一轮选择后，两个元素 4 的相对位置发生了改变”（变为 4B 在前、4A 在后）。"
-  ],
-  "result": "该图展示了第一轮跨位置交换造成的中间交换逆序（4A 被换到 4B 右侧），说明选择排序的远距离交换操作本身不保护相等元素的原有次序，选择排序一般属于非稳定排序，但这个中间状态本身不是该输入最终不稳定的证明。注意本图仅截取第一轮交换后的中间状态，不能把这一步的中间逆序表述为该组特定输入在整趟排序全部结束后的最终逆序（若对该输入继续执行后续轮次，第二轮会将索引 1 的 4B 与末尾的 2 交换，从而在最终结果中又把 4B 换回 4A 右侧）。",
+  "description": [],
+  "result": "第一轮交换后数组变为 [1, 4B, 3, 4A, 5, 2]，4B 排在 4A 之前，直观展示了跨位置交换可能跨越其它相等元素。但这只是第一轮中间状态，不能单独证明该具体输入在最终输出中也逆序：按正文严格小于的比较规则继续，第二轮将索引 1 的 4B 与索引 5 的 2 交换，最终排序结果中 4A 仍排在 4B 之前。选择排序在一般意义上是不稳定排序，并不等于对任意输入都会产生最终逆序。",
   "frames": [
     {
       "id": "source-252",
       "book_path": "chapter_sorting/selection_sort.assets/selection_sort_instability.png",
-      "title": "第一轮选择交换后两个相等元素 4 的中间相对位置反转",
-      "explanation": "上行初始数组中青色 4A（索引 0）位于紫色 4B（索引 1）左侧；执行第一轮选择将索引 0 的 4A 与索引 3 的最小元素 1 跨位置交换后，下行中间状态变为 [1, 4B, 3, 4A, 5, 2]，4A 跳到 4B 右侧，说明非相邻交换会破坏相等元素的相对顺序（此为第一轮中间交换逆序，而非整趟排序结束后的最终状态）。",
-      "state": "初始 [4A, 4B, 3, 1, 5, 2]，4A 位于索引 0，4B 位于索引 1。交换索引 0 和 3 后为 [1, 4B, 3, 4A, 5, 2]，4A 到索引 3，4B 仍在索引 1；A、B 为说明身份的标签。",
-      "key_state": "第一轮中间状态：索引 0 的 4A 与索引 3 的 1 交换后移至 4B 右侧，两个 4 相对次序反转。",
-      "announcement": "展示第一轮选择将首位 4 与索引 3 的 1 交换后，两个元素 4 的中间相对位置发生反转。"
+      "title": "选择排序中的跨位置交换",
+      "explanation": "首轮在未排序区间 [0, 5] 内定位最小元素 1（索引 3），与索引 0 的 4A 交换。交换后 1 在索引 0 归位，未排序区间缩为 [1, 5]；而原本在索引 0 的 4A 直接跨过索引 1 的 4B 落到索引 3，使两个 4 在首轮后出现中间逆序。图中仅展示这第一轮，未画出后续轮次。",
+      "state": "以 4A、4B 分别标记初始索引 0 的蓝色 4 与索引 1 的紫色 4。交换前输入为 [4A, 4B, 3, 1, 5, 2]；第一轮交换索引 0 与索引 3 后，数组变为 [1, 4B, 3, 4A, 5, 2]，其中 4B 仍在索引 1，4A 移至索引 3，仅索引 0 已进入已排序区，索引 1 至 5 尚未完成排序。",
+      "key_state": "首轮交换后为 [1, 4B, 3, 4A, 5, 2]：4A 由索引 0 移至 3，4B 仍在索引 1，仅索引 0 已排序。",
+      "announcement": "首轮将索引 0 的 4A 与索引 3 的 1 交换，两个 4 出现中间逆序。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-13",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "97944f2fed0b0edb77a2eb873b7d347250a60d972b34af4e357628bf0b35ff5c",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "fe21fe5895e8cee2e2e3a67895fc2f90845797eb80e4d3029abb622acb8c69ca",
-        "output_sha256": "e76738af6195383d55b3d5cf222c5292111b131b087688bd961b59976f9e86c4"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "e76738af6195383d55b3d5cf222c5292111b131b087688bd961b59976f9e86c4",
-        "output_sha256": "f880fd5c3c304dc74442a88388bca71f75e2e9a9b73b36958173a7c9a6da6512"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "f880fd5c3c304dc74442a88388bca71f75e2e9a9b73b36958173a7c9a6da6512",
-        "output_sha256": "3200bb035dfaa2051a3155f46d8687d968b6937e0d3057fb8e1b10d44b8ce29b"
-      }
-    ],
-    "evidence_sha256": "b3670eb867494fc0017c300c888f3d50ee8fa22f3dbc7e492a305cf3fd040dc2"
-  },
   "dependencies": {
     "markdown": {
       "chapter_sorting/selection_sort.md": "f23ec73cdb7d702c0461b948120175ddccb20c69574a84e24cca02844ac24ee8"
@@ -69,70 +36,137 @@
       "kind": "prose",
       "model_sha256": "561f4caf5b655cdc2bfd8166651fd8e342f158b801d28ce7bc461b07cd658d53",
       "prose": {
-        "schema_version": 1,
+        "schema_version": 2,
         "status": "confirmed",
         "locale": "zh-hans",
         "story_id": "selection-sort-instability",
         "group_id": "group:chapter_sorting/selection_sort.assets/selection_sort_instability",
-        "title": "选择排序的非稳定性机制：首轮跨位置交换改变相等元素相对次序",
-        "summary": "在数组 [4蓝, 4紫, 3, 1, 5, 2] 的第一轮选择中，最小值 1 与首元素蓝色 4 跨位置交换，导致蓝色 4 越过紫色 4。",
+        "title": "选择排序中的跨位置交换",
+        "summary": "观察首轮跨位置交换如何打乱两个相等元素 4 的相对次序，并区分单轮中间状态与完整排序的最终稳定性。",
         "context": [
-          "选择排序每一轮在未排序区间中找出最小元素，并直接将它与未排序区间的首个元素交换。由于该交换跨越了区间中间的若干位置，若区间首部存在与后续元素数值相等的元素，一次跨位置交换就可能直接打乱相等元素原本的先后次序。",
-          "本动画输入数组为 [4蓝, 4紫, 3, 1, 5, 2]，索引从 0 到 5。其中索引 0 的蓝色 4 与索引 1 的紫色 4 数值相同，用不同底色区分两者的个体身份；动画仅展示第一轮交换前后的两个状态。"
+          "初始数组为 [4A, 4B, 3, 1, 5, 2]，索引从 0 到 5。其中 4A 表示初始位于索引 0 的蓝色 4，4B 表示初始位于索引 1 的紫色 4；字母 A、B 仅为说明中区分两个相等元素身份的辅助标记，原图方块内均印数字 4。",
+          "选择排序每一轮在未排序区间中找出最小元素，与该区间的首个元素直接交换。排序算法的稳定性，则是按全部轮次结束后的最终输出中相等元素是否保持初始先后次序来判定的。"
         ],
-        "description": [
-          "第一步中，整个区间 [0, 5] 均为未排序区间，蓝色 4 排在紫色 4 前面，区间最小值为索引 3 的 1。第二步将索引 3 的 1 与索引 0 的蓝色 4 直接交换，上下两条方向相反的弧形箭头标出交换的起止位置。",
-          "交换后数组变为 [1, 4紫, 3, 4蓝, 5, 2]，紫色 4 留守索引 1，而蓝色 4 被换到了索引 3，两者相对顺序在第一轮后发生翻转。需要注意，本动画仅借第一轮交换演示跨位置交换破坏相对次序的机制，并未继续展示后续轮次（若按严格小于比较继续跑完全程，该特定输入的两个 4 在后续轮次中还会再次改变前后关系）。"
-        ],
-        "result": "第一轮交换使数组从 [4蓝, 4紫, 3, 1, 5, 2] 变为 [1, 4紫, 3, 4蓝, 5, 2]，相等元素由“蓝色 4 在紫色 4 前”变为“紫色 4 在蓝色 4 前”，直观展示了选择排序跨位置交换导致非稳定性的原因（本图仅展示第一轮结果，不代表该具体数组跑完全程后的最终次序）。",
+        "description": [],
+        "result": "第一轮交换后数组变为 [1, 4B, 3, 4A, 5, 2]，4B 排在 4A 之前，直观展示了跨位置交换可能跨越其它相等元素。但这只是第一轮中间状态，不能单独证明该具体输入在最终输出中也逆序：按正文严格小于的比较规则继续，第二轮将索引 1 的 4B 与索引 5 的 2 交换，最终排序结果中 4A 仍排在 4B 之前。选择排序在一般意义上是不稳定排序，并不等于对任意输入都会产生最终逆序。",
         "steps": [
           {
             "id": "step-1",
-            "title": "初始状态：蓝色 4 位于紫色 4 之前",
-            "explanation": "初始时上方大括号标明索引 [0, 5] 全部属于“未排序区间”。索引 0 为蓝色 4，索引 1 为紫色 4，蓝色 4 排在紫色 4 之前；未排序区间内的最小元素是位于索引 3 的 1，即将与区间首位的蓝色 4 交换。",
-            "state": "当前数组按索引 0 至 5 为 [4蓝, 4紫, 3, 1, 5, 2]；未排序区间覆盖 [0, 5]，尚无已就位元素；蓝色 4 位于索引 0，紫色 4 位于索引 1（蓝在紫前）。",
-            "key_state": "初始未排序区间为 [0, 5]，蓝色 4 在索引 0、紫色 4 在索引 1（蓝在紫前）。",
-            "announcement": "显示初始数组 [4蓝, 4紫, 3, 1, 5, 2]，蓝色 4 排在紫色 4 前面。"
+            "title": "定位最小值与两个相等元素 4",
+            "explanation": "初始状态下索引 0 至 5 全部处于未排序区间，蓝色 4A（索引 0）排在紫色 4B（索引 1）之前。扫描区间找到最小元素 1 位于索引 3，准备将它与区间首元素 4A 交换。",
+            "state": "输入数组为 [4A, 4B, 3, 1, 5, 2]，索引 0 至 5 均未排序。4A 在索引 0（蓝色 4），4B 在索引 1（紫色 4），当前未排序区间 [0, 5] 的最小元素 1 在索引 3。",
+            "key_state": "未排序区间 [0, 5]：4A 在索引 0，4B 在索引 1，最小值 1 在索引 3。",
+            "announcement": "在未排序区间 [0, 5] 中定位索引 3 的最小值 1，准备与索引 0 的 4A 交换。"
           },
           {
             "id": "step-2",
-            "title": "第一轮交换后：蓝色 4 越过紫色 4 移至索引 3",
-            "explanation": "将索引 3 的最小值 1 与索引 0 的蓝色 4 交换：元素 1 进入索引 0 并变为灰色已就位状态，未排序区间缩减为 [1, 5]；原本在索引 0 的蓝色 4 直接跳到索引 3，越过了仍停留在索引 1 的紫色 4，下方标注“完成第一轮选择后，两个元素 4 的相对位置发生了改变”。",
-            "state": "当前数组按索引 0 至 5 为 [1, 4紫, 3, 4蓝, 5, 2]；索引 0 的元素 1 为灰色已就位状态，上方“未排序区间”括号覆盖索引 [1, 5]；紫色 4 位于索引 1，蓝色 4 位于索引 3（紫在蓝前），上方青色弧形箭头从索引 0 指向索引 3，下方橙色弧形箭头从索引 3 指向索引 0。",
-            "key_state": "首轮将索引 0 的蓝色 4 与索引 3 的 1 交换后，紫色 4（索引 1）排到了蓝色 4（索引 3）前面。",
-            "announcement": "交换最小值 1 与首元素蓝色 4，第一轮后紫色 4 变为排在蓝色 4 前面。"
+            "title": "首轮交换后 4B 排到 4A 之前",
+            "explanation": "交换索引 0 的 4A 与索引 3 的 1 后，最小元素 1 在索引 0 归位，而 4A 跨过索引 1 的 4B 落到索引 3，导致两个 4 在首轮后暂时逆序。这只是第一轮结果，剩余未排序区间 [1, 5] 在后续轮次中还会继续交换。",
+            "state": "首轮交换后数组为 [1, 4B, 3, 4A, 5, 2]：仅索引 0 的 1 已进入已排序区，索引 1 至 5 仍为未排序区间；4B 仍在索引 1，4A 已移至索引 3（A、B 分别标识初始第一、第二个 4）。",
+            "key_state": "首轮后数组为 [1, 4B, 3, 4A, 5, 2]，4B 在索引 1、4A 在索引 3，仅索引 0 已归位。",
+            "announcement": "1 与 4A 完成首轮交换，4A 移至索引 3，4B 暂时排在 4A 之前。"
           }
         ],
         "review": {
           "status": "confirmed",
-          "run_id": "figure-accessibility-20261114/animations/batch-04",
-          "content_sha256": "19494eed23cb5473f247fc4cc0b34e9e636f540519b910dd9af0fc80a90b6d8f",
+          "run_id": "figure-reading-20261116/content/body-01",
+          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
           "stages": [
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "3d203796b035f2623e7ddf18bb2c7a0f0c058fc7f964675d759c908c73ef8844",
-              "output_sha256": "a22db3de96270cfb4966b9f857b0e1383de76231a69a2d5640b5487d990a340b"
+              "input_sha256": "bee8ef3e466c2fa5309322f74f5898255f7a9756899611b2cd87ce6e3854ee7b",
+              "output_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69"
             },
             {
               "requested_model": "gemini-4-argon",
               "actual_model": null,
               "model_confirmation": "provider_not_reported",
-              "input_sha256": "a22db3de96270cfb4966b9f857b0e1383de76231a69a2d5640b5487d990a340b",
-              "output_sha256": "8128dda216fc899534e667fb069d5737da393f7f8c106cb457cbdb19312dd6ec"
+              "input_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69",
+              "output_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891"
             },
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "8128dda216fc899534e667fb069d5737da393f7f8c106cb457cbdb19312dd6ec",
-              "output_sha256": "89169e45f10a96071739b88711eb916d9b2ab592c4e7e73b726e4c01dbfb9147"
+              "input_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891",
+              "output_sha256": "16c8b112b53ded438d4441cc173d93989fdd3fde82db826e2a6112fab308c3d4"
             }
           ],
-          "evidence_sha256": "bd4849b5d6683e29047020eb4a084c7194e2dc2e612e6dc976448466ebe20803"
+          "evidence_sha256": "744ffd0467db06d32b8f66d9d86433ff0b9bf0949849bb0b0a4787fce7a270f8",
+          "verification_manifest_sha256": "6195843dd3024e4a7a3a4caf12fa0ab2f3c27e21a93175d9900c87fef51760fb",
+          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+          "content_sha256": "425430522007dff0e5d977682fc7b4d5837f3c30cf6196be4eb58ac11c9e7861"
         }
       }
     }
+  },
+  "tables": [
+    {
+      "caption": "首轮交换前后的位置",
+      "headers": [
+        "状态",
+        "索引0",
+        "索引1",
+        "索引2",
+        "索引3",
+        "索引4",
+        "索引5"
+      ],
+      "rows": [
+        [
+          "交换前",
+          "4A",
+          "4B",
+          "3",
+          "1",
+          "5",
+          "2"
+        ],
+        [
+          "首轮交换后",
+          "1",
+          "4B",
+          "3",
+          "4A",
+          "5",
+          "2"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-01",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "bee8ef3e466c2fa5309322f74f5898255f7a9756899611b2cd87ce6e3854ee7b",
+        "output_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69",
+        "output_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891",
+        "output_sha256": "16c8b112b53ded438d4441cc173d93989fdd3fde82db826e2a6112fab308c3d4"
+      }
+    ],
+    "evidence_sha256": "744ffd0467db06d32b8f66d9d86433ff0b9bf0949849bb0b0a4787fce7a270f8",
+    "verification_manifest_sha256": "6195843dd3024e4a7a3a4caf12fa0ab2f3c27e21a93175d9900c87fef51760fb",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "207d7fc99a48249c738053444a14d79ef7aa45ed299b486e47a745ae5f4c5265"
   }
 }

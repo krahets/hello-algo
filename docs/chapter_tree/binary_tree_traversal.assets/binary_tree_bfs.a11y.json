@@ -1,59 +1,26 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_tree/binary_tree_traversal.assets/binary_tree_bfs",
-  "title": "二叉树的层序遍历（广度优先遍历）",
-  "summary": "从顶层到底层、每层从左到右依次访问节点，得到层序遍历序列 1, 2, 3, 4, 5, 6, 7。",
+  "title": "二叉树的层序遍历",
+  "summary": "按从顶层到底层、同一层内从左到右的次序逐层访问二叉树节点。",
   "context": [
-    "示例二叉树共三层：根节点为 1；1 的左、右子节点为 2、3；2 的左、右子节点为 4、5；3 的左、右子节点为 6、7；4、5、6、7 均为叶节点。"
+    "示例二叉树共三层 7 个节点：根节点为 1；1 的左、右子节点分别为 2、3；2 的左、右子节点分别为 4、5；3 的左、右子节点分别为 6、7。其中 4、5、6、7 为叶节点。"
   ],
-  "description": [
-    "树中灰色实线箭头表示父子连接，每个绿色节点底部都标有一个蓝点。图左上方标注“广度优先遍历”，引线指向串联各蓝点的青色虚线路径：虚线从第 1 层的 1 出发，先斜向下到第 2 层的 2、再横向到 3，随后斜向下转入第 3 层最左端的 4，并横向依次经过 5、6，在 7 底部的蓝点处结束。",
-    "图右侧标出“层序遍历（节点在蓝点处被访问）”，下方列出遍历序列“1, 2, 3, 4, 5, 6, 7”。其中从 3 到 4 的青色斜虚线只表示第 2 层访问完毕后推进到第 3 层首个节点，并非节点 3 与节点 4 之间存在父子边。"
-  ],
-  "result": "层序遍历按广度优先原则逐层从左到右访问每个节点一次，输出序列为 [1, 2, 3, 4, 5, 6, 7]。",
+  "description": [],
+  "result": "层序遍历序列为 [1, 2, 3, 4, 5, 6, 7]，每个节点恰好访问一次。",
   "frames": [
     {
       "id": "source-97",
       "book_path": "chapter_tree/binary_tree_traversal.assets/binary_tree_bfs.png",
-      "title": "二叉树的层序遍历（广度优先遍历）",
-      "explanation": "青色虚线依次经过第 1 层节点 1、第 2 层节点 2 和 3、第 3 层节点 4 至 7 底部的蓝点，右侧同步列出层序遍历序列 1, 2, 3, 4, 5, 6, 7。",
-      "state": "三层完美二叉树：根为 1，第 2 层为 2、3，第 3 层叶节点为 4、5、6、7。每个节点底部标有表示访问位置的蓝点，青色虚线箭头按 1 → 2 → 3 → 4 → 5 → 6 → 7 串联各蓝点，右侧显示层序遍历序列 1, 2, 3, 4, 5, 6, 7。",
-      "key_state": "逐层从左到右访问：第 1 层 1，第 2 层 2、3，第 3 层 4、5、6、7。",
-      "announcement": "展示三层二叉树从上到下、每层从左到右的层序遍历路径与序列 1 至 7。"
+      "title": "二叉树的层序遍历",
+      "explanation": "遍历按层推进：先访问第 1 层的根 1，再从左到右访问第 2 层的 2、3；第 2 层完成后转入第 3 层最左侧的节点 4，再依次访问同层的 5、6、7，因此访问 3 之后是 4。图中灰色实线箭头表示父子关系，串联各节点底部蓝点的虚线箭头仅表示访问先后次序——例如 4 的父节点是 2，从 3 指向 4 的斜向虚线只表示从第 2 层末尾进入第 3 层首节点，不表示 3 是 4 的父节点。",
+      "state": "三层二叉树：根节点为 1；1 的左、右子节点为 2、3；2 的左、右子节点为 4、5；3 的左、右子节点为 6、7；4、5、6、7 是叶节点。实线为父子边，经过各节点底部蓝点的虚线标示层序访问路径，完整遍历序列为 [1, 2, 3, 4, 5, 6, 7]。",
+      "key_state": "按第 1 层 1、第 2 层 2 和 3、第 3 层 4 至 7 的顺序访问，结果为 [1, 2, 3, 4, 5, 6, 7]。",
+      "announcement": "按从上到下、每层从左到右的次序遍历二叉树，结果为 1、2、3、4、5、6、7。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-06",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "38edcb41745dd5705d2aeb42da8dbc4f64544e2529c391669dc2ff0463364781",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a7d27ac86970762b98a3afc622b5a802549e6b6254c666e3efdf60f34ede65b5",
-        "output_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4",
-        "output_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900",
-        "output_sha256": "30bb25c69fe95554ab48370f707653e1ddeb4b287f83cb44cf33dc013e44b87b"
-      }
-    ],
-    "evidence_sha256": "bbb898a17ec7d0f8023ba3e028e19e1cebb4eba7c5059fe86305e5491e6f3b3b"
-  },
   "dependencies": {
     "markdown": {
       "chapter_tree/binary_tree_traversal.md": "d19ef208720dc46eac8a9110693de9baa8d57d477be75b8914359fd766dacadb"
@@ -73,105 +40,202 @@
         "locale": "zh-hans",
         "story_id": "binary-tree-level-order",
         "group_id": "group:chapter_tree/binary_tree_traversal.assets/binary_tree_bfs",
-        "title": "二叉树层序遍历：自上而下、从左到右依次访问 1 至 7",
-        "summary": "从根节点 1 开始按层序自上而下、从左到右访问，结果依次累积为 1 至 7。",
+        "title": "二叉树的层序遍历",
+        "summary": "按从顶层到底层、同一层内从左到右的次序逐层访问二叉树节点。",
         "context": [
-          "待遍历的二叉树共三层 7 个节点：根节点 1 的左右子节点为 2 和 3；节点 2 的左右子节点为 4 和 5；节点 3 的左右子节点为 6 和 7；节点 4、5、6、7 均为叶节点。",
-          "层序遍历属于广度优先遍历，按照从顶层到底层、同一层内从左到右的次序依次访问每个节点。"
+          "示例二叉树共三层 7 个节点：根节点为 1；1 的左、右子节点分别为 2、3；2 的左、右子节点分别为 4、5；3 的左、右子节点分别为 6、7。其中 4、5、6、7 为叶节点。"
         ],
         "description": [
-          "画面左侧标注“广度优先遍历”，右侧标注“层序遍历（节点在蓝点处被访问）”。整棵二叉树的灰色父子连线以及指示层间推进顺序的绿色虚线箭头从第一步起就完整显示，用作静态顺序参考；动画不额外绘制辅助队列。",
-          "在七个步骤中，每一步都在当前被访问节点的下方新增一个蓝色实心圆点，并在右侧结果序列末尾同步追加该节点的值；已出现的蓝点与结果前缀在后续步骤中持续保留。"
+          "每步访问一个节点并将其追加到右侧结果序列。节点底部的蓝点标记已访问的节点；图中虚线箭头从第一步起全程显示，仅作访问顺序参考，不代表虚线上的节点均已访问。本动画直接展示层序访问次序，未绘制辅助队列。"
         ],
-        "result": "七个节点按层序全部访问完毕，最终层序遍历序列为 [1, 2, 3, 4, 5, 6, 7]。",
+        "result": "层序遍历序列为 [1, 2, 3, 4, 5, 6, 7]，每个节点恰好访问一次。",
         "steps": [
           {
             "id": "step-1",
-            "title": "第 1 步：访问第 1 层根节点 1",
-            "explanation": "从第 1 层的根节点 1 开始遍历。节点 1 下方出现蓝色访问点，右侧层序遍历序列记录第 1 项为 [1]。",
-            "state": "二叉树根 1 的左右子节点为 2、3，2 的左右子节点为 4、5，3 的左右子节点为 6、7。已访问并带蓝色访问点的节点依次为 [1]，右侧结果序列为 [1]；未访问节点为 [2, 3, 4, 5, 6, 7]；绿色虚线箭头全程显示为顺序参考。",
-            "key_state": "访问节点 1，当前层序结果为 [1]。",
-            "announcement": "访问根节点 1，遍历序列更新为 [1]。"
+            "title": "访问节点 1",
+            "explanation": "从第 1 层的根节点 1 开始访问，将 1 追加到遍历结果。",
+            "state": "根节点为 1；1 的左、右子节点为 2、3；2 的左、右子节点为 4、5；3 的左、右子节点为 6、7。4、5、6、7 是叶节点。当前访问第 1 层节点 1；已访问序列为 [1]；尚未访问 [2, 3, 4, 5, 6, 7]。",
+            "key_state": "当前位于第 1 层根节点 1；已访问 [1]，尚未访问 [2, 3, 4, 5, 6, 7]。",
+            "announcement": "从第 1 层根节点 1 开始访问，遍历序列为 [1]。"
           },
           {
             "id": "step-2",
-            "title": "第 2 步：进入第 2 层，访问左子节点 2",
-            "explanation": "第 1 层访问完毕后进入第 2 层最左侧，访问节点 1 的左子节点 2。节点 2 下方新增蓝色访问点，右侧结果序列更新为 [1, 2]。",
-            "state": "二叉树根 1 的左右子节点为 2、3，2 的左右子节点为 4、5，3 的左右子节点为 6、7。已访问并带蓝色访问点的节点依次为 [1, 2]，右侧结果序列为 [1, 2]；未访问节点为 [3, 4, 5, 6, 7]；绿色虚线箭头为顺序参考。",
-            "key_state": "访问节点 2，当前层序结果为 [1, 2]。",
-            "announcement": "访问第 2 层左节点 2，遍历序列更新为 [1, 2]。"
+            "title": "访问节点 2",
+            "explanation": "第 1 层访问完毕，转入第 2 层最左端，访问根 1 的左子节点 2，结果追加 2。",
+            "state": "根节点为 1；1 的左、右子节点为 2、3；2 的左、右子节点为 4、5；3 的左、右子节点为 6、7。4、5、6、7 是叶节点。当前访问第 2 层节点 2；已访问序列为 [1, 2]；尚未访问 [3, 4, 5, 6, 7]。",
+            "key_state": "当前位于第 2 层节点 2；已访问 [1, 2]，尚未访问 [3, 4, 5, 6, 7]。",
+            "announcement": "进入第 2 层，访问左子节点 2，遍历序列更新为 [1, 2]。"
           },
           {
             "id": "step-3",
-            "title": "第 3 步：同层向右，访问右子节点 3",
-            "explanation": "沿第 2 层向右推进，访问节点 1 的右子节点 3。节点 3 下方新增蓝色访问点，右侧结果序列更新为 [1, 2, 3]。",
-            "state": "二叉树根 1 的左右子节点为 2、3，2 的左右子节点为 4、5，3 的左右子节点为 6、7。已访问并带蓝色访问点的节点依次为 [1, 2, 3]，右侧结果序列为 [1, 2, 3]；未访问节点为 [4, 5, 6, 7]；绿色虚线箭头为顺序参考。",
-            "key_state": "访问节点 3，当前层序结果为 [1, 2, 3]。",
-            "announcement": "访问第 2 层右节点 3，遍历序列更新为 [1, 2, 3]。"
+            "title": "访问节点 3",
+            "explanation": "在同一层内向右推进，访问根 1 的右子节点 3，结果追加 3。",
+            "state": "根节点为 1；1 的左、右子节点为 2、3；2 的左、右子节点为 4、5；3 的左、右子节点为 6、7。4、5、6、7 是叶节点。当前访问第 2 层节点 3；已访问序列为 [1, 2, 3]；尚未访问 [4, 5, 6, 7]。",
+            "key_state": "当前位于第 2 层节点 3；已访问 [1, 2, 3]，尚未访问 [4, 5, 6, 7]。",
+            "announcement": "沿第 2 层向右访问右子节点 3，遍历序列更新为 [1, 2, 3]。"
           },
           {
             "id": "step-4",
-            "title": "第 4 步：进入第 3 层，访问节点 4",
-            "explanation": "第 2 层访问完毕后进入第 3 层最左侧，访问节点 2 的左子节点 4。节点 4 下方新增蓝色访问点，右侧结果序列更新为 [1, 2, 3, 4]。",
-            "state": "二叉树根 1 的左右子节点为 2、3，2 的左右子节点为 4、5，3 的左右子节点为 6、7。已访问并带蓝色访问点的节点依次为 [1, 2, 3, 4]，右侧结果序列为 [1, 2, 3, 4]；未访问节点为 [5, 6, 7]；绿色虚线箭头为顺序参考。",
-            "key_state": "访问节点 4，当前层序结果为 [1, 2, 3, 4]。",
-            "announcement": "访问第 3 层最左节点 4，遍历序列更新为 [1, 2, 3, 4]。"
+            "title": "访问节点 4",
+            "explanation": "第 2 层访问完毕，转入第 3 层最左端，访问节点 2 的左子节点 4（注意 4 的父节点是 2 而非 3），结果追加 4。",
+            "state": "根节点为 1；1 的左、右子节点为 2、3；2 的左、右子节点为 4、5；3 的左、右子节点为 6、7。4、5、6、7 是叶节点。当前访问第 3 层节点 4；已访问序列为 [1, 2, 3, 4]；尚未访问 [5, 6, 7]。",
+            "key_state": "当前位于第 3 层节点 4；已访问 [1, 2, 3, 4]，尚未访问 [5, 6, 7]。",
+            "announcement": "进入第 3 层最左端，访问节点 4，遍历序列更新为 [1, 2, 3, 4]。"
           },
           {
             "id": "step-5",
-            "title": "第 5 步：同层向右，访问节点 5",
-            "explanation": "在第 3 层继续向右，访问节点 2 的右子节点 5。节点 5 下方新增蓝色访问点，右侧结果序列更新为 [1, 2, 3, 4, 5]。",
-            "state": "二叉树根 1 的左右子节点为 2、3，2 的左右子节点为 4、5，3 的左右子节点为 6、7。已访问并带蓝色访问点的节点依次为 [1, 2, 3, 4, 5]，右侧结果序列为 [1, 2, 3, 4, 5]；未访问节点为 [6, 7]；绿色虚线箭头为顺序参考。",
-            "key_state": "访问节点 5，当前层序结果为 [1, 2, 3, 4, 5]。",
-            "announcement": "访问节点 5，遍历序列更新为 [1, 2, 3, 4, 5]。"
+            "title": "访问节点 5",
+            "explanation": "在第 3 层继续向右，访问节点 2 的右子节点 5，结果追加 5。",
+            "state": "根节点为 1；1 的左、右子节点为 2、3；2 的左、右子节点为 4、5；3 的左、右子节点为 6、7。4、5、6、7 是叶节点。当前访问第 3 层节点 5；已访问序列为 [1, 2, 3, 4, 5]；尚未访问 [6, 7]。",
+            "key_state": "当前位于第 3 层节点 5；已访问 [1, 2, 3, 4, 5]，尚未访问 [6, 7]。",
+            "announcement": "沿第 3 层向右访问节点 5，遍历序列更新为 [1, 2, 3, 4, 5]。"
           },
           {
             "id": "step-6",
-            "title": "第 6 步：同层向右，访问节点 6",
-            "explanation": "在第 3 层继续向右，访问节点 3 的左子节点 6。节点 6 下方新增蓝色访问点，右侧结果序列更新为 [1, 2, 3, 4, 5, 6]。",
-            "state": "二叉树根 1 的左右子节点为 2、3，2 的左右子节点为 4、5，3 的左右子节点为 6、7。已访问并带蓝色访问点的节点依次为 [1, 2, 3, 4, 5, 6]，右侧结果序列为 [1, 2, 3, 4, 5, 6]；未访问节点仅剩 [7]；绿色虚线箭头为顺序参考。",
-            "key_state": "访问节点 6，当前层序结果为 [1, 2, 3, 4, 5, 6]。",
-            "announcement": "访问节点 6，遍历序列更新为 [1, 2, 3, 4, 5, 6]。"
+            "title": "访问节点 6",
+            "explanation": "在第 3 层继续向右，访问节点 3 的左子节点 6，结果追加 6。",
+            "state": "根节点为 1；1 的左、右子节点为 2、3；2 的左、右子节点为 4、5；3 的左、右子节点为 6、7。4、5、6、7 是叶节点。当前访问第 3 层节点 6；已访问序列为 [1, 2, 3, 4, 5, 6]；尚未访问 [7]。",
+            "key_state": "当前位于第 3 层节点 6；已访问 [1, 2, 3, 4, 5, 6]，尚未访问 [7]。",
+            "announcement": "沿第 3 层向右访问节点 6，遍历序列更新为 [1, 2, 3, 4, 5, 6]。"
           },
           {
             "id": "step-7",
-            "title": "第 7 步：访问最右侧叶节点 7，完成遍历",
-            "explanation": "访问第 3 层最右侧即节点 3 的右子节点 7。节点 7 下方新增蓝色访问点，右侧结果序列完整显示为 [1, 2, 3, 4, 5, 6, 7]，全树层序遍历结束。",
-            "state": "二叉树根 1 的左右子节点为 2、3，2 的左右子节点为 4、5，3 的左右子节点为 6、7。全部 7 个节点 [1, 2, 3, 4, 5, 6, 7] 均已访问并带有蓝色访问点，右侧完整结果序列为 [1, 2, 3, 4, 5, 6, 7]，已无未访问节点。",
-            "key_state": "访问节点 7，完成层序遍历，最终结果为 [1, 2, 3, 4, 5, 6, 7]。",
-            "announcement": "访问最后节点 7，完成层序遍历，完整序列为 [1, 2, 3, 4, 5, 6, 7]。"
+            "title": "访问节点 7",
+            "explanation": "访问第 3 层最右端的节点 7（节点 3 的右子节点），结果追加 7，全树遍历完成。",
+            "state": "根节点为 1；1 的左、右子节点为 2、3；2 的左、右子节点为 4、5；3 的左、右子节点为 6、7。4、5、6、7 是叶节点。当前访问第 3 层节点 7；已访问序列为 [1, 2, 3, 4, 5, 6, 7]；所有节点均已访问。",
+            "key_state": "当前位于第 3 层节点 7；全部节点已访问，完整序列为 [1, 2, 3, 4, 5, 6, 7]。",
+            "announcement": "访问最后一个节点 7，遍历完成，完整序列为 [1, 2, 3, 4, 5, 6, 7]。"
           }
         ],
         "review": {
           "status": "confirmed",
-          "run_id": "figure-accessibility-20261114/animations/batch-02",
-          "content_sha256": "a7b900e19f5a2428edd545731ea8bba1f9d655a6ef6dcb01fb67a7d2cb76f440",
+          "run_id": "figure-reading-20261116/pilot",
+          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
           "stages": [
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "4d13f1301ba3734719aea73335d2d384fca7b4f65812bce845d84076149bc1b7",
-              "output_sha256": "b1d5d394047175cc689fca6198b1942ee353e2158ae12b2b05edf71fa3952503"
+              "input_sha256": "76221e551e823df12694a8c35d8cfb4cb1af67dd09a1a07874bc23cd9b5576a8",
+              "output_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37"
             },
             {
               "requested_model": "gemini-4-argon",
               "actual_model": null,
               "model_confirmation": "provider_not_reported",
-              "input_sha256": "b1d5d394047175cc689fca6198b1942ee353e2158ae12b2b05edf71fa3952503",
-              "output_sha256": "b3795c3a3799e1c0ee7a28b95029b0e10278ee5727b6f9868a5a135e5f187403"
+              "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
+              "output_sha256": "fd53774fcd5dd948fdcf548f8c1dd5a487be6b67d2fe5a344182d771eff53088"
             },
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "b3795c3a3799e1c0ee7a28b95029b0e10278ee5727b6f9868a5a135e5f187403",
-              "output_sha256": "112a1db1238c2b663c27321978bce0241eebaf5d6fdeac067f9bbeda5c675d22"
+              "input_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
+              "output_sha256": "20547b71f26baaac7d942e983c90a3e7f85efeba17283328cf860267d56b5f19"
             }
           ],
-          "evidence_sha256": "aa6ba7b54ada7ba151f97f6b9bd3b49fc4723bd6cae50b0be26e0f9b73fccfd8"
+          "evidence_sha256": "93dfeae91f5b2894480e8953a70cc85c3875bf4e67a4a9451a5cc5b523302adb",
+          "verification_manifest_sha256": "b2b43bec082e03350f53df92e282dd7d0c9b5e048bf60625572f6fb0895c13b6",
+          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+          "assembly": {
+            "method": "schema-2; row-header indexes from reviewed table identity; DP state-table patch; independent final review of merged bytes",
+            "merged_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
+            "supplemental_stages": [
+              {
+                "requested_model": "gpt-6-astra",
+                "actual_model": "gpt-6-astra",
+                "model_confirmation": "native_runtime",
+                "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
+                "output_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c"
+              },
+              {
+                "requested_model": "gemini-4-argon",
+                "actual_model": null,
+                "model_confirmation": "provider_not_reported",
+                "input_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c",
+                "output_sha256": "fa2da0296dfbfd49814e3dc3d47e8638096b2bbf8d1524c646d37bede603c095"
+              }
+            ]
+          },
+          "content_sha256": "f81d7457e0d1979df1cc985f23347da748068c68bcdb4974a9433e6ecec4df98"
         }
       }
     }
+  },
+  "tables": [
+    {
+      "caption": "各层的访问次序",
+      "headers": [
+        "层",
+        "从左到右的节点"
+      ],
+      "rows": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "2",
+          "2、3"
+        ],
+        [
+          "3",
+          "4、5、6、7"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/pilot",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "76221e551e823df12694a8c35d8cfb4cb1af67dd09a1a07874bc23cd9b5576a8",
+        "output_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
+        "output_sha256": "fd53774fcd5dd948fdcf548f8c1dd5a487be6b67d2fe5a344182d771eff53088"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
+        "output_sha256": "20547b71f26baaac7d942e983c90a3e7f85efeba17283328cf860267d56b5f19"
+      }
+    ],
+    "evidence_sha256": "93dfeae91f5b2894480e8953a70cc85c3875bf4e67a4a9451a5cc5b523302adb",
+    "verification_manifest_sha256": "b2b43bec082e03350f53df92e282dd7d0c9b5e048bf60625572f6fb0895c13b6",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "assembly": {
+      "method": "schema-2; row-header indexes from reviewed table identity; DP state-table patch; independent final review of merged bytes",
+      "merged_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
+      "supplemental_stages": [
+        {
+          "requested_model": "gpt-6-astra",
+          "actual_model": "gpt-6-astra",
+          "model_confirmation": "native_runtime",
+          "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
+          "output_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c"
+        },
+        {
+          "requested_model": "gemini-4-argon",
+          "actual_model": null,
+          "model_confirmation": "provider_not_reported",
+          "input_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c",
+          "output_sha256": "fa2da0296dfbfd49814e3dc3d47e8638096b2bbf8d1524c646d37bede603c095"
+        }
+      ]
+    },
+    "content_sha256": "a46da32b07f8d227a9415e83f1bcc49a69fc943c578814b3a88a8ed421df33fa"
   }
 }

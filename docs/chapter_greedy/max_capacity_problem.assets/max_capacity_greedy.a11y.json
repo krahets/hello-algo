@@ -18,7 +18,7 @@
     {
       "id": "source-470",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step1.png",
-      "title": "第 1 步：初始化左右指针 i = 0、j = 7，res = 0",
+      "title": "初始化两端指针",
       "explanation": "初始化左指针 i = 0（指向左端高度 3 的隔板）、右指针 j = 7（指向右端高度 4 的隔板），并将容量最大值初始化为 res = 0。此时尚未开始第一轮盛水容量计算。",
       "state": "高度数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]（索引 0..7）；当前左指针 i = 0（高 3）、右指针 j = 7（高 4），已知最大容量 res = 0，图中尚未绘制浅蓝盛水区。",
       "key_state": "初始化：i = 0，j = 7，res = 0。",
@@ -27,7 +27,7 @@
     {
       "id": "source-471",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step2.png",
-      "title": "第 2 步：计算状态 [0, 7]，cap = 21，res 更新为 21",
+      "title": "计算容器 [0, 7] 的容量",
       "explanation": "第 1 轮考察两端状态 [0, 7]：左板高 ht[0] = 3，右板高 ht[7] = 4，宽度为 7 - 0 = 7，当前容量 cap = min(3, 4) × 7 = 21；最大容量更新为 res = max(0, 21) = 21。由于左板 3 短于右板 4，下一步将左端短板指针 i 向右移动。",
       "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；当前指针 i = 0（高 3，短板）、j = 7（高 4），容器宽 7、水高 3，当前容量 cap = 21，已知最大值更新为 res = max(0, 21) = 21。",
       "key_state": "状态 [0, 7]：cap = 21，res = 21；左板高 3 为短板。",
@@ -36,7 +36,7 @@
     {
       "id": "source-472",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step3.png",
-      "title": "第 3 步：右移短板 i 至 [1, 7]，cap = 24，res 更新为 24",
+      "title": "右移短板至 i = 1",
       "explanation": "因上一轮左板更短，左指针 i 从 0 右移至 1，形成状态 [1, 7]：左板高 ht[1] = 8，右板高 ht[7] = 4，宽度为 7 - 1 = 6，当前容量 cap = min(8, 4) × 6 = 24；最大容量更新为 res = max(21, 24) = 24。此时右板 4 短于左板 8，下一步改为左移右指针 j。",
       "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；当前指针 i = 1（高 8）、j = 7（高 4，短板），容器宽 6、水高 4，当前容量 cap = 24，已知最大值更新为 res = max(21, 24) = 24。",
       "key_state": "状态 [1, 7]：cap = 24，res = 24；右板高 4 变为短板。",
@@ -45,7 +45,7 @@
     {
       "id": "source-473",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step4.png",
-      "title": "第 4 步：左移短板 j 至 [1, 6]，cap = 15，res 保持 24",
+      "title": "左移短板至 j = 6",
       "explanation": "因上一轮右板高 4 短于左板高 8，右指针 j 从 7 左移至 6，形成状态 [1, 6]：左板高 8，右板高 ht[6] = 3，宽度为 6 - 1 = 5，当前容量 cap = min(8, 3) × 5 = 15；与历史最大值比较，res = max(24, 15) = 24 保持不变。",
       "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；当前指针 i = 1（高 8）、j = 6（高 3，短板），容器宽 5、水高 3，当前容量 cap = 15，已知最大值 res = max(24, 15) = 24。",
       "key_state": "状态 [1, 6]：cap = 15，res 保持 24；右板高 3 为短板。",
@@ -54,7 +54,7 @@
     {
       "id": "source-474",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step5.png",
-      "title": "第 5 步：左移短板 j 至 [1, 5]，cap = 28，res 更新为 28",
+      "title": "左移短板至 j = 5",
       "explanation": "因上一轮右板高 3 短于左板高 8，右指针 j 从 6 左移至 5，形成状态 [1, 5]：左板高 8，右板高 ht[5] = 7，宽度为 5 - 1 = 4，当前容量 cap = min(8, 7) × 4 = 28；历史最大值更新为 res = max(24, 28) = 28。",
       "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；当前指针 i = 1（高 8）、j = 5（高 7，短板），容器宽 4、水高 7，当前容量 cap = 28，已知最大值更新为 res = max(24, 28) = 28。",
       "key_state": "状态 [1, 5]：cap = 28，res 更新为 28；右板高 7 仍短于左板 8。",
@@ -63,7 +63,7 @@
     {
       "id": "source-475",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step6.png",
-      "title": "第 6 步：左移短板 j 至 [1, 4]，cap = 21，res 保持 28",
+      "title": "左移短板至 j = 4",
       "explanation": "因上一轮右板高 7 短于左板高 8，右指针 j 从 5 左移至 4，形成状态 [1, 4]：左板高 8，右板高 ht[4] = 7，宽度为 4 - 1 = 3，当前容量 cap = min(8, 7) × 3 = 21；历史最大值 res = max(28, 21) = 28 保持不变。",
       "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；当前指针 i = 1（高 8）、j = 4（高 7，短板），容器宽 3、水高 7，当前容量 cap = 21，已知最大值 res = max(28, 21) = 28。",
       "key_state": "状态 [1, 4]：cap = 21，res 保持 28；右板高 7 为短板。",
@@ -72,7 +72,7 @@
     {
       "id": "source-476",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step7.png",
-      "title": "第 7 步：左移短板 j 至 [1, 3]，cap = 4，res 保持 28",
+      "title": "左移短板至 j = 3",
       "explanation": "因上一轮右板高 7 短于左板高 8，右指针 j 从 4 左移至 3，形成状态 [1, 3]：左板高 8，右板高 ht[3] = 2，宽度为 3 - 1 = 2，当前容量 cap = min(8, 2) × 2 = 4；历史最大值 res = max(28, 4) = 28 保持不变。",
       "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；当前指针 i = 1（高 8）、j = 3（高 2，短板），容器宽 2、水高 2，当前容量 cap = 4，已知最大值 res = max(28, 4) = 28。",
       "key_state": "状态 [1, 3]：cap = 4，res 保持 28；右板高 2 为短板。",
@@ -81,7 +81,7 @@
     {
       "id": "source-477",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step8.png",
-      "title": "第 8 步：左移短板 j 至 [1, 2]，cap = 5，res 保持 28",
+      "title": "左移短板至 j = 2",
       "explanation": "因上一轮右板高 2 短于左板高 8，右指针 j 从 3 左移至 2，形成状态 [1, 2]：左板高 8，右板高 ht[2] = 5，宽度为 2 - 1 = 1，当前容量 cap = min(8, 5) × 1 = 5；历史最大值 res = max(28, 5) = 28 保持不变。",
       "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；当前指针 i = 1（高 8）、j = 2（高 5，短板），容器宽 1、水高 5，当前容量 cap = 5，已知最大值 res = max(28, 5) = 28。",
       "key_state": "状态 [1, 2]：cap = 5，res 保持 28；右板高 5 为短板。",
@@ -90,7 +90,7 @@
     {
       "id": "source-478",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step9.png",
-      "title": "第 9 步：指针 i 与 j 在索引 1 相遇，返回最大容量 28",
+      "title": "两指针相遇，返回最大容量",
       "explanation": "上一轮右板高 5 仍短于左板高 8，因此右指针 j 从 2 继续左移一格到达索引 1，与左指针 i 重合（图中 i、j 双色标签合并在索引 1 的隔板上方；注意横轴数字 2 保留蓝色字体仅为上一帧的样式残留，并非指针仍在索引 2）。此时循环条件 i < j 不再成立，跳出贪心循环并返回最大容量 res = 28。",
       "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；左右指针在 i = 1、j = 1 处相遇（索引 1 的隔板上方同时标注 i 与 j；横轴刻度 2 的蓝色字色仅为残留着色而非指针位置），循环终止，返回全局最大容量 res = 28。",
       "key_state": "i = j = 1 两指针相遇，跳出贪心循环，返回最大容量 res = 28。",
@@ -168,36 +168,6 @@
       ]
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-24",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "eb8d1d634d09f59d2d3ac857507a2ec2abf05605b383fb5cacbe9d78c50c2350",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "d40a34ce09d07aa5f2a8281d168d7daa9ee113c09b575f1200eb0409b245f89e",
-        "output_sha256": "8a1430b08cfa12d5586c31c993b51fdeb8d3c6412ce6de6939643e8766084ea6"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "8a1430b08cfa12d5586c31c993b51fdeb8d3c6412ce6de6939643e8766084ea6",
-        "output_sha256": "f7f806b44c8d2d3a360bd07d285786f4c9b9881b94cb30acb729899f1a072fce"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "f7f806b44c8d2d3a360bd07d285786f4c9b9881b94cb30acb729899f1a072fce",
-        "output_sha256": "5eee136dd6bac5250047fed5bcee9c46c066cf9325b373b0a35bafc641e9f011"
-      }
-    ],
-    "evidence_sha256": "76b6078358083e454d25f857a790e71339d6048171500ff10b161508d80ce246"
-  },
   "dependencies": {
     "markdown": {
       "chapter_greedy/max_capacity_problem.md": "57cba2a20a6c77854063b78633f7c318045e5b7347079f4c9930dad1abc93367"
@@ -219,7 +189,7 @@
     "max-capacity-greedy": {
       "kind": "source-frames",
       "model_sha256": "c17946c0703566600aa17aa921fc47fd982cf80ccdfa11736c679f1f60b41f2f",
-      "source_content_sha256": "eb8d1d634d09f59d2d3ac857507a2ec2abf05605b383fb5cacbe9d78c50c2350",
+      "source_content_sha256": "3fb760b7a7f25c4efc40e546bc102b73b2e13c3dadad56dbcb5b12dfdd431852",
       "states": [
         {
           "id": "step-1",
@@ -260,11 +230,44 @@
       ],
       "review": {
         "status": "confirmed",
-        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "run_id": "figure-reading-20261116/content/names/source-binding",
         "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "99febcad75ff7811dbb127569eb1febc88b9d28cf9e52c6f27f67b5d97064b68",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+        "binding_sha256": "07797e79b79c470c4c75544377363b817d645fe85c4cb7f6fcba7f3a55b959db",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
+        "current_text_verification_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da"
       }
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/names",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
+        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      }
+    ],
+    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
+    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "3fb760b7a7f25c4efc40e546bc102b73b2e13c3dadad56dbcb5b12dfdd431852"
   }
 }

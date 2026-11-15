@@ -1,59 +1,29 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation",
   "title": "最大切分乘积的计算方法",
-  "summary": "利用整除与取模将正整数 n 表示为 n = 3 × a + b（即 a 个长度为 3 的段加上左侧余数 b），作为按余数分类直接计算最大乘积的代数模型。",
+  "summary": "通过整除与取模将 n 写成 3×a+b 并按余数分类调整切分；边界 n=2、3 须单独满足至少切分为两段的要求。",
   "context": [
-    "给定整数 n ≥ 2，将其切分为至少两个正整数之和，并在总和固定为 n 的条件下最大化各段的乘积。",
-    "既然最优策略是尽可能多地切分出因子 3，代码实现便无需循环逐段切分，而是可以直接通过向下整除 a = n // 3 与取模 b = n % 3，一步得出可切出的 3 的个数 a 与余数 b。"
+    "给定整数 n ≥ 2，要求将其切分为至少两个正整数之和，并在总和固定为 n 的条件下最大化各段乘积。",
+    "既然贪心最优策略是尽可能多地切出因子 3，代码实现便无需循环逐段切分，而是直接利用向下整除 a = n // 3 与取模 b = n % 3，一步算出可切出的 3 的个数 a 与余数 b。"
   ],
   "description": [
-    "画面上排是代表总长度 n 的灰色整条；下排最左侧是一小段绿色条，下面用尺寸线标注“余数 b”，右侧由蓝色线段及省略号表示“a 个 3”，下方尺寸线跨越这一整体。图下方给出等式“n = 3 × a + b”。"
+    "图中把总长为 n 的整条分解为 a 个长度为 3 的段与一段“余数 b”，下方给出代数恒等式 n = 3 × a + b（其中 a = n // 3，b = n % 3，余数 b 只可能是 0、1、2）。注意图中将“余数 b”画在左侧仅作符号分解示意，并未指定具体 n 或 b 的数值，也不代表按从左到右顺序执行切分。",
+    "结合正文与代码的分类规则，首先单独处理必须“至少切分为两段”的边界情况：n = 2 只能切为 1 + 1（乘积 1），n = 3 的最优切分为 1 + 2（乘积 2），即 n ≤ 3 时直接返回 1 × (n - 1)。当 n ≥ 4 时按余数 b 分为三类：若 b = 0，全部使用 a 个因子 3，乘积为 3^a；若 b = 2，保留余数 2 不再拆分，乘积为 3^a × 2；若 b = 1，由于 1 × 3 = 3 < 2 × 2 = 4，需退回一个 3 与余数 1 重组为 2 + 2。",
+    "在余数 b = 1 的重组中，将“一个 3 与余数 1”改为“2 + 2”后，该部分长度总和仍为 4（全段总和保持 n 不变），局部乘积从 3 提升到 4，而因子 3 的个数从 a 减少 1 个变为 a−1，故最大乘积公式为 3^(a−1) × 2 × 2。表中汇总了边界与三种余数的完整计算规则。"
   ],
-  "result": "图中直观建立了 n = 3 × a + b 的商余分解结构；结合正文与代码规则，当 n ≥ 4 时按余数 b ∈ {0, 1, 2} 分类返回 3ᵃ（b = 0）、3ᵃ⁻¹ × 2 × 2（b = 1，退回一个 3 与 1 合成 2 + 2）或 3ᵃ × 2（b = 2）；而当 n ≤ 3（n = 2 或 3）时受“至少切分为两段”限制，直接返回 1 × (n - 1)。",
+  "result": "先判断边界 n = 2（返回 1）与 n = 3（返回 2）；当 n ≥ 4 时由 a = n // 3、b = n % 3 按余数查表：b = 0 返回 3^a，b = 1 将一个 3 与 1 重组为 2 + 2 返回 3^(a−1) × 2 × 2，b = 2 返回 3^a × 2。",
   "frames": [
     {
       "id": "source-482",
       "book_path": "chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png",
-      "title": "最大切分乘积的计算方法",
-      "explanation": "图中将总长为 n 的整数条分解为右侧的“a 个 3”（总长 3 × a）和左侧的“余数 b”两部分，满足恒等式 n = 3 × a + b（图面本身只画出这一通用商余表示，未指定具体数值）。在此基础上结合正文分类求解：对 n ≥ 4，余数 b = 0 时最大乘积为 3ᵃ，b = 2 时保留余数 2 得 3ᵃ × 2，b = 1 时因 2 × 2 > 3 × 1 需将最后一个 3 与余数 1 重组为 2 × 2 得 3ᵃ⁻¹ × 4；对必须至少切两段的 n = 2、3 边界则另行返回 1、2。",
-      "state": "符号分解图：下方公式为 n = 3 × a + b；上排灰条为总长 n，下排左侧绿色段为“余数 b”，右侧蓝色线段与省略号表示“a 个 3”。",
-      "key_state": "将整数 n 分解为 n = 3 × a + b（a 个 3 与余数 b），据此按余数计算最大乘积。",
-      "announcement": "展示最大切分乘积计算模型：将 n 拆分为 a 个 3 与余数 b（n = 3 × a + b）。"
+      "title": "用商 a 与余数 b 直接分类计算最大切分乘积",
+      "explanation": "图面建立 n = 3 × a + b 的通用商余分解；结合正文规则，边界 n = 2、3 单独满足至少两段限制，n ≥ 4 且余数 b = 1 时将最后一个 3 与 1 重组为 2 + 2。",
+      "state": "上排整条标总长 n，下排标示一段“余数 b”与“a 个 3”（含省略号），底部等式为 n = 3 × a + b（a = n // 3，b = n % 3）。图中未给具体数值；由正文与代码总结的 n = 2、n = 3 及 n ≥ 4 下 b = 0、1、2 五种情况的计算公式见表。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-24",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "cf2d6fd195c6c7721715f43d91d36f28ac175c63c3b584b6758ea0e96ecad38a",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "d40a34ce09d07aa5f2a8281d168d7daa9ee113c09b575f1200eb0409b245f89e",
-        "output_sha256": "8a1430b08cfa12d5586c31c993b51fdeb8d3c6412ce6de6939643e8766084ea6"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "8a1430b08cfa12d5586c31c993b51fdeb8d3c6412ce6de6939643e8766084ea6",
-        "output_sha256": "f7f806b44c8d2d3a360bd07d285786f4c9b9881b94cb30acb729899f1a072fce"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "f7f806b44c8d2d3a360bd07d285786f4c9b9881b94cb30acb729899f1a072fce",
-        "output_sha256": "5eee136dd6bac5250047fed5bcee9c46c066cf9325b373b0a35bafc641e9f011"
-      }
-    ],
-    "evidence_sha256": "76b6078358083e454d25f857a790e71339d6048171500ff10b161508d80ce246"
-  },
   "dependencies": {
     "markdown": {
       "chapter_greedy/max_product_cutting_problem.md": "e9a2d217025e8c5060ee3100522e8cb0d93d089a1417055fafc47046f313d6a3"
@@ -62,5 +32,75 @@
     "scenes": {
       "chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png": "0e6c13497145d26ac4cb52198645aac1734812de029df8e4e0fbe8b408b1f5f3"
     }
+  },
+  "tables": [
+    {
+      "caption": "由正文与代码给出的分类计算规则",
+      "headers": [
+        "适用条件",
+        "切分或重组",
+        "最大乘积"
+      ],
+      "rows": [
+        [
+          "n=2",
+          "1+1",
+          "1"
+        ],
+        [
+          "n=3",
+          "1+2",
+          "2"
+        ],
+        [
+          "n≥4，b=0",
+          "a 个 3",
+          "3^a"
+        ],
+        [
+          "n≥4，b=1",
+          "a−1 个 3 与两个 2；一个3和余数1改成2+2",
+          "3^(a−1)×2×2"
+        ],
+        [
+          "n≥4，b=2",
+          "a 个 3 与一个 2",
+          "3^a×2"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-14",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a778822d768d21181657ea1d4b0d8f7d7b999d2a54703a94d3288df6e00237d1",
+        "output_sha256": "46a827f70609f33e4ecce24ae2c533ad316813b91887165da0cc1c8a7d5fc020"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "46a827f70609f33e4ecce24ae2c533ad316813b91887165da0cc1c8a7d5fc020",
+        "output_sha256": "2ab5a9cf201301bd9b08384299ca4825616370420e2e31cfdcb51936f207da4b"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "2ab5a9cf201301bd9b08384299ca4825616370420e2e31cfdcb51936f207da4b",
+        "output_sha256": "e5a7916afd67e7d551f7551aefe09c8aa0cd4301ec67e6990737d2634f544604"
+      }
+    ],
+    "evidence_sha256": "b88074bcd47068cf7923c80bbeffb598205d5d08e96b8943618c6b926fa8a8b7",
+    "verification_manifest_sha256": "ea5c1b89e66d7e082c6e8953781c4abe1252d4e071325ec0fd015978249f00cf",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "acebe590d0fce77db1b9472de15770aecc44844ae1605058fddf95c26c4bcacb"
   }
 }

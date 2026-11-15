@@ -57,11 +57,16 @@
   },
   "dependencies": {
     "markdown": {
-      "chapter_array_and_linkedlist/linked_list.md": "759693f1f9372ed67bcda1a55aa41fa22037940c1ca76a2aa1975ab45d1da341"
+      "chapter_array_and_linkedlist/linked_list.md": "e7b62fb0d08b9467a2411492429bd6edbf61a7838841aec2a534a0518cb66e05"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
       "chapter_array_and_linkedlist/linked_list.assets/linkedlist_common_types.png": "f823c8563bff753285fe6ff1c9b143a7938944f47d1a0313b2a3d8902dd1afe6"
     }
+  },
+  "dependency_compatibility": {
+    "run_id": "figure-reading-20261116/upstream-dependency-verification",
+    "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
+    "factual_review_preserved": true
   }
 }

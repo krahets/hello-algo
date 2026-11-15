@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree",
@@ -10,123 +10,365 @@
     "每个递归子问题先从前序有效段首元素初始化当前根节点（向下“递”时创建节点），再按中序位置划分并递归构建左、右子树；当子调用返回子树根节点后，父调用才将其赋给当前根的 left 或 right 引用（向上“归”时建立连边）。空区间调用直接返回 None。"
   ],
   "description": [
-    "画面高亮当前活跃子问题的树节点及其前序、中序有效区间，已创建但暂不处于当前焦点的节点呈浅灰色。注意图中尚未画出的父子连线，代表对应的递归子调用尚未返回并完成赋值连接，不能仅因为子节点已创建就提前视作已连边。",
-    "以下各步配合从 0 开始的前序根索引 i 和中序闭区间 [l, r] 说明递归轨迹；叶节点向下触发的空区间返回过程未单独拆帧，因此本组九个步骤帧展示的是非空节点的创建与回溯连边过程。"
+    "向下递归时创建节点，子调用返回时才把它连接到父节点。已经创建的子节点若尚未返回，图中就没有相应父子边。",
+    "每帧说明本次创建或连接动作，表格列出此时已创建的全部节点和已建立的引用。空区间返回 None 的调用未单独拆帧。"
   ],
   "result": "最终建成的二叉树以 3 为根节点，左子节点为 9，右子节点为 2；节点 2 的左右子节点分别为 1 和 7；节点 9、1、7 均为叶节点。顶层调用返回根节点 3，所得二叉树的前序遍历为 [3, 9, 2, 1, 7]，中序遍历为 [9, 3, 1, 2, 7]。",
   "frames": [
     {
       "id": "source-317",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step1.png",
-      "title": "创建整棵树的根节点 3",
+      "title": "创建根节点 3",
       "explanation": "进入顶层调用 i = 0、中序区间 [0, 4]：由前序首元素 3 创建根节点 3；在中序索引 1 处找到 3，将左子树划分为 [9]，将右子树划分为中序 [1, 2, 7]、前序 [2, 1, 7]。接下来优先递归构建左子树。",
-      "state": "前序 preorder = [3, 9, 2, 1, 7]，中序 inorder = [9, 3, 1, 2, 7]，节点值互不重复。画面仅创建了根节点 3，尚未建立任何父子连边；当前高亮根 3 及其完整前序、中序区间 [0, 4]。",
+      "state": "当前由前序首项创建根节点 3，尚无父子边。当前表中“未连接”表示相应子树尚待构建或返回连接；“无”表示确实没有该子节点。",
       "key_state": "已创建根节点 3；左右子树尚未连接。",
-      "announcement": "创建根节点 3，并划分出左子树 [9] 与右子树的三个节点。"
+      "announcement": "创建根节点 3，并划分出左子树 [9] 与右子树的三个节点。",
+      "state_tables": [
+        {
+          "caption": "当前已创建节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "未连接",
+              "未连接"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-318",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step2.png",
-      "title": "递归进入左子问题，创建叶节点 9",
+      "title": "创建叶节点 9",
       "explanation": "进入左子问题 i = 1、中序区间 [0, 0]：由根值 9 创建节点 9。由于其左右两侧的中序子区间均为空（返回 None），节点 9 成为叶节点；但本帧子调用尚未返回，因此节点 9 与根节点 3 之间还未建立连边。",
-      "state": "前序 preorder = [3, 9, 2, 1, 7]，中序 inorder = [9, 3, 1, 2, 7]，节点值互不重复。已创建节点 3 和 9，尚无任何父子连边；根 3 暂显浅灰色，当前高亮节点 9 及其有效前序 [9]、中序 [9]。",
+      "state": "当前已创建左叶节点 9，但尚未接到根 3。已创建节点及引用见表；未连接的子树尚待构建或返回连接。",
       "key_state": "叶节点 9 已创建，但尚未连接到根节点 3。",
-      "announcement": "递归进入左子问题并创建叶节点 9，准备向上返回。"
+      "announcement": "递归进入左子问题并创建叶节点 9，准备向上返回。",
+      "state_tables": [
+        {
+          "caption": "当前已创建节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "未连接",
+              "未连接"
+            ],
+            [
+              "9",
+              "无",
+              "无"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-319",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step3.png",
-      "title": "回溯返回节点 9，连接为根 3 的左子节点",
+      "title": "连接左子树 9",
       "explanation": "左子问题构建完毕并将节点 9 返回给顶层根 3 的调用，执行 3.left = 9 建立左子边。至此根 3 的左子树连接完成，接下来转向构建根 3 的右子树。",
-      "state": "前序 preorder = [3, 9, 2, 1, 7]，中序 inorder = [9, 3, 1, 2, 7]，节点值互不重复。已创建节点 3、9，并建立 3 的左子边连向 9；焦点回到根 3，右子树尚未构建与连接。",
+      "state": "左叶节点 9 已返回并接到根 3，右子树尚待构建。当前表列出两节点的引用。",
       "key_state": "已建立连边 3.left = 9；根 3 的右子树待构建。",
-      "announcement": "将返回的叶节点 9 连接到根节点 3 的左侧。"
+      "announcement": "将返回的叶节点 9 连接到根节点 3 的左侧。",
+      "state_tables": [
+        {
+          "caption": "当前已创建节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "9",
+              "未连接"
+            ],
+            [
+              "9",
+              "无",
+              "无"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-320",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step4.png",
-      "title": "递归进入右子问题，创建右子树根 2",
+      "title": "创建右子树根 2",
       "explanation": "进入 i = 2、中序区间 [2, 4] 的右子问题：取有效前序段 [2, 1, 7] 的首元素 2 创建节点 2，并根据中序索引 3 将其左子问题划分为 [1]、右子问题划分为 [7]。由于以 2 为根的子树尚未构建完毕返回，此时 3 与 2 之间还没有连边。",
-      "state": "前序 preorder = [3, 9, 2, 1, 7]，中序 inorder = [9, 3, 1, 2, 7]，节点值互不重复。已创建节点 3、9、2，已建立的连边仅有 3 左接 9；节点 2 尚未连接到 3，其自身左右子节点也尚未连接，当前高亮有效前序 [2, 1, 7] 与中序 [1, 2, 7]。",
+      "state": "当前已创建右子树根 2，其左右子树尚待构建；2 尚未返回连接到根 3。已有的 3→9 保持连接，完整节点状态见表。",
       "key_state": "已创建右子树根 2 并分出左 [1]、右 [7]；2 尚未连接回 3。",
-      "announcement": "创建右子树根节点 2，并划分其左右子问题 [1] 和 [7]。"
+      "announcement": "创建右子树根节点 2，并划分其左右子问题 [1] 和 [7]。",
+      "state_tables": [
+        {
+          "caption": "当前已创建节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "9",
+              "未连接"
+            ],
+            [
+              "9",
+              "无",
+              "无"
+            ],
+            [
+              "2",
+              "未连接",
+              "未连接"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-321",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step5.png",
-      "title": "递归创建节点 2 的左叶节点 1",
+      "title": "创建叶节点 1",
       "explanation": "进入节点 2 的左子问题 i = 3、中序区间 [2, 2]：创建节点 1。该区间仅含单个元素，其左右子区间均为空；本帧子调用尚未返回，因此节点 1 还未连接到节点 2。",
-      "state": "前序 preorder = [3, 9, 2, 1, 7]，中序 inorder = [9, 3, 1, 2, 7]，节点值互不重复。已创建节点 3、9、2、1，已建立的连边仅有 3 左接 9；当前高亮节点 1 及其有效序列 [1]，节点 2 未接回 3，节点 1 也未接回 2。",
+      "state": "当前已创建叶节点 1，但尚未接到节点 2；以 2 为根的子树也尚未接回根 3。当前表列出已创建的四个节点。",
       "key_state": "叶节点 1 已创建，尚未连接到节点 2。",
-      "announcement": "创建叶节点 1，准备向上返回给父节点 2。"
+      "announcement": "创建叶节点 1，准备向上返回给父节点 2。",
+      "state_tables": [
+        {
+          "caption": "当前已创建节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "9",
+              "未连接"
+            ],
+            [
+              "9",
+              "无",
+              "无"
+            ],
+            [
+              "2",
+              "未连接",
+              "未连接"
+            ],
+            [
+              "1",
+              "无",
+              "无"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-322",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step6.png",
-      "title": "回溯返回节点 1，连接为节点 2 的左子节点",
+      "title": "连接节点 2 的左子树",
       "explanation": "节点 1 的子调用返回给节点 2，执行 2.left = 1 建立左子边。此时节点 2 的左子树已连接完毕，但其右子问题 [7] 尚待构建，因此节点 2 仍未返回并连接到根 3。",
-      "state": "前序 preorder = [3, 9, 2, 1, 7]，中序 inorder = [9, 3, 1, 2, 7]，节点值互不重复。已创建节点 3、9、2、1，已建立 3 左接 9、2 左接 1 两条边，3 与 2 之间仍无连边；当前焦点回到节点 2，右子问题 [7] 待构建。",
+      "state": "叶节点 1 已返回并接为节点 2 的左子节点，右子问题尚待构建；2 尚未接回根 3。全部引用见当前表。",
       "key_state": "已建立连边 2.left = 1；2.right 待构建，3.right 尚未连接。",
-      "announcement": "将返回的叶节点 1 连接到节点 2 的左侧。"
+      "announcement": "将返回的叶节点 1 连接到节点 2 的左侧。",
+      "state_tables": [
+        {
+          "caption": "当前已创建节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "9",
+              "未连接"
+            ],
+            [
+              "9",
+              "无",
+              "无"
+            ],
+            [
+              "2",
+              "1",
+              "未连接"
+            ],
+            [
+              "1",
+              "无",
+              "无"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-323",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step7.png",
-      "title": "递归创建节点 2 的右叶节点 7",
+      "title": "创建叶节点 7",
       "explanation": "进入节点 2 的右子问题 i = 4、中序区间 [4, 4]：创建最后一个节点 7。其左右子区间均为空，即将作为叶节点返回给节点 2；本帧尚未建立 2 到 7 的右子边。",
-      "state": "前序 preorder = [3, 9, 2, 1, 7]，中序 inorder = [9, 3, 1, 2, 7]，节点值互不重复。全部五个节点 3、9、2、1、7 均已创建，已建立的连边为 3 左接 9、2 左接 1；节点 7 尚未接到 2，节点 2 也尚未接到 3，当前高亮节点 7 及其有效序列 [7]。",
+      "state": "最后一个叶节点 7 已创建，尚未接到节点 2；当前已创建全部五个节点，2→7 和 3→2 仍未连接。已建立的引用见表。",
       "key_state": "叶节点 7 已创建；连边 2→7 与 3→2 尚未建立。",
-      "announcement": "创建叶节点 7，准备向上返回给父节点 2。"
+      "announcement": "创建叶节点 7，准备向上返回给父节点 2。",
+      "state_tables": [
+        {
+          "caption": "当前已创建节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "9",
+              "未连接"
+            ],
+            [
+              "9",
+              "无",
+              "无"
+            ],
+            [
+              "2",
+              "1",
+              "未连接"
+            ],
+            [
+              "1",
+              "无",
+              "无"
+            ],
+            [
+              "7",
+              "无",
+              "无"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-324",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step8.png",
-      "title": "回溯连接节点 7，完成以 2 为根的右子树",
+      "title": "连接节点 2 的右子树",
       "explanation": "叶节点 7 返回给节点 2，执行 2.right = 7 建立右子边，完整合成以 2 为根、1 和 7 为左右子节点的子树。此时该子树准备向上返回给顶层根 3，画面中 3 与 2 之间的连边尚未建立。",
-      "state": "前序 preorder = [3, 9, 2, 1, 7]，中序 inorder = [9, 3, 1, 2, 7]，节点值互不重复。五个节点均已创建，已建立 3 左接 9、2 左接 1、2 右接 7 三条边；以 2 为根的子树已完整建成但尚未接回根 3，当前高亮根 2 及其左右子节点 1、7。",
+      "state": "叶节点 7 已接到节点 2，以 2 为根的右子树已完成，尚未返回连接到根 3。当前表列出全部五个节点及已建立的三条边。",
       "key_state": "以 2 为根的子树（左 1、右 7）已建成；尚未连接回根 3。",
-      "announcement": "将叶节点 7 连接到节点 2 的右侧，完成以 2 为根的子树。"
+      "announcement": "将叶节点 7 连接到节点 2 的右侧，完成以 2 为根的子树。",
+      "state_tables": [
+        {
+          "caption": "当前已创建节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "9",
+              "未连接"
+            ],
+            [
+              "9",
+              "无",
+              "无"
+            ],
+            [
+              "2",
+              "1",
+              "7"
+            ],
+            [
+              "1",
+              "无",
+              "无"
+            ],
+            [
+              "7",
+              "无",
+              "无"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-325",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step9.png",
-      "title": "回溯返回子树根 2，连接完成整棵二叉树",
+      "title": "连接完整右子树",
       "explanation": "右子树调用将子树根节点 2 返回给顶层根 3，执行 3.right = 2 建立最后一条连边。至此根 3 的左右子树全部就绪，顶层函数返回根节点 3，整棵五节点二叉树构建完成。",
-      "state": "前序 preorder = [3, 9, 2, 1, 7]，中序 inorder = [9, 3, 1, 2, 7]，节点值互不重复。全部五个节点与四条父子连边均已建立：根节点为 3，左子节点为 9，右子节点为 2，2 的左右子节点分别为 1 和 7，9、1、7 为叶节点。当前高亮根 3（青色）、左子树 9（蓝色）及右子树 2、1、7（紫色）。",
+      "state": "完整右子树已接回根 3，五节点树的四条父子边全部建立。顶层返回根 3，完整连接见当前表。",
       "key_state": "整棵树构建完成：3 左接 9、右接 2，2 左接 1、右接 7。",
-      "announcement": "将以 2 为根的完整右子树连接到根节点 3 右侧，返回根 3 完成构建。"
+      "announcement": "将以 2 为根的完整右子树连接到根节点 3 右侧，返回根 3 完成构建。",
+      "state_tables": [
+        {
+          "caption": "当前已创建节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "9",
+              "2"
+            ],
+            [
+              "9",
+              "无",
+              "无"
+            ],
+            [
+              "2",
+              "1",
+              "7"
+            ],
+            [
+              "1",
+              "无",
+              "无"
+            ],
+            [
+              "7",
+              "无",
+              "无"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-16",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "ebd09227401e03c0f56c74c88290c37a490fdf593e2342f9cd496a3b9a787d5d",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "5e763dfd4e2b736b9a5010f6bdd3e33ef9402bdbd494a2a8c3346a1893135dc9",
-        "output_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb",
-        "output_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0",
-        "output_sha256": "b8fa9f331b33db33433309a29e9fe3834178d140c262ec7bc27dee6b669a5cd5"
-      }
-    ],
-    "evidence_sha256": "a355fc71eefa70eb8f989661b8a016ead02f198bb0747865902f358b13b089ae"
-  },
   "dependencies": {
     "markdown": {
       "chapter_divide_and_conquer/build_binary_tree_problem.md": "15c1f80907cb390b2dece48fa770f0441b86b7b89fb20b34edba6aca89263817"
@@ -148,7 +390,7 @@
     "build-binary-tree": {
       "kind": "source-frames",
       "model_sha256": "dd216c3e5cadc0da3fd8ff4fdfbedcdccc0b6d043c7e5a814f545aab8ac90df6",
-      "source_content_sha256": "ebd09227401e03c0f56c74c88290c37a490fdf593e2342f9cd496a3b9a787d5d",
+      "source_content_sha256": "c5843c1efa9b100ae3715faa4c125577c409e7f90ce7757b74cd9c893b381b5e",
       "states": [
         {
           "id": "step-1",
@@ -189,11 +431,85 @@
       ],
       "review": {
         "status": "confirmed",
-        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "run_id": "figure-reading-20261116/content/body-10/source-binding",
         "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "12dac320d733defe29ff0b5ad37ca14fe715618cb140a6299f05dc77f17d0ef7",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+        "binding_sha256": "c1481643838e189f8d69044cdca157567b5c0c0330258ff9382ad8681ec15131",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
+        "current_text_verification_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e"
       }
     }
+  },
+  "tables": [
+    {
+      "caption": "固定遍历输入",
+      "headers": [
+        "索引",
+        "前序值",
+        "中序值"
+      ],
+      "rows": [
+        [
+          "0",
+          "3",
+          "9"
+        ],
+        [
+          "1",
+          "9",
+          "3"
+        ],
+        [
+          "2",
+          "2",
+          "1"
+        ],
+        [
+          "3",
+          "1",
+          "2"
+        ],
+        [
+          "4",
+          "7",
+          "7"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "standalone_tables": [
+    0
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-10",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "587fb17853deb18aea81c8aaf923dad9d8944f711dd123357454014ee90673ed",
+        "output_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0",
+        "output_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989",
+        "output_sha256": "4409226acfc61414b5ce59f1e3c8cabdf42be0ad2939e4274348c347ae325320"
+      }
+    ],
+    "evidence_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e",
+    "verification_manifest_sha256": "2023927acd22f572c739405dfbb6d4338b32deadbe8db27f2438c77108cc13b9",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "c5843c1efa9b100ae3715faa4c125577c409e7f90ce7757b74cd9c893b381b5e"
   }
 }

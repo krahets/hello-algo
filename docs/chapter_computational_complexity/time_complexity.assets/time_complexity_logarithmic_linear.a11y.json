@@ -1,66 +1,109 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_computational_complexity/time_complexity.assets/time_complexity_logarithmic_linear",
-  "title": "每层总工作量相同的分治树",
-  "summary": "每次递归将问题一分为二，子问题数量逐层加倍而单个子问题操作数逐层减半，使每层操作总数恒为 n；共 log₂n + 1 层合起来得到线性对数阶 O(n log n)。",
+  "title": "分治树的分层工作量",
+  "summary": "子问题数量加倍、单个工作量减半，使每层总工作量保持相同。",
   "context": [
-    "左侧为一棵递归分治树，每个蓝色圆角方框代表一个子问题，框内画有绿色操作方块和蓝色循环箭头，并标注该子问题的循环操作次数；右侧列标题为“各层的操作总数”。为便于精确计数，设输入规模 n 为 2 的整数次幂。"
+    "最底层示意画出4个框并用省略号间隔，代表全部n个叶子，不表示仅有4个叶子。"
   ],
-  "description": [
-    "第 1 层（根层）只有 1 个蓝色循环框，标注“n 次”，右侧对应写出 n × 1 = n。第 1 层向下分出 2 个子问题进入第 2 层，每个框标注“n/2 次”，右侧写出 n/2 × 2 = n。第 2 层再各自一分为二进入第 3 层的 4 个子问题，每个框标注“n/4 次”，右侧写出 n/4 × 4 = n。",
-    "第 3 层下方以向下箭头和省略号表示中间继续折半拆分的过程；最底层并排画出 4 个带省略号间隔的蓝色框（代表共 n 个叶节点子问题），每个框标注“1 次”，右侧写出 1 × n = n。右侧大括号覆盖从根层到最底层的全部层级，标注“共 log₂n + 1 层”；右下角说明框写出“计算操作总数 n × (log₂n + 1)”，向下箭头指向“时间复杂度 O(n log n)”。"
-  ],
-  "result": "当分治树共有 log₂n + 1 层且每一层的操作总数都保持为 n 时，全树累计操作数量为 n × (log₂n + 1) = n log₂n + n；忽略低阶项与对数底数后，时间复杂度为线性对数阶 O(n log n)。",
+  "description": [],
+  "result": "全部log₂n+1层的操作总数为n(log₂n+1)=n log₂n+n，时间复杂度为O(n log n)。",
   "frames": [
     {
       "id": "source-31",
       "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_logarithmic_linear.png",
-      "title": "每层总工作量相同的分治树",
-      "explanation": "与每个节点只代表 1 次操作的简单递归树不同，这里的每个节点本身包含一次循环，且不同层的循环次数随子问题规模减半而递减。因此不能只统计树的节点个数，而要先将同一层的“单个节点操作数 × 节点个数”相乘：由于节点数每次乘 2、单节点操作数每次除以 2，两者刚好抵消，每一层的总工作量都稳定等于 n，再乘以层数 log₂n + 1 即可得到总操作数。",
-      "state": "分治树从上到下：第 1 层 1 个节点（各执行 n 次），操作总数 n × 1 = n；第 2 层 2 个节点（各执行 n/2 次），总数 n/2 × 2 = n；第 3 层 4 个节点（各执行 n/4 次），总数 n/4 × 4 = n；中间省略若干层；最底层 n 个节点（各执行 1 次），总数 1 × n = n。右侧大括号标注“共 log₂n + 1 层”，右下角框标注计算操作总数 n × (log₂n + 1)，时间复杂度为 O(n log n)。",
-      "key_state": "共 log₂n + 1 层，每层操作总数均为 n，总操作数为 n × (log₂n + 1)，属线性对数阶 O(n log n)。",
-      "announcement": "展示子问题规模逐层减半、个数逐层加倍的分治树，每层合计 n 次操作，导出线性对数阶 O(n log n)。"
+      "title": "分治树的分层工作量",
+      "explanation": "总操作数由“每层工作量n”与“总层数log₂n+1”相乘得到，共n(log₂n+1)次。自顶向下每分一层，子问题数量加倍，但单个子问题的操作数同时减半：第d层（根为第0层）有2^d个子问题、每个操作数为n/2^d，两者相乘恒为n。如此二分直到规模为1的叶层（n个叶子、每个计1次），共经历log₂n+1层。",
+      "state": "设n为2的整数次幂以精确计数；每个节点的操作数等于其当前规模（根为n，叶节点为1），每层合计均为n，共log₂n+1层。",
+      "key_state": "每层n，共log₂n+1层，累计n(log₂n+1)。",
+      "announcement": "子问题数量加倍、单个工作量减半，使每层总工作量保持相同。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-02",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "a489f2965139fa0760bcac4eef0bd1df1d4d4d9a8d13a3e6c51443fca8ae2ebc",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "2418f4f89bf15820de1b9f866e20459174d1357741c9215565d8a6fadd9ef34c",
-        "output_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae",
-        "output_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4",
-        "output_sha256": "62b51949e795658a5a6779b7e616f31ed019742d5859071a77cc3801abe0d6d7"
-      }
-    ],
-    "evidence_sha256": "45d0d7027b523659e72b602edeb9f0d969e31b4ab937e3e24decd1d342fb1eff"
-  },
   "dependencies": {
     "markdown": {
-      "chapter_computational_complexity/time_complexity.md": "af3c429bc5b2acecc2a8389cd5934d6a6790f9c1bc0970d8955af2b471c0888b"
+      "chapter_computational_complexity/time_complexity.md": "18f2e5296b2d0cd97c34cca8ff29e9e4e96ca43345ee572bf4df899f68b16964"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
       "chapter_computational_complexity/time_complexity.assets/time_complexity_logarithmic_linear.png": "9ca67e962eddeadc38603cdf3c812c53fefa738a09997c25e7503214211d7b02"
     }
+  },
+  "tables": [
+    {
+      "caption": "图中各层操作总数",
+      "headers": [
+        "层级",
+        "子问题数",
+        "单个子问题操作数",
+        "本层总数"
+      ],
+      "rows": [
+        [
+          "根层",
+          "1",
+          "n",
+          "n"
+        ],
+        [
+          "下一层",
+          "2",
+          "n/2",
+          "n"
+        ],
+        [
+          "再下一层",
+          "4",
+          "n/4",
+          "n"
+        ],
+        [
+          "中间层",
+          "继续加倍",
+          "继续减半",
+          "n"
+        ],
+        [
+          "叶层",
+          "n",
+          "1",
+          "n"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-03",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "1879b0f57d7ffda76b53f43da76110077a688ba62b9fcfe6267e4d75505ecf9b",
+        "output_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289",
+        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f",
+        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
+      }
+    ],
+    "evidence_sha256": "10c4c939ac2682477668043aca9fe0ac33b44fd6afe78c0e8ec4e782ec049d51",
+    "verification_manifest_sha256": "3be84ae43a9616bb1a45e012922629e4100e1e2d1e89dad18df24aaf5005e2f9",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "5c25d16e153ddbb6504c6123081f966e6d7e82c7810a87615c813cc45543d075"
   }
 }

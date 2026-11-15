@@ -1,88 +1,58 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_tree/binary_tree_traversal.assets/binary_tree_dfs",
-  "title": "二叉树的前序、中序与后序遍历",
-  "summary": "沿同一条绕树外围的深度优先递归路径，分别在节点左侧橙点、底部蓝点、右侧紫点处访问节点，得到前序、中序、后序三种序列。",
-  "context": [
-    "示例二叉树共三层：根节点为 1；1 的左、右子节点为 2、3；2 的左、右子节点为 4、5；3 的左、右子节点为 6、7；4、5、6、7 均为叶节点。",
-    "深度优先遍历（DFS）通过递归先深入左子树、再深入右子树，遇到空节点（None）则直接回溯。在递归经过每个节点的三个不同时机记录节点值，就分别对应前序、中序和后序遍历。"
-  ],
+  "title": "二叉树的三种深度优先遍历",
+  "summary": "沿同一深度优先递归轨迹，按记录当前节点值的时机区分前序、中序与后序遍历。",
+  "context": [],
   "description": [
-    "图左侧标有“深度优先遍历”，一条青色虚线从根 1 左上方出发，逆时针贴着整棵树的外围走完一圈后从根 1 右上方离开。每个节点周围都标有三个彩色圆点：左侧橙点表示刚进入该节点、即将访问左子树；底部蓝点表示左子树已访问完、即将访问右子树；右侧紫点表示左、右子树都已访问完、函数即将返回。",
-    "右上角代码框给出函数 dfs(root)：注释“二叉树的深度优先搜索”下，先执行 if root is None: return；接着在 dfs(root.left) 之前标出橙色提示“即将访问左子树”，在 dfs(root.left) 与 dfs(root.right) 之间标出蓝色提示“已访问左子树，即将访问右子树”，在 dfs(root.right) 之后标出紫色提示“左右子树都已访问，函数返回”。",
-    "右下角按颜色对应列出三种遍历及结果：前序遍历（在橙点处访问节点）遵循“根 → 左 → 右”，序列为 1, 2, 4, 5, 3, 6, 7；中序遍历（在蓝点处访问节点）遵循“左 → 根 → 右”，序列为 4, 2, 5, 1, 6, 3, 7；后序遍历（在紫点处访问节点）遵循“左 → 右 → 根”，序列为 4, 5, 2, 6, 7, 3, 1。具体对应关系汇总于下表。"
+    "环绕树外围的虚线表示递归调用与返回的深度优先轨迹，并非树的边；节点旁的橙、蓝、紫圆点分别对应左递归前、左右递归之间、右递归后三个记录时机。"
   ],
-  "result": "前序、中序、后序遍历共享完全相同的深度优先递归轨迹，唯一区别在于记录节点值的时机分别选在左递归前、左递归后右递归前、或右递归后。图中示例为普通二叉树，无需满足二叉搜索树的大小顺序。",
+  "result": "三种遍历序列见表；本图是普通二叉树（根 1 的左子节点为 2），三种遍历不要求满足二叉搜索树的大小关系。",
   "frames": [
     {
       "id": "source-98",
       "book_path": "chapter_tree/binary_tree_traversal.assets/binary_tree_dfs.png",
-      "title": "二叉树的前序、中序与后序遍历",
-      "explanation": "左侧绕树一周的青色虚线与右上角 dfs(root) 代码框相互印证：同一递归过程依次经过每个节点的左侧橙点、底部蓝点和右侧紫点，分别产生右下角的前序、中序和后序序列。",
-      "state": "三层二叉树根为 1，左、右子节点为 2、3，2 的子节点为 4、5，3 的子节点为 6、7。青色虚线逆时针绕树外围一周，各节点左、下、右侧分别标有橙点、蓝点、紫点；右侧代码框标明三点在 dfs(root.left) 与 dfs(root.right) 前后的位置，下方给出前序 1, 2, 4, 5, 3, 6, 7、中序 4, 2, 5, 1, 6, 3, 7、后序 4, 5, 2, 6, 7, 3, 1。",
-      "key_state": "橙点前序（根左右）：1, 2, 4, 5, 3, 6, 7；蓝点中序（左根右）：4, 2, 5, 1, 6, 3, 7；紫点后序（左右根）：4, 5, 2, 6, 7, 3, 1。",
-      "announcement": "展示深度优先遍历绕树一周的递归轨迹，以及橙点前序、蓝点中序、紫点后序三种访问时机与结果序列。"
+      "title": "二叉树的三种深度优先遍历",
+      "explanation": "递归都先处理左子树再处理右子树，遇到空节点即返回。记录当前节点发生在左递归之前为前序，在左、右两个递归之间为中序，在右递归之后为后序。",
+      "state": "普通二叉树共 7 个节点：根为 1，1 的左右子节点是 2、3，2 的左右子节点是 4、5，3 的左右子节点是 6、7；4、5、6、7 为叶节点。三种遍历的记录时机、优先级与输出序列见表。",
+      "key_state": "前序先记根（1 起），中序在左右子树之间记根（4 起），后序最后记根（1 终）。",
+      "announcement": "对比同一棵普通二叉树在前序、中序和后序下的记录时机与输出序列。"
     }
   ],
   "tables": [
     {
-      "caption": "三种深度优先遍历的访问规则与结果",
+      "caption": "三种遍历的记录时机与输出",
       "headers": [
         "遍历",
-        "访问当前节点的时机",
-        "结果序列"
+        "记录当前节点的时机",
+        "访问优先级",
+        "输出序列"
       ],
       "rows": [
         [
           "前序",
-          "处理左子树之前",
-          "1、2、4、5、3、6、7"
+          "左递归之前",
+          "根 → 左子树 → 右子树",
+          "1, 2, 4, 5, 3, 6, 7"
         ],
         [
           "中序",
-          "左子树结束、右子树开始之前",
-          "4、2、5、1、6、3、7"
+          "左递归之后、右递归之前",
+          "左子树 → 根 → 右子树",
+          "4, 2, 5, 1, 6, 3, 7"
         ],
         [
           "后序",
-          "左右子树都结束之后",
-          "4、5、2、6、7、3、1"
+          "右递归之后",
+          "左子树 → 右子树 → 根",
+          "4, 5, 2, 6, 7, 3, 1"
         ]
-      ]
+      ],
+      "row_header": 0
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-06",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "52473f10c3d808185b6a4236f464b71ee12aae5dbf4db48f1bbe79a135f89e43",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a7d27ac86970762b98a3afc622b5a802549e6b6254c666e3efdf60f34ede65b5",
-        "output_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4",
-        "output_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900",
-        "output_sha256": "30bb25c69fe95554ab48370f707653e1ddeb4b287f83cb44cf33dc013e44b87b"
-      }
-    ],
-    "evidence_sha256": "bbb898a17ec7d0f8023ba3e028e19e1cebb4eba7c5059fe86305e5491e6f3b3b"
-  },
   "dependencies": {
     "markdown": {
       "chapter_tree/binary_tree_traversal.md": "d19ef208720dc46eac8a9110693de9baa8d57d477be75b8914359fd766dacadb"
@@ -91,5 +61,37 @@
     "scenes": {
       "chapter_tree/binary_tree_traversal.assets/binary_tree_dfs.png": "0369e38c101e710dda0a52549033630c0cd98f32cc314f7d1c2709840131829d"
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-06",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "0e605f50a53ec6e3f03d8d322e023b976d2db4808bf108c78d39e01978f007df",
+        "output_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4",
+        "output_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566",
+        "output_sha256": "44416cbb28c97324cacaea4c3e09ba6447fb8d634f9669e0ab1055e4248cc4df"
+      }
+    ],
+    "evidence_sha256": "e12abd969b6243a09b219e54f4a5057f6e2f8de2c83b7c02566b8d9406402b78",
+    "verification_manifest_sha256": "0b7adebd41a0487a5327cd972cfda8603502aa45f7655844680e218e6e933867",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "b7cb25a9418832c137543fc782535c90cbc6338e99189046cd205372174db433"
   }
 }

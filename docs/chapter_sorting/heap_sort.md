@@ -59,6 +59,11 @@
 
 === "<12>"
     ![原地堆排序：把最大值逐个放入数组右端，第 12 步，共 12 步：剩余单元素自然就位，排序完成](heap_sort.assets/heap_sort_step12.svg)
+<!-- figure-reading:start group:chapter_sorting/heap_sort.assets/heap_sort -->
+
+[原地堆排序：把最大值逐个放入数组右端：完整图解](heap_sort.assets/heap_sort.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 在代码实现中，我们使用了与“堆”章节相同的从顶至底堆化 `sift_down()` 函数。值得注意的是，由于堆的长度会随着提取最大元素而减小，因此我们需要给 `sift_down()` 函数添加一个长度参数 $n$ ，用于指定堆的当前有效长度。代码如下所示：
 

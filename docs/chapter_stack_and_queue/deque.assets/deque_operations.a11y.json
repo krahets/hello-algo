@@ -1,62 +1,29 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_stack_and_queue/deque.assets/deque_operations",
-  "title": "双向队列的队首与队尾操作",
-  "summary": "展示双向队列在队尾与队首两端分别执行入队和出队操作：前半部分以 4 演示队尾入队与出队，后半部分以 1 演示队首入队与出队。",
-  "context": [
-    "图中将双向队列竖直放置，上方为队首、下方为队尾，元素顺序按从上到下（即从队首到队尾）读取。最左侧队列的队首和队尾两侧各画有一对方向相反的入队、出队箭头，表明双向队列打破了普通队列“只进不出”或“只出不进”的单端限制，首尾两端均支持添加与删除元素。"
-  ],
+  "title": "双向队列的首尾操作",
+  "summary": "分别演示队尾与队首的入队和出队，展示双向队列的四种基本操作。",
+  "context": [],
   "description": [
-    "画面从左到右排列五个竖直队列面板，但实质上包含两组各自独立的操作示例，不能把五个面板当成同一条连续状态链。第一组示例（左起第 1 至第 3 列）演示队尾操作：从初始队列 [3, 2, 5] 出发，调用 push_last(4) 将绿色元素 4 加入队尾，变为 [3, 2, 5, 4]；随后调用 pop_last() 将队尾的 4 移出，队列底部留下灰色虚线框标记 4 原先所在的位置，有效队列恢复为 [3, 2, 5]。",
-    "第二组示例（第 4 至第 5 列）演示队首操作，它以保留了尾部元素 4 的队列 [3, 2, 5, 4] 作为起始状态：调用 push_first(1) 将绿色元素 1 从顶部加入队首，得到 [1, 3, 2, 5, 4]；接着调用 pop_first() 将队首的 1 移出，顶部变回灰色虚线框，有效队列恢复为 [3, 2, 5, 4]。"
+    "虚线方块仅示意元素操作前的旧位置，不计入当前队列；移出容器外的实心方块表示本次出队的返回值。"
   ],
-  "result": "双向队列兼具栈与队列的操作能力：push_first() 和 pop_first() 专门操作队首，push_last() 和 pop_last() 专门操作队尾，具体在哪一端增删完全由所调用的方法决定。",
+  "result": "双向队列两端均可添加和删除元素；静态图包含队尾与队首两组独立示例，不能把五个面板误读为连续五步。",
   "frames": [
     {
       "id": "source-70",
       "book_path": "chapter_stack_and_queue/deque.assets/deque_operations.png",
-      "title": "队尾操作与队首操作两组独立演示",
-      "explanation": "左起前三列围绕队尾元素 4 展示“先入后出”的尾端增删：从 [3, 2, 5] 经 push_last(4) 变为 [3, 2, 5, 4]，再经 pop_last() 退回 [3, 2, 5]。后两列则以带有尾部 4 的 [3, 2, 5, 4] 为基准，围绕队首元素 1 展示首端增删：经 push_first(1) 在顶部插入绿色 1 得到 [1, 3, 2, 5, 4]，再经 pop_first() 移除顶部 1 退回 [3, 2, 5, 4]。第 3 列的有效队列已不含 4，而第 4 列又含有队尾 4，因此两组应作为独立示例阅读。",
-      "state": "画面横向排列 5 列竖直队列（上为队首、下为队尾）。第 1 列为初始 [3, 2, 5]，首尾两侧标注四个入队与出队方向箭头；第 2 列标注“队尾入队 push_last(4)”，队列为 [3, 2, 5, 4]；第 3 列标注“队尾出队 pop_last()”，有效元素为 [3, 2, 5]，底部虚线框为移出的 4；第 4 列标注“队首入队 push_first(1)”，队列为 [1, 3, 2, 5, 4]；第 5 列标注“队首出队 pop_first()”，顶部虚线框为移出的 1，有效元素为 [3, 2, 5, 4]。",
-      "key_state": "尾端示例：[3, 2, 5] 尾入 4 再尾出 4；首端示例：[3, 2, 5, 4] 首入 1 再首出 1。",
-      "announcement": "展示双向队列在队尾增删 4 与在队首增删 1 的两组基本操作。"
+      "title": "双向队列的首尾操作",
+      "explanation": "图中包含两组独立示例：队尾示例从 [3, 2, 5] 开始，执行 push_last(4) 得到 [3, 2, 5, 4]，再执行 pop_last() 返回 4 并恢复 [3, 2, 5]；队首示例则以含 4 的 [3, 2, 5, 4] 为独立起点，执行 push_first(1) 得到 [1, 3, 2, 5, 4]，再执行 pop_first() 返回 1 并恢复 [3, 2, 5, 4]。",
+      "state": "所有序列按队首到队尾书写。静态图五个面板分为独立的队尾示例（初态 [3, 2, 5]）与队首示例（独立初态 [3, 2, 5, 4]）；队首示例起点仍含元素 4，并非接续在队尾弹出 4 之后。",
+      "key_state": "push_first/pop_first 操作队首，push_last/pop_last 操作队尾；两组示例范围独立。",
+      "announcement": "分别演示队尾与队首的入队和出队，展示双向队列的四种基本操作。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-05",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "0a1e8a48bcaca7fb084658f68075b74bf23db1837da7bd1a637879bce7ecb66b",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "bbf6fc89ced3325538a22d1eecebd98ac2a54cd576eb8bfe0b2aad472b2340bc",
-        "output_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108",
-        "output_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281",
-        "output_sha256": "ffb27a99b86ace98bde8e54084f42f6a1c59f19a353deb9a55c4ee96d96e99be"
-      }
-    ],
-    "evidence_sha256": "954be79d16a2deb5e3a0108cd78415c4c9fef13373e1a16fbca5a1e1d388bf98"
-  },
   "dependencies": {
     "markdown": {
-      "chapter_stack_and_queue/deque.md": "fee908eaea444525f8a1fe3f8f541cc0de02efc01305d5c051dae665ba10887e"
+      "chapter_stack_and_queue/deque.md": "c488d4221389aebf461b632037afd3275572f29eb891dcf115f1ff2b9c3d98a0"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -68,76 +35,77 @@
       "kind": "prose",
       "model_sha256": "4a556a842f030924a88a4eeb9040d9100200ff64e755f54ed3959069f0dd10f9",
       "prose": {
-        "schema_version": 1,
+        "schema_version": 2,
         "status": "confirmed",
         "locale": "zh-hans",
         "story_id": "deque-tail-operations",
         "group_id": "group:chapter_stack_and_queue/deque.assets/deque_operations",
-        "title": "双向队列队尾操作：队尾入队与队尾出队",
-        "summary": "以 [3, 2, 5] 为独立初态，在队尾推入 4 得到 [3, 2, 5, 4]，再从队尾弹出并返回 4。",
+        "title": "双向队列的队尾操作",
+        "summary": "在队尾添加再取出同一元素，其余元素次序不变。",
         "context": [
-          "双向队列允许在队首和队尾两端分别执行入队与出队操作。图中竖直通道上端为队首、下端为队尾；注解中的序列一律按从队首到队尾的顺序书写。",
-          "本动画是专门演示队尾操作的独立示例，初始队列内容为 [3, 2, 5]。"
+          "本例为独立的队尾操作示例，初始队列按队首到队尾为 [3, 2, 5]，仅在队尾入队和出队。"
         ],
         "description": [
-          "动画分三步展示队尾端的一进一出：第一步显示初始队列 [3, 2, 5] 及两端可进可出的方向说明；第二步执行 push_last(4) 将 4 加入底部队尾；第三步执行 pop_last() 将刚加入的队尾元素 4 从底部取出并返回。",
-          "入队时通道下方的浅色虚线方块表示元素的来源位置，出队时通道内的浅色虚线方块表示刚离开元素的旧位置残影，两者都不重复计入有效队列；出队后位于通道下方的绿色实心方块代表本次返回值。"
+          "虚线方块仅示意元素操作前的旧位置，不计入当前队列；移出容器外的实心方块表示本次出队的返回值。"
         ],
-        "result": "经过队尾入队与队尾出队后，有效队列恢复为 [3, 2, 5]，pop_last() 返回 4。",
+        "result": "先后执行 push_last(4) 与 pop_last()，返回 4，队列恢复为 [3, 2, 5]。",
         "steps": [
           {
             "id": "step-1",
-            "title": "队尾示例初始状态 [3, 2, 5]",
-            "explanation": "画面展示标题“双向队列 deque”。竖直通道内自上而下依次为 3、2、5，上端标注“队首”并配有“出队”和“入队”双向箭头，下端标注“队尾”并同样配有“入队”和“出队”双向箭头。",
-            "state": "当前双向队列从队首到队尾依次为 [3, 2, 5]，长度为 3，队首为 3，队尾为 5；本步无出队返回值。",
-            "key_state": "初始队列 [3, 2, 5]，队首 3、队尾 5。",
-            "announcement": "显示双向队列初始状态 [3, 2, 5]。"
+            "title": "独立起点",
+            "explanation": "队尾示例从 [3, 2, 5] 独立开始，准备在队尾操作。",
+            "state": "队尾示例初始状态：当前队列按队首到队尾为 [3, 2, 5]，共 3 个元素，队首为 3、队尾为 5；无返回值。",
+            "key_state": "当前 [3, 2, 5]，队首 3、队尾 5，无返回值。",
+            "announcement": "队尾示例起点为 [3, 2, 5]，准备操作队尾。"
           },
           {
             "id": "step-2",
-            "title": "执行 push_last(4)，4 从队尾入队",
-            "explanation": "下方标注“队尾入队 push_last(4)”，元素 4 沿向上箭头从底部进入通道，排在原队尾 5 的下方成为新队尾；通道外下方的浅色虚线 4 仅指示入队前的来源位置。",
-            "state": "当前双向队列从队首到队尾依次为 [3, 2, 5, 4]，长度为 4，队首为 3，队尾为 4；本步无出队返回值。",
-            "key_state": "push_last(4) 后队列为 [3, 2, 5, 4]，队尾为 4。",
-            "announcement": "执行 push_last(4)，4 从队尾入队，队列变为 [3, 2, 5, 4]。"
+            "title": "push_last(4)",
+            "explanation": "将 4 加入队尾，其余元素次序不变，4 成为新队尾。",
+            "state": "队尾示例执行 push_last(4) 后：当前队列按队首到队尾为 [3, 2, 5, 4]，共 4 个元素，队首为 3、队尾为 4；无返回值。",
+            "key_state": "当前 [3, 2, 5, 4]，队首 3、队尾 4，无返回值。",
+            "announcement": "将 4 加入队尾，当前队列为 [3, 2, 5, 4]。"
           },
           {
             "id": "step-3",
-            "title": "执行 pop_last()，4 从队尾出队并返回",
-            "explanation": "下方标注“队尾出队 pop_last()”，当前队尾元素 4 沿向下箭头从底部离开通道，作为绿色实心方块显示在通道下方表示本次返回值；通道内原队尾位置的浅色虚线 4 为旧位置残影，不再属于有效队列。元素 5 重新成为队尾。",
-            "state": "当前双向队列从队首到队尾依次为 [3, 2, 5]，长度为 3，队首为 3，队尾为 5；本次 pop_last() 返回 4，4 已不在队列中。",
-            "key_state": "pop_last() 返回 4，队列恢复为 [3, 2, 5]，队尾为 5。",
-            "announcement": "执行 pop_last() 从队尾弹出并返回 4，队列恢复为 [3, 2, 5]。"
+            "title": "pop_last()",
+            "explanation": "从队尾移除并返回 4，队尾恢复为 5。",
+            "state": "队尾示例执行 pop_last() 后：当前队列按队首到队尾为 [3, 2, 5]，共 3 个元素，队首为 3、队尾为 5；本次返回 4（已移出队列）。",
+            "key_state": "当前 [3, 2, 5]，队首 3、队尾 5，返回 4。",
+            "announcement": "从队尾移除并返回 4，队列恢复为 [3, 2, 5]。"
           }
         ],
         "review": {
           "status": "confirmed",
-          "run_id": "figure-accessibility-20261114/animations/batch-02",
-          "content_sha256": "61206ef818a4e84a09489ed3d87ce72388f2df49f532a3ad0e0db22b31d99c8e",
+          "run_id": "figure-reading-20261116/content/body-05",
+          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
           "stages": [
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "4d13f1301ba3734719aea73335d2d384fca7b4f65812bce845d84076149bc1b7",
-              "output_sha256": "b1d5d394047175cc689fca6198b1942ee353e2158ae12b2b05edf71fa3952503"
+              "input_sha256": "234a418cc6b3bf836f8a4f22e3e0303a14a7f32d98a0e14f929b7fb95fb92621",
+              "output_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950"
             },
             {
               "requested_model": "gemini-4-argon",
               "actual_model": null,
               "model_confirmation": "provider_not_reported",
-              "input_sha256": "b1d5d394047175cc689fca6198b1942ee353e2158ae12b2b05edf71fa3952503",
-              "output_sha256": "b3795c3a3799e1c0ee7a28b95029b0e10278ee5727b6f9868a5a135e5f187403"
+              "input_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950",
+              "output_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c"
             },
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "b3795c3a3799e1c0ee7a28b95029b0e10278ee5727b6f9868a5a135e5f187403",
-              "output_sha256": "112a1db1238c2b663c27321978bce0241eebaf5d6fdeac067f9bbeda5c675d22"
+              "input_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c",
+              "output_sha256": "91bc65f47e08937ca3298efba2a445071a1e1a44f73d8c57772d1973886936d1"
             }
           ],
-          "evidence_sha256": "aa6ba7b54ada7ba151f97f6b9bd3b49fc4723bd6cae50b0be26e0f9b73fccfd8"
+          "evidence_sha256": "5866cf40b0335b4c2cc406559c9e71d261a3d948f430401a1f3949cc4ea5ea1c",
+          "verification_manifest_sha256": "4f1336dab5a55decb8eb34d4152a8a0006c4cd2d7ca264d5af16346db2f27e51",
+          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+          "content_sha256": "e93c4018254c46c276f50cdc9d65784b0dd146936cf5a8b27860d22b615726af"
         }
       }
     },
@@ -145,78 +113,154 @@
       "kind": "prose",
       "model_sha256": "320c484b27d2ddd64708f15e6fcbf5dce6eb0ea250ebf825195cc17da5250bb9",
       "prose": {
-        "schema_version": 1,
+        "schema_version": 2,
         "status": "confirmed",
         "locale": "zh-hans",
         "story_id": "deque-head-operations",
         "group_id": "group:chapter_stack_and_queue/deque.assets/deque_operations",
-        "title": "双向队列队首操作：队首入队与队首出队",
-        "summary": "以 [3, 2, 5, 4] 为独立初态，在队首推入 1，再从队首弹出并返回 1，恢复为 [3, 2, 5, 4]。",
+        "title": "双向队列的队首操作",
+        "summary": "在队首添加再取出同一元素，其余元素次序不变。",
         "context": [
-          "双向队列允许在队首和队尾两端分别执行入队与出队操作。图中竖直通道上端为队首、下端为队尾；注解中的序列一律按从队首到队尾的顺序书写。",
-          "本动画是专门演示队首操作的独立示例，直接以四元素队列 [3, 2, 5, 4] 作为起点，不与队尾出队后的三元素状态串联。"
+          "本例为独立的队首操作示例，初始队列按队首到队尾为 [3, 2, 5, 4]；此起点仍包含 4，不接续在队尾弹出 4 的示例之后。"
         ],
         "description": [
-          "动画分三步展示队首端的一进一出：第一步给出本例的初始队列 [3, 2, 5, 4]；第二步执行 push_first(1) 将 1 从顶部加入队首；第三步执行 pop_first() 将刚加入的队首元素 1 从顶部取出并返回。其余元素的相对顺序始终保持不变。",
-          "入队时通道上方的浅色虚线方块表示元素的来源位置，出队时通道内顶部槽位的浅色虚线方块表示旧位置残影，两者都不重复计入有效队列；出队后位于通道上方的绿色实心方块代表本次返回值。"
+          "虚线方块仅示意元素操作前的旧位置，不计入当前队列；移出容器外的实心方块表示本次出队的返回值。"
         ],
-        "result": "经过队首入队与队首出队后，有效队列恢复为 [3, 2, 5, 4]，pop_first() 返回 1。",
+        "result": "先后执行 push_first(1) 与 pop_first()，返回 1，队列恢复为 [3, 2, 5, 4]。",
         "steps": [
           {
             "id": "step-1",
-            "title": "队首示例初始状态 [3, 2, 5, 4]",
-            "explanation": "竖直通道内自上而下依次存放四个元素 3、2、5、4，其中队首为 3、队尾为 4，作为演示队首入队与队首出队的独立起点。",
-            "state": "当前双向队列从队首到队尾依次为 [3, 2, 5, 4]，长度为 4，队首为 3，队尾为 4；本步无出队返回值。",
-            "key_state": "初始队列 [3, 2, 5, 4]，队首 3、队尾 4。",
-            "announcement": "显示队首操作示例的初始队列 [3, 2, 5, 4]。"
+            "title": "独立起点",
+            "explanation": "队首示例以 [3, 2, 5, 4] 为独立起点，准备在队首操作。",
+            "state": "队首示例独立起点：当前队列按队首到队尾为 [3, 2, 5, 4]，共 4 个元素，队首为 3、队尾为 4；无返回值。",
+            "key_state": "当前 [3, 2, 5, 4]，队首 3、队尾 4，无返回值。",
+            "announcement": "队首示例独立起点为 [3, 2, 5, 4]，准备操作队首。"
           },
           {
             "id": "step-2",
-            "title": "执行 push_first(1)，1 从队首入队",
-            "explanation": "上方标注“队首入队 push_first(1)”，元素 1 沿向下箭头从顶部进入通道，排在原队首 3 的上方成为新队首；通道外上方的浅色虚线 1 仅指示入队前的来源位置。",
-            "state": "当前双向队列从队首到队尾依次为 [1, 3, 2, 5, 4]，长度为 5，队首为 1，队尾为 4；本步无出队返回值。",
-            "key_state": "push_first(1) 后队列为 [1, 3, 2, 5, 4]，队首为 1。",
-            "announcement": "执行 push_first(1)，1 从队首入队，队列变为 [1, 3, 2, 5, 4]。"
+            "title": "push_first(1)",
+            "explanation": "将 1 加入队首，其余元素次序不变，1 成为新队首。",
+            "state": "队首示例执行 push_first(1) 后：当前队列按队首到队尾为 [1, 3, 2, 5, 4]，共 5 个元素，队首为 1、队尾为 4；无返回值。",
+            "key_state": "当前 [1, 3, 2, 5, 4]，队首 1、队尾 4，无返回值。",
+            "announcement": "将 1 加入队首，当前队列为 [1, 3, 2, 5, 4]。"
           },
           {
             "id": "step-3",
-            "title": "执行 pop_first()，1 从队首出队并返回",
-            "explanation": "上方标注“队首出队 pop_first()”，当前队首元素 1 沿向上箭头从顶部离开通道，作为绿色实心方块显示在通道上方表示本次返回值；通道内原队首位置的浅色虚线 1 为旧位置残影，不再属于有效队列。元素 3 重新成为队首。",
-            "state": "当前双向队列从队首到队尾依次为 [3, 2, 5, 4]，长度为 4，队首为 3，队尾为 4；本次 pop_first() 返回 1，1 已不在队列中。",
-            "key_state": "pop_first() 返回 1，队列恢复为 [3, 2, 5, 4]，队首为 3。",
-            "announcement": "执行 pop_first() 从队首弹出并返回 1，队列恢复为 [3, 2, 5, 4]。"
+            "title": "pop_first()",
+            "explanation": "从队首移除并返回 1，队首恢复为 3。",
+            "state": "队首示例执行 pop_first() 后：当前队列按队首到队尾为 [3, 2, 5, 4]，共 4 个元素，队首为 3、队尾为 4；本次返回 1（已移出队列）。",
+            "key_state": "当前 [3, 2, 5, 4]，队首 3、队尾 4，返回 1。",
+            "announcement": "从队首移除并返回 1，队列恢复为 [3, 2, 5, 4]。"
           }
         ],
         "review": {
           "status": "confirmed",
-          "run_id": "figure-accessibility-20261114/animations/batch-02",
-          "content_sha256": "d8d0d5555769895146710b4907fdbbbbcb88b946202c91cde8c065a5632e9fd2",
+          "run_id": "figure-reading-20261116/content/body-05",
+          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
           "stages": [
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "4d13f1301ba3734719aea73335d2d384fca7b4f65812bce845d84076149bc1b7",
-              "output_sha256": "b1d5d394047175cc689fca6198b1942ee353e2158ae12b2b05edf71fa3952503"
+              "input_sha256": "234a418cc6b3bf836f8a4f22e3e0303a14a7f32d98a0e14f929b7fb95fb92621",
+              "output_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950"
             },
             {
               "requested_model": "gemini-4-argon",
               "actual_model": null,
               "model_confirmation": "provider_not_reported",
-              "input_sha256": "b1d5d394047175cc689fca6198b1942ee353e2158ae12b2b05edf71fa3952503",
-              "output_sha256": "b3795c3a3799e1c0ee7a28b95029b0e10278ee5727b6f9868a5a135e5f187403"
+              "input_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950",
+              "output_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c"
             },
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "b3795c3a3799e1c0ee7a28b95029b0e10278ee5727b6f9868a5a135e5f187403",
-              "output_sha256": "112a1db1238c2b663c27321978bce0241eebaf5d6fdeac067f9bbeda5c675d22"
+              "input_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c",
+              "output_sha256": "91bc65f47e08937ca3298efba2a445071a1e1a44f73d8c57772d1973886936d1"
             }
           ],
-          "evidence_sha256": "aa6ba7b54ada7ba151f97f6b9bd3b49fc4723bd6cae50b0be26e0f9b73fccfd8"
+          "evidence_sha256": "5866cf40b0335b4c2cc406559c9e71d261a3d948f430401a1f3949cc4ea5ea1c",
+          "verification_manifest_sha256": "4f1336dab5a55decb8eb34d4152a8a0006c4cd2d7ca264d5af16346db2f27e51",
+          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+          "content_sha256": "ddb40a12d2bbd7e4472e2c7037c4398fb5d461c930fb3a1996a3789bc358aa41"
         }
       }
     }
+  },
+  "tables": [
+    {
+      "caption": "两组独立示例",
+      "headers": [
+        "示例与操作",
+        "操作后有效队列",
+        "返回"
+      ],
+      "rows": [
+        [
+          "尾端：初始",
+          "[3,2,5]",
+          "无"
+        ],
+        [
+          "尾端：push_last(4)",
+          "[3,2,5,4]",
+          "无"
+        ],
+        [
+          "尾端：pop_last()",
+          "[3,2,5]",
+          "4"
+        ],
+        [
+          "首端：独立起点",
+          "[3,2,5,4]",
+          "无"
+        ],
+        [
+          "首端：push_first(1)",
+          "[1,3,2,5,4]",
+          "无"
+        ],
+        [
+          "首端：pop_first()",
+          "[3,2,5,4]",
+          "1"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-05",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "234a418cc6b3bf836f8a4f22e3e0303a14a7f32d98a0e14f929b7fb95fb92621",
+        "output_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950",
+        "output_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c",
+        "output_sha256": "91bc65f47e08937ca3298efba2a445071a1e1a44f73d8c57772d1973886936d1"
+      }
+    ],
+    "evidence_sha256": "5866cf40b0335b4c2cc406559c9e71d261a3d948f430401a1f3949cc4ea5ea1c",
+    "verification_manifest_sha256": "4f1336dab5a55decb8eb34d4152a8a0006c4cd2d7ca264d5af16346db2f27e51",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "58ad1270e71d5a731c3fc95e4dd53939fe469e987fb99b81f410bf45514b98c5"
   }
 }

@@ -1,60 +1,29 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_sorting/bucket_sort.assets/scatter_in_buckets_distribution",
-  "title": "根据价格分布选择不等宽的桶",
-  "summary": "依据商品价格的概率分布选择六个价格桶，目标是让各桶承接较均衡的数据量。",
+  "title": "按价格分布划分桶",
+  "summary": "根据商品价格的概率分布设置分界点，使落入各桶的数据概率尽量接近，避免数据集中挤入少数桶。",
   "context": [
-    "图中横轴为“商品价格”，纵轴为“概率密度”（刻度为 0.0 至 0.4）。灰色钟形曲线用于示意商品价格的概率密度分布，并未给出可精确积分的分布参数。"
+    "图中横轴表示商品价格，从左到右依次标出 0、3、10、25、80、200、+∞；纵轴表示概率密度，刻度为 0.0 至 0.4。灰色钟形曲线在价格 25 附近达到峰值，仅作分布形态示意，图中未给出分布函数参数或各桶的精确概率数值。"
   ],
   "description": [
-    "概率密度曲线在价格 25 附近达到峰值，并向左右两侧逐渐回落。横轴从左到右依次标出 0、3、10、25、80、200、+∞；注意这些价格刻度并非等距线性排列，图上的水平跨度不代表等差的价格差值。",
-    "竖直虚线将曲线下方区域切分为六个区间，通过大括号对应底部的六个桶：<3、3–10、10–25、25–80、80–200、>200。最右侧 >200 桶无有限上界。图面上峰值附近的分界线较密，但横轴并非线性价格轴，不能据此比较实际价格跨度的宽窄。",
-    "划分分界线的目标是让每个区间下方围成的概率面积（即落入该桶的数据比例）尽量接近，而非追求区间宽度相等。由于图中未标注各区间的具体面积，不能据此断言六个桶的概率严格相等。"
+    "需要特别注意横轴是非线性示意坐标：相邻刻度之间的价格差（如 0 到 3 相差 3，80 到 200 相差 120）与图上的水平像素宽度不成比例。因此，不能根据图上各桶的视觉宽度判断真实价格跨度，也不能直接量取画面中的曲线下面积来推算精确入桶概率。",
+    "分桶设计的目标是依据真实价格分布的区间概率选择分界点，使各桶的期望数据量大致接近；本图未给出精确区间概率，也未证明六桶已严格等概率。"
   ],
-  "result": "当提前获知或近似估计出数据的概率分布时，可按概率密度加密峰值区间的分界线、放宽尾部区间的分界线，从而在分桶阶段直接实现近似平均分配。",
+  "result": "当已知或可估计数据分布时，可按真实分布的区间概率划定分桶边界，争取各桶数据量大致均衡；但不能由本图的非线性画面宽度或图形面积推断真实价格跨度与精确概率，也不能断言图中六桶已严格等概率。",
   "frames": [
     {
       "id": "source-298",
       "book_path": "chapter_sorting/bucket_sort.assets/scatter_in_buckets_distribution.png",
-      "title": "依据概率密度分布设定不等宽桶边界",
-      "explanation": "底部大括号将横轴标出的价格区间映射到六个桶。图中按分布设置 3、10、25、80、200 五个分界点，目标是平衡各桶落入的数据量；图示未提供各桶的精确概率。",
-      "state": "横轴商品价格标出 0、3、10、25、80、200、+∞；纵轴概率密度标出 0.0 至 0.4，钟形曲线峰值位于 25 附近。底部六个桶依次为 <3、3–10、10–25、25–80、80–200、>200。",
-      "key_state": "按 3、10、25、80、200 五个价格分界点划为六个不等宽桶。",
-      "announcement": "展示如何根据商品价格的概率密度分布划分六个不等宽的价格桶。"
+      "title": "按价格分布划分桶",
+      "explanation": "曲线下方用 6 个大括号将价格轴依次划分为 <3、3～10、10～25、25～80、80～200、>200 共 6 个桶，最右侧 >200 无有限上界。由于横轴是非线性示意轴，各桶在画面上的宽度不代表实际价格跨度；同时图中范围写法未指明等号端点归属，实际编程实现时仍需明确左闭右开或左开右闭规则。",
+      "state": "价格横轴（非线性示意）依次标出 0、3、10、25、80、200、+∞，概率密度纵轴刻度为 0.0 至 0.4，曲线峰值位于 25 附近。下方对应 6 个价格桶：<3、3～10、10～25、25～80、80～200、>200；图上未给出精确区间概率，也未规定分界端点 3、10、25、80、200 的归属。",
+      "key_state": "六个价格桶依次为 <3、3～10、10～25、25～80、80～200、>200；横轴为非线性示意，目标是使各区间入桶概率大致接近，端点归属未标明。",
+      "announcement": "展示基于价格分布示意划分的六个价格桶区间。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-15",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "47b9e8069a24f64a25c069018c3b80a9d2b1fcc84dd9bb6529801ada3c02f898",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "527f3607822b7dd874e1221e38d84957024c5ee16b1cac9a646b720d5ceeeb20",
-        "output_sha256": "b332692818930e5bb93b7396fb13f2e0aeeea9f0a957557c917737dc68650cd5"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b332692818930e5bb93b7396fb13f2e0aeeea9f0a957557c917737dc68650cd5",
-        "output_sha256": "1d3f82b8556de39e8ce2bdf446f95d064e294579d7c86285dfbc362e947edcd4"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "1d3f82b8556de39e8ce2bdf446f95d064e294579d7c86285dfbc362e947edcd4",
-        "output_sha256": "1e0a6d5b3ecf54326d4542c1be61a35d6a86fcc0d8795f2600aee901e62baf54"
-      }
-    ],
-    "evidence_sha256": "eae7ac31efc1870978e21f8d8ff6ae8fec853715ad81b0e511b818ea537501e4"
-  },
   "dependencies": {
     "markdown": {
       "chapter_sorting/bucket_sort.md": "ca9a62e971bc3b66c937e69bcfcee27297369acc4b5bce7c0f88af2de94f4e6e"
@@ -63,5 +32,73 @@
     "scenes": {
       "chapter_sorting/bucket_sort.assets/scatter_in_buckets_distribution.png": "93f296aa386b34bd6ae2862940e618692e88e7f59ad7c98a177052cd018b955a"
     }
+  },
+  "tables": [
+    {
+      "caption": "图中六个价格桶；端点归属未标明",
+      "headers": [
+        "桶序号",
+        "原图价格范围"
+      ],
+      "rows": [
+        [
+          "1",
+          "<3"
+        ],
+        [
+          "2",
+          "3～10"
+        ],
+        [
+          "3",
+          "10～25"
+        ],
+        [
+          "4",
+          "25～80"
+        ],
+        [
+          "5",
+          "80～200"
+        ],
+        [
+          "6",
+          ">200"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-01",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "bee8ef3e466c2fa5309322f74f5898255f7a9756899611b2cd87ce6e3854ee7b",
+        "output_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69",
+        "output_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891",
+        "output_sha256": "16c8b112b53ded438d4441cc173d93989fdd3fde82db826e2a6112fab308c3d4"
+      }
+    ],
+    "evidence_sha256": "744ffd0467db06d32b8f66d9d86433ff0b9bf0949849bb0b0a4787fce7a270f8",
+    "verification_manifest_sha256": "6195843dd3024e4a7a3a4caf12fa0ab2f3c27e21a93175d9900c87fef51760fb",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "448de8edb9655de9b5eb99123790740e04031a18f9e7671213483051cc39d1d0"
   }
 }

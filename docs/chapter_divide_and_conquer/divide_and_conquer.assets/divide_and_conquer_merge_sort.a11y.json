@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort",
@@ -9,9 +9,8 @@
     "输入数组为 [7, 3, 2, 6, 0, 1, 5, 4]。分治策略包含两个核心步骤：“分（划分阶段）”递归地将原问题拆解为规模更小、互不重叠的子问题，直至到达最小子问题；“治（合并阶段）”从已知解的最小子问题出发，自底向上将子问题的解合并为原问题的解。"
   ],
   "description": [
-    "上半部分“分（划分阶段）”将原数组先对半切分为 [7, 3, 2, 6] 与 [0, 1, 5, 4]；再继续切分为 [7, 3]、[2, 6]、[0, 1]、[5, 4]；最后拆成八个单元素子数组 [7]、[3]、[2]、[6]、[0]、[1]、[5]、[4]。中部虚线标出这些单元素为“最小子问题”，它们无需比较即可直接视为有序。",
-    "下半部分“治（合并阶段）”自底向上逐层合并：先两两合并为四个有序子数组 [3, 7]、[2, 6]、[0, 1]、[4, 5]，再两两合并为 [2, 3, 6, 7] 与 [0, 1, 4, 5]，最后合并为完整升序数组 [0, 1, 2, 3, 4, 5, 6, 7]。",
-    "每次合并时，依次比较左右两个有序子数组当前尚未取出的首元素，将较小者放入合并结果，待一侧取尽后追加另一侧剩余元素。下半部分的交叉细箭头标示各个元素从子问题结果汇入上层合并结果的位置对应关系。"
+    "不断把当前数组对半划分，直到每个子问题只含一个元素。左右两部分互不重叠，可各自求解；单元素无需比较就是有序结果。",
+    "返回时将相邻的两个有序结果合并。每次比较两边首个尚未取出的元素，取较小者；一边取完后接上另一边的剩余元素。逐层合并后解决完整八元素问题。"
   ],
   "result": "由于子问题与原问题同属数组排序、左右子数组相互独立，且两个有序子数组可以高效合并为一个有序数组，归并排序完整体现了分治策略的三大要素。",
   "frames": [
@@ -19,42 +18,10 @@
       "id": "source-309",
       "book_path": "chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.png",
       "title": "用归并排序理解“分”与“治”",
-      "explanation": "上半图通过递归划分将长数组排序拆解到单元素最小子问题，下半图通过逐层归并将子问题的有序解合成为原数组的完整有序解。",
-      "state": "输入为 [7, 3, 2, 6, 0, 1, 5, 4]；划分阶段依次拆为 [7, 3, 2, 6] 与 [0, 1, 5, 4]，再拆为 [7, 3]、[2, 6]、[0, 1]、[5, 4]，直至八个单元素最小子问题；合并阶段依次合成为 [3, 7]、[2, 6]、[0, 1]、[4, 5]，再合成为 [2, 3, 6, 7] 与 [0, 1, 4, 5]，最终合并为 [0, 1, 2, 3, 4, 5, 6, 7]。",
-      "key_state": "先划分到单元素最小子问题，再逐层合并为 [0, 1, 2, 3, 4, 5, 6, 7]。",
-      "announcement": "展示归并排序中“分（划分阶段）”与“治（合并阶段）”的完整分治流程。"
+      "explanation": "上半部分自顶向下递归对半划分，直到拆为 8 个单元素最小子问题；下半部分自底向上将相邻有序子数组逐层归并，完整七层结果见下表。",
+      "state": "输入含八个元素；经过三层递归划分到达八个单元素子问题，再经过三层自底向上的合并得到升序结果。七层的全部子数组见当前层级表。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-16",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "5d1fbb67b784c8a81d5ed0df29613170a9cab038de68ed74eb5af3301a77e472",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "5e763dfd4e2b736b9a5010f6bdd3e33ef9402bdbd494a2a8c3346a1893135dc9",
-        "output_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb",
-        "output_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0",
-        "output_sha256": "b8fa9f331b33db33433309a29e9fe3834178d140c262ec7bc27dee6b669a5cd5"
-      }
-    ],
-    "evidence_sha256": "a355fc71eefa70eb8f989661b8a016ead02f198bb0747865902f358b13b089ae"
-  },
   "dependencies": {
     "markdown": {
       "chapter_divide_and_conquer/divide_and_conquer.md": "433813a12d09fb5bfb85695af5b249a0ad58dc0fb87a5a4ab7786f39c49853cf"
@@ -63,5 +30,85 @@
     "scenes": {
       "chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.png": "40ec07d737229612e02f0a95f5bd9f2cfdae15f179e466dad0c4a39eb4b298ae"
     }
+  },
+  "tables": [
+    {
+      "caption": "划分与合并的层级",
+      "headers": [
+        "阶段",
+        "每个子数组长度",
+        "子数组（按原左右位置）"
+      ],
+      "rows": [
+        [
+          "原问题",
+          "8",
+          "[7,3,2,6,0,1,5,4]"
+        ],
+        [
+          "划分为两个子问题",
+          "4",
+          "[7,3,2,6]；[0,1,5,4]"
+        ],
+        [
+          "继续划分",
+          "2",
+          "[7,3]；[2,6]；[0,1]；[5,4]"
+        ],
+        [
+          "最小子问题",
+          "1",
+          "[7]；[3]；[2]；[6]；[0]；[1]；[5]；[4]"
+        ],
+        [
+          "合并为四个有序结果",
+          "2",
+          "[3,7]；[2,6]；[0,1]；[4,5]"
+        ],
+        [
+          "合并为两个有序结果",
+          "4",
+          "[2,3,6,7]；[0,1,4,5]"
+        ],
+        [
+          "合并为原问题的解",
+          "8",
+          "[0,1,2,3,4,5,6,7]"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-10",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "587fb17853deb18aea81c8aaf923dad9d8944f711dd123357454014ee90673ed",
+        "output_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0",
+        "output_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989",
+        "output_sha256": "4409226acfc61414b5ce59f1e3c8cabdf42be0ad2939e4274348c347ae325320"
+      }
+    ],
+    "evidence_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e",
+    "verification_manifest_sha256": "2023927acd22f572c739405dfbb6d4338b32deadbe8db27f2438c77108cc13b9",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "be156e79b2c71accf559137cee5790d60c3479eb4b9bebc59ba23001a16ed2f2"
   }
 }

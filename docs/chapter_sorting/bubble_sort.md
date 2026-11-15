@@ -8,22 +8,27 @@
     ![利用元素交换操作模拟冒泡](bubble_sort.assets/bubble_operation_step1.svg)
 
 === "<2>"
-    ![冒泡排序单轮操作：从左至右连续比较与交换相邻元素，第 2 步，共 7 步：第 2 步：比较索引 0、1（4 > 1），交换 4 与 1](bubble_sort.assets/bubble_operation_step2.svg)
+    ![一轮冒泡操作，第 2 步，共 7 步：比较并交换索引 0、1](bubble_sort.assets/bubble_operation_step2.svg)
 
 === "<3>"
-    ![冒泡排序单轮操作：从左至右连续比较与交换相邻元素，第 3 步，共 7 步：第 3 步：比较索引 1、2（4 > 3），交换 4 与 3](bubble_sort.assets/bubble_operation_step3.svg)
+    ![一轮冒泡操作，第 3 步，共 7 步：比较并交换索引 1、2](bubble_sort.assets/bubble_operation_step3.svg)
 
 === "<4>"
-    ![冒泡排序单轮操作：从左至右连续比较与交换相邻元素，第 4 步，共 7 步：第 4 步：比较索引 2、3（4 > 1），交换 4 与第二个 1](bubble_sort.assets/bubble_operation_step4.svg)
+    ![一轮冒泡操作，第 4 步，共 7 步：比较并交换索引 2、3](bubble_sort.assets/bubble_operation_step4.svg)
 
 === "<5>"
-    ![冒泡排序单轮操作：从左至右连续比较与交换相邻元素，第 5 步，共 7 步：第 5 步：比较索引 3、4（4 ≤ 5），维持不变](bubble_sort.assets/bubble_operation_step5.svg)
+    ![一轮冒泡操作，第 5 步，共 7 步：比较索引 3、4，保持不变](bubble_sort.assets/bubble_operation_step5.svg)
 
 === "<6>"
-    ![冒泡排序单轮操作：从左至右连续比较与交换相邻元素，第 6 步，共 7 步：第 6 步：比较索引 4、5（5 > 2），交换 5 与 2](bubble_sort.assets/bubble_operation_step6.svg)
+    ![一轮冒泡操作，第 6 步，共 7 步：比较并交换索引 4、5](bubble_sort.assets/bubble_operation_step6.svg)
 
 === "<7>"
-    ![冒泡排序单轮操作：从左至右连续比较与交换相邻元素，第 7 步，共 7 步：第 7 步：最大泡泡 5 浮出“水面”就位，仅剩 n − 1 个元素待排](bubble_sort.assets/bubble_operation_step7.svg)
+    ![一轮冒泡操作，第 7 步，共 7 步：最大值 5 就位](bubble_sort.assets/bubble_operation_step7.svg)
+<!-- figure-reading:start group:chapter_sorting/bubble_sort.assets/bubble_operation -->
+
+[一轮冒泡操作：完整图解](bubble_sort.assets/bubble_operation.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ## 算法流程
 
@@ -35,6 +40,11 @@
 4. 仅剩的一个元素必定是最小元素，无须排序，因此数组排序完成。
 
 ![冒泡排序流程](bubble_sort.assets/bubble_sort_overview.svg)
+<!-- figure-reading:start group:chapter_sorting/bubble_sort.assets/bubble_sort_overview -->
+
+[冒泡排序逐轮过程：完整图解](bubble_sort.assets/bubble_sort_overview.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 示例代码如下：
 

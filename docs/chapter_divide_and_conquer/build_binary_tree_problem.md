@@ -5,6 +5,11 @@
     给定一棵二叉树的前序遍历 `preorder` 和中序遍历 `inorder` ，请从中构建二叉树，返回二叉树的根节点。假设二叉树中没有值重复的节点（如下图所示）。
 
 ![构建二叉树的示例数据](build_binary_tree_problem.assets/build_tree_example.svg)
+<!-- figure-reading:start group:chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_example -->
+
+[由前序与中序序列重建五节点二叉树：完整图解](build_binary_tree_problem.assets/build_tree_example.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 判断是否为分治问题
 
@@ -30,6 +35,11 @@
 3. 根据 `inorder` 的划分结果，易得左子树和右子树的节点数量分别为 1 和 3 ，从而可将 `preorder` 划分为 `[ 3 | 9 | 2 1 7 ]` 。
 
 ![在前序遍历和中序遍历中划分子树](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.svg)
+<!-- figure-reading:start group:chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_preorder_inorder_division -->
+
+[用中序位置切分左右子树，再切分前序：完整图解](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 基于变量描述子树区间
 
@@ -52,6 +62,11 @@
 请注意，右子树根节点索引中的 $(m-l)$ 的含义是“左子树的节点数量”，建议结合下图理解。
 
 ![根节点和左右子树的索引区间表示](build_binary_tree_problem.assets/build_tree_division_pointers.svg)
+<!-- figure-reading:start group:chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_division_pointers -->
+
+[用 i、l、m、r 表示构树递归的索引区间：完整图解](build_binary_tree_problem.assets/build_tree_division_pointers.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 代码实现
 
@@ -67,32 +82,42 @@
     ![构建二叉树的递归过程](build_binary_tree_problem.assets/built_tree_step1.svg)
 
 === "<2>"
-    ![递归构树：向下创建节点，返回时连接子树，第 2 步，共 9 步：递归进入左子问题，创建叶节点 9](build_binary_tree_problem.assets/built_tree_step2.svg)
+    ![递归构树：向下创建节点，返回时连接子树，第 2 步，共 9 步：创建叶节点 9](build_binary_tree_problem.assets/built_tree_step2.svg)
 
 === "<3>"
-    ![递归构树：向下创建节点，返回时连接子树，第 3 步，共 9 步：回溯返回节点 9，连接为根 3 的左子节点](build_binary_tree_problem.assets/built_tree_step3.svg)
+    ![递归构树：向下创建节点，返回时连接子树，第 3 步，共 9 步：连接左子树 9](build_binary_tree_problem.assets/built_tree_step3.svg)
 
 === "<4>"
-    ![递归构树：向下创建节点，返回时连接子树，第 4 步，共 9 步：递归进入右子问题，创建右子树根 2](build_binary_tree_problem.assets/built_tree_step4.svg)
+    ![递归构树：向下创建节点，返回时连接子树，第 4 步，共 9 步：创建右子树根 2](build_binary_tree_problem.assets/built_tree_step4.svg)
 
 === "<5>"
-    ![递归构树：向下创建节点，返回时连接子树，第 5 步，共 9 步：递归创建节点 2 的左叶节点 1](build_binary_tree_problem.assets/built_tree_step5.svg)
+    ![递归构树：向下创建节点，返回时连接子树，第 5 步，共 9 步：创建叶节点 1](build_binary_tree_problem.assets/built_tree_step5.svg)
 
 === "<6>"
-    ![递归构树：向下创建节点，返回时连接子树，第 6 步，共 9 步：回溯返回节点 1，连接为节点 2 的左子节点](build_binary_tree_problem.assets/built_tree_step6.svg)
+    ![递归构树：向下创建节点，返回时连接子树，第 6 步，共 9 步：连接节点 2 的左子树](build_binary_tree_problem.assets/built_tree_step6.svg)
 
 === "<7>"
-    ![递归构树：向下创建节点，返回时连接子树，第 7 步，共 9 步：递归创建节点 2 的右叶节点 7](build_binary_tree_problem.assets/built_tree_step7.svg)
+    ![递归构树：向下创建节点，返回时连接子树，第 7 步，共 9 步：创建叶节点 7](build_binary_tree_problem.assets/built_tree_step7.svg)
 
 === "<8>"
-    ![递归构树：向下创建节点，返回时连接子树，第 8 步，共 9 步：回溯连接节点 7，完成以 2 为根的右子树](build_binary_tree_problem.assets/built_tree_step8.svg)
+    ![递归构树：向下创建节点，返回时连接子树，第 8 步，共 9 步：连接节点 2 的右子树](build_binary_tree_problem.assets/built_tree_step8.svg)
 
 === "<9>"
-    ![递归构树：向下创建节点，返回时连接子树，第 9 步，共 9 步：回溯返回子树根 2，连接完成整棵二叉树](build_binary_tree_problem.assets/built_tree_step9.svg)
+    ![递归构树：向下创建节点，返回时连接子树，第 9 步，共 9 步：连接完整右子树](build_binary_tree_problem.assets/built_tree_step9.svg)
+<!-- figure-reading:start group:chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree -->
+
+[递归构树：向下创建节点，返回时连接子树：完整图解](build_binary_tree_problem.assets/built_tree.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 每个递归函数内的前序遍历 `preorder` 和中序遍历 `inorder` 的划分结果如下图所示。
 
 ![每个递归函数中的划分结果](build_binary_tree_problem.assets/built_tree_overall.svg)
+<!-- figure-reading:start group:chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_overall -->
+
+[逐个子问题查看前序与中序的划分：完整图解](build_binary_tree_problem.assets/built_tree_overall.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 设树的节点数量为 $n$ ，初始化每一个节点（执行一个递归函数 `dfs()` ）使用 $O(1)$ 时间。**因此总体时间复杂度为 $O(n)$** 。
 

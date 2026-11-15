@@ -1,58 +1,27 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_backtracking/n_queens_problem.assets/n_queens_placing",
   "title": "逐行尝试与剪去冲突棋盘",
-  "summary": "以第一行放第 2 列的分支为例，逐行剪去列与对角线冲突的候选，确定完整解 [2, 4, 1, 3]。",
+  "summary": "以第一行放第 2 列的分支为例，展示四层 16 个候选棋盘的逐行试探与剪枝，确定合法解 [2, 4, 1, 3]。",
   "context": [
-    "由于每行恰好只能放置一枚皇后，回溯算法采取从第 1 行到第 4 行逐行放置的策略，直接避免同行冲突；每一层只需依次尝试该行的第 1 至第 4 列，并剪去与已放皇后发生同列或对角线冲突的分支。以下行列编号均从 1 开始。"
+    "因每行恰好只能放置一枚皇后，回溯算法从第 1 行到第 4 行逐行放置以直接避免同行冲突；每层依次尝试该行第 1 至第 4 列，剪去与已放皇后同列或同对角线的分支。本图行列均从 1 开始编号。"
   ],
   "description": [
-    "四层小棋盘自上而下分别对应“放置第 1 行”至“放置第 4 行”，每层横向列出当前行从第 1 列到第 4 列的四个候选棋盘。合法棋盘及本轮新放入的皇后用绿色高亮；发生冲突而被剪枝的棋盘呈灰色，并用红色点线连接一对相互冲突的皇后。第一行第 1、第 3、第 4 列下方标注“（省略）”，仅展开第 2 列的搜索子树。"
+    "四层共展示 16 个候选棋盘：每次处理下一行，从第 1 列到第 4 列尝试候选位置，若与已放皇后同列或同对角线，就停止该候选分支。",
+    "图中只继续展开第一行第 2 列分支，之后三行依次保留第 4、1、3 列。第一行第 1、3、4 列的后续标为省略，表示图中没有展开，并非剪枝结论；其中第一行第 3 列对应另一个合法解 [3, 1, 4, 2]。"
   ],
-  "result": "图中展开的第一行第 2 列分支最终唯一通向合法解 [2, 4, 1, 3]；其余三个首行分支仅因篇幅标注省略（其中第一行第 3 列分支对应另一个合法解 [3, 1, 4, 2]），不能误认为整个问题只有一个解。",
+  "result": "图中展开的第一行第 2 列分支唯一通向合法解 [2, 4, 1, 3]；其余三个首行分支仅因画幅省略（第一行第 3 列分支对应另一个合法解 [3, 1, 4, 2]），不能误认为整个问题只有一个解。",
   "frames": [
     {
       "id": "source-365",
       "book_path": "chapter_backtracking/n_queens_problem.assets/n_queens_placing.png",
       "title": "逐行尝试与剪去冲突棋盘",
-      "explanation": "第一层尝试第 1 行的第 1 至第 4 列，图中沿第 2 列即 (1, 2) 向下展开。第二层放置第 2 行：第 1 列 (2, 1) 与 (1, 2) 次对角线冲突，第 2 列 (2, 2) 与 (1, 2) 同列冲突，第 3 列 (2, 3) 与 (1, 2) 主对角线冲突，三者均变灰并标出红点线；仅第 4 列 (2, 4) 合法保留。第三层在 (1, 2)、(2, 4) 基础上放置第 3 行：仅第 1 列 (3, 1) 合法保留；第 2 列与 (1, 2) 同列冲突，第 3 列与 (2, 4) 次对角线冲突，第 4 列与 (2, 4) 同列冲突。第四层在 (1, 2)、(2, 4)、(3, 1) 基础上放置第 4 行：第 1 列与 (3, 1) 同列冲突，第 2 列与 (3, 1) 主对角线冲突，第 4 列与 (2, 4) 同列冲突；仅第 3 列 (4, 3) 合法保留，至此四行全部放满。",
-      "state": "四层棋盘树中：第一层第 1、3、4 列标“（省略）”，仅第 2 列 (1, 2) 向下展开；第二层仅第 4 列 (2, 4) 为绿色合法盘，第 1、2、3 列灰化并连红点线；第三层仅第 1 列 (3, 1) 为绿色合法盘，第 2、3、4 列灰化；第四层仅第 3 列 (4, 3) 为绿色合法盘，第 1、2、4 列灰化，最终四枚皇后位于 (1, 2)、(2, 4)、(3, 1)、(4, 3)。",
-      "key_state": "展开首行第 2 列分支，逐行保留第 2、4、1、3 列，其余冲突棋盘被剪枝。",
-      "announcement": "固定第 1 行第 2 列后，逐行排除同列与对角线冲突，依次选定第 4、第 1、第 3 列，完成四皇后摆放。"
+      "explanation": "第一行选第 2 列后，逐行检查四个列候选，剪去发生同列或对角线冲突的棋盘。",
+      "state": "本分支依次保留 (1, 2)、(2, 4)、(3, 1)、(4, 3)。全部 16 个候选棋盘（1 基坐标）的冲突与处置见表。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-18",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "6d1cd3e727026c5703e90e2620da9211d0d99b18b12ca82f09cfaea0320635a9",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "4d905ea19e7b4a83ea36041a9c7f9d8d8c1f3b06c72a654e2a9e539750effd5d",
-        "output_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90",
-        "output_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad",
-        "output_sha256": "5ee2b110fd9b935a096ccaacf3e3b27d88bb1cb4918d9a5b6bd2b5a75c56edf0"
-      }
-    ],
-    "evidence_sha256": "5559c3ad6bd5d378f79de2a5c7f96ac680c007486f684e00a24a2512ab4de485"
-  },
   "dependencies": {
     "markdown": {
       "chapter_backtracking/n_queens_problem.md": "0703bbfa9c27095e7d378f2dcdd026d8c6e15ca0e068ae50aefaf9d94cbc07aa"
@@ -61,5 +30,164 @@
     "scenes": {
       "chapter_backtracking/n_queens_problem.assets/n_queens_placing.png": "f6f0d7fb8ebe4be14e4bd098e844c77fed32b0d76925c257d6a8ea9ecd2d61ee"
     }
+  },
+  "tables": [
+    {
+      "caption": "每个候选格的处置：坐标从 1 开始",
+      "headers": [
+        "当前候选格",
+        "已放皇后",
+        "图中指出的冲突对象",
+        "冲突类型",
+        "处置"
+      ],
+      "rows": [
+        [
+          "(1,1)",
+          "无",
+          "无",
+          "无冲突",
+          "合法，后续省略"
+        ],
+        [
+          "(1,2)",
+          "无",
+          "无",
+          "无冲突",
+          "保留并继续"
+        ],
+        [
+          "(1,3)",
+          "无",
+          "无",
+          "无冲突",
+          "合法，后续省略"
+        ],
+        [
+          "(1,4)",
+          "无",
+          "无",
+          "无冲突",
+          "合法，后续省略"
+        ],
+        [
+          "(2,1)",
+          "(1,2)",
+          "(1,2)",
+          "次对角线",
+          "剪去"
+        ],
+        [
+          "(2,2)",
+          "(1,2)",
+          "(1,2)",
+          "同列",
+          "剪去"
+        ],
+        [
+          "(2,3)",
+          "(1,2)",
+          "(1,2)",
+          "主对角线",
+          "剪去"
+        ],
+        [
+          "(2,4)",
+          "(1,2)",
+          "无",
+          "无冲突",
+          "保留并继续"
+        ],
+        [
+          "(3,1)",
+          "(1,2)、(2,4)",
+          "无",
+          "无冲突",
+          "保留并继续"
+        ],
+        [
+          "(3,2)",
+          "(1,2)、(2,4)",
+          "(1,2)",
+          "同列",
+          "剪去"
+        ],
+        [
+          "(3,3)",
+          "(1,2)、(2,4)",
+          "(2,4)",
+          "次对角线",
+          "剪去"
+        ],
+        [
+          "(3,4)",
+          "(1,2)、(2,4)",
+          "(2,4)",
+          "同列",
+          "剪去"
+        ],
+        [
+          "(4,1)",
+          "(1,2)、(2,4)、(3,1)",
+          "(3,1)",
+          "同列",
+          "剪去"
+        ],
+        [
+          "(4,2)",
+          "(1,2)、(2,4)、(3,1)",
+          "(3,1)",
+          "主对角线",
+          "剪去"
+        ],
+        [
+          "(4,3)",
+          "(1,2)、(2,4)、(3,1)",
+          "无",
+          "无冲突",
+          "保留并继续"
+        ],
+        [
+          "(4,4)",
+          "(1,2)、(2,4)、(3,1)",
+          "(2,4)",
+          "同列",
+          "剪去"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-12",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "2db7b8b0ecd549998fdef4f0b1f30abddd5f422b11a7d32336c10c15ba4135ad",
+        "output_sha256": "2c9c8bbef62d495610441001475851c93659a0b4a44bed6cd9e8183150e44092"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "2c9c8bbef62d495610441001475851c93659a0b4a44bed6cd9e8183150e44092",
+        "output_sha256": "a2ace14bd5018750c19e80363cbad3331032bfa946914771946e57e407668e7a"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a2ace14bd5018750c19e80363cbad3331032bfa946914771946e57e407668e7a",
+        "output_sha256": "c7a7bb6d6515cebec7bbacf4a6095365cb25f8f5dbdc25b8a75d801c27d3cfa7"
+      }
+    ],
+    "evidence_sha256": "5d2e4ec7f377fdb6c214c393e67369ccbad6377559d1dd71998f5b7ecbbcc1d5",
+    "verification_manifest_sha256": "bbc351cd7b91cef62b4c7a18bd298e76111e9a508bd7137d745c92ce2d82153d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "b3402e59218b22b2c555d4f793f3abbc6206fd81f689dcd036d8e111276a6f4a"
   }
 }

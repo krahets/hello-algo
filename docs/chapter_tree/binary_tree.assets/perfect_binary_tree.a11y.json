@@ -54,11 +54,16 @@
   },
   "dependencies": {
     "markdown": {
-      "chapter_tree/binary_tree.md": "ae2eaab951aa4bdfeba7d1cf6b47892b44351703c62da823977b45cbceb86c49"
+      "chapter_tree/binary_tree.md": "aa0c4627b731fa3f16786d3a6f4533fd415e5bea256a9a8f84d6c858ec3596af"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
       "chapter_tree/binary_tree.assets/perfect_binary_tree.png": "2a78df34b6092ca599c98861956c7ceaefd51b76af6f55c9dc6a70f0b335ac17"
     }
+  },
+  "dependency_compatibility": {
+    "run_id": "figure-reading-20261116/upstream-dependency-verification",
+    "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
+    "factual_review_preserved": true
   }
 }

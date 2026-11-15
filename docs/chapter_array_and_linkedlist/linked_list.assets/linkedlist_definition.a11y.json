@@ -1,66 +1,65 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_array_and_linkedlist/linked_list.assets/linkedlist_definition",
-  "title": "链表的节点构成与分散内存布局",
-  "summary": "链表通过引用（指针）将分散在内存各处的节点串联为 1 → 3 → 2 → 5 → 4 → None。",
-  "context": [
-    "画面左右并列展示同一条链表：左侧为逻辑连接视图，从头节点 1 到尾节点 4 依次连接为 1 → 3 → 2 → 5 → 4 → None，并在下方以节点 3 为例标出“节点（node）”由“值”和“指向下个节点的引用（指针）”两部分组成；右侧为物理内存网格，标题为“存储链表的内存空间是分散的”。"
-  ],
+  "title": "链表的节点与连接",
+  "summary": "节点用引用连接成序列，存储位置无须连续。",
+  "context": [],
   "description": [
-    "在右侧内存网格中，每个链表节点占用相邻的两格：左侧深色格存储节点值，右侧浅蓝格存储节点指针；其余浅灰格表示可用内存空间。",
-    "五个节点分布在网格的不同行列（4 在第 1 行右侧，1 在第 2 行偏左，3 在第 3 行中部，2 在第 5 行偏左，5 在第 5 行右侧），彼此并不连续，但箭头依次连接到下一节点，仍然串成 1 → 3 → 2 → 5 → 4，尾节点 4 指向 None。"
+    "逻辑视图与内存网格展示的是同一条链表，并非两份独立数据。网格中每个节点占相邻两格，分别存放节点值与后继引用（指针），其余浅色格为可用空间；格子大小仅为示意。"
   ],
-  "result": "链表的逻辑先后顺序由节点指针决定，节点在内存中无须连续存放。",
+  "result": "链表节点可分散存放，依靠 next 引用保持逻辑顺序；每个节点需要额外的引用存储空间。",
   "frames": [
     {
       "id": "source-50",
       "book_path": "chapter_array_and_linkedlist/linked_list.assets/linkedlist_definition.png",
-      "title": "链表的节点构成与分散内存布局",
-      "explanation": "左侧展示链表的逻辑结构：五个节点从头节点 1 到尾节点 4 依次连接为 1 → 3 → 2 → 5 → 4 → None。每个节点（node）都由“值”和“指向下个节点的引用（指针）”两部分组成，例如节点 3 通过指针指向节点 2，尾节点 4 指向 None。右侧内存网格展示同一条链表在内存中的分散存储：每个节点由存储节点值的深色格和存储节点指针的浅蓝格组成，其余浅灰格为可用内存空间。节点 1、3、2、5、4 散落在网格的不同位置，并不相邻，但箭头仍依次连接下一个节点，保持 1 → 3 → 2 → 5 → 4 的连接顺序。",
-      "state": "左侧逻辑链表依次为 1 → 3 → 2 → 5 → 4 → None，每个节点包含值和指向下一节点的引用（指针）。右侧内存网格中，节点 1、3、2、5、4 分散在不同行列的单元格内，每个节点占一格节点值和一格节点指针，指针箭头仍按 1 → 3 → 2 → 5 → 4 依次串联，其余浅灰格为可用内存空间。",
-      "key_state": "链表 1 → 3 → 2 → 5 → 4 → None；各节点在内存中分散存放，靠指针按序串联。",
-      "announcement": "链表由值和指针组成的节点串联而成，内存中分散存放的 1、3、2、5、4 通过指针保持先后顺序。"
+      "title": "链表的节点与连接",
+      "explanation": "链表从头节点 1 沿 next 引用依次连接到 3、2、5、4，尾节点 4 指向 None。每个节点包含值和指向下一节点的引用，例如节点 3 的值为 3，其 next 指向节点 2。内存示意中，节点 4 位于上方，而排在它前面的节点 2 和 5 位于下方，说明遍历顺序由 next 引用决定，与物理存储位置无关。",
+      "state": "当前链表为 1 → 3 → 2 → 5 → 4 → None，共 5 个节点；头节点为 1，尾节点为 4，末尾 None 表示没有下一节点。每个节点由值与后继引用两部分组成。",
+      "key_state": "1 → 3 → 2 → 5 → 4 → None；由 next 保持顺序，None 表示无后继。",
+      "announcement": "节点用引用连接成序列，存储位置无须连续。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-04",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "f15b3b68212497f12dd5602b922c7a993de4d600e77f6fe470106e60cc4a94fa",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "010659120695514881c0d1ee814ac67faa1e50957300a7e781f1c3edf7858059",
-        "output_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de",
-        "output_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8",
-        "output_sha256": "d48eb4dd56235f9a9b2f2d5c8f67899492c9f6b15567237d35161c31596306cb"
-      }
-    ],
-    "evidence_sha256": "178794e8fd357c692f91d245ae613b37aa02834865c6124afd4cd91ea892de0d"
-  },
   "dependencies": {
     "markdown": {
-      "chapter_array_and_linkedlist/linked_list.md": "759693f1f9372ed67bcda1a55aa41fa22037940c1ca76a2aa1975ab45d1da341"
+      "chapter_array_and_linkedlist/linked_list.md": "e7b62fb0d08b9467a2411492429bd6edbf61a7838841aec2a534a0518cb66e05"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
       "chapter_array_and_linkedlist/linked_list.assets/linkedlist_definition.png": "9f5c4ab550d62d8d62344ea600d9c0ed67a2943d5e29ea3b7250ca675e31693b"
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-05",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "234a418cc6b3bf836f8a4f22e3e0303a14a7f32d98a0e14f929b7fb95fb92621",
+        "output_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950",
+        "output_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c",
+        "output_sha256": "91bc65f47e08937ca3298efba2a445071a1e1a44f73d8c57772d1973886936d1"
+      }
+    ],
+    "evidence_sha256": "5866cf40b0335b4c2cc406559c9e71d261a3d948f430401a1f3949cc4ea5ea1c",
+    "verification_manifest_sha256": "4f1336dab5a55decb8eb34d4152a8a0006c4cd2d7ca264d5af16346db2f27e51",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "3b906965d75bcedc781a996ef7a768cd455010954bec948091d445e30e7c3b90"
   }
 }

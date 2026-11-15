@@ -9,6 +9,11 @@
     给定一个长度为 $n$ 的有序数组 `nums` 和一个元素 `target` ，数组不存在重复元素。现将 `target` 插入数组 `nums` 中，并保持其有序性。若数组中已存在元素 `target` ，则插入到其左方。请返回插入后 `target` 在数组中的索引。示例如下图所示。
 
 ![二分查找插入点示例数据](binary_search_insertion.assets/binary_search_insertion_example.svg)
+<!-- figure-reading:start group:chapter_searching/binary_search_insertion.assets/binary_search_insertion_example -->
+
+[有序数组的插入位置：完整图解](binary_search_insertion.assets/binary_search_insertion_example.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 如果想复用上一节的二分查找代码，则需要回答以下两个问题。
 
@@ -40,6 +45,11 @@
 2. 从索引 $k$ 开始，向左进行线性遍历，当找到最左边的 `target` 时返回。
 
 ![线性查找重复元素的插入点](binary_search_insertion.assets/binary_search_insertion_naive.svg)
+<!-- figure-reading:start group:chapter_searching/binary_search_insertion.assets/binary_search_insertion_naive -->
+
+[二分命中后向左回退：完整图解](binary_search_insertion.assets/binary_search_insertion_naive.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 此方法虽然可用，但其包含线性查找，因此时间复杂度为 $O(n)$ 。当数组中存在很多重复的 `target` 时，该方法效率很低。
 
@@ -54,25 +64,30 @@
     ![二分查找重复元素的插入点的步骤](binary_search_insertion.assets/binary_search_insertion_step1.svg)
 
 === "<2>"
-    ![二分查找重复元素的插入点：遇到相等值继续向左收缩，定位首个 6，第 2 步，共 8 步：第 2 步：第一轮计算中点 m = 4（值为 6）](binary_search_insertion.assets/binary_search_insertion_step2.svg)
+    ![二分查找最左插入点，第 2 步，共 8 步：计算中点 4](binary_search_insertion.assets/binary_search_insertion_step2.svg)
 
 === "<3>"
-    ![二分查找重复元素的插入点：遇到相等值继续向左收缩，定位首个 6，第 3 步，共 8 步：第 3 步：nums\[4\] == 6，执行 j = m − 1 = 3 向左收缩](binary_search_insertion.assets/binary_search_insertion_step3.svg)
+    ![二分查找最左插入点，第 3 步，共 8 步：遇到 6，右边界左移](binary_search_insertion.assets/binary_search_insertion_step3.svg)
 
 === "<4>"
-    ![二分查找重复元素的插入点：遇到相等值继续向左收缩，定位首个 6，第 4 步，共 8 步：第 4 步：第二轮计算中点 m = 1（值为 3）](binary_search_insertion.assets/binary_search_insertion_step4.svg)
+    ![二分查找最左插入点，第 4 步，共 8 步：计算中点 1](binary_search_insertion.assets/binary_search_insertion_step4.svg)
 
 === "<5>"
-    ![二分查找重复元素的插入点：遇到相等值继续向左收缩，定位首个 6，第 5 步，共 8 步：第 5 步：nums\[1\] < 6，执行 i = m + 1 = 2 向右收缩](binary_search_insertion.assets/binary_search_insertion_step5.svg)
+    ![二分查找最左插入点，第 5 步，共 8 步：遇到 3，左边界右移](binary_search_insertion.assets/binary_search_insertion_step5.svg)
 
 === "<6>"
-    ![二分查找重复元素的插入点：遇到相等值继续向左收缩，定位首个 6，第 6 步，共 8 步：第 6 步：第三轮计算中点 m = 2（与左边界 i 重合）](binary_search_insertion.assets/binary_search_insertion_step6.svg)
+    ![二分查找最左插入点，第 6 步，共 8 步：计算中点 2](binary_search_insertion.assets/binary_search_insertion_step6.svg)
 
 === "<7>"
-    ![二分查找重复元素的插入点：遇到相等值继续向左收缩，定位首个 6，第 7 步，共 8 步：第 7 步：nums\[2\] == 6，执行 j = m − 1 = 1 使区间为空](binary_search_insertion.assets/binary_search_insertion_step7.svg)
+    ![二分查找最左插入点，第 7 步，共 8 步：再次遇到 6，区间变空](binary_search_insertion.assets/binary_search_insertion_step7.svg)
 
 === "<8>"
-    ![二分查找重复元素的插入点：遇到相等值继续向左收缩，定位首个 6，第 8 步，共 8 步：第 8 步：跳出二分循环，返回最左插入点索引 i = 2](binary_search_insertion.assets/binary_search_insertion_step8.svg)
+    ![二分查找最左插入点，第 8 步，共 8 步：返回最左插入索引 2](binary_search_insertion.assets/binary_search_insertion_step8.svg)
+<!-- figure-reading:start group:chapter_searching/binary_search_insertion.assets/binary_search_insertion -->
+
+[二分查找最左插入点：完整图解](binary_search_insertion.assets/binary_search_insertion.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 观察以下代码，判断分支 `nums[m] > target` 和 `nums[m] == target` 的操作相同，因此两者可以合并。
 

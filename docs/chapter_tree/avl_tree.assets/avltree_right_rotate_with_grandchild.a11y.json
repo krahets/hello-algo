@@ -1,61 +1,29 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_tree/avl_tree.assets/avltree_right_rotate_with_grandchild",
-  "title": "带孙节点的 AVL 右旋：将节点 4 转接到节点 5 左侧",
+  "title": "带孙节点的 AVL 右旋",
   "summary": "对失衡节点 5 执行右旋，使左子节点 3 升为新根，并将 3 原有的右子节点 4 转接为 5 的左子节点。",
   "context": [
     "初始子树的根节点为 5，左、右子节点分别为 3 和 6；节点 3 的左、右子节点分别为 1 和 4；节点 1 只有左子节点 0。图中将失衡节点 5 记为 node，其左子节点 3 记为 child，3 的右子节点 4 记为 grand_child。",
     "平衡因子定义为左子树高度减去右子树高度，其中空节点高度为 −1，叶节点高度为 0。此时节点 5 的左子树比右子树高出两层，需要通过右旋恢复平衡。"
   ],
   "description": [
-    "图从左到右依次展示旋转前、向右旋转过程与旋转后的平衡状态。右旋以 child（节点 3）为原点，将 node（节点 5）向右下方旋转：节点 3 上升为子树的新根，节点 5 降为 3 的右子节点；原本位于 3 右侧的孙节点 grand_child（节点 4）则转接为节点 5 的左子节点。",
-    "对应的指针修改分三步理解：先用 grand_child 保存 child.right（即节点 4）；再令 child.right = node（即 3.right = 5），让 3 右接 5；最后令 node.left = grand_child（即 5.left = 4），把 4 挂到 5 的左侧。在此过程中，节点 1 及其左子节点 0 始终保留在 3 的左侧，节点 6 始终保留在 5 的右侧。",
-    "从二叉搜索树的大小关系看，节点 4 的值介于 3 与 5 之间，转接为 5 的左子节点后，依然位于 3 的右子树且在 5 的左子树中，有序性完全保持。中间子图里的浅色虚线节点 5 和 6 仅用于标示旋转前的旧位置，并不表示新增或复制了节点。"
+    "右旋时，左子节点 3 升为子树新根，原根 5 改接到 3 的右侧。由于 3 的右侧原本连着孙节点 4，需先保留 4 的引用，并在旋转中将它转接为 5 的左子节点；因为 3 < 4 < 5，转接后 4 仍处于 3 的右子树且位于 5 的左侧，二叉搜索树的大小顺序保持不变。",
+    "对应引用更新依次为：先保存 grand_child = child.right，再令 child.right = node，最后令 node.left = grand_child。节点 1 及其左子节点 0 仍挂在 3 的左侧，节点 6 仍是 5 的右子节点。",
+    "三步画面中，中间状态已完成右旋与孙节点转接的全部真实连接，浅色虚线框出的 5 和 6 仅用于对照旋转前的位置；最后状态只是移除虚线对照并整理视图布局，连接关系未再改变，也没有发生第二次旋转。"
   ],
   "result": "右旋完成后，子树新根为 3，左、右子节点分别为 1 和 5；节点 1 左接 0，节点 5 左接 4、右接 6。子树恢复平衡，中序遍历序列仍保持为 [0, 1, 3, 4, 5, 6]。",
   "frames": [
     {
       "id": "source-134",
       "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_with_grandchild.png",
-      "title": "带孙节点的 AVL 右旋：将节点 4 转接到节点 5 左侧",
-      "explanation": "图从左到右展示包含孙节点 grand_child（节点 4）的右旋全过程。旋转前 node（节点 5）失衡，其左子节点 child（节点 3）已有右子节点 4。向右旋转时，3 升为新根、5 成为 3 的右子节点；为避免丢失节点 4，必须将 4 从 3 的右侧改接到 5 的左侧，从而同时保持全部节点连接与二叉搜索树的大小关系。",
-      "state": "旋转前：根 5 左接 3、右接 6；3 左接 1、右接 4；1 左接 0。旋转后：新根 3 左接 1、右接 5；1 左接 0；5 左接 4、右接 6。其中 0、4、6 均为叶节点；图中标注 node=5，child=3，grand_child=4。",
-      "key_state": "对节点 5 右旋：节点 3 升为新根，孙节点 4 转接为节点 5 的左子节点。",
-      "announcement": "展示带孙节点 4 的右旋：节点 3 升为子树新根，节点 5 下移到右侧并左接节点 4。"
+      "title": "带孙节点的 AVL 右旋",
+      "explanation": "旋转前，根 5 的左子树高度为 2、右子树高度为 0（高度按边数计，叶节点高度为 0），平衡因子为 2。右旋将 3 升为新根、5 降为 3 的右子节点，并把 3 原有的右子节点 4 转接为 5 的左子节点；旋转后新根 3 的左、右子树高度均为 1，既恢复平衡，又保留全部节点与大小次序。",
+      "state": "旋转前：根 5 左接 3、右接 6；3 左接 1、右接 4；1 左接 0。旋转后（中间状态已完成真实连接，末状态仅移除虚线并整理布局）：新根 3 左接 1、右接 5；1 左接 0；5 左接 4、右接 6。其中 0、4、6 均为叶节点；图中标注 node=5，child=3，grand_child=4。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-08",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "2f401e80dcdf3f4803a5b0109a47dea559cf68c723c1b6db4275d610b1eca317",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a506b3ecafaef6d8fc62ef26dae68447d18629fc5e16ddd8ae926171452d6745",
-        "output_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d",
-        "output_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896",
-        "output_sha256": "8aa1f4dfa1fd2a8bc10a20ded596eaae033faa43bbf57cbc5c462af6f3455359"
-      }
-    ],
-    "evidence_sha256": "14a36adc867aa49a98d8a9d37d2a3aade7c41c8d611abaa2b4d84cd7b471e986"
-  },
   "dependencies": {
     "markdown": {
       "chapter_tree/avl_tree.md": "f4a27fbca67b22b8b3a041218f1088ab85a9f2a32e374060046152e6e01440a5"
@@ -70,79 +38,228 @@
       "kind": "prose",
       "model_sha256": "94f22734251b3a7c98d6305564e3af0e2e29b4c5002020f399ae41eee8bc567d",
       "prose": {
-        "schema_version": 1,
+        "schema_version": 2,
         "status": "confirmed",
         "locale": "zh-hans",
         "story_id": "avl-right-with-grandchild",
         "group_id": "group:chapter_tree/avl_tree.assets/avltree_right_rotate_with_grandchild",
-        "title": "AVL 树右旋（含孙节点）：围绕节点 3 右旋并将孙节点 4 转接给节点 5",
-        "summary": "围绕左子 3 右旋失衡节点 5，使 3 成为新根、5 成为其右子，并将孙节点 4 转接为 5 的左子。",
+        "title": "带孙节点的 AVL 右旋",
+        "summary": "对失衡节点 5 执行右旋，使左子节点 3 升为新根，并将 3 原有的右子节点 4 转接为 5 的左子节点。",
         "context": [
-          "初始树共有 6 个节点：根节点 5 的左子节点为 3、右子节点为 6；节点 3 的左子节点为 1、右子节点为 4；节点 1 仅有左子节点 0；节点 0、4、6 均为叶节点。按正文的边数定义，叶节点高度为 0、空树高度为 -1；根节点 5 的左子树高度为 2、右子树高度为 0，左右高度差为 2，处于左偏失衡状态。",
-          "图中用三个指针标出右旋涉及的关键角色：node 指向失衡节点 5，child 指向其左子节点 3，grand_child 指向节点 3 的右子节点 4。由于 child（节点 3）在右旋后要把右指针改为指向 node（节点 5），原本挂在 3 右侧的孙节点 4 必须转接为节点 5 的左子节点。"
+          "初始子树的根节点为 5，左、右子节点分别为 3 和 6；节点 3 的左、右子节点分别为 1 和 4；节点 1 只有左子节点 0。图中将失衡节点 5 记为 node，其左子节点 3 记为 child，3 的右子节点 4 记为 grand_child。",
+          "平衡因子定义为左子树高度减去右子树高度，其中空节点高度为 −1，叶节点高度为 0。此时节点 5 的左子树比右子树高出两层，需要通过右旋恢复平衡。"
         ],
         "description": [
-          "右旋的核心指针重连为 child.right = node 与 node.left = grand_child：即令节点 3 的右子节点指向 5，同时令节点 5 的左子节点接管原来的孙节点 4。因为 3 < 4 < 5，将 4 挂到 5 的左子节点位置后，依然位于 3 的右子树且小于 5，严格保持二叉搜索树的有序性。",
-          "动画的第二步展示向右旋转的中间状态：画面上全部 6 个实心真实节点的连线已经更新为旋转后的父子关系（3 的左子为 1、右子为 5，1 的左子为 0，5 的左子为 4、右子为 6），同时在节点 5 和 6 的原位置保留浅色虚线残影及虚线旧边，并用橙色弧形箭头标示“向右旋转”的方向；虚线残影仅作原位置对照，不计入真实节点或当前树边。",
-          "动画的第三步移除旧位置虚线残影与旋转箭头，将新根 3 摆正到树根位置，并标注“已恢复平衡”。"
+          "右旋时，左子节点 3 升为子树新根，原根 5 改接到 3 的右侧。由于 3 的右侧原本连着孙节点 4，需先保留 4 的引用，并在旋转中将它转接为 5 的左子节点；因为 3 < 4 < 5，转接后 4 仍处于 3 的右子树且位于 5 的左侧，二叉搜索树的大小顺序保持不变。",
+          "对应引用更新依次为：先保存 grand_child = child.right，再令 child.right = node，最后令 node.left = grand_child。节点 1 及其左子节点 0 仍挂在 3 的左侧，节点 6 仍是 5 的右子节点。",
+          "三步画面中，中间状态已完成右旋与孙节点转接的全部真实连接，浅色虚线框出的 5 和 6 仅用于对照旋转前的位置；最后状态只是移除虚线对照并整理视图布局，连接关系未再改变，也没有发生第二次旋转。"
         ],
-        "result": "右旋完成后，节点 3 成为新根，其左子树为 1 → 0、右子树为 5（带左右叶节点 4 和 6）；全部 6 个节点 [0, 1, 3, 4, 5, 6] 的中序升序关系保持不变，全树恢复高度平衡。",
+        "result": "右旋完成后，子树新根为 3，左、右子节点分别为 1 和 5；节点 1 左接 0，节点 5 左接 4、右接 6。子树恢复平衡，中序遍历序列仍保持为 [0, 1, 3, 4, 5, 6]。",
         "steps": [
           {
             "id": "step-1",
-            "title": "定位失衡节点 node = 5、子节点 child = 3 与孙节点 grand_child = 4",
-            "explanation": "左上角标注“失衡节点”指向根节点 5。此时 node 指向 5，child 指向 5 的左子节点 3，grand_child 指向 3 的右子节点 4；节点 3 的左子节点 1 还挂着叶节点 0，使节点 5 的左子树比右子树（叶节点 6）高出 2 层。",
-            "state": "根节点 5（node，标注“失衡节点”）的左子节点为 3（child）、右子节点为 6；节点 3 的左子节点为 1、右子节点为 4（grand_child）；节点 1 的左子节点为 0、右子节点为空；0、4、6 均为叶节点，共 6 个真实节点。",
-            "key_state": "初始失衡树：node = 5，child = 3，grand_child = 4（位于 3 的右子节点）。",
-            "announcement": "显示失衡节点 node = 5、左子节点 child = 3 及待转接的孙节点 grand_child = 4。"
+            "title": "定位待转接的孙节点4",
+            "explanation": "根 5 左子树高 2、右子树高 0，平衡因子为 2。左子节点 3 已有右子节点 4，右旋前需先明确孙节点 4 的转接去向。",
+            "state": "根 5 左接 3、右接 6；3 左接 1、右接 4；1 只有左子节点 0；0、4、6 为叶节点。图中标注 node=5，child=3，grand_child=4，尚未旋转。",
+            "key_state": "失衡节点 5 的左子节点 3 带有右子节点 4。",
+            "announcement": "确定失衡节点 5 和待转接的孙节点 4。"
           },
           {
             "id": "step-2",
-            "title": "向右旋转：3 连接右子 5，孙节点 4 转接为 5 的左子节点",
-            "explanation": "画面中央出现橙色弧形箭头与“向右旋转”标注。实心节点 5 已下移到节点 3 的右下方，真实父子连线已完成重连：节点 3 的左子节点为 1（带左子节点 0）、右子节点为 5，节点 5 的左子节点接管了原 grand_child 节点 4、右子节点仍为 6。上方原根位置的虚线节点 5 与右侧虚线节点 6 仅为旋转前位置的残影参照，不属于当前树的有效节点。",
-            "state": "当前 6 个实心真实节点的连接已为：节点 3 的左子节点为 1、右子节点为 5；节点 1 的左子节点为 0、右子节点为空；节点 5 的左子节点为 4、右子节点为 6；0、4、6 为叶节点。上方旧位置保留节点 5、6 的虚线残影及虚线旧边，并显示“向右旋转”弧形箭头。",
-            "key_state": "已完成 3.right = 5、5.left = 4 的真实重连，同时保留 5 和 6 旧位置虚影作旋转对照。",
-            "announcement": "围绕节点 3 向右旋转，将 5 接为 3 的右子节点，并将孙节点 4 转接为 5 的左子节点。"
+            "title": "右旋并转接节点4",
+            "explanation": "节点 3 升为新根，5 改接为 3 的右子节点，原有的 4 转接为 5 的左子节点。此时全部真实连接均已完成；浅色虚线中的 5、6 仅标示原位置供对照。",
+            "state": "当前真实连接已更新为：根 3 左接 1、右接 5；1 只有左子节点 0；5 左接 4、右接 6；0、4、6 为叶节点。画面另保留 5、6 原位置的虚线对照，不计入实际的 6 个节点。",
+            "key_state": "3 已成为新根，5 左接 4；全部真实连接已完成，仅保留原位置虚线对照。",
+            "announcement": "完成右旋，将孙节点 4 转接到 5 的左侧。"
           },
           {
             "id": "step-3",
-            "title": "节点 3 升至根位并移除虚影，整棵树恢复平衡",
-            "explanation": "左上角标注“已恢复平衡”。旧位置的虚线残影与旋转箭头全部移除，节点 3 居于顶部树根位置，左子节点 1 带着叶节点 0，右子节点 5 带着左叶节点 4 和右叶节点 6。此时根 3 的左右子树高度同为 1（按边数计），各节点高度差均不超过 1。",
-            "state": "新根节点 3 的左子节点为 1、右子节点为 5；节点 1 的左子节点为 0、右子节点为空；节点 5 的左子节点为 4、右子节点为 6；0、4、6 均为叶节点。旧位置虚线残影已全部移除，左上角标注“已恢复平衡”。",
-            "key_state": "新根为 3，左子树 1(0)、右子树 5(4, 6)，虚影移除，树已恢复平衡。",
-            "announcement": "节点 3 移至根位置并清除旧位置虚影，AVL 树恢复平衡。"
+            "title": "展示恢复平衡的树",
+            "explanation": "移除 5、6 原位置的虚线对照并整理树形布局；各节点的父子连接与上一状态完全一致，没有新增旋转或指针修改。",
+            "state": "根 3 左接 1、右接 5；1 只有左子节点 0；5 左接 4、右接 6；0、4、6 为叶节点。按叶节点高度为 0 计算，新根 3 的左、右子树高度均为 1，中序序列仍为 [0, 1, 3, 4, 5, 6]。",
+            "key_state": "视图整理完成，连接未变，新根 3 两侧子树高度均为 1。",
+            "announcement": "移除虚线对照，展示恢复平衡的子树。"
+          }
+        ],
+        "tables": [
+          {
+            "caption": "右旋前后的父子关系",
+            "headers": [
+              "节点",
+              "旋转前左子",
+              "旋转前右子",
+              "旋转后左子",
+              "旋转后右子"
+            ],
+            "rows": [
+              [
+                "5",
+                "3",
+                "6",
+                "4",
+                "6"
+              ],
+              [
+                "3",
+                "1",
+                "4",
+                "1",
+                "5"
+              ],
+              [
+                "1",
+                "0",
+                "无",
+                "0",
+                "无"
+              ],
+              [
+                "0",
+                "无",
+                "无",
+                "无",
+                "无"
+              ],
+              [
+                "4",
+                "无",
+                "无",
+                "无",
+                "无"
+              ],
+              [
+                "6",
+                "无",
+                "无",
+                "无",
+                "无"
+              ]
+            ],
+            "row_header": 0
           }
         ],
         "review": {
           "status": "confirmed",
-          "run_id": "figure-accessibility-20261114/animations/batch-03",
-          "content_sha256": "1e2faa47d2ef9979a2a734f785bda3ba554f0b69dbfe6f84053b259e4fc47500",
+          "run_id": "figure-reading-20261116/content/body-08",
+          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
           "stages": [
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "bd3a7cb9a264af1d3e05ca5f7bce862c2d4638866fb304684cfc41d11c6533df",
-              "output_sha256": "bad87f0122bf4f2f3eb0ea2631ab62006eb93c7c177ffb76e945a851d633d259"
+              "input_sha256": "c56c4b9b2d49d3f123ab974e835e5798344a14f73ac0147240c076fd5ffe2fdc",
+              "output_sha256": "b5f025edfd33ca0a3a95d301bb1b25e23c00ebdfe81522c9c61ae0f2cf9674b6"
             },
             {
               "requested_model": "gemini-4-argon",
               "actual_model": null,
               "model_confirmation": "provider_not_reported",
-              "input_sha256": "bad87f0122bf4f2f3eb0ea2631ab62006eb93c7c177ffb76e945a851d633d259",
-              "output_sha256": "7a330163a00031a31d253c80a6b571c560bf2e497b548326c850fc7189128ada"
+              "input_sha256": "b5f025edfd33ca0a3a95d301bb1b25e23c00ebdfe81522c9c61ae0f2cf9674b6",
+              "output_sha256": "a654cb877257e68a388101ad8e47582555faabdea8afb5e8ba4b248d9c989cd4"
             },
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "7a330163a00031a31d253c80a6b571c560bf2e497b548326c850fc7189128ada",
-              "output_sha256": "4e1ace1c87f311b018401650e9d134466292027987c2b314ab0eca814b8fcc91"
+              "input_sha256": "a654cb877257e68a388101ad8e47582555faabdea8afb5e8ba4b248d9c989cd4",
+              "output_sha256": "19d1763b69fdeec371b296877c06136e96ec986cb9981f9395cd8079adec9af1"
             }
           ],
-          "evidence_sha256": "5a5551a9c211cf546ee04e36c78bceea6352908b6b24e1dda459c73faae0164e"
+          "evidence_sha256": "a899040e8d921a43e237492b4e14aa3b72038ae544b184765d384f50b596af5d",
+          "verification_manifest_sha256": "12758dfc53d5615738ec788937b320b70c0ac3d0d3b4ff3dfcbc0cf08da7669a",
+          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+          "content_sha256": "38f9b9ea4318c5d4e6a445aaddb8d7fbb2bbc039c7e2ba34f592cb3d635827d3"
         }
       }
     }
+  },
+  "tables": [
+    {
+      "caption": "右旋前后的父子关系",
+      "headers": [
+        "节点",
+        "旋转前左子",
+        "旋转前右子",
+        "旋转后左子",
+        "旋转后右子"
+      ],
+      "rows": [
+        [
+          "5",
+          "3",
+          "6",
+          "4",
+          "6"
+        ],
+        [
+          "3",
+          "1",
+          "4",
+          "1",
+          "5"
+        ],
+        [
+          "1",
+          "0",
+          "无",
+          "0",
+          "无"
+        ],
+        [
+          "0",
+          "无",
+          "无",
+          "无",
+          "无"
+        ],
+        [
+          "4",
+          "无",
+          "无",
+          "无",
+          "无"
+        ],
+        [
+          "6",
+          "无",
+          "无",
+          "无",
+          "无"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-08",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "c56c4b9b2d49d3f123ab974e835e5798344a14f73ac0147240c076fd5ffe2fdc",
+        "output_sha256": "b5f025edfd33ca0a3a95d301bb1b25e23c00ebdfe81522c9c61ae0f2cf9674b6"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "b5f025edfd33ca0a3a95d301bb1b25e23c00ebdfe81522c9c61ae0f2cf9674b6",
+        "output_sha256": "a654cb877257e68a388101ad8e47582555faabdea8afb5e8ba4b248d9c989cd4"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a654cb877257e68a388101ad8e47582555faabdea8afb5e8ba4b248d9c989cd4",
+        "output_sha256": "19d1763b69fdeec371b296877c06136e96ec986cb9981f9395cd8079adec9af1"
+      }
+    ],
+    "evidence_sha256": "a899040e8d921a43e237492b4e14aa3b72038ae544b184765d384f50b596af5d",
+    "verification_manifest_sha256": "12758dfc53d5615738ec788937b320b70c0ac3d0d3b4ff3dfcbc0cf08da7669a",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "39f37c33f62f63e22988c5428dc80eda10009c86d5898c979ed3b540f685e55e"
   }
 }

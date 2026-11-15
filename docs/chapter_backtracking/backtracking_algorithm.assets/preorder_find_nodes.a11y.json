@@ -57,11 +57,16 @@
   },
   "dependencies": {
     "markdown": {
-      "chapter_backtracking/backtracking_algorithm.md": "c87ed13c02116e43ff8e3482b853e67be8baf0b0a734481c069c82c4ec5e7239"
+      "chapter_backtracking/backtracking_algorithm.md": "b37c6f710f20e16b42e8e9e91bfd79ecb00bdd0a502f6a4f2320cd1a9f944176"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
       "chapter_backtracking/backtracking_algorithm.assets/preorder_find_nodes.png": "95145078033be9508e30dab2c808c31dd9a82328f1db6576c24cc603a7fda2be"
     }
+  },
+  "dependency_compatibility": {
+    "run_id": "figure-reading-20261116/upstream-dependency-verification",
+    "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
+    "factual_review_preserved": true
   }
 }

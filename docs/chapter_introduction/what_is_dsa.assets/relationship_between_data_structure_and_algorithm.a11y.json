@@ -1,59 +1,24 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_introduction/what_is_dsa.assets/relationship_between_data_structure_and_algorithm",
   "title": "数据结构与算法的关系",
-  "summary": "展示数据结构与算法的协作关系：上层由“输入”经“算法”转化为“输出”，下层“数据结构”通过三条向上箭头同时支撑输入、算法和输出，提供结构化存储的数据与对应的数据操作方法。",
-  "context": [
-    "正文在分别定义“数据结构”与“算法”之后，进一步阐述两者相辅相成、密不可分的关系：数据结构是算法赖以运作的基石，算法则是驱动数据结构发挥作用的舞台。"
-  ],
-  "description": [
-    "画面分为上下两层。上层从左到右排列绿色的“输入 input”、蓝色的“算法 algorithm”和绿色的“输出 output”三个圆角框，由两条向右实线箭头依次连接，其中“算法”框上方标有说明文字“包含一系列操作指令，从而将输入转化为输出”；下层是一个横跨上层三个框宽度的橙色“数据结构 data structure”长框，下方标有说明文字“提供结构化存储的数据，与对应的数据操作方法”，上方有三支向上实心箭头分别指向上层的“输入”“算法”和“输出”。"
-  ],
-  "result": "算法的完整执行流程是将“输入”通过一系列操作指令转化为“输出”，而这三大环节全都建立在“数据结构”所提供的结构化数据存储与配套操作方法之上。",
+  "summary": "算法通过操作指令将输入转换为输出，数据结构为输入、算法处理和输出全程提供存储与操作支撑。",
+  "context": [],
+  "description": [],
+  "result": "数据结构与算法紧密配合：数据结构组织数据并提供读写操作方法，算法调用这些操作将输入转换为输出。",
   "frames": [
     {
       "id": "source-17",
       "book_path": "chapter_introduction/what_is_dsa.assets/relationship_between_data_structure_and_algorithm.png",
       "title": "数据结构与算法的关系",
-      "explanation": "上层水平链路体现了算法的作用机制：数据从左侧“输入 input”进入中间的“算法 algorithm”，经过算法所包含的一系列操作指令处理后，转化为右侧的“输出 output”。与此同时，底层“数据结构 data structure”用三条向上箭头分别连接“输入”“算法”与“输出”，表明无论是输入数据的组织、算法执行过程中的读写操作，还是输出结果的承载，都依赖数据结构提供的结构化存储与数据操作方法。",
-      "state": "上层自左向右由箭头依次连接“输入 input”、“算法 algorithm”（上方注有“包含一系列操作指令，从而将输入转化为输出”）与“输出 output”；下层“数据结构 data structure”（下方注有“提供结构化存储的数据，与对应的数据操作方法”）向上发出三条箭头，分别指向输入、算法和输出。",
-      "key_state": "“输入 → 算法 → 输出”构成上层处理流，底层“数据结构”向上同时支撑输入、算法与输出三个环节。",
-      "announcement": "算法包含操作指令并将输入转化为输出，而数据结构在底层为输入、算法和输出提供结构化存储与数据操作方法。"
+      "explanation": "图中上方处理流按“输入（input）→ 算法（algorithm，一系列操作指令）→ 输出（output）”从左到右推进。下方“数据结构（data structure，提供结构化存储的数据及对应操作方法）”并非只在算法开始前存储输入，而是同时指向并支撑输入、算法、输出三个环节：组织输入数据、在算法执行期间提供读写操作，并承载最终输出结果。",
+      "state": "横向处理流顺序为“输入 input → 算法 algorithm（一系列操作指令）→ 输出 output”；底部“数据结构 data structure（结构化存储的数据与对应操作方法）”同时支撑输入、算法、输出全部三个对象。",
+      "key_state": "处理流为输入 input → 算法 algorithm → 输出 output；数据结构同时支撑这三者。",
+      "announcement": "算法将输入转换为输出，数据结构同时支撑输入、算法处理与输出三个环节。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-01",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "2f4de32e212d263e5bb26b3cc90fcc27a252125ba5d5cf201c32ea4d440e9884",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "431741d9738e417e17d2b6e1ded2465a8b4b113efdfecac9156ffc919692f129",
-        "output_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4",
-        "output_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0",
-        "output_sha256": "10e9faf80624dffe5daec10997eafa110b0fa676bf753184a205a3604fd651d9"
-      }
-    ],
-    "evidence_sha256": "ef94661da660ccf8ffe36e7213507ecb5fe1fad850478d55981ecebce88583b7",
-    "schema_normalization": "Wrap context/description strings in paragraph arrays; prose unchanged."
-  },
   "dependencies": {
     "markdown": {
       "chapter_introduction/what_is_dsa.md": "6c7b3a271dbe6623cf9494fda8e8de889eada9b9db33ea73f6d3deab23dd2ce4"
@@ -62,5 +27,37 @@
     "scenes": {
       "chapter_introduction/what_is_dsa.assets/relationship_between_data_structure_and_algorithm.png": "9bd634e7715bc362c47f1ee696a8a8a02fa891048ed6e6ce6819b5c97a6ae9fe"
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-02",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "9310dbd60334224a900b7d5f067c91df3ed19242d000b2618debdc8754e63a02",
+        "output_sha256": "7dd986f6b346de2760ad9fdd52161f618c1ed2e1928e133983229692144f369f"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "7dd986f6b346de2760ad9fdd52161f618c1ed2e1928e133983229692144f369f",
+        "output_sha256": "8a698220e3ffb80a6cec0f3b06bef5255720f231255ad26bc6b79c24da424b23"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "8a698220e3ffb80a6cec0f3b06bef5255720f231255ad26bc6b79c24da424b23",
+        "output_sha256": "f71cddda28f6b7117562ace7e9c811ec21f0b7d39e8ea7ff597666eca41e37e8"
+      }
+    ],
+    "evidence_sha256": "42a5c19d17174a21ac325c141ae1781cc6c6a7885793af374ee0ffea99b0a4b0",
+    "verification_manifest_sha256": "15c1e96af1a1a1c313f44ea49ac790ae74a5da58f11188cc5a6deac3c2ed863e",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "d71e00283d065fd5db2b34e76fb15df82e094ee11089f34d6fed23b55ba911bc"
   }
 }

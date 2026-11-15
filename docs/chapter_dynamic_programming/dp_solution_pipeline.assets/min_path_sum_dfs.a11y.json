@@ -1,60 +1,29 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dfs",
   "title": "最小路径和的重复递归",
-  "summary": "从目标 dp[2, 1] 向前回溯上方与左方前驱时，子问题 dp[1, 0] 的子树被重复展开两次。",
+  "summary": "从目标 dp[2, 1] 向前回溯上方与左方前驱时，两条调用路线汇合到 dp[1, 0] 并将其子树重复展开两次。",
   "context": [
     "在非负数字网格中从 [0, 0] 出发只能向右或向下移动，dp[i, j] 表示到达第 i 行、第 j 列的最小路径和（索引从 0 开始）。本图以 dp[2, 1] 为根节点展示自顶向下的暴力搜索递归树，不给出具体网格权重；注意递归是反向查找“上一行”与“上一列”前驱，方向与实际行走时的向下、向右相反。",
-    "有效内部状态取两个前驱返回值的较小值，再加当前格代价：dp[i, j]=min(dp[i-1, j], dp[i, j-1])+grid[i, j]。起点返回 grid[0, 0]，负索引返回正无穷。"
+    "有效内部状态取两个前驱返回值的较小值，再加当前格代价：dp[i, j] = min(dp[i-1, j], dp[i, j-1]) + grid[i, j]。起点返回 grid[0, 0]，负索引越界时返回正无穷。"
   ],
   "description": [
-    "顶部根节点 dp[2, 1] 为绿色；紫色箭头表示递归求解“上一行” dp[i-1, j]，蓝色箭头表示递归求解“上一列” dp[i, j-1]。根节点 dp[2, 1] 拆分为 dp[1, 1] 和 dp[2, 0]；左子树 dp[1, 1] 拆分为 dp[0, 1] 和dp[1, 0]，右子树 dp[2, 0] 拆分为另一处dp[1, 0] 和灰色越界节点 dp[2, -1]；下一层中 dp[0, 1] 拆分为灰色越界节点 dp[-1, 1] 和叶节点 dp[0, 0]，两处 dp[1, 0] 各自拆分为叶节点 dp[0, 0] 和灰色越界节点 dp[1, -1]。两处 dp[1, 0] 按各自入边分为蓝色和紫色，并无橙框；三个 dp[0, 0] 从左到右为蓝色、紫色、紫色。",
-    "所有带负索引的灰色节点均由带剪刀的虚线连接，对应右上角图例“剪枝：索引越界”。下方附有一个 4×4 符号 dp 表，将树中涉及的六个有效状态涂色，并在右侧说明“重叠子问题来源：dp[i+1, j] 和 dp[i, j+1] 都依赖 dp[i, j]”。"
+    "从根状态 dp[2, 1] 反向查找“上一行”和“上一列”前驱时，有两条不同调用路线都会到达 dp[1, 0]：一条先查上一行到 dp[1, 1]、再查上一列到 dp[1, 0]（路线“上→左”）；另一条先查上一列到 dp[2, 0]、再查上一行到 dp[1, 0]（路线“左→上”）。正如右下方说明所指出的，“重叠子问题来源：dp[i+1, j] 和 dp[i, j+1] 都依赖 dp[i, j]”。",
+    "暴力搜索不记录已解状态，因此第二次遇到 dp[1, 0]（路线“左→上”）时会像第一次（路线“上→左”）一样，再次向下展开其上一行子节点 dp[0, 0] 与上一列越界节点 dp[1, -1]。加上左子树“上→上→左”路线下的 dp[0, 0]，整棵 13 节点递归树中起点 dp[0, 0] 共出现 3 次。",
+    "递归到达起点 dp[0, 0] 时返回基例值 grid[0, 0]；当行或列索引小于 0（图中 dp[-1, 1]、两处 dp[1, -1] 及 dp[2, -1]）时触发“剪枝：索引越界”，按代码返回正无穷，使非法前驱在最小值比较中被自动排除。下方 4×4 符号 dp 表标出了本次搜索涉及的六种有效状态：[0, 0]、[0, 1]、[1, 0]、[1, 1]、[2, 0]、[2, 1]。"
   ],
-  "result": "由于一个状态会同时作为下方格和右方格的前驱，暴力递归存在大量重叠子问题，仅求 dp[2, 1] 就把 dp[1, 0] 重复展开了两次。",
+  "result": "由于任意状态 dp[i, j] 同时是下方状态 dp[i+1, j] 和右方状态 dp[i, j+1] 的前驱，暴力递归会产生大量重叠子问题；仅从 dp[2, 1] 回溯就把 dp[1, 0] 重复展开了两次。",
   "frames": [
     {
       "id": "source-380",
       "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dfs.png",
-      "title": "最小路径和的重复递归",
-      "explanation": "从 dp[2, 1] 出发，既可以先向上到 dp[1, 1] 再向左到 dp[1, 0]，也可以先向左到 dp[2, 0] 再向上到 dp[1, 0]，两条路径交汇于同一个子问题 dp[1, 0]，导致 dp[1, 0] 被展开两次，起点 dp[0, 0] 作为叶节点出现了三次。按照正文代码，当行或列索引小于 0 触发越界剪枝时返回正无穷，使其不会在 min 比较中被选中；到达起点 [0, 0] 时则返回 grid[0][0]。",
-      "state": "递归树根为 dp[2, 1]，第 2 层为 dp[1, 1]、dp[2, 0]；第 3 层为 dp[0, 1]、两处dp[1, 0] 及越界灰节点 dp[2, -1]；第 4 层包含三个有效基例叶 dp[0, 0]（从左到右为蓝、紫、紫色） 以及越界灰节点 dp[-1, 1] 和两处 dp[1, -1]。下方 4×4 符号表高亮 dp[0, 0]、dp[0, 1]、dp[1, 0]、dp[1, 1]、dp[2, 0]、dp[2, 1] 六格。",
-      "key_state": "子问题 dp[1, 0] 在左右子树中重复展开两次，起点 dp[0, 0] 出现三次。",
-      "announcement": "从 dp[2, 1] 分别经上方和左方回溯时，两条路径都会求到 dp[1, 0] 并重复展开其子树。"
+      "title": "两条回溯路线重复展开子问题 dp[1, 0]",
+      "explanation": "从根 dp[2, 1] 经 dp[1, 1] 或 dp[2, 0] 回溯都会请求 dp[1, 0]；暴力搜索将两处 dp[1, 0] 各自展开为起点 dp[0, 0] 与越界节点 dp[1, -1]，造成同一子问题被重复求解。",
+      "state": "搜索根为 dp[2, 1]，全部 13 个图示节点及调用路线列于表中：dp[1, 0] 在“上→左”与“左→上”两条路线下出现 2 次且均展开出 dp[0, 0] 和 dp[1, -1]；起点 dp[0, 0] 出现 3 次，负索引越界节点共 4 个（dp[-1, 1]、两处 dp[1, -1]、dp[2, -1]）。下方 4×4 符号表标出 [0, 0]、[0, 1]、[1, 0]、[1, 1]、[2, 0]、[2, 1] 六格；图中未给网格权重或路径和数值。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-20",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "d6a11699ffb67d06b224143f334fcbc378e35adb529525c684c83f36fa3bd9aa",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "41d0fd45a22945a5a7184d107047c8717cca6d0cb964ceb1ffcffefcf35d71c0",
-        "output_sha256": "6f28ad46a843e550964bfad54893774457a3ec29abb9f8165dd6262f050b2101"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "6f28ad46a843e550964bfad54893774457a3ec29abb9f8165dd6262f050b2101",
-        "output_sha256": "8f0f618cc8d84fe521a7436cfd71d04bdc65b259bdf6282d1f693e3bfbd5cadc"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "8f0f618cc8d84fe521a7436cfd71d04bdc65b259bdf6282d1f693e3bfbd5cadc",
-        "output_sha256": "b529f2a5259e393cbd6adce01e5f42a44a8d6813ef624f4cd36fcf49308a3adf"
-      }
-    ],
-    "evidence_sha256": "54a5deb01ddc36c133e5452c5496383065ebdb84ec70c16f4d6436a9bcb17a67"
-  },
   "dependencies": {
     "markdown": {
       "chapter_dynamic_programming/dp_solution_pipeline.md": "537de6dd1fe553954f17ebd407172e073f79aac62888596d7c8e67a6a8e12517"
@@ -63,5 +32,129 @@
     "scenes": {
       "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dfs.png": "8d93b37eeb6bf24ecdf648f9020645dd546ade715840b3985b4af0614b485189"
     }
+  },
+  "tables": [
+    {
+      "caption": "完整递归树；路线从根开始，上/左表示查找前驱",
+      "headers": [
+        "调用路线",
+        "状态",
+        "处理或返回",
+        "子节点"
+      ],
+      "rows": [
+        [
+          "根",
+          "dp[2,1]",
+          "取两前驱较小值，加 grid[2,1]",
+          "上：dp[1,1]；左：dp[2,0]"
+        ],
+        [
+          "上",
+          "dp[1,1]",
+          "取两前驱较小值，加 grid[1,1]",
+          "上：dp[0,1]；左：dp[1,0]"
+        ],
+        [
+          "上→上",
+          "dp[0,1]",
+          "取两前驱较小值，加 grid[0,1]",
+          "上：dp[-1,1]；左：dp[0,0]"
+        ],
+        [
+          "上→上→上",
+          "dp[-1,1]",
+          "越界，返回正无穷",
+          "不展开"
+        ],
+        [
+          "上→上→左",
+          "dp[0,0]",
+          "起点，返回 grid[0,0]",
+          "不展开"
+        ],
+        [
+          "上→左",
+          "dp[1,0]",
+          "取两前驱较小值，加 grid[1,0]",
+          "上：dp[0,0]；左：dp[1,-1]"
+        ],
+        [
+          "上→左→上",
+          "dp[0,0]",
+          "起点，返回 grid[0,0]",
+          "不展开"
+        ],
+        [
+          "上→左→左",
+          "dp[1,-1]",
+          "越界，返回正无穷",
+          "不展开"
+        ],
+        [
+          "左",
+          "dp[2,0]",
+          "取两前驱较小值，加 grid[2,0]",
+          "上：dp[1,0]；左：dp[2,-1]"
+        ],
+        [
+          "左→上",
+          "dp[1,0]",
+          "取两前驱较小值，加 grid[1,0]",
+          "上：dp[0,0]；左：dp[1,-1]"
+        ],
+        [
+          "左→上→上",
+          "dp[0,0]",
+          "起点，返回 grid[0,0]",
+          "不展开"
+        ],
+        [
+          "左→上→左",
+          "dp[1,-1]",
+          "越界，返回正无穷",
+          "不展开"
+        ],
+        [
+          "左→左",
+          "dp[2,-1]",
+          "越界，返回正无穷",
+          "不展开"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-13",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "e4a700b8071fbe365ae27803f9f283bca4a7818bf2f6d7aa7f328937e2f07656",
+        "output_sha256": "7ff4a9b30d2750bf0cb8a38569a0042521dd1e7bd570ee2598deb59c3518cdb9"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "7ff4a9b30d2750bf0cb8a38569a0042521dd1e7bd570ee2598deb59c3518cdb9",
+        "output_sha256": "10c029c530bf3e78e221b49555e4dde5ea76c612b137d03102058aae730a104c"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "10c029c530bf3e78e221b49555e4dde5ea76c612b137d03102058aae730a104c",
+        "output_sha256": "2e3821b925cd47ee962c2d6dbab295f1e98ef3b7532066ab3daafdf5b12f2a65"
+      }
+    ],
+    "evidence_sha256": "1fab6509d04a1de07d81050fa1afd22836320773ef6e9ab5f3cf423ebcc44f82",
+    "verification_manifest_sha256": "3eb49e53036fc9695566e2b308e028a29de81205734c9a782c345b0dd884f865",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "09c6d9de66d563a9e7748158f77ba731f492cf35c452133f98e9e4fd3ec116bd"
   }
 }

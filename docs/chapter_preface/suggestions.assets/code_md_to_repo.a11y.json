@@ -1,66 +1,65 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_preface/suggestions.assets/code_md_to_repo",
-  "title": "正文中代码与代码仓库的对应关系",
-  "summary": "展示书中正文代码块左上方的文件名标签与 GitHub 代码仓库目录中同名源码文件的双向对应关系，说明如何从正文示例定位完整可运行源码。",
-  "context": [
-    "正文建议读者亲手运行书中代码，并说明顶部标有文件名称的代码块，可在配套 GitHub 仓库的 codes 文件夹内找到对应源码；源代码附有测试样例，可一键运行。"
-  ],
+  "title": "正文代码与源码文件",
+  "summary": "根据正文代码块标注的文件名，沿语言和章节目录在仓库中定位完整可运行源码。",
+  "context": [],
   "description": [
-    "画面由左右两张并排的界面截图组成，中间用一条绿色虚线双向箭头相连。左侧是在线书页截图，图的左下角标有 www.hello-algo.com；书页展示 Python 层序遍历函数 level_order 的代码块，其左上方用绿色方框圈出文件名 binary_tree_bfs.py，并由上方灰色提示框标注“代码文件名称”；右侧是 GitHub 仓库 hello-algo/codes/python/chapter_tree 目录（main 分支）的文件列表，其中同名文件 binary_tree_bfs.py 同样被绿色方框圈出，并由右侧灰色提示框标注“对应代码文件”。"
+    "代码块左上角标有对应源码文件名。截图用双向箭头将正文文件名与 GitHub 仓库目录中的同名文件对应起来；界面中显示的 main 为截图所示分支。"
   ],
-  "result": "读者在阅读正文代码片段时，只需查看代码块左上方标注的源码文件名，再前往代码仓库对应语言与章节目录下打开同名文件，即可查看并运行附带测试用例的完整代码。",
+  "result": "相同文件名连接正文的核心算法片段与仓库中的完整源码；仓库源码附有测试样例，可直接阅读和运行。",
   "frames": [
     {
       "id": "source-7",
       "book_path": "chapter_preface/suggestions.assets/code_md_to_repo.png",
-      "title": "正文中代码与代码仓库的对应关系",
-      "explanation": "中央的绿色虚线双向箭头将左侧正文代码块左上方的“代码文件名称”（binary_tree_bfs.py）与右侧 GitHub 仓库 chapter_tree 目录下的“对应代码文件”（binary_tree_bfs.py）直接关联起来：从正文出发，可以根据文件名在仓库章节目录中检索到完整脚本；从仓库源码出发，也能对照回正文中讲解的算法片段。",
-      "state": "左侧在线文档代码块展示 Python 函数 level_order 的实现，左上方标注代码文件名称 binary_tree_bfs.py，图的左下角标有网址 www.hello-algo.com；右侧 GitHub 仓库路径 hello-algo/codes/python/chapter_tree 下高亮同名对应代码文件 binary_tree_bfs.py，左右两处文件名通过绿色虚线双向箭头相连。",
-      "key_state": "正文代码块左上方的 binary_tree_bfs.py 与仓库 chapter_tree 目录下的同名源码文件双向对应。",
-      "announcement": "通过正文代码块左上方标注的文件名 binary_tree_bfs.py，可在 GitHub 仓库对应章节目录中直接定位同名完整源码。"
+      "title": "正文代码与源码文件",
+      "explanation": "图中左侧正文展示 Python 二叉树层序遍历函数 level_order 的代码片段，左上角文件名为 binary_tree_bfs.py；右侧按“codes → 语言目录 python → 章节目录 chapter_tree → 同名文件 binary_tree_bfs.py”定位到完整源码路径 codes/python/chapter_tree/binary_tree_bfs.py。相同文件名将正文算法片段与附带测试样例的完整可运行脚本双向关联起来。",
+      "state": "示例语言为 Python，正文函数名为 level_order，代码块文件名为 binary_tree_bfs.py，对应仓库完整源码路径为 codes/python/chapter_tree/binary_tree_bfs.py（含测试样例，可运行）。",
+      "key_state": "正文 level_order 片段（binary_tree_bfs.py）对应 codes/python/chapter_tree/binary_tree_bfs.py。",
+      "announcement": "根据代码块文件名 binary_tree_bfs.py，在 codes/python/chapter_tree 下找到含测试样例的完整源码。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-01",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "9933c31ed44963a32366783e4659dcbde703fe30e23cb3dea9320e27c1a85914",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "431741d9738e417e17d2b6e1ded2465a8b4b113efdfecac9156ffc919692f129",
-        "output_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4",
-        "output_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0",
-        "output_sha256": "10e9faf80624dffe5daec10997eafa110b0fa676bf753184a205a3604fd651d9"
-      }
-    ],
-    "evidence_sha256": "ef94661da660ccf8ffe36e7213507ecb5fe1fad850478d55981ecebce88583b7",
-    "schema_normalization": "Wrap context/description strings in paragraph arrays; prose unchanged."
-  },
   "dependencies": {
     "markdown": {
-      "chapter_preface/suggestions.md": "e166f228aa3336a409472184482c19ccfc31d2c7a3ba558fb78a1282b2b8a101"
+      "chapter_preface/suggestions.md": "ba4608360c6f3667bb1da377c006abf5e276d991977e76225a44bb4af1029832"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
       "chapter_preface/suggestions.assets/code_md_to_repo.png": "5972761989c6d4eb0afb0f93d3d8a1e5b4f0ef555c77f4d1db0c1388e6ccdf0a"
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-02",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "9310dbd60334224a900b7d5f067c91df3ed19242d000b2618debdc8754e63a02",
+        "output_sha256": "7dd986f6b346de2760ad9fdd52161f618c1ed2e1928e133983229692144f369f"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "7dd986f6b346de2760ad9fdd52161f618c1ed2e1928e133983229692144f369f",
+        "output_sha256": "8a698220e3ffb80a6cec0f3b06bef5255720f231255ad26bc6b79c24da424b23"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "8a698220e3ffb80a6cec0f3b06bef5255720f231255ad26bc6b79c24da424b23",
+        "output_sha256": "f71cddda28f6b7117562ace7e9c811ec21f0b7d39e8ea7ff597666eca41e37e8"
+      }
+    ],
+    "evidence_sha256": "42a5c19d17174a21ac325c141ae1781cc6c6a7885793af374ee0ffea99b0a4b0",
+    "verification_manifest_sha256": "15c1e96af1a1a1c313f44ea49ac790ae74a5da58f11188cc5a6deac3c2ed863e",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "3e65a0a27dffc2bd35b7056c0e21651ded731d793af09bd16f3a8ecdfe277f28"
   }
 }

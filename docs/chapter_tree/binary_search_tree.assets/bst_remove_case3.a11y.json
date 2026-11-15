@@ -1,85 +1,356 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_tree/binary_search_tree.assets/bst_remove_case3",
-  "title": "在二叉搜索树中删除双子节点 4（度为 2）",
-  "summary": "删除有两个子节点的节点 4 时，先在右子树中找到中序后继叶节点 5（nex），递归删除原位置的 5，再将值 5 赋给 cur。",
+  "title": "二叉搜索树删除双子节点",
+  "summary": "删除度为 2 的节点时，先在右子树中定位并摘除中序后继节点，再将后继值写入目标节点 cur。",
   "context": [
-    "二叉搜索树中，任意节点的左子树所有节点值小于该节点值，右子树所有节点值大于该节点值。连线箭头从父节点指向子节点。",
-    "初始四层二叉搜索树中包含节点 3 至 15：根 8 的左子节点为 4；4 的左、右子节点为 3、6；6 的左、右子节点为 5、7（3、5、7 为叶节点）；根 8 的右子节点 12 下接 10（含叶节点 9、11）和 14（含叶节点 13、15）。",
-    "图顶部标题为“在二叉搜索树中删除节点 4”。指针 cur 指向待删除的目标节点，指针 nex 指向 cur 在中序遍历中的后继节点（即 cur 右子树中的最小节点）。"
+    "待删除目标值为 4；初始树包含值 3 至 15，根为 8，目标节点 cur 是 8 的左子节点，其左右子节点为 3、6，6 的左右子节点为 5、7；根 8 的右子树根为 12，左右为 10（左 9、右 11）和 14（左 13、右 15）。",
+    "cur 始终指向最初存放值 4 的那个节点对象；nex（对应源码中的 tmp）指向它的中序后继，即右子树的最小节点 5。本组严格按图示与源码时序：第 3 步先摘除原后继节点，第 4 步再改写 cur 的值。"
   ],
   "description": [],
-  "result": "通过先递归删除右子树中的后继叶节点 5（使 6.left 变为空）、再用后继值 5 覆盖 cur 的原值 4，完成删除。cur 与父节点 8、左子节点 3、右子节点 6 的连接保持不变；树中不再有值 4，只保留一份值 5。",
+  "result": "最终 cur 节点的值由 4 改为 5，其父节点 8 和左右子节点 3、6 的引用关系保持不变；原先位于 6 左侧的后继节点已摘除，6.left 为空。树中只保留一份值 5，不再包含值 4。",
   "frames": [
     {
       "id": "source-124",
       "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step1.png",
-      "title": "查找待删除的双子节点 cur = 4",
-      "explanation": "Step 1 右侧高亮“1. 查找待删除节点 cur”。从根 8 沿左分支找到节点 4，令实心蓝色的 cur 指向 4。由于节点 4 同时拥有左子节点 3 和右子节点 6，无法直接断开，需要用后继节点替换。",
-      "state": "待删除目标为 4。树中根 8 的左子节点为 4（cur，实心蓝色），4 的左、右子节点为 3、6，6 的左、右子节点为 5、7；8 的右子节点 12 下接 10（9、11）与 14（13、15）。右侧高亮步骤“1. 查找待删除节点 cur”。",
-      "key_state": "cur 指向待删除节点 4，该节点拥有左子节点 3 和右子节点 6（子节点数量 = 2）。",
-      "announcement": "从根 8 向左找到待删除的双子节点 cur = 4。"
+      "title": "定位具有两个子节点的目标",
+      "explanation": "目标值 4 小于根 8，向左查找到 cur。因 cur 同时拥有左子节点 3 与右子节点 6，度为 2，不能直接断开父边或单侧接替，本例选择用中序后继的值替换它。",
+      "state": "删除双子节点 4 的第 1 步（定位目标）：根为 8，cur 为 8 的左子节点，当前值为 4；cur 的左子节点为 3、右子节点为 6，6 的左右子节点为 5、7，树结构尚未改变。",
+      "key_state": "定位到度为 2 的目标 cur（值 4），尚未改变树结构。",
+      "announcement": "定位到值为 4 且具有两个子节点的目标节点 cur。",
+      "state_tables": [
+        {
+          "caption": "当前树的节点连接",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "空",
+              "空"
+            ],
+            [
+              "cur（值 4）",
+              "3",
+              "6"
+            ],
+            [
+              "后继节点（值 5）",
+              "空",
+              "空"
+            ],
+            [
+              "6",
+              "后继节点（值 5）",
+              "7"
+            ],
+            [
+              "7",
+              "空",
+              "空"
+            ],
+            [
+              "8",
+              "cur（值 4）",
+              "12"
+            ],
+            [
+              "9",
+              "空",
+              "空"
+            ],
+            [
+              "10",
+              "9",
+              "11"
+            ],
+            [
+              "11",
+              "空",
+              "空"
+            ],
+            [
+              "12",
+              "10",
+              "14"
+            ],
+            [
+              "13",
+              "空",
+              "空"
+            ],
+            [
+              "14",
+              "13",
+              "15"
+            ],
+            [
+              "15",
+              "空",
+              "空"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-125",
       "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step2.png",
-      "title": "查找 cur 在中序遍历的后继节点 nex = 5",
-      "explanation": "Step 2 右侧注明“∵ 节点 cur 的子节点数量 = 2，2. 删除节点 cur 分为三步”，并高亮“（1）查找 cur 在中序遍历的后继节点 nex”。从 cur（4）进入右子节点 6，再沿左分支到底，找到右子树最小节点 5，令蓝紫色的 nex 指向 5。",
-      "state": "待删除目标为 4。树中根 8→4、12，4→3、6，6→5、7，12→10、14（10→9、11，14→13、15）。cur 指向实心蓝色的节点 4，从 4 经右子节点 6 到其左叶节点 5 的路径以浅蓝箭头标出，nex 指向蓝紫色的叶节点 5。右侧高亮“（1）查找 cur 在中序遍历的后继节点 nex”。",
-      "key_state": "cur = 节点 4；沿右子树最左路径 4→6→5 找到中序后继叶节点 nex = 5。",
-      "announcement": "在节点 4 的右子树中沿 6 向左找到最小后继节点 nex = 5。"
+      "title": "找到中序后继 5",
+      "explanation": "从 cur 进入右子树根 6，再一路向左到达叶节点 5，记为 nex。5 是右子树最小值，也是中序后继，替换后仍大于左子树全部值（3）且小于剩余右子树全部值（6、7），从而保持二叉搜索树性质。",
+      "state": "删除双子节点 4 的第 2 步（定位后继）：根为 8，cur 值为 4，左右子节点为 3、6；nex 指向 6 的左叶节点 5（查找路径为 4 → 6 → 5），树连接与节点值尚未改动。",
+      "key_state": "cur 值为 4；nex 指向右子树最小叶节点 5（中序后继）。",
+      "announcement": "在 cur 的右子树中找到最小节点 5，记为中序后继 nex。",
+      "state_tables": [
+        {
+          "caption": "当前树的节点连接",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "空",
+              "空"
+            ],
+            [
+              "cur（值 4）",
+              "3",
+              "6"
+            ],
+            [
+              "后继节点（值 5）",
+              "空",
+              "空"
+            ],
+            [
+              "6",
+              "后继节点（值 5）",
+              "7"
+            ],
+            [
+              "7",
+              "空",
+              "空"
+            ],
+            [
+              "8",
+              "cur（值 4）",
+              "12"
+            ],
+            [
+              "9",
+              "空",
+              "空"
+            ],
+            [
+              "10",
+              "9",
+              "11"
+            ],
+            [
+              "11",
+              "空",
+              "空"
+            ],
+            [
+              "12",
+              "10",
+              "14"
+            ],
+            [
+              "13",
+              "空",
+              "空"
+            ],
+            [
+              "14",
+              "13",
+              "15"
+            ],
+            [
+              "15",
+              "空",
+              "空"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-126",
       "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step3.png",
-      "title": "在二叉树中递归删除后继节点 nex",
-      "explanation": "Step 3 右侧高亮“（2）在二叉树中递归删除节点 nex”。由于后继节点 5 是叶节点，直接将父节点 6 的左子节点设为空（图中画作蓝色虚线空圆），并暂存后继值 5；注意此时上方 cur 节点圆圈内显示的值仍为 4。",
-      "state": "待删除目标为 4。树中根 8→4、12，4→3、6，节点 6 左下方的原后继节点 5 已被移除（变为蓝色虚线空圆），6 仅剩右子节点 7；8 的右子树 12→10、14（10→9、11，14→13、15）不变；上方实心蓝色的 cur 节点此时仍显示数值 4。右侧高亮“（2）在二叉树中递归删除节点 nex”。",
-      "key_state": "已从节点 6 左侧递归删去后继叶节点 5（6.left 为空）；此时 cur 的显示值仍为 4。",
-      "announcement": "递归删除节点 6 左下方的后继叶节点 5，此时 cur 仍显示为 4。"
+      "title": "摘除原后继节点",
+      "explanation": "按图示与源码顺序，先递归删除后继节点 nex（5）：因它是叶节点，直接把 6.left 设为空即可摘除。此时仍保留对后继值 5 的访问供下一步赋值，而 cur 的值尚未改写。",
+      "state": "删除双子节点 4 的第 3 步（原后继已摘除而 cur 尚未改值）：根为 8，cur 仍位于 8 左侧，cur 仍为 4，左右子节点仍为 3、6；原后继 5 已从 6 左侧摘除，6.left 为空，6.right 为 7。下一状态才把 5 写入 cur。",
+      "key_state": "原后继 5 已摘除，6.left 为空；cur 的值仍为 4。",
+      "announcement": "先从 6 左侧摘除原后继叶节点 5，此时 cur 的值仍保持 4。",
+      "state_tables": [
+        {
+          "caption": "当前树的节点连接",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "空",
+              "空"
+            ],
+            [
+              "cur（值 4）",
+              "3",
+              "6"
+            ],
+            [
+              "6",
+              "空",
+              "7"
+            ],
+            [
+              "7",
+              "空",
+              "空"
+            ],
+            [
+              "8",
+              "cur（值 4）",
+              "12"
+            ],
+            [
+              "9",
+              "空",
+              "空"
+            ],
+            [
+              "10",
+              "9",
+              "11"
+            ],
+            [
+              "11",
+              "空",
+              "空"
+            ],
+            [
+              "12",
+              "10",
+              "14"
+            ],
+            [
+              "13",
+              "空",
+              "空"
+            ],
+            [
+              "14",
+              "13",
+              "15"
+            ],
+            [
+              "15",
+              "空",
+              "空"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-127",
       "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step4.png",
-      "title": "将后继节点 nex 的值 5 赋给节点 cur",
-      "explanation": "Step 4 右侧高亮“（3）将节点 nex 值赋给节点 cur”。把保存的后继值 5 写入 cur 节点，使原节点 4 变为蓝紫色的节点 5；它的父节点 8、左子节点 3 和右子节点 6（仅带右子节点 7）的连接关系全部保持不变。",
-      "state": "删除节点 4 完成。根 8 的左子节点 cur 已变为蓝紫色的节点 5，其左、右子节点仍为 3、6；节点 6 的左子节点为蓝色虚线空圆、右子节点为 7；根 8 的右子树 12（含 10、14、9、11、13、15）不变。右侧高亮“（3）将节点 nex 值赋给节点 cur”。",
-      "key_state": "将后继值 5 赋给 cur，原节点 4 的位置变为 5，6.left 保持为空，删除完成。",
-      "announcement": "将后继值 5 赋给 cur 覆盖原值 4，完成双子节点删除。"
+      "title": "把后继值写入 cur",
+      "explanation": "在原后继节点摘除后，下一状态把后继值 5 写入 cur，覆盖原值 4。此处改写的仅是 cur 节点中的值，cur 与父节点 8 及左右子节点 3、6 的引用关系保持不变。",
+      "state": "删除双子节点 4 的第 4 步（改写 cur 的值）：根为 8，其左子节点 cur 的值已改为 5，左右子节点仍为 3、6；6.left 为空、6.right 为 7。原后继节点已摘除，树中只剩一份值 5。",
+      "key_state": "后继值 5 已写入 cur，6.left 为空，双子节点 4 删除完成。",
+      "announcement": "将后继值 5 写入 cur 覆盖原值 4，完成双子节点删除。",
+      "state_tables": [
+        {
+          "caption": "当前树的节点连接",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "空",
+              "空"
+            ],
+            [
+              "cur（值 5）",
+              "3",
+              "6"
+            ],
+            [
+              "6",
+              "空",
+              "7"
+            ],
+            [
+              "7",
+              "空",
+              "空"
+            ],
+            [
+              "8",
+              "cur（值 5）",
+              "12"
+            ],
+            [
+              "9",
+              "空",
+              "空"
+            ],
+            [
+              "10",
+              "9",
+              "11"
+            ],
+            [
+              "11",
+              "空",
+              "空"
+            ],
+            [
+              "12",
+              "10",
+              "14"
+            ],
+            [
+              "13",
+              "空",
+              "空"
+            ],
+            [
+              "14",
+              "13",
+              "15"
+            ],
+            [
+              "15",
+              "空",
+              "空"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-07",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "6c6542ac53e18efee310ef307fd3ad0ed5a82f40a1d9b7cd72f61aba83096ddf",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "f429a2d9034d7690b6bd4a3f0822b11a77350c2330baf8a66141d1f7a9ef4841",
-        "output_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91",
-        "output_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6",
-        "output_sha256": "449ce85fb338c455e6cedde1bf55ab20b1b0f532a5408dfa0443a6fbe9815c6b"
-      }
-    ],
-    "evidence_sha256": "459b7ad9cb6322b1bab7e28efa1badcfd4813182718f9028c5dbe5d4d10dbb4c"
-  },
   "dependencies": {
     "markdown": {
       "chapter_tree/binary_search_tree.md": "bf4428ef944ea3dc4040d389ab63b4f52575e5b0990caac71413a4f04cf9d1e4"
@@ -96,7 +367,7 @@
     "bst-delete-two-children": {
       "kind": "source-frames",
       "model_sha256": "9f70aad2aaa955fff5af9729de4da933666e91f28ddea6d19a56d0816f982608",
-      "source_content_sha256": "6c6542ac53e18efee310ef307fd3ad0ed5a82f40a1d9b7cd72f61aba83096ddf",
+      "source_content_sha256": "fc593dc0364891121c398e43fcfa119204c25d90a3a11141263109e1272f93aa",
       "states": [
         {
           "id": "step-1",
@@ -117,11 +388,46 @@
       ],
       "review": {
         "status": "confirmed",
-        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "run_id": "figure-reading-20261116/content/body-07/source-binding",
         "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "f4835fbcc76bbab934b1b8fc2f3f91cbdc8836c8d80a3799819d8ce0f007ac98",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+        "binding_sha256": "d0f0a562ba57bb422c7ce84d35da2b9dfa8c87e291dc4bf0d62880658abb20c3",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
+        "current_text_verification_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198"
       }
     }
+  },
+  "tables": [],
+  "standalone_tables": [],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-07",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "64feb83b4b5a24ec87dc3ad4c035411b8cfda29777f845490023530d7eb2b7e3",
+        "output_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907",
+        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520",
+        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
+      }
+    ],
+    "evidence_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198",
+    "verification_manifest_sha256": "0d1fe15b9202118b7054d0f66377264f92073e4f519f55934a9bddd71d23d42a",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "fc593dc0364891121c398e43fcfa119204c25d90a3a11141263109e1272f93aa"
   }
 }

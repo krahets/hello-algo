@@ -5,6 +5,11 @@
     給定 $n$ 個物品，第 $i$ 個物品的重量為 $wgt[i-1]$、價值為 $val[i-1]$ ，和一個容量為 $cap$ 的背包。每個物品只能選擇一次，**但可以選擇物品的一部分，價值根據選擇的重量比例計算**，問在限定背包容量下背包中物品的最大價值。示例如下圖所示。
 
 ![分數背包問題的示例資料](fractional_knapsack_problem.assets/fractional_knapsack_example.svg)
+<!-- figure-reading:start group:chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example -->
+
+[分數背包問題的示例資料：完整圖解](fractional_knapsack_problem.assets/fractional_knapsack_example.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 分數背包問題和 0-1 背包問題整體上非常相似，狀態包含當前物品 $i$ 和容量 $c$ ，目標是求限定背包容量下的最大價值。
 
@@ -14,6 +19,11 @@
 2. 假設放入一部分物品 $i$ ，重量為 $w$ ，則背包增加的價值為 $w \times val[i-1] / wgt[i-1]$ 。
 
 ![物品在單位重量下的價值](fractional_knapsack_problem.assets/fractional_knapsack_unit_value.svg)
+<!-- figure-reading:start group:chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value -->
+
+[物品在單位重量下的價值：完整圖解](fractional_knapsack_problem.assets/fractional_knapsack_unit_value.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 貪婪策略確定
 
@@ -24,6 +34,11 @@
 3. 若剩餘背包容量不足，則使用當前物品的一部分填滿背包。
 
 ![分數背包問題的貪婪策略](fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.svg)
+<!-- figure-reading:start group:chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy -->
+
+[分數背包問題的貪婪策略：完整圖解](fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 程式碼實現
 
@@ -50,3 +65,8 @@
 如下圖所示，如果將物品重量和物品單位價值分別看作一張二維圖表的橫軸和縱軸，則分數背包問題可轉化為“求在有限橫軸區間下圍成的最大面積”。這個類比可以幫助我們從幾何角度理解貪婪策略的有效性。
 
 ![分數背包問題的幾何表示](fractional_knapsack_problem.assets/fractional_knapsack_area_chart.svg)
+<!-- figure-reading:start group:chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart -->
+
+[分數背包問題的幾何表示：完整圖解](fractional_knapsack_problem.assets/fractional_knapsack_area_chart.a11y.markdown)
+
+<!-- figure-reading:end -->

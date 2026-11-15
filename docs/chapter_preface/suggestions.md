@@ -52,6 +52,11 @@ git clone https://github.com/krahets/hello-algo.git
 **第三步：运行源代码**。如下图所示，对于顶部标有文件名称的代码块，我们可以在仓库的 `codes` 文件夹内找到对应的源代码文件。源代码文件可一键运行，将帮助你节省不必要的调试时间，让你能够专注于学习内容。
 
 ![代码块与对应的源代码文件](suggestions.assets/code_md_to_repo.svg)
+<!-- figure-reading:start group:chapter_preface/suggestions.assets/code_md_to_repo -->
+
+[正文代码与源码文件：完整图解](suggestions.assets/code_md_to_repo.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 除了本地运行代码，**网页版还支持 Python 代码的可视化运行**（基于 [pythontutor](https://pythontutor.com/) 实现）。如下图所示，你可以点击代码块下方的“可视化运行”来展开视图，观察算法代码的执行过程；也可以点击“全屏观看”，以获得更好的阅览体验。
 
@@ -76,3 +81,8 @@ git clone https://github.com/krahets/hello-algo.git
 如下图所示，本书内容主要涵盖“阶段一”，旨在帮助你更高效地展开阶段二和阶段三的学习。
 
 ![算法学习路线](suggestions.assets/learning_route.svg)
+<!-- figure-reading:start group:chapter_preface/suggestions.assets/learning_route -->
+
+[算法学习路线：完整图解](suggestions.assets/learning_route.a11y.markdown)
+
+<!-- figure-reading:end -->

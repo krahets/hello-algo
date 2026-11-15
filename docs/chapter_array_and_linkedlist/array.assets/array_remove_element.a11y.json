@@ -1,63 +1,27 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_array_and_linkedlist/array.assets/array_remove_element",
-  "title": "删除索引 1 后依次前移元素",
-  "summary": "从数组 [1, 3, 2, 5, 4] 中删除索引 1 处的元素 3：将其后的元素 2、5、4 从左向右依次前移一位覆盖前一项，物理内容变为 [1, 2, 5, 4, 4]，前四项 [1, 2, 5, 4] 为有效序列，末尾残留的 4 标为无意义。",
-  "context": [
-    "画面左侧标题为“示例 在数组中删除索引 1 处的元素”；右侧自上而下用四排长度为 5 的数组（索引 0 至 4）及向下粗箭头，单图完整展示通过前移覆盖删除元素的过程，四排数组左侧由大括号统括并标注“将元素依次向前移动一位”。"
-  ],
-  "description": [
-    "第 1 排（初始状态）：数组为 [1, 3, 2, 5, 4]，其中索引 1 处的元素 3 涂为青色，正上方由竖线引出标签“待删除元素”，其余四格为绿色。",
-    "第 2 排：执行下方代码框的 nums[1] = nums[2]，弯曲箭头从索引 2 向左指向索引 1，用元素 2 覆盖待删除的 3，数组变为 [1, 2, 2, 5, 4]（索引 1、2 的 2 加粗显示）。第 3 排：执行 nums[2] = nums[3]，弯曲箭头从索引 3 向左指向索引 2，将元素 5 前移一位，数组变为 [1, 2, 5, 5, 4]（索引 2、3 的 5 加粗显示）。",
-    "第 4 排（完成删除）：执行 nums[3] = nums[4]，弯曲箭头从索引 4 向左指向索引 3，将末尾元素 4 前移到索引 3。此时五个物理格子的数值为 [1, 2, 5, 4, 4]，其中前四格 [1, 2, 5, 4] 为绿色有效元素，第 5 格（索引 4）保留的旧值 4 变为浅灰色虚线框。底部注释说明：“完成删除后，数组有效元素数量减 1 ，末尾元素 4 已无意义，无须特意修改”。"
-  ],
-  "result": "本图通过将索引 1 之后的元素依次向左覆盖，得到物理内容 [1, 2, 5, 4, 4]；有效序列为前四项 [1, 2, 5, 4]，但数组的五个存储槽位不变。调用方需把有效长度从 5 更新为 4，并仅把索引 0 至 3 视为有效数据；示例代码 remove 仅做覆盖赋值，不会自动缩短 Python 列表长度。此类中间删除的平均时间复杂度为 O(n)。",
+  "title": "数组删除与前移",
+  "summary": "覆盖待删除位置后保持其余元素顺序，并区分有效长度与存储槽位数。",
+  "context": [],
+  "description": [],
+  "result": "调用方须把有效长度从5改为4；示例remove只覆盖赋值，不会自动缩短Python列表。末槽残留值不必清零，这类中间删除的平均时间复杂度为O(n)。",
   "frames": [
     {
       "id": "source-49",
       "book_path": "chapter_array_and_linkedlist/array.assets/array_remove_element.png",
-      "title": "删除索引 1 后依次前移元素",
-      "explanation": "与插入时的“从右向左倒序后移”相反，删除元素必须从待删除位置（索引 1）开始“从左向右正序前移”：第一步执行 nums[1] = nums[2] 直接覆盖掉要删除的元素 3，随后执行 nums[2] = nums[3] 和 nums[3] = nums[4] 依次填补空缺。当前移完成后，有效元素个数从 5 减为 4（有效索引范围为 0 至 3）；索引 4 虽然在物理内存里还留着未清零的 4，调用方按更新后的有效长度遍历时应忽略它，因此无须额外耗费一次写操作去修改末尾。",
-      "state": "左侧标注“示例 在数组中删除索引 1 处的元素”，大括号标注“将元素依次向前移动一位”。右侧自上而下展示四排 5 格数组：第 1 排为 [1, 3, 2, 5, 4]（索引 1 的青色格 3 标为“待删除元素”）；第 2 排执行 nums[1] = nums[2] 得 [1, 2, 2, 5, 4]；第 3 排执行 nums[2] = nums[3] 得 [1, 2, 5, 5, 4]；第 4 排执行 nums[3] = nums[4] 得 [1, 2, 5, 4, 4]，其中前四格 [1, 2, 5, 4] 为绿色有效元素，末格 4 为灰色虚线框，底部注“完成删除后，数组有效元素数量减 1 ，末尾元素 4 已无意义，无须特意修改”。",
-      "key_state": "四排数组依次为：初始 [1, 3, 2, 5, 4]（待删索引 1 的 3），经三次正序前移依次变为 [1, 2, 2, 5, 4]、[1, 2, 5, 5, 4]、[1, 2, 5, 4, 4]；有效序列为前四项 [1, 2, 5, 4]，末格 4 无意义。",
-      "announcement": "演示从数组 [1, 3, 2, 5, 4] 中删除索引 1 处的元素 3：将后续元素 2、5、4 从左向右依次前移覆盖，有效元素缩减为前四项 [1, 2, 5, 4]。"
+      "title": "数组删除与前移",
+      "explanation": "要删除索引1的元素3，须按源索引从小到大依次执行nums[1]=nums[2]、nums[2]=nums[3]、nums[3]=nums[4]，确保后续元素在被读取前不会被提前覆盖。由于复制只改写目标槽位、不清除源槽位，过程中出现相邻重复值是正常的；三次复制完成后，只把前4项视为有效序列，第5个槽位的残留值4不再计入有效范围。",
+      "state": "初始存储为[1,3,2,5,4]，共5个存储槽位、有效长度为5，待删除索引1的3；三次向左覆盖后5个槽位存储变为[1,2,5,4,4]，有效长度缩减为4（有效范围索引0至3，有效序列[1,2,5,4]），索引4的残留4已无效。",
+      "key_state": "有效长度从5减为4，有效序列为[1,2,5,4]；5个存储槽位仍在，末槽残留4已无效。",
+      "announcement": "覆盖待删除位置后保持其余元素顺序，并区分有效长度与存储槽位数。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-03",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "48ea5c76e367c659b524633f922e7b3595c1c65d690ebf1a8a25f4f459604fe2",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "cbe99e77444e0462f57c192b0088094f9fd6936e24f6cfd18181de4a48ba8083",
-        "output_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c",
-        "output_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6",
-        "output_sha256": "bdf21f24ca6a88ed6060d24186ac933357dde4feee3a257546cffd56c2bd6867"
-      }
-    ],
-    "evidence_sha256": "ec6ba9da7d2fe9290ce303592b8440b918ec83702cd9d0e6bbdc1e50d87c89d8"
-  },
   "dependencies": {
     "markdown": {
-      "chapter_array_and_linkedlist/array.md": "b552efb1674ec7ace53cef69704ced587bc0f66bf9c861380e4105d944147d3e"
+      "chapter_array_and_linkedlist/array.md": "5c69c06953e50010e346a81f85a219363d2dff4990214cfddc2c67b866704fd3"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -69,85 +33,152 @@
       "kind": "prose",
       "model_sha256": "cb778c9a6d26a303ca6108f263b705721a1050f13e263964ca1a6482ca36503e",
       "prose": {
-        "schema_version": 1,
+        "schema_version": 2,
         "status": "confirmed",
         "locale": "zh-hans",
         "story_id": "flow-array-remove",
         "group_id": "group:chapter_array_and_linkedlist/array.assets/array_remove_element",
-        "title": "数组删除：从左向右依次前移，并缩短有效长度",
-        "summary": "删除 [1, 3, 2, 5, 4] 中索引 1 的 3，依次前移后续元素，得到有效序列 [1, 2, 5, 4]。",
+        "title": "数组删除与前移",
+        "summary": "覆盖待删除位置后保持其余元素顺序，并区分有效长度与存储槽位数。",
         "context": [
-          "数组 nums 的固定容量为 5，初始有效长度也为 5，存储内容为 [1, 3, 2, 5, 4]，索引从 0 到 4。本例的目标是删除索引 1 处的元素 3，并保持其余有效元素的相对次序。"
+          "5个槽位的nums初始为[1,3,2,5,4]，有效长度5，索引从0起。删除索引1的3，保留其余元素次序。"
         ],
         "description": [
-          "动画在同一排五个槽位上展示删除过程。为填补索引 1 的空缺，算法从待删除位置的右邻索引 2 开始，自左向右依次执行 nums[1] = nums[2]、nums[2] = nums[3]、nums[3] = nums[4]，每一步都用右侧元素覆盖左侧相邻槽位。",
-          "前移同样通过赋值复制实现，过程中会短暂出现两个 2、两个 5。最后一步复制完成后，有效长度由 5 减为 4；末尾索引 4 处仍保留原值 4，但因超出有效长度而变为灰色虚线槽，不再属于有效序列，也无须额外清零。"
+          "用右侧相邻元素依次覆盖左侧槽位；源槽仍保留原值，因此中途可出现重复值。前移结束后由调用方缩短有效长度，存储槽位数仍是5。"
         ],
-        "result": "删除完成后，数组有效长度为 4，有效序列为 [1, 2, 5, 4]，底层完整存储为 [1, 2, 5, 4, 4]。",
+        "result": "调用方须把有效长度从5改为4；示例remove只覆盖赋值，不会自动缩短Python列表。末槽残留值不必清零，这类中间删除的平均时间复杂度为O(n)。",
         "steps": [
           {
             "id": "step-1",
             "title": "标出索引 1 处的待删除元素 3",
-            "explanation": "画面左侧标注“示例：在数组中删除索引 1 处的元素”，并提示“将元素依次向前移动一位”。上方标签“待删除元素”指向索引 1 处的 3；后续索引 2、3、4 处的元素 2、5、4 将依次向左复制一位来覆盖它。",
-            "state": "数组容量为 5，当前存储与有效序列均为 [1, 3, 2, 5, 4]，有效长度为 5；索引 1 处的值 3 被标记为待删除元素。",
+            "explanation": "定位索引1的待删除元素3；其右侧索引2、3、4处的2、5、4将依次向左复制覆盖。",
+            "state": "目标是删除原数组[1,3,2,5,4]索引1的3；存储槽位5个。当前存储[1, 3, 2, 5, 4]，记录的有效长度5，尚未开始前移，待依次执行nums[1]=nums[2]、nums[2]=nums[3]、nums[3]=nums[4]并将有效长度减为4。",
             "key_state": "初始有效序列 [1, 3, 2, 5, 4]，准备删除索引 1 的 3。",
             "announcement": "显示初始数组 [1, 3, 2, 5, 4]，标出索引 1 的待删除元素 3。"
           },
           {
             "id": "step-2",
             "title": "将索引 2 的 2 复制到索引 1",
-            "explanation": "弯箭头从索引 2 指向索引 1，执行 nums[1] = nums[2]。索引 2 的值 2 复制到索引 1，直接覆盖待删除的 3；源槽位索引 2 仍保留 2，因此存储中暂时出现两个 2。",
-            "state": "数组容量为 5，当前存储为 [1, 2, 2, 5, 4]；前移尚未全部完成，记录的有效长度仍为 5，索引 1 已被 2 覆盖。",
+            "explanation": "第1次前移执行nums[1]=nums[2]，用2覆盖索引1的原值3；源槽位索引2仍保留2，等待下一步被索引3的5覆盖。",
+            "state": "目标是删除原数组[1,3,2,5,4]索引1的3；存储槽位5个。已完成nums[1]=nums[2]，当前存储[1, 2, 2, 5, 4]，记录的有效长度5，还需执行nums[2]=nums[3]、nums[3]=nums[4]并将有效长度减为4。",
             "key_state": "执行 nums[1] = nums[2]，存储变为 [1, 2, 2, 5, 4]。",
             "announcement": "将索引 2 的 2 复制到索引 1，覆盖原值 3。"
           },
           {
             "id": "step-3",
             "title": "将索引 3 的 5 复制到索引 2",
-            "explanation": "弯箭头从索引 3 指向索引 2，执行 nums[2] = nums[3]。索引 3 的值 5 复制到索引 2，索引 3 暂时仍为 5，等待下一步由末尾的 4 覆盖。",
-            "state": "数组容量为 5，当前存储为 [1, 2, 5, 5, 4]，记录的有效长度仍为 5；索引 1、2 已更新为 2、5。",
+            "explanation": "第2次前移执行nums[2]=nums[3]，用5覆盖索引2的旧值2；源槽位索引3仍保留5，等待下一步被索引4的4覆盖。",
+            "state": "目标是删除原数组[1,3,2,5,4]索引1的3；存储槽位5个。已完成nums[2]=nums[3]，当前存储[1, 2, 5, 5, 4]，记录的有效长度5，还需执行nums[3]=nums[4]并将有效长度改为4。",
             "key_state": "执行 nums[2] = nums[3]，存储变为 [1, 2, 5, 5, 4]。",
             "announcement": "将索引 3 的 5 复制到索引 2。"
           },
           {
             "id": "step-4",
             "title": "将索引 4 的 4 复制到索引 3，有效长度减 1",
-            "explanation": "弯箭头从索引 4 指向索引 3，执行 nums[3] = nums[4]，把最后一个有效值 4 复制到索引 3。下方说明“完成删除后，数组有效元素数量减 1，末尾元素 4 已无意义，无须特意修改”。此时有效长度缩减为 4，末尾索引 4 变为灰色虚线槽，虽然仍存有数值 4，但已不在有效序列内。",
-            "state": "数组容量为 5，底层完整存储为 [1, 2, 5, 4, 4]，有效长度减为 4，有效序列为 [1, 2, 5, 4]，末尾索引 4 处的 4 已超出有效范围。",
+            "explanation": "第3次前移执行nums[3]=nums[4]，用4覆盖索引3的旧值5，随后将有效长度从5更新为4。5个存储槽位仍在，但仅索引0至3共4项有效，索引4的残留4不再使用且不必清零。",
+            "state": "目标是删除原数组[1,3,2,5,4]索引1的3；存储槽位5个。已完成nums[3]=nums[4]并将有效长度更新为4，当前存储[1, 2, 5, 4, 4]，有效范围为索引0至3，有效序列[1,2,5,4]，索引4的残留4无效。",
             "key_state": "执行 nums[3] = nums[4]，有效长度减为 4，有效序列为 [1, 2, 5, 4]。",
             "announcement": "将索引 4 的 4 复制到索引 3，有效长度减为 4，完成删除。"
           }
         ],
         "review": {
           "status": "confirmed",
-          "run_id": "figure-accessibility-20261114/animations/batch-01",
-          "content_sha256": "d3da98920cd0735311a4d19902738aa08f0a9bf176e36d4ddf4089d77cb6ef7d",
+          "run_id": "figure-reading-20261116/content/body-04",
+          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
           "stages": [
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "b6174850feed92b51c3d512a1a38c62aaf02c614ff07640008831c8726ce0a64",
-              "output_sha256": "dd7f9f098b8c6e77ff0f0fabc4879e20180eac76e44e8ba253820d46c888cef7"
+              "input_sha256": "c385c148a9c87885ad3055fe531ffaace5195ab54db807e336c77cecfb2fe72d",
+              "output_sha256": "67e949ed7bbdb732b3f1c3ba626e257456b862ba2f1a1acabf2d74a9db1a3261"
             },
             {
               "requested_model": "gemini-4-argon",
               "actual_model": null,
               "model_confirmation": "provider_not_reported",
-              "input_sha256": "dd7f9f098b8c6e77ff0f0fabc4879e20180eac76e44e8ba253820d46c888cef7",
-              "output_sha256": "00dbf3ad9071e0a78f3f320067484cdbea304d50e0c1faae49ed41c17350f825"
+              "input_sha256": "67e949ed7bbdb732b3f1c3ba626e257456b862ba2f1a1acabf2d74a9db1a3261",
+              "output_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf"
             },
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "00dbf3ad9071e0a78f3f320067484cdbea304d50e0c1faae49ed41c17350f825",
-              "output_sha256": "b52ab18dd9c1db9a93bc5c3e340b21d0414a0d86594f1d061ffd5191a1c5f993"
+              "input_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf",
+              "output_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf"
             }
           ],
-          "evidence_sha256": "f629e6bda011b65c2484338a3ba90bd400522d0d30bc8a435a852c5403cbb741"
+          "evidence_sha256": "212e919970bc973e942f94689e035a209af63a724b3924065c0b2a89303d3070",
+          "verification_manifest_sha256": "e599534ecd2e93955445689d4327ace02a7ae7841b59245afcbd61129c11708b",
+          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+          "content_sha256": "b8e94314d44fcef37268ed46440eb82982022bce776ebba435a74158a08762a5"
         }
       }
     }
+  },
+  "tables": [
+    {
+      "caption": "前移过程中的完整存储",
+      "headers": [
+        "状态或赋值",
+        "存储内容",
+        "有效长度或含义"
+      ],
+      "rows": [
+        [
+          "初始",
+          "[1,3,2,5,4]",
+          "5，索引1的3待删除"
+        ],
+        [
+          "nums[1]=nums[2]",
+          "[1,2,2,5,4]",
+          "尚未完成，记录长度5"
+        ],
+        [
+          "nums[2]=nums[3]",
+          "[1,2,5,5,4]",
+          "尚未完成，记录长度5"
+        ],
+        [
+          "nums[3]=nums[4]，更新有效长度",
+          "[1,2,5,4,4]",
+          "4；仅前4项有效，末项4为残留"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-04",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "c385c148a9c87885ad3055fe531ffaace5195ab54db807e336c77cecfb2fe72d",
+        "output_sha256": "67e949ed7bbdb732b3f1c3ba626e257456b862ba2f1a1acabf2d74a9db1a3261"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "67e949ed7bbdb732b3f1c3ba626e257456b862ba2f1a1acabf2d74a9db1a3261",
+        "output_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf",
+        "output_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf"
+      }
+    ],
+    "evidence_sha256": "212e919970bc973e942f94689e035a209af63a724b3924065c0b2a89303d3070",
+    "verification_manifest_sha256": "e599534ecd2e93955445689d4327ace02a7ae7841b59245afcbd61129c11708b",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "bd348fe44b3040a1b5c1ea23c2ad8ff3c9197c169883af6b7778a64bced1074d"
   }
 }

@@ -39,6 +39,11 @@
 接下來我們來進行更為準確的計算。為了降低計算難度，假設給定一個節點數量為 $n$ 、高度為 $h$ 的“完美二元樹”，該假設不會影響計算結果的正確性。
 
 ![完美二元樹的各層節點數量](build_heap.assets/heapify_operations_count.svg)
+<!-- figure-reading:start group:chapter_heap/build_heap.assets/heapify_operations_count -->
+
+[建堆積的分層工作量：完整圖解](build_heap.assets/heapify_operations_count.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 如上圖所示，節點“從頂至底堆積化”的最大迭代次數等於該節點到葉節點的距離，而該距離正是“節點高度”。因此，我們可以對各層的“節點數量 $\times$ 節點高度”求和，**得到所有節點的堆積化迭代次數的總和**。
 

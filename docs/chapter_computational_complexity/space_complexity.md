@@ -21,6 +21,11 @@
 在分析一段程序的空间复杂度时，**我们通常统计暂存数据、栈帧空间和输出数据三部分**，如下图所示。
 
 ![算法使用的相关空间](space_complexity.assets/space_types.svg)
+<!-- figure-reading:start group:chapter_computational_complexity/space_complexity.assets/space_types -->
+
+[空间复杂度通常统计哪些空间：完整图解](space_complexity.assets/space_types.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 相关代码如下：
 
@@ -66,6 +71,11 @@ $$
 $$
 
 ![常见的空间复杂度类型](space_complexity.assets/space_complexity_common_types.svg)
+<!-- figure-reading:start group:chapter_computational_complexity/space_complexity.assets/space_complexity_common_types -->
+
+[常见空间复杂度的增长趋势：完整图解](space_complexity.assets/space_complexity_common_types.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 常数阶 $O(1)$
 
@@ -92,6 +102,11 @@ $$
 ```
 
 ![递归函数产生的线性阶空间复杂度](space_complexity.assets/space_complexity_recursive_linear.svg)
+<!-- figure-reading:start group:chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_linear -->
+
+[递归调用的栈空间：完整图解](space_complexity.assets/space_complexity_recursive_linear.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 平方阶 $O(n^2)$
 
@@ -108,6 +123,11 @@ $$
 ```
 
 ![递归函数产生的平方阶空间复杂度](space_complexity.assets/space_complexity_recursive_quadratic.svg)
+<!-- figure-reading:start group:chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_quadratic -->
+
+[递归各层保留数组形成平方空间：完整图解](space_complexity.assets/space_complexity_recursive_quadratic.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 指数阶 $O(2^n)$
 
@@ -118,6 +138,11 @@ $$
 ```
 
 ![满二叉树产生的指数阶空间复杂度](space_complexity.assets/space_complexity_exponential.svg)
+<!-- figure-reading:start group:chapter_computational_complexity/space_complexity.assets/space_complexity_exponential -->
+
+[存储 n 层满二叉树所需的空间：完整图解](space_complexity.assets/space_complexity_exponential.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 对数阶 $O(\log n)$
 

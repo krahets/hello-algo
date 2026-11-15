@@ -4,7 +4,7 @@
   "locale": "zh-hans",
   "group_id": "group:chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices",
   "title": "硬盘、内存和缓存之间的数据流通",
-  "summary": "CPU（含处理器和缓存）、内存与硬盘从左到右排列，相邻层级间及处理器与内存间均通过双向箭头交换数据。",
+  "summary": "硬盘、内存与缓存分层协作以兼顾存储容量和访问速度：运行所需数据从硬盘读入内存，再由缓存为处理器提供更快的访问。",
   "context": [
     "图从左到右依次排列 CPU、内存和硬盘。左侧绿色圆角框代表 CPU，内部左侧是“处理器”图标，右侧是“缓存”图标。处理器与缓存之间、缓存与内存之间、内存与硬盘之间，都画有一左一右两条反向的平行箭头，表示双向数据读写。"
   ],
@@ -24,36 +24,6 @@
       "announcement": "处理器、缓存、内存和硬盘通过双向通路协作传输数据，CPU 内的缓存夹在处理器与内存之间以加速访问。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-04",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "b1d50c67eef290ce610b9a3cb460f565645dd3d097dd515e8f9ae3fb0afb0d4f",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "010659120695514881c0d1ee814ac67faa1e50957300a7e781f1c3edf7858059",
-        "output_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de",
-        "output_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8",
-        "output_sha256": "d48eb4dd56235f9a9b2f2d5c8f67899492c9f6b15567237d35161c31596306cb"
-      }
-    ],
-    "evidence_sha256": "178794e8fd357c692f91d245ae613b37aa02834865c6124afd4cd91ea892de0d"
-  },
   "dependencies": {
     "markdown": {
       "chapter_array_and_linkedlist/ram_and_cache.md": "015f4c1e7157dcdf021d6530e3d7f249995acaa07acf7a31ca8a099ff5bdfa1f"
@@ -62,5 +32,37 @@
     "scenes": {
       "chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices.png": "ea3b99d561dd19aa1522ca8206bb56e881103eff1b6222a09efa171ed790155c"
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/names",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
+        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      }
+    ],
+    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
+    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "c93fa88d51d377d50a04e8120b6f53bcfebe698759371521d6eb4a094459685a"
   }
 }

@@ -14,16 +14,21 @@
     ![查字典步驟](algorithms_are_everywhere.assets/binary_search_dictionary_step1.svg)
 
 === "<2>"
-    ![查字典的二分搜尋過程，第 2 步，共 5 步：第 2 步：翻到中間字母 m，排除前半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg)
+    ![查字典的二分搜尋過程，第 2 步，共 5 步：翻到中間字母 m，排除前半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg)
 
 === "<3>"
-    ![查字典的二分搜尋過程，第 3 步，共 5 步：第 3 步：翻到剩餘部分中間字母 t，排除後半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg)
+    ![查字典的二分搜尋過程，第 3 步，共 5 步：翻到剩餘部分中間字母 t，排除後半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg)
 
 === "<4>"
-    ![查字典的二分搜尋過程，第 4 步，共 5 步：第 4 步：翻到剩餘部分中間字母 p，再排除前半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg)
+    ![查字典的二分搜尋過程，第 4 步，共 5 步：翻到剩餘部分中間字母 p，再排除前半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg)
 
 === "<5>"
-    ![查字典的二分搜尋過程，第 5 步，共 5 步：第 5 步：翻到中間字母 r，完成查詢](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg)
+    ![查字典的二分搜尋過程，第 5 步，共 5 步：翻到中間字母 r，完成查詢](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg)
+<!-- figure-reading:start group:chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary -->
+
+[查字典的二分搜尋過程：完整圖解](algorithms_are_everywhere.assets/binary_search_dictionary.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 查字典這個小學生必備技能，實際上就是著名的“二分搜尋”演算法。從資料結構的角度，我們可以把字典視為一個已排序的“陣列”；從演算法的角度，我們可以將上述查字典的一系列操作看作“二分搜尋”。
 
@@ -34,6 +39,11 @@
 3. 不斷迴圈步驟 `2.` ，每一輪將一張撲克牌從無序部分插入至有序部分，直至所有撲克牌都有序。
 
 ![撲克排序步驟](algorithms_are_everywhere.assets/playing_cards_sorting.svg)
+<!-- figure-reading:start group:chapter_introduction/algorithms_are_everywhere.assets/playing_cards_sorting -->
+
+[用插入排序整理撲克牌：完整圖解](algorithms_are_everywhere.assets/playing_cards_sorting.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 上述整理撲克牌的方法本質上是“插入排序”演算法，它在處理小型資料集時非常高效。許多程式語言的排序庫函式中都有插入排序的身影。
 
@@ -46,6 +56,11 @@
 5. 完成找零，方案為 $20 + 10 + 1 = 31$ 元。
 
 ![貨幣找零過程](algorithms_are_everywhere.assets/greedy_change.svg)
+<!-- figure-reading:start group:chapter_introduction/algorithms_are_everywhere.assets/greedy_change -->
+
+[貪婪找零：完整圖解](algorithms_are_everywhere.assets/greedy_change.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 在以上步驟中，我們每一步都採取當前看來最好的選擇（儘可能用大面額的貨幣），最終得到了可行的找零方案。從資料結構與演算法的角度看，這種方法本質上是“貪婪”演算法。
 

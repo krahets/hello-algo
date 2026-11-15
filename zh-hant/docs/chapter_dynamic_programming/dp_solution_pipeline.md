@@ -38,6 +38,11 @@
 下圖展示了一個例子，給定網格的最小路徑和為 $13$ 。
 
 ![最小路徑和示例資料](dp_solution_pipeline.assets/min_path_sum_example.svg)
+<!-- figure-reading:start group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_example -->
+
+[四乘四網格的最小路徑和：完整圖解](dp_solution_pipeline.assets/min_path_sum_example.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 **第一步：思考每輪的決策，定義狀態，從而得到 $dp$ 表**
 
@@ -48,6 +53,11 @@
 至此，我們就得到了下圖所示的二維 $dp$ 矩陣，其尺寸與輸入網格 $grid$ 相同。
 
 ![狀態定義與 dp 表](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.svg)
+<!-- figure-reading:start group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_solution_state_definition -->
+
+[把網格位置定義為二維 dp 狀態：完整圖解](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 !!! note
 
@@ -66,6 +76,11 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 $$
 
 ![最優子結構與狀態轉移方程](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.svg)
+<!-- figure-reading:start group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_solution_state_transition -->
+
+[最小路徑和的狀態轉移：完整圖解](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 !!! note
 
@@ -80,6 +95,11 @@ $$
 如下圖所示，由於每個格子是由其左方格子和上方格子轉移而來，因此我們使用迴圈來走訪矩陣，外迴圈走訪各行，內迴圈走訪各列。
 
 ![邊界條件與狀態轉移順序](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.svg)
+<!-- figure-reading:start group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_solution_initial_state -->
+
+[最小路徑和的邊界與填表順序：完整圖解](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 !!! note
 
@@ -109,6 +129,11 @@ $$
 從本質上看，造成重疊子問題的原因為：**存在多條路徑可以從左上角到達某一單元格**。
 
 ![暴力搜尋遞迴樹](dp_solution_pipeline.assets/min_path_sum_dfs.svg)
+<!-- figure-reading:start group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dfs -->
+
+[最小路徑和的重複遞迴：完整圖解](dp_solution_pipeline.assets/min_path_sum_dfs.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 每個狀態都有向下和向右兩種選擇，從左上角走到右下角總共需要 $m + n - 2$ 步，所以最差時間複雜度為 $O(2^{m + n})$ ，其中 $n$ 和 $m$ 分別為網格的行數和列數。請注意，這種計算方式未考慮臨近網格邊界的情況，當到達網格邊界時只剩下一種選擇，因此實際的路徑數量會少一些。
 
@@ -123,6 +148,11 @@ $$
 如下圖所示，在引入記憶化後，所有子問題的解只需計算一次，因此時間複雜度取決於狀態總數，即網格尺寸 $O(nm)$ 。
 
 ![記憶化搜尋遞迴樹](dp_solution_pipeline.assets/min_path_sum_dfs_mem.svg)
+<!-- figure-reading:start group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dfs_mem -->
+
+[最小路徑和的記憶化遞迴：完整圖解](dp_solution_pipeline.assets/min_path_sum_dfs_mem.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 方法三：動態規劃
 
@@ -140,37 +170,42 @@ $$
     ![最小路徑和的動態規劃過程](dp_solution_pipeline.assets/min_path_sum_dp_step1.svg)
 
 === "<2>"
-    ![最小路徑和的逐格動態規劃，第 2 步，共 12 步：第 2 步：初始化首行與首列](dp_solution_pipeline.assets/min_path_sum_dp_step2.svg)
+    ![最小路徑和動態規劃，第 2 步，共 12 步：計算首行與首列邊界](dp_solution_pipeline.assets/min_path_sum_dp_step2.svg)
 
 === "<3>"
-    ![最小路徑和的逐格動態規劃，第 3 步，共 12 步：第 3 步：計算狀態 dp\[1, 1\]](dp_solution_pipeline.assets/min_path_sum_dp_step3.svg)
+    ![最小路徑和動態規劃，第 3 步，共 12 步：計算dp\[1,1\]](dp_solution_pipeline.assets/min_path_sum_dp_step3.svg)
 
 === "<4>"
-    ![最小路徑和的逐格動態規劃，第 4 步，共 12 步：第 4 步：計算狀態 dp\[1, 2\]](dp_solution_pipeline.assets/min_path_sum_dp_step4.svg)
+    ![最小路徑和動態規劃，第 4 步，共 12 步：計算dp\[1,2\]](dp_solution_pipeline.assets/min_path_sum_dp_step4.svg)
 
 === "<5>"
-    ![最小路徑和的逐格動態規劃，第 5 步，共 12 步：第 5 步：計算狀態 dp\[1, 3\]](dp_solution_pipeline.assets/min_path_sum_dp_step5.svg)
+    ![最小路徑和動態規劃，第 5 步，共 12 步：計算dp\[1,3\]](dp_solution_pipeline.assets/min_path_sum_dp_step5.svg)
 
 === "<6>"
-    ![最小路徑和的逐格動態規劃，第 6 步，共 12 步：第 6 步：計算狀態 dp\[2, 1\]](dp_solution_pipeline.assets/min_path_sum_dp_step6.svg)
+    ![最小路徑和動態規劃，第 6 步，共 12 步：計算dp\[2,1\]](dp_solution_pipeline.assets/min_path_sum_dp_step6.svg)
 
 === "<7>"
-    ![最小路徑和的逐格動態規劃，第 7 步，共 12 步：第 7 步：計算狀態 dp\[2, 2\]](dp_solution_pipeline.assets/min_path_sum_dp_step7.svg)
+    ![最小路徑和動態規劃，第 7 步，共 12 步：計算dp\[2,2\]](dp_solution_pipeline.assets/min_path_sum_dp_step7.svg)
 
 === "<8>"
-    ![最小路徑和的逐格動態規劃，第 8 步，共 12 步：第 8 步：計算狀態 dp\[2, 3\]](dp_solution_pipeline.assets/min_path_sum_dp_step8.svg)
+    ![最小路徑和動態規劃，第 8 步，共 12 步：計算dp\[2,3\]](dp_solution_pipeline.assets/min_path_sum_dp_step8.svg)
 
 === "<9>"
-    ![最小路徑和的逐格動態規劃，第 9 步，共 12 步：第 9 步：計算狀態 dp\[3, 1\]](dp_solution_pipeline.assets/min_path_sum_dp_step9.svg)
+    ![最小路徑和動態規劃，第 9 步，共 12 步：計算dp\[3,1\]](dp_solution_pipeline.assets/min_path_sum_dp_step9.svg)
 
 === "<10>"
-    ![最小路徑和的逐格動態規劃，第 10 步，共 12 步：第 10 步：計算狀態 dp\[3, 2\]](dp_solution_pipeline.assets/min_path_sum_dp_step10.svg)
+    ![最小路徑和動態規劃，第 10 步，共 12 步：計算dp\[3,2\]](dp_solution_pipeline.assets/min_path_sum_dp_step10.svg)
 
 === "<11>"
-    ![最小路徑和的逐格動態規劃，第 11 步，共 12 步：第 11 步：計算終點狀態 dp\[3, 3\]](dp_solution_pipeline.assets/min_path_sum_dp_step11.svg)
+    ![最小路徑和動態規劃，第 11 步，共 12 步：計算dp\[3,3\]](dp_solution_pipeline.assets/min_path_sum_dp_step11.svg)
 
 === "<12>"
-    ![最小路徑和的逐格動態規劃，第 12 步，共 12 步：第 12 步：返回最小路徑和](dp_solution_pipeline.assets/min_path_sum_dp_step12.svg)
+    ![最小路徑和動態規劃，第 12 步，共 12 步：返回最小路徑和](dp_solution_pipeline.assets/min_path_sum_dp_step12.svg)
+<!-- figure-reading:start group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp -->
+
+[最小路徑和動態規劃：完整圖解](dp_solution_pipeline.assets/min_path_sum_dp.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 ### 空間最佳化
 

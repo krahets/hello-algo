@@ -30,6 +30,11 @@
 - 算法通常可以基于不同的数据结构实现，但执行效率可能相差很大，选择合适的数据结构是关键。
 
 ![数据结构与算法的关系](what_is_dsa.assets/relationship_between_data_structure_and_algorithm.svg)
+<!-- figure-reading:start group:chapter_introduction/what_is_dsa.assets/relationship_between_data_structure_and_algorithm -->
+
+[数据结构与算法的关系：完整图解](what_is_dsa.assets/relationship_between_data_structure_and_algorithm.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 数据结构与算法犹如下图所示的拼装积木。一套积木，除了包含许多零件之外，还附有详细的组装说明书。我们按照说明书一步步操作，就能组装出精美的积木模型。
 

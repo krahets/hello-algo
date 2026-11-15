@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_sorting/counting_sort.assets/counting_sort_overview",
@@ -9,22 +9,70 @@
     "待排序数组为 nums = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4]，元素均为非负整数且最大值为 4，因此创建包含索引 0 至 4 共五个位置的计数数组 counter。counter[num] 记录数字 num 的出现次数，其索引直接对应数值本身，而非原数组下标。"
   ],
   "description": [
-    "画面上方的汇聚连线将原数组中相同的数字归入 counter 的对应索引，统计得到 counter = [3, 2, 3, 0, 2]，即 0 出现 3 次、1 出现 2 次、2 出现 3 次、3 出现 0 次、4 出现 2 次（详见附表）。",
-    "由于 counter 的索引 0、1、2、3、4 天然递增，接下来只需按索引从小到大遍历 counter，根据各数字的出现次数依次向结果数组填入三个 0、两个 1、三个 2，跳过次数为 0 的数字 3，最后填入两个 4。画面下方的同色分组括号标出了各数字写入结果数组的对应区段。"
+    "用数字本身作为 counter 的索引，记录它在输入中出现的次数。计数表中索引 3 对应的次数为 0，表示输入没有数字 3。",
+    "按索引从 0 到 4 读取计数，依次写出三个 0、两个 1、三个 2 和两个 4。这里直接根据频数重建整数序列，不跟踪相等数值各自的输入身份。"
   ],
   "result": "原数组被重写为升序序列 [0, 0, 0, 1, 1, 2, 2, 2, 4, 4]。这种简单实现直接根据频数重建整数序列，若输入元素是携带附加属性的复合对象，则需进一步借助前缀和来保持原对象身份与稳定性。",
   "frames": [
     {
       "id": "source-299",
       "book_path": "chapter_sorting/counting_sort.assets/counting_sort_overview.png",
-      "title": "统计频数并按索引顺序写回结果",
-      "explanation": "计数数组 counter 的索引天然按 0、1、2、3、4 升序排列，统计完各数字出现次数后，直接按次数依次写出对应数字即可完成排序，无需进行元素间的大小比较。",
-      "state": "输入数组 nums 为 [1, 0, 1, 2, 0, 4, 0, 2, 2, 4]；计数数组 counter 在索引 0 至 4 上的值为 [3, 2, 3, 0, 2]；输出结果数组 nums 为 [0, 0, 0, 1, 1, 2, 2, 2, 4, 4]，出现 0 次的数字 3 不写入结果。",
-      "key_state": "频数统计为 [3, 2, 3, 0, 2]；按次数写回得到 [0, 0, 0, 1, 1, 2, 2, 2, 4, 4]。",
-      "announcement": "统计 0 至 4 的出现次数，再按索引从小到大依次数写回结果数组。"
+      "title": "统计每个整数的次数，再按次数写回",
+      "explanation": "counter 的索引代表要写出的整数本身，对应的计数值决定该整数连续写回多少次。",
+      "state": "原始输入、数字频数与写回结果分别列于下方三张表；写回结果共十个元素，出现次数为 0 的数字 3 不占任何位置。"
     }
   ],
   "tables": [
+    {
+      "caption": "原始输入",
+      "headers": [
+        "索引",
+        "值"
+      ],
+      "rows": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "2",
+          "1"
+        ],
+        [
+          "3",
+          "2"
+        ],
+        [
+          "4",
+          "0"
+        ],
+        [
+          "5",
+          "4"
+        ],
+        [
+          "6",
+          "0"
+        ],
+        [
+          "7",
+          "2"
+        ],
+        [
+          "8",
+          "2"
+        ],
+        [
+          "9",
+          "4"
+        ]
+      ],
+      "row_header": 0
+    },
     {
       "caption": "数字频数",
       "headers": [
@@ -52,39 +100,60 @@
           "4",
           "2"
         ]
-      ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "写回结果",
+      "headers": [
+        "索引",
+        "值"
+      ],
+      "rows": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "2",
+          "0"
+        ],
+        [
+          "3",
+          "1"
+        ],
+        [
+          "4",
+          "1"
+        ],
+        [
+          "5",
+          "2"
+        ],
+        [
+          "6",
+          "2"
+        ],
+        [
+          "7",
+          "2"
+        ],
+        [
+          "8",
+          "4"
+        ],
+        [
+          "9",
+          "4"
+        ]
+      ],
+      "row_header": 0
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-15",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "2e038ed7b1209fc41a97b165e69f7d66494326411d93329e43141775d3d4ae6c",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "527f3607822b7dd874e1221e38d84957024c5ee16b1cac9a646b720d5ceeeb20",
-        "output_sha256": "b332692818930e5bb93b7396fb13f2e0aeeea9f0a957557c917737dc68650cd5"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b332692818930e5bb93b7396fb13f2e0aeeea9f0a957557c917737dc68650cd5",
-        "output_sha256": "1d3f82b8556de39e8ce2bdf446f95d064e294579d7c86285dfbc362e947edcd4"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "1d3f82b8556de39e8ce2bdf446f95d064e294579d7c86285dfbc362e947edcd4",
-        "output_sha256": "1e0a6d5b3ecf54326d4542c1be61a35d6a86fcc0d8795f2600aee901e62baf54"
-      }
-    ],
-    "evidence_sha256": "eae7ac31efc1870978e21f8d8ff6ae8fec853715ad81b0e511b818ea537501e4"
-  },
   "dependencies": {
     "markdown": {
       "chapter_sorting/counting_sort.md": "5045502aeb899ea678f18936e1015870ff7c53b0b3652b206f5a69352f0dfbfe"
@@ -99,78 +168,378 @@
       "kind": "prose",
       "model_sha256": "da5d8c00903f475ba698a3f69c24174417c130a5ccbe419b223c452f428bd711",
       "prose": {
-        "schema_version": 1,
+        "schema_version": 2,
         "status": "confirmed",
         "locale": "zh-hans",
         "story_id": "counting-sort-overview",
         "group_id": "group:chapter_sorting/counting_sort.assets/counting_sort_overview",
-        "title": "计数排序概览：统计各整数频次，再按频次顺序写回",
-        "summary": "统计数组 [1, 0, 1, 2, 0, 4, 0, 2, 2, 4] 中 0 至 4 的出现次数得到 counter = [3, 2, 3, 0, 2]，再按索引从小到大依次写回对应个数的整数。",
+        "title": "统计每个整数的次数，再按次数写回",
+        "summary": "统计输入中 0 至 4 的出现次数为 3、2、3、0、2，再按数值递增顺序写回十个元素。",
         "context": [
-          "输入为十个非负整数：nums = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4]。其中最大元素为 4，因此建立长度为 5 的计数数组 counter（索引 0 至 4），用 counter[num] 记录整数 num 在输入中出现的次数。"
+          "待排序数组为 nums = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4]，元素均为非负整数且最大值为 4，因此创建包含索引 0 至 4 共五个位置的计数数组 counter。counter[num] 记录数字 num 的出现次数，其索引直接对应数值本身，而非原数组下标。"
         ],
         "description": [
-          "动画分三步自上而下展开：第一步仅展示顶部的“待排序数组 nums”；第二步在中间增加“计数数组 counter”，遍历输入统计出 0 至 4 的频次分别为 [3, 2, 3, 0, 2]，并用同色箭头将输入中的相同数字汇聚到对应的计数槽位。",
-          "第三步在底部增加“结果数组 nums”，按索引 0 到 4 的递增顺序读取 counter：依次写入 3 个 0、2 个 1、3 个 2，跳过频次为 0 的数字 3，最后写入 2 个 4，结果数组上方的四个大括号标出每种数字填写的连续区间。",
-          "需要注意，第三步画面上方仍保留初始输入数组与中间计数数组作为对照，实际排序结果位于最底部的“结果数组 nums”。此外，本图展示的是按频次直接重写数值的基础计数排序，不涉及前缀和累加与倒序遍历，也没有为相等数值建立从输入槽位到输出槽位的个体对象身份映射。"
+          "用数字本身作为 counter 的索引，记录它在输入中出现的次数。计数表中索引 3 对应的次数为 0，表示输入没有数字 3。",
+          "按索引从 0 到 4 读取计数，依次写出三个 0、两个 1、三个 2 和两个 4。这里直接根据频数重建整数序列，不跟踪相等数值各自的输入身份。"
         ],
-        "result": "完成频次统计与按次数写回后，底部结果数组为 nums = [0, 0, 0, 1, 1, 2, 2, 2, 4, 4]，各数字的出现次数与原输入完全一致。",
+        "result": "原数组被重写为升序序列 [0, 0, 0, 1, 1, 2, 2, 2, 4, 4]。这种简单实现直接根据频数重建整数序列，若输入元素是携带附加属性的复合对象，则需进一步借助前缀和来保持原对象身份与稳定性。",
         "steps": [
           {
             "id": "step-1",
-            "title": "展示待排序的非负整数数组",
-            "explanation": "画面顶部展示“待排序数组 nums”：[1, 0, 1, 2, 0, 4, 0, 2, 2, 4]，共 10 个元素，相同数值使用相同底色（0 为橙色、1 为蓝色、2 为绿色、4 为青色）。因为最大数字为 4，接下来需要统计 0 至 4 每个整数的出现次数。",
-            "state": "当前仅显示顶排“待排序数组 nums”：[1, 0, 1, 2, 0, 4, 0, 2, 2, 4]（长度 10，最大值 4）；中间计数数组 counter 与底部结果数组尚未显示。",
-            "key_state": "初始输入数组为 [1, 0, 1, 2, 0, 4, 0, 2, 2, 4]，最大数字为 4，准备统计频次。",
-            "announcement": "显示待排序数组 [1, 0, 1, 2, 0, 4, 0, 2, 2, 4]，准备统计 0 至 4 的出现次数。"
+            "title": "读取十个非负整数",
+            "explanation": "读取长度为 10 的输入数组 nums，其中最大值为 4，因此准备包含索引 0 至 4 的计数数组 counter。",
+            "state": "十个非负整数准备做计数排序，最大值为 4；当前只有输入，尚未统计频数。逐项数据见原始输入表。",
+            "key_state": "读取 10 个输入整数，最大值为 4，准备索引 0 至 4 的 counter。",
+            "announcement": "读取十个非负整数，最大值为 4，准备计数索引 0 至 4。",
+            "state_tables": [
+              {
+                "caption": "原始输入",
+                "headers": [
+                  "索引",
+                  "值"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "1"
+                  ],
+                  [
+                    "1",
+                    "0"
+                  ],
+                  [
+                    "2",
+                    "1"
+                  ],
+                  [
+                    "3",
+                    "2"
+                  ],
+                  [
+                    "4",
+                    "0"
+                  ],
+                  [
+                    "5",
+                    "4"
+                  ],
+                  [
+                    "6",
+                    "0"
+                  ],
+                  [
+                    "7",
+                    "2"
+                  ],
+                  [
+                    "8",
+                    "2"
+                  ],
+                  [
+                    "9",
+                    "4"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
           },
           {
             "id": "step-2",
-            "title": "遍历输入并统计 0 至 4 的出现次数",
-            "explanation": "右侧提示“遍历 nums 并统计各数字的出现次数，counter[num] 代表 num 的出现次数”。输入索引 1、4、6 的三个 0 连向计数索引 0（counter[0] = 3）；索引 0、2 的两个 1 连向计数索引 1（counter[1] = 2）；索引 3、7、8 的三个 2 连向计数索引 2（counter[2] = 3）；输入中没有 3，故 counter[3] = 0；索引 5、9 的两个 4 连向计数索引 4（counter[4] = 2）。",
-            "state": "顶排保留原输入 [1, 0, 1, 2, 0, 4, 0, 2, 2, 4]；中排显示“计数数组 counter”，其上方“索引（数字）”依次为 [0, 1, 2, 3, 4]，格内频次依次为 [3, 2, 3, 0, 2]，并有彩色连线从原输入各元素汇入对应计数索引；底排结果数组尚未显示。",
-            "key_state": "频次统计完成，counter 索引 0 至 4 的次数依次为 [3, 2, 3, 0, 2]（即 3 个 0、2 个 1、3 个 2、0 个 3、2 个 4）。",
-            "announcement": "完成频次统计，计数数组 counter 为 [3, 2, 3, 0, 2]。"
+            "title": "统计数字频数",
+            "explanation": "遍历输入数组，将每个数字的出现次数记入对应索引，得到 0 至 4 的频数依次为 3、2、3、0、2。",
+            "state": "十个输入的频数统计已完成，数字 3 的次数为 0，尚未写回结果。原始输入与各数字次数见当前表。",
+            "key_state": "counter[0..4] = [3, 2, 3, 0, 2]；数字 3 的频数为 0。",
+            "announcement": "统计得到数字 0 至 4 的出现次数依次为 3、2、3、0、2。",
+            "state_tables": [
+              {
+                "caption": "原始输入",
+                "headers": [
+                  "索引",
+                  "值"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "1"
+                  ],
+                  [
+                    "1",
+                    "0"
+                  ],
+                  [
+                    "2",
+                    "1"
+                  ],
+                  [
+                    "3",
+                    "2"
+                  ],
+                  [
+                    "4",
+                    "0"
+                  ],
+                  [
+                    "5",
+                    "4"
+                  ],
+                  [
+                    "6",
+                    "0"
+                  ],
+                  [
+                    "7",
+                    "2"
+                  ],
+                  [
+                    "8",
+                    "2"
+                  ],
+                  [
+                    "9",
+                    "4"
+                  ]
+                ],
+                "row_header": 0
+              },
+              {
+                "caption": "数字频数",
+                "headers": [
+                  "数字",
+                  "出现次数"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "3"
+                  ],
+                  [
+                    "1",
+                    "2"
+                  ],
+                  [
+                    "2",
+                    "3"
+                  ],
+                  [
+                    "3",
+                    "0"
+                  ],
+                  [
+                    "4",
+                    "2"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
           },
           {
             "id": "step-3",
-            "title": "按 counter 索引顺序与频次写入有序结果",
-            "explanation": "右侧新增提示“遍历 counter，将各数字按照出现次数填入 nums 即可”：按索引 0 到 4 依次读取 counter，在底排“结果数组 nums”的索引 0 至 2 填入三个 0、索引 3 至 4 填入两个 1、索引 5 至 7 填入三个 2，跳过频次为 0 的数字 3，在索引 8 至 9 填入两个 4，得到有序结果 [0, 0, 0, 1, 1, 2, 2, 2, 4, 4]。",
-            "state": "顶排保留原输入快照 [1, 0, 1, 2, 0, 4, 0, 2, 2, 4]；中排保留计数数组 counter = [3, 2, 3, 0, 2]（对应数字 0 至 4）；底排显示有序“结果数组 nums”：[0, 0, 0, 1, 1, 2, 2, 2, 4, 4]，四条箭头从计数索引 0、1、2、4 分别连至输出索引 [0, 2]、[3, 4]、[5, 7]、[8, 9] 上方的分段括号（数字 3 频次为 0 未写入）。",
-            "key_state": "按频次写回完成，底排结果数组为 [0, 0, 0, 1, 1, 2, 2, 2, 4, 4]（数字 3 频次为 0 未占位置）。",
-            "announcement": "按频次依次写入三个 0、两个 1、三个 2 和两个 4，得到有序结果 [0, 0, 0, 1, 1, 2, 2, 2, 4, 4]。"
+            "title": "按次数写回结果",
+            "explanation": "按索引 0 到 4 依次读取 counter，连续写出三个 0、两个 1、三个 2 和两个 4，次数为 0 的数字 3 直接跳过。",
+            "state": "已按数字从小到大依频数写回十个元素，排序完成。原始输入表保留的是旧快照，当前排序结果见写回结果表。",
+            "key_state": "依频数写回完成，十个元素全部升序；数字 3 没有出现。",
+            "announcement": "按数值递增顺序依频数写回，得到完整升序数组。",
+            "state_tables": [
+              {
+                "caption": "原始输入",
+                "headers": [
+                  "索引",
+                  "值"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "1"
+                  ],
+                  [
+                    "1",
+                    "0"
+                  ],
+                  [
+                    "2",
+                    "1"
+                  ],
+                  [
+                    "3",
+                    "2"
+                  ],
+                  [
+                    "4",
+                    "0"
+                  ],
+                  [
+                    "5",
+                    "4"
+                  ],
+                  [
+                    "6",
+                    "0"
+                  ],
+                  [
+                    "7",
+                    "2"
+                  ],
+                  [
+                    "8",
+                    "2"
+                  ],
+                  [
+                    "9",
+                    "4"
+                  ]
+                ],
+                "row_header": 0
+              },
+              {
+                "caption": "数字频数",
+                "headers": [
+                  "数字",
+                  "出现次数"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "3"
+                  ],
+                  [
+                    "1",
+                    "2"
+                  ],
+                  [
+                    "2",
+                    "3"
+                  ],
+                  [
+                    "3",
+                    "0"
+                  ],
+                  [
+                    "4",
+                    "2"
+                  ]
+                ],
+                "row_header": 0
+              },
+              {
+                "caption": "写回结果",
+                "headers": [
+                  "索引",
+                  "值"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "0"
+                  ],
+                  [
+                    "1",
+                    "0"
+                  ],
+                  [
+                    "2",
+                    "0"
+                  ],
+                  [
+                    "3",
+                    "1"
+                  ],
+                  [
+                    "4",
+                    "1"
+                  ],
+                  [
+                    "5",
+                    "2"
+                  ],
+                  [
+                    "6",
+                    "2"
+                  ],
+                  [
+                    "7",
+                    "2"
+                  ],
+                  [
+                    "8",
+                    "4"
+                  ],
+                  [
+                    "9",
+                    "4"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
           }
         ],
         "review": {
           "status": "confirmed",
-          "run_id": "figure-accessibility-20261114/animations/batch-05",
-          "content_sha256": "630b0ff3b51e1b39d7cd5c280576ecf6f4c4aef7fb3e62f550110385b1672f9f",
+          "run_id": "figure-reading-20261116/content/body-10",
+          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
           "stages": [
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "7978a0637acb1dedbfe6113896b39798d988c0fb65de71a870e0ea81c27829ba",
-              "output_sha256": "bc4e8ae418a6e5821d8be02eed0ea2f57e285edad16421f527f32c6f8466c223"
+              "input_sha256": "587fb17853deb18aea81c8aaf923dad9d8944f711dd123357454014ee90673ed",
+              "output_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0"
             },
             {
               "requested_model": "gemini-4-argon",
               "actual_model": null,
               "model_confirmation": "provider_not_reported",
-              "input_sha256": "bc4e8ae418a6e5821d8be02eed0ea2f57e285edad16421f527f32c6f8466c223",
-              "output_sha256": "441479076d2f78a3fdb3f6f9f5c693a16321eb479f3c0c4a4897be3dbc9cd18c"
+              "input_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0",
+              "output_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989"
             },
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "441479076d2f78a3fdb3f6f9f5c693a16321eb479f3c0c4a4897be3dbc9cd18c",
-              "output_sha256": "84c2f47271786cb20a88b2c78cc2942ef5704bdd0184b6b39729f6a25e4cb957"
+              "input_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989",
+              "output_sha256": "4409226acfc61414b5ce59f1e3c8cabdf42be0ad2939e4274348c347ae325320"
             }
           ],
-          "evidence_sha256": "4577149d6c4d8d77374c9169aa049697d0fb1997abc6ced3188ea0955798f7da"
+          "evidence_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e",
+          "verification_manifest_sha256": "2023927acd22f572c739405dfbb6d4338b32deadbe8db27f2438c77108cc13b9",
+          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+          "content_sha256": "0014486b660056d397e6fdd5e5cdcd737174a54dbfa6f332118339ec8c6c9b2f"
         }
       }
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-10",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "587fb17853deb18aea81c8aaf923dad9d8944f711dd123357454014ee90673ed",
+        "output_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0",
+        "output_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989",
+        "output_sha256": "4409226acfc61414b5ce59f1e3c8cabdf42be0ad2939e4274348c347ae325320"
+      }
+    ],
+    "evidence_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e",
+    "verification_manifest_sha256": "2023927acd22f572c739405dfbb6d4338b32deadbe8db27f2438c77108cc13b9",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "9d53f07f8b7dca7f906e630082f62c4dc3d4e326e9f6a8c8d0eeb340869baa6c"
   }
 }

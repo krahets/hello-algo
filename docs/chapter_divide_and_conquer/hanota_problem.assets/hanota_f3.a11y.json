@@ -3,7 +3,7 @@
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_divide_and_conquer/hanota_problem.assets/hanota_f3",
-  "title": "把三盘汉诺塔分解为两个两盘子问题与一次大盘移动",
+  "title": "三盘汉诺塔的分治",
   "summary": "先将顶部两盘迁到 B，再把最大盘移到 C，最后把两盘从 B 迁到 C；三个阶段共含七次单盘移动。",
   "context": [
     "图中从左到右为三根柱子 A、B、C，目标是把柱 A 上的三个圆盘移到柱 C。每次只能移动柱顶的一个圆盘，且大盘不能压在小盘之上；下文柱上圆盘均按从下到上的顺序表述。",
@@ -18,7 +18,7 @@
     {
       "id": "source-335",
       "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step1.png",
-      "title": "在柱 A 上圈出顶部两盘子问题",
+      "title": "将顶部两盘作为子问题",
       "explanation": "要移动最下面的绿色大盘，必须先把柱 A 顶部的蓝色中盘和橙色小盘移开。把这两只圆盘整体迁往柱 B 时，柱 B 是该 f(2) 子问题的目标柱，柱 C 充当缓冲柱。",
       "state": "A=[大盘, 中盘, 小盘]，B=[]，C=[]；中盘和小盘被青色实线轮廓圈为一个规模为 2 的子问题，尚未开始移动。",
       "key_state": "三盘均在柱 A；先规划把顶部两盘迁往柱 B。",
@@ -27,7 +27,7 @@
     {
       "id": "source-336",
       "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step2.png",
-      "title": "第一阶段：把顶部两盘从柱 A 迁到柱 B",
+      "title": "完成两盘子问题：A 到 B",
       "explanation": "本帧展示第一个 f(2) 子问题完成后的结果：中盘和小盘已按大下小上叠在柱 B，柱 A 只剩底层绿色大盘。该阶段实际由小盘 A→C、中盘 A→B、小盘 C→B 三次单盘移动组成，图中直接给出阶段终点。",
       "state": "A=[大盘]，B=[中盘, 小盘]，C=[]；第一个 f(2) 子问题完成，累计已执行三次单盘移动。",
       "key_state": "顶部两盘已迁至柱 B，柱 A 只剩大盘。",
@@ -36,7 +36,7 @@
     {
       "id": "source-337",
       "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step3.png",
-      "title": "第二阶段：把唯一剩下的大盘从柱 A 移到柱 C",
+      "title": "将最大盘从 A 移至 C",
       "explanation": "两只较小圆盘暂存在柱 B 后，柱 A 上的绿色大盘露出且目标柱 C 为空，直接将绿色大盘从柱 A 移到柱 C。",
       "state": "A=[]，B=[中盘, 小盘]，C=[大盘]；完成最大盘从 A 到 C 的移动，累计已执行四次单盘移动。",
       "key_state": "大盘已到柱 C，中盘和小盘仍在柱 B。",
@@ -45,43 +45,13 @@
     {
       "id": "source-338",
       "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step4.png",
-      "title": "第三阶段：把柱 B 上的两盘迁到柱 C",
+      "title": "完成两盘子问题：B 到 C",
       "explanation": "第二个 f(2) 子问题以柱 B 为源柱、柱 A 为缓冲柱、柱 C 为目标柱，内部展开为小盘 B→A、中盘 B→C、小盘 A→C 三次单盘移动，最终将两盘叠放到柱 C 的大盘之上。",
       "state": "A=[]，B=[]，C=[大盘, 中盘, 小盘]；第二个 f(2) 子问题完成，累计执行七次单盘移动，三盘迁移结束。",
       "key_state": "三只圆盘全部按大下小上叠在柱 C。",
       "announcement": "借助柱 A 将柱 B 上的两只圆盘迁到柱 C，完成三盘迁移。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-17",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "8015c9962cc27307c108739e49ccbf66254bd261df09932d201b3ba1c6fe58b1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "9481355a76d6c2868fbc0dd1da3fce835e92627213718a59a80d559350e023af",
-        "output_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f",
-        "output_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc",
-        "output_sha256": "1ba5b92e7d3bb734d4bc41b061ddb3c528638a049805a4bbcfc38825c0c76c88"
-      }
-    ],
-    "evidence_sha256": "6ad10597e7712f6ddf95ae500fcc50f0289bc7d0786a40fa5117c27866048681"
-  },
   "dependencies": {
     "markdown": {
       "chapter_divide_and_conquer/hanota_problem.md": "fe9fd8bc5e3971914c01d472b05d0c15d4d3b57218bae244613f3acb4a02e17e"
@@ -98,7 +68,7 @@
     "hanota-f3": {
       "kind": "source-frames",
       "model_sha256": "e129e1663a381499055a35bab977e097017a0c0c581234656bf39a0b405debd9",
-      "source_content_sha256": "8015c9962cc27307c108739e49ccbf66254bd261df09932d201b3ba1c6fe58b1",
+      "source_content_sha256": "0c3f1ff2face58afad48127272542d9476dff6b0c0b6e13857fe4f88ba672879",
       "states": [
         {
           "id": "step-1",
@@ -119,11 +89,44 @@
       ],
       "review": {
         "status": "confirmed",
-        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "run_id": "figure-reading-20261116/content/names/source-binding",
         "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "291795f475b41569710ee950e1f630371d4d328b68b445cd01949fb22e156265",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+        "binding_sha256": "dd1560270bc5933efb12c9416b3ddb841f5e4f6fd8aad4bae311ad3a886ee64f",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
+        "current_text_verification_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da"
       }
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/names",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
+        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      }
+    ],
+    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
+    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "0c3f1ff2face58afad48127272542d9476dff6b0c0b6e13857fe4f88ba672879"
   }
 }

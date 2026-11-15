@@ -29,16 +29,16 @@
   const AUTO_SLIDE_INTERVAL_MS = 1500;
   const LABELS = {
     "zh": {
-      "play": "播放幻灯片",
-      "pause": "暂停幻灯片",
-      "previous": "上一页",
-      "next": "下一页"
+      "play": "播放步骤",
+      "pause": "暂停播放",
+      "previous": "上一步",
+      "next": "下一步"
     },
     "zh-hant": {
-      "play": "播放投影片",
-      "pause": "暫停投影片",
-      "previous": "上一頁",
-      "next": "下一頁"
+      "play": "播放步驟",
+      "pause": "暫停播放",
+      "previous": "上一步",
+      "next": "下一步"
     },
     "en": {
       "play": "Play slideshow",
@@ -224,7 +224,8 @@
     controls.append(playButton, nav, announcement);
     tabbedContent.insertAdjacentElement("afterend", controls);
 
-    let annotation = null, currentState = null, announcementFrame = null;
+    let annotation = null, currentState = null, announcementTimer = null, announcementOrigin = null;
+    let announcementCount = 0, announcementJump = false;
     if (tabbedSet.hasAttribute("data-figure-a11y-version")) {
       try {
         if (!["1", "2"].includes(tabbedSet.dataset.figureA11yVersion)) throw Error("Unsupported version");
@@ -250,6 +251,22 @@
       isPlaying: false,
     };
 
+    // The slideshow theme hides the original tab labels. Keep random access
+    // available through a native control with the authored step names.
+    let stepSelect = null;
+    if (annotation) {
+      stepSelect = document.createElement("select");
+      stepSelect.className = "animation-controls__step";
+      stepSelect.setAttribute("aria-label", annotation.locale === "zh-hant" ? "跳到步驟" : "跳到步骤");
+      inputs.forEach((input, index) => {
+        const option = document.createElement("option");
+        option.value = String(index);
+        option.textContent = input.getAttribute("aria-label") || `第 ${index + 1} 步`;
+        stepSelect.append(option);
+      });
+      controls.insertBefore(stepSelect, nav);
+    }
+
     const updatePlayButton = () => {
       const label = state.isPlaying ? labels.pause : labels.play;
       playButton.setAttribute("aria-label", label);
@@ -268,32 +285,45 @@
       // Visual progress can move; the reader's snapshot stays still until pause.
       pageIndicator.setAttribute("aria-hidden", state.isPlaying ? "true" : "false");
       setText(pageIndicator, `${state.currentIndex + 1} / ${inputs.length}`);
+      if (stepSelect && !state.isPlaying) stepSelect.value = String(state.currentIndex);
+      prevButton.setAttribute("aria-disabled", String(state.currentIndex === 0));
+      nextButton.setAttribute("aria-disabled", String(state.currentIndex === inputs.length - 1));
       if (annotation) {
         const key = state.isPlaying ? "playing" : annotation.steps[state.currentIndex].id;
         if (snapshotKey !== key) {
           snapshotKey = key;
           const paragraph = document.createElement("p");
           paragraph.textContent = state.isPlaying
-            ? (annotation.locale === "zh-hant" ? "正在播放；暫停後顯示目前步驟狀態。" : "正在播放；暂停后显示当前步骤状态。")
-            : annotation.steps[state.currentIndex].state;
+            ? (annotation.locale === "zh-hant" ? "正在播放；暫停後顯示當前步驟狀態。" : "正在播放；暂停后显示当前步骤状态。")
+            : `第 ${state.currentIndex + 1} 步，共 ${inputs.length} 步。` + annotation.steps[state.currentIndex].state;
           currentState.replaceChildren(paragraph);
           if (!state.isPlaying) appendStateTables(currentState, annotation.steps[state.currentIndex].state_tables);
         }
       }
     };
 
-    const announce = (previous) => {
-      if (announcementFrame !== null) cancelAnimationFrame(announcementFrame);
+    const cancelAnnouncement = () => {
+      if (announcementTimer !== null) clearTimeout(announcementTimer);
+      announcementTimer = null; announcementOrigin = null; announcementCount = 0; announcementJump = false;
       announcement.textContent = "";
-      announcementFrame = requestAnimationFrame(() => {
-        announcementFrame = null;
+    };
+    const announce = (previous, jump = false) => {
+      if (announcementTimer !== null) clearTimeout(announcementTimer);
+      if (announcementOrigin === null) announcementOrigin = previous;
+      announcementCount++; announcementJump ||= jump;
+      announcement.textContent = "";
+      announcementTimer = setTimeout(() => {
         const index = state.currentIndex;
+        const forward = !announcementJump && announcementCount === 1 && index === announcementOrigin + 1;
+        const moved = index !== announcementOrigin;
+        announcementTimer = null; announcementOrigin = null; announcementCount = 0; announcementJump = false;
+        if (!moved) return;
         const prefix = /^zh/i.test(document.documentElement.lang)
           ? `第 ${index + 1} 步，共 ${inputs.length} 步。` : `${index + 1} / ${inputs.length}. `;
         const step = annotation?.steps[index];
         announcement.textContent = prefix + (step ?
-          (index === previous + 1 ? step.announcement : step.key_state) : "");
-      });
+          (forward ? step.announcement : step.key_state) : "");
+      }, 250);
     };
 
     const stop = () => {
@@ -316,9 +346,9 @@
 
     const moveTo = (index, manual = false) => {
       const previous = state.currentIndex;
-      state.currentIndex = setCheckedIndex(inputs, index);
+      state.currentIndex = setCheckedIndex(inputs, manual ? Math.max(0, Math.min(inputs.length - 1, index)) : index);
       updatePageIndicator();
-      if (manual) announce(previous);
+      if (manual && state.currentIndex !== previous) announce(previous);
     };
 
     const step = (delta, manual = false) => {
@@ -330,9 +360,7 @@
         return;
       }
       state.isPlaying = true;
-      if (announcementFrame !== null) cancelAnimationFrame(announcementFrame);
-      announcementFrame = null;
-      announcement.textContent = "";
+      cancelAnnouncement();
       updatePlayButton();
       updatePageIndicator();
       state.timeoutId = window.setTimeout(() => {
@@ -374,10 +402,19 @@
           updatePageIndicator();
           if (interactionSet === tabbedSet) {
             interactionSet = null;
-            announce(previous);
+            if (index !== previous) announce(previous, true);
           }
         }
       });
+    });
+
+    stepSelect?.addEventListener("change", () => {
+      const requested = Number(stepSelect.value);
+      stop();
+      interactionSet = tabbedSet;
+      // Use the existing input click path: the figure runtime can postpone or
+      // reject it until all visual resources are ready, without false feedback.
+      inputs[requested].click();
     });
 
     controllers.add(stop);

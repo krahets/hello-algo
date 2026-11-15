@@ -11,6 +11,11 @@
 考虑直接遍历所有可能的组合。如下图所示，我们开启一个两层循环，在每轮中判断两个整数的和是否为 `target` ，若是，则返回它们的索引。
 
 ![线性查找求解两数之和](replace_linear_by_hashing.assets/two_sum_brute_force.svg)
+<!-- figure-reading:start group:chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force -->
+
+[线性查找求解两数之和：两层循环枚举不同索引组合：完整图解](replace_linear_by_hashing.assets/two_sum_brute_force.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 代码如下所示：
 
@@ -31,10 +36,15 @@
     ![辅助哈希表求解两数之和](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg)
 
 === "<2>"
-    ![辅助哈希表求解两数之和：单层循环先查补数再存当前元素，第 2 步，共 3 步：第 2 步：i = 1 访问元素 7，补数 6 不在 map 中，存入 7 → 1](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg)
+    ![哈希表求两数之和，第 2 步，共 3 步：未找到补数 6，记录 7](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg)
 
 === "<3>"
-    ![辅助哈希表求解两数之和：单层循环先查补数再存当前元素，第 3 步，共 3 步：第 3 步：i = 2 访问元素 11，在 map 中查到补数 2，返回 \[0, 2\]](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg)
+    ![哈希表求两数之和，第 3 步，共 3 步：找到补数 2，返回索引](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg)
+<!-- figure-reading:start group:chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable -->
+
+[哈希表求两数之和：完整图解](replace_linear_by_hashing.assets/two_sum_hashtable.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 实现代码如下所示，仅需单层循环即可：
 

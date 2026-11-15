@@ -1,28 +1,27 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_data_structure/character_encoding.assets/ascii_table",
-  "title": "ASCII 字符与编码对照表",
-  "summary": "完整列出十进制 0 至 127 共 128 个 ASCII 码的十进制、八位二进制、字符符号及控制字符中文含义，并附完整 128 行结构化数据表。",
+  "title": "ASCII 字符与编码对照",
+  "summary": "按十进制编码或字符查阅对应的二进制表示，区分控制字符与可打印字符。",
   "context": [
-    "ASCII 码使用 1 个字节的低 7 位表示 128 个字符（十进制 0 至 127），图中将 8 位二进制按每 4 位一组显示，最高位恒为 0。附带的 tables 字段已按十进制 0 至 127 的顺序完整收录全部 128 行记录，可供屏幕阅读器按表格行列直接导航查阅。"
+    "ASCII 使用 7 位二进制数表示 128 个字符，十进制编码范围为 0 至 127。图中按单字节 8 位展示二进制，每 4 位以空格分组，最高位恒为 0。下方数据表已将原图四列面板合并为按十进制 0 至 127 递增的完整对照表，可按行列检索。"
   ],
   "description": [
-    "原图画面从左到右分为四个并排的竖向表格区块：第一区块列出十进制 0 至 32（共 33 行），包含“十进制”、“二进制”、“字符”和“含义”四列，覆盖 0 至 31 的控制字符及 32 的空格（SP）；第二区块列出十进制 33 至 64（共 32 行）、第三区块列出 65 至 96（共 32 行）、第四区块列出 97 至 127（共 31 行），后三个区块均包含“十进制”、“二进制”和“字符”三列。",
-    "按编码区间划分：0 至 31 及末尾 127（DEL）为不可打印的控制字符；32 为空格（SP）；33 至 47、58 至 64、91 至 96、123 至 126 为标点与运算符号；48 至 57 为阿拉伯数字字符 0 至 9；65 至 90 为大写英文字母 A 至 Z；97 至 122 为小写英文字母 a 至 z。",
-    "表中“含义（图中注明）”忠实转录原图，个别译名不宜作为标准术语理解：SO 是 Shift Out（移出切换），SI 是 Shift In（移入切换），ESC 是 Escape（转义），并非算术溢出。LF、FF、CR 表示换行、换页、回车控制功能，图中的“键”字不表示它们必须对应某个实体按键。0 的 NUL 是空字符，不是数字字符 0；127 的 DEL 是删除字符，与 32 的空格 SP 不同。"
+    "按编码区间划分：0 至 31 与 127 为控制字符；32 为空格（SP）；48 至 57 为数字字符 0 至 9；65 至 90 为大写字母 A 至 Z；97 至 122 为小写字母 a 至 z；其余可打印标点与符号分布在 33 至 47、58 至 64、91 至 96 以及 123 至 126。",
+    "表中“含义（图中注明）”列保留原图注文，阅读时需注意其与现代通用术语的差异：编码 14 的 SO（Shift Out）与 15 的 SI（Shift In）分别表示移出切换与移入切换；编码 27 的 ESC（Escape）表示转义，原图注文“换码(溢出)”中的“溢出”并非算术溢出；编码 10（LF）、12（FF）、13（CR）分别控制换行、换页与回车，原图带有的“键”字仅作功能提示，不代表必须对应实体按键。"
   ],
-  "result": "ASCII 字符集建立了字符及控制码与整数编号（0 至 127）之间的一一映射：数字、大写字母和小写字母在表中各自连续排列，但字符字面与编码数值不同（如字符 0 的编码为 48、大写 A 为 65、小写 a 为 97）。",
+  "result": "字符字面与编码数值不同：数字字符 0 的编码是 48（0011 0000），而编码 0 对应空字符 NUL（0000 0000）；大写 A 编码为 65，小写 a 编码为 97；空字符 NUL（0）、空格 SP（32）与删除字符 DEL（127）也各自对应不同编码。",
   "frames": [
     {
       "id": "source-43",
       "book_path": "chapter_data_structure/character_encoding.assets/ascii_table.png",
-      "title": "ASCII 字符与编码对照表",
-      "explanation": "查阅对照表时，同一行的十进制、八位二进制与字符彼此对应，并呈现清晰的二进制规律：数字字符 0 至 9（十进制 48 至 57）的高四位固定为 0011，低四位恰好等于对应数字 0000 至 1001；大写字母 A 至 Z（65 至 90，二进制 0100 0001 至 0101 1010）与对应的小写字母 a 至 z（97 至 122，二进制 0110 0001 至 0111 1010）十进制相差 32，在二进制上仅右起第 6 位（权重 32）相差一个 0 和 1。第 0 至 32 行的中文含义保留了原图注释（如 10 LF 为“换行键”、13 CR 为“回车键”、14 SO 图中注为“不用切换”、27 ESC 注为“换码(溢出)”），完整明细请直接在附带表格中逐行检索。",
-      "state": "四栏并排的完整 ASCII 对照表，覆盖十进制 0 至 127（二进制 0000 0000 至 0111 1111）：第一栏为 0 至 32（含“十进制、二进制、字符、含义”四列，列出 NUL 至 US 控制字符及 32 空格 SP）；第二栏为 33 至 64（含标点与 48 至 57 的数字 0 至 9）；第三栏为 65 至 96（含 65 至 90 的大写字母 A 至 Z 及标点）；第四栏为 97 至 127（含 97 至 122 的小写字母 a 至 z、标点及 127 DEL）。",
-      "key_state": "完整覆盖十进制 0 至 127（二进制 0000 0000 至 0111 1111）：0–31 与 127 为控制字符，32 为空格，48–57 为数字 0–9，65–90 为 A–Z，97–122 为 a–z。",
-      "announcement": "展示十进制 0 至 127 的完整 ASCII 字符编码表，提供十进制、八位二进制、字符与控制字符含义对照。"
+      "title": "ASCII 字符与编码对照",
+      "explanation": "表中同一行的十进制码、8 位二进制与字符一一对应。数字字符 0 至 9 位于十进制 48 至 57，二进制高四位恒为 0011，低四位恰为对应数值 0000 至 1001。同一字母的大小写编码相差 32，8 位二进制仅右起第 6 位（权重 32 的位）不同：例如大写 A 为 65（0100 0001），小写 a 为 97（0110 0001）；换行 LF 为 10（0000 1010）。",
+      "state": "ASCII 对照表完整覆盖十进制编码 0 至 127，对应 8 位二进制 0000 0000 至 0111 1111（最高位恒为 0）。其中 0 至 31 及 127 为控制字符，32 为空格 SP，48 至 57 为数字 0 至 9，65 至 90 为大写字母 A 至 Z，97 至 122 为小写字母 a 至 z，其余为可打印符号。逐码明细见数据表。",
+      "key_state": "编码 0 至 127 对应 128 个 ASCII 字符：编码 0 为 NUL，字符 0 编码为 48，空格 SP 为 32，A 为 65，a 为 97，DEL 为 127。",
+      "announcement": "展示十进制 0 至 127 的完整 ASCII 字符与编码对照。"
     }
   ],
   "tables": [
@@ -803,39 +802,10 @@
           "DEL",
           ""
         ]
-      ]
+      ],
+      "row_header": 0
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-03",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "58790230a2694ecabf3213fd3bb80ce635517eb519cd3541131de0d681a8d6bc",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "cbe99e77444e0462f57c192b0088094f9fd6936e24f6cfd18181de4a48ba8083",
-        "output_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "592fbe13ee5485e2c42e85049d4a6c7b740fa61ba86ce2f6f2b2f53384e4300c",
-        "output_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "20ce741e9e1f33dc33694b7e2b048380f52539331b2f401377407d44fd60fad6",
-        "output_sha256": "bdf21f24ca6a88ed6060d24186ac933357dde4feee3a257546cffd56c2bd6867"
-      }
-    ],
-    "evidence_sha256": "ec6ba9da7d2fe9290ce303592b8440b918ec83702cd9d0e6bbdc1e50d87c89d8"
-  },
   "dependencies": {
     "markdown": {
       "chapter_data_structure/character_encoding.md": "507b61114c28a3b956809aa4135816175d839e2e9dbd24e92a39f26464d6ae9c"
@@ -844,5 +814,37 @@
     "scenes": {
       "chapter_data_structure/character_encoding.assets/ascii_table.png": "a97dd0bb803c953d3c3db0b7fc8f6898cac9745754125dc7d69dba792730097c"
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-01",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "bee8ef3e466c2fa5309322f74f5898255f7a9756899611b2cd87ce6e3854ee7b",
+        "output_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69",
+        "output_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891",
+        "output_sha256": "16c8b112b53ded438d4441cc173d93989fdd3fde82db826e2a6112fab308c3d4"
+      }
+    ],
+    "evidence_sha256": "744ffd0467db06d32b8f66d9d86433ff0b9bf0949849bb0b0a4787fce7a270f8",
+    "verification_manifest_sha256": "6195843dd3024e4a7a3a4caf12fa0ab2f3c27e21a93175d9900c87fef51760fb",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "384a26bd291765ee2d0d0524f892a604117bb7f13da99e4667d0ee2e39bfe2ea"
   }
 }

@@ -1,62 +1,27 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_tree/binary_tree.assets/binary_tree_add_remove",
-  "title": "在二叉树的连接中插入与移除节点",
-  "summary": "在节点 1 与左子节点 2 之间插入值为 0 的节点 P，再将 1 的左指针改回 2 以移除 P。",
-  "context": [
-    "初始二叉树以 1 为根节点（标有引用 n1），其左、右子节点为 2（标有引用 n2）和 3；节点 2 的左、右子节点为 4、5。下方独立的青色新节点值为 0，标有引用 P。"
-  ],
-  "description": [
-    "图中从左到右并列三棵树，展示初始状态、“插入节点”后状态与“删除节点”后状态。第一阶段在 n1 与 n2 之间插入 P：代码块依次执行 n1.left = P 和 P.left = n2，把原本 1 → 2 的左子节点边拆成 1 → 0 → 2 两段左子节点边。节点 2 下方的左、右子节点 4、5 随整棵子树保留，1 的右子节点仍是 3。",
-    "第二阶段移除节点 P：代码块执行 n1.left = n2，让节点 1 的左子节点引用直接指回节点 2，从而绕过青色节点 P（0）。最右侧的树恢复为根节点 1、左子树 2（含子节点 4、5）、右子节点 3。图中的“删除节点”指将 P 从树的指针连接中摘除；至于节点对象的内存是否立即回收，则取决于具体编程语言与外部引用情况。"
-  ],
-  "result": "通过调整父节点的左子节点引用即可在二叉树中插入或摘除中间节点，且操作过程中节点 2 的子树 4、5 完整保留。",
+  "title": "二叉树的插入与摘除",
+  "summary": "通过改连左子节点引用，在完整保留节点 2 子树的前提下插入或摘除中间节点 P。",
+  "context": [],
+  "description": [],
+  "result": "摘除后恢复原树连接，仅能断言从根节点不再能到达 P，不能据此断言 P 的对象内存已被释放，也不表示删去了整棵左子树。",
   "frames": [
     {
       "id": "source-91",
       "book_path": "chapter_tree/binary_tree.assets/binary_tree_add_remove.png",
-      "title": "在二叉树的连接中插入与移除节点",
-      "explanation": "左图到中图执行 n1.left = P 与 P.left = n2，将值为 0 的节点 P 插入到节点 1 与节点 2 之间；中图到右图执行 n1.left = n2，绕过 P 直接恢复 1 到 2 的左子节点连接。",
-      "state": "左图：根 1（n1）的左、右子节点为 2（n2）、3，2 的左、右子节点为 4、5，青色节点 P（值为 0）独立在外。中图：1（n1）的左子节点连向 P（0），P 的左子节点连向 2（n2），2 仍连 4、5，1 的右子节点仍为 3。右图：1（n1）的左、右子节点恢复为 2（n2）、3，2 连 4、5，P 已脱离树结构。",
-      "key_state": "插入：1 → P（0）→ 2；移除：1 → 2；节点 2 的子节点 4、5 始终保留。",
-      "announcement": "先在节点 1 与 2 之间插入值为 0 的节点 P，再令 1 的左指针重新指向 2 以移除 P。"
+      "title": "二叉树的插入与摘除",
+      "explanation": "预先用 n2 保存节点 2 的引用。插入时执行 n1.left = P 与 P.left = n2，把原边 1 → 2 改连为 1 → P(0) → 2，节点 2 的左右连接仍为 4、5，整棵子树得以接回。摘除时执行 n1.left = n2，绕过 P 直接恢复 1 → 2。",
+      "state": "初始树以 1（n1）为根，左子节点为 2（n2）、右子节点为 3，2 的左右子节点为 4、5，3、4、5 为叶节点。三栏依次展示：P（值为 0）独立在树外；P 插在 1 与 2 之间且 2 仍连 4、5；n1.left 重新指回 2（n2）使 P 从树中摘除。根 1 的右子节点始终为 3。",
+      "key_state": "插入改连为 1 → P(0) → 2，摘除恢复为 1 → 2；节点 2 的子树 4、5 始终完整保留。",
+      "announcement": "在节点 1 与 2 之间先插入值为 0 的节点 P，再改连左指针将其摘除。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-06",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "b3e984793a84bd38703ed6638138d225e8c1e1d361015d3a05b767e9df209152",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a7d27ac86970762b98a3afc622b5a802549e6b6254c666e3efdf60f34ede65b5",
-        "output_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4",
-        "output_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900",
-        "output_sha256": "30bb25c69fe95554ab48370f707653e1ddeb4b287f83cb44cf33dc013e44b87b"
-      }
-    ],
-    "evidence_sha256": "bbb898a17ec7d0f8023ba3e028e19e1cebb4eba7c5059fe86305e5491e6f3b3b"
-  },
   "dependencies": {
     "markdown": {
-      "chapter_tree/binary_tree.md": "ae2eaab951aa4bdfeba7d1cf6b47892b44351703c62da823977b45cbceb86c49"
+      "chapter_tree/binary_tree.md": "aa0c4627b731fa3f16786d3a6f4533fd415e5bea256a9a8f84d6c858ec3596af"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
@@ -68,77 +33,109 @@
       "kind": "prose",
       "model_sha256": "7d107e607e89ccb88bf10a96d98554a5f975f4d606238ae0b417b1dbc637ceac",
       "prose": {
-        "schema_version": 1,
+        "schema_version": 2,
         "status": "confirmed",
         "locale": "zh-hans",
         "story_id": "binary-tree-add-remove",
         "group_id": "group:chapter_tree/binary_tree.assets/binary_tree_add_remove",
-        "title": "二叉树插入与删除节点：在节点 1 与左子节点 2 之间改连指针",
-        "summary": "在根节点 1 与左子节点 2 之间插入值为 0 的节点 P，再令 1 直接连回 2 以移除 P。",
+        "title": "二叉树的插入与摘除",
+        "summary": "通过改连左子节点引用，在完整保留节点 2 子树的前提下插入或摘除中间节点 P。",
         "context": [
-          "初始二叉树的根节点为 1，左子节点为 2，右子节点为 3；节点 2 的左子节点为 4、右子节点为 5；节点 3、4、5 均为叶节点。指针 n1 指向根节点 1，n2 指向节点 2；待插入节点 P 的值为 0，初始独立于树外。"
+          "n1 指向值为 1 的根节点，n2 保留值为 2 的原左子节点引用；待插入节点 P 的值为 0。"
         ],
-        "description": [
-          "插入节点 P 时，执行 n1.left = P 与 P.left = n2，把原本从 1 直接指向 2 的左指针改为 1 → P → 2，使以 2 为根的整棵左子树（含叶节点 4 和 5）挂接到 P 的左子节点位置。",
-          "删除节点 P 时，执行 n1.left = n2，让根节点 1 的左指针重新直接指向节点 2，从而将节点 P 从根可达的二叉树中移除。动画仅展示树结构与指针连线的变化，不涉及具体编程语言的内存回收过程或变量 P 的后续状态。"
-        ],
-        "result": "经过先插入后删除，二叉树恢复为根节点 1 连接左右子节点 2 和 3、节点 2 连接左右子节点 4 和 5 的初始结构，节点 P 已从树中移除。",
+        "description": [],
+        "result": "摘除后恢复原树连接，仅能断言从根节点不再能到达 P，不能据此断言 P 的对象内存已被释放，也不表示删去了整棵左子树。",
         "steps": [
           {
             "id": "step-1",
-            "title": "初始二叉树与树外独立节点 P",
-            "explanation": "根节点 1（标注 n1）的左指针直接指向节点 2（标注 n2），右指针指向叶节点 3；节点 2 的左右指针分别指向叶节点 4 和 5。值为 0 的待插入节点 P 独立显示在树下方，尚未与树建立连接。",
-            "state": "根节点 1（n1）的左子节点为 2（n2）、右子节点为 3；节点 2 的左子节点为 4、右子节点为 5；节点 3、4、5 均为叶节点。独立节点 P 的值为 0，位于树外且无子节点连接。",
-            "key_state": "初始 n1(1).left = n2(2)，节点 P(0) 独立在树外。",
-            "announcement": "显示初始二叉树，以及树外值为 0 的独立节点 P。"
+            "title": "准备插入 P",
+            "explanation": "在改写 n1.left 之前，先由引用 n2 指向节点 2，以便后续把以 2 为根的原左子树接回新节点 P 下方。",
+            "state": "根节点 1（n1）的左子节点为 2（n2）、右子节点为 3；节点 2 的左右子节点为 4、5；3、4、5 为叶节点。值为 0 的节点 P 独立于树外，左右子节点均为空。",
+            "key_state": "原树边为 1 → 2（连 4、5）与 1 → 3；节点 P(0) 尚在树外。",
+            "announcement": "展示初始二叉树与待插入的独立节点 P。"
           },
           {
             "id": "step-2",
-            "title": "插入节点 P：执行 n1.left = P 与 P.left = n2",
-            "explanation": "左上角标注“插入节点：n1.left = P，P.left = n2”。根节点 1 的左指针改为指向节点 P（值为 0），节点 P 的左指针指向节点 2；节点 2 及其左右子节点 4、5 整体下移一层，作为 P 的左子树保留下来，根节点 1 的右子节点 3 不变。",
-            "state": "根节点 1（n1）的左子节点为 P（值为 0）、右子节点为 3；节点 P 的左子节点为 2（n2）、右子节点为空；节点 2 的左子节点为 4、右子节点为 5；节点 3、4、5 均为叶节点。",
-            "key_state": "已插入 P(0)，左分支连接变为 1 → P(0) → 2。",
-            "announcement": "执行 n1.left = P 和 P.left = n2，将节点 P 插入 1 与 2 之间。"
+            "title": "将 P 插入左连接",
+            "explanation": "依次执行 n1.left = P 与 P.left = n2：因 n2 保留了节点 2 的引用，P.left = n2 能将整棵原左子树接回 P 下方，节点 2 的左右连接仍为 4、5，不会丢失子树。",
+            "state": "根节点 1（n1）的左子节点改为 P（值为 0）、右子节点仍为 3；P 的左子节点为 2（n2）、右子节点为空；节点 2 的左右子节点仍为 4、5；3、4、5 为叶节点。",
+            "key_state": "左分支改连为 1 → P(0) → 2，节点 2 的左右子节点 4、5 保持不变。",
+            "announcement": "执行两次左指针赋值，将 P 插入节点 1 与 2 之间。"
           },
           {
             "id": "step-3",
-            "title": "删除节点 P：执行 n1.left = n2",
-            "explanation": "左上角标注“删除节点：n1.left = n2”。根节点 1 的左指针绕过 P，重新直接指向节点 2；以 2 为根的左子树回到原层级，节点 P 从根可达的树中移除并不再显示。",
-            "state": "根节点 1（n1）的左子节点恢复为 2（n2）、右子节点为 3；节点 2 的左子节点为 4、右子节点为 5；节点 3、4、5 均为叶节点；树中已移除节点 P。",
-            "key_state": "已执行 n1.left = n2，左分支恢复为 1 → 2，P 从树中移除。",
-            "announcement": "执行 n1.left = n2，绕过并移除节点 P，恢复初始树结构。"
+            "title": "绕过 P 接回原子树",
+            "explanation": "执行赋值 n1.left = n2，令根节点 1 绕过 P 直接连回节点 2，恢复原左子树连接；这只是把 P 从根可达路径中摘除，不表示删去整棵子树或已释放 P 的内存。",
+            "state": "根节点 1（n1）的左子节点恢复为 2（n2）、右子节点为 3；节点 2 的左右子节点为 4、5；3、4、5 为叶节点。节点 P 已无法从根节点到达；仅凭此状态不能断言 P 的内存已释放。",
+            "key_state": "n1.left 重新指向 n2，恢复 1 → 2 连接，P 被摘除出树。",
+            "announcement": "执行 n1.left = n2 绕过 P，恢复根节点到节点 2 的直接连接。"
           }
         ],
         "review": {
           "status": "confirmed",
-          "run_id": "figure-accessibility-20261114/animations/batch-02",
-          "content_sha256": "f29d9b4337b5c2fd1a3bb282c596354da13d10e05239b22d08329a2bcc50a3f6",
+          "run_id": "figure-reading-20261116/content/body-06",
+          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
           "stages": [
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "4d13f1301ba3734719aea73335d2d384fca7b4f65812bce845d84076149bc1b7",
-              "output_sha256": "b1d5d394047175cc689fca6198b1942ee353e2158ae12b2b05edf71fa3952503"
+              "input_sha256": "0e605f50a53ec6e3f03d8d322e023b976d2db4808bf108c78d39e01978f007df",
+              "output_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4"
             },
             {
               "requested_model": "gemini-4-argon",
               "actual_model": null,
               "model_confirmation": "provider_not_reported",
-              "input_sha256": "b1d5d394047175cc689fca6198b1942ee353e2158ae12b2b05edf71fa3952503",
-              "output_sha256": "b3795c3a3799e1c0ee7a28b95029b0e10278ee5727b6f9868a5a135e5f187403"
+              "input_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4",
+              "output_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566"
             },
             {
               "requested_model": "gpt-6-astra",
               "actual_model": "gpt-6-astra",
               "model_confirmation": "native_runtime",
-              "input_sha256": "b3795c3a3799e1c0ee7a28b95029b0e10278ee5727b6f9868a5a135e5f187403",
-              "output_sha256": "112a1db1238c2b663c27321978bce0241eebaf5d6fdeac067f9bbeda5c675d22"
+              "input_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566",
+              "output_sha256": "44416cbb28c97324cacaea4c3e09ba6447fb8d634f9669e0ab1055e4248cc4df"
             }
           ],
-          "evidence_sha256": "aa6ba7b54ada7ba151f97f6b9bd3b49fc4723bd6cae50b0be26e0f9b73fccfd8"
+          "evidence_sha256": "e12abd969b6243a09b219e54f4a5057f6e2f8de2c83b7c02566b8d9406402b78",
+          "verification_manifest_sha256": "0b7adebd41a0487a5327cd972cfda8603502aa45f7655844680e218e6e933867",
+          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+          "content_sha256": "e5ed9d2286afdadc512eb6e27bc9161332bbca1c05c7e653fd8aa2542f1234af"
         }
       }
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-06",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "0e605f50a53ec6e3f03d8d322e023b976d2db4808bf108c78d39e01978f007df",
+        "output_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4",
+        "output_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566",
+        "output_sha256": "44416cbb28c97324cacaea4c3e09ba6447fb8d634f9669e0ab1055e4248cc4df"
+      }
+    ],
+    "evidence_sha256": "e12abd969b6243a09b219e54f4a5057f6e2f8de2c83b7c02566b8d9406402b78",
+    "verification_manifest_sha256": "0b7adebd41a0487a5327cd972cfda8603502aa45f7655844680e218e6e933867",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "5b02ed1728628ed35b81b7b955eb54fccf2a48a7e982861c3dda387d58db5ee1"
   }
 }

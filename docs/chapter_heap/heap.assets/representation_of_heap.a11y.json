@@ -3,8 +3,8 @@
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_heap/heap.assets/representation_of_heap",
-  "title": "堆的逻辑结构与底层数组存储：用索引映射实现节点指针",
-  "summary": "12 节点大顶堆按层序存为数组 [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]；对索引 i=4（值 7），父节点在 (i−1)/2=1，左、右子节点在 2i+1=9 和 2i+2=10。",
+  "title": "堆的数组表示",
+  "summary": "堆按层序存入数组后，可直接通过索引换算定位父子节点；例如索引 i = 4 的父节点索引为 ⌊(i − 1)/2⌋ = 1（向下取整），左、右子节点索引分别为 9 和 10。",
   "context": [
     "图上方标注：左侧为“堆的逻辑结构（‘堆’是一棵‘完全二叉树’）”，右侧为“堆的物理结构（底层存储，使用‘数组’表示‘完全二叉树’）”。数组按层序存放 12 个元素 [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]，索引从 0 到 11。"
   ],
@@ -18,50 +18,52 @@
     {
       "id": "source-141",
       "book_path": "chapter_heap/heap.assets/representation_of_heap.png",
-      "title": "堆的逻辑结构与底层数组存储：用索引映射实现节点指针",
+      "title": "堆的数组表示",
       "explanation": "图左右对照同一大顶堆的完全二叉树表示与数组表示（索引 0 至 11），并以索引 i=4（值 7）为中心演示索引映射：父节点位于橙色高亮的索引 ⌊(i−1)/2⌋ = 1（值 8），左子节点位于蓝色高亮的索引 2i+1 = 9（值 3），右子节点位于紫蓝色高亮的索引 2i+2 = 10（值 6）。",
       "state": "数组索引 0 至 11 依次存储元素 [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]，左侧完全二叉树按相同层序排列并标注索引 0 至 11。当前选中节点为 i=4（值 7）；其父节点为索引 1（值 8），左子节点为索引 9（值 3），右子节点为索引 10（值 6）。",
       "key_state": "选中节点 i=4（值 7）：父节点索引 ⌊(i−1)/2⌋=1（值 8），左、右子节点索引 2i+1=9（值 3）、2i+2=10（值 6）。",
       "announcement": "展示大顶堆的完全二叉树与数组对应关系，以及索引 i=4 的父子位置映射公式。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-08",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "9ede8350f01016249bf6597f3fa947ac90697e5e75684dd6f95151472c48360b",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a506b3ecafaef6d8fc62ef26dae68447d18629fc5e16ddd8ae926171452d6745",
-        "output_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d",
-        "output_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896",
-        "output_sha256": "8aa1f4dfa1fd2a8bc10a20ded596eaae033faa43bbf57cbc5c462af6f3455359"
-      }
-    ],
-    "evidence_sha256": "14a36adc867aa49a98d8a9d37d2a3aade7c41c8d611abaa2b4d84cd7b471e986"
-  },
   "dependencies": {
     "markdown": {
-      "chapter_heap/heap.md": "4eac94cc73c58f010fd8439bd21e4f441eff794de3d6d06a143a0f45dc44ec3e"
+      "chapter_heap/heap.md": "00d9805c2a89016f30a5c9c5434c2fd3911f8b56b7fb8cdec0a862e0c4be92e9"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
       "chapter_heap/heap.assets/representation_of_heap.png": "5d174bf00a7dad01095fc3ef46cc29c13b0cbddc70e0a760805a0e564293a1df"
     }
+  },
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/names",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
+        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
+        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
+      }
+    ],
+    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
+    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "4636b98e1f83018425d5b67c8d278e449aa81b7dd8ba894ed41124f2ce5aa183"
   }
 }

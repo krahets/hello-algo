@@ -6,6 +6,11 @@
 - <u>大顶堆（max heap）</u>：任意节点的值 $\geq$ 其子节点的值。
 
 ![小顶堆与大顶堆](heap.assets/min_heap_and_max_heap.svg)
+<!-- figure-reading:start group:chapter_heap/heap.assets/min_heap_and_max_heap -->
+
+[小顶堆与大顶堆的结构与大小关系：完整图解](heap.assets/min_heap_and_max_heap.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 堆作为完全二叉树的一个特例，具有以下特性。
 
@@ -56,6 +61,11 @@ heap_operations
 如下图所示，给定索引 $i$ ，其左子节点的索引为 $2i + 1$ ，右子节点的索引为 $2i + 2$ ，父节点的索引为 $(i - 1) / 2$（向下整除）。当索引越界时，表示空节点或节点不存在。
 
 ![堆的表示与存储](heap.assets/representation_of_heap.svg)
+<!-- figure-reading:start group:chapter_heap/heap.assets/representation_of_heap -->
+
+[堆的数组表示：完整图解](heap.assets/representation_of_heap.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 我们可以将索引映射公式封装成函数，方便后续使用：
 
@@ -81,28 +91,33 @@ heap_operations
     ![元素入堆步骤](heap.assets/heap_push_step1.svg)
 
 === "<2>"
-    ![大顶堆元素入堆：追加节点 7 并从底至顶堆化（Sift Up），第 2 步，共 9 步：第 2 步：将节点 7 添加至堆底](heap.assets/heap_push_step2.svg)
+    ![大顶堆插入元素，第 2 步，共 9 步：将7追加到末尾](heap.assets/heap_push_step2.svg)
 
 === "<3>"
-    ![大顶堆元素入堆：追加节点 7 并从底至顶堆化（Sift Up），第 3 步，共 9 步：第 3 步：比较新节点 7 与父节点 5](heap.assets/heap_push_step3.svg)
+    ![大顶堆插入元素，第 3 步，共 9 步：比较索引12与5](heap.assets/heap_push_step3.svg)
 
 === "<4>"
-    ![大顶堆元素入堆：追加节点 7 并从底至顶堆化（Sift Up），第 4 步，共 9 步：第 4 步：交换节点 7 与父节点 5](heap.assets/heap_push_step4.svg)
+    ![大顶堆插入元素，第 4 步，共 9 步：交换索引12与5](heap.assets/heap_push_step4.svg)
 
 === "<5>"
-    ![大顶堆元素入堆：追加节点 7 并从底至顶堆化（Sift Up），第 5 步，共 9 步：第 5 步：比较新节点 7 与上一层父节点 6](heap.assets/heap_push_step5.svg)
+    ![大顶堆插入元素，第 5 步，共 9 步：比较索引5与2](heap.assets/heap_push_step5.svg)
 
 === "<6>"
-    ![大顶堆元素入堆：追加节点 7 并从底至顶堆化（Sift Up），第 6 步，共 9 步：第 6 步：交换节点 7 与父节点 6](heap.assets/heap_push_step6.svg)
+    ![大顶堆插入元素，第 6 步，共 9 步：交换索引5与2](heap.assets/heap_push_step6.svg)
 
 === "<7>"
-    ![大顶堆元素入堆：追加节点 7 并从底至顶堆化（Sift Up），第 7 步，共 9 步：第 7 步：比较新节点 7 与根节点 9](heap.assets/heap_push_step7.svg)
+    ![大顶堆插入元素，第 7 步，共 9 步：比较索引2与根](heap.assets/heap_push_step7.svg)
 
 === "<8>"
-    ![大顶堆元素入堆：追加节点 7 并从底至顶堆化（Sift Up），第 8 步，共 9 步：第 8 步：不执行交换，停止上浮](heap.assets/heap_push_step8.svg)
+    ![大顶堆插入元素，第 8 步，共 9 步：停止上浮](heap.assets/heap_push_step8.svg)
 
 === "<9>"
-    ![大顶堆元素入堆：追加节点 7 并从底至顶堆化（Sift Up），第 9 步，共 9 步：第 9 步：堆化完成，大顶堆性质恢复](heap.assets/heap_push_step9.svg)
+    ![大顶堆插入元素，第 9 步，共 9 步：插入完成](heap.assets/heap_push_step9.svg)
+<!-- figure-reading:start group:chapter_heap/heap.assets/heap_push -->
+
+[大顶堆插入元素：完整图解](heap.assets/heap_push.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 设节点总数为 $n$ ，则树的高度为 $O(\log n)$ 。由此可知，堆化操作的循环轮数最多为 $O(\log n)$ ，**元素入堆操作的时间复杂度为 $O(\log n)$** 。代码如下所示：
 
@@ -124,31 +139,36 @@ heap_operations
     ![堆顶元素出堆步骤](heap.assets/heap_pop_step1.svg)
 
 === "<2>"
-    ![大顶堆堆顶元素出堆：首尾交换后从顶至底堆化（Sift Down），第 2 步，共 10 步：第 2 步：将堆顶元素 9 与堆底元素 5 交换](heap.assets/heap_pop_step2.svg)
+    ![大顶堆弹出堆顶，第 2 步，共 10 步：交换首尾元素](heap.assets/heap_pop_step2.svg)
 
 === "<3>"
-    ![大顶堆堆顶元素出堆：首尾交换后从顶至底堆化（Sift Down），第 3 步，共 10 步：第 3 步：弹出当前堆底的原堆顶元素 9](heap.assets/heap_pop_step3.svg)
+    ![大顶堆弹出堆顶，第 3 步，共 10 步：从末尾删除9](heap.assets/heap_pop_step3.svg)
 
 === "<4>"
-    ![大顶堆堆顶元素出堆：首尾交换后从顶至底堆化（Sift Down），第 4 步，共 10 步：第 4 步：比较根节点 5 与左、右子节点 8、7](heap.assets/heap_pop_step4.svg)
+    ![大顶堆弹出堆顶，第 4 步，共 10 步：比较根5与子节点](heap.assets/heap_pop_step4.svg)
 
 === "<5>"
-    ![大顶堆堆顶元素出堆：首尾交换后从顶至底堆化（Sift Down），第 5 步，共 10 步：第 5 步：交换节点 5 与左子节点 8](heap.assets/heap_pop_step5.svg)
+    ![大顶堆弹出堆顶，第 5 步，共 10 步：交换索引0与1](heap.assets/heap_pop_step5.svg)
 
 === "<6>"
-    ![大顶堆堆顶元素出堆：首尾交换后从顶至底堆化（Sift Down），第 6 步，共 10 步：第 6 步：比较索引 1 的 5 与子节点 6、7](heap.assets/heap_pop_step6.svg)
+    ![大顶堆弹出堆顶，第 6 步，共 10 步：比较索引1的子节点](heap.assets/heap_pop_step6.svg)
 
 === "<7>"
-    ![大顶堆堆顶元素出堆：首尾交换后从顶至底堆化（Sift Down），第 7 步，共 10 步：第 7 步：交换节点 5 与索引 4 的子节点 7](heap.assets/heap_pop_step7.svg)
+    ![大顶堆弹出堆顶，第 7 步，共 10 步：交换索引1与4](heap.assets/heap_pop_step7.svg)
 
 === "<8>"
-    ![大顶堆堆顶元素出堆：首尾交换后从顶至底堆化（Sift Down），第 8 步，共 10 步：第 8 步：比较索引 4 的 5 与子节点 3、6](heap.assets/heap_pop_step8.svg)
+    ![大顶堆弹出堆顶，第 8 步，共 10 步：比较索引4的子节点](heap.assets/heap_pop_step8.svg)
 
 === "<9>"
-    ![大顶堆堆顶元素出堆：首尾交换后从顶至底堆化（Sift Down），第 9 步，共 10 步：第 9 步：交换节点 5 与索引 10 的 6，抵达叶节点](heap.assets/heap_pop_step9.svg)
+    ![大顶堆弹出堆顶，第 9 步，共 10 步：交换索引4与10](heap.assets/heap_pop_step9.svg)
 
 === "<10>"
-    ![大顶堆堆顶元素出堆：首尾交换后从顶至底堆化（Sift Down），第 10 步，共 10 步：第 10 步：堆化完成，大顶堆性质恢复](heap.assets/heap_pop_step10.svg)
+    ![大顶堆弹出堆顶，第 10 步，共 10 步：出堆完成](heap.assets/heap_pop_step10.svg)
+<!-- figure-reading:start group:chapter_heap/heap.assets/heap_pop -->
+
+[大顶堆弹出堆顶：完整图解](heap.assets/heap_pop.a11y.markdown)
+
+<!-- figure-reading:end -->
 
 与元素入堆操作相似，堆顶元素出堆操作的时间复杂度也为 $O(\log n)$ 。代码如下所示：
 

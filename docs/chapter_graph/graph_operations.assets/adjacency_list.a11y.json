@@ -1,245 +1,230 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "confirmed",
   "locale": "zh-hans",
   "group_id": "group:chapter_graph/graph_operations.assets/adjacency_list",
-  "title": "基于邻接表的图操作：增删无向边与增删顶点",
+  "title": "邻接表的增删操作",
   "summary": "增删无向边需同步更新两个端点的邻接链表；删除顶点则需移除该顶点的整条链表，并从其余链表中清理所有指向它的节点。",
   "context": [
     "初始图包含五个顶点，邻接表左列按 [1, 3, 2, 5, 4] 排列头节点，初始共有六条无向边 1—3、1—5、3—2、2—5、2—4、5—4。每行向右延伸的箭头仅代表链表节点引用，不表示有向边。"
   ],
   "description": [
-    "五幅分步画面依次演示“初始化图”“添加边 1 - 2”“删除边 1 - 3”“添加顶点 6”和“删除顶点 3”。每步各顶点的完整邻接列表见附表，表中顺序与画面从左到右显示的节点顺序严格一致；同一链表内邻居节点的排列先后不影响无向图的连接关系。"
+    "无向边连接两个顶点，增删一条边时须在两个端点的邻接链表中同步增删对方。每帧状态表列出该步操作完成后的完整邻居列表。",
+    "新增孤立顶点时建立一条空链表；删除顶点时移除该顶点的整行链表，并从其余顶点的链表中删去指向它的节点。链表内先后次序按画面记录，不影响无向连接关系；行位置前移不改变顶点身份。 本图添加边时把新邻居放在链表头部；正文代码使用动态数组并在末尾追加，两者表示的无向连接相同。"
   ],
   "result": "五步操作完成后，邻接表左列保留顶点 [1, 2, 5, 4, 6]，图中共有五条无向边 1—5、2—5、2—4、5—4、1—2；顶点 6 的邻接列表为空，顶点 3 的整行及其在其余链表中的邻接项已全部清除。",
   "frames": [
     {
       "id": "source-184",
       "book_path": "chapter_graph/graph_operations.assets/adjacency_list_step1_initialization.png",
-      "title": "第 1 步：初始化图与五条邻接链表",
-      "explanation": "执行“初始化图”：为 [1, 3, 2, 5, 4] 五个顶点分别建立邻接链表，将初始六条无向边在各自两个端点的链表中双向记录。此时顶点 1 的邻居为 [3, 5]，橙色顶点 3 的邻居为 [1, 2]，其余各行见附表。",
-      "state": "顶点行顺序为 [1, 3, 2, 5, 4]。1 的邻接列表为 [3, 5]；3 的邻接列表为 [1, 2]；2 的邻接列表为 [3, 5, 4]；5 的邻接列表为 [1, 2, 4]；4 的邻接列表为 [2, 5]。无向边为 1—3、1—5、3—2、2—5、2—4、5—4。",
-      "key_state": "初始化五个顶点 [1, 3, 2, 5, 4] 与六条无向边。",
-      "announcement": "初始化五个顶点的邻接链表，记录六条无向边。"
+      "title": "初始化五顶点图",
+      "explanation": "每个顶点对应一行邻接链表，列出与它直接相连的全部邻居；初始 6 条无向边分别在各自两个端点的链表中成对出现。",
+      "state": "初始状态：当前顶点依次为 [1, 3, 2, 5, 4]，共有 6 条无向边（1—3、1—5、3—2、2—5、2—4、5—4，尚未连接 1—2）。完整邻居表列于当前状态表；链表箭头仅表示节点引用，不表示有向边。",
+      "key_state": "初始化五顶点图，6 条边。",
+      "announcement": "每个顶点对应一行邻接链表，列出与它直接相连的全部邻居；初始 6 条无向边分别在各自两个端点的链表中成对出现。",
+      "state_tables": [
+        {
+          "caption": "初始化顶点列表与六条边",
+          "headers": [
+            "顶点",
+            "邻居，按画面顺序"
+          ],
+          "rows": [
+            [
+              "1",
+              "3、5"
+            ],
+            [
+              "3",
+              "1、2"
+            ],
+            [
+              "2",
+              "3、5、4"
+            ],
+            [
+              "5",
+              "1、2、4"
+            ],
+            [
+              "4",
+              "2、5"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-185",
       "book_path": "chapter_graph/graph_operations.assets/adjacency_list_step2_add_edge.png",
-      "title": "第 2 步：添加无向边 1—2",
-      "explanation": "执行“添加边 1 - 2”：在顶点 1 的邻接链表中添加节点 2，同时在顶点 2 的邻接链表中添加节点 1（画面将两个绿色新增节点插入在各自链表前端），其余顶点的链表保持不变。",
-      "state": "顶点行顺序为 [1, 3, 2, 5, 4]。1 的邻接列表为 [2, 3, 5]；3 的邻接列表为 [1, 2]；2 的邻接列表为 [1, 3, 5, 4]；5 的邻接列表为 [1, 2, 4]；4 的邻接列表为 [2, 5]。无向边为 1—3、1—5、3—2、2—5、2—4、5—4、1—2。",
-      "key_state": "添加边 1—2：顶点 1 的列表加入 2，顶点 2 的列表加入 1，共七条边。",
-      "announcement": "在顶点 1 与顶点 2 的邻接链表中互相添加对方，完成添加边 1—2。"
+      "title": "添加边 1—2",
+      "explanation": "添加无向边 1—2：在顶点 1 的邻接链表头部加入 2，同时在顶点 2 的邻接链表头部加入 1。",
+      "state": "已添加无向边 1—2：当前顶点依次为 [1, 3, 2, 5, 4]，顶点 1 的邻居变为 2、3、5，顶点 2 的邻居变为 1、3、5、4，共有 7 条无向边。完整邻居表见当前状态表。",
+      "key_state": "添加边 1—2，7 条边。",
+      "announcement": "添加无向边 1—2：在顶点 1 的邻接链表头部加入 2，同时在顶点 2 的邻接链表头部加入 1。",
+      "state_tables": [
+        {
+          "caption": "添加无向边 1—2",
+          "headers": [
+            "顶点",
+            "邻居，按画面顺序"
+          ],
+          "rows": [
+            [
+              "1",
+              "2、3、5"
+            ],
+            [
+              "3",
+              "1、2"
+            ],
+            [
+              "2",
+              "1、3、5、4"
+            ],
+            [
+              "5",
+              "1、2、4"
+            ],
+            [
+              "4",
+              "2、5"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-186",
       "book_path": "chapter_graph/graph_operations.assets/adjacency_list_step3_remove_edge.png",
-      "title": "第 3 步：删除无向边 1—3",
-      "explanation": "执行“删除边 1 - 3”：从顶点 1 的邻接链表中删除节点 3，同时从顶点 3 的邻接链表中删除节点 1。此时橙色顶点 3 的头节点行依然保留，链表中仅剩唯一邻居 2。",
-      "state": "顶点行顺序为 [1, 3, 2, 5, 4]。1 的邻接列表为 [2, 5]；3 的邻接列表为 [2]；2 的邻接列表为 [1, 3, 5, 4]；5 的邻接列表为 [1, 2, 4]；4 的邻接列表为 [2, 5]。无向边为 1—5、3—2、2—5、2—4、5—4、1—2。",
-      "key_state": "删除边 1—3：顶点 1 与 3 的列表互删对方；顶点 3 仍连向 2。",
-      "announcement": "从顶点 1 与顶点 3 的邻接链表中互相移除对方，删除边 1—3。"
+      "title": "删除边 1—3",
+      "explanation": "删除无向边 1—3：从顶点 1 的邻接链表中删除 3，同时从顶点 3 的邻接链表中删除 1。",
+      "state": "已删除无向边 1—3：当前顶点依次为 [1, 3, 2, 5, 4]，顶点 1 的邻居缩为 2、5，顶点 3 的邻居仅剩 2，共有 6 条无向边。完整邻居表见当前状态表。",
+      "key_state": "删除边 1—3，6 条边。",
+      "announcement": "删除无向边 1—3：从顶点 1 的邻接链表中删除 3，同时从顶点 3 的邻接链表中删除 1。",
+      "state_tables": [
+        {
+          "caption": "删除无向边 1—3",
+          "headers": [
+            "顶点",
+            "邻居，按画面顺序"
+          ],
+          "rows": [
+            [
+              "1",
+              "2、5"
+            ],
+            [
+              "3",
+              "2"
+            ],
+            [
+              "2",
+              "1、3、5、4"
+            ],
+            [
+              "5",
+              "1、2、4"
+            ],
+            [
+              "4",
+              "2、5"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-187",
       "book_path": "chapter_graph/graph_operations.assets/adjacency_list_step4_add_vertex.png",
-      "title": "第 4 步：添加孤立顶点 6",
-      "explanation": "执行“添加顶点 6”：在邻接表左列底部新增蓝色头节点 6，为其建立一条空邻接链表。由于尚未添加与 6 相连的边，其余顶点的链表中均不包含 6。",
-      "state": "顶点行顺序为 [1, 3, 2, 5, 4, 6]。1 的邻接列表为 [2, 5]；3 的邻接列表为 [2]；2 的邻接列表为 [1, 3, 5, 4]；5 的邻接列表为 [1, 2, 4]；4 的邻接列表为 [2, 5]；6 的邻接列表为 []。无向边为 1—5、3—2、2—5、2—4、5—4、1—2。",
-      "key_state": "顶点列变为 [1, 3, 2, 5, 4, 6]；新增顶点 6 的邻接链表为空。",
-      "announcement": "在邻接表底部新增顶点 6，其邻接链表为空。"
+      "title": "添加孤立顶点 6",
+      "explanation": "在邻接表末尾新增顶点 6 的一行，其邻接链表为空；其余五个顶点的链表保持不变。",
+      "state": "已添加孤立顶点 6：当前顶点依次为 [1, 3, 2, 5, 4, 6]，共有 6 条无向边；新增的顶点 6 邻居表为空，其余顶点邻居不变。",
+      "key_state": "添加孤立顶点 6，6 条边。",
+      "announcement": "在邻接表末尾新增顶点 6 的一行，其邻接链表为空；其余五个顶点的链表保持不变。",
+      "state_tables": [
+        {
+          "caption": "添加孤立顶点 6",
+          "headers": [
+            "顶点",
+            "邻居，按画面顺序"
+          ],
+          "rows": [
+            [
+              "1",
+              "2、5"
+            ],
+            [
+              "3",
+              "2"
+            ],
+            [
+              "2",
+              "1、3、5、4"
+            ],
+            [
+              "5",
+              "1、2、4"
+            ],
+            [
+              "4",
+              "2、5"
+            ],
+            [
+              "6",
+              "空"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
     },
     {
       "id": "source-188",
       "book_path": "chapter_graph/graph_operations.assets/adjacency_list_step5_remove_vertex.png",
-      "title": "第 5 步：删除顶点 3 及所有关联邻接项",
-      "explanation": "执行“删除顶点 3”：删去橙色顶点 3 所在的整条邻接链表，并遍历其余链表，从顶点 2 的链表中移除邻居节点 3（边 1—3 已在第 3 步删除，故顶点 1 的链表无须再改）。使用顶点对象标识头节点时，删除顶点 3 后其余顶点无须重编索引。",
-      "state": "顶点行顺序为 [1, 2, 5, 4, 6]。1 的邻接列表为 [2, 5]；2 的邻接列表为 [1, 5, 4]；5 的邻接列表为 [1, 2, 4]；4 的邻接列表为 [2, 5]；6 的邻接列表为 []。无向边为 1—5、2—5、2—4、5—4、1—2。",
-      "key_state": "删除顶点 3 的整行并从顶点 2 的列表中移除 3；顶点 6 的列表仍为空。",
-      "announcement": "删除顶点 3 的邻接链表，并从顶点 2 的链表中移除邻居 3。"
-    }
-  ],
-  "tables": [
-    {
-      "caption": "初始化顶点列表与六条边",
-      "headers": [
-        "顶点",
-        "邻居，按画面顺序"
-      ],
-      "rows": [
-        [
-          "1",
-          "3、5"
-        ],
-        [
-          "3",
-          "1、2"
-        ],
-        [
-          "2",
-          "3、5、4"
-        ],
-        [
-          "5",
-          "1、2、4"
-        ],
-        [
-          "4",
-          "2、5"
-        ]
-      ]
-    },
-    {
-      "caption": "添加无向边 1—2",
-      "headers": [
-        "顶点",
-        "邻居，按画面顺序"
-      ],
-      "rows": [
-        [
-          "1",
-          "2、3、5"
-        ],
-        [
-          "3",
-          "1、2"
-        ],
-        [
-          "2",
-          "1、3、5、4"
-        ],
-        [
-          "5",
-          "1、2、4"
-        ],
-        [
-          "4",
-          "2、5"
-        ]
-      ]
-    },
-    {
-      "caption": "删除无向边 1—3",
-      "headers": [
-        "顶点",
-        "邻居，按画面顺序"
-      ],
-      "rows": [
-        [
-          "1",
-          "2、5"
-        ],
-        [
-          "3",
-          "2"
-        ],
-        [
-          "2",
-          "1、3、5、4"
-        ],
-        [
-          "5",
-          "1、2、4"
-        ],
-        [
-          "4",
-          "2、5"
-        ]
-      ]
-    },
-    {
-      "caption": "添加孤立顶点 6",
-      "headers": [
-        "顶点",
-        "邻居，按画面顺序"
-      ],
-      "rows": [
-        [
-          "1",
-          "2、5"
-        ],
-        [
-          "3",
-          "2"
-        ],
-        [
-          "2",
-          "1、3、5、4"
-        ],
-        [
-          "5",
-          "1、2、4"
-        ],
-        [
-          "4",
-          "2、5"
-        ],
-        [
-          "6",
-          "空"
-        ]
-      ]
-    },
-    {
-      "caption": "删除顶点 3 及全部关联邻接项",
-      "headers": [
-        "顶点",
-        "邻居，按画面顺序"
-      ],
-      "rows": [
-        [
-          "1",
-          "2、5"
-        ],
-        [
-          "2",
-          "1、5、4"
-        ],
-        [
-          "5",
-          "1、2、4"
-        ],
-        [
-          "4",
-          "2、5"
-        ],
-        [
-          "6",
-          "空"
-        ]
+      "title": "删除顶点 3",
+      "explanation": "移除顶点 3 的整行链表，并从顶点 2 的邻接链表中删除节点 3。其余顶点 1、2、5、4、6 保持各自原有身份，不会因行位置上移而改名。",
+      "state": "已删除顶点 3 及关联邻接项：当前顶点依次为 [1, 2, 5, 4, 6]（顶点不改名），顶点 2 的邻居更新为 1、5、4，顶点 6 仍为无邻居的孤立顶点，全图共有 5 条无向边。完整邻居表见当前状态表。",
+      "key_state": "删除顶点 3，5 条边。",
+      "announcement": "移除顶点 3 的整行链表，并从顶点 2 的邻接链表中删除节点 3。其余顶点 1、2、5、4、6 保持各自原有身份，不会因行位置上移而改名。",
+      "state_tables": [
+        {
+          "caption": "删除顶点 3 及全部关联邻接项",
+          "headers": [
+            "顶点",
+            "邻居，按画面顺序"
+          ],
+          "rows": [
+            [
+              "1",
+              "2、5"
+            ],
+            [
+              "2",
+              "1、5、4"
+            ],
+            [
+              "5",
+              "1、2、4"
+            ],
+            [
+              "4",
+              "2、5"
+            ],
+            [
+              "6",
+              "空"
+            ]
+          ],
+          "row_header": 0
+        }
       ]
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-10",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "598af0fbe804374f5a1c596ad60580beb1e059b887dce24406bd3745cb3811d9",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "0a95d252e48e43c16659e492cf8623a551ef350ac8d91dc20d297cc101c008ca",
-        "output_sha256": "96677b3baeeee3a660179fb75c59edf392351f4a32ed729fbf9826ff62555fa1"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "96677b3baeeee3a660179fb75c59edf392351f4a32ed729fbf9826ff62555fa1",
-        "output_sha256": "96e4e954b067f42297be1f02858f8032bb9b56507aecf8ed5416abd8ab6f32a7"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "96e4e954b067f42297be1f02858f8032bb9b56507aecf8ed5416abd8ab6f32a7",
-        "output_sha256": "1154934782b3b07507932936dafa228955a9704a4678d05752aeee750675a4bd"
-      }
-    ],
-    "evidence_sha256": "5f572b4ac1ec3f8418e4fb4744742d5db14ec1beef1f1614cf180827804552f8"
-  },
+  "tables": [],
   "dependencies": {
     "markdown": {
       "chapter_graph/graph_operations.md": "3826d79237c549e5a2bbab381323a32ac4225ef7e01980f8097bacde685a0ebb"
@@ -257,7 +242,7 @@
     "adjacency-list": {
       "kind": "source-frames",
       "model_sha256": "4744678c652fce425cb575581f4ab69b0e782a78b679d305ab4841d78905e6a9",
-      "source_content_sha256": "598af0fbe804374f5a1c596ad60580beb1e059b887dce24406bd3745cb3811d9",
+      "source_content_sha256": "af2877bba31ee63a2ed0183b2e18f9c20e6870ce8c0a5b8d96cc6c239b6427c3",
       "states": [
         {
           "id": "step-1",
@@ -282,11 +267,45 @@
       ],
       "review": {
         "status": "confirmed",
-        "run_id": "figure-accessibility-20261114/source-binding-verification",
+        "run_id": "figure-reading-20261116/content/body-09/source-binding",
         "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "981de3c9df6affb7beb2d5261653adf639169e83bb2ccf74ebe74e0d4845135b",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
+        "binding_sha256": "4fcb5c7a7757647309f21db3208b64a27d7b1ca10255b2424d33b0b2453a3765",
+        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
+        "current_text_verification_sha256": "1e3a7dc1ae2930abbf540cf1077d79d7160988b0335d56df4d7ba1027cf2c71b"
       }
     }
+  },
+  "standalone_tables": [],
+  "review": {
+    "status": "confirmed",
+    "run_id": "figure-reading-20261116/content/body-09",
+    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
+    "stages": [
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "dae6154576b1c499a439c03e31e926671c584b7dce0f16d209fae77bbe009b12",
+        "output_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a"
+      },
+      {
+        "requested_model": "gemini-4-argon",
+        "actual_model": null,
+        "model_confirmation": "provider_not_reported",
+        "input_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a",
+        "output_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "actual_model": "gpt-6-astra",
+        "model_confirmation": "native_runtime",
+        "input_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a",
+        "output_sha256": "7bbaf8390a691c973087501bb3fe8442d08ae58a265fa273820dffc7f6fc1879"
+      }
+    ],
+    "evidence_sha256": "1e3a7dc1ae2930abbf540cf1077d79d7160988b0335d56df4d7ba1027cf2c71b",
+    "verification_manifest_sha256": "7edf2d614a976c373dbf24c98d92c9f3ccb0c9d1d78185bba275676c1507c6f9",
+    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
+    "content_sha256": "af2877bba31ee63a2ed0183b2e18f9c20e6870ce8c0a5b8d96cc6c239b6427c3"
   }
 }

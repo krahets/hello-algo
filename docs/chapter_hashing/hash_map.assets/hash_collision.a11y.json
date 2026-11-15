@@ -114,11 +114,16 @@
   },
   "dependencies": {
     "markdown": {
-      "chapter_hashing/hash_map.md": "c3958aefdad1c1246c11d2029bf493fc83cdd4306e4aea7a0da033333c6626cb"
+      "chapter_hashing/hash_map.md": "1afb3ecd77e99e9a09d5617db30663ebfe006ae26598d18a5d589894033f20e9"
     },
     "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
     "scenes": {
       "chapter_hashing/hash_map.assets/hash_collision.png": "62ab38c2706d35415cbed51e74f2ffa9e21d39e4b4697e802d5603a4f2123da1"
     }
+  },
+  "dependency_compatibility": {
+    "run_id": "figure-reading-20261116/upstream-dependency-verification",
+    "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
+    "factual_review_preserved": true
   }
 }
