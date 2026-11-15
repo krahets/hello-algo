@@ -12,35 +12,47 @@ import (
 )
 
 func TestStack(t *testing.T) {
+	// [region]{init_stack}
 	/* Инициализация стека */
 	// В Go рекомендуется использовать Slice как стек
 	var stack []int
+	// [endregion]{init_stack}
 
+	// [region]{push}
 	/* Помещение элемента в стек */
 	stack = append(stack, 1)
 	stack = append(stack, 3)
 	stack = append(stack, 2)
 	stack = append(stack, 5)
 	stack = append(stack, 4)
+	// [endregion]{push}
 	fmt.Print("Стек stack = ")
 	PrintSlice(stack)
 
+	// [region]{peek}
 	/* Доступ к верхнему элементу стека */
 	peek := stack[len(stack)-1]
+	// [endregion]{peek}
 	fmt.Println("Верхний элемент peek =", peek)
 
+	// [region]{pop}
 	/* Извлечение элемента из стека */
 	pop := stack[len(stack)-1]
 	stack = stack[:len(stack)-1]
+	// [endregion]{pop}
 	fmt.Print("Извлеченный элемент pop = ", pop, ", stack после извлечения = ")
 	PrintSlice(stack)
 
+	// [region]{size}
 	/* Получение длины стека */
 	size := len(stack)
+	// [endregion]{size}
 	fmt.Println("Длина стека size =", size)
 
+	// [region]{is_empty}
 	/* Проверка на пустоту */
 	isEmpty := len(stack) == 0
+	// [endregion]{is_empty}
 	fmt.Println("Пуст ли стек =", isEmpty)
 }
 

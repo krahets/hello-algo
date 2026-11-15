@@ -11,6 +11,7 @@ import utils.printTree
 
 /* 실행 코드 */
 fun main() {
+    // [region]{init_binary_tree}
     /* 이진 트리 초기화 */
     // 노드 초기화
     val n1 = TreeNode(1)
@@ -23,6 +24,7 @@ fun main() {
     n1.right = n3
     n2.left = n4
     n2.right = n5
+    // [endregion]{init_binary_tree}
     println("\n이진 트리 초기화\n")
     printTree(n1)
 

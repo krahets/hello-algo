@@ -12,6 +12,7 @@ import (
 )
 
 func TestLinkedList(t *testing.T) {
+	// [region]{init_linked_list}
 	/* Инициализировать связный список 1 -> 3 -> 2 -> 5 -> 4 */
 	// Инициализация всех узлов
 	n0 := NewListNode(1)
@@ -25,6 +26,7 @@ func TestLinkedList(t *testing.T) {
 	n1.Next = n2
 	n2.Next = n3
 	n3.Next = n4
+	// [endregion]{init_linked_list}
 	fmt.Println("Исходный связный список")
 	PrintLinkedList(n0)
 

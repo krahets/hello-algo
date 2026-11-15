@@ -50,7 +50,8 @@ def find(head: ListNode, target: int) -> int:
 
 """Driver code"""
 if __name__ == "__main__":
-    # Initialize the linked list
+    # [region]{init_linked_list}
+    # Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
     # Initialize the individual nodes
     n0 = ListNode(1)
     n1 = ListNode(3)
@@ -62,6 +63,7 @@ if __name__ == "__main__":
     n1.next = n2
     n2.next = n3
     n3.next = n4
+    # [endregion]{init_linked_list}
     print("The initialized linked list is")
     print_linked_list(n0)
 

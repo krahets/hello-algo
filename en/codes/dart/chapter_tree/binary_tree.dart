@@ -8,6 +8,7 @@ import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
 void main() {
+  // [region]{init_binary_tree}
   /* Initialize the binary tree */
   // Initialize the nodes
   TreeNode n1 = TreeNode(1);
@@ -20,6 +21,7 @@ void main() {
   n1.right = n3;
   n2.left = n4;
   n2.right = n5;
+  // [endregion]{init_binary_tree}
   print("\nInitialize the binary tree\n");
   printTree(n1);
 

@@ -9,6 +9,7 @@ require_relative '../utils/print_util'
 
 ### 실행 코드 ###
 if __FILE__ == $0
+  # [region]{init_binary_tree}
   # 이진 트리 초기화
   # 노드 초기화
   n1 = TreeNode.new(1)
@@ -21,6 +22,7 @@ if __FILE__ == $0
   n1.right = n3
   n2.left = n4
   n2.right = n5
+  # [endregion]{init_binary_tree}
   puts "\n이진 트리 초기화\n\n"
   print_tree(n1)
 

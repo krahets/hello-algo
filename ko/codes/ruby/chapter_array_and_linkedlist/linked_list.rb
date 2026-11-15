@@ -49,7 +49,8 @@ end
 
 ### 실행 코드 ###
 if __FILE__ == $0
-  # 연결 리스트 초기화
+  # [region]{init_linked_list}
+  # 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화
   # 각 노드를 초기화한다
   n0 = ListNode.new(1)
   n1 = ListNode.new(3)
@@ -61,6 +62,7 @@ if __FILE__ == $0
   n1.next = n2
   n2.next = n3
   n3.next = n4
+  # [endregion]{init_linked_list}
   puts "초기화한 연결 리스트"
   print_linked_list(n0)
 

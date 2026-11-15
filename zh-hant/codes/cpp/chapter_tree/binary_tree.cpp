@@ -8,6 +8,7 @@
 
 /* Driver Code */
 int main() {
+    // [region]{init_binary_tree}
     /* 初始化二元樹 */
     // 初始化節點
     TreeNode *n1 = new TreeNode(1);
@@ -20,6 +21,7 @@ int main() {
     n1->right = n3;
     n2->left = n4;
     n2->right = n5;
+    // [endregion]{init_binary_tree}
     cout << endl << "初始化二元樹\n" << endl;
     printTree(n1);
 

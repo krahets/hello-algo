@@ -11,6 +11,7 @@ import utils.printTree
 
 /* Driver code */
 fun main() {
+    // [region]{init_binary_tree}
     /* Initialize the binary tree */
     // Initialize the nodes
     val n1 = TreeNode(1)
@@ -23,6 +24,7 @@ fun main() {
     n1.right = n3
     n2.left = n4
     n2.right = n5
+    // [endregion]{init_binary_tree}
     println("\nInitialize the binary tree\n")
     printTree(n1)
 

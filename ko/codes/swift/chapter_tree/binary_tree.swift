@@ -10,6 +10,7 @@ import utils
 enum BinaryTree {
     /* 실행 코드 */
     static func main() {
+        // [region]{init_binary_tree}
         /* 이진 트리 초기화 */
         // 노드 초기화
         let n1 = TreeNode(x: 1)
@@ -22,6 +23,7 @@ enum BinaryTree {
         n1.right = n3
         n2.left = n4
         n2.right = n5
+        // [endregion]{init_binary_tree}
         print("\n이진 트리 초기화\n")
         PrintUtil.printTree(root: n1)
 

@@ -7,6 +7,7 @@
 const { TreeNode } = require('../modules/TreeNode');
 const { printTree } = require('../modules/PrintUtil');
 
+// [region]{init_binary_tree}
 /* Initialize the binary tree */
 // Initialize the nodes
 let n1 = new TreeNode(1),
@@ -19,6 +20,7 @@ n1.left = n2;
 n1.right = n3;
 n2.left = n4;
 n2.right = n5;
+// [endregion]{init_binary_tree}
 console.log('\nInitialize the binary tree\n');
 printTree(n1);
 

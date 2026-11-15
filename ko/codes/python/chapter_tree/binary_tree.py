@@ -13,6 +13,7 @@ from modules import TreeNode, print_tree
 
 """실행 코드"""
 if __name__ == "__main__":
+    # [region]{init_binary_tree}
     # 이진 트리 초기화
     # 노드 초기화
     n1 = TreeNode(val=1)
@@ -25,6 +26,7 @@ if __name__ == "__main__":
     n1.right = n3
     n2.left = n4
     n2.right = n5
+    # [endregion]{init_binary_tree}
     print("\n이진 트리 초기화\n")
     print_tree(n1)
 
