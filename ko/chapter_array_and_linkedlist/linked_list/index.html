@@ -2083,8 +2083,8 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* 연결 리스트 노드 클래스 */</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">class</span><span class="w"> </span><span class="nf">ListNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">//생성자</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">         </span><span class="c1">// 노드 값</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="n">ListNode</span><span class="o">?</span><span class="w"> </span><span class="n">next</span><span class="p">;</span><span class="w">      </span><span class="c1">// 다음 노드를 가리키는 참조</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">     </span><span class="c1">// 노드 값</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">ListNode</span><span class="o">?</span><span class="w"> </span><span class="n">next</span><span class="p">;</span><span class="w">  </span><span class="c1">// 다음 노드를 가리키는 참조</span>
 <a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="p">}</span>
 </code></pre></div>
 </div>
@@ -2325,7 +2325,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">linked_list.dart</span><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="cm">/* 연결 리스트 1 -&gt; 3 -&gt; 2 -&gt; 5 -&gt; 4 초기화 */</span><span class="err">\</span>
+<div class="highlight"><span class="filename">linked_list.dart</span><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="cm">/* 연결 리스트 1 -&gt; 3 -&gt; 2 -&gt; 5 -&gt; 4 초기화 */</span>
 <a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="c1">// 각 노드 초기화</span>
 <a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">n0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
 <a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
@@ -3185,9 +3185,9 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-81-1" id="__codelineno-81-1" name="__codelineno-81-1"></a><span class="cm">/* 이중 연결 리스트 노드 클래스 */</span>
 <a href="#__codelineno-81-2" id="__codelineno-81-2" name="__codelineno-81-2"></a><span class="k">class</span><span class="w"> </span><span class="nf">ListNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 생성자</span>
-<a href="#__codelineno-81-3" id="__codelineno-81-3" name="__codelineno-81-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">    </span><span class="c1">// 노드 값</span>
-<a href="#__codelineno-81-4" id="__codelineno-81-4" name="__codelineno-81-4"></a><span class="w">    </span><span class="n">ListNode</span><span class="w"> </span><span class="n">next</span><span class="p">;</span><span class="w">  </span><span class="c1">// 후속 노드를 가리키는 참조</span>
-<a href="#__codelineno-81-5" id="__codelineno-81-5" name="__codelineno-81-5"></a><span class="w">    </span><span class="n">ListNode</span><span class="w"> </span><span class="n">prev</span><span class="p">;</span><span class="w">  </span><span class="c1">// 선행 노드를 가리키는 참조</span>
+<a href="#__codelineno-81-3" id="__codelineno-81-3" name="__codelineno-81-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">     </span><span class="c1">// 노드 값</span>
+<a href="#__codelineno-81-4" id="__codelineno-81-4" name="__codelineno-81-4"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">ListNode</span><span class="o">?</span><span class="w"> </span><span class="n">next</span><span class="p">;</span><span class="w">  </span><span class="c1">// 후속 노드를 가리키는 참조</span>
+<a href="#__codelineno-81-5" id="__codelineno-81-5" name="__codelineno-81-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">ListNode</span><span class="o">?</span><span class="w"> </span><span class="n">prev</span><span class="p">;</span><span class="w">  </span><span class="c1">// 선행 노드를 가리키는 참조</span>
 <a href="#__codelineno-81-6" id="__codelineno-81-6" name="__codelineno-81-6"></a><span class="p">}</span>
 </code></pre></div>
 </div>
