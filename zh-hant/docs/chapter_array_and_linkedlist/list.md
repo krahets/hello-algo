@@ -121,7 +121,7 @@ comments: true
     // 無初始值
     let nums1: Vec<i32> = Vec::new();
     // 有初始值
-    let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+    let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
 === "C"
@@ -512,10 +512,10 @@ comments: true
     nums.add(4);
 
     /* 在中間插入元素 */
-    nums.add(3, 6);  // 在索引 3 處插入數字 6
+    nums.add(3, 6);    // 在索引 3 處插入數字 6
 
     /* 刪除元素 */
-    nums.remove(3);  // 刪除索引 3 處的元素
+    nums.removeAt(3);  // 刪除索引 3 處的元素
     ```
 
 === "Ruby"

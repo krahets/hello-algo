@@ -239,7 +239,7 @@ comments: true
 
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
-    String name = map[15937];
+    String? name = map[15937];
 
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
@@ -259,7 +259,7 @@ comments: true
     map.insert(12836, "小哈".to_string());
     map.insert(15937, "小啰".to_string());
     map.insert(16750, "小算".to_string());
-    map.insert(13279, "小法".to_string());
+    map.insert(13276, "小法".to_string());
     map.insert(10583, "小鸭".to_string());
 
     /* 查询操作 */

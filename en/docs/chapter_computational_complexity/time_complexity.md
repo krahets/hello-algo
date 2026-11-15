@@ -960,10 +960,10 @@ We can apply these shortcuts to the following function:
         a = 1       # +0 (shortcut 1)
         a = a + n   # +0 (shortcut 1)
         # +n (shortcut 2)
-        (0...(5 * n + 1)).each do { puts 0 }
+        (0...(5 * n + 1)).each { puts 0 }
         # +n*n (shortcut 3)
         (0...(2 * n)).each do
-            (0...(n + 1)).each do { puts 0 }
+            (0...(n + 1)).each { puts 0 }
         end
     end
     ```

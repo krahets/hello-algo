@@ -175,7 +175,7 @@ comments: true
 
     ```ruby title=""
     # Списки Ruby могут свободно хранить различные базовые типы данных и ссылки на объекты
-    data = [0, 0.0, 'a', false, ListNode(0)]
+    data = [0, 0.0, 'a', false, ListNode.new(0)]
     ```
 
 ??? pythontutor "Визуализация выполнения"

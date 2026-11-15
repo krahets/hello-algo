@@ -175,7 +175,7 @@ comments: true
 
     ```ruby title=""
     # Ruby のリストには、さまざまな基本データ型やオブジェクトへの参照を自由に格納できる
-    data = [0, 0.0, 'a', false, ListNode(0)]
+    data = [0, 0.0, 'a', false, ListNode.new(0)]
     ```
 
 ??? pythontutor "実行の可視化"

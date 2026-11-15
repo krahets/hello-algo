@@ -59,8 +59,8 @@ As the code below shows, each `ListNode` stores a reference (pointer) in additio
     ```csharp title=""
     /* Linked list node class */
     class ListNode(int x) {  // Constructor
-        int val = x;         // Node value
-        ListNode? next;      // Reference to the next node
+        public int val = x;     // Node value
+        public ListNode? next;  // Reference to the next node
     }
     ```
 
@@ -336,7 +336,7 @@ Building a linked list takes two steps: initialize the node objects, then connec
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */\
+    /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
     // Initialize the nodes
     ListNode n0 = ListNode(1);
     ListNode n1 = ListNode(3);
@@ -1285,9 +1285,9 @@ Figure 4-8 shows three common types.
     ```csharp title=""
     /* Doubly linked list node class */
     class ListNode(int x) {  // Constructor
-        int val = x;    // Node value
-        ListNode next;  // Reference to the successor
-        ListNode prev;  // Reference to the predecessor
+        public int val = x;     // Node value
+        public ListNode? next;  // Reference to the successor
+        public ListNode? prev;  // Reference to the predecessor
     }
     ```
 

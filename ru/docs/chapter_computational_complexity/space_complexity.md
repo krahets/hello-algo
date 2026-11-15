@@ -245,7 +245,7 @@ comments: true
     /* Класс */
     class Node {
       int val;
-      Node next;
+      Node? next;
       Node(this.val, [this.next]);
     }
 
@@ -405,8 +405,9 @@ comments: true
     void algorithm(int n) {
         int a = 0;                   // O(1)
         int[] b = new int[10000];    // O(1)
-        if (n > 10)
+        if (n > 10) {
             int[] nums = new int[n]; // O(n)
+        }
     }
     ```
 
@@ -430,7 +431,7 @@ comments: true
         b := make([]int, 10000)     // O(1)
         var nums []int
         if n > 10 {
-            nums := make([]int, n)  // O(n)
+            nums = make([]int, n)   // O(n)
         }
         fmt.Println(a, b, nums)
     }
@@ -502,8 +503,9 @@ comments: true
     void algorithm(int n) {
         int a = 0;               // O(1)
         int b[10000];            // O(1)
-        if (n > 10)
-            int nums[n] = {0};   // O(n)
+        if (n > 10) {
+            int nums[n];         // O(n)
+        }
     }
     ```
 
@@ -727,7 +729,7 @@ comments: true
         return 0;
     }
     /* Пространственная сложность цикла равна O(1) */
-    fn loop(n: i32) {
+    fn for_loop(n: i32) {
         for i in 0..n {
             function();
         }

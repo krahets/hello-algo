@@ -917,7 +917,7 @@ comments: true
 === "Python"
 
     ```python title=""
-    def backtrack(state: State, choices: list[choice], res: list[state]):
+    def backtrack(state: State, choices: list[Choice], res: list[State]):
         """バックトラッキングの基本形"""
         # 解かどうかを判定
         if is_solution(state):
@@ -949,7 +949,7 @@ comments: true
             return;
         }
         // すべての選択肢を調べる
-        for (Choice choice : choices) {
+        for (Choice *choice : choices) {
             // 枝刈り：選択が有効かを判定
             if (isValid(state, choice)) {
                 // 試行：選択して状態を更新
@@ -1122,7 +1122,7 @@ comments: true
 
     ```dart title=""
     /* バックトラッキングの基本形 */
-    void backtrack(State state, List<Choice>, List<State> res) {
+    void backtrack(State state, List<Choice> choices, List<State> res) {
       // 解かどうかを判定
       if (isSolution(state)) {
         // 解を記録

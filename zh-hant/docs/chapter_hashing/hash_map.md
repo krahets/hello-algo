@@ -239,7 +239,7 @@ comments: true
 
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
-    String name = map[15937];
+    String? name = map[15937];
 
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
@@ -259,7 +259,7 @@ comments: true
     map.insert(12836, "小哈".to_string());
     map.insert(15937, "小囉".to_string());
     map.insert(16750, "小算".to_string());
-    map.insert(13279, "小法".to_string());
+    map.insert(13276, "小法".to_string());
     map.insert(10583, "小鴨".to_string());
 
     /* 查詢操作 */

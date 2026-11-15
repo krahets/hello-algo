@@ -239,7 +239,7 @@ comments: true
 
     /* 照会操作 */
     // キー key を入力して値 value を取得
-    String name = map[15937];
+    String? name = map[15937];
 
     /* 削除操作 */
     // ハッシュテーブルからペア (key, value) を削除
@@ -259,7 +259,7 @@ comments: true
     map.insert(12836, "小哈".to_string());
     map.insert(15937, "小啰".to_string());
     map.insert(16750, "小算".to_string());
-    map.insert(13279, "小法".to_string());
+    map.insert(13276, "小法".to_string());
     map.insert(10583, "小鸭".to_string());
 
     /* 照会操作 */

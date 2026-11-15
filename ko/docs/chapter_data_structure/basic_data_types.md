@@ -175,7 +175,7 @@ comments: true
 
     ```ruby title=""
     # Ruby의 리스트는 여러 기본 자료형과 객체 참조를 자유롭게 저장할 수 있다
-    data = [0, 0.0, 'a', false, ListNode(0)]
+    data = [0, 0.0, 'a', false, ListNode.new(0)]
     ```
 
 ??? pythontutor "코드 시각화"

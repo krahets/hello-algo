@@ -175,7 +175,7 @@ In other words, **basic data types specify what kind of data is stored, while da
 
     ```ruby title=""
     # Ruby arrays can hold different basic data types and object references
-    data = [0, 0.0, 'a', false, ListNode(0)]
+    data = [0, 0.0, 'a', false, ListNode.new(0)]
     ```
 
 ??? pythontutor "Visualize execution"

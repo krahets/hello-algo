@@ -59,8 +59,8 @@ comments: true
     ```csharp title=""
     /* 連結リストのノードクラス */
     class ListNode(int x) {  //コンストラクタ
-        int val = x;         // ノードの値
-        ListNode? next;      // 次のノードへの参照
+        public int val = x;     // ノードの値
+        public ListNode? next;  // 次のノードへの参照
     }
     ```
 
@@ -336,7 +336,7 @@ comments: true
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化 */\
+    /* 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化 */
     // 各ノードを初期化
     ListNode n0 = ListNode(1);
     ListNode n1 = ListNode(3);
@@ -1285,9 +1285,9 @@ comments: true
     ```csharp title=""
     /* 双方向連結リストのノードクラス */
     class ListNode(int x) {  // コンストラクタ
-        int val = x;    // ノードの値
-        ListNode next;  // 後続ノードへの参照
-        ListNode prev;  // 先行ノードへの参照
+        public int val = x;     // ノードの値
+        public ListNode? next;  // 後続ノードへの参照
+        public ListNode? prev;  // 先行ノードへの参照
     }
     ```
 

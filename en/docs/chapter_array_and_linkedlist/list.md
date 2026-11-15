@@ -121,7 +121,7 @@ We usually initialize a list either without elements or with explicit initial va
     // Without initial values
     let nums1: Vec<i32> = Vec::new();
     // With initial values
-    let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+    let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
 === "C"
@@ -512,10 +512,10 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     nums.add(4);
 
     /* Insert an element in the middle */
-    nums.add(3, 6);  // Insert 6 at index 3
+    nums.add(3, 6);    // Insert 6 at index 3
 
     /* Remove an element */
-    nums.remove(3);  // Remove the element at index 3
+    nums.removeAt(3);  // Remove the element at index 3
     ```
 
 === "Ruby"

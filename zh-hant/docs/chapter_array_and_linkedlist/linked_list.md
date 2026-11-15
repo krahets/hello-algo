@@ -59,8 +59,8 @@ comments: true
     ```csharp title=""
     /* 鏈結串列節點類別 */
     class ListNode(int x) {  //建構子
-        int val = x;         // 節點值
-        ListNode? next;      // 指向下一節點的引用
+        public int val = x;     // 節點值
+        public ListNode? next;  // 指向下一節點的引用
     }
     ```
 
@@ -336,7 +336,7 @@ comments: true
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* 初始化鏈結串列 1 -> 3 -> 2 -> 5 -> 4 */\
+    /* 初始化鏈結串列 1 -> 3 -> 2 -> 5 -> 4 */
     // 初始化各個節點
     ListNode n0 = ListNode(1);
     ListNode n1 = ListNode(3);
@@ -1285,9 +1285,9 @@ comments: true
     ```csharp title=""
     /* 雙向鏈結串列節點類別 */
     class ListNode(int x) {  // 建構子
-        int val = x;    // 節點值
-        ListNode next;  // 指向後繼節點的引用
-        ListNode prev;  // 指向前驅節點的引用
+        public int val = x;     // 節點值
+        public ListNode? next;  // 指向後繼節點的引用
+        public ListNode? prev;  // 指向前驅節點的引用
     }
     ```
 

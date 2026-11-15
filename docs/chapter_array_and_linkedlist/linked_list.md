@@ -59,8 +59,8 @@ comments: true
     ```csharp title=""
     /* 链表节点类 */
     class ListNode(int x) {  //构造函数
-        int val = x;         // 节点值
-        ListNode? next;      // 指向下一节点的引用
+        public int val = x;     // 节点值
+        public ListNode? next;  // 指向下一节点的引用
     }
     ```
 
@@ -336,7 +336,7 @@ comments: true
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */\
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
     // 初始化各个节点
     ListNode n0 = ListNode(1);
     ListNode n1 = ListNode(3);
@@ -1285,9 +1285,9 @@ comments: true
     ```csharp title=""
     /* 双向链表节点类 */
     class ListNode(int x) {  // 构造函数
-        int val = x;    // 节点值
-        ListNode next;  // 指向后继节点的引用
-        ListNode prev;  // 指向前驱节点的引用
+        public int val = x;     // 节点值
+        public ListNode? next;  // 指向后继节点的引用
+        public ListNode? prev;  // 指向前驱节点的引用
     }
     ```
 

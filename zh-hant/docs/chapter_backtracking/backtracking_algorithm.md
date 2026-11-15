@@ -917,7 +917,7 @@ comments: true
 === "Python"
 
     ```python title=""
-    def backtrack(state: State, choices: list[choice], res: list[state]):
+    def backtrack(state: State, choices: list[Choice], res: list[State]):
         """回溯演算法框架"""
         # 判斷是否為解
         if is_solution(state):
@@ -949,7 +949,7 @@ comments: true
             return;
         }
         // 走訪所有選擇
-        for (Choice choice : choices) {
+        for (Choice *choice : choices) {
             // 剪枝：判斷選擇是否合法
             if (isValid(state, choice)) {
                 // 嘗試：做出選擇，更新狀態
@@ -1122,7 +1122,7 @@ comments: true
 
     ```dart title=""
     /* 回溯演算法框架 */
-    void backtrack(State state, List<Choice>, List<State> res) {
+    void backtrack(State state, List<Choice> choices, List<State> res) {
       // 判斷是否為解
       if (isSolution(state)) {
         // 記錄解

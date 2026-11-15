@@ -121,7 +121,7 @@ comments: true
     // 初期値なし
     let nums1: Vec<i32> = Vec::new();
     // 初期値あり
-    let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+    let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
 === "C"
@@ -512,10 +512,10 @@ comments: true
     nums.add(4);
 
     /* 途中に要素を挿入 */
-    nums.add(3, 6);  // インデックス 3 に数値 6 を挿入
+    nums.add(3, 6);    // インデックス 3 に数値 6 を挿入
 
     /* 要素を削除 */
-    nums.remove(3);  // インデックス 3 の要素を削除
+    nums.removeAt(3);  // インデックス 3 の要素を削除
     ```
 
 === "Ruby"

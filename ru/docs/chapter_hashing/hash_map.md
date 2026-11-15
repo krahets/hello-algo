@@ -239,7 +239,7 @@ comments: true
 
     /* Операция поиска */
     // Передать в хеш-таблицу ключ key и получить значение value
-    String name = map[15937];
+    String? name = map[15937];
 
     /* Операция удаления */
     // Удалить пару ключ-значение (key, value) из хеш-таблицы
@@ -259,7 +259,7 @@ comments: true
     map.insert(12836, "Сяо Ха".to_string());
     map.insert(15937, "Сяо Ло".to_string());
     map.insert(16750, "Сяо Суань".to_string());
-    map.insert(13279, "Сяо Фа".to_string());
+    map.insert(13276, "Сяо Фа".to_string());
     map.insert(10583, "Сяо Я".to_string());
 
     /* Операция поиска */

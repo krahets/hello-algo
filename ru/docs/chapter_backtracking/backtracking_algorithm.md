@@ -917,7 +917,7 @@ comments: true
 === "Python"
 
     ```python title=""
-    def backtrack(state: State, choices: list[choice], res: list[state]):
+    def backtrack(state: State, choices: list[Choice], res: list[State]):
         """Каркас алгоритма поиска с возвратом"""
         # Проверка, является ли текущее состояние решением
         if is_solution(state):
@@ -949,7 +949,7 @@ comments: true
             return;
         }
         // Перебор всех возможных выборов
-        for (Choice choice : choices) {
+        for (Choice *choice : choices) {
             // Обрезка: проверка допустимости выбора
             if (isValid(state, choice)) {
                 // Попытка: сделать выбор и обновить состояние
@@ -1122,7 +1122,7 @@ comments: true
 
     ```dart title=""
     /* Каркас алгоритма поиска с возвратом */
-    void backtrack(State state, List<Choice>, List<State> res) {
+    void backtrack(State state, List<Choice> choices, List<State> res) {
       // Проверка, является ли текущее состояние решением
       if (isSolution(state)) {
         // Запись решения
