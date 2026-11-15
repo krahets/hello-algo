@@ -47,7 +47,8 @@ int find(ListNode? head, int target) {
 
 /* 実行用コード */
 void main() {
-  // 連結リストを初期化する
+  // [region]{init_linked_list}
+  // 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化する
   // 各ノードを初期化する
   ListNode n0 = ListNode(1);
   ListNode n1 = ListNode(3);
@@ -59,6 +60,7 @@ void main() {
   n1.next = n2;
   n2.next = n3;
   n3.next = n4;
+  // [endregion]{init_linked_list}
 
   print('初期化した連結リスト');
   printLinkedList(n0);

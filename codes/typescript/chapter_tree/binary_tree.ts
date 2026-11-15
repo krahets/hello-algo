@@ -7,6 +7,7 @@
 import { TreeNode } from '../modules/TreeNode';
 import { printTree } from '../modules/PrintUtil';
 
+// [region]{init_binary_tree}
 /* 初始化二叉树 */
 // 初始化节点
 let n1 = new TreeNode(1),
@@ -19,6 +20,7 @@ n1.left = n2;
 n1.right = n3;
 n2.left = n4;
 n2.right = n5;
+// [endregion]{init_binary_tree}
 console.log('\n初始化二叉树\n');
 printTree(n1);
 

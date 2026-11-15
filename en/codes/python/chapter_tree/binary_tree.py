@@ -13,6 +13,7 @@ from modules import TreeNode, print_tree
 
 """Driver code"""
 if __name__ == "__main__":
+    # [region]{init_binary_tree}
     # Initialize the binary tree
     # Initialize the nodes
     n1 = TreeNode(val=1)
@@ -25,6 +26,7 @@ if __name__ == "__main__":
     n1.right = n3
     n2.left = n4
     n2.right = n5
+    # [endregion]{init_binary_tree}
     print("\nInitialize the binary tree\n")
     print_tree(n1)
 

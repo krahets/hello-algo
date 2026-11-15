@@ -12,6 +12,7 @@ import (
 )
 
 func TestBinaryTree(t *testing.T) {
+	// [region]{init_binary_tree}
 	/* Инициализация двоичного дерева */
 	// Инициализация узла
 	n1 := NewTreeNode(1)
@@ -24,6 +25,7 @@ func TestBinaryTree(t *testing.T) {
 	n1.Right = n3
 	n2.Left = n4
 	n2.Right = n5
+	// [endregion]{init_binary_tree}
 	fmt.Println("Инициализация двоичного дерева")
 	PrintTree(n1)
 

@@ -174,194 +174,55 @@ end
 
 <!-- [snippet]{init_binary_tree} -->
 ```python title="binary_tree.py"
-# Initialize a binary tree
-# Initialize nodes
-n1 = TreeNode(val=1)
-n2 = TreeNode(val=2)
-n3 = TreeNode(val=3)
-n4 = TreeNode(val=4)
-n5 = TreeNode(val=5)
-# Connect nodes with references (pointers)
-n1.left = n2
-n1.right = n3
-n2.left = n4
-n2.right = n5
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```cpp title="binary_tree.cpp"
-/* Initialize a binary tree */
-// Initialize nodes
-TreeNode* n1 = new TreeNode(1);
-TreeNode* n2 = new TreeNode(2);
-TreeNode* n3 = new TreeNode(3);
-TreeNode* n4 = new TreeNode(4);
-TreeNode* n5 = new TreeNode(5);
-// Connect nodes with references (pointers)
-n1->left = n2;
-n1->right = n3;
-n2->left = n4;
-n2->right = n5;
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```java title="binary_tree.java"
-// Initialize nodes
-TreeNode n1 = new TreeNode(1);
-TreeNode n2 = new TreeNode(2);
-TreeNode n3 = new TreeNode(3);
-TreeNode n4 = new TreeNode(4);
-TreeNode n5 = new TreeNode(5);
-// Connect nodes with references (pointers)
-n1.left = n2;
-n1.right = n3;
-n2.left = n4;
-n2.right = n5;
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```csharp title="binary_tree.cs"
-/* Initialize a binary tree */
-// Initialize nodes
-TreeNode n1 = new(1);
-TreeNode n2 = new(2);
-TreeNode n3 = new(3);
-TreeNode n4 = new(4);
-TreeNode n5 = new(5);
-// Connect nodes with references (pointers)
-n1.left = n2;
-n1.right = n3;
-n2.left = n4;
-n2.right = n5;
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```go title="binary_tree.go"
-/* Initialize a binary tree */
-// Initialize nodes
-n1 := NewTreeNode(1)
-n2 := NewTreeNode(2)
-n3 := NewTreeNode(3)
-n4 := NewTreeNode(4)
-n5 := NewTreeNode(5)
-// Connect nodes with references (pointers)
-n1.Left = n2
-n1.Right = n3
-n2.Left = n4
-n2.Right = n5
+[file]{binary_tree_test}-[region]{init_binary_tree}
 ```
 
 ```swift title="binary_tree.swift"
-// Initialize nodes
-let n1 = TreeNode(x: 1)
-let n2 = TreeNode(x: 2)
-let n3 = TreeNode(x: 3)
-let n4 = TreeNode(x: 4)
-let n5 = TreeNode(x: 5)
-// Connect nodes with references (pointers)
-n1.left = n2
-n1.right = n3
-n2.left = n4
-n2.right = n5
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```javascript title="binary_tree.js"
-/* Initialize a binary tree */
-// Initialize nodes
-let n1 = new TreeNode(1),
-    n2 = new TreeNode(2),
-    n3 = new TreeNode(3),
-    n4 = new TreeNode(4),
-    n5 = new TreeNode(5);
-// Connect nodes with references (pointers)
-n1.left = n2;
-n1.right = n3;
-n2.left = n4;
-n2.right = n5;
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```typescript title="binary_tree.ts"
-/* Initialize a binary tree */
-// Initialize nodes
-let n1 = new TreeNode(1),
-    n2 = new TreeNode(2),
-    n3 = new TreeNode(3),
-    n4 = new TreeNode(4),
-    n5 = new TreeNode(5);
-// Connect nodes with references (pointers)
-n1.left = n2;
-n1.right = n3;
-n2.left = n4;
-n2.right = n5;
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```dart title="binary_tree.dart"
-/* Initialize a binary tree */
-// Initialize nodes
-TreeNode n1 = new TreeNode(1);
-TreeNode n2 = new TreeNode(2);
-TreeNode n3 = new TreeNode(3);
-TreeNode n4 = new TreeNode(4);
-TreeNode n5 = new TreeNode(5);
-// Connect nodes with references (pointers)
-n1.left = n2;
-n1.right = n3;
-n2.left = n4;
-n2.right = n5;
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```rust title="binary_tree.rs"
-// Initialize nodes
-let n1 = TreeNode::new(1);
-let n2 = TreeNode::new(2);
-let n3 = TreeNode::new(3);
-let n4 = TreeNode::new(4);
-let n5 = TreeNode::new(5);
-// Connect nodes with references (pointers)
-n1.borrow_mut().left = Some(n2.clone());
-n1.borrow_mut().right = Some(n3);
-n2.borrow_mut().left = Some(n4);
-n2.borrow_mut().right = Some(n5);
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```c title="binary_tree.c"
-/* Initialize a binary tree */
-// Initialize nodes
-TreeNode *n1 = newTreeNode(1);
-TreeNode *n2 = newTreeNode(2);
-TreeNode *n3 = newTreeNode(3);
-TreeNode *n4 = newTreeNode(4);
-TreeNode *n5 = newTreeNode(5);
-// Connect nodes with references (pointers)
-n1->left = n2;
-n1->right = n3;
-n2->left = n4;
-n2->right = n5;
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```kotlin title="binary_tree.kt"
-// Initialize nodes
-val n1 = TreeNode(1)
-val n2 = TreeNode(2)
-val n3 = TreeNode(3)
-val n4 = TreeNode(4)
-val n5 = TreeNode(5)
-// Connect nodes with references (pointers)
-n1.left = n2
-n1.right = n3
-n2.left = n4
-n2.right = n5
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```ruby title="binary_tree.rb"
-# Initialize a binary tree
-# Initialize nodes
-n1 = TreeNode.new(1)
-n2 = TreeNode.new(2)
-n3 = TreeNode.new(3)
-n4 = TreeNode.new(4)
-n5 = TreeNode.new(5)
-# Connect nodes with references (pointers)
-n1.left = n2
-n1.right = n3
-n2.left = n4
-n2.right = n5
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 <!-- [tutor]{init_binary_tree_tutor} -->

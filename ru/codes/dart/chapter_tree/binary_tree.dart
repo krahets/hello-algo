@@ -8,8 +8,9 @@ import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
 void main() {
+  // [region]{init_binary_tree}
   /* Инициализация двоичного дерева */
-  // Инициализировать узлы дерева
+  // Инициализация узлов
   TreeNode n1 = TreeNode(1);
   TreeNode n2 = TreeNode(2);
   TreeNode n3 = TreeNode(3);
@@ -20,6 +21,7 @@ void main() {
   n1.right = n3;
   n2.left = n4;
   n2.right = n5;
+  // [endregion]{init_binary_tree}
   print("\nИнициализация двоичного дерева\n");
   printTree(n1);
 

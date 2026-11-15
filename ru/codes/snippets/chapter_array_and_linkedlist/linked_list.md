@@ -144,199 +144,55 @@ end
 
 <!-- [snippet]{init_linked_list} -->
 ```python title="linked_list.py"
-# Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4
-# Инициализация каждого узла
-n0 = ListNode(1)
-n1 = ListNode(3)
-n2 = ListNode(2)
-n3 = ListNode(5)
-n4 = ListNode(4)
-# Построение ссылок между узлами
-n0.next = n1
-n1.next = n2
-n2.next = n3
-n3.next = n4
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```cpp title="linked_list.cpp"
-/* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-// Инициализация каждого узла
-ListNode* n0 = new ListNode(1);
-ListNode* n1 = new ListNode(3);
-ListNode* n2 = new ListNode(2);
-ListNode* n3 = new ListNode(5);
-ListNode* n4 = new ListNode(4);
-// Построение ссылок между узлами
-n0->next = n1;
-n1->next = n2;
-n2->next = n3;
-n3->next = n4;
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```java title="linked_list.java"
-/* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-// Инициализация каждого узла
-ListNode n0 = new ListNode(1);
-ListNode n1 = new ListNode(3);
-ListNode n2 = new ListNode(2);
-ListNode n3 = new ListNode(5);
-ListNode n4 = new ListNode(4);
-// Построение ссылок между узлами
-n0.next = n1;
-n1.next = n2;
-n2.next = n3;
-n3.next = n4;
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```csharp title="linked_list.cs"
-/* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-// Инициализация каждого узла
-ListNode n0 = new(1);
-ListNode n1 = new(3);
-ListNode n2 = new(2);
-ListNode n3 = new(5);
-ListNode n4 = new(4);
-// Построение ссылок между узлами
-n0.next = n1;
-n1.next = n2;
-n2.next = n3;
-n3.next = n4;
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```go title="linked_list.go"
-/* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-// Инициализация каждого узла
-n0 := NewListNode(1)
-n1 := NewListNode(3)
-n2 := NewListNode(2)
-n3 := NewListNode(5)
-n4 := NewListNode(4)
-// Построение ссылок между узлами
-n0.Next = n1
-n1.Next = n2
-n2.Next = n3
-n3.Next = n4
+[file]{linked_list_test}-[region]{init_linked_list}
 ```
 
 ```swift title="linked_list.swift"
-/* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-// Инициализация каждого узла
-let n0 = ListNode(x: 1)
-let n1 = ListNode(x: 3)
-let n2 = ListNode(x: 2)
-let n3 = ListNode(x: 5)
-let n4 = ListNode(x: 4)
-// Построение ссылок между узлами
-n0.next = n1
-n1.next = n2
-n2.next = n3
-n3.next = n4
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```javascript title="linked_list.js"
-/* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-// Инициализация каждого узла
-const n0 = new ListNode(1);
-const n1 = new ListNode(3);
-const n2 = new ListNode(2);
-const n3 = new ListNode(5);
-const n4 = new ListNode(4);
-// Построение ссылок между узлами
-n0.next = n1;
-n1.next = n2;
-n2.next = n3;
-n3.next = n4;
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```typescript title="linked_list.ts"
-/* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-// Инициализация каждого узла
-const n0 = new ListNode(1);
-const n1 = new ListNode(3);
-const n2 = new ListNode(2);
-const n3 = new ListNode(5);
-const n4 = new ListNode(4);
-// Построение ссылок между узлами
-n0.next = n1;
-n1.next = n2;
-n2.next = n3;
-n3.next = n4;
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```dart title="linked_list.dart"
-/* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-// Инициализация каждого узла
-ListNode n0 = ListNode(1);
-ListNode n1 = ListNode(3);
-ListNode n2 = ListNode(2);
-ListNode n3 = ListNode(5);
-ListNode n4 = ListNode(4);
-// Построение ссылок между узлами
-n0.next = n1;
-n1.next = n2;
-n2.next = n3;
-n3.next = n4;
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```rust title="linked_list.rs"
-/* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-// Инициализация каждого узла
-let n0 = Rc::new(RefCell::new(ListNode { val: 1, next: None }));
-let n1 = Rc::new(RefCell::new(ListNode { val: 3, next: None }));
-let n2 = Rc::new(RefCell::new(ListNode { val: 2, next: None }));
-let n3 = Rc::new(RefCell::new(ListNode { val: 5, next: None }));
-let n4 = Rc::new(RefCell::new(ListNode { val: 4, next: None }));
-
-// Построение ссылок между узлами
-n0.borrow_mut().next = Some(n1.clone());
-n1.borrow_mut().next = Some(n2.clone());
-n2.borrow_mut().next = Some(n3.clone());
-n3.borrow_mut().next = Some(n4.clone());
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```c title="linked_list.c"
-/* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-// Инициализация каждого узла
-ListNode* n0 = newListNode(1);
-ListNode* n1 = newListNode(3);
-ListNode* n2 = newListNode(2);
-ListNode* n3 = newListNode(5);
-ListNode* n4 = newListNode(4);
-// Построение ссылок между узлами
-n0->next = n1;
-n1->next = n2;
-n2->next = n3;
-n3->next = n4;
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```kotlin title="linked_list.kt"
-/* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-// Инициализация каждого узла
-val n0 = ListNode(1)
-val n1 = ListNode(3)
-val n2 = ListNode(2)
-val n3 = ListNode(5)
-val n4 = ListNode(4)
-// Построение ссылок между узлами
-n0.next = n1;
-n1.next = n2;
-n2.next = n3;
-n3.next = n4;
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```ruby title="linked_list.rb"
-# Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4
-# Инициализация каждого узла
-n0 = ListNode.new(1)
-n1 = ListNode.new(3)
-n2 = ListNode.new(2)
-n3 = ListNode.new(5)
-n4 = ListNode.new(4)
-# Построение ссылок между узлами
-n0.next = n1
-n1.next = n2
-n2.next = n3
-n3.next = n4
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 <!-- [tutor]{init_linked_list_tutor} -->

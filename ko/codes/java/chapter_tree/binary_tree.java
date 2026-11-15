@@ -10,6 +10,7 @@ import utils.*;
 
 public class binary_tree {
     public static void main(String[] args) {
+        // [region]{init_binary_tree}
         /* 이진 트리 초기화 */
         // 노드 초기화
         TreeNode n1 = new TreeNode(1);
@@ -22,6 +23,7 @@ public class binary_tree {
         n1.right = n3;
         n2.left = n4;
         n2.right = n5;
+        // [endregion]{init_binary_tree}
         System.out.println("\n이진 트리 초기화\n");
         PrintUtil.printTree(n1);
 

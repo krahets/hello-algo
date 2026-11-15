@@ -108,82 +108,63 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{access_element} -->
 ```python title="list.py"
-# Доступ к элементу
-num: int = nums[1]  # Доступ к элементу по индексу 1
+[file]{list}-[region]{access_element}
 
-# Изменение элемента
-nums[1] = 0    # Изменить значение элемента с индексом 1 на 0
+[file]{list}-[region]{update_element}
 ```
 
 ```cpp title="list.cpp"
-/* Доступ к элементу */
-int num = nums[1];  // Доступ к элементу по индексу 1
+[file]{list}-[region]{access_element}
 
-/* Изменение элемента */
-nums[1] = 0;  // Изменить значение элемента с индексом 1 на 0
+[file]{list}-[region]{update_element}
 ```
 
 ```java title="list.java"
-/* Доступ к элементу */
-int num = nums.get(1);  // Доступ к элементу по индексу 1
+[file]{list}-[region]{access_element}
 
-/* Изменение элемента */
-nums.set(1, 0);  // Изменить значение элемента с индексом 1 на 0
+[file]{list}-[region]{update_element}
 ```
 
 ```csharp title="list.cs"
-/* Доступ к элементу */
-int num = nums[1];  // Доступ к элементу по индексу 1
+[file]{list}-[region]{access_element}
 
-/* Изменение элемента */
-nums[1] = 0;  // Изменить значение элемента с индексом 1 на 0
+[file]{list}-[region]{update_element}
 ```
 
 ```go title="list_test.go"
-/* Доступ к элементу */
-num := nums[1]  // Доступ к элементу по индексу 1
+[file]{list_test}-[region]{access_element}
 
-/* Изменение элемента */
-nums[1] = 0     // Изменить значение элемента с индексом 1 на 0
+[file]{list_test}-[region]{update_element}
 ```
 
 ```swift title="list.swift"
-/* Доступ к элементу */
-let num = nums[1] // Доступ к элементу по индексу 1
+[file]{list}-[region]{access_element}
 
-/* Изменение элемента */
-nums[1] = 0 // Изменить значение элемента с индексом 1 на 0
+[file]{list}-[region]{update_element}
 ```
 
 ```javascript title="list.js"
-/* Доступ к элементу */
-const num = nums[1];  // Доступ к элементу по индексу 1
+[file]{list}-[region]{access_element}
 
-/* Изменение элемента */
-nums[1] = 0;  // Изменить значение элемента с индексом 1 на 0
+[file]{list}-[region]{update_element}
 ```
 
 ```typescript title="list.ts"
-/* Доступ к элементу */
-const num: number = nums[1];  // Доступ к элементу по индексу 1
+[file]{list}-[region]{access_element}
 
-/* Изменение элемента */
-nums[1] = 0;  // Изменить значение элемента с индексом 1 на 0
+[file]{list}-[region]{update_element}
 ```
 
 ```dart title="list.dart"
-/* Доступ к элементу */
-int num = nums[1];  // Доступ к элементу по индексу 1
+[file]{list}-[region]{access_element}
 
-/* Изменение элемента */
-nums[1] = 0;  // Изменить значение элемента с индексом 1 на 0
+[file]{list}-[region]{update_element}
 ```
 
 ```rust title="list.rs"
-/* Доступ к элементу */
-let num: i32 = nums[1];  // Доступ к элементу по индексу 1
-/* Изменение элемента */
-nums[1] = 0;             // Изменить значение элемента с индексом 1 на 0
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
 ```
 
 ```c title="list.c"
@@ -191,17 +172,15 @@ nums[1] = 0;             // Изменить значение элемента �
 ```
 
 ```kotlin title="list.kt"
-/* Доступ к элементу */
-val num = nums[1]       // Доступ к элементу по индексу 1
-/* Изменение элемента */
-nums[1] = 0             // Изменить значение элемента с индексом 1 на 0
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
 ```
 
 ```ruby title="list.rb"
-# Доступ к элементу
-num = nums[1] # Доступ к элементу по индексу 1
-# Изменение элемента
-nums[1] = 0 # Изменить значение элемента с индексом 1 на 0
+[file]{list}-[region]{access_element}
+
+[file]{list}-[region]{update_element}
 ```
 
 <!-- [tutor]{access_element_tutor} -->
@@ -209,183 +188,103 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{insert_remove_element} -->
 ```python title="list.py"
-# Очистить список
-nums.clear()
+[file]{list}-[region]{clear_list}
 
-# Добавить элементы в конец
-nums.append(1)
-nums.append(3)
-nums.append(2)
-nums.append(5)
-nums.append(4)
+[file]{list}-[region]{append_element}
 
-# Вставить элемент в середину
-nums.insert(3, 6)  # Вставить число 6 по индексу 3
+[file]{list}-[region]{insert_element}
 
-# Удалить элемент
-nums.pop(3)        # Удалить элемент по индексу 3
+[file]{list}-[region]{remove_element}
 ```
 
 ```cpp title="list.cpp"
-/* Очистить список */
-nums.clear();
+[file]{list}-[region]{clear_list}
 
-/* Добавить элементы в конец */
-nums.push_back(1);
-nums.push_back(3);
-nums.push_back(2);
-nums.push_back(5);
-nums.push_back(4);
+[file]{list}-[region]{append_element}
 
-/* Вставить элемент в середину */
-nums.insert(nums.begin() + 3, 6);  // Вставить число 6 по индексу 3
+[file]{list}-[region]{insert_element}
 
-/* Удалить элемент */
-nums.erase(nums.begin() + 3);      // Удалить элемент по индексу 3
+[file]{list}-[region]{remove_element}
 ```
 
 ```java title="list.java"
-/* Очистить список */
-nums.clear();
+[file]{list}-[region]{clear_list}
 
-/* Добавить элементы в конец */
-nums.add(1);
-nums.add(3);
-nums.add(2);
-nums.add(5);
-nums.add(4);
+[file]{list}-[region]{append_element}
 
-/* Вставить элемент в середину */
-nums.add(3, 6);  // Вставить число 6 по индексу 3
+[file]{list}-[region]{insert_element}
 
-/* Удалить элемент */
-nums.remove(3);  // Удалить элемент по индексу 3
+[file]{list}-[region]{remove_element}
 ```
 
 ```csharp title="list.cs"
-/* Очистить список */
-nums.Clear();
+[file]{list}-[region]{clear_list}
 
-/* Добавить элементы в конец */
-nums.Add(1);
-nums.Add(3);
-nums.Add(2);
-nums.Add(5);
-nums.Add(4);
+[file]{list}-[region]{append_element}
 
-/* Вставить элемент в середину */
-nums.Insert(3, 6);  // Вставить число 6 по индексу 3
+[file]{list}-[region]{insert_element}
 
-/* Удалить элемент */
-nums.RemoveAt(3);  // Удалить элемент по индексу 3
+[file]{list}-[region]{remove_element}
 ```
 
 ```go title="list_test.go"
-/* Очистить список */
-nums = nil
+[file]{list_test}-[region]{clear_list}
 
-/* Добавить элементы в конец */
-nums = append(nums, 1)
-nums = append(nums, 3)
-nums = append(nums, 2)
-nums = append(nums, 5)
-nums = append(nums, 4)
+[file]{list_test}-[region]{append_element}
 
-/* Вставить элемент в середину */
-nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // Вставить число 6 по индексу 3
+[file]{list_test}-[region]{insert_element}
 
-/* Удалить элемент */
-nums = append(nums[:3], nums[4:]...) // Удалить элемент по индексу 3
+[file]{list_test}-[region]{remove_element}
 ```
 
 ```swift title="list.swift"
-/* Очистить список */
-nums.removeAll()
+[file]{list}-[region]{clear_list}
 
-/* Добавить элементы в конец */
-nums.append(1)
-nums.append(3)
-nums.append(2)
-nums.append(5)
-nums.append(4)
+[file]{list}-[region]{append_element}
 
-/* Вставить элемент в середину */
-nums.insert(6, at: 3) // Вставить число 6 по индексу 3
+[file]{list}-[region]{insert_element}
 
-/* Удалить элемент */
-nums.remove(at: 3) // Удалить элемент по индексу 3
+[file]{list}-[region]{remove_element}
 ```
 
 ```javascript title="list.js"
-/* Очистить список */
-nums.length = 0;
+[file]{list}-[region]{clear_list}
 
-/* Добавить элементы в конец */
-nums.push(1);
-nums.push(3);
-nums.push(2);
-nums.push(5);
-nums.push(4);
+[file]{list}-[region]{append_element}
 
-/* Вставить элемент в середину */
-nums.splice(3, 0, 6); // Вставить число 6 по индексу 3
+[file]{list}-[region]{insert_element}
 
-/* Удалить элемент */
-nums.splice(3, 1);  // Удалить элемент по индексу 3
+[file]{list}-[region]{remove_element}
 ```
 
 ```typescript title="list.ts"
-/* Очистить список */
-nums.length = 0;
+[file]{list}-[region]{clear_list}
 
-/* Добавить элементы в конец */
-nums.push(1);
-nums.push(3);
-nums.push(2);
-nums.push(5);
-nums.push(4);
+[file]{list}-[region]{append_element}
 
-/* Вставить элемент в середину */
-nums.splice(3, 0, 6); // Вставить число 6 по индексу 3
+[file]{list}-[region]{insert_element}
 
-/* Удалить элемент */
-nums.splice(3, 1);  // Удалить элемент по индексу 3
+[file]{list}-[region]{remove_element}
 ```
 
 ```dart title="list.dart"
-/* Очистить список */
-nums.clear();
+[file]{list}-[region]{clear_list}
 
-/* Добавить элементы в конец */
-nums.add(1);
-nums.add(3);
-nums.add(2);
-nums.add(5);
-nums.add(4);
+[file]{list}-[region]{append_element}
 
-/* Вставить элемент в середину */
-nums.insert(3, 6); // Вставить число 6 по индексу 3
+[file]{list}-[region]{insert_element}
 
-/* Удалить элемент */
-nums.removeAt(3); // Удалить элемент по индексу 3
+[file]{list}-[region]{remove_element}
 ```
 
 ```rust title="list.rs"
-/* Очистить список */
-nums.clear();
+[file]{list}-[region]{clear_list}
 
-/* Добавить элементы в конец */
-nums.push(1);
-nums.push(3);
-nums.push(2);
-nums.push(5);
-nums.push(4);
+[file]{list}-[region]{append_element}
 
-/* Вставить элемент в середину */
-nums.insert(3, 6);  // Вставить число 6 по индексу 3
+[file]{list}-[region]{insert_element}
 
-/* Удалить элемент */
-nums.remove(3);    // Удалить элемент по индексу 3
+[file]{list}-[region]{remove_element}
 ```
 
 ```c title="list.c"
@@ -393,39 +292,23 @@ nums.remove(3);    // Удалить элемент по индексу 3
 ```
 
 ```kotlin title="list.kt"
-/* Очистить список */
-nums.clear();
+[file]{list}-[region]{clear_list}
 
-/* Добавить элементы в конец */
-nums.add(1);
-nums.add(3);
-nums.add(2);
-nums.add(5);
-nums.add(4);
+[file]{list}-[region]{append_element}
 
-/* Вставить элемент в середину */
-nums.add(3, 6);    // Вставить число 6 по индексу 3
+[file]{list}-[region]{insert_element}
 
-/* Удалить элемент */
-nums.removeAt(3);  // Удалить элемент по индексу 3
+[file]{list}-[region]{remove_element}
 ```
 
 ```ruby title="list.rb"
-# Очистить список
-nums.clear
+[file]{list}-[region]{clear_list}
 
-# Добавить элементы в конец
-nums << 1
-nums << 3
-nums << 2
-nums << 5
-nums << 4
+[file]{list}-[region]{append_element}
 
-# Вставить элемент в середину
-nums.insert(3, 6) # Вставить число 6 по индексу 3
+[file]{list}-[region]{insert_element}
 
-# Удалить элемент
-nums.delete_at(3) # Удалить элемент по индексу 3
+[file]{list}-[region]{remove_element}
 ```
 
 <!-- [tutor]{insert_remove_element_tutor} -->
@@ -433,139 +316,43 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{iterate_list} -->
 ```python title="list.py"
-# Обход списка по индексам
-count = 0
-for i in range(len(nums)):
-    count += nums[i]
-
-# Прямой обход элементов списка
-for num in nums:
-    count += num
+[file]{list}-[region]{iterate_list}
 ```
 
 ```cpp title="list.cpp"
-/* Обход списка по индексам */
-int count = 0;
-for (int i = 0; i < nums.size(); i++) {
-    count += nums[i];
-}
-
-/* Прямой обход элементов списка */
-count = 0;
-for (int num : nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```java title="list.java"
-/* Обход списка по индексам */
-int count = 0;
-for (int i = 0; i < nums.size(); i++) {
-    count += nums.get(i);
-}
-
-/* Прямой обход элементов списка */
-for (int num : nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```csharp title="list.cs"
-/* Обход списка по индексам */
-int count = 0;
-for (int i = 0; i < nums.Count; i++) {
-    count += nums[i];
-}
-
-/* Прямой обход элементов списка */
-count = 0;
-foreach (int num in nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```go title="list_test.go"
-/* Обход списка по индексам */
-count := 0
-for i := 0; i < len(nums); i++ {
-    count += nums[i]
-}
-
-/* Прямой обход элементов списка */
-count = 0
-for _, num := range nums {
-    count += num
-}
+[file]{list_test}-[region]{iterate_list}
 ```
 
 ```swift title="list.swift"
-/* Обход списка по индексам */
-var count = 0
-for i in nums.indices {
-    count += nums[i]
-}
-
-/* Прямой обход элементов списка */
-count = 0
-for num in nums {
-    count += num
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```javascript title="list.js"
-/* Обход списка по индексам */
-let count = 0;
-for (let i = 0; i < nums.length; i++) {
-    count += nums[i];
-}
-
-/* Прямой обход элементов списка */
-count = 0;
-for (const num of nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```typescript title="list.ts"
-/* Обход списка по индексам */
-let count = 0;
-for (let i = 0; i < nums.length; i++) {
-    count += nums[i];
-}
-
-/* Прямой обход элементов списка */
-count = 0;
-for (const num of nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```dart title="list.dart"
-/* Обход списка по индексам */
-int count = 0;
-for (var i = 0; i < nums.length; i++) {
-    count += nums[i];
-}
-
-/* Прямой обход элементов списка */
-count = 0;
-for (var num in nums) {
-    count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```rust title="list.rs"
-// Обход списка по индексам
-let mut _count = 0;
-for i in 0..nums.len() {
-    _count += nums[i];
-}
-
-// Прямой обход элементов списка
-_count = 0;
-for num in &nums {
-    _count += num;
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```c title="list.c"
@@ -573,30 +360,11 @@ for num in &nums {
 ```
 
 ```kotlin title="list.kt"
-/* Обход списка по индексам */
-var count = 0
-for (i in nums.indices) {
-    count += nums[i]
-}
-
-/* Прямой обход элементов списка */
-for (num in nums) {
-    count += num
-}
+[file]{list}-[region]{iterate_list}
 ```
 
 ```ruby title="list.rb"
-# Обход списка по индексам
-count = 0
-for i in 0...nums.length
-    count += nums[i]
-end
-
-# Прямой обход элементов списка
-count = 0
-for num in nums
-    count += num
-end
+[file]{list}-[region]{iterate_list}
 ```
 
 <!-- [tutor]{iterate_list_tutor} -->
@@ -604,64 +372,43 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{concat_list} -->
 ```python title="list.py"
-# Конкатенация двух списков
-nums1: list[int] = [6, 8, 7, 10, 9]
-nums += nums1  # Присоединить список nums1 к концу nums
+[file]{list}-[region]{concat_list}
 ```
 
 ```cpp title="list.cpp"
-/* Конкатенация двух списков */
-vector<int> nums1 = { 6, 8, 7, 10, 9 };
-// Присоединить список nums1 к концу nums
-nums.insert(nums.end(), nums1.begin(), nums1.end());
+[file]{list}-[region]{concat_list}
 ```
 
 ```java title="list.java"
-/* Конкатенация двух списков */
-List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
-nums.addAll(nums1);  // Присоединить список nums1 к концу nums
+[file]{list}-[region]{concat_list}
 ```
 
 ```csharp title="list.cs"
-/* Конкатенация двух списков */
-List<int> nums1 = [6, 8, 7, 10, 9];
-nums.AddRange(nums1);  // Присоединить список nums1 к концу nums
+[file]{list}-[region]{concat_list}
 ```
 
 ```go title="list_test.go"
-/* Конкатенация двух списков */
-nums1 := []int{6, 8, 7, 10, 9}
-nums = append(nums, nums1...)  // Присоединить список nums1 к концу nums
+[file]{list_test}-[region]{concat_list}
 ```
 
 ```swift title="list.swift"
-/* Конкатенация двух списков */
-let nums1 = [6, 8, 7, 10, 9]
-nums.append(contentsOf: nums1) // Присоединить список nums1 к концу nums
+[file]{list}-[region]{concat_list}
 ```
 
 ```javascript title="list.js"
-/* Конкатенация двух списков */
-const nums1 = [6, 8, 7, 10, 9];
-nums.push(...nums1);  // Присоединить список nums1 к концу nums
+[file]{list}-[region]{concat_list}
 ```
 
 ```typescript title="list.ts"
-/* Конкатенация двух списков */
-const nums1: number[] = [6, 8, 7, 10, 9];
-nums.push(...nums1);  // Присоединить список nums1 к концу nums
+[file]{list}-[region]{concat_list}
 ```
 
 ```dart title="list.dart"
-/* Конкатенация двух списков */
-List<int> nums1 = [6, 8, 7, 10, 9];
-nums.addAll(nums1);  // Присоединить список nums1 к концу nums
+[file]{list}-[region]{concat_list}
 ```
 
 ```rust title="list.rs"
-/* Конкатенация двух списков */
-let nums1: Vec<i32> = vec![6, 8, 7, 10, 9];
-nums.extend(nums1);
+[file]{list}-[region]{concat_list}
 ```
 
 ```c title="list.c"
@@ -669,15 +416,11 @@ nums.extend(nums1);
 ```
 
 ```kotlin title="list.kt"
-/* Конкатенация двух списков */
-val nums1 = intArrayOf(6, 8, 7, 10, 9).toMutableList()
-nums.addAll(nums1)  // Присоединить список nums1 к концу nums
+[file]{list}-[region]{concat_list}
 ```
 
 ```ruby title="list.rb"
-# Конкатенация двух списков
-nums1 = [6, 8, 7, 10, 9]
-nums += nums1
+[file]{list}-[region]{concat_list}
 ```
 
 <!-- [tutor]{concat_list_tutor} -->
@@ -685,53 +428,43 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{sort_list} -->
 ```python title="list.py"
-# Отсортировать список
-nums.sort()  # После сортировки элементы списка идут по возрастанию
+[file]{list}-[region]{sort_list}
 ```
 
 ```cpp title="list.cpp"
-/* Отсортировать список */
-sort(nums.begin(), nums.end());  // После сортировки элементы списка идут по возрастанию
+[file]{list}-[region]{sort_list}
 ```
 
 ```java title="list.java"
-/* Отсортировать список */
-Collections.sort(nums);  // После сортировки элементы списка идут по возрастанию
+[file]{list}-[region]{sort_list}
 ```
 
 ```csharp title="list.cs"
-/* Отсортировать список */
-nums.Sort(); // После сортировки элементы списка идут по возрастанию
+[file]{list}-[region]{sort_list}
 ```
 
 ```go title="list_test.go"
-/* Отсортировать список */
-sort.Ints(nums)  // После сортировки элементы списка идут по возрастанию
+[file]{list_test}-[region]{sort_list}
 ```
 
 ```swift title="list.swift"
-/* Отсортировать список */
-nums.sort() // После сортировки элементы списка идут по возрастанию
+[file]{list}-[region]{sort_list}
 ```
 
 ```javascript title="list.js"
-/* Отсортировать список */
-nums.sort((a, b) => a - b);  // После сортировки элементы списка идут по возрастанию
+[file]{list}-[region]{sort_list}
 ```
 
 ```typescript title="list.ts"
-/* Отсортировать список */
-nums.sort((a, b) => a - b);  // После сортировки элементы списка идут по возрастанию
+[file]{list}-[region]{sort_list}
 ```
 
 ```dart title="list.dart"
-/* Отсортировать список */
-nums.sort(); // После сортировки элементы списка идут по возрастанию
+[file]{list}-[region]{sort_list}
 ```
 
 ```rust title="list.rs"
-/* Отсортировать список */
-nums.sort(); // После сортировки элементы списка идут по возрастанию
+[file]{list}-[region]{sort_list}
 ```
 
 ```c title="list.c"
@@ -739,13 +472,11 @@ nums.sort(); // После сортировки элементы списка и
 ```
 
 ```kotlin title="list.kt"
-/* Отсортировать список */
-nums.sort() // После сортировки элементы списка идут по возрастанию
+[file]{list}-[region]{sort_list}
 ```
 
 ```ruby title="list.rb"
-# Отсортировать список
-nums = nums.sort { |a, b| a <=> b } # После сортировки элементы списка идут по возрастанию
+[file]{list}-[region]{sort_list}
 ```
 
 <!-- [tutor]{sort_list_tutor} -->

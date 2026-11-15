@@ -174,194 +174,55 @@ end
 
 <!-- [snippet]{init_binary_tree} -->
 ```python title="binary_tree.py"
-# 初始化二元樹
-# 初始化節點
-n1 = TreeNode(val=1)
-n2 = TreeNode(val=2)
-n3 = TreeNode(val=3)
-n4 = TreeNode(val=4)
-n5 = TreeNode(val=5)
-# 構建節點之間的引用（指標）
-n1.left = n2
-n1.right = n3
-n2.left = n4
-n2.right = n5
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```cpp title="binary_tree.cpp"
-/* 初始化二元樹 */
-// 初始化節點
-TreeNode* n1 = new TreeNode(1);
-TreeNode* n2 = new TreeNode(2);
-TreeNode* n3 = new TreeNode(3);
-TreeNode* n4 = new TreeNode(4);
-TreeNode* n5 = new TreeNode(5);
-// 構建節點之間的引用（指標）
-n1->left = n2;
-n1->right = n3;
-n2->left = n4;
-n2->right = n5;
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```java title="binary_tree.java"
-// 初始化節點
-TreeNode n1 = new TreeNode(1);
-TreeNode n2 = new TreeNode(2);
-TreeNode n3 = new TreeNode(3);
-TreeNode n4 = new TreeNode(4);
-TreeNode n5 = new TreeNode(5);
-// 構建節點之間的引用（指標）
-n1.left = n2;
-n1.right = n3;
-n2.left = n4;
-n2.right = n5;
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```csharp title="binary_tree.cs"
-/* 初始化二元樹 */
-// 初始化節點
-TreeNode n1 = new(1);
-TreeNode n2 = new(2);
-TreeNode n3 = new(3);
-TreeNode n4 = new(4);
-TreeNode n5 = new(5);
-// 構建節點之間的引用（指標）
-n1.left = n2;
-n1.right = n3;
-n2.left = n4;
-n2.right = n5;
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```go title="binary_tree.go"
-/* 初始化二元樹 */
-// 初始化節點
-n1 := NewTreeNode(1)
-n2 := NewTreeNode(2)
-n3 := NewTreeNode(3)
-n4 := NewTreeNode(4)
-n5 := NewTreeNode(5)
-// 構建節點之間的引用（指標）
-n1.Left = n2
-n1.Right = n3
-n2.Left = n4
-n2.Right = n5
+[file]{binary_tree_test}-[region]{init_binary_tree}
 ```
 
 ```swift title="binary_tree.swift"
-// 初始化節點
-let n1 = TreeNode(x: 1)
-let n2 = TreeNode(x: 2)
-let n3 = TreeNode(x: 3)
-let n4 = TreeNode(x: 4)
-let n5 = TreeNode(x: 5)
-// 構建節點之間的引用（指標）
-n1.left = n2
-n1.right = n3
-n2.left = n4
-n2.right = n5
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```javascript title="binary_tree.js"
-/* 初始化二元樹 */
-// 初始化節點
-let n1 = new TreeNode(1),
-    n2 = new TreeNode(2),
-    n3 = new TreeNode(3),
-    n4 = new TreeNode(4),
-    n5 = new TreeNode(5);
-// 構建節點之間的引用（指標）
-n1.left = n2;
-n1.right = n3;
-n2.left = n4;
-n2.right = n5;
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```typescript title="binary_tree.ts"
-/* 初始化二元樹 */
-// 初始化節點
-let n1 = new TreeNode(1),
-    n2 = new TreeNode(2),
-    n3 = new TreeNode(3),
-    n4 = new TreeNode(4),
-    n5 = new TreeNode(5);
-// 構建節點之間的引用（指標）
-n1.left = n2;
-n1.right = n3;
-n2.left = n4;
-n2.right = n5;
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```dart title="binary_tree.dart"
-/* 初始化二元樹 */
-// 初始化節點
-TreeNode n1 = new TreeNode(1);
-TreeNode n2 = new TreeNode(2);
-TreeNode n3 = new TreeNode(3);
-TreeNode n4 = new TreeNode(4);
-TreeNode n5 = new TreeNode(5);
-// 構建節點之間的引用（指標）
-n1.left = n2;
-n1.right = n3;
-n2.left = n4;
-n2.right = n5;
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```rust title="binary_tree.rs"
-// 初始化節點
-let n1 = TreeNode::new(1);
-let n2 = TreeNode::new(2);
-let n3 = TreeNode::new(3);
-let n4 = TreeNode::new(4);
-let n5 = TreeNode::new(5);
-// 構建節點之間的引用（指標）
-n1.borrow_mut().left = Some(n2.clone());
-n1.borrow_mut().right = Some(n3);
-n2.borrow_mut().left = Some(n4);
-n2.borrow_mut().right = Some(n5);
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```c title="binary_tree.c"
-/* 初始化二元樹 */
-// 初始化節點
-TreeNode *n1 = newTreeNode(1);
-TreeNode *n2 = newTreeNode(2);
-TreeNode *n3 = newTreeNode(3);
-TreeNode *n4 = newTreeNode(4);
-TreeNode *n5 = newTreeNode(5);
-// 構建節點之間的引用（指標）
-n1->left = n2;
-n1->right = n3;
-n2->left = n4;
-n2->right = n5;
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```kotlin title="binary_tree.kt"
-// 初始化節點
-val n1 = TreeNode(1)
-val n2 = TreeNode(2)
-val n3 = TreeNode(3)
-val n4 = TreeNode(4)
-val n5 = TreeNode(5)
-// 構建節點之間的引用（指標）
-n1.left = n2
-n1.right = n3
-n2.left = n4
-n2.right = n5
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 ```ruby title="binary_tree.rb"
-# 初始化二元樹
-# 初始化節點
-n1 = TreeNode.new(1)
-n2 = TreeNode.new(2)
-n3 = TreeNode.new(3)
-n4 = TreeNode.new(4)
-n5 = TreeNode.new(5)
-# 構建節點之間的引用（指標）
-n1.left = n2
-n1.right = n3
-n2.left = n4
-n2.right = n5
+[file]{binary_tree}-[region]{init_binary_tree}
 ```
 
 <!-- [tutor]{init_binary_tree_tutor} -->

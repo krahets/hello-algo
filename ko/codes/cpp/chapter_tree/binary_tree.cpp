@@ -8,6 +8,7 @@
 
 /* 실행 코드 */
 int main() {
+    // [region]{init_binary_tree}
     /* 이진 트리 초기화 */
     // 노드 초기화
     TreeNode *n1 = new TreeNode(1);
@@ -20,6 +21,7 @@ int main() {
     n1->right = n3;
     n2->left = n4;
     n2->right = n5;
+    // [endregion]{init_binary_tree}
     cout << endl << "이진 트리 초기화\n" << endl;
     printTree(n1);
 

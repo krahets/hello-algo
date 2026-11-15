@@ -11,6 +11,7 @@ import utils.printTree
 
 /* Driver Code */
 fun main() {
+    // [region]{init_binary_tree}
     /* 初始化二元樹 */
     // 初始化節點
     val n1 = TreeNode(1)
@@ -23,6 +24,7 @@ fun main() {
     n1.right = n3
     n2.left = n4
     n2.right = n5
+    // [endregion]{init_binary_tree}
     println("\n初始化二元樹\n")
     printTree(n1)
 

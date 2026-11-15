@@ -12,6 +12,7 @@ import (
 )
 
 func TestLinkedList(t *testing.T) {
+	// [region]{init_linked_list}
 	/* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
 	// 각 노드를 초기화한다
 	n0 := NewListNode(1)
@@ -25,6 +26,7 @@ func TestLinkedList(t *testing.T) {
 	n1.Next = n2
 	n2.Next = n3
 	n3.Next = n4
+	// [endregion]{init_linked_list}
 	fmt.Println("초기화한 연결 리스트")
 	PrintLinkedList(n0)
 

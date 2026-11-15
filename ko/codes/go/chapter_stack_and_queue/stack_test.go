@@ -12,35 +12,47 @@ import (
 )
 
 func TestStack(t *testing.T) {
+	// [region]{init_stack}
 	/* 스택 초기화 */
 	// Go에서는 Slice를 스택으로 사용하는 것을 권장한다
 	var stack []int
+	// [endregion]{init_stack}
 
+	// [region]{push}
 	/* 스택에 원소 삽입 */
 	stack = append(stack, 1)
 	stack = append(stack, 3)
 	stack = append(stack, 2)
 	stack = append(stack, 5)
 	stack = append(stack, 4)
+	// [endregion]{push}
 	fmt.Print("스택 stack = ")
 	PrintSlice(stack)
 
+	// [region]{peek}
 	/* 스택 맨 위 원소 접근 */
 	peek := stack[len(stack)-1]
+	// [endregion]{peek}
 	fmt.Println("스택 맨 위 원소 peek =", peek)
 
+	// [region]{pop}
 	/* 스택에서 원소 꺼내기 */
 	pop := stack[len(stack)-1]
 	stack = stack[:len(stack)-1]
+	// [endregion]{pop}
 	fmt.Print("스택에서 꺼낸 원소 pop = ", pop, ", 스택에서 꺼낸 후 stack = ")
 	PrintSlice(stack)
 
+	// [region]{size}
 	/* 스택의 길이 반환 */
 	size := len(stack)
+	// [endregion]{size}
 	fmt.Println("스택의 길이 size =", size)
 
+	// [region]{is_empty}
 	/* 비어 있는지 판단 */
 	isEmpty := len(stack) == 0
+	// [endregion]{is_empty}
 	fmt.Println("스택이 비어 있는가 =", isEmpty)
 }
 
