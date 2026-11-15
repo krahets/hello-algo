@@ -5,14 +5,16 @@ Author: krahets (krahets@163.com)
 """
 
 
+# [region]{doubly_list_node}
 class ListNode:
     """Doubly linked list node"""
 
     def __init__(self, val: int):
         """Constructor"""
-        self.val: int = val
+        self.val: int = val  # Node value
         self.next: ListNode | None = None  # Reference to the next node
         self.prev: ListNode | None = None  # Reference to the previous node
+# [endregion]{doubly_list_node}
 
 
 class LinkedListDeque:

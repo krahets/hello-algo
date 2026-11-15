@@ -4,13 +4,15 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
+// [region]{list_node}
 /* Узел связного списка */
 class ListNode {
-  int val;
-  ListNode? next;
+  int val; // Значение узла
+  ListNode? next; // Ссылка на следующий узел
 
-  ListNode(this.val, [this.next]);
+  ListNode(this.val, [this.next]); // Конструктор
 }
+// [endregion]{list_node}
 
 /* Десериализовать список в связный список */
 ListNode? listToLinkedList(List<int> list) {

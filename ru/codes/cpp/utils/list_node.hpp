@@ -11,13 +11,15 @@
 
 using namespace std;
 
+// [region]{list_node}
 /* Узел связного списка */
 struct ListNode {
-    int val;
-    ListNode *next;
+    int val;        // Значение узла
+    ListNode *next; // Указатель на узел-преемник
     ListNode(int x) : val(x), next(nullptr) {
     }
 };
+// [endregion]{list_node}
 
 /* Десериализовать список в связный список */
 ListNode *vecToLinkedList(vector<int> list) {

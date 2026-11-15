@@ -4,6 +4,7 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
+// [region]{doubly_list_node}
 /* 双向链表节点 */
 class ListNode {
   int val; // 节点值
@@ -12,6 +13,7 @@ class ListNode {
 
   ListNode(this.val, {this.next, this.prev});
 }
+// [endregion]{doubly_list_node}
 
 /* 基于双向链表实现的双向对列 */
 class LinkedListDeque {

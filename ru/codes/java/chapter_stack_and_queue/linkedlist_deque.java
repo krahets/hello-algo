@@ -8,9 +8,10 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
+// [region]{doubly_list_node}
 /* Узел двусвязного списка */
 class ListNode {
-    int val; // Значение узла
+    int val;       // Значение узла
     ListNode next; // Ссылка на узел-преемник
     ListNode prev; // Ссылка на узел-предшественник
 
@@ -19,6 +20,7 @@ class ListNode {
         prev = next = null;
     }
 }
+// [endregion]{doubly_list_node}
 
 /* Двусторонняя очередь на основе двусвязного списка */
 class LinkedListDeque {

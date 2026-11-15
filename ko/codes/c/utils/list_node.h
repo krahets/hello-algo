@@ -11,6 +11,7 @@
 extern "C" {
 #endif
 
+// [region]{list_node}
 /* 연결 리스트 노드 구조체 */
 typedef struct ListNode {
     int val;               // 노드 값
@@ -25,6 +26,7 @@ ListNode *newListNode(int val) {
     node->next = NULL;
     return node;
 }
+// [endregion]{list_node}
 
 /* 배열을 역직렬화하여 연결 리스트로 변환한다 */
 ListNode *arrToLinkedList(const int *arr, size_t size) {

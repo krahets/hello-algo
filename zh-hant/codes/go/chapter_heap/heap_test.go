@@ -13,42 +13,32 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-func testPush(h *intHeap, val int) {
-	// 呼叫 heap.Interface 的函式，來新增元素
-	heap.Push(h, val)
-	fmt.Printf("\n元素 %d 入堆積後 \n", val)
-	PrintHeap(*h)
-}
-
-func testPop(h *intHeap) {
-	// 呼叫 heap.Interface 的函式，來移除元素
-	val := heap.Pop(h)
-	fmt.Printf("\n堆積頂元素 %d 出堆積後 \n", val)
-	PrintHeap(*h)
-}
-
+// [region]{test_heap}
 func TestHeap(t *testing.T) {
 	/* 初始化堆積 */
 	// 初始化大頂堆積
 	maxHeap := &intHeap{}
 	heap.Init(maxHeap)
 	/* 元素入堆積 */
-	testPush(maxHeap, 1)
-	testPush(maxHeap, 3)
-	testPush(maxHeap, 2)
-	testPush(maxHeap, 5)
-	testPush(maxHeap, 4)
+	// 呼叫 heap.Interface 的函式，來新增元素
+	heap.Push(maxHeap, 1)
+	heap.Push(maxHeap, 3)
+	heap.Push(maxHeap, 2)
+	heap.Push(maxHeap, 5)
+	heap.Push(maxHeap, 4)
+	PrintHeap(*maxHeap)
 
 	/* 獲取堆積頂元素 */
 	top := maxHeap.Top()
 	fmt.Printf("堆積頂元素為 %d\n", top)
 
 	/* 堆積頂元素出堆積 */
-	testPop(maxHeap)
-	testPop(maxHeap)
-	testPop(maxHeap)
-	testPop(maxHeap)
-	testPop(maxHeap)
+	// 呼叫 heap.Interface 的函式，來移除元素
+	fmt.Println(heap.Pop(maxHeap)) // 5
+	fmt.Println(heap.Pop(maxHeap)) // 4
+	fmt.Println(heap.Pop(maxHeap)) // 3
+	fmt.Println(heap.Pop(maxHeap)) // 2
+	fmt.Println(heap.Pop(maxHeap)) // 1
 
 	/* 獲取堆積大小 */
 	size := len(*maxHeap)
@@ -58,6 +48,8 @@ func TestHeap(t *testing.T) {
 	isEmpty := len(*maxHeap) == 0
 	fmt.Printf("堆積是否為空 %t\n", isEmpty)
 }
+
+// [endregion]{test_heap}
 
 func TestMyHeap(t *testing.T) {
 	/* 初始化堆積 */

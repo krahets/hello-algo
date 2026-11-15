@@ -4,10 +4,12 @@
 
 namespace hello_algo.utils;
 
+// [region]{list_node}
 /* Узел связного списка */
 public class ListNode(int x) {
-    public int val = x;
-    public ListNode? next;
+    public int val = x;    // Значение узла
+    public ListNode? next; // Ссылка на следующий узел
+// [endregion]{list_node}
 
     /* Десериализовать массив в связный список */
     public static ListNode? ArrToLinkedList(int[] arr) {
@@ -29,4 +31,6 @@ public class ListNode(int x) {
         }
         return string.Join("->", list);
     }
+// [region]{list_node_end}
 }
+// [endregion]{list_node_end}

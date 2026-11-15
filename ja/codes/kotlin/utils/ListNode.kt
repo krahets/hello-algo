@@ -6,9 +6,11 @@
 
 package utils
 
+// [region]{list_node}
 /* 連結リストのノード */
 class ListNode(var _val: Int) {
-    var next: ListNode? = null
+    var next: ListNode? = null // 次のノードへの参照
+// [endregion]{list_node}
 
     companion object {
         /* リストをデシリアライズして連結リストにする */
@@ -22,4 +24,6 @@ class ListNode(var _val: Int) {
             return dum.next
         }
     }
+// [region]{list_node_end}
 }
+// [endregion]{list_node_end}

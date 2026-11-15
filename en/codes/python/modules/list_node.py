@@ -5,12 +5,14 @@ Author: krahets (krahets@163.com)
 """
 
 
+# [region]{list_node}
 class ListNode:
     """Linked list node class"""
 
     def __init__(self, val: int):
         self.val: int = val  # Node value
         self.next: ListNode | None = None  # Reference to the next node
+# [endregion]{list_node}
 
 
 def list_to_linked_list(arr: list[int]) -> ListNode | None:

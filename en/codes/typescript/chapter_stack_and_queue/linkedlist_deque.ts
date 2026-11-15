@@ -4,10 +4,11 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
+// [region]{doubly_list_node}
 /* Doubly linked list node */
 class ListNode {
-    prev: ListNode; // Reference (pointer) to the previous node
-    next: ListNode; // Reference (pointer) to the next node
+    prev: ListNode | null; // Reference (pointer) to the previous node
+    next: ListNode | null; // Reference (pointer) to the next node
     val: number; // Node value
 
     constructor(val: number) {
@@ -16,6 +17,7 @@ class ListNode {
         this.prev = null;
     }
 }
+// [endregion]{doubly_list_node}
 
 /* Deque implemented with a doubly linked list */
 class LinkedListDeque {

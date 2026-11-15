@@ -6,12 +6,14 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
+// [region]{doubly_list_node}
 /* 双方向連結リストのノード */
 public class ListNode(int val) {
-    public int val = val;       // ノードの値
+    public int val = val;         // ノードの値
     public ListNode? next = null; // 後続ノードへの参照
     public ListNode? prev = null; // 前のノードへの参照
 }
+// [endregion]{doubly_list_node}
 
 /* 双方向連結リストで実装した両端キュー */
 public class LinkedListDeque {
