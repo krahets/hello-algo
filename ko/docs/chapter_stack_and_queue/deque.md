@@ -433,7 +433,7 @@ comments: true
 
         def __init__(self, val: int):
             """생성자"""
-            self.val: int = val
+            self.val: int = val  # 노드 값
             self.next: ListNode | None = None  # 다음 노드 참조
             self.prev: ListNode | None = None  # 이전 노드 참조
 
@@ -693,7 +693,7 @@ comments: true
     ```java title="linkedlist_deque.java"
     /* 이중 연결 리스트 노드 */
     class ListNode {
-        int val; // 노드 값
+        int val;       // 노드 값
         ListNode next; // 다음 노드 참조
         ListNode prev; // 이전 노드 참조
 
@@ -828,7 +828,7 @@ comments: true
     ```csharp title="linkedlist_deque.cs"
     /* 이중 연결 리스트 노드 */
     class ListNode(int val) {
-        public int val = val;       // 노드 값
+        public int val = val;         // 노드 값
         public ListNode? next = null; // 다음 노드 참조
         public ListNode? prev = null; // 이전 노드 참조
     }
@@ -1325,8 +1325,8 @@ comments: true
     ```typescript title="linkedlist_deque.ts"
     /* 이중 연결 리스트 노드 */
     class ListNode {
-        prev: ListNode; // 이전 노드 참조(포인터)
-        next: ListNode; // 다음 노드 참조(포인터)
+        prev: ListNode | null; // 이전 노드 참조(포인터)
+        next: ListNode | null; // 다음 노드 참조(포인터)
         val: number; // 노드 값
 
         constructor(val: number) {
@@ -2063,7 +2063,7 @@ comments: true
 
     ### 이중 연결 리스트 노드
     class ListNode
-      attr_accessor :val
+      attr_accessor :val  # 노드 값
       attr_accessor :next # 다음 노드 참조
       attr_accessor :prev # 이전 노드 참조
 

@@ -27,56 +27,61 @@ As the code below shows, each `ListNode` stores a reference (pointer) in additio
     ```python title=""
     class ListNode:
         """Linked list node class"""
+
         def __init__(self, val: int):
-            self.val: int = val               # Node value
-            self.next: ListNode | None = None # Reference to the next node
+            self.val: int = val  # Node value
+            self.next: ListNode | None = None  # Reference to the next node
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* Linked list node structure */
+    /* Linked list node */
     struct ListNode {
-        int val;         // Node value
-        ListNode *next;  // Pointer to the next node
-        ListNode(int x) : val(x), next(nullptr) {}  // Constructor
+        int val;        // Node value
+        ListNode *next; // Pointer to the next node
+        ListNode(int x) : val(x), next(nullptr) {
+        }
     };
     ```
 
 === "Java"
 
     ```java title=""
-    /* Linked list node class */
-    class ListNode {
-        int val;        // Node value
-        ListNode next;  // Reference to the next node
-        ListNode(int x) { val = x; }  // Constructor
+    /* Linked list node */
+    public class ListNode {
+        public int val;       // Node value
+        public ListNode next; // Reference to the next node
+
+        public ListNode(int x) {
+            val = x;
+        }
     }
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* Linked list node class */
-    class ListNode(int x) {  // Constructor
-        public int val = x;     // Node value
-        public ListNode? next;  // Reference to the next node
+    /* Linked list node */
+    public class ListNode(int x) {
+        public int val = x;    // Node value
+        public ListNode? next; // Reference to the next node
     }
     ```
 
 === "Go"
 
     ```go title=""
-    /* Linked list node structure */
+    // ListNode represents a linked list node.
     type ListNode struct {
         Val  int       // Node value
         Next *ListNode // Pointer to the next node
     }
 
-    // NewListNode constructor: create a new linked list
-    func NewListNode(val int) *ListNode {
+    // NewListNode constructs a linked list node.
+    func NewListNode(v int) *ListNode {
         return &ListNode{
-            Val:  val,
+            Val:  v,
             Next: nil,
         }
     }
@@ -99,11 +104,13 @@ As the code below shows, each `ListNode` stores a reference (pointer) in additio
 === "JS"
 
     ```javascript title=""
-    /* Linked list node class */
+    /* Linked list node */
     class ListNode {
+        val; // Node value
+        next; // Reference (pointer) to the next node
         constructor(val, next) {
-            this.val = (val === undefined ? 0 : val);       // Node value
-            this.next = (next === undefined ? null : next); // Reference to the next node
+            this.val = val === undefined ? 0 : val;
+            this.next = next === undefined ? null : next;
         }
     }
     ```
@@ -111,13 +118,13 @@ As the code below shows, each `ListNode` stores a reference (pointer) in additio
 === "TS"
 
     ```typescript title=""
-    /* Linked list node class */
+    /* Linked list node */
     class ListNode {
-        val: number;
-        next: ListNode | null;
+        val: number; // Node value
+        next: ListNode | null; // Reference to the next node
         constructor(val?: number, next?: ListNode | null) {
-            this.val = val === undefined ? 0 : val;        // Node value
-            this.next = next === undefined ? null : next;  // Reference to the next node
+            this.val = val === undefined ? 0 : val;
+            this.next = next === undefined ? null : next;
         }
     }
     ```
@@ -125,10 +132,11 @@ As the code below shows, each `ListNode` stores a reference (pointer) in additio
 === "Dart"
 
     ```dart title=""
-    /* Linked list node class */
+    /* Linked list node */
     class ListNode {
       int val; // Node value
       ListNode? next; // Reference to the next node
+
       ListNode(this.val, [this.next]); // Constructor
     }
     ```
@@ -136,13 +144,19 @@ As the code below shows, each `ListNode` stores a reference (pointer) in additio
 === "Rust"
 
     ```rust title=""
-    use std::rc::Rc;
     use std::cell::RefCell;
-    /* Linked list node class */
+    use std::rc::Rc;
+
     #[derive(Debug)]
-    struct ListNode {
-        val: i32, // Node value
-        next: Option<Rc<RefCell<ListNode>>>, // Pointer to the next node
+    pub struct ListNode<T> {
+        pub val: T, // Node value
+        pub next: Option<Rc<RefCell<ListNode<T>>>>, // Pointer to the next node
+    }
+
+    impl<T> ListNode<T> {
+        pub fn new(val: T) -> Rc<RefCell<ListNode<T>>> {
+            Rc::new(RefCell::new(ListNode { val, next: None }))
+        }
     }
     ```
 
@@ -152,13 +166,13 @@ As the code below shows, each `ListNode` stores a reference (pointer) in additio
     /* Linked list node structure */
     typedef struct ListNode {
         int val;               // Node value
-        struct ListNode *next; // Pointer to the next node
+        struct ListNode *next; // Reference to the next node
     } ListNode;
 
-    /* Constructor */
+    /* Constructor: initialize a new node */
     ListNode *newListNode(int val) {
         ListNode *node;
-        node = (ListNode *) malloc(sizeof(ListNode));
+        node = (ListNode *)malloc(sizeof(ListNode));
         node->val = val;
         node->next = NULL;
         return node;
@@ -168,10 +182,8 @@ As the code below shows, each `ListNode` stores a reference (pointer) in additio
 === "Kotlin"
 
     ```kotlin title=""
-    /* Linked list node class */
-    // Constructor
-    class ListNode(x: Int) {
-        val _val: Int = x          // Node value
+    /* Linked list node */
+    class ListNode(var _val: Int) {
         var next: ListNode? = null // Reference to the next node
     }
     ```
@@ -179,7 +191,7 @@ As the code below shows, each `ListNode` stores a reference (pointer) in additio
 === "Ruby"
 
     ```ruby title=""
-    # Linked list node class
+    ### Linked list node class ###
     class ListNode
       attr_accessor :val  # Node value
       attr_accessor :next # Reference to the next node
@@ -1251,45 +1263,52 @@ Figure 4-8 shows three common types.
 
     ```python title=""
     class ListNode:
-        """Doubly linked list node class"""
+        """Doubly linked list node"""
+
         def __init__(self, val: int):
-            self.val: int = val                # Node value
-            self.next: ListNode | None = None  # Reference to the successor
-            self.prev: ListNode | None = None  # Reference to the predecessor
+            """Constructor"""
+            self.val: int = val  # Node value
+            self.next: ListNode | None = None  # Reference to the next node
+            self.prev: ListNode | None = None  # Reference to the previous node
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* Doubly linked list node structure */
-    struct ListNode {
-        int val;         // Node value
-        ListNode *next;  // Pointer to the successor
-        ListNode *prev;  // Pointer to the predecessor
-        ListNode(int x) : val(x), next(nullptr), prev(nullptr) {}  // Constructor
+    /* Doubly linked list node */
+    struct DoublyListNode {
+        int val;              // Node value
+        DoublyListNode *next; // Pointer to the next node
+        DoublyListNode *prev; // Pointer to the previous node
+        DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
+        }
     };
     ```
 
 === "Java"
 
     ```java title=""
-    /* Doubly linked list node class */
+    /* Doubly linked list node */
     class ListNode {
-        int val;        // Node value
-        ListNode next;  // Reference to the successor
-        ListNode prev;  // Reference to the predecessor
-        ListNode(int x) { val = x; }  // Constructor
+        int val;       // Node value
+        ListNode next; // Reference to the next node
+        ListNode prev; // Reference to the previous node
+
+        ListNode(int val) {
+            this.val = val;
+            prev = next = null;
+        }
     }
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* Doubly linked list node class */
-    class ListNode(int x) {  // Constructor
-        public int val = x;     // Node value
-        public ListNode? next;  // Reference to the successor
-        public ListNode? prev;  // Reference to the predecessor
+    /* Doubly linked list node */
+    public class ListNode(int val) {
+        public int val = val;         // Node value
+        public ListNode? next = null; // Reference to the next node
+        public ListNode? prev = null; // Reference to the previous node
     }
     ```
 
@@ -1316,14 +1335,14 @@ Figure 4-8 shows three common types.
 === "Swift"
 
     ```swift title=""
-    /* Doubly linked list node class */
+    /* Doubly linked list node */
     class ListNode {
         var val: Int // Node value
-        var next: ListNode? // Reference to the successor
-        var prev: ListNode? // Reference to the predecessor
+        var next: ListNode? // Reference to the next node
+        weak var prev: ListNode? // Reference to the previous node
 
-        init(x: Int) { // Constructor
-            val = x
+        init(val: Int) {
+            self.val = val
         }
     }
     ```
@@ -1331,12 +1350,16 @@ Figure 4-8 shows three common types.
 === "JS"
 
     ```javascript title=""
-    /* Doubly linked list node class */
+    /* Doubly linked list node */
     class ListNode {
-        constructor(val, next, prev) {
-            this.val = val  ===  undefined ? 0 : val;        // Node value
-            this.next = next  ===  undefined ? null : next;  // Reference to the successor
-            this.prev = prev  ===  undefined ? null : prev;  // Reference to the predecessor
+        prev; // Reference (pointer) to the previous node
+        next; // Reference (pointer) to the next node
+        val; // Node value
+
+        constructor(val) {
+            this.val = val;
+            this.next = null;
+            this.prev = null;
         }
     }
     ```
@@ -1344,15 +1367,16 @@ Figure 4-8 shows three common types.
 === "TS"
 
     ```typescript title=""
-    /* Doubly linked list node class */
+    /* Doubly linked list node */
     class ListNode {
-        val: number;
-        next: ListNode | null;
-        prev: ListNode | null;
-        constructor(val?: number, next?: ListNode | null, prev?: ListNode | null) {
-            this.val = val  ===  undefined ? 0 : val;        // Node value
-            this.next = next  ===  undefined ? null : next;  // Reference to the successor
-            this.prev = prev  ===  undefined ? null : prev;  // Reference to the predecessor
+        prev: ListNode | null; // Reference (pointer) to the previous node
+        next: ListNode | null; // Reference (pointer) to the next node
+        val: number; // Node value
+
+        constructor(val: number) {
+            this.val = val;
+            this.next = null;
+            this.prev = null;
         }
     }
     ```
@@ -1360,37 +1384,36 @@ Figure 4-8 shows three common types.
 === "Dart"
 
     ```dart title=""
-    /* Doubly linked list node class */
+    /* Doubly linked list node */
     class ListNode {
-        int val;        // Node value
-        ListNode? next;  // Reference to the successor
-        ListNode? prev;  // Reference to the predecessor
-        ListNode(this.val, [this.next, this.prev]);  // Constructor
+      int val; // Node value
+      ListNode? next; // Reference to the next node
+      ListNode? prev; // Reference to the previous node
+
+      ListNode(this.val, {this.next, this.prev});
     }
     ```
 
 === "Rust"
 
     ```rust title=""
-    use std::rc::Rc;
     use std::cell::RefCell;
+    use std::rc::Rc;
 
-    /* Doubly linked list node type */
-    #[derive(Debug)]
-    struct ListNode {
-        val: i32, // Node value
-        next: Option<Rc<RefCell<ListNode>>>, // Pointer to the successor
-        prev: Option<Rc<RefCell<ListNode>>>, // Pointer to the predecessor
+    /* Doubly linked list node */
+    pub struct ListNode<T> {
+        pub val: T,                                 // Node value
+        pub next: Option<Rc<RefCell<ListNode<T>>>>, // Pointer to the next node
+        pub prev: Option<Rc<RefCell<ListNode<T>>>>, // Pointer to the previous node
     }
 
-    /* Constructor */
-    impl ListNode {
-        fn new(val: i32) -> Self {
-            ListNode {
+    impl<T> ListNode<T> {
+        pub fn new(val: T) -> Rc<RefCell<ListNode<T>>> {
+            Rc::new(RefCell::new(ListNode {
                 val,
                 next: None,
                 prev: None,
-            }
+            }))
         }
     }
     ```
@@ -1398,49 +1421,46 @@ Figure 4-8 shows three common types.
 === "C"
 
     ```c title=""
-    /* Doubly linked list node structure */
-    typedef struct ListNode {
-        int val;               // Node value
-        struct ListNode *next; // Pointer to the successor
-        struct ListNode *prev; // Pointer to the predecessor
-    } ListNode;
+    /* Doubly linked list node */
+    typedef struct DoublyListNode {
+        int val;                     // Node value
+        struct DoublyListNode *next; // Next node
+        struct DoublyListNode *prev; // Previous node
+    } DoublyListNode;
 
     /* Constructor */
-    ListNode *newListNode(int val) {
-        ListNode *node;
-        node = (ListNode *) malloc(sizeof(ListNode));
-        node->val = val;
-        node->next = NULL;
-        node->prev = NULL;
-        return node;
+    DoublyListNode *newDoublyListNode(int num) {
+        DoublyListNode *new = (DoublyListNode *)malloc(sizeof(DoublyListNode));
+        new->val = num;
+        new->next = NULL;
+        new->prev = NULL;
+        return new;
     }
     ```
 
 === "Kotlin"
 
     ```kotlin title=""
-    /* Doubly linked list node class */
-    // Constructor
-    class ListNode(x: Int) {
-        val _val: Int = x           // Node value
-        var next: ListNode? = null  // Reference to the successor
-        var prev: ListNode? = null  // Reference to the predecessor
+    /* Doubly linked list node */
+    class ListNode(var _val: Int) {
+        // The node value is stored in _val
+        var next: ListNode? = null // Reference to the next node
+        var prev: ListNode? = null // Reference to the previous node
     }
     ```
 
 === "Ruby"
 
     ```ruby title=""
-    # Doubly linked list node class
+    ### Doubly linked list node
     class ListNode
-      attr_accessor :val    # Node value
-      attr_accessor :next   # Reference to the successor
-      attr_accessor :prev   # Reference to the predecessor
+      attr_accessor :val  # Node value
+      attr_accessor :next # Reference to the next node
+      attr_accessor :prev # Reference to the previous node
 
-      def initialize(val=0, next_node=nil, prev_node=nil)
+      ### Constructor ###
+      def initialize(val)
         @val = val
-        @next = next_node
-        @prev = prev_node
       end
     end
     ```

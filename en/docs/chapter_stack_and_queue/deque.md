@@ -433,7 +433,7 @@ The implementation is as follows:
 
         def __init__(self, val: int):
             """Constructor"""
-            self.val: int = val
+            self.val: int = val  # Node value
             self.next: ListNode | None = None  # Reference to the next node
             self.prev: ListNode | None = None  # Reference to the previous node
 
@@ -693,7 +693,7 @@ The implementation is as follows:
     ```java title="linkedlist_deque.java"
     /* Doubly linked list node */
     class ListNode {
-        int val; // Node value
+        int val;       // Node value
         ListNode next; // Reference to the next node
         ListNode prev; // Reference to the previous node
 
@@ -828,7 +828,7 @@ The implementation is as follows:
     ```csharp title="linkedlist_deque.cs"
     /* Doubly linked list node */
     class ListNode(int val) {
-        public int val = val;       // Node value
+        public int val = val;         // Node value
         public ListNode? next = null; // Reference to the next node
         public ListNode? prev = null; // Reference to the previous node
     }
@@ -1325,8 +1325,8 @@ The implementation is as follows:
     ```typescript title="linkedlist_deque.ts"
     /* Doubly linked list node */
     class ListNode {
-        prev: ListNode; // Reference (pointer) to the previous node
-        next: ListNode; // Reference (pointer) to the next node
+        prev: ListNode | null; // Reference (pointer) to the previous node
+        next: ListNode | null; // Reference (pointer) to the next node
         val: number; // Node value
 
         constructor(val: number) {
@@ -2063,7 +2063,7 @@ The implementation is as follows:
 
     ### Doubly linked list node
     class ListNode
-      attr_accessor :val
+      attr_accessor :val  # Node value
       attr_accessor :next # Reference to the next node
       attr_accessor :prev # Reference to the previous node
 

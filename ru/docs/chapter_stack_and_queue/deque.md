@@ -433,7 +433,7 @@ comments: true
 
         def __init__(self, val: int):
             """Конструктор"""
-            self.val: int = val
+            self.val: int = val  # Значение узла
             self.next: ListNode | None = None  # Ссылка на узел-преемник
             self.prev: ListNode | None = None  # Ссылка на узел-предшественник
 
@@ -693,7 +693,7 @@ comments: true
     ```java title="linkedlist_deque.java"
     /* Узел двусвязного списка */
     class ListNode {
-        int val; // Значение узла
+        int val;       // Значение узла
         ListNode next; // Ссылка на узел-преемник
         ListNode prev; // Ссылка на узел-предшественник
 
@@ -828,7 +828,7 @@ comments: true
     ```csharp title="linkedlist_deque.cs"
     /* Узел двусвязного списка */
     class ListNode(int val) {
-        public int val = val;       // Значение узла
+        public int val = val;         // Значение узла
         public ListNode? next = null; // Ссылка на узел-преемник
         public ListNode? prev = null; // Ссылка на узел-предшественник
     }
@@ -1325,8 +1325,8 @@ comments: true
     ```typescript title="linkedlist_deque.ts"
     /* Узел двусвязного списка */
     class ListNode {
-        prev: ListNode; // Ссылка на узел-предшественник (указатель)
-        next: ListNode; // Ссылка на узел-преемник (указатель)
+        prev: ListNode | null; // Ссылка на узел-предшественник (указатель)
+        next: ListNode | null; // Ссылка на узел-преемник (указатель)
         val: number; // Значение узла
 
         constructor(val: number) {
@@ -2063,7 +2063,7 @@ comments: true
 
     ### Узел двусвязного списка
     class ListNode
-      attr_accessor :val
+      attr_accessor :val  # Значение узла
       attr_accessor :next # Ссылка на узел-преемник
       attr_accessor :prev # Ссылка на узел-предшественник
 

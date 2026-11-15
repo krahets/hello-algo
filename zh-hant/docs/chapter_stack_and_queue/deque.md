@@ -433,7 +433,7 @@ comments: true
 
         def __init__(self, val: int):
             """建構子"""
-            self.val: int = val
+            self.val: int = val  # 節點值
             self.next: ListNode | None = None  # 後繼節點引用
             self.prev: ListNode | None = None  # 前驅節點引用
 
@@ -693,7 +693,7 @@ comments: true
     ```java title="linkedlist_deque.java"
     /* 雙向鏈結串列節點 */
     class ListNode {
-        int val; // 節點值
+        int val;       // 節點值
         ListNode next; // 後繼節點引用
         ListNode prev; // 前驅節點引用
 
@@ -828,7 +828,7 @@ comments: true
     ```csharp title="linkedlist_deque.cs"
     /* 雙向鏈結串列節點 */
     class ListNode(int val) {
-        public int val = val;       // 節點值
+        public int val = val;         // 節點值
         public ListNode? next = null; // 後繼節點引用
         public ListNode? prev = null; // 前驅節點引用
     }
@@ -1325,8 +1325,8 @@ comments: true
     ```typescript title="linkedlist_deque.ts"
     /* 雙向鏈結串列節點 */
     class ListNode {
-        prev: ListNode; // 前驅節點引用 (指標)
-        next: ListNode; // 後繼節點引用 (指標)
+        prev: ListNode | null; // 前驅節點引用 (指標)
+        next: ListNode | null; // 後繼節點引用 (指標)
         val: number; // 節點值
 
         constructor(val: number) {
@@ -2063,9 +2063,9 @@ comments: true
 
     ### 雙向鏈結串列節點
     class ListNode
-      attr_accessor :val
+      attr_accessor :val  # 節點值
       attr_accessor :next # 後繼節點引用
-      attr_accessor :prev # 前軀節點引用
+      attr_accessor :prev # 前驅節點引用
 
       ### 建構子 ###
       def initialize(val)

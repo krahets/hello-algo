@@ -27,56 +27,61 @@ comments: true
     ```python title=""
     class ListNode:
         """链表节点类"""
+
         def __init__(self, val: int):
-            self.val: int = val               # 节点值
-            self.next: ListNode | None = None # 指向下一节点的引用
+            self.val: int = val  # 节点值
+            self.next: ListNode | None = None  # 指向下一节点的引用
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* 链表节点结构体 */
+    /* 链表节点 */
     struct ListNode {
-        int val;         // 节点值
-        ListNode *next;  // 指向下一节点的指针
-        ListNode(int x) : val(x), next(nullptr) {}  // 构造函数
+        int val;        // 节点值
+        ListNode *next; // 后继节点指针
+        ListNode(int x) : val(x), next(nullptr) {
+        }
     };
     ```
 
 === "Java"
 
     ```java title=""
-    /* 链表节点类 */
-    class ListNode {
-        int val;        // 节点值
-        ListNode next;  // 指向下一节点的引用
-        ListNode(int x) { val = x; }  // 构造函数
+    /* 链表节点 */
+    public class ListNode {
+        public int val;       // 节点值
+        public ListNode next; // 指向下一节点的引用
+
+        public ListNode(int x) {
+            val = x;
+        }
     }
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* 链表节点类 */
-    class ListNode(int x) {  //构造函数
-        public int val = x;     // 节点值
-        public ListNode? next;  // 指向下一节点的引用
+    /* 链表节点 */
+    public class ListNode(int x) {
+        public int val = x;    // 节点值
+        public ListNode? next; // 指向下一节点的引用
     }
     ```
 
 === "Go"
 
     ```go title=""
-    /* 链表节点结构体 */
+    // ListNode 链表节点
     type ListNode struct {
         Val  int       // 节点值
-        Next *ListNode // 指向下一节点的指针
+        Next *ListNode // 后继节点指针
     }
 
-    // NewListNode 构造函数，创建一个新的链表
-    func NewListNode(val int) *ListNode {
+    // NewListNode 链表节点构造函数
+    func NewListNode(v int) *ListNode {
         return &ListNode{
-            Val:  val,
+            Val:  v,
             Next: nil,
         }
     }
@@ -99,11 +104,13 @@ comments: true
 === "JS"
 
     ```javascript title=""
-    /* 链表节点类 */
+    /* 链表节点 */
     class ListNode {
+        val; // 节点值
+        next; // 指向下一节点的引用（指针）
         constructor(val, next) {
-            this.val = (val === undefined ? 0 : val);       // 节点值
-            this.next = (next === undefined ? null : next); // 指向下一节点的引用
+            this.val = val === undefined ? 0 : val;
+            this.next = next === undefined ? null : next;
         }
     }
     ```
@@ -111,13 +118,13 @@ comments: true
 === "TS"
 
     ```typescript title=""
-    /* 链表节点类 */
+    /* 链表节点 */
     class ListNode {
-        val: number;
-        next: ListNode | null;
+        val: number; // 节点值
+        next: ListNode | null; // 指向下一节点的引用
         constructor(val?: number, next?: ListNode | null) {
-            this.val = val === undefined ? 0 : val;        // 节点值
-            this.next = next === undefined ? null : next;  // 指向下一节点的引用
+            this.val = val === undefined ? 0 : val;
+            this.next = next === undefined ? null : next;
         }
     }
     ```
@@ -125,10 +132,11 @@ comments: true
 === "Dart"
 
     ```dart title=""
-    /* 链表节点类 */
+    /* 链表节点 */
     class ListNode {
       int val; // 节点值
       ListNode? next; // 指向下一节点的引用
+
       ListNode(this.val, [this.next]); // 构造函数
     }
     ```
@@ -136,13 +144,19 @@ comments: true
 === "Rust"
 
     ```rust title=""
-    use std::rc::Rc;
     use std::cell::RefCell;
-    /* 链表节点类 */
+    use std::rc::Rc;
+
     #[derive(Debug)]
-    struct ListNode {
-        val: i32, // 节点值
-        next: Option<Rc<RefCell<ListNode>>>, // 指向下一节点的指针
+    pub struct ListNode<T> {
+        pub val: T, // 节点值
+        pub next: Option<Rc<RefCell<ListNode<T>>>>, // 后继节点指针
+    }
+
+    impl<T> ListNode<T> {
+        pub fn new(val: T) -> Rc<RefCell<ListNode<T>>> {
+            Rc::new(RefCell::new(ListNode { val, next: None }))
+        }
     }
     ```
 
@@ -152,13 +166,13 @@ comments: true
     /* 链表节点结构体 */
     typedef struct ListNode {
         int val;               // 节点值
-        struct ListNode *next; // 指向下一节点的指针
+        struct ListNode *next; // 指向下一节点的引用
     } ListNode;
 
-    /* 构造函数 */
+    /* 构造函数，初始化一个新节点 */
     ListNode *newListNode(int val) {
         ListNode *node;
-        node = (ListNode *) malloc(sizeof(ListNode));
+        node = (ListNode *)malloc(sizeof(ListNode));
         node->val = val;
         node->next = NULL;
         return node;
@@ -168,18 +182,16 @@ comments: true
 === "Kotlin"
 
     ```kotlin title=""
-    /* 链表节点类 */
-    // 构造方法
-    class ListNode(x: Int) {
-        val _val: Int = x          // 节点值
-        var next: ListNode? = null // 指向下一个节点的引用
+    /* 链表节点 */
+    class ListNode(var _val: Int) {
+        var next: ListNode? = null // 指向下一节点的引用
     }
     ```
 
 === "Ruby"
 
     ```ruby title=""
-    # 链表节点类
+    ### 链表节点类 ###
     class ListNode
       attr_accessor :val  # 节点值
       attr_accessor :next # 指向下一节点的引用
@@ -1251,45 +1263,52 @@ comments: true
 
     ```python title=""
     class ListNode:
-        """双向链表节点类"""
+        """双向链表节点"""
+
         def __init__(self, val: int):
-            self.val: int = val                # 节点值
-            self.next: ListNode | None = None  # 指向后继节点的引用
-            self.prev: ListNode | None = None  # 指向前驱节点的引用
+            """构造方法"""
+            self.val: int = val  # 节点值
+            self.next: ListNode | None = None  # 后继节点引用
+            self.prev: ListNode | None = None  # 前驱节点引用
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* 双向链表节点结构体 */
-    struct ListNode {
-        int val;         // 节点值
-        ListNode *next;  // 指向后继节点的指针
-        ListNode *prev;  // 指向前驱节点的指针
-        ListNode(int x) : val(x), next(nullptr), prev(nullptr) {}  // 构造函数
+    /* 双向链表节点 */
+    struct DoublyListNode {
+        int val;              // 节点值
+        DoublyListNode *next; // 后继节点指针
+        DoublyListNode *prev; // 前驱节点指针
+        DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
+        }
     };
     ```
 
 === "Java"
 
     ```java title=""
-    /* 双向链表节点类 */
+    /* 双向链表节点 */
     class ListNode {
-        int val;        // 节点值
-        ListNode next;  // 指向后继节点的引用
-        ListNode prev;  // 指向前驱节点的引用
-        ListNode(int x) { val = x; }  // 构造函数
+        int val;       // 节点值
+        ListNode next; // 后继节点引用
+        ListNode prev; // 前驱节点引用
+
+        ListNode(int val) {
+            this.val = val;
+            prev = next = null;
+        }
     }
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* 双向链表节点类 */
-    class ListNode(int x) {  // 构造函数
-        public int val = x;     // 节点值
-        public ListNode? next;  // 指向后继节点的引用
-        public ListNode? prev;  // 指向前驱节点的引用
+    /* 双向链表节点 */
+    public class ListNode(int val) {
+        public int val = val;         // 节点值
+        public ListNode? next = null; // 后继节点引用
+        public ListNode? prev = null; // 前驱节点引用
     }
     ```
 
@@ -1316,14 +1335,14 @@ comments: true
 === "Swift"
 
     ```swift title=""
-    /* 双向链表节点类 */
+    /* 双向链表节点 */
     class ListNode {
         var val: Int // 节点值
-        var next: ListNode? // 指向后继节点的引用
-        var prev: ListNode? // 指向前驱节点的引用
+        var next: ListNode? // 后继节点引用
+        weak var prev: ListNode? // 前驱节点引用
 
-        init(x: Int) { // 构造函数
-            val = x
+        init(val: Int) {
+            self.val = val
         }
     }
     ```
@@ -1331,12 +1350,16 @@ comments: true
 === "JS"
 
     ```javascript title=""
-    /* 双向链表节点类 */
+    /* 双向链表节点 */
     class ListNode {
-        constructor(val, next, prev) {
-            this.val = val  ===  undefined ? 0 : val;        // 节点值
-            this.next = next  ===  undefined ? null : next;  // 指向后继节点的引用
-            this.prev = prev  ===  undefined ? null : prev;  // 指向前驱节点的引用
+        prev; // 前驱节点引用 (指针)
+        next; // 后继节点引用 (指针)
+        val; // 节点值
+
+        constructor(val) {
+            this.val = val;
+            this.next = null;
+            this.prev = null;
         }
     }
     ```
@@ -1344,15 +1367,16 @@ comments: true
 === "TS"
 
     ```typescript title=""
-    /* 双向链表节点类 */
+    /* 双向链表节点 */
     class ListNode {
-        val: number;
-        next: ListNode | null;
-        prev: ListNode | null;
-        constructor(val?: number, next?: ListNode | null, prev?: ListNode | null) {
-            this.val = val  ===  undefined ? 0 : val;        // 节点值
-            this.next = next  ===  undefined ? null : next;  // 指向后继节点的引用
-            this.prev = prev  ===  undefined ? null : prev;  // 指向前驱节点的引用
+        prev: ListNode | null; // 前驱节点引用 (指针)
+        next: ListNode | null; // 后继节点引用 (指针)
+        val: number; // 节点值
+
+        constructor(val: number) {
+            this.val = val;
+            this.next = null;
+            this.prev = null;
         }
     }
     ```
@@ -1360,37 +1384,36 @@ comments: true
 === "Dart"
 
     ```dart title=""
-    /* 双向链表节点类 */
+    /* 双向链表节点 */
     class ListNode {
-        int val;        // 节点值
-        ListNode? next;  // 指向后继节点的引用
-        ListNode? prev;  // 指向前驱节点的引用
-        ListNode(this.val, [this.next, this.prev]);  // 构造函数
+      int val; // 节点值
+      ListNode? next; // 后继节点引用
+      ListNode? prev; // 前驱节点引用
+
+      ListNode(this.val, {this.next, this.prev});
     }
     ```
 
 === "Rust"
 
     ```rust title=""
-    use std::rc::Rc;
     use std::cell::RefCell;
+    use std::rc::Rc;
 
-    /* 双向链表节点类型 */
-    #[derive(Debug)]
-    struct ListNode {
-        val: i32, // 节点值
-        next: Option<Rc<RefCell<ListNode>>>, // 指向后继节点的指针
-        prev: Option<Rc<RefCell<ListNode>>>, // 指向前驱节点的指针
+    /* 双向链表节点 */
+    pub struct ListNode<T> {
+        pub val: T,                                 // 节点值
+        pub next: Option<Rc<RefCell<ListNode<T>>>>, // 后继节点指针
+        pub prev: Option<Rc<RefCell<ListNode<T>>>>, // 前驱节点指针
     }
 
-    /* 构造函数 */
-    impl ListNode {
-        fn new(val: i32) -> Self {
-            ListNode {
+    impl<T> ListNode<T> {
+        pub fn new(val: T) -> Rc<RefCell<ListNode<T>>> {
+            Rc::new(RefCell::new(ListNode {
                 val,
                 next: None,
                 prev: None,
-            }
+            }))
         }
     }
     ```
@@ -1398,49 +1421,46 @@ comments: true
 === "C"
 
     ```c title=""
-    /* 双向链表节点结构体 */
-    typedef struct ListNode {
-        int val;               // 节点值
-        struct ListNode *next; // 指向后继节点的指针
-        struct ListNode *prev; // 指向前驱节点的指针
-    } ListNode;
+    /* 双向链表节点 */
+    typedef struct DoublyListNode {
+        int val;                     // 节点值
+        struct DoublyListNode *next; // 后继节点
+        struct DoublyListNode *prev; // 前驱节点
+    } DoublyListNode;
 
     /* 构造函数 */
-    ListNode *newListNode(int val) {
-        ListNode *node;
-        node = (ListNode *) malloc(sizeof(ListNode));
-        node->val = val;
-        node->next = NULL;
-        node->prev = NULL;
-        return node;
+    DoublyListNode *newDoublyListNode(int num) {
+        DoublyListNode *new = (DoublyListNode *)malloc(sizeof(DoublyListNode));
+        new->val = num;
+        new->next = NULL;
+        new->prev = NULL;
+        return new;
     }
     ```
 
 === "Kotlin"
 
     ```kotlin title=""
-    /* 双向链表节点类 */
-    // 构造方法
-    class ListNode(x: Int) {
-        val _val: Int = x           // 节点值
-        var next: ListNode? = null  // 指向后继节点的引用
-        var prev: ListNode? = null  // 指向前驱节点的引用
+    /* 双向链表节点 */
+    class ListNode(var _val: Int) {
+        // 节点值
+        var next: ListNode? = null // 后继节点引用
+        var prev: ListNode? = null // 前驱节点引用
     }
     ```
 
 === "Ruby"
 
     ```ruby title=""
-    # 双向链表节点类
+    ### 双向链表节点
     class ListNode
-      attr_accessor :val    # 节点值
-      attr_accessor :next   # 指向后继节点的引用
-      attr_accessor :prev   # 指向前驱节点的引用
+      attr_accessor :val  # 节点值
+      attr_accessor :next # 后继节点引用
+      attr_accessor :prev # 前驱节点引用
 
-      def initialize(val=0, next_node=nil, prev_node=nil)
+      ### 构造方法 ###
+      def initialize(val)
         @val = val
-        @next = next_node
-        @prev = prev_node
       end
     end
     ```

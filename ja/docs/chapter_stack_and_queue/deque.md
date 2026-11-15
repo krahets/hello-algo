@@ -433,7 +433,7 @@ comments: true
 
         def __init__(self, val: int):
             """コンストラクタ"""
-            self.val: int = val
+            self.val: int = val  # ノードの値
             self.next: ListNode | None = None  # 後続ノードへの参照
             self.prev: ListNode | None = None  # 前のノードへの参照
 
@@ -693,7 +693,7 @@ comments: true
     ```java title="linkedlist_deque.java"
     /* 双方向連結リストのノード */
     class ListNode {
-        int val; // ノードの値
+        int val;       // ノードの値
         ListNode next; // 後続ノードへの参照
         ListNode prev; // 前のノードへの参照
 
@@ -828,7 +828,7 @@ comments: true
     ```csharp title="linkedlist_deque.cs"
     /* 双方向連結リストのノード */
     class ListNode(int val) {
-        public int val = val;       // ノードの値
+        public int val = val;         // ノードの値
         public ListNode? next = null; // 後続ノードへの参照
         public ListNode? prev = null; // 前のノードへの参照
     }
@@ -1325,8 +1325,8 @@ comments: true
     ```typescript title="linkedlist_deque.ts"
     /* 双方向連結リストのノード */
     class ListNode {
-        prev: ListNode; // 前のノードへの参照（ポインタ）
-        next: ListNode; // 後続ノードへの参照（ポインタ）
+        prev: ListNode | null; // 前のノードへの参照（ポインタ）
+        next: ListNode | null; // 後続ノードへの参照（ポインタ）
         val: number; // ノードの値
 
         constructor(val: number) {
@@ -2063,7 +2063,7 @@ comments: true
 
     ### 双方向連結リストのノード
     class ListNode
-      attr_accessor :val
+      attr_accessor :val  # ノードの値
       attr_accessor :next # 後続ノードへの参照
       attr_accessor :prev # 前のノードへの参照
 
