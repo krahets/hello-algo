@@ -40,7 +40,7 @@ comments: true
     deq: deque[int] = deque()
 
     # 元素入列
-    deq.append(2)  # 新增至佇列尾
+    deq.append(2)      # 新增至佇列尾
     deq.append(5)
     deq.append(4)
     deq.appendleft(3)  # 新增至佇列首
@@ -52,7 +52,7 @@ comments: true
 
     # 元素出列
     pop_front: int = deq.popleft()  # 佇列首元素出列
-    pop_rear: int = deq.pop()  # 佇列尾元素出列
+    pop_rear: int = deq.pop()       # 佇列尾元素出列
 
     # 獲取雙向佇列的長度
     size: int = len(deq)
@@ -68,19 +68,19 @@ comments: true
     deque<int> deque;
 
     /* 元素入列 */
-    deque.push_back(2); // 新增至佇列尾
+    deque.push_back(2);   // 新增至佇列尾
     deque.push_back(5);
     deque.push_back(4);
-    deque.push_front(3); // 新增至佇列首
+    deque.push_front(3);  // 新增至佇列首
     deque.push_front(1);
 
     /* 訪問元素 */
     int front = deque.front(); // 佇列首元素
-    int back = deque.back(); // 佇列尾元素
+    int back = deque.back();   // 佇列尾元素
 
     /* 元素出列 */
-    deque.pop_front(); // 佇列首元素出列
-    deque.pop_back(); // 佇列尾元素出列
+    deque.pop_front();  // 佇列首元素出列
+    deque.pop_back();   // 佇列尾元素出列
 
     /* 獲取雙向佇列的長度 */
     int size = deque.size();
@@ -96,19 +96,19 @@ comments: true
     Deque<Integer> deque = new LinkedList<>();
 
     /* 元素入列 */
-    deque.offerLast(2); // 新增至佇列尾
+    deque.offerLast(2);   // 新增至佇列尾
     deque.offerLast(5);
     deque.offerLast(4);
-    deque.offerFirst(3); // 新增至佇列首
+    deque.offerFirst(3);  // 新增至佇列首
     deque.offerFirst(1);
 
     /* 訪問元素 */
-    int peekFirst = deque.peekFirst(); // 佇列首元素
-    int peekLast = deque.peekLast(); // 佇列尾元素
+    int peekFirst = deque.peekFirst();  // 佇列首元素
+    int peekLast = deque.peekLast();    // 佇列尾元素
 
     /* 元素出列 */
-    int popFirst = deque.pollFirst(); // 佇列首元素出列
-    int popLast = deque.pollLast(); // 佇列尾元素出列
+    int popFirst = deque.pollFirst();  // 佇列首元素出列
+    int popLast = deque.pollLast();    // 佇列尾元素出列
 
     /* 獲取雙向佇列的長度 */
     int size = deque.size();
@@ -132,8 +132,8 @@ comments: true
     deque.AddFirst(1);
 
     /* 訪問元素 */
-    int? peekFirst = deque.First?.Value;  // 佇列首元素
-    int? peekLast = deque.Last?.Value;    // 佇列尾元素
+    int peekFirst = deque.First.Value;  // 佇列首元素
+    int peekLast = deque.Last.Value;    // 佇列尾元素
 
     /* 元素出列 */
     deque.RemoveFirst();  // 佇列首元素出列
@@ -154,19 +154,19 @@ comments: true
     deque := list.New()
 
     /* 元素入列 */
-    deque.PushBack(2) // 新增至佇列尾
+    deque.PushBack(2)      // 新增至佇列尾
     deque.PushBack(5)
     deque.PushBack(4)
-    deque.PushFront(3) // 新增至佇列首
+    deque.PushFront(3)     // 新增至佇列首
     deque.PushFront(1)
 
     /* 訪問元素 */
     front := deque.Front() // 佇列首元素
-    rear := deque.Back() // 佇列尾元素
+    rear := deque.Back()   // 佇列尾元素
 
     /* 元素出列 */
-    deque.Remove(front) // 佇列首元素出列
-    deque.Remove(rear) // 佇列尾元素出列
+    deque.Remove(front)    // 佇列首元素出列
+    deque.Remove(rear)     // 佇列尾元素出列
 
     /* 獲取雙向佇列的長度 */
     size := deque.Len()
@@ -299,28 +299,32 @@ comments: true
 === "Rust"
 
     ```rust title="deque.rs"
-    // 初始化雙向佇列
-    let mut deque: VecDeque<i32> = VecDeque::new();
+    /* 初始化雙向佇列 */
+    let mut deque: VecDeque<u32> = VecDeque::new();
 
     /* 元素入列 */
-    deque.push_back(2); // 新增至佇列尾
+    deque.push_back(2);  // 新增至佇列尾
     deque.push_back(5);
     deque.push_back(4);
     deque.push_front(3); // 新增至佇列首
     deque.push_front(1);
 
-    // 訪問元素
-    let peek_first = deque.front().unwrap(); // 佇列首元素
-    let peek_last = deque.back().unwrap(); // 佇列尾元素
+    /* 訪問元素 */
+    if let Some(front) = deque.front() { // 佇列首元素
+    }
+    if let Some(rear) = deque.back() {   // 佇列尾元素
+    }
 
-    // 元素出列
-    let pop_first = deque.pop_front().unwrap(); // 佇列首元素出列
-    let pop_last = deque.pop_back().unwrap(); // 佇列尾元素出列
+    /* 元素出列 */
+    if let Some(pop_front) = deque.pop_front() { // 佇列首元素出列
+    }
+    if let Some(pop_rear) = deque.pop_back() {   // 佇列尾元素出列
+    }
 
-    // 獲取雙向佇列的長度
+    /* 獲取雙向佇列的長度 */
     let size = deque.len();
 
-    // 判斷雙向佇列是否為空
+    /* 判斷雙向佇列是否為空 */
     let is_empty = deque.is_empty();
     ```
 
@@ -337,7 +341,7 @@ comments: true
     val deque = LinkedList<Int>()
 
     /* 元素入列 */
-    deque.offerLast(2) // 新增至佇列尾
+    deque.offerLast(2)  // 新增至佇列尾
     deque.offerLast(5)
     deque.offerLast(4)
     deque.offerFirst(3) // 新增至佇列首
@@ -345,11 +349,11 @@ comments: true
 
     /* 訪問元素 */
     val peekFirst = deque.peekFirst() // 佇列首元素
-    val peekLast = deque.peekLast() // 佇列尾元素
+    val peekLast = deque.peekLast()   // 佇列尾元素
 
     /* 元素出列 */
     val popFirst = deque.pollFirst() // 佇列首元素出列
-    val popLast = deque.pollLast() // 佇列尾元素出列
+    val popLast = deque.pollLast()   // 佇列尾元素出列
 
     /* 獲取雙向佇列的長度 */
     val size = deque.size
@@ -365,7 +369,7 @@ comments: true
     # Ruby 沒有內直的雙端佇列，只能把 Array 當作雙端佇列來使用
     deque = []
 
-    # 元素入列
+    # 元素如隊
     deque << 2
     deque << 5
     deque << 4
@@ -433,7 +437,7 @@ comments: true
 
         def __init__(self, val: int):
             """建構子"""
-            self.val: int = val  # 節點值
+            self.val: int = val
             self.next: ListNode | None = None  # 後繼節點引用
             self.prev: ListNode | None = None  # 前驅節點引用
 
@@ -693,7 +697,7 @@ comments: true
     ```java title="linkedlist_deque.java"
     /* 雙向鏈結串列節點 */
     class ListNode {
-        int val;       // 節點值
+        int val; // 節點值
         ListNode next; // 後繼節點引用
         ListNode prev; // 前驅節點引用
 
@@ -828,7 +832,7 @@ comments: true
     ```csharp title="linkedlist_deque.cs"
     /* 雙向鏈結串列節點 */
     class ListNode(int val) {
-        public int val = val;         // 節點值
+        public int val = val;       // 節點值
         public ListNode? next = null; // 後繼節點引用
         public ListNode? prev = null; // 前驅節點引用
     }
@@ -1325,8 +1329,8 @@ comments: true
     ```typescript title="linkedlist_deque.ts"
     /* 雙向鏈結串列節點 */
     class ListNode {
-        prev: ListNode | null; // 前驅節點引用 (指標)
-        next: ListNode | null; // 後繼節點引用 (指標)
+        prev: ListNode; // 前驅節點引用 (指標)
+        next: ListNode; // 後繼節點引用 (指標)
         val: number; // 節點值
 
         constructor(val: number) {
@@ -2063,9 +2067,9 @@ comments: true
 
     ### 雙向鏈結串列節點
     class ListNode
-      attr_accessor :val  # 節點值
+      attr_accessor :val
       attr_accessor :next # 後繼節點引用
-      attr_accessor :prev # 前驅節點引用
+      attr_accessor :prev # 前軀節點引用
 
       ### 建構子 ###
       def initialize(val)

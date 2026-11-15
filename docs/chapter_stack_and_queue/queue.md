@@ -36,8 +36,8 @@ comments: true
     from collections import deque
 
     # 初始化队列
-    # 在 Python 中，我们一般将双向队列类 deque 看作队列使用
-    # 虽然 queue.Queue() 是纯正的队列类，但不太好用
+    # 在 Python 中，我们一般将双向队列类 deque 当作队列使用
+    # 虽然 queue.Queue() 是纯正的队列类，但不太好用，因此不推荐
     que: deque[int] = deque()
 
     # 元素入队
@@ -184,7 +184,7 @@ comments: true
     let peek = queue.first!
 
     /* 元素出队 */
-    // 使用 Array 模拟时 pop 的复杂度为 O(n)
+    // 由于是数组，因此 removeFirst 的复杂度为 O(n)
     let pop = queue.removeFirst()
 
     /* 获取队列的长度 */
@@ -219,7 +219,7 @@ comments: true
     const size = queue.length;
 
     /* 判断队列是否为空 */
-    const isEmpty = queue.length === 0;
+    const empty = queue.length === 0;
     ```
 
 === "TS"
@@ -247,15 +247,15 @@ comments: true
     const size = queue.length;
 
     /* 判断队列是否为空 */
-    const isEmpty = queue.length === 0;
+    const empty = queue.length === 0;
     ```
 
 === "Dart"
 
     ```dart title="queue.dart"
     /* 初始化队列 */
-    // 在 Dart 中，一般将双向队列类 Queue 看作队列使用
-    final Queue<int> queue = Queue();
+    // 在 Dart 中，队列类 Queue 是双向队列，也可作为队列使用
+    Queue<int> queue = Queue();
 
     /* 元素入队 */
     queue.add(1);
@@ -265,16 +265,16 @@ comments: true
     queue.add(4);
 
     /* 访问队首元素 */
-    final int peek = queue.first;
+    int peek = queue.first;
 
     /* 元素出队 */
-    final int pop = queue.removeFirst();
+    int pop = queue.removeFirst();
 
-    /* 获取队列长度 */
-    final int size = queue.length;
+    /* 获取队列的长度 */
+    int size = queue.length;
 
     /* 判断队列是否为空 */
-    final bool isEmpty = queue.isEmpty;
+    bool isEmpty = queue.isEmpty;
     ```
 
 === "Rust"

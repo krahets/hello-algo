@@ -40,7 +40,7 @@ comments: true
 
     ```python title="hash_map.py"
     # 初始化雜湊表
-    hmap = dict[int, str]()
+    hmap: dict = {}
 
     # 新增操作
     # 在雜湊表中新增鍵值對 (key, value)
@@ -179,7 +179,6 @@ comments: true
     ```javascript title="hash_map.js"
     /* 初始化雜湊表 */
     const map = new Map();
-
     /* 新增操作 */
     // 在雜湊表中新增鍵值對 (key, value)
     map.set(12836, '小哈');
@@ -202,7 +201,6 @@ comments: true
     ```typescript title="hash_map.ts"
     /* 初始化雜湊表 */
     const map = new Map<number, string>();
-
     /* 新增操作 */
     // 在雜湊表中新增鍵值對 (key, value)
     map.set(12836, '小哈');
@@ -210,21 +208,26 @@ comments: true
     map.set(16750, '小算');
     map.set(13276, '小法');
     map.set(10583, '小鴨');
+    console.info('\n新增完成後，雜湊表為\nKey -> Value');
+    console.info(map);
 
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     let name = map.get(15937);
+    console.info('\n輸入學號 15937 ，查詢到姓名 ' + name);
 
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     map.delete(10583);
+    console.info('\n刪除 10583 後，雜湊表為\nKey -> Value');
+    console.info(map);
     ```
 
 === "Dart"
 
     ```dart title="hash_map.dart"
     /* 初始化雜湊表 */
-    final Map<int, String> map = {};
+    Map<int, String> map = {};
 
     /* 新增操作 */
     // 在雜湊表中新增鍵值對 (key, value)
@@ -236,7 +239,7 @@ comments: true
 
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
-    final String? name = map[15937];
+    String? name = map[15937];
 
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
@@ -248,24 +251,24 @@ comments: true
     ```rust title="hash_map.rs"
     use std::collections::HashMap;
 
-    // 初始化雜湊表
-    let mut map = HashMap::new();
+    /* 初始化雜湊表 */
+    let mut map: HashMap<i32, String> = HashMap::new();
 
-    // 新增操作
+    /* 新增操作 */
     // 在雜湊表中新增鍵值對 (key, value)
-    map.insert(12836, "小哈");
-    map.insert(15937, "小囉");
-    map.insert(16750, "小算");
-    map.insert(13276, "小法");
-    map.insert(10583, "小鴨");
+    map.insert(12836, "小哈".to_string());
+    map.insert(15937, "小囉".to_string());
+    map.insert(16750, "小算".to_string());
+    map.insert(13276, "小法".to_string());
+    map.insert(10583, "小鴨".to_string());
 
-    // 查詢操作
+    /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
-    let name = map.get(&15937).copied().unwrap();
+    let _name: Option<&String> = map.get(&15937);
 
-    // 刪除操作
+    /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
-    _ = map.remove(&10583);
+    let _removed_value: Option<String> = map.remove(&10583);
     ```
 
 === "C"
@@ -278,7 +281,7 @@ comments: true
 
     ```kotlin title="hash_map.kt"
     /* 初始化雜湊表 */
-    val map = HashMap<Int, String>()
+    val map = HashMap<Int,String>()
 
     /* 新增操作 */
     // 在雜湊表中新增鍵值對 (key, value)
@@ -334,14 +337,12 @@ comments: true
     # 走訪鍵值對 key->value
     for key, value in hmap.items():
         print(key, "->", value)
-
     # 單獨走訪鍵 key
     for key in hmap.keys():
         print(key)
-
     # 單獨走訪值 value
-    for val in hmap.values():
-        print(val)
+    for value in hmap.values():
+        print(value)
     ```
 
 === "C++"
@@ -363,17 +364,15 @@ comments: true
     ```java title="hash_map.java"
     /* 走訪雜湊表 */
     // 走訪鍵值對 key->value
-    for (Map.Entry<Integer, String> kv : map.entrySet()) {
+    for (Map.Entry <Integer, String> kv: map.entrySet()) {
         System.out.println(kv.getKey() + " -> " + kv.getValue());
     }
-
     // 單獨走訪鍵 key
-    for (int key : map.keySet()) {
+    for (int key: map.keySet()) {
         System.out.println(key);
     }
-
     // 單獨走訪值 value
-    for (String val : map.values()) {
+    for (String val: map.values()) {
         System.out.println(val);
     }
     ```
@@ -382,16 +381,14 @@ comments: true
 
     ```csharp title="hash_map.cs"
     /* 走訪雜湊表 */
-    // 走訪鍵值對 key->value
+    // 走訪鍵值對 Key->Value
     foreach (var kv in map) {
         Console.WriteLine(kv.Key + " -> " + kv.Value);
     }
-
     // 單獨走訪鍵 key
     foreach (int key in map.Keys) {
         Console.WriteLine(key);
     }
-
     // 單獨走訪值 value
     foreach (string val in map.Values) {
         Console.WriteLine(val);
@@ -406,12 +403,10 @@ comments: true
     for key, value := range hmap {
         fmt.Println(key, "->", value)
     }
-
     // 單獨走訪鍵 key
     for key := range hmap {
         fmt.Println(key)
     }
-
     // 單獨走訪值 value
     for _, value := range hmap {
         fmt.Println(value)
@@ -422,17 +417,15 @@ comments: true
 
     ```swift title="hash_map.swift"
     /* 走訪雜湊表 */
-    // 走訪鍵值對 key->value
+    // 走訪鍵值對 Key->Value
     for (key, value) in map {
         print("\(key) -> \(value)")
     }
-
-    // 單獨走訪鍵 key
+    // 單獨走訪鍵 Key
     for key in map.keys {
         print(key)
     }
-
-    // 單獨走訪值 value
+    // 單獨走訪值 Value
     for value in map.values {
         print(value)
     }
@@ -442,17 +435,15 @@ comments: true
 
     ```javascript title="hash_map.js"
     /* 走訪雜湊表 */
-    // 走訪鍵值對 key->value
+    console.info('\n走訪鍵值對 Key->Value');
     for (const [k, v] of map.entries()) {
         console.info(k + ' -> ' + v);
     }
-
-    // 單獨走訪鍵 key
+    console.info('\n單獨走訪鍵 Key');
     for (const k of map.keys()) {
         console.info(k);
     }
-
-    // 單獨走訪值 value
+    console.info('\n單獨走訪值 Value');
     for (const v of map.values()) {
         console.info(v);
     }
@@ -462,17 +453,15 @@ comments: true
 
     ```typescript title="hash_map.ts"
     /* 走訪雜湊表 */
-    // 走訪鍵值對 key->value
+    console.info('\n走訪鍵值對 Key->Value');
     for (const [k, v] of map.entries()) {
         console.info(k + ' -> ' + v);
     }
-
-    // 單獨走訪鍵 key
+    console.info('\n單獨走訪鍵 Key');
     for (const k of map.keys()) {
         console.info(k);
     }
-
-    // 單獨走訪值 value
+    console.info('\n單獨走訪值 Value');
     for (const v of map.values()) {
         console.info(v);
     }
@@ -482,31 +471,37 @@ comments: true
 
     ```dart title="hash_map.dart"
     /* 走訪雜湊表 */
-    // 走訪鍵值對 key->value
-    map.forEach((key, value) => print("$key -> $value"));
+    // 走訪鍵值對 Key->Value
+    map.forEach((key, value) {
+      print('$key -> $value');
+    });
 
-    // 單獨走訪鍵 key
-    map.keys.forEach((key) => print(key));
+    // 單獨走訪鍵 Key
+    map.keys.forEach((key) {
+      print(key);
+    });
 
-    // 單獨走訪值 value
-    map.values.forEach((value) => print(value));
+    // 單獨走訪值 Value
+    map.values.forEach((value) {
+      print(value);
+    });
     ```
 
 === "Rust"
 
     ```rust title="hash_map.rs"
-    // 走訪雜湊表
-    // 走訪鍵值對 key->value
+    /* 走訪雜湊表 */
+    // 走訪鍵值對 Key->Value
     for (key, value) in &map {
         println!("{key} -> {value}");
     }
 
-    // 單獨走訪鍵 key
+    // 單獨走訪鍵 Key
     for key in map.keys() {
         println!("{key}");
     }
 
-    // 單獨走訪值 value
+    // 單獨走訪值 Value
     for value in map.values() {
         println!("{value}");
     }
@@ -526,12 +521,10 @@ comments: true
     for ((key, value) in map) {
         println("$key -> $value")
     }
-
     // 單獨走訪鍵 key
     for (key in map.keys) {
         println(key)
     }
-
     // 單獨走訪值 value
     for (_val in map.values) {
         println(_val)

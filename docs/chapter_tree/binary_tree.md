@@ -262,11 +262,11 @@ comments: true
     ```cpp title="binary_tree.cpp"
     /* 初始化二叉树 */
     // 初始化节点
-    TreeNode *n1 = new TreeNode(1);
-    TreeNode *n2 = new TreeNode(2);
-    TreeNode *n3 = new TreeNode(3);
-    TreeNode *n4 = new TreeNode(4);
-    TreeNode *n5 = new TreeNode(5);
+    TreeNode* n1 = new TreeNode(1);
+    TreeNode* n2 = new TreeNode(2);
+    TreeNode* n3 = new TreeNode(3);
+    TreeNode* n4 = new TreeNode(4);
+    TreeNode* n5 = new TreeNode(5);
     // 构建节点之间的引用（指针）
     n1->left = n2;
     n1->right = n3;
@@ -277,7 +277,6 @@ comments: true
 === "Java"
 
     ```java title="binary_tree.java"
-    /* 初始化二叉树 */
     // 初始化节点
     TreeNode n1 = new TreeNode(1);
     TreeNode n2 = new TreeNode(2);
@@ -328,7 +327,6 @@ comments: true
 === "Swift"
 
     ```swift title="binary_tree.swift"
-    /* 初始化二叉树 */
     // 初始化节点
     let n1 = TreeNode(x: 1)
     let n2 = TreeNode(x: 2)
@@ -381,11 +379,11 @@ comments: true
     ```dart title="binary_tree.dart"
     /* 初始化二叉树 */
     // 初始化节点
-    TreeNode n1 = TreeNode(1);
-    TreeNode n2 = TreeNode(2);
-    TreeNode n3 = TreeNode(3);
-    TreeNode n4 = TreeNode(4);
-    TreeNode n5 = TreeNode(5);
+    TreeNode n1 = new TreeNode(1);
+    TreeNode n2 = new TreeNode(2);
+    TreeNode n3 = new TreeNode(3);
+    TreeNode n4 = new TreeNode(4);
+    TreeNode n5 = new TreeNode(5);
     // 构建节点之间的引用（指针）
     n1.left = n2;
     n1.right = n3;
@@ -396,7 +394,6 @@ comments: true
 === "Rust"
 
     ```rust title="binary_tree.rs"
-    /* 初始化二叉树 */
     // 初始化节点
     let n1 = TreeNode::new(1);
     let n2 = TreeNode::new(2);
@@ -404,10 +401,10 @@ comments: true
     let n4 = TreeNode::new(4);
     let n5 = TreeNode::new(5);
     // 构建节点之间的引用（指针）
-    n1.borrow_mut().left = Some(Rc::clone(&n2));
-    n1.borrow_mut().right = Some(Rc::clone(&n3));
-    n2.borrow_mut().left = Some(Rc::clone(&n4));
-    n2.borrow_mut().right = Some(Rc::clone(&n5));
+    n1.borrow_mut().left = Some(n2.clone());
+    n1.borrow_mut().right = Some(n3);
+    n2.borrow_mut().left = Some(n4);
+    n2.borrow_mut().right = Some(n5);
     ```
 
 === "C"
@@ -430,7 +427,6 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
-    /* 初始化二叉树 */
     // 初始化节点
     val n1 = TreeNode(1)
     val n2 = TreeNode(2)
@@ -478,10 +474,10 @@ comments: true
 
     ```python title="binary_tree.py"
     # 插入与删除节点
-    P = TreeNode(0)
+    p = TreeNode(0)
     # 在 n1 -> n2 中间插入节点 P
-    n1.left = P
-    P.left = n2
+    n1.left = p
+    p.left = n2
     # 删除节点 P
     n1.left = n2
     ```
@@ -490,19 +486,19 @@ comments: true
 
     ```cpp title="binary_tree.cpp"
     /* 插入与删除节点 */
-    TreeNode *P = new TreeNode(0);
+    TreeNode* P = new TreeNode(0);
     // 在 n1 -> n2 中间插入节点 P
     n1->left = P;
     P->left = n2;
     // 删除节点 P
     n1->left = n2;
-    delete P; // 释放内存
+    // 释放内存
+    delete P;
     ```
 
 === "Java"
 
     ```java title="binary_tree.java"
-    /* 插入与删除节点 */
     TreeNode P = new TreeNode(0);
     // 在 n1 -> n2 中间插入节点 P
     n1.left = P;
@@ -538,7 +534,6 @@ comments: true
 === "Swift"
 
     ```swift title="binary_tree.swift"
-    /* 插入与删除节点 */
     let P = TreeNode(x: 0)
     // 在 n1 -> n2 中间插入节点 P
     n1.left = P
@@ -551,7 +546,7 @@ comments: true
 
     ```javascript title="binary_tree.js"
     /* 插入与删除节点 */
-    const P = new TreeNode(0);
+    let P = new TreeNode(0);
     // 在 n1 -> n2 中间插入节点 P
     n1.left = P;
     P.left = n2;
@@ -575,10 +570,10 @@ comments: true
 
     ```dart title="binary_tree.dart"
     /* 插入与删除节点 */
-    TreeNode p = TreeNode(0);
+    TreeNode P = new TreeNode(0);
     // 在 n1 -> n2 中间插入节点 P
-    n1.left = p;
-    p.left = n2;
+    n1.left = P;
+    P.left = n2;
     // 删除节点 P
     n1.left = n2;
     ```
@@ -586,14 +581,12 @@ comments: true
 === "Rust"
 
     ```rust title="binary_tree.rs"
-    // 插入节点与删除节点
     let p = TreeNode::new(0);
     // 在 n1 -> n2 中间插入节点 P
-    p.borrow_mut().left = Some(Rc::clone(&n2));
-    n1.borrow_mut().left = Some(Rc::clone(&p));
-    // 删除节点 P
-    drop(p);
-    n1.borrow_mut().left = Some(Rc::clone(&n2));
+    n1.borrow_mut().left = Some(p.clone());
+    p.borrow_mut().left = Some(n2.clone());
+    // 删除节点 p
+    n1.borrow_mut().left = Some(n2);
     ```
 
 === "C"
@@ -613,7 +606,6 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
-    /* 插入与删除节点 */
     val P = TreeNode(0)
     // 在 n1 -> n2 中间插入节点 P
     n1.left = P

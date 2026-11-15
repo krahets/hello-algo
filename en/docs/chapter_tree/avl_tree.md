@@ -26,100 +26,82 @@ An AVL tree is both a binary search tree and a balanced binary tree, satisfying 
 
 ### 1. &nbsp; Node height
 
-AVL operations need node heights, so add a `height` variable to the node class. All chapters of this book's source code share one binary tree node class, which already includes it:
+AVL operations need node heights, so add a `height` variable to the node class:
 
 === "Python"
 
     ```python title=""
     class TreeNode:
-        """Binary tree node class"""
-
-        def __init__(self, val: int = 0):
-            self.val: int = val  # Node value
-            self.height: int = 0  # Node height
-            self.left: TreeNode | None = None  # Reference to the left child
-            self.right: TreeNode | None = None  # Reference to the right child
+        """AVL tree node class"""
+        def __init__(self, val: int):
+            self.val: int = val                 # Node value
+            self.height: int = 0                # Node height
+            self.left: TreeNode | None = None   # Left child reference
+            self.right: TreeNode | None = None  # Right child reference
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* Binary tree node structure */
+    /* AVL tree node class */
     struct TreeNode {
-        int val{};         // Node value
-        int height = 0;    // Node height
-        TreeNode *parent{};
-        TreeNode *left{};  // Pointer to the left child
-        TreeNode *right{}; // Pointer to the right child
+        int val{};          // Node value
+        int height = 0;     // Node height
+        TreeNode *left{};   // Left child
+        TreeNode *right{};  // Right child
         TreeNode() = default;
-        explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {
-        }
+        explicit TreeNode(int x) : val(x){}
     };
     ```
 
 === "Java"
 
     ```java title=""
-    /* Binary tree node class */
-    public class TreeNode {
+    /* AVL tree node class */
+    class TreeNode {
         public int val;        // Node value
         public int height;     // Node height
-        public TreeNode left;  // Reference to the left child
-        public TreeNode right; // Reference to the right child
-
-        /* Constructor */
-        public TreeNode(int x) {
-            val = x;
-        }
+        public TreeNode left;  // Left child
+        public TreeNode right; // Right child
+        public TreeNode(int x) { val = x; }
     }
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* Binary tree node class */
-    public class TreeNode(int? x) {
+    /* AVL tree node class */
+    class TreeNode(int? x) {
         public int? val = x;    // Node value
         public int height;      // Node height
-        public TreeNode? left;  // Reference to the left child
-        public TreeNode? right; // Reference to the right child
+        public TreeNode? left;  // Left child reference
+        public TreeNode? right; // Right child reference
     }
     ```
 
 === "Go"
 
     ```go title=""
-    // TreeNode represents a binary tree node.
+    /* AVL tree node struct */
     type TreeNode struct {
-        Val    any       // Node value
+        Val    int       // Node value
         Height int       // Node height
-        Left   *TreeNode // Reference to the left child
-        Right  *TreeNode // Reference to the right child
-    }
-
-    // NewTreeNode constructs a binary tree node.
-    func NewTreeNode(v any) *TreeNode {
-        return &TreeNode{
-            Val:    v,
-            Height: 0,
-            Left:   nil,
-            Right:  nil,
-        }
+        Left   *TreeNode // Left child reference
+        Right  *TreeNode // Right child reference
     }
     ```
 
 === "Swift"
 
     ```swift title=""
-    /* Binary tree node class */
-    public class TreeNode {
-        public var val: Int         // Node value
-        public var height: Int      // Node height
-        public var left: TreeNode?  // Reference to the left child
-        public var right: TreeNode? // Reference to the right child
+    /* AVL tree node class */
+    class TreeNode {
+        var val: Int // Node value
+        var height: Int // Node height
+        var left: TreeNode? // Left child
+        var right: TreeNode? // Right child
 
-        /* Constructor */
-        public init(x: Int) {
+        init(x: Int) {
             val = x
             height = 0
         }
@@ -129,17 +111,17 @@ AVL operations need node heights, so add a `height` variable to the node class. 
 === "JS"
 
     ```javascript title=""
-    /* Binary tree node */
+    /* AVL tree node class */
     class TreeNode {
         val; // Node value
-        left; // Pointer to the left child
-        right; // Pointer to the right child
-        height; // Node height
+        height; //Node height
+        left; // Left child pointer
+        right; // Right child pointer
         constructor(val, left, right, height) {
             this.val = val === undefined ? 0 : val;
+            this.height = height === undefined ? 0 : height;
             this.left = left === undefined ? null : left;
             this.right = right === undefined ? null : right;
-            this.height = height === undefined ? 0 : height;
         }
     }
     ```
@@ -147,18 +129,13 @@ AVL operations need node heights, so add a `height` variable to the node class. 
 === "TS"
 
     ```typescript title=""
-    /* Binary tree node */
+    /* AVL tree node class */
     class TreeNode {
-        val: number; // Node value
-        height: number; // Node height
-        left: TreeNode | null; // Pointer to the left child
-        right: TreeNode | null; // Pointer to the right child
-        constructor(
-            val?: number,
-            height?: number,
-            left?: TreeNode | null,
-            right?: TreeNode | null
-        ) {
+        val: number;            // Node value
+        height: number;         // Node height
+        left: TreeNode | null;  // Left child pointer
+        right: TreeNode | null; // Right child pointer
+        constructor(val?: number, height?: number, left?: TreeNode | null, right?: TreeNode | null) {
             this.val = val === undefined ? 0 : val;
             this.height = height === undefined ? 0 : height;
             this.left = left === undefined ? null : left;
@@ -170,14 +147,12 @@ AVL operations need node heights, so add a `height` variable to the node class. 
 === "Dart"
 
     ```dart title=""
-    /* Binary tree node class */
+    /* AVL tree node class */
     class TreeNode {
-      int val; // Node value
-      int height; // Node height
-      TreeNode? left; // Reference to the left child
-      TreeNode? right; // Reference to the right child
-
-      /* Constructor */
+      int val;         // Node value
+      int height;      // Node height
+      TreeNode? left;  // Left child
+      TreeNode? right; // Right child
       TreeNode(this.val, [this.height = 0, this.left, this.right]);
     }
     ```
@@ -185,28 +160,25 @@ AVL operations need node heights, so add a `height` variable to the node class. 
 === "Rust"
 
     ```rust title=""
-    use std::cell::RefCell;
     use std::rc::Rc;
+    use std::cell::RefCell;
 
-    /* Binary tree node type */
-    #[derive(Debug)]
-    pub struct TreeNode {
-        pub val: i32,                               // Node value
-        pub height: i32,                            // Node height
-        pub parent: Option<Rc<RefCell<TreeNode>>>,
-        pub left: Option<Rc<RefCell<TreeNode>>>,    // Pointer to the left child
-        pub right: Option<Rc<RefCell<TreeNode>>>,   // Pointer to the right child
+    /* AVL tree node struct */
+    struct TreeNode {
+        val: i32,                               // Node value
+        height: i32,                            // Node height
+        left: Option<Rc<RefCell<TreeNode>>>,    // Left child
+        right: Option<Rc<RefCell<TreeNode>>>,   // Right child
     }
 
     impl TreeNode {
         /* Constructor */
-        pub fn new(val: i32) -> Rc<RefCell<Self>> {
+        fn new(val: i32) -> Rc<RefCell<Self>> {
             Rc::new(RefCell::new(Self {
                 val,
                 height: 0,
-                parent: None,
                 left: None,
-                right: None,
+                right: None
             }))
         }
     }
@@ -215,12 +187,12 @@ AVL operations need node heights, so add a `height` variable to the node class. 
 === "C"
 
     ```c title=""
-    /* Binary tree node structure */
+    /* AVL tree node struct */
     typedef struct TreeNode {
-        int val;                // Node value
-        int height;             // Node height
-        struct TreeNode *left;  // Pointer to the left child
-        struct TreeNode *right; // Pointer to the right child
+        int val;
+        int height;
+        struct TreeNode *left;
+        struct TreeNode *right;
     } TreeNode;
 
     /* Constructor */
@@ -239,28 +211,25 @@ AVL operations need node heights, so add a `height` variable to the node class. 
 === "Kotlin"
 
     ```kotlin title=""
-    /* Binary tree node class */
-    /* Constructor */
-    class TreeNode(
-        var _val: Int // Node value
-    ) {
-        var height: Int = 0         // Node height
-        var left: TreeNode? = null  // Reference to the left child
-        var right: TreeNode? = null // Reference to the right child
+    /* AVL tree node class */
+    class TreeNode(val _val: Int) {  // Node value
+        var height: Int = 0          // Node height
+        var left: TreeNode? = null   // Left child
+        var right: TreeNode? = null  // Right child
     }
     ```
 
 === "Ruby"
 
     ```ruby title=""
-    ### Binary tree node class ###
+    ### AVL tree node class ###
     class TreeNode
       attr_accessor :val    # Node value
       attr_accessor :height # Node height
-      attr_accessor :left   # Reference to the left child
-      attr_accessor :right  # Reference to the right child
+      attr_accessor :left   # Left child reference
+      attr_accessor :right  # Right child reference
 
-      def initialize(val=0)
+      def initialize(val)
         @val = val
         @height = 0
       end

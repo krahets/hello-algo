@@ -27,61 +27,56 @@ comments: true
     ```python title=""
     class ListNode:
         """Класс узла связного списка"""
-
         def __init__(self, val: int):
-            self.val: int = val  # Значение узла
-            self.next: ListNode | None = None  # Ссылка на следующий узел
+            self.val: int = val               # Значение узла
+            self.next: ListNode | None = None # Ссылка на следующий узел
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* Узел связного списка */
+    /* Структура узла связного списка */
     struct ListNode {
-        int val;        // Значение узла
-        ListNode *next; // Указатель на узел-преемник
-        ListNode(int x) : val(x), next(nullptr) {
-        }
+        int val;         // Значение узла
+        ListNode *next;  // Указатель на следующий узел
+        ListNode(int x) : val(x), next(nullptr) {}  // Конструктор
     };
     ```
 
 === "Java"
 
     ```java title=""
-    /* Узел связного списка */
-    public class ListNode {
-        public int val;       // Значение узла
-        public ListNode next; // Ссылка на следующий узел
-
-        public ListNode(int x) {
-            val = x;
-        }
+    /* Класс узла связного списка */
+    class ListNode {
+        int val;        // Значение узла
+        ListNode next;  // Ссылка на следующий узел
+        ListNode(int x) { val = x; }  // Конструктор
     }
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* Узел связного списка */
-    public class ListNode(int x) {
-        public int val = x;    // Значение узла
-        public ListNode? next; // Ссылка на следующий узел
+    /* Класс узла связного списка */
+    class ListNode(int x) {  // Конструктор
+        public int val = x;     // Значение узла
+        public ListNode? next;  // Ссылка на следующий узел
     }
     ```
 
 === "Go"
 
     ```go title=""
-    // ListNode: узел связного списка
+    /* Структура узла связного списка */
     type ListNode struct {
         Val  int       // Значение узла
-        Next *ListNode // Указатель на узел-преемник
+        Next *ListNode // Указатель на следующий узел
     }
 
-    // NewListNode: конструктор узла связного списка
-    func NewListNode(v int) *ListNode {
+    // NewListNode — функция-конструктор, создающая новый связный список.
+    func NewListNode(val int) *ListNode {
         return &ListNode{
-            Val:  v,
+            Val:  val,
             Next: nil,
         }
     }
@@ -104,13 +99,11 @@ comments: true
 === "JS"
 
     ```javascript title=""
-    /* Узел связного списка */
+    /* Класс узла связного списка */
     class ListNode {
-        val; // Значение узла
-        next; // Ссылка (указатель) на следующий узел
         constructor(val, next) {
-            this.val = val === undefined ? 0 : val;
-            this.next = next === undefined ? null : next;
+            this.val = (val === undefined ? 0 : val);       // Значение узла
+            this.next = (next === undefined ? null : next); // Ссылка на следующий узел
         }
     }
     ```
@@ -118,13 +111,13 @@ comments: true
 === "TS"
 
     ```typescript title=""
-    /* Узел связного списка */
+    /* Класс узла связного списка */
     class ListNode {
-        val: number; // Значение узла
-        next: ListNode | null; // Ссылка на следующий узел
+        val: number;
+        next: ListNode | null;
         constructor(val?: number, next?: ListNode | null) {
-            this.val = val === undefined ? 0 : val;
-            this.next = next === undefined ? null : next;
+            this.val = val === undefined ? 0 : val;        // Значение узла
+            this.next = next === undefined ? null : next;  // Ссылка на следующий узел
         }
     }
     ```
@@ -132,11 +125,10 @@ comments: true
 === "Dart"
 
     ```dart title=""
-    /* Узел связного списка */
+    /* Класс узла связного списка */
     class ListNode {
       int val; // Значение узла
       ListNode? next; // Ссылка на следующий узел
-
       ListNode(this.val, [this.next]); // Конструктор
     }
     ```
@@ -144,19 +136,13 @@ comments: true
 === "Rust"
 
     ```rust title=""
-    use std::cell::RefCell;
     use std::rc::Rc;
-
+    use std::cell::RefCell;
+    /* Класс узла связного списка */
     #[derive(Debug)]
-    pub struct ListNode<T> {
-        pub val: T, // Значение узла
-        pub next: Option<Rc<RefCell<ListNode<T>>>>, // Указатель на узел-преемник
-    }
-
-    impl<T> ListNode<T> {
-        pub fn new(val: T) -> Rc<RefCell<ListNode<T>>> {
-            Rc::new(RefCell::new(ListNode { val, next: None }))
-        }
+    struct ListNode {
+        val: i32, // Значение узла
+        next: Option<Rc<RefCell<ListNode>>>, // Указатель на следующий узел
     }
     ```
 
@@ -166,13 +152,13 @@ comments: true
     /* Структура узла связного списка */
     typedef struct ListNode {
         int val;               // Значение узла
-        struct ListNode *next; // Ссылка на следующий узел
+        struct ListNode *next; // Указатель на следующий узел
     } ListNode;
 
-    /* Конструктор, инициализирующий новый узел */
+    /* Конструктор */
     ListNode *newListNode(int val) {
         ListNode *node;
-        node = (ListNode *)malloc(sizeof(ListNode));
+        node = (ListNode *) malloc(sizeof(ListNode));
         node->val = val;
         node->next = NULL;
         return node;
@@ -182,8 +168,10 @@ comments: true
 === "Kotlin"
 
     ```kotlin title=""
-    /* Узел связного списка */
-    class ListNode(var _val: Int) {
+    /* Класс узла связного списка */
+    // Конструктор
+    class ListNode(x: Int) {
+        val _val: Int = x          // Значение узла
         var next: ListNode? = null // Ссылка на следующий узел
     }
     ```
@@ -191,7 +179,7 @@ comments: true
 === "Ruby"
 
     ```ruby title=""
-    ### Класс узла связного списка ###
+    # Класс узла связного списка
     class ListNode
       attr_accessor :val  # Значение узла
       attr_accessor :next # Ссылка на следующий узел
@@ -213,13 +201,13 @@ comments: true
 
     ```python title="linked_list.py"
     # Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4
-    # Инициализация всех узлов
+    # Инициализация каждого узла
     n0 = ListNode(1)
     n1 = ListNode(3)
     n2 = ListNode(2)
     n3 = ListNode(5)
     n4 = ListNode(4)
-    # Построить ссылки между узлами
+    # Построение ссылок между узлами
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -230,13 +218,13 @@ comments: true
 
     ```cpp title="linked_list.cpp"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
-    ListNode *n0 = new ListNode(1);
-    ListNode *n1 = new ListNode(3);
-    ListNode *n2 = new ListNode(2);
-    ListNode *n3 = new ListNode(5);
-    ListNode *n4 = new ListNode(4);
-    // Построить ссылки между узлами
+    // Инициализация каждого узла
+    ListNode* n0 = new ListNode(1);
+    ListNode* n1 = new ListNode(3);
+    ListNode* n2 = new ListNode(2);
+    ListNode* n3 = new ListNode(5);
+    ListNode* n4 = new ListNode(4);
+    // Построение ссылок между узлами
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
@@ -247,13 +235,13 @@ comments: true
 
     ```java title="linked_list.java"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
+    // Инициализация каждого узла
     ListNode n0 = new ListNode(1);
     ListNode n1 = new ListNode(3);
     ListNode n2 = new ListNode(2);
     ListNode n3 = new ListNode(5);
     ListNode n4 = new ListNode(4);
-    // Построить ссылки между узлами
+    // Построение ссылок между узлами
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -263,14 +251,14 @@ comments: true
 === "C#"
 
     ```csharp title="linked_list.cs"
-    // Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4
-    // Инициализация всех узлов
+    /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
+    // Инициализация каждого узла
     ListNode n0 = new(1);
     ListNode n1 = new(3);
     ListNode n2 = new(2);
     ListNode n3 = new(5);
     ListNode n4 = new(4);
-    // Построить ссылки между узлами
+    // Построение ссылок между узлами
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -280,15 +268,14 @@ comments: true
 === "Go"
 
     ```go title="linked_list.go"
-    /* Инициализировать связный список 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
+    /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
+    // Инициализация каждого узла
     n0 := NewListNode(1)
     n1 := NewListNode(3)
     n2 := NewListNode(2)
     n3 := NewListNode(5)
     n4 := NewListNode(4)
-
-    // Построить ссылки между узлами
+    // Построение ссылок между узлами
     n0.Next = n1
     n1.Next = n2
     n2.Next = n3
@@ -299,13 +286,13 @@ comments: true
 
     ```swift title="linked_list.swift"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
+    // Инициализация каждого узла
     let n0 = ListNode(x: 1)
     let n1 = ListNode(x: 3)
     let n2 = ListNode(x: 2)
     let n3 = ListNode(x: 5)
     let n4 = ListNode(x: 4)
-    // Построить ссылки между узлами
+    // Построение ссылок между узлами
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -316,13 +303,13 @@ comments: true
 
     ```javascript title="linked_list.js"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
+    // Инициализация каждого узла
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
     const n2 = new ListNode(2);
     const n3 = new ListNode(5);
     const n4 = new ListNode(4);
-    // Построить ссылки между узлами
+    // Построение ссылок между узлами
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -333,13 +320,13 @@ comments: true
 
     ```typescript title="linked_list.ts"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
+    // Инициализация каждого узла
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
     const n2 = new ListNode(2);
     const n3 = new ListNode(5);
     const n4 = new ListNode(4);
-    // Построить ссылки между узлами
+    // Построение ссылок между узлами
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -349,14 +336,14 @@ comments: true
 === "Dart"
 
     ```dart title="linked_list.dart"
-    // Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4
-    // Инициализация всех узлов
+    /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
+    // Инициализация каждого узла
     ListNode n0 = ListNode(1);
     ListNode n1 = ListNode(3);
     ListNode n2 = ListNode(2);
     ListNode n3 = ListNode(5);
     ListNode n4 = ListNode(4);
-    // Построить ссылки между узлами
+    // Построение ссылок между узлами
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -367,14 +354,14 @@ comments: true
 
     ```rust title="linked_list.rs"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
-    let n0 = ListNode::new(1);
-    let n1 = ListNode::new(3);
-    let n2 = ListNode::new(2);
-    let n3 = ListNode::new(5);
-    let n4 = ListNode::new(4);
+    // Инициализация каждого узла
+    let n0 = Rc::new(RefCell::new(ListNode { val: 1, next: None }));
+    let n1 = Rc::new(RefCell::new(ListNode { val: 3, next: None }));
+    let n2 = Rc::new(RefCell::new(ListNode { val: 2, next: None }));
+    let n3 = Rc::new(RefCell::new(ListNode { val: 5, next: None }));
+    let n4 = Rc::new(RefCell::new(ListNode { val: 4, next: None }));
 
-    // Построить ссылки между узлами
+    // Построение ссылок между узлами
     n0.borrow_mut().next = Some(n1.clone());
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
@@ -385,13 +372,13 @@ comments: true
 
     ```c title="linked_list.c"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
-    ListNode *n0 = newListNode(1);
-    ListNode *n1 = newListNode(3);
-    ListNode *n2 = newListNode(2);
-    ListNode *n3 = newListNode(5);
-    ListNode *n4 = newListNode(4);
-    // Построить ссылки между узлами
+    // Инициализация каждого узла
+    ListNode* n0 = newListNode(1);
+    ListNode* n1 = newListNode(3);
+    ListNode* n2 = newListNode(2);
+    ListNode* n3 = newListNode(5);
+    ListNode* n4 = newListNode(4);
+    // Построение ссылок между узлами
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
@@ -402,31 +389,30 @@ comments: true
 
     ```kotlin title="linked_list.kt"
     /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
+    // Инициализация каждого узла
     val n0 = ListNode(1)
     val n1 = ListNode(3)
     val n2 = ListNode(2)
     val n3 = ListNode(5)
     val n4 = ListNode(4)
-
-    // Построить ссылки между узлами
-    n0.next = n1
-    n1.next = n2
-    n2.next = n3
-    n3.next = n4
+    // Построение ссылок между узлами
+    n0.next = n1;
+    n1.next = n2;
+    n2.next = n3;
+    n3.next = n4;
     ```
 
 === "Ruby"
 
     ```ruby title="linked_list.rb"
     # Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4
-    # Инициализация всех узлов
+    # Инициализация каждого узла
     n0 = ListNode.new(1)
     n1 = ListNode.new(3)
     n2 = ListNode.new(2)
     n3 = ListNode.new(5)
     n4 = ListNode.new(4)
-    # Построить ссылки между узлами
+    # Построение ссылок между узлами
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -1263,52 +1249,45 @@ comments: true
 
     ```python title=""
     class ListNode:
-        """Узел двусвязного списка"""
-
+        """Класс узла двусвязного списка"""
         def __init__(self, val: int):
-            """Конструктор"""
-            self.val: int = val  # Значение узла
-            self.next: ListNode | None = None  # Ссылка на узел-преемник
-            self.prev: ListNode | None = None  # Ссылка на узел-предшественник
+            self.val: int = val                # Значение узла
+            self.next: ListNode | None = None  # Ссылка на следующий узел
+            self.prev: ListNode | None = None  # Ссылка на предыдущий узел
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* Узел двусвязного списка */
-    struct DoublyListNode {
-        int val;              // Значение узла
-        DoublyListNode *next; // Указатель на узел-преемник
-        DoublyListNode *prev; // Указатель на узел-предшественник
-        DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
-        }
+    /* Структура узла двусвязного списка */
+    struct ListNode {
+        int val;         // Значение узла
+        ListNode *next;  // Указатель на следующий узел
+        ListNode *prev;  // Указатель на предыдущий узел
+        ListNode(int x) : val(x), next(nullptr), prev(nullptr) {}  // Конструктор
     };
     ```
 
 === "Java"
 
     ```java title=""
-    /* Узел двусвязного списка */
+    /* Класс узла двусвязного списка */
     class ListNode {
-        int val;       // Значение узла
-        ListNode next; // Ссылка на узел-преемник
-        ListNode prev; // Ссылка на узел-предшественник
-
-        ListNode(int val) {
-            this.val = val;
-            prev = next = null;
-        }
+        int val;        // Значение узла
+        ListNode next;  // Ссылка на следующий узел
+        ListNode prev;  // Ссылка на предыдущий узел
+        ListNode(int x) { val = x; }  // Конструктор
     }
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* Узел двусвязного списка */
-    public class ListNode(int val) {
-        public int val = val;         // Значение узла
-        public ListNode? next = null; // Ссылка на узел-преемник
-        public ListNode? prev = null; // Ссылка на узел-предшественник
+    /* Класс узла двусвязного списка */
+    class ListNode(int x) {  // Конструктор
+        public int val = x;     // Значение узла
+        public ListNode? next;  // Ссылка на следующий узел
+        public ListNode? prev;  // Ссылка на предыдущий узел
     }
     ```
 
@@ -1335,14 +1314,14 @@ comments: true
 === "Swift"
 
     ```swift title=""
-    /* Узел двусвязного списка */
+    /* Класс узла двусвязного списка */
     class ListNode {
         var val: Int // Значение узла
-        var next: ListNode? // Ссылка на узел-преемник
-        weak var prev: ListNode? // Ссылка на узел-предшественник
+        var next: ListNode? // Ссылка на следующий узел
+        var prev: ListNode? // Ссылка на предыдущий узел
 
-        init(val: Int) {
-            self.val = val
+        init(x: Int) { // Конструктор
+            val = x
         }
     }
     ```
@@ -1350,16 +1329,12 @@ comments: true
 === "JS"
 
     ```javascript title=""
-    /* Узел двусвязного списка */
+    /* Класс узла двусвязного списка */
     class ListNode {
-        prev; // Ссылка на узел-предшественник (указатель)
-        next; // Ссылка на узел-преемник (указатель)
-        val; // Значение узла
-
-        constructor(val) {
-            this.val = val;
-            this.next = null;
-            this.prev = null;
+        constructor(val, next, prev) {
+            this.val = val  ===  undefined ? 0 : val;        // Значение узла
+            this.next = next  ===  undefined ? null : next;  // Ссылка на следующий узел
+            this.prev = prev  ===  undefined ? null : prev;  // Ссылка на предыдущий узел
         }
     }
     ```
@@ -1367,16 +1342,15 @@ comments: true
 === "TS"
 
     ```typescript title=""
-    /* Узел двусвязного списка */
+    /* Класс узла двусвязного списка */
     class ListNode {
-        prev: ListNode | null; // Ссылка на узел-предшественник (указатель)
-        next: ListNode | null; // Ссылка на узел-преемник (указатель)
-        val: number; // Значение узла
-
-        constructor(val: number) {
-            this.val = val;
-            this.next = null;
-            this.prev = null;
+        val: number;
+        next: ListNode | null;
+        prev: ListNode | null;
+        constructor(val?: number, next?: ListNode | null, prev?: ListNode | null) {
+            this.val = val  ===  undefined ? 0 : val;        // Значение узла
+            this.next = next  ===  undefined ? null : next;  // Ссылка на следующий узел
+            this.prev = prev  ===  undefined ? null : prev;  // Ссылка на предыдущий узел
         }
     }
     ```
@@ -1384,36 +1358,37 @@ comments: true
 === "Dart"
 
     ```dart title=""
-    /* Узел двусвязного списка */
+    /* Класс узла двусвязного списка */
     class ListNode {
-      int val; // Значение узла
-      ListNode? next; // Ссылка на узел-преемник
-      ListNode? prev; // Ссылка на узел-предшественник
-
-      ListNode(this.val, {this.next, this.prev});
+        int val;        // Значение узла
+        ListNode? next;  // Ссылка на следующий узел
+        ListNode? prev;  // Ссылка на предыдущий узел
+        ListNode(this.val, [this.next, this.prev]);  // Конструктор
     }
     ```
 
 === "Rust"
 
     ```rust title=""
-    use std::cell::RefCell;
     use std::rc::Rc;
+    use std::cell::RefCell;
 
-    /* Узел двусвязного списка */
-    pub struct ListNode<T> {
-        pub val: T,                                 // Значение узла
-        pub next: Option<Rc<RefCell<ListNode<T>>>>, // Указатель на узел-преемник
-        pub prev: Option<Rc<RefCell<ListNode<T>>>>, // Указатель на узел-предшественник
+    /* Тип узла двусвязного списка */
+    #[derive(Debug)]
+    struct ListNode {
+        val: i32, // Значение узла
+        next: Option<Rc<RefCell<ListNode>>>, // Указатель на следующий узел
+        prev: Option<Rc<RefCell<ListNode>>>, // Указатель на предыдущий узел
     }
 
-    impl<T> ListNode<T> {
-        pub fn new(val: T) -> Rc<RefCell<ListNode<T>>> {
-            Rc::new(RefCell::new(ListNode {
+    /* Конструктор */
+    impl ListNode {
+        fn new(val: i32) -> Self {
+            ListNode {
                 val,
                 next: None,
                 prev: None,
-            }))
+            }
         }
     }
     ```
@@ -1421,46 +1396,49 @@ comments: true
 === "C"
 
     ```c title=""
-    /* Узел двусвязного списка */
-    typedef struct DoublyListNode {
-        int val;                     // Значение узла
-        struct DoublyListNode *next; // Узел-преемник
-        struct DoublyListNode *prev; // Узел-предшественник
-    } DoublyListNode;
+    /* Структура узла двусвязного списка */
+    typedef struct ListNode {
+        int val;               // Значение узла
+        struct ListNode *next; // Указатель на следующий узел
+        struct ListNode *prev; // Указатель на предыдущий узел
+    } ListNode;
 
     /* Конструктор */
-    DoublyListNode *newDoublyListNode(int num) {
-        DoublyListNode *new = (DoublyListNode *)malloc(sizeof(DoublyListNode));
-        new->val = num;
-        new->next = NULL;
-        new->prev = NULL;
-        return new;
+    ListNode *newListNode(int val) {
+        ListNode *node;
+        node = (ListNode *) malloc(sizeof(ListNode));
+        node->val = val;
+        node->next = NULL;
+        node->prev = NULL;
+        return node;
     }
     ```
 
 === "Kotlin"
 
     ```kotlin title=""
-    /* Узел двусвязного списка */
-    class ListNode(var _val: Int) {
-        // Значение узла
-        var next: ListNode? = null // Ссылка на узел-преемник
-        var prev: ListNode? = null // Ссылка на узел-предшественник
+    /* Класс узла двусвязного списка */
+    // Конструктор
+    class ListNode(x: Int) {
+        val _val: Int = x           // Значение узла
+        var next: ListNode? = null  // Ссылка на следующий узел
+        var prev: ListNode? = null  // Ссылка на предыдущий узел
     }
     ```
 
 === "Ruby"
 
     ```ruby title=""
-    ### Узел двусвязного списка
+    # Класс узла двусвязного списка
     class ListNode
-      attr_accessor :val  # Значение узла
-      attr_accessor :next # Ссылка на узел-преемник
-      attr_accessor :prev # Ссылка на узел-предшественник
+      attr_accessor :val    # Значение узла
+      attr_accessor :next   # Ссылка на следующий узел
+      attr_accessor :prev   # Ссылка на предыдущий узел
 
-      ### Конструктор ###
-      def initialize(val)
+      def initialize(val=0, next_node=nil, prev_node=nil)
         @val = val
+        @next = next_node
+        @prev = prev_node
       end
     end
     ```

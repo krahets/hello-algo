@@ -164,50 +164,50 @@ comments: true
 
     ```python title="list.py"
     # 访问元素
-    x: int = nums[1]  # 访问索引 1 处的元素
+    num: int = nums[1]  # 访问索引 1 处的元素
 
     # 更新元素
-    nums[1] = 0  # 将索引 1 处的元素更新为 0
+    nums[1] = 0    # 将索引 1 处的元素更新为 0
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
     /* 访问元素 */
-    int num = nums[1]; // 访问索引 1 处的元素
+    int num = nums[1];  // 访问索引 1 处的元素
 
     /* 更新元素 */
-    nums[1] = 0; // 将索引 1 处的元素更新为 0
+    nums[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
 === "Java"
 
     ```java title="list.java"
     /* 访问元素 */
-    int num = nums.get(1); // 访问索引 1 处的元素
+    int num = nums.get(1);  // 访问索引 1 处的元素
 
     /* 更新元素 */
-    nums.set(1, 0); // 将索引 1 处的元素更新为 0
+    nums.set(1, 0);  // 将索引 1 处的元素更新为 0
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
     /* 访问元素 */
-    int num = nums[1]; // 访问索引 1 处的元素
+    int num = nums[1];  // 访问索引 1 处的元素
 
     /* 更新元素 */
-    nums[1] = 0; // 将索引 1 处的元素更新为 0
+    nums[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
 === "Go"
 
     ```go title="list_test.go"
     /* 访问元素 */
-    num := nums[1] // 访问索引 1 处的元素
+    num := nums[1]  // 访问索引 1 处的元素
 
     /* 更新元素 */
-    nums[1] = 0 // 将索引 1 处的元素更新为 0
+    nums[1] = 0     // 将索引 1 处的元素更新为 0
     ```
 
 === "Swift"
@@ -224,40 +224,39 @@ comments: true
 
     ```javascript title="list.js"
     /* 访问元素 */
-    const num = nums[1]; // 访问索引 1 处的元素
+    const num = nums[1];  // 访问索引 1 处的元素
 
     /* 更新元素 */
-    nums[1] = 0; // 将索引 1 处的元素更新为 0
+    nums[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
     /* 访问元素 */
-    const num: number = nums[1]; // 访问索引 1 处的元素
+    const num: number = nums[1];  // 访问索引 1 处的元素
 
     /* 更新元素 */
-    nums[1] = 0; // 将索引 1 处的元素更新为 0
+    nums[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
     /* 访问元素 */
-    int _num = nums[1]; // 访问索引 1 处的元素
+    int num = nums[1];  // 访问索引 1 处的元素
 
     /* 更新元素 */
-    nums[1] = 0; // 将索引 1 处的元素更新为 0
+    nums[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    // 访问元素
-    let num = nums[1]; // 访问索引 1 处的元素
-
-    // 更新元素
-    nums[1] = 0; // 将索引 1 处的元素更新为 0
+    /* 访问元素 */
+    let num: i32 = nums[1];  // 访问索引 1 处的元素
+    /* 更新元素 */
+    nums[1] = 0;             // 将索引 1 处的元素更新为 0
     ```
 
 === "C"
@@ -270,10 +269,9 @@ comments: true
 
     ```kotlin title="list.kt"
     /* 访问元素 */
-    val num = nums[1] // 访问索引 1 处的元素
-
+    val num = nums[1]       // 访问索引 1 处的元素
     /* 更新元素 */
-    nums[1] = 0 // 将索引 1 处的元素更新为 0
+    nums[1] = 0             // 将索引 1 处的元素更新为 0
     ```
 
 === "Ruby"
@@ -281,7 +279,6 @@ comments: true
     ```ruby title="list.rb"
     # 访问元素
     num = nums[1] # 访问索引 1 处的元素
-
     # 更新元素
     nums[1] = 0 # 将索引 1 处的元素更新为 0
     ```
@@ -312,7 +309,7 @@ comments: true
     nums.insert(3, 6)  # 在索引 3 处插入数字 6
 
     # 删除元素
-    nums.pop(3)  # 删除索引 3 处的元素
+    nums.pop(3)        # 删除索引 3 处的元素
     ```
 
 === "C++"
@@ -329,10 +326,10 @@ comments: true
     nums.push_back(4);
 
     /* 在中间插入元素 */
-    nums.insert(nums.begin() + 3, 6); // 在索引 3 处插入数字 6
+    nums.insert(nums.begin() + 3, 6);  // 在索引 3 处插入数字 6
 
     /* 删除元素 */
-    nums.erase(nums.begin() + 3); // 删除索引 3 处的元素
+    nums.erase(nums.begin() + 3);      // 删除索引 3 处的元素
     ```
 
 === "Java"
@@ -349,10 +346,10 @@ comments: true
     nums.add(4);
 
     /* 在中间插入元素 */
-    nums.add(3, 6); // 在索引 3 处插入数字 6
+    nums.add(3, 6);  // 在索引 3 处插入数字 6
 
     /* 删除元素 */
-    nums.remove(3); // 删除索引 3 处的元素
+    nums.remove(3);  // 删除索引 3 处的元素
     ```
 
 === "C#"
@@ -369,10 +366,10 @@ comments: true
     nums.Add(4);
 
     /* 在中间插入元素 */
-    nums.Insert(3, 6); // 在索引 3 处插入数字 6
+    nums.Insert(3, 6);  // 在索引 3 处插入数字 6
 
     /* 删除元素 */
-    nums.RemoveAt(3); // 删除索引 3 处的元素
+    nums.RemoveAt(3);  // 删除索引 3 处的元素
     ```
 
 === "Go"
@@ -432,7 +429,7 @@ comments: true
     nums.splice(3, 0, 6); // 在索引 3 处插入数字 6
 
     /* 删除元素 */
-    nums.splice(3, 1); // 删除索引 3 处的元素
+    nums.splice(3, 1);  // 删除索引 3 处的元素
     ```
 
 === "TS"
@@ -452,7 +449,7 @@ comments: true
     nums.splice(3, 0, 6); // 在索引 3 处插入数字 6
 
     /* 删除元素 */
-    nums.splice(3, 1); // 删除索引 3 处的元素
+    nums.splice(3, 1);  // 删除索引 3 处的元素
     ```
 
 === "Dart"
@@ -478,21 +475,21 @@ comments: true
 === "Rust"
 
     ```rust title="list.rs"
-    // 清空列表
+    /* 清空列表 */
     nums.clear();
 
-    // 在尾部添加元素
+    /* 在尾部添加元素 */
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    // 在中间插入元素
-    nums.insert(3, 6); // 在索引 3 处插入数字 6
+    /* 在中间插入元素 */
+    nums.insert(3, 6);  // 在索引 3 处插入数字 6
 
-    // 删除元素
-    nums.remove(3); // 删除索引 3 处的元素
+    /* 删除元素 */
+    nums.remove(3);    // 删除索引 3 处的元素
     ```
 
 === "C"
@@ -505,20 +502,20 @@ comments: true
 
     ```kotlin title="list.kt"
     /* 清空列表 */
-    nums.clear()
+    nums.clear();
 
     /* 在尾部添加元素 */
-    nums.add(1)
-    nums.add(3)
-    nums.add(2)
-    nums.add(5)
-    nums.add(4)
+    nums.add(1);
+    nums.add(3);
+    nums.add(2);
+    nums.add(5);
+    nums.add(4);
 
     /* 在中间插入元素 */
-    nums.add(3, 6) // 在索引 3 处插入数字 6
+    nums.add(3, 6);    // 在索引 3 处插入数字 6
 
     /* 删除元素 */
-    nums.removeAt(3) // 删除索引 3 处的元素
+    nums.removeAt(3);  // 删除索引 3 处的元素
     ```
 
 === "Ruby"
@@ -574,8 +571,8 @@ comments: true
 
     /* 直接遍历列表元素 */
     count = 0;
-    for (int x : nums) {
-        count += x;
+    for (int num : nums) {
+        count += num;
     }
     ```
 
@@ -589,8 +586,8 @@ comments: true
     }
 
     /* 直接遍历列表元素 */
-    for (int x : nums) {
-        count += x;
+    for (int num : nums) {
+        count += num;
     }
     ```
 
@@ -605,8 +602,8 @@ comments: true
 
     /* 直接遍历列表元素 */
     count = 0;
-    foreach (int x in nums) {
-        count += x;
+    foreach (int num in nums) {
+        count += num;
     }
     ```
 
@@ -621,8 +618,8 @@ comments: true
 
     /* 直接遍历列表元素 */
     count = 0
-    for _, x := range nums {
-        count += x
+    for _, num := range nums {
+        count += num
     }
     ```
 
@@ -637,8 +634,8 @@ comments: true
 
     /* 直接遍历列表元素 */
     count = 0
-    for x in nums {
-        count += x
+    for num in nums {
+        count += num
     }
     ```
 
@@ -653,8 +650,8 @@ comments: true
 
     /* 直接遍历列表元素 */
     count = 0;
-    for (const x of nums) {
-        count += x;
+    for (const num of nums) {
+        count += num;
     }
     ```
 
@@ -669,8 +666,8 @@ comments: true
 
     /* 直接遍历列表元素 */
     count = 0;
-    for (const x of nums) {
-        count += x;
+    for (const num of nums) {
+        count += num;
     }
     ```
 
@@ -680,13 +677,13 @@ comments: true
     /* 通过索引遍历列表 */
     int count = 0;
     for (var i = 0; i < nums.length; i++) {
-      count += nums[i];
+        count += nums[i];
     }
 
     /* 直接遍历列表元素 */
     count = 0;
-    for (var x in nums) {
-      count += x;
+    for (var num in nums) {
+        count += num;
     }
     ```
 
@@ -701,8 +698,8 @@ comments: true
 
     // 直接遍历列表元素
     _count = 0;
-    for x in &nums {
-        _count += x;
+    for num in &nums {
+        _count += num;
     }
     ```
 
@@ -722,8 +719,8 @@ comments: true
     }
 
     /* 直接遍历列表元素 */
-    for (j in nums) {
-        count += j
+    for (num in nums) {
+        count += num
     }
     ```
 
@@ -733,13 +730,13 @@ comments: true
     # 通过索引遍历列表
     count = 0
     for i in 0...nums.length
-      count += nums[i]
+        count += nums[i]
     end
 
     # 直接遍历列表元素
     count = 0
-    nums.each do |x|
-      count += x
+    for num in nums
+        count += num
     end
     ```
 
@@ -756,7 +753,7 @@ comments: true
 
     ```python title="list.py"
     # 拼接两个列表
-    nums1 = [6, 8, 7, 10, 9]
+    nums1: list[int] = [6, 8, 7, 10, 9]
     nums += nums1  # 将列表 nums1 拼接到 nums 之后
     ```
 
@@ -764,7 +761,7 @@ comments: true
 
     ```cpp title="list.cpp"
     /* 拼接两个列表 */
-    vector<int> nums1 = {6, 8, 7, 10, 9};
+    vector<int> nums1 = { 6, 8, 7, 10, 9 };
     // 将列表 nums1 拼接到 nums 之后
     nums.insert(nums.end(), nums1.begin(), nums1.end());
     ```
@@ -774,7 +771,7 @@ comments: true
     ```java title="list.java"
     /* 拼接两个列表 */
     List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
-    nums.addAll(nums1); // 将列表 nums1 拼接到 nums 之后
+    nums.addAll(nums1);  // 将列表 nums1 拼接到 nums 之后
     ```
 
 === "C#"
@@ -782,7 +779,7 @@ comments: true
     ```csharp title="list.cs"
     /* 拼接两个列表 */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.AddRange(nums1); // 将列表 nums1 拼接到 nums 之后
+    nums.AddRange(nums1);  // 将列表 nums1 拼接到 nums 之后
     ```
 
 === "Go"
@@ -790,7 +787,7 @@ comments: true
     ```go title="list_test.go"
     /* 拼接两个列表 */
     nums1 := []int{6, 8, 7, 10, 9}
-    nums = append(nums, nums1...) // 将列表 nums1 拼接到 nums 之后
+    nums = append(nums, nums1...)  // 将列表 nums1 拼接到 nums 之后
     ```
 
 === "Swift"
@@ -806,7 +803,7 @@ comments: true
     ```javascript title="list.js"
     /* 拼接两个列表 */
     const nums1 = [6, 8, 7, 10, 9];
-    nums.push(...nums1); // 将列表 nums1 拼接到 nums 之后
+    nums.push(...nums1);  // 将列表 nums1 拼接到 nums 之后
     ```
 
 === "TS"
@@ -814,7 +811,7 @@ comments: true
     ```typescript title="list.ts"
     /* 拼接两个列表 */
     const nums1: number[] = [6, 8, 7, 10, 9];
-    nums.push(...nums1); // 将列表 nums1 拼接到 nums 之后
+    nums.push(...nums1);  // 将列表 nums1 拼接到 nums 之后
     ```
 
 === "Dart"
@@ -822,15 +819,15 @@ comments: true
     ```dart title="list.dart"
     /* 拼接两个列表 */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.addAll(nums1); // 将列表 nums1 拼接到 nums 之后
+    nums.addAll(nums1);  // 将列表 nums1 拼接到 nums 之后
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    // 拼接两个列表
-    let mut nums1 = vec![6, 8, 7, 10, 9];
-    nums.append(&mut nums1); // append（移动） 之后 nums1 为空！
+    /* 拼接两个列表 */
+    let nums1: Vec<i32> = vec![6, 8, 7, 10, 9];
+    nums.extend(nums1);
     ```
 
 === "C"
@@ -842,9 +839,9 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="list.kt"
-    /* 拼接两个列表*/
-    val nums1 = mutableListOf(6, 8, 7, 10, 9)
-    nums.addAll(nums1) // 将列表 nums1 拼接到 nums 之后
+    /* 拼接两个列表 */
+    val nums1 = intArrayOf(6, 8, 7, 10, 9).toMutableList()
+    nums.addAll(nums1)  // 将列表 nums1 拼接到 nums 之后
     ```
 
 === "Ruby"
@@ -875,14 +872,14 @@ comments: true
 
     ```cpp title="list.cpp"
     /* 排序列表 */
-    sort(nums.begin(), nums.end()); // 排序后，列表元素从小到大排列
+    sort(nums.begin(), nums.end());  // 排序后，列表元素从小到大排列
     ```
 
 === "Java"
 
     ```java title="list.java"
     /* 排序列表 */
-    Collections.sort(nums); // 排序后，列表元素从小到大排列
+    Collections.sort(nums);  // 排序后，列表元素从小到大排列
     ```
 
 === "C#"
@@ -896,7 +893,7 @@ comments: true
 
     ```go title="list_test.go"
     /* 排序列表 */
-    sort.Ints(nums) // 排序后，列表元素从小到大排列
+    sort.Ints(nums)  // 排序后，列表元素从小到大排列
     ```
 
 === "Swift"
@@ -910,14 +907,14 @@ comments: true
 
     ```javascript title="list.js"
     /* 排序列表 */
-    nums.sort((a, b) => a - b); // 排序后，列表元素从小到大排列
+    nums.sort((a, b) => a - b);  // 排序后，列表元素从小到大排列
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
     /* 排序列表 */
-    nums.sort((a, b) => a - b); // 排序后，列表元素从小到大排列
+    nums.sort((a, b) => a - b);  // 排序后，列表元素从小到大排列
     ```
 
 === "Dart"
@@ -930,7 +927,7 @@ comments: true
 === "Rust"
 
     ```rust title="list.rs"
-    // 排序列表
+    /* 排序列表 */
     nums.sort(); // 排序后，列表元素从小到大排列
     ```
 

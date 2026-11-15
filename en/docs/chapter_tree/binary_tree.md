@@ -159,12 +159,12 @@ A <u>binary tree</u> is a nonlinear data structure representing relationships be
 === "C"
 
     ```c title=""
-    /* Binary tree node structure */
+    /* Binary tree node struct */
     typedef struct TreeNode {
         int val;                // Node value
         int height;             // Node height
-        struct TreeNode *left;  // Pointer to the left child
-        struct TreeNode *right; // Pointer to the right child
+        struct TreeNode *left;  // Left child pointer
+        struct TreeNode *right; // Right child pointer
     } TreeNode;
 
     /* Constructor */
@@ -243,14 +243,14 @@ As with a linked list, first create the nodes, then connect them with references
 === "Python"
 
     ```python title="binary_tree.py"
-    # Initialize the binary tree
-    # Initialize the nodes
+    # Initialize a binary tree
+    # Initialize nodes
     n1 = TreeNode(val=1)
     n2 = TreeNode(val=2)
     n3 = TreeNode(val=3)
     n4 = TreeNode(val=4)
     n5 = TreeNode(val=5)
-    # Set up references (pointers) between the nodes
+    # Connect nodes with references (pointers)
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -260,14 +260,14 @@ As with a linked list, first create the nodes, then connect them with references
 === "C++"
 
     ```cpp title="binary_tree.cpp"
-    /* Initialize the binary tree */
-    // Initialize the nodes
-    TreeNode *n1 = new TreeNode(1);
-    TreeNode *n2 = new TreeNode(2);
-    TreeNode *n3 = new TreeNode(3);
-    TreeNode *n4 = new TreeNode(4);
-    TreeNode *n5 = new TreeNode(5);
-    // Set up references (pointers) between the nodes
+    /* Initialize a binary tree */
+    // Initialize nodes
+    TreeNode* n1 = new TreeNode(1);
+    TreeNode* n2 = new TreeNode(2);
+    TreeNode* n3 = new TreeNode(3);
+    TreeNode* n4 = new TreeNode(4);
+    TreeNode* n5 = new TreeNode(5);
+    // Connect nodes with references (pointers)
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -277,14 +277,13 @@ As with a linked list, first create the nodes, then connect them with references
 === "Java"
 
     ```java title="binary_tree.java"
-    /* Initialize the binary tree */
-    // Initialize the nodes
+    // Initialize nodes
     TreeNode n1 = new TreeNode(1);
     TreeNode n2 = new TreeNode(2);
     TreeNode n3 = new TreeNode(3);
     TreeNode n4 = new TreeNode(4);
     TreeNode n5 = new TreeNode(5);
-    // Set up references (pointers) between the nodes
+    // Connect nodes with references (pointers)
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -294,14 +293,14 @@ As with a linked list, first create the nodes, then connect them with references
 === "C#"
 
     ```csharp title="binary_tree.cs"
-    /* Initialize the binary tree */
-    // Initialize the nodes
+    /* Initialize a binary tree */
+    // Initialize nodes
     TreeNode n1 = new(1);
     TreeNode n2 = new(2);
     TreeNode n3 = new(3);
     TreeNode n4 = new(4);
     TreeNode n5 = new(5);
-    // Set up references (pointers) between the nodes
+    // Connect nodes with references (pointers)
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -311,14 +310,14 @@ As with a linked list, first create the nodes, then connect them with references
 === "Go"
 
     ```go title="binary_tree.go"
-    /* Initialize the binary tree */
-    // Initialize the nodes
+    /* Initialize a binary tree */
+    // Initialize nodes
     n1 := NewTreeNode(1)
     n2 := NewTreeNode(2)
     n3 := NewTreeNode(3)
     n4 := NewTreeNode(4)
     n5 := NewTreeNode(5)
-    // Set up references (pointers) between the nodes
+    // Connect nodes with references (pointers)
     n1.Left = n2
     n1.Right = n3
     n2.Left = n4
@@ -328,14 +327,13 @@ As with a linked list, first create the nodes, then connect them with references
 === "Swift"
 
     ```swift title="binary_tree.swift"
-    /* Initialize the binary tree */
-    // Initialize the nodes
+    // Initialize nodes
     let n1 = TreeNode(x: 1)
     let n2 = TreeNode(x: 2)
     let n3 = TreeNode(x: 3)
     let n4 = TreeNode(x: 4)
     let n5 = TreeNode(x: 5)
-    // Set up references (pointers) between the nodes
+    // Connect nodes with references (pointers)
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -345,14 +343,14 @@ As with a linked list, first create the nodes, then connect them with references
 === "JS"
 
     ```javascript title="binary_tree.js"
-    /* Initialize the binary tree */
-    // Initialize the nodes
+    /* Initialize a binary tree */
+    // Initialize nodes
     let n1 = new TreeNode(1),
         n2 = new TreeNode(2),
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // Set up references (pointers) between the nodes
+    // Connect nodes with references (pointers)
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -362,14 +360,14 @@ As with a linked list, first create the nodes, then connect them with references
 === "TS"
 
     ```typescript title="binary_tree.ts"
-    /* Initialize the binary tree */
-    // Initialize the nodes
+    /* Initialize a binary tree */
+    // Initialize nodes
     let n1 = new TreeNode(1),
         n2 = new TreeNode(2),
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // Set up references (pointers) between the nodes
+    // Connect nodes with references (pointers)
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -379,14 +377,14 @@ As with a linked list, first create the nodes, then connect them with references
 === "Dart"
 
     ```dart title="binary_tree.dart"
-    /* Initialize the binary tree */
-    // Initialize the nodes
-    TreeNode n1 = TreeNode(1);
-    TreeNode n2 = TreeNode(2);
-    TreeNode n3 = TreeNode(3);
-    TreeNode n4 = TreeNode(4);
-    TreeNode n5 = TreeNode(5);
-    // Set up references (pointers) between the nodes
+    /* Initialize a binary tree */
+    // Initialize nodes
+    TreeNode n1 = new TreeNode(1);
+    TreeNode n2 = new TreeNode(2);
+    TreeNode n3 = new TreeNode(3);
+    TreeNode n4 = new TreeNode(4);
+    TreeNode n5 = new TreeNode(5);
+    // Connect nodes with references (pointers)
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -396,31 +394,30 @@ As with a linked list, first create the nodes, then connect them with references
 === "Rust"
 
     ```rust title="binary_tree.rs"
-    /* Initialize the binary tree */
-    // Initialize the nodes
+    // Initialize nodes
     let n1 = TreeNode::new(1);
     let n2 = TreeNode::new(2);
     let n3 = TreeNode::new(3);
     let n4 = TreeNode::new(4);
     let n5 = TreeNode::new(5);
-    // Set up references (pointers) between the nodes
-    n1.borrow_mut().left = Some(Rc::clone(&n2));
-    n1.borrow_mut().right = Some(Rc::clone(&n3));
-    n2.borrow_mut().left = Some(Rc::clone(&n4));
-    n2.borrow_mut().right = Some(Rc::clone(&n5));
+    // Connect nodes with references (pointers)
+    n1.borrow_mut().left = Some(n2.clone());
+    n1.borrow_mut().right = Some(n3);
+    n2.borrow_mut().left = Some(n4);
+    n2.borrow_mut().right = Some(n5);
     ```
 
 === "C"
 
     ```c title="binary_tree.c"
-    /* Initialize the binary tree */
-    // Initialize the nodes
+    /* Initialize a binary tree */
+    // Initialize nodes
     TreeNode *n1 = newTreeNode(1);
     TreeNode *n2 = newTreeNode(2);
     TreeNode *n3 = newTreeNode(3);
     TreeNode *n4 = newTreeNode(4);
     TreeNode *n5 = newTreeNode(5);
-    // Set up references (pointers) between the nodes
+    // Connect nodes with references (pointers)
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -430,14 +427,13 @@ As with a linked list, first create the nodes, then connect them with references
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
-    /* Initialize the binary tree */
-    // Initialize the nodes
+    // Initialize nodes
     val n1 = TreeNode(1)
     val n2 = TreeNode(2)
     val n3 = TreeNode(3)
     val n4 = TreeNode(4)
     val n5 = TreeNode(5)
-    // Set up references (pointers) between the nodes
+    // Connect nodes with references (pointers)
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -447,14 +443,14 @@ As with a linked list, first create the nodes, then connect them with references
 === "Ruby"
 
     ```ruby title="binary_tree.rb"
-    # Initialize the binary tree
-    # Initialize the nodes
+    # Initialize a binary tree
+    # Initialize nodes
     n1 = TreeNode.new(1)
     n2 = TreeNode.new(2)
     n3 = TreeNode.new(3)
     n4 = TreeNode.new(4)
     n5 = TreeNode.new(5)
-    # Set up references (pointers) between the nodes
+    # Connect nodes with references (pointers)
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -477,160 +473,156 @@ As with linked lists, insertion and deletion can be implemented by changing poin
 === "Python"
 
     ```python title="binary_tree.py"
-    # Insert and remove nodes
-    P = TreeNode(0)
-    # Insert node P between n1 and n2 in n1 -> n2
-    n1.left = P
-    P.left = n2
-    # Remove node P
+    # Insert and delete a node
+    p = TreeNode(0)
+    # Insert node P between n1 and n2
+    n1.left = p
+    p.left = n2
+    # Delete node P
     n1.left = n2
     ```
 
 === "C++"
 
     ```cpp title="binary_tree.cpp"
-    /* Insert and remove nodes */
-    TreeNode *P = new TreeNode(0);
-    // Insert node P between n1 and n2 in n1 -> n2
+    /* Insert and delete a node */
+    TreeNode* P = new TreeNode(0);
+    // Insert node P between n1 and n2
     n1->left = P;
     P->left = n2;
-    // Remove node P
+    // Delete node P
     n1->left = n2;
-    delete P; // Free memory
+    // Free the memory
+    delete P;
     ```
 
 === "Java"
 
     ```java title="binary_tree.java"
-    /* Insert and remove nodes */
     TreeNode P = new TreeNode(0);
-    // Insert node P between n1 and n2 in n1 -> n2
+    // Insert node P between n1 and n2
     n1.left = P;
     P.left = n2;
-    // Remove node P
+    // Delete node P
     n1.left = n2;
     ```
 
 === "C#"
 
     ```csharp title="binary_tree.cs"
-    /* Insert and remove nodes */
+    /* Insert and delete a node */
     TreeNode P = new(0);
-    // Insert node P between n1 and n2 in n1 -> n2
+    // Insert node P between n1 and n2
     n1.left = P;
     P.left = n2;
-    // Remove node P
+    // Delete node P
     n1.left = n2;
     ```
 
 === "Go"
 
     ```go title="binary_tree.go"
-    /* Insert and remove nodes */
-    // Insert node P between n1 and n2 in n1 -> n2
+    /* Insert and delete a node */
+    // Insert node P between n1 and n2
     p := NewTreeNode(0)
     n1.Left = p
     p.Left = n2
-    // Remove node P
+    // Delete node P
     n1.Left = n2
     ```
 
 === "Swift"
 
     ```swift title="binary_tree.swift"
-    /* Insert and remove nodes */
     let P = TreeNode(x: 0)
-    // Insert node P between n1 and n2 in n1 -> n2
+    // Insert node P between n1 and n2
     n1.left = P
     P.left = n2
-    // Remove node P
+    // Delete node P
     n1.left = n2
     ```
 
 === "JS"
 
     ```javascript title="binary_tree.js"
-    /* Insert and remove nodes */
-    const P = new TreeNode(0);
-    // Insert node P between n1 and n2 in n1 -> n2
+    /* Insert and delete a node */
+    let P = new TreeNode(0);
+    // Insert node P between n1 and n2
     n1.left = P;
     P.left = n2;
-    // Remove node P
+    // Delete node P
     n1.left = n2;
     ```
 
 === "TS"
 
     ```typescript title="binary_tree.ts"
-    /* Insert and remove nodes */
+    /* Insert and delete a node */
     const P = new TreeNode(0);
-    // Insert node P between n1 and n2 in n1 -> n2
+    // Insert node P between n1 and n2
     n1.left = P;
     P.left = n2;
-    // Remove node P
+    // Delete node P
     n1.left = n2;
     ```
 
 === "Dart"
 
     ```dart title="binary_tree.dart"
-    /* Insert and remove nodes */
-    TreeNode p = TreeNode(0);
-    // Insert node P between n1 and n2 in n1 -> n2
-    n1.left = p;
-    p.left = n2;
-    // Remove node p
+    /* Insert and delete a node */
+    TreeNode P = new TreeNode(0);
+    // Insert node P between n1 and n2
+    n1.left = P;
+    P.left = n2;
+    // Delete node P
     n1.left = n2;
     ```
 
 === "Rust"
 
     ```rust title="binary_tree.rs"
-    // Insert and remove nodes
     let p = TreeNode::new(0);
-    // Insert node p between n1 and n2 in n1 -> n2
-    p.borrow_mut().left = Some(Rc::clone(&n2));
-    n1.borrow_mut().left = Some(Rc::clone(&p));
-    // Remove node p
-    drop(p);
-    n1.borrow_mut().left = Some(Rc::clone(&n2));
+    // Insert node P between n1 and n2
+    n1.borrow_mut().left = Some(p.clone());
+    p.borrow_mut().left = Some(n2.clone());
+    // Delete node p
+    n1.borrow_mut().left = Some(n2);
     ```
 
 === "C"
 
     ```c title="binary_tree.c"
-    /* Insert and remove nodes */
+    /* Insert and delete a node */
     TreeNode *P = newTreeNode(0);
-    // Insert node P between n1 and n2 in n1 -> n2
+    // Insert node P between n1 and n2
     n1->left = P;
     P->left = n2;
-    // Remove node P
+    // Delete node P
     n1->left = n2;
-    // Free memory
+    // Free the memory
     free(P);
     ```
 
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
-    /* Insert and remove nodes */
     val P = TreeNode(0)
-    // Insert node P between n1 and n2 in n1 -> n2
+    // Insert node P between n1 and n2
     n1.left = P
     P.left = n2
-    // Remove node P
+    // Delete node P
     n1.left = n2
     ```
 
 === "Ruby"
 
     ```ruby title="binary_tree.rb"
-    # Insert and remove nodes
+    # Insert and delete a node
     _p = TreeNode.new(0)
     # Insert node _p between n1 and n2
     n1.left = _p
     _p.left = n2
-    # Remove a node
+    # Delete the node
     n1.left = n2
     ```
 

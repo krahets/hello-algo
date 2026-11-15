@@ -19,7 +19,7 @@ We can initialize an array with or without explicit values. When values are not 
 === "Python"
 
     ```python title="array.py"
-    # Initialize the array
+    # Initialize arrays
     arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
     nums: list[int] = [1, 3, 2, 5, 4]
     ```
@@ -39,7 +39,7 @@ We can initialize an array with or without explicit values. When values are not 
 === "Java"
 
     ```java title="array.java"
-    /* Initialize the array */
+    /* Initialize arrays */
     int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
     int[] nums = { 1, 3, 2, 5, 4 };
     ```
@@ -47,7 +47,7 @@ We can initialize an array with or without explicit values. When values are not 
 === "C#"
 
     ```csharp title="array.cs"
-    // Initialize the array
+    /* Initialize arrays */
     int[] arr = new int[5]; // [ 0, 0, 0, 0, 0 ]
     int[] nums = [1, 3, 2, 5, 4];
     ```
@@ -55,78 +55,79 @@ We can initialize an array with or without explicit values. When values are not 
 === "Go"
 
     ```go title="array.go"
-    /* Initialize the array */
+    /* Initialize arrays */
     var arr [5]int
-    // In Go, a type with a specified length ([5]int) is an array; without a length ([]int), it is a slice
-    // Go array lengths are determined at compile time, so the length must be a constant
-    // To make the extend() function easier to implement, we treat slices as arrays below
+    // In Go, [5]int is an array with a specified length; []int is a slice
+    // Go array lengths are determined at compile time and must be constants
+    // To make extend() easier to implement, we treat slices as arrays below
     nums := []int{1, 3, 2, 5, 4}
     ```
 
 === "Swift"
 
     ```swift title="array.swift"
-    /* Initialize the array */
+    /* Initialize arrays */
     let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
-    var nums = [1, 3, 2, 5, 4]
+    let nums = [1, 3, 2, 5, 4]
     ```
 
 === "JS"
 
     ```javascript title="array.js"
-    /* Initialize the array */
-    const arr = new Array(5).fill(0);
-    let nums = [1, 3, 2, 5, 4];
+    /* Initialize arrays */
+    var arr = new Array(5).fill(0);
+    var nums = [1, 3, 2, 5, 4];
     ```
 
 === "TS"
 
     ```typescript title="array.ts"
-    /* Initialize the array */
-    const arr: number[] = new Array(5).fill(0);
+    /* Initialize arrays */
+    let arr: number[] = new Array(5).fill(0);
     let nums: number[] = [1, 3, 2, 5, 4];
     ```
 
 === "Dart"
 
     ```dart title="array.dart"
-    /* Initialize the array */
-    var arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
+    /* Initialize arrays */
+    List<int> arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
     List<int> nums = [1, 3, 2, 5, 4];
     ```
 
 === "Rust"
 
     ```rust title="array.rs"
-    /* Initialize the array */
+    /* Initialize arrays */
     let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
-    // In Rust, [i32; 5] is an array type with a fixed length, whereas &[i32] is a reference to a slice
-    // Rust array lengths are determined at compile time, so their lengths must be constant expressions
-    // Vec is the type normally used for dynamic arrays in Rust
-    // To simplify the extend() method, the following examples use a vector to represent an array
+    let slice: &[i32] = &[0; 5];
+    // In Rust, [i32; 5] is an array with a specified length; &[i32] is a slice
+    // Rust array lengths are determined at compile time and must be constants
+    // Vector is Rust's usual dynamic array type
+    // To make extend() easier to implement, we treat a vector as an array below
     let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
 === "C"
 
     ```c title="array.c"
-    /* Initialize the array */
-    int arr[5] = {0}; // { 0, 0, 0, 0, 0 }
-    int nums[] = {1, 3, 2, 5, 4};
+    /* Initialize arrays */
+    int arr[5] = { 0 }; // { 0, 0, 0, 0, 0 }
+    int nums[5] = { 1, 3, 2, 5, 4 };
     ```
 
 === "Kotlin"
 
     ```kotlin title="array.kt"
-    /* Initialize the array */
-    val arr = IntArray(5) // { 0, 0, 0, 0, 0 }
+    /* Initialize arrays */
+    var arr = IntArray(5) // { 0, 0, 0, 0, 0 }
     var nums = intArrayOf(1, 3, 2, 5, 4)
     ```
 
 === "Ruby"
 
     ```ruby title="array.rb"
-    # Initialize the array
+    # Initialize arrays
     arr = Array.new(5, 0)
     nums = [1, 3, 2, 5, 4]
     ```

@@ -65,15 +65,15 @@ comments: true
     heapq.heappush(max_heap, flag * 4)
 
     # 获取堆顶元素
-    peek: int = flag * max_heap[0]  # 5
+    peek: int = flag * max_heap[0] # 5
 
     # 堆顶元素出堆
     # 出堆元素会形成一个从大到小的序列
-    val = flag * heapq.heappop(max_heap)  # 5
-    val = flag * heapq.heappop(max_heap)  # 4
-    val = flag * heapq.heappop(max_heap)  # 3
-    val = flag * heapq.heappop(max_heap)  # 2
-    val = flag * heapq.heappop(max_heap)  # 1
+    val = flag * heapq.heappop(max_heap) # 5
+    val = flag * heapq.heappop(max_heap) # 4
+    val = flag * heapq.heappop(max_heap) # 3
+    val = flag * heapq.heappop(max_heap) # 2
+    val = flag * heapq.heappop(max_heap) # 1
 
     # 获取堆大小
     size: int = len(max_heap)
@@ -82,7 +82,6 @@ comments: true
     is_empty: bool = not max_heap
 
     # 输入列表并建堆
-    # 时间复杂度为 O(n) ，而非 O(nlogn)
     min_heap: list[int] = [1, 3, 2, 5, 4]
     heapq.heapify(min_heap)
     ```
@@ -121,7 +120,6 @@ comments: true
     bool isEmpty = maxHeap.empty();
 
     /* 输入列表并建堆 */
-    // 时间复杂度为 O(n) ，而非 O(nlogn)
     vector<int> input{1, 3, 2, 5, 4};
     minHeap = priority_queue<int, vector<int>, greater<int>>(input.begin(), input.end());
     ```
@@ -160,7 +158,6 @@ comments: true
     boolean isEmpty = maxHeap.isEmpty();
 
     /* 输入列表并建堆 */
-    // 时间复杂度为 O(n) ，而非 O(nlogn)
     minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
     ```
 
@@ -181,15 +178,15 @@ comments: true
     maxHeap.Enqueue(4, 4);
 
     /* 获取堆顶元素 */
-    int peek = maxHeap.Peek(); // 5
+    int peek = maxHeap.Peek();//5
 
     /* 堆顶元素出堆 */
     // 出堆元素会形成一个从大到小的序列
-    peek = maxHeap.Dequeue(); // 5
-    peek = maxHeap.Dequeue(); // 4
-    peek = maxHeap.Dequeue(); // 3
-    peek = maxHeap.Dequeue(); // 2
-    peek = maxHeap.Dequeue(); // 1
+    peek = maxHeap.Dequeue();  // 5
+    peek = maxHeap.Dequeue();  // 4
+    peek = maxHeap.Dequeue();  // 3
+    peek = maxHeap.Dequeue();  // 2
+    peek = maxHeap.Dequeue();  // 1
 
     /* 获取堆大小 */
     int size = maxHeap.Count;
@@ -208,14 +205,14 @@ comments: true
     // 实现 heap.Interface 需要同时实现 sort.Interface
     type intHeap []any
 
-    // Push heap.Interface 的函数，实现推入元素到堆
+    // Push heap.Interface 的方法，实现推入元素到堆
     func (h *intHeap) Push(x any) {
         // Push 和 Pop 使用 pointer receiver 作为参数
         // 因为它们不仅会对切片的内容进行调整，还会修改切片的长度。
         *h = append(*h, x.(int))
     }
 
-    // Pop heap.Interface 的函数，实现弹出堆顶元素
+    // Pop heap.Interface 的方法，实现弹出堆顶元素
     func (h *intHeap) Pop() any {
         // 待出堆元素存放在最后
         last := (*h)[len(*h)-1]
@@ -223,18 +220,18 @@ comments: true
         return last
     }
 
-    // Len sort.Interface 的函数
+    // Len sort.Interface 的方法
     func (h *intHeap) Len() int {
         return len(*h)
     }
 
-    // Less sort.Interface 的函数
+    // Less sort.Interface 的方法
     func (h *intHeap) Less(i, j int) bool {
         // 如果实现小顶堆，则需要调整为小于号
         return (*h)[i].(int) > (*h)[j].(int)
     }
 
-    // Swap sort.Interface 的函数
+    // Swap sort.Interface 的方法
     func (h *intHeap) Swap(i, j int) {
         (*h)[i], (*h)[j] = (*h)[j], (*h)[i]
     }
@@ -244,31 +241,31 @@ comments: true
         return (*h)[0]
     }
 
+    /* Driver Code */
     func TestHeap(t *testing.T) {
         /* 初始化堆 */
         // 初始化大顶堆
         maxHeap := &intHeap{}
         heap.Init(maxHeap)
         /* 元素入堆 */
-        // 调用 heap.Interface 的函数，来添加元素
+        // 调用 heap.Interface 的方法，来添加元素
         heap.Push(maxHeap, 1)
         heap.Push(maxHeap, 3)
         heap.Push(maxHeap, 2)
-        heap.Push(maxHeap, 5)
         heap.Push(maxHeap, 4)
-        PrintHeap(*maxHeap)
+        heap.Push(maxHeap, 5)
 
         /* 获取堆顶元素 */
         top := maxHeap.Top()
         fmt.Printf("堆顶元素为 %d\n", top)
 
         /* 堆顶元素出堆 */
-        // 调用 heap.Interface 的函数，来移除元素
-        fmt.Println(heap.Pop(maxHeap)) // 5
-        fmt.Println(heap.Pop(maxHeap)) // 4
-        fmt.Println(heap.Pop(maxHeap)) // 3
-        fmt.Println(heap.Pop(maxHeap)) // 2
-        fmt.Println(heap.Pop(maxHeap)) // 1
+        // 调用 heap.Interface 的方法，来移除元素
+        heap.Pop(maxHeap) // 5
+        heap.Pop(maxHeap) // 4
+        heap.Pop(maxHeap) // 3
+        heap.Pop(maxHeap) // 2
+        heap.Pop(maxHeap) // 1
 
         /* 获取堆大小 */
         size := len(*maxHeap)
@@ -283,10 +280,8 @@ comments: true
 === "Swift"
 
     ```swift title="heap.swift"
-    import HeapModule
-
     /* 初始化堆 */
-    // Swift 的 Heap 类型同时支持最大堆和最小堆
+    // Swift 的 Heap 类型同时支持最大堆和最小堆，且需要引入 swift-collections
     var heap = Heap<Int>()
 
     /* 元素入堆 */
@@ -297,7 +292,7 @@ comments: true
     heap.insert(4)
 
     /* 获取堆顶元素 */
-    var peek = heap.max()
+    var peek = heap.max()!
 
     /* 堆顶元素出堆 */
     peek = heap.removeMax() // 5
@@ -313,7 +308,6 @@ comments: true
     let isEmpty = heap.isEmpty
 
     /* 输入列表并建堆 */
-    // 时间复杂度为 O(n) ，而非 O(nlogn)
     let heap2 = Heap([1, 3, 2, 5, 4])
     ```
 
@@ -338,13 +332,12 @@ comments: true
 === "Rust"
 
     ```rust title="heap.rs"
-    use std::{cmp::Reverse, collections::BinaryHeap};
+    use std::collections::BinaryHeap;
+    use std::cmp::Reverse;
 
     /* 初始化堆 */
     // 初始化小顶堆
-    #[allow(unused_assignments)]
-    let mut min_heap = BinaryHeap::new();
-    // Rust 的 BinaryHeap 是大顶堆，小顶堆一般会“套上”Reverse
+    let mut min_heap = BinaryHeap::<Reverse<i32>>::new();
     // 初始化大顶堆
     let mut max_heap = BinaryHeap::new();
 
@@ -356,15 +349,15 @@ comments: true
     max_heap.push(4);
 
     /* 获取堆顶元素 */
-    let peek = max_heap.peek().unwrap(); // 5
+    let peek = max_heap.peek().unwrap();  // 5
 
     /* 堆顶元素出堆 */
     // 出堆元素会形成一个从大到小的序列
-    let peek = max_heap.pop().unwrap(); // 5
-    let peek = max_heap.pop().unwrap(); // 4
-    let peek = max_heap.pop().unwrap(); // 3
-    let peek = max_heap.pop().unwrap(); // 2
-    let peek = max_heap.pop().unwrap(); // 1
+    let peek = max_heap.pop().unwrap();   // 5
+    let peek = max_heap.pop().unwrap();   // 4
+    let peek = max_heap.pop().unwrap();   // 3
+    let peek = max_heap.pop().unwrap();   // 2
+    let peek = max_heap.pop().unwrap();   // 1
 
     /* 获取堆大小 */
     let size = max_heap.len();
@@ -373,8 +366,7 @@ comments: true
     let is_empty = max_heap.is_empty();
 
     /* 输入列表并建堆 */
-    // 时间复杂度为 O(n) ，而非 O(nlogn)
-    min_heap = BinaryHeap::from(vec![Reverse(1), Reverse(3), Reverse(2), Reverse(5), Reverse(4)]);
+    let min_heap = BinaryHeap::from(vec![Reverse(1), Reverse(3), Reverse(2), Reverse(5), Reverse(4)]);
     ```
 
 === "C"
@@ -417,8 +409,7 @@ comments: true
     val isEmpty = maxHeap.isEmpty()
 
     /* 输入列表并建堆 */
-    // 时间复杂度为 O(n) ，而非 O(nlogn)
-    minHeap = PriorityQueue(mutableListOf<Int?>(1, 3, 2, 5, 4))
+    minHeap = PriorityQueue(mutableListOf(1, 3, 2, 5, 4))
     ```
 
 === "Ruby"

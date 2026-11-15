@@ -40,10 +40,10 @@ comments: true
 
     ```python title="hash_map.py"
     # 해시 테이블 초기화
-    hmap = dict[int, str]()
+    hmap: dict = {}
 
     # 추가 연산
-    # 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+    # 해시 테이블에 키-값 쌍 (key, value) 추가
     hmap[12836] = "小哈"
     hmap[15937] = "小啰"
     hmap[16750] = "小算"
@@ -51,11 +51,11 @@ comments: true
     hmap[10583] = "小鸭"
 
     # 조회 연산
-    # 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+    # 해시 테이블에 키 key를 입력하여 값 value를 얻음
     name: str = hmap[15937]
 
     # 삭제 연산
-    # 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+    # 해시 테이블에서 키-값 쌍 (key, value) 삭제
     hmap.pop(10583)
     ```
 
@@ -66,7 +66,7 @@ comments: true
     unordered_map<int, string> map;
 
     /* 추가 연산 */
-    // 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+    // 해시 테이블에 키-값 쌍 (key, value) 추가
     map[12836] = "小哈";
     map[15937] = "小啰";
     map[16750] = "小算";
@@ -74,11 +74,11 @@ comments: true
     map[10583] = "小鸭";
 
     /* 조회 연산 */
-    // 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+    // 해시 테이블에 키 key를 입력하여 값 value를 얻음
     string name = map[15937];
 
     /* 삭제 연산 */
-    // 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+    // 해시 테이블에서 키-값 쌍 (key, value) 삭제
     map.erase(10583);
     ```
 
@@ -89,7 +89,7 @@ comments: true
     Map<Integer, String> map = new HashMap<>();
 
     /* 추가 연산 */
-    // 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+    // 해시 테이블에 키-값 쌍 (key, value) 추가
     map.put(12836, "小哈");
     map.put(15937, "小啰");
     map.put(16750, "小算");
@@ -97,11 +97,11 @@ comments: true
     map.put(10583, "小鸭");
 
     /* 조회 연산 */
-    // 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+    // 해시 테이블에 키 key를 입력하여 값 value를 얻음
     String name = map.get(15937);
 
     /* 삭제 연산 */
-    // 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+    // 해시 테이블에서 키-값 쌍 (key, value) 삭제
     map.remove(10583);
     ```
 
@@ -111,7 +111,7 @@ comments: true
     /* 해시 테이블 초기화 */
     Dictionary<int, string> map = new() {
         /* 추가 연산 */
-        // 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+        // 해시 테이블에 키-값 쌍 (key, value) 추가
         { 12836, "小哈" },
         { 15937, "小啰" },
         { 16750, "小算" },
@@ -120,11 +120,11 @@ comments: true
     };
 
     /* 조회 연산 */
-    // 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+    // 해시 테이블에 키 key를 입력하여 값 value를 얻음
     string name = map[15937];
 
     /* 삭제 연산 */
-    // 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+    // 해시 테이블에서 키-값 쌍 (key, value) 삭제
     map.Remove(10583);
     ```
 
@@ -135,7 +135,7 @@ comments: true
     hmap := make(map[int]string)
 
     /* 추가 연산 */
-    // 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+    // 해시 테이블에 키-값 쌍 (key, value) 추가
     hmap[12836] = "小哈"
     hmap[15937] = "小啰"
     hmap[16750] = "小算"
@@ -143,11 +143,11 @@ comments: true
     hmap[10583] = "小鸭"
 
     /* 조회 연산 */
-    // 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+    // 해시 테이블에 키 key를 입력하여 값 value를 얻음
     name := hmap[15937]
 
     /* 삭제 연산 */
-    // 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+    // 해시 테이블에서 키-값 쌍 (key, value) 삭제
     delete(hmap, 10583)
     ```
 
@@ -158,7 +158,7 @@ comments: true
     var map: [Int: String] = [:]
 
     /* 추가 연산 */
-    // 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+    // 해시 테이블에 키-값 쌍 (key, value) 추가
     map[12836] = "小哈"
     map[15937] = "小啰"
     map[16750] = "小算"
@@ -166,11 +166,11 @@ comments: true
     map[10583] = "小鸭"
 
     /* 조회 연산 */
-    // 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+    // 해시 테이블에 키 key를 입력하여 값 value를 얻음
     let name = map[15937]!
 
     /* 삭제 연산 */
-    // 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+    // 해시 테이블에서 키-값 쌍 (key, value) 삭제
     map.removeValue(forKey: 10583)
     ```
 
@@ -179,9 +179,8 @@ comments: true
     ```javascript title="hash_map.js"
     /* 해시 테이블 초기화 */
     const map = new Map();
-
     /* 추가 연산 */
-    // 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+    // 해시 테이블에 키-값 쌍 (key, value) 추가
     map.set(12836, '小哈');
     map.set(15937, '小啰');
     map.set(16750, '小算');
@@ -189,11 +188,11 @@ comments: true
     map.set(10583, '小鸭');
 
     /* 조회 연산 */
-    // 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+    // 해시 테이블에 키 key를 입력하여 값 value를 얻음
     let name = map.get(15937);
 
     /* 삭제 연산 */
-    // 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+    // 해시 테이블에서 키-값 쌍 (key, value) 삭제
     map.delete(10583);
     ```
 
@@ -202,32 +201,36 @@ comments: true
     ```typescript title="hash_map.ts"
     /* 해시 테이블 초기화 */
     const map = new Map<number, string>();
-
     /* 추가 연산 */
-    // 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+    // 해시 테이블에 키-값 쌍 (key, value) 추가
     map.set(12836, '小哈');
     map.set(15937, '小啰');
     map.set(16750, '小算');
     map.set(13276, '小法');
     map.set(10583, '小鸭');
+    console.info('\n추가한 뒤의 해시 테이블\nKey -> Value');
+    console.info(map);
 
     /* 조회 연산 */
-    // 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+    // 해시 테이블에 키 key를 입력하여 값 value를 얻음
     let name = map.get(15937);
+    console.info('\n학번 15937을 입력하여 찾은 이름 ' + name);
 
     /* 삭제 연산 */
-    // 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+    // 해시 테이블에서 키-값 쌍 (key, value) 삭제
     map.delete(10583);
+    console.info('\n10583을 삭제한 뒤의 해시 테이블\nKey -> Value');
+    console.info(map);
     ```
 
 === "Dart"
 
     ```dart title="hash_map.dart"
     /* 해시 테이블 초기화 */
-    final Map<int, String> map = {};
+    Map<int, String> map = {};
 
     /* 추가 연산 */
-    // 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+    // 해시 테이블에 키-값 쌍 (key, value) 추가
     map[12836] = "小哈";
     map[15937] = "小啰";
     map[16750] = "小算";
@@ -235,11 +238,11 @@ comments: true
     map[10583] = "小鸭";
 
     /* 조회 연산 */
-    // 해시 테이블에 키 key를 입력하여 값 value를 얻는다
-    final String? name = map[15937];
+    // 해시 테이블에 키 key를 입력하여 값 value를 얻음
+    String? name = map[15937];
 
     /* 삭제 연산 */
-    // 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+    // 해시 테이블에서 키-값 쌍 (key, value) 삭제
     map.remove(10583);
     ```
 
@@ -248,24 +251,24 @@ comments: true
     ```rust title="hash_map.rs"
     use std::collections::HashMap;
 
-    // 해시 테이블 초기화
-    let mut map = HashMap::new();
+    /* 해시 테이블 초기화 */
+    let mut map: HashMap<i32, String> = HashMap::new();
 
-    // 추가 연산
-    // 해시 테이블에 (key, value) 키-값 쌍을 추가한다
-    map.insert(12836, "小哈");
-    map.insert(15937, "小啰");
-    map.insert(16750, "小算");
-    map.insert(13276, "小法");
-    map.insert(10583, "小鸭");
+    /* 추가 연산 */
+    // 해시 테이블에 키-값 쌍 (key, value) 추가
+    map.insert(12836, "小哈".to_string());
+    map.insert(15937, "小啰".to_string());
+    map.insert(16750, "小算".to_string());
+    map.insert(13276, "小法".to_string());
+    map.insert(10583, "小鸭".to_string());
 
-    // 조회 연산
-    // 해시 테이블에 키 key를 입력하여 값 value를 얻는다
-    let name = map.get(&15937).copied().unwrap();
+    /* 조회 연산 */
+    // 해시 테이블에 키 key를 입력하여 값 value를 얻음
+    let _name: Option<&String> = map.get(&15937);
 
-    // 삭제 연산
-    // 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
-    _ = map.remove(&10583);
+    /* 삭제 연산 */
+    // 해시 테이블에서 키-값 쌍 (key, value) 삭제
+    let _removed_value: Option<String> = map.remove(&10583);
     ```
 
 === "C"
@@ -278,10 +281,10 @@ comments: true
 
     ```kotlin title="hash_map.kt"
     /* 해시 테이블 초기화 */
-    val map = HashMap<Int, String>()
+    val map = HashMap<Int,String>()
 
     /* 추가 연산 */
-    // 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+    // 해시 테이블에 키-값 쌍 (key, value) 추가
     map[12836] = "小哈"
     map[15937] = "小啰"
     map[16750] = "小算"
@@ -289,11 +292,11 @@ comments: true
     map[10583] = "小鸭"
 
     /* 조회 연산 */
-    // 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+    // 해시 테이블에 키 key를 입력하여 값 value를 얻음
     val name = map[15937]
 
     /* 삭제 연산 */
-    // 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+    // 해시 테이블에서 키-값 쌍 (key, value) 삭제
     map.remove(10583)
     ```
 
@@ -304,7 +307,7 @@ comments: true
     hmap = {}
 
     # 추가 연산
-    # 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+    # 해시 테이블에 키-값 쌍 (key, value) 추가
     hmap[12836] = "小哈"
     hmap[15937] = "小啰"
     hmap[16750] = "小算"
@@ -312,11 +315,11 @@ comments: true
     hmap[10583] = "小鸭"
 
     # 조회 연산
-    # 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+    # 해시 테이블에 키 key를 입력하여 값 value를 얻음
     name = hmap[15937]
 
     # 삭제 연산
-    # 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+    # 해시 테이블에서 키-값 쌍 (key, value) 삭제
     hmap.delete(10583)
     ```
 
@@ -331,17 +334,15 @@ comments: true
 
     ```python title="hash_map.py"
     # 해시 테이블 순회
-    # 키-값 쌍 key->value를 순회한다
+    # 키-값 쌍 key->value 순회
     for key, value in hmap.items():
         print(key, "->", value)
-
-    # 키 key만 순회한다
+    # 키 key만 순회
     for key in hmap.keys():
         print(key)
-
-    # 값 value만 순회한다
-    for val in hmap.values():
-        print(val)
+    # 값 value만 순회
+    for value in hmap.values():
+        print(value)
     ```
 
 === "C++"
@@ -362,18 +363,16 @@ comments: true
 
     ```java title="hash_map.java"
     /* 해시 테이블 순회 */
-    // 키-값 쌍 key->value를 순회한다
-    for (Map.Entry<Integer, String> kv : map.entrySet()) {
+    // 키-값 쌍 key->value 순회
+    for (Map.Entry <Integer, String> kv: map.entrySet()) {
         System.out.println(kv.getKey() + " -> " + kv.getValue());
     }
-
-    // 키 key만 순회한다
-    for (int key : map.keySet()) {
+    // 키 key만 순회
+    for (int key: map.keySet()) {
         System.out.println(key);
     }
-
-    // 값 value만 순회한다
-    for (String val : map.values()) {
+    // 값 value만 순회
+    for (String val: map.values()) {
         System.out.println(val);
     }
     ```
@@ -382,17 +381,15 @@ comments: true
 
     ```csharp title="hash_map.cs"
     /* 해시 테이블 순회 */
-    // 키-값 쌍 key->value를 순회한다
+    // 키-값 쌍 Key->Value 순회
     foreach (var kv in map) {
         Console.WriteLine(kv.Key + " -> " + kv.Value);
     }
-
-    // 키 key만 순회한다
+    // 키 key만 순회
     foreach (int key in map.Keys) {
         Console.WriteLine(key);
     }
-
-    // 값 value만 순회한다
+    // 값 value만 순회
     foreach (string val in map.Values) {
         Console.WriteLine(val);
     }
@@ -402,17 +399,15 @@ comments: true
 
     ```go title="hash_map_test.go"
     /* 해시 테이블 순회 */
-    // 키-값 쌍 key->value를 순회한다
+    // 키-값 쌍 key->value 순회
     for key, value := range hmap {
         fmt.Println(key, "->", value)
     }
-
-    // 키 key만 순회한다
+    // 키 key만 순회
     for key := range hmap {
         fmt.Println(key)
     }
-
-    // 값 value만 순회한다
+    // 값 value만 순회
     for _, value := range hmap {
         fmt.Println(value)
     }
@@ -422,17 +417,15 @@ comments: true
 
     ```swift title="hash_map.swift"
     /* 해시 테이블 순회 */
-    // 키-값 쌍 key->value를 순회한다
+    // 키-값 쌍 Key->Value 순회
     for (key, value) in map {
         print("\(key) -> \(value)")
     }
-
-    // 키 key만 순회한다
+    // 키 Key만 순회
     for key in map.keys {
         print(key)
     }
-
-    // 값 value만 순회한다
+    // 값 Value만 순회
     for value in map.values {
         print(value)
     }
@@ -442,17 +435,15 @@ comments: true
 
     ```javascript title="hash_map.js"
     /* 해시 테이블 순회 */
-    // 키-값 쌍 key->value를 순회한다
+    console.info('\n키-값 쌍 Key->Value 순회');
     for (const [k, v] of map.entries()) {
         console.info(k + ' -> ' + v);
     }
-
-    // 키 key만 순회한다
+    console.info('\n키 Key만 순회');
     for (const k of map.keys()) {
         console.info(k);
     }
-
-    // 값 value만 순회한다
+    console.info('\n값 Value만 순회');
     for (const v of map.values()) {
         console.info(v);
     }
@@ -462,17 +453,15 @@ comments: true
 
     ```typescript title="hash_map.ts"
     /* 해시 테이블 순회 */
-    // 키-값 쌍 key->value를 순회한다
+    console.info('\n키-값 쌍 Key->Value 순회');
     for (const [k, v] of map.entries()) {
         console.info(k + ' -> ' + v);
     }
-
-    // 키 key만 순회한다
+    console.info('\n키 Key만 순회');
     for (const k of map.keys()) {
         console.info(k);
     }
-
-    // 값 value만 순회한다
+    console.info('\n값 Value만 순회');
     for (const v of map.values()) {
         console.info(v);
     }
@@ -482,31 +471,37 @@ comments: true
 
     ```dart title="hash_map.dart"
     /* 해시 테이블 순회 */
-    // 키-값 쌍 key->value를 순회한다
-    map.forEach((key, value) => print("$key -> $value"));
+    // 키-값 쌍 Key->Value 순회
+    map.forEach((key, value) {
+      print('$key -> $value');
+    });
 
-    // 키 key만 순회한다
-    map.keys.forEach((key) => print(key));
+    // 키 Key만 순회
+    map.keys.forEach((key) {
+      print(key);
+    });
 
-    // 값 value만 순회한다
-    map.values.forEach((value) => print(value));
+    // 값 Value만 순회
+    map.values.forEach((value) {
+      print(value);
+    });
     ```
 
 === "Rust"
 
     ```rust title="hash_map.rs"
-    // 해시 테이블 순회
-    // 키-값 쌍 key->value를 순회한다
+    /* 해시 테이블 순회 */
+    // 키-값 쌍 Key->Value 순회
     for (key, value) in &map {
         println!("{key} -> {value}");
     }
 
-    // 키 key만 순회한다
+    // 키 Key만 순회
     for key in map.keys() {
         println!("{key}");
     }
 
-    // 값 value만 순회한다
+    // 값 Value만 순회
     for value in map.values() {
         println!("{value}");
     }
@@ -522,17 +517,15 @@ comments: true
 
     ```kotlin title="hash_map.kt"
     /* 해시 테이블 순회 */
-    // 키-값 쌍 key->value를 순회한다
+    // 키-값 쌍 key->value 순회
     for ((key, value) in map) {
         println("$key -> $value")
     }
-
-    // 키 key만 순회한다
+    // 키 key만 순회
     for (key in map.keys) {
         println(key)
     }
-
-    // 값 value만 순회한다
+    // 값 value만 순회
     for (_val in map.values) {
         println(_val)
     }
@@ -542,13 +535,13 @@ comments: true
 
     ```ruby title="hash_map.rb"
     # 해시 테이블 순회
-    # 키-값 쌍 key->value를 순회한다
+    # 키-값 쌍 key->value 순회
     hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 
-    # 키 key만 순회한다
+    # 키 key만 순회
     hmap.keys.each { |key| puts key }
 
-    # 값 value만 순회한다
+    # 값 value만 순회
     hmap.values.each { |val| puts val }
     ```
 

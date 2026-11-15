@@ -39,79 +39,79 @@ Common operations include initialization, lookup, adding key-value pairs, and de
 === "Python"
 
     ```python title="hash_map.py"
-    # Initialize the hash table
-    hmap = dict[int, str]()
+    # Initialize a hash table
+    hmap: dict = {}
 
-    # Insert operation
-    # Insert the key-value pair (key, value) into the hash table
+    # Insertion
+    # Add key-value pairs (key, value) to the hash table
     hmap[12836] = "小哈"
     hmap[15937] = "小啰"
     hmap[16750] = "小算"
     hmap[13276] = "小法"
     hmap[10583] = "小鸭"
 
-    # Lookup operation
+    # Lookup
     # Look up key in the hash table to obtain value
     name: str = hmap[15937]
 
-    # Remove operation
-    # Remove the key-value pair (key, value) from the hash table
+    # Deletion
+    # Remove a key-value pair (key, value) from the hash table
     hmap.pop(10583)
     ```
 
 === "C++"
 
     ```cpp title="hash_map.cpp"
-    /* Initialize the hash table */
+    /* Initialize a hash table */
     unordered_map<int, string> map;
 
-    /* Insert operation */
-    // Insert the key-value pair (key, value) into the hash table
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
     map[12836] = "小哈";
     map[15937] = "小啰";
     map[16750] = "小算";
     map[13276] = "小法";
     map[10583] = "小鸭";
 
-    /* Lookup operation */
+    /* Lookup */
     // Look up key in the hash table to obtain value
     string name = map[15937];
 
-    /* Remove operation */
-    // Remove the key-value pair (key, value) from the hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     map.erase(10583);
     ```
 
 === "Java"
 
     ```java title="hash_map.java"
-    /* Initialize the hash table */
+    /* Initialize a hash table */
     Map<Integer, String> map = new HashMap<>();
 
-    /* Insert operation */
-    // Insert the key-value pair (key, value) into the hash table
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
     map.put(12836, "小哈");
     map.put(15937, "小啰");
     map.put(16750, "小算");
     map.put(13276, "小法");
     map.put(10583, "小鸭");
 
-    /* Lookup operation */
+    /* Lookup */
     // Look up key in the hash table to obtain value
     String name = map.get(15937);
 
-    /* Remove operation */
-    // Remove the key-value pair (key, value) from the hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     map.remove(10583);
     ```
 
 === "C#"
 
     ```csharp title="hash_map.cs"
-    /* Initialize the hash table */
+    /* Initialize a hash table */
     Dictionary<int, string> map = new() {
-        /* Insert operation */
-        // Insert the key-value pair (key, value) into the hash table
+        /* Insertion */
+        // Add key-value pairs (key, value) to the hash table
         { 12836, "小哈" },
         { 15937, "小啰" },
         { 16750, "小算" },
@@ -119,127 +119,130 @@ Common operations include initialization, lookup, adding key-value pairs, and de
         { 10583, "小鸭" }
     };
 
-    /* Lookup operation */
+    /* Lookup */
     // Look up key in the hash table to obtain value
     string name = map[15937];
 
-    /* Remove operation */
-    // Remove the key-value pair (key, value) from the hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     map.Remove(10583);
     ```
 
 === "Go"
 
     ```go title="hash_map_test.go"
-    /* Initialize the hash table */
+    /* Initialize a hash table */
     hmap := make(map[int]string)
 
-    /* Insert operation */
-    // Insert the key-value pair (key, value) into the hash table
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
     hmap[12836] = "小哈"
     hmap[15937] = "小啰"
     hmap[16750] = "小算"
     hmap[13276] = "小法"
     hmap[10583] = "小鸭"
 
-    /* Lookup operation */
+    /* Lookup */
     // Look up key in the hash table to obtain value
     name := hmap[15937]
 
-    /* Remove operation */
-    // Remove the key-value pair (key, value) from the hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     delete(hmap, 10583)
     ```
 
 === "Swift"
 
     ```swift title="hash_map.swift"
-    /* Initialize the hash table */
+    /* Initialize a hash table */
     var map: [Int: String] = [:]
 
-    /* Insert operation */
-    // Insert the key-value pair (key, value) into the hash table
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
     map[12836] = "小哈"
     map[15937] = "小啰"
     map[16750] = "小算"
     map[13276] = "小法"
     map[10583] = "小鸭"
 
-    /* Lookup operation */
+    /* Lookup */
     // Look up key in the hash table to obtain value
     let name = map[15937]!
 
-    /* Remove operation */
-    // Remove the key-value pair (key, value) from the hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     map.removeValue(forKey: 10583)
     ```
 
 === "JS"
 
     ```javascript title="hash_map.js"
-    /* Initialize the hash table */
+    /* Initialize a hash table */
     const map = new Map();
-
-    /* Insert operation */
-    // Insert the key-value pair (key, value) into the hash table
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
     map.set(12836, '小哈');
     map.set(15937, '小啰');
     map.set(16750, '小算');
     map.set(13276, '小法');
     map.set(10583, '小鸭');
 
-    /* Lookup operation */
+    /* Lookup */
     // Look up key in the hash table to obtain value
     let name = map.get(15937);
 
-    /* Remove operation */
-    // Remove the key-value pair (key, value) from the hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     map.delete(10583);
     ```
 
 === "TS"
 
     ```typescript title="hash_map.ts"
-    /* Initialize the hash table */
+    /* Initialize a hash table */
     const map = new Map<number, string>();
-
-    /* Insert operation */
-    // Insert the key-value pair (key, value) into the hash table
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
     map.set(12836, '小哈');
     map.set(15937, '小啰');
     map.set(16750, '小算');
     map.set(13276, '小法');
     map.set(10583, '小鸭');
+    console.info('\nAfter insertion, the hash table is\nKey -> Value');
+    console.info(map);
 
-    /* Lookup operation */
+    /* Lookup */
     // Look up key in the hash table to obtain value
     let name = map.get(15937);
+    console.info('\nLooking up student ID 15937 gives the name ' + name);
 
-    /* Remove operation */
-    // Remove the key-value pair (key, value) from the hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     map.delete(10583);
+    console.info('\nAfter deleting 10583, the hash table is\nKey -> Value');
+    console.info(map);
     ```
 
 === "Dart"
 
     ```dart title="hash_map.dart"
-    /* Initialize the hash table */
-    final Map<int, String> map = {};
+    /* Initialize a hash table */
+    Map<int, String> map = {};
 
-    /* Insert operation */
-    // Insert the key-value pair (key, value) into the hash table
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
     map[12836] = "小哈";
     map[15937] = "小啰";
     map[16750] = "小算";
     map[13276] = "小法";
     map[10583] = "小鸭";
 
-    /* Lookup operation */
+    /* Lookup */
     // Look up key in the hash table to obtain value
-    final String? name = map[15937];
+    String? name = map[15937];
 
-    /* Remove operation */
-    // Remove the key-value pair (key, value) from the hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     map.remove(10583);
     ```
 
@@ -248,24 +251,24 @@ Common operations include initialization, lookup, adding key-value pairs, and de
     ```rust title="hash_map.rs"
     use std::collections::HashMap;
 
-    // Initialize the hash table
-    let mut map = HashMap::new();
+    /* Initialize a hash table */
+    let mut map: HashMap<i32, String> = HashMap::new();
 
-    // Insert operation
-    // Insert the key-value pair (key, value) into the hash table
-    map.insert(12836, "小哈");
-    map.insert(15937, "小啰");
-    map.insert(16750, "小算");
-    map.insert(13276, "小法");
-    map.insert(10583, "小鸭");
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
+    map.insert(12836, "小哈".to_string());
+    map.insert(15937, "小啰".to_string());
+    map.insert(16750, "小算".to_string());
+    map.insert(13276, "小法".to_string());
+    map.insert(10583, "小鸭".to_string());
 
-    // Lookup operation
+    /* Lookup */
     // Look up key in the hash table to obtain value
-    let name = map.get(&15937).copied().unwrap();
+    let _name: Option<&String> = map.get(&15937);
 
-    // Remove operation
-    // Remove the key-value pair (key, value) from the hash table
-    _ = map.remove(&10583);
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
+    let _removed_value: Option<String> = map.remove(&10583);
     ```
 
 === "C"
@@ -277,46 +280,46 @@ Common operations include initialization, lookup, adding key-value pairs, and de
 === "Kotlin"
 
     ```kotlin title="hash_map.kt"
-    /* Initialize the hash table */
-    val map = HashMap<Int, String>()
+    /* Initialize a hash table */
+    val map = HashMap<Int,String>()
 
-    /* Insert operation */
-    // Insert the key-value pair (key, value) into the hash table
+    /* Insertion */
+    // Add key-value pairs (key, value) to the hash table
     map[12836] = "小哈"
     map[15937] = "小啰"
     map[16750] = "小算"
     map[13276] = "小法"
     map[10583] = "小鸭"
 
-    /* Lookup operation */
+    /* Lookup */
     // Look up key in the hash table to obtain value
     val name = map[15937]
 
-    /* Remove operation */
-    // Remove the key-value pair (key, value) from the hash table
+    /* Deletion */
+    // Remove a key-value pair (key, value) from the hash table
     map.remove(10583)
     ```
 
 === "Ruby"
 
     ```ruby title="hash_map.rb"
-    # Initialize the hash table
+    # Initialize a hash table
     hmap = {}
 
-    # Insert operation
-    # Insert the key-value pair (key, value) into the hash table
+    # Insertion
+    # Add key-value pairs (key, value) to the hash table
     hmap[12836] = "小哈"
     hmap[15937] = "小啰"
     hmap[16750] = "小算"
     hmap[13276] = "小法"
     hmap[10583] = "小鸭"
 
-    # Lookup operation
+    # Lookup
     # Look up key in the hash table to obtain value
     name = hmap[15937]
 
-    # Remove operation
-    # Remove the key-value pair (key, value) from the hash table
+    # Deletion
+    # Remove a key-value pair (key, value) from the hash table
     hmap.delete(10583)
     ```
 
@@ -334,14 +337,12 @@ There are three common ways to traverse a hash table: visit key-value pairs, key
     # Traverse key-value pairs: key->value
     for key, value in hmap.items():
         print(key, "->", value)
-
     # Traverse keys only: key
     for key in hmap.keys():
         print(key)
-
     # Traverse values only: value
-    for val in hmap.values():
-        print(val)
+    for value in hmap.values():
+        print(value)
     ```
 
 === "C++"
@@ -363,17 +364,15 @@ There are three common ways to traverse a hash table: visit key-value pairs, key
     ```java title="hash_map.java"
     /* Traverse the hash table */
     // Traverse key-value pairs: key->value
-    for (Map.Entry<Integer, String> kv : map.entrySet()) {
+    for (Map.Entry <Integer, String> kv: map.entrySet()) {
         System.out.println(kv.getKey() + " -> " + kv.getValue());
     }
-
     // Traverse keys only: key
-    for (int key : map.keySet()) {
+    for (int key: map.keySet()) {
         System.out.println(key);
     }
-
     // Traverse values only: value
-    for (String val : map.values()) {
+    for (String val: map.values()) {
         System.out.println(val);
     }
     ```
@@ -382,16 +381,14 @@ There are three common ways to traverse a hash table: visit key-value pairs, key
 
     ```csharp title="hash_map.cs"
     /* Traverse the hash table */
-    // Traverse key-value pairs: key->value
+    // Traverse key-value pairs: Key->Value
     foreach (var kv in map) {
         Console.WriteLine(kv.Key + " -> " + kv.Value);
     }
-
     // Traverse keys only: key
     foreach (int key in map.Keys) {
         Console.WriteLine(key);
     }
-
     // Traverse values only: value
     foreach (string val in map.Values) {
         Console.WriteLine(val);
@@ -406,12 +403,10 @@ There are three common ways to traverse a hash table: visit key-value pairs, key
     for key, value := range hmap {
         fmt.Println(key, "->", value)
     }
-
     // Traverse keys only: key
     for key := range hmap {
         fmt.Println(key)
     }
-
     // Traverse values only: value
     for _, value := range hmap {
         fmt.Println(value)
@@ -422,17 +417,15 @@ There are three common ways to traverse a hash table: visit key-value pairs, key
 
     ```swift title="hash_map.swift"
     /* Traverse the hash table */
-    // Traverse key-value pairs: key->value
+    // Traverse key-value pairs: Key->Value
     for (key, value) in map {
         print("\(key) -> \(value)")
     }
-
-    // Traverse keys only: key
+    // Traverse keys only: Key
     for key in map.keys {
         print(key)
     }
-
-    // Traverse values only: value
+    // Traverse values only: Value
     for value in map.values {
         print(value)
     }
@@ -442,17 +435,15 @@ There are three common ways to traverse a hash table: visit key-value pairs, key
 
     ```javascript title="hash_map.js"
     /* Traverse the hash table */
-    // Traverse key-value pairs: key->value
+    console.info('\nTraverse key-value pairs: Key->Value');
     for (const [k, v] of map.entries()) {
         console.info(k + ' -> ' + v);
     }
-
-    // Traverse keys only: key
+    console.info('\nTraverse keys only: Key');
     for (const k of map.keys()) {
         console.info(k);
     }
-
-    // Traverse values only: value
+    console.info('\nTraverse values only: Value');
     for (const v of map.values()) {
         console.info(v);
     }
@@ -462,17 +453,15 @@ There are three common ways to traverse a hash table: visit key-value pairs, key
 
     ```typescript title="hash_map.ts"
     /* Traverse the hash table */
-    // Traverse key-value pairs: key->value
+    console.info('\nTraverse key-value pairs: Key->Value');
     for (const [k, v] of map.entries()) {
         console.info(k + ' -> ' + v);
     }
-
-    // Traverse keys only: key
+    console.info('\nTraverse keys only: Key');
     for (const k of map.keys()) {
         console.info(k);
     }
-
-    // Traverse values only: value
+    console.info('\nTraverse values only: Value');
     for (const v of map.values()) {
         console.info(v);
     }
@@ -482,31 +471,37 @@ There are three common ways to traverse a hash table: visit key-value pairs, key
 
     ```dart title="hash_map.dart"
     /* Traverse the hash table */
-    // Traverse key-value pairs: key->value
-    map.forEach((key, value) => print("$key -> $value"));
+    // Traverse key-value pairs: Key->Value
+    map.forEach((key, value) {
+      print('$key -> $value');
+    });
 
-    // Traverse keys only: key
-    map.keys.forEach((key) => print(key));
+    // Traverse keys only: Key
+    map.keys.forEach((key) {
+      print(key);
+    });
 
-    // Traverse values only: value
-    map.values.forEach((value) => print(value));
+    // Traverse values only: Value
+    map.values.forEach((value) {
+      print(value);
+    });
     ```
 
 === "Rust"
 
     ```rust title="hash_map.rs"
-    // Traverse the hash table
-    // Traverse key-value pairs: key->value
+    /* Traverse the hash table */
+    // Traverse key-value pairs: Key->Value
     for (key, value) in &map {
         println!("{key} -> {value}");
     }
 
-    // Traverse keys only: key
+    // Traverse keys only: Key
     for key in map.keys() {
         println!("{key}");
     }
 
-    // Traverse values only: value
+    // Traverse values only: Value
     for value in map.values() {
         println!("{value}");
     }
@@ -526,12 +521,10 @@ There are three common ways to traverse a hash table: visit key-value pairs, key
     for ((key, value) in map) {
         println("$key -> $value")
     }
-
     // Traverse keys only: key
     for (key in map.keys) {
         println(key)
     }
-
     // Traverse values only: value
     for (_val in map.values) {
         println(_val)

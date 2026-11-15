@@ -164,100 +164,99 @@ comments: true
 
     ```python title="list.py"
     # 원소 접근
-    x: int = nums[1]  # 인덱스 1의 원소에 접근한다
+    num: int = nums[1]  # 인덱스 1의 원소에 접근
 
     # 원소 갱신
-    nums[1] = 0  # 인덱스 1의 원소를 0으로 갱신한다
+    nums[1] = 0    # 인덱스 1의 원소를 0으로 갱신
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
     /* 원소 접근 */
-    int num = nums[1]; // 인덱스 1의 원소에 접근한다
+    int num = nums[1];  // 인덱스 1의 원소에 접근
 
     /* 원소 갱신 */
-    nums[1] = 0; // 인덱스 1의 원소를 0으로 갱신한다
+    nums[1] = 0;  // 인덱스 1의 원소를 0으로 갱신
     ```
 
 === "Java"
 
     ```java title="list.java"
     /* 원소 접근 */
-    int num = nums.get(1); // 인덱스 1의 원소에 접근한다
+    int num = nums.get(1);  // 인덱스 1의 원소에 접근
 
     /* 원소 갱신 */
-    nums.set(1, 0); // 인덱스 1의 원소를 0으로 갱신한다
+    nums.set(1, 0);  // 인덱스 1의 원소를 0으로 갱신
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
     /* 원소 접근 */
-    int num = nums[1]; // 인덱스 1의 원소에 접근한다
+    int num = nums[1];  // 인덱스 1의 원소에 접근
 
     /* 원소 갱신 */
-    nums[1] = 0; // 인덱스 1의 원소를 0으로 갱신한다
+    nums[1] = 0;  // 인덱스 1의 원소를 0으로 갱신
     ```
 
 === "Go"
 
     ```go title="list_test.go"
     /* 원소 접근 */
-    num := nums[1] // 인덱스 1의 원소에 접근한다
+    num := nums[1]  // 인덱스 1의 원소에 접근
 
     /* 원소 갱신 */
-    nums[1] = 0 // 인덱스 1의 원소를 0으로 갱신한다
+    nums[1] = 0     // 인덱스 1의 원소를 0으로 갱신
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
     /* 원소 접근 */
-    let num = nums[1] // 인덱스 1의 원소에 접근한다
+    let num = nums[1] // 인덱스 1의 원소에 접근
 
     /* 원소 갱신 */
-    nums[1] = 0 // 인덱스 1의 원소를 0으로 갱신한다
+    nums[1] = 0 // 인덱스 1의 원소를 0으로 갱신
     ```
 
 === "JS"
 
     ```javascript title="list.js"
     /* 원소 접근 */
-    const num = nums[1]; // 인덱스 1의 원소에 접근한다
+    const num = nums[1];  // 인덱스 1의 원소에 접근
 
     /* 원소 갱신 */
-    nums[1] = 0; // 인덱스 1의 원소를 0으로 갱신한다
+    nums[1] = 0;  // 인덱스 1의 원소를 0으로 갱신
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
     /* 원소 접근 */
-    const num: number = nums[1]; // 인덱스 1의 원소에 접근한다
+    const num: number = nums[1];  // 인덱스 1의 원소에 접근
 
     /* 원소 갱신 */
-    nums[1] = 0; // 인덱스 1의 원소를 0으로 갱신한다
+    nums[1] = 0;  // 인덱스 1의 원소를 0으로 갱신
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
     /* 원소 접근 */
-    int _num = nums[1]; // 인덱스 1의 원소에 접근한다
+    int num = nums[1];  // 인덱스 1의 원소에 접근
 
     /* 원소 갱신 */
-    nums[1] = 0; // 인덱스 1의 원소를 0으로 갱신한다
+    nums[1] = 0;  // 인덱스 1의 원소를 0으로 갱신
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    // 원소 접근
-    let num = nums[1]; // 인덱스 1의 원소에 접근한다
-
-    // 원소 갱신
-    nums[1] = 0; // 인덱스 1의 원소를 0으로 갱신한다
+    /* 원소 접근 */
+    let num: i32 = nums[1];  // 인덱스 1의 원소에 접근
+    /* 원소 갱신 */
+    nums[1] = 0;             // 인덱스 1의 원소를 0으로 갱신
     ```
 
 === "C"
@@ -270,20 +269,18 @@ comments: true
 
     ```kotlin title="list.kt"
     /* 원소 접근 */
-    val num = nums[1] // 인덱스 1의 원소에 접근한다
-
+    val num = nums[1]       // 인덱스 1의 원소에 접근
     /* 원소 갱신 */
-    nums[1] = 0 // 인덱스 1의 원소를 0으로 갱신한다
+    nums[1] = 0             // 인덱스 1의 원소를 0으로 갱신
     ```
 
 === "Ruby"
 
     ```ruby title="list.rb"
     # 원소 접근
-    num = nums[1] # 인덱스 1의 원소에 접근한다
-
+    num = nums[1] # 인덱스 1의 원소에 접근
     # 원소 갱신
-    nums[1] = 0 # 인덱스 1의 원소를 0으로 갱신한다
+    nums[1] = 0 # 인덱스 1의 원소를 0으로 갱신
     ```
 
 ??? pythontutor "코드 시각화"
@@ -301,7 +298,7 @@ comments: true
     # 리스트 비우기
     nums.clear()
 
-    # 맨 뒤에 원소 추가
+    # 끝에 원소 추가
     nums.append(1)
     nums.append(3)
     nums.append(2)
@@ -309,10 +306,10 @@ comments: true
     nums.append(4)
 
     # 중간에 원소 삽입
-    nums.insert(3, 6)  # 인덱스 3에 숫자 6을 삽입한다
+    nums.insert(3, 6)  # 인덱스 3에 숫자 6 삽입
 
     # 원소 삭제
-    nums.pop(3)  # 인덱스 3의 원소를 삭제한다
+    nums.pop(3)        # 인덱스 3의 원소 삭제
     ```
 
 === "C++"
@@ -321,7 +318,7 @@ comments: true
     /* 리스트 비우기 */
     nums.clear();
 
-    /* 맨 뒤에 원소 추가 */
+    /* 끝에 원소 추가 */
     nums.push_back(1);
     nums.push_back(3);
     nums.push_back(2);
@@ -329,10 +326,10 @@ comments: true
     nums.push_back(4);
 
     /* 중간에 원소 삽입 */
-    nums.insert(nums.begin() + 3, 6); // 인덱스 3에 숫자 6을 삽입한다
+    nums.insert(nums.begin() + 3, 6);  // 인덱스 3에 숫자 6 삽입
 
     /* 원소 삭제 */
-    nums.erase(nums.begin() + 3); // 인덱스 3의 원소를 삭제한다
+    nums.erase(nums.begin() + 3);      // 인덱스 3의 원소 삭제
     ```
 
 === "Java"
@@ -341,7 +338,7 @@ comments: true
     /* 리스트 비우기 */
     nums.clear();
 
-    /* 맨 뒤에 원소 추가 */
+    /* 끝에 원소 추가 */
     nums.add(1);
     nums.add(3);
     nums.add(2);
@@ -349,10 +346,10 @@ comments: true
     nums.add(4);
 
     /* 중간에 원소 삽입 */
-    nums.add(3, 6); // 인덱스 3에 숫자 6을 삽입한다
+    nums.add(3, 6);  // 인덱스 3에 숫자 6 삽입
 
     /* 원소 삭제 */
-    nums.remove(3); // 인덱스 3의 원소를 삭제한다
+    nums.remove(3);  // 인덱스 3의 원소 삭제
     ```
 
 === "C#"
@@ -361,7 +358,7 @@ comments: true
     /* 리스트 비우기 */
     nums.Clear();
 
-    /* 맨 뒤에 원소 추가 */
+    /* 끝에 원소 추가 */
     nums.Add(1);
     nums.Add(3);
     nums.Add(2);
@@ -369,10 +366,10 @@ comments: true
     nums.Add(4);
 
     /* 중간에 원소 삽입 */
-    nums.Insert(3, 6); // 인덱스 3에 숫자 6을 삽입한다
+    nums.Insert(3, 6);  // 인덱스 3에 숫자 6 삽입
 
     /* 원소 삭제 */
-    nums.RemoveAt(3); // 인덱스 3의 원소를 삭제한다
+    nums.RemoveAt(3);  // 인덱스 3의 원소 삭제
     ```
 
 === "Go"
@@ -381,7 +378,7 @@ comments: true
     /* 리스트 비우기 */
     nums = nil
 
-    /* 맨 뒤에 원소 추가 */
+    /* 끝에 원소 추가 */
     nums = append(nums, 1)
     nums = append(nums, 3)
     nums = append(nums, 2)
@@ -389,10 +386,10 @@ comments: true
     nums = append(nums, 4)
 
     /* 중간에 원소 삽입 */
-    nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // 인덱스 3에 숫자 6을 삽입한다
+    nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // 인덱스 3에 숫자 6 삽입
 
     /* 원소 삭제 */
-    nums = append(nums[:3], nums[4:]...) // 인덱스 3의 원소를 삭제한다
+    nums = append(nums[:3], nums[4:]...) // 인덱스 3의 원소 삭제
     ```
 
 === "Swift"
@@ -401,7 +398,7 @@ comments: true
     /* 리스트 비우기 */
     nums.removeAll()
 
-    /* 맨 뒤에 원소 추가 */
+    /* 끝에 원소 추가 */
     nums.append(1)
     nums.append(3)
     nums.append(2)
@@ -409,10 +406,10 @@ comments: true
     nums.append(4)
 
     /* 중간에 원소 삽입 */
-    nums.insert(6, at: 3) // 인덱스 3에 숫자 6을 삽입한다
+    nums.insert(6, at: 3) // 인덱스 3에 숫자 6 삽입
 
     /* 원소 삭제 */
-    nums.remove(at: 3) // 인덱스 3의 원소를 삭제한다
+    nums.remove(at: 3) // 인덱스 3의 원소 삭제
     ```
 
 === "JS"
@@ -421,7 +418,7 @@ comments: true
     /* 리스트 비우기 */
     nums.length = 0;
 
-    /* 맨 뒤에 원소 추가 */
+    /* 끝에 원소 추가 */
     nums.push(1);
     nums.push(3);
     nums.push(2);
@@ -429,10 +426,10 @@ comments: true
     nums.push(4);
 
     /* 중간에 원소 삽입 */
-    nums.splice(3, 0, 6); // 인덱스 3에 숫자 6을 삽입한다
+    nums.splice(3, 0, 6); // 인덱스 3에 숫자 6 삽입
 
     /* 원소 삭제 */
-    nums.splice(3, 1); // 인덱스 3의 원소를 삭제한다
+    nums.splice(3, 1);  // 인덱스 3의 원소 삭제
     ```
 
 === "TS"
@@ -441,7 +438,7 @@ comments: true
     /* 리스트 비우기 */
     nums.length = 0;
 
-    /* 맨 뒤에 원소 추가 */
+    /* 끝에 원소 추가 */
     nums.push(1);
     nums.push(3);
     nums.push(2);
@@ -449,10 +446,10 @@ comments: true
     nums.push(4);
 
     /* 중간에 원소 삽입 */
-    nums.splice(3, 0, 6); // 인덱스 3에 숫자 6을 삽입한다
+    nums.splice(3, 0, 6); // 인덱스 3에 숫자 6 삽입
 
     /* 원소 삭제 */
-    nums.splice(3, 1); // 인덱스 3의 원소를 삭제한다
+    nums.splice(3, 1);  // 인덱스 3의 원소 삭제
     ```
 
 === "Dart"
@@ -461,7 +458,7 @@ comments: true
     /* 리스트 비우기 */
     nums.clear();
 
-    /* 맨 뒤에 원소 추가 */
+    /* 끝에 원소 추가 */
     nums.add(1);
     nums.add(3);
     nums.add(2);
@@ -469,30 +466,30 @@ comments: true
     nums.add(4);
 
     /* 중간에 원소 삽입 */
-    nums.insert(3, 6); // 인덱스 3에 숫자 6을 삽입한다
+    nums.insert(3, 6); // 인덱스 3에 숫자 6 삽입
 
     /* 원소 삭제 */
-    nums.removeAt(3); // 인덱스 3의 원소를 삭제한다
+    nums.removeAt(3); // 인덱스 3의 원소 삭제
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    // 리스트 비우기
+    /* 리스트 비우기 */
     nums.clear();
 
-    // 맨 뒤에 원소 추가
+    /* 끝에 원소 추가 */
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    // 중간에 원소 삽입
-    nums.insert(3, 6); // 인덱스 3에 숫자 6을 삽입한다
+    /* 중간에 원소 삽입 */
+    nums.insert(3, 6);  // 인덱스 3에 숫자 6 삽입
 
-    // 원소 삭제
-    nums.remove(3); // 인덱스 3의 원소를 삭제한다
+    /* 원소 삭제 */
+    nums.remove(3);    // 인덱스 3의 원소 삭제
     ```
 
 === "C"
@@ -505,20 +502,20 @@ comments: true
 
     ```kotlin title="list.kt"
     /* 리스트 비우기 */
-    nums.clear()
+    nums.clear();
 
-    /* 맨 뒤에 원소 추가 */
-    nums.add(1)
-    nums.add(3)
-    nums.add(2)
-    nums.add(5)
-    nums.add(4)
+    /* 끝에 원소 추가 */
+    nums.add(1);
+    nums.add(3);
+    nums.add(2);
+    nums.add(5);
+    nums.add(4);
 
     /* 중간에 원소 삽입 */
-    nums.add(3, 6) // 인덱스 3에 숫자 6을 삽입한다
+    nums.add(3, 6);    // 인덱스 3에 숫자 6 삽입
 
     /* 원소 삭제 */
-    nums.removeAt(3) // 인덱스 3의 원소를 삭제한다
+    nums.removeAt(3);  // 인덱스 3의 원소 삭제
     ```
 
 === "Ruby"
@@ -527,7 +524,7 @@ comments: true
     # 리스트 비우기
     nums.clear
 
-    # 맨 뒤에 원소 추가
+    # 끝에 원소 추가
     nums << 1
     nums << 3
     nums << 2
@@ -535,10 +532,10 @@ comments: true
     nums << 4
 
     # 중간에 원소 삽입
-    nums.insert(3, 6) # 인덱스 3에 숫자 6을 삽입한다
+    nums.insert(3, 6) # 인덱스 3에 숫자 6 삽입
 
     # 원소 삭제
-    nums.delete_at(3) # 인덱스 3의 원소를 삭제한다
+    nums.delete_at(3) # 인덱스 3의 원소 삭제
     ```
 
 ??? pythontutor "코드 시각화"
@@ -553,12 +550,12 @@ comments: true
 === "Python"
 
     ```python title="list.py"
-    # 인덱스를 통해 리스트를 순회한다
+    # 인덱스로 리스트 순회
     count = 0
     for i in range(len(nums)):
         count += nums[i]
 
-    # 리스트의 원소를 직접 순회한다
+    # 리스트 원소를 직접 순회
     for num in nums:
         count += num
     ```
@@ -566,143 +563,143 @@ comments: true
 === "C++"
 
     ```cpp title="list.cpp"
-    /* 인덱스를 통해 리스트를 순회한다 */
+    /* 인덱스로 리스트 순회 */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
         count += nums[i];
     }
 
-    /* 리스트의 원소를 직접 순회한다 */
+    /* 리스트 원소를 직접 순회 */
     count = 0;
-    for (int x : nums) {
-        count += x;
+    for (int num : nums) {
+        count += num;
     }
     ```
 
 === "Java"
 
     ```java title="list.java"
-    /* 인덱스를 통해 리스트를 순회한다 */
+    /* 인덱스로 리스트 순회 */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
         count += nums.get(i);
     }
 
-    /* 리스트의 원소를 직접 순회한다 */
-    for (int x : nums) {
-        count += x;
+    /* 리스트 원소를 직접 순회 */
+    for (int num : nums) {
+        count += num;
     }
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
-    /* 인덱스를 통해 리스트를 순회한다 */
+    /* 인덱스로 리스트 순회 */
     int count = 0;
     for (int i = 0; i < nums.Count; i++) {
         count += nums[i];
     }
 
-    /* 리스트의 원소를 직접 순회한다 */
+    /* 리스트 원소를 직접 순회 */
     count = 0;
-    foreach (int x in nums) {
-        count += x;
+    foreach (int num in nums) {
+        count += num;
     }
     ```
 
 === "Go"
 
     ```go title="list_test.go"
-    /* 인덱스를 통해 리스트를 순회한다 */
+    /* 인덱스로 리스트 순회 */
     count := 0
     for i := 0; i < len(nums); i++ {
         count += nums[i]
     }
 
-    /* 리스트의 원소를 직접 순회한다 */
+    /* 리스트 원소를 직접 순회 */
     count = 0
-    for _, x := range nums {
-        count += x
+    for _, num := range nums {
+        count += num
     }
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
-    /* 인덱스를 통해 리스트를 순회한다 */
+    /* 인덱스로 리스트 순회 */
     var count = 0
     for i in nums.indices {
         count += nums[i]
     }
 
-    /* 리스트의 원소를 직접 순회한다 */
+    /* 리스트 원소를 직접 순회 */
     count = 0
-    for x in nums {
-        count += x
+    for num in nums {
+        count += num
     }
     ```
 
 === "JS"
 
     ```javascript title="list.js"
-    /* 인덱스를 통해 리스트를 순회한다 */
+    /* 인덱스로 리스트 순회 */
     let count = 0;
     for (let i = 0; i < nums.length; i++) {
         count += nums[i];
     }
 
-    /* 리스트의 원소를 직접 순회한다 */
+    /* 리스트 원소를 직접 순회 */
     count = 0;
-    for (const x of nums) {
-        count += x;
+    for (const num of nums) {
+        count += num;
     }
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
-    /* 인덱스를 통해 리스트를 순회한다 */
+    /* 인덱스로 리스트 순회 */
     let count = 0;
     for (let i = 0; i < nums.length; i++) {
         count += nums[i];
     }
 
-    /* 리스트의 원소를 직접 순회한다 */
+    /* 리스트 원소를 직접 순회 */
     count = 0;
-    for (const x of nums) {
-        count += x;
+    for (const num of nums) {
+        count += num;
     }
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
-    /* 인덱스를 통해 리스트를 순회한다 */
+    /* 인덱스로 리스트 순회 */
     int count = 0;
     for (var i = 0; i < nums.length; i++) {
-      count += nums[i];
+        count += nums[i];
     }
 
-    /* 리스트의 원소를 직접 순회한다 */
+    /* 리스트 원소를 직접 순회 */
     count = 0;
-    for (var x in nums) {
-      count += x;
+    for (var num in nums) {
+        count += num;
     }
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    // 인덱스를 통해 리스트를 순회한다
+    // 인덱스로 리스트 순회
     let mut _count = 0;
     for i in 0..nums.len() {
         _count += nums[i];
     }
 
-    // 리스트의 원소를 직접 순회한다
+    // 리스트 원소를 직접 순회
     _count = 0;
-    for x in &nums {
-        _count += x;
+    for num in &nums {
+        _count += num;
     }
     ```
 
@@ -715,31 +712,31 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="list.kt"
-    /* 인덱스를 통해 리스트를 순회한다 */
+    /* 인덱스로 리스트 순회 */
     var count = 0
     for (i in nums.indices) {
         count += nums[i]
     }
 
-    /* 리스트의 원소를 직접 순회한다 */
-    for (j in nums) {
-        count += j
+    /* 리스트 원소를 직접 순회 */
+    for (num in nums) {
+        count += num
     }
     ```
 
 === "Ruby"
 
     ```ruby title="list.rb"
-    # 인덱스를 통해 리스트를 순회한다
+    # 인덱스로 리스트 순회
     count = 0
     for i in 0...nums.length
-      count += nums[i]
+        count += nums[i]
     end
 
-    # 리스트의 원소를 직접 순회한다
+    # 리스트 원소를 직접 순회
     count = 0
-    nums.each do |x|
-      count += x
+    for num in nums
+        count += num
     end
     ```
 
@@ -756,16 +753,16 @@ comments: true
 
     ```python title="list.py"
     # 두 리스트 연결
-    nums1 = [6, 8, 7, 10, 9]
-    nums += nums1  # 리스트 nums1을 nums 뒤에 연결한다
+    nums1: list[int] = [6, 8, 7, 10, 9]
+    nums += nums1  # 리스트 nums1을 nums 뒤에 연결
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
     /* 두 리스트 연결 */
-    vector<int> nums1 = {6, 8, 7, 10, 9};
-    // 리스트 nums1을 nums 뒤에 연결한다
+    vector<int> nums1 = { 6, 8, 7, 10, 9 };
+    // 리스트 nums1을 nums 뒤에 연결
     nums.insert(nums.end(), nums1.begin(), nums1.end());
     ```
 
@@ -774,7 +771,7 @@ comments: true
     ```java title="list.java"
     /* 두 리스트 연결 */
     List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
-    nums.addAll(nums1); // 리스트 nums1을 nums 뒤에 연결한다
+    nums.addAll(nums1);  // 리스트 nums1을 nums 뒤에 연결
     ```
 
 === "C#"
@@ -782,7 +779,7 @@ comments: true
     ```csharp title="list.cs"
     /* 두 리스트 연결 */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.AddRange(nums1); // 리스트 nums1을 nums 뒤에 연결한다
+    nums.AddRange(nums1);  // 리스트 nums1을 nums 뒤에 연결
     ```
 
 === "Go"
@@ -790,7 +787,7 @@ comments: true
     ```go title="list_test.go"
     /* 두 리스트 연결 */
     nums1 := []int{6, 8, 7, 10, 9}
-    nums = append(nums, nums1...) // 리스트 nums1을 nums 뒤에 연결한다
+    nums = append(nums, nums1...)  // 리스트 nums1을 nums 뒤에 연결
     ```
 
 === "Swift"
@@ -798,7 +795,7 @@ comments: true
     ```swift title="list.swift"
     /* 두 리스트 연결 */
     let nums1 = [6, 8, 7, 10, 9]
-    nums.append(contentsOf: nums1) // 리스트 nums1을 nums 뒤에 연결한다
+    nums.append(contentsOf: nums1) // 리스트 nums1을 nums 뒤에 연결
     ```
 
 === "JS"
@@ -806,7 +803,7 @@ comments: true
     ```javascript title="list.js"
     /* 두 리스트 연결 */
     const nums1 = [6, 8, 7, 10, 9];
-    nums.push(...nums1); // 리스트 nums1을 nums 뒤에 연결한다
+    nums.push(...nums1);  // 리스트 nums1을 nums 뒤에 연결
     ```
 
 === "TS"
@@ -814,7 +811,7 @@ comments: true
     ```typescript title="list.ts"
     /* 두 리스트 연결 */
     const nums1: number[] = [6, 8, 7, 10, 9];
-    nums.push(...nums1); // 리스트 nums1을 nums 뒤에 연결한다
+    nums.push(...nums1);  // 리스트 nums1을 nums 뒤에 연결
     ```
 
 === "Dart"
@@ -822,15 +819,15 @@ comments: true
     ```dart title="list.dart"
     /* 두 리스트 연결 */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.addAll(nums1); // 리스트 nums1을 nums 뒤에 연결한다
+    nums.addAll(nums1);  // 리스트 nums1을 nums 뒤에 연결
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    // 두 리스트 연결
-    let mut nums1 = vec![6, 8, 7, 10, 9];
-    nums.append(&mut nums1); // append(이동) 후에는 nums1이 비게 된다!
+    /* 두 리스트 연결 */
+    let nums1: Vec<i32> = vec![6, 8, 7, 10, 9];
+    nums.extend(nums1);
     ```
 
 === "C"
@@ -842,9 +839,9 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="list.kt"
-    /* 두 리스트 연결*/
-    val nums1 = mutableListOf(6, 8, 7, 10, 9)
-    nums.addAll(nums1) // 리스트 nums1을 nums 뒤에 연결한다
+    /* 두 리스트 연결 */
+    val nums1 = intArrayOf(6, 8, 7, 10, 9).toMutableList()
+    nums.addAll(nums1)  // 리스트 nums1을 nums 뒤에 연결
     ```
 
 === "Ruby"
@@ -868,70 +865,70 @@ comments: true
 
     ```python title="list.py"
     # 리스트 정렬
-    nums.sort()  # 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
+    nums.sort()  # 정렬 후 리스트 원소가 오름차순으로 배치됨
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
     /* 리스트 정렬 */
-    sort(nums.begin(), nums.end()); // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
+    sort(nums.begin(), nums.end());  // 정렬 후 리스트 원소가 오름차순으로 배치됨
     ```
 
 === "Java"
 
     ```java title="list.java"
     /* 리스트 정렬 */
-    Collections.sort(nums); // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
+    Collections.sort(nums);  // 정렬 후 리스트 원소가 오름차순으로 배치됨
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
     /* 리스트 정렬 */
-    nums.Sort(); // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
+    nums.Sort(); // 정렬 후 리스트 원소가 오름차순으로 배치됨
     ```
 
 === "Go"
 
     ```go title="list_test.go"
     /* 리스트 정렬 */
-    sort.Ints(nums) // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
+    sort.Ints(nums)  // 정렬 후 리스트 원소가 오름차순으로 배치됨
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
     /* 리스트 정렬 */
-    nums.sort() // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
+    nums.sort() // 정렬 후 리스트 원소가 오름차순으로 배치됨
     ```
 
 === "JS"
 
     ```javascript title="list.js"
     /* 리스트 정렬 */
-    nums.sort((a, b) => a - b); // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
+    nums.sort((a, b) => a - b);  // 정렬 후 리스트 원소가 오름차순으로 배치됨
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
     /* 리스트 정렬 */
-    nums.sort((a, b) => a - b); // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
+    nums.sort((a, b) => a - b);  // 정렬 후 리스트 원소가 오름차순으로 배치됨
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
     /* 리스트 정렬 */
-    nums.sort(); // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
+    nums.sort(); // 정렬 후 리스트 원소가 오름차순으로 배치됨
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    // 리스트 정렬
-    nums.sort(); // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
+    /* 리스트 정렬 */
+    nums.sort(); // 정렬 후 리스트 원소가 오름차순으로 배치됨
     ```
 
 === "C"
@@ -944,14 +941,14 @@ comments: true
 
     ```kotlin title="list.kt"
     /* 리스트 정렬 */
-    nums.sort() // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
+    nums.sort() // 정렬 후 리스트 원소가 오름차순으로 배치됨
     ```
 
 === "Ruby"
 
     ```ruby title="list.rb"
     # 리스트 정렬
-    nums = nums.sort { |a, b| a <=> b } # 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
+    nums = nums.sort { |a, b| a <=> b } # 정렬 후 리스트 원소가 오름차순으로 배치됨
     ```
 
 ??? pythontutor "코드 시각화"

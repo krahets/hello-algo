@@ -35,246 +35,246 @@ comments: true
     ```python title="queue.py"
     from collections import deque
 
-    # キューを初期化する
-    # Python では一般に、両端キューのクラス deque をキューとして使う
-    # queue.Queue() は専用のキュークラスだが、やや使いづらい
+    # キューを初期化
+    # Python では通常、両端キュークラス deque をキューとして使う
+    # queue.Queue() は本来のキュークラスだが、使いにくいため推奨しない
     que: deque[int] = deque()
 
-    # 要素をエンキューする
+    # 要素をエンキュー
     que.append(1)
     que.append(3)
     que.append(2)
     que.append(5)
     que.append(4)
 
-    # キューの先頭要素にアクセス
+    # 先頭要素にアクセス
     front: int = que[0]
 
-    # 要素をデキューする
+    # 要素をデキュー
     pop: int = que.popleft()
 
     # キューの長さを取得
     size: int = len(que)
 
-    # キューが空か判定
+    # キューが空かどうかを判定
     is_empty: bool = len(que) == 0
     ```
 
 === "C++"
 
     ```cpp title="queue.cpp"
-    /* キューを初期化する */
+    /* キューを初期化 */
     queue<int> queue;
 
-    /* 要素をエンキューする */
+    /* 要素をエンキュー */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
 
-    /* キューの先頭要素にアクセス */
+    /* 先頭要素にアクセス */
     int front = queue.front();
 
-    /* 要素をデキューする */
+    /* 要素をデキュー */
     queue.pop();
 
     /* キューの長さを取得 */
     int size = queue.size();
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定 */
     bool empty = queue.empty();
     ```
 
 === "Java"
 
     ```java title="queue.java"
-    /* キューを初期化する */
+    /* キューを初期化 */
     Queue<Integer> queue = new LinkedList<>();
 
-    /* 要素をエンキューする */
+    /* 要素をエンキュー */
     queue.offer(1);
     queue.offer(3);
     queue.offer(2);
     queue.offer(5);
     queue.offer(4);
 
-    /* キューの先頭要素にアクセス */
+    /* 先頭要素にアクセス */
     int peek = queue.peek();
 
-    /* 要素をデキューする */
+    /* 要素をデキュー */
     int pop = queue.poll();
 
     /* キューの長さを取得 */
     int size = queue.size();
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定 */
     boolean isEmpty = queue.isEmpty();
     ```
 
 === "C#"
 
     ```csharp title="queue.cs"
-    /* キューを初期化する */
+    /* キューを初期化 */
     Queue<int> queue = new();
 
-    /* 要素をエンキューする */
+    /* 要素をエンキュー */
     queue.Enqueue(1);
     queue.Enqueue(3);
     queue.Enqueue(2);
     queue.Enqueue(5);
     queue.Enqueue(4);
 
-    /* キューの先頭要素にアクセス */
+    /* 先頭要素にアクセス */
     int peek = queue.Peek();
 
-    /* 要素をデキューする */
+    /* 要素をデキュー */
     int pop = queue.Dequeue();
 
     /* キューの長さを取得 */
     int size = queue.Count;
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定 */
     bool isEmpty = queue.Count == 0;
     ```
 
 === "Go"
 
     ```go title="queue_test.go"
-    /* キューを初期化する */
+    /* キューを初期化 */
     // Go では list をキューとして使う
     queue := list.New()
 
-    /* 要素をエンキューする */
+    /* 要素をエンキュー */
     queue.PushBack(1)
     queue.PushBack(3)
     queue.PushBack(2)
     queue.PushBack(5)
     queue.PushBack(4)
 
-    /* キューの先頭要素にアクセス */
+    /* 先頭要素にアクセス */
     peek := queue.Front()
 
-    /* 要素をデキューする */
+    /* 要素をデキュー */
     pop := queue.Front()
     queue.Remove(pop)
 
     /* キューの長さを取得 */
     size := queue.Len()
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定 */
     isEmpty := queue.Len() == 0
     ```
 
 === "Swift"
 
     ```swift title="queue.swift"
-    /* キューを初期化する */
+    /* キューを初期化 */
     // Swift には組み込みのキュークラスがないため、Array をキューとして使える
     var queue: [Int] = []
 
-    /* 要素をエンキューする */
+    /* 要素をエンキュー */
     queue.append(1)
     queue.append(3)
     queue.append(2)
     queue.append(5)
     queue.append(4)
 
-    /* キューの先頭要素にアクセス */
+    /* 先頭要素にアクセス */
     let peek = queue.first!
 
-    /* 要素をデキューする */
-    // Array で再現する場合、pop の計算量は O(n)
+    /* 要素をデキュー */
+    // 配列なので removeFirst の計算量は O(n)
     let pop = queue.removeFirst()
 
     /* キューの長さを取得 */
     let size = queue.count
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定 */
     let isEmpty = queue.isEmpty
     ```
 
 === "JS"
 
     ```javascript title="queue.js"
-    /* キューを初期化する */
+    /* キューを初期化 */
     // JavaScript には組み込みのキューがないため、Array をキューとして使える
     const queue = [];
 
-    /* 要素をエンキューする */
+    /* 要素をエンキュー */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
 
-    /* キューの先頭要素にアクセス */
+    /* 先頭要素にアクセス */
     const peek = queue[0];
 
-    /* 要素をデキューする */
-    // 内部は配列なので、shift() メソッドの時間計算量は O(n)
+    /* 要素をデキュー */
+    // 内部が配列なので shift() の時間計算量は O(n)
     const pop = queue.shift();
 
     /* キューの長さを取得 */
     const size = queue.length;
 
-    /* キューが空か判定 */
-    const isEmpty = queue.length === 0;
+    /* キューが空かどうかを判定 */
+    const empty = queue.length === 0;
     ```
 
 === "TS"
 
     ```typescript title="queue.ts"
-    /* キューを初期化する */
+    /* キューを初期化 */
     // TypeScript には組み込みのキューがないため、Array をキューとして使える
     const queue: number[] = [];
 
-    /* 要素をエンキューする */
+    /* 要素をエンキュー */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
 
-    /* キューの先頭要素にアクセス */
+    /* 先頭要素にアクセス */
     const peek = queue[0];
 
-    /* 要素をデキューする */
-    // 内部は配列なので、shift() メソッドの時間計算量は O(n)
+    /* 要素をデキュー */
+    // 内部が配列なので shift() の時間計算量は O(n)
     const pop = queue.shift();
 
     /* キューの長さを取得 */
     const size = queue.length;
 
-    /* キューが空か判定 */
-    const isEmpty = queue.length === 0;
+    /* キューが空かどうかを判定 */
+    const empty = queue.length === 0;
     ```
 
 === "Dart"
 
     ```dart title="queue.dart"
-    /* キューを初期化する */
-    // Dart では一般に、両端キューのクラス Queue をキューとして使う
-    final Queue<int> queue = Queue();
+    /* キューを初期化 */
+    // Dart の Queue は両端キューであり、通常のキューとしても使える
+    Queue<int> queue = Queue();
 
-    /* 要素をエンキューする */
+    /* 要素をエンキュー */
     queue.add(1);
     queue.add(3);
     queue.add(2);
     queue.add(5);
     queue.add(4);
 
-    /* キューの先頭要素にアクセス */
-    final int peek = queue.first;
+    /* 先頭要素にアクセス */
+    int peek = queue.first;
 
-    /* 要素をデキューする */
-    final int pop = queue.removeFirst();
+    /* 要素をデキュー */
+    int pop = queue.removeFirst();
 
-    /* キューの長さを取得する */
-    final int size = queue.length;
+    /* キューの長さを取得 */
+    int size = queue.length;
 
-    /* キューが空か判定 */
-    final bool isEmpty = queue.isEmpty;
+    /* キューが空かどうかを判定 */
+    bool isEmpty = queue.isEmpty;
     ```
 
 === "Rust"
@@ -315,54 +315,54 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="queue.kt"
-    /* キューを初期化する */
+    /* キューを初期化 */
     val queue = LinkedList<Int>()
 
-    /* 要素をエンキューする */
+    /* 要素をエンキュー */
     queue.offer(1)
     queue.offer(3)
     queue.offer(2)
     queue.offer(5)
     queue.offer(4)
 
-    /* キューの先頭要素にアクセス */
+    /* 先頭要素にアクセス */
     val peek = queue.peek()
 
-    /* 要素をデキューする */
+    /* 要素をデキュー */
     val pop = queue.poll()
 
     /* キューの長さを取得 */
     val size = queue.size
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定 */
     val isEmpty = queue.isEmpty()
     ```
 
 === "Ruby"
 
     ```ruby title="queue.rb"
-    # キューを初期化する
-    # Ruby の組み込みキュー（Thread::Queue）には peek と走査のメソッドがないため、Array をキューとして使える
+    # キューを初期化
+    # Ruby の組み込みキュー（Thread::Queue）には peek や走査のメソッドがないため、Array をキューとして使える
     queue = []
 
-    # 要素をエンキューする
+    # 要素をエンキュー
     queue.push(1)
     queue.push(3)
     queue.push(2)
     queue.push(5)
     queue.push(4)
 
-    # キューの要素にアクセスする
+    # キューの要素にアクセス
     peek = queue.first
 
-    # 要素をデキューする
-    # 配列なので Array#shift メソッドの時間計算量は O(n) であることに注意
+    # 要素をデキュー
+    # 配列なので Array#shift の時間計算量は O(n) であることに注意
     pop = queue.shift
 
     # キューの長さを取得
     size = queue.length
 
-    # キューが空か判定
+    # キューが空かどうかを判定
     is_empty = queue.empty?
     ```
 

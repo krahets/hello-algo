@@ -54,26 +54,26 @@ Just as a sorting algorithm can order values in ascending or descending order, w
     max_heap, flag = [], -1
 
     # Python's heapq module implements a min heap by default
-    # Negate each element before pushing it onto the heap to reverse the ordering and implement a max heap
-    # In this example, flag = 1 represents a min heap and flag = -1 represents a max heap
+    # Negate elements before insertion to reverse their order and implement a max heap
+    # Here, flag = 1 gives a min heap and flag = -1 gives a max heap
 
-    # Push an element onto the heap
+    # Insert elements into the heap
     heapq.heappush(max_heap, flag * 1)
     heapq.heappush(max_heap, flag * 3)
     heapq.heappush(max_heap, flag * 2)
     heapq.heappush(max_heap, flag * 5)
     heapq.heappush(max_heap, flag * 4)
 
-    # Get the top element of the heap
-    peek: int = flag * max_heap[0]  # 5
+    # Access the root element
+    peek: int = flag * max_heap[0] # 5
 
-    # Pop the top element from the heap
-    # The elements are popped in descending order
-    val = flag * heapq.heappop(max_heap)  # 5
-    val = flag * heapq.heappop(max_heap)  # 4
-    val = flag * heapq.heappop(max_heap)  # 3
-    val = flag * heapq.heappop(max_heap)  # 2
-    val = flag * heapq.heappop(max_heap)  # 1
+    # Remove root elements
+    # Removed elements form a descending sequence
+    val = flag * heapq.heappop(max_heap) # 5
+    val = flag * heapq.heappop(max_heap) # 4
+    val = flag * heapq.heappop(max_heap) # 3
+    val = flag * heapq.heappop(max_heap) # 2
+    val = flag * heapq.heappop(max_heap) # 1
 
     # Get the heap size
     size: int = len(max_heap)
@@ -81,8 +81,7 @@ Just as a sorting algorithm can order values in ascending or descending order, w
     # Check whether the heap is empty
     is_empty: bool = not max_heap
 
-    # Build a heap from an input list
-    # The time complexity is O(n), not O(nlogn)
+    # Build a heap from a list
     min_heap: list[int] = [1, 3, 2, 5, 4]
     heapq.heapify(min_heap)
     ```
@@ -90,24 +89,24 @@ Just as a sorting algorithm can order values in ascending or descending order, w
 === "C++"
 
     ```cpp title="heap.cpp"
-    /* Initialize the heap */
+    /* Initialize a heap */
     // Initialize a min heap
     priority_queue<int, vector<int>, greater<int>> minHeap;
     // Initialize a max heap
     priority_queue<int, vector<int>, less<int>> maxHeap;
 
-    /* Push an element onto the heap */
+    /* Insert elements into the heap */
     maxHeap.push(1);
     maxHeap.push(3);
     maxHeap.push(2);
     maxHeap.push(5);
     maxHeap.push(4);
 
-    /* Get the top element of the heap */
+    /* Access the root element */
     int peek = maxHeap.top(); // 5
 
-    /* Pop the top element from the heap */
-    // The elements are popped in descending order
+    /* Remove root elements */
+    // Removed elements form a descending sequence
     maxHeap.pop(); // 5
     maxHeap.pop(); // 4
     maxHeap.pop(); // 3
@@ -120,8 +119,7 @@ Just as a sorting algorithm can order values in ascending or descending order, w
     /* Check whether the heap is empty */
     bool isEmpty = maxHeap.empty();
 
-    /* Build a heap from an input list */
-    // The time complexity is O(n), not O(nlogn)
+    /* Build a heap from a list */
     vector<int> input{1, 3, 2, 5, 4};
     minHeap = priority_queue<int, vector<int>, greater<int>>(input.begin(), input.end());
     ```
@@ -129,24 +127,24 @@ Just as a sorting algorithm can order values in ascending or descending order, w
 === "Java"
 
     ```java title="heap.java"
-    /* Initialize heaps */
+    /* Initialize a heap */
     // Initialize a min heap
     Queue<Integer> minHeap = new PriorityQueue<>();
-    // Initialize a max heap by supplying a lambda expression as the Comparator
+    // Initialize a max heap by changing the Comparator with a lambda expression
     Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
 
-    /* Push an element onto the heap */
+    /* Insert elements into the heap */
     maxHeap.offer(1);
     maxHeap.offer(3);
     maxHeap.offer(2);
     maxHeap.offer(5);
     maxHeap.offer(4);
 
-    /* Get the top element of the heap */
+    /* Access the root element */
     int peek = maxHeap.peek(); // 5
 
-    /* Pop the top element from the heap */
-    // The elements are popped in descending order
+    /* Remove root elements */
+    // Removed elements form a descending sequence
     peek = maxHeap.poll(); // 5
     peek = maxHeap.poll(); // 4
     peek = maxHeap.poll(); // 3
@@ -159,37 +157,36 @@ Just as a sorting algorithm can order values in ascending or descending order, w
     /* Check whether the heap is empty */
     boolean isEmpty = maxHeap.isEmpty();
 
-    /* Build a heap from an input list */
-    // The time complexity is O(n), not O(nlogn)
+    /* Build a heap from a list */
     minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
     ```
 
 === "C#"
 
     ```csharp title="heap.cs"
-    /* Initialize heaps */
+    /* Initialize a heap */
     // Initialize a min heap
     PriorityQueue<int, int> minHeap = new();
-    // Initialize a max heap (use a lambda expression to customize the Comparer)
+    // Initialize a max heap by changing the Comparer with a lambda expression
     PriorityQueue<int, int> maxHeap = new(Comparer<int>.Create((x, y) => y.CompareTo(x)));
 
-    /* Push an element onto the heap */
+    /* Insert elements into the heap */
     maxHeap.Enqueue(1, 1);
     maxHeap.Enqueue(3, 3);
     maxHeap.Enqueue(2, 2);
     maxHeap.Enqueue(5, 5);
     maxHeap.Enqueue(4, 4);
 
-    /* Get the top element of the heap */
-    int peek = maxHeap.Peek(); // 5
+    /* Access the root element */
+    int peek = maxHeap.Peek();//5
 
-    /* Pop the top element from the heap */
-    // The elements are popped in descending order
-    peek = maxHeap.Dequeue(); // 5
-    peek = maxHeap.Dequeue(); // 4
-    peek = maxHeap.Dequeue(); // 3
-    peek = maxHeap.Dequeue(); // 2
-    peek = maxHeap.Dequeue(); // 1
+    /* Remove root elements */
+    // Removed elements form a descending sequence
+    peek = maxHeap.Dequeue();  // 5
+    peek = maxHeap.Dequeue();  // 4
+    peek = maxHeap.Dequeue();  // 3
+    peek = maxHeap.Dequeue();  // 2
+    peek = maxHeap.Dequeue();  // 1
 
     /* Get the heap size */
     int size = maxHeap.Count;
@@ -197,7 +194,7 @@ Just as a sorting algorithm can order values in ascending or descending order, w
     /* Check whether the heap is empty */
     bool isEmpty = maxHeap.Count == 0;
 
-    /* Build a heap from an input list */
+    /* Build a heap from a list */
     minHeap = new PriorityQueue<int, int>([(1, 1), (3, 3), (2, 2), (5, 5), (4, 4)]);
     ```
 
@@ -208,98 +205,96 @@ Just as a sorting algorithm can order values in ascending or descending order, w
     // Implementing heap.Interface also requires implementing sort.Interface
     type intHeap []any
 
-    // Push implements heap.Interface by appending an element for the heap package
+    // Push implements the heap.Interface method for inserting an element
     func (h *intHeap) Push(x any) {
         // Push and Pop use pointer receivers
-        // because they modify the slice length as well as its contents.
+        // because they change the slice length as well as its contents.
         *h = append(*h, x.(int))
     }
 
-    // Pop implements heap.Interface by removing the last element, where heap.Pop has moved the top element
+    // Pop implements the heap.Interface method used to remove the root element
     func (h *intHeap) Pop() any {
-        // The element to remove is stored at the end
+        // The element to remove has been placed at the end
         last := (*h)[len(*h)-1]
         *h = (*h)[:len(*h)-1]
         return last
     }
 
-    // Len implements the sort.Interface length method
+    // Len implements a sort.Interface method
     func (h *intHeap) Len() int {
         return len(*h)
     }
 
-    // Less implements the sort.Interface comparison method
+    // Less implements a sort.Interface method
     func (h *intHeap) Less(i, j int) bool {
-        // For a min heap, change the comparison to less than
+        // For a min heap, change this to a less-than comparison
         return (*h)[i].(int) > (*h)[j].(int)
     }
 
-    // Swap implements the sort.Interface swap method
+    // Swap implements a sort.Interface method
     func (h *intHeap) Swap(i, j int) {
         (*h)[i], (*h)[j] = (*h)[j], (*h)[i]
     }
 
-    // Top returns the top element of the heap
+    // Top returns the root element
     func (h *intHeap) Top() any {
         return (*h)[0]
     }
 
+    /* Driver Code */
     func TestHeap(t *testing.T) {
-        /* Initialize the heap */
+        /* Initialize a heap */
         // Initialize a max heap
         maxHeap := &intHeap{}
         heap.Init(maxHeap)
-        /* Push an element onto the heap */
-        // Call heap.Push, which uses heap.Interface to add an element
+        /* Insert elements into the heap */
+        // Call the heap.Interface methods to add elements
         heap.Push(maxHeap, 1)
         heap.Push(maxHeap, 3)
         heap.Push(maxHeap, 2)
-        heap.Push(maxHeap, 5)
         heap.Push(maxHeap, 4)
-        PrintHeap(*maxHeap)
+        heap.Push(maxHeap, 5)
 
-        /* Get the top element of the heap */
+        /* Access the root element */
         top := maxHeap.Top()
-        fmt.Printf("Top element of the heap: %d\n", top)
+        fmt.Printf("The root element is %d\n", top)
 
-        /* Pop the top element from the heap */
-        // Call heap.Pop, which uses heap.Interface to remove the top element
-        fmt.Println(heap.Pop(maxHeap)) // 5
-        fmt.Println(heap.Pop(maxHeap)) // 4
-        fmt.Println(heap.Pop(maxHeap)) // 3
-        fmt.Println(heap.Pop(maxHeap)) // 2
-        fmt.Println(heap.Pop(maxHeap)) // 1
+        /* Remove root elements */
+        // Call the heap.Interface methods to remove elements
+        heap.Pop(maxHeap) // 5
+        heap.Pop(maxHeap) // 4
+        heap.Pop(maxHeap) // 3
+        heap.Pop(maxHeap) // 2
+        heap.Pop(maxHeap) // 1
 
         /* Get the heap size */
         size := len(*maxHeap)
-        fmt.Printf("Number of elements in the heap: %d\n", size)
+        fmt.Printf("The heap contains %d elements\n", size)
 
         /* Check whether the heap is empty */
         isEmpty := len(*maxHeap) == 0
-        fmt.Printf("Is the heap empty? %t\n", isEmpty)
+        fmt.Printf("Is the heap empty: %t\n", isEmpty)
     }
     ```
 
 === "Swift"
 
     ```swift title="heap.swift"
-    import HeapModule
-
-    /* Initialize the heap */
-    // The Heap type in Swift Collections supports both max heap and min heap operations
+    /* Initialize a heap */
+    // Swift's Heap type supports both minimum and maximum operations and requires swift-collections
     var heap = Heap<Int>()
 
-    /* Push an element onto the heap */
+    /* Insert elements into the heap */
     heap.insert(1)
     heap.insert(3)
     heap.insert(2)
     heap.insert(5)
     heap.insert(4)
 
-    /* Get the maximum element of the heap */
-    var peek = heap.max()
+    /* Access the root element */
+    var peek = heap.max()!
 
-    /* Remove the maximum element from the heap */
+    /* Remove root elements */
     peek = heap.removeMax() // 5
     peek = heap.removeMax() // 4
     peek = heap.removeMax() // 3
@@ -312,8 +307,7 @@ Just as a sorting algorithm can order values in ascending or descending order, w
     /* Check whether the heap is empty */
     let isEmpty = heap.isEmpty
 
-    /* Build a heap from an input list */
-    // The time complexity is O(n), not O(nlogn)
+    /* Build a heap from a list */
     let heap2 = Heap([1, 3, 2, 5, 4])
     ```
 
@@ -338,33 +332,32 @@ Just as a sorting algorithm can order values in ascending or descending order, w
 === "Rust"
 
     ```rust title="heap.rs"
-    use std::{cmp::Reverse, collections::BinaryHeap};
+    use std::collections::BinaryHeap;
+    use std::cmp::Reverse;
 
-    /* Initialize the heap */
+    /* Initialize a heap */
     // Initialize a min heap
-    #[allow(unused_assignments)]
-    let mut min_heap = BinaryHeap::new();
-    // Rust's BinaryHeap is a max heap; wrapping elements in Reverse gives min heap ordering
+    let mut min_heap = BinaryHeap::<Reverse<i32>>::new();
     // Initialize a max heap
     let mut max_heap = BinaryHeap::new();
 
-    /* Push an element onto the heap */
+    /* Insert elements into the heap */
     max_heap.push(1);
     max_heap.push(3);
     max_heap.push(2);
     max_heap.push(5);
     max_heap.push(4);
 
-    /* Get the top element of the heap */
-    let peek = max_heap.peek().unwrap(); // 5
+    /* Access the root element */
+    let peek = max_heap.peek().unwrap();  // 5
 
-    /* Pop the top element from the heap */
-    // The elements are popped in descending order
-    let peek = max_heap.pop().unwrap(); // 5
-    let peek = max_heap.pop().unwrap(); // 4
-    let peek = max_heap.pop().unwrap(); // 3
-    let peek = max_heap.pop().unwrap(); // 2
-    let peek = max_heap.pop().unwrap(); // 1
+    /* Remove root elements */
+    // Removed elements form a descending sequence
+    let peek = max_heap.pop().unwrap();   // 5
+    let peek = max_heap.pop().unwrap();   // 4
+    let peek = max_heap.pop().unwrap();   // 3
+    let peek = max_heap.pop().unwrap();   // 2
+    let peek = max_heap.pop().unwrap();   // 1
 
     /* Get the heap size */
     let size = max_heap.len();
@@ -372,9 +365,8 @@ Just as a sorting algorithm can order values in ascending or descending order, w
     /* Check whether the heap is empty */
     let is_empty = max_heap.is_empty();
 
-    /* Build a heap from an input list */
-    // The time complexity is O(n), not O(nlogn)
-    min_heap = BinaryHeap::from(vec![Reverse(1), Reverse(3), Reverse(2), Reverse(5), Reverse(4)]);
+    /* Build a heap from a list */
+    let min_heap = BinaryHeap::from(vec![Reverse(1), Reverse(3), Reverse(2), Reverse(5), Reverse(4)]);
     ```
 
 === "C"
@@ -386,24 +378,24 @@ Just as a sorting algorithm can order values in ascending or descending order, w
 === "Kotlin"
 
     ```kotlin title="heap.kt"
-    /* Initialize heaps */
+    /* Initialize a heap */
     // Initialize a min heap
     var minHeap = PriorityQueue<Int>()
-    // Initialize a max heap by supplying a lambda expression as the Comparator
+    // Initialize a max heap by changing the Comparator with a lambda expression
     val maxHeap = PriorityQueue { a: Int, b: Int -> b - a }
 
-    /* Push an element onto the heap */
+    /* Insert elements into the heap */
     maxHeap.offer(1)
     maxHeap.offer(3)
     maxHeap.offer(2)
     maxHeap.offer(5)
     maxHeap.offer(4)
 
-    /* Get the top element of the heap */
+    /* Access the root element */
     var peek = maxHeap.peek() // 5
 
-    /* Pop the top element from the heap */
-    // The elements are popped in descending order
+    /* Remove root elements */
+    // Removed elements form a descending sequence
     peek = maxHeap.poll() // 5
     peek = maxHeap.poll() // 4
     peek = maxHeap.poll() // 3
@@ -416,9 +408,8 @@ Just as a sorting algorithm can order values in ascending or descending order, w
     /* Check whether the heap is empty */
     val isEmpty = maxHeap.isEmpty()
 
-    /* Build a heap from an input list */
-    // The time complexity is O(n), not O(nlogn)
-    minHeap = PriorityQueue(mutableListOf<Int?>(1, 3, 2, 5, 4))
+    /* Build a heap from a list */
+    minHeap = PriorityQueue(mutableListOf(1, 3, 2, 5, 4))
     ```
 
 === "Ruby"

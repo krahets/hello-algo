@@ -123,7 +123,6 @@ comments: true
     stack.Push(2);
     stack.Push(5);
     stack.Push(4);
-    // 請注意，stack.ToArray() 得到的是倒序序列，即索引 0 為堆疊頂
 
     /* 訪問堆疊頂元素 */
     int peek = stack.Peek();
@@ -208,7 +207,7 @@ comments: true
     stack.push(4);
 
     /* 訪問堆疊頂元素 */
-    const peek = stack[stack.length - 1];
+    const peek = stack[stack.length-1];
 
     /* 元素出堆疊 */
     const pop = stack.pop();
@@ -217,7 +216,7 @@ comments: true
     const size = stack.length;
 
     /* 判斷是否為空 */
-    const isEmpty = stack.length === 0;
+    const is_empty = stack.length === 0;
     ```
 
 === "TS"
@@ -244,7 +243,7 @@ comments: true
     const size = stack.length;
 
     /* 判斷是否為空 */
-    const isEmpty = stack.length === 0;
+    const is_empty = stack.length === 0;
     ```
 
 === "Dart"
@@ -252,7 +251,7 @@ comments: true
     ```dart title="stack.dart"
     /* 初始化堆疊 */
     // Dart 沒有內建的堆疊類別，可以把 List 當作堆疊來使用
-    final List<int> stack = [];
+    List<int> stack = [];
 
     /* 元素入堆疊 */
     stack.add(1);
@@ -262,16 +261,16 @@ comments: true
     stack.add(4);
 
     /* 訪問堆疊頂元素 */
-    final int peek = stack.last;
+    int peek = stack.last;
 
     /* 元素出堆疊 */
-    final int pop = stack.removeLast();
+    int pop = stack.removeLast();
 
     /* 獲取堆疊的長度 */
-    final int size = stack.length;
+    int size = stack.length;
 
     /* 判斷是否為空 */
-    final bool isEmpty = stack.isEmpty;
+    bool isEmpty = stack.isEmpty;
     ```
 
 === "Rust"

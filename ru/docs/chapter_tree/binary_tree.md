@@ -163,8 +163,8 @@ comments: true
     typedef struct TreeNode {
         int val;                // Значение узла
         int height;             // Высота узла
-        struct TreeNode *left;  // Указатель на левый дочерний узел
-        struct TreeNode *right; // Указатель на правый дочерний узел
+        struct TreeNode *left;  // Указатель на левого дочернего узла
+        struct TreeNode *right; // Указатель на правого дочернего узла
     } TreeNode;
 
     /* Конструктор */
@@ -250,7 +250,7 @@ comments: true
     n3 = TreeNode(val=3)
     n4 = TreeNode(val=4)
     n5 = TreeNode(val=5)
-    # Построить связи между узлами (указатели)
+    # Построение ссылок (указателей) между узлами
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -261,13 +261,13 @@ comments: true
 
     ```cpp title="binary_tree.cpp"
     /* Инициализация двоичного дерева */
-    // Инициализация узла
-    TreeNode *n1 = new TreeNode(1);
-    TreeNode *n2 = new TreeNode(2);
-    TreeNode *n3 = new TreeNode(3);
-    TreeNode *n4 = new TreeNode(4);
-    TreeNode *n5 = new TreeNode(5);
-    // Построить связи между узлами (указатели)
+    // Инициализация узлов
+    TreeNode* n1 = new TreeNode(1);
+    TreeNode* n2 = new TreeNode(2);
+    TreeNode* n3 = new TreeNode(3);
+    TreeNode* n4 = new TreeNode(4);
+    TreeNode* n5 = new TreeNode(5);
+    // Построение ссылок (указателей) между узлами
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -277,14 +277,13 @@ comments: true
 === "Java"
 
     ```java title="binary_tree.java"
-    /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     TreeNode n1 = new TreeNode(1);
     TreeNode n2 = new TreeNode(2);
     TreeNode n3 = new TreeNode(3);
     TreeNode n4 = new TreeNode(4);
     TreeNode n5 = new TreeNode(5);
-    // Построить связи между узлами (указатели)
+    // Построение ссылок (указателей) между узлами
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -295,13 +294,13 @@ comments: true
 
     ```csharp title="binary_tree.cs"
     /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     TreeNode n1 = new(1);
     TreeNode n2 = new(2);
     TreeNode n3 = new(3);
     TreeNode n4 = new(4);
     TreeNode n5 = new(5);
-    // Построить связи между узлами (указатели)
+    // Построение ссылок (указателей) между узлами
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -312,13 +311,13 @@ comments: true
 
     ```go title="binary_tree.go"
     /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     n1 := NewTreeNode(1)
     n2 := NewTreeNode(2)
     n3 := NewTreeNode(3)
     n4 := NewTreeNode(4)
     n5 := NewTreeNode(5)
-    // Построить связи между узлами (указатели)
+    // Построение ссылок (указателей) между узлами
     n1.Left = n2
     n1.Right = n3
     n2.Left = n4
@@ -328,14 +327,13 @@ comments: true
 === "Swift"
 
     ```swift title="binary_tree.swift"
-    /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     let n1 = TreeNode(x: 1)
     let n2 = TreeNode(x: 2)
     let n3 = TreeNode(x: 3)
     let n4 = TreeNode(x: 4)
     let n5 = TreeNode(x: 5)
-    // Построить связи между узлами (указатели)
+    // Построение ссылок (указателей) между узлами
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -346,13 +344,13 @@ comments: true
 
     ```javascript title="binary_tree.js"
     /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     let n1 = new TreeNode(1),
         n2 = new TreeNode(2),
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // Построить связи между узлами (указатели)
+    // Построение ссылок (указателей) между узлами
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -363,13 +361,13 @@ comments: true
 
     ```typescript title="binary_tree.ts"
     /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     let n1 = new TreeNode(1),
         n2 = new TreeNode(2),
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // Построить связи между узлами (указатели)
+    // Построение ссылок (указателей) между узлами
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -381,12 +379,12 @@ comments: true
     ```dart title="binary_tree.dart"
     /* Инициализация двоичного дерева */
     // Инициализация узлов
-    TreeNode n1 = TreeNode(1);
-    TreeNode n2 = TreeNode(2);
-    TreeNode n3 = TreeNode(3);
-    TreeNode n4 = TreeNode(4);
-    TreeNode n5 = TreeNode(5);
-    // Построить связи между узлами (указатели)
+    TreeNode n1 = new TreeNode(1);
+    TreeNode n2 = new TreeNode(2);
+    TreeNode n3 = new TreeNode(3);
+    TreeNode n4 = new TreeNode(4);
+    TreeNode n5 = new TreeNode(5);
+    // Построение ссылок (указателей) между узлами
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -396,31 +394,30 @@ comments: true
 === "Rust"
 
     ```rust title="binary_tree.rs"
-    /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     let n1 = TreeNode::new(1);
     let n2 = TreeNode::new(2);
     let n3 = TreeNode::new(3);
     let n4 = TreeNode::new(4);
     let n5 = TreeNode::new(5);
-    // Построить связи между узлами (указатели)
-    n1.borrow_mut().left = Some(Rc::clone(&n2));
-    n1.borrow_mut().right = Some(Rc::clone(&n3));
-    n2.borrow_mut().left = Some(Rc::clone(&n4));
-    n2.borrow_mut().right = Some(Rc::clone(&n5));
+    // Построение ссылок (указателей) между узлами
+    n1.borrow_mut().left = Some(n2.clone());
+    n1.borrow_mut().right = Some(n3);
+    n2.borrow_mut().left = Some(n4);
+    n2.borrow_mut().right = Some(n5);
     ```
 
 === "C"
 
     ```c title="binary_tree.c"
     /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     TreeNode *n1 = newTreeNode(1);
     TreeNode *n2 = newTreeNode(2);
     TreeNode *n3 = newTreeNode(3);
     TreeNode *n4 = newTreeNode(4);
     TreeNode *n5 = newTreeNode(5);
-    // Построить связи между узлами (указатели)
+    // Построение ссылок (указателей) между узлами
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -430,14 +427,13 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
-    /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     val n1 = TreeNode(1)
     val n2 = TreeNode(2)
     val n3 = TreeNode(3)
     val n4 = TreeNode(4)
     val n5 = TreeNode(5)
-    // Построить связи между узлами (указатели)
+    // Построение ссылок (указателей) между узлами
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -454,7 +450,7 @@ comments: true
     n3 = TreeNode.new(3)
     n4 = TreeNode.new(4)
     n5 = TreeNode.new(5)
-    # Построить связи между узлами (указатели)
+    # Построение ссылок (указателей) между узлами
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -478,10 +474,10 @@ comments: true
 
     ```python title="binary_tree.py"
     # Вставка и удаление узлов
-    P = TreeNode(0)
+    p = TreeNode(0)
     # Вставить узел P между n1 -> n2
-    n1.left = P
-    P.left = n2
+    n1.left = p
+    p.left = n2
     # Удалить узел P
     n1.left = n2
     ```
@@ -490,19 +486,19 @@ comments: true
 
     ```cpp title="binary_tree.cpp"
     /* Вставка и удаление узлов */
-    TreeNode *P = new TreeNode(0);
+    TreeNode* P = new TreeNode(0);
     // Вставить узел P между n1 -> n2
     n1->left = P;
     P->left = n2;
     // Удалить узел P
     n1->left = n2;
-    delete P; // Освободить память
+    // Освободить память
+    delete P;
     ```
 
 === "Java"
 
     ```java title="binary_tree.java"
-    /* Вставка и удаление узлов */
     TreeNode P = new TreeNode(0);
     // Вставить узел P между n1 -> n2
     n1.left = P;
@@ -538,7 +534,6 @@ comments: true
 === "Swift"
 
     ```swift title="binary_tree.swift"
-    /* Вставка и удаление узлов */
     let P = TreeNode(x: 0)
     // Вставить узел P между n1 -> n2
     n1.left = P
@@ -551,7 +546,7 @@ comments: true
 
     ```javascript title="binary_tree.js"
     /* Вставка и удаление узлов */
-    const P = new TreeNode(0);
+    let P = new TreeNode(0);
     // Вставить узел P между n1 -> n2
     n1.left = P;
     P.left = n2;
@@ -575,10 +570,10 @@ comments: true
 
     ```dart title="binary_tree.dart"
     /* Вставка и удаление узлов */
-    TreeNode p = TreeNode(0);
+    TreeNode P = new TreeNode(0);
     // Вставить узел P между n1 -> n2
-    n1.left = p;
-    p.left = n2;
+    n1.left = P;
+    P.left = n2;
     // Удалить узел P
     n1.left = n2;
     ```
@@ -586,14 +581,12 @@ comments: true
 === "Rust"
 
     ```rust title="binary_tree.rs"
-    // Вставка и удаление узлов
     let p = TreeNode::new(0);
     // Вставить узел P между n1 -> n2
-    p.borrow_mut().left = Some(Rc::clone(&n2));
-    n1.borrow_mut().left = Some(Rc::clone(&p));
-    // Удалить узел P
-    drop(p);
-    n1.borrow_mut().left = Some(Rc::clone(&n2));
+    n1.borrow_mut().left = Some(p.clone());
+    p.borrow_mut().left = Some(n2.clone());
+    // Удалить узел p
+    n1.borrow_mut().left = Some(n2);
     ```
 
 === "C"
@@ -613,7 +606,6 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
-    /* Вставка и удаление узлов */
     val P = TreeNode(0)
     // Вставить узел P между n1 -> n2
     n1.left = P
@@ -630,7 +622,7 @@ comments: true
     # Вставить узел _p между n1 -> n2
     n1.left = _p
     _p.left = n2
-    # Удаление узла
+    # Удалить узел
     n1.left = n2
     ```
 

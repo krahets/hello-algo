@@ -39,79 +39,79 @@ comments: true
 === "Python"
 
     ```python title="hash_map.py"
-    # ハッシュテーブルを初期化する
-    hmap = dict[int, str]()
+    # ハッシュテーブルを初期化
+    hmap: dict = {}
 
     # 追加操作
-    # ハッシュテーブルにキーと値のペア (key, value) を追加する
+    # ハッシュテーブルにペア (key, value) を追加
     hmap[12836] = "小哈"
     hmap[15937] = "小啰"
     hmap[16750] = "小算"
     hmap[13276] = "小法"
     hmap[10583] = "小鸭"
 
-    # 取得操作
-    # ハッシュテーブルにキー key を渡し、値 value を取得する
+    # 照会操作
+    # キー key を入力して値 value を取得
     name: str = hmap[15937]
 
     # 削除操作
-    # ハッシュテーブルからキーと値のペア (key, value) を削除する
+    # ハッシュテーブルからペア (key, value) を削除
     hmap.pop(10583)
     ```
 
 === "C++"
 
     ```cpp title="hash_map.cpp"
-    /* ハッシュテーブルを初期化する */
+    /* ハッシュテーブルを初期化 */
     unordered_map<int, string> map;
 
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加する
+    // ハッシュテーブルにペア (key, value) を追加
     map[12836] = "小哈";
     map[15937] = "小啰";
     map[16750] = "小算";
     map[13276] = "小法";
     map[10583] = "小鸭";
 
-    /* 取得操作 */
-    // ハッシュテーブルにキー key を渡し、値 value を取得する
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     string name = map[15937];
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除する
+    // ハッシュテーブルからペア (key, value) を削除
     map.erase(10583);
     ```
 
 === "Java"
 
     ```java title="hash_map.java"
-    /* ハッシュテーブルを初期化する */
+    /* ハッシュテーブルを初期化 */
     Map<Integer, String> map = new HashMap<>();
 
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加する
+    // ハッシュテーブルにペア (key, value) を追加
     map.put(12836, "小哈");
     map.put(15937, "小啰");
     map.put(16750, "小算");
     map.put(13276, "小法");
     map.put(10583, "小鸭");
 
-    /* 取得操作 */
-    // ハッシュテーブルにキー key を渡し、値 value を取得する
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     String name = map.get(15937);
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除する
+    // ハッシュテーブルからペア (key, value) を削除
     map.remove(10583);
     ```
 
 === "C#"
 
     ```csharp title="hash_map.cs"
-    /* ハッシュテーブルを初期化する */
+    /* ハッシュテーブルを初期化 */
     Dictionary<int, string> map = new() {
         /* 追加操作 */
-        // ハッシュテーブルにキーと値のペア (key, value) を追加する
+        // ハッシュテーブルにペア (key, value) を追加
         { 12836, "小哈" },
         { 15937, "小啰" },
         { 16750, "小算" },
@@ -119,127 +119,130 @@ comments: true
         { 10583, "小鸭" }
     };
 
-    /* 取得操作 */
-    // ハッシュテーブルにキー key を渡し、値 value を取得する
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     string name = map[15937];
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除する
+    // ハッシュテーブルからペア (key, value) を削除
     map.Remove(10583);
     ```
 
 === "Go"
 
     ```go title="hash_map_test.go"
-    /* ハッシュテーブルを初期化する */
+    /* ハッシュテーブルを初期化 */
     hmap := make(map[int]string)
 
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加する
+    // ハッシュテーブルにペア (key, value) を追加
     hmap[12836] = "小哈"
     hmap[15937] = "小啰"
     hmap[16750] = "小算"
     hmap[13276] = "小法"
     hmap[10583] = "小鸭"
 
-    /* 取得操作 */
-    // ハッシュテーブルにキー key を渡し、値 value を取得する
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     name := hmap[15937]
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除する
+    // ハッシュテーブルからペア (key, value) を削除
     delete(hmap, 10583)
     ```
 
 === "Swift"
 
     ```swift title="hash_map.swift"
-    /* ハッシュテーブルを初期化する */
+    /* ハッシュテーブルを初期化 */
     var map: [Int: String] = [:]
 
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加する
+    // ハッシュテーブルにペア (key, value) を追加
     map[12836] = "小哈"
     map[15937] = "小啰"
     map[16750] = "小算"
     map[13276] = "小法"
     map[10583] = "小鸭"
 
-    /* 取得操作 */
-    // ハッシュテーブルにキー key を渡し、値 value を取得する
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     let name = map[15937]!
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除する
+    // ハッシュテーブルからペア (key, value) を削除
     map.removeValue(forKey: 10583)
     ```
 
 === "JS"
 
     ```javascript title="hash_map.js"
-    /* ハッシュテーブルを初期化する */
+    /* ハッシュテーブルを初期化 */
     const map = new Map();
-
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加する
+    // ハッシュテーブルにペア (key, value) を追加
     map.set(12836, '小哈');
     map.set(15937, '小啰');
     map.set(16750, '小算');
     map.set(13276, '小法');
     map.set(10583, '小鸭');
 
-    /* 取得操作 */
-    // ハッシュテーブルにキー key を渡し、値 value を取得する
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     let name = map.get(15937);
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除する
+    // ハッシュテーブルからペア (key, value) を削除
     map.delete(10583);
     ```
 
 === "TS"
 
     ```typescript title="hash_map.ts"
-    /* ハッシュテーブルを初期化する */
+    /* ハッシュテーブルを初期化 */
     const map = new Map<number, string>();
-
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加する
+    // ハッシュテーブルにペア (key, value) を追加
     map.set(12836, '小哈');
     map.set(15937, '小啰');
     map.set(16750, '小算');
     map.set(13276, '小法');
     map.set(10583, '小鸭');
+    console.info('\n追加後のハッシュテーブルは\nKey -> Value');
+    console.info(map);
 
-    /* 取得操作 */
-    // ハッシュテーブルにキー key を渡し、値 value を取得する
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     let name = map.get(15937);
+    console.info('\n学籍番号 15937 を入力して得た名前は ' + name);
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除する
+    // ハッシュテーブルからペア (key, value) を削除
     map.delete(10583);
+    console.info('\n10583 を削除した後のハッシュテーブルは\nKey -> Value');
+    console.info(map);
     ```
 
 === "Dart"
 
     ```dart title="hash_map.dart"
-    /* ハッシュテーブルを初期化する */
-    final Map<int, String> map = {};
+    /* ハッシュテーブルを初期化 */
+    Map<int, String> map = {};
 
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加する
+    // ハッシュテーブルにペア (key, value) を追加
     map[12836] = "小哈";
     map[15937] = "小啰";
     map[16750] = "小算";
     map[13276] = "小法";
     map[10583] = "小鸭";
 
-    /* 取得操作 */
-    // ハッシュテーブルにキー key を渡し、値 value を取得する
-    final String? name = map[15937];
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
+    String? name = map[15937];
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除する
+    // ハッシュテーブルからペア (key, value) を削除
     map.remove(10583);
     ```
 
@@ -248,24 +251,24 @@ comments: true
     ```rust title="hash_map.rs"
     use std::collections::HashMap;
 
-    // ハッシュテーブルを初期化する
-    let mut map = HashMap::new();
+    /* ハッシュテーブルを初期化 */
+    let mut map: HashMap<i32, String> = HashMap::new();
 
-    // 追加操作
-    // ハッシュテーブルにキーと値のペア (key, value) を追加する
-    map.insert(12836, "小哈");
-    map.insert(15937, "小啰");
-    map.insert(16750, "小算");
-    map.insert(13276, "小法");
-    map.insert(10583, "小鸭");
+    /* 追加操作 */
+    // ハッシュテーブルにペア (key, value) を追加
+    map.insert(12836, "小哈".to_string());
+    map.insert(15937, "小啰".to_string());
+    map.insert(16750, "小算".to_string());
+    map.insert(13276, "小法".to_string());
+    map.insert(10583, "小鸭".to_string());
 
-    // 取得操作
-    // ハッシュテーブルにキー key を渡し、値 value を取得する
-    let name = map.get(&15937).copied().unwrap();
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
+    let _name: Option<&String> = map.get(&15937);
 
-    // 削除操作
-    // ハッシュテーブルからキーと値のペア (key, value) を削除する
-    _ = map.remove(&10583);
+    /* 削除操作 */
+    // ハッシュテーブルからペア (key, value) を削除
+    let _removed_value: Option<String> = map.remove(&10583);
     ```
 
 === "C"
@@ -277,46 +280,46 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="hash_map.kt"
-    /* ハッシュテーブルを初期化する */
-    val map = HashMap<Int, String>()
+    /* ハッシュテーブルを初期化 */
+    val map = HashMap<Int,String>()
 
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加する
+    // ハッシュテーブルにペア (key, value) を追加
     map[12836] = "小哈"
     map[15937] = "小啰"
     map[16750] = "小算"
     map[13276] = "小法"
     map[10583] = "小鸭"
 
-    /* 取得操作 */
-    // ハッシュテーブルにキー key を渡し、値 value を取得する
+    /* 照会操作 */
+    // キー key を入力して値 value を取得
     val name = map[15937]
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除する
+    // ハッシュテーブルからペア (key, value) を削除
     map.remove(10583)
     ```
 
 === "Ruby"
 
     ```ruby title="hash_map.rb"
-    # ハッシュテーブルを初期化する
+    # ハッシュテーブルを初期化
     hmap = {}
 
     # 追加操作
-    # ハッシュテーブルにキーと値のペア (key, value) を追加する
+    # ハッシュテーブルにペア (key, value) を追加
     hmap[12836] = "小哈"
     hmap[15937] = "小啰"
     hmap[16750] = "小算"
     hmap[13276] = "小法"
     hmap[10583] = "小鸭"
 
-    # 取得操作
-    # ハッシュテーブルにキー key を渡し、値 value を取得する
+    # 照会操作
+    # キー key を入力して値 value を取得
     name = hmap[15937]
 
     # 削除操作
-    # ハッシュテーブルからキーと値のペア (key, value) を削除する
+    # ハッシュテーブルからペア (key, value) を削除
     hmap.delete(10583)
     ```
 
@@ -330,18 +333,16 @@ comments: true
 === "Python"
 
     ```python title="hash_map.py"
-    # ハッシュテーブルを走査する
-    # キーと値のペア key->value を走査する
+    # ハッシュテーブルを走査
+    # キーと値のペアを走査 key->value
     for key, value in hmap.items():
         print(key, "->", value)
-
-    # キー key だけを走査する
+    # キーだけを走査 key
     for key in hmap.keys():
         print(key)
-
-    # 値 value だけを走査する
-    for val in hmap.values():
-        print(val)
+    # 値だけを走査 value
+    for value in hmap.values():
+        print(value)
     ```
 
 === "C++"
@@ -361,19 +362,17 @@ comments: true
 === "Java"
 
     ```java title="hash_map.java"
-    /* ハッシュテーブルを走査する */
-    // キーと値のペア key->value を走査する
-    for (Map.Entry<Integer, String> kv : map.entrySet()) {
+    /* ハッシュテーブルを走査 */
+    // キーと値のペアを走査 key->value
+    for (Map.Entry <Integer, String> kv: map.entrySet()) {
         System.out.println(kv.getKey() + " -> " + kv.getValue());
     }
-
-    // キー key だけを走査する
-    for (int key : map.keySet()) {
+    // キーだけを走査 key
+    for (int key: map.keySet()) {
         System.out.println(key);
     }
-
-    // 値 value だけを走査する
-    for (String val : map.values()) {
+    // 値だけを走査 value
+    for (String val: map.values()) {
         System.out.println(val);
     }
     ```
@@ -381,18 +380,16 @@ comments: true
 === "C#"
 
     ```csharp title="hash_map.cs"
-    /* ハッシュテーブルを走査する */
-    // キーと値のペア key->value を走査する
+    /* ハッシュテーブルを走査 */
+    // キーと値のペアを走査 Key->Value
     foreach (var kv in map) {
         Console.WriteLine(kv.Key + " -> " + kv.Value);
     }
-
-    // キー key だけを走査する
+    // キーだけを走査 key
     foreach (int key in map.Keys) {
         Console.WriteLine(key);
     }
-
-    // 値 value だけを走査する
+    // 値だけを走査 value
     foreach (string val in map.Values) {
         Console.WriteLine(val);
     }
@@ -401,18 +398,16 @@ comments: true
 === "Go"
 
     ```go title="hash_map_test.go"
-    /* ハッシュテーブルを走査する */
-    // キーと値のペア key->value を走査する
+    /* ハッシュテーブルを走査 */
+    // キーと値のペアを走査 key->value
     for key, value := range hmap {
         fmt.Println(key, "->", value)
     }
-
-    // キー key だけを走査する
+    // キーだけを走査 key
     for key := range hmap {
         fmt.Println(key)
     }
-
-    // 値 value だけを走査する
+    // 値だけを走査 value
     for _, value := range hmap {
         fmt.Println(value)
     }
@@ -421,18 +416,16 @@ comments: true
 === "Swift"
 
     ```swift title="hash_map.swift"
-    /* ハッシュテーブルを走査する */
-    // キーと値のペア key->value を走査する
+    /* ハッシュテーブルを走査 */
+    // キーと値のペアを走査 Key->Value
     for (key, value) in map {
         print("\(key) -> \(value)")
     }
-
-    // キー key だけを走査する
+    // キーだけを走査 Key
     for key in map.keys {
         print(key)
     }
-
-    // 値 value だけを走査する
+    // 値だけを走査 Value
     for value in map.values {
         print(value)
     }
@@ -441,18 +434,16 @@ comments: true
 === "JS"
 
     ```javascript title="hash_map.js"
-    /* ハッシュテーブルを走査する */
-    // キーと値のペア key->value を走査する
+    /* ハッシュテーブルを走査 */
+    console.info('\nキーと値のペアを走査 Key->Value');
     for (const [k, v] of map.entries()) {
         console.info(k + ' -> ' + v);
     }
-
-    // キー key だけを走査する
+    console.info('\nキーだけを走査 Key');
     for (const k of map.keys()) {
         console.info(k);
     }
-
-    // 値 value だけを走査する
+    console.info('\n値だけを走査 Value');
     for (const v of map.values()) {
         console.info(v);
     }
@@ -461,18 +452,16 @@ comments: true
 === "TS"
 
     ```typescript title="hash_map.ts"
-    /* ハッシュテーブルを走査する */
-    // キーと値のペア key->value を走査する
+    /* ハッシュテーブルを走査 */
+    console.info('\nキーと値のペアを走査 Key->Value');
     for (const [k, v] of map.entries()) {
         console.info(k + ' -> ' + v);
     }
-
-    // キー key だけを走査する
+    console.info('\nキーだけを走査 Key');
     for (const k of map.keys()) {
         console.info(k);
     }
-
-    // 値 value だけを走査する
+    console.info('\n値だけを走査 Value');
     for (const v of map.values()) {
         console.info(v);
     }
@@ -481,32 +470,38 @@ comments: true
 === "Dart"
 
     ```dart title="hash_map.dart"
-    /* ハッシュテーブルを走査する */
-    // キーと値のペア key->value を走査する
-    map.forEach((key, value) => print("$key -> $value"));
+    /* ハッシュテーブルを走査 */
+    // キーと値のペアを走査 Key->Value
+    map.forEach((key, value) {
+      print('$key -> $value');
+    });
 
-    // キー key だけを走査する
-    map.keys.forEach((key) => print(key));
+    // キーだけを走査 Key
+    map.keys.forEach((key) {
+      print(key);
+    });
 
-    // 値 value だけを走査する
-    map.values.forEach((value) => print(value));
+    // 値だけを走査 Value
+    map.values.forEach((value) {
+      print(value);
+    });
     ```
 
 === "Rust"
 
     ```rust title="hash_map.rs"
-    // ハッシュテーブルを走査する
-    // キーと値のペア key->value を走査する
+    /* ハッシュテーブルを走査 */
+    // キーと値のペアを走査 Key->Value
     for (key, value) in &map {
         println!("{key} -> {value}");
     }
 
-    // キー key だけを走査する
+    // キーだけを走査 Key
     for key in map.keys() {
         println!("{key}");
     }
 
-    // 値 value だけを走査する
+    // 値だけを走査 Value
     for value in map.values() {
         println!("{value}");
     }
@@ -521,18 +516,16 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="hash_map.kt"
-    /* ハッシュテーブルを走査する */
-    // キーと値のペア key->value を走査する
+    /* ハッシュテーブルを走査 */
+    // キーと値のペアを走査 key->value
     for ((key, value) in map) {
         println("$key -> $value")
     }
-
-    // キー key だけを走査する
+    // キーだけを走査 key
     for (key in map.keys) {
         println(key)
     }
-
-    // 値 value だけを走査する
+    // 値だけを走査 value
     for (_val in map.values) {
         println(_val)
     }
@@ -541,14 +534,14 @@ comments: true
 === "Ruby"
 
     ```ruby title="hash_map.rb"
-    # ハッシュテーブルを走査する
-    # キーと値のペア key->value を走査する
+    # ハッシュテーブルを走査
+    # キーと値のペアを走査 key->value
     hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 
-    # キー key だけを走査する
+    # キーだけを走査 key
     hmap.keys.each { |key| puts key }
 
-    # 値 value だけを走査する
+    # 値だけを走査 value
     hmap.values.each { |val| puts val }
     ```
 

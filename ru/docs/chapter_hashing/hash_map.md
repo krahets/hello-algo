@@ -40,10 +40,10 @@ comments: true
 
     ```python title="hash_map.py"
     # Инициализация хеш-таблицы
-    hmap = dict[int, str]()
+    hmap: dict = {}
 
     # Операция добавления
-    # Добавить пару (key, value) в хеш-таблицу
+    # Добавить пару ключ-значение (key, value) в хеш-таблицу
     hmap[12836] = "Сяо Ха"
     hmap[15937] = "Сяо Ло"
     hmap[16750] = "Сяо Суань"
@@ -51,11 +51,11 @@ comments: true
     hmap[10583] = "Сяо Я"
 
     # Операция поиска
-    # Передать ключ key в хеш-таблицу и получить значение value
+    # Передать в хеш-таблицу ключ key и получить значение value
     name: str = hmap[15937]
 
     # Операция удаления
-    # Удалить пару (key, value) из хеш-таблицы
+    # Удалить пару ключ-значение (key, value) из хеш-таблицы
     hmap.pop(10583)
     ```
 
@@ -66,7 +66,7 @@ comments: true
     unordered_map<int, string> map;
 
     /* Операция добавления */
-    // Добавить пару (key, value) в хеш-таблицу
+    // Добавить пару ключ-значение (key, value) в хеш-таблицу
     map[12836] = "Сяо Ха";
     map[15937] = "Сяо Ло";
     map[16750] = "Сяо Суань";
@@ -74,11 +74,11 @@ comments: true
     map[10583] = "Сяо Я";
 
     /* Операция поиска */
-    // Ввести в хеш-таблицу ключ key и получить значение value
+    // Передать в хеш-таблицу ключ key и получить значение value
     string name = map[15937];
 
     /* Операция удаления */
-    // Удалить пару (key, value) из хеш-таблицы
+    // Удалить пару ключ-значение (key, value) из хеш-таблицы
     map.erase(10583);
     ```
 
@@ -89,7 +89,7 @@ comments: true
     Map<Integer, String> map = new HashMap<>();
 
     /* Операция добавления */
-    // Добавить пару (key, value) в хеш-таблицу
+    // Добавить пару ключ-значение (key, value) в хеш-таблицу
     map.put(12836, "Сяо Ха");
     map.put(15937, "Сяо Ло");
     map.put(16750, "Сяо Суань");
@@ -97,11 +97,11 @@ comments: true
     map.put(10583, "Сяо Я");
 
     /* Операция поиска */
-    // Ввести в хеш-таблицу ключ key и получить значение value
+    // Передать в хеш-таблицу ключ key и получить значение value
     String name = map.get(15937);
 
     /* Операция удаления */
-    // Удалить пару (key, value) из хеш-таблицы
+    // Удалить пару ключ-значение (key, value) из хеш-таблицы
     map.remove(10583);
     ```
 
@@ -111,7 +111,7 @@ comments: true
     /* Инициализация хеш-таблицы */
     Dictionary<int, string> map = new() {
         /* Операция добавления */
-        // Добавить пару (key, value) в хеш-таблицу
+        // Добавить пару ключ-значение (key, value) в хеш-таблицу
         { 12836, "Сяо Ха" },
         { 15937, "Сяо Ло" },
         { 16750, "Сяо Суань" },
@@ -120,11 +120,11 @@ comments: true
     };
 
     /* Операция поиска */
-    // Ввести в хеш-таблицу ключ key и получить значение value
+    // Передать в хеш-таблицу ключ key и получить значение value
     string name = map[15937];
 
     /* Операция удаления */
-    // Удалить пару (key, value) из хеш-таблицы
+    // Удалить пару ключ-значение (key, value) из хеш-таблицы
     map.Remove(10583);
     ```
 
@@ -135,7 +135,7 @@ comments: true
     hmap := make(map[int]string)
 
     /* Операция добавления */
-    // Добавить пару (key, value) в хеш-таблицу
+    // Добавить пару ключ-значение (key, value) в хеш-таблицу
     hmap[12836] = "Сяо Ха"
     hmap[15937] = "Сяо Ло"
     hmap[16750] = "Сяо Суань"
@@ -143,11 +143,11 @@ comments: true
     hmap[10583] = "Сяо Я"
 
     /* Операция поиска */
-    // Ввести в хеш-таблицу ключ key и получить значение value
+    // Передать в хеш-таблицу ключ key и получить значение value
     name := hmap[15937]
 
     /* Операция удаления */
-    // Удалить пару (key, value) из хеш-таблицы
+    // Удалить пару ключ-значение (key, value) из хеш-таблицы
     delete(hmap, 10583)
     ```
 
@@ -158,7 +158,7 @@ comments: true
     var map: [Int: String] = [:]
 
     /* Операция добавления */
-    // Добавить пару (key, value) в хеш-таблицу
+    // Добавить пару ключ-значение (key, value) в хеш-таблицу
     map[12836] = "Сяо Ха"
     map[15937] = "Сяо Ло"
     map[16750] = "Сяо Суань"
@@ -166,11 +166,11 @@ comments: true
     map[10583] = "Сяо Я"
 
     /* Операция поиска */
-    // Ввести в хеш-таблицу ключ key и получить значение value
+    // Передать в хеш-таблицу ключ key и получить значение value
     let name = map[15937]!
 
     /* Операция удаления */
-    // Удалить пару (key, value) из хеш-таблицы
+    // Удалить пару ключ-значение (key, value) из хеш-таблицы
     map.removeValue(forKey: 10583)
     ```
 
@@ -179,9 +179,8 @@ comments: true
     ```javascript title="hash_map.js"
     /* Инициализация хеш-таблицы */
     const map = new Map();
-
     /* Операция добавления */
-    // Добавить пару (key, value) в хеш-таблицу
+    // Добавить пару ключ-значение (key, value) в хеш-таблицу
     map.set(12836, 'Сяо Ха');
     map.set(15937, 'Сяо Ло');
     map.set(16750, 'Сяо Суань');
@@ -189,11 +188,11 @@ comments: true
     map.set(10583, 'Сяо Я');
 
     /* Операция поиска */
-    // Ввести в хеш-таблицу ключ key и получить значение value
+    // Передать в хеш-таблицу ключ key и получить значение value
     let name = map.get(15937);
 
     /* Операция удаления */
-    // Удалить пару (key, value) из хеш-таблицы
+    // Удалить пару ключ-значение (key, value) из хеш-таблицы
     map.delete(10583);
     ```
 
@@ -202,32 +201,36 @@ comments: true
     ```typescript title="hash_map.ts"
     /* Инициализация хеш-таблицы */
     const map = new Map<number, string>();
-
     /* Операция добавления */
-    // Добавить пару (key, value) в хеш-таблицу
+    // Добавить пару ключ-значение (key, value) в хеш-таблицу
     map.set(12836, 'Сяо Ха');
     map.set(15937, 'Сяо Ло');
     map.set(16750, 'Сяо Суань');
     map.set(13276, 'Сяо Фа');
     map.set(10583, 'Сяо Я');
+    console.info('\nПосле добавления хеш-таблица имеет вид\nKey -> Value');
+    console.info(map);
 
     /* Операция поиска */
-    // Ввести в хеш-таблицу ключ key и получить значение value
+    // Передать в хеш-таблицу ключ key и получить значение value
     let name = map.get(15937);
+    console.info('\nПо номеру 15937 найдено имя ' + name);
 
     /* Операция удаления */
-    // Удалить пару (key, value) из хеш-таблицы
+    // Удалить пару ключ-значение (key, value) из хеш-таблицы
     map.delete(10583);
+    console.info('\nПосле удаления 10583 хеш-таблица имеет вид\nKey -> Value');
+    console.info(map);
     ```
 
 === "Dart"
 
     ```dart title="hash_map.dart"
     /* Инициализация хеш-таблицы */
-    final Map<int, String> map = {};
+    Map<int, String> map = {};
 
     /* Операция добавления */
-    // Добавить пару (key, value) в хеш-таблицу
+    // Добавить пару ключ-значение (key, value) в хеш-таблицу
     map[12836] = "Сяо Ха";
     map[15937] = "Сяо Ло";
     map[16750] = "Сяо Суань";
@@ -235,11 +238,11 @@ comments: true
     map[10583] = "Сяо Я";
 
     /* Операция поиска */
-    // Ввести в хеш-таблицу ключ key и получить значение value
-    final String? name = map[15937];
+    // Передать в хеш-таблицу ключ key и получить значение value
+    String? name = map[15937];
 
     /* Операция удаления */
-    // Удалить пару (key, value) из хеш-таблицы
+    // Удалить пару ключ-значение (key, value) из хеш-таблицы
     map.remove(10583);
     ```
 
@@ -248,24 +251,24 @@ comments: true
     ```rust title="hash_map.rs"
     use std::collections::HashMap;
 
-    // Инициализация хеш-таблицы
-    let mut map = HashMap::new();
+    /* Инициализация хеш-таблицы */
+    let mut map: HashMap<i32, String> = HashMap::new();
 
-    // Операция добавления
-    // Добавить пару (key, value) в хеш-таблицу
-    map.insert(12836, "Сяо Ха");
-    map.insert(15937, "Сяо Ло");
-    map.insert(16750, "Сяо Суань");
-    map.insert(13276, "Сяо Фа");
-    map.insert(10583, "Сяо Я");
+    /* Операция добавления */
+    // Добавить пару ключ-значение (key, value) в хеш-таблицу
+    map.insert(12836, "Сяо Ха".to_string());
+    map.insert(15937, "Сяо Ло".to_string());
+    map.insert(16750, "Сяо Суань".to_string());
+    map.insert(13276, "Сяо Фа".to_string());
+    map.insert(10583, "Сяо Я".to_string());
 
-    // Операция поиска
-    // Передать ключ key в хеш-таблицу и получить значение value
-    let name = map.get(&15937).copied().unwrap();
+    /* Операция поиска */
+    // Передать в хеш-таблицу ключ key и получить значение value
+    let _name: Option<&String> = map.get(&15937);
 
-    // Операция удаления
-    // Удалить пару (key, value) из хеш-таблицы
-    _ = map.remove(&10583);
+    /* Операция удаления */
+    // Удалить пару ключ-значение (key, value) из хеш-таблицы
+    let _removed_value: Option<String> = map.remove(&10583);
     ```
 
 === "C"
@@ -278,10 +281,10 @@ comments: true
 
     ```kotlin title="hash_map.kt"
     /* Инициализация хеш-таблицы */
-    val map = HashMap<Int, String>()
+    val map = HashMap<Int,String>()
 
     /* Операция добавления */
-    // Добавить пару (key, value) в хеш-таблицу
+    // Добавить пару ключ-значение (key, value) в хеш-таблицу
     map[12836] = "Сяо Ха"
     map[15937] = "Сяо Ло"
     map[16750] = "Сяо Суань"
@@ -289,11 +292,11 @@ comments: true
     map[10583] = "Сяо Я"
 
     /* Операция поиска */
-    // Ввести в хеш-таблицу ключ key и получить значение value
+    // Передать в хеш-таблицу ключ key и получить значение value
     val name = map[15937]
 
     /* Операция удаления */
-    // Удалить пару (key, value) из хеш-таблицы
+    // Удалить пару ключ-значение (key, value) из хеш-таблицы
     map.remove(10583)
     ```
 
@@ -304,7 +307,7 @@ comments: true
     hmap = {}
 
     # Операция добавления
-    # Добавить пару (key, value) в хеш-таблицу
+    # Добавить пару ключ-значение (key, value) в хеш-таблицу
     hmap[12836] = "Сяо Ха"
     hmap[15937] = "Сяо Ло"
     hmap[16750] = "Сяо Суань"
@@ -312,11 +315,11 @@ comments: true
     hmap[10583] = "Сяо Я"
 
     # Операция поиска
-    # Передать ключ key в хеш-таблицу и получить значение value
+    # Передать в хеш-таблицу ключ key и получить значение value
     name = hmap[15937]
 
     # Операция удаления
-    # Удалить пару (key, value) из хеш-таблицы
+    # Удалить пару ключ-значение (key, value) из хеш-таблицы
     hmap.delete(10583)
     ```
 
@@ -334,14 +337,12 @@ comments: true
     # Обход пар ключ-значение key->value
     for key, value in hmap.items():
         print(key, "->", value)
-
     # Обход только ключей key
     for key in hmap.keys():
         print(key)
-
     # Обход только значений value
-    for val in hmap.values():
-        print(val)
+    for value in hmap.values():
+        print(value)
     ```
 
 === "C++"
@@ -363,17 +364,15 @@ comments: true
     ```java title="hash_map.java"
     /* Обход хеш-таблицы */
     // Обход пар ключ-значение key->value
-    for (Map.Entry<Integer, String> kv : map.entrySet()) {
+    for (Map.Entry <Integer, String> kv: map.entrySet()) {
         System.out.println(kv.getKey() + " -> " + kv.getValue());
     }
-
     // Обход только ключей key
-    for (int key : map.keySet()) {
+    for (int key: map.keySet()) {
         System.out.println(key);
     }
-
     // Обход только значений value
-    for (String val : map.values()) {
+    for (String val: map.values()) {
         System.out.println(val);
     }
     ```
@@ -382,16 +381,14 @@ comments: true
 
     ```csharp title="hash_map.cs"
     /* Обход хеш-таблицы */
-    // Обход пар ключ-значение key->value
+    // Обход пар ключ-значение Key->Value
     foreach (var kv in map) {
         Console.WriteLine(kv.Key + " -> " + kv.Value);
     }
-
     // Обход только ключей key
     foreach (int key in map.Keys) {
         Console.WriteLine(key);
     }
-
     // Обход только значений value
     foreach (string val in map.Values) {
         Console.WriteLine(val);
@@ -406,12 +403,10 @@ comments: true
     for key, value := range hmap {
         fmt.Println(key, "->", value)
     }
-
     // Обход только ключей key
     for key := range hmap {
         fmt.Println(key)
     }
-
     // Обход только значений value
     for _, value := range hmap {
         fmt.Println(value)
@@ -422,17 +417,15 @@ comments: true
 
     ```swift title="hash_map.swift"
     /* Обход хеш-таблицы */
-    // Обход пар ключ-значение key->value
+    // Обход пар ключ-значение Key->Value
     for (key, value) in map {
         print("\(key) -> \(value)")
     }
-
-    // Обход только ключей key
+    // Обход только ключей Key
     for key in map.keys {
         print(key)
     }
-
-    // Обход только значений value
+    // Обход только значений Value
     for value in map.values {
         print(value)
     }
@@ -442,17 +435,15 @@ comments: true
 
     ```javascript title="hash_map.js"
     /* Обход хеш-таблицы */
-    // Обход пар ключ-значение key->value
+    console.info('\nОбход пар ключ-значение Key->Value');
     for (const [k, v] of map.entries()) {
         console.info(k + ' -> ' + v);
     }
-
-    // Обход только ключей key
+    console.info('\nОбход только ключей Key');
     for (const k of map.keys()) {
         console.info(k);
     }
-
-    // Обход только значений value
+    console.info('\nОбход только значений Value');
     for (const v of map.values()) {
         console.info(v);
     }
@@ -462,17 +453,15 @@ comments: true
 
     ```typescript title="hash_map.ts"
     /* Обход хеш-таблицы */
-    // Обход пар ключ-значение key->value
+    console.info('\nОбход пар ключ-значение Key->Value');
     for (const [k, v] of map.entries()) {
         console.info(k + ' -> ' + v);
     }
-
-    // Обход только ключей key
+    console.info('\nОбход только ключей Key');
     for (const k of map.keys()) {
         console.info(k);
     }
-
-    // Обход только значений value
+    console.info('\nОбход только значений Value');
     for (const v of map.values()) {
         console.info(v);
     }
@@ -482,31 +471,37 @@ comments: true
 
     ```dart title="hash_map.dart"
     /* Обход хеш-таблицы */
-    // Обход пар ключ-значение key->value
-    map.forEach((key, value) => print("$key -> $value"));
+    // Обход пар ключ-значение Key->Value
+    map.forEach((key, value) {
+      print('$key -> $value');
+    });
 
-    // Обход только ключей key
-    map.keys.forEach((key) => print(key));
+    // Обход только ключей Key
+    map.keys.forEach((key) {
+      print(key);
+    });
 
-    // Обход только значений value
-    map.values.forEach((value) => print(value));
+    // Обход только значений Value
+    map.values.forEach((value) {
+      print(value);
+    });
     ```
 
 === "Rust"
 
     ```rust title="hash_map.rs"
-    // Обход хеш-таблицы
-    // Обход пар ключ-значение key->value
+    /* Обход хеш-таблицы */
+    // Обход пар ключ-значение Key->Value
     for (key, value) in &map {
         println!("{key} -> {value}");
     }
 
-    // Обход только ключей key
+    // Обход только ключей Key
     for key in map.keys() {
         println!("{key}");
     }
 
-    // Обход только значений value
+    // Обход только значений Value
     for value in map.values() {
         println!("{value}");
     }
@@ -526,12 +521,10 @@ comments: true
     for ((key, value) in map) {
         println("$key -> $value")
     }
-
     // Обход только ключей key
     for (key in map.keys) {
         println(key)
     }
-
     // Обход только значений value
     for (_val in map.values) {
         println(_val)
