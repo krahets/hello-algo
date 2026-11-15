@@ -2515,33 +2515,33 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree.py</span><pre><span></span><code><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="c1"># 插入与删除节点</span>
-<a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="n">p</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="n">P</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="c1"># 在 n1 -&gt; n2 中间插入节点 P</span>
-<a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="n">n1</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">p</span>
-<a href="#__codelineno-26-5" id="__codelineno-26-5" name="__codelineno-26-5"></a><span class="n">p</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">n2</span>
+<a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="n">n1</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">P</span>
+<a href="#__codelineno-26-5" id="__codelineno-26-5" name="__codelineno-26-5"></a><span class="n">P</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">n2</span>
 <a href="#__codelineno-26-6" id="__codelineno-26-6" name="__codelineno-26-6"></a><span class="c1"># 删除节点 P</span>
 <a href="#__codelineno-26-7" id="__codelineno-26-7" name="__codelineno-26-7"></a><span class="n">n1</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">n2</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree.cpp</span><pre><span></span><code><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="cm">/* 插入与删除节点 */</span>
-<a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="c1">// 在 n1 -&gt; n2 中间插入节点 P</span>
 <a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="n">n1</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
 <a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="n">P</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
 <a href="#__codelineno-27-6" id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="c1">// 删除节点 P</span>
 <a href="#__codelineno-27-7" id="__codelineno-27-7" name="__codelineno-27-7"></a><span class="n">n1</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
-<a href="#__codelineno-27-8" id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="c1">// 释放内存</span>
-<a href="#__codelineno-27-9" id="__codelineno-27-9" name="__codelineno-27-9"></a><span class="k">delete</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
+<a href="#__codelineno-27-8" id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="k">delete</span><span class="w"> </span><span class="n">P</span><span class="p">;</span><span class="w"> </span><span class="c1">// 释放内存</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.java</span><pre><span></span><code><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="c1">// 在 n1 -&gt; n2 中间插入节点 P</span>
-<a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
-<a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="n">P</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
-<a href="#__codelineno-28-5" id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="c1">// 删除节点 P</span>
-<a href="#__codelineno-28-6" id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
+<div class="highlight"><span class="filename">binary_tree.java</span><pre><span></span><code><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="cm">/* 插入与删除节点 */</span>
+<a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="c1">// 在 n1 -&gt; n2 中间插入节点 P</span>
+<a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
+<a href="#__codelineno-28-5" id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="n">P</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
+<a href="#__codelineno-28-6" id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="c1">// 删除节点 P</span>
+<a href="#__codelineno-28-7" id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2565,17 +2565,18 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.swift</span><pre><span></span><code><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="kd">let</span><span class="w"> </span><span class="nv">P</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<a href="#__codelineno-31-2" id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="c1">// 在 n1 -&gt; n2 中间插入节点 P</span>
-<a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="n">n1</span><span class="p">.</span><span class="kr">left</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P</span>
-<a href="#__codelineno-31-4" id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="n">P</span><span class="p">.</span><span class="kr">left</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n2</span>
-<a href="#__codelineno-31-5" id="__codelineno-31-5" name="__codelineno-31-5"></a><span class="c1">// 删除节点 P</span>
-<a href="#__codelineno-31-6" id="__codelineno-31-6" name="__codelineno-31-6"></a><span class="n">n1</span><span class="p">.</span><span class="kr">left</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n2</span>
+<div class="highlight"><span class="filename">binary_tree.swift</span><pre><span></span><code><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="cm">/* 插入与删除节点 */</span>
+<a href="#__codelineno-31-2" id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="kd">let</span><span class="w"> </span><span class="nv">P</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="c1">// 在 n1 -&gt; n2 中间插入节点 P</span>
+<a href="#__codelineno-31-4" id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="n">n1</span><span class="p">.</span><span class="kr">left</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P</span>
+<a href="#__codelineno-31-5" id="__codelineno-31-5" name="__codelineno-31-5"></a><span class="n">P</span><span class="p">.</span><span class="kr">left</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n2</span>
+<a href="#__codelineno-31-6" id="__codelineno-31-6" name="__codelineno-31-6"></a><span class="c1">// 删除节点 P</span>
+<a href="#__codelineno-31-7" id="__codelineno-31-7" name="__codelineno-31-7"></a><span class="n">n1</span><span class="p">.</span><span class="kr">left</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n2</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree.js</span><pre><span></span><code><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="cm">/* 插入与删除节点 */</span>
-<a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TreeNode</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TreeNode</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
 <a href="#__codelineno-32-3" id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="c1">// 在 n1 -&gt; n2 中间插入节点 P</span>
 <a href="#__codelineno-32-4" id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">P</span><span class="p">;</span>
 <a href="#__codelineno-32-5" id="__codelineno-32-5" name="__codelineno-32-5"></a><span class="nx">P</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n2</span><span class="p">;</span>
@@ -2595,21 +2596,23 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree.dart</span><pre><span></span><code><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="cm">/* 插入与删除节点 */</span>
-<a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+<a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
 <a href="#__codelineno-34-3" id="__codelineno-34-3" name="__codelineno-34-3"></a><span class="c1">// 在 n1 -&gt; n2 中间插入节点 P</span>
-<a href="#__codelineno-34-4" id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="n">n1</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
-<a href="#__codelineno-34-5" id="__codelineno-34-5" name="__codelineno-34-5"></a><span class="n">P</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
+<a href="#__codelineno-34-4" id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="n">n1</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<a href="#__codelineno-34-5" id="__codelineno-34-5" name="__codelineno-34-5"></a><span class="n">p</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
 <a href="#__codelineno-34-6" id="__codelineno-34-6" name="__codelineno-34-6"></a><span class="c1">// 删除节点 P</span>
 <a href="#__codelineno-34-7" id="__codelineno-34-7" name="__codelineno-34-7"></a><span class="n">n1</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.rs</span><pre><span></span><code><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="c1">// 在 n1 -&gt; n2 中间插入节点 P</span>
-<a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="n">n1</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">clone</span><span class="p">());</span>
-<a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="n">p</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">n2</span><span class="p">.</span><span class="n">clone</span><span class="p">());</span>
-<a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="c1">// 删除节点 p</span>
-<a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="n">n1</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">n2</span><span class="p">);</span>
+<div class="highlight"><span class="filename">binary_tree.rs</span><pre><span></span><code><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="c1">// 插入节点与删除节点</span>
+<a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="c1">// 在 n1 -&gt; n2 中间插入节点 P</span>
+<a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="n">p</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">Rc</span><span class="p">::</span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n2</span><span class="p">));</span>
+<a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="n">n1</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">Rc</span><span class="p">::</span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="n">p</span><span class="p">));</span>
+<a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="c1">// 删除节点 P</span>
+<a href="#__codelineno-35-7" id="__codelineno-35-7" name="__codelineno-35-7"></a><span class="nb">drop</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<a href="#__codelineno-35-8" id="__codelineno-35-8" name="__codelineno-35-8"></a><span class="n">n1</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">Rc</span><span class="p">::</span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n2</span><span class="p">));</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2625,12 +2628,13 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.kt</span><pre><span></span><code><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
-<a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="c1">// 在 n1 -&gt; n2 中间插入节点 P</span>
-<a href="#__codelineno-37-3" id="__codelineno-37-3" name="__codelineno-37-3"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span>
-<a href="#__codelineno-37-4" id="__codelineno-37-4" name="__codelineno-37-4"></a><span class="n">P</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span>
-<a href="#__codelineno-37-5" id="__codelineno-37-5" name="__codelineno-37-5"></a><span class="c1">// 删除节点 P</span>
-<a href="#__codelineno-37-6" id="__codelineno-37-6" name="__codelineno-37-6"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span>
+<div class="highlight"><span class="filename">binary_tree.kt</span><pre><span></span><code><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="cm">/* 插入与删除节点 */</span>
+<a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="kd">val</span><span class="w"> </span><span class="nv">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
+<a href="#__codelineno-37-3" id="__codelineno-37-3" name="__codelineno-37-3"></a><span class="c1">// 在 n1 -&gt; n2 中间插入节点 P</span>
+<a href="#__codelineno-37-4" id="__codelineno-37-4" name="__codelineno-37-4"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span>
+<a href="#__codelineno-37-5" id="__codelineno-37-5" name="__codelineno-37-5"></a><span class="n">P</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span>
+<a href="#__codelineno-37-6" id="__codelineno-37-6" name="__codelineno-37-6"></a><span class="c1">// 删除节点 P</span>
+<a href="#__codelineno-37-7" id="__codelineno-37-7" name="__codelineno-37-7"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">

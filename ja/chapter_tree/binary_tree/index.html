@@ -2481,131 +2481,135 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree.py</span><pre><span></span><code><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="c1"># ノードの挿入と削除</span>
-<a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="n">p</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="c1"># n1 -&gt; n2 の間にノード P を挿入</span>
-<a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="n">n1</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">p</span>
-<a href="#__codelineno-26-5" id="__codelineno-26-5" name="__codelineno-26-5"></a><span class="n">p</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">n2</span>
-<a href="#__codelineno-26-6" id="__codelineno-26-6" name="__codelineno-26-6"></a><span class="c1"># ノード P を削除</span>
+<a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="n">P</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="c1"># n1 -&gt; n2 の間にノード P を挿入する</span>
+<a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="n">n1</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">P</span>
+<a href="#__codelineno-26-5" id="__codelineno-26-5" name="__codelineno-26-5"></a><span class="n">P</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">n2</span>
+<a href="#__codelineno-26-6" id="__codelineno-26-6" name="__codelineno-26-6"></a><span class="c1"># ノード P を削除する</span>
 <a href="#__codelineno-26-7" id="__codelineno-26-7" name="__codelineno-26-7"></a><span class="n">n1</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">n2</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree.cpp</span><pre><span></span><code><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="cm">/* ノードの挿入と削除 */</span>
-<a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入</span>
+<a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入する</span>
 <a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="n">n1</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
 <a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="n">P</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
-<a href="#__codelineno-27-6" id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="c1">// ノード P を削除</span>
+<a href="#__codelineno-27-6" id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="c1">// ノード P を削除する</span>
 <a href="#__codelineno-27-7" id="__codelineno-27-7" name="__codelineno-27-7"></a><span class="n">n1</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
-<a href="#__codelineno-27-8" id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="c1">// メモリを解放</span>
-<a href="#__codelineno-27-9" id="__codelineno-27-9" name="__codelineno-27-9"></a><span class="k">delete</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
+<a href="#__codelineno-27-8" id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="k">delete</span><span class="w"> </span><span class="n">P</span><span class="p">;</span><span class="w"> </span><span class="c1">// メモリを解放する</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.java</span><pre><span></span><code><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入</span>
-<a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
-<a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="n">P</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
-<a href="#__codelineno-28-5" id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="c1">// ノード P を削除</span>
-<a href="#__codelineno-28-6" id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
+<div class="highlight"><span class="filename">binary_tree.java</span><pre><span></span><code><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="cm">/* ノードの挿入と削除 */</span>
+<a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入する</span>
+<a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
+<a href="#__codelineno-28-5" id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="n">P</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
+<a href="#__codelineno-28-6" id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="c1">// ノード P を削除する</span>
+<a href="#__codelineno-28-7" id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree.cs</span><pre><span></span><code><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="cm">/* ノードの挿入と削除 */</span>
 <a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<a href="#__codelineno-29-3" id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入</span>
+<a href="#__codelineno-29-3" id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入する</span>
 <a href="#__codelineno-29-4" id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="n">n1</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
 <a href="#__codelineno-29-5" id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="n">P</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
-<a href="#__codelineno-29-6" id="__codelineno-29-6" name="__codelineno-29-6"></a><span class="c1">// ノード P を削除</span>
+<a href="#__codelineno-29-6" id="__codelineno-29-6" name="__codelineno-29-6"></a><span class="c1">// ノード P を削除する</span>
 <a href="#__codelineno-29-7" id="__codelineno-29-7" name="__codelineno-29-7"></a><span class="n">n1</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree.go</span><pre><span></span><code><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="cm">/* ノードの挿入と削除 */</span>
-<a href="#__codelineno-30-2" id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入</span>
+<a href="#__codelineno-30-2" id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入する</span>
 <a href="#__codelineno-30-3" id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="nx">p</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">NewTreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a href="#__codelineno-30-4" id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">p</span>
 <a href="#__codelineno-30-5" id="__codelineno-30-5" name="__codelineno-30-5"></a><span class="nx">p</span><span class="p">.</span><span class="nx">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n2</span>
-<a href="#__codelineno-30-6" id="__codelineno-30-6" name="__codelineno-30-6"></a><span class="c1">// ノード P を削除</span>
+<a href="#__codelineno-30-6" id="__codelineno-30-6" name="__codelineno-30-6"></a><span class="c1">// ノード P を削除する</span>
 <a href="#__codelineno-30-7" id="__codelineno-30-7" name="__codelineno-30-7"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n2</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.swift</span><pre><span></span><code><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="kd">let</span><span class="w"> </span><span class="nv">P</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<a href="#__codelineno-31-2" id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入</span>
-<a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="n">n1</span><span class="p">.</span><span class="kr">left</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P</span>
-<a href="#__codelineno-31-4" id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="n">P</span><span class="p">.</span><span class="kr">left</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n2</span>
-<a href="#__codelineno-31-5" id="__codelineno-31-5" name="__codelineno-31-5"></a><span class="c1">// ノード P を削除</span>
-<a href="#__codelineno-31-6" id="__codelineno-31-6" name="__codelineno-31-6"></a><span class="n">n1</span><span class="p">.</span><span class="kr">left</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n2</span>
+<div class="highlight"><span class="filename">binary_tree.swift</span><pre><span></span><code><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="cm">/* ノードの挿入と削除 */</span>
+<a href="#__codelineno-31-2" id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="kd">let</span><span class="w"> </span><span class="nv">P</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入する</span>
+<a href="#__codelineno-31-4" id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="n">n1</span><span class="p">.</span><span class="kr">left</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P</span>
+<a href="#__codelineno-31-5" id="__codelineno-31-5" name="__codelineno-31-5"></a><span class="n">P</span><span class="p">.</span><span class="kr">left</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n2</span>
+<a href="#__codelineno-31-6" id="__codelineno-31-6" name="__codelineno-31-6"></a><span class="c1">// ノード P を削除する</span>
+<a href="#__codelineno-31-7" id="__codelineno-31-7" name="__codelineno-31-7"></a><span class="n">n1</span><span class="p">.</span><span class="kr">left</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n2</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree.js</span><pre><span></span><code><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="cm">/* ノードの挿入と削除 */</span>
-<a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TreeNode</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
-<a href="#__codelineno-32-3" id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入</span>
+<a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TreeNode</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<a href="#__codelineno-32-3" id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入する</span>
 <a href="#__codelineno-32-4" id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">P</span><span class="p">;</span>
 <a href="#__codelineno-32-5" id="__codelineno-32-5" name="__codelineno-32-5"></a><span class="nx">P</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n2</span><span class="p">;</span>
-<a href="#__codelineno-32-6" id="__codelineno-32-6" name="__codelineno-32-6"></a><span class="c1">// ノード P を削除</span>
+<a href="#__codelineno-32-6" id="__codelineno-32-6" name="__codelineno-32-6"></a><span class="c1">// ノード P を削除する</span>
 <a href="#__codelineno-32-7" id="__codelineno-32-7" name="__codelineno-32-7"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n2</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree.ts</span><pre><span></span><code><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="cm">/* ノードの挿入と削除 */</span>
 <a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TreeNode</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
-<a href="#__codelineno-33-3" id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入</span>
+<a href="#__codelineno-33-3" id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入する</span>
 <a href="#__codelineno-33-4" id="__codelineno-33-4" name="__codelineno-33-4"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">P</span><span class="p">;</span>
 <a href="#__codelineno-33-5" id="__codelineno-33-5" name="__codelineno-33-5"></a><span class="nx">P</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n2</span><span class="p">;</span>
-<a href="#__codelineno-33-6" id="__codelineno-33-6" name="__codelineno-33-6"></a><span class="c1">// ノード P を削除</span>
+<a href="#__codelineno-33-6" id="__codelineno-33-6" name="__codelineno-33-6"></a><span class="c1">// ノード P を削除する</span>
 <a href="#__codelineno-33-7" id="__codelineno-33-7" name="__codelineno-33-7"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n2</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree.dart</span><pre><span></span><code><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="cm">/* ノードの挿入と削除 */</span>
-<a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
-<a href="#__codelineno-34-3" id="__codelineno-34-3" name="__codelineno-34-3"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入</span>
-<a href="#__codelineno-34-4" id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="n">n1</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
-<a href="#__codelineno-34-5" id="__codelineno-34-5" name="__codelineno-34-5"></a><span class="n">P</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
-<a href="#__codelineno-34-6" id="__codelineno-34-6" name="__codelineno-34-6"></a><span class="c1">// ノード P を削除</span>
+<a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+<a href="#__codelineno-34-3" id="__codelineno-34-3" name="__codelineno-34-3"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入する</span>
+<a href="#__codelineno-34-4" id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="n">n1</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<a href="#__codelineno-34-5" id="__codelineno-34-5" name="__codelineno-34-5"></a><span class="n">p</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
+<a href="#__codelineno-34-6" id="__codelineno-34-6" name="__codelineno-34-6"></a><span class="c1">// ノード P を削除する</span>
 <a href="#__codelineno-34-7" id="__codelineno-34-7" name="__codelineno-34-7"></a><span class="n">n1</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.rs</span><pre><span></span><code><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入</span>
-<a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="n">n1</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">clone</span><span class="p">());</span>
-<a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="n">p</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">n2</span><span class="p">.</span><span class="n">clone</span><span class="p">());</span>
-<a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="c1">// ノード p を削除</span>
-<a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="n">n1</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">n2</span><span class="p">);</span>
+<div class="highlight"><span class="filename">binary_tree.rs</span><pre><span></span><code><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="c1">// ノードの挿入と削除</span>
+<a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入する</span>
+<a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="n">p</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">Rc</span><span class="p">::</span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n2</span><span class="p">));</span>
+<a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="n">n1</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">Rc</span><span class="p">::</span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="n">p</span><span class="p">));</span>
+<a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="c1">// ノード P を削除する</span>
+<a href="#__codelineno-35-7" id="__codelineno-35-7" name="__codelineno-35-7"></a><span class="nb">drop</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<a href="#__codelineno-35-8" id="__codelineno-35-8" name="__codelineno-35-8"></a><span class="n">n1</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">Rc</span><span class="p">::</span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n2</span><span class="p">));</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree.c</span><pre><span></span><code><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="cm">/* ノードの挿入と削除 */</span>
 <a href="#__codelineno-36-2" id="__codelineno-36-2" name="__codelineno-36-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newTreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<a href="#__codelineno-36-3" id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入</span>
+<a href="#__codelineno-36-3" id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入する</span>
 <a href="#__codelineno-36-4" id="__codelineno-36-4" name="__codelineno-36-4"></a><span class="n">n1</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
 <a href="#__codelineno-36-5" id="__codelineno-36-5" name="__codelineno-36-5"></a><span class="n">P</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
-<a href="#__codelineno-36-6" id="__codelineno-36-6" name="__codelineno-36-6"></a><span class="c1">// ノード P を削除</span>
+<a href="#__codelineno-36-6" id="__codelineno-36-6" name="__codelineno-36-6"></a><span class="c1">// ノード P を削除する</span>
 <a href="#__codelineno-36-7" id="__codelineno-36-7" name="__codelineno-36-7"></a><span class="n">n1</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
-<a href="#__codelineno-36-8" id="__codelineno-36-8" name="__codelineno-36-8"></a><span class="c1">// メモリを解放</span>
+<a href="#__codelineno-36-8" id="__codelineno-36-8" name="__codelineno-36-8"></a><span class="c1">// メモリを解放する</span>
 <a href="#__codelineno-36-9" id="__codelineno-36-9" name="__codelineno-36-9"></a><span class="n">free</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.kt</span><pre><span></span><code><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
-<a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入</span>
-<a href="#__codelineno-37-3" id="__codelineno-37-3" name="__codelineno-37-3"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span>
-<a href="#__codelineno-37-4" id="__codelineno-37-4" name="__codelineno-37-4"></a><span class="n">P</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span>
-<a href="#__codelineno-37-5" id="__codelineno-37-5" name="__codelineno-37-5"></a><span class="c1">// ノード P を削除</span>
-<a href="#__codelineno-37-6" id="__codelineno-37-6" name="__codelineno-37-6"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span>
+<div class="highlight"><span class="filename">binary_tree.kt</span><pre><span></span><code><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="cm">/* ノードの挿入と削除 */</span>
+<a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="kd">val</span><span class="w"> </span><span class="nv">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
+<a href="#__codelineno-37-3" id="__codelineno-37-3" name="__codelineno-37-3"></a><span class="c1">// n1 -&gt; n2 の間にノード P を挿入する</span>
+<a href="#__codelineno-37-4" id="__codelineno-37-4" name="__codelineno-37-4"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span>
+<a href="#__codelineno-37-5" id="__codelineno-37-5" name="__codelineno-37-5"></a><span class="n">P</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span>
+<a href="#__codelineno-37-6" id="__codelineno-37-6" name="__codelineno-37-6"></a><span class="c1">// ノード P を削除する</span>
+<a href="#__codelineno-37-7" id="__codelineno-37-7" name="__codelineno-37-7"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree.rb</span><pre><span></span><code><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="c1"># ノードの挿入と削除</span>
 <a href="#__codelineno-38-2" id="__codelineno-38-2" name="__codelineno-38-2"></a><span class="n">_p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">TreeNode</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<a href="#__codelineno-38-3" id="__codelineno-38-3" name="__codelineno-38-3"></a><span class="c1"># n1 -&gt; n2 の間にノード _p を挿入</span>
+<a href="#__codelineno-38-3" id="__codelineno-38-3" name="__codelineno-38-3"></a><span class="c1"># n1 -&gt; n2 の間にノード _p を挿入する</span>
 <a href="#__codelineno-38-4" id="__codelineno-38-4" name="__codelineno-38-4"></a><span class="n">n1</span><span class="o">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_p</span>
 <a href="#__codelineno-38-5" id="__codelineno-38-5" name="__codelineno-38-5"></a><span class="n">_p</span><span class="o">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span>
-<a href="#__codelineno-38-6" id="__codelineno-38-6" name="__codelineno-38-6"></a><span class="c1"># ノードを削除</span>
+<a href="#__codelineno-38-6" id="__codelineno-38-6" name="__codelineno-38-6"></a><span class="c1"># ノードを削除する</span>
 <a href="#__codelineno-38-7" id="__codelineno-38-7" name="__codelineno-38-7"></a><span class="n">n1</span><span class="o">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span>
 </code></pre></div>
 </div>
