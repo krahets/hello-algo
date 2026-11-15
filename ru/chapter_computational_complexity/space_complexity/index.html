@@ -3493,24 +3493,12 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">space_complexity.rb</span><pre><span></span><code><a href="#__codelineno-77-1" id="__codelineno-77-1" name="__codelineno-77-1"></a><span class="c1">### Линейная сложность ###</span>
-<a href="#__codelineno-77-2" id="__codelineno-77-2" name="__codelineno-77-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">linear</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<a href="#__codelineno-77-3" id="__codelineno-77-3" name="__codelineno-77-3"></a><span class="w">  </span><span class="c1"># Список длины n занимает O(n) памяти</span>
-<a href="#__codelineno-77-4" id="__codelineno-77-4" name="__codelineno-77-4"></a><span class="w">  </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<a href="#__codelineno-77-5" id="__codelineno-77-5" name="__codelineno-77-5"></a>
-<a href="#__codelineno-77-6" id="__codelineno-77-6" name="__codelineno-77-6"></a><span class="w">  </span><span class="c1"># Хеш-таблица длины n занимает O(n) памяти</span>
-<a href="#__codelineno-77-7" id="__codelineno-77-7" name="__codelineno-77-7"></a><span class="w">  </span><span class="n">hmap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
-<a href="#__codelineno-77-8" id="__codelineno-77-8" name="__codelineno-77-8"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">...</span><span class="n">n</span>
-<a href="#__codelineno-77-9" id="__codelineno-77-9" name="__codelineno-77-9"></a><span class="w">    </span><span class="n">hmap</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">.</span><span class="n">to_s</span>
-<a href="#__codelineno-77-10" id="__codelineno-77-10" name="__codelineno-77-10"></a><span class="w">  </span><span class="k">end</span>
-<a href="#__codelineno-77-11" id="__codelineno-77-11" name="__codelineno-77-11"></a><span class="k">end</span>
-<a href="#__codelineno-77-12" id="__codelineno-77-12" name="__codelineno-77-12"></a>
-<a href="#__codelineno-77-13" id="__codelineno-77-13" name="__codelineno-77-13"></a><span class="c1"># ## Линейная сложность (рекурсивная реализация) ###</span>
-<a href="#__codelineno-77-14" id="__codelineno-77-14" name="__codelineno-77-14"></a><span class="k">def</span><span class="w"> </span><span class="nf">linear_recur</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<a href="#__codelineno-77-15" id="__codelineno-77-15" name="__codelineno-77-15"></a><span class="w">  </span><span class="nb">puts</span><span class="w"> </span><span class="s2">"Рекурсия n = </span><span class="si">#{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span>
-<a href="#__codelineno-77-16" id="__codelineno-77-16" name="__codelineno-77-16"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span>
-<a href="#__codelineno-77-17" id="__codelineno-77-17" name="__codelineno-77-17"></a><span class="w">  </span><span class="n">linear_recur</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<a href="#__codelineno-77-18" id="__codelineno-77-18" name="__codelineno-77-18"></a><span class="k">end</span>
+<div class="highlight"><span class="filename">space_complexity.rb</span><pre><span></span><code><a href="#__codelineno-77-1" id="__codelineno-77-1" name="__codelineno-77-1"></a><span class="c1">### Линейная сложность (рекурсивная реализация) ###</span>
+<a href="#__codelineno-77-2" id="__codelineno-77-2" name="__codelineno-77-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">linear_recur</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a href="#__codelineno-77-3" id="__codelineno-77-3" name="__codelineno-77-3"></a><span class="w">  </span><span class="nb">puts</span><span class="w"> </span><span class="s2">"Рекурсия n = </span><span class="si">#{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span>
+<a href="#__codelineno-77-4" id="__codelineno-77-4" name="__codelineno-77-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span>
+<a href="#__codelineno-77-5" id="__codelineno-77-5" name="__codelineno-77-5"></a><span class="w">  </span><span class="n">linear_recur</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<a href="#__codelineno-77-6" id="__codelineno-77-6" name="__codelineno-77-6"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 </div>
@@ -3868,20 +3856,14 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">space_complexity.rb</span><pre><span></span><code><a href="#__codelineno-103-1" id="__codelineno-103-1" name="__codelineno-103-1"></a><span class="c1">### Квадратичная сложность ###</span>
-<a href="#__codelineno-103-2" id="__codelineno-103-2" name="__codelineno-103-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">quadratic</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<a href="#__codelineno-103-3" id="__codelineno-103-3" name="__codelineno-103-3"></a><span class="w">  </span><span class="c1"># Двумерный список занимает O(n^2) памяти</span>
-<a href="#__codelineno-103-4" id="__codelineno-103-4" name="__codelineno-103-4"></a><span class="w">  </span><span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
-<a href="#__codelineno-103-5" id="__codelineno-103-5" name="__codelineno-103-5"></a><span class="k">end</span>
-<a href="#__codelineno-103-6" id="__codelineno-103-6" name="__codelineno-103-6"></a>
-<a href="#__codelineno-103-7" id="__codelineno-103-7" name="__codelineno-103-7"></a><span class="c1"># ## Квадратичная сложность (рекурсивная реализация) ###</span>
-<a href="#__codelineno-103-8" id="__codelineno-103-8" name="__codelineno-103-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">quadratic_recur</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<a href="#__codelineno-103-9" id="__codelineno-103-9" name="__codelineno-103-9"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
-<a href="#__codelineno-103-10" id="__codelineno-103-10" name="__codelineno-103-10"></a>
-<a href="#__codelineno-103-11" id="__codelineno-103-11" name="__codelineno-103-11"></a><span class="w">  </span><span class="c1"># Длина массива nums равна n, n-1, ..., 2, 1</span>
-<a href="#__codelineno-103-12" id="__codelineno-103-12" name="__codelineno-103-12"></a><span class="w">  </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<a href="#__codelineno-103-13" id="__codelineno-103-13" name="__codelineno-103-13"></a><span class="w">  </span><span class="n">quadratic_recur</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<a href="#__codelineno-103-14" id="__codelineno-103-14" name="__codelineno-103-14"></a><span class="k">end</span>
+<div class="highlight"><span class="filename">space_complexity.rb</span><pre><span></span><code><a href="#__codelineno-103-1" id="__codelineno-103-1" name="__codelineno-103-1"></a><span class="c1">### Квадратичная сложность (рекурсивная реализация) ###</span>
+<a href="#__codelineno-103-2" id="__codelineno-103-2" name="__codelineno-103-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">quadratic_recur</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a href="#__codelineno-103-3" id="__codelineno-103-3" name="__codelineno-103-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<a href="#__codelineno-103-4" id="__codelineno-103-4" name="__codelineno-103-4"></a>
+<a href="#__codelineno-103-5" id="__codelineno-103-5" name="__codelineno-103-5"></a><span class="w">  </span><span class="c1"># Длина массива nums равна n, n-1, ..., 2, 1</span>
+<a href="#__codelineno-103-6" id="__codelineno-103-6" name="__codelineno-103-6"></a><span class="w">  </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a href="#__codelineno-103-7" id="__codelineno-103-7" name="__codelineno-103-7"></a><span class="w">  </span><span class="n">quadratic_recur</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<a href="#__codelineno-103-8" id="__codelineno-103-8" name="__codelineno-103-8"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 </div>
@@ -4041,30 +4023,15 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">space_complexity.rb</span><pre><span></span><code><a href="#__codelineno-116-1" id="__codelineno-116-1" name="__codelineno-116-1"></a><span class="c1">### Квадратичная сложность ###</span>
-<a href="#__codelineno-116-2" id="__codelineno-116-2" name="__codelineno-116-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">quadratic</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<a href="#__codelineno-116-3" id="__codelineno-116-3" name="__codelineno-116-3"></a><span class="w">  </span><span class="c1"># Двумерный список занимает O(n^2) памяти</span>
-<a href="#__codelineno-116-4" id="__codelineno-116-4" name="__codelineno-116-4"></a><span class="w">  </span><span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
-<a href="#__codelineno-116-5" id="__codelineno-116-5" name="__codelineno-116-5"></a><span class="k">end</span>
-<a href="#__codelineno-116-6" id="__codelineno-116-6" name="__codelineno-116-6"></a>
-<a href="#__codelineno-116-7" id="__codelineno-116-7" name="__codelineno-116-7"></a><span class="c1"># ## Квадратичная сложность (рекурсивная реализация) ###</span>
-<a href="#__codelineno-116-8" id="__codelineno-116-8" name="__codelineno-116-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">quadratic_recur</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<a href="#__codelineno-116-9" id="__codelineno-116-9" name="__codelineno-116-9"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
-<a href="#__codelineno-116-10" id="__codelineno-116-10" name="__codelineno-116-10"></a>
-<a href="#__codelineno-116-11" id="__codelineno-116-11" name="__codelineno-116-11"></a><span class="w">  </span><span class="c1"># Длина массива nums равна n, n-1, ..., 2, 1</span>
-<a href="#__codelineno-116-12" id="__codelineno-116-12" name="__codelineno-116-12"></a><span class="w">  </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<a href="#__codelineno-116-13" id="__codelineno-116-13" name="__codelineno-116-13"></a><span class="w">  </span><span class="n">quadratic_recur</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<a href="#__codelineno-116-14" id="__codelineno-116-14" name="__codelineno-116-14"></a><span class="k">end</span>
-<a href="#__codelineno-116-15" id="__codelineno-116-15" name="__codelineno-116-15"></a>
-<a href="#__codelineno-116-16" id="__codelineno-116-16" name="__codelineno-116-16"></a><span class="c1"># ## Экспоненциальная сложность (построение полного двоичного дерева) ###</span>
-<a href="#__codelineno-116-17" id="__codelineno-116-17" name="__codelineno-116-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">build_tree</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<a href="#__codelineno-116-18" id="__codelineno-116-18" name="__codelineno-116-18"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span>
-<a href="#__codelineno-116-19" id="__codelineno-116-19" name="__codelineno-116-19"></a>
-<a href="#__codelineno-116-20" id="__codelineno-116-20" name="__codelineno-116-20"></a><span class="w">  </span><span class="no">TreeNode</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">tap</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">root</span><span class="o">|</span>
-<a href="#__codelineno-116-21" id="__codelineno-116-21" name="__codelineno-116-21"></a><span class="w">    </span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">build_tree</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<a href="#__codelineno-116-22" id="__codelineno-116-22" name="__codelineno-116-22"></a><span class="w">    </span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">build_tree</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<a href="#__codelineno-116-23" id="__codelineno-116-23" name="__codelineno-116-23"></a><span class="w">  </span><span class="k">end</span>
-<a href="#__codelineno-116-24" id="__codelineno-116-24" name="__codelineno-116-24"></a><span class="k">end</span>
+<div class="highlight"><span class="filename">space_complexity.rb</span><pre><span></span><code><a href="#__codelineno-116-1" id="__codelineno-116-1" name="__codelineno-116-1"></a><span class="c1">### Экспоненциальная сложность (построение полного двоичного дерева) ###</span>
+<a href="#__codelineno-116-2" id="__codelineno-116-2" name="__codelineno-116-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">build_tree</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a href="#__codelineno-116-3" id="__codelineno-116-3" name="__codelineno-116-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span>
+<a href="#__codelineno-116-4" id="__codelineno-116-4" name="__codelineno-116-4"></a>
+<a href="#__codelineno-116-5" id="__codelineno-116-5" name="__codelineno-116-5"></a><span class="w">  </span><span class="no">TreeNode</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">tap</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">root</span><span class="o">|</span>
+<a href="#__codelineno-116-6" id="__codelineno-116-6" name="__codelineno-116-6"></a><span class="w">    </span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">build_tree</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<a href="#__codelineno-116-7" id="__codelineno-116-7" name="__codelineno-116-7"></a><span class="w">    </span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">build_tree</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<a href="#__codelineno-116-8" id="__codelineno-116-8" name="__codelineno-116-8"></a><span class="w">  </span><span class="k">end</span>
+<a href="#__codelineno-116-9" id="__codelineno-116-9" name="__codelineno-116-9"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 </div>
