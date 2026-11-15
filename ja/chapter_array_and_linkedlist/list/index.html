@@ -2151,83 +2151,82 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><input id="__tabbed_2_4" name="__tabbed_2" type="radio"/><input id="__tabbed_2_5" name="__tabbed_2" type="radio"/><input id="__tabbed_2_6" name="__tabbed_2" type="radio"/><input id="__tabbed_2_7" name="__tabbed_2" type="radio"/><input id="__tabbed_2_8" name="__tabbed_2" type="radio"/><input id="__tabbed_2_9" name="__tabbed_2" type="radio"/><input id="__tabbed_2_10" name="__tabbed_2" type="radio"/><input id="__tabbed_2_11" name="__tabbed_2" type="radio"/><input id="__tabbed_2_12" name="__tabbed_2" type="radio"/><input id="__tabbed_2_13" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.py</span><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1"># 要素にアクセスする</span>
-<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># インデックス 1 の要素にアクセスする</span>
+<div class="highlight"><span class="filename">list.py</span><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1"># 要素にアクセス</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">num</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># インデックス 1 の要素にアクセス</span>
 <a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>
-<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="c1"># 要素を更新する</span>
-<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># インデックス 1 の要素を 0 に更新する</span>
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="c1"># 要素を更新</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># インデックス 1 の要素を 0 に更新</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.cpp</span><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cm">/* 要素にアクセスする */</span>
-<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// インデックス 1 の要素にアクセスする</span>
+<div class="highlight"><span class="filename">list.cpp</span><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cm">/* 要素にアクセス */</span>
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// インデックス 1 の要素にアクセス</span>
 <a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>
-<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="cm">/* 要素を更新する */</span>
-<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// インデックス 1 の要素を 0 に更新する</span>
+<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="cm">/* 要素を更新 */</span>
+<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// インデックス 1 の要素を 0 に更新</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.java</span><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cm">/* 要素にアクセスする */</span>
-<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 1 の要素にアクセスする</span>
+<div class="highlight"><span class="filename">list.java</span><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cm">/* 要素にアクセス */</span>
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// インデックス 1 の要素にアクセス</span>
 <a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a>
-<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="cm">/* 要素を更新する */</span>
-<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="n">nums</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 1 の要素を 0 に更新する</span>
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="cm">/* 要素を更新 */</span>
+<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="n">nums</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// インデックス 1 の要素を 0 に更新</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cm">/* 要素にアクセスする */</span>
-<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// インデックス 1 の要素にアクセスする</span>
+<div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cm">/* 要素にアクセス */</span>
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// インデックス 1 の要素にアクセス</span>
 <a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>
-<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="cm">/* 要素を更新する */</span>
-<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// インデックス 1 の要素を 0 に更新する</span>
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="cm">/* 要素を更新 */</span>
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// インデックス 1 の要素を 0 に更新</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list_test.go</span><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cm">/* 要素にアクセスする */</span>
-<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="nx">num</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="c1">// インデックス 1 の要素にアクセスする</span>
+<div class="highlight"><span class="filename">list_test.go</span><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cm">/* 要素にアクセス */</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="nx">num</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w">  </span><span class="c1">// インデックス 1 の要素にアクセス</span>
 <a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>
-<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="cm">/* 要素を更新する */</span>
-<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="nx">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1">// インデックス 1 の要素を 0 に更新する</span>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="cm">/* 要素を更新 */</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="nx">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">     </span><span class="c1">// インデックス 1 の要素を 0 に更新</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="cm">/* 要素にアクセスする */</span>
-<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="kd">let</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="c1">// インデックス 1 の要素にアクセスする</span>
+<div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="cm">/* 要素にアクセス */</span>
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="kd">let</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="c1">// インデックス 1 の要素にアクセス</span>
 <a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>
-<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="cm">/* 要素を更新する */</span>
-<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1">// インデックス 1 の要素を 0 に更新する</span>
+<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="cm">/* 要素を更新 */</span>
+<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1">// インデックス 1 の要素を 0 に更新</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.js</span><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cm">/* 要素にアクセスする */</span>
-<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// インデックス 1 の要素にアクセスする</span>
+<div class="highlight"><span class="filename">list.js</span><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cm">/* 要素にアクセス */</span>
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// インデックス 1 の要素にアクセス</span>
 <a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a>
-<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="cm">/* 要素を更新する */</span>
-<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="nx">nums</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// インデックス 1 の要素を 0 に更新する</span>
+<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="cm">/* 要素を更新 */</span>
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="nx">nums</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// インデックス 1 の要素を 0 に更新</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.ts</span><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cm">/* 要素にアクセスする */</span>
-<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">num</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// インデックス 1 の要素にアクセスする</span>
+<div class="highlight"><span class="filename">list.ts</span><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cm">/* 要素にアクセス */</span>
+<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">num</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// インデックス 1 の要素にアクセス</span>
 <a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a>
-<a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="cm">/* 要素を更新する */</span>
-<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="nx">nums</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// インデックス 1 の要素を 0 に更新する</span>
+<a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="cm">/* 要素を更新 */</span>
+<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="nx">nums</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// インデックス 1 の要素を 0 に更新</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.dart</span><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="cm">/* 要素にアクセスする */</span>
-<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="m">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// インデックス 1 の要素にアクセスする</span>
+<div class="highlight"><span class="filename">list.dart</span><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="cm">/* 要素にアクセス */</span>
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kt">int</span><span class="w"> </span><span class="kt">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="m">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// インデックス 1 の要素にアクセス</span>
 <a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a>
-<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="cm">/* 要素を更新する */</span>
-<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="n">nums</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// インデックス 1 の要素を 0 に更新する</span>
+<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="cm">/* 要素を更新 */</span>
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="n">nums</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// インデックス 1 の要素を 0 に更新</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="c1">// 要素にアクセスする</span>
-<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// インデックス 1 の要素にアクセスする</span>
-<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a>
-<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="c1">// 要素を更新する</span>
-<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// インデックス 1 の要素を 0 に更新する</span>
+<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="cm">/* 要素にアクセス */</span>
+<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">num</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// インデックス 1 の要素にアクセス</span>
+<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="cm">/* 要素を更新 */</span>
+<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">             </span><span class="c1">// インデックス 1 の要素を 0 に更新</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2235,19 +2234,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.kt</span><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="cm">/* 要素にアクセスする */</span>
-<a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kd">val</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="c1">// インデックス 1 の要素にアクセスする</span>
-<a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a>
-<a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="cm">/* 要素を更新する */</span>
-<a href="#__codelineno-24-5" id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="n">nums</span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="c1">// インデックス 1 の要素を 0 に更新する</span>
+<div class="highlight"><span class="filename">list.kt</span><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="cm">/* 要素にアクセス */</span>
+<a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kd">val</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w">       </span><span class="c1">// インデックス 1 の要素にアクセス</span>
+<a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="cm">/* 要素を更新 */</span>
+<a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="n">nums</span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w">             </span><span class="c1">// インデックス 1 の要素を 0 に更新</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.rb</span><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="c1"># 要素にアクセスする</span>
-<a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="c1"># インデックス 1 の要素にアクセスする</span>
-<a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a>
-<a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="c1"># 要素を更新する</span>
-<a href="#__codelineno-25-5" id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1"># インデックス 1 の要素を 0 に更新する</span>
+<div class="highlight"><span class="filename">list.rb</span><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="c1"># 要素にアクセス</span>
+<a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="c1"># インデックス 1 の要素にアクセス</span>
+<a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="c1"># 要素を更新</span>
+<a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1"># インデックス 1 の要素を 0 に更新</span>
 </code></pre></div>
 </div>
 </div>
@@ -2265,180 +2262,180 @@
 <div class="highlight"><span class="filename">list.py</span><pre><span></span><code><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="c1"># リストを空にする</span>
 <a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="n">nums</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 <a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a>
-<a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="c1"># 末尾に要素を追加する</span>
+<a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="c1"># 末尾に要素を追加</span>
 <a href="#__codelineno-26-5" id="__codelineno-26-5" name="__codelineno-26-5"></a><span class="n">nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-26-6" id="__codelineno-26-6" name="__codelineno-26-6"></a><span class="n">nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <a href="#__codelineno-26-7" id="__codelineno-26-7" name="__codelineno-26-7"></a><span class="n">nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <a href="#__codelineno-26-8" id="__codelineno-26-8" name="__codelineno-26-8"></a><span class="n">nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <a href="#__codelineno-26-9" id="__codelineno-26-9" name="__codelineno-26-9"></a><span class="n">nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <a href="#__codelineno-26-10" id="__codelineno-26-10" name="__codelineno-26-10"></a>
-<a href="#__codelineno-26-11" id="__codelineno-26-11" name="__codelineno-26-11"></a><span class="c1"># 途中に要素を挿入する</span>
-<a href="#__codelineno-26-12" id="__codelineno-26-12" name="__codelineno-26-12"></a><span class="n">nums</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>  <span class="c1"># インデックス 3 に数値 6 を挿入する</span>
+<a href="#__codelineno-26-11" id="__codelineno-26-11" name="__codelineno-26-11"></a><span class="c1"># 途中に要素を挿入</span>
+<a href="#__codelineno-26-12" id="__codelineno-26-12" name="__codelineno-26-12"></a><span class="n">nums</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>  <span class="c1"># インデックス 3 に数値 6 を挿入</span>
 <a href="#__codelineno-26-13" id="__codelineno-26-13" name="__codelineno-26-13"></a>
-<a href="#__codelineno-26-14" id="__codelineno-26-14" name="__codelineno-26-14"></a><span class="c1"># 要素を削除する</span>
-<a href="#__codelineno-26-15" id="__codelineno-26-15" name="__codelineno-26-15"></a><span class="n">nums</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># インデックス 3 の要素を削除する</span>
+<a href="#__codelineno-26-14" id="__codelineno-26-14" name="__codelineno-26-14"></a><span class="c1"># 要素を削除</span>
+<a href="#__codelineno-26-15" id="__codelineno-26-15" name="__codelineno-26-15"></a><span class="n">nums</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>        <span class="c1"># インデックス 3 の要素を削除</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.cpp</span><pre><span></span><code><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="cm">/* リストを空にする */</span>
 <a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
 <a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a>
-<a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="cm">/* 末尾に要素を追加する */</span>
+<a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="cm">/* 末尾に要素を追加 */</span>
 <a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="n">nums</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-27-6" id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="n">nums</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <a href="#__codelineno-27-7" id="__codelineno-27-7" name="__codelineno-27-7"></a><span class="n">nums</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <a href="#__codelineno-27-8" id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="n">nums</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 <a href="#__codelineno-27-9" id="__codelineno-27-9" name="__codelineno-27-9"></a><span class="n">nums</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a href="#__codelineno-27-10" id="__codelineno-27-10" name="__codelineno-27-10"></a>
-<a href="#__codelineno-27-11" id="__codelineno-27-11" name="__codelineno-27-11"></a><span class="cm">/* 途中に要素を挿入する */</span>
-<a href="#__codelineno-27-12" id="__codelineno-27-12" name="__codelineno-27-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 に数値 6 を挿入する</span>
+<a href="#__codelineno-27-11" id="__codelineno-27-11" name="__codelineno-27-11"></a><span class="cm">/* 途中に要素を挿入 */</span>
+<a href="#__codelineno-27-12" id="__codelineno-27-12" name="__codelineno-27-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w">  </span><span class="c1">// インデックス 3 に数値 6 を挿入</span>
 <a href="#__codelineno-27-13" id="__codelineno-27-13" name="__codelineno-27-13"></a>
-<a href="#__codelineno-27-14" id="__codelineno-27-14" name="__codelineno-27-14"></a><span class="cm">/* 要素を削除する */</span>
-<a href="#__codelineno-27-15" id="__codelineno-27-15" name="__codelineno-27-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 の要素を削除する</span>
+<a href="#__codelineno-27-14" id="__codelineno-27-14" name="__codelineno-27-14"></a><span class="cm">/* 要素を削除 */</span>
+<a href="#__codelineno-27-15" id="__codelineno-27-15" name="__codelineno-27-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">      </span><span class="c1">// インデックス 3 の要素を削除</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.java</span><pre><span></span><code><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="cm">/* リストを空にする */</span>
 <a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="n">nums</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
 <a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a>
-<a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="cm">/* 末尾に要素を追加する */</span>
+<a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="cm">/* 末尾に要素を追加 */</span>
 <a href="#__codelineno-28-5" id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-28-6" id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <a href="#__codelineno-28-7" id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <a href="#__codelineno-28-8" id="__codelineno-28-8" name="__codelineno-28-8"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 <a href="#__codelineno-28-9" id="__codelineno-28-9" name="__codelineno-28-9"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a href="#__codelineno-28-10" id="__codelineno-28-10" name="__codelineno-28-10"></a>
-<a href="#__codelineno-28-11" id="__codelineno-28-11" name="__codelineno-28-11"></a><span class="cm">/* 途中に要素を挿入する */</span>
-<a href="#__codelineno-28-12" id="__codelineno-28-12" name="__codelineno-28-12"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 に数値 6 を挿入する</span>
+<a href="#__codelineno-28-11" id="__codelineno-28-11" name="__codelineno-28-11"></a><span class="cm">/* 途中に要素を挿入 */</span>
+<a href="#__codelineno-28-12" id="__codelineno-28-12" name="__codelineno-28-12"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w">  </span><span class="c1">// インデックス 3 に数値 6 を挿入</span>
 <a href="#__codelineno-28-13" id="__codelineno-28-13" name="__codelineno-28-13"></a>
-<a href="#__codelineno-28-14" id="__codelineno-28-14" name="__codelineno-28-14"></a><span class="cm">/* 要素を削除する */</span>
-<a href="#__codelineno-28-15" id="__codelineno-28-15" name="__codelineno-28-15"></a><span class="n">nums</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 の要素を削除する</span>
+<a href="#__codelineno-28-14" id="__codelineno-28-14" name="__codelineno-28-14"></a><span class="cm">/* 要素を削除 */</span>
+<a href="#__codelineno-28-15" id="__codelineno-28-15" name="__codelineno-28-15"></a><span class="n">nums</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">  </span><span class="c1">// インデックス 3 の要素を削除</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="cm">/* リストを空にする */</span>
 <a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
 <a href="#__codelineno-29-3" id="__codelineno-29-3" name="__codelineno-29-3"></a>
-<a href="#__codelineno-29-4" id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="cm">/* 末尾に要素を追加する */</span>
+<a href="#__codelineno-29-4" id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="cm">/* 末尾に要素を追加 */</span>
 <a href="#__codelineno-29-5" id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-29-6" id="__codelineno-29-6" name="__codelineno-29-6"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <a href="#__codelineno-29-7" id="__codelineno-29-7" name="__codelineno-29-7"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <a href="#__codelineno-29-8" id="__codelineno-29-8" name="__codelineno-29-8"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 <a href="#__codelineno-29-9" id="__codelineno-29-9" name="__codelineno-29-9"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a href="#__codelineno-29-10" id="__codelineno-29-10" name="__codelineno-29-10"></a>
-<a href="#__codelineno-29-11" id="__codelineno-29-11" name="__codelineno-29-11"></a><span class="cm">/* 途中に要素を挿入する */</span>
-<a href="#__codelineno-29-12" id="__codelineno-29-12" name="__codelineno-29-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 に数値 6 を挿入する</span>
+<a href="#__codelineno-29-11" id="__codelineno-29-11" name="__codelineno-29-11"></a><span class="cm">/* 途中に要素を挿入 */</span>
+<a href="#__codelineno-29-12" id="__codelineno-29-12" name="__codelineno-29-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w">  </span><span class="c1">// インデックス 3 に数値 6 を挿入</span>
 <a href="#__codelineno-29-13" id="__codelineno-29-13" name="__codelineno-29-13"></a>
-<a href="#__codelineno-29-14" id="__codelineno-29-14" name="__codelineno-29-14"></a><span class="cm">/* 要素を削除する */</span>
-<a href="#__codelineno-29-15" id="__codelineno-29-15" name="__codelineno-29-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">RemoveAt</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 の要素を削除する</span>
+<a href="#__codelineno-29-14" id="__codelineno-29-14" name="__codelineno-29-14"></a><span class="cm">/* 要素を削除 */</span>
+<a href="#__codelineno-29-15" id="__codelineno-29-15" name="__codelineno-29-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">RemoveAt</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">  </span><span class="c1">// インデックス 3 の要素を削除</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list_test.go</span><pre><span></span><code><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="cm">/* リストを空にする */</span>
 <a href="#__codelineno-30-2" id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
 <a href="#__codelineno-30-3" id="__codelineno-30-3" name="__codelineno-30-3"></a>
-<a href="#__codelineno-30-4" id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="cm">/* 末尾に要素を追加する */</span>
+<a href="#__codelineno-30-4" id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="cm">/* 末尾に要素を追加 */</span>
 <a href="#__codelineno-30-5" id="__codelineno-30-5" name="__codelineno-30-5"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-30-6" id="__codelineno-30-6" name="__codelineno-30-6"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
 <a href="#__codelineno-30-7" id="__codelineno-30-7" name="__codelineno-30-7"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 <a href="#__codelineno-30-8" id="__codelineno-30-8" name="__codelineno-30-8"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
 <a href="#__codelineno-30-9" id="__codelineno-30-9" name="__codelineno-30-9"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
 <a href="#__codelineno-30-10" id="__codelineno-30-10" name="__codelineno-30-10"></a>
-<a href="#__codelineno-30-11" id="__codelineno-30-11" name="__codelineno-30-11"></a><span class="cm">/* 途中に要素を挿入する */</span>
-<a href="#__codelineno-30-12" id="__codelineno-30-12" name="__codelineno-30-12"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="nb">append</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="mi">6</span><span class="p">},</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mi">3</span><span class="p">:]...)...)</span><span class="w"> </span><span class="c1">// インデックス 3 に数値 6 を挿入する</span>
+<a href="#__codelineno-30-11" id="__codelineno-30-11" name="__codelineno-30-11"></a><span class="cm">/* 途中に要素を挿入 */</span>
+<a href="#__codelineno-30-12" id="__codelineno-30-12" name="__codelineno-30-12"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="nb">append</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="mi">6</span><span class="p">},</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mi">3</span><span class="p">:]...)...)</span><span class="w"> </span><span class="c1">// インデックス 3 に数値 6 を挿入</span>
 <a href="#__codelineno-30-13" id="__codelineno-30-13" name="__codelineno-30-13"></a>
-<a href="#__codelineno-30-14" id="__codelineno-30-14" name="__codelineno-30-14"></a><span class="cm">/* 要素を削除する */</span>
-<a href="#__codelineno-30-15" id="__codelineno-30-15" name="__codelineno-30-15"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mi">4</span><span class="p">:]...)</span><span class="w"> </span><span class="c1">// インデックス 3 の要素を削除する</span>
+<a href="#__codelineno-30-14" id="__codelineno-30-14" name="__codelineno-30-14"></a><span class="cm">/* 要素を削除 */</span>
+<a href="#__codelineno-30-15" id="__codelineno-30-15" name="__codelineno-30-15"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mi">4</span><span class="p">:]...)</span><span class="w"> </span><span class="c1">// インデックス 3 の要素を削除</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="cm">/* リストを空にする */</span>
 <a href="#__codelineno-31-2" id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="n">nums</span><span class="p">.</span><span class="bp">removeAll</span><span class="p">()</span>
 <a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a>
-<a href="#__codelineno-31-4" id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="cm">/* 末尾に要素を追加する */</span>
+<a href="#__codelineno-31-4" id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="cm">/* 末尾に要素を追加 */</span>
 <a href="#__codelineno-31-5" id="__codelineno-31-5" name="__codelineno-31-5"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-31-6" id="__codelineno-31-6" name="__codelineno-31-6"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <a href="#__codelineno-31-7" id="__codelineno-31-7" name="__codelineno-31-7"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <a href="#__codelineno-31-8" id="__codelineno-31-8" name="__codelineno-31-8"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <a href="#__codelineno-31-9" id="__codelineno-31-9" name="__codelineno-31-9"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <a href="#__codelineno-31-10" id="__codelineno-31-10" name="__codelineno-31-10"></a>
-<a href="#__codelineno-31-11" id="__codelineno-31-11" name="__codelineno-31-11"></a><span class="cm">/* 途中に要素を挿入する */</span>
-<a href="#__codelineno-31-12" id="__codelineno-31-12" name="__codelineno-31-12"></a><span class="n">nums</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="n">at</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">// インデックス 3 に数値 6 を挿入する</span>
+<a href="#__codelineno-31-11" id="__codelineno-31-11" name="__codelineno-31-11"></a><span class="cm">/* 途中に要素を挿入 */</span>
+<a href="#__codelineno-31-12" id="__codelineno-31-12" name="__codelineno-31-12"></a><span class="n">nums</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="n">at</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">// インデックス 3 に数値 6 を挿入</span>
 <a href="#__codelineno-31-13" id="__codelineno-31-13" name="__codelineno-31-13"></a>
-<a href="#__codelineno-31-14" id="__codelineno-31-14" name="__codelineno-31-14"></a><span class="cm">/* 要素を削除する */</span>
-<a href="#__codelineno-31-15" id="__codelineno-31-15" name="__codelineno-31-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">// インデックス 3 の要素を削除する</span>
+<a href="#__codelineno-31-14" id="__codelineno-31-14" name="__codelineno-31-14"></a><span class="cm">/* 要素を削除 */</span>
+<a href="#__codelineno-31-15" id="__codelineno-31-15" name="__codelineno-31-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">// インデックス 3 の要素を削除</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.js</span><pre><span></span><code><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="cm">/* リストを空にする */</span>
 <a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <a href="#__codelineno-32-3" id="__codelineno-32-3" name="__codelineno-32-3"></a>
-<a href="#__codelineno-32-4" id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="cm">/* 末尾に要素を追加する */</span>
+<a href="#__codelineno-32-4" id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="cm">/* 末尾に要素を追加 */</span>
 <a href="#__codelineno-32-5" id="__codelineno-32-5" name="__codelineno-32-5"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
 <a href="#__codelineno-32-6" id="__codelineno-32-6" name="__codelineno-32-6"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">3</span><span class="p">);</span>
 <a href="#__codelineno-32-7" id="__codelineno-32-7" name="__codelineno-32-7"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span>
 <a href="#__codelineno-32-8" id="__codelineno-32-8" name="__codelineno-32-8"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">5</span><span class="p">);</span>
 <a href="#__codelineno-32-9" id="__codelineno-32-9" name="__codelineno-32-9"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">4</span><span class="p">);</span>
 <a href="#__codelineno-32-10" id="__codelineno-32-10" name="__codelineno-32-10"></a>
-<a href="#__codelineno-32-11" id="__codelineno-32-11" name="__codelineno-32-11"></a><span class="cm">/* 途中に要素を挿入する */</span>
-<a href="#__codelineno-32-12" id="__codelineno-32-12" name="__codelineno-32-12"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 に数値 6 を挿入する</span>
+<a href="#__codelineno-32-11" id="__codelineno-32-11" name="__codelineno-32-11"></a><span class="cm">/* 途中に要素を挿入 */</span>
+<a href="#__codelineno-32-12" id="__codelineno-32-12" name="__codelineno-32-12"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 に数値 6 を挿入</span>
 <a href="#__codelineno-32-13" id="__codelineno-32-13" name="__codelineno-32-13"></a>
-<a href="#__codelineno-32-14" id="__codelineno-32-14" name="__codelineno-32-14"></a><span class="cm">/* 要素を削除する */</span>
-<a href="#__codelineno-32-15" id="__codelineno-32-15" name="__codelineno-32-15"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 の要素を削除する</span>
+<a href="#__codelineno-32-14" id="__codelineno-32-14" name="__codelineno-32-14"></a><span class="cm">/* 要素を削除 */</span>
+<a href="#__codelineno-32-15" id="__codelineno-32-15" name="__codelineno-32-15"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// インデックス 3 の要素を削除</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.ts</span><pre><span></span><code><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="cm">/* リストを空にする */</span>
 <a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <a href="#__codelineno-33-3" id="__codelineno-33-3" name="__codelineno-33-3"></a>
-<a href="#__codelineno-33-4" id="__codelineno-33-4" name="__codelineno-33-4"></a><span class="cm">/* 末尾に要素を追加する */</span>
+<a href="#__codelineno-33-4" id="__codelineno-33-4" name="__codelineno-33-4"></a><span class="cm">/* 末尾に要素を追加 */</span>
 <a href="#__codelineno-33-5" id="__codelineno-33-5" name="__codelineno-33-5"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
 <a href="#__codelineno-33-6" id="__codelineno-33-6" name="__codelineno-33-6"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">3</span><span class="p">);</span>
 <a href="#__codelineno-33-7" id="__codelineno-33-7" name="__codelineno-33-7"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span>
 <a href="#__codelineno-33-8" id="__codelineno-33-8" name="__codelineno-33-8"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">5</span><span class="p">);</span>
 <a href="#__codelineno-33-9" id="__codelineno-33-9" name="__codelineno-33-9"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">4</span><span class="p">);</span>
 <a href="#__codelineno-33-10" id="__codelineno-33-10" name="__codelineno-33-10"></a>
-<a href="#__codelineno-33-11" id="__codelineno-33-11" name="__codelineno-33-11"></a><span class="cm">/* 途中に要素を挿入する */</span>
-<a href="#__codelineno-33-12" id="__codelineno-33-12" name="__codelineno-33-12"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 に数値 6 を挿入する</span>
+<a href="#__codelineno-33-11" id="__codelineno-33-11" name="__codelineno-33-11"></a><span class="cm">/* 途中に要素を挿入 */</span>
+<a href="#__codelineno-33-12" id="__codelineno-33-12" name="__codelineno-33-12"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 に数値 6 を挿入</span>
 <a href="#__codelineno-33-13" id="__codelineno-33-13" name="__codelineno-33-13"></a>
-<a href="#__codelineno-33-14" id="__codelineno-33-14" name="__codelineno-33-14"></a><span class="cm">/* 要素を削除する */</span>
-<a href="#__codelineno-33-15" id="__codelineno-33-15" name="__codelineno-33-15"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 の要素を削除する</span>
+<a href="#__codelineno-33-14" id="__codelineno-33-14" name="__codelineno-33-14"></a><span class="cm">/* 要素を削除 */</span>
+<a href="#__codelineno-33-15" id="__codelineno-33-15" name="__codelineno-33-15"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// インデックス 3 の要素を削除</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.dart</span><pre><span></span><code><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="cm">/* リストを空にする */</span>
 <a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
 <a href="#__codelineno-34-3" id="__codelineno-34-3" name="__codelineno-34-3"></a>
-<a href="#__codelineno-34-4" id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="cm">/* 末尾に要素を追加する */</span>
+<a href="#__codelineno-34-4" id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="cm">/* 末尾に要素を追加 */</span>
 <a href="#__codelineno-34-5" id="__codelineno-34-5" name="__codelineno-34-5"></a><span class="n">nums</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
 <a href="#__codelineno-34-6" id="__codelineno-34-6" name="__codelineno-34-6"></a><span class="n">nums</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
 <a href="#__codelineno-34-7" id="__codelineno-34-7" name="__codelineno-34-7"></a><span class="n">nums</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
 <a href="#__codelineno-34-8" id="__codelineno-34-8" name="__codelineno-34-8"></a><span class="n">nums</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
 <a href="#__codelineno-34-9" id="__codelineno-34-9" name="__codelineno-34-9"></a><span class="n">nums</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="m">4</span><span class="p">);</span>
 <a href="#__codelineno-34-10" id="__codelineno-34-10" name="__codelineno-34-10"></a>
-<a href="#__codelineno-34-11" id="__codelineno-34-11" name="__codelineno-34-11"></a><span class="cm">/* 途中に要素を挿入する */</span>
-<a href="#__codelineno-34-12" id="__codelineno-34-12" name="__codelineno-34-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 に数値 6 を挿入する</span>
+<a href="#__codelineno-34-11" id="__codelineno-34-11" name="__codelineno-34-11"></a><span class="cm">/* 途中に要素を挿入 */</span>
+<a href="#__codelineno-34-12" id="__codelineno-34-12" name="__codelineno-34-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 に数値 6 を挿入</span>
 <a href="#__codelineno-34-13" id="__codelineno-34-13" name="__codelineno-34-13"></a>
-<a href="#__codelineno-34-14" id="__codelineno-34-14" name="__codelineno-34-14"></a><span class="cm">/* 要素を削除する */</span>
-<a href="#__codelineno-34-15" id="__codelineno-34-15" name="__codelineno-34-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">removeAt</span><span class="p">(</span><span class="m">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 の要素を削除する</span>
+<a href="#__codelineno-34-14" id="__codelineno-34-14" name="__codelineno-34-14"></a><span class="cm">/* 要素を削除 */</span>
+<a href="#__codelineno-34-15" id="__codelineno-34-15" name="__codelineno-34-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">removeAt</span><span class="p">(</span><span class="m">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 の要素を削除</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="c1">// リストを空にする</span>
+<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="cm">/* リストを空にする */</span>
 <a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
 <a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a>
-<a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="c1">// 末尾に要素を追加する</span>
+<a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="cm">/* 末尾に要素を追加 */</span>
 <a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="n">nums</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="n">nums</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <a href="#__codelineno-35-7" id="__codelineno-35-7" name="__codelineno-35-7"></a><span class="n">nums</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <a href="#__codelineno-35-8" id="__codelineno-35-8" name="__codelineno-35-8"></a><span class="n">nums</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 <a href="#__codelineno-35-9" id="__codelineno-35-9" name="__codelineno-35-9"></a><span class="n">nums</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a href="#__codelineno-35-10" id="__codelineno-35-10" name="__codelineno-35-10"></a>
-<a href="#__codelineno-35-11" id="__codelineno-35-11" name="__codelineno-35-11"></a><span class="c1">// 途中に要素を挿入する</span>
-<a href="#__codelineno-35-12" id="__codelineno-35-12" name="__codelineno-35-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 に数値 6 を挿入する</span>
+<a href="#__codelineno-35-11" id="__codelineno-35-11" name="__codelineno-35-11"></a><span class="cm">/* 途中に要素を挿入 */</span>
+<a href="#__codelineno-35-12" id="__codelineno-35-12" name="__codelineno-35-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w">  </span><span class="c1">// インデックス 3 に数値 6 を挿入</span>
 <a href="#__codelineno-35-13" id="__codelineno-35-13" name="__codelineno-35-13"></a>
-<a href="#__codelineno-35-14" id="__codelineno-35-14" name="__codelineno-35-14"></a><span class="c1">// 要素を削除する</span>
-<a href="#__codelineno-35-15" id="__codelineno-35-15" name="__codelineno-35-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// インデックス 3 の要素を削除する</span>
+<a href="#__codelineno-35-14" id="__codelineno-35-14" name="__codelineno-35-14"></a><span class="cm">/* 要素を削除 */</span>
+<a href="#__codelineno-35-15" id="__codelineno-35-15" name="__codelineno-35-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">    </span><span class="c1">// インデックス 3 の要素を削除</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2447,38 +2444,38 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.kt</span><pre><span></span><code><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="cm">/* リストを空にする */</span>
-<a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="n">nums</span><span class="p">.</span><span class="na">clear</span><span class="p">()</span>
+<a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="n">nums</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
 <a href="#__codelineno-37-3" id="__codelineno-37-3" name="__codelineno-37-3"></a>
-<a href="#__codelineno-37-4" id="__codelineno-37-4" name="__codelineno-37-4"></a><span class="cm">/* 末尾に要素を追加する */</span>
-<a href="#__codelineno-37-5" id="__codelineno-37-5" name="__codelineno-37-5"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
-<a href="#__codelineno-37-6" id="__codelineno-37-6" name="__codelineno-37-6"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">3</span><span class="p">)</span>
-<a href="#__codelineno-37-7" id="__codelineno-37-7" name="__codelineno-37-7"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">2</span><span class="p">)</span>
-<a href="#__codelineno-37-8" id="__codelineno-37-8" name="__codelineno-37-8"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
-<a href="#__codelineno-37-9" id="__codelineno-37-9" name="__codelineno-37-9"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">4</span><span class="p">)</span>
+<a href="#__codelineno-37-4" id="__codelineno-37-4" name="__codelineno-37-4"></a><span class="cm">/* 末尾に要素を追加 */</span>
+<a href="#__codelineno-37-5" id="__codelineno-37-5" name="__codelineno-37-5"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+<a href="#__codelineno-37-6" id="__codelineno-37-6" name="__codelineno-37-6"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+<a href="#__codelineno-37-7" id="__codelineno-37-7" name="__codelineno-37-7"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+<a href="#__codelineno-37-8" id="__codelineno-37-8" name="__codelineno-37-8"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
+<a href="#__codelineno-37-9" id="__codelineno-37-9" name="__codelineno-37-9"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">4</span><span class="p">);</span>
 <a href="#__codelineno-37-10" id="__codelineno-37-10" name="__codelineno-37-10"></a>
-<a href="#__codelineno-37-11" id="__codelineno-37-11" name="__codelineno-37-11"></a><span class="cm">/* 途中に要素を挿入する */</span>
-<a href="#__codelineno-37-12" id="__codelineno-37-12" name="__codelineno-37-12"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">)</span><span class="w"> </span><span class="c1">// インデックス 3 に数値 6 を挿入する</span>
+<a href="#__codelineno-37-11" id="__codelineno-37-11" name="__codelineno-37-11"></a><span class="cm">/* 途中に要素を挿入 */</span>
+<a href="#__codelineno-37-12" id="__codelineno-37-12" name="__codelineno-37-12"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">);</span><span class="w">    </span><span class="c1">// インデックス 3 に数値 6 を挿入</span>
 <a href="#__codelineno-37-13" id="__codelineno-37-13" name="__codelineno-37-13"></a>
-<a href="#__codelineno-37-14" id="__codelineno-37-14" name="__codelineno-37-14"></a><span class="cm">/* 要素を削除する */</span>
-<a href="#__codelineno-37-15" id="__codelineno-37-15" name="__codelineno-37-15"></a><span class="n">nums</span><span class="p">.</span><span class="na">removeAt</span><span class="p">(</span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="c1">// インデックス 3 の要素を削除する</span>
+<a href="#__codelineno-37-14" id="__codelineno-37-14" name="__codelineno-37-14"></a><span class="cm">/* 要素を削除 */</span>
+<a href="#__codelineno-37-15" id="__codelineno-37-15" name="__codelineno-37-15"></a><span class="n">nums</span><span class="p">.</span><span class="na">removeAt</span><span class="p">(</span><span class="m">3</span><span class="p">);</span><span class="w">  </span><span class="c1">// インデックス 3 の要素を削除</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.rb</span><pre><span></span><code><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="c1"># リストを空にする</span>
 <a href="#__codelineno-38-2" id="__codelineno-38-2" name="__codelineno-38-2"></a><span class="n">nums</span><span class="o">.</span><span class="n">clear</span>
 <a href="#__codelineno-38-3" id="__codelineno-38-3" name="__codelineno-38-3"></a>
-<a href="#__codelineno-38-4" id="__codelineno-38-4" name="__codelineno-38-4"></a><span class="c1"># 末尾に要素を追加する</span>
+<a href="#__codelineno-38-4" id="__codelineno-38-4" name="__codelineno-38-4"></a><span class="c1"># 末尾に要素を追加</span>
 <a href="#__codelineno-38-5" id="__codelineno-38-5" name="__codelineno-38-5"></a><span class="n">nums</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span>
 <a href="#__codelineno-38-6" id="__codelineno-38-6" name="__codelineno-38-6"></a><span class="n">nums</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">3</span>
 <a href="#__codelineno-38-7" id="__codelineno-38-7" name="__codelineno-38-7"></a><span class="n">nums</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span>
 <a href="#__codelineno-38-8" id="__codelineno-38-8" name="__codelineno-38-8"></a><span class="n">nums</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">5</span>
 <a href="#__codelineno-38-9" id="__codelineno-38-9" name="__codelineno-38-9"></a><span class="n">nums</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">4</span>
 <a href="#__codelineno-38-10" id="__codelineno-38-10" name="__codelineno-38-10"></a>
-<a href="#__codelineno-38-11" id="__codelineno-38-11" name="__codelineno-38-11"></a><span class="c1"># 途中に要素を挿入する</span>
-<a href="#__codelineno-38-12" id="__codelineno-38-12" name="__codelineno-38-12"></a><span class="n">nums</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="c1"># インデックス 3 に数値 6 を挿入する</span>
+<a href="#__codelineno-38-11" id="__codelineno-38-11" name="__codelineno-38-11"></a><span class="c1"># 途中に要素を挿入</span>
+<a href="#__codelineno-38-12" id="__codelineno-38-12" name="__codelineno-38-12"></a><span class="n">nums</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="c1"># インデックス 3 に数値 6 を挿入</span>
 <a href="#__codelineno-38-13" id="__codelineno-38-13" name="__codelineno-38-13"></a>
-<a href="#__codelineno-38-14" id="__codelineno-38-14" name="__codelineno-38-14"></a><span class="c1"># 要素を削除する</span>
-<a href="#__codelineno-38-15" id="__codelineno-38-15" name="__codelineno-38-15"></a><span class="n">nums</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1"># インデックス 3 の要素を削除する</span>
+<a href="#__codelineno-38-14" id="__codelineno-38-14" name="__codelineno-38-14"></a><span class="c1"># 要素を削除</span>
+<a href="#__codelineno-38-15" id="__codelineno-38-15" name="__codelineno-38-15"></a><span class="n">nums</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1"># インデックス 3 の要素を削除</span>
 </code></pre></div>
 </div>
 </div>
@@ -2493,138 +2490,138 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="4:13"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><input id="__tabbed_4_3" name="__tabbed_4" type="radio"/><input id="__tabbed_4_4" name="__tabbed_4" type="radio"/><input id="__tabbed_4_5" name="__tabbed_4" type="radio"/><input id="__tabbed_4_6" name="__tabbed_4" type="radio"/><input id="__tabbed_4_7" name="__tabbed_4" type="radio"/><input id="__tabbed_4_8" name="__tabbed_4" type="radio"/><input id="__tabbed_4_9" name="__tabbed_4" type="radio"/><input id="__tabbed_4_10" name="__tabbed_4" type="radio"/><input id="__tabbed_4_11" name="__tabbed_4" type="radio"/><input id="__tabbed_4_12" name="__tabbed_4" type="radio"/><input id="__tabbed_4_13" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Java</label><label for="__tabbed_4_4">C#</label><label for="__tabbed_4_5">Go</label><label for="__tabbed_4_6">Swift</label><label for="__tabbed_4_7">JS</label><label for="__tabbed_4_8">TS</label><label for="__tabbed_4_9">Dart</label><label for="__tabbed_4_10">Rust</label><label for="__tabbed_4_11">C</label><label for="__tabbed_4_12">Kotlin</label><label for="__tabbed_4_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.py</span><pre><span></span><code><a href="#__codelineno-39-1" id="__codelineno-39-1" name="__codelineno-39-1"></a><span class="c1"># インデックスを使ってリストを走査する</span>
+<div class="highlight"><span class="filename">list.py</span><pre><span></span><code><a href="#__codelineno-39-1" id="__codelineno-39-1" name="__codelineno-39-1"></a><span class="c1"># インデックスを使ってリストを走査</span>
 <a href="#__codelineno-39-2" id="__codelineno-39-2" name="__codelineno-39-2"></a><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 <a href="#__codelineno-39-3" id="__codelineno-39-3" name="__codelineno-39-3"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
 <a href="#__codelineno-39-4" id="__codelineno-39-4" name="__codelineno-39-4"></a>    <span class="n">count</span> <span class="o">+=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 <a href="#__codelineno-39-5" id="__codelineno-39-5" name="__codelineno-39-5"></a>
-<a href="#__codelineno-39-6" id="__codelineno-39-6" name="__codelineno-39-6"></a><span class="c1"># リストの要素を直接走査する</span>
+<a href="#__codelineno-39-6" id="__codelineno-39-6" name="__codelineno-39-6"></a><span class="c1"># リストの要素を直接走査</span>
 <a href="#__codelineno-39-7" id="__codelineno-39-7" name="__codelineno-39-7"></a><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
 <a href="#__codelineno-39-8" id="__codelineno-39-8" name="__codelineno-39-8"></a>    <span class="n">count</span> <span class="o">+=</span> <span class="n">num</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.cpp</span><pre><span></span><code><a href="#__codelineno-40-1" id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="cm">/* インデックスを使ってリストを走査する */</span>
+<div class="highlight"><span class="filename">list.cpp</span><pre><span></span><code><a href="#__codelineno-40-1" id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="cm">/* インデックスを使ってリストを走査 */</span>
 <a href="#__codelineno-40-2" id="__codelineno-40-2" name="__codelineno-40-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a href="#__codelineno-40-3" id="__codelineno-40-3" name="__codelineno-40-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-40-4" id="__codelineno-40-4" name="__codelineno-40-4"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a href="#__codelineno-40-5" id="__codelineno-40-5" name="__codelineno-40-5"></a><span class="p">}</span>
 <a href="#__codelineno-40-6" id="__codelineno-40-6" name="__codelineno-40-6"></a>
-<a href="#__codelineno-40-7" id="__codelineno-40-7" name="__codelineno-40-7"></a><span class="cm">/* リストの要素を直接走査する */</span>
+<a href="#__codelineno-40-7" id="__codelineno-40-7" name="__codelineno-40-7"></a><span class="cm">/* リストの要素を直接走査 */</span>
 <a href="#__codelineno-40-8" id="__codelineno-40-8" name="__codelineno-40-8"></a><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a href="#__codelineno-40-9" id="__codelineno-40-9" name="__codelineno-40-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-40-10" id="__codelineno-40-10" name="__codelineno-40-10"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a href="#__codelineno-40-9" id="__codelineno-40-9" name="__codelineno-40-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-40-10" id="__codelineno-40-10" name="__codelineno-40-10"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
 <a href="#__codelineno-40-11" id="__codelineno-40-11" name="__codelineno-40-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.java</span><pre><span></span><code><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="cm">/* インデックスを使ってリストを走査する */</span>
+<div class="highlight"><span class="filename">list.java</span><pre><span></span><code><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="cm">/* インデックスを使ってリストを走査 */</span>
 <a href="#__codelineno-41-2" id="__codelineno-41-2" name="__codelineno-41-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a href="#__codelineno-41-3" id="__codelineno-41-3" name="__codelineno-41-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-41-4" id="__codelineno-41-4" name="__codelineno-41-4"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 <a href="#__codelineno-41-5" id="__codelineno-41-5" name="__codelineno-41-5"></a><span class="p">}</span>
 <a href="#__codelineno-41-6" id="__codelineno-41-6" name="__codelineno-41-6"></a>
-<a href="#__codelineno-41-7" id="__codelineno-41-7" name="__codelineno-41-7"></a><span class="cm">/* リストの要素を直接走査する */</span>
-<a href="#__codelineno-41-8" id="__codelineno-41-8" name="__codelineno-41-8"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-41-9" id="__codelineno-41-9" name="__codelineno-41-9"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a href="#__codelineno-41-7" id="__codelineno-41-7" name="__codelineno-41-7"></a><span class="cm">/* リストの要素を直接走査 */</span>
+<a href="#__codelineno-41-8" id="__codelineno-41-8" name="__codelineno-41-8"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-41-9" id="__codelineno-41-9" name="__codelineno-41-9"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
 <a href="#__codelineno-41-10" id="__codelineno-41-10" name="__codelineno-41-10"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a href="#__codelineno-42-1" id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="cm">/* インデックスを使ってリストを走査する */</span>
+<div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a href="#__codelineno-42-1" id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="cm">/* インデックスを使ってリストを走査 */</span>
 <a href="#__codelineno-42-2" id="__codelineno-42-2" name="__codelineno-42-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a href="#__codelineno-42-3" id="__codelineno-42-3" name="__codelineno-42-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-42-4" id="__codelineno-42-4" name="__codelineno-42-4"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a href="#__codelineno-42-5" id="__codelineno-42-5" name="__codelineno-42-5"></a><span class="p">}</span>
 <a href="#__codelineno-42-6" id="__codelineno-42-6" name="__codelineno-42-6"></a>
-<a href="#__codelineno-42-7" id="__codelineno-42-7" name="__codelineno-42-7"></a><span class="cm">/* リストの要素を直接走査する */</span>
+<a href="#__codelineno-42-7" id="__codelineno-42-7" name="__codelineno-42-7"></a><span class="cm">/* リストの要素を直接走査 */</span>
 <a href="#__codelineno-42-8" id="__codelineno-42-8" name="__codelineno-42-8"></a><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a href="#__codelineno-42-9" id="__codelineno-42-9" name="__codelineno-42-9"></a><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-42-10" id="__codelineno-42-10" name="__codelineno-42-10"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a href="#__codelineno-42-9" id="__codelineno-42-9" name="__codelineno-42-9"></a><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-42-10" id="__codelineno-42-10" name="__codelineno-42-10"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
 <a href="#__codelineno-42-11" id="__codelineno-42-11" name="__codelineno-42-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list_test.go</span><pre><span></span><code><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="cm">/* インデックスを使ってリストを走査する */</span>
+<div class="highlight"><span class="filename">list_test.go</span><pre><span></span><code><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="cm">/* インデックスを使ってリストを走査 */</span>
 <a href="#__codelineno-43-2" id="__codelineno-43-2" name="__codelineno-43-2"></a><span class="nx">count</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span>
 <a href="#__codelineno-43-3" id="__codelineno-43-3" name="__codelineno-43-3"></a><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-43-4" id="__codelineno-43-4" name="__codelineno-43-4"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
 <a href="#__codelineno-43-5" id="__codelineno-43-5" name="__codelineno-43-5"></a><span class="p">}</span>
 <a href="#__codelineno-43-6" id="__codelineno-43-6" name="__codelineno-43-6"></a>
-<a href="#__codelineno-43-7" id="__codelineno-43-7" name="__codelineno-43-7"></a><span class="cm">/* リストの要素を直接走査する */</span>
+<a href="#__codelineno-43-7" id="__codelineno-43-7" name="__codelineno-43-7"></a><span class="cm">/* リストの要素を直接走査 */</span>
 <a href="#__codelineno-43-8" id="__codelineno-43-8" name="__codelineno-43-8"></a><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<a href="#__codelineno-43-9" id="__codelineno-43-9" name="__codelineno-43-9"></a><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">nums</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-43-10" id="__codelineno-43-10" name="__codelineno-43-10"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">x</span>
+<a href="#__codelineno-43-9" id="__codelineno-43-9" name="__codelineno-43-9"></a><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">nums</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-43-10" id="__codelineno-43-10" name="__codelineno-43-10"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">num</span>
 <a href="#__codelineno-43-11" id="__codelineno-43-11" name="__codelineno-43-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="cm">/* インデックスを使ってリストを走査する */</span>
+<div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="cm">/* インデックスを使ってリストを走査 */</span>
 <a href="#__codelineno-44-2" id="__codelineno-44-2" name="__codelineno-44-2"></a><span class="kd">var</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
 <a href="#__codelineno-44-3" id="__codelineno-44-3" name="__codelineno-44-3"></a><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="bp">indices</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-44-4" id="__codelineno-44-4" name="__codelineno-44-4"></a><span class="w">    </span><span class="bp">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 <a href="#__codelineno-44-5" id="__codelineno-44-5" name="__codelineno-44-5"></a><span class="p">}</span>
 <a href="#__codelineno-44-6" id="__codelineno-44-6" name="__codelineno-44-6"></a>
-<a href="#__codelineno-44-7" id="__codelineno-44-7" name="__codelineno-44-7"></a><span class="cm">/* リストの要素を直接走査する */</span>
+<a href="#__codelineno-44-7" id="__codelineno-44-7" name="__codelineno-44-7"></a><span class="cm">/* リストの要素を直接走査 */</span>
 <a href="#__codelineno-44-8" id="__codelineno-44-8" name="__codelineno-44-8"></a><span class="bp">count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<a href="#__codelineno-44-9" id="__codelineno-44-9" name="__codelineno-44-9"></a><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-44-10" id="__codelineno-44-10" name="__codelineno-44-10"></a><span class="w">    </span><span class="bp">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span>
+<a href="#__codelineno-44-9" id="__codelineno-44-9" name="__codelineno-44-9"></a><span class="k">for</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-44-10" id="__codelineno-44-10" name="__codelineno-44-10"></a><span class="w">    </span><span class="bp">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span>
 <a href="#__codelineno-44-11" id="__codelineno-44-11" name="__codelineno-44-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.js</span><pre><span></span><code><a href="#__codelineno-45-1" id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="cm">/* インデックスを使ってリストを走査する */</span>
+<div class="highlight"><span class="filename">list.js</span><pre><span></span><code><a href="#__codelineno-45-1" id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="cm">/* インデックスを使ってリストを走査 */</span>
 <a href="#__codelineno-45-2" id="__codelineno-45-2" name="__codelineno-45-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <a href="#__codelineno-45-3" id="__codelineno-45-3" name="__codelineno-45-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-45-4" id="__codelineno-45-4" name="__codelineno-45-4"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
 <a href="#__codelineno-45-5" id="__codelineno-45-5" name="__codelineno-45-5"></a><span class="p">}</span>
 <a href="#__codelineno-45-6" id="__codelineno-45-6" name="__codelineno-45-6"></a>
-<a href="#__codelineno-45-7" id="__codelineno-45-7" name="__codelineno-45-7"></a><span class="cm">/* リストの要素を直接走査する */</span>
+<a href="#__codelineno-45-7" id="__codelineno-45-7" name="__codelineno-45-7"></a><span class="cm">/* リストの要素を直接走査 */</span>
 <a href="#__codelineno-45-8" id="__codelineno-45-8" name="__codelineno-45-8"></a><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
-<a href="#__codelineno-45-9" id="__codelineno-45-9" name="__codelineno-45-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-45-10" id="__codelineno-45-10" name="__codelineno-45-10"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">x</span><span class="p">;</span>
+<a href="#__codelineno-45-9" id="__codelineno-45-9" name="__codelineno-45-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-45-10" id="__codelineno-45-10" name="__codelineno-45-10"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">num</span><span class="p">;</span>
 <a href="#__codelineno-45-11" id="__codelineno-45-11" name="__codelineno-45-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.ts</span><pre><span></span><code><a href="#__codelineno-46-1" id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="cm">/* インデックスを使ってリストを走査する */</span>
+<div class="highlight"><span class="filename">list.ts</span><pre><span></span><code><a href="#__codelineno-46-1" id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="cm">/* インデックスを使ってリストを走査 */</span>
 <a href="#__codelineno-46-2" id="__codelineno-46-2" name="__codelineno-46-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <a href="#__codelineno-46-3" id="__codelineno-46-3" name="__codelineno-46-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-46-4" id="__codelineno-46-4" name="__codelineno-46-4"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
 <a href="#__codelineno-46-5" id="__codelineno-46-5" name="__codelineno-46-5"></a><span class="p">}</span>
 <a href="#__codelineno-46-6" id="__codelineno-46-6" name="__codelineno-46-6"></a>
-<a href="#__codelineno-46-7" id="__codelineno-46-7" name="__codelineno-46-7"></a><span class="cm">/* リストの要素を直接走査する */</span>
+<a href="#__codelineno-46-7" id="__codelineno-46-7" name="__codelineno-46-7"></a><span class="cm">/* リストの要素を直接走査 */</span>
 <a href="#__codelineno-46-8" id="__codelineno-46-8" name="__codelineno-46-8"></a><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
-<a href="#__codelineno-46-9" id="__codelineno-46-9" name="__codelineno-46-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-46-10" id="__codelineno-46-10" name="__codelineno-46-10"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">x</span><span class="p">;</span>
+<a href="#__codelineno-46-9" id="__codelineno-46-9" name="__codelineno-46-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-46-10" id="__codelineno-46-10" name="__codelineno-46-10"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">num</span><span class="p">;</span>
 <a href="#__codelineno-46-11" id="__codelineno-46-11" name="__codelineno-46-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.dart</span><pre><span></span><code><a href="#__codelineno-47-1" id="__codelineno-47-1" name="__codelineno-47-1"></a><span class="cm">/* インデックスを使ってリストを走査する */</span>
+<div class="highlight"><span class="filename">list.dart</span><pre><span></span><code><a href="#__codelineno-47-1" id="__codelineno-47-1" name="__codelineno-47-1"></a><span class="cm">/* インデックスを使ってリストを走査 */</span>
 <a href="#__codelineno-47-2" id="__codelineno-47-2" name="__codelineno-47-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
 <a href="#__codelineno-47-3" id="__codelineno-47-3" name="__codelineno-47-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-47-4" id="__codelineno-47-4" name="__codelineno-47-4"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a href="#__codelineno-47-4" id="__codelineno-47-4" name="__codelineno-47-4"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a href="#__codelineno-47-5" id="__codelineno-47-5" name="__codelineno-47-5"></a><span class="p">}</span>
 <a href="#__codelineno-47-6" id="__codelineno-47-6" name="__codelineno-47-6"></a>
-<a href="#__codelineno-47-7" id="__codelineno-47-7" name="__codelineno-47-7"></a><span class="cm">/* リストの要素を直接走査する */</span>
+<a href="#__codelineno-47-7" id="__codelineno-47-7" name="__codelineno-47-7"></a><span class="cm">/* リストの要素を直接走査 */</span>
 <a href="#__codelineno-47-8" id="__codelineno-47-8" name="__codelineno-47-8"></a><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
-<a href="#__codelineno-47-9" id="__codelineno-47-9" name="__codelineno-47-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-47-10" id="__codelineno-47-10" name="__codelineno-47-10"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a href="#__codelineno-47-9" id="__codelineno-47-9" name="__codelineno-47-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="kt">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-47-10" id="__codelineno-47-10" name="__codelineno-47-10"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="kt">num</span><span class="p">;</span>
 <a href="#__codelineno-47-11" id="__codelineno-47-11" name="__codelineno-47-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-48-1" id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="c1">// インデックスを使ってリストを走査する</span>
+<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-48-1" id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="c1">// インデックスを使ってリストを走査</span>
 <a href="#__codelineno-48-2" id="__codelineno-48-2" name="__codelineno-48-2"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a href="#__codelineno-48-3" id="__codelineno-48-3" name="__codelineno-48-3"></a><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="n">nums</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-48-4" id="__codelineno-48-4" name="__codelineno-48-4"></a><span class="w">    </span><span class="n">_count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a href="#__codelineno-48-5" id="__codelineno-48-5" name="__codelineno-48-5"></a><span class="p">}</span>
 <a href="#__codelineno-48-6" id="__codelineno-48-6" name="__codelineno-48-6"></a>
-<a href="#__codelineno-48-7" id="__codelineno-48-7" name="__codelineno-48-7"></a><span class="c1">// リストの要素を直接走査する</span>
+<a href="#__codelineno-48-7" id="__codelineno-48-7" name="__codelineno-48-7"></a><span class="c1">// リストの要素を直接走査</span>
 <a href="#__codelineno-48-8" id="__codelineno-48-8" name="__codelineno-48-8"></a><span class="n">_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a href="#__codelineno-48-9" id="__codelineno-48-9" name="__codelineno-48-9"></a><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-48-10" id="__codelineno-48-10" name="__codelineno-48-10"></a><span class="w">    </span><span class="n">_count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a href="#__codelineno-48-9" id="__codelineno-48-9" name="__codelineno-48-9"></a><span class="k">for</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-48-10" id="__codelineno-48-10" name="__codelineno-48-10"></a><span class="w">    </span><span class="n">_count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
 <a href="#__codelineno-48-11" id="__codelineno-48-11" name="__codelineno-48-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
@@ -2633,29 +2630,29 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.kt</span><pre><span></span><code><a href="#__codelineno-50-1" id="__codelineno-50-1" name="__codelineno-50-1"></a><span class="cm">/* インデックスを使ってリストを走査する */</span>
+<div class="highlight"><span class="filename">list.kt</span><pre><span></span><code><a href="#__codelineno-50-1" id="__codelineno-50-1" name="__codelineno-50-1"></a><span class="cm">/* インデックスを使ってリストを走査 */</span>
 <a href="#__codelineno-50-2" id="__codelineno-50-2" name="__codelineno-50-2"></a><span class="kd">var</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
 <a href="#__codelineno-50-3" id="__codelineno-50-3" name="__codelineno-50-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">indices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-50-4" id="__codelineno-50-4" name="__codelineno-50-4"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
 <a href="#__codelineno-50-5" id="__codelineno-50-5" name="__codelineno-50-5"></a><span class="p">}</span>
 <a href="#__codelineno-50-6" id="__codelineno-50-6" name="__codelineno-50-6"></a>
-<a href="#__codelineno-50-7" id="__codelineno-50-7" name="__codelineno-50-7"></a><span class="cm">/* リストの要素を直接走査する */</span>
-<a href="#__codelineno-50-8" id="__codelineno-50-8" name="__codelineno-50-8"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-50-9" id="__codelineno-50-9" name="__codelineno-50-9"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">j</span>
+<a href="#__codelineno-50-7" id="__codelineno-50-7" name="__codelineno-50-7"></a><span class="cm">/* リストの要素を直接走査 */</span>
+<a href="#__codelineno-50-8" id="__codelineno-50-8" name="__codelineno-50-8"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-50-9" id="__codelineno-50-9" name="__codelineno-50-9"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span>
 <a href="#__codelineno-50-10" id="__codelineno-50-10" name="__codelineno-50-10"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.rb</span><pre><span></span><code><a href="#__codelineno-51-1" id="__codelineno-51-1" name="__codelineno-51-1"></a><span class="c1"># インデックスを使ってリストを走査する</span>
+<div class="highlight"><span class="filename">list.rb</span><pre><span></span><code><a href="#__codelineno-51-1" id="__codelineno-51-1" name="__codelineno-51-1"></a><span class="c1"># インデックスを使ってリストを走査</span>
 <a href="#__codelineno-51-2" id="__codelineno-51-2" name="__codelineno-51-2"></a><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <a href="#__codelineno-51-3" id="__codelineno-51-3" name="__codelineno-51-3"></a><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">...</span><span class="n">nums</span><span class="o">.</span><span class="n">length</span>
-<a href="#__codelineno-51-4" id="__codelineno-51-4" name="__codelineno-51-4"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
+<a href="#__codelineno-51-4" id="__codelineno-51-4" name="__codelineno-51-4"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
 <a href="#__codelineno-51-5" id="__codelineno-51-5" name="__codelineno-51-5"></a><span class="k">end</span>
 <a href="#__codelineno-51-6" id="__codelineno-51-6" name="__codelineno-51-6"></a>
-<a href="#__codelineno-51-7" id="__codelineno-51-7" name="__codelineno-51-7"></a><span class="c1"># リストの要素を直接走査する</span>
+<a href="#__codelineno-51-7" id="__codelineno-51-7" name="__codelineno-51-7"></a><span class="c1"># リストの要素を直接走査</span>
 <a href="#__codelineno-51-8" id="__codelineno-51-8" name="__codelineno-51-8"></a><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<a href="#__codelineno-51-9" id="__codelineno-51-9" name="__codelineno-51-9"></a><span class="n">nums</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">x</span><span class="o">|</span>
-<a href="#__codelineno-51-10" id="__codelineno-51-10" name="__codelineno-51-10"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span>
+<a href="#__codelineno-51-9" id="__codelineno-51-9" name="__codelineno-51-9"></a><span class="k">for</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span>
+<a href="#__codelineno-51-10" id="__codelineno-51-10" name="__codelineno-51-10"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span>
 <a href="#__codelineno-51-11" id="__codelineno-51-11" name="__codelineno-51-11"></a><span class="k">end</span>
 </code></pre></div>
 </div>
@@ -2671,64 +2668,64 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="5:13"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><input id="__tabbed_5_3" name="__tabbed_5" type="radio"/><input id="__tabbed_5_4" name="__tabbed_5" type="radio"/><input id="__tabbed_5_5" name="__tabbed_5" type="radio"/><input id="__tabbed_5_6" name="__tabbed_5" type="radio"/><input id="__tabbed_5_7" name="__tabbed_5" type="radio"/><input id="__tabbed_5_8" name="__tabbed_5" type="radio"/><input id="__tabbed_5_9" name="__tabbed_5" type="radio"/><input id="__tabbed_5_10" name="__tabbed_5" type="radio"/><input id="__tabbed_5_11" name="__tabbed_5" type="radio"/><input id="__tabbed_5_12" name="__tabbed_5" type="radio"/><input id="__tabbed_5_13" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Java</label><label for="__tabbed_5_4">C#</label><label for="__tabbed_5_5">Go</label><label for="__tabbed_5_6">Swift</label><label for="__tabbed_5_7">JS</label><label for="__tabbed_5_8">TS</label><label for="__tabbed_5_9">Dart</label><label for="__tabbed_5_10">Rust</label><label for="__tabbed_5_11">C</label><label for="__tabbed_5_12">Kotlin</label><label for="__tabbed_5_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.py</span><pre><span></span><code><a href="#__codelineno-52-1" id="__codelineno-52-1" name="__codelineno-52-1"></a><span class="c1"># 2 つのリストを連結する</span>
-<a href="#__codelineno-52-2" id="__codelineno-52-2" name="__codelineno-52-2"></a><span class="n">nums1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-<a href="#__codelineno-52-3" id="__codelineno-52-3" name="__codelineno-52-3"></a><span class="n">nums</span> <span class="o">+=</span> <span class="n">nums1</span>  <span class="c1"># リスト nums の後ろに nums1 を連結する</span>
+<div class="highlight"><span class="filename">list.py</span><pre><span></span><code><a href="#__codelineno-52-1" id="__codelineno-52-1" name="__codelineno-52-1"></a><span class="c1"># 二つのリストを連結</span>
+<a href="#__codelineno-52-2" id="__codelineno-52-2" name="__codelineno-52-2"></a><span class="n">nums1</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<a href="#__codelineno-52-3" id="__codelineno-52-3" name="__codelineno-52-3"></a><span class="n">nums</span> <span class="o">+=</span> <span class="n">nums1</span>  <span class="c1"># リスト nums1 を nums の後ろに連結</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.cpp</span><pre><span></span><code><a href="#__codelineno-53-1" id="__codelineno-53-1" name="__codelineno-53-1"></a><span class="cm">/* 2 つのリストを連結する */</span>
-<a href="#__codelineno-53-2" id="__codelineno-53-2" name="__codelineno-53-2"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">};</span>
-<a href="#__codelineno-53-3" id="__codelineno-53-3" name="__codelineno-53-3"></a><span class="c1">// リスト nums の後ろに nums1 を連結する</span>
+<div class="highlight"><span class="filename">list.cpp</span><pre><span></span><code><a href="#__codelineno-53-1" id="__codelineno-53-1" name="__codelineno-53-1"></a><span class="cm">/* 二つのリストを連結 */</span>
+<a href="#__codelineno-53-2" id="__codelineno-53-2" name="__codelineno-53-2"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="p">};</span>
+<a href="#__codelineno-53-3" id="__codelineno-53-3" name="__codelineno-53-3"></a><span class="c1">// リスト nums1 を nums の後ろに連結</span>
 <a href="#__codelineno-53-4" id="__codelineno-53-4" name="__codelineno-53-4"></a><span class="n">nums</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">nums1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">nums1</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.java</span><pre><span></span><code><a href="#__codelineno-54-1" id="__codelineno-54-1" name="__codelineno-54-1"></a><span class="cm">/* 2 つのリストを連結する */</span>
+<div class="highlight"><span class="filename">list.java</span><pre><span></span><code><a href="#__codelineno-54-1" id="__codelineno-54-1" name="__codelineno-54-1"></a><span class="cm">/* 二つのリストを連結 */</span>
 <a href="#__codelineno-54-2" id="__codelineno-54-2" name="__codelineno-54-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Integer</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="p">}));</span>
-<a href="#__codelineno-54-3" id="__codelineno-54-3" name="__codelineno-54-3"></a><span class="n">nums</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">nums1</span><span class="p">);</span><span class="w"> </span><span class="c1">// リスト nums の後ろに nums1 を連結する</span>
+<a href="#__codelineno-54-3" id="__codelineno-54-3" name="__codelineno-54-3"></a><span class="n">nums</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">nums1</span><span class="p">);</span><span class="w">  </span><span class="c1">// リスト nums1 を nums の後ろに連結</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a href="#__codelineno-55-1" id="__codelineno-55-1" name="__codelineno-55-1"></a><span class="cm">/* 2 つのリストを連結する */</span>
+<div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a href="#__codelineno-55-1" id="__codelineno-55-1" name="__codelineno-55-1"></a><span class="cm">/* 二つのリストを連結 */</span>
 <a href="#__codelineno-55-2" id="__codelineno-55-2" name="__codelineno-55-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">];</span>
-<a href="#__codelineno-55-3" id="__codelineno-55-3" name="__codelineno-55-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="n">nums1</span><span class="p">);</span><span class="w"> </span><span class="c1">// リスト nums の後ろに nums1 を連結する</span>
+<a href="#__codelineno-55-3" id="__codelineno-55-3" name="__codelineno-55-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="n">nums1</span><span class="p">);</span><span class="w">  </span><span class="c1">// リスト nums1 を nums の後ろに連結</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list_test.go</span><pre><span></span><code><a href="#__codelineno-56-1" id="__codelineno-56-1" name="__codelineno-56-1"></a><span class="cm">/* 2 つのリストを連結する */</span>
+<div class="highlight"><span class="filename">list_test.go</span><pre><span></span><code><a href="#__codelineno-56-1" id="__codelineno-56-1" name="__codelineno-56-1"></a><span class="cm">/* 二つのリストを連結 */</span>
 <a href="#__codelineno-56-2" id="__codelineno-56-2" name="__codelineno-56-2"></a><span class="nx">nums1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">}</span>
-<a href="#__codelineno-56-3" id="__codelineno-56-3" name="__codelineno-56-3"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">nums1</span><span class="p">...)</span><span class="w"> </span><span class="c1">// リスト nums の後ろに nums1 を連結する</span>
+<a href="#__codelineno-56-3" id="__codelineno-56-3" name="__codelineno-56-3"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">nums1</span><span class="p">...)</span><span class="w">  </span><span class="c1">// リスト nums1 を nums の後ろに連結</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a href="#__codelineno-57-1" id="__codelineno-57-1" name="__codelineno-57-1"></a><span class="cm">/* 2 つのリストを連結する */</span>
+<div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a href="#__codelineno-57-1" id="__codelineno-57-1" name="__codelineno-57-1"></a><span class="cm">/* 二つのリストを連結 */</span>
 <a href="#__codelineno-57-2" id="__codelineno-57-2" name="__codelineno-57-2"></a><span class="kd">let</span><span class="w"> </span><span class="nv">nums1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">]</span>
-<a href="#__codelineno-57-3" id="__codelineno-57-3" name="__codelineno-57-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">contentsOf</span><span class="p">:</span><span class="w"> </span><span class="n">nums1</span><span class="p">)</span><span class="w"> </span><span class="c1">// リスト nums の後ろに nums1 を連結する</span>
+<a href="#__codelineno-57-3" id="__codelineno-57-3" name="__codelineno-57-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">contentsOf</span><span class="p">:</span><span class="w"> </span><span class="n">nums1</span><span class="p">)</span><span class="w"> </span><span class="c1">// リスト nums1 を nums の後ろに連結</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.js</span><pre><span></span><code><a href="#__codelineno-58-1" id="__codelineno-58-1" name="__codelineno-58-1"></a><span class="cm">/* 2 つのリストを連結する */</span>
+<div class="highlight"><span class="filename">list.js</span><pre><span></span><code><a href="#__codelineno-58-1" id="__codelineno-58-1" name="__codelineno-58-1"></a><span class="cm">/* 二つのリストを連結 */</span>
 <a href="#__codelineno-58-2" id="__codelineno-58-2" name="__codelineno-58-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">];</span>
-<a href="#__codelineno-58-3" id="__codelineno-58-3" name="__codelineno-58-3"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(...</span><span class="nx">nums1</span><span class="p">);</span><span class="w"> </span><span class="c1">// リスト nums の後ろに nums1 を連結する</span>
+<a href="#__codelineno-58-3" id="__codelineno-58-3" name="__codelineno-58-3"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(...</span><span class="nx">nums1</span><span class="p">);</span><span class="w">  </span><span class="c1">// リスト nums1 を nums の後ろに連結</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.ts</span><pre><span></span><code><a href="#__codelineno-59-1" id="__codelineno-59-1" name="__codelineno-59-1"></a><span class="cm">/* 2 つのリストを連結する */</span>
+<div class="highlight"><span class="filename">list.ts</span><pre><span></span><code><a href="#__codelineno-59-1" id="__codelineno-59-1" name="__codelineno-59-1"></a><span class="cm">/* 二つのリストを連結 */</span>
 <a href="#__codelineno-59-2" id="__codelineno-59-2" name="__codelineno-59-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">nums1</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">];</span>
-<a href="#__codelineno-59-3" id="__codelineno-59-3" name="__codelineno-59-3"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(...</span><span class="nx">nums1</span><span class="p">);</span><span class="w"> </span><span class="c1">// リスト nums の後ろに nums1 を連結する</span>
+<a href="#__codelineno-59-3" id="__codelineno-59-3" name="__codelineno-59-3"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(...</span><span class="nx">nums1</span><span class="p">);</span><span class="w">  </span><span class="c1">// リスト nums1 を nums の後ろに連結</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.dart</span><pre><span></span><code><a href="#__codelineno-60-1" id="__codelineno-60-1" name="__codelineno-60-1"></a><span class="cm">/* 2 つのリストを連結する */</span>
+<div class="highlight"><span class="filename">list.dart</span><pre><span></span><code><a href="#__codelineno-60-1" id="__codelineno-60-1" name="__codelineno-60-1"></a><span class="cm">/* 二つのリストを連結 */</span>
 <a href="#__codelineno-60-2" id="__codelineno-60-2" name="__codelineno-60-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">];</span>
-<a href="#__codelineno-60-3" id="__codelineno-60-3" name="__codelineno-60-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">addAll</span><span class="p">(</span><span class="n">nums1</span><span class="p">);</span><span class="w"> </span><span class="c1">// リスト nums の後ろに nums1 を連結する</span>
+<a href="#__codelineno-60-3" id="__codelineno-60-3" name="__codelineno-60-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">addAll</span><span class="p">(</span><span class="n">nums1</span><span class="p">);</span><span class="w">  </span><span class="c1">// リスト nums1 を nums の後ろに連結</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-61-1" id="__codelineno-61-1" name="__codelineno-61-1"></a><span class="c1">// 2 つのリストを連結する</span>
-<a href="#__codelineno-61-2" id="__codelineno-61-2" name="__codelineno-61-2"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">];</span>
-<a href="#__codelineno-61-3" id="__codelineno-61-3" name="__codelineno-61-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">nums1</span><span class="p">);</span><span class="w"> </span><span class="c1">// append（ムーブ）後、nums1 は空になる！</span>
+<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-61-1" id="__codelineno-61-1" name="__codelineno-61-1"></a><span class="cm">/* 二つのリストを連結 */</span>
+<a href="#__codelineno-61-2" id="__codelineno-61-2" name="__codelineno-61-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">nums1</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">];</span>
+<a href="#__codelineno-61-3" id="__codelineno-61-3" name="__codelineno-61-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">extend</span><span class="p">(</span><span class="n">nums1</span><span class="p">);</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2736,13 +2733,13 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.kt</span><pre><span></span><code><a href="#__codelineno-63-1" id="__codelineno-63-1" name="__codelineno-63-1"></a><span class="cm">/* 2 つのリストを連結する*/</span>
-<a href="#__codelineno-63-2" id="__codelineno-63-2" name="__codelineno-63-2"></a><span class="kd">val</span><span class="w"> </span><span class="nv">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="p">(</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">)</span>
-<a href="#__codelineno-63-3" id="__codelineno-63-3" name="__codelineno-63-3"></a><span class="n">nums</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">nums1</span><span class="p">)</span><span class="w"> </span><span class="c1">// リスト nums の後ろに nums1 を連結する</span>
+<div class="highlight"><span class="filename">list.kt</span><pre><span></span><code><a href="#__codelineno-63-1" id="__codelineno-63-1" name="__codelineno-63-1"></a><span class="cm">/* 二つのリストを連結 */</span>
+<a href="#__codelineno-63-2" id="__codelineno-63-2" name="__codelineno-63-2"></a><span class="kd">val</span><span class="w"> </span><span class="nv">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intArrayOf</span><span class="p">(</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">).</span><span class="na">toMutableList</span><span class="p">()</span>
+<a href="#__codelineno-63-3" id="__codelineno-63-3" name="__codelineno-63-3"></a><span class="n">nums</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">nums1</span><span class="p">)</span><span class="w">  </span><span class="c1">// リスト nums1 を nums の後ろに連結</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.rb</span><pre><span></span><code><a href="#__codelineno-64-1" id="__codelineno-64-1" name="__codelineno-64-1"></a><span class="c1"># 2 つのリストを連結する</span>
+<div class="highlight"><span class="filename">list.rb</span><pre><span></span><code><a href="#__codelineno-64-1" id="__codelineno-64-1" name="__codelineno-64-1"></a><span class="c1"># 二つのリストを連結</span>
 <a href="#__codelineno-64-2" id="__codelineno-64-2" name="__codelineno-64-2"></a><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="o">]</span>
 <a href="#__codelineno-64-3" id="__codelineno-64-3" name="__codelineno-64-3"></a><span class="n">nums</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums1</span>
 </code></pre></div>
@@ -2759,52 +2756,52 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="6:13"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><input id="__tabbed_6_3" name="__tabbed_6" type="radio"/><input id="__tabbed_6_4" name="__tabbed_6" type="radio"/><input id="__tabbed_6_5" name="__tabbed_6" type="radio"/><input id="__tabbed_6_6" name="__tabbed_6" type="radio"/><input id="__tabbed_6_7" name="__tabbed_6" type="radio"/><input id="__tabbed_6_8" name="__tabbed_6" type="radio"/><input id="__tabbed_6_9" name="__tabbed_6" type="radio"/><input id="__tabbed_6_10" name="__tabbed_6" type="radio"/><input id="__tabbed_6_11" name="__tabbed_6" type="radio"/><input id="__tabbed_6_12" name="__tabbed_6" type="radio"/><input id="__tabbed_6_13" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Java</label><label for="__tabbed_6_4">C#</label><label for="__tabbed_6_5">Go</label><label for="__tabbed_6_6">Swift</label><label for="__tabbed_6_7">JS</label><label for="__tabbed_6_8">TS</label><label for="__tabbed_6_9">Dart</label><label for="__tabbed_6_10">Rust</label><label for="__tabbed_6_11">C</label><label for="__tabbed_6_12">Kotlin</label><label for="__tabbed_6_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.py</span><pre><span></span><code><a href="#__codelineno-65-1" id="__codelineno-65-1" name="__codelineno-65-1"></a><span class="c1"># リストをソートする</span>
+<div class="highlight"><span class="filename">list.py</span><pre><span></span><code><a href="#__codelineno-65-1" id="__codelineno-65-1" name="__codelineno-65-1"></a><span class="c1"># リストをソート</span>
 <a href="#__codelineno-65-2" id="__codelineno-65-2" name="__codelineno-65-2"></a><span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>  <span class="c1"># ソート後、リストの要素は昇順に並ぶ</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.cpp</span><pre><span></span><code><a href="#__codelineno-66-1" id="__codelineno-66-1" name="__codelineno-66-1"></a><span class="cm">/* リストをソートする */</span>
-<a href="#__codelineno-66-2" id="__codelineno-66-2" name="__codelineno-66-2"></a><span class="n">sort</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">());</span><span class="w"> </span><span class="c1">// ソート後、リストの要素は昇順に並ぶ</span>
+<div class="highlight"><span class="filename">list.cpp</span><pre><span></span><code><a href="#__codelineno-66-1" id="__codelineno-66-1" name="__codelineno-66-1"></a><span class="cm">/* リストをソート */</span>
+<a href="#__codelineno-66-2" id="__codelineno-66-2" name="__codelineno-66-2"></a><span class="n">sort</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">());</span><span class="w">  </span><span class="c1">// ソート後、リストの要素は昇順に並ぶ</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.java</span><pre><span></span><code><a href="#__codelineno-67-1" id="__codelineno-67-1" name="__codelineno-67-1"></a><span class="cm">/* リストをソートする */</span>
-<a href="#__codelineno-67-2" id="__codelineno-67-2" name="__codelineno-67-2"></a><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span><span class="w"> </span><span class="c1">// ソート後、リストの要素は昇順に並ぶ</span>
+<div class="highlight"><span class="filename">list.java</span><pre><span></span><code><a href="#__codelineno-67-1" id="__codelineno-67-1" name="__codelineno-67-1"></a><span class="cm">/* リストをソート */</span>
+<a href="#__codelineno-67-2" id="__codelineno-67-2" name="__codelineno-67-2"></a><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span><span class="w">  </span><span class="c1">// ソート後、リストの要素は昇順に並ぶ</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a href="#__codelineno-68-1" id="__codelineno-68-1" name="__codelineno-68-1"></a><span class="cm">/* リストをソートする */</span>
+<div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a href="#__codelineno-68-1" id="__codelineno-68-1" name="__codelineno-68-1"></a><span class="cm">/* リストをソート */</span>
 <a href="#__codelineno-68-2" id="__codelineno-68-2" name="__codelineno-68-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">Sort</span><span class="p">();</span><span class="w"> </span><span class="c1">// ソート後、リストの要素は昇順に並ぶ</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list_test.go</span><pre><span></span><code><a href="#__codelineno-69-1" id="__codelineno-69-1" name="__codelineno-69-1"></a><span class="cm">/* リストをソートする */</span>
-<a href="#__codelineno-69-2" id="__codelineno-69-2" name="__codelineno-69-2"></a><span class="nx">sort</span><span class="p">.</span><span class="nx">Ints</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="c1">// ソート後、リストの要素は昇順に並ぶ</span>
+<div class="highlight"><span class="filename">list_test.go</span><pre><span></span><code><a href="#__codelineno-69-1" id="__codelineno-69-1" name="__codelineno-69-1"></a><span class="cm">/* リストをソート */</span>
+<a href="#__codelineno-69-2" id="__codelineno-69-2" name="__codelineno-69-2"></a><span class="nx">sort</span><span class="p">.</span><span class="nx">Ints</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span><span class="w">  </span><span class="c1">// ソート後、リストの要素は昇順に並ぶ</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a href="#__codelineno-70-1" id="__codelineno-70-1" name="__codelineno-70-1"></a><span class="cm">/* リストをソートする */</span>
+<div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a href="#__codelineno-70-1" id="__codelineno-70-1" name="__codelineno-70-1"></a><span class="cm">/* リストをソート */</span>
 <a href="#__codelineno-70-2" id="__codelineno-70-2" name="__codelineno-70-2"></a><span class="n">nums</span><span class="p">.</span><span class="bp">sort</span><span class="p">()</span><span class="w"> </span><span class="c1">// ソート後、リストの要素は昇順に並ぶ</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.js</span><pre><span></span><code><a href="#__codelineno-71-1" id="__codelineno-71-1" name="__codelineno-71-1"></a><span class="cm">/* リストをソートする */</span>
-<a href="#__codelineno-71-2" id="__codelineno-71-2" name="__codelineno-71-2"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span><span class="w"> </span><span class="c1">// ソート後、リストの要素は昇順に並ぶ</span>
+<div class="highlight"><span class="filename">list.js</span><pre><span></span><code><a href="#__codelineno-71-1" id="__codelineno-71-1" name="__codelineno-71-1"></a><span class="cm">/* リストをソート */</span>
+<a href="#__codelineno-71-2" id="__codelineno-71-2" name="__codelineno-71-2"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span><span class="w">  </span><span class="c1">// ソート後、リストの要素は昇順に並ぶ</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.ts</span><pre><span></span><code><a href="#__codelineno-72-1" id="__codelineno-72-1" name="__codelineno-72-1"></a><span class="cm">/* リストをソートする */</span>
-<a href="#__codelineno-72-2" id="__codelineno-72-2" name="__codelineno-72-2"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span><span class="w"> </span><span class="c1">// ソート後、リストの要素は昇順に並ぶ</span>
+<div class="highlight"><span class="filename">list.ts</span><pre><span></span><code><a href="#__codelineno-72-1" id="__codelineno-72-1" name="__codelineno-72-1"></a><span class="cm">/* リストをソート */</span>
+<a href="#__codelineno-72-2" id="__codelineno-72-2" name="__codelineno-72-2"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span><span class="w">  </span><span class="c1">// ソート後、リストの要素は昇順に並ぶ</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.dart</span><pre><span></span><code><a href="#__codelineno-73-1" id="__codelineno-73-1" name="__codelineno-73-1"></a><span class="cm">/* リストをソートする */</span>
+<div class="highlight"><span class="filename">list.dart</span><pre><span></span><code><a href="#__codelineno-73-1" id="__codelineno-73-1" name="__codelineno-73-1"></a><span class="cm">/* リストをソート */</span>
 <a href="#__codelineno-73-2" id="__codelineno-73-2" name="__codelineno-73-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span><span class="w"> </span><span class="c1">// ソート後、リストの要素は昇順に並ぶ</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-74-1" id="__codelineno-74-1" name="__codelineno-74-1"></a><span class="c1">// リストをソートする</span>
+<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-74-1" id="__codelineno-74-1" name="__codelineno-74-1"></a><span class="cm">/* リストをソート */</span>
 <a href="#__codelineno-74-2" id="__codelineno-74-2" name="__codelineno-74-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span><span class="w"> </span><span class="c1">// ソート後、リストの要素は昇順に並ぶ</span>
 </code></pre></div>
 </div>
@@ -2813,12 +2810,12 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.kt</span><pre><span></span><code><a href="#__codelineno-76-1" id="__codelineno-76-1" name="__codelineno-76-1"></a><span class="cm">/* リストをソートする */</span>
+<div class="highlight"><span class="filename">list.kt</span><pre><span></span><code><a href="#__codelineno-76-1" id="__codelineno-76-1" name="__codelineno-76-1"></a><span class="cm">/* リストをソート */</span>
 <a href="#__codelineno-76-2" id="__codelineno-76-2" name="__codelineno-76-2"></a><span class="n">nums</span><span class="p">.</span><span class="na">sort</span><span class="p">()</span><span class="w"> </span><span class="c1">// ソート後、リストの要素は昇順に並ぶ</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.rb</span><pre><span></span><code><a href="#__codelineno-77-1" id="__codelineno-77-1" name="__codelineno-77-1"></a><span class="c1"># リストをソートする</span>
+<div class="highlight"><span class="filename">list.rb</span><pre><span></span><code><a href="#__codelineno-77-1" id="__codelineno-77-1" name="__codelineno-77-1"></a><span class="c1"># リストをソート</span>
 <a href="#__codelineno-77-2" id="__codelineno-77-2" name="__codelineno-77-2"></a><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;=&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1"># ソート後、リストの要素は昇順に並ぶ</span>
 </code></pre></div>
 </div>
