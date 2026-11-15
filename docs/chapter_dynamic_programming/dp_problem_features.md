@@ -558,20 +558,7 @@ $$
 === "Ruby"
 
     ```ruby title="min_cost_climbing_stairs_dp.rb"
-    ### 爬楼梯最小代价：动态规划 ###
-    def min_cost_climbing_stairs_dp(cost)
-      n = cost.length - 1
-      return cost[n] if n == 1 || n == 2
-      # 初始化 dp 表，用于存储子问题的解
-      dp = Array.new(n + 1, 0)
-      # 初始状态：预设最小子问题的解
-      dp[1], dp[2] = cost[1], cost[2]
-      # 状态转移：从较小子问题逐步求解较大子问题
-      (3...(n + 1)).each { |i| dp[i] = [dp[i - 1], dp[i - 2]].min + cost[i] }
-      dp[n]
-    end
-
-    # 爬楼梯最小代价：空间优化后的动态规划
+    ### 爬楼梯最小代价：空间优化后的动态规划 ###
     def min_cost_climbing_stairs_dp_comp(cost)
       n = cost.length - 1
       return cost[n] if n == 1 || n == 2

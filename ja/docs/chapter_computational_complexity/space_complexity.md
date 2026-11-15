@@ -86,13 +86,13 @@ comments: true
         Node next;
         Node(int x) { val = x; }
     }
-    
+
     /* 関数 */
     int function() {
         // 何らかの処理を実行...
         return 0;
     }
-    
+
     int algorithm(int n) {        // 入力データ
         final int a = 0;          // 一時データ（定数）
         int b = 0;                // 一時データ（変数）
@@ -139,7 +139,7 @@ comments: true
     func newNode(val int) *node {
         return &node{val: val}
     }
-    
+
     /* 関数 */
     func function() int {
         // 何らかの処理を実行...
@@ -269,7 +269,7 @@ comments: true
     ```rust title=""
     use std::rc::Rc;
     use std::cell::RefCell;
-    
+
     /* 構造体 */
     struct Node {
         val: i32,
@@ -617,14 +617,14 @@ comments: true
         // 何らかの処理を実行
         return 0
     }
-    
+
     /* ループの空間計算量は O(1) */
     func loop(n int) {
         for i := 0; i < n; i++ {
             function()
         }
     }
-    
+
     /* 再帰の空間計算量は O(n) */
     func recur(n int) {
         if n == 1 {

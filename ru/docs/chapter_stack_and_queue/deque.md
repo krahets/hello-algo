@@ -2065,7 +2065,7 @@ comments: true
     Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
     =end
 
-    # ## Узел двусвязного списка
+    ### Узел двусвязного списка
     class ListNode
       attr_accessor :val
       attr_accessor :next # Ссылка на узел-преемник

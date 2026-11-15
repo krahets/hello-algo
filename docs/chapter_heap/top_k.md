@@ -376,17 +376,7 @@ comments: true
         return res;
     }
 
-    /* 取出堆中元素 */
-    int *getMinHeap(MaxHeap *maxHeap) {
-        // 将堆中所有元素取反并存入 res 数组
-        int *res = (int *)malloc(maxHeap->size * sizeof(int));
-        for (int i = 0; i < maxHeap->size; i++) {
-            res[i] = -maxHeap->data[i];
-        }
-        return res;
-    }
-
-    // 基于堆查找数组中最大的 k 个元素的函数
+    /* 基于堆查找数组中最大的 k 个元素的函数 */
     int *topKHeap(int *nums, int sizeNums, int k) {
         // 初始化小顶堆
         // 请注意：我们将堆中所有元素取反，从而用大顶堆来模拟小顶堆

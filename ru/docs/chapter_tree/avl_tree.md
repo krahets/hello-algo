@@ -2018,12 +2018,7 @@ AVL-дерево одновременно является и двоичным �
       @root = insert_helper(@root, val)
     end
 
-    ### Вставка узла ###
-    def insert(val)
-      @root = insert_helper(@root, val)
-    end
-
-    # ## Рекурсивная вставка узла (вспомогательный метод) ###
+    ### Рекурсивная вставка узла (вспомогательный метод) ###
     def insert_helper(node, val)
       return TreeNode.new(val) if node.nil?
       # 1. Найти позицию вставки и вставить узел
@@ -2611,12 +2606,7 @@ AVL-дерево одновременно является и двоичным �
       @root = remove_helper(@root, val)
     end
 
-    ### Удаление узла ###
-    def remove(val)
-      @root = remove_helper(@root, val)
-    end
-
-    # ## Рекурсивное удаление узла (вспомогательный метод) ###
+    ### Рекурсивное удаление узла (вспомогательный метод) ###
     def remove_helper(node, val)
       return if node.nil?
       # 1. Найти узел и удалить его

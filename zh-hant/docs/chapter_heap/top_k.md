@@ -376,17 +376,7 @@ comments: true
         return res;
     }
 
-    /* 取出堆積中元素 */
-    int *getMinHeap(MaxHeap *maxHeap) {
-        // 將堆積中所有元素取反並存入 res 陣列
-        int *res = (int *)malloc(maxHeap->size * sizeof(int));
-        for (int i = 0; i < maxHeap->size; i++) {
-            res[i] = -maxHeap->data[i];
-        }
-        return res;
-    }
-
-    // 基於堆積查詢陣列中最大的 k 個元素的函式
+    /* 基於堆積查詢陣列中最大的 k 個元素的函式 */
     int *topKHeap(int *nums, int sizeNums, int k) {
         // 初始化小頂堆積
         // 請注意：我們將堆積中所有元素取反，從而用大頂堆積來模擬小頂堆積

@@ -376,17 +376,7 @@ comments: true
         return res;
     }
 
-    /* ヒープ内の要素を取り出す */
-    int *getMinHeap(MaxHeap *maxHeap) {
-        // ヒープの全要素の符号を反転し、res 配列に格納する
-        int *res = (int *)malloc(maxHeap->size * sizeof(int));
-        for (int i = 0; i < maxHeap->size; i++) {
-            res[i] = -maxHeap->data[i];
-        }
-        return res;
-    }
-
-    // ヒープを使って配列内の大きいほうから k 個の要素を求める関数
+    /* ヒープを使って配列内の大きいほうから k 個の要素を求める関数 */
     int *topKHeap(int *nums, int sizeNums, int k) {
         // 最小ヒープを初期化する
         // 注意：ヒープの全要素の符号を反転することで、最大ヒープを使って最小ヒープを再現する

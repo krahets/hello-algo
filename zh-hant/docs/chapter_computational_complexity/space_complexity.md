@@ -86,13 +86,13 @@ comments: true
         Node next;
         Node(int x) { val = x; }
     }
-    
+
     /* 函式 */
     int function() {
         // 執行某些操作...
         return 0;
     }
-    
+
     int algorithm(int n) {        // 輸入資料
         final int a = 0;          // 暫存資料（常數）
         int b = 0;                // 暫存資料（變數）
@@ -139,7 +139,7 @@ comments: true
     func newNode(val int) *node {
         return &node{val: val}
     }
-    
+
     /* 函式 */
     func function() int {
         // 執行某些操作...
@@ -269,7 +269,7 @@ comments: true
     ```rust title=""
     use std::rc::Rc;
     use std::cell::RefCell;
-    
+
     /* 結構體 */
     struct Node {
         val: i32,
@@ -617,14 +617,14 @@ comments: true
         // 執行某些操作
         return 0
     }
-    
+
     /* 迴圈的空間複雜度為 O(1) */
     func loop(n int) {
         for i := 0; i < n; i++ {
             function()
         }
     }
-    
+
     /* 遞迴的空間複雜度為 O(n) */
     func recur(n int) {
         if n == 1 {

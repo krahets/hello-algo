@@ -558,20 +558,7 @@ We can also reduce the state storage from a one-dimensional array to scalar vari
 === "Ruby"
 
     ```ruby title="min_cost_climbing_stairs_dp.rb"
-    ### Minimum cost to climb stairs: dynamic programming ###
-    def min_cost_climbing_stairs_dp(cost)
-      n = cost.length - 1
-      return cost[n] if n == 1 || n == 2
-      # Initialize the dp table to store subproblem solutions
-      dp = Array.new(n + 1, 0)
-      # Initial states: set the solutions to the smallest subproblems
-      dp[1], dp[2] = cost[1], cost[2]
-      # State transitions: solve progressively larger subproblems using smaller ones
-      (3...(n + 1)).each { |i| dp[i] = [dp[i - 1], dp[i - 2]].min + cost[i] }
-      dp[n]
-    end
-
-    # Minimum cost to climb stairs: space-optimized dynamic programming
+    ### Minimum cost to climb stairs: space-optimized dynamic programming ###
     def min_cost_climbing_stairs_dp_comp(cost)
       n = cost.length - 1
       return cost[n] if n == 1 || n == 2

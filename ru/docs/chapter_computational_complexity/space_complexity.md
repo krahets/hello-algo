@@ -86,13 +86,13 @@ comments: true
         Node next;
         Node(int x) { val = x; }
     }
-    
+
     /* Функция */
     int function() {
         // Выполнить некоторые операции...
         return 0;
     }
-    
+
     int algorithm(int n) {        // Входные данные
         final int a = 0;          // Временные данные (константа)
         int b = 0;                // Временные данные (переменная)
@@ -139,7 +139,7 @@ comments: true
     func newNode(val int) *node {
         return &node{val: val}
     }
-    
+
     /* Функция */
     func function() int {
         // Выполнить некоторые операции...
@@ -269,7 +269,7 @@ comments: true
     ```rust title=""
     use std::rc::Rc;
     use std::cell::RefCell;
-    
+
     /* Структура */
     struct Node {
         val: i32,
@@ -617,14 +617,14 @@ comments: true
         // Выполнить некоторые операции
         return 0
     }
-    
+
     /* Пространственная сложность цикла равна O(1) */
     func loop(n int) {
         for i := 0; i < n; i++ {
             function()
         }
     }
-    
+
     /* Пространственная сложность рекурсии равна O(n) */
     func recur(n int) {
         if n == 1 {
@@ -1607,19 +1607,7 @@ $$
 === "Ruby"
 
     ```ruby title="space_complexity.rb"
-    ### Линейная сложность ###
-    def linear(n)
-      # Список длины n занимает O(n) памяти
-      nums = Array.new(n, 0)
-
-      # Хеш-таблица длины n занимает O(n) памяти
-      hmap = {}
-      for i in 0...n
-        hmap[i] = i.to_s
-      end
-    end
-
-    # ## Линейная сложность (рекурсивная реализация) ###
+    ### Линейная сложность (рекурсивная реализация) ###
     def linear_recur(n)
       puts "Рекурсия n = #{n}"
       return if n == 1
@@ -2031,13 +2019,7 @@ $$
 === "Ruby"
 
     ```ruby title="space_complexity.rb"
-    ### Квадратичная сложность ###
-    def quadratic(n)
-      # Двумерный список занимает O(n^2) памяти
-      Array.new(n) { Array.new(n, 0) }
-    end
-
-    # ## Квадратичная сложность (рекурсивная реализация) ###
+    ### Квадратичная сложность (рекурсивная реализация) ###
     def quadratic_recur(n)
       return 0 unless n > 0
 
@@ -2230,22 +2212,7 @@ $$
 === "Ruby"
 
     ```ruby title="space_complexity.rb"
-    ### Квадратичная сложность ###
-    def quadratic(n)
-      # Двумерный список занимает O(n^2) памяти
-      Array.new(n) { Array.new(n, 0) }
-    end
-
-    # ## Квадратичная сложность (рекурсивная реализация) ###
-    def quadratic_recur(n)
-      return 0 unless n > 0
-
-      # Длина массива nums равна n, n-1, ..., 2, 1
-      nums = Array.new(n, 0)
-      quadratic_recur(n - 1)
-    end
-
-    # ## Экспоненциальная сложность (построение полного двоичного дерева) ###
+    ### Экспоненциальная сложность (построение полного двоичного дерева) ###
     def build_tree(n)
       return if n == 0
 

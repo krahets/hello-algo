@@ -1059,20 +1059,9 @@ comments: true
       return right
     end
 
-    ### Выбрать медиану из трех кандидатов ###
-    def median_three(nums, left, mid, right)
-      # Выбрать медиану из трех кандидатов
-      _l, _m, _r = nums[left], nums[mid], nums[right]
-      # m находится между l и r
-      return mid if (_l <= _m && _m <= _r) || (_r <= _m && _m <= _l)
-      # l находится между m и r
-      return left if (_m <= _l && _l <= _r) || (_r <= _l && _l <= _m)
-      return right
-    end
-
-    # ## Разбиение с опорными указателями (медиана трех) ###
+    ### Разбиение с опорными указателями (медиана трех) ###
     def partition(nums, left, right)
-      # ## Использовать nums[left] как опорный элемент
+      ### Использовать nums[left] как опорный элемент
       med = median_three(nums, left, (left + right) / 2, right)
       # Переместить медиану в крайний левый элемент массива
       nums[left], nums[med] = nums[med], nums[left]
@@ -1364,27 +1353,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="quick_sort.rb"
-    ### Разбиение с опорными указателями ###
-    def partition(nums, left, right)
-      # Использовать nums[left] как опорный элемент
-      i = left
-      j = right
-      while i < j
-        while i < j && nums[j] >= nums[left]
-          j -= 1 # Идти справа налево в поисках первого элемента меньше опорного
-        end
-        while i < j && nums[i] <= nums[left]
-          i += 1 # Идти слева направо в поисках первого элемента больше опорного
-        end
-        # Обмен элементов
-        nums[i], nums[j] = nums[j], nums[i]
-      end
-      # Переместить опорный элемент на границу двух подмассивов
-      nums[i], nums[left] = nums[left], nums[i]
-      i # Вернуть индекс опорного элемента
-    end
-
-    # ## Быстрая сортировка (оптимизация глубины рекурсии) ###
+    ### Быстрая сортировка (оптимизация глубины рекурсии) ###
     def quick_sort(nums, left, right)
       # Рекурсивно обрабатывать, пока длина подмассива не станет равной 1
       while left < right

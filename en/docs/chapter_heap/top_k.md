@@ -376,17 +376,7 @@ An implementation follows:
         return res;
     }
 
-    /* Get the elements in the heap */
-    int *getMinHeap(MaxHeap *maxHeap) {
-        // Negate every element in the heap and store the results in array res
-        int *res = (int *)malloc(maxHeap->size * sizeof(int));
-        for (int i = 0; i < maxHeap->size; i++) {
-            res[i] = -maxHeap->data[i];
-        }
-        return res;
-    }
-
-    // Use a heap to find the k largest elements in an array
+    /* Use a heap to find the k largest elements in an array */
     int *topKHeap(int *nums, int sizeNums, int k) {
         // Initialize a min heap
         // Note: negate every element to simulate a min heap with a max heap

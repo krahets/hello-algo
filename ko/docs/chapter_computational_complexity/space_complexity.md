@@ -86,13 +86,13 @@ comments: true
         Node next;
         Node(int x) { val = x; }
     }
-    
+
     /* 함수 */
     int function() {
         // 몇 가지 연산 수행...
         return 0;
     }
-    
+
     int algorithm(int n) {        // 입력 데이터
         final int a = 0;          // 임시 데이터(상수)
         int b = 0;                // 임시 데이터(변수)
@@ -139,7 +139,7 @@ comments: true
     func newNode(val int) *node {
         return &node{val: val}
     }
-    
+
     /* 함수 */
     func function() int {
         // 몇 가지 연산 수행...
@@ -269,7 +269,7 @@ comments: true
     ```rust title=""
     use std::rc::Rc;
     use std::cell::RefCell;
-    
+
     /* 구조체 */
     struct Node {
         val: i32,
@@ -617,14 +617,14 @@ comments: true
         // 몇 가지 연산 수행
         return 0
     }
-    
+
     /* 반복문의 공간 복잡도는 O(1) */
     func loop(n int) {
         for i := 0; i < n; i++ {
             function()
         }
     }
-    
+
     /* 재귀의 공간 복잡도는 O(n) */
     func recur(n int) {
         if n == 1 {

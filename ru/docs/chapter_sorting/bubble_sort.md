@@ -574,22 +574,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="bubble_sort.rb"
-    ### Пузырьковая сортировка ###
-    def bubble_sort(nums)
-      n = nums.length
-      # Внешний цикл: неотсортированный диапазон [0, i]
-      for i in (n - 1).downto(1)
-        # Внутренний цикл: переместить максимальный элемент неотсортированного диапазона [0, i] в его правый конец
-        for j in 0...i
-          if nums[j] > nums[j + 1]
-            # Поменять местами nums[j] и nums[j + 1]
-            nums[j], nums[j + 1] = nums[j + 1], nums[j]
-          end
-        end
-      end
-    end
-
-    # ## Пузырьковая сортировка (оптимизация флагом) ###
+    ### Пузырьковая сортировка (оптимизация флагом) ###
     def bubble_sort_with_flag(nums)
       n = nums.length
       # Внешний цикл: неотсортированный диапазон [0, i]

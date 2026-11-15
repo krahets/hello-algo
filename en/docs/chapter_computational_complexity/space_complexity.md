@@ -86,13 +86,13 @@ The corresponding code is:
         Node next;
         Node(int x) { val = x; }
     }
-    
+
     /* Function */
     int function() {
         // Perform some operations...
         return 0;
     }
-    
+
     int algorithm(int n) {        // Input data
         final int a = 0;          // Temporary data (constant)
         int b = 0;                // Temporary data (variable)
@@ -139,7 +139,7 @@ The corresponding code is:
     func newNode(val int) *node {
         return &node{val: val}
     }
-    
+
     /* Function */
     func function() int {
         // Perform some operations...
@@ -269,7 +269,7 @@ The corresponding code is:
     ```rust title=""
     use std::rc::Rc;
     use std::cell::RefCell;
-    
+
     /* Structure */
     struct Node {
         val: i32,
@@ -617,14 +617,14 @@ In the following code, "worst case" has two meanings.
         // Perform some operations
         return 0
     }
-    
+
     /* The loop uses O(1) space */
     func loop(n int) {
         for i := 0; i < n; i++ {
             function()
         }
     }
-    
+
     /* The recursion uses O(n) space */
     func recur(n int) {
         if n == 1 {

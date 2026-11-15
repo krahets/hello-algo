@@ -376,17 +376,7 @@ comments: true
         return res;
     }
 
-    /* 힙의 원소를 반환한다 */
-    int *getMinHeap(MaxHeap *maxHeap) {
-        // 힙의 모든 원소의 부호를 반전하여 res 배열에 저장한다
-        int *res = (int *)malloc(maxHeap->size * sizeof(int));
-        for (int i = 0; i < maxHeap->size; i++) {
-            res[i] = -maxHeap->data[i];
-        }
-        return res;
-    }
-
-    // 힙으로 배열에서 가장 큰 k개 원소를 찾는 함수
+    /* 힙으로 배열에서 가장 큰 k개 원소를 찾는 함수 */
     int *topKHeap(int *nums, int sizeNums, int k) {
         // 최소 힙 초기화
         // 힙의 모든 원소의 부호를 반전하여 최대 힙으로 최소 힙을 구현한다는 점에 유의한다

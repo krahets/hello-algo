@@ -21,9 +21,9 @@ comments: true
 
     ```python title=""
     """Heading comment identifying a function, class, test case, and so on"""
-    
+
     # Explanatory comment describing the code in detail
-    
+
     """
     Multiline
     comment
@@ -34,9 +34,9 @@ comments: true
 
     ```cpp title=""
     /* Heading comment identifying a function, class, test case, and so on */
-    
+
     // Explanatory comment describing the code in detail
-    
+
     /**
      * Multiline
      * comment
@@ -47,9 +47,9 @@ comments: true
 
     ```java title=""
     /* Heading comment identifying a function, class, test case, and so on */
-    
+
     // Explanatory comment describing the code in detail
-    
+
     /**
      * Multiline
      * comment
@@ -60,9 +60,9 @@ comments: true
 
     ```csharp title=""
     /* Heading comment identifying a function, class, test case, and so on */
-    
+
     // Explanatory comment describing the code in detail
-    
+
     /**
      * Multiline
      * comment
@@ -73,9 +73,9 @@ comments: true
 
     ```go title=""
     /* Heading comment identifying a function, class, test case, and so on */
-    
+
     // Explanatory comment describing the code in detail
-    
+
     /**
      * Multiline
      * comment
@@ -86,9 +86,9 @@ comments: true
 
     ```swift title=""
     /* Heading comment identifying a function, class, test case, and so on */
-    
+
     // Explanatory comment describing the code in detail
-    
+
     /**
      * Multiline
      * comment
@@ -99,9 +99,9 @@ comments: true
 
     ```javascript title=""
     /* Heading comment identifying a function, class, test case, and so on */
-    
+
     // Explanatory comment describing the code in detail
-    
+
     /**
      * Multiline
      * comment
@@ -112,9 +112,9 @@ comments: true
 
     ```typescript title=""
     /* Heading comment identifying a function, class, test case, and so on */
-    
+
     // Explanatory comment describing the code in detail
-    
+
     /**
      * Multiline
      * comment
@@ -125,9 +125,9 @@ comments: true
 
     ```dart title=""
     /* Heading comment identifying a function, class, test case, and so on */
-    
+
     // Explanatory comment describing the code in detail
-    
+
     /**
      * Multiline
      * comment
@@ -140,7 +140,7 @@ comments: true
     /* Heading comment identifying a function, class, test case, and so on */
 
     // Explanatory comment describing the code in detail
-    
+
     // Multiline
     // comment
     ```
@@ -149,9 +149,9 @@ comments: true
 
     ```c title=""
     /* Heading comment identifying a function, class, test case, and so on */
-    
+
     // Explanatory comment describing the code in detail
-    
+
     /**
      * Multiline
      * comment
@@ -162,9 +162,9 @@ comments: true
 
     ```kotlin title=""
     /* Heading comment identifying a function, class, test case, and so on */
-    
+
     // Explanatory comment describing the code in detail
-    
+
     /**
      * Multiline
      * comment
@@ -177,7 +177,7 @@ comments: true
     ### Heading comment identifying a function, class, test case, and so on ###
 
     # Explanatory comment describing the code in detail
-    
+
     # Multiline
     # comment
     ```

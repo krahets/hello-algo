@@ -703,27 +703,7 @@ $$
 === "Ruby"
 
     ```ruby title="unbounded_knapsack.rb"
-    ### 完全背包：动态规划 ###
-    def unbounded_knapsack_dp(wgt, val, cap)
-      n = wgt.length
-      # 初始化 dp 表
-      dp = Array.new(n + 1) { Array.new(cap + 1, 0) }
-      # 状态转移
-      for i in 1...(n + 1)
-        for c in 1...(cap + 1)
-          if wgt[i - 1] > c
-            # 若超过背包容量，则不选物品 i
-            dp[i][c] = dp[i - 1][c]
-          else
-            # 不选和选物品 i 这两种方案的较大值
-            dp[i][c] = [dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]].max
-          end
-        end
-      end
-      dp[n][cap]
-    end
-
-    ### 完全背包：空间优化后的动态规划 ##3
+    ### 完全背包：空间优化后的动态规划 ###
     def unbounded_knapsack_dp_comp(wgt, val, cap)
       n = wgt.length
       # 初始化 dp 表
