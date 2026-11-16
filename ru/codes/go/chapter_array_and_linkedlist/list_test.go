@@ -12,9 +12,15 @@ import (
 
 /* Driver Code */
 func TestList(t *testing.T) {
+	// [region]{init_list}
 	/* Инициализация списка */
+	// Без начальных значений
+	emptyNums := []int{}
+	// С начальными значениями
 	nums := []int{1, 3, 2, 5, 4}
+	// [endregion]{init_list}
 	fmt.Println("Список nums =", nums)
+	fmt.Println("Список emptyNums =", emptyNums)
 
 	// [region]{access_element}
 	/* Доступ к элементу */

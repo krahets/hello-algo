@@ -7,8 +7,8 @@
 // [region]{doubly_list_node}
 /* 双向链表节点 */
 class ListNode {
-    prev: ListNode | null; // 前驱节点引用 (指针)
-    next: ListNode | null; // 后继节点引用 (指针)
+    prev: ListNode | null; // 前驱节点引用（指针）
+    next: ListNode | null; // 后继节点引用（指针）
     val: number; // 节点值
 
     constructor(val: number) {

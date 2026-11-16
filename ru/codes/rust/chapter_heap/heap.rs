@@ -15,9 +15,9 @@ fn main() {
     // [region]{init}
     /* Инициализация кучи */
     // Инициализация минимальной кучи
+    // BinaryHeap в Rust является максимальной кучей; для минимальной кучи элементы нужно оборачивать в Reverse
     #[allow(unused_assignments)]
     let mut min_heap = BinaryHeap::new();
-    // BinaryHeap в Rust является максимальной кучей; для минимальной кучи обычно используют оболочку Reverse
     // Инициализировать максимальную кучу
     let mut max_heap = BinaryHeap::new();
     // [endregion]{init}
@@ -45,23 +45,23 @@ fn main() {
     // Извлеченные элементы образуют последовательность по убыванию
     let peek = max_heap.pop().unwrap(); // 5
     // [endregion]{pop_1}
-    println!("{}", peek);
+    println!("Извлеченный элемент = {}", peek);
     // [region]{pop_2}
     let peek = max_heap.pop().unwrap(); // 4
     // [endregion]{pop_2}
-    println!("{}", peek);
+    println!("Извлеченный элемент = {}", peek);
     // [region]{pop_3}
     let peek = max_heap.pop().unwrap(); // 3
     // [endregion]{pop_3}
-    println!("{}", peek);
+    println!("Извлеченный элемент = {}", peek);
     // [region]{pop_4}
     let peek = max_heap.pop().unwrap(); // 2
     // [endregion]{pop_4}
-    println!("{}", peek);
+    println!("Извлеченный элемент = {}", peek);
     // [region]{pop_5}
     let peek = max_heap.pop().unwrap(); // 1
     // [endregion]{pop_5}
-    println!("{}", peek);
+    println!("Извлеченный элемент = {}", peek);
 
     // [region]{size}
     /* Получение размера кучи */

@@ -143,8 +143,8 @@ https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%2
 /* Структура узла двусвязного списка */
 type DoublyListNode struct {
     Val  int             // Значение узла
-    Next *DoublyListNode // Указатель на следующий узел
-    Prev *DoublyListNode // Указатель на предыдущий узел
+    Next *DoublyListNode // Указатель на узел-преемник
+    Prev *DoublyListNode // Указатель на узел-предшественник
 }
 
 // NewDoublyListNode инициализирует узел двусвязного списка.

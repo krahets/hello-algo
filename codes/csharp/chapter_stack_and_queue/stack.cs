@@ -21,8 +21,8 @@ public class stack {
         stack.Push(2);
         stack.Push(5);
         stack.Push(4);
-        // 请注意，stack.ToArray() 得到的是倒序序列，即索引 0 为栈顶
         // [endregion]{push}
+        // 请注意，stack.ToArray() 得到的是倒序序列，即索引 0 为栈顶
         Console.WriteLine("栈 stack = " + string.Join(",", stack));
 
         // [region]{peek}

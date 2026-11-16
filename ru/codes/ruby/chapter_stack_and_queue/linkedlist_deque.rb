@@ -5,7 +5,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
 # [region]{doubly_list_node}
-### Узел двусвязного списка
+### Узел двусвязного списка ###
 class ListNode
   attr_accessor :val  # Значение узла
   attr_accessor :next # Ссылка на узел-преемник

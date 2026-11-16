@@ -42,23 +42,23 @@ public class heap {
         // 出堆元素会形成一个从大到小的序列
         peek = maxHeap.poll(); // 5
         // [endregion]{pop_1}
-        System.out.println(peek);
+        System.out.format("出堆元素为 %d\n", peek);
         // [region]{pop_2}
         peek = maxHeap.poll(); // 4
         // [endregion]{pop_2}
-        System.out.println(peek);
+        System.out.format("出堆元素为 %d\n", peek);
         // [region]{pop_3}
         peek = maxHeap.poll(); // 3
         // [endregion]{pop_3}
-        System.out.println(peek);
+        System.out.format("出堆元素为 %d\n", peek);
         // [region]{pop_4}
         peek = maxHeap.poll(); // 2
         // [endregion]{pop_4}
-        System.out.println(peek);
+        System.out.format("出堆元素为 %d\n", peek);
         // [region]{pop_5}
         peek = maxHeap.poll(); // 1
         // [endregion]{pop_5}
-        System.out.println(peek);
+        System.out.format("出堆元素为 %d\n", peek);
 
         // [region]{size}
         /* 获取堆大小 */

@@ -130,30 +130,19 @@
 ```
 
 ```dart title="deque.dart"
-/* Инициализация двусторонней очереди */
-// В Dart Queue определена как двусторонняя очередь
-Queue<int> deque = Queue<int>();
+[file]{deque}-[region]{init_deque}
 
-/* Поместить элементы в очередь */
-deque.addLast(2);  // Добавить в хвост
-deque.addLast(5);
-deque.addLast(4);
-deque.addFirst(3); // Добавить в голову
-deque.addFirst(1);
+[file]{deque}-[region]{push}
 
-/* Просмотреть элементы */
-int peekFirst = deque.first; // Элемент в голове
-int peekLast = deque.last;   // Элемент в хвосте
+[file]{deque}-[region]{peek_first}
+[file]{deque}-[region]{peek_last}
 
-/* Извлечь элементы из очереди */
-int popFirst = deque.removeFirst(); // Извлечь элемент из головы
-int popLast = deque.removeLast();   // Извлечь элемент из хвоста
+[file]{deque}-[region]{pop_first}
+[file]{deque}-[region]{pop_last}
 
-/* Получить длину двусторонней очереди */
-int size = deque.length;
+[file]{deque}-[region]{size}
 
-/* Проверить, пуста ли двусторонняя очередь */
-bool isEmpty = deque.isEmpty;
+[file]{deque}-[region]{is_empty}
 ```
 
 ```rust title="deque.rs"

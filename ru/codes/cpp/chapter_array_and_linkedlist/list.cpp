@@ -8,10 +8,17 @@
 
 /* Driver Code */
 int main() {
+    // [region]{init_list}
     /* Инициализация списка */
+    // Без начальных значений
+    vector<int> emptyNums;
+    // С начальными значениями
     vector<int> nums = {1, 3, 2, 5, 4};
+    // [endregion]{init_list}
     cout << "Список nums = ";
     printVector(nums);
+    cout << "Список emptyNums = ";
+    printVector(emptyNums);
 
     // [region]{access_element}
     /* Доступ к элементу */

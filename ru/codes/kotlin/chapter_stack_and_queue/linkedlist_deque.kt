@@ -8,8 +8,9 @@ package chapter_stack_and_queue
 
 // [region]{doubly_list_node}
 /* Узел двусвязного списка */
-class ListNode(var _val: Int) {
-    // Значение узла
+class ListNode(
+    var _val: Int // Значение узла
+) {
     var next: ListNode? = null // Ссылка на узел-преемник
     var prev: ListNode? = null // Ссылка на узел-предшественник
 }

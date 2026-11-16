@@ -34,11 +34,11 @@ func TestHeap(t *testing.T) {
 
 	/* 堆顶元素出堆 */
 	// 调用 heap.Interface 的函数，来移除元素
-	fmt.Println(heap.Pop(maxHeap)) // 5
-	fmt.Println(heap.Pop(maxHeap)) // 4
-	fmt.Println(heap.Pop(maxHeap)) // 3
-	fmt.Println(heap.Pop(maxHeap)) // 2
-	fmt.Println(heap.Pop(maxHeap)) // 1
+	fmt.Printf("出堆元素为 %d\n", heap.Pop(maxHeap)) // 5
+	fmt.Printf("出堆元素为 %d\n", heap.Pop(maxHeap)) // 4
+	fmt.Printf("出堆元素为 %d\n", heap.Pop(maxHeap)) // 3
+	fmt.Printf("出堆元素为 %d\n", heap.Pop(maxHeap)) // 2
+	fmt.Printf("出堆元素为 %d\n", heap.Pop(maxHeap)) // 1
 
 	/* 获取堆大小 */
 	size := len(*maxHeap)

@@ -136,15 +136,9 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 ```
 
 ```cpp title="hash_map.cpp"
-/* 遍历哈希表 */
-// 遍历键值对 key->value
-for (auto kv: map) {
-    cout << kv.first << " -> " << kv.second << endl;
-}
-// 使用迭代器遍历 key->value
-for (auto iter = map.begin(); iter != map.end(); iter++) {
-    cout << iter->first << "->" << iter->second << endl;
-}
+[file]{hash_map}-[region]{iterate_pairs}
+
+[file]{hash_map}-[region]{iterate_pairs_iterator}
 ```
 
 ```java title="hash_map.java"

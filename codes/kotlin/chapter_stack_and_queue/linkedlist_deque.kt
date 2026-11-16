@@ -8,8 +8,9 @@ package chapter_stack_and_queue
 
 // [region]{doubly_list_node}
 /* 双向链表节点 */
-class ListNode(var _val: Int) {
-    // 节点值
+class ListNode(
+    var _val: Int // 节点值
+) {
     var next: ListNode? = null // 后继节点引用
     var prev: ListNode? = null // 前驱节点引用
 }

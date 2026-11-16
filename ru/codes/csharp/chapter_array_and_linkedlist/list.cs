@@ -10,10 +10,16 @@ public class list {
     [Test]
     public void Test() {
 
+        // [region]{init_list}
         /* Инициализация списка */
+        // Без начальных значений
+        List<int> emptyNums = [];
+        // С начальными значениями
         int[] numbers = [1, 3, 2, 5, 4];
         List<int> nums = [.. numbers];
+        // [endregion]{init_list}
         Console.WriteLine("Список nums = " + string.Join(",", nums));
+        Console.WriteLine("Список emptyNums = " + string.Join(",", emptyNums));
 
         // [region]{access_element}
         /* Доступ к элементу */

@@ -6,9 +6,15 @@ Author: krahets (krahets@163.com)
 
 """Driver Code"""
 if __name__ == "__main__":
+    # [region]{init_list}
     # Инициализация списка
+    # Без начальных значений
+    empty_nums: list[int] = []
+    # С начальными значениями
     nums: list[int] = [1, 3, 2, 5, 4]
+    # [endregion]{init_list}
     print("\nСписок nums =", nums)
+    print("\nСписок empty_nums =", empty_nums)
 
     # [region]{access_element}
     # Доступ к элементу

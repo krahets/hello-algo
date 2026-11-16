@@ -14,11 +14,11 @@ using namespace std;
 // [region]{tree_node}
 /* 二叉树节点结构体 */
 struct TreeNode {
-    int val{};         // 节点值
-    int height = 0;    // 节点高度
-    TreeNode *parent{};
-    TreeNode *left{};  // 左子节点指针
-    TreeNode *right{}; // 右子节点指针
+    int val{};          // 节点值
+    int height = 0;     // 节点高度
+    TreeNode *parent{}; // 父节点指针
+    TreeNode *left{};   // 左子节点指针
+    TreeNode *right{};  // 右子节点指针
     TreeNode() = default;
     explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {
     }

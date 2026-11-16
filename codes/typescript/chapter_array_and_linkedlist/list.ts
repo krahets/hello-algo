@@ -4,9 +4,15 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
+// [region]{init_list}
 /* 初始化列表 */
+// 无初始值
+const emptyNums: number[] = [];
+// 有初始值
 const nums: number[] = [1, 3, 2, 5, 4];
+// [endregion]{init_list}
 console.log(`列表 nums = ${nums}`);
+console.log(`列表 emptyNums = ${emptyNums}`);
 
 // [region]{access_element}
 /* 访问元素 */

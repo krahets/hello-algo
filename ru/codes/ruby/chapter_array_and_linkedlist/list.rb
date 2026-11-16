@@ -6,9 +6,15 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### Driver Code ###
 if __FILE__ == $0
+  # [region]{init_list}
   # Инициализация списка
+  # Без начальных значений
+  empty_nums = []
+  # С начальными значениями
   nums = [1, 3, 2, 5, 4]
+  # [endregion]{init_list}
   puts "Список nums = #{nums}"
+  puts "Список empty_nums = #{empty_nums}"
 
   # [region]{access_element}
   # Доступ к элементу

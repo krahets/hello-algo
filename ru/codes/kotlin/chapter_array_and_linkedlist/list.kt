@@ -8,10 +8,15 @@ package chapter_array_and_linkedlist
 
 /* Driver Code */
 fun main() {
+    // [region]{init_list}
     /* Инициализация списка */
-    // Изменяемое множество
+    // Без начальных значений
+    val emptyNums = mutableListOf<Int>()
+    // С начальными значениями
     val nums = mutableListOf(1, 3, 2, 5, 4)
+    // [endregion]{init_list}
     println("Список nums = $nums")
+    println("Список emptyNums = $emptyNums")
 
     // [region]{access_element}
     /* Доступ к элементу */

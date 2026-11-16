@@ -1,85 +1,42 @@
 <!-- [snippet]{init_list} -->
 ```python title="list.py"
-# 初始化列表
-# 无初始值
-nums1: list[int] = []
-# 有初始值
-nums: list[int] = [1, 3, 2, 5, 4]
+[file]{list}-[region]{init_list}
 ```
 
 ```cpp title="list.cpp"
-/* 初始化列表 */
-// 需注意，C++ 中 vector 即是本文描述的 nums
-// 无初始值
-vector<int> nums1;
-// 有初始值
-vector<int> nums = { 1, 3, 2, 5, 4 };
+[file]{list}-[region]{init_list}
 ```
 
 ```java title="list.java"
-/* 初始化列表 */
-// 无初始值
-List<Integer> nums1 = new ArrayList<>();
-// 有初始值（注意数组的元素类型需为 int[] 的包装类 Integer[]）
-Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
-List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
+[file]{list}-[region]{init_list}
 ```
 
 ```csharp title="list.cs"
-/* 初始化列表 */
-// 无初始值
-List<int> nums1 = [];
-// 有初始值
-int[] numbers = [1, 3, 2, 5, 4];
-List<int> nums = [.. numbers];
+[file]{list}-[region]{init_list}
 ```
 
 ```go title="list_test.go"
-/* 初始化列表 */
-// 无初始值
-nums1 := []int{}
-// 有初始值
-nums := []int{1, 3, 2, 5, 4}
+[file]{list_test}-[region]{init_list}
 ```
 
 ```swift title="list.swift"
-/* 初始化列表 */
-// 无初始值
-let nums1: [Int] = []
-// 有初始值
-var nums = [1, 3, 2, 5, 4]
+[file]{list}-[region]{init_list}
 ```
 
 ```javascript title="list.js"
-/* 初始化列表 */
-// 无初始值
-const nums1 = [];
-// 有初始值
-const nums = [1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```typescript title="list.ts"
-/* 初始化列表 */
-// 无初始值
-const nums1: number[] = [];
-// 有初始值
-const nums: number[] = [1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```dart title="list.dart"
-/* 初始化列表 */
-// 无初始值
-List<int> nums1 = [];
-// 有初始值
-List<int> nums = [1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```rust title="list.rs"
-/* 初始化列表 */
-// 无初始值
-let nums1: Vec<i32> = Vec::new();
-// 有初始值
-let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```c title="list.c"
@@ -87,20 +44,11 @@ let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
 ```
 
 ```kotlin title="list.kt"
-/* 初始化列表 */
-// 无初始值
-var nums1 = listOf<Int>()
-// 有初始值
-var numbers = arrayOf(1, 3, 2, 5, 4)
-var nums = numbers.toMutableList()
+[file]{list}-[region]{init_list}
 ```
 
 ```ruby title="list.rb"
-# 初始化列表
-# 无初始值
-nums1 = []
-# 有初始值
-nums = [1, 3, 2, 5, 4]
+[file]{list}-[region]{init_list}
 ```
 
 <!-- [tutor]{init_list_tutor} -->

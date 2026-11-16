@@ -34,11 +34,11 @@ func TestHeap(t *testing.T) {
 
 	/* Извлечение элемента с вершины кучи */
 	// Вызвать функции heap.Interface для удаления элемента
-	fmt.Println(heap.Pop(maxHeap)) // 5
-	fmt.Println(heap.Pop(maxHeap)) // 4
-	fmt.Println(heap.Pop(maxHeap)) // 3
-	fmt.Println(heap.Pop(maxHeap)) // 2
-	fmt.Println(heap.Pop(maxHeap)) // 1
+	fmt.Printf("Извлеченный элемент = %d\n", heap.Pop(maxHeap)) // 5
+	fmt.Printf("Извлеченный элемент = %d\n", heap.Pop(maxHeap)) // 4
+	fmt.Printf("Извлеченный элемент = %d\n", heap.Pop(maxHeap)) // 3
+	fmt.Printf("Извлеченный элемент = %d\n", heap.Pop(maxHeap)) // 2
+	fmt.Printf("Извлеченный элемент = %d\n", heap.Pop(maxHeap)) // 1
 
 	/* Получение размера кучи */
 	size := len(*maxHeap)

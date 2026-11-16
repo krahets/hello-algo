@@ -8,10 +8,15 @@ package chapter_array_and_linkedlist
 
 /* Driver Code */
 fun main() {
+    // [region]{init_list}
     /* 初始化列表 */
-    // 可变集合
+    // 无初始值
+    val emptyNums = mutableListOf<Int>()
+    // 有初始值
     val nums = mutableListOf(1, 3, 2, 5, 4)
+    // [endregion]{init_list}
     println("列表 nums = $nums")
+    println("列表 emptyNums = $emptyNums")
 
     // [region]{access_element}
     /* 访问元素 */
@@ -67,7 +72,7 @@ fun main() {
     // [endregion]{iterate_list}
 
     // [region]{concat_list}
-    /* 拼接两个列表*/
+    /* 拼接两个列表 */
     val nums1 = mutableListOf(6, 8, 7, 10, 9)
     nums.addAll(nums1) // 将列表 nums1 拼接到 nums 之后
     // [endregion]{concat_list}

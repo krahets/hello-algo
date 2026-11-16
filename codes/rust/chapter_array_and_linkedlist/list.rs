@@ -7,10 +7,17 @@ use hello_algo_rust::include::print_util;
 
 /* Driver Code */
 fn main() {
+    // [region]{init_list}
     // 初始化列表
+    // 无初始值
+    let empty_nums: Vec<i32> = Vec::new();
+    // 有初始值
     let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+    // [endregion]{init_list}
     print!("列表 nums = ");
     print_util::print_array(&nums);
+    print!("\n列表 empty_nums = ");
+    print_util::print_array(&empty_nums);
 
     // [region]{access_element}
     // 访问元素
@@ -74,10 +81,10 @@ fn main() {
     // [region]{concat_list}
     // 拼接两个列表
     let mut nums1 = vec![6, 8, 7, 10, 9];
-    nums.append(&mut nums1); // append（移动） 之后 nums1 为空！
+    nums.append(&mut nums1); // append 会移走 nums1 的元素，之后 nums1 为空
     // [endregion]{concat_list}
 
-    // nums.extend(&nums1);   // extend（借用） nums1 能继续使用
+    // nums.extend(&nums1);   // extend 只借用 nums1，之后 nums1 仍可继续使用
     print!("\n将列表 nums1 拼接到 nums 之后，得到 nums = ");
     print_util::print_array(&nums);
 

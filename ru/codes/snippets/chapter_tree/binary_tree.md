@@ -4,16 +4,16 @@ class TreeNode:
     """Класс узла двоичного дерева"""
     def __init__(self, val: int):
         self.val: int = val                # Значение узла
-        self.left: TreeNode | None = None  # Ссылка на левого дочернего узла
-        self.right: TreeNode | None = None # Ссылка на правого дочернего узла
+        self.left: TreeNode | None = None  # Ссылка на левый дочерний узел
+        self.right: TreeNode | None = None # Ссылка на правый дочерний узел
 ```
 
 ```cpp title=""
 /* Структура узла двоичного дерева */
 struct TreeNode {
     int val;          // Значение узла
-    TreeNode *left;   // Указатель на левого дочернего узла
-    TreeNode *right;  // Указатель на правого дочернего узла
+    TreeNode *left;   // Указатель на левый дочерний узел
+    TreeNode *right;  // Указатель на правый дочерний узел
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
 ```
@@ -22,8 +22,8 @@ struct TreeNode {
 /* Класс узла двоичного дерева */
 class TreeNode {
     int val;         // Значение узла
-    TreeNode left;   // Ссылка на левого дочернего узла
-    TreeNode right;  // Ссылка на правого дочернего узла
+    TreeNode left;   // Ссылка на левый дочерний узел
+    TreeNode right;  // Ссылка на правый дочерний узел
     TreeNode(int x) { val = x; }
 }
 ```
@@ -32,8 +32,8 @@ class TreeNode {
 /* Класс узла двоичного дерева */
 class TreeNode(int? x) {
     public int? val = x;    // Значение узла
-    public TreeNode? left;  // Ссылка на левого дочернего узла
-    public TreeNode? right; // Ссылка на правого дочернего узла
+    public TreeNode? left;  // Ссылка на левый дочерний узел
+    public TreeNode? right; // Ссылка на правый дочерний узел
 }
 ```
 
@@ -47,8 +47,8 @@ type TreeNode struct {
 /* Конструктор */
 func NewTreeNode(v int) *TreeNode {
     return &TreeNode{
-        Left:  nil, // Указатель на левого дочернего узла
-        Right: nil, // Указатель на правого дочернего узла
+        Left:  nil, // Указатель на левый дочерний узел
+        Right: nil, // Указатель на правый дочерний узел
         Val:   v,   // Значение узла
     }
 }
@@ -58,8 +58,8 @@ func NewTreeNode(v int) *TreeNode {
 /* Класс узла двоичного дерева */
 class TreeNode {
     var val: Int // Значение узла
-    var left: TreeNode? // Ссылка на левого дочернего узла
-    var right: TreeNode? // Ссылка на правого дочернего узла
+    var left: TreeNode? // Ссылка на левый дочерний узел
+    var right: TreeNode? // Ссылка на правый дочерний узел
 
     init(x: Int) {
         val = x
@@ -71,8 +71,8 @@ class TreeNode {
 /* Класс узла двоичного дерева */
 class TreeNode {
     val; // Значение узла
-    left; // Указатель на левого дочернего узла
-    right; // Указатель на правого дочернего узла
+    left; // Указатель на левый дочерний узел
+    right; // Указатель на правый дочерний узел
     constructor(val, left, right) {
         this.val = val === undefined ? 0 : val;
         this.left = left === undefined ? null : left;
@@ -90,8 +90,8 @@ class TreeNode {
 
     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
         this.val = val === undefined ? 0 : val; // Значение узла
-        this.left = left === undefined ? null : left; // Ссылка на левого дочернего узла
-        this.right = right === undefined ? null : right; // Ссылка на правого дочернего узла
+        this.left = left === undefined ? null : left; // Ссылка на левый дочерний узел
+        this.right = right === undefined ? null : right; // Ссылка на правый дочерний узел
     }
 }
 ```
@@ -100,8 +100,8 @@ class TreeNode {
 /* Класс узла двоичного дерева */
 class TreeNode {
   int val;         // Значение узла
-  TreeNode? left;  // Ссылка на левого дочернего узла
-  TreeNode? right; // Ссылка на правого дочернего узла
+  TreeNode? left;  // Ссылка на левый дочерний узел
+  TreeNode? right; // Ссылка на правый дочерний узел
   TreeNode(this.val, [this.left, this.right]);
 }
 ```
@@ -113,8 +113,8 @@ use std::cell::RefCell;
 /* Структура узла двоичного дерева */
 struct TreeNode {
     val: i32,                               // Значение узла
-    left: Option<Rc<RefCell<TreeNode>>>,    // Ссылка на левого дочернего узла
-    right: Option<Rc<RefCell<TreeNode>>>,   // Ссылка на правого дочернего узла
+    left: Option<Rc<RefCell<TreeNode>>>,    // Ссылка на левый дочерний узел
+    right: Option<Rc<RefCell<TreeNode>>>,   // Ссылка на правый дочерний узел
 }
 
 impl TreeNode {
@@ -130,14 +130,30 @@ impl TreeNode {
 ```
 
 ```c title=""
-[file]{utils/tree_node.h}-[region]{tree_node}
+/* Структура узла двоичного дерева */
+typedef struct TreeNode {
+    int val;                // Значение узла
+    struct TreeNode *left;  // Указатель на левый дочерний узел
+    struct TreeNode *right; // Указатель на правый дочерний узел
+} TreeNode;
+
+/* Конструктор */
+TreeNode *newTreeNode(int val) {
+    TreeNode *node;
+
+    node = (TreeNode *)malloc(sizeof(TreeNode));
+    node->val = val;
+    node->left = NULL;
+    node->right = NULL;
+    return node;
+}
 ```
 
 ```kotlin title=""
 /* Класс узла двоичного дерева */
 class TreeNode(val _val: Int) {  // Значение узла
-    var left: TreeNode? = null   // Ссылка на левого дочернего узла
-    var right: TreeNode? = null  // Ссылка на правого дочернего узла
+    var left: TreeNode? = null   // Ссылка на левый дочерний узел
+    var right: TreeNode? = null  // Ссылка на правый дочерний узел
 }
 ```
 
@@ -145,8 +161,8 @@ class TreeNode(val _val: Int) {  // Значение узла
 ### Класс узла двоичного дерева ###
 class TreeNode
   attr_accessor :val    # Значение узла
-  attr_accessor :left   # Ссылка на левого дочернего узла
-  attr_accessor :right  # Ссылка на правого дочернего узла
+  attr_accessor :left   # Ссылка на левый дочерний узел
+  attr_accessor :right  # Ссылка на правый дочерний узел
 
   def initialize(val)
     @val = val

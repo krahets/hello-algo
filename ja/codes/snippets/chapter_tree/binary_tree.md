@@ -130,7 +130,23 @@ impl TreeNode {
 ```
 
 ```c title=""
-[file]{utils/tree_node.h}-[region]{tree_node}
+/* 二分木のノード構造体 */
+typedef struct TreeNode {
+    int val;                // ノードの値
+    struct TreeNode *left;  // 左の子へのポインタ
+    struct TreeNode *right; // 右の子へのポインタ
+} TreeNode;
+
+/* コンストラクタ */
+TreeNode *newTreeNode(int val) {
+    TreeNode *node;
+
+    node = (TreeNode *)malloc(sizeof(TreeNode));
+    node->val = val;
+    node->left = NULL;
+    node->right = NULL;
+    return node;
+}
 ```
 
 ```kotlin title=""

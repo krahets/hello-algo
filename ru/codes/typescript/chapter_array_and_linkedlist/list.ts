@@ -4,9 +4,15 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
+// [region]{init_list}
 /* Инициализация списка */
+// Без начальных значений
+const emptyNums: number[] = [];
+// С начальными значениями
 const nums: number[] = [1, 3, 2, 5, 4];
+// [endregion]{init_list}
 console.log(`Список nums = ${nums}`);
+console.log(`Список emptyNums = ${emptyNums}`);
 
 // [region]{access_element}
 /* Доступ к элементу */

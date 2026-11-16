@@ -13,6 +13,7 @@ use std::rc::Rc;
 // [endregion]{import_rc}
 
 // [region]{list_node}
+/* 链表节点 */
 #[derive(Debug)]
 pub struct ListNode<T> {
     pub val: T, // 节点值

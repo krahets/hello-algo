@@ -8,9 +8,15 @@
 
 /* Driver Code */
 void main() {
+  // [region]{init_list}
   /* 初始化列表 */
+  // 无初始值
+  List<int> emptyNums = [];
+  // 有初始值
   List<int> nums = [1, 3, 2, 5, 4];
+  // [endregion]{init_list}
   print('列表 nums = $nums');
+  print('列表 emptyNums = $emptyNums');
 
   // [region]{access_element}
   /* 访问元素 */

@@ -40,15 +40,22 @@ int main() {
     cout << "\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение" << endl;
     printHashMap(map);
 
-    /* Обход хеш-таблицы */
     cout << "\nОтдельный обход пар ключ-значение" << endl;
+    // [region]{iterate_pairs}
+    /* Обход хеш-таблицы */
+    // Обход пар ключ-значение key->value
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << endl;
     }
+    // [endregion]{iterate_pairs}
+
     cout << "\nОбход пар Key->Value с помощью итератора" << endl;
+    // [region]{iterate_pairs_iterator}
+    // Обход key->value с помощью итератора
     for (auto iter = map.begin(); iter != map.end(); iter++) {
-        cout << iter->first << "->" << iter->second << endl;
+        cout << iter->first << " -> " << iter->second << endl;
     }
+    // [endregion]{iterate_pairs_iterator}
 
     return 0;
 }

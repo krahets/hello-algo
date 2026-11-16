@@ -1,85 +1,42 @@
 <!-- [snippet]{init_list} -->
 ```python title="list.py"
-# Инициализация списка
-# Без начальных значений
-nums1: list[int] = []
-# С начальными значениями
-nums: list[int] = [1, 3, 2, 5, 4]
+[file]{list}-[region]{init_list}
 ```
 
 ```cpp title="list.cpp"
-/* Инициализация списка */
-// Обратите внимание: в C++ vector соответствует описываемому здесь nums
-// Без начальных значений
-vector<int> nums1;
-// С начальными значениями
-vector<int> nums = { 1, 3, 2, 5, 4 };
+[file]{list}-[region]{init_list}
 ```
 
 ```java title="list.java"
-/* Инициализация списка */
-// Без начальных значений
-List<Integer> nums1 = new ArrayList<>();
-// С начальными значениями (обратите внимание: элементы массива должны использовать обертку Integer[] вместо int[])
-Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
-List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
+[file]{list}-[region]{init_list}
 ```
 
 ```csharp title="list.cs"
-/* Инициализация списка */
-// Без начальных значений
-List<int> nums1 = [];
-// С начальными значениями
-int[] numbers = [1, 3, 2, 5, 4];
-List<int> nums = [.. numbers];
+[file]{list}-[region]{init_list}
 ```
 
 ```go title="list_test.go"
-/* Инициализация списка */
-// Без начальных значений
-nums1 := []int{}
-// С начальными значениями
-nums := []int{1, 3, 2, 5, 4}
+[file]{list_test}-[region]{init_list}
 ```
 
 ```swift title="list.swift"
-/* Инициализация списка */
-// Без начальных значений
-let nums1: [Int] = []
-// С начальными значениями
-var nums = [1, 3, 2, 5, 4]
+[file]{list}-[region]{init_list}
 ```
 
 ```javascript title="list.js"
-/* Инициализация списка */
-// Без начальных значений
-const nums1 = [];
-// С начальными значениями
-const nums = [1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```typescript title="list.ts"
-/* Инициализация списка */
-// Без начальных значений
-const nums1: number[] = [];
-// С начальными значениями
-const nums: number[] = [1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```dart title="list.dart"
-/* Инициализация списка */
-// Без начальных значений
-List<int> nums1 = [];
-// С начальными значениями
-List<int> nums = [1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```rust title="list.rs"
-/* Инициализация списка */
-// Без начальных значений
-let nums1: Vec<i32> = Vec::new();
-// С начальными значениями
-let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```c title="list.c"
@@ -87,20 +44,11 @@ let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
 ```
 
 ```kotlin title="list.kt"
-/* Инициализация списка */
-// Без начальных значений
-var nums1 = listOf<Int>()
-// С начальными значениями
-var numbers = arrayOf(1, 3, 2, 5, 4)
-var nums = numbers.toMutableList()
+[file]{list}-[region]{init_list}
 ```
 
 ```ruby title="list.rb"
-# Инициализация списка
-# Без начальных значений
-nums1 = []
-# С начальными значениями
-nums = [1, 3, 2, 5, 4]
+[file]{list}-[region]{init_list}
 ```
 
 <!-- [tutor]{init_list_tutor} -->

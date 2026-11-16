@@ -15,7 +15,7 @@ use std::rc::Rc;
 pub struct TreeNode {
     pub val: i32,                               // Значение узла
     pub height: i32,                            // Высота узла
-    pub parent: Option<Rc<RefCell<TreeNode>>>,
+    pub parent: Option<Rc<RefCell<TreeNode>>>,  // Указатель на родительский узел
     pub left: Option<Rc<RefCell<TreeNode>>>,    // Указатель на левый дочерний узел
     pub right: Option<Rc<RefCell<TreeNode>>>,   // Указатель на правый дочерний узел
 }

@@ -40,15 +40,22 @@ int main() {
     cout << "\n删除 10583 后，哈希表为\nKey -> Value" << endl;
     printHashMap(map);
 
-    /* 遍历哈希表 */
     cout << "\n遍历键值对 Key->Value" << endl;
+    // [region]{iterate_pairs}
+    /* 遍历哈希表 */
+    // 遍历键值对 key->value
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << endl;
     }
+    // [endregion]{iterate_pairs}
+
     cout << "\n使用迭代器遍历 Key->Value" << endl;
+    // [region]{iterate_pairs_iterator}
+    // 使用迭代器遍历 key->value
     for (auto iter = map.begin(); iter != map.end(); iter++) {
-        cout << iter->first << "->" << iter->second << endl;
+        cout << iter->first << " -> " << iter->second << endl;
     }
+    // [endregion]{iterate_pairs_iterator}
 
     return 0;
 }

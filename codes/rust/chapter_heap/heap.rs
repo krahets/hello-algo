@@ -15,9 +15,9 @@ fn main() {
     // [region]{init}
     /* 初始化堆 */
     // 初始化小顶堆
+    // Rust 的 BinaryHeap 是大顶堆，小顶堆需用 Reverse 包装元素
     #[allow(unused_assignments)]
     let mut min_heap = BinaryHeap::new();
-    // Rust 的 BinaryHeap 是大顶堆，小顶堆一般会“套上”Reverse
     // 初始化大顶堆
     let mut max_heap = BinaryHeap::new();
     // [endregion]{init}
@@ -45,23 +45,23 @@ fn main() {
     // 出堆元素会形成一个从大到小的序列
     let peek = max_heap.pop().unwrap(); // 5
     // [endregion]{pop_1}
-    println!("{}", peek);
+    println!("出堆元素为 {}", peek);
     // [region]{pop_2}
     let peek = max_heap.pop().unwrap(); // 4
     // [endregion]{pop_2}
-    println!("{}", peek);
+    println!("出堆元素为 {}", peek);
     // [region]{pop_3}
     let peek = max_heap.pop().unwrap(); // 3
     // [endregion]{pop_3}
-    println!("{}", peek);
+    println!("出堆元素为 {}", peek);
     // [region]{pop_4}
     let peek = max_heap.pop().unwrap(); // 2
     // [endregion]{pop_4}
-    println!("{}", peek);
+    println!("出堆元素为 {}", peek);
     // [region]{pop_5}
     let peek = max_heap.pop().unwrap(); // 1
     // [endregion]{pop_5}
-    println!("{}", peek);
+    println!("出堆元素为 {}", peek);
 
     // [region]{size}
     /* 获取堆大小 */

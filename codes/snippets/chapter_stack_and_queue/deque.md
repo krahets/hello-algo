@@ -130,30 +130,19 @@
 ```
 
 ```dart title="deque.dart"
-/* 初始化双向队列 */
-// 在 Dart 中，Queue 被定义为双向队列
-Queue<int> deque = Queue<int>();
+[file]{deque}-[region]{init_deque}
 
-/* 元素入队 */
-deque.addLast(2);  // 添加至队尾
-deque.addLast(5);
-deque.addLast(4);
-deque.addFirst(3); // 添加至队首
-deque.addFirst(1);
+[file]{deque}-[region]{push}
 
-/* 访问元素 */
-int peekFirst = deque.first; // 队首元素
-int peekLast = deque.last;   // 队尾元素
+[file]{deque}-[region]{peek_first}
+[file]{deque}-[region]{peek_last}
 
-/* 元素出队 */
-int popFirst = deque.removeFirst(); // 队首元素出队
-int popLast = deque.removeLast();   // 队尾元素出队
+[file]{deque}-[region]{pop_first}
+[file]{deque}-[region]{pop_last}
 
-/* 获取双向队列的长度 */
-int size = deque.length;
+[file]{deque}-[region]{size}
 
-/* 判断双向队列是否为空 */
-bool isEmpty = deque.isEmpty;
+[file]{deque}-[region]{is_empty}
 ```
 
 ```rust title="deque.rs"

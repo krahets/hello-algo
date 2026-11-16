@@ -126,28 +126,17 @@
 ```
 
 ```rust title="stack.rs"
-/* Инициализация стека */
-// Используем Vec как стек
-let mut stack: Vec<i32> = Vec::new();
+[file]{stack}-[region]{init_stack}
 
-/* Поместить элементы в стек */
-stack.push(1);
-stack.push(3);
-stack.push(2);
-stack.push(5);
-stack.push(4);
+[file]{stack}-[region]{push}
 
-/* Просмотреть верхний элемент */
-let top = stack.last().unwrap();
+[file]{stack}-[region]{peek}
 
-/* Извлечь элемент */
-let pop = stack.pop().unwrap();
+[file]{stack}-[region]{pop}
 
-/* Получить длину стека */
-let size = stack.len();
+[file]{stack}-[region]{size}
 
-/* Проверить, пуст ли стек */
-let is_empty = stack.is_empty();
+[file]{stack}-[region]{is_empty}
 ```
 
 ```c title="stack.c"

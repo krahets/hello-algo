@@ -126,28 +126,17 @@
 ```
 
 ```rust title="stack.rs"
-/* 初始化栈 */
-// 把 Vec 当作栈来使用
-let mut stack: Vec<i32> = Vec::new();
+[file]{stack}-[region]{init_stack}
 
-/* 元素入栈 */
-stack.push(1);
-stack.push(3);
-stack.push(2);
-stack.push(5);
-stack.push(4);
+[file]{stack}-[region]{push}
 
-/* 访问栈顶元素 */
-let top = stack.last().unwrap();
+[file]{stack}-[region]{peek}
 
-/* 元素出栈 */
-let pop = stack.pop().unwrap();
+[file]{stack}-[region]{pop}
 
-/* 获取栈的长度 */
-let size = stack.len();
+[file]{stack}-[region]{size}
 
-/* 判断是否为空 */
-let is_empty = stack.is_empty();
+[file]{stack}-[region]{is_empty}
 ```
 
 ```c title="stack.c"

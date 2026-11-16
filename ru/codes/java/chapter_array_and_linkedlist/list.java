@@ -10,11 +10,16 @@ import java.util.*;
 
 public class list {
     public static void main(String[] args) {
+        // [region]{init_list}
         /* Инициализация списка */
-        // Обратите внимание: тип элементов массива int[] — это обертка Integer[]
+        // Без начальных значений
+        List<Integer> emptyNums = new ArrayList<>();
+        // С начальными значениями (обратите внимание: массив должен иметь тип Integer[], а не int[], поскольку элементами списка могут быть только объекты класса-обертки Integer)
         Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
         List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
+        // [endregion]{init_list}
         System.out.println("Список nums = " + nums);
+        System.out.println("Список emptyNums = " + emptyNums);
 
         // [region]{access_element}
         /* Доступ к элементу */

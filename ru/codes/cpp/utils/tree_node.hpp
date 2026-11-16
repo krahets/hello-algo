@@ -14,11 +14,11 @@ using namespace std;
 // [region]{tree_node}
 /* Структура узла двоичного дерева */
 struct TreeNode {
-    int val{};         // Значение узла
-    int height = 0;    // Высота узла
-    TreeNode *parent{};
-    TreeNode *left{};  // Указатель на левый дочерний узел
-    TreeNode *right{}; // Указатель на правый дочерний узел
+    int val{};          // Значение узла
+    int height = 0;     // Высота узла
+    TreeNode *parent{}; // Указатель на родительский узел
+    TreeNode *left{};   // Указатель на левый дочерний узел
+    TreeNode *right{};  // Указатель на правый дочерний узел
     TreeNode() = default;
     explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {
     }

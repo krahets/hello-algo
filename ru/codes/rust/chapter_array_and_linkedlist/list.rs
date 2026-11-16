@@ -7,10 +7,17 @@ use hello_algo_rust::include::print_util;
 
 /* Driver Code */
 fn main() {
+    // [region]{init_list}
     // Инициализация списка
+    // Без начальных значений
+    let empty_nums: Vec<i32> = Vec::new();
+    // С начальными значениями
     let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+    // [endregion]{init_list}
     print!("Список nums = ");
     print_util::print_array(&nums);
+    print!("\nСписок empty_nums = ");
+    print_util::print_array(&empty_nums);
 
     // [region]{access_element}
     // Доступ к элементу
@@ -74,10 +81,10 @@ fn main() {
     // [region]{concat_list}
     // Объединить два списка
     let mut nums1 = vec![6, 8, 7, 10, 9];
-    nums.append(&mut nums1); // После append (перемещение) nums1 становится пустым!
+    nums.append(&mut nums1); // append перемещает элементы nums1, после чего nums1 становится пустым
     // [endregion]{concat_list}
 
-    // nums.extend(&nums1);   // extend (заимствование), nums1 можно продолжать использовать
+    // nums.extend(&nums1);   // extend лишь заимствует nums1, поэтому nums1 можно использовать и дальше
     print!("\nПосле конкатенации списка nums1 к nums nums = ");
     print_util::print_array(&nums);
 

@@ -8,7 +8,6 @@ package utils
 
 // [region]{tree_node}
 /* Класс узла двоичного дерева */
-/* Конструктор */
 class TreeNode(
     var _val: Int // Значение узла
 ) {

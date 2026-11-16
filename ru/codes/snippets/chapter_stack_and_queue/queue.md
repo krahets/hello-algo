@@ -128,30 +128,17 @@
 ```
 
 ```rust title="queue.rs"
-/* Инициализация двусторонней очереди */
-// В Rust двусторонняя очередь может использоваться как обычная очередь
-let mut deque: VecDeque<u32> = VecDeque::new();
+[file]{queue}-[region]{init_queue}
 
-/* Поместить элементы в очередь */
-deque.push_back(1);
-deque.push_back(3);
-deque.push_back(2);
-deque.push_back(5);
-deque.push_back(4);
+[file]{queue}-[region]{push}
 
-/* Просмотреть элемент в голове очереди */
-if let Some(front) = deque.front() {
-}
+[file]{queue}-[region]{peek}
 
-/* Извлечь элемент из очереди */
-if let Some(pop) = deque.pop_front() {
-}
+[file]{queue}-[region]{pop}
 
-/* Получить длину очереди */
-let size = deque.len();
+[file]{queue}-[region]{size}
 
-/* Проверить, пуста ли очередь */
-let is_empty = deque.is_empty();
+[file]{queue}-[region]{is_empty}
 ```
 
 ```c title="queue.c"

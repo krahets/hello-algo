@@ -32,7 +32,7 @@ enum Queue {
 
         // [region]{pop}
         /* 元素出队 */
-        // 使用 Array 模拟时 pop 的复杂度为 O(n)
+        // 使用 Array 模拟时 removeFirst 的复杂度为 O(n)
         let pop = queue.removeFirst()
         // [endregion]{pop}
         print("出队元素 pop = \(pop)，出队后 queue = \(queue)")

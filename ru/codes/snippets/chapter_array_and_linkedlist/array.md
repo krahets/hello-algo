@@ -4,13 +4,7 @@
 ```
 
 ```cpp title="array.cpp"
-/* Инициализация массива */
-// Хранится в стеке
-int arr[5] = {};
-int nums[5] = { 1, 3, 2, 5, 4 };
-// Хранится в куче (требуется ручное освобождение памяти)
-int* arr1 = new int[5] {};
-int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
+[file]{array}-[region]{init_array}
 ```
 
 ```java title="array.java"

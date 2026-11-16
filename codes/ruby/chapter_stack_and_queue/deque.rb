@@ -8,7 +8,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 if __FILE__ == $0
   # [region]{init_deque}
   # 初始化双向队列
-  # Ruby 没有内直的双端队列，只能把 Array 当作双端队列来使用
+  # Ruby 没有内置的双端队列，只能把 Array 当作双端队列来使用
   deque = []
   # [endregion]{init_deque}
 
@@ -35,7 +35,7 @@ if __FILE__ == $0
 
   # [region]{pop_first}
   # 元素出队
-  # 请注意，由于是数组， Array#shift 方法的时间复杂度为 O(n)
+  # 请注意，由于是数组，Array#shift 方法的时间复杂度为 O(n)
   pop_front = deque.shift
   # [endregion]{pop_first}
   puts "队首出队元素 pop_front = #{pop_front}，队首出队后 deque = #{deque}"

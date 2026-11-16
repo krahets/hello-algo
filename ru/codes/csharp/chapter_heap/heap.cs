@@ -39,23 +39,23 @@ public class heap {
         // Элементы, извлеченные из кучи, образуют последовательность от большего к меньшему
         peek = maxHeap.Dequeue(); // 5
         // [endregion]{pop_1}
-        Console.WriteLine(peek);
+        Console.WriteLine($"Извлеченный элемент = {peek}");
         // [region]{pop_2}
         peek = maxHeap.Dequeue(); // 4
         // [endregion]{pop_2}
-        Console.WriteLine(peek);
+        Console.WriteLine($"Извлеченный элемент = {peek}");
         // [region]{pop_3}
         peek = maxHeap.Dequeue(); // 3
         // [endregion]{pop_3}
-        Console.WriteLine(peek);
+        Console.WriteLine($"Извлеченный элемент = {peek}");
         // [region]{pop_4}
         peek = maxHeap.Dequeue(); // 2
         // [endregion]{pop_4}
-        Console.WriteLine(peek);
+        Console.WriteLine($"Извлеченный элемент = {peek}");
         // [region]{pop_5}
         peek = maxHeap.Dequeue(); // 1
         // [endregion]{pop_5}
-        Console.WriteLine(peek);
+        Console.WriteLine($"Извлеченный элемент = {peek}");
 
         // [region]{size}
         /* Получение размера кучи */
@@ -71,6 +71,7 @@ public class heap {
 
         // [region]{heapify}
         /* Построить кучу по входному списку */
+        // Временная сложность равна O(n), а не O(nlogn)
         minHeap = new PriorityQueue<int, int>([(1, 1), (3, 3), (2, 2), (5, 5), (4, 4)]);
         // [endregion]{heapify}
         Console.WriteLine("После построения min-heap из входного списка");

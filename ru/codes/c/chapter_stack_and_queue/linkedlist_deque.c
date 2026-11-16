@@ -10,8 +10,8 @@
 /* Узел двусвязного списка */
 typedef struct DoublyListNode {
     int val;                     // Значение узла
-    struct DoublyListNode *next; // Узел-преемник
-    struct DoublyListNode *prev; // Узел-предшественник
+    struct DoublyListNode *next; // Указатель на узел-преемник
+    struct DoublyListNode *prev; // Указатель на узел-предшественник
 } DoublyListNode;
 
 /* Конструктор */

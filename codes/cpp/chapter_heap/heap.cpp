@@ -34,24 +34,29 @@ int main() {
     // [endregion]{peek}
     cout << "\n堆顶元素为 " << peek << endl;
 
+    cout << "\n出堆元素为 " << maxHeap.top() << endl;
     // [region]{pop_1}
     /* 堆顶元素出堆 */
     // 出堆元素会形成一个从大到小的序列
     maxHeap.pop(); // 5
     // [endregion]{pop_1}
     printHeap(maxHeap);
+    cout << "\n出堆元素为 " << maxHeap.top() << endl;
     // [region]{pop_2}
     maxHeap.pop(); // 4
     // [endregion]{pop_2}
     printHeap(maxHeap);
+    cout << "\n出堆元素为 " << maxHeap.top() << endl;
     // [region]{pop_3}
     maxHeap.pop(); // 3
     // [endregion]{pop_3}
     printHeap(maxHeap);
+    cout << "\n出堆元素为 " << maxHeap.top() << endl;
     // [region]{pop_4}
     maxHeap.pop(); // 2
     // [endregion]{pop_4}
     printHeap(maxHeap);
+    cout << "\n出堆元素为 " << maxHeap.top() << endl;
     // [region]{pop_5}
     maxHeap.pop(); // 1
     // [endregion]{pop_5}

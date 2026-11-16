@@ -21,8 +21,8 @@ public class stack {
         stack.Push(2);
         stack.Push(5);
         stack.Push(4);
-        // Обратите внимание: stack.ToArray() возвращает последовательность в обратном порядке, то есть индекс 0 соответствует вершине стека
         // [endregion]{push}
+        // Обратите внимание: stack.ToArray() возвращает последовательность в обратном порядке, то есть индекс 0 соответствует вершине стека
         Console.WriteLine("Стек stack = " + string.Join(",", stack));
 
         // [region]{peek}

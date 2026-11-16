@@ -8,10 +8,17 @@
 
 /* Driver Code */
 int main() {
+    // [region]{init_list}
     /* 初始化列表 */
+    // 无初始值
+    vector<int> emptyNums;
+    // 有初始值
     vector<int> nums = {1, 3, 2, 5, 4};
+    // [endregion]{init_list}
     cout << "列表 nums = ";
     printVector(nums);
+    cout << "列表 emptyNums = ";
+    printVector(emptyNums);
 
     // [region]{access_element}
     /* 访问元素 */

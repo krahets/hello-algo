@@ -8,9 +8,15 @@
 
 /* Driver Code */
 void main() {
+  // [region]{init_list}
   /* Инициализация списка */
+  // Без начальных значений
+  List<int> emptyNums = [];
+  // С начальными значениями
   List<int> nums = [1, 3, 2, 5, 4];
+  // [endregion]{init_list}
   print('Список nums = $nums');
+  print('Список emptyNums = $emptyNums');
 
   // [region]{access_element}
   /* Доступ к элементу */

@@ -32,7 +32,7 @@ enum Queue {
 
         // [region]{pop}
         /* Извлечение элемента из очереди */
-        // При использовании Array для имитации pop имеет сложность O(n)
+        // При использовании Array для имитации removeFirst имеет сложность O(n)
         let pop = queue.removeFirst()
         // [endregion]{pop}
         print("Извлеченный элемент pop = \(pop), queue после извлечения = \(queue)")

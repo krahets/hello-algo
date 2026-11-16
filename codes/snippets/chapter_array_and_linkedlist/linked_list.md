@@ -143,8 +143,8 @@ https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%2
 /* 双向链表节点结构体 */
 type DoublyListNode struct {
     Val  int             // 节点值
-    Next *DoublyListNode // 指向后继节点的指针
-    Prev *DoublyListNode // 指向前驱节点的指针
+    Next *DoublyListNode // 后继节点指针
+    Prev *DoublyListNode // 前驱节点指针
 }
 
 // NewDoublyListNode 初始化

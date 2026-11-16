@@ -136,15 +136,9 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 ```
 
 ```cpp title="hash_map.cpp"
-/* Обход хеш-таблицы */
-// Обход пар ключ-значение key->value
-for (auto kv: map) {
-    cout << kv.first << " -> " << kv.second << endl;
-}
-// Обход key->value с помощью итератора
-for (auto iter = map.begin(); iter != map.end(); iter++) {
-    cout << iter->first << "->" << iter->second << endl;
-}
+[file]{hash_map}-[region]{iterate_pairs}
+
+[file]{hash_map}-[region]{iterate_pairs_iterator}
 ```
 
 ```java title="hash_map.java"

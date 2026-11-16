@@ -15,7 +15,7 @@ enum _Heap {
     static func main() {
         // [region]{init}
         /* Инициализация кучи */
-        // Тип Heap в Swift одновременно поддерживает максимальную и минимальную кучу
+        // Тип Heap в Swift одновременно поддерживает максимальную и минимальную кучу; требуется пакет swift-collections
         var heap = Heap<Int>()
         // [endregion]{init}
 
@@ -39,23 +39,23 @@ enum _Heap {
         /* Извлечение элемента с вершины кучи */
         peek = heap.removeMax() // 5
         // [endregion]{pop_1}
-        print(peek!)
+        print("Извлеченный элемент = \(peek!)")
         // [region]{pop_2}
         peek = heap.removeMax() // 4
         // [endregion]{pop_2}
-        print(peek!)
+        print("Извлеченный элемент = \(peek!)")
         // [region]{pop_3}
         peek = heap.removeMax() // 3
         // [endregion]{pop_3}
-        print(peek!)
+        print("Извлеченный элемент = \(peek!)")
         // [region]{pop_4}
         peek = heap.removeMax() // 2
         // [endregion]{pop_4}
-        print(peek!)
+        print("Извлеченный элемент = \(peek!)")
         // [region]{pop_5}
         peek = heap.removeMax() // 1
         // [endregion]{pop_5}
-        print(peek!)
+        print("Извлеченный элемент = \(peek!)")
 
         // [region]{size}
         /* Получение размера кучи */
